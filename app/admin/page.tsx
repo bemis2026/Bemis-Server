@@ -170,16 +170,21 @@ export default function AdminPage() {
     e.preventDefault();
     setLoginLoading(true);
     setLoginError("");
-    const res = await fetch("/api/admin/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password, rememberMe }) });
-    if (res.ok) {
-      const data = await fetch("/api/admin/content").then((r) => r.json());
-      setContent(data);
-      setAuthed(true);
-    } else {
-      const { error } = await res.json();
-      setLoginError(error || "Giriş başarısız");
+    // Yield to browser so loading state paints before fetch begins
+    await new Promise((r) => setTimeout(r, 0));
+    try {
+      const res = await fetch("/api/admin/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password, rememberMe }) });
+      if (res.ok) {
+        const data = await fetch("/api/admin/content").then((r) => r.json());
+        setContent(data);
+        setAuthed(true);
+      } else {
+        const { error } = await res.json();
+        setLoginError(error || "Giriş başarısız");
+      }
+    } finally {
+      setLoginLoading(false);
     }
-    setLoginLoading(false);
   };
 
   const handleLogout = async () => {
