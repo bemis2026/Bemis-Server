@@ -6,7 +6,7 @@ import { HiArrowRight, HiPhone, HiLocationMarker } from "react-icons/hi";
 import { RiStoreLine, RiFileAddLine, RiMapPin2Line } from "react-icons/ri";
 import { useContent } from "../context/ContentContext";
 
-const RED = "#EF4444";
+const BLUE = "#3B82F6";
 
 type Dealer = { name: string; address: string; phone: string };
 type DealersData = Record<string, { dealers: Dealer[] }>;
@@ -77,7 +77,7 @@ export default function DealerNetwork() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4 }}
             className="inline-block text-[10px] font-bold tracking-[0.20em] uppercase px-3 py-1.5 rounded-full mb-4"
-            style={{ background: `${RED}18`, border: `1px solid ${RED}35`, color: "#FCA5A5" }}
+            style={{ background: `${BLUE}18`, border: `1px solid ${BLUE}35`, color: "#93C5FD" }}
           >
             {dealerSection.sectionLabel}
           </motion.span>
@@ -94,7 +94,7 @@ export default function DealerNetwork() {
             animate={inView ? { scaleX: 1, opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.22 }}
             className="h-px w-24 origin-left mt-3"
-            style={{ background: `linear-gradient(90deg, ${RED} 0%, transparent 100%)` }}
+            style={{ background: `linear-gradient(90deg, ${BLUE} 0%, transparent 100%)` }}
           />
         </div>
 
@@ -111,11 +111,11 @@ export default function DealerNetwork() {
             <div
               className="rounded-2xl p-5"
               style={{
-                background: `linear-gradient(135deg, ${RED}12 0%, rgba(255,255,255,0.02) 100%)`,
-                border: `1px solid ${RED}28`,
+                background: `linear-gradient(135deg, ${BLUE}12 0%, rgba(255,255,255,0.02) 100%)`,
+                border: `1px solid ${BLUE}28`,
               }}
             >
-              <RiStoreLine style={{ color: "#FCA5A5", fontSize: 20, marginBottom: 12 }} />
+              <RiStoreLine style={{ color: "#93C5FD", fontSize: 20, marginBottom: 12 }} />
               <h3 className="text-white font-bold text-base mb-1.5">Bayi Bul</h3>
               <p className="text-white/45 text-sm leading-relaxed mb-4">
                 {dealerSection.description}
@@ -138,9 +138,9 @@ export default function DealerNetwork() {
                 <div
                   key={i}
                   className="rounded-xl p-4 text-center"
-                  style={{ background: `${RED}0e`, border: `1px solid ${RED}22` }}
+                  style={{ background: `${BLUE}0e`, border: `1px solid ${BLUE}22` }}
                 >
-                  <p className="text-2xl font-black" style={{ color: "#FCA5A5" }}>{item.value}</p>
+                  <p className="text-2xl font-black" style={{ color: "#93C5FD" }}>{item.value}</p>
                   <p className="text-white/35 text-xs mt-0.5">{item.label}</p>
                 </div>
               ))}
@@ -167,10 +167,10 @@ export default function DealerNetwork() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="rounded-2xl p-4 space-y-3"
-                style={{ background: `${RED}10`, border: `1px solid ${RED}30` }}
+                style={{ background: `${BLUE}10`, border: `1px solid ${BLUE}30` }}
               >
                 <div className="flex items-center gap-2 mb-1">
-                  <RiMapPin2Line style={{ color: "#FCA5A5", fontSize: 14 }} />
+                  <RiMapPin2Line style={{ color: "#93C5FD", fontSize: 14 }} />
                   <p className="text-white font-semibold text-sm">{activeCityLabel}</p>
                   <span className="text-white/30 text-xs">· {activeDealers.length} bayi</span>
                 </div>
@@ -209,8 +209,8 @@ export default function DealerNetwork() {
             <div
               className="relative rounded-2xl overflow-hidden select-none"
               style={{
-                background: "#ffffff",
-                border: `1px solid rgba(0,0,0,0.10)`,
+                background: "linear-gradient(155deg, #060d18 0%, #080f1c 100%)",
+                border: `1px solid ${BLUE}22`,
               }}
               onClick={() => setSelectedCity(null)}
             >
@@ -218,7 +218,7 @@ export default function DealerNetwork() {
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
-                  backgroundImage: `radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px)`,
+                  backgroundImage: `radial-gradient(circle, ${BLUE}14 1px, transparent 1px)`,
                   backgroundSize: "28px 28px",
                 }}
               />
@@ -230,26 +230,26 @@ export default function DealerNetwork() {
                   alt="Türkiye Haritası"
                   className="w-full block"
                   style={{
-                    filter: "contrast(1.15) brightness(0.92)",
-                    opacity: 0.95,
+                    filter: "invert(1) brightness(0.92)",
+                    opacity: 0.90,
                   }}
                   draggable={false}
                 />
 
-                {/* Logo overlay — red background with white logo */}
+                {/* Logo overlay — covers original top-right PNG logo */}
                 <div
                   className="absolute top-0 right-0 flex items-center justify-end pointer-events-none"
                   style={{
                     width: "26%",
                     height: "17%",
-                    background: `linear-gradient(135deg, ${RED} 0%, #C53030 100%)`,
+                    background: "linear-gradient(155deg, #060d18 0%, #080f1c 100%)",
                     padding: "8px 14px",
                   }}
                 >
                   <img
                     src="/logo-white.png"
                     alt="Bemis E-V Charge"
-                    style={{ width: "100%", height: "100%", objectFit: "contain", opacity: 0.92 }}
+                    style={{ width: "100%", height: "100%", objectFit: "contain", opacity: 0.85 }}
                     draggable={false}
                   />
                 </div>
@@ -283,7 +283,7 @@ export default function DealerNetwork() {
                             cx={region.cx} cy={region.cy}
                             r={isActive ? 42 : 32}
                             fill="none"
-                            stroke={isActive ? `${RED}88` : `${RED}55`}
+                            stroke={isActive ? `${BLUE}88` : `${BLUE}55`}
                             strokeWidth="2"
                             animate={{ r: [isActive ? 32 : 24, isActive ? 62 : 50], opacity: [0.75, 0] }}
                             transition={{ duration: 2.4, repeat: Infinity }}
@@ -293,15 +293,15 @@ export default function DealerNetwork() {
                         <circle
                           cx={region.cx} cy={region.cy}
                           r={isActive ? 30 : isHighlight ? 26 : 23}
-                          fill={isActive ? `${RED}22` : hasDealers ? `${RED}16` : "rgba(0,0,0,0.07)"}
-                          stroke={isActive ? `${RED}ee` : hasDealers ? `${RED}cc` : "rgba(0,0,0,0.30)"}
+                          fill={isActive ? `${BLUE}26` : hasDealers ? `${BLUE}1a` : "rgba(255,255,255,0.09)"}
+                          stroke={isActive ? `${BLUE}ee` : hasDealers ? `${BLUE}cc` : "rgba(255,255,255,0.48)"}
                           strokeWidth={isActive ? 2.5 : 2}
                         />
                         {/* Inner dot */}
                         <circle
                           cx={region.cx} cy={region.cy}
                           r={isActive ? 15 : isHighlight ? 13 : 11}
-                          fill={isActive ? RED : hasDealers ? `${RED}ff` : "rgba(0,0,0,0.35)"}
+                          fill={isActive ? BLUE : hasDealers ? `${BLUE}ff` : "rgba(255,255,255,0.65)"}
                           style={{ transition: "r 0.2s, fill 0.2s" }}
                         />
                         {/* Label */}
@@ -309,7 +309,7 @@ export default function DealerNetwork() {
                           x={region.cx} y={region.cy + 48}
                           textAnchor="middle"
                           fontSize="20"
-                          fill={isActive ? "#DC2626" : hasDealers ? `${RED}dd` : "rgba(0,0,0,0.60)"}
+                          fill={isActive ? "#93C5FD" : hasDealers ? `${BLUE}ee` : "rgba(255,255,255,0.78)"}
                           fontFamily="inherit"
                           fontWeight={isActive ? "800" : "700"}
                           style={{ transition: "fill 0.2s", pointerEvents: "none", userSelect: "none" }}
@@ -323,8 +323,8 @@ export default function DealerNetwork() {
               </div>
 
               <div className="absolute bottom-3 left-4 flex items-center gap-1.5">
-                <div className="w-1.5 h-1.5 rounded-full" style={{ background: RED }} />
-                <span className="text-[9px] tracking-widest uppercase" style={{ color: "rgba(0,0,0,0.45)" }}>
+                <div className="w-1.5 h-1.5 rounded-full" style={{ background: BLUE }} />
+                <span className="text-[9px] tracking-widest uppercase" style={{ color: `${BLUE}70` }}>
                   Türkiye Yetkili Bayi Haritası
                 </span>
               </div>

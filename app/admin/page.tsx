@@ -1,6 +1,24 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+
+// ── Field component defined OUTSIDE AdminPage to prevent remount on every render ──
+function Field({ label, value, onChange, multiline = false }: {
+  label: string; value: string; onChange: (v: string) => void; multiline?: boolean; half?: boolean;
+}) {
+  return (
+    <div>
+      <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">{label}</label>
+      {multiline ? (
+        <textarea value={value} onChange={(e) => onChange(e.target.value)} rows={3}
+          className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22 resize-none" />
+      ) : (
+        <input value={value} onChange={(e) => onChange(e.target.value)}
+          className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
+      )}
+    </div>
+  );
+}
 import { motion, AnimatePresence } from "framer-motion";
 import {
   HiOutlineHome,
@@ -627,20 +645,6 @@ export default function AdminPage() {
   const handleSave = isDealerTab ? handleSaveDealers : isProductTab ? handleSaveProductsTab : handleSaveContent;
   const isSaving   = isDealerTab ? dealersSaving : isProductTab ? (saving || savingProducts) : saving;
 
-  const Field = ({ label, value, onChange, multiline = false, half = false }: {
-    label: string; value: string; onChange: (v: string) => void; multiline?: boolean; half?: boolean;
-  }) => (
-    <div className={half ? "" : ""}>
-      <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">{label}</label>
-      {multiline ? (
-        <textarea value={value} onChange={(e) => onChange(e.target.value)} rows={3}
-          className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22 resize-none" />
-      ) : (
-        <input value={value} onChange={(e) => onChange(e.target.value)}
-          className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
-      )}
-    </div>
-  );
 
   return (
     <div className="min-h-screen bg-[#0c0c0e] text-white">
