@@ -26,9 +26,9 @@ export default function Home() {
       <DNA />
       <Products />
       <FeaturedProducts />
-      <Calculator />
       <DealerNetwork />
       <Reviews />
+      <Calculator />
       <Contact />
       <Footer />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
