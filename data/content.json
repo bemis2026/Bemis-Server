@@ -1,0 +1,289 @@
+{
+  "hero": {
+    "badge": "Yerli Üretim · Bursa · 1994",
+    "headline1": "Türkiye'nin",
+    "headline2": "Şarj Sistemleri",
+    "headline3": "Üreticisi",
+    "subtitle": "Evinizden iş yerinize, otopark çözümlerinden sahaya kadar — sertifikalı AC şarj üniteleri, kablolar ve aksesuarlarla elektrikli araç deneyimini kolaylaştırıyoruz.",
+    "ctaPrimary": "EV Şarj Çözümlerimizi Keşfet",
+    "ctaSecondary": "Bayi Bul",
+    "heroBg": "/hero/1775067494352-WhatsApp_Image_2026-03-29_at_01.55.05.jpeg",
+    "layout": {
+      "logo": {
+        "x": 4,
+        "y": 12
+      },
+      "text": {
+        "x": 4,
+        "y": 36
+      },
+      "button": {
+        "x": 4,
+        "y": 82
+      }
+    }
+  },
+  "stats": [
+    {
+      "value": 30,
+      "suffix": "+",
+      "label": "Yıl Deneyim",
+      "description": "1994'ten bu yana"
+    },
+    {
+      "value": 8000,
+      "suffix": "+",
+      "label": "Ürün Çeşidi",
+      "description": "Geniş ürün yelpazesi"
+    },
+    {
+      "value": 80,
+      "suffix": "+",
+      "label": "Ülke İhracat",
+      "description": "Global pazar erişimi"
+    },
+    {
+      "value": 9001,
+      "prefix": "ISO",
+      "suffix": "",
+      "label": "Belgeler",
+      "description": "Uluslararası standartlar"
+    }
+  ],
+  "categories": {
+    "wallbox": {
+      "name": "AC Wallbox Chargers",
+      "subtitle": "22-7,4kW Duvar Tipi Şarj İstasyonu",
+      "modelCount": 3,
+      "badge": "En Çok Satan",
+      "comingSoon": false,
+      "image": "/categories/1774980410514-WhatsApp_Image_2026-03-31_at_14.25.50.jpeg "
+    },
+    "portable": {
+      "name": "AC Mobile Chargers",
+      "subtitle": "22-3,7kW Taşınabilir Şarj Cihazları",
+      "modelCount": 2,
+      "badge": "Yeni",
+      "comingSoon": false,
+      "image": "/categories/1775071751364-Gemini_Generated_Image_13f87313f87313f8.png"
+    },
+    "cables": {
+      "name": "AC Şarj Kabloları",
+      "subtitle": "Type 2 · Mod 3 ",
+      "modelCount": 4,
+      "badge": null,
+      "comingSoon": false,
+      "image": "/categories/1775071211208-Gemini_Generated_Image_9pbk3k9pbk3k9pbk.png"
+    },
+    "v2l-c2l": {
+      "name": "V2L / C2L Adaptörler",
+      "subtitle": "Vehicle-to-Load & Charger-to-Load Deşarj & Akü Şarj",
+      "modelCount": 3,
+      "badge": "İnovatif",
+      "comingSoon": false,
+      "image": "/categories/1775068456394-V2L-kamp2.png"
+    },
+    "converters": {
+      "name": "Uzatma & Kombinasyon",
+      "subtitle": "Uzatma Kabloları, Dönüştürücüler & Kombinasyon Kutuları",
+      "modelCount": 4,
+      "badge": null,
+      "comingSoon": false,
+      "image": "/categories/1775068429165-BKT-0102-2105.jpg"
+    },
+    "charger-equipment": {
+      "name": "Şarj Ünitesi Ekipmanları",
+      "subtitle": "Type 2 Soket, Holster & Montaj Ekipmanları",
+      "modelCount": 5,
+      "badge": null,
+      "comingSoon": false,
+      "image": "/categories/1774998252477-110001360852184.jpg"
+    },
+    "accessories": {
+      "name": "Aksesuarlar",
+      "subtitle": "Taşıma Çantaları, Pedestal & Diğer",
+      "modelCount": 4,
+      "badge": null,
+      "comingSoon": false,
+      "image": "/categories/1775068320447-charger-cable.png"
+    },
+    "dc-units": {
+      "name": "DC Şarj Üniteleri",
+      "subtitle": "30-240kW Hızlı DC Şarj İstasyonları",
+      "modelCount": 0,
+      "badge": "Yakında",
+      "comingSoon": true,
+      "image": "/categories/1775071160187-WhatsApp_Image_2026-03-02_at_15.24.05.jpeg"
+    }
+  },
+  "featured": [
+    {
+      "categoryId": "wallbox",
+      "productId": "wallbox-22kw",
+      "badge": "En Çok Tercih Edilen",
+      "highlight": "Ticari parkinglar ve iş yerleri için 22 kW üç fazlı akıllı şarj istasyonu. IP65 · OCPP 2.0 · Dinamik yük dengeleme.",
+      "visible": true
+    },
+    {
+      "categoryId": "portable",
+      "productId": "portable-7kw",
+      "badge": "Plug & Play",
+      "highlight": "Kurulum gerektirmez. Prize tak, şarj et. 6A–32A ayarlanabilir akım ile hem ev hem seyahat için ideal.",
+      "visible": true
+    },
+    {
+      "categoryId": "cables",
+      "productId": "dc-cable",
+      "badge": "Profesyonel DC",
+      "highlight": "350 kW kapasiteye kadar. CCS2 · CHAdeMO · Aktif su soğutmalı 500A model. İstasyon üreticileri için.",
+      "visible": true
+    }
+  ],
+  "contact": {
+    "phone": "+90 (224) 000 00 00",
+    "email": "info@bemis.com.tr",
+    "address": "Bursa Organize Sanayi Bölgesi Yeşil cd. NO:19",
+    "addressSub": "Nilüfer / Bursa, Türkiye",
+    "workingHours": "08:30 — 18:00",
+    "workingDays": "Pazartesi — Cuma"
+  },
+  "company": {
+    "foundedYear": "1994",
+    "exportCountries": "80+",
+    "productCount": "8000+",
+    "facilitySize": "16.000 m²"
+  },
+  "social": {
+    "linkedin": "https://www.linkedin.com/company/104588906",
+    "instagram": "https://www.instagram.com/bemis.evcharge/",
+    "twitter": ""
+  },
+  "dna": {
+    "sectionLabel": "Kurumsal",
+    "sectionHeading": "Yazılımdan Üretime  — Her Şey Bizden",
+    "brandHeading": "Bemis kalitesiyle\nYerli EV şarj çözümleri",
+    "brandPara1": "1994 yılında Bursa'da kurulan Bemis Teknik Elektrik A.Ş., 30 yılı aşan tecrübesiyle Türkiye'nin önde gelen elektrik ekipmanları üreticilerinden biri haline geldi. Bemis E-V Charge, bu köklü altyapının üzerine inşa edilmiş EV şarj alt markamızdır.",
+    "brandPara2": "Bursa OSB'deki tesisimizde elektronik kart tasarımından yazılıma, kablo üretiminden son montaja kadar her aşamayı kendimiz gerçekleştiriyoruz. 80'i aşkın ülkeye ihraç ettiğimiz ürünler, yerli mühendisliğin küresel arenada nasıl yarışabileceğini kanıtlıyor.",
+    "quote": "Kalite, saygının ifadesidir.",
+    "quoteAttr": "Bemis E-V Charge Ekibi · Bursa OSB, Türkiye",
+    "yearLabel": "1994",
+    "yearSub": "Bursa · Türkiye · Yerli Üretim",
+    "highlights": [
+      {
+        "title": "30+ Yıl Deneyim",
+        "desc": "1994'ten bu yana kesintisiz üretim."
+      },
+      {
+        "title": "Sertifikalı Kalite",
+        "desc": "TÜV, CE, IP65 ve uluslararası EV şarj standartları."
+      },
+      {
+        "title": "80+ Ülke İhracatı",
+        "desc": "Türk mühendisliğini dünyaya taşıyoruz."
+      },
+      {
+        "title": "Temiz Mobilite",
+        "desc": "Sürdürülebilir geleceğe katkı."
+      }
+    ],
+    "features": [
+      {
+        "title": "Akıllı Şarj Yönetimi",
+        "desc": "OCPP 1.6 / 2.0 protokolü, dinamik yük dengeleme ve bulut tabanlı uzaktan yönetim."
+      },
+      {
+        "title": "Yerli Üretim Kalitesi",
+        "desc": "Bursa OSB tesisimizde TÜV, CE ve ISO 9001 Avrupa standartlarında üretim. Yazılımdan elektroniğe tam yerli."
+      },
+      {
+        "title": "Evrensel Uyumluluk",
+        "desc": "Type 2, CCS— tüm EV markalarıyla uyumlu, IEC 61851 & IEC 62196 sertifikalı."
+      },
+      {
+        "title": "Sürdürülebilir Tasarım",
+        "desc": "-40°C / +55°C çalışma aralığı, 100.000+ saat ömür. Uzun ömürlü, az atık."
+      }
+    ],
+    "factoryImage": "/kurumsal/1775044209322-WhatsApp_Image_2026-04-01_at_09.54.37.jpeg",
+    "factoryVideo": "/kurumsal/1775061821029-bemis_arac_sarj.mp4"
+  },
+  "products": {
+    "heading": "EV Şarj Çözümleri",
+    "subheading": "İhtiyacınıza uygun şarj çözümünü keşfedin"
+  },
+  "dealer": {
+    "sectionLabel": "Yetkili Satış Ağı",
+    "heading": "Türkiye'nin Her Yerinde",
+    "description": "Türkiye genelinde yetkili bayilerimizi haritadan seçin veya iletişime geçin.",
+    "applyText": "Bayi ağımıza katılmak ister misiniz?",
+    "statCities": "81",
+    "statDealers": "50+"
+  },
+  "reviews": {
+    "heading": "Kullanıcılar Ne Diyor?",
+    "subheading": "Trendyol ve HepsiBurada'dan gerçek kullanıcı deneyimleri",
+    "rating": "4.9",
+    "ratingCount": "500+",
+    "items": [
+      {
+        "platform": "Trendyol",
+        "platformColor": "#F27A1A",
+        "rating": 5,
+        "author": "Mehmet K.",
+        "date": "Mart 2025",
+        "product": "AC Wallbox 7kW",
+        "text": "3 aydır kullanıyorum, montajı çok kolay oldu. Günlük kullanımda sıfır sorun. Türk malı kalitesini hissediyorsunuz, yapım kalitesi çok iyi. Kesinlikle tavsiye ederim."
+      },
+      {
+        "platform": "HepsiBurada",
+        "platformColor": "#FF6000",
+        "rating": 5,
+        "author": "Ayşe T.",
+        "date": "Şubat 2025",
+        "product": "Type 2 AC Şarj Kablosu 7m",
+        "text": "Kablo kalitesi gerçekten mükemmel. Type 2 konnektör araçla mükemmel uyum sağladı, fişleme ve çıkarma çok akıcı. 7 metrelik uzunluk garaj kullanımında ideal."
+      },
+      {
+        "platform": "Trendyol",
+        "platformColor": "#F27A1A",
+        "rating": 5,
+        "author": "Serkan D.",
+        "date": "Ocak 2025",
+        "product": "Taşınabilir Şarj Cihazı",
+        "text": "Tatil seyahatlerinde büyük kolaylık. Standart prize takıp şarj başlıyor. Seyahatte yanımdan hiç ayırmıyorum, acil durumlarda da kullanıyorum. Çok pratik!"
+      },
+      {
+        "platform": "HepsiBurada",
+        "platformColor": "#FF6000",
+        "rating": 5,
+        "author": "Emre Y.",
+        "date": "Ocak 2025",
+        "product": "AC Wallbox 22kW",
+        "text": "İş yerimizin açık otoparkında kullanıyoruz. IP65 koruma yağmurda bile mükemmel çalışıyor. Bir kış geçirdik hiçbir sorun yaşamadık. Yerli üretim güven veriyor."
+      },
+      {
+        "platform": "Trendyol",
+        "platformColor": "#F27A1A",
+        "rating": 5,
+        "author": "Özlem B.",
+        "date": "Aralık 2024",
+        "product": "V2L Adaptör",
+        "text": "Kamp seyahatinde araçtan güç almak müthiş. Adaptör kaliteli ve güvenli çalışıyor. Laptop, ışıklar, hatta küçük ısıtıcıyı çalıştırabildim. Çok markalı uyumluluk harika."
+      },
+      {
+        "platform": "HepsiBurada",
+        "platformColor": "#FF6000",
+        "rating": 5,
+        "author": "Can M.",
+        "date": "Kasım 2024",
+        "product": "DC Hızlı Şarj Kablosu",
+        "text": "CCS bağlantısı mükemmel çalışıyor. Kablo esnek, kıvırma ve açmada zorlanmıyor. Bağlantı kalitesi üstün, yüksek akımda da ısınma yok. Piyasadaki en iyi seçenek."
+      }
+    ]
+  },
+  "contactSection": {
+    "sectionLabel": "İletişim",
+    "heading": "Bize Ulaşın",
+    "subheading": "Ürünlerimiz, bayilik başvurusu, kurumsal satış veya iş ortaklıkları hakkında bizimle iletişime geçi.n"
+  }
+}

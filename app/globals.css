@@ -1,0 +1,284 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0A0A0A;
+  --foreground: #ffffff;
+  --accent-red: #E31E24;
+  --accent-red-dark: #B81519;
+  --surface: #111111;
+  --surface-2: #171717;
+  --border: #222222;
+  --text-muted: #888888;
+  --font-inter: "Inter", sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent-red: var(--accent-red);
+  --font-sans: var(--font-inter);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), Arial, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Global diagonal stripe texture ── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,0.010) 0px,
+      rgba(255,255,255,0.010) 1px,
+      transparent 1px,
+      transparent 52px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.004) 0px,
+      rgba(255,255,255,0.004) 1px,
+      transparent 1px,
+      transparent 104px
+    );
+  animation: stripe-drift 18s linear infinite;
+}
+
+@keyframes stripe-drift {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 52px 52px, 104px 104px; }
+}
+
+html[data-theme="light"] body::before {
+  background-image:
+    repeating-linear-gradient(
+      135deg,
+      rgba(0,0,0,0.012) 0px,
+      rgba(0,0,0,0.012) 1px,
+      transparent 1px,
+      transparent 52px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(0,0,0,0.005) 0px,
+      rgba(0,0,0,0.005) 1px,
+      transparent 1px,
+      transparent 104px
+    );
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0A0A0A; }
+::-webkit-scrollbar-thumb { background: #333333; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #444444; }
+
+/* Section divider */
+.section-divider {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  height: 1px;
+  width: 100%;
+}
+
+/* Gradient text */
+.gradient-text-red {
+  background: linear-gradient(135deg, #E31E24, #FF4D52);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button styles */
+.btn-primary {
+  background: #1a1a1a;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary:hover {
+  background: #2a2a2a;
+  border-color: rgba(255,255,255,0.28);
+}
+.btn-primary span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-outline {
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.25s ease;
+}
+.btn-outline:hover {
+  border-color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.05);
+}
+
+/* Card */
+.product-card {
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,0.15) !important;
+}
+
+/* Input focus */
+.form-input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Light Theme Overrides ── */
+
+html[data-theme="light"] body {
+  background-color: #F5F5F5;
+  color: #111111;
+}
+
+/* Section backgrounds */
+html[data-theme="light"] section {
+  background-color: #F5F5F5 !important;
+}
+
+html[data-theme="light"] footer {
+  background-color: #EDEDED !important;
+  border-color: #DDDDDD !important;
+}
+
+/* Dark surface overrides → white cards */
+html[data-theme="light"] [class*="bg-[#0f0f0f]"],
+html[data-theme="light"] [class*="bg-[#0d0d0d]"],
+html[data-theme="light"] [class*="bg-[#060606]"],
+html[data-theme="light"] [class*="bg-[#070707]"],
+html[data-theme="light"] [class*="bg-[#080808]"],
+html[data-theme="light"] [class*="bg-[#0A0A0A]"],
+html[data-theme="light"] [class*="bg-[#0c0c0c]"] {
+  background-color: #FFFFFF !important;
+}
+
+html[data-theme="light"] [class*="bg-[#111111]"],
+html[data-theme="light"] [class*="bg-[#131313]"],
+html[data-theme="light"] [class*="bg-[#161616]"],
+html[data-theme="light"] [class*="bg-[#1a1a1a]"],
+html[data-theme="light"] [class*="bg-[#2a2a2a]"] {
+  background-color: #F2F2F2 !important;
+}
+
+/* Borders */
+html[data-theme="light"] [class*="border-[#1e1e1e]"],
+html[data-theme="light"] [class*="border-[#222222]"],
+html[data-theme="light"] [class*="border-[#2a2a2a]"],
+html[data-theme="light"] [class*="border-[#252525]"],
+html[data-theme="light"] [class*="border-[#161616]"] {
+  border-color: #E0E0E0 !important;
+}
+
+/* Text */
+html[data-theme="light"] .text-white { color: #111111 !important; }
+html[data-theme="light"] [class*="text-white\/"] { color: #555555 !important; }
+
+/* Section divider in light */
+html[data-theme="light"] .section-divider {
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.10), transparent);
+}
+
+/* Navbar in light */
+html[data-theme="light"] nav {
+  background-color: rgba(248,248,248,0.97) !important;
+  border-color: #E0E0E0 !important;
+}
+
+/* Button outline in light */
+html[data-theme="light"] .btn-outline {
+  border-color: rgba(0,0,0,0.2);
+  color: #111111;
+}
+html[data-theme="light"] .btn-outline:hover {
+  border-color: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.04);
+}
+
+/* Light scrollbar */
+html[data-theme="light"] ::-webkit-scrollbar-track { background: #F0F0F0; }
+html[data-theme="light"] ::-webkit-scrollbar-thumb { background: #C0C0C0; }
+
+/* ── Calculator Range Slider ── */
+.calc-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    var(--slider-accent, #3B82F6) 0%,
+    var(--slider-accent, #3B82F6) var(--slider-fill, 50%),
+    #2a2a2a var(--slider-fill, 50%),
+    #2a2a2a 100%
+  );
+}
+.calc-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+}
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--slider-accent, #3B82F6);
+  cursor: pointer;
+  border: 2px solid rgba(0,0,0,0.2);
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.12), 0 0 10px var(--slider-accent, #3B82F6);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  margin-top: -7px;
+}
+.calc-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.18);
+  box-shadow: 0 0 0 4px rgba(0,0,0,0.18), 0 0 16px var(--slider-accent, #3B82F6);
+}
+.calc-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--slider-accent, #3B82F6);
+  cursor: pointer;
+  border: 2px solid rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px var(--slider-accent, #3B82F6);
+}
+.calc-slider::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: #2a2a2a;
+}
+html[data-theme="light"] .calc-slider {
+  background: linear-gradient(
+    to right,
+    var(--slider-accent, #3B82F6) 0%,
+    var(--slider-accent, #3B82F6) var(--slider-fill, 50%),
+    #dddddd var(--slider-fill, 50%),
+    #dddddd 100%
+  );
+}
+html[data-theme="light"] .calc-slider::-moz-range-track { background: #dddddd; }
+html[data-theme="light"] .calc-slider::-webkit-slider-thumb { border-color: rgba(0,0,0,0.1); }

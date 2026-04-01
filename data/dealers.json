@@ -1,0 +1,73 @@
+{
+  "istanbul": {
+    "dealers": [
+      { "name": "Bemis Yetkili Bayi İstanbul Avrupa", "address": "Bağcılar / İstanbul", "phone": "+90 (212) 000 00 00" },
+      { "name": "Bemis Yetkili Bayi İstanbul Anadolu", "address": "Kadıköy / İstanbul", "phone": "+90 (216) 000 00 00" }
+    ]
+  },
+  "ankara": {
+    "dealers": [
+      { "name": "Bemis Yetkili Bayi Ankara", "address": "Ostim OSB / Ankara", "phone": "+90 (312) 000 00 00" }
+    ]
+  },
+  "izmir": {
+    "dealers": [
+      { "name": "Bemis Yetkili Bayi İzmir", "address": "Konak / İzmir", "phone": "+90 (232) 000 00 00" }
+    ]
+  },
+  "bursa": {
+    "dealers": [
+      { "name": "Bemis Teknik Elektrik A.Ş.", "address": "Organize Sanayi Bölgesi / Nilüfer, Bursa", "phone": "+90 (224) 000 00 00" }
+    ]
+  },
+  "antalya": {
+    "dealers": [
+      { "name": "Bemis Yetkili Bayi Antalya", "address": "Kepez / Antalya", "phone": "+90 (242) 000 00 00" }
+    ]
+  },
+  "konya": {
+    "dealers": [
+      { "name": "Bemis Yetkili Bayi Konya", "address": "Selçuklu / Konya", "phone": "+90 (332) 000 00 00" }
+    ]
+  },
+  "adana": {
+    "dealers": [
+      { "name": "Bemis Yetkili Bayi Adana", "address": "Seyhan / Adana", "phone": "+90 (322) 000 00 00" }
+    ]
+  },
+  "gaziantep": {
+    "dealers": [
+      { "name": "Bemis Yetkili Bayi Gaziantep", "address": "Şehitkamil / Gaziantep", "phone": "+90 (342) 000 00 00" }
+    ]
+  },
+  "trabzon": {
+    "dealers": [
+      { "name": "Bemis Yetkili Bayi Trabzon", "address": "Ortahisar / Trabzon", "phone": "+90 (462) 000 00 00" }
+    ]
+  },
+  "kayseri": {
+    "dealers": [
+      { "name": "Bemis Yetkili Bayi Kayseri", "address": "Melikgazi / Kayseri", "phone": "+90 (352) 000 00 00" }
+    ]
+  },
+  "samsun": {
+    "dealers": [
+      { "name": "Bemis Yetkili Bayi Samsun", "address": "İlkadım / Samsun", "phone": "+90 (362) 000 00 00" }
+    ]
+  },
+  "diyarbakir": {
+    "dealers": [
+      { "name": "Bemis Yetkili Bayi Diyarbakır", "address": "Bağlar / Diyarbakır", "phone": "+90 (412) 000 00 00" }
+    ]
+  },
+  "erzurum": {
+    "dealers": [
+      { "name": "Bemis Yetkili Bayi Erzurum", "address": "Yakutiye / Erzurum", "phone": "+90 (442) 000 00 00" }
+    ]
+  },
+  "mersin": {
+    "dealers": [
+      { "name": "Bemis Yetkili Bayi Mersin", "address": "Mezitli / Mersin", "phone": "+90 (324) 000 00 00" }
+    ]
+  }
+}

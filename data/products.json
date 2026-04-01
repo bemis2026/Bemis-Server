@@ -1,0 +1,1799 @@
+[
+  {
+    "id": "wallbox",
+    "name": "AC Wallbox",
+    "tagline": "Evinize ve iş yerinize özel duvar tipi şarj istasyonu",
+    "accent": "#3B82F6",
+    "products": [
+      {
+        "id": "wallbox-7kw",
+        "name": "AC Wallbox 7,4 kW",
+        "subtitle": "Tek Fazlı · Ev Tipi",
+        "badge": "En Çok Satan",
+        "description": "Konut ve iş yeri kullanımı için geliştirilmiş, IP65 korumalı 7,4 kW tek fazlı akıllı AC şarj istasyonu.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "7,4 kW"
+              },
+              {
+                "label": "Giriş Gerilimi",
+                "value": "230V (1F) ± %10"
+              },
+              {
+                "label": "Faz",
+                "value": "Monofaze"
+              },
+              {
+                "label": "Maksimum Akım",
+                "value": "32A"
+              },
+              {
+                "label": "Güç Faktörü",
+                "value": "> 0,98"
+              },
+              {
+                "label": "Verimlilik",
+                "value": "> %95"
+              }
+            ]
+          },
+          {
+            "group": "Konnektör & Kablo",
+            "items": [
+              {
+                "label": "Konnektör Tipi",
+                "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "4m (opsiyonel 6m)"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "3 × 6 mm²"
+              },
+              {
+                "label": "Kablo Tipi",
+                "value": "Spiralli esnek"
+              }
+            ]
+          },
+          {
+            "group": "Koruma & Güvenlik",
+            "items": [
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP65"
+              },
+              {
+                "label": "Darbe Koruması",
+                "value": "IK10"
+              },
+              {
+                "label": "Çalışma Sıcaklığı",
+                "value": "-40°C / +55°C"
+              },
+              {
+                "label": "Topraklama Koruması",
+                "value": "Var (PE)"
+              },
+              {
+                "label": "Kaçak Akım",
+                "value": "6 mA DC / 30 mA AC"
+              },
+              {
+                "label": "Aşırı Akım Koruması",
+                "value": "Dahili MCB"
+              }
+            ]
+          },
+          {
+            "group": "İletişim & Kontrol",
+            "items": [
+              {
+                "label": "Protokol",
+                "value": "OCPP 1.6 / OCPP 2.0"
+              },
+              {
+                "label": "Bağlantı",
+                "value": "4G / Wi-Fi / LAN (modele göre)"
+              },
+              {
+                "label": "Kullanıcı Arayüzü",
+                "value": "LED gösterge / RFID okuyucu"
+              },
+              {
+                "label": "Uzaktan Yönetim",
+                "value": "Evet (bulut tabanlı)"
+              },
+              {
+                "label": "Yük Dengeleme",
+                "value": "Dinamik (DLM)"
+              }
+            ]
+          },
+          {
+            "group": "Mekanik",
+            "items": [
+              {
+                "label": "Ağırlık",
+                "value": "Yaklaşık 4,5 kg"
+              },
+              {
+                "label": "Boyutlar",
+                "value": "275 × 175 × 110 mm"
+              },
+              {
+                "label": "Montaj",
+                "value": "Duvar / direk montajı"
+              },
+              {
+                "label": "Renk",
+                "value": "Beyaz / Siyah (opsiyonel)"
+              },
+              {
+                "label": "Malzeme",
+                "value": "UV dayanımlı ABS"
+              }
+            ]
+          },
+          {
+            "group": "Sertifikalar",
+            "items": [
+              {
+                "label": "Elektriksel",
+                "value": "CE · IEC 61851-1 · IEC 62196"
+              },
+              {
+                "label": "Kalite",
+                "value": "ISO 9001:2015"
+              },
+              {
+                "label": "Üretim",
+                "value": "Yerli Üretim (Bursa OSB)"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wallbox-11kw",
+        "name": "AC Wallbox 11 kW",
+        "subtitle": "Üç Fazlı · Karma Kullanım",
+        "badge": null,
+        "description": "Ev, iş yeri ve ticari parking uygulamaları için üç fazlı 11 kW şarj istasyonu.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "11 kW"
+              },
+              {
+                "label": "Giriş Gerilimi",
+                "value": "400V (3F) ± %10"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maksimum Akım",
+                "value": "3 × 16A"
+              },
+              {
+                "label": "Güç Faktörü",
+                "value": "> 0,98"
+              },
+              {
+                "label": "Verimlilik",
+                "value": "> %95"
+              }
+            ]
+          },
+          {
+            "group": "Konnektör & Kablo",
+            "items": [
+              {
+                "label": "Konnektör Tipi",
+                "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "4m (opsiyonel 6m)"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "5 × 2,5 mm²"
+              },
+              {
+                "label": "Kablo Tipi",
+                "value": "Spiralli esnek"
+              }
+            ]
+          },
+          {
+            "group": "Koruma & Güvenlik",
+            "items": [
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP65"
+              },
+              {
+                "label": "Darbe Koruması",
+                "value": "IK10"
+              },
+              {
+                "label": "Çalışma Sıcaklığı",
+                "value": "-40°C / +55°C"
+              },
+              {
+                "label": "Kaçak Akım",
+                "value": "6 mA DC / 30 mA AC"
+              },
+              {
+                "label": "Aşırı Akım Koruması",
+                "value": "Dahili MCB"
+              }
+            ]
+          },
+          {
+            "group": "İletişim & Kontrol",
+            "items": [
+              {
+                "label": "Protokol",
+                "value": "OCPP 1.6 / OCPP 2.0"
+              },
+              {
+                "label": "Bağlantı",
+                "value": "4G / Wi-Fi / LAN (modele göre)"
+              },
+              {
+                "label": "Kullanıcı Arayüzü",
+                "value": "LED gösterge / RFID okuyucu"
+              },
+              {
+                "label": "Uzaktan Yönetim",
+                "value": "Evet (bulut tabanlı)"
+              },
+              {
+                "label": "Yük Dengeleme",
+                "value": "Dinamik (DLM)"
+              }
+            ]
+          },
+          {
+            "group": "Mekanik",
+            "items": [
+              {
+                "label": "Ağırlık",
+                "value": "Yaklaşık 4,8 kg"
+              },
+              {
+                "label": "Boyutlar",
+                "value": "275 × 175 × 110 mm"
+              },
+              {
+                "label": "Montaj",
+                "value": "Duvar / direk montajı"
+              },
+              {
+                "label": "Malzeme",
+                "value": "UV dayanımlı ABS"
+              }
+            ]
+          },
+          {
+            "group": "Sertifikalar",
+            "items": [
+              {
+                "label": "Elektriksel",
+                "value": "CE · IEC 61851-1 · IEC 62196"
+              },
+              {
+                "label": "Kalite",
+                "value": "ISO 9001:2015"
+              },
+              {
+                "label": "Üretim",
+                "value": "Yerli Üretim (Bursa OSB)"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wallbox-22kw",
+        "name": "AC Wallbox 22 kW",
+        "subtitle": "Üç Fazlı · Ticari",
+        "badge": null,
+        "description": "Ticari parkinglar ve hızlı şarj gerektiren uygulamalar için 22 kW üç fazlı profesyonel şarj istasyonu.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "22 kW"
+              },
+              {
+                "label": "Giriş Gerilimi",
+                "value": "400V (3F) ± %10"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maksimum Akım",
+                "value": "3 × 32A"
+              },
+              {
+                "label": "Güç Faktörü",
+                "value": "> 0,98"
+              },
+              {
+                "label": "Verimlilik",
+                "value": "> %95"
+              }
+            ]
+          },
+          {
+            "group": "Konnektör & Kablo",
+            "items": [
+              {
+                "label": "Konnektör Tipi",
+                "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "4m (opsiyonel 6m)"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "5 × 6 mm²"
+              },
+              {
+                "label": "Kablo Tipi",
+                "value": "Spiralli esnek"
+              }
+            ]
+          },
+          {
+            "group": "Koruma & Güvenlik",
+            "items": [
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP65"
+              },
+              {
+                "label": "Darbe Koruması",
+                "value": "IK10"
+              },
+              {
+                "label": "Çalışma Sıcaklığı",
+                "value": "-40°C / +55°C"
+              },
+              {
+                "label": "Kaçak Akım",
+                "value": "6 mA DC / 30 mA AC"
+              },
+              {
+                "label": "Aşırı Akım Koruması",
+                "value": "Dahili MCB"
+              }
+            ]
+          },
+          {
+            "group": "İletişim & Kontrol",
+            "items": [
+              {
+                "label": "Protokol",
+                "value": "OCPP 1.6 / OCPP 2.0"
+              },
+              {
+                "label": "Bağlantı",
+                "value": "4G / Wi-Fi / LAN (modele göre)"
+              },
+              {
+                "label": "Kullanıcı Arayüzü",
+                "value": "LED gösterge / RFID okuyucu / Ekran"
+              },
+              {
+                "label": "Uzaktan Yönetim",
+                "value": "Evet (bulut tabanlı)"
+              },
+              {
+                "label": "Yük Dengeleme",
+                "value": "Dinamik (DLM)"
+              }
+            ]
+          },
+          {
+            "group": "Mekanik",
+            "items": [
+              {
+                "label": "Ağırlık",
+                "value": "Yaklaşık 5,2 kg"
+              },
+              {
+                "label": "Boyutlar",
+                "value": "290 × 185 × 115 mm"
+              },
+              {
+                "label": "Montaj",
+                "value": "Duvar / direk montajı"
+              },
+              {
+                "label": "Malzeme",
+                "value": "UV dayanımlı ABS"
+              }
+            ]
+          },
+          {
+            "group": "Sertifikalar",
+            "items": [
+              {
+                "label": "Elektriksel",
+                "value": "CE · IEC 61851-1 · IEC 62196"
+              },
+              {
+                "label": "Kalite",
+                "value": "ISO 9001:2015"
+              },
+              {
+                "label": "Üretim",
+                "value": "Yerli Üretim (Bursa OSB)"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ],
+        "image": "/products/1775067096437-WhatsApp_Image_2026-03-29_at_01.55.05__2_.jpeg"
+      }
+    ]
+  },
+  {
+    "id": "portable",
+    "name": "AC Mobile Chargers",
+    "tagline": "Kurulum gerektirmez — prize tak, şarj et",
+    "accent": "#10B981",
+    "products": [
+      {
+        "id": "portable-2kw",
+        "name": "Taşınabilir Şarj 2,3 kW",
+        "subtitle": "Plug & Play · 10A",
+        "badge": "Yeni",
+        "description": "Sabit kurulum gerektirmeyen, standart ev prizinden çalışan 2,3 kW taşınabilir şarj cihazı.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "2,3 kW"
+              },
+              {
+                "label": "Giriş",
+                "value": "230V AC, 50Hz"
+              },
+              {
+                "label": "Akım",
+                "value": "10A"
+              },
+              {
+                "label": "Verimlilik",
+                "value": "> %93"
+              }
+            ]
+          },
+          {
+            "group": "Konnektör",
+            "items": [
+              {
+                "label": "Araç Tarafı",
+                "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Şebeke Tarafı",
+                "value": "Schuko (CEE 7/4)"
+              },
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "5m (dahili)"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "3 × 2,5 mm²"
+              }
+            ]
+          },
+          {
+            "group": "Koruma & Güvenlik",
+            "items": [
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP54"
+              },
+              {
+                "label": "Topraklama Tespiti",
+                "value": "Aktif — şarj engellenir"
+              },
+              {
+                "label": "Sıcaklık Koruması",
+                "value": "Termal kesme"
+              },
+              {
+                "label": "Kaçak Akım",
+                "value": "6 mA DC izleme"
+              },
+              {
+                "label": "Aşırı Yük",
+                "value": "Otomatik kesme"
+              }
+            ]
+          },
+          {
+            "group": "Taşınabilirlik",
+            "items": [
+              {
+                "label": "Ağırlık",
+                "value": "Yaklaşık 650 g"
+              },
+              {
+                "label": "Boyutlar",
+                "value": "195 × 75 × 45 mm"
+              },
+              {
+                "label": "LED Gösterge",
+                "value": "5 renk durum LED'i"
+              },
+              {
+                "label": "Gövde",
+                "value": "Dayanıklı ABS muhafaza"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "portable-7kw",
+        "name": "Taşınabilir Şarj 7,4 kW",
+        "subtitle": "Plug & Play · 32A · Ayarlanabilir",
+        "badge": null,
+        "description": "Ayarlanabilir akım çıkışıyla (6A–32A) hem ev hem iş seyahati kullanımına uygun 7,4 kW taşınabilir şarj cihazı.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "7,4 kW"
+              },
+              {
+                "label": "Giriş",
+                "value": "230V AC, 50Hz"
+              },
+              {
+                "label": "Akım",
+                "value": "6A / 8A / 10A / 13A / 16A / 20A / 25A / 32A (ayarlanabilir)"
+              },
+              {
+                "label": "Verimlilik",
+                "value": "> %93"
+              }
+            ]
+          },
+          {
+            "group": "Konnektör",
+            "items": [
+              {
+                "label": "Araç Tarafı",
+                "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Şebeke Tarafı",
+                "value": "Schuko (CEE 7/4)"
+              },
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "5m (dahili)"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "3 × 6 mm²"
+              }
+            ]
+          },
+          {
+            "group": "Koruma & Güvenlik",
+            "items": [
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP54"
+              },
+              {
+                "label": "Topraklama Tespiti",
+                "value": "Aktif — şarj engellenir"
+              },
+              {
+                "label": "Sıcaklık Koruması",
+                "value": "Termal kesme"
+              },
+              {
+                "label": "Kaçak Akım",
+                "value": "6 mA DC izleme"
+              },
+              {
+                "label": "Aşırı Yük",
+                "value": "Otomatik kesme"
+              }
+            ]
+          },
+          {
+            "group": "Taşınabilirlik",
+            "items": [
+              {
+                "label": "Ağırlık",
+                "value": "Yaklaşık 900 g"
+              },
+              {
+                "label": "Boyutlar",
+                "value": "215 × 85 × 55 mm"
+              },
+              {
+                "label": "LED Gösterge",
+                "value": "5 renk durum LED'i + akım gösterge"
+              },
+              {
+                "label": "Gövde",
+                "value": "Dayanıklı ABS muhafaza"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ],
+        "image": "/products/1775067334159-WhatsApp_Image_2026-04-01_at_14.55.14__3_.jpeg"
+      }
+    ]
+  },
+  {
+    "id": "cables",
+    "name": "AC Şarj Kabloları",
+    "tagline": "Type 2 · Mod 2 & Mod 3 sertifikalı kablo çözümleri",
+    "accent": "#F59E0B",
+    "products": [
+      {
+        "id": "ac-cable-16a",
+        "name": "AC Şarj Kablosu 16A",
+        "subtitle": "Type 2 — Type 2 · Mod 3 · 3,7–11 kW",
+        "badge": null,
+        "description": "AC şarj istasyonu ile araç arasında güvenli güç aktarımı sağlayan 16A Mod 3 uyumlu Type 2 şarj kablosu.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Maksimum Güç",
+                "value": "11 kW (3 × 16A)"
+              },
+              {
+                "label": "Gerilim",
+                "value": "230V (1F) / 400V (3F)"
+              },
+              {
+                "label": "Maksimum Akım",
+                "value": "16A"
+              },
+              {
+                "label": "İletken Kesiti",
+                "value": "5 × 2,5 mm²"
+              }
+            ]
+          },
+          {
+            "group": "Konnektör",
+            "items": [
+              {
+                "label": "Her İki Uç",
+                "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Gövde Malzeme",
+                "value": "Cam elyaf takviyeli PA (GF30)"
+              },
+              {
+                "label": "Kontakt Malzeme",
+                "value": "Gümüş kaplı bakır"
+              },
+              {
+                "label": "Kilitleme",
+                "value": "Mekanik mandal + PP kapak"
+              }
+            ]
+          },
+          {
+            "group": "Kablo Yapısı",
+            "items": [
+              {
+                "label": "İzolasyon",
+                "value": "XLPE"
+              },
+              {
+                "label": "Kılıf",
+                "value": "Soğuk bükülür TPE"
+              },
+              {
+                "label": "Uzunluk",
+                "value": "5m · 7m · 10m · özel"
+              },
+              {
+                "label": "Bükülme Ömrü",
+                "value": "> 15.000 döngü"
+              }
+            ]
+          },
+          {
+            "group": "Koruma & Sertifikalar",
+            "items": [
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP54"
+              },
+              {
+                "label": "Çalışma Sıcaklığı",
+                "value": "-30°C / +50°C"
+              },
+              {
+                "label": "Standart",
+                "value": "IEC 62893-2 · IEC 62196-2"
+              },
+              {
+                "label": "Güvenlik",
+                "value": "CE · VDE · TÜV"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ac-cable-32a",
+        "name": "AC Şarj Kablosu 32A",
+        "subtitle": "Type 2 — Type 2 · Mod 3 · 7,4–22 kW",
+        "badge": null,
+        "description": "Yüksek güçlü AC şarj uygulamaları için 32A kapasiteli, profesyonel Mod 3 Type 2 şarj kablosu.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Maksimum Güç",
+                "value": "22 kW (3 × 32A)"
+              },
+              {
+                "label": "Gerilim",
+                "value": "230V (1F) / 400V (3F)"
+              },
+              {
+                "label": "Maksimum Akım",
+                "value": "32A"
+              },
+              {
+                "label": "İletken Kesiti",
+                "value": "5 × 4 mm² · 5 × 6 mm²"
+              }
+            ]
+          },
+          {
+            "group": "Konnektör",
+            "items": [
+              {
+                "label": "Her İki Uç",
+                "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Gövde Malzeme",
+                "value": "Cam elyaf takviyeli PA (GF30)"
+              },
+              {
+                "label": "Kontakt Malzeme",
+                "value": "Gümüş kaplı bakır"
+              },
+              {
+                "label": "Kilitleme",
+                "value": "Mekanik mandal + PP kapak"
+              }
+            ]
+          },
+          {
+            "group": "Kablo Yapısı",
+            "items": [
+              {
+                "label": "İzolasyon",
+                "value": "XLPE"
+              },
+              {
+                "label": "Kılıf",
+                "value": "Soğuk bükülür TPE"
+              },
+              {
+                "label": "Uzunluk",
+                "value": "5m · 7m · 10m · özel"
+              },
+              {
+                "label": "Bükülme Ömrü",
+                "value": "> 15.000 döngü"
+              }
+            ]
+          },
+          {
+            "group": "Koruma & Sertifikalar",
+            "items": [
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP54"
+              },
+              {
+                "label": "Çalışma Sıcaklığı",
+                "value": "-30°C / +50°C"
+              },
+              {
+                "label": "Standart",
+                "value": "IEC 62893-2 · IEC 62196-2"
+              },
+              {
+                "label": "Güvenlik",
+                "value": "CE · VDE · TÜV"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mod2-cable",
+        "name": "Mod 2 Şarj Kablosu",
+        "subtitle": "Schuko → Type 2 · Ev Prizli Şarj",
+        "badge": null,
+        "description": "Standart ev prizini (Schuko) kullanarak araç şarjı sağlayan, dahili kontrol kutusuyla güvenli Mod 2 şarj kablosu.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "2,3 kW · 3,7 kW"
+              },
+              {
+                "label": "Giriş",
+                "value": "Schuko CEE 7/4, 230V"
+              },
+              {
+                "label": "Akım",
+                "value": "10A / 16A"
+              },
+              {
+                "label": "Kontrol Kutusu",
+                "value": "ICCB (In-Cable Control Box)"
+              }
+            ]
+          },
+          {
+            "group": "Konnektör",
+            "items": [
+              {
+                "label": "Araç Tarafı",
+                "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Şebeke Tarafı",
+                "value": "Schuko (CEE 7/4)"
+              },
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "5m"
+              }
+            ]
+          },
+          {
+            "group": "Güvenlik & Sertifikalar",
+            "items": [
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP54 (ICCB)"
+              },
+              {
+                "label": "Kaçak Akım Koruma",
+                "value": "6 mA DC"
+              },
+              {
+                "label": "Topraklama İzleme",
+                "value": "Aktif"
+              },
+              {
+                "label": "Standart",
+                "value": "IEC 61851-1 · CE"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dc-cable",
+        "name": "DC Şarj Kablosu CCS2",
+        "subtitle": "CCS2 / CHAdeMO · Hızlı Şarj",
+        "badge": null,
+        "description": "DC hızlı şarj istasyonları ile elektrikli araçlar arasında yüksek performanslı güç aktarımı sağlayan profesyonel DC şarj kablosu.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Maksimum Güç",
+                "value": "350 kW"
+              },
+              {
+                "label": "Maksimum Gerilim",
+                "value": "1000V DC"
+              },
+              {
+                "label": "Maksimum Akım",
+                "value": "500A"
+              },
+              {
+                "label": "Konnektör Soğutma",
+                "value": "Aktif su soğutmalı (500A model)"
+              }
+            ]
+          },
+          {
+            "group": "Konnektör Tipleri",
+            "items": [
+              {
+                "label": "CCS Combo 2",
+                "value": "IEC 62196-3"
+              },
+              {
+                "label": "CHAdeMO",
+                "value": "JEVS G105 rev. 2.0"
+              },
+              {
+                "label": "GB/T DC",
+                "value": "GB/T 20234.3 (opsiyonel)"
+              }
+            ]
+          },
+          {
+            "group": "Kablo Yapısı",
+            "items": [
+              {
+                "label": "İletken",
+                "value": "70 mm² tinsil bakır alaşımı"
+              },
+              {
+                "label": "İzolasyon",
+                "value": "TPE çok katmanlı"
+              },
+              {
+                "label": "Uzunluk",
+                "value": "1,5m · 3m · 5m · 7m · özel"
+              },
+              {
+                "label": "Bükülme Ömrü",
+                "value": "> 20.000 döngü"
+              }
+            ]
+          },
+          {
+            "group": "Koruma & Sertifikalar",
+            "items": [
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP67 (bağlıyken)"
+              },
+              {
+                "label": "Çalışma Sıcaklığı",
+                "value": "-40°C / +90°C"
+              },
+              {
+                "label": "Standartlar",
+                "value": "IEC 62893-4 · IEC 62196-3"
+              },
+              {
+                "label": "Güvenlik",
+                "value": "CE · TÜV"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ],
+        "image": "/products/1775067386298-WhatsApp_Image_2026-04-01_at_14.55.14__19_.jpeg"
+      }
+    ]
+  },
+  {
+    "id": "v2l-c2l",
+    "name": "V2L / C2L Adaptörler",
+    "tagline": "Araç bataryasını veya şarj cihazını harici güç kaynağına dönüştürün",
+    "accent": "#818CF8",
+    "products": [
+      {
+        "id": "v2l",
+        "name": "V2L Adaptör",
+        "subtitle": "Vehicle-to-Load · Araçtan Yüke",
+        "badge": "İnovatif",
+        "description": "Elektrikli araç bataryasını (V2L özellikli modeller) harici cihazlara güç kaynağına dönüştüren adaptör. Kamp ve acil güç için idealdir.",
+        "specs": [
+          {
+            "group": "V2L (Araçtan Yüke)",
+            "items": [
+              {
+                "label": "Çalışma Prensibi",
+                "value": "Type 2 → Schuko çıkışı"
+              },
+              {
+                "label": "Maks. Çıkış Gücü",
+                "value": "3,6 kW"
+              },
+              {
+                "label": "Çıkış Gerilimi",
+                "value": "230V AC, 50Hz"
+              },
+              {
+                "label": "Uyumlu Araçlar",
+                "value": "Ioniq 5/6, EV6, Mustang Mach-E vb."
+              }
+            ]
+          },
+          {
+            "group": "Mekanik & Sertifikalar",
+            "items": [
+              {
+                "label": "Gövde",
+                "value": "PA66-GF30"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP44"
+              },
+              {
+                "label": "Ağırlık",
+                "value": "~350 g"
+              },
+              {
+                "label": "Standart",
+                "value": "IEC 62196-2 · IEC 61851-1 · CE"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "c2l",
+        "name": "C2L Adaptör",
+        "subtitle": "Charger-to-Load · Şarjdan Yüke",
+        "badge": null,
+        "description": "Type 2 şarj cihazını harici cihazlar için güç çıkışına dönüştüren C2L adaptör. Saha çalışması ve kamp için uygun.",
+        "specs": [
+          {
+            "group": "C2L (Şarjdan Yüke)",
+            "items": [
+              {
+                "label": "Konnektör",
+                "value": "Type 2 erkek giriş · Schuko çıkış"
+              },
+              {
+                "label": "Uygulamalar",
+                "value": "Saha aydınlatma, alet, kamp"
+              },
+              {
+                "label": "Güvenlik",
+                "value": "Topraklama izleme · aşırı akım"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Mekanik & Sertifikalar",
+            "items": [
+              {
+                "label": "Gövde",
+                "value": "PA66-GF30"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP44"
+              },
+              {
+                "label": "Ağırlık",
+                "value": "~300 g"
+              },
+              {
+                "label": "Standart",
+                "value": "IEC 62196-2 · CE"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v2l-c2l-combo",
+        "name": "V2L / C2L Kombi Set",
+        "subtitle": "İki Adaptör Bir Arada",
+        "badge": null,
+        "description": "V2L ve C2L adaptörlerini bir arada sunan kombi set. Hem araçtan hem şarj cihazından güç almanızı sağlar.",
+        "specs": [
+          {
+            "group": "İçerik",
+            "items": [
+              {
+                "label": "Adaptör 1",
+                "value": "V2L Adaptör (Araçtan Yüke)"
+              },
+              {
+                "label": "Adaptör 2",
+                "value": "C2L Adaptör (Şarjdan Yüke)"
+              },
+              {
+                "label": "Çanta",
+                "value": "Taşıma çantası dahil"
+              }
+            ]
+          },
+          {
+            "group": "Teknik",
+            "items": [
+              {
+                "label": "Maks. Güç (V2L)",
+                "value": "3,6 kW"
+              },
+              {
+                "label": "Maks. Akım (C2L)",
+                "value": "16A"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP44"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "converters",
+    "name": "Uzatma & Kombinasyon",
+    "tagline": "Şarj kablosunu uzatın veya farklı fiş tiplerine dönüştürün",
+    "accent": "#06B6D4",
+    "products": [
+      {
+        "id": "extension-cable",
+        "name": "Şarj Uzatma Kablosu",
+        "subtitle": "Type 2 Uzatma · 5m–25m",
+        "badge": null,
+        "description": "Araç ile şarj istasyonu arasındaki mesafeyi güvenli biçimde uzatan yüksek akım kapasiteli uzatma kablosu.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Maksimum Güç",
+                "value": "22 kW (3 × 32A)"
+              },
+              {
+                "label": "Gerilim",
+                "value": "230V – 400V"
+              },
+              {
+                "label": "İletken Kesiti",
+                "value": "5 × 4 mm² · 5 × 6 mm²"
+              },
+              {
+                "label": "İletken",
+                "value": "Tinsil bakır esnek tel"
+              }
+            ]
+          },
+          {
+            "group": "Konnektör & Uzunluk",
+            "items": [
+              {
+                "label": "Her İki Uç",
+                "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Konnektör Gövde",
+                "value": "Cam elyaf takviyeli PA"
+              },
+              {
+                "label": "Uzunluk Seçenekleri",
+                "value": "5m · 10m · 15m · 20m · 25m"
+              }
+            ]
+          },
+          {
+            "group": "Koruma & Sertifikalar",
+            "items": [
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP54"
+              },
+              {
+                "label": "Çalışma Sıcaklığı",
+                "value": "-30°C / +50°C"
+              },
+              {
+                "label": "Standart",
+                "value": "IEC 62196-2 · CE"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "schuko-adapter",
+        "name": "Schuko → Type 2 Adaptör",
+        "subtitle": "Dönüştürücü Adaptör",
+        "badge": null,
+        "description": "Standart Schuko (CEE 7/4) fişini Type 2 dişi sokete dönüştüren adaptör. Taşınabilir şarj cihazlarıyla kullanım için.",
+        "specs": [
+          {
+            "group": "Özellikler",
+            "items": [
+              {
+                "label": "Giriş",
+                "value": "Schuko CEE 7/4 erkek"
+              },
+              {
+                "label": "Çıkış",
+                "value": "Type 2 IEC 62196-2 dişi"
+              },
+              {
+                "label": "Maksimum Akım",
+                "value": "16A"
+              },
+              {
+                "label": "Gerilim",
+                "value": "230V AC"
+              },
+              {
+                "label": "Gövde",
+                "value": "ABS + PA66"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP44"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cee-adapter",
+        "name": "CEE 16A → Type 2 Adaptör",
+        "subtitle": "3 Fazlı Mavi Fiş Adaptörü",
+        "badge": null,
+        "description": "CEE 16A mavi üç fazlı fişten Type 2 dişi sokete dönüştürme adaptörü. Kamp ve endüstriyel kullanım için.",
+        "specs": [
+          {
+            "group": "Özellikler",
+            "items": [
+              {
+                "label": "Giriş",
+                "value": "CEE 16A 5P (3F+N+PE)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "Type 2 IEC 62196-2 dişi"
+              },
+              {
+                "label": "Maksimum Güç",
+                "value": "11 kW"
+              },
+              {
+                "label": "Maksimum Akım",
+                "value": "16A (3F)"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP44"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "combo-box",
+        "name": "Kombinasyon Kutusu",
+        "subtitle": "Çoklu Çıkış · Dağıtım Ünitesi",
+        "badge": null,
+        "description": "Tek bir giriş bağlantısından birden fazla şarj çıkışı sağlayan kompakt kombinasyon dağıtım kutusu.",
+        "specs": [
+          {
+            "group": "Özellikler",
+            "items": [
+              {
+                "label": "Giriş",
+                "value": "1 × Type 2 veya CEE 32A"
+              },
+              {
+                "label": "Çıkış",
+                "value": "2 × Type 2 veya 2 × Schuko"
+              },
+              {
+                "label": "Maksimum Güç",
+                "value": "22 kW"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP54"
+              },
+              {
+                "label": "Gövde",
+                "value": "ABS + paslanmaz çelik"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "charger-equipment",
+    "name": "Şarj Ünitesi Ekipmanları",
+    "tagline": "Type 2 soket, holster ve montaj ekipmanları",
+    "accent": "#64748B",
+    "products": [
+      {
+        "id": "type2-socket",
+        "name": "Type 2 Soket",
+        "subtitle": "IEC 62196-2 · Dişi Panel Soket",
+        "badge": null,
+        "description": "Şarj istasyonu ve wallbox imalatında kullanılan, yüksek kaliteli Type 2 panel montaj soketi.",
+        "specs": [
+          {
+            "group": "Özellikler",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Type 2 dişi (IEC 62196-2)"
+              },
+              {
+                "label": "Maksimum Akım",
+                "value": "32A (1F) · 32A (3F)"
+              },
+              {
+                "label": "Gerilim",
+                "value": "250V / 480V"
+              },
+              {
+                "label": "Kilitleme",
+                "value": "Elektromanyetik aktuatör"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP54"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "holster",
+        "name": "Kablo Holsteri",
+        "subtitle": "Şarj Kablosu Askı Aparatı",
+        "badge": null,
+        "description": "Şarj kablosunu düzenli ve güvenli tutan, duvara monte edilebilir kablo holsteri.",
+        "specs": [
+          {
+            "group": "Özellikler",
+            "items": [
+              {
+                "label": "Uyumlu Konnektör",
+                "value": "Type 2"
+              },
+              {
+                "label": "Malzeme",
+                "value": "UV dayanımlı ABS"
+              },
+              {
+                "label": "Montaj",
+                "value": "Duvar montajı (vida + dübel)"
+              },
+              {
+                "label": "Renk",
+                "value": "Beyaz / Siyah"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pedestal",
+        "name": "Zemin Direki",
+        "subtitle": "Serbest Ayakta Şarj Ünitesi Direki",
+        "badge": null,
+        "description": "Wallbox'ı duvarsız alanlara monte etmek için kullanılan paslanmaz çelik zemin direki.",
+        "specs": [
+          {
+            "group": "Özellikler",
+            "items": [
+              {
+                "label": "Malzeme",
+                "value": "316L paslanmaz çelik"
+              },
+              {
+                "label": "Yüzey",
+                "value": "Toz boya kaplama"
+              },
+              {
+                "label": "Montaj",
+                "value": "Zemine gömme / flanş"
+              },
+              {
+                "label": "Yükseklik",
+                "value": "1200 mm (ayarlanabilir)"
+              },
+              {
+                "label": "Uyumluluk",
+                "value": "Tüm Bemis Wallbox modelleri"
+              },
+              {
+                "label": "Garanti",
+                "value": "5 yıl"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wall-mount",
+        "name": "Duvar Montaj Seti",
+        "subtitle": "Wallbox & Kablo Tutucular",
+        "badge": null,
+        "description": "Wallbox ve şarj kablolarını güvenli biçimde duvara sabitlemek için paslanmaz çelik ve ABS montaj ekipmanları.",
+        "specs": [
+          {
+            "group": "İçerik",
+            "items": [
+              {
+                "label": "Montaj Braketi",
+                "value": "316L paslanmaz çelik"
+              },
+              {
+                "label": "Kablo Tutucu",
+                "value": "UV dayanımlı ABS, 2 adet"
+              },
+              {
+                "label": "Vida Seti",
+                "value": "M6 × 40 mm, 4 adet"
+              },
+              {
+                "label": "Dübel",
+                "value": "Beton / tuğla uyumlu, 4 adet"
+              },
+              {
+                "label": "Montaj Kılavuzu",
+                "value": "Türkçe / İngilizce"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cable-tray",
+        "name": "Kablo Kanalı Seti",
+        "subtitle": "Kablo Yönetim & Koruma",
+        "badge": null,
+        "description": "Şarj kablosunu duvara düzenli ve güvenli biçimde sabitlemek için PVC kablo kanalı ve montaj aksesuarları.",
+        "specs": [
+          {
+            "group": "Özellikler",
+            "items": [
+              {
+                "label": "Malzeme",
+                "value": "Alev geciktirici PVC"
+              },
+              {
+                "label": "Boyut",
+                "value": "40×40 mm · 60×40 mm"
+              },
+              {
+                "label": "Uzunluk",
+                "value": "2m parça"
+              },
+              {
+                "label": "Renk",
+                "value": "Beyaz"
+              },
+              {
+                "label": "Garanti",
+                "value": "2 yıl"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "accessories",
+    "name": "Aksesuarlar",
+    "tagline": "Montaj ekipmanları ve tamamlayıcı ürünler",
+    "accent": "#818CF8",
+    "products": [
+      {
+        "id": "electronics",
+        "name": "Elektronik Kontrol Kartı (ECU)",
+        "subtitle": "Dahili Kontrol Ünitesi · OEM",
+        "badge": "Tescilli Tasarım",
+        "description": "Bemis E-V Charge cihazlarının kalbinde yer alan yerli tasarım elektronik kontrol kartı. OCPP protokolü, güç yönetimi ve güvenlik işlevleri bu kart üzerinde çalışır.",
+        "specs": [
+          {
+            "group": "İşlemci & Bellek",
+            "items": [
+              {
+                "label": "MCU",
+                "value": "32-bit ARM Cortex-M4 (180 MHz)"
+              },
+              {
+                "label": "Flash",
+                "value": "1 MB (firmware + OTA)"
+              },
+              {
+                "label": "RAM",
+                "value": "256 KB SRAM"
+              },
+              {
+                "label": "Güncelleme",
+                "value": "OTA firmware update"
+              }
+            ]
+          },
+          {
+            "group": "İletişim",
+            "items": [
+              {
+                "label": "Wi-Fi",
+                "value": "IEEE 802.11 b/g/n"
+              },
+              {
+                "label": "4G/LTE",
+                "value": "Cat-M1 modem"
+              },
+              {
+                "label": "RFID",
+                "value": "ISO 14443 / 15693 (13,56 MHz)"
+              },
+              {
+                "label": "Ethernet",
+                "value": "10/100 Mbps (opsiyonel)"
+              }
+            ]
+          },
+          {
+            "group": "Güç Yönetimi",
+            "items": [
+              {
+                "label": "Güç Ölçümü",
+                "value": "Aktif / reaktif (±1% doğruluk)"
+              },
+              {
+                "label": "Enerji Sayacı",
+                "value": "kWh (IEC 62053-21)"
+              },
+              {
+                "label": "Dinamik Yük Denge",
+                "value": "DLM — çoklu istasyon"
+              },
+              {
+                "label": "OCPP",
+                "value": "1.6J · 2.0.1"
+              }
+            ]
+          },
+          {
+            "group": "Üretim & Sertifikasyon",
+            "items": [
+              {
+                "label": "PCB Üretimi",
+                "value": "Türkiye (Bursa OSB)"
+              },
+              {
+                "label": "Test",
+                "value": "ICT + fonksiyonel (100%)"
+              },
+              {
+                "label": "EMC",
+                "value": "EN 55032 · EN 61000-4"
+              },
+              {
+                "label": "Kalite",
+                "value": "IPC-A-610 Sınıf 2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rfid-card",
+        "name": "RFID Şarj Kartı",
+        "subtitle": "Kullanıcı Kimlik Doğrulama Kartı",
+        "badge": null,
+        "description": "OCPP uyumlu şarj istasyonlarında kullanıcı kimlik doğrulaması için RFID akıllı kart.",
+        "specs": [
+          {
+            "group": "Özellikler",
+            "items": [
+              {
+                "label": "Standart",
+                "value": "ISO 14443-A (MIFARE Classic)"
+              },
+              {
+                "label": "Frekans",
+                "value": "13,56 MHz"
+              },
+              {
+                "label": "Hafıza",
+                "value": "1 KB"
+              },
+              {
+                "label": "Boyut",
+                "value": "Kredi kartı formatı (85,6 × 53,98 mm)"
+              },
+              {
+                "label": "Kalınlık",
+                "value": "0,76 mm"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "surge-protector",
+        "name": "Aşırı Gerilim Koruyucu",
+        "subtitle": "EV Şarj Hat Koruma Modülü",
+        "badge": null,
+        "description": "Şarj istasyonu giriş hattını yıldırım ve aşırı gerilimden koruyan SPD modülü.",
+        "specs": [
+          {
+            "group": "Özellikler",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Tip 2 (EN 61643-11)"
+              },
+              {
+                "label": "Nominal Gerilim",
+                "value": "230/400V"
+              },
+              {
+                "label": "Maks. Deşarj Akımı",
+                "value": "20 kA"
+              },
+              {
+                "label": "Koruma Seviyesi",
+                "value": "≤ 1,5 kV"
+              },
+              {
+                "label": "Montaj",
+                "value": "DIN ray"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "charging-bag",
+        "name": "Şarj Kablosu Taşıma Çantası",
+        "subtitle": "Kablo Organizasyon Çantası",
+        "badge": null,
+        "description": "Type 2 şarj kablosunu ve adaptörleri düzenli şekilde taşımak için su geçirmez çanta.",
+        "specs": [
+          {
+            "group": "Özellikler",
+            "items": [
+              {
+                "label": "Malzeme",
+                "value": "Polyester 600D (su geçirmez)"
+              },
+              {
+                "label": "Boyut",
+                "value": "40 × 20 × 15 cm"
+              },
+              {
+                "label": "Kapasite",
+                "value": "5m kablo + 2 adaptör"
+              },
+              {
+                "label": "Kapatma",
+                "value": "YKK fermuar"
+              },
+              {
+                "label": "Renk",
+                "value": "Siyah"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
