@@ -159,16 +159,30 @@ export default function DNA() {
             <div className="absolute inset-0" style={{ backgroundImage: d ? "radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)" : "radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
 
             {/* Factory video (öncelikli) veya fotoğraf */}
-            {dna.factoryVideo ? (
-              <video
-                src={dna.factoryVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover block"
-              />
-            ) : dna.factoryImage ? (
+            {dna.factoryVideo ? (() => {
+              const yt = dna.factoryVideo!.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+              if (yt) {
+                return (
+                  <iframe
+                    src={`https://www.youtube.com/embed/${yt[1]}?autoplay=1&mute=1&loop=1&playlist=${yt[1]}&controls=0&modestbranding=1&rel=0`}
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                    className="w-full h-full object-cover block"
+                    style={{ border: "none", minHeight: 220 }}
+                  />
+                );
+              }
+              return (
+                <video
+                  src={dna.factoryVideo}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover block"
+                />
+              );
+            })() : dna.factoryImage ? (
               <img src={dna.factoryImage} alt="Bemis Fabrika" className="w-full h-full object-contain block" />
             ) : (
               <div className="absolute inset-0 flex flex-col items-center justify-center">
