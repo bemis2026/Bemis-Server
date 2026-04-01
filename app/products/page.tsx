@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
+import ContactBar from "../components/ContactBar";
 import {
   RiChargingPile2Line, RiBatteryChargeLine, RiFlashlightLine, RiPlugLine,
   RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
@@ -315,6 +316,7 @@ export default function AllProductsPage() {
           )}
         </div>
       </div>
+      <ContactBar />
     </div>
   );
 }

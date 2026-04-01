@@ -7,11 +7,12 @@ import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
+import ContactBar from "../components/ContactBar";
 import Image from "next/image";
 import {
   RiShieldCheckLine, RiGlobalLine, RiLeafLine, RiAwardLine,
   RiCpuLine, RiMedalLine, RiGlobeLine, RiBuilding4Line, RiArrowLeftLine,
-  RiToolsLine, RiCodeLine, RiStackLine, RiCheckboxCircleLine,
+  RiToolsLine, RiCodeLine, RiStackLine, RiCheckboxCircleLine, RiImageAddLine,
 } from "react-icons/ri";
 
 const HIGHLIGHT_META = [
@@ -204,13 +205,13 @@ export default function KurumsalPage() {
           </div>
         </div>
 
-        {/* ── Timeline + Production Widget ── */}
+        {/* ── Timeline + Production ── */}
         <div className="py-14 px-5 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-3 gap-10 lg:gap-14">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
 
-              {/* Timeline — left 2 cols */}
-              <div className="lg:col-span-2">
+              {/* Timeline — left col */}
+              <div>
                 <h2 className="text-xl font-bold mb-8" style={{ color: textPrimary }}>Tarihçe</h2>
                 <div className="relative">
                   <div className="absolute left-0 top-0 bottom-0 w-px" style={{ background: divider }} />
@@ -236,192 +237,194 @@ export default function KurumsalPage() {
                 </div>
               </div>
 
-              {/* Production flow widget — right 1 col */}
+              {/* Production — right col, image card grid */}
               <motion.div
-                className="lg:col-span-1"
                 initial={{ opacity: 0, x: 14 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.18 }}
               >
-                <h2 className="text-xl font-bold mb-4" style={{ color: textPrimary }}>Üretim Süreci</h2>
-                <div
-                  className="rounded-2xl px-4 py-3.5"
-                  style={{ background: surface, border: `1px solid ${border}` }}
-                >
-                  {/* Header row */}
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-[9px] font-bold tracking-[0.16em] uppercase" style={{ color: textFaint }}>Uçtan Uca</span>
-                    <div className="flex-1 h-px" style={{ background: divider }} />
-                    <span
-                      className="text-[9px] font-bold px-2 py-0.5 rounded-full flex-shrink-0"
-                      style={{ background: "rgba(220,38,38,0.10)", color: "#EF4444", border: "1px solid rgba(220,38,38,0.22)" }}
-                    >🇹🇷 Yerli</span>
-                  </div>
+                {/* Heading row */}
+                <div className="flex items-center justify-between mb-5">
+                  <h2 className="text-xl font-bold" style={{ color: textPrimary }}>Üretim Süreci</h2>
+                  <span
+                    className="text-[9px] font-bold px-2.5 py-1 rounded-full"
+                    style={{ background: "rgba(220,38,38,0.10)", color: "#EF4444", border: "1px solid rgba(220,38,38,0.22)" }}
+                  >
+                    🇹🇷 Yerli Üretim
+                  </span>
+                </div>
 
-                  {/* Steps */}
-                  <div className="flex flex-col">
-                    {PRODUCTION_STEPS.map((step, i) => {
-                      const imgSrc = dna.productionStepImages?.[i];
-                      const isLast = i === PRODUCTION_STEPS.length - 1;
-                      return (
-                        <div key={i} className="flex items-center gap-3">
-                          {/* Icon + connector */}
-                          <div className="flex flex-col items-center flex-shrink-0" style={{ width: 28 }}>
-                            <div
-                              className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
-                              style={{ background: d ? `${BLUE}12` : `${BLUE}0d`, border: `1px solid ${BLUE}28` }}
-                            >
-                              <step.icon style={{ fontSize: 13, color: d ? "#93C5FD" : BLUE }} />
+                {/* 3-column card grid */}
+                <div className="grid grid-cols-3 gap-2.5">
+                  {[...PRODUCTION_STEPS, { icon: null as any, label: "Son Ürün" }].map((step, i) => {
+                    const imgSrc = dna.productionStepImages?.[i];
+                    const isFinal = i === PRODUCTION_STEPS.length;
+                    const StepIcon = step.icon;
+
+                    return (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.22 + i * 0.06 }}
+                        className="rounded-xl overflow-hidden"
+                        style={{
+                          border: isFinal
+                            ? "1px solid rgba(220,38,38,0.32)"
+                            : `1px solid ${border}`,
+                          background: isFinal
+                            ? "rgba(220,38,38,0.05)"
+                            : surface,
+                        }}
+                      >
+                        {/* Image area */}
+                        <div
+                          className="relative w-full overflow-hidden"
+                          style={{ aspectRatio: "4/3", background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.04)" }}
+                        >
+                          {imgSrc ? (
+                            <img src={imgSrc} alt={step.label} className="w-full h-full object-cover" />
+                          ) : (
+                            <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5">
+                              <RiImageAddLine style={{ fontSize: 22, color: isFinal ? "rgba(239,68,68,0.28)" : (d ? `${BLUE}44` : `${BLUE}35`) }} />
+                              <span
+                                className="text-[8px] font-medium text-center px-1 leading-tight"
+                                style={{ color: isFinal ? "rgba(239,68,68,0.35)" : textFaint }}
+                              >
+                                Görsel ekle
+                              </span>
                             </div>
-                            <div style={{ width: 1, height: isLast ? 10 : 14, background: isLast ? "rgba(220,38,38,0.18)" : d ? "rgba(59,130,246,0.15)" : "rgba(59,130,246,0.12)", margin: "2px 0" }} />
-                          </div>
-                          {/* Label */}
-                          <div className="flex-1 py-0.5">
-                            <span className="text-xs font-medium" style={{ color: textPrimary }}>{step.label}</span>
-                          </div>
-                          {/* Circular image slot */}
+                          )}
+
+                          {/* Step number badge */}
                           <div
-                            className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center"
-                            style={{ border: `1px dashed ${d ? `${BLUE}28` : `${BLUE}24`}`, background: d ? `${BLUE}07` : `${BLUE}05` }}
+                            className="absolute top-1.5 left-1.5 text-[9px] font-bold px-1.5 py-0.5 rounded-md"
+                            style={{
+                              background: isFinal ? "rgba(220,38,38,0.82)" : (d ? "rgba(0,0,0,0.70)" : "rgba(255,255,255,0.88)"),
+                              color: isFinal ? "#fff" : (d ? "#93C5FD" : BLUE),
+                              backdropFilter: "blur(6px)",
+                            }}
                           >
-                            {imgSrc
-                              ? <img src={imgSrc} alt={step.label} className="w-full h-full object-cover" />
-                              : <div style={{ width: 8, height: 8, borderRadius: "50%", background: d ? `${BLUE}22` : `${BLUE}1a` }} />
-                            }
+                            {isFinal ? "🇹🇷" : `0${i + 1}`}
                           </div>
                         </div>
-                      );
-                    })}
 
-                    {/* Son Ürün */}
-                    <div className="flex items-center gap-3">
-                      <div className="flex-shrink-0" style={{ width: 28 }}>
-                        <div
-                          className="w-7 h-7 rounded-lg flex items-center justify-center text-sm flex-shrink-0"
-                          style={{ background: "rgba(220,38,38,0.10)", border: "1px solid rgba(220,38,38,0.24)" }}
-                        >🇹🇷</div>
-                      </div>
-                      <div className="flex-1 py-0.5">
-                        <span className="text-xs font-bold" style={{ color: "#EF4444" }}>Son Ürün</span>
-                      </div>
-                      <div
-                        className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center"
-                        style={{ border: "1px dashed rgba(220,38,38,0.24)", background: "rgba(220,38,38,0.05)" }}
-                      >
-                        {dna.productionStepImages?.[5]
-                          ? <img src={dna.productionStepImages[5]} alt="Son Ürün" className="w-full h-full object-cover" />
-                          : <div style={{ width: 8, height: 8, borderRadius: "50%", background: "rgba(239,68,68,0.20)" }} />
-                        }
-                      </div>
-                    </div>
-                  </div>
+                        {/* Label row */}
+                        <div className="flex items-center gap-1.5 px-2.5 py-2">
+                          {!isFinal && StepIcon && (
+                            <StepIcon style={{ fontSize: 11, color: d ? "#93C5FD" : BLUE, flexShrink: 0 }} />
+                          )}
+                          <span
+                            className="text-[10px] font-semibold truncate"
+                            style={{ color: isFinal ? "#EF4444" : textPrimary }}
+                          >
+                            {step.label}
+                          </span>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
                 </div>
+
+                {/* "Admin panelden ekleyebilirsiniz" hint */}
+                {!dna.productionStepImages?.some(Boolean) && (
+                  <p className="text-[10px] mt-3 text-center" style={{ color: textFaint }}>
+                    Görseller admin paneli → Kurumsal bölümünden eklenebilir
+                  </p>
+                )}
               </motion.div>
 
             </div>
           </div>
         </div>
 
-        {/* ── Highlights ── */}
-        <div className="py-10 px-5 sm:px-6 lg:px-8" style={{ borderTop: `1px solid ${divider}` }}>
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-xl font-bold mb-6" style={{ color: textPrimary }}>Öne Çıkanlar</h2>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              {highlights.map((item, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl p-4"
-                  style={{ background: surface, border: `1px solid ${border}` }}
-                >
-                  <div
-                    className="w-9 h-9 rounded-xl flex items-center justify-center mb-3"
-                    style={{ background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)", border: d ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.07)" }}
-                  >
-                    <item.icon style={{ fontSize: 16, color: d ? item.accent : "rgba(0,0,0,0.50)" }} />
-                  </div>
-                  <h4 className="font-semibold text-xs mb-1" style={{ color: textPrimary }}>{item.title}</h4>
-                  <p className="text-xs leading-relaxed" style={{ color: textFaint }}>{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* ── Feature cards ── */}
-        <div className="py-10 px-5 sm:px-6 lg:px-8" style={{ borderTop: `1px solid ${divider}` }}>
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-xl font-bold mb-6" style={{ color: textPrimary }}>Teknoloji & Kalite</h2>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {features.map((f, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl p-5"
-                  style={{ background: surface, border: `1px solid ${border}` }}
-                >
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                    style={{ background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)", border: d ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.07)" }}
-                  >
-                    <f.icon style={{ fontSize: 20, color: d ? f.accent : "rgba(0,0,0,0.50)" }} />
-                  </div>
-                  <h3 className="font-bold text-sm mb-2" style={{ color: textPrimary }}>{f.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: textMuted }}>{f.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* ── Quote ── */}
-        <div className="py-10 px-5 sm:px-6 lg:px-8" style={{ borderTop: `1px solid ${divider}` }}>
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-xl font-semibold italic mb-3" style={{ color: textPrimary }}>
-              &ldquo;{dna.quote}&rdquo;
-            </p>
-            <p className="text-sm" style={{ color: textFaint }}>— {dna.quoteAttr}</p>
-          </div>
-        </div>
-
-        {/* ── Certifications ── */}
-        <div className="py-10 px-5 sm:px-6 lg:px-8" style={{ borderTop: `1px solid ${divider}` }}>
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-xl font-bold mb-6" style={{ color: textPrimary }}>Sertifikalar & Standartlar</h2>
-            <div className="grid grid-cols-4 sm:grid-cols-7 gap-3">
-              {certs.map((c, i) => (
-                <div
-                  key={i}
-                  className="flex flex-col items-center gap-1.5 rounded-2xl py-4 px-2 text-center"
-                  style={{ background: surface, border: `1px solid ${border}` }}
-                >
-                  <span className="text-xs font-bold" style={{ color: textPrimary }}>{c.label}</span>
-                  <span className="text-[8px] leading-tight" style={{ color: textFaint }}>{c.sub}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* ── CTA ── */}
+        {/* ── Integrated: Değerlerimiz, Teknoloji & Sertifikalar ── */}
         <div className="py-14 px-5 sm:px-6 lg:px-8" style={{ borderTop: `1px solid ${divider}` }}>
-          <div className="max-w-7xl mx-auto text-center">
-            <Image src="/logo-white.png" alt="Bemis E-V Charge" width={180} height={56}
-              className="h-12 w-auto object-contain mx-auto mb-5"
-              style={{ filter: d ? "none" : "invert(1)" }}
-            />
-            <p className="text-sm mb-6" style={{ color: textMuted }}>
-              Ürünlerimiz, bayilik başvurusu veya iş ortaklığı hakkında bizimle iletişime geçin.
-            </p>
-            <button
-              onClick={() => { router.push("/"); setTimeout(() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }), 300); }}
-              className="px-8 py-3.5 rounded-xl text-sm font-bold"
-              style={{ background: d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.09)", color: textPrimary, border: `1px solid ${border}` }}
-            >
-              İletişime Geç
-            </button>
+          <div className="max-w-7xl mx-auto">
+
+            {/* Section heading */}
+            <div className="mb-10">
+              <span
+                className="inline-block text-[10px] font-bold tracking-[0.20em] uppercase px-3 py-1.5 rounded-full mb-4"
+                style={{ background: d ? `${BLUE}18` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`, color: d ? "#93C5FD" : BLUE }}
+              >
+                Değerlerimiz & Teknoloji
+              </span>
+              <div className="h-px w-16 mt-1" style={{ background: `linear-gradient(90deg, ${BLUE} 0%, transparent 100%)` }} />
+            </div>
+
+            {/* Two-column editorial list */}
+            <div className="grid lg:grid-cols-2 gap-x-16 gap-y-0">
+
+              {/* Left — highlights */}
+              <div>
+                {highlights.map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05 * i }}
+                    className="flex gap-4 py-6"
+                    style={{ borderBottom: i < highlights.length - 1 ? `1px solid ${divider}` : "none" }}
+                  >
+                    <item.icon style={{ fontSize: 18, color: d ? "#93C5FD" : BLUE, marginTop: 2, flexShrink: 0 }} />
+                    <div>
+                      <h4 className="font-bold text-sm mb-1" style={{ color: textPrimary }}>{item.title}</h4>
+                      <p className="text-sm leading-relaxed" style={{ color: textMuted }}>{item.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Right — features */}
+              <div>
+                {features.map((f, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: 12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05 * i + 0.08 }}
+                    className="flex gap-4 py-6"
+                    style={{ borderBottom: i < features.length - 1 ? `1px solid ${divider}` : "none" }}
+                  >
+                    <f.icon style={{ fontSize: 18, color: d ? "#93C5FD" : BLUE, marginTop: 2, flexShrink: 0 }} />
+                    <div>
+                      <h4 className="font-bold text-sm mb-1" style={{ color: textPrimary }}>{f.title}</h4>
+                      <p className="text-sm leading-relaxed" style={{ color: textMuted }}>{f.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Quote */}
+            <div className="mt-12 mb-12 text-center max-w-2xl mx-auto">
+              <p className="text-lg font-semibold italic mb-2" style={{ color: textPrimary }}>
+                &ldquo;{dna.quote}&rdquo;
+              </p>
+              <p className="text-xs" style={{ color: textFaint }}>— {dna.quoteAttr}</p>
+            </div>
+
+            {/* Sertifikalar — inline strip */}
+            <div style={{ borderTop: `1px solid ${divider}`, paddingTop: 32 }}>
+              <span className="text-[10px] font-bold tracking-[0.18em] uppercase block mb-5" style={{ color: textFaint }}>
+                Sertifikalar & Standartlar
+              </span>
+              <div className="flex flex-wrap gap-5">
+                {certs.map((c, i) => (
+                  <div key={i} className="flex items-baseline gap-2">
+                    <span className="text-sm font-bold" style={{ color: textPrimary }}>{c.label}</span>
+                    <span className="text-xs" style={{ color: textFaint }}>{c.sub}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
 
       </div>
+      <ContactBar />
     </div>
   );
 }

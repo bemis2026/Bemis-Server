@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
+import ContactBar from "../components/ContactBar";
 import { useTheme } from "../context/ThemeContext";
 import {
   RiFlashlightLine,
@@ -232,6 +233,7 @@ export default function B2BPage() {
           ziyaret edin.
         </p>
       </div>
+      <ContactBar />
     </div>
   );
 }

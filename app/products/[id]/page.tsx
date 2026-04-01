@@ -4,6 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import Navbar from "../../components/Navbar";
+import ContactBar from "../../components/ContactBar";
 import { useState, useEffect } from "react";
 import SearchOverlay from "../../components/SearchOverlay";
 import {
@@ -459,6 +460,7 @@ export default function ProductCategoryPage() {
           </motion.div>
         )}
       </AnimatePresence>
+      <ContactBar />
     </div>
   );
 }

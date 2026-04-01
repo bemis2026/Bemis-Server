@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX, HiSearch } from "react-icons/hi";
 import { HiSun, HiMoon } from "react-icons/hi2";
 import Image from "next/image";
+import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 
 const navLinks = [
@@ -25,6 +26,8 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { theme, toggle } = useTheme();
   const isDark = theme === "dark";
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -45,7 +48,11 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    if (pathname !== "/") {
+      router.push("/" + href);
+    } else {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
