@@ -162,15 +162,18 @@ export default function DNA() {
 
             {/* Factory video (öncelikli) veya fotoğraf */}
             {dna.factoryVideo ? (() => {
-              const yt = dna.factoryVideo!.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+              const yt = dna.factoryVideo!.match(/(?:youtube\.com\/(?:[^/?]+\?.*v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
               if (yt) {
                 return (
                   <iframe
-                    src={`https://www.youtube.com/embed/${yt[1]}?autoplay=1&mute=1&loop=1&playlist=${yt[1]}&controls=0&modestbranding=1&rel=0`}
-                    allow="autoplay; encrypted-media"
+                    src={`https://www.youtube.com/embed/${yt[1]}?autoplay=1&mute=1&loop=1&playlist=${yt[1]}&controls=1&modestbranding=1&rel=0`}
+                    allow="autoplay; encrypted-media; fullscreen"
                     allowFullScreen
-                    className="w-full h-full object-cover block"
-                    style={{ border: "none", minHeight: 220 }}
+                    style={{
+                      position: "absolute", inset: 0,
+                      width: "100%", height: "100%",
+                      border: "none",
+                    }}
                   />
                 );
               }
@@ -181,7 +184,7 @@ export default function DNA() {
                   loop
                   muted
                   playsInline
-                  className="w-full h-full object-cover block"
+                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
                 />
               );
             })() : (
