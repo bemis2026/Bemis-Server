@@ -65,6 +65,7 @@ export type SiteContent = {
     items: ReviewItem[];
   };
   contactSection: { sectionLabel: string; heading: string; subheading: string };
+  sectionOrder: string[];
 };
 
 const DEFAULT_LAYOUT: HeroLayout = {
@@ -72,6 +73,10 @@ const DEFAULT_LAYOUT: HeroLayout = {
   text:   { x: 4, y: 36 },
   button: { x: 4, y: 82 },
 };
+
+export const DEFAULT_SECTION_ORDER = [
+  "stats", "dna", "products", "featured", "dealer", "reviews", "calculator", "contact"
+];
 
 const defaultContent: SiteContent = {
   hero: {
@@ -165,28 +170,52 @@ const defaultContent: SiteContent = {
     heading: "Bize Ulaşın",
     subheading: "Ürünlerimiz, bayilik başvurusu, kurumsal satış veya iş ortaklıkları hakkında bizimle iletişime geçin.",
   },
+  sectionOrder: DEFAULT_SECTION_ORDER,
 };
 
-// setByPath: handles dot-separated paths with array indices
+// ── path helpers ──────────────────────────────────────────────────────────────
+
 function setByPath(obj: any, path: string, value: string): any {
-  const keys = path.split('.');
+  const keys = path.split(".");
   if (keys.length === 1) return { ...obj, [keys[0]]: value };
   const key = keys[0];
-  const rest = keys.slice(1).join('.');
   if (Array.isArray(obj[key])) {
     const idx = parseInt(keys[1]);
-    const subRest = keys.slice(2).join('.');
+    const subRest = keys.slice(2).join(".");
     const newArr = [...obj[key]];
     newArr[idx] = subRest ? setByPath(newArr[idx], subRest, value) : value;
     return { ...obj, [key]: newArr };
   }
-  return { ...obj, [key]: setByPath(obj[key] ?? {}, rest, value) };
+  return { ...obj, [key]: setByPath(obj[key] ?? {}, keys.slice(1).join("."), value) };
 }
+
+export function getByPath(obj: any, path: string): any {
+  return path.split(".").reduce((cur, key) => {
+    if (cur == null) return undefined;
+    if (Array.isArray(cur)) return cur[parseInt(key)];
+    return cur[key];
+  }, obj);
+}
+
+// ── history state ─────────────────────────────────────────────────────────────
+
+type HistoryState = {
+  past: SiteContent[];
+  present: SiteContent;
+  future: SiteContent[];
+};
+
+// ── context type ──────────────────────────────────────────────────────────────
 
 type ContentContextType = SiteContent & {
   refreshContent: () => void;
   liveUpdate: (path: string, value: string) => void;
   saveContent: () => Promise<void>;
+  undo: () => void;
+  redo: () => void;
+  canUndo: boolean;
+  canRedo: boolean;
+  reorderSections: (from: number, to: number) => void;
 };
 
 const ContentContext = createContext<ContentContextType>({
@@ -194,34 +223,83 @@ const ContentContext = createContext<ContentContextType>({
   refreshContent: () => {},
   liveUpdate: () => {},
   saveContent: async () => {},
+  undo: () => {},
+  redo: () => {},
+  canUndo: false,
+  canRedo: false,
+  reorderSections: () => {},
 });
 
 export function useContent() { return useContext(ContentContext); }
 
+// ── provider ──────────────────────────────────────────────────────────────────
+
 export function ContentProvider({ children }: { children: ReactNode }) {
-  const [content, setContent] = useState<SiteContent>(defaultContent);
+  const [hist, setHist] = useState<HistoryState>({
+    past: [], present: defaultContent, future: [],
+  });
   const [refreshKey, setRefreshKey] = useState(0);
 
-  const refreshContent = useCallback(() => { setRefreshKey((k) => k + 1); }, []);
+  const content = hist.present;
+
+  const refreshContent = useCallback(() => setRefreshKey(k => k + 1), []);
 
   const liveUpdate = useCallback((path: string, value: string) => {
-    setContent(prev => setByPath(prev, path, value) as SiteContent);
+    setHist(h => ({
+      past: [...h.past.slice(-49), h.present],
+      present: setByPath(h.present, path, value) as SiteContent,
+      future: [],
+    }));
+  }, []);
+
+  const undo = useCallback(() => {
+    setHist(h => {
+      if (h.past.length === 0) return h;
+      return {
+        past: h.past.slice(0, -1),
+        present: h.past[h.past.length - 1],
+        future: [h.present, ...h.future.slice(0, 49)],
+      };
+    });
+  }, []);
+
+  const redo = useCallback(() => {
+    setHist(h => {
+      if (h.future.length === 0) return h;
+      return {
+        past: [...h.past.slice(-49), h.present],
+        present: h.future[0],
+        future: h.future.slice(1),
+      };
+    });
+  }, []);
+
+  const reorderSections = useCallback((from: number, to: number) => {
+    setHist(h => {
+      const order = [...h.present.sectionOrder];
+      const [moved] = order.splice(from, 1);
+      order.splice(to, 0, moved);
+      return {
+        past: [...h.past.slice(-49), h.present],
+        present: { ...h.present, sectionOrder: order },
+        future: [],
+      };
+    });
   }, []);
 
   const saveContent = useCallback(async () => {
     await fetch("/api/admin/content", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(content),
+      body: JSON.stringify(hist.present),
     });
-  }, [content]);
+  }, [hist.present]);
 
   useEffect(() => {
     fetch("/api/content")
-      .then((r) => r.json())
-      .then((data) => {
-        // Deep merge so missing new fields fall back to defaults
-        setContent({
+      .then(r => r.json())
+      .then(data => {
+        const loaded: SiteContent = {
           ...defaultContent,
           ...data,
           hero: { ...defaultContent.hero, ...data.hero, layout: { ...DEFAULT_LAYOUT, ...(data.hero?.layout ?? {}) } },
@@ -230,13 +308,25 @@ export function ContentProvider({ children }: { children: ReactNode }) {
           products: { ...defaultContent.products, ...data.products },
           dealer: { ...defaultContent.dealer, ...data.dealer },
           contactSection: { ...defaultContent.contactSection, ...data.contactSection },
-        });
+          sectionOrder: data.sectionOrder ?? DEFAULT_SECTION_ORDER,
+        };
+        setHist({ past: [], present: loaded, future: [] });
       })
       .catch(() => {});
   }, [refreshKey]);
 
   return (
-    <ContentContext.Provider value={{ ...content, refreshContent, liveUpdate, saveContent }}>
+    <ContentContext.Provider value={{
+      ...content,
+      refreshContent,
+      liveUpdate,
+      saveContent,
+      undo,
+      redo,
+      canUndo: hist.past.length > 0,
+      canRedo: hist.future.length > 0,
+      reorderSections,
+    }}>
       {children}
     </ContentContext.Provider>
   );

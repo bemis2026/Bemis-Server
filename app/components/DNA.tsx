@@ -9,6 +9,7 @@ import {
 } from "react-icons/ri";
 import { useRouter } from "next/navigation";
 import E from "./E";
+import EImage from "./EImage";
 
 const certs = [
   { label: "CE"        },
@@ -183,13 +184,19 @@ export default function DNA() {
                   className="w-full h-full object-cover block"
                 />
               );
-            })() : dna.factoryImage ? (
-              <img src={dna.factoryImage} alt="Bemis Fabrika" className="w-full h-full object-contain block" />
-            ) : (
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
+            })() : (
+              <EImage
+                field="dna.factoryImage"
+                src={dna.factoryImage ?? ""}
+                alt="Bemis Fabrika"
+                label="Fabrika Görseli"
+                uploadFolder="uploads"
+                style={{ position: "absolute", inset: 0 }}
+                imgClassName="w-full h-full object-contain block"
+              >
                 <RiBuilding4Line style={{ fontSize: 56, color: d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)", marginBottom: 8 }} />
                 <span className="text-xs font-medium" style={{ color: textFaint }}>Fabrika Fotoğrafı</span>
-              </div>
+              </EImage>
             )}
 
             {/* Bottom gradient */}

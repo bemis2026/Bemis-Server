@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "./context/ThemeContext";
 import { ContentProvider } from "./context/ContentContext";
 import { EditModeProvider } from "./context/EditModeContext";
+import PropertiesPanel from "./components/PropertiesPanel";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -56,6 +57,7 @@ export default function RootLayout({
           <ContentProvider>
             <EditModeProvider>
               {children}
+              <PropertiesPanel />
             </EditModeProvider>
           </ContentProvider>
         </ThemeProvider>
