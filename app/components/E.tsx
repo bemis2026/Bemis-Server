@@ -16,7 +16,9 @@ interface EditableProps {
 
 export default function E({ field, children, tag, className, style, multiline, label, ...rest }: EditableProps) {
   const { isEditMode, markPending, selectElement } = useEditMode();
-  const { liveUpdate } = useContent();
+  const { liveUpdate, textStyles } = useContent();
+  const styleOverride = textStyles?.[field] ?? {};
+  const mergedStyle: React.CSSProperties = Object.keys(styleOverride).length ? { ...style, ...styleOverride } : (style as React.CSSProperties);
   const [editing, setEditing] = useState(false);
   const ref = useRef<any>(null);
   const originalText = useRef<string>(children);
@@ -72,14 +74,14 @@ export default function E({ field, children, tag, className, style, multiline, l
 
   if (!isEditMode) {
     return (
-      <Tag className={className} style={style} {...rest}>
+      <Tag className={className} style={mergedStyle} {...rest}>
         {children}
       </Tag>
     );
   }
 
   const editStyle: React.CSSProperties = {
-    ...style,
+    ...mergedStyle,
     outline: editing ? "2px solid #3B82F6" : "1px dashed rgba(59,130,246,0.5)",
     outlineOffset: "2px",
     borderRadius: "2px",

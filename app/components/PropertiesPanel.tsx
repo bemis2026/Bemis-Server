@@ -13,15 +13,42 @@ const PRESET_COLORS = [
   "#EC4899",
 ];
 
+const TEXT_COLOR_PRESETS = [
+  "#ffffff", "#f0f0f4", "#e2e8f0", "#94a3b8",
+  "#1a1a1a", "#111111",
+  "#3B82F6", "#93C5FD",
+  "#10B981", "#34D399",
+  "#F59E0B", "#FCD34D",
+  "#EF4444", "#F87171",
+  "#8B5CF6", "#C4B5FD",
+  "#EC4899",
+];
+
+const FONT_SIZE_PRESETS = [
+  { label: "10", value: "10px" },
+  { label: "12", value: "12px" },
+  { label: "14", value: "14px" },
+  { label: "16", value: "16px" },
+  { label: "18", value: "18px" },
+  { label: "20", value: "20px" },
+  { label: "24", value: "24px" },
+  { label: "30", value: "30px" },
+  { label: "36", value: "36px" },
+  { label: "48", value: "48px" },
+  { label: "60", value: "60px" },
+  { label: "72", value: "72px" },
+];
+
 export default function PropertiesPanel() {
   const { isEditMode, selectedElement, clearSelection } = useEditMode();
-  const { liveUpdate, markPending, ...content } = useContent() as any;
+  const { liveUpdate, markPending, updateTextStyle, textStyles, ...content } = useContent() as any;
   const [uploading, setUploading] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
   if (!isEditMode || !selectedElement) return null;
 
   const currentValue = getByPath(content, selectedElement.field) ?? "";
+  const currentTextStyle: { color?: string; fontSize?: string } = (textStyles as any)?.[selectedElement.field] ?? {};
 
   const update = (value: string) => {
     liveUpdate(selectedElement.field, value);
@@ -109,12 +136,104 @@ export default function PropertiesPanel() {
         {/* Body */}
         <div style={{ padding: 14, flex: 1 }}>
           {selectedElement.type === "text" && (
-            <TextControl
-              value={String(currentValue)}
-              multiline={selectedElement.multiline}
-              placeholder={selectedElement.placeholder}
-              onChange={update}
-            />
+            <>
+              <TextControl
+                value={String(currentValue)}
+                multiline={selectedElement.multiline}
+                placeholder={selectedElement.placeholder}
+                onChange={update}
+              />
+
+              {/* ── Text Style Controls ── */}
+              <div style={{ marginTop: 16, borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 14, display: "flex", flexDirection: "column", gap: 14 }}>
+                <div style={{ color: "rgba(255,255,255,0.3)", fontSize: 9, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" }}>
+                  METİN STİLİ
+                </div>
+
+                {/* Color */}
+                <div>
+                  <div style={{ color: "rgba(255,255,255,0.45)", fontSize: 11, marginBottom: 7, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                    <span>Renk</span>
+                    {currentTextStyle.color && (
+                      <button
+                        onClick={() => updateTextStyle(selectedElement.field, "color", "")}
+                        style={{ background: "none", border: "none", color: "rgba(255,255,255,0.3)", fontSize: 10, cursor: "pointer", padding: 0 }}
+                      >
+                        Sıfırla
+                      </button>
+                    )}
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+                    <div style={{ width: 28, height: 28, borderRadius: 6, background: currentTextStyle.color || "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.15)", flexShrink: 0 }} />
+                    <input
+                      type="color"
+                      value={currentTextStyle.color || "#ffffff"}
+                      onChange={e => updateTextStyle(selectedElement.field, "color", e.target.value)}
+                      style={{ width: 32, height: 28, border: "none", cursor: "pointer", background: "none", flexShrink: 0 }}
+                    />
+                    <input
+                      type="text"
+                      value={currentTextStyle.color || ""}
+                      onChange={e => updateTextStyle(selectedElement.field, "color", e.target.value)}
+                      placeholder="varsayılan"
+                      style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 6, padding: "5px 8px", color: "#e2e8f0", fontSize: 11, outline: "none", flex: 1 }}
+                    />
+                  </div>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
+                    {TEXT_COLOR_PRESETS.map(c => (
+                      <button
+                        key={c}
+                        onClick={() => updateTextStyle(selectedElement.field, "color", c)}
+                        title={c}
+                        style={{
+                          width: 20, height: 20, borderRadius: 4, background: c, padding: 0, cursor: "pointer",
+                          border: currentTextStyle.color === c ? "2px solid #3B82F6" : "1px solid rgba(255,255,255,0.15)",
+                          boxShadow: currentTextStyle.color === c ? "0 0 0 2px rgba(59,130,246,0.4)" : "none",
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Font Size */}
+                <div>
+                  <div style={{ color: "rgba(255,255,255,0.45)", fontSize: 11, marginBottom: 7, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                    <span>Boyut (px)</span>
+                    {currentTextStyle.fontSize && (
+                      <button
+                        onClick={() => updateTextStyle(selectedElement.field, "fontSize", "")}
+                        style={{ background: "none", border: "none", color: "rgba(255,255,255,0.3)", fontSize: 10, cursor: "pointer", padding: 0 }}
+                      >
+                        Sıfırla
+                      </button>
+                    )}
+                  </div>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginBottom: 8 }}>
+                    {FONT_SIZE_PRESETS.map(({ label, value }) => (
+                      <button
+                        key={value}
+                        onClick={() => updateTextStyle(selectedElement.field, "fontSize", value)}
+                        style={{
+                          padding: "3px 8px", borderRadius: 5, fontSize: 10, fontWeight: 600, cursor: "pointer",
+                          background: currentTextStyle.fontSize === value ? "#3B82F6" : "rgba(255,255,255,0.07)",
+                          color: currentTextStyle.fontSize === value ? "#fff" : "rgba(255,255,255,0.55)",
+                          border: currentTextStyle.fontSize === value ? "1px solid #3B82F6" : "1px solid rgba(255,255,255,0.12)",
+                        }}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                  <input
+                    type="text"
+                    value={currentTextStyle.fontSize || ""}
+                    onChange={e => updateTextStyle(selectedElement.field, "fontSize", e.target.value)}
+                    placeholder="ör. 32px veya 2rem"
+                    style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 6, padding: "6px 10px", color: "#e2e8f0", fontSize: 12, outline: "none", width: "100%", boxSizing: "border-box" }}
+                  />
+                </div>
+              </div>
+            </>
           )}
 
           {selectedElement.type === "image" && (

@@ -66,6 +66,7 @@ export type SiteContent = {
   };
   contactSection: { sectionLabel: string; heading: string; subheading: string };
   sectionOrder: string[];
+  textStyles: Record<string, { color?: string; fontSize?: string }>;
 };
 
 const DEFAULT_LAYOUT: HeroLayout = {
@@ -171,6 +172,7 @@ const defaultContent: SiteContent = {
     subheading: "Ürünlerimiz, bayilik başvurusu, kurumsal satış veya iş ortaklıkları hakkında bizimle iletişime geçin.",
   },
   sectionOrder: DEFAULT_SECTION_ORDER,
+  textStyles: {},
 };
 
 // ── path helpers ──────────────────────────────────────────────────────────────
@@ -216,6 +218,7 @@ type ContentContextType = SiteContent & {
   canUndo: boolean;
   canRedo: boolean;
   reorderSections: (from: number, to: number) => void;
+  updateTextStyle: (field: string, prop: "color" | "fontSize", value: string) => void;
 };
 
 const ContentContext = createContext<ContentContextType>({
@@ -228,6 +231,7 @@ const ContentContext = createContext<ContentContextType>({
   canUndo: false,
   canRedo: false,
   reorderSections: () => {},
+  updateTextStyle: () => {},
 });
 
 export function useContent() { return useContext(ContentContext); }
@@ -274,6 +278,19 @@ export function ContentProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
+  const updateTextStyle = useCallback((field: string, prop: "color" | "fontSize", value: string) => {
+    setHist(h => {
+      const styles = h.present.textStyles ?? {};
+      const fieldStyle = styles[field] ?? {};
+      const updated = { ...fieldStyle, [prop]: value || undefined };
+      return {
+        past: [...h.past.slice(-49), h.present],
+        present: { ...h.present, textStyles: { ...styles, [field]: updated } },
+        future: [],
+      };
+    });
+  }, []);
+
   const reorderSections = useCallback((from: number, to: number) => {
     setHist(h => {
       const order = [...h.present.sectionOrder];
@@ -309,6 +326,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
           dealer: { ...defaultContent.dealer, ...data.dealer },
           contactSection: { ...defaultContent.contactSection, ...data.contactSection },
           sectionOrder: data.sectionOrder ?? DEFAULT_SECTION_ORDER,
+          textStyles: data.textStyles ?? {},
         };
         setHist({ past: [], present: loaded, future: [] });
       })
@@ -326,6 +344,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
       canUndo: hist.past.length > 0,
       canRedo: hist.future.length > 0,
       reorderSections,
+      updateTextStyle,
     }}>
       {children}
     </ContentContext.Provider>
