@@ -16,6 +16,7 @@ import {
 import { HiArrowRight } from "react-icons/hi";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
+import E from "./E";
 
 const categories = [
   {
@@ -188,7 +189,7 @@ export default function Products() {
             className="text-3xl sm:text-4xl lg:text-5xl font-black mb-3"
             style={{ color: textPrimary }}
           >
-            {productSection.heading}
+            <E field="products.heading">{productSection.heading}</E>
           </motion.h2>
 
           <motion.div
@@ -206,7 +207,7 @@ export default function Products() {
             className="text-base"
             style={{ color: textMuted }}
           >
-            {productSection.subheading}
+            <E field="products.subheading" tag="span">{productSection.subheading}</E>
           </motion.p>
         </div>
 

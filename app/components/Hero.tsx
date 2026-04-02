@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useContent } from "../context/ContentContext";
+import E from "./E";
 
 export default function Hero() {
   const { hero } = useContent();
@@ -41,18 +42,18 @@ export default function Hero() {
               className="h-20 sm:h-24 w-auto object-contain" priority />
             <div className="mt-5 mb-5 h-px w-12" style={{ background: "rgba(255,255,255,0.15)" }} />
             <h1 className="text-4xl sm:text-5xl font-black tracking-tight leading-[1.18] text-white">
-              {hero.headline1}<br />
-              {hero.headline2}<br />
-              <span className="text-white/50">{hero.headline3}</span>
+              <E field="hero.headline1">{hero.headline1}</E><br />
+              <E field="hero.headline2">{hero.headline2}</E><br />
+              <span className="text-white/50"><E field="hero.headline3">{hero.headline3}</E></span>
             </h1>
           </motion.div>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
             className="text-white/45 text-base leading-relaxed max-w-lg mb-9">
-            {hero.subtitle}
+            <E field="hero.subtitle" tag="span">{hero.subtitle}</E>
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}>
             <button onClick={() => scrollTo("#products")} className="btn-primary text-white font-bold px-8 py-4 rounded-xl text-sm">
-              {hero.ctaPrimary}
+              <E field="hero.ctaPrimary" tag="span">{hero.ctaPrimary}</E>
             </button>
           </motion.div>
         </div>
@@ -79,9 +80,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
             className="text-5xl xl:text-6xl 2xl:text-7xl font-black tracking-tight leading-[1.18] text-white mb-5"
           >
-            {hero.headline1}<br />
-            {hero.headline2}<br />
-            <span className="text-white/50">{hero.headline3}</span>
+            <E field="hero.headline1">{hero.headline1}</E><br />
+            <E field="hero.headline2">{hero.headline2}</E><br />
+            <span className="text-white/50"><E field="hero.headline3">{hero.headline3}</E></span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -89,13 +90,13 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.18 }}
             className="text-white/45 text-lg leading-relaxed mb-8"
           >
-            {hero.subtitle}
+            <E field="hero.subtitle" tag="span">{hero.subtitle}</E>
           </motion.p>
 
           {/* CTA Button — flows with text block */}
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.32 }}>
             <button onClick={() => scrollTo("#products")} className="btn-primary text-white font-bold px-8 py-4 rounded-xl text-sm">
-              {hero.ctaPrimary}
+              <E field="hero.ctaPrimary" tag="span">{hero.ctaPrimary}</E>
             </button>
           </motion.div>
         </motion.div>

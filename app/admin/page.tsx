@@ -679,6 +679,16 @@ export default function AdminPage() {
             className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white/70 px-3 py-2 rounded-lg hover:bg-white/5">
             <HiOutlineEye size={14} /> Siteyi Gör
           </a>
+          <button
+            onClick={() => {
+              localStorage.setItem("bemis-edit-mode", "1");
+              window.location.href = "/";
+            }}
+            className="flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-200"
+            style={{ background: "linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)", color: "#fff", border: "none" }}
+          >
+            <HiOutlineTemplate size={14} /> Görsel Düzenleyici
+          </button>
           <button onClick={handleLogout} className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white/70 px-3 py-2 rounded-lg hover:bg-white/5">
             <HiOutlineLogout size={14} /> Çıkış
           </button>

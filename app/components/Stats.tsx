@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { useContent } from "../context/ContentContext";
+import E from "./E";
 
 function CountUp({ value, suffix, prefix, active }: { value: number; suffix: string; prefix?: string; active: boolean }) {
   const [count, setCount] = useState(0);
@@ -56,8 +57,12 @@ export default function Stats() {
               <div className="text-3xl sm:text-4xl lg:text-5xl font-black mb-1.5 tabular-nums" style={{ color: "#93C5FD" }}>
                 <CountUp value={stat.value} suffix={stat.suffix} prefix={stat.prefix} active={inView} />
               </div>
-              <div className="text-white font-semibold text-sm sm:text-base mb-0.5">{stat.label}</div>
-              <div className="text-white/40 text-xs sm:text-sm">{stat.description}</div>
+              <div className="text-white font-semibold text-sm sm:text-base mb-0.5">
+                <E field={`stats.${i}.label`} tag="span">{stat.label}</E>
+              </div>
+              <div className="text-white/40 text-xs sm:text-sm">
+                <E field={`stats.${i}.description`} tag="span">{stat.description}</E>
+              </div>
             </motion.div>
           ))}
         </div>

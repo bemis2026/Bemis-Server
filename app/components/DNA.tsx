@@ -8,6 +8,7 @@ import {
   RiBuilding4Line, RiArrowRightLine,
 } from "react-icons/ri";
 import { useRouter } from "next/navigation";
+import E from "./E";
 
 const certs = [
   { label: "CE"        },
@@ -81,7 +82,7 @@ export default function DNA() {
                 className="inline-block text-[10px] font-bold tracking-[0.20em] uppercase px-3 py-1.5 rounded-full"
                 style={{ background: d ? `${BLUE}18` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`, color: d ? "#93C5FD" : BLUE }}
               >
-                {dna.sectionLabel}
+                <E field="dna.sectionLabel" tag="span">{dna.sectionLabel}</E>
               </span>
             </motion.div>
 
@@ -106,7 +107,7 @@ export default function DNA() {
               initial={{ opacity: 0, x: -14 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.5, delay: 0.12 }}
               className="text-sm leading-relaxed" style={{ color: textMuted }}
             >
-              {dna.brandPara1}
+              <E field="dna.brandPara1" tag="span">{dna.brandPara1}</E>
             </motion.p>
 
             {/* Button */}
@@ -197,7 +198,7 @@ export default function DNA() {
             {/* EST. 1994 badge */}
             <div className="absolute bottom-3 left-4 flex items-center gap-2">
               <div className="text-2xl font-black" style={{ background: d ? "linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.35) 100%)" : "linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                {dna.yearLabel}
+                <E field="dna.yearLabel" tag="span">{dna.yearLabel}</E>
               </div>
               <div>
                 <div className="text-[9px] font-bold tracking-wider" style={{ color: d ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.40)" }}>EST.</div>

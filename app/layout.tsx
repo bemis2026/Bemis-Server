@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./context/ThemeContext";
 import { ContentProvider } from "./context/ContentContext";
+import { EditModeProvider } from "./context/EditModeContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -53,7 +54,9 @@ export default function RootLayout({
       <body className="min-h-full antialiased bg-[#0A0A0A] text-white">
         <ThemeProvider>
           <ContentProvider>
-            {children}
+            <EditModeProvider>
+              {children}
+            </EditModeProvider>
           </ContentProvider>
         </ThemeProvider>
       </body>

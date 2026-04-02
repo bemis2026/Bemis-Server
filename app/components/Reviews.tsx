@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { HiStar } from "react-icons/hi";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
+import E from "./E";
 
 function Stars({ count }: { count: number }) {
   return (
@@ -61,7 +62,7 @@ export default function Reviews() {
             initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.08 }}
             className="text-2xl sm:text-3xl lg:text-4xl font-black mb-2" style={{ color: textPrimary }}
           >
-            {reviews.heading}
+            <E field="reviews.heading">{reviews.heading}</E>
           </motion.h2>
 
           <motion.div
@@ -74,7 +75,7 @@ export default function Reviews() {
             initial={{ opacity: 0, y: 12 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.22 }}
             className="text-base max-w-lg mx-auto" style={{ color: textMuted }}
           >
-            {reviews.subheading}
+            <E field="reviews.subheading" tag="span">{reviews.subheading}</E>
           </motion.p>
 
           {/* Platform chips */}

@@ -5,6 +5,7 @@ import { useRef, useState, useEffect } from "react";
 import { HiArrowRight, HiPhone, HiLocationMarker } from "react-icons/hi";
 import { RiStoreLine, RiFileAddLine, RiMapPin2Line } from "react-icons/ri";
 import { useContent } from "../context/ContentContext";
+import E from "./E";
 
 const BLUE = "#3B82F6";
 
@@ -79,7 +80,7 @@ export default function DealerNetwork() {
             className="inline-block text-[10px] font-bold tracking-[0.20em] uppercase px-3 py-1.5 rounded-full mb-4"
             style={{ background: `${BLUE}18`, border: `1px solid ${BLUE}35`, color: "#93C5FD" }}
           >
-            {dealerSection.sectionLabel}
+            <E field="dealer.sectionLabel" tag="span">{dealerSection.sectionLabel}</E>
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
@@ -87,7 +88,7 @@ export default function DealerNetwork() {
             transition={{ duration: 0.55, delay: 0.08 }}
             className="text-3xl sm:text-4xl lg:text-5xl font-black text-white"
           >
-            {dealerSection.heading}
+            <E field="dealer.heading">{dealerSection.heading}</E>
           </motion.h2>
           <motion.div
             initial={{ scaleX: 0, opacity: 0 }}
@@ -118,7 +119,7 @@ export default function DealerNetwork() {
               <RiStoreLine style={{ color: "#93C5FD", fontSize: 20, marginBottom: 12 }} />
               <h3 className="text-white font-bold text-base mb-1.5">Bayi Bul</h3>
               <p className="text-white/45 text-sm leading-relaxed mb-4">
-                {dealerSection.description}
+                <E field="dealer.description" tag="span">{dealerSection.description}</E>
               </p>
               <button
                 onClick={scrollToContact}
@@ -150,7 +151,7 @@ export default function DealerNetwork() {
             <div className="bg-white/2 border border-white/6 rounded-xl px-4 py-3 flex items-center gap-3">
               <RiFileAddLine className="text-white/25 text-base flex-shrink-0" />
               <p className="text-white/50 text-xs font-medium leading-snug flex-1 min-w-0">
-                {dealerSection.applyText}
+                <E field="dealer.applyText" tag="span">{dealerSection.applyText}</E>
               </p>
               <button
                 onClick={scrollToContact}

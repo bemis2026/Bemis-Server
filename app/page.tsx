@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import EditBar from "./components/EditBar";
+import { useEditMode } from "./context/EditModeContext";
 import Products from "./components/Products";
 import FeaturedProducts from "./components/FeaturedProducts";
 import Calculator from "./components/Calculator";
@@ -17,9 +19,12 @@ import AIChatButton from "./components/AIChatButton";
 
 export default function Home() {
   const [searchOpen, setSearchOpen] = useState(false);
+  const { isEditMode } = useEditMode();
 
   return (
     <main className="relative">
+      <EditBar />
+      {isEditMode && <div style={{ height: 42 }} />}
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <Hero />
       <Stats />

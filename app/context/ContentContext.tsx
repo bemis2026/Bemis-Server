@@ -167,11 +167,33 @@ const defaultContent: SiteContent = {
   },
 };
 
-type ContentContextType = SiteContent & { refreshContent: () => void };
+// setByPath: handles dot-separated paths with array indices
+function setByPath(obj: any, path: string, value: string): any {
+  const keys = path.split('.');
+  if (keys.length === 1) return { ...obj, [keys[0]]: value };
+  const key = keys[0];
+  const rest = keys.slice(1).join('.');
+  if (Array.isArray(obj[key])) {
+    const idx = parseInt(keys[1]);
+    const subRest = keys.slice(2).join('.');
+    const newArr = [...obj[key]];
+    newArr[idx] = subRest ? setByPath(newArr[idx], subRest, value) : value;
+    return { ...obj, [key]: newArr };
+  }
+  return { ...obj, [key]: setByPath(obj[key] ?? {}, rest, value) };
+}
+
+type ContentContextType = SiteContent & {
+  refreshContent: () => void;
+  liveUpdate: (path: string, value: string) => void;
+  saveContent: () => Promise<void>;
+};
 
 const ContentContext = createContext<ContentContextType>({
   ...defaultContent,
   refreshContent: () => {},
+  liveUpdate: () => {},
+  saveContent: async () => {},
 });
 
 export function useContent() { return useContext(ContentContext); }
@@ -181,6 +203,18 @@ export function ContentProvider({ children }: { children: ReactNode }) {
   const [refreshKey, setRefreshKey] = useState(0);
 
   const refreshContent = useCallback(() => { setRefreshKey((k) => k + 1); }, []);
+
+  const liveUpdate = useCallback((path: string, value: string) => {
+    setContent(prev => setByPath(prev, path, value) as SiteContent);
+  }, []);
+
+  const saveContent = useCallback(async () => {
+    await fetch("/api/admin/content", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(content),
+    });
+  }, [content]);
 
   useEffect(() => {
     fetch("/api/content")
@@ -202,7 +236,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
   }, [refreshKey]);
 
   return (
-    <ContentContext.Provider value={{ ...content, refreshContent }}>
+    <ContentContext.Provider value={{ ...content, refreshContent, liveUpdate, saveContent }}>
       {children}
     </ContentContext.Provider>
   );

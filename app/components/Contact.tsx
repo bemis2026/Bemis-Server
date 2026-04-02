@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
+import E from "./E";
 import { HiLocationMarker, HiPhone, HiMail, HiClock, HiCheckCircle } from "react-icons/hi";
 import { RiLinkedinFill, RiInstagramLine } from "react-icons/ri";
 
@@ -82,7 +83,7 @@ export default function Contact() {
                 color: d ? "#93C5FD" : BLUE,
               }}
             >
-              {contactSection.sectionLabel}
+              <E field="contactSection.sectionLabel" tag="span">{contactSection.sectionLabel}</E>
             </motion.span>
 
             <motion.h2
@@ -92,7 +93,7 @@ export default function Contact() {
               className="text-3xl sm:text-4xl lg:text-5xl font-black mb-2"
               style={{ color: textPrimary }}
             >
-              {contactSection.heading}
+              <E field="contactSection.heading">{contactSection.heading}</E>
             </motion.h2>
 
             <motion.div
@@ -110,7 +111,7 @@ export default function Contact() {
               className="text-sm leading-relaxed mb-7"
               style={{ color: textMuted }}
             >
-              {contactSection.subheading}
+              <E field="contactSection.subheading" tag="span">{contactSection.subheading}</E>
             </motion.p>
 
             {/* Contact info cards */}
