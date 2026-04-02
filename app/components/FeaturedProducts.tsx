@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import { HiArrowRight, HiStar } from "react-icons/hi";
+import E from "./E";
 
 type SpecItem = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
@@ -28,7 +29,7 @@ export default function FeaturedProducts() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
-  const { featured } = useContent();
+  const { featured, featuredSection } = useContent();
   const router = useRouter();
   const d = theme === "dark";
 
@@ -76,13 +77,13 @@ export default function FeaturedProducts() {
               color: d ? "#93C5FD" : BLUE,
             }}
           >
-            Öne Çıkan Ürünler
+            <E field="featuredSection.sectionLabel" tag="span">{featuredSection.sectionLabel}</E>
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.08 }}
             className="text-3xl sm:text-4xl lg:text-5xl font-black mb-2" style={{ color: textPrimary }}
           >
-            En Çok Tercih Edilenler
+            <E field="featuredSection.heading">{featuredSection.heading}</E>
           </motion.h2>
           <motion.div
             initial={{ scaleX: 0, opacity: 0 }} animate={inView ? { scaleX: 1, opacity: 1 } : {}} transition={{ duration: 0.5, delay: 0.2 }}
@@ -93,7 +94,7 @@ export default function FeaturedProducts() {
             initial={{ opacity: 0, y: 12 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.22 }}
             className="text-sm" style={{ color: textMuted }}
           >
-            Müşterilerimizin güvendiği, en çok sipariş verilen ürünlerimiz
+            <E field="featuredSection.subheading" tag="span">{featuredSection.subheading}</E>
           </motion.p>
         </div>
 
@@ -215,7 +216,7 @@ export default function FeaturedProducts() {
                       transition: "transform 0.25s",
                     }}
                   >
-                    Ürünü İncele <HiArrowRight />
+                    <E field="featuredSection.ctaLabel" tag="span">{featuredSection.ctaLabel}</E> <HiArrowRight />
                   </div>
                 </div>
               </motion.div>

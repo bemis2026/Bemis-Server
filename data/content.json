@@ -205,11 +205,15 @@
       }
     ],
     "factoryImage": "/kurumsal/1775044209322-WhatsApp_Image_2026-04-01_at_09.54.37.jpeg",
-    "factoryVideo": "https://www.youtube.com/watch?v=BnoQBR9irTU"
+    "factoryVideo": "https://www.youtube.com/watch?v=BnoQBR9irTU",
+    "ctaLabel": "Bemis Dünyasını Keşfet"
   },
   "products": {
     "heading": "EV Şarj Çözümleri",
-    "subheading": "İhtiyacınıza uygun şarj çözümünü keşfedin"
+    "subheading": "İhtiyacınıza uygun şarj çözümünü keşfedin",
+    "sectionLabel": "Ürün Kataloğu",
+    "allProductsLabel": "Tüm Ürünler",
+    "viewLabel": "İncele"
   },
   "dealer": {
     "sectionLabel": "Yetkili Satış Ağı",
@@ -217,11 +221,21 @@
     "description": "Türkiye genelinde yetkili bayilerimizi haritadan seçin veya iletişime geçin.",
     "applyText": "Bayi ağımıza katılmak ister misiniz?",
     "statCities": "81",
-    "statDealers": "50+"
+    "statDealers": "50+",
+    "findDealerTitle": "Bayi Bul",
+    "contactBtnLabel": "İletişime Geç",
+    "citiesLabel": "İlde Bayi",
+    "activeDealersLabel": "Aktif Bayi",
+    "mapHint": "Haritada bir bölgeye tıklayın veya üzerine gelin",
+    "mapTitle": "Türkiye Yetkili Bayi Haritası"
   },
   "reviews": {
+    "sectionLabel": "Kullanıcı Yorumları",
     "heading": "Kullanıcılar Ne Diyor?",
     "subheading": "Trendyol ve HepsiBurada'dan gerçek kullanıcı deneyimleri",
+    "ratingLabel": "ortalama puan",
+    "platformsPrefix": "Trendyol ve HepsiBurada'da",
+    "ratingCountSuffix": "değerlendirme",
     "rating": "4.9",
     "ratingCount": "500+",
     "items": [
@@ -284,6 +298,33 @@
   "contactSection": {
     "sectionLabel": "İletişim",
     "heading": "Bize Ulaşın",
-    "subheading": "Ürünlerimiz, bayilik başvurusu, kurumsal satış veya iş ortaklıkları hakkında bizimle iletişime geçi.n"
+    "subheading": "Ürünlerimiz, bayilik başvurusu, kurumsal satış veya iş ortaklıkları hakkında bizimle iletişime geçin."
+  },
+  "featuredSection": {
+    "sectionLabel": "Öne Çıkan Ürünler",
+    "heading": "En Çok Tercih Edilenler",
+    "subheading": "Müşterilerimizin güvendiği, en çok sipariş verilen ürünlerimiz",
+    "ctaLabel": "Ürünü İncele"
+  },
+  "navbar": {
+    "ctaLabel": "Bize Ulaşın",
+    "links": [
+      { "label": "Ana Sayfa",   "href": "#hero"       },
+      { "label": "Kurumsal",    "href": "#dna"        },
+      { "label": "Ürünler",     "href": "#products"   },
+      { "label": "Hesaplayıcı", "href": "#calculator" },
+      { "label": "Bayi Ağı",    "href": "#dealer"     },
+      { "label": "İletişim",    "href": "#contact"    }
+    ]
+  },
+  "footer": {
+    "description": "Bemis Teknik Elektrik A.Ş. bünyesindeki EV şarj ekipmanları markamız. 1994'ten bu yana Türkiye'den dünyaya kaliteli elektrik ekipmanı.",
+    "followLabel": "Bizi takip edin:",
+    "copyright": "© 2026 Bemis Teknik Elektrik A.Ş.",
+    "rightsLabel": "Tüm hakları saklıdır.",
+    "tagline": "Yerli Üretim, Küresel Kalite",
+    "b2bText": "Üreticiler ve OEM çözümleri için",
+    "b2bLinkText": "profesyonel ürün sayfamızı",
+    "b2bSuffix": "ziyaret edin."
   }
 }

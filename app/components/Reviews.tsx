@@ -55,7 +55,7 @@ export default function Reviews() {
               color: d ? "#93C5FD" : BLUE,
             }}
           >
-            Kullanıcı Yorumları
+            <E field="reviews.sectionLabel" tag="span">{reviews.sectionLabel}</E>
           </motion.span>
 
           <motion.h2
@@ -145,12 +145,13 @@ export default function Reviews() {
             <span className="text-4xl font-black" style={{ color: textPrimary }}>{reviews.rating}</span>
             <div className="flex flex-col items-start gap-1">
               <Stars count={5} />
-              <span className="text-xs" style={{ color: textMuted }}>ortalama puan</span>
+              <E field="reviews.ratingLabel" tag="span" className="text-xs" style={{ color: textMuted }}>{reviews.ratingLabel}</E>
             </div>
           </div>
           <p className="text-sm" style={{ color: textMuted }}>
-            Trendyol ve HepsiBurada&apos;da{" "}
-            <span style={{ color: textPrimary, fontWeight: 700 }}>{reviews.ratingCount}</span> değerlendirme
+            <E field="reviews.platformsPrefix" tag="span">{reviews.platformsPrefix}</E>{" "}
+            <span style={{ color: textPrimary, fontWeight: 700 }}>{reviews.ratingCount}</span>{" "}
+            <E field="reviews.ratingCountSuffix" tag="span">{reviews.ratingCountSuffix}</E>
           </p>
         </motion.div>
       </div>

@@ -19,7 +19,7 @@ export default function DNA() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
   const router = useRouter();
-  const { dna } = useContent();
+  const { dna, products: productSection, dealer: dealerSection } = useContent();
   const d = theme === "dark";
 
   const textPrimary = d ? "#f0f0f4"                 : "#1a1a1a";
@@ -109,7 +109,7 @@ export default function DNA() {
                 onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}25` : `${BLUE}18`; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}15` : `${BLUE}10`; }}
               >
-                Bemis Dünyasını Keşfet
+                <E field="dna.ctaLabel" tag="span">{dna.ctaLabel}</E>
                 <RiArrowRightLine style={{ fontSize: 14 }} />
               </button>
             </motion.div>

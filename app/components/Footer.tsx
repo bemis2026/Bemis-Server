@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
+import E from "./E";
 
 const productLinks = [
   { label: "AC Wallbox",                   href: "/products/wallbox" },
@@ -51,7 +52,7 @@ const navGroups = [
 
 export default function Footer() {
   const router = useRouter();
-  const { social } = useContent();
+  const { social, footer: footerContent } = useContent();
   const { theme } = useTheme();
   const d = theme === "dark";
 
@@ -121,11 +122,10 @@ export default function Footer() {
             </motion.div>
 
             <p className="text-sm leading-relaxed mb-5 max-w-xs" style={{ color: textMuted }}>
-              Bemis Teknik Elektrik A.Ş. bünyesindeki EV şarj ekipmanları markamız.
-              1994&apos;ten bu yana Türkiye&apos;den dünyaya kaliteli elektrik ekipmanı.
+              <E field="footer.description" tag="span" multiline>{footerContent.description}</E>
             </p>
 
-            <p className="text-xs mb-3" style={{ color: textFaint }}>Bizi takip edin:</p>
+            <p className="text-xs mb-3" style={{ color: textFaint }}><E field="footer.followLabel" tag="span">{footerContent.followLabel}</E></p>
             <div className="flex items-center gap-2 mb-6">
               {socials.map((s, i) => (
                 s.href ? (
@@ -158,15 +158,15 @@ export default function Footer() {
             {/* B2B note */}
             <div className="rounded-xl px-4 py-3 max-w-xs" style={{ border: `1px solid ${b2bBorder}` }}>
               <p className="text-xs leading-relaxed" style={{ color: textFaint }}>
-                Üreticiler ve OEM çözümleri için{" "}
+                <E field="footer.b2bText" tag="span">{footerContent.b2bText}</E>{" "}
                 <button
                   onClick={() => router.push("/b2b")}
                   className="underline transition-colors"
                   style={{ color: textMuted }}
                 >
-                  profesyonel ürün sayfamızı
+                  <E field="footer.b2bLinkText" tag="span">{footerContent.b2bLinkText}</E>
                 </button>{" "}
-                ziyaret edin.
+                <E field="footer.b2bSuffix" tag="span">{footerContent.b2bSuffix}</E>
               </p>
             </div>
           </div>
@@ -207,11 +207,11 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex flex-wrap items-center gap-3 text-xs" style={{ color: textFaint }}>
-              <span>© 2026 Bemis Teknik Elektrik A.Ş.</span>
+              <E field="footer.copyright" tag="span">{footerContent.copyright}</E>
               <span className="hidden sm:block" style={{ color: textFainter }}>·</span>
-              <span>Tüm hakları saklıdır.</span>
+              <E field="footer.rightsLabel" tag="span">{footerContent.rightsLabel}</E>
               <span className="hidden sm:block" style={{ color: textFainter }}>·</span>
-              <span>Yerli Üretim, Küresel Kalite</span>
+              <E field="footer.tagline" tag="span">{footerContent.tagline}</E>
             </div>
             <div className="flex items-center gap-4 text-xs" style={{ color: textFaint }}>
               <button className="transition-colors hover:opacity-70">Gizlilik Politikası</button>

@@ -7,6 +7,8 @@ import { HiSun, HiMoon } from "react-icons/hi2";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
+import { useContent } from "../context/ContentContext";
+import E from "./E";
 
 const navLinks = [
   { label: "Ana Sayfa",   href: "#hero"       },
@@ -26,6 +28,8 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { theme, toggle } = useTheme();
   const isDark = theme === "dark";
+  const { navbar: navbarContent } = useContent();
+  const activeNavLinks = navbarContent?.links?.length ? navbarContent.links : navLinks;
   const router = useRouter();
   const pathname = usePathname();
 
@@ -104,7 +108,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-6">
-            {navLinks.map((link) => (
+            {activeNavLinks.map((link, idx) => (
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
@@ -112,7 +116,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                   isDark ? "text-white/55 hover:text-white" : "text-black/55 hover:text-black"
                 }`}
               >
-                {link.label}
+                <E field={`navbar.links.${idx}.label`} tag="span">{link.label}</E>
                 <span className={`absolute -bottom-0.5 left-0 w-0 h-px group-hover:w-full transition-all duration-300 ${isDark ? "bg-white/50" : "bg-black/50"}`} />
               </button>
             ))}
@@ -138,7 +142,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
               onClick={() => handleNavClick("#contact")}
               className={`ml-1 text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors ${isDark ? "bg-[#0A0A0A] hover:bg-[#2a2a2a] text-white" : "bg-[#111111] hover:bg-[#333333] text-white"}`}
             >
-              Bize Ulaşın
+              <E field="navbar.ctaLabel" tag="span">{navbarContent?.ctaLabel ?? "Bize Ulaşın"}</E>
             </button>
           </div>
 
@@ -171,7 +175,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
             className={`lg:hidden border-t ${isDark ? "bg-[#181818] border-white/8" : "bg-white border-black/8"}`}
           >
             <div className="px-5 py-4 flex flex-col gap-1">
-              {navLinks.map((link, i) => (
+              {activeNavLinks.map((link, i) => (
                 <motion.button
                   key={link.href}
                   initial={{ opacity: 0, x: -12 }}
@@ -184,14 +188,14 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                       : "text-black/60 hover:text-black border-black/6"
                   } last:border-0`}
                 >
-                  {link.label}
+                  <E field={`navbar.links.${i}.label`} tag="span">{link.label}</E>
                 </motion.button>
               ))}
               <button
                 onClick={() => handleNavClick("#contact")}
                 className={`mt-3 font-semibold py-3 rounded-lg text-sm ${isDark ? "bg-[#0A0A0A] text-white" : "bg-[#111111] text-white"}`}
               >
-                Bize Ulaşın
+                <E field="navbar.ctaLabel" tag="span">{navbarContent?.ctaLabel ?? "Bize Ulaşın"}</E>
               </button>
             </div>
           </motion.div>

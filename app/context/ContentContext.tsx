@@ -54,17 +54,29 @@ export type SiteContent = {
     factoryImage?: string;
     factoryVideo?: string;
     productionStepImages?: string[];
+    ctaLabel: string;
   };
-  products: { heading: string; subheading: string };
+  products: { heading: string; subheading: string; sectionLabel: string; allProductsLabel: string; viewLabel: string };
   dealer: {
     sectionLabel: string; heading: string; description: string;
     applyText: string; statCities: string; statDealers: string;
+    findDealerTitle: string; contactBtnLabel: string;
+    citiesLabel: string; activeDealersLabel: string;
+    mapHint: string; mapTitle: string;
   };
   reviews: {
     heading: string; subheading: string; rating: string; ratingCount: string;
     items: ReviewItem[];
+    sectionLabel: string; ratingLabel: string; platformsPrefix: string; ratingCountSuffix: string;
   };
   contactSection: { sectionLabel: string; heading: string; subheading: string };
+  featuredSection: { sectionLabel: string; heading: string; subheading: string; ctaLabel: string };
+  navbar: { ctaLabel: string; links: { label: string; href: string }[] };
+  footer: {
+    description: string; followLabel: string; copyright: string;
+    rightsLabel: string; tagline: string;
+    b2bText: string; b2bLinkText: string; b2bSuffix: string;
+  };
   sectionOrder: string[];
   textStyles: Record<string, { color?: string; fontSize?: string }>;
 };
@@ -123,6 +135,7 @@ const defaultContent: SiteContent = {
     brandHeading: "Bemis kalitesiyle\nYerli EV şarj çözümleri",
     brandPara1: "1994 yılında Bursa'da kurulan Bemis Teknik Elektrik A.Ş., üç dekadı aşan tecrübesiyle Türkiye'nin önde gelen elektrik ekipmanları üreticilerinden biri haline geldi. Bemis E-V Charge, bu köklü altyapının üzerine inşa edilmiş EV şarj alt markamızdır.",
     brandPara2: "Bursa OSB'deki tesisimizde elektronik kart tasarımından yazılıma, kablo üretiminden son montaja kadar her aşamayı kendimiz gerçekleştiriyoruz. 60'ı aşkın ülkeye ihraç ettiğimiz ürünler, yerli mühendisliğin küresel arenada nasıl yarışabileceğini kanıtlıyor.",
+    ctaLabel: "Bemis Dünyasını Keşfet",
     quote: "Kalite, saygının ifadesidir.",
     quoteAttr: "Bemis E-V Charge Ekibi · Bursa OSB, Türkiye",
     yearLabel: "1994",
@@ -143,6 +156,9 @@ const defaultContent: SiteContent = {
   products: {
     heading: "EV Şarj Çözümleri",
     subheading: "İhtiyacınıza uygun şarj çözümünü keşfedin",
+    sectionLabel: "Ürün Kataloğu",
+    allProductsLabel: "Tüm Ürünler",
+    viewLabel: "İncele",
   },
   dealer: {
     sectionLabel: "Yetkili Satış Ağı",
@@ -151,10 +167,20 @@ const defaultContent: SiteContent = {
     applyText: "Bayi ağımıza katılmak ister misiniz?",
     statCities: "81",
     statDealers: "500+",
+    findDealerTitle: "Bayi Bul",
+    contactBtnLabel: "İletişime Geç",
+    citiesLabel: "İlde Bayi",
+    activeDealersLabel: "Aktif Bayi",
+    mapHint: "Haritada bir bölgeye tıklayın veya üzerine gelin",
+    mapTitle: "Türkiye Yetkili Bayi Haritası",
   },
   reviews: {
+    sectionLabel: "Kullanıcı Yorumları",
     heading: "Kullanıcılar Ne Diyor?",
     subheading: "Trendyol ve HepsiBurada'dan gerçek kullanıcı deneyimleri",
+    ratingLabel: "ortalama puan",
+    platformsPrefix: "Trendyol ve HepsiBurada'da",
+    ratingCountSuffix: "değerlendirme",
     rating: "4.9",
     ratingCount: "500+",
     items: [
@@ -170,6 +196,33 @@ const defaultContent: SiteContent = {
     sectionLabel: "İletişim",
     heading: "Bize Ulaşın",
     subheading: "Ürünlerimiz, bayilik başvurusu, kurumsal satış veya iş ortaklıkları hakkında bizimle iletişime geçin.",
+  },
+  featuredSection: {
+    sectionLabel: "Öne Çıkan Ürünler",
+    heading: "En Çok Tercih Edilenler",
+    subheading: "Müşterilerimizin güvendiği, en çok sipariş verilen ürünlerimiz",
+    ctaLabel: "Ürünü İncele",
+  },
+  navbar: {
+    ctaLabel: "Bize Ulaşın",
+    links: [
+      { label: "Ana Sayfa",   href: "#hero"       },
+      { label: "Kurumsal",    href: "#dna"        },
+      { label: "Ürünler",     href: "#products"   },
+      { label: "Hesaplayıcı", href: "#calculator" },
+      { label: "Bayi Ağı",    href: "#dealer"     },
+      { label: "İletişim",    href: "#contact"    },
+    ],
+  },
+  footer: {
+    description: "Bemis Teknik Elektrik A.Ş. bünyesindeki EV şarj ekipmanları markamız. 1994'ten bu yana Türkiye'den dünyaya kaliteli elektrik ekipmanı.",
+    followLabel: "Bizi takip edin:",
+    copyright: "© 2026 Bemis Teknik Elektrik A.Ş.",
+    rightsLabel: "Tüm hakları saklıdır.",
+    tagline: "Yerli Üretim, Küresel Kalite",
+    b2bText: "Üreticiler ve OEM çözümleri için",
+    b2bLinkText: "profesyonel ürün sayfamızı",
+    b2bSuffix: "ziyaret edin.",
   },
   sectionOrder: DEFAULT_SECTION_ORDER,
   textStyles: {},
@@ -320,13 +373,16 @@ export function ContentProvider({ children }: { children: ReactNode }) {
           ...defaultContent,
           ...data,
           hero: { ...defaultContent.hero, ...data.hero, layout: { ...DEFAULT_LAYOUT, ...(data.hero?.layout ?? {}) } },
-          dna:  { ...defaultContent.dna,  ...data.dna  },
-          reviews: { ...defaultContent.reviews, ...data.reviews },
+          dna:     { ...defaultContent.dna,     ...data.dna     },
+          reviews: { ...defaultContent.reviews, ...data.reviews, items: data.reviews?.items ?? defaultContent.reviews.items },
           products: { ...defaultContent.products, ...data.products },
-          dealer: { ...defaultContent.dealer, ...data.dealer },
+          dealer:  { ...defaultContent.dealer,  ...data.dealer  },
           contactSection: { ...defaultContent.contactSection, ...data.contactSection },
           sectionOrder: data.sectionOrder ?? DEFAULT_SECTION_ORDER,
           textStyles: data.textStyles ?? {},
+          featuredSection: { ...defaultContent.featuredSection, ...data.featuredSection },
+          navbar: { ...defaultContent.navbar, ...data.navbar, links: data.navbar?.links ?? defaultContent.navbar.links },
+          footer: { ...defaultContent.footer, ...data.footer },
         };
         setHist({ past: [], present: loaded, future: [] });
       })

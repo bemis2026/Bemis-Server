@@ -179,7 +179,7 @@ export default function Products() {
               color: d ? "#93C5FD" : BLUE,
             }}
           >
-            Ürün Kataloğu
+            <E field="products.sectionLabel" tag="span">{productSection.sectionLabel}</E>
           </motion.span>
 
           <motion.h2
@@ -225,7 +225,7 @@ export default function Products() {
             onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}25` : `${BLUE}18`; }}
             onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}15` : `${BLUE}10`; }}
           >
-            Tüm Ürünler <HiArrowRight />
+            <E field="products.allProductsLabel" tag="span">{productSection.allProductsLabel}</E> <HiArrowRight />
           </button>
         </motion.div>
 
@@ -371,7 +371,7 @@ export default function Products() {
                         transition: "transform 0.25s ease",
                       }}
                     >
-                      İncele <HiArrowRight />
+                      <E field="products.viewLabel" tag="span">{productSection.viewLabel}</E> <HiArrowRight />
                     </div>
                   )}
                 </div>

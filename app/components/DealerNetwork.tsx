@@ -120,7 +120,7 @@ export default function DealerNetwork() {
               }}
             >
               <RiStoreLine style={{ color: "#93C5FD", fontSize: 20, marginBottom: 12 }} />
-              <h3 className="text-white font-bold text-base mb-1.5">Bayi Bul</h3>
+              <h3 className="text-white font-bold text-base mb-1.5"><E field="dealer.findDealerTitle">{dealerSection.findDealerTitle}</E></h3>
               <p className="text-white/45 text-sm leading-relaxed mb-4">
                 <E field="dealer.description" tag="span">{dealerSection.description}</E>
               </p>
@@ -131,7 +131,7 @@ export default function DealerNetwork() {
                 onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}25` : `${BLUE}18`; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}15` : `${BLUE}10`; }}
               >
-                İletişime Geç
+                <E field="dealer.contactBtnLabel" tag="span">{dealerSection.contactBtnLabel}</E>
                 <HiArrowRight />
               </button>
             </div>
@@ -139,8 +139,8 @@ export default function DealerNetwork() {
             {/* Stats */}
             <div className="grid grid-cols-2 gap-2.5">
               {[
-                { value: dealerSection.statCities,  label: "İlde Bayi"   },
-                { value: dealerSection.statDealers, label: "Aktif Bayi" },
+                { value: dealerSection.statCities,  label: dealerSection.citiesLabel   },
+                { value: dealerSection.statDealers, label: dealerSection.activeDealersLabel },
               ].map((item, i) => (
                 <div
                   key={i}
@@ -188,7 +188,7 @@ export default function DealerNetwork() {
 
             {!activeCity && (
               <p className="text-white/20 text-xs text-center py-2">
-                Haritada bir bölgeye tıklayın veya üzerine gelin
+                <E field="dealer.mapHint" tag="span">{dealerSection.mapHint}</E>
               </p>
             )}
           </motion.div>
@@ -319,7 +319,7 @@ export default function DealerNetwork() {
               <div className="absolute bottom-3 left-4 flex items-center gap-1.5">
                 <div className="w-1.5 h-1.5 rounded-full" style={{ background: BLUE }} />
                 <span className="text-[9px] tracking-widest uppercase" style={{ color: `${BLUE}70` }}>
-                  Türkiye Yetkili Bayi Haritası
+                  <E field="dealer.mapTitle" tag="span">{dealerSection.mapTitle}</E>
                 </span>
               </div>
             </div>
