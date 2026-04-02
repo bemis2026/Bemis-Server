@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { HiArrowRight, HiPhone, HiLocationMarker } from "react-icons/hi";
-import { RiStoreLine, RiFileAddLine, RiMapPin2Line } from "react-icons/ri";
+import { RiStoreLine, RiMapPin2Line } from "react-icons/ri";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import E from "./E";
@@ -153,22 +153,6 @@ export default function DealerNetwork() {
               ))}
             </div>
 
-            {/* Bayi Başvurusu */}
-            <div className="bg-white/2 border border-white/6 rounded-xl px-4 py-3 flex items-center gap-3">
-              <RiFileAddLine className="text-white/25 text-base flex-shrink-0" />
-              <p className="text-white/50 text-xs font-medium leading-snug flex-1 min-w-0">
-                <E field="dealer.applyText" tag="span">{dealerSection.applyText}</E>
-              </p>
-              <button
-                onClick={scrollToContact}
-                className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg transition-all duration-200 flex-shrink-0"
-                style={{ background: d ? `${BLUE}15` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}28`, color: d ? "#93C5FD" : BLUE }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}25` : `${BLUE}18`; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}15` : `${BLUE}10`; }}
-              >
-                Başvur
-              </button>
-            </div>
 
             {/* Active city dealer list */}
             {activeCity && activeDealers.length > 0 && (
