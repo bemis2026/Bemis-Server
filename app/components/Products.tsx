@@ -272,7 +272,7 @@ export default function Products() {
                       alt={cat.name}
                       className="absolute inset-0 w-full h-full object-cover"
                       style={{
-                        opacity: isHovered ? 0.55 : 0.4,
+                        opacity: isHovered ? 0.85 : 0.72,
                         transition: "opacity 0.35s ease, transform 0.4s ease",
                         transform: isHovered ? "scale(1.04)" : "scale(1)",
                         zIndex: 0,
@@ -285,7 +285,7 @@ export default function Products() {
                       position: "absolute",
                       inset: 0,
                       background: `radial-gradient(ellipse 70% 65% at 50% 60%, ${cat.accentGlow} 0%, transparent 70%)`,
-                      opacity: isHovered ? 1 : 0.6,
+                      opacity: isHovered ? 0.6 : 0.3,
                       transition: "opacity 0.35s ease",
                     }}
                   />
