@@ -221,17 +221,9 @@ export default function Products() {
           <button
             onClick={() => router.push("/products")}
             className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200"
-            style={{
-              background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)",
-              border: d ? "1px solid rgba(255,255,255,0.12)" : "1px solid rgba(0,0,0,0.10)",
-              color: d ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.60)",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)";
-            }}
+            style={{ background: d ? `${BLUE}15` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}28`, color: d ? "#93C5FD" : BLUE }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}25` : `${BLUE}18`; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}15` : `${BLUE}10`; }}
           >
             Tüm Ürünler <HiArrowRight />
           </button>

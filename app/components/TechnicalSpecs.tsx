@@ -2,6 +2,8 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { useTheme } from "../context/ThemeContext";
+import { HiArrowRight } from "react-icons/hi";
 import {
   RiChargingPile2Line,
   RiBatteryChargeLine,
@@ -291,10 +293,14 @@ const products = [
   },
 ];
 
+const BLUE = "#3B82F6";
+
 export default function TechnicalSpecs() {
   const [activeProduct, setActiveProduct] = useState("wallbox");
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+  const { theme } = useTheme();
+  const d = theme === "dark";
 
   const current = products.find((p) => p.id === activeProduct) || products[0];
 
@@ -407,15 +413,23 @@ export default function TechnicalSpecs() {
           <div className="mt-6 flex flex-col sm:flex-row items-center gap-3">
             <button
               onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="btn-primary text-white font-semibold px-6 py-2.5 rounded-lg text-sm w-full sm:w-auto"
+              className="flex items-center gap-2 text-sm font-semibold px-6 py-2.5 rounded-xl transition-all duration-200 w-full sm:w-auto justify-center"
+              style={{ background: d ? `${BLUE}15` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}28`, color: d ? "#93C5FD" : BLUE }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}25` : `${BLUE}18`; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}15` : `${BLUE}10`; }}
             >
-              <span>Teknik Doküman Talep Et</span>
+              Teknik Doküman Talep Et
+              <HiArrowRight />
             </button>
             <button
               onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="btn-outline text-white font-semibold px-6 py-2.5 rounded-lg text-sm w-full sm:w-auto"
+              className="flex items-center gap-2 text-sm font-semibold px-6 py-2.5 rounded-xl transition-all duration-200 w-full sm:w-auto justify-center"
+              style={{ background: d ? `${BLUE}15` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}28`, color: d ? "#93C5FD" : BLUE }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}25` : `${BLUE}18`; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}15` : `${BLUE}10`; }}
             >
               Fiyat Teklifi Al
+              <HiArrowRight />
             </button>
           </div>
         </motion.div>
