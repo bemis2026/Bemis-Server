@@ -5,6 +5,7 @@ import { useRef, useState, useEffect } from "react";
 import { HiArrowRight, HiPhone, HiLocationMarker } from "react-icons/hi";
 import { RiStoreLine, RiFileAddLine, RiMapPin2Line } from "react-icons/ri";
 import { useContent } from "../context/ContentContext";
+import { useTheme } from "../context/ThemeContext";
 import E from "./E";
 
 const BLUE = "#3B82F6";
@@ -27,6 +28,8 @@ export default function DealerNetwork() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { dealer: dealerSection } = useContent();
+  const { theme } = useTheme();
+  const d = theme === "dark";
   const [dealers, setDealers] = useState<DealersData>({});
   const [hoveredCity, setHoveredCity] = useState<string | null>(null);
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
@@ -67,7 +70,7 @@ export default function DealerNetwork() {
     <section
       id="dealer"
       className="py-8 lg:py-12 overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #1a1a1a 0%, #141414 100%)" }}
+      style={{ background: d ? "linear-gradient(180deg, #1a1a1a 0%, #141414 100%)" : "linear-gradient(180deg, #f0f0f0 0%, #e8e8e8 100%)" }}
     >
       <div ref={ref} className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
@@ -210,7 +213,7 @@ export default function DealerNetwork() {
             <div
               className="relative rounded-2xl overflow-hidden select-none"
               style={{
-                background: "linear-gradient(155deg, #060d18 0%, #080f1c 100%)",
+                background: d ? "linear-gradient(155deg, #060d18 0%, #080f1c 100%)" : "linear-gradient(155deg, #dde8f5 0%, #e4edf8 100%)",
                 border: `1px solid ${BLUE}22`,
               }}
               onClick={() => setSelectedCity(null)}
@@ -231,7 +234,7 @@ export default function DealerNetwork() {
                   alt="Türkiye Haritası"
                   className="w-full block"
                   style={{
-                    filter: "invert(1) brightness(0.92)",
+                    filter: d ? "invert(1) brightness(0.92)" : "brightness(0.55) sepia(0.2)",
                     opacity: 0.90,
                   }}
                   draggable={false}
@@ -243,12 +246,12 @@ export default function DealerNetwork() {
                   style={{
                     width: "26%",
                     height: "17%",
-                    background: "linear-gradient(155deg, #060d18 0%, #080f1c 100%)",
+                    background: d ? "linear-gradient(155deg, #060d18 0%, #080f1c 100%)" : "linear-gradient(155deg, #dde8f5 0%, #e4edf8 100%)",
                     padding: "8px 14px",
                   }}
                 >
                   <img
-                    src="/logo-white.png"
+                    src={d ? "/logo-white.png" : "/logo-black.png"}
                     alt="Bemis E-V Charge"
                     style={{ width: "100%", height: "100%", objectFit: "contain", opacity: 0.85 }}
                     draggable={false}

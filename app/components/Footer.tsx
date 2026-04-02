@@ -5,6 +5,7 @@ import { RiLinkedinFill, RiInstagramLine, RiTwitterXLine } from "react-icons/ri"
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useContent } from "../context/ContentContext";
+import { useTheme } from "../context/ThemeContext";
 
 const productLinks = [
   { label: "AC Wallbox",                   href: "/products/wallbox" },
@@ -51,6 +52,24 @@ const navGroups = [
 export default function Footer() {
   const router = useRouter();
   const { social } = useContent();
+  const { theme } = useTheme();
+  const d = theme === "dark";
+
+  const bg          = d ? "linear-gradient(180deg, #141416 0%, #111113 50%, #0e0e10 100%)"
+                        : "linear-gradient(180deg, #efefef 0%, #e8e8e8 50%, #e4e4e4 100%)";
+  const borderTop   = d ? "#242424" : "#d8d8d8";
+  const borderBot   = d ? "#222222" : "#d0d0d0";
+  const textMuted   = d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.45)";
+  const textFaint   = d ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.30)";
+  const textFainter = d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.15)";
+  const textHead    = d ? "#ffffff" : "#111111";
+  const socialBg    = d ? "#1e1e1e" : "#ffffff";
+  const socialBorder = d ? "#2a2a2a" : "#d4d4d4";
+  const socialText  = d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.40)";
+  const socialHoverText  = d ? "#ffffff" : "#111111";
+  const socialHoverBorder = d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.30)";
+  const b2bBorder   = d ? "#1e1e1e" : "#d8d8d8";
+  const logoSrc     = d ? "/logo-white.png" : "/logo-black.png";
 
   const socials = [
     { icon: RiLinkedinFill,  label: "LinkedIn",    href: social.linkedin },
@@ -78,7 +97,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-[#242424] overflow-hidden" style={{ background: "linear-gradient(180deg, #141416 0%, #111113 50%, #0e0e10 100%)" }}>
+    <footer className="overflow-hidden" style={{ background: bg, borderTop: `1px solid ${borderTop}` }}>
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
 
@@ -93,7 +112,7 @@ export default function Footer() {
               onClick={() => handleClick("#hero", true)}
             >
               <Image
-                src="/logo-white.png"
+                src={logoSrc}
                 alt="Bemis E-V Charge"
                 width={130}
                 height={42}
@@ -101,12 +120,12 @@ export default function Footer() {
               />
             </motion.div>
 
-            <p className="text-white/35 text-sm leading-relaxed mb-5 max-w-xs">
+            <p className="text-sm leading-relaxed mb-5 max-w-xs" style={{ color: textMuted }}>
               Bemis Teknik Elektrik A.Ş. bünyesindeki EV şarj ekipmanları markamız.
               1994&apos;ten bu yana Türkiye&apos;den dünyaya kaliteli elektrik ekipmanı.
             </p>
 
-            <p className="text-white/20 text-xs mb-3">Bizi takip edin:</p>
+            <p className="text-xs mb-3" style={{ color: textFaint }}>Bizi takip edin:</p>
             <div className="flex items-center gap-2 mb-6">
               {socials.map((s, i) => (
                 s.href ? (
@@ -115,7 +134,10 @@ export default function Footer() {
                     href={s.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="w-8 h-8 rounded-lg bg-[#1e1e1e] border border-[#2a2a2a] flex items-center justify-center text-white/35 hover:text-white hover:border-white/30 transition-all duration-200"
+                    className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200"
+                    style={{ background: socialBg, border: `1px solid ${socialBorder}`, color: socialText }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = socialHoverText; (e.currentTarget as HTMLElement).style.borderColor = socialHoverBorder; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = socialText; (e.currentTarget as HTMLElement).style.borderColor = socialBorder; }}
                     aria-label={s.label}
                   >
                     <s.icon className="text-sm" />
@@ -123,7 +145,8 @@ export default function Footer() {
                 ) : (
                   <div
                     key={i}
-                    className="w-8 h-8 rounded-lg bg-[#1e1e1e] border border-[#2a2a2a] flex items-center justify-center text-white/20 cursor-default"
+                    className="w-8 h-8 rounded-lg flex items-center justify-center cursor-default"
+                    style={{ background: socialBg, border: `1px solid ${socialBorder}`, color: textFainter }}
                     aria-label={s.label}
                   >
                     <s.icon className="text-sm" />
@@ -133,12 +156,13 @@ export default function Footer() {
             </div>
 
             {/* B2B note */}
-            <div className="border border-[#1e1e1e] rounded-xl px-4 py-3 max-w-xs">
-              <p className="text-white/20 text-xs leading-relaxed">
+            <div className="rounded-xl px-4 py-3 max-w-xs" style={{ border: `1px solid ${b2bBorder}` }}>
+              <p className="text-xs leading-relaxed" style={{ color: textFaint }}>
                 Üreticiler ve OEM çözümleri için{" "}
                 <button
                   onClick={() => router.push("/b2b")}
-                  className="text-white/40 underline hover:text-white/60 transition-colors"
+                  className="underline transition-colors"
+                  style={{ color: textMuted }}
                 >
                   profesyonel ürün sayfamızı
                 </button>{" "}
@@ -157,13 +181,16 @@ export default function Footer() {
               transition={{ duration: 0.4, delay: i * 0.07 }}
               className="col-span-1"
             >
-              <h4 className="text-white font-semibold text-sm mb-4">{group.title}</h4>
+              <h4 className="font-semibold text-sm mb-4" style={{ color: textHead }}>{group.title}</h4>
               <ul className="space-y-2.5">
                 {group.links.map((link, j) => (
                   <li key={j}>
                     <button
                       onClick={() => handleClick(link.href, link.scroll ?? true)}
-                      className="text-white/35 hover:text-white/70 text-sm transition-colors duration-200 text-left"
+                      className="text-sm transition-colors duration-200 text-left"
+                      style={{ color: textMuted }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = textHead; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = textMuted; }}
                     >
                       {link.label}
                     </button>
@@ -176,25 +203,20 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-[#222222]">
+      <div style={{ borderTop: `1px solid ${borderBot}` }}>
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="flex flex-wrap items-center gap-3 text-white/20 text-xs">
+            <div className="flex flex-wrap items-center gap-3 text-xs" style={{ color: textFaint }}>
               <span>© 2026 Bemis Teknik Elektrik A.Ş.</span>
-              <span className="hidden sm:block text-white/10">·</span>
+              <span className="hidden sm:block" style={{ color: textFainter }}>·</span>
               <span>Tüm hakları saklıdır.</span>
-              <span className="hidden sm:block text-white/10">·</span>
+              <span className="hidden sm:block" style={{ color: textFainter }}>·</span>
               <span>Yerli Üretim, Küresel Kalite</span>
             </div>
-            <div className="flex items-center gap-4 text-white/20 text-xs">
-              <button className="hover:text-white/40 transition-colors">Gizlilik Politikası</button>
-              <button className="hover:text-white/40 transition-colors">KVKK</button>
-              <button
-                onClick={() => router.push("/b2b")}
-                className="hover:text-white/40 transition-colors"
-              >
-                OEM / B2B
-              </button>
+            <div className="flex items-center gap-4 text-xs" style={{ color: textFaint }}>
+              <button className="transition-colors hover:opacity-70">Gizlilik Politikası</button>
+              <button className="transition-colors hover:opacity-70">KVKK</button>
+              <button onClick={() => router.push("/b2b")} className="transition-colors hover:opacity-70">OEM / B2B</button>
             </div>
           </div>
         </div>

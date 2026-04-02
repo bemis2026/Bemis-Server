@@ -136,7 +136,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
             </button>
             <button
               onClick={() => handleNavClick("#contact")}
-              className="ml-1 bg-[#0A0A0A] hover:bg-[#222] text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
+              className={`ml-1 text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors ${isDark ? "bg-[#0A0A0A] hover:bg-[#2a2a2a] text-white" : "bg-[#111111] hover:bg-[#333333] text-white"}`}
             >
               Bize Ulaşın
             </button>
@@ -189,7 +189,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
               ))}
               <button
                 onClick={() => handleNavClick("#contact")}
-                className="mt-3 bg-[#0A0A0A] text-white font-semibold py-3 rounded-lg text-sm"
+                className={`mt-3 font-semibold py-3 rounded-lg text-sm ${isDark ? "bg-[#0A0A0A] text-white" : "bg-[#111111] text-white"}`}
               >
                 Bize Ulaşın
               </button>

@@ -3,21 +3,46 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useContent } from "../context/ContentContext";
+import { useTheme } from "../context/ThemeContext";
 import E from "./E";
 
 export default function Hero() {
   const { hero } = useContent();
   const { layout } = hero;
+  const { theme } = useTheme();
+  const d = theme === "dark";
 
   const scrollTo = (id: string) => {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const sectionBg  = d
+    ? "linear-gradient(160deg, #222222 0%, #181818 50%, #1e1e1e 100%)"
+    : "linear-gradient(160deg, #f0f0f0 0%, #e8e8e8 50%, #eeeeee 100%)";
+
+  const overlay    = d
+    ? "linear-gradient(135deg, rgba(5,5,8,0.92) 0%, rgba(5,5,8,0.75) 50%, rgba(5,5,8,0.55) 100%)"
+    : "linear-gradient(135deg, rgba(240,240,240,0.80) 0%, rgba(240,240,240,0.55) 50%, rgba(240,240,240,0.25) 100%)";
+
+  const groundFade = d
+    ? "linear-gradient(to top, #1a1a1a 0%, rgba(26,26,26,0.7) 50%, transparent 100%)"
+    : "linear-gradient(to top, #efefef 0%, rgba(238,238,238,0.7) 50%, transparent 100%)";
+
+  const dividerColor   = d ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.12)";
+  const scrollBorder   = d ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.15)";
+  const scrollDot      = d ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.20)";
+  const scrollLabel    = d ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.30)";
+
+  const headlineClass  = d ? "text-white" : "text-[#111111]";
+  const subtitleClass  = d ? "text-white/45" : "text-black/50";
+  const sub3rdClass    = d ? "text-white/50" : "text-black/30";
+  const logoSrc        = d ? "/logo-white.png" : "/logo-black.png";
+
   return (
     <section
       id="hero"
       className="relative min-h-screen overflow-hidden"
-      style={{ background: "linear-gradient(160deg, #222222 0%, #181818 50%, #1e1e1e 100%)" }}
+      style={{ background: sectionBg }}
     >
       {/* Background photo */}
       {hero.heroBg && (
@@ -25,93 +50,84 @@ export default function Hero() {
           style={{ backgroundImage: `url('${hero.heroBg}')` }} />
       )}
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0"
-        style={{ background: "linear-gradient(135deg, rgba(5,5,8,0.92) 0%, rgba(5,5,8,0.75) 50%, rgba(5,5,8,0.55) 100%)" }} />
+      {/* Overlay */}
+      <div className="absolute inset-0" style={{ background: overlay }} />
 
-      {/* Ground fade — deeper for smoother section transition */}
+      {/* Ground fade */}
       <div className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none z-10"
-        style={{ background: "linear-gradient(to top, #1a1a1a 0%, rgba(26,26,26,0.7) 50%, transparent 100%)" }} />
+        style={{ background: groundFade }} />
 
-      {/* ── MOBILE layout (normal document flow) ── */}
+      {/* ── MOBILE layout ── */}
       <div className="lg:hidden relative z-20 w-full pt-28 pb-24 px-5 sm:px-6 flex flex-col justify-center min-h-screen">
         <div className="max-w-2xl">
           <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-7">
-            {/* Logo + divider + headline as one unified block */}
-            <Image src="/logo-white.png" alt="Bemis E-V Charge" width={380} height={120}
+            <Image src={logoSrc} alt="Bemis E-V Charge" width={380} height={120}
               className="h-20 sm:h-24 w-auto object-contain" priority />
-            <div className="mt-5 mb-5 h-px w-12" style={{ background: "rgba(255,255,255,0.15)" }} />
-            <h1 className="text-4xl sm:text-5xl font-black tracking-tight leading-[1.18] text-white">
+            <div className="mt-5 mb-5 h-px w-12" style={{ background: dividerColor }} />
+            <h1 className={`text-4xl sm:text-5xl font-black tracking-tight leading-[1.18] ${headlineClass}`}>
               <E field="hero.headline1">{hero.headline1}</E><br />
               <E field="hero.headline2">{hero.headline2}</E><br />
-              <span className="text-white/50"><E field="hero.headline3">{hero.headline3}</E></span>
+              <span className={sub3rdClass}><E field="hero.headline3">{hero.headline3}</E></span>
             </h1>
           </motion.div>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-white/45 text-base leading-relaxed max-w-lg mb-9">
+            className={`${subtitleClass} text-base leading-relaxed max-w-lg mb-9`}>
             <E field="hero.subtitle" tag="span">{hero.subtitle}</E>
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}>
-            <button onClick={() => scrollTo("#products")} className="btn-primary text-white font-bold px-8 py-4 rounded-xl text-sm">
+            <button onClick={() => scrollTo("#products")} className="btn-primary font-bold px-8 py-4 rounded-xl text-sm">
               <E field="hero.ctaPrimary" tag="span">{hero.ctaPrimary}</E>
             </button>
           </motion.div>
         </div>
       </div>
 
-      {/* ── DESKTOP layout (absolutely positioned, editor-controlled) ── */}
+      {/* ── DESKTOP layout ── */}
       <div className="hidden lg:block absolute inset-0 z-20">
-
-        {/* Logo + headline + subtitle — unified block, positioned via layout.logo */}
         <motion.div
           initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
           className="absolute"
           style={{ left: `${layout.logo.x}%`, top: `${layout.logo.y}%`, maxWidth: "48%" }}
         >
-          {/* Logo */}
-          <Image src="/logo-white.png" alt="Bemis E-V Charge" width={380} height={120}
+          <Image src={logoSrc} alt="Bemis E-V Charge" width={380} height={120}
             className="h-28 xl:h-32 w-auto object-contain" priority />
 
-          {/* Thin separator */}
-          <div className="my-6 h-px w-14" style={{ background: "rgba(255,255,255,0.15)" }} />
+          <div className="my-6 h-px w-14" style={{ background: dividerColor }} />
 
-          {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl xl:text-6xl 2xl:text-7xl font-black tracking-tight leading-[1.18] text-white mb-5"
+            className={`text-5xl xl:text-6xl 2xl:text-7xl font-black tracking-tight leading-[1.18] ${headlineClass} mb-5`}
           >
             <E field="hero.headline1">{hero.headline1}</E><br />
             <E field="hero.headline2">{hero.headline2}</E><br />
-            <span className="text-white/50"><E field="hero.headline3">{hero.headline3}</E></span>
+            <span className={sub3rdClass}><E field="hero.headline3">{hero.headline3}</E></span>
           </motion.h1>
 
-          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.18 }}
-            className="text-white/45 text-lg leading-relaxed mb-8"
+            className={`${subtitleClass} text-lg leading-relaxed mb-8`}
           >
             <E field="hero.subtitle" tag="span">{hero.subtitle}</E>
           </motion.p>
 
-          {/* CTA Button — flows with text block */}
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.32 }}>
-            <button onClick={() => scrollTo("#products")} className="btn-primary text-white font-bold px-8 py-4 rounded-xl text-sm">
+            <button onClick={() => scrollTo("#products")} className="btn-primary font-bold px-8 py-4 rounded-xl text-sm">
               <E field="hero.ctaPrimary" tag="span">{hero.ctaPrimary}</E>
             </button>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* ── Scroll indicator ── */}
+      {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none">
-        <span className="text-[9px] font-bold tracking-[0.22em] uppercase text-white/25">Keşfet</span>
+        <span className="text-[9px] font-bold tracking-[0.22em] uppercase" style={{ color: scrollLabel }}>Keşfet</span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="w-5 h-8 rounded-full flex items-start justify-center pt-1.5"
-          style={{ border: "1px solid rgba(255,255,255,0.12)" }}
+          style={{ border: `1px solid ${scrollBorder}` }}
         >
-          <div className="w-1 h-2 rounded-full bg-white/25" />
+          <div className="w-1 h-2 rounded-full" style={{ background: scrollDot }} />
         </motion.div>
       </div>
     </section>

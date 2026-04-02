@@ -219,6 +219,39 @@ html[data-theme="light"] .btn-outline:hover {
 html[data-theme="light"] ::-webkit-scrollbar-track { background: #F0F0F0; }
 html[data-theme="light"] ::-webkit-scrollbar-thumb { background: #C0C0C0; }
 
+/* btn-primary in light mode */
+html[data-theme="light"] .btn-primary {
+  background: #111111;
+  border-color: rgba(0,0,0,0.20);
+  color: #ffffff;
+}
+html[data-theme="light"] .btn-primary:hover {
+  background: #333333;
+  border-color: rgba(0,0,0,0.35);
+}
+
+/* Fix remaining hardcoded white/dark inline-style sections that globals missed */
+html[data-theme="light"] #dealer {
+  background: linear-gradient(180deg, #f0f0f0 0%, #e8e8e8 100%) !important;
+}
+html[data-theme="light"] #hero {
+  background: linear-gradient(160deg, #f0f0f0 0%, #e8e8e8 50%, #eeeeee 100%) !important;
+}
+html[data-theme="light"] footer {
+  background: linear-gradient(180deg, #efefef 0%, #e8e8e8 50%, #e4e4e4 100%) !important;
+}
+
+/* White/opacity text becomes dark in light mode */
+html[data-theme="light"] [class*="text-white\/"] { color: #444444 !important; }
+html[data-theme="light"] .text-white { color: #111111 !important; }
+
+/* bg-[#1e1e1e] social buttons etc */
+html[data-theme="light"] [class*="bg-[#1e1e1e]"] { background-color: #ffffff !important; }
+
+/* Border white opacities */
+html[data-theme="light"] [class*="border-white\/"] { border-color: rgba(0,0,0,0.10) !important; }
+html[data-theme="light"] [class*="border-[#242424]"] { border-color: #d8d8d8 !important; }
+
 /* ── Calculator Range Slider ── */
 .calc-slider {
   -webkit-appearance: none;
