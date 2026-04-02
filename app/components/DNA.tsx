@@ -203,7 +203,7 @@ export default function DNA() {
             <div className="absolute bottom-0 left-0 right-0 h-20" style={{ background: d ? "linear-gradient(to top, rgba(12,12,14,0.90) 0%, transparent 100%)" : "linear-gradient(to top, rgba(235,235,235,0.90) 0%, transparent 100%)" }} />
 
             {/* EST. 1994 badge */}
-            <div className="absolute bottom-3 left-4 flex items-center gap-2">
+            <div className="absolute bottom-3 left-4 flex items-center gap-2" style={{ zIndex: 10 }}>
               <div className="text-2xl font-black" style={{ background: d ? "linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.35) 100%)" : "linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 <E field="dna.yearLabel" tag="span">{dna.yearLabel}</E>
               </div>

@@ -21,8 +21,8 @@ export default function Hero() {
     : "linear-gradient(160deg, #f0f0f0 0%, #e8e8e8 50%, #eeeeee 100%)";
 
   const overlay    = d
-    ? "linear-gradient(135deg, rgba(5,5,8,0.92) 0%, rgba(5,5,8,0.75) 50%, rgba(5,5,8,0.55) 100%)"
-    : "linear-gradient(135deg, rgba(240,240,240,0.80) 0%, rgba(240,240,240,0.55) 50%, rgba(240,240,240,0.25) 100%)";
+    ? "linear-gradient(135deg, rgba(5,5,8,0.72) 0%, rgba(5,5,8,0.50) 50%, rgba(5,5,8,0.30) 100%)"
+    : "linear-gradient(135deg, rgba(240,240,240,0.70) 0%, rgba(240,240,240,0.45) 50%, rgba(240,240,240,0.15) 100%)";
 
   const groundFade = d
     ? "linear-gradient(to top, #1a1a1a 0%, rgba(26,26,26,0.7) 50%, transparent 100%)"

@@ -52,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" className={`${inter.variable} scroll-smooth`} suppressHydrationWarning>
-      <body className="min-h-full antialiased bg-[#0A0A0A] text-white">
+      <body className="min-h-full antialiased bg-[#141414] text-white">
         <ThemeProvider>
           <ContentProvider>
             <EditModeProvider>
