@@ -11,15 +11,6 @@ import { useRouter } from "next/navigation";
 import E from "./E";
 import EImage from "./EImage";
 
-const certs = [
-  { label: "CE"        },
-  { label: "IP65"      },
-  { label: "IEC 61851" },
-  { label: "IEC 62196" },
-  { label: "OCPP 2.0"  },
-  { label: "ISO 9001"  },
-  { label: "TSE"       },
-];
 
 const BLUE = "#3B82F6";
 
@@ -35,8 +26,6 @@ export default function DNA() {
   const textMuted   = d ? "rgba(240,240,244,0.52)"  : "rgba(26,26,26,0.52)";
   const textFaint   = d ? "rgba(240,240,244,0.28)"  : "rgba(26,26,26,0.28)";
   const divider     = d ? "rgba(255,255,255,0.07)"  : "rgba(0,0,0,0.07)";
-  const cardBg      = d ? "rgba(255,255,255,0.04)"  : "rgba(255,255,255,0.85)";
-  const cardBorder  = d ? "rgba(255,255,255,0.09)"  : "rgba(0,0,0,0.08)";
 
   // Split sectionHeading on "—" to apply blue accent to second part
   const headingParts = dna.sectionHeading.split("—");
@@ -125,23 +114,6 @@ export default function DNA() {
               </button>
             </motion.div>
 
-            {/* Certs — below button */}
-            <motion.div initial={{ opacity: 0, y: 6 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4, delay: 0.32 }}>
-              <div className="flex flex-wrap items-center gap-1.5">
-                <span className="text-[9px] font-bold tracking-[0.18em] uppercase mr-0.5" style={{ color: textFaint }}>
-                  Sertifikalar
-                </span>
-                {certs.map((c, i) => (
-                  <span
-                    key={i}
-                    className="text-[10px] font-bold px-2 py-0.5 rounded-md"
-                    style={{ background: cardBg, border: `1px solid ${cardBorder}`, color: textMuted }}
-                  >
-                    {c.label}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
           </div>
 
           {/* Right col — factory image, stretches to match left column height */}
