@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import Navbar from "../../components/Navbar";
@@ -46,11 +46,7 @@ export default function ProductCategoryPage() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [category, setCategory] = useState<CategoryData | null>(null);
   const [loading, setLoading] = useState(true);
-  const [selectedProduct, setSelectedProduct] = useState<ProductEntry | null>(null);
-
   const id = typeof params.id === "string" ? params.id : "";
-  const searchParams = useSearchParams();
-  const autoProductId = searchParams.get("product");
 
   useEffect(() => {
     if (!id) return;
@@ -59,22 +55,10 @@ export default function ProductCategoryPage() {
       .then((data: CategoryData[]) => {
         const found = data.find((c) => c.id === id);
         setCategory(found ?? null);
-        // Eğer ?product= param'ı varsa o ürünü otomatik aç
-        if (found && autoProductId) {
-          const target = found.products.find((p) => p.id === autoProductId);
-          if (target) setSelectedProduct(target);
-        }
       })
       .catch(() => setCategory(null))
       .finally(() => setLoading(false));
-  }, [id, autoProductId]);
-
-  // Close modal on Escape
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") setSelectedProduct(null); };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, []);
+  }, [id]);
 
   const bg           = d ? "#0c0c0e" : "#f8f8fb";
   const surface      = d ? "rgba(255,255,255,0.04)" : "#ffffff";
@@ -187,7 +171,7 @@ export default function ProductCategoryPage() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: pi * 0.06 }}
-              onClick={() => setSelectedProduct(product)}
+              onClick={() => router.push(`/products/${id}/${product.id}`)}
               className="group cursor-pointer rounded-2xl overflow-hidden transition-all duration-250"
               style={{ background: surface, border: `1px solid ${surfaceBorder}` }}
               onMouseEnter={(e) => {
@@ -332,9 +316,9 @@ export default function ProductCategoryPage() {
         </motion.div>
       </div>
 
-      {/* ── Product detail modal ── */}
+      {/* ── Product detail modal (artık kullanılmıyor — ürün detay sayfasına yönlendiriliyor) ── */}
       <AnimatePresence>
-        {selectedProduct && (
+        {false && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
