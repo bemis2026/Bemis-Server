@@ -137,30 +137,6 @@ export default function Contact() {
               ))}
             </div>
 
-            {/* Social */}
-            {socialLinks.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.5 }}
-                className="flex items-center gap-3"
-              >
-                <span className="text-xs" style={{ color: textFaint }}>Sosyal Medya:</span>
-                {socialLinks.map((s, i) => (
-                  <a
-                    key={i}
-                    href={s.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110"
-                    style={{ background: iconBg, border: `1px solid ${iconBorder}`, color: textMuted }}
-                    aria-label={s.label}
-                  >
-                    <s.icon className="text-sm" />
-                  </a>
-                ))}
-              </motion.div>
-            )}
           </div>
 
           {/* ── Right — Form ── */}
