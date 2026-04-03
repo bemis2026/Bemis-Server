@@ -200,8 +200,8 @@ export default function FeaturedProducts() {
                           className="flex items-center justify-between px-3.5 py-2.5"
                           style={{ borderBottom: si < topSpecs.length - 1 ? `1px solid ${border}` : "none" }}
                         >
-                          <span className="text-xs" style={{ color: textFaint }}>{spec.label}</span>
-                          <span className="text-xs font-semibold" style={{ color: textMuted }}>{spec.value}</span>
+                          <span className="text-xs flex-shrink-0 mr-2" style={{ color: textFaint }}>{spec.label}</span>
+                          <span className="text-xs font-semibold truncate text-right" title={spec.value} style={{ color: textMuted }}>{spec.value}</span>
                         </div>
                       ))}
                     </div>
