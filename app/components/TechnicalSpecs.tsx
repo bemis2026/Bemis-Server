@@ -396,10 +396,10 @@ export default function TechnicalSpecs() {
                 <div className="divide-y divide-[#161616]">
                   {group.items.map((item, ii) => (
                     <div key={ii} className="px-4 py-2.5 flex items-start justify-between gap-3">
-                      <span className="text-white/40 text-xs leading-relaxed flex-shrink-0 max-w-[45%]">
+                      <span className="text-white/40 text-sm leading-relaxed flex-shrink-0 max-w-[45%]">
                         {item.label}
                       </span>
-                      <span className="text-white text-xs font-medium text-right leading-relaxed">
+                      <span className="text-white text-sm font-medium text-right leading-relaxed">
                         {item.value}
                       </span>
                     </div>

@@ -127,9 +127,9 @@ export default function Reviews() {
                     style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)", color: textMuted }}>
                     {review.author[0]}
                   </div>
-                  <span className="text-xs font-semibold" style={{ color: textPrimary }}>{review.author}</span>
+                  <span className="text-sm font-semibold" style={{ color: textPrimary }}>{review.author}</span>
                 </div>
-                <span className="text-xs" style={{ color: textMuted }}>{review.date}</span>
+                <span className="text-sm" style={{ color: textMuted }}>{review.date}</span>
               </div>
             </motion.div>
           ))}

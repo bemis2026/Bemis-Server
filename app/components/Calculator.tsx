@@ -578,9 +578,9 @@ export default function Calculator() {
                       </div>
                       {selectedCarData && (
                         <div className="flex flex-wrap gap-1.5 mt-2">
-                          <span className="text-sm px-2 py-0.5 rounded-full" style={{ background: `${BLUE}15`, color: BLUE, border: `1px solid ${BLUE}25` }}>Batarya: {selectedCarData.battery} kWh</span>
-                          <span className="text-sm px-2 py-0.5 rounded-full" style={{ background: `${GREEN}15`, color: GREEN, border: `1px solid ${GREEN}25` }}>AC maks: {selectedCarData.maxAcKw} kW</span>
-                          <span className="text-sm px-2 py-0.5 rounded-full" style={{ background: `${ORANGE}15`, color: ORANGE, border: `1px solid ${ORANGE}25` }}>DC maks: {selectedCarData.maxDcKw} kW</span>
+                          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: `${BLUE}15`, color: BLUE, border: `1px solid ${BLUE}25` }}>Batarya: {selectedCarData.battery} kWh</span>
+                          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: `${GREEN}15`, color: GREEN, border: `1px solid ${GREEN}25` }}>AC maks: {selectedCarData.maxAcKw} kW</span>
+                          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: `${ORANGE}15`, color: ORANGE, border: `1px solid ${ORANGE}25` }}>DC maks: {selectedCarData.maxDcKw} kW</span>
                         </div>
                       )}
                     </div>
@@ -609,7 +609,7 @@ export default function Calculator() {
                         <div className="rounded-xl px-3 py-2.5 flex items-center justify-between"
                           style={{ background: d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.04)", border: `1px solid ${accentColor}30` }}>
                           <span className="text-xl font-black" style={{ color: accentColor }}>{selectedCarData.battery} kWh</span>
-                          <span className="text-sm font-medium" style={{ color: textMuted }}>🔒 araç verisi</span>
+                          <span className="text-xs font-medium" style={{ color: textMuted }}>🔒 araç verisi</span>
                         </div>
                       </div>
                     ) : (
@@ -815,7 +815,7 @@ export default function Calculator() {
                     ].map((stat, i) => (
                       <div key={i} className="rounded-xl py-2 px-1.5 text-center"
                         style={{ background: d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)", border: d ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(0,0,0,0.07)" }}>
-                        <p className="text-sm mb-0.5" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.38)" }}>{stat.label}</p>
+                        <p className="text-xs mb-0.5" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.38)" }}>{stat.label}</p>
                         <p className="text-sm font-black" style={{ color: stat.color }}>{stat.value}</p>
                       </div>
                     ))}
@@ -826,7 +826,7 @@ export default function Calculator() {
                     style={{ background: `${GREEN}12`, border: `1px solid ${GREEN}28` }}>
                     <div>
                       <p className="text-sm font-bold uppercase tracking-wider" style={{ color: GREEN }}>Elektrik Maliyeti</p>
-                      <p className="text-sm mt-0.5" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.38)" }}>
+                      <p className="text-xs mt-0.5" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.38)" }}>
                         {chargeCalc.energyNeeded.toFixed(1)} kWh × {chargeElecPrice.toFixed(2)} ₺/kWh
                       </p>
                     </div>
@@ -835,7 +835,7 @@ export default function Calculator() {
 
                   {/* Tariff selector */}
                   <div className="mx-4 mb-4">
-                    <p className="text-sm font-bold uppercase tracking-wider mb-1.5" style={{ color: d ? "rgba(255,255,255,0.28)" : "rgba(0,0,0,0.30)" }}>
+                    <p className="text-xs font-bold uppercase tracking-wider mb-1.5" style={{ color: d ? "rgba(255,255,255,0.28)" : "rgba(0,0,0,0.30)" }}>
                       Elektrik Tarifesi
                     </p>
                     <div className="grid grid-cols-2 gap-1 mb-2.5">
@@ -850,7 +850,7 @@ export default function Calculator() {
                             }}
                           >
                             <span className="text-sm font-bold block leading-tight" style={{ color: isActive ? GREEN : d ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.55)" }}>{t.label}</span>
-                            <span className="text-sm block leading-tight mt-0.5" style={{ color: isActive ? GREEN : d ? "rgba(255,255,255,0.22)" : "rgba(0,0,0,0.25)" }}>{t.desc}</span>
+                            <span className="text-xs block leading-tight mt-0.5" style={{ color: isActive ? GREEN : d ? "rgba(255,255,255,0.22)" : "rgba(0,0,0,0.25)" }}>{t.desc}</span>
                           </button>
                         );
                       })}
@@ -859,17 +859,17 @@ export default function Calculator() {
                       onChange={(e) => setChargeElecPrice(Number(e.target.value))}
                       className="calc-slider w-full" style={sliderStyle(chargeElecPrice, 1, 20, GREEN)} />
                     <div className="flex justify-between mt-1">
-                      <span className="text-sm" style={{ color: d ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.28)" }}>1 ₺/kWh</span>
-                      <span className="text-sm" style={{ color: d ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.28)" }}>20 ₺/kWh</span>
+                      <span className="text-xs" style={{ color: d ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.28)" }}>1 ₺/kWh</span>
+                      <span className="text-xs" style={{ color: d ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.28)" }}>20 ₺/kWh</span>
                     </div>
                   </div>
 
                   {/* Warnings */}
                   {selectedCarData && chargeMode === "dc" && dcPower > selectedCarData.maxDcKw && (
-                    <p className="text-sm pb-4 text-center" style={{ color: ORANGE }}>⚡ {selectedCarData.maxDcKw} kW&apos;e kısıtlandı</p>
+                    <p className="text-xs pb-4 text-center" style={{ color: ORANGE }}>⚡ {selectedCarData.maxDcKw} kW&apos;e kısıtlandı</p>
                   )}
                   {selectedCarData && chargeMode === "ac" && chargerPower > selectedCarData.maxAcKw && (
-                    <p className="text-sm pb-4 text-center" style={{ color: BLUE }}>Araç {selectedCarData.maxAcKw} kW&apos;e kısıtlandı</p>
+                    <p className="text-xs pb-4 text-center" style={{ color: BLUE }}>Araç {selectedCarData.maxAcKw} kW&apos;e kısıtlandı</p>
                   )}
                 </motion.div>
               ) : (
@@ -893,7 +893,7 @@ export default function Calculator() {
                       style={{ background: `${GREEN}18`, border: `1px solid ${GREEN}30` }}>
                       <RiLeafLine style={{ fontSize: 28, color: GREEN }} />
                     </div>
-                    <p className="text-sm font-bold uppercase tracking-widest mb-1" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.40)" }}>
+                    <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.40)" }}>
                       Yıllık Yakıt Tasarrufu
                     </p>
                     <motion.p
@@ -907,7 +907,7 @@ export default function Calculator() {
                         ? `${fmt(savingsCalc.annualSavings)} ₺`
                         : `−${fmt(Math.abs(savingsCalc.annualSavings))} ₺`}
                     </motion.p>
-                    <p className="text-sm mt-1" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.38)" }}>yakıt vs. elektrik farkı</p>
+                    <p className="text-xs mt-1" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.38)" }}>yakıt vs. elektrik farkı</p>
                   </div>
 
                   {/* Comparison bars */}
@@ -942,7 +942,7 @@ export default function Calculator() {
                     ].map((item, i) => (
                       <div key={i} className="rounded-xl py-3 px-3 text-center"
                         style={{ background: d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)", border: d ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(0,0,0,0.07)" }}>
-                        <p className="text-sm mb-1" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.38)" }}>{item.label}</p>
+                        <p className="text-xs mb-1" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.38)" }}>{item.label}</p>
                         <p className="text-sm font-black" style={{ color: item.color }}>{item.value}</p>
                       </div>
                     ))}
@@ -952,11 +952,11 @@ export default function Calculator() {
                   <div className="mx-5 mb-5 rounded-xl grid grid-cols-2 overflow-hidden"
                     style={{ border: `1px solid ${d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}` }}>
                     <div className="px-4 py-3.5 text-center" style={{ borderRight: `1px solid ${d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}`, background: d ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.7)" }}>
-                      <p className="text-sm uppercase tracking-wide mb-1" style={{ color: d ? "rgba(255,255,255,0.38)" : "rgba(0,0,0,0.40)" }}>EV / yıl</p>
+                      <p className="text-xs uppercase tracking-wide mb-1" style={{ color: d ? "rgba(255,255,255,0.38)" : "rgba(0,0,0,0.40)" }}>EV / yıl</p>
                       <p className="text-base font-black" style={{ color: BLUE }}>{fmt(savingsCalc.annualEvCost)} ₺</p>
                     </div>
                     <div className="px-4 py-3.5 text-center" style={{ background: d ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.7)" }}>
-                      <p className="text-sm uppercase tracking-wide mb-1" style={{ color: d ? "rgba(255,255,255,0.38)" : "rgba(0,0,0,0.40)" }}>Yakıt / yıl</p>
+                      <p className="text-xs uppercase tracking-wide mb-1" style={{ color: d ? "rgba(255,255,255,0.38)" : "rgba(0,0,0,0.40)" }}>Yakıt / yıl</p>
                       <p className="text-base font-black" style={{ color: "#F59E0B" }}>{fmt(savingsCalc.annualFuelCost)} ₺</p>
                     </div>
                   </div>
@@ -968,7 +968,7 @@ export default function Calculator() {
         </div>{/* end 2-col grid */}
 
         <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center text-sm mt-6" style={{ color: textMuted }}>
+          className="text-center text-xs mt-6" style={{ color: textMuted }}>
           Hesaplamalar tahmini değerlerdir. Gerçek sonuçlar araç modeli, kullanım alışkanlıkları ve güncel tarife fiyatlarına göre farklılık gösterebilir.
         </motion.p>
       </div>

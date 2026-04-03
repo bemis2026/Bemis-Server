@@ -170,13 +170,13 @@ export default function DealerNetwork() {
                 </div>
                 {activeDealers.map((d, i) => (
                   <div key={i} className="border-t border-white/6 pt-3 first:border-0 first:pt-0">
-                    <p className="text-white/80 text-xs font-semibold mb-1">{d.name}</p>
-                    <p className="text-white/40 text-xs flex items-start gap-1 mb-1">
+                    <p className="text-white/80 text-sm font-semibold mb-1">{d.name}</p>
+                    <p className="text-white/40 text-sm flex items-start gap-1 mb-1">
                       <HiLocationMarker className="flex-shrink-0 mt-0.5" />
                       {d.address}
                     </p>
                     {d.phone && (
-                      <a href={`tel:${d.phone.replace(/[^\d+]/g, "")}`} className="text-white/40 text-xs flex items-center gap-1 hover:text-white/70 transition-colors">
+                      <a href={`tel:${d.phone.replace(/[^\d+]/g, "")}`} className="text-white/40 text-sm flex items-center gap-1 hover:text-white/70 transition-colors">
                         <HiPhone className="flex-shrink-0" />
                         {d.phone}
                       </a>
