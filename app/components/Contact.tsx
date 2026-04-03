@@ -11,7 +11,6 @@ import { RiLinkedinFill, RiInstagramLine } from "react-icons/ri";
 const topics = [
   { value: "product-info",    label: "Ürün Bilgisi" },
   { value: "price-quote",     label: "Fiyat Teklifi" },
-  { value: "dealer-apply",    label: "Bayilik Başvurusu" },
   { value: "corporate-sales", label: "Kurumsal Satış" },
   { value: "export",          label: "İhracat / Export" },
   { value: "technical",       label: "Teknik Destek" },

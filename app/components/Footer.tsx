@@ -28,7 +28,6 @@ const companyLinks = [
 
 const partnerLinks = [
   { label: "Bayi Bul",           href: "#dealer",  scroll: true },
-  { label: "Bayilik Başvurusu",  href: "#dealer",  scroll: true },
   { label: "Kurumsal Satış",     href: "#contact", scroll: true },
   { label: "İhracat / Export",   href: "#contact", scroll: true },
   { label: "İş Ortaklığı",       href: "#contact", scroll: true },
@@ -154,20 +153,6 @@ export default function Footer() {
               ))}
             </div>
 
-            {/* B2B note */}
-            <div className="rounded-xl px-4 py-3 max-w-xs" style={{ border: `1px solid ${b2bBorder}` }}>
-              <p className="text-xs leading-relaxed" style={{ color: textFaint }}>
-                <E field="footer.b2bText" tag="span">{footerContent.b2bText}</E>{" "}
-                <button
-                  onClick={() => router.push("/b2b")}
-                  className="underline transition-colors"
-                  style={{ color: textMuted }}
-                >
-                  <E field="footer.b2bLinkText" tag="span">{footerContent.b2bLinkText}</E>
-                </button>{" "}
-                <E field="footer.b2bSuffix" tag="span">{footerContent.b2bSuffix}</E>
-              </p>
-            </div>
           </div>
 
           {/* Nav columns */}
