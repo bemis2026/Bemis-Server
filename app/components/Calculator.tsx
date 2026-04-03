@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { RiFlashlightLine, RiLeafLine, RiCalculatorLine, RiCarLine } from "react-icons/ri";
+import { RiFlashlightLine, RiLeafLine, RiCalculatorLine, RiCarLine, RiBatteryChargeLine, RiGasStationLine, RiBarChartLine } from "react-icons/ri";
 import { useTheme } from "../context/ThemeContext";
 import Image from "next/image";
 
@@ -162,6 +162,84 @@ const TARIFF_PRESETS = [
   { id: "dc-std", label: "DC Hızlı Şarj",                 value: 14.5, desc: "~13-16 ₺/kWh · CCS2/CHAdeMO" },
   { id: "night",  label: "Gece Tarifesi (TEDAŞ)",         value: 3.8,  desc: "~3-4 ₺/kWh · 22:00–06:00" },
 ];
+
+// ── Calculator banner sub-component ──────────────────────────────────────────
+
+interface CalcBannerProps {
+  d: boolean; accent: string; tab: "charge" | "savings";
+  border: string; textMuted: string;
+}
+
+function CalcBanner({ d, accent, tab, border, textMuted }: CalcBannerProps) {
+  const logoSrc = d ? "/logo-white.png" : "/logo-black.png";
+  const faint = d ? "rgba(255,255,255,0.22)" : "rgba(0,0,0,0.25)";
+
+  const chargeFeatures = [
+    { Icon: RiFlashlightLine,    label: "AC & DC",   sub: "Şarj Modları"  },
+    { Icon: RiBatteryChargeLine, label: "Şarj Süresi", sub: "Hesaplama"   },
+    { Icon: RiCarLine,           label: "50+ Model", sub: "EV Araç"       },
+  ];
+  const savingsFeatures = [
+    { Icon: RiLeafLine,      label: "CO₂",      sub: "Tasarrufu"  },
+    { Icon: RiBarChartLine,  label: "Tasarruf", sub: "Analizi"    },
+    { Icon: RiGasStationLine, label: "Yakıt vs", sub: "Elektrik"  },
+  ];
+  const features = tab === "charge" ? chargeFeatures : savingsFeatures;
+
+  return (
+    <div
+      className="flex items-center gap-3 mt-4 pt-4"
+      style={{ borderTop: `1px solid ${border}` }}
+    >
+      {/* Logo — solda küçük */}
+      <Image
+        src={logoSrc} alt="Bemis E-V Charge" width={96} height={32}
+        className="h-7 w-auto object-contain flex-shrink-0"
+        style={{ opacity: 0.38 }}
+      />
+
+      {/* Dikey ayırıcı */}
+      <div className="w-px self-stretch flex-shrink-0" style={{ background: border }} />
+
+      {/* Animasyonlu ikon rozetleri */}
+      <div className="flex items-center justify-around flex-1">
+        {features.map(({ Icon, label, sub }, i) => (
+          <motion.div
+            key={`${tab}-${i}`}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: i * 0.1 }}
+            className="flex flex-col items-center gap-1.5"
+          >
+            {/* İkon + pulse halkası */}
+            <div className="relative flex items-center justify-center" style={{ width: 36, height: 36 }}>
+              {/* Dış pulse halkası */}
+              <motion.div
+                className="absolute inset-0 rounded-full"
+                style={{ border: `1px solid ${accent}`, borderRadius: "50%" }}
+                animate={{ scale: [1, 1.55], opacity: [0.55, 0] }}
+                transition={{ duration: 2.2, repeat: Infinity, delay: i * 0.55, ease: "easeOut" }}
+              />
+              {/* İkon zemin */}
+              <motion.div
+                className="absolute inset-0 rounded-full"
+                style={{ background: `${accent}18`, border: `1px solid ${accent}35` }}
+                animate={{ scale: [1, 1.06, 1] }}
+                transition={{ duration: 2.8, repeat: Infinity, delay: i * 0.4, ease: "easeInOut" }}
+              />
+              <Icon style={{ fontSize: 15, color: accent, position: "relative", zIndex: 1 }} />
+            </div>
+            {/* Yazı */}
+            <div className="text-center">
+              <p className="text-[11px] font-bold leading-tight" style={{ color: textMuted }}>{label}</p>
+              <p className="text-[9px] leading-tight mt-0.5" style={{ color: faint }}>{sub}</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 // ── Tachometer needle sub-component ──────────────────────────────────────────
 
@@ -580,10 +658,7 @@ export default function Calculator() {
                       </motion.div>
                     </AnimatePresence>
 
-                    {/* Logo */}
-                    <div className="flex justify-center mt-4 pt-4" style={{ borderTop: `1px solid ${border}` }}>
-                      <Image src={d ? "/logo-white.png" : "/logo-black.png"} alt="Bemis E-V Charge" width={160} height={52} className="h-10 w-auto object-contain opacity-40" />
-                    </div>
+                    <CalcBanner d={d} accent={accentColor} tab="charge" border={border} textMuted={textMuted} />
 
                   </div>
                 </motion.div>
@@ -610,10 +685,7 @@ export default function Calculator() {
                     <Slider label="Akaryakıt Fiyatı" value={fuelPrice} min={20} max={70} step={0.5} unit=" ₺/L"
                       accent={GREEN} textMuted={textMuted} textPrimary={textPrimary} onChange={setFuelPrice} />
 
-                    {/* Logo */}
-                    <div className="flex justify-center mt-5 pt-4" style={{ borderTop: `1px solid ${border}` }}>
-                      <Image src={d ? "/logo-white.png" : "/logo-black.png"} alt="Bemis E-V Charge" width={160} height={52} className="h-10 w-auto object-contain opacity-40" />
-                    </div>
+                    <CalcBanner d={d} accent={GREEN} tab="savings" border={border} textMuted={textMuted} />
                   </div>
                 </motion.div>
               )}
