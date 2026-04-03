@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { writeFileSync, mkdirSync } from "fs";
-import path from "path";
+import { put } from "@vercel/blob";
 
 function isAuthed(req: NextRequest) {
   return req.cookies.get("admin_auth")?.value === "1";
@@ -22,18 +21,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Desteklenmeyen dosya türü" }, { status: 400 });
     }
 
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
-    const uploadDir = path.join(process.cwd(), "public", folder);
-    mkdirSync(uploadDir, { recursive: true });
-
     const safeName = `${Date.now()}-${file.name.replace(/[^a-z0-9.\-_]/gi, "_")}`;
-    const filePath = path.join(uploadDir, safeName);
-    writeFileSync(filePath, buffer);
+    const blob = await put(`${folder}/${safeName}`, file, { access: "public" });
 
-    return NextResponse.json({ url: `/${folder}/${safeName}` });
-  } catch {
+    return NextResponse.json({ url: blob.url });
+  } catch (e) {
+    console.error("upload error:", e);
     return NextResponse.json({ error: "Yükleme hatası" }, { status: 500 });
   }
 }
