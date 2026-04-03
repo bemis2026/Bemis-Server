@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import Navbar from "../../components/Navbar";
 import ContactBar from "../../components/ContactBar";
@@ -17,7 +17,7 @@ import {
   RiToolsFill,
   RiGasStationLine,
 } from "react-icons/ri";
-import { HiArrowLeft, HiPhone, HiMail, HiX } from "react-icons/hi";
+import { HiArrowLeft, HiPhone, HiMail } from "react-icons/hi";
 
 type SpecItem = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
@@ -316,141 +316,6 @@ export default function ProductCategoryPage() {
         </motion.div>
       </div>
 
-      {/* ── Product detail modal (artık kullanılmıyor — ürün detay sayfasına yönlendiriliyor) ── */}
-      <AnimatePresence>
-        {false && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 flex items-end lg:items-center justify-center p-0 lg:p-6"
-            style={{ background: "rgba(0,0,0,0.72)", backdropFilter: "blur(10px)" }}
-            onClick={() => setSelectedProduct(null)}
-          >
-            <motion.div
-              initial={{ y: 60, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 40, opacity: 0 }}
-              transition={{ duration: 0.28, ease: "easeOut" }}
-              className="w-full lg:max-w-2xl rounded-t-3xl lg:rounded-3xl overflow-y-auto"
-              style={{
-                background: d ? "#141416" : "#ffffff",
-                border: d ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(0,0,0,0.08)",
-                maxHeight: "88vh",
-              }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Modal header */}
-              <div
-                className="sticky top-0 z-10 flex items-start justify-between p-5 sm:p-6"
-                style={{
-                  background: d ? "#141416" : "#ffffff",
-                  borderBottom: `1px solid ${divider}`,
-                }}
-              >
-                <div className="flex items-start gap-3">
-                  <div
-                    className="flex-shrink-0 flex items-center justify-center rounded-xl mt-0.5"
-                    style={{ width: 40, height: 40, background: `${category.accent}18`, border: `1px solid ${category.accent}30` }}
-                  >
-                    <Icon style={{ fontSize: 20, color: category.accent }} />
-                  </div>
-                  <div>
-                    <h2 className="font-bold text-base leading-tight" style={{ color: textPrimary }}>
-                      {selectedProduct.name}
-                    </h2>
-                    {selectedProduct.badge && (
-                      <span
-                        className="inline-block text-[10px] font-bold px-2 py-0.5 rounded-full mt-1"
-                        style={{ background: `${category.accent}18`, color: category.accent, border: `1px solid ${category.accent}30` }}
-                      >
-                        {selectedProduct.badge}
-                      </span>
-                    )}
-                    {selectedProduct.subtitle && (
-                      <p className="text-xs mt-0.5" style={{ color: textFaint }}>{selectedProduct.subtitle}</p>
-                    )}
-                  </div>
-                </div>
-                <button
-                  onClick={() => setSelectedProduct(null)}
-                  className="flex-shrink-0 ml-3 p-2 rounded-xl transition-colors"
-                  style={{
-                    background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)",
-                    color: textMuted,
-                  }}
-                >
-                  <HiX size={16} />
-                </button>
-              </div>
-
-              <div className="p-5 sm:p-6">
-                {/* Product image */}
-                {selectedProduct.image && (
-                  <div className="rounded-2xl overflow-hidden mb-5" style={{ height: 200 }}>
-                    <img
-                      src={selectedProduct.image}
-                      alt={selectedProduct.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                )}
-
-                {/* Description */}
-                <p className="text-sm leading-relaxed mb-6" style={{ color: textMuted }}>
-                  {selectedProduct.description}
-                </p>
-
-                {/* Spec groups */}
-                <div className="space-y-4">
-                  {selectedProduct.specs.map((group, gi) => (
-                    <div key={gi} className="rounded-2xl overflow-hidden" style={{ border: `1px solid ${divider}` }}>
-                      <div
-                        className="px-4 py-2.5 flex items-center gap-2"
-                        style={{ background: groupHeaderBg, borderBottom: `1px solid ${divider}` }}
-                      >
-                        <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: category.accent }} />
-                        <span className="text-xs font-bold" style={{ color: textPrimary }}>{group.group}</span>
-                      </div>
-                      <div>
-                        {group.items.map((item, ii) => (
-                          <div
-                            key={ii}
-                            className="px-4 py-2.5 flex items-center justify-between gap-4"
-                            style={{ borderBottom: ii < group.items.length - 1 ? `1px solid ${divider}` : "none" }}
-                          >
-                            <span className="text-xs" style={{ color: textFaint }}>{item.label}</span>
-                            <span className="text-xs font-semibold text-right" style={{ color: textMuted }}>{item.value}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* CTA */}
-                <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                  <button
-                    onClick={() => { setSelectedProduct(null); router.push("/#contact"); }}
-                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold"
-                    style={{ background: category.accent, color: "#fff" }}
-                  >
-                    <HiMail size={15} /> Fiyat Teklifi Al
-                  </button>
-                  <button
-                    onClick={() => setSelectedProduct(null)}
-                    className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-medium"
-                    style={{ background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)", color: textMuted, border: `1px solid ${divider}` }}
-                  >
-                    Kapat
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
       <ContactBar />
     </div>
   );

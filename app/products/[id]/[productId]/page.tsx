@@ -70,7 +70,7 @@ export default function ProductDetailPage() {
   return (
     <div style={{ background: bg, minHeight: "100vh" }}>
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
-      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
+      <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
       {/* Back bar */}
       <div
