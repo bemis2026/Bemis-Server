@@ -115,9 +115,9 @@ export default function Footer() {
               <Image
                 src={logoSrc}
                 alt="Bemis E-V Charge"
-                width={130}
-                height={42}
-                className="h-8 w-auto object-contain"
+                width={220}
+                height={72}
+                className="h-14 w-auto object-contain"
               />
             </motion.div>
 

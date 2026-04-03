@@ -4,6 +4,7 @@ import { useState, useMemo, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { RiFlashlightLine, RiLeafLine, RiCalculatorLine, RiCarLine } from "react-icons/ri";
 import { useTheme } from "../context/ThemeContext";
+import Image from "next/image";
 
 // ── EV model database ────────────────────────────────────────────────────────
 
@@ -579,6 +580,11 @@ export default function Calculator() {
                       </motion.div>
                     </AnimatePresence>
 
+                    {/* Logo */}
+                    <div className="flex justify-center mt-4 pt-4" style={{ borderTop: `1px solid ${border}` }}>
+                      <Image src={d ? "/logo-white.png" : "/logo-black.png"} alt="Bemis E-V Charge" width={160} height={52} className="h-10 w-auto object-contain opacity-40" />
+                    </div>
+
                   </div>
                 </motion.div>
               ) : (
@@ -603,6 +609,11 @@ export default function Calculator() {
                       accent={GREEN} textMuted={textMuted} textPrimary={textPrimary} onChange={setFuelConsumption} />
                     <Slider label="Akaryakıt Fiyatı" value={fuelPrice} min={20} max={70} step={0.5} unit=" ₺/L"
                       accent={GREEN} textMuted={textMuted} textPrimary={textPrimary} onChange={setFuelPrice} />
+
+                    {/* Logo */}
+                    <div className="flex justify-center mt-5 pt-4" style={{ borderTop: `1px solid ${border}` }}>
+                      <Image src={d ? "/logo-white.png" : "/logo-black.png"} alt="Bemis E-V Charge" width={160} height={52} className="h-10 w-auto object-contain opacity-40" />
+                    </div>
                   </div>
                 </motion.div>
               )}
