@@ -163,28 +163,28 @@ export default function FeaturedProducts() {
                   {/* Badge row */}
                   <div className="flex items-center justify-between mb-4">
                     <span
-                      className="text-[10px] font-bold px-2.5 py-0.5 rounded-full"
+                      className="text-xs font-bold px-2.5 py-0.5 rounded-full"
                       style={{ background: `${item.accent}18`, color: item.accent, border: `1px solid ${item.accent}28` }}
                     >
                       {item.badge}
                     </span>
                     {item.prod?.badge && (
-                      <span className="text-[10px] font-semibold" style={{ color: textFaint }}>
+                      <span className="text-xs font-semibold" style={{ color: textFaint }}>
                         {item.prod.badge}
                       </span>
                     )}
                   </div>
 
                   {/* Product name */}
-                  <h3 className="text-base font-bold mb-1" style={{ color: textPrimary }}>
+                  <h3 className="text-lg font-bold mb-1" style={{ color: textPrimary }}>
                     {item.prod?.name ?? item.productId}
                   </h3>
-                  <p className="text-xs mb-1" style={{ color: item.accent }}>
+                  <p className="text-sm mb-1" style={{ color: item.accent }}>
                     {item.cat?.name}
                   </p>
 
                   {/* Highlight */}
-                  <p className="text-xs leading-relaxed mb-5" style={{ color: textMuted }}>
+                  <p className="text-sm leading-relaxed mb-5" style={{ color: textMuted }}>
                     {item.highlight}
                   </p>
 
@@ -200,8 +200,8 @@ export default function FeaturedProducts() {
                           className="flex items-center justify-between px-3.5 py-2.5"
                           style={{ borderBottom: si < topSpecs.length - 1 ? `1px solid ${border}` : "none" }}
                         >
-                          <span className="text-[11px]" style={{ color: textFaint }}>{spec.label}</span>
-                          <span className="text-[11px] font-semibold" style={{ color: textMuted }}>{spec.value}</span>
+                          <span className="text-xs" style={{ color: textFaint }}>{spec.label}</span>
+                          <span className="text-xs font-semibold" style={{ color: textMuted }}>{spec.value}</span>
                         </div>
                       ))}
                     </div>
@@ -209,7 +209,7 @@ export default function FeaturedProducts() {
 
                   {/* CTA */}
                   <div
-                    className="flex items-center gap-1.5 text-xs font-semibold"
+                    className="flex items-center gap-1.5 text-sm font-semibold"
                     style={{
                       color: item.accent,
                       transform: isHov ? "translateX(3px)" : "translateX(0)",
