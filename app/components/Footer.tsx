@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { RiLinkedinFill, RiInstagramLine, RiTwitterXLine } from "react-icons/ri";
+import { RiLinkedinFill, RiInstagramLine } from "react-icons/ri";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useContent } from "../context/ContentContext";
@@ -73,9 +73,8 @@ export default function Footer() {
   const logoSrc     = d ? "/logo-white.png" : "/logo-black.png";
 
   const socials = [
-    { icon: RiLinkedinFill,  label: "LinkedIn",    href: social.linkedin },
-    { icon: RiInstagramLine, label: "Instagram",   href: social.instagram },
-    { icon: RiTwitterXLine,  label: "X / Twitter", href: social.twitter },
+    { icon: RiLinkedinFill,  label: "LinkedIn",  href: social.linkedin },
+    { icon: RiInstagramLine, label: "Instagram", href: social.instagram },
   ];
 
   const handleClick = (href: string, scroll: boolean) => {
