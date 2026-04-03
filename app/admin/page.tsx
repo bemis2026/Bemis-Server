@@ -536,6 +536,32 @@ export default function AdminPage() {
     }));
   };
 
+  const addProduct = () => {
+    if (!selCat) return;
+    const ts = Date.now();
+    const newId = `${selCat}-product-${ts}`;
+    const newProd: ProductEntry = {
+      id: newId,
+      name: "Yeni Ürün",
+      subtitle: "",
+      badge: null,
+      description: "",
+      specs: [{ group: "Genel", items: [{ label: "Özellik", value: "-" }] }],
+    };
+    setProducts((prev) => prev.map((cat) =>
+      cat.id !== selCat ? cat : { ...cat, products: [...cat.products, newProd] }
+    ));
+    setSelProd(newId);
+  };
+
+  const removeProduct = (prodId: string) => {
+    if (!confirm("Bu ürünü silmek istediğinize emin misiniz?")) return;
+    setProducts((prev) => prev.map((cat) =>
+      cat.id !== selCat ? cat : { ...cat, products: cat.products.filter((p) => p.id !== prodId) }
+    ));
+    if (selProd === prodId) setSelProd("");
+  };
+
   const updateGroupName = (gi: number, name: string) => {
     setProducts((prev) => prev.map((cat) => cat.id !== selCat ? cat : {
       ...cat,
@@ -1046,16 +1072,31 @@ export default function AdminPage() {
                                 {/* Product tabs */}
                                 <div className="flex flex-wrap gap-2 mb-5">
                                   {currentCat.products.map((p) => (
-                                    <button key={p.id} onClick={() => setSelProd(p.id)}
-                                      className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${
-                                        selProd === p.id
-                                          ? "border-white/25 bg-white/10 text-white"
-                                          : "border-white/8 text-white/40 hover:text-white/70 hover:bg-white/5"
-                                      }`}
-                                    >
-                                      {p.name}
-                                    </button>
+                                    <div key={p.id} className="relative group/ptab">
+                                      <button onClick={() => setSelProd(p.id)}
+                                        className={`px-3 py-1.5 pr-7 rounded-lg text-xs font-medium border transition-all ${
+                                          selProd === p.id
+                                            ? "border-white/25 bg-white/10 text-white"
+                                            : "border-white/8 text-white/40 hover:text-white/70 hover:bg-white/5"
+                                        }`}
+                                      >
+                                        {p.name}
+                                      </button>
+                                      <button
+                                        onClick={() => removeProduct(p.id)}
+                                        className="absolute right-1.5 top-1/2 -translate-y-1/2 text-white/20 hover:text-red-400 transition-colors opacity-0 group-hover/ptab:opacity-100"
+                                        title="Ürünü sil"
+                                      >
+                                        <HiOutlineTrash size={11} />
+                                      </button>
+                                    </div>
                                   ))}
+                                  <button
+                                    onClick={addProduct}
+                                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border border-dashed border-white/20 text-white/40 hover:text-white hover:border-white/40 transition-all"
+                                  >
+                                    <HiOutlinePlus size={12} /> Ürün Ekle
+                                  </button>
                                 </div>
 
                                 {!selProd && (
