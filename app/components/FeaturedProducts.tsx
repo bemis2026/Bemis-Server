@@ -114,7 +114,7 @@ export default function FeaturedProducts() {
                 transition={{ duration: 0.55, delay: 0.1 + i * 0.1 }}
                 onMouseEnter={() => setHovered(key)}
                 onMouseLeave={() => setHovered(null)}
-                onClick={() => router.push(`/products/${item.categoryId}`)}
+                onClick={() => router.push(`/products/${item.categoryId}?product=${item.productId}`)}
                 className="relative rounded-2xl overflow-hidden cursor-pointer"
                 style={{
                   background: surface,

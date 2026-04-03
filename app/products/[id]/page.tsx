@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import Navbar from "../../components/Navbar";
@@ -49,6 +49,8 @@ export default function ProductCategoryPage() {
   const [selectedProduct, setSelectedProduct] = useState<ProductEntry | null>(null);
 
   const id = typeof params.id === "string" ? params.id : "";
+  const searchParams = useSearchParams();
+  const autoProductId = searchParams.get("product");
 
   useEffect(() => {
     if (!id) return;
@@ -57,10 +59,15 @@ export default function ProductCategoryPage() {
       .then((data: CategoryData[]) => {
         const found = data.find((c) => c.id === id);
         setCategory(found ?? null);
+        // Eğer ?product= param'ı varsa o ürünü otomatik aç
+        if (found && autoProductId) {
+          const target = found.products.find((p) => p.id === autoProductId);
+          if (target) setSelectedProduct(target);
+        }
       })
       .catch(() => setCategory(null))
       .finally(() => setLoading(false));
-  }, [id]);
+  }, [id, autoProductId]);
 
   // Close modal on Escape
   useEffect(() => {
