@@ -50,6 +50,11 @@ export default function PropertiesPanel() {
   const currentValue = getByPath(content, selectedElement.field) ?? "";
   const currentTextStyle: { color?: string; fontSize?: string } = (textStyles as any)?.[selectedElement.field] ?? {};
 
+  const updateStyle = (prop: "color" | "fontSize", value: string) => {
+    updateTextStyle(selectedElement.field, prop, value);
+    markPending(selectedElement.field);
+  };
+
   const update = (value: string) => {
     liveUpdate(selectedElement.field, value);
     markPending(selectedElement.field);
@@ -156,7 +161,7 @@ export default function PropertiesPanel() {
                     <span>Renk</span>
                     {currentTextStyle.color && (
                       <button
-                        onClick={() => updateTextStyle(selectedElement.field, "color", "")}
+                        onClick={() => updateStyle("color", "")}
                         style={{ background: "none", border: "none", color: "rgba(255,255,255,0.3)", fontSize: 10, cursor: "pointer", padding: 0 }}
                       >
                         Sıfırla
@@ -168,13 +173,13 @@ export default function PropertiesPanel() {
                     <input
                       type="color"
                       value={currentTextStyle.color || "#ffffff"}
-                      onChange={e => updateTextStyle(selectedElement.field, "color", e.target.value)}
+                      onChange={e => updateStyle("color", e.target.value)}
                       style={{ width: 32, height: 28, border: "none", cursor: "pointer", background: "none", flexShrink: 0 }}
                     />
                     <input
                       type="text"
                       value={currentTextStyle.color || ""}
-                      onChange={e => updateTextStyle(selectedElement.field, "color", e.target.value)}
+                      onChange={e => updateStyle("color", e.target.value)}
                       placeholder="varsayılan"
                       style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 6, padding: "5px 8px", color: "#e2e8f0", fontSize: 11, outline: "none", flex: 1 }}
                     />
@@ -183,7 +188,7 @@ export default function PropertiesPanel() {
                     {TEXT_COLOR_PRESETS.map(c => (
                       <button
                         key={c}
-                        onClick={() => updateTextStyle(selectedElement.field, "color", c)}
+                        onClick={() => updateStyle("color", c)}
                         title={c}
                         style={{
                           width: 20, height: 20, borderRadius: 4, background: c, padding: 0, cursor: "pointer",
@@ -201,7 +206,7 @@ export default function PropertiesPanel() {
                     <span>Boyut (px)</span>
                     {currentTextStyle.fontSize && (
                       <button
-                        onClick={() => updateTextStyle(selectedElement.field, "fontSize", "")}
+                        onClick={() => updateStyle("fontSize", "")}
                         style={{ background: "none", border: "none", color: "rgba(255,255,255,0.3)", fontSize: 10, cursor: "pointer", padding: 0 }}
                       >
                         Sıfırla
@@ -212,7 +217,7 @@ export default function PropertiesPanel() {
                     {FONT_SIZE_PRESETS.map(({ label, value }) => (
                       <button
                         key={value}
-                        onClick={() => updateTextStyle(selectedElement.field, "fontSize", value)}
+                        onClick={() => updateStyle("fontSize", value)}
                         style={{
                           padding: "3px 8px", borderRadius: 5, fontSize: 10, fontWeight: 600, cursor: "pointer",
                           background: currentTextStyle.fontSize === value ? "#3B82F6" : "rgba(255,255,255,0.07)",
@@ -227,7 +232,7 @@ export default function PropertiesPanel() {
                   <input
                     type="text"
                     value={currentTextStyle.fontSize || ""}
-                    onChange={e => updateTextStyle(selectedElement.field, "fontSize", e.target.value)}
+                    onChange={e => updateStyle("fontSize", e.target.value)}
                     placeholder="ör. 32px veya 2rem"
                     style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 6, padding: "6px 10px", color: "#e2e8f0", fontSize: 12, outline: "none", width: "100%", boxSizing: "border-box" }}
                   />
