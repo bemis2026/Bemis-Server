@@ -283,18 +283,18 @@ export default function DealerNetwork() {
                         {(isHighlight || isActive) && (
                           <motion.circle
                             cx={region.cx} cy={region.cy}
-                            r={isActive ? 42 : 32}
+                            r={isActive ? 54 : 42}
                             fill="none"
                             stroke={isActive ? `${BLUE}88` : `${BLUE}55`}
                             strokeWidth="2"
-                            animate={{ r: [isActive ? 32 : 24, isActive ? 62 : 50], opacity: [0.75, 0] }}
+                            animate={{ r: [isActive ? 42 : 32, isActive ? 74 : 62], opacity: [0.75, 0] }}
                             transition={{ duration: 2.4, repeat: Infinity }}
                           />
                         )}
                         {/* Outer ring */}
                         <circle
                           cx={region.cx} cy={region.cy}
-                          r={isActive ? 30 : isHighlight ? 26 : 23}
+                          r={isActive ? 40 : isHighlight ? 35 : 31}
                           fill={isActive ? `${BLUE}26` : hasDealers ? `${BLUE}1a` : "rgba(255,255,255,0.09)"}
                           stroke={isActive ? `${BLUE}ee` : hasDealers ? `${BLUE}cc` : "rgba(255,255,255,0.48)"}
                           strokeWidth={isActive ? 2.5 : 2}
@@ -302,15 +302,15 @@ export default function DealerNetwork() {
                         {/* Inner dot */}
                         <circle
                           cx={region.cx} cy={region.cy}
-                          r={isActive ? 15 : isHighlight ? 13 : 11}
+                          r={isActive ? 20 : isHighlight ? 17 : 15}
                           fill={isActive ? BLUE : hasDealers ? `${BLUE}ff` : "rgba(255,255,255,0.65)"}
                           style={{ transition: "r 0.2s, fill 0.2s" }}
                         />
                         {/* Label */}
                         <text
-                          x={region.cx} y={region.cy + 48}
+                          x={region.cx} y={region.cy + 60}
                           textAnchor="middle"
-                          fontSize="20"
+                          fontSize="26"
                           fill={isActive ? "#93C5FD" : hasDealers ? `${BLUE}ee` : "rgba(255,255,255,0.78)"}
                           fontFamily="inherit"
                           fontWeight={isActive ? "800" : "700"}
