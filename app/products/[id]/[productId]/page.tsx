@@ -10,7 +10,6 @@ import SearchOverlay from "../../../components/SearchOverlay";
 import {
   RiChargingPile2Line, RiBatteryChargeLine, RiFlashlightLine,
   RiPlugLine, RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
-  RiArrowLeftLine,
 } from "react-icons/ri";
 import { HiMail, HiPhone } from "react-icons/hi";
 
@@ -72,30 +71,7 @@ export default function ProductDetailPage() {
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
-      {/* Back bar */}
-      <div
-        className="sticky top-16 z-40 border-b"
-        style={{ background: surface, borderColor: divider }}
-      >
-        <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 h-12 flex items-center gap-3">
-          <button
-            onClick={() => router.push(`/products/${categoryId}`)}
-            className="flex items-center gap-1.5 text-sm font-medium transition-opacity hover:opacity-70"
-            style={{ color: textMuted }}
-          >
-            <RiArrowLeftLine size={16} />
-            {category?.name ?? "Kategoriye Dön"}
-          </button>
-          {product && (
-            <>
-              <span style={{ color: textFaint }}>›</span>
-              <span className="text-sm font-semibold truncate" style={{ color: textPrimary }}>
-                {product.name}
-              </span>
-            </>
-          )}
-        </div>
-      </div>
+
 
       <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 py-10">
         {loading && (
