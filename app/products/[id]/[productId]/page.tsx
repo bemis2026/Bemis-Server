@@ -73,7 +73,7 @@ export default function ProductDetailPage() {
 
 
 
-      <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 py-10">
+      <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 pt-24 pb-10">
         {loading && (
           <div className="flex items-center justify-center py-32">
             <div className="w-8 h-8 rounded-full border-2 border-t-transparent animate-spin" style={{ borderColor: `${accent}50`, borderTopColor: "transparent" }} />
