@@ -25,11 +25,12 @@ function CountUp({ value, suffix, prefix, active }: { value: number; suffix: str
 }
 
 export default function Stats() {
-  const { stats } = useContent();
+  const { stats, sectionBgs } = useContent();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   const BLUE = "#3B82F6";
+  const sectionBgUrl = sectionBgs?.["stats"] ?? "";
 
   return (
     <section
@@ -37,8 +38,14 @@ export default function Stats() {
       className="relative"
       style={{ background: "linear-gradient(180deg, #0d0d0d 0%, #0a0a0a 40%, #0f0f12 100%)" }}
     >
+      {sectionBgUrl && (
+        <>
+          <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${sectionBgUrl})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }} />
+          <div className="absolute inset-0 z-0" style={{ background: "rgba(0,0,0,0.70)" }} />
+        </>
+      )}
       <div className="section-divider" />
-      <div ref={ref} className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-8 lg:py-10">
+      <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-8 lg:py-10">
         <div
           className="grid grid-cols-2 lg:grid-cols-4 gap-px rounded-2xl overflow-hidden"
           style={{ background: `${BLUE}20` }}

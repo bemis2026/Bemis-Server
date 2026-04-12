@@ -79,6 +79,7 @@ export type SiteContent = {
   };
   sectionOrder: string[];
   textStyles: Record<string, { color?: string; fontSize?: string }>;
+  sectionBgs: Record<string, string>;
 };
 
 const DEFAULT_LAYOUT: HeroLayout = {
@@ -226,6 +227,7 @@ const defaultContent: SiteContent = {
   },
   sectionOrder: DEFAULT_SECTION_ORDER,
   textStyles: {},
+  sectionBgs: {},
 };
 
 // ── path helpers ──────────────────────────────────────────────────────────────
@@ -380,6 +382,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
           contactSection: { ...defaultContent.contactSection, ...data.contactSection },
           sectionOrder: data.sectionOrder ?? DEFAULT_SECTION_ORDER,
           textStyles: data.textStyles ?? {},
+          sectionBgs: data.sectionBgs ?? {},
           featuredSection: { ...defaultContent.featuredSection, ...data.featuredSection },
           navbar: { ...defaultContent.navbar, ...data.navbar, links: data.navbar?.links ?? defaultContent.navbar.links },
           footer: { ...defaultContent.footer, ...data.footer },

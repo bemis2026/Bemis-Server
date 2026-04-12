@@ -19,7 +19,7 @@ export default function DNA() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
   const router = useRouter();
-  const { dna, products: productSection, dealer: dealerSection } = useContent();
+  const { dna, products: productSection, dealer: dealerSection, sectionBgs } = useContent();
   const d = theme === "dark";
 
   const textPrimary = d ? "#f0f0f4"                 : "#1a1a1a";
@@ -30,6 +30,7 @@ export default function DNA() {
   // Split sectionHeading on "—" to apply blue accent to second part
   const headingParts = dna.sectionHeading.split("—");
   const hasAccent = headingParts.length >= 2;
+  const sectionBgUrl = sectionBgs?.["dna"] ?? "";
 
   return (
     <section
@@ -41,6 +42,12 @@ export default function DNA() {
           : "linear-gradient(155deg, #f2f2f2 0%, #f8f8f8 60%, #f4f4f4 100%)",
       }}
     >
+      {sectionBgUrl && (
+        <>
+          <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${sectionBgUrl})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }} />
+          <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.68)" : "rgba(255,255,255,0.72)" }} />
+        </>
+      )}
       {/* ── BEMİS watermark ── */}
       <div
         className="absolute select-none pointer-events-none"
@@ -57,7 +64,7 @@ export default function DNA() {
         BEMİS
       </div>
 
-      <div ref={ref} className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
         {/* ── Main grid: left = heading+content, right = factory image ── */}
         {/* Factory image stretches to match left column height (label → button) */}

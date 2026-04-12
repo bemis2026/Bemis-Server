@@ -21,7 +21,7 @@ export default function Reviews() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
-  const { reviews } = useContent();
+  const { reviews, sectionBgs } = useContent();
   const d = theme === "dark";
 
   const BLUE       = "#3B82F6";
@@ -33,6 +33,8 @@ export default function Reviews() {
 
   const items = reviews.items ?? [];
 
+  const sectionBgUrl = sectionBgs?.["reviews"] ?? "";
+
   return (
     <section
       style={{
@@ -40,9 +42,15 @@ export default function Reviews() {
           ? "linear-gradient(180deg, #0f0f12 0%, #0a0a0a 35%, #0d0d0f 70%, #111114 100%)"
           : "linear-gradient(180deg, #f0f0f4 0%, #f5f5f5 40%, #ebebeb 100%)",
       }}
-      className="py-6 lg:py-8 overflow-hidden"
+      className="relative py-6 lg:py-8 overflow-hidden"
     >
-      <div ref={ref} className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      {sectionBgUrl && (
+        <>
+          <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${sectionBgUrl})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }} />
+          <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.68)" : "rgba(255,255,255,0.72)" }} />
+        </>
+      )}
+      <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="text-center mb-5 sm:mb-7">

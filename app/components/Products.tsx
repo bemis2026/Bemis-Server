@@ -137,7 +137,7 @@ export default function Products() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
-  const { categories: catMeta, products: productSection } = useContent();
+  const { categories: catMeta, products: productSection, sectionBgs } = useContent();
   const router = useRouter();
   const d = theme === "dark";
   const [hovered, setHovered] = useState<string | null>(null);
@@ -162,9 +162,17 @@ export default function Products() {
     ? "linear-gradient(to top, rgba(13,13,13,0.97) 0%, rgba(13,13,13,0.55) 55%, transparent 100%)"
     : "linear-gradient(to top, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.60) 55%, transparent 100%)";
 
+  const sectionBgUrl = sectionBgs?.["products"] ?? "";
+
   return (
-    <section id="products" style={{ background: sectionBg, backgroundAttachment: "local" }} className="py-8 lg:py-12 overflow-hidden">
-      <div ref={ref} className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+    <section id="products" style={{ background: sectionBg, backgroundAttachment: "local" }} className="relative py-8 lg:py-12 overflow-hidden">
+      {sectionBgUrl && (
+        <>
+          <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${sectionBgUrl})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }} />
+          <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.68)" : "rgba(255,255,255,0.72)" }} />
+        </>
+      )}
+      <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
         {/* ── Header ── */}
         <div className="text-center mb-7 sm:mb-9">

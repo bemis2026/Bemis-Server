@@ -77,6 +77,7 @@ type ContentData = {
   dealer: { sectionLabel: string; heading: string; description: string; applyText: string; statCities: string; statDealers: string };
   reviews: { heading: string; subheading: string; rating: string; ratingCount: string; items: ReviewItem[] };
   contactSection: { sectionLabel: string; heading: string; subheading: string };
+  sectionBgs?: Record<string, string>;
 };
 
 type Dealer = { name: string; address: string; phone: string };
@@ -135,6 +136,9 @@ export default function AdminPage() {
   const catImgRef = useRef<HTMLInputElement>(null);
   const stepImgRef = useRef<HTMLInputElement>(null);
   const [catImgTarget, setCatImgTarget] = useState<string>(""); // catId for pending upload
+  const [sectionBgLoading, setSectionBgLoading] = useState<string | null>(null);
+  const [sectionBgTarget, setSectionBgTarget] = useState<string>("");
+  const sectionBgRef = useRef<HTMLInputElement>(null);
 
   // Dealer editor state
   const [dealers, setDealers] = useState<DealersData>({});
@@ -449,6 +453,29 @@ export default function AdminPage() {
     if (catImgRef.current) catImgRef.current.value = "";
   };
 
+  const handleSectionBgUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || !sectionBgTarget) return;
+    setSectionBgLoading(sectionBgTarget);
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("folder", "section-bgs");
+    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+    if (res.ok) {
+      const { url } = await res.json();
+      setContent((prev) => {
+        if (!prev) return prev;
+        return { ...prev, sectionBgs: { ...(prev.sectionBgs ?? {}), [sectionBgTarget]: url } };
+      });
+      showToast("ok", "Arka plan görseli yüklendi.");
+    } else {
+      showToast("err", "Yükleme başarısız.");
+    }
+    setSectionBgLoading(null);
+    setSectionBgTarget("");
+    if (sectionBgRef.current) sectionBgRef.current.value = "";
+  };
+
   const updateContent = (path: string[], value: string | number | null) => {
     if (!content) return;
     const next = JSON.parse(JSON.stringify(content)) as ContentData;
@@ -586,6 +613,7 @@ export default function AdminPage() {
     (next.categories[catId] as any)[field] = value;
     setContent(next);
   };
+
 
   // ── Loading screen ──────────────────────────────────────────
   if (authed === null) {
@@ -1820,6 +1848,54 @@ export default function AdminPage() {
                       </div>
                     </div>
                   )}
+
+                  {/* Section Background Images */}
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
+                    <div>
+                      <p className="text-xs font-semibold text-white/50 mb-1">Bölüm Arka Planları</p>
+                      <p className="text-xs text-white/30 leading-relaxed">Her ana sayfa bölümüne ayrı arka plan görseli yükleyin. Görsel üzerine yarı şeffaf bir katman eklenir.</p>
+                    </div>
+                    {[
+                      { id: "stats",      label: "İstatistikler" },
+                      { id: "dna",        label: "Kurumsal (DNA)" },
+                      { id: "products",   label: "Ürün Kataloğu" },
+                      { id: "featured",   label: "Öne Çıkan Ürünler" },
+                      { id: "dealer",     label: "Bayi Ağı" },
+                      { id: "reviews",    label: "Kullanıcı Yorumları" },
+                      { id: "calculator", label: "Şarj Hesaplayıcı" },
+                      { id: "contact",    label: "Bize Ulaşın" },
+                    ].map(({ id, label }) => {
+                      const currentUrl = content?.sectionBgs?.[id] ?? "";
+                      const isLoading = sectionBgLoading === id;
+                      return (
+                        <div key={id} className="flex items-center gap-3 py-2 border-t border-white/6 first:border-0 first:pt-0">
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium text-white/70">{label}</p>
+                            {currentUrl ? (
+                              <p className="text-xs text-white/30 font-mono truncate mt-0.5">{currentUrl}</p>
+                            ) : (
+                              <p className="text-xs text-white/20 mt-0.5">Görsel yok</p>
+                            )}
+                          </div>
+                          {currentUrl && (
+                            <button
+                              onClick={() => setContent((prev) => prev ? { ...prev, sectionBgs: { ...(prev.sectionBgs ?? {}), [id]: "" } } : prev)}
+                              className="text-xs text-red-400/60 hover:text-red-400 flex-shrink-0"
+                            >
+                              Kaldır
+                            </button>
+                          )}
+                          <button
+                            onClick={() => { setSectionBgTarget(id); sectionBgRef.current?.click(); }}
+                            className="text-xs bg-white/8 hover:bg-white/14 border border-white/10 rounded-lg px-3 py-1.5 text-white/60 hover:text-white flex-shrink-0 transition-colors"
+                          >
+                            {isLoading ? "Yükleniyor..." : currentUrl ? "Değiştir" : "Yükle"}
+                          </button>
+                        </div>
+                      );
+                    })}
+                    <input ref={sectionBgRef} type="file" accept="image/*" className="hidden" onChange={handleSectionBgUpload} />
+                  </div>
 
                   <div className="bg-white/3 border border-white/7 rounded-2xl p-5">
                     <p className="text-xs font-semibold text-white/50 mb-2">Logo değişikliği</p>

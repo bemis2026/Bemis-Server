@@ -27,7 +27,7 @@ const REGIONS = [
 export default function DealerNetwork() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
-  const { dealer: dealerSection } = useContent();
+  const { dealer: dealerSection, sectionBgs } = useContent();
   const { theme } = useTheme();
   const d = theme === "dark";
   const [dealers, setDealers] = useState<DealersData>({});
@@ -66,13 +66,21 @@ export default function DealerNetwork() {
     setSelectedCity(selectedCity === region.id ? null : region.id);
   };
 
+  const sectionBgUrl = sectionBgs?.["dealer"] ?? "";
+
   return (
     <section
       id="dealer"
-      className="py-8 lg:py-12 overflow-hidden"
+      className="relative py-8 lg:py-12 overflow-hidden"
       style={{ background: d ? "linear-gradient(180deg, #1a1a1a 0%, #141414 100%)" : "linear-gradient(180deg, #f0f0f0 0%, #e8e8e8 100%)" }}
     >
-      <div ref={ref} className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      {sectionBgUrl && (
+        <>
+          <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${sectionBgUrl})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }} />
+          <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.68)" : "rgba(255,255,255,0.72)" }} />
+        </>
+      )}
+      <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
         {/* ── Header ── */}
         <div className="mb-7">

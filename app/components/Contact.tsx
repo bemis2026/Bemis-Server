@@ -23,7 +23,7 @@ export default function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
-  const { contact, social, contactSection } = useContent();
+  const { contact, social, contactSection, sectionBgs } = useContent();
   const d = theme === "dark";
 
   const [submitted, setSubmitted] = useState(false);
@@ -64,9 +64,17 @@ export default function Contact() {
     // focus ring via JS
   };
 
+  const sectionBgUrl = sectionBgs?.["contact"] ?? "";
+
   return (
-    <section id="contact" style={{ background: bg }} className="py-8 lg:py-12 overflow-hidden">
-      <div ref={ref} className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+    <section id="contact" style={{ background: bg }} className="relative py-8 lg:py-12 overflow-hidden">
+      {sectionBgUrl && (
+        <>
+          <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${sectionBgUrl})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }} />
+          <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.68)" : "rgba(255,255,255,0.72)" }} />
+        </>
+      )}
+      <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
           {/* ── Left ── */}
