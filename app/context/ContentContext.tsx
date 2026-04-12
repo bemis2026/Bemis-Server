@@ -89,7 +89,7 @@ const DEFAULT_LAYOUT: HeroLayout = {
 };
 
 export const DEFAULT_SECTION_ORDER = [
-  "stats", "dna", "products", "featured", "dealer", "reviews", "calculator", "contact"
+  "dna", "stats", "products", "featured", "dealer", "reviews", "calculator", "contact"
 ];
 
 const defaultContent: SiteContent = {
