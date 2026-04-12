@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../../../context/ThemeContext";
 import Navbar from "../../../components/Navbar";
@@ -17,7 +17,7 @@ type SpecItem  = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
 type ProductEntry = {
   id: string; name: string; subtitle: string; badge: string | null;
-  description: string; specs: SpecGroup[]; image?: string;
+  description: string; specs: SpecGroup[]; image?: string; images?: string[];
 };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
@@ -37,6 +37,7 @@ export default function ProductDetailPage() {
   const [category, setCategory]     = useState<CategoryData | null>(null);
   const [product,  setProduct]      = useState<ProductEntry | null>(null);
   const [loading,  setLoading]      = useState(true);
+  const [activeImg, setActiveImg]   = useState(0);
 
   const categoryId = typeof params.id        === "string" ? params.id        : "";
   const productId  = typeof params.productId === "string" ? params.productId : "";
@@ -123,35 +124,65 @@ export default function ProductDetailPage() {
 
             <div className="grid lg:grid-cols-5 gap-6 lg:gap-8">
 
-              {/* Left — image + description */}
+              {/* Left — image gallery + description */}
               <div className="lg:col-span-2 flex flex-col gap-5">
-                {/* Image */}
-                {product.image ? (
-                  <div
-                    className="rounded-2xl overflow-hidden"
-                    style={{ border: `1px solid ${border}`, background: surface }}
-                  >
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full object-cover"
-                      style={{ maxHeight: 280 }}
-                    />
-                  </div>
-                ) : (
-                  <div
-                    className="rounded-2xl flex items-center justify-center"
-                    style={{
-                      height: 200,
-                      background: d
-                        ? `linear-gradient(145deg, ${accent}14 0%, #111 100%)`
-                        : `linear-gradient(145deg, ${accent}10 0%, #f4f4f4 100%)`,
-                      border: `1px solid ${accent}22`,
-                    }}
-                  >
-                    <Icon style={{ fontSize: 64, color: accent, opacity: 0.35 }} />
-                  </div>
-                )}
+                {/* Image gallery */}
+                {(() => {
+                  const imgs = product.images ?? (product.image ? [product.image] : []);
+                  const clampedIdx = Math.min(activeImg, imgs.length - 1);
+                  if (imgs.length === 0) return (
+                    <div
+                      className="rounded-2xl flex items-center justify-center"
+                      style={{
+                        height: 220,
+                        background: d
+                          ? `linear-gradient(145deg, ${accent}14 0%, #111 100%)`
+                          : `linear-gradient(145deg, ${accent}10 0%, #f4f4f4 100%)`,
+                        border: `1px solid ${accent}22`,
+                      }}
+                    >
+                      <Icon style={{ fontSize: 64, color: accent, opacity: 0.35 }} />
+                    </div>
+                  );
+                  return (
+                    <div className="flex flex-col gap-2">
+                      {/* Main image */}
+                      <div
+                        className="rounded-2xl overflow-hidden"
+                        style={{ border: `1px solid ${border}`, background: surface }}
+                      >
+                        <img
+                          key={clampedIdx}
+                          src={imgs[clampedIdx]}
+                          alt={`${product.name} ${clampedIdx + 1}`}
+                          className="w-full object-cover transition-opacity duration-200"
+                          style={{ maxHeight: 280, minHeight: 180 }}
+                        />
+                      </div>
+                      {/* Thumbnails (only when 2+ images) */}
+                      {imgs.length > 1 && (
+                        <div className="flex gap-2 overflow-x-auto pb-0.5">
+                          {imgs.map((src, i) => (
+                            <button
+                              key={i}
+                              onClick={() => setActiveImg(i)}
+                              className="flex-shrink-0 rounded-xl overflow-hidden transition-all duration-150"
+                              style={{
+                                width: 60, height: 48,
+                                border: i === clampedIdx
+                                  ? `2px solid ${accent}`
+                                  : `2px solid ${border}`,
+                                opacity: i === clampedIdx ? 1 : 0.55,
+                              }}
+                            >
+                              <img src={src} alt="" className="w-full h-full object-cover" />
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })()}
 
                 {/* Description */}
                 <div

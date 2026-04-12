@@ -16,7 +16,7 @@ import Image from "next/image";
 
 type SpecItem    = { label: string; value: string };
 type SpecGroup   = { group: string; items: SpecItem[] };
-type ProductEntry = { id: string; name: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string };
+type ProductEntry = { id: string; name: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[] };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
 const categoryIcons: Record<string, React.ElementType> = {
@@ -383,9 +383,9 @@ export default function AllProductsPage() {
                                   : `linear-gradient(145deg, ${cat.accent}0d 0%, #f4f4f4 100%)`,
                               }}
                             >
-                              {product.image ? (
+                              {(product.images?.[0] ?? product.image) ? (
                                 <img
-                                  src={product.image}
+                                  src={product.images?.[0] ?? product.image}
                                   alt={product.name}
                                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-350 group-hover:scale-105"
                                   style={{ opacity: 0.88 }}

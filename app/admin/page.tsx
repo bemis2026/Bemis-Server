@@ -44,7 +44,7 @@ import { RiImageAddLine } from "react-icons/ri";
 
 type SpecItem = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
-type ProductEntry = { id: string; name: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string };
+type ProductEntry = { id: string; name: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[] };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
 type StatItem = { value: number; suffix: string; prefix?: string; label: string; description: string };
@@ -339,7 +339,11 @@ export default function AdminPage() {
       const { url } = await res.json();
       setProducts((prev) => prev.map((cat) => cat.id !== selCat ? cat : {
         ...cat,
-        products: cat.products.map((p) => p.id !== selProd ? p : { ...p, image: url }),
+        products: cat.products.map((p) => {
+          if (p.id !== selProd) return p;
+          const existing = p.images ?? (p.image ? [p.image] : []);
+          return { ...p, images: [...existing, url], image: existing[0] ?? url };
+        }),
       }));
       showToast("ok", "Görsel yüklendi.");
     } else {
@@ -1144,38 +1148,59 @@ export default function AdminPage() {
                                       </div>
                                       <Field label="Rozet (boş bırakın = yok)" value={currentProd.badge ?? ""} onChange={(v) => updateProd("badge", v || null)} />
                                       <Field label="Açıklama" value={currentProd.description} onChange={(v) => updateProd("description", v)} multiline />
-                                      {/* Product image */}
+                                      {/* Product images */}
                                       <div>
-                                        <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Ürün Görseli</label>
-                                        {currentProd.image && (
-                                          <div className="relative rounded-xl overflow-hidden mb-2" style={{ height: 100 }}>
-                                            <img src={currentProd.image} alt={currentProd.name} className="w-full h-full object-cover" />
-                                            <div className="absolute inset-0 flex items-end p-2" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%)" }}>
-                                              <span className="text-[9px] text-white/60 font-mono truncate max-w-full">{currentProd.image}</span>
-                                            </div>
-                                          </div>
-                                        )}
-                                        <div className="flex gap-2">
-                                          <input
-                                            value={currentProd.image ?? ""}
-                                            onChange={(e) => updateProd("image", e.target.value || undefined as unknown as null)}
-                                            placeholder="Görsel URL veya /uploads/products/..."
-                                            className="flex-1 bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22"
-                                          />
-                                          <button
-                                            onClick={() => prodImgRef.current?.click()}
-                                            disabled={prodImgLoading}
-                                            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-white/70 border border-white/12 hover:border-white/25 hover:text-white transition-colors disabled:opacity-50 whitespace-nowrap"
-                                          >
-                                            {prodImgLoading ? (
-                                              <div className="w-3 h-3 rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
-                                            ) : (
-                                              <RiImageAddLine size={13} />
-                                            )}
-                                            Yükle
-                                          </button>
-                                          <input ref={prodImgRef} type="file" accept="image/*" className="hidden" onChange={handleProdImgUpload} />
+                                        <div className="flex items-center justify-between mb-2">
+                                          <label className="block text-[11px] font-semibold text-white/40 uppercase tracking-wider">Ürün Görselleri</label>
+                                          <span className="text-[10px] text-white/25">{(currentProd.images ?? (currentProd.image ? [currentProd.image] : [])).length} görsel</span>
                                         </div>
+                                        {/* Thumbnail grid */}
+                                        {(() => {
+                                          const imgs = currentProd.images ?? (currentProd.image ? [currentProd.image] : []);
+                                          return (
+                                            <div className="flex flex-wrap gap-2 mb-2">
+                                              {imgs.map((url, idx) => (
+                                                <div key={idx} className="relative group/img rounded-xl overflow-hidden flex-shrink-0" style={{ width: 80, height: 64 }}>
+                                                  <img src={url} alt="" className="w-full h-full object-cover" />
+                                                  <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/40 transition-colors" />
+                                                  <button
+                                                    onClick={() => {
+                                                      const next = imgs.filter((_, i) => i !== idx);
+                                                      setProducts((prev) => prev.map((cat) => cat.id !== selCat ? cat : {
+                                                        ...cat,
+                                                        products: cat.products.map((p) => p.id !== selProd ? p : {
+                                                          ...p, images: next, image: next[0] ?? undefined,
+                                                        }),
+                                                      }));
+                                                    }}
+                                                    className="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/70 text-white/70 hover:text-red-400 flex items-center justify-center text-[10px] opacity-0 group-hover/img:opacity-100 transition-opacity"
+                                                  >✕</button>
+                                                  {idx === 0 && (
+                                                    <div className="absolute bottom-1 left-1 text-[8px] font-bold px-1.5 py-0.5 rounded bg-black/60 text-white/60">Ana</div>
+                                                  )}
+                                                </div>
+                                              ))}
+                                              {/* Add button */}
+                                              <button
+                                                onClick={() => prodImgRef.current?.click()}
+                                                disabled={prodImgLoading}
+                                                className="flex flex-col items-center justify-center rounded-xl border border-dashed border-white/20 text-white/35 hover:border-white/40 hover:text-white/60 transition-colors disabled:opacity-50 flex-shrink-0 gap-1"
+                                                style={{ width: 80, height: 64 }}
+                                              >
+                                                {prodImgLoading ? (
+                                                  <div className="w-4 h-4 rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
+                                                ) : (
+                                                  <>
+                                                    <RiImageAddLine size={16} />
+                                                    <span className="text-[9px] font-medium">Ekle</span>
+                                                  </>
+                                                )}
+                                              </button>
+                                            </div>
+                                          );
+                                        })()}
+                                        <p className="text-[10px] text-white/20">İlk görsel ürün listelerinde ana görsel olarak kullanılır. Önerilen: 800×600 WebP/JPG.</p>
+                                        <input ref={prodImgRef} type="file" accept="image/*" className="hidden" onChange={handleProdImgUpload} />
                                       </div>
                                     </div>
 
