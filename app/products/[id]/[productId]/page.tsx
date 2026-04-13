@@ -11,7 +11,7 @@ import {
   RiChargingPile2Line, RiBatteryChargeLine, RiFlashlightLine,
   RiPlugLine, RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
 } from "react-icons/ri";
-import { HiMail, HiPhone } from "react-icons/hi";
+import { HiMail, HiPhone, HiArrowRight } from "react-icons/hi";
 
 type SpecItem  = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
@@ -38,6 +38,7 @@ export default function ProductDetailPage() {
   const [product,  setProduct]      = useState<ProductEntry | null>(null);
   const [loading,  setLoading]      = useState(true);
   const [activeImg, setActiveImg]   = useState(0);
+  const [allCategories, setAllCategories] = useState<CategoryData[]>([]);
 
   const categoryId = typeof params.id        === "string" ? params.id        : "";
   const productId  = typeof params.productId === "string" ? params.productId : "";
@@ -51,6 +52,7 @@ export default function ProductDetailPage() {
         const prod = cat?.products.find(p => p.id === productId) ?? null;
         setCategory(cat);
         setProduct(prod);
+        setAllCategories(data);
       })
       .catch(() => {})
       .finally(() => setLoading(false));
@@ -253,6 +255,99 @@ export default function ProductDetailPage() {
           </motion.div>
         )}
       </div>
+
+      {/* ── Recommended products ── */}
+      {!loading && product && category && (() => {
+        // Same-category products (excluding current), then fill with other categories
+        const sameCat = (category.products ?? []).filter(p => p.id !== productId);
+        const otherCatProducts: Array<{ cat: CategoryData; prod: ProductEntry }> = [];
+        for (const c of allCategories) {
+          if (c.id === categoryId) continue;
+          for (const p of c.products ?? []) otherCatProducts.push({ cat: c, prod: p });
+        }
+        const recommended: Array<{ cat: CategoryData; prod: ProductEntry }> = [
+          ...sameCat.slice(0, 4).map(p => ({ cat: category, prod: p })),
+          ...otherCatProducts.slice(0, Math.max(0, 4 - sameCat.length)),
+        ].slice(0, 4);
+        if (recommended.length === 0) return null;
+        return (
+          <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 pb-20">
+            <div className="flex items-center justify-between mb-5">
+              <h2 className="text-base font-bold" style={{ color: textPrimary }}>Önerilen Diğer Ürünler</h2>
+              <button
+                onClick={() => router.push(`/products/${categoryId}`)}
+                className="flex items-center gap-1 text-xs font-semibold"
+                style={{ color: accent }}
+              >
+                Tümünü Gör <HiArrowRight size={13} />
+              </button>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {recommended.map(({ cat, prod }, i) => {
+                const CatIcon = categoryIcons[cat.id] ?? RiPlugLine;
+                const imgs = prod.images ?? (prod.image ? [prod.image] : []);
+                return (
+                  <motion.div
+                    key={`${cat.id}-${prod.id}`}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.35, delay: i * 0.07 }}
+                    onClick={() => router.push(`/products/${cat.id}/${prod.id}`)}
+                    className="rounded-2xl overflow-hidden cursor-pointer group transition-all duration-200"
+                    style={{ background: surface, border: `1px solid ${border}` }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLDivElement).style.borderColor = `${cat.accent}50`;
+                      (e.currentTarget as HTMLDivElement).style.boxShadow = `0 4px 24px ${cat.accent}14`;
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLDivElement).style.borderColor = border;
+                      (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
+                    }}
+                  >
+                    {/* Image */}
+                    <div
+                      className="relative overflow-hidden"
+                      style={{
+                        height: 110,
+                        background: d
+                          ? `linear-gradient(145deg, ${cat.accent}0e 0%, #111 100%)`
+                          : `linear-gradient(145deg, ${cat.accent}0d 0%, #f4f4f4 100%)`,
+                      }}
+                    >
+                      {imgs[0] ? (
+                        <img
+                          src={imgs[0]}
+                          alt={prod.name}
+                          className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          style={{ opacity: 0.88 }}
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <CatIcon style={{ fontSize: 36, color: d ? "rgba(255,255,255,0.15)" : `${cat.accent}45` }} />
+                        </div>
+                      )}
+                      {prod.badge && (
+                        <div
+                          className="absolute top-1.5 right-1.5 text-[9px] font-bold px-1.5 py-0.5 rounded-full"
+                          style={{ background: `${cat.accent}22`, border: `1px solid ${cat.accent}40`, color: d ? "rgba(255,255,255,0.75)" : cat.accent }}
+                        >
+                          {prod.badge}
+                        </div>
+                      )}
+                      <div className="absolute bottom-0 left-0 right-0 h-8" style={{ background: d ? "linear-gradient(to top, rgba(20,20,22,0.9) 0%, transparent 100%)" : "linear-gradient(to top, rgba(255,255,255,0.9) 0%, transparent 100%)" }} />
+                    </div>
+                    {/* Info */}
+                    <div className="px-3 py-2.5">
+                      <p className="text-[11px] font-bold leading-tight mb-0.5 line-clamp-2" style={{ color: textPrimary }}>{prod.name}</p>
+                      <p className="text-[10px]" style={{ color: cat.accent }}>{cat.name}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })()}
 
       <ContactBar />
     </div>
