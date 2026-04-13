@@ -5,6 +5,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import { ContentProvider } from "./context/ContentContext";
 import { EditModeProvider } from "./context/EditModeContext";
 import PropertiesPanel from "./components/PropertiesPanel";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -53,6 +54,7 @@ export default function RootLayout({
   return (
     <html lang="tr" className={`${inter.variable} scroll-smooth`} suppressHydrationWarning>
       <body className="min-h-full antialiased bg-[#141414] text-white">
+        <GoogleAnalytics />
         <ThemeProvider>
           <ContentProvider>
             <EditModeProvider>

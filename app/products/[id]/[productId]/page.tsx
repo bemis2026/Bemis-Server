@@ -12,6 +12,7 @@ import {
   RiPlugLine, RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
 } from "react-icons/ri";
 import { HiMail, HiPhone, HiArrowRight } from "react-icons/hi";
+import { trackEvent } from "../../../components/GoogleAnalytics";
 
 type SpecItem  = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
@@ -53,6 +54,13 @@ export default function ProductDetailPage() {
         setCategory(cat);
         setProduct(prod);
         setAllCategories(data);
+        if (prod && cat) {
+          trackEvent("view_item", {
+            item_id: prod.id,
+            item_name: prod.name,
+            item_category: cat.name,
+          });
+        }
       })
       .catch(() => {})
       .finally(() => setLoading(false));

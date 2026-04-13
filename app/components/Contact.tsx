@@ -7,6 +7,7 @@ import { useContent } from "../context/ContentContext";
 import E from "./E";
 import { HiLocationMarker, HiPhone, HiMail, HiClock, HiCheckCircle } from "react-icons/hi";
 import { RiLinkedinFill, RiInstagramLine } from "react-icons/ri";
+import { trackEvent } from "./GoogleAnalytics";
 
 const topics = [
   { value: "product-info",    label: "Ürün Bilgisi" },
@@ -203,6 +204,9 @@ export default function Contact() {
                         setSendError(j.error ?? "Bir hata oluştu, lütfen tekrar deneyin.");
                       } else {
                         setSubmitted(true);
+                        trackEvent("contact_form_submit", {
+                          topic: String(fd.get("topic") ?? ""),
+                        });
                       }
                     } catch {
                       setSendError("Bağlantı hatası. Lütfen tekrar deneyin.");
