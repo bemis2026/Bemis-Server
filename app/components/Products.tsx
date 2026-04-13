@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import {
   RiChargingPile2Line,
@@ -13,7 +13,7 @@ import {
   RiToolsFill,
   RiGasStationLine,
 } from "react-icons/ri";
-import { HiArrowRight } from "react-icons/hi";
+import { HiArrowRight, HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import E from "./E";
@@ -141,6 +141,9 @@ export default function Products() {
   const router = useRouter();
   const d = theme === "dark";
   const [hovered, setHovered] = useState<string | null>(null);
+  const [activeBanner, setActiveBanner] = useState(0);
+  const [bannerPaused, setBannerPaused] = useState(false);
+  const bannerIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Merge hardcoded visual design with CMS editable fields
   const mergedCategories = categories.map((cat) => {
@@ -148,6 +151,16 @@ export default function Products() {
     if (!meta) return { ...cat, image: undefined };
     return { ...cat, name: meta.name, subtitle: meta.subtitle, modelCount: meta.modelCount, badge: meta.badge, comingSoon: meta.comingSoon, image: meta.image };
   });
+
+  const totalBanner = mergedCategories.length;
+  const bannerNext = useCallback(() => setActiveBanner((c) => (c + 1) % totalBanner), [totalBanner]);
+  const bannerPrev = useCallback(() => setActiveBanner((c) => (c - 1 + totalBanner) % totalBanner), [totalBanner]);
+
+  useEffect(() => {
+    if (bannerPaused || totalBanner === 0) return;
+    bannerIntervalRef.current = setInterval(bannerNext, 4500);
+    return () => { if (bannerIntervalRef.current) clearInterval(bannerIntervalRef.current); };
+  }, [bannerPaused, bannerNext, totalBanner]);
 
   const BLUE = "#3B82F6";
   const sectionBg = d ? "linear-gradient(180deg, #232323 0%, #1a1a1a 100%)" : "linear-gradient(180deg, #f0f0f0 0%, #e8e8e8 100%)";
@@ -174,68 +187,142 @@ export default function Products() {
       )}
       <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
-        {/* ── Header ── */}
-        <div className="text-center mb-7 sm:mb-9">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.4 }}
-            className="inline-block text-[10px] font-bold tracking-[0.20em] uppercase px-3 py-1.5 rounded-full mb-4"
-            style={{
-              background: d ? `${BLUE}18` : `${BLUE}10`,
-              border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`,
-              color: d ? "#93C5FD" : BLUE,
-            }}
-          >
-            <E field="products.sectionLabel" tag="span">{productSection.sectionLabel}</E>
-          </motion.span>
-
-          <motion.h2
+        {/* ── Banner Slider ── */}
+        {mergedCategories.length > 0 && (
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.08 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-black mb-3"
-            style={{ color: textPrimary }}
+            transition={{ duration: 0.5 }}
+            className="relative overflow-hidden rounded-2xl mb-7 sm:mb-9"
+            style={{ height: "clamp(160px, 22vw, 240px)" }}
+            onMouseEnter={() => setBannerPaused(true)}
+            onMouseLeave={() => setBannerPaused(false)}
           >
-            <E field="products.heading">{productSection.heading}</E>
-          </motion.h2>
+            <AnimatePresence mode="wait">
+              {(() => {
+                const cat = mergedCategories[activeBanner] ?? mergedCategories[0];
+                const catIcons: Record<string, React.ElementType> = {
+                  wallbox: RiChargingPile2Line, portable: RiBatteryChargeLine,
+                  cables: RiFlashlightLine, "v2l-c2l": RiCarLine,
+                  converters: RiToolsLine, "charger-equipment": RiToolsFill,
+                  accessories: RiPlugLine, "dc-units": RiGasStationLine,
+                };
+                const CatIcon = catIcons[cat.id] || RiPlugLine;
+                return (
+                  <motion.div
+                    key={cat.id}
+                    initial={{ opacity: 0, x: 40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -40 }}
+                    transition={{ duration: 0.45, ease: "easeInOut" }}
+                    className="absolute inset-0 flex items-center px-8 sm:px-12 cursor-pointer"
+                    style={{
+                      background: d
+                        ? `linear-gradient(135deg, ${cat.accent}22 0%, #0f0f12 55%, ${cat.accent}08 100%)`
+                        : `linear-gradient(135deg, ${cat.accent}18 0%, #f0f0f4 55%, ${cat.accent}06 100%)`,
+                    }}
+                    onClick={() => !cat.comingSoon && router.push(`/products/${cat.id}`)}
+                  >
+                    {/* Left: text */}
+                    <div className="flex-1 min-w-0 z-10">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span
+                          className="text-[10px] font-bold tracking-[0.18em] uppercase px-2.5 py-1 rounded-full"
+                          style={{ background: d ? `${BLUE}18` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`, color: d ? "#93C5FD" : BLUE }}
+                        >
+                          <E field="products.sectionLabel" tag="span">{productSection.sectionLabel}</E>
+                        </span>
+                        {cat.badge && (
+                          <span
+                            className="text-[10px] font-bold px-2.5 py-1 rounded-full"
+                            style={{ background: `${cat.accent}18`, border: `1px solid ${cat.accent}35`, color: cat.accent }}
+                          >
+                            {cat.badge}
+                          </span>
+                        )}
+                      </div>
 
-          <motion.div
-            initial={{ scaleX: 0, opacity: 0 }}
-            animate={inView ? { scaleX: 1, opacity: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mx-auto h-px w-20 mb-4"
-            style={{ background: `linear-gradient(90deg, transparent 0%, ${BLUE} 50%, transparent 100%)` }}
-          />
+                      <h2
+                        className="font-black leading-tight mb-1 truncate"
+                        style={{ fontSize: "clamp(1.3rem, 3.5vw, 2.2rem)", color: textPrimary }}
+                      >
+                        {cat.name}
+                      </h2>
+                      <p
+                        className="text-sm leading-snug line-clamp-1 mb-4 max-w-md"
+                        style={{ color: textMuted }}
+                      >
+                        {cat.subtitle}
+                      </p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.22 }}
-            className="text-base"
-            style={{ color: textMuted }}
-          >
-            <E field="products.subheading" tag="span">{productSection.subheading}</E>
-          </motion.p>
-        </div>
+                      <div className="flex items-center gap-3">
+                        {!cat.comingSoon ? (
+                          <button
+                            className="inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-xl transition-all duration-200 hover:gap-2.5"
+                            style={{ background: cat.accent, color: "#fff" }}
+                          >
+                            Kategoriye Git <HiArrowRight size={13} />
+                          </button>
+                        ) : (
+                          <span className="text-xs font-semibold px-3 py-1.5 rounded-xl" style={{ background: "rgba(245,158,11,0.15)", color: "#FBBF24", border: "1px solid rgba(245,158,11,0.30)" }}>
+                            Yakında
+                          </span>
+                        )}
+                        <button
+                          onClick={(e) => { e.stopPropagation(); router.push("/products"); }}
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-xl transition-all duration-200"
+                          style={{ background: d ? `${BLUE}15` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}28`, color: d ? "#93C5FD" : BLUE }}
+                        >
+                          <E field="products.allProductsLabel" tag="span">{productSection.allProductsLabel}</E>
+                        </button>
+                      </div>
+                    </div>
 
-        {/* ── "Tüm Ürünler" shortcut ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4, delay: 0.05 }}
-          className="flex justify-center mb-4"
-        >
-          <button
-            onClick={() => router.push("/products")}
-            className="flex items-center gap-2 text-base font-semibold px-8 py-3.5 rounded-xl transition-all duration-200"
-            style={{ background: d ? `${BLUE}15` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}28`, color: d ? "#93C5FD" : BLUE }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}25` : `${BLUE}18`; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}15` : `${BLUE}10`; }}
-          >
-            <E field="products.allProductsLabel" tag="span">{productSection.allProductsLabel}</E> <HiArrowRight />
-          </button>
-        </motion.div>
+                    {/* Right: decorative icon */}
+                    <div className="absolute right-0 top-0 bottom-0 w-64 pointer-events-none" style={{ background: `radial-gradient(ellipse at right center, ${cat.accent}22 0%, transparent 70%)` }} />
+                    <CatIcon className="absolute right-8 top-1/2 -translate-y-1/2 pointer-events-none" style={{ fontSize: "clamp(80px, 12vw, 150px)", color: cat.accent, opacity: 0.12 }} />
+                  </motion.div>
+                );
+              })()}
+            </AnimatePresence>
+
+            {/* Prev / Next */}
+            <button
+              onClick={(e) => { e.stopPropagation(); bannerPrev(); }}
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+              style={{ background: d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)", backdropFilter: "blur(8px)" }}
+            >
+              <HiChevronLeft size={16} style={{ color: d ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.70)" }} />
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); bannerNext(); }}
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+              style={{ background: d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)", backdropFilter: "blur(8px)" }}
+            >
+              <HiChevronRight size={16} style={{ color: d ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.70)" }} />
+            </button>
+
+            {/* Dots */}
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
+              {mergedCategories.map((cat, i) => (
+                <button
+                  key={i}
+                  onClick={(e) => { e.stopPropagation(); setActiveBanner(i); }}
+                  className="rounded-full transition-all duration-300"
+                  style={{
+                    width: i === activeBanner ? 20 : 6, height: 6,
+                    background: i === activeBanner
+                      ? (mergedCategories[i]?.accent ?? BLUE)
+                      : (d ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.20)"),
+                  }}
+                />
+              ))}
+            </div>
+
+            {/* Border */}
+            <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{ border: `1px solid ${d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}` }} />
+          </motion.div>
+        )}
 
         {/* ── Category Cards Grid ── */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
