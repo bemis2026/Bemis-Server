@@ -48,7 +48,7 @@ type ProductEntry = { id: string; name: string; subtitle: string; badge: string 
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
 type StatItem = { value: number; suffix: string; prefix?: string; label: string; description: string };
-type CategoryMeta = { name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string };
+type CategoryMeta = { name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string; sliderImage?: string };
 type FeaturedItem = { categoryId: string; productId: string; badge: string; highlight: string; visible: boolean };
 
 type ContentData = {
@@ -139,6 +139,9 @@ export default function AdminPage() {
   const [sectionBgLoading, setSectionBgLoading] = useState<string | null>(null);
   const [sectionBgTarget, setSectionBgTarget] = useState<string>("");
   const sectionBgRef = useRef<HTMLInputElement>(null);
+  const [catSliderImgLoading, setCatSliderImgLoading] = useState<string | null>(null);
+  const [catSliderImgTarget, setCatSliderImgTarget] = useState<string>("");
+  const catSliderImgRef = useRef<HTMLInputElement>(null);
 
   // Dealer editor state
   const [dealers, setDealers] = useState<DealersData>({});
@@ -455,6 +458,26 @@ export default function AdminPage() {
     setCatImgLoading(null);
     setCatImgTarget("");
     if (catImgRef.current) catImgRef.current.value = "";
+  };
+
+  const handleCatSliderImgUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || !catSliderImgTarget) return;
+    setCatSliderImgLoading(catSliderImgTarget);
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("folder", "category-sliders");
+    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+    if (res.ok) {
+      const { url } = await res.json();
+      updateCatMeta(catSliderImgTarget, "sliderImage", url);
+      showToast("ok", "Slider görseli yüklendi.");
+    } else {
+      showToast("err", "Yükleme başarısız.");
+    }
+    setCatSliderImgLoading(null);
+    setCatSliderImgTarget("");
+    if (catSliderImgRef.current) catSliderImgRef.current.value = "";
   };
 
   const handleSectionBgUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -1063,6 +1086,36 @@ export default function AdminPage() {
                                   </div>
                                   <p className="text-[10px] text-white/20 mt-1.5">Ana sayfa kategori kartı arka planına uygulanır. Önerilen: 400×300 WebP/JPG.</p>
                                 </div>
+
+                                {/* Slider image */}
+                                <div>
+                                  <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Slider Arka Plan Görseli</label>
+                                  {meta.sliderImage && (
+                                    <div className="relative rounded-xl overflow-hidden mb-2" style={{ height: 80 }}>
+                                      <img src={meta.sliderImage} alt="Slider" className="w-full h-full object-cover" />
+                                      <button
+                                        onClick={() => updateCatMeta(catId, "sliderImage", "")}
+                                        className="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-black/60 flex items-center justify-center text-white/70 hover:text-white text-xs"
+                                      >✕</button>
+                                    </div>
+                                  )}
+                                  <div className="flex items-center gap-2">
+                                    <button
+                                      onClick={() => { setCatSliderImgTarget(catId); setTimeout(() => catSliderImgRef.current?.click(), 50); }}
+                                      disabled={catSliderImgLoading === catId}
+                                      className="flex items-center gap-1.5 text-[11px] px-3 py-1.5 rounded-lg font-medium transition-all"
+                                      style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.55)" }}
+                                    >
+                                      {catSliderImgLoading === catId ? (
+                                        <div className="w-3 h-3 rounded-full border border-white/20 border-t-white/60 animate-spin" />
+                                      ) : (
+                                        <RiImageAddLine size={13} />
+                                      )}
+                                      Yükle
+                                    </button>
+                                  </div>
+                                  <p className="text-[10px] text-white/20 mt-1.5">Slider banner arka planına uygulanır. Önerilen: 1200×400 WebP/JPG.</p>
+                                </div>
                               </div>
                             )}
                           </div>
@@ -1073,6 +1126,8 @@ export default function AdminPage() {
 
                   {/* Hidden file input for category image upload */}
                   <input ref={catImgRef} type="file" accept="image/*" className="hidden" onChange={handleCatImgUpload} />
+                  {/* Hidden file input for category slider image upload */}
+                  <input ref={catSliderImgRef} type="file" accept="image/*" className="hidden" onChange={handleCatSliderImgUpload} />
 
                   {/* ── Sub-tab: Teknik Özellikler ── */}
                   {prodSubTab === "specs" && (

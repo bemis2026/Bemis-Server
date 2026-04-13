@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
+import { useContent } from "../context/ContentContext";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
@@ -17,7 +18,7 @@ import Image from "next/image";
 type SpecItem    = { label: string; value: string };
 type SpecGroup   = { group: string; items: SpecItem[] };
 type ProductEntry = { id: string; name: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[] };
-type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
+type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[]; sliderImage?: string };
 
 const categoryIcons: Record<string, React.ElementType> = {
   wallbox:             RiChargingPile2Line,
@@ -68,7 +69,7 @@ function BannerSlider({ categories, d }: { categories: CategoryData[]; d: boolea
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -40 }}
           transition={{ duration: 0.45, ease: "easeInOut" }}
-          className="absolute inset-0 flex items-center px-8 sm:px-12 cursor-pointer"
+          className="absolute inset-0 flex items-center px-8 sm:px-12 cursor-pointer overflow-hidden"
           style={{
             background: d
               ? `linear-gradient(135deg, ${cat.accent}22 0%, #0f0f12 55%, ${cat.accent}08 100%)`
@@ -76,6 +77,13 @@ function BannerSlider({ categories, d }: { categories: CategoryData[]; d: boolea
           }}
           onClick={() => router.push(`/products/${cat.id}`)}
         >
+          {/* Slider background image */}
+          {cat.sliderImage && (
+            <>
+              <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${cat.sliderImage})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+              <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.70)" : "rgba(255,255,255,0.75)" }} />
+            </>
+          )}
           {/* Left: text */}
           <div className="flex-1 min-w-0 z-10">
             <div className="flex items-center gap-2 mb-2">
@@ -180,6 +188,7 @@ export default function AllProductsPage() {
   const { theme } = useTheme();
   const d = theme === "dark";
   const router = useRouter();
+  const { categories: catMeta } = useContent();
   const [searchOpen, setSearchOpen] = useState(false);
   const [categories, setCategories] = useState<CategoryData[]>([]);
   const [loading, setLoading] = useState(true);
@@ -188,10 +197,16 @@ export default function AllProductsPage() {
   useEffect(() => {
     fetch("/api/products")
       .then((r) => r.json())
-      .then((data: CategoryData[]) => setCategories(data))
+      .then((data: CategoryData[]) => {
+        const merged = data.map((cat) => ({
+          ...cat,
+          sliderImage: catMeta[cat.id]?.sliderImage,
+        }));
+        setCategories(merged);
+      })
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, []);
+  }, [catMeta]);
 
   const bg           = d ? "linear-gradient(180deg, #0c0c0e 0%, #0f0f11 100%)" : "#f8f8fb";
   const surface      = d ? "rgba(255,255,255,0.04)" : "#ffffff";

@@ -7,7 +7,7 @@ export type StatItem = {
 };
 
 export type CategoryMeta = {
-  name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string;
+  name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string; sliderImage?: string;
 };
 
 export type FeaturedItem = {

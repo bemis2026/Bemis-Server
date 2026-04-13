@@ -149,7 +149,7 @@ export default function Products() {
   const mergedCategories = categories.map((cat) => {
     const meta = catMeta[cat.id];
     if (!meta) return { ...cat, image: undefined };
-    return { ...cat, name: meta.name, subtitle: meta.subtitle, modelCount: meta.modelCount, badge: meta.badge, comingSoon: meta.comingSoon, image: meta.image };
+    return { ...cat, name: meta.name, subtitle: meta.subtitle, modelCount: meta.modelCount, badge: meta.badge, comingSoon: meta.comingSoon, image: meta.image, sliderImage: meta.sliderImage };
   });
 
   const totalBanner = mergedCategories.length;
@@ -215,7 +215,7 @@ export default function Products() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -40 }}
                     transition={{ duration: 0.45, ease: "easeInOut" }}
-                    className="absolute inset-0 flex items-center px-8 sm:px-12 cursor-pointer"
+                    className="absolute inset-0 flex items-center px-8 sm:px-12 cursor-pointer overflow-hidden"
                     style={{
                       background: d
                         ? `linear-gradient(135deg, ${cat.accent}22 0%, #0f0f12 55%, ${cat.accent}08 100%)`
@@ -223,6 +223,13 @@ export default function Products() {
                     }}
                     onClick={() => !cat.comingSoon && router.push(`/products/${cat.id}`)}
                   >
+                    {/* Slider background image overlay */}
+                    {(cat as typeof cat & { sliderImage?: string }).sliderImage && (
+                      <>
+                        <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${(cat as typeof cat & { sliderImage?: string }).sliderImage})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+                        <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.70)" : "rgba(255,255,255,0.75)" }} />
+                      </>
+                    )}
                     {/* Left: text */}
                     <div className="flex-1 min-w-0 z-10">
                       <div className="flex items-center gap-2 mb-2">
