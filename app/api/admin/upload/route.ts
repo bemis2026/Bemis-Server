@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
     if (!file) return NextResponse.json({ error: "Dosya bulunamadı" }, { status: 400 });
 
     const ext = file.name.split(".").pop()?.toLowerCase();
-    const allowed = ["jpg", "jpeg", "png", "webp", "svg", "mp4", "webm", "mov"];
+    const allowed = ["jpg", "jpeg", "png", "webp", "svg", "mp4", "webm", "mov", "pdf", "doc", "docx", "xls", "xlsx"];
     if (!ext || !allowed.includes(ext)) {
       return NextResponse.json({ error: "Desteklenmeyen dosya türü" }, { status: 400 });
     }

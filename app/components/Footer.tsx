@@ -35,11 +35,11 @@ const partnerLinks = [
 ];
 
 const supportLinks = [
-  { label: "İletişim",           href: "#contact", scroll: true },
-  { label: "Teknik Destek",      href: "#contact", scroll: true },
-  { label: "Kurulum Kılavuzu",   href: "#contact", scroll: true },
-  { label: "Garanti",            href: "#contact", scroll: true },
-  { label: "KVKK",               href: "#contact", scroll: true },
+  { label: "İletişim",           href: "#contact",    scroll: true  },
+  { label: "Teknik Destek",      href: "#contact",    scroll: true  },
+  { label: "Dökümanlar",         href: "/documents",  scroll: false },
+  { label: "Garanti",            href: "#contact",    scroll: true  },
+  { label: "KVKK",               href: "#contact",    scroll: true  },
 ];
 
 const navGroups = [
