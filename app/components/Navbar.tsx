@@ -14,6 +14,7 @@ const navLinks = [
   { label: "Ana Sayfa",   href: "#hero"       },
   { label: "Kurumsal",    href: "#dna"        },
   { label: "Ürünler",     href: "#products"   },
+  { label: "Dökümanlar",  href: "/documents"  },
   { label: "Hesaplayıcı", href: "#calculator" },
   { label: "Bayi Ağı",    href: "#dealer"     },
   { label: "İletişim",    href: "#contact"    },
@@ -52,7 +53,9 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
-    if (pathname !== "/") {
+    if (!href.startsWith("#")) {
+      router.push(href);
+    } else if (pathname !== "/") {
       router.push("/" + href);
     } else {
       document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
