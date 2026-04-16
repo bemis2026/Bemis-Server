@@ -84,29 +84,15 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
             onClick={() => handleNavClick("#hero")}
             aria-label="Ana sayfa"
           >
-            {isDark ? (
-              /* Dark mode: white logo directly on dark background */
-              <Image
-                src="/logo-white.png"
-                alt="Bemis E-V Charge"
-                width={200}
-                height={64}
-                className="h-14 w-auto object-contain block"
-                priority
-              />
-            ) : (
-              /* Light mode: white logo on dark pill for contrast */
-              <div className="bg-[#0A0A0A] rounded-xl px-3 py-2">
-                <Image
-                  src="/logo-white.png"
-                  alt="Bemis E-V Charge"
-                  width={200}
-                  height={64}
-                  className="h-14 w-auto object-contain block"
-                  priority
-                />
-              </div>
-            )}
+            <Image
+              src="/logo-white.png"
+              alt="Bemis E-V Charge"
+              width={200}
+              height={64}
+              className="h-14 w-auto object-contain block"
+              style={isDark ? {} : { filter: "drop-shadow(0 0 1px rgba(0,0,0,0.25)) drop-shadow(0 1px 4px rgba(0,0,0,0.18))" }}
+              priority
+            />
           </button>
 
           {/* Desktop Nav */}

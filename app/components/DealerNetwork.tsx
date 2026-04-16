@@ -89,7 +89,7 @@ export default function DealerNetwork() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4 }}
             className="inline-block text-[10px] font-bold tracking-[0.20em] uppercase px-3 py-1.5 rounded-full mb-4"
-            style={{ background: `${BLUE}18`, border: `1px solid ${BLUE}35`, color: "#93C5FD" }}
+            style={{ background: `${BLUE}18`, border: `1px solid ${BLUE}35`, color: d ? "#93C5FD" : BLUE }}
           >
             <E field="dealer.sectionLabel" tag="span">{dealerSection.sectionLabel}</E>
           </motion.span>
@@ -97,7 +97,8 @@ export default function DealerNetwork() {
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.08 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-black text-white"
+            className="text-3xl sm:text-4xl lg:text-5xl font-black"
+            style={{ color: d ? "#ffffff" : "#111111" }}
           >
             <E field="dealer.heading">{dealerSection.heading}</E>
           </motion.h2>
@@ -127,9 +128,9 @@ export default function DealerNetwork() {
                 border: `1px solid ${BLUE}28`,
               }}
             >
-              <RiStoreLine style={{ color: "#93C5FD", fontSize: 20, marginBottom: 12 }} />
-              <h3 className="text-white font-bold text-base mb-1.5"><E field="dealer.findDealerTitle">{dealerSection.findDealerTitle}</E></h3>
-              <p className="text-white/45 text-sm leading-relaxed mb-4">
+              <RiStoreLine style={{ color: d ? "#93C5FD" : BLUE, fontSize: 20, marginBottom: 12 }} />
+              <h3 className="font-bold text-base mb-1.5" style={{ color: d ? "#ffffff" : "#111111" }}><E field="dealer.findDealerTitle">{dealerSection.findDealerTitle}</E></h3>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: d ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.55)" }}>
                 <E field="dealer.description" tag="span">{dealerSection.description}</E>
               </p>
               <button
@@ -155,8 +156,8 @@ export default function DealerNetwork() {
                   className="rounded-xl p-4 text-center"
                   style={{ background: `${BLUE}0e`, border: `1px solid ${BLUE}22` }}
                 >
-                  <p className="text-2xl font-black" style={{ color: "#93C5FD" }}>{item.value}</p>
-                  <p className="text-white/35 text-xs mt-0.5">{item.label}</p>
+                  <p className="text-2xl font-black" style={{ color: d ? "#93C5FD" : "#1D4ED8" }}>{item.value}</p>
+                  <p className="text-xs mt-0.5" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.45)" }}>{item.label}</p>
                 </div>
               ))}
             </div>
@@ -172,21 +173,21 @@ export default function DealerNetwork() {
                 style={{ background: `${BLUE}10`, border: `1px solid ${BLUE}30` }}
               >
                 <div className="flex items-center gap-2 mb-1">
-                  <RiMapPin2Line style={{ color: "#93C5FD", fontSize: 14 }} />
-                  <p className="text-white font-semibold text-sm">{activeCityLabel}</p>
-                  <span className="text-white/30 text-xs">· {activeDealers.length} bayi</span>
+                  <RiMapPin2Line style={{ color: d ? "#93C5FD" : BLUE, fontSize: 14 }} />
+                  <p className="font-semibold text-sm" style={{ color: d ? "#ffffff" : "#111111" }}>{activeCityLabel}</p>
+                  <span className="text-xs" style={{ color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.40)" }}>· {activeDealers.length} bayi</span>
                 </div>
-                {activeDealers.map((d, i) => (
-                  <div key={i} className="border-t border-white/6 pt-3 first:border-0 first:pt-0">
-                    <p className="text-white/80 text-sm font-semibold mb-1">{d.name}</p>
-                    <p className="text-white/40 text-sm flex items-start gap-1 mb-1">
+                {activeDealers.map((dealer, i) => (
+                  <div key={i} className="pt-3 first:pt-0" style={{ borderTop: i > 0 ? `1px solid ${d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.07)"}` : "none" }}>
+                    <p className="text-sm font-semibold mb-1" style={{ color: d ? "rgba(255,255,255,0.80)" : "rgba(0,0,0,0.80)" }}>{dealer.name}</p>
+                    <p className="text-sm flex items-start gap-1 mb-1" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.55)" }}>
                       <HiLocationMarker className="flex-shrink-0 mt-0.5" />
-                      {d.address}
+                      {dealer.address}
                     </p>
-                    {d.phone && (
-                      <a href={`tel:${d.phone.replace(/[^\d+]/g, "")}`} className="text-white/40 text-sm flex items-center gap-1 hover:text-white/70 transition-colors">
+                    {dealer.phone && (
+                      <a href={`tel:${dealer.phone.replace(/[^\d+]/g, "")}`} className="text-sm flex items-center gap-1 transition-colors" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.55)" }}>
                         <HiPhone className="flex-shrink-0" />
-                        {d.phone}
+                        {dealer.phone}
                       </a>
                     )}
                   </div>
@@ -195,7 +196,7 @@ export default function DealerNetwork() {
             )}
 
             {!activeCity && (
-              <p className="text-white/20 text-xs text-center py-2">
+              <p className="text-xs text-center py-2" style={{ color: d ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.35)" }}>
                 <E field="dealer.mapHint" tag="span">{dealerSection.mapHint}</E>
               </p>
             )}
@@ -295,15 +296,15 @@ export default function DealerNetwork() {
                         <circle
                           cx={region.cx} cy={region.cy}
                           r={isActive ? 40 : isHighlight ? 35 : 31}
-                          fill={isActive ? `${BLUE}26` : hasDealers ? `${BLUE}1a` : "rgba(255,255,255,0.09)"}
-                          stroke={isActive ? `${BLUE}ee` : hasDealers ? `${BLUE}cc` : "rgba(255,255,255,0.48)"}
+                          fill={isActive ? `${BLUE}26` : hasDealers ? `${BLUE}1a` : d ? "rgba(255,255,255,0.09)" : "rgba(0,0,0,0.07)"}
+                          stroke={isActive ? `${BLUE}ee` : hasDealers ? `${BLUE}cc` : d ? "rgba(255,255,255,0.48)" : "rgba(0,0,0,0.30)"}
                           strokeWidth={isActive ? 2.5 : 2}
                         />
                         {/* Inner dot */}
                         <circle
                           cx={region.cx} cy={region.cy}
                           r={isActive ? 20 : isHighlight ? 17 : 15}
-                          fill={isActive ? BLUE : hasDealers ? `${BLUE}ff` : "rgba(255,255,255,0.65)"}
+                          fill={isActive ? BLUE : hasDealers ? `${BLUE}ff` : d ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.35)"}
                           style={{ transition: "r 0.2s, fill 0.2s" }}
                         />
                         {/* Label */}
@@ -311,7 +312,7 @@ export default function DealerNetwork() {
                           x={region.cx} y={region.cy + 60}
                           textAnchor="middle"
                           fontSize="26"
-                          fill={isActive ? "#93C5FD" : hasDealers ? `${BLUE}ee` : "rgba(255,255,255,0.78)"}
+                          fill={isActive ? (d ? "#93C5FD" : "#1D4ED8") : hasDealers ? `${BLUE}ee` : d ? "rgba(255,255,255,0.78)" : "rgba(0,0,0,0.55)"}
                           fontFamily="inherit"
                           fontWeight={isActive ? "800" : "700"}
                           style={{ transition: "fill 0.2s", pointerEvents: "none", userSelect: "none" }}
