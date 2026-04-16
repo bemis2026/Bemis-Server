@@ -309,12 +309,34 @@
   "navbar": {
     "ctaLabel": "Bize Ulaşın",
     "links": [
-      { "label": "Ana Sayfa",   "href": "#hero"       },
-      { "label": "Kurumsal",    "href": "#dna"        },
-      { "label": "Ürünler",     "href": "#products"   },
-      { "label": "Hesaplayıcı", "href": "#calculator" },
-      { "label": "Bayi Ağı",    "href": "#dealer"     },
-      { "label": "İletişim",    "href": "#contact"    }
+      {
+        "label": "Ana Sayfa",
+        "href": "#hero"
+      },
+      {
+        "label": "Kurumsal",
+        "href": "#dna"
+      },
+      {
+        "label": "Ürünler",
+        "href": "#products"
+      },
+      {
+        "label": "Dökümanlar",
+        "href": "/documents"
+      },
+      {
+        "label": "Hesaplayıcı",
+        "href": "#calculator"
+      },
+      {
+        "label": "Bayi Ağı",
+        "href": "#dealer"
+      },
+      {
+        "label": "İletişim",
+        "href": "#contact"
+      }
     ]
   },
   "footer": {
