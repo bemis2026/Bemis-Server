@@ -234,7 +234,7 @@ export default function Products() {
                     <div className="flex-1 min-w-0 z-10">
                       <div className="flex items-center gap-2 mb-2">
                         <span
-                          className="text-[10px] font-bold tracking-[0.18em] uppercase px-2.5 py-1 rounded-full"
+                          className="text-xs font-bold tracking-[0.18em] uppercase px-2.5 py-1 rounded-full"
                           style={{ background: d ? `${BLUE}18` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`, color: d ? "#93C5FD" : BLUE }}
                         >
                           <E field="products.sectionLabel" tag="span">{productSection.sectionLabel}</E>
@@ -333,17 +333,17 @@ export default function Products() {
         >
           <button
             onClick={() => router.push("/products")}
-            className="group inline-flex items-center gap-3 font-bold rounded-2xl transition-all duration-300 hover:gap-4 hover:scale-[1.03]"
+            className="group inline-flex items-center gap-2.5 font-bold rounded-xl transition-all duration-300 hover:gap-3.5 hover:scale-[1.02]"
             style={{
               background: BLUE,
               color: "#fff",
-              fontSize: "clamp(1rem, 2vw, 1.2rem)",
-              padding: "clamp(14px, 2vw, 18px) clamp(32px, 5vw, 56px)",
-              boxShadow: `0 8px 32px ${BLUE}55`,
+              fontSize: "clamp(0.875rem, 1.5vw, 1rem)",
+              padding: "clamp(11px, 1.4vw, 14px) clamp(28px, 4vw, 42px)",
+              boxShadow: `0 6px 24px ${BLUE}45`,
             }}
           >
             <E field="products.allProductsLabel" tag="span">{productSection.allProductsLabel}</E>
-            <HiArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
+            <HiArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
           </button>
         </motion.div>
 
