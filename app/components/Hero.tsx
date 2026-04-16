@@ -36,7 +36,8 @@ export default function Hero() {
   const headlineClass  = d ? "text-white" : "text-[#111111]";
   const subtitleClass  = d ? "text-white/45" : "text-black/50";
   const sub3rdClass    = d ? "text-white/50" : "text-black/30";
-  const logoSrc        = d ? "/logo-white.png" : "/logo-black.png";
+  const logoSrc        = "/logo-white.png";
+  const logoStyle      = d ? {} : { filter: "drop-shadow(0 0 2px rgba(0,0,0,0.30)) drop-shadow(0 2px 6px rgba(0,0,0,0.20))" };
 
   return (
     <section
@@ -62,7 +63,7 @@ export default function Hero() {
         <div className="max-w-2xl">
           <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-7">
             <Image src={logoSrc} alt="Bemis E-V Charge" width={380} height={120}
-              className="h-20 sm:h-24 w-auto object-contain" priority />
+              className="h-20 sm:h-24 w-auto object-contain" style={logoStyle} priority />
             <div className="mt-5 mb-5 h-px w-12" style={{ background: dividerColor }} />
             <h1 className={`text-4xl sm:text-5xl font-black tracking-tight leading-[1.18] ${headlineClass}`}>
               <E field="hero.headline1">{hero.headline1}</E><br />
@@ -90,7 +91,7 @@ export default function Hero() {
           style={{ left: `${layout.logo.x}%`, top: `${layout.logo.y}%`, maxWidth: "48%" }}
         >
           <Image src={logoSrc} alt="Bemis E-V Charge" width={380} height={120}
-            className="h-28 xl:h-32 w-auto object-contain" priority />
+            className="h-28 xl:h-32 w-auto object-contain" style={logoStyle} priority />
 
           <div className="my-6 h-px w-14" style={{ background: dividerColor }} />
 

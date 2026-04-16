@@ -33,7 +33,7 @@ export default function ContactBar() {
                 height: 28,
                 objectFit: "contain",
                 opacity: d ? 0.85 : 0.9,
-                filter: d ? "none" : "drop-shadow(0 0 1px rgba(0,0,0,0.20)) drop-shadow(0 1px 3px rgba(0,0,0,0.15))",
+                filter: d ? "none" : "drop-shadow(0 0 2px rgba(0,0,0,0.30)) drop-shadow(0 2px 6px rgba(0,0,0,0.20))",
               }}
             />
           </div>
