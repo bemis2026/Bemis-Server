@@ -250,9 +250,9 @@ export default function DealerNetwork() {
                   }}
                 >
                   <img
-                    src={d ? "/logo-white.png" : "/logo-black.png"}
+                    src="/logo-white.png"
                     alt="Bemis E-V Charge"
-                    style={{ width: "100%", height: "100%", objectFit: "contain", opacity: 0.85 }}
+                    style={{ width: "100%", height: "100%", objectFit: "contain", opacity: 0.85, filter: d ? "none" : "drop-shadow(0 0 2px rgba(0,0,0,0.30)) drop-shadow(0 2px 6px rgba(0,0,0,0.20))" }}
                     draggable={false}
                   />
                 </div>
