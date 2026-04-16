@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
+import { useContent } from "../context/ContentContext";
 import Navbar from "../components/Navbar";
 import ContactBar from "../components/ContactBar";
 import SearchOverlay from "../components/SearchOverlay";
@@ -60,6 +61,7 @@ const CAT_ACCENTS: Record<string, string> = {
 export default function DocumentsPage() {
   const { theme } = useTheme();
   const d = theme === "dark";
+  const { logos } = useContent();
   const router = useRouter();
   const [searchOpen, setSearchOpen] = useState(false);
   const [documents, setDocuments] = useState<Document[]>([]);
@@ -126,7 +128,7 @@ export default function DocumentsPage() {
                 transition={{ duration: 0.4 }}
                 className="flex items-center gap-2 mb-2"
               >
-                <Image src="/logo-white.png" alt="Bemis E-V Charge" width={140} height={42}
+                <Image src={d ? (logos?.dark || "/logo-white.png") : (logos?.light || "/logo-black.png")} alt="Bemis E-V Charge" width={140} height={42}
                   className="h-8 w-auto object-contain"
                   style={{ filter: d ? "none" : "invert(1)" }}
                 />

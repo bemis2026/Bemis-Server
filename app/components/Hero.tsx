@@ -7,7 +7,7 @@ import { useTheme } from "../context/ThemeContext";
 import E from "./E";
 
 export default function Hero() {
-  const { hero } = useContent();
+  const { hero, logos } = useContent();
   const { layout } = hero;
   const { theme } = useTheme();
   const d = theme === "dark";
@@ -36,7 +36,7 @@ export default function Hero() {
   const headlineClass  = d ? "text-white" : "text-[#111111]";
   const subtitleClass  = d ? "text-white/45" : "text-black/50";
   const sub3rdClass    = d ? "text-white/50" : "text-black/30";
-  const logoSrc        = d ? "/logo-white.png" : "/logo-black.png";
+  const logoSrc        = d ? (logos?.dark || "/logo-white.png") : (logos?.light || "/logo-black.png");
   const logoStyle      = {};
 
   return (

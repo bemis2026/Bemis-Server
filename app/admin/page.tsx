@@ -79,6 +79,7 @@ type ContentData = {
   reviews: { heading: string; subheading: string; rating: string; ratingCount: string; items: ReviewItem[] };
   contactSection: { sectionLabel: string; heading: string; subheading: string };
   sectionBgs?: Record<string, string>;
+  logos?: { dark: string; light: string };
 };
 
 type Dealer = { name: string; address: string; phone: string };
@@ -143,6 +144,9 @@ export default function AdminPage() {
   const [catSliderImgLoading, setCatSliderImgLoading] = useState<string | null>(null);
   const [catSliderImgTarget, setCatSliderImgTarget] = useState<string>("");
   const catSliderImgRef = useRef<HTMLInputElement>(null);
+  const [logoLoading, setLogoLoading] = useState<"dark" | "light" | null>(null);
+  const logoDarkRef  = useRef<HTMLInputElement>(null);
+  const logoLightRef = useRef<HTMLInputElement>(null);
 
   // Dealer editor state
   const [dealers, setDealers] = useState<DealersData>({});
@@ -502,6 +506,29 @@ export default function AdminPage() {
     setSectionBgLoading(null);
     setSectionBgTarget("");
     if (sectionBgRef.current) sectionBgRef.current.value = "";
+  };
+
+  const handleLogoUpload = async (e: React.ChangeEvent<HTMLInputElement>, mode: "dark" | "light") => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setLogoLoading(mode);
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("folder", "logos");
+    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+    if (res.ok) {
+      const { url } = await res.json();
+      setContent((prev) => {
+        if (!prev) return prev;
+        return { ...prev, logos: { ...(prev.logos ?? { dark: "", light: "" }), [mode]: url } };
+      });
+      showToast("ok", `${mode === "dark" ? "Karanlık" : "Aydınlık"} mod logosu yüklendi.`);
+    } else {
+      showToast("err", "Yükleme başarısız.");
+    }
+    setLogoLoading(null);
+    const ref = mode === "dark" ? logoDarkRef : logoLightRef;
+    if (ref.current) ref.current.value = "";
   };
 
   const updateContent = (path: string[], value: string | number | null) => {
@@ -1980,12 +2007,56 @@ export default function AdminPage() {
                     <input ref={sectionBgRef} type="file" accept="image/*" className="hidden" onChange={handleSectionBgUpload} />
                   </div>
 
-                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5">
-                    <p className="text-xs font-semibold text-white/50 mb-2">Logo değişikliği</p>
-                    <p className="text-xs text-white/30 leading-relaxed">
-                      Logo için yukarıdan yeni bir PNG yükleyin (şeffaf arka plan). Sonra <code className="text-white/45">public/logo-white.png</code> dosyasını
-                      yüklediğiniz görselle değiştirin veya geliştiricinize dosya adını bildirin.
-                    </p>
+                  {/* ── Logo Yönetimi ── */}
+                  <div>
+                    <h3 className="text-sm font-bold mb-0.5">Logo Yönetimi</h3>
+                    <p className="text-xs text-white/35 mb-4">Karanlık ve aydınlık mod için ayrı logo yükleyin. Şeffaf arka planlı PNG önerilir.</p>
+                    <div className="grid grid-cols-2 gap-4">
+                      {(["dark", "light"] as const).map((mode) => {
+                        const label    = mode === "dark" ? "Karanlık Mod" : "Aydınlık Mod";
+                        const hint     = mode === "dark" ? "Beyaz / açık renkli logo" : "Siyah / koyu renkli logo";
+                        const current  = content?.logos?.[mode] ?? "";
+                        const isLoading= logoLoading === mode;
+                        const ref      = mode === "dark" ? logoDarkRef : logoLightRef;
+                        return (
+                          <div key={mode} className="rounded-2xl border border-white/8 bg-white/3 p-4 flex flex-col gap-3">
+                            <div>
+                              <p className="text-xs font-bold text-white/60">{label}</p>
+                              <p className="text-[10px] text-white/25 mt-0.5">{hint}</p>
+                            </div>
+                            {current ? (
+                              <div className="relative rounded-xl overflow-hidden flex items-center justify-center"
+                                style={{ height: 72, background: mode === "dark" ? "#111" : "#f0f0f0" }}>
+                                <img src={current} alt={label} className="max-h-full max-w-full object-contain p-2" />
+                                <button
+                                  onClick={() => setContent((prev) => prev ? { ...prev, logos: { ...(prev.logos ?? { dark: "", light: "" }), [mode]: "" } } : prev)}
+                                  className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full bg-black/60 flex items-center justify-center text-white/70 hover:text-white text-[10px]"
+                                >✕</button>
+                              </div>
+                            ) : (
+                              <div className="rounded-xl flex items-center justify-center"
+                                style={{ height: 72, background: mode === "dark" ? "#111" : "#f0f0f0", border: "1px dashed rgba(255,255,255,0.12)" }}>
+                                <span className="text-[10px] text-white/20">Logo yok</span>
+                              </div>
+                            )}
+                            <button
+                              onClick={() => ref.current?.click()}
+                              disabled={isLoading}
+                              className="flex items-center justify-center gap-1.5 text-xs font-semibold py-2 rounded-xl transition-all"
+                              style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.60)", opacity: isLoading ? 0.6 : 1 }}
+                            >
+                              {isLoading
+                                ? <div className="w-3 h-3 rounded-full border border-white/20 border-t-white/60 animate-spin" />
+                                : <RiImageAddLine size={13} />}
+                              {current ? "Değiştir" : "Yükle"}
+                            </button>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <input ref={logoDarkRef}  type="file" accept="image/*" className="hidden" onChange={(e) => handleLogoUpload(e, "dark")} />
+                    <input ref={logoLightRef} type="file" accept="image/*" className="hidden" onChange={(e) => handleLogoUpload(e, "light")} />
+                    <p className="text-[10px] text-white/20 mt-3">Kaydet butonuna basarak değişiklikleri uygulayın.</p>
                   </div>
                 </div>
               )}

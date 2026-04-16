@@ -168,11 +168,10 @@ const TARIFF_PRESETS = [
 
 interface CalcBannerProps {
   d: boolean; accent: string; tab: "charge" | "savings";
-  border: string; textMuted: string;
+  border: string; textMuted: string; logoSrc: string;
 }
 
-function CalcBanner({ d, accent, tab, border, textMuted }: CalcBannerProps) {
-  const logoSrc = d ? "/logo-white.png" : "/logo-black.png";
+function CalcBanner({ d, accent, tab, border, textMuted, logoSrc }: CalcBannerProps) {
   const faint = d ? "rgba(255,255,255,0.22)" : "rgba(0,0,0,0.25)";
 
   const chargeFeatures = [
@@ -327,8 +326,9 @@ export default function Calculator() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
-  const { sectionBgs } = useContent();
+  const { sectionBgs, logos } = useContent();
   const d = theme === "dark";
+  const calcLogoSrc = d ? (logos?.dark || "/logo-white.png") : (logos?.light || "/logo-black.png");
 
   const [activeTab, setActiveTab] = useState<"charge" | "savings">("charge");
   const [chargeMode, setChargeMode] = useState<"ac" | "dc">("ac");
@@ -668,7 +668,7 @@ export default function Calculator() {
                       </motion.div>
                     </AnimatePresence>
 
-                    <CalcBanner d={d} accent={accentColor} tab="charge" border={border} textMuted={textMuted} />
+                    <CalcBanner d={d} accent={accentColor} tab="charge" border={border} textMuted={textMuted} logoSrc={calcLogoSrc} />
 
                   </div>
                 </motion.div>
@@ -695,7 +695,7 @@ export default function Calculator() {
                     <Slider label="Akaryakıt Fiyatı" value={fuelPrice} min={20} max={70} step={0.5} unit=" ₺/L"
                       accent={GREEN} textMuted={textMuted} textPrimary={textPrimary} onChange={setFuelPrice} />
 
-                    <CalcBanner d={d} accent={GREEN} tab="savings" border={border} textMuted={textMuted} />
+                    <CalcBanner d={d} accent={GREEN} tab="savings" border={border} textMuted={textMuted} logoSrc={calcLogoSrc} />
                   </div>
                 </motion.div>
               )}

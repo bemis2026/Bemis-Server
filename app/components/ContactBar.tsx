@@ -6,7 +6,7 @@ import { HiLocationMarker, HiPhone, HiMail } from "react-icons/hi";
 import { RiLinkedinFill, RiInstagramLine } from "react-icons/ri";
 
 export default function ContactBar() {
-  const { contact, social } = useContent();
+  const { contact, social, logos } = useContent();
   const { theme } = useTheme();
   const d = theme === "dark";
 
@@ -27,7 +27,7 @@ export default function ContactBar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <img
-              src={d ? "/logo-white.png" : "/logo-black.png"}
+              src={d ? (logos?.dark || "/logo-white.png") : (logos?.light || "/logo-black.png")}
               alt="Bemis E-V Charge"
               style={{ height: 28, objectFit: "contain", opacity: 0.85 }}
             />

@@ -29,8 +29,9 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { theme, toggle } = useTheme();
   const isDark = theme === "dark";
-  const { navbar: navbarContent } = useContent();
+  const { navbar: navbarContent, logos } = useContent();
   const activeNavLinks = navbarContent?.links?.length ? navbarContent.links : navLinks;
+  const logoSrc = isDark ? (logos?.dark || "/logo-white.png") : (logos?.light || "/logo-black.png");
   const router = useRouter();
   const pathname = usePathname();
 
@@ -85,7 +86,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
             aria-label="Ana sayfa"
           >
             <Image
-              src={isDark ? "/logo-white.png" : "/logo-black.png"}
+              src={logoSrc}
               alt="Bemis E-V Charge"
               width={200}
               height={64}

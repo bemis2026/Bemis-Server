@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
-import { useContent } from "../context/ContentContext";
+import { useContent, type CategoryMeta } from "../context/ContentContext";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
@@ -188,7 +188,7 @@ export default function AllProductsPage() {
   const { theme } = useTheme();
   const d = theme === "dark";
   const router = useRouter();
-  const { categories: catMeta } = useContent();
+  const { categories: catMeta, logos } = useContent();
   const [searchOpen, setSearchOpen] = useState(false);
   const [categories, setCategories] = useState<CategoryData[]>([]);
   const [loading, setLoading] = useState(true);
@@ -251,7 +251,7 @@ export default function AllProductsPage() {
                 transition={{ duration: 0.4 }}
                 className="flex items-center gap-2 mb-2"
               >
-                <Image src="/logo-white.png" alt="Bemis E-V Charge" width={160} height={48}
+                <Image src={d ? (logos?.dark || "/logo-white.png") : (logos?.light || "/logo-black.png")} alt="Bemis E-V Charge" width={160} height={48}
                   className="h-9 w-auto object-contain"
                   style={{ filter: d ? "none" : "invert(1)" }}
                 />

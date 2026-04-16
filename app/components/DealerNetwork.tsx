@@ -27,7 +27,7 @@ const REGIONS = [
 export default function DealerNetwork() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
-  const { dealer: dealerSection, sectionBgs } = useContent();
+  const { dealer: dealerSection, sectionBgs, logos } = useContent();
   const { theme } = useTheme();
   const d = theme === "dark";
   const [dealers, setDealers] = useState<DealersData>({});
@@ -250,7 +250,7 @@ export default function DealerNetwork() {
                   }}
                 >
                   <img
-                    src={d ? "/logo-white.png" : "/logo-black.png"}
+                    src={d ? (logos?.dark || "/logo-white.png") : (logos?.light || "/logo-black.png")}
                     alt="Bemis E-V Charge"
                     style={{ width: "100%", height: "100%", objectFit: "contain", opacity: 0.85 }}
                     draggable={false}

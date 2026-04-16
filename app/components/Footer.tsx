@@ -51,7 +51,7 @@ const navGroups = [
 
 export default function Footer() {
   const router = useRouter();
-  const { social, footer: footerContent } = useContent();
+  const { social, footer: footerContent, logos } = useContent();
   const { theme } = useTheme();
   const d = theme === "dark";
 
@@ -69,7 +69,7 @@ export default function Footer() {
   const socialHoverText  = d ? "#ffffff" : "#111111";
   const socialHoverBorder = d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.30)";
   const b2bBorder   = d ? "#1e1e1e" : "#d8d8d8";
-  const logoSrc     = d ? "/logo-white.png" : "/logo-black.png";
+  const logoSrc     = d ? (logos?.dark || "/logo-white.png") : (logos?.light || "/logo-black.png");
   const logoStyle   = {};
 
   const socials = [
