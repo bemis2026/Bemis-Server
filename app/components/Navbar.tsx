@@ -31,7 +31,8 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const isDark = theme === "dark";
   const { navbar: navbarContent, logos } = useContent();
   const activeNavLinks = navbarContent?.links?.length ? navbarContent.links : navLinks;
-  const logoSrc = isDark ? (logos?.dark || "/logo-white.png") : (logos?.light || "/logo-black.png");
+  const logoSrc = logos?.dark || "/logo-white.png";
+  const logoFilter = isDark ? undefined : "invert(1)";
   const router = useRouter();
   const pathname = usePathname();
 
@@ -72,7 +73,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
         scrolled
           ? isDark
             ? "bg-[#0A0A0A]/97 backdrop-blur-xl border-b border-white/8 shadow-xl"
-            : "bg-white/97 backdrop-blur-xl border-b border-black/8 shadow-xl"
+            : "bg-white/90 backdrop-blur-xl border-b border-black/8 shadow-sm"
           : "bg-transparent"
       }`}
     >
@@ -91,6 +92,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
               width={200}
               height={64}
               className="h-14 w-auto object-contain block"
+              style={{ filter: logoFilter }}
               priority
             />
           </button>

@@ -69,8 +69,8 @@ export default function Footer() {
   const socialHoverText  = d ? "#ffffff" : "#111111";
   const socialHoverBorder = d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.30)";
   const b2bBorder   = d ? "#1e1e1e" : "#d8d8d8";
-  const logoSrc     = d ? (logos?.dark || "/logo-white.png") : (logos?.light || "/logo-black.png");
-  const logoStyle   = {};
+  const logoSrc     = logos?.dark || "/logo-white.png";
+  const logoStyle   = d ? {} : { filter: "invert(1)" };
 
   const socials = [
     { icon: RiLinkedinFill,  label: "LinkedIn",  href: social.linkedin },

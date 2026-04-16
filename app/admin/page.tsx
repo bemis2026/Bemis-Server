@@ -166,6 +166,13 @@ export default function AdminPage() {
   const [expandedCats, setExpandedCats] = useState<Record<string, boolean>>({});
   const [prodSubTab, setProdSubTab] = useState<"cards" | "specs">("cards");
 
+  // Admin paneli her zaman karanlık temada kalmalı
+  useEffect(() => {
+    const prev = document.documentElement.getAttribute("data-theme") || "dark";
+    document.documentElement.setAttribute("data-theme", "dark");
+    return () => { document.documentElement.setAttribute("data-theme", prev); };
+  }, []);
+
   useEffect(() => {
     fetch("/api/admin/content")
       .then((r) => { if (r.status === 401) { setAuthed(false); return null; } return r.json(); })

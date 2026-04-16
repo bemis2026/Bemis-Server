@@ -22,22 +22,22 @@ export default function Hero() {
 
   const overlay    = d
     ? "linear-gradient(135deg, rgba(5,5,8,0.72) 0%, rgba(5,5,8,0.50) 50%, rgba(5,5,8,0.30) 100%)"
-    : "linear-gradient(135deg, rgba(240,240,240,0.70) 0%, rgba(240,240,240,0.45) 50%, rgba(240,240,240,0.15) 100%)";
+    : "linear-gradient(135deg, rgba(240,240,240,0.32) 0%, rgba(240,240,240,0.15) 50%, rgba(240,240,240,0.04) 100%)";
 
   const groundFade = d
     ? "linear-gradient(to top, #1a1a1a 0%, rgba(26,26,26,0.7) 50%, transparent 100%)"
-    : "linear-gradient(to top, #efefef 0%, rgba(238,238,238,0.7) 50%, transparent 100%)";
+    : "linear-gradient(to top, rgba(238,238,238,0.80) 0%, rgba(238,238,238,0.35) 50%, transparent 100%)";
 
-  const dividerColor   = d ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.12)";
-  const scrollBorder   = d ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.15)";
-  const scrollDot      = d ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.20)";
-  const scrollLabel    = d ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.30)";
+  const dividerColor   = d ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.20)";
+  const scrollBorder   = d ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.30)";
+  const scrollDot      = d ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.45)";
+  const scrollLabel    = d ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.55)";
 
   const headlineClass  = d ? "text-white" : "text-[#111111]";
-  const subtitleClass  = d ? "text-white/45" : "text-black/50";
-  const sub3rdClass    = d ? "text-white/50" : "text-black/30";
-  const logoSrc        = d ? (logos?.dark || "/logo-white.png") : (logos?.light || "/logo-black.png");
-  const logoStyle      = {};
+  const subtitleClass  = d ? "text-white/45" : "text-[#444444]";
+  const sub3rdClass    = d ? "text-white/50" : "text-[#666666]";
+  const logoSrc        = logos?.dark || "/logo-white.png";
+  const logoStyle      = d ? {} : { filter: "invert(1)" };
 
   return (
     <section

@@ -186,7 +186,7 @@ export default function DNA() {
 
             {/* EST. 1994 badge */}
             <div className="absolute bottom-3 left-4 flex items-center gap-2" style={{ zIndex: 10 }}>
-              <div className="text-2xl font-black" style={{ background: d ? "linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.35) 100%)" : "linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              <div className="text-2xl font-black" style={{ backgroundImage: d ? "linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.35) 100%)" : "linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 <E field="dna.yearLabel" tag="span">{dna.yearLabel}</E>
               </div>
               <div>

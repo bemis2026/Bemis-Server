@@ -27,9 +27,9 @@ export default function ContactBar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <img
-              src={d ? (logos?.dark || "/logo-white.png") : (logos?.light || "/logo-black.png")}
+              src={logos?.dark || "/logo-white.png"}
               alt="Bemis E-V Charge"
-              style={{ height: 28, objectFit: "contain", opacity: 0.85 }}
+              style={{ height: 28, objectFit: "contain", opacity: 0.85, filter: d ? undefined : "invert(1)" }}
             />
           </div>
 

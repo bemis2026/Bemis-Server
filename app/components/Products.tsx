@@ -173,16 +173,16 @@ export default function Products() {
   const badgeBorder = d ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.10)";
   const overlayGrad = d
     ? "linear-gradient(to top, rgba(13,13,13,0.97) 0%, rgba(13,13,13,0.55) 55%, transparent 100%)"
-    : "linear-gradient(to top, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.60) 55%, transparent 100%)";
+    : "linear-gradient(to top, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.30) 55%, transparent 100%)";
 
   const sectionBgUrl = sectionBgs?.["products"] ?? "";
 
   return (
-    <section id="products" style={{ background: sectionBg, backgroundAttachment: "local" }} className="relative py-8 lg:py-12 overflow-hidden">
+    <section id="products" style={{ backgroundImage: sectionBg, backgroundAttachment: "local" }} className="relative py-8 lg:py-12 overflow-hidden">
       {sectionBgUrl && (
         <>
           <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${sectionBgUrl})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }} />
-          <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.68)" : "rgba(255,255,255,0.72)" }} />
+          <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.68)" : "rgba(255,255,255,0.40)" }} />
         </>
       )}
       <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -227,7 +227,7 @@ export default function Products() {
                     {(cat as typeof cat & { sliderImage?: string }).sliderImage && (
                       <>
                         <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${(cat as typeof cat & { sliderImage?: string }).sliderImage})`, backgroundSize: "cover", backgroundPosition: "center" }} />
-                        <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.70)" : "rgba(255,255,255,0.75)" }} />
+                        <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.70)" : "rgba(255,255,255,0.42)" }} />
                       </>
                     )}
                     {/* Left: text */}
@@ -329,7 +329,7 @@ export default function Products() {
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.45, delay: 0.25 }}
-          className="flex justify-center"
+          className="flex justify-center mb-6"
         >
           <button
             onClick={() => router.push("/products")}

@@ -195,7 +195,7 @@ function CalcBanner({ d, accent, tab, border, textMuted, logoSrc }: CalcBannerPr
       <Image
         src={logoSrc} alt="Bemis E-V Charge" width={96} height={32}
         className="h-7 w-auto object-contain flex-shrink-0"
-        style={{ opacity: 0.38 }}
+        style={{ opacity: 0.38, filter: d ? undefined : "invert(1)" }}
       />
 
       {/* Dikey ayırıcı */}
@@ -328,7 +328,7 @@ export default function Calculator() {
   const { theme } = useTheme();
   const { sectionBgs, logos } = useContent();
   const d = theme === "dark";
-  const calcLogoSrc = d ? (logos?.dark || "/logo-white.png") : (logos?.light || "/logo-black.png");
+  const calcLogoSrc = logos?.dark || "/logo-white.png";
 
   const [activeTab, setActiveTab] = useState<"charge" | "savings">("charge");
   const [chargeMode, setChargeMode] = useState<"ac" | "dc">("ac");

@@ -199,11 +199,6 @@ html[data-theme="light"] .section-divider {
   background: linear-gradient(90deg, transparent, rgba(0,0,0,0.10), transparent);
 }
 
-/* Navbar in light */
-html[data-theme="light"] nav {
-  background-color: rgba(248,248,248,0.97) !important;
-  border-color: #E0E0E0 !important;
-}
 
 /* Button outline in light */
 html[data-theme="light"] .btn-outline {
