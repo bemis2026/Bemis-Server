@@ -518,11 +518,19 @@ export default function AdminPage() {
     const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
     if (res.ok) {
       const { url } = await res.json();
+      // Build updated content and auto-save immediately so the logo is live without needing "Kaydet"
       setContent((prev) => {
         if (!prev) return prev;
-        return { ...prev, logos: { ...(prev.logos ?? { dark: "", light: "" }), [mode]: url } };
+        const updated = { ...prev, logos: { ...(prev.logos ?? { dark: "", light: "" }), [mode]: url } };
+        // Fire-and-forget save
+        fetch("/api/admin/content", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updated),
+        }).catch(() => {});
+        return updated;
       });
-      showToast("ok", `${mode === "dark" ? "Karanlık" : "Aydınlık"} mod logosu yüklendi.`);
+      showToast("ok", `${mode === "dark" ? "Karanlık" : "Aydınlık"} mod logosu yüklendi ve kaydedildi.`);
     } else {
       showToast("err", "Yükleme başarısız.");
     }
