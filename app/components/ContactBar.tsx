@@ -10,7 +10,7 @@ export default function ContactBar() {
   const { theme } = useTheme();
   const d = theme === "dark";
 
-  const bg         = d ? "#0c0c0e" : "#f0f0f0";
+  const bg         = d ? "#1a1a1c" : "#f0f0f0";
   const borderTop  = d ? "1px solid rgba(255,255,255,0.07)" : "1px solid rgba(0,0,0,0.08)";
   const dividerBg  = d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)";
   const textColor  = d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)";

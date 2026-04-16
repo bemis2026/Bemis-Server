@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState, ReactNode, useCallback } from "react";
+import { useLanguage, type Lang } from "./LanguageContext";
 
 export type StatItem = {
   value: number; suffix: string; prefix?: string; label: string; description: string;
@@ -15,6 +16,7 @@ export type FeaturedItem = {
 };
 
 export type DnaItem = { title: string; desc: string };
+export type TechFeature = { title: string; desc: string; accent: string };
 
 export type ReviewItem = {
   platform: string; platformColor: string; rating: number;
@@ -76,6 +78,12 @@ export type SiteContent = {
     description: string; followLabel: string; copyright: string;
     rightsLabel: string; tagline: string;
     b2bText: string; b2bLinkText: string; b2bSuffix: string;
+  };
+  technology: {
+    sectionLabel: string;
+    heading: string;
+    features: TechFeature[];
+    certs: string[];
   };
   sectionOrder: string[];
   textStyles: Record<string, { color?: string; fontSize?: string }>;
@@ -226,6 +234,17 @@ const defaultContent: SiteContent = {
     b2bLinkText: "profesyonel ürün sayfamızı",
     b2bSuffix: "ziyaret edin.",
   },
+  technology: {
+    sectionLabel: "Neden Bemis?",
+    heading: "Üretimden yazılıma — her şey yerli",
+    features: [
+      { title: "Akıllı Şarj Yönetimi",  desc: "OCPP 1.6 / 2.0 protokolü, dinamik yük dengeleme ve bulut tabanlı uzaktan yönetim.", accent: "#3B82F6" },
+      { title: "Yerli Üretim Kalitesi",  desc: "Bursa OSB tesisimizde IP65, CE ve ISO 9001 standartlarında üretim. Yazılımdan elektroniğe tam yerli.", accent: "#10B981" },
+      { title: "Evrensel Uyumluluk",     desc: "Type 2, CCS, CHAdeMO — tüm EV markalarıyla uyumlu, IEC 61851 & IEC 62196 sertifikalı.", accent: "#F59E0B" },
+      { title: "Sürdürülebilir Tasarım", desc: "-40°C / +55°C çalışma aralığı, 100.000+ saat ömür. Uzun ömürlü, az atık.", accent: "#818CF8" },
+    ],
+    certs: ["CE", "IP65", "IEC 61851", "IEC 62196", "OCPP 2.0", "ISO 9001", "TSE"],
+  },
   sectionOrder: DEFAULT_SECTION_ORDER,
   textStyles: {},
   sectionBgs: {},
@@ -276,6 +295,8 @@ type ContentContextType = SiteContent & {
   canRedo: boolean;
   reorderSections: (from: number, to: number) => void;
   updateTextStyle: (field: string, prop: "color" | "fontSize", value: string) => void;
+  lang: Lang;
+  contentLoading: boolean;
 };
 
 const ContentContext = createContext<ContentContextType>({
@@ -289,6 +310,8 @@ const ContentContext = createContext<ContentContextType>({
   canRedo: false,
   reorderSections: () => {},
   updateTextStyle: () => {},
+  lang: "tr",
+  contentLoading: false,
 });
 
 export function useContent() { return useContext(ContentContext); }
@@ -296,10 +319,12 @@ export function useContent() { return useContext(ContentContext); }
 // ── provider ──────────────────────────────────────────────────────────────────
 
 export function ContentProvider({ children }: { children: ReactNode }) {
+  const { lang } = useLanguage();
   const [hist, setHist] = useState<HistoryState>({
     past: [], present: defaultContent, future: [],
   });
   const [refreshKey, setRefreshKey] = useState(0);
+  const [contentLoading, setContentLoading] = useState(false);
 
   const content = hist.present;
 
@@ -370,7 +395,8 @@ export function ContentProvider({ children }: { children: ReactNode }) {
   }, [hist.present]);
 
   useEffect(() => {
-    fetch("/api/content")
+    setContentLoading(true);
+    fetch(`/api/content?lang=${lang}`)
       .then(r => r.json())
       .then(data => {
         const loaded: SiteContent = {
@@ -389,11 +415,18 @@ export function ContentProvider({ children }: { children: ReactNode }) {
           featuredSection: { ...defaultContent.featuredSection, ...data.featuredSection },
           navbar: { ...defaultContent.navbar, ...data.navbar, links: data.navbar?.links ?? defaultContent.navbar.links },
           footer: { ...defaultContent.footer, ...data.footer },
+          technology: {
+            ...defaultContent.technology,
+            ...data.technology,
+            features: data.technology?.features ?? defaultContent.technology.features,
+            certs:    data.technology?.certs    ?? defaultContent.technology.certs,
+          },
         };
         setHist({ past: [], present: loaded, future: [] });
       })
-      .catch(() => {});
-  }, [refreshKey]);
+      .catch(() => {})
+      .finally(() => setContentLoading(false));
+  }, [refreshKey, lang]);
 
   return (
     <ContentContext.Provider value={{
@@ -407,6 +440,8 @@ export function ContentProvider({ children }: { children: ReactNode }) {
       canRedo: hist.future.length > 0,
       reorderSections,
       updateTextStyle,
+      lang,
+      contentLoading,
     }}>
       {children}
     </ContentContext.Provider>

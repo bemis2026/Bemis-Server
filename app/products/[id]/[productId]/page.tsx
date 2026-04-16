@@ -11,14 +11,14 @@ import {
   RiChargingPile2Line, RiBatteryChargeLine, RiFlashlightLine,
   RiPlugLine, RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
 } from "react-icons/ri";
-import { HiMail, HiPhone, HiArrowRight } from "react-icons/hi";
+import { HiMail, HiPhone, HiArrowRight, HiDownload } from "react-icons/hi";
 import { trackEvent } from "../../../components/GoogleAnalytics";
 
 type SpecItem  = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
 type ProductEntry = {
   id: string; name: string; subtitle: string; badge: string | null;
-  description: string; specs: SpecGroup[]; image?: string; images?: string[];
+  description: string; specs: SpecGroup[]; image?: string; images?: string[]; pdf?: string;
 };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
@@ -223,6 +223,18 @@ export default function ProductDetailPage() {
                   >
                     <HiPhone size={14} /> Teknik Destek
                   </button>
+                  {product.pdf && (
+                    <a
+                      href={product.pdf}
+                      download
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-opacity hover:opacity-80"
+                      style={{ background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)", color: textMuted, border: `1px solid ${border}` }}
+                    >
+                      <HiDownload size={14} /> PDF Katalog İndir
+                    </a>
+                  )}
                 </div>
               </div>
 

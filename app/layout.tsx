@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import { ThemeProvider } from "./context/ThemeContext";
+import { LanguageProvider } from "./context/LanguageContext";
 import { ContentProvider } from "./context/ContentContext";
 import { EditModeProvider } from "./context/EditModeContext";
 import PropertiesPanel from "./components/PropertiesPanel";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import ContentLoadingBar from "./components/ContentLoadingBar";
+import LanguageURLSync from "./components/LanguageURLSync";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -56,12 +60,18 @@ export default function RootLayout({
       <body className="min-h-full antialiased bg-[#141414] text-white">
         <GoogleAnalytics />
         <ThemeProvider>
-          <ContentProvider>
-            <EditModeProvider>
-              {children}
-              <PropertiesPanel />
-            </EditModeProvider>
-          </ContentProvider>
+          <LanguageProvider>
+            <ContentProvider>
+              <EditModeProvider>
+                <ContentLoadingBar />
+                <Suspense fallback={null}>
+                  <LanguageURLSync />
+                </Suspense>
+                {children}
+                <PropertiesPanel />
+              </EditModeProvider>
+            </ContentProvider>
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

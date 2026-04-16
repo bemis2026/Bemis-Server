@@ -38,7 +38,7 @@ export default function BrandStory() {
   const { theme } = useTheme();
   const d = theme === "dark";
 
-  const bg = d ? "#0A0A0A" : "#f8f8fb";
+  const bg = d ? "#181818" : "#f8f8fb";
   const cardBg = d ? "rgba(255,255,255,0.035)" : "#ffffff";
   const cardBorder = d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.07)";
   const textPrimary = d ? "#f0f0f4" : "#1a1a2e";

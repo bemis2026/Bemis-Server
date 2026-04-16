@@ -1,0 +1,110 @@
+{
+  "hero": {
+    "badge": "Domestic Production · Bursa · 1994",
+    "headline1": "Turkey's",
+    "headline2": "EV Charging",
+    "headline3": "Manufacturer",
+    "subtitle": "From home to workplace, parking solutions to field installations — IP65-certified AC charging units, cables and accessories to simplify your EV experience.",
+    "ctaPrimary": "Product Catalog",
+    "ctaSecondary": "Find a Dealer",
+    "heroBg": ""
+  },
+  "dna": {
+    "sectionLabel": "Corporate",
+    "sectionHeading": "From production to software — everything domestic",
+    "brandHeading": "Bemis quality\nDomestic EV charging solutions",
+    "brandPara1": "Founded in Bursa in 1994, Bemis Teknik Elektrik A.Ş. has become one of Turkey's leading electrical equipment manufacturers with over three decades of experience. Bemis E-V Charge is our EV charging sub-brand built on this deep-rooted infrastructure.",
+    "brandPara2": "At our facility in Bursa OSB, we handle every stage ourselves — from electronic circuit design and software to cable production and final assembly. Our products exported to over 60 countries prove how domestic engineering can compete on the global stage.",
+    "ctaLabel": "Explore the Bemis World",
+    "quote": "Quality is an expression of respect.",
+    "quoteAttr": "Bemis E-V Charge Team · Bursa OSB, Turkey",
+    "yearLabel": "1994",
+    "yearSub": "Bursa · Turkey · Domestic Production",
+    "highlights": [
+      { "title": "30+ Years of Experience",   "desc": "Uninterrupted production quality since 1994."          },
+      { "title": "Certified Quality",          "desc": "CE, IP65 and international EV charging standards."      },
+      { "title": "60+ Countries Export",       "desc": "Bringing Turkish engineering to the world."             },
+      { "title": "Clean Mobility",             "desc": "Contributing to a sustainable future, every charge."    }
+    ],
+    "features": [
+      { "title": "Smart Charging Management",  "desc": "OCPP 1.6 / 2.0 protocol, dynamic load balancing and cloud-based remote management."                          },
+      { "title": "Domestic Production Quality","desc": "Manufactured at our Bursa OSB facility to IP65, CE and ISO 9001 standards. Fully domestic from software to electronics." },
+      { "title": "Universal Compatibility",    "desc": "Type 2, CCS, CHAdeMO — compatible with all EV brands, IEC 61851 & IEC 62196 certified."                     },
+      { "title": "Sustainable Design",         "desc": "-40°C / +55°C operating range, 100,000+ hour lifespan. Long-lasting, low waste."                            }
+    ]
+  },
+  "technology": {
+    "sectionLabel": "Why Bemis?",
+    "heading": "From production to software — everything domestic",
+    "features": [
+      { "title": "Smart Charging Management",  "desc": "OCPP 1.6 / 2.0 protocol, dynamic load balancing and cloud-based remote management.",                           "accent": "#3B82F6" },
+      { "title": "Domestic Production Quality","desc": "Manufactured at our Bursa OSB facility to IP65, CE and ISO 9001 standards. Fully domestic from software to electronics.", "accent": "#10B981" },
+      { "title": "Universal Compatibility",    "desc": "Type 2, CCS, CHAdeMO — compatible with all EV brands, IEC 61851 & IEC 62196 certified.",                      "accent": "#F59E0B" },
+      { "title": "Sustainable Design",         "desc": "-40°C / +55°C operating range, 100,000+ hour lifespan. Long-lasting, low waste.",                             "accent": "#818CF8" }
+    ],
+    "certs": ["CE", "IP65", "IEC 61851", "IEC 62196", "OCPP 2.0", "ISO 9001", "TSE"]
+  },
+  "products": {
+    "heading": "EV Charging Solutions",
+    "subheading": "Discover the right charging solution for your needs",
+    "sectionLabel": "Product Catalog",
+    "allProductsLabel": "All Products",
+    "viewLabel": "View"
+  },
+  "dealer": {
+    "sectionLabel": "Authorized Sales Network",
+    "heading": "Everywhere in Turkey",
+    "description": "Select our authorized dealers on the map or get in touch.",
+    "applyText": "Would you like to join our dealer network?",
+    "statCities": "81",
+    "statDealers": "500+",
+    "findDealerTitle": "Find a Dealer",
+    "contactBtnLabel": "Contact Us",
+    "citiesLabel": "Provinces",
+    "activeDealersLabel": "Active Dealers",
+    "mapHint": "Click or hover over a region on the map",
+    "mapTitle": "Turkey Authorized Dealer Map"
+  },
+  "reviews": {
+    "sectionLabel": "Customer Reviews",
+    "heading": "What Users Say?",
+    "subheading": "Real user experiences from Trendyol and HepsiBurada",
+    "ratingLabel": "average rating",
+    "platformsPrefix": "On Trendyol and HepsiBurada",
+    "ratingCountSuffix": "reviews",
+    "rating": "4.9",
+    "ratingCount": "500+"
+  },
+  "contactSection": {
+    "sectionLabel": "Contact",
+    "heading": "Get in Touch",
+    "subheading": "Contact us about our products, dealership applications, corporate sales or partnerships."
+  },
+  "featuredSection": {
+    "sectionLabel": "Featured Products",
+    "heading": "Most Preferred",
+    "subheading": "Our best-selling, most trusted products",
+    "ctaLabel": "View Product"
+  },
+  "navbar": {
+    "ctaLabel": "Contact Us",
+    "links": [
+      { "label": "Home",        "href": "#hero"       },
+      { "label": "Corporate",   "href": "#dna"        },
+      { "label": "Products",    "href": "#products"   },
+      { "label": "Calculator",  "href": "#calculator" },
+      { "label": "Dealer Network", "href": "#dealer"  },
+      { "label": "Contact",     "href": "#contact"    }
+    ]
+  },
+  "footer": {
+    "description": "Our EV charging equipment brand under Bemis Teknik Elektrik A.Ş. Quality electrical equipment from Turkey to the world since 1994.",
+    "followLabel": "Follow us:",
+    "copyright": "© 2026 Bemis Teknik Elektrik A.Ş.",
+    "rightsLabel": "All rights reserved.",
+    "tagline": "Domestic Production, Global Quality",
+    "b2bText": "For manufacturers and OEM solutions",
+    "b2bLinkText": "visit our professional product page",
+    "b2bSuffix": "."
+  }
+}

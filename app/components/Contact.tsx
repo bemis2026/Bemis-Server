@@ -32,7 +32,7 @@ export default function Contact() {
   const [sendError, setSendError] = useState<string | null>(null);
 
   const BLUE      = "#3B82F6";
-  const bg        = d ? "linear-gradient(180deg, #1a1a1a 0%, #141414 100%)" : "linear-gradient(180deg, #f0f0f0 0%, #e8e8e8 100%)";
+  const bg        = d ? "linear-gradient(180deg, #242424 0%, #1e1e1e 100%)" : "linear-gradient(180deg, #f0f0f0 0%, #e8e8e8 100%)";
   const card      = d ? "rgba(255,255,255,0.035)" : "#ffffff";
   const border    = d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
   const input     = d ? "rgba(255,255,255,0.04)" : "#f4f4f7";

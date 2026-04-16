@@ -38,7 +38,7 @@ export default function DNA() {
       className="relative py-8 lg:py-12 overflow-hidden"
       style={{
         background: d
-          ? "linear-gradient(155deg, #111113 0%, #131313 35%, #1a1a1a 100%)"
+          ? "linear-gradient(155deg, #1c1c1e 0%, #1e1e1e 35%, #242424 100%)"
           : "linear-gradient(155deg, #f2f2f2 0%, #f8f8f8 60%, #f4f4f4 100%)",
       }}
     >
@@ -131,7 +131,7 @@ export default function DNA() {
             className="lg:col-span-3 relative rounded-2xl overflow-hidden"
             style={{
               background: d
-                ? "linear-gradient(135deg, #141414 0%, #1c1c1c 50%, #111111 100%)"
+                ? "linear-gradient(135deg, #202020 0%, #262626 50%, #1c1c1c 100%)"
                 : "linear-gradient(135deg, #e8e8e8 0%, #f0f0f0 100%)",
               border: d ? "1px solid rgba(255,255,255,0.09)" : "1px solid rgba(0,0,0,0.08)",
             }}
@@ -145,7 +145,7 @@ export default function DNA() {
               if (yt) {
                 return (
                   <iframe
-                    src={`https://www.youtube.com/embed/${yt[1]}?autoplay=1&mute=1&loop=1&playlist=${yt[1]}&controls=1&modestbranding=1&rel=0`}
+                    src={`https://www.youtube.com/embed/${yt[1]}?autoplay=1&mute=1&loop=1&playlist=${yt[1]}&controls=1&modestbranding=1&rel=0&vq=hd1080`}
                     allow="autoplay; encrypted-media; fullscreen"
                     allowFullScreen
                     style={{

@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
+import { useLanguage } from "../context/LanguageContext";
 import E from "./E";
 
 const navLinks = [
@@ -30,6 +31,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const { theme, toggle } = useTheme();
   const isDark = theme === "dark";
   const { navbar: navbarContent, logos } = useContent();
+  const { lang, setLang } = useLanguage();
   const activeNavLinks = navbarContent?.links?.length ? navbarContent.links : navLinks;
   const logoSrc = logos?.dark || "/logo-white.png";
   const logoFilter = isDark ? undefined : "invert(1)";
@@ -103,8 +105,8 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className={`text-sm font-medium transition-colors duration-200 relative group ${
-                  isDark ? "text-white/55 hover:text-white" : "text-black/55 hover:text-black"
+                className={`text-sm font-semibold transition-colors duration-200 relative group ${
+                  isDark ? "text-white/80 hover:text-white" : "text-black/85 hover:text-black"
                 }`}
               >
                 <E field={`navbar.links.${idx}.label`} tag="span">{link.label}</E>
@@ -115,23 +117,40 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
 
           {/* Right actions */}
           <div className="hidden lg:flex items-center gap-2">
+            {/* Language toggle */}
+            <div className="flex items-center rounded-lg overflow-hidden" style={{ border: isDark ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.12)" }}>
+              {(["tr", "en"] as const).map((l) => (
+                <button
+                  key={l}
+                  onClick={() => setLang(l)}
+                  className="px-2.5 py-1 text-xs font-bold uppercase transition-colors duration-200"
+                  style={{
+                    background: lang === l ? (isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.08)") : "transparent",
+                    color: lang === l ? (isDark ? "#ffffff" : "#111111") : (isDark ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)"),
+                  }}
+                >
+                  {l.toUpperCase()}
+                </button>
+              ))}
+            </div>
             <button
               onClick={onSearchOpen}
-              className={`p-2 rounded-lg transition-colors ${isDark ? "text-white/40 hover:text-white hover:bg-white/8" : "text-black/40 hover:text-black hover:bg-black/6"}`}
+              className={`p-2 rounded-lg transition-colors ${isDark ? "text-white/65 hover:text-white hover:bg-white/8" : "text-black/75 hover:text-black hover:bg-black/6"}`}
               title="Ara (Ctrl+K)"
             >
               <HiSearch size={17} />
             </button>
             <button
               onClick={toggle}
-              className={`p-2 rounded-lg transition-colors ${isDark ? "text-white/40 hover:text-white hover:bg-white/8" : "text-black/40 hover:text-black hover:bg-black/6"}`}
+              className={`p-2 rounded-lg transition-colors ${isDark ? "text-white/65 hover:text-white hover:bg-white/8" : "text-black/75 hover:text-black hover:bg-black/6"}`}
               title={isDark ? "Aydınlık mod" : "Karanlık mod"}
             >
               {isDark ? <HiSun size={17} /> : <HiMoon size={17} />}
             </button>
             <button
               onClick={() => handleNavClick("#contact")}
-              className={`ml-1 text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors ${isDark ? "bg-[#0A0A0A] hover:bg-[#2a2a2a] text-white" : "bg-[#111111] hover:bg-[#333333] text-white"}`}
+              className={`ml-1 text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors ${isDark ? "bg-[#0A0A0A] hover:bg-[#2a2a2a] text-white" : "hover:opacity-80"}`}
+              style={isDark ? {} : { backgroundColor: "#111111", color: "#ffffff" }}
             >
               <E field="navbar.ctaLabel" tag="span">{navbarContent?.ctaLabel ?? "Bize Ulaşın"}</E>
             </button>
@@ -139,15 +158,26 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
 
           {/* Mobile right */}
           <div className="lg:hidden flex items-center gap-1">
-            <button onClick={onSearchOpen} className={`p-2 rounded-lg ${isDark ? "text-white/50" : "text-black/50"}`}>
+            <div className="flex items-center rounded-lg overflow-hidden mr-1" style={{ border: isDark ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.12)" }}>
+              {(["tr", "en"] as const).map((l) => (
+                <button key={l} onClick={() => setLang(l)}
+                  className="px-2 py-1 text-[10px] font-bold uppercase transition-colors"
+                  style={{
+                    background: lang === l ? (isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.08)") : "transparent",
+                    color: lang === l ? (isDark ? "#ffffff" : "#111111") : (isDark ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)"),
+                  }}
+                >{l.toUpperCase()}</button>
+              ))}
+            </div>
+            <button onClick={onSearchOpen} className={`p-2 rounded-lg ${isDark ? "text-white/50" : "text-black"}`}>
               <HiSearch size={17} />
             </button>
-            <button onClick={toggle} className={`p-2 rounded-lg ${isDark ? "text-white/50" : "text-black/50"}`}>
+            <button onClick={toggle} className={`p-2 rounded-lg ${isDark ? "text-white/50" : "text-black"}`}>
               {isDark ? <HiSun size={17} /> : <HiMoon size={17} />}
             </button>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={`p-2 ${isDark ? "text-white/70" : "text-black/70"}`}
+              className={`p-2 ${isDark ? "text-white/70" : "text-black"}`}
             >
               {mobileOpen ? <HiX size={22} /> : <HiMenuAlt3 size={22} />}
             </button>

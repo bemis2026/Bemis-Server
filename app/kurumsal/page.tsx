@@ -192,9 +192,9 @@ export default function KurumsalPage() {
                 <div className="absolute bottom-4 left-5 flex items-center gap-3">
                   <div>
                     <div className="text-2xl font-black" style={{
-                      background: d
+                      backgroundImage: d
                         ? "linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.35) 100%)"
-                        : "linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%)",
+                        : "linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.75) 100%)",
                       WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
                     }}>{dna.yearLabel}</div>
                     <div className="text-[9px] font-medium" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)" }}>EST. · Bursa · Türkiye</div>

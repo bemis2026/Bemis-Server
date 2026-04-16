@@ -6,56 +6,85 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 import E from "./E";
 
-const productLinks = [
-  { label: "AC Wallbox",                   href: "/products/wallbox" },
-  { label: "AC Mobile Chargers",           href: "/products/portable" },
-  { label: "AC Şarj Kabloları Type 2",     href: "/products/cables" },
-  { label: "V2L / C2L Adaptörler",         href: "/products/v2l-c2l" },
-  { label: "Uzatma & Dönüştürücüler",      href: "/products/converters" },
-  { label: "Aksesuarlar",                  href: "/products/accessories" },
-  { label: "DC Şarj Üniteleri →  Yakında", href: "#products", scroll: true },
-];
-
-const companyLinks = [
-  { label: "Hakkımızda",         href: "#brand-story", scroll: true },
-  { label: "Teknoloji",          href: "#technology",  scroll: true },
-  { label: "Kalite & Belgeler",  href: "#technology",  scroll: true },
-  { label: "İstatistikler",      href: "#stats",       scroll: true },
-  { label: "Kariyer",            href: "#contact",     scroll: true },
-];
-
-const partnerLinks = [
-  { label: "Bayi Bul",           href: "#dealer",  scroll: true },
-  { label: "Kurumsal Satış",     href: "#contact", scroll: true },
-  { label: "İhracat / Export",   href: "#contact", scroll: true },
-  { label: "İş Ortaklığı",       href: "#contact", scroll: true },
-  { label: "OEM / Üretici",      href: "/b2b",     scroll: false },
-];
-
-const supportLinks = [
-  { label: "İletişim",           href: "#contact",    scroll: true  },
-  { label: "Teknik Destek",      href: "#contact",    scroll: true  },
-  { label: "Dökümanlar",         href: "/documents",  scroll: false },
-  { label: "Garanti",            href: "#contact",    scroll: true  },
-  { label: "KVKK",               href: "#contact",    scroll: true  },
-];
-
-const navGroups = [
-  { title: "Ürünler",      links: productLinks },
-  { title: "Şirket",       links: companyLinks },
-  { title: "İş Ortaklığı", links: partnerLinks },
-  { title: "Destek",       links: supportLinks },
-];
+const NAV_GROUPS = {
+  tr: [
+    { title: "Ürünler", links: [
+      { label: "AC Wallbox",                   href: "/products/wallbox",    scroll: false },
+      { label: "AC Mobile Chargers",           href: "/products/portable",   scroll: false },
+      { label: "AC Şarj Kabloları Type 2",     href: "/products/cables",     scroll: false },
+      { label: "V2L / C2L Adaptörler",         href: "/products/v2l-c2l",   scroll: false },
+      { label: "Uzatma & Dönüştürücüler",      href: "/products/converters", scroll: false },
+      { label: "Aksesuarlar",                  href: "/products/accessories",scroll: false },
+      { label: "DC Şarj Üniteleri → Yakında",  href: "#products",            scroll: true  },
+    ]},
+    { title: "Şirket", links: [
+      { label: "Hakkımızda",        href: "#dna",        scroll: true },
+      { label: "Teknoloji",         href: "#technology", scroll: true },
+      { label: "Kalite & Belgeler", href: "#technology", scroll: true },
+      { label: "İstatistikler",     href: "#stats",      scroll: true },
+      { label: "Kariyer",           href: "#contact",    scroll: true },
+    ]},
+    { title: "İş Ortaklığı", links: [
+      { label: "Bayi Bul",        href: "#dealer",  scroll: true  },
+      { label: "Kurumsal Satış",  href: "#contact", scroll: true  },
+      { label: "İhracat / Export",href: "#contact", scroll: true  },
+      { label: "İş Ortaklığı",   href: "#contact", scroll: true  },
+      { label: "OEM / Üretici",  href: "/b2b",     scroll: false },
+    ]},
+    { title: "Destek", links: [
+      { label: "İletişim",      href: "#contact",   scroll: true  },
+      { label: "Teknik Destek", href: "#contact",   scroll: true  },
+      { label: "Dökümanlar",    href: "/documents", scroll: false },
+      { label: "Garanti",       href: "#contact",   scroll: true  },
+      { label: "KVKK",          href: "#contact",   scroll: true  },
+    ]},
+  ],
+  en: [
+    { title: "Products", links: [
+      { label: "AC Wallbox",                   href: "/products/wallbox",    scroll: false },
+      { label: "AC Mobile Chargers",           href: "/products/portable",   scroll: false },
+      { label: "AC Charging Cables Type 2",    href: "/products/cables",     scroll: false },
+      { label: "V2L / C2L Adapters",           href: "/products/v2l-c2l",   scroll: false },
+      { label: "Extension & Converters",       href: "/products/converters", scroll: false },
+      { label: "Accessories",                  href: "/products/accessories",scroll: false },
+      { label: "DC Charging Units → Coming Soon", href: "#products",         scroll: true  },
+    ]},
+    { title: "Company", links: [
+      { label: "About Us",           href: "#dna",        scroll: true },
+      { label: "Technology",         href: "#technology", scroll: true },
+      { label: "Quality & Certs",    href: "#technology", scroll: true },
+      { label: "Statistics",         href: "#stats",      scroll: true },
+      { label: "Careers",            href: "#contact",    scroll: true },
+    ]},
+    { title: "Partnership", links: [
+      { label: "Find a Dealer",    href: "#dealer",  scroll: true  },
+      { label: "Corporate Sales",  href: "#contact", scroll: true  },
+      { label: "Export",           href: "#contact", scroll: true  },
+      { label: "Partnership",      href: "#contact", scroll: true  },
+      { label: "OEM / Manufacturer", href: "/b2b",  scroll: false },
+    ]},
+    { title: "Support", links: [
+      { label: "Contact",          href: "#contact",   scroll: true  },
+      { label: "Technical Support",href: "#contact",   scroll: true  },
+      { label: "Documents",        href: "/documents", scroll: false },
+      { label: "Warranty",         href: "#contact",   scroll: true  },
+      { label: "Privacy Policy",   href: "#contact",   scroll: true  },
+    ]},
+  ],
+};
 
 export default function Footer() {
   const router = useRouter();
   const { social, footer: footerContent, logos } = useContent();
   const { theme } = useTheme();
+  const { lang } = useLanguage();
   const d = theme === "dark";
+  const navGroups = NAV_GROUPS[lang] ?? NAV_GROUPS.tr;
 
-  const bg          = d ? "linear-gradient(180deg, #141416 0%, #111113 50%, #0e0e10 100%)"
+  const bg          = d ? "linear-gradient(180deg, #202022 0%, #1c1c1e 50%, #1a1a1c 100%)"
                         : "linear-gradient(180deg, #efefef 0%, #e8e8e8 50%, #e4e4e4 100%)";
   const borderTop   = d ? "#242424" : "#d8d8d8";
   const borderBot   = d ? "#222222" : "#d0d0d0";
@@ -124,6 +153,16 @@ export default function Footer() {
             <p className="text-sm leading-relaxed mb-5 max-w-xs" style={{ color: textMuted }}>
               <E field="footer.description" tag="span" multiline>{footerContent.description}</E>
             </p>
+
+            {/* Trust badges */}
+            <div className="flex items-center gap-3 mb-5 flex-wrap">
+              <img
+                src="/badges/yerli-uretim.jpg"
+                alt="Yerli Üretim"
+                className="h-8 w-auto object-contain"
+                style={{ filter: d ? "invert(1) brightness(0.85)" : "none", opacity: d ? 0.7 : 0.6 }}
+              />
+            </div>
 
             <p className="text-xs mb-3" style={{ color: textFaint }}><E field="footer.followLabel" tag="span">{footerContent.followLabel}</E></p>
             <div className="flex items-center gap-2 mb-6">

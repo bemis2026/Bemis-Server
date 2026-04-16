@@ -35,29 +35,33 @@ export default function Stats() {
   const BLUE = "#3B82F6";
   const sectionBgUrl = sectionBgs?.["stats"] ?? "";
 
-  const cardBgDefault  = d ? "linear-gradient(145deg, #111114 0%, #0d0d10 100%)" : "#ffffff";
-  const cardBgHover    = d ? "linear-gradient(145deg, #141418 0%, #101014 100%)" : "#f8f8fb";
-  const statNumColor   = d ? "#93C5FD" : "#1D4ED8";
-  const labelColor     = d ? "#ffffff" : "#111111";
-  const descColor      = d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)";
+  const sectionBg     = d
+    ? "linear-gradient(180deg, #1a1a1a 0%, #181818 40%, #1c1c1e 100%)"
+    : "linear-gradient(180deg, #3B6FD4 0%, #5B8DEF 50%, #4A7DE0 100%)";
+  const cardBgDefault  = d ? "linear-gradient(145deg, #111114 0%, #0d0d10 100%)" : "rgba(255,255,255,0.10)";
+  const cardBgHover    = d ? "linear-gradient(145deg, #141418 0%, #101014 100%)" : "rgba(255,255,255,0.20)";
+  const gridGap        = d ? `${BLUE}20` : "rgba(255,255,255,0.18)";
+  const statNumColor   = d ? "#93C5FD" : "#ffffff";
+  const labelColor     = d ? "#ffffff" : "#ffffff";
+  const descColor      = d ? "rgba(255,255,255,0.40)" : "rgba(255,255,255,0.72)";
 
   return (
     <section
       id="stats"
       className="relative"
-      style={{ background: d ? "linear-gradient(180deg, #0d0d0d 0%, #0a0a0a 40%, #0f0f12 100%)" : "linear-gradient(180deg, #f0f0f0 0%, #e8e8e8 100%)" }}
+      style={{ background: sectionBg }}
     >
       {sectionBgUrl && (
         <>
           <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${sectionBgUrl})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }} />
-          <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.70)" : "rgba(255,255,255,0.72)" }} />
+          <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.70)" : "rgba(30,58,138,0.80)" }} />
         </>
       )}
-      <div className="section-divider" />
+      <div className="section-divider" style={{ background: d ? undefined : "linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)" }} />
       <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-8 lg:py-10">
         <div
           className="grid grid-cols-2 lg:grid-cols-4 gap-px rounded-2xl overflow-hidden"
-          style={{ background: d ? `${BLUE}20` : `${BLUE}15` }}
+          style={{ background: gridGap }}
         >
           {stats.map((stat, i) => (
             <motion.div

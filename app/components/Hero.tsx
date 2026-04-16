@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 import E from "./E";
 
 export default function Hero() {
   const { hero, logos } = useContent();
   const { layout } = hero;
   const { theme } = useTheme();
+  const { lang } = useLanguage();
   const d = theme === "dark";
 
   const scrollTo = (id: string) => {
@@ -21,8 +23,8 @@ export default function Hero() {
     : "linear-gradient(160deg, #f0f0f0 0%, #e8e8e8 50%, #eeeeee 100%)";
 
   const overlay    = d
-    ? "linear-gradient(135deg, rgba(5,5,8,0.72) 0%, rgba(5,5,8,0.50) 50%, rgba(5,5,8,0.30) 100%)"
-    : "linear-gradient(135deg, rgba(240,240,240,0.32) 0%, rgba(240,240,240,0.15) 50%, rgba(240,240,240,0.04) 100%)";
+    ? "linear-gradient(135deg, rgba(5,5,8,0.55) 0%, rgba(5,5,8,0.38) 50%, rgba(5,5,8,0.18) 100%)"
+    : "linear-gradient(135deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.32) 55%, rgba(0,0,0,0.10) 100%)";
 
   const groundFade = d
     ? "linear-gradient(to top, #1a1a1a 0%, rgba(26,26,26,0.7) 50%, transparent 100%)"
@@ -33,9 +35,10 @@ export default function Hero() {
   const scrollDot      = d ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.45)";
   const scrollLabel    = d ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.55)";
 
-  const headlineClass  = d ? "text-white" : "text-[#111111]";
-  const subtitleClass  = d ? "text-white/45" : "text-[#444444]";
-  const sub3rdClass    = d ? "text-white/50" : "text-[#666666]";
+  const headlineClass  = d ? "text-white" : "text-white";
+  const subtitleClass  = d ? "text-white/45" : "text-white/80";
+  const sub3rdClass    = d ? "text-white/50" : "text-white/60";
+  const textShadow     = d ? undefined : "0 2px 16px rgba(0,0,0,0.70), 0 1px 4px rgba(0,0,0,0.50)";
   const logoSrc        = logos?.dark || "/logo-white.png";
   const logoStyle      = d ? {} : { filter: "invert(1)" };
 
@@ -47,8 +50,15 @@ export default function Hero() {
     >
       {/* Background photo */}
       {hero.heroBg && (
-        <div className="absolute inset-0 bg-center bg-cover bg-no-repeat"
-          style={{ backgroundImage: `url('${hero.heroBg}')` }} />
+        <Image
+          src={hero.heroBg}
+          alt=""
+          fill
+          priority
+          quality={90}
+          className="object-cover object-center"
+          sizes="100vw"
+        />
       )}
 
       {/* Overlay */}
@@ -65,14 +75,14 @@ export default function Hero() {
             <Image src={logoSrc} alt="Bemis E-V Charge" width={380} height={120}
               className="h-20 sm:h-24 w-auto object-contain" style={logoStyle} priority />
             <div className="mt-5 mb-5 h-px w-12" style={{ background: dividerColor }} />
-            <h1 className={`text-4xl sm:text-5xl font-black tracking-tight leading-[1.18] ${headlineClass}`}>
+            <h1 className={`text-4xl sm:text-5xl font-black tracking-tight leading-[1.18] ${headlineClass}`} style={{ textShadow }}>
               <E field="hero.headline1">{hero.headline1}</E><br />
               <E field="hero.headline2">{hero.headline2}</E><br />
               <span className={sub3rdClass}><E field="hero.headline3">{hero.headline3}</E></span>
             </h1>
           </motion.div>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className={`${subtitleClass} text-base leading-relaxed max-w-lg mb-9`}>
+            className={`${subtitleClass} text-base leading-relaxed max-w-lg mb-9`} style={{ textShadow }}>
             <E field="hero.subtitle" tag="span">{hero.subtitle}</E>
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}>
@@ -98,6 +108,7 @@ export default function Hero() {
           <motion.h1
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
             className={`text-5xl xl:text-6xl 2xl:text-7xl font-black tracking-tight leading-[1.18] ${headlineClass} mb-5`}
+            style={{ textShadow }}
           >
             <E field="hero.headline1">{hero.headline1}</E><br />
             <E field="hero.headline2">{hero.headline2}</E><br />
@@ -107,6 +118,7 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.18 }}
             className={`${subtitleClass} text-lg leading-relaxed mb-8`}
+            style={{ textShadow }}
           >
             <E field="hero.subtitle" tag="span">{hero.subtitle}</E>
           </motion.p>
@@ -121,7 +133,7 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none">
-        <span className="text-[9px] font-bold tracking-[0.22em] uppercase" style={{ color: scrollLabel }}>Keşfet</span>
+        <span className="text-[9px] font-bold tracking-[0.22em] uppercase" style={{ color: scrollLabel }}>{lang === "en" ? "Explore" : "Keşfet"}</span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}

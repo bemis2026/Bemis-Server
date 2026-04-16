@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #141414;
+  --background: #1e1e1e;
   --foreground: #f0f0f0;
   --accent-red: #E31E24;
   --accent-red-dark: #B81519;
@@ -153,7 +153,7 @@ html[data-theme="light"] body {
 }
 
 /* Section backgrounds */
-html[data-theme="light"] section {
+html[data-theme="light"] section:not(#stats) {
   background-color: #F5F5F5 !important;
 }
 
@@ -190,9 +190,23 @@ html[data-theme="light"] [class*="border-[#161616]"] {
   border-color: #E0E0E0 !important;
 }
 
-/* Text */
+/* Text — hero hariç */
 html[data-theme="light"] .text-white { color: #111111 !important; }
 html[data-theme="light"] [class*="text-white\/"] { color: #555555 !important; }
+/* hero içindeki yazılar beyaz kalır */
+html[data-theme="light"] #hero .text-white { color: #ffffff !important; }
+html[data-theme="light"] #hero [class*="text-white\/10"] { color: rgba(255,255,255,0.10) !important; }
+html[data-theme="light"] #hero [class*="text-white\/20"] { color: rgba(255,255,255,0.20) !important; }
+html[data-theme="light"] #hero [class*="text-white\/25"] { color: rgba(255,255,255,0.25) !important; }
+html[data-theme="light"] #hero [class*="text-white\/30"] { color: rgba(255,255,255,0.30) !important; }
+html[data-theme="light"] #hero [class*="text-white\/40"] { color: rgba(255,255,255,0.40) !important; }
+html[data-theme="light"] #hero [class*="text-white\/45"] { color: rgba(255,255,255,0.45) !important; }
+html[data-theme="light"] #hero [class*="text-white\/50"] { color: rgba(255,255,255,0.50) !important; }
+html[data-theme="light"] #hero [class*="text-white\/55"] { color: rgba(255,255,255,0.55) !important; }
+html[data-theme="light"] #hero [class*="text-white\/60"] { color: rgba(255,255,255,0.60) !important; }
+html[data-theme="light"] #hero [class*="text-white\/70"] { color: rgba(255,255,255,0.70) !important; }
+html[data-theme="light"] #hero [class*="text-white\/80"] { color: rgba(255,255,255,0.80) !important; }
+html[data-theme="light"] #hero [class*="text-white\/90"] { color: rgba(255,255,255,0.90) !important; }
 
 /* Section divider in light */
 html[data-theme="light"] .section-divider {
@@ -236,9 +250,7 @@ html[data-theme="light"] footer {
   background: linear-gradient(180deg, #efefef 0%, #e8e8e8 50%, #e4e4e4 100%) !important;
 }
 
-/* White/opacity text becomes dark in light mode */
-html[data-theme="light"] [class*="text-white\/"] { color: #444444 !important; }
-html[data-theme="light"] .text-white { color: #111111 !important; }
+/* White/opacity text becomes dark in light mode — hero hariç (yukarıda tanımlandı) */
 
 /* bg-[#1e1e1e] social buttons etc */
 html[data-theme="light"] [class*="bg-[#1e1e1e]"] { background-color: #ffffff !important; }

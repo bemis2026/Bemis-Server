@@ -39,7 +39,7 @@ export default function Reviews() {
     <section
       style={{
         background: d
-          ? "linear-gradient(180deg, #0f0f12 0%, #0a0a0a 35%, #0d0d0f 70%, #111114 100%)"
+          ? "linear-gradient(180deg, #1b1b1e 0%, #181818 35%, #1a1a1c 70%, #1d1d20 100%)"
           : "linear-gradient(180deg, #f0f0f4 0%, #f5f5f5 40%, #ebebeb 100%)",
       }}
       className="relative py-6 lg:py-8 overflow-hidden"

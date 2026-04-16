@@ -3,44 +3,21 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { useTheme } from "../context/ThemeContext";
+import { useContent } from "../context/ContentContext";
 import { RiCpuLine, RiMedalLine, RiGlobeLine, RiLeafLine } from "react-icons/ri";
 
-const features = [
-  {
-    icon: RiCpuLine,
-    title: "Akıllı Şarj Yönetimi",
-    desc: "OCPP 1.6 / 2.0 protokolü, dinamik yük dengeleme ve bulut tabanlı uzaktan yönetim.",
-    accent: "#3B82F6",
-  },
-  {
-    icon: RiMedalLine,
-    title: "Yerli Üretim Kalitesi",
-    desc: "Bursa OSB tesisimizde IP65, CE ve ISO 9001 standartlarında üretim. Yazılımdan elektroniğe tam yerli.",
-    accent: "#10B981",
-  },
-  {
-    icon: RiGlobeLine,
-    title: "Evrensel Uyumluluk",
-    desc: "Type 2, CCS, CHAdeMO — tüm EV markalarıyla uyumlu, IEC 61851 & IEC 62196 sertifikalı.",
-    accent: "#F59E0B",
-  },
-  {
-    icon: RiLeafLine,
-    title: "Sürdürülebilir Tasarım",
-    desc: "-40°C / +55°C çalışma aralığı, 100.000+ saat ömür. Uzun ömürlü, az atık.",
-    accent: "#818CF8",
-  },
-];
-
-const certs = ["CE", "IP65", "IEC 61851", "IEC 62196", "OCPP 2.0", "ISO 9001", "TSE"];
+const ICONS = [RiCpuLine, RiMedalLine, RiGlobeLine, RiLeafLine];
 
 export default function Technology() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
+  const { technology } = useContent();
   const d = theme === "dark";
+  const features = technology.features.map((f, i) => ({ ...f, icon: ICONS[i % ICONS.length] }));
+  const certs = technology.certs;
 
-  const bg = d ? "#0A0A0A" : "#f8f8fb";
+  const bg = d ? "#181818" : "#f8f8fb";
   const cardBg = d ? "rgba(255,255,255,0.035)" : "#ffffff";
   const cardBorder = d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.07)";
   const textPrimary = d ? "#f0f0f4" : "#1a1a2e";
@@ -60,7 +37,7 @@ export default function Technology() {
             className="text-xs font-semibold tracking-widest uppercase mb-2"
             style={{ color: textMuted }}
           >
-            Neden Bemis?
+            {technology.sectionLabel}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 14 }}
@@ -69,7 +46,7 @@ export default function Technology() {
             className="text-2xl sm:text-3xl font-bold"
             style={{ color: textPrimary }}
           >
-            Üretimden yazılıma — her şey yerli
+            {technology.heading}
           </motion.h2>
         </div>
 
@@ -120,6 +97,18 @@ export default function Technology() {
               {c}
             </span>
           ))}
+          <img
+            src="/badges/tse.webp"
+            alt="TSE"
+            className="h-6 w-auto object-contain"
+            style={{ filter: d ? "invert(1) brightness(0.85)" : "none", opacity: d ? 0.65 : 0.55 }}
+          />
+          <img
+            src="/badges/yerli-uretim.jpg"
+            alt="Yerli Üretim"
+            className="h-6 w-auto object-contain"
+            style={{ filter: d ? "invert(1) brightness(0.85)" : "none", opacity: d ? 0.65 : 0.55 }}
+          />
         </motion.div>
       </div>
     </section>
