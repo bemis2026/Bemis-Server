@@ -27,14 +27,9 @@ export default function ContactBar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <img
-              src="/logo-white.png"
+              src={d ? "/logo-white.png" : "/logo-black.png"}
               alt="Bemis E-V Charge"
-              style={{
-                height: 28,
-                objectFit: "contain",
-                opacity: d ? 0.85 : 0.9,
-                filter: d ? "none" : "drop-shadow(0 0 2px rgba(0,0,0,0.30)) drop-shadow(0 2px 6px rgba(0,0,0,0.20))",
-              }}
+              style={{ height: 28, objectFit: "contain", opacity: 0.85 }}
             />
           </div>
 

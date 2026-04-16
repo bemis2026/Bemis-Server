@@ -36,8 +36,8 @@ export default function Hero() {
   const headlineClass  = d ? "text-white" : "text-[#111111]";
   const subtitleClass  = d ? "text-white/45" : "text-black/50";
   const sub3rdClass    = d ? "text-white/50" : "text-black/30";
-  const logoSrc        = "/logo-white.png";
-  const logoStyle      = d ? {} : { filter: "drop-shadow(0 0 2px rgba(0,0,0,0.30)) drop-shadow(0 2px 6px rgba(0,0,0,0.20))" };
+  const logoSrc        = d ? "/logo-white.png" : "/logo-black.png";
+  const logoStyle      = {};
 
   return (
     <section

@@ -85,12 +85,11 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
             aria-label="Ana sayfa"
           >
             <Image
-              src="/logo-white.png"
+              src={isDark ? "/logo-white.png" : "/logo-black.png"}
               alt="Bemis E-V Charge"
               width={200}
               height={64}
               className="h-14 w-auto object-contain block"
-              style={isDark ? {} : { filter: "drop-shadow(0 0 1px rgba(0,0,0,0.25)) drop-shadow(0 1px 4px rgba(0,0,0,0.18))" }}
               priority
             />
           </button>
