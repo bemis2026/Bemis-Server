@@ -275,13 +275,6 @@ export default function Products() {
                             Yakında
                           </span>
                         )}
-                        <button
-                          onClick={(e) => { e.stopPropagation(); router.push("/products"); }}
-                          className="inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-xl transition-all duration-200"
-                          style={{ background: d ? `${BLUE}15` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}28`, color: d ? "#93C5FD" : BLUE }}
-                        >
-                          <E field="products.allProductsLabel" tag="span">{productSection.allProductsLabel}</E>
-                        </button>
                       </div>
                     </div>
 
@@ -330,6 +323,29 @@ export default function Products() {
             <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{ border: `1px solid ${d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}` }} />
           </motion.div>
         )}
+
+        {/* ── Tüm Ürünler CTA ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.45, delay: 0.25 }}
+          className="flex justify-center"
+        >
+          <button
+            onClick={() => router.push("/products")}
+            className="group inline-flex items-center gap-3 font-bold rounded-2xl transition-all duration-300 hover:gap-4 hover:scale-[1.03]"
+            style={{
+              background: BLUE,
+              color: "#fff",
+              fontSize: "clamp(1rem, 2vw, 1.2rem)",
+              padding: "clamp(14px, 2vw, 18px) clamp(32px, 5vw, 56px)",
+              boxShadow: `0 8px 32px ${BLUE}55`,
+            }}
+          >
+            <E field="products.allProductsLabel" tag="span">{productSection.allProductsLabel}</E>
+            <HiArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
+          </button>
+        </motion.div>
 
         {/* ── Category Cards Grid ── */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">

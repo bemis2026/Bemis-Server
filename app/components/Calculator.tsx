@@ -492,7 +492,7 @@ export default function Calculator() {
             {/* Animated ibra — left */}
             <TachometerNeedle d={d} blue={BLUE} />
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black" style={{ color: textPrimary }}>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black" style={{ color: textPrimary }}>
               Şarj Süresi Hesaplayıcı
             </h2>
 

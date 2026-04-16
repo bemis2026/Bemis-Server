@@ -85,7 +85,7 @@ export default function DNA() {
 
             {/* Heading */}
             <motion.div initial={{ opacity: 0, y: 14 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.07 }}>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.12]" style={{ color: textPrimary }}>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.08]" style={{ color: textPrimary }}>
                 {hasAccent ? (
                   <>{headingParts[0].trim()}<br /><span style={{ color: BLUE }}>{headingParts.slice(1).join("—").trim()}</span></>
                 ) : dna.sectionHeading}
