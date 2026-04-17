@@ -348,5 +348,9 @@
     "b2bText": "Üreticiler ve OEM çözümleri için",
     "b2bLinkText": "profesyonel ürün sayfamızı",
     "b2bSuffix": "ziyaret edin."
+  },
+  "logos": {
+    "dark": "",
+    "light": ""
   }
 }
