@@ -379,7 +379,7 @@ export default function Products() {
                 <div
                   className="relative overflow-hidden"
                   style={{
-                    height: 240,
+                    height: "clamp(130px, 30vw, 240px)",
                     background: d ? cat.darkVisualBg : cat.lightVisualBg,
                   }}
                 >

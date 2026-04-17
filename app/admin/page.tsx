@@ -117,6 +117,7 @@ export default function AdminPage() {
 
   const [tab, setTab] = useState<Tab>("hero");
   const [showPreview, setShowPreview] = useState(false);
+  const [previewMode, setPreviewMode] = useState<"desktop" | "mobile">("desktop");
   const [previewKey, setPreviewKey] = useState(0);
   const [content, setContent] = useState<ContentData | null>(null);
   const [products, setProducts] = useState<CategoryData[]>([]);
@@ -160,37 +161,29 @@ export default function AdminPage() {
 
   // Live preview
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const iframeMobileRef = useRef<HTMLIFrameElement>(null);
   const previewDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const postToPreview = (msg: object) => {
+    const target = previewMode === "mobile" ? iframeMobileRef.current : iframeRef.current;
+    target?.contentWindow?.postMessage(msg, window.location.origin);
+  };
 
   useEffect(() => {
     if (!showPreview || !content) return;
     if (previewDebounceRef.current) clearTimeout(previewDebounceRef.current);
     previewDebounceRef.current = setTimeout(() => {
-      iframeRef.current?.contentWindow?.postMessage(
-        { type: "BEMIS_PREVIEW", content },
-        window.location.origin
-      );
+      postToPreview({ type: "BEMIS_PREVIEW", content });
     }, 350);
     return () => { if (previewDebounceRef.current) clearTimeout(previewDebounceRef.current); };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [content, showPreview]);
+  }, [content, showPreview, previewMode]);
 
   const handleIframeLoad = () => {
-    if (content) {
-      iframeRef.current?.contentWindow?.postMessage(
-        { type: "BEMIS_PREVIEW", content },
-        window.location.origin
-      );
-    }
-    // Scroll to current section after load
+    if (content) postToPreview({ type: "BEMIS_PREVIEW", content });
     const anchor = TAB_ANCHOR_MAP[tab];
     if (anchor) {
-      setTimeout(() => {
-        iframeRef.current?.contentWindow?.postMessage(
-          { type: "BEMIS_PREVIEW_SCROLL", anchor },
-          window.location.origin
-        );
-      }, 800);
+      setTimeout(() => postToPreview({ type: "BEMIS_PREVIEW_SCROLL", anchor }), 800);
     }
   };
 
@@ -199,14 +192,9 @@ export default function AdminPage() {
     if (!showPreview) return;
     const anchor = TAB_ANCHOR_MAP[tab];
     if (!anchor) return;
-    setTimeout(() => {
-      iframeRef.current?.contentWindow?.postMessage(
-        { type: "BEMIS_PREVIEW_SCROLL", anchor },
-        window.location.origin
-      );
-    }, 100);
+    setTimeout(() => postToPreview({ type: "BEMIS_PREVIEW_SCROLL", anchor }), 100);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tab, showPreview]);
+  }, [tab, showPreview, previewMode]);
 
   // Sections accordion state
   const [secOpen, setSecOpen] = useState<Record<string, boolean>>({ dna: true, products: false, dealer: false, reviews: false, contactSec: false });
@@ -2175,73 +2163,123 @@ export default function AdminPage() {
               style={{ background: "#0a0a0c" }}
             >
               {/* Panel header */}
-              <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/8 flex-shrink-0">
+              <div className="flex items-center justify-between px-3 py-2 border-b border-white/8 flex-shrink-0">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="text-xs font-semibold text-white/60">Canlı Önizleme</span>
-                  <span className="text-[10px] text-white/25">— değişiklikler anında yansır</span>
                 </div>
                 <div className="flex items-center gap-1">
+                  {/* Desktop / Mobile toggle */}
+                  <div className="flex items-center rounded-lg overflow-hidden mr-1" style={{ border: "1px solid rgba(255,255,255,0.08)" }}>
+                    <button
+                      onClick={() => setPreviewMode("desktop")}
+                      className="px-2.5 py-1 text-[10px] font-bold transition-colors flex items-center gap-1"
+                      style={{
+                        background: previewMode === "desktop" ? "rgba(59,130,246,0.20)" : "transparent",
+                        color: previewMode === "desktop" ? "#60A5FA" : "rgba(255,255,255,0.30)",
+                      }}
+                      title="Masaüstü önizleme"
+                    >
+                      🖥 Masaüstü
+                    </button>
+                    <button
+                      onClick={() => setPreviewMode("mobile")}
+                      className="px-2.5 py-1 text-[10px] font-bold transition-colors flex items-center gap-1"
+                      style={{
+                        background: previewMode === "mobile" ? "rgba(59,130,246,0.20)" : "transparent",
+                        color: previewMode === "mobile" ? "#60A5FA" : "rgba(255,255,255,0.30)",
+                      }}
+                      title="Mobil önizleme"
+                    >
+                      📱 Mobil
+                    </button>
+                  </div>
                   <button
                     onClick={() => setPreviewKey((k) => k + 1)}
-                    className="flex items-center gap-1 text-[11px] text-white/35 hover:text-white/65 px-2 py-1 rounded-lg hover:bg-white/5 transition-colors"
-                    title="Sayfayı yeniden yükle"
+                    className="text-white/30 hover:text-white/60 w-6 h-6 flex items-center justify-center rounded hover:bg-white/5 transition-colors"
+                    title="Yenile"
                   >
-                    <HiOutlineRefresh size={12} /> Yenile
+                    <HiOutlineRefresh size={11} />
                   </button>
                   <button
                     onClick={() => setShowPreview(false)}
-                    className="text-white/25 hover:text-white/55 w-6 h-6 flex items-center justify-center rounded-lg hover:bg-white/5 transition-colors text-xs"
+                    className="text-white/25 hover:text-white/55 w-6 h-6 flex items-center justify-center rounded hover:bg-white/5 transition-colors text-xs"
                   >✕</button>
                 </div>
               </div>
 
-              {/* Browser chrome frame + iframe */}
-              <div className="flex-1 overflow-hidden p-3">
-                <div
-                  className="w-full h-full rounded-xl overflow-hidden flex flex-col"
-                  style={{ border: "1px solid rgba(255,255,255,0.10)", background: "#111" }}
-                >
-                  {/* Browser address bar */}
+              {/* Preview content */}
+              <div className="flex-1 overflow-hidden p-3 flex flex-col">
+                {previewMode === "desktop" ? (
+                  /* ── Desktop: browser chrome + scaled iframe ── */
                   <div
-                    className="flex-shrink-0 flex items-center gap-2 px-3"
-                    style={{ height: 30, background: "rgba(255,255,255,0.04)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}
+                    className="w-full h-full rounded-xl overflow-hidden flex flex-col"
+                    style={{ border: "1px solid rgba(255,255,255,0.10)", background: "#111" }}
                   >
-                    <div className="flex gap-1.5">
-                      <div style={{ width: 8, height: 8, borderRadius: "50%", background: "rgba(255,255,255,0.15)" }} />
-                      <div style={{ width: 8, height: 8, borderRadius: "50%", background: "rgba(255,255,255,0.15)" }} />
-                      <div style={{ width: 8, height: 8, borderRadius: "50%", background: "rgba(255,255,255,0.15)" }} />
+                    {/* Browser address bar */}
+                    <div className="flex-shrink-0 flex items-center gap-2 px-3"
+                      style={{ height: 30, background: "rgba(255,255,255,0.04)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+                      <div className="flex gap-1.5">
+                        {[0,1,2].map(i => <div key={i} style={{ width: 8, height: 8, borderRadius: "50%", background: "rgba(255,255,255,0.15)" }} />)}
+                      </div>
+                      <div className="flex-1 flex items-center justify-center rounded"
+                        style={{ height: 18, background: "rgba(255,255,255,0.06)" }}>
+                        <span style={{ fontSize: 9, color: "rgba(255,255,255,0.30)" }}>bemisevcharge.com.tr</span>
+                      </div>
                     </div>
-                    <div
-                      className="flex-1 flex items-center justify-center rounded"
-                      style={{ height: 18, background: "rgba(255,255,255,0.06)" }}
-                    >
-                      <span style={{ fontSize: 9, color: "rgba(255,255,255,0.30)" }}>bemisevcharge.com.tr</span>
+                    {/* iframe viewport */}
+                    <div className="flex-1 overflow-hidden relative">
+                      <iframe ref={iframeRef} key={`desktop-${previewKey}`} src="/" title="Masaüstü Önizleme"
+                        onLoad={handleIframeLoad}
+                        style={{ position: "absolute", top: 0, left: 0, width: 1440, height: 5000, border: "none",
+                          transformOrigin: "top left", transform: "scale(0.2847)", pointerEvents: "none" }} />
                     </div>
                   </div>
+                ) : (
+                  /* ── Mobile: phone chrome + scaled iframe ── */
+                  <div className="flex-1 flex items-start justify-center overflow-hidden pt-2">
+                    {/* Phone frame */}
+                    <div className="relative flex-shrink-0" style={{
+                      width: 240, height: "100%",
+                      maxHeight: "calc(100% - 8px)",
+                    }}>
+                      {/* Phone outline */}
+                      <div className="absolute inset-0 rounded-[28px] pointer-events-none z-10"
+                        style={{ border: "2px solid rgba(255,255,255,0.18)", boxShadow: "0 0 0 6px rgba(255,255,255,0.04), 0 8px 40px rgba(0,0,0,0.6)" }} />
+                      {/* Notch */}
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20"
+                        style={{ width: 60, height: 18, background: "#0a0a0c", borderRadius: "0 0 14px 14px" }} />
+                      {/* Home indicator */}
+                      <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 z-20 rounded-full"
+                        style={{ width: 50, height: 3, background: "rgba(255,255,255,0.25)" }} />
+                      {/* Screen area */}
+                      <div className="absolute inset-0 rounded-[26px] overflow-hidden" style={{ background: "#000" }}>
+                        <iframe
+                          ref={iframeMobileRef}
+                          key={`mobile-${previewKey}`}
+                          src="/"
+                          title="Mobil Önizleme"
+                          onLoad={handleIframeLoad}
+                          style={{
+                            position: "absolute", top: 0, left: 0,
+                            width: 390, height: 5000,
+                            border: "none",
+                            transformOrigin: "top left",
+                            transform: `scale(${240 / 390})`,
+                            pointerEvents: "none",
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
 
-                  {/* iframe viewport */}
-                  <div className="flex-1 overflow-hidden relative">
-                    <iframe
-                      ref={iframeRef}
-                      key={previewKey}
-                      src="/"
-                      title="Site Önizleme"
-                      onLoad={handleIframeLoad}
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        width: 1440,
-                        height: 5000,
-                        border: "none",
-                        transformOrigin: "top left",
-                        transform: "scale(0.2847)",
-                        pointerEvents: "none",
-                      }}
-                    />
-                  </div>
-                </div>
+              {/* Footer */}
+              <div className="flex-shrink-0 px-4 py-1.5 border-t border-white/6 text-center">
+                <p className="text-[9px] text-white/15">
+                  {previewMode === "desktop" ? "1440px masaüstü görünümü" : "390px mobil görünümü (iPhone 14)"} · Kayıt sonrası otomatik güncellenir
+                </p>
               </div>
             </motion.aside>
           )}

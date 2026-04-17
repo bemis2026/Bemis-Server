@@ -135,7 +135,7 @@ export default function FeaturedProducts() {
                 <div style={{ height: 3, background: item.accent, opacity: isHov ? 1 : 0.5, transition: "opacity 0.3s" }} />
 
                 {/* Product image */}
-                <div className="relative overflow-hidden" style={{ height: 180 }}>
+                <div className="relative overflow-hidden" style={{ height: "clamp(140px, 45vw, 180px)" }}>
                   {item.prod?.image ? (
                     <img
                       src={item.prod.image}

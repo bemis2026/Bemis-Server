@@ -73,16 +73,16 @@ export default function Hero() {
         <div className="max-w-2xl">
           <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-7">
             <Image src={logoSrc} alt="Bemis E-V Charge" width={380} height={120}
-              className="h-20 sm:h-24 w-auto object-contain" style={logoStyle} priority />
-            <div className="mt-5 mb-5 h-px w-12" style={{ background: dividerColor }} />
-            <h1 className={`text-4xl sm:text-5xl font-black tracking-tight leading-[1.18] ${headlineClass}`} style={{ textShadow }}>
+              className="h-14 xs:h-16 sm:h-20 w-auto max-w-[180px] sm:max-w-[260px] object-contain" style={logoStyle} priority />
+            <div className="mt-4 mb-4 h-px w-10" style={{ background: dividerColor }} />
+            <h1 className={`text-3xl xs:text-4xl sm:text-5xl font-black tracking-tight leading-[1.18] ${headlineClass}`} style={{ textShadow }}>
               <E field="hero.headline1">{hero.headline1}</E><br />
               <E field="hero.headline2">{hero.headline2}</E><br />
               <span className={sub3rdClass}><E field="hero.headline3">{hero.headline3}</E></span>
             </h1>
           </motion.div>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className={`${subtitleClass} text-base leading-relaxed max-w-lg mb-9`} style={{ textShadow }}>
+            className={`${subtitleClass} text-sm sm:text-base leading-relaxed max-w-lg mb-8`} style={{ textShadow }}>
             <E field="hero.subtitle" tag="span">{hero.subtitle}</E>
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}>
