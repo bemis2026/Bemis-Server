@@ -1,21 +1,11 @@
 import { BetaAnalyticsDataClient } from "@google-analytics/data";
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import fs from "fs";
-import path from "path";
 
-// ── Auth check (same as other admin routes) ────────────────────────────────
+// ── Auth check ─────────────────────────────────────────────────────────────
 async function isAuthed(): Promise<boolean> {
   const cookieStore = await cookies();
-  const token = cookieStore.get("admin_token")?.value;
-  if (!token) return false;
-  try {
-    const authPath = path.join(process.cwd(), "data", "auth.json");
-    const auth = JSON.parse(fs.readFileSync(authPath, "utf-8"));
-    return token === auth.token;
-  } catch {
-    return false;
-  }
+  return cookieStore.get("admin_auth")?.value === "1";
 }
 
 // ── GA4 client ─────────────────────────────────────────────────────────────

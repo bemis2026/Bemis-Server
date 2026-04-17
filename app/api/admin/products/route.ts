@@ -20,8 +20,12 @@ export async function GET(req: NextRequest) {
       return NextResponse.json(await res.json());
     }
   } catch {}
-  const data = JSON.parse(readFileSync(fallbackPath, "utf-8"));
-  return NextResponse.json(data);
+  try {
+    const data = JSON.parse(readFileSync(fallbackPath, "utf-8"));
+    return NextResponse.json(data);
+  } catch {
+    return NextResponse.json([]);
+  }
 }
 
 export async function POST(req: NextRequest) {

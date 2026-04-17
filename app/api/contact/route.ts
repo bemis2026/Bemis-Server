@@ -81,13 +81,9 @@ export async function POST(req: NextRequest) {
         }),
       });
       if (res.ok) return NextResponse.json({ ok: true });
-      const errText = await res.text();
-      console.error("[contact] Resend error:", errText);
-      // Surface Resend error for diagnosing misconfiguration
-      return NextResponse.json({ error: "resend", detail: errText }, { status: 500 });
+      console.error("[contact] Resend error:", await res.text());
     } catch (e) {
       console.error("[contact] Resend exception:", e);
-      return NextResponse.json({ error: "resend_exception", detail: String(e) }, { status: 500 });
     }
   }
 
@@ -113,11 +109,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true });
     } catch (err) {
       console.error("[contact] SMTP failed:", err);
-      return NextResponse.json({ error: "E-posta gönderilemedi" }, { status: 500 });
     }
   }
 
-  // No email configured — message saved to Blob, return success
-  console.warn("[contact] No email provider configured. Message saved to Blob.");
-  return NextResponse.json({ ok: true });
+  // Mesaj Blob'a kaydedildi ama e-posta gönderilemedi
+  console.error("[contact] All email providers failed or unconfigured.");
+  return NextResponse.json({ error: "E-posta gönderilemedi, mesajınız kaydedildi." }, { status: 500 });
 }
