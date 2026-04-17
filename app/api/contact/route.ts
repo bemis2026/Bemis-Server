@@ -81,9 +81,13 @@ export async function POST(req: NextRequest) {
         }),
       });
       if (res.ok) return NextResponse.json({ ok: true });
-      console.error("[contact] Resend error:", await res.text());
+      const errText = await res.text();
+      console.error("[contact] Resend error:", errText);
+      // Surface Resend error for diagnosing misconfiguration
+      return NextResponse.json({ error: "resend", detail: errText }, { status: 500 });
     } catch (e) {
       console.error("[contact] Resend exception:", e);
+      return NextResponse.json({ error: "resend_exception", detail: String(e) }, { status: 500 });
     }
   }
 
