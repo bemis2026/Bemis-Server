@@ -2374,12 +2374,12 @@ export default function AdminPage() {
                         <span style={{ fontSize: 9, color: "rgba(255,255,255,0.30)" }}>bemisevcharge.com.tr</span>
                       </div>
                     </div>
-                    {/* iframe viewport */}
+                    {/* iframe viewport — 1024×768 scaled to fit 436px panel width */}
                     <div className="flex-1 overflow-hidden relative">
                       <iframe ref={iframeRef} key={`desktop-${previewKey}`} src="/" title="Masaüstü Önizleme"
                         onLoad={handleIframeLoad}
-                        style={{ position: "absolute", top: 0, left: 0, width: 1440, height: 900, border: "none",
-                          transformOrigin: "top left", transform: "scale(0.2847)", pointerEvents: "none" }} />
+                        style={{ position: "absolute", top: 0, left: 0, width: 1024, height: 768, border: "none",
+                          transformOrigin: "top left", transform: "scale(0.426)", pointerEvents: "none" }} />
                     </div>
                   </div>
                 ) : (
@@ -2431,7 +2431,7 @@ export default function AdminPage() {
               {/* Footer */}
               <div className="flex-shrink-0 px-4 py-1.5 border-t border-white/6 text-center">
                 <p className="text-[9px] text-white/15">
-                  {previewMode === "desktop" ? "1440px masaüstü görünümü" : "390px mobil görünümü (iPhone 14)"} · Kayıt sonrası otomatik güncellenir
+                  {previewMode === "desktop" ? "1024px masaüstü görünümü" : "390px mobil görünümü (iPhone 14)"} · Kayıt sonrası otomatik güncellenir
                 </p>
               </div>
             </motion.aside>
