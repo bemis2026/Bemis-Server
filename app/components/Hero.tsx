@@ -56,7 +56,8 @@ export default function Hero() {
           fill
           priority
           quality={90}
-          className="object-cover object-[75%_center] sm:object-center"
+          className="object-cover"
+          style={{ objectPosition: hero.heroBgPos ?? "75% 50%" }}
           sizes="100vw"
         />
       )}

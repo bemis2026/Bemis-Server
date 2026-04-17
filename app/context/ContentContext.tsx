@@ -33,6 +33,7 @@ export type SiteContent = {
   hero: {
     badge: string; headline1: string; headline2: string; headline3: string;
     subtitle: string; ctaPrimary: string; ctaSecondary: string; heroBg: string;
+    heroBgPos?: string;
     layout: HeroLayout;
   };
   stats: StatItem[];
@@ -114,7 +115,7 @@ const defaultContent: SiteContent = {
     badge: "Yerli Üretim · Bursa · 1994",
     headline1: "Türkiye'nin", headline2: "Şarj Sistemleri", headline3: "Üreticisi",
     subtitle: "Evinizden iş yerinize, otopark çözümlerinden sahaya kadar — IP65 sertifikalı AC şarj üniteleri, kablolar ve aksesuarlarla elektrikli araç deneyimini kolaylaştırıyoruz.",
-    ctaPrimary: "Ürün Kataloğu", ctaSecondary: "Bayi Bul", heroBg: "",
+    ctaPrimary: "Ürün Kataloğu", ctaSecondary: "Bayi Bul", heroBg: "", heroBgPos: "75% 50%",
     layout: DEFAULT_LAYOUT,
   },
   stats: [

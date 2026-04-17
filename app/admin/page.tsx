@@ -57,6 +57,7 @@ type ContentData = {
   hero: {
     badge: string; headline1: string; headline2: string; headline3: string;
     subtitle: string; ctaPrimary: string; ctaSecondary: string; heroBg: string;
+    heroBgPos?: string;
     layout: { logo: { x: number; y: number }; text: { x: number; y: number }; button: { x: number; y: number } };
   };
   stats: StatItem[];
@@ -171,6 +172,17 @@ export default function AdminPage() {
 
   // Hero visual layout editor
   const canvasRef = useRef<HTMLDivElement>(null);
+
+  // Hero focal point picker
+  const focalRef = useRef<HTMLDivElement>(null);
+  const handleFocalMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = focalRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const x = Math.min(100, Math.max(0, Math.round(((e.clientX - rect.left) / rect.width) * 100)));
+    const y = Math.min(100, Math.max(0, Math.round(((e.clientY - rect.top) / rect.height) * 100)));
+    updateContent(["hero", "heroBgPos"], `${x}% ${y}%`);
+  };
 
   // Live preview
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -969,14 +981,6 @@ export default function AdminPage() {
                   <div>
                     <h3 className="text-sm font-semibold mb-3 text-white/70">Arka Plan Görseli</h3>
                     <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
-                      {content.hero.heroBg && (
-                        <div className="relative rounded-xl overflow-hidden" style={{ height: 120 }}>
-                          <img src={content.hero.heroBg} alt="Hero BG" className="w-full h-full object-cover" />
-                          <div className="absolute inset-0 flex items-end p-3" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%)" }}>
-                            <span className="text-[10px] text-white/70 font-mono truncate max-w-full">{content.hero.heroBg}</span>
-                          </div>
-                        </div>
-                      )}
                       <div className="flex gap-2">
                         <input
                           value={content.hero.heroBg ?? ""}
@@ -998,6 +1002,73 @@ export default function AdminPage() {
                         </button>
                         <input ref={heroBgRef} type="file" accept="image/*" className="hidden" onChange={handleHeroBgUpload} />
                       </div>
+
+                      {/* ── Focal Point Picker ── */}
+                      {content.hero.heroBg && (() => {
+                        const raw = content.hero.heroBgPos ?? "50% 50%";
+                        const parts = raw.trim().split(/\s+/);
+                        const fx = parseFloat(parts[0]) || 50;
+                        const fy = parseFloat(parts[1]) || 50;
+                        return (
+                          <div className="space-y-2">
+                            <div className="flex items-center justify-between">
+                              <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Odak Noktası — Tıkla veya Sürükle</p>
+                              <div className="flex items-center gap-2">
+                                <span className="text-[10px] font-mono text-white/30">{fx}% {fy}%</span>
+                                <button
+                                  onClick={() => updateContent(["hero", "heroBgPos"], "50% 50%")}
+                                  className="text-[10px] text-white/25 hover:text-white/55 transition-colors underline underline-offset-2"
+                                >Ortala</button>
+                              </div>
+                            </div>
+                            <div className="flex gap-3">
+                              {/* Main 16:9 picker */}
+                              <div
+                                ref={focalRef}
+                                className="relative rounded-xl overflow-hidden flex-1 cursor-crosshair select-none"
+                                style={{ height: 150 }}
+                                onMouseDown={handleFocalMove}
+                                onMouseMove={(e) => { if (e.buttons === 1) handleFocalMove(e); }}
+                              >
+                                <img
+                                  src={content.hero.heroBg}
+                                  alt=""
+                                  className="w-full h-full object-cover pointer-events-none"
+                                  style={{ objectPosition: `${fx}% ${fy}%` }}
+                                  draggable={false}
+                                />
+                                {/* Grid lines */}
+                                {[33,66].map(p => <div key={`v${p}`} className="absolute inset-y-0 pointer-events-none" style={{ left:`${p}%`, width:1, background:"rgba(255,255,255,0.08)" }} />)}
+                                {[33,66].map(p => <div key={`h${p}`} className="absolute inset-x-0 pointer-events-none" style={{ top:`${p}%`, height:1, background:"rgba(255,255,255,0.08)" }} />)}
+                                {/* Focal dot */}
+                                <div
+                                  className="absolute pointer-events-none"
+                                  style={{ left:`${fx}%`, top:`${fy}%`, transform:"translate(-50%,-50%)", zIndex:10 }}
+                                >
+                                  <div style={{ width:20, height:20, borderRadius:"50%", border:"2.5px solid #fff", boxShadow:"0 0 0 1.5px rgba(0,0,0,0.5), 0 0 8px rgba(0,0,0,0.6)" }} />
+                                  <div style={{ position:"absolute", top:"50%", left:"50%", transform:"translate(-50%,-50%)", width:4, height:4, borderRadius:"50%", background:"#fff" }} />
+                                </div>
+                                {/* Label */}
+                                <div className="absolute bottom-1 left-2 text-[9px] text-white/40 pointer-events-none">Geniş ekran</div>
+                              </div>
+
+                              {/* Mobile 9:16 crop preview */}
+                              <div className="relative rounded-xl overflow-hidden flex-shrink-0 select-none" style={{ width:60, height:150 }}>
+                                <img
+                                  src={content.hero.heroBg}
+                                  alt=""
+                                  className="w-full h-full object-cover pointer-events-none"
+                                  style={{ objectPosition: `${fx}% ${fy}%` }}
+                                  draggable={false}
+                                />
+                                <div className="absolute bottom-1 left-0 right-0 text-center text-[9px] text-white/40 pointer-events-none">Mobil</div>
+                              </div>
+                            </div>
+                            <p className="text-[10px] text-white/20">Sol taraftaki görsele tıklayın veya sürükleyin — odak noktası hemen canlı önizlemede yansır.</p>
+                          </div>
+                        );
+                      })()}
+
                       {content.hero.heroBg && (
                         <button
                           onClick={() => updateContent(["hero", "heroBg"], "")}
