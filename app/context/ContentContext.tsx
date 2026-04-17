@@ -398,6 +398,12 @@ export function ContentProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const handler = (e: MessageEvent) => {
       if (e.origin !== window.location.origin) return;
+      // Scroll to section
+      if (e.data?.type === "BEMIS_PREVIEW_SCROLL" && e.data?.anchor) {
+        const el = document.getElementById(e.data.anchor as string);
+        el?.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
       if (e.data?.type !== "BEMIS_PREVIEW" || !e.data?.content) return;
       const data = e.data.content;
       const loaded: SiteContent = {

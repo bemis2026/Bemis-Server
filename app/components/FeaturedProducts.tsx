@@ -65,7 +65,7 @@ export default function FeaturedProducts() {
   const sectionBgUrl = sectionBgs?.["featured"] ?? "";
 
   return (
-    <section style={{ background: sectionBg }} className="relative py-8 lg:py-12 overflow-hidden">
+    <section id="featured" style={{ background: sectionBg }} className="relative py-8 lg:py-12 overflow-hidden">
       {sectionBgUrl && (
         <>
           <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${sectionBgUrl})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }} />

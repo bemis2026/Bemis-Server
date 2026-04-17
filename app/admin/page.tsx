@@ -106,7 +106,7 @@ type DnaItem  = { title: string; desc: string };
 type ReviewItem = { platform: string; platformColor: string; rating: number; author: string; date: string; product: string; text: string };
 type HeroLayoutKey = "logo" | "text" | "button";
 
-type Tab = "hero" | "stats" | "products" | "contact" | "dealers" | "sections" | "media" | "analytics" | "documents";
+type Tab = "hero" | "dna" | "stats" | "products-section" | "featured" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents";
 
 export default function AdminPage() {
   const [authed, setAuthed] = useState<boolean | null>(null);
@@ -182,7 +182,31 @@ export default function AdminPage() {
         window.location.origin
       );
     }
+    // Scroll to current section after load
+    const anchor = TAB_ANCHOR_MAP[tab];
+    if (anchor) {
+      setTimeout(() => {
+        iframeRef.current?.contentWindow?.postMessage(
+          { type: "BEMIS_PREVIEW_SCROLL", anchor },
+          window.location.origin
+        );
+      }, 800);
+    }
   };
+
+  // Scroll preview to section when tab changes
+  useEffect(() => {
+    if (!showPreview) return;
+    const anchor = TAB_ANCHOR_MAP[tab];
+    if (!anchor) return;
+    setTimeout(() => {
+      iframeRef.current?.contentWindow?.postMessage(
+        { type: "BEMIS_PREVIEW_SCROLL", anchor },
+        window.location.origin
+      );
+    }, 100);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tab, showPreview]);
 
   // Sections accordion state
   const [secOpen, setSecOpen] = useState<Record<string, boolean>>({ dna: true, products: false, dealer: false, reviews: false, contactSec: false });
@@ -767,16 +791,43 @@ export default function AdminPage() {
 
   if (!content) return null;
 
-  const tabs: { id: Tab; label: string; icon: React.ElementType }[] = [
-    { id: "hero",     label: "Ana Sayfa",     icon: HiOutlineHome           },
-    { id: "stats",    label: "İstatistikler", icon: HiOutlineChartBar       },
-    { id: "sections", label: "Bölümler",      icon: HiOutlineTemplate       },
-    { id: "products", label: "Ürünler",       icon: HiOutlineCube           },
-    { id: "contact",  label: "İletişim",      icon: HiOutlinePhone          },
-    { id: "dealers",  label: "Bayiler",       icon: HiOutlineLocationMarker },
-    { id: "media",    label: "Medya",         icon: HiOutlinePhotograph     },
-    { id: "documents", label: "Dökümanlar",    icon: HiOutlineDocumentText   },
-    { id: "analytics", label: "Analytics",    icon: HiOutlineChartBar       },
+  const TAB_ANCHOR_MAP: Partial<Record<Tab, string>> = {
+    "hero": "hero", "dna": "dna", "stats": "stats",
+    "products-section": "products", "featured": "featured",
+    "dealer-section": "dealer", "dealers": "dealer",
+    "reviews": "reviews", "contact-section": "contact", "contact": "contact",
+  };
+
+  const TAB_GROUPS: { label: string; items: { id: Tab; label: string; icon: React.ElementType }[] }[] = [
+    {
+      label: "Sayfa Bölümleri",
+      items: [
+        { id: "hero",            label: "Hero",            icon: HiOutlineHome           },
+        { id: "dna",             label: "Kurumsal",        icon: HiOutlineTemplate       },
+        { id: "stats",           label: "İstatistikler",   icon: HiOutlineChartBar       },
+        { id: "products-section",label: "Ürünler",         icon: HiOutlineCube           },
+        { id: "featured",        label: "Öne Çıkanlar",    icon: HiOutlineStar           },
+        { id: "dealer-section",  label: "Bayi Ağı",        icon: HiOutlineLocationMarker },
+        { id: "reviews",         label: "Yorumlar",        icon: HiOutlineStar           },
+        { id: "contact-section", label: "İletişim Bölümü", icon: HiOutlinePhone          },
+      ],
+    },
+    {
+      label: "Veri Yönetimi",
+      items: [
+        { id: "products", label: "Ürün Kataloğu",  icon: HiOutlineCube           },
+        { id: "dealers",  label: "Bayi Haritası",   icon: HiOutlineLocationMarker },
+        { id: "contact",  label: "İletişim Bilgisi",icon: HiOutlinePhone          },
+      ],
+    },
+    {
+      label: "Sistem",
+      items: [
+        { id: "media",      label: "Medya",      icon: HiOutlinePhotograph  },
+        { id: "documents",  label: "Dökümanlar", icon: HiOutlineDocumentText},
+        { id: "analytics",  label: "Analytics",  icon: HiOutlineChartBar    },
+      ],
+    },
   ];
 
   const handleSaveProductsTab = async () => {
@@ -859,15 +910,20 @@ export default function AdminPage() {
 
       <div className="flex h-[calc(100vh-65px)]">
         {/* Sidebar */}
-        <aside className="w-52 flex-shrink-0 border-r border-white/8 p-4 flex flex-col gap-1">
-          {tabs.map((t) => (
-            <button key={t.id} onClick={() => setTab(t.id)}
-              className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium text-left transition-all duration-200 ${
-                tab === t.id ? "bg-white/8 text-white" : "text-white/40 hover:text-white/70 hover:bg-white/4"
-              }`}
-            >
-              <t.icon size={15} /> {t.label}
-            </button>
+        <aside className="w-52 flex-shrink-0 border-r border-white/8 px-3 py-3 flex flex-col gap-0 overflow-y-auto">
+          {TAB_GROUPS.map((group) => (
+            <div key={group.label} className="mb-1">
+              <p className="text-[9px] font-bold text-white/20 uppercase tracking-widest px-2 pt-2 pb-1">{group.label}</p>
+              {group.items.map((t) => (
+                <button key={t.id} onClick={() => setTab(t.id)}
+                  className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-xs font-medium text-left transition-all duration-200 ${
+                    tab === t.id ? "bg-white/10 text-white" : "text-white/40 hover:text-white/70 hover:bg-white/4"
+                  }`}
+                >
+                  <t.icon size={13} className="flex-shrink-0" /> {t.label}
+                </button>
+              ))}
+            </div>
           ))}
 
           <div className="mt-auto pt-4 border-t border-white/6">
@@ -1458,20 +1514,14 @@ export default function AdminPage() {
               )}
 
               {/* ── SECTIONS ── */}
-              {tab === "sections" && (
-                <div className="max-w-2xl space-y-3">
-                  <div className="mb-5">
-                    <h2 className="text-base font-bold mb-1">Bölüm Metinleri</h2>
-                    <p className="text-xs text-white/35">Ana sayfadaki tüm bölümlerin başlık, alt başlık ve açıklama metinleri.</p>
+              {/* ── FEATURED ── */}
+              {tab === "featured" && (
+                <div className="max-w-2xl space-y-5">
+                  <div>
+                    <h2 className="text-base font-bold mb-1">Öne Çıkan Ürünler</h2>
+                    <p className="text-xs text-white/35">Ana sayfada öne çıkan ürün kartlarını düzenleyin.</p>
                   </div>
-
-                  {/* ── Öne Çıkan Ürünler ── */}
-                  <div className="bg-white/3 border border-white/7 rounded-2xl overflow-hidden mb-1">
-                    <div className="px-5 py-3.5 flex items-center gap-3 border-b border-white/6">
-                      <HiOutlineStar size={14} className="text-white/50 flex-shrink-0" />
-                      <span className="text-sm font-semibold text-white">Öne Çıkan Ürünler (Ana sayfa kartları)</span>
-                    </div>
-                    <div className="px-5 pb-5 pt-4 space-y-4">
+                  <div className="space-y-4">
                       <p className="text-xs text-white/30">Hangi ürünlerin öne çıkan bölümünde görüneceğini ve sırasını belirleyin.</p>
                       {content.featured?.map((item: FeaturedItem, fi: number) => {
                         const catOptions = products;
@@ -1544,18 +1594,18 @@ export default function AdminPage() {
                           </div>
                         );
                       })}
-                    </div>
                   </div>
+                </div>
+              )}
 
-                  {/* Helper accordion wrapper */}
-                  {(
-                    [
-                      {
-                        id: "dna",
-                        label: "Kurumsal Bölümü",
-                        icon: HiOutlineHome,
-                        content: (
-                          <div className="space-y-4">
+              {/* ── DNA / KURUMSAL ── */}
+              {tab === "dna" && (
+                <div className="max-w-2xl space-y-5">
+                  <div>
+                    <h2 className="text-base font-bold mb-1">Kurumsal Bölümü</h2>
+                    <p className="text-xs text-white/35">Ana sayfadaki Kurumsal / DNA bölümü içerikleri.</p>
+                  </div>
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
                             <div className="grid grid-cols-2 gap-3">
                               <Field label="Bölüm Etiketi"   value={content.dna.sectionLabel}   onChange={(v) => updateContent(["dna","sectionLabel"],   v)} />
                               <Field label="Bölüm Başlığı"   value={content.dna.sectionHeading} onChange={(v) => updateContent(["dna","sectionHeading"], v)} />
@@ -1743,115 +1793,106 @@ export default function AdminPage() {
                                 <Field label={`Özellik ${i+1} Açıklama`} value={f.desc} onChange={(v) => updateDnaFeature(i, "desc", v)} multiline />
                               </div>
                             ))}
-                          </div>
-                        ),
-                      },
-                      {
-                        id: "products",
-                        label: "Ürünler Bölümü",
-                        icon: HiOutlineCube,
-                        content: (
-                          <div className="grid grid-cols-2 gap-3">
-                            <Field label="Bölüm Başlığı" value={content.products.heading}    onChange={(v) => updateContent(["products","heading"],    v)} />
-                            <Field label="Alt Başlık"    value={content.products.subheading} onChange={(v) => updateContent(["products","subheading"], v)} />
-                          </div>
-                        ),
-                      },
-                      {
-                        id: "dealer",
-                        label: "Bayi Ağı Bölümü",
-                        icon: HiOutlineLocationMarker,
-                        content: (
-                          <div className="space-y-3">
-                            <div className="grid grid-cols-2 gap-3">
-                              <Field label="Bölüm Etiketi"  value={content.dealer.sectionLabel} onChange={(v) => updateContent(["dealer","sectionLabel"], v)} />
-                              <Field label="Başlık"         value={content.dealer.heading}      onChange={(v) => updateContent(["dealer","heading"],      v)} />
-                            </div>
-                            <Field label="Açıklama" value={content.dealer.description} onChange={(v) => updateContent(["dealer","description"], v)} multiline />
-                            <Field label="Başvuru Metni" value={content.dealer.applyText}   onChange={(v) => updateContent(["dealer","applyText"],   v)} />
-                            <div className="grid grid-cols-2 gap-3">
-                              <Field label="İstatistik: İl Sayısı"  value={content.dealer.statCities}  onChange={(v) => updateContent(["dealer","statCities"],  v)} />
-                              <Field label="İstatistik: Bayi Sayısı" value={content.dealer.statDealers} onChange={(v) => updateContent(["dealer","statDealers"], v)} />
-                            </div>
-                          </div>
-                        ),
-                      },
-                      {
-                        id: "reviews",
-                        label: "Kullanıcı Yorumları",
-                        icon: HiOutlineStar,
-                        content: (
-                          <div className="space-y-4">
-                            <div className="grid grid-cols-2 gap-3">
-                              <Field label="Başlık"     value={content.reviews.heading}    onChange={(v) => updateContent(["reviews","heading"],    v)} />
-                              <Field label="Alt Başlık" value={content.reviews.subheading} onChange={(v) => updateContent(["reviews","subheading"], v)} />
-                            </div>
-                            <div className="grid grid-cols-2 gap-3">
-                              <Field label="Ortalama Puan" value={content.reviews.rating}      onChange={(v) => updateContent(["reviews","rating"],      v)} />
-                              <Field label="Değerlendirme Sayısı" value={content.reviews.ratingCount} onChange={(v) => updateContent(["reviews","ratingCount"], v)} />
-                            </div>
-                            <div className="flex items-center justify-between mt-2">
-                              <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Yorumlar ({content.reviews.items.length})</p>
-                              <button onClick={addReviewItem} className="flex items-center gap-1 text-xs text-white/35 hover:text-white px-2.5 py-1 rounded-lg border border-white/10 hover:border-white/20 transition-colors">
-                                <HiOutlinePlus size={11} /> Yorum Ekle
-                              </button>
-                            </div>
-                            {content.reviews.items.map((r, i) => (
-                              <div key={i} className="bg-white/2 border border-white/6 rounded-2xl p-4 space-y-3">
-                                <div className="flex items-center justify-between">
-                                  <p className="text-[10px] font-semibold text-white/35 uppercase tracking-wider">Yorum {i+1}</p>
-                                  <button onClick={() => removeReviewItem(i)} className="text-white/20 hover:text-red-400 transition-colors">
-                                    <HiOutlineTrash size={12} />
-                                  </button>
-                                </div>
-                                <div className="grid grid-cols-2 gap-2">
-                                  <Field label="Platform"  value={r.platform}  onChange={(v) => updateReviewItem(i, "platform", v)} />
-                                  <Field label="Platform Rengi (#hex)" value={r.platformColor} onChange={(v) => updateReviewItem(i, "platformColor", v)} />
-                                </div>
-                                <div className="grid grid-cols-3 gap-2">
-                                  <Field label="Yazar"   value={r.author}  onChange={(v) => updateReviewItem(i, "author",  v)} />
-                                  <Field label="Tarih"   value={r.date}    onChange={(v) => updateReviewItem(i, "date",    v)} />
-                                  <Field label="Ürün"    value={r.product} onChange={(v) => updateReviewItem(i, "product", v)} />
-                                </div>
-                                <Field label="Yorum Metni" value={r.text} onChange={(v) => updateReviewItem(i, "text", v)} multiline />
-                              </div>
-                            ))}
-                          </div>
-                        ),
-                      },
-                      {
-                        id: "contactSec",
-                        label: "İletişim Bölümü",
-                        icon: HiOutlinePhone,
-                        content: (
-                          <div className="space-y-3">
-                            <Field label="Bölüm Etiketi" value={content.contactSection.sectionLabel} onChange={(v) => updateContent(["contactSection","sectionLabel"], v)} />
-                            <Field label="Başlık"        value={content.contactSection.heading}      onChange={(v) => updateContent(["contactSection","heading"],      v)} />
-                            <Field label="Alt Açıklama"  value={content.contactSection.subheading}   onChange={(v) => updateContent(["contactSection","subheading"],   v)} multiline />
-                          </div>
-                        ),
-                      },
-                    ] as { id: string; label: string; icon: React.ElementType; content: React.ReactNode }[]
-                  ).map(({ id, label, icon: Icon, content: inner }) => {
-                    const isOpen = secOpen[id] !== false;
-                    return (
-                      <div key={id} className="bg-white/3 border border-white/7 rounded-2xl overflow-hidden">
-                        <button
-                          onClick={() => setSecOpen((s) => ({ ...s, [id]: !s[id] }))}
-                          className="w-full flex items-center gap-3 px-5 py-3.5 text-left hover:bg-white/3 transition-colors"
-                        >
-                          {isOpen ? <HiOutlineChevronDown size={14} className="text-white/40" /> : <HiOutlineChevronRight size={14} className="text-white/40" />}
-                          <Icon size={14} className="text-white/50 flex-shrink-0" />
-                          <span className="text-sm font-semibold text-white">{label}</span>
-                        </button>
-                        {isOpen && (
-                          <div className="px-5 pb-5 pt-1 border-t border-white/6">
-                            {inner}
-                          </div>
-                        )}
+                  </div>
+                </div>
+              )}
+
+              {/* ── PRODUCTS SECTION ── */}
+              {tab === "products-section" && (
+                <div className="max-w-2xl space-y-5">
+                  <div>
+                    <h2 className="text-base font-bold mb-1">Ürünler Bölümü</h2>
+                    <p className="text-xs text-white/35">Ana sayfadaki ürün kategorileri bölümünün başlık metinleri.</p>
+                  </div>
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5">
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="Bölüm Başlığı" value={content.products.heading}    onChange={(v) => updateContent(["products","heading"],    v)} />
+                      <Field label="Alt Başlık"    value={content.products.subheading} onChange={(v) => updateContent(["products","subheading"], v)} />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* ── DEALER SECTION ── */}
+              {tab === "dealer-section" && (
+                <div className="max-w-2xl space-y-5">
+                  <div>
+                    <h2 className="text-base font-bold mb-1">Bayi Ağı Bölümü</h2>
+                    <p className="text-xs text-white/35">Ana sayfadaki bayi ağı bölümünün metinleri.</p>
+                  </div>
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="Bölüm Etiketi"  value={content.dealer.sectionLabel} onChange={(v) => updateContent(["dealer","sectionLabel"], v)} />
+                      <Field label="Başlık"         value={content.dealer.heading}      onChange={(v) => updateContent(["dealer","heading"],      v)} />
+                    </div>
+                    <Field label="Açıklama" value={content.dealer.description} onChange={(v) => updateContent(["dealer","description"], v)} multiline />
+                    <Field label="Başvuru Metni" value={content.dealer.applyText}   onChange={(v) => updateContent(["dealer","applyText"],   v)} />
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="İstatistik: İl Sayısı"  value={content.dealer.statCities}  onChange={(v) => updateContent(["dealer","statCities"],  v)} />
+                      <Field label="İstatistik: Bayi Sayısı" value={content.dealer.statDealers} onChange={(v) => updateContent(["dealer","statDealers"], v)} />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* ── REVIEWS ── */}
+              {tab === "reviews" && (
+                <div className="max-w-2xl space-y-5">
+                  <div>
+                    <h2 className="text-base font-bold mb-1">Kullanıcı Yorumları</h2>
+                    <p className="text-xs text-white/35">Ana sayfadaki kullanıcı yorum kartları.</p>
+                  </div>
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="Başlık"     value={content.reviews.heading}    onChange={(v) => updateContent(["reviews","heading"],    v)} />
+                      <Field label="Alt Başlık" value={content.reviews.subheading} onChange={(v) => updateContent(["reviews","subheading"], v)} />
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="Ortalama Puan" value={content.reviews.rating}      onChange={(v) => updateContent(["reviews","rating"],      v)} />
+                      <Field label="Değerlendirme Sayısı" value={content.reviews.ratingCount} onChange={(v) => updateContent(["reviews","ratingCount"], v)} />
+                    </div>
+                    <div className="flex items-center justify-between mt-2">
+                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Yorumlar ({content.reviews.items.length})</p>
+                      <button onClick={addReviewItem} className="flex items-center gap-1 text-xs text-white/35 hover:text-white px-2.5 py-1 rounded-lg border border-white/10 hover:border-white/20 transition-colors">
+                        <HiOutlinePlus size={11} /> Yorum Ekle
+                      </button>
+                    </div>
+                    {content.reviews.items.map((r, i) => (
+                      <div key={i} className="bg-white/2 border border-white/6 rounded-2xl p-4 space-y-3">
+                        <div className="flex items-center justify-between">
+                          <p className="text-[10px] font-semibold text-white/35 uppercase tracking-wider">Yorum {i+1}</p>
+                          <button onClick={() => removeReviewItem(i)} className="text-white/20 hover:text-red-400 transition-colors">
+                            <HiOutlineTrash size={12} />
+                          </button>
+                        </div>
+                        <div className="grid grid-cols-2 gap-2">
+                          <Field label="Platform"  value={r.platform}  onChange={(v) => updateReviewItem(i, "platform", v)} />
+                          <Field label="Platform Rengi (#hex)" value={r.platformColor} onChange={(v) => updateReviewItem(i, "platformColor", v)} />
+                        </div>
+                        <div className="grid grid-cols-3 gap-2">
+                          <Field label="Yazar"   value={r.author}  onChange={(v) => updateReviewItem(i, "author",  v)} />
+                          <Field label="Tarih"   value={r.date}    onChange={(v) => updateReviewItem(i, "date",    v)} />
+                          <Field label="Ürün"    value={r.product} onChange={(v) => updateReviewItem(i, "product", v)} />
+                        </div>
+                        <Field label="Yorum Metni" value={r.text} onChange={(v) => updateReviewItem(i, "text", v)} multiline />
                       </div>
-                    );
-                  })}
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* ── CONTACT SECTION ── */}
+              {tab === "contact-section" && (
+                <div className="max-w-2xl space-y-5">
+                  <div>
+                    <h2 className="text-base font-bold mb-1">İletişim Bölümü</h2>
+                    <p className="text-xs text-white/35">Ana sayfadaki iletişim formu bölümünün başlık metinleri.</p>
+                  </div>
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                    <Field label="Bölüm Etiketi" value={content.contactSection.sectionLabel} onChange={(v) => updateContent(["contactSection","sectionLabel"], v)} />
+                    <Field label="Başlık"        value={content.contactSection.heading}      onChange={(v) => updateContent(["contactSection","heading"],      v)} />
+                    <Field label="Alt Açıklama"  value={content.contactSection.subheading}   onChange={(v) => updateContent(["contactSection","subheading"],   v)} multiline />
+                  </div>
                 </div>
               )}
 

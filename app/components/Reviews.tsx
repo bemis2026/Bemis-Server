@@ -37,6 +37,7 @@ export default function Reviews() {
 
   return (
     <section
+      id="reviews"
       style={{
         background: d
           ? "linear-gradient(180deg, #1b1b1e 0%, #181818 35%, #1a1a1c 70%, #1d1d20 100%)"
