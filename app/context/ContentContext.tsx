@@ -394,6 +394,35 @@ export function ContentProvider({ children }: { children: ReactNode }) {
     });
   }, [hist.present]);
 
+  // ── Admin preview: receive postMessage from parent admin panel ──────────────
+  useEffect(() => {
+    const handler = (e: MessageEvent) => {
+      if (e.origin !== window.location.origin) return;
+      if (e.data?.type !== "BEMIS_PREVIEW" || !e.data?.content) return;
+      const data = e.data.content;
+      const loaded: SiteContent = {
+        ...defaultContent, ...data,
+        hero: { ...defaultContent.hero, ...data.hero, layout: { ...DEFAULT_LAYOUT, ...(data.hero?.layout ?? {}) } },
+        dna:     { ...defaultContent.dna,     ...data.dna     },
+        reviews: { ...defaultContent.reviews, ...data.reviews, items: data.reviews?.items ?? defaultContent.reviews.items },
+        products: { ...defaultContent.products, ...data.products },
+        dealer:  { ...defaultContent.dealer,  ...data.dealer  },
+        contactSection: { ...defaultContent.contactSection, ...data.contactSection },
+        sectionOrder: data.sectionOrder ?? DEFAULT_SECTION_ORDER,
+        textStyles: data.textStyles ?? {},
+        sectionBgs: data.sectionBgs ?? {},
+        logos: { dark: data.logos?.dark ?? "", light: data.logos?.light ?? "" },
+        featuredSection: { ...defaultContent.featuredSection, ...data.featuredSection },
+        navbar: { ...defaultContent.navbar, ...data.navbar, links: data.navbar?.links ?? defaultContent.navbar.links },
+        footer: { ...defaultContent.footer, ...data.footer },
+        technology: { ...defaultContent.technology, ...data.technology, features: data.technology?.features ?? defaultContent.technology.features, certs: data.technology?.certs ?? defaultContent.technology.certs },
+      };
+      setHist({ past: [], present: loaded, future: [] });
+    };
+    window.addEventListener("message", handler);
+    return () => window.removeEventListener("message", handler);
+  }, []);
+
   useEffect(() => {
     setContentLoading(true);
     fetch(`/api/content?lang=${lang}`)

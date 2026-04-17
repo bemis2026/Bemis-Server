@@ -158,6 +158,32 @@ export default function AdminPage() {
   // Hero visual layout editor
   const canvasRef = useRef<HTMLDivElement>(null);
 
+  // Live preview
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const previewDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    if (!showPreview || !content) return;
+    if (previewDebounceRef.current) clearTimeout(previewDebounceRef.current);
+    previewDebounceRef.current = setTimeout(() => {
+      iframeRef.current?.contentWindow?.postMessage(
+        { type: "BEMIS_PREVIEW", content },
+        window.location.origin
+      );
+    }, 350);
+    return () => { if (previewDebounceRef.current) clearTimeout(previewDebounceRef.current); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [content, showPreview]);
+
+  const handleIframeLoad = () => {
+    if (content) {
+      iframeRef.current?.contentWindow?.postMessage(
+        { type: "BEMIS_PREVIEW", content },
+        window.location.origin
+      );
+    }
+  };
+
   // Sections accordion state
   const [secOpen, setSecOpen] = useState<Record<string, boolean>>({ dna: true, products: false, dealer: false, reviews: false, contactSec: false });
 
@@ -2101,7 +2127,7 @@ export default function AdminPage() {
           {showPreview && (
             <motion.aside
               initial={{ width: 0, opacity: 0 }}
-              animate={{ width: 440, opacity: 1 }}
+              animate={{ width: 460, opacity: 1 }}
               exit={{ width: 0, opacity: 0 }}
               transition={{ duration: 0.25, ease: "easeInOut" }}
               className="flex-shrink-0 border-l border-white/8 flex flex-col overflow-hidden"
@@ -2112,12 +2138,13 @@ export default function AdminPage() {
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="text-xs font-semibold text-white/60">Canlı Önizleme</span>
+                  <span className="text-[10px] text-white/25">— değişiklikler anında yansır</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <button
                     onClick={() => setPreviewKey((k) => k + 1)}
                     className="flex items-center gap-1 text-[11px] text-white/35 hover:text-white/65 px-2 py-1 rounded-lg hover:bg-white/5 transition-colors"
-                    title="Yenile"
+                    title="Sayfayı yeniden yükle"
                   >
                     <HiOutlineRefresh size={12} /> Yenile
                   </button>
@@ -2128,35 +2155,52 @@ export default function AdminPage() {
                 </div>
               </div>
 
-              {/* Scaled iframe */}
-              <div className="flex-1 overflow-hidden relative">
+              {/* Browser chrome frame + iframe */}
+              <div className="flex-1 overflow-hidden p-3">
                 <div
-                  style={{
-                    width: 440,
-                    height: "100%",
-                    overflow: "hidden",
-                    position: "relative",
-                  }}
+                  className="w-full h-full rounded-xl overflow-hidden flex flex-col"
+                  style={{ border: "1px solid rgba(255,255,255,0.10)", background: "#111" }}
                 >
-                  <iframe
-                    key={previewKey}
-                    src="/"
-                    title="Site Önizleme"
-                    style={{
-                      width: 1440,
-                      height: 2800,
-                      border: "none",
-                      transformOrigin: "top left",
-                      transform: "scale(0.3056)",
-                      pointerEvents: "none",
-                    }}
-                  />
-                </div>
-              </div>
+                  {/* Browser address bar */}
+                  <div
+                    className="flex-shrink-0 flex items-center gap-2 px-3"
+                    style={{ height: 30, background: "rgba(255,255,255,0.04)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}
+                  >
+                    <div className="flex gap-1.5">
+                      <div style={{ width: 8, height: 8, borderRadius: "50%", background: "rgba(255,255,255,0.15)" }} />
+                      <div style={{ width: 8, height: 8, borderRadius: "50%", background: "rgba(255,255,255,0.15)" }} />
+                      <div style={{ width: 8, height: 8, borderRadius: "50%", background: "rgba(255,255,255,0.15)" }} />
+                    </div>
+                    <div
+                      className="flex-1 flex items-center justify-center rounded"
+                      style={{ height: 18, background: "rgba(255,255,255,0.06)" }}
+                    >
+                      <span style={{ fontSize: 9, color: "rgba(255,255,255,0.30)" }}>bemisevcharge.com.tr</span>
+                    </div>
+                  </div>
 
-              {/* Footer hint */}
-              <div className="flex-shrink-0 px-4 py-2 border-t border-white/6 text-center">
-                <p className="text-[10px] text-white/20">Kaydettikten sonra otomatik güncellenir</p>
+                  {/* iframe viewport */}
+                  <div className="flex-1 overflow-hidden relative">
+                    <iframe
+                      ref={iframeRef}
+                      key={previewKey}
+                      src="/"
+                      title="Site Önizleme"
+                      onLoad={handleIframeLoad}
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: 1440,
+                        height: 5000,
+                        border: "none",
+                        transformOrigin: "top left",
+                        transform: "scale(0.2847)",
+                        pointerEvents: "none",
+                      }}
+                    />
+                  </div>
+                </div>
               </div>
             </motion.aside>
           )}
