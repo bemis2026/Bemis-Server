@@ -2307,47 +2307,53 @@ export default function AdminPage() {
                     <div className="flex-1 overflow-hidden relative">
                       <iframe ref={iframeRef} key={`desktop-${previewKey}`} src="/" title="Masaüstü Önizleme"
                         onLoad={handleIframeLoad}
-                        style={{ position: "absolute", top: 0, left: 0, width: 1440, height: 5000, border: "none",
+                        style={{ position: "absolute", top: 0, left: 0, width: 1440, height: 900, border: "none",
                           transformOrigin: "top left", transform: "scale(0.2847)", pointerEvents: "none" }} />
                     </div>
                   </div>
                 ) : (
                   /* ── Mobile: phone chrome + scaled iframe ── */
-                  <div className="flex-1 flex items-start justify-center overflow-hidden pt-2">
-                    {/* Phone frame */}
-                    <div className="relative flex-shrink-0" style={{
-                      width: 240, height: "100%",
-                      maxHeight: "calc(100% - 8px)",
-                    }}>
-                      {/* Phone outline */}
-                      <div className="absolute inset-0 rounded-[28px] pointer-events-none z-10"
-                        style={{ border: "2px solid rgba(255,255,255,0.18)", boxShadow: "0 0 0 6px rgba(255,255,255,0.04), 0 8px 40px rgba(0,0,0,0.6)" }} />
-                      {/* Notch */}
-                      <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20"
-                        style={{ width: 60, height: 18, background: "#0a0a0c", borderRadius: "0 0 14px 14px" }} />
-                      {/* Home indicator */}
-                      <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 z-20 rounded-full"
-                        style={{ width: 50, height: 3, background: "rgba(255,255,255,0.25)" }} />
-                      {/* Screen area */}
-                      <div className="absolute inset-0 rounded-[26px] overflow-hidden" style={{ background: "#000" }}>
-                        <iframe
-                          ref={iframeMobileRef}
-                          key={`mobile-${previewKey}`}
-                          src="/"
-                          title="Mobil Önizleme"
-                          onLoad={handleIframeLoad}
-                          style={{
-                            position: "absolute", top: 0, left: 0,
-                            width: 390, height: 5000,
-                            border: "none",
-                            transformOrigin: "top left",
-                            transform: `scale(${240 / 390})`,
-                            pointerEvents: "none",
-                          }}
-                        />
+                  /* iPhone 14: 390×844 logical px. Scale to fit panel width (240px). */
+                  (() => {
+                    const PHONE_W = 228;
+                    const PHONE_H = Math.round(PHONE_W * (844 / 390)); // ≈ 494
+                    const SCALE   = PHONE_W / 390;
+                    return (
+                      <div className="flex-1 flex items-start justify-center overflow-y-auto pt-2 pb-2">
+                        {/* Phone frame — fixed aspect ratio */}
+                        <div className="relative flex-shrink-0" style={{ width: PHONE_W, height: PHONE_H }}>
+                          {/* Phone outline */}
+                          <div className="absolute inset-0 rounded-[26px] pointer-events-none z-10"
+                            style={{ border: "2px solid rgba(255,255,255,0.18)", boxShadow: "0 0 0 5px rgba(255,255,255,0.04), 0 8px 32px rgba(0,0,0,0.55)" }} />
+                          {/* Dynamic island / notch */}
+                          <div className="absolute top-2 left-1/2 -translate-x-1/2 z-20 rounded-full"
+                            style={{ width: 52, height: 11, background: "#060608" }} />
+                          {/* Home indicator */}
+                          <div className="absolute bottom-1 left-1/2 -translate-x-1/2 z-20 rounded-full"
+                            style={{ width: 44, height: 3, background: "rgba(255,255,255,0.22)" }} />
+                          {/* Screen area */}
+                          <div className="absolute inset-0 rounded-[24px] overflow-hidden" style={{ background: "#000" }}>
+                            <iframe
+                              ref={iframeMobileRef}
+                              key={`mobile-${previewKey}`}
+                              src="/"
+                              title="Mobil Önizleme"
+                              onLoad={handleIframeLoad}
+                              style={{
+                                position: "absolute", top: 0, left: 0,
+                                width: 390,
+                                height: 844,
+                                border: "none",
+                                transformOrigin: "top left",
+                                transform: `scale(${SCALE})`,
+                                pointerEvents: "none",
+                              }}
+                            />
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+                    );
+                  })()
                 )}
               </div>
 
