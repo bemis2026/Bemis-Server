@@ -116,6 +116,8 @@ export default function AdminPage() {
   const [loginLoading, setLoginLoading] = useState(false);
 
   const [tab, setTab] = useState<Tab>("hero");
+  const [showPreview, setShowPreview] = useState(false);
+  const [previewKey, setPreviewKey] = useState(0);
   const [content, setContent] = useState<ContentData | null>(null);
   const [products, setProducts] = useState<CategoryData[]>([]);
   const [saving, setSaving] = useState(false);
@@ -234,7 +236,7 @@ export default function AdminPage() {
     if (!content) return;
     setSaving(true);
     const res = await fetch("/api/admin/content", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(content) });
-    if (res.ok) showToast("ok", "İçerik kaydedildi.");
+    if (res.ok) { showToast("ok", "İçerik kaydedildi."); setPreviewKey((k) => k + 1); }
     else showToast("err", "Kayıt başarısız.");
     setSaving(false);
   };
@@ -310,7 +312,7 @@ export default function AdminPage() {
   const handleSaveDealers = async () => {
     setDealersSaving(true);
     const res = await fetch("/api/admin/dealers", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(dealers) });
-    if (res.ok) showToast("ok", "Bayiler kaydedildi.");
+    if (res.ok) { showToast("ok", "Bayiler kaydedildi."); setPreviewKey((k) => k + 1); }
     else showToast("err", "Kayıt başarısız.");
     setDealersSaving(false);
   };
@@ -318,7 +320,7 @@ export default function AdminPage() {
   const handleSaveProducts = async () => {
     setSavingProducts(true);
     const res = await fetch("/api/admin/products", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(products) });
-    if (res.ok) showToast("ok", "Ürün verileri kaydedildi.");
+    if (res.ok) { showToast("ok", "Ürün verileri kaydedildi."); setPreviewKey((k) => k + 1); }
     else showToast("err", "Kayıt başarısız.");
     setSavingProducts(false);
   };
@@ -700,9 +702,8 @@ export default function AdminPage() {
       <div className="min-h-screen bg-[#0c0c0e] flex items-center justify-center px-4">
         <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-sm">
           <div className="text-center mb-8">
-            <div className="w-12 h-12 rounded-2xl bg-white/6 border border-white/10 flex items-center justify-center mx-auto mb-4">
-              <span className="text-white font-black text-lg">B</span>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo-white.png" alt="Bemis Logo" className="h-10 w-auto object-contain mx-auto mb-5" />
             <h1 className="text-white font-bold text-xl">Yönetim Paneli</h1>
             <p className="text-white/40 text-sm mt-1">Bemis E-V Charge</p>
           </div>
@@ -792,10 +793,9 @@ export default function AdminPage() {
       {/* Header */}
       <header className="border-b border-white/8 px-5 sm:px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-xl bg-white/6 border border-white/10 flex items-center justify-center">
-            <span className="text-white font-black text-sm">B</span>
-          </div>
-          <div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo-white.png" alt="Bemis Logo" className="h-7 w-auto object-contain" />
+          <div className="border-l border-white/12 pl-3">
             <p className="text-sm font-semibold">Yönetim Paneli</p>
             <p className="text-xs text-white/30">Bemis E-V Charge</p>
           </div>
@@ -805,6 +805,16 @@ export default function AdminPage() {
             className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white/70 px-3 py-2 rounded-lg hover:bg-white/5">
             <HiOutlineEye size={14} /> Siteyi Gör
           </a>
+          <button
+            onClick={() => setShowPreview((p) => !p)}
+            className="flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-200"
+            style={showPreview
+              ? { background: "rgba(59,130,246,0.15)", color: "#60A5FA", border: "1px solid rgba(59,130,246,0.25)" }
+              : { background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.55)", border: "1px solid rgba(255,255,255,0.08)" }
+            }
+          >
+            <HiOutlineEye size={14} /> {showPreview ? "Önizlemeyi Kapat" : "Canlı Önizleme"}
+          </button>
           <button
             onClick={() => {
               localStorage.setItem("bemis-edit-mode", "1");
@@ -2085,6 +2095,72 @@ export default function AdminPage() {
             </motion.div>
           </AnimatePresence>
         </main>
+
+        {/* ── Live Preview Panel ── */}
+        <AnimatePresence>
+          {showPreview && (
+            <motion.aside
+              initial={{ width: 0, opacity: 0 }}
+              animate={{ width: 440, opacity: 1 }}
+              exit={{ width: 0, opacity: 0 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              className="flex-shrink-0 border-l border-white/8 flex flex-col overflow-hidden"
+              style={{ background: "#0a0a0c" }}
+            >
+              {/* Panel header */}
+              <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/8 flex-shrink-0">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-xs font-semibold text-white/60">Canlı Önizleme</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <button
+                    onClick={() => setPreviewKey((k) => k + 1)}
+                    className="flex items-center gap-1 text-[11px] text-white/35 hover:text-white/65 px-2 py-1 rounded-lg hover:bg-white/5 transition-colors"
+                    title="Yenile"
+                  >
+                    <HiOutlineRefresh size={12} /> Yenile
+                  </button>
+                  <button
+                    onClick={() => setShowPreview(false)}
+                    className="text-white/25 hover:text-white/55 w-6 h-6 flex items-center justify-center rounded-lg hover:bg-white/5 transition-colors text-xs"
+                  >✕</button>
+                </div>
+              </div>
+
+              {/* Scaled iframe */}
+              <div className="flex-1 overflow-hidden relative">
+                <div
+                  style={{
+                    width: 440,
+                    height: "100%",
+                    overflow: "hidden",
+                    position: "relative",
+                  }}
+                >
+                  <iframe
+                    key={previewKey}
+                    src="/"
+                    title="Site Önizleme"
+                    style={{
+                      width: 1440,
+                      height: 2800,
+                      border: "none",
+                      transformOrigin: "top left",
+                      transform: "scale(0.3056)",
+                      pointerEvents: "none",
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Footer hint */}
+              <div className="flex-shrink-0 px-4 py-2 border-t border-white/6 text-center">
+                <p className="text-[10px] text-white/20">Kaydettikten sonra otomatik güncellenir</p>
+              </div>
+            </motion.aside>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
