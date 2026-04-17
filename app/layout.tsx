@@ -18,7 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.bemisevcharge.com"),
+  metadataBase: new URL("https://www.bemisevcharge.com.tr"),
   title: {
     default: "Bemis E-V Charge | Yerli EV Şarj Ekipmanı Üreticisi",
     template: "%s | Bemis E-V Charge",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "Type 2 şarj kablosu", "V2L adaptör", "yerli üretim EV şarj", "Bemis",
     "Bemis Teknik Elektrik", "ev şarj cihazı", "araç şarj ekipmanı",
   ],
-  authors: [{ name: "Bemis Teknik Elektrik A.Ş.", url: "https://www.bemisevcharge.com" }],
+  authors: [{ name: "Bemis Teknik Elektrik A.Ş.", url: "https://www.bemisevcharge.com.tr" }],
   creator: "Bemis Teknik Elektrik A.Ş.",
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   alternates: { canonical: "/" },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     title: "Bemis E-V Charge | Yerli EV Şarj Ekipmanı Üreticisi",
     description:
       "30+ yıllık Bemis kalitesiyle üretilen yerli EV şarj çözümleri. CE & IP65 sertifikalı ürünler, 60+ ülkeye ihracat.",
-    url: "https://www.bemisevcharge.com",
+    url: "https://www.bemisevcharge.com.tr",
     siteName: "Bemis E-V Charge",
     locale: "tr_TR",
     type: "website",
