@@ -326,7 +326,7 @@ export default function Calculator() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
-  const { sectionBgs, logos } = useContent();
+  const { sectionBgs, logos, calculator: calc } = useContent();
   const d = theme === "dark";
   const calcLogoSrc = logos?.dark || "/logo-white.png";
 
@@ -481,7 +481,7 @@ export default function Calculator() {
               color: d ? "#93C5FD" : BLUE,
             }}
           >
-            Hesaplayıcı
+            {calc?.sectionLabel ?? "Hesaplayıcı"}
           </motion.span>
 
           {/* Heading + animated needle */}
@@ -493,7 +493,7 @@ export default function Calculator() {
             <TachometerNeedle d={d} blue={BLUE} />
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black" style={{ color: textPrimary }}>
-              Şarj Süresi Hesaplayıcı
+              {calc?.heading ?? "Şarj Süresi Hesaplayıcı"}
             </h2>
 
             {/* Animated ibra — right (mirror) */}
@@ -507,7 +507,7 @@ export default function Calculator() {
           >
             <BatteryCharging d={d} blue={BLUE} />
             <span className="text-sm tracking-widest uppercase font-semibold" style={{ color: d ? `${BLUE}80` : `${BLUE}99` }}>
-              Şarj Simülasyonu
+              {calc?.chargeSimLabel ?? "Şarj Simülasyonu"}
             </span>
           </motion.div>
 
@@ -520,7 +520,7 @@ export default function Calculator() {
             initial={{ opacity: 0, y: 14 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.25 }}
             className="text-sm" style={{ color: textMuted }}
           >
-            Araç seçin veya manuel değer girin — şarj sürenizi ve yakıt tasarrufunuzu hesaplayın
+            {calc?.subheading ?? "Araç seçin veya manuel değer girin — şarj sürenizi ve yakıt tasarrufunuzu hesaplayın"}
           </motion.p>
         </div>
 
@@ -539,7 +539,7 @@ export default function Calculator() {
                 boxShadow: activeTab === tab && d ? "0 1px 6px rgba(0,0,0,0.4)" : "none",
               }}
             >
-              {tab === "charge" ? "Şarj Süresi" : "Tasarruf Analizi"}
+              {tab === "charge" ? (calc?.tabCharge ?? "Şarj Süresi") : (calc?.tabSavings ?? "Tasarruf Analizi")}
             </button>
           ))}
         </motion.div>

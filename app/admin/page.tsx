@@ -40,6 +40,7 @@ import {
   HiOutlineLocationMarker,
   HiOutlineTemplate,
   HiOutlineStar,
+  HiOutlineLightningBolt,
 } from "react-icons/hi";
 import { RiImageAddLine } from "react-icons/ri";
 
@@ -67,17 +68,29 @@ type ContentData = {
   dna: {
     sectionLabel: string; sectionHeading: string; brandHeading: string;
     brandPara1: string; brandPara2: string; quote: string; quoteAttr: string;
-    yearLabel: string; yearSub: string;
+    yearLabel: string; yearSub: string; ctaLabel?: string;
     highlights: DnaItem[];
     features: DnaItem[];
     factoryImage?: string;
     factoryVideo?: string;
     productionStepImages?: string[];
   };
-  products: { heading: string; subheading: string };
-  dealer: { sectionLabel: string; heading: string; description: string; applyText: string; statCities: string; statDealers: string };
-  reviews: { heading: string; subheading: string; rating: string; ratingCount: string; items: ReviewItem[] };
+  products: { heading: string; subheading: string; sectionLabel?: string; allProductsLabel?: string; viewLabel?: string };
+  dealer: {
+    sectionLabel: string; heading: string; description: string; applyText?: string;
+    statCities: string; statDealers: string;
+    findDealerTitle?: string; contactBtnLabel?: string;
+    citiesLabel?: string; activeDealersLabel?: string;
+    mapHint?: string; mapTitle?: string;
+  };
+  reviews: {
+    heading: string; subheading: string; rating: string; ratingCount: string;
+    sectionLabel?: string; ratingLabel?: string; platformsPrefix?: string; ratingCountSuffix?: string;
+    items: ReviewItem[];
+  };
   contactSection: { sectionLabel: string; heading: string; subheading: string };
+  featuredSection?: { sectionLabel: string; heading: string; subheading: string; ctaLabel: string };
+  calculator?: { sectionLabel: string; heading: string; subheading: string; tabCharge: string; tabSavings: string; chargeSimLabel: string };
   sectionBgs?: Record<string, string>;
   logos?: { dark: string; light: string };
 };
@@ -106,7 +119,7 @@ type DnaItem  = { title: string; desc: string };
 type ReviewItem = { platform: string; platformColor: string; rating: number; author: string; date: string; product: string; text: string };
 type HeroLayoutKey = "logo" | "text" | "button";
 
-type Tab = "hero" | "dna" | "stats" | "products-section" | "featured" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents";
+type Tab = "hero" | "dna" | "stats" | "products-section" | "featured" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents";
 
 export default function AdminPage() {
   const [authed, setAuthed] = useState<boolean | null>(null);
@@ -782,6 +795,7 @@ export default function AdminPage() {
   const TAB_ANCHOR_MAP: Partial<Record<Tab, string>> = {
     "hero": "hero", "dna": "dna", "stats": "stats",
     "products-section": "products", "featured": "featured",
+    "calculator": "calculator",
     "dealer-section": "dealer", "dealers": "dealer",
     "reviews": "reviews", "contact-section": "contact", "contact": "contact",
   };
@@ -794,8 +808,9 @@ export default function AdminPage() {
         { id: "dna",             label: "Kurumsal",        icon: HiOutlineTemplate       },
         { id: "stats",           label: "İstatistikler",   icon: HiOutlineChartBar       },
         { id: "products-section",label: "Ürünler",         icon: HiOutlineCube           },
-        { id: "featured",        label: "Öne Çıkanlar",    icon: HiOutlineStar           },
-        { id: "dealer-section",  label: "Bayi Ağı",        icon: HiOutlineLocationMarker },
+        { id: "featured",        label: "Öne Çıkanlar",    icon: HiOutlineStar              },
+        { id: "calculator",      label: "Hesaplayıcı",     icon: HiOutlineLightningBolt    },
+        { id: "dealer-section",  label: "Bayi Ağı",        icon: HiOutlineLocationMarker   },
         { id: "reviews",         label: "Yorumlar",        icon: HiOutlineStar           },
         { id: "contact-section", label: "İletişim Bölümü", icon: HiOutlinePhone          },
       ],
@@ -1509,6 +1524,18 @@ export default function AdminPage() {
                     <h2 className="text-base font-bold mb-1">Öne Çıkan Ürünler</h2>
                     <p className="text-xs text-white/35">Ana sayfada öne çıkan ürün kartlarını düzenleyin.</p>
                   </div>
+                  {/* Section header texts */}
+                  {content.featuredSection && (
+                    <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Bölüm Başlıkları</p>
+                      <div className="grid grid-cols-2 gap-3">
+                        <Field label="Bölüm Etiketi"  value={content.featuredSection.sectionLabel} onChange={(v) => updateContent(["featuredSection","sectionLabel"], v)} />
+                        <Field label="CTA Butonu"     value={content.featuredSection.ctaLabel}     onChange={(v) => updateContent(["featuredSection","ctaLabel"],     v)} />
+                      </div>
+                      <Field label="Başlık"     value={content.featuredSection.heading}    onChange={(v) => updateContent(["featuredSection","heading"],    v)} />
+                      <Field label="Alt Başlık" value={content.featuredSection.subheading} onChange={(v) => updateContent(["featuredSection","subheading"], v)} multiline />
+                    </div>
+                  )}
                   <div className="space-y-4">
                       <p className="text-xs text-white/30">Hangi ürünlerin öne çıkan bölümünde görüneceğini ve sırasını belirleyin.</p>
                       {content.featured?.map((item: FeaturedItem, fi: number) => {
@@ -1609,6 +1636,7 @@ export default function AdminPage() {
                               <Field label="Yıl Etiketi"  value={content.dna.yearLabel} onChange={(v) => updateContent(["dna","yearLabel"], v)} />
                               <Field label="Yıl Alt Metni" value={content.dna.yearSub}   onChange={(v) => updateContent(["dna","yearSub"],   v)} />
                             </div>
+                            <Field label="CTA Butonu Metni (ör: Bemis Dünyasını Keşfet)" value={content.dna.ctaLabel ?? ""} onChange={(v) => updateContent(["dna","ctaLabel"], v)} />
                             {/* Factory image upload */}
                             <div className="pt-2 border-t border-white/6 space-y-2">
                               <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Fabrika Fotoğrafı</p>
@@ -1792,10 +1820,15 @@ export default function AdminPage() {
                     <h2 className="text-base font-bold mb-1">Ürünler Bölümü</h2>
                     <p className="text-xs text-white/35">Ana sayfadaki ürün kategorileri bölümünün başlık metinleri.</p>
                   </div>
-                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5">
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
                     <div className="grid grid-cols-2 gap-3">
-                      <Field label="Bölüm Başlığı" value={content.products.heading}    onChange={(v) => updateContent(["products","heading"],    v)} />
-                      <Field label="Alt Başlık"    value={content.products.subheading} onChange={(v) => updateContent(["products","subheading"], v)} />
+                      <Field label="Bölüm Etiketi" value={content.products.sectionLabel ?? ""} onChange={(v) => updateContent(["products","sectionLabel"], v)} />
+                      <Field label="Bölüm Başlığı" value={content.products.heading}             onChange={(v) => updateContent(["products","heading"],      v)} />
+                    </div>
+                    <Field label="Alt Başlık" value={content.products.subheading} onChange={(v) => updateContent(["products","subheading"], v)} />
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="Tüm Ürünler Butonu" value={content.products.allProductsLabel ?? ""} onChange={(v) => updateContent(["products","allProductsLabel"], v)} />
+                      <Field label="İncele Butonu"       value={content.products.viewLabel ?? ""}       onChange={(v) => updateContent(["products","viewLabel"],       v)} />
                     </div>
                   </div>
                 </div>
@@ -1814,11 +1847,22 @@ export default function AdminPage() {
                       <Field label="Başlık"         value={content.dealer.heading}      onChange={(v) => updateContent(["dealer","heading"],      v)} />
                     </div>
                     <Field label="Açıklama" value={content.dealer.description} onChange={(v) => updateContent(["dealer","description"], v)} multiline />
-                    <Field label="Başvuru Metni" value={content.dealer.applyText}   onChange={(v) => updateContent(["dealer","applyText"],   v)} />
+                    <Field label="Başvuru Metni (alt kısım)" value={content.dealer.applyText ?? ""} onChange={(v) => updateContent(["dealer","applyText"], v)} />
                     <div className="grid grid-cols-2 gap-3">
-                      <Field label="İstatistik: İl Sayısı"  value={content.dealer.statCities}  onChange={(v) => updateContent(["dealer","statCities"],  v)} />
-                      <Field label="İstatistik: Bayi Sayısı" value={content.dealer.statDealers} onChange={(v) => updateContent(["dealer","statDealers"], v)} />
+                      <Field label="İl Sayısı (örn: 81)"   value={content.dealer.statCities}  onChange={(v) => updateContent(["dealer","statCities"],  v)} />
+                      <Field label="Bayi Sayısı (örn: 500+)" value={content.dealer.statDealers} onChange={(v) => updateContent(["dealer","statDealers"], v)} />
                     </div>
+                    <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider pt-1">Etiketler</p>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="İl Sayısı Etiketi (örn: İlde Bayi)"    value={content.dealer.citiesLabel ?? ""}       onChange={(v) => updateContent(["dealer","citiesLabel"],       v)} />
+                      <Field label="Bayi Sayısı Etiketi (örn: Aktif Bayi)" value={content.dealer.activeDealersLabel ?? ""} onChange={(v) => updateContent(["dealer","activeDealersLabel"], v)} />
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="Bayi Bul Başlığı"       value={content.dealer.findDealerTitle ?? ""} onChange={(v) => updateContent(["dealer","findDealerTitle"], v)} />
+                      <Field label="İletişim Butonu Metni"  value={content.dealer.contactBtnLabel ?? ""} onChange={(v) => updateContent(["dealer","contactBtnLabel"], v)} />
+                    </div>
+                    <Field label="Harita İpucu (kullanıcıya gösterilen yardım metni)" value={content.dealer.mapHint ?? ""} onChange={(v) => updateContent(["dealer","mapHint"], v)} />
+                    <Field label="Harita Başlığı" value={content.dealer.mapTitle ?? ""} onChange={(v) => updateContent(["dealer","mapTitle"], v)} />
                   </div>
                 </div>
               )}
@@ -1832,13 +1876,19 @@ export default function AdminPage() {
                   </div>
                   <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
                     <div className="grid grid-cols-2 gap-3">
-                      <Field label="Başlık"     value={content.reviews.heading}    onChange={(v) => updateContent(["reviews","heading"],    v)} />
-                      <Field label="Alt Başlık" value={content.reviews.subheading} onChange={(v) => updateContent(["reviews","subheading"], v)} />
+                      <Field label="Bölüm Etiketi" value={content.reviews.sectionLabel ?? ""} onChange={(v) => updateContent(["reviews","sectionLabel"], v)} />
+                      <Field label="Başlık"        value={content.reviews.heading}             onChange={(v) => updateContent(["reviews","heading"],      v)} />
                     </div>
+                    <Field label="Alt Başlık" value={content.reviews.subheading} onChange={(v) => updateContent(["reviews","subheading"], v)} />
                     <div className="grid grid-cols-2 gap-3">
                       <Field label="Ortalama Puan" value={content.reviews.rating}      onChange={(v) => updateContent(["reviews","rating"],      v)} />
                       <Field label="Değerlendirme Sayısı" value={content.reviews.ratingCount} onChange={(v) => updateContent(["reviews","ratingCount"], v)} />
                     </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="Puan Etiketi (örn: ortalama puan)"       value={content.reviews.ratingLabel ?? ""}        onChange={(v) => updateContent(["reviews","ratingLabel"],       v)} />
+                      <Field label="Değerlendirme Sayı Soneki (örn: değerlendirme)" value={content.reviews.ratingCountSuffix ?? ""} onChange={(v) => updateContent(["reviews","ratingCountSuffix"], v)} />
+                    </div>
+                    <Field label="Platform Ön Eki (örn: Trendyol ve HepsiBurada'da)" value={content.reviews.platformsPrefix ?? ""} onChange={(v) => updateContent(["reviews","platformsPrefix"], v)} />
                     <div className="flex items-center justify-between mt-2">
                       <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Yorumlar ({content.reviews.items.length})</p>
                       <button onClick={addReviewItem} className="flex items-center gap-1 text-xs text-white/35 hover:text-white px-2.5 py-1 rounded-lg border border-white/10 hover:border-white/20 transition-colors">
@@ -1881,6 +1931,32 @@ export default function AdminPage() {
                     <Field label="Başlık"        value={content.contactSection.heading}      onChange={(v) => updateContent(["contactSection","heading"],      v)} />
                     <Field label="Alt Açıklama"  value={content.contactSection.subheading}   onChange={(v) => updateContent(["contactSection","subheading"],   v)} multiline />
                   </div>
+                </div>
+              )}
+
+              {/* ── CALCULATOR ── */}
+              {tab === "calculator" && (
+                <div className="max-w-2xl space-y-5">
+                  <div>
+                    <h2 className="text-base font-bold mb-1">Hesaplayıcı Bölümü</h2>
+                    <p className="text-xs text-white/35">Ana sayfadaki şarj süresi ve tasarruf hesaplayıcısının metinleri.</p>
+                  </div>
+                  {content.calculator && (
+                    <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Başlıklar</p>
+                      <div className="grid grid-cols-2 gap-3">
+                        <Field label="Bölüm Etiketi (rozet)"  value={content.calculator.sectionLabel}   onChange={(v) => updateContent(["calculator","sectionLabel"],   v)} />
+                        <Field label="Animasyon Alt Yazısı"   value={content.calculator.chargeSimLabel} onChange={(v) => updateContent(["calculator","chargeSimLabel"], v)} />
+                      </div>
+                      <Field label="Ana Başlık" value={content.calculator.heading}    onChange={(v) => updateContent(["calculator","heading"],    v)} />
+                      <Field label="Alt Başlık" value={content.calculator.subheading} onChange={(v) => updateContent(["calculator","subheading"], v)} multiline />
+                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider pt-2">Sekme Etiketleri</p>
+                      <div className="grid grid-cols-2 gap-3">
+                        <Field label="Şarj Süresi Sekmesi"   value={content.calculator.tabCharge}  onChange={(v) => updateContent(["calculator","tabCharge"],  v)} />
+                        <Field label="Tasarruf Analizi Sekmesi" value={content.calculator.tabSavings} onChange={(v) => updateContent(["calculator","tabSavings"], v)} />
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 

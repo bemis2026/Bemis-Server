@@ -85,6 +85,14 @@ export type SiteContent = {
     features: TechFeature[];
     certs: string[];
   };
+  calculator: {
+    sectionLabel: string;
+    heading: string;
+    subheading: string;
+    tabCharge: string;
+    tabSavings: string;
+    chargeSimLabel: string;
+  };
   sectionOrder: string[];
   textStyles: Record<string, { color?: string; fontSize?: string }>;
   sectionBgs: Record<string, string>;
@@ -244,6 +252,14 @@ const defaultContent: SiteContent = {
       { title: "Sürdürülebilir Tasarım", desc: "-40°C / +55°C çalışma aralığı, 100.000+ saat ömür. Uzun ömürlü, az atık.", accent: "#818CF8" },
     ],
     certs: ["CE", "IP65", "IEC 61851", "IEC 62196", "OCPP 2.0", "ISO 9001", "TSE"],
+  },
+  calculator: {
+    sectionLabel: "Hesaplayıcı",
+    heading: "Şarj Süresi Hesaplayıcı",
+    subheading: "Araç seçin veya manuel değer girin — şarj sürenizi ve yakıt tasarrufunuzu hesaplayın",
+    tabCharge: "Şarj Süresi",
+    tabSavings: "Tasarruf Analizi",
+    chargeSimLabel: "Şarj Simülasyonu",
   },
   sectionOrder: DEFAULT_SECTION_ORDER,
   textStyles: {},
@@ -419,6 +435,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
         sectionBgs: data.sectionBgs ?? {},
         logos: { dark: data.logos?.dark ?? "", light: data.logos?.light ?? "" },
         featuredSection: { ...defaultContent.featuredSection, ...data.featuredSection },
+        calculator: { ...defaultContent.calculator, ...data.calculator },
         navbar: { ...defaultContent.navbar, ...data.navbar, links: data.navbar?.links ?? defaultContent.navbar.links },
         footer: { ...defaultContent.footer, ...data.footer },
         technology: { ...defaultContent.technology, ...data.technology, features: data.technology?.features ?? defaultContent.technology.features, certs: data.technology?.certs ?? defaultContent.technology.certs },
@@ -448,6 +465,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
           sectionBgs: data.sectionBgs ?? {},
           logos: { dark: data.logos?.dark ?? "", light: data.logos?.light ?? "" },
           featuredSection: { ...defaultContent.featuredSection, ...data.featuredSection },
+          calculator: { ...defaultContent.calculator, ...data.calculator },
           navbar: { ...defaultContent.navbar, ...data.navbar, links: data.navbar?.links ?? defaultContent.navbar.links },
           footer: { ...defaultContent.footer, ...data.footer },
           technology: {
