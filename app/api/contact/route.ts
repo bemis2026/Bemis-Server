@@ -73,7 +73,7 @@ export async function POST(req: NextRequest) {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${resendKey}` },
         body: JSON.stringify({
-          from: "Bemis Website <onboarding@resend.dev>",
+          from: process.env.RESEND_FROM_EMAIL ?? "Bemis Website <onboarding@resend.dev>",
           to: [toEmail],
           reply_to: email,
           subject: `[Bemis Website] ${topicLabel} — ${name}`,
