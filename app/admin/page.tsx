@@ -616,7 +616,11 @@ export default function AdminPage() {
     const next = JSON.parse(JSON.stringify(content)) as ContentData;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let node: any = next;
-    for (let i = 0; i < path.length - 1; i++) node = node[path[i]];
+    // Auto-create missing intermediate objects so new sections (calculator, featuredSection…) work
+    for (let i = 0; i < path.length - 1; i++) {
+      if (node[path[i]] == null) node[path[i]] = {};
+      node = node[path[i]];
+    }
     node[path[path.length - 1]] = value;
     setContent(next);
   };
@@ -1596,17 +1600,15 @@ export default function AdminPage() {
                     <p className="text-xs text-white/35">Ana sayfada öne çıkan ürün kartlarını düzenleyin.</p>
                   </div>
                   {/* Section header texts */}
-                  {content.featuredSection && (
-                    <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
-                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Bölüm Başlıkları</p>
-                      <div className="grid grid-cols-2 gap-3">
-                        <Field label="Bölüm Etiketi"  value={content.featuredSection.sectionLabel} onChange={(v) => updateContent(["featuredSection","sectionLabel"], v)} />
-                        <Field label="CTA Butonu"     value={content.featuredSection.ctaLabel}     onChange={(v) => updateContent(["featuredSection","ctaLabel"],     v)} />
-                      </div>
-                      <Field label="Başlık"     value={content.featuredSection.heading}    onChange={(v) => updateContent(["featuredSection","heading"],    v)} />
-                      <Field label="Alt Başlık" value={content.featuredSection.subheading} onChange={(v) => updateContent(["featuredSection","subheading"], v)} multiline />
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                    <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Bölüm Başlıkları</p>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="Bölüm Etiketi"  value={content.featuredSection?.sectionLabel ?? "Öne Çıkan Ürünler"}     onChange={(v) => updateContent(["featuredSection","sectionLabel"], v)} />
+                      <Field label="CTA Butonu"     value={content.featuredSection?.ctaLabel     ?? "Ürünü İncele"}          onChange={(v) => updateContent(["featuredSection","ctaLabel"],     v)} />
                     </div>
-                  )}
+                    <Field label="Başlık"     value={content.featuredSection?.heading    ?? "En Çok Tercih Edilenler"}       onChange={(v) => updateContent(["featuredSection","heading"],    v)} />
+                    <Field label="Alt Başlık" value={content.featuredSection?.subheading ?? "Müşterilerimizin güvendiği, en çok sipariş verilen ürünlerimiz"} onChange={(v) => updateContent(["featuredSection","subheading"], v)} multiline />
+                  </div>
                   <div className="space-y-4">
                       <p className="text-xs text-white/30">Hangi ürünlerin öne çıkan bölümünde görüneceğini ve sırasını belirleyin.</p>
                       {content.featured?.map((item: FeaturedItem, fi: number) => {
@@ -2012,22 +2014,20 @@ export default function AdminPage() {
                     <h2 className="text-base font-bold mb-1">Hesaplayıcı Bölümü</h2>
                     <p className="text-xs text-white/35">Ana sayfadaki şarj süresi ve tasarruf hesaplayıcısının metinleri.</p>
                   </div>
-                  {content.calculator && (
-                    <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
-                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Başlıklar</p>
-                      <div className="grid grid-cols-2 gap-3">
-                        <Field label="Bölüm Etiketi (rozet)"  value={content.calculator.sectionLabel}   onChange={(v) => updateContent(["calculator","sectionLabel"],   v)} />
-                        <Field label="Animasyon Alt Yazısı"   value={content.calculator.chargeSimLabel} onChange={(v) => updateContent(["calculator","chargeSimLabel"], v)} />
-                      </div>
-                      <Field label="Ana Başlık" value={content.calculator.heading}    onChange={(v) => updateContent(["calculator","heading"],    v)} />
-                      <Field label="Alt Başlık" value={content.calculator.subheading} onChange={(v) => updateContent(["calculator","subheading"], v)} multiline />
-                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider pt-2">Sekme Etiketleri</p>
-                      <div className="grid grid-cols-2 gap-3">
-                        <Field label="Şarj Süresi Sekmesi"   value={content.calculator.tabCharge}  onChange={(v) => updateContent(["calculator","tabCharge"],  v)} />
-                        <Field label="Tasarruf Analizi Sekmesi" value={content.calculator.tabSavings} onChange={(v) => updateContent(["calculator","tabSavings"], v)} />
-                      </div>
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                    <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Başlıklar</p>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="Bölüm Etiketi (rozet)"  value={content.calculator?.sectionLabel   ?? "Hesaplayıcı"}       onChange={(v) => updateContent(["calculator","sectionLabel"],   v)} />
+                      <Field label="Animasyon Alt Yazısı"   value={content.calculator?.chargeSimLabel ?? "Şarj Simülasyonu"}  onChange={(v) => updateContent(["calculator","chargeSimLabel"], v)} />
                     </div>
-                  )}
+                    <Field label="Ana Başlık" value={content.calculator?.heading    ?? "Şarj Süresi Hesaplayıcı"}                                                                       onChange={(v) => updateContent(["calculator","heading"],    v)} />
+                    <Field label="Alt Başlık" value={content.calculator?.subheading ?? "Araç seçin veya manuel değer girin — şarj sürenizi ve yakıt tasarrufunuzu hesaplayın"} onChange={(v) => updateContent(["calculator","subheading"], v)} multiline />
+                    <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider pt-2">Sekme Etiketleri</p>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="Şarj Süresi Sekmesi"      value={content.calculator?.tabCharge  ?? "Şarj Süresi"}       onChange={(v) => updateContent(["calculator","tabCharge"],  v)} />
+                      <Field label="Tasarruf Analizi Sekmesi" value={content.calculator?.tabSavings ?? "Tasarruf Analizi"}  onChange={(v) => updateContent(["calculator","tabSavings"], v)} />
+                    </div>
+                  </div>
                 </div>
               )}
 
