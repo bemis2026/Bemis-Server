@@ -12,6 +12,7 @@ import {
   RiCheckLine, RiSendPlaneLine, RiStoreLine, RiArrowRightLine,
 } from "react-icons/ri";
 import { HiArrowLeft } from "react-icons/hi";
+import { useEffect } from "react";
 
 const BENEFITS = [
   { icon: RiHandCoinLine,         color: "#10B981", title: "Rekabetçi Bayi Fiyatları",  body: "Hacme göre kademeli iskonto yapısı; küçük başlayıp büyüyebilirsiniz." },
@@ -32,6 +33,15 @@ const CRITERIA = [
 type FormState = { name: string; company: string; email: string; phone: string; city: string; message: string };
 const EMPTY: FormState = { name: "", company: "", email: "", phone: "", city: "", message: "" };
 
+type InfoRow = { label: string; value: string };
+type BayilikContent = { heading1: string; heading2: string; description: string; infoTable: InfoRow[] };
+
+const DEFAULT: BayilikContent = {
+  heading1: "Bemis E-V Charge", heading2: "Bayisi Olun",
+  description: "Türkiye genelinde büyüyen bayi ağımıza katılın; EV şarj altyapısı pazarındaki hızlı büyümeden birlikte yararlanın.",
+  infoTable: [],
+};
+
 export default function BayilikPage() {
   const router = useRouter();
   const { theme } = useTheme();
@@ -39,6 +49,13 @@ export default function BayilikPage() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [form, setForm] = useState<FormState>(EMPTY);
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
+  const [cms, setCms] = useState<BayilikContent>(DEFAULT);
+
+  useEffect(() => {
+    fetch("/api/b2b").then(r => r.json()).then((data) => {
+      if (data?.bayilik) setCms(data.bayilik);
+    }).catch(() => {});
+  }, []);
 
   const bg      = d ? "#0c0c0e" : "#f8f8fb";
   const bgSub   = d ? "#111114" : "#ffffff";
@@ -90,12 +107,11 @@ export default function BayilikPage() {
               <span className="text-xs font-bold tracking-[0.20em] uppercase" style={{ color: GREEN }}>Bayi Ağı</span>
             </div>
             <h1 className="font-black leading-tight mb-4" style={{ fontSize: "clamp(1.75rem, 4vw, 2.75rem)", color: text }}>
-              Bemis E-V Charge<br />
-              <span style={{ color: GREEN }}>Bayisi Olun</span>
+              {cms.heading1}<br />
+              <span style={{ color: GREEN }}>{cms.heading2}</span>
             </h1>
             <p className="leading-relaxed max-w-xl" style={{ color: muted, fontSize: "0.9375rem" }}>
-              Türkiye genelinde büyüyen bayi ağımıza katılın; EV şarj altyapısı pazarındaki hızlı
-              büyümeden birlikte yararlanın. Rekabetçi fiyatlar, teknik destek ve bölge koruması.
+              {cms.description}
             </p>
           </motion.div>
         </div>
@@ -155,12 +171,7 @@ export default function BayilikPage() {
             <div className="rounded-2xl p-5" style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}>
               <p className="text-xs font-bold tracking-[0.15em] uppercase mb-4" style={{ color: faint }}>Hızlı Bilgi</p>
               <div className="space-y-3">
-                {[
-                  { label: "Minimum Stok Yükümlülüğü", value: "Esnek — büyüklüğünüze göre" },
-                  { label: "Bayi Sözleşme Süresi", value: "1 yıl (yenilenebilir)" },
-                  { label: "Teknik Eğitim", value: "Ücretsiz — Bursa'da veya online" },
-                  { label: "Başvuru Yanıt Süresi", value: "5 iş günü içinde" },
-                ].map(row => (
+                {(cms.infoTable ?? []).map(row => (
                   <div key={row.label} className="flex justify-between gap-4 pb-3" style={{ borderBottom: `1px solid ${border}` }}>
                     <span className="text-xs" style={{ color: faint }}>{row.label}</span>
                     <span className="text-xs font-semibold text-right" style={{ color: text }}>{row.value}</span>

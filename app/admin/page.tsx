@@ -3298,7 +3298,9 @@ function TrendChart({ data, fmtDate, color }: { data: TrendRow[]; fmtDate: (d: s
 // ── B2B / OEM Panel ──────────────────────────────────────────────────────────
 type B2BSolution = { id: string; name: string; subtitle: string; tag: string; tagColor: string; accentColor: string; detail: string; specs: string[] };
 type B2BHero = { eyebrow: string; heading1: string; heading2: string; description: string; sectorTags: string[] };
-type B2BPageData = { hero: B2BHero; solutions: B2BSolution[] };
+type B2BBayilik = { heading1: string; heading2: string; description: string; infoTable: { label: string; value: string }[] };
+type B2BOperator = { heading1: string; heading2: string; description: string };
+type B2BPageData = { hero: B2BHero; solutions: B2BSolution[]; bayilik?: B2BBayilik; operator?: B2BOperator };
 
 const TAG_OPTIONS = ["Mevcut", "OEM Mevcut", "Geliştirme", "Yakında", "Stoğa Bağlı"];
 
@@ -3307,6 +3309,7 @@ function B2BPanel() {
   const [saving, setSaving] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const [expandedSol, setExpandedSol] = useState<string | null>(null);
+  const [subTab, setSubTab] = useState<"oem" | "bayilik" | "operator">("oem");
 
   useEffect(() => {
     fetch("/api/admin/b2b")
@@ -3371,134 +3374,218 @@ function B2BPanel() {
       )}
 
       <div>
-        <h2 className="text-base font-bold mb-1">OEM & Kurumsal Satış Sayfası</h2>
+        <h2 className="text-base font-bold mb-1">OEM & Kurumsal Sayfalar</h2>
         <p className="text-xs text-white/35">
-          <a href="/b2b" target="_blank" rel="noreferrer" className="underline hover:text-white/60">/b2b</a> sayfasının içeriklerini düzenleyin.
+          <a href="/b2b" target="_blank" rel="noreferrer" className="underline hover:text-white/60">/b2b</a> ·{" "}
+          <a href="/bayilik" target="_blank" rel="noreferrer" className="underline hover:text-white/60">/bayilik</a> ·{" "}
+          <a href="/operator" target="_blank" rel="noreferrer" className="underline hover:text-white/60">/operator</a>
         </p>
       </div>
 
-      {/* Hero */}
-      <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
-        <p className="text-xs font-bold text-white/50 uppercase tracking-wider">Hero Bölümü</p>
-        <div>
-          <label className={labelCls}>Üst Etiket (Eyebrow)</label>
-          <input className={inputCls} value={data.hero.eyebrow}
-            onChange={e => setHero("eyebrow", e.target.value)} />
-        </div>
-        <div className="grid grid-cols-2 gap-3">
-          <div>
-            <label className={labelCls}>Başlık Satır 1</label>
-            <input className={inputCls} value={data.hero.heading1}
-              onChange={e => setHero("heading1", e.target.value)} />
-          </div>
-          <div>
-            <label className={labelCls}>Başlık Satır 2 (Amber)</label>
-            <input className={inputCls} value={data.hero.heading2}
-              onChange={e => setHero("heading2", e.target.value)} />
-          </div>
-        </div>
-        <div>
-          <label className={labelCls}>Açıklama Metni</label>
-          <textarea className={inputCls} rows={3} style={{ resize: "none" }} value={data.hero.description}
-            onChange={e => setHero("description", e.target.value)} />
-        </div>
-        <div>
-          <label className={labelCls}>Sektör Etiketleri (virgülle ayırın)</label>
-          <input className={inputCls}
-            value={(data.hero.sectorTags ?? []).join(", ")}
-            onChange={e => setHero("sectorTags", e.target.value.split(",").map(s => s.trim()).filter(Boolean))}
-            placeholder="OEM Üretici, Şarj Ağı Operatörü, ..." />
-        </div>
+      {/* Sub-tabs */}
+      <div className="flex gap-1 bg-white/4 p-1 rounded-xl">
+        {(["oem", "bayilik", "operator"] as const).map(t => (
+          <button key={t} onClick={() => setSubTab(t)}
+            className="flex-1 py-2 rounded-lg text-xs font-semibold transition-all duration-200"
+            style={subTab === t
+              ? { background: "rgba(255,255,255,0.12)", color: "#fff" }
+              : { color: "rgba(255,255,255,0.35)" }}>
+            {t === "oem" ? "OEM / Üretici" : t === "bayilik" ? "Bayilik" : "Operatörler"}
+          </button>
+        ))}
       </div>
 
-      {/* Solutions */}
-      <div>
-        <p className="text-xs font-bold text-white/50 uppercase tracking-wider mb-3">OEM Ürün Kartları</p>
-        <div className="space-y-3">
-          {data.solutions.map(sol => (
-            <div key={sol.id} className="bg-white/3 border border-white/7 rounded-2xl overflow-hidden">
-              <button
-                onClick={() => setExpandedSol(expandedSol === sol.id ? null : sol.id)}
-                className="w-full flex items-center justify-between px-5 py-3.5 text-left hover:bg-white/3 transition-colors">
-                <div className="flex items-center gap-3">
-                  <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: sol.accentColor }} />
-                  <span className="text-sm font-semibold text-white">{sol.name}</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold"
-                    style={{ background: `${sol.tagColor}20`, color: sol.tagColor, border: `1px solid ${sol.tagColor}35` }}>
-                    {sol.tag}
-                  </span>
-                </div>
-                <HiOutlineChevronDown size={14} className={`text-white/30 transition-transform ${expandedSol === sol.id ? "rotate-180" : ""}`} />
-              </button>
+      {/* ── OEM sub-tab ── */}
+      {subTab === "oem" && (<>
+        <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
+          <p className="text-xs font-bold text-white/50 uppercase tracking-wider">Hero Bölümü</p>
+          <div>
+            <label className={labelCls}>Üst Etiket (Eyebrow)</label>
+            <input className={inputCls} value={data.hero.eyebrow}
+              onChange={e => setHero("eyebrow", e.target.value)} />
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className={labelCls}>Başlık Satır 1</label>
+              <input className={inputCls} value={data.hero.heading1}
+                onChange={e => setHero("heading1", e.target.value)} />
+            </div>
+            <div>
+              <label className={labelCls}>Başlık Satır 2 (Amber)</label>
+              <input className={inputCls} value={data.hero.heading2}
+                onChange={e => setHero("heading2", e.target.value)} />
+            </div>
+          </div>
+          <div>
+            <label className={labelCls}>Açıklama Metni</label>
+            <textarea className={inputCls} rows={3} style={{ resize: "none" }} value={data.hero.description}
+              onChange={e => setHero("description", e.target.value)} />
+          </div>
+          <div>
+            <label className={labelCls}>Sektör Etiketleri (virgülle ayırın)</label>
+            <input className={inputCls}
+              value={(data.hero.sectorTags ?? []).join(", ")}
+              onChange={e => setHero("sectorTags", e.target.value.split(",").map(s => s.trim()).filter(Boolean))}
+              placeholder="OEM Üretici, Şarj Ağı Operatörü, ..." />
+          </div>
+        </div>
 
-              {expandedSol === sol.id && (
-                <div className="px-5 pb-5 space-y-4 border-t border-white/6">
-                  <div className="grid grid-cols-2 gap-3 pt-4">
-                    <div>
-                      <label className={labelCls}>Ürün Adı</label>
-                      <input className={inputCls} value={sol.name}
-                        onChange={e => setSol(sol.id, "name", e.target.value)} />
-                    </div>
-                    <div>
-                      <label className={labelCls}>Alt Başlık</label>
-                      <input className={inputCls} value={sol.subtitle}
-                        onChange={e => setSol(sol.id, "subtitle", e.target.value)} />
-                    </div>
+        <div>
+          <p className="text-xs font-bold text-white/50 uppercase tracking-wider mb-3">OEM Ürün Kartları</p>
+          <div className="space-y-3">
+            {data.solutions.map(sol => (
+              <div key={sol.id} className="bg-white/3 border border-white/7 rounded-2xl overflow-hidden">
+                <button
+                  onClick={() => setExpandedSol(expandedSol === sol.id ? null : sol.id)}
+                  className="w-full flex items-center justify-between px-5 py-3.5 text-left hover:bg-white/3 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: sol.accentColor }} />
+                    <span className="text-sm font-semibold text-white">{sol.name}</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold"
+                      style={{ background: `${sol.tagColor}20`, color: sol.tagColor, border: `1px solid ${sol.tagColor}35` }}>
+                      {sol.tag}
+                    </span>
                   </div>
-                  <div>
-                    <label className={labelCls}>Kısa Açıklama</label>
-                    <textarea className={inputCls} rows={3} style={{ resize: "none" }} value={sol.detail}
-                      onChange={e => setSol(sol.id, "detail", e.target.value)} />
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label className={labelCls}>Durum Etiketi</label>
-                      <select className={inputCls} value={sol.tag}
-                        onChange={e => setSol(sol.id, "tag", e.target.value)}>
-                        {TAG_OPTIONS.map(t => <option key={t} value={t} style={{ background: "#1a1a2e" }}>{t}</option>)}
-                      </select>
+                  <HiOutlineChevronDown size={14} className={`text-white/30 transition-transform ${expandedSol === sol.id ? "rotate-180" : ""}`} />
+                </button>
+                {expandedSol === sol.id && (
+                  <div className="px-5 pb-5 space-y-4 border-t border-white/6">
+                    <div className="grid grid-cols-2 gap-3 pt-4">
+                      <div>
+                        <label className={labelCls}>Ürün Adı</label>
+                        <input className={inputCls} value={sol.name} onChange={e => setSol(sol.id, "name", e.target.value)} />
+                      </div>
+                      <div>
+                        <label className={labelCls}>Alt Başlık</label>
+                        <input className={inputCls} value={sol.subtitle} onChange={e => setSol(sol.id, "subtitle", e.target.value)} />
+                      </div>
                     </div>
                     <div>
-                      <label className={labelCls}>Etiket Rengi (hex)</label>
-                      <div className="flex gap-2">
-                        <input className={inputCls} value={sol.tagColor}
-                          onChange={e => setSol(sol.id, "tagColor", e.target.value)} placeholder="#10B981" />
-                        <input type="color" value={sol.tagColor}
-                          onChange={e => setSol(sol.id, "tagColor", e.target.value)}
-                          className="w-10 h-10 rounded-lg border border-white/10 cursor-pointer bg-transparent" />
+                      <label className={labelCls}>Kısa Açıklama</label>
+                      <textarea className={inputCls} rows={3} style={{ resize: "none" }} value={sol.detail}
+                        onChange={e => setSol(sol.id, "detail", e.target.value)} />
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <label className={labelCls}>Durum Etiketi</label>
+                        <select className={inputCls} value={sol.tag} onChange={e => setSol(sol.id, "tag", e.target.value)}>
+                          {TAG_OPTIONS.map(t => <option key={t} value={t} style={{ background: "#1a1a2e" }}>{t}</option>)}
+                        </select>
+                      </div>
+                      <div>
+                        <label className={labelCls}>Etiket Rengi</label>
+                        <div className="flex gap-2">
+                          <input className={inputCls} value={sol.tagColor} onChange={e => setSol(sol.id, "tagColor", e.target.value)} placeholder="#10B981" />
+                          <input type="color" value={sol.tagColor} onChange={e => setSol(sol.id, "tagColor", e.target.value)}
+                            className="w-10 h-10 rounded-lg border border-white/10 cursor-pointer bg-transparent" />
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <label className={labelCls}>Teknik Özellikler</label>
+                      <div className="space-y-2">
+                        {sol.specs.map((spec, idx) => (
+                          <div key={idx} className="flex gap-2">
+                            <input className={inputCls} value={spec}
+                              onChange={e => setSpec(sol.id, idx, e.target.value)} placeholder={`Özellik ${idx + 1}`} />
+                            <button onClick={() => removeSpec(sol.id, idx)}
+                              className="px-3 rounded-xl text-white/30 hover:text-red-400 border border-white/8 hover:border-red-400/30 transition-colors text-xs">✕</button>
+                          </div>
+                        ))}
+                        <button onClick={() => addSpec(sol.id)}
+                          className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white/70 px-3 py-2 rounded-xl border border-white/8 hover:border-white/20 transition-colors">
+                          <HiOutlinePlus size={12} /> Özellik Ekle
+                        </button>
                       </div>
                     </div>
                   </div>
-                  <div>
-                    <label className={labelCls}>Teknik Özellikler</label>
-                    <div className="space-y-2">
-                      {sol.specs.map((spec, idx) => (
-                        <div key={idx} className="flex gap-2">
-                          <input className={inputCls} value={spec}
-                            onChange={e => setSpec(sol.id, idx, e.target.value)}
-                            placeholder={`Özellik ${idx + 1}`} />
-                          <button onClick={() => removeSpec(sol.id, idx)}
-                            className="px-3 rounded-xl text-white/30 hover:text-red-400 border border-white/8 hover:border-red-400/30 transition-colors text-xs">
-                            ✕
-                          </button>
-                        </div>
-                      ))}
-                      <button onClick={() => addSpec(sol.id)}
-                        className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white/70 px-3 py-2 rounded-xl border border-white/8 hover:border-white/20 transition-colors">
-                        <HiOutlinePlus size={12} /> Özellik Ekle
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
+                )}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </>)}
+
+      {/* ── Bayilik sub-tab ── */}
+      {subTab === "bayilik" && (<>
+        <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
+          <p className="text-xs font-bold text-white/50 uppercase tracking-wider">Hero — /bayilik sayfası</p>
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className={labelCls}>Başlık Satır 1</label>
+              <input className={inputCls} value={data.bayilik?.heading1 ?? ""}
+                onChange={e => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? { heading1: "", heading2: "", description: "", infoTable: [] }), heading1: e.target.value } } : p)} />
+            </div>
+            <div>
+              <label className={labelCls}>Başlık Satır 2 (Yeşil)</label>
+              <input className={inputCls} value={data.bayilik?.heading2 ?? ""}
+                onChange={e => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? { heading1: "", heading2: "", description: "", infoTable: [] }), heading2: e.target.value } } : p)} />
+            </div>
+          </div>
+          <div>
+            <label className={labelCls}>Açıklama Metni</label>
+            <textarea className={inputCls} rows={3} style={{ resize: "none" }} value={data.bayilik?.description ?? ""}
+              onChange={e => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? { heading1: "", heading2: "", description: "", infoTable: [] }), description: e.target.value } } : p)} />
+          </div>
+        </div>
+        <div>
+          <p className="text-xs font-bold text-white/50 uppercase tracking-wider mb-3">Hızlı Bilgi Tablosu</p>
+          <div className="space-y-2">
+            {(data.bayilik?.infoTable ?? []).map((row, idx) => (
+              <div key={idx} className="flex gap-2">
+                <input className={inputCls} value={row.label} placeholder="Başlık"
+                  onChange={e => setData(p => {
+                    if (!p?.bayilik) return p;
+                    const infoTable = [...p.bayilik.infoTable];
+                    infoTable[idx] = { ...infoTable[idx], label: e.target.value };
+                    return { ...p, bayilik: { ...p.bayilik, infoTable } };
+                  })} />
+                <input className={inputCls} value={row.value} placeholder="Değer"
+                  onChange={e => setData(p => {
+                    if (!p?.bayilik) return p;
+                    const infoTable = [...p.bayilik.infoTable];
+                    infoTable[idx] = { ...infoTable[idx], value: e.target.value };
+                    return { ...p, bayilik: { ...p.bayilik, infoTable } };
+                  })} />
+                <button onClick={() => setData(p => p?.bayilik ? { ...p, bayilik: { ...p.bayilik, infoTable: p.bayilik.infoTable.filter((_, i) => i !== idx) } } : p)}
+                  className="px-3 rounded-xl text-white/30 hover:text-red-400 border border-white/8 hover:border-red-400/30 transition-colors text-xs">✕</button>
+              </div>
+            ))}
+            <button onClick={() => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? { heading1: "", heading2: "", description: "", infoTable: [] }), infoTable: [...(p.bayilik?.infoTable ?? []), { label: "", value: "" }] } } : p)}
+              className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white/70 px-3 py-2 rounded-xl border border-white/8 hover:border-white/20 transition-colors">
+              <HiOutlinePlus size={12} /> Satır Ekle
+            </button>
+          </div>
+        </div>
+      </>)}
+
+      {/* ── Operator sub-tab ── */}
+      {subTab === "operator" && (
+        <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
+          <p className="text-xs font-bold text-white/50 uppercase tracking-wider">Hero — /operator sayfası</p>
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className={labelCls}>Başlık Satır 1</label>
+              <input className={inputCls} value={data.operator?.heading1 ?? ""}
+                onChange={e => setData(p => p ? { ...p, operator: { ...(p.operator ?? { heading1: "", heading2: "", description: "" }), heading1: e.target.value } } : p)} />
+            </div>
+            <div>
+              <label className={labelCls}>Başlık Satır 2 (Mor)</label>
+              <input className={inputCls} value={data.operator?.heading2 ?? ""}
+                onChange={e => setData(p => p ? { ...p, operator: { ...(p.operator ?? { heading1: "", heading2: "", description: "" }), heading2: e.target.value } } : p)} />
+            </div>
+          </div>
+          <div>
+            <label className={labelCls}>Açıklama Metni</label>
+            <textarea className={inputCls} rows={3} style={{ resize: "none" }} value={data.operator?.description ?? ""}
+              onChange={e => setData(p => p ? { ...p, operator: { ...(p.operator ?? { heading1: "", heading2: "", description: "" }), description: e.target.value } } : p)} />
+          </div>
+        </div>
+      )}
 
       <button onClick={save} disabled={saving}
         className="w-full flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-black font-bold py-3 rounded-xl text-sm disabled:opacity-60 transition-colors">
-        {saving ? <><div className="w-4 h-4 rounded-full border-2 border-black/30 border-t-black animate-spin" />Kaydediliyor…</> : <><HiOutlineSave size={14} />B2B Sayfasını Kaydet</>}
+        {saving ? <><div className="w-4 h-4 rounded-full border-2 border-black/30 border-t-black animate-spin" />Kaydediliyor…</> : <><HiOutlineSave size={14} />Kaydet</>}
       </button>
     </div>
   );

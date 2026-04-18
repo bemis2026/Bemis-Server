@@ -4,7 +4,7 @@
     "heading1": "EV Altyapısı için",
     "heading2": "Profesyonel Çözümler",
     "description": "Şarj ağı operatörleri, OEM üreticiler ve sistem entegratörleri için teknik ürün portföyü, özel fiyatlandırma ve mühendislik desteği. Türkiye'nin yerli EV altyapı üreticisinden.",
-    "sectorTags": ["OEM Üretici", "Şarj Ağı Operatörü", "Sistem Entegratörü", "Proje Müteahhidi", "Distribütör / Bayi", "Kamu & Belediye"]
+    "sectorTags": ["OEM Üretici", "Şarj Ağı Operatörü", "Sistem Entegratörü", "Distribütör / Bayi", "Kamu & Belediye"]
   },
   "solutions": [
     {
@@ -67,5 +67,21 @@
         "OTA güncellemesi · %100 test"
       ]
     }
-  ]
+  ],
+  "bayilik": {
+    "heading1": "Bemis E-V Charge",
+    "heading2": "Bayisi Olun",
+    "description": "Türkiye genelinde büyüyen bayi ağımıza katılın; EV şarj altyapısı pazarındaki hızlı büyümeden birlikte yararlanın. Rekabetçi fiyatlar, teknik destek ve bölge koruması.",
+    "infoTable": [
+      { "label": "Minimum Stok Yükümlülüğü", "value": "Esnek — büyüklüğünüze göre" },
+      { "label": "Bayi Sözleşme Süresi", "value": "1 yıl (yenilenebilir)" },
+      { "label": "Teknik Eğitim", "value": "Ücretsiz — Bursa'da veya online" },
+      { "label": "Başvuru Yanıt Süresi", "value": "5 iş günü içinde" }
+    ]
+  },
+  "operator": {
+    "heading1": "Şarj Ağınızı",
+    "heading2": "Bizimle Büyütün",
+    "description": "OCPP uyumlu DC hızlı şarj üniteleri, akıllı şarj panoları ve entegrasyon hazır kontrol kartlarıyla şarj ağı operatörlerine uçtan uca donanım çözümü sunuyoruz."
+  }
 }

@@ -1,6 +1,22 @@
 {
   "entries": [
     {
+      "id": "v13",
+      "version": "v1.3",
+      "date": "2026-04-18",
+      "title": "Kurumsal Sayfalar & Admin Yönetimi",
+      "items": [
+        "/bayilik sayfası eklendi: bayi avantajları, kriterler, hızlı bilgi tablosu, başvuru formu",
+        "/operator sayfası eklendi: OCPP özellikleri, ürün listesi, teklif formu",
+        "Ana sayfa B2BCta: 3 eşit kart butonu (OEM, Bayilik, Operatörler)",
+        "Admin OEM & Kurumsal sekmesi: 3 alt sekme — /b2b, /bayilik, /operator hero metinleri",
+        "Admin: Bayilik hızlı bilgi tablosu (satır ekle/sil) yönetimi",
+        "Footer: Bayilik ve Operatör linkleri eklendi",
+        "Sitemap: /bayilik ve /operator eklendi",
+        "İletişim API: dealership ve operator konu etiketleri eklendi"
+      ]
+    },
+    {
       "id": "v12",
       "version": "v1.2",
       "date": "2026-04-18",

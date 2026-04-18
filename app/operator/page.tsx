@@ -13,6 +13,7 @@ import {
   RiCheckLine, RiSendPlaneLine,
 } from "react-icons/ri";
 import { HiArrowLeft } from "react-icons/hi";
+import { useEffect } from "react";
 
 const CAPABILITIES = [
   { icon: RiWifiLine,         color: "#3B82F6", title: "OCPP 1.6 / 2.0.1",      body: "Tüm büyük yönetim platformlarıyla uyumlu açık protokol desteği." },
@@ -38,6 +39,12 @@ const OCPP_FEATURES = [
 type FormState = { name: string; company: string; email: string; phone: string; network: string; message: string };
 const EMPTY: FormState = { name: "", company: "", email: "", phone: "", network: "", message: "" };
 
+type OperatorContent = { heading1: string; heading2: string; description: string };
+const DEFAULT_OP: OperatorContent = {
+  heading1: "Şarj Ağınızı", heading2: "Bizimle Büyütün",
+  description: "OCPP uyumlu DC hızlı şarj üniteleri, akıllı şarj panoları ve entegrasyon hazır kontrol kartlarıyla şarj ağı operatörlerine uçtan uca donanım çözümü sunuyoruz.",
+};
+
 export default function OperatorPage() {
   const router = useRouter();
   const { theme } = useTheme();
@@ -45,6 +52,13 @@ export default function OperatorPage() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [form, setForm] = useState<FormState>(EMPTY);
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
+  const [cms, setCms] = useState<OperatorContent>(DEFAULT_OP);
+
+  useEffect(() => {
+    fetch("/api/b2b").then(r => r.json()).then((data) => {
+      if (data?.operator) setCms(data.operator);
+    }).catch(() => {});
+  }, []);
 
   const bg      = d ? "#0c0c0e" : "#f8f8fb";
   const bgSub   = d ? "#111114" : "#ffffff";
@@ -99,12 +113,11 @@ export default function OperatorPage() {
               </span>
             </div>
             <h1 className="font-black leading-tight mb-4" style={{ fontSize: "clamp(1.75rem, 4vw, 2.75rem)", color: text }}>
-              Şarj Ağınızı<br />
-              <span style={{ color: PURPLE }}>Bizimle Büyütün</span>
+              {cms.heading1}<br />
+              <span style={{ color: PURPLE }}>{cms.heading2}</span>
             </h1>
             <p className="leading-relaxed max-w-xl" style={{ color: muted, fontSize: "0.9375rem" }}>
-              OCPP uyumlu DC hızlı şarj üniteleri, akıllı şarj panoları ve entegrasyon hazır
-              kontrol kartlarıyla şarj ağı operatörlerine uçtan uca donanım çözümü sunuyoruz.
+              {cms.description}
             </p>
           </motion.div>
         </div>

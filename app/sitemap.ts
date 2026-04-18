@@ -45,11 +45,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: BASE,               lastModified: now, changeFrequency: "weekly",  priority: 1.0 },
-    { url: `${BASE}/products`, lastModified: now, changeFrequency: "weekly",  priority: 0.9 },
-    { url: `${BASE}/kurumsal`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE}/documents`,lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${BASE}/b2b`,      lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: BASE,                lastModified: now, changeFrequency: "weekly",  priority: 1.0 },
+    { url: `${BASE}/products`,  lastModified: now, changeFrequency: "weekly",  priority: 0.9 },
+    { url: `${BASE}/kurumsal`,  lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/documents`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/b2b`,       lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/bayilik`,   lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/operator`,  lastModified: now, changeFrequency: "monthly", priority: 0.7 },
   ];
 
   const categoryRoutes: MetadataRoute.Sitemap = CATEGORY_IDS.map((id) => ({

@@ -28,11 +28,11 @@ const NAV_GROUPS = {
       { label: "Kariyer",           href: "#contact",    scroll: true },
     ]},
     { title: "İş Ortaklığı", links: [
-      { label: "Bayi Bul",        href: "#dealer",  scroll: true  },
-      { label: "Kurumsal Satış",  href: "#contact", scroll: true  },
-      { label: "İhracat / Export",href: "#contact", scroll: true  },
-      { label: "İş Ortaklığı",   href: "#contact", scroll: true  },
-      { label: "OEM / Üretici",  href: "/b2b",     scroll: false },
+      { label: "Bayi Bul",             href: "#dealer",   scroll: true  },
+      { label: "OEM / Üretici",        href: "/b2b",      scroll: false },
+      { label: "Bayilik Başvurusu",    href: "/bayilik",  scroll: false },
+      { label: "Şarj Ağı Operatörü",  href: "/operator", scroll: false },
+      { label: "İhracat / Export",     href: "#contact",  scroll: true  },
     ]},
     { title: "Destek", links: [
       { label: "İletişim",      href: "#contact",   scroll: true  },
@@ -60,11 +60,11 @@ const NAV_GROUPS = {
       { label: "Careers",            href: "#contact",    scroll: true },
     ]},
     { title: "Partnership", links: [
-      { label: "Find a Dealer",    href: "#dealer",  scroll: true  },
-      { label: "Corporate Sales",  href: "#contact", scroll: true  },
-      { label: "Export",           href: "#contact", scroll: true  },
-      { label: "Partnership",      href: "#contact", scroll: true  },
-      { label: "OEM / Manufacturer", href: "/b2b",  scroll: false },
+      { label: "Find a Dealer",      href: "#dealer",   scroll: true  },
+      { label: "OEM / Manufacturer", href: "/b2b",      scroll: false },
+      { label: "Dealer Application", href: "/bayilik",  scroll: false },
+      { label: "Network Operators",  href: "/operator", scroll: false },
+      { label: "Export",             href: "#contact",  scroll: true  },
     ]},
     { title: "Support", links: [
       { label: "Contact",          href: "#contact",   scroll: true  },
