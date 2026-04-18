@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "eyebrow": "Kurumsal & OEM Çözümler",
+    "heading1": "EV Altyapısı için",
+    "heading2": "Profesyonel Çözümler",
+    "description": "Şarj ağı operatörleri, OEM üreticiler ve sistem entegratörleri için teknik ürün portföyü, özel fiyatlandırma ve mühendislik desteği. Türkiye'nin yerli EV altyapı üreticisinden.",
+    "sectorTags": ["OEM Üretici", "Şarj Ağı Operatörü", "Sistem Entegratörü", "Proje Müteahhidi", "Distribütör / Bayi", "Kamu & Belediye"]
+  },
+  "solutions": [
+    {
+      "id": "dc-charger",
+      "name": "DC Hızlı Şarj Ünitesi",
+      "subtitle": "Ticari & Halka Açık İstasyonlar için",
+      "tag": "Geliştirme",
+      "tagColor": "#F97316",
+      "accentColor": "#F97316",
+      "detail": "Yüksek güçlü DC şarj üniteleri; otoyol dinlenme tesisleri, alışveriş merkezleri ve ticari filolar için optimize edilmiş modüler tasarım.",
+      "specs": [
+        "7 kW – 360 kW güç aralığı",
+        "CCS2 · CHAdeMO · GB/T çıkış",
+        "OCPP 2.0 · Dinamik güç yönetimi",
+        "IP54 dış mekan kasası"
+      ]
+    },
+    {
+      "id": "charge-panel",
+      "name": "Şarj Panosu & Dağıtım Ünitesi",
+      "subtitle": "Çok Noktalı Enerji Dağıtım Altyapısı",
+      "tag": "Mevcut",
+      "tagColor": "#10B981",
+      "accentColor": "#3B82F6",
+      "detail": "Tek bir ana beslemeden onlarca şarj noktasını besleyen akıllı dağıtım panoları; maliyet düşürücü yük yönetimi algoritmasıyla.",
+      "specs": [
+        "4–24 çıkış noktası",
+        "Dinamik yük dengeleme (DLM)",
+        "Modbus / OCPP entegrasyonu",
+        "IP65 paslanmaz çelik muhafaza"
+      ]
+    },
+    {
+      "id": "dc-cable",
+      "name": "DC Şarj Kablosu (CCS2)",
+      "subtitle": "İstasyon Üreticileri için Profesyonel Kablo",
+      "tag": "Mevcut",
+      "tagColor": "#10B981",
+      "accentColor": "#10B981",
+      "detail": "OEM üreticiler için standart ve özel uzunluklarda üretilen yüksek güç DC şarj kabloları; soğutmalı ve soğutmasız varyantlar.",
+      "specs": [
+        "50 kW – 350 kW · 500A maks.",
+        "CCS2 / CHAdeMO / GB/T seçenekleri",
+        "Aktif su soğutmalı model (500A)",
+        "IEC 62893-4 · IEC 62196-3 · TÜV/CE"
+      ]
+    },
+    {
+      "id": "ecu",
+      "name": "Elektronik Kontrol Kartı (ECU)",
+      "subtitle": "OEM Üreticiler için Yerli Tasarım",
+      "tag": "OEM Mevcut",
+      "tagColor": "#818CF8",
+      "accentColor": "#818CF8",
+      "detail": "Şarj ünitesi üreticilerine hazır kontrol kartı: yerli yazılım, özelleştirilebilir OCPP yığını, sertifikasyon desteği.",
+      "specs": [
+        "ARM Cortex-M4 · 180 MHz",
+        "OCPP 1.6J / 2.0.1 · TLS 1.3",
+        "Wi-Fi · 4G · RFID · RS-485 · CAN",
+        "OTA güncellemesi · %100 test"
+      ]
+    }
+  ]
+}

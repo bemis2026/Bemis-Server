@@ -36,41 +36,34 @@ const C = {
   vfaint:    "rgba(232,234,240,0.10)",
 };
 
-/* ─── Data ─────────────────────────────────────────────────────────────── */
-const b2bSolutions = [
-  {
-    id: "dc-charger", icon: RiFlashlightLine, accent: C.orange,
-    tag: "Geliştirme", tagColor: C.orange,
-    name: "DC Hızlı Şarj Ünitesi",
-    subtitle: "Ticari & Halka Açık İstasyonlar için",
-    specs: ["7 kW – 360 kW güç aralığı", "CCS2 · CHAdeMO · GB/T çıkış", "OCPP 2.0 · Dinamik güç yönetimi", "IP54 dış mekan kasası"],
-    detail: "Yüksek güçlü DC şarj üniteleri; otoyol dinlenme tesisleri, alışveriş merkezleri ve ticari filolar için optimize edilmiş modüler tasarım.",
+/* ─── Data types ────────────────────────────────────────────────────────── */
+type B2BSolution = {
+  id: string; name: string; subtitle: string; tag: string;
+  tagColor: string; accentColor: string; detail: string; specs: string[];
+};
+type B2BHero = {
+  eyebrow: string; heading1: string; heading2: string;
+  description: string; sectorTags: string[];
+};
+type B2BData = { hero: B2BHero; solutions: B2BSolution[] };
+
+const ICON_MAP: Record<string, React.ElementType> = {
+  "dc-charger": RiFlashlightLine,
+  "charge-panel": RiCpuLine,
+  "dc-cable": RiPlugLine,
+  "ecu": RiSettings4Line,
+};
+
+const DEFAULT_B2B: B2BData = {
+  hero: {
+    eyebrow: "Kurumsal & OEM Çözümler",
+    heading1: "EV Altyapısı için",
+    heading2: "Profesyonel Çözümler",
+    description: "Şarj ağı operatörleri, OEM üreticiler ve sistem entegratörleri için teknik ürün portföyü.",
+    sectorTags: ["OEM Üretici", "Şarj Ağı Operatörü", "Sistem Entegratörü", "Proje Müteahhidi"],
   },
-  {
-    id: "charge-panel", icon: RiCpuLine, accent: C.blue,
-    tag: "Mevcut", tagColor: C.green,
-    name: "Şarj Panosu & Dağıtım Ünitesi",
-    subtitle: "Çok Noktalı Enerji Dağıtım Altyapısı",
-    specs: ["4–24 çıkış noktası", "Dinamik yük dengeleme (DLM)", "Modbus / OCPP entegrasyonu", "IP65 paslanmaz çelik muhafaza"],
-    detail: "Tek bir ana beslemeden onlarca şarj noktasını besleyen akıllı dağıtım panoları; maliyet düşürücü yük yönetimi algoritmasıyla.",
-  },
-  {
-    id: "dc-cable", icon: RiPlugLine, accent: C.green,
-    tag: "Mevcut", tagColor: C.green,
-    name: "DC Şarj Kablosu (CCS2)",
-    subtitle: "İstasyon Üreticileri için Profesyonel Kablo",
-    specs: ["50 kW – 350 kW · 500A maks.", "CCS2 / CHAdeMO / GB/T seçenekleri", "Aktif su soğutmalı model (500A)", "IEC 62893-4 · IEC 62196-3 · TÜV/CE"],
-    detail: "OEM üreticiler için standart ve özel uzunluklarda üretilen yüksek güç DC şarj kabloları; soğutmalı ve soğutmasız varyantlar.",
-  },
-  {
-    id: "ecu", icon: RiSettings4Line, accent: C.purple,
-    tag: "OEM Mevcut", tagColor: C.purple,
-    name: "Elektronik Kontrol Kartı (ECU)",
-    subtitle: "OEM Üreticiler için Yerli Tasarım",
-    specs: ["ARM Cortex-M4 · 180 MHz", "OCPP 1.6J / 2.0.1 · TLS 1.3", "Wi-Fi · 4G · RFID · RS-485 · CAN", "OTA güncellemesi · %100 test"],
-    detail: "Şarj ünitesi üreticilerine hazır kontrol kartı: yerli yazılım, özelleştirilebilir OCPP yığını, sertifikasyon desteği.",
-  },
-];
+  solutions: [],
+};
 
 const advantages = [
   { icon: RiToolsLine,          title: "Teknik Destek",       body: "Proje tasarımından devreye almaya kadar mühendislik desteği.", color: C.amber },
@@ -103,10 +96,14 @@ export default function B2BPage() {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
   const [categories, setCategories] = useState<Category[]>([]);
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const [b2bData, setB2bData] = useState<B2BData>(DEFAULT_B2B);
 
   useEffect(() => {
     fetch("/api/products").then(r => r.json()).then((data: Category[]) => {
       setCategories(Array.isArray(data) ? data : []);
+    }).catch(() => {});
+    fetch("/api/b2b").then(r => r.json()).then((data: B2BData) => {
+      if (data?.solutions) setB2bData(data);
     }).catch(() => {});
   }, []);
 
@@ -198,7 +195,7 @@ export default function B2BPage() {
               <div className="flex items-center gap-2.5 mb-5">
                 <div className="w-1.5 h-1.5 rounded-full" style={{ background: C.amber }} />
                 <span className="text-xs font-bold tracking-[0.20em] uppercase" style={{ color: C.amber }}>
-                  Kurumsal & OEM Çözümler
+                  {b2bData.hero.eyebrow}
                 </span>
               </div>
 
@@ -208,22 +205,21 @@ export default function B2BPage() {
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}>
-                EV Altyapısı için<br />
+                {b2bData.hero.heading1}<br />
                 <span style={{
                   background: `linear-gradient(90deg, ${C.amber}, #FCD34D)`,
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
-                }}>Profesyonel Çözümler</span>
+                }}>{b2bData.hero.heading2}</span>
               </h1>
 
               <p className="leading-relaxed max-w-2xl mb-8" style={{ color: C.muted, fontSize: "1rem" }}>
-                Şarj ağı operatörleri, OEM üreticiler ve sistem entegratörleri için teknik ürün portföyü,
-                özel fiyatlandırma ve mühendislik desteği. Türkiye&apos;nin yerli EV altyapı üreticisinden.
+                {b2bData.hero.description}
               </p>
 
               {/* Sector tags */}
               <div className="flex flex-wrap gap-2">
-                {["OEM Üretici", "Şarj Ağı Operatörü", "Sistem Entegratörü", "Proje Müteahhidi", "Distribütör / Bayi", "Kamu & Belediye"].map(tag => (
+                {(b2bData.hero.sectorTags ?? []).map(tag => (
                   <span key={tag} className="text-[11px] font-semibold px-3 py-1 rounded-full"
                     style={{ background: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.20)", color: "#FCD34D" }}>
                     {tag}
@@ -276,41 +272,44 @@ export default function B2BPage() {
             </motion.div>
 
             <div className="grid sm:grid-cols-2 gap-5">
-              {b2bSolutions.map((p, i) => (
-                <motion.div key={p.id}
-                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.45, delay: 0.08 * i }}
-                  onMouseEnter={() => setHoveredCard(p.id)}
-                  onMouseLeave={() => setHoveredCard(null)}
-                  className="rounded-2xl p-6 transition-all duration-200 cursor-default"
-                  style={{
-                    background: hoveredCard === p.id ? C.cardHover : C.card,
-                    border: `1px solid ${hoveredCard === p.id ? `${p.accent}30` : C.border}`,
-                    boxShadow: hoveredCard === p.id ? `0 8px 40px ${p.accent}10` : "none",
-                  }}>
-                  <div className="flex items-start justify-between gap-3 mb-4">
-                    <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ background: `${p.accent}12`, border: `1px solid ${p.accent}22` }}>
-                      <p.icon style={{ fontSize: 22, color: p.accent }} />
-                    </div>
-                    <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full mt-0.5"
-                      style={{ background: `${p.tagColor}15`, color: p.tagColor, border: `1px solid ${p.tagColor}28` }}>
-                      {p.tag}
-                    </span>
-                  </div>
-                  <h3 className="font-bold text-base mb-1" style={{ color: C.text }}>{p.name}</h3>
-                  <p className="text-xs mb-3" style={{ color: C.faint }}>{p.subtitle}</p>
-                  <p className="text-xs leading-relaxed mb-4" style={{ color: C.muted }}>{p.detail}</p>
-                  <div className="grid grid-cols-2 gap-1.5">
-                    {p.specs.map((s, j) => (
-                      <div key={j} className="flex items-center gap-1.5">
-                        <div className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: p.accent }} />
-                        <span className="text-[11px]" style={{ color: C.muted }}>{s}</span>
+              {b2bData.solutions.map((p, i) => {
+                const Icon = ICON_MAP[p.id] ?? RiPlugLine;
+                return (
+                  <motion.div key={p.id}
+                    initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.45, delay: 0.08 * i }}
+                    onMouseEnter={() => setHoveredCard(p.id)}
+                    onMouseLeave={() => setHoveredCard(null)}
+                    className="rounded-2xl p-6 transition-all duration-200 cursor-default"
+                    style={{
+                      background: hoveredCard === p.id ? C.cardHover : C.card,
+                      border: `1px solid ${hoveredCard === p.id ? `${p.accentColor}30` : C.border}`,
+                      boxShadow: hoveredCard === p.id ? `0 8px 40px ${p.accentColor}10` : "none",
+                    }}>
+                    <div className="flex items-start justify-between gap-3 mb-4">
+                      <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+                        style={{ background: `${p.accentColor}12`, border: `1px solid ${p.accentColor}22` }}>
+                        <Icon style={{ fontSize: 22, color: p.accentColor }} />
                       </div>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
+                      <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full mt-0.5"
+                        style={{ background: `${p.tagColor}15`, color: p.tagColor, border: `1px solid ${p.tagColor}28` }}>
+                        {p.tag}
+                      </span>
+                    </div>
+                    <h3 className="font-bold text-base mb-1" style={{ color: C.text }}>{p.name}</h3>
+                    <p className="text-xs mb-3" style={{ color: C.faint }}>{p.subtitle}</p>
+                    <p className="text-xs leading-relaxed mb-4" style={{ color: C.muted }}>{p.detail}</p>
+                    <div className="grid grid-cols-2 gap-1.5">
+                      {p.specs.map((s, j) => (
+                        <div key={j} className="flex items-center gap-1.5">
+                          <div className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: p.accentColor }} />
+                          <span className="text-[11px]" style={{ color: C.muted }}>{s}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>

@@ -42,6 +42,7 @@ import {
   HiOutlineClipboardList,
   HiOutlineStar,
   HiOutlineLightningBolt,
+  HiOutlineOfficeBuilding,
 } from "react-icons/hi";
 import { RiImageAddLine } from "react-icons/ri";
 
@@ -123,7 +124,7 @@ type DnaItem  = { title: string; desc: string };
 type ReviewItem = { platform: string; platformColor: string; rating: number; author: string; date: string; product: string; text: string };
 type HeroLayoutKey = "logo" | "text" | "button";
 
-type Tab = "hero" | "dna" | "stats" | "products-section" | "featured" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog";
+type Tab = "hero" | "dna" | "stats" | "products-section" | "featured" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b";
 
 export default function AdminPage() {
   const [authed, setAuthed] = useState<boolean | null>(null);
@@ -897,9 +898,10 @@ export default function AdminPage() {
     {
       label: "Veri Yönetimi",
       items: [
-        { id: "products", label: "Ürün Kataloğu",  icon: HiOutlineCube           },
-        { id: "dealers",  label: "Bayi Haritası",   icon: HiOutlineLocationMarker },
-        { id: "contact",  label: "İletişim Bilgisi",icon: HiOutlinePhone          },
+        { id: "products", label: "Ürün Kataloğu",   icon: HiOutlineCube           },
+        { id: "dealers",  label: "Bayi Haritası",    icon: HiOutlineLocationMarker },
+        { id: "contact",  label: "İletişim Bilgisi", icon: HiOutlinePhone          },
+        { id: "b2b",      label: "OEM & Kurumsal",   icon: HiOutlineOfficeBuilding },
       ],
     },
     {
@@ -2450,6 +2452,9 @@ export default function AdminPage() {
               {/* ── CHANGELOG ── */}
               {tab === "changelog" && <ChangelogPanel />}
 
+              {/* ── B2B / OEM ── */}
+              {tab === "b2b" && <B2BPanel />}
+
             </motion.div>
           </AnimatePresence>
         </main>
@@ -3287,5 +3292,214 @@ function TrendChart({ data, fmtDate, color }: { data: TrendRow[]; fmtDate: (d: s
         </g>
       ))}
     </svg>
+  );
+}
+
+// ── B2B / OEM Panel ──────────────────────────────────────────────────────────
+type B2BSolution = { id: string; name: string; subtitle: string; tag: string; tagColor: string; accentColor: string; detail: string; specs: string[] };
+type B2BHero = { eyebrow: string; heading1: string; heading2: string; description: string; sectorTags: string[] };
+type B2BPageData = { hero: B2BHero; solutions: B2BSolution[] };
+
+const TAG_OPTIONS = ["Mevcut", "OEM Mevcut", "Geliştirme", "Yakında", "Stoğa Bağlı"];
+
+function B2BPanel() {
+  const [data, setData] = useState<B2BPageData | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [toast, setToast] = useState<string | null>(null);
+  const [expandedSol, setExpandedSol] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch("/api/admin/b2b")
+      .then(r => r.json())
+      .then(d => setData(d))
+      .catch(() => {});
+  }, []);
+
+  const showToast = (msg: string) => { setToast(msg); setTimeout(() => setToast(null), 3000); };
+
+  const save = async () => {
+    if (!data) return;
+    setSaving(true);
+    const r = await fetch("/api/admin/b2b", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    setSaving(false);
+    showToast(r.ok ? "B2B sayfası kaydedildi." : "Kayıt başarısız.");
+  };
+
+  const setHero = (field: keyof B2BHero, val: string | string[]) =>
+    setData(p => p ? { ...p, hero: { ...p.hero, [field]: val } } : p);
+
+  const setSol = (id: string, field: keyof B2BSolution, val: string | string[]) =>
+    setData(p => p ? { ...p, solutions: p.solutions.map(s => s.id === id ? { ...s, [field]: val } : s) } : p);
+
+  const setSpec = (id: string, idx: number, val: string) =>
+    setData(p => {
+      if (!p) return p;
+      const solutions = p.solutions.map(s => {
+        if (s.id !== id) return s;
+        const specs = [...s.specs];
+        specs[idx] = val;
+        return { ...s, specs };
+      });
+      return { ...p, solutions };
+    });
+
+  const addSpec = (id: string) =>
+    setData(p => p ? { ...p, solutions: p.solutions.map(s => s.id === id ? { ...s, specs: [...s.specs, ""] } : s) } : p);
+
+  const removeSpec = (id: string, idx: number) =>
+    setData(p => p ? { ...p, solutions: p.solutions.map(s => s.id === id ? { ...s, specs: s.specs.filter((_, i) => i !== idx) } : s) } : p);
+
+  const inputCls = "w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22";
+  const labelCls = "block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider";
+
+  if (!data) return (
+    <div className="flex items-center justify-center h-40">
+      <div className="w-6 h-6 rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
+    </div>
+  );
+
+  return (
+    <div className="max-w-2xl space-y-6">
+      {toast && (
+        <div className="fixed top-4 right-4 z-50 px-4 py-2.5 rounded-xl text-sm font-medium bg-emerald-500/20 border border-emerald-500/30 text-emerald-300">
+          {toast}
+        </div>
+      )}
+
+      <div>
+        <h2 className="text-base font-bold mb-1">OEM & Kurumsal Satış Sayfası</h2>
+        <p className="text-xs text-white/35">
+          <a href="/b2b" target="_blank" rel="noreferrer" className="underline hover:text-white/60">/b2b</a> sayfasının içeriklerini düzenleyin.
+        </p>
+      </div>
+
+      {/* Hero */}
+      <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
+        <p className="text-xs font-bold text-white/50 uppercase tracking-wider">Hero Bölümü</p>
+        <div>
+          <label className={labelCls}>Üst Etiket (Eyebrow)</label>
+          <input className={inputCls} value={data.hero.eyebrow}
+            onChange={e => setHero("eyebrow", e.target.value)} />
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className={labelCls}>Başlık Satır 1</label>
+            <input className={inputCls} value={data.hero.heading1}
+              onChange={e => setHero("heading1", e.target.value)} />
+          </div>
+          <div>
+            <label className={labelCls}>Başlık Satır 2 (Amber)</label>
+            <input className={inputCls} value={data.hero.heading2}
+              onChange={e => setHero("heading2", e.target.value)} />
+          </div>
+        </div>
+        <div>
+          <label className={labelCls}>Açıklama Metni</label>
+          <textarea className={inputCls} rows={3} style={{ resize: "none" }} value={data.hero.description}
+            onChange={e => setHero("description", e.target.value)} />
+        </div>
+        <div>
+          <label className={labelCls}>Sektör Etiketleri (virgülle ayırın)</label>
+          <input className={inputCls}
+            value={(data.hero.sectorTags ?? []).join(", ")}
+            onChange={e => setHero("sectorTags", e.target.value.split(",").map(s => s.trim()).filter(Boolean))}
+            placeholder="OEM Üretici, Şarj Ağı Operatörü, ..." />
+        </div>
+      </div>
+
+      {/* Solutions */}
+      <div>
+        <p className="text-xs font-bold text-white/50 uppercase tracking-wider mb-3">OEM Ürün Kartları</p>
+        <div className="space-y-3">
+          {data.solutions.map(sol => (
+            <div key={sol.id} className="bg-white/3 border border-white/7 rounded-2xl overflow-hidden">
+              <button
+                onClick={() => setExpandedSol(expandedSol === sol.id ? null : sol.id)}
+                className="w-full flex items-center justify-between px-5 py-3.5 text-left hover:bg-white/3 transition-colors">
+                <div className="flex items-center gap-3">
+                  <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: sol.accentColor }} />
+                  <span className="text-sm font-semibold text-white">{sol.name}</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold"
+                    style={{ background: `${sol.tagColor}20`, color: sol.tagColor, border: `1px solid ${sol.tagColor}35` }}>
+                    {sol.tag}
+                  </span>
+                </div>
+                <HiOutlineChevronDown size={14} className={`text-white/30 transition-transform ${expandedSol === sol.id ? "rotate-180" : ""}`} />
+              </button>
+
+              {expandedSol === sol.id && (
+                <div className="px-5 pb-5 space-y-4 border-t border-white/6">
+                  <div className="grid grid-cols-2 gap-3 pt-4">
+                    <div>
+                      <label className={labelCls}>Ürün Adı</label>
+                      <input className={inputCls} value={sol.name}
+                        onChange={e => setSol(sol.id, "name", e.target.value)} />
+                    </div>
+                    <div>
+                      <label className={labelCls}>Alt Başlık</label>
+                      <input className={inputCls} value={sol.subtitle}
+                        onChange={e => setSol(sol.id, "subtitle", e.target.value)} />
+                    </div>
+                  </div>
+                  <div>
+                    <label className={labelCls}>Kısa Açıklama</label>
+                    <textarea className={inputCls} rows={3} style={{ resize: "none" }} value={sol.detail}
+                      onChange={e => setSol(sol.id, "detail", e.target.value)} />
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className={labelCls}>Durum Etiketi</label>
+                      <select className={inputCls} value={sol.tag}
+                        onChange={e => setSol(sol.id, "tag", e.target.value)}>
+                        {TAG_OPTIONS.map(t => <option key={t} value={t} style={{ background: "#1a1a2e" }}>{t}</option>)}
+                      </select>
+                    </div>
+                    <div>
+                      <label className={labelCls}>Etiket Rengi (hex)</label>
+                      <div className="flex gap-2">
+                        <input className={inputCls} value={sol.tagColor}
+                          onChange={e => setSol(sol.id, "tagColor", e.target.value)} placeholder="#10B981" />
+                        <input type="color" value={sol.tagColor}
+                          onChange={e => setSol(sol.id, "tagColor", e.target.value)}
+                          className="w-10 h-10 rounded-lg border border-white/10 cursor-pointer bg-transparent" />
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <label className={labelCls}>Teknik Özellikler</label>
+                    <div className="space-y-2">
+                      {sol.specs.map((spec, idx) => (
+                        <div key={idx} className="flex gap-2">
+                          <input className={inputCls} value={spec}
+                            onChange={e => setSpec(sol.id, idx, e.target.value)}
+                            placeholder={`Özellik ${idx + 1}`} />
+                          <button onClick={() => removeSpec(sol.id, idx)}
+                            className="px-3 rounded-xl text-white/30 hover:text-red-400 border border-white/8 hover:border-red-400/30 transition-colors text-xs">
+                            ✕
+                          </button>
+                        </div>
+                      ))}
+                      <button onClick={() => addSpec(sol.id)}
+                        className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white/70 px-3 py-2 rounded-xl border border-white/8 hover:border-white/20 transition-colors">
+                        <HiOutlinePlus size={12} /> Özellik Ekle
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button onClick={save} disabled={saving}
+        className="w-full flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-black font-bold py-3 rounded-xl text-sm disabled:opacity-60 transition-colors">
+        {saving ? <><div className="w-4 h-4 rounded-full border-2 border-black/30 border-t-black animate-spin" />Kaydediliyor…</> : <><HiOutlineSave size={14} />B2B Sayfasını Kaydet</>}
+      </button>
+    </div>
   );
 }
