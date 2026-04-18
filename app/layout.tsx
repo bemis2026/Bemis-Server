@@ -19,7 +19,7 @@ const inter = Inter({
   display: "swap",
 });
 
-async function getOgImage(): Promise<string | null> {
+async function getContentMeta(): Promise<{ ogImage: string | null; faviconUrl: string | null }> {
   try {
     const { list } = await import("@vercel/blob");
     const { blobs } = await list({ prefix: "data/content.json" });
@@ -27,14 +27,14 @@ async function getOgImage(): Promise<string | null> {
     if (blob) {
       const res = await fetch(blob.url, { cache: "no-store" });
       const data = await res.json();
-      return data?.ogImage || null;
+      return { ogImage: data?.ogImage || null, faviconUrl: data?.faviconUrl || null };
     }
   } catch {}
-  return null;
+  return { ogImage: null, faviconUrl: null };
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const ogImage = await getOgImage();
+  const { ogImage, faviconUrl } = await getContentMeta();
   const images = ogImage
     ? [{ url: ogImage, width: 1200, height: 630, alt: "Bemis E-V Charge" }]
     : [];
@@ -56,6 +56,11 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: "Bemis Teknik Elektrik A.Ş.",
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
     alternates: { canonical: "/" },
+    icons: {
+      icon: faviconUrl || "/favicon.ico",
+      shortcut: faviconUrl || "/favicon.ico",
+      apple: faviconUrl || "/favicon.ico",
+    },
     openGraph: {
       title: "Bemis E-V Charge | Yerli EV Şarj Ekipmanı Üreticisi",
       description:

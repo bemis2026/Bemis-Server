@@ -95,6 +95,7 @@ type ContentData = {
   sectionBgs?: Record<string, string>;
   logos?: { dark: string; light: string };
   ogImage?: string;
+  faviconUrl?: string;
 };
 
 type Dealer = { name: string; address: string; phone: string };
@@ -167,6 +168,8 @@ export default function AdminPage() {
   const logoLightRef = useRef<HTMLInputElement>(null);
   const [ogImgLoading, setOgImgLoading] = useState(false);
   const ogImgRef = useRef<HTMLInputElement>(null);
+  const [faviconLoading, setFaviconLoading] = useState(false);
+  const faviconRef = useRef<HTMLInputElement>(null);
 
   // Dealer editor state
   const [dealers, setDealers] = useState<DealersData>({});
@@ -640,6 +643,34 @@ export default function AdminPage() {
     }
     setOgImgLoading(false);
     if (ogImgRef.current) ogImgRef.current.value = "";
+  };
+
+  const handleFaviconUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setFaviconLoading(true);
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("folder", "favicon");
+    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+    if (res.ok) {
+      const { url } = await res.json();
+      setContent((prev) => {
+        if (!prev) return prev;
+        const updated = { ...prev, faviconUrl: url };
+        fetch("/api/admin/content", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updated),
+        }).catch(() => {});
+        return updated;
+      });
+      showToast("ok", "Favicon yüklendi ve kaydedildi.");
+    } else {
+      showToast("err", "Yükleme başarısız.");
+    }
+    setFaviconLoading(false);
+    if (faviconRef.current) faviconRef.current.value = "";
   };
 
   const updateContent = (path: string[], value: string | number | null) => {
@@ -2314,6 +2345,52 @@ export default function AdminPage() {
                     </div>
                     <input ref={logoDarkRef}  type="file" accept="image/*" className="hidden" onChange={(e) => handleLogoUpload(e, "dark")} />
                     <input ref={logoLightRef} type="file" accept="image/*" className="hidden" onChange={(e) => handleLogoUpload(e, "light")} />
+                  </div>
+
+                  {/* ── Favicon ── */}
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
+                    <div>
+                      <p className="text-xs font-semibold text-white/50 mb-0.5">Favicon (Tarayıcı Sekmesi İkonu)</p>
+                      <p className="text-xs text-white/30 leading-relaxed">
+                        Tarayıcı sekmesinde ve yer imlerinde görünen küçük ikon.
+                        Önerilen: <span className="text-white/50">512 × 512 px PNG</span> — şeffaf arka planlı.
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                      {/* Square preview */}
+                      <div
+                        className="w-16 h-16 rounded-xl border-2 flex items-center justify-center flex-shrink-0 overflow-hidden transition-colors"
+                        style={{ borderColor: content?.faviconUrl ? "rgba(59,130,246,0.40)" : "rgba(255,255,255,0.10)", background: "rgba(255,255,255,0.04)" }}
+                      >
+                        {content?.faviconUrl ? (
+                          <img src={content.faviconUrl} alt="favicon" className="w-full h-full object-contain p-1" />
+                        ) : (
+                          faviconLoading
+                            ? <div className="w-5 h-5 rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
+                            : <RiImageAddLine size={22} className="text-white/20" />
+                        )}
+                      </div>
+
+                      <div className="flex-1 space-y-2">
+                        <button
+                          onClick={() => faviconRef.current?.click()}
+                          disabled={faviconLoading}
+                          className="w-full text-xs bg-white/8 hover:bg-white/14 border border-white/10 rounded-xl px-4 py-2.5 text-white/60 hover:text-white transition-colors font-medium disabled:opacity-50"
+                        >
+                          {faviconLoading ? "Yükleniyor…" : content?.faviconUrl ? "Değiştir" : "PNG / ICO Yükle"}
+                        </button>
+                        {content?.faviconUrl && (
+                          <button
+                            onClick={() => setContent(prev => prev ? { ...prev, faviconUrl: "" } : prev)}
+                            className="w-full text-xs text-red-400/60 hover:text-red-400 transition-colors"
+                          >
+                            Kaldır
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                    <input ref={faviconRef} type="file" accept="image/png,image/x-icon,image/ico,.ico,.png" className="hidden" onChange={handleFaviconUpload} />
                   </div>
 
                   {/* ── Open Graph Image ── */}
