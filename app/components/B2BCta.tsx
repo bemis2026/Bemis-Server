@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import { RiShieldCheckLine, RiArrowRightLine, RiPlugLine, RiCpuLine } from "react-icons/ri";
 
-const TAGS = ["OEM Üretici", "Şarj Ağı Operatörü", "Sistem Entegratörü", "Proje Müteahhidi"];
+const TAGS = ["OEM Üretici", "Şarj Ağı Operatörü", "Distribütör / Bayi"];
 
 export default function B2BCta() {
   const { theme } = useTheme();
@@ -70,25 +70,36 @@ export default function B2BCta() {
           </div>
 
           {/* Right */}
-          <div className="flex flex-col sm:flex-row lg:flex-col gap-3 lg:min-w-[200px]">
+          <div className="flex flex-col gap-2.5 lg:min-w-[210px]">
             <button
               onClick={() => router.push("/b2b")}
-              className="group flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm transition-all duration-200 hover:scale-[1.02]"
+              className="group flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm transition-all duration-200 hover:scale-[1.02]"
               style={{ background: BLUE, color: "#fff", boxShadow: `0 6px 24px ${BLUE}40` }}
             >
-              Teklif Başvurusu Yap
-              <RiArrowRightLine size={16} className="transition-transform group-hover:translate-x-0.5" />
+              OEM & Üreticiler
+              <RiArrowRightLine size={15} className="transition-transform group-hover:translate-x-0.5" />
             </button>
             <button
-              onClick={() => router.push("/b2b")}
-              className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm transition-all duration-200"
+              onClick={() => router.push("/bayilik")}
+              className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-200"
               style={{
                 background: d ? "rgba(255,255,255,0.05)" : "rgba(59,130,246,0.08)",
                 border: `1px solid ${border}`,
                 color: d ? "#93C5FD" : BLUE,
               }}
             >
-              Ürün Portföyünü Gör
+              Bayilik Başvurusu
+            </button>
+            <button
+              onClick={() => router.push("/operator")}
+              className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-200"
+              style={{
+                background: d ? "rgba(255,255,255,0.05)" : "rgba(59,130,246,0.08)",
+                border: `1px solid ${border}`,
+                color: d ? "#93C5FD" : BLUE,
+              }}
+            >
+              Şarj Ağı Operatörleri
             </button>
           </div>
         </div>
