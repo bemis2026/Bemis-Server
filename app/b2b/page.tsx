@@ -1,50 +1,85 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
-import { useTheme } from "../context/ThemeContext";
 import {
   RiFlashlightLine, RiCpuLine, RiPlugLine, RiShieldCheckLine,
-  RiCheckLine, RiSendPlaneLine,
+  RiCheckLine, RiSendPlaneLine, RiBuilding2Line, RiSettings4Line,
+  RiWifiLine, RiToolsLine, RiGlobalLine, RiArrowRightLine,
+  RiLeafLine, RiLightbulbLine, RiBarChartLine, RiCustomerService2Line,
 } from "react-icons/ri";
-import { HiArrowLeft } from "react-icons/hi";
+import { HiArrowLeft, HiChevronRight } from "react-icons/hi";
 
-const b2bProducts = [
+/* ─── Palette ──────────────────────────────────────────────────────────── */
+// B2B page always uses its own dark industrial palette, regardless of site theme
+const C = {
+  bg:        "#080b12",
+  bgSub:     "#0d1119",
+  card:      "rgba(255,255,255,0.035)",
+  cardHover: "rgba(255,255,255,0.06)",
+  border:    "rgba(255,255,255,0.07)",
+  borderAcc: "rgba(245,158,11,0.25)",
+  amber:     "#F59E0B",
+  amberDim:  "#92400E",
+  blue:      "#3B82F6",
+  green:     "#10B981",
+  purple:    "#818CF8",
+  orange:    "#F97316",
+  text:      "#e8eaf0",
+  muted:     "rgba(232,234,240,0.50)",
+  faint:     "rgba(232,234,240,0.25)",
+  vfaint:    "rgba(232,234,240,0.10)",
+};
+
+/* ─── Data ─────────────────────────────────────────────────────────────── */
+const b2bSolutions = [
   {
-    id: "dc-charger", icon: RiFlashlightLine,
-    name: "DC Hızlı Şarj Ünitesi", subtitle: "Ticari & Halka Açık DC İstasyon",
+    id: "dc-charger", icon: RiFlashlightLine, accent: C.orange,
+    tag: "Geliştirme", tagColor: C.orange,
+    name: "DC Hızlı Şarj Ünitesi",
+    subtitle: "Ticari & Halka Açık İstasyonlar için",
     specs: ["7 kW – 360 kW güç aralığı", "CCS2 · CHAdeMO · GB/T çıkış", "OCPP 2.0 · Dinamik güç yönetimi", "IP54 dış mekan kasası"],
-    tag: "Geliştirme Aşamasında", accent: "#F97316",
+    detail: "Yüksek güçlü DC şarj üniteleri; otoyol dinlenme tesisleri, alışveriş merkezleri ve ticari filolar için optimize edilmiş modüler tasarım.",
   },
   {
-    id: "charge-panel", icon: RiCpuLine,
-    name: "Şarj Panosu & Dağıtım Ünitesi", subtitle: "Çok Noktalı Enerji Dağıtım Panosu",
+    id: "charge-panel", icon: RiCpuLine, accent: C.blue,
+    tag: "Mevcut", tagColor: C.green,
+    name: "Şarj Panosu & Dağıtım Ünitesi",
+    subtitle: "Çok Noktalı Enerji Dağıtım Altyapısı",
     specs: ["4–24 çıkış noktası", "Dinamik yük dengeleme (DLM)", "Modbus / OCPP entegrasyonu", "IP65 paslanmaz çelik muhafaza"],
-    tag: "Mevcut", accent: "#3B82F6",
+    detail: "Tek bir ana beslemeden onlarca şarj noktasını besleyen akıllı dağıtım panoları; maliyet düşürücü yük yönetimi algoritmasıyla.",
   },
   {
-    id: "dc-cable-b2b", icon: RiPlugLine,
-    name: "DC Şarj Kablosu (CCS2)", subtitle: "İstasyon Üreticileri için Profesyonel Kablo",
+    id: "dc-cable", icon: RiPlugLine, accent: C.green,
+    tag: "Mevcut", tagColor: C.green,
+    name: "DC Şarj Kablosu (CCS2)",
+    subtitle: "İstasyon Üreticileri için Profesyonel Kablo",
     specs: ["50 kW – 350 kW · 500A maks.", "CCS2 / CHAdeMO / GB/T seçenekleri", "Aktif su soğutmalı model (500A)", "IEC 62893-4 · IEC 62196-3 · TÜV/CE"],
-    tag: "Mevcut", accent: "#10B981",
+    detail: "OEM üreticiler için standart ve özel uzunluklarda üretilen yüksek güç DC şarj kabloları; soğutmalı ve soğutmasız varyantlar.",
   },
   {
-    id: "ecu", icon: RiCpuLine,
-    name: "Elektronik Kontrol Kartı (ECU)", subtitle: "OEM için Yerli Tasarım Kontrol Ünitesi",
+    id: "ecu", icon: RiSettings4Line, accent: C.purple,
+    tag: "OEM Mevcut", tagColor: C.purple,
+    name: "Elektronik Kontrol Kartı (ECU)",
+    subtitle: "OEM Üreticiler için Yerli Tasarım",
     specs: ["ARM Cortex-M4 · 180 MHz", "OCPP 1.6J / 2.0.1 · TLS 1.3", "Wi-Fi · 4G · RFID · RS-485 · CAN", "OTA güncellemesi · %100 test"],
-    tag: "OEM Mevcut", accent: "#818CF8",
+    detail: "Şarj ünitesi üreticilerine hazır kontrol kartı: yerli yazılım, özelleştirilebilir OCPP yığını, sertifikasyon desteği.",
   },
 ];
 
-const tagColor: Record<string, string> = {
-  "Mevcut": "#10B981",
-  "OEM Mevcut": "#818CF8",
-  "Geliştirme Aşamasında": "#F97316",
-};
+const advantages = [
+  { icon: RiToolsLine,          title: "Teknik Destek",       body: "Proje tasarımından devreye almaya kadar mühendislik desteği.", color: C.amber },
+  { icon: RiBarChartLine,       title: "Özel Fiyatlandırma", body: "Hacme göre ölçeklenen rekabetçi OEM ve toplu satış fiyatları.", color: C.blue },
+  { icon: RiWifiLine,           title: "OCPP Entegrasyonu",  body: "OCPP 1.6 / 2.0.1 uyumlu donanım ve yazılım çözümleri.", color: C.green },
+  { icon: RiGlobalLine,         title: "Sertifikasyon",      body: "CE, TÜV, IEC sertifikalı ürünler; Avrupa ihracatına hazır portföy.", color: C.purple },
+  { icon: RiLightbulbLine,      title: "Özel Geliştirme",    body: "Tasarıma özel (custom) elektronik kart ve yazılım projeleri.", color: C.orange },
+  { icon: RiCustomerService2Line, title: "Satış Sonrası",   body: "Garanti, yedek parça ve saha servis anlaşmaları.", color: "#EC4899" },
+];
 
 const SECTORS = [
   "EV Üreticisi (OEM)", "Şarj Ağı Operatörü", "Proje Müteahhidi / EPC",
@@ -58,24 +93,22 @@ const PRODUCTS_INTEREST = [
 type FormState = { name: string; company: string; email: string; phone: string; sector: string; interests: string[]; message: string };
 const EMPTY: FormState = { name: "", company: "", email: "", phone: "", sector: "", interests: [], message: "" };
 
+type Category = { id: string; name: string; tagline: string; accent: string };
+
+/* ─── Component ─────────────────────────────────────────────────────────── */
 export default function B2BPage() {
   const router = useRouter();
-  const { theme } = useTheme();
   const [searchOpen, setSearchOpen] = useState(false);
-  const d = theme === "dark";
   const [form, setForm] = useState<FormState>(EMPTY);
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
-  const bg         = d ? "#0c0c0e" : "#f8f8fb";
-  const card       = d ? "rgba(255,255,255,0.04)" : "#ffffff";
-  const border     = d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
-  const inputBg    = d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)";
-  const inputBorder= d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.12)";
-  const textPrimary= d ? "#f0f0f4" : "#1a1a2e";
-  const textMuted  = d ? "rgba(240,240,244,0.50)" : "rgba(26,26,46,0.50)";
-  const textFaint  = d ? "rgba(240,240,244,0.28)" : "rgba(26,26,46,0.28)";
-  const shadow     = d ? "none" : "0 1px 12px rgba(0,0,0,0.05)";
-  const BLUE       = "#3B82F6";
+  useEffect(() => {
+    fetch("/api/products").then(r => r.json()).then((data: Category[]) => {
+      setCategories(Array.isArray(data) ? data : []);
+    }).catch(() => {});
+  }, []);
 
   const set = (k: keyof FormState, v: string) => setForm(p => ({ ...p, [k]: v }));
   const toggleInterest = (val: string) =>
@@ -100,181 +133,403 @@ export default function B2BPage() {
     }
   };
 
-  const inputClass = "w-full px-3.5 py-2.5 rounded-xl text-sm outline-none transition-all duration-200";
-  const inputStyle = { background: inputBg, border: `1px solid ${inputBorder}`, color: textPrimary };
-  const labelStyle = { color: textFaint, fontSize: "0.72rem", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.06em" };
+  const inputStyle = {
+    background: "rgba(255,255,255,0.04)",
+    border: `1px solid ${C.border}`,
+    color: C.text,
+    outline: "none",
+    width: "100%",
+    padding: "10px 14px",
+    borderRadius: 12,
+    fontSize: "0.875rem",
+    transition: "border-color 0.15s",
+  };
+  const labelStyle: React.CSSProperties = {
+    color: C.faint,
+    fontSize: "0.70rem",
+    fontWeight: 700,
+    textTransform: "uppercase",
+    letterSpacing: "0.08em",
+    display: "block",
+    marginBottom: 6,
+  };
 
   return (
-    <div style={{ background: bg, minHeight: "100vh" }}>
+    <div style={{ background: C.bg, minHeight: "100vh", color: C.text }}>
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
-      <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 pt-28 pb-20">
+      {/* ── Ambient glow ── */}
+      <div className="fixed inset-0 pointer-events-none" style={{
+        background: "radial-gradient(ellipse 70% 50% at 50% -10%, rgba(245,158,11,0.06) 0%, transparent 60%)",
+        zIndex: 0,
+      }} />
 
-        <motion.button initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3 }}
-          onClick={() => router.back()} className="flex items-center gap-2 mb-10 group" style={{ color: textMuted }}>
-          <HiArrowLeft size={15} className="group-hover:-translate-x-1 transition-transform duration-200" />
-          <span className="text-sm">Geri</span>
-        </motion.button>
+      <div className="relative" style={{ zIndex: 1 }}>
 
-        {/* Header */}
-        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }} className="mb-12">
-          <div className="flex items-center gap-2 mb-3">
-            <RiShieldCheckLine style={{ color: textFaint, fontSize: 16 }} />
-            <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: textFaint }}>OEM & Profesyonel Çözümler</span>
-          </div>
-          <h1 className="text-2xl sm:text-3xl font-bold mb-3" style={{ color: textPrimary }}>Üreticiler & Kurumsal Alıcılar için</h1>
-          <p className="text-sm leading-relaxed max-w-xl" style={{ color: textMuted }}>
-            Şarj panoları, DC hızlı şarj üniteleri, OEM elektronik kartlar ve DC şarj kabloları —
-            EV altyapı çözümleri geliştiren üreticiler ve entegratörler için teknik ürün portföyümüz.
-          </p>
-        </motion.div>
+        {/* ════════════════════════════════ HERO ════════════════════════════════ */}
+        <section className="relative overflow-hidden" style={{
+          background: `linear-gradient(180deg, #060912 0%, ${C.bgSub} 100%)`,
+          borderBottom: `1px solid ${C.border}`,
+          paddingTop: 120,
+          paddingBottom: 72,
+        }}>
+          {/* Grid texture */}
+          <div className="absolute inset-0 pointer-events-none" style={{
+            backgroundImage: `linear-gradient(${C.vfaint} 1px, transparent 1px), linear-gradient(90deg, ${C.vfaint} 1px, transparent 1px)`,
+            backgroundSize: "48px 48px",
+            opacity: 0.4,
+          }} />
+          {/* Corner glow */}
+          <div className="absolute top-0 right-0 w-[600px] h-[400px] pointer-events-none" style={{
+            background: "radial-gradient(ellipse at top right, rgba(245,158,11,0.08) 0%, transparent 60%)",
+          }} />
 
-        {/* Product cards */}
-        <div className="grid sm:grid-cols-2 gap-4 mb-16">
-          {b2bProducts.map((p, i) => (
-            <motion.div key={p.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.1 + i * 0.08 }}
-              className="rounded-2xl p-5" style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}>
-              <div className="flex items-start justify-between gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: `${p.accent}15`, border: `1px solid ${p.accent}25` }}>
-                  <p.icon style={{ fontSize: 20, color: p.accent }} />
-                </div>
-                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full" style={{
-                  background: `${tagColor[p.tag] ?? "#888"}18`, color: tagColor[p.tag] ?? "#888",
-                  border: `1px solid ${tagColor[p.tag] ?? "#888"}30`,
-                }}>{p.tag}</span>
+          <div className="relative max-w-6xl mx-auto px-5 sm:px-8">
+            <motion.button initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }}
+              onClick={() => router.back()} className="flex items-center gap-2 mb-10 group"
+              style={{ color: C.faint, fontSize: "0.875rem" }}>
+              <HiArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+              Ana sayfaya dön
+            </motion.button>
+
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+              {/* Eyebrow */}
+              <div className="flex items-center gap-2.5 mb-5">
+                <div className="w-1.5 h-1.5 rounded-full" style={{ background: C.amber }} />
+                <span className="text-xs font-bold tracking-[0.20em] uppercase" style={{ color: C.amber }}>
+                  Kurumsal & OEM Çözümler
+                </span>
               </div>
-              <h3 className="font-semibold text-sm mb-0.5" style={{ color: textPrimary }}>{p.name}</h3>
-              <p className="text-xs mb-3" style={{ color: textFaint }}>{p.subtitle}</p>
-              <ul className="space-y-1.5">
-                {p.specs.map((s, j) => (
-                  <li key={j} className="flex items-center gap-2">
-                    <div className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: p.accent }} />
-                    <span className="text-xs" style={{ color: textMuted }}>{s}</span>
-                  </li>
+
+              <h1 className="font-black leading-tight mb-5" style={{
+                fontSize: "clamp(2rem, 5vw, 3.5rem)",
+                background: `linear-gradient(135deg, ${C.text} 0%, rgba(232,234,240,0.65) 100%)`,
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}>
+                EV Altyapısı için<br />
+                <span style={{
+                  background: `linear-gradient(90deg, ${C.amber}, #FCD34D)`,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}>Profesyonel Çözümler</span>
+              </h1>
+
+              <p className="leading-relaxed max-w-2xl mb-8" style={{ color: C.muted, fontSize: "1rem" }}>
+                Şarj ağı operatörleri, OEM üreticiler ve sistem entegratörleri için teknik ürün portföyü,
+                özel fiyatlandırma ve mühendislik desteği. Türkiye&apos;nin yerli EV altyapı üreticisinden.
+              </p>
+
+              {/* Sector tags */}
+              <div className="flex flex-wrap gap-2">
+                {["OEM Üretici", "Şarj Ağı Operatörü", "Sistem Entegratörü", "Proje Müteahhidi", "Distribütör / Bayi", "Kamu & Belediye"].map(tag => (
+                  <span key={tag} className="text-[11px] font-semibold px-3 py-1 rounded-full"
+                    style={{ background: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.20)", color: "#FCD34D" }}>
+                    {tag}
+                  </span>
                 ))}
-              </ul>
+              </div>
             </motion.div>
-          ))}
-        </div>
-
-        {/* ── Application Form ── */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}>
-          <div className="mb-6">
-            <h2 className="text-xl font-bold mb-1" style={{ color: textPrimary }}>Teknik Teklif Başvurusu</h2>
-            <p className="text-sm" style={{ color: textMuted }}>
-              Üreticilere özel fiyatlandırma, teknik dokümanlar ve numune talepleri için formu doldurun.
-            </p>
           </div>
+        </section>
 
-          {status === "ok" ? (
-            <div className="rounded-2xl p-10 text-center" style={{ background: card, border: `1px solid ${border}` }}>
-              <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
-                style={{ background: "#10B98118", border: "1px solid #10B98130" }}>
-                <RiCheckLine style={{ fontSize: 28, color: "#10B981" }} />
-              </div>
-              <h3 className="font-bold text-base mb-2" style={{ color: textPrimary }}>Başvurunuz Alındı</h3>
-              <p className="text-sm" style={{ color: textMuted }}>
-                Satış mühendisliğimiz en kısa sürede sizinle iletişime geçecek.
-              </p>
+        {/* ════════════════════════════ ADVANTAGES ════════════════════════════ */}
+        <section style={{ background: C.bgSub, borderBottom: `1px solid ${C.border}`, padding: "56px 0" }}>
+          <div className="max-w-6xl mx-auto px-5 sm:px-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {advantages.map((a, i) => (
+                <motion.div key={a.title}
+                  initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.05 * i }}
+                  className="flex items-start gap-4 p-4 rounded-xl"
+                  style={{ background: C.card, border: `1px solid ${C.border}` }}>
+                  <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                    style={{ background: `${a.color}15`, border: `1px solid ${a.color}25` }}>
+                    <a.icon style={{ fontSize: 18, color: a.color }} />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm mb-0.5" style={{ color: C.text }}>{a.title}</p>
+                    <p className="text-xs leading-relaxed" style={{ color: C.muted }}>{a.body}</p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="rounded-2xl p-6 sm:p-8 space-y-5"
-              style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}>
+          </div>
+        </section>
 
-              {/* Name + Company */}
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block mb-1.5" style={labelStyle}>Ad Soyad *</label>
-                  <input required value={form.name} onChange={e => set("name", e.target.value)}
-                    placeholder="Ali Yıldız" className={inputClass} style={inputStyle} />
-                </div>
-                <div>
-                  <label className="block mb-1.5" style={labelStyle}>Şirket *</label>
-                  <input required value={form.company} onChange={e => set("company", e.target.value)}
-                    placeholder="ABC Teknoloji A.Ş." className={inputClass} style={inputStyle} />
-                </div>
+        {/* ════════════════════════════ B2B PRODUCTS ═══════════════════════════ */}
+        <section style={{ padding: "72px 0", background: C.bg }}>
+          <div className="max-w-6xl mx-auto px-5 sm:px-8">
+            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
+              className="mb-10">
+              <div className="flex items-center gap-2 mb-3">
+                <RiBuilding2Line style={{ color: C.amber, fontSize: 14 }} />
+                <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: C.amber }}>
+                  Ürün Portföyü
+                </span>
               </div>
-
-              {/* Email + Phone */}
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block mb-1.5" style={labelStyle}>E-Posta *</label>
-                  <input required type="email" value={form.email} onChange={e => set("email", e.target.value)}
-                    placeholder="ali@sirket.com" className={inputClass} style={inputStyle} />
-                </div>
-                <div>
-                  <label className="block mb-1.5" style={labelStyle}>Telefon</label>
-                  <input type="tel" value={form.phone} onChange={e => set("phone", e.target.value)}
-                    placeholder="+90 5XX XXX XX XX" className={inputClass} style={inputStyle} />
-                </div>
-              </div>
-
-              {/* Sector */}
-              <div>
-                <label className="block mb-1.5" style={labelStyle}>Sektör *</label>
-                <select required value={form.sector} onChange={e => set("sector", e.target.value)}
-                  className={inputClass} style={{ ...inputStyle, cursor: "pointer" }}>
-                  <option value="">Sektörünüzü seçin</option>
-                  {SECTORS.map(s => <option key={s} value={s}>{s}</option>)}
-                </select>
-              </div>
-
-              {/* Products of interest */}
-              <div>
-                <label className="block mb-2.5" style={labelStyle}>İlgilenilen Ürün / Hizmet</label>
-                <div className="flex flex-wrap gap-2">
-                  {PRODUCTS_INTEREST.map(p => {
-                    const active = form.interests.includes(p);
-                    return (
-                      <button key={p} type="button" onClick={() => toggleInterest(p)}
-                        className="px-3 py-1.5 rounded-xl text-xs font-semibold transition-all duration-150"
-                        style={{
-                          background: active ? `${BLUE}18` : inputBg,
-                          border: `1px solid ${active ? BLUE + "50" : inputBorder}`,
-                          color: active ? (d ? "#93C5FD" : BLUE) : textMuted,
-                        }}>
-                        {active && <RiCheckLine className="inline mr-1" style={{ fontSize: 11 }} />}
-                        {p}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Message */}
-              <div>
-                <label className="block mb-1.5" style={labelStyle}>Mesaj / Talep Detayı</label>
-                <textarea value={form.message} onChange={e => set("message", e.target.value)}
-                  rows={4} placeholder="Proje kapsamı, adet, teknik gereksinimler..."
-                  className={inputClass} style={{ ...inputStyle, resize: "none" }} />
-              </div>
-
-              {status === "err" && (
-                <p className="text-xs text-red-400">Gönderim sırasında hata oluştu. Lütfen tekrar deneyin.</p>
-              )}
-
-              <button type="submit" disabled={status === "sending"}
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold transition-all duration-200 disabled:opacity-60"
-                style={{ background: BLUE, color: "#fff" }}>
-                {status === "sending" ? (
-                  <><div className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />Gönderiliyor…</>
-                ) : (
-                  <><RiSendPlaneLine size={16} />Başvuruyu Gönder</>
-                )}
-              </button>
-
-              <p className="text-xs text-center" style={{ color: textFaint }}>
-                Bu sayfa üretici ve kurumsal alıcılara yöneliktir. Son kullanıcı ürünleri için{" "}
-                <button type="button" onClick={() => router.push("/#products")} className="underline hover:opacity-70">
-                  ana ürün sayfamızı
-                </button>{" "}ziyaret edin.
+              <h2 className="text-2xl font-black mb-2" style={{ color: C.text }}>OEM & Kurumsal Teknik Ürünler</h2>
+              <p className="text-sm" style={{ color: C.muted }}>
+                Profesyonel EV altyapısı için geliştirilen, sertifikalı ve entegrasyon hazır bileşenler.
               </p>
-            </form>
-          )}
-        </motion.div>
+            </motion.div>
+
+            <div className="grid sm:grid-cols-2 gap-5">
+              {b2bSolutions.map((p, i) => (
+                <motion.div key={p.id}
+                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: 0.08 * i }}
+                  onMouseEnter={() => setHoveredCard(p.id)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                  className="rounded-2xl p-6 transition-all duration-200 cursor-default"
+                  style={{
+                    background: hoveredCard === p.id ? C.cardHover : C.card,
+                    border: `1px solid ${hoveredCard === p.id ? `${p.accent}30` : C.border}`,
+                    boxShadow: hoveredCard === p.id ? `0 8px 40px ${p.accent}10` : "none",
+                  }}>
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ background: `${p.accent}12`, border: `1px solid ${p.accent}22` }}>
+                      <p.icon style={{ fontSize: 22, color: p.accent }} />
+                    </div>
+                    <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full mt-0.5"
+                      style={{ background: `${p.tagColor}15`, color: p.tagColor, border: `1px solid ${p.tagColor}28` }}>
+                      {p.tag}
+                    </span>
+                  </div>
+                  <h3 className="font-bold text-base mb-1" style={{ color: C.text }}>{p.name}</h3>
+                  <p className="text-xs mb-3" style={{ color: C.faint }}>{p.subtitle}</p>
+                  <p className="text-xs leading-relaxed mb-4" style={{ color: C.muted }}>{p.detail}</p>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    {p.specs.map((s, j) => (
+                      <div key={j} className="flex items-center gap-1.5">
+                        <div className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: p.accent }} />
+                        <span className="text-[11px]" style={{ color: C.muted }}>{s}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════ CONSUMER PRODUCTS SECTION ═══════════════════ */}
+        {categories.length > 0 && (
+          <section style={{ background: C.bgSub, borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}`, padding: "72px 0" }}>
+            <div className="max-w-6xl mx-auto px-5 sm:px-8">
+              <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.4 }} className="mb-10">
+                <div className="flex items-center gap-2 mb-3">
+                  <RiLeafLine style={{ color: C.green, fontSize: 14 }} />
+                  <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: C.green }}>
+                    Son Kullanıcı Ürünleri
+                  </span>
+                </div>
+                <h2 className="text-2xl font-black mb-2" style={{ color: C.text }}>Tüketici Ürün Portföyümüz</h2>
+                <p className="text-sm max-w-xl" style={{ color: C.muted }}>
+                  Kurumsal müşterilerimiz, son kullanıcılara yönelik AC şarj üniteleri ve aksesuarlarımızı
+                  toplu satın alma ve bayilik programlarıyla tedarik edebilir.
+                </p>
+              </motion.div>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {categories.map((cat, i) => (
+                  <motion.div key={cat.id}
+                    initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.07 * i }}>
+                    <Link href={`/products/${cat.id}`}
+                      className="block rounded-2xl p-5 h-full transition-all duration-200 group"
+                      style={{
+                        background: C.card,
+                        border: `1px solid ${C.border}`,
+                        textDecoration: "none",
+                      }}
+                      onMouseEnter={e => {
+                        (e.currentTarget as HTMLElement).style.background = C.cardHover;
+                        (e.currentTarget as HTMLElement).style.borderColor = `${cat.accent}35`;
+                      }}
+                      onMouseLeave={e => {
+                        (e.currentTarget as HTMLElement).style.background = C.card;
+                        (e.currentTarget as HTMLElement).style.borderColor = C.border;
+                      }}>
+                      <div className="w-9 h-9 rounded-xl flex items-center justify-center mb-4"
+                        style={{ background: `${cat.accent}15`, border: `1px solid ${cat.accent}25` }}>
+                        <RiPlugLine style={{ fontSize: 17, color: cat.accent }} />
+                      </div>
+                      <p className="font-bold text-sm mb-1.5 group-hover:opacity-90 transition-opacity" style={{ color: C.text }}>
+                        {cat.name}
+                      </p>
+                      <p className="text-xs leading-relaxed mb-4" style={{ color: C.muted }}>
+                        {cat.tagline}
+                      </p>
+                      <div className="flex items-center gap-1 text-xs font-semibold" style={{ color: cat.accent }}>
+                        Ürünleri gör <HiChevronRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-6 text-center">
+                <Link href="/products"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200"
+                  style={{ background: "rgba(255,255,255,0.05)", border: `1px solid ${C.border}`, color: C.muted, textDecoration: "none" }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = C.text; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = C.muted; }}>
+                  Tüm ürün kategorilerini gör
+                  <RiArrowRightLine size={14} />
+                </Link>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ════════════════════════════ APPLICATION FORM ═══════════════════════ */}
+        <section style={{ background: C.bg, padding: "72px 0 80px" }}>
+          <div className="max-w-3xl mx-auto px-5 sm:px-8">
+            <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.45 }}>
+
+              <div className="mb-8">
+                <div className="flex items-center gap-2 mb-3">
+                  <RiShieldCheckLine style={{ color: C.amber, fontSize: 14 }} />
+                  <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: C.amber }}>
+                    Teknik Teklif Başvurusu
+                  </span>
+                </div>
+                <h2 className="text-2xl font-black mb-2" style={{ color: C.text }}>Teklif Alın</h2>
+                <p className="text-sm leading-relaxed" style={{ color: C.muted }}>
+                  Üreticilere özel fiyatlandırma, teknik dokümanlar ve numune talepleri için formu doldurun.
+                  Satış mühendisliğimiz 1 iş günü içinde size ulaşır.
+                </p>
+              </div>
+
+              <AnimatePresence mode="wait">
+                {status === "ok" ? (
+                  <motion.div key="success"
+                    initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }}
+                    className="rounded-2xl p-12 text-center"
+                    style={{ background: C.card, border: `1px solid ${C.border}` }}>
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
+                      style={{ background: `${C.green}18`, border: `1px solid ${C.green}30` }}>
+                      <RiCheckLine style={{ fontSize: 32, color: C.green }} />
+                    </div>
+                    <h3 className="font-black text-lg mb-2" style={{ color: C.text }}>Başvurunuz Alındı</h3>
+                    <p className="text-sm" style={{ color: C.muted }}>
+                      Satış mühendisliğimiz en kısa sürede sizinle iletişime geçecek.
+                    </p>
+                  </motion.div>
+                ) : (
+                  <motion.form key="form" onSubmit={handleSubmit} className="space-y-5 rounded-2xl p-6 sm:p-8"
+                    style={{ background: C.card, border: `1px solid ${C.border}` }}>
+
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label style={labelStyle}>Ad Soyad *</label>
+                        <input required value={form.name} onChange={e => set("name", e.target.value)}
+                          placeholder="Ali Yıldız" style={inputStyle}
+                          onFocus={e => { e.currentTarget.style.borderColor = C.amber; }}
+                          onBlur={e => { e.currentTarget.style.borderColor = C.border; }} />
+                      </div>
+                      <div>
+                        <label style={labelStyle}>Şirket *</label>
+                        <input required value={form.company} onChange={e => set("company", e.target.value)}
+                          placeholder="ABC Teknoloji A.Ş." style={inputStyle}
+                          onFocus={e => { e.currentTarget.style.borderColor = C.amber; }}
+                          onBlur={e => { e.currentTarget.style.borderColor = C.border; }} />
+                      </div>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label style={labelStyle}>E-Posta *</label>
+                        <input required type="email" value={form.email} onChange={e => set("email", e.target.value)}
+                          placeholder="ali@sirket.com" style={inputStyle}
+                          onFocus={e => { e.currentTarget.style.borderColor = C.amber; }}
+                          onBlur={e => { e.currentTarget.style.borderColor = C.border; }} />
+                      </div>
+                      <div>
+                        <label style={labelStyle}>Telefon</label>
+                        <input type="tel" value={form.phone} onChange={e => set("phone", e.target.value)}
+                          placeholder="+90 5XX XXX XX XX" style={inputStyle}
+                          onFocus={e => { e.currentTarget.style.borderColor = C.amber; }}
+                          onBlur={e => { e.currentTarget.style.borderColor = C.border; }} />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label style={labelStyle}>Sektör *</label>
+                      <select required value={form.sector} onChange={e => set("sector", e.target.value)}
+                        style={{ ...inputStyle, cursor: "pointer" }}
+                        onFocus={e => { e.currentTarget.style.borderColor = C.amber; }}
+                        onBlur={e => { e.currentTarget.style.borderColor = C.border; }}>
+                        <option value="" style={{ background: "#0d1119" }}>Sektörünüzü seçin</option>
+                        {SECTORS.map(s => <option key={s} value={s} style={{ background: "#0d1119" }}>{s}</option>)}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label style={{ ...labelStyle, marginBottom: 10 }}>İlgilenilen Ürün / Hizmet</label>
+                      <div className="flex flex-wrap gap-2">
+                        {PRODUCTS_INTEREST.map(p => {
+                          const active = form.interests.includes(p);
+                          return (
+                            <button key={p} type="button" onClick={() => toggleInterest(p)}
+                              className="px-3 py-1.5 rounded-xl text-xs font-semibold transition-all duration-150"
+                              style={{
+                                background: active ? `${C.amber}15` : "rgba(255,255,255,0.04)",
+                                border: `1px solid ${active ? `${C.amber}45` : C.border}`,
+                                color: active ? "#FCD34D" : C.muted,
+                              }}>
+                              {active && <RiCheckLine className="inline mr-1" style={{ fontSize: 11 }} />}
+                              {p}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    <div>
+                      <label style={labelStyle}>Mesaj / Talep Detayı</label>
+                      <textarea value={form.message} onChange={e => set("message", e.target.value)}
+                        rows={4} placeholder="Proje kapsamı, adet, teknik gereksinimler..."
+                        style={{ ...inputStyle, resize: "none" }}
+                        onFocus={e => { e.currentTarget.style.borderColor = C.amber; }}
+                        onBlur={e => { e.currentTarget.style.borderColor = C.border; }} />
+                    </div>
+
+                    {status === "err" && (
+                      <p className="text-xs" style={{ color: "#F87171" }}>
+                        Gönderim sırasında hata oluştu. Lütfen tekrar deneyin.
+                      </p>
+                    )}
+
+                    <button type="submit" disabled={status === "sending"}
+                      className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm font-bold transition-all duration-200 disabled:opacity-60"
+                      style={{ background: `linear-gradient(135deg, ${C.amber}, #D97706)`, color: "#000", boxShadow: `0 6px 24px ${C.amber}30` }}>
+                      {status === "sending" ? (
+                        <><div className="w-4 h-4 rounded-full border-2 border-black/30 border-t-black animate-spin" />Gönderiliyor…</>
+                      ) : (
+                        <><RiSendPlaneLine size={16} />Başvuruyu Gönder</>
+                      )}
+                    </button>
+
+                    <p className="text-xs text-center" style={{ color: C.faint }}>
+                      Bu sayfa üretici ve kurumsal alıcılara yöneliktir. Son kullanıcı ürünleri için{" "}
+                      <button type="button" onClick={() => router.push("/products")}
+                        style={{ color: C.muted, textDecoration: "underline" }} className="hover:opacity-70">
+                        ürünler sayfamızı
+                      </button>{" "}ziyaret edin.
+                    </p>
+                  </motion.form>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          </div>
+        </section>
+
       </div>
       <ContactBar />
     </div>
