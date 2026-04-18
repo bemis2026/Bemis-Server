@@ -1,0 +1,65 @@
+{
+  "entries": [
+    {
+      "id": "v12",
+      "version": "v1.2",
+      "date": "2026-04-18",
+      "title": "Favicon & Open Graph Yönetimi",
+      "items": [
+        "Admin Medya: favicon (tarayıcı sekmesi ikonu) yükleme alanı eklendi",
+        "Admin Medya: Open Graph görseli yükleme alanı eklendi",
+        "layout.tsx: generateMetadata ile OG ve favicon Blob'dan dinamik okunuyor"
+      ]
+    },
+    {
+      "id": "v11",
+      "version": "v1.1",
+      "date": "2026-04-18",
+      "title": "B2B Formu & Ürün Karşılaştırma",
+      "items": [
+        "/b2b sayfasına OEM/kurumsal başvuru formu eklendi",
+        "Ürün kategori sayfasına yan yana karşılaştırma özelliği eklendi (maks. 3 ürün)",
+        "Karşılaştırma: sticky alt bar + modal tablo (farklı değerler renkle vurgulanır)"
+      ]
+    },
+    {
+      "id": "v10",
+      "version": "v1.0",
+      "date": "2026-04-18",
+      "title": "SEO, İletişim Formu & Kritik Hata Düzeltmeleri",
+      "items": [
+        "robots.txt ve sitemap.xml eklendi (38 URL)",
+        "metadataBase bemisevcharge.com.tr ile güncellendi",
+        "Analytics route auth hatası düzeltildi (admin_auth cookie)",
+        "İletişim formu: e-posta gönderilemediğinde artık hata mesajı veriliyor",
+        "Resend API key geçersiz — Vercel'de yenilenmesi gerekiyor"
+      ]
+    },
+    {
+      "id": "v09",
+      "version": "v0.9",
+      "date": "2026-04-18",
+      "title": "Logo Yönetimi & Light Mode",
+      "items": [
+        "Admin panele dark/light mod logo yükleme alanı eklendi",
+        "Logo yükleme otomatik kaydediyor (Kaydet butonuna gerek yok)",
+        "Stats, ContactBar, DealerNetwork light mode uyumlu hale getirildi",
+        "Eyebrow etiketleri büyütüldü (10px → 12px)",
+        "'Tüm Ürünler' butonu küçültüldü"
+      ]
+    },
+    {
+      "id": "v08",
+      "version": "v0.8",
+      "date": "2026-04-17",
+      "title": "Dökümanlar Sayfası & Google Analytics",
+      "items": [
+        "/documents sayfası oluşturuldu (kategori filtresi, arama, indirme)",
+        "Admin panele Dökümanlar yönetim sekmesi eklendi",
+        "Google Analytics 4 entegrasyonu (G-Q5GCREWZ0W)",
+        "Admin panele Analytics dashboard sekmesi eklendi",
+        "Navbar'a Dökümanlar linki eklendi"
+      ]
+    }
+  ]
+}
