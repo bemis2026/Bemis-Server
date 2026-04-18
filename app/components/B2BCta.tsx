@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import {
@@ -7,36 +8,44 @@ import {
   RiStoreLine, RiWifiLine, RiArrowRightLine,
 } from "react-icons/ri";
 
-const TAGS = ["OEM Üretici", "Şarj Ağı Operatörü", "Distribütör / Bayi"];
-
-const CHANNELS = [
-  {
-    href: "/b2b",
-    icon: RiBuilding2Line,
-    accent: "#3B82F6",
-    label: "OEM & Üreticiler",
-    sub: "Teknik portföy, özel fiyat, mühendislik desteği",
-  },
-  {
-    href: "/bayilik",
-    icon: RiStoreLine,
-    accent: "#10B981",
-    label: "Bayilik Başvurusu",
-    sub: "Bayi ağımıza katılın, bölge koruması alın",
-  },
-  {
-    href: "/operator",
-    icon: RiWifiLine,
-    accent: "#818CF8",
-    label: "Şarj Ağı Operatörleri",
-    sub: "OCPP uyumlu ekipman, DLM, uzaktan izleme",
-  },
+const CHANNEL_META = [
+  { href: "/b2b",      icon: RiBuilding2Line, accent: "#3B82F6" },
+  { href: "/bayilik",  icon: RiStoreLine,     accent: "#10B981" },
+  { href: "/operator", icon: RiWifiLine,      accent: "#818CF8" },
 ];
+
+type CtaChannel = { href: string; label: string; sub: string };
+type CtaData = { eyebrow: string; heading: string; description: string; tags: string[]; channels: CtaChannel[] };
+
+const DEFAULT_CTA: CtaData = {
+  eyebrow: "OEM & Kurumsal Satış",
+  heading: "Üretici veya kurumsal alıcı mısınız?",
+  description: "DC şarj üniteleri, şarj panoları, OEM elektronik kartlar ve profesyonel DC kablolar — EV altyapı çözümleri geliştiren şirketler için özel portföy.",
+  tags: ["OEM Üretici", "Şarj Ağı Operatörü", "Distribütör / Bayi"],
+  channels: [
+    { href: "/b2b",      label: "OEM & Üreticiler",       sub: "Teknik portföy, özel fiyat, mühendislik desteği" },
+    { href: "/bayilik",  label: "Bayilik Başvurusu",       sub: "Bayi ağımıza katılın, bölge koruması alın" },
+    { href: "/operator", label: "Şarj Ağı Operatörleri",  sub: "OCPP uyumlu ekipman, DLM, uzaktan izleme" },
+  ],
+};
 
 export default function B2BCta() {
   const { theme } = useTheme();
   const d = theme === "dark";
   const router = useRouter();
+  const [cta, setCta] = useState<CtaData>(DEFAULT_CTA);
+
+  useEffect(() => {
+    fetch("/api/b2b").then(r => r.json()).then(data => {
+      if (data?.cta) setCta(data.cta);
+    }).catch(() => {});
+  }, []);
+
+  const channels = (cta.channels ?? DEFAULT_CTA.channels).map((ch, i) => ({
+    ...ch,
+    ...CHANNEL_META[i % CHANNEL_META.length],
+    href: ch.href || CHANNEL_META[i % CHANNEL_META.length].href,
+  }));
 
   const BLUE = "#3B82F6";
   const bg = d
@@ -53,7 +62,6 @@ export default function B2BCta() {
       className="relative overflow-hidden py-14 sm:py-16"
       style={{ background: bg, borderTop: `1px solid ${border}` }}
     >
-      {/* Decorative glow */}
       <div className="absolute inset-0 pointer-events-none" style={{
         background: d
           ? "radial-gradient(ellipse 60% 80% at 100% 50%, rgba(59,130,246,0.07) 0%, transparent 70%)"
@@ -68,21 +76,20 @@ export default function B2BCta() {
             <div className="flex items-center gap-2 mb-3">
               <RiShieldCheckLine style={{ color: BLUE, fontSize: 15 }} />
               <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: BLUE }}>
-                OEM & Kurumsal Satış
+                {cta.eyebrow}
               </span>
             </div>
 
             <h2 className="text-2xl sm:text-3xl font-black mb-3 leading-tight" style={{ color: textPrimary }}>
-              Üretici veya kurumsal alıcı mısınız?
+              {cta.heading}
             </h2>
 
             <p className="text-sm leading-relaxed mb-5" style={{ color: textMuted }}>
-              DC şarj üniteleri, şarj panoları, OEM elektronik kartlar ve profesyonel
-              DC kablolar — EV altyapı çözümleri geliştiren şirketler için özel portföy.
+              {cta.description}
             </p>
 
             <div className="flex flex-wrap gap-2">
-              {TAGS.map(tag => (
+              {(cta.tags ?? []).map(tag => (
                 <span key={tag} className="text-[11px] font-semibold px-2.5 py-1 rounded-full"
                   style={{ background: `${BLUE}12`, border: `1px solid ${BLUE}25`, color: d ? "#93C5FD" : BLUE }}>
                   {tag}
@@ -93,7 +100,7 @@ export default function B2BCta() {
 
           {/* Right — 3 equal channel cards */}
           <div className="flex flex-col gap-2.5 lg:min-w-[260px]">
-            {CHANNELS.map(ch => (
+            {channels.map(ch => (
               <button
                 key={ch.href}
                 onClick={() => router.push(ch.href)}

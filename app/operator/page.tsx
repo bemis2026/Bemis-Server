@@ -15,13 +15,6 @@ import {
 import { HiArrowLeft } from "react-icons/hi";
 import { useEffect } from "react";
 
-const CAPABILITIES = [
-  { icon: RiWifiLine,         color: "#3B82F6", title: "OCPP 1.6 / 2.0.1",      body: "Tüm büyük yönetim platformlarıyla uyumlu açık protokol desteği." },
-  { icon: RiBarChartLine,     color: "#818CF8", title: "Dinamik Güç Yönetimi",  body: "Anlık tüketimi izleyerek şarj noktaları arasında yükü dengeler." },
-  { icon: RiGlobalLine,       color: "#10B981", title: "Uzaktan İzleme & OTA",  body: "Bulut tabanlı firmware güncellemesi ve gerçek zamanlı arıza uyarısı." },
-  { icon: RiShieldCheckLine,  color: "#F59E0B", title: "CE & IEC Sertifikası",  body: "Avrupa ihracat standartlarına uygun; sertifika süreçlerinde destek." },
-];
-
 const PRODUCTS = [
   { icon: RiFlashlightLine, color: "#F97316", name: "DC Hızlı Şarj Ünitesi",      body: "7–360 kW güç aralığı. OCPP 2.0 uyumlu. CCS2, CHAdeMO ve GB/T konnektör desteği." },
   { icon: RiCpuLine,        color: "#3B82F6", name: "Şarj Panosu & DLM",          body: "4–24 çıkış noktası. Dinamik yük dengeleme ile enerji maliyetini minimize eder." },
@@ -29,20 +22,29 @@ const PRODUCTS = [
   { icon: RiPlugLine,       color: "#10B981", name: "DC Şarj Kablosu",            body: "500A'e kadar profesyonel DC kablo. Aktif su soğutmalı model mevcut." },
 ];
 
-const OCPP_FEATURES = [
-  "Uzaktan başlat / durdur", "RFID kimlik doğrulama",
-  "Gerçek zamanlı güç ölçümü", "Çoklu ödeme entegrasyonu",
-  "Oturum geçmişi & faturalandırma", "Firmware OTA güncelleme",
-  "Hata kodu raporlama", "Dinamik tarife desteği",
-];
+const CAPABILITY_ICONS = [RiWifiLine, RiBarChartLine, RiGlobalLine, RiShieldCheckLine];
+const CAPABILITY_COLORS = ["#3B82F6", "#818CF8", "#10B981", "#F59E0B"];
 
 type FormState = { name: string; company: string; email: string; phone: string; network: string; message: string };
 const EMPTY: FormState = { name: "", company: "", email: "", phone: "", network: "", message: "" };
 
-type OperatorContent = { heading1: string; heading2: string; description: string };
+type Capability = { title: string; body: string };
+type OperatorContent = { heading1: string; heading2: string; description: string; capabilities: Capability[]; ocppFeatures: string[] };
 const DEFAULT_OP: OperatorContent = {
   heading1: "Şarj Ağınızı", heading2: "Bizimle Büyütün",
   description: "OCPP uyumlu DC hızlı şarj üniteleri, akıllı şarj panoları ve entegrasyon hazır kontrol kartlarıyla şarj ağı operatörlerine uçtan uca donanım çözümü sunuyoruz.",
+  capabilities: [
+    { title: "OCPP 1.6 / 2.0.1",      body: "Tüm büyük yönetim platformlarıyla uyumlu açık protokol desteği." },
+    { title: "Dinamik Güç Yönetimi",  body: "Anlık tüketimi izleyerek şarj noktaları arasında yükü dengeler." },
+    { title: "Uzaktan İzleme & OTA",  body: "Bulut tabanlı firmware güncellemesi ve gerçek zamanlı arıza uyarısı." },
+    { title: "CE & IEC Sertifikası",  body: "Avrupa ihracat standartlarına uygun; sertifika süreçlerinde destek." },
+  ],
+  ocppFeatures: [
+    "Uzaktan başlat / durdur", "RFID kimlik doğrulama",
+    "Gerçek zamanlı güç ölçümü", "Çoklu ödeme entegrasyonu",
+    "Oturum geçmişi & faturalandırma", "Firmware OTA güncelleme",
+    "Hata kodu raporlama", "Dinamik tarife desteği",
+  ],
 };
 
 export default function OperatorPage() {
@@ -131,19 +133,23 @@ export default function OperatorPage() {
             <h2 className="text-xl font-black" style={{ color: text }}>Operatör Odaklı Özellikler</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {CAPABILITIES.map((c, i) => (
-              <motion.div key={c.title}
-                initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.07 * i }}
-                className="p-4 rounded-xl" style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}>
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-3"
-                  style={{ background: `${c.color}15`, border: `1px solid ${c.color}25` }}>
-                  <c.icon style={{ fontSize: 16, color: c.color }} />
-                </div>
-                <p className="font-semibold text-sm mb-0.5" style={{ color: text }}>{c.title}</p>
-                <p className="text-xs leading-relaxed" style={{ color: muted }}>{c.body}</p>
-              </motion.div>
-            ))}
+            {(cms.capabilities ?? DEFAULT_OP.capabilities).map((c, i) => {
+              const Icon = CAPABILITY_ICONS[i % CAPABILITY_ICONS.length];
+              const color = CAPABILITY_COLORS[i % CAPABILITY_COLORS.length];
+              return (
+                <motion.div key={c.title}
+                  initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.07 * i }}
+                  className="p-4 rounded-xl" style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}>
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-3"
+                    style={{ background: `${color}15`, border: `1px solid ${color}25` }}>
+                    <Icon style={{ fontSize: 16, color }} />
+                  </div>
+                  <p className="font-semibold text-sm mb-0.5" style={{ color: text }}>{c.title}</p>
+                  <p className="text-xs leading-relaxed" style={{ color: muted }}>{c.body}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -182,7 +188,7 @@ export default function OperatorPage() {
               <h2 className="text-xl font-black mb-5" style={{ color: text }}>Desteklenen Fonksiyonlar</h2>
               <div className="rounded-2xl p-5" style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}>
                 <div className="grid grid-cols-2 gap-2.5">
-                  {OCPP_FEATURES.map(f => (
+                  {(cms.ocppFeatures ?? DEFAULT_OP.ocppFeatures).map(f => (
                     <div key={f} className="flex items-center gap-2">
                       <div className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0"
                         style={{ background: `${BLUE}18`, border: `1px solid ${BLUE}30` }}>

@@ -14,32 +14,34 @@ import {
 import { HiArrowLeft } from "react-icons/hi";
 import { useEffect } from "react";
 
-const BENEFITS = [
-  { icon: RiHandCoinLine,         color: "#10B981", title: "Rekabetçi Bayi Fiyatları",  body: "Hacme göre kademeli iskonto yapısı; küçük başlayıp büyüyebilirsiniz." },
-  { icon: RiShieldCheckLine,      color: "#818CF8",  title: "Stok & Tedarik Güvencesi",  body: "Öncelikli sipariş kuyruğu ve garantili teslimat takvimi." },
-  { icon: RiCustomerService2Line, color: "#F59E0B",  title: "Teknik Destek",              body: "Kurulum, arıza ve müşteri sorularında doğrudan teknik hat." },
-  { icon: RiMapPinLine,           color: "#3B82F6",  title: "Bölge Koruması",             body: "Anlaşmalı bayilere bölgesel münhasırlık imkânı." },
-  { icon: RiStoreLine,            color: "#F97316",  title: "Pazarlama Desteği",          body: "Ürün görselleri, kataloglar, demo ürün ve showroom materyalleri." },
-  { icon: RiArrowRightLine,       color: "#EC4899",  title: "Hızlı Başlangıç",           body: "Minimum stok yükümlülüğüyle bayiliğe başlayın, büyüdükçe artırın." },
-];
-
-const CRITERIA = [
-  "Elektrik, enerji veya otomotiv sektöründe faaliyet",
-  "Yetkili satış & servis kapasitesi",
-  "Bölgesel müşteri portföyü veya bayi ağı",
-  "Temel teknik kurulum bilgisi (veya ekip)",
-];
+const BENEFIT_ICONS = [RiHandCoinLine, RiShieldCheckLine, RiCustomerService2Line, RiMapPinLine, RiStoreLine, RiArrowRightLine];
+const BENEFIT_COLORS = ["#10B981", "#818CF8", "#F59E0B", "#3B82F6", "#F97316", "#EC4899"];
 
 type FormState = { name: string; company: string; email: string; phone: string; city: string; message: string };
 const EMPTY: FormState = { name: "", company: "", email: "", phone: "", city: "", message: "" };
 
 type InfoRow = { label: string; value: string };
-type BayilikContent = { heading1: string; heading2: string; description: string; infoTable: InfoRow[] };
+type Benefit = { title: string; body: string };
+type BayilikContent = { heading1: string; heading2: string; description: string; infoTable: InfoRow[]; benefits: Benefit[]; criteria: string[] };
 
 const DEFAULT: BayilikContent = {
   heading1: "Bemis E-V Charge", heading2: "Bayisi Olun",
   description: "Türkiye genelinde büyüyen bayi ağımıza katılın; EV şarj altyapısı pazarındaki hızlı büyümeden birlikte yararlanın.",
   infoTable: [],
+  benefits: [
+    { title: "Rekabetçi Bayi Fiyatları",  body: "Hacme göre kademeli iskonto yapısı; küçük başlayıp büyüyebilirsiniz." },
+    { title: "Stok & Tedarik Güvencesi",  body: "Öncelikli sipariş kuyruğu ve garantili teslimat takvimi." },
+    { title: "Teknik Destek",              body: "Kurulum, arıza ve müşteri sorularında doğrudan teknik hat." },
+    { title: "Bölge Koruması",             body: "Anlaşmalı bayilere bölgesel münhasırlık imkânı." },
+    { title: "Pazarlama Desteği",          body: "Ürün görselleri, kataloglar, demo ürün ve showroom materyalleri." },
+    { title: "Hızlı Başlangıç",           body: "Minimum stok yükümlülüğüyle bayiliğe başlayın, büyüdükçe artırın." },
+  ],
+  criteria: [
+    "Elektrik, enerji veya otomotiv sektöründe faaliyet",
+    "Yetkili satış & servis kapasitesi",
+    "Bölgesel müşteri portföyü veya bayi ağı",
+    "Temel teknik kurulum bilgisi (veya ekip)",
+  ],
 };
 
 export default function BayilikPage() {
@@ -125,22 +127,26 @@ export default function BayilikPage() {
             <h2 className="text-xl font-black" style={{ color: text }}>Neden Bemis Bayisi Olunur?</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {BENEFITS.map((b, i) => (
-              <motion.div key={b.title}
-                initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.06 * i }}
-                className="flex items-start gap-3.5 p-4 rounded-xl"
-                style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}>
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                  style={{ background: `${b.color}15`, border: `1px solid ${b.color}25` }}>
-                  <b.icon style={{ fontSize: 16, color: b.color }} />
-                </div>
-                <div>
-                  <p className="font-semibold text-sm mb-0.5" style={{ color: text }}>{b.title}</p>
-                  <p className="text-xs leading-relaxed" style={{ color: muted }}>{b.body}</p>
-                </div>
-              </motion.div>
-            ))}
+            {(cms.benefits ?? DEFAULT.benefits).map((b, i) => {
+              const Icon = BENEFIT_ICONS[i % BENEFIT_ICONS.length];
+              const color = BENEFIT_COLORS[i % BENEFIT_COLORS.length];
+              return (
+                <motion.div key={b.title}
+                  initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.06 * i }}
+                  className="flex items-start gap-3.5 p-4 rounded-xl"
+                  style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}>
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                    style={{ background: `${color}15`, border: `1px solid ${color}25` }}>
+                    <Icon style={{ fontSize: 16, color }} />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm mb-0.5" style={{ color: text }}>{b.title}</p>
+                    <p className="text-xs leading-relaxed" style={{ color: muted }}>{b.body}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -157,7 +163,7 @@ export default function BayilikPage() {
                 isteyen her kuruma kapımız açık.
               </p>
               <ul className="space-y-3">
-                {CRITERIA.map(c => (
+                {(cms.criteria ?? DEFAULT.criteria).map(c => (
                   <li key={c} className="flex items-center gap-3">
                     <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
                       style={{ background: `${GREEN}18`, border: `1px solid ${GREEN}30` }}>

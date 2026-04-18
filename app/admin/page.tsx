@@ -880,6 +880,14 @@ export default function AdminPage() {
     "reviews": "reviews", "contact-section": "contact", "contact": "contact",
   };
 
+  // For tabs that represent separate pages, use their own URL in the preview iframe
+  const SEPARATE_PAGE_TABS: Partial<Record<Tab, string>> = {
+    "b2b": "/b2b",
+    "products": "/products",
+    "documents": "/documents",
+  };
+  const previewSrc = SEPARATE_PAGE_TABS[tab] ?? "/";
+
   const TAB_GROUPS: { label: string; items: { id: Tab; label: string; icon: React.ElementType }[] }[] = [
     {
       label: "Sayfa Bölümleri",
@@ -2453,7 +2461,7 @@ export default function AdminPage() {
               {tab === "changelog" && <ChangelogPanel />}
 
               {/* ── B2B / OEM ── */}
-              {tab === "b2b" && <B2BPanel />}
+              {tab === "b2b" && <B2BPanel onSaved={() => { setShowPreview(true); setPreviewKey(k => k + 1); }} />}
 
             </motion.div>
           </AnimatePresence>
@@ -2537,7 +2545,7 @@ export default function AdminPage() {
                     </div>
                     {/* iframe viewport — 1024×768 scaled to fit 436px panel width */}
                     <div className="flex-1 overflow-hidden relative">
-                      <iframe ref={iframeRef} key={`desktop-${previewKey}`} src="/" title="Masaüstü Önizleme"
+                      <iframe ref={iframeRef} key={`desktop-${previewKey}-${tab}`} src={previewSrc} title="Masaüstü Önizleme"
                         onLoad={handleIframeLoad}
                         style={{ position: "absolute", top: 0, left: 0, width: 1024, height: 768, border: "none",
                           transformOrigin: "top left", transform: "scale(0.426)", pointerEvents: "none" }} />
@@ -2567,8 +2575,8 @@ export default function AdminPage() {
                           <div className="absolute inset-0 rounded-[24px] overflow-hidden" style={{ background: "#000" }}>
                             <iframe
                               ref={iframeMobileRef}
-                              key={`mobile-${previewKey}`}
-                              src="/"
+                              key={`mobile-${previewKey}-${tab}`}
+                              src={previewSrc}
                               title="Mobil Önizleme"
                               onLoad={handleIframeLoad}
                               style={{
@@ -3298,18 +3306,26 @@ function TrendChart({ data, fmtDate, color }: { data: TrendRow[]; fmtDate: (d: s
 // ── B2B / OEM Panel ──────────────────────────────────────────────────────────
 type B2BSolution = { id: string; name: string; subtitle: string; tag: string; tagColor: string; accentColor: string; detail: string; specs: string[] };
 type B2BHero = { eyebrow: string; heading1: string; heading2: string; description: string; sectorTags: string[] };
-type B2BBayilik = { heading1: string; heading2: string; description: string; infoTable: { label: string; value: string }[] };
-type B2BOperator = { heading1: string; heading2: string; description: string };
-type B2BPageData = { hero: B2BHero; solutions: B2BSolution[]; bayilik?: B2BBayilik; operator?: B2BOperator };
+type B2BBenefit = { title: string; body: string };
+type B2BCapability = { title: string; body: string };
+type B2BCtaChannel = { href: string; label: string; sub: string };
+type B2BCta = { eyebrow: string; heading: string; description: string; tags: string[]; channels: B2BCtaChannel[] };
+type B2BBayilik = { heading1: string; heading2: string; description: string; infoTable: { label: string; value: string }[]; benefits: B2BBenefit[]; criteria: string[] };
+type B2BOperator = { heading1: string; heading2: string; description: string; capabilities: B2BCapability[]; ocppFeatures: string[] };
+type B2BPageData = { hero: B2BHero; solutions: B2BSolution[]; cta?: B2BCta; bayilik?: B2BBayilik; operator?: B2BOperator };
+
+const defaultBayilik = (): B2BBayilik => ({ heading1: "", heading2: "", description: "", infoTable: [], benefits: [], criteria: [] });
+const defaultOperator = (): B2BOperator => ({ heading1: "", heading2: "", description: "", capabilities: [], ocppFeatures: [] });
+const defaultCta = (): B2BCta => ({ eyebrow: "", heading: "", description: "", tags: [], channels: [] });
 
 const TAG_OPTIONS = ["Mevcut", "OEM Mevcut", "Geliştirme", "Yakında", "Stoğa Bağlı"];
 
-function B2BPanel() {
+function B2BPanel({ onSaved }: { onSaved?: () => void }) {
   const [data, setData] = useState<B2BPageData | null>(null);
   const [saving, setSaving] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const [expandedSol, setExpandedSol] = useState<string | null>(null);
-  const [subTab, setSubTab] = useState<"oem" | "bayilik" | "operator">("oem");
+  const [subTab, setSubTab] = useState<"oem" | "bayilik" | "operator" | "cta">("oem");
 
   useEffect(() => {
     fetch("/api/admin/b2b")
@@ -3329,7 +3345,8 @@ function B2BPanel() {
       body: JSON.stringify(data),
     });
     setSaving(false);
-    showToast(r.ok ? "B2B sayfası kaydedildi." : "Kayıt başarısız.");
+    if (r.ok) { showToast("B2B sayfası kaydedildi."); onSaved?.(); }
+    else showToast("Kayıt başarısız.");
   };
 
   const setHero = (field: keyof B2BHero, val: string | string[]) =>
@@ -3383,14 +3400,14 @@ function B2BPanel() {
       </div>
 
       {/* Sub-tabs */}
-      <div className="flex gap-1 bg-white/4 p-1 rounded-xl">
-        {(["oem", "bayilik", "operator"] as const).map(t => (
+      <div className="flex gap-1 bg-white/4 p-1 rounded-xl flex-wrap">
+        {(["oem", "bayilik", "operator", "cta"] as const).map(t => (
           <button key={t} onClick={() => setSubTab(t)}
-            className="flex-1 py-2 rounded-lg text-xs font-semibold transition-all duration-200"
+            className="flex-1 py-2 rounded-lg text-xs font-semibold transition-all duration-200 min-w-[70px]"
             style={subTab === t
               ? { background: "rgba(255,255,255,0.12)", color: "#fff" }
               : { color: "rgba(255,255,255,0.35)" }}>
-            {t === "oem" ? "OEM / Üretici" : t === "bayilik" ? "Bayilik" : "Operatörler"}
+            {t === "oem" ? "OEM / Üretici" : t === "bayilik" ? "Bayilik" : t === "operator" ? "Operatörler" : "Ana Sayfa Bandı"}
           </button>
         ))}
       </div>
@@ -3514,20 +3531,88 @@ function B2BPanel() {
             <div>
               <label className={labelCls}>Başlık Satır 1</label>
               <input className={inputCls} value={data.bayilik?.heading1 ?? ""}
-                onChange={e => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? { heading1: "", heading2: "", description: "", infoTable: [] }), heading1: e.target.value } } : p)} />
+                onChange={e => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), heading1: e.target.value } } : p)} />
             </div>
             <div>
               <label className={labelCls}>Başlık Satır 2 (Yeşil)</label>
               <input className={inputCls} value={data.bayilik?.heading2 ?? ""}
-                onChange={e => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? { heading1: "", heading2: "", description: "", infoTable: [] }), heading2: e.target.value } } : p)} />
+                onChange={e => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), heading2: e.target.value } } : p)} />
             </div>
           </div>
           <div>
             <label className={labelCls}>Açıklama Metni</label>
             <textarea className={inputCls} rows={3} style={{ resize: "none" }} value={data.bayilik?.description ?? ""}
-              onChange={e => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? { heading1: "", heading2: "", description: "", infoTable: [] }), description: e.target.value } } : p)} />
+              onChange={e => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), description: e.target.value } } : p)} />
           </div>
         </div>
+
+        {/* Benefits */}
+        <div>
+          <p className="text-xs font-bold text-white/50 uppercase tracking-wider mb-3">Bayi Avantajları (6 kart)</p>
+          <div className="space-y-3">
+            {(data.bayilik?.benefits ?? []).map((b, idx) => (
+              <div key={idx} className="bg-white/3 border border-white/7 rounded-xl p-4 space-y-2">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-[11px] text-white/40 font-semibold uppercase tracking-wider">Avantaj {idx + 1}</span>
+                  <button onClick={() => setData(p => p?.bayilik ? { ...p, bayilik: { ...p.bayilik, benefits: p.bayilik.benefits.filter((_, i) => i !== idx) } } : p)}
+                    className="text-white/25 hover:text-red-400 text-xs transition-colors">✕</button>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <div>
+                    <label className={labelCls}>Başlık</label>
+                    <input className={inputCls} value={b.title} placeholder="Avantaj başlığı"
+                      onChange={e => setData(p => {
+                        if (!p?.bayilik) return p;
+                        const benefits = [...p.bayilik.benefits];
+                        benefits[idx] = { ...benefits[idx], title: e.target.value };
+                        return { ...p, bayilik: { ...p.bayilik, benefits } };
+                      })} />
+                  </div>
+                  <div>
+                    <label className={labelCls}>Açıklama</label>
+                    <input className={inputCls} value={b.body} placeholder="Kısa açıklama"
+                      onChange={e => setData(p => {
+                        if (!p?.bayilik) return p;
+                        const benefits = [...p.bayilik.benefits];
+                        benefits[idx] = { ...benefits[idx], body: e.target.value };
+                        return { ...p, bayilik: { ...p.bayilik, benefits } };
+                      })} />
+                  </div>
+                </div>
+              </div>
+            ))}
+            <button onClick={() => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), benefits: [...(p.bayilik?.benefits ?? []), { title: "", body: "" }] } } : p)}
+              className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white/70 px-3 py-2 rounded-xl border border-white/8 hover:border-white/20 transition-colors">
+              <HiOutlinePlus size={12} /> Avantaj Ekle
+            </button>
+          </div>
+        </div>
+
+        {/* Criteria */}
+        <div>
+          <p className="text-xs font-bold text-white/50 uppercase tracking-wider mb-3">Aranan Kriterler</p>
+          <div className="space-y-2">
+            {(data.bayilik?.criteria ?? []).map((c, idx) => (
+              <div key={idx} className="flex gap-2">
+                <input className={inputCls} value={c} placeholder={`Kriter ${idx + 1}`}
+                  onChange={e => setData(p => {
+                    if (!p?.bayilik) return p;
+                    const criteria = [...p.bayilik.criteria];
+                    criteria[idx] = e.target.value;
+                    return { ...p, bayilik: { ...p.bayilik, criteria } };
+                  })} />
+                <button onClick={() => setData(p => p?.bayilik ? { ...p, bayilik: { ...p.bayilik, criteria: p.bayilik.criteria.filter((_, i) => i !== idx) } } : p)}
+                  className="px-3 rounded-xl text-white/30 hover:text-red-400 border border-white/8 hover:border-red-400/30 transition-colors text-xs">✕</button>
+              </div>
+            ))}
+            <button onClick={() => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), criteria: [...(p.bayilik?.criteria ?? []), ""] } } : p)}
+              className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white/70 px-3 py-2 rounded-xl border border-white/8 hover:border-white/20 transition-colors">
+              <HiOutlinePlus size={12} /> Kriter Ekle
+            </button>
+          </div>
+        </div>
+
+        {/* Info Table */}
         <div>
           <p className="text-xs font-bold text-white/50 uppercase tracking-wider mb-3">Hızlı Bilgi Tablosu</p>
           <div className="space-y-2">
@@ -3551,7 +3636,7 @@ function B2BPanel() {
                   className="px-3 rounded-xl text-white/30 hover:text-red-400 border border-white/8 hover:border-red-400/30 transition-colors text-xs">✕</button>
               </div>
             ))}
-            <button onClick={() => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? { heading1: "", heading2: "", description: "", infoTable: [] }), infoTable: [...(p.bayilik?.infoTable ?? []), { label: "", value: "" }] } } : p)}
+            <button onClick={() => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), infoTable: [...(p.bayilik?.infoTable ?? []), { label: "", value: "" }] } } : p)}
               className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white/70 px-3 py-2 rounded-xl border border-white/8 hover:border-white/20 transition-colors">
               <HiOutlinePlus size={12} /> Satır Ekle
             </button>
@@ -3560,28 +3645,157 @@ function B2BPanel() {
       </>)}
 
       {/* ── Operator sub-tab ── */}
-      {subTab === "operator" && (
+      {subTab === "operator" && (<>
         <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
           <p className="text-xs font-bold text-white/50 uppercase tracking-wider">Hero — /operator sayfası</p>
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className={labelCls}>Başlık Satır 1</label>
               <input className={inputCls} value={data.operator?.heading1 ?? ""}
-                onChange={e => setData(p => p ? { ...p, operator: { ...(p.operator ?? { heading1: "", heading2: "", description: "" }), heading1: e.target.value } } : p)} />
+                onChange={e => setData(p => p ? { ...p, operator: { ...(p.operator ?? defaultOperator()), heading1: e.target.value } } : p)} />
             </div>
             <div>
               <label className={labelCls}>Başlık Satır 2 (Mor)</label>
               <input className={inputCls} value={data.operator?.heading2 ?? ""}
-                onChange={e => setData(p => p ? { ...p, operator: { ...(p.operator ?? { heading1: "", heading2: "", description: "" }), heading2: e.target.value } } : p)} />
+                onChange={e => setData(p => p ? { ...p, operator: { ...(p.operator ?? defaultOperator()), heading2: e.target.value } } : p)} />
             </div>
           </div>
           <div>
             <label className={labelCls}>Açıklama Metni</label>
             <textarea className={inputCls} rows={3} style={{ resize: "none" }} value={data.operator?.description ?? ""}
-              onChange={e => setData(p => p ? { ...p, operator: { ...(p.operator ?? { heading1: "", heading2: "", description: "" }), description: e.target.value } } : p)} />
+              onChange={e => setData(p => p ? { ...p, operator: { ...(p.operator ?? defaultOperator()), description: e.target.value } } : p)} />
           </div>
         </div>
-      )}
+
+        {/* Capabilities */}
+        <div>
+          <p className="text-xs font-bold text-white/50 uppercase tracking-wider mb-3">Teknik Özellikler (4 kart)</p>
+          <div className="space-y-3">
+            {(data.operator?.capabilities ?? []).map((c, idx) => (
+              <div key={idx} className="bg-white/3 border border-white/7 rounded-xl p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[11px] text-white/40 font-semibold uppercase tracking-wider">Özellik {idx + 1}</span>
+                  <button onClick={() => setData(p => p?.operator ? { ...p, operator: { ...p.operator, capabilities: p.operator.capabilities.filter((_, i) => i !== idx) } } : p)}
+                    className="text-white/25 hover:text-red-400 text-xs transition-colors">✕</button>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <div>
+                    <label className={labelCls}>Başlık</label>
+                    <input className={inputCls} value={c.title} placeholder="Özellik başlığı"
+                      onChange={e => setData(p => {
+                        if (!p?.operator) return p;
+                        const capabilities = [...p.operator.capabilities];
+                        capabilities[idx] = { ...capabilities[idx], title: e.target.value };
+                        return { ...p, operator: { ...p.operator, capabilities } };
+                      })} />
+                  </div>
+                  <div>
+                    <label className={labelCls}>Açıklama</label>
+                    <input className={inputCls} value={c.body} placeholder="Kısa açıklama"
+                      onChange={e => setData(p => {
+                        if (!p?.operator) return p;
+                        const capabilities = [...p.operator.capabilities];
+                        capabilities[idx] = { ...capabilities[idx], body: e.target.value };
+                        return { ...p, operator: { ...p.operator, capabilities } };
+                      })} />
+                  </div>
+                </div>
+              </div>
+            ))}
+            <button onClick={() => setData(p => p ? { ...p, operator: { ...(p.operator ?? defaultOperator()), capabilities: [...(p.operator?.capabilities ?? []), { title: "", body: "" }] } } : p)}
+              className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white/70 px-3 py-2 rounded-xl border border-white/8 hover:border-white/20 transition-colors">
+              <HiOutlinePlus size={12} /> Özellik Ekle
+            </button>
+          </div>
+        </div>
+
+        {/* OCPP Features */}
+        <div>
+          <p className="text-xs font-bold text-white/50 uppercase tracking-wider mb-3">OCPP Özellik Listesi</p>
+          <div className="space-y-2">
+            {(data.operator?.ocppFeatures ?? []).map((f, idx) => (
+              <div key={idx} className="flex gap-2">
+                <input className={inputCls} value={f} placeholder={`Özellik ${idx + 1}`}
+                  onChange={e => setData(p => {
+                    if (!p?.operator) return p;
+                    const ocppFeatures = [...p.operator.ocppFeatures];
+                    ocppFeatures[idx] = e.target.value;
+                    return { ...p, operator: { ...p.operator, ocppFeatures } };
+                  })} />
+                <button onClick={() => setData(p => p?.operator ? { ...p, operator: { ...p.operator, ocppFeatures: p.operator.ocppFeatures.filter((_, i) => i !== idx) } } : p)}
+                  className="px-3 rounded-xl text-white/30 hover:text-red-400 border border-white/8 hover:border-red-400/30 transition-colors text-xs">✕</button>
+              </div>
+            ))}
+            <button onClick={() => setData(p => p ? { ...p, operator: { ...(p.operator ?? defaultOperator()), ocppFeatures: [...(p.operator?.ocppFeatures ?? []), ""] } } : p)}
+              className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white/70 px-3 py-2 rounded-xl border border-white/8 hover:border-white/20 transition-colors">
+              <HiOutlinePlus size={12} /> Özellik Ekle
+            </button>
+          </div>
+        </div>
+      </>)}
+
+      {/* ── Ana Sayfa Bandı (CTA) sub-tab ── */}
+      {subTab === "cta" && (<>
+        <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
+          <p className="text-xs font-bold text-white/50 uppercase tracking-wider">Ana Sayfa OEM Bandı — B2BCta bölümü</p>
+          <div>
+            <label className={labelCls}>Üst Etiket (Eyebrow)</label>
+            <input className={inputCls} value={data.cta?.eyebrow ?? ""}
+              onChange={e => setData(p => p ? { ...p, cta: { ...(p.cta ?? defaultCta()), eyebrow: e.target.value } } : p)} />
+          </div>
+          <div>
+            <label className={labelCls}>Başlık</label>
+            <input className={inputCls} value={data.cta?.heading ?? ""}
+              onChange={e => setData(p => p ? { ...p, cta: { ...(p.cta ?? defaultCta()), heading: e.target.value } } : p)} />
+          </div>
+          <div>
+            <label className={labelCls}>Açıklama Metni</label>
+            <textarea className={inputCls} rows={3} style={{ resize: "none" }} value={data.cta?.description ?? ""}
+              onChange={e => setData(p => p ? { ...p, cta: { ...(p.cta ?? defaultCta()), description: e.target.value } } : p)} />
+          </div>
+          <div>
+            <label className={labelCls}>Etiketler (virgülle ayırın)</label>
+            <input className={inputCls}
+              value={(data.cta?.tags ?? []).join(", ")}
+              onChange={e => setData(p => p ? { ...p, cta: { ...(p.cta ?? defaultCta()), tags: e.target.value.split(",").map(s => s.trim()).filter(Boolean) } } : p)}
+              placeholder="OEM Üretici, Şarj Ağı Operatörü, ..." />
+          </div>
+        </div>
+
+        {/* CTA Channel Cards */}
+        <div>
+          <p className="text-xs font-bold text-white/50 uppercase tracking-wider mb-3">3 Kanal Kartı</p>
+          <div className="space-y-3">
+            {(data.cta?.channels ?? []).map((ch, idx) => (
+              <div key={idx} className="bg-white/3 border border-white/7 rounded-xl p-4 space-y-3">
+                <p className="text-[11px] text-white/40 font-semibold uppercase tracking-wider">Kart {idx + 1} — {ch.href}</p>
+                <div className="grid grid-cols-2 gap-2">
+                  <div>
+                    <label className={labelCls}>Kart Başlığı</label>
+                    <input className={inputCls} value={ch.label} placeholder="örn. OEM & Üreticiler"
+                      onChange={e => setData(p => {
+                        if (!p?.cta) return p;
+                        const channels = [...p.cta.channels];
+                        channels[idx] = { ...channels[idx], label: e.target.value };
+                        return { ...p, cta: { ...p.cta, channels } };
+                      })} />
+                  </div>
+                  <div>
+                    <label className={labelCls}>Alt Metin</label>
+                    <input className={inputCls} value={ch.sub} placeholder="Kısa açıklama"
+                      onChange={e => setData(p => {
+                        if (!p?.cta) return p;
+                        const channels = [...p.cta.channels];
+                        channels[idx] = { ...channels[idx], sub: e.target.value };
+                        return { ...p, cta: { ...p.cta, channels } };
+                      })} />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </>)}
 
       <button onClick={save} disabled={saving}
         className="w-full flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-black font-bold py-3 rounded-xl text-sm disabled:opacity-60 transition-colors">

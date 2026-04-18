@@ -1,6 +1,20 @@
 {
   "entries": [
     {
+      "id": "v14",
+      "version": "v1.4",
+      "date": "2026-04-18",
+      "title": "Admin Tam Yönetim & Dinamik CMS",
+      "items": [
+        "B2BCta bileşeni /api/b2b'den dinamik veri çekiyor (eyebrow, başlık, açıklama, etiketler, kanal kartları)",
+        "Admin OEM paneli 4. sekme: 'Ana Sayfa Bandı' — B2BCta eyebrow/başlık/açıklama/etiketler + 3 kanal kartı label/sub yönetimi",
+        "Bayilik admin sekmesi genişletildi: avantaj kartları (title+body dizi) ve kriterler listesi editörü eklendi",
+        "Operatör admin sekmesi genişletildi: teknik özellikler (capabilities) ve OCPP özellik listesi editörü eklendi",
+        "/bayilik sayfası: avantajlar ve kriterler artık /api/b2b'den dinamik geliyor",
+        "/operator sayfası: capabilities ve ocppFeatures artık /api/b2b'den dinamik geliyor"
+      ]
+    },
+    {
       "id": "v13",
       "version": "v1.3",
       "date": "2026-04-18",

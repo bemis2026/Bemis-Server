@@ -10,6 +10,7 @@ import PropertiesPanel from "./components/PropertiesPanel";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import ContentLoadingBar from "./components/ContentLoadingBar";
 import LanguageURLSync from "./components/LanguageURLSync";
+import FaviconInjector from "./components/FaviconInjector";
 
 const BASE_URL = "https://www.bemisevcharge.com.tr";
 
@@ -93,6 +94,7 @@ export default function RootLayout({
           <LanguageProvider>
             <ContentProvider>
               <EditModeProvider>
+                <FaviconInjector />
                 <ContentLoadingBar />
                 <Suspense fallback={null}>
                   <LanguageURLSync />
