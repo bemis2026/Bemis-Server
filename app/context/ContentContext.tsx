@@ -98,6 +98,7 @@ export type SiteContent = {
   textStyles: Record<string, { color?: string; fontSize?: string }>;
   sectionBgs: Record<string, string>;
   logos: { dark: string; light: string };
+  ogImage: string;
 };
 
 const DEFAULT_LAYOUT: HeroLayout = {
@@ -266,6 +267,7 @@ const defaultContent: SiteContent = {
   textStyles: {},
   sectionBgs: {},
   logos: { dark: "", light: "" },
+  ogImage: "",
 };
 
 // ── path helpers ──────────────────────────────────────────────────────────────
@@ -435,6 +437,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
         textStyles: data.textStyles ?? {},
         sectionBgs: data.sectionBgs ?? {},
         logos: { dark: data.logos?.dark ?? "", light: data.logos?.light ?? "" },
+        ogImage: data.ogImage ?? "",
         featuredSection: { ...defaultContent.featuredSection, ...data.featuredSection },
         calculator: { ...defaultContent.calculator, ...data.calculator },
         navbar: { ...defaultContent.navbar, ...data.navbar, links: data.navbar?.links ?? defaultContent.navbar.links },
@@ -465,6 +468,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
           textStyles: data.textStyles ?? {},
           sectionBgs: data.sectionBgs ?? {},
           logos: { dark: data.logos?.dark ?? "", light: data.logos?.light ?? "" },
+          ogImage: data.ogImage ?? "",
           featuredSection: { ...defaultContent.featuredSection, ...data.featuredSection },
           calculator: { ...defaultContent.calculator, ...data.calculator },
           navbar: { ...defaultContent.navbar, ...data.navbar, links: data.navbar?.links ?? defaultContent.navbar.links },

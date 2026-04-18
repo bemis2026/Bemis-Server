@@ -94,6 +94,7 @@ type ContentData = {
   calculator?: { sectionLabel: string; heading: string; subheading: string; tabCharge: string; tabSavings: string; chargeSimLabel: string };
   sectionBgs?: Record<string, string>;
   logos?: { dark: string; light: string };
+  ogImage?: string;
 };
 
 type Dealer = { name: string; address: string; phone: string };
@@ -164,6 +165,8 @@ export default function AdminPage() {
   const [logoLoading, setLogoLoading] = useState<"dark" | "light" | null>(null);
   const logoDarkRef  = useRef<HTMLInputElement>(null);
   const logoLightRef = useRef<HTMLInputElement>(null);
+  const [ogImgLoading, setOgImgLoading] = useState(false);
+  const ogImgRef = useRef<HTMLInputElement>(null);
 
   // Dealer editor state
   const [dealers, setDealers] = useState<DealersData>({});
@@ -609,6 +612,34 @@ export default function AdminPage() {
     setLogoLoading(null);
     const ref = mode === "dark" ? logoDarkRef : logoLightRef;
     if (ref.current) ref.current.value = "";
+  };
+
+  const handleOgImgUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setOgImgLoading(true);
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("folder", "og");
+    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+    if (res.ok) {
+      const { url } = await res.json();
+      setContent((prev) => {
+        if (!prev) return prev;
+        const updated = { ...prev, ogImage: url };
+        fetch("/api/admin/content", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updated),
+        }).catch(() => {});
+        return updated;
+      });
+      showToast("ok", "Open Graph görseli yüklendi ve kaydedildi.");
+    } else {
+      showToast("err", "Yükleme başarısız.");
+    }
+    setOgImgLoading(false);
+    if (ogImgRef.current) ogImgRef.current.value = "";
   };
 
   const updateContent = (path: string[], value: string | number | null) => {
@@ -2150,9 +2181,9 @@ export default function AdminPage() {
               {tab === "media" && (
                 <div className="max-w-2xl space-y-6">
                   <div>
-                    <h2 className="text-base font-bold mb-1">Medya Yükleme</h2>
+                    <h2 className="text-base font-bold mb-1">Genel Görsel Yükleme</h2>
                     <p className="text-xs text-white/35">
-                      Görsel yükleyin (JPG, PNG, WebP, SVG). Yüklenen görseller Vercel Blob üzerinde saklanır; size bir URL döner.
+                      Herhangi bir görsel yükleyin — size bir URL döner. Bu alanın siteyle <span className="text-white/55 font-semibold">doğrudan bağlantısı yoktur</span>; elde ettiğiniz URL'yi başka alanlara (ürün görseli, içerik metni, vb.) yapıştırabilirsiniz.
                     </p>
                   </div>
 
@@ -2283,7 +2314,50 @@ export default function AdminPage() {
                     </div>
                     <input ref={logoDarkRef}  type="file" accept="image/*" className="hidden" onChange={(e) => handleLogoUpload(e, "dark")} />
                     <input ref={logoLightRef} type="file" accept="image/*" className="hidden" onChange={(e) => handleLogoUpload(e, "light")} />
-                    <p className="text-[10px] text-white/20 mt-3">Kaydet butonuna basarak değişiklikleri uygulayın.</p>
+                  </div>
+
+                  {/* ── Open Graph Image ── */}
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
+                    <div>
+                      <p className="text-xs font-semibold text-white/50 mb-0.5">Open Graph Görseli</p>
+                      <p className="text-xs text-white/30 leading-relaxed">
+                        Siteniz sosyal medyada (WhatsApp, Twitter, LinkedIn vb.) paylaşıldığında çıkan kapak görseli.
+                        Önerilen boyut: <span className="text-white/50">1200 × 630 px</span> · JPG veya PNG.
+                      </p>
+                    </div>
+
+                    {content?.ogImage ? (
+                      <div className="relative rounded-xl overflow-hidden border border-white/8" style={{ aspectRatio: "1200/630" }}>
+                        <img src={content.ogImage} alt="OG" className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                          <button
+                            onClick={() => ogImgRef.current?.click()}
+                            className="text-xs bg-white/90 text-black font-semibold px-3 py-1.5 rounded-lg"
+                          >
+                            Değiştir
+                          </button>
+                          <button
+                            onClick={() => setContent(prev => prev ? { ...prev, ogImage: "" } : prev)}
+                            className="text-xs bg-red-500/80 text-white font-semibold px-3 py-1.5 rounded-lg"
+                          >
+                            Kaldır
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      <div
+                        className="border-2 border-dashed border-white/10 rounded-xl flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-white/20 transition-colors"
+                        style={{ aspectRatio: "1200/630" }}
+                        onClick={() => ogImgRef.current?.click()}
+                      >
+                        {ogImgLoading
+                          ? <div className="w-6 h-6 rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
+                          : <RiImageAddLine size={28} className="text-white/20" />
+                        }
+                        <p className="text-xs text-white/30">{ogImgLoading ? "Yükleniyor…" : "1200 × 630 px · JPG / PNG"}</p>
+                      </div>
+                    )}
+                    <input ref={ogImgRef} type="file" accept="image/*" className="hidden" onChange={handleOgImgUpload} />
                   </div>
                 </div>
               )}
