@@ -79,7 +79,7 @@ export default function SmartCharger() {
             className="flex flex-col items-center lg:items-start order-2 lg:order-1"
           >
             {/* Slide area */}
-            <div className="relative" style={{ width: 340, height: 630 }}>
+            <div className="relative" style={{ width: 340, height: 600 }}>
               <AnimatePresence initial={false} mode="wait">
                 {mockupIndex === 0 ? (
                   <motion.div
@@ -100,7 +100,7 @@ export default function SmartCharger() {
                       <div
                         className="relative rounded-[36px] overflow-hidden"
                         style={{
-                          width: 292, height: 596,
+                          width: 256, height: 524,
                           background: d ? "#0a0a0c" : "#1a1a1e",
                           border: `2.5px solid ${d ? "rgba(255,255,255,0.14)" : "rgba(255,255,255,0.20)"}`,
                           boxShadow: `0 32px 64px rgba(0,0,0,${d ? "0.65" : "0.35"}), 0 0 0 1px rgba(255,255,255,0.06)`,
@@ -215,7 +215,7 @@ export default function SmartCharger() {
                       <div
                         className="rounded-2xl overflow-hidden"
                         style={{
-                          width: 250,
+                          width: 310,
                           background: d ? "#0d1420" : "#f8faff",
                           border: `1.5px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(59,130,246,0.18)"}`,
                           boxShadow: d
@@ -242,7 +242,7 @@ export default function SmartCharger() {
                         </div>
 
                         {/* Sidebar + content layout */}
-                        <div className="flex" style={{ height: 300 }}>
+                        <div className="flex" style={{ height: 380 }}>
                           {/* Sidebar */}
                           <div className="flex flex-col gap-1 p-2 flex-shrink-0"
                             style={{ width: 44, background: d ? "rgba(255,255,255,0.025)" : "rgba(0,0,0,0.03)", borderRight: `1px solid ${d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)"}` }}>
@@ -284,7 +284,7 @@ export default function SmartCharger() {
                             <div className="rounded-xl p-2.5"
                               style={{ background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.02)", border: `1px solid ${d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)"}` }}>
                               <p className="text-[8px] mb-1.5 font-medium" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.40)" }}>Günlük Kullanım (kWh)</p>
-                              <div className="flex items-end gap-1 h-12">
+                              <div className="flex items-end gap-1 h-16">
                                 {[30, 55, 45, 70, 60, 85, 50].map((h, i) => (
                                   <motion.div
                                     key={i}
