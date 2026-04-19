@@ -103,6 +103,8 @@ export type SiteContent = {
     ocppBadge: string;
     ctaLabel: string;
     ctaHref: string;
+    appStoreHref: string;
+    playStoreHref: string;
     features: SmartChargerFeature[];
   };
   productShowcase: {
@@ -310,6 +312,8 @@ const defaultContent: SiteContent = {
     ocppBadge: "OCPP 1.6 / 2.0.1 Uyumlu",
     ctaLabel: "Web Bemis Charge Hub İncele",
     ctaHref: "/products/charger-equipment",
+    appStoreHref: "",
+    playStoreHref: "",
     features: [
       { title: "Uzaktan İzleme & Kontrol", desc: "Şarj ünitelerini gerçek zamanlı takip edin, başlatın veya durdurun. Anlık durum bildirimleri alın." },
       { title: "Ortak Alan Optimizasyonu", desc: "Çok kullanıcılı erişim, dinamik yük dengeleme ve ödeme sistemi entegrasyonu ile tam yönetim. Standart OCPP protokolü ile tüm ağ operatörleri ve back-end platformlarıyla uyumlu çalışır." },

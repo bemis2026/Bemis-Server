@@ -94,7 +94,7 @@ type ContentData = {
   contactSection: { sectionLabel: string; heading: string; subheading: string };
   featuredSection?: { sectionLabel: string; heading: string; subheading: string; ctaLabel: string };
   calculator?: { sectionLabel: string; heading: string; subheading: string; tabCharge: string; tabSavings: string; chargeSimLabel: string };
-  smartCharger?: { sectionLabel: string; heading: string; subheading: string; ocppBadge: string; ctaLabel: string; ctaHref: string; features: { title: string; desc: string }[] };
+  smartCharger?: { sectionLabel: string; heading: string; subheading: string; ocppBadge: string; ctaLabel: string; ctaHref: string; appStoreHref: string; playStoreHref: string; features: { title: string; desc: string }[] };
   productShowcase?: { badge: string; name: string; tagline: string; description: string; image: string; specs: { label: string; value: string }[]; ctaPrimary: string; ctaHref: string; ctaSecondary: string; ctaSecondaryHref: string };
   sectionBgs?: Record<string, string>;
   logos?: { dark: string; light: string };
@@ -371,7 +371,7 @@ export default function AdminPage() {
     const features = next.smartCharger?.features ?? [];
     if (!features[idx]) return;
     features[idx][field] = val;
-    if (!next.smartCharger) next.smartCharger = { sectionLabel: "", heading: "", subheading: "", ocppBadge: "", ctaLabel: "", ctaHref: "", features };
+    if (!next.smartCharger) next.smartCharger = { sectionLabel: "", heading: "", subheading: "", ocppBadge: "", ctaLabel: "", ctaHref: "", appStoreHref: "", playStoreHref: "", features };
     else next.smartCharger.features = features;
     setContent(next);
   };
@@ -379,7 +379,7 @@ export default function AdminPage() {
   const addSmartChargerFeature = () => {
     if (!content) return;
     const next = JSON.parse(JSON.stringify(content)) as ContentData;
-    if (!next.smartCharger) next.smartCharger = { sectionLabel: "", heading: "", subheading: "", ocppBadge: "", ctaLabel: "", ctaHref: "", features: [] };
+    if (!next.smartCharger) next.smartCharger = { sectionLabel: "", heading: "", subheading: "", ocppBadge: "", ctaLabel: "", ctaHref: "", appStoreHref: "", playStoreHref: "", features: [] };
     next.smartCharger.features = [...(next.smartCharger.features ?? []), { title: "Yeni Özellik", desc: "" }];
     setContent(next);
   };
@@ -2081,6 +2081,11 @@ export default function AdminPage() {
                     <div className="grid grid-cols-2 gap-3">
                       <Field label="CTA Buton Metni" value={content.smartCharger?.ctaLabel ?? ""} onChange={(v) => updateContent(["smartCharger","ctaLabel"], v)} />
                       <Field label="CTA Buton Linki" value={content.smartCharger?.ctaHref ?? ""} onChange={(v) => updateContent(["smartCharger","ctaHref"], v)} />
+                    </div>
+                    <div className="pt-3 border-t border-white/6 space-y-2">
+                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Mağaza Linkleri</p>
+                      <Field label="App Store Linki" value={content.smartCharger?.appStoreHref ?? ""} onChange={(v) => updateContent(["smartCharger","appStoreHref"], v)} />
+                      <Field label="Google Play Linki" value={content.smartCharger?.playStoreHref ?? ""} onChange={(v) => updateContent(["smartCharger","playStoreHref"], v)} />
                     </div>
 
                     {/* Features */}

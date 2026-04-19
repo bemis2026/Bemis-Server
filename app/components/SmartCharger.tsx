@@ -394,7 +394,10 @@ export default function SmartCharger() {
               transition={{ duration: 0.4, delay: 0.55 }}
               className="flex flex-wrap gap-2 mt-4"
             >
-              <a href="#"
+              <a
+                href={smartCharger.appStoreHref || "#"}
+                target={smartCharger.appStoreHref ? "_blank" : undefined}
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all duration-200 hover:opacity-80 active:scale-95"
                 style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)", border: `1px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.10)"}` }}
               >
@@ -404,7 +407,10 @@ export default function SmartCharger() {
                   <p className="text-xs font-bold leading-none" style={{ color: textPrimary }}>App Store</p>
                 </div>
               </a>
-              <a href="#"
+              <a
+                href={smartCharger.playStoreHref || "#"}
+                target={smartCharger.playStoreHref ? "_blank" : undefined}
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all duration-200 hover:opacity-80 active:scale-95"
                 style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)", border: `1px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.10)"}` }}
               >
@@ -510,7 +516,7 @@ export default function SmartCharger() {
                     <div>
                       <p className="text-sm font-semibold mb-0.5" style={{ color: textPrimary }}>{f.title}</p>
                       <p className="text-xs leading-relaxed" style={{ color: textMuted }}>{f.desc}</p>
-                      {i === 1 && smartCharger.ocppBadge && (
+                      {/ortak|yönet/i.test(f.title) && smartCharger.ocppBadge && (
                         <div className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1 rounded-lg"
                           style={{ background: `${ACCENT2}12`, border: `1px solid ${ACCENT2}25` }}>
                           <RiCodeSSlashLine size={11} style={{ color: ACCENT2 }} />
