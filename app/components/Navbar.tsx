@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX, HiSearch, HiChevronDown } from "react-icons/hi";
 import { HiSun, HiMoon } from "react-icons/hi2";
-import { RiBuilding2Line, RiStoreLine, RiWifiLine } from "react-icons/ri";
+import { RiBuilding2Line, RiStoreLine, RiWifiLine, RiFlashlightLine, RiSmartphoneLine, RiShareLine, RiToolsLine, RiPlugLine, RiShoppingBagLine, RiBatteryChargeLine, RiArrowRightLine } from "react-icons/ri";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
@@ -29,6 +29,17 @@ const KURUMSAL_DROPDOWN = [
   { label: "Şarj Ağı Operatörleri",   sub: "OCPP ekipman, DLM, uzaktan izleme",    href: "/operator", icon: RiWifiLine,      accent: "#818CF8" },
 ];
 
+const CATEGORY_ICONS: Record<string, React.ElementType> = {
+  "wallbox":           RiFlashlightLine,
+  "portable":          RiSmartphoneLine,
+  "cables":            RiShareLine,
+  "v2l-c2l":          RiBatteryChargeLine,
+  "converters":        RiToolsLine,
+  "charger-equipment": RiPlugLine,
+  "accessories":       RiShoppingBagLine,
+  "dc-units":          RiFlashlightLine,
+};
+
 interface NavbarProps {
   onSearchOpen: () => void;
 }
@@ -37,18 +48,30 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileKurumsalOpen, setMobileKurumsalOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [mobileUrunlerOpen, setMobileUrunlerOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<"kurumsal" | "urunler" | null>(null);
+  const kurumsalRef = useRef<HTMLDivElement>(null);
+  const urunlerRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { theme, toggle } = useTheme();
   const isDark = theme === "dark";
-  const { navbar: navbarContent, logos } = useContent();
+  const { navbar: navbarContent, logos, categories } = useContent();
   const { lang, setLang } = useLanguage();
   const activeNavLinks = navbarContent?.links?.length ? navbarContent.links : navLinks;
   const logoSrc = logos?.dark || "/logo-white.png";
   const logoFilter = isDark ? undefined : "invert(1)";
   const router = useRouter();
   const pathname = usePathname();
+
+  const categoryList = categories
+    ? Object.entries(categories as Record<string, { name: string; subtitle?: string }>).map(([key, val]) => ({
+        key,
+        name: val.name,
+        subtitle: val.subtitle ?? "",
+        href: `/products/${key}`,
+        icon: CATEGORY_ICONS[key] ?? RiPlugLine,
+      }))
+    : [];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -78,16 +101,28 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
     }
   };
 
-  const openDropdown = () => {
+  const openDropdown = (which: "kurumsal" | "urunler") => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    setDropdownOpen(true);
+    setActiveDropdown(which);
   };
   const scheduleClose = () => {
-    closeTimer.current = setTimeout(() => setDropdownOpen(false), 120);
+    closeTimer.current = setTimeout(() => setActiveDropdown(null), 120);
   };
 
   const isKurumsal = (link: { label: string; href: string }) =>
     link.label === "Kurumsal" || link.href === "#b2bcta" || link.href === "/b2b";
+
+  const isUrunler = (link: { label: string; href: string }) =>
+    link.label === "Ürünler" || link.href === "#products";
+
+  const dropdownBase = {
+    background: isDark ? "rgba(12,13,18,0.97)" : "rgba(255,255,255,0.98)",
+    border: `1px solid ${isDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`,
+    boxShadow: isDark
+      ? "0 20px 48px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04)"
+      : "0 16px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04)",
+    backdropFilter: "blur(20px)",
+  };
 
   return (
     <motion.nav
@@ -115,11 +150,16 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
           <div className="hidden lg:flex items-center gap-6">
             {activeNavLinks.map((link, idx) => {
               const isK = isKurumsal(link);
+              const isU = isUrunler(link);
+              const hasDropdown = isK || isU;
+              const dropdownKey = isK ? "kurumsal" : "urunler";
+              const isOpen = activeDropdown === dropdownKey;
+
               return (
                 <div key={link.href + idx} className="relative"
-                  ref={isK ? dropdownRef : undefined}
-                  onMouseEnter={isK ? openDropdown : undefined}
-                  onMouseLeave={isK ? scheduleClose : undefined}
+                  ref={isK ? kurumsalRef : isU ? urunlerRef : undefined}
+                  onMouseEnter={hasDropdown ? () => openDropdown(dropdownKey as "kurumsal" | "urunler") : undefined}
+                  onMouseLeave={hasDropdown ? scheduleClose : undefined}
                 >
                   <button
                     onClick={() => handleNavClick(isK ? "#b2bcta" : link.href)}
@@ -128,38 +168,30 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                     }`}
                   >
                     <E field={`navbar.links.${idx}.label`} tag="span">{link.label}</E>
-                    {isK && <HiChevronDown size={13} className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`} />}
+                    {hasDropdown && <HiChevronDown size={13} className={`transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />}
                     <span className={`absolute -bottom-0.5 left-0 w-0 h-px group-hover:w-full transition-all duration-300 ${isDark ? "bg-white/50" : "bg-black/50"}`} />
                   </button>
 
-                  {/* Dropdown */}
+                  {/* Kurumsal Dropdown */}
                   {isK && (
                     <AnimatePresence>
-                      {dropdownOpen && (
+                      {isOpen && (
                         <motion.div
                           initial={{ opacity: 0, y: 6, scale: 0.97 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 4, scale: 0.97 }}
                           transition={{ duration: 0.16 }}
-                          onMouseEnter={openDropdown}
+                          onMouseEnter={() => openDropdown("kurumsal")}
                           onMouseLeave={scheduleClose}
                           className="absolute right-0 top-full mt-2 rounded-2xl overflow-hidden"
-                          style={{
-                            width: 300,
-                            background: isDark ? "rgba(12,13,18,0.97)" : "rgba(255,255,255,0.98)",
-                            border: `1px solid ${isDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`,
-                            boxShadow: isDark
-                              ? "0 20px 48px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04)"
-                              : "0 16px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04)",
-                            backdropFilter: "blur(20px)",
-                          }}
+                          style={{ width: 300, ...dropdownBase }}
                         >
                           <div className="p-1.5 space-y-0.5">
                             {KURUMSAL_DROPDOWN.map((item) => (
                               <button
                                 key={item.href}
-                                onClick={() => { setDropdownOpen(false); router.push(item.href); }}
-                                className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left transition-all duration-150 group/item"
+                                onClick={() => { setActiveDropdown(null); router.push(item.href); }}
+                                className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-left transition-all duration-150"
                                 style={{ background: "transparent" }}
                                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)"; }}
                                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
@@ -175,15 +207,73 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                               </button>
                             ))}
                           </div>
-                          {/* Divider + go to section */}
                           <div style={{ borderTop: `1px solid ${isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"}` }}>
-                            <button onClick={() => { setDropdownOpen(false); handleNavClick("#b2bcta"); }}
+                            <button onClick={() => { setActiveDropdown(null); handleNavClick("#b2bcta"); }}
                               className="w-full px-4 py-2.5 text-xs font-semibold text-left transition-colors"
                               style={{ color: isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)" }}
                               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.60)"; }}
                               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)"; }}
                             >
                               Ana sayfadaki kurumsal bölüme git →
+                            </button>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  )}
+
+                  {/* Ürünler Dropdown */}
+                  {isU && categoryList.length > 0 && (
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 6, scale: 0.97 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 4, scale: 0.97 }}
+                          transition={{ duration: 0.16 }}
+                          onMouseEnter={() => openDropdown("urunler")}
+                          onMouseLeave={scheduleClose}
+                          className="absolute left-1/2 -translate-x-1/2 top-full mt-2 rounded-2xl overflow-hidden"
+                          style={{ width: 480, ...dropdownBase }}
+                        >
+                          {/* Header */}
+                          <div className="px-4 pt-3.5 pb-2.5" style={{ borderBottom: `1px solid ${isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"}` }}>
+                            <p className="text-[11px] font-bold uppercase tracking-widest" style={{ color: isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)" }}>
+                              Ürün Kategorileri
+                            </p>
+                          </div>
+                          {/* 2-col grid */}
+                          <div className="p-2 grid grid-cols-2 gap-0.5">
+                            {categoryList.map((cat) => (
+                              <button
+                                key={cat.key}
+                                onClick={() => { setActiveDropdown(null); router.push(cat.href); }}
+                                className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-left transition-all duration-150"
+                                style={{ background: "transparent" }}
+                                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)"; }}
+                                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+                              >
+                                <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
+                                  style={{ background: isDark ? "rgba(59,130,246,0.12)" : "rgba(59,130,246,0.08)" }}>
+                                  <cat.icon size={14} style={{ color: "#3B82F6" }} />
+                                </div>
+                                <div className="min-w-0">
+                                  <p className="text-xs font-semibold leading-tight truncate" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{cat.name}</p>
+                                </div>
+                              </button>
+                            ))}
+                          </div>
+                          {/* Footer */}
+                          <div style={{ borderTop: `1px solid ${isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"}` }}>
+                            <button
+                              onClick={() => { setActiveDropdown(null); handleNavClick("#products"); }}
+                              className="w-full px-4 py-2.5 flex items-center justify-between text-xs font-semibold transition-colors"
+                              style={{ color: isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)" }}
+                              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.60)"; }}
+                              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)"; }}
+                            >
+                              <span>Tüm ürünlere göz at</span>
+                              <RiArrowRightLine size={13} />
                             </button>
                           </div>
                         </motion.div>
@@ -260,20 +350,29 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
             <div className="px-5 py-4 flex flex-col gap-1">
               {activeNavLinks.map((link, i) => {
                 const isK = isKurumsal(link);
+                const isU = isUrunler(link);
                 return (
                   <div key={link.href + i}>
                     <motion.button
                       initial={{ opacity: 0, x: -12 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.04 }}
-                      onClick={() => isK ? setMobileKurumsalOpen(v => !v) : handleNavClick(link.href)}
+                      onClick={() => {
+                        if (isK) setMobileKurumsalOpen(v => !v);
+                        else if (isU) setMobileUrunlerOpen(v => !v);
+                        else handleNavClick(link.href);
+                      }}
                       className={`w-full flex items-center justify-between text-base font-medium py-3 text-left border-b transition-colors ${
                         isDark ? "text-white/60 hover:text-white border-white/6" : "text-black/60 hover:text-black border-black/6"
                       }`}
                     >
                       <E field={`navbar.links.${i}.label`} tag="span">{link.label}</E>
-                      {isK && <HiChevronDown size={16} className={`transition-transform ${mobileKurumsalOpen ? "rotate-180" : ""}`} />}
+                      {(isK || isU) && (
+                        <HiChevronDown size={16} className={`transition-transform ${(isK && mobileKurumsalOpen) || (isU && mobileUrunlerOpen) ? "rotate-180" : ""}`} />
+                      )}
                     </motion.button>
+
+                    {/* Mobile Kurumsal sub-links */}
                     {isK && mobileKurumsalOpen && (
                       <div className="py-2 space-y-1 pl-2">
                         <button onClick={() => { setMobileOpen(false); handleNavClick("#b2bcta"); }}
@@ -287,6 +386,23 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                             {item.label}
                           </button>
                         ))}
+                      </div>
+                    )}
+
+                    {/* Mobile Ürünler sub-links */}
+                    {isU && mobileUrunlerOpen && (
+                      <div className="py-2 space-y-0.5 pl-2">
+                        {categoryList.map(cat => (
+                          <button key={cat.key} onClick={() => { setMobileOpen(false); router.push(cat.href); }}
+                            className={`flex items-center gap-2 w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black"}`}>
+                            <cat.icon size={13} style={{ color: "#3B82F6" }} />
+                            {cat.name}
+                          </button>
+                        ))}
+                        <button onClick={() => { setMobileOpen(false); handleNavClick("#products"); }}
+                          className={`block w-full text-left text-sm py-2 px-3 rounded-lg font-semibold ${isDark ? "text-blue-400" : "text-blue-600"}`}>
+                          → Tüm ürünlere göz at
+                        </button>
                       </div>
                     )}
                   </div>
