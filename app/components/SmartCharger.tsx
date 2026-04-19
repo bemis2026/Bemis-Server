@@ -64,12 +64,12 @@ export default function SmartCharger() {
   };
 
   return (
-    <section id="smartcharger" className="relative py-8 lg:py-12 overflow-hidden" style={{ background: bg }}>
+    <section id="smartcharger" className="relative py-6 lg:py-8 overflow-hidden" style={{ background: bg }}>
       <div className="absolute pointer-events-none" style={{ top: "10%", left: "-8%", width: 400, height: 400, borderRadius: "50%", background: `radial-gradient(circle, ${ACCENT}18 0%, transparent 70%)` }} />
       <div className="absolute pointer-events-none" style={{ bottom: "5%", right: "-6%", width: 320, height: 320, borderRadius: "50%", background: `radial-gradient(circle, ${ACCENT2}14 0%, transparent 70%)` }} />
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
 
           {/* ── Mockup carousel ── */}
           <motion.div
@@ -79,7 +79,7 @@ export default function SmartCharger() {
             className="flex flex-col items-center lg:items-start order-2 lg:order-1"
           >
             {/* Slide area */}
-            <div className="relative" style={{ width: 340, height: 600 }}>
+            <div className="relative" style={{ width: 300, height: 510 }}>
               <AnimatePresence initial={false} mode="wait">
                 {mockupIndex === 0 ? (
                   <motion.div
@@ -100,7 +100,7 @@ export default function SmartCharger() {
                       <div
                         className="relative rounded-[36px] overflow-hidden"
                         style={{
-                          width: 256, height: 524,
+                          width: 240, height: 490,
                           background: d ? "#0a0a0c" : "#1a1a1e",
                           border: `2.5px solid ${d ? "rgba(255,255,255,0.14)" : "rgba(255,255,255,0.20)"}`,
                           boxShadow: `0 32px 64px rgba(0,0,0,${d ? "0.65" : "0.35"}), 0 0 0 1px rgba(255,255,255,0.06)`,
@@ -242,7 +242,7 @@ export default function SmartCharger() {
                         </div>
 
                         {/* Sidebar + content layout */}
-                        <div className="flex" style={{ height: 380 }}>
+                        <div className="flex" style={{ height: 310 }}>
                           {/* Sidebar */}
                           <div className="flex flex-col gap-1 p-2 flex-shrink-0"
                             style={{ width: 44, background: d ? "rgba(255,255,255,0.025)" : "rgba(0,0,0,0.03)", borderRight: `1px solid ${d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)"}` }}>
