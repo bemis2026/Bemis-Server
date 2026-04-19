@@ -21,7 +21,6 @@ import ProductShowcase from "./components/ProductShowcase";
 import SearchOverlay from "./components/SearchOverlay";
 import AIChatButton from "./components/AIChatButton";
 import SectionWrapper from "./components/SectionWrapper";
-import WaveDivider from "./components/WaveDivider";
 
 const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   stats: Stats,
@@ -52,18 +51,13 @@ export default function Home() {
         const SectionComponent = SECTION_COMPONENTS[id];
         if (!SectionComponent) return null;
         return (
-          <div key={id}>
-            <SectionWrapper id={id} index={i} total={sectionOrder.length}>
-              <SectionComponent />
-            </SectionWrapper>
-            {i < sectionOrder.length - 1 && <WaveDivider flip={i % 2 === 1} />}
-          </div>
+          <SectionWrapper key={id} id={id} index={i} total={sectionOrder.length}>
+            <SectionComponent />
+          </SectionWrapper>
         );
       })}
 
-      <WaveDivider />
       <B2BCta />
-      <WaveDivider flip />
       <Contact />
       <Footer />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
