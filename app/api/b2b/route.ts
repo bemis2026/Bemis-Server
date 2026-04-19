@@ -1,10 +1,7 @@
 import { NextResponse } from "next/server";
-import { list } from "@vercel/blob";
 import { readFileSync } from "fs";
 import path from "path";
-
-const BLOB_KEY = "data/b2b.json";
-const fallbackPath = path.join(process.cwd(), "data", "b2b.json");
+import { readBin } from "../../../lib/jsonbin";
 
 type Rec = Record<string, unknown>;
 
@@ -22,20 +19,16 @@ function mergeDeep(target: Rec, source: Rec): Rec {
   return result;
 }
 
+const fallbackPath = path.join(process.cwd(), "data", "b2b.json");
+
 export async function GET() {
   let localData: Rec = {};
   try { localData = JSON.parse(readFileSync(fallbackPath, "utf-8")); } catch {}
 
   try {
-    const { blobs } = await list({ prefix: BLOB_KEY });
-    const blob = blobs.find(b => b.pathname === BLOB_KEY);
-    if (blob) {
-      const res = await fetch(blob.url, { cache: "no-store" });
-      const blobData: Rec = await res.json();
-      return NextResponse.json(mergeDeep(localData, blobData));
-    }
+    const binData = await readBin("b2b") as Rec;
+    return NextResponse.json(mergeDeep(localData, binData));
   } catch {}
 
-  if (Object.keys(localData).length) return NextResponse.json(localData);
-  return NextResponse.json({ hero: {}, solutions: [] });
+  return NextResponse.json(localData);
 }

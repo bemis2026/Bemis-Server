@@ -1,0 +1,36 @@
+const MASTER_KEY = process.env.JSONBIN_MASTER_KEY ?? "";
+const BASE = "https://api.jsonbin.io/v3/b";
+
+const BIN_IDS: Record<string, string> = {
+  b2b:       "69e5093d36566621a8cd7509",
+  content:   "69e5093daaba88219716e044",
+  dealers:   "69e5093e36566621a8cd750f",
+  products:  "69e5093e856a6821894eaee8",
+  documents: "69e5093f856a6821894eaeec",
+};
+
+export async function readBin(name: string): Promise<unknown> {
+  const id = BIN_IDS[name];
+  if (!id) throw new Error(`Unknown bin: ${name}`);
+  const res = await fetch(`${BASE}/${id}/latest`, {
+    headers: { "X-Master-Key": MASTER_KEY },
+    cache: "no-store",
+  });
+  if (!res.ok) throw new Error(`JSONBin read failed: ${res.status}`);
+  const data = await res.json();
+  return data.record;
+}
+
+export async function writeBin(name: string, body: unknown): Promise<void> {
+  const id = BIN_IDS[name];
+  if (!id) throw new Error(`Unknown bin: ${name}`);
+  const res = await fetch(`${BASE}/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json", "X-Master-Key": MASTER_KEY },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`JSONBin write failed: ${res.status} ${err}`);
+  }
+}
