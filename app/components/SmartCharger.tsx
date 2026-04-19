@@ -78,22 +78,21 @@ export default function SmartCharger() {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center lg:items-start order-2 lg:order-1"
           >
-            {/* Slide area — fixed height to phone size */}
-            <div className="relative overflow-hidden" style={{ width: 260, height: 530 }}>
-              <AnimatePresence initial={false} custom={direction} mode="popLayout">
+            {/* Slide area */}
+            <div className="relative" style={{ width: 300, height: 560 }}>
+              <AnimatePresence initial={false} mode="wait">
                 {mockupIndex === 0 ? (
                   <motion.div
                     key="phone"
-                    custom={direction}
                     variants={{
-                      enter: (dir: number) => ({ x: dir > 0 ? 280 : -280, opacity: 0 }),
-                      center: { x: 0, opacity: 1 },
-                      exit: (dir: number) => ({ x: dir > 0 ? -280 : 280, opacity: 0 }),
+                      enter: { opacity: 0, scale: 0.95 },
+                      center: { opacity: 1, scale: 1 },
+                      exit: { opacity: 0, scale: 0.95 },
                     }}
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    transition={{ duration: 0.42, ease: [0.32, 0, 0.67, 0] }}
+                    transition={{ duration: 0.35, ease: "easeInOut" }}
                     className="absolute inset-0 flex items-center justify-center"
                   >
                     {/* ── Phone mockup ── */}
@@ -101,7 +100,7 @@ export default function SmartCharger() {
                       <div
                         className="relative rounded-[36px] overflow-hidden"
                         style={{
-                          width: 240, height: 490,
+                          width: 262, height: 534,
                           background: d ? "#0a0a0c" : "#1a1a1e",
                           border: `2.5px solid ${d ? "rgba(255,255,255,0.14)" : "rgba(255,255,255,0.20)"}`,
                           boxShadow: `0 32px 64px rgba(0,0,0,${d ? "0.65" : "0.35"}), 0 0 0 1px rgba(255,255,255,0.06)`,
@@ -200,16 +199,15 @@ export default function SmartCharger() {
                 ) : (
                   <motion.div
                     key="browser"
-                    custom={direction}
                     variants={{
-                      enter: (dir: number) => ({ x: dir > 0 ? 280 : -280, opacity: 0 }),
-                      center: { x: 0, opacity: 1 },
-                      exit: (dir: number) => ({ x: dir > 0 ? -280 : 280, opacity: 0 }),
+                      enter: { opacity: 0, scale: 0.95 },
+                      center: { opacity: 1, scale: 1 },
+                      exit: { opacity: 0, scale: 0.95 },
                     }}
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    transition={{ duration: 0.42, ease: [0.32, 0, 0.67, 0] }}
+                    transition={{ duration: 0.35, ease: "easeInOut" }}
                     className="absolute inset-0 flex items-center justify-center"
                   >
                     {/* ── Web browser mockup ── */}

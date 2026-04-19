@@ -165,6 +165,8 @@ export default function AdminPage() {
   const [sectionBgLoading, setSectionBgLoading] = useState<string | null>(null);
   const [sectionBgTarget, setSectionBgTarget] = useState<string>("");
   const sectionBgRef = useRef<HTMLInputElement>(null);
+  const [showcaseImgLoading, setShowcaseImgLoading] = useState(false);
+  const showcaseImgRef = useRef<HTMLInputElement>(null);
   const [catSliderImgLoading, setCatSliderImgLoading] = useState<string | null>(null);
   const [catSliderImgTarget, setCatSliderImgTarget] = useState<string>("");
   const catSliderImgRef = useRef<HTMLInputElement>(null);
@@ -554,6 +556,25 @@ export default function AdminPage() {
     }
     setFactoryVideoLoading(false);
     if (factoryVideoRef.current) factoryVideoRef.current.value = "";
+  };
+
+  const handleShowcaseImgUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setShowcaseImgLoading(true);
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("folder", "vitrin");
+    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+    if (res.ok) {
+      const { url } = await res.json();
+      updateContent(["productShowcase", "image"], url);
+      showToast("ok", "Ürün görseli yüklendi.");
+    } else {
+      showToast("err", "Yükleme başarısız.");
+    }
+    setShowcaseImgLoading(false);
+    if (showcaseImgRef.current) showcaseImgRef.current.value = "";
   };
 
   const handleStepImgUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -2105,11 +2126,23 @@ export default function AdminPage() {
                     <div className="pt-2 border-t border-white/6 space-y-2">
                       <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Ürün Görseli</p>
                       {content.productShowcase?.image && (
-                        <div className="relative rounded-xl overflow-hidden" style={{ height: 120 }}>
+                        <div className="relative rounded-xl overflow-hidden" style={{ height: 140 }}>
                           <img src={content.productShowcase.image} alt="Ürün" className="w-full h-full object-contain bg-white/5" />
                         </div>
                       )}
-                      <Field label="Görsel URL" value={content.productShowcase?.image ?? ""} onChange={(v) => updateContent(["productShowcase","image"], v)} />
+                      <div className="flex gap-2">
+                        <label
+                          className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl cursor-pointer text-xs font-semibold transition-colors flex-shrink-0"
+                          style={{ background: "rgba(59,130,246,0.14)", border: "1px solid rgba(59,130,246,0.28)", color: "#93C5FD" }}
+                        >
+                          <RiImageAddLine size={14} />
+                          {showcaseImgLoading ? "Yükleniyor…" : "Görsel Yükle"}
+                          <input ref={showcaseImgRef} type="file" accept="image/*" className="hidden" onChange={handleShowcaseImgUpload} disabled={showcaseImgLoading} />
+                        </label>
+                        <div className="flex-1">
+                          <Field label="veya URL girin" value={content.productShowcase?.image ?? ""} onChange={(v) => updateContent(["productShowcase","image"], v)} />
+                        </div>
+                      </div>
                     </div>
 
                     {/* CTA buttons */}

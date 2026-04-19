@@ -132,11 +132,11 @@ const DEFAULT_LAYOUT: HeroLayout = {
 };
 
 export const DEFAULT_SECTION_ORDER = [
-  "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "reviews", "dealer", "calculator", "contact"
+  "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "reviews", "dealer", "calculator"
 ];
 
 function migrateSectionOrder(order: string[]): string[] {
-  const known = ["dna","stats","productshowcase","smartcharger","products","featured","reviews","dealer","calculator","contact"];
+  const known = ["dna","stats","productshowcase","smartcharger","products","featured","reviews","dealer","calculator"];
   const filtered = order.filter(s => known.includes(s));
   const missing = known.filter(s => !filtered.includes(s));
   const result = [...filtered, ...missing];
@@ -145,12 +145,6 @@ function migrateSectionOrder(order: string[]): string[] {
   if (di !== -1 && ri !== -1 && di < ri) {
     result.splice(di, 1);
     result.splice(result.indexOf("reviews") + 1, 0, "dealer");
-  }
-  // ensure contact is last
-  const ci = result.indexOf("contact");
-  if (ci !== -1 && ci !== result.length - 1) {
-    result.splice(ci, 1);
-    result.push("contact");
   }
   return result;
 }
@@ -314,7 +308,7 @@ const defaultContent: SiteContent = {
     heading: "Mobil Uygulama ile\nHer Yerden Yönetin",
     subheading: "Charger serisi şarj ünitelerimiz OCPP protokolü sayesinde site, AVM ve otopark gibi ortak kullanım alanlarında ağ operatörlerine sorunsuz entegre olur. Gerçek zamanlı izleme, uzaktan kontrol ve enerji optimizasyonu tek platformda.",
     ocppBadge: "OCPP 1.6 / 2.0.1 Uyumlu",
-    ctaLabel: "Charger Serisini İncele",
+    ctaLabel: "Web Bemis Charge Hub İncele",
     ctaHref: "/products/charger-equipment",
     features: [
       { title: "Uzaktan İzleme & Kontrol", desc: "Şarj ünitelerini gerçek zamanlı takip edin, başlatın veya durdurun. Anlık durum bildirimleri alın." },
@@ -562,7 +556,14 @@ export function ContentProvider({ children }: { children: ReactNode }) {
             features: data.technology?.features ?? defaultContent.technology.features,
             certs:    data.technology?.certs    ?? defaultContent.technology.certs,
           },
-          smartCharger: { ...defaultContent.smartCharger, ...data.smartCharger, features: data.smartCharger?.features ?? defaultContent.smartCharger.features },
+          smartCharger: {
+            ...defaultContent.smartCharger,
+            ...data.smartCharger,
+            features: data.smartCharger?.features ?? defaultContent.smartCharger.features,
+            ctaLabel: (data.smartCharger?.ctaLabel && data.smartCharger.ctaLabel !== "Charger Serisini İncele")
+              ? data.smartCharger.ctaLabel
+              : defaultContent.smartCharger.ctaLabel,
+          },
           productShowcase: { ...defaultContent.productShowcase, ...data.productShowcase, specs: data.productShowcase?.specs ?? defaultContent.productShowcase.specs },
         };
         setHist({ past: [], present: loaded, future: [] });
