@@ -18,6 +18,7 @@ export type FeaturedItem = {
 export type DnaItem = { title: string; desc: string };
 export type TechFeature = { title: string; desc: string; accent: string };
 export type SmartChargerFeature = { title: string; desc: string };
+export type ShowcaseSpec = { label: string; value: string };
 
 export type ReviewItem = {
   platform: string; platformColor: string; rating: number;
@@ -104,6 +105,18 @@ export type SiteContent = {
     ctaHref: string;
     features: SmartChargerFeature[];
   };
+  productShowcase: {
+    badge: string;
+    name: string;
+    tagline: string;
+    description: string;
+    image: string;
+    specs: ShowcaseSpec[];
+    ctaPrimary: string;
+    ctaHref: string;
+    ctaSecondary: string;
+    ctaSecondaryHref: string;
+  };
   sectionOrder: string[];
   textStyles: Record<string, { color?: string; fontSize?: string }>;
   sectionBgs: Record<string, string>;
@@ -119,7 +132,7 @@ const DEFAULT_LAYOUT: HeroLayout = {
 };
 
 export const DEFAULT_SECTION_ORDER = [
-  "dna", "stats", "products", "smartcharger", "featured", "dealer", "reviews", "calculator", "contact"
+  "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "dealer", "reviews", "calculator", "contact"
 ];
 
 const defaultContent: SiteContent = {
@@ -287,6 +300,25 @@ const defaultContent: SiteContent = {
       { title: "Ortak Alan Optimizasyonu", desc: "Çok kullanıcılı erişim, dinamik yük dengeleme ve ödeme sistemi entegrasyonu ile tam yönetim." },
       { title: "Açık OCPP Ekosistemi", desc: "Standart OCPP protokolü ile tüm ağ operatörleri ve back-end platformlarıyla uyumlu çalışır." },
     ],
+  },
+  productShowcase: {
+    badge: "Amiral Gemisi Ürün",
+    name: "AC Wallbox Smart Charger Pro 2",
+    tagline: "Akıllı şarjın yeni standardı",
+    description: "Konut ve iş yeri uygulamaları için geliştirilmiş, OCPP destekli 7,4 kW akıllı AC şarj istasyonu. Mobil uygulama entegrasyonu, dinamik yük yönetimi ve IP65 korumasıyla ev ile kamusal alanlarda kesintisiz performans.",
+    image: "/products/1775067096437-WhatsApp_Image_2026-03-29_at_01.55.05__2_.jpeg",
+    specs: [
+      { label: "Güç Çıkışı", value: "7,4 kW" },
+      { label: "Koruma Sınıfı", value: "IP65 · IK10" },
+      { label: "Bağlantı", value: "OCPP 1.6 / 2.0.1" },
+      { label: "Konnektör", value: "Type 2 (IEC 62196)" },
+      { label: "Sıcaklık", value: "-40°C / +55°C" },
+      { label: "Garanti", value: "2 Yıl" },
+    ],
+    ctaPrimary: "Ürünü İncele",
+    ctaHref: "/products/wallbox",
+    ctaSecondary: "Teklif Al",
+    ctaSecondaryHref: "/contact",
   },
   sectionOrder: DEFAULT_SECTION_ORDER,
   textStyles: {},
@@ -471,6 +503,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
         footer: { ...defaultContent.footer, ...data.footer },
         technology: { ...defaultContent.technology, ...data.technology, features: data.technology?.features ?? defaultContent.technology.features, certs: data.technology?.certs ?? defaultContent.technology.certs },
         smartCharger: { ...defaultContent.smartCharger, ...data.smartCharger, features: data.smartCharger?.features ?? defaultContent.smartCharger.features },
+        productShowcase: { ...defaultContent.productShowcase, ...data.productShowcase, specs: data.productShowcase?.specs ?? defaultContent.productShowcase.specs },
       };
       setHist({ past: [], present: loaded, future: [] });
     };
@@ -509,6 +542,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
             certs:    data.technology?.certs    ?? defaultContent.technology.certs,
           },
           smartCharger: { ...defaultContent.smartCharger, ...data.smartCharger, features: data.smartCharger?.features ?? defaultContent.smartCharger.features },
+          productShowcase: { ...defaultContent.productShowcase, ...data.productShowcase, specs: data.productShowcase?.specs ?? defaultContent.productShowcase.specs },
         };
         setHist({ past: [], present: loaded, future: [] });
       })

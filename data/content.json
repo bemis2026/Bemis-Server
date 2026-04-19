@@ -369,5 +369,24 @@
       { "title": "Ortak Alan Optimizasyonu", "desc": "Çok kullanıcılı erişim, dinamik yük dengeleme ve ödeme sistemi entegrasyonu ile tam yönetim." },
       { "title": "Açık OCPP Ekosistemi", "desc": "Standart OCPP protokolü ile tüm ağ operatörleri ve back-end platformlarıyla uyumlu çalışır." }
     ]
+  },
+  "productShowcase": {
+    "badge": "Amiral Gemisi Ürün",
+    "name": "AC Wallbox Smart Charger Pro 2",
+    "tagline": "Akıllı şarjın yeni standardı",
+    "description": "Konut ve iş yeri uygulamaları için geliştirilmiş, OCPP destekli 7,4 kW akıllı AC şarj istasyonu. Mobil uygulama entegrasyonu, dinamik yük yönetimi ve IP65 korumasıyla ev ile kamusal alanlarda kesintisiz performans.",
+    "image": "/products/1775067096437-WhatsApp_Image_2026-03-29_at_01.55.05__2_.jpeg",
+    "specs": [
+      { "label": "Güç Çıkışı", "value": "7,4 kW" },
+      { "label": "Koruma Sınıfı", "value": "IP65 · IK10" },
+      { "label": "Bağlantı", "value": "OCPP 1.6 / 2.0.1" },
+      { "label": "Konnektör", "value": "Type 2 (IEC 62196)" },
+      { "label": "Sıcaklık", "value": "-40°C / +55°C" },
+      { "label": "Garanti", "value": "2 Yıl" }
+    ],
+    "ctaPrimary": "Ürünü İncele",
+    "ctaHref": "/products/wallbox",
+    "ctaSecondary": "Teklif Al",
+    "ctaSecondaryHref": "/contact"
   }
 }

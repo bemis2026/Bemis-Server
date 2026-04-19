@@ -17,6 +17,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import B2BCta from "./components/B2BCta";
 import SmartCharger from "./components/SmartCharger";
+import ProductShowcase from "./components/ProductShowcase";
 import SearchOverlay from "./components/SearchOverlay";
 import AIChatButton from "./components/AIChatButton";
 import SectionWrapper from "./components/SectionWrapper";
@@ -25,6 +26,7 @@ const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   stats: Stats,
   dna: DNA,
   products: Products,
+  productshowcase: ProductShowcase,
   smartcharger: SmartCharger,
   featured: FeaturedProducts,
   dealer: DealerNetwork,

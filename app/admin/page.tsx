@@ -95,6 +95,7 @@ type ContentData = {
   featuredSection?: { sectionLabel: string; heading: string; subheading: string; ctaLabel: string };
   calculator?: { sectionLabel: string; heading: string; subheading: string; tabCharge: string; tabSavings: string; chargeSimLabel: string };
   smartCharger?: { sectionLabel: string; heading: string; subheading: string; ocppBadge: string; ctaLabel: string; ctaHref: string; features: { title: string; desc: string }[] };
+  productShowcase?: { badge: string; name: string; tagline: string; description: string; image: string; specs: { label: string; value: string }[]; ctaPrimary: string; ctaHref: string; ctaSecondary: string; ctaSecondaryHref: string };
   sectionBgs?: Record<string, string>;
   logos?: { dark: string; light: string };
   ogImage?: string;
@@ -125,7 +126,7 @@ type DnaItem  = { title: string; desc: string };
 type ReviewItem = { platform: string; platformColor: string; rating: number; author: string; date: string; product: string; text: string };
 type HeroLayoutKey = "logo" | "text" | "button";
 
-type Tab = "hero" | "dna" | "stats" | "products-section" | "smartcharger" | "featured" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b";
+type Tab = "hero" | "dna" | "stats" | "products-section" | "smartcharger" | "productshowcase" | "featured" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b";
 
 export default function AdminPage() {
   const [authed, setAuthed] = useState<boolean | null>(null);
@@ -383,6 +384,28 @@ export default function AdminPage() {
     if (!content) return;
     const next = JSON.parse(JSON.stringify(content)) as ContentData;
     next.smartCharger!.features = next.smartCharger!.features.filter((_: unknown, i: number) => i !== idx);
+    setContent(next);
+  };
+
+  // ProductShowcase spec helpers
+  const updateShowcaseSpec = (idx: number, field: "label" | "value", val: string) => {
+    if (!content) return;
+    const next = JSON.parse(JSON.stringify(content)) as ContentData;
+    if (!next.productShowcase) return;
+    next.productShowcase.specs[idx][field] = val;
+    setContent(next);
+  };
+  const addShowcaseSpec = () => {
+    if (!content) return;
+    const next = JSON.parse(JSON.stringify(content)) as ContentData;
+    if (!next.productShowcase) next.productShowcase = { badge: "", name: "", tagline: "", description: "", image: "", specs: [], ctaPrimary: "", ctaHref: "", ctaSecondary: "", ctaSecondaryHref: "" };
+    next.productShowcase.specs = [...(next.productShowcase.specs ?? []), { label: "Özellik", value: "" }];
+    setContent(next);
+  };
+  const removeShowcaseSpec = (idx: number) => {
+    if (!content) return;
+    const next = JSON.parse(JSON.stringify(content)) as ContentData;
+    next.productShowcase!.specs = next.productShowcase!.specs.filter((_: unknown, i: number) => i !== idx);
     setContent(next);
   };
 
@@ -903,7 +926,7 @@ export default function AdminPage() {
 
   const TAB_ANCHOR_MAP: Partial<Record<Tab, string>> = {
     "hero": "hero", "dna": "dna", "stats": "stats",
-    "products-section": "products", "smartcharger": "smartcharger", "featured": "featured",
+    "products-section": "products", "smartcharger": "smartcharger", "productshowcase": "productshowcase", "featured": "featured",
     "calculator": "calculator",
     "dealer-section": "dealer", "dealers": "dealer",
     "reviews": "reviews", "contact-section": "contact", "contact": "contact",
@@ -925,6 +948,7 @@ export default function AdminPage() {
         { id: "dna",             label: "Hakkımızda",      icon: HiOutlineTemplate       },
         { id: "stats",           label: "İstatistikler",   icon: HiOutlineChartBar       },
         { id: "products-section",label: "Ürünler",         icon: HiOutlineCube           },
+        { id: "productshowcase", label: "Ürün Vitrini",    icon: HiOutlineStar              },
         { id: "smartcharger",    label: "Akıllı Şarj",     icon: HiOutlineLightningBolt    },
         { id: "featured",        label: "Öne Çıkanlar",    icon: HiOutlineStar              },
         { id: "calculator",      label: "Hesaplayıcı",     icon: HiOutlineLightningBolt    },
@@ -2054,6 +2078,71 @@ export default function AdminPage() {
                 </div>
               )}
 
+              {/* ── PRODUCT SHOWCASE SECTION ── */}
+              {tab === "productshowcase" && (
+                <div className="max-w-2xl space-y-5">
+                  <div>
+                    <h2 className="text-base font-bold mb-1">Ürün Vitrini</h2>
+                    <p className="text-xs text-white/35">Ana sayfadaki öne çıkan ürün tanıtım bölümü (AC Wallbox Smart Charger Pro 2).</p>
+                  </div>
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="Rozet Metni (eyebrow)" value={content.productShowcase?.badge ?? ""} onChange={(v) => updateContent(["productShowcase","badge"], v)} />
+                      <Field label="Tagline (mavi alt başlık)" value={content.productShowcase?.tagline ?? ""} onChange={(v) => updateContent(["productShowcase","tagline"], v)} />
+                    </div>
+                    <Field label="Ürün Adı" value={content.productShowcase?.name ?? ""} onChange={(v) => updateContent(["productShowcase","name"], v)} />
+                    <Field label="Açıklama Paragrafı" value={content.productShowcase?.description ?? ""} onChange={(v) => updateContent(["productShowcase","description"], v)} multiline />
+
+                    {/* Product image */}
+                    <div className="pt-2 border-t border-white/6 space-y-2">
+                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Ürün Görseli</p>
+                      {content.productShowcase?.image && (
+                        <div className="relative rounded-xl overflow-hidden" style={{ height: 120 }}>
+                          <img src={content.productShowcase.image} alt="Ürün" className="w-full h-full object-contain bg-white/5" />
+                        </div>
+                      )}
+                      <Field label="Görsel URL" value={content.productShowcase?.image ?? ""} onChange={(v) => updateContent(["productShowcase","image"], v)} />
+                    </div>
+
+                    {/* CTA buttons */}
+                    <div className="pt-2 border-t border-white/6 space-y-3">
+                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Butonlar</p>
+                      <div className="grid grid-cols-2 gap-3">
+                        <Field label="Birincil Buton Metni" value={content.productShowcase?.ctaPrimary ?? ""} onChange={(v) => updateContent(["productShowcase","ctaPrimary"], v)} />
+                        <Field label="Birincil Buton Linki" value={content.productShowcase?.ctaHref ?? ""} onChange={(v) => updateContent(["productShowcase","ctaHref"], v)} />
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <Field label="İkincil Buton Metni" value={content.productShowcase?.ctaSecondary ?? ""} onChange={(v) => updateContent(["productShowcase","ctaSecondary"], v)} />
+                        <Field label="İkincil Buton Linki" value={content.productShowcase?.ctaSecondaryHref ?? ""} onChange={(v) => updateContent(["productShowcase","ctaSecondaryHref"], v)} />
+                      </div>
+                    </div>
+
+                    {/* Specs */}
+                    <div className="pt-2 border-t border-white/6 space-y-3">
+                      <div className="flex items-center justify-between">
+                        <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Teknik Özellik Kartları</p>
+                        <button onClick={addShowcaseSpec}
+                          className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-medium text-white/50 border border-white/10 hover:border-white/20 hover:text-white/80 transition-colors">
+                          + Ekle
+                        </button>
+                      </div>
+                      {(content.productShowcase?.specs ?? []).map((s, i) => (
+                        <div key={i} className="rounded-xl border border-white/7 p-3 space-y-2" style={{ background: "rgba(255,255,255,0.02)" }}>
+                          <div className="flex items-center justify-between mb-1">
+                            <span className="text-[10px] font-bold text-white/30">#{i + 1}</span>
+                            <button onClick={() => removeShowcaseSpec(i)} className="text-[10px] text-red-400/50 hover:text-red-400 transition-colors">Sil</button>
+                          </div>
+                          <div className="grid grid-cols-2 gap-2">
+                            <Field label="Etiket" value={s.label} onChange={(v) => updateShowcaseSpec(i, "label", v)} />
+                            <Field label="Değer" value={s.value} onChange={(v) => updateShowcaseSpec(i, "value", v)} />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* ── DEALER SECTION ── */}
               {tab === "dealer-section" && (
                 <div className="max-w-2xl space-y-5">
@@ -2340,10 +2429,12 @@ export default function AdminPage() {
                       <p className="text-xs text-white/30 leading-relaxed">Her ana sayfa bölümüne ayrı arka plan görseli yükleyin. Görsel üzerine yarı şeffaf bir katman eklenir.</p>
                     </div>
                     {[
-                      { id: "stats",      label: "İstatistikler" },
-                      { id: "dna",        label: "Hakkımızda" },
-                      { id: "products",   label: "Ürün Kataloğu" },
-                      { id: "featured",   label: "Öne Çıkan Ürünler" },
+                      { id: "stats",           label: "İstatistikler" },
+                      { id: "dna",             label: "Hakkımızda" },
+                      { id: "productshowcase", label: "Ürün Vitrini" },
+                      { id: "smartcharger",    label: "Akıllı Şarj" },
+                      { id: "products",        label: "Ürün Kataloğu" },
+                      { id: "featured",        label: "Öne Çıkan Ürünler" },
                       { id: "dealer",     label: "Bayi Ağı" },
                       { id: "reviews",    label: "Kullanıcı Yorumları" },
                       { id: "calculator", label: "Şarj Hesaplayıcı" },
