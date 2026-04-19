@@ -386,6 +386,35 @@ export default function SmartCharger() {
                 </svg>
               </button>
             </div>
+
+            {/* ── Store buttons ── */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4, delay: 0.55 }}
+              className="flex flex-wrap gap-2 mt-4"
+            >
+              <a href="#"
+                className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all duration-200 hover:opacity-80 active:scale-95"
+                style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)", border: `1px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.10)"}` }}
+              >
+                <span style={{ color: d ? "#f0f0f4" : "#1a1a1a" }}><AppleIcon size={18} /></span>
+                <div>
+                  <p className="text-[9px] leading-none mb-0.5" style={{ color: textMuted }}>App Store&apos;dan İndir</p>
+                  <p className="text-xs font-bold leading-none" style={{ color: textPrimary }}>App Store</p>
+                </div>
+              </a>
+              <a href="#"
+                className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all duration-200 hover:opacity-80 active:scale-95"
+                style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)", border: `1px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.10)"}` }}
+              >
+                <span style={{ color: "#4CAF50" }}><GooglePlayIcon size={17} /></span>
+                <div>
+                  <p className="text-[9px] leading-none mb-0.5" style={{ color: textMuted }}>Google Play&apos;den İndir</p>
+                  <p className="text-xs font-bold leading-none" style={{ color: textPrimary }}>Google Play</p>
+                </div>
+              </a>
+            </motion.div>
           </motion.div>
 
           {/* ── Text content ── */}
@@ -499,12 +528,11 @@ export default function SmartCharger() {
               })}
             </div>
 
-            {/* CTA + Store buttons */}
+            {/* CTA */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.52 }}
-              className="flex flex-col gap-4"
             >
               <button
                 onClick={() => router.push(smartCharger.ctaHref)}
@@ -514,30 +542,6 @@ export default function SmartCharger() {
                 {smartCharger.ctaLabel}
                 <RiArrowRightLine size={16} />
               </button>
-
-              {/* Store badges */}
-              <div className="flex flex-wrap gap-2.5">
-                <a href="#"
-                  className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all duration-200 hover:opacity-80 active:scale-95"
-                  style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)", border: `1px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.10)"}` }}
-                >
-                  <span style={{ color: d ? "#f0f0f4" : "#1a1a1a" }}><AppleIcon size={18} /></span>
-                  <div>
-                    <p className="text-[9px] leading-none mb-0.5" style={{ color: textMuted }}>App Store&apos;dan İndir</p>
-                    <p className="text-xs font-bold leading-none" style={{ color: textPrimary }}>App Store</p>
-                  </div>
-                </a>
-                <a href="#"
-                  className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all duration-200 hover:opacity-80 active:scale-95"
-                  style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)", border: `1px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.10)"}` }}
-                >
-                  <span style={{ color: "#4CAF50" }}><GooglePlayIcon size={17} /></span>
-                  <div>
-                    <p className="text-[9px] leading-none mb-0.5" style={{ color: textMuted }}>Google Play&apos;den İndir</p>
-                    <p className="text-xs font-bold leading-none" style={{ color: textPrimary }}>Google Play</p>
-                  </div>
-                </a>
-              </div>
             </motion.div>
           </div>
         </div>
