@@ -98,7 +98,6 @@ export default function SmartCharger() {
                   >
                     {/* ── Phone mockup ── */}
                     <div className="relative flex-shrink-0">
-                      <div className="absolute inset-0 -bottom-8 blur-3xl opacity-25 rounded-[40px]" style={{ background: `linear-gradient(135deg, ${ACCENT}, ${ACCENT2})` }} />
                       <div
                         className="relative rounded-[36px] overflow-hidden"
                         style={{

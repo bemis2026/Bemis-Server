@@ -132,8 +132,28 @@ const DEFAULT_LAYOUT: HeroLayout = {
 };
 
 export const DEFAULT_SECTION_ORDER = [
-  "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "dealer", "reviews", "calculator", "contact"
+  "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "reviews", "dealer", "calculator", "contact"
 ];
+
+function migrateSectionOrder(order: string[]): string[] {
+  const known = ["dna","stats","productshowcase","smartcharger","products","featured","reviews","dealer","calculator","contact"];
+  const filtered = order.filter(s => known.includes(s));
+  const missing = known.filter(s => !filtered.includes(s));
+  const result = [...filtered, ...missing];
+  // ensure dealer comes after reviews
+  const ri = result.indexOf("reviews"), di = result.indexOf("dealer");
+  if (di !== -1 && ri !== -1 && di < ri) {
+    result.splice(di, 1);
+    result.splice(result.indexOf("reviews") + 1, 0, "dealer");
+  }
+  // ensure contact is last
+  const ci = result.indexOf("contact");
+  if (ci !== -1 && ci !== result.length - 1) {
+    result.splice(ci, 1);
+    result.push("contact");
+  }
+  return result;
+}
 
 const defaultContent: SiteContent = {
   hero: {
@@ -492,7 +512,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
         products: { ...defaultContent.products, ...data.products },
         dealer:  { ...defaultContent.dealer,  ...data.dealer  },
         contactSection: { ...defaultContent.contactSection, ...data.contactSection },
-        sectionOrder: data.sectionOrder ?? DEFAULT_SECTION_ORDER,
+        sectionOrder: migrateSectionOrder(data.sectionOrder ?? DEFAULT_SECTION_ORDER),
         textStyles: data.textStyles ?? {},
         sectionBgs: data.sectionBgs ?? {},
         logos: { dark: data.logos?.dark ?? "", light: data.logos?.light ?? "" },
@@ -526,7 +546,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
           products: { ...defaultContent.products, ...data.products },
           dealer:  { ...defaultContent.dealer,  ...data.dealer  },
           contactSection: { ...defaultContent.contactSection, ...data.contactSection },
-          sectionOrder: data.sectionOrder ?? DEFAULT_SECTION_ORDER,
+          sectionOrder: migrateSectionOrder(data.sectionOrder ?? DEFAULT_SECTION_ORDER),
           textStyles: data.textStyles ?? {},
           sectionBgs: data.sectionBgs ?? {},
           logos: { dark: data.logos?.dark ?? "", light: data.logos?.light ?? "" },
