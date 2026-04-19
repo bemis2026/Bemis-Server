@@ -21,6 +21,22 @@ const FEATURE_ACCENTS = ["#3B82F6", "#10B981", "#818CF8"];
 const ACCENT = "#3B82F6";
 const ACCENT2 = "#10B981";
 
+function AppleIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+    </svg>
+  );
+}
+
+function GooglePlayIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M3.18 23.76c.35.2.74.24 1.12.14L15.5 12 12 8.5 3.18 23.76zm17.46-11.16c-.38-.22-3.98-2.28-6.44-3.68L10.5 12l3.7 3.7c2.46-1.4 6.06-3.46 6.44-3.68.54-.32.86-.9.86-1.51-.01-.62-.33-1.19-.86-1.51zM2.3.24C2.1.44 2 .73 2 1.06v21.87c0 .34.1.63.3.83L2.44 24l12.22-12.22L2.44.1 2.3.24zm8.2 11.76L2.44 0l-.14.14C2.1.34 2 .63 2 .96v.1L10.5 12z" />
+    </svg>
+  );
+}
+
 export default function SmartCharger() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -54,16 +70,15 @@ export default function SmartCharger() {
             transition={{ duration: 0.6 }}
             className="flex justify-center lg:justify-start order-2 lg:order-1"
           >
-            {/* Outer container — phone + browser side by side */}
-            <div className="relative flex items-end gap-5">
+            <div className="relative flex items-end gap-6">
 
               {/* ── Phone mockup ── */}
-              <div className="relative flex-shrink-0" style={{ width: 220 }}>
+              <div className="relative flex-shrink-0" style={{ width: 210 }}>
                 <div className="absolute inset-0 -bottom-8 blur-3xl opacity-25 rounded-[40px]" style={{ background: `linear-gradient(135deg, ${ACCENT}, ${ACCENT2})` }} />
                 <div
                   className="relative rounded-[32px] overflow-hidden"
                   style={{
-                    width: 220, height: 450,
+                    width: 210, height: 440,
                     background: d ? "#0a0a0c" : "#1a1a1e",
                     border: `2px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.18)"}`,
                     boxShadow: `0 28px 56px rgba(0,0,0,${d ? "0.60" : "0.32"}), 0 0 0 1px rgba(255,255,255,0.06)`,
@@ -181,98 +196,133 @@ export default function SmartCharger() {
                 </motion.div>
               </div>
 
-              {/* ── Browser / Web dashboard card ── */}
+              {/* ── Laptop mockup (45° perspective) ── */}
               <motion.div
-                initial={{ opacity: 0, x: 20, y: 16 }}
+                initial={{ opacity: 0, x: 24, y: 20 }}
                 animate={inView ? { opacity: 1, x: 0, y: 0 } : {}}
-                transition={{ duration: 0.55, delay: 0.3 }}
-                className="flex-shrink-0 self-center"
-                style={{ width: 200 }}
+                transition={{ duration: 0.6, delay: 0.28 }}
+                className="flex-shrink-0 self-end"
+                style={{ perspective: "900px", paddingBottom: 8 }}
               >
-                {/* Browser window */}
-                <div
-                  className="rounded-2xl overflow-hidden"
-                  style={{
-                    background: d ? "#0d1420" : "#f8faff",
-                    border: `1.5px solid ${d ? "rgba(255,255,255,0.10)" : "rgba(59,130,246,0.15)"}`,
-                    boxShadow: d
-                      ? "0 16px 40px rgba(0,0,0,0.50), 0 0 0 1px rgba(255,255,255,0.04)"
-                      : "0 12px 32px rgba(59,130,246,0.12), 0 0 0 1px rgba(59,130,246,0.06)",
-                  }}
-                >
-                  {/* Browser chrome */}
-                  <div className="flex items-center gap-2 px-3 py-2.5" style={{ background: d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)", borderBottom: `1px solid ${d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"}` }}>
-                    <div className="flex gap-1">
-                      <div className="w-2 h-2 rounded-full" style={{ background: "#FF5F57" }} />
-                      <div className="w-2 h-2 rounded-full" style={{ background: "#FEBC2E" }} />
-                      <div className="w-2 h-2 rounded-full" style={{ background: "#28C840" }} />
+                <div style={{ transform: "rotateX(12deg) rotateY(-28deg)", transformStyle: "preserve-3d" }}>
+                  {/* Screen lid */}
+                  <div
+                    className="rounded-t-xl overflow-hidden"
+                    style={{
+                      width: 240,
+                      background: "#111214",
+                      border: "2px solid rgba(255,255,255,0.13)",
+                      borderBottom: "none",
+                      boxShadow: "0 -4px 20px rgba(0,0,0,0.4)",
+                    }}
+                  >
+                    {/* Camera notch */}
+                    <div className="flex justify-center pt-1.5 pb-1">
+                      <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#2a2a2e" }} />
                     </div>
-                    <div className="flex-1 mx-1 px-2 py-1 rounded-md flex items-center gap-1" style={{ background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)" }}>
-                      <RiComputerLine size={8} style={{ color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.30)" }} />
-                      <span className="text-[7px] font-mono truncate" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)" }}>app.bemischarge.com</span>
+
+                    {/* Screen bezel */}
+                    <div className="mx-2 mb-2 rounded-lg overflow-hidden" style={{ background: "#0d1420" }}>
+                      {/* Browser bar */}
+                      <div className="flex items-center gap-1.5 px-2 py-1.5"
+                        style={{ background: "rgba(255,255,255,0.04)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                        <div className="flex gap-1">
+                          <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#FF5F57" }} />
+                          <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#FEBC2E" }} />
+                          <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#28C840" }} />
+                        </div>
+                        <div className="flex-1 mx-1 px-1.5 py-0.5 rounded flex items-center gap-1"
+                          style={{ background: "rgba(255,255,255,0.06)" }}>
+                          <RiComputerLine size={6} style={{ color: "rgba(255,255,255,0.30)" }} />
+                          <span className="text-[6px] font-mono" style={{ color: "rgba(255,255,255,0.35)" }}>app.bemischarge.com</span>
+                        </div>
+                      </div>
+
+                      {/* Dashboard content */}
+                      <div className="p-2 space-y-1.5">
+                        {/* Header */}
+                        <div className="flex items-center justify-between">
+                          <span className="text-[8px] font-bold text-white">Şarj Yönetim Paneli</span>
+                          <span className="text-[6px] px-1.5 py-0.5 rounded-full font-semibold"
+                            style={{ background: `${ACCENT2}20`, color: ACCENT2 }}>● Canlı</span>
+                        </div>
+
+                        {/* Stats */}
+                        <div className="grid grid-cols-3 gap-1">
+                          {[
+                            { label: "Aktif", value: "12", color: ACCENT2 },
+                            { label: "Müsait", value: "4", color: ACCENT },
+                            { label: "Gelir", value: "₺2.4k", color: "#F59E0B" },
+                          ].map(s => (
+                            <div key={s.label} className="rounded-md p-1 text-center"
+                              style={{ background: "rgba(255,255,255,0.04)", border: `1px solid ${s.color}18` }}>
+                              <p className="text-[7px] font-black" style={{ color: s.color }}>{s.value}</p>
+                              <p className="text-[5px]" style={{ color: "rgba(255,255,255,0.30)" }}>{s.label}</p>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Bar chart */}
+                        <div className="rounded-md p-1.5"
+                          style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.05)" }}>
+                          <p className="text-[6px] mb-1" style={{ color: "rgba(255,255,255,0.35)" }}>Günlük Kullanım (kWh)</p>
+                          <div className="flex items-end gap-0.5 h-8">
+                            {[30, 55, 45, 70, 60, 85, 50].map((h, i) => (
+                              <motion.div
+                                key={i}
+                                className="flex-1 rounded-sm"
+                                style={{ background: i === 5 ? ACCENT : "rgba(255,255,255,0.10)" }}
+                                initial={{ height: 0 }}
+                                animate={inView ? { height: `${h}%` } : { height: 0 }}
+                                transition={{ duration: 0.6, delay: 0.7 + i * 0.06, ease: "easeOut" }}
+                              />
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Station rows */}
+                        <div className="space-y-0.5">
+                          {[
+                            { name: "Ünite #1 — Kat -1", color: ACCENT2, status: "Şarj" },
+                            { name: "Ünite #2 — Giriş", color: "rgba(255,255,255,0.20)", status: "Müsait" },
+                            { name: "Ünite #3 — Bahçe", color: "rgba(255,255,255,0.20)", status: "Müsait" },
+                          ].map(u => (
+                            <div key={u.name} className="flex items-center justify-between rounded px-1.5 py-1"
+                              style={{ background: "rgba(255,255,255,0.03)" }}>
+                              <div className="flex items-center gap-1">
+                                <div className="w-1 h-1 rounded-full" style={{ background: u.color }} />
+                                <span className="text-[6px]" style={{ color: "rgba(255,255,255,0.65)" }}>{u.name}</span>
+                              </div>
+                              <span className="text-[5px] font-semibold" style={{ color: u.color }}>{u.status}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Dashboard content */}
-                  <div className="p-3 space-y-2">
-                    {/* Title row */}
-                    <div className="flex items-center justify-between">
-                      <span className="text-[9px] font-bold" style={{ color: textPrimary }}>Şarj Yönetim Paneli</span>
-                      <span className="text-[7px] px-1.5 py-0.5 rounded-full font-semibold" style={{ background: `${ACCENT2}18`, color: ACCENT2 }}>Canlı</span>
-                    </div>
-
-                    {/* Stat row */}
-                    <div className="grid grid-cols-3 gap-1">
-                      {[
-                        { label: "Aktif", value: "12", color: ACCENT2 },
-                        { label: "Müsait", value: "4",  color: ACCENT },
-                        { label: "Gelir", value: "₺2.4k", color: "#F59E0B" },
-                      ].map(s => (
-                        <div key={s.label} className="rounded-lg p-1.5 text-center" style={{ background: d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)", border: `1px solid ${s.color}20` }}>
-                          <p className="text-[8px] font-black" style={{ color: s.color }}>{s.value}</p>
-                          <p className="text-[6px]" style={{ color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)" }}>{s.label}</p>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Chart bar */}
-                    <div className="rounded-lg p-2 space-y-1" style={{ background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.02)", border: `1px solid ${d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)"}` }}>
-                      <p className="text-[7px] font-semibold mb-1" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)" }}>Günlük Kullanım (kWh)</p>
-                      <div className="flex items-end gap-1 h-10">
-                        {[30, 55, 45, 70, 60, 85, 50].map((h, i) => (
-                          <motion.div
-                            key={i}
-                            className="flex-1 rounded-sm"
-                            style={{ background: i === 5 ? ACCENT : (d ? "rgba(255,255,255,0.10)" : "rgba(59,130,246,0.15)") }}
-                            initial={{ height: 0 }}
-                            animate={inView ? { height: `${h}%` } : { height: 0 }}
-                            transition={{ duration: 0.6, delay: 0.6 + i * 0.06, ease: "easeOut" }}
-                          />
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Station list */}
-                    <div className="space-y-1">
-                      {[
-                        { name: "Ünite #1 — Kat -1", status: "Şarj Oluyor", color: ACCENT2 },
-                        { name: "Ünite #2 — Giriş", status: "Müsait", color: d ? "rgba(255,255,255,0.22)" : "rgba(0,0,0,0.20)" },
-                        { name: "Ünite #3 — Bahçe", status: "Müsait", color: d ? "rgba(255,255,255,0.22)" : "rgba(0,0,0,0.20)" },
-                      ].map(u => (
-                        <div key={u.name} className="flex items-center justify-between rounded-lg px-2 py-1" style={{ background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.02)" }}>
-                          <div className="flex items-center gap-1.5">
-                            <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: u.color }} />
-                            <span className="text-[7px] font-medium" style={{ color: textPrimary }}>{u.name}</span>
-                          </div>
-                          <span className="text-[6px] font-semibold" style={{ color: u.color }}>{u.status}</span>
-                        </div>
-                      ))}
+                  {/* Keyboard base */}
+                  <div
+                    className="rounded-b-lg"
+                    style={{
+                      width: 240,
+                      height: 14,
+                      background: "linear-gradient(180deg, #1e1e22 0%, #28282e 100%)",
+                      border: "2px solid rgba(255,255,255,0.10)",
+                      borderTop: "1px solid rgba(255,255,255,0.08)",
+                      boxShadow: "0 8px 24px rgba(0,0,0,0.55)",
+                    }}
+                  >
+                    {/* Trackpad hint */}
+                    <div className="flex justify-center items-center h-full">
+                      <div className="rounded-sm opacity-20"
+                        style={{ width: 40, height: 6, background: "rgba(255,255,255,0.3)" }} />
                     </div>
                   </div>
                 </div>
 
                 {/* Label below */}
-                <div className="mt-2 flex items-center justify-center gap-1.5">
+                <div className="mt-3 flex items-center justify-center gap-1.5">
                   <RiComputerLine size={11} style={{ color: textMuted }} />
                   <span className="text-[10px] font-medium" style={{ color: textMuted }}>Web Yönetim Paneli</span>
                 </div>
@@ -362,18 +412,58 @@ export default function SmartCharger() {
               })}
             </div>
 
-            {/* CTA */}
-            <motion.button
+            {/* CTA + Store buttons */}
+            <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.5 }}
-              onClick={() => router.push(smartCharger.ctaHref)}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-bold transition-all duration-200 hover:opacity-90 active:scale-95"
-              style={{ background: `linear-gradient(135deg, ${ACCENT}, #2563EB)`, color: "#fff", boxShadow: `0 6px 20px ${ACCENT}40` }}
+              className="flex flex-col gap-4"
             >
-              {smartCharger.ctaLabel}
-              <RiArrowRightLine size={16} />
-            </motion.button>
+              <button
+                onClick={() => router.push(smartCharger.ctaHref)}
+                className="self-start inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-bold transition-all duration-200 hover:opacity-90 active:scale-95"
+                style={{ background: `linear-gradient(135deg, ${ACCENT}, #2563EB)`, color: "#fff", boxShadow: `0 6px 20px ${ACCENT}40` }}
+              >
+                {smartCharger.ctaLabel}
+                <RiArrowRightLine size={16} />
+              </button>
+
+              {/* App Store buttons */}
+              <div className="flex flex-wrap gap-2.5">
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all duration-200 hover:opacity-80 active:scale-95"
+                  style={{
+                    background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)",
+                    border: `1px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.10)"}`,
+                  }}
+                >
+                  <span style={{ color: d ? "#f0f0f4" : "#1a1a1a" }}>
+                    <AppleIcon size={18} />
+                  </span>
+                  <div>
+                    <p className="text-[9px] leading-none mb-0.5" style={{ color: textMuted }}>App Store&apos;dan İndir</p>
+                    <p className="text-xs font-bold leading-none" style={{ color: textPrimary }}>App Store</p>
+                  </div>
+                </a>
+                <a
+                  href="#"
+                  className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all duration-200 hover:opacity-80 active:scale-95"
+                  style={{
+                    background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)",
+                    border: `1px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.10)"}`,
+                  }}
+                >
+                  <span style={{ color: "#4CAF50" }}>
+                    <GooglePlayIcon size={17} />
+                  </span>
+                  <div>
+                    <p className="text-[9px] leading-none mb-0.5" style={{ color: textMuted }}>Google Play&apos;den İndir</p>
+                    <p className="text-xs font-bold leading-none" style={{ color: textPrimary }}>Google Play</p>
+                  </div>
+                </a>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
