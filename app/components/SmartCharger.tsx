@@ -79,7 +79,7 @@ export default function SmartCharger() {
             className="flex flex-col items-center lg:items-start order-2 lg:order-1"
           >
             {/* Slide area */}
-            <div className="relative" style={{ width: 300, height: 560 }}>
+            <div className="relative" style={{ width: 340, height: 630 }}>
               <AnimatePresence initial={false} mode="wait">
                 {mockupIndex === 0 ? (
                   <motion.div
@@ -100,7 +100,7 @@ export default function SmartCharger() {
                       <div
                         className="relative rounded-[36px] overflow-hidden"
                         style={{
-                          width: 262, height: 534,
+                          width: 292, height: 596,
                           background: d ? "#0a0a0c" : "#1a1a1e",
                           border: `2.5px solid ${d ? "rgba(255,255,255,0.14)" : "rgba(255,255,255,0.20)"}`,
                           boxShadow: `0 32px 64px rgba(0,0,0,${d ? "0.65" : "0.35"}), 0 0 0 1px rgba(255,255,255,0.06)`,

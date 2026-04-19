@@ -455,11 +455,11 @@ export default function Calculator() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div style={{
           position: "absolute", top: "-30%", left: "-15%", width: "55%", height: "90%",
-          background: `radial-gradient(ellipse, ${BLUE}16 0%, transparent 65%)`,
+          background: `radial-gradient(ellipse, ${d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.03)"} 0%, transparent 65%)`,
         }} />
         <div style={{
           position: "absolute", bottom: "-30%", right: "-10%", width: "55%", height: "90%",
-          background: `radial-gradient(ellipse, ${ORANGE}12 0%, transparent 65%)`,
+          background: `radial-gradient(ellipse, ${ORANGE}08 0%, transparent 65%)`,
         }} />
         <div style={{
           position: "absolute", inset: 0,
@@ -716,8 +716,8 @@ export default function Calculator() {
                   className="rounded-2xl overflow-hidden h-full"
                   style={{
                     background: d
-                      ? "linear-gradient(145deg, #0c1422 0%, #0f1929 50%, #0a1018 100%)"
-                      : "linear-gradient(145deg, #e8f0fe 0%, #f0f4ff 60%, #eaf0ff 100%)",
+                      ? "linear-gradient(145deg, #0e0e12 0%, #111116 50%, #0d0d11 100%)"
+                      : "linear-gradient(145deg, #f0f1f6 0%, #f4f5f9 60%, #eef0f5 100%)",
                     border: `1px solid ${accentColor}30`,
                     boxShadow: `0 0 48px ${accentColor}12, 0 4px 24px rgba(0,0,0,0.15)`,
                   }}
@@ -891,8 +891,8 @@ export default function Calculator() {
                   className="rounded-2xl overflow-hidden h-full"
                   style={{
                     background: d
-                      ? "linear-gradient(145deg, #071a0f 0%, #0a1f12 50%, #061508 100%)"
-                      : "linear-gradient(145deg, #e8faf2 0%, #f0faf5 60%, #eafaf2 100%)",
+                      ? "linear-gradient(145deg, #0e0e12 0%, #111116 50%, #0d0d11 100%)"
+                      : "linear-gradient(145deg, #f0f1f6 0%, #f4f5f9 60%, #eef0f5 100%)",
                     border: `1px solid ${GREEN}30`,
                     boxShadow: `0 0 48px ${GREEN}10, 0 4px 24px rgba(0,0,0,0.15)`,
                   }}
