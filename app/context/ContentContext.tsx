@@ -312,8 +312,7 @@ const defaultContent: SiteContent = {
     ctaHref: "/products/charger-equipment",
     features: [
       { title: "Uzaktan İzleme & Kontrol", desc: "Şarj ünitelerini gerçek zamanlı takip edin, başlatın veya durdurun. Anlık durum bildirimleri alın." },
-      { title: "Ortak Alan Optimizasyonu", desc: "Çok kullanıcılı erişim, dinamik yük dengeleme ve ödeme sistemi entegrasyonu ile tam yönetim." },
-      { title: "Açık OCPP Ekosistemi", desc: "Standart OCPP protokolü ile tüm ağ operatörleri ve back-end platformlarıyla uyumlu çalışır." },
+      { title: "Ortak Alan Optimizasyonu", desc: "Çok kullanıcılı erişim, dinamik yük dengeleme ve ödeme sistemi entegrasyonu ile tam yönetim. Standart OCPP protokolü ile tüm ağ operatörleri ve back-end platformlarıyla uyumlu çalışır." },
     ],
   },
   productShowcase: {
@@ -559,7 +558,13 @@ export function ContentProvider({ children }: { children: ReactNode }) {
           smartCharger: {
             ...defaultContent.smartCharger,
             ...data.smartCharger,
-            features: data.smartCharger?.features ?? defaultContent.smartCharger.features,
+            features: (() => {
+              const fs = data.smartCharger?.features ?? defaultContent.smartCharger.features;
+              if (fs.length === 3 && fs[2]?.title?.includes("OCPP")) {
+                return [fs[0], { ...fs[1], desc: fs[1].desc + (fs[1].desc.endsWith(".") ? " " : ". ") + fs[2].desc }];
+              }
+              return fs;
+            })(),
             ctaLabel: (data.smartCharger?.ctaLabel && data.smartCharger.ctaLabel !== "Charger Serisini İncele")
               ? data.smartCharger.ctaLabel
               : defaultContent.smartCharger.ctaLabel,
