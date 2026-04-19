@@ -59,6 +59,7 @@ export default function B2BCta() {
 
   return (
     <section
+      id="b2bcta"
       className="relative overflow-hidden py-14 sm:py-16"
       style={{ background: bg, borderTop: `1px solid ${border}` }}
     >

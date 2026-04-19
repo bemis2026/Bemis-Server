@@ -922,7 +922,7 @@ export default function AdminPage() {
       label: "Sayfa Bölümleri",
       items: [
         { id: "hero",            label: "Hero",            icon: HiOutlineHome           },
-        { id: "dna",             label: "Kurumsal",        icon: HiOutlineTemplate       },
+        { id: "dna",             label: "Hakkımızda",      icon: HiOutlineTemplate       },
         { id: "stats",           label: "İstatistikler",   icon: HiOutlineChartBar       },
         { id: "products-section",label: "Ürünler",         icon: HiOutlineCube           },
         { id: "smartcharger",    label: "Akıllı Şarj",     icon: HiOutlineLightningBolt    },
@@ -1794,8 +1794,8 @@ export default function AdminPage() {
               {tab === "dna" && (
                 <div className="max-w-2xl space-y-5">
                   <div>
-                    <h2 className="text-base font-bold mb-1">Kurumsal Bölümü</h2>
-                    <p className="text-xs text-white/35">Ana sayfadaki Kurumsal / DNA bölümü içerikleri.</p>
+                    <h2 className="text-base font-bold mb-1">Hakkımızda Bölümü</h2>
+                    <p className="text-xs text-white/35">Ana sayfadaki Hakkımızda bölümü içerikleri.</p>
                   </div>
                   <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
                             <div className="grid grid-cols-2 gap-3">
@@ -2341,7 +2341,7 @@ export default function AdminPage() {
                     </div>
                     {[
                       { id: "stats",      label: "İstatistikler" },
-                      { id: "dna",        label: "Kurumsal (DNA)" },
+                      { id: "dna",        label: "Hakkımızda" },
                       { id: "products",   label: "Ürün Kataloğu" },
                       { id: "featured",   label: "Öne Çıkan Ürünler" },
                       { id: "dealer",     label: "Bayi Ağı" },
@@ -3488,6 +3488,10 @@ function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { onSaved?: () => 
     if (!data || !postToPreview) return;
     const timer = setTimeout(() => {
       postToPreview({ type: "BEMIS_B2B_PREVIEW", b2bData: data });
+      // "Ana Sayfa Bandı" is at bottom of homepage — scroll preview to it
+      if (subTab === "cta") {
+        setTimeout(() => postToPreview({ type: "BEMIS_PREVIEW_SCROLL", anchor: "b2bcta" }), 400);
+      }
     }, 1200);
     return () => clearTimeout(timer);
   // eslint-disable-next-line react-hooks/exhaustive-deps

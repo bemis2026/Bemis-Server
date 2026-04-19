@@ -161,7 +161,7 @@ const defaultContent: SiteContent = {
   },
   social: { linkedin: "", instagram: "", twitter: "" },
   dna: {
-    sectionLabel: "Kurumsal",
+    sectionLabel: "Hakkımızda",
     sectionHeading: "Üretimden yazılıma — her şey bizden",
     brandHeading: "Bemis kalitesiyle\nYerli EV şarj çözümleri",
     brandPara1: "1994 yılında Bursa'da kurulan Bemis Teknik Elektrik A.Ş., üç dekadı aşan tecrübesiyle Türkiye'nin önde gelen elektrik ekipmanları üreticilerinden biri haline geldi. Bemis E-V Charge, bu köklü altyapının üzerine inşa edilmiş EV şarj alt markamızdır.",
@@ -238,7 +238,8 @@ const defaultContent: SiteContent = {
     ctaLabel: "Bize Ulaşın",
     links: [
       { label: "Ana Sayfa",   href: "#hero"       },
-      { label: "Kurumsal",    href: "#dna"        },
+      { label: "Hakkımızda",  href: "#dna"        },
+      { label: "Kurumsal Satış", href: "/b2b"    },
       { label: "Ürünler",     href: "#products"   },
       { label: "Hesaplayıcı", href: "#calculator" },
       { label: "Bayi Ağı",    href: "#dealer"     },

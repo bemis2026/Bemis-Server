@@ -13,7 +13,8 @@ import E from "./E";
 
 const navLinks = [
   { label: "Ana Sayfa",   href: "#hero"       },
-  { label: "Kurumsal",    href: "#dna"        },
+  { label: "Hakkımızda",  href: "#dna"        },
+  { label: "Kurumsal Satış", href: "/b2b"    },
   { label: "Ürünler",     href: "#products"   },
   { label: "Dökümanlar",  href: "/documents"  },
   { label: "Hesaplayıcı", href: "#calculator" },
