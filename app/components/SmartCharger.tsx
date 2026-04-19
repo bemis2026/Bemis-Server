@@ -489,18 +489,6 @@ export default function SmartCharger() {
               </div>
             </motion.div>
 
-            {/* OCPP badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.20 }}
-              className="inline-flex items-center gap-2 mb-7 px-3.5 py-2 rounded-xl"
-              style={{ background: `${ACCENT2}10`, border: `1px solid ${ACCENT2}22` }}
-            >
-              <RiCodeSSlashLine size={14} style={{ color: ACCENT2 }} />
-              <span className="text-xs font-semibold" style={{ color: ACCENT2 }}>{smartCharger.ocppBadge}</span>
-            </motion.div>
-
             {/* Features */}
             <div className="space-y-3 mb-8">
               {(smartCharger.features ?? []).map((f, i) => {
@@ -522,6 +510,13 @@ export default function SmartCharger() {
                     <div>
                       <p className="text-sm font-semibold mb-0.5" style={{ color: textPrimary }}>{f.title}</p>
                       <p className="text-xs leading-relaxed" style={{ color: textMuted }}>{f.desc}</p>
+                      {i === 1 && smartCharger.ocppBadge && (
+                        <div className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1 rounded-lg"
+                          style={{ background: `${ACCENT2}12`, border: `1px solid ${ACCENT2}25` }}>
+                          <RiCodeSSlashLine size={11} style={{ color: ACCENT2 }} />
+                          <span className="text-[10px] font-semibold" style={{ color: ACCENT2 }}>{smartCharger.ocppBadge}</span>
+                        </div>
+                      )}
                     </div>
                   </motion.div>
                 );
