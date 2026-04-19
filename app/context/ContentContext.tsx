@@ -252,11 +252,12 @@ const defaultContent: SiteContent = {
     links: [
       { label: "Ana Sayfa",   href: "#hero"       },
       { label: "Hakkımızda",  href: "#dna"        },
-      { label: "Kurumsal Satış", href: "/b2b"    },
       { label: "Ürünler",     href: "#products"   },
-      { label: "Hesaplayıcı", href: "#calculator" },
+      { label: "Dökümanlar",  href: "/documents"  },
       { label: "Bayi Ağı",    href: "#dealer"     },
+      { label: "Hesaplayıcı", href: "#calculator" },
       { label: "İletişim",    href: "#contact"    },
+      { label: "Kurumsal",    href: "/b2b"        },
     ],
   },
   footer: {

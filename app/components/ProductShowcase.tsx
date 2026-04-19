@@ -42,12 +42,6 @@ export default function ProductShowcase() {
       <div className="absolute pointer-events-none" style={{ top: "20%", left: "30%", width: 600, height: 500, borderRadius: "50%", background: `radial-gradient(ellipse, ${ACCENT}0f 0%, transparent 65%)` }} />
       <div className="absolute pointer-events-none" style={{ bottom: 0, right: "10%", width: 400, height: 300, borderRadius: "50%", background: `radial-gradient(ellipse, rgba(139,92,246,0.07) 0%, transparent 70%)` }} />
 
-      {/* Subtle grid pattern */}
-      <div className="absolute inset-0 pointer-events-none" style={{
-        backgroundImage: `linear-gradient(${d ? "rgba(255,255,255,0.018)" : "rgba(0,0,0,0.03)"} 1px, transparent 1px), linear-gradient(90deg, ${d ? "rgba(255,255,255,0.018)" : "rgba(0,0,0,0.03)"} 1px, transparent 1px)`,
-        backgroundSize: "48px 48px",
-        maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)",
-      }} />
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">

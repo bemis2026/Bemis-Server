@@ -14,12 +14,12 @@ import E from "./E";
 const navLinks = [
   { label: "Ana Sayfa",   href: "#hero"       },
   { label: "Hakkımızda",  href: "#dna"        },
-  { label: "Kurumsal Satış", href: "/b2b"    },
   { label: "Ürünler",     href: "#products"   },
   { label: "Dökümanlar",  href: "/documents"  },
-  { label: "Hesaplayıcı", href: "#calculator" },
   { label: "Bayi Ağı",    href: "#dealer"     },
+  { label: "Hesaplayıcı", href: "#calculator" },
   { label: "İletişim",    href: "#contact"    },
+  { label: "Kurumsal",    href: "/b2b"        },
 ];
 
 interface NavbarProps {

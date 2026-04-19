@@ -309,9 +309,11 @@ export default function AdminPage() {
   const handleSaveContent = async () => {
     if (!content) return;
     setSaving(true);
-    const res = await fetch("/api/admin/content", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(content) });
-    if (res.ok) { showToast("ok", "İçerik kaydedildi."); setPreviewKey((k) => k + 1); }
-    else showToast("err", "Kayıt başarısız.");
+    try {
+      const res = await fetch("/api/admin/content", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(content) });
+      if (res.ok) { showToast("ok", "İçerik kaydedildi."); setPreviewKey((k) => k + 1); }
+      else showToast("err", "Kayıt başarısız.");
+    } catch { showToast("err", "Ağ hatası."); }
     setSaving(false);
   };
 
@@ -434,17 +436,21 @@ export default function AdminPage() {
 
   const handleSaveDealers = async () => {
     setDealersSaving(true);
-    const res = await fetch("/api/admin/dealers", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(dealers) });
-    if (res.ok) { showToast("ok", "Bayiler kaydedildi."); setPreviewKey((k) => k + 1); }
-    else showToast("err", "Kayıt başarısız.");
+    try {
+      const res = await fetch("/api/admin/dealers", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(dealers) });
+      if (res.ok) { showToast("ok", "Bayiler kaydedildi."); setPreviewKey((k) => k + 1); }
+      else showToast("err", "Kayıt başarısız.");
+    } catch { showToast("err", "Ağ hatası."); }
     setDealersSaving(false);
   };
 
   const handleSaveProducts = async () => {
     setSavingProducts(true);
-    const res = await fetch("/api/admin/products", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(products) });
-    if (res.ok) { showToast("ok", "Ürün verileri kaydedildi."); setPreviewKey((k) => k + 1); }
-    else showToast("err", "Kayıt başarısız.");
+    try {
+      const res = await fetch("/api/admin/products", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(products) });
+      if (res.ok) { showToast("ok", "Ürün verileri kaydedildi."); setPreviewKey((k) => k + 1); }
+      else showToast("err", "Kayıt başarısız.");
+    } catch { showToast("err", "Ağ hatası."); }
     setSavingProducts(false);
   };
 
@@ -980,12 +986,14 @@ export default function AdminPage() {
   const handleSaveProductsTab = async () => {
     setSaving(true);
     setSavingProducts(true);
-    const [r1, r2] = await Promise.all([
-      fetch("/api/admin/content", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(content) }),
-      fetch("/api/admin/products", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(products) }),
-    ]);
-    if (r1.ok && r2.ok) showToast("ok", "Ürünler kaydedildi.");
-    else showToast("err", "Kayıt başarısız.");
+    try {
+      const [r1, r2] = await Promise.all([
+        fetch("/api/admin/content", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(content) }),
+        fetch("/api/admin/products", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(products) }),
+      ]);
+      if (r1.ok && r2.ok) showToast("ok", "Ürünler kaydedildi.");
+      else showToast("err", "Kayıt başarısız.");
+    } catch { showToast("err", "Ağ hatası."); }
     setSaving(false);
     setSavingProducts(false);
   };
