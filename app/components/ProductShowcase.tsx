@@ -88,6 +88,31 @@ export default function ProductShowcase() {
                 </div>
               )}
 
+              {/* Product name overlay — top */}
+              <motion.div
+                initial={{ opacity: 0, y: -8 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.45 }}
+                className="absolute top-4 left-4 right-4"
+              >
+                <div
+                  className="inline-flex flex-col px-3.5 py-2.5 rounded-2xl"
+                  style={{
+                    background: "rgba(8,12,24,0.82)",
+                    border: "1px solid rgba(255,255,255,0.10)",
+                    backdropFilter: "blur(16px)",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.25)",
+                  }}
+                >
+                  <span className="text-[9px] font-bold uppercase tracking-widest" style={{ color: `${ACCENT}cc` }}>
+                    {ps?.badge ?? "Amiral Gemisi"}
+                  </span>
+                  <span className="text-sm font-black text-white leading-tight mt-0.5">
+                    {ps?.name ?? "Charger Pro 2"}
+                  </span>
+                </div>
+              </motion.div>
+
               {/* Feature badges — bottom left grid */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
