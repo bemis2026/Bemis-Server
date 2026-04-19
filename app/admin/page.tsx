@@ -137,6 +137,7 @@ export default function AdminPage() {
   const [showPreview, setShowPreview] = useState(false);
   const [previewMode, setPreviewMode] = useState<"desktop" | "mobile">("desktop");
   const [previewKey, setPreviewKey] = useState(0);
+  const [b2bSubPage, setB2bSubPage] = useState("/b2b");
   const [content, setContent] = useState<ContentData | null>(null);
   const [products, setProducts] = useState<CategoryData[]>([]);
   const [saving, setSaving] = useState(false);
@@ -886,7 +887,7 @@ export default function AdminPage() {
     "products": "/products",
     "documents": "/documents",
   };
-  const previewSrc = SEPARATE_PAGE_TABS[tab] ?? "/";
+  const previewSrc = tab === "b2b" ? b2bSubPage : (SEPARATE_PAGE_TABS[tab] ?? "/");
 
   const TAB_GROUPS: { label: string; items: { id: Tab; label: string; icon: React.ElementType }[] }[] = [
     {
@@ -1008,7 +1009,7 @@ export default function AdminPage() {
             <div key={group.label} className="mb-1">
               <p className="text-[9px] font-bold text-white/20 uppercase tracking-widest px-2 pt-2 pb-1">{group.label}</p>
               {group.items.map((t) => (
-                <button key={t.id} onClick={() => setTab(t.id)}
+                <button key={t.id} onClick={() => { setTab(t.id); if (t.id !== "b2b") setB2bSubPage("/b2b"); }}
                   className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-xs font-medium text-left transition-all duration-200 ${
                     tab === t.id ? "bg-white/10 text-white" : "text-white/40 hover:text-white/70 hover:bg-white/4"
                   }`}
@@ -2461,7 +2462,7 @@ export default function AdminPage() {
               {tab === "changelog" && <ChangelogPanel />}
 
               {/* ── B2B / OEM ── */}
-              {tab === "b2b" && <B2BPanel onSaved={() => { setShowPreview(true); setPreviewKey(k => k + 1); }} postToPreview={postToPreview} />}
+              {tab === "b2b" && <B2BPanel onSaved={() => { setShowPreview(true); setPreviewKey(k => k + 1); }} postToPreview={postToPreview} onSubTabChange={(page) => { setB2bSubPage(page); setShowPreview(true); setPreviewKey(k => k + 1); }} />}
 
             </motion.div>
           </AnimatePresence>
@@ -3382,7 +3383,7 @@ function SectionHeader({ color, icon: Icon, title, description }: { color: strin
   );
 }
 
-function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPreview?: (msg: object) => void }) {
+function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { onSaved?: () => void; postToPreview?: (msg: object) => void; onSubTabChange?: (page: string) => void }) {
   const [data, setData] = useState<B2BPageData | null>(null);
   const [saving, setSaving] = useState(false);
   const [toast, setToast] = useState<"ok" | "err" | null>(null);
@@ -3397,7 +3398,7 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
       .catch(() => {});
   }, []);
 
-  // Debounced live preview — sends B2B data to the /b2b iframe whenever data changes
+  // Debounced live preview — sends B2B data to the iframe whenever data changes
   useEffect(() => {
     if (!data || !postToPreview) return;
     if (previewDebRef.current) clearTimeout(previewDebRef.current);
@@ -3406,6 +3407,19 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
     }, 400);
     return () => { if (previewDebRef.current) clearTimeout(previewDebRef.current); };
   }, [data, postToPreview]);
+
+  // Re-send preview after sub-tab change (iframe navigates to new page, needs time to load)
+  const prevSubTabRef = useRef(subTab);
+  useEffect(() => {
+    if (prevSubTabRef.current === subTab) return;
+    prevSubTabRef.current = subTab;
+    if (!data || !postToPreview) return;
+    const timer = setTimeout(() => {
+      postToPreview({ type: "BEMIS_B2B_PREVIEW", b2bData: data });
+    }, 1200);
+    return () => clearTimeout(timer);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [subTab]);
 
   const showToast = (type: "ok" | "err") => { setToast(type); setTimeout(() => setToast(null), 3000); };
 
@@ -3505,7 +3519,7 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
       {/* ── Tab bar ───────────────────────────────────────── */}
       <div className="grid grid-cols-4 gap-1.5 mb-7 p-1.5 rounded-2xl" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
         {B2B_TAB_META.map(t => (
-          <button key={t.id} onClick={() => setSubTab(t.id)}
+          <button key={t.id} onClick={() => { setSubTab(t.id); onSubTabChange?.(t.page); }}
             className="flex flex-col items-center gap-1.5 py-3 px-2 rounded-xl text-[11px] font-semibold transition-all duration-200"
             style={subTab === t.id
               ? { background: `${t.color}12`, color: t.color, border: `1px solid ${t.color}25`, boxShadow: `0 0 20px ${t.color}10` }
