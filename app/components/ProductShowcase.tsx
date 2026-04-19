@@ -10,6 +10,9 @@ import {
   RiLeafLine,
   RiWifiLine,
   RiAwardLine,
+  RiSmartphoneLine,
+  RiCalendarCheckLine,
+  RiTeamLine,
 } from "react-icons/ri";
 import Image from "next/image";
 import { useTheme } from "../context/ThemeContext";
@@ -85,46 +88,35 @@ export default function ProductShowcase() {
                 </div>
               )}
 
-              {/* Floating spec badge — top right */}
-              {specs[0] && (
-                <motion.div
-                  initial={{ opacity: 0, x: -12, y: 8 }}
-                  animate={inView ? { opacity: 1, x: 0, y: 0 } : {}}
-                  transition={{ duration: 0.45, delay: 0.5 }}
-                  className="absolute top-4 right-4 rounded-2xl px-3 py-2"
-                  style={{
-                    background: "rgba(10,15,30,0.88)",
-                    border: `1px solid ${ACCENT}30`,
-                    backdropFilter: "blur(12px)",
-                    boxShadow: "0 4px 16px rgba(0,0,0,0.20)",
-                  }}
-                >
-                  <p className="text-[9px] font-semibold uppercase tracking-wider mb-0.5" style={{ color: "rgba(240,240,244,0.50)" }}>{specs[0].label}</p>
-                  <p className="text-sm font-black text-white">{specs[0].value}</p>
-                </motion.div>
-              )}
-
-              {/* Floating spec badge — bottom left */}
-              {specs[1] && (
-                <motion.div
-                  initial={{ opacity: 0, x: 12, y: 8 }}
-                  animate={inView ? { opacity: 1, x: 0, y: 0 } : {}}
-                  transition={{ duration: 0.45, delay: 0.65 }}
-                  className="absolute bottom-4 left-4 rounded-2xl px-3 py-2 flex items-center gap-2"
-                  style={{
-                    background: "rgba(10,15,30,0.88)",
-                    border: `1px solid rgba(16,185,129,0.30)`,
-                    backdropFilter: "blur(12px)",
-                    boxShadow: "0 4px 16px rgba(0,0,0,0.20)",
-                  }}
-                >
-                  <RiShieldCheckLine size={16} style={{ color: "#10B981" }} />
-                  <div>
-                    <p className="text-[9px] font-semibold uppercase tracking-wider" style={{ color: "rgba(240,240,244,0.50)" }}>{specs[1].label}</p>
-                    <p className="text-xs font-bold text-white">{specs[1].value}</p>
+              {/* Feature badges — bottom left grid */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.45, delay: 0.55 }}
+                className="absolute bottom-4 left-4 grid grid-cols-2 gap-1.5"
+                style={{ maxWidth: "calc(100% - 96px)" }}
+              >
+                {[
+                  { icon: RiShieldCheckLine, label: specs[1]?.label ?? "Koruma", value: specs[1]?.value ?? "IP 65", color: "#10B981" },
+                  { icon: RiCalendarCheckLine, label: "Özellik", value: "Planlı Şarj", color: ACCENT },
+                  { icon: RiTeamLine, label: "Özellik", value: "Ortak Kullanım", color: "#818CF8" },
+                  { icon: RiSmartphoneLine, label: "Özellik", value: "Mobil Uygulama", color: "#F59E0B" },
+                ].map((b, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-1.5 rounded-xl px-2 py-1.5"
+                    style={{
+                      background: "rgba(10,15,30,0.88)",
+                      border: `1px solid ${b.color}30`,
+                      backdropFilter: "blur(12px)",
+                      boxShadow: "0 2px 10px rgba(0,0,0,0.18)",
+                    }}
+                  >
+                    <b.icon size={12} style={{ color: b.color, flexShrink: 0 }} />
+                    <p className="text-[9px] font-bold text-white leading-tight">{b.value}</p>
                   </div>
-                </motion.div>
-              )}
+                ))}
+              </motion.div>
 
               {/* Yerli üretim — çerçevesiz, direkt görsel üzerine */}
               <motion.div
