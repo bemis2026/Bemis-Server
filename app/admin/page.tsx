@@ -3320,6 +3320,53 @@ const defaultCta = (): B2BCta => ({ eyebrow: "", heading: "", description: "", t
 
 const TAG_OPTIONS = ["Mevcut", "OEM Mevcut", "Geliştirme", "Yakında", "Stoğa Bağlı"];
 
+const B2B_TAB_META = [
+  { id: "oem"      as const, label: "OEM / Üretici",  icon: HiOutlineOfficeBuilding, color: "#F59E0B", page: "/b2b"     },
+  { id: "bayilik"  as const, label: "Bayilik",         icon: HiOutlineClipboardList,  color: "#10B981", page: "/bayilik" },
+  { id: "operator" as const, label: "Operatörler",     icon: HiOutlineLightningBolt,  color: "#818CF8", page: "/operator"},
+  { id: "cta"      as const, label: "Ana Sayfa Bandı", icon: HiOutlineTemplate,       color: "#3B82F6", page: "/"       },
+];
+
+function B2BCard({ children, accent }: { children: React.ReactNode; accent: string }) {
+  return (
+    <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.025)" }}>
+      <div className="h-0.5 w-full" style={{ background: `linear-gradient(90deg, ${accent}60 0%, transparent 70%)` }} />
+      <div className="p-5">{children}</div>
+    </div>
+  );
+}
+
+function B2BSectionTitle({ label, hint }: { label: string; hint?: string }) {
+  return (
+    <div className="flex items-center justify-between mb-4">
+      <p className="text-[11px] font-bold text-white/50 uppercase tracking-widest">{label}</p>
+      {hint && <p className="text-[10px] text-white/25">{hint}</p>}
+    </div>
+  );
+}
+
+function B2BAddBtn({ onClick, label }: { onClick: () => void; label: string }) {
+  return (
+    <button onClick={onClick}
+      className="flex items-center gap-1.5 text-xs px-3 py-2 rounded-xl border border-white/8 hover:border-white/20 text-white/35 hover:text-white/65 transition-all">
+      <HiOutlinePlus size={12} /> {label}
+    </button>
+  );
+}
+
+function B2BDelBtn({ onClick }: { onClick: () => void }) {
+  return (
+    <button onClick={onClick}
+      className="w-7 h-7 flex items-center justify-center rounded-lg border border-white/6 hover:border-red-500/30 text-white/20 hover:text-red-400 transition-all flex-shrink-0">
+      <HiOutlineTrash size={12} />
+    </button>
+  );
+}
+
+// Convenience wrappers — called as functions {addBtn(...)}, not as <AddBtn>, so no remount issue
+const addBtn = (onClick: () => void, label: string) => <B2BAddBtn key={label} onClick={onClick} label={label} />;
+const delBtn = (onClick: () => void) => <B2BDelBtn onClick={onClick} />;
+
 function SectionHeader({ color, icon: Icon, title, description }: { color: string; icon: React.ElementType; title: string; description?: string }) {
   return (
     <div className="flex items-start gap-3 mb-5">
@@ -3419,42 +3466,7 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
     </div>
   );
 
-  const TAB_META = [
-    { id: "oem"      as const, label: "OEM / Üretici",  icon: HiOutlineOfficeBuilding, color: "#F59E0B", page: "/b2b"     },
-    { id: "bayilik"  as const, label: "Bayilik",         icon: HiOutlineClipboardList,  color: "#10B981", page: "/bayilik" },
-    { id: "operator" as const, label: "Operatörler",     icon: HiOutlineLightningBolt,  color: "#818CF8", page: "/operator"},
-    { id: "cta"      as const, label: "Ana Sayfa Bandı", icon: HiOutlineTemplate,       color: "#3B82F6", page: "/"       },
-  ];
-  const activeTab = TAB_META.find(t => t.id === subTab)!;
-
-  /* ── shared section card ─────────────────────────────── */
-  const Card = ({ children, accent }: { children: React.ReactNode; accent: string }) => (
-    <div className="rounded-2xl overflow-hidden" style={{ border: `1px solid rgba(255,255,255,0.07)`, background: "rgba(255,255,255,0.025)" }}>
-      <div className="h-0.5 w-full" style={{ background: `linear-gradient(90deg, ${accent}60 0%, transparent 70%)` }} />
-      <div className="p-5">{children}</div>
-    </div>
-  );
-
-  const SectionTitle = ({ label, hint }: { label: string; hint?: string }) => (
-    <div className="flex items-center justify-between mb-4">
-      <p className="text-[11px] font-bold text-white/50 uppercase tracking-widest">{label}</p>
-      {hint && <p className="text-[10px] text-white/25">{hint}</p>}
-    </div>
-  );
-
-  const addBtn = (onClick: () => void, label: string) => (
-    <button onClick={onClick}
-      className="flex items-center gap-1.5 text-xs px-3 py-2 rounded-xl border border-white/8 hover:border-white/20 text-white/35 hover:text-white/65 transition-all">
-      <HiOutlinePlus size={12} /> {label}
-    </button>
-  );
-
-  const delBtn = (onClick: () => void) => (
-    <button onClick={onClick}
-      className="w-7 h-7 flex items-center justify-center rounded-lg border border-white/6 hover:border-red-500/30 text-white/20 hover:text-red-400 transition-all text-xs flex-shrink-0">
-      <HiOutlineTrash size={12} />
-    </button>
-  );
+  const activeTab = B2B_TAB_META.find(t => t.id === subTab)!;
 
   return (
     <div style={{ maxWidth: 720 }}>
@@ -3475,7 +3487,7 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
         <div className="flex-1">
           <h2 className="text-lg font-black text-white mb-1">OEM & Kurumsal</h2>
           <div className="flex items-center gap-3">
-            {TAB_META.filter(t => t.page !== "/").map(t => (
+            {B2B_TAB_META.filter(t => t.page !== "/").map(t => (
               <a key={t.page} href={t.page} target="_blank" rel="noreferrer"
                 className="flex items-center gap-1 text-[11px] transition-colors hover:opacity-80"
                 style={{ color: t.color }}>
@@ -3488,7 +3500,7 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
 
       {/* ── Tab bar ───────────────────────────────────────── */}
       <div className="grid grid-cols-4 gap-1.5 mb-7 p-1.5 rounded-2xl" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
-        {TAB_META.map(t => (
+        {B2B_TAB_META.map(t => (
           <button key={t.id} onClick={() => setSubTab(t.id)}
             className="flex flex-col items-center gap-1.5 py-3 px-2 rounded-xl text-[11px] font-semibold transition-all duration-200"
             style={subTab === t.id
@@ -3506,8 +3518,8 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
       {subTab === "oem" && (
         <div className="space-y-5">
           {/* Hero */}
-          <Card accent="#F59E0B">
-            <SectionTitle label="Hero Bölümü" hint="/b2b sayfası üst alanı" />
+          <B2BCard accent="#F59E0B">
+            <B2BSectionTitle label="Hero Bölümü" hint="/b2b sayfası üst alanı" />
             <div className="space-y-3">
               <div>
                 <label className={labelCls}>Üst Etiket (Eyebrow)</label>
@@ -3543,7 +3555,7 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
                 </div>
               </div>
             </div>
-          </Card>
+          </B2BCard>
 
           {/* Solutions */}
           <div>
@@ -3649,8 +3661,8 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
       {subTab === "bayilik" && (
         <div className="space-y-5">
           {/* Hero */}
-          <Card accent="#10B981">
-            <SectionTitle label="Hero Bölümü" hint="/bayilik sayfası" />
+          <B2BCard accent="#10B981">
+            <B2BSectionTitle label="Hero Bölümü" hint="/bayilik sayfası" />
             <div className="space-y-3">
               <div className="grid grid-cols-2 gap-3">
                 <div>
@@ -3670,11 +3682,11 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
                   onChange={e => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), description: e.target.value } } : p)} />
               </div>
             </div>
-          </Card>
+          </B2BCard>
 
           {/* Benefits */}
-          <Card accent="#10B981">
-            <SectionTitle label="Bayi Avantajları" hint="Sayfada 6 kart olarak gösterilir" />
+          <B2BCard accent="#10B981">
+            <B2BSectionTitle label="Bayi Avantajları" hint="Sayfada 6 kart olarak gösterilir" />
             <div className="space-y-2">
               {(data.bayilik?.benefits ?? []).map((b, idx) => (
                 <div key={idx} className="flex gap-2 items-start p-3 rounded-xl" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
@@ -3705,11 +3717,11 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
                 {addBtn(() => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), benefits: [...(p.bayilik?.benefits ?? []), { title: "", body: "" }] } } : p), "Avantaj Ekle")}
               </div>
             </div>
-          </Card>
+          </B2BCard>
 
           {/* Criteria */}
-          <Card accent="#10B981">
-            <SectionTitle label="Aranan Kriterler" hint="Başvuru koşulları listesi" />
+          <B2BCard accent="#10B981">
+            <B2BSectionTitle label="Aranan Kriterler" hint="Başvuru koşulları listesi" />
             <div className="space-y-2">
               {(data.bayilik?.criteria ?? []).map((c, idx) => (
                 <div key={idx} className="flex gap-2 items-center">
@@ -3731,11 +3743,11 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
                 {addBtn(() => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), criteria: [...(p.bayilik?.criteria ?? []), ""] } } : p), "Kriter Ekle")}
               </div>
             </div>
-          </Card>
+          </B2BCard>
 
           {/* Info Table */}
-          <Card accent="#10B981">
-            <SectionTitle label="Hızlı Bilgi Tablosu" hint="Sayfada sağ panelde gösterilir" />
+          <B2BCard accent="#10B981">
+            <B2BSectionTitle label="Hızlı Bilgi Tablosu" hint="Sayfada sağ panelde gösterilir" />
             <div className="space-y-2">
               {(data.bayilik?.infoTable ?? []).map((row, idx) => (
                 <div key={idx} className="flex gap-2">
@@ -3760,7 +3772,7 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
                 {addBtn(() => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), infoTable: [...(p.bayilik?.infoTable ?? []), { label: "", value: "" }] } } : p), "Satır Ekle")}
               </div>
             </div>
-          </Card>
+          </B2BCard>
         </div>
       )}
 
@@ -3769,8 +3781,8 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
       ══════════════════════════════════════════════════════ */}
       {subTab === "operator" && (
         <div className="space-y-5">
-          <Card accent="#818CF8">
-            <SectionTitle label="Hero Bölümü" hint="/operator sayfası" />
+          <B2BCard accent="#818CF8">
+            <B2BSectionTitle label="Hero Bölümü" hint="/operator sayfası" />
             <div className="space-y-3">
               <div className="grid grid-cols-2 gap-3">
                 <div>
@@ -3790,10 +3802,10 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
                   onChange={e => setData(p => p ? { ...p, operator: { ...(p.operator ?? defaultOperator()), description: e.target.value } } : p)} />
               </div>
             </div>
-          </Card>
+          </B2BCard>
 
-          <Card accent="#818CF8">
-            <SectionTitle label="Teknik Özellikler" hint="Sayfada 4 kart olarak gösterilir" />
+          <B2BCard accent="#818CF8">
+            <B2BSectionTitle label="Teknik Özellikler" hint="Sayfada 4 kart olarak gösterilir" />
             <div className="space-y-2">
               {(data.operator?.capabilities ?? []).map((c, idx) => (
                 <div key={idx} className="flex gap-2 items-start p-3 rounded-xl" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
@@ -3824,10 +3836,10 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
                 {addBtn(() => setData(p => p ? { ...p, operator: { ...(p.operator ?? defaultOperator()), capabilities: [...(p.operator?.capabilities ?? []), { title: "", body: "" }] } } : p), "Özellik Ekle")}
               </div>
             </div>
-          </Card>
+          </B2BCard>
 
-          <Card accent="#3B82F6">
-            <SectionTitle label="OCPP Özellik Listesi" hint="Sayfada 2 sütun grid olarak gösterilir" />
+          <B2BCard accent="#3B82F6">
+            <B2BSectionTitle label="OCPP Özellik Listesi" hint="Sayfada 2 sütun grid olarak gösterilir" />
             <div className="grid grid-cols-2 gap-2">
               {(data.operator?.ocppFeatures ?? []).map((f, idx) => (
                 <div key={idx} className="flex gap-2">
@@ -3845,7 +3857,7 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
             <div className="pt-3">
               {addBtn(() => setData(p => p ? { ...p, operator: { ...(p.operator ?? defaultOperator()), ocppFeatures: [...(p.operator?.ocppFeatures ?? []), ""] } } : p), "Özellik Ekle")}
             </div>
-          </Card>
+          </B2BCard>
         </div>
       )}
 
@@ -3854,8 +3866,8 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
       ══════════════════════════════════════════════════════ */}
       {subTab === "cta" && (
         <div className="space-y-5">
-          <Card accent="#3B82F6">
-            <SectionTitle label="Ana Sayfa OEM Bandı" hint="Ana sayfada B2BCta bölümü" />
+          <B2BCard accent="#3B82F6">
+            <B2BSectionTitle label="Ana Sayfa OEM Bandı" hint="Ana sayfada B2BCta bölümü" />
             <div className="space-y-3">
               <div>
                 <label className={labelCls}>Üst Etiket (Eyebrow)</label>
@@ -3888,7 +3900,7 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
                 </div>
               </div>
             </div>
-          </Card>
+          </B2BCard>
 
           <div>
             <p className="text-[11px] font-bold text-white/50 uppercase tracking-widest mb-3">3 Kanal Kartı</p>
