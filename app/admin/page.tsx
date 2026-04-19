@@ -3392,7 +3392,7 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
 
   useEffect(() => {
     fetch("/api/admin/b2b")
-      .then(r => r.json())
+      .then(r => { if (!r.ok) throw new Error("auth"); return r.json(); })
       .then(d => setData(d))
       .catch(() => {});
   }, []);
@@ -3412,14 +3412,18 @@ function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPrev
   const save = async () => {
     if (!data) return;
     setSaving(true);
-    const r = await fetch("/api/admin/b2b", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+    try {
+      const r = await fetch("/api/admin/b2b", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (r.ok) { showToast("ok"); onSaved?.(); }
+      else showToast("err");
+    } catch {
+      showToast("err");
+    }
     setSaving(false);
-    if (r.ok) { showToast("ok"); onSaved?.(); }
-    else showToast("err");
   };
 
   const setHero = (field: keyof B2BHero, val: string | string[]) =>
