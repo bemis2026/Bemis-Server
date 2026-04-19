@@ -3558,6 +3558,7 @@ function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { onSaved?: () => 
   const [data, setData] = useState<B2BPageData | null>(null);
   const [saving, setSaving] = useState(false);
   const [toast, setToast] = useState<"ok" | "err" | null>(null);
+  const [toastMsg, setToastMsg] = useState<string | null>(null);
   const [expandedSol, setExpandedSol] = useState<string | null>(null);
   const [subTab, setSubTab] = useState<"oem" | "bayilik" | "operator" | "cta">("oem");
   const previewDebRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -3596,7 +3597,7 @@ function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { onSaved?: () => 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [subTab]);
 
-  const showToast = (type: "ok" | "err") => { setToast(type); setTimeout(() => setToast(null), 3000); };
+  const showToast = (type: "ok" | "err", msg?: string) => { setToast(type); setToastMsg(msg ?? null); setTimeout(() => { setToast(null); setToastMsg(null); }, 6000); };
 
   const save = async () => {
     if (!data) return;
@@ -3608,9 +3609,13 @@ function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { onSaved?: () => 
         body: JSON.stringify(data),
       });
       if (r.ok) { showToast("ok"); onSaved?.(); }
-      else showToast("err");
-    } catch {
-      showToast("err");
+      else {
+        let msg = `HTTP ${r.status}`;
+        try { const d = await r.json(); msg = d.error ?? msg; } catch {}
+        showToast("err", msg);
+      }
+    } catch (e) {
+      showToast("err", String(e));
     }
     setSaving(false);
   };
@@ -3671,7 +3676,7 @@ function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { onSaved?: () => 
             : "bg-red-500/15 border border-red-500/25 text-red-300"
         }`}>
           {toast === "ok" ? <HiOutlineCheck size={15} /> : <HiOutlineExclamation size={15} />}
-          {toast === "ok" ? "Tüm değişiklikler kaydedildi." : "Kayıt başarısız, tekrar deneyin."}
+          <span>{toast === "ok" ? "Tüm değişiklikler kaydedildi." : `Kayıt başarısız: ${toastMsg ?? "bilinmeyen hata"}`}</span>
         </div>
       )}
 

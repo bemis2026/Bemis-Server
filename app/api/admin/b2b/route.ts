@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { put, list } from "@vercel/blob";
-import { readFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import path from "path";
 
 function isAuthed(req: NextRequest) {
@@ -9,10 +9,10 @@ function isAuthed(req: NextRequest) {
 
 const BLOB_KEY = "data/b2b.json";
 const fallbackPath = path.join(process.cwd(), "data", "b2b.json");
+const hasBlob = !!process.env.BLOB_READ_WRITE_TOKEN;
 
 type Rec = Record<string, unknown>;
 
-// Deep merge: source wins for existing keys, target fills missing keys at every depth
 function mergeDeep(target: Rec, source: Rec): Rec {
   const result: Rec = { ...target };
   for (const key in source) {
@@ -33,16 +33,17 @@ export async function GET(req: NextRequest) {
   let localData: Rec = {};
   try { localData = JSON.parse(readFileSync(fallbackPath, "utf-8")); } catch {}
 
-  try {
-    const { blobs } = await list({ prefix: BLOB_KEY });
-    const blob = blobs.find(b => b.pathname === BLOB_KEY);
-    if (blob) {
-      const res = await fetch(blob.url, { cache: "no-store" });
-      const blobData: Rec = await res.json();
-      // Blob takes precedence; local fills any fields missing from old Blob versions
-      return NextResponse.json(mergeDeep(localData, blobData));
-    }
-  } catch {}
+  if (hasBlob) {
+    try {
+      const { blobs } = await list({ prefix: BLOB_KEY });
+      const blob = blobs.find(b => b.pathname === BLOB_KEY);
+      if (blob) {
+        const res = await fetch(blob.url, { cache: "no-store" });
+        const blobData: Rec = await res.json();
+        return NextResponse.json(mergeDeep(localData, blobData));
+      }
+    } catch {}
+  }
 
   if (Object.keys(localData).length) return NextResponse.json(localData);
   return NextResponse.json({ hero: {}, solutions: [] });
@@ -52,12 +53,20 @@ export async function POST(req: NextRequest) {
   if (!isAuthed(req)) return NextResponse.json({ error: "Yetkisiz" }, { status: 401 });
   try {
     const body = await req.json();
-    await put(BLOB_KEY, JSON.stringify(body, null, 2), {
-      access: "public", contentType: "application/json", allowOverwrite: true,
-    });
+    const json = JSON.stringify(body, null, 2);
+
+    if (hasBlob) {
+      await put(BLOB_KEY, json, {
+        access: "public", contentType: "application/json", allowOverwrite: true,
+      });
+    } else {
+      // Local dev fallback: write to filesystem
+      writeFileSync(fallbackPath, json, "utf-8");
+    }
+
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error("b2b save error:", e);
-    return NextResponse.json({ error: "Kayıt hatası" }, { status: 500 });
+    return NextResponse.json({ error: String(e) }, { status: 500 });
   }
 }

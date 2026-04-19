@@ -100,38 +100,44 @@ export default function B2BCta() {
           </div>
 
           {/* Right — 3 equal channel cards */}
-          <div className="flex flex-col gap-2.5 lg:min-w-[260px]">
+          <div className="flex flex-col gap-3 lg:min-w-[320px]">
             {channels.map(ch => (
               <button
                 key={ch.href}
                 onClick={() => router.push(ch.href)}
-                className="group flex items-center gap-3.5 px-4 py-3.5 rounded-xl text-left transition-all duration-200 hover:scale-[1.015]"
+                className="group flex items-center gap-4 px-5 py-5 rounded-2xl text-left transition-all duration-200 hover:scale-[1.02]"
                 style={{
                   background: cardBg,
                   border: `1px solid ${cardBorder}`,
-                  boxShadow: d ? "none" : "0 1px 8px rgba(0,0,0,0.06)",
+                  boxShadow: d ? "none" : "0 2px 12px rgba(0,0,0,0.07)",
                 }}
                 onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.borderColor = `${ch.accent}40`;
+                  (e.currentTarget as HTMLElement).style.borderColor = `${ch.accent}45`;
                   (e.currentTarget as HTMLElement).style.background = d
                     ? `rgba(255,255,255,0.07)`
-                    : "rgba(255,255,255,0.95)";
+                    : "rgba(255,255,255,0.97)";
+                  (e.currentTarget as HTMLElement).style.boxShadow = d
+                    ? `0 0 0 1px ${ch.accent}25, 0 8px 24px rgba(0,0,0,0.2)`
+                    : `0 4px 20px ${ch.accent}18, 0 0 0 1px ${ch.accent}20`;
                 }}
                 onMouseLeave={e => {
                   (e.currentTarget as HTMLElement).style.borderColor = cardBorder;
                   (e.currentTarget as HTMLElement).style.background = cardBg;
+                  (e.currentTarget as HTMLElement).style.boxShadow = d ? "none" : "0 2px 12px rgba(0,0,0,0.07)";
                 }}
               >
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors"
-                  style={{ background: `${ch.accent}15`, border: `1px solid ${ch.accent}25` }}>
-                  <ch.icon style={{ fontSize: 17, color: ch.accent }} />
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors"
+                  style={{ background: `${ch.accent}18`, border: `1px solid ${ch.accent}30` }}>
+                  <ch.icon style={{ fontSize: 22, color: ch.accent }} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-bold leading-tight" style={{ color: textPrimary }}>{ch.label}</p>
-                  <p className="text-[11px] leading-tight mt-0.5 truncate" style={{ color: textMuted }}>{ch.sub}</p>
+                  <p className="text-base font-bold leading-tight" style={{ color: textPrimary }}>{ch.label}</p>
+                  <p className="text-xs leading-snug mt-1" style={{ color: textMuted }}>{ch.sub}</p>
                 </div>
-                <RiArrowRightLine size={14} style={{ color: textMuted, flexShrink: 0 }}
-                  className="group-hover:translate-x-0.5 transition-transform" />
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all group-hover:translate-x-0.5"
+                  style={{ background: `${ch.accent}12` }}>
+                  <RiArrowRightLine size={16} style={{ color: ch.accent }} />
+                </div>
               </button>
             ))}
           </div>
