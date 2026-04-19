@@ -38,14 +38,14 @@ export default function DNA() {
       className="relative py-8 lg:py-12 overflow-hidden"
       style={{
         background: d
-          ? "linear-gradient(155deg, #1c1c1e 0%, #1e1e1e 35%, #242424 100%)"
-          : "linear-gradient(155deg, #f2f2f2 0%, #f8f8f8 60%, #f4f4f4 100%)",
+          ? "linear-gradient(135deg, #090d15 0%, #0c1020 60%, #0a0e18 100%)"
+          : "linear-gradient(135deg, #f0f6ff 0%, #f5faff 60%, #eef4ff 100%)",
       }}
     >
       {sectionBgUrl && (
         <>
           <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${sectionBgUrl})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }} />
-          <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.68)" : "rgba(255,255,255,0.72)" }} />
+          <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(9,13,21,0.75)" : "rgba(240,246,255,0.78)" }} />
         </>
       )}
       {/* ── BEMİS watermark ── */}

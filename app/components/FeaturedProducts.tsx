@@ -44,7 +44,7 @@ export default function FeaturedProducts() {
   }, []);
 
   const BLUE        = "#3B82F6";
-  const sectionBg   = d ? "linear-gradient(180deg, #1a1a1a 0%, #232323 100%)" : "linear-gradient(180deg, #e8e8e8 0%, #f0f0f0 100%)";
+  const sectionBg   = d ? "linear-gradient(140deg, #0c0c0e 0%, #101828 60%, #0c1020 100%)" : "linear-gradient(140deg, #f0f6ff 0%, #eaf4ff 60%, #f5faff 100%)";
   const surface     = d ? "#1e1e1e" : "#ffffff";
   const border      = d ? "#2a2a2a" : "#e5e5e5";
   const textPrimary = d ? "#ffffff" : "#111111";

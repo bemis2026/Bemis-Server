@@ -40,15 +40,15 @@ export default function Reviews() {
       id="reviews"
       style={{
         background: d
-          ? "linear-gradient(180deg, #1b1b1e 0%, #181818 35%, #1a1a1c 70%, #1d1d20 100%)"
-          : "linear-gradient(180deg, #f0f0f4 0%, #f5f5f5 40%, #ebebeb 100%)",
+          ? "linear-gradient(135deg, #090d15 0%, #0c1020 50%, #0a0f1a 100%)"
+          : "linear-gradient(135deg, #f5faff 0%, #eef4ff 50%, #f0f6ff 100%)",
       }}
       className="relative py-6 lg:py-8 overflow-hidden"
     >
       {sectionBgUrl && (
         <>
           <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${sectionBgUrl})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }} />
-          <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.68)" : "rgba(255,255,255,0.72)" }} />
+          <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(9,13,21,0.75)" : "rgba(245,250,255,0.78)" }} />
         </>
       )}
       <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">

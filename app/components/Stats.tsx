@@ -36,8 +36,8 @@ export default function Stats() {
   const sectionBgUrl = sectionBgs?.["stats"] ?? "";
 
   const sectionBg     = d
-    ? "linear-gradient(180deg, #1a1a1a 0%, #181818 40%, #1c1c1e 100%)"
-    : "linear-gradient(180deg, #3B6FD4 0%, #5B8DEF 50%, #4A7DE0 100%)";
+    ? "linear-gradient(155deg, #0c1020 0%, #0a0f1a 50%, #0e1628 100%)"
+    : "linear-gradient(155deg, #1e3a8a 0%, #2563eb 50%, #1d4ed8 100%)";
   const cardBgDefault  = d ? "linear-gradient(145deg, #111114 0%, #0d0d10 100%)" : "rgba(255,255,255,0.10)";
   const cardBgHover    = d ? "linear-gradient(145deg, #141418 0%, #101014 100%)" : "rgba(255,255,255,0.20)";
   const gridGap        = d ? `${BLUE}20` : "rgba(255,255,255,0.18)";

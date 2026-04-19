@@ -163,7 +163,7 @@ export default function Products() {
   }, [bannerPaused, bannerNext, totalBanner]);
 
   const BLUE = "#3B82F6";
-  const sectionBg = d ? "linear-gradient(180deg, #232323 0%, #1a1a1a 100%)" : "linear-gradient(180deg, #f0f0f0 0%, #e8e8e8 100%)";
+  const sectionBg = d ? "linear-gradient(160deg, #0f1520 0%, #0c0c0e 60%, #101820 100%)" : "linear-gradient(160deg, #eaf4ff 0%, #f0f6ff 60%, #eef4ff 100%)";
   const surface = d ? "#1e1e1e" : "#ffffff";
   const border = d ? "#2a2a2a" : "#e0e0e0";
   const textPrimary = d ? "#ffffff" : "#111111";
