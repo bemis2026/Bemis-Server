@@ -208,7 +208,7 @@ export default function SmartCharger() {
                 <div
                   className="rounded-2xl overflow-hidden"
                   style={{
-                    width: 260,
+                    width: 310,
                     background: d ? "#0d1420" : "#f8faff",
                     border: `1.5px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(59,130,246,0.18)"}`,
                     boxShadow: d
@@ -235,7 +235,7 @@ export default function SmartCharger() {
                   </div>
 
                   {/* Sidebar + content layout */}
-                  <div className="flex" style={{ height: 340 }}>
+                  <div className="flex" style={{ height: 260 }}>
                     {/* Sidebar */}
                     <div className="flex flex-col gap-1 p-2 flex-shrink-0"
                       style={{ width: 44, background: d ? "rgba(255,255,255,0.025)" : "rgba(0,0,0,0.03)", borderRight: `1px solid ${d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)"}` }}>
@@ -277,7 +277,7 @@ export default function SmartCharger() {
                       <div className="rounded-xl p-2.5"
                         style={{ background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.02)", border: `1px solid ${d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)"}` }}>
                         <p className="text-[8px] mb-1.5 font-medium" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.40)" }}>Günlük Kullanım (kWh)</p>
-                        <div className="flex items-end gap-1 h-14">
+                        <div className="flex items-end gap-1 h-10">
                           {[30, 55, 45, 70, 60, 85, 50].map((h, i) => (
                             <motion.div
                               key={i}
