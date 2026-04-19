@@ -27,8 +27,8 @@ export default function ProductShowcase() {
   const d = theme === "dark";
 
   const bg = d
-    ? "linear-gradient(135deg, #0a0f1a 0%, #0c0c0e 50%, #0f1520 100%)"
-    : "linear-gradient(135deg, #f0f6ff 0%, #f8f8fb 50%, #eef4ff 100%)";
+    ? "linear-gradient(135deg, #0d0d11 0%, #0c0c0e 50%, #111114 100%)"
+    : "linear-gradient(135deg, #f4f5f9 0%, #f8f8fb 50%, #f2f3f7 100%)";
   const textPrimary = d ? "#f0f0f4" : "#0f172a";
   const textMuted = d ? "rgba(240,240,244,0.50)" : "rgba(15,23,42,0.50)";
   const specBg = d ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.85)";
@@ -218,21 +218,15 @@ export default function ProductShowcase() {
                 </motion.div>
               )}
 
-              {/* Yerli üretim badge — bottom right */}
+              {/* Yerli üretim — çerçevesiz, direkt görsel üzerine */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.4, delay: 0.75 }}
-                className="absolute bottom-4 right-4 rounded-2xl overflow-hidden"
-                style={{
-                  width: 64, height: 64,
-                  background: "rgba(10,15,30,0.85)",
-                  border: "1px solid rgba(255,255,255,0.18)",
-                  backdropFilter: "blur(12px)",
-                  boxShadow: "0 4px 16px rgba(0,0,0,0.25)",
-                }}
+                className="absolute bottom-4 right-4"
+                style={{ width: 72, height: 72 }}
               >
-                <Image src="/badges/yerli-uretim.jpg" alt="Yerli Üretim" width={64} height={64} className="w-full h-full object-contain p-1" />
+                <Image src="/badges/yerli-uretim.jpg" alt="Yerli Üretim" width={72} height={72} className="w-full h-full object-contain drop-shadow-lg" />
               </motion.div>
             </div>
           </motion.div>

@@ -353,7 +353,7 @@ export default function Calculator() {
   const [fuelPrice, setFuelPrice]               = useState(43);
 
   // ── Theme ────────────────────────────────────────────────────────────────
-  const sectionBg   = d ? "linear-gradient(160deg, #0c1020 0%, #0f1520 60%, #0a0f1a 100%)" : "linear-gradient(160deg, #eef4ff 0%, #f0f6ff 60%, #f5faff 100%)";
+  const sectionBg   = d ? "linear-gradient(160deg, #111116 0%, #0e0e12 60%, #101014 100%)" : "linear-gradient(160deg, #f4f5f9 0%, #f7f8fb 60%, #f3f4f8 100%)";
   const surface     = d ? "#1e1e1e" : "#ffffff";
   const border      = d ? "#2a2a2a" : "#e0e0e0";
   const textPrimary = d ? "#ffffff" : "#111111";

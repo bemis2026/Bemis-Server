@@ -47,8 +47,8 @@ export default function SmartCharger() {
   const d = theme === "dark";
 
   const bg = d
-    ? "linear-gradient(155deg, #101820 0%, #0e0e10 60%, #141414 100%)"
-    : "linear-gradient(155deg, #eaf4ff 0%, #f5faff 60%, #f0f8f4 100%)";
+    ? "linear-gradient(155deg, #111116 0%, #0e0e12 60%, #131315 100%)"
+    : "linear-gradient(155deg, #f3f4f8 0%, #f7f8fb 60%, #f5f6fa 100%)";
   const cardBg = d ? "rgba(255,255,255,0.04)" : "#ffffff";
   const cardBorder = d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
   const textPrimary = d ? "#f0f0f4" : "#1a1a1a";

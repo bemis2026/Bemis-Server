@@ -72,7 +72,7 @@ export default function DealerNetwork() {
     <section
       id="dealer"
       className="relative py-8 lg:py-12 overflow-hidden"
-      style={{ background: d ? "linear-gradient(155deg, #101828 0%, #090d15 60%, #0c1020 100%)" : "linear-gradient(155deg, #eaf4ff 0%, #f5faff 60%, #f0f6ff 100%)" }}
+      style={{ background: d ? "linear-gradient(155deg, #111116 0%, #0d0d11 60%, #101013 100%)" : "linear-gradient(155deg, #f3f4f8 0%, #f7f8fb 60%, #f5f6fa 100%)" }}
     >
       {sectionBgUrl && (
         <>

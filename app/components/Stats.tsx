@@ -36,7 +36,7 @@ export default function Stats() {
   const sectionBgUrl = sectionBgs?.["stats"] ?? "";
 
   const sectionBg     = d
-    ? "linear-gradient(155deg, #0c1020 0%, #0a0f1a 50%, #0e1628 100%)"
+    ? "linear-gradient(155deg, #111318 0%, #0d0e12 50%, #131418 100%)"
     : "linear-gradient(155deg, #1e3a8a 0%, #2563eb 50%, #1d4ed8 100%)";
   const cardBgDefault  = d ? "linear-gradient(145deg, #111114 0%, #0d0d10 100%)" : "rgba(255,255,255,0.10)";
   const cardBgHover    = d ? "linear-gradient(145deg, #141418 0%, #101014 100%)" : "rgba(255,255,255,0.20)";

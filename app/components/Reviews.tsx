@@ -40,8 +40,8 @@ export default function Reviews() {
       id="reviews"
       style={{
         background: d
-          ? "linear-gradient(135deg, #090d15 0%, #0c1020 50%, #0a0f1a 100%)"
-          : "linear-gradient(135deg, #f5faff 0%, #eef4ff 50%, #f0f6ff 100%)",
+          ? "linear-gradient(135deg, #0e0e12 0%, #111114 50%, #0f0f13 100%)"
+          : "linear-gradient(135deg, #f6f7fb 0%, #f2f3f7 50%, #f4f5f9 100%)",
       }}
       className="relative py-6 lg:py-8 overflow-hidden"
     >

@@ -38,8 +38,8 @@ export default function DNA() {
       className="relative py-8 lg:py-12 overflow-hidden"
       style={{
         background: d
-          ? "linear-gradient(135deg, #090d15 0%, #0c1020 60%, #0a0e18 100%)"
-          : "linear-gradient(135deg, #f0f6ff 0%, #f5faff 60%, #eef4ff 100%)",
+          ? "linear-gradient(135deg, #0e0e12 0%, #111116 60%, #0f0f13 100%)"
+          : "linear-gradient(135deg, #f6f7fb 0%, #f9fafb 60%, #f3f4f8 100%)",
       }}
     >
       {sectionBgUrl && (
