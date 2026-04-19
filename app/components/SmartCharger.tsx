@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   RiWifiLine,
@@ -55,6 +55,13 @@ export default function SmartCharger() {
   const textMuted = d ? "rgba(240,240,244,0.52)" : "rgba(26,26,26,0.50)";
 
   const headingLines = smartCharger.heading.split("\n");
+  const [mockupIndex, setMockupIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+
+  const goTo = (idx: number) => {
+    setDirection(idx > mockupIndex ? 1 : -1);
+    setMockupIndex(idx);
+  };
 
   return (
     <section id="smartcharger" className="relative py-14 lg:py-20 overflow-hidden" style={{ background: bg }}>
@@ -64,260 +71,323 @@ export default function SmartCharger() {
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          {/* ── Mockups ── */}
+          {/* ── Mockup carousel ── */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="flex justify-center lg:justify-start order-2 lg:order-1"
+            className="flex flex-col items-center lg:items-start order-2 lg:order-1"
           >
-            <div className="relative flex items-end gap-4">
+            {/* Slide area — fixed height to phone size */}
+            <div className="relative overflow-hidden" style={{ width: 260, height: 530 }}>
+              <AnimatePresence initial={false} custom={direction} mode="popLayout">
+                {mockupIndex === 0 ? (
+                  <motion.div
+                    key="phone"
+                    custom={direction}
+                    variants={{
+                      enter: (dir: number) => ({ x: dir > 0 ? 280 : -280, opacity: 0 }),
+                      center: { x: 0, opacity: 1 },
+                      exit: (dir: number) => ({ x: dir > 0 ? -280 : 280, opacity: 0 }),
+                    }}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 0.42, ease: [0.32, 0, 0.67, 0] }}
+                    className="absolute inset-0 flex items-center justify-center"
+                  >
+                    {/* ── Phone mockup ── */}
+                    <div className="relative flex-shrink-0">
+                      <div className="absolute inset-0 -bottom-8 blur-3xl opacity-25 rounded-[40px]" style={{ background: `linear-gradient(135deg, ${ACCENT}, ${ACCENT2})` }} />
+                      <div
+                        className="relative rounded-[36px] overflow-hidden"
+                        style={{
+                          width: 240, height: 490,
+                          background: d ? "#0a0a0c" : "#1a1a1e",
+                          border: `2.5px solid ${d ? "rgba(255,255,255,0.14)" : "rgba(255,255,255,0.20)"}`,
+                          boxShadow: `0 32px 64px rgba(0,0,0,${d ? "0.65" : "0.35"}), 0 0 0 1px rgba(255,255,255,0.06)`,
+                        }}
+                      >
+                        {/* Dynamic island */}
+                        <div className="absolute top-3.5 left-1/2 -translate-x-1/2 z-20 rounded-full"
+                          style={{ width: 82, height: 20, background: "#050506", border: "1px solid rgba(255,255,255,0.08)" }} />
 
-              {/* ── Phone mockup ── */}
-              <div className="relative flex-shrink-0">
-                <div className="absolute inset-0 -bottom-8 blur-3xl opacity-25 rounded-[40px]" style={{ background: `linear-gradient(135deg, ${ACCENT}, ${ACCENT2})` }} />
-                <div
-                  className="relative rounded-[36px] overflow-hidden"
-                  style={{
-                    width: 240, height: 490,
-                    background: d ? "#0a0a0c" : "#1a1a1e",
-                    border: `2.5px solid ${d ? "rgba(255,255,255,0.14)" : "rgba(255,255,255,0.20)"}`,
-                    boxShadow: `0 32px 64px rgba(0,0,0,${d ? "0.65" : "0.35"}), 0 0 0 1px rgba(255,255,255,0.06)`,
-                  }}
-                >
-                  {/* Dynamic island */}
-                  <div className="absolute top-3.5 left-1/2 -translate-x-1/2 z-20 rounded-full"
-                    style={{ width: 82, height: 20, background: "#050506", border: "1px solid rgba(255,255,255,0.08)" }} />
+                        {/* Screen */}
+                        <div className="absolute inset-0 p-4 pt-11 flex flex-col gap-3"
+                          style={{ background: "linear-gradient(180deg, #0d1a2e 0%, #091526 100%)" }}>
 
-                  {/* Screen */}
-                  <div className="absolute inset-0 p-4 pt-11 flex flex-col gap-3"
-                    style={{ background: "linear-gradient(180deg, #0d1a2e 0%, #091526 100%)" }}>
-
-                    {/* App header */}
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-[9px] font-semibold" style={{ color: "rgba(255,255,255,0.40)" }}>BEMİS CHARGE</p>
-                        <p className="text-[12px] font-bold text-white">Şarj Yönetimi</p>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <RiSignalWifiLine size={13} style={{ color: ACCENT2 }} />
-                        <span className="text-[9px] font-semibold" style={{ color: ACCENT2 }}>Bağlı</span>
-                      </div>
-                    </div>
-
-                    {/* Charging ring */}
-                    <div className="flex justify-center my-1">
-                      <div className="relative flex items-center justify-center" style={{ width: 96, height: 96 }}>
-                        <svg width="96" height="96" className="absolute">
-                          <circle cx="48" cy="48" r="42" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="5" />
-                          <motion.circle
-                            cx="48" cy="48" r="42" fill="none"
-                            stroke={ACCENT} strokeWidth="5"
-                            strokeLinecap="round"
-                            strokeDasharray="264"
-                            initial={{ strokeDashoffset: 264 }}
-                            animate={inView ? { strokeDashoffset: 79 } : { strokeDashoffset: 264 }}
-                            transition={{ duration: 1.8, delay: 0.5, ease: "easeOut" }}
-                            style={{ transformOrigin: "center", transform: "rotate(-90deg)" }}
-                          />
-                        </svg>
-                        <div className="flex flex-col items-center">
-                          <RiBatteryChargeLine size={18} style={{ color: ACCENT }} />
-                          <span className="text-lg font-black text-white leading-none">70%</span>
-                          <span className="text-[8px]" style={{ color: "rgba(255,255,255,0.4)" }}>Şarj Oluyor</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Stats */}
-                    <div className="grid grid-cols-3 gap-2">
-                      {[{ label: "Güç", value: "7.4 kW" }, { label: "Süre", value: "1s 22dk" }, { label: "₺", value: "18.40" }].map(s => (
-                        <div key={s.label} className="rounded-xl p-2.5 text-center"
-                          style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.07)" }}>
-                          <p className="text-[8px] font-medium" style={{ color: "rgba(255,255,255,0.38)" }}>{s.label}</p>
-                          <p className="text-[11px] font-bold text-white">{s.value}</p>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Charger list */}
-                    <div className="space-y-2">
-                      <p className="text-[9px] font-semibold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.28)" }}>Üniteler</p>
-                      {[
-                        { name: "Ünite #1", status: "Şarj Oluyor", color: ACCENT2 },
-                        { name: "Ünite #2", status: "Müsait", color: "rgba(255,255,255,0.28)" },
-                        { name: "Ünite #3", status: "Müsait", color: "rgba(255,255,255,0.28)" },
-                      ].map(u => (
-                        <div key={u.name} className="flex items-center justify-between px-3 py-2 rounded-xl"
-                          style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                          <div className="flex items-center gap-2">
-                            <div className="w-2 h-2 rounded-full" style={{ background: u.color }} />
-                            <span className="text-[10px] font-medium text-white">{u.name}</span>
+                          {/* App header */}
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <p className="text-[9px] font-semibold" style={{ color: "rgba(255,255,255,0.40)" }}>BEMİS CHARGE</p>
+                              <p className="text-[12px] font-bold text-white">Şarj Yönetimi</p>
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                              <RiSignalWifiLine size={13} style={{ color: ACCENT2 }} />
+                              <span className="text-[9px] font-semibold" style={{ color: ACCENT2 }}>Bağlı</span>
+                            </div>
                           </div>
-                          <span className="text-[9px]" style={{ color: u.color }}>{u.status}</span>
-                        </div>
-                      ))}
-                    </div>
 
-                    {/* OCPP badge */}
-                    <div className="mt-auto">
-                      <div className="flex items-center justify-center gap-2 py-2 rounded-xl"
-                        style={{ background: `${ACCENT}12`, border: `1px solid ${ACCENT}25` }}>
-                        <RiSmartphoneLine size={10} style={{ color: ACCENT }} />
-                        <span className="text-[9px] font-semibold" style={{ color: ACCENT }}>{smartCharger.ocppBadge}</span>
+                          {/* Charging ring */}
+                          <div className="flex justify-center my-1">
+                            <div className="relative flex items-center justify-center" style={{ width: 96, height: 96 }}>
+                              <svg width="96" height="96" className="absolute">
+                                <circle cx="48" cy="48" r="42" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="5" />
+                                <motion.circle
+                                  cx="48" cy="48" r="42" fill="none"
+                                  stroke={ACCENT} strokeWidth="5"
+                                  strokeLinecap="round"
+                                  strokeDasharray="264"
+                                  initial={{ strokeDashoffset: 264 }}
+                                  animate={inView ? { strokeDashoffset: 79 } : { strokeDashoffset: 264 }}
+                                  transition={{ duration: 1.8, delay: 0.5, ease: "easeOut" }}
+                                  style={{ transformOrigin: "center", transform: "rotate(-90deg)" }}
+                                />
+                              </svg>
+                              <div className="flex flex-col items-center">
+                                <RiBatteryChargeLine size={18} style={{ color: ACCENT }} />
+                                <span className="text-lg font-black text-white leading-none">70%</span>
+                                <span className="text-[8px]" style={{ color: "rgba(255,255,255,0.4)" }}>Şarj Oluyor</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Stats */}
+                          <div className="grid grid-cols-3 gap-2">
+                            {[{ label: "Güç", value: "7.4 kW" }, { label: "Süre", value: "1s 22dk" }, { label: "₺", value: "18.40" }].map(s => (
+                              <div key={s.label} className="rounded-xl p-2.5 text-center"
+                                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.07)" }}>
+                                <p className="text-[8px] font-medium" style={{ color: "rgba(255,255,255,0.38)" }}>{s.label}</p>
+                                <p className="text-[11px] font-bold text-white">{s.value}</p>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Charger list */}
+                          <div className="space-y-2">
+                            <p className="text-[9px] font-semibold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.28)" }}>Üniteler</p>
+                            {[
+                              { name: "Ünite #1", status: "Şarj Oluyor", color: ACCENT2 },
+                              { name: "Ünite #2", status: "Müsait", color: "rgba(255,255,255,0.28)" },
+                              { name: "Ünite #3", status: "Müsait", color: "rgba(255,255,255,0.28)" },
+                            ].map(u => (
+                              <div key={u.name} className="flex items-center justify-between px-3 py-2 rounded-xl"
+                                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                                <div className="flex items-center gap-2">
+                                  <div className="w-2 h-2 rounded-full" style={{ background: u.color }} />
+                                  <span className="text-[10px] font-medium text-white">{u.name}</span>
+                                </div>
+                                <span className="text-[9px]" style={{ color: u.color }}>{u.status}</span>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* OCPP badge */}
+                          <div className="mt-auto">
+                            <div className="flex items-center justify-center gap-2 py-2 rounded-xl"
+                              style={{ background: `${ACCENT}12`, border: `1px solid ${ACCENT}25` }}>
+                              <RiSmartphoneLine size={10} style={{ color: ACCENT }} />
+                              <span className="text-[9px] font-semibold" style={{ color: ACCENT }}>{smartCharger.ocppBadge}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Home indicator */}
+                        <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 rounded-full"
+                          style={{ width: 64, height: 4, background: "rgba(255,255,255,0.22)" }} />
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="browser"
+                    custom={direction}
+                    variants={{
+                      enter: (dir: number) => ({ x: dir > 0 ? 280 : -280, opacity: 0 }),
+                      center: { x: 0, opacity: 1 },
+                      exit: (dir: number) => ({ x: dir > 0 ? -280 : 280, opacity: 0 }),
+                    }}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 0.42, ease: [0.32, 0, 0.67, 0] }}
+                    className="absolute inset-0 flex items-center justify-center"
+                  >
+                    {/* ── Web browser mockup ── */}
+                    <div>
+                      <div
+                        className="rounded-2xl overflow-hidden"
+                        style={{
+                          width: 250,
+                          background: d ? "#0d1420" : "#f8faff",
+                          border: `1.5px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(59,130,246,0.18)"}`,
+                          boxShadow: d
+                            ? "0 24px 56px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04)"
+                            : "0 20px 48px rgba(59,130,246,0.14), 0 0 0 1px rgba(59,130,246,0.08)",
+                        }}
+                      >
+                        {/* Browser chrome */}
+                        <div className="flex items-center gap-2 px-3 py-2.5"
+                          style={{ background: d ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.9)", borderBottom: `1px solid ${d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.07)"}` }}>
+                          <div className="flex gap-1.5">
+                            <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#FF5F57" }} />
+                            <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#FEBC2E" }} />
+                            <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#28C840" }} />
+                          </div>
+                          <div className="flex-1 mx-1.5 px-2.5 py-1 rounded-lg flex items-center gap-1.5"
+                            style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)" }}>
+                            <RiGlobalLine size={9} style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)" }} />
+                            <span className="text-[8px] font-mono truncate" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.40)" }}>app.bemischarge.com</span>
+                          </div>
+                          <div className="w-5 h-5 rounded-md flex items-center justify-center" style={{ background: `${ACCENT2}20` }}>
+                            <div className="w-1.5 h-1.5 rounded-full" style={{ background: ACCENT2 }} />
+                          </div>
+                        </div>
 
-                  {/* Home indicator */}
-                  <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 rounded-full"
-                    style={{ width: 64, height: 4, background: "rgba(255,255,255,0.22)" }} />
-                </div>
+                        {/* Sidebar + content layout */}
+                        <div className="flex" style={{ height: 300 }}>
+                          {/* Sidebar */}
+                          <div className="flex flex-col gap-1 p-2 flex-shrink-0"
+                            style={{ width: 44, background: d ? "rgba(255,255,255,0.025)" : "rgba(0,0,0,0.03)", borderRight: `1px solid ${d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)"}` }}>
+                            {[ACCENT, ACCENT2, "#818CF8", "#F59E0B", "#F43F5E"].map((c, i) => (
+                              <div key={i} className="w-7 h-7 rounded-xl flex items-center justify-center mx-auto"
+                                style={{ background: i === 0 ? `${c}20` : "transparent", border: i === 0 ? `1px solid ${c}30` : "none" }}>
+                                <div className="w-2.5 h-2.5 rounded-sm" style={{ background: i === 0 ? c : `rgba(${d ? "255,255,255" : "0,0,0"},0.15)` }} />
+                              </div>
+                            ))}
+                          </div>
 
-                {/* Floating badge */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={inView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.45, delay: 1.0 }}
-                  className="absolute -right-6 top-20 rounded-xl px-3 py-2 flex items-center gap-2"
-                  style={{
-                    background: d ? "rgba(10,16,20,0.96)" : "rgba(255,255,255,0.96)",
-                    border: `1px solid ${ACCENT2}35`,
-                    boxShadow: "0 6px 20px rgba(0,0,0,0.22)",
-                    backdropFilter: "blur(12px)",
-                  }}
-                >
-                  <div className="w-6 h-6 rounded-lg flex items-center justify-center" style={{ background: `${ACCENT2}18` }}>
-                    <RiWifiLine size={12} style={{ color: ACCENT2 }} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-bold" style={{ color: textPrimary }}>OCPP Aktif</p>
-                    <p className="text-[8px]" style={{ color: textMuted }}>Bağlantı Canlı</p>
-                  </div>
-                </motion.div>
+                          {/* Main content */}
+                          <div className="flex-1 p-3 space-y-2.5 overflow-hidden">
+                            {/* Title + live badge */}
+                            <div className="flex items-center justify-between">
+                              <span className="text-[10px] font-bold" style={{ color: textPrimary }}>Şarj Yönetim Paneli</span>
+                              <span className="text-[8px] px-2 py-0.5 rounded-full font-semibold flex items-center gap-1"
+                                style={{ background: `${ACCENT2}18`, color: ACCENT2 }}>
+                                <span className="w-1 h-1 rounded-full inline-block" style={{ background: ACCENT2 }} />Canlı
+                              </span>
+                            </div>
+
+                            {/* Stat cards */}
+                            <div className="grid grid-cols-3 gap-1.5">
+                              {[
+                                { label: "Aktif", value: "12", color: ACCENT2 },
+                                { label: "Müsait", value: "4", color: ACCENT },
+                                { label: "Gelir", value: "₺2.4k", color: "#F59E0B" },
+                              ].map(s => (
+                                <div key={s.label} className="rounded-xl p-2 text-center"
+                                  style={{ background: d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)", border: `1px solid ${s.color}20` }}>
+                                  <p className="text-[10px] font-black" style={{ color: s.color }}>{s.value}</p>
+                                  <p className="text-[7px]" style={{ color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)" }}>{s.label}</p>
+                                </div>
+                              ))}
+                            </div>
+
+                            {/* Bar chart */}
+                            <div className="rounded-xl p-2.5"
+                              style={{ background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.02)", border: `1px solid ${d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)"}` }}>
+                              <p className="text-[8px] mb-1.5 font-medium" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.40)" }}>Günlük Kullanım (kWh)</p>
+                              <div className="flex items-end gap-1 h-12">
+                                {[30, 55, 45, 70, 60, 85, 50].map((h, i) => (
+                                  <motion.div
+                                    key={i}
+                                    className="flex-1 rounded-sm"
+                                    style={{ background: i === 5 ? ACCENT : (d ? "rgba(255,255,255,0.10)" : "rgba(59,130,246,0.15)") }}
+                                    initial={{ height: 0 }}
+                                    animate={{ height: `${h}%` }}
+                                    transition={{ duration: 0.6, delay: 0.1 + i * 0.06, ease: "easeOut" }}
+                                  />
+                                ))}
+                              </div>
+                            </div>
+
+                            {/* Station list */}
+                            <div className="space-y-1">
+                              {[
+                                { name: "Ünite #1 — Kat -1", color: ACCENT2, status: "Şarj" },
+                                { name: "Ünite #2 — Giriş", color: d ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.20)", status: "Müsait" },
+                                { name: "Ünite #3 — Bahçe", color: d ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.20)", status: "Müsait" },
+                              ].map(u => (
+                                <div key={u.name} className="flex items-center justify-between rounded-lg px-2.5 py-1.5"
+                                  style={{ background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.02)" }}>
+                                  <div className="flex items-center gap-1.5">
+                                    <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: u.color }} />
+                                    <span className="text-[8px] font-medium" style={{ color: textPrimary }}>{u.name}</span>
+                                  </div>
+                                  <span className="text-[7px] font-semibold" style={{ color: u.color }}>{u.status}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Label */}
+                      <div className="mt-2.5 flex items-center justify-center gap-1.5">
+                        <RiComputerLine size={12} style={{ color: textMuted }} />
+                        <span className="text-[11px] font-medium" style={{ color: textMuted }}>Web Yönetim Paneli</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* ── Carousel indicator ── */}
+            <div className="flex items-center gap-3 mt-5">
+              {/* Prev */}
+              <button
+                onClick={() => goTo(Math.max(0, mockupIndex - 1))}
+                disabled={mockupIndex === 0}
+                className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 disabled:opacity-25"
+                style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.07)", border: `1px solid ${d ? "rgba(255,255,255,0.11)" : "rgba(0,0,0,0.10)"}` }}
+                aria-label="Önceki"
+              >
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M7.5 2L4 6l3.5 4" stroke={d ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.6)"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+
+              {/* Dots */}
+              <div className="flex gap-2">
+                {[
+                  { idx: 0, icon: <RiSmartphoneLine size={10} />, label: "Mobil" },
+                  { idx: 1, icon: <RiComputerLine size={10} />, label: "Web" },
+                ].map(({ idx, icon, label }) => (
+                  <button
+                    key={idx}
+                    onClick={() => goTo(idx)}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all duration-200"
+                    style={{
+                      background: mockupIndex === idx
+                        ? (idx === 0 ? `${ACCENT}20` : `${ACCENT2}20`)
+                        : (d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)"),
+                      border: `1px solid ${mockupIndex === idx
+                        ? (idx === 0 ? `${ACCENT}40` : `${ACCENT2}40`)
+                        : (d ? "rgba(255,255,255,0.09)" : "rgba(0,0,0,0.08)")}`,
+                      color: mockupIndex === idx
+                        ? (idx === 0 ? ACCENT : ACCENT2)
+                        : (d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)"),
+                    }}
+                  >
+                    {icon}
+                    <span className="text-[10px] font-semibold">{label}</span>
+                  </button>
+                ))}
               </div>
 
-              {/* ── Web browser mockup ── */}
-              <motion.div
-                initial={{ opacity: 0, x: 24, y: 20 }}
-                animate={inView ? { opacity: 1, x: 0, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.25 }}
-                className="flex-shrink-0 self-end"
-                style={{ marginBottom: 12 }}
+              {/* Next */}
+              <button
+                onClick={() => goTo(Math.min(1, mockupIndex + 1))}
+                disabled={mockupIndex === 1}
+                className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 disabled:opacity-25"
+                style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.07)", border: `1px solid ${d ? "rgba(255,255,255,0.11)" : "rgba(0,0,0,0.10)"}` }}
+                aria-label="Sonraki"
               >
-                <div
-                  className="rounded-2xl overflow-hidden"
-                  style={{
-                    width: 310,
-                    background: d ? "#0d1420" : "#f8faff",
-                    border: `1.5px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(59,130,246,0.18)"}`,
-                    boxShadow: d
-                      ? "0 24px 56px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04)"
-                      : "0 20px 48px rgba(59,130,246,0.14), 0 0 0 1px rgba(59,130,246,0.08)",
-                  }}
-                >
-                  {/* Browser chrome */}
-                  <div className="flex items-center gap-2 px-3 py-2.5"
-                    style={{ background: d ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.9)", borderBottom: `1px solid ${d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.07)"}` }}>
-                    <div className="flex gap-1.5">
-                      <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#FF5F57" }} />
-                      <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#FEBC2E" }} />
-                      <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#28C840" }} />
-                    </div>
-                    <div className="flex-1 mx-1.5 px-2.5 py-1 rounded-lg flex items-center gap-1.5"
-                      style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)" }}>
-                      <RiGlobalLine size={9} style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)" }} />
-                      <span className="text-[8px] font-mono truncate" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.40)" }}>app.bemischarge.com</span>
-                    </div>
-                    <div className="w-5 h-5 rounded-md flex items-center justify-center" style={{ background: `${ACCENT2}20` }}>
-                      <div className="w-1.5 h-1.5 rounded-full" style={{ background: ACCENT2 }} />
-                    </div>
-                  </div>
-
-                  {/* Sidebar + content layout */}
-                  <div className="flex" style={{ height: 260 }}>
-                    {/* Sidebar */}
-                    <div className="flex flex-col gap-1 p-2 flex-shrink-0"
-                      style={{ width: 44, background: d ? "rgba(255,255,255,0.025)" : "rgba(0,0,0,0.03)", borderRight: `1px solid ${d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)"}` }}>
-                      {[ACCENT, ACCENT2, "#818CF8", "#F59E0B", "#F43F5E"].map((c, i) => (
-                        <div key={i} className="w-7 h-7 rounded-xl flex items-center justify-center mx-auto"
-                          style={{ background: i === 0 ? `${c}20` : "transparent", border: i === 0 ? `1px solid ${c}30` : "none" }}>
-                          <div className="w-2.5 h-2.5 rounded-sm" style={{ background: i === 0 ? c : `rgba(${d ? "255,255,255" : "0,0,0"},0.15)` }} />
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Main content */}
-                    <div className="flex-1 p-3 space-y-2.5 overflow-hidden">
-                      {/* Title + live badge */}
-                      <div className="flex items-center justify-between">
-                        <span className="text-[10px] font-bold" style={{ color: textPrimary }}>Şarj Yönetim Paneli</span>
-                        <span className="text-[8px] px-2 py-0.5 rounded-full font-semibold flex items-center gap-1"
-                          style={{ background: `${ACCENT2}18`, color: ACCENT2 }}>
-                          <span className="w-1 h-1 rounded-full inline-block" style={{ background: ACCENT2 }} />Canlı
-                        </span>
-                      </div>
-
-                      {/* Stat cards */}
-                      <div className="grid grid-cols-3 gap-1.5">
-                        {[
-                          { label: "Aktif", value: "12", color: ACCENT2 },
-                          { label: "Müsait", value: "4", color: ACCENT },
-                          { label: "Gelir", value: "₺2.4k", color: "#F59E0B" },
-                        ].map(s => (
-                          <div key={s.label} className="rounded-xl p-2 text-center"
-                            style={{ background: d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)", border: `1px solid ${s.color}20` }}>
-                            <p className="text-[10px] font-black" style={{ color: s.color }}>{s.value}</p>
-                            <p className="text-[7px]" style={{ color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)" }}>{s.label}</p>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Bar chart */}
-                      <div className="rounded-xl p-2.5"
-                        style={{ background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.02)", border: `1px solid ${d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)"}` }}>
-                        <p className="text-[8px] mb-1.5 font-medium" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.40)" }}>Günlük Kullanım (kWh)</p>
-                        <div className="flex items-end gap-1 h-10">
-                          {[30, 55, 45, 70, 60, 85, 50].map((h, i) => (
-                            <motion.div
-                              key={i}
-                              className="flex-1 rounded-sm"
-                              style={{ background: i === 5 ? ACCENT : (d ? "rgba(255,255,255,0.10)" : "rgba(59,130,246,0.15)") }}
-                              initial={{ height: 0 }}
-                              animate={inView ? { height: `${h}%` } : { height: 0 }}
-                              transition={{ duration: 0.6, delay: 0.6 + i * 0.06, ease: "easeOut" }}
-                            />
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Station list */}
-                      <div className="space-y-1">
-                        {[
-                          { name: "Ünite #1 — Kat -1", color: ACCENT2, status: "Şarj" },
-                          { name: "Ünite #2 — Giriş", color: d ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.20)", status: "Müsait" },
-                          { name: "Ünite #3 — Bahçe", color: d ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.20)", status: "Müsait" },
-                        ].map(u => (
-                          <div key={u.name} className="flex items-center justify-between rounded-lg px-2.5 py-1.5"
-                            style={{ background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.02)" }}>
-                            <div className="flex items-center gap-1.5">
-                              <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: u.color }} />
-                              <span className="text-[8px] font-medium" style={{ color: textPrimary }}>{u.name}</span>
-                            </div>
-                            <span className="text-[7px] font-semibold" style={{ color: u.color }}>{u.status}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Label */}
-                <div className="mt-2.5 flex items-center justify-center gap-1.5">
-                  <RiComputerLine size={12} style={{ color: textMuted }} />
-                  <span className="text-[11px] font-medium" style={{ color: textMuted }}>Web Yönetim Paneli</span>
-                </div>
-              </motion.div>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M4.5 2L8 6l-3.5 4" stroke={d ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.6)"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
             </div>
           </motion.div>
 
