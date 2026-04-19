@@ -2461,7 +2461,7 @@ export default function AdminPage() {
               {tab === "changelog" && <ChangelogPanel />}
 
               {/* ── B2B / OEM ── */}
-              {tab === "b2b" && <B2BPanel onSaved={() => { setShowPreview(true); setPreviewKey(k => k + 1); }} />}
+              {tab === "b2b" && <B2BPanel onSaved={() => { setShowPreview(true); setPreviewKey(k => k + 1); }} postToPreview={postToPreview} />}
 
             </motion.div>
           </AnimatePresence>
@@ -3335,12 +3335,13 @@ function SectionHeader({ color, icon: Icon, title, description }: { color: strin
   );
 }
 
-function B2BPanel({ onSaved }: { onSaved?: () => void }) {
+function B2BPanel({ onSaved, postToPreview }: { onSaved?: () => void; postToPreview?: (msg: object) => void }) {
   const [data, setData] = useState<B2BPageData | null>(null);
   const [saving, setSaving] = useState(false);
   const [toast, setToast] = useState<"ok" | "err" | null>(null);
   const [expandedSol, setExpandedSol] = useState<string | null>(null);
   const [subTab, setSubTab] = useState<"oem" | "bayilik" | "operator" | "cta">("oem");
+  const previewDebRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     fetch("/api/admin/b2b")
@@ -3348,6 +3349,16 @@ function B2BPanel({ onSaved }: { onSaved?: () => void }) {
       .then(d => setData(d))
       .catch(() => {});
   }, []);
+
+  // Debounced live preview — sends B2B data to the /b2b iframe whenever data changes
+  useEffect(() => {
+    if (!data || !postToPreview) return;
+    if (previewDebRef.current) clearTimeout(previewDebRef.current);
+    previewDebRef.current = setTimeout(() => {
+      postToPreview({ type: "BEMIS_B2B_PREVIEW", b2bData: data });
+    }, 400);
+    return () => { if (previewDebRef.current) clearTimeout(previewDebRef.current); };
+  }, [data, postToPreview]);
 
   const showToast = (type: "ok" | "err") => { setToast(type); setTimeout(() => setToast(null), 3000); };
 
@@ -3460,8 +3471,8 @@ function B2BPanel({ onSaved }: { onSaved?: () => void }) {
       )}
 
       {/* ── Header ────────────────────────────────────────── */}
-      <div className="flex items-start justify-between mb-7">
-        <div>
+      <div className="flex items-center gap-4 mb-7">
+        <div className="flex-1">
           <h2 className="text-lg font-black text-white mb-1">OEM & Kurumsal</h2>
           <div className="flex items-center gap-3">
             {TAB_META.filter(t => t.page !== "/").map(t => (
@@ -3473,13 +3484,6 @@ function B2BPanel({ onSaved }: { onSaved?: () => void }) {
             ))}
           </div>
         </div>
-        <button onClick={save} disabled={saving}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold disabled:opacity-50 transition-all hover:brightness-110"
-          style={{ background: "linear-gradient(135deg, #F59E0B 0%, #D97706 100%)", color: "#000", boxShadow: "0 4px 16px rgba(245,158,11,0.3)" }}>
-          {saving
-            ? <><div className="w-3.5 h-3.5 rounded-full border-2 border-black/30 border-t-black animate-spin" />Kaydediliyor…</>
-            : <><HiOutlineSave size={14} />Kaydet</>}
-        </button>
       </div>
 
       {/* ── Tab bar ───────────────────────────────────────── */}

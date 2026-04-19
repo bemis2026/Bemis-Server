@@ -93,6 +93,17 @@ export default function B2BPage() {
     }).catch(() => {});
   }, []);
 
+  // Admin panel live preview — receive postMessage from parent iframe
+  useEffect(() => {
+    const handler = (e: MessageEvent) => {
+      if (e.origin !== window.location.origin) return;
+      if (e.data?.type !== "BEMIS_B2B_PREVIEW" || !e.data?.b2bData) return;
+      setB2bData(e.data.b2bData);
+    };
+    window.addEventListener("message", handler);
+    return () => window.removeEventListener("message", handler);
+  }, []);
+
   const set = (k: keyof FormState, v: string) => setForm(p => ({ ...p, [k]: v }));
   const toggleInterest = (val: string) =>
     setForm(p => ({ ...p, interests: p.interests.includes(val) ? p.interests.filter(i => i !== val) : [...p.interests, val] }));
