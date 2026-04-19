@@ -94,6 +94,7 @@ type ContentData = {
   contactSection: { sectionLabel: string; heading: string; subheading: string };
   featuredSection?: { sectionLabel: string; heading: string; subheading: string; ctaLabel: string };
   calculator?: { sectionLabel: string; heading: string; subheading: string; tabCharge: string; tabSavings: string; chargeSimLabel: string };
+  smartCharger?: { sectionLabel: string; heading: string; subheading: string; ocppBadge: string; ctaLabel: string; ctaHref: string; features: { title: string; desc: string }[] };
   sectionBgs?: Record<string, string>;
   logos?: { dark: string; light: string };
   ogImage?: string;
@@ -124,7 +125,7 @@ type DnaItem  = { title: string; desc: string };
 type ReviewItem = { platform: string; platformColor: string; rating: number; author: string; date: string; product: string; text: string };
 type HeroLayoutKey = "logo" | "text" | "button";
 
-type Tab = "hero" | "dna" | "stats" | "products-section" | "featured" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b";
+type Tab = "hero" | "dna" | "stats" | "products-section" | "smartcharger" | "featured" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b";
 
 export default function AdminPage() {
   const [authed, setAuthed] = useState<boolean | null>(null);
@@ -355,6 +356,33 @@ export default function AdminPage() {
     const next = JSON.parse(JSON.stringify(content)) as ContentData;
     if (!next.dna.features[idx]) return;
     next.dna.features[idx][field] = val;
+    setContent(next);
+  };
+
+  // SmartCharger feature helpers
+  const updateSmartChargerFeature = (idx: number, field: "title" | "desc", val: string) => {
+    if (!content) return;
+    const next = JSON.parse(JSON.stringify(content)) as ContentData;
+    const features = next.smartCharger?.features ?? [];
+    if (!features[idx]) return;
+    features[idx][field] = val;
+    if (!next.smartCharger) next.smartCharger = { sectionLabel: "", heading: "", subheading: "", ocppBadge: "", ctaLabel: "", ctaHref: "", features };
+    else next.smartCharger.features = features;
+    setContent(next);
+  };
+
+  const addSmartChargerFeature = () => {
+    if (!content) return;
+    const next = JSON.parse(JSON.stringify(content)) as ContentData;
+    if (!next.smartCharger) next.smartCharger = { sectionLabel: "", heading: "", subheading: "", ocppBadge: "", ctaLabel: "", ctaHref: "", features: [] };
+    next.smartCharger.features = [...(next.smartCharger.features ?? []), { title: "Yeni Özellik", desc: "" }];
+    setContent(next);
+  };
+
+  const removeSmartChargerFeature = (idx: number) => {
+    if (!content) return;
+    const next = JSON.parse(JSON.stringify(content)) as ContentData;
+    next.smartCharger!.features = next.smartCharger!.features.filter((_: unknown, i: number) => i !== idx);
     setContent(next);
   };
 
@@ -875,7 +903,7 @@ export default function AdminPage() {
 
   const TAB_ANCHOR_MAP: Partial<Record<Tab, string>> = {
     "hero": "hero", "dna": "dna", "stats": "stats",
-    "products-section": "products", "featured": "featured",
+    "products-section": "products", "smartcharger": "smartcharger", "featured": "featured",
     "calculator": "calculator",
     "dealer-section": "dealer", "dealers": "dealer",
     "reviews": "reviews", "contact-section": "contact", "contact": "contact",
@@ -897,6 +925,7 @@ export default function AdminPage() {
         { id: "dna",             label: "Kurumsal",        icon: HiOutlineTemplate       },
         { id: "stats",           label: "İstatistikler",   icon: HiOutlineChartBar       },
         { id: "products-section",label: "Ürünler",         icon: HiOutlineCube           },
+        { id: "smartcharger",    label: "Akıllı Şarj",     icon: HiOutlineLightningBolt    },
         { id: "featured",        label: "Öne Çıkanlar",    icon: HiOutlineStar              },
         { id: "calculator",      label: "Hesaplayıcı",     icon: HiOutlineLightningBolt    },
         { id: "dealer-section",  label: "Bayi Ağı",        icon: HiOutlineLocationMarker   },
@@ -1977,6 +2006,49 @@ export default function AdminPage() {
                     <div className="grid grid-cols-2 gap-3">
                       <Field label="Tüm Ürünler Butonu" value={content.products.allProductsLabel ?? ""} onChange={(v) => updateContent(["products","allProductsLabel"], v)} />
                       <Field label="İncele Butonu"       value={content.products.viewLabel ?? ""}       onChange={(v) => updateContent(["products","viewLabel"],       v)} />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* ── SMART CHARGER SECTION ── */}
+              {tab === "smartcharger" && (
+                <div className="max-w-2xl space-y-5">
+                  <div>
+                    <h2 className="text-base font-bold mb-1">Akıllı Şarj Bölümü</h2>
+                    <p className="text-xs text-white/35">Charger serisi mobil uygulama ve OCPP tanıtım bölümü metinleri.</p>
+                  </div>
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="Bölüm Etiketi (eyebrow)" value={content.smartCharger?.sectionLabel ?? ""} onChange={(v) => updateContent(["smartCharger","sectionLabel"], v)} />
+                      <Field label="OCPP Rozet Metni"        value={content.smartCharger?.ocppBadge ?? ""} onChange={(v) => updateContent(["smartCharger","ocppBadge"], v)} />
+                    </div>
+                    <Field label="Ana Başlık (\\n ile satır kır)" value={content.smartCharger?.heading ?? ""} onChange={(v) => updateContent(["smartCharger","heading"], v)} multiline />
+                    <Field label="Açıklama Paragrafı" value={content.smartCharger?.subheading ?? ""} onChange={(v) => updateContent(["smartCharger","subheading"], v)} multiline />
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="CTA Buton Metni" value={content.smartCharger?.ctaLabel ?? ""} onChange={(v) => updateContent(["smartCharger","ctaLabel"], v)} />
+                      <Field label="CTA Buton Linki" value={content.smartCharger?.ctaHref ?? ""} onChange={(v) => updateContent(["smartCharger","ctaHref"], v)} />
+                    </div>
+
+                    {/* Features */}
+                    <div className="pt-3 border-t border-white/6 space-y-3">
+                      <div className="flex items-center justify-between">
+                        <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Özellik Kartları</p>
+                        <button onClick={addSmartChargerFeature}
+                          className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-medium text-white/50 border border-white/10 hover:border-white/20 hover:text-white/80 transition-colors">
+                          + Ekle
+                        </button>
+                      </div>
+                      {(content.smartCharger?.features ?? []).map((f, i) => (
+                        <div key={i} className="rounded-xl border border-white/7 p-3 space-y-2" style={{ background: "rgba(255,255,255,0.02)" }}>
+                          <div className="flex items-center justify-between mb-1">
+                            <span className="text-[10px] font-bold text-white/30">#{i + 1}</span>
+                            <button onClick={() => removeSmartChargerFeature(i)} className="text-[10px] text-red-400/50 hover:text-red-400 transition-colors">Sil</button>
+                          </div>
+                          <Field label="Başlık" value={f.title} onChange={(v) => updateSmartChargerFeature(i, "title", v)} />
+                          <Field label="Açıklama" value={f.desc} onChange={(v) => updateSmartChargerFeature(i, "desc", v)} multiline />
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>

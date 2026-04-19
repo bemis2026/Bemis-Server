@@ -17,6 +17,7 @@ export type FeaturedItem = {
 
 export type DnaItem = { title: string; desc: string };
 export type TechFeature = { title: string; desc: string; accent: string };
+export type SmartChargerFeature = { title: string; desc: string };
 
 export type ReviewItem = {
   platform: string; platformColor: string; rating: number;
@@ -94,6 +95,15 @@ export type SiteContent = {
     tabSavings: string;
     chargeSimLabel: string;
   };
+  smartCharger: {
+    sectionLabel: string;
+    heading: string;
+    subheading: string;
+    ocppBadge: string;
+    ctaLabel: string;
+    ctaHref: string;
+    features: SmartChargerFeature[];
+  };
   sectionOrder: string[];
   textStyles: Record<string, { color?: string; fontSize?: string }>;
   sectionBgs: Record<string, string>;
@@ -109,7 +119,7 @@ const DEFAULT_LAYOUT: HeroLayout = {
 };
 
 export const DEFAULT_SECTION_ORDER = [
-  "dna", "stats", "products", "featured", "dealer", "reviews", "calculator", "contact"
+  "dna", "stats", "products", "smartcharger", "featured", "dealer", "reviews", "calculator", "contact"
 ];
 
 const defaultContent: SiteContent = {
@@ -263,6 +273,19 @@ const defaultContent: SiteContent = {
     tabCharge: "Şarj Süresi",
     tabSavings: "Tasarruf Analizi",
     chargeSimLabel: "Şarj Simülasyonu",
+  },
+  smartCharger: {
+    sectionLabel: "Akıllı Şarj Teknolojisi",
+    heading: "Mobil Uygulama ile\nHer Yerden Yönetin",
+    subheading: "Charger serisi şarj ünitelerimiz OCPP protokolü sayesinde site, AVM ve otopark gibi ortak kullanım alanlarında ağ operatörlerine sorunsuz entegre olur. Gerçek zamanlı izleme, uzaktan kontrol ve enerji optimizasyonu tek platformda.",
+    ocppBadge: "OCPP 1.6 / 2.0.1 Uyumlu",
+    ctaLabel: "Charger Serisini İncele",
+    ctaHref: "/products/charger-equipment",
+    features: [
+      { title: "Uzaktan İzleme & Kontrol", desc: "Şarj ünitelerini gerçek zamanlı takip edin, başlatın veya durdurun. Anlık durum bildirimleri alın." },
+      { title: "Ortak Alan Optimizasyonu", desc: "Çok kullanıcılı erişim, dinamik yük dengeleme ve ödeme sistemi entegrasyonu ile tam yönetim." },
+      { title: "Açık OCPP Ekosistemi", desc: "Standart OCPP protokolü ile tüm ağ operatörleri ve back-end platformlarıyla uyumlu çalışır." },
+    ],
   },
   sectionOrder: DEFAULT_SECTION_ORDER,
   textStyles: {},
@@ -446,6 +469,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
         navbar: { ...defaultContent.navbar, ...data.navbar, links: data.navbar?.links ?? defaultContent.navbar.links },
         footer: { ...defaultContent.footer, ...data.footer },
         technology: { ...defaultContent.technology, ...data.technology, features: data.technology?.features ?? defaultContent.technology.features, certs: data.technology?.certs ?? defaultContent.technology.certs },
+        smartCharger: { ...defaultContent.smartCharger, ...data.smartCharger, features: data.smartCharger?.features ?? defaultContent.smartCharger.features },
       };
       setHist({ past: [], present: loaded, future: [] });
     };
@@ -483,6 +507,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
             features: data.technology?.features ?? defaultContent.technology.features,
             certs:    data.technology?.certs    ?? defaultContent.technology.certs,
           },
+          smartCharger: { ...defaultContent.smartCharger, ...data.smartCharger, features: data.smartCharger?.features ?? defaultContent.smartCharger.features },
         };
         setHist({ past: [], present: loaded, future: [] });
       })
