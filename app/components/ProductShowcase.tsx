@@ -196,43 +196,43 @@ export default function ProductShowcase() {
                 </motion.div>
               )}
 
-              {/* Floating spec badge + yerli üretim — bottom left */}
-              <motion.div
-                initial={{ opacity: 0, x: 12, y: 8 }}
-                animate={inView ? { opacity: 1, x: 0, y: 0 } : {}}
-                transition={{ duration: 0.45, delay: 0.65 }}
-                className="absolute bottom-4 left-4 flex items-center gap-2"
-              >
-                {specs[1] && (
-                  <div
-                    className="rounded-2xl px-3 py-2 flex items-center gap-2"
-                    style={{
-                      background: "rgba(10,15,30,0.88)",
-                      border: `1px solid rgba(16,185,129,0.30)`,
-                      backdropFilter: "blur(12px)",
-                      boxShadow: "0 4px 16px rgba(0,0,0,0.20)",
-                    }}
-                  >
-                    <RiShieldCheckLine size={16} style={{ color: "#10B981" }} />
-                    <div>
-                      <p className="text-[9px] font-semibold uppercase tracking-wider" style={{ color: "rgba(240,240,244,0.50)" }}>{specs[1].label}</p>
-                      <p className="text-xs font-bold text-white">{specs[1].value}</p>
-                    </div>
-                  </div>
-                )}
-                {/* Yerli üretim badge */}
-                <div
-                  className="rounded-2xl overflow-hidden"
+              {/* Floating spec badge — bottom left */}
+              {specs[1] && (
+                <motion.div
+                  initial={{ opacity: 0, x: 12, y: 8 }}
+                  animate={inView ? { opacity: 1, x: 0, y: 0 } : {}}
+                  transition={{ duration: 0.45, delay: 0.65 }}
+                  className="absolute bottom-4 left-4 rounded-2xl px-3 py-2 flex items-center gap-2"
                   style={{
-                    width: 48, height: 48,
                     background: "rgba(10,15,30,0.88)",
-                    border: "1px solid rgba(255,255,255,0.15)",
+                    border: `1px solid rgba(16,185,129,0.30)`,
                     backdropFilter: "blur(12px)",
                     boxShadow: "0 4px 16px rgba(0,0,0,0.20)",
                   }}
                 >
-                  <Image src="/badges/yerli-uretim.jpg" alt="Yerli Üretim" width={48} height={48} className="w-full h-full object-cover" />
-                </div>
+                  <RiShieldCheckLine size={16} style={{ color: "#10B981" }} />
+                  <div>
+                    <p className="text-[9px] font-semibold uppercase tracking-wider" style={{ color: "rgba(240,240,244,0.50)" }}>{specs[1].label}</p>
+                    <p className="text-xs font-bold text-white">{specs[1].value}</p>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Yerli üretim badge — bottom right */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.4, delay: 0.75 }}
+                className="absolute bottom-4 right-4 rounded-2xl overflow-hidden"
+                style={{
+                  width: 64, height: 64,
+                  background: "rgba(10,15,30,0.85)",
+                  border: "1px solid rgba(255,255,255,0.18)",
+                  backdropFilter: "blur(12px)",
+                  boxShadow: "0 4px 16px rgba(0,0,0,0.25)",
+                }}
+              >
+                <Image src="/badges/yerli-uretim.jpg" alt="Yerli Üretim" width={64} height={64} className="w-full h-full object-contain p-1" />
               </motion.div>
             </div>
           </motion.div>
