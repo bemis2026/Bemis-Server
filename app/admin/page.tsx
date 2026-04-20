@@ -1612,60 +1612,88 @@ export default function AdminPage() {
                           <div className="w-6 h-6 rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
                         </div>
                       ) : (
-                        <div className="flex gap-4">
-                          {/* Category selector */}
-                          <div className="w-44 flex-shrink-0 space-y-1">
-                            <p className="text-[10px] font-semibold text-white/30 uppercase tracking-wider mb-2 px-1">Kategori</p>
-                            {products.map((cat) => (
-                              <button key={cat.id} onClick={() => { setSelCat(cat.id); setSelProd(""); }}
-                                className={`w-full text-left px-3 py-2 rounded-xl text-xs font-medium transition-all ${
-                                  selCat === cat.id ? "bg-white/10 text-white" : "text-white/45 hover:text-white/70 hover:bg-white/5"
-                                }`}
-                              >
-                                {cat.name}
-                              </button>
-                            ))}
+                        <div className="space-y-4">
+                          {/* Category selector — horizontal chips */}
+                          <div className="flex flex-wrap gap-2">
+                            {products.map((cat) => {
+                              const isActive = selCat === cat.id;
+                              return (
+                                <button key={cat.id} onClick={() => { setSelCat(cat.id); setSelProd(""); }}
+                                  className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all"
+                                  style={{
+                                    background: isActive ? "rgba(59,130,246,0.18)" : "rgba(255,255,255,0.05)",
+                                    border: `1px solid ${isActive ? "rgba(59,130,246,0.40)" : "rgba(255,255,255,0.08)"}`,
+                                    color: isActive ? "#93C5FD" : "rgba(255,255,255,0.45)",
+                                  }}
+                                >
+                                  {cat.name}
+                                  <span className="text-[10px] px-1.5 py-0.5 rounded-full font-bold"
+                                    style={{ background: isActive ? "rgba(59,130,246,0.25)" : "rgba(255,255,255,0.08)", color: isActive ? "#93C5FD" : "rgba(255,255,255,0.30)" }}>
+                                    {cat.products.length}
+                                  </span>
+                                </button>
+                              );
+                            })}
                           </div>
 
-                          {/* Product selector + editor */}
-                          <div className="flex-1 min-w-0">
-                            {currentCat && (
-                              <>
-                                {/* Product tabs */}
-                                <div className="flex flex-wrap gap-2 mb-5">
-                                  {currentCat.products.map((p) => (
+                          {/* Product list — cards grid */}
+                          {currentCat && (
+                            <>
+                              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                                {currentCat.products.map((p) => {
+                                  const isActive = selProd === p.id;
+                                  return (
                                     <div key={p.id} className="relative group/ptab">
-                                      <button onClick={() => setSelProd(p.id)}
-                                        className={`px-3 py-1.5 pr-7 rounded-lg text-xs font-medium border transition-all ${
-                                          selProd === p.id
-                                            ? "border-white/25 bg-white/10 text-white"
-                                            : "border-white/8 text-white/40 hover:text-white/70 hover:bg-white/5"
-                                        }`}
+                                      <button onClick={() => setSelProd(p.id)} className="w-full text-left"
+                                        style={{
+                                          background: isActive ? "rgba(59,130,246,0.12)" : "rgba(255,255,255,0.04)",
+                                          border: `1px solid ${isActive ? "rgba(59,130,246,0.35)" : "rgba(255,255,255,0.08)"}`,
+                                          borderRadius: 14, padding: "10px 12px",
+                                        }}
                                       >
-                                        {p.name}
+                                        {p.badge && (
+                                          <span className="inline-block text-[9px] font-bold px-1.5 py-0.5 rounded-full mb-1.5"
+                                            style={{ background: "rgba(59,130,246,0.20)", color: "#93C5FD" }}>
+                                            {p.badge}
+                                          </span>
+                                        )}
+                                        <p className="text-xs font-bold text-white leading-snug">{p.name}</p>
+                                        {p.subtitle && <p className="text-[10px] text-white/40 mt-0.5 leading-snug">{p.subtitle}</p>}
+                                        {p.code && <p className="text-[9px] font-mono text-white/22 mt-1">{p.code}</p>}
+                                        {p.image && (
+                                          <div className="mt-2 rounded-lg overflow-hidden" style={{ height: 48 }}>
+                                            <img src={p.image} alt={p.name} className="w-full h-full object-cover" />
+                                          </div>
+                                        )}
                                       </button>
                                       <button
                                         onClick={() => removeProduct(p.id)}
-                                        className="absolute right-1.5 top-1/2 -translate-y-1/2 text-white/20 hover:text-red-400 transition-colors opacity-0 group-hover/ptab:opacity-100"
+                                        className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full flex items-center justify-center text-white/20 hover:text-red-400 hover:bg-red-400/10 transition-all opacity-0 group-hover/ptab:opacity-100"
                                         title="Ürünü sil"
                                       >
-                                        <HiOutlineTrash size={11} />
+                                        <HiOutlineTrash size={10} />
                                       </button>
                                     </div>
-                                  ))}
-                                  <button
-                                    onClick={addProduct}
-                                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border border-dashed border-white/20 text-white/40 hover:text-white hover:border-white/40 transition-all"
-                                  >
-                                    <HiOutlinePlus size={12} /> Ürün Ekle
-                                  </button>
-                                </div>
+                                  );
+                                })}
+                                {/* Add product card */}
+                                <button
+                                  onClick={addProduct}
+                                  className="flex flex-col items-center justify-center gap-1.5 rounded-2xl transition-all"
+                                  style={{ border: "1px dashed rgba(255,255,255,0.15)", minHeight: 72, color: "rgba(255,255,255,0.30)" }}
+                                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.60)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.30)"; }}
+                                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.30)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.15)"; }}
+                                >
+                                  <HiOutlinePlus size={16} />
+                                  <span className="text-[10px] font-semibold">Ürün Ekle</span>
+                                </button>
+                              </div>
 
-                                {!selProd && (
-                                  <div className="text-center py-12 text-white/30 text-sm">
-                                    Düzenlemek için yukarıdan bir ürün seçin.
-                                  </div>
-                                )}
+                              {!selProd && (
+                                <div className="text-center py-8 text-white/25 text-xs">
+                                  Düzenlemek için yukarıdan bir ürün seçin.
+                                </div>
+                              )}
 
                                 {currentProd && (
                                   <div className="space-y-4">
@@ -1849,7 +1877,6 @@ export default function AdminPage() {
                                 )}
                               </>
                             )}
-                          </div>
                         </div>
                       )}
                     </>

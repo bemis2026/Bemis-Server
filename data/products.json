@@ -436,207 +436,167 @@
     "accent": "#10B981",
     "products": [
       {
-        "id": "portable-2kw",
-        "name": "Taşınabilir Şarj 2,3 kW",
-        "subtitle": "Plug & Play · 10A",
-        "badge": "Yeni",
-        "description": "Sabit kurulum gerektirmeyen, standart ev prizinden çalışan 2,3 kW taşınabilir şarj cihazı.",
+        "id": "mini-mobile",
+        "name": "Mini Mobile",
+        "code": "BEV-1111-0001",
+        "subtitle": "Tek Fazlı · 2,3 - 3,7 kW",
+        "badge": null,
+        "description": "BEMİS AC Mini Mobile taşınabilir şarj cihazı. Hafif ve kompakt yapısıyla her yere götürülebilir. Çanta ile birlikte gelir.",
         "specs": [
           {
             "group": "Elektriksel",
             "items": [
               {
                 "label": "Güç",
-                "value": "2,3 kW"
+                "value": "2,3 - 3,7 kW"
               },
               {
-                "label": "Giriş",
-                "value": "230V AC, 50Hz"
+                "label": "Faz",
+                "value": "Tek Fazlı"
               },
               {
                 "label": "Akım",
-                "value": "10A"
-              },
-              {
-                "label": "Verimlilik",
-                "value": "> %93"
-              }
-            ]
-          },
-          {
-            "group": "Konnektör",
-            "items": [
-              {
-                "label": "Araç Tarafı",
-                "value": "Type 2 (IEC 62196-2)"
-              },
-              {
-                "label": "Şebeke Tarafı",
-                "value": "Schuko (CEE 7/4)"
+                "value": "10A - 16A"
               },
               {
                 "label": "Kablo Uzunluğu",
-                "value": "5m (dahili)"
-              },
-              {
-                "label": "Kablo Kesiti",
-                "value": "3 × 2,5 mm²"
+                "value": "5 metre"
               }
             ]
           },
           {
-            "group": "Koruma & Güvenlik",
+            "group": "İçerik",
             "items": [
               {
-                "label": "Koruma Sınıfı",
-                "value": "IP54"
-              },
-              {
-                "label": "Topraklama Tespiti",
-                "value": "Aktif — şarj engellenir"
-              },
-              {
-                "label": "Sıcaklık Koruması",
-                "value": "Termal kesme"
-              },
-              {
-                "label": "Kaçak Akım",
-                "value": "6 mA DC izleme"
-              },
-              {
-                "label": "Aşırı Yük",
-                "value": "Otomatik kesme"
+                "label": "Aksesuar",
+                "value": "Çanta"
               }
             ]
           },
           {
-            "group": "Taşınabilirlik",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "Ağırlık",
-                "value": "Yaklaşık 650 g"
-              },
-              {
-                "label": "Boyutlar",
-                "value": "195 × 75 × 45 mm"
-              },
-              {
-                "label": "LED Gösterge",
-                "value": "5 renk durum LED'i"
-              },
-              {
-                "label": "Gövde",
-                "value": "Dayanıklı ABS muhafaza"
-              },
-              {
-                "label": "Garanti",
-                "value": "2 yıl"
+                "label": "Liste Fiyatı",
+                "value": "€ 286,00"
               }
             ]
           }
         ]
       },
       {
-        "id": "portable-7kw",
-        "name": "Taşınabilir Şarj 7,4 kW",
-        "subtitle": "Plug & Play · 32A · Ayarlanabilir",
+        "id": "mono-mobile",
+        "name": "Mono Mobile",
+        "code": "BEV-1221-0001",
+        "subtitle": "Tek Fazlı · 3,7 - 7,4 kW",
         "badge": null,
-        "description": "Ayarlanabilir akım çıkışıyla (6A–32A) hem ev hem iş seyahati kullanımına uygun 7,4 kW taşınabilir şarj cihazı.",
+        "description": "BEMİS AC Mono Mobile taşınabilir şarj cihazı. 32A'ya kadar akım desteği, çanta ve priz adaptörleri ile birlikte gelir.",
         "specs": [
           {
             "group": "Elektriksel",
             "items": [
               {
                 "label": "Güç",
-                "value": "7,4 kW"
+                "value": "3,7 - 7,4 kW"
               },
               {
-                "label": "Giriş",
-                "value": "230V AC, 50Hz"
+                "label": "Faz",
+                "value": "Tek Fazlı"
               },
               {
                 "label": "Akım",
-                "value": "6A / 8A / 10A / 13A / 16A / 20A / 25A / 32A (ayarlanabilir)"
-              },
-              {
-                "label": "Verimlilik",
-                "value": "> %93"
-              }
-            ]
-          },
-          {
-            "group": "Konnektör",
-            "items": [
-              {
-                "label": "Araç Tarafı",
-                "value": "Type 2 (IEC 62196-2)"
-              },
-              {
-                "label": "Şebeke Tarafı",
-                "value": "Schuko (CEE 7/4)"
+                "value": "16A - 32A"
               },
               {
                 "label": "Kablo Uzunluğu",
-                "value": "5m (dahili)"
-              },
-              {
-                "label": "Kablo Kesiti",
-                "value": "3 × 6 mm²"
+                "value": "5 metre"
               }
             ]
           },
           {
-            "group": "Koruma & Güvenlik",
+            "group": "İçerik",
             "items": [
               {
-                "label": "Koruma Sınıfı",
-                "value": "IP54"
+                "label": "Aksesuar",
+                "value": "Çanta"
               },
               {
-                "label": "Topraklama Tespiti",
-                "value": "Aktif — şarj engellenir"
+                "label": "Priz",
+                "value": "3/32A Priz"
               },
               {
-                "label": "Sıcaklık Koruması",
-                "value": "Termal kesme"
-              },
-              {
-                "label": "Kaçak Akım",
-                "value": "6 mA DC izleme"
-              },
-              {
-                "label": "Aşırı Yük",
-                "value": "Otomatik kesme"
+                "label": "Adaptör",
+                "value": "1/16A Fiş Dönüştürücü"
               }
             ]
           },
           {
-            "group": "Taşınabilirlik",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "Ağırlık",
-                "value": "Yaklaşık 900 g"
-              },
-              {
-                "label": "Boyutlar",
-                "value": "215 × 85 × 55 mm"
-              },
-              {
-                "label": "LED Gösterge",
-                "value": "5 renk durum LED'i + akım gösterge"
-              },
-              {
-                "label": "Gövde",
-                "value": "Dayanıklı ABS muhafaza"
-              },
-              {
-                "label": "Garanti",
-                "value": "2 yıl"
+                "label": "Liste Fiyatı",
+                "value": "€ 308,00"
               }
             ]
           }
-        ],
-        "image": "/products/1775067334159-WhatsApp_Image_2026-04-01_at_14.55.14__3_.jpeg"
+        ]
+      },
+      {
+        "id": "pro-mobile",
+        "name": "Pro Mobile",
+        "code": "BEV-2331-0001",
+        "subtitle": "Üç Fazlı · 11 - 22 kW",
+        "badge": "Pro",
+        "description": "BEMİS AC Pro Mobile taşınabilir şarj cihazı. Trifaze bağlantı desteği ile hızlı şarj imkânı. Çanta ve priz adaptörleri ile birlikte gelir.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "11 - 22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Üç Fazlı"
+              },
+              {
+                "label": "Akım",
+                "value": "16A - 32A"
+              },
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "5 metre"
+              }
+            ]
+          },
+          {
+            "group": "İçerik",
+            "items": [
+              {
+                "label": "Aksesuar",
+                "value": "Çanta"
+              },
+              {
+                "label": "Priz",
+                "value": "5/32A Priz"
+              },
+              {
+                "label": "Adaptör",
+                "value": "1/16 Fiş Dönüştürücü"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "€ 429,00"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
