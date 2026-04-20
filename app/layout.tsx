@@ -22,14 +22,12 @@ const inter = Inter({
 
 async function getContentMeta(): Promise<{ ogImage: string | null; faviconUrl: string | null }> {
   try {
-    const { list } = await import("@vercel/blob");
-    const { blobs } = await list({ prefix: "data/content.json" });
-    const blob = blobs.find(b => b.pathname === "data/content.json");
-    if (blob) {
-      const res = await fetch(blob.url, { cache: "no-store" });
-      const data = await res.json();
-      return { ogImage: data?.ogImage || null, faviconUrl: data?.faviconUrl || null };
-    }
+    const { readBin } = await import("../lib/jsonbin");
+    const data = await readBin("content") as Record<string, unknown>;
+    return {
+      ogImage: (data?.ogImage as string) || null,
+      faviconUrl: (data?.faviconUrl as string) || null,
+    };
   } catch {}
   return { ogImage: null, faviconUrl: null };
 }

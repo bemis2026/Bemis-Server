@@ -17,9 +17,9 @@ export async function POST(req: NextRequest) {
     if (!file) return NextResponse.json({ error: "Dosya bulunamadı" }, { status: 400 });
 
     const ext = file.name.split(".").pop()?.toLowerCase();
-    const allowed = ["jpg", "jpeg", "png", "webp", "gif"];
+    const allowed = ["jpg", "jpeg", "png", "webp", "gif", "ico"];
     if (!ext || !allowed.includes(ext)) {
-      return NextResponse.json({ error: "Desteklenmeyen dosya türü (jpg, png, webp, gif)" }, { status: 400 });
+      return NextResponse.json({ error: "Desteklenmeyen dosya türü (jpg, png, webp, gif, ico)" }, { status: 400 });
     }
 
     const bytes = await file.arrayBuffer();
