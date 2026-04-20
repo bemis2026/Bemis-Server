@@ -38,9 +38,11 @@ async function uploadToCloudinary(bytes: ArrayBuffer, filename: string, ext: str
   body.append("file", `data:${mime};base64,${base64}`);
   body.append("upload_preset", preset);
   body.append("public_id", publicId);
+  body.append("resource_type", "raw");
 
+  // /auto/upload accepts any resource type — most compatible with unsigned presets
   const res = await fetch(
-    `https://api.cloudinary.com/v1_1/${cloudName}/raw/upload`,
+    `https://api.cloudinary.com/v1_1/${cloudName}/auto/upload`,
     { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: body.toString() }
   );
   const json = await res.json();
