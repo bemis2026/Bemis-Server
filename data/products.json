@@ -1,471 +1,431 @@
 [
   {
     "id": "wallbox",
-    "name": "AC Wallbox",
-    "tagline": "Evinize ve iş yerinize özel duvar tipi şarj istasyonu",
+    "name": "AC Wallbox Charger",
+    "tagline": "Duvar tipi akıllı AC şarj istasyonları — ev ve iş yeri kullanımı",
     "accent": "#3B82F6",
     "products": [
       {
-        "id": "wallbox-7kw",
-        "name": "AC Wallbox 7,4 kW",
-        "subtitle": "Tek Fazlı · Ev Tipi",
-        "badge": "En Çok Satan",
-        "description": "Konut ve iş yeri kullanımı için geliştirilmiş, IP65 korumalı 7,4 kW tek fazlı akıllı AC şarj istasyonu.",
-        "specs": [
-          {
-            "group": "Elektriksel",
-            "items": [
-              {
-                "label": "Güç",
-                "value": "7,4 kW"
-              },
-              {
-                "label": "Giriş Gerilimi",
-                "value": "230V (1F) ± %10"
-              },
-              {
-                "label": "Faz",
-                "value": "Monofaze"
-              },
-              {
-                "label": "Maksimum Akım",
-                "value": "32A"
-              },
-              {
-                "label": "Güç Faktörü",
-                "value": "> 0,98"
-              },
-              {
-                "label": "Verimlilik",
-                "value": "> %95"
-              }
-            ]
-          },
-          {
-            "group": "Konnektör & Kablo",
-            "items": [
-              {
-                "label": "Konnektör Tipi",
-                "value": "Type 2 (IEC 62196-2)"
-              },
-              {
-                "label": "Kablo Uzunluğu",
-                "value": "4m (opsiyonel 6m)"
-              },
-              {
-                "label": "Kablo Kesiti",
-                "value": "3 × 6 mm²"
-              },
-              {
-                "label": "Kablo Tipi",
-                "value": "Spiralli esnek"
-              }
-            ]
-          },
-          {
-            "group": "Koruma & Güvenlik",
-            "items": [
-              {
-                "label": "Koruma Sınıfı",
-                "value": "IP65"
-              },
-              {
-                "label": "Darbe Koruması",
-                "value": "IK10"
-              },
-              {
-                "label": "Çalışma Sıcaklığı",
-                "value": "-40°C / +55°C"
-              },
-              {
-                "label": "Topraklama Koruması",
-                "value": "Var (PE)"
-              },
-              {
-                "label": "Kaçak Akım",
-                "value": "6 mA DC / 30 mA AC"
-              },
-              {
-                "label": "Aşırı Akım Koruması",
-                "value": "Dahili MCB"
-              }
-            ]
-          },
-          {
-            "group": "İletişim & Kontrol",
-            "items": [
-              {
-                "label": "Protokol",
-                "value": "OCPP 1.6 / OCPP 2.0"
-              },
-              {
-                "label": "Bağlantı",
-                "value": "4G / Wi-Fi / LAN (modele göre)"
-              },
-              {
-                "label": "Kullanıcı Arayüzü",
-                "value": "LED gösterge / RFID okuyucu"
-              },
-              {
-                "label": "Uzaktan Yönetim",
-                "value": "Evet (bulut tabanlı)"
-              },
-              {
-                "label": "Yük Dengeleme",
-                "value": "Dinamik (DLM)"
-              }
-            ]
-          },
-          {
-            "group": "Mekanik",
-            "items": [
-              {
-                "label": "Ağırlık",
-                "value": "Yaklaşık 4,5 kg"
-              },
-              {
-                "label": "Boyutlar",
-                "value": "275 × 175 × 110 mm"
-              },
-              {
-                "label": "Montaj",
-                "value": "Duvar / direk montajı"
-              },
-              {
-                "label": "Renk",
-                "value": "Beyaz / Siyah (opsiyonel)"
-              },
-              {
-                "label": "Malzeme",
-                "value": "UV dayanımlı ABS"
-              }
-            ]
-          },
-          {
-            "group": "Sertifikalar",
-            "items": [
-              {
-                "label": "Elektriksel",
-                "value": "CE · IEC 61851-1 · IEC 62196"
-              },
-              {
-                "label": "Kalite",
-                "value": "ISO 9001:2015"
-              },
-              {
-                "label": "Üretim",
-                "value": "Yerli Üretim (Bursa OSB)"
-              },
-              {
-                "label": "Garanti",
-                "value": "2 yıl"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "wallbox-11kw",
-        "name": "AC Wallbox 11 kW",
-        "subtitle": "Üç Fazlı · Karma Kullanım",
+        "id": "charger-2-kablolu",
+        "name": "Charger 2",
+        "code": "BEV-1011-0005",
+        "subtitle": "5m. Kablolu",
         "badge": null,
-        "description": "Ev, iş yeri ve ticari parking uygulamaları için üç fazlı 11 kW şarj istasyonu.",
+        "description": "BEMİS AC Wallbox Charger 2 kablolu versiyon. Trifaze 11-22 kW, Type 2 konektörlü 5m entegre kablo ile ev ve iş yeri kullanımına uygundur.",
         "specs": [
           {
             "group": "Elektriksel",
             "items": [
               {
                 "label": "Güç",
-                "value": "11 kW"
-              },
-              {
-                "label": "Giriş Gerilimi",
-                "value": "400V (3F) ± %10"
+                "value": "11 - 22 kW"
               },
               {
                 "label": "Faz",
                 "value": "Trifaze"
               },
               {
-                "label": "Maksimum Akım",
-                "value": "3 × 16A"
-              },
-              {
-                "label": "Güç Faktörü",
-                "value": "> 0,98"
-              },
-              {
-                "label": "Verimlilik",
-                "value": "> %95"
+                "label": "Maks. Akım",
+                "value": "16 - 32A"
               }
             ]
           },
           {
-            "group": "Konnektör & Kablo",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Konnektör Tipi",
+                "label": "Çıkış",
+                "value": "5m. Kablolu"
+              },
+              {
+                "label": "Konnektör",
                 "value": "Type 2 (IEC 62196-2)"
-              },
-              {
-                "label": "Kablo Uzunluğu",
-                "value": "4m (opsiyonel 6m)"
-              },
-              {
-                "label": "Kablo Kesiti",
-                "value": "5 × 2,5 mm²"
-              },
-              {
-                "label": "Kablo Tipi",
-                "value": "Spiralli esnek"
               }
             ]
           },
           {
-            "group": "Koruma & Güvenlik",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "Koruma Sınıfı",
-                "value": "IP65"
-              },
-              {
-                "label": "Darbe Koruması",
-                "value": "IK10"
-              },
-              {
-                "label": "Çalışma Sıcaklığı",
-                "value": "-40°C / +55°C"
-              },
-              {
-                "label": "Kaçak Akım",
-                "value": "6 mA DC / 30 mA AC"
-              },
-              {
-                "label": "Aşırı Akım Koruması",
-                "value": "Dahili MCB"
-              }
-            ]
-          },
-          {
-            "group": "İletişim & Kontrol",
-            "items": [
-              {
-                "label": "Protokol",
-                "value": "OCPP 1.6 / OCPP 2.0"
-              },
-              {
-                "label": "Bağlantı",
-                "value": "4G / Wi-Fi / LAN (modele göre)"
-              },
-              {
-                "label": "Kullanıcı Arayüzü",
-                "value": "LED gösterge / RFID okuyucu"
-              },
-              {
-                "label": "Uzaktan Yönetim",
-                "value": "Evet (bulut tabanlı)"
-              },
-              {
-                "label": "Yük Dengeleme",
-                "value": "Dinamik (DLM)"
-              }
-            ]
-          },
-          {
-            "group": "Mekanik",
-            "items": [
-              {
-                "label": "Ağırlık",
-                "value": "Yaklaşık 4,8 kg"
-              },
-              {
-                "label": "Boyutlar",
-                "value": "275 × 175 × 110 mm"
-              },
-              {
-                "label": "Montaj",
-                "value": "Duvar / direk montajı"
-              },
-              {
-                "label": "Malzeme",
-                "value": "UV dayanımlı ABS"
-              }
-            ]
-          },
-          {
-            "group": "Sertifikalar",
-            "items": [
-              {
-                "label": "Elektriksel",
-                "value": "CE · IEC 61851-1 · IEC 62196"
-              },
-              {
-                "label": "Kalite",
-                "value": "ISO 9001:2015"
-              },
-              {
-                "label": "Üretim",
-                "value": "Yerli Üretim (Bursa OSB)"
-              },
-              {
-                "label": "Garanti",
-                "value": "2 yıl"
+                "label": "Liste Fiyatı",
+                "value": "EUR 374,00"
               }
             ]
           }
         ]
       },
       {
-        "id": "wallbox-22kw",
-        "name": "AC Wallbox 22 kW",
-        "subtitle": "Üç Fazlı · Ticari",
-        "badge": null,
-        "description": "Ticari parkinglar ve hızlı şarj gerektiren uygulamalar için 22 kW üç fazlı profesyonel şarj istasyonu.",
+        "id": "charger-2-fisli",
+        "name": "Charger 2",
+        "code": "BEV-1011-0105",
+        "subtitle": "5m. Kablolu / 5-32A Fişli",
+        "badge": "Fişli",
+        "description": "BEMİS AC Wallbox Charger 2 fişli versiyon. Trifaze 11-22 kW, 5m kablo ile 5/32A fişli bağlantı seçeneği.",
         "specs": [
           {
             "group": "Elektriksel",
             "items": [
               {
                 "label": "Güç",
-                "value": "22 kW"
-              },
-              {
-                "label": "Giriş Gerilimi",
-                "value": "400V (3F) ± %10"
+                "value": "11 - 22 kW"
               },
               {
                 "label": "Faz",
                 "value": "Trifaze"
               },
               {
-                "label": "Maksimum Akım",
-                "value": "3 × 32A"
-              },
-              {
-                "label": "Güç Faktörü",
-                "value": "> 0,98"
-              },
-              {
-                "label": "Verimlilik",
-                "value": "> %95"
+                "label": "Maks. Akım",
+                "value": "16 - 32A"
               }
             ]
           },
           {
-            "group": "Konnektör & Kablo",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Konnektör Tipi",
+                "label": "Çıkış",
+                "value": "5m. Kablolu"
+              },
+              {
+                "label": "Fiş",
+                "value": "5/32A Fişli"
+              },
+              {
+                "label": "Konnektör",
                 "value": "Type 2 (IEC 62196-2)"
-              },
-              {
-                "label": "Kablo Uzunluğu",
-                "value": "4m (opsiyonel 6m)"
-              },
-              {
-                "label": "Kablo Kesiti",
-                "value": "5 × 6 mm²"
-              },
-              {
-                "label": "Kablo Tipi",
-                "value": "Spiralli esnek"
               }
             ]
           },
           {
-            "group": "Koruma & Güvenlik",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "Koruma Sınıfı",
-                "value": "IP65"
-              },
-              {
-                "label": "Darbe Koruması",
-                "value": "IK10"
-              },
-              {
-                "label": "Çalışma Sıcaklığı",
-                "value": "-40°C / +55°C"
-              },
-              {
-                "label": "Kaçak Akım",
-                "value": "6 mA DC / 30 mA AC"
-              },
-              {
-                "label": "Aşırı Akım Koruması",
-                "value": "Dahili MCB"
-              }
-            ]
-          },
-          {
-            "group": "İletişim & Kontrol",
-            "items": [
-              {
-                "label": "Protokol",
-                "value": "OCPP 1.6 / OCPP 2.0"
-              },
-              {
-                "label": "Bağlantı",
-                "value": "4G / Wi-Fi / LAN (modele göre)"
-              },
-              {
-                "label": "Kullanıcı Arayüzü",
-                "value": "LED gösterge / RFID okuyucu / Ekran"
-              },
-              {
-                "label": "Uzaktan Yönetim",
-                "value": "Evet (bulut tabanlı)"
-              },
-              {
-                "label": "Yük Dengeleme",
-                "value": "Dinamik (DLM)"
-              }
-            ]
-          },
-          {
-            "group": "Mekanik",
-            "items": [
-              {
-                "label": "Ağırlık",
-                "value": "Yaklaşık 5,2 kg"
-              },
-              {
-                "label": "Boyutlar",
-                "value": "290 × 185 × 115 mm"
-              },
-              {
-                "label": "Montaj",
-                "value": "Duvar / direk montajı"
-              },
-              {
-                "label": "Malzeme",
-                "value": "UV dayanımlı ABS"
-              }
-            ]
-          },
-          {
-            "group": "Sertifikalar",
-            "items": [
-              {
-                "label": "Elektriksel",
-                "value": "CE · IEC 61851-1 · IEC 62196"
-              },
-              {
-                "label": "Kalite",
-                "value": "ISO 9001:2015"
-              },
-              {
-                "label": "Üretim",
-                "value": "Yerli Üretim (Bursa OSB)"
-              },
-              {
-                "label": "Garanti",
-                "value": "2 yıl"
+                "label": "Liste Fiyatı",
+                "value": "EUR 388,30"
               }
             ]
           }
-        ],
-        "image": "/products/1775067096437-WhatsApp_Image_2026-03-29_at_01.55.05__2_.jpeg"
+        ]
+      },
+      {
+        "id": "charger-plus-2-kablolu",
+        "name": "Charger Plus 2",
+        "code": "BEV-2011-0005",
+        "subtitle": "5m. Kablolu",
+        "badge": null,
+        "description": "BEMİS AC Wallbox Charger Plus 2 kablolu versiyon. Trifaze 4-7-11-22 kW ayarlanabilir güç, 5m entegre Type 2 kablo.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Çıkış",
+                "value": "5m. Kablolu"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 649,00"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "charger-plus-2-pano",
+        "name": "Charger Plus 2",
+        "code": "BEV-2012-0000",
+        "subtitle": "Pano Prizli",
+        "badge": "Pano Prizli",
+        "description": "BEMİS AC Wallbox Charger Plus 2 pano prizli versiyon. Trifaze 4-7-11-22 kW ayarlanabilir güç, duvara monte pano prizi.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Çıkış",
+                "value": "Pano Prizli"
+              },
+              {
+                "label": "Soket",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 632,50"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "charger-pro-2-kablolu",
+        "name": "Charger Pro 2",
+        "code": "BEV-3011-0005",
+        "subtitle": "5m. Kablolu",
+        "badge": null,
+        "description": "BEMİS AC Wallbox Charger Pro 2 kablolu versiyon. Trifaze 4-7-11-22 kW, gelişmiş akıllı şarj özellikleri, 5m entegre Type 2 kablo.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Çıkış",
+                "value": "5m. Kablolu"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 764,50"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "charger-pro-2-pano",
+        "name": "Charger Pro 2",
+        "code": "BEV-3012-0000",
+        "subtitle": "Pano Prizli",
+        "badge": "Pano Prizli",
+        "description": "BEMİS AC Wallbox Charger Pro 2 pano prizli versiyon. Trifaze 4-7-11-22 kW ayarlanabilir güç, pano prizi ile esnek kurulum.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Çıkış",
+                "value": "Pano Prizli"
+              },
+              {
+                "label": "Soket",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 748,00"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "charger-pro-2-gsm-pano",
+        "name": "Charger Pro 2 GSM",
+        "code": "BEV-3012-1000",
+        "subtitle": "Pano Prizli / GSM Modüllü",
+        "badge": "GSM",
+        "description": "BEMİS AC Wallbox Charger Pro 2 GSM modüllü pano prizli versiyon. Uzaktan izleme, OCPP 1.6 uyumlu, trifaze 4-7-11-22 kW.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Çıkış",
+                "value": "Pano Prizli"
+              },
+              {
+                "label": "Soket",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "İletişim",
+                "value": "GSM Modüllü"
+              },
+              {
+                "label": "Protokol",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 874,50"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "charger-pro-2-gsm-kablolu",
+        "name": "Charger Pro 2 GSM",
+        "code": "BEV-3011-1005",
+        "subtitle": "5m. Kablolu / GSM Modüllü",
+        "badge": "GSM",
+        "description": "BEMİS AC Wallbox Charger Pro 2 GSM modüllü kablolu versiyon. Uzaktan izleme, OCPP 1.6 uyumlu, 5m entegre Type 2 kablo.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Çıkış",
+                "value": "5m. Kablolu"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "İletişim",
+                "value": "GSM Modüllü"
+              },
+              {
+                "label": "Protokol",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 891,00"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
