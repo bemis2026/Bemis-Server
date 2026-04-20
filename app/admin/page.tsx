@@ -1392,69 +1392,10 @@ export default function AdminPage() {
               {/* ── PRODUCTS (merged: category cards + spec editor) ── */}
               {tab === "products" && (
                 <div className="space-y-5">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h2 className="text-base font-bold mb-1">Ürünler</h2>
-                      <p className="text-xs text-white/35">Kategori kartlarını ve ürün teknik özelliklerini buradan yönetin.</p>
-                    </div>
-                    <button
-                      onClick={loadPendingProducts}
-                      disabled={loadingPending}
-                      className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all whitespace-nowrap flex-shrink-0 disabled:opacity-50"
-                      style={{ background: "rgba(245,158,11,0.10)", border: "1px solid rgba(245,158,11,0.22)", color: "rgba(245,158,11,0.80)" }}
-                    >
-                      {loadingPending ? <div className="w-3 h-3 rounded-full border border-amber-400/30 border-t-amber-400/80 animate-spin" /> : "📦"}
-                      Bekleyen Ürünleri Gör
-                    </button>
+                  <div>
+                    <h2 className="text-base font-bold mb-1">Ürünler</h2>
+                    <p className="text-xs text-white/35">Kategori kartlarını ve ürün detaylarını buradan yönetin.</p>
                   </div>
-
-                  {/* Pending products queue */}
-                  {pendingProducts !== null && (
-                    <div className="rounded-2xl overflow-hidden" style={{ background: "rgba(245,158,11,0.06)", border: "1px solid rgba(245,158,11,0.18)" }}>
-                      <div className="flex items-center justify-between px-4 py-3" style={{ borderBottom: "1px solid rgba(245,158,11,0.12)" }}>
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs font-bold" style={{ color: "rgba(245,158,11,0.90)" }}>
-                            Bekleyen Fabrika Ürünleri
-                          </span>
-                          <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold" style={{ background: "rgba(245,158,11,0.15)", color: "rgba(245,158,11,0.80)" }}>
-                            {pendingProducts.total} ürün
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          {pendingProducts.total > 0 && (
-                            <button
-                              onClick={handleSeedProducts}
-                              disabled={seedingProducts}
-                              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all disabled:opacity-50"
-                              style={{ background: "rgba(245,158,11,0.20)", color: "rgba(245,158,11,1)" }}
-                            >
-                              {seedingProducts ? <div className="w-3 h-3 rounded-full border border-amber-400/30 border-t-amber-400 animate-spin" /> : null}
-                              Sisteme Aktar
-                            </button>
-                          )}
-                          <button onClick={() => setPendingProducts(null)} className="text-xs text-white/25 hover:text-white/50 px-2 py-1">✕</button>
-                        </div>
-                      </div>
-                      {pendingProducts.total === 0 ? (
-                        <div className="px-4 py-5 text-center text-xs text-white/30">Aktarılmayı bekleyen yeni ürün yok.</div>
-                      ) : (
-                        <div className="px-4 py-3 space-y-2 max-h-64 overflow-y-auto">
-                          {pendingProducts.pending.map((cat) => (
-                            <div key={cat.id}>
-                              <p className="text-[10px] font-semibold uppercase tracking-wider mb-1" style={{ color: "rgba(245,158,11,0.55)" }}>{cat.name}</p>
-                              {cat.products.map((p: ProductEntry) => (
-                                <div key={p.id} className="flex items-center gap-2 py-1 px-2 rounded-lg" style={{ background: "rgba(255,255,255,0.03)" }}>
-                                  <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "rgba(245,158,11,0.60)" }} />
-                                  <span className="text-xs text-white/70">{p.name as string}</span>
-                                  {(p.code as string) && <span className="text-[10px] font-mono text-white/25 ml-auto">{p.code as string}</span>}
-                                </div>
-                              ))}
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  )}
 
                   {/* Sub-tab switcher */}
                   <div className="flex gap-1 p-1 rounded-xl w-fit" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
@@ -1466,7 +1407,7 @@ export default function AdminPage() {
                           color: prodSubTab === st ? "white" : "rgba(255,255,255,0.40)",
                         }}
                       >
-                        {st === "cards" ? "Kategori Kartları" : "Teknik Özellikler"}
+                        {st === "cards" ? "Kategori Kartları" : "Ürün Detayları"}
                       </button>
                     ))}
                   </div>
@@ -1604,9 +1545,68 @@ export default function AdminPage() {
                   {/* Hidden file input for category slider image upload */}
                   <input ref={catSliderImgRef} type="file" accept="image/*" className="hidden" onChange={handleCatSliderImgUpload} />
 
-                  {/* ── Sub-tab: Teknik Özellikler ── */}
+                  {/* ── Sub-tab: Ürün Detayları ── */}
                   {prodSubTab === "specs" && (
                     <>
+                      {/* Yüklemeye Hazır Ürünler */}
+                      <div className="flex items-center justify-between">
+                        <p className="text-xs text-white/35">Ürün bilgilerini, görsellerini ve teknik özelliklerini düzenleyin.</p>
+                        <button
+                          onClick={loadPendingProducts}
+                          disabled={loadingPending}
+                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap flex-shrink-0 disabled:opacity-50"
+                          style={{ background: "rgba(245,158,11,0.10)", border: "1px solid rgba(245,158,11,0.22)", color: "rgba(245,158,11,0.80)" }}
+                        >
+                          {loadingPending ? <div className="w-3 h-3 rounded-full border border-amber-400/30 border-t-amber-400/80 animate-spin" /> : "📦"}
+                          Yüklemeye Hazır Ürünler
+                        </button>
+                      </div>
+
+                      {pendingProducts !== null && (
+                        <div className="rounded-2xl overflow-hidden" style={{ background: "rgba(245,158,11,0.06)", border: "1px solid rgba(245,158,11,0.18)" }}>
+                          <div className="flex items-center justify-between px-4 py-3" style={{ borderBottom: "1px solid rgba(245,158,11,0.12)" }}>
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs font-bold" style={{ color: "rgba(245,158,11,0.90)" }}>Yüklemeye Hazır Ürünler</span>
+                              <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold" style={{ background: "rgba(245,158,11,0.15)", color: "rgba(245,158,11,0.80)" }}>
+                                {pendingProducts.total} ürün
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              {pendingProducts.total > 0 && (
+                                <button
+                                  onClick={handleSeedProducts}
+                                  disabled={seedingProducts}
+                                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all disabled:opacity-50"
+                                  style={{ background: "rgba(245,158,11,0.20)", color: "rgba(245,158,11,1)" }}
+                                >
+                                  {seedingProducts ? <div className="w-3 h-3 rounded-full border border-amber-400/30 border-t-amber-400 animate-spin" /> : null}
+                                  Sisteme Aktar
+                                </button>
+                              )}
+                              <button onClick={() => setPendingProducts(null)} className="text-xs text-white/25 hover:text-white/50 px-2 py-1">✕</button>
+                            </div>
+                          </div>
+                          {pendingProducts.total === 0 ? (
+                            <div className="px-4 py-5 text-center text-xs text-white/30">Aktarılmayı bekleyen yeni ürün yok.</div>
+                          ) : (
+                            <div className="px-4 py-3 space-y-2 max-h-64 overflow-y-auto">
+                              {pendingProducts.pending.map((cat) => (
+                                <div key={cat.id}>
+                                  <p className="text-[10px] font-semibold uppercase tracking-wider mb-1" style={{ color: "rgba(245,158,11,0.55)" }}>{cat.name}</p>
+                                  {cat.products.map((p: ProductEntry) => (
+                                    <div key={p.id} className="flex items-center gap-2 py-1 px-2 rounded-lg" style={{ background: "rgba(255,255,255,0.03)" }}>
+                                      <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "rgba(245,158,11,0.60)" }} />
+                                      <span className="text-xs text-white/70">{p.name as string}</span>
+                                      {(p.code as string) && <span className="text-[10px] font-mono text-white/25 ml-auto">{p.code as string}</span>}
+                                    </div>
+                                  ))}
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      )}
+
                       {products.length === 0 ? (
                         <div className="flex items-center justify-center py-20">
                           <div className="w-6 h-6 rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
