@@ -48,7 +48,7 @@ import { RiImageAddLine } from "react-icons/ri";
 
 type SpecItem = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
-type ProductEntry = { id: string; name: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[] };
+type ProductEntry = { id: string; name: string; code?: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[] };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
 type StatItem = { value: number; suffix: string; prefix?: string; label: string; description: string };
@@ -485,15 +485,24 @@ export default function AdminPage() {
     const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
     if (res.ok) {
       const { url } = await res.json();
-      setProducts((prev) => prev.map((cat) => cat.id !== selCat ? cat : {
-        ...cat,
-        products: cat.products.map((p) => {
-          if (p.id !== selProd) return p;
-          const existing = p.images ?? (p.image ? [p.image] : []);
-          return { ...p, images: [...existing, url], image: existing[0] ?? url };
-        }),
-      }));
-      showToast("ok", "Görsel yüklendi.");
+      setProducts((prev) => {
+        const updated = prev.map((cat) => cat.id !== selCat ? cat : {
+          ...cat,
+          products: cat.products.map((p) => {
+            if (p.id !== selProd) return p;
+            const existing = p.images ?? (p.image ? [p.image] : []);
+            return { ...p, images: [...existing, url], image: existing[0] ?? url };
+          }),
+        });
+        // Auto-save to JSONBin so image persists on refresh
+        fetch("/api/admin/products", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updated),
+        }).catch(() => {});
+        return updated;
+      });
+      showToast("ok", "Görsel yüklendi ve kaydedildi.");
     } else {
       showToast("err", "Yükleme başarısız.");
     }
@@ -1594,6 +1603,9 @@ export default function AdminPage() {
                                             </span>
                                           )}
                                           <p className="text-sm font-bold text-white leading-tight truncate">{currentProd.name || <span className="text-white/25 italic">Ürün Adı</span>}</p>
+                                          {currentProd.code && (
+                                            <span className="text-[9px] font-mono text-white/40 bg-white/6 px-1.5 py-0.5 rounded mt-0.5 inline-block">{currentProd.code}</span>
+                                          )}
                                           {currentProd.subtitle && (
                                             <p className="text-[11px] mt-0.5 truncate" style={{ color: currentCat?.accent ?? "#3B82F6" }}>{currentProd.subtitle}</p>
                                           )}
@@ -1620,8 +1632,9 @@ export default function AdminPage() {
                                       <p className="text-xs font-semibold text-white/50">Genel Bilgiler</p>
                                       <div className="grid grid-cols-2 gap-3">
                                         <Field label="Ürün Adı" value={currentProd.name} onChange={(v) => updateProd("name", v)} />
-                                        <Field label="Alt Başlık" value={currentProd.subtitle} onChange={(v) => updateProd("subtitle", v)} />
+                                        <Field label="Ürün Kodu" value={currentProd.code ?? ""} onChange={(v) => updateProd("code", v || undefined as unknown as null)} />
                                       </div>
+                                      <Field label="Alt Başlık" value={currentProd.subtitle} onChange={(v) => updateProd("subtitle", v)} />
                                       <Field label="Rozet (boş bırakın = yok)" value={currentProd.badge ?? ""} onChange={(v) => updateProd("badge", v || null)} />
                                       <Field label="Açıklama" value={currentProd.description} onChange={(v) => updateProd("description", v)} multiline />
                                       {/* Product images */}

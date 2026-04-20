@@ -17,7 +17,7 @@ import { trackEvent } from "../../../components/GoogleAnalytics";
 type SpecItem  = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
 type ProductEntry = {
-  id: string; name: string; subtitle: string; badge: string | null;
+  id: string; name: string; code?: string; subtitle: string; badge: string | null;
   description: string; specs: SpecGroup[]; image?: string; images?: string[]; pdf?: string;
 };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
@@ -128,7 +128,14 @@ export default function ProductDetailPage() {
                 {product.subtitle && (
                   <p className="text-sm" style={{ color: textFaint }}>{product.subtitle}</p>
                 )}
-                <p className="text-xs mt-1 font-medium" style={{ color: accent }}>{category.name}</p>
+                <div className="flex items-center gap-3 mt-1">
+                  <p className="text-xs font-medium" style={{ color: accent }}>{category.name}</p>
+                  {product.code && (
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded" style={{ background: `${accent}12`, color: textFaint }}>
+                      {product.code}
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
 
