@@ -148,6 +148,7 @@ export default function AdminPage() {
   const [uploadLoading, setUploadLoading] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
   const [prodImgLoading, setProdImgLoading] = useState(false);
+  const [seedingProducts, setSeedingProducts] = useState(false);
   const [heroBgLoading, setHeroBgLoading] = useState(false);
   const [factoryImgLoading, setFactoryImgLoading] = useState(false);
   const [factoryVideoLoading, setFactoryVideoLoading] = useState(false);
@@ -454,6 +455,22 @@ export default function AdminPage() {
       else showToast("err", "Kayıt başarısız.");
     } catch { showToast("err", "Ağ hatası."); }
     setSavingProducts(false);
+  };
+
+  const handleSeedProducts = async () => {
+    if (!confirm("data/products.json dosyasındaki fabrika verileri JSONBin'e yüklenecek. Mevcut ürün verileri silinir. Devam edilsin mi?")) return;
+    setSeedingProducts(true);
+    try {
+      const res = await fetch("/api/admin/seed-products", { method: "POST" });
+      const json = await res.json();
+      if (res.ok) {
+        showToast("ok", `${json.categories} kategori, ${json.products} ürün yüklendi.`);
+        fetch("/api/admin/products").then(r => r.json()).then((d: CategoryData[]) => { setProducts(d); if (d.length > 0) setSelCat(d[0].id); });
+      } else {
+        showToast("err", json.error ?? "Seed başarısız.");
+      }
+    } catch { showToast("err", "Ağ hatası."); }
+    setSeedingProducts(false);
   };
 
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -1358,11 +1375,21 @@ export default function AdminPage() {
               {/* ── PRODUCTS (merged: category cards + spec editor) ── */}
               {tab === "products" && (
                 <div className="space-y-5">
-                  <div className="flex items-start justify-between">
+                  <div className="flex items-start justify-between gap-4">
                     <div>
                       <h2 className="text-base font-bold mb-1">Ürünler</h2>
                       <p className="text-xs text-white/35">Kategori kartlarını ve ürün teknik özelliklerini buradan yönetin.</p>
                     </div>
+                    <button
+                      onClick={handleSeedProducts}
+                      disabled={seedingProducts}
+                      className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all whitespace-nowrap flex-shrink-0 disabled:opacity-50"
+                      style={{ background: "rgba(245,158,11,0.12)", border: "1px solid rgba(245,158,11,0.25)", color: "rgba(245,158,11,0.85)" }}
+                      title="data/products.json dosyasındaki 8 Bemis ürününü veritabanına yükler"
+                    >
+                      {seedingProducts ? <div className="w-3 h-3 rounded-full border border-amber-400/30 border-t-amber-400/80 animate-spin" /> : "↺"}
+                      Fabrika Verilerini Yükle
+                    </button>
                   </div>
 
                   {/* Sub-tab switcher */}

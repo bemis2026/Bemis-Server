@@ -47,14 +47,14 @@ export default function ProductShowcase() {
 
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-5 gap-10 lg:gap-14 items-center">
 
           {/* ── Left: image ── */}
           <motion.div
             initial={{ opacity: 0, x: -30, scale: 0.97 }}
             animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
             transition={{ duration: 0.65, delay: 0.08 }}
-            className="relative flex items-center justify-center order-2 lg:order-1"
+            className="relative flex items-center justify-center order-2 lg:order-1 lg:col-span-2"
           >
             {/* Glow behind image */}
             <div className="absolute inset-0 blur-3xl opacity-20 rounded-3xl" style={{ background: `radial-gradient(ellipse, ${ACCENT} 0%, transparent 70%)` }} />
@@ -63,7 +63,7 @@ export default function ProductShowcase() {
             <div
               className="relative w-full max-w-sm lg:max-w-none rounded-3xl overflow-hidden"
               style={{
-                aspectRatio: "4/5",
+                aspectRatio: "3/4",
                 background: d
                   ? "linear-gradient(145deg, #131b2e 0%, #0c1525 100%)"
                   : "linear-gradient(145deg, #deeeff 0%, #eaf4ff 100%)",
@@ -157,7 +157,7 @@ export default function ProductShowcase() {
           </motion.div>
 
           {/* ── Right: content ── */}
-          <div className="order-1 lg:order-2">
+          <div className="order-1 lg:order-2 lg:col-span-3">
             {/* Eyebrow badge */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}

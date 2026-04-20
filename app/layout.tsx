@@ -55,11 +55,11 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: "Bemis Teknik Elektrik A.Ş.",
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
     alternates: { canonical: "/" },
-    icons: {
-      icon: faviconUrl || "/favicon.ico",
-      shortcut: faviconUrl || "/favicon.ico",
-      apple: faviconUrl || "/favicon.ico",
-    },
+    icons: faviconUrl ? {
+      icon: faviconUrl,
+      shortcut: faviconUrl,
+      apple: faviconUrl,
+    } : undefined,
     openGraph: {
       title: "Bemis E-V Charge | Yerli EV Şarj Ekipmanı Üreticisi",
       description:
