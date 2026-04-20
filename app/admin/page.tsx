@@ -1566,6 +1566,52 @@ export default function AdminPage() {
 
                                 {currentProd && (
                                   <div className="space-y-4">
+                                    {/* ── Product card preview ── */}
+                                    <div className="bg-white/3 border border-white/7 rounded-2xl p-4">
+                                      <p className="text-[10px] font-semibold text-white/30 uppercase tracking-wider mb-3">Ürün Kartı Önizleme</p>
+                                      <div className="flex gap-4 items-start">
+                                        {/* Thumbnail */}
+                                        <div
+                                          className="flex-shrink-0 rounded-xl overflow-hidden flex items-center justify-center"
+                                          style={{ width: 96, height: 96, background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }}
+                                        >
+                                          {(() => {
+                                            const imgs = currentProd.images ?? (currentProd.image ? [currentProd.image] : []);
+                                            return imgs[0]
+                                              ? <img src={imgs[0]} alt={currentProd.name} className="w-full h-full object-cover" />
+                                              : <HiOutlineCube size={28} style={{ color: "rgba(255,255,255,0.15)" }} />;
+                                          })()}
+                                        </div>
+                                        {/* Info */}
+                                        <div className="flex-1 min-w-0">
+                                          {currentProd.badge && (
+                                            <span className="inline-block text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full mb-1.5"
+                                              style={{ background: `${currentCat?.accent ?? "#3B82F6"}18`, color: currentCat?.accent ?? "#3B82F6", border: `1px solid ${currentCat?.accent ?? "#3B82F6"}30` }}>
+                                              {currentProd.badge}
+                                            </span>
+                                          )}
+                                          <p className="text-sm font-bold text-white leading-tight truncate">{currentProd.name || <span className="text-white/25 italic">Ürün Adı</span>}</p>
+                                          {currentProd.subtitle && (
+                                            <p className="text-[11px] mt-0.5 truncate" style={{ color: currentCat?.accent ?? "#3B82F6" }}>{currentProd.subtitle}</p>
+                                          )}
+                                          {currentProd.description && (
+                                            <p className="text-[10px] text-white/35 mt-1 line-clamp-2 leading-relaxed">{currentProd.description}</p>
+                                          )}
+                                          {/* First spec group preview */}
+                                          {currentProd.specs?.[0]?.items?.length > 0 && (
+                                            <div className="flex flex-wrap gap-1.5 mt-2">
+                                              {currentProd.specs[0].items.slice(0, 3).map((item, i) => (
+                                                <span key={i} className="text-[9px] px-2 py-0.5 rounded-lg font-medium"
+                                                  style={{ background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.50)" }}>
+                                                  {item.label}: {item.value}
+                                                </span>
+                                              ))}
+                                            </div>
+                                          )}
+                                        </div>
+                                      </div>
+                                    </div>
+
                                     {/* Basic info */}
                                     <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
                                       <p className="text-xs font-semibold text-white/50">Genel Bilgiler</p>
