@@ -2946,8 +2946,8 @@ function DocumentsPanel() {
     fd.append("file", file);
     fd.append("folder", "documents");
     const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
-    if (res.ok) {
-      const { url } = await res.json();
+    const json = await res.json();
+    if (res.ok && json.url) {
       const sizeKb = Math.round(file.size / 1024);
       const sizeStr = sizeKb > 1024 ? `${(sizeKb / 1024).toFixed(1)} MB` : `${sizeKb} KB`;
       const newDoc: DocEntry = {
@@ -2955,7 +2955,7 @@ function DocumentsPanel() {
         title: file.name.replace(/\.[^.]+$/, "").replace(/[-_]/g, " "),
         description: "",
         category: "other",
-        url,
+        url: json.url,
         filename: file.name,
         size: sizeStr,
         lang: "tr",
@@ -2964,6 +2964,8 @@ function DocumentsPanel() {
       };
       setEditDoc(newDoc);
       setShowModal(true);
+    } else {
+      alert(`Yükleme başarısız: ${json?.error ?? "Bilinmeyen hata"}`);
     }
     setUploadLoading(false);
     if (uploadRef.current) uploadRef.current.value = "";
