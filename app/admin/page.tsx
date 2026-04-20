@@ -965,7 +965,10 @@ export default function AdminPage() {
     "products": "/products",
     "documents": "/documents",
   };
-  const previewSrc = tab === "b2b" ? b2bSubPage : (SEPARATE_PAGE_TABS[tab] ?? "/");
+  const previewSrc =
+    tab === "b2b" ? b2bSubPage
+    : tab === "products" && selCat && selProd ? `/products/${selCat}/${selProd}`
+    : (SEPARATE_PAGE_TABS[tab] ?? "/");
 
   const TAB_GROUPS: { label: string; items: { id: Tab; label: string; icon: React.ElementType }[] }[] = [
     {
