@@ -12,7 +12,7 @@ import {
   RiPlugLine, RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
   RiArrowLeftLine, RiArrowRightSLine,
 } from "react-icons/ri";
-import { HiMail, HiPhone, HiDownload, HiArrowRight } from "react-icons/hi";
+import { HiMail, HiDownload, HiArrowRight } from "react-icons/hi";
 import { trackEvent } from "../../../components/GoogleAnalytics";
 
 type SpecItem  = { label: string; value: string };
@@ -117,7 +117,7 @@ export default function ProductDetailPage() {
             {/* ── Main content grid ── */}
             <div className="grid lg:grid-cols-5 gap-6 lg:gap-8 items-start">
 
-              {/* ── Left col: gallery ── */}
+              {/* ── Left col: gallery + CTA ── */}
               <div className="lg:col-span-2">
                 {(() => {
                   const imgs = product.images ?? (product.image ? [product.image] : []);
@@ -209,6 +209,23 @@ export default function ProductDetailPage() {
                           ))}
                         </div>
                       )}
+                      {/* ── CTA below gallery ── */}
+                      <button
+                        onClick={() => router.push("/#contact")}
+                        className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold transition-all hover:opacity-90 active:scale-95"
+                        style={{ background: `linear-gradient(135deg, ${accent}, ${accent}cc)`, color: "#fff", boxShadow: `0 4px 16px ${accent}35` }}
+                      >
+                        <HiMail size={15} /> Teklif Al
+                      </button>
+                      {product.pdf && (
+                        <a
+                          href={product.pdf} download target="_blank" rel="noreferrer"
+                          className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold transition-all hover:opacity-80"
+                          style={{ background: d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)", color: textMuted, border: `1px solid ${border}` }}
+                        >
+                          <HiDownload size={14} /> PDF Katalog İndir
+                        </a>
+                      )}
                     </div>
                   );
                 })()}
@@ -273,86 +290,50 @@ export default function ProductDetailPage() {
                   )}
                 </div>
 
-                {/* Specs */}
-                <div className="flex flex-col gap-3">
-                  <h2 className="text-sm font-bold uppercase tracking-wider" style={{ color: textFaint }}>Teknik Özellikler</h2>
-                  {product.specs.map((group, gi) => {
-                    const isPrice = group.group.toLowerCase().includes("fiyat");
-                    return (
-                      <motion.div
-                        key={gi}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: gi * 0.06 }}
-                        className="rounded-2xl overflow-hidden"
-                        style={{
-                          border: isPrice ? `1px solid ${accent}35` : `1px solid ${border}`,
-                          background: isPrice ? `${accent}08` : surface,
-                        }}
-                      >
-                        {/* Group header */}
-                        <div
-                          className="px-4 py-2.5 flex items-center gap-2"
-                          style={{
-                            background: isPrice ? `${accent}14` : d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.025)",
-                            borderBottom: `1px solid ${isPrice ? `${accent}25` : divider}`,
-                          }}
-                        >
-                          <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: isPrice ? accent : `${accent}80` }} />
-                          <span className="text-xs font-bold" style={{ color: isPrice ? accent : textPrimary }}>{group.group}</span>
-                        </div>
-                        {group.items.map((item, ii) => (
-                          <div
-                            key={ii}
-                            className="px-4 py-2.5 flex items-center justify-between gap-4"
-                            style={{
-                              borderBottom: ii < group.items.length - 1 ? `1px solid ${divider}` : "none",
-                              background: ii % 2 === 1 ? (d ? "rgba(255,255,255,0.015)" : "rgba(0,0,0,0.015)") : "transparent",
-                            }}
-                          >
-                            <span className="text-sm" style={{ color: textFaint }}>{item.label}</span>
-                            <span
-                              className="text-sm font-semibold text-right"
-                              style={{ color: isPrice ? accent : textMuted }}
-                            >
-                              {item.value}
-                            </span>
-                          </div>
-                        ))}
-                      </motion.div>
-                    );
-                  })}
-                </div>
-
-                {/* CTA */}
-                <div
-                  className="rounded-2xl p-4 flex flex-col gap-2.5"
-                  style={{ background: surface, border: `1px solid ${border}` }}
-                >
-                  <button
-                    onClick={() => router.push("/#contact")}
-                    className="flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold transition-all hover:opacity-90 active:scale-95"
-                    style={{ background: `linear-gradient(135deg, ${accent}, ${accent}cc)`, color: "#fff", boxShadow: `0 4px 16px ${accent}40` }}
+                {/* Specs — compact single card */}
+                {product.specs.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                    className="rounded-2xl overflow-hidden"
+                    style={{ border: `1px solid ${border}`, background: surface }}
                   >
-                    <HiMail size={15} /> Fiyat Teklifi Al
-                  </button>
-                  <button
-                    onClick={() => router.push("/#contact")}
-                    className="flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold transition-all hover:opacity-80"
-                    style={{ background: `${accent}12`, color: accent, border: `1px solid ${accent}28` }}
-                  >
-                    <HiPhone size={14} /> Teknik Destek
-                  </button>
-                  {product.pdf && (
-                    <a
-                      href={product.pdf} download target="_blank" rel="noreferrer"
-                      className="flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold transition-all hover:opacity-80"
-                      style={{ background: d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)", color: textMuted, border: `1px solid ${border}` }}
+                    <div
+                      className="px-4 py-2 flex items-center gap-2"
+                      style={{ borderBottom: `1px solid ${divider}`, background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.025)" }}
                     >
-                      <HiDownload size={14} /> PDF Katalog İndir
-                    </a>
-                  )}
-                </div>
+                      <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: textFaint }}>Teknik Özellikler</span>
+                    </div>
+                    {product.specs.flatMap((group, gi) => {
+                      const isPrice = group.group.toLowerCase().includes("fiyat");
+                      // group separator row + items
+                      return [
+                        // Group label row (skip if only one group)
+                        product.specs.length > 1 ? (
+                          <div
+                            key={`g${gi}`}
+                            className="px-4 py-1.5 flex items-center gap-1.5"
+                            style={{ background: isPrice ? `${accent}0c` : d ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.018)", borderTop: gi > 0 ? `1px solid ${divider}` : "none" }}
+                          >
+                            <div className="w-1 h-1 rounded-full" style={{ background: isPrice ? accent : `${accent}60` }} />
+                            <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: isPrice ? accent : textFaint }}>{group.group}</span>
+                          </div>
+                        ) : null,
+                        ...group.items.map((item, ii) => (
+                          <div
+                            key={`g${gi}i${ii}`}
+                            className="px-4 py-1.5 flex items-center justify-between gap-3"
+                            style={{ borderTop: `1px solid ${divider}` }}
+                          >
+                            <span className="text-xs" style={{ color: textFaint, flexShrink: 0 }}>{item.label}</span>
+                            <span className="text-xs font-semibold text-right" style={{ color: isPrice ? accent : textMuted }}>{item.value}</span>
+                          </div>
+                        )),
+                      ];
+                    })}
+                  </motion.div>
+                )}
 
               </div>
             </div>
