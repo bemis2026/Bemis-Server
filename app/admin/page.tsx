@@ -1825,6 +1825,7 @@ export default function AdminPage() {
                                       {currentProd.specs.map((group, gi) => {
                                         const gkey = `${selCat}-${selProd}-${gi}`;
                                         const expanded = expandedGroups[gkey] !== false;
+                                        const isPrice = group.group.toLowerCase().includes("fiyat");
                                         return (
                                           <div key={gi} className="bg-white/3 border border-white/7 rounded-2xl overflow-hidden">
                                             <div className="flex items-center gap-2 px-4 py-3 border-b border-white/6">
@@ -1836,6 +1837,9 @@ export default function AdminPage() {
                                                 onChange={(e) => updateGroupName(gi, e.target.value)}
                                                 className="flex-1 bg-transparent text-sm font-semibold text-white focus:outline-none"
                                               />
+                                              {isPrice && (
+                                                <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full flex-shrink-0" style={{ background: "rgba(59,130,246,0.15)", color: "rgba(147,197,253,0.80)" }}>KDV Hariç</span>
+                                              )}
                                               <button onClick={() => removeSpecGroup(gi)} className="text-white/25 hover:text-red-400 p-1">
                                                 <HiOutlineTrash size={13} />
                                               </button>

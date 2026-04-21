@@ -318,6 +318,9 @@ export default function ProductDetailPage() {
                           >
                             <div className="w-1 h-1 rounded-full" style={{ background: isPrice ? accent : `${accent}60` }} />
                             <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: isPrice ? accent : textFaint }}>{group.group}</span>
+                            {isPrice && (
+                              <span className="ml-auto text-[9px] font-semibold px-1.5 py-0.5 rounded-full" style={{ background: `${accent}15`, color: `${accent}cc` }}>KDV Hariç</span>
+                            )}
                           </div>
                         ) : null,
                         ...group.items.map((item, ii) => (
