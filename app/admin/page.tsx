@@ -79,7 +79,7 @@ type ContentData = {
     factoryVideo?: string;
     productionStepImages?: string[];
   };
-  products: { heading: string; subheading: string; sectionLabel?: string; allProductsLabel?: string; viewLabel?: string };
+  products: { heading: string; subheading: string; sectionLabel?: string; allProductsLabel?: string; viewLabel?: string; sliderEnabled?: boolean };
   dealer: {
     sectionLabel: string; heading: string; description: string; applyText?: string;
     statCities: string; statDealers: string;
@@ -1963,6 +1963,27 @@ export default function AdminPage() {
                   {prodSubTab === "section" && (
                     <div className="max-w-2xl space-y-5">
                       <p className="text-xs text-white/35">Ana sayfadaki ürünler bölümünün başlık ve buton metinlerini düzenleyin.</p>
+
+                      {/* Slider göster/gizle */}
+                      <div className="bg-white/3 border border-white/7 rounded-2xl p-5">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-sm font-semibold text-white">Slider Göster</p>
+                            <p className="text-[11px] text-white/35 mt-0.5">Kapalıyken kategori banner'ı yerine başlık gösterilir.</p>
+                          </div>
+                          <button
+                            onClick={() => { const next = JSON.parse(JSON.stringify(content)) as ContentData; next.products.sliderEnabled = next.products.sliderEnabled === false ? true : false; setContent(next); }}
+                            className="relative w-11 h-6 rounded-full transition-colors duration-200 flex-shrink-0"
+                            style={{ background: content.products.sliderEnabled === false ? "rgba(255,255,255,0.12)" : "#3B82F6" }}
+                          >
+                            <span
+                              className="absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-all duration-200"
+                              style={{ left: content.products.sliderEnabled === false ? "2px" : "22px" }}
+                            />
+                          </button>
+                        </div>
+                      </div>
+
                       <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
                         <div className="grid grid-cols-2 gap-3">
                           <Field label="Bölüm Etiketi" value={content.products.sectionLabel ?? ""} onChange={(v) => updateContent(["products","sectionLabel"], v)} />

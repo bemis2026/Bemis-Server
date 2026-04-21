@@ -153,6 +153,7 @@ export default function Products() {
   });
 
   const hasAnySlider = mergedCategories.some((c) => !!(c as typeof c & { sliderImage?: string }).sliderImage);
+  const sliderVisible = (productSection.sliderEnabled !== false) && hasAnySlider;
   const totalBanner = mergedCategories.length;
   const bannerNext = useCallback(() => setActiveBanner((c) => (c + 1) % totalBanner), [totalBanner]);
   const bannerPrev = useCallback(() => setActiveBanner((c) => (c - 1 + totalBanner) % totalBanner), [totalBanner]);
@@ -188,8 +189,8 @@ export default function Products() {
       )}
       <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
-        {/* ── Static heading (when no slider images set) ── */}
-        {!hasAnySlider && (
+        {/* ── Static heading (when slider disabled or no slider images) ── */}
+        {!sliderVisible && (
           <div className="text-center mb-7">
             <motion.span
               initial={{ opacity: 0, y: 10 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4 }}
@@ -219,7 +220,7 @@ export default function Products() {
         )}
 
         {/* ── Banner Slider ── */}
-        {hasAnySlider && mergedCategories.length > 0 && (
+        {sliderVisible && mergedCategories.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}

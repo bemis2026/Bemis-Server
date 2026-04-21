@@ -61,7 +61,7 @@ export type SiteContent = {
     productionStepImages?: string[];
     ctaLabel: string;
   };
-  products: { heading: string; subheading: string; sectionLabel: string; allProductsLabel: string; viewLabel: string };
+  products: { heading: string; subheading: string; sectionLabel: string; allProductsLabel: string; viewLabel: string; sliderEnabled: boolean };
   dealer: {
     sectionLabel: string; heading: string; description: string;
     applyText: string; statCities: string; statDealers: string;
@@ -212,6 +212,7 @@ const defaultContent: SiteContent = {
     sectionLabel: "Ürün Kataloğu",
     allProductsLabel: "Tüm Ürünler",
     viewLabel: "İncele",
+    sliderEnabled: true,
   },
   dealer: {
     sectionLabel: "Yetkili Satış Ağı",
