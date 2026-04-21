@@ -76,7 +76,7 @@ export default function SmartCharger() {
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="flex flex-col items-center order-2 lg:order-1"
+            className="flex flex-col items-center order-1 lg:order-1"
           >
             {/* Slide area */}
             <div className="relative" style={{ width: 300, height: 510 }}>
@@ -424,7 +424,7 @@ export default function SmartCharger() {
           </motion.div>
 
           {/* ── Text content ── */}
-          <div className="order-1 lg:order-2">
+          <div className="order-2 lg:order-2">
             {/* Eyebrow */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}

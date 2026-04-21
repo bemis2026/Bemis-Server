@@ -1027,7 +1027,6 @@ export default function AdminPage() {
         { id: "calculator",      label: "Hesaplayıcı",     icon: HiOutlineLightningBolt    },
         { id: "dealer-section",  label: "Bayi Ağı",        icon: HiOutlineLocationMarker   },
         { id: "reviews",         label: "Yorumlar",        icon: HiOutlineStar           },
-        { id: "contact-section", label: "İletişim Bölümü", icon: HiOutlinePhone          },
       ],
     },
     {
@@ -1035,7 +1034,7 @@ export default function AdminPage() {
       items: [
         { id: "products", label: "Ürün Kataloğu",   icon: HiOutlineCube           },
         { id: "dealers",  label: "Bayi Haritası",    icon: HiOutlineLocationMarker },
-        { id: "contact",  label: "İletişim Bilgisi", icon: HiOutlinePhone          },
+        { id: "contact",  label: "İletişim",          icon: HiOutlinePhone          },
         { id: "b2b",      label: "OEM & Kurumsal",   icon: HiOutlineOfficeBuilding },
       ],
     },
@@ -1892,8 +1891,14 @@ export default function AdminPage() {
               {tab === "contact" && (
                 <div className="max-w-xl space-y-5">
                   <div>
-                    <h2 className="text-base font-bold mb-1">İletişim Bilgileri</h2>
-                    <p className="text-xs text-white/35">İletişim sayfasında ve footer&apos;da görünen bilgiler.</p>
+                    <h2 className="text-base font-bold mb-1">İletişim</h2>
+                    <p className="text-xs text-white/35">İletişim bilgileri ve ana sayfadaki iletişim bölümünün metinleri.</p>
+                  </div>
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                    <p className="text-xs font-semibold text-white/50">Ana Sayfa Bölüm Başlıkları</p>
+                    <Field label="Bölüm Etiketi" value={content.contactSection.sectionLabel} onChange={(v) => updateContent(["contactSection","sectionLabel"], v)} />
+                    <Field label="Başlık"        value={content.contactSection.heading}      onChange={(v) => updateContent(["contactSection","heading"],      v)} />
+                    <Field label="Alt Açıklama"  value={content.contactSection.subheading}   onChange={(v) => updateContent(["contactSection","subheading"],   v)} multiline />
                   </div>
                   <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
                     <div className="grid grid-cols-2 gap-3">
@@ -2459,20 +2464,6 @@ export default function AdminPage() {
               )}
 
               {/* ── CONTACT SECTION ── */}
-              {tab === "contact-section" && (
-                <div className="max-w-2xl space-y-5">
-                  <div>
-                    <h2 className="text-base font-bold mb-1">İletişim Bölümü</h2>
-                    <p className="text-xs text-white/35">Ana sayfadaki iletişim formu bölümünün başlık metinleri.</p>
-                  </div>
-                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
-                    <Field label="Bölüm Etiketi" value={content.contactSection.sectionLabel} onChange={(v) => updateContent(["contactSection","sectionLabel"], v)} />
-                    <Field label="Başlık"        value={content.contactSection.heading}      onChange={(v) => updateContent(["contactSection","heading"],      v)} />
-                    <Field label="Alt Açıklama"  value={content.contactSection.subheading}   onChange={(v) => updateContent(["contactSection","subheading"],   v)} multiline />
-                  </div>
-                </div>
-              )}
-
               {/* ── CALCULATOR ── */}
               {tab === "calculator" && (
                 <div className="max-w-2xl space-y-5">
