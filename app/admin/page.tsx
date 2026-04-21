@@ -1465,7 +1465,7 @@ export default function AdminPage() {
                           color: prodSubTab === st ? "white" : "rgba(255,255,255,0.40)",
                         }}
                       >
-                        {st === "cards" ? "Kategori Kartları" : st === "specs" ? "Ürün Detayları" : "Bölüm Metinleri"}
+                        {st === "cards" ? "Kategori Kartları" : st === "specs" ? "Ürün Detayları" : "Ana Sayfa Bölümü"}
                       </button>
                     ))}
                   </div>
