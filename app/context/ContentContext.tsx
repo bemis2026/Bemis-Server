@@ -530,8 +530,9 @@ export function ContentProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
+    const controller = new AbortController();
     setContentLoading(true);
-    fetch(`/api/content?lang=${lang}`)
+    fetch(`/api/content?lang=${lang}`, { signal: controller.signal })
       .then(r => r.json())
       .then(data => {
         const loaded: SiteContent = {
@@ -577,8 +578,9 @@ export function ContentProvider({ children }: { children: ReactNode }) {
         };
         setHist({ past: [], present: loaded, future: [] });
       })
-      .catch(() => {})
+      .catch(err => { if (err?.name !== "AbortError") console.error("content fetch error:", err); })
       .finally(() => setContentLoading(false));
+    return () => controller.abort();
   }, [refreshKey, lang]);
 
   return (
