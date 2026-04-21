@@ -32,6 +32,7 @@ const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   dealer: DealerNetwork,
   reviews: Reviews,
   calculator: Calculator,
+  b2bcta: B2BCta,
   contact: Contact,
 };
 
@@ -57,7 +58,6 @@ export default function Home() {
         );
       })}
 
-      <B2BCta />
       <Contact />
       <Footer />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />

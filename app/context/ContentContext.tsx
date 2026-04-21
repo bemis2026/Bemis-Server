@@ -134,21 +134,14 @@ const DEFAULT_LAYOUT: HeroLayout = {
 };
 
 export const DEFAULT_SECTION_ORDER = [
-  "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "reviews", "dealer", "calculator"
+  "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "reviews", "dealer", "b2bcta", "calculator"
 ];
 
 function migrateSectionOrder(order: string[]): string[] {
-  const known = ["dna","stats","productshowcase","smartcharger","products","featured","reviews","dealer","calculator"];
+  const known = ["dna","stats","productshowcase","smartcharger","products","featured","reviews","dealer","calculator","b2bcta"];
   const filtered = order.filter(s => known.includes(s));
   const missing = known.filter(s => !filtered.includes(s));
-  const result = [...filtered, ...missing];
-  // ensure dealer comes after reviews
-  const ri = result.indexOf("reviews"), di = result.indexOf("dealer");
-  if (di !== -1 && ri !== -1 && di < ri) {
-    result.splice(di, 1);
-    result.splice(result.indexOf("reviews") + 1, 0, "dealer");
-  }
-  return result;
+  return [...filtered, ...missing];
 }
 
 const defaultContent: SiteContent = {

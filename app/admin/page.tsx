@@ -43,6 +43,7 @@ import {
   HiOutlineStar,
   HiOutlineLightningBolt,
   HiOutlineOfficeBuilding,
+  HiDotsVertical,
 } from "react-icons/hi";
 import { RiImageAddLine } from "react-icons/ri";
 
@@ -100,6 +101,7 @@ type ContentData = {
   logos?: { dark: string; light: string };
   ogImage?: string;
   faviconUrl?: string;
+  sectionOrder?: string[];
 };
 
 type Dealer = { name: string; address: string; phone: string };
@@ -128,6 +130,23 @@ type HeroLayoutKey = "logo" | "text" | "button";
 
 type Tab = "hero" | "dna" | "stats" | "products-section" | "smartcharger" | "productshowcase" | "featured" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b";
 
+const ADMIN_DEFAULT_SECTION_ORDER = [
+  "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "reviews", "dealer", "b2bcta", "calculator"
+];
+
+const SECTION_META: Record<string, { tab: Tab; label: string; icon: React.ElementType }> = {
+  "dna":            { tab: "dna",             label: "Hakkımızda",     icon: HiOutlineTemplate       },
+  "stats":          { tab: "stats",           label: "İstatistikler",  icon: HiOutlineChartBar       },
+  "productshowcase":{ tab: "productshowcase", label: "Ürün Vitrini",   icon: HiOutlineStar           },
+  "smartcharger":   { tab: "smartcharger",    label: "Akıllı Şarj",    icon: HiOutlineLightningBolt  },
+  "products":       { tab: "products-section",label: "Ürünler",        icon: HiOutlineCube           },
+  "featured":       { tab: "featured",        label: "Öne Çıkanlar",   icon: HiOutlineStar           },
+  "reviews":        { tab: "reviews",         label: "Yorumlar",       icon: HiOutlineStar           },
+  "dealer":         { tab: "dealer-section",  label: "Bayi Ağı",       icon: HiOutlineLocationMarker },
+  "b2bcta":         { tab: "b2b",             label: "OEM & Bayi CTA", icon: HiOutlineOfficeBuilding },
+  "calculator":     { tab: "calculator",      label: "Hesaplayıcı",    icon: HiOutlineLightningBolt  },
+};
+
 export default function AdminPage() {
   const [authed, setAuthed] = useState<boolean | null>(null);
   const [password, setPassword] = useState("");
@@ -151,6 +170,8 @@ export default function AdminPage() {
   const [seedingProducts, setSeedingProducts] = useState(false);
   const [pendingProducts, setPendingProducts] = useState<{ pending: CategoryData[]; total: number } | null>(null);
   const [loadingPending, setLoadingPending] = useState(false);
+  const [dragFrom, setDragFrom] = useState<number | null>(null);
+  const [dragTo, setDragTo] = useState<number | null>(null);
   const [heroBgLoading, setHeroBgLoading] = useState(false);
   const [factoryImgLoading, setFactoryImgLoading] = useState(false);
   const [factoryVideoLoading, setFactoryVideoLoading] = useState(false);
@@ -797,6 +818,16 @@ export default function AdminPage() {
     if (faviconRef.current) faviconRef.current.value = "";
   };
 
+  const reorderSection = (from: number, to: number) => {
+    if (!content) return;
+    const next = JSON.parse(JSON.stringify(content)) as ContentData;
+    const order = [...(next.sectionOrder ?? ADMIN_DEFAULT_SECTION_ORDER)];
+    const [moved] = order.splice(from, 1);
+    order.splice(to, 0, moved);
+    next.sectionOrder = order;
+    setContent(next);
+  };
+
   const updateContent = (path: string[], value: string | number | null) => {
     if (!content) return;
     const next = JSON.parse(JSON.stringify(content)) as ContentData;
@@ -1015,21 +1046,6 @@ export default function AdminPage() {
 
   const TAB_GROUPS: { label: string; items: { id: Tab; label: string; icon: React.ElementType }[] }[] = [
     {
-      label: "Sayfa Bölümleri",
-      items: [
-        { id: "hero",            label: "Hero",            icon: HiOutlineHome             },
-        { id: "dna",             label: "Hakkımızda",      icon: HiOutlineTemplate         },
-        { id: "stats",           label: "İstatistikler",   icon: HiOutlineChartBar         },
-        { id: "productshowcase", label: "Ürün Vitrini",    icon: HiOutlineStar             },
-        { id: "smartcharger",    label: "Akıllı Şarj",     icon: HiOutlineLightningBolt    },
-        { id: "products-section",label: "Ürünler",         icon: HiOutlineCube             },
-        { id: "featured",        label: "Öne Çıkanlar",    icon: HiOutlineStar             },
-        { id: "reviews",         label: "Yorumlar",        icon: HiOutlineStar             },
-        { id: "dealer-section",  label: "Bayi Ağı",        icon: HiOutlineLocationMarker   },
-        { id: "calculator",      label: "Hesaplayıcı",     icon: HiOutlineLightningBolt    },
-      ],
-    },
-    {
       label: "Veri Yönetimi",
       items: [
         { id: "products", label: "Ürün Kataloğu",   icon: HiOutlineCube           },
@@ -1132,6 +1148,50 @@ export default function AdminPage() {
       <div className="flex h-[calc(100vh-65px)]">
         {/* Sidebar */}
         <aside className="w-52 flex-shrink-0 border-r border-white/8 px-3 py-3 flex flex-col gap-0 overflow-y-auto">
+          {/* ── Sayfa Bölümleri (draggable) ── */}
+          <div className="mb-1">
+            <p className="text-[9px] font-bold text-white/20 uppercase tracking-widest px-2 pt-2 pb-1">Sayfa Bölümleri</p>
+            {/* Hero: always first, not draggable */}
+            <button onClick={() => setTab("hero")}
+              className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-xs font-medium text-left transition-all duration-200 ${tab === "hero" ? "bg-white/10 text-white" : "text-white/40 hover:text-white/70 hover:bg-white/4"}`}
+            >
+              <HiOutlineHome size={13} className="flex-shrink-0" /> Hero
+            </button>
+            {/* Remaining sections: derived from sectionOrder, draggable */}
+            {(content?.sectionOrder ?? ADMIN_DEFAULT_SECTION_ORDER).map((id, i) => {
+              const meta = SECTION_META[id];
+              if (!meta) return null;
+              const isActive = tab === meta.tab;
+              const isDragging = dragFrom === i;
+              const isOver = dragTo === i && dragFrom !== null && dragFrom !== i;
+              return (
+                <div
+                  key={id}
+                  draggable
+                  onDragStart={() => setDragFrom(i)}
+                  onDragOver={(e) => { e.preventDefault(); setDragTo(i); }}
+                  onDrop={() => { if (dragFrom !== null && dragFrom !== i) reorderSection(dragFrom, i); setDragFrom(null); setDragTo(null); }}
+                  onDragEnd={() => { setDragFrom(null); setDragTo(null); }}
+                  className="flex items-center gap-0.5 rounded-lg"
+                  style={{
+                    opacity: isDragging ? 0.35 : 1,
+                    outline: isOver ? "1px solid rgba(255,255,255,0.20)" : "none",
+                    transition: "opacity 0.15s",
+                  }}
+                >
+                  <HiDotsVertical size={13} className="flex-shrink-0 cursor-grab text-white/18 hover:text-white/40 transition-colors ml-0.5" />
+                  <button
+                    onClick={() => setTab(meta.tab)}
+                    className={`flex-1 flex items-center gap-2 px-2 py-2 rounded-lg text-xs font-medium text-left transition-all duration-200 ${isActive ? "bg-white/10 text-white" : "text-white/40 hover:text-white/70 hover:bg-white/4"}`}
+                  >
+                    <meta.icon size={13} className="flex-shrink-0" /> {meta.label}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* ── Veri Yönetimi & Sistem ── */}
           {TAB_GROUPS.map((group) => (
             <div key={group.label} className="mb-1">
               <p className="text-[9px] font-bold text-white/20 uppercase tracking-widest px-2 pt-2 pb-1">{group.label}</p>
