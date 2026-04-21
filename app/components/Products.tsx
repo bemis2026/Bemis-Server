@@ -152,6 +152,7 @@ export default function Products() {
     return { ...cat, name: meta.name, subtitle: meta.subtitle, modelCount: meta.modelCount, badge: meta.badge, comingSoon: meta.comingSoon, image: meta.image, sliderImage: meta.sliderImage };
   });
 
+  const hasAnySlider = mergedCategories.some((c) => !!(c as typeof c & { sliderImage?: string }).sliderImage);
   const totalBanner = mergedCategories.length;
   const bannerNext = useCallback(() => setActiveBanner((c) => (c + 1) % totalBanner), [totalBanner]);
   const bannerPrev = useCallback(() => setActiveBanner((c) => (c - 1 + totalBanner) % totalBanner), [totalBanner]);
@@ -187,8 +188,38 @@ export default function Products() {
       )}
       <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
+        {/* ── Static heading (when no slider images set) ── */}
+        {!hasAnySlider && (
+          <div className="text-center mb-7">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4 }}
+              className="inline-block text-xs font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-full mb-4"
+              style={{ background: d ? `${BLUE}18` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`, color: d ? "#93C5FD" : BLUE }}
+            >
+              <E field="products.sectionLabel" tag="span">{productSection.sectionLabel}</E>
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.08 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-black mb-2" style={{ color: textPrimary }}
+            >
+              <E field="products.heading" tag="span">{productSection.heading}</E>
+            </motion.h2>
+            <motion.div
+              initial={{ scaleX: 0, opacity: 0 }} animate={inView ? { scaleX: 1, opacity: 1 } : {}} transition={{ duration: 0.5, delay: 0.2 }}
+              className="mx-auto h-px w-20 mb-3"
+              style={{ background: `linear-gradient(90deg, transparent 0%, ${BLUE} 50%, transparent 100%)` }}
+            />
+            <motion.p
+              initial={{ opacity: 0, y: 12 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.22 }}
+              className="text-sm" style={{ color: textMuted }}
+            >
+              <E field="products.subheading" tag="span">{productSection.subheading}</E>
+            </motion.p>
+          </div>
+        )}
+
         {/* ── Banner Slider ── */}
-        {mergedCategories.length > 0 && (
+        {hasAnySlider && mergedCategories.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}

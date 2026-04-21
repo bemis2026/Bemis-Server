@@ -1502,33 +1502,33 @@ export default function AdminPage() {
                                   <p className="text-[10px] text-white/20 mt-1.5">Ana sayfa kategori kartı arka planına uygulanır. Önerilen: 400×300 WebP/JPG.</p>
                                 </div>
 
-                                {/* Slider image */}
+                                {/* Slider image — toggleable */}
                                 <div>
                                   <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Slider Arka Plan Görseli</label>
-                                  {meta.sliderImage && (
-                                    <div className="relative rounded-xl overflow-hidden mb-2" style={{ height: 80 }}>
+                                  {meta.sliderImage ? (
+                                    <div className="relative rounded-xl overflow-hidden" style={{ height: 80 }}>
                                       <img src={meta.sliderImage} alt="Slider" className="w-full h-full object-cover" />
                                       <button
                                         onClick={() => updateCatMeta(catId, "sliderImage", "")}
                                         className="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-black/60 flex items-center justify-center text-white/70 hover:text-white text-xs"
+                                        title="Slider'ı kaldır"
                                       >✕</button>
                                     </div>
-                                  )}
-                                  <div className="flex items-center gap-2">
+                                  ) : (
                                     <button
                                       onClick={() => { setCatSliderImgTarget(catId); setTimeout(() => catSliderImgRef.current?.click(), 50); }}
                                       disabled={catSliderImgLoading === catId}
-                                      className="flex items-center gap-1.5 text-[11px] px-3 py-1.5 rounded-lg font-medium transition-all"
-                                      style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.55)" }}
+                                      className="flex items-center gap-1.5 text-[11px] px-3 py-2 rounded-xl font-medium transition-all w-full justify-center border border-dashed hover:border-white/25 hover:text-white/70 disabled:opacity-50"
+                                      style={{ background: "rgba(255,255,255,0.03)", borderColor: "rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.38)" }}
                                     >
                                       {catSliderImgLoading === catId ? (
                                         <div className="w-3 h-3 rounded-full border border-white/20 border-t-white/60 animate-spin" />
                                       ) : (
                                         <RiImageAddLine size={13} />
                                       )}
-                                      Yükle
+                                      Slider Ekle
                                     </button>
-                                  </div>
+                                  )}
                                   <p className="text-[10px] text-white/20 mt-1.5">Slider banner arka planına uygulanır. Önerilen: 1200×400 WebP/JPG.</p>
                                 </div>
                               </div>
