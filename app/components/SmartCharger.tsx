@@ -444,7 +444,7 @@ export default function SmartCharger() {
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.08 }}
-              className="text-3xl sm:text-4xl font-black leading-tight mb-4"
+              className="text-4xl sm:text-5xl font-black leading-tight mb-4"
               style={{ color: textPrimary }}
             >
               {headingLines.map((line, i) => (
@@ -460,7 +460,7 @@ export default function SmartCharger() {
               initial={{ opacity: 0, y: 14 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.14 }}
-              className="text-sm leading-relaxed mb-5"
+              className="text-base leading-relaxed mb-5"
               style={{ color: textMuted, maxWidth: 480 }}
             >
               {smartCharger.subheading}
@@ -514,8 +514,8 @@ export default function SmartCharger() {
                       <Icon size={18} style={{ color: accent }} />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold mb-0.5" style={{ color: textPrimary }}>{f.title}</p>
-                      <p className="text-xs leading-relaxed" style={{ color: textMuted }}>{f.desc}</p>
+                      <p className="text-base font-semibold mb-0.5" style={{ color: textPrimary }}>{f.title}</p>
+                      <p className="text-sm leading-relaxed" style={{ color: textMuted }}>{f.desc}</p>
                       {/ortak|yönet/i.test(f.title) && smartCharger.ocppBadge && (
                         <div className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1 rounded-lg"
                           style={{ background: `${ACCENT2}12`, border: `1px solid ${ACCENT2}25` }}>

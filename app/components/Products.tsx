@@ -410,7 +410,7 @@ export default function Products() {
                 <div
                   className="relative overflow-hidden"
                   style={{
-                    height: "clamp(130px, 30vw, 240px)",
+                    height: "clamp(160px, 36vw, 290px)",
                     background: d ? cat.darkVisualBg : cat.lightVisualBg,
                   }}
                 >
@@ -421,7 +421,7 @@ export default function Products() {
                       alt={cat.name}
                       className="absolute inset-0 w-full h-full object-cover"
                       style={{
-                        opacity: isHovered ? 0.85 : 0.72,
+                        opacity: isHovered ? 1.0 : 0.9,
                         transition: "opacity 0.35s ease, transform 0.4s ease",
                         transform: isHovered ? "scale(1.04)" : "scale(1)",
                         zIndex: 0,
