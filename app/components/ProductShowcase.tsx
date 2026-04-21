@@ -167,7 +167,7 @@ export default function ProductShowcase() {
               style={{ background: `${ACCENT}14`, border: `1px solid ${ACCENT}28` }}
             >
               <RiAwardLine size={12} style={{ color: ACCENT }} />
-              <span className="text-[11px] font-bold tracking-widest uppercase" style={{ color: ACCENT }}>
+              <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: ACCENT }}>
                 {ps?.badge ?? "Amiral Gemisi Ürün"}
               </span>
             </motion.div>
@@ -177,8 +177,8 @@ export default function ProductShowcase() {
               initial={{ opacity: 0, y: 18 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.55, delay: 0.06 }}
-              className="font-black leading-none mb-3"
-              style={{ color: textPrimary, fontSize: "clamp(2rem, 4.5vw, 3.25rem)" }}
+              className="text-4xl sm:text-5xl font-black leading-tight mb-3"
+              style={{ color: textPrimary }}
             >
               {ps?.name ?? "AC Wallbox Smart Charger Pro 2"}
             </motion.h2>

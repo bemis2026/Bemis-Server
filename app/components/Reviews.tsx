@@ -69,7 +69,7 @@ export default function Reviews() {
 
           <motion.h2
             initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.08 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-black mb-2" style={{ color: textPrimary }}
+            className="text-4xl sm:text-5xl lg:text-6xl font-black mb-2" style={{ color: textPrimary }}
           >
             <E field="reviews.heading">{reviews.heading}</E>
           </motion.h2>
@@ -82,7 +82,7 @@ export default function Reviews() {
 
           <motion.p
             initial={{ opacity: 0, y: 12 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.22 }}
-            className="text-base max-w-lg mx-auto" style={{ color: textMuted }}
+            className="text-sm max-w-lg mx-auto" style={{ color: textMuted }}
           >
             <E field="reviews.subheading" tag="span">{reviews.subheading}</E>
           </motion.p>

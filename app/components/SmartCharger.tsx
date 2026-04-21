@@ -444,7 +444,7 @@ export default function SmartCharger() {
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.08 }}
-              className="text-3xl sm:text-4xl font-black leading-tight mb-4"
+              className="text-4xl sm:text-5xl font-black leading-tight mb-4"
               style={{ color: textPrimary }}
             >
               {headingLines.map((line, i) => (

@@ -97,7 +97,7 @@ export default function DealerNetwork() {
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.08 }}
-            className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-black"
+            className="text-4xl sm:text-5xl lg:text-6xl font-black"
             style={{ color: d ? "#ffffff" : "#111111" }}
           >
             <E field="dealer.heading">{dealerSection.heading}</E>
@@ -135,7 +135,7 @@ export default function DealerNetwork() {
               </p>
               <button
                 onClick={scrollToContact}
-                className="flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200"
+                className="flex items-center gap-2 text-sm font-bold px-6 py-3 rounded-2xl transition-all duration-200"
                 style={{ background: d ? `${BLUE}15` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}28`, color: d ? "#93C5FD" : BLUE }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}25` : `${BLUE}18`; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}15` : `${BLUE}10`; }}

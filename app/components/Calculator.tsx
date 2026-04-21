@@ -474,7 +474,7 @@ export default function Calculator() {
         <div className="text-center mb-4">
           <motion.span
             initial={{ opacity: 0, y: 10 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4 }}
-            className="inline-block text-sm font-bold tracking-[0.20em] uppercase px-3 py-1.5 rounded-full mb-3"
+            className="inline-block text-xs font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-full mb-3"
             style={{
               background: d ? `${BLUE}18` : `${BLUE}10`,
               border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`,
@@ -492,7 +492,7 @@ export default function Calculator() {
             {/* Animated ibra — left */}
             <TachometerNeedle d={d} blue={BLUE} />
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black" style={{ color: textPrimary }}>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black" style={{ color: textPrimary }}>
               {calc?.heading ?? "Şarj Süresi Hesaplayıcı"}
             </h2>
 
