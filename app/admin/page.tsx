@@ -139,7 +139,7 @@ const SECTION_META: Record<string, { tab: Tab; label: string; icon: React.Elemen
   "stats":          { tab: "stats",           label: "İstatistikler",  icon: HiOutlineChartBar       },
   "productshowcase":{ tab: "productshowcase", label: "Ürün Vitrini",   icon: HiOutlineStar           },
   "smartcharger":   { tab: "smartcharger",    label: "Akıllı Şarj",    icon: HiOutlineLightningBolt  },
-  "products":       { tab: "products-section",label: "Ürünler",        icon: HiOutlineCube           },
+  "products":       { tab: "products",         label: "Ürünler",        icon: HiOutlineCube           },
   "featured":       { tab: "featured",        label: "Öne Çıkanlar",   icon: HiOutlineStar           },
   "reviews":        { tab: "reviews",         label: "Yorumlar",       icon: HiOutlineStar           },
   "dealer":         { tab: "dealer-section",  label: "Bayi Ağı",       icon: HiOutlineLocationMarker },
@@ -266,7 +266,7 @@ export default function AdminPage() {
   const [selProd, setSelProd] = useState<string>("");
   const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({});
   const [expandedCats, setExpandedCats] = useState<Record<string, boolean>>({});
-  const [prodSubTab, setProdSubTab] = useState<"cards" | "specs">("cards");
+  const [prodSubTab, setProdSubTab] = useState<"cards" | "specs" | "section">("cards");
 
   // Admin paneli her zaman karanlık temada kalmalı
   useEffect(() => {
@@ -1027,7 +1027,7 @@ export default function AdminPage() {
 
   const TAB_ANCHOR_MAP: Partial<Record<Tab, string>> = {
     "hero": "hero", "dna": "dna", "stats": "stats",
-    "products-section": "products", "smartcharger": "smartcharger", "productshowcase": "productshowcase", "featured": "featured",
+    "products": "products", "products-section": "products", "smartcharger": "smartcharger", "productshowcase": "productshowcase", "featured": "featured",
     "calculator": "calculator",
     "dealer-section": "dealer", "dealers": "dealer",
     "reviews": "reviews", "contact-section": "contact", "contact": "contact",
@@ -1048,7 +1048,6 @@ export default function AdminPage() {
     {
       label: "Veri Yönetimi",
       items: [
-        { id: "products", label: "Ürün Kataloğu",   icon: HiOutlineCube           },
         { id: "dealers",  label: "Bayi Haritası",    icon: HiOutlineLocationMarker },
         { id: "contact",  label: "İletişim",          icon: HiOutlinePhone          },
         { id: "b2b",      label: "OEM & Kurumsal",   icon: HiOutlineOfficeBuilding },
@@ -1458,7 +1457,7 @@ export default function AdminPage() {
 
                   {/* Sub-tab switcher */}
                   <div className="flex gap-1 p-1 rounded-xl w-fit" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                    {(["cards", "specs"] as const).map((st) => (
+                    {(["cards", "specs", "section"] as const).map((st) => (
                       <button key={st} onClick={() => setProdSubTab(st)}
                         className="px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-200"
                         style={{
@@ -1466,7 +1465,7 @@ export default function AdminPage() {
                           color: prodSubTab === st ? "white" : "rgba(255,255,255,0.40)",
                         }}
                       >
-                        {st === "cards" ? "Kategori Kartları" : "Ürün Detayları"}
+                        {st === "cards" ? "Kategori Kartları" : st === "specs" ? "Ürün Detayları" : "Bölüm Metinleri"}
                       </button>
                     ))}
                   </div>
@@ -1944,6 +1943,24 @@ export default function AdminPage() {
                       )}
                     </>
                   )}
+
+                  {/* ── Sub-tab: Bölüm Metinleri ── */}
+                  {prodSubTab === "section" && (
+                    <div className="max-w-2xl space-y-5">
+                      <p className="text-xs text-white/35">Ana sayfadaki ürünler bölümünün başlık ve buton metinlerini düzenleyin.</p>
+                      <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                        <div className="grid grid-cols-2 gap-3">
+                          <Field label="Bölüm Etiketi" value={content.products.sectionLabel ?? ""} onChange={(v) => updateContent(["products","sectionLabel"], v)} />
+                          <Field label="Bölüm Başlığı" value={content.products.heading}             onChange={(v) => updateContent(["products","heading"],      v)} />
+                        </div>
+                        <Field label="Alt Başlık" value={content.products.subheading} onChange={(v) => updateContent(["products","subheading"], v)} />
+                        <div className="grid grid-cols-2 gap-3">
+                          <Field label="Tüm Ürünler Butonu" value={content.products.allProductsLabel ?? ""} onChange={(v) => updateContent(["products","allProductsLabel"], v)} />
+                          <Field label="İncele Butonu"       value={content.products.viewLabel ?? ""}       onChange={(v) => updateContent(["products","viewLabel"],       v)} />
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -2288,27 +2305,6 @@ export default function AdminPage() {
                                 <Field label={`Özellik ${i+1} Açıklama`} value={f.desc} onChange={(v) => updateDnaFeature(i, "desc", v)} multiline />
                               </div>
                             ))}
-                  </div>
-                </div>
-              )}
-
-              {/* ── PRODUCTS SECTION ── */}
-              {tab === "products-section" && (
-                <div className="max-w-2xl space-y-5">
-                  <div>
-                    <h2 className="text-base font-bold mb-1">Ürünler Bölümü</h2>
-                    <p className="text-xs text-white/35">Ana sayfadaki ürün kategorileri bölümünün başlık metinleri.</p>
-                  </div>
-                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
-                    <div className="grid grid-cols-2 gap-3">
-                      <Field label="Bölüm Etiketi" value={content.products.sectionLabel ?? ""} onChange={(v) => updateContent(["products","sectionLabel"], v)} />
-                      <Field label="Bölüm Başlığı" value={content.products.heading}             onChange={(v) => updateContent(["products","heading"],      v)} />
-                    </div>
-                    <Field label="Alt Başlık" value={content.products.subheading} onChange={(v) => updateContent(["products","subheading"], v)} />
-                    <div className="grid grid-cols-2 gap-3">
-                      <Field label="Tüm Ürünler Butonu" value={content.products.allProductsLabel ?? ""} onChange={(v) => updateContent(["products","allProductsLabel"], v)} />
-                      <Field label="İncele Butonu"       value={content.products.viewLabel ?? ""}       onChange={(v) => updateContent(["products","viewLabel"],       v)} />
-                    </div>
                   </div>
                 </div>
               )}
