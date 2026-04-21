@@ -258,6 +258,15 @@ export default function AdminPage() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tab, showPreview, previewMode]);
 
+  // When switching to "section" sub-tab in products, scroll preview to #products on homepage
+  useEffect(() => {
+    if (!showPreview || tab !== "products") return;
+    if (prodSubTab === "section") {
+      setTimeout(() => postToPreview({ type: "BEMIS_PREVIEW_SCROLL", anchor: "products" }), 900);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [prodSubTab, showPreview]);
+
   // Sections accordion state
   const [secOpen, setSecOpen] = useState<Record<string, boolean>>({ dna: true, products: false, dealer: false, reviews: false, contactSec: false });
 
@@ -1041,6 +1050,7 @@ export default function AdminPage() {
   };
   const previewSrc =
     tab === "b2b" ? b2bSubPage
+    : tab === "products" && prodSubTab === "section" ? "/"
     : tab === "products" && selCat && selProd ? `/products/${selCat}/${selProd}`
     : (SEPARATE_PAGE_TABS[tab] ?? "/");
 
