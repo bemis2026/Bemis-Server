@@ -2,12 +2,20 @@
 import { useState, useCallback, useEffect } from "react";
 import { useEditMode } from "../context/EditModeContext";
 import { useContent } from "../context/ContentContext";
+import { useUnsavedChanges } from "../hooks/useUnsavedChanges";
 
 export default function EditBar() {
   const { isEditMode, pendingCount, clearPending, exit, clearSelection } = useEditMode();
   const { saveContent, undo, redo, canUndo, canRedo } = useContent();
   const [saved, setSaved] = useState(false);
   const [saving, setSaving] = useState(false);
+
+  useUnsavedChanges(isEditMode && pendingCount > 0);
+
+  const handleExit = useCallback(() => {
+    if (pendingCount > 0 && !window.confirm(`${pendingCount} kaydedilmemiş değişikliğiniz var. Çıkmak istediğinize emin misiniz?`)) return;
+    exit();
+  }, [pendingCount, exit]);
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -168,7 +176,7 @@ export default function EditBar() {
 
       {/* Exit */}
       <button
-        onClick={exit}
+        onClick={handleExit}
         style={btnBase}
         onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = "#fff"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.35)"; }}
         onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = "rgba(255,255,255,0.55)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.12)"; }}

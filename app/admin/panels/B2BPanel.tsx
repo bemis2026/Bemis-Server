@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useUnsavedChanges } from "../../hooks/useUnsavedChanges";
 import {
   HiOutlineOfficeBuilding,
   HiOutlineClipboardList,
@@ -85,7 +86,11 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
   const [toastMsg, setToastMsg] = useState<string | null>(null);
   const [expandedSol, setExpandedSol] = useState<string | null>(null);
   const [subTab, setSubTab] = useState<"oem" | "bayilik" | "operator" | "cta">("oem");
+  const [dirty, setDirty] = useState(false);
+  const initialLoadedRef = useRef(false);
   const previewDebRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useUnsavedChanges(dirty);
 
   useEffect(() => {
     fetch("/api/admin/b2b")
@@ -93,6 +98,13 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
       .then(d => setData(d))
       .catch(() => {});
   }, []);
+
+  // Flag dirty on any data change after the initial fetch populates state.
+  useEffect(() => {
+    if (!data) return;
+    if (!initialLoadedRef.current) { initialLoadedRef.current = true; return; }
+    setDirty(true);
+  }, [data]);
 
   // Debounced live preview — sends B2B data to the iframe whenever data changes
   useEffect(() => {
@@ -132,7 +144,7 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      if (r.ok) { showToast("ok"); onSaved?.(); }
+      if (r.ok) { showToast("ok"); setDirty(false); onSaved?.(); }
       else {
         let msg = `HTTP ${r.status}`;
         try { const d = await r.json(); msg = d.error ?? msg; } catch {}
@@ -676,7 +688,7 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
           style={{ background: saving ? "rgba(245,158,11,0.4)" : "linear-gradient(135deg, #F59E0B 0%, #D97706 100%)", color: "#000", boxShadow: saving ? "none" : "0 4px 20px rgba(245,158,11,0.25)" }}>
           {saving
             ? <><div className="w-4 h-4 rounded-full border-2 border-black/30 border-t-black animate-spin" />Kaydediliyor…</>
-            : <><HiOutlineSave size={15} />Değişiklikleri Kaydet — {activeTab.label}</>}
+            : <><HiOutlineSave size={15} />Değişiklikleri Kaydet — {activeTab.label}{dirty ? " •" : ""}</>}
         </button>
       </div>
     </div>

@@ -1,21 +1,41 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import { useUnsavedChanges } from "../hooks/useUnsavedChanges";
+
+// ── Soft validators — return error message or null ──
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+export function validateEmail(v: string): string | null {
+  if (!v) return null; // empty is not an error (soft)
+  return EMAIL_RE.test(v) ? null : "Geçerli bir e-posta girin (örn. info@ornek.com)";
+}
+// Accepts absolute (http/https/tel/mailto) and site-internal paths starting with /.
+export function validateUrl(v: string): string | null {
+  if (!v) return null;
+  if (v.startsWith("/")) return null;
+  if (/^(tel:|mailto:)/i.test(v)) return null;
+  try { new URL(v); return null; }
+  catch { return "Geçerli bir URL girin (https://... veya /yol)"; }
+}
 
 // ── Field component defined OUTSIDE AdminPage to prevent remount on every render ──
-function Field({ label, value, onChange, multiline = false }: {
+function Field({ label, value, onChange, multiline = false, validate }: {
   label: string; value: string; onChange: (v: string) => void; multiline?: boolean; half?: boolean;
+  validate?: (v: string) => string | null;
 }) {
+  const error = validate ? validate(value) : null;
+  const borderCls = error ? "border-red-500/50 focus:border-red-400/70" : "border-white/8 focus:border-white/22";
   return (
     <div>
       <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">{label}</label>
       {multiline ? (
         <textarea value={value} onChange={(e) => onChange(e.target.value)} rows={3}
-          className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22 resize-none" />
+          className={`w-full bg-white/5 border ${borderCls} rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none resize-none`} />
       ) : (
         <input value={value} onChange={(e) => onChange(e.target.value)}
-          className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
+          className={`w-full bg-white/5 border ${borderCls} rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none`} />
       )}
+      {error && <p className="mt-1 text-[10px] text-red-400/80">{error}</p>}
     </div>
   );
 }
@@ -210,6 +230,23 @@ export default function AdminPage() {
   // Dealer editor state
   const [dealers, setDealers] = useState<DealersData>({});
   const [dealersSaving, setDealersSaving] = useState(false);
+
+  // Unsaved-changes tracking. We compare current state against a "clean" snapshot
+  // ref. Fetch/save paths update the snapshot so the comparison says "clean";
+  // user edits produce a new object reference that differs, flipping dirty=true.
+  const [contentDirty, setContentDirty] = useState(false);
+  const [productsDirty, setProductsDirty] = useState(false);
+  const [dealersDirty, setDealersDirty] = useState(false);
+  // Init with the same reference as useState so mount comparison is clean.
+  const contentCleanRef = useRef<ContentData | null>(content);
+  const productsCleanRef = useRef<CategoryData[]>(products);
+  const dealersCleanRef = useRef<DealersData>(dealers);
+
+  useUnsavedChanges(contentDirty || productsDirty || dealersDirty);
+
+  useEffect(() => { setContentDirty(content !== contentCleanRef.current); }, [content]);
+  useEffect(() => { setProductsDirty(products !== productsCleanRef.current); }, [products]);
+  useEffect(() => { setDealersDirty(dealers !== dealersCleanRef.current); }, [dealers]);
   const [selDealerCity, setSelDealerCity] = useState<string>(CITY_LIST[0].id);
 
   // Hero visual layout editor
@@ -292,7 +329,7 @@ export default function AdminPage() {
   useEffect(() => {
     fetch("/api/admin/content")
       .then((r) => { if (r.status === 401) { setAuthed(false); return null; } return r.json(); })
-      .then((d) => { if (d) { setContent(d); setAuthed(true); } })
+      .then((d) => { if (d) { contentCleanRef.current = d; setContent(d); setAuthed(true); } })
       .catch(() => setAuthed(false));
   }, []);
 
@@ -300,7 +337,7 @@ export default function AdminPage() {
     if (authed && tab === "products") {
       fetch("/api/admin/products")
         .then((r) => r.json())
-        .then((d: CategoryData[]) => { setProducts(d); if (!selCat && d.length > 0) setSelCat(d[0].id); })
+        .then((d: CategoryData[]) => { productsCleanRef.current = d; setProducts(d); if (!selCat && d.length > 0) setSelCat(d[0].id); })
         .catch(() => {});
     }
   }, [authed, tab, selCat]);
@@ -309,7 +346,7 @@ export default function AdminPage() {
     if (authed && tab === "dealers") {
       fetch("/api/admin/dealers")
         .then((r) => r.json())
-        .then((d: DealersData) => setDealers(d))
+        .then((d: DealersData) => { dealersCleanRef.current = d; setDealers(d); })
         .catch(() => {});
     }
   }, [authed, tab]);
@@ -329,6 +366,7 @@ export default function AdminPage() {
       const res = await fetch("/api/admin/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password, rememberMe }) });
       if (res.ok) {
         const data = await fetch("/api/admin/content").then((r) => r.json());
+        contentCleanRef.current = data;
         setContent(data);
         setAuthed(true);
       } else {
@@ -341,9 +379,20 @@ export default function AdminPage() {
   };
 
   const handleLogout = async () => {
+    if ((contentDirty || productsDirty || dealersDirty) && !window.confirm("Kaydedilmemiş değişiklikleriniz var. Çıkış yapmak istediğinize emin misiniz?")) return;
     await fetch("/api/admin/logout", { method: "POST" });
     setAuthed(false);
+    const emptyProducts: CategoryData[] = [];
+    const emptyDealers: DealersData = {};
+    contentCleanRef.current = null;
+    productsCleanRef.current = emptyProducts;
+    dealersCleanRef.current = emptyDealers;
     setContent(null);
+    setProducts(emptyProducts);
+    setDealers(emptyDealers);
+    setContentDirty(false);
+    setProductsDirty(false);
+    setDealersDirty(false);
   };
 
   const handleSaveContent = async () => {
@@ -351,7 +400,7 @@ export default function AdminPage() {
     setSaving(true);
     try {
       const res = await fetch("/api/admin/content", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(content) });
-      if (res.ok) { showToast("ok", "İçerik kaydedildi."); setPreviewKey((k) => k + 1); }
+      if (res.ok) { contentCleanRef.current = content; setContentDirty(false); showToast("ok", "İçerik kaydedildi."); setPreviewKey((k) => k + 1); }
       else showToast("err", "Kayıt başarısız.");
     } catch { showToast("err", "Ağ hatası."); }
     setSaving(false);
@@ -478,7 +527,7 @@ export default function AdminPage() {
     setDealersSaving(true);
     try {
       const res = await fetch("/api/admin/dealers", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(dealers) });
-      if (res.ok) { showToast("ok", "Bayiler kaydedildi."); setPreviewKey((k) => k + 1); }
+      if (res.ok) { dealersCleanRef.current = dealers; setDealersDirty(false); showToast("ok", "Bayiler kaydedildi."); setPreviewKey((k) => k + 1); }
       else showToast("err", "Kayıt başarısız.");
     } catch { showToast("err", "Ağ hatası."); }
     setDealersSaving(false);
@@ -488,7 +537,7 @@ export default function AdminPage() {
     setSavingProducts(true);
     try {
       const res = await fetch("/api/admin/products", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(products) });
-      if (res.ok) { showToast("ok", "Ürün verileri kaydedildi."); setPreviewKey((k) => k + 1); }
+      if (res.ok) { productsCleanRef.current = products; setProductsDirty(false); showToast("ok", "Ürün verileri kaydedildi."); setPreviewKey((k) => k + 1); }
       else showToast("err", "Kayıt başarısız.");
     } catch { showToast("err", "Ağ hatası."); }
     setSavingProducts(false);
@@ -759,6 +808,7 @@ export default function AdminPage() {
       setContent((prev) => {
         if (!prev) return prev;
         const updated = { ...prev, logos: { ...(prev.logos ?? { dark: "", light: "" }), [mode]: url } };
+        contentCleanRef.current = updated;
         // Fire-and-forget save
         fetch("/api/admin/content", {
           method: "POST",
@@ -789,6 +839,7 @@ export default function AdminPage() {
       setContent((prev) => {
         if (!prev) return prev;
         const updated = { ...prev, ogImage: url };
+        contentCleanRef.current = updated;
         fetch("/api/admin/content", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -817,6 +868,7 @@ export default function AdminPage() {
       setContent((prev) => {
         if (!prev) return prev;
         const updated = { ...prev, faviconUrl: url };
+        contentCleanRef.current = updated;
         fetch("/api/admin/content", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -1086,7 +1138,7 @@ export default function AdminPage() {
         fetch("/api/admin/content", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(content) }),
         fetch("/api/admin/products", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(products) }),
       ]);
-      if (r1.ok && r2.ok) showToast("ok", "Ürünler kaydedildi.");
+      if (r1.ok && r2.ok) { contentCleanRef.current = content; productsCleanRef.current = products; setContentDirty(false); setProductsDirty(false); showToast("ok", "Ürünler kaydedildi."); }
       else showToast("err", "Kayıt başarısız.");
     } catch { showToast("err", "Ağ hatası."); }
     setSaving(false);
@@ -1221,9 +1273,12 @@ export default function AdminPage() {
 
           <div className="mt-auto pt-4 border-t border-white/6">
             <button onClick={handleSave} disabled={isSaving}
-              className="w-full flex items-center justify-center gap-2 bg-white text-[#0c0c0e] font-bold py-2.5 rounded-xl text-sm disabled:opacity-60 hover:bg-white/90">
+              className="w-full flex items-center justify-center gap-2 bg-white text-[#0c0c0e] font-bold py-2.5 rounded-xl text-sm disabled:opacity-60 hover:bg-white/90 relative">
               {isSaving ? <HiOutlineRefresh size={14} className="animate-spin" /> : <HiOutlineSave size={14} />}
               {isSaving ? "Kaydediliyor..." : "Kaydet"}
+              {!isSaving && (contentDirty || productsDirty || dealersDirty) && (
+                <span className="absolute top-1.5 right-2.5 w-2 h-2 rounded-full bg-amber-500" title="Kaydedilmemiş değişiklik" />
+              )}
             </button>
             <p className="text-[10px] text-white/25 text-center mt-2">
               {isProductTab ? "Kategoriler + spec verisi" : "Site içeriği"} JSON&apos;a yazılır
@@ -2036,7 +2091,7 @@ export default function AdminPage() {
                   <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
                     <div className="grid grid-cols-2 gap-3">
                       <Field label="Telefon" value={content.contact.phone} onChange={(v) => updateContent(["contact", "phone"], v)} />
-                      <Field label="E-posta" value={content.contact.email} onChange={(v) => updateContent(["contact", "email"], v)} />
+                      <Field label="E-posta" value={content.contact.email} onChange={(v) => updateContent(["contact", "email"], v)} validate={validateEmail} />
                     </div>
                     <div className="grid grid-cols-2 gap-3">
                       <Field label="Çalışma Günleri" value={content.contact.workingDays} onChange={(v) => updateContent(["contact", "workingDays"], v)} />
@@ -2381,12 +2436,12 @@ export default function AdminPage() {
                     <Field label="Açıklama Paragrafı" value={content.smartCharger?.subheading ?? ""} onChange={(v) => updateContent(["smartCharger","subheading"], v)} multiline />
                     <div className="grid grid-cols-2 gap-3">
                       <Field label="CTA Buton Metni" value={content.smartCharger?.ctaLabel ?? ""} onChange={(v) => updateContent(["smartCharger","ctaLabel"], v)} />
-                      <Field label="CTA Buton Linki" value={content.smartCharger?.ctaHref ?? ""} onChange={(v) => updateContent(["smartCharger","ctaHref"], v)} />
+                      <Field label="CTA Buton Linki" value={content.smartCharger?.ctaHref ?? ""} onChange={(v) => updateContent(["smartCharger","ctaHref"], v)} validate={validateUrl} />
                     </div>
                     <div className="pt-3 border-t border-white/6 space-y-2">
                       <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Mağaza Linkleri</p>
-                      <Field label="App Store Linki" value={content.smartCharger?.appStoreHref ?? ""} onChange={(v) => updateContent(["smartCharger","appStoreHref"], v)} />
-                      <Field label="Google Play Linki" value={content.smartCharger?.playStoreHref ?? ""} onChange={(v) => updateContent(["smartCharger","playStoreHref"], v)} />
+                      <Field label="App Store Linki" value={content.smartCharger?.appStoreHref ?? ""} onChange={(v) => updateContent(["smartCharger","appStoreHref"], v)} validate={validateUrl} />
+                      <Field label="Google Play Linki" value={content.smartCharger?.playStoreHref ?? ""} onChange={(v) => updateContent(["smartCharger","playStoreHref"], v)} validate={validateUrl} />
                     </div>
 
                     {/* Features */}
@@ -2456,11 +2511,11 @@ export default function AdminPage() {
                       <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Butonlar</p>
                       <div className="grid grid-cols-2 gap-3">
                         <Field label="Birincil Buton Metni" value={content.productShowcase?.ctaPrimary ?? ""} onChange={(v) => updateContent(["productShowcase","ctaPrimary"], v)} />
-                        <Field label="Birincil Buton Linki" value={content.productShowcase?.ctaHref ?? ""} onChange={(v) => updateContent(["productShowcase","ctaHref"], v)} />
+                        <Field label="Birincil Buton Linki" value={content.productShowcase?.ctaHref ?? ""} onChange={(v) => updateContent(["productShowcase","ctaHref"], v)} validate={validateUrl} />
                       </div>
                       <div className="grid grid-cols-2 gap-3">
                         <Field label="İkincil Buton Metni" value={content.productShowcase?.ctaSecondary ?? ""} onChange={(v) => updateContent(["productShowcase","ctaSecondary"], v)} />
-                        <Field label="İkincil Buton Linki" value={content.productShowcase?.ctaSecondaryHref ?? ""} onChange={(v) => updateContent(["productShowcase","ctaSecondaryHref"], v)} />
+                        <Field label="İkincil Buton Linki" value={content.productShowcase?.ctaSecondaryHref ?? ""} onChange={(v) => updateContent(["productShowcase","ctaSecondaryHref"], v)} validate={validateUrl} />
                       </div>
                     </div>
 
