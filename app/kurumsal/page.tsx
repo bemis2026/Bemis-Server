@@ -177,7 +177,7 @@ export default function KurumsalPage() {
                   }}
                 />
                 {dna.factoryImage ? (
-                  <img src={dna.factoryImage} alt="Bemis Fabrika" className="absolute inset-0 w-full h-full object-cover" />
+                  <Image src={dna.factoryImage} alt="Bemis Fabrika" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
                 ) : (
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
                     <RiBuilding4Line style={{ fontSize: 72, color: d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)", marginBottom: 12 }} />
@@ -283,7 +283,7 @@ export default function KurumsalPage() {
                           style={{ aspectRatio: "4/3", background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.04)" }}
                         >
                           {imgSrc ? (
-                            <img src={imgSrc} alt={step.label} className="w-full h-full object-cover" />
+                            <Image src={imgSrc} alt={step.label} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
                           ) : (
                             <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5">
                               <RiImageAddLine style={{ fontSize: 22, color: isFinal ? "rgba(239,68,68,0.28)" : (d ? `${BLUE}44` : `${BLUE}35`) }} />

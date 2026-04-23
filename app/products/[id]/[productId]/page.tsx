@@ -14,6 +14,7 @@ import {
 } from "react-icons/ri";
 import { HiMail, HiDownload, HiArrowRight } from "react-icons/hi";
 import { trackEvent } from "../../../components/GoogleAnalytics";
+import Image from "next/image";
 
 type SpecItem  = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
@@ -141,16 +142,23 @@ export default function ProductDetailPage() {
                       >
                         {imgs.length > 0 ? (
                           <AnimatePresence mode="wait">
-                            <motion.img
+                            <motion.div
                               key={clamped}
-                              src={imgs[clamped]}
-                              alt={`${product.name} ${clamped + 1}`}
-                              className="absolute inset-0 w-full h-full object-contain p-4"
+                              className="absolute inset-0"
                               initial={{ opacity: 0, scale: 0.97 }}
                               animate={{ opacity: 1, scale: 1 }}
                               exit={{ opacity: 0, scale: 1.02 }}
                               transition={{ duration: 0.22 }}
-                            />
+                            >
+                              <Image
+                                src={imgs[clamped]}
+                                alt={`${product.name} ${clamped + 1}`}
+                                fill
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                className="object-contain p-4"
+                                priority
+                              />
+                            </motion.div>
                           </AnimatePresence>
                         ) : (
                           <div className="absolute inset-0 flex items-center justify-center">
@@ -204,7 +212,7 @@ export default function ProductDetailPage() {
                                 background: surfaceAlt,
                               }}
                             >
-                              <img src={src} alt="" className="w-full h-full object-contain p-1" />
+                              <Image src={src} alt="" width={56} height={56} className="w-full h-full object-contain p-1" />
                             </button>
                           ))}
                         </div>

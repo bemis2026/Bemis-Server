@@ -9,6 +9,7 @@ import { EditModeProvider } from "./context/EditModeContext";
 import PropertiesPanel from "./components/PropertiesPanel";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import ContentLoadingBar from "./components/ContentLoadingBar";
+import ContentErrorToast from "./components/ContentErrorToast";
 import LanguageURLSync from "./components/LanguageURLSync";
 import FaviconInjector from "./components/FaviconInjector";
 
@@ -55,11 +56,11 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: "Bemis Teknik Elektrik A.Ş.",
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
     alternates: { canonical: "/" },
-    icons: faviconUrl ? {
-      icon: faviconUrl,
-      shortcut: faviconUrl,
-      apple: faviconUrl,
-    } : undefined,
+    icons: {
+      icon: faviconUrl || "/logo.png",
+      shortcut: faviconUrl || "/logo.png",
+      apple: faviconUrl || "/logo.png",
+    },
     openGraph: {
       title: "Bemis E-V Charge | Yerli EV Şarj Ekipmanı Üreticisi",
       description:
@@ -94,6 +95,7 @@ export default function RootLayout({
               <EditModeProvider>
                 <FaviconInjector />
                 <ContentLoadingBar />
+                <ContentErrorToast />
                 <Suspense fallback={null}>
                   <LanguageURLSync />
                 </Suspense>

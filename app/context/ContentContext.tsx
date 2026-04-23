@@ -386,6 +386,8 @@ type ContentContextType = SiteContent & {
   updateTextStyle: (field: string, prop: "color" | "fontSize", value: string) => void;
   lang: Lang;
   contentLoading: boolean;
+  contentError: string | null;
+  dismissContentError: () => void;
 };
 
 const ContentContext = createContext<ContentContextType>({
@@ -401,6 +403,8 @@ const ContentContext = createContext<ContentContextType>({
   updateTextStyle: () => {},
   lang: "tr",
   contentLoading: false,
+  contentError: null,
+  dismissContentError: () => {},
 });
 
 export function useContent() { return useContext(ContentContext); }
@@ -414,10 +418,16 @@ export function ContentProvider({ children }: { children: ReactNode }) {
   });
   const [refreshKey, setRefreshKey] = useState(0);
   const [contentLoading, setContentLoading] = useState(false);
+  const [contentError, setContentError] = useState<string | null>(null);
 
   const content = hist.present;
 
-  const refreshContent = useCallback(() => setRefreshKey(k => k + 1), []);
+  const refreshContent = useCallback(() => {
+    setContentError(null);
+    setRefreshKey(k => k + 1);
+  }, []);
+
+  const dismissContentError = useCallback(() => setContentError(null), []);
 
   const liveUpdate = useCallback((path: string, value: string) => {
     setHist(h => ({
@@ -527,7 +537,10 @@ export function ContentProvider({ children }: { children: ReactNode }) {
     const controller = new AbortController();
     setContentLoading(true);
     fetch(`/api/content?lang=${lang}`, { signal: controller.signal })
-      .then(r => r.json())
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
       .then(data => {
         const loaded: SiteContent = {
           ...defaultContent,
@@ -571,8 +584,13 @@ export function ContentProvider({ children }: { children: ReactNode }) {
           productShowcase: { ...defaultContent.productShowcase, ...data.productShowcase, specs: data.productShowcase?.specs ?? defaultContent.productShowcase.specs },
         };
         setHist({ past: [], present: loaded, future: [] });
+        setContentError(null);
       })
-      .catch(err => { if (err?.name !== "AbortError") console.error("content fetch error:", err); })
+      .catch(err => {
+        if (err?.name === "AbortError") return;
+        console.error("content fetch error:", err);
+        setContentError("İçerik yüklenemedi. İnternet bağlantınızı kontrol edin.");
+      })
       .finally(() => setContentLoading(false));
     return () => controller.abort();
   }, [refreshKey, lang]);
@@ -591,6 +609,8 @@ export function ContentProvider({ children }: { children: ReactNode }) {
       updateTextStyle,
       lang,
       contentLoading,
+      contentError,
+      dismissContentError,
     }}>
       {children}
     </ContentContext.Provider>

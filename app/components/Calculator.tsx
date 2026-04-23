@@ -20,69 +20,108 @@ interface EvModel {
 
 const EV_MODELS: EvModel[] = [
   // Togg
-  { brand: "Togg", model: "T10X Standart Range",     battery: 52.4,  maxAcKw: 11, maxDcKw: 150, consumption: 17 },
-  { brand: "Togg", model: "T10X Long Range",          battery: 88.5,  maxAcKw: 22, maxDcKw: 200, consumption: 18 },
+  { brand: "Togg", model: "T10X Standart Range",        battery: 52.4,  maxAcKw: 11,  maxDcKw: 150, consumption: 17 },
+  { brand: "Togg", model: "T10X Long Range",             battery: 88.5,  maxAcKw: 22,  maxDcKw: 200, consumption: 18 },
   // Tesla
-  { brand: "Tesla", model: "Model 3 Standart Range",  battery: 60,    maxAcKw: 11, maxDcKw: 170, consumption: 14 },
-  { brand: "Tesla", model: "Model 3 Long Range",       battery: 82,    maxAcKw: 11, maxDcKw: 250, consumption: 15 },
-  { brand: "Tesla", model: "Model Y Long Range",       battery: 82,    maxAcKw: 11, maxDcKw: 250, consumption: 16 },
+  { brand: "Tesla", model: "Model 3 RWD",               battery: 57.5,  maxAcKw: 11,  maxDcKw: 170, consumption: 14 },
+  { brand: "Tesla", model: "Model 3 Long Range AWD",    battery: 75,    maxAcKw: 11,  maxDcKw: 250, consumption: 15 },
+  { brand: "Tesla", model: "Model 3 Performance",       battery: 75,    maxAcKw: 11,  maxDcKw: 250, consumption: 16 },
+  { brand: "Tesla", model: "Model Y RWD",               battery: 57.5,  maxAcKw: 11,  maxDcKw: 170, consumption: 16 },
+  { brand: "Tesla", model: "Model Y Long Range AWD",    battery: 75,    maxAcKw: 11,  maxDcKw: 250, consumption: 17 },
+  { brand: "Tesla", model: "Model Y Performance",       battery: 75,    maxAcKw: 11,  maxDcKw: 250, consumption: 18 },
   // Hyundai
-  { brand: "Hyundai", model: "Ioniq 5 58 kWh",        battery: 58,    maxAcKw: 11, maxDcKw: 220, consumption: 17 },
-  { brand: "Hyundai", model: "Ioniq 5 77.4 kWh",      battery: 77.4,  maxAcKw: 11, maxDcKw: 230, consumption: 17 },
-  { brand: "Hyundai", model: "Ioniq 6 77.4 kWh",      battery: 77.4,  maxAcKw: 11, maxDcKw: 230, consumption: 15 },
+  { brand: "Hyundai", model: "Ioniq 5 Standard (58 kWh)", battery: 58,  maxAcKw: 11,  maxDcKw: 220, consumption: 17 },
+  { brand: "Hyundai", model: "Ioniq 5 Long Range (77 kWh)", battery: 77.4, maxAcKw: 11, maxDcKw: 230, consumption: 17 },
+  { brand: "Hyundai", model: "Ioniq 5 N (84 kWh)",      battery: 84,    maxAcKw: 11,  maxDcKw: 233, consumption: 20 },
+  { brand: "Hyundai", model: "Ioniq 6 Standard (53 kWh)", battery: 53,  maxAcKw: 11,  maxDcKw: 220, consumption: 14 },
+  { brand: "Hyundai", model: "Ioniq 6 Long Range (77 kWh)", battery: 77.4, maxAcKw: 11, maxDcKw: 230, consumption: 15 },
   // Kia
-  { brand: "Kia",     model: "EV6 58 kWh",             battery: 58,    maxAcKw: 11, maxDcKw: 185, consumption: 17 },
-  { brand: "Kia",     model: "EV6 77.4 kWh",           battery: 77.4,  maxAcKw: 11, maxDcKw: 233, consumption: 17 },
-  { brand: "Kia",     model: "EV9 76.1 kWh",           battery: 76.1,  maxAcKw: 11, maxDcKw: 233, consumption: 20 },
-  { brand: "Kia",     model: "EV9 99.8 kWh",           battery: 99.8,  maxAcKw: 11, maxDcKw: 233, consumption: 21 },
+  { brand: "Kia", model: "EV3 Standard (58 kWh)",       battery: 58.3,  maxAcKw: 11,  maxDcKw: 100, consumption: 15 },
+  { brand: "Kia", model: "EV3 Long Range (81 kWh)",     battery: 81.4,  maxAcKw: 11,  maxDcKw: 100, consumption: 15 },
+  { brand: "Kia", model: "EV6 Standard (58 kWh)",       battery: 58,    maxAcKw: 11,  maxDcKw: 185, consumption: 17 },
+  { brand: "Kia", model: "EV6 Long Range (77 kWh)",     battery: 77.4,  maxAcKw: 11,  maxDcKw: 233, consumption: 17 },
+  { brand: "Kia", model: "EV9 Standard (76 kWh)",       battery: 76.1,  maxAcKw: 11,  maxDcKw: 233, consumption: 20 },
+  { brand: "Kia", model: "EV9 Long Range (100 kWh)",    battery: 99.8,  maxAcKw: 11,  maxDcKw: 233, consumption: 21 },
   // BMW
-  { brand: "BMW",     model: "iX3 80 kWh",             battery: 80,    maxAcKw: 11, maxDcKw: 150, consumption: 18 },
-  { brand: "BMW",     model: "i4 eDrive40",             battery: 83.9,  maxAcKw: 11, maxDcKw: 200, consumption: 16 },
-  { brand: "BMW",     model: "iX xDrive50",             battery: 105.2, maxAcKw: 11, maxDcKw: 200, consumption: 21 },
+  { brand: "BMW", model: "iX1 xDrive30 (65 kWh)",      battery: 64.7,  maxAcKw: 11,  maxDcKw: 130, consumption: 19 },
+  { brand: "BMW", model: "iX3 (80 kWh)",                battery: 80,    maxAcKw: 11,  maxDcKw: 150, consumption: 18 },
+  { brand: "BMW", model: "i4 eDrive40 (84 kWh)",        battery: 83.9,  maxAcKw: 11,  maxDcKw: 200, consumption: 16 },
+  { brand: "BMW", model: "i4 M50 (84 kWh)",             battery: 83.9,  maxAcKw: 11,  maxDcKw: 205, consumption: 19 },
+  { brand: "BMW", model: "iX xDrive40 (71 kWh)",        battery: 71,    maxAcKw: 11,  maxDcKw: 150, consumption: 20 },
+  { brand: "BMW", model: "iX xDrive50 (105 kWh)",       battery: 105.2, maxAcKw: 11,  maxDcKw: 200, consumption: 21 },
   // Mercedes
-  { brand: "Mercedes", model: "EQA 250",               battery: 66.5,  maxAcKw: 11, maxDcKw: 100, consumption: 18 },
-  { brand: "Mercedes", model: "EQB 300",               battery: 66.5,  maxAcKw: 11, maxDcKw: 100, consumption: 19 },
-  { brand: "Mercedes", model: "EQC 400",               battery: 80,    maxAcKw: 11, maxDcKw: 110, consumption: 21 },
-  { brand: "Mercedes", model: "EQE 350",               battery: 90.6,  maxAcKw: 22, maxDcKw: 170, consumption: 18 },
-  { brand: "Mercedes", model: "EQS 450+",              battery: 107.8, maxAcKw: 22, maxDcKw: 200, consumption: 19 },
+  { brand: "Mercedes", model: "EQA 250 (67 kWh)",       battery: 66.5,  maxAcKw: 11,  maxDcKw: 100, consumption: 18 },
+  { brand: "Mercedes", model: "EQB 300 4MATIC (67 kWh)", battery: 66.5, maxAcKw: 11,  maxDcKw: 100, consumption: 19 },
+  { brand: "Mercedes", model: "EQC 400 (80 kWh)",        battery: 80,   maxAcKw: 11,  maxDcKw: 110, consumption: 21 },
+  { brand: "Mercedes", model: "EQE 350 (91 kWh)",        battery: 90.6, maxAcKw: 22,  maxDcKw: 170, consumption: 18 },
+  { brand: "Mercedes", model: "EQS 450+ (108 kWh)",      battery: 107.8, maxAcKw: 22, maxDcKw: 200, consumption: 19 },
   // Volkswagen
-  { brand: "Volkswagen", model: "ID.3 58 kWh",        battery: 58,    maxAcKw: 11, maxDcKw: 100, consumption: 15 },
-  { brand: "Volkswagen", model: "ID.3 77 kWh",        battery: 77,    maxAcKw: 11, maxDcKw: 170, consumption: 15 },
-  { brand: "Volkswagen", model: "ID.4 52 kWh",        battery: 52,    maxAcKw: 11, maxDcKw: 100, consumption: 17 },
-  { brand: "Volkswagen", model: "ID.4 77 kWh",        battery: 77,    maxAcKw: 11, maxDcKw: 135, consumption: 17 },
-  { brand: "Volkswagen", model: "ID.7 77 kWh",        battery: 77,    maxAcKw: 11, maxDcKw: 170, consumption: 16 },
+  { brand: "Volkswagen", model: "ID.3 Pro (58 kWh)",    battery: 58,    maxAcKw: 11,  maxDcKw: 100, consumption: 15 },
+  { brand: "Volkswagen", model: "ID.3 Pro S (77 kWh)",  battery: 77,    maxAcKw: 11,  maxDcKw: 170, consumption: 15 },
+  { brand: "Volkswagen", model: "ID.4 Pure (52 kWh)",   battery: 52,    maxAcKw: 11,  maxDcKw: 100, consumption: 17 },
+  { brand: "Volkswagen", model: "ID.4 Pro (77 kWh)",    battery: 77,    maxAcKw: 11,  maxDcKw: 135, consumption: 17 },
+  { brand: "Volkswagen", model: "ID.5 Pro (77 kWh)",    battery: 77,    maxAcKw: 11,  maxDcKw: 135, consumption: 17 },
+  { brand: "Volkswagen", model: "ID.7 Pro (77 kWh)",    battery: 77,    maxAcKw: 11,  maxDcKw: 170, consumption: 16 },
   // Audi
-  { brand: "Audi",    model: "Q4 e-tron 82 kWh",      battery: 82,    maxAcKw: 11, maxDcKw: 125, consumption: 18 },
-  { brand: "Audi",    model: "e-tron 55 95 kWh",       battery: 95,    maxAcKw: 11, maxDcKw: 150, consumption: 24 },
+  { brand: "Audi", model: "Q4 e-tron 40 (82 kWh)",     battery: 82,    maxAcKw: 11,  maxDcKw: 125, consumption: 18 },
+  { brand: "Audi", model: "Q4 e-tron 50 (82 kWh)",     battery: 82,    maxAcKw: 11,  maxDcKw: 175, consumption: 19 },
+  { brand: "Audi", model: "Q8 e-tron 55 (106 kWh)",    battery: 106,   maxAcKw: 22,  maxDcKw: 170, consumption: 24 },
+  // Skoda
+  { brand: "Skoda", model: "Enyaq iV 60 (58 kWh)",     battery: 58,    maxAcKw: 11,  maxDcKw: 100, consumption: 16 },
+  { brand: "Skoda", model: "Enyaq iV 85 (82 kWh)",     battery: 82,    maxAcKw: 11,  maxDcKw: 175, consumption: 17 },
+  // Cupra
+  { brand: "Cupra", model: "Born 58 kWh",               battery: 58,    maxAcKw: 11,  maxDcKw: 100, consumption: 15 },
+  { brand: "Cupra", model: "Born 77 kWh",               battery: 77,    maxAcKw: 11,  maxDcKw: 170, consumption: 16 },
   // Porsche
-  { brand: "Porsche", model: "Taycan 79.2 kWh",       battery: 79.2,  maxAcKw: 11, maxDcKw: 270, consumption: 20 },
-  { brand: "Porsche", model: "Taycan 4S 93.4 kWh",    battery: 93.4,  maxAcKw: 22, maxDcKw: 270, consumption: 22 },
+  { brand: "Porsche", model: "Taycan (79 kWh)",         battery: 79.2,  maxAcKw: 11,  maxDcKw: 270, consumption: 20 },
+  { brand: "Porsche", model: "Taycan 4S (93 kWh)",      battery: 93.4,  maxAcKw: 22,  maxDcKw: 270, consumption: 22 },
+  { brand: "Porsche", model: "Taycan Turbo (105 kWh)",  battery: 105,   maxAcKw: 22,  maxDcKw: 320, consumption: 24 },
   // Volvo
-  { brand: "Volvo",   model: "XC40 Recharge 82 kWh",  battery: 82,    maxAcKw: 11, maxDcKw: 150, consumption: 20 },
-  { brand: "Volvo",   model: "C40 Recharge 82 kWh",   battery: 82,    maxAcKw: 11, maxDcKw: 150, consumption: 19 },
+  { brand: "Volvo", model: "EX40 / XC40 Recharge (82 kWh)", battery: 82, maxAcKw: 11, maxDcKw: 150, consumption: 20 },
+  { brand: "Volvo", model: "EC40 / C40 Recharge (82 kWh)",  battery: 82, maxAcKw: 11, maxDcKw: 150, consumption: 19 },
+  { brand: "Volvo", model: "EX90 Twin Motor (111 kWh)", battery: 111,   maxAcKw: 11,  maxDcKw: 250, consumption: 22 },
+  // Polestar
+  { brand: "Polestar", model: "2 Single Motor (78 kWh)", battery: 78,   maxAcKw: 11,  maxDcKw: 130, consumption: 18 },
+  { brand: "Polestar", model: "2 Long Range Dual (78 kWh)", battery: 78, maxAcKw: 11, maxDcKw: 200, consumption: 19 },
   // Renault
-  { brand: "Renault", model: "Megane E-Tech 60 kWh",  battery: 60,    maxAcKw: 22, maxDcKw: 130, consumption: 15 },
-  { brand: "Renault", model: "Zoe 52 kWh",             battery: 52,    maxAcKw: 22, maxDcKw: 50,  consumption: 17 },
+  { brand: "Renault", model: "Megane E-Tech (60 kWh)",  battery: 60,    maxAcKw: 22,  maxDcKw: 130, consumption: 15 },
+  { brand: "Renault", model: "Zoe (52 kWh)",             battery: 52,   maxAcKw: 22,  maxDcKw: 50,  consumption: 17 },
   // Peugeot
-  { brand: "Peugeot", model: "e-208 50 kWh",          battery: 50,    maxAcKw: 11, maxDcKw: 100, consumption: 15 },
-  { brand: "Peugeot", model: "e-2008 50 kWh",         battery: 50,    maxAcKw: 11, maxDcKw: 100, consumption: 16 },
+  { brand: "Peugeot", model: "e-208 (51 kWh)",          battery: 51,    maxAcKw: 11,  maxDcKw: 100, consumption: 15 },
+  { brand: "Peugeot", model: "e-2008 (51 kWh)",         battery: 51,    maxAcKw: 11,  maxDcKw: 100, consumption: 16 },
+  // Citroën
+  { brand: "Citroën", model: "ë-C4 (51 kWh)",           battery: 51,    maxAcKw: 11,  maxDcKw: 100, consumption: 16 },
   // Opel
-  { brand: "Opel",    model: "Astra Electric 54 kWh", battery: 54,    maxAcKw: 11, maxDcKw: 100, consumption: 15 },
-  { brand: "Opel",    model: "Mokka-e 50 kWh",        battery: 50,    maxAcKw: 11, maxDcKw: 100, consumption: 16 },
+  { brand: "Opel", model: "Astra Electric (54 kWh)",    battery: 54,    maxAcKw: 11,  maxDcKw: 100, consumption: 15 },
+  { brand: "Opel", model: "Mokka-e (51 kWh)",           battery: 51,    maxAcKw: 11,  maxDcKw: 100, consumption: 16 },
   // Fiat
-  { brand: "Fiat",    model: "500e 42 kWh",            battery: 42,    maxAcKw: 11, maxDcKw: 85,  consumption: 14 },
+  { brand: "Fiat", model: "500e (42 kWh)",               battery: 42,   maxAcKw: 11,  maxDcKw: 85,  consumption: 14 },
   // Jeep
-  { brand: "Jeep",    model: "Avenger 54 kWh",         battery: 54,    maxAcKw: 11, maxDcKw: 100, consumption: 16 },
+  { brand: "Jeep", model: "Avenger (54 kWh)",            battery: 54,   maxAcKw: 11,  maxDcKw: 100, consumption: 16 },
   // BYD
-  { brand: "BYD",     model: "Atto 3 60 kWh",          battery: 60.48, maxAcKw: 7.4, maxDcKw: 80, consumption: 18 },
-  { brand: "BYD",     model: "Han 85 kWh",              battery: 85.44, maxAcKw: 7.4, maxDcKw: 120, consumption: 19 },
+  { brand: "BYD", model: "Dolphin Standard (45 kWh)",   battery: 44.9,  maxAcKw: 7.4, maxDcKw: 60,  consumption: 14 },
+  { brand: "BYD", model: "Dolphin Long Range (60 kWh)", battery: 60.4,  maxAcKw: 7.4, maxDcKw: 88,  consumption: 15 },
+  { brand: "BYD", model: "Atto 3 (60 kWh)",             battery: 60.5,  maxAcKw: 7.4, maxDcKw: 88,  consumption: 18 },
+  { brand: "BYD", model: "Seal Standard (62 kWh)",      battery: 61.4,  maxAcKw: 6.6, maxDcKw: 150, consumption: 16 },
+  { brand: "BYD", model: "Seal Long Range (83 kWh)",    battery: 82.6,  maxAcKw: 6.6, maxDcKw: 150, consumption: 17 },
+  { brand: "BYD", model: "Han (85 kWh)",                 battery: 85.4,  maxAcKw: 7.4, maxDcKw: 120, consumption: 19 },
+  { brand: "BYD", model: "Tang (108 kWh)",               battery: 108.8, maxAcKw: 7.4, maxDcKw: 110, consumption: 26 },
+  // MG
+  { brand: "MG", model: "4 Electric Standard (51 kWh)", battery: 51,    maxAcKw: 6.6, maxDcKw: 117, consumption: 15 },
+  { brand: "MG", model: "4 Electric Long Range (64 kWh)", battery: 64,  maxAcKw: 11,  maxDcKw: 135, consumption: 16 },
+  { brand: "MG", model: "ZS EV (51 kWh)",                battery: 51,   maxAcKw: 7.4, maxDcKw: 76,  consumption: 17 },
+  // OMODA
+  { brand: "OMODA", model: "E5 (61 kWh)",                battery: 61,   maxAcKw: 11,  maxDcKw: 80,  consumption: 17 },
   // Nissan
-  { brand: "Nissan",  model: "Leaf 40 kWh",             battery: 40,    maxAcKw: 6.6, maxDcKw: 50, consumption: 18 },
-  { brand: "Nissan",  model: "Leaf 62 kWh",             battery: 62,    maxAcKw: 6.6, maxDcKw: 50, consumption: 18 },
+  { brand: "Nissan", model: "Leaf (40 kWh)",             battery: 40,   maxAcKw: 6.6, maxDcKw: 50,  consumption: 18 },
+  { brand: "Nissan", model: "Leaf e+ (62 kWh)",          battery: 62,   maxAcKw: 6.6, maxDcKw: 50,  consumption: 18 },
+  { brand: "Nissan", model: "Ariya (87 kWh)",            battery: 87,   maxAcKw: 22,  maxDcKw: 130, consumption: 20 },
   // Mini
-  { brand: "Mini",    model: "Electric 32.6 kWh",       battery: 32.6,  maxAcKw: 11, maxDcKw: 50, consumption: 16 },
+  { brand: "Mini", model: "Cooper SE (33 kWh)",          battery: 32.6,  maxAcKw: 11,  maxDcKw: 50,  consumption: 16 },
+  { brand: "Mini", model: "Aceman E (54 kWh)",            battery: 54.2,  maxAcKw: 11,  maxDcKw: 95,  consumption: 16 },
   // Honda
-  { brand: "Honda",   model: "e 35.5 kWh",              battery: 35.5,  maxAcKw: 7.4, maxDcKw: 50, consumption: 17 },
+  { brand: "Honda", model: "e (35 kWh)",                 battery: 35.5,  maxAcKw: 7.4, maxDcKw: 50,  consumption: 17 },
+  { brand: "Honda", model: "e:Ny1 (68 kWh)",             battery: 68.8,  maxAcKw: 11,  maxDcKw: 78,  consumption: 18 },
 ];
 
 // Group brands for the select optgroup

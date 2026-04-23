@@ -153,7 +153,7 @@ export default function Products() {
   });
 
   const hasAnySlider = mergedCategories.some((c) => !!(c as typeof c & { sliderImage?: string }).sliderImage);
-  const sliderVisible = (productSection.sliderEnabled !== false) && hasAnySlider;
+  const sliderVisible = productSection.sliderEnabled !== false;
   const totalBanner = mergedCategories.length;
   const bannerNext = useCallback(() => setActiveBanner((c) => (c + 1) % totalBanner), [totalBanner]);
   const bannerPrev = useCallback(() => setActiveBanner((c) => (c - 1 + totalBanner) % totalBanner), [totalBanner]);

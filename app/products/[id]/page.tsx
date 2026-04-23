@@ -13,6 +13,7 @@ import {
   RiScalesLine, RiCloseLine, RiCheckLine,
 } from "react-icons/ri";
 import { HiArrowLeft, HiPhone, HiMail } from "react-icons/hi";
+import Image from "next/image";
 
 type SpecItem   = { label: string; value: string };
 type SpecGroup  = { group: string; items: SpecItem[] };
@@ -287,8 +288,9 @@ export default function ProductCategoryPage() {
                 <div className="relative overflow-hidden" onClick={() => router.push(`/products/${id}/${product.id}`)}
                   style={{ height: 148, background: d ? `linear-gradient(145deg, ${accent}0a 0%, #111111 100%)` : `linear-gradient(145deg, ${accent}0d 0%, #f4f4f4 100%)` }}>
                   {(product.images?.[0] ?? product.image) ? (
-                    <img src={product.images?.[0] ?? product.image} alt={product.name}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-350 group-hover:scale-105"
+                    <Image src={(product.images?.[0] ?? product.image) as string} alt={product.name}
+                      fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-350 group-hover:scale-105"
                       style={{ opacity: 0.88 }} />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center">
