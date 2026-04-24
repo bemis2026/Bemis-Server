@@ -4,6 +4,8 @@ import path from "path";
 
 const dealersPath = path.join(process.cwd(), "data", "dealers.json");
 
+export const revalidate = 60;
+
 export async function GET() {
   try {
     const data = JSON.parse(readFileSync(dealersPath, "utf-8"));

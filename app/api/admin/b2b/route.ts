@@ -32,7 +32,7 @@ export async function GET(req: NextRequest) {
   try { localData = JSON.parse(readFileSync(fallbackPath, "utf-8")); } catch {}
 
   try {
-    const binData = await readBin("b2b") as Rec;
+    const binData = await readBin("b2b", { fresh: true }) as Rec;
     return NextResponse.json(mergeDeep(localData, binData));
   } catch {}
 

@@ -3,6 +3,14 @@ import { breadcrumbSchema, collectionPageSchema } from "../../lib/seo";
 import { getServerProducts, getServerCategoriesMeta } from "../../lib/server-content";
 import ProductCategoryClient from "./ProductCategoryClient";
 
+export const revalidate = 60;
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const categories = await getServerProducts();
+  return categories.map(c => ({ id: c.id }));
+}
+
 export default async function ProductCategoryPage({
   params,
 }: {

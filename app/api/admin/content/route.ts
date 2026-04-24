@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
   const fallbackPath = path.join(process.cwd(), "data", lang === "en" ? "content-en.json" : "content.json");
 
   try {
-    const data = await readBin(binName);
+    const data = await readBin(binName, { fresh: true });
     return NextResponse.json(data);
   } catch {}
 

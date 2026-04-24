@@ -3,6 +3,20 @@ import { breadcrumbSchema, productSchema } from "../../../lib/seo";
 import { getServerProducts, getServerCategoriesMeta } from "../../../lib/server-content";
 import ProductDetailClient from "./ProductDetailClient";
 
+export const revalidate = 60;
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const categories = await getServerProducts();
+  const out: { id: string; productId: string }[] = [];
+  for (const cat of categories) {
+    for (const p of (cat.products ?? [])) {
+      out.push({ id: cat.id, productId: p.id });
+    }
+  }
+  return out;
+}
+
 export default async function ProductDetailPage({
   params,
 }: {

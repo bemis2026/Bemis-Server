@@ -21,6 +21,8 @@ function mergeDeep(target: Rec, source: Rec): Rec {
 
 const fallbackPath = path.join(process.cwd(), "data", "b2b.json");
 
+export const revalidate = 60;
+
 export async function GET() {
   let localData: Rec = {};
   try { localData = JSON.parse(readFileSync(fallbackPath, "utf-8")); } catch {}

@@ -8,7 +8,7 @@ function isAuthed(req: NextRequest) {
 export async function GET(req: NextRequest) {
   if (!isAuthed(req)) return NextResponse.json({ error: "Yetkisiz" }, { status: 401 });
   try {
-    const data = await readBin("documents") as { documents?: unknown[] };
+    const data = await readBin("documents", { fresh: true }) as { documents?: unknown[] };
     return NextResponse.json({ documents: data?.documents ?? [] });
   } catch {
     return NextResponse.json({ documents: [] });

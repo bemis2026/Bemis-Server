@@ -5,6 +5,8 @@ import path from "path";
 
 const fallbackPath = path.join(process.cwd(), "data", "products.json");
 
+export const revalidate = 60;
+
 export async function GET() {
   try {
     const data = await readBin("products");

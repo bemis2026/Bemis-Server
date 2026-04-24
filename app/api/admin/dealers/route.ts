@@ -12,7 +12,7 @@ const fallbackPath = path.join(process.cwd(), "data", "dealers.json");
 export async function GET(req: NextRequest) {
   if (!isAuthed(req)) return NextResponse.json({ error: "Yetkisiz" }, { status: 401 });
   try {
-    return NextResponse.json(await readBin("dealers"));
+    return NextResponse.json(await readBin("dealers", { fresh: true }));
   } catch {}
   try {
     return NextResponse.json(JSON.parse(readFileSync(fallbackPath, "utf-8")));

@@ -21,7 +21,7 @@ export async function GET(req: NextRequest) {
   try {
     const [factory, live] = await Promise.all([
       Promise.resolve(loadFactory()),
-      readBin("products") as Promise<CategoryData[]>,
+      readBin("products", { fresh: true }) as Promise<CategoryData[]>,
     ]);
 
     // Build set of existing product IDs in live data
@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
   try {
     const [factory, live] = await Promise.all([
       Promise.resolve(loadFactory()),
-      readBin("products") as Promise<CategoryData[]>,
+      readBin("products", { fresh: true }) as Promise<CategoryData[]>,
     ]);
 
     const liveData: CategoryData[] = Array.isArray(live) ? [...live] : [];
