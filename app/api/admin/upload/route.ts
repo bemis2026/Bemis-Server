@@ -69,15 +69,18 @@ export async function POST(req: NextRequest) {
     }
 
     if (DOC_EXTS.includes(ext)) {
-      const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
-      const preset    = process.env.CLOUDINARY_UPLOAD_PRESET;
-      if (!cloudName || !preset) {
+      const cloudName = process.env.CLOUDINARY_CLOUD_NAME?.trim();
+      const preset    = process.env.CLOUDINARY_UPLOAD_PRESET?.trim();
+      const missing: string[] = [];
+      if (!cloudName) missing.push("CLOUDINARY_CLOUD_NAME");
+      if (!preset)    missing.push("CLOUDINARY_UPLOAD_PRESET");
+      if (missing.length) {
         return NextResponse.json(
-          { error: "CLOUDINARY_CLOUD_NAME ve CLOUDINARY_UPLOAD_PRESET env değişkenleri eksik" },
+          { error: `Eksik env değişkeni: ${missing.join(", ")}. Vercel → Settings → Environment Variables sekmesinde Production ortamına eklendiğinden emin olun ve yeni bir deploy tetikleyin.` },
           { status: 500 }
         );
       }
-      const url = await uploadToCloudinary(bytes, file.name, ext, cloudName, preset);
+      const url = await uploadToCloudinary(bytes, file.name, ext, cloudName!, preset!);
       return NextResponse.json({ url });
     }
 

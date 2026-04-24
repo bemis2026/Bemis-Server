@@ -167,7 +167,6 @@ const SECTION_META: Record<string, { tab: Tab; label: string; icon: React.Elemen
   "products":       { tab: "products",         label: "Ürünler",        icon: HiOutlineCube           },
   "featured":       { tab: "featured",        label: "Öne Çıkanlar",   icon: HiOutlineStar           },
   "reviews":        { tab: "reviews",         label: "Yorumlar",       icon: HiOutlineStar           },
-  "dealer":         { tab: "dealer-section",  label: "Bayi Ağı",       icon: HiOutlineLocationMarker },
   "calculator":     { tab: "calculator",      label: "Hesaplayıcı",    icon: HiOutlineLightningBolt  },
 };
 
@@ -1113,8 +1112,9 @@ export default function AdminPage() {
     {
       label: "Veri Yönetimi",
       items: [
+        { id: "dealers",  label: "Bayi Haritası",     icon: HiOutlineLocationMarker },
         { id: "contact",  label: "İletişim",          icon: HiOutlinePhone          },
-        { id: "b2b",      label: "OEM & Bayi Ağı",   icon: HiOutlineOfficeBuilding },
+        { id: "b2b",      label: "OEM & Kurumsal",   icon: HiOutlineOfficeBuilding },
       ],
     },
     {
@@ -1257,23 +1257,19 @@ export default function AdminPage() {
           {TAB_GROUPS.map((group) => (
             <div key={group.label} className="mb-1">
               <p className="text-[9px] font-bold text-white/20 uppercase tracking-widest px-2 pt-2 pb-1">{group.label}</p>
-              {group.items.map((t) => {
-                const isActive = tab === t.id || (t.id === "b2b" && tab === "dealers");
-                return (
-                  <button key={t.id}
-                    onClick={() => {
-                      if (t.id === "b2b" && tab === "dealers") return;
-                      setTab(t.id);
-                      if (t.id !== "b2b") setB2bSubPage("/b2b");
-                    }}
-                    className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-xs font-medium text-left transition-all duration-200 ${
-                      isActive ? "bg-white/10 text-white" : "text-white/40 hover:text-white/70 hover:bg-white/4"
-                    }`}
-                  >
-                    <t.icon size={13} className="flex-shrink-0" /> {t.label}
-                  </button>
-                );
-              })}
+              {group.items.map((t) => (
+                <button key={t.id}
+                  onClick={() => {
+                    setTab(t.id);
+                    if (t.id !== "b2b") setB2bSubPage("/b2b");
+                  }}
+                  className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-xs font-medium text-left transition-all duration-200 ${
+                    tab === t.id ? "bg-white/10 text-white" : "text-white/40 hover:text-white/70 hover:bg-white/4"
+                  }`}
+                >
+                  <t.icon size={13} className="flex-shrink-0" /> {t.label}
+                </button>
+              ))}
             </div>
           ))}
 
@@ -2570,39 +2566,6 @@ export default function AdminPage() {
                 </div>
               )}
 
-              {/* ── DEALER SECTION ── */}
-              {tab === "dealer-section" && (
-                <div className="max-w-2xl space-y-5">
-                  <div>
-                    <h2 className="text-base font-bold mb-1">Bayi Ağı Bölümü</h2>
-                    <p className="text-xs text-white/35">Ana sayfadaki bayi ağı bölümünün metinleri.</p>
-                  </div>
-                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
-                    <div className="grid grid-cols-2 gap-3">
-                      <Field label="Bölüm Etiketi"  value={content.dealer.sectionLabel} onChange={(v) => updateContent(["dealer","sectionLabel"], v)} />
-                      <Field label="Başlık"         value={content.dealer.heading}      onChange={(v) => updateContent(["dealer","heading"],      v)} />
-                    </div>
-                    <Field label="Açıklama" value={content.dealer.description} onChange={(v) => updateContent(["dealer","description"], v)} multiline />
-                    <Field label="Başvuru Metni (alt kısım)" value={content.dealer.applyText ?? ""} onChange={(v) => updateContent(["dealer","applyText"], v)} />
-                    <div className="grid grid-cols-2 gap-3">
-                      <Field label="İl Sayısı (örn: 81)"   value={content.dealer.statCities}  onChange={(v) => updateContent(["dealer","statCities"],  v)} />
-                      <Field label="Bayi Sayısı (örn: 500+)" value={content.dealer.statDealers} onChange={(v) => updateContent(["dealer","statDealers"], v)} />
-                    </div>
-                    <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider pt-1">Etiketler</p>
-                    <div className="grid grid-cols-2 gap-3">
-                      <Field label="İl Sayısı Etiketi (örn: İlde Bayi)"    value={content.dealer.citiesLabel ?? ""}       onChange={(v) => updateContent(["dealer","citiesLabel"],       v)} />
-                      <Field label="Bayi Sayısı Etiketi (örn: Aktif Bayi)" value={content.dealer.activeDealersLabel ?? ""} onChange={(v) => updateContent(["dealer","activeDealersLabel"], v)} />
-                    </div>
-                    <div className="grid grid-cols-2 gap-3">
-                      <Field label="Bayi Bul Başlığı"       value={content.dealer.findDealerTitle ?? ""} onChange={(v) => updateContent(["dealer","findDealerTitle"], v)} />
-                      <Field label="İletişim Butonu Metni"  value={content.dealer.contactBtnLabel ?? ""} onChange={(v) => updateContent(["dealer","contactBtnLabel"], v)} />
-                    </div>
-                    <Field label="Harita İpucu (kullanıcıya gösterilen yardım metni)" value={content.dealer.mapHint ?? ""} onChange={(v) => updateContent(["dealer","mapHint"], v)} />
-                    <Field label="Harita Başlığı" value={content.dealer.mapTitle ?? ""} onChange={(v) => updateContent(["dealer","mapTitle"], v)} />
-                  </div>
-                </div>
-              )}
-
               {/* ── REVIEWS ── */}
               {tab === "reviews" && (
                 <div className="max-w-2xl space-y-5">
@@ -2683,18 +2646,39 @@ export default function AdminPage() {
               {/* ── DEALERS ── */}
               {tab === "dealers" && (
                 <div className="space-y-5">
-                  <div className="inline-flex gap-1 p-1 rounded-xl border border-white/8 bg-white/3">
-                    <button onClick={() => setTab("b2b")}
-                      className="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white/50 hover:text-white/80 transition-colors">
-                      OEM & Kurumsal
-                    </button>
-                    <button
-                      className="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white/10 text-white transition-colors">
-                      Bayi Haritası
-                    </button>
-                  </div>
                   <div>
-                    <h2 className="text-base font-bold mb-1">Bayi Yönetimi</h2>
+                    <h2 className="text-base font-bold mb-1">Bayi Haritası</h2>
+                    <p className="text-xs text-white/35">Ana sayfadaki bayi ağı bölümünün metinleri ve şehirlere göre yetkili bayi bilgileri.</p>
+                  </div>
+
+                  {/* Bayi Ağı — homepage section text */}
+                  <div className="max-w-3xl bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                    <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Ana Sayfa Metinleri</p>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="Bölüm Etiketi"  value={content.dealer.sectionLabel} onChange={(v) => updateContent(["dealer","sectionLabel"], v)} />
+                      <Field label="Başlık"         value={content.dealer.heading}      onChange={(v) => updateContent(["dealer","heading"],      v)} />
+                    </div>
+                    <Field label="Açıklama" value={content.dealer.description} onChange={(v) => updateContent(["dealer","description"], v)} multiline />
+                    <Field label="Başvuru Metni (alt kısım)" value={content.dealer.applyText ?? ""} onChange={(v) => updateContent(["dealer","applyText"], v)} />
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="İl Sayısı (örn: 81)"   value={content.dealer.statCities}  onChange={(v) => updateContent(["dealer","statCities"],  v)} />
+                      <Field label="Bayi Sayısı (örn: 500+)" value={content.dealer.statDealers} onChange={(v) => updateContent(["dealer","statDealers"], v)} />
+                    </div>
+                    <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider pt-1">Etiketler</p>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="İl Sayısı Etiketi (örn: İlde Bayi)"    value={content.dealer.citiesLabel ?? ""}       onChange={(v) => updateContent(["dealer","citiesLabel"],       v)} />
+                      <Field label="Bayi Sayısı Etiketi (örn: Aktif Bayi)" value={content.dealer.activeDealersLabel ?? ""} onChange={(v) => updateContent(["dealer","activeDealersLabel"], v)} />
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="Bayi Bul Başlığı"       value={content.dealer.findDealerTitle ?? ""} onChange={(v) => updateContent(["dealer","findDealerTitle"], v)} />
+                      <Field label="İletişim Butonu Metni"  value={content.dealer.contactBtnLabel ?? ""} onChange={(v) => updateContent(["dealer","contactBtnLabel"], v)} />
+                    </div>
+                    <Field label="Harita İpucu (kullanıcıya gösterilen yardım metni)" value={content.dealer.mapHint ?? ""} onChange={(v) => updateContent(["dealer","mapHint"], v)} />
+                    <Field label="Harita Başlığı" value={content.dealer.mapTitle ?? ""} onChange={(v) => updateContent(["dealer","mapTitle"], v)} />
+                  </div>
+
+                  <div>
+                    <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider mb-1">Bayi Listesi</p>
                     <p className="text-xs text-white/35">Şehirlere göre yetkili bayi bilgilerini düzenleyin.</p>
                   </div>
 
@@ -3051,21 +3035,7 @@ export default function AdminPage() {
               {tab === "changelog" && <ChangelogPanel />}
 
               {/* ── B2B / OEM ── */}
-              {tab === "b2b" && (
-                <div className="space-y-5">
-                  <div className="inline-flex gap-1 p-1 rounded-xl border border-white/8 bg-white/3">
-                    <button
-                      className="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white/10 text-white transition-colors">
-                      OEM & Kurumsal
-                    </button>
-                    <button onClick={() => setTab("dealers")}
-                      className="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white/50 hover:text-white/80 transition-colors">
-                      Bayi Haritası
-                    </button>
-                  </div>
-                  <B2BPanel onSaved={() => { setShowPreview(true); setPreviewKey(k => k + 1); }} postToPreview={postToPreview} onSubTabChange={(page) => { setB2bSubPage(page); setShowPreview(true); setPreviewKey(k => k + 1); }} />
-                </div>
-              )}
+              {tab === "b2b" && <B2BPanel onSaved={() => { setShowPreview(true); setPreviewKey(k => k + 1); }} postToPreview={postToPreview} onSubTabChange={(page) => { setB2bSubPage(page); setShowPreview(true); setPreviewKey(k => k + 1); }} />}
 
             </motion.div>
           </AnimatePresence>
