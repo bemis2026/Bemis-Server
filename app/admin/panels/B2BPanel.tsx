@@ -12,11 +12,11 @@ import {
   HiOutlineCheck,
   HiOutlineExclamation,
   HiOutlineEye,
-  HiOutlineChevronDown,
   HiOutlineSave,
 } from "react-icons/hi";
 
-type B2BSolution = { id: string; name: string; subtitle: string; tag: string; tagColor: string; accentColor: string; detail: string; specs: string[] };
+type B2BFeaturedSlot = { categoryId?: string; productId?: string };
+type CatBrief = { id: string; name: string; products?: { id: string; name: string }[] };
 type B2BHero = { eyebrow: string; heading1: string; heading2: string; description: string; sectorTags: string[] };
 type B2BBenefit = { title: string; body: string };
 type B2BCapability = { title: string; body: string };
@@ -24,13 +24,11 @@ type B2BCtaChannel = { href: string; label: string; sub: string };
 type B2BCta = { eyebrow: string; heading: string; description: string; tags: string[]; channels: B2BCtaChannel[] };
 type B2BBayilik = { heading1: string; heading2: string; description: string; infoTable: { label: string; value: string }[]; benefits: B2BBenefit[]; criteria: string[] };
 type B2BOperator = { heading1: string; heading2: string; description: string; capabilities: B2BCapability[]; ocppFeatures: string[] };
-type B2BPageData = { hero: B2BHero; solutions: B2BSolution[]; cta?: B2BCta; bayilik?: B2BBayilik; operator?: B2BOperator };
+type B2BPageData = { hero: B2BHero; featuredProducts?: B2BFeaturedSlot[]; cta?: B2BCta; bayilik?: B2BBayilik; operator?: B2BOperator };
 
 const defaultBayilik = (): B2BBayilik => ({ heading1: "", heading2: "", description: "", infoTable: [], benefits: [], criteria: [] });
 const defaultOperator = (): B2BOperator => ({ heading1: "", heading2: "", description: "", capabilities: [], ocppFeatures: [] });
 const defaultCta = (): B2BCta => ({ eyebrow: "", heading: "", description: "", tags: [], channels: [] });
-
-const TAG_OPTIONS = ["Mevcut", "OEM Mevcut", "Geliştirme", "Yakında", "Stoğa Bağlı"];
 
 const B2B_TAB_META = [
   { id: "oem"      as const, label: "OEM / Üretici",  icon: HiOutlineOfficeBuilding, color: "#F59E0B", page: "/b2b"     },
@@ -81,10 +79,10 @@ const delBtn = (onClick: () => void) => <B2BDelBtn onClick={onClick} />;
 
 export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { onSaved?: () => void; postToPreview?: (msg: object) => void; onSubTabChange?: (page: string) => void }) {
   const [data, setData] = useState<B2BPageData | null>(null);
+  const [categories, setCategories] = useState<CatBrief[]>([]);
   const [saving, setSaving] = useState(false);
   const [toast, setToast] = useState<"ok" | "err" | null>(null);
   const [toastMsg, setToastMsg] = useState<string | null>(null);
-  const [expandedSol, setExpandedSol] = useState<string | null>(null);
   const [subTab, setSubTab] = useState<"oem" | "bayilik" | "operator" | "cta">("oem");
   const [dirty, setDirty] = useState(false);
   const initialLoadedRef = useRef(false);
@@ -96,6 +94,10 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
     fetch("/api/admin/b2b")
       .then(r => { if (!r.ok) throw new Error("auth"); return r.json(); })
       .then(d => setData(d))
+      .catch(() => {});
+    fetch("/api/products")
+      .then(r => r.json())
+      .then((d: CatBrief[]) => setCategories(Array.isArray(d) ? d : []))
       .catch(() => {});
   }, []);
 
@@ -159,36 +161,16 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
   const setHero = (field: keyof B2BHero, val: string | string[]) =>
     setData(p => p ? { ...p, hero: { ...p.hero, [field]: val } } : p);
 
-  const setSol = (id: string, field: keyof B2BSolution, val: string | string[]) =>
-    setData(p => p ? { ...p, solutions: p.solutions.map(s => s.id === id ? { ...s, [field]: val } : s) } : p);
-
-  const setSpec = (id: string, idx: number, val: string) =>
+  const updateSlot = (index: number, patch: Partial<B2BFeaturedSlot>) =>
     setData(p => {
       if (!p) return p;
-      const solutions = p.solutions.map(s => {
-        if (s.id !== id) return s;
-        const specs = [...s.specs];
-        specs[idx] = val;
-        return { ...s, specs };
-      });
-      return { ...p, solutions };
+      const next: B2BFeaturedSlot[] = [];
+      for (let i = 0; i < 4; i++) next.push({ ...(p.featuredProducts?.[i] ?? {}) });
+      next[index] = { ...next[index], ...patch };
+      return { ...p, featuredProducts: next };
     });
 
-  const addSpec = (id: string) =>
-    setData(p => p ? { ...p, solutions: p.solutions.map(s => s.id === id ? { ...s, specs: [...s.specs, ""] } : s) } : p);
-
-  const removeSpec = (id: string, idx: number) =>
-    setData(p => p ? { ...p, solutions: p.solutions.map(s => s.id === id ? { ...s, specs: s.specs.filter((_, i) => i !== idx) } : s) } : p);
-
-  const addSolution = () => {
-    const id = `sol-${Date.now()}`;
-    const newSol: B2BSolution = { id, name: "Yeni Ürün", subtitle: "", tag: "Mevcut", tagColor: "#10B981", accentColor: "#10B981", detail: "", specs: [] };
-    setData(p => p ? { ...p, solutions: [...p.solutions, newSol] } : p);
-    setExpandedSol(id);
-  };
-
-  const removeSolution = (id: string) =>
-    setData(p => p ? { ...p, solutions: p.solutions.filter(s => s.id !== id) } : p);
+  const clearSlot = (index: number) => updateSlot(index, { categoryId: undefined, productId: undefined });
 
   const inputCls = "w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22 transition-colors";
   const labelCls = "block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider";
@@ -291,101 +273,61 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
             </div>
           </B2BCard>
 
-          {/* Solutions */}
-          <div>
-            <div className="flex items-center justify-between mb-3">
-              <p className="text-[11px] font-bold text-white/50 uppercase tracking-widest">OEM Ürün Kartları</p>
-              <button onClick={addSolution}
-                className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg font-semibold transition-all"
-                style={{ background: "rgba(245,158,11,0.10)", color: "#F59E0B", border: "1px solid rgba(245,158,11,0.20)" }}>
-                <HiOutlinePlus size={12} /> Ürün Ekle
-              </button>
-            </div>
-            <div className="space-y-2">
-              {data.solutions.map((sol, si) => (
-                <div key={sol.id} className="rounded-2xl overflow-hidden"
-                  style={{ border: expandedSol === sol.id ? `1px solid ${sol.accentColor}30` : "1px solid rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.025)", transition: "border-color 0.2s" }}>
-                  {/* Accordion header */}
-                  <button onClick={() => setExpandedSol(expandedSol === sol.id ? null : sol.id)}
-                    className="w-full flex items-center gap-3 px-4 py-3.5 text-left hover:bg-white/2 transition-colors">
-                    <span className="text-[10px] font-bold text-white/20 w-5 text-center">{String(si + 1).padStart(2, "0")}</span>
-                    <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ background: sol.accentColor, boxShadow: `0 0 8px ${sol.accentColor}60` }} />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold text-white truncate">{sol.name}</p>
-                      <p className="text-[11px] text-white/30 truncate">{sol.subtitle}</p>
-                    </div>
-                    <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold flex-shrink-0"
-                      style={{ background: `${sol.tagColor}18`, color: sol.tagColor, border: `1px solid ${sol.tagColor}30` }}>
-                      {sol.tag}
-                    </span>
-                    <HiOutlineChevronDown size={14} className="text-white/25 flex-shrink-0 transition-transform" style={{ transform: expandedSol === sol.id ? "rotate(180deg)" : "none" }} />
-                  </button>
-
-                  {/* Accordion body */}
-                  {expandedSol === sol.id && (
-                    <div className="px-5 pb-5 space-y-4 border-t border-white/5">
-                      <div className="grid grid-cols-2 gap-3 pt-4">
-                        <div>
-                          <label className={labelCls}>Ürün Adı</label>
-                          <input className={inputCls} value={sol.name} onChange={e => setSol(sol.id, "name", e.target.value)} />
+          {/* Öne Çıkan 4 Ürün */}
+          <B2BCard accent="#F59E0B">
+            <B2BSectionTitle label="Öne Çıkan 4 Ürün" hint="Ürün kataloğundan seçilir" />
+            <p className="text-[11px] text-white/40 mb-4 -mt-1">
+              Şarj ünitesi üreticilerine tanıtılacak 4 ürünü ürün yönetimindeki kataloğundan seçin. Boş slotlar sayfada gösterilmez.
+            </p>
+            <div className="space-y-3">
+              {[0, 1, 2, 3].map(i => {
+                const slot = data.featuredProducts?.[i] ?? {};
+                const catProducts = categories.find(c => c.id === slot.categoryId)?.products ?? [];
+                const filled = !!(slot.categoryId || slot.productId);
+                return (
+                  <div key={i} className="rounded-xl p-3.5 space-y-2.5"
+                    style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-lg flex items-center justify-center text-[10px] font-black"
+                          style={{ background: "rgba(245,158,11,0.15)", color: "#F59E0B", border: "1px solid rgba(245,158,11,0.25)" }}>
+                          {i + 1}
                         </div>
-                        <div>
-                          <label className={labelCls}>Alt Başlık</label>
-                          <input className={inputCls} value={sol.subtitle} onChange={e => setSol(sol.id, "subtitle", e.target.value)} />
-                        </div>
+                        <p className="text-[11px] font-bold uppercase tracking-widest text-white/50">Slot {i + 1}</p>
                       </div>
-                      <div>
-                        <label className={labelCls}>Açıklama</label>
-                        <textarea className={inputCls} rows={3} style={{ resize: "none" }} value={sol.detail} onChange={e => setSol(sol.id, "detail", e.target.value)} />
-                      </div>
-                      <div className="grid grid-cols-3 gap-3">
-                        <div>
-                          <label className={labelCls}>Durum</label>
-                          <select className={inputCls} value={sol.tag} onChange={e => setSol(sol.id, "tag", e.target.value)}>
-                            {TAG_OPTIONS.map(t => <option key={t} value={t} style={{ background: "#0f0f12" }}>{t}</option>)}
-                          </select>
-                        </div>
-                        <div>
-                          <label className={labelCls}>Etiket Rengi</label>
-                          <div className="flex gap-2">
-                            <input className={inputCls} value={sol.tagColor} onChange={e => setSol(sol.id, "tagColor", e.target.value)} placeholder="#10B981" />
-                            <input type="color" value={sol.tagColor} onChange={e => setSol(sol.id, "tagColor", e.target.value)}
-                              style={{ width: 38, height: 38, borderRadius: 10, border: "1px solid rgba(255,255,255,0.10)", cursor: "pointer", background: "transparent", padding: 2 }} />
-                          </div>
-                        </div>
-                        <div>
-                          <label className={labelCls}>Vurgu Rengi</label>
-                          <div className="flex gap-2">
-                            <input className={inputCls} value={sol.accentColor} onChange={e => setSol(sol.id, "accentColor", e.target.value)} placeholder="#3B82F6" />
-                            <input type="color" value={sol.accentColor} onChange={e => setSol(sol.id, "accentColor", e.target.value)}
-                              style={{ width: 38, height: 38, borderRadius: 10, border: "1px solid rgba(255,255,255,0.10)", cursor: "pointer", background: "transparent", padding: 2 }} />
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <label className={labelCls}>Teknik Özellikler</label>
-                        <div className="space-y-2">
-                          {sol.specs.map((spec, idx) => (
-                            <div key={idx} className="flex gap-2">
-                              <input className={inputCls} value={spec} onChange={e => setSpec(sol.id, idx, e.target.value)} placeholder={`Özellik ${idx + 1}`} />
-                              {delBtn(() => removeSpec(sol.id, idx))}
-                            </div>
-                          ))}
-                          {addBtn(() => addSpec(sol.id), "Özellik Ekle")}
-                        </div>
-                      </div>
-                      <div className="pt-2 border-t border-white/5 flex justify-end">
-                        <button onClick={() => { removeSolution(sol.id); setExpandedSol(null); }}
-                          className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg text-red-400/60 hover:text-red-400 border border-red-500/10 hover:border-red-500/30 transition-all">
-                          <HiOutlineTrash size={12} /> Bu ürünü sil
+                      {filled && (
+                        <button onClick={() => clearSlot(i)}
+                          className="flex items-center gap-1 text-[10px] text-white/30 hover:text-red-400 transition-colors">
+                          <HiOutlineTrash size={11} /> Temizle
                         </button>
-                      </div>
+                      )}
                     </div>
-                  )}
-                </div>
-              ))}
+                    <div className="grid grid-cols-2 gap-2">
+                      <select className={inputCls} value={slot.categoryId ?? ""}
+                        onChange={e => updateSlot(i, { categoryId: e.target.value || undefined, productId: undefined })}>
+                        <option value="" style={{ background: "#0f0f12" }}>— Kategori seç —</option>
+                        {categories.map(c => (
+                          <option key={c.id} value={c.id} style={{ background: "#0f0f12" }}>{c.name}</option>
+                        ))}
+                      </select>
+                      <select className={inputCls} value={slot.productId ?? ""} disabled={!slot.categoryId}
+                        onChange={e => updateSlot(i, { productId: e.target.value || undefined })}>
+                        <option value="" style={{ background: "#0f0f12" }}>— Ürün seç —</option>
+                        {catProducts.map(pr => (
+                          <option key={pr.id} value={pr.id} style={{ background: "#0f0f12" }}>{pr.name}</option>
+                        ))}
+                      </select>
+                    </div>
+                    {slot.categoryId && slot.productId && (
+                      <p className="text-[10px] text-white/35">
+                        → /products/{slot.categoryId}/{slot.productId}
+                      </p>
+                    )}
+                  </div>
+                );
+              })}
             </div>
-          </div>
+          </B2BCard>
         </div>
       )}
 

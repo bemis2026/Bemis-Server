@@ -4,35 +4,26 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
 import { useTheme } from "../context/ThemeContext";
 import {
-  RiFlashlightLine, RiCpuLine, RiPlugLine, RiShieldCheckLine,
-  RiCheckLine, RiSendPlaneLine, RiBuilding2Line, RiSettings4Line,
-  RiWifiLine, RiToolsLine, RiGlobalLine, RiArrowRightLine,
-  RiLeafLine, RiLightbulbLine, RiBarChartLine, RiCustomerService2Line,
+  RiPlugLine, RiShieldCheckLine,
+  RiCheckLine, RiSendPlaneLine, RiBuilding2Line,
+  RiToolsLine, RiArrowRightLine,
+  RiLeafLine, RiBarChartLine, RiCustomerService2Line,
 } from "react-icons/ri";
 import { HiArrowLeft, HiChevronRight } from "react-icons/hi";
 
 /* ─── Data types ────────────────────────────────────────────────────────── */
-type B2BSolution = {
-  id: string; name: string; subtitle: string; tag: string;
-  tagColor: string; accentColor: string; detail: string; specs: string[];
-};
+type B2BFeaturedSlot = { categoryId?: string; productId?: string };
 type B2BHero = {
   eyebrow: string; heading1: string; heading2: string;
   description: string; sectorTags: string[];
 };
-type B2BData = { hero: B2BHero; solutions: B2BSolution[] };
-
-const ICON_MAP: Record<string, React.ElementType> = {
-  "dc-charger": RiFlashlightLine,
-  "charge-panel": RiCpuLine,
-  "dc-cable": RiPlugLine,
-  "ecu": RiSettings4Line,
-};
+type B2BData = { hero: B2BHero; featuredProducts?: B2BFeaturedSlot[] };
 
 const DEFAULT_B2B: B2BData = {
   hero: {
@@ -42,16 +33,16 @@ const DEFAULT_B2B: B2BData = {
     description: "Şarj ağı operatörleri, OEM üreticiler ve sistem entegratörleri için teknik ürün portföyü.",
     sectorTags: ["OEM Üretici", "Şarj Ağı Operatörü", "Sistem Entegratörü", "Proje Müteahhidi"],
   },
-  solutions: [],
+  featuredProducts: [],
 };
 
 const advantages = [
-  { icon: RiToolsLine,             color: "#F59E0B", title: "Teknik Destek",       body: "Proje tasarımından devreye almaya kadar mühendislik desteği." },
-  { icon: RiBarChartLine,          color: "#3B82F6", title: "Özel Fiyatlandırma", body: "Hacme göre ölçeklenen rekabetçi OEM ve toplu satış fiyatları." },
-  { icon: RiWifiLine,              color: "#10B981", title: "OCPP Entegrasyonu",  body: "OCPP 1.6 / 2.0.1 uyumlu donanım ve yazılım çözümleri." },
-  { icon: RiGlobalLine,            color: "#818CF8", title: "Sertifikasyon",      body: "CE, TÜV, IEC sertifikalı ürünler; Avrupa ihracatına hazır portföy." },
-  { icon: RiLightbulbLine,         color: "#F97316", title: "Özel Geliştirme",    body: "Tasarıma özel (custom) elektronik kart ve yazılım projeleri." },
-  { icon: RiCustomerService2Line,  color: "#EC4899", title: "Satış Sonrası",      body: "Garanti, yedek parça ve saha servis anlaşmaları." },
+  { icon: RiBuilding2Line,         color: "#F59E0B", title: "Türkiye'de Üretim",          body: "Bursa'daki tesislerimizde üretim; kısa tedarik süresi ve gümrüksüz lojistik." },
+  { icon: RiBarChartLine,          color: "#3B82F6", title: "Seri Üretim Kapasitesi",     body: "Aylık yüksek hacimli AC / DC şarj kablosu ve şarj prizi üretim kapasitesi." },
+  { icon: RiShieldCheckLine,       color: "#10B981", title: "Uluslararası Sertifikalar",  body: "CE, TÜV ve IEC 62196 uyumlu ürünler — Avrupa ihracatına hazır portföy." },
+  { icon: RiToolsLine,             color: "#818CF8", title: "Özel Konfigürasyon",         body: "İstenilen uzunluk, renk ve konnektör seçenekleri (Type 2 / CCS2 / GB-T)." },
+  { icon: RiSendPlaneLine,         color: "#F97316", title: "Hızlı Numune & Doküman",     body: "Prototip için hızlı numune; datasheet, 3D model ve test raporu paylaşımı." },
+  { icon: RiCustomerService2Line,  color: "#EC4899", title: "OEM Satış Sonrası",          body: "Garanti, yedek parça ve mühendislik düzeyinde teknik destek." },
 ];
 
 const SECTORS = ["EV Üreticisi (OEM)", "Şarj Ağı Operatörü", "Proje Müteahhidi / EPC", "Sistem Entegratörü", "Distribütör / Bayi", "Kamu / Belediye", "Diğer"];
@@ -59,7 +50,8 @@ const PRODUCTS_INTEREST = ["DC Hızlı Şarj Ünitesi", "Şarj Panosu & Dağıt�
 
 type FormState = { name: string; company: string; email: string; phone: string; sector: string; interests: string[]; message: string };
 const EMPTY: FormState = { name: "", company: "", email: "", phone: "", sector: "", interests: [], message: "" };
-type Category = { id: string; name: string; tagline: string; accent: string };
+type ProductEntry = { id: string; name: string; subtitle?: string; description?: string; image?: string };
+type Category = { id: string; name: string; tagline: string; accent: string; products?: ProductEntry[] };
 
 export default function B2BPage() {
   const router = useRouter();
@@ -89,7 +81,7 @@ export default function B2BPage() {
       setCategories(Array.isArray(data) ? data : []);
     }).catch(() => {});
     fetch("/api/b2b").then(r => r.json()).then((data: B2BData) => {
-      if (data?.solutions) setB2bData(data);
+      if (data?.hero) setB2bData(data);
     }).catch(() => {});
   }, []);
 
@@ -188,53 +180,77 @@ export default function B2BPage() {
         </div>
       </section>
 
-      {/* ── OEM Products ── */}
-      {b2bData.solutions.length > 0 && (
-        <section style={{ background: bgSub, borderBottom: `1px solid ${border}`, padding: "56px 0" }}>
-          <div className="max-w-5xl mx-auto px-5 sm:px-8">
-            <div className="mb-8">
-              <div className="flex items-center gap-2 mb-2">
-                <RiBuilding2Line style={{ color: AMBER, fontSize: 14 }} />
-                <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: AMBER }}>Ürün Portföyü</span>
+      {/* ── OEM Featured Products ── */}
+      {(() => {
+        const resolved = (b2bData.featuredProducts ?? [])
+          .map(slot => {
+            if (!slot?.categoryId || !slot?.productId) return null;
+            const cat = categories.find(c => c.id === slot.categoryId);
+            const prod = cat?.products?.find(p => p.id === slot.productId);
+            if (!cat || !prod) return null;
+            return { cat, prod };
+          })
+          .filter((x): x is { cat: Category; prod: ProductEntry } => x !== null);
+        if (resolved.length === 0) return null;
+        return (
+          <section style={{ background: bgSub, borderBottom: `1px solid ${border}`, padding: "56px 0" }}>
+            <div className="max-w-5xl mx-auto px-5 sm:px-8">
+              <div className="mb-8">
+                <div className="flex items-center gap-2 mb-2">
+                  <RiBuilding2Line style={{ color: AMBER, fontSize: 14 }} />
+                  <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: AMBER }}>Üretici Portföyü</span>
+                </div>
+                <h2 className="text-xl font-black mb-1" style={{ color: text }}>Şarj Ünitesi Üreticileri için Öne Çıkan Ürünler</h2>
+                <p className="text-sm max-w-2xl" style={{ color: muted }}>
+                  AC ve DC şarj ünitesi üreten firmalar için şarj kablolarımız ve şarj prizlerimiz — bir ucu açık konfigürasyonlar, farklı uzunluk ve konnektör seçenekleri.
+                </p>
               </div>
-              <h2 className="text-xl font-black" style={{ color: text }}>OEM & Kurumsal Teknik Ürünler</h2>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {b2bData.solutions.map((p, i) => {
-                const Icon = ICON_MAP[p.id] ?? RiPlugLine;
-                return (
-                  <motion.div key={p.id}
-                    initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.07 * i }}
-                    className="rounded-2xl p-5" style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}>
-                    <div className="flex items-start justify-between gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                        style={{ background: `${p.accentColor}15`, border: `1px solid ${p.accentColor}25` }}>
-                        <Icon style={{ fontSize: 20, color: p.accentColor }} />
-                      </div>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full"
-                        style={{ background: `${p.tagColor}15`, color: p.tagColor, border: `1px solid ${p.tagColor}28` }}>
-                        {p.tag}
-                      </span>
-                    </div>
-                    <h3 className="font-bold text-sm mb-0.5" style={{ color: text }}>{p.name}</h3>
-                    <p className="text-xs mb-2" style={{ color: faint }}>{p.subtitle}</p>
-                    <p className="text-xs leading-relaxed mb-3" style={{ color: muted }}>{p.detail}</p>
-                    <div className="grid grid-cols-2 gap-1.5">
-                      {p.specs.map((s, j) => (
-                        <div key={j} className="flex items-center gap-1.5">
-                          <div className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: p.accentColor }} />
-                          <span className="text-[11px]" style={{ color: muted }}>{s}</span>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {resolved.map(({ cat, prod }, i) => {
+                  const href = `/products/${cat.id}/${prod.id}`;
+                  const desc = (prod.description ?? "").trim();
+                  const shortDesc = desc.length > 120 ? desc.slice(0, 117).trimEnd() + "…" : desc;
+                  return (
+                    <motion.div key={`${cat.id}-${prod.id}`}
+                      initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.07 * i }}>
+                      <Link href={href}
+                        className="group block h-full rounded-2xl overflow-hidden transition-all duration-200"
+                        style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow, textDecoration: "none" }}
+                        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = `${cat.accent}40`; }}
+                        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = border; }}>
+                        {prod.image ? (
+                          <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4 / 3", background: inputBg }}>
+                            <Image src={prod.image} alt={prod.name} fill sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw"
+                              style={{ objectFit: "cover" }} />
+                          </div>
+                        ) : (
+                          <div className="w-full flex items-center justify-center" style={{ aspectRatio: "4 / 3", background: `${cat.accent}10` }}>
+                            <RiPlugLine style={{ fontSize: 36, color: cat.accent, opacity: 0.6 }} />
+                          </div>
+                        )}
+                        <div className="p-4">
+                          <span className="inline-block text-[10px] font-bold px-2 py-0.5 rounded-full mb-2"
+                            style={{ background: `${cat.accent}15`, color: cat.accent, border: `1px solid ${cat.accent}28` }}>
+                            {cat.name}
+                          </span>
+                          <h3 className="font-bold text-sm mb-0.5" style={{ color: text }}>{prod.name}</h3>
+                          {prod.subtitle && <p className="text-xs mb-2" style={{ color: faint }}>{prod.subtitle}</p>}
+                          {shortDesc && <p className="text-xs leading-relaxed mb-3" style={{ color: muted }}>{shortDesc}</p>}
+                          <div className="flex items-center gap-1 text-xs font-semibold" style={{ color: cat.accent }}>
+                            Ürünü İncele
+                            <RiArrowRightLine size={12} className="group-hover:translate-x-0.5 transition-transform" />
+                          </div>
                         </div>
-                      ))}
-                    </div>
-                  </motion.div>
-                );
-              })}
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        </section>
-      )}
+          </section>
+        );
+      })()}
 
       {/* ── Consumer products ── */}
       {categories.length > 0 && (
