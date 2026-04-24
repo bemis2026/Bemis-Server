@@ -427,6 +427,8 @@ export default function Products() {
                         transform: isHovered ? "scale(1.04)" : "scale(1)",
                         zIndex: 0,
                       }}
+                      loading="lazy"
+                      decoding="async"
                     />
                   )}
                   {/* Radial accent glow */}

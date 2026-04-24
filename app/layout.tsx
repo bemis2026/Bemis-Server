@@ -6,7 +6,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import { LanguageProvider } from "./context/LanguageContext";
 import { ContentProvider } from "./context/ContentContext";
 import { EditModeProvider } from "./context/EditModeContext";
-import PropertiesPanel from "./components/PropertiesPanel";
+import PropertiesPanelLoader from "./components/PropertiesPanelLoader";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import ContentLoadingBar from "./components/ContentLoadingBar";
 import ContentErrorToast from "./components/ContentErrorToast";
@@ -153,7 +153,7 @@ export default async function RootLayout({
                   <LanguageURLSync />
                 </Suspense>
                 {children}
-                <PropertiesPanel />
+                <PropertiesPanelLoader />
               </EditModeProvider>
             </ContentProvider>
           </LanguageProvider>

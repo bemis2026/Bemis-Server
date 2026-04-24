@@ -102,12 +102,16 @@ export default function Technology() {
             alt="TSE"
             className="h-6 w-auto object-contain"
             style={{ filter: d ? "invert(1) brightness(0.85)" : "none", opacity: d ? 0.65 : 0.55 }}
+            loading="lazy"
+            decoding="async"
           />
           <img
             src="/badges/yerli-uretim.jpg"
             alt="Yerli Üretim"
             className="h-6 w-auto object-contain"
             style={{ filter: d ? "invert(1) brightness(0.85)" : "none", opacity: d ? 0.65 : 0.55 }}
+            loading="lazy"
+            decoding="async"
           />
         </motion.div>
       </div>

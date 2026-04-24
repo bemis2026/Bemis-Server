@@ -142,6 +142,8 @@ export default function FeaturedProducts() {
                       alt={item.prod.name}
                       className="w-full h-full object-cover"
                       style={{ transition: "transform 0.4s ease", transform: isHov ? "scale(1.04)" : "scale(1)" }}
+                      loading="lazy"
+                      decoding="async"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center"

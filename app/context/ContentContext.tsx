@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, ReactNode, useCallback } from "react";
+import { createContext, useContext, useEffect, useState, ReactNode, useCallback, useMemo } from "react";
 import { useLanguage, type Lang } from "./LanguageContext";
 
 export type StatItem = {
@@ -597,23 +597,32 @@ export function ContentProvider({ children }: { children: ReactNode }) {
     return () => controller.abort();
   }, [refreshKey, lang]);
 
+  const canUndo = hist.past.length > 0;
+  const canRedo = hist.future.length > 0;
+
+  const value = useMemo(() => ({
+    ...content,
+    refreshContent,
+    liveUpdate,
+    saveContent,
+    undo,
+    redo,
+    canUndo,
+    canRedo,
+    reorderSections,
+    updateTextStyle,
+    lang,
+    contentLoading,
+    contentError,
+    dismissContentError,
+  }), [
+    content, refreshContent, liveUpdate, saveContent, undo, redo,
+    canUndo, canRedo, reorderSections, updateTextStyle, lang,
+    contentLoading, contentError, dismissContentError,
+  ]);
+
   return (
-    <ContentContext.Provider value={{
-      ...content,
-      refreshContent,
-      liveUpdate,
-      saveContent,
-      undo,
-      redo,
-      canUndo: hist.past.length > 0,
-      canRedo: hist.future.length > 0,
-      reorderSections,
-      updateTextStyle,
-      lang,
-      contentLoading,
-      contentError,
-      dismissContentError,
-    }}>
+    <ContentContext.Provider value={value}>
       {children}
     </ContentContext.Provider>
   );

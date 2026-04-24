@@ -161,6 +161,8 @@ export default function Footer() {
                 alt="Yerli Üretim"
                 className="h-8 w-auto object-contain"
                 style={{ filter: d ? "invert(1) brightness(0.85)" : "none", opacity: d ? 0.7 : 0.6 }}
+                loading="lazy"
+                decoding="async"
               />
             </div>
 

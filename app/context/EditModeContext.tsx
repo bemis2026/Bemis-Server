@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from "react";
+import { createContext, useContext, useState, useCallback, useEffect, useMemo, ReactNode } from "react";
 
 export type ElementDescriptor = {
   field: string;
@@ -73,13 +73,22 @@ export function EditModeProvider({ children }: { children: ReactNode }) {
 
   const clearSelection = useCallback(() => setSelectedElement(null), []);
 
+  const pendingCount = pending.size;
+
+  const value = useMemo(() => ({
+    isEditMode, pendingCount,
+    markPending, clearPending,
+    enter, exit,
+    selectedElement, selectElement, clearSelection,
+  }), [
+    isEditMode, pendingCount,
+    markPending, clearPending,
+    enter, exit,
+    selectedElement, selectElement, clearSelection,
+  ]);
+
   return (
-    <EditModeContext.Provider value={{
-      isEditMode, pendingCount: pending.size,
-      markPending, clearPending,
-      enter, exit,
-      selectedElement, selectElement, clearSelection,
-    }}>
+    <EditModeContext.Provider value={value}>
       {children}
     </EditModeContext.Provider>
   );

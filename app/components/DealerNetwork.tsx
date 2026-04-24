@@ -237,6 +237,8 @@ export default function DealerNetwork() {
                     opacity: 0.90,
                   }}
                   draggable={false}
+                  loading="lazy"
+                  decoding="async"
                 />
 
                 {/* Logo overlay — covers original top-right PNG logo */}
@@ -254,6 +256,8 @@ export default function DealerNetwork() {
                     alt="Bemis E-V Charge"
                     style={{ width: "100%", height: "100%", objectFit: "contain", opacity: 0.85, filter: d ? undefined : "invert(1)" }}
                     draggable={false}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
 
