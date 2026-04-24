@@ -13,9 +13,9 @@ import {
   RiPlugLine, RiShieldCheckLine,
   RiCheckLine, RiSendPlaneLine, RiBuilding2Line,
   RiToolsLine, RiArrowRightLine,
-  RiLeafLine, RiBarChartLine, RiCustomerService2Line,
+  RiBarChartLine, RiCustomerService2Line,
 } from "react-icons/ri";
-import { HiArrowLeft, HiChevronRight } from "react-icons/hi";
+import { HiArrowLeft } from "react-icons/hi";
 
 /* ─── Data types ────────────────────────────────────────────────────────── */
 type B2BFeaturedSlot = { categoryId?: string; productId?: string };
@@ -251,52 +251,6 @@ export default function B2BPage() {
           </section>
         );
       })()}
-
-      {/* ── Consumer products ── */}
-      {categories.length > 0 && (
-        <section style={{ background: bg, borderBottom: `1px solid ${border}`, padding: "56px 0" }}>
-          <div className="max-w-5xl mx-auto px-5 sm:px-8">
-            <div className="mb-8">
-              <div className="flex items-center gap-2 mb-2">
-                <RiLeafLine style={{ color: "#10B981", fontSize: 14 }} />
-                <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: "#10B981" }}>Son Kullanıcı Ürünleri</span>
-              </div>
-              <h2 className="text-xl font-black mb-1" style={{ color: text }}>Tüketici Ürün Portföyümüz</h2>
-              <p className="text-sm" style={{ color: muted }}>Bayilik ve toplu tedarik programlarıyla kurumsal alıcılara sunulan AC şarj kategorileri.</p>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-              {categories.map((cat, i) => (
-                <motion.div key={cat.id}
-                  initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.07 * i }}>
-                  <Link href={`/products/${cat.id}`}
-                    className="group block rounded-2xl p-4 h-full transition-all duration-200"
-                    style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow, textDecoration: "none" }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = `${cat.accent}40`; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = border; }}>
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-3"
-                      style={{ background: `${cat.accent}15`, border: `1px solid ${cat.accent}25` }}>
-                      <RiPlugLine style={{ fontSize: 15, color: cat.accent }} />
-                    </div>
-                    <p className="font-bold text-sm mb-1" style={{ color: text }}>{cat.name}</p>
-                    <p className="text-xs leading-relaxed mb-3" style={{ color: muted }}>{cat.tagline}</p>
-                    <div className="flex items-center gap-1 text-xs font-semibold" style={{ color: cat.accent }}>
-                      Gör <HiChevronRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-            <div className="mt-5 text-center">
-              <Link href="/products"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200"
-                style={{ background: card, border: `1px solid ${border}`, color: muted, textDecoration: "none" }}>
-                Tüm kategorileri gör <RiArrowRightLine size={14} />
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* ── Form ── */}
       <section style={{ background: bgSub, padding: "56px 0 72px" }}>
