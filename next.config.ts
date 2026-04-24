@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "image.ibb.co" },
     ],
   },
+  async rewrites() {
+    return [
+      { source: "/favicon.ico", destination: "/icon" },
+    ];
+  },
 };
 
 export default nextConfig;

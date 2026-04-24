@@ -78,7 +78,7 @@ type ProductEntry = { id: string; name: string; code?: string; subtitle: string;
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
 type StatItem = { value: number; suffix: string; prefix?: string; label: string; description: string };
-type CategoryMeta = { name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string; sliderImage?: string };
+type CategoryMeta = { name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string; sliderImage?: string; description?: string };
 type FeaturedItem = { categoryId: string; productId: string; badge: string; highlight: string; visible: boolean };
 
 type ContentData = {
@@ -104,7 +104,7 @@ type ContentData = {
     factoryVideo?: string;
     productionStepImages?: string[];
   };
-  products: { heading: string; subheading: string; sectionLabel?: string; allProductsLabel?: string; viewLabel?: string; sliderEnabled?: boolean };
+  products: { heading: string; subheading: string; sectionLabel?: string; allProductsLabel?: string; viewLabel?: string; sliderEnabled?: boolean; allProductsDescription?: string };
   dealer: {
     sectionLabel: string; heading: string; description: string; applyText?: string;
     statCities: string; statDealers: string;
@@ -1592,6 +1592,14 @@ export default function AdminPage() {
                                   </div>
                                 </div>
 
+                                <Field
+                                  label="Kategori Açıklaması"
+                                  value={meta.description ?? ""}
+                                  onChange={(v) => updateCatMeta(catId, "description", v)}
+                                  multiline
+                                />
+                                <p className="text-[10px] text-white/20 -mt-2">Kategori sayfasının üst kısmında gösterilir. Boş bırakılırsa gizlenir.</p>
+
                                 {/* Category card image */}
                                 <div>
                                   <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Kart Görseli</label>
@@ -2069,6 +2077,17 @@ export default function AdminPage() {
                           <Field label="Tüm Ürünler Butonu" value={content.products.allProductsLabel ?? ""} onChange={(v) => updateContent(["products","allProductsLabel"], v)} />
                           <Field label="İncele Butonu"       value={content.products.viewLabel ?? ""}       onChange={(v) => updateContent(["products","viewLabel"],       v)} />
                         </div>
+                      </div>
+
+                      <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-2">
+                        <p className="text-xs font-semibold text-white/50">Tüm Ürünler Sayfası</p>
+                        <Field
+                          label="Sayfa Açıklaması"
+                          value={content.products.allProductsDescription ?? ""}
+                          onChange={(v) => updateContent(["products","allProductsDescription"], v)}
+                          multiline
+                        />
+                        <p className="text-[10px] text-white/20">/products sayfasının üst kısmında gösterilir. Boş bırakılırsa gizlenir.</p>
                       </div>
                     </div>
                   )}
@@ -2914,10 +2933,13 @@ export default function AdminPage() {
                   {/* ── Favicon ── */}
                   <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
                     <div>
-                      <p className="text-xs font-semibold text-white/50 mb-0.5">Favicon (Tarayıcı Sekmesi İkonu)</p>
+                      <p className="text-xs font-semibold text-white/50 mb-0.5">Favicon — Google Arama ve Tarayıcı İkonu</p>
                       <p className="text-xs text-white/30 leading-relaxed">
-                        Tarayıcı sekmesinde ve yer imlerinde görünen küçük ikon.
-                        Önerilen: <span className="text-white/50">512 × 512 px PNG</span> — şeffaf arka planlı.
+                        Google arama sonuçlarında site adının yanında gösterilen küçük ikon ve tarayıcı sekmesindeki simge.
+                        Önerilen: <span className="text-white/50">512 × 512 px PNG</span> — kare, şeffaf arka planlı, net kenarlı.
+                      </p>
+                      <p className="text-[11px] text-amber-400/50 leading-relaxed mt-1.5">
+                        Not: Google yeni faviconu algılamak için birkaç gün – birkaç hafta süreyle sitenizi yeniden tarayabilir.
                       </p>
                     </div>
 

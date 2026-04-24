@@ -9,6 +9,7 @@ export type StatItem = {
 
 export type CategoryMeta = {
   name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string; sliderImage?: string;
+  description?: string;
 };
 
 export type FeaturedItem = {
@@ -61,7 +62,7 @@ export type SiteContent = {
     productionStepImages?: string[];
     ctaLabel: string;
   };
-  products: { heading: string; subheading: string; sectionLabel: string; allProductsLabel: string; viewLabel: string; sliderEnabled: boolean };
+  products: { heading: string; subheading: string; sectionLabel: string; allProductsLabel: string; viewLabel: string; sliderEnabled: boolean; allProductsDescription: string };
   dealer: {
     sectionLabel: string; heading: string; description: string;
     applyText: string; statCities: string; statDealers: string;
@@ -213,6 +214,7 @@ const defaultContent: SiteContent = {
     allProductsLabel: "Tüm Ürünler",
     viewLabel: "İncele",
     sliderEnabled: true,
+    allProductsDescription: "",
   },
   dealer: {
     sectionLabel: "Yetkili Satış Ağı",

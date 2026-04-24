@@ -12,6 +12,8 @@ import ContentLoadingBar from "./components/ContentLoadingBar";
 import ContentErrorToast from "./components/ContentErrorToast";
 import LanguageURLSync from "./components/LanguageURLSync";
 import FaviconInjector from "./components/FaviconInjector";
+import JsonLd from "./components/JsonLd";
+import { organizationSchema, websiteSchema } from "./lib/seo";
 
 const BASE_URL = "https://www.bemisevcharge.com.tr";
 
@@ -21,16 +23,48 @@ const inter = Inter({
   display: "swap",
 });
 
-async function getContentMeta(): Promise<{ ogImage: string | null; faviconUrl: string | null }> {
+type ContentSnapshot = {
+  ogImage: string | null;
+  faviconUrl: string | null;
+  logoDark: string | null;
+  logoLight: string | null;
+  phone: string | null;
+  email: string | null;
+  addressStreet: string | null;
+  addressLocality: string | null;
+  social: { linkedin: string; instagram: string; twitter: string };
+};
+
+async function getContentMeta(): Promise<ContentSnapshot> {
   try {
     const { readBin } = await import("../lib/jsonbin");
     const data = await readBin("content") as Record<string, unknown>;
+    const logos = (data?.logos ?? {}) as { dark?: string; light?: string };
+    const contact = (data?.contact ?? {}) as { phone?: string; email?: string; address?: string; addressSub?: string };
+    const social = (data?.social ?? {}) as { linkedin?: string; instagram?: string; twitter?: string };
     return {
       ogImage: (data?.ogImage as string) || null,
       faviconUrl: (data?.faviconUrl as string) || null,
+      logoDark: logos.dark || null,
+      logoLight: logos.light || null,
+      phone: contact.phone || null,
+      email: contact.email || null,
+      addressStreet: contact.address || null,
+      addressLocality: contact.addressSub || null,
+      social: {
+        linkedin: social.linkedin || "",
+        instagram: social.instagram || "",
+        twitter: social.twitter || "",
+      },
     };
   } catch {}
-  return { ogImage: null, faviconUrl: null };
+  return {
+    ogImage: null, faviconUrl: null,
+    logoDark: null, logoLight: null,
+    phone: null, email: null,
+    addressStreet: null, addressLocality: null,
+    social: { linkedin: "", instagram: "", twitter: "" },
+  };
 }
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -80,14 +114,33 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const meta = await getContentMeta();
+  const orgLogo = meta.logoDark || meta.logoLight || `${BASE_URL}/logo.png`;
+  const sameAs = [meta.social.linkedin, meta.social.instagram, meta.social.twitter].filter(Boolean);
+  const jsonLd = [
+    organizationSchema({
+      logo: orgLogo,
+      sameAs,
+      phone: meta.phone ?? undefined,
+      email: meta.email ?? undefined,
+      address: {
+        street: meta.addressStreet ?? undefined,
+        locality: meta.addressLocality ?? undefined,
+        region: "Bursa",
+        country: "TR",
+      },
+    }),
+    websiteSchema(),
+  ];
   return (
     <html lang="tr" className={`${inter.variable} scroll-smooth`} suppressHydrationWarning>
       <body className="min-h-full antialiased bg-[#141414] text-white">
+        <JsonLd data={jsonLd} />
         <GoogleAnalytics />
         <ThemeProvider>
           <LanguageProvider>
