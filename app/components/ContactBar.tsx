@@ -29,7 +29,7 @@ export default function ContactBar() {
             <img
               src={logos?.dark || "/logo-white.png"}
               alt="Bemis E-V Charge"
-              style={{ height: 28, objectFit: "contain", opacity: 0.85, filter: d ? undefined : "invert(1)" }}
+              style={{ height: 28, objectFit: "contain", opacity: 0.85, filter: d ? undefined : "brightness(0)" }}
             />
           </div>
 

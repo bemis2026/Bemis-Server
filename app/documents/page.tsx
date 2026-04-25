@@ -128,9 +128,9 @@ export default function DocumentsPage() {
                 transition={{ duration: 0.4 }}
                 className="flex items-center gap-2 mb-2"
               >
-                <Image src={d ? (logos?.dark || "/logo-white.png") : (logos?.light || "/logo-black.png")} alt="Bemis E-V Charge" width={140} height={42}
+                <Image src={logos?.dark || "/logo-white.png"} alt="Bemis E-V Charge" width={140} height={42}
                   className="h-8 w-auto object-contain"
-                  style={{ filter: d ? "none" : "invert(1)" }}
+                  style={{ filter: d ? "none" : "brightness(0)" }}
                 />
               </motion.div>
               <motion.h1

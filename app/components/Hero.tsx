@@ -40,7 +40,7 @@ export default function Hero() {
   const sub3rdClass    = d ? "text-white/50" : "text-white/60";
   const textShadow     = d ? undefined : "0 2px 16px rgba(0,0,0,0.70), 0 1px 4px rgba(0,0,0,0.50)";
   const logoSrc        = logos?.dark || "/logo-white.png";
-  const logoStyle      = d ? {} : { filter: "invert(1)" };
+  const logoStyle      = d ? {} : { filter: "brightness(0)" };
 
   return (
     <section

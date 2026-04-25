@@ -59,7 +59,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const { lang, setLang } = useLanguage();
   const activeNavLinks = navbarContent?.links?.length ? navbarContent.links : navLinks;
   const logoSrc = logos?.dark || "/logo-white.png";
-  const logoFilter = isDark ? undefined : "invert(1)";
+  const logoFilter = isDark ? undefined : "brightness(0)";
   const router = useRouter();
   const pathname = usePathname();
 

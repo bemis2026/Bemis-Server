@@ -99,7 +99,7 @@ export default function Footer() {
   const socialHoverBorder = d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.30)";
   const b2bBorder   = d ? "#1e1e1e" : "#d8d8d8";
   const logoSrc     = logos?.dark || "/logo-white.png";
-  const logoStyle   = d ? {} : { filter: "invert(1)" };
+  const logoStyle   = d ? {} : { filter: "brightness(0)" };
 
   const socials = [
     { icon: RiLinkedinFill,  label: "LinkedIn",  href: social.linkedin },

@@ -251,9 +251,9 @@ export default function AllProductsPage() {
                 transition={{ duration: 0.4 }}
                 className="flex items-center gap-2 mb-2"
               >
-                <Image src={d ? (logos?.dark || "/logo-white.png") : (logos?.light || "/logo-black.png")} alt="Bemis E-V Charge" width={160} height={48}
+                <Image src={logos?.dark || "/logo-white.png"} alt="Bemis E-V Charge" width={160} height={48}
                   className="h-9 w-auto object-contain"
-                  style={{ filter: d ? "none" : "invert(1)" }}
+                  style={{ filter: d ? "none" : "brightness(0)" }}
                 />
               </motion.div>
               <motion.h1
