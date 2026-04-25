@@ -2920,22 +2920,47 @@ export default function AdminPage() {
                                 >✕</button>
                               </div>
                             ) : (
-                              <div className="rounded-xl flex items-center justify-center"
+                              <div className="rounded-xl flex items-center justify-center relative"
                                 style={{ height: 72, background: mode === "dark" ? "#111" : "#f0f0f0", border: "1px dashed rgba(255,255,255,0.12)" }}>
-                                <span className="text-[10px] text-white/20">Logo yok</span>
+                                <img src="/logo-white.png" alt={`${label} (varsayılan)`} className="max-h-full max-w-full object-contain p-2"
+                                  style={{ opacity: 0.55, filter: mode === "light" ? "brightness(0)" : undefined }} />
+                                <span className="absolute bottom-1 right-1.5 text-[9px] text-white/30 bg-black/40 px-1.5 py-0.5 rounded">varsayılan</span>
                               </div>
                             )}
-                            <button
-                              onClick={() => ref.current?.click()}
-                              disabled={isLoading}
-                              className="flex items-center justify-center gap-1.5 text-xs font-semibold py-2 rounded-xl transition-all"
-                              style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.60)", opacity: isLoading ? 0.6 : 1 }}
-                            >
-                              {isLoading
-                                ? <div className="w-3 h-3 rounded-full border border-white/20 border-t-white/60 animate-spin" />
-                                : <RiImageAddLine size={13} />}
-                              {current ? "Değiştir" : "Yükle"}
-                            </button>
+                            <div className="flex flex-col gap-1.5">
+                              <button
+                                onClick={() => ref.current?.click()}
+                                disabled={isLoading}
+                                className="flex items-center justify-center gap-1.5 text-xs font-semibold py-2 rounded-xl transition-all"
+                                style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.60)", opacity: isLoading ? 0.6 : 1 }}
+                              >
+                                {isLoading
+                                  ? <div className="w-3 h-3 rounded-full border border-white/20 border-t-white/60 animate-spin" />
+                                  : <RiImageAddLine size={13} />}
+                                {current ? "Değiştir" : "Yükle"}
+                              </button>
+                              {!current && (
+                                <button
+                                  onClick={() => setContent(prev => {
+                                    if (!prev) return prev;
+                                    const updated = {
+                                      ...prev,
+                                      logos: { ...(prev.logos ?? { dark: "", light: "" }), [mode]: "/logo-white.png" },
+                                    };
+                                    contentCleanRef.current = updated;
+                                    fetch("/api/admin/content", {
+                                      method: "POST",
+                                      headers: { "Content-Type": "application/json" },
+                                      body: JSON.stringify(updated),
+                                    }).catch(() => {});
+                                    return updated;
+                                  })}
+                                  className="text-[11px] text-blue-300/70 hover:text-blue-300 transition-colors py-1"
+                                >
+                                  Varsayılanı kullan
+                                </button>
+                              )}
+                            </div>
                           </div>
                         );
                       })}
