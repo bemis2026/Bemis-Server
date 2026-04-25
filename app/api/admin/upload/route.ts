@@ -31,9 +31,9 @@ async function uploadToCloudinary(bytes: ArrayBuffer, filename: string, ext: str
   const base64 = Buffer.from(bytes).toString("base64");
   const mime = MIME[ext] ?? "application/octet-stream";
   const safeName = filename.replace(/[^a-z0-9.\-_]/gi, "_");
-  // public_id must not contain slashes — Cloudinary uses it as the display
-  // name when the preset has "Use filename as display name" enabled. Send
-  // the folder as a separate parameter so the asset still lands in /documents.
+  // public_id and display_name must not contain slashes. Send the folder as
+  // a separate parameter and explicitly override display_name so the preset's
+  // "Use filename as display name" setting can't compose a path with slashes.
   const publicId = `${Date.now()}-${safeName}`;
 
   const body = new URLSearchParams();
@@ -41,6 +41,7 @@ async function uploadToCloudinary(bytes: ArrayBuffer, filename: string, ext: str
   body.append("upload_preset", preset);
   body.append("public_id", publicId);
   body.append("folder", "documents");
+  body.append("display_name", publicId);
 
   // Use the /raw/upload endpoint directly for non-image documents.
   // Sending resource_type in the body alongside /auto/upload caused
