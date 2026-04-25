@@ -33,16 +33,17 @@ async function uploadToCloudinary(bytes: ArrayBuffer, filename: string, ext: str
   const safeName = filename.replace(/[^a-z0-9.\-_]/gi, "_");
   const publicId = `documents/${Date.now()}-${safeName}`;
 
-  // Use x-www-form-urlencoded — most reliable for server-side Cloudinary uploads
   const body = new URLSearchParams();
   body.append("file", `data:${mime};base64,${base64}`);
   body.append("upload_preset", preset);
   body.append("public_id", publicId);
-  body.append("resource_type", "raw");
 
-  // /auto/upload accepts any resource type — most compatible with unsigned presets
+  // Use the /raw/upload endpoint directly for non-image documents.
+  // Sending resource_type in the body alongside /auto/upload caused
+  // Cloudinary to occasionally fall through to signed-upload validation,
+  // returning a misleading "unknown API key" error.
   const res = await fetch(
-    `https://api.cloudinary.com/v1_1/${cloudName}/auto/upload`,
+    `https://api.cloudinary.com/v1_1/${cloudName}/raw/upload`,
     { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: body.toString() }
   );
   const json = await res.json();
