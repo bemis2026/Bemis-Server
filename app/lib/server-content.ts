@@ -6,6 +6,20 @@ import type { CategoryShape } from "./seo";
 
 type CategoriesMeta = Record<string, { name?: string; subtitle?: string; description?: string }>;
 
+// Returns raw site content (TR baseline) for SSR hydration of ContentProvider.
+// Falls back to data/content.json on JSONBin failures so production never
+// hard-renders defaultContent placeholder text.
+export async function getServerSiteContent(): Promise<unknown> {
+  try {
+    return await readBin("content");
+  } catch {}
+  try {
+    const fb = path.join(process.cwd(), "data", "content.json");
+    return JSON.parse(readFileSync(fb, "utf-8"));
+  } catch {}
+  return null;
+}
+
 export async function getServerProducts(): Promise<CategoryShape[]> {
   try {
     const data = await readBin("products");

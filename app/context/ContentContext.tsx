@@ -342,6 +342,56 @@ const defaultContent: SiteContent = {
   faviconUrl: "",
 };
 
+// ── content merge ─────────────────────────────────────────────────────────────
+// Merges raw fetched content (from /api/content or server-side readBin) with
+// defaultContent so every nested field is guaranteed to exist. Used by both the
+// initial server-rendered hydration and runtime client refetches.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function mergeContent(data: any): SiteContent {
+  const safe = (data ?? {}) as Record<string, unknown> & { [k: string]: any };
+  return {
+    ...defaultContent,
+    ...safe,
+    hero: { ...defaultContent.hero, ...safe.hero, layout: { ...DEFAULT_LAYOUT, ...(safe.hero?.layout ?? {}) } },
+    dna:     { ...defaultContent.dna,     ...safe.dna     },
+    reviews: { ...defaultContent.reviews, ...safe.reviews, items: safe.reviews?.items ?? defaultContent.reviews.items },
+    products: { ...defaultContent.products, ...safe.products },
+    dealer:  { ...defaultContent.dealer,  ...safe.dealer  },
+    contactSection: { ...defaultContent.contactSection, ...safe.contactSection },
+    sectionOrder: migrateSectionOrder(safe.sectionOrder ?? DEFAULT_SECTION_ORDER),
+    textStyles: safe.textStyles ?? {},
+    sectionBgs: safe.sectionBgs ?? {},
+    logos: { dark: safe.logos?.dark ?? "", light: safe.logos?.light ?? "" },
+    ogImage: safe.ogImage ?? "",
+    faviconUrl: safe.faviconUrl ?? "",
+    featuredSection: { ...defaultContent.featuredSection, ...safe.featuredSection },
+    calculator: { ...defaultContent.calculator, ...safe.calculator },
+    navbar: { ...defaultContent.navbar, ...safe.navbar, links: safe.navbar?.links ?? defaultContent.navbar.links },
+    footer: { ...defaultContent.footer, ...safe.footer },
+    technology: {
+      ...defaultContent.technology,
+      ...safe.technology,
+      features: safe.technology?.features ?? defaultContent.technology.features,
+      certs:    safe.technology?.certs    ?? defaultContent.technology.certs,
+    },
+    smartCharger: {
+      ...defaultContent.smartCharger,
+      ...safe.smartCharger,
+      features: (() => {
+        const fs = safe.smartCharger?.features ?? defaultContent.smartCharger.features;
+        if (fs.length === 3 && fs[2]?.title?.includes("OCPP")) {
+          return [fs[0], { ...fs[1], desc: fs[1].desc + (fs[1].desc.endsWith(".") ? " " : ". ") + fs[2].desc }];
+        }
+        return fs;
+      })(),
+      ctaLabel: (safe.smartCharger?.ctaLabel && safe.smartCharger.ctaLabel !== "Charger Serisini İncele")
+        ? safe.smartCharger.ctaLabel
+        : defaultContent.smartCharger.ctaLabel,
+    },
+    productShowcase: { ...defaultContent.productShowcase, ...safe.productShowcase, specs: safe.productShowcase?.specs ?? defaultContent.productShowcase.specs },
+  };
+}
+
 // ── path helpers ──────────────────────────────────────────────────────────────
 
 function setByPath(obj: any, path: string, value: string): any {
@@ -413,11 +463,13 @@ export function useContent() { return useContext(ContentContext); }
 
 // ── provider ──────────────────────────────────────────────────────────────────
 
-export function ContentProvider({ children }: { children: ReactNode }) {
+export function ContentProvider({ children, initialContent }: { children: ReactNode; initialContent?: unknown }) {
   const { lang } = useLanguage();
-  const [hist, setHist] = useState<HistoryState>({
-    past: [], present: defaultContent, future: [],
-  });
+  const [hist, setHist] = useState<HistoryState>(() => ({
+    past: [],
+    present: initialContent ? mergeContent(initialContent) : defaultContent,
+    future: [],
+  }));
   const [refreshKey, setRefreshKey] = useState(0);
   const [contentLoading, setContentLoading] = useState(false);
   const [contentError, setContentError] = useState<string | null>(null);
@@ -506,30 +558,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
         return;
       }
       if (e.data?.type !== "BEMIS_PREVIEW" || !e.data?.content) return;
-      const data = e.data.content;
-      const loaded: SiteContent = {
-        ...defaultContent, ...data,
-        hero: { ...defaultContent.hero, ...data.hero, layout: { ...DEFAULT_LAYOUT, ...(data.hero?.layout ?? {}) } },
-        dna:     { ...defaultContent.dna,     ...data.dna     },
-        reviews: { ...defaultContent.reviews, ...data.reviews, items: data.reviews?.items ?? defaultContent.reviews.items },
-        products: { ...defaultContent.products, ...data.products },
-        dealer:  { ...defaultContent.dealer,  ...data.dealer  },
-        contactSection: { ...defaultContent.contactSection, ...data.contactSection },
-        sectionOrder: migrateSectionOrder(data.sectionOrder ?? DEFAULT_SECTION_ORDER),
-        textStyles: data.textStyles ?? {},
-        sectionBgs: data.sectionBgs ?? {},
-        logos: { dark: data.logos?.dark ?? "", light: data.logos?.light ?? "" },
-        ogImage: data.ogImage ?? "",
-        faviconUrl: data.faviconUrl ?? "",
-        featuredSection: { ...defaultContent.featuredSection, ...data.featuredSection },
-        calculator: { ...defaultContent.calculator, ...data.calculator },
-        navbar: { ...defaultContent.navbar, ...data.navbar, links: data.navbar?.links ?? defaultContent.navbar.links },
-        footer: { ...defaultContent.footer, ...data.footer },
-        technology: { ...defaultContent.technology, ...data.technology, features: data.technology?.features ?? defaultContent.technology.features, certs: data.technology?.certs ?? defaultContent.technology.certs },
-        smartCharger: { ...defaultContent.smartCharger, ...data.smartCharger, features: data.smartCharger?.features ?? defaultContent.smartCharger.features },
-        productShowcase: { ...defaultContent.productShowcase, ...data.productShowcase, specs: data.productShowcase?.specs ?? defaultContent.productShowcase.specs },
-      };
-      setHist({ past: [], present: loaded, future: [] });
+      setHist({ past: [], present: mergeContent(e.data.content), future: [] });
     };
     window.addEventListener("message", handler);
     return () => window.removeEventListener("message", handler);
@@ -544,48 +573,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
         return r.json();
       })
       .then(data => {
-        const loaded: SiteContent = {
-          ...defaultContent,
-          ...data,
-          hero: { ...defaultContent.hero, ...data.hero, layout: { ...DEFAULT_LAYOUT, ...(data.hero?.layout ?? {}) } },
-          dna:     { ...defaultContent.dna,     ...data.dna     },
-          reviews: { ...defaultContent.reviews, ...data.reviews, items: data.reviews?.items ?? defaultContent.reviews.items },
-          products: { ...defaultContent.products, ...data.products },
-          dealer:  { ...defaultContent.dealer,  ...data.dealer  },
-          contactSection: { ...defaultContent.contactSection, ...data.contactSection },
-          sectionOrder: migrateSectionOrder(data.sectionOrder ?? DEFAULT_SECTION_ORDER),
-          textStyles: data.textStyles ?? {},
-          sectionBgs: data.sectionBgs ?? {},
-          logos: { dark: data.logos?.dark ?? "", light: data.logos?.light ?? "" },
-          ogImage: data.ogImage ?? "",
-          faviconUrl: data.faviconUrl ?? "",
-          featuredSection: { ...defaultContent.featuredSection, ...data.featuredSection },
-          calculator: { ...defaultContent.calculator, ...data.calculator },
-          navbar: { ...defaultContent.navbar, ...data.navbar, links: data.navbar?.links ?? defaultContent.navbar.links },
-          footer: { ...defaultContent.footer, ...data.footer },
-          technology: {
-            ...defaultContent.technology,
-            ...data.technology,
-            features: data.technology?.features ?? defaultContent.technology.features,
-            certs:    data.technology?.certs    ?? defaultContent.technology.certs,
-          },
-          smartCharger: {
-            ...defaultContent.smartCharger,
-            ...data.smartCharger,
-            features: (() => {
-              const fs = data.smartCharger?.features ?? defaultContent.smartCharger.features;
-              if (fs.length === 3 && fs[2]?.title?.includes("OCPP")) {
-                return [fs[0], { ...fs[1], desc: fs[1].desc + (fs[1].desc.endsWith(".") ? " " : ". ") + fs[2].desc }];
-              }
-              return fs;
-            })(),
-            ctaLabel: (data.smartCharger?.ctaLabel && data.smartCharger.ctaLabel !== "Charger Serisini İncele")
-              ? data.smartCharger.ctaLabel
-              : defaultContent.smartCharger.ctaLabel,
-          },
-          productShowcase: { ...defaultContent.productShowcase, ...data.productShowcase, specs: data.productShowcase?.specs ?? defaultContent.productShowcase.specs },
-        };
-        setHist({ past: [], present: loaded, future: [] });
+        setHist({ past: [], present: mergeContent(data), future: [] });
         setContentError(null);
       })
       .catch(err => {

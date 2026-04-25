@@ -14,6 +14,7 @@ import LanguageURLSync from "./components/LanguageURLSync";
 import FaviconInjector from "./components/FaviconInjector";
 import JsonLd from "./components/JsonLd";
 import { organizationSchema, websiteSchema } from "./lib/seo";
+import { getServerSiteContent } from "./lib/server-content";
 
 const BASE_URL = "https://www.bemisevcharge.com.tr";
 
@@ -119,7 +120,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const meta = await getContentMeta();
+  const [meta, initialContent] = await Promise.all([
+    getContentMeta(),
+    getServerSiteContent(),
+  ]);
   const orgLogo = meta.logoDark || meta.logoLight || `${BASE_URL}/logo.png`;
   const sameAs = [meta.social.linkedin, meta.social.instagram, meta.social.twitter].filter(Boolean);
   const jsonLd = [
@@ -144,7 +148,7 @@ export default async function RootLayout({
         <GoogleAnalytics />
         <ThemeProvider>
           <LanguageProvider>
-            <ContentProvider>
+            <ContentProvider initialContent={initialContent}>
               <EditModeProvider>
                 <FaviconInjector />
                 <ContentLoadingBar />
