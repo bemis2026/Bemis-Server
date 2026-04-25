@@ -1,25 +1,35 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiSearch, HiX } from "react-icons/hi";
 
-interface SearchResult {
-  label: string;
-  type: "product" | "section";
-  target: string;
-}
+type ProductEntry = {
+  id: string;
+  name: string;
+  code?: string;
+  subtitle?: string;
+};
 
-const ALL_RESULTS: SearchResult[] = [
-  { label: "AC Wallbox", type: "product", target: "#products" },
-  { label: "Taşınabilir Şarj", type: "product", target: "#products" },
-  { label: "DC Şarj Kablosu", type: "product", target: "#products" },
-  { label: "AC Şarj Kablosu", type: "product", target: "#products" },
-  { label: "V2L/C2L Aksesuar", type: "product", target: "#products" },
-  { label: "Hakkımızda", type: "section", target: "#brand-story" },
-  { label: "Teknoloji", type: "section", target: "#technology" },
-  { label: "Bayi Ağı", type: "section", target: "#dealer" },
-  { label: "İletişim", type: "section", target: "#contact" },
+type Category = {
+  id: string;
+  name: string;
+  tagline?: string;
+  products?: ProductEntry[];
+};
+
+type SearchResult =
+  | { kind: "product";  label: string; sub: string; href: string; haystack: string }
+  | { kind: "category"; label: string; sub: string; href: string; haystack: string }
+  | { kind: "section";  label: string; sub: string; target: string; haystack: string };
+
+const SECTIONS: SearchResult[] = [
+  { kind: "section", label: "Hakkımızda",  sub: "Ana sayfa bölümü", target: "#dna",        haystack: "hakkımızda hakkimizda about dna" },
+  { kind: "section", label: "Teknoloji",   sub: "Ana sayfa bölümü", target: "#technology", haystack: "teknoloji technology" },
+  { kind: "section", label: "Bayi Ağı",    sub: "Ana sayfa bölümü", target: "#dealer",     haystack: "bayi ağı agi dealer" },
+  { kind: "section", label: "Hesaplayıcı", sub: "Ana sayfa bölümü", target: "#calculator", haystack: "hesaplayıcı hesaplayici calculator" },
+  { kind: "section", label: "İletişim",    sub: "Ana sayfa bölümü", target: "#contact",    haystack: "iletişim iletisim contact" },
 ];
 
 interface Props {
@@ -27,15 +37,61 @@ interface Props {
   onClose: () => void;
 }
 
-export default function SearchOverlay({ isOpen, onClose }: Props) {
-  const [query, setQuery] = useState("");
-  const inputRef = useRef<HTMLInputElement>(null);
+function normalize(s: string): string {
+  return s
+    .toLocaleLowerCase("tr")
+    .replace(/ı/g, "i").replace(/ğ/g, "g").replace(/ü/g, "u")
+    .replace(/ş/g, "s").replace(/ö/g, "o").replace(/ç/g, "c");
+}
 
-  const filtered = query.trim()
-    ? ALL_RESULTS.filter((r) =>
-        r.label.toLowerCase().includes(query.toLowerCase())
-      )
-    : ALL_RESULTS;
+export default function SearchOverlay({ isOpen, onClose }: Props) {
+  const router = useRouter();
+  const [query, setQuery] = useState("");
+  const [categories, setCategories] = useState<Category[]>([]);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const fetchedRef = useRef(false);
+
+  useEffect(() => {
+    if (!isOpen || fetchedRef.current) return;
+    fetchedRef.current = true;
+    fetch("/api/products")
+      .then(r => (r.ok ? r.json() : []))
+      .then((d: unknown) => setCategories(Array.isArray(d) ? d as Category[] : []))
+      .catch(() => {});
+  }, [isOpen]);
+
+  const allResults: SearchResult[] = useMemo(() => {
+    const out: SearchResult[] = [];
+    for (const cat of categories) {
+      out.push({
+        kind: "category",
+        label: cat.name,
+        sub: cat.tagline ?? "Kategori",
+        href: `/products/${cat.id}`,
+        haystack: normalize(`${cat.name} ${cat.id} ${cat.tagline ?? ""}`),
+      });
+      for (const p of (cat.products ?? [])) {
+        const labelParts = [p.name, p.subtitle].filter(Boolean).join(" · ");
+        out.push({
+          kind: "product",
+          label: labelParts || p.name,
+          sub: `${cat.name}${p.code ? ` · ${p.code}` : ""}`,
+          href: `/products/${cat.id}/${p.id}`,
+          haystack: normalize(`${p.name} ${p.code ?? ""} ${p.id} ${p.subtitle ?? ""} ${cat.name}`),
+        });
+      }
+    }
+    return [...out, ...SECTIONS];
+  }, [categories]);
+
+  const filtered = useMemo(() => {
+    const q = normalize(query.trim());
+    if (!q) return allResults.slice(0, 30);
+    const tokens = q.split(/\s+/).filter(Boolean);
+    return allResults
+      .filter(r => tokens.every(t => r.haystack.includes(t)))
+      .slice(0, 50);
+  }, [query, allResults]);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -55,12 +111,15 @@ export default function SearchOverlay({ isOpen, onClose }: Props) {
     }
   }, [isOpen]);
 
-  const handleResultClick = (target: string) => {
+  const handleResultClick = (r: SearchResult) => {
     onClose();
-    setTimeout(() => {
-      const el = document.querySelector(target);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }, 150);
+    if (r.kind === "section") {
+      setTimeout(() => {
+        document.querySelector(r.target)?.scrollIntoView({ behavior: "smooth" });
+      }, 150);
+      return;
+    }
+    router.push(r.href);
   };
 
   return (
@@ -74,10 +133,8 @@ export default function SearchOverlay({ isOpen, onClose }: Props) {
           className="fixed inset-0 z-[200] flex items-start justify-center pt-24 px-4"
           onClick={(e) => e.target === e.currentTarget && onClose()}
         >
-          {/* Backdrop */}
           <div className="absolute inset-0 bg-black/70 backdrop-blur-md" onClick={onClose} />
 
-          {/* Panel */}
           <motion.div
             initial={{ opacity: 0, y: -24, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -85,7 +142,6 @@ export default function SearchOverlay({ isOpen, onClose }: Props) {
             transition={{ duration: 0.22, ease: "easeOut" }}
             className="relative z-10 w-full max-w-xl bg-[#111111] border border-[#222222] rounded-2xl shadow-2xl overflow-hidden"
           >
-            {/* Search input row */}
             <div className="flex items-center gap-3 px-5 py-4 border-b border-[#1e1e1e]">
               <HiSearch className="text-white/40 text-xl flex-shrink-0" />
               <input
@@ -93,7 +149,7 @@ export default function SearchOverlay({ isOpen, onClose }: Props) {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Ürün veya bölüm ara..."
+                placeholder="Ürün adı, kodu veya bölüm ara..."
                 className="flex-1 bg-transparent text-white placeholder-white/30 text-base outline-none"
               />
               <button
@@ -105,35 +161,37 @@ export default function SearchOverlay({ isOpen, onClose }: Props) {
               </button>
             </div>
 
-            {/* Results */}
-            <div className="max-h-80 overflow-y-auto py-2">
+            <div className="max-h-96 overflow-y-auto py-2">
               {filtered.length === 0 ? (
                 <p className="text-white/30 text-sm text-center py-8">Sonuç bulunamadı.</p>
               ) : (
-                filtered.map((result) => (
-                  <button
-                    key={result.label}
-                    onClick={() => handleResultClick(result.target)}
-                    className="w-full flex items-center gap-3 px-5 py-3 hover:bg-white/5 transition-colors text-left group"
-                  >
-                    <span
-                      className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
-                        result.type === "product"
-                          ? "bg-white/10 text-white/60"
-                          : "bg-white/6 text-white/40"
-                      }`}
+                filtered.map((r) => {
+                  const key = r.kind === "section" ? `s:${r.target}` : `${r.kind}:${r.href}`;
+                  const tagLabel = r.kind === "product" ? "Ürün" : r.kind === "category" ? "Kategori" : "Bölüm";
+                  const tagClass = r.kind === "product"
+                    ? "bg-blue-500/15 text-blue-300"
+                    : r.kind === "category"
+                      ? "bg-amber-500/15 text-amber-300"
+                      : "bg-white/6 text-white/40";
+                  return (
+                    <button
+                      key={key}
+                      onClick={() => handleResultClick(r)}
+                      className="w-full flex items-center gap-3 px-5 py-3 hover:bg-white/5 transition-colors text-left group"
                     >
-                      {result.type === "product" ? "Ürün" : "Bölüm"}
-                    </span>
-                    <span className="text-white/70 group-hover:text-white text-sm transition-colors">
-                      {result.label}
-                    </span>
-                  </button>
-                ))
+                      <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full flex-shrink-0 ${tagClass}`}>
+                        {tagLabel}
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-white/85 group-hover:text-white text-sm truncate">{r.label}</p>
+                        <p className="text-white/35 text-[11px] truncate">{r.sub}</p>
+                      </div>
+                    </button>
+                  );
+                })
               )}
             </div>
 
-            {/* Footer hint */}
             <div className="px-5 py-3 border-t border-[#1e1e1e] flex items-center gap-3">
               <kbd className="text-[10px] text-white/25 bg-white/5 border border-white/10 rounded px-1.5 py-0.5">ESC</kbd>
               <span className="text-white/25 text-xs">kapatmak için</span>
