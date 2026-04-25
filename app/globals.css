@@ -146,6 +146,26 @@ html[data-theme="light"] body::before {
   border-color: rgba(255, 255, 255, 0.25);
 }
 
+/* Native select dropdown — options were rendering with the OS default light
+   background while the project's text color is white, so the menu was
+   unreadable (white-on-white). color-scheme makes the browser pick a dark
+   widget palette; the explicit option colors keep Firefox honest. */
+select {
+  color-scheme: dark;
+}
+select option {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+html[data-theme="light"] select {
+  color-scheme: light;
+}
+html[data-theme="light"] select option {
+  background-color: #ffffff;
+  color: #111111;
+}
+
 /* ── Light Theme Overrides ── */
 
 html[data-theme="light"] body {
