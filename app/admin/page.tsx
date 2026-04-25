@@ -227,6 +227,34 @@ export default function AdminPage() {
   const [faviconLoading, setFaviconLoading] = useState(false);
   const faviconRef = useRef<HTMLInputElement>(null);
 
+  // Contact mail diagnostic state
+  type MailStatus = {
+    to: string | null;
+    resend: { configured: boolean; apiKeySet: boolean; from: string };
+    smtp:   { configured: boolean; host: string | null; port: string; user: string | null };
+  };
+  const [mailStatus, setMailStatus] = useState<MailStatus | null>(null);
+  const [mailTesting, setMailTesting] = useState(false);
+  const [mailResult, setMailResult] = useState<{ ok: boolean; provider?: string; to?: string | null; error?: string } | null>(null);
+
+  useEffect(() => {
+    if (tab !== "contact") return;
+    fetch("/api/admin/contact-test").then(r => r.json()).then(setMailStatus).catch(() => {});
+  }, [tab]);
+
+  const sendTestMail = async () => {
+    setMailTesting(true);
+    setMailResult(null);
+    try {
+      const res = await fetch("/api/admin/contact-test", { method: "POST" });
+      const json = await res.json();
+      setMailResult(json);
+    } catch (e) {
+      setMailResult({ ok: false, error: String(e) });
+    }
+    setMailTesting(false);
+  };
+
   // Dealer editor state
   const [dealers, setDealers] = useState<DealersData>({});
   const [dealersSaving, setDealersSaving] = useState(false);
@@ -2157,6 +2185,86 @@ export default function AdminPage() {
                       </div>
                     </div>
                   )}
+
+                  {/* Mail sistemi diagnostiği */}
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
+                    <div>
+                      <p className="text-xs font-semibold text-white/50 mb-0.5">Mail Sistemi Durumu</p>
+                      <p className="text-[11px] text-white/30 leading-relaxed">
+                        Contact ve B2B form başvuruları bu sağlayıcılar üzerinden gönderiliyor. Test butonu gerçek bir e-posta gönderir — alıcı kutusuna düşmesi gönderim akışının çalıştığını kanıtlar.
+                      </p>
+                    </div>
+
+                    {mailStatus && (
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between rounded-xl px-3 py-2.5"
+                          style={{
+                            background: mailStatus.resend.configured ? "rgba(16,185,129,0.08)" : "rgba(255,255,255,0.04)",
+                            border: `1px solid ${mailStatus.resend.configured ? "rgba(16,185,129,0.25)" : "rgba(255,255,255,0.08)"}`,
+                          }}>
+                          <div>
+                            <p className="text-xs font-semibold text-white/70">Resend</p>
+                            <p className="text-[11px] text-white/40">
+                              {mailStatus.resend.configured ? `Yapılandırılmış · ${mailStatus.resend.from}` : "Yapılandırılmamış (RESEND_API_KEY veya CONTACT_TO_EMAIL eksik)"}
+                            </p>
+                          </div>
+                          <span className="text-[11px] font-bold" style={{ color: mailStatus.resend.configured ? "#10B981" : "rgba(255,255,255,0.30)" }}>
+                            {mailStatus.resend.configured ? "✓ Hazır" : "—"}
+                          </span>
+                        </div>
+
+                        <div className="flex items-center justify-between rounded-xl px-3 py-2.5"
+                          style={{
+                            background: mailStatus.smtp.configured ? "rgba(59,130,246,0.08)" : "rgba(255,255,255,0.04)",
+                            border: `1px solid ${mailStatus.smtp.configured ? "rgba(59,130,246,0.25)" : "rgba(255,255,255,0.08)"}`,
+                          }}>
+                          <div>
+                            <p className="text-xs font-semibold text-white/70">SMTP (yedek)</p>
+                            <p className="text-[11px] text-white/40">
+                              {mailStatus.smtp.configured ? `${mailStatus.smtp.host}:${mailStatus.smtp.port} · ${mailStatus.smtp.user}` : "Yapılandırılmamış"}
+                            </p>
+                          </div>
+                          <span className="text-[11px] font-bold" style={{ color: mailStatus.smtp.configured ? "#3B82F6" : "rgba(255,255,255,0.30)" }}>
+                            {mailStatus.smtp.configured ? "✓ Hazır" : "—"}
+                          </span>
+                        </div>
+
+                        <p className="text-[11px] text-white/35 mt-2">
+                          Alıcı: <span className="text-white/55 font-mono">{mailStatus.to ?? "tanımsız"}</span>
+                        </p>
+                      </div>
+                    )}
+
+                    {!mailStatus?.resend.configured && !mailStatus?.smtp.configured && mailStatus && (
+                      <div className="rounded-xl p-3 text-[11px] leading-relaxed"
+                        style={{ background: "rgba(245,158,11,0.10)", border: "1px solid rgba(245,158,11,0.25)", color: "#FCD34D" }}>
+                        ⚠️ Hiçbir sağlayıcı yapılandırılmamış — formdan gelen mesajlar Vercel Blob&apos;a yedekleniyor ama e-posta olarak ulaşmıyor. Vercel → Settings → Environment Variables&apos;dan <span className="font-mono">RESEND_API_KEY</span> + <span className="font-mono">CONTACT_TO_EMAIL</span> ekleyin.
+                      </div>
+                    )}
+
+                    <button
+                      onClick={sendTestMail}
+                      disabled={mailTesting || !(mailStatus?.resend.configured || mailStatus?.smtp.configured)}
+                      className="w-full text-xs font-semibold rounded-xl px-4 py-2.5 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+                      style={{ background: "rgba(59,130,246,0.15)", border: "1px solid rgba(59,130,246,0.30)", color: "#93C5FD" }}>
+                      {mailTesting ? "Gönderiliyor…" : "Test e-postası gönder"}
+                    </button>
+
+                    {mailResult && (
+                      <div className="rounded-xl p-3 text-[11px] leading-relaxed"
+                        style={{
+                          background: mailResult.ok ? "rgba(16,185,129,0.10)" : "rgba(239,68,68,0.10)",
+                          border: `1px solid ${mailResult.ok ? "rgba(16,185,129,0.25)" : "rgba(239,68,68,0.25)"}`,
+                          color: mailResult.ok ? "#34D399" : "#FCA5A5",
+                        }}>
+                        {mailResult.ok ? (
+                          <>✅ Test e-postası <span className="font-bold">{mailResult.provider}</span> üzerinden <span className="font-mono">{mailResult.to}</span> adresine gönderildi. Birkaç dakika içinde gelen kutusuna düşer (spam klasörüne de bak).</>
+                        ) : (
+                          <>❌ Gönderim başarısız: {mailResult.error}</>
+                        )}
+                      </div>
+                    )}
+                  </div>
                 </div>
               )}
 
