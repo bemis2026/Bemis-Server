@@ -49,31 +49,37 @@ export default function AnalyticsPanel() {
 
   const BLUE = "#3B82F6";
 
-  // ── Not configured banner ──────────────────────────────────────────────
+  // ── Not configured: link straight to Google Analytics ──────────────────
   if (error === "not_configured") {
     return (
       <div className="max-w-2xl space-y-6">
         <div>
           <h2 className="text-base font-bold mb-1">Analytics</h2>
-          <p className="text-xs text-white/35">Google Analytics 4 verilerini buradan takip edin.</p>
+          <p className="text-xs text-white/35">Ziyaretçi istatistikleri Google Analytics&apos;te görüntüleniyor.</p>
         </div>
-        <div className="rounded-2xl border border-amber-500/25 bg-amber-500/8 p-6 space-y-4">
-          <p className="text-sm font-bold text-amber-400">Kurulum Gerekiyor</p>
-          <p className="text-xs text-white/50 leading-relaxed">
-            GA4 verilerini görmek için bir <strong className="text-white/70">Google Cloud Service Account</strong> oluşturup aşağıdaki ortam değişkenlerini
-            <code className="text-white/60 mx-1 bg-white/8 px-1 rounded">.env.local</code> dosyanıza eklemeniz gerekiyor.
+        <div className="rounded-2xl border border-white/8 bg-white/3 p-6 space-y-5">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
+              style={{ background: "linear-gradient(135deg, #F9AB00 0%, #E37400 100%)" }}>
+              <span className="text-white text-2xl font-black">GA</span>
+            </div>
+            <div className="flex-1">
+              <p className="text-sm font-bold text-white mb-1">Google Analytics 4</p>
+              <p className="text-xs text-white/50 leading-relaxed">
+                Frontend tracking aktif (GA tag <code className="text-white/70 bg-white/8 px-1 rounded text-[10px]">G-Q5GCREWZ0W</code>).
+                Veriler doğrudan analytics.google.com&apos;da takip edilebilir.
+              </p>
+            </div>
+          </div>
+          <a href="https://analytics.google.com" target="_blank" rel="noopener noreferrer"
+            className="block w-full text-center text-sm font-semibold rounded-xl px-4 py-3 transition-all"
+            style={{ background: "#F9AB00", color: "#1a1a1a" }}>
+            Google Analytics&apos;te aç ↗
+          </a>
+          <p className="text-[11px] text-white/30 leading-relaxed">
+            Realtime ziyaretçiler, sayfa görüntülemeleri, trafik kaynakları, dönüşüm olayları —
+            tümü GA tarafında daha zengin filtreleme ve raporlama ile görüntülenir.
           </p>
-          <div className="bg-black/30 rounded-xl p-4 font-mono text-xs text-white/60 space-y-1">
-            <p><span className="text-blue-400">GA4_PROPERTY_ID</span>=<span className="text-green-400">123456789</span></p>
-            <p><span className="text-blue-400">GA4_CLIENT_EMAIL</span>=<span className="text-green-400">hesap@proje.iam.gserviceaccount.com</span></p>
-            <p><span className="text-blue-400">GA4_PRIVATE_KEY</span>=<span className="text-green-400">{"\"-----BEGIN PRIVATE KEY-----\\n...\""}</span></p>
-          </div>
-          <div className="space-y-2 text-xs text-white/40 leading-relaxed">
-            <p><span className="text-white/60 font-semibold">Adım 1:</span> Google Cloud Console → IAM → Service Accounts → Yeni hesap oluştur</p>
-            <p><span className="text-white/60 font-semibold">Adım 2:</span> Hesaba JSON anahtar oluştur, indiri, içinden değerleri kopyala</p>
-            <p><span className="text-white/60 font-semibold">Adım 3:</span> analytics.google.com → Yönetici → Hesap Erişim Yönetimi → Service Account e-postasını <strong className="text-white/60">Görüntüleyici</strong> olarak ekle</p>
-            <p><span className="text-white/60 font-semibold">Adım 4:</span> GA4 Property ID: Analytics Yönetici → Mülk Ayrıntıları → Mülk Kimliği (sadece rakamlar)</p>
-          </div>
         </div>
       </div>
     );
