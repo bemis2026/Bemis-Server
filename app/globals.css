@@ -146,6 +146,26 @@ html[data-theme="light"] body::before {
   border-color: rgba(255, 255, 255, 0.25);
 }
 
+/* Native <button> defaults to cursor:default in browsers — non-standard
+   compared to <a>. Force pointer everywhere so users always get the
+   "this is clickable" signal on interactive elements. */
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+summary,
+label[for] {
+  cursor: pointer;
+}
+button:disabled,
+[role="button"][aria-disabled="true"] {
+  cursor: not-allowed;
+}
+[draggable="true"] {
+  cursor: grab;
+}
+[draggable="true"]:active {
+  cursor: grabbing;
+}
+
 /* Native select dropdown — options were rendering with the OS default light
    background while the project's text color is white, so the menu was
    unreadable (white-on-white). color-scheme makes the browser pick a dark
