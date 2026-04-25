@@ -2980,6 +2980,26 @@ export default function AdminPage() {
                         >
                           {faviconLoading ? "Yükleniyor…" : content?.faviconUrl ? "Değiştir" : "PNG / ICO Yükle"}
                         </button>
+                        {(content?.logos?.dark || content?.logos?.light) && content?.faviconUrl !== (content?.logos?.dark || content?.logos?.light) && (
+                          <button
+                            onClick={() => setContent(prev => {
+                              if (!prev) return prev;
+                              const src = prev.logos?.dark || prev.logos?.light || "";
+                              if (!src) return prev;
+                              const updated = { ...prev, faviconUrl: src };
+                              contentCleanRef.current = updated;
+                              fetch("/api/admin/content", {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify(updated),
+                              }).catch(() => {});
+                              return updated;
+                            })}
+                            className="w-full text-xs bg-blue-500/12 hover:bg-blue-500/20 border border-blue-500/25 text-blue-300 rounded-xl px-4 py-2 transition-colors font-medium"
+                          >
+                            Yüklü logoyu favicon olarak kullan
+                          </button>
+                        )}
                         {content?.faviconUrl && (
                           <button
                             onClick={() => setContent(prev => prev ? { ...prev, faviconUrl: "" } : prev)}
