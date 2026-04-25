@@ -47,7 +47,16 @@ async function uploadToCloudinary(bytes: ArrayBuffer, filename: string, ext: str
     { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: body.toString() }
   );
   const json = await res.json();
-  if (!res.ok || json.error) throw new Error(`Cloudinary hatası: ${json?.error?.message ?? res.status}`);
+  if (!res.ok || json.error) {
+    const cloudinaryMsg: string = json?.error?.message ?? `HTTP ${res.status}`;
+    // "Unknown API key" with no api_key sent = Cloudinary couldn't resolve the
+    // cloud_name. Surface what we actually used so the operator can compare it
+    // against the value shown in the Cloudinary dashboard.
+    if (/unknown api key/i.test(cloudinaryMsg)) {
+      throw new Error(`Cloudinary hatası: "${cloudinaryMsg}". Vercel'de CLOUDINARY_CLOUD_NAME=\"${cloudName}\" olarak ayarlanmış. Cloudinary dashboard'daki Cloud name (sol üst) ile birebir aynı mı kontrol edin.`);
+    }
+    throw new Error(`Cloudinary hatası: ${cloudinaryMsg}`);
+  }
   return json.secure_url as string;
 }
 
