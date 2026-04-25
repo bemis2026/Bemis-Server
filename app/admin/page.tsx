@@ -167,6 +167,8 @@ const SECTION_META: Record<string, { tab: Tab; label: string; icon: React.Elemen
   "products":       { tab: "products",         label: "Ürünler",        icon: HiOutlineCube           },
   "featured":       { tab: "featured",        label: "Öne Çıkanlar",   icon: HiOutlineStar           },
   "reviews":        { tab: "reviews",         label: "Yorumlar",       icon: HiOutlineStar           },
+  "dealer":         { tab: "dealers",         label: "Bayi Haritası",  icon: HiOutlineLocationMarker },
+  "b2bcta":         { tab: "b2b",             label: "OEM & Kurumsal", icon: HiOutlineOfficeBuilding },
   "calculator":     { tab: "calculator",      label: "Hesaplayıcı",    icon: HiOutlineLightningBolt  },
 };
 
@@ -1108,20 +1110,18 @@ export default function AdminPage() {
     : tab === "products" && selCat && selProd ? `/products/${selCat}/${selProd}`
     : (SEPARATE_PAGE_TABS[tab] ?? "/");
 
+  // Fixed items that belong to "Sayfa Bölümleri" but aren't in sectionOrder
+  // (contact renders explicitly below sectionOrder on homepage; documents is a separate /documents page)
+  const FIXED_SECTION_ITEMS: { id: Tab; label: string; icon: React.ElementType }[] = [
+    { id: "contact",    label: "İletişim",   icon: HiOutlinePhone          },
+    { id: "documents",  label: "Dökümanlar", icon: HiOutlineDocumentText   },
+  ];
+
   const TAB_GROUPS: { label: string; items: { id: Tab; label: string; icon: React.ElementType }[] }[] = [
-    {
-      label: "Veri Yönetimi",
-      items: [
-        { id: "dealers",  label: "Bayi Haritası",     icon: HiOutlineLocationMarker },
-        { id: "contact",  label: "İletişim",          icon: HiOutlinePhone          },
-        { id: "b2b",      label: "OEM & Kurumsal",   icon: HiOutlineOfficeBuilding },
-      ],
-    },
     {
       label: "Sistem",
       items: [
         { id: "media",      label: "Medya",      icon: HiOutlinePhotograph      },
-        { id: "documents",  label: "Dökümanlar", icon: HiOutlineDocumentText    },
         { id: "analytics",  label: "Analytics",  icon: HiOutlineChartBar        },
         { id: "changelog",  label: "Değişiklikler", icon: HiOutlineClipboardList },
       ],
@@ -1251,9 +1251,23 @@ export default function AdminPage() {
                 </div>
               );
             })}
+            {/* Fixed-position items (not in sectionOrder, not draggable) */}
+            {FIXED_SECTION_ITEMS.map((t) => (
+              <button key={t.id}
+                onClick={() => {
+                  setTab(t.id);
+                  if (t.id !== "b2b") setB2bSubPage("/b2b");
+                }}
+                className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-xs font-medium text-left transition-all duration-200 ${
+                  tab === t.id ? "bg-white/10 text-white" : "text-white/40 hover:text-white/70 hover:bg-white/4"
+                }`}
+              >
+                <t.icon size={13} className="flex-shrink-0" /> {t.label}
+              </button>
+            ))}
           </div>
 
-          {/* ── Veri Yönetimi & Sistem ── */}
+          {/* ── Sistem ── */}
           {TAB_GROUPS.map((group) => (
             <div key={group.label} className="mb-1">
               <p className="text-[9px] font-bold text-white/20 uppercase tracking-widest px-2 pt-2 pb-1">{group.label}</p>
