@@ -23,6 +23,29 @@ export async function GET(req: NextRequest) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const en: any = await loadContent("content-en", path.join(process.cwd(), "data", "content-en.json")) ?? {};
 
+  // Merge categories per-key so EN can override only name/subtitle while TR
+  // keeps modelCount/badge/comingSoon/image (visual + model-count fields).
+  const mergedCategories: Record<string, unknown> = { ...(tr.categories ?? {}) };
+  if (en.categories && typeof en.categories === "object") {
+    for (const key of Object.keys(en.categories)) {
+      mergedCategories[key] = { ...(tr.categories?.[key] ?? {}), ...en.categories[key] };
+    }
+  }
+
+  // Merge stats by index. EN provides translated label/description; numeric
+  // value/prefix/suffix come from TR.
+  const mergedStats = (tr.stats ?? []).map((s: Record<string, unknown>, i: number) => ({
+    ...s,
+    ...((en.stats ?? [])[i] ?? {}),
+  }));
+
+  // Featured highlights: keep TR data (categoryId/productId/visible) and let
+  // EN override badge + highlight copy.
+  const mergedFeatured = (tr.featured ?? []).map((f: Record<string, unknown>, i: number) => ({
+    ...f,
+    ...((en.featured ?? [])[i] ?? {}),
+  }));
+
   const merged = {
     ...tr,
     hero: {
@@ -44,15 +67,22 @@ export async function GET(req: NextRequest) {
     reviews:         { ...tr.reviews,         ...(en.reviews         ?? {}), items: tr.reviews?.items },
     contactSection:  { ...tr.contactSection,  ...(en.contactSection  ?? {}) },
     featuredSection: { ...tr.featuredSection, ...(en.featuredSection ?? {}) },
+    smartCharger: en.smartCharger
+      ? { ...tr.smartCharger, ...en.smartCharger, features: en.smartCharger.features ?? tr.smartCharger?.features }
+      : tr.smartCharger,
+    productShowcase: en.productShowcase
+      ? { ...tr.productShowcase, ...en.productShowcase, image: tr.productShowcase?.image, specs: en.productShowcase.specs ?? tr.productShowcase?.specs }
+      : tr.productShowcase,
+    calculator:    { ...tr.calculator,    ...(en.calculator    ?? {}) },
     navbar: en.navbar
       ? { ...tr.navbar, ...en.navbar, links: en.navbar.links ?? tr.navbar?.links }
       : tr.navbar,
     footer:       { ...tr.footer,       ...(en.footer       ?? {}) },
-    categories:   tr.categories,
+    categories:   mergedCategories,
     logos:        tr.logos,
     sectionBgs:   tr.sectionBgs,
-    featured:     tr.featured,
-    stats:        tr.stats,
+    featured:     mergedFeatured,
+    stats:        mergedStats,
     contact:      tr.contact,
     company:      tr.company,
     social:       tr.social,

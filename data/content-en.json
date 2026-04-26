@@ -4,38 +4,59 @@
     "headline1": "Turkey's",
     "headline2": "EV Charging",
     "headline3": "Manufacturer",
-    "subtitle": "From home to workplace, parking solutions to field installations — IP65-certified AC charging units, cables and accessories to simplify your EV experience.",
-    "ctaPrimary": "Product Catalog",
+    "subtitle": "From home to workplace, parking solutions to field installations — certified AC charging units, cables and accessories simplifying your EV experience.",
+    "ctaPrimary": "Discover Our EV Charging Solutions",
     "ctaSecondary": "Find a Dealer",
     "heroBg": ""
   },
+  "stats": [
+    { "label": "Years of Experience",  "description": "Since 1994"                  },
+    { "label": "Product Variety",      "description": "Wide product range"          },
+    { "label": "Countries Exported",   "description": "Global market reach"         },
+    { "label": "Certificates",         "description": "International standards"     }
+  ],
+  "categories": {
+    "wallbox":           { "name": "AC Wallbox Chargers",        "subtitle": "22-7.4 kW Wall-Mounted Charging Stations" },
+    "portable":          { "name": "AC Mobile Chargers",         "subtitle": "22-3.7 kW Portable Charging Devices"      },
+    "cables":            { "name": "AC Charging Cables",         "subtitle": "Type 2 · Mode 3"                          },
+    "v2l-c2l":           { "name": "V2L / C2L Adapters",         "subtitle": "Vehicle-to-Load & Charger-to-Load"        },
+    "converters":        { "name": "Extensions & Combiners",     "subtitle": "Extension Cables, Adapters & Combiner Boxes" },
+    "charger-equipment": { "name": "Charger Unit Equipment",     "subtitle": "Type 2 Sockets, Holsters & Mounting Hardware" },
+    "accessories":       { "name": "Accessories",                "subtitle": "Carrying Bags, Pedestals & Other"         },
+    "dc-units":          { "name": "DC Charging Units",          "subtitle": "30-240 kW DC Fast Charging Stations"      }
+  },
+  "featured": [
+    { "badge": "Most Preferred", "highlight": "Three-phase 22 kW smart charging station for commercial parking lots and workplaces. IP65 · OCPP 2.0 · Dynamic load balancing." },
+    { "badge": "Plug & Play",    "highlight": "No installation required. Plug in and charge. 6A–32A adjustable current — ideal for both home and travel." },
+    { "badge": "Professional DC","highlight": "Up to 350 kW capacity. CCS2 · CHAdeMO · Active water-cooled 500A model. Built for charging station manufacturers." }
+  ],
   "dna": {
-    "sectionLabel": "Corporate",
-    "sectionHeading": "From production to software — everything domestic",
+    "sectionLabel": "About Us",
+    "sectionHeading": "From Software to Production — Everything In-House",
     "brandHeading": "Bemis quality\nDomestic EV charging solutions",
-    "brandPara1": "Founded in Bursa in 1994, Bemis Teknik Elektrik A.Ş. has become one of Turkey's leading electrical equipment manufacturers with over three decades of experience. Bemis E-V Charge is our EV charging sub-brand built on this deep-rooted infrastructure.",
-    "brandPara2": "At our facility in Bursa OSB, we handle every stage ourselves — from electronic circuit design and software to cable production and final assembly. Our products exported to over 60 countries prove how domestic engineering can compete on the global stage.",
+    "brandPara1": "Founded in Bursa in 1994, Bemis Teknik Elektrik A.Ş. has become one of Turkey's leading electrical equipment manufacturers with over 30 years of experience. Bemis E-V Charge is our EV charging sub-brand built on this established infrastructure.",
+    "brandPara2": "At our facility in Bursa OSB, we handle every stage in-house — from electronic board design and software to cable production and final assembly. Our products exported to over 80 countries prove how domestic engineering can compete on the global stage.",
     "ctaLabel": "Explore the Bemis World",
     "quote": "Quality is an expression of respect.",
     "quoteAttr": "Bemis E-V Charge Team · Bursa OSB, Turkey",
     "yearLabel": "1994",
     "yearSub": "Bursa · Turkey · Domestic Production",
     "highlights": [
-      { "title": "30+ Years of Experience",   "desc": "Uninterrupted production quality since 1994."          },
-      { "title": "Certified Quality",          "desc": "CE, IP65 and international EV charging standards."      },
-      { "title": "60+ Countries Export",       "desc": "Bringing Turkish engineering to the world."             },
-      { "title": "Clean Mobility",             "desc": "Contributing to a sustainable future, every charge."    }
+      { "title": "30+ Years of Experience",    "desc": "Uninterrupted production since 1994."                 },
+      { "title": "Certified Quality",          "desc": "TÜV, CE, IP65 and international EV charging standards."},
+      { "title": "Exported to 80+ Countries",  "desc": "Bringing Turkish engineering to the world."           },
+      { "title": "Clean Mobility",             "desc": "Contributing to a sustainable future."                }
     ],
     "features": [
-      { "title": "Smart Charging Management",  "desc": "OCPP 1.6 / 2.0 protocol, dynamic load balancing and cloud-based remote management."                          },
-      { "title": "Domestic Production Quality","desc": "Manufactured at our Bursa OSB facility to IP65, CE and ISO 9001 standards. Fully domestic from software to electronics." },
-      { "title": "Universal Compatibility",    "desc": "Type 2, CCS, CHAdeMO — compatible with all EV brands, IEC 61851 & IEC 62196 certified."                     },
-      { "title": "Sustainable Design",         "desc": "-40°C / +55°C operating range, 100,000+ hour lifespan. Long-lasting, low waste."                            }
+      { "title": "Smart Charging Management",  "desc": "OCPP 1.6 / 2.0 protocol, dynamic load balancing and cloud-based remote management." },
+      { "title": "Domestic Production Quality","desc": "Manufactured at our Bursa OSB facility to TÜV, CE and ISO 9001 European standards. Fully domestic from software to electronics." },
+      { "title": "Universal Compatibility",    "desc": "Type 2, CCS — compatible with all EV brands, IEC 61851 & IEC 62196 certified." },
+      { "title": "Sustainable Design",         "desc": "-40°C / +55°C operating range, 100,000+ hour lifespan. Long-lasting, low waste." }
     ]
   },
   "technology": {
     "sectionLabel": "Why Bemis?",
-    "heading": "From production to software — everything domestic",
+    "heading": "From Production to Software — Everything Domestic",
     "features": [
       { "title": "Smart Charging Management",  "desc": "OCPP 1.6 / 2.0 protocol, dynamic load balancing and cloud-based remote management.",                           "accent": "#3B82F6" },
       { "title": "Domestic Production Quality","desc": "Manufactured at our Bursa OSB facility to IP65, CE and ISO 9001 standards. Fully domestic from software to electronics.", "accent": "#10B981" },
@@ -49,17 +70,54 @@
     "subheading": "Discover the right charging solution for your needs",
     "sectionLabel": "Product Catalog",
     "allProductsLabel": "All Products",
-    "viewLabel": "View"
+    "viewLabel": "View",
+    "sliderEnabled": true,
+    "allProductsDescription": ""
+  },
+  "smartCharger": {
+    "sectionLabel": "Smart Charging Technology",
+    "heading": "Manage From Anywhere\nWith the Mobile App",
+    "subheading": "Our Charger series, with OCPP protocol, integrates seamlessly with network operators in shared spaces such as residences, malls and parking facilities. Real-time monitoring, remote control and energy optimization on a single platform.",
+    "ocppBadge": "OCPP 1.6 / 2.0.1 Compatible",
+    "ctaLabel": "Explore the Charger Series",
+    "features": [
+      { "title": "Remote Monitoring & Control",   "desc": "Track charging units in real time, start or stop sessions. Receive instant status alerts." },
+      { "title": "Shared Space Optimization",     "desc": "Multi-user access, dynamic load balancing and payment integration with full management. Compatible with all network operators and back-end platforms via the standard OCPP protocol." }
+    ]
+  },
+  "productShowcase": {
+    "badge": "Flagship Product",
+    "name": "AC Wallbox Smart Charger Pro 2",
+    "tagline": "The new standard of smart charging",
+    "description": "Engineered for residential and workplace applications, this OCPP-supported 7.4 kW smart AC charging station delivers uninterrupted performance at home and in public spaces with mobile app integration, dynamic load management and IP65 protection.",
+    "specs": [
+      { "label": "Power Output",     "value": "7.4 kW" },
+      { "label": "Protection",       "value": "IP65 · IK10" },
+      { "label": "Connectivity",     "value": "OCPP 1.6 / 2.0.1" },
+      { "label": "Connector",        "value": "Type 2 (IEC 62196)" },
+      { "label": "Temperature",      "value": "-40°C / +55°C" },
+      { "label": "Warranty",         "value": "2 Years" }
+    ],
+    "ctaPrimary": "View Product",
+    "ctaSecondary": "Get a Quote"
+  },
+  "calculator": {
+    "sectionLabel": "Calculator",
+    "heading": "Charging Time Calculator",
+    "subheading": "Pick a vehicle or enter values manually — calculate your charging time and fuel savings",
+    "tabCharge": "Charging Time",
+    "tabSavings": "Savings Analysis",
+    "chargeSimLabel": "Charging Simulation"
   },
   "dealer": {
     "sectionLabel": "Authorized Sales Network",
     "heading": "Everywhere in Turkey",
-    "description": "Select our authorized dealers on the map or get in touch.",
+    "description": "Find our authorized dealers on the map or get in touch.",
     "applyText": "Would you like to join our dealer network?",
     "statCities": "81",
-    "statDealers": "500+",
+    "statDealers": "50+",
     "findDealerTitle": "Find a Dealer",
-    "contactBtnLabel": "Contact Us",
+    "contactBtnLabel": "Get in Touch",
     "citiesLabel": "Provinces",
     "activeDealersLabel": "Active Dealers",
     "mapHint": "Click or hover over a region on the map",
@@ -67,7 +125,7 @@
   },
   "reviews": {
     "sectionLabel": "Customer Reviews",
-    "heading": "What Users Say?",
+    "heading": "What Our Users Say",
     "subheading": "Real user experiences from Trendyol and HepsiBurada",
     "ratingLabel": "average rating",
     "platformsPrefix": "On Trendyol and HepsiBurada",
@@ -78,23 +136,25 @@
   "contactSection": {
     "sectionLabel": "Contact",
     "heading": "Get in Touch",
-    "subheading": "Contact us about our products, dealership applications, corporate sales or partnerships."
+    "subheading": "Reach out to us about our products, dealership applications, corporate sales or partnerships."
   },
   "featuredSection": {
     "sectionLabel": "Featured Products",
     "heading": "Most Preferred",
-    "subheading": "Our best-selling, most trusted products",
+    "subheading": "Our most trusted, best-selling products",
     "ctaLabel": "View Product"
   },
   "navbar": {
     "ctaLabel": "Contact Us",
     "links": [
-      { "label": "Home",        "href": "#hero"       },
-      { "label": "Corporate",   "href": "#dna"        },
-      { "label": "Products",    "href": "#products"   },
-      { "label": "Calculator",  "href": "#calculator" },
-      { "label": "Dealer Network", "href": "#dealer"  },
-      { "label": "Contact",     "href": "#contact"    }
+      { "label": "Home",            "href": "#hero"       },
+      { "label": "About",           "href": "#dna"        },
+      { "label": "Products",        "href": "#products"   },
+      { "label": "Documents",       "href": "/documents"  },
+      { "label": "Dealer Network",  "href": "#dealer"     },
+      { "label": "Calculator",      "href": "#calculator" },
+      { "label": "Contact",         "href": "#contact"    },
+      { "label": "Corporate",       "href": "/b2b"        }
     ]
   },
   "footer": {
