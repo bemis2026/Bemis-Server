@@ -78,8 +78,22 @@ export default function SmartCharger() {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center order-1 lg:order-1"
           >
-            {/* Slide area */}
-            <div className="relative" style={{ width: 300, height: 510 }}>
+            {/* Slide area — swipe gesture (mobile) ile kaydırma desteği */}
+            <motion.div
+              className="relative touch-pan-y select-none"
+              style={{ width: 300, height: 510, cursor: "grab" }}
+              onPanEnd={(_, info) => {
+                const SWIPE_THRESHOLD = 50;
+                const VELOCITY_THRESHOLD = 300;
+                const swipedRight = info.offset.x > SWIPE_THRESHOLD || info.velocity.x > VELOCITY_THRESHOLD;
+                const swipedLeft  = info.offset.x < -SWIPE_THRESHOLD || info.velocity.x < -VELOCITY_THRESHOLD;
+                if (swipedRight && mockupIndex > 0) goTo(mockupIndex - 1);
+                else if (swipedLeft && mockupIndex < 1) goTo(mockupIndex + 1);
+              }}
+              whileTap={{ cursor: "grabbing" }}
+              role="region"
+              aria-label="Mockup galerisi — kaydırarak telefon ve web görünümleri arasında geçiş yapın"
+            >
               <AnimatePresence initial={false} mode="wait">
                 {mockupIndex === 0 ? (
                   <motion.div
@@ -93,7 +107,7 @@ export default function SmartCharger() {
                     animate="center"
                     exit="exit"
                     transition={{ duration: 0.35, ease: "easeInOut" }}
-                    className="absolute inset-0 flex items-center justify-center"
+                    className="absolute inset-0 flex items-center justify-center pointer-events-none"
                   >
                     {/* ── Phone mockup ── */}
                     <div className="relative flex-shrink-0">
@@ -208,7 +222,7 @@ export default function SmartCharger() {
                     animate="center"
                     exit="exit"
                     transition={{ duration: 0.35, ease: "easeInOut" }}
-                    className="absolute inset-0 flex items-center justify-center"
+                    className="absolute inset-0 flex items-center justify-center pointer-events-none"
                   >
                     {/* ── Web browser mockup ── */}
                     <div>
@@ -328,7 +342,7 @@ export default function SmartCharger() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
 
             {/* ── Carousel indicator ── */}
             <div className="flex items-center gap-3 mt-5">
