@@ -19,9 +19,10 @@ export function validateUrl(v: string): string | null {
 }
 
 // ── Field component defined OUTSIDE AdminPage to prevent remount on every render ──
-function Field({ label, value, onChange, multiline = false, validate }: {
+function Field({ label, value, onChange, multiline = false, validate, placeholder }: {
   label: string; value: string; onChange: (v: string) => void; multiline?: boolean; half?: boolean;
   validate?: (v: string) => string | null;
+  placeholder?: string;
 }) {
   const error = validate ? validate(value) : null;
   const borderCls = error ? "border-red-500/50 focus:border-red-400/70" : "border-white/8 focus:border-white/22";
@@ -29,10 +30,10 @@ function Field({ label, value, onChange, multiline = false, validate }: {
     <div>
       <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">{label}</label>
       {multiline ? (
-        <textarea value={value} onChange={(e) => onChange(e.target.value)} rows={3}
+        <textarea value={value} onChange={(e) => onChange(e.target.value)} rows={3} placeholder={placeholder}
           className={`w-full bg-white/5 border ${borderCls} rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none resize-none`} />
       ) : (
-        <input value={value} onChange={(e) => onChange(e.target.value)}
+        <input value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder}
           className={`w-full bg-white/5 border ${borderCls} rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none`} />
       )}
       {error && <p className="mt-1 text-[10px] text-red-400/80">{error}</p>}
@@ -91,7 +92,7 @@ type ContentData = {
   stats: StatItem[];
   categories: Record<string, CategoryMeta>;
   featured: FeaturedItem[];
-  contact: { phone: string; email: string; address: string; addressSub: string; workingHours: string; workingDays: string };
+  contact: { phone: string; email: string; address: string; addressSub: string; workingHours: string; workingDays: string; whatsappPhone?: string; whatsappMessage?: string };
   company: { foundedYear: string; exportCountries: string; productCount: string; facilitySize: string };
   social: { linkedin: string; instagram: string; twitter: string };
   dna: {
@@ -2162,6 +2163,25 @@ export default function AdminPage() {
                     </div>
                     <Field label="Adres (Şehir / Bölge)" value={content.contact.address} onChange={(v) => updateContent(["contact", "address"], v)} />
                     <Field label="Adres Alt Satır" value={content.contact.addressSub} onChange={(v) => updateContent(["contact", "addressSub"], v)} />
+                  </div>
+
+                  {/* WhatsApp ayarları */}
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                    <div>
+                      <p className="text-xs font-semibold text-white/50 mb-0.5">WhatsApp Butonu (sağ alt köşe)</p>
+                      <p className="text-[11px] text-white/30 leading-relaxed">
+                        Sayfaya gelen ziyaretçiler tek tıkla WhatsApp&apos;tan yazışabilir. Telefon boş bırakılırsa yukarıdaki ana telefon kullanılır — WhatsApp Business kayıtlı bir cep numarası önerilir.
+                      </p>
+                    </div>
+                    <Field label="WhatsApp Numarası (boşsa ana telefon kullanılır)"
+                      value={content.contact.whatsappPhone ?? ""}
+                      onChange={(v) => updateContent(["contact", "whatsappPhone"], v)}
+                      placeholder="+90 5XX XXX XX XX" />
+                    <Field label="Hazır Mesaj Metni (kullanıcı butona basınca otomatik dolu gelir)"
+                      value={content.contact.whatsappMessage ?? ""}
+                      onChange={(v) => updateContent(["contact", "whatsappMessage"], v)}
+                      placeholder="Merhaba, Bemis E-V Charge ürünleri hakkında bilgi almak istiyorum."
+                      multiline />
                   </div>
                   {content.social && (
                     <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">

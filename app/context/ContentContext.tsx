@@ -45,6 +45,7 @@ export type SiteContent = {
   contact: {
     phone: string; email: string; address: string; addressSub: string;
     workingHours: string; workingDays: string;
+    whatsappPhone?: string; whatsappMessage?: string;
   };
   company: {
     foundedYear: string; exportCountries: string; productCount: string; facilitySize: string;
@@ -178,6 +179,7 @@ const defaultContent: SiteContent = {
     phone: "+90 (224) 000 00 00", email: "info@bemisevcharge.com",
     address: "Bursa Organize Sanayi Bölgesi", addressSub: "Nilüfer / Bursa, Türkiye",
     workingHours: "08:30 — 17:30", workingDays: "Pazartesi — Cuma",
+    whatsappPhone: "", whatsappMessage: "Merhaba, Bemis E-V Charge ürünleri hakkında bilgi almak istiyorum.",
   },
   company: {
     foundedYear: "1994", exportCountries: "60+", productCount: "6000+", facilitySize: "11.000 m²",
