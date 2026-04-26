@@ -128,7 +128,7 @@ export default function DNA() {
             initial={{ opacity: 0, x: 18 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="lg:col-span-3 relative rounded-2xl overflow-hidden"
+            className="lg:col-span-3 relative rounded-2xl overflow-hidden aspect-video lg:aspect-auto"
             style={{
               background: d
                 ? "linear-gradient(135deg, #202020 0%, #262626 50%, #1c1c1c 100%)"
