@@ -62,7 +62,14 @@ export async function GET(req: NextRequest) {
       productionStepImages: tr.dna?.productionStepImages,
     },
     technology: en.technology ? { ...tr.technology, ...en.technology } : tr.technology,
-    products:        { ...tr.products,        ...(en.products        ?? {}) },
+    // products: keep behavior flags (sliderEnabled, allProductsDescription)
+    // bound to TR so admin's UX choices don't get overridden by translations.
+    products: {
+      ...tr.products,
+      ...(en.products ?? {}),
+      sliderEnabled: tr.products?.sliderEnabled,
+      allProductsDescription: tr.products?.allProductsDescription,
+    },
     dealer:          { ...tr.dealer,          ...(en.dealer          ?? {}) },
     reviews:         { ...tr.reviews,         ...(en.reviews         ?? {}), items: tr.reviews?.items },
     contactSection:  { ...tr.contactSection,  ...(en.contactSection  ?? {}) },

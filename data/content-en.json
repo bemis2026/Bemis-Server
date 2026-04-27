@@ -70,9 +70,7 @@
     "subheading": "Discover the right charging solution for your needs",
     "sectionLabel": "Product Catalog",
     "allProductsLabel": "All Products",
-    "viewLabel": "View",
-    "sliderEnabled": true,
-    "allProductsDescription": ""
+    "viewLabel": "View"
   },
   "smartCharger": {
     "sectionLabel": "Smart Charging Technology",
