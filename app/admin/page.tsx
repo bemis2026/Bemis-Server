@@ -139,7 +139,18 @@ type ContentData = {
   sectionOrder?: string[];
 };
 
-type Dealer = { name: string; address: string; phone: string };
+type Dealer = {
+  name: string;
+  address: string;
+  phone: string;
+  email?: string;
+  contactPerson?: string;
+  whatsapp?: string;
+  website?: string;
+  workingHours?: string;
+  mapUrl?: string;
+  notes?: string;
+};
 type DealersData = Record<string, { dealers: Dealer[] }>;
 
 type DnaItem  = { title: string; desc: string };
@@ -271,7 +282,17 @@ export default function AdminPage() {
   const [selDealerCity, setSelDealerCity] = useState<string>("istanbul");
   const [addDealerOpen, setAddDealerOpen] = useState(false);
   const [addDealerCityFilter, setAddDealerCityFilter] = useState("");
-  const [addDealerForm, setAddDealerForm] = useState<{ city: string; name: string; address: string; phone: string }>({ city: "", name: "", address: "", phone: "" });
+  type AddDealerForm = {
+    city: string; name: string; address: string; phone: string;
+    email: string; contactPerson: string; whatsapp: string;
+    website: string; workingHours: string; mapUrl: string; notes: string;
+  };
+  const emptyDealerForm: AddDealerForm = {
+    city: "", name: "", address: "", phone: "",
+    email: "", contactPerson: "", whatsapp: "",
+    website: "", workingHours: "", mapUrl: "", notes: "",
+  };
+  const [addDealerForm, setAddDealerForm] = useState<AddDealerForm>(emptyDealerForm);
 
   // Hero visual layout editor
   const canvasRef = useRef<HTMLDivElement>(null);
@@ -2822,7 +2843,7 @@ export default function AdminPage() {
                     <button
                       onClick={() => {
                         const defaultCity = dealers[selDealerCity] ? selDealerCity : (Object.keys(dealers)[0] ?? "");
-                        setAddDealerForm({ city: defaultCity, name: "", address: "", phone: "" });
+                        setAddDealerForm({ ...emptyDealerForm, city: defaultCity });
                         setAddDealerCityFilter("");
                         setAddDealerOpen(true);
                       }}
@@ -2956,21 +2977,67 @@ export default function AdminPage() {
                                     <HiOutlineTrash size={13} />
                                   </button>
                                 </div>
-                                <div>
-                                  <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Bayi Adı</label>
-                                  <input value={dealer.name} onChange={(e) => updateDealer(idx, "name", e.target.value)}
-                                    className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
+                                <div className="grid grid-cols-2 gap-3">
+                                  <div>
+                                    <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Bayi Adı</label>
+                                    <input value={dealer.name} onChange={(e) => updateDealer(idx, "name", e.target.value)}
+                                      className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
+                                  </div>
+                                  <div>
+                                    <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Yetkili Kişi</label>
+                                    <input value={dealer.contactPerson ?? ""} onChange={(e) => updateDealer(idx, "contactPerson", e.target.value)}
+                                      placeholder="Ad Soyad"
+                                      className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
+                                  </div>
+                                  <div>
+                                    <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Telefon</label>
+                                    <input value={dealer.phone} onChange={(e) => updateDealer(idx, "phone", e.target.value)}
+                                      placeholder="+90 (___) ___ __ __"
+                                      className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
+                                  </div>
+                                  <div>
+                                    <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">E-posta</label>
+                                    <input type="email" value={dealer.email ?? ""} onChange={(e) => updateDealer(idx, "email", e.target.value)}
+                                      placeholder="bayi@ornek.com"
+                                      className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
+                                  </div>
+                                  <div>
+                                    <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">WhatsApp</label>
+                                    <input value={dealer.whatsapp ?? ""} onChange={(e) => updateDealer(idx, "whatsapp", e.target.value)}
+                                      placeholder="+90 (___) ___ __ __"
+                                      className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
+                                  </div>
+                                  <div>
+                                    <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Web Sitesi</label>
+                                    <input type="url" value={dealer.website ?? ""} onChange={(e) => updateDealer(idx, "website", e.target.value)}
+                                      placeholder="https://"
+                                      className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
+                                  </div>
                                 </div>
                                 <div>
                                   <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Adres</label>
                                   <input value={dealer.address} onChange={(e) => updateDealer(idx, "address", e.target.value)}
                                     className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
                                 </div>
+                                <div className="grid grid-cols-2 gap-3">
+                                  <div>
+                                    <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Harita Bağlantısı</label>
+                                    <input type="url" value={dealer.mapUrl ?? ""} onChange={(e) => updateDealer(idx, "mapUrl", e.target.value)}
+                                      placeholder="https://maps.google.com/…"
+                                      className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
+                                  </div>
+                                  <div>
+                                    <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Çalışma Saatleri</label>
+                                    <input value={dealer.workingHours ?? ""} onChange={(e) => updateDealer(idx, "workingHours", e.target.value)}
+                                      placeholder="Pzt–Cmt 09:00–18:00"
+                                      className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
+                                  </div>
+                                </div>
                                 <div>
-                                  <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Telefon</label>
-                                  <input value={dealer.phone} onChange={(e) => updateDealer(idx, "phone", e.target.value)}
-                                    placeholder="+90 (___) ___ __ __"
-                                    className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
+                                  <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Notlar</label>
+                                  <textarea value={dealer.notes ?? ""} onChange={(e) => updateDealer(idx, "notes", e.target.value)}
+                                    rows={2}
+                                    className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22 resize-none" />
                                 </div>
                               </div>
                             ))}
@@ -3054,15 +3121,71 @@ export default function AdminPage() {
                           )}
                         </div>
 
-                        <div>
-                          <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Bayi Adı *</label>
-                          <input
-                            value={addDealerForm.name}
-                            onChange={(e) => setAddDealerForm((f) => ({ ...f, name: e.target.value }))}
-                            placeholder="Bemis Yetkili Bayi …"
-                            className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25"
-                          />
+                        <p className="text-[10px] font-bold text-white/35 uppercase tracking-[0.14em] pt-2">Temel Bilgiler</p>
+                        <div className="grid grid-cols-2 gap-3">
+                          <div>
+                            <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Bayi Adı *</label>
+                            <input
+                              value={addDealerForm.name}
+                              onChange={(e) => setAddDealerForm((f) => ({ ...f, name: e.target.value }))}
+                              placeholder="Bemis Yetkili Bayi …"
+                              className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Yetkili Kişi</label>
+                            <input
+                              value={addDealerForm.contactPerson}
+                              onChange={(e) => setAddDealerForm((f) => ({ ...f, contactPerson: e.target.value }))}
+                              placeholder="Ad Soyad"
+                              className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25"
+                            />
+                          </div>
                         </div>
+
+                        <p className="text-[10px] font-bold text-white/35 uppercase tracking-[0.14em] pt-2">İletişim</p>
+                        <div className="grid grid-cols-2 gap-3">
+                          <div>
+                            <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Telefon</label>
+                            <input
+                              value={addDealerForm.phone}
+                              onChange={(e) => setAddDealerForm((f) => ({ ...f, phone: e.target.value }))}
+                              placeholder="+90 (___) ___ __ __"
+                              className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">E-posta</label>
+                            <input
+                              type="email"
+                              value={addDealerForm.email}
+                              onChange={(e) => setAddDealerForm((f) => ({ ...f, email: e.target.value }))}
+                              placeholder="bayi@ornek.com"
+                              className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">WhatsApp</label>
+                            <input
+                              value={addDealerForm.whatsapp}
+                              onChange={(e) => setAddDealerForm((f) => ({ ...f, whatsapp: e.target.value }))}
+                              placeholder="+90 (___) ___ __ __"
+                              className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Web Sitesi</label>
+                            <input
+                              type="url"
+                              value={addDealerForm.website}
+                              onChange={(e) => setAddDealerForm((f) => ({ ...f, website: e.target.value }))}
+                              placeholder="https://"
+                              className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25"
+                            />
+                          </div>
+                        </div>
+
+                        <p className="text-[10px] font-bold text-white/35 uppercase tracking-[0.14em] pt-2">Konum & Saatler</p>
                         <div>
                           <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Adres</label>
                           <input
@@ -3073,12 +3196,32 @@ export default function AdminPage() {
                           />
                         </div>
                         <div>
-                          <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Telefon</label>
+                          <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Harita Bağlantısı (Google Maps)</label>
                           <input
-                            value={addDealerForm.phone}
-                            onChange={(e) => setAddDealerForm((f) => ({ ...f, phone: e.target.value }))}
-                            placeholder="+90 (___) ___ __ __"
+                            type="url"
+                            value={addDealerForm.mapUrl}
+                            onChange={(e) => setAddDealerForm((f) => ({ ...f, mapUrl: e.target.value }))}
+                            placeholder="https://maps.google.com/…"
                             className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Çalışma Saatleri</label>
+                          <input
+                            value={addDealerForm.workingHours}
+                            onChange={(e) => setAddDealerForm((f) => ({ ...f, workingHours: e.target.value }))}
+                            placeholder="Pzt–Cmt 09:00–18:00"
+                            className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Notlar</label>
+                          <textarea
+                            value={addDealerForm.notes}
+                            onChange={(e) => setAddDealerForm((f) => ({ ...f, notes: e.target.value }))}
+                            placeholder="Sadece kurumsal randevu, vb."
+                            rows={2}
+                            className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25 resize-none"
                           />
                         </div>
 
@@ -3091,17 +3234,34 @@ export default function AdminPage() {
                           </button>
                           <button
                             onClick={() => {
-                              const { city, name, address, phone } = addDealerForm;
-                              if (!city || !name.trim()) return;
+                              const f = addDealerForm;
+                              if (!f.city || !f.name.trim()) return;
+                              const trim = (s: string) => s.trim();
+                              const optional = (s: string) => {
+                                const v = trim(s);
+                                return v ? v : undefined;
+                              };
+                              const newDealer: Dealer = {
+                                name: trim(f.name),
+                                address: trim(f.address),
+                                phone: trim(f.phone),
+                                email: optional(f.email),
+                                contactPerson: optional(f.contactPerson),
+                                whatsapp: optional(f.whatsapp),
+                                website: optional(f.website),
+                                workingHours: optional(f.workingHours),
+                                mapUrl: optional(f.mapUrl),
+                                notes: optional(f.notes),
+                              };
                               setDealers((prev) => {
                                 const next = JSON.parse(JSON.stringify(prev)) as DealersData;
-                                if (!next[city]) next[city] = { dealers: [] };
-                                next[city].dealers.push({ name: name.trim(), address: address.trim(), phone: phone.trim() });
+                                if (!next[f.city]) next[f.city] = { dealers: [] };
+                                next[f.city].dealers.push(newDealer);
                                 return next;
                               });
-                              setSelDealerCity(city);
+                              setSelDealerCity(f.city);
                               setAddDealerOpen(false);
-                              setAddDealerForm({ city: "", name: "", address: "", phone: "" });
+                              setAddDealerForm(emptyDealerForm);
                               setAddDealerCityFilter("");
                             }}
                             disabled={!addDealerForm.city || !addDealerForm.name.trim()}

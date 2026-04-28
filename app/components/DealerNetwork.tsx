@@ -2,8 +2,8 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { HiArrowRight, HiPhone, HiLocationMarker } from "react-icons/hi";
-import { RiStoreLine, RiMapPin2Line } from "react-icons/ri";
+import { HiArrowRight, HiPhone, HiLocationMarker, HiMail, HiUser, HiClock, HiExternalLink } from "react-icons/hi";
+import { RiStoreLine, RiMapPin2Line, RiWhatsappLine, RiGlobalLine } from "react-icons/ri";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import E from "./E";
@@ -11,7 +11,18 @@ import { CITY_BY_ID } from "../../lib/turkeyCities";
 
 const BLUE = "#3B82F6";
 
-type Dealer = { name: string; address: string; phone: string };
+type Dealer = {
+  name: string;
+  address: string;
+  phone: string;
+  email?: string;
+  contactPerson?: string;
+  whatsapp?: string;
+  website?: string;
+  workingHours?: string;
+  mapUrl?: string;
+  notes?: string;
+};
 type DealersData = Record<string, { dealers: Dealer[] }>;
 
 // Region centers calibrated to the 1327×621 Turkey map image (7 coğrafi bölge).
@@ -187,21 +198,68 @@ export default function DealerNetwork() {
                   <p className="font-semibold text-sm" style={{ color: d ? "#ffffff" : "#111111" }}>{activeCityLabel}</p>
                   <span className="text-xs" style={{ color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.40)" }}>· {activeDealers.length} bayi</span>
                 </div>
-                {activeDealers.map((dealer, i) => (
-                  <div key={i} className="pt-3 first:pt-0" style={{ borderTop: i > 0 ? `1px solid ${d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.07)"}` : "none" }}>
-                    <p className="text-sm font-semibold mb-1" style={{ color: d ? "rgba(255,255,255,0.80)" : "rgba(0,0,0,0.80)" }}>{dealer.name}</p>
-                    <p className="text-sm flex items-start gap-1 mb-1" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.55)" }}>
-                      <HiLocationMarker className="flex-shrink-0 mt-0.5" />
-                      {dealer.address}
-                    </p>
-                    {dealer.phone && (
-                      <a href={`tel:${dealer.phone.replace(/[^\d+]/g, "")}`} className="text-sm flex items-center gap-1 transition-colors" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.55)" }}>
-                        <HiPhone className="flex-shrink-0" />
-                        {dealer.phone}
-                      </a>
-                    )}
-                  </div>
-                ))}
+                {activeDealers.map((dealer, i) => {
+                  const muted = d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.55)";
+                  const phoneDigits = (s: string) => s.replace(/[^\d+]/g, "");
+                  return (
+                    <div key={i} className="pt-3 first:pt-0" style={{ borderTop: i > 0 ? `1px solid ${d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.07)"}` : "none" }}>
+                      <p className="text-sm font-semibold" style={{ color: d ? "rgba(255,255,255,0.80)" : "rgba(0,0,0,0.80)" }}>{dealer.name}</p>
+                      {dealer.contactPerson && (
+                        <p className="text-xs flex items-center gap-1 mb-1" style={{ color: muted }}>
+                          <HiUser className="flex-shrink-0" />
+                          {dealer.contactPerson}
+                        </p>
+                      )}
+                      {dealer.address && (
+                        <p className="text-sm flex items-start gap-1 mb-1 mt-1" style={{ color: muted }}>
+                          <HiLocationMarker className="flex-shrink-0 mt-0.5" />
+                          {dealer.address}
+                        </p>
+                      )}
+                      {dealer.workingHours && (
+                        <p className="text-xs flex items-center gap-1 mb-1" style={{ color: muted }}>
+                          <HiClock className="flex-shrink-0" />
+                          {dealer.workingHours}
+                        </p>
+                      )}
+                      {dealer.phone && (
+                        <a href={`tel:${phoneDigits(dealer.phone)}`} className="text-sm flex items-center gap-1 transition-colors hover:underline" style={{ color: muted }}>
+                          <HiPhone className="flex-shrink-0" />
+                          {dealer.phone}
+                        </a>
+                      )}
+                      {dealer.whatsapp && (
+                        <a href={`https://wa.me/${phoneDigits(dealer.whatsapp).replace(/^\+/, "")}`} target="_blank" rel="noopener noreferrer" className="text-sm flex items-center gap-1 transition-colors hover:underline" style={{ color: muted }}>
+                          <RiWhatsappLine className="flex-shrink-0" />
+                          {dealer.whatsapp}
+                        </a>
+                      )}
+                      {dealer.email && (
+                        <a href={`mailto:${dealer.email}`} className="text-sm flex items-center gap-1 transition-colors hover:underline" style={{ color: muted }}>
+                          <HiMail className="flex-shrink-0" />
+                          {dealer.email}
+                        </a>
+                      )}
+                      {dealer.website && (
+                        <a href={dealer.website} target="_blank" rel="noopener noreferrer" className="text-sm flex items-center gap-1 transition-colors hover:underline" style={{ color: muted }}>
+                          <RiGlobalLine className="flex-shrink-0" />
+                          <span className="truncate">{dealer.website.replace(/^https?:\/\//, "")}</span>
+                        </a>
+                      )}
+                      {dealer.mapUrl && (
+                        <a href={dealer.mapUrl} target="_blank" rel="noopener noreferrer" className="text-xs flex items-center gap-1 mt-1.5 transition-colors hover:underline" style={{ color: d ? "#93C5FD" : BLUE }}>
+                          <HiExternalLink className="flex-shrink-0" />
+                          Haritada Aç
+                        </a>
+                      )}
+                      {dealer.notes && (
+                        <p className="text-xs mt-1.5 italic" style={{ color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.40)" }}>
+                          {dealer.notes}
+                        </p>
+                      )}
+                    </div>
+                  );
+                })}
               </motion.div>
             )}
 

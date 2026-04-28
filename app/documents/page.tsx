@@ -283,14 +283,21 @@ function DocGrid({ docs, d, surface, border, textPrimary, textMuted, textFaint }
             className="rounded-2xl overflow-hidden flex flex-col"
             style={{ background: surface, border: `1px solid ${border}` }}
           >
-            {/* Cover image (if any) */}
+            {/* Cover image (if any) — portrait 3:4 frame, full image visible (object-contain) */}
             {doc.coverUrl && (
-              <div className="relative w-full aspect-[16/10] overflow-hidden" style={{ background: d ? "rgba(0,0,0,0.4)" : "rgba(0,0,0,0.05)" }}>
+              <div
+                className="relative w-full aspect-[3/4] overflow-hidden flex items-center justify-center"
+                style={{
+                  background: d
+                    ? "linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(0,0,0,0.25) 100%)"
+                    : "linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.10) 100%)",
+                }}
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={doc.coverUrl}
                   alt={doc.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   loading="lazy"
                   decoding="async"
                 />
