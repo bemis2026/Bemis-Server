@@ -2,11 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import { RiImageAddLine } from "react-icons/ri";
-import { HiOutlineStar, HiOutlineTrash } from "react-icons/hi";
+import { HiOutlineStar, HiOutlineTrash, HiOutlinePhotograph, HiOutlineX } from "react-icons/hi";
 
 type DocEntry = {
   id: string; title: string; description: string; category: string;
   url: string; filename: string; size: string; lang: string; date: string; visible: boolean;
+  coverUrl?: string;
 };
 
 const DOC_CATEGORIES = [
@@ -30,7 +31,13 @@ export default function DocumentsPanel() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [uploadLoading, setUploadLoading] = useState(false);
+  const [coverUploadLoading, setCoverUploadLoading] = useState(false);
+  // Doc id whose cover is currently being uploaded from the list (vs. modal).
+  // null = uploading from modal context (editDoc).
+  const [listCoverDocId, setListCoverDocId] = useState<string | null>(null);
   const uploadRef = useRef<HTMLInputElement>(null);
+  const coverUploadRef = useRef<HTMLInputElement>(null);
+  const listCoverRef = useRef<HTMLInputElement>(null);
 
   // Edit modal state
   const [editDoc, setEditDoc] = useState<DocEntry | null>(null);
@@ -88,6 +95,50 @@ export default function DocumentsPanel() {
     if (uploadRef.current) uploadRef.current.value = "";
   };
 
+  const handleCoverUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || !editDoc) return;
+    setCoverUploadLoading(true);
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("folder", "documents");
+    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+    const json = await res.json();
+    if (res.ok && json.url) {
+      setEditDoc({ ...editDoc, coverUrl: json.url });
+    } else {
+      alert(`Kapak yükleme başarısız: ${json?.error ?? "Bilinmeyen hata"}`);
+    }
+    setCoverUploadLoading(false);
+    if (coverUploadRef.current) coverUploadRef.current.value = "";
+  };
+
+  const handleListCoverUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    const docId = listCoverDocId;
+    if (listCoverRef.current) listCoverRef.current.value = "";
+    if (!file || !docId) { setListCoverDocId(null); return; }
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("folder", "documents");
+    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+    const json = await res.json();
+    if (res.ok && json.url) {
+      const updated = docs.map(d => d.id === docId ? { ...d, coverUrl: json.url as string } : d);
+      setDocs(updated);
+      await save(updated);
+    } else {
+      alert(`Kapak yükleme başarısız: ${json?.error ?? "Bilinmeyen hata"}`);
+    }
+    setListCoverDocId(null);
+  };
+
+  const removeListCover = async (docId: string) => {
+    const updated = docs.map(d => d.id === docId ? { ...d, coverUrl: undefined } : d);
+    setDocs(updated);
+    await save(updated);
+  };
+
   const saveDoc = async (doc: DocEntry) => {
     const exists = docs.find(d => d.id === doc.id);
     const updated = exists ? docs.map(d => d.id === doc.id ? doc : d) : [...docs, doc];
@@ -119,7 +170,7 @@ export default function DocumentsPanel() {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-base font-bold">Dökümanlar</h2>
-          <p className="text-xs text-white/35 mt-0.5">{docs.length} döküman · <a href="/documents" target="_blank" className="text-blue-400 hover:underline">/documents</a> sayfasında görünür</p>
+          <p className="text-xs text-white/35 mt-0.5">{docs.length} döküman · <a href="/documents" target="_blank" className="text-blue-400 hover:underline">/documents</a> sayfasında görünür · Her dokümanın yanındaki <HiOutlinePhotograph className="inline" size={12} /> ikonu ile kapak görseli yükleyebilirsiniz</p>
         </div>
         <button
           onClick={() => uploadRef.current?.click()}
@@ -165,8 +216,28 @@ export default function DocumentsPanel() {
                   opacity: doc.visible ? 1 : 0.45,
                 }}
               >
-                {/* Color dot */}
-                <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: accent }} />
+                {/* Cover thumbnail (clickable to upload/replace) */}
+                <button
+                  onClick={() => { setListCoverDocId(doc.id); listCoverRef.current?.click(); }}
+                  className="relative w-12 h-12 rounded-lg flex-shrink-0 group overflow-hidden flex items-center justify-center transition-all"
+                  style={{
+                    background: doc.coverUrl ? "transparent" : `${accent}15`,
+                    border: `1px dashed ${doc.coverUrl ? "transparent" : accent + "55"}`,
+                  }}
+                  title={doc.coverUrl ? "Kapak görselini değiştir" : "Kapak görseli ekle"}
+                >
+                  {doc.coverUrl ? (
+                    <>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={doc.coverUrl} alt="" className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/55 transition-colors flex items-center justify-center">
+                        <HiOutlinePhotograph className="opacity-0 group-hover:opacity-100 text-white transition-opacity" size={16} />
+                      </div>
+                    </>
+                  ) : (
+                    <HiOutlinePhotograph size={16} style={{ color: accent }} />
+                  )}
+                </button>
 
                 {/* Info */}
                 <div className="flex-1 min-w-0">
@@ -188,6 +259,22 @@ export default function DocumentsPanel() {
                   <a href={doc.url} target="_blank" rel="noopener noreferrer"
                     className="w-7 h-7 rounded-lg flex items-center justify-center text-white/30 hover:text-white/70 transition-colors text-xs"
                     title="Önizle">↗</a>
+                  <button onClick={() => { setListCoverDocId(doc.id); listCoverRef.current?.click(); }}
+                    className="w-7 h-7 rounded-lg flex items-center justify-center text-white/30 hover:text-blue-400 transition-colors"
+                    title={doc.coverUrl ? "Kapağı değiştir" : "Kapak görseli yükle"}>
+                    {listCoverDocId === doc.id ? (
+                      <div className="w-3 h-3 rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
+                    ) : (
+                      <HiOutlinePhotograph size={13} />
+                    )}
+                  </button>
+                  {doc.coverUrl && (
+                    <button onClick={() => removeListCover(doc.id)}
+                      className="w-7 h-7 rounded-lg flex items-center justify-center text-white/30 hover:text-red-400 transition-colors"
+                      title="Kapağı kaldır">
+                      <HiOutlineX size={13} />
+                    </button>
+                  )}
                   <button onClick={() => toggleVisible(doc.id)}
                     className="w-7 h-7 rounded-lg flex items-center justify-center text-white/30 hover:text-white/70 transition-colors text-xs"
                     title={doc.visible ? "Gizle" : "Göster"}>
@@ -207,6 +294,7 @@ export default function DocumentsPanel() {
               </div>
             );
           })}
+          <input ref={listCoverRef} type="file" accept="image/*" className="hidden" onChange={handleListCoverUpload} />
         </div>
       )}
 
@@ -231,6 +319,46 @@ export default function DocumentsPanel() {
                   onChange={e => setEditDoc({ ...editDoc, description: e.target.value })}
                   rows={2}
                   className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22 resize-none" />
+              </div>
+              <div>
+                <label className="block text-[11px] font-semibold text-white/40 mb-1 uppercase tracking-wider">Kapak Görseli</label>
+                {editDoc.coverUrl ? (
+                  <div className="relative rounded-xl overflow-hidden border border-white/10 bg-black/20">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={editDoc.coverUrl} alt="Kapak" className="w-full h-32 object-cover" />
+                    <div className="absolute top-2 right-2 flex gap-1.5">
+                      <button
+                        onClick={() => coverUploadRef.current?.click()}
+                        disabled={coverUploadLoading}
+                        className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider transition-colors"
+                        style={{ background: "rgba(0,0,0,0.65)", color: "#fff", backdropFilter: "blur(4px)" }}
+                      >
+                        {coverUploadLoading ? "…" : "Değiştir"}
+                      </button>
+                      <button
+                        onClick={() => setEditDoc({ ...editDoc, coverUrl: undefined })}
+                        className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider transition-colors"
+                        style={{ background: "rgba(220,38,38,0.85)", color: "#fff", backdropFilter: "blur(4px)" }}
+                      >
+                        Kaldır
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => coverUploadRef.current?.click()}
+                    disabled={coverUploadLoading}
+                    className="w-full flex items-center justify-center gap-2 py-6 rounded-xl border-2 border-dashed border-white/12 hover:border-white/25 text-xs font-semibold text-white/45 hover:text-white/70 transition-colors"
+                  >
+                    {coverUploadLoading ? (
+                      <div className="w-4 h-4 rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
+                    ) : (
+                      <RiImageAddLine size={16} />
+                    )}
+                    {coverUploadLoading ? "Yükleniyor…" : "Kapak görseli seç (JPG/PNG/WebP)"}
+                  </button>
+                )}
+                <input ref={coverUploadRef} type="file" accept="image/*" className="hidden" onChange={handleCoverUpload} />
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>

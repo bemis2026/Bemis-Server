@@ -72,6 +72,15 @@ import DocumentsPanel from "./panels/DocumentsPanel";
 import ChangelogPanel from "./panels/ChangelogPanel";
 import AnalyticsPanel from "./panels/AnalyticsPanel";
 import B2BPanel from "./panels/B2BPanel";
+import {
+  TURKEY_CITIES,
+  TURKEY_REGIONS,
+  CITY_BY_ID,
+  REGION_BY_ID,
+  compareCityIds,
+  getCityLabel,
+  getCityRegion,
+} from "../../lib/turkeyCities";
 
 type SpecItem = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
@@ -132,23 +141,6 @@ type ContentData = {
 
 type Dealer = { name: string; address: string; phone: string };
 type DealersData = Record<string, { dealers: Dealer[] }>;
-
-const CITY_LIST = [
-  { id: "istanbul",   label: "İstanbul"   },
-  { id: "ankara",     label: "Ankara"     },
-  { id: "izmir",      label: "İzmir"      },
-  { id: "bursa",      label: "Bursa"      },
-  { id: "antalya",    label: "Antalya"    },
-  { id: "konya",      label: "Konya"      },
-  { id: "adana",      label: "Adana"      },
-  { id: "mersin",     label: "Mersin"     },
-  { id: "gaziantep",  label: "Gaziantep"  },
-  { id: "kayseri",    label: "Kayseri"    },
-  { id: "samsun",     label: "Samsun"     },
-  { id: "trabzon",    label: "Trabzon"    },
-  { id: "erzurum",    label: "Erzurum"    },
-  { id: "diyarbakir", label: "Diyarbakır" },
-];
 
 type DnaItem  = { title: string; desc: string };
 type ReviewItem = { platform: string; platformColor: string; rating: number; author: string; date: string; product: string; text: string };
@@ -276,7 +268,10 @@ export default function AdminPage() {
   useEffect(() => { setContentDirty(content !== contentCleanRef.current); }, [content]);
   useEffect(() => { setProductsDirty(products !== productsCleanRef.current); }, [products]);
   useEffect(() => { setDealersDirty(dealers !== dealersCleanRef.current); }, [dealers]);
-  const [selDealerCity, setSelDealerCity] = useState<string>(CITY_LIST[0].id);
+  const [selDealerCity, setSelDealerCity] = useState<string>("istanbul");
+  const [addDealerOpen, setAddDealerOpen] = useState(false);
+  const [addDealerCityFilter, setAddDealerCityFilter] = useState("");
+  const [addDealerForm, setAddDealerForm] = useState<{ city: string; name: string; address: string; phone: string }>({ city: "", name: "", address: "", phone: "" });
 
   // Hero visual layout editor
   const canvasRef = useRef<HTMLDivElement>(null);
@@ -2819,39 +2814,88 @@ export default function AdminPage() {
                     <Field label="Harita Başlığı" value={content.dealer.mapTitle ?? ""} onChange={(v) => updateContent(["dealer","mapTitle"], v)} />
                   </div>
 
-                  <div>
-                    <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider mb-1">Bayi Listesi</p>
-                    <p className="text-xs text-white/35">Şehirlere göre yetkili bayi bilgilerini düzenleyin.</p>
+                  <div className="flex items-end justify-between gap-4">
+                    <div>
+                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider mb-1">Bayi Listesi</p>
+                      <p className="text-xs text-white/35">Bayi eklerken şehir otomatik olarak doğru bölgeye yerleştirilir.</p>
+                    </div>
+                    <button
+                      onClick={() => {
+                        const defaultCity = dealers[selDealerCity] ? selDealerCity : (Object.keys(dealers)[0] ?? "");
+                        setAddDealerForm({ city: defaultCity, name: "", address: "", phone: "" });
+                        setAddDealerCityFilter("");
+                        setAddDealerOpen(true);
+                      }}
+                      className="flex-shrink-0 flex items-center gap-2 text-sm font-bold px-5 py-2.5 rounded-xl transition-all"
+                      style={{
+                        background: "#3B82F6",
+                        border: "1px solid rgba(59,130,246,0.55)",
+                        color: "#fff",
+                      }}
+                      title="Yeni bayi ekle"
+                    >
+                      <HiOutlinePlus size={16} /> Bayi Ekle
+                    </button>
                   </div>
 
                   <div className="flex gap-4">
                     {/* City list */}
-                    <div className="w-44 flex-shrink-0 space-y-1">
-                      <p className="text-[10px] font-semibold text-white/30 uppercase tracking-wider mb-2 px-1">Şehir</p>
-                      {CITY_LIST.map((city) => {
-                        const count = dealers[city.id]?.dealers?.length ?? 0;
-                        return (
-                          <button key={city.id} onClick={() => setSelDealerCity(city.id)}
-                            className={`w-full text-left px-3 py-2 rounded-xl text-xs font-medium transition-all flex items-center justify-between ${
-                              selDealerCity === city.id ? "bg-white/10 text-white" : "text-white/45 hover:text-white/70 hover:bg-white/5"
-                            }`}
-                          >
-                            <span>{city.label}</span>
-                            {count > 0 && (
-                              <span className="text-[9px] px-1.5 py-0.5 rounded-full" style={{ background: "rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.50)" }}>
-                                {count}
-                              </span>
-                            )}
-                          </button>
-                        );
-                      })}
+                    <div className="w-52 flex-shrink-0 space-y-1">
+                      <p className="text-[10px] font-semibold text-white/30 uppercase tracking-wider mb-2 px-1">Şehirler</p>
+
+                      {(() => {
+                        const presentCityIds = Object.keys(dealers).slice().sort(compareCityIds);
+                        const grouped: Record<string, string[]> = {};
+                        for (const cid of presentCityIds) {
+                          const r = getCityRegion(cid) ?? "_other";
+                          (grouped[r] ||= []).push(cid);
+                        }
+                        const regionOrder = [...TURKEY_REGIONS.map((r) => r.id), "_other"];
+
+                        if (presentCityIds.length === 0) {
+                          return (
+                            <p className="text-[11px] text-white/30 px-1 py-2">Henüz bayi eklenmedi.</p>
+                          );
+                        }
+
+                        return regionOrder.map((rid) => {
+                          const cids = grouped[rid];
+                          if (!cids || cids.length === 0) return null;
+                          const regionLabel = REGION_BY_ID[rid]?.label ?? "Diğer";
+                          return (
+                            <div key={rid} className="pt-2 first:pt-0">
+                              <p className="text-[9px] font-bold text-white/25 uppercase tracking-[0.14em] px-2 mb-1">{regionLabel}</p>
+                              {cids.map((cid) => {
+                                const count = dealers[cid]?.dealers?.length ?? 0;
+                                return (
+                                  <button key={cid} onClick={() => setSelDealerCity(cid)}
+                                    className={`w-full text-left px-3 py-2 rounded-xl text-xs font-medium transition-all flex items-center justify-between ${
+                                      selDealerCity === cid ? "bg-white/10 text-white" : "text-white/45 hover:text-white/70 hover:bg-white/5"
+                                    }`}
+                                  >
+                                    <span>{getCityLabel(cid)}</span>
+                                    {count > 0 && (
+                                      <span className="text-[9px] px-1.5 py-0.5 rounded-full" style={{ background: "rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.50)" }}>
+                                        {count}
+                                      </span>
+                                    )}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          );
+                        });
+                      })()}
                     </div>
 
                     {/* Dealer editor for selected city */}
                     <div className="flex-1 min-w-0">
                       {(() => {
-                        const cityLabel = CITY_LIST.find((c) => c.id === selDealerCity)?.label;
+                        const cityLabel = getCityLabel(selDealerCity);
+                        const regionId = getCityRegion(selDealerCity);
+                        const regionLabel = regionId ? REGION_BY_ID[regionId]?.label : null;
                         const cityDealers: Dealer[] = dealers[selDealerCity]?.dealers ?? [];
+                        const cityExists = !!dealers[selDealerCity];
 
                         const updateDealer = (idx: number, field: keyof Dealer, val: string) => {
                           setDealers((prev) => {
@@ -2862,33 +2906,40 @@ export default function AdminPage() {
                           });
                         };
 
-                        const addDealer = () => {
-                          setDealers((prev) => {
-                            const next = JSON.parse(JSON.stringify(prev)) as DealersData;
-                            if (!next[selDealerCity]) next[selDealerCity] = { dealers: [] };
-                            next[selDealerCity].dealers.push({ name: "Yeni Bayi", address: "", phone: "" });
-                            return next;
-                          });
-                        };
-
                         const removeDealer = (idx: number) => {
                           setDealers((prev) => {
                             const next = JSON.parse(JSON.stringify(prev)) as DealersData;
                             if (next[selDealerCity]?.dealers) {
                               next[selDealerCity].dealers.splice(idx, 1);
                             }
+                            // If the city has no more dealers, drop the city too so
+                            // empty cities don't linger in the sidebar / on the map.
+                            if (next[selDealerCity]?.dealers?.length === 0) {
+                              delete next[selDealerCity];
+                            }
                             return next;
                           });
                         };
 
+                        if (!cityExists) {
+                          return (
+                            <div className="text-center py-12 text-white/30 text-sm border border-dashed border-white/10 rounded-2xl">
+                              Henüz bayi yok. Üstteki <span className="text-white/55 font-semibold">Bayi Ekle</span> butonu ile bayi ekleyin — şehir otomatik olarak doğru bölgeye yerleşir.
+                            </div>
+                          );
+                        }
+
                         return (
                           <div className="space-y-3">
                             <div className="flex items-center justify-between">
-                              <p className="text-sm font-semibold text-white">{cityLabel} <span className="text-white/30 font-normal">— {cityDealers.length} bayi</span></p>
-                              <button onClick={addDealer}
-                                className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white px-3 py-1.5 rounded-lg border border-white/10 hover:border-white/20 transition-colors">
-                                <HiOutlinePlus size={12} /> Bayi Ekle
-                              </button>
+                              <div className="flex items-center gap-2">
+                                <p className="text-sm font-semibold text-white">{cityLabel} <span className="text-white/30 font-normal">— {cityDealers.length} bayi</span></p>
+                                {regionLabel && (
+                                  <span className="text-[9px] font-bold uppercase tracking-[0.14em] px-2 py-0.5 rounded-full" style={{ background: "rgba(59,130,246,0.14)", color: "#93C5FD", border: "1px solid rgba(59,130,246,0.28)" }}>
+                                    {regionLabel}
+                                  </span>
+                                )}
+                              </div>
                             </div>
 
                             {cityDealers.length === 0 && (
@@ -2928,6 +2979,141 @@ export default function AdminPage() {
                       })()}
                     </div>
                   </div>
+
+                  {/* Add Dealer Modal */}
+                  {addDealerOpen && (
+                    <div
+                      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+                      style={{ background: "rgba(0,0,0,0.75)", backdropFilter: "blur(8px)" }}
+                      onClick={(e) => { if (e.target === e.currentTarget) setAddDealerOpen(false); }}
+                    >
+                      <div className="w-full max-w-lg rounded-2xl border border-white/10 bg-[#1a1a1e] p-6 space-y-4 max-h-[90vh] overflow-y-auto">
+                        <div>
+                          <h3 className="text-base font-bold text-white">Yeni Bayi Ekle</h3>
+                          <p className="text-[11px] text-white/40 mt-0.5">Şehir seçimi otomatik olarak doğru coğrafi bölgeye yerleştirilir.</p>
+                        </div>
+
+                        {/* City picker */}
+                        <div>
+                          <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Şehir *</label>
+                          <input
+                            value={addDealerCityFilter}
+                            onChange={(e) => setAddDealerCityFilter(e.target.value)}
+                            placeholder="Şehir ara… (ör. İzmir)"
+                            className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25 mb-2"
+                          />
+                          <div className="max-h-56 overflow-y-auto rounded-xl border border-white/8 bg-white/3 p-1.5 space-y-1">
+                            {(() => {
+                              const q = addDealerCityFilter.trim().toLocaleLowerCase("tr");
+                              const filtered = q
+                                ? TURKEY_CITIES.filter((c) => c.label.toLocaleLowerCase("tr").includes(q) || c.id.includes(q))
+                                : TURKEY_CITIES;
+                              if (filtered.length === 0) {
+                                return <p className="text-[11px] text-white/30 px-2 py-2">Eşleşen şehir yok.</p>;
+                              }
+                              const byRegion: Record<string, typeof TURKEY_CITIES> = {};
+                              for (const c of filtered) (byRegion[c.region] ||= []).push(c);
+                              return TURKEY_REGIONS.map((r) => {
+                                const list = byRegion[r.id];
+                                if (!list || list.length === 0) return null;
+                                return (
+                                  <div key={r.id} className="pt-1 first:pt-0">
+                                    <p className="text-[9px] font-bold text-white/30 uppercase tracking-[0.14em] px-2 pb-1">{r.label}</p>
+                                    <div className="grid grid-cols-2 gap-1">
+                                      {list.map((c) => {
+                                        const selected = addDealerForm.city === c.id;
+                                        const exists = !!dealers[c.id];
+                                        return (
+                                          <button
+                                            key={c.id}
+                                            onClick={() => setAddDealerForm((f) => ({ ...f, city: c.id }))}
+                                            className={`text-left px-2.5 py-1.5 rounded-lg text-[11px] transition-colors flex items-center justify-between ${
+                                              selected
+                                                ? "bg-blue-500/25 text-white border border-blue-400/50"
+                                                : "text-white/60 hover:text-white hover:bg-white/8 border border-transparent"
+                                            }`}
+                                          >
+                                            <span>{c.label}</span>
+                                            {exists && <span className="text-[8px] text-white/30">●</span>}
+                                          </button>
+                                        );
+                                      })}
+                                    </div>
+                                  </div>
+                                );
+                              });
+                            })()}
+                          </div>
+                          {addDealerForm.city && (
+                            <p className="text-[11px] text-white/45 mt-1.5">
+                              Seçilen: <span className="text-white font-semibold">{getCityLabel(addDealerForm.city)}</span>
+                              {" · "}
+                              <span className="text-blue-300">{REGION_BY_ID[getCityRegion(addDealerForm.city) ?? ""]?.label ?? "—"}</span>
+                              {!dealers[addDealerForm.city] && <span className="text-amber-300/70"> · listede yeni oluşturulacak</span>}
+                            </p>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Bayi Adı *</label>
+                          <input
+                            value={addDealerForm.name}
+                            onChange={(e) => setAddDealerForm((f) => ({ ...f, name: e.target.value }))}
+                            placeholder="Bemis Yetkili Bayi …"
+                            className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Adres</label>
+                          <input
+                            value={addDealerForm.address}
+                            onChange={(e) => setAddDealerForm((f) => ({ ...f, address: e.target.value }))}
+                            placeholder="İlçe / Mahalle, Şehir"
+                            className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Telefon</label>
+                          <input
+                            value={addDealerForm.phone}
+                            onChange={(e) => setAddDealerForm((f) => ({ ...f, phone: e.target.value }))}
+                            placeholder="+90 (___) ___ __ __"
+                            className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25"
+                          />
+                        </div>
+
+                        <div className="flex gap-2 pt-1">
+                          <button
+                            onClick={() => setAddDealerOpen(false)}
+                            className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white/40 border border-white/8 hover:border-white/15 transition-colors"
+                          >
+                            İptal
+                          </button>
+                          <button
+                            onClick={() => {
+                              const { city, name, address, phone } = addDealerForm;
+                              if (!city || !name.trim()) return;
+                              setDealers((prev) => {
+                                const next = JSON.parse(JSON.stringify(prev)) as DealersData;
+                                if (!next[city]) next[city] = { dealers: [] };
+                                next[city].dealers.push({ name: name.trim(), address: address.trim(), phone: phone.trim() });
+                                return next;
+                              });
+                              setSelDealerCity(city);
+                              setAddDealerOpen(false);
+                              setAddDealerForm({ city: "", name: "", address: "", phone: "" });
+                              setAddDealerCityFilter("");
+                            }}
+                            disabled={!addDealerForm.city || !addDealerForm.name.trim()}
+                            className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white transition-colors disabled:opacity-40"
+                            style={{ background: "#3B82F6" }}
+                          >
+                            Bayiyi Ekle
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 

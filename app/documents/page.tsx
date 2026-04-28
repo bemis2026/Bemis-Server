@@ -28,6 +28,7 @@ type Document = {
   lang: string;
   date: string;
   visible: boolean;
+  coverUrl?: string;
 };
 
 const CATEGORIES: { id: string; label: string }[] = [
@@ -282,31 +283,59 @@ function DocGrid({ docs, d, surface, border, textPrimary, textMuted, textFaint }
             className="rounded-2xl overflow-hidden flex flex-col"
             style={{ background: surface, border: `1px solid ${border}` }}
           >
-            {/* Top colored band */}
-            <div className="flex items-center gap-3 px-4 pt-4 pb-3">
-              <div
-                className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: `${accent}15`, border: `1px solid ${accent}25` }}
-              >
-                {fileIcon(doc.filename || "file.pdf", accent)}
-              </div>
-              <div className="min-w-0">
-                <div className="flex items-center gap-1.5 mb-0.5">
-                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md"
-                    style={{ background: `${accent}15`, color: accent }}>
+            {/* Cover image (if any) */}
+            {doc.coverUrl && (
+              <div className="relative w-full aspect-[16/10] overflow-hidden" style={{ background: d ? "rgba(0,0,0,0.4)" : "rgba(0,0,0,0.05)" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={doc.coverUrl}
+                  alt={doc.title}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="absolute top-2 left-2 flex items-center gap-1.5">
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-md"
+                    style={{ background: accent, color: "#fff" }}>
                     {catLabel}
                   </span>
                   {doc.lang && (
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md"
-                      style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)", color: textFaint }}>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-md"
+                      style={{ background: "rgba(0,0,0,0.55)", color: "#fff", backdropFilter: "blur(4px)" }}>
                       {doc.lang.toUpperCase()}
                     </span>
                   )}
                 </div>
               </div>
-            </div>
+            )}
 
-            <div className="px-4 pb-4 flex flex-col flex-1">
+            {/* Header (icon + tags) — only when no cover */}
+            {!doc.coverUrl && (
+              <div className="flex items-center gap-3 px-4 pt-4 pb-3">
+                <div
+                  className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: `${accent}15`, border: `1px solid ${accent}25` }}
+                >
+                  {fileIcon(doc.filename || "file.pdf", accent)}
+                </div>
+                <div className="min-w-0">
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md"
+                      style={{ background: `${accent}15`, color: accent }}>
+                      {catLabel}
+                    </span>
+                    {doc.lang && (
+                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md"
+                        style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)", color: textFaint }}>
+                        {doc.lang.toUpperCase()}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <div className={`px-4 pb-4 flex flex-col flex-1 ${doc.coverUrl ? "pt-4" : ""}`}>
               <h3 className="text-sm font-bold leading-snug mb-1" style={{ color: textPrimary }}>
                 {doc.title}
               </h3>

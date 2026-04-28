@@ -7,21 +7,24 @@ import { RiStoreLine, RiMapPin2Line } from "react-icons/ri";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import E from "./E";
+import { CITY_BY_ID } from "../../lib/turkeyCities";
 
 const BLUE = "#3B82F6";
 
 type Dealer = { name: string; address: string; phone: string };
 type DealersData = Record<string, { dealers: Dealer[] }>;
 
-// Region centers calibrated to the 1327×621 Turkey map image (7 coğrafi bölge)
+// Region centers calibrated to the 1327×621 Turkey map image (7 coğrafi bölge).
+// City→region membership comes from lib/turkeyCities so adding a city in admin
+// auto-places it in the right region without code changes.
 const REGIONS = [
-  { id: "marmara",    label: "Marmara",          cx: 222,  cy: 170, highlight: true,  cities: ["istanbul", "bursa"] },
-  { id: "ege",        label: "Ege",               cx: 148,  cy: 355, highlight: false, cities: ["izmir"] },
-  { id: "akdeniz",    label: "Akdeniz",           cx: 500,  cy: 488, highlight: false, cities: ["antalya", "mersin", "adana"] },
-  { id: "ic_anadolu", label: "İç Anadolu",        cx: 555,  cy: 295, highlight: false, cities: ["ankara", "konya", "kayseri"] },
-  { id: "karadeniz",  label: "Karadeniz",         cx: 740,  cy: 108, highlight: false, cities: ["samsun", "trabzon"] },
-  { id: "dogu",       label: "Doğu Anadolu",      cx: 1048, cy: 258, highlight: false, cities: ["erzurum"] },
-  { id: "guneydogu",  label: "Güneydoğu",         cx: 895,  cy: 435, highlight: false, cities: ["gaziantep", "diyarbakir"] },
+  { id: "marmara",    label: "Marmara",          cx: 222,  cy: 170, highlight: true  },
+  { id: "ege",        label: "Ege",               cx: 148,  cy: 355, highlight: false },
+  { id: "akdeniz",    label: "Akdeniz",           cx: 500,  cy: 488, highlight: false },
+  { id: "ic_anadolu", label: "İç Anadolu",        cx: 555,  cy: 295, highlight: false },
+  { id: "karadeniz",  label: "Karadeniz",         cx: 740,  cy: 108, highlight: false },
+  { id: "dogu",       label: "Doğu Anadolu",      cx: 1048, cy: 258, highlight: false },
+  { id: "guneydogu",  label: "Güneydoğu",         cx: 895,  cy: 435, highlight: false },
 ];
 
 export default function DealerNetwork() {
@@ -46,11 +49,18 @@ export default function DealerNetwork() {
     document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Group cities present in dealers data by region (via TURKEY_CITIES map).
+  // Cities with unknown region are ignored on the map but stay in admin data.
+  const citiesByRegion: Record<string, string[]> = {};
+  for (const cityId of Object.keys(dealers)) {
+    const r = CITY_BY_ID[cityId]?.region;
+    if (r) (citiesByRegion[r] ||= []).push(cityId);
+  }
+
   const activeCity = hoveredCity || selectedCity;
   const activeRegion = REGIONS.find((r) => r.id === activeCity);
-  const activeDealers = activeRegion
-    ? activeRegion.cities.flatMap((cityId) => dealers[cityId]?.dealers ?? [])
-    : [];
+  const activeRegionCities = activeRegion ? (citiesByRegion[activeRegion.id] ?? []) : [];
+  const activeDealers = activeRegionCities.flatMap((cityId) => dealers[cityId]?.dealers ?? []);
   const activeCityLabel = activeRegion?.label;
 
   const handleCityEnter = (region: typeof REGIONS[0]) => {
@@ -269,7 +279,8 @@ export default function DealerNetwork() {
                   style={{ display: "block" }}
                 >
                   {REGIONS.map((region, i) => {
-                    const hasDealers = region.cities.some((cid) => (dealers[cid]?.dealers?.length ?? 0) > 0);
+                    const regionCities = citiesByRegion[region.id] ?? [];
+                    const hasDealers = regionCities.some((cid) => (dealers[cid]?.dealers?.length ?? 0) > 0);
                     const isActive = activeCity === region.id;
                     const isHighlight = region.highlight;
 
