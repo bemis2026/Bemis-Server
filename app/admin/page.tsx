@@ -2858,23 +2858,62 @@ export default function AdminPage() {
                       <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider mb-1">Bayi Listesi</p>
                       <p className="text-xs text-white/35">Bayi eklerken şehir otomatik olarak doğru bölgeye yerleştirilir.</p>
                     </div>
-                    <button
-                      onClick={() => {
-                        const defaultCity = dealers[selDealerCity] ? selDealerCity : (Object.keys(dealers)[0] ?? "");
-                        setAddDealerForm({ ...emptyDealerForm, city: defaultCity });
-                        setAddDealerCityFilter("");
-                        setAddDealerOpen(true);
-                      }}
-                      className="flex-shrink-0 flex items-center gap-2 text-sm font-bold px-5 py-2.5 rounded-xl transition-all"
-                      style={{
-                        background: "#3B82F6",
-                        border: "1px solid rgba(59,130,246,0.55)",
-                        color: "#fff",
-                      }}
-                      title="Yeni bayi ekle"
-                    >
-                      <HiOutlinePlus size={16} /> Bayi Ekle
-                    </button>
+                    <div className="flex items-center gap-2 flex-shrink-0">
+                      {Object.keys(dealers).length > 0 && (
+                        <button
+                          onClick={async () => {
+                            const total = Object.values(dealers).reduce((acc, c) => acc + (c.dealers?.length ?? 0), 0);
+                            if (!window.confirm(`TÜM bayiler silinecek (${total} bayi, ${Object.keys(dealers).length} şehir) ve hemen kaydedilecek. Devam edilsin mi?`)) return;
+                            setDealers({});
+                            setDealersSaving(true);
+                            try {
+                              const res = await fetch("/api/admin/dealers", {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({}),
+                              });
+                              if (res.ok) {
+                                dealersCleanRef.current = {};
+                                setDealersDirty(false);
+                                showToast("ok", "Tüm bayiler temizlendi.");
+                                setPreviewKey((k) => k + 1);
+                              } else {
+                                showToast("err", "Silme başarısız.");
+                              }
+                            } catch {
+                              showToast("err", "Ağ hatası.");
+                            }
+                            setDealersSaving(false);
+                          }}
+                          className="flex items-center gap-1.5 text-xs font-semibold px-3 py-2.5 rounded-xl transition-all"
+                          style={{
+                            background: "rgba(239,68,68,0.10)",
+                            border: "1px solid rgba(239,68,68,0.32)",
+                            color: "#FCA5A5",
+                          }}
+                          title="Tüm bayileri sil ve hemen kaydet (demo verileri temizlemek için)"
+                        >
+                          <HiOutlineTrash size={13} /> Tümünü Temizle
+                        </button>
+                      )}
+                      <button
+                        onClick={() => {
+                          const defaultCity = dealers[selDealerCity] ? selDealerCity : (Object.keys(dealers)[0] ?? "");
+                          setAddDealerForm({ ...emptyDealerForm, city: defaultCity });
+                          setAddDealerCityFilter("");
+                          setAddDealerOpen(true);
+                        }}
+                        className="flex items-center gap-2 text-sm font-bold px-5 py-2.5 rounded-xl transition-all"
+                        style={{
+                          background: "#3B82F6",
+                          border: "1px solid rgba(59,130,246,0.55)",
+                          color: "#fff",
+                        }}
+                        title="Yeni bayi ekle"
+                      >
+                        <HiOutlinePlus size={16} /> Bayi Ekle
+                      </button>
+                    </div>
                   </div>
 
                   <div className="flex gap-4">
