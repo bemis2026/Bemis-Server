@@ -133,7 +133,7 @@ type ContentData = {
   featuredSection?: { sectionLabel: string; heading: string; subheading: string; ctaLabel: string };
   calculator?: { sectionLabel: string; heading: string; subheading: string; tabCharge: string; tabSavings: string; chargeSimLabel: string };
   smartCharger?: { sectionLabel: string; heading: string; subheading: string; ocppBadge: string; ctaLabel: string; ctaHref: string; appStoreHref: string; playStoreHref: string; features: { title: string; desc: string }[] };
-  productShowcase?: { badge: string; name: string; tagline: string; description: string; image: string; specs: { label: string; value: string }[]; ctaPrimary: string; ctaHref: string; ctaSecondary: string; ctaSecondaryHref: string };
+  productShowcase?: { badge: string; name: string; tagline: string; description: string; image: string; images?: string[]; specs: { label: string; value: string }[]; ctaPrimary: string; ctaHref: string; ctaSecondary: string; ctaSecondaryHref: string };
   sectionBgs?: Record<string, string>;
   logos?: { dark: string; light: string };
   ogImage?: string;
@@ -222,6 +222,7 @@ export default function AdminPage() {
   const sectionBgRef = useRef<HTMLInputElement>(null);
   const [showcaseImgLoading, setShowcaseImgLoading] = useState(false);
   const showcaseImgRef = useRef<HTMLInputElement>(null);
+  const [showcaseUrlInput, setShowcaseUrlInput] = useState("");
   const [catSliderImgLoading, setCatSliderImgLoading] = useState<string | null>(null);
   const [catSliderImgTarget, setCatSliderImgTarget] = useState<string>("");
   const catSliderImgRef = useRef<HTMLInputElement>(null);
@@ -748,17 +749,31 @@ export default function AdminPage() {
   };
 
   const handleShowcaseImgUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
+    const files = Array.from(e.target.files ?? []);
+    if (files.length === 0) return;
     setShowcaseImgLoading(true);
-    const fd = new FormData();
-    fd.append("file", file);
-    fd.append("folder", "vitrin");
-    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
-    if (res.ok) {
-      const { url } = await res.json();
-      updateContent(["productShowcase", "image"], url);
-      showToast("ok", "Ürün görseli yüklendi.");
+    const uploaded: string[] = [];
+    for (const file of files) {
+      const fd = new FormData();
+      fd.append("file", file);
+      fd.append("folder", "vitrin");
+      const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+      if (res.ok) {
+        const { url } = (await res.json()) as { url?: string };
+        if (url) uploaded.push(url);
+      }
+    }
+    if (uploaded.length > 0) {
+      setContent((prev) => {
+        if (!prev) return prev;
+        const ps = prev.productShowcase;
+        if (!ps) return prev;
+        const existing: string[] = (ps.images && ps.images.length > 0)
+          ? ps.images
+          : (ps.image ? [ps.image] : []);
+        return { ...prev, productShowcase: { ...ps, images: [...existing, ...uploaded] } };
+      });
+      showToast("ok", uploaded.length === 1 ? "Görsel eklendi." : `${uploaded.length} görsel eklendi.`);
     } else {
       showToast("err", "Yükleme başarısız.");
     }
@@ -2680,28 +2695,139 @@ export default function AdminPage() {
                     <Field label="Ürün Adı" value={content.productShowcase?.name ?? ""} onChange={(v) => updateContent(["productShowcase","name"], v)} />
                     <Field label="Açıklama Paragrafı" value={content.productShowcase?.description ?? ""} onChange={(v) => updateContent(["productShowcase","description"], v)} multiline />
 
-                    {/* Product image */}
-                    <div className="pt-2 border-t border-white/6 space-y-2">
-                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Ürün Görseli</p>
-                      {content.productShowcase?.image && (
-                        <div className="relative rounded-xl overflow-hidden" style={{ height: 140 }}>
-                          <img src={content.productShowcase.image} alt="Ürün" className="w-full h-full object-contain bg-white/5" />
+                    {/* Product gallery — multi-image with reorder/delete */}
+                    {(() => {
+                      const ps = content.productShowcase;
+                      const images: string[] = (ps?.images && ps.images.length > 0)
+                        ? ps.images
+                        : (ps?.image ? [ps.image] : []);
+                      const setImages = (next: string[]) => {
+                        setContent((prev) => {
+                          if (!prev) return prev;
+                          const cur = prev.productShowcase;
+                          if (!cur) return prev;
+                          return { ...prev, productShowcase: { ...cur, images: next } };
+                        });
+                      };
+                      const moveImage = (i: number, dir: -1 | 1) => {
+                        const j = i + dir;
+                        if (j < 0 || j >= images.length) return;
+                        const next = [...images];
+                        [next[i], next[j]] = [next[j], next[i]];
+                        setImages(next);
+                      };
+                      const removeImage = (i: number) => setImages(images.filter((_, k) => k !== i));
+                      const addUrl = () => {
+                        const v = showcaseUrlInput.trim();
+                        if (!v) return;
+                        setImages([...images, v]);
+                        setShowcaseUrlInput("");
+                      };
+
+                      return (
+                        <div className="pt-2 border-t border-white/6 space-y-3">
+                          <div className="flex items-center justify-between">
+                            <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Ürün Galerisi</p>
+                            <span className="text-[10px] text-white/30">{images.length} görsel · sürükleyerek/oklarla sırala</span>
+                          </div>
+
+                          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                            {images.map((url, i) => (
+                              <div
+                                key={`${i}-${url}`}
+                                className="relative group rounded-xl overflow-hidden border border-white/8"
+                                style={{ aspectRatio: "3/4", background: "rgba(255,255,255,0.04)" }}
+                              >
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img src={url} alt={`Görsel ${i + 1}`} className="w-full h-full object-cover" />
+                                <span className="absolute top-1.5 left-1.5 text-[9px] font-bold px-1.5 py-0.5 rounded text-white" style={{ background: "rgba(0,0,0,0.7)" }}>
+                                  #{i + 1}
+                                </span>
+                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2"
+                                  style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(2px)" }}>
+                                  <div className="flex gap-1.5">
+                                    <button
+                                      onClick={() => moveImage(i, -1)}
+                                      disabled={i === 0}
+                                      className="w-7 h-7 rounded-md flex items-center justify-center text-white text-xs disabled:opacity-30"
+                                      style={{ background: "rgba(255,255,255,0.18)", border: "1px solid rgba(255,255,255,0.25)" }}
+                                      title="Sola taşı"
+                                    >
+                                      ←
+                                    </button>
+                                    <button
+                                      onClick={() => moveImage(i, +1)}
+                                      disabled={i === images.length - 1}
+                                      className="w-7 h-7 rounded-md flex items-center justify-center text-white text-xs disabled:opacity-30"
+                                      style={{ background: "rgba(255,255,255,0.18)", border: "1px solid rgba(255,255,255,0.25)" }}
+                                      title="Sağa taşı"
+                                    >
+                                      →
+                                    </button>
+                                  </div>
+                                  <button
+                                    onClick={() => removeImage(i)}
+                                    className="text-[11px] font-bold text-red-300 hover:text-red-200 px-2.5 py-1 rounded-md"
+                                    style={{ background: "rgba(239,68,68,0.18)", border: "1px solid rgba(239,68,68,0.38)" }}
+                                  >
+                                    Sil
+                                  </button>
+                                </div>
+                              </div>
+                            ))}
+
+                            {/* Upload tile */}
+                            <label
+                              className="flex flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed cursor-pointer transition-colors"
+                              style={{
+                                aspectRatio: "3/4",
+                                borderColor: "rgba(59,130,246,0.32)",
+                                background: "rgba(59,130,246,0.06)",
+                                color: "#93C5FD",
+                              }}
+                            >
+                              {showcaseImgLoading ? (
+                                <div className="w-5 h-5 rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
+                              ) : (
+                                <RiImageAddLine size={22} />
+                              )}
+                              <span className="text-[11px] font-semibold text-center px-2">
+                                {showcaseImgLoading ? "Yükleniyor…" : (images.length === 0 ? "İlk Görseli Yükle" : "Görsel Ekle")}
+                              </span>
+                              <span className="text-[9px] text-white/30">Çoklu seçim</span>
+                              <input
+                                ref={showcaseImgRef}
+                                type="file"
+                                accept="image/*"
+                                multiple
+                                className="hidden"
+                                onChange={handleShowcaseImgUpload}
+                                disabled={showcaseImgLoading}
+                              />
+                            </label>
+                          </div>
+
+                          {/* URL ile ekleme */}
+                          <div className="flex gap-2">
+                            <input
+                              value={showcaseUrlInput}
+                              onChange={(e) => setShowcaseUrlInput(e.target.value)}
+                              onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); addUrl(); } }}
+                              placeholder="URL ile ekle (https://…)"
+                              className="flex-1 bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25"
+                            />
+                            <button
+                              onClick={addUrl}
+                              disabled={!showcaseUrlInput.trim()}
+                              className="px-4 py-2.5 rounded-xl text-xs font-bold transition-colors disabled:opacity-40"
+                              style={{ background: "rgba(59,130,246,0.18)", border: "1px solid rgba(59,130,246,0.36)", color: "#93C5FD" }}
+                            >
+                              Ekle
+                            </button>
+                          </div>
                         </div>
-                      )}
-                      <div className="flex gap-2">
-                        <label
-                          className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl cursor-pointer text-xs font-semibold transition-colors flex-shrink-0"
-                          style={{ background: "rgba(59,130,246,0.14)", border: "1px solid rgba(59,130,246,0.28)", color: "#93C5FD" }}
-                        >
-                          <RiImageAddLine size={14} />
-                          {showcaseImgLoading ? "Yükleniyor…" : "Görsel Yükle"}
-                          <input ref={showcaseImgRef} type="file" accept="image/*" className="hidden" onChange={handleShowcaseImgUpload} disabled={showcaseImgLoading} />
-                        </label>
-                        <div className="flex-1">
-                          <Field label="veya URL girin" value={content.productShowcase?.image ?? ""} onChange={(v) => updateContent(["productShowcase","image"], v)} />
-                        </div>
-                      </div>
-                    </div>
+                      );
+                    })()}
 
                     {/* CTA buttons */}
                     <div className="pt-2 border-t border-white/6 space-y-3">

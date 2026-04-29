@@ -114,7 +114,9 @@ export type SiteContent = {
     name: string;
     tagline: string;
     description: string;
+    /** Legacy single image — kept for backwards compatibility. images[] is preferred. */
     image: string;
+    images?: string[];
     specs: ShowcaseSpec[];
     ctaPrimary: string;
     ctaHref: string;

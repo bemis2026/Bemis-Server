@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, AnimatePresence, type PanInfo } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
   RiShieldCheckLine,
@@ -13,6 +13,8 @@ import {
   RiSmartphoneLine,
   RiCalendarCheckLine,
   RiTeamLine,
+  RiArrowLeftSLine,
+  RiArrowRightSLine,
 } from "react-icons/ri";
 import Image from "next/image";
 import { useTheme } from "../context/ThemeContext";
@@ -38,6 +40,40 @@ export default function ProductShowcase() {
   const specBorder = d ? "rgba(255,255,255,0.09)" : "rgba(0,0,0,0.07)";
 
   const specs = ps?.specs ?? [];
+
+  // Build gallery list — prefer images[]; fall back to legacy `image` field.
+  const galleryImages: string[] = (ps?.images && ps.images.length > 0)
+    ? ps.images.filter(Boolean)
+    : (ps?.image ? [ps.image] : []);
+  const galleryCount = galleryImages.length;
+
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+
+  useEffect(() => {
+    if (index >= galleryCount && galleryCount > 0) setIndex(0);
+  }, [galleryCount, index]);
+
+  const goTo = (next: number) => {
+    if (galleryCount === 0) return;
+    const wrapped = ((next % galleryCount) + galleryCount) % galleryCount;
+    setDirection(wrapped > index ? 1 : -1);
+    setIndex(wrapped);
+  };
+  const goPrev = () => goTo(index - 1);
+  const goNext = () => goTo(index + 1);
+
+  const handleDragEnd = (_e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    const SWIPE = 60;
+    if (info.offset.x < -SWIPE) goNext();
+    else if (info.offset.x > SWIPE) goPrev();
+  };
+
+  const slideVariants = {
+    enter:  (dir: number) => ({ x: dir > 0 ?  60 : -60, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit:   (dir: number) => ({ x: dir > 0 ? -60 :  60, opacity: 0 }),
+  };
 
   return (
     <section id="productshowcase" className="relative overflow-hidden py-16 lg:py-24" style={{ background: bg }}>
@@ -73,14 +109,75 @@ export default function ProductShowcase() {
                   : `0 24px 64px rgba(59,130,246,0.12), 0 0 0 1px rgba(59,130,246,0.08)`,
               }}
             >
-              {ps?.image ? (
-                <img
-                  src={ps.image}
-                  alt={ps?.name ?? "Ürün"}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
+              {galleryCount > 0 ? (
+                <div className="relative w-full h-full group select-none">
+                  <AnimatePresence custom={direction} initial={false} mode="popLayout">
+                    <motion.img
+                      key={`${index}-${galleryImages[index]}`}
+                      src={galleryImages[index]}
+                      alt={ps?.name ?? "Ürün"}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      draggable={false}
+                      custom={direction}
+                      variants={slideVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      transition={{ x: { type: "spring", stiffness: 320, damping: 32 }, opacity: { duration: 0.18 } }}
+                      drag={galleryCount > 1 ? "x" : false}
+                      dragConstraints={{ left: 0, right: 0 }}
+                      dragElastic={0.18}
+                      onDragEnd={handleDragEnd}
+                      style={{ touchAction: galleryCount > 1 ? "pan-y" : "auto" }}
+                    />
+                  </AnimatePresence>
+
+                  {galleryCount > 1 && (
+                    <>
+                      {/* Prev/Next — visible on hover (desktop), always on touch */}
+                      <button
+                        type="button"
+                        onClick={(e) => { e.stopPropagation(); goPrev(); }}
+                        aria-label="Önceki görsel"
+                        className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100 focus:opacity-100"
+                        style={{ background: "rgba(8,12,24,0.78)", color: "#fff", border: "1px solid rgba(255,255,255,0.14)", backdropFilter: "blur(10px)" }}
+                      >
+                        <RiArrowLeftSLine size={20} />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={(e) => { e.stopPropagation(); goNext(); }}
+                        aria-label="Sonraki görsel"
+                        className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100 focus:opacity-100"
+                        style={{ background: "rgba(8,12,24,0.78)", color: "#fff", border: "1px solid rgba(255,255,255,0.14)", backdropFilter: "blur(10px)" }}
+                      >
+                        <RiArrowRightSLine size={20} />
+                      </button>
+
+                      {/* Dots */}
+                      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-full"
+                        style={{ background: "rgba(8,12,24,0.55)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.10)" }}
+                      >
+                        {galleryImages.map((_, i) => (
+                          <button
+                            key={i}
+                            type="button"
+                            onClick={(e) => { e.stopPropagation(); goTo(i); }}
+                            aria-label={`Görsel ${i + 1}`}
+                            className="rounded-full transition-all"
+                            style={{
+                              width: i === index ? 18 : 6,
+                              height: 6,
+                              background: i === index ? ACCENT : "rgba(255,255,255,0.45)",
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </div>
               ) : (
                 <div className="w-full h-full flex items-center justify-center">
                   <div className="text-center">
