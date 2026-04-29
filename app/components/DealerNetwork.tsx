@@ -74,11 +74,15 @@ export default function DealerNetwork() {
   const activeDealers = activeRegionCities.flatMap((cityId) => dealers[cityId]?.dealers ?? []);
   const activeCityLabel = activeRegion?.label;
 
-  const handleCityEnter = (region: typeof REGIONS[0]) => {
+  // Touch devices synthesize mouseenter/mouseleave around tap, which would
+  // flicker hoveredCity on/off. Gate hover state on real pointing devices.
+  const handleCityEnter = (region: typeof REGIONS[0], e: React.PointerEvent) => {
+    if (e.pointerType === "touch") return;
     setHoveredCity(region.id);
   };
 
-  const handleCityLeave = () => {
+  const handleCityLeave = (e: React.PointerEvent) => {
+    if (e.pointerType === "touch") return;
     setHoveredCity(null);
   };
 
@@ -349,8 +353,8 @@ export default function DealerNetwork() {
                         animate={inView ? { scale: 1, opacity: 1 } : {}}
                         transition={{ duration: 0.3, delay: 0.5 + i * 0.06 }}
                         style={{ cursor: "pointer" }}
-                        onMouseEnter={() => handleCityEnter(region)}
-                        onMouseLeave={handleCityLeave}
+                        onPointerEnter={(e) => handleCityEnter(region, e)}
+                        onPointerLeave={(e) => handleCityLeave(e)}
                         onClick={(e) => handleCityClick(region, e as unknown as React.MouseEvent)}
                       >
                         {/* Pulse ring */}

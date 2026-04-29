@@ -64,6 +64,7 @@ import {
   HiOutlineStar,
   HiOutlineLightningBolt,
   HiOutlineOfficeBuilding,
+  HiOutlineMail,
   HiDotsVertical,
 } from "react-icons/hi";
 import { RiImageAddLine } from "react-icons/ri";
@@ -72,6 +73,7 @@ import DocumentsPanel from "./panels/DocumentsPanel";
 import ChangelogPanel from "./panels/ChangelogPanel";
 import AnalyticsPanel from "./panels/AnalyticsPanel";
 import B2BPanel from "./panels/B2BPanel";
+import MessagesPanel from "./panels/MessagesPanel";
 import {
   TURKEY_CITIES,
   TURKEY_REGIONS,
@@ -157,7 +159,7 @@ type DnaItem  = { title: string; desc: string };
 type ReviewItem = { platform: string; platformColor: string; rating: number; author: string; date: string; product: string; text: string };
 type HeroLayoutKey = "logo" | "text" | "button";
 
-type Tab = "hero" | "dna" | "stats" | "products-section" | "smartcharger" | "productshowcase" | "featured" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b";
+type Tab = "hero" | "dna" | "stats" | "products-section" | "smartcharger" | "productshowcase" | "featured" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b" | "messages";
 
 const ADMIN_DEFAULT_SECTION_ORDER = [
   "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "reviews", "dealer", "b2bcta", "calculator"
@@ -293,6 +295,21 @@ export default function AdminPage() {
     website: "", workingHours: "", mapUrl: "", notes: "",
   };
   const [addDealerForm, setAddDealerForm] = useState<AddDealerForm>(emptyDealerForm);
+
+  // Soft validators — accept empty (field is optional unless marked *).
+  const isValidEmail = (v: string) => v.trim() === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+  const isValidUrl = (v: string) => {
+    const t = v.trim();
+    if (t === "") return true;
+    try { new URL(t.match(/^https?:\/\//) ? t : `https://${t}`); return true; } catch { return false; }
+  };
+  // Phones: allow +, digits, spaces, parens, dashes; require at least 7 digits when present.
+  const isValidPhone = (v: string) => {
+    const t = v.trim();
+    if (t === "") return true;
+    if (!/^[+\d\s()\-./]+$/.test(t)) return false;
+    return (t.match(/\d/g) ?? []).length >= 7;
+  };
 
   // Hero visual layout editor
   const canvasRef = useRef<HTMLDivElement>(null);
@@ -1160,6 +1177,7 @@ export default function AdminPage() {
   const FIXED_SECTION_ITEMS: { id: Tab; label: string; icon: React.ElementType }[] = [
     { id: "contact",    label: "İletişim",   icon: HiOutlinePhone          },
     { id: "documents",  label: "Dökümanlar", icon: HiOutlineDocumentText   },
+    { id: "messages",   label: "Mesajlar",   icon: HiOutlineMail           },
   ];
 
   const TAB_GROUPS: { label: string; items: { id: Tab; label: string; icon: React.ElementType }[] }[] = [
@@ -2989,30 +3007,42 @@ export default function AdminPage() {
                                       placeholder="Ad Soyad"
                                       className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
                                   </div>
-                                  <div>
-                                    <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Telefon</label>
-                                    <input value={dealer.phone} onChange={(e) => updateDealer(idx, "phone", e.target.value)}
-                                      placeholder="+90 (___) ___ __ __"
-                                      className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
-                                  </div>
-                                  <div>
-                                    <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">E-posta</label>
-                                    <input type="email" value={dealer.email ?? ""} onChange={(e) => updateDealer(idx, "email", e.target.value)}
-                                      placeholder="bayi@ornek.com"
-                                      className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
-                                  </div>
-                                  <div>
-                                    <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">WhatsApp</label>
-                                    <input value={dealer.whatsapp ?? ""} onChange={(e) => updateDealer(idx, "whatsapp", e.target.value)}
-                                      placeholder="+90 (___) ___ __ __"
-                                      className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
-                                  </div>
-                                  <div>
-                                    <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Web Sitesi</label>
-                                    <input type="url" value={dealer.website ?? ""} onChange={(e) => updateDealer(idx, "website", e.target.value)}
-                                      placeholder="https://"
-                                      className="w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
-                                  </div>
+                                  {(() => {
+                                    const inlineCls = (ok: boolean) =>
+                                      `w-full bg-white/5 border rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none ${ok ? "border-white/8 focus:border-white/22" : "border-red-400/55"}`;
+                                    const phoneOk = isValidPhone(dealer.phone);
+                                    const emailOk = isValidEmail(dealer.email ?? "");
+                                    const waOk    = isValidPhone(dealer.whatsapp ?? "");
+                                    const webOk   = isValidUrl(dealer.website ?? "");
+                                    return (
+                                      <>
+                                        <div>
+                                          <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Telefon</label>
+                                          <input value={dealer.phone} onChange={(e) => updateDealer(idx, "phone", e.target.value)}
+                                            placeholder="+90 (___) ___ __ __"
+                                            className={inlineCls(phoneOk)} />
+                                        </div>
+                                        <div>
+                                          <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">E-posta</label>
+                                          <input type="email" value={dealer.email ?? ""} onChange={(e) => updateDealer(idx, "email", e.target.value)}
+                                            placeholder="bayi@ornek.com"
+                                            className={inlineCls(emailOk)} />
+                                        </div>
+                                        <div>
+                                          <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">WhatsApp</label>
+                                          <input value={dealer.whatsapp ?? ""} onChange={(e) => updateDealer(idx, "whatsapp", e.target.value)}
+                                            placeholder="+90 (___) ___ __ __"
+                                            className={inlineCls(waOk)} />
+                                        </div>
+                                        <div>
+                                          <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Web Sitesi</label>
+                                          <input type="url" value={dealer.website ?? ""} onChange={(e) => updateDealer(idx, "website", e.target.value)}
+                                            placeholder="https://"
+                                            className={inlineCls(webOk)} />
+                                        </div>
+                                      </>
+                                    );
+                                  })()}
                                 </div>
                                 <div>
                                   <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Adres</label>
@@ -3145,44 +3175,60 @@ export default function AdminPage() {
 
                         <p className="text-[10px] font-bold text-white/35 uppercase tracking-[0.14em] pt-2">İletişim</p>
                         <div className="grid grid-cols-2 gap-3">
-                          <div>
-                            <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Telefon</label>
-                            <input
-                              value={addDealerForm.phone}
-                              onChange={(e) => setAddDealerForm((f) => ({ ...f, phone: e.target.value }))}
-                              placeholder="+90 (___) ___ __ __"
-                              className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25"
-                            />
-                          </div>
-                          <div>
-                            <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">E-posta</label>
-                            <input
-                              type="email"
-                              value={addDealerForm.email}
-                              onChange={(e) => setAddDealerForm((f) => ({ ...f, email: e.target.value }))}
-                              placeholder="bayi@ornek.com"
-                              className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25"
-                            />
-                          </div>
-                          <div>
-                            <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">WhatsApp</label>
-                            <input
-                              value={addDealerForm.whatsapp}
-                              onChange={(e) => setAddDealerForm((f) => ({ ...f, whatsapp: e.target.value }))}
-                              placeholder="+90 (___) ___ __ __"
-                              className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25"
-                            />
-                          </div>
-                          <div>
-                            <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Web Sitesi</label>
-                            <input
-                              type="url"
-                              value={addDealerForm.website}
-                              onChange={(e) => setAddDealerForm((f) => ({ ...f, website: e.target.value }))}
-                              placeholder="https://"
-                              className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25"
-                            />
-                          </div>
+                          {(() => {
+                            const phoneOk = isValidPhone(addDealerForm.phone);
+                            const emailOk = isValidEmail(addDealerForm.email);
+                            const waOk    = isValidPhone(addDealerForm.whatsapp);
+                            const webOk   = isValidUrl(addDealerForm.website);
+                            const errCls = "border-red-400/55";
+                            const baseCls = "w-full bg-white/5 border rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none";
+                            return (
+                              <>
+                                <div>
+                                  <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Telefon</label>
+                                  <input
+                                    value={addDealerForm.phone}
+                                    onChange={(e) => setAddDealerForm((f) => ({ ...f, phone: e.target.value }))}
+                                    placeholder="+90 (___) ___ __ __"
+                                    className={`${baseCls} ${phoneOk ? "border-white/10 focus:border-white/25" : errCls}`}
+                                  />
+                                  {!phoneOk && <p className="text-[11px] text-red-400/80 mt-1">Geçerli bir telefon girin (en az 7 rakam).</p>}
+                                </div>
+                                <div>
+                                  <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">E-posta</label>
+                                  <input
+                                    type="email"
+                                    value={addDealerForm.email}
+                                    onChange={(e) => setAddDealerForm((f) => ({ ...f, email: e.target.value }))}
+                                    placeholder="bayi@ornek.com"
+                                    className={`${baseCls} ${emailOk ? "border-white/10 focus:border-white/25" : errCls}`}
+                                  />
+                                  {!emailOk && <p className="text-[11px] text-red-400/80 mt-1">Geçerli bir e-posta adresi girin.</p>}
+                                </div>
+                                <div>
+                                  <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">WhatsApp</label>
+                                  <input
+                                    value={addDealerForm.whatsapp}
+                                    onChange={(e) => setAddDealerForm((f) => ({ ...f, whatsapp: e.target.value }))}
+                                    placeholder="+90 (___) ___ __ __"
+                                    className={`${baseCls} ${waOk ? "border-white/10 focus:border-white/25" : errCls}`}
+                                  />
+                                  {!waOk && <p className="text-[11px] text-red-400/80 mt-1">Geçerli bir telefon girin.</p>}
+                                </div>
+                                <div>
+                                  <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Web Sitesi</label>
+                                  <input
+                                    type="url"
+                                    value={addDealerForm.website}
+                                    onChange={(e) => setAddDealerForm((f) => ({ ...f, website: e.target.value }))}
+                                    placeholder="https://"
+                                    className={`${baseCls} ${webOk ? "border-white/10 focus:border-white/25" : errCls}`}
+                                  />
+                                  {!webOk && <p className="text-[11px] text-red-400/80 mt-1">Geçerli bir URL girin (https://…).</p>}
+                                </div>
+                              </>
+                            );
+                          })()}
                         </div>
 
                         <p className="text-[10px] font-bold text-white/35 uppercase tracking-[0.14em] pt-2">Konum & Saatler</p>
@@ -3202,8 +3248,13 @@ export default function AdminPage() {
                             value={addDealerForm.mapUrl}
                             onChange={(e) => setAddDealerForm((f) => ({ ...f, mapUrl: e.target.value }))}
                             placeholder="https://maps.google.com/…"
-                            className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/25"
+                            className={`w-full bg-white/5 border rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none ${
+                              isValidUrl(addDealerForm.mapUrl) ? "border-white/10 focus:border-white/25" : "border-red-400/55"
+                            }`}
                           />
+                          {!isValidUrl(addDealerForm.mapUrl) && (
+                            <p className="text-[11px] text-red-400/80 mt-1">Geçerli bir URL girin.</p>
+                          )}
                         </div>
                         <div>
                           <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Çalışma Saatleri</label>
@@ -3264,7 +3315,15 @@ export default function AdminPage() {
                               setAddDealerForm(emptyDealerForm);
                               setAddDealerCityFilter("");
                             }}
-                            disabled={!addDealerForm.city || !addDealerForm.name.trim()}
+                            disabled={
+                              !addDealerForm.city ||
+                              !addDealerForm.name.trim() ||
+                              !isValidEmail(addDealerForm.email) ||
+                              !isValidPhone(addDealerForm.phone) ||
+                              !isValidPhone(addDealerForm.whatsapp) ||
+                              !isValidUrl(addDealerForm.website) ||
+                              !isValidUrl(addDealerForm.mapUrl)
+                            }
                             className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white transition-colors disabled:opacity-40"
                             style={{ background: "#3B82F6" }}
                           >
@@ -3560,6 +3619,9 @@ export default function AdminPage() {
 
               {/* ── DOCUMENTS ── */}
               {tab === "documents" && <DocumentsPanel />}
+
+              {/* ── MESSAGES ── */}
+              {tab === "messages" && <MessagesPanel />}
 
               {/* ── ANALYTICS ── */}
               {tab === "analytics" && <AnalyticsPanel />}
