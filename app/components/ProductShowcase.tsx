@@ -156,9 +156,15 @@ export default function ProductShowcase() {
                         <RiArrowRightSLine size={20} />
                       </button>
 
-                      {/* Dots */}
-                      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-full"
-                        style={{ background: "rgba(8,12,24,0.55)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.10)" }}
+                      {/* Dots — placed above the bottom feature-badge row to avoid overlap */}
+                      <div
+                        className="absolute left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-full"
+                        style={{
+                          bottom: "calc(1rem + 64px + 8px)",
+                          background: "rgba(8,12,24,0.55)",
+                          backdropFilter: "blur(8px)",
+                          border: "1px solid rgba(255,255,255,0.10)",
+                        }}
                       >
                         {galleryImages.map((_, i) => (
                           <button
