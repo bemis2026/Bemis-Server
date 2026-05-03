@@ -21,6 +21,19 @@ export type TechFeature = { title: string; desc: string; accent: string };
 export type SmartChargerFeature = { title: string; desc: string };
 export type ShowcaseSpec = { label: string; value: string };
 
+export type ShowcaseProductItem = {
+  badge?: string;
+  name: string;
+  tagline?: string;
+  description?: string;
+  image?: string;
+  specs?: ShowcaseSpec[];
+  ctaPrimary?: string;
+  ctaHref?: string;
+  ctaSecondary?: string;
+  ctaSecondaryHref?: string;
+};
+
 export type ReviewItem = {
   platform: string; platformColor: string; rating: number;
   author: string; date: string; product: string; text: string;
@@ -108,6 +121,10 @@ export type SiteContent = {
     appStoreHref: string;
     playStoreHref: string;
     features: SmartChargerFeature[];
+    /** Optional screenshot to overlay inside the phone mockup frame. */
+    mockupPhoneImage?: string;
+    /** Optional screenshot to overlay inside the web (browser) mockup frame. */
+    mockupWebImage?: string;
   };
   productShowcase: {
     badge: string;
@@ -122,6 +139,8 @@ export type SiteContent = {
     ctaHref: string;
     ctaSecondary: string;
     ctaSecondaryHref: string;
+    /** When set, each entry is a distinct product — swipe changes image + text together. */
+    products?: ShowcaseProductItem[];
   };
   sectionOrder: string[];
   textStyles: Record<string, { color?: string; fontSize?: string }>;
@@ -392,7 +411,12 @@ export function mergeContent(data: any): SiteContent {
         ? safe.smartCharger.ctaLabel
         : defaultContent.smartCharger.ctaLabel,
     },
-    productShowcase: { ...defaultContent.productShowcase, ...safe.productShowcase, specs: safe.productShowcase?.specs ?? defaultContent.productShowcase.specs },
+    productShowcase: {
+      ...defaultContent.productShowcase,
+      ...safe.productShowcase,
+      specs: safe.productShowcase?.specs ?? defaultContent.productShowcase.specs,
+      products: safe.productShowcase?.products,
+    },
   };
 }
 

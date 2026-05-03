@@ -124,7 +124,18 @@ export default function SmartCharger() {
                         <div className="absolute top-3.5 left-1/2 -translate-x-1/2 z-20 rounded-full"
                           style={{ width: 82, height: 20, background: "#050506", border: "1px solid rgba(255,255,255,0.08)" }} />
 
-                        {/* Screen */}
+                        {/* Screen — overlay user-uploaded screenshot if present */}
+                        {smartCharger.mockupPhoneImage ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={smartCharger.mockupPhoneImage}
+                            alt="Bemis Charge mobil uygulama"
+                            className="absolute inset-0 w-full h-full object-cover"
+                            style={{ background: "#0d1a2e" }}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        ) : (
                         <div className="absolute inset-0 p-4 pt-11 flex flex-col gap-3"
                           style={{ background: "linear-gradient(180deg, #0d1a2e 0%, #091526 100%)" }}>
 
@@ -203,6 +214,7 @@ export default function SmartCharger() {
                             </div>
                           </div>
                         </div>
+                        )}
 
                         {/* Home indicator */}
                         <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 rounded-full"
@@ -255,7 +267,19 @@ export default function SmartCharger() {
                           </div>
                         </div>
 
-                        {/* Sidebar + content layout */}
+                        {/* Sidebar + content layout (or user-uploaded screenshot) */}
+                        {smartCharger.mockupWebImage ? (
+                          <div style={{ height: 310, background: d ? "#0d1420" : "#f8faff" }}>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              src={smartCharger.mockupWebImage}
+                              alt="Bemis Charge web paneli"
+                              className="w-full h-full object-cover"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </div>
+                        ) : (
                         <div className="flex" style={{ height: 310 }}>
                           {/* Sidebar */}
                           <div className="flex flex-col gap-1 p-2 flex-shrink-0"
@@ -331,6 +355,7 @@ export default function SmartCharger() {
                             </div>
                           </div>
                         </div>
+                        )}
                       </div>
 
                       {/* Label */}

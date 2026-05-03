@@ -132,8 +132,8 @@ type ContentData = {
   contactSection: { sectionLabel: string; heading: string; subheading: string };
   featuredSection?: { sectionLabel: string; heading: string; subheading: string; ctaLabel: string };
   calculator?: { sectionLabel: string; heading: string; subheading: string; tabCharge: string; tabSavings: string; chargeSimLabel: string };
-  smartCharger?: { sectionLabel: string; heading: string; subheading: string; ocppBadge: string; ctaLabel: string; ctaHref: string; appStoreHref: string; playStoreHref: string; features: { title: string; desc: string }[] };
-  productShowcase?: { badge: string; name: string; tagline: string; description: string; image: string; images?: string[]; specs: { label: string; value: string }[]; ctaPrimary: string; ctaHref: string; ctaSecondary: string; ctaSecondaryHref: string };
+  smartCharger?: { sectionLabel: string; heading: string; subheading: string; ocppBadge: string; ctaLabel: string; ctaHref: string; appStoreHref: string; playStoreHref: string; features: { title: string; desc: string }[]; mockupPhoneImage?: string; mockupWebImage?: string };
+  productShowcase?: { badge: string; name: string; tagline: string; description: string; image: string; images?: string[]; specs: { label: string; value: string }[]; ctaPrimary: string; ctaHref: string; ctaSecondary: string; ctaSecondaryHref: string; products?: ShowcaseProductItem[] };
   sectionBgs?: Record<string, string>;
   logos?: { dark: string; light: string };
   ogImage?: string;
@@ -157,6 +157,11 @@ type DealersData = Record<string, { dealers: Dealer[] }>;
 
 type DnaItem  = { title: string; desc: string };
 type ReviewItem = { platform: string; platformColor: string; rating: number; author: string; date: string; product: string; text: string };
+type ShowcaseProductItem = {
+  badge?: string; name: string; tagline?: string; description?: string;
+  image?: string; specs?: { label: string; value: string }[];
+  ctaPrimary?: string; ctaHref?: string; ctaSecondary?: string; ctaSecondaryHref?: string;
+};
 type HeroLayoutKey = "logo" | "text" | "button";
 
 type Tab = "hero" | "dna" | "stats" | "products-section" | "smartcharger" | "productshowcase" | "featured" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b" | "messages";
@@ -223,6 +228,12 @@ export default function AdminPage() {
   const [showcaseImgLoading, setShowcaseImgLoading] = useState(false);
   const showcaseImgRef = useRef<HTMLInputElement>(null);
   const [showcaseUrlInput, setShowcaseUrlInput] = useState("");
+  const [psItemImgLoadingIdx, setPsItemImgLoadingIdx] = useState<number | null>(null);
+  const psItemImgRef = useRef<HTMLInputElement>(null);
+  const psItemTargetIdxRef = useRef<number>(0);
+  const [mockupImgLoading, setMockupImgLoading] = useState<"phone" | "web" | null>(null);
+  const mockupImgRef = useRef<HTMLInputElement>(null);
+  const mockupTargetRef = useRef<"phone" | "web">("phone");
   const [catSliderImgLoading, setCatSliderImgLoading] = useState<string | null>(null);
   const [catSliderImgTarget, setCatSliderImgTarget] = useState<string>("");
   const catSliderImgRef = useRef<HTMLInputElement>(null);
@@ -779,6 +790,70 @@ export default function AdminPage() {
     }
     setShowcaseImgLoading(false);
     if (showcaseImgRef.current) showcaseImgRef.current.value = "";
+  };
+
+  // Per-showcase-product image upload (one image per product card).
+  const handlePsItemImgUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const idx = psItemTargetIdxRef.current;
+    setPsItemImgLoadingIdx(idx);
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("folder", "vitrin");
+    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+    if (res.ok) {
+      const { url } = (await res.json()) as { url?: string };
+      if (url) {
+        setContent((prev) => {
+          if (!prev) return prev;
+          const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+          if (!next.productShowcase) return prev;
+          const items = [...(next.productShowcase.products ?? [])];
+          if (!items[idx]) return prev;
+          items[idx] = { ...items[idx], image: url };
+          next.productShowcase.products = items;
+          return next;
+        });
+        showToast("ok", `Ürün ${idx + 1} görseli yüklendi.`);
+      }
+    } else {
+      showToast("err", "Yükleme başarısız.");
+    }
+    setPsItemImgLoadingIdx(null);
+    if (psItemImgRef.current) psItemImgRef.current.value = "";
+  };
+
+  // Mockup screenshot upload for SmartCharger phone/web frames.
+  const handleMockupImgUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const target = mockupTargetRef.current;
+    setMockupImgLoading(target);
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("folder", "smartcharger");
+    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+    if (res.ok) {
+      const { url } = (await res.json()) as { url?: string };
+      if (url) {
+        setContent((prev) => {
+          if (!prev) return prev;
+          const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+          if (!next.smartCharger) {
+            next.smartCharger = { sectionLabel: "", heading: "", subheading: "", ocppBadge: "", ctaLabel: "", ctaHref: "", appStoreHref: "", playStoreHref: "", features: [] };
+          }
+          if (target === "phone") next.smartCharger.mockupPhoneImage = url;
+          else next.smartCharger.mockupWebImage = url;
+          return next;
+        });
+        showToast("ok", target === "phone" ? "Telefon mockup görseli yüklendi." : "Web mockup görseli yüklendi.");
+      }
+    } else {
+      showToast("err", "Yükleme başarısız.");
+    }
+    setMockupImgLoading(null);
+    if (mockupImgRef.current) mockupImgRef.current.value = "";
   };
 
   const handleStepImgUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -2656,6 +2731,80 @@ export default function AdminPage() {
                       <Field label="Google Play Linki" value={content.smartCharger?.playStoreHref ?? ""} onChange={(v) => updateContent(["smartCharger","playStoreHref"], v)} validate={validateUrl} />
                     </div>
 
+                    {/* Mockup screenshots — phone + web */}
+                    <div className="pt-3 border-t border-white/6 space-y-3">
+                      <div>
+                        <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Mockup Ekran Görselleri</p>
+                        <p className="text-[10px] text-white/35 mt-1">Telefon ve web çerçevelerinin içine yüklediğiniz ekran görüntüsü gösterilir. Boş bırakılırsa varsayılan demo arayüz görünür.</p>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        {[
+                          { key: "phone" as const, label: "Telefon Ekranı", url: content.smartCharger?.mockupPhoneImage, ratio: "9/19", helper: "Mobil uygulama görüntüsü" },
+                          { key: "web"   as const, label: "Web Paneli",     url: content.smartCharger?.mockupWebImage,   ratio: "16/10", helper: "Tarayıcı görüntüsü" },
+                        ].map(({ key, label, url, ratio, helper }) => (
+                          <div key={key} className="space-y-2">
+                            <label
+                              className="relative rounded-xl overflow-hidden border-2 border-dashed cursor-pointer flex items-center justify-center block"
+                              style={{
+                                aspectRatio: ratio,
+                                borderColor: url ? "rgba(255,255,255,0.10)" : "rgba(59,130,246,0.32)",
+                                background: url ? "transparent" : "rgba(59,130,246,0.06)",
+                                color: "#93C5FD",
+                              }}
+                            >
+                              {url ? (
+                                // eslint-disable-next-line @next/next/no-img-element
+                                <img src={url} alt={label} className="absolute inset-0 w-full h-full object-cover" />
+                              ) : (
+                                <div className="text-center px-2">
+                                  {mockupImgLoading === key ? (
+                                    <div className="w-5 h-5 mx-auto rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
+                                  ) : (
+                                    <RiImageAddLine size={20} className="mx-auto" />
+                                  )}
+                                  <p className="text-[10px] mt-1 font-semibold">Görsel Yükle</p>
+                                  <p className="text-[9px] text-white/40 mt-0.5">{helper}</p>
+                                </div>
+                              )}
+                              {url && (
+                                <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"
+                                  style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(2px)" }}>
+                                  <span className="text-[10px] text-white font-bold">Değiştir</span>
+                                </div>
+                              )}
+                              <input
+                                type="file"
+                                accept="image/*"
+                                className="hidden"
+                                onClick={() => { mockupTargetRef.current = key; }}
+                                onChange={(e) => { mockupTargetRef.current = key; handleMockupImgUpload(e); }}
+                                disabled={mockupImgLoading !== null}
+                              />
+                            </label>
+                            <div className="flex items-center justify-between">
+                              <span className="text-[10px] font-semibold text-white/50">{label}</span>
+                              {url && (
+                                <button
+                                  onClick={() => updateContent(["smartCharger", key === "phone" ? "mockupPhoneImage" : "mockupWebImage"], "")}
+                                  className="text-[10px] text-red-400/60 hover:text-red-300"
+                                >
+                                  Kaldır
+                                </button>
+                              )}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <input
+                        ref={mockupImgRef}
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={handleMockupImgUpload}
+                        disabled={mockupImgLoading !== null}
+                      />
+                    </div>
+
                     {/* Features */}
                     <div className="pt-3 border-t border-white/6 space-y-3">
                       <div className="flex items-center justify-between">
@@ -2863,6 +3012,200 @@ export default function AdminPage() {
                           </div>
                         </div>
                       ))}
+                    </div>
+
+                    {/* ── Showcase products[] — per-image text + image ── */}
+                    <div className="pt-4 mt-4 border-t border-white/10 space-y-3">
+                      <div>
+                        <p className="text-sm font-bold text-white">Çoklu Ürün Vitrini</p>
+                        <p className="text-[11px] text-white/40 mt-1">
+                          Her görsel ayrı bir ürün — kaydırınca metin de değişir. Boş bırakırsanız yukarıdaki tek ürün gösterilir.
+                        </p>
+                      </div>
+
+                      {(() => {
+                        const items = content.productShowcase?.products ?? [];
+                        const update = (idx: number, field: keyof ShowcaseProductItem, val: string) => {
+                          setContent((prev) => {
+                            if (!prev?.productShowcase) return prev;
+                            const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                            const list = [...(next.productShowcase!.products ?? [])];
+                            list[idx] = { ...list[idx], [field]: val } as ShowcaseProductItem;
+                            next.productShowcase!.products = list;
+                            return next;
+                          });
+                        };
+                        const updateSpec = (itemIdx: number, specIdx: number, field: "label" | "value", val: string) => {
+                          setContent((prev) => {
+                            if (!prev?.productShowcase) return prev;
+                            const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                            const list = [...(next.productShowcase!.products ?? [])];
+                            const specs = [...(list[itemIdx].specs ?? [])];
+                            specs[specIdx] = { ...specs[specIdx], [field]: val };
+                            list[itemIdx] = { ...list[itemIdx], specs };
+                            next.productShowcase!.products = list;
+                            return next;
+                          });
+                        };
+                        const addSpec = (itemIdx: number) => {
+                          setContent((prev) => {
+                            if (!prev?.productShowcase) return prev;
+                            const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                            const list = [...(next.productShowcase!.products ?? [])];
+                            const specs = [...(list[itemIdx].specs ?? []), { label: "Özellik", value: "" }];
+                            list[itemIdx] = { ...list[itemIdx], specs };
+                            next.productShowcase!.products = list;
+                            return next;
+                          });
+                        };
+                        const removeSpec = (itemIdx: number, specIdx: number) => {
+                          setContent((prev) => {
+                            if (!prev?.productShowcase) return prev;
+                            const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                            const list = [...(next.productShowcase!.products ?? [])];
+                            const specs = (list[itemIdx].specs ?? []).filter((_, k) => k !== specIdx);
+                            list[itemIdx] = { ...list[itemIdx], specs };
+                            next.productShowcase!.products = list;
+                            return next;
+                          });
+                        };
+                        const move = (idx: number, dir: -1 | 1) => {
+                          const j = idx + dir;
+                          if (j < 0 || j >= items.length) return;
+                          setContent((prev) => {
+                            if (!prev?.productShowcase) return prev;
+                            const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                            const list = [...(next.productShowcase!.products ?? [])];
+                            [list[idx], list[j]] = [list[j], list[idx]];
+                            next.productShowcase!.products = list;
+                            return next;
+                          });
+                        };
+                        const remove = (idx: number) => {
+                          setContent((prev) => {
+                            if (!prev?.productShowcase) return prev;
+                            const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                            next.productShowcase!.products = (next.productShowcase!.products ?? []).filter((_, k) => k !== idx);
+                            return next;
+                          });
+                        };
+                        const add = () => {
+                          setContent((prev) => {
+                            if (!prev?.productShowcase) return prev;
+                            const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                            next.productShowcase!.products = [...(next.productShowcase!.products ?? []), {
+                              badge: "", name: "Yeni Ürün", tagline: "", description: "", image: "",
+                              specs: [], ctaPrimary: "Ürünü İncele", ctaHref: "/products",
+                            }];
+                            return next;
+                          });
+                        };
+                        return (
+                          <>
+                            {items.map((it, i) => (
+                              <div key={i} className="rounded-2xl border border-white/10 p-4 space-y-3" style={{ background: "rgba(255,255,255,0.02)" }}>
+                                <div className="flex items-center justify-between">
+                                  <span className="text-[11px] font-bold text-white/40">Ürün #{i + 1}</span>
+                                  <div className="flex items-center gap-1">
+                                    <button onClick={() => move(i, -1)} disabled={i === 0}
+                                      className="w-7 h-7 rounded-lg text-xs text-white/60 border border-white/10 hover:border-white/25 disabled:opacity-30">↑</button>
+                                    <button onClick={() => move(i, +1)} disabled={i === items.length - 1}
+                                      className="w-7 h-7 rounded-lg text-xs text-white/60 border border-white/10 hover:border-white/25 disabled:opacity-30">↓</button>
+                                    <button onClick={() => remove(i)}
+                                      className="px-2 h-7 rounded-lg text-[10px] font-bold text-red-300 border border-red-400/30 hover:border-red-400/60">Sil</button>
+                                  </div>
+                                </div>
+
+                                {/* Image upload tile */}
+                                <div className="grid grid-cols-3 gap-3 items-start">
+                                  <label
+                                    className="relative rounded-xl overflow-hidden border-2 border-dashed cursor-pointer flex items-center justify-center"
+                                    style={{
+                                      aspectRatio: "3/4",
+                                      borderColor: it.image ? "rgba(255,255,255,0.10)" : "rgba(59,130,246,0.32)",
+                                      background: it.image ? "transparent" : "rgba(59,130,246,0.06)",
+                                      color: "#93C5FD",
+                                    }}
+                                  >
+                                    {it.image ? (
+                                      // eslint-disable-next-line @next/next/no-img-element
+                                      <img src={it.image} alt={`Ürün ${i + 1}`} className="absolute inset-0 w-full h-full object-cover" />
+                                    ) : (
+                                      <div className="text-center px-2">
+                                        {psItemImgLoadingIdx === i ? (
+                                          <div className="w-5 h-5 mx-auto rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
+                                        ) : (
+                                          <RiImageAddLine size={22} className="mx-auto" />
+                                        )}
+                                        <p className="text-[10px] mt-1 font-semibold">Görsel Yükle</p>
+                                      </div>
+                                    )}
+                                    {it.image && (
+                                      <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"
+                                        style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(2px)" }}>
+                                        <span className="text-[10px] text-white font-bold">Değiştir</span>
+                                      </div>
+                                    )}
+                                    <input
+                                      type="file"
+                                      accept="image/*"
+                                      className="hidden"
+                                      onClick={() => { psItemTargetIdxRef.current = i; }}
+                                      onChange={(e) => { psItemTargetIdxRef.current = i; handlePsItemImgUpload(e); }}
+                                      disabled={psItemImgLoadingIdx !== null}
+                                    />
+                                  </label>
+
+                                  <div className="col-span-2 space-y-2">
+                                    <div className="grid grid-cols-2 gap-2">
+                                      <Field label="Rozet" value={it.badge ?? ""} onChange={(v) => update(i, "badge", v)} />
+                                      <Field label="Tagline" value={it.tagline ?? ""} onChange={(v) => update(i, "tagline", v)} />
+                                    </div>
+                                    <Field label="Ürün Adı" value={it.name} onChange={(v) => update(i, "name", v)} />
+                                    <Field label="Açıklama" value={it.description ?? ""} onChange={(v) => update(i, "description", v)} multiline />
+                                  </div>
+                                </div>
+
+                                {/* CTA */}
+                                <div className="grid grid-cols-2 gap-2">
+                                  <Field label="Buton Metni" value={it.ctaPrimary ?? ""} onChange={(v) => update(i, "ctaPrimary", v)} />
+                                  <Field label="Buton Linki" value={it.ctaHref ?? ""} onChange={(v) => update(i, "ctaHref", v)} validate={validateUrl} />
+                                </div>
+
+                                {/* Specs */}
+                                <div className="pt-2 border-t border-white/8 space-y-2">
+                                  <div className="flex items-center justify-between">
+                                    <span className="text-[10px] font-bold text-white/40 uppercase">Teknik Özellikler</span>
+                                    <button onClick={() => addSpec(i)} className="text-[10px] text-white/50 hover:text-white px-2 py-0.5 rounded border border-white/15">+ Ekle</button>
+                                  </div>
+                                  {(it.specs ?? []).map((s, si) => (
+                                    <div key={si} className="grid grid-cols-[1fr_1fr_auto] gap-2 items-end">
+                                      <Field label={`Etiket ${si + 1}`} value={s.label} onChange={(v) => updateSpec(i, si, "label", v)} />
+                                      <Field label="Değer" value={s.value} onChange={(v) => updateSpec(i, si, "value", v)} />
+                                      <button onClick={() => removeSpec(i, si)} className="h-9 px-2 text-[10px] text-red-400/70 hover:text-red-300">Sil</button>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+
+                            <button onClick={add}
+                              className="w-full px-4 py-3 rounded-xl text-sm font-bold border-2 border-dashed transition-colors"
+                              style={{ borderColor: "rgba(59,130,246,0.32)", background: "rgba(59,130,246,0.05)", color: "#93C5FD" }}>
+                              + Yeni Ürün Ekle
+                            </button>
+
+                            <input
+                              ref={psItemImgRef}
+                              type="file"
+                              accept="image/*"
+                              className="hidden"
+                              onChange={handlePsItemImgUpload}
+                              disabled={psItemImgLoadingIdx !== null}
+                            />
+                          </>
+                        );
+                      })()}
                     </div>
                   </div>
                 </div>

@@ -39,12 +39,17 @@ export default function ProductShowcase() {
   const specBg = d ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.85)";
   const specBorder = d ? "rgba(255,255,255,0.09)" : "rgba(0,0,0,0.07)";
 
-  const specs = ps?.specs ?? [];
+  // Multi-product mode: each gallery slide is its own product (image + text).
+  // Falls back to legacy mode (single product, multiple images of it) when
+  // products[] is empty or absent.
+  const productsList = (ps?.products ?? []).filter(p => p && (p.image || p.name));
+  const isMultiProduct = productsList.length > 0;
 
-  // Build gallery list — prefer images[]; fall back to legacy `image` field.
-  const galleryImages: string[] = (ps?.images && ps.images.length > 0)
-    ? ps.images.filter(Boolean)
-    : (ps?.image ? [ps.image] : []);
+  const galleryImages: string[] = isMultiProduct
+    ? productsList.map(p => p.image ?? "").filter(Boolean)
+    : (ps?.images && ps.images.length > 0
+        ? ps.images.filter(Boolean)
+        : (ps?.image ? [ps.image] : []));
   const galleryCount = galleryImages.length;
 
   const [index, setIndex] = useState(0);
@@ -53,6 +58,17 @@ export default function ProductShowcase() {
   useEffect(() => {
     if (index >= galleryCount && galleryCount > 0) setIndex(0);
   }, [galleryCount, index]);
+
+  // Resolve the active product's text fields. In multi-product mode, fall
+  // back to ps.* for any field the product doesn't override.
+  const active = isMultiProduct ? productsList[Math.min(index, productsList.length - 1)] : null;
+  const badgeText       = active?.badge       ?? ps?.badge       ?? "Amiral Gemisi Ürün";
+  const nameText        = active?.name        ?? ps?.name        ?? "AC Wallbox Smart Charger Pro 2";
+  const taglineText     = active?.tagline     ?? ps?.tagline;
+  const descriptionText = active?.description ?? ps?.description ?? "";
+  const specs           = (active?.specs && active.specs.length > 0) ? active.specs : (ps?.specs ?? []);
+  const ctaPrimaryText  = active?.ctaPrimary  ?? ps?.ctaPrimary  ?? "Ürünü İncele";
+  const ctaPrimaryHref  = active?.ctaHref     ?? ps?.ctaHref     ?? "/products/wallbox";
 
   const goTo = (next: number) => {
     if (galleryCount === 0) return;
@@ -115,7 +131,7 @@ export default function ProductShowcase() {
                     <motion.img
                       key={`${index}-${galleryImages[index]}`}
                       src={galleryImages[index]}
-                      alt={ps?.name ?? "Ürün"}
+                      alt={nameText}
                       className="absolute inset-0 w-full h-full object-cover"
                       loading="lazy"
                       decoding="async"
@@ -193,30 +209,34 @@ export default function ProductShowcase() {
                 </div>
               )}
 
-              {/* Product name overlay — top */}
-              <motion.div
-                initial={{ opacity: 0, y: -8 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.45 }}
-                className="absolute top-4 left-4 right-4"
-              >
-                <div
-                  className="inline-flex flex-col px-3.5 py-2.5 rounded-2xl"
-                  style={{
-                    background: "rgba(8,12,24,0.82)",
-                    border: "1px solid rgba(255,255,255,0.10)",
-                    backdropFilter: "blur(16px)",
-                    boxShadow: "0 4px 20px rgba(0,0,0,0.25)",
-                  }}
+              {/* Product name overlay — top (re-mounts on slide change to animate) */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`overlay-${index}-${nameText}`}
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute top-4 left-4 right-4"
                 >
-                  <span className="text-[9px] font-bold uppercase tracking-widest" style={{ color: `${ACCENT}cc` }}>
-                    {ps?.badge ?? "Amiral Gemisi"}
-                  </span>
-                  <span className="text-sm font-black text-white leading-tight mt-0.5">
-                    {ps?.name ?? "Charger Pro 2"}
-                  </span>
-                </div>
-              </motion.div>
+                  <div
+                    className="inline-flex flex-col px-3.5 py-2.5 rounded-2xl"
+                    style={{
+                      background: "rgba(8,12,24,0.82)",
+                      border: "1px solid rgba(255,255,255,0.10)",
+                      backdropFilter: "blur(16px)",
+                      boxShadow: "0 4px 20px rgba(0,0,0,0.25)",
+                    }}
+                  >
+                    <span className="text-[9px] font-bold uppercase tracking-widest" style={{ color: `${ACCENT}cc` }}>
+                      {badgeText}
+                    </span>
+                    <span className="text-sm font-black text-white leading-tight mt-0.5">
+                      {nameText}
+                    </span>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
 
               {/* Feature badges — bottom left grid */}
               <motion.div
@@ -272,68 +292,94 @@ export default function ProductShowcase() {
               style={{ background: `${ACCENT}14`, border: `1px solid ${ACCENT}28` }}
             >
               <RiAwardLine size={12} style={{ color: ACCENT }} />
-              <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: ACCENT }}>
-                {ps?.badge ?? "Amiral Gemisi Ürün"}
-              </span>
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={`badge-${index}-${badgeText}`}
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={{ duration: 0.22 }}
+                  className="text-xs font-bold tracking-[0.18em] uppercase"
+                  style={{ color: ACCENT }}
+                >
+                  {badgeText}
+                </motion.span>
+              </AnimatePresence>
             </motion.div>
 
             {/* Product name */}
-            <motion.h2
-              initial={{ opacity: 0, y: 18 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.55, delay: 0.06 }}
-              className="text-4xl sm:text-5xl font-black leading-tight mb-3"
-              style={{ color: textPrimary }}
-            >
-              {ps?.name ?? "AC Wallbox Smart Charger Pro 2"}
-            </motion.h2>
+            <AnimatePresence mode="wait">
+              <motion.h2
+                key={`name-${index}-${nameText}`}
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.35 }}
+                className="text-4xl sm:text-5xl font-black leading-tight mb-3"
+                style={{ color: textPrimary }}
+              >
+                {nameText}
+              </motion.h2>
+            </AnimatePresence>
 
             {/* Tagline */}
-            {ps?.tagline && (
-              <motion.p
-                initial={{ opacity: 0, y: 12 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.45, delay: 0.1 }}
-                className="text-base font-semibold mb-4"
-                style={{ color: ACCENT }}
-              >
-                {ps.tagline}
-              </motion.p>
+            {taglineText && (
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={`tagline-${index}-${taglineText}`}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.3, delay: 0.05 }}
+                  className="text-base font-semibold mb-4"
+                  style={{ color: ACCENT }}
+                >
+                  {taglineText}
+                </motion.p>
+              </AnimatePresence>
             )}
 
             {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.13 }}
-              className="text-sm leading-relaxed mb-7"
-              style={{ color: textMuted, maxWidth: 480 }}
-            >
-              {ps?.description ?? ""}
-            </motion.p>
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={`desc-${index}`}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.32, delay: 0.06 }}
+                className="text-sm leading-relaxed mb-7"
+                style={{ color: textMuted, maxWidth: 480 }}
+              >
+                {descriptionText}
+              </motion.p>
+            </AnimatePresence>
 
             {/* Specs grid */}
             {specs.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.17 }}
-                className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 mb-8"
-              >
-                {specs.map((s: { label: string; value: string }, i: number) => {
-                  const Icon = SPEC_ICONS[i % SPEC_ICONS.length];
-                  return (
-                    <div key={i} className="flex flex-col gap-1 p-3 rounded-2xl"
-                      style={{ background: specBg, border: `1px solid ${specBorder}`, boxShadow: d ? "none" : "0 1px 6px rgba(0,0,0,0.04)" }}>
-                      <div className="flex items-center gap-1.5 mb-0.5">
-                        <Icon size={12} style={{ color: ACCENT, opacity: 0.8 }} />
-                        <span className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: textMuted }}>{s.label}</span>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`specs-${index}`}
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.32, delay: 0.08 }}
+                  className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 mb-8"
+                >
+                  {specs.map((s: { label: string; value: string }, i: number) => {
+                    const Icon = SPEC_ICONS[i % SPEC_ICONS.length];
+                    return (
+                      <div key={i} className="flex flex-col gap-1 p-3 rounded-2xl"
+                        style={{ background: specBg, border: `1px solid ${specBorder}`, boxShadow: d ? "none" : "0 1px 6px rgba(0,0,0,0.04)" }}>
+                        <div className="flex items-center gap-1.5 mb-0.5">
+                          <Icon size={12} style={{ color: ACCENT, opacity: 0.8 }} />
+                          <span className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: textMuted }}>{s.label}</span>
+                        </div>
+                        <span className="text-sm font-bold" style={{ color: textPrimary }}>{s.value}</span>
                       </div>
-                      <span className="text-sm font-bold" style={{ color: textPrimary }}>{s.value}</span>
-                    </div>
-                  );
-                })}
-              </motion.div>
+                    );
+                  })}
+                </motion.div>
+              </AnimatePresence>
             )}
 
             {/* CTA */}
@@ -343,11 +389,11 @@ export default function ProductShowcase() {
               transition={{ duration: 0.4, delay: 0.24 }}
             >
               <button
-                onClick={() => router.push(ps?.ctaHref ?? "/products/wallbox")}
+                onClick={() => router.push(ctaPrimaryHref)}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:opacity-90 active:scale-95"
                 style={{ background: `linear-gradient(135deg, ${ACCENT}, #2563EB)`, boxShadow: `0 6px 22px ${ACCENT}40` }}
               >
-                {ps?.ctaPrimary ?? "Ürünü İncele"}
+                {ctaPrimaryText}
                 <RiArrowRightLine size={16} />
               </button>
             </motion.div>
