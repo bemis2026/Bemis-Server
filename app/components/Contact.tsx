@@ -8,16 +8,17 @@ import E from "./E";
 import { HiLocationMarker, HiPhone, HiMail, HiClock, HiCheckCircle } from "react-icons/hi";
 import { RiLinkedinFill, RiInstagramLine } from "react-icons/ri";
 import { trackEvent } from "./GoogleAnalytics";
+import { useUiStrings, type UiStringKey } from "../../lib/uiStrings";
 
-const topics = [
-  { value: "product-info",    label: "Ürün Bilgisi" },
-  { value: "price-quote",     label: "Fiyat Teklifi" },
-  { value: "corporate-sales", label: "Kurumsal Satış" },
-  { value: "export",          label: "İhracat / Export" },
-  { value: "technical",       label: "Teknik Destek" },
-  { value: "installation",    label: "Kurulum Yardımı" },
-  { value: "partnership",     label: "İş Ortaklığı" },
-  { value: "other",           label: "Diğer" },
+const topicKeys: { value: string; key: UiStringKey }[] = [
+  { value: "product-info",    key: "topic_product" },
+  { value: "price-quote",     key: "topic_quote" },
+  { value: "corporate-sales", key: "topic_corp" },
+  { value: "export",          key: "topic_export" },
+  { value: "technical",       key: "topic_tech" },
+  { value: "installation",    key: "topic_install" },
+  { value: "partnership",     key: "topic_partnership" },
+  { value: "other",           key: "topic_other" },
 ];
 
 export default function Contact() {
@@ -25,7 +26,9 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
   const { contact, social, contactSection, sectionBgs } = useContent();
+  const t = useUiStrings();
   const d = theme === "dark";
+  const topics = topicKeys.map((tk) => ({ value: tk.value, label: t(tk.key) }));
 
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending]     = useState(false);
@@ -46,10 +49,10 @@ export default function Contact() {
   const shadow    = d ? "none" : "0 2px 20px rgba(0,0,0,0.06)";
 
   const contactItems = [
-    { icon: HiLocationMarker, label: "Adres",            value: contact.address,        sub: contact.addressSub },
-    { icon: HiPhone,          label: "Telefon",          value: contact.phone,          sub: `${contact.workingDays}, ${contact.workingHours}` },
-    { icon: HiMail,           label: "E-Posta",          value: contact.email,          sub: "Genel bilgi ve sorular" },
-    { icon: HiClock,          label: "Çalışma Saatleri", value: contact.workingHours,   sub: contact.workingDays },
+    { icon: HiLocationMarker, label: t("contact_label_address"), value: contact.address,      sub: contact.addressSub },
+    { icon: HiPhone,          label: t("contact_label_phone"),   value: contact.phone,        sub: `${contact.workingDays}, ${contact.workingHours}` },
+    { icon: HiMail,           label: t("contact_label_email"),   value: contact.email,        sub: t("contact_email_sub") },
+    { icon: HiClock,          label: t("contact_label_hours"),   value: contact.workingHours, sub: contact.workingDays },
   ];
 
   const socialLinks = [
@@ -167,16 +170,16 @@ export default function Contact() {
                   >
                     <HiCheckCircle style={{ color: "#10B981", fontSize: 28 }} />
                   </div>
-                  <h3 className="font-bold text-lg mb-2" style={{ color: textPrimary }}>Mesajınız Alındı!</h3>
+                  <h3 className="font-bold text-lg mb-2" style={{ color: textPrimary }}>{t("contact_received")}</h3>
                   <p className="text-sm" style={{ color: textMuted }}>
-                    En kısa sürede size geri dönüş yapacağız.
+                    {t("contact_received_sub")}
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
                     className="mt-6 text-xs font-medium underline"
                     style={{ color: textFaint }}
                   >
-                    Yeni mesaj gönder
+                    {t("contact_send_another")}
                   </button>
                 </div>
               ) : (
@@ -201,7 +204,7 @@ export default function Contact() {
                       });
                       if (!res.ok) {
                         const j = await res.json().catch(() => ({}));
-                        setSendError(j.error ?? "Bir hata oluştu, lütfen tekrar deneyin.");
+                        setSendError(j.error ?? t("contact_err_generic"));
                       } else {
                         setSubmitted(true);
                         trackEvent("contact_form_submit", {
@@ -209,7 +212,7 @@ export default function Contact() {
                         });
                       }
                     } catch {
-                      setSendError("Bağlantı hatası. Lütfen tekrar deneyin.");
+                      setSendError(t("contact_err_network"));
                     } finally {
                       setSending(false);
                     }
@@ -217,18 +220,18 @@ export default function Contact() {
                   className="space-y-4"
                 >
                   <h3 className="font-bold text-base mb-5" style={{ color: textPrimary }}>
-                    Mesaj Gönderin
+                    {t("contact_form_title")}
                   </h3>
 
                   {/* Name + Company */}
                   <div className="grid sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="text-xs mb-1.5 block" style={{ color: textFaint }}>Ad Soyad *</label>
+                      <label className="text-xs mb-1.5 block" style={{ color: textFaint }}>{t("contact_name")} *</label>
                       <input
                         required
                         name="name"
                         type="text"
-                        placeholder="Adınız"
+                        placeholder={t("contact_name_ph")}
                         className={inputClass}
                         style={inputStyle}
                         onFocus={(e) => (e.target.style.borderColor = inputFocus)}
@@ -236,11 +239,11 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="text-xs mb-1.5 block" style={{ color: textFaint }}>Şirket</label>
+                      <label className="text-xs mb-1.5 block" style={{ color: textFaint }}>{t("contact_company")}</label>
                       <input
                         name="company"
                         type="text"
-                        placeholder="Şirket adı"
+                        placeholder={t("contact_company_ph")}
                         className={inputClass}
                         style={inputStyle}
                         onFocus={(e) => (e.target.style.borderColor = inputFocus)}
@@ -252,12 +255,12 @@ export default function Contact() {
                   {/* Email + Phone */}
                   <div className="grid sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="text-xs mb-1.5 block" style={{ color: textFaint }}>E-Posta *</label>
+                      <label className="text-xs mb-1.5 block" style={{ color: textFaint }}>{t("contact_label_email")} *</label>
                       <input
                         required
                         name="email"
                         type="email"
-                        placeholder="email@sirket.com"
+                        placeholder={t("contact_email_ph")}
                         className={inputClass}
                         style={inputStyle}
                         onFocus={(e) => (e.target.style.borderColor = inputFocus)}
@@ -265,11 +268,11 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="text-xs mb-1.5 block" style={{ color: textFaint }}>Telefon</label>
+                      <label className="text-xs mb-1.5 block" style={{ color: textFaint }}>{t("contact_phone")}</label>
                       <input
                         name="phone"
                         type="tel"
-                        placeholder="+90 5XX XXX XX XX"
+                        placeholder={t("contact_phone_ph")}
                         className={inputClass}
                         style={inputStyle}
                         onFocus={(e) => (e.target.style.borderColor = inputFocus)}
@@ -280,7 +283,7 @@ export default function Contact() {
 
                   {/* Topic */}
                   <div>
-                    <label className="text-xs mb-1.5 block" style={{ color: textFaint }}>Konu *</label>
+                    <label className="text-xs mb-1.5 block" style={{ color: textFaint }}>{t("contact_subject")} *</label>
                     <div className="relative">
                       <select
                         required
@@ -289,10 +292,10 @@ export default function Contact() {
                         style={{ ...inputStyle, color: textMuted }}
                         defaultValue=""
                       >
-                        <option value="" disabled className="bg-[#1a1a1a]">Konu seçin</option>
-                        {topics.map((t) => (
-                          <option key={t.value} value={t.value} className="bg-[#1a1a1a]">
-                            {t.label}
+                        <option value="" disabled className="bg-[#1a1a1a]">{t("contact_topic_select")}</option>
+                        {topics.map((tp) => (
+                          <option key={tp.value} value={tp.value} className="bg-[#1a1a1a]">
+                            {tp.label}
                           </option>
                         ))}
                       </select>
@@ -307,12 +310,12 @@ export default function Contact() {
 
                   {/* Message */}
                   <div>
-                    <label className="text-xs mb-1.5 block" style={{ color: textFaint }}>Mesajınız *</label>
+                    <label className="text-xs mb-1.5 block" style={{ color: textFaint }}>{t("contact_message")} *</label>
                     <textarea
                       required
                       name="message"
                       rows={4}
-                      placeholder="Mesajınızı buraya yazın..."
+                      placeholder={t("contact_message_ph")}
                       className={`${inputClass} resize-none`}
                       style={inputStyle}
                       onFocus={(e) => (e.target.style.borderColor = inputFocus)}
@@ -332,11 +335,11 @@ export default function Contact() {
                     className="w-full py-3 rounded-xl text-sm font-bold transition-all duration-200 disabled:opacity-60"
                     style={{ background: textPrimary, color: d ? "#0c0c0e" : "#ffffff" }}
                   >
-                    {sending ? "Gönderiliyor…" : "Mesaj Gönder"}
+                    {sending ? t("contact_sending") : t("contact_send_short")}
                   </button>
 
                   <p className="text-xs text-center" style={{ color: textFaint }}>
-                    Verileriniz KVKK ve gizlilik politikamız kapsamında korunmaktadır.
+                    {t("contact_kvkk")}
                   </p>
                 </form>
               )}

@@ -93,7 +93,12 @@ export async function GET(req: NextRequest) {
       allProductsDescription: tr.products?.allProductsDescription,
     },
     dealer:          { ...tr.dealer,          ...(en.dealer          ?? {}) },
-    reviews:         { ...tr.reviews,         ...(en.reviews         ?? {}), items: tr.reviews?.items },
+    reviews: (() => {
+      const trItems: Array<Record<string, unknown>> = tr.reviews?.items ?? [];
+      const enItems: Array<Record<string, unknown>> = en.reviews?.items ?? [];
+      const items = trItems.map((it, i) => ({ ...it, ...(enItems[i] ?? {}) }));
+      return { ...tr.reviews, ...(en.reviews ?? {}), items };
+    })(),
     contactSection:  { ...tr.contactSection,  ...(en.contactSection  ?? {}) },
     featuredSection: { ...tr.featuredSection, ...(en.featuredSection ?? {}) },
     smartCharger: en.smartCharger

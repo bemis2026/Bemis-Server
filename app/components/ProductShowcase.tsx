@@ -237,7 +237,8 @@ export default function ProductShowcase() {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Feature badges — sits above the dots row */}
+              {/* Feature badges — sits above the dots row. Values come from the
+                  admin-editable overlayFeatures[]; first entry falls back to specs[1]. */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -245,12 +246,16 @@ export default function ProductShowcase() {
                 className="absolute left-4 grid grid-cols-2 gap-1.5"
                 style={{ bottom: "calc(0.75rem + 24px + 10px)", maxWidth: "calc(100% - 96px)" }}
               >
-                {[
-                  { icon: RiShieldCheckLine, label: specs[1]?.label ?? "Koruma", value: specs[1]?.value ?? "IP 65", color: "#10B981" },
-                  { icon: RiCalendarCheckLine, label: "Özellik", value: "Planlı Şarj", color: ACCENT },
-                  { icon: RiTeamLine, label: "Özellik", value: "Ortak Kullanım", color: "#818CF8" },
-                  { icon: RiSmartphoneLine, label: "Özellik", value: "Mobil Uygulama", color: "#F59E0B" },
-                ].map((b, i) => (
+                {(() => {
+                  const ov = ps?.overlayFeatures ?? [];
+                  const v = (i: number, fb: string) => (ov[i] && ov[i].trim()) ? ov[i] : fb;
+                  return [
+                    { icon: RiShieldCheckLine,    color: "#10B981", value: v(0, specs[1]?.value ?? "IP 65") },
+                    { icon: RiCalendarCheckLine,  color: ACCENT,    value: v(1, "Planlı Şarj") },
+                    { icon: RiTeamLine,           color: "#818CF8", value: v(2, "Ortak Kullanım") },
+                    { icon: RiSmartphoneLine,     color: "#F59E0B", value: v(3, "Mobil Uygulama") },
+                  ];
+                })().map((b, i) => (
                   <div
                     key={i}
                     className="flex items-center gap-1.5 rounded-xl px-2 py-1.5"

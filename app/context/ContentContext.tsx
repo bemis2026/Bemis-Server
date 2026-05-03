@@ -141,6 +141,8 @@ export type SiteContent = {
     ctaSecondaryHref: string;
     /** When set, each entry is a distinct product — swipe changes image + text together. */
     products?: ShowcaseProductItem[];
+    /** Four labels overlaid on the bottom-left of the showcase image (e.g. "IP 65", "Planlı Şarj"). */
+    overlayFeatures?: string[];
   };
   sectionOrder: string[];
   textStyles: Record<string, { color?: string; fontSize?: string }>;
@@ -356,6 +358,7 @@ const defaultContent: SiteContent = {
     ctaHref: "/products/wallbox",
     ctaSecondary: "Teklif Al",
     ctaSecondaryHref: "/contact",
+    overlayFeatures: ["IP 65", "Planlı Şarj", "Ortak Kullanım", "Mobil Uygulama"],
   },
   sectionOrder: DEFAULT_SECTION_ORDER,
   textStyles: {},
@@ -416,6 +419,7 @@ export function mergeContent(data: any): SiteContent {
       ...safe.productShowcase,
       specs: safe.productShowcase?.specs ?? defaultContent.productShowcase.specs,
       products: safe.productShowcase?.products,
+      overlayFeatures: safe.productShowcase?.overlayFeatures ?? defaultContent.productShowcase.overlayFeatures,
     },
   };
 }

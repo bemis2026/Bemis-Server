@@ -16,6 +16,7 @@ import {
 } from "react-icons/ri";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
+import { useUiStrings } from "../../lib/uiStrings";
 
 const FEATURE_ICONS = [RiWifiLine, RiBuilding4Line, RiCodeSSlashLine];
 const FEATURE_ACCENTS = ["#3B82F6", "#10B981", "#818CF8"];
@@ -44,6 +45,7 @@ export default function SmartCharger() {
   const { theme } = useTheme();
   const { smartCharger } = useContent();
   const router = useRouter();
+  const t = useUiStrings();
   const d = theme === "dark";
 
   const bg = d
@@ -142,12 +144,12 @@ export default function SmartCharger() {
                           {/* App header */}
                           <div className="flex items-center justify-between">
                             <div>
-                              <p className="text-[9px] font-semibold" style={{ color: "rgba(255,255,255,0.40)" }}>BEMİS CHARGE</p>
-                              <p className="text-[12px] font-bold text-white">Şarj Yönetimi</p>
+                              <p className="text-[9px] font-semibold" style={{ color: "rgba(255,255,255,0.40)" }}>{t("smc_brand")}</p>
+                              <p className="text-[12px] font-bold text-white">{t("smc_mng")}</p>
                             </div>
                             <div className="flex items-center gap-1.5">
                               <RiSignalWifiLine size={13} style={{ color: ACCENT2 }} />
-                              <span className="text-[9px] font-semibold" style={{ color: ACCENT2 }}>Bağlı</span>
+                              <span className="text-[9px] font-semibold" style={{ color: ACCENT2 }}>{t("smc_connected")}</span>
                             </div>
                           </div>
 
@@ -170,14 +172,18 @@ export default function SmartCharger() {
                               <div className="flex flex-col items-center">
                                 <RiBatteryChargeLine size={18} style={{ color: ACCENT }} />
                                 <span className="text-lg font-black text-white leading-none">70%</span>
-                                <span className="text-[8px]" style={{ color: "rgba(255,255,255,0.4)" }}>Şarj Oluyor</span>
+                                <span className="text-[8px]" style={{ color: "rgba(255,255,255,0.4)" }}>{t("smc_charging")}</span>
                               </div>
                             </div>
                           </div>
 
                           {/* Stats */}
                           <div className="grid grid-cols-3 gap-2">
-                            {[{ label: "Güç", value: "7.4 kW" }, { label: "Süre", value: "1s 22dk" }, { label: "₺", value: "18.40" }].map(s => (
+                            {[
+                              { label: t("smc_power"), value: "7.4 kW" },
+                              { label: t("smc_time"),  value: `1${t("hour_short")} 22${t("min_short")}` },
+                              { label: "₺",            value: "18.40" },
+                            ].map(s => (
                               <div key={s.label} className="rounded-xl p-2.5 text-center"
                                 style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.07)" }}>
                                 <p className="text-[8px] font-medium" style={{ color: "rgba(255,255,255,0.38)" }}>{s.label}</p>
@@ -188,11 +194,11 @@ export default function SmartCharger() {
 
                           {/* Charger list */}
                           <div className="space-y-2">
-                            <p className="text-[9px] font-semibold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.28)" }}>Üniteler</p>
+                            <p className="text-[9px] font-semibold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.28)" }}>{t("smc_units")}</p>
                             {[
-                              { name: "Ünite #1", status: "Şarj Oluyor", color: ACCENT2 },
-                              { name: "Ünite #2", status: "Müsait", color: "rgba(255,255,255,0.28)" },
-                              { name: "Ünite #3", status: "Müsait", color: "rgba(255,255,255,0.28)" },
+                              { name: `${t("smc_unit")} #1`, status: t("smc_charging"),  color: ACCENT2 },
+                              { name: `${t("smc_unit")} #2`, status: t("smc_available"), color: "rgba(255,255,255,0.28)" },
+                              { name: `${t("smc_unit")} #3`, status: t("smc_available"), color: "rgba(255,255,255,0.28)" },
                             ].map(u => (
                               <div key={u.name} className="flex items-center justify-between px-3 py-2 rounded-xl"
                                 style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
@@ -296,19 +302,19 @@ export default function SmartCharger() {
                           <div className="flex-1 p-3 space-y-2.5 overflow-hidden">
                             {/* Title + live badge */}
                             <div className="flex items-center justify-between">
-                              <span className="text-[10px] font-bold" style={{ color: textPrimary }}>Şarj Yönetim Paneli</span>
+                              <span className="text-[10px] font-bold" style={{ color: textPrimary }}>{t("smc_web_panel")}</span>
                               <span className="text-[8px] px-2 py-0.5 rounded-full font-semibold flex items-center gap-1"
                                 style={{ background: `${ACCENT2}18`, color: ACCENT2 }}>
-                                <span className="w-1 h-1 rounded-full inline-block" style={{ background: ACCENT2 }} />Canlı
+                                <span className="w-1 h-1 rounded-full inline-block" style={{ background: ACCENT2 }} />{t("smc_live")}
                               </span>
                             </div>
 
                             {/* Stat cards */}
                             <div className="grid grid-cols-3 gap-1.5">
                               {[
-                                { label: "Aktif", value: "12", color: ACCENT2 },
-                                { label: "Müsait", value: "4", color: ACCENT },
-                                { label: "Gelir", value: "₺2.4k", color: "#F59E0B" },
+                                { label: t("smc_active"),    value: "12",    color: ACCENT2 },
+                                { label: t("smc_available"), value: "4",     color: ACCENT },
+                                { label: t("smc_revenue"),   value: "₺2.4k", color: "#F59E0B" },
                               ].map(s => (
                                 <div key={s.label} className="rounded-xl p-2 text-center"
                                   style={{ background: d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)", border: `1px solid ${s.color}20` }}>
@@ -321,7 +327,7 @@ export default function SmartCharger() {
                             {/* Bar chart */}
                             <div className="rounded-xl p-2.5"
                               style={{ background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.02)", border: `1px solid ${d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)"}` }}>
-                              <p className="text-[8px] mb-1.5 font-medium" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.40)" }}>Günlük Kullanım (kWh)</p>
+                              <p className="text-[8px] mb-1.5 font-medium" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.40)" }}>{t("smc_daily_usage")}</p>
                               <div className="flex items-end gap-1 h-16">
                                 {[30, 55, 45, 70, 60, 85, 50].map((h, i) => (
                                   <motion.div
@@ -339,9 +345,9 @@ export default function SmartCharger() {
                             {/* Station list */}
                             <div className="space-y-1">
                               {[
-                                { name: "Ünite #1 — Kat -1", color: ACCENT2, status: "Şarj" },
-                                { name: "Ünite #2 — Giriş", color: d ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.20)", status: "Müsait" },
-                                { name: "Ünite #3 — Bahçe", color: d ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.20)", status: "Müsait" },
+                                { name: `${t("smc_unit")} #1 — ${t("smc_floor")} -1`,    color: ACCENT2, status: t("smc_charge_short") },
+                                { name: `${t("smc_unit")} #2 — ${t("smc_entrance")}`,     color: d ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.20)", status: t("smc_available") },
+                                { name: `${t("smc_unit")} #3 — ${t("smc_garden")}`,       color: d ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.20)", status: t("smc_available") },
                               ].map(u => (
                                 <div key={u.name} className="flex items-center justify-between rounded-lg px-2.5 py-1.5"
                                   style={{ background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.02)" }}>
@@ -361,7 +367,7 @@ export default function SmartCharger() {
                       {/* Label */}
                       <div className="mt-2.5 flex items-center justify-center gap-1.5">
                         <RiComputerLine size={12} style={{ color: textMuted }} />
-                        <span className="text-[11px] font-medium" style={{ color: textMuted }}>Web Yönetim Paneli</span>
+                        <span className="text-[11px] font-medium" style={{ color: textMuted }}>{t("smc_web_label")}</span>
                       </div>
                     </div>
                   </motion.div>
@@ -387,8 +393,8 @@ export default function SmartCharger() {
               {/* Dots */}
               <div className="flex gap-2">
                 {[
-                  { idx: 0, icon: <RiSmartphoneLine size={10} />, label: "Mobil" },
-                  { idx: 1, icon: <RiComputerLine size={10} />, label: "Web" },
+                  { idx: 0, icon: <RiSmartphoneLine size={10} />, label: t("smc_pill_mobile") },
+                  { idx: 1, icon: <RiComputerLine size={10} />, label: t("smc_pill_web") },
                 ].map(({ idx, icon, label }) => (
                   <button
                     key={idx}
@@ -442,8 +448,8 @@ export default function SmartCharger() {
               >
                 <span style={{ color: d ? "#f0f0f4" : "#1a1a1a" }}><AppleIcon size={18} /></span>
                 <div>
-                  <p className="text-[9px] leading-none mb-0.5" style={{ color: textMuted }}>App Store&apos;dan İndir</p>
-                  <p className="text-xs font-bold leading-none" style={{ color: textPrimary }}>App Store</p>
+                  <p className="text-[9px] leading-none mb-0.5" style={{ color: textMuted }}>{t("smc_app_top")}</p>
+                  <p className="text-xs font-bold leading-none" style={{ color: textPrimary }}>{t("smc_app_label")}</p>
                 </div>
               </a>
               <a
@@ -455,8 +461,8 @@ export default function SmartCharger() {
               >
                 <span style={{ color: "#4CAF50" }}><GooglePlayIcon size={17} /></span>
                 <div>
-                  <p className="text-[9px] leading-none mb-0.5" style={{ color: textMuted }}>Google Play&apos;den İndir</p>
-                  <p className="text-xs font-bold leading-none" style={{ color: textPrimary }}>Google Play</p>
+                  <p className="text-[9px] leading-none mb-0.5" style={{ color: textMuted }}>{t("smc_play_top")}</p>
+                  <p className="text-xs font-bold leading-none" style={{ color: textPrimary }}>{t("smc_play_label")}</p>
                 </div>
               </a>
             </motion.div>
@@ -518,8 +524,8 @@ export default function SmartCharger() {
                   <RiComputerLine size={16} style={{ color: ACCENT }} />
                 </div>
                 <div>
-                  <p className="text-xs font-bold" style={{ color: textPrimary }}>Web Tarayıcı</p>
-                  <p className="text-[10px]" style={{ color: textMuted }}>Her cihazdan erişim</p>
+                  <p className="text-xs font-bold" style={{ color: textPrimary }}>{t("smc_browser")}</p>
+                  <p className="text-[10px]" style={{ color: textMuted }}>{t("smc_browser_sub")}</p>
                 </div>
               </div>
               <div className="w-px h-8 flex-shrink-0" style={{ background: d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)" }} />
@@ -528,7 +534,7 @@ export default function SmartCharger() {
                   <RiSmartphoneLine size={16} style={{ color: ACCENT2 }} />
                 </div>
                 <div>
-                  <p className="text-xs font-bold" style={{ color: textPrimary }}>Mobil Uygulama</p>
+                  <p className="text-xs font-bold" style={{ color: textPrimary }}>{t("smc_mobile")}</p>
                   <p className="text-[10px]" style={{ color: textMuted }}>iOS & Android</p>
                 </div>
               </div>

@@ -33,6 +33,7 @@ const TRANSLATABLE_PATHS: string[] = [
 
   "reviews.sectionLabel", "reviews.heading", "reviews.subheading",
   "reviews.ratingLabel", "reviews.platformsPrefix", "reviews.ratingCountSuffix",
+  "reviews.items[].author", "reviews.items[].date", "reviews.items[].product", "reviews.items[].text",
 
   "contactSection.sectionLabel", "contactSection.heading", "contactSection.subheading",
 
@@ -46,6 +47,7 @@ const TRANSLATABLE_PATHS: string[] = [
   "productShowcase.badge", "productShowcase.name", "productShowcase.tagline",
   "productShowcase.description", "productShowcase.ctaPrimary", "productShowcase.ctaSecondary",
   "productShowcase.specs[].label", "productShowcase.specs[].value",
+  "productShowcase.overlayFeatures[]",
   "productShowcase.products[].badge", "productShowcase.products[].name",
   "productShowcase.products[].tagline", "productShowcase.products[].description",
   "productShowcase.products[].ctaPrimary", "productShowcase.products[].ctaSecondary",
@@ -83,6 +85,19 @@ function walk(node: Any, parts: string[], i: number, visits: Visit[]) {
     const key = seg.slice(0, -2);
     const arr = node[key];
     if (!Array.isArray(arr)) return;
+    // Trailing "[]" with no following segment → array of primitive strings.
+    if (i === parts.length - 1) {
+      arr.forEach((v, idx) => {
+        if (typeof v === "string") {
+          visits.push({
+            path: `${key}[${idx}]`,
+            getter: () => arr[idx],
+            setter: (s: string) => { arr[idx] = s; },
+          });
+        }
+      });
+      return;
+    }
     arr.forEach((_, idx) => walk(arr[idx], parts, i + 1, visits));
     return;
   }

@@ -133,7 +133,7 @@ type ContentData = {
   featuredSection?: { sectionLabel: string; heading: string; subheading: string; ctaLabel: string };
   calculator?: { sectionLabel: string; heading: string; subheading: string; tabCharge: string; tabSavings: string; chargeSimLabel: string };
   smartCharger?: { sectionLabel: string; heading: string; subheading: string; ocppBadge: string; ctaLabel: string; ctaHref: string; appStoreHref: string; playStoreHref: string; features: { title: string; desc: string }[]; mockupPhoneImage?: string; mockupWebImage?: string };
-  productShowcase?: { badge: string; name: string; tagline: string; description: string; image: string; images?: string[]; specs: { label: string; value: string }[]; ctaPrimary: string; ctaHref: string; ctaSecondary: string; ctaSecondaryHref: string; products?: ShowcaseProductItem[] };
+  productShowcase?: { badge: string; name: string; tagline: string; description: string; image: string; images?: string[]; specs: { label: string; value: string }[]; ctaPrimary: string; ctaHref: string; ctaSecondary: string; ctaSecondaryHref: string; products?: ShowcaseProductItem[]; overlayFeatures?: string[] };
   sectionBgs?: Record<string, string>;
   logos?: { dark: string; light: string };
   ogImage?: string;
@@ -2843,6 +2843,38 @@ export default function AdminPage() {
                     </div>
                     <Field label="Ürün Adı" value={content.productShowcase?.name ?? ""} onChange={(v) => updateContent(["productShowcase","name"], v)} />
                     <Field label="Açıklama Paragrafı" value={content.productShowcase?.description ?? ""} onChange={(v) => updateContent(["productShowcase","description"], v)} multiline />
+
+                    {/* Overlay feature badges — appear on top of the product image */}
+                    <div className="pt-2 border-t border-white/6 space-y-2">
+                      <div>
+                        <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Görsel Üzerindeki Rozetler</p>
+                        <p className="text-[10px] text-white/35 mt-0.5">Sol-alttaki 4 küçük rozetin metni. Boş bırakırsanız varsayılan değer kullanılır.</p>
+                      </div>
+                      <div className="grid grid-cols-2 gap-2">
+                        {[0, 1, 2, 3].map((i) => {
+                          const fb = ["IP 65", "Planlı Şarj", "Ortak Kullanım", "Mobil Uygulama"][i];
+                          return (
+                            <Field
+                              key={i}
+                              label={`Rozet ${i + 1}`}
+                              value={(content.productShowcase?.overlayFeatures ?? [])[i] ?? ""}
+                              onChange={(v) => {
+                                setContent((prev) => {
+                                  if (!prev?.productShowcase) return prev;
+                                  const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                                  const arr = [...(next.productShowcase!.overlayFeatures ?? ["", "", "", ""])];
+                                  while (arr.length < 4) arr.push("");
+                                  arr[i] = v;
+                                  next.productShowcase!.overlayFeatures = arr;
+                                  return next;
+                                });
+                              }}
+                              placeholder={fb}
+                            />
+                          );
+                        })}
+                      </div>
+                    </div>
 
                     {/* Product gallery — multi-image with reorder/delete */}
                     {(() => {
