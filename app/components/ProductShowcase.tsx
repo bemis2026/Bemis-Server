@@ -172,11 +172,10 @@ export default function ProductShowcase() {
                         <RiArrowRightSLine size={20} />
                       </button>
 
-                      {/* Dots — placed above the bottom feature-badge row to avoid overlap */}
+                      {/* Dots — at the very bottom of the image */}
                       <div
-                        className="absolute left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-full"
+                        className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-full"
                         style={{
-                          bottom: "calc(1rem + 64px + 8px)",
                           background: "rgba(8,12,24,0.55)",
                           backdropFilter: "blur(8px)",
                           border: "1px solid rgba(255,255,255,0.10)",
@@ -238,13 +237,13 @@ export default function ProductShowcase() {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Feature badges — bottom left grid */}
+              {/* Feature badges — sits above the dots row */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.45, delay: 0.55 }}
-                className="absolute bottom-4 left-4 grid grid-cols-2 gap-1.5"
-                style={{ maxWidth: "calc(100% - 96px)" }}
+                className="absolute left-4 grid grid-cols-2 gap-1.5"
+                style={{ bottom: "calc(0.75rem + 24px + 10px)", maxWidth: "calc(100% - 96px)" }}
               >
                 {[
                   { icon: RiShieldCheckLine, label: specs[1]?.label ?? "Koruma", value: specs[1]?.value ?? "IP 65", color: "#10B981" },
@@ -268,13 +267,13 @@ export default function ProductShowcase() {
                 ))}
               </motion.div>
 
-              {/* Yerli üretim — çerçevesiz, direkt görsel üzerine */}
+              {/* Yerli üretim — aligned with feature badges, above the dots row */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.4, delay: 0.75 }}
-                className="absolute bottom-4 right-4"
-                style={{ width: 72, height: 72 }}
+                className="absolute right-4"
+                style={{ bottom: "calc(0.75rem + 24px + 10px)", width: 72, height: 72 }}
               >
                 <Image src="/badges/yerli-uretim.jpg" alt="Yerli Üretim" width={72} height={72} className="w-full h-full object-contain drop-shadow-lg" />
               </motion.div>
