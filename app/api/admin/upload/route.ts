@@ -24,7 +24,12 @@ async function uploadToImgbb(bytes: ArrayBuffer, filename: string, apiKey: strin
   const res = await fetch("https://api.imgbb.com/1/upload", { method: "POST", body });
   const json = await res.json();
   if (!res.ok || !json.success) throw new Error(`ImgBB hatası: ${json?.error?.message ?? res.status}`);
-  return json.data.display_url as string;
+  // Prefer the original-resolution URL. `display_url` returns the auto-resized
+  // (max ~1280px wide) variant, which is why hero / OG images came back tiny.
+  // `image.url` is the full upload, `data.url` is its mirror.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const d = json.data as any;
+  return (d?.image?.url ?? d?.url ?? d?.display_url) as string;
 }
 
 async function uploadToCloudinary(bytes: ArrayBuffer, filename: string, ext: string, cloudName: string, preset: string): Promise<string> {

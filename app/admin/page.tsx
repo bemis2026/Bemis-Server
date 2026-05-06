@@ -981,6 +981,29 @@ export default function AdminPage() {
   const handleOgImgUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
+
+    // Check image dimensions before uploading. Google / Facebook want
+    // ≥ 1200×630 for the large-preview card; smaller images are silently
+    // ignored or shown as tiny thumbnails.
+    const dims = await new Promise<{ w: number; h: number } | null>((resolve) => {
+      const img = new window.Image();
+      img.onload = () => resolve({ w: img.naturalWidth, h: img.naturalHeight });
+      img.onerror = () => resolve(null);
+      img.src = URL.createObjectURL(file);
+    });
+
+    if (dims && (dims.w < 1200 || dims.h < 630)) {
+      const ok = window.confirm(
+        `Bu görsel ${dims.w} × ${dims.h} px boyutunda. Open Graph için önerilen min boyut 1200 × 630 px — ` +
+        `daha küçük görseller Google / Facebook arama önizlemelerinde büyük kart olarak gösterilmez.\n\n` +
+        `Yine de yüklemek istiyor musunuz?`
+      );
+      if (!ok) {
+        if (ogImgRef.current) ogImgRef.current.value = "";
+        return;
+      }
+    }
+
     setOgImgLoading(true);
     const fd = new FormData();
     fd.append("file", file);
@@ -999,7 +1022,9 @@ export default function AdminPage() {
         }).catch(() => {});
         return updated;
       });
-      showToast("ok", "Open Graph görseli yüklendi ve kaydedildi.");
+      // Notify search engines so they re-fetch the OG card.
+      fetch("/api/admin/notify-search-engines", { method: "POST" }).catch(() => {});
+      showToast("ok", "Open Graph görseli yüklendi ve arama motorlarına bildirildi.");
     } else {
       showToast("err", "Yükleme başarısız.");
     }
