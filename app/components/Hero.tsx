@@ -120,21 +120,24 @@ export default function Hero() {
               onClick={scrollToNextSection}
               className="group inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02] active:scale-95"
               style={{
-                background: `${ACCENT}1A`,
+                // Slightly more saturated than the original 1A (10%) so the
+                // button reads as a proper brand-blue accent against the
+                // photo background — instead of a faint glassy hint.
+                background: `${ACCENT}26`,
                 backdropFilter: "blur(14px)",
                 WebkitBackdropFilter: "blur(14px)",
-                border: `1px solid ${ACCENT}45`,
-                boxShadow: `0 8px 28px ${ACCENT}25, inset 0 1px 0 rgba(255,255,255,0.10)`,
+                border: `1px solid ${ACCENT}55`,
+                boxShadow: `0 10px 32px ${ACCENT}30, inset 0 1px 0 rgba(255,255,255,0.12)`,
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = `${ACCENT}2C`;
-                e.currentTarget.style.borderColor = `${ACCENT}80`;
-                e.currentTarget.style.boxShadow = `0 10px 32px ${ACCENT}40, inset 0 1px 0 rgba(255,255,255,0.14)`;
+                e.currentTarget.style.background = `${ACCENT}40`;
+                e.currentTarget.style.borderColor = `${ACCENT}90`;
+                e.currentTarget.style.boxShadow = `0 12px 36px ${ACCENT}50, inset 0 1px 0 rgba(255,255,255,0.16)`;
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = `${ACCENT}1A`;
-                e.currentTarget.style.borderColor = `${ACCENT}45`;
-                e.currentTarget.style.boxShadow = `0 8px 28px ${ACCENT}25, inset 0 1px 0 rgba(255,255,255,0.10)`;
+                e.currentTarget.style.background = `${ACCENT}26`;
+                e.currentTarget.style.borderColor = `${ACCENT}55`;
+                e.currentTarget.style.boxShadow = `0 10px 32px ${ACCENT}30, inset 0 1px 0 rgba(255,255,255,0.12)`;
               }}
             >
               <E field="hero.ctaPrimary" tag="span">{hero.ctaPrimary}</E>
@@ -197,21 +200,24 @@ export default function Hero() {
               onClick={scrollToNextSection}
               className="group inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02] active:scale-95"
               style={{
-                background: `${ACCENT}1A`,
+                // Slightly more saturated than the original 1A (10%) so the
+                // button reads as a proper brand-blue accent against the
+                // photo background — instead of a faint glassy hint.
+                background: `${ACCENT}26`,
                 backdropFilter: "blur(14px)",
                 WebkitBackdropFilter: "blur(14px)",
-                border: `1px solid ${ACCENT}45`,
-                boxShadow: `0 8px 28px ${ACCENT}25, inset 0 1px 0 rgba(255,255,255,0.10)`,
+                border: `1px solid ${ACCENT}55`,
+                boxShadow: `0 10px 32px ${ACCENT}30, inset 0 1px 0 rgba(255,255,255,0.12)`,
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = `${ACCENT}2C`;
-                e.currentTarget.style.borderColor = `${ACCENT}80`;
-                e.currentTarget.style.boxShadow = `0 10px 32px ${ACCENT}40, inset 0 1px 0 rgba(255,255,255,0.14)`;
+                e.currentTarget.style.background = `${ACCENT}40`;
+                e.currentTarget.style.borderColor = `${ACCENT}90`;
+                e.currentTarget.style.boxShadow = `0 12px 36px ${ACCENT}50, inset 0 1px 0 rgba(255,255,255,0.16)`;
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = `${ACCENT}1A`;
-                e.currentTarget.style.borderColor = `${ACCENT}45`;
-                e.currentTarget.style.boxShadow = `0 8px 28px ${ACCENT}25, inset 0 1px 0 rgba(255,255,255,0.10)`;
+                e.currentTarget.style.background = `${ACCENT}26`;
+                e.currentTarget.style.borderColor = `${ACCENT}55`;
+                e.currentTarget.style.boxShadow = `0 10px 32px ${ACCENT}30, inset 0 1px 0 rgba(255,255,255,0.12)`;
               }}
             >
               <E field="hero.ctaPrimary" tag="span">{hero.ctaPrimary}</E>

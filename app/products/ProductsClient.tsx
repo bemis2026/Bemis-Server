@@ -408,7 +408,7 @@ export default function AllProductsPage() {
                             <div
                               className="relative overflow-hidden"
                               style={{
-                                height: 140,
+                                height: 170,
                                 background: d
                                   ? `linear-gradient(145deg, ${cat.accent}0a 0%, #111111 100%)`
                                   : `linear-gradient(145deg, ${cat.accent}0d 0%, #f4f4f4 100%)`,
@@ -418,8 +418,7 @@ export default function AllProductsPage() {
                                 <img
                                   src={product.images?.[0] ?? product.image}
                                   alt={product.name}
-                                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-350 group-hover:scale-105"
-                                  style={{ opacity: 0.88 }}
+                                  className="absolute inset-0 w-full h-full object-contain p-3 transition-transform duration-350 group-hover:scale-105"
                                 />
                               ) : (
                                 <div className="absolute inset-0 flex items-center justify-center">

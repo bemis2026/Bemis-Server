@@ -289,57 +289,161 @@ export default function KurumsalPage() {
           </div>
         )}
 
-        {/* ── Timeline + Production ── */}
-        <div className="py-14 px-5 sm:px-6 lg:px-8">
+        {/* ── Timeline (full-width, horizontal "journey" map) ── */}
+        <div className="py-16 px-5 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-
-              {/* Timeline — left col */}
-              <div>
-                <h2 className="text-xl font-bold mb-8" style={{ color: textPrimary }}>Tarihçe</h2>
-                <div className="relative">
-                  <div className="absolute left-0 top-0 bottom-0 w-px" style={{ background: divider }} />
-                  <div className="space-y-8 pl-8">
-                    {timeline.map((item, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, x: -14 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.05 * i }}
-                        className="relative"
-                      >
-                        <div
-                          className="absolute -left-8 top-1 w-2.5 h-2.5 rounded-full border-2 flex-shrink-0"
-                          style={{ background: i === timeline.length - 1 ? BLUE : (d ? "#333" : "#ccc"), borderColor: i === timeline.length - 1 ? BLUE : (d ? "#555" : "#aaa") }}
-                        />
-                        <div className="text-xs font-bold mb-0.5" style={{ color: d ? "#93C5FD" : BLUE }}>{item.year}</div>
-                        <div className="font-semibold text-sm mb-0.5" style={{ color: textPrimary }}>{item.title}</div>
-                        <div className="text-sm" style={{ color: textFaint }}>{item.desc}</div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Production — right col, image card grid */}
-              <motion.div
-                initial={{ opacity: 0, x: 14 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.18 }}
+            <div className="mb-10">
+              <span
+                className="inline-block text-[10px] font-bold tracking-[0.20em] uppercase px-3 py-1.5 rounded-full mb-4"
+                style={{
+                  background: d ? `${BLUE}18` : `${BLUE}10`,
+                  border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`,
+                  color: d ? "#93C5FD" : BLUE,
+                }}
               >
-                {/* Heading row */}
-                <div className="flex items-center justify-between mb-5">
-                  <h2 className="text-xl font-bold" style={{ color: textPrimary }}>Üretim Süreci</h2>
+                Tarihçe
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-black" style={{ color: textPrimary }}>
+                Bemis Yolculuğu
+              </h2>
+              <motion.div
+                initial={{ scaleX: 0, opacity: 0 }}
+                animate={{ scaleX: 1, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.18 }}
+                className="h-[2px] w-24 origin-left rounded-full mt-3"
+                style={{ background: `linear-gradient(90deg, ${BLUE} 0%, ${BLUE}66 60%, transparent 100%)`, boxShadow: `0 0 12px ${BLUE}45` }}
+              />
+            </div>
+
+            {/* Horizontal journey rail. Connector line runs behind every
+                checkpoint; on mobile the layout collapses into a vertical
+                stack so the rail rotates 90°. */}
+            <div className="relative">
+              {/* Horizontal connector — desktop only. Sits behind the cards
+                  and runs the full width of the rail. */}
+              <div
+                className="hidden md:block absolute left-0 right-0 pointer-events-none"
+                style={{
+                  top: 26,
+                  height: 2,
+                  background: `linear-gradient(90deg, transparent 0%, ${BLUE}33 5%, ${BLUE}80 50%, ${BLUE}33 95%, transparent 100%)`,
+                  boxShadow: `0 0 16px ${BLUE}30`,
+                }}
+                aria-hidden
+              />
+
+              <div
+                className="grid gap-4 md:gap-3"
+                style={{ gridTemplateColumns: `repeat(${timeline.length}, minmax(0, 1fr))` }}
+              >
+                {timeline.map((item, i) => {
+                  const isLast = i === timeline.length - 1;
+                  return (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 18 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.08 * i, duration: 0.45 }}
+                      className="relative flex flex-col items-center text-center"
+                    >
+                      {/* Year pill (sits on the rail) */}
+                      <div
+                        className="relative inline-flex items-center justify-center px-3.5 py-2 rounded-full font-black text-sm tabular-nums"
+                        style={{
+                          background: isLast ? BLUE : (d ? "#1a1a1d" : "#ffffff"),
+                          border: `2px solid ${isLast ? BLUE : (d ? `${BLUE}45` : `${BLUE}35`)}`,
+                          color: isLast ? "#ffffff" : (d ? "#93C5FD" : BLUE),
+                          boxShadow: isLast ? `0 0 24px ${BLUE}55, 0 0 0 4px ${BLUE}18` : `0 4px 12px ${d ? "rgba(0,0,0,0.30)" : "rgba(0,0,0,0.10)"}`,
+                          minWidth: 64,
+                          zIndex: 2,
+                        }}
+                      >
+                        {item.year}
+                      </div>
+
+                      {/* Drop line connecting the year pill to the card */}
+                      <div
+                        className="w-px"
+                        style={{ height: 14, background: d ? `${BLUE}45` : `${BLUE}35` }}
+                        aria-hidden
+                      />
+
+                      {/* Detail card */}
+                      <motion.div
+                        whileHover={{ y: -2 }}
+                        transition={{ duration: 0.2 }}
+                        className="rounded-2xl px-3 py-3 w-full"
+                        style={{
+                          background: surface,
+                          border: `1px solid ${isLast ? `${BLUE}35` : border}`,
+                          boxShadow: isLast
+                            ? `0 8px 28px ${BLUE}22, 0 0 0 1px ${BLUE}10`
+                            : (d ? "0 4px 14px rgba(0,0,0,0.20)" : "0 2px 10px rgba(0,0,0,0.05)"),
+                          minHeight: 100,
+                        }}
+                      >
+                        <p
+                          className="font-bold text-sm leading-tight mb-1"
+                          style={{ color: textPrimary }}
+                        >
+                          {item.title}
+                        </p>
+                        <p
+                          className="text-[11px] leading-snug"
+                          style={{ color: textMuted }}
+                        >
+                          {item.desc}
+                        </p>
+                      </motion.div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Production process ── */}
+        <div className="py-12 px-5 sm:px-6 lg:px-8" style={{ borderTop: `1px solid ${divider}` }}>
+          <div className="max-w-7xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+                {/* Section heading — matches the timeline + values
+                    sections so the kurumsal page reads as one coherent
+                    document. */}
+                <div className="flex items-start justify-between mb-8 gap-4 flex-wrap">
+                  <div>
+                    <span
+                      className="inline-block text-[10px] font-bold tracking-[0.20em] uppercase px-3 py-1.5 rounded-full mb-3"
+                      style={{
+                        background: d ? `${BLUE}18` : `${BLUE}10`,
+                        border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`,
+                        color: d ? "#93C5FD" : BLUE,
+                      }}
+                    >
+                      Üretim Süreci
+                    </span>
+                    <h2 className="text-3xl sm:text-4xl font-black" style={{ color: textPrimary }}>
+                      Tasarımdan Son Ürüne
+                    </h2>
+                    <div
+                      className="h-[2px] w-24 origin-left rounded-full mt-3"
+                      style={{ background: `linear-gradient(90deg, ${BLUE} 0%, ${BLUE}66 60%, transparent 100%)`, boxShadow: `0 0 12px ${BLUE}45` }}
+                    />
+                  </div>
                   <span
-                    className="text-[9px] font-bold px-2.5 py-1 rounded-full"
+                    className="text-[10px] font-bold px-3 py-1.5 rounded-full self-start"
                     style={{ background: `${GREEN}15`, color: GREEN, border: `1px solid ${GREEN}30` }}
                   >
                     🇹🇷 Yerli Üretim
                   </span>
                 </div>
 
-                {/* 3-column card grid */}
-                <div className="grid grid-cols-3 gap-2.5">
+                {/* Production steps grid — 3 cols on tablet+, 2 on mobile */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
                   {[...PRODUCTION_STEPS, { icon: null as null, label: "Son Ürün" }].map((step, i) => {
                     const imgSrc = dna.productionStepImages?.[i];
                     const isFinal = i === PRODUCTION_STEPS.length;
@@ -412,9 +516,7 @@ export default function KurumsalPage() {
                   })}
                 </div>
 
-              </motion.div>
-
-            </div>
+            </motion.div>
           </div>
         </div>
 
