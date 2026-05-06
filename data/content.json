@@ -84,9 +84,9 @@
       "image": "/categories/1775068456394-V2L-kamp2.png"
     },
     "converters": {
-      "name": "Uzatma & Kombinasyon",
-      "subtitle": "Uzatma Kabloları, Dönüştürücüler & Kombinasyon Kutuları",
-      "modelCount": 4,
+      "name": "Uzatmalar, Dönüştürücüler ve Kombinasyonlar",
+      "subtitle": "Fiş-priz dönüştürücü adaptörler, seyyar uzatma kabloları ve kombinasyon ekipmanları",
+      "modelCount": 21,
       "badge": null,
       "comingSoon": false,
       "image": "/categories/1775068429165-BKT-0102-2105.jpg"
@@ -309,14 +309,38 @@
   "navbar": {
     "ctaLabel": "Bize Ulaşın",
     "links": [
-      { "label": "Ana Sayfa",   "href": "#hero"       },
-      { "label": "Hakkımızda",  "href": "#dna"        },
-      { "label": "Ürünler",     "href": "#products"   },
-      { "label": "Dökümanlar",  "href": "/documents"  },
-      { "label": "Bayi Ağı",    "href": "#dealer"     },
-      { "label": "Hesaplayıcı", "href": "#calculator" },
-      { "label": "İletişim",    "href": "#contact"    },
-      { "label": "Kurumsal",    "href": "/b2b"        }
+      {
+        "label": "Ana Sayfa",
+        "href": "#hero"
+      },
+      {
+        "label": "Hakkımızda",
+        "href": "#dna"
+      },
+      {
+        "label": "Ürünler",
+        "href": "#products"
+      },
+      {
+        "label": "Dökümanlar",
+        "href": "/documents"
+      },
+      {
+        "label": "Bayi Ağı",
+        "href": "#dealer"
+      },
+      {
+        "label": "Hesaplayıcı",
+        "href": "#calculator"
+      },
+      {
+        "label": "İletişim",
+        "href": "#contact"
+      },
+      {
+        "label": "Kurumsal",
+        "href": "/b2b"
+      }
     ]
   },
   "footer": {
@@ -341,9 +365,18 @@
     "ctaLabel": "Charger Serisini İncele",
     "ctaHref": "/products/charger-equipment",
     "features": [
-      { "title": "Uzaktan İzleme & Kontrol", "desc": "Şarj ünitelerini gerçek zamanlı takip edin, başlatın veya durdurun. Anlık durum bildirimleri alın." },
-      { "title": "Ortak Alan Optimizasyonu", "desc": "Çok kullanıcılı erişim, dinamik yük dengeleme ve ödeme sistemi entegrasyonu ile tam yönetim." },
-      { "title": "Açık OCPP Ekosistemi", "desc": "Standart OCPP protokolü ile tüm ağ operatörleri ve back-end platformlarıyla uyumlu çalışır." }
+      {
+        "title": "Uzaktan İzleme & Kontrol",
+        "desc": "Şarj ünitelerini gerçek zamanlı takip edin, başlatın veya durdurun. Anlık durum bildirimleri alın."
+      },
+      {
+        "title": "Ortak Alan Optimizasyonu",
+        "desc": "Çok kullanıcılı erişim, dinamik yük dengeleme ve ödeme sistemi entegrasyonu ile tam yönetim."
+      },
+      {
+        "title": "Açık OCPP Ekosistemi",
+        "desc": "Standart OCPP protokolü ile tüm ağ operatörleri ve back-end platformlarıyla uyumlu çalışır."
+      }
     ]
   },
   "productShowcase": {
@@ -353,12 +386,30 @@
     "description": "Konut ve iş yeri uygulamaları için geliştirilmiş, OCPP destekli 7,4 kW akıllı AC şarj istasyonu. Mobil uygulama entegrasyonu, dinamik yük yönetimi ve IP65 korumasıyla ev ile kamusal alanlarda kesintisiz performans.",
     "image": "/products/1775067096437-WhatsApp_Image_2026-03-29_at_01.55.05__2_.jpeg",
     "specs": [
-      { "label": "Güç Çıkışı", "value": "7,4 kW" },
-      { "label": "Koruma Sınıfı", "value": "IP65 · IK10" },
-      { "label": "Bağlantı", "value": "OCPP 1.6 / 2.0.1" },
-      { "label": "Konnektör", "value": "Type 2 (IEC 62196)" },
-      { "label": "Sıcaklık", "value": "-40°C / +55°C" },
-      { "label": "Garanti", "value": "2 Yıl" }
+      {
+        "label": "Güç Çıkışı",
+        "value": "7,4 kW"
+      },
+      {
+        "label": "Koruma Sınıfı",
+        "value": "IP65 · IK10"
+      },
+      {
+        "label": "Bağlantı",
+        "value": "OCPP 1.6 / 2.0.1"
+      },
+      {
+        "label": "Konnektör",
+        "value": "Type 2 (IEC 62196)"
+      },
+      {
+        "label": "Sıcaklık",
+        "value": "-40°C / +55°C"
+      },
+      {
+        "label": "Garanti",
+        "value": "2 Yıl"
+      }
     ],
     "ctaPrimary": "Ürünü İncele",
     "ctaHref": "/products/wallbox",

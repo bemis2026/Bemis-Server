@@ -3607,7 +3607,7 @@
   },
   {
     "id": "converters",
-    "name": "Uzatma & Kombinasyon",
+    "name": "Uzatmalar, Dönüştürücüler ve Kombinasyonlar",
     "tagline": "Şarj kablosunu uzatın veya farklı fiş tiplerine dönüştürün",
     "accent": "#06B6D4",
     "products": [
@@ -3795,6 +3795,884 @@
               }
             ]
           }
+        ]
+      },
+      {
+        "id": "cee-norm-adaptor-3-2-5-116a-fis-532a-priz",
+        "name": "Cee Norm Adaptör (3×2,5)",
+        "code": "BKT-0111-2211",
+        "subtitle": "1/16A Fiş → 5/32A Priz",
+        "badge": null,
+        "description": "30 cm kablolu Cee Norm fiş-priz dönüştürücü adaptör. 3×2,5 mm² ttr kablo ile profesyonel saha kullanımı için.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Fiş-Priz Dönüştürücü Adaptör"
+              },
+              {
+                "label": "Standart",
+                "value": "CEE Norm"
+              },
+              {
+                "label": "Kablo",
+                "value": "30 cm · 3 × 2,5 mm² ttr"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Dönüştürücü",
+                "value": "1/16A Fiş → 5/32A Priz"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 14,30"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "CEE Norm fiş ve priz konfigürasyonu",
+          "30 cm · 3 × 2,5 mm² ttr ttr kablo, esnek ve dayanıklı dış kılıf",
+          "Şantiye, atölye ve saha kullanımı için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "cee-norm-adaptor-3-2-5-116a-fis-332a-priz",
+        "name": "Cee Norm Adaptör (3×2,5)",
+        "code": "BKT-0109-2211",
+        "subtitle": "1/16A Fiş → 3/32A Priz",
+        "badge": null,
+        "description": "30 cm kablolu Cee Norm fiş-priz dönüştürücü adaptör. 3×2,5 mm² ttr kablo ile profesyonel saha kullanımı için.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Fiş-Priz Dönüştürücü Adaptör"
+              },
+              {
+                "label": "Standart",
+                "value": "CEE Norm"
+              },
+              {
+                "label": "Kablo",
+                "value": "30 cm · 3 × 2,5 mm² ttr"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Dönüştürücü",
+                "value": "1/16A Fiş → 3/32A Priz"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 9,90"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "CEE Norm fiş ve priz konfigürasyonu",
+          "30 cm · 3 × 2,5 mm² ttr ttr kablo, esnek ve dayanıklı dış kılıf",
+          "Şantiye, atölye ve saha kullanımı için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "cee-norm-adaptor-3-2-5-332a-fis-116a-priz",
+        "name": "Cee Norm Adaptör (3×2,5)",
+        "code": "BKT-0802-2211",
+        "subtitle": "3/32A Fiş → 1/16A Priz",
+        "badge": null,
+        "description": "30 cm kablolu Cee Norm fiş-priz dönüştürücü adaptör. 3×2,5 mm² ttr kablo ile profesyonel saha kullanımı için.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Fiş-Priz Dönüştürücü Adaptör"
+              },
+              {
+                "label": "Standart",
+                "value": "CEE Norm"
+              },
+              {
+                "label": "Kablo",
+                "value": "30 cm · 3 × 2,5 mm² ttr"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Dönüştürücü",
+                "value": "3/32A Fiş → 1/16A Priz"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 11,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "CEE Norm fiş ve priz konfigürasyonu",
+          "30 cm · 3 × 2,5 mm² ttr ttr kablo, esnek ve dayanıklı dış kılıf",
+          "Şantiye, atölye ve saha kullanımı için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "cee-norm-adaptor-3-6-332a-fis-532a-priz",
+        "name": "Cee Norm Adaptör (3×6)",
+        "code": "BKT-8112-1211",
+        "subtitle": "3/32A Fiş → 5/32A Priz",
+        "badge": null,
+        "description": "30 cm kablolu yüksek akım Cee Norm fiş-priz dönüştürücü adaptör. 3×6 mm² ttr kablo ile 32A güvenli akım taşır.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Fiş-Priz Dönüştürücü Adaptör"
+              },
+              {
+                "label": "Standart",
+                "value": "CEE Norm"
+              },
+              {
+                "label": "Kablo",
+                "value": "30 cm · 3 × 6 mm² ttr"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Dönüştürücü",
+                "value": "3/32A Fiş → 5/32A Priz"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 19,80"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "CEE Norm fiş ve priz konfigürasyonu",
+          "30 cm · 3 × 6 mm² ttr ttr kablo, esnek ve dayanıklı dış kılıf",
+          "Şantiye, atölye ve saha kullanımı için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "standart-adaptor-3-2-5-116a-fis-316a-priz",
+        "name": "Standart Adaptör (3×2,5)",
+        "code": "BKT-0106-2000",
+        "subtitle": "1/16A Fiş → 3/16A Priz",
+        "badge": null,
+        "description": "Kompakt fiş-priz dönüştürücü adaptör. 3×2,5 mm² ttr kablo ile düşük akım uygulamaları için.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Fiş-Priz Dönüştürücü Adaptör"
+              },
+              {
+                "label": "Standart",
+                "value": "Standart"
+              },
+              {
+                "label": "Kablo",
+                "value": "3 × 2,5 mm² ttr"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Dönüştürücü",
+                "value": "1/16A Fiş → 3/16A Priz"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 9,50"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Standart fiş ve priz konfigürasyonu",
+          "3 × 2,5 mm² ttr ttr kablo, esnek ve dayanıklı dış kılıf",
+          "Şantiye, atölye ve saha kullanımı için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "standart-adaptor-3-2-5-316a-fis-116a-priz",
+        "name": "Standart Adaptör (3×2,5)",
+        "code": "BKT-0502-2000",
+        "subtitle": "3/16A Fiş → 1/16A Priz",
+        "badge": null,
+        "description": "Kompakt fiş-priz dönüştürücü adaptör. 3×2,5 mm² ttr kablo ile düşük akım uygulamaları için.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Fiş-Priz Dönüştürücü Adaptör"
+              },
+              {
+                "label": "Standart",
+                "value": "Standart"
+              },
+              {
+                "label": "Kablo",
+                "value": "3 × 2,5 mm² ttr"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Dönüştürücü",
+                "value": "3/16A Fiş → 1/16A Priz"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 9,50"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Standart fiş ve priz konfigürasyonu",
+          "3 × 2,5 mm² ttr ttr kablo, esnek ve dayanıklı dış kılıf",
+          "Şantiye, atölye ve saha kullanımı için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-monofaze-3-2-5-5m-standart",
+        "name": "Seyyar Uzatma Kablosu Monofaze (3×2,5)",
+        "code": "BKT-0102-2205",
+        "subtitle": "5m. Standart",
+        "badge": null,
+        "description": "Monofaze 16A için 3×2,5 mm² ttr seyyar uzatma kablosu. Atölye, saha ve mobil kullanım için esnek tasarım.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Seyyar Uzatma Kablosu"
+              },
+              {
+                "label": "Kablo",
+                "value": "3 × 2,5 mm² ttr"
+              },
+              {
+                "label": "Uzunluk",
+                "value": "5m. Standart"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Bağlantı Yönü",
+                "value": "1/16A Fiş → 1/16A Priz"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 18,75"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "3 × 2,5 mm² ttr esnek bakır iletken, dayanıklı dış kılıf",
+          "1/16A Fiş → 1/16A Priz bağlantısı",
+          "UV ve hava koşullarına dayanıklı",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-monofaze-3-2-5-10m-standart",
+        "name": "Seyyar Uzatma Kablosu Monofaze (3×2,5)",
+        "code": "BKT-0102-2210",
+        "subtitle": "10m. Standart",
+        "badge": null,
+        "description": "Monofaze 16A için 3×2,5 mm² ttr seyyar uzatma kablosu. Atölye, saha ve mobil kullanım için esnek tasarım.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Seyyar Uzatma Kablosu"
+              },
+              {
+                "label": "Kablo",
+                "value": "3 × 2,5 mm² ttr"
+              },
+              {
+                "label": "Uzunluk",
+                "value": "10m. Standart"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Bağlantı Yönü",
+                "value": "1/16A Fiş → 1/16A Priz"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 28,75"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "3 × 2,5 mm² ttr esnek bakır iletken, dayanıklı dış kılıf",
+          "1/16A Fiş → 1/16A Priz bağlantısı",
+          "UV ve hava koşullarına dayanıklı",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-monofaze-3-2-5-10m-ip68",
+        "name": "Seyyar Uzatma Kablosu Monofaze (3×2,5)",
+        "code": "BKT-0102-8210",
+        "subtitle": "10m. IP68",
+        "badge": null,
+        "description": "Monofaze 16A için 3×2,5 mm² ttr seyyar uzatma kablosu. Atölye, saha ve mobil kullanım için esnek tasarım.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Seyyar Uzatma Kablosu"
+              },
+              {
+                "label": "Kablo",
+                "value": "3 × 2,5 mm² ttr"
+              },
+              {
+                "label": "Uzunluk",
+                "value": "10m. IP68"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Bağlantı Yönü",
+                "value": "IP68 1/16A Fiş → IP68 1/16A Priz"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 43,75"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "3 × 2,5 mm² ttr esnek bakır iletken, dayanıklı dış kılıf",
+          "IP68 1/16A Fiş → IP68 1/16A Priz bağlantısı",
+          "IP68 koruma sınıfı — su altında dahi güvenli",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-ceenorm-3-2-5-116a-332a-5m",
+        "name": "Seyyar Uzatma Kablosu Ceenorm 3×2,5 (1/16A → 3/32A)",
+        "code": "BKT-0109-2205",
+        "subtitle": "5m",
+        "badge": null,
+        "description": "Ceenorm fiş-priz dönüşümlü seyyar uzatma kablosu. 3×2,5 mm² ttr kablo, monofaze 16A girişi 3 fazlı 32A prize aktarır.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Seyyar Uzatma Kablosu"
+              },
+              {
+                "label": "Kablo",
+                "value": "3 × 2,5 mm² ttr"
+              },
+              {
+                "label": "Uzunluk",
+                "value": "5m"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Bağlantı Yönü",
+                "value": "1/16A Fiş → 3/32A Priz"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 22,50"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "3 × 2,5 mm² ttr esnek bakır iletken, dayanıklı dış kılıf",
+          "1/16A Fiş → 3/32A Priz bağlantısı",
+          "UV ve hava koşullarına dayanıklı",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-ceenorm-3-2-5-116a-332a-10m",
+        "name": "Seyyar Uzatma Kablosu Ceenorm 3×2,5 (1/16A → 3/32A)",
+        "code": "BKT-0109-2210",
+        "subtitle": "10m",
+        "badge": null,
+        "description": "Ceenorm fiş-priz dönüşümlü seyyar uzatma kablosu. 3×2,5 mm² ttr kablo, monofaze 16A girişi 3 fazlı 32A prize aktarır.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Seyyar Uzatma Kablosu"
+              },
+              {
+                "label": "Kablo",
+                "value": "3 × 2,5 mm² ttr"
+              },
+              {
+                "label": "Uzunluk",
+                "value": "10m"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Bağlantı Yönü",
+                "value": "1/16A Fiş → 3/32A Priz"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 34,40"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "3 × 2,5 mm² ttr esnek bakır iletken, dayanıklı dış kılıf",
+          "1/16A Fiş → 3/32A Priz bağlantısı",
+          "UV ve hava koşullarına dayanıklı",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-ceenorm-3-2-5-116a-532a-5m",
+        "name": "Seyyar Uzatma Kablosu Ceenorm 3×2,5 (1/16A → 5/32A)",
+        "code": "BKT-0111-2205",
+        "subtitle": "5m",
+        "badge": null,
+        "description": "Ceenorm fiş-priz dönüşümlü seyyar uzatma kablosu. 3×2,5 mm² ttr kablo, monofaze 16A girişi 5 pinli 32A prize aktarır.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Seyyar Uzatma Kablosu"
+              },
+              {
+                "label": "Kablo",
+                "value": "3 × 2,5 mm² ttr"
+              },
+              {
+                "label": "Uzunluk",
+                "value": "5m"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Bağlantı Yönü",
+                "value": "1/16A Fiş → 5/32A Priz"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 24,40"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "3 × 2,5 mm² ttr esnek bakır iletken, dayanıklı dış kılıf",
+          "1/16A Fiş → 5/32A Priz bağlantısı",
+          "UV ve hava koşullarına dayanıklı",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-ceenorm-3-2-5-116a-532a-10m",
+        "name": "Seyyar Uzatma Kablosu Ceenorm 3×2,5 (1/16A → 5/32A)",
+        "code": "BKT-0111-2210",
+        "subtitle": "10m",
+        "badge": null,
+        "description": "Ceenorm fiş-priz dönüşümlü seyyar uzatma kablosu. 3×2,5 mm² ttr kablo, monofaze 16A girişi 5 pinli 32A prize aktarır.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Seyyar Uzatma Kablosu"
+              },
+              {
+                "label": "Kablo",
+                "value": "3 × 2,5 mm² ttr"
+              },
+              {
+                "label": "Uzunluk",
+                "value": "10m"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Bağlantı Yönü",
+                "value": "1/16A Fiş → 5/32A Priz"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 36,25"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "3 × 2,5 mm² ttr esnek bakır iletken, dayanıklı dış kılıf",
+          "1/16A Fiş → 5/32A Priz bağlantısı",
+          "UV ve hava koşullarına dayanıklı",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-ceenorm-3-6-332a-5m",
+        "name": "Seyyar Uzatma Kablosu Ceenorm 3×6 (3/32A)",
+        "code": "BKT-0809-2125",
+        "subtitle": "5m",
+        "badge": null,
+        "description": "Ceenorm 32A trifaze yüksek akım seyyar uzatma kablosu. 3×6 mm² ttr kablo ile şantiye ve sanayi kullanımı.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Seyyar Uzatma Kablosu"
+              },
+              {
+                "label": "Kablo",
+                "value": "3 × 6 mm² ttr"
+              },
+              {
+                "label": "Uzunluk",
+                "value": "5m"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Bağlantı Yönü",
+                "value": "3/32A Fiş → 3/32A Priz"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 53,75"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "3 × 6 mm² ttr esnek bakır iletken, dayanıklı dış kılıf",
+          "3/32A Fiş → 3/32A Priz bağlantısı",
+          "UV ve hava koşullarına dayanıklı",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-ceenorm-3-6-332a-10m",
+        "name": "Seyyar Uzatma Kablosu Ceenorm 3×6 (3/32A)",
+        "code": "BKT-0809-21210",
+        "subtitle": "10m",
+        "badge": null,
+        "description": "Ceenorm 32A trifaze yüksek akım seyyar uzatma kablosu. 3×6 mm² ttr kablo ile şantiye ve sanayi kullanımı.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Seyyar Uzatma Kablosu"
+              },
+              {
+                "label": "Kablo",
+                "value": "3 × 6 mm² ttr"
+              },
+              {
+                "label": "Uzunluk",
+                "value": "10m"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Bağlantı Yönü",
+                "value": "3/32A Fiş → 3/32A Priz"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 87,50"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "3 × 6 mm² ttr esnek bakır iletken, dayanıklı dış kılıf",
+          "3/32A Fiş → 3/32A Priz bağlantısı",
+          "UV ve hava koşullarına dayanıklı",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-ceenorm-5-6-532a-5m",
+        "name": "Seyyar Uzatma Kablosu Ceenorm 5×6 (5/32A)",
+        "code": "BKT-1011-2705",
+        "subtitle": "5m",
+        "badge": null,
+        "description": "Ceenorm 32A trifaze + nötr + toprak (5 telli) seyyar uzatma kablosu. 5×6 mm² ttr kablo ile profesyonel altyapı projeleri için.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Seyyar Uzatma Kablosu"
+              },
+              {
+                "label": "Kablo",
+                "value": "5 × 6 mm² ttr"
+              },
+              {
+                "label": "Uzunluk",
+                "value": "5m"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Bağlantı Yönü",
+                "value": "5/32A Fiş → 5/32A Priz"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 76,25"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "5 × 6 mm² ttr esnek bakır iletken, dayanıklı dış kılıf",
+          "5/32A Fiş → 5/32A Priz bağlantısı",
+          "UV ve hava koşullarına dayanıklı",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-ceenorm-5-6-532a-10m",
+        "name": "Seyyar Uzatma Kablosu Ceenorm 5×6 (5/32A)",
+        "code": "BKT-1011-2710",
+        "subtitle": "10m",
+        "badge": null,
+        "description": "Ceenorm 32A trifaze + nötr + toprak (5 telli) seyyar uzatma kablosu. 5×6 mm² ttr kablo ile profesyonel altyapı projeleri için.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Seyyar Uzatma Kablosu"
+              },
+              {
+                "label": "Kablo",
+                "value": "5 × 6 mm² ttr"
+              },
+              {
+                "label": "Uzunluk",
+                "value": "10m"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Bağlantı Yönü",
+                "value": "5/32A Fiş → 5/32A Priz"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 125,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "5 × 6 mm² ttr esnek bakır iletken, dayanıklı dış kılıf",
+          "5/32A Fiş → 5/32A Priz bağlantısı",
+          "UV ve hava koşullarına dayanıklı",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "CE uygunluk testi tamamlanmış"
         ]
       }
     ]
