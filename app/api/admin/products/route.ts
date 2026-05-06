@@ -26,49 +26,77 @@ function unwrapEn(record: any): unknown[] | null {
   return null;
 }
 
+// Read both TR shards. Returns the merged TR array plus the set of
+// category IDs that live in the overflow bin so we can split back on
+// write.
+async function readShardedTr(): Promise<{ tr: unknown[]; extraIds: Set<string> }> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let main: any = null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let extra: any = null;
+  try { main  = await readBin("products",      { fresh: true }); } catch {}
+  try { extra = await readBin("productsExtra", { fresh: true }); } catch {}
+  if (!main) {
+    try { main = JSON.parse(readFileSync(fallbackPath, "utf-8")); } catch { main = []; }
+  }
+  const mainArr  = unwrapTr(main);
+  const extraArr = unwrapTr(extra);
+  return {
+    tr: [...mainArr, ...extraArr],
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    extraIds: new Set(extraArr.map((c: any) => c.id)),
+  };
+}
+
+async function readShardedEn(): Promise<unknown[] | null> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let main: any = null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let extra: any = null;
+  try { main  = await readBin("productsEn",       { fresh: true }); } catch {}
+  try { extra = await readBin("productsEnExtra",  { fresh: true }); } catch {}
+  const m = unwrapEn(main);
+  const e = unwrapEn(extra);
+  if (!m && !e) return null;
+  return [...(m ?? []), ...(e ?? [])];
+}
+
 export async function GET(req: NextRequest) {
   if (!isAuthed(req)) return NextResponse.json({ error: "Yetkisiz" }, { status: 401 });
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let record: any = null;
-  try { record = await readBin("products", { fresh: true }); } catch {}
-  if (!record) {
-    try { record = JSON.parse(readFileSync(fallbackPath, "utf-8")); } catch { record = []; }
-  }
-  return NextResponse.json(unwrapTr(record));
+  const { tr } = await readShardedTr();
+  return NextResponse.json(tr);
 }
 
 export async function POST(req: NextRequest) {
   if (!isAuthed(req)) return NextResponse.json({ error: "Yetkisiz" }, { status: 401 });
   try {
     const body = await req.json();
-    const trArr = Array.isArray(body) ? body : [];
-
-    // Fetch the prior TR (for diff-aware translation) and the prior EN
-    // (so untouched strings stay as-is and we don't re-translate them).
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let prevTrRecord: any = null;
-    try { prevTrRecord = await readBin("products", { fresh: true }); } catch {}
-    const prevTr = unwrapTr(prevTrRecord ?? []);
+    const trArr: any[] = Array.isArray(body) ? body : [];
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let prevEnRecord: any = null;
-    try { prevEnRecord = await readBin("productsEn", { fresh: true }); } catch {}
-    let prevEn = unwrapEn(prevEnRecord ?? []);
-    // Legacy fallback: very old bins still embed _translations.en in the
-    // products record. Honour that on first save after migration so we
-    // don't lose the translation diff.
-    if (!prevEn && prevTrRecord && typeof prevTrRecord === "object" && prevTrRecord._translations?.en) {
-      prevEn = unwrapEn(prevTrRecord._translations.en);
-    }
+    // Read prior TR + EN (sharded) for diff-aware translation.
+    const { tr: prevTr, extraIds } = await readShardedTr();
+    const prevEn = await readShardedEn();
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const enArr = await translateProducts(trArr, prevTr as any[], prevEn as any[] | null);
 
-    // Write to the two bins. TR is wrapped as { products } so the public
-    // GET keeps a stable shape; EN as { en } in its own bin.
+    // Split TR + EN back into the two shards. Categories that started
+    // in the extra bin stay there; new categories default to the main
+    // bin. The bin can be re-balanced later by editing the extraIds
+    // mapping.
+    const trMain = trArr.filter((c) => !extraIds.has(c.id));
+    const trEx   = trArr.filter((c) =>  extraIds.has(c.id));
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const enMain = enArr.filter((c: any) => !extraIds.has(c.id));
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const enEx   = enArr.filter((c: any) =>  extraIds.has(c.id));
+
     await Promise.all([
-      writeBin("products", { products: trArr }),
-      writeBin("productsEn", { en: enArr }),
+      writeBin("products",        { products: trMain }),
+      writeBin("productsExtra",   { products: trEx }),
+      writeBin("productsEn",      { en: enMain }),
+      writeBin("productsEnExtra", { en: enEx }),
     ]);
     return NextResponse.json({ ok: true });
   } catch (e) {

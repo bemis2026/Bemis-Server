@@ -88,28 +88,50 @@ function mergeCategories(trArr: any[], enArr: any[] | null): any[] {
   });
 }
 
+// Concatenate TR categories from both shards. Categories are
+// position-stable within their own bin; the merged order is
+// "main bin first, then extra bin", matching how operators add new
+// overflow categories at the end.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function readShardedTr(): Promise<{ tr: unknown[]; primary: any | null }> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let main: any = null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let extra: any = null;
+  try { main = await readBin("products"); } catch {}
+  try { extra = await readBin("productsExtra"); } catch {}
+  if (!main) {
+    main = loadJsonFile(fallbackPath);
+    return { tr: unwrapTr(main), primary: main };
+  }
+  const merged = [...unwrapTr(main), ...unwrapTr(extra)];
+  return { tr: merged, primary: main };
+}
+
+async function readShardedEn(): Promise<unknown[] | null> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let main: any = null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let extra: any = null;
+  try { main = await readBin("productsEn"); } catch {}
+  try { extra = await readBin("productsEnExtra"); } catch {}
+  const m = unwrapEn(main);
+  const e = unwrapEn(extra);
+  if (!m && !e) return null;
+  return [...(m ?? []), ...(e ?? [])];
+}
+
 export async function GET(req: NextRequest) {
   const lang = new URL(req.url).searchParams.get("lang") ?? "tr";
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let trRecord: any = null;
-  try { trRecord = await readBin("products"); } catch {}
-  if (!trRecord) trRecord = loadJsonFile(fallbackPath);
-  if (!trRecord) return NextResponse.json({ error: "Ürünler yüklenemedi" }, { status: 500 });
-
-  const tr = unwrapTr(trRecord);
+  const { tr, primary: trRecord } = await readShardedTr();
+  if (tr.length === 0) return NextResponse.json({ error: "Ürünler yüklenemedi" }, { status: 500 });
 
   if (lang === "tr") return NextResponse.json(tr);
 
-  // EN comes from its own bin (or the local fallback file).
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let en: any[] | null = null;
-  try {
-    const enRecord = await readBin("productsEn");
-    en = unwrapEn(enRecord);
-  } catch {}
-  // Legacy fallback: very early bins kept EN inside the products record;
-  // honour that if encountered.
+  // EN comes from its own bin pair (or the local fallback file).
+  let en = await readShardedEn();
+  // Legacy fallback: very early bins kept EN inside the products record.
   if (!en && trRecord && typeof trRecord === "object" && trRecord._translations?.en) {
     en = unwrapEn(trRecord._translations.en);
   }

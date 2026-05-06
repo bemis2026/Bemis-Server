@@ -11,8 +11,13 @@ if (!KEY) {
   console.error("  Usage: JSONBIN_MASTER_KEY=$2a$10$... node " + __filename);
   process.exit(1);
 }
-const BIN_PRODUCTS    = "69e5093e856a6821894eaee8";
-const BIN_PRODUCTS_EN = "69fbc8a0c0954111d8e8ed31";
+// Sharded across two bins each. categoryId → bin id mapping is determined
+// by where the category currently lives (we read both, work in memory,
+// then write each shard back unchanged-or-translated).
+const BIN_PRODUCTS         = "69e5093e856a6821894eaee8";
+const BIN_PRODUCTS_EXTRA   = "69fbcdf1c0954111d8e90670";
+const BIN_PRODUCTS_EN      = "69fbc8a0c0954111d8e8ed31";
+const BIN_PRODUCTS_EN_EX   = "69fbcdf2250b1311c313f456";
 
 const TRANSLATABLE_PATHS = [
   "[].name",
@@ -103,23 +108,35 @@ function unwrapEn(record) {
   return null;
 }
 
-async function main() {
-  // TR comes from the products bin.
-  const rTr = await fetch(`https://api.jsonbin.io/v3/b/${BIN_PRODUCTS}/latest`, {
-    headers: { "X-Master-Key": KEY },
+async function readBin(id, unwrapFn) {
+  const r = await fetch(`https://api.jsonbin.io/v3/b/${id}/latest`, { headers: { "X-Master-Key": KEY } });
+  if (!r.ok) throw new Error(`bin ${id} read failed: ${r.status}`);
+  return unwrapFn((await r.json()).record);
+}
+async function writeBin(id, body) {
+  const w = await fetch(`https://api.jsonbin.io/v3/b/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json", "X-Master-Key": KEY },
+    body: JSON.stringify(body),
   });
-  if (!rTr.ok) throw new Error(`TR read failed: ${rTr.status}`);
-  const trCurrent = unwrapTr((await rTr.json()).record);
+  if (!w.ok) throw new Error(`bin ${id} write failed: ${w.status} ${await w.text()}`);
+}
 
-  // EN comes from its own bin (or, on a brand-new layout, was still
-  // co-located with TR — handled by the unwrap fallback above).
-  let enCurrent = null;
-  try {
-    const rEn = await fetch(`https://api.jsonbin.io/v3/b/${BIN_PRODUCTS_EN}/latest`, {
-      headers: { "X-Master-Key": KEY },
-    });
-    if (rEn.ok) enCurrent = unwrapEn((await rEn.json()).record);
-  } catch {}
+async function main() {
+  // TR is sharded across two bins.
+  const trMain  = await readBin(BIN_PRODUCTS,        unwrapTr);
+  const trExtra = await readBin(BIN_PRODUCTS_EXTRA,  unwrapTr);
+  const trCurrent = [...trMain, ...trExtra];
+  // Track which categories belong to which shard so we can write back
+  // to the right place at the end.
+  const extraIds = new Set(trExtra.map((c) => c.id));
+
+  // EN bins might be empty / not yet seeded.
+  let enMain = [];
+  let enExtra = [];
+  try { enMain  = await readBin(BIN_PRODUCTS_EN,    unwrapEn) ?? []; } catch {}
+  try { enExtra = await readBin(BIN_PRODUCTS_EN_EX, unwrapEn) ?? []; } catch {}
+  const enCurrent = [...enMain, ...enExtra];
 
   let trSnapshot = [];
   try { trSnapshot = JSON.parse(fs.readFileSync("data/products.json", "utf-8")); } catch {}
@@ -166,18 +183,13 @@ async function main() {
     }
   }));
 
-  // Write EN to its own bin. TR bin is left alone — this script doesn't
-  // touch the TR data, only the translation mirror.
-  const w = await fetch(`https://api.jsonbin.io/v3/b/${BIN_PRODUCTS_EN}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json", "X-Master-Key": KEY },
-    body: JSON.stringify({ en: enResult }),
-  });
-  if (!w.ok) {
-    const err = await w.text();
-    throw new Error(`EN write failed: ${w.status} ${err}`);
-  }
-  console.log("OK — products EN written into the products-en bin");
+  // Split the result back into the two EN shards in the same order as
+  // their TR counterparts so per-index merge keeps lining up.
+  const enMainOut  = enResult.filter((c) => !extraIds.has(c.id));
+  const enExtraOut = enResult.filter((c) =>  extraIds.has(c.id));
+  await writeBin(BIN_PRODUCTS_EN,    { en: enMainOut });
+  await writeBin(BIN_PRODUCTS_EN_EX, { en: enExtraOut });
+  console.log(`OK — EN written across two bins (${enMainOut.length} + ${enExtraOut.length} categories)`);
 
   fs.writeFileSync("data/products-en.json", JSON.stringify(enResult, null, 2) + "\n");
   console.log("OK — data/products-en.json updated locally");

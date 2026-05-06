@@ -4,16 +4,20 @@ const MASTER_KEY = process.env.JSONBIN_MASTER_KEY ?? "";
 const BASE = "https://api.jsonbin.io/v3/b";
 
 const BIN_IDS: Record<string, string> = {
-  b2b:         "69e5093d36566621a8cd7509",
-  content:     "69e5093daaba88219716e044",
-  dealers:     "69e5093e36566621a8cd750f",
-  products:    "69e5093e856a6821894eaee8",
-  // EN translations live in a separate bin so the TR-only products bin
-  // stays under JSONBin's free-tier 100KB-per-record limit.
-  productsEn:  "69fbc8a0c0954111d8e8ed31",
-  documents:   "69e5093f856a6821894eaeec",
-  messages:    "69fb7b59adc21f119a61e79f",
-  changelog:   "69fb7b5eadc21f119a61e7c8",
+  b2b:              "69e5093d36566621a8cd7509",
+  content:          "69e5093daaba88219716e044",
+  dealers:          "69e5093e36566621a8cd750f",
+  // Products are sharded across two TR + two EN bins because JSONBin's
+  // free-tier caps each record at 100KB. Categories live in whichever
+  // bin has room; the API merges them transparently. When a bin
+  // approaches 80KB, move the next big category into a fresh bin.
+  products:         "69e5093e856a6821894eaee8",
+  productsExtra:    "69fbcdf1c0954111d8e90670",
+  productsEn:       "69fbc8a0c0954111d8e8ed31",
+  productsEnExtra:  "69fbcdf2250b1311c313f456",
+  documents:        "69e5093f856a6821894eaeec",
+  messages:         "69fb7b59adc21f119a61e79f",
+  changelog:        "69fb7b5eadc21f119a61e7c8",
 };
 
 const PUBLIC_REVALIDATE_SECONDS = 60;
