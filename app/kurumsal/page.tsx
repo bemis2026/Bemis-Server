@@ -199,9 +199,7 @@ export default function KurumsalPage() {
                   <Image src={dna.factoryImage} alt="Bemis Fabrika" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
                 ) : (
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <RiBuilding4Line style={{ fontSize: 72, color: d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)", marginBottom: 12 }} />
-                    <span className="text-sm font-medium" style={{ color: textFaint }}>Fabrika Fotoğrafı</span>
-                    <span className="text-xs mt-1" style={{ color: textFaint }}>Admin panelinden yükleyebilirsiniz</span>
+                    <RiBuilding4Line style={{ fontSize: 72, color: d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)" }} />
                   </div>
                 )}
                 <div
@@ -335,14 +333,14 @@ export default function KurumsalPage() {
                           {imgSrc ? (
                             <Image src={imgSrc} alt={step.label} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
                           ) : (
-                            <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5">
-                              <RiImageAddLine style={{ fontSize: 22, color: isFinal ? `${GREEN}55` : (d ? `${BLUE}44` : `${BLUE}35`) }} />
-                              <span
-                                className="text-[8px] font-medium text-center px-1 leading-tight"
-                                style={{ color: isFinal ? `${GREEN}80` : textFaint }}
-                              >
-                                Görsel ekle
-                              </span>
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              {isFinal ? (
+                                <RiCheckboxCircleLine style={{ fontSize: 26, color: `${GREEN}50` }} />
+                              ) : StepIcon ? (
+                                <StepIcon style={{ fontSize: 26, color: d ? `${BLUE}40` : `${BLUE}30` }} />
+                              ) : (
+                                <RiImageAddLine style={{ fontSize: 22, color: d ? `${BLUE}40` : `${BLUE}30` }} />
+                              )}
                             </div>
                           )}
 
@@ -378,12 +376,6 @@ export default function KurumsalPage() {
                   })}
                 </div>
 
-                {/* "Admin panelden ekleyebilirsiniz" hint */}
-                {!dna.productionStepImages?.some(Boolean) && (
-                  <p className="text-[10px] mt-3 text-center" style={{ color: textFaint }}>
-                    Görseller admin paneli → Kurumsal bölümünden eklenebilir
-                  </p>
-                )}
               </motion.div>
 
             </div>
