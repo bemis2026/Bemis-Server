@@ -15,7 +15,7 @@ import {
   RiPlugLine, RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
   RiScalesLine, RiCloseLine, RiCheckLine,
 } from "react-icons/ri";
-import { HiArrowLeft, HiPhone, HiMail } from "react-icons/hi";
+import { HiArrowLeft } from "react-icons/hi";
 import Image from "next/image";
 
 type SpecItem   = { label: string; value: string };
@@ -430,31 +430,7 @@ export default function ProductCategoryPage() {
         )}
       </AnimatePresence>
 
-      {/* Contact CTA */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-28">
-        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }}
-          className="rounded-2xl p-6 sm:p-8 text-center"
-          style={{ background: surface, border: `1px solid ${surfaceBorder}` }}>
-          <div className="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-4"
-            style={{ background: `${accent}18`, border: `1px solid ${accent}30` }}>
-            <HiPhone style={{ color: accent, fontSize: 18 }} />
-          </div>
-          <h3 className="text-base font-bold mb-1" style={{ color: textPrimary }}>Teknik Bilgi veya Fiyat Teklifi Alın</h3>
-          <p className="text-sm mb-5" style={{ color: textMuted }}>Uzman ekibimiz size en uygun çözümü sunar.</p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <button onClick={() => router.push("/#contact")}
-              className="flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold"
-              style={{ background: accent, color: "#fff" }}>
-              <HiMail size={15} /> İletişime Geç
-            </button>
-            <button onClick={() => router.back()}
-              className="flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-sm font-medium"
-              style={{ background: groupHeaderBg, border: `1px solid ${surfaceBorder}`, color: textMuted }}>
-              <HiArrowLeft size={15} /> Geri Dön
-            </button>
-          </div>
-        </motion.div>
-      </div>
+      <div className="pb-20" />
 
       <ContactBar />
     </div>

@@ -315,6 +315,7 @@ export default function AllProductsPage() {
               label="Tümü"
               active={activeFilter === "all"}
               onClick={() => setActiveFilter("all")}
+              count={categories.reduce((sum, c) => sum + (c.products?.length ?? 0), 0)}
               d={d} filterBase={filterBase} filterBorder={filterBorder}
               textMuted={textMuted} textPrimary={textPrimary}
             />
@@ -327,6 +328,7 @@ export default function AllProductsPage() {
                   icon={Icon}
                   active={activeFilter === cat.id}
                   onClick={() => setActiveFilter(cat.id)}
+                  count={cat.products?.length ?? 0}
                   d={d} filterBase={filterBase} filterBorder={filterBorder}
                   textMuted={textMuted} textPrimary={textPrimary}
                 />
@@ -540,9 +542,9 @@ export default function AllProductsPage() {
 // ── FilterChip ────────────────────────────────────────────────────────────────
 
 function FilterChip({
-  label, icon: Icon, active, onClick, d, filterBase, filterBorder, textMuted, textPrimary,
+  label, icon: Icon, active, onClick, count, d, filterBase, filterBorder, textMuted, textPrimary,
 }: {
-  label: string; icon?: React.ElementType; active: boolean; onClick: () => void;
+  label: string; icon?: React.ElementType; active: boolean; onClick: () => void; count?: number;
   d: boolean; filterBase: string; filterBorder: string; textMuted: string; textPrimary: string;
 }) {
   return (
@@ -559,6 +561,18 @@ function FilterChip({
     >
       {Icon && <Icon style={{ fontSize: 13 }} />}
       {label}
+      {typeof count === "number" && (
+        <span
+          className="text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none"
+          style={{
+            background: active ? (d ? "rgba(255,255,255,0.16)" : "rgba(0,0,0,0.10)") : (d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"),
+            color: active ? textPrimary : textMuted,
+            minWidth: 18, textAlign: "center",
+          }}
+        >
+          {count}
+        </span>
+      )}
     </button>
   );
 }

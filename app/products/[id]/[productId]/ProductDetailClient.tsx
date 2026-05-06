@@ -436,7 +436,12 @@ export default function ProductDetailPage() {
                               style={{ borderTop: `1px solid ${divider}` }}
                             >
                               <span className="text-xs" style={{ color: textFaint, flexShrink: 0 }}>{item.label}</span>
-                              <span className="text-xs font-semibold text-right" style={{ color: isPrice ? accent : textMuted }}>{item.value}</span>
+                              <span className="text-xs font-semibold text-right inline-flex items-baseline gap-1.5" style={{ color: isPrice ? accent : textMuted }}>
+                                {item.value}
+                                {isPrice && (
+                                  <span className="text-[10px] font-medium" style={{ color: `${accent}99` }}>+ KDV</span>
+                                )}
+                              </span>
                             </div>
                           )),
                         ];

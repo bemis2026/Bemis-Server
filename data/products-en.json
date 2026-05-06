@@ -303,10 +303,10 @@
             ]
           },
           {
-            "group": "List Price",
+            "group": "Price",
             "items": [
               {
-                "label": "Standard",
+                "label": "List Price",
                 "value": "EUR 748,00"
               }
             ]
@@ -322,27 +322,27 @@
         "description": "BEMİS AC Wallbox Charger Pro 2 Panel plug version with GSM module. Remote monitoring, OCPP 1.6 compliant, three-phase 4-7-11-22 kW.",
         "specs": [
           {
-            "group": "• Power",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Guarantee",
+                "label": "• Power",
                 "value": "4 / 7 / 11 / 22 kW"
               },
               {
-                "label": "Adapter 1",
+                "label": "Phase",
                 "value": "Three-phase"
               },
               {
-                "label": "Adapter 2",
+                "label": "Max. current",
                 "value": "6 - 10 - 16 - 32a"
               }
             ]
           },
           {
-            "group": "Phase",
+            "group": "Wire Link",
             "items": [
               {
-                "label": "  Satchel",
+                "label": "Exit Date",
                 "value": "Panel Socket"
               },
               {
@@ -352,23 +352,23 @@
             ]
           },
           {
-            "group": "Max. current",
+            "group": "Bağlantı",
             "items": [
               {
-                "label": "Max. Current (C2L)",
+                "label": "Contact",
                 "value": "GSM Modulated"
               },
               {
-                "label": "Protection category",
+                "label": "Protocol",
                 "value": "OCPP 1.6"
               }
             ]
           },
           {
-            "group": "Exit Date",
+            "group": "Price",
             "items": [
               {
-                "label": "Guarantee",
+                "label": "List Price",
                 "value": "EUR 874,50"
               }
             ]
@@ -384,14 +384,14 @@
         "description": "BEMİS AC Wallbox Charger Pro 2 wired version with GSM module. Remote monitoring, OCPP 1.6 compliant, 5m integrated Type 2 cable.",
         "specs": [
           {
-            "group": "Plug",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Force maximum / Maximum",
+                "label": "• Power",
                 "value": "4 / 7 / 11 / 22 kW"
               },
               {
-                "label": "Thriller",
+                "label": "Phase",
                 "value": "Three-phase"
               },
               {
@@ -445,111 +445,6 @@
     "tagline": "No installation required — plug in, charge",
     "accent": "#10B981",
     "products": [
-      {
-        "id": "portable-2kw",
-        "name": "Portable Charging 2.3 kW",
-        "subtitle": "Plug & Play · 10a",
-        "badge": "New",
-        "description": "2.3 kW portable charger powered from a standard household outlet with no fixed installation required.",
-        "specs": [
-          {
-            "group": "Electrical",
-            "items": [
-              {
-                "label": "• Power",
-                "value": "2,3 kW"
-              },
-              {
-                "label": "Introduction",
-                "value": "230V AC, 50Hz"
-              },
-              {
-                "label": "Current.",
-                "value": "10A"
-              },
-              {
-                "label": "Productivity",
-                "value": "93%"
-              }
-            ]
-          },
-          {
-            "group": "Connector",
-            "items": [
-              {
-                "label": "Vehicle Side",
-                "value": "Type 2 (IEC 62196-2)"
-              },
-              {
-                "label": "Grid Side",
-                "value": "Schuko (CEE 7/4)"
-              },
-              {
-                "label": "Cable Length",
-                "value": "5m (internal)"
-              },
-              {
-                "label": "Cable section",
-                "value": "3 × 2.5 mm²"
-              }
-            ]
-          },
-          {
-            "group": "Protection and safety",
-            "items": [
-              {
-                "label": "Protection category",
-                "value": "IP54"
-              },
-              {
-                "label": "Grounding Detection",
-                "value": "Active — charging is blocked"
-              },
-              {
-                "label": "Temperature protection",
-                "value": "Thermal cutout"
-              },
-              {
-                "label": "Leakage Current",
-                "value": "6 mA DC monitoring"
-              },
-              {
-                "label": "Overload",
-                "value": "Automatic break"
-              }
-            ]
-          },
-          {
-            "group": "Handedness",
-            "items": [
-              {
-                "label": "Weight",
-                "value": "Approx. 650 g"
-              },
-              {
-                "label": "Dimensions",
-                "value": "195 × 75 × 45 mm"
-              },
-              {
-                "label": "LED Indicator",
-                "value": "5 color status led"
-              },
-              {
-                "label": "Housing",
-                "value": "Durable ABS housing"
-              },
-              {
-                "label": "Guarantee",
-                "value": "2 Years"
-              }
-            ]
-          }
-        ],
-        "images": [
-          "https://i.ibb.co/cXDJSSzx/1776695294540-mini-mobile-r-n-png.png"
-        ],
-        "image": "https://i.ibb.co/cXDJSSzx/1776695294540-mini-mobile-r-n-png.png"
-      },
       {
         "id": "mini-mobile",
         "name": "Mini Mobile",
@@ -733,96 +628,96 @@
     "products": [
       {
         "id": "ac-cable-16a",
-        "name": "AC Charging Cable 16a",
-        "subtitle": "Type 2 — Type 2 · Mode 3 · 3.7-11 kW",
+        "name": "AC Şarj Kablosu 16A",
+        "subtitle": "Type 2 — Type 2 · Mod 3 · 3,7–11 kW",
         "badge": null,
-        "description": "16a Mode 3 compatible Type 2 charging cable that provides safe power transfer between the AC charging station and the vehicle.",
+        "description": "AC şarj istasyonu ile araç arasında güvenli güç aktarımı sağlayan 16A Mod 3 uyumlu Type 2 şarj kablosu.",
         "specs": [
           {
-            "group": "Max. current",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "Force maximum / Maximum",
-                "value": "11 kW (3 × 16a)"
+                "label": "Maksimum Güç",
+                "value": "11 kW (3 × 16A)"
               },
               {
-                "label": "Thriller",
+                "label": "Gerilim",
                 "value": "230V (1F) / 400V (3F)"
               },
               {
-                "label": "Maximum current: 16A",
+                "label": "Maksimum Akım",
                 "value": "16A"
               },
               {
-                "label": "Conductor cross section",
-                "value": "5 × 2.5 mm²"
+                "label": "İletken Kesiti",
+                "value": "5 × 2,5 mm²"
               }
             ]
           },
           {
-            "group": "Exit Date",
+            "group": "Konnektör",
             "items": [
               {
-                "label": "Both Extremes",
+                "label": "Her İki Uç",
                 "value": "Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Body Material",
-                "value": "Glass fiber reinforced PA (GF30)"
+                "label": "Gövde Malzeme",
+                "value": "Cam elyaf takviyeli PA (GF30)"
               },
               {
-                "label": "Contact Material",
-                "value": "Silver plated copper"
+                "label": "Kontakt Malzeme",
+                "value": "Gümüş kaplı bakır"
               },
               {
-                "label": "Locking",
-                "value": "Mechanical latch + PP cover"
+                "label": "Kilitleme",
+                "value": "Mekanik mandal + PP kapak"
               }
             ]
           },
           {
-            "group": "Cable Construction",
+            "group": "Kablo Yapısı",
             "items": [
               {
-                "label": "Insulation",
+                "label": "İzolasyon",
                 "value": "XLPE"
               },
               {
-                "label": "Holster",
-                "value": "Cold bend TPE"
+                "label": "Kılıf",
+                "value": "Soğuk bükülür TPE"
               },
               {
-                "label": "Length",
-                "value": "5m · 7m · 10m · Custom"
+                "label": "Uzunluk",
+                "value": "5m · 7m · 10m · özel"
               },
               {
-                "label": "Bending Life",
-                "value": "> 15,000 cycles"
+                "label": "Bükülme Ömrü",
+                "value": "> 15.000 döngü"
               }
             ]
           },
           {
-            "group": "Protection & Certificates",
+            "group": "Koruma & Sertifikalar",
             "items": [
               {
-                "label": "Protection category",
+                "label": "Koruma Sınıfı",
                 "value": "IP54"
               },
               {
-                "label": "Operating temperature:",
-                "value": "-30°c to 50°C"
+                "label": "Çalışma Sıcaklığı",
+                "value": "-30°C / +50°C"
               },
               {
-                "label": "Standard",
-                "value": "IEC62893-2 · IEC 62196-2"
+                "label": "Standart",
+                "value": "IEC 62893-2 · IEC 62196-2"
               },
               {
-                "label": "Security",
-                "value": "CE · VDE · TUV"
+                "label": "Güvenlik",
+                "value": "CE · VDE · TÜV"
               },
               {
-                "label": "Guarantee",
-                "value": "2 Years"
+                "label": "Garanti",
+                "value": "2 yıl"
               }
             ]
           }
@@ -830,96 +725,96 @@
       },
       {
         "id": "ac-cable-32a",
-        "name": "AC Charging Cable 32a",
-        "subtitle": "Type 2 — Type 2 · Mode 3 · 7,4-22 kW",
+        "name": "AC Şarj Kablosu 32A",
+        "subtitle": "Type 2 — Type 2 · Mod 3 · 7,4–22 kW",
         "badge": null,
-        "description": "Professional Mode 3 Type 2 charging cable with 32a capacity for high power AC charging applications.",
+        "description": "Yüksek güçlü AC şarj uygulamaları için 32A kapasiteli, profesyonel Mod 3 Type 2 şarj kablosu.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "Force maximum / Maximum",
-                "value": "22 kW (3 × 32a)"
+                "label": "Maksimum Güç",
+                "value": "22 kW (3 × 32A)"
               },
               {
-                "label": "Thriller",
+                "label": "Gerilim",
                 "value": "230V (1F) / 400V (3F)"
               },
               {
-                "label": "Maximum current: 16A",
-                "value": "32A."
+                "label": "Maksimum Akım",
+                "value": "32A"
               },
               {
-                "label": "Conductor cross section",
+                "label": "İletken Kesiti",
                 "value": "5 × 4 mm² · 5 × 6 mm²"
               }
             ]
           },
           {
-            "group": "Connector",
+            "group": "Konnektör",
             "items": [
               {
-                "label": "Both Extremes",
+                "label": "Her İki Uç",
                 "value": "Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Body Material",
-                "value": "Glass fiber reinforced PA (GF30)"
+                "label": "Gövde Malzeme",
+                "value": "Cam elyaf takviyeli PA (GF30)"
               },
               {
-                "label": "Contact Material",
-                "value": "Silver plated copper"
+                "label": "Kontakt Malzeme",
+                "value": "Gümüş kaplı bakır"
               },
               {
-                "label": "Locking",
-                "value": "Mechanical latch + PP cover"
+                "label": "Kilitleme",
+                "value": "Mekanik mandal + PP kapak"
               }
             ]
           },
           {
-            "group": "Cable Construction",
+            "group": "Kablo Yapısı",
             "items": [
               {
-                "label": "Insulation",
+                "label": "İzolasyon",
                 "value": "XLPE"
               },
               {
-                "label": "Holster",
-                "value": "Cold bend TPE"
+                "label": "Kılıf",
+                "value": "Soğuk bükülür TPE"
               },
               {
-                "label": "Length",
-                "value": "5m · 7m · 10m · Custom"
+                "label": "Uzunluk",
+                "value": "5m · 7m · 10m · özel"
               },
               {
-                "label": "Bending Life",
-                "value": "> 15,000 cycles"
+                "label": "Bükülme Ömrü",
+                "value": "> 15.000 döngü"
               }
             ]
           },
           {
-            "group": "Protection & Certificates",
+            "group": "Koruma & Sertifikalar",
             "items": [
               {
-                "label": "Protection category",
+                "label": "Koruma Sınıfı",
                 "value": "IP54"
               },
               {
-                "label": "Operating temperature:",
-                "value": "-30°c to 50°C"
+                "label": "Çalışma Sıcaklığı",
+                "value": "-30°C / +50°C"
               },
               {
-                "label": "Standard",
-                "value": "IEC62893-2 · IEC 62196-2"
+                "label": "Standart",
+                "value": "IEC 62893-2 · IEC 62196-2"
               },
               {
-                "label": "Security",
-                "value": "CE · VDE · TUV"
+                "label": "Güvenlik",
+                "value": "CE · VDE · TÜV"
               },
               {
-                "label": "Guarantee",
-                "value": "2 Years"
+                "label": "Garanti",
+                "value": "2 yıl"
               }
             ]
           }
@@ -927,71 +822,71 @@
       },
       {
         "id": "mod2-cable",
-        "name": "Mode 2 Charging Cable",
-        "subtitle": "Schuko → Type 2 · Home Plug Charger",
+        "name": "Mod 2 Şarj Kablosu",
+        "subtitle": "Schuko → Type 2 · Ev Prizli Şarj",
         "badge": null,
-        "description": "Secure Mode 2 charging cable with built-in control box that provides car charging using a standard home socket (Schuko).",
+        "description": "Standart ev prizini (Schuko) kullanarak araç şarjı sağlayan, dahili kontrol kutusuyla güvenli Mod 2 şarj kablosu.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
+                "label": "Güç",
                 "value": "2,3 kW · 3,7 kW"
               },
               {
-                "label": "Introduction",
+                "label": "Giriş",
                 "value": "Schuko CEE 7/4, 230V"
               },
               {
-                "label": "Current.",
-                "value": "10a / 16a"
+                "label": "Akım",
+                "value": "10A / 16A"
               },
               {
-                "label": "Control Box",
+                "label": "Kontrol Kutusu",
                 "value": "ICCB (In-Cable Control Box)"
               }
             ]
           },
           {
-            "group": "Connector",
+            "group": "Konnektör",
             "items": [
               {
-                "label": "Vehicle Side",
+                "label": "Araç Tarafı",
                 "value": "Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Grid Side",
+                "label": "Şebeke Tarafı",
                 "value": "Schuko (CEE 7/4)"
               },
               {
-                "label": "Cable Length",
-                "value": "5m: "
+                "label": "Kablo Uzunluğu",
+                "value": "5m"
               }
             ]
           },
           {
-            "group": "Security & Certificates",
+            "group": "Güvenlik & Sertifikalar",
             "items": [
               {
-                "label": "Protection category",
+                "label": "Koruma Sınıfı",
                 "value": "IP54 (ICCB)"
               },
               {
-                "label": "Leakage Current Protection",
+                "label": "Kaçak Akım Koruma",
                 "value": "6 mA DC"
               },
               {
-                "label": "Earthing Monitoring",
-                "value": "Active"
+                "label": "Topraklama İzleme",
+                "value": "Aktif"
               },
               {
-                "label": "Standard",
+                "label": "Standart",
                 "value": "IEC 61851-1 · CE"
               },
               {
-                "label": "Guarantee",
-                "value": "2 Years"
+                "label": "Garanti",
+                "value": "2 yıl"
               }
             ]
           }
@@ -999,80 +894,92 @@
       },
       {
         "id": "dc-cable",
-        "name": "DC Charging Cable CCS2 400A",
-        "subtitle": "CCS2 · Fast Charging",
+        "name": "DC Şarj Kablosu CCS2",
+        "subtitle": "CCS2 / CHAdeMO · Hızlı Şarj",
         "badge": null,
-        "description": "Professional DC charging cable providing high performance power transfer between DC fast charging stations and electric vehicles.",
+        "description": "DC hızlı şarj istasyonları ile elektrikli araçlar arasında yüksek performanslı güç aktarımı sağlayan profesyonel DC şarj kablosu.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "Force maximum / Maximum",
-                "value": "200 kW"
+                "label": "Maksimum Güç",
+                "value": "350 kW"
               },
               {
-                "label": "Waste Max Voltage",
+                "label": "Maksimum Gerilim",
                 "value": "1000V DC"
               },
               {
-                "label": "Maximum current: 16A",
+                "label": "Maksimum Akım",
                 "value": "500A"
+              },
+              {
+                "label": "Konnektör Soğutma",
+                "value": "Aktif su soğutmalı (500A model)"
               }
             ]
           },
           {
-            "group": "Connector Types",
+            "group": "Konnektör Tipleri",
             "items": [
               {
                 "label": "CCS Combo 2",
-                "value": "IEC62196-3"
+                "value": "IEC 62196-3"
+              },
+              {
+                "label": "CHAdeMO",
+                "value": "JEVS G105 rev. 2.0"
+              },
+              {
+                "label": "GB/T DC",
+                "value": "GB/T 20234.3 (opsiyonel)"
               }
             ]
           },
           {
-            "group": "Cable Construction",
+            "group": "Kablo Yapısı",
             "items": [
               {
-                "label": "Conductor",
-                "value": "70 mm² copper alloy"
+                "label": "İletken",
+                "value": "70 mm² tinsil bakır alaşımı"
               },
               {
-                "label": "Insulation",
-                "value": "TPE multilayer"
+                "label": "İzolasyon",
+                "value": "TPE çok katmanlı"
               },
               {
-                "label": "Length",
-                "value": "3m · 5m · 7m · Custom"
+                "label": "Uzunluk",
+                "value": "1,5m · 3m · 5m · 7m · özel"
               },
               {
-                "label": "Bending Life",
-                "value": "> 20,000 cycles"
+                "label": "Bükülme Ömrü",
+                "value": "> 20.000 döngü"
               }
             ]
           },
           {
-            "group": "Protection & Certificates",
+            "group": "Koruma & Sertifikalar",
             "items": [
               {
-                "label": "Protection category",
-                "value": "IP54"
+                "label": "Koruma Sınıfı",
+                "value": "IP67 (bağlıyken)"
               },
               {
-                "label": "Operating temperature:",
+                "label": "Çalışma Sıcaklığı",
                 "value": "-40°C / +90°C"
               },
               {
                 "label": "Standartlar",
-                "value": "IEC62893-4 · IEC62196-3"
+                "value": "IEC 62893-4 · IEC 62196-3"
               },
               {
-                "label": "Security",
+                "label": "Güvenlik",
                 "value": "CE · TÜV"
               },
               {
-                "label": "Guarantee",
-                "value": "2 Years"
+                "label": "Garanti",
+                "value": "2 yıl"
               }
             ]
           }
@@ -1081,55 +988,55 @@
       },
       {
         "id": "sarj-seti-20a-monofaze-3m",
-        "name": "V2L Adapter",
+        "name": "Şarj Seti 20A Monofaze",
         "code": "BEV-3020-1203",
-        "subtitle": "3m Wired",
+        "subtitle": "3m Kablolu",
         "badge": null,
-        "description": "Wire Link",
+        "description": "Monofaze 20A 3,7 kW gücünde, ev tipi şarj istasyonları için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×2.5 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
-                "value": ": 3.7 kW"
+                "label": "Güç",
+                "value": "3,7 kW"
               },
               {
-                "label": "Phase",
-                "value": "Monophase"
+                "label": "Faz",
+                "value": "Monofaze"
               },
               {
-                "label": "Max. current",
+                "label": "Maks. Akım",
                 "value": "20A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
+                "label": "Kablo Uzunluğu",
                 "value": "3m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 58,00"
               }
             ]
@@ -1145,55 +1052,55 @@
       },
       {
         "id": "sarj-seti-20a-monofaze-5m",
-        "name": "C2L Adapter",
+        "name": "Şarj Seti 20A Monofaze",
         "code": "BEV-3020-1205",
-        "subtitle": "5m Wired",
+        "subtitle": "5m Kablolu",
         "badge": null,
-        "description": "Bağlantı",
+        "description": "Monofaze 20A 3,7 kW gücünde, ev tipi şarj istasyonları için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×2.5 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
-                "value": ": 3.7 kW"
+                "label": "Güç",
+                "value": "3,7 kW"
               },
               {
-                "label": "Phase",
-                "value": "Monophase"
+                "label": "Faz",
+                "value": "Monofaze"
               },
               {
-                "label": "Max. current",
+                "label": "Maks. Akım",
                 "value": "20A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
-                "value": "5m: "
+                "label": "Kablo Uzunluğu",
+                "value": "5m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 62,50"
               }
             ]
@@ -1209,55 +1116,55 @@
       },
       {
         "id": "sarj-seti-20a-monofaze-7m",
-        "name": "V2L / C2L Combi Set",
+        "name": "Şarj Seti 20A Monofaze",
         "code": "BEV-3020-1207",
-        "subtitle": "7m Wired",
+        "subtitle": "7m Kablolu",
         "badge": null,
-        "description": "Single-phase 20a 3.7 kW, Type 2 — Type 2 Mode 3 compatible wired charging set for domestic charging stations. Cable section 3×2.5 mm² + 1×0.75 mm² ttr.",
+        "description": "Monofaze 20A 3,7 kW gücünde, ev tipi şarj istasyonları için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×2.5 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
-                "value": ": 3.7 kW"
+                "label": "Güç",
+                "value": "3,7 kW"
               },
               {
-                "label": "Phase",
-                "value": "Monophase"
+                "label": "Faz",
+                "value": "Monofaze"
               },
               {
-                "label": "Max. current",
+                "label": "Maks. Akım",
                 "value": "20A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
-                "value": "7M"
+                "label": "Kablo Uzunluğu",
+                "value": "7m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 70,00"
               }
             ]
@@ -1273,55 +1180,55 @@
       },
       {
         "id": "sarj-seti-20a-monofaze-8m",
-        "name": "Extension cable",
+        "name": "Şarj Seti 20A Monofaze",
         "code": "BEV-3020-1208",
-        "subtitle": "8m Wired",
+        "subtitle": "8m Kablolu",
         "badge": null,
-        "description": "Single-phase 20a 3.7 kW, Type 2 — Type 2 Mode 3 compatible wired charging set for domestic charging stations. Cable section 3×2.5 mm² + 1×0.75 mm² ttr.",
+        "description": "Monofaze 20A 3,7 kW gücünde, ev tipi şarj istasyonları için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×2.5 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
-                "value": ": 3.7 kW"
+                "label": "Güç",
+                "value": "3,7 kW"
               },
               {
-                "label": "Phase",
-                "value": "Monophase"
+                "label": "Faz",
+                "value": "Monofaze"
               },
               {
-                "label": "Max. current",
+                "label": "Maks. Akım",
                 "value": "20A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
-                "value": "8m. "
+                "label": "Kablo Uzunluğu",
+                "value": "8m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 73,00"
               }
             ]
@@ -1337,55 +1244,55 @@
       },
       {
         "id": "sarj-seti-20a-monofaze-10m",
-        "name": "Charging Set 20a Single Phase",
+        "name": "Şarj Seti 20A Monofaze",
         "code": "BEV-3020-1210",
-        "subtitle": "10m Wired",
+        "subtitle": "10m Kablolu",
         "badge": null,
-        "description": "Single-phase 20a 3.7 kW, Type 2 — Type 2 Mode 3 compatible wired charging set for domestic charging stations. Cable section 3×2.5 mm² + 1×0.75 mm² ttr.",
+        "description": "Monofaze 20A 3,7 kW gücünde, ev tipi şarj istasyonları için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×2.5 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
-                "value": ": 3.7 kW"
+                "label": "Güç",
+                "value": "3,7 kW"
               },
               {
-                "label": "Phase",
-                "value": "Monophase"
+                "label": "Faz",
+                "value": "Monofaze"
               },
               {
-                "label": "Max. current",
+                "label": "Maks. Akım",
                 "value": "20A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
+                "label": "Kablo Uzunluğu",
                 "value": "10m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 79,00"
               }
             ]
@@ -1401,55 +1308,55 @@
       },
       {
         "id": "sarj-seti-32a-monofaze-3m",
-        "name": "CEE 16a → Type 2 Adapter",
+        "name": "Şarj Seti 32A Monofaze",
         "code": "BEV-3032-1203",
-        "subtitle": "3m Wired",
+        "subtitle": "3m Kablolu",
         "badge": null,
-        "description": "Bağlantı",
+        "description": "Monofaze 32A 7,4 kW gücünde, ev ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×6 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
+                "label": "Güç",
                 "value": "7,4 kW"
               },
               {
-                "label": "Phase",
-                "value": "Monophase"
+                "label": "Faz",
+                "value": "Monofaze"
               },
               {
-                "label": "Max. current",
-                "value": "32A."
+                "label": "Maks. Akım",
+                "value": "32A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
+                "label": "Kablo Uzunluğu",
                 "value": "3m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 86,00"
               }
             ]
@@ -1465,55 +1372,55 @@
       },
       {
         "id": "sarj-seti-32a-monofaze-5m",
-        "name": "Empty Combination Box",
+        "name": "Şarj Seti 32A Monofaze",
         "code": "BEV-3032-1205",
-        "subtitle": "5m Wired",
+        "subtitle": "5m Kablolu",
         "badge": null,
-        "description": "Price",
+        "description": "Monofaze 32A 7,4 kW gücünde, ev ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×6 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
+                "label": "Güç",
                 "value": "7,4 kW"
               },
               {
-                "label": "Phase",
-                "value": "Monophase"
+                "label": "Faz",
+                "value": "Monofaze"
               },
               {
-                "label": "Max. current",
-                "value": "32A."
+                "label": "Maks. Akım",
+                "value": "32A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
-                "value": "5m: "
+                "label": "Kablo Uzunluğu",
+                "value": "5m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 92,50"
               }
             ]
@@ -1529,55 +1436,55 @@
       },
       {
         "id": "sarj-seti-32a-monofaze-7m",
-        "name": "Type 2 Socket",
+        "name": "Şarj Seti 32A Monofaze",
         "code": "BEV-3032-1207",
-        "subtitle": "7m Wired",
+        "subtitle": "7m Kablolu",
         "badge": null,
-        "description": "Single-phase 32a 7.4 kW, Type 2 — Type 2 Mode 3 compatible wired charging set for home and workplace charging. Cable section 3×6 mm² + 1×0.75 mm² ttr.",
+        "description": "Monofaze 32A 7,4 kW gücünde, ev ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×6 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
+                "label": "Güç",
                 "value": "7,4 kW"
               },
               {
-                "label": "Phase",
-                "value": "Monophase"
+                "label": "Faz",
+                "value": "Monofaze"
               },
               {
-                "label": "Max. current",
-                "value": "32A."
+                "label": "Maks. Akım",
+                "value": "32A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
-                "value": "7M"
+                "label": "Kablo Uzunluğu",
+                "value": "7m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 101,00"
               }
             ]
@@ -1593,55 +1500,55 @@
       },
       {
         "id": "sarj-seti-32a-monofaze-8m",
-        "name": "Cable Holster",
+        "name": "Şarj Seti 32A Monofaze",
         "code": "BEV-3032-1208",
-        "subtitle": "8m Wired",
+        "subtitle": "8m Kablolu",
         "badge": null,
-        "description": "Single-phase 32a 7.4 kW, Type 2 — Type 2 Mode 3 compatible wired charging set for home and workplace charging. Cable section 3×6 mm² + 1×0.75 mm² ttr.",
+        "description": "Monofaze 32A 7,4 kW gücünde, ev ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×6 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
+                "label": "Güç",
                 "value": "7,4 kW"
               },
               {
-                "label": "Phase",
-                "value": "Monophase"
+                "label": "Faz",
+                "value": "Monofaze"
               },
               {
-                "label": "Max. current",
-                "value": "32A."
+                "label": "Maks. Akım",
+                "value": "32A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
-                "value": "8m. "
+                "label": "Kablo Uzunluğu",
+                "value": "8m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 105,00"
               }
             ]
@@ -1657,55 +1564,55 @@
       },
       {
         "id": "sarj-seti-32a-monofaze-10m",
-        "name": "Charging Set 32a Single Phase",
+        "name": "Şarj Seti 32A Monofaze",
         "code": "BEV-3032-1210",
-        "subtitle": "10m Wired",
+        "subtitle": "10m Kablolu",
         "badge": null,
-        "description": "Single-phase 32a 7.4 kW, Type 2 — Type 2 Mode 3 compatible wired charging set for home and workplace charging. Cable section 3×6 mm² + 1×0.75 mm² ttr.",
+        "description": "Monofaze 32A 7,4 kW gücünde, ev ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×6 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
+                "label": "Güç",
                 "value": "7,4 kW"
               },
               {
-                "label": "Phase",
-                "value": "Monophase"
+                "label": "Faz",
+                "value": "Monofaze"
               },
               {
-                "label": "Max. current",
-                "value": "32A."
+                "label": "Maks. Akım",
+                "value": "32A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
+                "label": "Kablo Uzunluğu",
                 "value": "10m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 114,00"
               }
             ]
@@ -1721,55 +1628,55 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-3m",
-        "name": "Wall Mount Set",
+        "name": "Şarj Seti 20A Trifaze",
         "code": "BEV-5020-1203",
-        "subtitle": "3m Wired",
+        "subtitle": "3m Kablolu",
         "badge": null,
-        "description": "Handedness",
+        "description": "Trifaze 20A 11 kW gücünde, ticari ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×2.5 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
+                "label": "Güç",
                 "value": "11 kW"
               },
               {
-                "label": "Phase",
-                "value": "Three-phase"
+                "label": "Faz",
+                "value": "Trifaze"
               },
               {
-                "label": "Max. current",
+                "label": "Maks. Akım",
                 "value": "20A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
+                "label": "Kablo Uzunluğu",
                 "value": "3m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 78,00"
               }
             ]
@@ -1785,55 +1692,55 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-5m",
-        "name": "Cable Duct",
+        "name": "Şarj Seti 20A Trifaze",
         "code": "BEV-5020-1205",
-        "subtitle": "5m Wired",
+        "subtitle": "5m Kablolu",
         "badge": null,
-        "description": "Electrical",
+        "description": "Trifaze 20A 11 kW gücünde, ticari ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×2.5 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
+                "label": "Güç",
                 "value": "11 kW"
               },
               {
-                "label": "Phase",
-                "value": "Three-phase"
+                "label": "Faz",
+                "value": "Trifaze"
               },
               {
-                "label": "Max. current",
+                "label": "Maks. Akım",
                 "value": "20A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
-                "value": "5m: "
+                "label": "Kablo Uzunluğu",
+                "value": "5m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 85,00"
               }
             ]
@@ -1849,55 +1756,55 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-7m",
-        "name": "Electronic Control Board (ECU)",
+        "name": "Şarj Seti 20A Trifaze",
         "code": "BEV-5020-1207",
-        "subtitle": "7m Wired",
+        "subtitle": "7m Kablolu",
         "badge": null,
-        "description": "Content",
+        "description": "Trifaze 20A 11 kW gücünde, ticari ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×2.5 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
+                "label": "Güç",
                 "value": "11 kW"
               },
               {
-                "label": "Phase",
-                "value": "Three-phase"
+                "label": "Faz",
+                "value": "Trifaze"
               },
               {
-                "label": "Max. current",
+                "label": "Maks. Akım",
                 "value": "20A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
-                "value": "7M"
+                "label": "Kablo Uzunluğu",
+                "value": "7m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 93,00"
               }
             ]
@@ -1913,55 +1820,55 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-8m",
-        "name": "RFID Charging Card",
+        "name": "Şarj Seti 20A Trifaze",
         "code": "BEV-5020-1208",
-        "subtitle": "8m Wired",
+        "subtitle": "8m Kablolu",
         "badge": null,
-        "description": "Three-phase 20a 11 kW, Type 2 — Type 2 Mod 3 compatible wired charging set for commercial and workplace charging. Cable section 5×2.5 mm² + 1×0.75 mm² ttr.",
+        "description": "Trifaze 20A 11 kW gücünde, ticari ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×2.5 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
+                "label": "Güç",
                 "value": "11 kW"
               },
               {
-                "label": "Phase",
-                "value": "Three-phase"
+                "label": "Faz",
+                "value": "Trifaze"
               },
               {
-                "label": "Max. current",
+                "label": "Maks. Akım",
                 "value": "20A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
-                "value": "8m. "
+                "label": "Kablo Uzunluğu",
+                "value": "8m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 98,00"
               }
             ]
@@ -1977,55 +1884,55 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-10m",
-        "name": "Surge protectors",
+        "name": "Şarj Seti 20A Trifaze",
         "code": "BEV-5020-1210",
-        "subtitle": "10m Wired",
+        "subtitle": "10m Kablolu",
         "badge": null,
-        "description": "Three-phase 20a 11 kW, Type 2 — Type 2 Mod 3 compatible wired charging set for commercial and workplace charging. Cable section 5×2.5 mm² + 1×0.75 mm² ttr.",
+        "description": "Trifaze 20A 11 kW gücünde, ticari ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×2.5 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
+                "label": "Güç",
                 "value": "11 kW"
               },
               {
-                "label": "Phase",
-                "value": "Three-phase"
+                "label": "Faz",
+                "value": "Trifaze"
               },
               {
-                "label": "Max. current",
+                "label": "Maks. Akım",
                 "value": "20A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
+                "label": "Kablo Uzunluğu",
                 "value": "10m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 110,00"
               }
             ]
@@ -2041,55 +1948,55 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-15m",
-        "name": "Charging Set 20a Three Phase",
+        "name": "Şarj Seti 20A Trifaze",
         "code": "BEV-5020-1215",
-        "subtitle": "15m Wired",
+        "subtitle": "15m Kablolu",
         "badge": null,
-        "description": "Three-phase 20a 11 kW, Type 2 — Type 2 Mod 3 compatible wired charging set for commercial and workplace charging. Cable section 5×2.5 mm² + 1×0.75 mm² ttr.",
+        "description": "Trifaze 20A 11 kW gücünde, ticari ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×2.5 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
+                "label": "Güç",
                 "value": "11 kW"
               },
               {
-                "label": "Phase",
-                "value": "Three-phase"
+                "label": "Faz",
+                "value": "Trifaze"
               },
               {
-                "label": "Max. current",
+                "label": "Maks. Akım",
                 "value": "20A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
+                "label": "Kablo Uzunluğu",
                 "value": "15m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 140,00"
               }
             ]
@@ -2105,55 +2012,55 @@
       },
       {
         "id": "sarj-seti-32a-trifaze-3m",
-        "name": "5m. Wired",
+        "name": "Şarj Seti 32A Trifaze",
         "code": "BEV-5032-1203",
-        "subtitle": "3m Wired",
+        "subtitle": "3m Kablolu",
         "badge": null,
-        "description": "Price",
+        "description": "Trifaze 32A 22 kW gücünde, hızlı AC şarj için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×6 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
+                "label": "Güç",
                 "value": "22 kW"
               },
               {
-                "label": "Phase",
-                "value": "Three-phase"
+                "label": "Faz",
+                "value": "Trifaze"
               },
               {
-                "label": "Max. current",
-                "value": "32A."
+                "label": "Maks. Akım",
+                "value": "32A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
+                "label": "Kablo Uzunluğu",
                 "value": "3m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 114,00"
               }
             ]
@@ -2169,55 +2076,55 @@
       },
       {
         "id": "sarj-seti-32a-trifaze-5m",
-        "name": "5m. Wired /5-32A Plug",
+        "name": "Şarj Seti 32A Trifaze",
         "code": "BEV-5032-1205",
-        "subtitle": "5m Wired",
+        "subtitle": "5m Kablolu",
         "badge": null,
-        "description": "Electrical",
+        "description": "Trifaze 32A 22 kW gücünde, hızlı AC şarj için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×6 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
+                "label": "Güç",
                 "value": "22 kW"
               },
               {
-                "label": "Phase",
-                "value": "Three-phase"
+                "label": "Faz",
+                "value": "Trifaze"
               },
               {
-                "label": "Max. current",
-                "value": "32A."
+                "label": "Maks. Akım",
+                "value": "32A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
-                "value": "5m: "
+                "label": "Kablo Uzunluğu",
+                "value": "5m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 122,50"
               }
             ]
@@ -2233,55 +2140,55 @@
       },
       {
         "id": "sarj-seti-32a-trifaze-7m",
-        "name": "5m. Wired",
+        "name": "Şarj Seti 32A Trifaze",
         "code": "BEV-5032-1207",
-        "subtitle": "7m Wired",
+        "subtitle": "7m Kablolu",
         "badge": null,
-        "description": "Content",
+        "description": "Trifaze 32A 22 kW gücünde, hızlı AC şarj için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×6 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
+                "label": "Güç",
                 "value": "22 kW"
               },
               {
-                "label": "Phase",
-                "value": "Three-phase"
+                "label": "Faz",
+                "value": "Trifaze"
               },
               {
-                "label": "Max. current",
-                "value": "32A."
+                "label": "Maks. Akım",
+                "value": "32A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
-                "value": "7M"
+                "label": "Kablo Uzunluğu",
+                "value": "7m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 136,00"
               }
             ]
@@ -2297,55 +2204,55 @@
       },
       {
         "id": "sarj-seti-32a-trifaze-8m",
-        "name": "Panel Socket",
+        "name": "Şarj Seti 32A Trifaze",
         "code": "BEV-5032-1208",
-        "subtitle": "8m Wired",
+        "subtitle": "8m Kablolu",
         "badge": null,
-        "description": "Three-phase 32a wired charging set with 22 kW power, Type 2 — Type 2 Mode 3 compatible for fast AC charging. Cable section 5×6 mm² + 1×0.75 mm² ttr.",
+        "description": "Trifaze 32A 22 kW gücünde, hızlı AC şarj için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×6 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
+                "label": "Güç",
                 "value": "22 kW"
               },
               {
-                "label": "Phase",
-                "value": "Three-phase"
+                "label": "Faz",
+                "value": "Trifaze"
               },
               {
-                "label": "Max. current",
-                "value": "32A."
+                "label": "Maks. Akım",
+                "value": "32A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
-                "value": "8m. "
+                "label": "Kablo Uzunluğu",
+                "value": "8m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 143,00"
               }
             ]
@@ -2361,55 +2268,55 @@
       },
       {
         "id": "sarj-seti-32a-trifaze-10m",
-        "name": "5m. Wired",
+        "name": "Şarj Seti 32A Trifaze",
         "code": "BEV-5032-1210",
-        "subtitle": "10m Wired",
+        "subtitle": "10m Kablolu",
         "badge": null,
-        "description": "Three-phase 32a wired charging set with 22 kW power, Type 2 — Type 2 Mode 3 compatible for fast AC charging. Cable section 5×6 mm² + 1×0.75 mm² ttr.",
+        "description": "Trifaze 32A 22 kW gücünde, hızlı AC şarj için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×6 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
+                "label": "Güç",
                 "value": "22 kW"
               },
               {
-                "label": "Phase",
-                "value": "Three-phase"
+                "label": "Faz",
+                "value": "Trifaze"
               },
               {
-                "label": "Max. current",
-                "value": "32A."
+                "label": "Maks. Akım",
+                "value": "32A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
+                "label": "Kablo Uzunluğu",
                 "value": "10m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 160,00"
               }
             ]
@@ -2425,55 +2332,55 @@
       },
       {
         "id": "sarj-seti-32a-trifaze-15m",
-        "name": "Charging Set 32a Three Phase",
+        "name": "Şarj Seti 32A Trifaze",
         "code": "BEV-5032-1215",
-        "subtitle": "15m Wired",
+        "subtitle": "15m Kablolu",
         "badge": null,
-        "description": "Three-phase 32a wired charging set with 22 kW power, Type 2 — Type 2 Mode 3 compatible for fast AC charging. Cable section 5×6 mm² + 1×0.75 mm² ttr.",
+        "description": "Trifaze 32A 22 kW gücünde, hızlı AC şarj için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×6 mm² + 1×0.75 mm² ttr.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "• Power",
+                "label": "Güç",
                 "value": "22 kW"
               },
               {
-                "label": "Phase",
-                "value": "Three-phase"
+                "label": "Faz",
+                "value": "Trifaze"
               },
               {
-                "label": "Max. current",
-                "value": "32A."
+                "label": "Maks. Akım",
+                "value": "32A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Cable Length",
+                "label": "Kablo Uzunluğu",
                 "value": "15m"
               },
               {
-                "label": "Cable section",
+                "label": "Kablo Kesiti",
                 "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Connector",
+                "label": "Konnektör",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mode",
-                "value": "Mode 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "List Price",
+                "label": "Liste Fiyatı",
                 "value": "EUR 200,00"
               }
             ]
@@ -2763,7 +2670,7 @@
                 "value": "IP44"
               },
               {
-                "label": "OTA firmware update",
+                "label": "Guarantee",
                 "value": "2 Years"
               }
             ]
@@ -2801,7 +2708,7 @@
                 "value": "IP44"
               },
               {
-                "label": "kWh (IEC 62053-21)",
+                "label": "Guarantee",
                 "value": "2 Years"
               }
             ]
@@ -2900,7 +2807,7 @@
         "description": "Wall-mountable cable holster that keeps the charging cable tidy and secure.",
         "specs": [
           {
-            "group": "Bending Life",
+            "group": "Characteristics",
             "items": [
               {
                 "label": "Compatible Connector",
@@ -2934,7 +2841,7 @@
         "description": "Stainless steel floor post used to mount the wallbox in areas without walls.",
         "specs": [
           {
-            "group": "Protection category",
+            "group": "Characteristics",
             "items": [
               {
                 "label": "Material",
@@ -3013,7 +2920,7 @@
                 "value": "Flame retardant PVC"
               },
               {
-                "label": "10a - 16a",
+                "label": "Dimension",
                 "value": "40×40 mm · 60×40 mm"
               },
               {
