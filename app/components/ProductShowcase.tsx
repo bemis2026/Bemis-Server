@@ -319,12 +319,21 @@ export default function ProductShowcase() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.35 }}
-                className="text-4xl sm:text-5xl font-black leading-tight mb-3"
+                className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-3"
                 style={{ color: textPrimary }}
               >
                 {nameText}
               </motion.h2>
             </AnimatePresence>
+
+            {/* Divider */}
+            <motion.div
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={inView ? { scaleX: 1, opacity: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.18 }}
+              className="h-px w-24 origin-left mb-4"
+              style={{ background: `linear-gradient(90deg, ${ACCENT} 0%, transparent 100%)` }}
+            />
 
             {/* Tagline */}
             {taglineText && (

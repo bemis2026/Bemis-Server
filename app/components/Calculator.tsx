@@ -559,7 +559,7 @@ export default function Calculator() {
 
           <motion.div
             initial={{ scaleX: 0, opacity: 0 }} animate={inView ? { scaleX: 1, opacity: 1 } : {}} transition={{ duration: 0.5, delay: 0.2 }}
-            className="mx-auto h-px w-16 mb-2.5"
+            className="mx-auto h-px w-20 mb-2.5"
             style={{ background: `linear-gradient(90deg, transparent 0%, ${BLUE} 50%, transparent 100%)` }}
           />
           <motion.p

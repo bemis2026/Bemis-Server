@@ -489,7 +489,7 @@ export default function SmartCharger() {
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.08 }}
-              className="text-4xl sm:text-5xl font-black leading-tight mb-4"
+              className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-4"
               style={{ color: textPrimary }}
             >
               {headingLines.map((line, i) => (
@@ -499,6 +499,15 @@ export default function SmartCharger() {
                 </span>
               ))}
             </motion.h2>
+
+            {/* Divider */}
+            <motion.div
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={inView ? { scaleX: 1, opacity: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.18 }}
+              className="h-px w-24 origin-left mb-4"
+              style={{ background: `linear-gradient(90deg, ${ACCENT} 0%, transparent 100%)` }}
+            />
 
             {/* Subheading */}
             <motion.p
