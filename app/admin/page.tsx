@@ -87,7 +87,8 @@ import {
 
 type SpecItem = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
-type ProductEntry = { id: string; name: string; code?: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[] };
+type ProductDocument = { label: string; url: string };
+type ProductEntry = { id: string; name: string; code?: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[]; generalFeatures?: string[]; documents?: ProductDocument[] };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
 type StatItem = { value: number; suffix: string; prefix?: string; label: string; description: string };
@@ -118,6 +119,7 @@ type ContentData = {
     productionStepImages?: string[];
     timeline?: { year: string; title: string; desc: string }[];
     aboutVideo?: string;
+    certifications?: { label: string; sub: string }[];
   };
   products: { heading: string; subheading: string; sectionLabel?: string; allProductsLabel?: string; viewLabel?: string; sliderEnabled?: boolean; allProductsDescription?: string };
   dealer: {
@@ -2215,6 +2217,160 @@ export default function AdminPage() {
                                         );
                                       })}
                                     </div>
+
+                                    {/* ── Genel Özellikler (madde listesi) ── */}
+                                    {(() => {
+                                      const features = currentProd.generalFeatures ?? [];
+                                      const updateAll = (next: string[]) => {
+                                        setProducts((prev) => prev.map((cat) => cat.id !== selCat ? cat : {
+                                          ...cat,
+                                          products: cat.products.map((p) => p.id !== selProd ? p : { ...p, generalFeatures: next }),
+                                        }));
+                                      };
+                                      return (
+                                        <div className="space-y-3 pt-4 border-t border-white/6">
+                                          <div className="flex items-center justify-between">
+                                            <p className="text-xs font-semibold text-white/50">Genel Özellikler</p>
+                                            <button
+                                              onClick={() => updateAll([...features, ""])}
+                                              className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white px-2.5 py-1 rounded-lg border border-white/10 hover:border-white/20"
+                                            >
+                                              <HiOutlinePlus size={12} /> Madde Ekle
+                                            </button>
+                                          </div>
+                                          <p className="text-[10px] text-white/30">
+                                            Ürün detay sayfasında "Genel Özellikler" sekmesinde bullet liste olarak gösterilir. Boş bırakılırsa sekme görünmez.
+                                          </p>
+                                          {features.length === 0 ? (
+                                            <p className="text-[11px] text-white/25 italic text-center py-2">
+                                              Henüz madde eklenmemiş.
+                                            </p>
+                                          ) : (
+                                            <div className="space-y-2">
+                                              {features.map((feat, i) => (
+                                                <div key={i} className="flex items-center gap-2">
+                                                  <span className="text-[10px] font-bold text-white/30 w-5 flex-shrink-0">{i + 1}.</span>
+                                                  <input
+                                                    value={feat}
+                                                    onChange={(e) => {
+                                                      const next = [...features];
+                                                      next[i] = e.target.value;
+                                                      updateAll(next);
+                                                    }}
+                                                    placeholder="Özellik açıklaması"
+                                                    className="flex-1 bg-white/5 border border-white/8 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-white/20"
+                                                  />
+                                                  <button
+                                                    onClick={() => updateAll(features.filter((_, k) => k !== i))}
+                                                    className="text-white/20 hover:text-red-400 p-1 flex-shrink-0"
+                                                  >
+                                                    <HiOutlineTrash size={12} />
+                                                  </button>
+                                                </div>
+                                              ))}
+                                            </div>
+                                          )}
+                                        </div>
+                                      );
+                                    })()}
+
+                                    {/* ── Dökümanlar (PDF / dış link) ── */}
+                                    {(() => {
+                                      const docs = currentProd.documents ?? [];
+                                      const updateAll = (next: ProductDocument[]) => {
+                                        setProducts((prev) => prev.map((cat) => cat.id !== selCat ? cat : {
+                                          ...cat,
+                                          products: cat.products.map((p) => p.id !== selProd ? p : { ...p, documents: next }),
+                                        }));
+                                      };
+                                      return (
+                                        <div className="space-y-3 pt-4 border-t border-white/6">
+                                          <div className="flex items-center justify-between">
+                                            <p className="text-xs font-semibold text-white/50">Dökümanlar</p>
+                                            <button
+                                              onClick={() => updateAll([...docs, { label: "", url: "" }])}
+                                              className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white px-2.5 py-1 rounded-lg border border-white/10 hover:border-white/20"
+                                            >
+                                              <HiOutlinePlus size={12} /> Belge Ekle
+                                            </button>
+                                          </div>
+                                          <p className="text-[10px] text-white/30">
+                                            PDF, datasheet veya dış link. URL alanına PDF yüklemek için "Yükle" butonunu kullanabilirsiniz (Cloudinary üzerinden).
+                                          </p>
+                                          {docs.length === 0 ? (
+                                            <p className="text-[11px] text-white/25 italic text-center py-2">
+                                              Henüz belge eklenmemiş.
+                                            </p>
+                                          ) : (
+                                            <div className="space-y-2">
+                                              {docs.map((doc, i) => (
+                                                <div key={i} className="rounded-xl border border-white/7 p-3 space-y-2" style={{ background: "rgba(255,255,255,0.02)" }}>
+                                                  <div className="flex items-center justify-between mb-1">
+                                                    <span className="text-[10px] font-bold text-white/30">#{i + 1}</span>
+                                                    <button
+                                                      onClick={() => updateAll(docs.filter((_, k) => k !== i))}
+                                                      className="text-[10px] text-red-400/50 hover:text-red-400 transition-colors"
+                                                    >
+                                                      Sil
+                                                    </button>
+                                                  </div>
+                                                  <input
+                                                    value={doc.label}
+                                                    onChange={(e) => {
+                                                      const next = [...docs];
+                                                      next[i] = { ...next[i], label: e.target.value };
+                                                      updateAll(next);
+                                                    }}
+                                                    placeholder="Belge adı (örn. Datasheet)"
+                                                    className="w-full bg-white/5 border border-white/8 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-white/20"
+                                                  />
+                                                  <div className="flex items-center gap-2">
+                                                    <input
+                                                      value={doc.url}
+                                                      onChange={(e) => {
+                                                        const next = [...docs];
+                                                        next[i] = { ...next[i], url: e.target.value };
+                                                        updateAll(next);
+                                                      }}
+                                                      placeholder="https://… veya PDF URL"
+                                                      className="flex-1 bg-white/5 border border-white/8 rounded-lg px-3 py-2 text-xs text-white/80 focus:outline-none focus:border-white/20"
+                                                    />
+                                                    <label className="flex items-center gap-1 px-3 py-2 rounded-lg text-xs font-semibold text-white/70 border border-white/12 hover:border-white/25 hover:text-white transition-colors cursor-pointer flex-shrink-0">
+                                                      <RiImageAddLine size={13} />
+                                                      <span>Yükle</span>
+                                                      <input
+                                                        type="file"
+                                                        accept=".pdf,.doc,.docx,.xls,.xlsx,application/pdf"
+                                                        className="hidden"
+                                                        onChange={async (e) => {
+                                                          const file = e.target.files?.[0];
+                                                          if (!file) return;
+                                                          const fd = new FormData();
+                                                          fd.append("file", file);
+                                                          fd.append("folder", "product-docs");
+                                                          const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+                                                          if (res.ok) {
+                                                            const { url } = await res.json();
+                                                            const next = [...docs];
+                                                            next[i] = { ...next[i], url, label: next[i].label || file.name.replace(/\.[^.]+$/, "") };
+                                                            updateAll(next);
+                                                            showToast("ok", "Belge yüklendi.");
+                                                          } else {
+                                                            const err = await res.json().catch(() => ({}));
+                                                            showToast("err", `Yükleme başarısız: ${err.error ?? res.status}`);
+                                                          }
+                                                          if (e.target) e.target.value = "";
+                                                        }}
+                                                      />
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                              ))}
+                                            </div>
+                                          )}
+                                        </div>
+                                      );
+                                    })()}
                                   </div>
                                 )}
                               </>
@@ -2829,6 +2985,81 @@ export default function AdminPage() {
                                 onChange={(v) => updateContent(["dna", "aboutVideo"], v)}
                                 placeholder="https://www.youtube.com/watch?v=..."
                               />
+                            </div>
+
+                            {/* ── Sertifikalar & Belgeler ── */}
+                            <div className="pt-4 border-t border-white/6 space-y-3">
+                              <div className="flex items-center justify-between">
+                                <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Sertifikalar & Belgeler</p>
+                                <button
+                                  onClick={() => {
+                                    setContent((prev) => {
+                                      if (!prev) return prev;
+                                      const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                                      const arr = [...(next.dna.certifications ?? [])];
+                                      arr.push({ label: "", sub: "" });
+                                      next.dna.certifications = arr;
+                                      return next;
+                                    });
+                                  }}
+                                  className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-medium text-white/50 border border-white/10 hover:border-white/20 hover:text-white/80 transition-colors"
+                                >
+                                  + Ekle
+                                </button>
+                              </div>
+                              <p className="text-[10px] text-white/35">
+                                Kurumsal sayfasının en altındaki sertifikalar listesi. Hiç madde eklemezseniz varsayılan 7 sertifika gösterilir.
+                              </p>
+                              {(content.dna.certifications ?? []).map((c, i) => (
+                                <div key={i} className="rounded-xl border border-white/7 p-3 space-y-2" style={{ background: "rgba(255,255,255,0.02)" }}>
+                                  <div className="flex items-center justify-between mb-1">
+                                    <span className="text-[10px] font-bold text-white/30">#{i + 1}</span>
+                                    <button
+                                      onClick={() => {
+                                        setContent((prev) => {
+                                          if (!prev) return prev;
+                                          const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                                          next.dna.certifications = (next.dna.certifications ?? []).filter((_, k) => k !== i);
+                                          return next;
+                                        });
+                                      }}
+                                      className="text-[10px] text-red-400/50 hover:text-red-400 transition-colors"
+                                    >
+                                      Sil
+                                    </button>
+                                  </div>
+                                  <div className="grid grid-cols-2 gap-2">
+                                    <Field
+                                      label="Etiket (örn. CE)"
+                                      value={c.label}
+                                      onChange={(v) => {
+                                        setContent((prev) => {
+                                          if (!prev) return prev;
+                                          const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                                          const arr = [...(next.dna.certifications ?? [])];
+                                          arr[i] = { ...arr[i], label: v };
+                                          next.dna.certifications = arr;
+                                          return next;
+                                        });
+                                      }}
+                                    />
+                                    <Field
+                                      label="Açıklama"
+                                      value={c.sub}
+                                      onChange={(v) => {
+                                        setContent((prev) => {
+                                          if (!prev) return prev;
+                                          const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                                          const arr = [...(next.dna.certifications ?? [])];
+                                          arr[i] = { ...arr[i], sub: v };
+                                          next.dna.certifications = arr;
+                                          return next;
+                                        });
+                                      }}
+                                    />
+                                  </div>
+                                </div>
+                              ))}
                             </div>
                   </div>
                 </div>

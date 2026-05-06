@@ -18,6 +18,7 @@ export type FeaturedItem = {
 
 export type DnaItem = { title: string; desc: string };
 export type TimelineItem = { year: string; title: string; desc: string };
+export type CertificationItem = { label: string; sub: string };
 export type TechFeature = { title: string; desc: string; accent: string };
 export type SmartChargerFeature = { title: string; desc: string };
 export type ShowcaseSpec = { label: string; value: string };
@@ -77,6 +78,7 @@ export type SiteContent = {
     productionStepImages?: string[];
     timeline?: TimelineItem[];
     aboutVideo?: string;
+    certifications?: CertificationItem[];
     ctaLabel: string;
   };
   products: { heading: string; subheading: string; sectionLabel: string; allProductsLabel: string; viewLabel: string; sliderEnabled: boolean; allProductsDescription: string };
@@ -242,6 +244,15 @@ const defaultContent: SiteContent = {
       { year: "2024", title: "Bugün",         desc: "60+ ülkeye ihracat, 6000+ ürün çeşidi." },
     ],
     aboutVideo: "",
+    certifications: [
+      { label: "CE",        sub: "Avrupa Uygunluk"        },
+      { label: "IP65",      sub: "Toz & Su Koruması"      },
+      { label: "IEC 61851", sub: "EV Şarj Sistemi Std."   },
+      { label: "IEC 62196", sub: "EV Konektör Std."        },
+      { label: "OCPP 2.0",  sub: "Açık Şarj Protokolü"   },
+      { label: "ISO 9001",  sub: "Kalite Yönetim Sistemi" },
+      { label: "TSE",       sub: "Türk Standartları"       },
+    ],
   },
   products: {
     heading: "EV Şarj Çözümleri",

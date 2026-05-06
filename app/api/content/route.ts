@@ -79,9 +79,10 @@ export async function GET(req: NextRequest) {
       layout: tr.hero?.layout,
     },
     dna: (() => {
-      const trItems = tr.dna?.timeline ?? [];
-      const enItems = en.dna?.timeline ?? [];
-      const timeline = trItems.map((it: Record<string, unknown>, i: number) => ({ ...it, ...(enItems[i] ?? {}) }));
+      const mergeIndex = (trArr: Array<Record<string, unknown>>, enArr: Array<Record<string, unknown>>) =>
+        trArr.map((it, i) => ({ ...it, ...(enArr[i] ?? {}) }));
+      const timeline = mergeIndex(tr.dna?.timeline ?? [], en.dna?.timeline ?? []);
+      const certifications = mergeIndex(tr.dna?.certifications ?? [], en.dna?.certifications ?? []);
       return {
         ...tr.dna,
         ...(en.dna ?? {}),
@@ -90,6 +91,7 @@ export async function GET(req: NextRequest) {
         productionStepImages: tr.dna?.productionStepImages,
         aboutVideo: tr.dna?.aboutVideo,
         timeline: timeline.length > 0 ? timeline : undefined,
+        certifications: certifications.length > 0 ? certifications : undefined,
       };
     })(),
     technology: en.technology ? { ...tr.technology, ...en.technology } : tr.technology,

@@ -23,6 +23,7 @@ const TRANSLATABLE_PATHS: string[] = [
   "dna.highlights[].title", "dna.highlights[].desc",
   "dna.features[].title", "dna.features[].desc",
   "dna.timeline[].title", "dna.timeline[].desc",
+  "dna.certifications[].sub",
 
   "products.heading", "products.subheading", "products.sectionLabel",
   "products.allProductsLabel", "products.viewLabel", "products.allProductsDescription",

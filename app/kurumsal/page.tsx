@@ -44,7 +44,7 @@ const FEATURE_META = [
   { icon: RiLeafLine,  accent: "#b0b0bc" },
 ];
 
-const certs = [
+const FALLBACK_CERTS = [
   { label: "CE",        sub: "Avrupa Uygunluk"        },
   { label: "IP65",      sub: "Toz & Su Koruması"      },
   { label: "IEC 61851", sub: "EV Şarj Sistemi Std."   },
@@ -89,6 +89,7 @@ export default function KurumsalPage() {
   const highlights = (dna.highlights ?? []).map((h, i) => ({ ...HIGHLIGHT_META[i % HIGHLIGHT_META.length], ...h }));
   const features   = (dna.features   ?? []).map((f, i) => ({ ...FEATURE_META[i % FEATURE_META.length],   ...f }));
   const timeline   = (dna.timeline && dna.timeline.length > 0) ? dna.timeline : FALLBACK_TIMELINE;
+  const certs      = (dna.certifications && dna.certifications.length > 0) ? dna.certifications : FALLBACK_CERTS;
   const aboutVideoId = extractYouTubeId(dna.aboutVideo ?? "");
   const GREEN      = "#10B981";
 

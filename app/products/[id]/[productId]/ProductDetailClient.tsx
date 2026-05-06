@@ -11,7 +11,8 @@ import SearchOverlay from "../../../components/SearchOverlay";
 import {
   RiChargingPile2Line, RiBatteryChargeLine, RiFlashlightLine,
   RiPlugLine, RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
-  RiArrowLeftLine, RiArrowRightSLine,
+  RiArrowLeftLine, RiArrowRightSLine, RiCheckLine,
+  RiFileTextLine, RiFilePdfLine, RiExternalLinkLine,
 } from "react-icons/ri";
 import { HiMail, HiDownload, HiArrowRight } from "react-icons/hi";
 import { trackEvent } from "../../../components/GoogleAnalytics";
@@ -19,9 +20,12 @@ import Image from "next/image";
 
 type SpecItem  = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
+type ProductDocument = { label: string; url: string };
 type ProductEntry = {
   id: string; name: string; code?: string; subtitle: string; badge: string | null;
   description: string; specs: SpecGroup[]; image?: string; images?: string[]; pdf?: string;
+  generalFeatures?: string[];
+  documents?: ProductDocument[];
 };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
@@ -44,6 +48,7 @@ export default function ProductDetailPage() {
   const [loading,  setLoading]      = useState(true);
   const [activeImg, setActiveImg]   = useState(0);
   const [allCategories, setAllCategories] = useState<CategoryData[]>([]);
+  const [activeTab, setActiveTab]   = useState<"specs" | "general" | "documents">("specs");
 
   const categoryId = typeof params.id        === "string" ? params.id        : "";
   const productId  = typeof params.productId === "string" ? params.productId : "";
@@ -300,53 +305,152 @@ export default function ProductDetailPage() {
                   )}
                 </div>
 
-                {/* Specs — compact single card */}
-                {product.specs.length > 0 && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.1 }}
-                    className="rounded-2xl overflow-hidden"
-                    style={{ border: `1px solid ${border}`, background: surface }}
-                  >
-                    <div
-                      className="px-4 py-2 flex items-center gap-2"
-                      style={{ borderBottom: `1px solid ${divider}`, background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.025)" }}
+                {/* Specs / General Features / Documents — tabbed card */}
+                {(() => {
+                  const hasSpecs    = product.specs.length > 0;
+                  const generalList = (product.generalFeatures ?? []).filter((s) => s && s.trim().length > 0);
+                  const docList     = (product.documents ?? []).filter((d) => d && d.url && d.url.trim().length > 0);
+                  const hasGeneral  = generalList.length > 0;
+                  const hasDocs     = docList.length > 0;
+                  if (!hasSpecs && !hasGeneral && !hasDocs) return null;
+
+                  // Resolve which tab is actually shown — fall back if the
+                  // saved activeTab no longer has content (e.g. the operator
+                  // just removed all general features).
+                  let resolvedTab: "specs" | "general" | "documents" = activeTab;
+                  if (resolvedTab === "specs" && !hasSpecs)        resolvedTab = hasGeneral ? "general" : "documents";
+                  if (resolvedTab === "general" && !hasGeneral)    resolvedTab = hasSpecs ? "specs" : "documents";
+                  if (resolvedTab === "documents" && !hasDocs)     resolvedTab = hasSpecs ? "specs" : "general";
+
+                  const tabs: { id: "specs" | "general" | "documents"; label: string; visible: boolean }[] = [
+                    { id: "specs",     label: "Teknik Özellikler", visible: hasSpecs },
+                    { id: "general",   label: "Genel Özellikler",  visible: hasGeneral },
+                    { id: "documents", label: "Dökümanlar",        visible: hasDocs },
+                  ];
+                  const visibleTabs = tabs.filter((t) => t.visible);
+
+                  return (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.1 }}
+                      className="rounded-2xl overflow-hidden"
+                      style={{ border: `1px solid ${border}`, background: surface }}
                     >
-                      <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: textFaint }}>Teknik Özellikler</span>
-                    </div>
-                    {product.specs.flatMap((group, gi) => {
-                      const isPrice = group.group.toLowerCase().includes("fiyat");
-                      // group separator row + items
-                      return [
-                        // Group label row (skip if only one group)
-                        product.specs.length > 1 ? (
-                          <div
-                            key={`g${gi}`}
-                            className="px-4 py-1.5 flex items-center gap-1.5"
-                            style={{ background: isPrice ? `${accent}0c` : d ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.018)", borderTop: gi > 0 ? `1px solid ${divider}` : "none" }}
-                          >
-                            <div className="w-1 h-1 rounded-full" style={{ background: isPrice ? accent : `${accent}60` }} />
-                            <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: isPrice ? accent : textFaint }}>{group.group}</span>
-                            {isPrice && (
-                              <span className="ml-auto text-[9px] font-semibold px-1.5 py-0.5 rounded-full" style={{ background: `${accent}15`, color: `${accent}cc` }}>KDV Hariç</span>
-                            )}
-                          </div>
-                        ) : null,
-                        ...group.items.map((item, ii) => (
-                          <div
-                            key={`g${gi}i${ii}`}
-                            className="px-4 py-1.5 flex items-center justify-between gap-3"
-                            style={{ borderTop: `1px solid ${divider}` }}
-                          >
-                            <span className="text-xs" style={{ color: textFaint, flexShrink: 0 }}>{item.label}</span>
-                            <span className="text-xs font-semibold text-right" style={{ color: isPrice ? accent : textMuted }}>{item.value}</span>
-                          </div>
-                        )),
-                      ];
-                    })}
-                  </motion.div>
-                )}
+                      {/* Tab switcher */}
+                      <div
+                        className="flex"
+                        style={{ borderBottom: `1px solid ${divider}`, background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.025)" }}
+                      >
+                        {visibleTabs.map((t) => {
+                          const isActive = resolvedTab === t.id;
+                          return (
+                            <button
+                              key={t.id}
+                              onClick={() => setActiveTab(t.id)}
+                              className="flex-1 px-4 py-2.5 text-[11px] font-bold uppercase tracking-wider transition-colors"
+                              style={{
+                                color: isActive ? accent : textFaint,
+                                background: isActive
+                                  ? (d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)")
+                                  : "transparent",
+                                borderBottom: isActive ? `2px solid ${accent}` : "2px solid transparent",
+                                marginBottom: -1,
+                              }}
+                            >
+                              {t.label}
+                            </button>
+                          );
+                        })}
+                      </div>
+
+                      {/* Specs tab */}
+                      {resolvedTab === "specs" && product.specs.flatMap((group, gi) => {
+                        const isPrice = group.group.toLowerCase().includes("fiyat");
+                        return [
+                          product.specs.length > 1 ? (
+                            <div
+                              key={`g${gi}`}
+                              className="px-4 py-1.5 flex items-center gap-1.5"
+                              style={{ background: isPrice ? `${accent}0c` : d ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.018)", borderTop: gi > 0 ? `1px solid ${divider}` : "none" }}
+                            >
+                              <div className="w-1 h-1 rounded-full" style={{ background: isPrice ? accent : `${accent}60` }} />
+                              <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: isPrice ? accent : textFaint }}>{group.group}</span>
+                              {isPrice && (
+                                <span className="ml-auto text-[9px] font-semibold px-1.5 py-0.5 rounded-full" style={{ background: `${accent}15`, color: `${accent}cc` }}>KDV Hariç</span>
+                              )}
+                            </div>
+                          ) : null,
+                          ...group.items.map((item, ii) => (
+                            <div
+                              key={`g${gi}i${ii}`}
+                              className="px-4 py-1.5 flex items-center justify-between gap-3"
+                              style={{ borderTop: `1px solid ${divider}` }}
+                            >
+                              <span className="text-xs" style={{ color: textFaint, flexShrink: 0 }}>{item.label}</span>
+                              <span className="text-xs font-semibold text-right" style={{ color: isPrice ? accent : textMuted }}>{item.value}</span>
+                            </div>
+                          )),
+                        ];
+                      })}
+
+                      {/* General features tab */}
+                      {resolvedTab === "general" && (
+                        <div className="p-4 space-y-2">
+                          {generalList.map((feature, i) => (
+                            <div key={i} className="flex items-start gap-2.5">
+                              <div
+                                className="flex items-center justify-center rounded-full flex-shrink-0 mt-0.5"
+                                style={{ width: 16, height: 16, background: `${accent}18`, border: `1px solid ${accent}30` }}
+                              >
+                                <RiCheckLine size={10} style={{ color: accent }} />
+                              </div>
+                              <span className="text-sm leading-relaxed" style={{ color: textMuted }}>{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Documents tab */}
+                      {resolvedTab === "documents" && (
+                        <div className="p-3 space-y-2">
+                          {docList.map((doc, i) => {
+                            const lower = doc.url.toLowerCase();
+                            const isPdf = lower.endsWith(".pdf");
+                            const isExternal = /^https?:\/\//.test(doc.url);
+                            const Ico = isPdf ? RiFilePdfLine : RiFileTextLine;
+                            return (
+                              <a
+                                key={i}
+                                href={doc.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                download={isPdf || !isExternal}
+                                className="flex items-center gap-3 px-3 py-2.5 rounded-xl group transition-colors"
+                                style={{
+                                  background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.025)",
+                                  border: `1px solid ${border}`,
+                                }}
+                              >
+                                <div
+                                  className="flex items-center justify-center rounded-lg flex-shrink-0"
+                                  style={{ width: 36, height: 36, background: `${accent}15`, border: `1px solid ${accent}25`, color: accent }}
+                                >
+                                  <Ico size={18} />
+                                </div>
+                                <span className="flex-1 text-sm font-semibold truncate" style={{ color: textPrimary }}>{doc.label || "İndir"}</span>
+                                {isPdf
+                                  ? <HiDownload size={16} className="flex-shrink-0 transition-transform group-hover:translate-y-0.5" style={{ color: textFaint }} />
+                                  : <RiExternalLinkLine size={16} className="flex-shrink-0" style={{ color: textFaint }} />
+                                }
+                              </a>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </motion.div>
+                  );
+                })()}
 
               </div>
             </div>
