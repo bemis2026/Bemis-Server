@@ -209,9 +209,6 @@ export default function AdminPage() {
   const [uploadLoading, setUploadLoading] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
   const [prodImgLoading, setProdImgLoading] = useState(false);
-  const [seedingProducts, setSeedingProducts] = useState(false);
-  const [pendingProducts, setPendingProducts] = useState<{ pending: CategoryData[]; total: number } | null>(null);
-  const [loadingPending, setLoadingPending] = useState(false);
   const [dragFrom, setDragFrom] = useState<number | null>(null);
   const [dragTo, setDragTo] = useState<number | null>(null);
   const [heroBgLoading, setHeroBgLoading] = useState(false);
@@ -621,37 +618,6 @@ export default function AdminPage() {
       else showToast("err", "Kayıt başarısız.");
     } catch { showToast("err", "Ağ hatası."); }
     setSavingProducts(false);
-  };
-
-  const loadPendingProducts = async () => {
-    setLoadingPending(true);
-    try {
-      const res = await fetch("/api/admin/seed-products");
-      const json = await res.json();
-      if (res.ok) setPendingProducts(json);
-      else showToast("err", json.error ?? "Bekleyen ürünler yüklenemedi.");
-    } catch { showToast("err", "Ağ hatası."); }
-    setLoadingPending(false);
-  };
-
-  const handleSeedProducts = async () => {
-    setSeedingProducts(true);
-    try {
-      const res = await fetch("/api/admin/seed-products", { method: "POST" });
-      const json = await res.json();
-      if (res.ok) {
-        if (json.imported === 0) {
-          showToast("ok", "Aktarılacak yeni ürün yok.");
-        } else {
-          showToast("ok", `${json.imported} ürün sisteme aktarıldı.`);
-          fetch("/api/admin/products").then(r => r.json()).then((d: CategoryData[]) => { setProducts(d); if (d.length > 0) setSelCat(d[0].id); });
-        }
-        setPendingProducts(null);
-      } else {
-        showToast("err", json.error ?? "Aktarım başarısız.");
-      }
-    } catch { showToast("err", "Ağ hatası."); }
-    setSeedingProducts(false);
   };
 
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -1889,64 +1855,7 @@ export default function AdminPage() {
                   {/* ── Sub-tab: Ürün Detayları ── */}
                   {prodSubTab === "specs" && (
                     <>
-                      {/* Yüklemeye Hazır Ürünler */}
-                      <div className="flex items-center justify-between">
-                        <p className="text-xs text-white/35">Ürün bilgilerini, görsellerini ve teknik özelliklerini düzenleyin.</p>
-                        <button
-                          onClick={loadPendingProducts}
-                          disabled={loadingPending}
-                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all whitespace-nowrap flex-shrink-0 disabled:opacity-50"
-                          style={{ background: "rgba(245,158,11,0.10)", border: "1px solid rgba(245,158,11,0.22)", color: "rgba(245,158,11,0.80)" }}
-                        >
-                          {loadingPending ? <div className="w-3 h-3 rounded-full border border-amber-400/30 border-t-amber-400/80 animate-spin" /> : "📦"}
-                          Yüklemeye Hazır Ürünler
-                        </button>
-                      </div>
-
-                      {pendingProducts !== null && (
-                        <div className="rounded-2xl overflow-hidden" style={{ background: "rgba(245,158,11,0.06)", border: "1px solid rgba(245,158,11,0.18)" }}>
-                          <div className="flex items-center justify-between px-4 py-3" style={{ borderBottom: "1px solid rgba(245,158,11,0.12)" }}>
-                            <div className="flex items-center gap-2">
-                              <span className="text-xs font-bold" style={{ color: "rgba(245,158,11,0.90)" }}>Yüklemeye Hazır Ürünler</span>
-                              <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold" style={{ background: "rgba(245,158,11,0.15)", color: "rgba(245,158,11,0.80)" }}>
-                                {pendingProducts.total} ürün
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              {pendingProducts.total > 0 && (
-                                <button
-                                  onClick={handleSeedProducts}
-                                  disabled={seedingProducts}
-                                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all disabled:opacity-50"
-                                  style={{ background: "rgba(245,158,11,0.20)", color: "rgba(245,158,11,1)" }}
-                                >
-                                  {seedingProducts ? <div className="w-3 h-3 rounded-full border border-amber-400/30 border-t-amber-400 animate-spin" /> : null}
-                                  Sisteme Aktar
-                                </button>
-                              )}
-                              <button onClick={() => setPendingProducts(null)} className="text-xs text-white/25 hover:text-white/50 px-2 py-1">✕</button>
-                            </div>
-                          </div>
-                          {pendingProducts.total === 0 ? (
-                            <div className="px-4 py-5 text-center text-xs text-white/30">Aktarılmayı bekleyen yeni ürün yok.</div>
-                          ) : (
-                            <div className="px-4 py-3 space-y-2 max-h-64 overflow-y-auto">
-                              {pendingProducts.pending.map((cat) => (
-                                <div key={cat.id}>
-                                  <p className="text-[10px] font-semibold uppercase tracking-wider mb-1" style={{ color: "rgba(245,158,11,0.55)" }}>{cat.name}</p>
-                                  {cat.products.map((p: ProductEntry) => (
-                                    <div key={p.id} className="flex items-center gap-2 py-1 px-2 rounded-lg" style={{ background: "rgba(255,255,255,0.03)" }}>
-                                      <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "rgba(245,158,11,0.60)" }} />
-                                      <span className="text-xs text-white/70">{p.name as string}</span>
-                                      {(p.code as string) && <span className="text-[10px] font-mono text-white/25 ml-auto">{p.code as string}</span>}
-                                    </div>
-                                  ))}
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      )}
+                      <p className="text-xs text-white/35">Ürün bilgilerini, görsellerini ve teknik özelliklerini düzenleyin.</p>
 
                       {products.length === 0 ? (
                         <div className="flex items-center justify-center py-20">
