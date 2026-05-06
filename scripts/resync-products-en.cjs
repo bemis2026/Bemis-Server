@@ -5,7 +5,12 @@
 // Usage: node scripts/resync-products-en.cjs
 
 const fs = require("fs");
-const KEY = process.env.JSONBIN_MASTER_KEY || "$2a$10$zWJKdAUgfHbBy/CeORFuGesiyZ/OdkdVHfK9AiQfwg1fAfbTlnCH.";
+const KEY = process.env.JSONBIN_MASTER_KEY;
+if (!KEY) {
+  console.error("JSONBIN_MASTER_KEY environment variable is required.");
+  console.error("  Usage: JSONBIN_MASTER_KEY=$2a$10$... node " + __filename);
+  process.exit(1);
+}
 const BIN = "69e5093e856a6821894eaee8";
 
 const TRANSLATABLE_PATHS = [

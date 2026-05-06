@@ -1,6 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { readBin, writeBin } from "../../../lib/jsonbin";
+import { checkRateLimit, recordFailure, getClientIp } from "@/lib/rate-limit";
+
+const CONTACT_RL_OPTS = {
+  // 3 messages per IP per hour, 1 hour cool-down on the 4th attempt.
+  maxAttempts: 3,
+  windowMs: 60 * 60 * 1000,
+  blockMs: 60 * 60 * 1000,
+};
 
 const topicLabels: Record<string, string> = {
   "product-info":    "Ürün Bilgisi",
@@ -71,12 +79,33 @@ async function appendMessage(item: MessageItem) {
 }
 
 export async function POST(req: NextRequest) {
+  // Rate-limit per client IP to prevent form spam (which would otherwise
+  // burn through Resend / SMTP quotas and bloat the JSONBin messages bin).
+  const ipForRl = getClientIp(req);
+  const rlKey = `contact:${ipForRl}`;
+  const pre = checkRateLimit(rlKey, CONTACT_RL_OPTS);
+  if (!pre.ok) {
+    return NextResponse.json(
+      { error: `Çok fazla mesaj gönderildi. Lütfen ${Math.ceil(pre.retryAfterSec / 60)} dakika sonra tekrar deneyin.` },
+      { status: 429, headers: { "Retry-After": String(pre.retryAfterSec) } }
+    );
+  }
+
   const body = await req.json().catch(() => null);
-  if (!body) return NextResponse.json({ error: "Geçersiz istek" }, { status: 400 });
+  if (!body) {
+    recordFailure(rlKey, CONTACT_RL_OPTS);
+    return NextResponse.json({ error: "Geçersiz istek" }, { status: 400 });
+  }
 
   const { name, company, email, phone, topic, message } = body as Record<string, string>;
-  if (!name || !email || !topic || !message)
+  if (!name || !email || !topic || !message) {
+    recordFailure(rlKey, CONTACT_RL_OPTS);
     return NextResponse.json({ error: "Zorunlu alanlar eksik" }, { status: 422 });
+  }
+
+  // Count this submission against the limit. Even successful sends
+  // consume budget — that's the spam barrier.
+  recordFailure(rlKey, CONTACT_RL_OPTS);
 
   const topicLabel = topicLabels[topic] ?? topic;
   const ip = req.headers.get("x-forwarded-for") ?? "bilinmiyor";
