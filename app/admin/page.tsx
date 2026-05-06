@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { useUnsavedChanges } from "../hooks/useUnsavedChanges";
+import { uploadImage } from "../../lib/clientImageUpload";
 
 // ── Soft validators — return error message or null ──
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -706,16 +707,12 @@ export default function AdminPage() {
     const file = e.target.files?.[0];
     if (!file) return;
     setHeroBgLoading(true);
-    const fd = new FormData();
-    fd.append("file", file);
-    fd.append("folder", "hero");
-    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
-    if (res.ok) {
-      const { url } = await res.json();
+    try {
+      const { url } = await uploadImage(file, "hero");
       updateContent(["hero", "heroBg"], url);
       showToast("ok", "Arka plan görseli yüklendi.");
-    } else {
-      showToast("err", "Yükleme başarısız.");
+    } catch (err) {
+      showToast("err", `Yükleme başarısız: ${(err as Error).message}`);
     }
     setHeroBgLoading(false);
     if (heroBgRef.current) heroBgRef.current.value = "";
@@ -1005,12 +1002,8 @@ export default function AdminPage() {
     }
 
     setOgImgLoading(true);
-    const fd = new FormData();
-    fd.append("file", file);
-    fd.append("folder", "og");
-    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
-    if (res.ok) {
-      const { url } = await res.json();
+    try {
+      const { url } = await uploadImage(file, "og");
       setContent((prev) => {
         if (!prev) return prev;
         const updated = { ...prev, ogImage: url };
@@ -1025,8 +1018,8 @@ export default function AdminPage() {
       // Notify search engines so they re-fetch the OG card.
       fetch("/api/admin/notify-search-engines", { method: "POST" }).catch(() => {});
       showToast("ok", "Open Graph görseli yüklendi ve arama motorlarına bildirildi.");
-    } else {
-      showToast("err", "Yükleme başarısız.");
+    } catch (err) {
+      showToast("err", `Yükleme başarısız: ${(err as Error).message}`);
     }
     setOgImgLoading(false);
     if (ogImgRef.current) ogImgRef.current.value = "";
