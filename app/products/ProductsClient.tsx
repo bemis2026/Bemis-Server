@@ -319,21 +319,18 @@ export default function AllProductsPage() {
               d={d} filterBase={filterBase} filterBorder={filterBorder}
               textMuted={textMuted} textPrimary={textPrimary}
             />
-            {categories.map((cat) => {
-              const Icon = categoryIcons[cat.id] || RiPlugLine;
-              return (
-                <FilterChip
-                  key={cat.id}
-                  label={cat.name}
-                  icon={Icon}
-                  active={activeFilter === cat.id}
-                  onClick={() => setActiveFilter(cat.id)}
-                  count={cat.products?.length ?? 0}
-                  d={d} filterBase={filterBase} filterBorder={filterBorder}
-                  textMuted={textMuted} textPrimary={textPrimary}
-                />
-              );
-            })}
+            {categories.map((cat) => (
+              <FilterChip
+                key={cat.id}
+                label={cat.name}
+                accentDot={cat.accent}
+                active={activeFilter === cat.id}
+                onClick={() => setActiveFilter(cat.id)}
+                count={cat.products?.length ?? 0}
+                d={d} filterBase={filterBase} filterBorder={filterBorder}
+                textMuted={textMuted} textPrimary={textPrimary}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -542,15 +539,15 @@ export default function AllProductsPage() {
 // ── FilterChip ────────────────────────────────────────────────────────────────
 
 function FilterChip({
-  label, icon: Icon, active, onClick, count, d, filterBase, filterBorder, textMuted, textPrimary,
+  label, accentDot, active, onClick, count, d, filterBase, filterBorder, textMuted, textPrimary,
 }: {
-  label: string; icon?: React.ElementType; active: boolean; onClick: () => void; count?: number;
+  label: string; accentDot?: string; active: boolean; onClick: () => void; count?: number;
   d: boolean; filterBase: string; filterBorder: string; textMuted: string; textPrimary: string;
 }) {
   return (
     <button
       onClick={onClick}
-      className="flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-xl whitespace-nowrap transition-all duration-200 flex-shrink-0"
+      className="flex items-center gap-2 text-xs font-semibold px-3.5 py-2 rounded-xl whitespace-nowrap transition-all duration-200 flex-shrink-0"
       style={{
         background: active ? (d ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.12)") : filterBase,
         border: active
@@ -559,7 +556,13 @@ function FilterChip({
         color: active ? textPrimary : textMuted,
       }}
     >
-      {Icon && <Icon style={{ fontSize: 13 }} />}
+      {accentDot && (
+        <span
+          className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+          style={{ background: accentDot, boxShadow: `0 0 6px ${accentDot}66` }}
+          aria-hidden
+        />
+      )}
       {label}
       {typeof count === "number" && (
         <span

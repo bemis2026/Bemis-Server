@@ -222,7 +222,11 @@ export default function KurumsalPage() {
           </div>
         </div>
 
-        {/* ── Featured video ── */}
+        {/* ── Featured video ──
+             Auto-plays muted in a loop (browsers block unmuted autoplay).
+             Soft accent glow + scale-on-hover so it reads as a polished
+             showcase rather than a bare embed. The accent border picks
+             up the BLUE brand color. */}
         {aboutVideoId && (
           <div className="pt-12 pb-2 px-5 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
@@ -230,23 +234,55 @@ export default function KurumsalPage() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="relative rounded-2xl overflow-hidden"
+                className="relative group rounded-3xl overflow-hidden transition-transform duration-300 hover:scale-[1.005]"
                 style={{
-                  border: `1px solid ${border}`,
+                  border: `1px solid ${BLUE}25`,
                   background: d ? "#0a0a0c" : "#ffffff",
                   boxShadow: d
-                    ? "0 16px 48px rgba(0,0,0,0.45)"
-                    : "0 12px 36px rgba(0,0,0,0.10)",
+                    ? `0 20px 60px rgba(0,0,0,0.55), 0 0 0 1px ${BLUE}10, 0 0 80px ${BLUE}18`
+                    : `0 16px 48px rgba(0,0,0,0.12), 0 0 0 1px ${BLUE}10, 0 0 60px ${BLUE}10`,
                 }}
               >
                 <div style={{ position: "relative", paddingTop: "56.25%" }}>
                   <iframe
-                    src={`https://www.youtube.com/embed/${aboutVideoId}?rel=0&modestbranding=1`}
+                    src={
+                      `https://www.youtube.com/embed/${aboutVideoId}` +
+                      // autoplay + mute (browsers require muted for autoplay)
+                      `?autoplay=1&mute=1` +
+                      // loop the same video; YouTube needs the `playlist`
+                      // param set to the same id for embedded loops.
+                      `&loop=1&playlist=${aboutVideoId}` +
+                      // hide YouTube branding + related videos + iOS inline
+                      `&modestbranding=1&rel=0&playsinline=1` +
+                      // disable annotations and the in-player "more" UI
+                      `&iv_load_policy=3` +
+                      // request HD quality (YouTube auto-upgrades on
+                      // bandwidth, but the hint pushes the default)
+                      `&hd=1&vq=hd1080`
+                    }
                     title="Bemis E-V Charge"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
                     allowFullScreen
+                    loading="lazy"
                     style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
                   />
+                </div>
+
+                {/* HD badge — brand-styled top-right corner indicator. The
+                    iframe owns its own controls, so this is purely decorative. */}
+                <div
+                  className="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full pointer-events-none"
+                  style={{
+                    background: d ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.85)",
+                    backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)",
+                    border: `1px solid ${BLUE}35`,
+                  }}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: BLUE }} />
+                  <span className="text-[10px] font-bold tracking-widest uppercase" style={{ color: d ? "#93C5FD" : BLUE }}>
+                    HD
+                  </span>
                 </div>
               </motion.div>
             </div>

@@ -227,12 +227,20 @@ export default function ProductCategoryPage() {
             <span className="text-sm font-medium">Ürünler</span>
           </motion.button>
 
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-2">
-            <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4 }}
-              className="flex-shrink-0 flex items-center justify-center rounded-2xl"
-              style={{ width: 56, height: 56, background: `${accent}18`, border: `1px solid ${accent}30` }}>
-              <Icon style={{ fontSize: 28, color: accent }} />
-            </motion.div>
+          <div className="flex items-stretch gap-4 mb-2">
+            {/* Accent stripe — replaces the per-category icon block.
+                The icons that lived here used to clash with the actual
+                category meaning (e.g. flashlight on a cables page);
+                a tall colour stripe keeps the visual rhythm without
+                pretending to symbolise the category. */}
+            <motion.div
+              initial={{ scaleY: 0, opacity: 0 }}
+              animate={{ scaleY: 1, opacity: 1 }}
+              transition={{ duration: 0.45 }}
+              className="flex-shrink-0 rounded-full origin-top"
+              style={{ width: 4, background: `linear-gradient(180deg, ${accent} 0%, ${accent}66 100%)` }}
+              aria-hidden
+            />
             <div>
               <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.05 }}
                 className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: accent }}>

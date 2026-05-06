@@ -6202,6 +6202,342 @@
           "Taşınabilir mobil cihaz kurulumlarına uygun, IP korumalı gövde",
           "CE uygunluk testi tamamlanmış"
         ]
+      },
+      {
+        "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-150a-5m",
+        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "code": "BEVDC-1011-0005",
+        "subtitle": "150A · 5m",
+        "badge": null,
+        "description": "DC hızlı şarj cihazları için bir ucu açık CCS2 şarj soketi. Üreticilere yönelik OEM kablolu çözüm — istediğiniz uzunlukta ve akım kademesinde DC ünitelere doğrudan terminasyon.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "DC Hızlı Şarj Soketi (CCS2)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "150A"
+              },
+              {
+                "label": "Standart",
+                "value": "IEC 62196-3 (CCS2)"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "5m"
+              },
+              {
+                "label": "Konfigürasyon",
+                "value": "Tek Uç CCS2 — Diğer Uç Açık (OEM)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 590,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "150A maksimum DC akım kapasitesi",
+          "CCS2 IEC 62196-3 standardına uygun konnektör",
+          "Bir uç CCS2 fiş, diğer uç açık — DC üniteye doğrudan terminasyon",
+          "Soğutma için entegre kanal (yüksek akım kademelerinde)",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-150a-8m",
+        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "code": "BEVDC-1011-0008",
+        "subtitle": "150A · 8m",
+        "badge": null,
+        "description": "DC hızlı şarj cihazları için bir ucu açık CCS2 şarj soketi. Üreticilere yönelik OEM kablolu çözüm — istediğiniz uzunlukta ve akım kademesinde DC ünitelere doğrudan terminasyon.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "DC Hızlı Şarj Soketi (CCS2)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "150A"
+              },
+              {
+                "label": "Standart",
+                "value": "IEC 62196-3 (CCS2)"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "8m"
+              },
+              {
+                "label": "Konfigürasyon",
+                "value": "Tek Uç CCS2 — Diğer Uç Açık (OEM)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 735,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "150A maksimum DC akım kapasitesi",
+          "CCS2 IEC 62196-3 standardına uygun konnektör",
+          "Bir uç CCS2 fiş, diğer uç açık — DC üniteye doğrudan terminasyon",
+          "Soğutma için entegre kanal (yüksek akım kademelerinde)",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-250a-5m",
+        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "code": "BEVDC-2011-0005",
+        "subtitle": "250A · 5m",
+        "badge": null,
+        "description": "DC hızlı şarj cihazları için bir ucu açık CCS2 şarj soketi. Üreticilere yönelik OEM kablolu çözüm — istediğiniz uzunlukta ve akım kademesinde DC ünitelere doğrudan terminasyon.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "DC Hızlı Şarj Soketi (CCS2)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "250A"
+              },
+              {
+                "label": "Standart",
+                "value": "IEC 62196-3 (CCS2)"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "5m"
+              },
+              {
+                "label": "Konfigürasyon",
+                "value": "Tek Uç CCS2 — Diğer Uç Açık (OEM)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 660,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "250A maksimum DC akım kapasitesi",
+          "CCS2 IEC 62196-3 standardına uygun konnektör",
+          "Bir uç CCS2 fiş, diğer uç açık — DC üniteye doğrudan terminasyon",
+          "Soğutma için entegre kanal (yüksek akım kademelerinde)",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-250a-8m",
+        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "code": "BEVDC-2011-0008",
+        "subtitle": "250A · 8m",
+        "badge": null,
+        "description": "DC hızlı şarj cihazları için bir ucu açık CCS2 şarj soketi. Üreticilere yönelik OEM kablolu çözüm — istediğiniz uzunlukta ve akım kademesinde DC ünitelere doğrudan terminasyon.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "DC Hızlı Şarj Soketi (CCS2)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "250A"
+              },
+              {
+                "label": "Standart",
+                "value": "IEC 62196-3 (CCS2)"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "8m"
+              },
+              {
+                "label": "Konfigürasyon",
+                "value": "Tek Uç CCS2 — Diğer Uç Açık (OEM)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 820,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "250A maksimum DC akım kapasitesi",
+          "CCS2 IEC 62196-3 standardına uygun konnektör",
+          "Bir uç CCS2 fiş, diğer uç açık — DC üniteye doğrudan terminasyon",
+          "Soğutma için entegre kanal (yüksek akım kademelerinde)",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
+        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "code": "BEVDC-3011-0005",
+        "subtitle": "400A · 5m",
+        "badge": null,
+        "description": "DC hızlı şarj cihazları için bir ucu açık CCS2 şarj soketi. Üreticilere yönelik OEM kablolu çözüm — istediğiniz uzunlukta ve akım kademesinde DC ünitelere doğrudan terminasyon.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "DC Hızlı Şarj Soketi (CCS2)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "400A"
+              },
+              {
+                "label": "Standart",
+                "value": "IEC 62196-3 (CCS2)"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "5m"
+              },
+              {
+                "label": "Konfigürasyon",
+                "value": "Tek Uç CCS2 — Diğer Uç Açık (OEM)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 860,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "400A maksimum DC akım kapasitesi",
+          "CCS2 IEC 62196-3 standardına uygun konnektör",
+          "Bir uç CCS2 fiş, diğer uç açık — DC üniteye doğrudan terminasyon",
+          "Soğutma için entegre kanal (yüksek akım kademelerinde)",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-8m",
+        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "code": "BEVDC-3011-0008",
+        "subtitle": "400A · 8m",
+        "badge": null,
+        "description": "DC hızlı şarj cihazları için bir ucu açık CCS2 şarj soketi. Üreticilere yönelik OEM kablolu çözüm — istediğiniz uzunlukta ve akım kademesinde DC ünitelere doğrudan terminasyon.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "DC Hızlı Şarj Soketi (CCS2)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "400A"
+              },
+              {
+                "label": "Standart",
+                "value": "IEC 62196-3 (CCS2)"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "8m"
+              },
+              {
+                "label": "Konfigürasyon",
+                "value": "Tek Uç CCS2 — Diğer Uç Açık (OEM)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 1.100,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "400A maksimum DC akım kapasitesi",
+          "CCS2 IEC 62196-3 standardına uygun konnektör",
+          "Bir uç CCS2 fiş, diğer uç açık — DC üniteye doğrudan terminasyon",
+          "Soğutma için entegre kanal (yüksek akım kademelerinde)",
+          "CE uygunluk testi tamamlanmış"
+        ]
       }
     ]
   },

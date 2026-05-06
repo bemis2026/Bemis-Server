@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX, HiSearch, HiChevronDown } from "react-icons/hi";
 import { HiSun, HiMoon } from "react-icons/hi2";
-import { RiBuilding2Line, RiStoreLine, RiWifiLine, RiFlashlightLine, RiSmartphoneLine, RiShareLine, RiToolsLine, RiPlugLine, RiShoppingBagLine, RiBatteryChargeLine, RiArrowRightLine } from "react-icons/ri";
+import { RiBuilding2Line, RiStoreLine, RiWifiLine, RiArrowRightLine } from "react-icons/ri";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
@@ -29,15 +29,21 @@ const KURUMSAL_DROPDOWN = [
   { label: "Şarj Ağı Operatörleri",   sub: "OCPP ekipman, DLM, uzaktan izleme",    href: "/operator", icon: RiWifiLine,      accent: "#818CF8" },
 ];
 
-const CATEGORY_ICONS: Record<string, React.ElementType> = {
-  "wallbox":           RiFlashlightLine,
-  "portable":          RiSmartphoneLine,
-  "cables":            RiShareLine,
-  "v2l-c2l":          RiBatteryChargeLine,
-  "converters":        RiToolsLine,
-  "charger-equipment": RiPlugLine,
-  "accessories":       RiShoppingBagLine,
-  "dc-units":          RiFlashlightLine,
+// Brand colour per category — used as a tiny accent dot in the navbar
+// dropdown and on the category-page header. The previous icon-per-
+// category mapping kept colliding with what each icon actually meant
+// (cables ≠ flashlight, dc-units ≠ flashlight, charger-equipment ≠ plug,
+// …); a coloured bullet reads as a stable visual identifier without
+// pretending to symbolise the category.
+const CATEGORY_ACCENTS: Record<string, string> = {
+  "wallbox":           "#3B82F6",
+  "portable":          "#10B981",
+  "cables":            "#F59E0B",
+  "v2l-c2l":           "#818CF8",
+  "converters":        "#06B6D4",
+  "charger-equipment": "#64748B",
+  "accessories":       "#A855F7",
+  "dc-units":          "#F97316",
 };
 
 interface NavbarProps {
@@ -69,7 +75,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
         name: val.name,
         subtitle: val.subtitle ?? "",
         href: `/products/${key}`,
-        icon: CATEGORY_ICONS[key] ?? RiPlugLine,
+        accent: CATEGORY_ACCENTS[key] ?? "#3B82F6",
       }))
     : [];
 
@@ -256,10 +262,11 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)"; }}
                                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                               >
-                                <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
-                                  style={{ background: isDark ? "rgba(59,130,246,0.12)" : "rgba(59,130,246,0.08)" }}>
-                                  <cat.icon size={14} style={{ color: "#3B82F6" }} />
-                                </div>
+                                <span
+                                  className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                                  style={{ background: cat.accent, boxShadow: `0 0 6px ${cat.accent}66` }}
+                                  aria-hidden
+                                />
                                 <div className="min-w-0">
                                   <p className="text-xs font-semibold leading-tight truncate" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{cat.name}</p>
                                 </div>
@@ -397,8 +404,8 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                       <div className="py-2 space-y-0.5 pl-2">
                         {categoryList.map(cat => (
                           <button key={cat.key} onClick={() => { setMobileOpen(false); router.push(cat.href); }}
-                            className={`flex items-center gap-2 w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black"}`}>
-                            <cat.icon size={13} style={{ color: "#3B82F6" }} />
+                            className={`flex items-center gap-2.5 w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black"}`}>
+                            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: cat.accent, boxShadow: `0 0 6px ${cat.accent}66` }} aria-hidden />
                             {cat.name}
                           </button>
                         ))}
