@@ -17,8 +17,18 @@ export default function Hero() {
   const { lang } = useLanguage();
   const d = theme === "dark";
 
-  const scrollTo = (id: string) => {
-    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+  // Scroll to whichever section sits right under the hero — preserves
+  // the page's natural reading order regardless of the configured
+  // sectionOrder. Falls back to a viewport-height scroll on the rare
+  // case the hero has no following sibling.
+  const scrollToNextSection = () => {
+    const hero = document.getElementById("hero");
+    const next = hero?.nextElementSibling as HTMLElement | null;
+    if (next) {
+      next.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      window.scrollBy({ top: window.innerHeight - 72, behavior: "smooth" });
+    }
   };
 
   const sectionBg  = d
@@ -97,7 +107,7 @@ export default function Hero() {
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}>
             <button
-              onClick={() => scrollTo("#products")}
+              onClick={scrollToNextSection}
               className="group inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:opacity-90 active:scale-95"
               style={{
                 background: "rgba(255,255,255,0.06)",
@@ -161,7 +171,7 @@ export default function Hero() {
 
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.32 }}>
             <button
-              onClick={() => scrollTo("#products")}
+              onClick={scrollToNextSection}
               className="group inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:opacity-90 active:scale-95"
               style={{
                 background: "rgba(255,255,255,0.06)",
