@@ -4,6 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../../context/ThemeContext";
+import { useLanguage } from "../../../context/LanguageContext";
 import Navbar from "../../../components/Navbar";
 import ContactBar from "../../../components/ContactBar";
 import SearchOverlay from "../../../components/SearchOverlay";
@@ -35,6 +36,7 @@ export default function ProductDetailPage() {
   const params    = useParams();
   const router    = useRouter();
   const { theme } = useTheme();
+  const { lang } = useLanguage();
   const d         = theme === "dark";
   const [searchOpen, setSearchOpen] = useState(false);
   const [category, setCategory]     = useState<CategoryData | null>(null);
@@ -48,7 +50,7 @@ export default function ProductDetailPage() {
 
   useEffect(() => {
     if (!categoryId || !productId) return;
-    fetch("/api/products")
+    fetch(`/api/products?lang=${lang}`)
       .then(r => r.json())
       .then((data: CategoryData[]) => {
         const cat  = data.find(c => c.id === categoryId) ?? null;
@@ -61,7 +63,7 @@ export default function ProductDetailPage() {
       })
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, [categoryId, productId]);
+  }, [categoryId, productId, lang]);
 
   const bg          = d ? "#0c0c0e" : "#f2f3f7";
   const surface     = d ? "#141416" : "#ffffff";

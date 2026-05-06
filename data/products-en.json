@@ -1,0 +1,2294 @@
+[
+  {
+    "id": "wallbox",
+    "name": "AC Wallbox",
+    "tagline": "Wall-mounted charging station for your home and workplace",
+    "accent": "#3B82F6",
+    "products": [
+      {
+        "id": "wallbox-7kw",
+        "name": "AC Wallbox 7,4 kW",
+        "subtitle": "Single Phase · Home Type",
+        "badge": "Best Selling",
+        "description": "7.4 kW single-phase smart AC charging station with IP65 protection, developed for residential and business use.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "7,4 kW"
+              },
+              {
+                "label": "Input Voltage",
+                "value": "230V (1F) ± 10%"
+              },
+              {
+                "label": "Phase",
+                "value": "Monophase"
+              },
+              {
+                "label": "Maximum current: 16A",
+                "value": "32A."
+              },
+              {
+                "label": "Power Factor",
+                "value": ",98"
+              },
+              {
+                "label": "Productivity",
+                "value": "95%"
+              }
+            ]
+          },
+          {
+            "group": "Connector & Cable",
+            "items": [
+              {
+                "label": "Connector Type",
+                "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Cable Length",
+                "value": "4m (optional 6m)"
+              },
+              {
+                "label": "Cable section",
+                "value": "3 × 6 mm²"
+              },
+              {
+                "label": "Wiring type",
+                "value": "Spiral flexible"
+              }
+            ]
+          },
+          {
+            "group": "Protection and safety",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP65"
+              },
+              {
+                "label": "Side Impact Protection ",
+                "value": "IK10"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-40°C +55°C"
+              },
+              {
+                "label": "Earthing Protection",
+                "value": "Yes (PE)"
+              },
+              {
+                "label": "Leakage Current",
+                "value": "6 mA DC / 30 mA AC"
+              },
+              {
+                "label": "Over current protection",
+                "value": "Internal MCB"
+              }
+            ]
+          },
+          {
+            "group": "Communication & Control",
+            "items": [
+              {
+                "label": "Protocol",
+                "value": "OCPP 1.6 / OCPP 2.0"
+              },
+              {
+                "label": "Bağlantı",
+                "value": "4G / Wi-Fi / LAN (depending on model)"
+              },
+              {
+                "label": "Kullanıcı Arayüzü",
+                "value": "Led indicator / RFID reader"
+              },
+              {
+                "label": "Remote Management",
+                "value": "Yes (cloud-based)"
+              },
+              {
+                "label": "Load Balancing",
+                "value": "Dynamic (DLM)"
+              }
+            ]
+          },
+          {
+            "group": "Mechanical",
+            "items": [
+              {
+                "label": "Weight",
+                "value": "Approximately 4.5 kg"
+              },
+              {
+                "label": "Dimensions",
+                "value": "275 × 175 × 110 mm"
+              },
+              {
+                "label": "Installation",
+                "value": "Wall / pole mounting"
+              },
+              {
+                "label": "Color",
+                "value": "White / Black (optional)"
+              },
+              {
+                "label": "Material",
+                "value": "UV-resistant ABS"
+              }
+            ]
+          },
+          {
+            "group": "Certificates",
+            "items": [
+              {
+                "label": "Electrical",
+                "value": "CE · IEC 61851-1 · IEC 62196"
+              },
+              {
+                "label": "Quality",
+                "value": "ISO 9001:2015"
+              },
+              {
+                "label": "Production",
+                "value": "Domestic Production (Bursa OIZ)"
+              },
+              {
+                "label": "Guarantee",
+                "value": "2 Years"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wallbox-11kw",
+        "name": "AC Wallbox 11 kW",
+        "subtitle": "Three Phase · Mixed Use",
+        "badge": null,
+        "description": "Three-phase 11 kW charging station for home, office and commercial parking applications.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "11 kW"
+              },
+              {
+                "label": "Input Voltage",
+                "value": "400V (3F) ± 10%"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Maximum current: 16A",
+                "value": "3 × 16a"
+              },
+              {
+                "label": "Power Factor",
+                "value": ",98"
+              },
+              {
+                "label": "Productivity",
+                "value": "95%"
+              }
+            ]
+          },
+          {
+            "group": "Connector & Cable",
+            "items": [
+              {
+                "label": "Connector Type",
+                "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Cable Length",
+                "value": "4m (optional 6m)"
+              },
+              {
+                "label": "Cable section",
+                "value": "5 × 2.5 mm²"
+              },
+              {
+                "label": "Wiring type",
+                "value": "Spiral flexible"
+              }
+            ]
+          },
+          {
+            "group": "Protection and safety",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP65"
+              },
+              {
+                "label": "Side Impact Protection ",
+                "value": "IK10"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-40°C +55°C"
+              },
+              {
+                "label": "Leakage Current",
+                "value": "6 mA DC / 30 mA AC"
+              },
+              {
+                "label": "Over current protection",
+                "value": "Internal MCB"
+              }
+            ]
+          },
+          {
+            "group": "Communication & Control",
+            "items": [
+              {
+                "label": "Protocol",
+                "value": "OCPP 1.6 / OCPP 2.0"
+              },
+              {
+                "label": "Bağlantı",
+                "value": "4G / Wi-Fi / LAN (depending on model)"
+              },
+              {
+                "label": "Kullanıcı Arayüzü",
+                "value": "Led indicator / RFID reader"
+              },
+              {
+                "label": "Remote Management",
+                "value": "Yes (cloud-based)"
+              },
+              {
+                "label": "Load Balancing",
+                "value": "Dynamic (DLM)"
+              }
+            ]
+          },
+          {
+            "group": "Mechanical",
+            "items": [
+              {
+                "label": "Weight",
+                "value": "Approximately 4.8 kg"
+              },
+              {
+                "label": "Dimensions",
+                "value": "275 × 175 × 110 mm"
+              },
+              {
+                "label": "Installation",
+                "value": "Wall / pole mounting"
+              },
+              {
+                "label": "Material",
+                "value": "UV-resistant ABS"
+              }
+            ]
+          },
+          {
+            "group": "Certificates",
+            "items": [
+              {
+                "label": "Electrical",
+                "value": "CE · IEC 61851-1 · IEC 62196"
+              },
+              {
+                "label": "Quality",
+                "value": "ISO 9001:2015"
+              },
+              {
+                "label": "Production",
+                "value": "Domestic Production (Bursa OIZ)"
+              },
+              {
+                "label": "Guarantee",
+                "value": "2 Years"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wallbox-22kw",
+        "name": "AC Wallbox 22 kW",
+        "subtitle": "Three Phase · Commercial",
+        "badge": null,
+        "description": "22 kW three-phase professional charging station for commercial parking and applications requiring fast charging.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "22 kW"
+              },
+              {
+                "label": "Input Voltage",
+                "value": "400V (3F) ± 10%"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Maximum current: 16A",
+                "value": "3 × 32a"
+              },
+              {
+                "label": "Power Factor",
+                "value": ",98"
+              },
+              {
+                "label": "Productivity",
+                "value": "95%"
+              }
+            ]
+          },
+          {
+            "group": "Connector & Cable",
+            "items": [
+              {
+                "label": "Connector Type",
+                "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Cable Length",
+                "value": "4m (optional 6m)"
+              },
+              {
+                "label": "Cable section",
+                "value": "5 × 6 mm²"
+              },
+              {
+                "label": "Wiring type",
+                "value": "Spiral flexible"
+              }
+            ]
+          },
+          {
+            "group": "Protection and safety",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP65"
+              },
+              {
+                "label": "Side Impact Protection ",
+                "value": "IK10"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-40°C +55°C"
+              },
+              {
+                "label": "Leakage Current",
+                "value": "6 mA DC / 30 mA AC"
+              },
+              {
+                "label": "Over current protection",
+                "value": "Internal MCB"
+              }
+            ]
+          },
+          {
+            "group": "Communication & Control",
+            "items": [
+              {
+                "label": "Protocol",
+                "value": "OCPP 1.6 / OCPP 2.0"
+              },
+              {
+                "label": "Bağlantı",
+                "value": "4G / Wi-Fi / LAN (depending on model)"
+              },
+              {
+                "label": "Kullanıcı Arayüzü",
+                "value": "Led indicator / RFID reader / Display"
+              },
+              {
+                "label": "Remote Management",
+                "value": "Yes (cloud-based)"
+              },
+              {
+                "label": "Load Balancing",
+                "value": "Dynamic (DLM)"
+              }
+            ]
+          },
+          {
+            "group": "Mechanical",
+            "items": [
+              {
+                "label": "Weight",
+                "value": "Approx. 5.2 kg"
+              },
+              {
+                "label": "Dimensions",
+                "value": "290 × 185 × 115 mm"
+              },
+              {
+                "label": "Installation",
+                "value": "Wall / pole mounting"
+              },
+              {
+                "label": "Material",
+                "value": "UV-resistant ABS"
+              }
+            ]
+          },
+          {
+            "group": "Certificates",
+            "items": [
+              {
+                "label": "Electrical",
+                "value": "CE · IEC 61851-1 · IEC 62196"
+              },
+              {
+                "label": "Quality",
+                "value": "ISO 9001:2015"
+              },
+              {
+                "label": "Production",
+                "value": "Domestic Production (Bursa OIZ)"
+              },
+              {
+                "label": "Guarantee",
+                "value": "2 Years"
+              }
+            ]
+          }
+        ],
+        "image": "/products/1775067096437-WhatsApp_Image_2026-03-29_at_01.55.05__2_.jpeg",
+        "images": [
+          "/products/1775067096437-WhatsApp_Image_2026-03-29_at_01.55.05__2_.jpeg",
+          "https://i.ibb.co/zzv0m9s/1776711207613-Gemini-Generated-Image-qf1urcqf1urcqf1u-png.png"
+        ]
+      },
+      {
+        "id": "charger-2-kablolu",
+        "name": "Charger 2",
+        "code": "BEV-1011-0005",
+        "subtitle": "5m. Wired",
+        "badge": null,
+        "description": "BEMİS AC Wallbox Charger 2-wire version. It is suitable for home and workplace use with 3 phase 11-22 kW, 5m integrated cable with Type 2 connector.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "11 - 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "16 - 32a"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Exit Date",
+                "value": "5m. Wired"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 374,00"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "charger-2-fisli",
+        "name": "Charger 2",
+        "code": "BEV-1011-0105",
+        "subtitle": "5m. Wired /5-32A Plug",
+        "badge": "Plugged",
+        "description": "BEMİS AC Wallbox Charger 2 plug version. Three-phase 11-22 kW, 5 m cable and 5/32A plug connection option.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "11 - 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "16 - 32a"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Exit Date",
+                "value": "5m. Wired"
+              },
+              {
+                "label": "Plug",
+                "value": "5/32A Plug"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 388,30"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "charger-plus-2-kablolu",
+        "name": "Charger Plus 2",
+        "code": "BEV-2011-0005",
+        "subtitle": "5m. Wired",
+        "badge": null,
+        "description": "BEMİS AC Wallbox Charger Plus 2-wire version. Three-phase 4-7-11-22 kW adjustable power, 5m integrated Type 2 cable.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "6 - 10 - 16 - 32a"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Exit Date",
+                "value": "5m. Wired"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 649,00"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "charger-plus-2-pano",
+        "name": "Charger Plus 2",
+        "code": "BEV-2012-0000",
+        "subtitle": "Panel Socket",
+        "badge": "Panel Socket",
+        "description": "BEMİS AC Wallbox Charger Plus 2 panel plug version. Three-phase 4-7-11-22 kW adjustable power, wall-mounted panel socket.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "6 - 10 - 16 - 32a"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Exit Date",
+                "value": "Panel Socket"
+              },
+              {
+                "label": "Internet socket",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 632,50"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "charger-pro-2-kablolu",
+        "name": "Charger Pro 2",
+        "code": "BEV-3011-0005",
+        "subtitle": "5m. Wired",
+        "badge": null,
+        "description": "BEMİS AC Wallbox Charger Pro 2-wire version. Three-phase 4-7-11-22 kW, advanced smart charging features, 5m integrated Type 2 cable.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "6 - 10 - 16 - 32a"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Exit Date",
+                "value": "5m. Wired"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 764,50"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://i.ibb.co/gMHrvxqN/1776718381680-Whats-App-Image-2026-04-01-at-14-54-58-4-jpeg.jpg",
+          "https://i.ibb.co/Ld6jm5H1/1776718390898-Whats-App-Image-2026-04-01-at-14-54-58-3-jpeg.jpg",
+          "https://i.ibb.co/7JvtkyF8/1776718396773-Whats-App-Image-2026-04-01-at-14-54-58-5-jpeg.jpg"
+        ],
+        "image": "https://i.ibb.co/gMHrvxqN/1776718381680-Whats-App-Image-2026-04-01-at-14-54-58-4-jpeg.jpg"
+      },
+      {
+        "id": "charger-pro-2-pano",
+        "name": "Charger Pro 2",
+        "code": "BEV-3012-0000",
+        "subtitle": "Panel Socket",
+        "badge": "Panel Socket",
+        "description": "BEMİS AC Wallbox Charger Pro 2 panel plug version. Three-phase 4-7-11-22 kW adjustable power, flexible installation with panel socket.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "6 - 10 - 16 - 32a"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Exit Date",
+                "value": "Panel Socket"
+              },
+              {
+                "label": "Internet socket",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 748,00"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "charger-pro-2-gsm-pano",
+        "name": "Charger Pro 2 GSM",
+        "code": "BEV-3012-1000",
+        "subtitle": "Panel Socket / GSM Module",
+        "badge": "GSM",
+        "description": "BEMİS AC Wallbox Charger Pro 2 Panel plug version with GSM module. Remote monitoring, OCPP 1.6 compliant, three-phase 4-7-11-22 kW.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "6 - 10 - 16 - 32a"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Exit Date",
+                "value": "Panel Socket"
+              },
+              {
+                "label": "Internet socket",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Contact",
+                "value": "GSM Modulated"
+              },
+              {
+                "label": "Protocol",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 874,50"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "charger-pro-2-gsm-kablolu",
+        "name": "Charger Pro 2 GSM",
+        "code": "BEV-3011-1005",
+        "subtitle": "5m. Wired / GSM Module",
+        "badge": "GSM",
+        "description": "BEMİS AC Wallbox Charger Pro 2 wired version with GSM module. Remote monitoring, OCPP 1.6 compliant, 5m integrated Type 2 cable.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "6 - 10 - 16 - 32a"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Exit Date",
+                "value": "5m. Wired"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Contact",
+                "value": "GSM Modulated"
+              },
+              {
+                "label": "Protocol",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 891,00"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "portable",
+    "name": "AC Mobile Chargers",
+    "tagline": "No installation required — plug in, charge",
+    "accent": "#10B981",
+    "products": [
+      {
+        "id": "portable-2kw",
+        "name": "Portable Charging 2.3 kW",
+        "subtitle": "Plug & Play · 10a",
+        "badge": "New",
+        "description": "2.3 kW portable charger powered from a standard household outlet with no fixed installation required.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "2,3 kW"
+              },
+              {
+                "label": "Introduction",
+                "value": "230V AC, 50Hz"
+              },
+              {
+                "label": "Current.",
+                "value": "10A"
+              },
+              {
+                "label": "Productivity",
+                "value": "93%"
+              }
+            ]
+          },
+          {
+            "group": "Connector",
+            "items": [
+              {
+                "label": "Vehicle Side",
+                "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Grid Side",
+                "value": "Schuko (CEE 7/4)"
+              },
+              {
+                "label": "Cable Length",
+                "value": "5m (internal)"
+              },
+              {
+                "label": "Cable section",
+                "value": "3 × 2.5 mm²"
+              }
+            ]
+          },
+          {
+            "group": "Protection and safety",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP54"
+              },
+              {
+                "label": "Grounding Detection",
+                "value": "Active — charging is blocked"
+              },
+              {
+                "label": "Temperature protection",
+                "value": "Thermal cutout"
+              },
+              {
+                "label": "Leakage Current",
+                "value": "6 mA DC monitoring"
+              },
+              {
+                "label": "Overload",
+                "value": "Automatic break"
+              }
+            ]
+          },
+          {
+            "group": "Handedness",
+            "items": [
+              {
+                "label": "Weight",
+                "value": "Approx. 650 g"
+              },
+              {
+                "label": "Dimensions",
+                "value": "195 × 75 × 45 mm"
+              },
+              {
+                "label": "LED Indicator",
+                "value": "5 color status led"
+              },
+              {
+                "label": "Housing",
+                "value": "Durable ABS housing"
+              },
+              {
+                "label": "Guarantee",
+                "value": "2 Years"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://i.ibb.co/cXDJSSzx/1776695294540-mini-mobile-r-n-png.png"
+        ],
+        "image": "https://i.ibb.co/cXDJSSzx/1776695294540-mini-mobile-r-n-png.png"
+      },
+      {
+        "id": "mini-mobile",
+        "name": "Mini Mobile",
+        "code": "BEV-1111-0001",
+        "subtitle": "Single Phase · 2,3 - 3,7 kW",
+        "badge": null,
+        "description": "BEMİS AC Mini Mobile portable charger. With its lightweight and compact structure, it can be taken anywhere. It comes with the bag.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "2,3 - 3,7 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "mono-phase"
+              },
+              {
+                "label": "Current.",
+                "value": "10a - 16a"
+              },
+              {
+                "label": "Cable Length",
+                "value": "5 meters"
+              }
+            ]
+          },
+          {
+            "group": "Content",
+            "items": [
+              {
+                "label": "Accessories",
+                "value": "  Satchel"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "€286.00"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://i.ibb.co/Q3Kthqc5/1776718293029-Whats-App-Image-2026-04-01-at-14-54-58-1-jpeg.jpg",
+          "https://i.ibb.co/xtQBtW2R/1776718283653-Whats-App-Image-2026-04-01-at-14-54-58-2-jpeg.jpg",
+          "https://i.ibb.co/zTQLN5PP/1776718333670-110001356299104-jpg.jpg"
+        ],
+        "image": "https://i.ibb.co/Q3Kthqc5/1776718293029-Whats-App-Image-2026-04-01-at-14-54-58-1-jpeg.jpg"
+      },
+      {
+        "id": "mono-mobile",
+        "name": "Mono Mobile",
+        "code": "BEV-1221-0001",
+        "subtitle": "Single Phase · 3,7 - 7,4 kW",
+        "badge": null,
+        "description": "BEMİS AC Mono Mobile portable charger. Comes with current support up to 32a, bag and plug adapters.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "3.7 - 7.4 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "mono-phase"
+              },
+              {
+                "label": "Current.",
+                "value": "16a - 32a"
+              },
+              {
+                "label": "Cable Length",
+                "value": "5 meters"
+              }
+            ]
+          },
+          {
+            "group": "Content",
+            "items": [
+              {
+                "label": "Accessories",
+                "value": "  Satchel"
+              },
+              {
+                "label": "Socket",
+                "value": "3/32A Plug"
+              },
+              {
+                "label": "Adapter",
+                "value": "1/16A Plug Converter"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "€308.00"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://i.ibb.co/LDz9TBwN/1776718258557-Whats-App-Image-2026-04-01-at-14-54-58-jpeg.jpg"
+        ],
+        "image": "https://i.ibb.co/LDz9TBwN/1776718258557-Whats-App-Image-2026-04-01-at-14-54-58-jpeg.jpg"
+      },
+      {
+        "id": "pro-mobile",
+        "name": "Pro Mobile",
+        "code": "BEV-2331-0001",
+        "subtitle": "Three Phase · 11 - 22 kW",
+        "badge": "Pro",
+        "description": "BEMİS AC Pro Mobile portable charger. Fast charging with three-phase connection support. Comes with bag and socket adapters.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "11 - 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "- Three phase"
+              },
+              {
+                "label": "Current.",
+                "value": "16a - 32a"
+              },
+              {
+                "label": "Cable Length",
+                "value": "5 meters"
+              }
+            ]
+          },
+          {
+            "group": "Content",
+            "items": [
+              {
+                "label": "Accessories",
+                "value": "  Satchel"
+              },
+              {
+                "label": "Socket",
+                "value": "5/32A Plug"
+              },
+              {
+                "label": "Adapter",
+                "value": "1/16 Plug Converter"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "€429.00"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cables",
+    "name": "AC Charging Cables",
+    "tagline": "Type 2 · Mod 2 & Mod 3 certified cable solutions",
+    "accent": "#F59E0B",
+    "products": [
+      {
+        "id": "ac-cable-16a",
+        "name": "AC Charging Cable 16a",
+        "subtitle": "Type 2 — Type 2 · Mode 3 · 3.7-11 kW",
+        "badge": null,
+        "description": "16a Mode 3 compatible Type 2 charging cable that provides safe power transfer between the AC charging station and the vehicle.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "Force maximum / Maximum",
+                "value": "11 kW (3 × 16a)"
+              },
+              {
+                "label": "Thriller",
+                "value": "230V (1F) / 400V (3F)"
+              },
+              {
+                "label": "Maximum current: 16A",
+                "value": "16A"
+              },
+              {
+                "label": "Conductor cross section",
+                "value": "5 × 2.5 mm²"
+              }
+            ]
+          },
+          {
+            "group": "Connector",
+            "items": [
+              {
+                "label": "Both Extremes",
+                "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Body Material",
+                "value": "Glass fiber reinforced PA (GF30)"
+              },
+              {
+                "label": "Contact Material",
+                "value": "Silver plated copper"
+              },
+              {
+                "label": "Locking",
+                "value": "Mechanical latch + PP cover"
+              }
+            ]
+          },
+          {
+            "group": "Cable Construction",
+            "items": [
+              {
+                "label": "Insulation",
+                "value": "XLPE"
+              },
+              {
+                "label": "Holster",
+                "value": "Cold bend TPE"
+              },
+              {
+                "label": "Length",
+                "value": "5m · 7m · 10m · Custom"
+              },
+              {
+                "label": "Bending Life",
+                "value": "> 15,000 cycles"
+              }
+            ]
+          },
+          {
+            "group": "Protection & Certificates",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP54"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-30°c to 50°C"
+              },
+              {
+                "label": "Standard",
+                "value": "IEC62893-2 · IEC 62196-2"
+              },
+              {
+                "label": "Security",
+                "value": "CE · VDE · TUV"
+              },
+              {
+                "label": "Guarantee",
+                "value": "2 Years"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ac-cable-32a",
+        "name": "AC Charging Cable 32a",
+        "subtitle": "Type 2 — Type 2 · Mode 3 · 7,4-22 kW",
+        "badge": null,
+        "description": "Professional Mode 3 Type 2 charging cable with 32a capacity for high power AC charging applications.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "Force maximum / Maximum",
+                "value": "22 kW (3 × 32a)"
+              },
+              {
+                "label": "Thriller",
+                "value": "230V (1F) / 400V (3F)"
+              },
+              {
+                "label": "Maximum current: 16A",
+                "value": "32A."
+              },
+              {
+                "label": "Conductor cross section",
+                "value": "5 × 4 mm² · 5 × 6 mm²"
+              }
+            ]
+          },
+          {
+            "group": "Connector",
+            "items": [
+              {
+                "label": "Both Extremes",
+                "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Body Material",
+                "value": "Glass fiber reinforced PA (GF30)"
+              },
+              {
+                "label": "Contact Material",
+                "value": "Silver plated copper"
+              },
+              {
+                "label": "Locking",
+                "value": "Mechanical latch + PP cover"
+              }
+            ]
+          },
+          {
+            "group": "Cable Construction",
+            "items": [
+              {
+                "label": "Insulation",
+                "value": "XLPE"
+              },
+              {
+                "label": "Holster",
+                "value": "Cold bend TPE"
+              },
+              {
+                "label": "Length",
+                "value": "5m · 7m · 10m · Custom"
+              },
+              {
+                "label": "Bending Life",
+                "value": "> 15,000 cycles"
+              }
+            ]
+          },
+          {
+            "group": "Protection & Certificates",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP54"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-30°c to 50°C"
+              },
+              {
+                "label": "Standard",
+                "value": "IEC62893-2 · IEC 62196-2"
+              },
+              {
+                "label": "Security",
+                "value": "CE · VDE · TUV"
+              },
+              {
+                "label": "Guarantee",
+                "value": "2 Years"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mod2-cable",
+        "name": "Mode 2 Charging Cable",
+        "subtitle": "Schuko → Type 2 · Home Plug Charger",
+        "badge": null,
+        "description": "Secure Mode 2 charging cable with built-in control box that provides car charging using a standard home socket (Schuko).",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "2,3 kW · 3,7 kW"
+              },
+              {
+                "label": "Introduction",
+                "value": "Schuko CEE 7/4, 230V"
+              },
+              {
+                "label": "Current.",
+                "value": "10a / 16a"
+              },
+              {
+                "label": "Control Box",
+                "value": "ICCB (In-Cable Control Box)"
+              }
+            ]
+          },
+          {
+            "group": "Connector",
+            "items": [
+              {
+                "label": "Vehicle Side",
+                "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Grid Side",
+                "value": "Schuko (CEE 7/4)"
+              },
+              {
+                "label": "Cable Length",
+                "value": "5m: "
+              }
+            ]
+          },
+          {
+            "group": "Security & Certificates",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP54 (ICCB)"
+              },
+              {
+                "label": "Leakage Current Protection",
+                "value": "6 mA DC"
+              },
+              {
+                "label": "Earthing Monitoring",
+                "value": "Active"
+              },
+              {
+                "label": "Standard",
+                "value": "IEC 61851-1 · CE"
+              },
+              {
+                "label": "Guarantee",
+                "value": "2 Years"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dc-cable",
+        "name": "DC Charging Cable CCS2 400A",
+        "subtitle": "CCS2 · Fast Charging",
+        "badge": null,
+        "description": "Professional DC charging cable providing high performance power transfer between DC fast charging stations and electric vehicles.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "Force maximum / Maximum",
+                "value": "200 kW"
+              },
+              {
+                "label": "Waste Max Voltage",
+                "value": "1000V DC"
+              },
+              {
+                "label": "Maximum current: 16A",
+                "value": "500A"
+              }
+            ]
+          },
+          {
+            "group": "Connector Types",
+            "items": [
+              {
+                "label": "CCS Combo 2",
+                "value": "IEC62196-3"
+              }
+            ]
+          },
+          {
+            "group": "Cable Construction",
+            "items": [
+              {
+                "label": "Conductor",
+                "value": "70 mm² copper alloy"
+              },
+              {
+                "label": "Insulation",
+                "value": "TPE multilayer"
+              },
+              {
+                "label": "Length",
+                "value": "3m · 5m · 7m · Custom"
+              },
+              {
+                "label": "Bending Life",
+                "value": "> 20,000 cycles"
+              }
+            ]
+          },
+          {
+            "group": "Protection & Certificates",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP54"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-40°C / +90°C"
+              },
+              {
+                "label": "Standartlar",
+                "value": "IEC62893-4 · IEC62196-3"
+              },
+              {
+                "label": "Security",
+                "value": "CE · TÜV"
+              },
+              {
+                "label": "Guarantee",
+                "value": "2 Years"
+              }
+            ]
+          }
+        ],
+        "image": "/products/1775067386298-WhatsApp_Image_2026-04-01_at_14.55.14__19_.jpeg"
+      }
+    ]
+  },
+  {
+    "id": "v2l-c2l",
+    "name": "V2L / C2L Adapters",
+    "tagline": "Convert the vehicle battery or charger to an external power source",
+    "accent": "#818CF8",
+    "products": [
+      {
+        "id": "v2l",
+        "name": "V2L Adapter",
+        "subtitle": "Vehicle-to-Load · Vehicle-to-Load",
+        "badge": "Innovative",
+        "description": "Adapter that converts the electric vehicle battery (V2L-enabled models) into a power supply to external devices. Ideal for camping and emergency power.",
+        "specs": [
+          {
+            "group": "V2L (Vehicle to Load)",
+            "items": [
+              {
+                "label": "Operating Principle",
+                "value": "Type 2 → Schuko outlet"
+              },
+              {
+                "label": "Max Output Power",
+                "value": "3.6 kW"
+              },
+              {
+                "label": "Output Voltage",
+                "value": "230V AC, 50Hz"
+              },
+              {
+                "label": "COMPATIBLE VEHICLES",
+                "value": "Ioniq 5/6, EV6, Mustang Mach-E etc."
+              }
+            ]
+          },
+          {
+            "group": "Mechanical & Certificates",
+            "items": [
+              {
+                "label": "Housing",
+                "value": "PA66-GF30"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP44"
+              },
+              {
+                "label": "Weight",
+                "value": "350 g"
+              },
+              {
+                "label": "Standard",
+                "value": "IEC 62196-2 · IEC 61851-1 · CE"
+              },
+              {
+                "label": "Guarantee",
+                "value": "2 Years"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "c2l",
+        "name": "C2L Adapter",
+        "subtitle": "Charger-to-Load·From Charge to Load",
+        "badge": null,
+        "description": "C2L adapter that converts the Type 2 charger into a power outlet for external devices. Suitable for fieldwork and camping.",
+        "specs": [
+          {
+            "group": "C2L (Charge to Load)",
+            "items": [
+              {
+                "label": "Connector",
+                "value": "Type 2 male inlet · Schuko outlet"
+              },
+              {
+                "label": "Applications",
+                "value": "Field lighting, tools, camping"
+              },
+              {
+                "label": "Security",
+                "value": "Earthing monitoring · overcurrent"
+              },
+              {
+                "label": "Max. current",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Mechanical & Certificates",
+            "items": [
+              {
+                "label": "Housing",
+                "value": "PA66-GF30"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP44"
+              },
+              {
+                "label": "Weight",
+                "value": "300 g"
+              },
+              {
+                "label": "Standard",
+                "value": "IEC 62196-2 · CE"
+              },
+              {
+                "label": "Guarantee",
+                "value": "2 Years"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v2l-c2l-combo",
+        "name": "V2L / C2L Combi Set",
+        "subtitle": "Two Adapters in One",
+        "badge": null,
+        "description": "Combi set offering V2L and C2L adapters together. It allows you to get power from both the vehicle and the charger.",
+        "specs": [
+          {
+            "group": "Content",
+            "items": [
+              {
+                "label": "Adapter 1",
+                "value": "V2L Adapter (Vehicle to Load)"
+              },
+              {
+                "label": "Adapter 2",
+                "value": "C2L Adapter (Charge to Load)"
+              },
+              {
+                "label": "  Satchel",
+                "value": "Carrying case included"
+              }
+            ]
+          },
+          {
+            "group": "Technical",
+            "items": [
+              {
+                "label": "Max. Power (V2L)",
+                "value": "3.6 kW"
+              },
+              {
+                "label": "Max. Current (C2L)",
+                "value": "16A"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP44"
+              },
+              {
+                "label": "Guarantee",
+                "value": "2 Years"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "converters",
+    "name": "Overtime & Combination",
+    "tagline": "Extend the charging cable or convert it to different plug types",
+    "accent": "#06B6D4",
+    "products": [
+      {
+        "id": "extension-cable",
+        "name": "Extension cable",
+        "subtitle": "Type 2 Extension · 5m-25m",
+        "badge": null,
+        "description": "High current capacity extension cable that safely extends the distance between the vehicle and the charging station.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "Force maximum / Maximum",
+                "value": "22 kW (3 × 32a)"
+              },
+              {
+                "label": "Thriller",
+                "value": "230V – 400V"
+              },
+              {
+                "label": "Conductor cross section",
+                "value": "5 × 4 mm² · 5 × 6 mm²"
+              },
+              {
+                "label": "Conductor",
+                "value": "Tinsyl copper flexible wire"
+              }
+            ]
+          },
+          {
+            "group": "Connector & Length",
+            "items": [
+              {
+                "label": "Both Extremes",
+                "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Connector Body",
+                "value": "Glass fiber reinforced PA"
+              },
+              {
+                "label": "Length Options",
+                "value": "5m · 10m · 15m · 20m · 25m"
+              }
+            ]
+          },
+          {
+            "group": "Protection & Certificates",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP54"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-30°c to 50°C"
+              },
+              {
+                "label": "Standard",
+                "value": "IEC 62196-2 · CE"
+              },
+              {
+                "label": "Guarantee",
+                "value": "2 Years"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "schuko-adapter",
+        "name": "Schuko → Type 2 Adapter",
+        "subtitle": "Converter Adapter",
+        "badge": null,
+        "description": "Adapter that converts the standard Schuko (CEE 7/4) plug into a Type 2 female socket. For use with portable chargers.",
+        "specs": [
+          {
+            "group": "Characteristics",
+            "items": [
+              {
+                "label": "Introduction",
+                "value": "Schuko CEE 7/4 male"
+              },
+              {
+                "label": "Exit Date",
+                "value": "Type 2 IEC 62196-2 female"
+              },
+              {
+                "label": "Maximum current: 16A",
+                "value": "16A"
+              },
+              {
+                "label": "Thriller",
+                "value": "230V AC"
+              },
+              {
+                "label": "Housing",
+                "value": "ABS + PA66"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP44"
+              },
+              {
+                "label": "Guarantee",
+                "value": "2 Years"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cee-adapter",
+        "name": "CEE 16a → Type 2 Adapter",
+        "subtitle": "3 Phase Blue Plug Adapter",
+        "badge": null,
+        "description": "CEE 16a blue three-phase plug to Type 2 female socket conversion adapter. For camping and industrial use.",
+        "specs": [
+          {
+            "group": "Characteristics",
+            "items": [
+              {
+                "label": "Introduction",
+                "value": "CEE 16a 5P (3F+N+PE)"
+              },
+              {
+                "label": "Exit Date",
+                "value": "Type 2 IEC 62196-2 female"
+              },
+              {
+                "label": "Force maximum / Maximum",
+                "value": "11 kW"
+              },
+              {
+                "label": "Maximum current: 16A",
+                "value": "16a (3F)"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP44"
+              },
+              {
+                "label": "Guarantee",
+                "value": "2 Years"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "combo-box",
+        "name": "Empty Combination Box",
+        "subtitle": "Multiple Output · Distribution Unit",
+        "badge": null,
+        "description": "Compact combination distribution box providing multiple charging outputs from a single inlet connection.",
+        "specs": [
+          {
+            "group": "Characteristics",
+            "items": [
+              {
+                "label": "Introduction",
+                "value": "1 × Type 2 or CEE 32a"
+              },
+              {
+                "label": "Exit Date",
+                "value": "2 × Type 2 or 2 × Schuko"
+              },
+              {
+                "label": "Force maximum / Maximum",
+                "value": "22 kW"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP54"
+              },
+              {
+                "label": "Housing",
+                "value": "Stainless Steel "
+              },
+              {
+                "label": "Guarantee",
+                "value": "2 Years"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "charger-equipment",
+    "name": "Charging Unit Equipment",
+    "tagline": "Type 2 socket, holster and mounting equipment",
+    "accent": "#64748B",
+    "products": [
+      {
+        "id": "type2-socket",
+        "name": "Type 2 Socket",
+        "subtitle": "IEC 62196-2 · Female Panel Socket",
+        "badge": null,
+        "description": "High-quality Type 2 panel mounting socket used in the manufacture of charging station and wallbox.",
+        "specs": [
+          {
+            "group": "Characteristics",
+            "items": [
+              {
+                "label": "Type",
+                "value": "Type 2 female (IEC 62196-2)"
+              },
+              {
+                "label": "Maximum current: 16A",
+                "value": "32a (1F) · 32a (3F)"
+              },
+              {
+                "label": "Thriller",
+                "value": "250V / 480V"
+              },
+              {
+                "label": "Locking",
+                "value": "Electromagnetic actuator"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP54"
+              },
+              {
+                "label": "Guarantee",
+                "value": "2 Years"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "holster",
+        "name": "Cable Holster",
+        "subtitle": "Charging Cable Hanger",
+        "badge": null,
+        "description": "Wall-mountable cable holster that keeps the charging cable tidy and secure.",
+        "specs": [
+          {
+            "group": "Characteristics",
+            "items": [
+              {
+                "label": "Compatible Connector",
+                "value": "Type 2"
+              },
+              {
+                "label": "Material",
+                "value": "UV-resistant ABS"
+              },
+              {
+                "label": "Installation",
+                "value": "Wall mounting (screw + dowel)"
+              },
+              {
+                "label": "Color",
+                "value": "White, Black, "
+              },
+              {
+                "label": "Guarantee",
+                "value": "2 Years"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pedestal",
+        "name": "Ground Pole",
+        "subtitle": "Free Standing Charging Unit Pole",
+        "badge": null,
+        "description": "Stainless steel floor post used to mount the wallbox in areas without walls.",
+        "specs": [
+          {
+            "group": "Characteristics",
+            "items": [
+              {
+                "label": "Material",
+                "value": "316L stainless steel anchor"
+              },
+              {
+                "label": "Surface",
+                "value": "Powder coating"
+              },
+              {
+                "label": "Installation",
+                "value": "Flush / flange to floor"
+              },
+              {
+                "label": "Height",
+                "value": "1200 mm (adjustable)"
+              },
+              {
+                "label": "Compatibility",
+                "value": "All Bemis Wallbox models"
+              },
+              {
+                "label": "Guarantee",
+                "value": "5 years"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wall-mount",
+        "name": "Wall Mount Set",
+        "subtitle": "Wallbox & Cable Holders",
+        "badge": null,
+        "description": "Stainless steel and ABS mounting equipment for securely fixing the wallbox and charging cables to the wall.",
+        "specs": [
+          {
+            "group": "Content",
+            "items": [
+              {
+                "label": "Mounting bracket",
+                "value": "316L stainless steel anchor"
+              },
+              {
+                "label": "Cord Holder",
+                "value": "UV-resistant ABS, 2 pcs"
+              },
+              {
+                "label": "Screw Set",
+                "value": "M6 × 40 mm, 4 pcs"
+              },
+              {
+                "label": "Dowel",
+                "value": "Concrete / brick compatible, 4 pcs"
+              },
+              {
+                "label": "Installation instructions",
+                "value": "Turkish-English"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cable-tray",
+        "name": "Cable Duct",
+        "subtitle": "Cable Management & Protection",
+        "badge": null,
+        "description": "PVC cable duct and mounting accessories to fix the charging cable to the wall neatly and securely.",
+        "specs": [
+          {
+            "group": "Characteristics",
+            "items": [
+              {
+                "label": "Material",
+                "value": "Flame retardant PVC"
+              },
+              {
+                "label": "Dimension",
+                "value": "40×40 mm · 60×40 mm"
+              },
+              {
+                "label": "Length",
+                "value": "2m pieces"
+              },
+              {
+                "label": "Color",
+                "value": "White"
+              },
+              {
+                "label": "Guarantee",
+                "value": "2 Years"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "accessories",
+    "name": "Accessories",
+    "tagline": "Mounting equipment and complementary products",
+    "accent": "#818CF8",
+    "products": [
+      {
+        "id": "electronics",
+        "name": "Electronic Control Board (ECU)",
+        "subtitle": "Internal Control Unit · OEM",
+        "badge": "Proprietary Design",
+        "description": "Indigenous design electronic control card at the heart of Bemis E-V Charge devices. The OCPP protocol, power management and security functions work on this board.",
+        "specs": [
+          {
+            "group": "Processor & Memory",
+            "items": [
+              {
+                "label": "MCU",
+                "value": "32-bit ARM Cortex-M4 (180 MHz)"
+              },
+              {
+                "label": "Flash",
+                "value": "1 MB (firmware + OTA)"
+              },
+              {
+                "label": "Random-access memory",
+                "value": "256 KB SRAM"
+              },
+              {
+                "label": "Update",
+                "value": "OTA firmware update"
+              }
+            ]
+          },
+          {
+            "group": "Contact",
+            "items": [
+              {
+                "label": "Wi-Fi",
+                "value": "IEEE 802.11 b/g/n/ac"
+              },
+              {
+                "label": "4G/LTE",
+                "value": "CAT-M1 modem"
+              },
+              {
+                "label": "RFID",
+                "value": "ISO 14443 / 15693 (13.56 MHz)"
+              },
+              {
+                "label": "Ethernet",
+                "value": "10/100 Mbps (optional)"
+              }
+            ]
+          },
+          {
+            "group": "Power Management",
+            "items": [
+              {
+                "label": "Power Measurement",
+                "value": "Active / reactive (±1% accuracy)"
+              },
+              {
+                "label": "Energy metering",
+                "value": "kWh (IEC 62053-21)"
+              },
+              {
+                "label": "Dynamic Load Balance",
+                "value": "DLM — multi-station"
+              },
+              {
+                "label": "OCPP",
+                "value": "1.6J · 2.0.1"
+              }
+            ]
+          },
+          {
+            "group": "Production & Certification",
+            "items": [
+              {
+                "label": "PCB Production",
+                "value": "Turkey (Bursa OIZ)"
+              },
+              {
+                "label": "Test",
+                "value": "ICT + functional (100%)"
+              },
+              {
+                "label": "EMC",
+                "value": "EN 55032 · EN 61000-4"
+              },
+              {
+                "label": "Quality",
+                "value": "IPC-A-610 Class 2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rfid-card",
+        "name": "RFID Charging Card",
+        "subtitle": "User Authentication Card",
+        "badge": null,
+        "description": "RFID smart card for user authentication in OCPP-compliant charging stations.",
+        "specs": [
+          {
+            "group": "Characteristics",
+            "items": [
+              {
+                "label": "Standard",
+                "value": "ISO 14443-A (MIFARE Classic)"
+              },
+              {
+                "label": "Frequency",
+                "value": "13.56 MHz"
+              },
+              {
+                "label": "Memory",
+                "value": "%1 kB"
+              },
+              {
+                "label": "Dimension",
+                "value": "Credit card format (85.6 × 53.98 mm)"
+              },
+              {
+                "label": "Thickness",
+                "value": "0.76 mm"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "surge-protector",
+        "name": "Surge protectors",
+        "subtitle": "EV Charging Line Protection Module",
+        "badge": null,
+        "description": "SPD module that protects the charging station input line from lightning and overvoltage.",
+        "specs": [
+          {
+            "group": "Characteristics",
+            "items": [
+              {
+                "label": "Type",
+                "value": "Type 2 (EN 61643-11)"
+              },
+              {
+                "label": "Nominal Voltage",
+                "value": "230/400V"
+              },
+              {
+                "label": "Max. 50A charge/discharge current",
+                "value": "20 kA"
+              },
+              {
+                "label": "Level of protection",
+                "value": "≤ 1,5 kV"
+              },
+              {
+                "label": "Installation",
+                "value": "DIN rail"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "charging-bag",
+        "name": "Charging Cable Carrying Case",
+        "subtitle": "Cable Organization Bag",
+        "badge": null,
+        "description": "Waterproof case for transporting Type 2 charging cable and adapters regularly.",
+        "specs": [
+          {
+            "group": "Characteristics",
+            "items": [
+              {
+                "label": "Material",
+                "value": "Polyester 600D (waterproof)"
+              },
+              {
+                "label": "Dimension",
+                "value": "40 × 20 × 15 cm"
+              },
+              {
+                "label": "Capacity",
+                "value": "5m cable + 2 adapters"
+              },
+              {
+                "label": "Closure",
+                "value": "YKK zipper"
+              },
+              {
+                "label": "Color",
+                "value": "Black"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

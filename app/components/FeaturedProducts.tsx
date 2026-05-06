@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
+import { useLanguage } from "../context/LanguageContext";
 import { HiArrowRight, HiStar } from "react-icons/hi";
 import E from "./E";
 
@@ -30,6 +31,7 @@ export default function FeaturedProducts() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
   const { featured, featuredSection, sectionBgs } = useContent();
+  const { lang } = useLanguage();
   const router = useRouter();
   const d = theme === "dark";
 
@@ -37,11 +39,11 @@ export default function FeaturedProducts() {
   const [hovered, setHovered] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/api/products")
+    fetch(`/api/products?lang=${lang}`)
       .then((r) => r.json())
       .then(setAllProducts)
       .catch(() => {});
-  }, []);
+  }, [lang]);
 
   const BLUE        = "#3B82F6";
   const sectionBg   = d ? "linear-gradient(140deg, #0c0c0e 0%, #111116 60%, #0e0e12 100%)" : "linear-gradient(140deg, #f7f8fb 0%, #f3f4f8 60%, #f6f7fa 100%)";

@@ -9,6 +9,8 @@ import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
+import { useUiStrings } from "../../lib/uiStrings";
 import {
   RiPlugLine, RiShieldCheckLine,
   RiCheckLine, RiSendPlaneLine, RiBuilding2Line,
@@ -25,28 +27,17 @@ type B2BHero = {
 };
 type B2BData = { hero: B2BHero; featuredProducts?: B2BFeaturedSlot[] };
 
-const DEFAULT_B2B: B2BData = {
-  hero: {
-    eyebrow: "Kurumsal & OEM Çözümler",
-    heading1: "EV Altyapısı için",
-    heading2: "Profesyonel Çözümler",
-    description: "Şarj ağı operatörleri, OEM üreticiler ve sistem entegratörleri için teknik ürün portföyü.",
-    sectorTags: ["OEM Üretici", "Şarj Ağı Operatörü", "Sistem Entegratörü", "Proje Müteahhidi"],
-  },
-  featuredProducts: [],
-};
+const ADVANTAGE_ICONS = [
+  { icon: RiBuilding2Line,        color: "#F59E0B", titleKey: "b2b_adv_made_title",      bodyKey: "b2b_adv_made_body" },
+  { icon: RiBarChartLine,         color: "#3B82F6", titleKey: "b2b_adv_serial_title",    bodyKey: "b2b_adv_serial_body" },
+  { icon: RiShieldCheckLine,      color: "#10B981", titleKey: "b2b_adv_certs_title",     bodyKey: "b2b_adv_certs_body" },
+  { icon: RiToolsLine,            color: "#818CF8", titleKey: "b2b_adv_custom_title",    bodyKey: "b2b_adv_custom_body" },
+  { icon: RiSendPlaneLine,        color: "#F97316", titleKey: "b2b_adv_sample_title",    bodyKey: "b2b_adv_sample_body" },
+  { icon: RiCustomerService2Line, color: "#EC4899", titleKey: "b2b_adv_aftersale_title", bodyKey: "b2b_adv_aftersale_body" },
+] as const;
 
-const advantages = [
-  { icon: RiBuilding2Line,         color: "#F59E0B", title: "Türkiye'de Üretim",          body: "Bursa'daki tesislerimizde üretim; kısa tedarik süresi ve gümrüksüz lojistik." },
-  { icon: RiBarChartLine,          color: "#3B82F6", title: "Seri Üretim Kapasitesi",     body: "Aylık yüksek hacimli AC / DC şarj kablosu ve şarj prizi üretim kapasitesi." },
-  { icon: RiShieldCheckLine,       color: "#10B981", title: "Uluslararası Sertifikalar",  body: "CE, TÜV ve IEC 62196 uyumlu ürünler — Avrupa ihracatına hazır portföy." },
-  { icon: RiToolsLine,             color: "#818CF8", title: "Özel Konfigürasyon",         body: "İstenilen uzunluk, renk ve konnektör seçenekleri (Type 2 / CCS2 / GB-T)." },
-  { icon: RiSendPlaneLine,         color: "#F97316", title: "Hızlı Numune & Doküman",     body: "Prototip için hızlı numune; datasheet, 3D model ve test raporu paylaşımı." },
-  { icon: RiCustomerService2Line,  color: "#EC4899", title: "OEM Satış Sonrası",          body: "Garanti, yedek parça ve mühendislik düzeyinde teknik destek." },
-];
-
-const SECTORS = ["EV Üreticisi (OEM)", "Şarj Ağı Operatörü", "Proje Müteahhidi / EPC", "Sistem Entegratörü", "Distribütör / Bayi", "Kamu / Belediye", "Diğer"];
-const PRODUCTS_INTEREST = ["DC Hızlı Şarj Ünitesi", "Şarj Panosu & Dağıtım", "DC Şarj Kablosu (CCS2)", "Elektronik Kontrol Kartı (ECU)"];
+const SECTOR_KEYS = ["b2b_sec_oem", "b2b_sec_op", "b2b_sec_epc", "b2b_sec_int", "b2b_sec_dist", "b2b_sec_pub", "b2b_sec_other"] as const;
+const PRODUCTS_INTEREST_KEYS = ["b2b_int_dc", "b2b_int_panel", "b2b_int_cable", "b2b_int_ecu"] as const;
 
 type FormState = { name: string; company: string; email: string; phone: string; sector: string; interests: string[]; message: string };
 const EMPTY: FormState = { name: "", company: "", email: "", phone: "", sector: "", interests: [], message: "" };
@@ -56,12 +47,27 @@ type Category = { id: string; name: string; tagline: string; accent: string; pro
 export default function B2BPage() {
   const router = useRouter();
   const { theme } = useTheme();
+  const { lang } = useLanguage();
+  const t = useUiStrings();
   const d = theme === "dark";
   const [searchOpen, setSearchOpen] = useState(false);
   const [form, setForm] = useState<FormState>(EMPTY);
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
   const [categories, setCategories] = useState<Category[]>([]);
-  const [b2bData, setB2bData] = useState<B2BData>(DEFAULT_B2B);
+  const localizedDefault: B2BData = {
+    hero: {
+      eyebrow:     t("b2b_default_eyebrow"),
+      heading1:    t("b2b_default_h1"),
+      heading2:    t("b2b_default_h2"),
+      description: t("b2b_default_desc"),
+      sectorTags:  [t("b2b_sector_oem"), t("b2b_sector_op"), t("b2b_sector_int"), t("b2b_sector_proj")],
+    },
+    featuredProducts: [],
+  };
+  const [b2bData, setB2bData] = useState<B2BData>(localizedDefault);
+  const SECTORS = SECTOR_KEYS.map(k => t(k));
+  const PRODUCTS_INTEREST = PRODUCTS_INTEREST_KEYS.map(k => t(k));
+  const advantages = ADVANTAGE_ICONS.map(a => ({ icon: a.icon, color: a.color, title: t(a.titleKey), body: t(a.bodyKey) }));
 
   const bg        = d ? "#0c0c0e" : "#f8f8fb";
   const bgSub     = d ? "#111114" : "#ffffff";
@@ -77,13 +83,15 @@ export default function B2BPage() {
   const AMBER     = "#F59E0B";
 
   useEffect(() => {
-    fetch("/api/products").then(r => r.json()).then((data: Category[]) => {
+    fetch(`/api/products?lang=${lang}`).then(r => r.json()).then((data: Category[]) => {
       setCategories(Array.isArray(data) ? data : []);
     }).catch(() => {});
-    fetch("/api/b2b").then(r => r.json()).then((data: B2BData) => {
-      if (data?.hero) setB2bData(data);
-    }).catch(() => {});
-  }, []);
+    if (lang === "tr") {
+      fetch("/api/b2b").then(r => r.json()).then((data: B2BData) => {
+        if (data?.hero) setB2bData(data);
+      }).catch(() => {});
+    }
+  }, [lang]);
 
   // Admin panel live preview — receive postMessage from parent iframe
   useEffect(() => {
@@ -128,7 +136,7 @@ export default function B2BPage() {
             onClick={() => router.back()} className="flex items-center gap-2 mb-10 group"
             style={{ color: faint, fontSize: "0.875rem" }}>
             <HiArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-            Geri
+            {t("b2b_back_short")}
           </motion.button>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
             <div className="flex items-center gap-2.5 mb-4">
@@ -198,11 +206,11 @@ export default function B2BPage() {
               <div className="mb-8">
                 <div className="flex items-center gap-2 mb-2">
                   <RiBuilding2Line style={{ color: AMBER, fontSize: 14 }} />
-                  <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: AMBER }}>Üretici Portföyü</span>
+                  <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: AMBER }}>{t("b2b_oem_eyebrow")}</span>
                 </div>
-                <h2 className="text-xl font-black mb-1" style={{ color: text }}>Şarj Ünitesi Üreticileri için Öne Çıkan Ürünler</h2>
+                <h2 className="text-xl font-black mb-1" style={{ color: text }}>{t("b2b_oem_heading")}</h2>
                 <p className="text-sm max-w-2xl" style={{ color: muted }}>
-                  AC ve DC şarj ünitesi üreten firmalar için şarj kablolarımız ve şarj prizlerimiz — bir ucu açık konfigürasyonlar, farklı uzunluk ve konnektör seçenekleri.
+                  {t("b2b_oem_sub")}
                 </p>
               </div>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -238,7 +246,7 @@ export default function B2BPage() {
                           {prod.subtitle && <p className="text-xs mb-2" style={{ color: faint }}>{prod.subtitle}</p>}
                           {shortDesc && <p className="text-xs leading-relaxed mb-3" style={{ color: muted }}>{shortDesc}</p>}
                           <div className="flex items-center gap-1 text-xs font-semibold" style={{ color: cat.accent }}>
-                            Ürünü İncele
+                            {t("b2b_view_product")}
                             <RiArrowRightLine size={12} className="group-hover:translate-x-0.5 transition-transform" />
                           </div>
                         </div>
@@ -258,11 +266,11 @@ export default function B2BPage() {
           <div className="mb-7">
             <div className="flex items-center gap-2 mb-2">
               <RiShieldCheckLine style={{ color: AMBER, fontSize: 14 }} />
-              <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: AMBER }}>Teknik Teklif Başvurusu</span>
+              <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: AMBER }}>{t("b2b_form_eyebrow")}</span>
             </div>
-            <h2 className="text-2xl font-black mb-2" style={{ color: text }}>Teklif Alın</h2>
+            <h2 className="text-2xl font-black mb-2" style={{ color: text }}>{t("b2b_form_heading")}</h2>
             <p className="text-sm" style={{ color: muted }}>
-              Üreticilere özel fiyatlandırma, teknik dokümanlar ve numune talepleri için formu doldurun.
+              {t("b2b_form_intro")}
             </p>
           </div>
           <AnimatePresence mode="wait">
@@ -273,47 +281,47 @@ export default function B2BPage() {
                   style={{ background: "#10B98118", border: "1px solid #10B98130" }}>
                   <RiCheckLine style={{ fontSize: 28, color: "#10B981" }} />
                 </div>
-                <h3 className="font-black text-base mb-2" style={{ color: text }}>Başvurunuz Alındı</h3>
-                <p className="text-sm" style={{ color: muted }}>Satış mühendisliğimiz en kısa sürede sizinle iletişime geçecek.</p>
+                <h3 className="font-black text-base mb-2" style={{ color: text }}>{t("b2b_form_ok_title")}</h3>
+                <p className="text-sm" style={{ color: muted }}>{t("b2b_form_ok_body")}</p>
               </motion.div>
             ) : (
               <motion.form key="form" onSubmit={handleSubmit} className="rounded-2xl p-6 sm:p-8 space-y-4"
                 style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label style={labelStyle}>Ad Soyad *</label>
-                    <input required value={form.name} onChange={e => set("name", e.target.value)} placeholder="Ali Yıldız" style={inputStyle}
+                    <label style={labelStyle}>{t("b2b_form_name")}</label>
+                    <input required value={form.name} onChange={e => set("name", e.target.value)} placeholder={t("b2b_form_name_ph")} style={inputStyle}
                       onFocus={e => { e.currentTarget.style.borderColor = AMBER; }} onBlur={e => { e.currentTarget.style.borderColor = inputBdr; }} />
                   </div>
                   <div>
-                    <label style={labelStyle}>Şirket *</label>
-                    <input required value={form.company} onChange={e => set("company", e.target.value)} placeholder="ABC Teknoloji A.Ş." style={inputStyle}
+                    <label style={labelStyle}>{t("b2b_form_company")}</label>
+                    <input required value={form.company} onChange={e => set("company", e.target.value)} placeholder={t("b2b_form_company_ph")} style={inputStyle}
                       onFocus={e => { e.currentTarget.style.borderColor = AMBER; }} onBlur={e => { e.currentTarget.style.borderColor = inputBdr; }} />
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label style={labelStyle}>E-Posta *</label>
-                    <input required type="email" value={form.email} onChange={e => set("email", e.target.value)} placeholder="ali@sirket.com" style={inputStyle}
+                    <label style={labelStyle}>{t("b2b_form_email")}</label>
+                    <input required type="email" value={form.email} onChange={e => set("email", e.target.value)} placeholder={t("b2b_form_email_ph")} style={inputStyle}
                       onFocus={e => { e.currentTarget.style.borderColor = AMBER; }} onBlur={e => { e.currentTarget.style.borderColor = inputBdr; }} />
                   </div>
                   <div>
-                    <label style={labelStyle}>Telefon</label>
-                    <input type="tel" value={form.phone} onChange={e => set("phone", e.target.value)} placeholder="+90 5XX XXX XX XX" style={inputStyle}
+                    <label style={labelStyle}>{t("b2b_form_phone")}</label>
+                    <input type="tel" value={form.phone} onChange={e => set("phone", e.target.value)} placeholder={t("b2b_form_phone_ph")} style={inputStyle}
                       onFocus={e => { e.currentTarget.style.borderColor = AMBER; }} onBlur={e => { e.currentTarget.style.borderColor = inputBdr; }} />
                   </div>
                 </div>
                 <div>
-                  <label style={labelStyle}>Sektör *</label>
+                  <label style={labelStyle}>{t("b2b_form_sector")}</label>
                   <select required value={form.sector} onChange={e => set("sector", e.target.value)}
                     style={{ ...inputStyle, cursor: "pointer" }}
                     onFocus={e => { e.currentTarget.style.borderColor = AMBER; }} onBlur={e => { e.currentTarget.style.borderColor = inputBdr; }}>
-                    <option value="">Sektörünüzü seçin</option>
+                    <option value="">{t("b2b_form_select_sector")}</option>
                     {SECTORS.map(s => <option key={s} value={s}>{s}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label style={{ ...labelStyle, marginBottom: 10 }}>İlgilenilen Ürün / Hizmet</label>
+                  <label style={{ ...labelStyle, marginBottom: 10 }}>{t("b2b_form_interests")}</label>
                   <div className="flex flex-wrap gap-2">
                     {PRODUCTS_INTEREST.map(p => {
                       const active = form.interests.includes(p);
@@ -328,18 +336,18 @@ export default function B2BPage() {
                   </div>
                 </div>
                 <div>
-                  <label style={labelStyle}>Mesaj / Talep Detayı</label>
+                  <label style={labelStyle}>{t("b2b_form_message")}</label>
                   <textarea value={form.message} onChange={e => set("message", e.target.value)} rows={3}
-                    placeholder="Proje kapsamı, adet, teknik gereksinimler..." style={{ ...inputStyle, resize: "none" }}
+                    placeholder={t("b2b_form_message_ph")} style={{ ...inputStyle, resize: "none" }}
                     onFocus={e => { e.currentTarget.style.borderColor = AMBER; }} onBlur={e => { e.currentTarget.style.borderColor = inputBdr; }} />
                 </div>
-                {status === "err" && <p className="text-xs text-red-400">Gönderim sırasında hata oluştu.</p>}
+                {status === "err" && <p className="text-xs text-red-400">{t("b2b_form_err")}</p>}
                 <button type="submit" disabled={status === "sending"}
                   className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm font-bold disabled:opacity-60 transition-all"
                   style={{ background: BLUE, color: "#fff", boxShadow: `0 6px 20px ${BLUE}35` }}>
                   {status === "sending"
-                    ? <><div className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />Gönderiliyor…</>
-                    : <><RiSendPlaneLine size={16} />Başvuruyu Gönder</>}
+                    ? <><div className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />{t("b2b_form_sending")}</>
+                    : <><RiSendPlaneLine size={16} />{t("b2b_form_send")}</>}
                 </button>
               </motion.form>
             )}

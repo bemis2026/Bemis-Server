@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiSearch, HiX } from "react-icons/hi";
+import { useLanguage } from "../context/LanguageContext";
 
 type ProductEntry = {
   id: string;
@@ -46,19 +47,21 @@ function normalize(s: string): string {
 
 export default function SearchOverlay({ isOpen, onClose }: Props) {
   const router = useRouter();
+  const { lang } = useLanguage();
   const [query, setQuery] = useState("");
   const [categories, setCategories] = useState<Category[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
-  const fetchedRef = useRef(false);
+  const fetchedLangRef = useRef<string | null>(null);
 
   useEffect(() => {
-    if (!isOpen || fetchedRef.current) return;
-    fetchedRef.current = true;
-    fetch("/api/products")
+    if (!isOpen) return;
+    if (fetchedLangRef.current === lang) return;
+    fetchedLangRef.current = lang;
+    fetch(`/api/products?lang=${lang}`)
       .then(r => (r.ok ? r.json() : []))
       .then((d: unknown) => setCategories(Array.isArray(d) ? d as Category[] : []))
       .catch(() => {});
-  }, [isOpen]);
+  }, [isOpen, lang]);
 
   const allResults: SearchResult[] = useMemo(() => {
     const out: SearchResult[] = [];

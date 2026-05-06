@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import { RiFlashlightLine, RiLeafLine, RiCalculatorLine, RiCarLine, RiBatteryChargeLine, RiGasStationLine, RiBarChartLine } from "react-icons/ri";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
+import { useUiStrings, type UiStringKey } from "../../lib/uiStrings";
 import Image from "next/image";
 
 // ── EV model database ────────────────────────────────────────────────────────
@@ -196,32 +197,36 @@ function Slider({ label, value, min, max, step = 1, unit = "", accent, textMuted
 // ── Turkish electricity tariff presets ───────────────────────────────────────
 // Sources: TEDAŞ 2024 mesken tarifesi, ortalama kamuya açık AC/DC istasyon fiyatları
 
-const TARIFF_PRESETS = [
-  { id: "home",   label: "Ev Elektrigi (TEDAŞ)",         value: 5.5,  desc: "~5-6 ₺/kWh · Mesken tarifesi" },
-  { id: "ac",     label: "AC Kamu İstasyonu",             value: 10.0, desc: "~9-11 ₺/kWh · Kamuya açık" },
-  { id: "dc-std", label: "DC Hızlı Şarj",                 value: 14.5, desc: "~13-16 ₺/kWh · CCS2/CHAdeMO" },
-  { id: "night",  label: "Gece Tarifesi (TEDAŞ)",         value: 3.8,  desc: "~3-4 ₺/kWh · 22:00–06:00" },
-];
+function getTariffPresets(t: (k: UiStringKey) => string) {
+  return [
+    { id: "home",   label: t("calc_tariff_home"),  value: 5.5,  desc: t("calc_tariff_home_desc") },
+    { id: "ac",     label: t("calc_tariff_ac"),    value: 10.0, desc: t("calc_tariff_ac_desc") },
+    { id: "dc-std", label: t("calc_tariff_dc"),    value: 14.5, desc: t("calc_tariff_dc_desc") },
+    { id: "night",  label: t("calc_tariff_night"), value: 3.8,  desc: t("calc_tariff_night_desc") },
+  ];
+}
 
 // ── Calculator banner sub-component ──────────────────────────────────────────
 
 interface CalcBannerProps {
   d: boolean; accent: string; tab: "charge" | "savings";
   border: string; textMuted: string; logoSrc: string;
+  t: (k: UiStringKey) => string;
+  chargeTimeLabel: string;
 }
 
-function CalcBanner({ d, accent, tab, border, textMuted, logoSrc }: CalcBannerProps) {
+function CalcBanner({ d, accent, tab, border, textMuted, logoSrc, t, chargeTimeLabel }: CalcBannerProps) {
   const faint = d ? "rgba(255,255,255,0.22)" : "rgba(0,0,0,0.25)";
 
   const chargeFeatures = [
-    { Icon: RiFlashlightLine,    label: "AC & DC",   sub: "Şarj Modları"  },
-    { Icon: RiBatteryChargeLine, label: "Şarj Süresi", sub: "Hesaplama"   },
-    { Icon: RiCarLine,           label: "50+ Model", sub: "EV Araç"       },
+    { Icon: RiFlashlightLine,    label: "AC & DC",          sub: t("calc_b_modes")   },
+    { Icon: RiBatteryChargeLine, label: chargeTimeLabel,    sub: t("calc_b_time_sub") },
+    { Icon: RiCarLine,           label: t("calc_b_models"), sub: t("calc_b_ev")      },
   ];
   const savingsFeatures = [
-    { Icon: RiLeafLine,      label: "CO₂",      sub: "Tasarrufu"  },
-    { Icon: RiBarChartLine,  label: "Tasarruf", sub: "Analizi"    },
-    { Icon: RiGasStationLine, label: "Yakıt vs", sub: "Elektrik"  },
+    { Icon: RiLeafLine,       label: t("calc_b_co2"),     sub: t("calc_b_co2_sub")    },
+    { Icon: RiBarChartLine,   label: t("calc_b_savings"), sub: t("calc_b_savings_sub") },
+    { Icon: RiGasStationLine, label: t("calc_b_fuelvs"),  sub: t("calc_b_elec")       },
   ];
   const features = tab === "charge" ? chargeFeatures : savingsFeatures;
 
@@ -366,8 +371,10 @@ export default function Calculator() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
   const { sectionBgs, logos, calculator: calc } = useContent();
+  const t = useUiStrings();
   const d = theme === "dark";
   const calcLogoSrc = logos?.dark || "/logo-white.png";
+  const TARIFF_PRESETS = getTariffPresets(t);
 
   const [activeTab, setActiveTab] = useState<"charge" | "savings">("charge");
   const [chargeMode, setChargeMode] = useState<"ac" | "dc">("ac");
@@ -605,7 +612,7 @@ export default function Calculator() {
                     {/* Car selector */}
                     <div className="mb-4">
                       <label className="text-sm font-bold uppercase tracking-wider mb-1.5 flex items-center gap-1.5" style={{ color: textMuted }}>
-                        <RiCarLine style={{ fontSize: 12 }} /> Araç Modeli (isteğe bağlı)
+                        <RiCarLine style={{ fontSize: 12 }} /> {t("calc_vehicle_label")}
                       </label>
                       <div className="relative">
                         <select
@@ -614,7 +621,7 @@ export default function Calculator() {
                           className="w-full rounded-xl px-3 py-2 text-sm appearance-none cursor-pointer focus:outline-none transition-colors pr-8"
                           style={{ background: inputBg, border: `1px solid ${inputBorder}`, color: selectedCar ? textPrimary : textMuted }}
                         >
-                          <option value="">— Manuel gir —</option>
+                          <option value="">{t("calc_manual_entry")}</option>
                           {EV_BRANDS.map((brand) => (
                             <optgroup key={brand} label={brand}>
                               {EV_MODELS.filter((m) => m.brand === brand).map((m) => (
@@ -627,9 +634,9 @@ export default function Calculator() {
                       </div>
                       {selectedCarData && (
                         <div className="flex flex-wrap gap-1.5 mt-2">
-                          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: `${BLUE}15`, color: BLUE, border: `1px solid ${BLUE}25` }}>Batarya: {selectedCarData.battery} kWh</span>
-                          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: `${GREEN}15`, color: GREEN, border: `1px solid ${GREEN}25` }}>AC maks: {selectedCarData.maxAcKw} kW</span>
-                          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: `${ORANGE}15`, color: ORANGE, border: `1px solid ${ORANGE}25` }}>DC maks: {selectedCarData.maxDcKw} kW</span>
+                          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: `${BLUE}15`, color: BLUE, border: `1px solid ${BLUE}25` }}>{t("calc_battery")} {selectedCarData.battery} kWh</span>
+                          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: `${GREEN}15`, color: GREEN, border: `1px solid ${GREEN}25` }}>{t("calc_ac_max")} {selectedCarData.maxAcKw} kW</span>
+                          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: `${ORANGE}15`, color: ORANGE, border: `1px solid ${ORANGE}25` }}>{t("calc_dc_max")} {selectedCarData.maxDcKw} kW</span>
                         </div>
                       )}
                     </div>
@@ -644,7 +651,7 @@ export default function Calculator() {
                             color: chargeMode === mode ? "#fff" : textMuted,
                           }}
                         >
-                          {mode === "ac" ? "AC Şarj" : "DC Hızlı Şarj"}
+                          {mode === "ac" ? t("calc_ac_charge") : t("calc_dc_fast")}
                         </button>
                       ))}
                     </div>
@@ -653,31 +660,31 @@ export default function Calculator() {
                     {selectedCarData ? (
                       <div className="mb-3">
                         <div className="flex justify-between items-center mb-1.5">
-                          <span className="text-sm font-medium" style={{ color: textMuted }}>Batarya Kapasitesi</span>
+                          <span className="text-sm font-medium" style={{ color: textMuted }}>{t("calc_battery_cap")}</span>
                         </div>
                         <div className="rounded-xl px-3 py-2.5 flex items-center justify-between"
                           style={{ background: d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.04)", border: `1px solid ${accentColor}30` }}>
                           <span className="text-xl font-black" style={{ color: accentColor }}>{selectedCarData.battery} kWh</span>
-                          <span className="text-xs font-medium" style={{ color: textMuted }}>🔒 araç verisi</span>
+                          <span className="text-xs font-medium" style={{ color: textMuted }}>🔒 {t("calc_vehicle_data")}</span>
                         </div>
                       </div>
                     ) : (
-                      <Slider label="Batarya Kapasitesi" value={batteryCapacity} min={20} max={150} unit=" kWh"
+                      <Slider label={t("calc_battery_cap")} value={batteryCapacity} min={20} max={150} unit=" kWh"
                         accent={accentColor} textMuted={textMuted} textPrimary={textPrimary} onChange={setBatteryCapacity} />
                     )}
 
-                    <Slider label="Mevcut Doluluk" value={currentSoc} min={0} max={99} unit="%"
+                    <Slider label={t("calc_current_soc")} value={currentSoc} min={0} max={99} unit="%"
                       accent={accentColor} textMuted={textMuted} textPrimary={textPrimary} onChange={handleCurrentSoc} />
-                    <Slider label="Hedef Doluluk" value={targetSoc} min={1} max={100} unit="%"
+                    <Slider label={t("calc_target_soc")} value={targetSoc} min={1} max={100} unit="%"
                       accent={accentColor} textMuted={textMuted} textPrimary={textPrimary} onChange={handleTargetSoc} />
 
                     {/* Power selector */}
                     <AnimatePresence mode="wait">
                       <motion.div key={chargeMode} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.15 }}>
                         <p className="text-sm font-medium mb-2" style={{ color: textMuted }}>
-                          {chargeMode === "ac" ? "AC Şarj Gücü" : "DC İstasyon Gücü"}
+                          {chargeMode === "ac" ? t("calc_ac_power") : t("calc_dc_power")}
                           {selectedCarData && (
-                            <span style={{ color: accentColor }}> · Araç maks: {chargeMode === "ac" ? selectedCarData.maxAcKw : selectedCarData.maxDcKw} kW</span>
+                            <span style={{ color: accentColor }}> · {t("calc_vehicle_max")} {chargeMode === "ac" ? selectedCarData.maxAcKw : selectedCarData.maxDcKw} kW</span>
                           )}
                         </p>
                         <div className={`grid gap-1 ${chargeMode === "ac" ? "grid-cols-5" : "grid-cols-3"}`}>
@@ -707,7 +714,7 @@ export default function Calculator() {
                       </motion.div>
                     </AnimatePresence>
 
-                    <CalcBanner d={d} accent={accentColor} tab="charge" border={border} textMuted={textMuted} logoSrc={calcLogoSrc} />
+                    <CalcBanner d={d} accent={accentColor} tab="charge" border={border} textMuted={textMuted} logoSrc={calcLogoSrc} t={t} chargeTimeLabel={calc?.tabCharge ?? "Şarj Süresi"} />
 
                   </div>
                 </motion.div>
@@ -721,20 +728,20 @@ export default function Calculator() {
                   style={{ background: surface, border: `1px solid ${border}`, boxShadow: d ? "none" : "0 4px 32px rgba(0,0,0,0.08)" }}
                 >
                   <div className="p-4 sm:p-5">
-                    <p className="text-sm font-bold uppercase tracking-wider mb-4" style={{ color: textMuted }}>Kullanım Bilgileri</p>
-                    <Slider label="Yıllık Sürüş Mesafesi" value={annualKm} min={5000} max={80000} step={1000} unit=" km"
+                    <p className="text-sm font-bold uppercase tracking-wider mb-4" style={{ color: textMuted }}>{t("calc_usage_info")}</p>
+                    <Slider label={t("calc_annual_km")} value={annualKm} min={5000} max={80000} step={1000} unit=" km"
                       accent={GREEN} textMuted={textMuted} textPrimary={textPrimary} onChange={setAnnualKm}
                       formatValue={(v) => `${v.toLocaleString("tr-TR")} km`} />
-                    <Slider label="EV Tüketimi" value={evConsumption} min={12} max={30} step={0.5} unit=" kWh/100km"
+                    <Slider label={t("calc_ev_consumption")} value={evConsumption} min={12} max={30} step={0.5} unit=" kWh/100km"
                       accent={GREEN} textMuted={textMuted} textPrimary={textPrimary} onChange={setEvConsumption} />
-                    <Slider label="Elektrik Fiyatı" value={electricityPrice} min={1} max={10} step={0.1} unit=" ₺/kWh"
+                    <Slider label={t("calc_elec_price")} value={electricityPrice} min={1} max={10} step={0.1} unit=" ₺/kWh"
                       accent={GREEN} textMuted={textMuted} textPrimary={textPrimary} onChange={setElectricityPrice} />
-                    <Slider label="Araç Yakıt Tüketimi" value={fuelConsumption} min={4} max={20} step={0.5} unit=" L/100km"
+                    <Slider label={t("calc_fuel_consumption")} value={fuelConsumption} min={4} max={20} step={0.5} unit=" L/100km"
                       accent={GREEN} textMuted={textMuted} textPrimary={textPrimary} onChange={setFuelConsumption} />
-                    <Slider label="Akaryakıt Fiyatı" value={fuelPrice} min={20} max={70} step={0.5} unit=" ₺/L"
+                    <Slider label={t("calc_fuel_price")} value={fuelPrice} min={20} max={70} step={0.5} unit=" ₺/L"
                       accent={GREEN} textMuted={textMuted} textPrimary={textPrimary} onChange={setFuelPrice} />
 
-                    <CalcBanner d={d} accent={GREEN} tab="savings" border={border} textMuted={textMuted} logoSrc={calcLogoSrc} />
+                    <CalcBanner d={d} accent={GREEN} tab="savings" border={border} textMuted={textMuted} logoSrc={calcLogoSrc} t={t} chargeTimeLabel={calc?.tabCharge ?? "Şarj Süresi"} />
                   </div>
                 </motion.div>
               )}
@@ -766,7 +773,7 @@ export default function Calculator() {
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: accentColor }} />
                       <span className="text-sm font-bold uppercase tracking-widest" style={{ color: accentColor }}>
-                        {chargeMode === "ac" ? "AC Şarj" : "DC Hızlı Şarj"} · {chargeCalc.effectivePow} kW
+                        {chargeMode === "ac" ? t("calc_ac_charge") : t("calc_dc_fast")} · {chargeCalc.effectivePow} kW
                       </span>
                     </div>
                     <span className="text-sm px-2.5 py-1 rounded-full font-semibold"
@@ -826,14 +833,14 @@ export default function Calculator() {
                           fill={d ? "#ffffff" : "#111111"}
                           key={`${chargeCalc.hours}-${chargeCalc.minutes}`}
                         >
-                          {chargeCalc.hours > 0 ? `${chargeCalc.hours}s` : ""}
-                          {chargeCalc.minutes > 0 ? `${chargeCalc.minutes}d` : (chargeCalc.hours === 0 ? "—" : "")}
+                          {chargeCalc.hours > 0 ? `${chargeCalc.hours}${t("hour_short")}` : ""}
+                          {chargeCalc.minutes > 0 ? `${chargeCalc.minutes}${t("min_short")}` : (chargeCalc.hours === 0 ? "—" : "")}
                         </motion.text>
                         <text x={GCX} y={GCY + 18}
                           textAnchor="middle" fontSize="9" fontFamily="inherit"
                           fill={d ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.40)"}
                           fontWeight="600" letterSpacing="2">
-                          TAHMİNİ SÜRE
+                          {t("calc_estimated_time")}
                         </text>
 
                         {/* SOC labels */}
@@ -858,9 +865,9 @@ export default function Calculator() {
                   {/* Stats row */}
                   <div className="grid grid-cols-3 gap-2 px-4 pb-3">
                     {[
-                      { label: "Enerji", value: `${chargeCalc.energyNeeded.toFixed(1)} kWh`, color: accentColor },
-                      { label: "Eklenecek Menzil", value: `${chargeCalc.addedKm.toLocaleString("tr-TR")} km`, color: d ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.70)" },
-                      { label: "Verimlilik", value: chargeMode === "ac" ? "%90" : "%92", color: GREEN },
+                      { label: t("calc_energy"), value: `${chargeCalc.energyNeeded.toFixed(1)} kWh`, color: accentColor },
+                      { label: t("calc_range_added"), value: `${chargeCalc.addedKm.toLocaleString("tr-TR")} km`, color: d ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.70)" },
+                      { label: t("calc_efficiency"), value: chargeMode === "ac" ? "%90" : "%92", color: GREEN },
                     ].map((stat, i) => (
                       <div key={i} className="rounded-xl py-2 px-1.5 text-center"
                         style={{ background: d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)", border: d ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(0,0,0,0.07)" }}>
@@ -874,7 +881,7 @@ export default function Calculator() {
                   <div className="mx-4 mb-3 rounded-xl px-3.5 py-2.5 flex items-center justify-between"
                     style={{ background: `${GREEN}12`, border: `1px solid ${GREEN}28` }}>
                     <div>
-                      <p className="text-sm font-bold uppercase tracking-wider" style={{ color: GREEN }}>Elektrik Maliyeti</p>
+                      <p className="text-sm font-bold uppercase tracking-wider" style={{ color: GREEN }}>{t("calc_elec_cost")}</p>
                       <p className="text-xs mt-0.5" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.38)" }}>
                         {chargeCalc.energyNeeded.toFixed(1)} kWh × {chargeElecPrice.toFixed(2)} ₺/kWh
                       </p>
@@ -885,7 +892,7 @@ export default function Calculator() {
                   {/* Tariff selector */}
                   <div className="mx-4 mb-4">
                     <p className="text-xs font-bold uppercase tracking-wider mb-1.5" style={{ color: d ? "rgba(255,255,255,0.28)" : "rgba(0,0,0,0.30)" }}>
-                      Elektrik Tarifesi
+                      {t("calc_elec_tariff")}
                     </p>
                     <div className="grid grid-cols-2 gap-1 mb-2.5">
                       {TARIFF_PRESETS.map((t) => {
@@ -915,10 +922,10 @@ export default function Calculator() {
 
                   {/* Warnings */}
                   {selectedCarData && chargeMode === "dc" && dcPower > selectedCarData.maxDcKw && (
-                    <p className="text-xs pb-4 text-center" style={{ color: ORANGE }}>⚡ {selectedCarData.maxDcKw} kW&apos;e kısıtlandı</p>
+                    <p className="text-xs pb-4 text-center" style={{ color: ORANGE }}>⚡ {selectedCarData.maxDcKw} {t("calc_constrained_dc")}</p>
                   )}
                   {selectedCarData && chargeMode === "ac" && chargerPower > selectedCarData.maxAcKw && (
-                    <p className="text-xs pb-4 text-center" style={{ color: BLUE }}>Araç {selectedCarData.maxAcKw} kW&apos;e kısıtlandı</p>
+                    <p className="text-xs pb-4 text-center" style={{ color: BLUE }}>{selectedCarData.maxAcKw} {t("calc_constrained_ac")}</p>
                   )}
                 </motion.div>
               ) : (
@@ -943,7 +950,7 @@ export default function Calculator() {
                       <RiLeafLine style={{ fontSize: 28, color: GREEN }} />
                     </div>
                     <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.40)" }}>
-                      Yıllık Yakıt Tasarrufu
+                      {t("calc_annual_fuel_save")}
                     </p>
                     <motion.p
                       key={fmt(savingsCalc.annualSavings)}
@@ -956,14 +963,14 @@ export default function Calculator() {
                         ? `${fmt(savingsCalc.annualSavings)} ₺`
                         : `−${fmt(Math.abs(savingsCalc.annualSavings))} ₺`}
                     </motion.p>
-                    <p className="text-xs mt-1" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.38)" }}>yakıt vs. elektrik farkı</p>
+                    <p className="text-xs mt-1" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.38)" }}>{t("calc_fuel_vs_elec")}</p>
                   </div>
 
                   {/* Comparison bars */}
                   <div className="px-6 pb-5 space-y-3">
                     {[
-                      { label: "EV Maliyeti", value: savingsCalc.annualEvCost, barW: evBarW, color: BLUE },
-                      { label: "Yakıt Maliyeti", value: savingsCalc.annualFuelCost, barW: fuelBarW, color: "#F59E0B" },
+                      { label: t("calc_ev_cost"), value: savingsCalc.annualEvCost, barW: evBarW, color: BLUE },
+                      { label: t("calc_fuel_cost"), value: savingsCalc.annualFuelCost, barW: fuelBarW, color: "#F59E0B" },
                     ].map((item, i) => (
                       <div key={i}>
                         <div className="flex justify-between items-center mb-1.5">
@@ -986,8 +993,8 @@ export default function Calculator() {
                   {/* Bottom stats */}
                   <div className="grid grid-cols-2 gap-3 px-5 pb-5">
                     {[
-                      { label: "Aylık Tasarruf", value: `${fmt(savingsCalc.monthlySavings)} ₺`, color: GREEN },
-                      { label: "CO₂ Tasarrufu", value: `${(savingsCalc.co2SavedKg / 1000).toFixed(2)} ton/yıl`, color: GREEN },
+                      { label: t("calc_monthly_save"), value: `${fmt(savingsCalc.monthlySavings)} ₺`, color: GREEN },
+                      { label: t("calc_co2_save"), value: `${(savingsCalc.co2SavedKg / 1000).toFixed(2)} ${t("calc_per_year_unit")}`, color: GREEN },
                     ].map((item, i) => (
                       <div key={i} className="rounded-xl py-3 px-3 text-center"
                         style={{ background: d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)", border: d ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(0,0,0,0.07)" }}>
@@ -1001,11 +1008,11 @@ export default function Calculator() {
                   <div className="mx-5 mb-5 rounded-xl grid grid-cols-2 overflow-hidden"
                     style={{ border: `1px solid ${d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}` }}>
                     <div className="px-4 py-3.5 text-center" style={{ borderRight: `1px solid ${d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}`, background: d ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.7)" }}>
-                      <p className="text-xs uppercase tracking-wide mb-1" style={{ color: d ? "rgba(255,255,255,0.38)" : "rgba(0,0,0,0.40)" }}>EV / yıl</p>
+                      <p className="text-xs uppercase tracking-wide mb-1" style={{ color: d ? "rgba(255,255,255,0.38)" : "rgba(0,0,0,0.40)" }}>{t("calc_ev_per_year")}</p>
                       <p className="text-base font-black" style={{ color: BLUE }}>{fmt(savingsCalc.annualEvCost)} ₺</p>
                     </div>
                     <div className="px-4 py-3.5 text-center" style={{ background: d ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.7)" }}>
-                      <p className="text-xs uppercase tracking-wide mb-1" style={{ color: d ? "rgba(255,255,255,0.38)" : "rgba(0,0,0,0.40)" }}>Yakıt / yıl</p>
+                      <p className="text-xs uppercase tracking-wide mb-1" style={{ color: d ? "rgba(255,255,255,0.38)" : "rgba(0,0,0,0.40)" }}>{t("calc_fuel_per_year")}</p>
                       <p className="text-base font-black" style={{ color: "#F59E0B" }}>{fmt(savingsCalc.annualFuelCost)} ₺</p>
                     </div>
                   </div>
@@ -1018,7 +1025,7 @@ export default function Calculator() {
 
         <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.5, delay: 0.5 }}
           className="text-center text-xs mt-6" style={{ color: textMuted }}>
-          Hesaplamalar tahmini değerlerdir. Gerçek sonuçlar araç modeli, kullanım alışkanlıkları ve güncel tarife fiyatlarına göre farklılık gösterebilir.
+          {t("calc_disclaimer")}
         </motion.p>
       </div>
     </section>

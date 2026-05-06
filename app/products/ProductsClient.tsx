@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import { useContent, type CategoryMeta } from "../context/ContentContext";
+import { useLanguage } from "../context/LanguageContext";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
@@ -189,13 +190,14 @@ export default function AllProductsPage() {
   const d = theme === "dark";
   const router = useRouter();
   const { categories: catMeta, logos, products: productsContent } = useContent();
+  const { lang } = useLanguage();
   const [searchOpen, setSearchOpen] = useState(false);
   const [categories, setCategories] = useState<CategoryData[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState<string>("all");
 
   useEffect(() => {
-    fetch("/api/products")
+    fetch(`/api/products?lang=${lang}`)
       .then((r) => r.json())
       .then((data: CategoryData[]) => {
         const merged = data.map((cat) => ({
@@ -206,7 +208,7 @@ export default function AllProductsPage() {
       })
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, [catMeta]);
+  }, [catMeta, lang]);
 
   const bg           = d ? "linear-gradient(180deg, #0c0c0e 0%, #0f0f11 100%)" : "#f8f8fb";
   const surface      = d ? "rgba(255,255,255,0.04)" : "#ffffff";

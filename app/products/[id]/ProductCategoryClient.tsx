@@ -4,6 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { useContent } from "../../context/ContentContext";
+import { useLanguage } from "../../context/LanguageContext";
 import Navbar from "../../components/Navbar";
 import ContactBar from "../../components/ContactBar";
 import { useState, useEffect } from "react";
@@ -154,6 +155,7 @@ export default function ProductCategoryPage() {
   const router = useRouter();
   const { theme } = useTheme();
   const { categories } = useContent();
+  const { lang } = useLanguage();
   const d = theme === "dark";
   const [searchOpen, setSearchOpen]     = useState(false);
   const [category, setCategory]         = useState<CategoryData | null>(null);
@@ -164,12 +166,12 @@ export default function ProductCategoryPage() {
 
   useEffect(() => {
     if (!id) return;
-    fetch("/api/products")
+    fetch(`/api/products?lang=${lang}`)
       .then(r => r.json())
       .then((data: CategoryData[]) => setCategory(data.find(c => c.id === id) ?? null))
       .catch(() => setCategory(null))
       .finally(() => setLoading(false));
-  }, [id]);
+  }, [id, lang]);
 
   const bg            = d ? "#0c0c0e" : "#f8f8fb";
   const surface       = d ? "rgba(255,255,255,0.04)" : "#ffffff";
