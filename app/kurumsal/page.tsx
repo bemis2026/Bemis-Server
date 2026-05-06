@@ -15,6 +15,21 @@ import {
   RiToolsLine, RiCodeLine, RiStackLine, RiCheckboxCircleLine, RiImageAddLine,
 } from "react-icons/ri";
 
+// Accept any of the common YouTube URL shapes and return the bare video ID.
+function extractYouTubeId(url: string): string | null {
+  if (!url) return null;
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/v\/|youtube\.com\/shorts\/)([a-zA-Z0-9_-]{11})/,
+  ];
+  for (const re of patterns) {
+    const m = url.match(re);
+    if (m?.[1]) return m[1];
+  }
+  // If the user already pasted a bare 11-character ID.
+  if (/^[a-zA-Z0-9_-]{11}$/.test(url.trim())) return url.trim();
+  return null;
+}
+
 const HIGHLIGHT_META = [
   { icon: RiAwardLine,       accent: "#e0e0e8" },
   { icon: RiShieldCheckLine, accent: "#c8c8d2" },
@@ -47,12 +62,12 @@ const PRODUCTION_STEPS = [
   { icon: RiCheckboxCircleLine, label: "Test & Kalite"     },
 ];
 
-const timeline = [
-  { year: "1994", title: "Kuruluş", desc: "Bursa'da Bemis Teknik Elektrik A.Ş. kuruldu." },
-  { year: "2000", title: "İhracat", desc: "Ürünler ilk kez uluslararası pazarlara çıktı." },
-  { year: "2010", title: "Büyüme",  desc: "Bursa OSB'de 11.000 m² modern tesis açıldı."  },
+const FALLBACK_TIMELINE = [
+  { year: "1994", title: "Kuruluş",     desc: "Bursa'da Bemis Teknik Elektrik A.Ş. kuruldu." },
+  { year: "2000", title: "İhracat",     desc: "Ürünler ilk kez uluslararası pazarlara çıktı." },
+  { year: "2010", title: "Büyüme",      desc: "Bursa OSB'de 11.000 m² modern tesis açıldı." },
   { year: "2020", title: "EV Dönüşümü", desc: "Bemis E-V Charge markasıyla EV şarj pazarına girildi." },
-  { year: "2024", title: "Bugün",   desc: "60+ ülkeye ihracat, 6000+ ürün çeşidi."        },
+  { year: "2024", title: "Bugün",       desc: "60+ ülkeye ihracat, 6000+ ürün çeşidi." },
 ];
 
 export default function KurumsalPage() {
@@ -73,6 +88,9 @@ export default function KurumsalPage() {
 
   const highlights = (dna.highlights ?? []).map((h, i) => ({ ...HIGHLIGHT_META[i % HIGHLIGHT_META.length], ...h }));
   const features   = (dna.features   ?? []).map((f, i) => ({ ...FEATURE_META[i % FEATURE_META.length],   ...f }));
+  const timeline   = (dna.timeline && dna.timeline.length > 0) ? dna.timeline : FALLBACK_TIMELINE;
+  const aboutVideoId = extractYouTubeId(dna.aboutVideo ?? "");
+  const GREEN      = "#10B981";
 
   return (
     <div style={{ background: bg, minHeight: "100vh" }}>
@@ -205,6 +223,37 @@ export default function KurumsalPage() {
           </div>
         </div>
 
+        {/* ── Featured video ── */}
+        {aboutVideoId && (
+          <div className="pt-12 pb-2 px-5 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="relative rounded-2xl overflow-hidden"
+                style={{
+                  border: `1px solid ${border}`,
+                  background: d ? "#0a0a0c" : "#ffffff",
+                  boxShadow: d
+                    ? "0 16px 48px rgba(0,0,0,0.45)"
+                    : "0 12px 36px rgba(0,0,0,0.10)",
+                }}
+              >
+                <div style={{ position: "relative", paddingTop: "56.25%" }}>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${aboutVideoId}?rel=0&modestbranding=1`}
+                    title="Bemis E-V Charge"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        )}
+
         {/* ── Timeline + Production ── */}
         <div className="py-14 px-5 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
@@ -248,7 +297,7 @@ export default function KurumsalPage() {
                   <h2 className="text-xl font-bold" style={{ color: textPrimary }}>Üretim Süreci</h2>
                   <span
                     className="text-[9px] font-bold px-2.5 py-1 rounded-full"
-                    style={{ background: "rgba(220,38,38,0.10)", color: "#EF4444", border: "1px solid rgba(220,38,38,0.22)" }}
+                    style={{ background: `${GREEN}15`, color: GREEN, border: `1px solid ${GREEN}30` }}
                   >
                     🇹🇷 Yerli Üretim
                   </span>
@@ -256,7 +305,7 @@ export default function KurumsalPage() {
 
                 {/* 3-column card grid */}
                 <div className="grid grid-cols-3 gap-2.5">
-                  {[...PRODUCTION_STEPS, { icon: null as any, label: "Son Ürün" }].map((step, i) => {
+                  {[...PRODUCTION_STEPS, { icon: null as null, label: "Son Ürün" }].map((step, i) => {
                     const imgSrc = dna.productionStepImages?.[i];
                     const isFinal = i === PRODUCTION_STEPS.length;
                     const StepIcon = step.icon;
@@ -270,10 +319,10 @@ export default function KurumsalPage() {
                         className="rounded-xl overflow-hidden"
                         style={{
                           border: isFinal
-                            ? "1px solid rgba(220,38,38,0.32)"
+                            ? `1px solid ${GREEN}50`
                             : `1px solid ${border}`,
                           background: isFinal
-                            ? "rgba(220,38,38,0.05)"
+                            ? `${GREEN}08`
                             : surface,
                         }}
                       >
@@ -286,10 +335,10 @@ export default function KurumsalPage() {
                             <Image src={imgSrc} alt={step.label} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
                           ) : (
                             <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5">
-                              <RiImageAddLine style={{ fontSize: 22, color: isFinal ? "rgba(239,68,68,0.28)" : (d ? `${BLUE}44` : `${BLUE}35`) }} />
+                              <RiImageAddLine style={{ fontSize: 22, color: isFinal ? `${GREEN}55` : (d ? `${BLUE}44` : `${BLUE}35`) }} />
                               <span
                                 className="text-[8px] font-medium text-center px-1 leading-tight"
-                                style={{ color: isFinal ? "rgba(239,68,68,0.35)" : textFaint }}
+                                style={{ color: isFinal ? `${GREEN}80` : textFaint }}
                               >
                                 Görsel ekle
                               </span>
@@ -300,23 +349,25 @@ export default function KurumsalPage() {
                           <div
                             className="absolute top-1.5 left-1.5 text-[9px] font-bold px-1.5 py-0.5 rounded-md"
                             style={{
-                              background: isFinal ? "rgba(220,38,38,0.82)" : (d ? "rgba(0,0,0,0.70)" : "rgba(255,255,255,0.88)"),
+                              background: isFinal ? GREEN : (d ? "rgba(0,0,0,0.70)" : "rgba(255,255,255,0.88)"),
                               color: isFinal ? "#fff" : (d ? "#93C5FD" : BLUE),
                               backdropFilter: "blur(6px)",
                             }}
                           >
-                            {isFinal ? "🇹🇷" : `0${i + 1}`}
+                            {isFinal ? "✓" : `0${i + 1}`}
                           </div>
                         </div>
 
                         {/* Label row */}
                         <div className="flex items-center gap-1.5 px-2.5 py-2">
-                          {!isFinal && StepIcon && (
+                          {isFinal ? (
+                            <RiCheckboxCircleLine style={{ fontSize: 11, color: GREEN, flexShrink: 0 }} />
+                          ) : StepIcon ? (
                             <StepIcon style={{ fontSize: 11, color: d ? "#93C5FD" : BLUE, flexShrink: 0 }} />
-                          )}
+                          ) : null}
                           <span
                             className="text-[10px] font-semibold truncate"
-                            style={{ color: isFinal ? "#EF4444" : textPrimary }}
+                            style={{ color: isFinal ? GREEN : textPrimary }}
                           >
                             {step.label}
                           </span>

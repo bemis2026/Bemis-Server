@@ -17,6 +17,7 @@ export type FeaturedItem = {
 };
 
 export type DnaItem = { title: string; desc: string };
+export type TimelineItem = { year: string; title: string; desc: string };
 export type TechFeature = { title: string; desc: string; accent: string };
 export type SmartChargerFeature = { title: string; desc: string };
 export type ShowcaseSpec = { label: string; value: string };
@@ -74,6 +75,8 @@ export type SiteContent = {
     factoryImage?: string;
     factoryVideo?: string;
     productionStepImages?: string[];
+    timeline?: TimelineItem[];
+    aboutVideo?: string;
     ctaLabel: string;
   };
   products: { heading: string; subheading: string; sectionLabel: string; allProductsLabel: string; viewLabel: string; sliderEnabled: boolean; allProductsDescription: string };
@@ -231,6 +234,14 @@ const defaultContent: SiteContent = {
       { title: "Evrensel Uyumluluk",      desc: "Type 2, CCS, CHAdeMO — tüm EV markalarıyla uyumlu, IEC 61851 & IEC 62196 sertifikalı."                            },
       { title: "Sürdürülebilir Tasarım",  desc: "-40°C / +55°C çalışma aralığı, 100.000+ saat ömür. Uzun ömürlü, az atık."                                        },
     ],
+    timeline: [
+      { year: "1994", title: "Kuruluş",       desc: "Bursa'da Bemis Teknik Elektrik A.Ş. kuruldu." },
+      { year: "2000", title: "İhracat",       desc: "Ürünler ilk kez uluslararası pazarlara çıktı." },
+      { year: "2010", title: "Büyüme",        desc: "Bursa OSB'de 11.000 m² modern tesis açıldı." },
+      { year: "2020", title: "EV Dönüşümü",   desc: "Bemis E-V Charge markasıyla EV şarj pazarına girildi." },
+      { year: "2024", title: "Bugün",         desc: "60+ ülkeye ihracat, 6000+ ürün çeşidi." },
+    ],
+    aboutVideo: "",
   },
   products: {
     heading: "EV Şarj Çözümleri",

@@ -78,13 +78,20 @@ export async function GET(req: NextRequest) {
       heroBg: tr.hero?.heroBg,
       layout: tr.hero?.layout,
     },
-    dna: {
-      ...tr.dna,
-      ...(en.dna ?? {}),
-      factoryImage: tr.dna?.factoryImage,
-      factoryVideo: tr.dna?.factoryVideo,
-      productionStepImages: tr.dna?.productionStepImages,
-    },
+    dna: (() => {
+      const trItems = tr.dna?.timeline ?? [];
+      const enItems = en.dna?.timeline ?? [];
+      const timeline = trItems.map((it: Record<string, unknown>, i: number) => ({ ...it, ...(enItems[i] ?? {}) }));
+      return {
+        ...tr.dna,
+        ...(en.dna ?? {}),
+        factoryImage: tr.dna?.factoryImage,
+        factoryVideo: tr.dna?.factoryVideo,
+        productionStepImages: tr.dna?.productionStepImages,
+        aboutVideo: tr.dna?.aboutVideo,
+        timeline: timeline.length > 0 ? timeline : undefined,
+      };
+    })(),
     technology: en.technology ? { ...tr.technology, ...en.technology } : tr.technology,
     products: {
       ...tr.products,

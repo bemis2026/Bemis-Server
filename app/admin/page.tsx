@@ -116,6 +116,8 @@ type ContentData = {
     factoryImage?: string;
     factoryVideo?: string;
     productionStepImages?: string[];
+    timeline?: { year: string; title: string; desc: string }[];
+    aboutVideo?: string;
   };
   products: { heading: string; subheading: string; sectionLabel?: string; allProductsLabel?: string; viewLabel?: string; sliderEnabled?: boolean; allProductsDescription?: string };
   dealer: {
@@ -2721,6 +2723,113 @@ export default function AdminPage() {
                                 <Field label={`Özellik ${i+1} Açıklama`} value={f.desc} onChange={(v) => updateDnaFeature(i, "desc", v)} multiline />
                               </div>
                             ))}
+
+                            {/* ── Tarihçe (Timeline) ── */}
+                            <div className="pt-4 border-t border-white/6 space-y-3">
+                              <div className="flex items-center justify-between">
+                                <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Tarihçe</p>
+                                <button
+                                  onClick={() => {
+                                    setContent((prev) => {
+                                      if (!prev) return prev;
+                                      const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                                      const arr = [...(next.dna.timeline ?? [])];
+                                      arr.push({ year: "", title: "", desc: "" });
+                                      next.dna.timeline = arr;
+                                      return next;
+                                    });
+                                  }}
+                                  className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-medium text-white/50 border border-white/10 hover:border-white/20 hover:text-white/80 transition-colors"
+                                >
+                                  + Ekle
+                                </button>
+                              </div>
+                              {(content.dna.timeline ?? []).map((it, i) => (
+                                <div key={i} className="rounded-xl border border-white/7 p-3 space-y-2" style={{ background: "rgba(255,255,255,0.02)" }}>
+                                  <div className="flex items-center justify-between mb-1">
+                                    <span className="text-[10px] font-bold text-white/30">#{i + 1}</span>
+                                    <button
+                                      onClick={() => {
+                                        setContent((prev) => {
+                                          if (!prev) return prev;
+                                          const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                                          next.dna.timeline = (next.dna.timeline ?? []).filter((_, k) => k !== i);
+                                          return next;
+                                        });
+                                      }}
+                                      className="text-[10px] text-red-400/50 hover:text-red-400 transition-colors"
+                                    >
+                                      Sil
+                                    </button>
+                                  </div>
+                                  <div className="grid grid-cols-[80px_1fr] gap-2">
+                                    <Field
+                                      label="Yıl"
+                                      value={it.year}
+                                      onChange={(v) => {
+                                        setContent((prev) => {
+                                          if (!prev) return prev;
+                                          const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                                          const arr = [...(next.dna.timeline ?? [])];
+                                          arr[i] = { ...arr[i], year: v };
+                                          next.dna.timeline = arr;
+                                          return next;
+                                        });
+                                      }}
+                                    />
+                                    <Field
+                                      label="Başlık"
+                                      value={it.title}
+                                      onChange={(v) => {
+                                        setContent((prev) => {
+                                          if (!prev) return prev;
+                                          const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                                          const arr = [...(next.dna.timeline ?? [])];
+                                          arr[i] = { ...arr[i], title: v };
+                                          next.dna.timeline = arr;
+                                          return next;
+                                        });
+                                      }}
+                                    />
+                                  </div>
+                                  <Field
+                                    label="Açıklama"
+                                    value={it.desc}
+                                    onChange={(v) => {
+                                      setContent((prev) => {
+                                        if (!prev) return prev;
+                                        const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                                        const arr = [...(next.dna.timeline ?? [])];
+                                        arr[i] = { ...arr[i], desc: v };
+                                        next.dna.timeline = arr;
+                                        return next;
+                                      });
+                                    }}
+                                    multiline
+                                  />
+                                </div>
+                              ))}
+                              {(content.dna.timeline ?? []).length === 0 && (
+                                <p className="text-[10px] text-white/30 text-center py-2">
+                                  Henüz tarihçe maddesi yok. Boş bırakırsanız varsayılan 5 madde gösterilir.
+                                </p>
+                              )}
+                            </div>
+
+                            {/* ── Hakkımızda Videosu (YouTube) ── */}
+                            <div className="pt-4 border-t border-white/6 space-y-2">
+                              <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Hakkımızda Videosu</p>
+                              <p className="text-[10px] text-white/35">
+                                YouTube linkini yapıştırın — tarihçe ve üretim sürecinin üstünde geniş bir video kartı olarak gösterilir.
+                                Desteklenen formatlar: <span className="text-white/55">youtu.be/XXX</span>, <span className="text-white/55">youtube.com/watch?v=XXX</span>, <span className="text-white/55">youtube.com/embed/XXX</span> veya 11 karakterli ID.
+                              </p>
+                              <Field
+                                label="YouTube URL"
+                                value={content.dna.aboutVideo ?? ""}
+                                onChange={(v) => updateContent(["dna", "aboutVideo"], v)}
+                                placeholder="https://www.youtube.com/watch?v=..."
+                              />
+                            </div>
                   </div>
                 </div>
               )}
