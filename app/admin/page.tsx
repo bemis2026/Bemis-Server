@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useUnsavedChanges } from "../hooks/useUnsavedChanges";
 import { uploadImage } from "../../lib/clientImageUpload";
+import { groupVariantsByName, findVariantGroup } from "../../lib/productGroups";
 
 // ── Soft validators — return error message or null ──
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -1976,43 +1977,78 @@ export default function AdminPage() {
                             })}
                           </div>
 
-                          {/* Product list — cards grid */}
+                          {/* Product list — cards grid (variants of the same
+                              name collapse into one card; the version
+                              switcher lives inside the editor area). */}
                           {currentCat && (
                             <>
                               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                                {currentCat.products.map((p) => {
-                                  const isActive = selProd === p.id;
+                                {groupVariantsByName(currentCat.products).map((group) => {
+                                  const p = group.primary;
+                                  const variantCount = group.variants.length;
+                                  // Card highlights when *any* variant in the
+                                  // family is the active selection.
+                                  const isActive = group.variants.some((v) => v.id === selProd);
                                   return (
-                                    <div key={p.id} className="relative group/ptab">
-                                      <button onClick={() => setSelProd(p.id)} className="w-full text-left"
+                                    <div key={group.key} className="relative group/ptab">
+                                      <button
+                                        onClick={() => {
+                                          // Clicking a multi-variant card jumps
+                                          // to the family's primary by default;
+                                          // the version switcher then lets the
+                                          // operator pick the one they want.
+                                          setSelProd(isActive ? selProd : p.id);
+                                        }}
+                                        className="w-full text-left"
                                         style={{
                                           background: isActive ? "rgba(59,130,246,0.12)" : "rgba(255,255,255,0.04)",
                                           border: `1px solid ${isActive ? "rgba(59,130,246,0.35)" : "rgba(255,255,255,0.08)"}`,
                                           borderRadius: 14, padding: "10px 12px",
                                         }}
                                       >
-                                        {p.badge && (
+                                        {variantCount > 1 ? (
+                                          <span className="inline-block text-[9px] font-bold px-1.5 py-0.5 rounded-full mb-1.5"
+                                            style={{ background: "rgba(59,130,246,0.20)", color: "#93C5FD" }}>
+                                            {variantCount} VERSİYON
+                                          </span>
+                                        ) : p.badge && (
                                           <span className="inline-block text-[9px] font-bold px-1.5 py-0.5 rounded-full mb-1.5"
                                             style={{ background: "rgba(59,130,246,0.20)", color: "#93C5FD" }}>
                                             {p.badge}
                                           </span>
                                         )}
                                         <p className="text-xs font-bold text-white leading-snug">{p.name}</p>
-                                        {p.subtitle && <p className="text-[10px] text-white/40 mt-0.5 leading-snug">{p.subtitle}</p>}
-                                        {p.code && <p className="text-[9px] font-mono text-white/22 mt-1">{p.code}</p>}
+                                        {variantCount > 1 ? (
+                                          <p className="text-[10px] text-white/40 mt-0.5 leading-snug">
+                                            {group.variants.map(v => v.subtitle).filter(Boolean).join(" · ") || `${variantCount} versiyon`}
+                                          </p>
+                                        ) : p.subtitle && (
+                                          <p className="text-[10px] text-white/40 mt-0.5 leading-snug">{p.subtitle}</p>
+                                        )}
+                                        {variantCount === 1 && p.code && (
+                                          <p className="text-[9px] font-mono text-white/22 mt-1">{p.code}</p>
+                                        )}
                                         {p.image && (
                                           <div className="mt-2 rounded-lg overflow-hidden" style={{ height: 48 }}>
                                             <img src={p.image} alt={p.name} className="w-full h-full object-cover" />
                                           </div>
                                         )}
                                       </button>
-                                      <button
-                                        onClick={() => removeProduct(p.id)}
-                                        className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full flex items-center justify-center text-white/20 hover:text-red-400 hover:bg-red-400/10 transition-all opacity-0 group-hover/ptab:opacity-100"
-                                        title="Ürünü sil"
-                                      >
-                                        <HiOutlineTrash size={10} />
-                                      </button>
+                                      {/* Delete button — for multi-variant cards
+                                          we deliberately suppress it: the
+                                          version switcher inside the editor
+                                          handles per-variant deletion (so the
+                                          operator can't accidentally drop the
+                                          whole family with one click). */}
+                                      {variantCount === 1 && (
+                                        <button
+                                          onClick={() => removeProduct(p.id)}
+                                          className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full flex items-center justify-center text-white/20 hover:text-red-400 hover:bg-red-400/10 transition-all opacity-0 group-hover/ptab:opacity-100"
+                                          title="Ürünü sil"
+                                        >
+                                          <HiOutlineTrash size={10} />
+                                        </button>
+                                      )}
                                     </div>
                                   );
                                 })}
@@ -2037,6 +2073,96 @@ export default function AdminPage() {
 
                                 {currentProd && (
                                   <div className="space-y-4">
+                                    {/* ── Variant switcher (only when this
+                                         product is part of a multi-variant
+                                         family) ── */}
+                                    {(() => {
+                                      const info = currentCat ? findVariantGroup(currentCat.products, currentProd.id) : null;
+                                      if (!info || info.group.variants.length < 2) return null;
+                                      const family = info.group;
+                                      return (
+                                        <div className="bg-white/3 border border-white/7 rounded-2xl p-3">
+                                          <div className="flex items-center justify-between mb-2 px-1">
+                                            <p className="text-[10px] font-semibold text-white/40 uppercase tracking-wider">
+                                              {family.variants.length} Versiyon · Düzenlemek için seç
+                                            </p>
+                                            <button
+                                              onClick={() => {
+                                                if (!currentCat) return;
+                                                const ts = Date.now();
+                                                const newId = `${currentCat.id}-${family.key.replace(/[^a-z0-9]+/gi, "-")}-v${ts}`;
+                                                const cloneFrom = currentProd;
+                                                const newProd: ProductEntry = {
+                                                  id: newId,
+                                                  name: cloneFrom.name,
+                                                  subtitle: "Yeni Versiyon",
+                                                  badge: null,
+                                                  description: "",
+                                                  specs: [{ group: "Genel", items: [{ label: "Özellik", value: "-" }] }],
+                                                };
+                                                setProducts((prev) => prev.map((cat) =>
+                                                  cat.id !== currentCat.id ? cat : { ...cat, products: [...cat.products, newProd] }
+                                                ));
+                                                setSelProd(newId);
+                                              }}
+                                              className="flex items-center gap-1 text-[10px] font-medium text-white/45 hover:text-white/80 transition-colors px-2 py-1 rounded-lg border border-white/10 hover:border-white/25"
+                                              title={`"${family.primary.name}" için yeni versiyon ekle`}
+                                            >
+                                              <HiOutlinePlus size={10} /> Yeni Versiyon
+                                            </button>
+                                          </div>
+                                          <div className="flex flex-wrap gap-1.5">
+                                            {family.variants.map((v) => {
+                                              const isActive = v.id === currentProd.id;
+                                              return (
+                                                <div key={v.id} className="relative group/vtab">
+                                                  <button
+                                                    onClick={() => setSelProd(v.id)}
+                                                    className="text-left px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-150"
+                                                    style={{
+                                                      background: isActive ? "rgba(59,130,246,0.20)" : "rgba(255,255,255,0.04)",
+                                                      border: `1px solid ${isActive ? "rgba(59,130,246,0.50)" : "rgba(255,255,255,0.08)"}`,
+                                                      color: isActive ? "#93C5FD" : "rgba(255,255,255,0.65)",
+                                                      paddingRight: 28,
+                                                    }}
+                                                  >
+                                                    <span className="block">{v.subtitle || v.code || "Standart"}</span>
+                                                    {v.code && v.subtitle && (
+                                                      <span
+                                                        className="block text-[9px] font-mono mt-0.5"
+                                                        style={{ color: isActive ? "rgba(147,197,253,0.65)" : "rgba(255,255,255,0.30)" }}
+                                                      >
+                                                        {v.code}
+                                                      </span>
+                                                    )}
+                                                  </button>
+                                                  <button
+                                                    onClick={(e) => {
+                                                      e.stopPropagation();
+                                                      if (!confirm(`"${v.subtitle || v.code || v.name}" versiyonunu silmek istediğinize emin misiniz?`)) return;
+                                                      // After deleting, jump to the
+                                                      // first remaining variant of
+                                                      // the family so the editor
+                                                      // doesn't go blank.
+                                                      const remaining = family.variants.filter((x) => x.id !== v.id);
+                                                      if (remaining.length > 0 && v.id === currentProd.id) {
+                                                        setSelProd(remaining[0].id);
+                                                      }
+                                                      removeProduct(v.id);
+                                                    }}
+                                                    className="absolute top-1.5 right-1.5 w-4 h-4 rounded-full flex items-center justify-center text-white/25 hover:text-red-400 hover:bg-red-400/10 transition-all opacity-0 group-hover/vtab:opacity-100"
+                                                    title="Bu versiyonu sil"
+                                                  >
+                                                    <HiOutlineTrash size={9} />
+                                                  </button>
+                                                </div>
+                                              );
+                                            })}
+                                          </div>
+                                        </div>
+                                      );
+                                    })()}
+
                                     {/* ── Product card preview ── */}
                                     <div className="bg-white/3 border border-white/7 rounded-2xl p-4">
                                       <p className="text-[10px] font-semibold text-white/30 uppercase tracking-wider mb-3">Ürün Kartı Önizleme</p>
