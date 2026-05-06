@@ -2538,6 +2538,1070 @@
             ]
           }
         ]
+      },
+      {
+        "id": "tek-cikisli-v2l-adaptor-hyundai",
+        "name": "Tek Çıkışlı V2L Adaptör",
+        "code": "BKT-2102-2001",
+        "subtitle": "Hyundai · Kia · Ssangyong",
+        "badge": null,
+        "description": "Aracınızın şarj soketini standart Type 2 prize çeviren tek çıkışlı V2L adaptörü. Kamp, açık alan ve acil enerji ihtiyaçlarında elektrikli aracınızdan tek bir cihazı doğrudan besler.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Adaptör Tipi",
+                "value": "V2L (Vehicle to Load)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "1 (Type 2)"
+              }
+            ]
+          },
+          {
+            "group": "Uyumluluk",
+            "items": [
+              {
+                "label": "Uyumlu Araç",
+                "value": "Hyundai · Kia · Ssangyong"
+              },
+              {
+                "label": "Priz Tipi",
+                "value": "Türkiye standartı (Schuko)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 38,50"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Aracın V2L çıkışını standart Türk priz tipine çevirir",
+          "Kamp, atölye, saha ve acil durum kullanımları için ideal",
+          "Kompakt taşınabilir gövde tasarımı",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "tek-cikisli-v2l-adaptor-mg",
+        "name": "Tek Çıkışlı V2L Adaptör",
+        "code": "BKT-2102-2101",
+        "subtitle": "MG",
+        "badge": null,
+        "description": "Aracınızın şarj soketini standart Type 2 prize çeviren tek çıkışlı V2L adaptörü. Kamp, açık alan ve acil enerji ihtiyaçlarında elektrikli aracınızdan tek bir cihazı doğrudan besler.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Adaptör Tipi",
+                "value": "V2L (Vehicle to Load)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "1 (Type 2)"
+              }
+            ]
+          },
+          {
+            "group": "Uyumluluk",
+            "items": [
+              {
+                "label": "Uyumlu Araç",
+                "value": "MG"
+              },
+              {
+                "label": "Priz Tipi",
+                "value": "Türkiye standartı (Schuko)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 38,50"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Aracın V2L çıkışını standart Türk priz tipine çevirir",
+          "Kamp, atölye, saha ve acil durum kullanımları için ideal",
+          "Kompakt taşınabilir gövde tasarımı",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "tek-cikisli-v2l-adaptor-byd",
+        "name": "Tek Çıkışlı V2L Adaptör",
+        "code": "BKT-2102-2201",
+        "subtitle": "BYD · Skywell",
+        "badge": null,
+        "description": "Aracınızın şarj soketini standart Type 2 prize çeviren tek çıkışlı V2L adaptörü. Kamp, açık alan ve acil enerji ihtiyaçlarında elektrikli aracınızdan tek bir cihazı doğrudan besler.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Adaptör Tipi",
+                "value": "V2L (Vehicle to Load)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "1 (Type 2)"
+              }
+            ]
+          },
+          {
+            "group": "Uyumluluk",
+            "items": [
+              {
+                "label": "Uyumlu Araç",
+                "value": "BYD · Skywell"
+              },
+              {
+                "label": "Priz Tipi",
+                "value": "Türkiye standartı (Schuko)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 38,50"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Aracın V2L çıkışını standart Türk priz tipine çevirir",
+          "Kamp, atölye, saha ve acil durum kullanımları için ideal",
+          "Kompakt taşınabilir gövde tasarımı",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "tekli-priz-uzatma-v2l-adaptor-hyundai",
+        "name": "Tekli Priz Uzatma V2L Adaptör",
+        "code": "BEV2L-3201-3203",
+        "subtitle": "Hyundai · Kia · Ssangyong",
+        "badge": null,
+        "description": "3 metre uzatma kablosuyla tek prizli V2L adaptörü. Aracınızdan kamp, atölye veya bahçeye taşınabilir tek çıkış sağlar.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Adaptör Tipi",
+                "value": "V2L (Vehicle to Load)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "1 priz + 3m kablo"
+              },
+              {
+                "label": "Kablo",
+                "value": "3m. Kablolu"
+              }
+            ]
+          },
+          {
+            "group": "Uyumluluk",
+            "items": [
+              {
+                "label": "Uyumlu Araç",
+                "value": "Hyundai · Kia · Ssangyong"
+              },
+              {
+                "label": "Priz Tipi",
+                "value": "Türkiye standartı (Schuko)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 49,50"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Aracın V2L çıkışını standart Türk priz tipine çevirir",
+          "Kamp, atölye, saha ve acil durum kullanımları için ideal",
+          "3m. esnek kablo, hava koşullarına dayanıklı dış kılıf",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "tekli-priz-uzatma-v2l-adaptor-mg",
+        "name": "Tekli Priz Uzatma V2L Adaptör",
+        "code": "BEV2L-3201-3213",
+        "subtitle": "MG",
+        "badge": null,
+        "description": "3 metre uzatma kablosuyla tek prizli V2L adaptörü. Aracınızdan kamp, atölye veya bahçeye taşınabilir tek çıkış sağlar.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Adaptör Tipi",
+                "value": "V2L (Vehicle to Load)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "1 priz + 3m kablo"
+              },
+              {
+                "label": "Kablo",
+                "value": "3m. Kablolu"
+              }
+            ]
+          },
+          {
+            "group": "Uyumluluk",
+            "items": [
+              {
+                "label": "Uyumlu Araç",
+                "value": "MG"
+              },
+              {
+                "label": "Priz Tipi",
+                "value": "Türkiye standartı (Schuko)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 49,50"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Aracın V2L çıkışını standart Türk priz tipine çevirir",
+          "Kamp, atölye, saha ve acil durum kullanımları için ideal",
+          "3m. esnek kablo, hava koşullarına dayanıklı dış kılıf",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "tekli-priz-uzatma-v2l-adaptor-byd",
+        "name": "Tekli Priz Uzatma V2L Adaptör",
+        "code": "BEV2L-3201-3223",
+        "subtitle": "BYD · Skywell",
+        "badge": null,
+        "description": "3 metre uzatma kablosuyla tek prizli V2L adaptörü. Aracınızdan kamp, atölye veya bahçeye taşınabilir tek çıkış sağlar.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Adaptör Tipi",
+                "value": "V2L (Vehicle to Load)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "1 priz + 3m kablo"
+              },
+              {
+                "label": "Kablo",
+                "value": "3m. Kablolu"
+              }
+            ]
+          },
+          {
+            "group": "Uyumluluk",
+            "items": [
+              {
+                "label": "Uyumlu Araç",
+                "value": "BYD · Skywell"
+              },
+              {
+                "label": "Priz Tipi",
+                "value": "Türkiye standartı (Schuko)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 49,50"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Aracın V2L çıkışını standart Türk priz tipine çevirir",
+          "Kamp, atölye, saha ve acil durum kullanımları için ideal",
+          "3m. esnek kablo, hava koşullarına dayanıklı dış kılıf",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "2li-priz-uzatma-v2l-adaptor-hyundai",
+        "name": "2'li Priz Uzatma V2L Adaptör",
+        "code": "BEV2L-3202-3203",
+        "subtitle": "Hyundai · Kia · Ssangyong",
+        "badge": null,
+        "description": "3 metre kablo üzerinden iki ayrı prizli V2L adaptörü. Aynı anda iki cihazı elektrikli aracınızdan besler.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Adaptör Tipi",
+                "value": "V2L (Vehicle to Load)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "2 priz + 3m kablo"
+              },
+              {
+                "label": "Kablo",
+                "value": "3m. Kablolu"
+              }
+            ]
+          },
+          {
+            "group": "Uyumluluk",
+            "items": [
+              {
+                "label": "Uyumlu Araç",
+                "value": "Hyundai · Kia · Ssangyong"
+              },
+              {
+                "label": "Priz Tipi",
+                "value": "Türkiye standartı (Schuko)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 51,70"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Aracın V2L çıkışını standart Türk priz tipine çevirir",
+          "Kamp, atölye, saha ve acil durum kullanımları için ideal",
+          "3m. esnek kablo, hava koşullarına dayanıklı dış kılıf",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "2li-priz-uzatma-v2l-adaptor-mg",
+        "name": "2'li Priz Uzatma V2L Adaptör",
+        "code": "BEV2L-3202-3213",
+        "subtitle": "MG",
+        "badge": null,
+        "description": "3 metre kablo üzerinden iki ayrı prizli V2L adaptörü. Aynı anda iki cihazı elektrikli aracınızdan besler.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Adaptör Tipi",
+                "value": "V2L (Vehicle to Load)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "2 priz + 3m kablo"
+              },
+              {
+                "label": "Kablo",
+                "value": "3m. Kablolu"
+              }
+            ]
+          },
+          {
+            "group": "Uyumluluk",
+            "items": [
+              {
+                "label": "Uyumlu Araç",
+                "value": "MG"
+              },
+              {
+                "label": "Priz Tipi",
+                "value": "Türkiye standartı (Schuko)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 51,70"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Aracın V2L çıkışını standart Türk priz tipine çevirir",
+          "Kamp, atölye, saha ve acil durum kullanımları için ideal",
+          "3m. esnek kablo, hava koşullarına dayanıklı dış kılıf",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "2li-priz-uzatma-v2l-adaptor-byd",
+        "name": "2'li Priz Uzatma V2L Adaptör",
+        "code": "BEV2L-3202-3223",
+        "subtitle": "BYD · Skywell",
+        "badge": null,
+        "description": "3 metre kablo üzerinden iki ayrı prizli V2L adaptörü. Aynı anda iki cihazı elektrikli aracınızdan besler.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Adaptör Tipi",
+                "value": "V2L (Vehicle to Load)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "2 priz + 3m kablo"
+              },
+              {
+                "label": "Kablo",
+                "value": "3m. Kablolu"
+              }
+            ]
+          },
+          {
+            "group": "Uyumluluk",
+            "items": [
+              {
+                "label": "Uyumlu Araç",
+                "value": "BYD · Skywell"
+              },
+              {
+                "label": "Priz Tipi",
+                "value": "Türkiye standartı (Schuko)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 51,70"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Aracın V2L çıkışını standart Türk priz tipine çevirir",
+          "Kamp, atölye, saha ve acil durum kullanımları için ideal",
+          "3m. esnek kablo, hava koşullarına dayanıklı dış kılıf",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "3lu-priz-uzatma-v2l-adaptor-hyundai",
+        "name": "3'lü Priz Uzatma V2L Adaptör",
+        "code": "BEV2L-3203-3203",
+        "subtitle": "Hyundai · Kia · Ssangyong",
+        "badge": null,
+        "description": "3 metre kablo üzerinden üç ayrı prizli V2L adaptörü. Şantiye, kamp veya açık alan etkinliklerinde aracınızı seyyar elektrik kaynağına dönüştürür.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Adaptör Tipi",
+                "value": "V2L (Vehicle to Load)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "3 priz + 3m kablo"
+              },
+              {
+                "label": "Kablo",
+                "value": "3m. Kablolu"
+              }
+            ]
+          },
+          {
+            "group": "Uyumluluk",
+            "items": [
+              {
+                "label": "Uyumlu Araç",
+                "value": "Hyundai · Kia · Ssangyong"
+              },
+              {
+                "label": "Priz Tipi",
+                "value": "Türkiye standartı (Schuko)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 53,90"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Aracın V2L çıkışını standart Türk priz tipine çevirir",
+          "Kamp, atölye, saha ve acil durum kullanımları için ideal",
+          "3m. esnek kablo, hava koşullarına dayanıklı dış kılıf",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "3lu-priz-uzatma-v2l-adaptor-mg",
+        "name": "3'lü Priz Uzatma V2L Adaptör",
+        "code": "BEV2L-3203-3213",
+        "subtitle": "MG",
+        "badge": null,
+        "description": "3 metre kablo üzerinden üç ayrı prizli V2L adaptörü. Şantiye, kamp veya açık alan etkinliklerinde aracınızı seyyar elektrik kaynağına dönüştürür.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Adaptör Tipi",
+                "value": "V2L (Vehicle to Load)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "3 priz + 3m kablo"
+              },
+              {
+                "label": "Kablo",
+                "value": "3m. Kablolu"
+              }
+            ]
+          },
+          {
+            "group": "Uyumluluk",
+            "items": [
+              {
+                "label": "Uyumlu Araç",
+                "value": "MG"
+              },
+              {
+                "label": "Priz Tipi",
+                "value": "Türkiye standartı (Schuko)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 53,90"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Aracın V2L çıkışını standart Türk priz tipine çevirir",
+          "Kamp, atölye, saha ve acil durum kullanımları için ideal",
+          "3m. esnek kablo, hava koşullarına dayanıklı dış kılıf",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "3lu-priz-uzatma-v2l-adaptor-byd",
+        "name": "3'lü Priz Uzatma V2L Adaptör",
+        "code": "BEV2L-3203-3223",
+        "subtitle": "BYD · Skywell",
+        "badge": null,
+        "description": "3 metre kablo üzerinden üç ayrı prizli V2L adaptörü. Şantiye, kamp veya açık alan etkinliklerinde aracınızı seyyar elektrik kaynağına dönüştürür.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Adaptör Tipi",
+                "value": "V2L (Vehicle to Load)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "3 priz + 3m kablo"
+              },
+              {
+                "label": "Kablo",
+                "value": "3m. Kablolu"
+              }
+            ]
+          },
+          {
+            "group": "Uyumluluk",
+            "items": [
+              {
+                "label": "Uyumlu Araç",
+                "value": "BYD · Skywell"
+              },
+              {
+                "label": "Priz Tipi",
+                "value": "Türkiye standartı (Schuko)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 53,90"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Aracın V2L çıkışını standart Türk priz tipine çevirir",
+          "Kamp, atölye, saha ve acil durum kullanımları için ideal",
+          "3m. esnek kablo, hava koşullarına dayanıklı dış kılıf",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "c2l-adaptor",
+        "name": "C2L Adaptör",
+        "code": "BKT-2202-2401",
+        "subtitle": "Tek Çıkışlı",
+        "badge": null,
+        "description": "Şarj cihazı çıkışını standart prize çeviren tek çıkışlı C2L adaptörü. Şarj istasyonunuzu küçük cihazları beslemek için kullanmanızı sağlar.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Adaptör Tipi",
+                "value": "C2L (Charger to Load)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "1 (Schuko)"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Giriş",
+                "value": "Type 2 (şarj cihazı çıkışı)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "1 (Schuko)"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 44,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Şarj cihazı çıkışını standart prize / endüstriyel prize çevirir",
+          "Kompakt taşınabilir gövde tasarımı",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "c2l-tekli-priz-uzatma-fisli-adaptor",
+        "name": "C2L Tekli Priz Uzatma Fişli Adaptör",
+        "code": "BEVC2L-3301-3603",
+        "subtitle": "3m. Kablolu · Tek Priz",
+        "badge": null,
+        "description": "3 metre kablo üzerinden tek prizli C2L adaptörü. Şarj cihazınızdan tek bir yere uzatılmış güç çıkışı sağlar.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Adaptör Tipi",
+                "value": "C2L (Charger to Load)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "1 priz + 3m kablo"
+              },
+              {
+                "label": "Kablo",
+                "value": "3m. Kablolu"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Giriş",
+                "value": "Type 2 (şarj cihazı çıkışı)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "1 priz + 3m kablo"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 60,50"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Şarj cihazı çıkışını standart prize / endüstriyel prize çevirir",
+          "3m. esnek kablo, hava koşullarına dayanıklı dış kılıf",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "c2l-2li-priz-uzatma-fisli-adaptor",
+        "name": "C2L 2'li Priz Uzatma Fişli Adaptör",
+        "code": "BEVC2L-3302-3603",
+        "subtitle": "3m. Kablolu · 2'li Priz",
+        "badge": null,
+        "description": "3 metre kablo üzerinden iki prizli C2L adaptörü. Aynı anda iki cihazı şarj istasyonu çıkışından besler.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Adaptör Tipi",
+                "value": "C2L (Charger to Load)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "2 priz + 3m kablo"
+              },
+              {
+                "label": "Kablo",
+                "value": "3m. Kablolu"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Giriş",
+                "value": "Type 2 (şarj cihazı çıkışı)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "2 priz + 3m kablo"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 66,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Şarj cihazı çıkışını standart prize / endüstriyel prize çevirir",
+          "3m. esnek kablo, hava koşullarına dayanıklı dış kılıf",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "c2l-3lu-priz-uzatma-fisli-adaptor",
+        "name": "C2L 3'lü Priz Uzatma Fişli Adaptör",
+        "code": "BEVC2L-3303-3603",
+        "subtitle": "3m. Kablolu · 3'lü Priz",
+        "badge": null,
+        "description": "3 metre kablo üzerinden üç prizli C2L adaptörü. Saha, atölye ve etkinlik kurulumlarında çoklu cihaz beslemesi için ideal.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Adaptör Tipi",
+                "value": "C2L (Charger to Load)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "3 priz + 3m kablo"
+              },
+              {
+                "label": "Kablo",
+                "value": "3m. Kablolu"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Giriş",
+                "value": "Type 2 (şarj cihazı çıkışı)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "3 priz + 3m kablo"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 71,50"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Şarj cihazı çıkışını standart prize / endüstriyel prize çevirir",
+          "3m. esnek kablo, hava koşullarına dayanıklı dış kılıf",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "c2l-5-32a-prizli-uzatma-fisli-adaptor",
+        "name": "C2L 5/32A Prizli Uzatma Fişli Adaptör",
+        "code": "BEVC2L-5305-3603",
+        "subtitle": "3m. Kablolu · 5/32A Endüstriyel Priz",
+        "badge": null,
+        "description": "3 metre kablo üzerinden 5/32A endüstriyel CEE priz çıkışlı C2L adaptörü. Şantiye ve sanayi kullanımı için profesyonel uzatma çözümü.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Adaptör Tipi",
+                "value": "C2L (Charger to Load)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "5/32A CEE + 3m kablo"
+              },
+              {
+                "label": "Kablo",
+                "value": "3m. Kablolu"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Giriş",
+                "value": "Type 2 (şarj cihazı çıkışı)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "5/32A CEE + 3m kablo"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 108,90"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Şarj cihazı çıkışını standart prize / endüstriyel prize çevirir",
+          "3m. esnek kablo, hava koşullarına dayanıklı dış kılıf",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "c2c-charger-to-caravan-adaptor",
+        "name": "C2C Charger to Caravan Adaptör",
+        "code": "BEVC2L-3306-3603",
+        "subtitle": "3m. Kablolu · 3/16A Priz → Type 2 Monofaze 16A",
+        "badge": null,
+        "description": "3 metre kablolu C2C (Charger to Caravan) adaptörü. 3/16A priz çıkışını Type 2 Monofaze 16A fişe çevirerek karavan ve mobil ünitelerde şarj istasyonu kullanımına olanak tanır.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Adaptör Tipi",
+                "value": "C2L (Charger to Load)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "3/16A → Type 2 Monofaze 16A · 3m"
+              },
+              {
+                "label": "Kablo",
+                "value": "3m. Kablolu"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "Giriş",
+                "value": "Type 2 (şarj cihazı çıkışı)"
+              },
+              {
+                "label": "Çıkış",
+                "value": "3/16A → Type 2 Monofaze 16A · 3m"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 55,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Şarj cihazı çıkışını standart prize / endüstriyel prize çevirir",
+          "3m. esnek kablo, hava koşullarına dayanıklı dış kılıf",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ]
       }
     ]
   },

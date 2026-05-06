@@ -8,14 +8,27 @@ const fallbackEnPath = path.join(process.cwd(), "data", "products-en.json");
 
 export const revalidate = 60;
 
+// Accept any of the three historical shapes:
+//   - bare array (legacy, pre-translations)
+//   - { products, _translations: { en } } (single-bin layout, replaced
+//     when EN was split out to its own bin to stay under the free-tier
+//     100KB/record limit)
+//   - { products } (current — EN now lives in its own bin)
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function unwrap(record: any): { tr: unknown[]; en: unknown[] | null } {
-  if (Array.isArray(record)) return { tr: record, en: null };
+function unwrapTr(record: any): unknown[] {
+  if (Array.isArray(record)) return record;
   if (record && typeof record === "object" && Array.isArray(record.products)) {
-    const en = record._translations?.en;
-    return { tr: record.products, en: Array.isArray(en) ? en : null };
+    return record.products;
   }
-  return { tr: [], en: null };
+  return [];
+}
+
+// EN bin is { en: [...] }; older single-bin EN payloads were just an array.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function unwrapEn(record: any): unknown[] | null {
+  if (Array.isArray(record)) return record;
+  if (record && typeof record === "object" && Array.isArray(record.en)) return record.en;
+  return null;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -79,16 +92,27 @@ export async function GET(req: NextRequest) {
   const lang = new URL(req.url).searchParams.get("lang") ?? "tr";
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let record: any = null;
-  try { record = await readBin("products"); } catch {}
-  if (!record) record = loadJsonFile(fallbackPath);
-  if (!record) return NextResponse.json({ error: "Ürünler yüklenemedi" }, { status: 500 });
+  let trRecord: any = null;
+  try { trRecord = await readBin("products"); } catch {}
+  if (!trRecord) trRecord = loadJsonFile(fallbackPath);
+  if (!trRecord) return NextResponse.json({ error: "Ürünler yüklenemedi" }, { status: 500 });
 
-  const { tr, en: binEn } = unwrap(record);
+  const tr = unwrapTr(trRecord);
 
   if (lang === "tr") return NextResponse.json(tr);
 
-  let en = binEn;
+  // EN comes from its own bin (or the local fallback file).
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let en: any[] | null = null;
+  try {
+    const enRecord = await readBin("productsEn");
+    en = unwrapEn(enRecord);
+  } catch {}
+  // Legacy fallback: very early bins kept EN inside the products record;
+  // honour that if encountered.
+  if (!en && trRecord && typeof trRecord === "object" && trRecord._translations?.en) {
+    en = unwrapEn(trRecord._translations.en);
+  }
   if (!en) {
     const fileEn = loadJsonFile(fallbackEnPath);
     if (Array.isArray(fileEn)) en = fileEn;

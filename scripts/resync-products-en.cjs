@@ -11,7 +11,8 @@ if (!KEY) {
   console.error("  Usage: JSONBIN_MASTER_KEY=$2a$10$... node " + __filename);
   process.exit(1);
 }
-const BIN = "69e5093e856a6821894eaee8";
+const BIN_PRODUCTS    = "69e5093e856a6821894eaee8";
+const BIN_PRODUCTS_EN = "69fbc8a0c0954111d8e8ed31";
 
 const TRANSLATABLE_PATHS = [
   "[].name",
@@ -90,21 +91,35 @@ async function translateOne(text) {
   }
 }
 
-function unwrap(record) {
-  if (Array.isArray(record)) return { tr: record, en: null };
-  if (record && typeof record === "object" && Array.isArray(record.products)) {
-    return { tr: record.products, en: Array.isArray(record._translations?.en) ? record._translations.en : null };
-  }
-  return { tr: [], en: null };
+function unwrapTr(record) {
+  if (Array.isArray(record)) return record;
+  if (record && typeof record === "object" && Array.isArray(record.products)) return record.products;
+  return [];
+}
+function unwrapEn(record) {
+  if (Array.isArray(record)) return record;
+  if (record && typeof record === "object" && Array.isArray(record.en)) return record.en;
+  if (record && typeof record === "object" && Array.isArray(record._translations?.en)) return record._translations.en;
+  return null;
 }
 
 async function main() {
-  const r = await fetch(`https://api.jsonbin.io/v3/b/${BIN}/latest`, {
+  // TR comes from the products bin.
+  const rTr = await fetch(`https://api.jsonbin.io/v3/b/${BIN_PRODUCTS}/latest`, {
     headers: { "X-Master-Key": KEY },
   });
-  if (!r.ok) throw new Error(`read failed: ${r.status}`);
-  const cur = (await r.json()).record;
-  const { tr: trCurrent, en: enCurrent } = unwrap(cur);
+  if (!rTr.ok) throw new Error(`TR read failed: ${rTr.status}`);
+  const trCurrent = unwrapTr((await rTr.json()).record);
+
+  // EN comes from its own bin (or, on a brand-new layout, was still
+  // co-located with TR — handled by the unwrap fallback above).
+  let enCurrent = null;
+  try {
+    const rEn = await fetch(`https://api.jsonbin.io/v3/b/${BIN_PRODUCTS_EN}/latest`, {
+      headers: { "X-Master-Key": KEY },
+    });
+    if (rEn.ok) enCurrent = unwrapEn((await rEn.json()).record);
+  } catch {}
 
   let trSnapshot = [];
   try { trSnapshot = JSON.parse(fs.readFileSync("data/products.json", "utf-8")); } catch {}
@@ -151,17 +166,18 @@ async function main() {
     }
   }));
 
-  const next = { products: trCurrent, _translations: { en: enResult } };
-  const w = await fetch(`https://api.jsonbin.io/v3/b/${BIN}`, {
+  // Write EN to its own bin. TR bin is left alone — this script doesn't
+  // touch the TR data, only the translation mirror.
+  const w = await fetch(`https://api.jsonbin.io/v3/b/${BIN_PRODUCTS_EN}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json", "X-Master-Key": KEY },
-    body: JSON.stringify(next),
+    body: JSON.stringify({ en: enResult }),
   });
   if (!w.ok) {
     const err = await w.text();
-    throw new Error(`write failed: ${w.status} ${err}`);
+    throw new Error(`EN write failed: ${w.status} ${err}`);
   }
-  console.log("OK — products EN written into bin._translations.en");
+  console.log("OK — products EN written into the products-en bin");
 
   fs.writeFileSync("data/products-en.json", JSON.stringify(enResult, null, 2) + "\n");
   console.log("OK — data/products-en.json updated locally");
