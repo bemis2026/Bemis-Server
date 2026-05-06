@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import { useContent, type CategoryMeta } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
+import { groupVariantsByName } from "../../lib/productGroups";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
@@ -383,9 +384,12 @@ export default function AllProductsPage() {
 
                       {/* Product cards — image grid */}
                       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
-                        {(cat.products ?? []).map((product, pi) => (
+                        {groupVariantsByName(cat.products ?? []).map((group, pi) => {
+                          const product = group.primary;
+                          const variantCount = group.variants.length;
+                          return (
                           <motion.div
-                            key={product.id}
+                            key={group.key}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.4, delay: pi * 0.05 }}
@@ -429,8 +433,18 @@ export default function AllProductsPage() {
                                 </div>
                               )}
 
-                              {/* Badge */}
-                              {product.badge && (
+                              {variantCount > 1 ? (
+                                <div
+                                  className="absolute top-2 right-2 text-[9px] font-bold px-2 py-0.5 rounded-full"
+                                  style={{
+                                    background: `${cat.accent}22`,
+                                    border: `1px solid ${cat.accent}40`,
+                                    color: d ? "rgba(255,255,255,0.85)" : cat.accent,
+                                  }}
+                                >
+                                  {variantCount} versiyon
+                                </div>
+                              ) : product.badge && (
                                 <div
                                   className="absolute top-2 right-2 text-[9px] font-bold px-2 py-0.5 rounded-full"
                                   style={{
@@ -459,7 +473,11 @@ export default function AllProductsPage() {
                               <p className="font-bold text-xs leading-tight mb-0.5" style={{ color: textPrimary }}>
                                 {product.name}
                               </p>
-                              {product.subtitle && (
+                              {variantCount > 1 ? (
+                                <p className="text-[10px] leading-snug mb-2" style={{ color: textFaint }}>
+                                  {group.variants.map(v => v.subtitle).filter(Boolean).join(" · ") || `${variantCount} farklı versiyon`}
+                                </p>
+                              ) : product.subtitle && (
                                 <p className="text-[10px] leading-snug mb-2" style={{ color: textFaint }}>
                                   {product.subtitle}
                                 </p>
@@ -493,7 +511,8 @@ export default function AllProductsPage() {
                               </div>
                             </div>
                           </motion.div>
-                        ))}
+                          );
+                        })}
                       </div>
 
                       {/* Mobile category link */}

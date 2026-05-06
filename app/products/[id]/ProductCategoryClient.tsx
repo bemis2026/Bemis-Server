@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { useContent } from "../../context/ContentContext";
 import { useLanguage } from "../../context/LanguageContext";
+import { groupVariantsByName } from "../../../lib/productGroups";
 import Navbar from "../../components/Navbar";
 import ContactBar from "../../components/ContactBar";
 import { useState, useEffect } from "react";
@@ -274,10 +275,15 @@ export default function ProductCategoryPage() {
       {/* Product grid */}
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-10">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
-          {(category.products ?? []).map((product, pi) => {
+          {groupVariantsByName(category.products ?? []).map((group, pi) => {
+            const product = group.primary;
+            // Listing card represents the whole variant family. Compare-cart
+            // tracks the primary variant; the user can still pick a specific
+            // variant on the detail page.
             const inCompare = compareIds.includes(product.id);
+            const variantCount = group.variants.length;
             return (
-              <motion.div key={product.id} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
+              <motion.div key={group.key} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.45, delay: pi * 0.06 }}
                 className="group rounded-2xl overflow-hidden transition-all duration-250 flex flex-col"
                 style={{
@@ -312,7 +318,12 @@ export default function ProductCategoryPage() {
                       <Icon style={{ fontSize: 44, color: d ? "rgba(255,255,255,0.18)" : `${accent}50`, transition: "transform 0.3s ease" }} />
                     </div>
                   )}
-                  {product.badge && (
+                  {variantCount > 1 ? (
+                    <div className="absolute top-2 right-2 text-[9px] font-bold px-2 py-0.5 rounded-full"
+                      style={{ background: `${accent}22`, border: `1px solid ${accent}40`, color: d ? "rgba(255,255,255,0.85)" : accent }}>
+                      {variantCount} versiyon
+                    </div>
+                  ) : product.badge && (
                     <div className="absolute top-2 right-2 text-[9px] font-bold px-2 py-0.5 rounded-full"
                       style={{ background: `${accent}22`, border: `1px solid ${accent}40`, color: d ? "rgba(255,255,255,0.75)" : accent }}>
                       {product.badge}
@@ -325,7 +336,11 @@ export default function ProductCategoryPage() {
                 {/* Info */}
                 <div className="px-3 py-3 flex flex-col flex-1" onClick={() => router.push(`/products/${id}/${product.id}`)}>
                   <p className="font-bold text-xs leading-tight mb-0.5" style={{ color: textPrimary }}>{product.name}</p>
-                  {product.subtitle && (
+                  {variantCount > 1 ? (
+                    <p className="text-[10px] leading-snug mb-2" style={{ color: textFaint }}>
+                      {group.variants.map(v => v.subtitle).filter(Boolean).join(" · ") || `${variantCount} farklı versiyon`}
+                    </p>
+                  ) : product.subtitle && (
                     <p className="text-[10px] leading-snug mb-2" style={{ color: textFaint }}>{product.subtitle}</p>
                   )}
                   {product.specs?.[0]?.items?.length > 0 && (

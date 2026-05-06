@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiSearch, HiX } from "react-icons/hi";
 import { useLanguage } from "../context/LanguageContext";
+import { groupVariantsByName } from "../../lib/productGroups";
 
 type ProductEntry = {
   id: string;
@@ -73,14 +74,24 @@ export default function SearchOverlay({ isOpen, onClose }: Props) {
         href: `/products/${cat.id}`,
         haystack: normalize(`${cat.name} ${cat.id} ${cat.tagline ?? ""}`),
       });
-      for (const p of (cat.products ?? [])) {
-        const labelParts = [p.name, p.subtitle].filter(Boolean).join(" · ");
+      // Group variants so search results show one entry per family
+      // (e.g. "Charger 2" once instead of "Charger 2 · Kablolu" + "Charger 2 · Fişli").
+      // The haystack still indexes every variant's code/subtitle/id so the
+      // user can find the family by typing any variant-specific term.
+      for (const group of groupVariantsByName(cat.products ?? [])) {
+        const p = group.primary;
+        const subParts = group.variants.length > 1
+          ? `${cat.name} · ${group.variants.length} versiyon`
+          : `${cat.name}${p.code ? ` · ${p.code}` : ""}`;
+        const haystackParts = group.variants.flatMap((v) => [
+          v.name, v.code ?? "", v.id, v.subtitle ?? "",
+        ]);
         out.push({
           kind: "product",
-          label: labelParts || p.name,
-          sub: `${cat.name}${p.code ? ` · ${p.code}` : ""}`,
+          label: p.name,
+          sub: subParts,
           href: `/products/${cat.id}/${p.id}`,
-          haystack: normalize(`${p.name} ${p.code ?? ""} ${p.id} ${p.subtitle ?? ""} ${cat.name}`),
+          haystack: normalize(`${haystackParts.join(" ")} ${cat.name}`),
         });
       }
     }

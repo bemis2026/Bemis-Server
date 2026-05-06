@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../../context/ThemeContext";
 import { useLanguage } from "../../../context/LanguageContext";
+import { findVariantGroup } from "../../../../lib/productGroups";
 import Navbar from "../../../components/Navbar";
 import ContactBar from "../../../components/ContactBar";
 import SearchOverlay from "../../../components/SearchOverlay";
@@ -248,6 +249,53 @@ export default function ProductDetailPage() {
 
               {/* ── Right col: info + specs ── */}
               <div className="lg:col-span-3 flex flex-col gap-5">
+
+                {/* Variant selector — shown only when this product is one of
+                    several same-name variants (e.g. Charger 2 Kablolu /
+                    Charger 2 Fişli). Each tab is a real link to the
+                    sibling's URL so SEO and back-button stay correct. */}
+                {(() => {
+                  const variantInfo = findVariantGroup(category.products ?? [], productId);
+                  if (!variantInfo || variantInfo.group.variants.length < 2) return null;
+                  return (
+                    <div
+                      className="rounded-2xl p-3"
+                      style={{ background: surface, border: `1px solid ${border}` }}
+                    >
+                      <p className="text-[10px] font-bold uppercase tracking-wider mb-2 px-1" style={{ color: textFaint }}>
+                        Versiyon Seçin
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {variantInfo.group.variants.map((v) => {
+                          const isActive = v.id === productId;
+                          return (
+                            <button
+                              key={v.id}
+                              onClick={() => router.push(`/products/${categoryId}/${v.id}`)}
+                              className="text-left px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-150"
+                              style={{
+                                background: isActive ? accent : (d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)"),
+                                border: `1px solid ${isActive ? accent : border}`,
+                                color: isActive ? "#fff" : textPrimary,
+                                cursor: isActive ? "default" : "pointer",
+                              }}
+                            >
+                              <span className="block">{v.subtitle || v.code || "Standart"}</span>
+                              {v.code && v.subtitle && (
+                                <span
+                                  className="block text-[9px] font-mono mt-0.5"
+                                  style={{ color: isActive ? "rgba(255,255,255,0.75)" : textFaint }}
+                                >
+                                  {v.code}
+                                </span>
+                              )}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })()}
 
                 {/* Product header card */}
                 <div
