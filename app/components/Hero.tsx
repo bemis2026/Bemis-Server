@@ -49,7 +49,6 @@ export default function Hero() {
 
   const headlineClass  = d ? "text-white" : "text-white";
   const subtitleClass  = d ? "text-white/45" : "text-white/80";
-  const sub3rdClass    = d ? "text-white/50" : "text-white/60";
   const textShadow     = d ? undefined : "0 2px 16px rgba(0,0,0,0.70), 0 1px 4px rgba(0,0,0,0.50)";
   const logoSrc        = logos?.dark || "/logo-white.png";
   const logoStyle      = d ? {} : { filter: "brightness(0)" };
@@ -98,7 +97,18 @@ export default function Hero() {
             <h1 className={`text-3xl xs:text-4xl sm:text-5xl font-black tracking-tight leading-[1.18] ${headlineClass}`} style={{ textShadow }}>
               <E field="hero.headline1">{hero.headline1}</E><br />
               <E field="hero.headline2">{hero.headline2}</E><br />
-              <span className={sub3rdClass}><E field="hero.headline3">{hero.headline3}</E></span>
+              <span
+                style={{
+                  backgroundImage: d
+                    ? "linear-gradient(135deg, #93C5FD 0%, #3B82F6 100%)"
+                    : "linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                <E field="hero.headline3">{hero.headline3}</E>
+              </span>
             </h1>
           </motion.div>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
@@ -108,21 +118,23 @@ export default function Hero() {
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}>
             <button
               onClick={scrollToNextSection}
-              className="group inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:opacity-90 active:scale-95"
+              className="group inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02] active:scale-95"
               style={{
-                background: "rgba(255,255,255,0.06)",
+                background: `${ACCENT}1A`,
                 backdropFilter: "blur(14px)",
                 WebkitBackdropFilter: "blur(14px)",
-                border: "1px solid rgba(255,255,255,0.20)",
-                boxShadow: `0 8px 28px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.08)`,
+                border: `1px solid ${ACCENT}45`,
+                boxShadow: `0 8px 28px ${ACCENT}25, inset 0 1px 0 rgba(255,255,255,0.10)`,
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.12)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.35)";
+                e.currentTarget.style.background = `${ACCENT}2C`;
+                e.currentTarget.style.borderColor = `${ACCENT}80`;
+                e.currentTarget.style.boxShadow = `0 10px 32px ${ACCENT}40, inset 0 1px 0 rgba(255,255,255,0.14)`;
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.06)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.20)";
+                e.currentTarget.style.background = `${ACCENT}1A`;
+                e.currentTarget.style.borderColor = `${ACCENT}45`;
+                e.currentTarget.style.boxShadow = `0 8px 28px ${ACCENT}25, inset 0 1px 0 rgba(255,255,255,0.10)`;
               }}
             >
               <E field="hero.ctaPrimary" tag="span">{hero.ctaPrimary}</E>
@@ -158,7 +170,18 @@ export default function Hero() {
           >
             <E field="hero.headline1">{hero.headline1}</E><br />
             <E field="hero.headline2">{hero.headline2}</E><br />
-            <span className={sub3rdClass}><E field="hero.headline3">{hero.headline3}</E></span>
+            <span
+              style={{
+                backgroundImage: d
+                  ? "linear-gradient(135deg, #93C5FD 0%, #3B82F6 100%)"
+                  : "linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              <E field="hero.headline3">{hero.headline3}</E>
+            </span>
           </motion.h1>
 
           <motion.p
@@ -172,21 +195,23 @@ export default function Hero() {
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.32 }}>
             <button
               onClick={scrollToNextSection}
-              className="group inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:opacity-90 active:scale-95"
+              className="group inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02] active:scale-95"
               style={{
-                background: "rgba(255,255,255,0.06)",
+                background: `${ACCENT}1A`,
                 backdropFilter: "blur(14px)",
                 WebkitBackdropFilter: "blur(14px)",
-                border: "1px solid rgba(255,255,255,0.20)",
-                boxShadow: `0 8px 28px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.08)`,
+                border: `1px solid ${ACCENT}45`,
+                boxShadow: `0 8px 28px ${ACCENT}25, inset 0 1px 0 rgba(255,255,255,0.10)`,
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.12)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.35)";
+                e.currentTarget.style.background = `${ACCENT}2C`;
+                e.currentTarget.style.borderColor = `${ACCENT}80`;
+                e.currentTarget.style.boxShadow = `0 10px 32px ${ACCENT}40, inset 0 1px 0 rgba(255,255,255,0.14)`;
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.06)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.20)";
+                e.currentTarget.style.background = `${ACCENT}1A`;
+                e.currentTarget.style.borderColor = `${ACCENT}45`;
+                e.currentTarget.style.boxShadow = `0 8px 28px ${ACCENT}25, inset 0 1px 0 rgba(255,255,255,0.10)`;
               }}
             >
               <E field="hero.ctaPrimary" tag="span">{hero.ctaPrimary}</E>

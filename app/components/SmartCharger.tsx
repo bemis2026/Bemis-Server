@@ -591,7 +591,7 @@ export default function SmartCharger() {
             >
               <button
                 onClick={() => router.push(smartCharger.ctaHref)}
-                className="self-start inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-bold transition-all duration-200 hover:opacity-90 active:scale-95"
+                className="self-start inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-bold transition-all duration-200 hover:scale-[1.02] hover:brightness-110 active:scale-95"
                 style={{ background: `linear-gradient(135deg, ${ACCENT}, #2563EB)`, color: "#fff", boxShadow: `0 6px 20px ${ACCENT}40` }}
               >
                 {smartCharger.ctaLabel}

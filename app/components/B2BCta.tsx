@@ -73,17 +73,27 @@ export default function B2BCta() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
 
           {/* Left */}
-          <div className="max-w-lg">
-            <div className="flex items-center gap-2 mb-3">
-              <RiShieldCheckLine style={{ color: BLUE, fontSize: 15 }} />
-              <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: BLUE }}>
-                {cta.eyebrow}
-              </span>
-            </div>
+          <div className="max-w-2xl">
+            <span
+              className="inline-flex items-center gap-1.5 text-xs font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-full mb-4"
+              style={{
+                background: d ? `${BLUE}18` : `${BLUE}10`,
+                border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`,
+                color: d ? "#93C5FD" : BLUE,
+              }}
+            >
+              <RiShieldCheckLine style={{ fontSize: 13 }} />
+              {cta.eyebrow}
+            </span>
 
-            <h2 className="text-2xl sm:text-3xl font-black mb-3 leading-tight" style={{ color: textPrimary }}>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-2 leading-tight" style={{ color: textPrimary }}>
               {cta.heading}
             </h2>
+
+            <div
+              className="h-px w-24 origin-left mb-4"
+              style={{ background: `linear-gradient(90deg, ${BLUE} 0%, transparent 100%)` }}
+            />
 
             <p className="text-sm leading-relaxed mb-5" style={{ color: textMuted }}>
               {cta.description}
