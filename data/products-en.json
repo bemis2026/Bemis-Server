@@ -6,472 +6,6 @@
     "accent": "#3B82F6",
     "products": [
       {
-        "id": "wallbox-7kw",
-        "name": "AC Wallbox 7,4 kW",
-        "subtitle": "Single Phase · Home Type",
-        "badge": "Best Selling",
-        "description": "7.4 kW single-phase smart AC charging station with IP65 protection, developed for residential and business use.",
-        "specs": [
-          {
-            "group": "Electrical",
-            "items": [
-              {
-                "label": "• Power",
-                "value": "7,4 kW"
-              },
-              {
-                "label": "Input Voltage",
-                "value": "230V (1F) ± 10%"
-              },
-              {
-                "label": "Phase",
-                "value": "Monophase"
-              },
-              {
-                "label": "Maximum current: 16A",
-                "value": "32A."
-              },
-              {
-                "label": "Power Factor",
-                "value": ",98"
-              },
-              {
-                "label": "Productivity",
-                "value": "95%"
-              }
-            ]
-          },
-          {
-            "group": "Connector & Cable",
-            "items": [
-              {
-                "label": "Connector Type",
-                "value": "Type 2 (IEC 62196-2)"
-              },
-              {
-                "label": "Cable Length",
-                "value": "4m (optional 6m)"
-              },
-              {
-                "label": "Cable section",
-                "value": "3 × 6 mm²"
-              },
-              {
-                "label": "Wiring type",
-                "value": "Spiral flexible"
-              }
-            ]
-          },
-          {
-            "group": "Protection and safety",
-            "items": [
-              {
-                "label": "Protection category",
-                "value": "IP65"
-              },
-              {
-                "label": "Side Impact Protection ",
-                "value": "IK10"
-              },
-              {
-                "label": "Operating temperature:",
-                "value": "-40°C +55°C"
-              },
-              {
-                "label": "Earthing Protection",
-                "value": "Yes (PE)"
-              },
-              {
-                "label": "Leakage Current",
-                "value": "6 mA DC / 30 mA AC"
-              },
-              {
-                "label": "Over current protection",
-                "value": "Internal MCB"
-              }
-            ]
-          },
-          {
-            "group": "Communication & Control",
-            "items": [
-              {
-                "label": "Protocol",
-                "value": "OCPP 1.6 / OCPP 2.0"
-              },
-              {
-                "label": "Bağlantı",
-                "value": "4G / Wi-Fi / LAN (depending on model)"
-              },
-              {
-                "label": "Kullanıcı Arayüzü",
-                "value": "Led indicator / RFID reader"
-              },
-              {
-                "label": "Remote Management",
-                "value": "Yes (cloud-based)"
-              },
-              {
-                "label": "Load Balancing",
-                "value": "Dynamic (DLM)"
-              }
-            ]
-          },
-          {
-            "group": "Mechanical",
-            "items": [
-              {
-                "label": "Weight",
-                "value": "Approximately 4.5 kg"
-              },
-              {
-                "label": "Dimensions",
-                "value": "275 × 175 × 110 mm"
-              },
-              {
-                "label": "Installation",
-                "value": "Wall / pole mounting"
-              },
-              {
-                "label": "Color",
-                "value": "White / Black (optional)"
-              },
-              {
-                "label": "Material",
-                "value": "UV-resistant ABS"
-              }
-            ]
-          },
-          {
-            "group": "Certificates",
-            "items": [
-              {
-                "label": "Electrical",
-                "value": "CE · IEC 61851-1 · IEC 62196"
-              },
-              {
-                "label": "Quality",
-                "value": "ISO 9001:2015"
-              },
-              {
-                "label": "Production",
-                "value": "Domestic Production (Bursa OIZ)"
-              },
-              {
-                "label": "Guarantee",
-                "value": "2 Years"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "wallbox-11kw",
-        "name": "AC Wallbox 11 kW",
-        "subtitle": "Three Phase · Mixed Use",
-        "badge": null,
-        "description": "Three-phase 11 kW charging station for home, office and commercial parking applications.",
-        "specs": [
-          {
-            "group": "Electrical",
-            "items": [
-              {
-                "label": "• Power",
-                "value": "11 kW"
-              },
-              {
-                "label": "Input Voltage",
-                "value": "400V (3F) ± 10%"
-              },
-              {
-                "label": "Phase",
-                "value": "Three-phase"
-              },
-              {
-                "label": "Maximum current: 16A",
-                "value": "3 × 16a"
-              },
-              {
-                "label": "Power Factor",
-                "value": ",98"
-              },
-              {
-                "label": "Productivity",
-                "value": "95%"
-              }
-            ]
-          },
-          {
-            "group": "Connector & Cable",
-            "items": [
-              {
-                "label": "Connector Type",
-                "value": "Type 2 (IEC 62196-2)"
-              },
-              {
-                "label": "Cable Length",
-                "value": "4m (optional 6m)"
-              },
-              {
-                "label": "Cable section",
-                "value": "5 × 2.5 mm²"
-              },
-              {
-                "label": "Wiring type",
-                "value": "Spiral flexible"
-              }
-            ]
-          },
-          {
-            "group": "Protection and safety",
-            "items": [
-              {
-                "label": "Protection category",
-                "value": "IP65"
-              },
-              {
-                "label": "Side Impact Protection ",
-                "value": "IK10"
-              },
-              {
-                "label": "Operating temperature:",
-                "value": "-40°C +55°C"
-              },
-              {
-                "label": "Leakage Current",
-                "value": "6 mA DC / 30 mA AC"
-              },
-              {
-                "label": "Over current protection",
-                "value": "Internal MCB"
-              }
-            ]
-          },
-          {
-            "group": "Communication & Control",
-            "items": [
-              {
-                "label": "Protocol",
-                "value": "OCPP 1.6 / OCPP 2.0"
-              },
-              {
-                "label": "Bağlantı",
-                "value": "4G / Wi-Fi / LAN (depending on model)"
-              },
-              {
-                "label": "Kullanıcı Arayüzü",
-                "value": "Led indicator / RFID reader"
-              },
-              {
-                "label": "Remote Management",
-                "value": "Yes (cloud-based)"
-              },
-              {
-                "label": "Load Balancing",
-                "value": "Dynamic (DLM)"
-              }
-            ]
-          },
-          {
-            "group": "Mechanical",
-            "items": [
-              {
-                "label": "Weight",
-                "value": "Approximately 4.8 kg"
-              },
-              {
-                "label": "Dimensions",
-                "value": "275 × 175 × 110 mm"
-              },
-              {
-                "label": "Installation",
-                "value": "Wall / pole mounting"
-              },
-              {
-                "label": "Material",
-                "value": "UV-resistant ABS"
-              }
-            ]
-          },
-          {
-            "group": "Certificates",
-            "items": [
-              {
-                "label": "Electrical",
-                "value": "CE · IEC 61851-1 · IEC 62196"
-              },
-              {
-                "label": "Quality",
-                "value": "ISO 9001:2015"
-              },
-              {
-                "label": "Production",
-                "value": "Domestic Production (Bursa OIZ)"
-              },
-              {
-                "label": "Guarantee",
-                "value": "2 Years"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "wallbox-22kw",
-        "name": "AC Wallbox 22 kW",
-        "subtitle": "Three Phase · Commercial",
-        "badge": null,
-        "description": "22 kW three-phase professional charging station for commercial parking and applications requiring fast charging.",
-        "specs": [
-          {
-            "group": "Electrical",
-            "items": [
-              {
-                "label": "• Power",
-                "value": "22 kW"
-              },
-              {
-                "label": "Input Voltage",
-                "value": "400V (3F) ± 10%"
-              },
-              {
-                "label": "Phase",
-                "value": "Three-phase"
-              },
-              {
-                "label": "Maximum current: 16A",
-                "value": "3 × 32a"
-              },
-              {
-                "label": "Power Factor",
-                "value": ",98"
-              },
-              {
-                "label": "Productivity",
-                "value": "95%"
-              }
-            ]
-          },
-          {
-            "group": "Connector & Cable",
-            "items": [
-              {
-                "label": "Connector Type",
-                "value": "Type 2 (IEC 62196-2)"
-              },
-              {
-                "label": "Cable Length",
-                "value": "4m (optional 6m)"
-              },
-              {
-                "label": "Cable section",
-                "value": "5 × 6 mm²"
-              },
-              {
-                "label": "Wiring type",
-                "value": "Spiral flexible"
-              }
-            ]
-          },
-          {
-            "group": "Protection and safety",
-            "items": [
-              {
-                "label": "Protection category",
-                "value": "IP65"
-              },
-              {
-                "label": "Side Impact Protection ",
-                "value": "IK10"
-              },
-              {
-                "label": "Operating temperature:",
-                "value": "-40°C +55°C"
-              },
-              {
-                "label": "Leakage Current",
-                "value": "6 mA DC / 30 mA AC"
-              },
-              {
-                "label": "Over current protection",
-                "value": "Internal MCB"
-              }
-            ]
-          },
-          {
-            "group": "Communication & Control",
-            "items": [
-              {
-                "label": "Protocol",
-                "value": "OCPP 1.6 / OCPP 2.0"
-              },
-              {
-                "label": "Bağlantı",
-                "value": "4G / Wi-Fi / LAN (depending on model)"
-              },
-              {
-                "label": "Kullanıcı Arayüzü",
-                "value": "Led indicator / RFID reader / Display"
-              },
-              {
-                "label": "Remote Management",
-                "value": "Yes (cloud-based)"
-              },
-              {
-                "label": "Load Balancing",
-                "value": "Dynamic (DLM)"
-              }
-            ]
-          },
-          {
-            "group": "Mechanical",
-            "items": [
-              {
-                "label": "Weight",
-                "value": "Approx. 5.2 kg"
-              },
-              {
-                "label": "Dimensions",
-                "value": "290 × 185 × 115 mm"
-              },
-              {
-                "label": "Installation",
-                "value": "Wall / pole mounting"
-              },
-              {
-                "label": "Material",
-                "value": "UV-resistant ABS"
-              }
-            ]
-          },
-          {
-            "group": "Certificates",
-            "items": [
-              {
-                "label": "Electrical",
-                "value": "CE · IEC 61851-1 · IEC 62196"
-              },
-              {
-                "label": "Quality",
-                "value": "ISO 9001:2015"
-              },
-              {
-                "label": "Production",
-                "value": "Domestic Production (Bursa OIZ)"
-              },
-              {
-                "label": "Guarantee",
-                "value": "2 Years"
-              }
-            ]
-          }
-        ],
-        "image": "/products/1775067096437-WhatsApp_Image_2026-03-29_at_01.55.05__2_.jpeg",
-        "images": [
-          "/products/1775067096437-WhatsApp_Image_2026-03-29_at_01.55.05__2_.jpeg",
-          "https://i.ibb.co/zzv0m9s/1776711207613-Gemini-Generated-Image-qf1urcqf1urcqf1u-png.png"
-        ]
-      },
-      {
         "id": "charger-2-kablolu",
         "name": "Charger 2",
         "code": "BEV-1011-0005",
@@ -518,7 +52,11 @@
               }
             ]
           }
-        ]
+        ],
+        "images": [
+          "https://i.ibb.co/Y4y9X34b/1778104941457-BEV-1011-0005-png.png"
+        ],
+        "image": "https://i.ibb.co/Y4y9X34b/1778104941457-BEV-1011-0005-png.png"
       },
       {
         "id": "charger-2-fisli",
@@ -765,10 +303,10 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "List Price",
             "items": [
               {
-                "label": "List Price",
+                "label": "Standard",
                 "value": "EUR 748,00"
               }
             ]
@@ -784,27 +322,27 @@
         "description": "BEMİS AC Wallbox Charger Pro 2 Panel plug version with GSM module. Remote monitoring, OCPP 1.6 compliant, three-phase 4-7-11-22 kW.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "• Power",
             "items": [
               {
-                "label": "• Power",
+                "label": "Guarantee",
                 "value": "4 / 7 / 11 / 22 kW"
               },
               {
-                "label": "Phase",
+                "label": "Adapter 1",
                 "value": "Three-phase"
               },
               {
-                "label": "Max. current",
+                "label": "Adapter 2",
                 "value": "6 - 10 - 16 - 32a"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Phase",
             "items": [
               {
-                "label": "Exit Date",
+                "label": "  Satchel",
                 "value": "Panel Socket"
               },
               {
@@ -814,23 +352,23 @@
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Max. current",
             "items": [
               {
-                "label": "Contact",
+                "label": "Max. Current (C2L)",
                 "value": "GSM Modulated"
               },
               {
-                "label": "Protocol",
+                "label": "Protection category",
                 "value": "OCPP 1.6"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Exit Date",
             "items": [
               {
-                "label": "List Price",
+                "label": "Guarantee",
                 "value": "EUR 874,50"
               }
             ]
@@ -846,14 +384,14 @@
         "description": "BEMİS AC Wallbox Charger Pro 2 wired version with GSM module. Remote monitoring, OCPP 1.6 compliant, 5m integrated Type 2 cable.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Plug",
             "items": [
               {
-                "label": "• Power",
+                "label": "Force maximum / Maximum",
                 "value": "4 / 7 / 11 / 22 kW"
               },
               {
-                "label": "Phase",
+                "label": "Thriller",
                 "value": "Three-phase"
               },
               {
@@ -1201,7 +739,7 @@
         "description": "16a Mode 3 compatible Type 2 charging cable that provides safe power transfer between the AC charging station and the vehicle.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Max. current",
             "items": [
               {
                 "label": "Force maximum / Maximum",
@@ -1222,7 +760,7 @@
             ]
           },
           {
-            "group": "Connector",
+            "group": "Exit Date",
             "items": [
               {
                 "label": "Both Extremes",
@@ -1540,6 +1078,1414 @@
           }
         ],
         "image": "/products/1775067386298-WhatsApp_Image_2026-04-01_at_14.55.14__19_.jpeg"
+      },
+      {
+        "id": "sarj-seti-20a-monofaze-3m",
+        "name": "V2L Adapter",
+        "code": "BEV-3020-1203",
+        "subtitle": "3m Wired",
+        "badge": null,
+        "description": "Wire Link",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": ": 3.7 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Monophase"
+              },
+              {
+                "label": "Max. current",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "3m"
+              },
+              {
+                "label": "Cable section",
+                "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 58,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 20A 3,7 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-monofaze-5m",
+        "name": "C2L Adapter",
+        "code": "BEV-3020-1205",
+        "subtitle": "5m Wired",
+        "badge": null,
+        "description": "Bağlantı",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": ": 3.7 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Monophase"
+              },
+              {
+                "label": "Max. current",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "5m: "
+              },
+              {
+                "label": "Cable section",
+                "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 62,50"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 20A 3,7 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-monofaze-7m",
+        "name": "V2L / C2L Combi Set",
+        "code": "BEV-3020-1207",
+        "subtitle": "7m Wired",
+        "badge": null,
+        "description": "Single-phase 20a 3.7 kW, Type 2 — Type 2 Mode 3 compatible wired charging set for domestic charging stations. Cable section 3×2.5 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": ": 3.7 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Monophase"
+              },
+              {
+                "label": "Max. current",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "7M"
+              },
+              {
+                "label": "Cable section",
+                "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 70,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 20A 3,7 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-monofaze-8m",
+        "name": "Extension cable",
+        "code": "BEV-3020-1208",
+        "subtitle": "8m Wired",
+        "badge": null,
+        "description": "Single-phase 20a 3.7 kW, Type 2 — Type 2 Mode 3 compatible wired charging set for domestic charging stations. Cable section 3×2.5 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": ": 3.7 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Monophase"
+              },
+              {
+                "label": "Max. current",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "8m. "
+              },
+              {
+                "label": "Cable section",
+                "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 73,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 20A 3,7 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-monofaze-10m",
+        "name": "Charging Set 20a Single Phase",
+        "code": "BEV-3020-1210",
+        "subtitle": "10m Wired",
+        "badge": null,
+        "description": "Single-phase 20a 3.7 kW, Type 2 — Type 2 Mode 3 compatible wired charging set for domestic charging stations. Cable section 3×2.5 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": ": 3.7 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Monophase"
+              },
+              {
+                "label": "Max. current",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "10m"
+              },
+              {
+                "label": "Cable section",
+                "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 79,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 20A 3,7 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-monofaze-3m",
+        "name": "CEE 16a → Type 2 Adapter",
+        "code": "BEV-3032-1203",
+        "subtitle": "3m Wired",
+        "badge": null,
+        "description": "Bağlantı",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "7,4 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Monophase"
+              },
+              {
+                "label": "Max. current",
+                "value": "32A."
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "3m"
+              },
+              {
+                "label": "Cable section",
+                "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 86,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 32A 7,4 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-monofaze-5m",
+        "name": "Empty Combination Box",
+        "code": "BEV-3032-1205",
+        "subtitle": "5m Wired",
+        "badge": null,
+        "description": "Price",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "7,4 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Monophase"
+              },
+              {
+                "label": "Max. current",
+                "value": "32A."
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "5m: "
+              },
+              {
+                "label": "Cable section",
+                "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 92,50"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 32A 7,4 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-monofaze-7m",
+        "name": "Type 2 Socket",
+        "code": "BEV-3032-1207",
+        "subtitle": "7m Wired",
+        "badge": null,
+        "description": "Single-phase 32a 7.4 kW, Type 2 — Type 2 Mode 3 compatible wired charging set for home and workplace charging. Cable section 3×6 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "7,4 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Monophase"
+              },
+              {
+                "label": "Max. current",
+                "value": "32A."
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "7M"
+              },
+              {
+                "label": "Cable section",
+                "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 101,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 32A 7,4 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-monofaze-8m",
+        "name": "Cable Holster",
+        "code": "BEV-3032-1208",
+        "subtitle": "8m Wired",
+        "badge": null,
+        "description": "Single-phase 32a 7.4 kW, Type 2 — Type 2 Mode 3 compatible wired charging set for home and workplace charging. Cable section 3×6 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "7,4 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Monophase"
+              },
+              {
+                "label": "Max. current",
+                "value": "32A."
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "8m. "
+              },
+              {
+                "label": "Cable section",
+                "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 105,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 32A 7,4 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-monofaze-10m",
+        "name": "Charging Set 32a Single Phase",
+        "code": "BEV-3032-1210",
+        "subtitle": "10m Wired",
+        "badge": null,
+        "description": "Single-phase 32a 7.4 kW, Type 2 — Type 2 Mode 3 compatible wired charging set for home and workplace charging. Cable section 3×6 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "7,4 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Monophase"
+              },
+              {
+                "label": "Max. current",
+                "value": "32A."
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "10m"
+              },
+              {
+                "label": "Cable section",
+                "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 114,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 32A 7,4 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-trifaze-3m",
+        "name": "Wall Mount Set",
+        "code": "BEV-5020-1203",
+        "subtitle": "3m Wired",
+        "badge": null,
+        "description": "Handedness",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "11 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "3m"
+              },
+              {
+                "label": "Cable section",
+                "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 78,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 20A 11 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-trifaze-5m",
+        "name": "Cable Duct",
+        "code": "BEV-5020-1205",
+        "subtitle": "5m Wired",
+        "badge": null,
+        "description": "Electrical",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "11 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "5m: "
+              },
+              {
+                "label": "Cable section",
+                "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 85,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 20A 11 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-trifaze-7m",
+        "name": "Electronic Control Board (ECU)",
+        "code": "BEV-5020-1207",
+        "subtitle": "7m Wired",
+        "badge": null,
+        "description": "Content",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "11 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "7M"
+              },
+              {
+                "label": "Cable section",
+                "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 93,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 20A 11 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-trifaze-8m",
+        "name": "RFID Charging Card",
+        "code": "BEV-5020-1208",
+        "subtitle": "8m Wired",
+        "badge": null,
+        "description": "Three-phase 20a 11 kW, Type 2 — Type 2 Mod 3 compatible wired charging set for commercial and workplace charging. Cable section 5×2.5 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "11 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "8m. "
+              },
+              {
+                "label": "Cable section",
+                "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 98,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 20A 11 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-trifaze-10m",
+        "name": "Surge protectors",
+        "code": "BEV-5020-1210",
+        "subtitle": "10m Wired",
+        "badge": null,
+        "description": "Three-phase 20a 11 kW, Type 2 — Type 2 Mod 3 compatible wired charging set for commercial and workplace charging. Cable section 5×2.5 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "11 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "10m"
+              },
+              {
+                "label": "Cable section",
+                "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 110,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 20A 11 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-trifaze-15m",
+        "name": "Charging Set 20a Three Phase",
+        "code": "BEV-5020-1215",
+        "subtitle": "15m Wired",
+        "badge": null,
+        "description": "Three-phase 20a 11 kW, Type 2 — Type 2 Mod 3 compatible wired charging set for commercial and workplace charging. Cable section 5×2.5 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "11 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "15m"
+              },
+              {
+                "label": "Cable section",
+                "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 140,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 20A 11 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-trifaze-3m",
+        "name": "5m. Wired",
+        "code": "BEV-5032-1203",
+        "subtitle": "3m Wired",
+        "badge": null,
+        "description": "Price",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "32A."
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "3m"
+              },
+              {
+                "label": "Cable section",
+                "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 114,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 32A 22 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-trifaze-5m",
+        "name": "5m. Wired /5-32A Plug",
+        "code": "BEV-5032-1205",
+        "subtitle": "5m Wired",
+        "badge": null,
+        "description": "Electrical",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "32A."
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "5m: "
+              },
+              {
+                "label": "Cable section",
+                "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 122,50"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 32A 22 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-trifaze-7m",
+        "name": "5m. Wired",
+        "code": "BEV-5032-1207",
+        "subtitle": "7m Wired",
+        "badge": null,
+        "description": "Content",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "32A."
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "7M"
+              },
+              {
+                "label": "Cable section",
+                "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 136,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 32A 22 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-trifaze-8m",
+        "name": "Panel Socket",
+        "code": "BEV-5032-1208",
+        "subtitle": "8m Wired",
+        "badge": null,
+        "description": "Three-phase 32a wired charging set with 22 kW power, Type 2 — Type 2 Mode 3 compatible for fast AC charging. Cable section 5×6 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "32A."
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "8m. "
+              },
+              {
+                "label": "Cable section",
+                "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 143,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 32A 22 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-trifaze-10m",
+        "name": "5m. Wired",
+        "code": "BEV-5032-1210",
+        "subtitle": "10m Wired",
+        "badge": null,
+        "description": "Three-phase 32a wired charging set with 22 kW power, Type 2 — Type 2 Mode 3 compatible for fast AC charging. Cable section 5×6 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "32A."
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "10m"
+              },
+              {
+                "label": "Cable section",
+                "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 160,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 32A 22 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-trifaze-15m",
+        "name": "Charging Set 32a Three Phase",
+        "code": "BEV-5032-1215",
+        "subtitle": "15m Wired",
+        "badge": null,
+        "description": "Three-phase 32a wired charging set with 22 kW power, Type 2 — Type 2 Mode 3 compatible for fast AC charging. Cable section 5×6 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "32A."
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "15m"
+              },
+              {
+                "label": "Cable section",
+                "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mode",
+                "value": "Mode 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 200,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 32A 22 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
       }
     ]
   },
@@ -1817,7 +2763,7 @@
                 "value": "IP44"
               },
               {
-                "label": "Guarantee",
+                "label": "OTA firmware update",
                 "value": "2 Years"
               }
             ]
@@ -1855,7 +2801,7 @@
                 "value": "IP44"
               },
               {
-                "label": "Guarantee",
+                "label": "kWh (IEC 62053-21)",
                 "value": "2 Years"
               }
             ]
@@ -1954,7 +2900,7 @@
         "description": "Wall-mountable cable holster that keeps the charging cable tidy and secure.",
         "specs": [
           {
-            "group": "Characteristics",
+            "group": "Bending Life",
             "items": [
               {
                 "label": "Compatible Connector",
@@ -1988,7 +2934,7 @@
         "description": "Stainless steel floor post used to mount the wallbox in areas without walls.",
         "specs": [
           {
-            "group": "Characteristics",
+            "group": "Protection category",
             "items": [
               {
                 "label": "Material",
@@ -2067,7 +3013,7 @@
                 "value": "Flame retardant PVC"
               },
               {
-                "label": "Dimension",
+                "label": "10a - 16a",
                 "value": "40×40 mm · 60×40 mm"
               },
               {

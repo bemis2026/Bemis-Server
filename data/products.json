@@ -965,6 +965,1414 @@
           }
         ],
         "image": "/products/1775067386298-WhatsApp_Image_2026-04-01_at_14.55.14__19_.jpeg"
+      },
+      {
+        "id": "sarj-seti-20a-monofaze-3m",
+        "name": "Şarj Seti 20A Monofaze",
+        "code": "BEV-3020-1203",
+        "subtitle": "3m Kablolu",
+        "badge": null,
+        "description": "Monofaze 20A 3,7 kW gücünde, ev tipi şarj istasyonları için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×2.5 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "3,7 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Monofaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "3m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 58,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 20A 3,7 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-monofaze-5m",
+        "name": "Şarj Seti 20A Monofaze",
+        "code": "BEV-3020-1205",
+        "subtitle": "5m Kablolu",
+        "badge": null,
+        "description": "Monofaze 20A 3,7 kW gücünde, ev tipi şarj istasyonları için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×2.5 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "3,7 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Monofaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "5m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 62,50"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 20A 3,7 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-monofaze-7m",
+        "name": "Şarj Seti 20A Monofaze",
+        "code": "BEV-3020-1207",
+        "subtitle": "7m Kablolu",
+        "badge": null,
+        "description": "Monofaze 20A 3,7 kW gücünde, ev tipi şarj istasyonları için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×2.5 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "3,7 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Monofaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "7m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 70,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 20A 3,7 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-monofaze-8m",
+        "name": "Şarj Seti 20A Monofaze",
+        "code": "BEV-3020-1208",
+        "subtitle": "8m Kablolu",
+        "badge": null,
+        "description": "Monofaze 20A 3,7 kW gücünde, ev tipi şarj istasyonları için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×2.5 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "3,7 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Monofaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "8m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 73,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 20A 3,7 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-monofaze-10m",
+        "name": "Şarj Seti 20A Monofaze",
+        "code": "BEV-3020-1210",
+        "subtitle": "10m Kablolu",
+        "badge": null,
+        "description": "Monofaze 20A 3,7 kW gücünde, ev tipi şarj istasyonları için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×2.5 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "3,7 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Monofaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "10m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 79,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 20A 3,7 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-monofaze-3m",
+        "name": "Şarj Seti 32A Monofaze",
+        "code": "BEV-3032-1203",
+        "subtitle": "3m Kablolu",
+        "badge": null,
+        "description": "Monofaze 32A 7,4 kW gücünde, ev ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×6 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "7,4 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Monofaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "3m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 86,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 32A 7,4 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-monofaze-5m",
+        "name": "Şarj Seti 32A Monofaze",
+        "code": "BEV-3032-1205",
+        "subtitle": "5m Kablolu",
+        "badge": null,
+        "description": "Monofaze 32A 7,4 kW gücünde, ev ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×6 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "7,4 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Monofaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "5m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 92,50"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 32A 7,4 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-monofaze-7m",
+        "name": "Şarj Seti 32A Monofaze",
+        "code": "BEV-3032-1207",
+        "subtitle": "7m Kablolu",
+        "badge": null,
+        "description": "Monofaze 32A 7,4 kW gücünde, ev ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×6 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "7,4 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Monofaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "7m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 101,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 32A 7,4 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-monofaze-8m",
+        "name": "Şarj Seti 32A Monofaze",
+        "code": "BEV-3032-1208",
+        "subtitle": "8m Kablolu",
+        "badge": null,
+        "description": "Monofaze 32A 7,4 kW gücünde, ev ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×6 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "7,4 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Monofaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "8m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 105,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 32A 7,4 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-monofaze-10m",
+        "name": "Şarj Seti 32A Monofaze",
+        "code": "BEV-3032-1210",
+        "subtitle": "10m Kablolu",
+        "badge": null,
+        "description": "Monofaze 32A 7,4 kW gücünde, ev ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 3×6 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "7,4 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Monofaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "10m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 114,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 32A 7,4 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-trifaze-3m",
+        "name": "Şarj Seti 20A Trifaze",
+        "code": "BEV-5020-1203",
+        "subtitle": "3m Kablolu",
+        "badge": null,
+        "description": "Trifaze 20A 11 kW gücünde, ticari ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×2.5 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "11 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "3m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 78,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 20A 11 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-trifaze-5m",
+        "name": "Şarj Seti 20A Trifaze",
+        "code": "BEV-5020-1205",
+        "subtitle": "5m Kablolu",
+        "badge": null,
+        "description": "Trifaze 20A 11 kW gücünde, ticari ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×2.5 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "11 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "5m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 85,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 20A 11 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-trifaze-7m",
+        "name": "Şarj Seti 20A Trifaze",
+        "code": "BEV-5020-1207",
+        "subtitle": "7m Kablolu",
+        "badge": null,
+        "description": "Trifaze 20A 11 kW gücünde, ticari ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×2.5 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "11 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "7m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 93,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 20A 11 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-trifaze-8m",
+        "name": "Şarj Seti 20A Trifaze",
+        "code": "BEV-5020-1208",
+        "subtitle": "8m Kablolu",
+        "badge": null,
+        "description": "Trifaze 20A 11 kW gücünde, ticari ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×2.5 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "11 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "8m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 98,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 20A 11 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-trifaze-10m",
+        "name": "Şarj Seti 20A Trifaze",
+        "code": "BEV-5020-1210",
+        "subtitle": "10m Kablolu",
+        "badge": null,
+        "description": "Trifaze 20A 11 kW gücünde, ticari ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×2.5 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "11 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "10m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 110,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 20A 11 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-20a-trifaze-15m",
+        "name": "Şarj Seti 20A Trifaze",
+        "code": "BEV-5020-1215",
+        "subtitle": "15m Kablolu",
+        "badge": null,
+        "description": "Trifaze 20A 11 kW gücünde, ticari ve iş yeri şarjı için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×2.5 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "11 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "20A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "15m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 140,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 20A 11 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-trifaze-3m",
+        "name": "Şarj Seti 32A Trifaze",
+        "code": "BEV-5032-1203",
+        "subtitle": "3m Kablolu",
+        "badge": null,
+        "description": "Trifaze 32A 22 kW gücünde, hızlı AC şarj için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×6 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "3m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 114,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 32A 22 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-trifaze-5m",
+        "name": "Şarj Seti 32A Trifaze",
+        "code": "BEV-5032-1205",
+        "subtitle": "5m Kablolu",
+        "badge": null,
+        "description": "Trifaze 32A 22 kW gücünde, hızlı AC şarj için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×6 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "5m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 122,50"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 32A 22 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-trifaze-7m",
+        "name": "Şarj Seti 32A Trifaze",
+        "code": "BEV-5032-1207",
+        "subtitle": "7m Kablolu",
+        "badge": null,
+        "description": "Trifaze 32A 22 kW gücünde, hızlı AC şarj için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×6 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "7m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 136,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 32A 22 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-trifaze-8m",
+        "name": "Şarj Seti 32A Trifaze",
+        "code": "BEV-5032-1208",
+        "subtitle": "8m Kablolu",
+        "badge": null,
+        "description": "Trifaze 32A 22 kW gücünde, hızlı AC şarj için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×6 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "8m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 143,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 32A 22 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-trifaze-10m",
+        "name": "Şarj Seti 32A Trifaze",
+        "code": "BEV-5032-1210",
+        "subtitle": "10m Kablolu",
+        "badge": null,
+        "description": "Trifaze 32A 22 kW gücünde, hızlı AC şarj için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×6 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "10m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 160,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 32A 22 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
+      },
+      {
+        "id": "sarj-seti-32a-trifaze-15m",
+        "name": "Şarj Seti 32A Trifaze",
+        "code": "BEV-5032-1215",
+        "subtitle": "15m Kablolu",
+        "badge": null,
+        "description": "Trifaze 32A 22 kW gücünde, hızlı AC şarj için Type 2 — Type 2 Mod 3 uyumlu kablolu şarj seti. Kablo kesiti 5×6 mm² + 1×0.75 mm² ttr.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Kablo Uzunluğu",
+                "value": "15m"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 — Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 200,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 32A 22 kW güç çıkışı",
+          "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
+          "Mod 3 sinyal protokolü, mekanik kilitleme",
+          "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
+          "CE ve TSE uygunluk testi tamamlanmış"
+        ]
       }
     ]
   },
