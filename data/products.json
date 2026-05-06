@@ -6741,6 +6741,326 @@
             ]
           }
         ]
+      },
+      {
+        "id": "sarj-kablosu-cantasi-premium",
+        "name": "Şarj Kablosu Çantası",
+        "code": "BAK-8000-0000",
+        "subtitle": "Premium",
+        "badge": null,
+        "description": "Şarj kablosu ve aksesuarlar için dayanıklı taşıma çantası. Aracınızda veya saha kullanımında kabloyu temiz ve düzenli tutar.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Aksesuar"
+              },
+              {
+                "label": "Kategori",
+                "value": "Şarj Kablosu Çantası"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 18,70"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sarj-kablosu-cantasi-standart",
+        "name": "Şarj Kablosu Çantası",
+        "code": "BAK-8000-0004",
+        "subtitle": "Standart",
+        "badge": null,
+        "description": "Şarj kablosu ve aksesuarlar için dayanıklı taşıma çantası. Aracınızda veya saha kullanımında kabloyu temiz ve düzenli tutar.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Aksesuar"
+              },
+              {
+                "label": "Kategori",
+                "value": "Şarj Kablosu Çantası"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 8,80"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mobile-charger-cantasi-kucuk-mini-mono",
+        "name": "Mobile Charger Çantası",
+        "code": "BAK-8000-0002",
+        "subtitle": "Küçük (Mini-Mono)",
+        "badge": null,
+        "description": "Bemis taşınabilir şarj cihazlarına özel taşıma çantası. Cihaz, kablo ve adaptörler için ayrı bölmeler.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Aksesuar"
+              },
+              {
+                "label": "Kategori",
+                "value": "Mobile Charger Çantası"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 27,50"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mobile-charger-cantasi-buyuk-pro",
+        "name": "Mobile Charger Çantası",
+        "code": "BAK-8000-0003",
+        "subtitle": "Büyük (Pro)",
+        "badge": null,
+        "description": "Bemis taşınabilir şarj cihazlarına özel taşıma çantası. Cihaz, kablo ve adaptörler için ayrı bölmeler.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Aksesuar"
+              },
+              {
+                "label": "Kategori",
+                "value": "Mobile Charger Çantası"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 30,25"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "priz-tutucu-genel-priz-tutucu",
+        "name": "Priz Tutucu",
+        "code": "BAK-8200-0000",
+        "subtitle": "Genel Priz Tutucu",
+        "badge": null,
+        "description": "Type 2 priz için duvar ya da pano tutucu aparat. Kablonun temiz tutulmasını sağlar.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Aksesuar"
+              },
+              {
+                "label": "Kategori",
+                "value": "Priz Tutucu"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 19,80"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "charger-priz-tutucu-charger-serisi",
+        "name": "Charger Priz Tutucu",
+        "code": "BAK-8200-0001",
+        "subtitle": "Charger Serisi",
+        "badge": null,
+        "description": "Bemis Charger serisi şarj cihazları için özel priz tutucu aparat.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Aksesuar"
+              },
+              {
+                "label": "Kategori",
+                "value": "Charger Priz Tutucu"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 6,60"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pedestal-standart-yukseklik",
+        "name": "Pedestal",
+        "code": "BAK-8300-0000",
+        "subtitle": "Standart Yükseklik",
+        "badge": null,
+        "description": "Şarj istasyonu için zemine montajlı pedestal kaide. Açık alan ve otopark kurulumlarında çift cihaz montajına uygundur.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Aksesuar"
+              },
+              {
+                "label": "Kategori",
+                "value": "Pedestal"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 193,60"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mobile-charger-duvar-aski-aparati-mini-mono",
+        "name": "Mobile Charger Duvar Askı Aparatı",
+        "code": "BAK-8700-0000",
+        "subtitle": "Mini-Mono",
+        "badge": null,
+        "description": "Bemis taşınabilir şarj cihazları için duvara monte askı aparatı. Cihazın güvenli ve düzenli saklanması için.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Aksesuar"
+              },
+              {
+                "label": "Kategori",
+                "value": "Mobile Charger Duvar Askı Aparatı"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 6,60"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mobile-charger-duvar-aski-aparati-pro",
+        "name": "Mobile Charger Duvar Askı Aparatı",
+        "code": "BAK-8700-0001",
+        "subtitle": "Pro",
+        "badge": null,
+        "description": "Bemis taşınabilir şarj cihazları için duvara monte askı aparatı. Cihazın güvenli ve düzenli saklanması için.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Aksesuar"
+              },
+              {
+                "label": "Kategori",
+                "value": "Mobile Charger Duvar Askı Aparatı"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 8,25"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v2l-ve-c2l-adaptor-cantasi-standart",
+        "name": "V2L ve C2L Adaptör Çantası",
+        "code": "BAK-8800-0000",
+        "subtitle": "Standart",
+        "badge": null,
+        "description": "V2L ve C2L adaptörleri için özel taşıma çantası. Tek bölme içinde adaptör ve kablo organizasyonu.",
+        "specs": [
+          {
+            "group": "Genel",
+            "items": [
+              {
+                "label": "Tip",
+                "value": "Aksesuar"
+              },
+              {
+                "label": "Kategori",
+                "value": "V2L ve C2L Adaptör Çantası"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 16,50"
+              }
+            ]
+          }
+        ]
       }
     ]
   }
