@@ -117,7 +117,7 @@ export default function DNA() {
                 onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}15` : `${BLUE}10`; }}
               >
                 <E field="dna.ctaLabel" tag="span">{dna.ctaLabel}</E>
-                <RiArrowRightLine style={{ fontSize: 14 }} />
+                <RiArrowRightLine size={16} />
               </button>
             </motion.div>
 

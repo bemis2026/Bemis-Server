@@ -87,7 +87,7 @@ export default function Hero() {
             <E field="hero.subtitle" tag="span">{hero.subtitle}</E>
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}>
-            <button onClick={() => scrollTo("#products")} className="btn-primary font-bold px-8 py-4 rounded-xl text-sm">
+            <button onClick={() => scrollTo("#products")} className="btn-primary font-bold px-8 py-4 rounded-2xl text-sm">
               <E field="hero.ctaPrimary" tag="span">{hero.ctaPrimary}</E>
             </button>
           </motion.div>
@@ -125,7 +125,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.32 }}>
-            <button onClick={() => scrollTo("#products")} className="btn-primary font-bold px-8 py-4 rounded-xl text-sm">
+            <button onClick={() => scrollTo("#products")} className="btn-primary font-bold px-8 py-4 rounded-2xl text-sm">
               <E field="hero.ctaPrimary" tag="span">{hero.ctaPrimary}</E>
             </button>
           </motion.div>

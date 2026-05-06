@@ -1,0 +1,224 @@
+import { ImageResponse } from "next/og";
+import { readBin } from "../lib/jsonbin";
+
+export const alt = "Bemis E-V Charge — Yerli EV Şarj Ekipmanı Üreticisi";
+export const size = { width: 1200, height: 630 };
+export const contentType = "image/png";
+
+// Re-runs at most every 5 minutes — cheap-enough that admin uploads
+// surface fast, but doesn't hammer JSONBin on every social-media scrape.
+export const revalidate = 300;
+
+type ContentRecord = {
+  ogImage?: string;
+  faviconUrl?: string;
+  logos?: { dark?: string; light?: string };
+};
+
+async function fetchBranding(): Promise<{
+  ogOverride: string | null;
+  logoUrl: string | null;
+}> {
+  try {
+    const data = (await readBin("content")) as ContentRecord;
+    const ogOverride = data?.ogImage?.trim() || null;
+    const logoUrl =
+      data?.logos?.dark?.trim() ||
+      data?.logos?.light?.trim() ||
+      data?.faviconUrl?.trim() ||
+      null;
+    return { ogOverride, logoUrl };
+  } catch {
+    return { ogOverride: null, logoUrl: null };
+  }
+}
+
+export default async function Image() {
+  const { ogOverride, logoUrl } = await fetchBranding();
+
+  // If an admin has explicitly uploaded a 1200×630 OG image we honour it
+  // by simply rendering it edge-to-edge.
+  if (ogOverride) {
+    return new ImageResponse(
+      (
+        <div
+          style={{
+            display: "flex",
+            width: "100%",
+            height: "100%",
+            background: "#0c0c0e",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={ogOverride}
+            alt=""
+            width={1200}
+            height={630}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        </div>
+      ),
+      { ...size }
+    );
+  }
+
+  // Otherwise we synthesise a branded card from the logo + brand colours.
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          width: "100%",
+          height: "100%",
+          background:
+            "linear-gradient(135deg, #0c0c0e 0%, #111527 45%, #0a1530 100%)",
+          color: "white",
+          padding: "80px 90px",
+          fontFamily: "Inter, system-ui, sans-serif",
+        }}
+      >
+        {/* Decorative blue glow */}
+        <div
+          style={{
+            position: "absolute",
+            top: -200,
+            right: -120,
+            width: 520,
+            height: 520,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(59,130,246,0.55) 0%, rgba(59,130,246,0) 70%)",
+            display: "flex",
+          }}
+        />
+
+        {/* Logo or brand mark */}
+        <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
+          {logoUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={logoUrl}
+              alt=""
+              width={120}
+              height={120}
+              style={{ width: 120, height: 120, objectFit: "contain" }}
+            />
+          ) : (
+            <div
+              style={{
+                width: 96,
+                height: 96,
+                borderRadius: 24,
+                background:
+                  "linear-gradient(135deg, #3B82F6 0%, #2563EB 100%)",
+                color: "white",
+                fontSize: 56,
+                fontWeight: 900,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              B
+            </div>
+          )}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 6,
+            }}
+          >
+            <span
+              style={{
+                fontSize: 24,
+                color: "#93C5FD",
+                letterSpacing: 4,
+                textTransform: "uppercase",
+                fontWeight: 700,
+              }}
+            >
+              Bemis E-V Charge
+            </span>
+            <span
+              style={{
+                fontSize: 14,
+                color: "rgba(255,255,255,0.45)",
+                letterSpacing: 2,
+                textTransform: "uppercase",
+                fontWeight: 600,
+              }}
+            >
+              Bemis Teknik Elektrik A.Ş.
+            </span>
+          </div>
+        </div>
+
+        {/* Headline */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            marginTop: "auto",
+            gap: 14,
+          }}
+        >
+          <span
+            style={{
+              fontSize: 70,
+              fontWeight: 900,
+              lineHeight: 1.05,
+              maxWidth: 900,
+            }}
+          >
+            Yerli EV Şarj Ekipmanı Üreticisi
+          </span>
+          <span
+            style={{
+              fontSize: 28,
+              fontWeight: 500,
+              color: "rgba(255,255,255,0.65)",
+              maxWidth: 920,
+            }}
+          >
+            AC Wallbox · DC Hızlı Şarj · Şarj Kabloları · CE & IP65 Sertifikalı
+          </span>
+        </div>
+
+        {/* Footer accent */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 14,
+            marginTop: 32,
+          }}
+        >
+          <div
+            style={{
+              width: 44,
+              height: 4,
+              borderRadius: 2,
+              background: "#3B82F6",
+              display: "flex",
+            }}
+          />
+          <span
+            style={{
+              fontSize: 18,
+              color: "rgba(255,255,255,0.55)",
+              letterSpacing: 3,
+              textTransform: "uppercase",
+              fontWeight: 600,
+            }}
+          >
+            bemisevcharge.com.tr
+          </span>
+        </div>
+      </div>
+    ),
+    { ...size }
+  );
+}

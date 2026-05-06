@@ -70,11 +70,12 @@ async function getContentMeta(): Promise<ContentSnapshot> {
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { ogImage, faviconUrl } = await getContentMeta();
-  const images = ogImage
-    ? [{ url: ogImage, width: 1200, height: 630, alt: "Bemis E-V Charge" }]
-    : [];
+  const { faviconUrl } = await getContentMeta();
 
+  // Note: og:image / twitter:image meta tags are produced automatically
+  // by app/opengraph-image.tsx — we deliberately don't set them here so
+  // the dynamic generator stays the single source of truth (avoids
+  // platforms picking the wrong URL when both are present).
   return {
     metadataBase: new URL(BASE_URL),
     title: {
@@ -105,13 +106,11 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: "Bemis E-V Charge",
       locale: "tr_TR",
       type: "website",
-      ...(images.length > 0 && { images }),
     },
     twitter: {
       card: "summary_large_image",
       title: "Bemis E-V Charge | Yerli EV Şarj Ekipmanı",
       description: "Türkiye'nin lider EV şarj ekipmanı üreticisi — CE & IP65 sertifikalı, 60+ ülkeye ihracat.",
-      ...(images.length > 0 && { images: [ogImage!] }),
     },
   };
 }

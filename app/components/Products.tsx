@@ -365,17 +365,14 @@ export default function Products() {
         >
           <button
             onClick={() => router.push("/products")}
-            className="group inline-flex items-center gap-2.5 font-bold rounded-xl transition-all duration-300 hover:gap-3.5 hover:scale-[1.02]"
+            className="group inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:opacity-90 active:scale-95"
             style={{
-              background: BLUE,
-              color: "#fff",
-              fontSize: "clamp(0.875rem, 1.5vw, 1rem)",
-              padding: "clamp(11px, 1.4vw, 14px) clamp(28px, 4vw, 42px)",
-              boxShadow: `0 6px 24px ${BLUE}45`,
+              background: `linear-gradient(135deg, ${BLUE}, #2563EB)`,
+              boxShadow: `0 6px 20px ${BLUE}40`,
             }}
           >
             <E field="products.allProductsLabel" tag="span">{productSection.allProductsLabel}</E>
-            <HiArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+            <HiArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
           </button>
         </motion.div>
 
