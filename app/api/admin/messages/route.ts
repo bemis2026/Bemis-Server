@@ -1,63 +1,52 @@
 import { NextRequest, NextResponse } from "next/server";
-import { put, list } from "@vercel/blob";
-
-const STATE_KEY = "data/messages-state.json";
+import { readBin, writeBin } from "../../../../lib/jsonbin";
 
 function isAuthed(req: NextRequest) {
   return req.cookies.get("admin_auth")?.value === "1";
 }
 
+type MessageItem = {
+  id: string;
+  name?: string;
+  company?: string;
+  email?: string;
+  phone?: string;
+  topic?: string;
+  topicLabel?: string;
+  message?: string;
+  ip?: string;
+  receivedAt?: string;
+};
+
 type MessageState = { read?: boolean; archived?: boolean };
 
-async function loadState(): Promise<Record<string, MessageState>> {
-  try {
-    const { blobs } = await list({ prefix: STATE_KEY });
-    const blob = blobs.find((b) => b.pathname === STATE_KEY);
-    if (blob) {
-      const res = await fetch(blob.url, { cache: "no-store" });
-      return (await res.json()) as Record<string, MessageState>;
-    }
-  } catch {}
-  return {};
-}
+type MessagesBin = {
+  items?: MessageItem[];
+  state?: Record<string, MessageState>;
+};
 
-async function saveState(state: Record<string, MessageState>) {
-  await put(STATE_KEY, JSON.stringify(state, null, 2), {
-    access: "public",
-    contentType: "application/json",
-    allowOverwrite: true,
-  });
+async function loadBin(): Promise<{ items: MessageItem[]; state: Record<string, MessageState> }> {
+  try {
+    const cur = (await readBin("messages", { fresh: true })) as MessagesBin;
+    return {
+      items: Array.isArray(cur?.items) ? cur.items : [],
+      state: cur?.state ?? {},
+    };
+  } catch {
+    return { items: [], state: {} };
+  }
 }
 
 export async function GET(req: NextRequest) {
   if (!isAuthed(req)) return NextResponse.json({ error: "Yetkisiz" }, { status: 401 });
-  try {
-    const { blobs } = await list({ prefix: "contacts/" });
-    const state = await loadState();
-    const messages = await Promise.all(
-      blobs.map(async (b) => {
-        try {
-          const res = await fetch(b.url, { cache: "no-store" });
-          const data = (await res.json()) as Record<string, unknown>;
-          return {
-            id: b.pathname,
-            ...data,
-            uploadedAt: b.uploadedAt,
-            read: state[b.pathname]?.read ?? false,
-            archived: state[b.pathname]?.archived ?? false,
-          };
-        } catch {
-          return null;
-        }
-      })
-    );
-    const valid = messages.filter(Boolean) as Array<Record<string, unknown>>;
-    valid.sort((a, b) => String(b.receivedAt ?? b.uploadedAt).localeCompare(String(a.receivedAt ?? a.uploadedAt)));
-    return NextResponse.json({ messages: valid });
-  } catch (e) {
-    console.error("[admin/messages] list error:", e);
-    return NextResponse.json({ messages: [] });
-  }
+  const { items, state } = await loadBin();
+  const messages = items.map((m) => ({
+    ...m,
+    read: state[m.id]?.read ?? false,
+    archived: state[m.id]?.archived ?? false,
+  }));
+  messages.sort((a, b) => String(b.receivedAt ?? "").localeCompare(String(a.receivedAt ?? "")));
+  return NextResponse.json({ messages });
 }
 
 export async function POST(req: NextRequest) {
@@ -65,12 +54,13 @@ export async function POST(req: NextRequest) {
   try {
     const body = (await req.json()) as { id?: string; read?: boolean; archived?: boolean };
     if (!body.id) return NextResponse.json({ error: "id gerekli" }, { status: 400 });
-    const state = await loadState();
+
+    const { items, state } = await loadBin();
     state[body.id] = {
       read: body.read ?? state[body.id]?.read ?? false,
       archived: body.archived ?? state[body.id]?.archived ?? false,
     };
-    await saveState(state);
+    await writeBin("messages", { items, state });
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error("[admin/messages] save error:", e);

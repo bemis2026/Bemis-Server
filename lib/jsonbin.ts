@@ -9,6 +9,8 @@ const BIN_IDS: Record<string, string> = {
   dealers:   "69e5093e36566621a8cd750f",
   products:  "69e5093e856a6821894eaee8",
   documents: "69e5093f856a6821894eaeec",
+  messages:  "69fb7b59adc21f119a61e79f",
+  changelog: "69fb7b5eadc21f119a61e7c8",
 };
 
 const PUBLIC_REVALIDATE_SECONDS = 60;

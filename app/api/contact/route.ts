@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { put, list } from "@vercel/blob";
+import { readBin, writeBin } from "../../../lib/jsonbin";
 
 const topicLabels: Record<string, string> = {
   "product-info":    "Ürün Bilgisi",
@@ -40,14 +40,33 @@ function buildHtml(fields: Record<string, string>, topicLabel: string, ip: strin
     </div>`;
 }
 
-async function saveToBlob(data: Record<string, string>) {
+type MessageItem = {
+  id: string;
+  name: string;
+  company: string;
+  email: string;
+  phone: string;
+  topic: string;
+  topicLabel: string;
+  message: string;
+  ip: string;
+  receivedAt: string;
+};
+
+type MessagesBin = {
+  items?: MessageItem[];
+  state?: Record<string, { read?: boolean; archived?: boolean }>;
+};
+
+async function appendMessage(item: MessageItem) {
   try {
-    const key = `contacts/${Date.now()}-${Math.random().toString(36).slice(2)}.json`;
-    await put(key, JSON.stringify({ ...data, receivedAt: new Date().toISOString() }, null, 2), {
-      access: "public", contentType: "application/json",
-    });
+    const cur = (await readBin("messages", { fresh: true }).catch(() => null)) as MessagesBin | null;
+    const items = Array.isArray(cur?.items) ? cur.items : [];
+    const state = cur?.state ?? {};
+    items.unshift(item); // newest first
+    await writeBin("messages", { items, state });
   } catch (e) {
-    console.error("[contact] Blob save failed:", e);
+    console.error("[contact] JSONBin save failed:", e);
   }
 }
 
@@ -61,9 +80,20 @@ export async function POST(req: NextRequest) {
 
   const topicLabel = topicLabels[topic] ?? topic;
   const ip = req.headers.get("x-forwarded-for") ?? "bilinmiyor";
+  const id = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 
-  // Always save to Blob as backup
-  await saveToBlob({ name, company: company ?? "", email, phone: phone ?? "", topic, topicLabel, message, ip });
+  await appendMessage({
+    id,
+    name,
+    company: company ?? "",
+    email,
+    phone: phone ?? "",
+    topic,
+    topicLabel,
+    message,
+    ip,
+    receivedAt: new Date().toISOString(),
+  });
 
   // ── Resend (öncelikli) ──────────────────────────────────────────────────
   const resendKey  = process.env.RESEND_API_KEY;
@@ -114,7 +144,7 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  // Mesaj Blob'a kaydedildi ama e-posta gönderilemedi
+  // Mesaj JSONBin'e kaydedildi ama e-posta gönderilemedi
   console.error("[contact] All email providers failed or unconfigured.");
   return NextResponse.json({ error: "E-posta gönderilemedi, mesajınız kaydedildi." }, { status: 500 });
 }
