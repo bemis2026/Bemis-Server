@@ -8,6 +8,7 @@ import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import E from "./E";
 import { CITY_BY_ID } from "../../lib/turkeyCities";
+import { tierColor, tierLabel } from "../../lib/dealerTiers";
 import InternationalGlobe from "./InternationalGlobe";
 
 const BLUE = "#3B82F6";
@@ -23,6 +24,7 @@ type Dealer = {
   workingHours?: string;
   mapUrl?: string;
   notes?: string;
+  tier?: "standart" | "stratejik" | "partner";
 };
 type DealersData = Record<string, { dealers: Dealer[] }>;
 
@@ -428,9 +430,31 @@ export default function DealerNetwork() {
                 {activeDealers.map((dealer, i) => {
                   const muted = d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.55)";
                   const phoneDigits = (s: string) => s.replace(/[^\d+]/g, "");
+                  const tColor = tierColor(dealer.tier);
+                  const tLabel = tierLabel(dealer.tier);
                   return (
                     <div key={i} className="pt-3 first:pt-0" style={{ borderTop: i > 0 ? `1px solid ${d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.07)"}` : "none" }}>
-                      <p className="text-sm font-semibold" style={{ color: d ? "rgba(255,255,255,0.80)" : "rgba(0,0,0,0.80)" }}>{dealer.name}</p>
+                      <div className="flex items-center gap-2 mb-0.5">
+                        {/* Tier badge — colored brand-mark circle communicates
+                            dealer status (Standart / Stratejik / Çözüm Ortağı) */}
+                        <span
+                          className="inline-flex items-center justify-center rounded-full overflow-hidden flex-shrink-0"
+                          style={{
+                            width: 22, height: 22,
+                            background: tColor,
+                            border: "1.5px solid rgba(255,255,255,0.9)",
+                            boxShadow: `0 0 0 1px ${tColor}66, 0 2px 5px ${tColor}40`,
+                          }}
+                          title={tLabel}
+                        >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src="/icon" alt="" width={18} height={18} style={{ objectFit: "contain", padding: 2 }} />
+                        </span>
+                        <p className="text-sm font-semibold flex-1" style={{ color: d ? "rgba(255,255,255,0.80)" : "rgba(0,0,0,0.80)" }}>{dealer.name}</p>
+                      </div>
+                      <p className="text-[10px] font-bold tracking-wider uppercase mb-1" style={{ color: tColor }}>
+                        {tLabel}
+                      </p>
                       {dealer.contactPerson && (
                         <p className="text-xs flex items-center gap-1 mb-1" style={{ color: muted }}>
                           <HiUser className="flex-shrink-0" />

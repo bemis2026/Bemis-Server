@@ -86,6 +86,7 @@ import {
   getCityRegion,
 } from "../../lib/turkeyCities";
 import { WORLD_COUNTRIES } from "../../lib/worldCountries";
+import { DEALER_TIERS } from "../../lib/dealerTiers";
 
 type SpecItem = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
@@ -177,6 +178,7 @@ type Dealer = {
   workingHours?: string;
   mapUrl?: string;
   notes?: string;
+  tier?: "standart" | "stratejik" | "partner";
 };
 type DealersData = Record<string, { dealers: Dealer[] }>;
 
@@ -322,11 +324,13 @@ export default function AdminPage() {
     city: string; name: string; address: string; phone: string;
     email: string; contactPerson: string; whatsapp: string;
     website: string; workingHours: string; mapUrl: string; notes: string;
+    tier: "standart" | "stratejik" | "partner";
   };
   const emptyDealerForm: AddDealerForm = {
     city: "", name: "", address: "", phone: "",
     email: "", contactPerson: "", whatsapp: "",
     website: "", workingHours: "", mapUrl: "", notes: "",
+    tier: "standart",
   };
   const [addDealerForm, setAddDealerForm] = useState<AddDealerForm>(emptyDealerForm);
   // International country picker (Yurtdışı Distribütörler editor)
@@ -4528,6 +4532,44 @@ export default function AdminPage() {
                           )}
                         </div>
 
+                        <p className="text-[10px] font-bold text-white/35 uppercase tracking-[0.14em] pt-2">Bayi Statüsü</p>
+                        <div className="grid grid-cols-3 gap-2">
+                          {DEALER_TIERS.map((tier) => {
+                            const selected = addDealerForm.tier === tier.id;
+                            return (
+                              <button
+                                key={tier.id}
+                                onClick={() => setAddDealerForm((f) => ({ ...f, tier: tier.id }))}
+                                className="relative rounded-xl px-3 py-2.5 text-left transition-all"
+                                style={{
+                                  background: selected ? `${tier.color}22` : "rgba(255,255,255,0.04)",
+                                  border: selected ? `1px solid ${tier.color}88` : "1px solid rgba(255,255,255,0.08)",
+                                  boxShadow: selected ? `0 0 0 1px ${tier.color}55, 0 4px 12px ${tier.color}22` : "none",
+                                }}
+                              >
+                                <span
+                                  className="inline-flex items-center justify-center rounded-full mb-1.5"
+                                  style={{
+                                    width: 22, height: 22,
+                                    background: tier.color,
+                                    border: "1.5px solid rgba(255,255,255,0.85)",
+                                    boxShadow: `0 0 0 1px ${tier.color}55`,
+                                  }}
+                                >
+                                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                                  <img src="/icon" alt="" width={18} height={18} style={{ objectFit: "contain", padding: 2 }} />
+                                </span>
+                                <p className="text-[12px] font-bold leading-tight" style={{ color: selected ? "#ffffff" : "rgba(255,255,255,0.75)" }}>
+                                  {tier.label}
+                                </p>
+                                <p className="text-[10px] mt-0.5 leading-tight" style={{ color: selected ? "rgba(255,255,255,0.65)" : "rgba(255,255,255,0.35)" }}>
+                                  {tier.sub}
+                                </p>
+                              </button>
+                            );
+                          })}
+                        </div>
+
                         <p className="text-[10px] font-bold text-white/35 uppercase tracking-[0.14em] pt-2">Temel Bilgiler</p>
                         <div className="grid grid-cols-2 gap-3">
                           <div>
@@ -4680,6 +4722,7 @@ export default function AdminPage() {
                                 workingHours: optional(f.workingHours),
                                 mapUrl: optional(f.mapUrl),
                                 notes: optional(f.notes),
+                                tier: f.tier,
                               };
                               setDealers((prev) => {
                                 const next = JSON.parse(JSON.stringify(prev)) as DealersData;
