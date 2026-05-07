@@ -61,6 +61,17 @@ export default function DealerNetwork() {
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
 
+  // Clear cross-tab leftover state so a Marmara hover from yurtiçi doesn't
+  // keep the rep card open under the globe and vice-versa.
+  useEffect(() => {
+    if (viewMode === "yurtdisi") {
+      setHoveredCity(null);
+      setSelectedCity(null);
+    } else {
+      setSelectedCountry(null);
+    }
+  }, [viewMode]);
+
   // International distributors come from the editable content bin. Filter
   // active rows + sort by countryName for a stable, alphabetical side list.
   const internationalDealers = (dealerSection.internationalDealers ?? []).filter(c => c.active);
@@ -146,22 +157,28 @@ export default function DealerNetwork() {
         {/* ── Header ── */}
         <div className="mb-7">
           <motion.span
+            key={`label-${viewMode}`}
             initial={{ opacity: 0, y: 10 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4 }}
             className="inline-block text-xs font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-full mb-4"
             style={{ background: `${BLUE}18`, border: `1px solid ${BLUE}35`, color: d ? "#93C5FD" : BLUE }}
           >
-            <E field="dealer.sectionLabel" tag="span">{dealerSection.sectionLabel}</E>
+            {viewMode === "yurtdisi"
+              ? "Küresel Distribütör Ağı"
+              : <E field="dealer.sectionLabel" tag="span">{dealerSection.sectionLabel}</E>}
           </motion.span>
           <motion.h2
+            key={`heading-${viewMode}`}
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.08 }}
             className="text-4xl sm:text-5xl lg:text-6xl font-black"
             style={{ color: d ? "#ffffff" : "#111111" }}
           >
-            <E field="dealer.heading">{dealerSection.heading}</E>
+            {viewMode === "yurtdisi"
+              ? "Dünyaya Açılan Bemis"
+              : <E field="dealer.heading">{dealerSection.heading}</E>}
           </motion.h2>
           <motion.div
             initial={{ scaleX: 0, opacity: 0 }}
@@ -181,7 +198,7 @@ export default function DealerNetwork() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-2 flex flex-col gap-3"
           >
-            {/* Bayi Bul */}
+            {/* Intro card — content swaps based on viewMode */}
             <div
               className="rounded-2xl p-5"
               style={{
@@ -189,10 +206,20 @@ export default function DealerNetwork() {
                 border: `1px solid ${BLUE}28`,
               }}
             >
-              <RiStoreLine style={{ color: d ? "#93C5FD" : BLUE, fontSize: 20, marginBottom: 12 }} />
-              <h3 className="font-bold text-base mb-1.5" style={{ color: d ? "#ffffff" : "#111111" }}><E field="dealer.findDealerTitle">{dealerSection.findDealerTitle}</E></h3>
+              {viewMode === "yurtdisi" ? (
+                <RiGlobalLine style={{ color: d ? "#93C5FD" : BLUE, fontSize: 20, marginBottom: 12 }} />
+              ) : (
+                <RiStoreLine style={{ color: d ? "#93C5FD" : BLUE, fontSize: 20, marginBottom: 12 }} />
+              )}
+              <h3 className="font-bold text-base mb-1.5" style={{ color: d ? "#ffffff" : "#111111" }}>
+                {viewMode === "yurtdisi"
+                  ? "Bursa'dan Dünyaya"
+                  : <E field="dealer.findDealerTitle">{dealerSection.findDealerTitle}</E>}
+              </h3>
               <p className="text-sm leading-relaxed mb-4" style={{ color: d ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.55)" }}>
-                <E field="dealer.description" tag="span">{dealerSection.description}</E>
+                {viewMode === "yurtdisi"
+                  ? "Bursa merkezli üretim tesisimizden Avrupa, Balkanlar, Orta Doğu, Türk dünyası, Kuzey Afrika ve Amerika'ya uzanan distribütör ağımızla EV şarj çözümlerini globalde sunuyoruz."
+                  : <E field="dealer.description" tag="span">{dealerSection.description}</E>}
               </p>
               <button
                 onClick={scrollToContact}
@@ -201,17 +228,32 @@ export default function DealerNetwork() {
                 onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}25` : `${BLUE}18`; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}15` : `${BLUE}10`; }}
               >
-                <E field="dealer.contactBtnLabel" tag="span">{dealerSection.contactBtnLabel}</E>
+                {viewMode === "yurtdisi"
+                  ? "İhracat İletişim"
+                  : <E field="dealer.contactBtnLabel" tag="span">{dealerSection.contactBtnLabel}</E>}
                 <HiArrowRight />
               </button>
             </div>
 
-            {/* Stats */}
+            {/* Stats — counts swap with viewMode (cities↔countries) */}
             <div className="grid grid-cols-2 gap-2.5">
-              {[
-                { value: dealerSection.statCities,  label: dealerSection.citiesLabel   },
-                { value: dealerSection.statDealers, label: dealerSection.activeDealersLabel },
-              ].map((item, i) => (
+              {(viewMode === "yurtdisi"
+                ? [
+                    { value: String(sortedIntl.length),                 label: "Aktif Ülke" },
+                    { value: String(new Set(sortedIntl.map(c => {
+                        // Bucket continent by lng band — rough but useful as a stat
+                        if (c.lng > -25 && c.lng < 60 && c.lat > 30) return "EU";
+                        if (c.lng >= 25 && c.lng < 75 && c.lat <= 30) return "ME";
+                        if (c.lng < -25) return "AM";
+                        if (c.lng >= 75) return "AS";
+                        return "AF";
+                      })).size),                                          label: "Kıta" },
+                  ]
+                : [
+                    { value: dealerSection.statCities,  label: dealerSection.citiesLabel   },
+                    { value: dealerSection.statDealers, label: dealerSection.activeDealersLabel },
+                  ]
+              ).map((item, i) => (
                 <div
                   key={i}
                   className="rounded-xl p-4 text-center"
@@ -673,9 +715,10 @@ export default function DealerNetwork() {
             {/* Bemis regional rep card — sits directly under the map.
                 AnimatePresence + height/opacity drives a smooth open
                 when a region with a filled rep gets hovered/selected;
-                collapses back when the user moves off. */}
+                collapses back when the user moves off. Suppressed in
+                yurtdisi mode — international tab has its own side card. */}
             <AnimatePresence initial={false}>
-              {activeCity && hasActiveRep && activeRep && (
+              {viewMode === "yurtici" && activeCity && hasActiveRep && activeRep && (
                 <motion.div
                   key={`rep-under-map-${activeCity}`}
                   initial={{ opacity: 0, height: 0, y: -8 }}

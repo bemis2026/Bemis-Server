@@ -124,7 +124,7 @@ export const WORLD_COUNTRIES: WorldCountry[] = [
   { code: "SG", name: "Singapur",                   lat: 1.4,   lng: 103.8 },
   { code: "LK", name: "Sri Lanka",                  lat: 7.9,   lng: 80.8 },
   { code: "TW", name: "Tayvan",                     lat: 23.7,  lng: 121.0 },
-  { code: "TH", name: "Tayland",                    lat: 15.9,  lng: 100.99 },
+  { code: "TH", name: "Tayland",                    lat: 15.87, lng: 100.99 },
   { code: "VN", name: "Vietnam",                    lat: 14.1,  lng: 108.3 },
 
   // Oceania
@@ -134,7 +134,7 @@ export const WORLD_COUNTRIES: WorldCountry[] = [
   // North America
   { code: "CA", name: "Kanada",                     lat: 56.1,  lng: -106.3 },
   { code: "MX", name: "Meksika",                    lat: 23.6,  lng: -102.6 },
-  { code: "US", name: "Amerika Birleşik Devletleri", lat: 37.1, lng: -95.7 },
+  { code: "US", name: "Amerika Birleşik Devletleri", lat: 39.83, lng: -98.58 },
 
   // Central America & Caribbean
   { code: "CR", name: "Kosta Rika",                 lat: 9.7,   lng: -83.8 },

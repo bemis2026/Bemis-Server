@@ -58,6 +58,16 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
       controls.autoRotateSpeed = 0.4;
       controls.enableZoom = true;
     }
+    // Crank the renderer up to the device's native pixel ratio so the texture
+    // looks crisp on retina/HiDPI displays (default behaviour caps it at 1).
+    const renderer = g.renderer() as unknown as {
+      setPixelRatio?: (r: number) => void;
+      capabilities?: { getMaxAnisotropy?: () => number };
+    } | undefined;
+    if (renderer?.setPixelRatio) {
+      const dpr = typeof window !== "undefined" ? Math.min(window.devicePixelRatio || 1, 2.5) : 2;
+      renderer.setPixelRatio(dpr);
+    }
     g.pointOfView({ lat: BURSA.lat, lng: BURSA.lng, altitude: 1.55 }, 0);
   }, [size.w]);
 
@@ -115,6 +125,10 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
         width={size.w}
         height={size.h}
         backgroundColor="rgba(0,0,0,0)"
+        rendererConfig={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+        // Earth textures — three-globe's stock 2K maps combined with retina
+        // pixel ratio (set in useEffect below) keep coastlines sharp on HiDPI
+        // screens without ballooning the bundle with 8K texture downloads.
         globeImageUrl={
           dark
             ? "//unpkg.com/three-globe/example/img/earth-night.jpg"
@@ -158,8 +172,11 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
         htmlLng="lng"
         htmlAltitude={0.02}
         htmlElement={() => {
+          // The wrapper is centered on lat/lng via translate(-50%, -50%).
+          // The badge sits at that center; the MERKEZ caption hangs below
+          // absolutely so the LOGO (not the column) stays exactly on Bursa.
           const el = document.createElement("div");
-          el.style.cssText = "transform: translate(-50%, -50%); pointer-events: none; display: flex; flex-direction: column; align-items: center; gap: 1px;";
+          el.style.cssText = "transform: translate(-50%, -50%); pointer-events: none; position: relative; width: 22px; height: 22px;";
           el.innerHTML = `
             <div style="
               width: 22px; height: 22px;
@@ -173,6 +190,11 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
               <img src="/icon" alt="Bemis" width="18" height="18" style="object-fit: contain;" />
             </div>
             <span style="
+              position: absolute;
+              top: 100%;
+              left: 50%;
+              transform: translateX(-50%);
+              margin-top: 3px;
               font-size: 8px;
               font-weight: 800;
               letter-spacing: 0.10em;
@@ -181,6 +203,7 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
               padding: 1px 4px;
               border-radius: 3px;
               background: ${dark ? "rgba(8,12,22,0.55)" : "rgba(255,255,255,0.75)"};
+              white-space: nowrap;
             ">MERKEZ</span>
           `;
           return el;
