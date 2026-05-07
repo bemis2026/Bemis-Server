@@ -3,7 +3,7 @@
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { HiArrowRight, HiPhone, HiLocationMarker, HiMail, HiUser, HiClock, HiExternalLink } from "react-icons/hi";
-import { RiStoreLine, RiMapPin2Line, RiWhatsappLine, RiGlobalLine, RiAwardLine, RiCustomerService2Line } from "react-icons/ri";
+import { RiMapPin2Line, RiWhatsappLine, RiGlobalLine, RiAwardLine, RiCustomerService2Line } from "react-icons/ri";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import E from "./E";
@@ -47,21 +47,22 @@ const REGIONS = [
 const BURSA_HQ = { id: "merkez", label: "Bursa Merkez", cx: 270, cy: 272 };
 const HQ_RED = "#EF4444";
 
-// Flag + native-label lookup for the export-team language pills. Falls back
-// to a globe emoji + uppercase code when an unknown ISO code is configured.
-const LANG_META: Record<string, { flag: string; label: string }> = {
-  tr: { flag: "🇹🇷", label: "Türkçe" },
-  en: { flag: "🇬🇧", label: "English" },
-  ru: { flag: "🇷🇺", label: "Русский" },
-  es: { flag: "🇪🇸", label: "Español" },
-  ar: { flag: "🇸🇦", label: "العربية" },
-  de: { flag: "🇩🇪", label: "Deutsch" },
-  fr: { flag: "🇫🇷", label: "Français" },
-  it: { flag: "🇮🇹", label: "Italiano" },
-  pt: { flag: "🇵🇹", label: "Português" },
-  zh: { flag: "🇨🇳", label: "中文" },
-  fa: { flag: "🇮🇷", label: "فارسی" },
-  az: { flag: "🇦🇿", label: "Azərbaycan" },
+// Language → ISO-3166 country code + native label lookup. `cc` drives the
+// flagcdn.com PNG so flags render the same across Windows / Mac / Linux
+// (Windows doesn't ship colour emoji flags out of the box).
+const LANG_META: Record<string, { cc: string; label: string }> = {
+  tr: { cc: "tr", label: "Türkçe" },
+  en: { cc: "gb", label: "English" },
+  ru: { cc: "ru", label: "Русский" },
+  es: { cc: "es", label: "Español" },
+  ar: { cc: "sa", label: "العربية" },
+  de: { cc: "de", label: "Deutsch" },
+  fr: { cc: "fr", label: "Français" },
+  it: { cc: "it", label: "Italiano" },
+  pt: { cc: "pt", label: "Português" },
+  zh: { cc: "cn", label: "中文" },
+  fa: { cc: "ir", label: "فارسی" },
+  az: { cc: "az", label: "Azərbaycan" },
 };
 
 export default function DealerNetwork() {
@@ -243,11 +244,6 @@ export default function DealerNetwork() {
                 border: `1px solid ${BLUE}28`,
               }}
             >
-              {viewMode === "yurtdisi" ? (
-                <RiGlobalLine style={{ color: d ? "#93C5FD" : BLUE, fontSize: 20, marginBottom: 12 }} />
-              ) : (
-                <RiStoreLine style={{ color: d ? "#93C5FD" : BLUE, fontSize: 20, marginBottom: 12 }} />
-              )}
               <h3 className="font-bold text-base mb-1.5" style={{ color: d ? "#ffffff" : "#111111" }}>
                 {viewMode === "yurtdisi"
                   ? (dealerSection.worldSection?.introTitle ?? "Bursa'dan Dünyaya")
@@ -338,20 +334,34 @@ export default function DealerNetwork() {
                       </p>
                       <div className="flex flex-wrap gap-1.5 mb-2">
                         {(dealerSection.worldSection?.languages ?? []).map((code) => {
-                          const meta = LANG_META[code.toLowerCase()] ?? { flag: "🌐", label: code.toUpperCase() };
+                          const meta = LANG_META[code.toLowerCase()];
                           return (
                             <span
                               key={code}
-                              className="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full"
+                              className="inline-flex items-center gap-1.5 text-[11px] font-semibold pl-1 pr-2 py-0.5 rounded-full"
                               style={{
                                 background: d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)",
                                 border: `1px solid ${BLUE}30`,
                                 color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.78)",
                               }}
-                              title={meta.label}
+                              title={meta?.label ?? code.toUpperCase()}
                             >
-                              <span style={{ fontSize: 12, lineHeight: 1 }}>{meta.flag}</span>
-                              {meta.label}
+                              {meta ? (
+                                /* eslint-disable-next-line @next/next/no-img-element */
+                                <img
+                                  src={`https://flagcdn.com/w40/${meta.cc}.png`}
+                                  srcSet={`https://flagcdn.com/w80/${meta.cc}.png 2x`}
+                                  alt=""
+                                  width={18}
+                                  height={13}
+                                  className="rounded-[2px]"
+                                  style={{ objectFit: "cover", boxShadow: "0 0 0 1px rgba(0,0,0,0.18)" }}
+                                  loading="lazy"
+                                />
+                              ) : (
+                                <span style={{ fontSize: 12, lineHeight: 1 }}>🌐</span>
+                              )}
+                              {meta?.label ?? code.toUpperCase()}
                             </span>
                           );
                         })}
@@ -552,8 +562,21 @@ export default function DealerNetwork() {
                           onMouseEnter={(e) => { if (!isSelected) (e.currentTarget as HTMLButtonElement).style.background = d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)"; }}
                           onMouseLeave={(e) => { if (!isSelected) (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
                         >
+                          {/* Country flag — flagcdn.com cross-platform PNG so
+                              Windows shows real flags instead of CC letters. */}
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={`https://flagcdn.com/w40/${c.countryCode.toLowerCase()}.png`}
+                            srcSet={`https://flagcdn.com/w80/${c.countryCode.toLowerCase()}.png 2x`}
+                            alt={c.countryName}
+                            width={24}
+                            height={18}
+                            className="rounded-sm flex-shrink-0"
+                            style={{ objectFit: "cover", boxShadow: "0 0 0 1px rgba(0,0,0,0.18)" }}
+                            loading="lazy"
+                          />
                           <span
-                            className="text-[10px] font-black tracking-wider px-1.5 py-0.5 rounded"
+                            className="text-[10px] font-black tracking-wider px-1.5 py-0.5 rounded flex-shrink-0"
                             style={{ background: `${BLUE}22`, color: d ? "#cfe1ff" : "#1D4ED8", border: `1px solid ${BLUE}30` }}
                           >
                             {c.countryCode}
