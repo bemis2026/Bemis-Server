@@ -7,7 +7,6 @@ import { RiStoreLine, RiMapPin2Line, RiWhatsappLine, RiGlobalLine, RiAwardLine }
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import E from "./E";
-import Image from "next/image";
 import { CITY_BY_ID } from "../../lib/turkeyCities";
 import InternationalGlobe from "./InternationalGlobe";
 
@@ -49,7 +48,7 @@ const HQ_RED = "#EF4444";
 export default function DealerNetwork() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
-  const { dealer: dealerSection, sectionBgs, logos, faviconUrl } = useContent();
+  const { dealer: dealerSection, sectionBgs, logos } = useContent();
   const { theme } = useTheme();
   const d = theme === "dark";
   const [dealers, setDealers] = useState<DealersData>({});
@@ -701,23 +700,21 @@ export default function DealerNetwork() {
                           className="inline-flex items-center justify-center rounded-full overflow-hidden"
                           style={{
                             width: 36, height: 36,
-                            background: `${BLUE}28`,
+                            background: "#ffffff",
                             border: `1px solid ${BLUE}55`,
                             boxShadow: `0 0 0 2px ${BLUE}18`,
                           }}
                         >
-                          {faviconUrl ? (
-                            <Image
-                              src={faviconUrl}
-                              alt="Bemis E-V Charge"
-                              width={28}
-                              height={28}
-                              className="rounded-full object-contain"
-                              style={{ background: "#ffffff", padding: 2 }}
-                            />
-                          ) : (
-                            <RiAwardLine size={18} style={{ color: d ? "#93C5FD" : BLUE }} />
-                          )}
+                          {/* Use the same /icon route the browser uses for the URL
+                              favicon — guarantees both match pixel-for-pixel. */}
+                          <img
+                            src="/icon"
+                            alt="Bemis E-V Charge"
+                            width={28}
+                            height={28}
+                            className="object-contain"
+                            style={{ padding: 2 }}
+                          />
                         </span>
                         <div>
                           <p className="text-[10px] font-bold tracking-[0.18em] uppercase" style={{ color: d ? "#93C5FD" : BLUE }}>

@@ -73,12 +73,9 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
     g.pointOfView({ lat: target.lat, lng: target.lng, altitude: 1.4 }, 1100);
   }, [selectedId, activeCountries]);
 
-  // Build labels — Bursa pin plus active country pins. Sized small enough so
-  // labels don't overlap when several countries cluster (e.g. Balkans).
-  const labels = [
-    { id: "_hq", lat: BURSA.lat, lng: BURSA.lng, countryName: BURSA.name, color: RED, size: 1.05, isHQ: true as const },
-    ...activeCountries.map(c => ({ ...c, color: BLUE, size: 0.7, isHQ: false as const })),
-  ];
+  // Country pins only. The HQ marker is a custom HTML overlay (logo+caption)
+  // so we can show our brand mark instead of a plain 3D label.
+  const labels = activeCountries.map(c => ({ ...c, color: BLUE, size: 0.7, isHQ: false as const }));
 
   // Pulsing rings — slow steady ring under Bursa pin and one under each
   // active country pin. Adds depth without the arc-line clutter.
@@ -88,6 +85,10 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
       lat: c.lat, lng: c.lng, color: BLUE, maxR: 2.2, speed: 0.7, period: 3200,
     })),
   ];
+
+  // Custom HTML overlay for HQ — uses our /icon route so the marker matches
+  // the browser tab favicon pixel-for-pixel.
+  const htmlElements = [{ lat: BURSA.lat, lng: BURSA.lng }];
 
   return (
     <div
@@ -151,6 +152,39 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
         ringRepeatPeriod={(d: object) => (d as { period: number }).period}
         ringResolution={48}
         ringAltitude={0.008}
+        // HQ HTML overlay — brand-mark image + tiny "MERKEZ" caption.
+        htmlElementsData={htmlElements}
+        htmlLat="lat"
+        htmlLng="lng"
+        htmlAltitude={0.02}
+        htmlElement={() => {
+          const el = document.createElement("div");
+          el.style.cssText = "transform: translate(-50%, -50%); pointer-events: none; display: flex; flex-direction: column; align-items: center; gap: 1px;";
+          el.innerHTML = `
+            <div style="
+              width: 22px; height: 22px;
+              border-radius: 50%;
+              background: #ffffff;
+              border: 2px solid ${RED};
+              box-shadow: 0 0 0 2px ${RED}33, 0 4px 10px rgba(0,0,0,0.45);
+              display: flex; align-items: center; justify-content: center;
+              overflow: hidden;
+            ">
+              <img src="/icon" alt="Bemis" width="18" height="18" style="object-fit: contain;" />
+            </div>
+            <span style="
+              font-size: 8px;
+              font-weight: 800;
+              letter-spacing: 0.10em;
+              color: ${dark ? "#fecaca" : "#B91C1C"};
+              text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+              padding: 1px 4px;
+              border-radius: 3px;
+              background: ${dark ? "rgba(8,12,22,0.55)" : "rgba(255,255,255,0.75)"};
+            ">MERKEZ</span>
+          `;
+          return el;
+        }}
       />
 
       {hovered && (
