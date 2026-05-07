@@ -71,7 +71,7 @@ export const DEFAULT_COUNTRIES: GlobeCountry[] = [
 
 // Bemis HQ — drawn as the centerpiece pin so the globe always tells the
 // "from Bursa to the world" story.
-const BURSA = { lat: 40.18, lng: 29.06, name: "Bursa Merkez (HQ)" };
+const BURSA = { lat: 40.18, lng: 29.06, name: "MERKEZ TR" };
 
 const BLUE = "#3B82F6";
 const RED = "#EF4444";
@@ -120,8 +120,8 @@ export default function InternationalGlobe({ dark }: Props) {
 
   // Build labels — Bursa pin plus all the country pins.
   const labels = [
-    { ...BURSA, color: RED, size: 1.4, isHQ: true as const },
-    ...DEFAULT_COUNTRIES.map(c => ({ ...c, color: BLUE, size: 0.9, isHQ: false as const })),
+    { ...BURSA, color: RED, size: 1.7, isHQ: true as const },
+    ...DEFAULT_COUNTRIES.map(c => ({ ...c, color: BLUE, size: 1.05, isHQ: false as const })),
   ];
 
   // Arc lines from Bursa to every country — gives the globe its "exporting
@@ -131,15 +131,42 @@ export default function InternationalGlobe({ dark }: Props) {
     startLng: BURSA.lng,
     endLat: c.lat,
     endLng: c.lng,
-    color: [`${BLUE}cc`, `${BLUE}33`],
+    color: [`${BLUE}ee`, `${BLUE}22`],
   }));
+
+  // Pulsing rings — one slow steady ring under Bursa pin and a faster pulse
+  // under each market pin. react-globe.gl animates ringMaxRadius across
+  // ringPropagationSpeed at a `ringRepeatPeriod` cadence.
+  const rings = [
+    { lat: BURSA.lat, lng: BURSA.lng, color: RED, maxR: 5.2, speed: 1.2, period: 1800 },
+    ...DEFAULT_COUNTRIES.map(c => ({
+      lat: c.lat, lng: c.lng, color: BLUE, maxR: 3.4, speed: 0.9, period: 2600,
+    })),
+  ];
+
+  const countryCount = DEFAULT_COUNTRIES.length;
 
   return (
     <div
       ref={wrapRef}
       className="relative w-full"
-      style={{ minHeight: 380, height: size.h }}
+      style={{
+        minHeight: 380,
+        height: size.h,
+        background: dark
+          ? "radial-gradient(ellipse at 50% 45%, rgba(59,130,246,0.10) 0%, transparent 65%)"
+          : "radial-gradient(ellipse at 50% 45%, rgba(59,130,246,0.08) 0%, transparent 65%)",
+      }}
     >
+      {/* Soft inner vignette so the globe edge melts into the panel */}
+      <div
+        className="pointer-events-none absolute inset-0 rounded-2xl"
+        style={{
+          boxShadow: dark
+            ? "inset 0 0 80px rgba(8,12,22,0.55), inset 0 0 0 1px rgba(59,130,246,0.18)"
+            : "inset 0 0 80px rgba(255,255,255,0.55), inset 0 0 0 1px rgba(59,130,246,0.18)",
+        }}
+      />
       <Globe
         ref={globeRef}
         width={size.w}
@@ -153,7 +180,7 @@ export default function InternationalGlobe({ dark }: Props) {
         }
         bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
         atmosphereColor={BLUE}
-        atmosphereAltitude={0.18}
+        atmosphereAltitude={0.26}
         showGraticules={false}
         // Country pins
         labelsData={labels}
@@ -161,27 +188,37 @@ export default function InternationalGlobe({ dark }: Props) {
         labelLng={(d: object) => (d as { lng: number }).lng}
         labelText={(d: object) => (d as { name: string }).name}
         labelSize={(d: object) => (d as { size: number }).size}
-        labelDotRadius={(d: object) => (d as { isHQ: boolean }).isHQ ? 0.7 : 0.4}
+        labelDotRadius={(d: object) => (d as { isHQ: boolean }).isHQ ? 1.1 : 0.55}
         labelColor={(d: object) => (d as { color: string }).color}
-        labelResolution={3}
-        labelAltitude={0.01}
+        labelResolution={4}
+        labelAltitude={0.012}
         onLabelHover={(d: object | null) => {
           if (!d) return setHovered(null);
           if ((d as { isHQ?: boolean }).isHQ) return setHovered(null);
           setHovered(d as GlobeCountry);
         }}
-        // Arcs from Bursa to each market
+        // Pulsing halos under each pin — adds depth without spinning faster
+        ringsData={rings}
+        ringLat="lat"
+        ringLng="lng"
+        ringColor={(d: object) => () => (d as { color: string }).color}
+        ringMaxRadius={(d: object) => (d as { maxR: number }).maxR}
+        ringPropagationSpeed={(d: object) => (d as { speed: number }).speed}
+        ringRepeatPeriod={(d: object) => (d as { period: number }).period}
+        ringResolution={48}
+        ringAltitude={0.008}
+        // Arcs from Bursa to each market — slowed down + thicker stroke
         arcsData={arcs}
         arcStartLat="startLat"
         arcStartLng="startLng"
         arcEndLat="endLat"
         arcEndLng="endLng"
         arcColor="color"
-        arcAltitudeAutoScale={0.3}
-        arcStroke={0.4}
-        arcDashLength={0.45}
-        arcDashGap={0.18}
-        arcDashAnimateTime={2800}
+        arcAltitudeAutoScale={0.42}
+        arcStroke={0.55}
+        arcDashLength={0.55}
+        arcDashGap={0.35}
+        arcDashAnimateTime={6500}
       />
 
       {/* Hover caption */}
@@ -200,11 +237,55 @@ export default function InternationalGlobe({ dark }: Props) {
         </div>
       )}
 
-      {/* Footer caption */}
-      <div className="absolute bottom-3 left-4 flex items-center gap-1.5">
+      {/* Top-right country count badge */}
+      <div
+        className="absolute top-3 right-3 flex items-center gap-2 rounded-full px-3 py-1.5 backdrop-blur"
+        style={{
+          background: dark ? "rgba(8,12,22,0.65)" : "rgba(255,255,255,0.85)",
+          border: `1px solid ${BLUE}45`,
+          boxShadow: `0 4px 14px ${BLUE}22`,
+        }}
+      >
+        <span
+          className="inline-block w-1.5 h-1.5 rounded-full animate-pulse"
+          style={{ background: BLUE, boxShadow: `0 0 8px ${BLUE}` }}
+        />
+        <span
+          className="text-[10px] font-bold tracking-[0.18em] uppercase"
+          style={{ color: dark ? "#cfe1ff" : "#1D4ED8" }}
+        >
+          {countryCount} Ülke · Aktif Ağ
+        </span>
+      </div>
+
+      {/* Bottom-left legend */}
+      <div
+        className="absolute bottom-3 left-3 flex items-center gap-3 rounded-full px-3 py-1.5 backdrop-blur"
+        style={{
+          background: dark ? "rgba(8,12,22,0.65)" : "rgba(255,255,255,0.85)",
+          border: `1px solid ${BLUE}30`,
+        }}
+      >
+        <span className="flex items-center gap-1.5">
+          <span className="inline-block w-2 h-2 rounded-full" style={{ background: RED, boxShadow: `0 0 6px ${RED}` }} />
+          <span className="text-[10px] font-bold tracking-wider uppercase" style={{ color: dark ? "#fecaca" : "#B91C1C" }}>
+            MERKEZ TR
+          </span>
+        </span>
+        <span className="w-px h-3" style={{ background: dark ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.18)" }} />
+        <span className="flex items-center gap-1.5">
+          <span className="inline-block w-2 h-2 rounded-full" style={{ background: BLUE, boxShadow: `0 0 6px ${BLUE}` }} />
+          <span className="text-[10px] font-bold tracking-wider uppercase" style={{ color: dark ? "#cfe1ff" : "#1D4ED8" }}>
+            Yurtdışı
+          </span>
+        </span>
+      </div>
+
+      {/* Bottom-right brand caption */}
+      <div className="absolute bottom-3 right-4 flex items-center gap-1.5">
         <div className="w-1.5 h-1.5 rounded-full" style={{ background: BLUE }} />
-        <span className="text-[9px] tracking-widest uppercase" style={{ color: `${BLUE}90` }}>
-          Bemis E-V Charge · Yurtdışı Ağı
+        <span className="text-[9px] tracking-widest uppercase" style={{ color: `${BLUE}aa` }}>
+          Bemis E-V Charge
         </span>
       </div>
     </div>
