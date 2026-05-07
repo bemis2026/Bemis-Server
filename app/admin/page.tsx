@@ -143,6 +143,11 @@ type ContentData = {
       contactPerson?: string; title?: string; email?: string;
       phone?: string; whatsapp?: string; hours?: string;
     };
+    worldSection?: {
+      sectionLabel: string; heading: string;
+      introTitle: string; introDescription: string;
+      languagesNote: string; languages: string[];
+    };
   };
   reviews: {
     heading: string; subheading: string; rating: string; ratingCount: string;
@@ -3866,6 +3871,61 @@ export default function AdminPage() {
                           </div>
                         );
                       });
+                    })()}
+                  </div>
+
+                  {/* ── Yurtdışı Bölüm Metinleri ──
+                      Heading + intro paragraph + multilingual support note
+                      shown when the visitor opens the Yurtdışı tab. All fields
+                      auto-translate to EN on save. */}
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                    <div>
+                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider mb-1">Yurtdışı Bölüm Metinleri</p>
+                      <p className="text-xs text-white/35">Yurtdışı sekmesi açıldığında gösterilen başlık, açıklama ve dil desteği yazıları.</p>
+                    </div>
+                    {(() => {
+                      const ws = content.dealer.worldSection ?? {
+                        sectionLabel: "", heading: "",
+                        introTitle: "", introDescription: "",
+                        languagesNote: "", languages: [] as string[],
+                      };
+                      const updateWS = (field: string, value: string | string[]) => {
+                        setContent((prev) => {
+                          if (!prev) return prev;
+                          const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                          next.dealer.worldSection = {
+                            ...(next.dealer.worldSection ?? {
+                              sectionLabel: "", heading: "",
+                              introTitle: "", introDescription: "",
+                              languagesNote: "", languages: [],
+                            }),
+                            [field]: value,
+                          };
+                          return next;
+                        });
+                      };
+                      return (
+                        <>
+                          <div className="grid grid-cols-2 gap-2">
+                            <Field label="Üst Etiket" value={ws.sectionLabel} onChange={(v) => updateWS("sectionLabel", v)} placeholder="Küresel Distribütör Ağı" />
+                            <Field label="Başlık" value={ws.heading} onChange={(v) => updateWS("heading", v)} placeholder="Dünyaya Açılan Bemis" />
+                          </div>
+                          <Field label="Sol Kart Başlığı" value={ws.introTitle} onChange={(v) => updateWS("introTitle", v)} placeholder="Bursa'dan Dünyaya" />
+                          <Field label="Sol Kart Açıklaması" value={ws.introDescription} onChange={(v) => updateWS("introDescription", v)} placeholder="Bursa merkezli üretim tesisimizden..." />
+                          <Field label="Çok Dilli Personel Notu" value={ws.languagesNote} onChange={(v) => updateWS("languagesNote", v)} placeholder="Kurumsal müşterilerimize yerel dilde..." />
+                          <div>
+                            <Field
+                              label="Diller (ISO kodları, virgülle ayır)"
+                              value={(ws.languages ?? []).join(", ")}
+                              onChange={(v) => updateWS("languages", v.split(",").map(s => s.trim().toLowerCase()).filter(Boolean))}
+                              placeholder="tr, en, ru, es, ar"
+                            />
+                            <p className="text-[10px] text-white/30 mt-1">
+                              Desteklenen kodlar (bayrak otomatik): tr, en, ru, es, ar, de, fr, it, pt, zh, fa, az. Listede olmayan kodlar 🌐 ile gösterilir.
+                            </p>
+                          </div>
+                        </>
+                      );
                     })()}
                   </div>
 

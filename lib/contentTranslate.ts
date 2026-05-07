@@ -39,6 +39,11 @@ const TRANSLATABLE_PATHS: string[] = [
   "dealer.internationalDealers[].notes",
   "dealer.exportContact.title",
   "dealer.exportContact.hours",
+  "dealer.worldSection.sectionLabel",
+  "dealer.worldSection.heading",
+  "dealer.worldSection.introTitle",
+  "dealer.worldSection.introDescription",
+  "dealer.worldSection.languagesNote",
 
   "reviews.sectionLabel", "reviews.heading", "reviews.subheading",
   "reviews.ratingLabel", "reviews.platformsPrefix", "reviews.ratingCountSuffix",

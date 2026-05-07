@@ -123,12 +123,19 @@ export async function GET(req: NextRequest) {
             whatsapp: tr.dealer?.exportContact?.whatsapp,
             contactPerson: tr.dealer?.exportContact?.contactPerson }
         : undefined;
+      // World section: shallow merge so EN overrides translatable copy;
+      // languages array stays canonical (ISO codes don't translate).
+      const worldSection = tr.dealer?.worldSection || en.dealer?.worldSection
+        ? { ...(tr.dealer?.worldSection ?? {}), ...(en.dealer?.worldSection ?? {}),
+            languages: tr.dealer?.worldSection?.languages ?? en.dealer?.worldSection?.languages }
+        : undefined;
       return {
         ...tr.dealer,
         ...(en.dealer ?? {}),
         regionReps: regionReps.length > 0 ? regionReps : undefined,
         internationalDealers: internationalDealers.length > 0 ? internationalDealers : undefined,
         exportContact,
+        worldSection,
       };
     })(),
     reviews: (() => {

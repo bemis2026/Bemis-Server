@@ -45,6 +45,23 @@ const REGIONS = [
 const BURSA_HQ = { id: "merkez", label: "Bursa Merkez", cx: 270, cy: 272 };
 const HQ_RED = "#EF4444";
 
+// Flag + native-label lookup for the export-team language pills. Falls back
+// to a globe emoji + uppercase code when an unknown ISO code is configured.
+const LANG_META: Record<string, { flag: string; label: string }> = {
+  tr: { flag: "🇹🇷", label: "Türkçe" },
+  en: { flag: "🇬🇧", label: "English" },
+  ru: { flag: "🇷🇺", label: "Русский" },
+  es: { flag: "🇪🇸", label: "Español" },
+  ar: { flag: "🇸🇦", label: "العربية" },
+  de: { flag: "🇩🇪", label: "Deutsch" },
+  fr: { flag: "🇫🇷", label: "Français" },
+  it: { flag: "🇮🇹", label: "Italiano" },
+  pt: { flag: "🇵🇹", label: "Português" },
+  zh: { flag: "🇨🇳", label: "中文" },
+  fa: { flag: "🇮🇷", label: "فارسی" },
+  az: { flag: "🇦🇿", label: "Azərbaycan" },
+};
+
 export default function DealerNetwork() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -183,7 +200,7 @@ export default function DealerNetwork() {
             style={{ background: `${BLUE}18`, border: `1px solid ${BLUE}35`, color: d ? "#93C5FD" : BLUE }}
           >
             {viewMode === "yurtdisi"
-              ? "Küresel Distribütör Ağı"
+              ? (dealerSection.worldSection?.sectionLabel ?? "Küresel Distribütör Ağı")
               : <E field="dealer.sectionLabel" tag="span">{dealerSection.sectionLabel}</E>}
           </motion.span>
           <motion.h2
@@ -195,7 +212,7 @@ export default function DealerNetwork() {
             style={{ color: d ? "#ffffff" : "#111111" }}
           >
             {viewMode === "yurtdisi"
-              ? "Dünyaya Açılan Bemis"
+              ? (dealerSection.worldSection?.heading ?? "Dünyaya Açılan Bemis")
               : <E field="dealer.heading">{dealerSection.heading}</E>}
           </motion.h2>
           <motion.div
@@ -231,12 +248,12 @@ export default function DealerNetwork() {
               )}
               <h3 className="font-bold text-base mb-1.5" style={{ color: d ? "#ffffff" : "#111111" }}>
                 {viewMode === "yurtdisi"
-                  ? "Bursa'dan Dünyaya"
+                  ? (dealerSection.worldSection?.introTitle ?? "Bursa'dan Dünyaya")
                   : <E field="dealer.findDealerTitle">{dealerSection.findDealerTitle}</E>}
               </h3>
               <p className="text-sm leading-relaxed mb-4" style={{ color: d ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.55)" }}>
                 {viewMode === "yurtdisi"
-                  ? "Bursa merkezli üretim tesisimizden Avrupa, Balkanlar, Orta Doğu, Türk dünyası, Kuzey Afrika ve Amerika'ya uzanan distribütör ağımızla EV şarj çözümlerini globalde sunuyoruz."
+                  ? (dealerSection.worldSection?.introDescription ?? "")
                   : <E field="dealer.description" tag="span">{dealerSection.description}</E>}
               </p>
               {viewMode === "yurtdisi" ? (
@@ -309,6 +326,45 @@ export default function DealerNetwork() {
                     <p className="text-xs italic" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.45)" }}>
                       İhracat iletişim bilgileri henüz eklenmedi.
                     </p>
+                  )}
+
+                  {/* Multilingual support badge — corporate message for B2B
+                      buyers reassuring them they can be served in their own
+                      language. Languages list comes from CMS. */}
+                  {(dealerSection.worldSection?.languages?.length ?? 0) > 0 && (
+                    <div
+                      className="mt-1 pt-2.5"
+                      style={{ borderTop: `1px solid ${BLUE}25` }}
+                    >
+                      <p className="text-[10px] font-bold tracking-[0.16em] uppercase mb-1.5" style={{ color: d ? "#93C5FD" : BLUE }}>
+                        Çok Dilli Yetkili Personel
+                      </p>
+                      <div className="flex flex-wrap gap-1.5 mb-2">
+                        {(dealerSection.worldSection?.languages ?? []).map((code) => {
+                          const meta = LANG_META[code.toLowerCase()] ?? { flag: "🌐", label: code.toUpperCase() };
+                          return (
+                            <span
+                              key={code}
+                              className="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full"
+                              style={{
+                                background: d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)",
+                                border: `1px solid ${BLUE}30`,
+                                color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.78)",
+                              }}
+                              title={meta.label}
+                            >
+                              <span style={{ fontSize: 12, lineHeight: 1 }}>{meta.flag}</span>
+                              {meta.label}
+                            </span>
+                          );
+                        })}
+                      </div>
+                      {dealerSection.worldSection?.languagesNote && (
+                        <p className="text-[11px] leading-relaxed" style={{ color: d ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.58)" }}>
+                          {dealerSection.worldSection.languagesNote}
+                        </p>
+                      )}
+                    </div>
                   )}
                 </div>
               ) : (

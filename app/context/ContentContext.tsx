@@ -40,6 +40,19 @@ export type ExportContact = {
   hours?: string;        // free text — auto-translated
 };
 
+// Yurtdışı (international) tab copy — admin-editable so the operator can
+// reword the eyebrow, heading and intro paragraph without code changes.
+// `languages` is an ordered list of ISO-639-1 / locale codes used to render
+// flag pills next to the export contact card.
+export type WorldSection = {
+  sectionLabel: string;
+  heading: string;
+  introTitle: string;
+  introDescription: string;
+  languagesNote: string;
+  languages: string[];
+};
+
 // International distributor — one entry per country. `active: true` means the
 // pin is shown on the globe AND the country appears in the left-column list
 // when the user opens the Yurtdışı tab. Inactive entries stay in the seed so
@@ -133,6 +146,7 @@ export type SiteContent = {
     regionReps?: RegionRep[];
     internationalDealers?: InternationalDealer[];
     exportContact?: ExportContact;
+    worldSection?: WorldSection;
   };
   reviews: {
     heading: string; subheading: string; rating: string; ratingCount: string;
@@ -385,6 +399,15 @@ const defaultContent: SiteContent = {
       phone: "",
       whatsapp: "",
       hours: "",
+    },
+    worldSection: {
+      sectionLabel: "Küresel Distribütör Ağı",
+      heading: "Dünyaya Açılan Bemis",
+      introTitle: "Bursa'dan Dünyaya",
+      introDescription:
+        "Bursa merkezli üretim tesisimizden Avrupa, Balkanlar, Orta Doğu, Türk dünyası, Kuzey Afrika ve Amerika'ya uzanan distribütör ağımızla EV şarj çözümlerini globalde sunuyoruz.",
+      languagesNote: "Kurumsal müşterilerimize yerel dilde satış ve teknik destek sunan çok dilli yetkili personel hizmetimiz mevcuttur.",
+      languages: ["tr", "en", "ru", "es", "ar"],
     },
   },
   reviews: {
