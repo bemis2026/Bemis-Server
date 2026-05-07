@@ -23,7 +23,7 @@ type B2BCapability = { title: string; body: string };
 type B2BCtaChannel = { href: string; label: string; sub: string };
 type B2BCta = { eyebrow: string; heading: string; description: string; tags: string[]; channels: B2BCtaChannel[] };
 type B2BBayilik = { heading1: string; heading2: string; description: string; infoTable: { label: string; value: string }[]; benefits: B2BBenefit[]; criteria: string[]; heroBg?: string };
-type B2BOperator = { heading1: string; heading2: string; description: string; capabilities: B2BCapability[]; ocppFeatures: string[]; heroBg?: string };
+type B2BOperator = { heading1: string; heading2: string; description: string; capabilities: B2BCapability[]; ocppFeatures: string[]; heroBg?: string; featuredProducts?: B2BFeaturedSlot[] };
 type B2BPageData = { hero: B2BHero; featuredProducts?: B2BFeaturedSlot[]; cta?: B2BCta; bayilik?: B2BBayilik; operator?: B2BOperator };
 
 const defaultBayilik = (): B2BBayilik => ({ heading1: "", heading2: "", description: "", infoTable: [], benefits: [], criteria: [] });
@@ -191,6 +191,19 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
     });
 
   const clearSlot = (index: number) => updateSlot(index, { categoryId: undefined, productId: undefined });
+
+  // Operator featured products — same shape as OEM, lives under operator.featuredProducts
+  const updateOpSlot = (index: number, patch: Partial<B2BFeaturedSlot>) =>
+    setData(p => {
+      if (!p) return p;
+      const op = p.operator ?? defaultOperator();
+      const next: B2BFeaturedSlot[] = [];
+      for (let i = 0; i < 4; i++) next.push({ ...(op.featuredProducts?.[i] ?? {}) });
+      next[index] = { ...next[index], ...patch };
+      return { ...p, operator: { ...op, featuredProducts: next } };
+    });
+
+  const clearOpSlot = (index: number) => updateOpSlot(index, { categoryId: undefined, productId: undefined });
 
   const inputCls = "w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22 transition-colors";
   const labelCls = "block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider";
@@ -615,6 +628,62 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
             </div>
             <div className="pt-3">
               {addBtn(() => setData(p => p ? { ...p, operator: { ...(p.operator ?? defaultOperator()), ocppFeatures: [...(p.operator?.ocppFeatures ?? []), ""] } } : p), "Özellik Ekle")}
+            </div>
+          </B2BCard>
+
+          {/* Operatör için Öne Çıkan 4 Ürün — same pattern as OEM tab */}
+          <B2BCard accent="#818CF8">
+            <B2BSectionTitle label="Operatörlere Özel Ürünler" hint="Ürün kataloğundan 4 öne çıkan ürün seçin" />
+            <p className="text-[11px] text-white/40 mb-4 -mt-1">
+              Şarj ağı operatörlerine tanıtılacak 4 ürünü ürün yönetimindeki kataloğundan seçin. Boş slotlar sayfada gösterilmez. /b2b sayfasındaki "Üretici Portföyü" ile aynı yapıyı kullanır.
+            </p>
+            <div className="space-y-3">
+              {[0, 1, 2, 3].map(i => {
+                const slot = data.operator?.featuredProducts?.[i] ?? {};
+                const catProducts = categories.find(c => c.id === slot.categoryId)?.products ?? [];
+                const filled = !!(slot.categoryId || slot.productId);
+                return (
+                  <div key={i} className="rounded-xl p-3.5 space-y-2.5"
+                    style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-lg flex items-center justify-center text-[10px] font-black"
+                          style={{ background: "rgba(129,140,248,0.15)", color: "#818CF8", border: "1px solid rgba(129,140,248,0.25)" }}>
+                          {i + 1}
+                        </div>
+                        <p className="text-[11px] font-bold uppercase tracking-widest text-white/50">Slot {i + 1}</p>
+                      </div>
+                      {filled && (
+                        <button onClick={() => clearOpSlot(i)}
+                          className="flex items-center gap-1 text-[10px] text-white/30 hover:text-red-400 transition-colors">
+                          <HiOutlineTrash size={11} /> Temizle
+                        </button>
+                      )}
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <select className={inputCls} value={slot.categoryId ?? ""}
+                        onChange={e => updateOpSlot(i, { categoryId: e.target.value || undefined, productId: undefined })}>
+                        <option value="" style={{ background: "#0f0f12" }}>— Kategori seç —</option>
+                        {categories.map(c => (
+                          <option key={c.id} value={c.id} style={{ background: "#0f0f12" }}>{c.name}</option>
+                        ))}
+                      </select>
+                      <select className={inputCls} value={slot.productId ?? ""} disabled={!slot.categoryId}
+                        onChange={e => updateOpSlot(i, { productId: e.target.value || undefined })}>
+                        <option value="" style={{ background: "#0f0f12" }}>— Ürün seç —</option>
+                        {catProducts.map(pr => (
+                          <option key={pr.id} value={pr.id} style={{ background: "#0f0f12" }}>{pr.name}</option>
+                        ))}
+                      </select>
+                    </div>
+                    {slot.categoryId && slot.productId && (
+                      <p className="text-[10px] text-white/35">
+                        → /products/{slot.categoryId}/{slot.productId}
+                      </p>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </B2BCard>
         </div>

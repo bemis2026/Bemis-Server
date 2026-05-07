@@ -10,16 +10,13 @@ import ContactBar from "../components/ContactBar";
 import { useTheme } from "../context/ThemeContext";
 import {
   RiShieldCheckLine, RiMapPinLine, RiHandCoinLine, RiCustomerService2Line,
-  RiCheckLine, RiSendPlaneLine, RiStoreLine, RiArrowRightLine,
+  RiCheckLine, RiStoreLine, RiArrowRightLine,
 } from "react-icons/ri";
 import { HiArrowLeft } from "react-icons/hi";
 import { useEffect } from "react";
 
 const BENEFIT_ICONS = [RiHandCoinLine, RiShieldCheckLine, RiCustomerService2Line, RiMapPinLine, RiStoreLine, RiArrowRightLine];
 const BENEFIT_COLORS = ["#10B981", "#818CF8", "#F59E0B", "#3B82F6", "#F97316", "#EC4899"];
-
-type FormState = { name: string; company: string; email: string; phone: string; city: string; message: string };
-const EMPTY: FormState = { name: "", company: "", email: "", phone: "", city: "", message: "" };
 
 type InfoRow = { label: string; value: string };
 type Benefit = { title: string; body: string };
@@ -50,8 +47,6 @@ export default function BayilikPage() {
   const { theme } = useTheme();
   const d = theme === "dark";
   const [searchOpen, setSearchOpen] = useState(false);
-  const [form, setForm] = useState<FormState>(EMPTY);
-  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
   const [cms, setCms] = useState<BayilikContent>(DEFAULT);
 
   useEffect(() => {
@@ -64,31 +59,11 @@ export default function BayilikPage() {
   const bgSub   = d ? "#111114" : "#ffffff";
   const card    = d ? "rgba(255,255,255,0.04)" : "#ffffff";
   const border  = d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
-  const inputBg = d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)";
-  const inputBdr= d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.12)";
   const text    = d ? "#f0f0f4" : "#1a1a2e";
   const muted   = d ? "rgba(240,240,244,0.50)" : "rgba(26,26,46,0.50)";
   const faint   = d ? "rgba(240,240,244,0.28)" : "rgba(26,26,46,0.28)";
   const shadow  = d ? "none" : "0 1px 12px rgba(0,0,0,0.06)";
   const GREEN   = "#10B981";
-
-  const set = (k: keyof FormState, v: string) => setForm(p => ({ ...p, [k]: v }));
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("sending");
-    const message = `[BAYİLİK BAŞVURUSU]\n\nŞehir: ${form.city}\n\nMesaj:\n${form.message}`;
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: form.name, company: form.company, email: form.email, phone: form.phone, topic: "dealership", message }),
-      });
-      setStatus(res.ok ? "ok" : "err");
-    } catch { setStatus("err"); }
-  };
-
-  const inputStyle: React.CSSProperties = { background: inputBg, border: `1px solid ${inputBdr}`, color: text, outline: "none", width: "100%", padding: "10px 14px", borderRadius: 12, fontSize: "0.875rem" };
-  const labelStyle: React.CSSProperties = { color: faint, fontSize: "0.70rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", display: "block", marginBottom: 6 };
 
   return (
     <div style={{ background: bg, minHeight: "100vh" }}>
@@ -229,73 +204,6 @@ export default function BayilikPage() {
         </div>
       </section>
 
-      {/* ── Form ── */}
-      <section style={{ background: bg, padding: "56px 0 72px" }}>
-        <div className="max-w-2xl mx-auto px-5 sm:px-8">
-          <div className="mb-7">
-            <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: GREEN }}>Başvuru Formu</p>
-            <h2 className="text-2xl font-black mb-2" style={{ color: text }}>Bayilik Başvurusu</h2>
-            <p className="text-sm" style={{ color: muted }}>Formu doldurun, satış ekibimiz 5 iş günü içinde sizinle iletişime geçsin.</p>
-          </div>
-          {status === "ok" ? (
-            <div className="rounded-2xl p-12 text-center" style={{ background: card, border: `1px solid ${border}` }}>
-              <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
-                style={{ background: `${GREEN}18`, border: `1px solid ${GREEN}30` }}>
-                <RiCheckLine style={{ fontSize: 28, color: GREEN }} />
-              </div>
-              <h3 className="font-black text-base mb-2" style={{ color: text }}>Başvurunuz Alındı</h3>
-              <p className="text-sm" style={{ color: muted }}>Ekibimiz en kısa sürede sizinle iletişime geçecek.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="rounded-2xl p-6 sm:p-8 space-y-4"
-              style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label style={labelStyle}>Ad Soyad *</label>
-                  <input required value={form.name} onChange={e => set("name", e.target.value)} placeholder="Ali Yıldız" style={inputStyle}
-                    onFocus={e => { e.currentTarget.style.borderColor = GREEN; }} onBlur={e => { e.currentTarget.style.borderColor = inputBdr; }} />
-                </div>
-                <div>
-                  <label style={labelStyle}>Şirket *</label>
-                  <input required value={form.company} onChange={e => set("company", e.target.value)} placeholder="Yıldız Elektrik Ltd." style={inputStyle}
-                    onFocus={e => { e.currentTarget.style.borderColor = GREEN; }} onBlur={e => { e.currentTarget.style.borderColor = inputBdr; }} />
-                </div>
-              </div>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label style={labelStyle}>E-Posta *</label>
-                  <input required type="email" value={form.email} onChange={e => set("email", e.target.value)} placeholder="ali@sirket.com" style={inputStyle}
-                    onFocus={e => { e.currentTarget.style.borderColor = GREEN; }} onBlur={e => { e.currentTarget.style.borderColor = inputBdr; }} />
-                </div>
-                <div>
-                  <label style={labelStyle}>Telefon</label>
-                  <input type="tel" value={form.phone} onChange={e => set("phone", e.target.value)} placeholder="+90 5XX XXX XX XX" style={inputStyle}
-                    onFocus={e => { e.currentTarget.style.borderColor = GREEN; }} onBlur={e => { e.currentTarget.style.borderColor = inputBdr; }} />
-                </div>
-              </div>
-              <div>
-                <label style={labelStyle}>Bulunduğunuz Şehir</label>
-                <input value={form.city} onChange={e => set("city", e.target.value)} placeholder="İstanbul" style={inputStyle}
-                  onFocus={e => { e.currentTarget.style.borderColor = GREEN; }} onBlur={e => { e.currentTarget.style.borderColor = inputBdr; }} />
-              </div>
-              <div>
-                <label style={labelStyle}>Mesaj / Ek Bilgi</label>
-                <textarea value={form.message} onChange={e => set("message", e.target.value)} rows={3}
-                  placeholder="Sektörünüz, mevcut müşteri tabanınız, beklentileriniz..." style={{ ...inputStyle, resize: "none" }}
-                  onFocus={e => { e.currentTarget.style.borderColor = GREEN; }} onBlur={e => { e.currentTarget.style.borderColor = inputBdr; }} />
-              </div>
-              {status === "err" && <p className="text-xs text-red-400">Gönderim sırasında hata oluştu. Lütfen tekrar deneyin.</p>}
-              <button type="submit" disabled={status === "sending"}
-                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm font-bold disabled:opacity-60 transition-all"
-                style={{ background: GREEN, color: "#fff", boxShadow: `0 6px 20px ${GREEN}35` }}>
-                {status === "sending"
-                  ? <><div className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />Gönderiliyor…</>
-                  : <><RiSendPlaneLine size={16} />Başvuruyu Gönder</>}
-              </button>
-            </form>
-          )}
-        </div>
-      </section>
       <ContactBar />
     </div>
   );
