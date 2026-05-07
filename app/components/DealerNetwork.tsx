@@ -82,6 +82,11 @@ export default function DealerNetwork() {
   // Counter that bumps each time "Bayi Bul" is clicked — drives a one-shot
   // pulse on every region marker so the visitor learns the map is clickable.
   const [hintBeacon, setHintBeacon] = useState(0);
+  // Two consecutive Bayi Bul clicks (within 1.2s) → show a fake cursor
+  // tap-animation on the Ege pin so the visitor sees an explicit demo.
+  const [cursorBeacon, setCursorBeacon] = useState(0);
+  const clickCountRef = useRef(0);
+  const clickResetRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
 
   // Clear cross-tab leftover state so a Marmara hover from yurtiçi doesn't
@@ -136,10 +141,18 @@ export default function DealerNetwork() {
 
   // Yurtiçi "Bayi Bul" handler — scrolls the dealer section into view AND
   // bumps the hint counter so every region marker pulses once. Visitors who
-  // miss the map's affordance learn it's clickable.
+  // miss the map's affordance learn it's clickable. A second click within
+  // 1.2s plays a more explicit cursor-tap demo on the Ege pin.
   const findDealerHint = () => {
     document.querySelector("#dealer")?.scrollIntoView({ behavior: "smooth", block: "start" });
     setHintBeacon((n) => n + 1);
+    clickCountRef.current += 1;
+    if (clickResetRef.current) clearTimeout(clickResetRef.current);
+    clickResetRef.current = setTimeout(() => { clickCountRef.current = 0; }, 1200);
+    if (clickCountRef.current >= 2) {
+      setCursorBeacon((n) => n + 1);
+      clickCountRef.current = 0;
+    }
   };
 
   // Group cities present in dealers data by region (via TURKEY_CITIES map).
@@ -946,6 +959,55 @@ export default function DealerNetwork() {
                       style={{ pointerEvents: "none", userSelect: "none", fontFamily: "inherit" }}
                     >MERKEZ</text>
                   </motion.g>
+
+                  {/* Demo cursor — fades in above-right of Ege pin, glides to
+                      the pin centre, "taps" with a ripple, then fades out.
+                      Triggered when the visitor double-presses Bayi Bul. */}
+                  {cursorBeacon > 0 && (() => {
+                    const ege = REGIONS.find(r => r.id === "ege")!;
+                    return (
+                      <motion.g
+                        key={`ege-cursor-${cursorBeacon}`}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: [0, 1, 1, 1, 0] }}
+                        transition={{ duration: 2.6, times: [0, 0.18, 0.6, 0.85, 1] }}
+                        style={{ pointerEvents: "none" }}
+                      >
+                        {/* Click ripple at the pin centre */}
+                        <motion.circle
+                          cx={ege.cx} cy={ege.cy}
+                          fill="none"
+                          stroke="#ffffff"
+                          strokeWidth={2.5}
+                          initial={{ r: 22, opacity: 0 }}
+                          animate={{ r: [22, 80], opacity: [0, 0.95, 0] }}
+                          transition={{ duration: 0.85, delay: 1.05, times: [0, 0.15, 1] }}
+                        />
+                        {/* Glide the cursor from offset to the pin tip */}
+                        <motion.g
+                          initial={{ x: ege.cx + 60, y: ege.cy - 60 }}
+                          animate={{ x: [ege.cx + 60, ege.cx, ege.cx], y: [ege.cy - 60, ege.cy, ege.cy] }}
+                          transition={{ duration: 2.6, times: [0, 0.45, 1], ease: "easeOut" }}
+                        >
+                          {/* Mouse arrow — tip at (0,0), drop-shadow for legibility */}
+                          <motion.g
+                            animate={{ scale: [1, 1, 0.82, 1, 1] }}
+                            transition={{ duration: 2.6, times: [0, 0.45, 0.55, 0.7, 1] }}
+                            style={{ transformOrigin: "0px 0px" }}
+                          >
+                            <path
+                              d="M0,0 L0,32 L9,24 L14,36 L19,34 L14,22 L24,22 Z"
+                              fill="#ffffff"
+                              stroke="#0b0f1a"
+                              strokeWidth={2}
+                              strokeLinejoin="round"
+                              style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.55))" }}
+                            />
+                          </motion.g>
+                        </motion.g>
+                      </motion.g>
+                    );
+                  })()}
                 </svg>
               </div>
 
