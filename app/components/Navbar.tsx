@@ -112,7 +112,19 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
     } else if (pathname !== "/") {
       router.push("/" + href);
     } else {
-      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+      const target = document.querySelector(href) as HTMLElement | null;
+      if (!target) return;
+      // Center the section in the viewport. `scrollIntoView({block:"center"})`
+      // does this correctly for sections shorter than the viewport AND for
+      // taller ones — the section's geometric centre aligns with viewport
+      // centre. Falls back to top-aligned scroll on browsers without support.
+      try {
+        target.scrollIntoView({ behavior: "smooth", block: "center" });
+      } catch {
+        const rect = target.getBoundingClientRect();
+        const top = window.scrollY + rect.top + (rect.height - window.innerHeight) / 2;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
     }
   };
 
