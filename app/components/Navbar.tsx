@@ -29,6 +29,10 @@ const KURUMSAL_DROPDOWN = [
   { label: "Şarj Ağı Operatörleri",   sub: "OCPP ekipman, DLM, uzaktan izleme",    href: "/operator", icon: RiWifiLine,      accent: "#818CF8" },
 ];
 
+const HAKKIMIZDA_DROPDOWN = [
+  { label: "Bemis Dünyası",  sub: "Tarihçe, üretim süreci, sertifikalar", href: "/kurumsal", icon: RiBuilding2Line, accent: "#3B82F6" },
+];
+
 // Brand colour per category — used as a tiny accent dot in the navbar
 // dropdown and on the category-page header. The previous icon-per-
 // category mapping kept colliding with what each icon actually meant
@@ -55,9 +59,11 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileKurumsalOpen, setMobileKurumsalOpen] = useState(false);
   const [mobileUrunlerOpen, setMobileUrunlerOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<"kurumsal" | "urunler" | null>(null);
+  const [activeDropdown, setActiveDropdown] = useState<"kurumsal" | "urunler" | "hakkimizda" | null>(null);
+  const [mobileHakkimizdaOpen, setMobileHakkimizdaOpen] = useState(false);
   const kurumsalRef = useRef<HTMLDivElement>(null);
   const urunlerRef = useRef<HTMLDivElement>(null);
+  const hakkimizdaRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { theme, toggle } = useTheme();
   const isDark = theme === "dark";
@@ -110,7 +116,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
     }
   };
 
-  const openDropdown = (which: "kurumsal" | "urunler") => {
+  const openDropdown = (which: "kurumsal" | "urunler" | "hakkimizda") => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setActiveDropdown(which);
   };
@@ -123,6 +129,9 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
 
   const isUrunler = (link: { label: string; href: string }) =>
     link.label === "Ürünler" || link.href === "#products";
+
+  const isHakkimizda = (link: { label: string; href: string }) =>
+    link.label === "Hakkımızda" || link.href === "#dna";
 
   const dropdownBase = {
     background: isDark ? "rgba(12,13,18,0.97)" : "rgba(255,255,255,0.98)",
@@ -160,14 +169,16 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
             {activeNavLinks.map((link, idx) => {
               const isK = isKurumsal(link);
               const isU = isUrunler(link);
-              const hasDropdown = isK || isU;
-              const dropdownKey = isK ? "kurumsal" : "urunler";
+              const isH = isHakkimizda(link);
+              const hasDropdown = isK || isU || isH;
+              const dropdownKey: "kurumsal" | "urunler" | "hakkimizda" =
+                isK ? "kurumsal" : isU ? "urunler" : "hakkimizda";
               const isOpen = activeDropdown === dropdownKey;
 
               return (
                 <div key={link.href + idx} className="relative"
-                  ref={isK ? kurumsalRef : isU ? urunlerRef : undefined}
-                  onMouseEnter={hasDropdown ? () => openDropdown(dropdownKey as "kurumsal" | "urunler") : undefined}
+                  ref={isK ? kurumsalRef : isU ? urunlerRef : isH ? hakkimizdaRef : undefined}
+                  onMouseEnter={hasDropdown ? () => openDropdown(dropdownKey) : undefined}
                   onMouseLeave={hasDropdown ? scheduleClose : undefined}
                 >
                   <button
@@ -225,6 +236,47 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                             >
                               Ana sayfadaki kurumsal bölüme git →
                             </button>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  )}
+
+                  {/* Hakkımızda Dropdown */}
+                  {isH && (
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 6, scale: 0.97 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 4, scale: 0.97 }}
+                          transition={{ duration: 0.16 }}
+                          onMouseEnter={() => openDropdown("hakkimizda")}
+                          onMouseLeave={scheduleClose}
+                          className="absolute left-0 top-full mt-2 rounded-2xl overflow-hidden"
+                          style={{ width: 300, ...dropdownBase }}
+                        >
+                          <div className="p-1.5 space-y-0.5">
+                            {HAKKIMIZDA_DROPDOWN.map((item) => (
+                              <button
+                                key={item.href}
+                                onClick={() => { setActiveDropdown(null); router.push(item.href); }}
+                                className="flex items-start gap-3 w-full px-3 py-2.5 rounded-xl text-left transition-all duration-150"
+                                style={{ background: "transparent" }}
+                                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)"; }}
+                                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+                              >
+                                <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+                                  style={{ background: `${item.accent}18`, border: `1px solid ${item.accent}30` }}>
+                                  <item.icon size={16} style={{ color: item.accent }} />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <p className="text-sm font-semibold leading-tight" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{item.label}</p>
+                                  <p className="text-xs leading-snug mt-0.5" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.50)" }}>{item.sub}</p>
+                                </div>
+                                <RiArrowRightLine size={14} style={{ color: item.accent, opacity: 0.5, marginTop: 8 }} />
+                              </button>
+                            ))}
                           </div>
                         </motion.div>
                       )}
@@ -361,6 +413,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
               {activeNavLinks.map((link, i) => {
                 const isK = isKurumsal(link);
                 const isU = isUrunler(link);
+                const isH = isHakkimizda(link);
                 return (
                   <div key={link.href + i}>
                     <motion.button
@@ -370,6 +423,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                       onClick={() => {
                         if (isK) setMobileKurumsalOpen(v => !v);
                         else if (isU) setMobileUrunlerOpen(v => !v);
+                        else if (isH) setMobileHakkimizdaOpen(v => !v);
                         else handleNavClick(link.href);
                       }}
                       className={`w-full flex items-center justify-between text-base font-medium py-3 text-left border-b transition-colors ${
@@ -377,10 +431,27 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                       }`}
                     >
                       <E field={`navbar.links.${i}.label`} tag="span">{link.label}</E>
-                      {(isK || isU) && (
-                        <HiChevronDown size={16} className={`transition-transform ${(isK && mobileKurumsalOpen) || (isU && mobileUrunlerOpen) ? "rotate-180" : ""}`} />
+                      {(isK || isU || isH) && (
+                        <HiChevronDown size={16} className={`transition-transform ${
+                          (isK && mobileKurumsalOpen) ||
+                          (isU && mobileUrunlerOpen) ||
+                          (isH && mobileHakkimizdaOpen) ? "rotate-180" : ""
+                        }`} />
                       )}
                     </motion.button>
+
+                    {/* Mobile Hakkımızda sub-links */}
+                    {isH && mobileHakkimizdaOpen && (
+                      <div className="py-2 space-y-1 pl-2">
+                        {HAKKIMIZDA_DROPDOWN.map(item => (
+                          <button key={item.href} onClick={() => { setMobileOpen(false); router.push(item.href); }}
+                            className={`flex items-center gap-2 w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black"}`}>
+                            <item.icon size={14} style={{ color: item.accent }} />
+                            {item.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
 
                     {/* Mobile Kurumsal sub-links */}
                     {isK && mobileKurumsalOpen && (

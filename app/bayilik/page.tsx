@@ -108,10 +108,20 @@ export default function BayilikPage() {
               <RiStoreLine style={{ color: GREEN, fontSize: 14 }} />
               <span className="text-xs font-bold tracking-[0.20em] uppercase" style={{ color: GREEN }}>Bayi Ağı</span>
             </div>
-            <h1 className="font-black leading-tight mb-4" style={{ fontSize: "clamp(1.75rem, 4vw, 2.75rem)", color: text }}>
+            <h1 className="font-black leading-tight mb-3" style={{ fontSize: "clamp(1.75rem, 4vw, 2.75rem)", color: text }}>
               {cms.heading1}<br />
               <span style={{ color: GREEN }}>{cms.heading2}</span>
             </h1>
+            <motion.div
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{ scaleX: 1, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="h-[2px] w-24 origin-left rounded-full mb-5"
+              style={{
+                background: `linear-gradient(90deg, ${GREEN} 0%, ${GREEN}66 60%, transparent 100%)`,
+                boxShadow: `0 0 12px ${GREEN}45`,
+              }}
+            />
             <p className="leading-relaxed max-w-xl" style={{ color: muted, fontSize: "0.9375rem" }}>
               {cms.description}
             </p>

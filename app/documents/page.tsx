@@ -143,10 +143,20 @@ export default function DocumentsPage() {
               >
                 Dökümanlar
               </motion.h1>
+              <motion.div
+                initial={{ scaleX: 0, opacity: 0 }}
+                animate={{ scaleX: 1, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.18 }}
+                className="h-[2px] w-24 origin-left rounded-full mt-3 mb-2"
+                style={{
+                  background: "linear-gradient(90deg, #3B82F6 0%, #3B82F666 60%, transparent 100%)",
+                  boxShadow: "0 0 12px #3B82F645",
+                }}
+              />
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
+                transition={{ duration: 0.4, delay: 0.12 }}
                 className="text-sm mt-1"
                 style={{ color: textMuted }}
               >

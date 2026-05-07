@@ -114,10 +114,20 @@ export default function OperatorPage() {
                 Şarj Ağı Operatörleri
               </span>
             </div>
-            <h1 className="font-black leading-tight mb-4" style={{ fontSize: "clamp(1.75rem, 4vw, 2.75rem)", color: text }}>
+            <h1 className="font-black leading-tight mb-3" style={{ fontSize: "clamp(1.75rem, 4vw, 2.75rem)", color: text }}>
               {cms.heading1}<br />
               <span style={{ color: PURPLE }}>{cms.heading2}</span>
             </h1>
+            <motion.div
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{ scaleX: 1, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="h-[2px] w-24 origin-left rounded-full mb-5"
+              style={{
+                background: `linear-gradient(90deg, ${PURPLE} 0%, ${PURPLE}66 60%, transparent 100%)`,
+                boxShadow: `0 0 12px ${PURPLE}45`,
+              }}
+            />
             <p className="leading-relaxed max-w-xl" style={{ color: muted, fontSize: "0.9375rem" }}>
               {cms.description}
             </p>
