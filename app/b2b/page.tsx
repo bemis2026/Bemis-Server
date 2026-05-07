@@ -24,6 +24,7 @@ type B2BFeaturedSlot = { categoryId?: string; productId?: string };
 type B2BHero = {
   eyebrow: string; heading1: string; heading2: string;
   description: string; sectorTags: string[];
+  heroBg?: string;
 };
 type B2BData = { hero: B2BHero; featuredProducts?: B2BFeaturedSlot[] };
 
@@ -130,8 +131,29 @@ export default function B2BPage() {
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
       {/* ── Hero ── */}
-      <section style={{ background: bgSub, borderBottom: `1px solid ${border}`, paddingTop: 112, paddingBottom: 56 }}>
-        <div className="max-w-5xl mx-auto px-5 sm:px-8">
+      <section
+        className="relative overflow-hidden"
+        style={{
+          background: bgSub,
+          borderBottom: `1px solid ${border}`,
+          paddingTop: 112,
+          paddingBottom: 56,
+        }}
+      >
+        {b2bData.hero.heroBg && (
+          <>
+            <Image src={b2bData.hero.heroBg} alt="" fill priority quality={90} sizes="100vw" className="object-cover" />
+            <div
+              className="absolute inset-0"
+              style={{
+                background: d
+                  ? "linear-gradient(135deg, rgba(8,8,12,0.85) 0%, rgba(8,8,12,0.62) 55%, rgba(8,8,12,0.38) 100%)"
+                  : "linear-gradient(135deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.55) 55%, rgba(255,255,255,0.30) 100%)",
+              }}
+            />
+          </>
+        )}
+        <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8">
           <motion.button initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }}
             onClick={() => router.back()} className="flex items-center gap-2 mb-10 group"
             style={{ color: faint, fontSize: "0.875rem" }}>
@@ -174,27 +196,38 @@ export default function B2BPage() {
         </div>
       </section>
 
-      {/* ── Advantages ── */}
+      {/* ── Advantages — single card with bullet list ── */}
       <section style={{ background: bg, borderBottom: `1px solid ${border}`, padding: "52px 0" }}>
         <div className="max-w-5xl mx-auto px-5 sm:px-8">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {advantages.map((a, i) => (
-              <motion.div key={a.title}
-                initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.05 * i }}
-                className="flex items-start gap-3.5 p-4 rounded-xl"
-                style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}>
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                  style={{ background: `${a.color}15`, border: `1px solid ${a.color}25` }}>
-                  <a.icon style={{ fontSize: 16, color: a.color }} />
-                </div>
-                <div>
-                  <p className="font-semibold text-sm mb-0.5" style={{ color: text }}>{a.title}</p>
-                  <p className="text-xs leading-relaxed" style={{ color: muted }}>{a.body}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+            className="rounded-2xl p-6 sm:p-8"
+            style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}
+          >
+            <div className="flex flex-col gap-5">
+              {advantages.map((a, i) => (
+                <motion.div
+                  key={a.title}
+                  initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.06 * i }}
+                  className="flex items-start gap-4 pb-5"
+                  style={{ borderBottom: i < advantages.length - 1 ? `1px solid ${border}` : "none" }}
+                >
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ background: `${a.color}15`, border: `1px solid ${a.color}30` }}
+                  >
+                    <a.icon style={{ fontSize: 18, color: a.color }} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-semibold text-base mb-1" style={{ color: text }}>{a.title}</p>
+                    <p className="text-sm leading-relaxed" style={{ color: muted }}>{a.body}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 

@@ -17,13 +17,13 @@ import {
 
 type B2BFeaturedSlot = { categoryId?: string; productId?: string };
 type CatBrief = { id: string; name: string; products?: { id: string; name: string }[] };
-type B2BHero = { eyebrow: string; heading1: string; heading2: string; description: string; sectorTags: string[] };
+type B2BHero = { eyebrow: string; heading1: string; heading2: string; description: string; sectorTags: string[]; heroBg?: string };
 type B2BBenefit = { title: string; body: string };
 type B2BCapability = { title: string; body: string };
 type B2BCtaChannel = { href: string; label: string; sub: string };
 type B2BCta = { eyebrow: string; heading: string; description: string; tags: string[]; channels: B2BCtaChannel[] };
-type B2BBayilik = { heading1: string; heading2: string; description: string; infoTable: { label: string; value: string }[]; benefits: B2BBenefit[]; criteria: string[] };
-type B2BOperator = { heading1: string; heading2: string; description: string; capabilities: B2BCapability[]; ocppFeatures: string[] };
+type B2BBayilik = { heading1: string; heading2: string; description: string; infoTable: { label: string; value: string }[]; benefits: B2BBenefit[]; criteria: string[]; heroBg?: string };
+type B2BOperator = { heading1: string; heading2: string; description: string; capabilities: B2BCapability[]; ocppFeatures: string[]; heroBg?: string };
 type B2BPageData = { hero: B2BHero; featuredProducts?: B2BFeaturedSlot[]; cta?: B2BCta; bayilik?: B2BBayilik; operator?: B2BOperator };
 
 const defaultBayilik = (): B2BBayilik => ({ heading1: "", heading2: "", description: "", infoTable: [], benefits: [], criteria: [] });
@@ -161,6 +161,26 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
   const setHero = (field: keyof B2BHero, val: string | string[]) =>
     setData(p => p ? { ...p, hero: { ...p.hero, [field]: val } } : p);
 
+  const setBayilikField = (field: keyof B2BBayilik, val: string) =>
+    setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), [field]: val } } : p);
+
+  const setOperatorField = (field: keyof B2BOperator, val: string) =>
+    setData(p => p ? { ...p, operator: { ...(p.operator ?? defaultOperator()), [field]: val } } : p);
+
+  const uploadHeroBg = async (
+    file: File,
+    onUrl: (url: string) => void,
+  ) => {
+    try {
+      const { uploadImage } = await import("../../../lib/clientImageUpload");
+      const { url } = await uploadImage(file, "hero-bg");
+      onUrl(url);
+      showToast("ok", "Arka plan görseli yüklendi.");
+    } catch (e) {
+      showToast("err", String(e));
+    }
+  };
+
   const updateSlot = (index: number, patch: Partial<B2BFeaturedSlot>) =>
     setData(p => {
       if (!p) return p;
@@ -254,6 +274,27 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
               <div>
                 <label className={labelCls}>Açıklama</label>
                 <textarea className={inputCls} rows={3} style={{ resize: "none" }} value={data.hero.description} onChange={e => setHero("description", e.target.value)} />
+              </div>
+              <div>
+                <label className={labelCls}>Hero Arka Plan Görseli <span className="normal-case font-normal text-white/25">(opsiyonel · ana sayfa hero gibi)</span></label>
+                {data.hero.heroBg ? (
+                  <div className="relative rounded-xl overflow-hidden border border-white/10" style={{ aspectRatio: "16/6" }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={data.hero.heroBg} alt="hero-bg" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                      <label className="text-xs bg-white/90 text-black font-semibold px-3 py-1.5 rounded-lg cursor-pointer">
+                        Değiştir
+                        <input type="file" accept="image/*" className="hidden" onChange={e => { const f = e.target.files?.[0]; if (f) uploadHeroBg(f, url => setHero("heroBg", url)); }} />
+                      </label>
+                      <button onClick={() => setHero("heroBg", "")} className="text-xs bg-red-500/80 text-white font-semibold px-3 py-1.5 rounded-lg">Kaldır</button>
+                    </div>
+                  </div>
+                ) : (
+                  <label className="flex items-center justify-center gap-2 cursor-pointer rounded-xl py-4 text-xs text-white/40 hover:text-white/70 transition-colors" style={{ border: "1px dashed rgba(255,255,255,0.15)", aspectRatio: "16/6" }}>
+                    <span>+ Görsel Yükle</span>
+                    <input type="file" accept="image/*" className="hidden" onChange={e => { const f = e.target.files?.[0]; if (f) uploadHeroBg(f, url => setHero("heroBg", url)); }} />
+                  </label>
+                )}
               </div>
               <div>
                 <label className={labelCls}>Sektör Etiketleri <span className="normal-case font-normal text-white/25">(virgülle ayırın)</span></label>
@@ -356,6 +397,27 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
                 <label className={labelCls}>Açıklama</label>
                 <textarea className={inputCls} rows={3} style={{ resize: "none" }} value={data.bayilik?.description ?? ""}
                   onChange={e => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), description: e.target.value } } : p)} />
+              </div>
+              <div>
+                <label className={labelCls}>Hero Arka Plan Görseli <span className="normal-case font-normal text-white/25">(opsiyonel)</span></label>
+                {data.bayilik?.heroBg ? (
+                  <div className="relative rounded-xl overflow-hidden border border-white/10" style={{ aspectRatio: "16/6" }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={data.bayilik.heroBg} alt="hero-bg" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                      <label className="text-xs bg-white/90 text-black font-semibold px-3 py-1.5 rounded-lg cursor-pointer">
+                        Değiştir
+                        <input type="file" accept="image/*" className="hidden" onChange={e => { const f = e.target.files?.[0]; if (f) uploadHeroBg(f, url => setBayilikField("heroBg", url)); }} />
+                      </label>
+                      <button onClick={() => setBayilikField("heroBg", "")} className="text-xs bg-red-500/80 text-white font-semibold px-3 py-1.5 rounded-lg">Kaldır</button>
+                    </div>
+                  </div>
+                ) : (
+                  <label className="flex items-center justify-center gap-2 cursor-pointer rounded-xl py-4 text-xs text-white/40 hover:text-white/70 transition-colors" style={{ border: "1px dashed rgba(255,255,255,0.15)", aspectRatio: "16/6" }}>
+                    <span>+ Görsel Yükle</span>
+                    <input type="file" accept="image/*" className="hidden" onChange={e => { const f = e.target.files?.[0]; if (f) uploadHeroBg(f, url => setBayilikField("heroBg", url)); }} />
+                  </label>
+                )}
               </div>
             </div>
           </B2BCard>
@@ -476,6 +538,27 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
                 <label className={labelCls}>Açıklama</label>
                 <textarea className={inputCls} rows={3} style={{ resize: "none" }} value={data.operator?.description ?? ""}
                   onChange={e => setData(p => p ? { ...p, operator: { ...(p.operator ?? defaultOperator()), description: e.target.value } } : p)} />
+              </div>
+              <div>
+                <label className={labelCls}>Hero Arka Plan Görseli <span className="normal-case font-normal text-white/25">(opsiyonel)</span></label>
+                {data.operator?.heroBg ? (
+                  <div className="relative rounded-xl overflow-hidden border border-white/10" style={{ aspectRatio: "16/6" }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={data.operator.heroBg} alt="hero-bg" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                      <label className="text-xs bg-white/90 text-black font-semibold px-3 py-1.5 rounded-lg cursor-pointer">
+                        Değiştir
+                        <input type="file" accept="image/*" className="hidden" onChange={e => { const f = e.target.files?.[0]; if (f) uploadHeroBg(f, url => setOperatorField("heroBg", url)); }} />
+                      </label>
+                      <button onClick={() => setOperatorField("heroBg", "")} className="text-xs bg-red-500/80 text-white font-semibold px-3 py-1.5 rounded-lg">Kaldır</button>
+                    </div>
+                  </div>
+                ) : (
+                  <label className="flex items-center justify-center gap-2 cursor-pointer rounded-xl py-4 text-xs text-white/40 hover:text-white/70 transition-colors" style={{ border: "1px dashed rgba(255,255,255,0.15)", aspectRatio: "16/6" }}>
+                    <span>+ Görsel Yükle</span>
+                    <input type="file" accept="image/*" className="hidden" onChange={e => { const f = e.target.files?.[0]; if (f) uploadHeroBg(f, url => setOperatorField("heroBg", url)); }} />
+                  </label>
+                )}
               </div>
             </div>
           </B2BCard>

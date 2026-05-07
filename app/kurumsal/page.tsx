@@ -141,7 +141,7 @@ export default function KurumsalPage() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.07 }}
-                  className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-5"
+                  className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-3"
                   style={{ color: textPrimary }}
                 >
                   {dna.brandHeading.split("\n").map((line, i, arr) => (
@@ -150,6 +150,17 @@ export default function KurumsalPage() {
                     </span>
                   ))}
                 </motion.h1>
+
+                <motion.div
+                  initial={{ scaleX: 0, opacity: 0 }}
+                  animate={{ scaleX: 1, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.18 }}
+                  className="h-[2px] w-24 origin-left rounded-full mb-5"
+                  style={{
+                    background: `linear-gradient(90deg, ${BLUE} 0%, ${BLUE}66 60%, transparent 100%)`,
+                    boxShadow: `0 0 12px ${BLUE}45`,
+                  }}
+                />
 
                 <motion.p
                   initial={{ opacity: 0, y: 12 }}
