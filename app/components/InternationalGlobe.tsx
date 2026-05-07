@@ -47,14 +47,15 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
     return () => ro.disconnect();
   }, []);
 
-  // Initial framing — point at Bursa so the HQ pin is the focal point on first
-  // render. Auto-rotate kicks in afterwards, paused by user interaction.
+  // Initial framing — point at Bursa so the HQ pin is the centerpiece. We
+  // hold the globe perfectly still for 2.6s before nudging auto-rotation on
+  // so the visitor's eye lands on MERKEZ first.
   useEffect(() => {
     const g = globeRef.current;
     if (!g) return;
     const controls = g.controls() as unknown as { autoRotate: boolean; autoRotateSpeed: number; enableZoom: boolean };
     if (controls) {
-      controls.autoRotate = true;
+      controls.autoRotate = false;
       controls.autoRotateSpeed = 0.4;
       controls.enableZoom = true;
     }
@@ -69,6 +70,11 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
       renderer.setPixelRatio(dpr);
     }
     g.pointOfView({ lat: BURSA.lat, lng: BURSA.lng, altitude: 1.55 }, 0);
+    const t = setTimeout(() => {
+      const c = g.controls() as unknown as { autoRotate: boolean };
+      if (c) c.autoRotate = true;
+    }, 2600);
+    return () => clearTimeout(t);
   }, [size.w]);
 
   // Fly to a country when the side-list selection changes.

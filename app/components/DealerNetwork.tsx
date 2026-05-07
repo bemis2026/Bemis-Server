@@ -79,6 +79,9 @@ export default function DealerNetwork() {
   // Selected international country (yurtdisi mode) — drives the side card +
   // the globe's pointOfView fly-to.
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+  // Counter that bumps each time "Bayi Bul" is clicked — drives a one-shot
+  // pulse on every region marker so the visitor learns the map is clickable.
+  const [hintBeacon, setHintBeacon] = useState(0);
   const svgRef = useRef<SVGSVGElement>(null);
 
   // Clear cross-tab leftover state so a Marmara hover from yurtiçi doesn't
@@ -129,6 +132,14 @@ export default function DealerNetwork() {
 
   const scrollToContact = () => {
     document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // Yurtiçi "Bayi Bul" handler — scrolls the dealer section into view AND
+  // bumps the hint counter so every region marker pulses once. Visitors who
+  // miss the map's affordance learn it's clickable.
+  const findDealerHint = () => {
+    document.querySelector("#dealer")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setHintBeacon((n) => n + 1);
   };
 
   // Group cities present in dealers data by region (via TURKEY_CITIES map).
@@ -376,13 +387,14 @@ export default function DealerNetwork() {
                 </div>
               ) : (
                 <button
-                  onClick={scrollToContact}
+                  onClick={findDealerHint}
                   className="flex items-center gap-2 text-sm font-bold px-6 py-3 rounded-2xl transition-all duration-200"
                   style={{ background: d ? `${BLUE}15` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}28`, color: d ? "#93C5FD" : BLUE }}
                   onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}25` : `${BLUE}18`; }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}15` : `${BLUE}10`; }}
+                  title="Haritadaki bölgeleri vurgular"
                 >
-                  <E field="dealer.contactBtnLabel" tag="span">{dealerSection.contactBtnLabel}</E>
+                  Bayi Bul
                   <HiArrowRight />
                 </button>
               )}
@@ -788,6 +800,22 @@ export default function DealerNetwork() {
                         onPointerLeave={(e) => handleCityLeave(e)}
                         onClick={(e) => handleCityClick(region, e as unknown as React.MouseEvent)}
                       >
+                        {/* One-shot hint ring — re-mounts each time the user
+                            clicks "Bayi Bul" so every region briefly pulses,
+                            cueing visitors that the markers are clickable. */}
+                        {hintBeacon > 0 && (
+                          <motion.circle
+                            key={`hint-${hintBeacon}-${region.id}`}
+                            cx={region.cx} cy={region.cy}
+                            r={28}
+                            fill="none"
+                            stroke={BLUE}
+                            strokeWidth="3"
+                            initial={{ r: 28, opacity: 0.95 }}
+                            animate={{ r: 90, opacity: 0 }}
+                            transition={{ duration: 1.4, ease: "easeOut", delay: i * 0.08 }}
+                          />
+                        )}
                         {/* Pulse ring */}
                         {(isHighlight || isActive) && (
                           <motion.circle
@@ -852,6 +880,20 @@ export default function DealerNetwork() {
                     onPointerLeave={(e) => handleCityLeave(e)}
                     onClick={(e) => handleCityClick(BURSA_HQ as typeof REGIONS[number], e as unknown as React.MouseEvent)}
                   >
+                    {/* Hint pulse — same one-shot beacon as region markers */}
+                    {hintBeacon > 0 && (
+                      <motion.circle
+                        key={`hint-${hintBeacon}-merkez`}
+                        cx={BURSA_HQ.cx} cy={BURSA_HQ.cy}
+                        r={20}
+                        fill="none"
+                        stroke={HQ_RED}
+                        strokeWidth="3"
+                        initial={{ r: 20, opacity: 1 }}
+                        animate={{ r: 75, opacity: 0 }}
+                        transition={{ duration: 1.4, ease: "easeOut" }}
+                      />
+                    )}
                     {/* Pulse */}
                     <motion.circle
                       cx={BURSA_HQ.cx} cy={BURSA_HQ.cy}
