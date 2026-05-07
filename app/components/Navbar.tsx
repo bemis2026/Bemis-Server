@@ -30,7 +30,7 @@ const KURUMSAL_DROPDOWN = [
 ];
 
 const HAKKIMIZDA_DROPDOWN = [
-  { label: "Bemis Dünyası",  sub: "Tarihçe, üretim süreci, sertifikalar", href: "/kurumsal", icon: RiBuilding2Line, accent: "#3B82F6" },
+  { label: "Bemis Dünyası",  sub: "Tarihçe, üretim süreci, sertifikalar", href: "/kurumsal", accent: "#3B82F6" },
 ];
 
 // Brand colour per category — used as a tiny accent dot in the navbar
@@ -261,15 +261,11 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                               <button
                                 key={item.href}
                                 onClick={() => { setActiveDropdown(null); router.push(item.href); }}
-                                className="flex items-start gap-3 w-full px-3 py-2.5 rounded-xl text-left transition-all duration-150"
+                                className="flex items-start justify-between gap-3 w-full px-3 py-2.5 rounded-xl text-left transition-all duration-150"
                                 style={{ background: "transparent" }}
                                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)"; }}
                                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                               >
-                                <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
-                                  style={{ background: `${item.accent}18`, border: `1px solid ${item.accent}30` }}>
-                                  <item.icon size={16} style={{ color: item.accent }} />
-                                </div>
                                 <div className="flex-1 min-w-0">
                                   <p className="text-sm font-semibold leading-tight" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{item.label}</p>
                                   <p className="text-xs leading-snug mt-0.5" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.50)" }}>{item.sub}</p>
@@ -445,8 +441,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                       <div className="py-2 space-y-1 pl-2">
                         {HAKKIMIZDA_DROPDOWN.map(item => (
                           <button key={item.href} onClick={() => { setMobileOpen(false); router.push(item.href); }}
-                            className={`flex items-center gap-2 w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black"}`}>
-                            <item.icon size={14} style={{ color: item.accent }} />
+                            className={`block w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black"}`}>
                             {item.label}
                           </button>
                         ))}

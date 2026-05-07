@@ -604,9 +604,39 @@ export default function AdminPage() {
   const handleSaveDealers = async () => {
     setDealersSaving(true);
     try {
-      const res = await fetch("/api/admin/dealers", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(dealers) });
-      if (res.ok) { dealersCleanRef.current = dealers; setDealersDirty(false); showToast("ok", "Bayiler kaydedildi."); setPreviewKey((k) => k + 1); }
-      else showToast("err", "Kayıt başarısız.");
+      // Dealer tab edits two stores at once: the dealers bin (city
+      // markers) and the content bin's dealer.* block (which now also
+      // carries regionReps). Save both in parallel so the operator can
+      // edit a city marker, a section text, and a regional rep, then hit
+      // a single "Kaydet" — no surprise data loss.
+      const dealersReq = fetch("/api/admin/dealers", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dealers),
+      });
+      // Only post content when there is something to save; saves an
+      // unnecessary translate+write round-trip on tabs where the
+      // operator only touched dealers.
+      const contentReq = contentDirty && content
+        ? fetch("/api/admin/content", {
+            method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(content),
+          })
+        : null;
+
+      const [dealersRes, contentRes] = await Promise.all([dealersReq, contentReq]);
+
+      if (dealersRes.ok && (!contentRes || contentRes.ok)) {
+        dealersCleanRef.current = dealers;
+        setDealersDirty(false);
+        if (contentRes && content) {
+          contentCleanRef.current = content;
+          setContentDirty(false);
+        }
+        showToast("ok", "Bayiler ve bölge bilgileri kaydedildi.");
+        setPreviewKey((k) => k + 1);
+      } else {
+        showToast("err", "Kayıt başarısız.");
+      }
     } catch { showToast("err", "Ağ hatası."); }
     setDealersSaving(false);
   };
