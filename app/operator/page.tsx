@@ -9,6 +9,7 @@ import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 import {
   RiWifiLine, RiBarChartLine, RiShieldCheckLine, RiGlobalLine,
   RiPlugLine, RiCheckLine, RiArrowRightSLine,
@@ -51,19 +52,20 @@ const DEFAULT_OP: OperatorContent = {
 export default function OperatorPage() {
   const router = useRouter();
   const { theme } = useTheme();
+  const { lang } = useLanguage();
   const d = theme === "dark";
   const [searchOpen, setSearchOpen] = useState(false);
   const [cms, setCms] = useState<OperatorContent>(DEFAULT_OP);
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
-    fetch("/api/b2b").then(r => r.json()).then((data) => {
+    fetch(`/api/b2b?lang=${lang}`).then(r => r.json()).then((data) => {
       if (data?.operator) setCms(data.operator);
     }).catch(() => {});
     fetch("/api/products").then(r => r.json()).then((data: Category[]) => {
       setCategories(Array.isArray(data) ? data : []);
     }).catch(() => {});
-  }, []);
+  }, [lang]);
 
   const bg      = d ? "#0c0c0e" : "#f8f8fb";
   const bgSub   = d ? "#111114" : "#ffffff";

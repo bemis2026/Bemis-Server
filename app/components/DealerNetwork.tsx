@@ -8,6 +8,7 @@ import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import E from "./E";
 import { CITY_BY_ID } from "../../lib/turkeyCities";
+import InternationalGlobe from "./InternationalGlobe";
 
 const BLUE = "#3B82F6";
 
@@ -38,6 +39,12 @@ const REGIONS = [
   { id: "guneydogu",  label: "Güneydoğu",         cx: 895,  cy: 435, highlight: false },
 ];
 
+// Bursa HQ — drawn as a separate red pin on top of the Marmara region marker.
+// Treated as its own selectable region (`merkez`) so the rep card can show a
+// dedicated Bursa-headquarters contact, independent of the Marmara region.
+const BURSA_HQ = { id: "merkez", label: "Bursa Merkez", cx: 235, cy: 192 };
+const HQ_RED = "#EF4444";
+
 export default function DealerNetwork() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -47,6 +54,8 @@ export default function DealerNetwork() {
   const [dealers, setDealers] = useState<DealersData>({});
   const [hoveredCity, setHoveredCity] = useState<string | null>(null);
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
+  // Tabs: yurtici = Turkey SVG map, yurtdisi = 3D globe with international markets.
+  const [viewMode, setViewMode] = useState<"yurtici" | "yurtdisi">("yurtici");
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
@@ -69,7 +78,11 @@ export default function DealerNetwork() {
   }
 
   const activeCity = hoveredCity || selectedCity;
-  const activeRegion = REGIONS.find((r) => r.id === activeCity);
+  // Resolve from REGIONS first, then fall back to the BURSA_HQ virtual region
+  // so the "merkez" pin can drive the rep card without owning any dealer cities.
+  const activeRegion =
+    REGIONS.find((r) => r.id === activeCity) ??
+    (activeCity === BURSA_HQ.id ? BURSA_HQ : undefined);
   const activeRegionCities = activeRegion ? (citiesByRegion[activeRegion.id] ?? []) : [];
   const activeDealers = activeRegionCities.flatMap((cityId) => dealers[cityId]?.dealers ?? []);
   const activeCityLabel = activeRegion?.label;
@@ -288,13 +301,54 @@ export default function DealerNetwork() {
             )}
           </motion.div>
 
-          {/* Right — Interactive Turkey Map */}
+          {/* Right — Interactive Turkey Map / 3D World Globe */}
           <motion.div
             initial={{ opacity: 0, x: 24 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}
             className="lg:col-span-3"
           >
+            {/* View tabs — Yurtiçi (Turkey map) / Yurtdışı (3D globe) */}
+            <div
+              className="flex rounded-xl p-1 mb-3 max-w-xs"
+              style={{
+                background: d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.04)",
+                border: `1px solid ${BLUE}22`,
+              }}
+            >
+              {(["yurtici", "yurtdisi"] as const).map((m) => {
+                const active = viewMode === m;
+                const label = m === "yurtici" ? "Yurtiçi" : "Yurtdışı";
+                return (
+                  <button
+                    key={m}
+                    onClick={() => setViewMode(m)}
+                    className="flex-1 py-2 rounded-lg text-sm font-bold transition-all duration-200"
+                    style={{
+                      background: active ? (d ? `${BLUE}28` : `${BLUE}18`) : "transparent",
+                      color: active ? (d ? "#cfe1ff" : "#1D4ED8") : (d ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.55)"),
+                      border: active ? `1px solid ${BLUE}55` : "1px solid transparent",
+                    }}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
+            </div>
+
+            {viewMode === "yurtdisi" ? (
+              <div
+                className="relative rounded-2xl overflow-hidden"
+                style={{
+                  background: d
+                    ? "linear-gradient(155deg, #050a14 0%, #070d18 100%)"
+                    : "linear-gradient(155deg, #e2eaf5 0%, #ecf2fa 100%)",
+                  border: `1px solid ${BLUE}22`,
+                }}
+              >
+                <InternationalGlobe dark={d} />
+              </div>
+            ) : (
             <div
               className="relative rounded-2xl overflow-hidden select-none"
               style={{
@@ -413,6 +467,63 @@ export default function DealerNetwork() {
                       </motion.g>
                     );
                   })}
+
+                  {/* Bursa HQ pin — sits on top of Marmara as a distinct red
+                      headquarters marker. Hover/click loads the "merkez"
+                      regional rep, independent of the Marmara dealer list. */}
+                  <motion.g
+                    key="bursa-hq"
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={inView ? { scale: 1, opacity: 1 } : {}}
+                    transition={{ duration: 0.35, delay: 0.95 }}
+                    style={{ cursor: "pointer" }}
+                    onPointerEnter={(e) => handleCityEnter(BURSA_HQ as typeof REGIONS[number], e)}
+                    onPointerLeave={(e) => handleCityLeave(e)}
+                    onClick={(e) => handleCityClick(BURSA_HQ as typeof REGIONS[number], e as unknown as React.MouseEvent)}
+                  >
+                    {/* Pulse */}
+                    <motion.circle
+                      cx={BURSA_HQ.cx} cy={BURSA_HQ.cy}
+                      r={28}
+                      fill="none"
+                      stroke={`${HQ_RED}88`}
+                      strokeWidth="2"
+                      animate={{ r: [22, 50], opacity: [0.85, 0] }}
+                      transition={{ duration: 2.2, repeat: Infinity }}
+                    />
+                    {/* Outer ring */}
+                    <circle
+                      cx={BURSA_HQ.cx} cy={BURSA_HQ.cy}
+                      r={20}
+                      fill={`${HQ_RED}26`}
+                      stroke={HQ_RED}
+                      strokeWidth="2.5"
+                    />
+                    {/* Solid red dot */}
+                    <circle
+                      cx={BURSA_HQ.cx} cy={BURSA_HQ.cy}
+                      r={11}
+                      fill={HQ_RED}
+                    />
+                    {/* HQ glyph (small star) */}
+                    <text
+                      x={BURSA_HQ.cx} y={BURSA_HQ.cy + 5}
+                      textAnchor="middle"
+                      fontSize="14"
+                      fontWeight="900"
+                      fill="#ffffff"
+                      style={{ pointerEvents: "none", userSelect: "none", fontFamily: "inherit" }}
+                    >★</text>
+                    {/* Label */}
+                    <text
+                      x={BURSA_HQ.cx} y={BURSA_HQ.cy - 28}
+                      textAnchor="middle"
+                      fontSize="20"
+                      fontWeight="800"
+                      fill={HQ_RED}
+                      style={{ pointerEvents: "none", userSelect: "none", fontFamily: "inherit" }}
+                    >MERKEZ</text>
+                  </motion.g>
                 </svg>
               </div>
 
@@ -423,6 +534,7 @@ export default function DealerNetwork() {
                 </span>
               </div>
             </div>
+            )}
 
             {/* Bemis regional rep card — sits directly under the map.
                 AnimatePresence + height/opacity drives a smooth open

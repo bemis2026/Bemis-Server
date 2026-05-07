@@ -126,9 +126,9 @@ function walk(node: Any, parts: string[], i: number, visits: Visit[]) {
   walk(node[seg], parts, i + 1, visits);
 }
 
-function collectVisits(root: Any): Visit[] {
+function collectVisits(root: Any, paths: string[] = TRANSLATABLE_PATHS): Visit[] {
   const all: Visit[] = [];
-  for (const p of TRANSLATABLE_PATHS) walkPath(root, p, all);
+  for (const p of paths) walkPath(root, p, all);
   return all;
 }
 
@@ -142,14 +142,15 @@ export async function translateContent(
   tr: Any,
   prevTr: Any | null,
   prevEn: Any | null,
+  paths: string[] = TRANSLATABLE_PATHS,
 ): Promise<Any> {
   // Deep clone TR — we'll mutate the clone in place.
   const clone: Any = JSON.parse(JSON.stringify(tr));
-  const visits = collectVisits(clone);
+  const visits = collectVisits(clone, paths);
 
   // For diffing, we need the same visit order on prevTr and prevEn.
-  const prevTrVisits = prevTr ? collectVisits(JSON.parse(JSON.stringify(prevTr))) : [];
-  const prevEnVisits = prevEn ? collectVisits(JSON.parse(JSON.stringify(prevEn))) : [];
+  const prevTrVisits = prevTr ? collectVisits(JSON.parse(JSON.stringify(prevTr)), paths) : [];
+  const prevEnVisits = prevEn ? collectVisits(JSON.parse(JSON.stringify(prevEn)), paths) : [];
 
   const toTranslateIdx: number[] = [];
   const toTranslateText: string[] = [];

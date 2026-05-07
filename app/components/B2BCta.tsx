@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 import {
   RiShieldCheckLine, RiBuilding2Line,
   RiStoreLine, RiWifiLine, RiArrowRightLine,
@@ -31,15 +32,16 @@ const DEFAULT_CTA: CtaData = {
 
 export default function B2BCta() {
   const { theme } = useTheme();
+  const { lang } = useLanguage();
   const d = theme === "dark";
   const router = useRouter();
   const [cta, setCta] = useState<CtaData>(DEFAULT_CTA);
 
   useEffect(() => {
-    fetch("/api/b2b").then(r => r.json()).then(data => {
+    fetch(`/api/b2b?lang=${lang}`).then(r => r.json()).then(data => {
       if (data?.cta) setCta(data.cta);
     }).catch(() => {});
-  }, []);
+  }, [lang]);
 
   const channels = (cta.channels ?? DEFAULT_CTA.channels).map((ch, i) => ({
     ...ch,

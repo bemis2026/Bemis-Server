@@ -3793,6 +3793,7 @@ export default function AdminPage() {
 
                     {(() => {
                       const REGION_LABELS: { id: string; label: string }[] = [
+                        { id: "merkez",     label: "Bursa Merkez (Genel Merkez)" },
                         { id: "marmara",    label: "Marmara" },
                         { id: "ege",        label: "Ege" },
                         { id: "akdeniz",    label: "Akdeniz" },

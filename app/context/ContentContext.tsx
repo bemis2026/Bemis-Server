@@ -286,6 +286,7 @@ const defaultContent: SiteContent = {
     mapHint: "Haritada bir bölgeye tıklayın veya üzerine gelin",
     mapTitle: "Türkiye Yetkili Bayi Haritası",
     regionReps: [
+      { regionId: "merkez",     name: "", title: "Bursa Genel Merkez Satış",        phone: "", email: "" },
       { regionId: "marmara",    name: "", title: "Marmara Bölge Temsilcisi",         phone: "", email: "" },
       { regionId: "ege",        name: "", title: "Ege Bölge Temsilcisi",             phone: "", email: "" },
       { regionId: "akdeniz",    name: "", title: "Akdeniz Bölge Temsilcisi",         phone: "", email: "" },

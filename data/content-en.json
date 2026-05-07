@@ -426,7 +426,16 @@
       "https://i.ibb.co/n8m3gY86/1776719268258-Whats-App-Image-2026-04-01-at-14-54-58-7-jpeg.jpg",
       "https://i.ibb.co/vCwSGNWR/1777491595246-Chat-GPT-Image-19-Nis-2026-14-21-33-png.png",
       "https://i.ibb.co/CKFdFmd0/1777491627149-Chat-GPT-Image-6-Nis-2026-22-34-21-png.png"
-    ]
+    ],
+    "overlayFeatures": ["IP 65", "Scheduled Charging", "Shared Use", "Mobile App"]
+  },
+  "calculator": {
+    "sectionLabel": "Calculator",
+    "heading": "Charging Time Calculator",
+    "subheading": "Select a vehicle or enter values manually — calculate your charging time and fuel savings",
+    "tabCharge": "Charging Time",
+    "tabSavings": "Savings Analysis",
+    "chargeSimLabel": "Charging Simulation"
   },
   "faviconUrl": "https://i.ibb.co/ccVY4s4w/1776676694649-favicon-png.png",
   "ogImage": "https://i.ibb.co/C5W96KPw/1776719037072-Whats-App-Image-2026-04-01-at-14-54-58-6-jpeg.jpg"

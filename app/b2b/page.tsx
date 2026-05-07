@@ -77,11 +77,9 @@ export default function B2BPage() {
     fetch(`/api/products?lang=${lang}`).then(r => r.json()).then((data: Category[]) => {
       setCategories(Array.isArray(data) ? data : []);
     }).catch(() => {});
-    if (lang === "tr") {
-      fetch("/api/b2b").then(r => r.json()).then((data: B2BData) => {
-        if (data?.hero) setB2bData(data);
-      }).catch(() => {});
-    }
+    fetch(`/api/b2b?lang=${lang}`).then(r => r.json()).then((data: B2BData) => {
+      if (data?.hero) setB2bData(data);
+    }).catch(() => {});
   }, [lang]);
 
   // Admin panel live preview — receive postMessage from parent iframe

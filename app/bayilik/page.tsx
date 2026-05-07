@@ -8,6 +8,7 @@ import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 import {
   RiShieldCheckLine, RiMapPinLine, RiHandCoinLine, RiCustomerService2Line,
   RiCheckLine, RiStoreLine, RiArrowRightLine,
@@ -45,15 +46,16 @@ const DEFAULT: BayilikContent = {
 export default function BayilikPage() {
   const router = useRouter();
   const { theme } = useTheme();
+  const { lang } = useLanguage();
   const d = theme === "dark";
   const [searchOpen, setSearchOpen] = useState(false);
   const [cms, setCms] = useState<BayilikContent>(DEFAULT);
 
   useEffect(() => {
-    fetch("/api/b2b").then(r => r.json()).then((data) => {
+    fetch(`/api/b2b?lang=${lang}`).then(r => r.json()).then((data) => {
       if (data?.bayilik) setCms(data.bayilik);
     }).catch(() => {});
-  }, []);
+  }, [lang]);
 
   const bg      = d ? "#0c0c0e" : "#f8f8fb";
   const bgSub   = d ? "#111114" : "#ffffff";

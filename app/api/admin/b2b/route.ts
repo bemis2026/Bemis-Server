@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { readFileSync } from "fs";
 import path from "path";
 import { readBin, writeBin } from "../../../../lib/jsonbin";
+import { translateContent } from "../../../../lib/contentTranslate";
+import { B2B_TRANSLATABLE_PATHS } from "../../../../lib/b2bTranslate";
 
 function isAuthed(req: NextRequest) {
   return req.cookies.get("admin_auth")?.value === "1";
@@ -25,6 +27,14 @@ function mergeDeep(target: Rec, source: Rec): Rec {
   return result;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function stripTranslations(obj: any) {
+  if (!obj || typeof obj !== "object") return obj;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { _translations, ...rest } = obj;
+  return rest;
+}
+
 export async function GET(req: NextRequest) {
   if (!isAuthed(req)) return NextResponse.json({ error: "Yetkisiz" }, { status: 401 });
 
@@ -43,7 +53,24 @@ export async function POST(req: NextRequest) {
   if (!isAuthed(req)) return NextResponse.json({ error: "Yetkisiz" }, { status: 401 });
   try {
     const body = await req.json();
-    await writeBin("b2b", body);
+
+    // Save TR + auto-translate to EN, mirroring the content bin pattern.
+    const trBody = stripTranslations(body);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let prevBin: any = {};
+    try { prevBin = (await readBin("b2b", { fresh: true })) ?? {}; } catch {}
+    const prevTr = stripTranslations(prevBin);
+    const prevEn = prevBin?._translations?.en ?? null;
+
+    let enBody = prevEn;
+    try {
+      enBody = await translateContent(trBody, prevTr, prevEn, B2B_TRANSLATABLE_PATHS);
+    } catch (e) {
+      console.error("[b2b] translation failed, keeping previous EN:", e);
+    }
+
+    const next = { ...trBody, _translations: { ...(prevBin._translations ?? {}), en: enBody ?? trBody } };
+    await writeBin("b2b", next);
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error("b2b save error:", e);
