@@ -276,7 +276,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                           {/* Footer */}
                           <div style={{ borderTop: `1px solid ${isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"}` }}>
                             <button
-                              onClick={() => { setActiveDropdown(null); handleNavClick("#products"); }}
+                              onClick={() => { setActiveDropdown(null); router.push("/products"); }}
                               className="w-full px-4 py-2.5 flex items-center justify-between text-xs font-semibold transition-colors"
                               style={{ color: isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)" }}
                               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.60)"; }}
@@ -409,7 +409,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                             {cat.name}
                           </button>
                         ))}
-                        <button onClick={() => { setMobileOpen(false); handleNavClick("#products"); }}
+                        <button onClick={() => { setMobileOpen(false); router.push("/products"); }}
                           className={`block w-full text-left text-sm py-2 px-3 rounded-lg font-semibold ${isDark ? "text-blue-400" : "text-blue-600"}`}>
                           → Tüm ürünlere göz at
                         </button>
