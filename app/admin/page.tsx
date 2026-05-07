@@ -85,6 +85,7 @@ import {
   getCityLabel,
   getCityRegion,
 } from "../../lib/turkeyCities";
+import { WORLD_COUNTRIES } from "../../lib/worldCountries";
 
 type SpecItem = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
@@ -319,6 +320,9 @@ export default function AdminPage() {
     website: "", workingHours: "", mapUrl: "", notes: "",
   };
   const [addDealerForm, setAddDealerForm] = useState<AddDealerForm>(emptyDealerForm);
+  // International country picker (Yurtdışı Distribütörler editor)
+  const [addCountryOpen, setAddCountryOpen] = useState(false);
+  const [addCountryFilter, setAddCountryFilter] = useState("");
 
   // Soft validators — accept empty (field is optional unless marked *).
   const isValidEmail = (v: string) => v.trim() === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
@@ -3873,32 +3877,8 @@ export default function AdminPage() {
                       </div>
                       <button
                         onClick={() => {
-                          setContent((prev) => {
-                            if (!prev) return prev;
-                            const next = JSON.parse(JSON.stringify(prev)) as ContentData;
-                            const arr = next.dealer.internationalDealers ?? [];
-                            const code = (window.prompt("ISO-2 ülke kodu (örn: DE, AZ)")?.trim().toUpperCase()) ?? "";
-                            if (!code || code.length !== 2) return prev;
-                            if (arr.some(c => c.countryCode === code)) {
-                              window.alert(`${code} zaten ekli.`);
-                              return prev;
-                            }
-                            const name = window.prompt("Ülke adı (Türkçe)")?.trim() ?? "";
-                            if (!name) return prev;
-                            const lat = Number(window.prompt("Enlem (lat, örn: 51.2)")?.trim() ?? "");
-                            const lng = Number(window.prompt("Boylam (lng, örn: 10.4)")?.trim() ?? "");
-                            if (Number.isNaN(lat) || Number.isNaN(lng)) {
-                              window.alert("Geçersiz enlem/boylam.");
-                              return prev;
-                            }
-                            arr.push({
-                              id: code.toLowerCase(),
-                              countryCode: code, countryName: name,
-                              lat, lng, active: true,
-                            });
-                            next.dealer.internationalDealers = arr;
-                            return next;
-                          });
+                          setAddCountryFilter("");
+                          setAddCountryOpen(true);
                         }}
                         className="flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg transition-all flex-shrink-0"
                         style={{ background: "rgba(59,130,246,0.18)", border: "1px solid rgba(59,130,246,0.45)", color: "#93C5FD" }}
@@ -4277,6 +4257,101 @@ export default function AdminPage() {
                       })()}
                     </div>
                   </div>
+
+                  {/* Add Country Modal — searchable picker for the global
+                      country list. Only countries NOT already in the editor
+                      list show up; selecting one adds it with active=true. */}
+                  {addCountryOpen && (() => {
+                    const existing = new Set(
+                      (content.dealer.internationalDealers ?? []).map(c => c.countryCode.toUpperCase())
+                    );
+                    const q = addCountryFilter.trim().toLocaleLowerCase("tr");
+                    const filtered = WORLD_COUNTRIES
+                      .filter(c => !existing.has(c.code))
+                      .filter(c => !q || c.name.toLocaleLowerCase("tr").includes(q) || c.code.toLowerCase().includes(q));
+                    return (
+                      <div
+                        className="fixed inset-0 z-50 flex items-center justify-center p-4"
+                        style={{ background: "rgba(0,0,0,0.75)", backdropFilter: "blur(8px)" }}
+                        onClick={(e) => { if (e.target === e.currentTarget) setAddCountryOpen(false); }}
+                      >
+                        <div className="w-full max-w-lg rounded-2xl border border-white/10 bg-[#1a1a1e] p-6 space-y-4 max-h-[80vh] flex flex-col">
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <p className="text-sm font-bold text-white">Ülke Ekle</p>
+                              <p className="text-[11px] text-white/40 mt-0.5">Listeden seçilen ülke aktif olarak eklenir; sonra detayları düzenleyebilirsiniz.</p>
+                            </div>
+                            <button
+                              onClick={() => setAddCountryOpen(false)}
+                              className="text-white/40 hover:text-white text-xl leading-none"
+                              aria-label="Kapat"
+                            >×</button>
+                          </div>
+
+                          <input
+                            type="text"
+                            value={addCountryFilter}
+                            onChange={(e) => setAddCountryFilter(e.target.value)}
+                            placeholder="Ülke ara… (isim veya ISO-2 kod)"
+                            autoFocus
+                            className="w-full rounded-xl px-3 py-2.5 text-sm bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-blue-400/50"
+                          />
+
+                          <div className="flex-1 overflow-y-auto rounded-xl border border-white/8 bg-white/3 p-1.5 space-y-0.5 min-h-[200px]">
+                            {filtered.length === 0 ? (
+                              <p className="text-[11px] text-white/30 px-3 py-3 text-center">
+                                {addCountryFilter ? "Eşleşen ülke yok." : "Tüm ülkeler zaten eklenmiş."}
+                              </p>
+                            ) : (
+                              filtered.map(c => (
+                                <button
+                                  key={c.code}
+                                  onClick={() => {
+                                    setContent(prev => {
+                                      if (!prev) return prev;
+                                      const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                                      const arr = next.dealer.internationalDealers ?? [];
+                                      arr.push({
+                                        id: c.code.toLowerCase(),
+                                        countryCode: c.code,
+                                        countryName: c.name,
+                                        lat: c.lat,
+                                        lng: c.lng,
+                                        active: true,
+                                      });
+                                      next.dealer.internationalDealers = arr;
+                                      return next;
+                                    });
+                                    setAddCountryOpen(false);
+                                  }}
+                                  className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors hover:bg-blue-500/15"
+                                >
+                                  <span
+                                    className="text-[10px] font-black tracking-wider px-1.5 py-0.5 rounded flex-shrink-0"
+                                    style={{ background: "rgba(59,130,246,0.20)", color: "#93C5FD", border: "1px solid rgba(59,130,246,0.30)" }}
+                                  >
+                                    {c.code}
+                                  </span>
+                                  <span className="text-sm text-white/80 flex-1">{c.name}</span>
+                                  <span className="text-[10px] text-white/30">{c.lat.toFixed(1)}, {c.lng.toFixed(1)}</span>
+                                </button>
+                              ))
+                            )}
+                          </div>
+
+                          <div className="flex items-center justify-between gap-3 pt-1">
+                            <p className="text-[10px] text-white/30">{filtered.length} ülke gösteriliyor</p>
+                            <button
+                              onClick={() => setAddCountryOpen(false)}
+                              className="text-xs px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-white/60 hover:text-white hover:bg-white/10"
+                            >
+                              Kapat
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })()}
 
                   {/* Add Dealer Modal */}
                   {addDealerOpen && (

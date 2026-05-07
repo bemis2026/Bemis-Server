@@ -42,7 +42,7 @@ const REGIONS = [
 // Bursa HQ — drawn as a separate red pin on top of the Marmara region marker.
 // Treated as its own selectable region (`merkez`) so the rep card can show a
 // dedicated Bursa-headquarters contact, independent of the Marmara region.
-const BURSA_HQ = { id: "merkez", label: "Bursa Merkez", cx: 285, cy: 278 };
+const BURSA_HQ = { id: "merkez", label: "Bursa Merkez", cx: 270, cy: 272 };
 const HQ_RED = "#EF4444";
 
 export default function DealerNetwork() {
@@ -647,9 +647,10 @@ export default function DealerNetwork() {
                       fill="#ffffff"
                       style={{ pointerEvents: "none", userSelect: "none", fontFamily: "inherit" }}
                     >★</text>
-                    {/* Label */}
+                    {/* Label — placed BELOW the pin so it doesn't collide
+                        with Marmara's region label which sits just above. */}
                     <text
-                      x={BURSA_HQ.cx} y={BURSA_HQ.cy - 28}
+                      x={BURSA_HQ.cx} y={BURSA_HQ.cy + 38}
                       textAnchor="middle"
                       fontSize="20"
                       fontWeight="800"
