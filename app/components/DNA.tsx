@@ -139,32 +139,49 @@ export default function DNA() {
             {/* Texture overlay */}
             <div className="absolute inset-0" style={{ backgroundImage: d ? "radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)" : "radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
 
-            {/* Factory video (öncelikli) veya fotoğraf */}
+            {/* Factory video (öncelikli) veya fotoğraf — content lives inside
+                a centered inner frame at ~55% size so the surrounding gradient
+                + texture form a focal "matte" around the video. */}
             {dna.factoryVideo ? (() => {
               const yt = dna.factoryVideo!.match(/(?:youtube\.com\/(?:[^/?]+\?.*v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-              if (yt) {
-                return (
-                  <iframe
-                    src={`https://www.youtube.com/embed/${yt[1]}?autoplay=1&mute=1&loop=1&playlist=${yt[1]}&controls=1&modestbranding=1&rel=0&vq=hd1080`}
-                    allow="autoplay; encrypted-media; fullscreen"
-                    allowFullScreen
-                    style={{
-                      position: "absolute", inset: 0,
-                      width: "100%", height: "100%",
-                      border: "none",
-                    }}
-                  />
-                );
-              }
               return (
-                <video
-                  src={dna.factoryVideo}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
-                />
+                <div
+                  className="absolute"
+                  style={{
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    width: "min(55%, 520px)",
+                    aspectRatio: "16 / 9",
+                    borderRadius: "0.75rem",
+                    overflow: "hidden",
+                    boxShadow: d
+                      ? `0 24px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06), 0 0 0 6px ${BLUE}15`
+                      : `0 18px 50px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.06), 0 0 0 6px ${BLUE}12`,
+                  }}
+                >
+                  {yt ? (
+                    <iframe
+                      src={`https://www.youtube.com/embed/${yt[1]}?autoplay=1&mute=1&loop=1&playlist=${yt[1]}&controls=1&modestbranding=1&rel=0&vq=hd1080`}
+                      allow="autoplay; encrypted-media; fullscreen"
+                      allowFullScreen
+                      style={{
+                        position: "absolute", inset: 0,
+                        width: "100%", height: "100%",
+                        border: "none",
+                      }}
+                    />
+                  ) : (
+                    <video
+                      src={dna.factoryVideo}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+                    />
+                  )}
+                </div>
               );
             })() : (
               <EImage
