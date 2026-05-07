@@ -44,6 +44,16 @@ export type ExportContact = {
 // reword the eyebrow, heading and intro paragraph without code changes.
 // `languages` is an ordered list of ISO-639-1 / locale codes used to render
 // flag pills next to the export contact card.
+// Reference / case-study project — image-led card shown on the homepage
+// "Referans Projeler" marquee. Title + location render as a caption overlay.
+export type ReferenceProject = {
+  id: string;
+  image: string;
+  title?: string;
+  location?: string;
+  description?: string;
+};
+
 export type WorldSection = {
   sectionLabel: string;
   heading: string;
@@ -155,6 +165,12 @@ export type SiteContent = {
   };
   contactSection: { sectionLabel: string; heading: string; subheading: string };
   featuredSection: { sectionLabel: string; heading: string; subheading: string; ctaLabel: string };
+  referenceProjectsSection: {
+    sectionLabel: string;
+    heading: string;
+    subheading: string;
+    items: ReferenceProject[];
+  };
   navbar: { ctaLabel: string; links: { label: string; href: string }[] };
   footer: {
     description: string; followLabel: string; copyright: string;
@@ -223,11 +239,11 @@ const DEFAULT_LAYOUT: HeroLayout = {
 };
 
 export const DEFAULT_SECTION_ORDER = [
-  "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "reviews", "dealer", "b2bcta", "calculator"
+  "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "referenceprojects", "reviews", "dealer", "b2bcta", "calculator"
 ];
 
 function migrateSectionOrder(order: string[]): string[] {
-  const known = ["dna","stats","productshowcase","smartcharger","products","featured","reviews","dealer","calculator","b2bcta"];
+  const known = ["dna","stats","productshowcase","smartcharger","products","featured","referenceprojects","reviews","dealer","calculator","b2bcta"];
   const filtered = order.filter(s => known.includes(s));
   const missing = known.filter(s => !filtered.includes(s));
   return [...filtered, ...missing];
@@ -439,6 +455,12 @@ const defaultContent: SiteContent = {
     subheading: "Müşterilerimizin güvendiği, en çok sipariş verilen ürünlerimiz",
     ctaLabel: "Ürünü İncele",
   },
+  referenceProjectsSection: {
+    sectionLabel: "Referans Projeler",
+    heading: "Sahada Bemis E-V Charge",
+    subheading: "AVM, otopark, otel ve kurumsal kampüslerde devreye aldığımız uygulamalardan kareler.",
+    items: [],
+  },
   navbar: {
     ctaLabel: "Bize Ulaşın",
     links: [
@@ -546,6 +568,13 @@ export function mergeContent(data: any): SiteContent {
     ogImage: safe.ogImage ?? "",
     faviconUrl: safe.faviconUrl ?? "",
     featuredSection: { ...defaultContent.featuredSection, ...safe.featuredSection },
+    referenceProjectsSection: {
+      ...defaultContent.referenceProjectsSection,
+      ...(safe.referenceProjectsSection ?? {}),
+      items: Array.isArray(safe.referenceProjectsSection?.items)
+        ? safe.referenceProjectsSection.items
+        : defaultContent.referenceProjectsSection.items,
+    },
     calculator: { ...defaultContent.calculator, ...safe.calculator },
     navbar: { ...defaultContent.navbar, ...safe.navbar, links: safe.navbar?.links ?? defaultContent.navbar.links },
     footer: { ...defaultContent.footer, ...safe.footer },

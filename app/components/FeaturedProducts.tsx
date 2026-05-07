@@ -108,10 +108,24 @@ export default function FeaturedProducts() {
           </motion.p>
         </div>
 
-        {/* Cards */}
-        <div className={`grid gap-4 ${resolved.length === 1 ? "max-w-md mx-auto" : resolved.length === 2 ? "sm:grid-cols-2 max-w-3xl mx-auto" : "sm:grid-cols-2 lg:grid-cols-3"}`}>
-          {resolved.map((item, i) => {
-            const key = `${item.categoryId}-${item.productId}`;
+        {/* Cards — infinite marquee. Items doubled so the -50% transform
+            wraps seamlessly. Pauses on hover via CSS animation-play-state. */}
+        <div
+          className="relative overflow-hidden"
+          style={{
+            maskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
+          }}
+        >
+          <div
+            className="flex gap-4 featured-marquee-track"
+            style={{
+              width: "max-content",
+              animation: `featuredMarquee ${Math.max(28, resolved.length * 7)}s linear infinite`,
+            }}
+          >
+          {[...resolved, ...resolved].map((item, i) => {
+            const key = `${item.categoryId}-${item.productId}-${i}`;
             const isHov = hovered === key;
             // Pick top 3 spec items from first group
             const topSpecs = item.prod?.specs[0]?.items.slice(0, 3) ?? [];
@@ -121,12 +135,13 @@ export default function FeaturedProducts() {
                 key={key}
                 initial={{ opacity: 0, y: 28 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.55, delay: 0.1 + i * 0.1 }}
+                transition={{ duration: 0.55, delay: 0.1 + (i % resolved.length) * 0.06 }}
                 onMouseEnter={() => setHovered(key)}
                 onMouseLeave={() => setHovered(null)}
                 onClick={() => router.push(`/products/${item.categoryId}/${item.productId}`)}
-                className="relative rounded-2xl overflow-hidden cursor-pointer"
+                className="relative rounded-2xl overflow-hidden cursor-pointer flex-shrink-0"
                 style={{
+                  width: "clamp(260px, 26vw, 320px)",
                   background: surface,
                   border: `1px solid ${isHov ? item.accent + "50" : border}`,
                   boxShadow: isHov ? `0 8px 40px ${item.accent}20` : d ? "none" : "0 2px 16px rgba(0,0,0,0.06)",
@@ -234,9 +249,17 @@ export default function FeaturedProducts() {
               </motion.div>
             );
           })}
+          </div>
         </div>
 
       </div>
+      <style jsx>{`
+        @keyframes featuredMarquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .featured-marquee-track:hover { animation-play-state: paused; }
+      `}</style>
     </section>
   );
 }

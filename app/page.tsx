@@ -16,6 +16,7 @@ const Products = dynamic(() => import("./components/Products"));
 const ProductShowcase = dynamic(() => import("./components/ProductShowcase"));
 const SmartCharger = dynamic(() => import("./components/SmartCharger"));
 const FeaturedProducts = dynamic(() => import("./components/FeaturedProducts"));
+const ReferenceProjects = dynamic(() => import("./components/ReferenceProjects"));
 const DealerNetwork = dynamic(() => import("./components/DealerNetwork"));
 const Reviews = dynamic(() => import("./components/Reviews"));
 const Calculator = dynamic(() => import("./components/Calculator"));
@@ -31,6 +32,7 @@ const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   productshowcase: ProductShowcase,
   smartcharger: SmartCharger,
   featured: FeaturedProducts,
+  referenceprojects: ReferenceProjects,
   dealer: DealerNetwork,
   reviews: Reviews,
   calculator: Calculator,

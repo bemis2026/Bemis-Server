@@ -157,6 +157,10 @@ type ContentData = {
   };
   contactSection: { sectionLabel: string; heading: string; subheading: string };
   featuredSection?: { sectionLabel: string; heading: string; subheading: string; ctaLabel: string };
+  referenceProjectsSection?: {
+    sectionLabel: string; heading: string; subheading: string;
+    items: { id: string; image: string; title?: string; location?: string; description?: string }[];
+  };
   calculator?: { sectionLabel: string; heading: string; subheading: string; tabCharge: string; tabSavings: string; chargeSimLabel: string };
   smartCharger?: { sectionLabel: string; heading: string; subheading: string; ocppBadge: string; ctaLabel: string; ctaHref: string; appStoreHref: string; playStoreHref: string; features: { title: string; desc: string }[]; mockupPhoneImage?: string; mockupWebImage?: string };
   productShowcase?: { badge: string; name: string; tagline: string; description: string; image: string; images?: string[]; specs: { label: string; value: string }[]; ctaPrimary: string; ctaHref: string; ctaSecondary: string; ctaSecondaryHref: string; products?: ShowcaseProductItem[]; overlayFeatures?: string[] };
@@ -191,7 +195,7 @@ type ShowcaseProductItem = {
 };
 type HeroLayoutKey = "logo" | "text" | "button";
 
-type Tab = "hero" | "dna" | "stats" | "products-section" | "smartcharger" | "productshowcase" | "featured" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b" | "messages";
+type Tab = "hero" | "dna" | "stats" | "products-section" | "smartcharger" | "productshowcase" | "featured" | "refprojects" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b" | "messages";
 
 const ADMIN_DEFAULT_SECTION_ORDER = [
   "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "reviews", "dealer", "b2bcta", "calculator"
@@ -204,6 +208,7 @@ const SECTION_META: Record<string, { tab: Tab; label: string; icon: React.Elemen
   "smartcharger":   { tab: "smartcharger",    label: "Akıllı Şarj",    icon: HiOutlineLightningBolt  },
   "products":       { tab: "products",         label: "Ürünler",        icon: HiOutlineCube           },
   "featured":       { tab: "featured",        label: "Öne Çıkanlar",   icon: HiOutlineStar           },
+  "referenceprojects": { tab: "refprojects",   label: "Referans Projeler", icon: HiOutlinePhotograph  },
   "reviews":        { tab: "reviews",         label: "Yorumlar",       icon: HiOutlineStar           },
   "dealer":         { tab: "dealers",         label: "Bayi Haritası",  icon: HiOutlineLocationMarker },
   "b2bcta":         { tab: "b2b",             label: "OEM & Kurumsal", icon: HiOutlineOfficeBuilding },
@@ -2774,6 +2779,167 @@ export default function AdminPage() {
                 </div>
               )}
 
+              {/* ── REFERANS PROJELER ── */}
+              {tab === "refprojects" && (() => {
+                const rp = content.referenceProjectsSection ?? {
+                  sectionLabel: "Referans Projeler",
+                  heading: "Sahada Bemis E-V Charge",
+                  subheading: "AVM, otopark, otel ve kurumsal kampüslerde devreye aldığımız uygulamalardan kareler.",
+                  items: [],
+                };
+                const updateRPField = (field: "sectionLabel" | "heading" | "subheading", value: string) => {
+                  setContent((prev) => {
+                    if (!prev) return prev;
+                    const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                    next.referenceProjectsSection = { ...rp, [field]: value };
+                    return next;
+                  });
+                };
+                const updateItem = (idx: number, field: string, value: string) => {
+                  setContent((prev) => {
+                    if (!prev) return prev;
+                    const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                    const items = [...(next.referenceProjectsSection?.items ?? [])];
+                    items[idx] = { ...items[idx], [field]: value };
+                    next.referenceProjectsSection = { ...rp, items };
+                    return next;
+                  });
+                };
+                const addItem = () => {
+                  setContent((prev) => {
+                    if (!prev) return prev;
+                    const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                    const items = [...(next.referenceProjectsSection?.items ?? [])];
+                    items.push({ id: `proj-${Date.now()}`, image: "", title: "", location: "", description: "" });
+                    next.referenceProjectsSection = { ...rp, items };
+                    return next;
+                  });
+                };
+                const removeItem = (idx: number) => {
+                  if (!window.confirm("Bu projeyi silmek istediğinize emin misiniz?")) return;
+                  setContent((prev) => {
+                    if (!prev) return prev;
+                    const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                    const items = [...(next.referenceProjectsSection?.items ?? [])];
+                    items.splice(idx, 1);
+                    next.referenceProjectsSection = { ...rp, items };
+                    return next;
+                  });
+                };
+                const moveItem = (idx: number, dir: -1 | 1) => {
+                  setContent((prev) => {
+                    if (!prev) return prev;
+                    const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                    const items = [...(next.referenceProjectsSection?.items ?? [])];
+                    const newIdx = idx + dir;
+                    if (newIdx < 0 || newIdx >= items.length) return prev;
+                    [items[idx], items[newIdx]] = [items[newIdx], items[idx]];
+                    next.referenceProjectsSection = { ...rp, items };
+                    return next;
+                  });
+                };
+                return (
+                  <div className="max-w-2xl space-y-5">
+                    <div>
+                      <h2 className="text-base font-bold mb-1">Referans Projeler</h2>
+                      <p className="text-xs text-white/35">Anasayfada kayan bant olarak gösterilen uygulama görselleri (AVM, otopark, otel kurulumları, vb.).</p>
+                    </div>
+                    {/* Section heading texts */}
+                    <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Bölüm Başlıkları</p>
+                      <Field label="Bölüm Etiketi" value={rp.sectionLabel} onChange={(v) => updateRPField("sectionLabel", v)} />
+                      <Field label="Başlık"        value={rp.heading}      onChange={(v) => updateRPField("heading", v)} />
+                      <Field label="Alt Başlık"    value={rp.subheading}   onChange={(v) => updateRPField("subheading", v)} multiline />
+                    </div>
+                    {/* Items */}
+                    <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider mb-1">Proje Kartları</p>
+                          <p className="text-[10px] text-white/30">Sıra önemli — kayan bantta soldan sağa bu sırayla gözükür.</p>
+                        </div>
+                        <button
+                          onClick={addItem}
+                          className="flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg transition-all"
+                          style={{ background: "rgba(59,130,246,0.18)", border: "1px solid rgba(59,130,246,0.45)", color: "#93C5FD" }}
+                        >
+                          <HiOutlinePlus size={13} /> Proje Ekle
+                        </button>
+                      </div>
+                      {rp.items.length === 0 ? (
+                        <p className="text-xs text-white/35 px-1 py-3">Henüz proje yok. Yukarıdan ekleyin.</p>
+                      ) : (
+                        <div className="space-y-2">
+                          {rp.items.map((item, idx) => (
+                            <div key={item.id} className="rounded-xl border border-white/7 p-3 space-y-2" style={{ background: "rgba(255,255,255,0.02)" }}>
+                              <div className="flex items-center gap-3">
+                                {item.image ? (
+                                  // eslint-disable-next-line @next/next/no-img-element
+                                  <img src={item.image} alt="" className="w-16 h-12 object-cover rounded-lg flex-shrink-0" style={{ border: "1px solid rgba(255,255,255,0.08)" }} />
+                                ) : (
+                                  <div className="w-16 h-12 rounded-lg flex-shrink-0 flex items-center justify-center" style={{ background: "rgba(255,255,255,0.04)", border: "1px dashed rgba(255,255,255,0.12)" }}>
+                                    <HiOutlinePhotograph size={18} className="text-white/30" />
+                                  </div>
+                                )}
+                                <div className="flex-1 min-w-0">
+                                  <p className="text-sm font-semibold text-white/85 truncate">{item.title || `Proje ${idx + 1}`}</p>
+                                  <p className="text-[11px] text-white/40 truncate">{item.location || "—"}</p>
+                                </div>
+                                <div className="flex items-center gap-1 flex-shrink-0">
+                                  <button
+                                    onClick={() => moveItem(idx, -1)}
+                                    disabled={idx === 0}
+                                    className="text-white/40 hover:text-white text-xs px-1.5 py-1 rounded disabled:opacity-30"
+                                    title="Yukarı"
+                                  >▲</button>
+                                  <button
+                                    onClick={() => moveItem(idx, 1)}
+                                    disabled={idx === rp.items.length - 1}
+                                    className="text-white/40 hover:text-white text-xs px-1.5 py-1 rounded disabled:opacity-30"
+                                    title="Aşağı"
+                                  >▼</button>
+                                  <button
+                                    onClick={() => removeItem(idx)}
+                                    className="text-red-300 hover:text-red-200 text-xs px-1.5 py-1 rounded"
+                                    title="Sil"
+                                  ><HiOutlineTrash size={13} /></button>
+                                </div>
+                              </div>
+                              <div className="grid grid-cols-2 gap-2">
+                                <Field label="Başlık" value={item.title ?? ""} onChange={(v) => updateItem(idx, "title", v)} placeholder="Şişli AVM AC İstasyon" />
+                                <Field label="Lokasyon" value={item.location ?? ""} onChange={(v) => updateItem(idx, "location", v)} placeholder="İstanbul" />
+                              </div>
+                              <Field label="Açıklama" value={item.description ?? ""} onChange={(v) => updateItem(idx, "description", v)} multiline />
+                              <div>
+                                <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Görsel URL</label>
+                                <div className="flex gap-2">
+                                  <input
+                                    type="url"
+                                    value={item.image}
+                                    onChange={(e) => updateItem(idx, "image", e.target.value)}
+                                    placeholder="https://i.ibb.co/..."
+                                    className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white text-xs focus:outline-none focus:border-white/25"
+                                  />
+                                  <button
+                                    onClick={() => fileRef.current?.click()}
+                                    className="text-xs font-semibold px-3 py-2 rounded-lg whitespace-nowrap"
+                                    style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.10)", color: "rgba(255,255,255,0.65)" }}
+                                    title="Medya tab'ından yükleyip URL'yi yapıştırabilirsiniz"
+                                  >
+                                    <RiImageAddLine size={13} className="inline" /> Yükle
+                                  </button>
+                                </div>
+                                <p className="text-[10px] text-white/30 mt-1">Hızlı yükleme: Medya tab'ında bir görsel yükleyin, dönen URL'yi buraya yapıştırın.</p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })()}
+
               {/* ── DNA / KURUMSAL ── */}
               {tab === "dna" && (
                 <div className="max-w-2xl space-y-5">
@@ -4809,6 +4975,7 @@ export default function AdminPage() {
                       { id: "smartcharger",    label: "Akıllı Şarj" },
                       { id: "products",        label: "Ürün Kataloğu" },
                       { id: "featured",        label: "Öne Çıkan Ürünler" },
+                      { id: "referenceProjects", label: "Referans Projeler" },
                       { id: "dealer",     label: "Bayi Ağı" },
                       { id: "reviews",    label: "Kullanıcı Yorumları" },
                       { id: "calculator", label: "Şarj Hesaplayıcı" },

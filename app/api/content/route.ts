@@ -146,6 +146,19 @@ export async function GET(req: NextRequest) {
     })(),
     contactSection:  { ...tr.contactSection,  ...(en.contactSection  ?? {}) },
     featuredSection: { ...tr.featuredSection, ...(en.featuredSection ?? {}) },
+    referenceProjectsSection: (() => {
+      const trRP = tr.referenceProjectsSection ?? {};
+      const enRP = en.referenceProjectsSection ?? {};
+      const trItems = Array.isArray(trRP.items) ? trRP.items : [];
+      const enItems = Array.isArray(enRP.items) ? enRP.items : [];
+      const items = trItems.map((it: Record<string, unknown>, i: number) => ({
+        ...it,
+        ...(enItems[i] ?? {}),
+        image: it.image,
+        id: it.id,
+      }));
+      return { ...trRP, ...enRP, items };
+    })(),
     smartCharger: en.smartCharger
       ? {
           ...tr.smartCharger,
