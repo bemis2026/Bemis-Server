@@ -32,7 +32,7 @@ const NAV_GROUPS = {
       { label: "OEM / Üretici",        href: "/b2b",      scroll: false },
       { label: "Bayilik Başvurusu",    href: "/bayilik",  scroll: false },
       { label: "Şarj Ağı Operatörü",  href: "/operator", scroll: false },
-      { label: "İhracat / Export",     href: "#contact",  scroll: true  },
+      { label: "İhracat / Export",     href: "#dealer-export", scroll: true  },
     ]},
     { title: "Destek", links: [
       { label: "İletişim",      href: "#contact",   scroll: true  },
@@ -64,7 +64,7 @@ const NAV_GROUPS = {
       { label: "OEM / Manufacturer", href: "/b2b",      scroll: false },
       { label: "Dealer Application", href: "/bayilik",  scroll: false },
       { label: "Network Operators",  href: "/operator", scroll: false },
-      { label: "Export",             href: "#contact",  scroll: true  },
+      { label: "Export",             href: "#dealer-export", scroll: true  },
     ]},
     { title: "Support", links: [
       { label: "Contact",          href: "#contact",   scroll: true  },
@@ -113,6 +113,22 @@ export default function Footer() {
     }
     // Scroll target on the same page
     if (href.startsWith("#")) {
+      // dealer-export is gated behind the Yurtdışı tab, so its element only
+      // exists when DealerNetwork is in that mode. Set the hash explicitly
+      // (and dispatch hashchange even when already on the same value) so
+      // DealerNetwork's listener can flip the tab and scroll into view.
+      if (href === "#dealer-export") {
+        if (window.location.pathname !== "/") {
+          router.push(`/${href}`);
+          return;
+        }
+        if (window.location.hash === href) {
+          window.dispatchEvent(new HashChangeEvent("hashchange"));
+        } else {
+          window.location.hash = "dealer-export";
+        }
+        return;
+      }
       const el = document.querySelector(href);
       if (el) {
         el.scrollIntoView({ behavior: "smooth" });

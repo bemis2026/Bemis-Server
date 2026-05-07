@@ -3,7 +3,7 @@
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { HiArrowRight, HiPhone, HiLocationMarker, HiMail, HiUser, HiClock, HiExternalLink } from "react-icons/hi";
-import { RiStoreLine, RiMapPin2Line, RiWhatsappLine, RiGlobalLine, RiAwardLine } from "react-icons/ri";
+import { RiStoreLine, RiMapPin2Line, RiWhatsappLine, RiGlobalLine, RiAwardLine, RiCustomerService2Line } from "react-icons/ri";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import E from "./E";
@@ -71,6 +71,24 @@ export default function DealerNetwork() {
       setSelectedCountry(null);
     }
   }, [viewMode]);
+
+  // Hash deep-link: when the footer's "İhracat / Export" link sets
+  // location.hash to "#dealer-export", auto-switch to the Yurtdışı tab so
+  // the export contact card renders immediately, then scroll into view.
+  useEffect(() => {
+    const handleHash = () => {
+      if (typeof window === "undefined") return;
+      if (window.location.hash !== "#dealer-export") return;
+      setViewMode("yurtdisi");
+      // Defer to next paint so the yurtdışı layout is in the DOM.
+      setTimeout(() => {
+        document.getElementById("dealer-export")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 80);
+    };
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
 
   // International distributors come from the editable content bin. Filter
   // active rows + sort by countryName for a stable, alphabetical side list.
@@ -221,18 +239,90 @@ export default function DealerNetwork() {
                   ? "Bursa merkezli üretim tesisimizden Avrupa, Balkanlar, Orta Doğu, Türk dünyası, Kuzey Afrika ve Amerika'ya uzanan distribütör ağımızla EV şarj çözümlerini globalde sunuyoruz."
                   : <E field="dealer.description" tag="span">{dealerSection.description}</E>}
               </p>
-              <button
-                onClick={scrollToContact}
-                className="flex items-center gap-2 text-sm font-bold px-6 py-3 rounded-2xl transition-all duration-200"
-                style={{ background: d ? `${BLUE}15` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}28`, color: d ? "#93C5FD" : BLUE }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}25` : `${BLUE}18`; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}15` : `${BLUE}10`; }}
-              >
-                {viewMode === "yurtdisi"
-                  ? "İhracat İletişim"
-                  : <E field="dealer.contactBtnLabel" tag="span">{dealerSection.contactBtnLabel}</E>}
-                <HiArrowRight />
-              </button>
+              {viewMode === "yurtdisi" ? (
+                /* Direct export-team contact card — replaces the scroll-to-form
+                   button so visitors get the email/phone immediately. Linked
+                   from the footer "İhracat / Export" link via #dealer-export. */
+                <div
+                  id="dealer-export"
+                  className="rounded-xl p-3 space-y-2"
+                  style={{
+                    background: d ? "rgba(0,0,0,0.25)" : "rgba(255,255,255,0.65)",
+                    border: `1px solid ${BLUE}35`,
+                    boxShadow: `inset 0 0 0 1px ${BLUE}12`,
+                  }}
+                >
+                  <div className="flex items-center gap-2 pb-1.5" style={{ borderBottom: `1px solid ${BLUE}25` }}>
+                    <RiCustomerService2Line style={{ color: d ? "#93C5FD" : BLUE, fontSize: 14 }} />
+                    <p className="text-[10px] font-bold tracking-[0.16em] uppercase" style={{ color: d ? "#93C5FD" : BLUE }}>
+                      İhracat Departmanı
+                    </p>
+                  </div>
+                  {dealerSection.exportContact?.contactPerson && (
+                    <p className="text-sm font-semibold" style={{ color: d ? "#ffffff" : "#111111" }}>
+                      {dealerSection.exportContact.contactPerson}
+                    </p>
+                  )}
+                  {dealerSection.exportContact?.title && (
+                    <p className="text-xs" style={{ color: d ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.55)" }}>
+                      {dealerSection.exportContact.title}
+                    </p>
+                  )}
+                  {dealerSection.exportContact?.email && (
+                    <a
+                      href={`mailto:${dealerSection.exportContact.email}`}
+                      className="text-sm flex items-center gap-2 transition-colors hover:underline"
+                      style={{ color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.80)" }}
+                    >
+                      <HiMail className="flex-shrink-0" size={14} style={{ color: d ? "#93C5FD" : BLUE }} />
+                      {dealerSection.exportContact.email}
+                    </a>
+                  )}
+                  {dealerSection.exportContact?.phone && (
+                    <a
+                      href={`tel:${dealerSection.exportContact.phone.replace(/[^\d+]/g, "")}`}
+                      className="text-sm flex items-center gap-2 transition-colors hover:underline"
+                      style={{ color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.80)" }}
+                    >
+                      <HiPhone className="flex-shrink-0" size={14} style={{ color: d ? "#93C5FD" : BLUE }} />
+                      {dealerSection.exportContact.phone}
+                    </a>
+                  )}
+                  {dealerSection.exportContact?.whatsapp && (
+                    <a
+                      href={`https://wa.me/${dealerSection.exportContact.whatsapp.replace(/[^\d+]/g, "").replace(/^\+/, "")}`}
+                      target="_blank" rel="noopener noreferrer"
+                      className="text-sm flex items-center gap-2 transition-colors hover:underline"
+                      style={{ color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.80)" }}
+                    >
+                      <RiWhatsappLine className="flex-shrink-0" size={14} style={{ color: "#25D366" }} />
+                      {dealerSection.exportContact.whatsapp}
+                    </a>
+                  )}
+                  {dealerSection.exportContact?.hours && (
+                    <p className="text-[11px] flex items-center gap-1.5 italic" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>
+                      <HiClock className="flex-shrink-0" size={11} />
+                      {dealerSection.exportContact.hours}
+                    </p>
+                  )}
+                  {!dealerSection.exportContact?.email && !dealerSection.exportContact?.phone && !dealerSection.exportContact?.whatsapp && (
+                    <p className="text-xs italic" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.45)" }}>
+                      İhracat iletişim bilgileri henüz eklenmedi.
+                    </p>
+                  )}
+                </div>
+              ) : (
+                <button
+                  onClick={scrollToContact}
+                  className="flex items-center gap-2 text-sm font-bold px-6 py-3 rounded-2xl transition-all duration-200"
+                  style={{ background: d ? `${BLUE}15` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}28`, color: d ? "#93C5FD" : BLUE }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}25` : `${BLUE}18`; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}15` : `${BLUE}10`; }}
+                >
+                  <E field="dealer.contactBtnLabel" tag="span">{dealerSection.contactBtnLabel}</E>
+                  <HiArrowRight />
+                </button>
+              )}
             </div>
 
             {/* Stats — counts swap with viewMode (cities↔countries) */}

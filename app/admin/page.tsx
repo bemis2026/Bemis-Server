@@ -139,6 +139,10 @@ type ContentData = {
       email?: string; whatsapp?: string; website?: string;
       notes?: string;
     }[];
+    exportContact?: {
+      contactPerson?: string; title?: string; email?: string;
+      phone?: string; whatsapp?: string; hours?: string;
+    };
   };
   reviews: {
     heading: string; subheading: string; rating: string; ratingCount: string;
@@ -3862,6 +3866,43 @@ export default function AdminPage() {
                           </div>
                         );
                       });
+                    })()}
+                  </div>
+
+                  {/* ── İhracat İletişim Bilgileri ──
+                      Surfaced on /dealer (Yurtdışı tab) AND linked from the
+                      footer "İhracat / Export" link. Empty fields are hidden. */}
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                    <div>
+                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider mb-1">İhracat Departmanı İletişim</p>
+                      <p className="text-xs text-white/35">Yurtdışı haritası açıldığında ve footer&apos;daki &quot;İhracat / Export&quot; tıklandığında bu kart gösterilir.</p>
+                    </div>
+                    {(() => {
+                      const ec = content.dealer.exportContact ?? {};
+                      const updateExport = (field: string, value: string) => {
+                        setContent((prev) => {
+                          if (!prev) return prev;
+                          const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                          next.dealer.exportContact = { ...(next.dealer.exportContact ?? {}), [field]: value };
+                          return next;
+                        });
+                      };
+                      return (
+                        <>
+                          <div className="grid grid-cols-2 gap-2">
+                            <Field label="İletişim Kişisi" value={ec.contactPerson ?? ""} onChange={(v) => updateExport("contactPerson", v)} />
+                            <Field label="Ünvan / Pozisyon" value={ec.title ?? ""} onChange={(v) => updateExport("title", v)} placeholder="Bemis İhracat Departmanı" />
+                          </div>
+                          <div className="grid grid-cols-2 gap-2">
+                            <Field label="E-Posta" value={ec.email ?? ""} onChange={(v) => updateExport("email", v)} validate={validateEmail} placeholder="export@bemis.com.tr" />
+                            <Field label="Telefon" value={ec.phone ?? ""} onChange={(v) => updateExport("phone", v)} placeholder="+90 ..." />
+                          </div>
+                          <div className="grid grid-cols-2 gap-2">
+                            <Field label="WhatsApp" value={ec.whatsapp ?? ""} onChange={(v) => updateExport("whatsapp", v)} placeholder="+90 ..." />
+                            <Field label="Çalışma Saatleri" value={ec.hours ?? ""} onChange={(v) => updateExport("hours", v)} placeholder="Hafta içi 08:30–18:00" />
+                          </div>
+                        </>
+                      );
                     })()}
                   </div>
 

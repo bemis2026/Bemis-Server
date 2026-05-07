@@ -114,11 +114,21 @@ export async function GET(req: NextRequest) {
       const enById: Record<string, Record<string, unknown>> = {};
       for (const e of enIntl) if (typeof e?.id === "string") enById[e.id] = e;
       const internationalDealers = trIntl.map((r) => ({ ...r, ...(enById[r.id as string] ?? {}), lat: r.lat, lng: r.lng, active: r.active }));
+      // Export contact: shallow merge so EN overrides title/hours but
+      // email/phone/whatsapp stay TR-canonical.
+      const exportContact = tr.dealer?.exportContact || en.dealer?.exportContact
+        ? { ...(tr.dealer?.exportContact ?? {}), ...(en.dealer?.exportContact ?? {}),
+            email: tr.dealer?.exportContact?.email,
+            phone: tr.dealer?.exportContact?.phone,
+            whatsapp: tr.dealer?.exportContact?.whatsapp,
+            contactPerson: tr.dealer?.exportContact?.contactPerson }
+        : undefined;
       return {
         ...tr.dealer,
         ...(en.dealer ?? {}),
         regionReps: regionReps.length > 0 ? regionReps : undefined,
         internationalDealers: internationalDealers.length > 0 ? internationalDealers : undefined,
+        exportContact,
       };
     })(),
     reviews: (() => {

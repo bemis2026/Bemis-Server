@@ -28,6 +28,18 @@ export type RegionRep = {
   whatsapp?: string;
 };
 
+// Export-team contact info — surfaced both on the dealer Yurtdışı tab and via
+// the footer's "İhracat / Export" link. Lives under dealer.exportContact so
+// it travels with the dealer-section content.
+export type ExportContact = {
+  contactPerson?: string;
+  title?: string;        // job title — auto-translated
+  email?: string;
+  phone?: string;
+  whatsapp?: string;
+  hours?: string;        // free text — auto-translated
+};
+
 // International distributor — one entry per country. `active: true` means the
 // pin is shown on the globe AND the country appears in the left-column list
 // when the user opens the Yurtdışı tab. Inactive entries stay in the seed so
@@ -120,6 +132,7 @@ export type SiteContent = {
     mapHint: string; mapTitle: string;
     regionReps?: RegionRep[];
     internationalDealers?: InternationalDealer[];
+    exportContact?: ExportContact;
   };
   reviews: {
     heading: string; subheading: string; rating: string; ratingCount: string;
@@ -365,6 +378,14 @@ const defaultContent: SiteContent = {
       { id: "ar", countryCode: "AR", countryName: "Arjantin",            lat: -38.42, lng: -63.62, active: false },
       { id: "cl", countryCode: "CL", countryName: "Şili",                lat: -35.68, lng: -71.54, active: false },
     ],
+    exportContact: {
+      contactPerson: "",
+      title: "Bemis İhracat Departmanı",
+      email: "",
+      phone: "",
+      whatsapp: "",
+      hours: "",
+    },
   },
   reviews: {
     sectionLabel: "Kullanıcı Yorumları",
