@@ -889,10 +889,12 @@ export default function DealerNetwork() {
                         <span
                           className="inline-flex items-center justify-center rounded-full overflow-hidden"
                           style={{
-                            width: 36, height: 36,
-                            background: "#ffffff",
-                            border: `1px solid ${BLUE}55`,
-                            boxShadow: `0 0 0 2px ${BLUE}18`,
+                            width: 38, height: 38,
+                            // Brand red — matches /icon's generated fallback so a
+                            // white-on-transparent favicon stays visible.
+                            background: "#E11D48",
+                            border: "1px solid rgba(225,29,72,0.55)",
+                            boxShadow: "0 0 0 2px rgba(225,29,72,0.20), 0 4px 10px rgba(225,29,72,0.20)",
                           }}
                         >
                           {/* Use the same /icon route the browser uses for the URL
@@ -900,10 +902,10 @@ export default function DealerNetwork() {
                           <img
                             src="/icon"
                             alt="Bemis E-V Charge"
-                            width={28}
-                            height={28}
+                            width={32}
+                            height={32}
                             className="object-contain"
-                            style={{ padding: 2 }}
+                            style={{ padding: 3 }}
                           />
                         </span>
                         <div>

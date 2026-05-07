@@ -179,15 +179,16 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
           el.style.cssText = "transform: translate(-50%, -50%); pointer-events: none; position: relative; width: 22px; height: 22px;";
           el.innerHTML = `
             <div style="
-              width: 22px; height: 22px;
+              width: 26px; height: 26px;
               border-radius: 50%;
-              background: #ffffff;
-              border: 2px solid ${RED};
-              box-shadow: 0 0 0 2px ${RED}33, 0 4px 10px rgba(0,0,0,0.45);
+              /* Brand red so a white-on-transparent favicon stays visible. */
+              background: #E11D48;
+              border: 2px solid #ffffff;
+              box-shadow: 0 0 0 2px ${RED}55, 0 6px 14px rgba(225,29,72,0.45);
               display: flex; align-items: center; justify-content: center;
               overflow: hidden;
             ">
-              <img src="/icon" alt="Bemis" width="18" height="18" style="object-fit: contain;" />
+              <img src="/icon" alt="Bemis" width="22" height="22" style="object-fit: contain; padding: 3px;" />
             </div>
             <span style="
               position: absolute;

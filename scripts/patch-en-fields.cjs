@@ -94,6 +94,63 @@ async function patchContent() {
     console.log(`  dealer.regionReps: aligned ${aligned.length} entries`);
   }
 
+  // 4. dealer.worldSection — Yurtdışı tab copy (sectionLabel/heading/intro/note)
+  if (tr.dealer?.worldSection) {
+    const trWS = tr.dealer.worldSection;
+    const enWS = en.dealer?.worldSection ?? {};
+    const fields = ["sectionLabel", "heading", "introTitle", "introDescription", "languagesNote"];
+    const out = { ...enWS };
+    for (const f of fields) {
+      const tv = trWS[f];
+      if (typeof tv === "string" && tv.trim() && !out[f]) {
+        out[f] = await translateOne(tv);
+        process.stdout.write(`  worldSection.${f}: ${tv.slice(0,50)} → ${out[f].slice(0,50)}\n`);
+      } else if (typeof tv === "string" && !out[f]) {
+        out[f] = tv;
+      }
+    }
+    out.languages = trWS.languages ?? out.languages ?? [];
+    en.dealer = { ...(en.dealer ?? {}), worldSection: out };
+  }
+
+  // 5. dealer.exportContact — title + hours auto-translated
+  if (tr.dealer?.exportContact) {
+    const trEC = tr.dealer.exportContact;
+    const enEC = en.dealer?.exportContact ?? {};
+    const out = { ...trEC, ...enEC };
+    if (trEC.title && (!enEC.title)) {
+      out.title = await translateOne(trEC.title);
+      console.log(`  exportContact.title: ${trEC.title} → ${out.title}`);
+    }
+    if (trEC.hours && (!enEC.hours)) {
+      out.hours = await translateOne(trEC.hours);
+      console.log(`  exportContact.hours: ${trEC.hours} → ${out.hours}`);
+    }
+    en.dealer = { ...(en.dealer ?? {}), exportContact: out };
+  }
+
+  // 6. dealer.internationalDealers — translate countryName/city/address/notes
+  if (Array.isArray(tr.dealer?.internationalDealers)) {
+    const trIntl = tr.dealer.internationalDealers;
+    const enIntl = Array.isArray(en.dealer?.internationalDealers) ? en.dealer.internationalDealers : [];
+    const enById = {};
+    for (const e of enIntl) if (typeof e?.id === "string") enById[e.id] = e;
+    const out = await Promise.all(trIntl.map(async (c) => {
+      const existing = enById[c.id] ?? {};
+      const result = { ...c, ...existing };
+      const fields = ["countryName", "city", "address", "notes"];
+      for (const f of fields) {
+        const tv = c[f];
+        if (typeof tv === "string" && tv.trim() && !existing[f]) {
+          result[f] = await translateOne(tv);
+        }
+      }
+      return result;
+    }));
+    en.dealer = { ...(en.dealer ?? {}), internationalDealers: out };
+    console.log(`  dealer.internationalDealers: ${out.length} entries`);
+  }
+
   const next = { ...tr, _translations: { ...(cur._translations ?? {}), en } };
   await writeBin(CONTENT_BIN, next);
   console.log("✓ content bin updated");
