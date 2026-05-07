@@ -130,6 +130,14 @@ type ContentData = {
     citiesLabel?: string; activeDealersLabel?: string;
     mapHint?: string; mapTitle?: string;
     regionReps?: { regionId: string; name: string; title: string; phone: string; email: string; whatsapp?: string }[];
+    internationalDealers?: {
+      id: string; countryCode: string; countryName: string;
+      lat: number; lng: number; active: boolean;
+      distributorName?: string; contactPerson?: string;
+      city?: string; address?: string; phone?: string;
+      email?: string; whatsapp?: string; website?: string;
+      notes?: string;
+    }[];
   };
   reviews: {
     heading: string; subheading: string; rating: string; ratingCount: string;
@@ -3850,6 +3858,160 @@ export default function AdminPage() {
                           </div>
                         );
                       });
+                    })()}
+                  </div>
+
+                  {/* ── Yurtdışı Distribütörler ──
+                      Editable list of international markets — `active` toggles
+                      whether a country shows up as a globe pin + side-list
+                      entry on /dealer (Yurtdışı tab). */}
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
+                    <div className="flex items-end justify-between gap-4">
+                      <div>
+                        <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider mb-1">Yurtdışı Distribütörler</p>
+                        <p className="text-xs text-white/35">Aktif olanlar 3D dünya haritasında pin + sol listede gösterilir. Boş bırakılan alanlar gizlenir.</p>
+                      </div>
+                      <button
+                        onClick={() => {
+                          setContent((prev) => {
+                            if (!prev) return prev;
+                            const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                            const arr = next.dealer.internationalDealers ?? [];
+                            const code = (window.prompt("ISO-2 ülke kodu (örn: DE, AZ)")?.trim().toUpperCase()) ?? "";
+                            if (!code || code.length !== 2) return prev;
+                            if (arr.some(c => c.countryCode === code)) {
+                              window.alert(`${code} zaten ekli.`);
+                              return prev;
+                            }
+                            const name = window.prompt("Ülke adı (Türkçe)")?.trim() ?? "";
+                            if (!name) return prev;
+                            const lat = Number(window.prompt("Enlem (lat, örn: 51.2)")?.trim() ?? "");
+                            const lng = Number(window.prompt("Boylam (lng, örn: 10.4)")?.trim() ?? "");
+                            if (Number.isNaN(lat) || Number.isNaN(lng)) {
+                              window.alert("Geçersiz enlem/boylam.");
+                              return prev;
+                            }
+                            arr.push({
+                              id: code.toLowerCase(),
+                              countryCode: code, countryName: name,
+                              lat, lng, active: true,
+                            });
+                            next.dealer.internationalDealers = arr;
+                            return next;
+                          });
+                        }}
+                        className="flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg transition-all flex-shrink-0"
+                        style={{ background: "rgba(59,130,246,0.18)", border: "1px solid rgba(59,130,246,0.45)", color: "#93C5FD" }}
+                      >
+                        <HiOutlinePlus size={13} /> Ülke Ekle
+                      </button>
+                    </div>
+
+                    {(() => {
+                      const list = content.dealer.internationalDealers ?? [];
+                      if (list.length === 0) {
+                        return <p className="text-xs text-white/35 px-1 py-3">Henüz ülke yok. Yukarıdan ekleyin.</p>;
+                      }
+
+                      const updateIntl = (id: string, field: string, value: string | number | boolean) => {
+                        setContent((prev) => {
+                          if (!prev) return prev;
+                          const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                          const arr = [...(next.dealer.internationalDealers ?? [])];
+                          const idx = arr.findIndex((c) => c.id === id);
+                          if (idx < 0) return prev;
+                          arr[idx] = { ...arr[idx], [field]: value };
+                          next.dealer.internationalDealers = arr;
+                          return next;
+                        });
+                      };
+
+                      const removeIntl = (id: string) => {
+                        if (!window.confirm("Bu ülkeyi silmek istediğinize emin misiniz?")) return;
+                        setContent((prev) => {
+                          if (!prev) return prev;
+                          const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                          next.dealer.internationalDealers = (next.dealer.internationalDealers ?? []).filter((c) => c.id !== id);
+                          return next;
+                        });
+                      };
+
+                      // Sort: active first, then by name
+                      const sorted = [...list].sort((a, b) => {
+                        if (a.active !== b.active) return a.active ? -1 : 1;
+                        return a.countryName.localeCompare(b.countryName, "tr");
+                      });
+
+                      return (
+                        <div className="space-y-2">
+                          {sorted.map((c) => (
+                            <details
+                              key={c.id}
+                              className="rounded-xl border border-white/7 group"
+                              style={{ background: c.active ? "rgba(59,130,246,0.06)" : "rgba(255,255,255,0.02)" }}
+                            >
+                              <summary className="cursor-pointer list-none px-3 py-2 flex items-center gap-3 select-none">
+                                <span
+                                  className="text-[10px] font-black tracking-wider px-1.5 py-0.5 rounded"
+                                  style={{ background: "rgba(59,130,246,0.20)", color: "#93C5FD", border: "1px solid rgba(59,130,246,0.30)" }}
+                                >
+                                  {c.countryCode}
+                                </span>
+                                <span className="text-sm font-semibold text-white/85 flex-1">{c.countryName}</span>
+                                {c.distributorName && (
+                                  <span className="text-[10px] text-white/45 truncate max-w-[200px]">{c.distributorName}</span>
+                                )}
+                                <label className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider cursor-pointer flex-shrink-0" onClick={(e) => e.stopPropagation()}>
+                                  <input
+                                    type="checkbox"
+                                    checked={!!c.active}
+                                    onChange={(e) => updateIntl(c.id, "active", e.target.checked)}
+                                    className="accent-blue-500"
+                                  />
+                                  <span style={{ color: c.active ? "#93C5FD" : "rgba(255,255,255,0.35)" }}>{c.active ? "Aktif" : "Pasif"}</span>
+                                </label>
+                                <span className="text-white/30 text-xs ml-1 group-open:rotate-180 transition-transform">▾</span>
+                              </summary>
+                              <div className="px-3 pb-3 pt-1 space-y-2" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+                                <div className="grid grid-cols-2 gap-2">
+                                  <Field label="Ülke Adı" value={c.countryName} onChange={(v) => updateIntl(c.id, "countryName", v)} />
+                                  <Field label="ISO-2 Kod" value={c.countryCode} onChange={(v) => updateIntl(c.id, "countryCode", v.toUpperCase().slice(0, 2))} />
+                                </div>
+                                <div className="grid grid-cols-2 gap-2">
+                                  <Field label="Distribütör Adı" value={c.distributorName ?? ""} onChange={(v) => updateIntl(c.id, "distributorName", v)} />
+                                  <Field label="İletişim Kişisi" value={c.contactPerson ?? ""} onChange={(v) => updateIntl(c.id, "contactPerson", v)} />
+                                </div>
+                                <div className="grid grid-cols-2 gap-2">
+                                  <Field label="Şehir" value={c.city ?? ""} onChange={(v) => updateIntl(c.id, "city", v)} />
+                                  <Field label="Adres" value={c.address ?? ""} onChange={(v) => updateIntl(c.id, "address", v)} />
+                                </div>
+                                <div className="grid grid-cols-2 gap-2">
+                                  <Field label="Telefon" value={c.phone ?? ""} onChange={(v) => updateIntl(c.id, "phone", v)} placeholder="+49 ..." />
+                                  <Field label="WhatsApp" value={c.whatsapp ?? ""} onChange={(v) => updateIntl(c.id, "whatsapp", v)} />
+                                </div>
+                                <div className="grid grid-cols-2 gap-2">
+                                  <Field label="E-Posta" value={c.email ?? ""} onChange={(v) => updateIntl(c.id, "email", v)} validate={validateEmail} />
+                                  <Field label="Web Sitesi" value={c.website ?? ""} onChange={(v) => updateIntl(c.id, "website", v)} placeholder="https://..." />
+                                </div>
+                                <div className="grid grid-cols-2 gap-2">
+                                  <Field label="Enlem (lat)" value={String(c.lat)} onChange={(v) => updateIntl(c.id, "lat", Number(v) || 0)} />
+                                  <Field label="Boylam (lng)" value={String(c.lng)} onChange={(v) => updateIntl(c.id, "lng", Number(v) || 0)} />
+                                </div>
+                                <Field label="Notlar" value={c.notes ?? ""} onChange={(v) => updateIntl(c.id, "notes", v)} />
+                                <div className="pt-1">
+                                  <button
+                                    onClick={() => removeIntl(c.id)}
+                                    className="text-[11px] font-semibold px-2.5 py-1.5 rounded-lg transition-all"
+                                    style={{ background: "rgba(239,68,68,0.10)", border: "1px solid rgba(239,68,68,0.30)", color: "#FCA5A5" }}
+                                  >
+                                    <HiOutlineTrash size={11} className="inline mr-1" /> Sil
+                                  </button>
+                                </div>
+                              </div>
+                            </details>
+                          ))}
+                        </div>
+                      );
                     })()}
                   </div>
 

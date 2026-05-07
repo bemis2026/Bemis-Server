@@ -7,6 +7,7 @@ import { RiStoreLine, RiMapPin2Line, RiWhatsappLine, RiGlobalLine, RiAwardLine }
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import E from "./E";
+import Image from "next/image";
 import { CITY_BY_ID } from "../../lib/turkeyCities";
 import InternationalGlobe from "./InternationalGlobe";
 
@@ -48,7 +49,7 @@ const HQ_RED = "#EF4444";
 export default function DealerNetwork() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
-  const { dealer: dealerSection, sectionBgs, logos } = useContent();
+  const { dealer: dealerSection, sectionBgs, logos, faviconUrl } = useContent();
   const { theme } = useTheme();
   const d = theme === "dark";
   const [dealers, setDealers] = useState<DealersData>({});
@@ -56,7 +57,20 @@ export default function DealerNetwork() {
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
   // Tabs: yurtici = Turkey SVG map, yurtdisi = 3D globe with international markets.
   const [viewMode, setViewMode] = useState<"yurtici" | "yurtdisi">("yurtici");
+  // Selected international country (yurtdisi mode) — drives the side card +
+  // the globe's pointOfView fly-to.
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
+
+  // International distributors come from the editable content bin. Filter
+  // active rows + sort by countryName for a stable, alphabetical side list.
+  const internationalDealers = (dealerSection.internationalDealers ?? []).filter(c => c.active);
+  const sortedIntl = [...internationalDealers].sort((a, b) =>
+    a.countryName.localeCompare(b.countryName, "tr")
+  );
+  const selectedIntl = selectedCountry
+    ? internationalDealers.find(c => c.id === selectedCountry)
+    : null;
 
   useEffect(() => {
     fetch("/api/dealers")
@@ -215,8 +229,8 @@ export default function DealerNetwork() {
                 Moved out under the map (right column) so it doesn't push
                 the dealer list down when a region is hovered/selected. */}
 
-            {/* Active city dealer list */}
-            {activeCity && activeDealers.length > 0 && (
+            {/* Active city dealer list (yurtiçi only) */}
+            {viewMode === "yurtici" && activeCity && activeDealers.length > 0 && (
               <motion.div
                 key={activeCity}
                 initial={{ opacity: 0, y: 8 }}
@@ -294,10 +308,125 @@ export default function DealerNetwork() {
               </motion.div>
             )}
 
-            {!activeCity && (
+            {viewMode === "yurtici" && !activeCity && (
               <p className="text-xs text-center py-2" style={{ color: d ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.35)" }}>
                 <E field="dealer.mapHint" tag="span">{dealerSection.mapHint}</E>
               </p>
+            )}
+
+            {/* International distributors list (yurtdışı only) */}
+            {viewMode === "yurtdisi" && (
+              <div
+                className="rounded-2xl overflow-hidden"
+                style={{ background: `${BLUE}10`, border: `1px solid ${BLUE}30` }}
+              >
+                <div className="px-4 py-3 flex items-center gap-2" style={{ borderBottom: `1px solid ${BLUE}20` }}>
+                  <RiGlobalLine style={{ color: d ? "#93C5FD" : BLUE, fontSize: 14 }} />
+                  <p className="font-semibold text-sm" style={{ color: d ? "#ffffff" : "#111111" }}>Distribütör Ülkeler</p>
+                  <span className="text-xs ml-auto" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.50)" }}>{sortedIntl.length} ülke</span>
+                </div>
+
+                {sortedIntl.length === 0 ? (
+                  <p className="text-xs text-center py-5 px-4" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.50)" }}>
+                    Aktif uluslararası distribütör henüz tanımlanmadı.
+                  </p>
+                ) : (
+                  <div className="max-h-[260px] overflow-y-auto">
+                    {sortedIntl.map((c) => {
+                      const isSelected = selectedCountry === c.id;
+                      return (
+                        <button
+                          key={c.id}
+                          onClick={() => setSelectedCountry(isSelected ? null : c.id)}
+                          className="w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors"
+                          style={{
+                            background: isSelected ? (d ? `${BLUE}25` : `${BLUE}15`) : "transparent",
+                            borderTop: `1px solid ${d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.04)"}`,
+                          }}
+                          onMouseEnter={(e) => { if (!isSelected) (e.currentTarget as HTMLButtonElement).style.background = d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)"; }}
+                          onMouseLeave={(e) => { if (!isSelected) (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
+                        >
+                          <span
+                            className="text-[10px] font-black tracking-wider px-1.5 py-0.5 rounded"
+                            style={{ background: `${BLUE}22`, color: d ? "#cfe1ff" : "#1D4ED8", border: `1px solid ${BLUE}30` }}
+                          >
+                            {c.countryCode}
+                          </span>
+                          <span className="text-sm font-semibold flex-1" style={{ color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.80)" }}>
+                            {c.countryName}
+                          </span>
+                          {c.distributorName && (
+                            <span className="text-xs truncate max-w-[120px]" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.50)" }}>
+                              {c.distributorName}
+                            </span>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {/* Selected country detail card */}
+                {selectedIntl && (
+                  <motion.div
+                    key={`intl-${selectedIntl.id}`}
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    className="overflow-hidden"
+                    style={{ borderTop: `1px solid ${BLUE}30` }}
+                  >
+                    <div className="p-4 space-y-2">
+                      {selectedIntl.distributorName && (
+                        <p className="text-sm font-semibold" style={{ color: d ? "#ffffff" : "#111111" }}>
+                          {selectedIntl.distributorName}
+                        </p>
+                      )}
+                      {selectedIntl.contactPerson && (
+                        <p className="text-xs flex items-center gap-1.5" style={{ color: d ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.60)" }}>
+                          <HiUser className="flex-shrink-0" />{selectedIntl.contactPerson}
+                        </p>
+                      )}
+                      {(selectedIntl.city || selectedIntl.address) && (
+                        <p className="text-xs flex items-start gap-1.5" style={{ color: d ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.60)" }}>
+                          <HiLocationMarker className="flex-shrink-0 mt-0.5" />
+                          <span>{[selectedIntl.city, selectedIntl.address].filter(Boolean).join(" · ")}</span>
+                        </p>
+                      )}
+                      {selectedIntl.phone && (
+                        <a href={`tel:${selectedIntl.phone.replace(/[^\d+]/g, "")}`} className="text-xs flex items-center gap-1.5 hover:underline" style={{ color: d ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.75)" }}>
+                          <HiPhone className="flex-shrink-0" />{selectedIntl.phone}
+                        </a>
+                      )}
+                      {selectedIntl.whatsapp && (
+                        <a href={`https://wa.me/${selectedIntl.whatsapp.replace(/[^\d+]/g, "").replace(/^\+/, "")}`} target="_blank" rel="noopener noreferrer" className="text-xs flex items-center gap-1.5 hover:underline" style={{ color: d ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.75)" }}>
+                          <RiWhatsappLine className="flex-shrink-0" />{selectedIntl.whatsapp}
+                        </a>
+                      )}
+                      {selectedIntl.email && (
+                        <a href={`mailto:${selectedIntl.email}`} className="text-xs flex items-center gap-1.5 hover:underline" style={{ color: d ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.75)" }}>
+                          <HiMail className="flex-shrink-0" />{selectedIntl.email}
+                        </a>
+                      )}
+                      {selectedIntl.website && (
+                        <a href={selectedIntl.website} target="_blank" rel="noopener noreferrer" className="text-xs flex items-center gap-1.5 hover:underline" style={{ color: d ? "#93C5FD" : BLUE }}>
+                          <RiGlobalLine className="flex-shrink-0" />
+                          <span className="truncate">{selectedIntl.website.replace(/^https?:\/\//, "")}</span>
+                        </a>
+                      )}
+                      {selectedIntl.notes && (
+                        <p className="text-xs italic" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.50)" }}>
+                          {selectedIntl.notes}
+                        </p>
+                      )}
+                      {!selectedIntl.distributorName && !selectedIntl.email && !selectedIntl.phone && (
+                        <p className="text-xs italic" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.45)" }}>
+                          Bu ülke için detay henüz eklenmedi.
+                        </p>
+                      )}
+                    </div>
+                  </motion.div>
+                )}
+              </div>
             )}
           </motion.div>
 
@@ -346,7 +475,12 @@ export default function DealerNetwork() {
                   border: `1px solid ${BLUE}22`,
                 }}
               >
-                <InternationalGlobe dark={d} />
+                <InternationalGlobe
+                  dark={d}
+                  countries={dealerSection.internationalDealers ?? []}
+                  selectedId={selectedCountry}
+                  onSelect={(id) => setSelectedCountry(id)}
+                />
               </div>
             ) : (
             <div
@@ -564,10 +698,26 @@ export default function DealerNetwork() {
                       {/* Identity */}
                       <div className="flex items-center gap-3 flex-shrink-0">
                         <span
-                          className="inline-flex items-center justify-center rounded-full"
-                          style={{ width: 36, height: 36, background: `${BLUE}28`, border: `1px solid ${BLUE}55` }}
+                          className="inline-flex items-center justify-center rounded-full overflow-hidden"
+                          style={{
+                            width: 36, height: 36,
+                            background: `${BLUE}28`,
+                            border: `1px solid ${BLUE}55`,
+                            boxShadow: `0 0 0 2px ${BLUE}18`,
+                          }}
                         >
-                          <RiAwardLine size={18} style={{ color: d ? "#93C5FD" : BLUE }} />
+                          {faviconUrl ? (
+                            <Image
+                              src={faviconUrl}
+                              alt="Bemis E-V Charge"
+                              width={28}
+                              height={28}
+                              className="rounded-full object-contain"
+                              style={{ background: "#ffffff", padding: 2 }}
+                            />
+                          ) : (
+                            <RiAwardLine size={18} style={{ color: d ? "#93C5FD" : BLUE }} />
+                          )}
                         </span>
                         <div>
                           <p className="text-[10px] font-bold tracking-[0.18em] uppercase" style={{ color: d ? "#93C5FD" : BLUE }}>

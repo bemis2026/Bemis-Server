@@ -107,10 +107,18 @@ export async function GET(req: NextRequest) {
       const trReps = tr.dealer?.regionReps ?? [];
       const enReps = en.dealer?.regionReps ?? [];
       const regionReps = trReps.map((r: Record<string, unknown>, i: number) => ({ ...r, ...(enReps[i] ?? {}) }));
+      // International dealers: per-id merge so EN overrides countryName /
+      // distributorName / address / notes while lat / lng / active stay TR.
+      const trIntl = (tr.dealer?.internationalDealers ?? []) as Array<Record<string, unknown>>;
+      const enIntl = (en.dealer?.internationalDealers ?? []) as Array<Record<string, unknown>>;
+      const enById: Record<string, Record<string, unknown>> = {};
+      for (const e of enIntl) if (typeof e?.id === "string") enById[e.id] = e;
+      const internationalDealers = trIntl.map((r) => ({ ...r, ...(enById[r.id as string] ?? {}), lat: r.lat, lng: r.lng, active: r.active }));
       return {
         ...tr.dealer,
         ...(en.dealer ?? {}),
         regionReps: regionReps.length > 0 ? regionReps : undefined,
+        internationalDealers: internationalDealers.length > 0 ? internationalDealers : undefined,
       };
     })(),
     reviews: (() => {

@@ -27,6 +27,28 @@ export type RegionRep = {
   email: string;
   whatsapp?: string;
 };
+
+// International distributor — one entry per country. `active: true` means the
+// pin is shown on the globe AND the country appears in the left-column list
+// when the user opens the Yurtdışı tab. Inactive entries stay in the seed so
+// admin can flip them on once a distributor is signed.
+export type InternationalDealer = {
+  id: string;            // ISO-2 lowercase, used as React key + storage key
+  countryCode: string;   // ISO-2 uppercase (display)
+  countryName: string;   // localized country name
+  lat: number;
+  lng: number;
+  active: boolean;
+  distributorName?: string;
+  contactPerson?: string;
+  city?: string;
+  address?: string;
+  phone?: string;
+  email?: string;
+  whatsapp?: string;
+  website?: string;
+  notes?: string;
+};
 export type TechFeature = { title: string; desc: string; accent: string };
 export type SmartChargerFeature = { title: string; desc: string };
 export type ShowcaseSpec = { label: string; value: string };
@@ -97,6 +119,7 @@ export type SiteContent = {
     citiesLabel: string; activeDealersLabel: string;
     mapHint: string; mapTitle: string;
     regionReps?: RegionRep[];
+    internationalDealers?: InternationalDealer[];
   };
   reviews: {
     heading: string; subheading: string; rating: string; ratingCount: string;
@@ -294,6 +317,53 @@ const defaultContent: SiteContent = {
       { regionId: "karadeniz",  name: "", title: "Karadeniz Bölge Temsilcisi",       phone: "", email: "" },
       { regionId: "dogu",       name: "", title: "Doğu Anadolu Bölge Temsilcisi",    phone: "", email: "" },
       { regionId: "guneydogu",  name: "", title: "Güneydoğu Anadolu Bölge Temsilcisi", phone: "", email: "" },
+    ],
+    // Seed list of target / partner countries. `active: false` keeps them out
+    // of the globe + list until admin flips them on. Coordinates are country
+    // centroids (rough — visual placement only).
+    internationalDealers: [
+      // Balkans
+      { id: "bg", countryCode: "BG", countryName: "Bulgaristan",         lat: 42.7,  lng: 25.5,  active: false },
+      { id: "ro", countryCode: "RO", countryName: "Romanya",             lat: 45.9,  lng: 24.9,  active: false },
+      { id: "rs", countryCode: "RS", countryName: "Sırbistan",           lat: 44.0,  lng: 21.0,  active: false },
+      { id: "mk", countryCode: "MK", countryName: "Kuzey Makedonya",     lat: 41.6,  lng: 21.7,  active: false },
+      { id: "al", countryCode: "AL", countryName: "Arnavutluk",          lat: 41.2,  lng: 20.0,  active: false },
+      { id: "ba", countryCode: "BA", countryName: "Bosna Hersek",        lat: 43.9,  lng: 17.7,  active: false },
+      { id: "me", countryCode: "ME", countryName: "Karadağ",             lat: 42.7,  lng: 19.4,  active: false },
+      { id: "xk", countryCode: "XK", countryName: "Kosova",              lat: 42.6,  lng: 20.9,  active: false },
+      { id: "gr", countryCode: "GR", countryName: "Yunanistan",          lat: 39.1,  lng: 21.8,  active: false },
+      // Middle East & North Africa
+      { id: "ae", countryCode: "AE", countryName: "Birleşik Arap Em.",   lat: 23.4,  lng: 53.8,  active: false },
+      { id: "sa", countryCode: "SA", countryName: "Suudi Arabistan",     lat: 23.9,  lng: 45.1,  active: false },
+      { id: "qa", countryCode: "QA", countryName: "Katar",               lat: 25.4,  lng: 51.2,  active: false },
+      { id: "kw", countryCode: "KW", countryName: "Kuveyt",              lat: 29.3,  lng: 47.5,  active: false },
+      { id: "om", countryCode: "OM", countryName: "Umman",               lat: 21.5,  lng: 55.9,  active: false },
+      { id: "bh", countryCode: "BH", countryName: "Bahreyn",             lat: 26.0,  lng: 50.5,  active: false },
+      { id: "iq", countryCode: "IQ", countryName: "Irak",                lat: 33.2,  lng: 43.7,  active: false },
+      { id: "jo", countryCode: "JO", countryName: "Ürdün",               lat: 30.6,  lng: 36.2,  active: false },
+      { id: "lb", countryCode: "LB", countryName: "Lübnan",              lat: 33.9,  lng: 35.9,  active: false },
+      { id: "eg", countryCode: "EG", countryName: "Mısır",               lat: 26.8,  lng: 30.8,  active: false },
+      { id: "ly", countryCode: "LY", countryName: "Libya",               lat: 26.3,  lng: 17.2,  active: false },
+      { id: "tn", countryCode: "TN", countryName: "Tunus",               lat: 33.9,  lng: 9.5,   active: false },
+      { id: "dz", countryCode: "DZ", countryName: "Cezayir",             lat: 28.0,  lng: 1.6,   active: false },
+      { id: "ma", countryCode: "MA", countryName: "Fas",                 lat: 31.8,  lng: -7.1,  active: false },
+      // Selected Europe
+      { id: "de", countryCode: "DE", countryName: "Almanya",             lat: 51.2,  lng: 10.4,  active: false },
+      { id: "nl", countryCode: "NL", countryName: "Hollanda",            lat: 52.1,  lng: 5.3,   active: false },
+      { id: "fr", countryCode: "FR", countryName: "Fransa",              lat: 46.6,  lng: 2.2,   active: false },
+      { id: "it", countryCode: "IT", countryName: "İtalya",              lat: 41.9,  lng: 12.6,  active: false },
+      { id: "es", countryCode: "ES", countryName: "İspanya",             lat: 40.5,  lng: -3.7,  active: false },
+      { id: "pl", countryCode: "PL", countryName: "Polonya",             lat: 51.9,  lng: 19.1,  active: false },
+      // Turkic states
+      { id: "az", countryCode: "AZ", countryName: "Azerbaycan",          lat: 40.1,  lng: 47.6,  active: false },
+      { id: "kz", countryCode: "KZ", countryName: "Kazakistan",          lat: 48.0,  lng: 66.9,  active: false },
+      { id: "uz", countryCode: "UZ", countryName: "Özbekistan",          lat: 41.4,  lng: 64.6,  active: false },
+      { id: "tm", countryCode: "TM", countryName: "Türkmenistan",        lat: 38.9,  lng: 59.6,  active: false },
+      { id: "kg", countryCode: "KG", countryName: "Kırgızistan",         lat: 41.2,  lng: 74.8,  active: false },
+      // South America
+      { id: "br", countryCode: "BR", countryName: "Brezilya",            lat: -14.2, lng: -51.9, active: false },
+      { id: "ar", countryCode: "AR", countryName: "Arjantin",            lat: -38.4, lng: -63.6, active: false },
+      { id: "cl", countryCode: "CL", countryName: "Şili",                lat: -35.7, lng: -71.5, active: false },
     ],
   },
   reviews: {
