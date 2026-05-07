@@ -275,11 +275,6 @@ export default function DealerNetwork() {
                       İhracat Departmanı
                     </p>
                   </div>
-                  {dealerSection.exportContact?.contactPerson && (
-                    <p className="text-sm font-semibold" style={{ color: d ? "#ffffff" : "#111111" }}>
-                      {dealerSection.exportContact.contactPerson}
-                    </p>
-                  )}
                   {dealerSection.exportContact?.title && (
                     <p className="text-xs" style={{ color: d ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.55)" }}>
                       {dealerSection.exportContact.title}
@@ -773,15 +768,23 @@ export default function DealerNetwork() {
                           fill={isActive ? BLUE : hasDealers ? `${BLUE}ff` : d ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.35)"}
                           style={{ transition: "r 0.2s, fill 0.2s" }}
                         />
-                        {/* Label */}
+                        {/* Label — always white with a soft dark shadow so it
+                            stays legible on both dark and light map themes. */}
                         <text
                           x={region.cx} y={region.cy + 60}
                           textAnchor="middle"
                           fontSize="26"
-                          fill={isActive ? (d ? "#93C5FD" : "#1D4ED8") : hasDealers ? `${BLUE}ee` : d ? "rgba(255,255,255,0.78)" : "rgba(0,0,0,0.55)"}
+                          fill="#ffffff"
                           fontFamily="inherit"
                           fontWeight={isActive ? "800" : "700"}
-                          style={{ transition: "fill 0.2s", pointerEvents: "none", userSelect: "none" }}
+                          style={{
+                            pointerEvents: "none",
+                            userSelect: "none",
+                            paintOrder: "stroke",
+                            stroke: "rgba(0,0,0,0.55)",
+                            strokeWidth: 4,
+                            strokeLinejoin: "round",
+                          }}
                         >
                           {region.label}
                         </text>

@@ -100,6 +100,16 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
   // the browser tab favicon pixel-for-pixel.
   const htmlElements = [{ lat: BURSA.lat, lng: BURSA.lng }];
 
+  // Thin export-flow arcs from Bursa to each active distributor country.
+  // Stroke kept tiny + alpha low so the lines feel like a soft trail rather
+  // than the busy fan we had before.
+  const arcs = activeCountries.map(c => ({
+    startLat: BURSA.lat,
+    startLng: BURSA.lng,
+    endLat: c.lat,
+    endLng: c.lng,
+  }));
+
   return (
     <div
       ref={wrapRef}
@@ -166,6 +176,18 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
         ringRepeatPeriod={(d: object) => (d as { period: number }).period}
         ringResolution={48}
         ringAltitude={0.008}
+        // Thin export-flow arcs — fade-out gradient + slow dash animation
+        arcsData={arcs}
+        arcStartLat="startLat"
+        arcStartLng="startLng"
+        arcEndLat="endLat"
+        arcEndLng="endLng"
+        arcColor={() => [`${BLUE}88`, `${BLUE}11`]}
+        arcStroke={0.18}
+        arcAltitudeAutoScale={0.45}
+        arcDashLength={0.4}
+        arcDashGap={0.55}
+        arcDashAnimateTime={5800}
         // HQ HTML overlay — brand-mark image + tiny "MERKEZ" caption.
         htmlElementsData={htmlElements}
         htmlLat="lat"
