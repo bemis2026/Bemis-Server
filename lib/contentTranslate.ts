@@ -32,6 +32,7 @@ const TRANSLATABLE_PATHS: string[] = [
   "dealer.findDealerTitle", "dealer.contactBtnLabel",
   "dealer.citiesLabel", "dealer.activeDealersLabel",
   "dealer.mapHint", "dealer.mapTitle",
+  "dealer.regionReps[].title",
 
   "reviews.sectionLabel", "reviews.heading", "reviews.subheading",
   "reviews.ratingLabel", "reviews.platformsPrefix", "reviews.ratingCountSuffix",

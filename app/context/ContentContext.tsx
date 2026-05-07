@@ -19,6 +19,14 @@ export type FeaturedItem = {
 export type DnaItem = { title: string; desc: string };
 export type TimelineItem = { year: string; title: string; desc: string };
 export type CertificationItem = { label: string; sub: string };
+export type RegionRep = {
+  regionId: string;
+  name: string;
+  title: string;
+  phone: string;
+  email: string;
+  whatsapp?: string;
+};
 export type TechFeature = { title: string; desc: string; accent: string };
 export type SmartChargerFeature = { title: string; desc: string };
 export type ShowcaseSpec = { label: string; value: string };
@@ -88,6 +96,7 @@ export type SiteContent = {
     findDealerTitle: string; contactBtnLabel: string;
     citiesLabel: string; activeDealersLabel: string;
     mapHint: string; mapTitle: string;
+    regionReps?: RegionRep[];
   };
   reviews: {
     heading: string; subheading: string; rating: string; ratingCount: string;
@@ -276,6 +285,15 @@ const defaultContent: SiteContent = {
     activeDealersLabel: "Aktif Bayi",
     mapHint: "Haritada bir bölgeye tıklayın veya üzerine gelin",
     mapTitle: "Türkiye Yetkili Bayi Haritası",
+    regionReps: [
+      { regionId: "marmara",    name: "", title: "Marmara Bölge Temsilcisi",         phone: "", email: "" },
+      { regionId: "ege",        name: "", title: "Ege Bölge Temsilcisi",             phone: "", email: "" },
+      { regionId: "akdeniz",    name: "", title: "Akdeniz Bölge Temsilcisi",         phone: "", email: "" },
+      { regionId: "ic_anadolu", name: "", title: "İç Anadolu Bölge Temsilcisi",      phone: "", email: "" },
+      { regionId: "karadeniz",  name: "", title: "Karadeniz Bölge Temsilcisi",       phone: "", email: "" },
+      { regionId: "dogu",       name: "", title: "Doğu Anadolu Bölge Temsilcisi",    phone: "", email: "" },
+      { regionId: "guneydogu",  name: "", title: "Güneydoğu Anadolu Bölge Temsilcisi", phone: "", email: "" },
+    ],
   },
   reviews: {
     sectionLabel: "Kullanıcı Yorumları",

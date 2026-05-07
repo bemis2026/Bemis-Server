@@ -129,6 +129,7 @@ type ContentData = {
     findDealerTitle?: string; contactBtnLabel?: string;
     citiesLabel?: string; activeDealersLabel?: string;
     mapHint?: string; mapTitle?: string;
+    regionReps?: { regionId: string; name: string; title: string; phone: string; email: string; whatsapp?: string }[];
   };
   reviews: {
     heading: string; subheading: string; rating: string; ratingCount: string;
@@ -3745,6 +3746,82 @@ export default function AdminPage() {
                     </div>
                     <Field label="Harita İpucu (kullanıcıya gösterilen yardım metni)" value={content.dealer.mapHint ?? ""} onChange={(v) => updateContent(["dealer","mapHint"], v)} />
                     <Field label="Harita Başlığı" value={content.dealer.mapTitle ?? ""} onChange={(v) => updateContent(["dealer","mapTitle"], v)} />
+                  </div>
+
+                  {/* ── Bemis Bölge Temsilcileri ──
+                      Per-region rep cards. The map popup shows whichever
+                      rows have at least name/phone/email filled in; empty
+                      rows stay hidden on the public site. */}
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
+                    <div>
+                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider mb-1">Bemis Bölge Temsilcileri</p>
+                      <p className="text-xs text-white/35">
+                        Haritada bir bölgeye gelindiğinde, o bölgenin Bemis temsilcisi bayi listesinin üstünde özel bir kartta gösterilir.
+                        Boş bırakılan satırlar haritada gözükmez.
+                      </p>
+                    </div>
+
+                    {(() => {
+                      const REGION_LABELS: { id: string; label: string }[] = [
+                        { id: "marmara",    label: "Marmara" },
+                        { id: "ege",        label: "Ege" },
+                        { id: "akdeniz",    label: "Akdeniz" },
+                        { id: "ic_anadolu", label: "İç Anadolu" },
+                        { id: "karadeniz",  label: "Karadeniz" },
+                        { id: "dogu",       label: "Doğu Anadolu" },
+                        { id: "guneydogu",  label: "Güneydoğu Anadolu" },
+                      ];
+
+                      const updateRep = (regionId: string, field: "name" | "title" | "phone" | "email" | "whatsapp", value: string) => {
+                        setContent((prev) => {
+                          if (!prev) return prev;
+                          const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                          const arr = [...(next.dealer.regionReps ?? [])];
+                          const idx = arr.findIndex((r) => r.regionId === regionId);
+                          if (idx >= 0) {
+                            arr[idx] = { ...arr[idx], [field]: value };
+                          } else {
+                            const region = REGION_LABELS.find((r) => r.id === regionId);
+                            arr.push({
+                              regionId,
+                              name: "",
+                              title: region ? `${region.label} Bölge Temsilcisi` : "",
+                              phone: "",
+                              email: "",
+                              whatsapp: "",
+                              [field]: value,
+                            });
+                          }
+                          next.dealer.regionReps = arr;
+                          return next;
+                        });
+                      };
+
+                      return REGION_LABELS.map((region) => {
+                        const rep = (content.dealer.regionReps ?? []).find((r) => r.regionId === region.id);
+                        return (
+                          <div key={region.id} className="rounded-xl border border-white/7 p-3 space-y-2" style={{ background: "rgba(255,255,255,0.02)" }}>
+                            <div className="flex items-center justify-between mb-1">
+                              <span className="text-[10px] font-bold text-white/55 uppercase tracking-wider">{region.label}</span>
+                              {rep && (rep.name || rep.phone || rep.email) && (
+                                <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full" style={{ background: "rgba(59,130,246,0.18)", color: "#93C5FD" }}>
+                                  Aktif
+                                </span>
+                              )}
+                            </div>
+                            <div className="grid grid-cols-2 gap-2">
+                              <Field label="Ad Soyad" value={rep?.name ?? ""} onChange={(v) => updateRep(region.id, "name", v)} />
+                              <Field label="Ünvan" value={rep?.title ?? ""} onChange={(v) => updateRep(region.id, "title", v)} placeholder={`${region.label} Bölge Temsilcisi`} />
+                            </div>
+                            <div className="grid grid-cols-3 gap-2">
+                              <Field label="Telefon" value={rep?.phone ?? ""} onChange={(v) => updateRep(region.id, "phone", v)} placeholder="+90 ..." />
+                              <Field label="WhatsApp" value={rep?.whatsapp ?? ""} onChange={(v) => updateRep(region.id, "whatsapp", v)} placeholder="+90 ..." />
+                              <Field label="E-Posta" value={rep?.email ?? ""} onChange={(v) => updateRep(region.id, "email", v)} validate={validateEmail} />
+                            </div>
+                          </div>
+                        );
+                      });
+                    })()}
                   </div>
 
                   <div className="flex items-end justify-between gap-4">

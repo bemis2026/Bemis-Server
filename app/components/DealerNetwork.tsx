@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { HiArrowRight, HiPhone, HiLocationMarker, HiMail, HiUser, HiClock, HiExternalLink } from "react-icons/hi";
-import { RiStoreLine, RiMapPin2Line, RiWhatsappLine, RiGlobalLine } from "react-icons/ri";
+import { RiStoreLine, RiMapPin2Line, RiWhatsappLine, RiGlobalLine, RiAwardLine } from "react-icons/ri";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import E from "./E";
@@ -73,6 +73,16 @@ export default function DealerNetwork() {
   const activeRegionCities = activeRegion ? (citiesByRegion[activeRegion.id] ?? []) : [];
   const activeDealers = activeRegionCities.flatMap((cityId) => dealers[cityId]?.dealers ?? []);
   const activeCityLabel = activeRegion?.label;
+  // Bemis regional rep matched on regionId. Only render the card when at
+  // least the rep's name or phone is set — empty default reps stay hidden.
+  const activeRep = activeRegion
+    ? (dealerSection.regionReps ?? []).find((r) => r.regionId === activeRegion.id)
+    : undefined;
+  const hasActiveRep = !!activeRep && (
+    (activeRep.name && activeRep.name.trim().length > 0) ||
+    (activeRep.phone && activeRep.phone.trim().length > 0) ||
+    (activeRep.email && activeRep.email.trim().length > 0)
+  );
 
   // Touch devices synthesize mouseenter/mouseleave around tap, which would
   // flicker hoveredCity on/off. Gate hover state on real pointing devices.
@@ -187,6 +197,88 @@ export default function DealerNetwork() {
               ))}
             </div>
 
+
+            {/* Bemis regional rep card — surfaces above the dealer list
+                whenever the operator has filled the rep info for the
+                hovered/selected region. Visually distinct (Bemis brand
+                gradient + crown icon) so it doesn't blend into the dealer
+                cards underneath. */}
+            {activeCity && hasActiveRep && activeRep && (
+              <motion.div
+                key={`rep-${activeCity}`}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="rounded-2xl p-4 mb-3 relative overflow-hidden"
+                style={{
+                  background: d
+                    ? `linear-gradient(135deg, ${BLUE}1F 0%, ${BLUE}10 100%)`
+                    : `linear-gradient(135deg, ${BLUE}14 0%, ${BLUE}08 100%)`,
+                  border: `1px solid ${BLUE}45`,
+                  boxShadow: `0 0 0 1px ${BLUE}15, 0 4px 18px ${BLUE}22`,
+                }}
+              >
+                {/* Header row */}
+                <div className="flex items-center gap-2 mb-2">
+                  <span
+                    className="inline-flex items-center justify-center rounded-full"
+                    style={{ width: 22, height: 22, background: `${BLUE}28`, border: `1px solid ${BLUE}55` }}
+                  >
+                    <RiAwardLine size={12} style={{ color: d ? "#93C5FD" : BLUE }} />
+                  </span>
+                  <span className="text-[10px] font-bold tracking-[0.18em] uppercase" style={{ color: d ? "#93C5FD" : BLUE }}>
+                    Bemis Yetkilisi
+                  </span>
+                </div>
+
+                {/* Title (always shown — falls back to "<Region> Bölge Temsilcisi" if empty) */}
+                <p className="text-xs font-semibold mb-0.5" style={{ color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.85)" }}>
+                  {activeRep.title || `${activeCityLabel} Bölge Temsilcisi`}
+                </p>
+
+                {/* Name */}
+                {activeRep.name && (
+                  <p className="text-sm font-semibold mb-1.5" style={{ color: d ? "#ffffff" : "#111111" }}>
+                    {activeRep.name}
+                  </p>
+                )}
+
+                {/* Contact rows */}
+                <div className="flex flex-col gap-1">
+                  {activeRep.phone && (
+                    <a
+                      href={`tel:${activeRep.phone.replace(/[^\d+]/g, "")}`}
+                      className="text-sm flex items-center gap-1.5 transition-colors hover:underline"
+                      style={{ color: d ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.75)" }}
+                    >
+                      <HiPhone className="flex-shrink-0" size={13} />
+                      {activeRep.phone}
+                    </a>
+                  )}
+                  {activeRep.whatsapp && (
+                    <a
+                      href={`https://wa.me/${activeRep.whatsapp.replace(/[^\d+]/g, "").replace(/^\+/, "")}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm flex items-center gap-1.5 transition-colors hover:underline"
+                      style={{ color: d ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.75)" }}
+                    >
+                      <RiWhatsappLine className="flex-shrink-0" size={13} />
+                      {activeRep.whatsapp}
+                    </a>
+                  )}
+                  {activeRep.email && (
+                    <a
+                      href={`mailto:${activeRep.email}`}
+                      className="text-sm flex items-center gap-1.5 transition-colors hover:underline"
+                      style={{ color: d ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.75)" }}
+                    >
+                      <HiMail className="flex-shrink-0" size={13} />
+                      {activeRep.email}
+                    </a>
+                  )}
+                </div>
+              </motion.div>
+            )}
 
             {/* Active city dealer list */}
             {activeCity && activeDealers.length > 0 && (

@@ -101,7 +101,18 @@ export async function GET(req: NextRequest) {
       sliderEnabled: tr.products?.sliderEnabled,
       allProductsDescription: tr.products?.allProductsDescription,
     },
-    dealer:          { ...tr.dealer,          ...(en.dealer          ?? {}) },
+    dealer: (() => {
+      // Region reps: per-index merge so EN overrides only the translated
+      // fields (title) — name / phone / email / whatsapp stay TR-canonical.
+      const trReps = tr.dealer?.regionReps ?? [];
+      const enReps = en.dealer?.regionReps ?? [];
+      const regionReps = trReps.map((r: Record<string, unknown>, i: number) => ({ ...r, ...(enReps[i] ?? {}) }));
+      return {
+        ...tr.dealer,
+        ...(en.dealer ?? {}),
+        regionReps: regionReps.length > 0 ? regionReps : undefined,
+      };
+    })(),
     reviews: (() => {
       const trItems: Array<Record<string, unknown>> = tr.reviews?.items ?? [];
       const enItems: Array<Record<string, unknown>> = en.reviews?.items ?? [];

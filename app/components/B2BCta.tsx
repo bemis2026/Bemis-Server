@@ -86,7 +86,7 @@ export default function B2BCta() {
               {cta.eyebrow}
             </span>
 
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-2 leading-tight" style={{ color: textPrimary }}>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-2 leading-tight" style={{ color: textPrimary }}>
               {cta.heading}
             </h2>
 
