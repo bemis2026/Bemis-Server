@@ -823,21 +823,29 @@ export default function DealerNetwork() {
                       stroke={HQ_RED}
                       strokeWidth="2.5"
                     />
-                    {/* Solid red dot */}
+                    {/* Solid red dot — backdrop for the white-on-transparent
+                        favicon sourced from /icon (same image as browser tab). */}
                     <circle
                       cx={BURSA_HQ.cx} cy={BURSA_HQ.cy}
-                      r={11}
+                      r={14}
                       fill={HQ_RED}
                     />
-                    {/* HQ glyph (small star) */}
-                    <text
-                      x={BURSA_HQ.cx} y={BURSA_HQ.cy + 5}
-                      textAnchor="middle"
-                      fontSize="14"
-                      fontWeight="900"
-                      fill="#ffffff"
-                      style={{ pointerEvents: "none", userSelect: "none", fontFamily: "inherit" }}
-                    >★</text>
+                    {/* Brand mark (favicon) clipped to the dot */}
+                    <defs>
+                      <clipPath id="merkez-logo-clip">
+                        <circle cx={BURSA_HQ.cx} cy={BURSA_HQ.cy} r={13} />
+                      </clipPath>
+                    </defs>
+                    <image
+                      href="/icon"
+                      x={BURSA_HQ.cx - 11}
+                      y={BURSA_HQ.cy - 11}
+                      width={22}
+                      height={22}
+                      clipPath="url(#merkez-logo-clip)"
+                      preserveAspectRatio="xMidYMid meet"
+                      style={{ pointerEvents: "none" }}
+                    />
                     {/* Label — placed BELOW the pin so it doesn't collide
                         with Marmara's region label which sits just above. */}
                     <text
