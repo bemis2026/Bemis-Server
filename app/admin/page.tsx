@@ -3802,7 +3802,7 @@ export default function AdminPage() {
                         { id: "guneydogu",  label: "Güneydoğu Anadolu" },
                       ];
 
-                      const updateRep = (regionId: string, field: "name" | "title" | "phone" | "email" | "whatsapp", value: string) => {
+                      const updateRep = (regionId: string, field: "name" | "title" | "phone" | "email", value: string) => {
                         setContent((prev) => {
                           if (!prev) return prev;
                           const next = JSON.parse(JSON.stringify(prev)) as ContentData;
@@ -3818,7 +3818,6 @@ export default function AdminPage() {
                               title: region ? `${region.label} Bölge Temsilcisi` : "",
                               phone: "",
                               email: "",
-                              whatsapp: "",
                               [field]: value,
                             });
                           }
@@ -3843,9 +3842,8 @@ export default function AdminPage() {
                               <Field label="Ad Soyad" value={rep?.name ?? ""} onChange={(v) => updateRep(region.id, "name", v)} />
                               <Field label="Ünvan" value={rep?.title ?? ""} onChange={(v) => updateRep(region.id, "title", v)} placeholder={`${region.label} Bölge Temsilcisi`} />
                             </div>
-                            <div className="grid grid-cols-3 gap-2">
+                            <div className="grid grid-cols-2 gap-2">
                               <Field label="Telefon" value={rep?.phone ?? ""} onChange={(v) => updateRep(region.id, "phone", v)} placeholder="+90 ..." />
-                              <Field label="WhatsApp" value={rep?.whatsapp ?? ""} onChange={(v) => updateRep(region.id, "whatsapp", v)} placeholder="+90 ..." />
                               <Field label="E-Posta" value={rep?.email ?? ""} onChange={(v) => updateRep(region.id, "email", v)} validate={validateEmail} />
                             </div>
                           </div>
