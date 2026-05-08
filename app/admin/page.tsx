@@ -123,6 +123,9 @@ type ContentData = {
     timeline?: { year: string; title: string; desc: string }[];
     aboutVideo?: string;
     certifications?: { label: string; sub: string }[];
+    groupBrandsTitle?: string;
+    groupBrandsBody?: string;
+    groupBrands?: { name: string; logo: string }[];
   };
   products: { heading: string; subheading: string; sectionLabel?: string; allProductsLabel?: string; viewLabel?: string; sliderEnabled?: boolean; allProductsDescription?: string };
   dealer: {
@@ -3012,6 +3015,79 @@ export default function AdminPage() {
                               <Field label="Yıl Alt Metni" value={content.dna.yearSub}   onChange={(v) => updateContent(["dna","yearSub"],   v)} />
                             </div>
                             <Field label="CTA Butonu Metni (ör: Bemis Dünyasını Keşfet)" value={content.dna.ctaLabel ?? ""} onChange={(v) => updateContent(["dna","ctaLabel"], v)} />
+
+                            {/* Bemis Group brands — surfaced beside the
+                                factory video. Title + body + 3 logo slots. */}
+                            <div className="pt-3 border-t border-white/6 space-y-3">
+                              <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Bemis Grup Markaları (videonun yanında gösterilir)</p>
+                              <Field label="Başlık" value={content.dna.groupBrandsTitle ?? ""} onChange={(v) => updateContent(["dna","groupBrandsTitle"], v)} placeholder="Bemis Grup Markaları" />
+                              <Field label="Açıklama" value={content.dna.groupBrandsBody ?? ""} onChange={(v) => updateContent(["dna","groupBrandsBody"], v)} multiline placeholder="Bemis Teknik Elektrik A.Ş. çatısı altında..." />
+                              {(() => {
+                                const brands = content.dna.groupBrands ?? [
+                                  { name: "Bemis", logo: "" },
+                                  { name: "Bemis E-V Charge", logo: "" },
+                                  { name: "BYES", logo: "" },
+                                ];
+                                const updateBrand = (i: number, field: "name" | "logo", value: string) => {
+                                  setContent((prev) => {
+                                    if (!prev) return prev;
+                                    const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                                    const arr = [...(next.dna.groupBrands ?? brands)];
+                                    arr[i] = { ...arr[i], [field]: value };
+                                    next.dna.groupBrands = arr;
+                                    return next;
+                                  });
+                                };
+                                return (
+                                  <div className="space-y-2">
+                                    {brands.map((b, i) => (
+                                      <div key={i} className="grid grid-cols-[1fr_auto] gap-2 items-center rounded-lg p-2.5"
+                                        style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                                        <Field label={`Marka ${i + 1} Adı`} value={b.name} onChange={(v) => updateBrand(i, "name", v)} />
+                                        <div className="flex items-center gap-2">
+                                          {b.logo ? (
+                                            // eslint-disable-next-line @next/next/no-img-element
+                                            <img src={b.logo} alt="" className="h-8 max-w-[100px] object-contain rounded" style={{ background: "rgba(255,255,255,0.85)", padding: "3px 6px" }} />
+                                          ) : (
+                                            <div className="h-8 w-12 rounded flex items-center justify-center text-[10px] text-white/30" style={{ background: "rgba(255,255,255,0.04)", border: "1px dashed rgba(255,255,255,0.10)" }}>—</div>
+                                          )}
+                                          <label
+                                            className="text-[11px] font-semibold px-2.5 py-2 rounded-lg cursor-pointer flex items-center gap-1"
+                                            style={{ background: "rgba(59,130,246,0.15)", border: "1px solid rgba(59,130,246,0.40)", color: "#93C5FD" }}
+                                          >
+                                            <RiImageAddLine size={12} /> {b.logo ? "Değiştir" : "Logo"}
+                                            <input
+                                              type="file"
+                                              accept="image/*"
+                                              className="hidden"
+                                              onChange={async (e) => {
+                                                const file = e.target.files?.[0];
+                                                if (!file) return;
+                                                try {
+                                                  const { url } = await uploadImage(file, "brand-logos");
+                                                  updateBrand(i, "logo", url);
+                                                  showToast("ok", "Logo yüklendi.");
+                                                } catch (err) {
+                                                  showToast("err", `Yükleme başarısız: ${(err as Error).message}`);
+                                                }
+                                                e.target.value = "";
+                                              }}
+                                            />
+                                          </label>
+                                          {b.logo && (
+                                            <button
+                                              onClick={() => updateBrand(i, "logo", "")}
+                                              className="text-xs px-2 py-1.5 rounded"
+                                              style={{ background: "rgba(239,68,68,0.10)", border: "1px solid rgba(239,68,68,0.30)", color: "#FCA5A5" }}
+                                            ><HiOutlineTrash size={11} /></button>
+                                          )}
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                );
+                              })()}
+                            </div>
                             {/* Factory image upload */}
                             <div className="pt-2 border-t border-white/6 space-y-2">
                               <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Fabrika Fotoğrafı</p>

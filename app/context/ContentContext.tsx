@@ -151,6 +151,11 @@ export type SiteContent = {
     aboutVideo?: string;
     certifications?: CertificationItem[];
     ctaLabel: string;
+    /** Bemis Group brands shown beside the factory video — heading +
+     *  paragraph + 3 logo slots (Bemis / Bemis E-V Charge / BYES). */
+    groupBrandsTitle?: string;
+    groupBrandsBody?: string;
+    groupBrands?: { name: string; logo: string }[];
   };
   products: { heading: string; subheading: string; sectionLabel: string; allProductsLabel: string; viewLabel: string; sliderEnabled: boolean; allProductsDescription: string };
   dealer: {
@@ -341,6 +346,13 @@ const defaultContent: SiteContent = {
       { label: "OCPP 2.0",  sub: "Açık Şarj Protokolü"   },
       { label: "ISO 9001",  sub: "Kalite Yönetim Sistemi" },
       { label: "TSE",       sub: "Türk Standartları"       },
+    ],
+    groupBrandsTitle: "Bemis Grup Markaları",
+    groupBrandsBody: "Bemis Teknik Elektrik A.Ş. çatısı altında üç markamızla — Bemis, Bemis E-V Charge ve BYES — elektrik altyapısı, EV şarj çözümleri ve enerji yönetimi alanlarında Türkiye'den dünyaya hizmet veriyoruz.",
+    groupBrands: [
+      { name: "Bemis",            logo: "" },
+      { name: "Bemis E-V Charge", logo: "" },
+      { name: "BYES",             logo: "" },
     ],
   },
   products: {
