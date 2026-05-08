@@ -10,6 +10,7 @@ import { translateBatch } from "./translate";
 const TRANSLATABLE_PATHS: string[] = [
   "hero.badge", "hero.headline1", "hero.headline2", "hero.headline3",
   "hero.subtitle", "hero.ctaPrimary", "hero.ctaSecondary",
+  "hero.headline2Words[]",
 
   "stats[].label", "stats[].description",
 
@@ -59,6 +60,10 @@ const TRANSLATABLE_PATHS: string[] = [
   "referenceProjectsSection.items[].title",
   "referenceProjectsSection.items[].location",
   "referenceProjectsSection.items[].description",
+
+  "gallerySection.sectionLabel", "gallerySection.heading",
+  "gallerySection.subheading",
+  "gallerySection.items[].caption",
 
   "smartCharger.sectionLabel", "smartCharger.heading", "smartCharger.subheading",
   "smartCharger.ocppBadge", "smartCharger.ctaLabel",

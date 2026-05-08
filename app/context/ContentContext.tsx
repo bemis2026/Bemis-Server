@@ -54,6 +54,16 @@ export type ReferenceProject = {
   description?: string;
 };
 
+// Gallery item — masonry-grid photo with optional caption. Lightbox opens
+// the full image on click. `aspect` = "tall" | "wide" | "square" maps to
+// the grid span so the layout stays interesting.
+export type GalleryItem = {
+  id: string;
+  image: string;
+  caption?: string;
+  aspect?: "tall" | "wide" | "square";
+};
+
 export type WorldSection = {
   sectionLabel: string;
   heading: string;
@@ -176,6 +186,12 @@ export type SiteContent = {
     subheading: string;
     items: ReferenceProject[];
   };
+  gallerySection: {
+    sectionLabel: string;
+    heading: string;
+    subheading: string;
+    items: GalleryItem[];
+  };
   navbar: { ctaLabel: string; links: { label: string; href: string }[] };
   footer: {
     description: string; followLabel: string; copyright: string;
@@ -244,11 +260,11 @@ const DEFAULT_LAYOUT: HeroLayout = {
 };
 
 export const DEFAULT_SECTION_ORDER = [
-  "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "referenceprojects", "reviews", "dealer", "b2bcta", "calculator"
+  "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "gallery", "referenceprojects", "reviews", "dealer", "b2bcta", "calculator"
 ];
 
 function migrateSectionOrder(order: string[]): string[] {
-  const known = ["dna","stats","productshowcase","smartcharger","products","featured","referenceprojects","reviews","dealer","calculator","b2bcta"];
+  const known = ["dna","stats","productshowcase","smartcharger","products","featured","gallery","referenceprojects","reviews","dealer","calculator","b2bcta"];
   const filtered = order.filter(s => known.includes(s));
   const missing = known.filter(s => !filtered.includes(s));
   return [...filtered, ...missing];
@@ -469,6 +485,12 @@ const defaultContent: SiteContent = {
     subheading: "AVM, otopark, otel ve kurumsal kampüslerde devreye aldığımız uygulamalardan kareler.",
     items: [],
   },
+  gallerySection: {
+    sectionLabel: "Galeri",
+    heading: "Showroom & Üretim",
+    subheading: "Bursa'daki üretim tesisimizden ve showroom'umuzdan kareler.",
+    items: [],
+  },
   navbar: {
     ctaLabel: "Bize Ulaşın",
     links: [
@@ -582,6 +604,13 @@ export function mergeContent(data: any): SiteContent {
       items: Array.isArray(safe.referenceProjectsSection?.items)
         ? safe.referenceProjectsSection.items
         : defaultContent.referenceProjectsSection.items,
+    },
+    gallerySection: {
+      ...defaultContent.gallerySection,
+      ...(safe.gallerySection ?? {}),
+      items: Array.isArray(safe.gallerySection?.items)
+        ? safe.gallerySection.items
+        : defaultContent.gallerySection.items,
     },
     calculator: { ...defaultContent.calculator, ...safe.calculator },
     navbar: { ...defaultContent.navbar, ...safe.navbar, links: safe.navbar?.links ?? defaultContent.navbar.links },

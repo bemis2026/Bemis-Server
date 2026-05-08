@@ -17,6 +17,7 @@ const ProductShowcase = dynamic(() => import("./components/ProductShowcase"));
 const SmartCharger = dynamic(() => import("./components/SmartCharger"));
 const FeaturedProducts = dynamic(() => import("./components/FeaturedProducts"));
 const ReferenceProjects = dynamic(() => import("./components/ReferenceProjects"));
+const Gallery = dynamic(() => import("./components/Gallery"));
 const ScrollProgressBar = dynamic(() => import("./components/ScrollProgressBar"), { ssr: false });
 const DealerNetwork = dynamic(() => import("./components/DealerNetwork"));
 const Reviews = dynamic(() => import("./components/Reviews"));
@@ -33,6 +34,7 @@ const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   productshowcase: ProductShowcase,
   smartcharger: SmartCharger,
   featured: FeaturedProducts,
+  gallery: Gallery,
   referenceprojects: ReferenceProjects,
   dealer: DealerNetwork,
   reviews: Reviews,
