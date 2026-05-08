@@ -2385,61 +2385,11 @@ export default function AdminPage() {
                                       })}
                                     </div>
 
-                                    {/* ── Genel Özellikler (madde listesi) ── */}
-                                    {(() => {
-                                      const features = currentProd.generalFeatures ?? [];
-                                      const updateAll = (next: string[]) => {
-                                        setProducts((prev) => prev.map((cat) => cat.id !== selCat ? cat : {
-                                          ...cat,
-                                          products: cat.products.map((p) => p.id !== selProd ? p : { ...p, generalFeatures: next }),
-                                        }));
-                                      };
-                                      return (
-                                        <div className="space-y-3 pt-4 border-t border-white/6">
-                                          <div className="flex items-center justify-between">
-                                            <p className="text-xs font-semibold text-white/50">Genel Özellikler</p>
-                                            <button
-                                              onClick={() => updateAll([...features, ""])}
-                                              className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white px-2.5 py-1 rounded-lg border border-white/10 hover:border-white/20"
-                                            >
-                                              <HiOutlinePlus size={12} /> Madde Ekle
-                                            </button>
-                                          </div>
-                                          <p className="text-[10px] text-white/30">
-                                            Ürün detay sayfasında "Genel Özellikler" sekmesinde bullet liste olarak gösterilir. Boş bırakılırsa sekme görünmez.
-                                          </p>
-                                          {features.length === 0 ? (
-                                            <p className="text-[11px] text-white/25 italic text-center py-2">
-                                              Henüz madde eklenmemiş.
-                                            </p>
-                                          ) : (
-                                            <div className="space-y-2">
-                                              {features.map((feat, i) => (
-                                                <div key={i} className="flex items-center gap-2">
-                                                  <span className="text-[10px] font-bold text-white/30 w-5 flex-shrink-0">{i + 1}.</span>
-                                                  <input
-                                                    value={feat}
-                                                    onChange={(e) => {
-                                                      const next = [...features];
-                                                      next[i] = e.target.value;
-                                                      updateAll(next);
-                                                    }}
-                                                    placeholder="Özellik açıklaması"
-                                                    className="flex-1 bg-white/5 border border-white/8 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-white/20"
-                                                  />
-                                                  <button
-                                                    onClick={() => updateAll(features.filter((_, k) => k !== i))}
-                                                    className="text-white/20 hover:text-red-400 p-1 flex-shrink-0"
-                                                  >
-                                                    <HiOutlineTrash size={12} />
-                                                  </button>
-                                                </div>
-                                              ))}
-                                            </div>
-                                          )}
-                                        </div>
-                                      );
-                                    })()}
+                                    {/* Eski "Genel Özellikler" madde listesi
+                                        kaldırıldı — özellikler artık üst
+                                        bölümdeki kutucuk grid'inden seçilir
+                                        ve aynı ürün karta + detay sayfasının
+                                        Genel Özellikler sekmesine yansır. */}
 
                                     {/* ── Dökümanlar (PDF / dış link) ── */}
                                     {(() => {

@@ -233,69 +233,105 @@ export default function KurumsalPage() {
           </div>
         </div>
 
-        {/* ── Featured video ──
-             Auto-plays muted in a loop (browsers block unmuted autoplay).
-             Soft accent glow + scale-on-hover so it reads as a polished
-             showcase rather than a bare embed. The accent border picks
-             up the BLUE brand color. */}
-        {aboutVideoId && (
+        {/* ── Featured video + Bemis Group brands strip — two-column on
+             desktop so the video sits left and the brand identity card
+             reads beside it. Stacks on mobile. */}
+        {(aboutVideoId || (dna.groupBrands && dna.groupBrands.length > 0)) && (
           <div className="pt-12 pb-2 px-5 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="relative group rounded-3xl overflow-hidden transition-transform duration-300 hover:scale-[1.005]"
-                style={{
-                  border: `1px solid ${BLUE}25`,
-                  background: d ? "#0a0a0c" : "#ffffff",
-                  boxShadow: d
-                    ? `0 20px 60px rgba(0,0,0,0.55), 0 0 0 1px ${BLUE}10, 0 0 80px ${BLUE}18`
-                    : `0 16px 48px rgba(0,0,0,0.12), 0 0 0 1px ${BLUE}10, 0 0 60px ${BLUE}10`,
-                }}
-              >
-                <div style={{ position: "relative", paddingTop: "56.25%" }}>
-                  <iframe
-                    src={
-                      `https://www.youtube.com/embed/${aboutVideoId}` +
-                      // autoplay + mute (browsers require muted for autoplay)
-                      `?autoplay=1&mute=1` +
-                      // loop the same video; YouTube needs the `playlist`
-                      // param set to the same id for embedded loops.
-                      `&loop=1&playlist=${aboutVideoId}` +
-                      // hide YouTube branding + related videos + iOS inline
-                      `&modestbranding=1&rel=0&playsinline=1` +
-                      // disable annotations and the in-player "more" UI
-                      `&iv_load_policy=3` +
-                      // request HD quality (YouTube auto-upgrades on
-                      // bandwidth, but the hint pushes the default)
-                      `&hd=1&vq=hd1080`
-                    }
-                    title="Bemis E-V Charge"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
-                    allowFullScreen
-                    loading="lazy"
-                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
-                  />
-                </div>
-
-                {/* HD badge — brand-styled top-right corner indicator. The
-                    iframe owns its own controls, so this is purely decorative. */}
-                <div
-                  className="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full pointer-events-none"
+            <div className="max-w-7xl mx-auto grid lg:grid-cols-5 gap-6 items-stretch">
+              {aboutVideoId && (
+                <motion.div
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="relative group rounded-3xl overflow-hidden lg:col-span-3 transition-transform duration-300 hover:scale-[1.005]"
                   style={{
-                    background: d ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.85)",
-                    backdropFilter: "blur(10px)",
-                    WebkitBackdropFilter: "blur(10px)",
-                    border: `1px solid ${BLUE}35`,
+                    border: `1px solid ${BLUE}25`,
+                    background: d ? "#0a0a0c" : "#ffffff",
+                    boxShadow: d
+                      ? `0 20px 60px rgba(0,0,0,0.55), 0 0 0 1px ${BLUE}10, 0 0 80px ${BLUE}18`
+                      : `0 16px 48px rgba(0,0,0,0.12), 0 0 0 1px ${BLUE}10, 0 0 60px ${BLUE}10`,
                   }}
                 >
-                  <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: BLUE }} />
-                  <span className="text-[10px] font-bold tracking-widest uppercase" style={{ color: d ? "#93C5FD" : BLUE }}>
-                    HD
-                  </span>
-                </div>
-              </motion.div>
+                  <div style={{ position: "relative", paddingTop: "56.25%" }}>
+                    <iframe
+                      src={
+                        `https://www.youtube-nocookie.com/embed/${aboutVideoId}` +
+                        `?autoplay=1&mute=1` +
+                        `&loop=1&playlist=${aboutVideoId}` +
+                        `&modestbranding=1&rel=0&playsinline=1` +
+                        `&iv_load_policy=3`
+                      }
+                      title="Bemis E-V Charge"
+                      allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                      allowFullScreen
+                      style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
+                    />
+                  </div>
+                  <div
+                    className="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full pointer-events-none"
+                    style={{
+                      background: d ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.85)",
+                      backdropFilter: "blur(10px)",
+                      WebkitBackdropFilter: "blur(10px)",
+                      border: `1px solid ${BLUE}35`,
+                    }}
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: BLUE }} />
+                    <span className="text-[10px] font-bold tracking-widest uppercase" style={{ color: d ? "#93C5FD" : BLUE }}>HD</span>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* Bemis Group brand strip — sits beside the video */}
+              {(dna.groupBrandsTitle || dna.groupBrandsBody || (dna.groupBrands && dna.groupBrands.length > 0)) && (
+                <motion.div
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="rounded-3xl p-6 lg:col-span-2 flex flex-col"
+                  style={{
+                    border: `1px solid ${BLUE}25`,
+                    background: d
+                      ? `linear-gradient(135deg, ${BLUE}10 0%, rgba(255,255,255,0.02) 100%)`
+                      : `linear-gradient(135deg, ${BLUE}0d 0%, rgba(0,0,0,0.01) 100%)`,
+                    boxShadow: d ? "none" : "0 8px 28px rgba(0,0,0,0.07)",
+                  }}
+                >
+                  <p className="text-[10px] font-bold tracking-[0.18em] uppercase mb-2" style={{ color: d ? "#93C5FD" : BLUE }}>
+                    {dna.groupBrandsTitle ?? "Bemis Grup Markaları"}
+                  </p>
+                  {dna.groupBrandsBody && (
+                    <p className="text-sm leading-relaxed mb-4" style={{ color: textMuted }}>
+                      {dna.groupBrandsBody}
+                    </p>
+                  )}
+                  <div className="flex flex-wrap items-center gap-2.5 mt-auto">
+                    {(dna.groupBrands ?? []).map((b, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center gap-2 rounded-xl px-3 py-2"
+                        style={{
+                          background: d ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.95)",
+                          border: d ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.07)",
+                          minHeight: 48,
+                        }}
+                      >
+                        {b.logo ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img src={b.logo} alt={b.name} style={{ height: 28, width: "auto", maxWidth: 110, objectFit: "contain" }} loading="lazy" />
+                        ) : (
+                          <span
+                            className="inline-flex items-center justify-center rounded-lg text-[10px] font-black"
+                            style={{ width: 28, height: 28, background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)", border: d ? "1px dashed rgba(255,255,255,0.20)" : "1px dashed rgba(0,0,0,0.20)", color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.30)" }}
+                          >{b.name?.[0] ?? "?"}</span>
+                        )}
+                        <span className="text-xs font-bold" style={{ color: textPrimary }}>{b.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
             </div>
           </div>
         )}
@@ -613,59 +649,7 @@ export default function KurumsalPage() {
               </div>
             </div>
 
-            {/* Bemis Grup Markaları — title + body + 3 logo strip. Moved
-                here from the homepage DNA section per spec. */}
-            {(dna.groupBrandsTitle || dna.groupBrandsBody || (dna.groupBrands && dna.groupBrands.length > 0)) && (
-              <div style={{ borderTop: `1px solid ${divider}`, paddingTop: 32, marginTop: 32 }}>
-                <p className="text-[10px] font-bold tracking-[0.18em] uppercase mb-3" style={{ color: textFaint }}>
-                  {dna.groupBrandsTitle ?? "Bemis Grup Markaları"}
-                </p>
-                {dna.groupBrandsBody && (
-                  <p className="text-sm leading-relaxed mb-5 max-w-2xl" style={{ color: textMuted }}>
-                    {dna.groupBrandsBody}
-                  </p>
-                )}
-                <div className="flex flex-wrap items-center gap-3">
-                  {(dna.groupBrands ?? []).map((b, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-2 rounded-xl px-4 py-2.5"
-                      style={{
-                        background: d ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.95)",
-                        border: d ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.08)",
-                        boxShadow: d ? "none" : "0 1px 8px rgba(0,0,0,0.05)",
-                        minHeight: 56,
-                      }}
-                    >
-                      {b.logo ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={b.logo}
-                          alt={b.name}
-                          style={{ height: 36, width: "auto", maxWidth: 140, objectFit: "contain" }}
-                          loading="lazy"
-                        />
-                      ) : (
-                        <span
-                          className="inline-flex items-center justify-center rounded-lg text-[11px] font-black"
-                          style={{
-                            width: 36, height: 36,
-                            background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)",
-                            border: d ? "1px dashed rgba(255,255,255,0.20)" : "1px dashed rgba(0,0,0,0.20)",
-                            color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.30)",
-                          }}
-                        >
-                          {b.name?.[0] ?? "?"}
-                        </span>
-                      )}
-                      <span className="text-sm font-bold" style={{ color: textPrimary }}>
-                        {b.name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+            {/* Bemis Grup Markaları stripi videonun yanına taşındı */}
 
           </div>
         </div>

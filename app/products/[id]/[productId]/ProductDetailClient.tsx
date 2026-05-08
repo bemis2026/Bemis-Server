@@ -390,12 +390,17 @@ export default function ProductDetailPage() {
                   )}
                 </div>
 
-                {/* Specs / General Features / Documents — tabbed card */}
+                {/* Specs / General Features / Documents — tabbed card.
+                    "Genel Özellikler" sekmesi artık ürünün checkbox-seçilmiş
+                    feature listesini (PRODUCT_FEATURES eşleşmesiyle) gösterir;
+                    eski madde-listesi alanı (generalFeatures) artistik desteği
+                    için fallback olarak kalır ama yeni kayıtlarda kullanılmaz. */}
                 {(() => {
                   const hasSpecs    = product.specs.length > 0;
+                  const featureList = (product.features ?? []).map(featureById).filter(Boolean) as NonNullable<ReturnType<typeof featureById>>[];
                   const generalList = (product.generalFeatures ?? []).filter((s) => s && s.trim().length > 0);
                   const docList     = (product.documents ?? []).filter((d) => d && d.url && d.url.trim().length > 0);
-                  const hasGeneral  = generalList.length > 0;
+                  const hasGeneral  = featureList.length > 0 || generalList.length > 0;
                   const hasDocs     = docList.length > 0;
                   if (!hasSpecs && !hasGeneral && !hasDocs) return null;
 
@@ -484,20 +489,48 @@ export default function ProductDetailPage() {
                         ];
                       })}
 
-                      {/* General features tab */}
+                      {/* General features tab — first the checkbox-selected
+                          feature catalog rendered as a 2-col icon grid, then
+                          any legacy free-text generalFeatures bullets. */}
                       {resolvedTab === "general" && (
-                        <div className="p-4 space-y-2">
-                          {generalList.map((feature, i) => (
-                            <div key={i} className="flex items-start gap-2.5">
-                              <div
-                                className="flex items-center justify-center rounded-full flex-shrink-0 mt-0.5"
-                                style={{ width: 16, height: 16, background: `${accent}18`, border: `1px solid ${accent}30` }}
-                              >
-                                <RiCheckLine size={10} style={{ color: accent }} />
-                              </div>
-                              <span className="text-sm leading-relaxed" style={{ color: textMuted }}>{feature}</span>
+                        <div className="p-4 space-y-3">
+                          {featureList.length > 0 && (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                              {featureList.map((f) => {
+                                const Icon = DETAIL_FEATURE_ICONS[f.icon];
+                                return (
+                                  <div
+                                    key={f.id}
+                                    className="flex items-center gap-3 rounded-xl px-3 py-2.5"
+                                    style={{ background: `${f.accent}10`, border: `1px solid ${f.accent}33` }}
+                                  >
+                                    <span
+                                      className="inline-flex items-center justify-center rounded-lg flex-shrink-0"
+                                      style={{ width: 30, height: 30, background: `${f.accent}1c`, border: `1px solid ${f.accent}40` }}
+                                    >
+                                      {Icon && <Icon size={16} style={{ color: f.accent }} />}
+                                    </span>
+                                    <span className="text-sm font-semibold" style={{ color: f.accent }}>{f.label}</span>
+                                  </div>
+                                );
+                              })}
                             </div>
-                          ))}
+                          )}
+                          {generalList.length > 0 && (
+                            <div className="space-y-2 pt-1">
+                              {generalList.map((feature, i) => (
+                                <div key={i} className="flex items-start gap-2.5">
+                                  <div
+                                    className="flex items-center justify-center rounded-full flex-shrink-0 mt-0.5"
+                                    style={{ width: 16, height: 16, background: `${accent}18`, border: `1px solid ${accent}30` }}
+                                  >
+                                    <RiCheckLine size={10} style={{ color: accent }} />
+                                  </div>
+                                  <span className="text-sm leading-relaxed" style={{ color: textMuted }}>{feature}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       )}
 
