@@ -122,6 +122,9 @@ export default function FeaturedProducts() {
             style={{
               width: "max-content",
               animation: `featuredMarquee ${Math.max(28, resolved.length * 7)}s linear infinite`,
+              willChange: "transform",
+              transform: "translateZ(0)",
+              backfaceVisibility: "hidden",
             }}
           >
           {[...resolved, ...resolved].map((item, i) => {
@@ -129,11 +132,8 @@ export default function FeaturedProducts() {
             const isHov = hovered === key;
 
             return (
-              <motion.div
+              <div
                 key={key}
-                initial={{ opacity: 0, y: 28 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.55, delay: 0.1 + (i % resolved.length) * 0.06 }}
                 onMouseEnter={() => setHovered(key)}
                 onMouseLeave={() => setHovered(null)}
                 onClick={() => router.push(`/products/${item.categoryId}/${item.productId}`)}
@@ -235,7 +235,7 @@ export default function FeaturedProducts() {
                     <E field="featuredSection.ctaLabel" tag="span">{featuredSection.ctaLabel}</E> <HiArrowRight />
                   </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
           </div>

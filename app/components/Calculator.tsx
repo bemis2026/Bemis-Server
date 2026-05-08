@@ -896,14 +896,6 @@ export default function Calculator() {
                           animate={{ width: Math.max(0, ((targetSoc - currentSoc) / 100) * 188), opacity: 0.95 }}
                           transition={{ duration: 0.6, ease: "easeOut" }}
                         />
-                        {/* Shimmer band on the filled area */}
-                        <motion.rect
-                          y="2.5" height="13" rx="2"
-                          fill="rgba(255,255,255,0.4)"
-                          initial={{ x: -10, width: 6, opacity: 0 }}
-                          animate={{ x: [(-10), 200], opacity: [0, 0.6, 0] }}
-                          transition={{ duration: 1.8, ease: "linear", repeat: Infinity }}
-                        />
                       </svg>
                     </div>
                   </div>

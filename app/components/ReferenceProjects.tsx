@@ -97,15 +97,15 @@ export default function ReferenceProjects() {
               width: "max-content",
               animation: `referenceMarquee ${duration}s linear infinite reverse`,
               ["--marquee-end" as string]: animEnd,
+              willChange: "transform",
+              transform: "translateZ(0)",
+              backfaceVisibility: "hidden",
             }}
           >
             {repeatedItems.map((item, i) => (
-              <motion.div
+              <div
                 key={`${item.id}-${i}`}
-                initial={{ opacity: 0, y: 24 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.1 + (i % items.length) * 0.06 }}
-                className="relative rounded-2xl overflow-hidden flex-shrink-0 group"
+                className="relative rounded-2xl overflow-hidden flex-shrink-0"
                 style={{
                   width: "clamp(280px, 30vw, 380px)",
                   height: "clamp(190px, 22vw, 260px)",
@@ -114,18 +114,13 @@ export default function ReferenceProjects() {
                   boxShadow: d ? "none" : "0 2px 16px rgba(0,0,0,0.06)",
                 }}
               >
-                {/* Image */}
                 <img
                   src={item.image}
                   alt={item.title ?? "Bemis E-V Charge referans projesi"}
                   className="w-full h-full object-cover"
-                  style={{ transition: "transform 0.6s ease" }}
                   loading="lazy"
                   decoding="async"
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1.06)"; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"; }}
                 />
-                {/* Bottom gradient + caption */}
                 {(item.title || item.location) && (
                   <div
                     className="absolute inset-x-0 bottom-0 px-4 pt-10 pb-3"
@@ -146,7 +141,7 @@ export default function ReferenceProjects() {
                     )}
                   </div>
                 )}
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
