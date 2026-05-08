@@ -616,7 +616,20 @@ export function mergeContent(data: any): SiteContent {
         : defaultContent.gallerySection.items,
     },
     calculator: { ...defaultContent.calculator, ...safe.calculator },
-    navbar: { ...defaultContent.navbar, ...safe.navbar, links: safe.navbar?.links ?? defaultContent.navbar.links },
+    navbar: (() => {
+      // Migrate stale bin link list: replace the legacy "İletişim → #contact"
+      // entry with "Projeler → #referenceprojects" if the latter is missing.
+      // Lets sites with saved CMS links pick up the new menu without an
+      // admin re-save.
+      const baseLinks = safe.navbar?.links ?? defaultContent.navbar.links;
+      const hasProjeler = baseLinks.some((l: { href?: string }) => l?.href === "#referenceprojects");
+      const links = hasProjeler
+        ? baseLinks.filter((l: { href?: string }) => l?.href !== "#contact")
+        : baseLinks.map((l: { href?: string; label?: string }) =>
+            l?.href === "#contact" ? { label: "Projeler", href: "#referenceprojects" } : l,
+          );
+      return { ...defaultContent.navbar, ...safe.navbar, links };
+    })(),
     footer: { ...defaultContent.footer, ...safe.footer },
     technology: {
       ...defaultContent.technology,
