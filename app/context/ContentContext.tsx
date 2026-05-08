@@ -497,14 +497,14 @@ const defaultContent: SiteContent = {
   navbar: {
     ctaLabel: "Bize Ulaşın",
     links: [
-      { label: "Ana Sayfa",   href: "#hero"       },
-      { label: "Hakkımızda",  href: "#dna"        },
-      { label: "Ürünler",     href: "#products"   },
-      { label: "Dökümanlar",  href: "/documents"  },
-      { label: "Bayi Ağı",    href: "#dealer"     },
-      { label: "Hesaplayıcı", href: "#calculator" },
-      { label: "İletişim",    href: "#contact"    },
-      { label: "Kurumsal",    href: "/b2b"        },
+      { label: "Ana Sayfa",   href: "#hero"              },
+      { label: "Hakkımızda",  href: "#dna"               },
+      { label: "Ürünler",     href: "#products"          },
+      { label: "Projeler",    href: "#referenceprojects" },
+      { label: "Dökümanlar",  href: "/documents"         },
+      { label: "Bayi Ağı",    href: "#dealer"            },
+      { label: "Hesaplayıcı", href: "#calculator"        },
+      { label: "Kurumsal",    href: "/b2b"               },
     ],
   },
   footer: {

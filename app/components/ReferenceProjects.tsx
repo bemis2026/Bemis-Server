@@ -28,7 +28,7 @@ export default function ReferenceProjects() {
 
   // Dynamic marquee duration so longer lists scroll proportionally — caps
   // the speed so even a 2-item list stays slow enough to read.
-  const duration = Math.max(32, items.length * 7);
+  const duration = Math.max(22, items.length * 5);
   const sectionBgUrl = sectionBgs?.["referenceProjects"] ?? "";
 
   return (
