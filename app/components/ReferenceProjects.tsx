@@ -41,7 +41,7 @@ export default function ReferenceProjects() {
   const sectionBgUrl = sectionBgs?.["referenceProjects"] ?? "";
 
   return (
-    <section id="referenceProjects" style={{ background: sectionBg }} className="relative py-8 lg:py-12 overflow-hidden">
+    <section id="referenceprojects" style={{ background: sectionBg }} className="relative py-8 lg:py-12 overflow-hidden">
       {sectionBgUrl && (
         <>
           <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${sectionBgUrl})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }} />
