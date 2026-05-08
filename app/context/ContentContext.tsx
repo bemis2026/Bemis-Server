@@ -617,17 +617,32 @@ export function mergeContent(data: any): SiteContent {
     },
     calculator: { ...defaultContent.calculator, ...safe.calculator },
     navbar: (() => {
-      // Migrate stale bin link list: replace the legacy "İletişim → #contact"
-      // entry with "Projeler → #referenceprojects" if the latter is missing.
-      // Lets sites with saved CMS links pick up the new menu without an
-      // admin re-save.
-      const baseLinks = safe.navbar?.links ?? defaultContent.navbar.links;
-      const hasProjeler = baseLinks.some((l: { href?: string }) => l?.href === "#referenceprojects");
-      const links = hasProjeler
-        ? baseLinks.filter((l: { href?: string }) => l?.href !== "#contact")
-        : baseLinks.map((l: { href?: string; label?: string }) =>
-            l?.href === "#contact" ? { label: "Projeler", href: "#referenceprojects" } : l,
-          );
+      // Menu rules:
+      //  1. Drop legacy "#contact / İletişim" — the "Bize Ulaşın" CTA in
+      //     the navbar already covers contact (the section itself stays
+      //     editable in admin).
+      //  2. Ensure "Projeler / #referenceprojects" exists.
+      //  3. Sort anchor links to match the homepage sectionOrder so the
+      //     menu reads top-to-bottom in the same flow as the page.
+      //     Non-anchor links (/documents, /b2b) keep their relative spot
+      //     and drop to the end.
+      type LinkItem = { label?: string; href?: string };
+      const baseLinks: LinkItem[] = safe.navbar?.links ?? defaultContent.navbar.links;
+      const cleaned = baseLinks.filter((l) => l?.href !== "#contact");
+      const hasProjeler = cleaned.some((l) => l?.href === "#referenceprojects");
+      const withProjeler: LinkItem[] = hasProjeler
+        ? cleaned
+        : [...cleaned, { label: "Projeler", href: "#referenceprojects" }];
+
+      const order = migrateSectionOrder(safe.sectionOrder ?? DEFAULT_SECTION_ORDER);
+      const sectionIdx = (href?: string) => {
+        if (!href || !href.startsWith("#")) return Number.POSITIVE_INFINITY;
+        const id = href.slice(1).toLowerCase();
+        if (id === "hero") return -1; // always first
+        const i = order.indexOf(id);
+        return i >= 0 ? i : Number.POSITIVE_INFINITY;
+      };
+      const links = [...withProjeler].sort((a, b) => sectionIdx(a.href) - sectionIdx(b.href));
       return { ...defaultContent.navbar, ...safe.navbar, links };
     })(),
     footer: { ...defaultContent.footer, ...safe.footer },
