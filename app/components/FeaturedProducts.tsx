@@ -127,8 +127,6 @@ export default function FeaturedProducts() {
           {[...resolved, ...resolved].map((item, i) => {
             const key = `${item.categoryId}-${item.productId}-${i}`;
             const isHov = hovered === key;
-            // Pick top 3 spec items from first group
-            const topSpecs = item.prod?.specs[0]?.items.slice(0, 3) ?? [];
 
             return (
               <motion.div
@@ -151,8 +149,9 @@ export default function FeaturedProducts() {
                 {/* Top accent bar */}
                 <div style={{ height: 3, background: item.accent, opacity: isHov ? 1 : 0.5, transition: "opacity 0.3s" }} />
 
-                {/* Product image */}
-                <div className="relative overflow-hidden" style={{ height: "clamp(180px, 50vw, 240px)" }}>
+                {/* Product image — sized so image and text body have similar
+                    visual weight inside the marquee card. */}
+                <div className="relative overflow-hidden" style={{ height: "clamp(150px, 18vw, 190px)" }}>
                   {item.prod?.image ? (
                     <img
                       src={item.prod.image}
@@ -186,57 +185,47 @@ export default function FeaturedProducts() {
                     style={{ background: `linear-gradient(to top, ${surface}, transparent)` }} />
                 </div>
 
-                <div className="p-6">
+                <div className="p-4">
                   {/* Badge row */}
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-2">
                     <span
-                      className="text-xs font-bold px-2.5 py-0.5 rounded-full"
+                      className="text-[10px] font-bold px-2 py-0.5 rounded-full"
                       style={{ background: `${item.accent}18`, color: item.accent, border: `1px solid ${item.accent}28` }}
                     >
                       {item.badge}
                     </span>
                     {item.prod?.badge && (
-                      <span className="text-xs font-semibold" style={{ color: textFaint }}>
+                      <span className="text-[10px] font-semibold" style={{ color: textFaint }}>
                         {item.prod.badge}
                       </span>
                     )}
                   </div>
 
                   {/* Product name */}
-                  <h3 className="text-lg font-bold mb-1" style={{ color: textPrimary }}>
+                  <h3 className="text-base font-bold leading-tight mb-0.5" style={{ color: textPrimary }}>
                     {item.prod?.name ?? item.productId}
                   </h3>
-                  <p className="text-sm mb-1" style={{ color: item.accent }}>
+                  <p className="text-xs mb-1.5" style={{ color: item.accent }}>
                     {item.cat?.name}
                   </p>
 
-                  {/* Highlight */}
-                  <p className="text-sm leading-relaxed mb-5" style={{ color: textMuted }}>
+                  {/* Highlight — clamped to 2 lines to keep card height tight */}
+                  <p
+                    className="text-xs leading-relaxed mb-3"
+                    style={{
+                      color: textMuted,
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                    }}
+                  >
                     {item.highlight}
                   </p>
 
-                  {/* Top specs */}
-                  {topSpecs.length > 0 && (
-                    <div
-                      className="rounded-xl overflow-hidden mb-5"
-                      style={{ border: `1px solid ${border}` }}
-                    >
-                      {topSpecs.map((spec, si) => (
-                        <div
-                          key={si}
-                          className="flex items-center justify-between px-3.5 py-2.5"
-                          style={{ borderBottom: si < topSpecs.length - 1 ? `1px solid ${border}` : "none" }}
-                        >
-                          <span className="text-xs flex-shrink-0 mr-2" style={{ color: textFaint }}>{spec.label}</span>
-                          <span className="text-xs font-semibold truncate text-right" title={spec.value} style={{ color: textMuted }}>{spec.value}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
                   {/* CTA */}
                   <div
-                    className="flex items-center gap-1.5 text-sm font-semibold"
+                    className="flex items-center gap-1.5 text-xs font-semibold"
                     style={{
                       color: item.accent,
                       transform: isHov ? "translateX(3px)" : "translateX(0)",

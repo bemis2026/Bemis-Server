@@ -139,25 +139,21 @@ export default function DNA() {
             {/* Texture overlay */}
             <div className="absolute inset-0" style={{ backgroundImage: d ? "radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)" : "radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
 
-            {/* Factory video (öncelikli) veya fotoğraf — content lives inside
-                a centered inner frame at ~55% size so the surrounding gradient
-                + texture form a focal "matte" around the video. */}
+            {/* Factory video (öncelikli) veya fotoğraf — fills the column
+                with a small inset so the gradient + texture form a thin
+                matte around the edges without leaving big empty space. */}
             {dna.factoryVideo ? (() => {
               const yt = dna.factoryVideo!.match(/(?:youtube\.com\/(?:[^/?]+\?.*v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
               return (
                 <div
                   className="absolute"
                   style={{
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    width: "min(55%, 520px)",
-                    aspectRatio: "16 / 9",
+                    inset: "12px",
                     borderRadius: "0.75rem",
                     overflow: "hidden",
                     boxShadow: d
-                      ? `0 24px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06), 0 0 0 6px ${BLUE}15`
-                      : `0 18px 50px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.06), 0 0 0 6px ${BLUE}12`,
+                      ? `0 18px 50px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.06)`
+                      : `0 14px 40px rgba(0,0,0,0.14), 0 0 0 1px rgba(0,0,0,0.06)`,
                   }}
                 >
                   {yt ? (

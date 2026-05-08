@@ -7,13 +7,35 @@ import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import E from "./E";
 
+// Stars fade + scale in one-by-one when the parent card enters the
+// viewport — Framer's whileInView triggers each child's stagger via the
+// shared parent. Re-mounts on key change so each card animates fresh.
 function Stars({ count }: { count: number }) {
   return (
-    <div className="flex gap-0.5">
+    <motion.div
+      className="flex gap-0.5"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-40px" }}
+      variants={{
+        hidden: {},
+        visible: { transition: { staggerChildren: 0.12, delayChildren: 0.08 } },
+      }}
+    >
       {Array.from({ length: count }).map((_, i) => (
-        <HiStar key={i} className="text-[#F59E0B] text-sm" />
+        <motion.span
+          key={i}
+          variants={{
+            hidden: { opacity: 0, scale: 0.4, rotate: -25 },
+            visible: { opacity: 1, scale: 1, rotate: 0 },
+          }}
+          transition={{ duration: 0.32, ease: [0.34, 1.56, 0.64, 1] }}
+          style={{ display: "inline-flex" }}
+        >
+          <HiStar className="text-[#F59E0B] text-sm" />
+        </motion.span>
       ))}
-    </div>
+    </motion.div>
   );
 }
 
