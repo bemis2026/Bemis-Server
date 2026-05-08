@@ -1,14 +1,45 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { HiArrowRight } from "react-icons/hi";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
+import { useEffect, useState } from "react";
 import E from "./E";
 
 const ACCENT = "#3B82F6";
+
+// Cycles through `words` every 2.5s with a fade-up swap. Falls back to a
+// single static word when only one is supplied — keeps the layout stable
+// for editors who clear the rotating list.
+function RotatingWord({ words }: { words: string[] }) {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    if (words.length <= 1) return;
+    const t = setInterval(() => setI((n) => (n + 1) % words.length), 2500);
+    return () => clearInterval(t);
+  }, [words.length]);
+  if (words.length === 0) return null;
+  if (words.length === 1) return <span>{words[0]}</span>;
+  return (
+    <span className="relative inline-block align-baseline" style={{ minWidth: "5ch" }}>
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={words[i]}
+          initial={{ y: "0.6em", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: "-0.6em", opacity: 0 }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="inline-block"
+        >
+          {words[i]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  );
+}
 
 export default function Hero() {
   const { hero, logos } = useContent();
@@ -96,7 +127,9 @@ export default function Hero() {
             />
             <h1 className={`text-3xl xs:text-4xl sm:text-5xl font-black tracking-tight leading-[1.18] ${headlineClass}`} style={{ textShadow }}>
               <E field="hero.headline1">{hero.headline1}</E><br />
-              <E field="hero.headline2">{hero.headline2}</E><br />
+              {hero.headline2Words && hero.headline2Words.length > 1
+                ? <RotatingWord words={hero.headline2Words} />
+                : <E field="hero.headline2">{hero.headline2}</E>}<br />
               <span
                 style={{
                   backgroundImage: d
@@ -172,7 +205,9 @@ export default function Hero() {
             style={{ textShadow }}
           >
             <E field="hero.headline1">{hero.headline1}</E><br />
-            <E field="hero.headline2">{hero.headline2}</E><br />
+            {hero.headline2Words && hero.headline2Words.length > 1
+              ? <RotatingWord words={hero.headline2Words} />
+              : <E field="hero.headline2">{hero.headline2}</E>}<br />
             <span
               style={{
                 backgroundImage: d

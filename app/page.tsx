@@ -17,6 +17,8 @@ const ProductShowcase = dynamic(() => import("./components/ProductShowcase"));
 const SmartCharger = dynamic(() => import("./components/SmartCharger"));
 const FeaturedProducts = dynamic(() => import("./components/FeaturedProducts"));
 const ReferenceProjects = dynamic(() => import("./components/ReferenceProjects"));
+const ScrollProgressBar = dynamic(() => import("./components/ScrollProgressBar"), { ssr: false });
+const CursorFollower = dynamic(() => import("./components/CursorFollower"), { ssr: false });
 const DealerNetwork = dynamic(() => import("./components/DealerNetwork"));
 const Reviews = dynamic(() => import("./components/Reviews"));
 const Calculator = dynamic(() => import("./components/Calculator"));
@@ -47,6 +49,8 @@ export default function Home() {
 
   return (
     <main className="relative" style={{ paddingLeft: isEditMode ? 48 : 0, transition: "padding-left 0.2s" }}>
+      <ScrollProgressBar />
+      <CursorFollower />
       {isEditMode && <EditBar />}
       {isEditMode && <div style={{ height: 42 }} />}
       <Navbar onSearchOpen={() => setSearchOpen(true)} />

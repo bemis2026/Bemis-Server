@@ -89,13 +89,26 @@ export default function Technology() {
           className="flex flex-wrap items-center justify-center gap-2"
         >
           {certs.map((c, i) => (
-            <span
+            <motion.span
               key={i}
-              className="px-3 py-1 rounded-full text-xs font-medium"
-              style={{ background: certBg, border: `1px solid ${certBorder}`, color: textMuted }}
+              className="px-3 py-1 rounded-full text-xs font-medium inline-block"
+              style={{
+                background: certBg,
+                border: `1px solid ${certBorder}`,
+                color: textMuted,
+                transformStyle: "preserve-3d",
+                willChange: "transform",
+              }}
+              animate={{ rotateY: [0, 22, 0, -22, 0] }}
+              transition={{
+                duration: 8,
+                ease: "easeInOut",
+                repeat: Infinity,
+                delay: i * 0.35,
+              }}
             >
               {c}
-            </span>
+            </motion.span>
           ))}
           <img
             src="/badges/tse.webp"

@@ -387,7 +387,20 @@ export default function Products() {
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.55, delay: 0.1 + i * 0.07 }}
                 onMouseEnter={() => !cat.comingSoon ? setHovered(cat.id) : undefined}
-                onMouseLeave={() => setHovered(null)}
+                onMouseMove={(e) => {
+                  if (cat.comingSoon) return;
+                  // Tilt-on-hover — cursor offset from card centre drives a
+                  // small 3D rotateX/Y so the card "leans" toward the cursor.
+                  const card = e.currentTarget as HTMLElement;
+                  const rect = card.getBoundingClientRect();
+                  const px = (e.clientX - rect.left) / rect.width - 0.5;
+                  const py = (e.clientY - rect.top) / rect.height - 0.5;
+                  card.style.transform = `perspective(900px) rotateY(${px * 6}deg) rotateX(${-py * 6}deg) scale(1.018)`;
+                }}
+                onMouseLeave={(e) => {
+                  setHovered(null);
+                  (e.currentTarget as HTMLElement).style.transform = "";
+                }}
                 onClick={() => !cat.comingSoon && router.push(`/products/${cat.id}`)}
                 className={`relative rounded-2xl overflow-hidden ${cat.comingSoon ? "opacity-65 cursor-default" : "cursor-pointer"}`}
                 style={{
@@ -401,7 +414,9 @@ export default function Products() {
                     : d
                       ? `0 4px 20px ${cat.accentGlow}`
                       : `0 4px 20px ${cat.accentGlow}, 0 2px 10px rgba(0,0,0,0.06)`,
-                  transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+                  transition: "border-color 0.3s ease, box-shadow 0.3s ease, transform 0.18s ease-out",
+                  transformStyle: "preserve-3d",
+                  willChange: "transform",
                 }}
               >
                 {/* ── Visual area ── */}

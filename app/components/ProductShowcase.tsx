@@ -127,28 +127,38 @@ export default function ProductShowcase() {
             >
               {galleryCount > 0 ? (
                 <div className="relative w-full h-full group select-none">
-                  <AnimatePresence custom={direction} initial={false} mode="popLayout">
-                    <motion.img
-                      key={`${index}-${galleryImages[index]}`}
-                      src={galleryImages[index]}
-                      alt={nameText}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
-                      draggable={false}
-                      custom={direction}
-                      variants={slideVariants}
-                      initial="enter"
-                      animate="center"
-                      exit="exit"
-                      transition={{ x: { type: "spring", stiffness: 320, damping: 32 }, opacity: { duration: 0.18 } }}
-                      drag={galleryCount > 1 ? "x" : false}
-                      dragConstraints={{ left: 0, right: 0 }}
-                      dragElastic={0.18}
-                      onDragEnd={handleDragEnd}
-                      style={{ touchAction: galleryCount > 1 ? "pan-y" : "auto" }}
-                    />
-                  </AnimatePresence>
+                  {/* Ken Burns wrapper — slow continuous zoom + pan on the
+                      active image so the showcase doesn't sit still. The
+                      inner AnimatePresence still handles slide-on-swap. */}
+                  <motion.div
+                    className="absolute inset-0"
+                    animate={{ scale: [1, 1.07, 1.04, 1.07, 1], x: ["0%", "-1.5%", "1%", "-0.8%", "0%"], y: ["0%", "1%", "-0.8%", "0.6%", "0%"] }}
+                    transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+                    style={{ transformOrigin: "50% 50%" }}
+                  >
+                    <AnimatePresence custom={direction} initial={false} mode="popLayout">
+                      <motion.img
+                        key={`${index}-${galleryImages[index]}`}
+                        src={galleryImages[index]}
+                        alt={nameText}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                        draggable={false}
+                        custom={direction}
+                        variants={slideVariants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{ x: { type: "spring", stiffness: 320, damping: 32 }, opacity: { duration: 0.18 } }}
+                        drag={galleryCount > 1 ? "x" : false}
+                        dragConstraints={{ left: 0, right: 0 }}
+                        dragElastic={0.18}
+                        onDragEnd={handleDragEnd}
+                        style={{ touchAction: galleryCount > 1 ? "pan-y" : "auto" }}
+                      />
+                    </AnimatePresence>
+                  </motion.div>
 
                   {galleryCount > 1 && (
                     <>

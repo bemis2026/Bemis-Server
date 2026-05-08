@@ -862,6 +862,52 @@ export default function Calculator() {
                     </motion.div>
                   </div>
 
+                  {/* Result battery — fills from currentSoc to targetSoc each
+                      time the inputs change, giving an immediate visual cue
+                      next to the numeric stats below. */}
+                  <div className="px-5 pb-1">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: d ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.45)" }}>
+                        {currentSoc}% → {targetSoc}%
+                      </span>
+                      <span className="text-[10px] font-bold tabular-nums" style={{ color: accentColor }}>
+                        {chargeCalc.energyNeeded.toFixed(1)} kWh
+                      </span>
+                    </div>
+                    <div className="relative" style={{ height: 18 }}>
+                      <svg viewBox="0 0 200 18" width="100%" height="18" style={{ display: "block" }}>
+                        {/* Battery shell */}
+                        <rect x="0.75" y="0.75" width="190" height="16.5" rx="3.5"
+                          fill="none" stroke={d ? "rgba(255,255,255,0.22)" : "rgba(0,0,0,0.20)"} strokeWidth="1.2" />
+                        <rect x="192.5" y="5.5" width="6" height="7" rx="1.5"
+                          fill={d ? "rgba(255,255,255,0.22)" : "rgba(0,0,0,0.20)"} />
+                        {/* Dim "current" fill */}
+                        <rect x="2.5" y="2.5" height="13" rx="2"
+                          fill={accentColor} opacity={0.28}
+                          width={Math.max(0, (currentSoc / 100) * 188)} />
+                        {/* Animated "target" delta — keys re-mount the rect so
+                            it tweens 0 → delta on every input change */}
+                        <motion.rect
+                          key={`battery-${currentSoc}-${targetSoc}-${chargeMode}`}
+                          x={2.5 + (currentSoc / 100) * 188}
+                          y="2.5" height="13" rx="2"
+                          fill={accentColor}
+                          initial={{ width: 0, opacity: 0.6 }}
+                          animate={{ width: Math.max(0, ((targetSoc - currentSoc) / 100) * 188), opacity: 0.95 }}
+                          transition={{ duration: 0.6, ease: "easeOut" }}
+                        />
+                        {/* Shimmer band on the filled area */}
+                        <motion.rect
+                          y="2.5" height="13" rx="2"
+                          fill="rgba(255,255,255,0.4)"
+                          initial={{ x: -10, width: 6, opacity: 0 }}
+                          animate={{ x: [(-10), 200], opacity: [0, 0.6, 0] }}
+                          transition={{ duration: 1.8, ease: "linear", repeat: Infinity }}
+                        />
+                      </svg>
+                    </div>
+                  </div>
+
                   {/* Stats row */}
                   <div className="grid grid-cols-3 gap-2 px-4 pb-3">
                     {[

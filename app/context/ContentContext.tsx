@@ -114,7 +114,12 @@ export type HeroLayout = {
 
 export type SiteContent = {
   hero: {
-    badge: string; headline1: string; headline2: string; headline3: string;
+    badge: string;
+    headline1: string;
+    headline2: string;
+    /** Optional rotating words shown in place of headline2 every 2.5s. */
+    headline2Words?: string[];
+    headline3: string;
     subtitle: string; ctaPrimary: string; ctaSecondary: string; heroBg: string;
     heroBgPos?: string;
     layout: HeroLayout;
@@ -252,7 +257,10 @@ function migrateSectionOrder(order: string[]): string[] {
 const defaultContent: SiteContent = {
   hero: {
     badge: "Yerli Üretim · Bursa · 1994",
-    headline1: "Türkiye'nin", headline2: "Şarj Sistemleri", headline3: "Üreticisi",
+    headline1: "Türkiye'nin",
+    headline2: "Şarj Sistemleri",
+    headline2Words: ["Şarj Sistemleri", "Wallbox Çözümleri", "Mobil İstasyonları", "OCPP Üretimi"],
+    headline3: "Üreticisi",
     subtitle: "Evinizden iş yerinize, otopark çözümlerinden sahaya kadar — IP65 sertifikalı AC şarj üniteleri, kablolar ve aksesuarlarla elektrikli araç deneyimini kolaylaştırıyoruz.",
     ctaPrimary: "Ürün Kataloğu", ctaSecondary: "Bayi Bul", heroBg: "", heroBgPos: "75% 50%",
     layout: DEFAULT_LAYOUT,

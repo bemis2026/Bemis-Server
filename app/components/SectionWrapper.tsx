@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import { useEditMode } from "../context/EditModeContext";
 import { useContent } from "../context/ContentContext";
 
@@ -7,6 +8,34 @@ interface SectionWrapperProps {
   index: number;
   total: number;
   children: React.ReactNode;
+}
+
+// Accent "wipe" line that sweeps across the top of each section as it
+// enters the viewport — bridges the palette change between sections so
+// they feel intentional rather than abrupt. Pointer-events off so it
+// never blocks clicks on the section content.
+function SectionAccent() {
+  return (
+    <motion.div
+      initial={{ scaleX: 0, opacity: 0 }}
+      whileInView={{ scaleX: 1, opacity: 1 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
+      aria-hidden="true"
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        height: 1,
+        background: "linear-gradient(90deg, transparent 0%, rgba(59,130,246,0.65) 50%, transparent 100%)",
+        boxShadow: "0 0 12px rgba(59,130,246,0.45)",
+        transformOrigin: "0% 50%",
+        zIndex: 5,
+        pointerEvents: "none",
+      }}
+    />
+  );
 }
 
 const SECTION_LABELS: Record<string, string> = {
@@ -24,7 +53,14 @@ export default function SectionWrapper({ id, index, total, children }: SectionWr
   const { isEditMode } = useEditMode();
   const { reorderSections } = useContent();
 
-  if (!isEditMode) return <>{children}</>;
+  if (!isEditMode) {
+    return (
+      <div style={{ position: "relative" }}>
+        <SectionAccent />
+        {children}
+      </div>
+    );
+  }
 
   return (
     <div style={{ position: "relative" }}>

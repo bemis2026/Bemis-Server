@@ -309,13 +309,26 @@ html[data-theme="light"] [class*="border-[#242424]"] { border-color: #d8d8d8 !im
   border-radius: 2px;
   outline: none;
   cursor: pointer;
-  background: linear-gradient(
-    to right,
-    var(--slider-accent, #3B82F6) 0%,
-    var(--slider-accent, #3B82F6) var(--slider-fill, 50%),
-    #2a2a2a var(--slider-fill, 50%),
-    #2a2a2a 100%
-  );
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255,255,255,0.55) 50%,
+      transparent 100%
+    ) 0/200% 100% no-repeat,
+    linear-gradient(
+      to right,
+      var(--slider-accent, #3B82F6) 0%,
+      var(--slider-accent, #3B82F6) var(--slider-fill, 50%),
+      #2a2a2a var(--slider-fill, 50%),
+      #2a2a2a 100%
+    );
+  background-blend-mode: screen, normal;
+  animation: calcSliderFlow 2.6s linear infinite;
+}
+@keyframes calcSliderFlow {
+  0%   { background-position: -50% 0, 0 0; }
+  100% { background-position: 150% 0, 0 0; }
 }
 .calc-slider::-webkit-slider-runnable-track {
   height: 4px;

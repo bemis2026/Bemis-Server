@@ -198,7 +198,7 @@ type HeroLayoutKey = "logo" | "text" | "button";
 type Tab = "hero" | "dna" | "stats" | "products-section" | "smartcharger" | "productshowcase" | "featured" | "refprojects" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b" | "messages";
 
 const ADMIN_DEFAULT_SECTION_ORDER = [
-  "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "reviews", "dealer", "b2bcta", "calculator"
+  "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "referenceprojects", "reviews", "dealer", "b2bcta", "calculator"
 ];
 
 const SECTION_META: Record<string, { tab: Tab; label: string; icon: React.ElementType }> = {
@@ -1422,8 +1422,16 @@ export default function AdminPage() {
             >
               <HiOutlineHome size={13} className="flex-shrink-0" /> Hero
             </button>
-            {/* Remaining sections: derived from sectionOrder, draggable */}
-            {(content?.sectionOrder ?? ADMIN_DEFAULT_SECTION_ORDER).map((id, i) => {
+            {/* Remaining sections: derived from sectionOrder, draggable.
+                Stale bin orders (missing newly-added sections) get the
+                missing SECTION_META keys auto-appended so new tabs are
+                visible even before the operator drags-and-saves the order. */}
+            {(() => {
+              const stored = content?.sectionOrder ?? ADMIN_DEFAULT_SECTION_ORDER;
+              const known = Object.keys(SECTION_META);
+              const missing = known.filter((k) => !stored.includes(k));
+              return [...stored, ...missing];
+            })().map((id, i) => {
               const meta = SECTION_META[id];
               if (!meta) return null;
               const isActive = tab === meta.tab;
