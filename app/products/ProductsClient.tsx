@@ -59,7 +59,7 @@ function BannerSlider({ categories, d }: { categories: CategoryData[]; d: boolea
   return (
     <div
       className="relative overflow-hidden rounded-2xl"
-      style={{ height: "clamp(220px, 32vw, 360px)" }}
+      style={{ height: "clamp(190px, 26vw, 300px)" }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >

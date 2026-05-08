@@ -14,7 +14,17 @@ import {
   RiPlugLine, RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
   RiArrowLeftLine, RiArrowRightSLine, RiCheckLine,
   RiFileTextLine, RiFilePdfLine, RiExternalLinkLine,
+  RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
+  RiShieldCheckLine, RiBarChart2Line, RiCalendarCheckLine, RiTeamLine,
+  RiLightbulbLine,
 } from "react-icons/ri";
+import { featureById } from "../../../../lib/productFeatures";
+
+const DETAIL_FEATURE_ICONS: Record<string, React.ComponentType<{ size?: number; style?: React.CSSProperties }>> = {
+  RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
+  RiShieldCheckLine, RiBarChart2Line, RiPlugLine, RiFlashlightLine,
+  RiCalendarCheckLine, RiTeamLine, RiLightbulbLine,
+};
 import { HiMail, HiDownload, HiArrowRight } from "react-icons/hi";
 import { trackEvent } from "../../../components/GoogleAnalytics";
 import Image from "next/image";
@@ -27,6 +37,7 @@ type ProductEntry = {
   description: string; specs: SpecGroup[]; image?: string; images?: string[]; pdf?: string;
   generalFeatures?: string[];
   documents?: ProductDocument[];
+  features?: string[];
 };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
@@ -344,6 +355,38 @@ export default function ProductDetailPage() {
                     <p className="text-sm leading-relaxed" style={{ color: textMuted }}>
                       {product.description}
                     </p>
+                  )}
+
+                  {/* Feature badges driven by product.features. OCPP and
+                      App get a slightly larger pill with a label, others
+                      stay icon-only. */}
+                  {product.features && product.features.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {product.features.map((fid) => {
+                        const f = featureById(fid);
+                        if (!f) return null;
+                        const Icon = DETAIL_FEATURE_ICONS[f.icon];
+                        const isMockup = !!f.mockup;
+                        return (
+                          <span
+                            key={fid}
+                            className="inline-flex items-center gap-1.5 rounded-lg"
+                            title={f.label}
+                            style={{
+                              padding: isMockup ? "5px 10px" : "5px 8px",
+                              background: `${f.accent}14`,
+                              border: `1px solid ${f.accent}40`,
+                              color: f.accent,
+                            }}
+                          >
+                            {Icon && <Icon size={isMockup ? 14 : 13} style={{ color: f.accent }} />}
+                            <span className="text-[11px] font-bold tracking-wide">
+                              {f.label}
+                            </span>
+                          </span>
+                        );
+                      })}
+                    </div>
                   )}
                 </div>
 
