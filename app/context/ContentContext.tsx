@@ -575,9 +575,13 @@ const defaultContent: SiteContent = {
 // Merges raw fetched content (from /api/content or server-side readBin) with
 // defaultContent so every nested field is guaranteed to exist. Used by both the
 // initial server-rendered hydration and runtime client refetches.
+// `lang` is used by the navbar migration to pick a localized label for the
+// auto-injected Projeler / Projects link (since it's added client-side and
+// therefore bypasses the bin's translation walker).
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function mergeContent(data: any): SiteContent {
+export function mergeContent(data: any, lang: Lang = "tr"): SiteContent {
   const safe = (data ?? {}) as Record<string, unknown> & { [k: string]: any };
+  const projelerLabel = lang === "en" ? "Projects" : "Projeler";
   return {
     ...defaultContent,
     ...safe,
@@ -616,9 +620,12 @@ export function mergeContent(data: any): SiteContent {
       const baseLinks: LinkItem[] = safe.navbar?.links ?? defaultContent.navbar.links;
       const cleaned = baseLinks.filter((l) => l?.href !== "#contact");
       const hasProjeler = cleaned.some((l) => l?.href === "#referenceprojects");
+      // Always force the Projeler link to use the language-correct label so
+      // EN visitors see "Projects" — this link is injected client-side and
+      // therefore bypasses the bin's translation walker.
       const withProjeler: LinkItem[] = hasProjeler
-        ? cleaned
-        : [...cleaned, { label: "Projeler", href: "#referenceprojects" }];
+        ? cleaned.map((l) => l?.href === "#referenceprojects" ? { ...l, label: projelerLabel } : l)
+        : [...cleaned, { label: projelerLabel, href: "#referenceprojects" }];
 
       const order = migrateSectionOrder(safe.sectionOrder ?? DEFAULT_SECTION_ORDER);
       const sectionIdx = (href?: string) => {
@@ -737,7 +744,7 @@ export function ContentProvider({ children, initialContent }: { children: ReactN
   const { lang } = useLanguage();
   const [hist, setHist] = useState<HistoryState>(() => ({
     past: [],
-    present: initialContent ? mergeContent(initialContent) : defaultContent,
+    present: initialContent ? mergeContent(initialContent, lang) : defaultContent,
     future: [],
   }));
   const [refreshKey, setRefreshKey] = useState(0);
@@ -828,11 +835,11 @@ export function ContentProvider({ children, initialContent }: { children: ReactN
         return;
       }
       if (e.data?.type !== "BEMIS_PREVIEW" || !e.data?.content) return;
-      setHist({ past: [], present: mergeContent(e.data.content), future: [] });
+      setHist({ past: [], present: mergeContent(e.data.content, lang), future: [] });
     };
     window.addEventListener("message", handler);
     return () => window.removeEventListener("message", handler);
-  }, []);
+  }, [lang]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -843,7 +850,7 @@ export function ContentProvider({ children, initialContent }: { children: ReactN
         return r.json();
       })
       .then(data => {
-        setHist({ past: [], present: mergeContent(data), future: [] });
+        setHist({ past: [], present: mergeContent(data, lang), future: [] });
         setContentError(null);
       })
       .catch(err => {
