@@ -225,14 +225,8 @@ export default function ProductDetailPage() {
                           ))}
                         </div>
                       )}
-                      {/* ── CTA below gallery ── */}
-                      <button
-                        onClick={() => router.push("/#contact")}
-                        className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold transition-all hover:opacity-90 active:scale-95"
-                        style={{ background: `linear-gradient(135deg, ${accent}, ${accent}cc)`, color: "#fff", boxShadow: `0 4px 16px ${accent}35` }}
-                      >
-                        <HiMail size={15} /> Teklif Al
-                      </button>
+                      {/* "Teklif Al" CTA removed per spec — product detail
+                          now leads with the PDF catalog link instead. */}
                       {product.pdf && (
                         <a
                           href={product.pdf} download target="_blank" rel="noreferrer"

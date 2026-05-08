@@ -87,11 +87,12 @@ import {
 } from "../../lib/turkeyCities";
 import { WORLD_COUNTRIES } from "../../lib/worldCountries";
 import { DEALER_TIERS } from "../../lib/dealerTiers";
+import { PRODUCT_FEATURES } from "../../lib/productFeatures";
 
 type SpecItem = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
 type ProductDocument = { label: string; url: string };
-type ProductEntry = { id: string; name: string; code?: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[]; generalFeatures?: string[]; documents?: ProductDocument[] };
+type ProductEntry = { id: string; name: string; code?: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[]; generalFeatures?: string[]; documents?: ProductDocument[]; features?: string[] };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
 type StatItem = { value: number; suffix: string; prefix?: string; label: string; description: string };
@@ -2270,6 +2271,51 @@ export default function AdminPage() {
                                         })()}
                                         <p className="text-[10px] text-white/20">İlk görsel ürün listelerinde ana görsel olarak kullanılır. Önerilen: 800×600 WebP/JPG.</p>
                                         <input ref={prodImgRef} type="file" accept="image/*" className="hidden" onChange={handleProdImgUpload} />
+                                      </div>
+                                    </div>
+
+                                    {/* Feature toggles — shown as small icon
+                                        badges on product cards. Selected ids
+                                        live in `product.features[]`. */}
+                                    <div className="space-y-2">
+                                      <div>
+                                        <p className="text-xs font-semibold text-white/50 mb-1">Ürün Özellikleri</p>
+                                        <p className="text-[10px] text-white/30">Ürün kartlarında küçük ikon olarak gösterilir. OCPP ve Mobil Uygulama seçilirse karta browser/telefon mockup'ı eklenir.</p>
+                                      </div>
+                                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
+                                        {PRODUCT_FEATURES.map((f) => {
+                                          const enabled = (currentProd.features ?? []).includes(f.id);
+                                          return (
+                                            <label
+                                              key={f.id}
+                                              className="flex items-center gap-2 px-2.5 py-2 rounded-lg cursor-pointer transition-colors"
+                                              style={{
+                                                background: enabled ? `${f.accent}1f` : "rgba(255,255,255,0.03)",
+                                                border: enabled ? `1px solid ${f.accent}66` : "1px solid rgba(255,255,255,0.06)",
+                                              }}
+                                            >
+                                              <input
+                                                type="checkbox"
+                                                checked={enabled}
+                                                onChange={(e) => {
+                                                  setProducts((prev) => {
+                                                    const next = JSON.parse(JSON.stringify(prev)) as CategoryData[];
+                                                    const cat = next.find((c) => c.id === selCat);
+                                                    const prod = cat?.products.find((p) => p.id === selProd);
+                                                    if (!prod) return prev;
+                                                    const cur = new Set(prod.features ?? []);
+                                                    if (e.target.checked) cur.add(f.id); else cur.delete(f.id);
+                                                    prod.features = Array.from(cur);
+                                                    return next;
+                                                  });
+                                                }}
+                                                className="accent-blue-500"
+                                              />
+                                              <span className="inline-block w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: f.accent }} />
+                                              <span className="text-[11px] font-semibold" style={{ color: enabled ? "#ffffff" : "rgba(255,255,255,0.55)" }}>{f.label}</span>
+                                            </label>
+                                          );
+                                        })}
                                       </div>
                                     </div>
 

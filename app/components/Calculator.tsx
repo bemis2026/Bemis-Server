@@ -863,30 +863,19 @@ export default function Calculator() {
                   </div>
 
                   {/* Result battery — fills from currentSoc to targetSoc each
-                      time the inputs change, giving an immediate visual cue
-                      next to the numeric stats below. */}
-                  <div className="px-5 pb-1">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: d ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.45)" }}>
-                        {currentSoc}% → {targetSoc}%
-                      </span>
-                      <span className="text-[10px] font-bold tabular-nums" style={{ color: accentColor }}>
-                        {chargeCalc.energyNeeded.toFixed(1)} kWh
-                      </span>
-                    </div>
-                    <div className="relative" style={{ height: 18 }}>
-                      <svg viewBox="0 0 200 18" width="100%" height="18" style={{ display: "block" }}>
-                        {/* Battery shell */}
+                      time the inputs change. The numeric SOC range already
+                      shows in the top header chip; the kWh shows in the stats
+                      grid — so the battery itself stays text-free. */}
+                  <div className="px-4 pb-2">
+                    <div className="relative" style={{ height: 16 }}>
+                      <svg viewBox="0 0 200 18" width="100%" height="16" preserveAspectRatio="none" style={{ display: "block" }}>
                         <rect x="0.75" y="0.75" width="190" height="16.5" rx="3.5"
                           fill="none" stroke={d ? "rgba(255,255,255,0.22)" : "rgba(0,0,0,0.20)"} strokeWidth="1.2" />
                         <rect x="192.5" y="5.5" width="6" height="7" rx="1.5"
                           fill={d ? "rgba(255,255,255,0.22)" : "rgba(0,0,0,0.20)"} />
-                        {/* Dim "current" fill */}
                         <rect x="2.5" y="2.5" height="13" rx="2"
                           fill={accentColor} opacity={0.28}
                           width={Math.max(0, (currentSoc / 100) * 188)} />
-                        {/* Animated "target" delta — keys re-mount the rect so
-                            it tweens 0 → delta on every input change */}
                         <motion.rect
                           key={`battery-${currentSoc}-${targetSoc}-${chargeMode}`}
                           x={2.5 + (currentSoc / 100) * 188}

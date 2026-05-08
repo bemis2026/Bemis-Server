@@ -6,12 +6,25 @@ import { useRouter } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
-import { HiArrowRight, HiStar } from "react-icons/hi";
+import { HiArrowRight } from "react-icons/hi";
+import {
+  RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
+  RiShieldCheckLine, RiBarChart2Line, RiPlugLine, RiFlashlightLine,
+  RiCalendarCheckLine, RiTeamLine, RiLightbulbLine,
+} from "react-icons/ri";
+import { featureById } from "../../lib/productFeatures";
 import E from "./E";
+
+// Map ProductFeatures icon strings → react-icons components.
+const FEATURE_ICONS: Record<string, React.ComponentType<{ size?: number; style?: React.CSSProperties }>> = {
+  RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
+  RiShieldCheckLine, RiBarChart2Line, RiPlugLine, RiFlashlightLine,
+  RiCalendarCheckLine, RiTeamLine, RiLightbulbLine,
+};
 
 type SpecItem = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
-type ProductEntry = { id: string; name: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string };
+type ProductEntry = { id: string; name: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; features?: string[] };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
 // Category accent colors — must match Products.tsx
@@ -211,7 +224,7 @@ export default function FeaturedProducts() {
 
                   {/* Highlight — clamped to 2 lines to keep card height tight */}
                   <p
-                    className="text-xs leading-relaxed mb-3"
+                    className="text-xs leading-relaxed mb-2"
                     style={{
                       color: textMuted,
                       display: "-webkit-box",
@@ -222,6 +235,44 @@ export default function FeaturedProducts() {
                   >
                     {item.highlight}
                   </p>
+
+                  {/* Feature badges — small icon row driven by product.features.
+                      OCPP and App get a slightly larger pill that doubles as a
+                      "browser/phone" hint per spec. */}
+                  {item.prod?.features && item.prod.features.length > 0 && (
+                    <div className="flex flex-wrap gap-1 mb-3">
+                      {item.prod.features.slice(0, 6).map((fid) => {
+                        const f = featureById(fid);
+                        if (!f) return null;
+                        const Icon = FEATURE_ICONS[f.icon];
+                        const isMockup = !!f.mockup;
+                        return (
+                          <span
+                            key={fid}
+                            className="inline-flex items-center gap-1 rounded-md"
+                            title={f.label}
+                            style={{
+                              padding: isMockup ? "3px 6px" : "3px 5px",
+                              background: isMockup ? `${f.accent}1c` : `${f.accent}10`,
+                              border: `1px solid ${f.accent}40`,
+                            }}
+                          >
+                            {Icon && <Icon size={12} style={{ color: f.accent }} />}
+                            {isMockup && (
+                              <span className="text-[9px] font-bold tracking-wide" style={{ color: f.accent }}>
+                                {f.mockup === "phone" ? "App" : "OCPP"}
+                              </span>
+                            )}
+                          </span>
+                        );
+                      })}
+                      {item.prod.features.length > 6 && (
+                        <span className="text-[9px] font-semibold px-1.5 py-1 rounded-md" style={{ background: "rgba(255,255,255,0.04)", color: textFaint }}>
+                          +{item.prod.features.length - 6}
+                        </span>
+                      )}
+                    </div>
+                  )}
 
                   {/* CTA */}
                   <div
