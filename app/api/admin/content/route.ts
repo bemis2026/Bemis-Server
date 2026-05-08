@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readFileSync } from "fs";
 import path from "path";
+import { revalidatePath } from "next/cache";
 import { readBin, writeBin } from "../../../../lib/jsonbin";
 import { translateContent } from "../../../../lib/contentTranslate";
 
@@ -56,6 +57,7 @@ export async function POST(req: NextRequest) {
       try { curTr = await readBin("content", { fresh: true }) ?? {}; } catch {}
       const next = { ...curTr, _translations: { ...(curTr._translations ?? {}), en: stripTranslations(body) } };
       await writeBin("content", next);
+      try { revalidatePath("/api/content"); revalidatePath("/"); } catch {}
       return NextResponse.json({ ok: true });
     }
 
@@ -76,6 +78,7 @@ export async function POST(req: NextRequest) {
 
     const next = { ...trBody, _translations: { ...(prevBin._translations ?? {}), en: enBody ?? trBody } };
     await writeBin("content", next);
+    try { revalidatePath("/api/content"); revalidatePath("/"); } catch {}
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error("content save error:", e);

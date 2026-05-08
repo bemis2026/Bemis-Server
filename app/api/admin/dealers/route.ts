@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readFileSync } from "fs";
 import path from "path";
+import { revalidatePath } from "next/cache";
 import { readBin, writeBin } from "../../../../lib/jsonbin";
 
 function isAuthed(req: NextRequest) {
@@ -26,6 +27,10 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     await writeBin("dealers", body);
+    // Bust the public /api/dealers + homepage cache so edits reflect at
+    // once instead of waiting for the 60s revalidate window.
+    try { revalidatePath("/api/dealers"); } catch {}
+    try { revalidatePath("/"); } catch {}
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error("dealers save error:", e);

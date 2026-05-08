@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readFileSync } from "fs";
 import path from "path";
+import { revalidatePath } from "next/cache";
 import { readBin, writeBin } from "../../../../lib/jsonbin";
 import { translateProducts } from "../../../../lib/productsTranslate";
 
@@ -98,6 +99,7 @@ export async function POST(req: NextRequest) {
       writeBin("productsEn",      { en: enMain }),
       writeBin("productsEnExtra", { en: enEx }),
     ]);
+    try { revalidatePath("/api/products"); revalidatePath("/"); revalidatePath("/products"); } catch {}
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error("products save error:", e);

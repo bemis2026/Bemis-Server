@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readFileSync } from "fs";
 import path from "path";
+import { revalidatePath } from "next/cache";
 import { readBin, writeBin } from "../../../../lib/jsonbin";
 import { translateContent } from "../../../../lib/contentTranslate";
 import { B2B_TRANSLATABLE_PATHS } from "../../../../lib/b2bTranslate";
@@ -71,6 +72,7 @@ export async function POST(req: NextRequest) {
 
     const next = { ...trBody, _translations: { ...(prevBin._translations ?? {}), en: enBody ?? trBody } };
     await writeBin("b2b", next);
+    try { revalidatePath("/api/b2b"); revalidatePath("/"); revalidatePath("/b2b"); revalidatePath("/bayilik"); revalidatePath("/operator"); } catch {}
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error("b2b save error:", e);
