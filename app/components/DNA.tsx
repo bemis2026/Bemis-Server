@@ -123,15 +123,14 @@ export default function DNA() {
 
           </div>
 
-          {/* Right col — video on top (~half height), Bemis Group brand
-              card stacked underneath with the 3 sister-brand logos. */}
+          {/* Right col — factory video card. Bemis Group brand strip
+              moved to /kurumsal (Bemis Dünyasını Keşfet) page. */}
           <motion.div
             initial={{ opacity: 0, x: 18 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="lg:col-span-3 flex flex-col gap-4"
+            className="lg:col-span-3"
           >
-            {/* Video card */}
             <div
               className="relative rounded-2xl overflow-hidden aspect-video"
               style={{
@@ -145,16 +144,16 @@ export default function DNA() {
               {dna.factoryVideo ? (() => {
                 const yt = dna.factoryVideo!.match(/(?:youtube\.com\/(?:[^/?]+\?.*v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
                 if (yt) {
+                  // playsinline=1 + mute=1 are mandatory for mobile autoplay
+                  // (iOS Safari + Android Chrome). loading="eager" so the
+                  // iframe boots immediately — lazy delay was causing the
+                  // browser to skip autoplay on first viewport entry.
                   return (
                     <iframe
-                      // playsinline=1 + mute=1 are required for autoplay on
-                      // iOS Safari and most mobile browsers — otherwise the
-                      // iframe stays empty and the section looks broken.
-                      src={`https://www.youtube.com/embed/${yt[1]}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${yt[1]}&controls=1&modestbranding=1&rel=0`}
+                      src={`https://www.youtube-nocookie.com/embed/${yt[1]}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${yt[1]}&controls=1&modestbranding=1&rel=0&iv_load_policy=3`}
                       title="Bemis fabrika videosu"
-                      allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                      allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
                       allowFullScreen
-                      loading="lazy"
                       style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none" }}
                     />
                   );
@@ -162,7 +161,7 @@ export default function DNA() {
                 return (
                   <video
                     src={dna.factoryVideo}
-                    autoPlay loop muted playsInline
+                    autoPlay loop muted playsInline preload="auto"
                     style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
                   />
                 );
@@ -192,59 +191,6 @@ export default function DNA() {
               </div>
             </div>
 
-            {/* Bemis Group brands card */}
-            <div
-              className="rounded-2xl p-5 sm:p-6"
-              style={{
-                background: d ? `linear-gradient(135deg, ${BLUE}10 0%, rgba(255,255,255,0.02) 100%)` : `linear-gradient(135deg, ${BLUE}0d 0%, rgba(0,0,0,0.01) 100%)`,
-                border: d ? `1px solid ${BLUE}28` : `1px solid ${BLUE}22`,
-              }}
-            >
-              <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: d ? "#93C5FD" : BLUE }}>
-                <E field="dna.groupBrandsTitle" tag="span">{dna.groupBrandsTitle ?? "Bemis Grup Markaları"}</E>
-              </p>
-              <p className="text-sm leading-relaxed mb-4" style={{ color: d ? "rgba(255,255,255,0.62)" : "rgba(0,0,0,0.58)" }}>
-                <E field="dna.groupBrandsBody" tag="span">{dna.groupBrandsBody ?? ""}</E>
-              </p>
-              <div className="flex flex-wrap items-center gap-3">
-                {(dna.groupBrands ?? []).map((b, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-2 rounded-xl px-3 py-2"
-                    style={{
-                      background: d ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.85)",
-                      border: d ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.08)",
-                      minHeight: 48,
-                    }}
-                  >
-                    {b.logo ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={b.logo}
-                        alt={b.name}
-                        style={{ height: 28, width: "auto", maxWidth: 100, objectFit: "contain" }}
-                        loading="lazy"
-                      />
-                    ) : (
-                      <span
-                        className="inline-flex items-center justify-center rounded-lg text-[10px] font-black"
-                        style={{
-                          width: 28, height: 28,
-                          background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)",
-                          border: d ? "1px dashed rgba(255,255,255,0.18)" : "1px dashed rgba(0,0,0,0.18)",
-                          color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.30)",
-                        }}
-                      >
-                        {b.name?.[0] ?? "?"}
-                      </span>
-                    )}
-                    <span className="text-xs font-bold" style={{ color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.80)" }}>
-                      {b.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
           </motion.div>
         </div>
 

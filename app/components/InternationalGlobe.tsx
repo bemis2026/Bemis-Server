@@ -66,8 +66,9 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
       controls.enableZoom = true;
       controls.zoomSpeed = 0.9;
       controls.enableRotate = true;
-      controls.enablePan = false; // pan would scroll content off-globe
-      // Pinch-to-zoom on touch — TWO fingers = DOLLY_PAN (THREE.TOUCH = 2).
+      // enablePan must stay true for THREE.TOUCH.DOLLY_PAN (=2) to register
+      // the second finger — otherwise pinch is silently dropped on mobile.
+      controls.enablePan = true;
       controls.touches = { ONE: 0, TWO: 2 };
       controls.minDistance = 180;
       controls.maxDistance = 600;

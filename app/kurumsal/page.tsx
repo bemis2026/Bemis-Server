@@ -613,6 +613,60 @@ export default function KurumsalPage() {
               </div>
             </div>
 
+            {/* Bemis Grup Markaları — title + body + 3 logo strip. Moved
+                here from the homepage DNA section per spec. */}
+            {(dna.groupBrandsTitle || dna.groupBrandsBody || (dna.groupBrands && dna.groupBrands.length > 0)) && (
+              <div style={{ borderTop: `1px solid ${divider}`, paddingTop: 32, marginTop: 32 }}>
+                <p className="text-[10px] font-bold tracking-[0.18em] uppercase mb-3" style={{ color: textFaint }}>
+                  {dna.groupBrandsTitle ?? "Bemis Grup Markaları"}
+                </p>
+                {dna.groupBrandsBody && (
+                  <p className="text-sm leading-relaxed mb-5 max-w-2xl" style={{ color: textMuted }}>
+                    {dna.groupBrandsBody}
+                  </p>
+                )}
+                <div className="flex flex-wrap items-center gap-3">
+                  {(dna.groupBrands ?? []).map((b, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-2 rounded-xl px-4 py-2.5"
+                      style={{
+                        background: d ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.95)",
+                        border: d ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.08)",
+                        boxShadow: d ? "none" : "0 1px 8px rgba(0,0,0,0.05)",
+                        minHeight: 56,
+                      }}
+                    >
+                      {b.logo ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={b.logo}
+                          alt={b.name}
+                          style={{ height: 36, width: "auto", maxWidth: 140, objectFit: "contain" }}
+                          loading="lazy"
+                        />
+                      ) : (
+                        <span
+                          className="inline-flex items-center justify-center rounded-lg text-[11px] font-black"
+                          style={{
+                            width: 36, height: 36,
+                            background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)",
+                            border: d ? "1px dashed rgba(255,255,255,0.20)" : "1px dashed rgba(0,0,0,0.20)",
+                            color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.30)",
+                          }}
+                        >
+                          {b.name?.[0] ?? "?"}
+                        </span>
+                      )}
+                      <span className="text-sm font-bold" style={{ color: textPrimary }}>
+                        {b.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
           </div>
         </div>
 
