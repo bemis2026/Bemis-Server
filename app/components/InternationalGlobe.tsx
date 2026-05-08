@@ -53,11 +53,24 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
   useEffect(() => {
     const g = globeRef.current;
     if (!g) return;
-    const controls = g.controls() as unknown as { autoRotate: boolean; autoRotateSpeed: number; enableZoom: boolean };
+    const controls = g.controls() as unknown as {
+      autoRotate: boolean; autoRotateSpeed: number;
+      enableZoom: boolean; zoomSpeed?: number;
+      enableRotate?: boolean; enablePan?: boolean;
+      minDistance?: number; maxDistance?: number;
+      touches?: { ONE?: number; TWO?: number };
+    };
     if (controls) {
       controls.autoRotate = false;
       controls.autoRotateSpeed = 0.4;
       controls.enableZoom = true;
+      controls.zoomSpeed = 0.9;
+      controls.enableRotate = true;
+      controls.enablePan = false; // pan would scroll content off-globe
+      // Pinch-to-zoom on touch — TWO fingers = DOLLY_PAN (THREE.TOUCH = 2).
+      controls.touches = { ONE: 0, TWO: 2 };
+      controls.minDistance = 180;
+      controls.maxDistance = 600;
     }
     // Crank the renderer up to the device's native pixel ratio so the texture
     // looks crisp on retina/HiDPI displays (default behaviour caps it at 1).
@@ -126,6 +139,11 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
         background: dark
           ? "radial-gradient(ellipse at 50% 45%, rgba(59,130,246,0.10) 0%, transparent 65%)"
           : "radial-gradient(ellipse at 50% 45%, rgba(59,130,246,0.08) 0%, transparent 65%)",
+        // touch-action: none lets OrbitControls own all gestures inside the
+        // globe (one-finger rotate, two-finger pinch-zoom, two-finger pan).
+        // Without it, the browser captures the second finger for page zoom
+        // and the globe can't be zoomed on mobile.
+        touchAction: "none",
       }}
     >
       <div
