@@ -26,9 +26,16 @@ export default function ReferenceProjects() {
   const textPrimary = d ? "#ffffff" : "#111111";
   const textMuted   = d ? "rgba(255,255,255,0.42)" : "rgba(0,0,0,0.42)";
 
-  // Dynamic marquee duration so longer lists scroll proportionally — caps
-  // the speed so even a 2-item list stays slow enough to read.
-  const duration = Math.max(22, items.length * 5);
+  // We tile the items 4× minimum (more for short lists) so the band stays
+  // wider than the viewport — no empty space at the edges before the loop
+  // wraps. Animation end is 1/copies so one full set scrolls per cycle and
+  // the loop is seamless. Duration tuned to keep ~constant per-pixel speed.
+  const copies = Math.max(4, Math.ceil(8 / Math.max(items.length, 1)));
+  const repeatedItems = Array.from({ length: copies }, (_, k) =>
+    items.map((it) => ({ ...it, _k: k }))
+  ).flat();
+  const duration = Math.max(12, items.length * 2.5);
+  const animEnd = `-${(100 / copies).toFixed(3)}%`;
   const sectionBgUrl = sectionBgs?.["referenceProjects"] ?? "";
 
   return (
@@ -88,9 +95,10 @@ export default function ReferenceProjects() {
             style={{
               width: "max-content",
               animation: `referenceMarquee ${duration}s linear infinite reverse`,
+              ["--marquee-end" as string]: animEnd,
             }}
           >
-            {[...items, ...items].map((item, i) => (
+            {repeatedItems.map((item, i) => (
               <motion.div
                 key={`${item.id}-${i}`}
                 initial={{ opacity: 0, y: 24 }}
@@ -146,7 +154,7 @@ export default function ReferenceProjects() {
       <style jsx>{`
         @keyframes referenceMarquee {
           0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          100% { transform: translateX(var(--marquee-end, -50%)); }
         }
         .reference-marquee-track:hover { animation-play-state: paused; }
       `}</style>
