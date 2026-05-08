@@ -26,15 +26,15 @@ export default function ReferenceProjects() {
   const textPrimary = d ? "#ffffff" : "#111111";
   const textMuted   = d ? "rgba(255,255,255,0.42)" : "rgba(0,0,0,0.42)";
 
-  // We tile the items 4× minimum (more for short lists) so the band stays
-  // wider than the viewport — no empty space at the edges before the loop
-  // wraps. Animation end is 1/copies so one full set scrolls per cycle and
-  // the loop is seamless. Duration tuned to keep ~constant per-pixel speed.
-  const copies = Math.max(4, Math.ceil(8 / Math.max(items.length, 1)));
+  // We tile generously — at MAX translation (-100/copies%) the visible band
+  // must still extend past the right edge. Tight for short lists, so we
+  // scale copies up when items are few. Even a single-item list ends up
+  // tiled 20× so the strip never reveals an empty patch at the edge.
+  const copies = Math.max(8, Math.ceil(20 / Math.max(items.length, 1)));
   const repeatedItems = Array.from({ length: copies }, (_, k) =>
     items.map((it) => ({ ...it, _k: k }))
   ).flat();
-  const duration = Math.max(12, items.length * 2.5);
+  const duration = Math.max(10, items.length * 2);
   const animEnd = `-${(100 / copies).toFixed(3)}%`;
   const sectionBgUrl = sectionBgs?.["referenceProjects"] ?? "";
 
@@ -46,10 +46,9 @@ export default function ReferenceProjects() {
           <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.68)" : "rgba(255,255,255,0.72)" }} />
         </>
       )}
-      <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-
-        {/* Header */}
-        <div className="text-center mb-7">
+      <div ref={ref} className="relative z-[1]">
+        {/* Header — kept inside the standard width wrapper */}
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center mb-7">
           <motion.span
             initial={{ opacity: 0, y: 10 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4 }}
             className="inline-block text-xs font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-full mb-4"
