@@ -159,20 +159,6 @@ export async function GET(req: NextRequest) {
       }));
       return { ...trRP, ...enRP, items };
     })(),
-    gallerySection: (() => {
-      const trGS = tr.gallerySection ?? {};
-      const enGS = en.gallerySection ?? {};
-      const trItems = Array.isArray(trGS.items) ? trGS.items : [];
-      const enItems = Array.isArray(enGS.items) ? enGS.items : [];
-      const items = trItems.map((it: Record<string, unknown>, i: number) => ({
-        ...it,
-        ...(enItems[i] ?? {}),
-        image: it.image,
-        id: it.id,
-        aspect: it.aspect,
-      }));
-      return { ...trGS, ...enGS, items };
-    })(),
     smartCharger: en.smartCharger
       ? {
           ...tr.smartCharger,

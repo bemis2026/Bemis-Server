@@ -161,10 +161,6 @@ type ContentData = {
     sectionLabel: string; heading: string; subheading: string;
     items: { id: string; image: string; title?: string; location?: string; description?: string }[];
   };
-  gallerySection?: {
-    sectionLabel: string; heading: string; subheading: string;
-    items: { id: string; image: string; caption?: string; aspect?: "tall" | "wide" | "square" }[];
-  };
   calculator?: { sectionLabel: string; heading: string; subheading: string; tabCharge: string; tabSavings: string; chargeSimLabel: string };
   smartCharger?: { sectionLabel: string; heading: string; subheading: string; ocppBadge: string; ctaLabel: string; ctaHref: string; appStoreHref: string; playStoreHref: string; features: { title: string; desc: string }[]; mockupPhoneImage?: string; mockupWebImage?: string };
   productShowcase?: { badge: string; name: string; tagline: string; description: string; image: string; images?: string[]; specs: { label: string; value: string }[]; ctaPrimary: string; ctaHref: string; ctaSecondary: string; ctaSecondaryHref: string; products?: ShowcaseProductItem[]; overlayFeatures?: string[] };
@@ -199,10 +195,10 @@ type ShowcaseProductItem = {
 };
 type HeroLayoutKey = "logo" | "text" | "button";
 
-type Tab = "hero" | "dna" | "stats" | "products-section" | "smartcharger" | "productshowcase" | "featured" | "gallery" | "refprojects" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b" | "messages";
+type Tab = "hero" | "dna" | "stats" | "products-section" | "smartcharger" | "productshowcase" | "featured" | "refprojects" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b" | "messages";
 
 const ADMIN_DEFAULT_SECTION_ORDER = [
-  "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "gallery", "referenceprojects", "reviews", "dealer", "b2bcta", "calculator"
+  "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "referenceprojects", "reviews", "dealer", "b2bcta", "calculator"
 ];
 
 const SECTION_META: Record<string, { tab: Tab; label: string; icon: React.ElementType }> = {
@@ -212,7 +208,6 @@ const SECTION_META: Record<string, { tab: Tab; label: string; icon: React.Elemen
   "smartcharger":   { tab: "smartcharger",    label: "Akıllı Şarj",    icon: HiOutlineLightningBolt  },
   "products":       { tab: "products",         label: "Ürünler",        icon: HiOutlineCube           },
   "featured":       { tab: "featured",        label: "Öne Çıkanlar",   icon: HiOutlineStar           },
-  "gallery":        { tab: "gallery",         label: "Galeri",          icon: HiOutlinePhotograph     },
   "referenceprojects": { tab: "refprojects",   label: "Referans Projeler", icon: HiOutlinePhotograph  },
   "reviews":        { tab: "reviews",         label: "Yorumlar",       icon: HiOutlineStar           },
   "dealer":         { tab: "dealers",         label: "Bayi Haritası",  icon: HiOutlineLocationMarker },
@@ -2805,184 +2800,6 @@ export default function AdminPage() {
                   </div>
                 </div>
               )}
-
-              {/* ── GALERİ ── */}
-              {tab === "gallery" && (() => {
-                const gs = content.gallerySection ?? {
-                  sectionLabel: "Galeri",
-                  heading: "Showroom & Üretim",
-                  subheading: "Bursa'daki üretim tesisimizden ve showroom'umuzdan kareler.",
-                  items: [],
-                };
-                const updateGSField = (field: "sectionLabel" | "heading" | "subheading", value: string) => {
-                  setContent((prev) => {
-                    if (!prev) return prev;
-                    const next = JSON.parse(JSON.stringify(prev)) as ContentData;
-                    next.gallerySection = { ...gs, [field]: value };
-                    return next;
-                  });
-                };
-                const updateGItem = (idx: number, field: string, value: string) => {
-                  setContent((prev) => {
-                    if (!prev) return prev;
-                    const next = JSON.parse(JSON.stringify(prev)) as ContentData;
-                    const items = [...(next.gallerySection?.items ?? [])];
-                    items[idx] = { ...items[idx], [field]: value };
-                    next.gallerySection = { ...gs, items };
-                    return next;
-                  });
-                };
-                const addGItem = () => {
-                  setContent((prev) => {
-                    if (!prev) return prev;
-                    const next = JSON.parse(JSON.stringify(prev)) as ContentData;
-                    const items = [...(next.gallerySection?.items ?? [])];
-                    items.push({ id: `g-${Date.now()}`, image: "", caption: "", aspect: "square" });
-                    next.gallerySection = { ...gs, items };
-                    return next;
-                  });
-                };
-                const removeGItem = (idx: number) => {
-                  if (!window.confirm("Bu görseli silmek istediğinize emin misiniz?")) return;
-                  setContent((prev) => {
-                    if (!prev) return prev;
-                    const next = JSON.parse(JSON.stringify(prev)) as ContentData;
-                    const items = [...(next.gallerySection?.items ?? [])];
-                    items.splice(idx, 1);
-                    next.gallerySection = { ...gs, items };
-                    return next;
-                  });
-                };
-                const moveGItem = (idx: number, dir: -1 | 1) => {
-                  setContent((prev) => {
-                    if (!prev) return prev;
-                    const next = JSON.parse(JSON.stringify(prev)) as ContentData;
-                    const items = [...(next.gallerySection?.items ?? [])];
-                    const newIdx = idx + dir;
-                    if (newIdx < 0 || newIdx >= items.length) return prev;
-                    [items[idx], items[newIdx]] = [items[newIdx], items[idx]];
-                    next.gallerySection = { ...gs, items };
-                    return next;
-                  });
-                };
-                return (
-                  <div className="max-w-2xl space-y-5">
-                    <div>
-                      <h2 className="text-base font-bold mb-1">Galeri</h2>
-                      <p className="text-xs text-white/35">Anasayfada masonry grid + lightbox olarak gösterilen showroom / üretim / kurulum görselleri.</p>
-                    </div>
-                    <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
-                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Bölüm Başlıkları</p>
-                      <Field label="Bölüm Etiketi" value={gs.sectionLabel} onChange={(v) => updateGSField("sectionLabel", v)} />
-                      <Field label="Başlık"        value={gs.heading}      onChange={(v) => updateGSField("heading", v)} />
-                      <Field label="Alt Başlık"    value={gs.subheading}   onChange={(v) => updateGSField("subheading", v)} multiline />
-                    </div>
-                    <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider mb-1">Görseller</p>
-                          <p className="text-[10px] text-white/30">Şekil seçimi grid'de görselin kapladığı alanı belirler — uzun (2x dikey), geniş (2x yatay), kare.</p>
-                        </div>
-                        <button
-                          onClick={addGItem}
-                          className="flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg transition-all"
-                          style={{ background: "rgba(59,130,246,0.18)", border: "1px solid rgba(59,130,246,0.45)", color: "#93C5FD" }}
-                        >
-                          <HiOutlinePlus size={13} /> Görsel Ekle
-                        </button>
-                      </div>
-                      {gs.items.length === 0 ? (
-                        <p className="text-xs text-white/35 px-1 py-3">Henüz görsel yok. Yukarıdan ekleyin.</p>
-                      ) : (
-                        <div className="space-y-2">
-                          {gs.items.map((item, idx) => (
-                            <div key={item.id} className="rounded-xl border border-white/7 p-3 space-y-2" style={{ background: "rgba(255,255,255,0.02)" }}>
-                              <div className="flex items-center gap-3">
-                                {item.image ? (
-                                  // eslint-disable-next-line @next/next/no-img-element
-                                  <img src={item.image} alt="" className="w-16 h-16 object-cover rounded-lg flex-shrink-0" style={{ border: "1px solid rgba(255,255,255,0.08)" }} />
-                                ) : (
-                                  <div className="w-16 h-16 rounded-lg flex-shrink-0 flex items-center justify-center" style={{ background: "rgba(255,255,255,0.04)", border: "1px dashed rgba(255,255,255,0.12)" }}>
-                                    <HiOutlinePhotograph size={20} className="text-white/30" />
-                                  </div>
-                                )}
-                                <div className="flex-1 min-w-0">
-                                  <p className="text-sm font-semibold text-white/85 truncate">{item.caption || `Görsel ${idx + 1}`}</p>
-                                  <p className="text-[11px] text-white/40">{item.aspect === "tall" ? "Uzun" : item.aspect === "wide" ? "Geniş" : "Kare"}</p>
-                                </div>
-                                <div className="flex items-center gap-1 flex-shrink-0">
-                                  <button onClick={() => moveGItem(idx, -1)} disabled={idx === 0} className="text-white/40 hover:text-white text-xs px-1.5 py-1 rounded disabled:opacity-30" title="Yukarı">▲</button>
-                                  <button onClick={() => moveGItem(idx, 1)} disabled={idx === gs.items.length - 1} className="text-white/40 hover:text-white text-xs px-1.5 py-1 rounded disabled:opacity-30" title="Aşağı">▼</button>
-                                  <button onClick={() => removeGItem(idx)} className="text-red-300 hover:text-red-200 text-xs px-1.5 py-1 rounded" title="Sil"><HiOutlineTrash size={13} /></button>
-                                </div>
-                              </div>
-                              <Field label="Açıklama (opsiyonel)" value={item.caption ?? ""} onChange={(v) => updateGItem(idx, "caption", v)} placeholder="Bursa Üretim — Test Hattı" />
-                              <div>
-                                <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Şekil</label>
-                                <div className="grid grid-cols-3 gap-1.5">
-                                  {(["square", "tall", "wide"] as const).map((a) => (
-                                    <button
-                                      key={a}
-                                      onClick={() => updateGItem(idx, "aspect", a)}
-                                      className="text-xs font-semibold py-1.5 rounded-lg"
-                                      style={{
-                                        background: item.aspect === a ? "rgba(59,130,246,0.20)" : "rgba(255,255,255,0.03)",
-                                        border: item.aspect === a ? "1px solid rgba(59,130,246,0.50)" : "1px solid rgba(255,255,255,0.08)",
-                                        color: item.aspect === a ? "#93C5FD" : "rgba(255,255,255,0.55)",
-                                      }}
-                                    >
-                                      {a === "square" ? "Kare" : a === "tall" ? "Uzun" : "Geniş"}
-                                    </button>
-                                  ))}
-                                </div>
-                              </div>
-                              <div>
-                                <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Görsel</label>
-                                <div className="flex items-stretch gap-2">
-                                  <label
-                                    className="flex-1 flex items-center justify-center gap-2 rounded-lg cursor-pointer text-xs font-semibold transition-colors"
-                                    style={{
-                                      background: "rgba(59,130,246,0.12)",
-                                      border: "1px dashed rgba(59,130,246,0.40)",
-                                      color: "#93C5FD",
-                                      padding: "10px 12px",
-                                    }}
-                                  >
-                                    <RiImageAddLine size={14} />
-                                    {item.image ? "Görseli Değiştir" : "Görsel Yükle"}
-                                    <input
-                                      type="file"
-                                      accept="image/*"
-                                      className="hidden"
-                                      onChange={async (e) => {
-                                        const file = e.target.files?.[0];
-                                        if (!file) return;
-                                        try {
-                                          const { url } = await uploadImage(file, "galeri");
-                                          updateGItem(idx, "image", url);
-                                          showToast("ok", "Görsel yüklendi.");
-                                        } catch (err) {
-                                          showToast("err", `Yükleme başarısız: ${(err as Error).message}`);
-                                        }
-                                        e.target.value = "";
-                                      }}
-                                    />
-                                  </label>
-                                  {item.image && (
-                                    <button onClick={() => updateGItem(idx, "image", "")} className="text-xs font-semibold px-3 rounded-lg" style={{ background: "rgba(239,68,68,0.10)", border: "1px solid rgba(239,68,68,0.30)", color: "#FCA5A5" }}>
-                                      <HiOutlineTrash size={13} />
-                                    </button>
-                                  )}
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                );
-              })()}
 
               {/* ── REFERANS PROJELER ── */}
               {tab === "refprojects" && (() => {

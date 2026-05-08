@@ -61,10 +61,6 @@ const TRANSLATABLE_PATHS: string[] = [
   "referenceProjectsSection.items[].location",
   "referenceProjectsSection.items[].description",
 
-  "gallerySection.sectionLabel", "gallerySection.heading",
-  "gallerySection.subheading",
-  "gallerySection.items[].caption",
-
   "smartCharger.sectionLabel", "smartCharger.heading", "smartCharger.subheading",
   "smartCharger.ocppBadge", "smartCharger.ctaLabel",
   "smartCharger.features[].title", "smartCharger.features[].desc",
