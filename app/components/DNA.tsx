@@ -147,9 +147,14 @@ export default function DNA() {
                 if (yt) {
                   return (
                     <iframe
-                      src={`https://www.youtube.com/embed/${yt[1]}?autoplay=1&mute=1&loop=1&playlist=${yt[1]}&controls=1&modestbranding=1&rel=0&vq=hd1080`}
-                      allow="autoplay; encrypted-media; fullscreen"
+                      // playsinline=1 + mute=1 are required for autoplay on
+                      // iOS Safari and most mobile browsers — otherwise the
+                      // iframe stays empty and the section looks broken.
+                      src={`https://www.youtube.com/embed/${yt[1]}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${yt[1]}&controls=1&modestbranding=1&rel=0`}
+                      title="Bemis fabrika videosu"
+                      allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
                       allowFullScreen
+                      loading="lazy"
                       style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none" }}
                     />
                   );
