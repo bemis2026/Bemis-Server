@@ -12,6 +12,7 @@
     { "categoryId": "charger-equipment", "productId": "type2-socket"  },
     { "categoryId": "accessories",       "productId": "electronics"   }
   ],
+  "applications": [],
   "cta": {
     "eyebrow": "OEM & Kurumsal Satış",
     "heading": "Üretici veya kurumsal alıcı mısınız?",

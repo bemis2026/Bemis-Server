@@ -34,7 +34,9 @@ export default function ReferenceProjects() {
   const repeatedItems = Array.from({ length: copies }, (_, k) =>
     items.map((it) => ({ ...it, _k: k }))
   ).flat();
-  const duration = Math.max(10, items.length * 2);
+  // Duration matched to FeaturedProducts marquee — same per-card speed so
+  // both bands feel like part of the same rhythm.
+  const duration = Math.max(28, items.length * 7);
   const animEnd = `-${(100 / copies).toFixed(3)}%`;
   const sectionBgUrl = sectionBgs?.["referenceProjects"] ?? "";
 

@@ -24,4 +24,7 @@ export const B2B_TRANSLATABLE_PATHS: string[] = [
   "operator.heading1", "operator.heading2", "operator.description",
   "operator.capabilities[].title", "operator.capabilities[].body",
   "operator.ocppFeatures[]",
+
+  // OEM applications gallery (replaces the 6-bullet advantages section)
+  "applications[].title", "applications[].body",
 ];

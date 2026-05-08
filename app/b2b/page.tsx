@@ -26,7 +26,12 @@ type B2BHero = {
   description: string; sectorTags: string[];
   heroBg?: string;
 };
-type B2BData = { hero: B2BHero; featuredProducts?: B2BFeaturedSlot[] };
+type B2BApplication = { id: string; image: string; title?: string; body?: string };
+type B2BData = {
+  hero: B2BHero;
+  featuredProducts?: B2BFeaturedSlot[];
+  applications?: B2BApplication[];
+};
 
 const ADVANTAGE_ICONS = [
   { icon: RiBuilding2Line,        color: "#F59E0B", titleKey: "b2b_adv_made_title",      bodyKey: "b2b_adv_made_body" },
@@ -164,38 +169,95 @@ export default function B2BPage() {
         </div>
       </section>
 
-      {/* ── Advantages — single card with bullet list ── */}
+      {/* ── Applications — image-led case studies of OEM/manufacturer
+          deployments. Falls back to the legacy 6-bullet advantages list
+          when the operator hasn't populated `applications` in admin yet,
+          so the page never goes blank. */}
       <section style={{ background: bg, borderBottom: `1px solid ${border}`, padding: "52px 0" }}>
-        <div className="max-w-5xl mx-auto px-5 sm:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45 }}
-            className="rounded-2xl p-6 sm:p-8"
-            style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}
-          >
-            <div className="flex flex-col gap-5">
-              {advantages.map((a, i) => (
-                <motion.div
-                  key={a.title}
-                  initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.06 * i }}
-                  className="flex items-start gap-4 pb-5"
-                  style={{ borderBottom: i < advantages.length - 1 ? `1px solid ${border}` : "none" }}
-                >
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ background: `${a.color}15`, border: `1px solid ${a.color}30` }}
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          {(b2bData.applications && b2bData.applications.length > 0) ? (
+            <>
+              <div className="mb-7 max-w-2xl">
+                <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: AMBER }}>Üretici Uygulamaları</p>
+                <h2 className="text-2xl sm:text-3xl font-black mb-2" style={{ color: text }}>Sahada Bemis Bileşenleri</h2>
+                <p className="text-sm leading-relaxed" style={{ color: muted }}>
+                  OEM şarj ünitesi üreticilerinin Bemis kablo, soket ve elektronik kartlarını entegre ettiği gerçek uygulamalardan kareler.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {b2bData.applications.map((app, i) => (
+                  <motion.div
+                    key={app.id ?? i}
+                    initial={{ opacity: 0, y: 18 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.45, delay: 0.06 * i }}
+                    className="rounded-2xl overflow-hidden flex flex-col"
+                    style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}
                   >
-                    <a.icon style={{ fontSize: 18, color: a.color }} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-base mb-1" style={{ color: text }}>{a.title}</p>
-                    <p className="text-sm leading-relaxed" style={{ color: muted }}>{a.body}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                    {app.image ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={app.image}
+                        alt={app.title ?? "OEM uygulama"}
+                        className="w-full object-cover"
+                        style={{ height: "clamp(180px, 22vw, 230px)" }}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ) : (
+                      <div className="w-full flex items-center justify-center" style={{ height: "clamp(180px, 22vw, 230px)", background: d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.04)" }}>
+                        <span className="text-3xl font-black" style={{ color: d ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.18)" }}>
+                          {app.title?.[0] ?? "?"}
+                        </span>
+                      </div>
+                    )}
+                    <div className="p-5 flex-1">
+                      {app.title && (
+                        <p className="font-bold text-base mb-1.5" style={{ color: text }}>
+                          {app.title}
+                        </p>
+                      )}
+                      {app.body && (
+                        <p className="text-sm leading-relaxed" style={{ color: muted }}>
+                          {app.body}
+                        </p>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45 }}
+              className="rounded-2xl p-6 sm:p-8 max-w-5xl mx-auto"
+              style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}
+            >
+              <div className="flex flex-col gap-5">
+                {advantages.map((a, i) => (
+                  <motion.div
+                    key={a.title}
+                    initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.06 * i }}
+                    className="flex items-start gap-4 pb-5"
+                    style={{ borderBottom: i < advantages.length - 1 ? `1px solid ${border}` : "none" }}
+                  >
+                    <div
+                      className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ background: `${a.color}15`, border: `1px solid ${a.color}30` }}
+                    >
+                      <a.icon style={{ fontSize: 18, color: a.color }} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-semibold text-base mb-1" style={{ color: text }}>{a.title}</p>
+                      <p className="text-sm leading-relaxed" style={{ color: muted }}>{a.body}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
         </div>
       </section>
 
