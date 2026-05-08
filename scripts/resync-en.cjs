@@ -16,6 +16,7 @@ const BIN = "69e5093daaba88219716e044";
 const TRANSLATABLE_PATHS = [
   "hero.badge", "hero.headline1", "hero.headline2", "hero.headline3",
   "hero.subtitle", "hero.ctaPrimary", "hero.ctaSecondary",
+  "hero.headline2Words[]",
   "stats[].label", "stats[].description",
   "categories.*.name", "categories.*.subtitle", "categories.*.description", "categories.*.badge",
   "featured[].badge", "featured[].highlight",

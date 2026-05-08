@@ -59,6 +59,20 @@ async function patchContent() {
   const tr = { ...cur };
   delete tr._translations;
 
+  // 0. hero.headline2Words (rotating words → translate in same order)
+  if (Array.isArray(tr.hero?.headline2Words)) {
+    const trWords = tr.hero.headline2Words;
+    const enWords = Array.isArray(en.hero?.headline2Words) ? en.hero.headline2Words : [];
+    const aligned = await Promise.all(trWords.map(async (w, i) => {
+      const existing = enWords[i];
+      if (existing && typeof existing === "string" && existing.trim()) return existing;
+      if (typeof w === "string" && w.trim()) return await translateOne(w);
+      return w;
+    }));
+    en.hero = { ...(en.hero ?? {}), headline2Words: aligned };
+    if (aligned.length > 0) console.log(`  hero.headline2Words: ${aligned.join(" / ")}`);
+  }
+
   // 1. calculator (translate from current TR if missing in EN)
   if (!en.calculator && tr.calculator) {
     const calc = {};

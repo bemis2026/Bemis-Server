@@ -275,7 +275,10 @@ const defaultContent: SiteContent = {
     badge: "Yerli Üretim · Bursa · 1994",
     headline1: "Türkiye'nin",
     headline2: "Şarj Sistemleri",
-    headline2Words: ["Şarj Sistemleri", "Wallbox Çözümleri", "Mobil İstasyonları", "OCPP Üretimi"],
+    // Empty by default — admin fills the comma-separated list to enable the
+    // rotating-word animation. Below the threshold of 2 words the Hero
+    // renders the static `headline2` instead.
+    headline2Words: [],
     headline3: "Üreticisi",
     subtitle: "Evinizden iş yerinize, otopark çözümlerinden sahaya kadar — IP65 sertifikalı AC şarj üniteleri, kablolar ve aksesuarlarla elektrikli araç deneyimini kolaylaştırıyoruz.",
     ctaPrimary: "Ürün Kataloğu", ctaSecondary: "Bayi Bul", heroBg: "", heroBgPos: "75% 50%",

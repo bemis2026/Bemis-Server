@@ -883,6 +883,12 @@ export default function DealerNetwork() {
                   {/* Bursa HQ pin — sits on top of Marmara as a distinct red
                       headquarters marker. Hover/click loads the "merkez"
                       regional rep, independent of the Marmara dealer list. */}
+                  {(() => {
+                    const isMerkezActive = activeCity === BURSA_HQ.id;
+                    const outerR = isMerkezActive ? 26 : 20;
+                    const dotR = isMerkezActive ? 18 : 14;
+                    const logoSize = isMerkezActive ? 28 : 22;
+                    return (
                   <motion.g
                     key="bursa-hq"
                     initial={{ scale: 0, opacity: 0 }}
@@ -907,58 +913,66 @@ export default function DealerNetwork() {
                         transition={{ duration: 1.4, ease: "easeOut" }}
                       />
                     )}
-                    {/* Pulse */}
+                    {/* Pulse — bigger + brighter when active, mirroring the
+                        other region markers' hover behaviour. */}
                     <motion.circle
                       cx={BURSA_HQ.cx} cy={BURSA_HQ.cy}
-                      r={28}
+                      r={isMerkezActive ? 40 : 28}
                       fill="none"
-                      stroke={`${HQ_RED}88`}
-                      strokeWidth="2"
-                      animate={{ r: [22, 50], opacity: [0.85, 0] }}
-                      transition={{ duration: 2.2, repeat: Infinity }}
+                      stroke={isMerkezActive ? `${HQ_RED}cc` : `${HQ_RED}88`}
+                      strokeWidth={isMerkezActive ? 3 : 2}
+                      animate={{
+                        r: [isMerkezActive ? 30 : 22, isMerkezActive ? 60 : 50],
+                        opacity: [isMerkezActive ? 0.95 : 0.85, 0],
+                      }}
+                      transition={{ duration: isMerkezActive ? 1.8 : 2.2, repeat: Infinity }}
                     />
                     {/* Outer ring */}
                     <circle
                       cx={BURSA_HQ.cx} cy={BURSA_HQ.cy}
-                      r={20}
-                      fill={`${HQ_RED}26`}
+                      r={outerR}
+                      fill={isMerkezActive ? `${HQ_RED}3a` : `${HQ_RED}26`}
                       stroke={HQ_RED}
-                      strokeWidth="2.5"
+                      strokeWidth={isMerkezActive ? 3.5 : 2.5}
+                      style={{ transition: "r 0.2s, stroke-width 0.2s, fill 0.2s" }}
                     />
                     {/* Solid red dot — backdrop for the white-on-transparent
                         favicon sourced from /icon (same image as browser tab). */}
                     <circle
                       cx={BURSA_HQ.cx} cy={BURSA_HQ.cy}
-                      r={14}
+                      r={dotR}
                       fill={HQ_RED}
+                      style={{ transition: "r 0.2s" }}
                     />
                     {/* Brand mark (favicon) clipped to the dot */}
                     <defs>
                       <clipPath id="merkez-logo-clip">
-                        <circle cx={BURSA_HQ.cx} cy={BURSA_HQ.cy} r={13} />
+                        <circle cx={BURSA_HQ.cx} cy={BURSA_HQ.cy} r={dotR - 1} />
                       </clipPath>
                     </defs>
                     <image
                       href="/icon"
-                      x={BURSA_HQ.cx - 11}
-                      y={BURSA_HQ.cy - 11}
-                      width={22}
-                      height={22}
+                      x={BURSA_HQ.cx - logoSize / 2}
+                      y={BURSA_HQ.cy - logoSize / 2}
+                      width={logoSize}
+                      height={logoSize}
                       clipPath="url(#merkez-logo-clip)"
                       preserveAspectRatio="xMidYMid meet"
-                      style={{ pointerEvents: "none" }}
+                      style={{ pointerEvents: "none", transition: "x 0.2s, y 0.2s, width 0.2s, height 0.2s" }}
                     />
                     {/* Label — placed BELOW the pin so it doesn't collide
                         with Marmara's region label which sits just above. */}
                     <text
-                      x={BURSA_HQ.cx} y={BURSA_HQ.cy + 38}
+                      x={BURSA_HQ.cx} y={BURSA_HQ.cy + (isMerkezActive ? 44 : 38)}
                       textAnchor="middle"
-                      fontSize="20"
-                      fontWeight="800"
+                      fontSize={isMerkezActive ? 24 : 20}
+                      fontWeight={isMerkezActive ? 900 : 800}
                       fill={HQ_RED}
-                      style={{ pointerEvents: "none", userSelect: "none", fontFamily: "inherit" }}
+                      style={{ pointerEvents: "none", userSelect: "none", fontFamily: "inherit", transition: "y 0.2s, font-size 0.2s" }}
                     >MERKEZ</text>
                   </motion.g>
+                    );
+                  })()}
 
                   {/* Demo cursor — fades in above-right of Ege pin, glides to
                       the pin centre, "taps" with a ripple, then fades out.
@@ -1021,12 +1035,13 @@ export default function DealerNetwork() {
             )}
 
             {/* Bemis regional rep card — sits directly under the map.
-                AnimatePresence + height/opacity drives a smooth open
-                when a region with a filled rep gets hovered/selected;
-                collapses back when the user moves off. Suppressed in
-                yurtdisi mode — international tab has its own side card. */}
+                AnimatePresence + height/opacity drives a smooth open for
+                EVERY hovered/selected region (not just rep-filled ones).
+                Empty fields hide gracefully so the layout stays consistent.
+                Suppressed in yurtdisi mode — international tab has its
+                own side card. */}
             <AnimatePresence initial={false}>
-              {viewMode === "yurtici" && activeCity && hasActiveRep && activeRep && (
+              {viewMode === "yurtici" && activeCity && activeRegion && (
                 <motion.div
                   key={`rep-under-map-${activeCity}`}
                   initial={{ opacity: 0, height: 0, y: -8 }}
@@ -1075,10 +1090,10 @@ export default function DealerNetwork() {
                             Bemis Yetkilisi
                           </p>
                           <p className="text-sm font-semibold leading-tight mt-0.5" style={{ color: d ? "#ffffff" : "#111111" }}>
-                            {activeRep.name || activeCityLabel}
+                            {activeRep?.name || activeCityLabel}
                           </p>
                           <p className="text-xs" style={{ color: d ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.55)" }}>
-                            {activeRep.title || `${activeCityLabel} Bölge Temsilcisi`}
+                            {activeRep?.title || `${activeCityLabel} Bölge Temsilcisi`}
                           </p>
                         </div>
                       </div>
@@ -1089,9 +1104,11 @@ export default function DealerNetwork() {
                         style={{ background: d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)" }}
                       />
 
-                      {/* Contact rows — phone + email only (no WhatsApp) */}
+                      {/* Contact rows — phone + email only (no WhatsApp).
+                          When neither is filled, show a soft placeholder so
+                          the card layout stays the same across regions. */}
                       <div className="flex flex-col sm:flex-row gap-2 sm:gap-5 flex-wrap">
-                        {activeRep.phone && (
+                        {activeRep?.phone && (
                           <a
                             href={`tel:${activeRep.phone.replace(/[^\d+]/g, "")}`}
                             className="text-sm flex items-center gap-2 transition-colors hover:underline"
@@ -1101,7 +1118,7 @@ export default function DealerNetwork() {
                             {activeRep.phone}
                           </a>
                         )}
-                        {activeRep.email && (
+                        {activeRep?.email && (
                           <a
                             href={`mailto:${activeRep.email}`}
                             className="text-sm flex items-center gap-2 transition-colors hover:underline"
@@ -1110,6 +1127,11 @@ export default function DealerNetwork() {
                             <HiMail className="flex-shrink-0" size={14} style={{ color: d ? "#93C5FD" : BLUE }} />
                             {activeRep.email}
                           </a>
+                        )}
+                        {!activeRep?.phone && !activeRep?.email && (
+                          <p className="text-xs italic" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>
+                            İletişim bilgileri için aşağıdaki forma yazabilirsiniz.
+                          </p>
                         )}
                       </div>
                     </div>
