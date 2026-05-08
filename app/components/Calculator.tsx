@@ -862,33 +862,6 @@ export default function Calculator() {
                     </motion.div>
                   </div>
 
-                  {/* Result battery — fills from currentSoc to targetSoc each
-                      time the inputs change. The numeric SOC range already
-                      shows in the top header chip; the kWh shows in the stats
-                      grid — so the battery itself stays text-free. */}
-                  <div className="px-4 pb-2">
-                    <div className="relative" style={{ height: 16 }}>
-                      <svg viewBox="0 0 200 18" width="100%" height="16" preserveAspectRatio="none" style={{ display: "block" }}>
-                        <rect x="0.75" y="0.75" width="190" height="16.5" rx="3.5"
-                          fill="none" stroke={d ? "rgba(255,255,255,0.22)" : "rgba(0,0,0,0.20)"} strokeWidth="1.2" />
-                        <rect x="192.5" y="5.5" width="6" height="7" rx="1.5"
-                          fill={d ? "rgba(255,255,255,0.22)" : "rgba(0,0,0,0.20)"} />
-                        <rect x="2.5" y="2.5" height="13" rx="2"
-                          fill={accentColor} opacity={0.28}
-                          width={Math.max(0, (currentSoc / 100) * 188)} />
-                        <motion.rect
-                          key={`battery-${currentSoc}-${targetSoc}-${chargeMode}`}
-                          x={2.5 + (currentSoc / 100) * 188}
-                          y="2.5" height="13" rx="2"
-                          fill={accentColor}
-                          initial={{ width: 0, opacity: 0.6 }}
-                          animate={{ width: Math.max(0, ((targetSoc - currentSoc) / 100) * 188), opacity: 0.95 }}
-                          transition={{ duration: 0.6, ease: "easeOut" }}
-                        />
-                      </svg>
-                    </div>
-                  </div>
-
                   {/* Stats row */}
                   <div className="grid grid-cols-3 gap-2 px-4 pb-3">
                     {[
