@@ -33,6 +33,7 @@ import Image from "next/image";
 type SpecItem  = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
 type ProductDocument = { label: string; url: string };
+type BoxContentItem = { name: string; image?: string };
 type ProductEntry = {
   id: string; name: string; code?: string; subtitle: string; badge: string | null;
   description: string; specs: SpecGroup[]; image?: string; images?: string[]; pdf?: string;
@@ -40,6 +41,7 @@ type ProductEntry = {
   documents?: ProductDocument[];
   features?: string[];
   certificates?: string[];
+  boxContents?: BoxContentItem[];
 };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
@@ -274,6 +276,64 @@ export default function ProductDetailPage({
                     </div>
                   );
                 })()}
+
+                {/* Paket İçeriği — what's actually in the box. Sits right
+                    under the gallery so the layout stays self-contained on
+                    the left column. Each item is a small white tile with
+                    the product image and a name caption. */}
+                {product.boxContents && product.boxContents.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.15 }}
+                    className="mt-5"
+                  >
+                    <h3 className="text-[11px] font-bold uppercase tracking-wider mb-3" style={{ color: textFaint }}>
+                      Paket İçeriği
+                    </h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                      {product.boxContents.map((item, idx) => (
+                        <div
+                          key={idx}
+                          className="rounded-xl overflow-hidden flex flex-col"
+                          style={{
+                            background: d ? "rgba(255,255,255,0.04)" : "#ffffff",
+                            border: `1px solid ${border}`,
+                          }}
+                        >
+                          <div
+                            className="relative"
+                            style={{
+                              aspectRatio: "1/1",
+                              background: d ? "rgba(255,255,255,0.02)" : "#f8f8fb",
+                            }}
+                          >
+                            {item.image ? (
+                              <Image
+                                src={item.image}
+                                alt={item.name || ""}
+                                fill
+                                sizes="(max-width: 640px) 50vw, 200px"
+                                className="object-contain p-3"
+                              />
+                            ) : (
+                              <div className="absolute inset-0 flex items-center justify-center" style={{ color: textFaint }}>
+                                <span className="text-[10px] uppercase tracking-wider">görsel yok</span>
+                              </div>
+                            )}
+                          </div>
+                          {item.name && (
+                            <div className="px-3 py-2 border-t" style={{ borderColor: divider }}>
+                              <p className="text-xs font-semibold leading-tight" style={{ color: textPrimary }}>
+                                {item.name}
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
               </div>
 
               {/* ── Right col: info + specs ── */}
@@ -381,9 +441,10 @@ export default function ProductDetailPage({
                     </p>
                   )}
 
-                  {/* Quality / conformity certs as small brand chips. IP
-                      ratings stay in the Çevresel spec group — they're an
-                      attribute, not a certification. */}
+                  {/* Quality / conformity certs as plain text chips — the
+                      DIY brand SVGs read cleaner as letterforms than as
+                      tiny logos. IP ratings stay in the Çevresel spec
+                      group; they're a technical attribute, not a cert. */}
                   {product.certificates && product.certificates.length > 0 && (
                     <div className="flex flex-wrap items-center gap-2 mt-4">
                       {product.certificates.map((cid) => {
@@ -393,22 +454,15 @@ export default function ProductDetailPage({
                           <span
                             key={cid}
                             title={c.fullLabel}
-                            className="inline-flex items-center justify-center rounded-md"
+                            className="inline-flex items-center rounded-md text-[11px] font-bold tracking-wider"
                             style={{
-                              height: 30,
-                              padding: "0 8px",
+                              padding: "5px 10px",
                               background: d ? "rgba(255,255,255,0.05)" : "#ffffff",
                               border: `1px solid ${d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`,
+                              color: d ? "rgba(255,255,255,0.85)" : "#1a1a2e",
                             }}
                           >
-                            <Image
-                              src={c.image}
-                              alt={c.label}
-                              width={48}
-                              height={20}
-                              className="h-4 w-auto object-contain"
-                              unoptimized
-                            />
+                            {c.label}
                           </span>
                         );
                       })}

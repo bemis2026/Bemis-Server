@@ -93,7 +93,8 @@ import { PRODUCT_CERTIFICATES } from "../../lib/productCertificates";
 type SpecItem = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
 type ProductDocument = { label: string; url: string };
-type ProductEntry = { id: string; name: string; code?: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[]; generalFeatures?: string[]; documents?: ProductDocument[]; features?: string[]; certificates?: string[] };
+type BoxContentItem = { name: string; image?: string };
+type ProductEntry = { id: string; name: string; code?: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[]; generalFeatures?: string[]; documents?: ProductDocument[]; features?: string[]; certificates?: string[]; boxContents?: BoxContentItem[] };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
 type StatItem = { value: number; suffix: string; prefix?: string; label: string; description: string };
@@ -240,6 +241,7 @@ export default function AdminPage() {
   const [uploadLoading, setUploadLoading] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
   const [prodImgLoading, setProdImgLoading] = useState(false);
+  const [editingBcRow, setEditingBcRow] = useState<number | null>(null);
   const [dragFrom, setDragFrom] = useState<number | null>(null);
   const [dragTo, setDragTo] = useState<number | null>(null);
   const [heroBgLoading, setHeroBgLoading] = useState(false);
@@ -250,6 +252,7 @@ export default function AdminPage() {
   const [stepImgTargetIdx, setStepImgTargetIdx] = useState<number>(0);
   const fileRef = useRef<HTMLInputElement>(null);
   const prodImgRef = useRef<HTMLInputElement>(null);
+  const bcImgRef = useRef<HTMLInputElement>(null);
   const heroBgRef = useRef<HTMLInputElement>(null);
   const factoryImgRef = useRef<HTMLInputElement>(null);
   const factoryVideoRef = useRef<HTMLInputElement>(null);
@@ -738,6 +741,105 @@ export default function AdminPage() {
     }
     setProdImgLoading(false);
     if (prodImgRef.current) prodImgRef.current.value = "";
+  };
+
+  // Upload an image bound to a specific Paket İçeriği row. The row index is
+  // captured into editingBcRow before the file picker opens; on change we
+  // resolve the URL and write it onto that row's `image` field. Auto-saves
+  // to JSONBin so the URL survives a refresh just like main product images.
+  const handleBoxContentImgUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    const rowIdx = editingBcRow;
+    setEditingBcRow(null);
+    if (!file || rowIdx === null) {
+      if (bcImgRef.current) bcImgRef.current.value = "";
+      return;
+    }
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("folder", "products/box-contents");
+    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+    if (res.ok) {
+      const { url } = await res.json() as { url: string };
+      setProducts((prev) => {
+        const updated = prev.map((cat) => cat.id !== selCat ? cat : {
+          ...cat,
+          products: cat.products.map((p) => {
+            if (p.id !== selProd) return p;
+            const list = Array.isArray(p.boxContents) ? [...p.boxContents] : [];
+            while (list.length <= rowIdx) list.push({ name: "" });
+            list[rowIdx] = { ...list[rowIdx], image: url };
+            return { ...p, boxContents: list };
+          }),
+        });
+        fetch("/api/admin/products", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updated),
+        }).catch(() => {});
+        return updated;
+      });
+      showToast("ok", "Paket içeriği görseli yüklendi.");
+    } else {
+      showToast("err", "Yükleme başarısız.");
+    }
+    if (bcImgRef.current) bcImgRef.current.value = "";
+  };
+
+  const triggerBoxContentImg = (rowIdx: number) => {
+    setEditingBcRow(rowIdx);
+    setTimeout(() => bcImgRef.current?.click(), 0);
+  };
+
+  const updateBoxContentName = (rowIdx: number, name: string) => {
+    setProducts((prev) => {
+      const next = JSON.parse(JSON.stringify(prev)) as CategoryData[];
+      const cat = next.find((c) => c.id === selCat);
+      const prod = cat?.products.find((p) => p.id === selProd);
+      if (!prod) return prev;
+      const list = Array.isArray(prod.boxContents) ? [...prod.boxContents] : [];
+      while (list.length <= rowIdx) list.push({ name: "" });
+      list[rowIdx] = { ...list[rowIdx], name };
+      prod.boxContents = list;
+      return next;
+    });
+  };
+
+  const addBoxContentRow = () => {
+    setProducts((prev) => {
+      const next = JSON.parse(JSON.stringify(prev)) as CategoryData[];
+      const cat = next.find((c) => c.id === selCat);
+      const prod = cat?.products.find((p) => p.id === selProd);
+      if (!prod) return prev;
+      prod.boxContents = [...(prod.boxContents ?? []), { name: "" }];
+      return next;
+    });
+  };
+
+  const removeBoxContentRow = (rowIdx: number) => {
+    setProducts((prev) => {
+      const next = JSON.parse(JSON.stringify(prev)) as CategoryData[];
+      const cat = next.find((c) => c.id === selCat);
+      const prod = cat?.products.find((p) => p.id === selProd);
+      if (!prod) return prev;
+      prod.boxContents = (prod.boxContents ?? []).filter((_, i) => i !== rowIdx);
+      return next;
+    });
+  };
+
+  const moveBoxContentRow = (rowIdx: number, dir: -1 | 1) => {
+    setProducts((prev) => {
+      const next = JSON.parse(JSON.stringify(prev)) as CategoryData[];
+      const cat = next.find((c) => c.id === selCat);
+      const prod = cat?.products.find((p) => p.id === selProd);
+      if (!prod) return prev;
+      const list = [...(prod.boxContents ?? [])];
+      const target = rowIdx + dir;
+      if (target < 0 || target >= list.length) return prev;
+      [list[rowIdx], list[target]] = [list[target], list[rowIdx]];
+      prod.boxContents = list;
+      return next;
+    });
   };
 
   const handleHeroBgUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -2359,17 +2461,88 @@ export default function AdminPage() {
                                                 className="accent-blue-500"
                                               />
                                               <span
-                                                className="inline-flex items-center justify-center rounded-sm flex-shrink-0 bg-white"
-                                                style={{ width: 28, height: 18 }}
+                                                className="inline-flex items-center justify-center rounded-sm flex-shrink-0 text-[10px] font-bold tracking-wider bg-white text-slate-900"
+                                                style={{ minWidth: 38, height: 18, padding: "0 6px" }}
                                               >
-                                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                                <img src={c.image} alt={c.label} style={{ height: 14, width: "auto", objectFit: "contain" }} />
+                                                {c.label}
                                               </span>
-                                              <span className="text-[11px] font-semibold" style={{ color: enabled ? "#ffffff" : "rgba(255,255,255,0.55)" }}>{c.label}</span>
+                                              <span className="text-[11px] font-semibold" style={{ color: enabled ? "#ffffff" : "rgba(255,255,255,0.55)" }}>{c.fullLabel}</span>
                                             </label>
                                           );
                                         })}
                                       </div>
+                                    </div>
+
+                                    {/* Box contents — what the customer
+                                        actually finds inside the box (cable
+                                        bag, extra adapter, etc). Admin edits
+                                        an ordered list; public renders it as
+                                        a strip beneath the main gallery. */}
+                                    <div className="space-y-2">
+                                      <div className="flex items-center justify-between">
+                                        <div>
+                                          <p className="text-xs font-semibold text-white/50 mb-1">Paket İçeriği</p>
+                                          <p className="text-[10px] text-white/30">Kutudan çıkanlar — adlandır, görsel ekle. Galerinin altında ürün sayfasında görünür.</p>
+                                        </div>
+                                        <button
+                                          onClick={addBoxContentRow}
+                                          className="flex items-center gap-1.5 text-xs text-white/50 hover:text-white px-2.5 py-1 rounded-lg border border-white/10 hover:border-white/20"
+                                        >
+                                          <HiOutlinePlus size={12} /> Satır Ekle
+                                        </button>
+                                      </div>
+                                      {(currentProd.boxContents ?? []).length === 0 && (
+                                        <p className="text-[11px] text-white/25 italic px-1 py-2">Henüz içerik eklenmemiş.</p>
+                                      )}
+                                      {(currentProd.boxContents ?? []).map((row, ri) => {
+                                        const last = (currentProd.boxContents ?? []).length - 1;
+                                        return (
+                                          <div key={ri} className="flex items-center gap-2 px-2 py-2 rounded-xl bg-white/3 border border-white/7">
+                                            <button
+                                              onClick={() => triggerBoxContentImg(ri)}
+                                              className="w-12 h-12 flex-shrink-0 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center overflow-hidden"
+                                              title="Görsel yükle"
+                                            >
+                                              {row.image ? (
+                                                /* eslint-disable-next-line @next/next/no-img-element */
+                                                <img src={row.image} alt="" className="w-full h-full object-contain p-1" />
+                                              ) : (
+                                                <HiOutlinePlus size={16} className="text-white/40" />
+                                              )}
+                                            </button>
+                                            <input
+                                              value={row.name}
+                                              onChange={(e) => updateBoxContentName(ri, e.target.value)}
+                                              placeholder="Örn: Taşıma Çantası"
+                                              className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-white/30"
+                                            />
+                                            <button
+                                              onClick={() => moveBoxContentRow(ri, -1)}
+                                              disabled={ri === 0}
+                                              className="text-white/40 hover:text-white disabled:opacity-25 disabled:hover:text-white/40 px-1.5 py-1"
+                                              title="Yukarı taşı"
+                                            >
+                                              ▲
+                                            </button>
+                                            <button
+                                              onClick={() => moveBoxContentRow(ri, 1)}
+                                              disabled={ri === last}
+                                              className="text-white/40 hover:text-white disabled:opacity-25 disabled:hover:text-white/40 px-1.5 py-1"
+                                              title="Aşağı taşı"
+                                            >
+                                              ▼
+                                            </button>
+                                            <button
+                                              onClick={() => removeBoxContentRow(ri)}
+                                              className="text-rose-400/70 hover:text-rose-300 px-2 py-1"
+                                              title="Sil"
+                                            >
+                                              ×
+                                            </button>
+                                          </div>
+                                        );
+                                      })}
+                                      <input ref={bcImgRef} type="file" accept="image/*" className="hidden" onChange={handleBoxContentImgUpload} />
                                     </div>
 
                                     {/* Spec groups */}
