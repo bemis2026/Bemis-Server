@@ -91,6 +91,22 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
     return () => clearTimeout(t);
   }, [size.w]);
 
+  // Track the cursor position inside the wrapper so the hover tooltip
+  // can sit next to the pointer instead of getting lost in the
+  // top-left corner. Stored on a CSS variable via direct DOM mutation
+  // so the React tree doesn't re-render on every pixel of movement.
+  useEffect(() => {
+    const wrap = wrapRef.current;
+    if (!wrap) return;
+    const handler = (e: PointerEvent) => {
+      const rect = wrap.getBoundingClientRect();
+      wrap.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+      wrap.style.setProperty("--my", `${e.clientY - rect.top}px`);
+    };
+    wrap.addEventListener("pointermove", handler);
+    return () => wrap.removeEventListener("pointermove", handler);
+  }, []);
+
   // Fly to a country when the side-list selection changes.
   // Depending on `activeCountries` here causes the effect to re-fire
   // on every parent re-render (the array reference changes), which
@@ -115,6 +131,17 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
   // pixel of movement) caused a tooltip flicker loop on hover.
   const labels = useMemo(
     () => activeCountries.map(c => ({ ...c, color: BLUE, size: 0.7, isHQ: false as const })),
+    [activeCountries],
+  );
+
+  // Two stacked point layers per country: outer white halo, inner
+  // brand-blue dot. The white outer ring reads as a clean outline
+  // around the blue dot at any zoom level.
+  const pinPoints = useMemo(
+    () => activeCountries.flatMap(c => [
+      { lat: c.lat, lng: c.lng, color: "#ffffff", radius: 0.55, altitude: 0.014 },
+      { lat: c.lat, lng: c.lng, color: BLUE,     radius: 0.32, altitude: 0.018 },
+    ]),
     [activeCountries],
   );
   const rings = useMemo(
@@ -179,15 +206,30 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
         atmosphereColor={BLUE}
         atmosphereAltitude={0.22}
         showGraticules={false}
+        // Country name labels are intentionally invisible — the
+        // hover tooltip in the corner already does the naming. The
+        // label layer still carries the hit-target for hover (radius
+        // bumped to 0.85 so it's findable by mouse).
         labelsData={labels}
         labelLat={(d: object) => (d as { lat: number }).lat}
         labelLng={(d: object) => (d as { lng: number }).lng}
-        labelText={(d: object) => (d as { countryName: string }).countryName}
-        labelSize={(d: object) => (d as { size: number }).size}
-        labelDotRadius={(d: object) => (d as { isHQ: boolean }).isHQ ? 0.85 : 0.45}
-        labelColor={(d: object) => (d as { color: string }).color}
+        labelText={() => ""}
+        labelSize={() => 0.001}
+        labelDotRadius={(d: object) => (d as { isHQ: boolean }).isHQ ? 0.85 : 0.85}
+        labelColor={() => "rgba(0,0,0,0)"}
         labelResolution={3}
         labelAltitude={0.012}
+        // Visible pin layer below the labels: outer white ring, inner
+        // brand-blue dot. Two pointsData passes stacked so the visual
+        // is "blue dot with white outline ring" without touching the
+        // hover layer above.
+        pointsData={pinPoints}
+        pointLat={(d: object) => (d as { lat: number }).lat}
+        pointLng={(d: object) => (d as { lng: number }).lng}
+        pointColor={(d: object) => (d as { color: string }).color}
+        pointAltitude={(d: object) => (d as { altitude: number }).altitude}
+        pointRadius={(d: object) => (d as { radius: number }).radius}
+        pointResolution={32}
         onLabelHover={(d: object | null) => {
           const next = !d || (d as { isHQ?: boolean }).isHQ
             ? null
@@ -270,12 +312,16 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
 
       {hovered && (
         <div
-          className="pointer-events-none absolute top-3 left-3 rounded-xl px-3 py-2 text-sm font-semibold backdrop-blur"
+          className="pointer-events-none absolute rounded-xl px-3 py-2 text-sm font-semibold backdrop-blur"
           style={{
-            background: dark ? "rgba(8,12,22,0.78)" : "rgba(255,255,255,0.92)",
-            border: `1px solid ${BLUE}45`,
+            left: "var(--mx, 12px)",
+            top: "var(--my, 12px)",
+            transform: "translate(18px, 18px)",
+            background: dark ? "rgba(8,12,22,0.85)" : "rgba(255,255,255,0.96)",
+            border: `1px solid ${BLUE}55`,
             color: dark ? "#cfe1ff" : "#1D4ED8",
-            boxShadow: `0 8px 24px ${BLUE}22`,
+            boxShadow: `0 8px 24px ${BLUE}33`,
+            zIndex: 20,
           }}
         >
           <div className="text-[10px] tracking-[0.18em] uppercase opacity-70">{hovered.countryCode}</div>

@@ -16,6 +16,13 @@ import {
 
 type InfoRow = { label: string; value: string };
 type Benefit = { title: string; body: string };
+type MarketingEvent = {
+  id: string;
+  image: string;
+  title?: string;
+  location?: string;
+  date?: string;
+};
 type BayilikContent = {
   heading1: string;
   heading2: string;
@@ -24,6 +31,8 @@ type BayilikContent = {
   benefits: Benefit[];
   criteria: string[];
   heroBg?: string;
+  /** Fairs / events / brand-activation visuals — admin-managed. */
+  marketingEvents?: MarketingEvent[];
 };
 
 // Defaults below are only used as a fallback shape — the page's actual
@@ -280,6 +289,74 @@ export default function BayilikPage() {
               </button>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ── Fuarlar & Marka Tanıtım — admin-managed image gallery
+          showcasing fairs we've attended and brand-activation events.
+          Empty state shows a placeholder so the section still has
+          presence when nothing is uploaded yet. ── */}
+      <section style={{ background: bg, borderBottom: `1px solid ${border}`, padding: "52px 0" }}>
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <div className="mb-7 max-w-2xl">
+            <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: GREEN }}>
+              Fuarlar & Marka Tanıtım
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-black leading-tight mb-2" style={{ color: text }}>
+              Sahada Bemis E-V Charge
+            </h2>
+            <p className="text-sm leading-relaxed" style={{ color: muted }}>
+              Katıldığımız sektör fuarları, etkinlikler ve bayi buluşmalarından kareler.
+            </p>
+          </div>
+
+          {(cms.marketingEvents && cms.marketingEvents.length > 0) ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {cms.marketingEvents.map((ev, i) => (
+                <motion.div
+                  key={ev.id ?? i}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.06 * i }}
+                  className="rounded-2xl overflow-hidden"
+                  style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}
+                >
+                  {ev.image && (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
+                      src={ev.image}
+                      alt={ev.title ?? "Bemis etkinlik"}
+                      className="w-full object-cover"
+                      style={{ height: "clamp(180px, 22vw, 230px)" }}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  )}
+                  {(ev.title || ev.location || ev.date) && (
+                    <div className="p-4">
+                      {ev.title && (
+                        <p className="font-bold text-sm mb-1" style={{ color: text }}>{ev.title}</p>
+                      )}
+                      {(ev.location || ev.date) && (
+                        <p className="text-xs" style={{ color: muted }}>
+                          {[ev.location, ev.date].filter(Boolean).join(" · ")}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            <div
+              className="rounded-2xl p-8 text-center"
+              style={{ background: card, border: `1px dashed ${border}` }}
+            >
+              <p className="text-sm" style={{ color: muted }}>
+                Fuar ve etkinlik görselleri admin panelden yüklendiğinde burada listelenecek.
+              </p>
+            </div>
+          )}
         </div>
       </section>
 

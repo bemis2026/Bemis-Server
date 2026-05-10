@@ -175,7 +175,7 @@ export default function B2BPage() {
                 initial={{ opacity: 0, x: -18 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
-                className="relative rounded-3xl overflow-hidden lg:col-span-3"
+                className="relative rounded-3xl overflow-hidden lg:col-span-2"
                 style={{ aspectRatio: "16/10", border: `1px solid ${border}`, boxShadow: shadow }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -189,7 +189,7 @@ export default function B2BPage() {
               </motion.div>
             ) : (
               <div
-                className="rounded-3xl flex items-center justify-center lg:col-span-3"
+                className="rounded-3xl flex items-center justify-center lg:col-span-2"
                 style={{ aspectRatio: "16/10", background: card, border: `1px dashed ${border}` }}
               >
                 <span className="text-xs font-semibold" style={{ color: faint }}>
@@ -201,7 +201,7 @@ export default function B2BPage() {
               initial={{ opacity: 0, x: 18 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="lg:col-span-2"
+              className="lg:col-span-3"
             >
               <p className="text-xs font-bold tracking-[0.18em] uppercase mb-3" style={{ color: AMBER }}>
                 Çözüm Ortaklığı

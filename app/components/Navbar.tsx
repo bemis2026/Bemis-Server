@@ -57,14 +57,17 @@ function BemisMark({ accent, size = 28 }: { accent: string; size?: number }) {
   );
 }
 
+// Accents match the destination page's own color palette so the
+// dropdown chip and the landing page hero read as the same brand
+// surface, not random palette picks.
 const KURUMSAL_DROPDOWN = [
-  { label: "OEM & Üreticiler",        sub: "Teknik portföy ve mühendislik desteği", href: "/b2b",      accent: "#3B82F6" },
-  { label: "Bayilik Başvurusu",        sub: "Bayi ağımıza katılın, bölge koruması", href: "/bayilik",  accent: "#10B981" },
-  { label: "Şarj Ağı Operatörleri",   sub: "OCPP ekipman, DLM, uzaktan izleme",    href: "/operator", accent: "#818CF8" },
+  { label: "OEM & Üreticiler",      sub: "Teknik portföy ve mühendislik desteği",    href: "/b2b",      accent: "#F59E0B" },
+  { label: "Bayi & Distribütör",    sub: "Türkiye bayilik & yurtdışı distribütörlük", href: "/bayilik",  accent: "#10B981" },
+  { label: "Şarj Ağı Operatörleri", sub: "OCPP ekipman, DLM, uzaktan izleme",        href: "/operator", accent: "#3B82F6" },
 ];
 
 const HAKKIMIZDA_DROPDOWN = [
-  { label: "Bemis Dünyası",  sub: "Tarihçe, üretim süreci, sertifikalar", href: "/kurumsal", accent: "#E11D48" },
+  { label: "Bemis Dünyası",  sub: "Tarihçe, üretim süreci, sertifikalar", href: "/kurumsal", accent: "#3B82F6" },
 ];
 
 // Brand colour per category — used as a tiny accent dot in the navbar

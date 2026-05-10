@@ -182,29 +182,44 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
     }
   };
 
+  // Featured-product binding is unlimited now — admin can grow the
+  // list as far as they like. updateSlot just patches the existing
+  // array; addSlot pushes an empty entry; removeSlot drops one.
   const updateSlot = (index: number, patch: Partial<B2BFeaturedSlot>) =>
     setData(p => {
       if (!p) return p;
-      const next: B2BFeaturedSlot[] = [];
-      for (let i = 0; i < 4; i++) next.push({ ...(p.featuredProducts?.[i] ?? {}) });
+      const next = [...(p.featuredProducts ?? [])];
+      while (next.length <= index) next.push({});
       next[index] = { ...next[index], ...patch };
       return { ...p, featuredProducts: next };
     });
-
-  const clearSlot = (index: number) => updateSlot(index, { categoryId: undefined, productId: undefined });
+  const addSlot = () =>
+    setData(p => p ? { ...p, featuredProducts: [...(p.featuredProducts ?? []), {}] } : p);
+  const removeSlot = (index: number) =>
+    setData(p => p ? { ...p, featuredProducts: (p.featuredProducts ?? []).filter((_, i) => i !== index) } : p);
 
   // Operator featured products — same shape as OEM, lives under operator.featuredProducts
   const updateOpSlot = (index: number, patch: Partial<B2BFeaturedSlot>) =>
     setData(p => {
       if (!p) return p;
       const op = p.operator ?? defaultOperator();
-      const next: B2BFeaturedSlot[] = [];
-      for (let i = 0; i < 4; i++) next.push({ ...(op.featuredProducts?.[i] ?? {}) });
+      const next = [...(op.featuredProducts ?? [])];
+      while (next.length <= index) next.push({});
       next[index] = { ...next[index], ...patch };
       return { ...p, operator: { ...op, featuredProducts: next } };
     });
-
-  const clearOpSlot = (index: number) => updateOpSlot(index, { categoryId: undefined, productId: undefined });
+  const addOpSlot = () =>
+    setData(p => {
+      if (!p) return p;
+      const op = p.operator ?? defaultOperator();
+      return { ...p, operator: { ...op, featuredProducts: [...(op.featuredProducts ?? []), {}] } };
+    });
+  const removeOpSlot = (index: number) =>
+    setData(p => {
+      if (!p) return p;
+      const op = p.operator ?? defaultOperator();
+      return { ...p, operator: { ...op, featuredProducts: (op.featuredProducts ?? []).filter((_, i) => i !== index) } };
+    });
 
   const inputCls = "w-full bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22 transition-colors";
   const labelCls = "block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider";
@@ -328,17 +343,16 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
             </div>
           </B2BCard>
 
-          {/* Öne Çıkan 4 Ürün */}
+          {/* Öne Çıkan Ürünler — sınırsız */}
           <B2BCard accent="#F59E0B">
-            <B2BSectionTitle label="Öne Çıkan 4 Ürün" hint="Ürün kataloğundan seçilir" />
+            <B2BSectionTitle label="Öne Çıkan Ürünler" hint="Ürün kataloğundan seçilir — sayı sınırsız" />
             <p className="text-[11px] text-white/40 mb-4 -mt-1">
-              Şarj ünitesi üreticilerine tanıtılacak 4 ürünü ürün yönetimindeki kataloğundan seçin. Boş slotlar sayfada gösterilmez.
+              Şarj ünitesi üreticilerine tanıtılacak ürünleri ürün yönetimindeki kataloğundan seçin. İstediğiniz kadar slot ekleyebilirsiniz; boş slotlar sayfada gösterilmez.
             </p>
             <div className="space-y-3">
-              {[0, 1, 2, 3].map(i => {
+              {(data.featuredProducts ?? []).map((_, i) => {
                 const slot = data.featuredProducts?.[i] ?? {};
                 const catProducts = categories.find(c => c.id === slot.categoryId)?.products ?? [];
-                const filled = !!(slot.categoryId || slot.productId);
                 return (
                   <div key={i} className="rounded-xl p-3.5 space-y-2.5"
                     style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
@@ -350,12 +364,10 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
                         </div>
                         <p className="text-[11px] font-bold uppercase tracking-widest text-white/50">Slot {i + 1}</p>
                       </div>
-                      {filled && (
-                        <button onClick={() => clearSlot(i)}
-                          className="flex items-center gap-1 text-[10px] text-white/30 hover:text-red-400 transition-colors">
-                          <HiOutlineTrash size={11} /> Temizle
-                        </button>
-                      )}
+                      <button onClick={() => removeSlot(i)}
+                        className="flex items-center gap-1 text-[10px] text-white/30 hover:text-red-400 transition-colors">
+                        <HiOutlineTrash size={11} /> Sil
+                      </button>
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <select className={inputCls} value={slot.categoryId ?? ""}
@@ -641,17 +653,16 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
             </div>
           </B2BCard>
 
-          {/* Operatör için Öne Çıkan 4 Ürün — same pattern as OEM tab */}
+          {/* Operatör için Öne Çıkan Ürünler — sınırsız, same pattern as OEM tab */}
           <B2BCard accent="#818CF8">
-            <B2BSectionTitle label="Operatörlere Özel Ürünler" hint="Ürün kataloğundan 4 öne çıkan ürün seçin" />
+            <B2BSectionTitle label="Operatörlere Özel Ürünler" hint="Ürün kataloğundan öne çıkan ürün seçin — sayı sınırsız" />
             <p className="text-[11px] text-white/40 mb-4 -mt-1">
-              Şarj ağı operatörlerine tanıtılacak 4 ürünü ürün yönetimindeki kataloğundan seçin. Boş slotlar sayfada gösterilmez. /b2b sayfasındaki "Üretici Portföyü" ile aynı yapıyı kullanır.
+              Şarj ağı operatörlerine tanıtılacak ürünleri ürün yönetimindeki kataloğundan seçin. İstediğiniz kadar slot ekleyebilirsiniz; boş slotlar sayfada gösterilmez.
             </p>
             <div className="space-y-3">
-              {[0, 1, 2, 3].map(i => {
+              {(data.operator?.featuredProducts ?? []).map((_, i) => {
                 const slot = data.operator?.featuredProducts?.[i] ?? {};
                 const catProducts = categories.find(c => c.id === slot.categoryId)?.products ?? [];
-                const filled = !!(slot.categoryId || slot.productId);
                 return (
                   <div key={i} className="rounded-xl p-3.5 space-y-2.5"
                     style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
@@ -663,12 +674,10 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
                         </div>
                         <p className="text-[11px] font-bold uppercase tracking-widest text-white/50">Slot {i + 1}</p>
                       </div>
-                      {filled && (
-                        <button onClick={() => clearOpSlot(i)}
-                          className="flex items-center gap-1 text-[10px] text-white/30 hover:text-red-400 transition-colors">
-                          <HiOutlineTrash size={11} /> Temizle
-                        </button>
-                      )}
+                      <button onClick={() => removeOpSlot(i)}
+                        className="flex items-center gap-1 text-[10px] text-white/30 hover:text-red-400 transition-colors">
+                        <HiOutlineTrash size={11} /> Sil
+                      </button>
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <select className={inputCls} value={slot.categoryId ?? ""}
@@ -694,6 +703,13 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
                   </div>
                 );
               })}
+              <button
+                onClick={addOpSlot}
+                className="w-full flex items-center justify-center gap-2 text-xs font-semibold py-2.5 rounded-xl transition-all"
+                style={{ background: "rgba(129,140,248,0.12)", border: "1px dashed rgba(129,140,248,0.40)", color: "#818CF8" }}
+              >
+                <HiOutlinePlus size={13} /> Slot Ekle
+              </button>
             </div>
           </B2BCard>
         </div>
