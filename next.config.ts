@@ -1,5 +1,30 @@
 import type { NextConfig } from "next";
 
+// Content Security Policy — restricts what the browser is allowed to
+// load. Tuned for our actual third-party surface: Google Analytics,
+// YouTube embeds, JSONBin / ImgBB / Cloudinary / MyMemory APIs, flag
+// CDN, Google Fonts. Includes 'unsafe-inline' for styles because
+// framer-motion writes inline transforms on every animated element,
+// and 'unsafe-inline' for scripts because Next.js ships small inline
+// hydration scripts in the page shell. We keep frame-ancestors 'self'
+// so the X-Frame-Options SAMEORIGIN policy still wins on browsers
+// that prefer one over the other.
+const csp = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.youtube-nocookie.com",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "img-src 'self' data: blob: https:",
+  "font-src 'self' data: https://fonts.gstatic.com",
+  "connect-src 'self' https://api.jsonbin.io https://api.mymemory.translated.net https://www.google-analytics.com https://region1.google-analytics.com https://flagcdn.com https://api.imgbb.com https://api.cloudinary.com https://api.resend.com",
+  "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com",
+  "media-src 'self' blob: https://res.cloudinary.com https:",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'self'",
+  "upgrade-insecure-requests",
+].join("; ");
+
 // Baseline security headers applied to every response. These are
 // browser-side defenses — they don't cost anything to serve and close
 // off easy attack surface (clickjacking, MIME sniffing, leaky referers,
@@ -9,6 +34,8 @@ const securityHeaders = [
   // permanently once a domain is HTTPS-only — Vercel's edge is HTTPS
   // by default so we never serve plain HTTP.
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+  // Lock down what the browser will load. See `csp` above for tuning.
+  { key: "Content-Security-Policy", value: csp },
   // Don't let other origins iframe the site (clickjacking).
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
   // Don't let the browser guess content types from response bytes.

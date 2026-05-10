@@ -813,6 +813,17 @@ export default function DealerNetwork() {
                         onPointerLeave={(e) => handleCityLeave(e)}
                         onClick={(e) => handleCityClick(region, e as unknown as React.MouseEvent)}
                       >
+                        {/* Invisible mobile-friendly tap target. The
+                            visible pin is ~31px radius in viewBox units,
+                            which shrinks to a few real pixels on phones.
+                            This 60-radius transparent disc keeps the hit
+                            area finger-sized regardless of viewport scale. */}
+                        <circle
+                          cx={region.cx} cy={region.cy}
+                          r={60}
+                          fill="transparent"
+                          style={{ pointerEvents: "all" }}
+                        />
                         {/* One-shot hint ring — re-mounts each time the user
                             clicks "Bayi Bul" so every region briefly pulses,
                             cueing visitors that the markers are clickable. */}
@@ -899,6 +910,14 @@ export default function DealerNetwork() {
                     onPointerLeave={(e) => handleCityLeave(e)}
                     onClick={(e) => handleCityClick(BURSA_HQ as typeof REGIONS[number], e as unknown as React.MouseEvent)}
                   >
+                    {/* Invisible mobile-friendly tap target — same
+                        finger-sized disc treatment as the region markers. */}
+                    <circle
+                      cx={BURSA_HQ.cx} cy={BURSA_HQ.cy}
+                      r={60}
+                      fill="transparent"
+                      style={{ pointerEvents: "all" }}
+                    />
                     {/* Hint pulse — same one-shot beacon as region markers */}
                     {hintBeacon > 0 && (
                       <motion.circle
