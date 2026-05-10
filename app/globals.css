@@ -90,6 +90,13 @@ html[data-theme="light"] body::before {
 ::-webkit-scrollbar-thumb { background: #333333; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #444444; }
 
+/* Hide scrollbar utility — used on horizontal carousels (filter chips,
+   benzer ürünler, technical spec tabs) where the scrollbar bar is more
+   distracting than helpful. Class shape kept compatible with Tailwind 3
+   community plugins so existing usage keeps working. */
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; width: 0; height: 0; }
+
 /* Section divider */
 .section-divider {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);

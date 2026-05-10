@@ -395,14 +395,9 @@ export default function ProductDetailPage({
                     boxShadow: d ? "0 4px 20px rgba(0,0,0,0.25)" : "0 2px 12px rgba(0,0,0,0.06)",
                   }}
                 >
-                  {/* Category + icon row */}
+                  {/* Category label + product code — no category icon
+                      anymore; the title was reading too crowded with it. */}
                   <div className="flex items-center gap-2 mb-3">
-                    <div
-                      className="flex items-center justify-center rounded-xl"
-                      style={{ width: 32, height: 32, background: `${accent}18`, border: `1px solid ${accent}28` }}
-                    >
-                      <Icon style={{ fontSize: 16, color: accent }} />
-                    </div>
                     <span className="text-xs font-semibold" style={{ color: accent }}>{category.name}</span>
                     {product.code && (
                       <span
@@ -685,9 +680,18 @@ export default function ProductDetailPage({
           ...otherCatProds.slice(0, Math.max(0, 4 - sameCat.length)),
         ].slice(0, 4);
         if (recommended.length === 0) return null;
+        // Pull more candidates so a horizontal carousel feels populated:
+        // up to 8 same-category siblings, then top up from other categories
+        // to a max of 12 cards. Plenty to swipe through, never enough to
+        // make the bin/page heavy.
+        const carousel = [
+          ...sameCat.slice(0, 8).map(p => ({ cat: category, prod: p })),
+          ...otherCatProds.slice(0, Math.max(0, 12 - sameCat.length)),
+        ].slice(0, 12);
+        if (carousel.length === 0) return null;
         return (
-          <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 pb-20">
-            <div className="flex items-center justify-between mb-4">
+          <div className="max-w-7xl mx-auto pb-20">
+            <div className="flex items-center justify-between mb-4 px-5 sm:px-6 lg:px-8">
               <h2 className="text-base font-bold" style={{ color: theme === "dark" ? "#f0f0f4" : "#111827" }}>Benzer Ürünler</h2>
               <button
                 onClick={() => router.push(`/products/${categoryId}`)}
@@ -697,8 +701,14 @@ export default function ProductDetailPage({
                 Tümünü Gör <HiArrowRight size={13} />
               </button>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {recommended.map(({ cat, prod }, i) => {
+            {/* Horizontal carousel — snaps card-by-card on touch, hides
+                scrollbar, leaves the same outer padding as the page rail
+                so the first/last card line up with section headings. */}
+            <div
+              className="flex gap-3 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-5 sm:px-6 lg:px-8"
+              style={{ scrollPaddingLeft: "1.25rem", WebkitOverflowScrolling: "touch" }}
+            >
+              {carousel.map(({ cat, prod }, i) => {
                 const CatIcon = categoryIcons[cat.id] ?? RiPlugLine;
                 const imgs = prod.images ?? (prod.image ? [prod.image] : []);
                 const sd = theme === "dark";
@@ -707,9 +717,9 @@ export default function ProductDetailPage({
                     key={`${cat.id}-${prod.id}`}
                     initial={{ opacity: 0, y: 14 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: i * 0.07 }}
+                    transition={{ duration: 0.3, delay: Math.min(i, 6) * 0.05 }}
                     onClick={() => router.push(`/products/${cat.id}/${prod.id}`)}
-                    className="rounded-2xl overflow-hidden cursor-pointer group transition-all duration-200"
+                    className="snap-start shrink-0 w-44 sm:w-52 rounded-2xl overflow-hidden cursor-pointer group transition-all duration-200"
                     style={{ background: sd ? "#141416" : "#ffffff", border: `1px solid ${sd ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}` }}
                     onMouseEnter={e => {
                       (e.currentTarget as HTMLDivElement).style.borderColor = `${cat.accent}50`;
@@ -720,7 +730,10 @@ export default function ProductDetailPage({
                       (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
                     }}
                   >
-                    {/* Fixed square image */}
+                    {/* Fixed square image. Padding dropped from p-3 → p-1
+                        so the product fills the tile edge-to-edge; the
+                        gradient background still shows through wherever
+                        the source image is itself padded. */}
                     <div
                       className="relative overflow-hidden"
                       style={{
@@ -731,9 +744,10 @@ export default function ProductDetailPage({
                       }}
                     >
                       {imgs[0] ? (
+                        // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={imgs[0]} alt={prod.name}
-                          className="absolute inset-0 w-full h-full object-contain p-3 transition-transform duration-300 group-hover:scale-105"
+                          className="absolute inset-0 w-full h-full object-contain p-1 transition-transform duration-300 group-hover:scale-105"
                         />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center">

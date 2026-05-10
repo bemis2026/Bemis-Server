@@ -18,11 +18,13 @@ export const PRODUCT_FEATURES: ProductFeature[] = [
   { id: "screen",      label: "LCD Ekran",             icon: "RiTv2Line",          accent: "#EC4899" },
   { id: "ip65",        label: "IP65 Koruma",          icon: "RiShieldCheckLine",  accent: "#64748B" },
   { id: "load",        label: "Dinamik Yük Dengeleme", icon: "RiBarChart2Line",    accent: "#06B6D4" },
-  { id: "type2",       label: "Type 2 Konektör",      icon: "RiPlugLine",         accent: "#3B82F6" },
-  { id: "ccs2",        label: "CCS2 (DC)",            icon: "RiFlashlightLine",   accent: "#F97316" },
   { id: "schedule",    label: "Planlı Şarj",          icon: "RiCalendarCheckLine",accent: "#EAB308" },
   { id: "shared",      label: "Ortak Kullanım",       icon: "RiTeamLine",         accent: "#818CF8" },
-  { id: "v2l",         label: "V2L (Araçtan Yüke)",   icon: "RiLightbulbLine",    accent: "#10B981" },
+  // type2 / ccs2 / v2l are technical attributes (connector / capability),
+  // not general feature flags — they belong in the Çevresel/Bağlantı spec
+  // groups instead. Existing products that still carry these ids in
+  // product.features just no-op gracefully because featureById returns
+  // undefined and the renderers skip nullish lookups.
 ];
 
 export const featureById = (id: string) => PRODUCT_FEATURES.find(f => f.id === id);
