@@ -78,7 +78,7 @@ export default function ProductDetailPage({
   // Warranty / certification copy is fixed company policy — same line for
   // every product, no admin knob.
   const WARRANTY_DURATION = "2 Yıl Üretici Garantisi";
-  const WARRANTY_CERTIFICATION = "CE & TSE Sertifikalı";
+  const WARRANTY_CERTIFICATION = "CE Sertifikalı";
   const d         = theme === "dark";
   const [searchOpen, setSearchOpen] = useState(false);
   const [category, setCategory]     = useState<CategoryData | null>(initialCategory);
@@ -308,7 +308,7 @@ export default function ProductDetailPage({
                           key={idx}
                           className="rounded-xl overflow-hidden flex flex-col"
                           style={{
-                            background: d ? "rgba(255,255,255,0.04)" : "#ffffff",
+                            background: d ? "#141416" : "#ffffff",
                             border: `1px solid ${border}`,
                           }}
                         >
@@ -316,7 +316,7 @@ export default function ProductDetailPage({
                             className="relative"
                             style={{
                               aspectRatio: "1/1",
-                              background: d ? "rgba(255,255,255,0.02)" : "#f8f8fb",
+                              background: d ? "#0e0e12" : "#f8f8fb",
                             }}
                           >
                             {item.image ? (
@@ -455,7 +455,7 @@ export default function ProductDetailPage({
                           className="inline-flex items-center text-xs font-bold rounded-md"
                           style={{
                             padding: "4px 10px",
-                            background: d ? "rgba(255,255,255,0.05)" : "#ffffff",
+                            background: d ? "#141416" : "#ffffff",
                             border: `1px solid ${d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`,
                             color: d ? "rgba(255,255,255,0.85)" : "#1a1a2e",
                           }}
@@ -489,7 +489,7 @@ export default function ProductDetailPage({
                             className="inline-flex items-center rounded-md text-[11px] font-bold tracking-wider"
                             style={{
                               padding: "5px 10px",
-                              background: d ? "rgba(255,255,255,0.05)" : "#ffffff",
+                              background: d ? "#141416" : "#ffffff",
                               border: `1px solid ${d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`,
                               color: d ? "rgba(255,255,255,0.85)" : "#1a1a2e",
                             }}
@@ -613,7 +613,7 @@ export default function ProductDetailPage({
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                               {featureList.map((f) => {
                                 const Icon = DETAIL_FEATURE_ICONS[f.icon];
-                                const cardBg     = d ? "rgba(255,255,255,0.04)" : "#ffffff";
+                                const cardBg     = d ? "#141416" : "#ffffff";
                                 const cardBorder = d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
                                 const cardShadow = d ? "none" : "0 1px 2px rgba(0,0,0,0.04)";
                                 return (
@@ -674,7 +674,7 @@ export default function ProductDetailPage({
                                 download={isPdf || !isExternal}
                                 className="flex items-center gap-3 px-3 py-2.5 rounded-xl group transition-colors"
                                 style={{
-                                  background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.025)",
+                                  background: d ? "#141416" : "#f8f8fb",
                                   border: `1px solid ${border}`,
                                 }}
                               >
@@ -705,7 +705,7 @@ export default function ProductDetailPage({
                   transition={{ duration: 0.3, delay: 0.18 }}
                   className="rounded-2xl px-4 py-3 flex flex-wrap items-center gap-x-6 gap-y-2"
                   style={{
-                    background: d ? "rgba(255,255,255,0.04)" : "#ffffff",
+                    background: d ? "#141416" : "#ffffff",
                     border: `1px solid ${border}`,
                   }}
                 >
@@ -752,7 +752,7 @@ export default function ProductDetailPage({
                     key={i}
                     className="rounded-xl overflow-hidden"
                     style={{
-                      background: sd ? "rgba(255,255,255,0.04)" : "#ffffff",
+                      background: sd ? "#141416" : "#ffffff",
                       border: `1px solid ${sd ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}`,
                     }}
                   >

@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { useContent } from "../../context/ContentContext";
 import { useLanguage } from "../../context/LanguageContext";
@@ -13,7 +13,6 @@ import SearchOverlay from "../../components/SearchOverlay";
 import {
   RiChargingPile2Line, RiBatteryChargeLine, RiFlashlightLine,
   RiPlugLine, RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
-  RiScalesLine, RiCloseLine, RiCheckLine,
 } from "react-icons/ri";
 import { HiArrowLeft } from "react-icons/hi";
 import Image from "next/image";
@@ -33,123 +32,6 @@ const categoryIcons: Record<string, React.ElementType> = {
   accessories: RiPlugLine, "dc-units": RiGasStationLine,
 };
 
-// ── Comparison Modal ───────────────────────────────────────────────────────
-function CompareModal({
-  products, accent, onClose, d, textPrimary, textMuted, textFaint, surface, surfaceBorder,
-}: {
-  products: ProductEntry[]; accent: string; onClose: () => void;
-  d: boolean; textPrimary: string; textMuted: string; textFaint: string;
-  surface: string; surfaceBorder: string;
-}) {
-  // Collect all unique spec labels across all groups
-  const allGroups: { group: string; labels: string[] }[] = [];
-  const groupMap = new Map<string, Set<string>>();
-  products.forEach(p =>
-    p.specs?.forEach(sg => {
-      if (!groupMap.has(sg.group)) groupMap.set(sg.group, new Set());
-      sg.items.forEach(it => groupMap.get(sg.group)!.add(it.label));
-    })
-  );
-  groupMap.forEach((labels, group) => allGroups.push({ group, labels: [...labels] }));
-
-  const getVal = (p: ProductEntry, group: string, label: string) =>
-    p.specs?.find(sg => sg.group === group)?.items.find(it => it.label === label)?.value ?? "—";
-
-  return (
-    <motion.div
-      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
-      style={{ background: "rgba(0,0,0,0.65)", backdropFilter: "blur(6px)" }}
-      onClick={onClose}
-    >
-      <motion.div
-        initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 60 }}
-        transition={{ type: "spring", damping: 28, stiffness: 280 }}
-        className="w-full sm:max-w-4xl max-h-[90vh] rounded-t-3xl sm:rounded-2xl overflow-hidden flex flex-col"
-        style={{ background: d ? "#131316" : "#ffffff", border: `1px solid ${surfaceBorder}` }}
-        onClick={e => e.stopPropagation()}
-      >
-        {/* Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b flex-shrink-0" style={{ borderColor: surfaceBorder }}>
-          <div className="flex items-center gap-2">
-            <RiScalesLine style={{ color: accent, fontSize: 18 }} />
-            <span className="font-bold text-sm" style={{ color: textPrimary }}>Ürün Karşılaştırma</span>
-            <span className="text-xs px-2 py-0.5 rounded-full font-semibold ml-1"
-              style={{ background: `${accent}18`, color: accent }}>{products.length} ürün</span>
-          </div>
-          <button onClick={onClose} className="w-8 h-8 flex items-center justify-center rounded-xl transition-colors"
-            style={{ background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)", color: textMuted }}>
-            <RiCloseLine size={18} />
-          </button>
-        </div>
-
-        {/* Scrollable table */}
-        <div className="overflow-auto flex-1">
-          <table className="w-full text-sm border-collapse" style={{ minWidth: 480 }}>
-            {/* Product name row */}
-            <thead>
-              <tr style={{ borderBottom: `1px solid ${surfaceBorder}` }}>
-                <th className="px-4 py-3 text-left w-36 font-medium text-xs"
-                  style={{ color: textFaint, background: d ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.02)" }}>
-                  Özellik
-                </th>
-                {products.map(p => (
-                  <th key={p.id} className="px-4 py-3 text-left font-bold text-xs" style={{ color: textPrimary }}>
-                    {p.name}
-                    {p.subtitle && <div className="font-normal mt-0.5" style={{ color: textFaint, fontSize: "0.68rem" }}>{p.subtitle}</div>}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {allGroups.map(({ group, labels }) => (
-                <>
-                  {/* Group header */}
-                  <tr key={`g-${group}`}>
-                    <td colSpan={products.length + 1} className="px-4 py-2 text-[10px] font-bold uppercase tracking-widest"
-                      style={{ color: accent, background: `${accent}08`, borderBottom: `1px solid ${accent}15` }}>
-                      {group}
-                    </td>
-                  </tr>
-                  {labels.map(label => {
-                    const vals = products.map(p => getVal(p, group, label));
-                    const allSame = vals.every(v => v === vals[0]);
-                    return (
-                      <tr key={label} style={{ borderBottom: `1px solid ${surfaceBorder}` }}>
-                        <td className="px-4 py-2.5 text-xs font-medium" style={{ color: textMuted }}>{label}</td>
-                        {products.map((p, pi) => {
-                          const val = vals[pi];
-                          return (
-                            <td key={p.id} className="px-4 py-2.5 text-xs font-semibold"
-                              style={{ color: !allSame && val !== "—" ? accent : textPrimary }}>
-                              {val === "—"
-                                ? <span style={{ color: textFaint }}>—</span>
-                                : val.includes("✓") || val === "Var"
-                                  ? <RiCheckLine style={{ color: "#10B981", fontSize: 16 }} />
-                                  : val}
-                            </td>
-                          );
-                        })}
-                      </tr>
-                    );
-                  })}
-                </>
-              ))}
-            </tbody>
-          </table>
-
-          {allGroups.length === 0 && (
-            <div className="flex flex-col items-center justify-center py-16 gap-2">
-              <RiScalesLine style={{ fontSize: 36, color: textFaint }} />
-              <p className="text-sm" style={{ color: textMuted }}>Bu ürünler için teknik özellik verisi henüz girilmemiş.</p>
-            </div>
-          )}
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-}
-
 // ── Main Page ──────────────────────────────────────────────────────────────
 export default function ProductCategoryPage({ initialCategory = null }: { initialCategory?: CategoryData | null }) {
   const params = useParams();
@@ -161,8 +43,6 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
   const [searchOpen, setSearchOpen]     = useState(false);
   const [category, setCategory]         = useState<CategoryData | null>(initialCategory);
   const [loading, setLoading]           = useState(initialCategory === null);
-  const [compareIds, setCompareIds]     = useState<string[]>([]);
-  const [showCompare, setShowCompare]   = useState(false);
   const id = typeof params.id === "string" ? params.id : "";
   const isFirstMount = useRef(true);
 
@@ -189,14 +69,6 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
   const textFaint     = d ? "rgba(240,240,244,0.30)" : "rgba(26,26,46,0.30)";
   const groupHeaderBg = d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)";
 
-  const toggleCompare = (productId: string) => {
-    setCompareIds(prev =>
-      prev.includes(productId)
-        ? prev.filter(x => x !== productId)
-        : prev.length >= 3 ? prev : [...prev, productId]
-    );
-  };
-
   if (loading) return (
     <div style={{ background: bg, minHeight: "100vh" }} className="flex items-center justify-center">
       <div className="w-8 h-8 rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
@@ -217,7 +89,6 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
   const Icon = categoryIcons[id] || RiPlugLine;
   const accent = category.accent;
   const categoryDescription = categories?.[id]?.description?.trim() ?? "";
-  const compareProducts = (category.products ?? []).filter(p => compareIds.includes(p.id));
 
   return (
     <div style={{ background: bg, minHeight: "100vh" }}>
@@ -274,16 +145,6 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
             </motion.p>
           )}
 
-          {/* Compare hint */}
-          {(category.products?.length ?? 0) > 1 && (
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
-              className="text-xs mt-4 flex items-center gap-1.5" style={{ color: textFaint }}>
-              <RiScalesLine style={{ fontSize: 13, color: accent }} />
-              Karşılaştırmak için kartlardaki
-              <span className="font-semibold" style={{ color: accent }}>Karşılaştır</span>
-              butonunu kullanın (maks. 3 ürün)
-            </motion.p>
-          )}
         </div>
       </div>
 
@@ -292,10 +153,6 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
           {groupVariantsByName(category.products ?? []).map((group, pi) => {
             const product = group.primary;
-            // Listing card represents the whole variant family. Compare-cart
-            // tracks the primary variant; the user can still pick a specific
-            // variant on the detail page.
-            const inCompare = compareIds.includes(product.id);
             const variantCount = group.variants.length;
             return (
               <motion.div key={group.key} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
@@ -303,21 +160,16 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                 className="group rounded-2xl overflow-hidden transition-all duration-250 flex flex-col"
                 style={{
                   background: surface,
-                  border: `1px solid ${inCompare ? accent + "50" : surfaceBorder}`,
-                  boxShadow: inCompare ? `0 0 0 2px ${accent}25` : "none",
+                  border: `1px solid ${surfaceBorder}`,
                   cursor: "pointer",
                 }}
                 onMouseEnter={e => {
-                  if (!inCompare) {
-                    (e.currentTarget as HTMLDivElement).style.borderColor = `${accent}45`;
-                    (e.currentTarget as HTMLDivElement).style.boxShadow = `0 4px 28px ${accent}12`;
-                  }
+                  (e.currentTarget as HTMLDivElement).style.borderColor = `${accent}45`;
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = `0 4px 28px ${accent}12`;
                 }}
                 onMouseLeave={e => {
-                  if (!inCompare) {
-                    (e.currentTarget as HTMLDivElement).style.borderColor = surfaceBorder;
-                    (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
-                  }
+                  (e.currentTarget as HTMLDivElement).style.borderColor = surfaceBorder;
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
                 }}
               >
                 {/* Product image / icon */}
@@ -371,78 +223,11 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                     <span className="text-[10px] font-semibold" style={{ color: accent }}>Detaylar →</span>
                   </div>
                 </div>
-
-                {/* Compare toggle */}
-                <button
-                  onClick={e => { e.stopPropagation(); toggleCompare(product.id); }}
-                  className="flex items-center justify-center gap-1.5 py-2 text-[10px] font-semibold transition-all duration-150 border-t"
-                  style={{
-                    borderColor: inCompare ? `${accent}30` : surfaceBorder,
-                    background: inCompare ? `${accent}12` : "transparent",
-                    color: inCompare ? accent : textFaint,
-                  }}
-                >
-                  {inCompare
-                    ? <><RiCheckLine style={{ fontSize: 12 }} /> Seçildi</>
-                    : <><RiScalesLine style={{ fontSize: 12 }} /> Karşılaştır</>
-                  }
-                </button>
               </motion.div>
             );
           })}
         </div>
       </div>
-
-      {/* ── Sticky compare bar ── */}
-      <AnimatePresence>
-        {compareIds.length >= 2 && (
-          <motion.div
-            initial={{ y: 80, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 80, opacity: 0 }}
-            transition={{ type: "spring", damping: 28, stiffness: 300 }}
-            className="fixed bottom-0 left-0 right-0 z-40 px-4 pb-4 pt-3"
-            style={{ background: d ? "rgba(13,13,15,0.96)" : "rgba(255,255,255,0.96)", backdropFilter: "blur(16px)", borderTop: `1px solid ${surfaceBorder}` }}
-          >
-            <div className="max-w-5xl mx-auto flex items-center gap-3 flex-wrap">
-              <div className="flex items-center gap-2 flex-1 min-w-0">
-                <RiScalesLine style={{ color: accent, fontSize: 18, flexShrink: 0 }} />
-                <div className="flex gap-2 flex-wrap">
-                  {compareProducts.map(p => (
-                    <span key={p.id} className="flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-lg"
-                      style={{ background: `${accent}15`, color: accent, border: `1px solid ${accent}30` }}>
-                      {p.name}
-                      <button onClick={() => toggleCompare(p.id)} className="hover:opacity-70">
-                        <RiCloseLine style={{ fontSize: 13 }} />
-                      </button>
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="flex items-center gap-2 flex-shrink-0">
-                <button onClick={() => setCompareIds([])} className="text-xs px-3 py-2 rounded-xl font-medium"
-                  style={{ color: textMuted, background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)" }}>
-                  Temizle
-                </button>
-                <button onClick={() => setShowCompare(true)}
-                  className="text-xs px-4 py-2 rounded-xl font-bold transition-all"
-                  style={{ background: accent, color: "#fff" }}>
-                  Karşılaştır ({compareIds.length})
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Compare modal */}
-      <AnimatePresence>
-        {showCompare && (
-          <CompareModal
-            products={compareProducts} accent={accent} onClose={() => setShowCompare(false)}
-            d={d} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint}
-            surface={surface} surfaceBorder={surfaceBorder}
-          />
-        )}
-      </AnimatePresence>
 
       <div className="pb-20" />
 
