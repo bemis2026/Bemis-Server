@@ -103,14 +103,17 @@ html[data-theme="light"] body::before {
    one shimmers (background-position animates) so the bright spot
    pulses through.
 
-   Two stacking guarantees:
-     1. z-index: -1 inside the wrapper's isolated stacking context, so
+   Three stacking guarantees:
+     1. position: fixed — the bg layer follows the viewport instead of
+        the (often very tall) page wrapper, so streaks keep looping all
+        the way down the page instead of running out of room mid-page.
+     2. z-index: -1 inside the wrapper's isolated stacking context, so
         cards always paint on top.
-     2. inset: 80px 0 0 0 — the bg layer skips the top navbar zone, so
+     3. inset: 80px 0 0 0 — the bg layer skips the top navbar zone, so
         vertical streaks emerge from below the menu bar instead of
         slicing through it. */
 .energy-bg {
-  position: absolute;
+  position: fixed;
   inset: 80px 0 0 0;
   pointer-events: none;
   z-index: -1;
@@ -187,19 +190,20 @@ html[data-theme="light"] .energy-streak.energy-h3 {
     transparent 100%);
 }
 
-/* Drift keyframes — translation moves a bit past the viewport edge so
-   the streak fully clears before fading out. */
+/* Drift keyframes — fade in at start, then ride at full opacity all
+   the way to the off-screen end. The earlier "fade out at 90%" gave
+   the impression that streaks were extinguishing in the middle of the
+   page; with overflow:hidden on the bg layer, the streak vanishes
+   cleanly when it leaves the viewport without a visible cut. */
 @keyframes energy-drift-down {
   0%   { transform: translate3d(0, -40vh, 0); opacity: 0; }
   10%  { opacity: 1; }
-  90%  { opacity: 1; }
-  100% { transform: translate3d(0, 110vh, 0); opacity: 0; }
+  100% { transform: translate3d(0, 110vh, 0); opacity: 1; }
 }
 @keyframes energy-drift-left {
   0%   { transform: translate3d(110vw, 0, 0); opacity: 0; }
   10%  { opacity: 1; }
-  90%  { opacity: 1; }
-  100% { transform: translate3d(-40vw, 0, 0); opacity: 0; }
+  100% { transform: translate3d(-40vw, 0, 0); opacity: 1; }
 }
 
 /* Shimmer keyframes — bright spot travels through the gradient. */

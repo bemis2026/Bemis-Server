@@ -45,6 +45,7 @@ type ProductEntry = {
   features?: string[];
   certificates?: string[];
   boxContents?: BoxContentItem[];
+  compatibleVehicles?: string[];
 };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
@@ -438,6 +439,32 @@ export default function ProductDetailPage({
                       <span className="text-sm" style={{ color: textMuted }}>{product.subtitle}</span>
                     )}
                   </div>
+
+                  {/* Compatible vehicles — V2L variants where the
+                      product is built around a specific car brand pin
+                      pattern. We surface the brand list as labeled
+                      chips so it doesn't get lost in the subtitle. */}
+                  {product.compatibleVehicles && product.compatibleVehicles.length > 0 && (
+                    <div className="flex flex-wrap items-center gap-2 mb-3">
+                      <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: textFaint }}>
+                        Uyumlu Araçlar
+                      </span>
+                      {product.compatibleVehicles.map((brand) => (
+                        <span
+                          key={brand}
+                          className="inline-flex items-center text-xs font-bold rounded-md"
+                          style={{
+                            padding: "4px 10px",
+                            background: d ? "rgba(255,255,255,0.05)" : "#ffffff",
+                            border: `1px solid ${d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`,
+                            color: d ? "rgba(255,255,255,0.85)" : "#1a1a2e",
+                          }}
+                        >
+                          {brand}
+                        </span>
+                      ))}
+                    </div>
+                  )}
 
                   {/* Description */}
                   {product.description && (

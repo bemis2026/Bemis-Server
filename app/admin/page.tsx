@@ -94,7 +94,7 @@ type SpecItem = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
 type ProductDocument = { label: string; url: string };
 type BoxContentItem = { name: string; image?: string };
-type ProductEntry = { id: string; name: string; code?: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[]; generalFeatures?: string[]; documents?: ProductDocument[]; features?: string[]; certificates?: string[]; boxContents?: BoxContentItem[] };
+type ProductEntry = { id: string; name: string; code?: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[]; generalFeatures?: string[]; documents?: ProductDocument[]; features?: string[]; certificates?: string[]; boxContents?: BoxContentItem[]; compatibleVehicles?: string[] };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
 type StatItem = { value: number; suffix: string; prefix?: string; label: string; description: string };
