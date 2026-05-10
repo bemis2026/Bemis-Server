@@ -8,6 +8,7 @@ import { useLanguage } from "../../../context/LanguageContext";
 import { useContent } from "../../../context/ContentContext";
 import { findVariantGroup } from "../../../../lib/productGroups";
 import JsonLd from "../../../components/JsonLd";
+import EnergyBackground from "../../../components/EnergyBackground";
 import Navbar from "../../../components/Navbar";
 import ContactBar from "../../../components/ContactBar";
 import SearchOverlay from "../../../components/SearchOverlay";
@@ -72,7 +73,11 @@ export default function ProductDetailPage({
   const router    = useRouter();
   const { theme } = useTheme();
   const { lang } = useLanguage();
-  const { categories: catMeta, warranty } = useContent();
+  const { categories: catMeta } = useContent();
+  // Warranty / certification copy is fixed company policy — same line for
+  // every product, no admin knob.
+  const WARRANTY_DURATION = "2 Yıl Üretici Garantisi";
+  const WARRANTY_CERTIFICATION = "CE & TSE Sertifikalı";
   const d         = theme === "dark";
   const [searchOpen, setSearchOpen] = useState(false);
   const [category, setCategory]     = useState<CategoryData | null>(initialCategory);
@@ -123,7 +128,8 @@ export default function ProductDetailPage({
   const Icon        = categoryIcons[categoryId] ?? RiChargingPile2Line;
 
   return (
-    <div style={{ background: bg, minHeight: "100vh" }}>
+    <div style={{ background: bg, minHeight: "100vh", position: "relative", overflow: "hidden" }}>
+      <EnergyBackground />
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
@@ -665,34 +671,26 @@ export default function ProductDetailPage({
                   );
                 })()}
 
-                {/* Warranty / certification band — global content set in
-                    admin → İletişim → Garanti & Sertifikasyon Bandı.
-                    Hidden when warranty.show is explicitly false. */}
-                {warranty && warranty.show !== false && (warranty.duration || warranty.certification) && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.18 }}
-                    className="rounded-2xl px-4 py-3 flex flex-wrap items-center gap-x-6 gap-y-2"
-                    style={{
-                      background: d ? "rgba(255,255,255,0.04)" : "#ffffff",
-                      border: `1px solid ${border}`,
-                    }}
-                  >
-                    {warranty.duration && (
-                      <span className="inline-flex items-center gap-2 text-xs font-semibold" style={{ color: textPrimary }}>
-                        <RiShieldCheckLine size={16} style={{ color: BRAND_BLUE }} />
-                        {warranty.duration}
-                      </span>
-                    )}
-                    {warranty.certification && (
-                      <span className="inline-flex items-center gap-2 text-xs font-semibold" style={{ color: textPrimary }}>
-                        <RiAwardLine size={16} style={{ color: BRAND_BLUE }} />
-                        {warranty.certification}
-                      </span>
-                    )}
-                  </motion.div>
-                )}
+                {/* Warranty / certification band — fixed copy. */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.18 }}
+                  className="rounded-2xl px-4 py-3 flex flex-wrap items-center gap-x-6 gap-y-2"
+                  style={{
+                    background: d ? "rgba(255,255,255,0.04)" : "#ffffff",
+                    border: `1px solid ${border}`,
+                  }}
+                >
+                  <span className="inline-flex items-center gap-2 text-xs font-semibold" style={{ color: textPrimary }}>
+                    <RiShieldCheckLine size={16} style={{ color: BRAND_BLUE }} />
+                    {WARRANTY_DURATION}
+                  </span>
+                  <span className="inline-flex items-center gap-2 text-xs font-semibold" style={{ color: textPrimary }}>
+                    <RiAwardLine size={16} style={{ color: BRAND_BLUE }} />
+                    {WARRANTY_CERTIFICATION}
+                  </span>
+                </motion.div>
 
               </div>
             </div>

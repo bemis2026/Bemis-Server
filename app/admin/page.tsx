@@ -101,8 +101,6 @@ type StatItem = { value: number; suffix: string; prefix?: string; label: string;
 type FaqItem = { q: string; a: string };
 type CategoryMeta = { name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string; sliderImage?: string; description?: string; faq?: FaqItem[] };
 type FeaturedItem = { categoryId: string; productId: string; badge: string; highlight: string; visible: boolean };
-type WarrantyInfo = { show: boolean; duration: string; certification: string };
-
 type ContentData = {
   hero: {
     badge: string; headline1: string; headline2: string; headline2Words?: string[]; headline3: string;
@@ -113,7 +111,6 @@ type ContentData = {
   stats: StatItem[];
   categories: Record<string, CategoryMeta>;
   featured: FeaturedItem[];
-  warranty?: WarrantyInfo;
   contact: { phone: string; email: string; address: string; addressSub: string; workingHours: string; workingDays: string; whatsappPhone?: string; whatsappMessage?: string };
   company: { foundedYear: string; exportCountries: string; productCount: string; facilitySize: string };
   social: { linkedin: string; instagram: string; twitter: string };
@@ -1402,13 +1399,6 @@ export default function AdminPage() {
     setContent(next);
   };
 
-  const updateWarranty = (field: keyof WarrantyInfo, value: string | boolean) => {
-    if (!content) return;
-    const next = JSON.parse(JSON.stringify(content)) as ContentData;
-    const cur = next.warranty ?? { show: true, duration: "", certification: "" };
-    next.warranty = { ...cur, [field]: value };
-    setContent(next);
-  };
 
 
   // ── Loading screen ──────────────────────────────────────────
@@ -3043,31 +3033,6 @@ export default function AdminPage() {
                     )}
                   </div>
 
-                  {/* Warranty / certification band shown on every product
-                      detail page below the spec / general / documents
-                      tabs. Single global config, edited here so it sits
-                      alongside the rest of the trust-signal content. */}
-                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-xs font-semibold text-white/50">Garanti & Sertifikasyon Bandı</p>
-                        <p className="text-[11px] text-white/30 mt-0.5">Tüm ürün detay sayfalarında, sekmelerin altında ince bir bant olarak görünür.</p>
-                      </div>
-                      <button
-                        onClick={() => updateWarranty("show", !(content.warranty?.show ?? true))}
-                        className="px-3 py-1.5 rounded-lg text-[11px] font-semibold transition-colors"
-                        style={{
-                          background: (content.warranty?.show ?? true) ? "rgba(59,130,246,0.18)" : "rgba(255,255,255,0.05)",
-                          color: (content.warranty?.show ?? true) ? "#cfe1ff" : "rgba(255,255,255,0.45)",
-                          border: (content.warranty?.show ?? true) ? "1px solid rgba(59,130,246,0.45)" : "1px solid rgba(255,255,255,0.10)",
-                        }}
-                      >
-                        {(content.warranty?.show ?? true) ? "Görünür ●" : "Gizli ○"}
-                      </button>
-                    </div>
-                    <Field label="Garanti Süresi" value={content.warranty?.duration ?? ""} onChange={(v) => updateWarranty("duration", v)} />
-                    <Field label="Sertifikasyon" value={content.warranty?.certification ?? ""} onChange={(v) => updateWarranty("certification", v)} />
-                  </div>
                 </div>
               )}
 

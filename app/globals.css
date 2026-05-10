@@ -97,6 +97,84 @@ html[data-theme="light"] body::before {
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 .scrollbar-hide::-webkit-scrollbar { display: none; width: 0; height: 0; }
 
+/* Energy background — diagonal gradient "streaks" drifting across the
+   viewport. Used (for now) only on product detail pages to give the
+   surface a living/electric feel without competing for attention. Each
+   streak is a thin gradient bar that translates left → right while
+   maintaining its rotation. Theme-aware: brighter on dark, faint on
+   white. Honors prefers-reduced-motion. */
+.energy-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.energy-streak {
+  position: absolute;
+  width: 100vw;
+  height: 1.5px;
+  border-radius: 999px;
+  filter: blur(0.5px);
+  opacity: 0;
+  left: 0;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(147, 197, 253, 0) 18%,
+    rgba(147, 197, 253, 0.20) 38%,
+    rgba(59, 130, 246, 0.45) 50%,
+    rgba(147, 197, 253, 0.20) 62%,
+    rgba(147, 197, 253, 0) 82%,
+    transparent 100%);
+  will-change: transform, opacity;
+}
+
+html[data-theme="light"] .energy-streak {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(96, 165, 250, 0) 18%,
+    rgba(96, 165, 250, 0.10) 38%,
+    rgba(59, 130, 246, 0.22) 50%,
+    rgba(96, 165, 250, 0.10) 62%,
+    rgba(96, 165, 250, 0) 82%,
+    transparent 100%);
+}
+
+@keyframes energy-drift-1 {
+  0%   { transform: translate3d(-110vw, 0, 0) rotate(112deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translate3d(110vw, 0, 0) rotate(112deg); opacity: 0; }
+}
+@keyframes energy-drift-2 {
+  0%   { transform: translate3d(-110vw, 0, 0) rotate(118deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translate3d(110vw, 0, 0) rotate(118deg); opacity: 0; }
+}
+@keyframes energy-drift-3 {
+  0%   { transform: translate3d(-110vw, 0, 0) rotate(115deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translate3d(110vw, 0, 0) rotate(115deg); opacity: 0; }
+}
+@keyframes energy-drift-4 {
+  0%   { transform: translate3d(-110vw, 0, 0) rotate(122deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translate3d(110vw, 0, 0) rotate(122deg); opacity: 0; }
+}
+
+.energy-s1 { top: 22%; animation: energy-drift-1 22s linear infinite; animation-delay: 0s; }
+.energy-s2 { top: 48%; animation: energy-drift-2 26s linear infinite; animation-delay: -7s; }
+.energy-s3 { top: 70%; animation: energy-drift-3 19s linear infinite; animation-delay: -13s; }
+.energy-s4 { top: 35%; animation: energy-drift-4 24s linear infinite; animation-delay: -4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .energy-streak { animation: none; opacity: 0.05; }
+}
+
 /* Section divider */
 .section-divider {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
