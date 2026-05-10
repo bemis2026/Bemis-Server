@@ -23,28 +23,37 @@ const navLinks = [
   { label: "Kurumsal",    href: "#b2bcta"           },
 ];
 
-// Tiny "B mark" — same Bemis silhouette as the favicon, rendered as a
-// solid-coloured rounded square. The accent prop differentiates the
-// three Kurumsal sub-pages (each gets its own brand colour) and the
-// single Hakkımızda entry gets the neutral red of the canonical
-// favicon. Inline SVG so it stays crisp at any size and doesn't add a
-// network request.
+// Tiny brand mark — the actual white Bemis favicon (the same PNG we
+// serve as /favicon-white-192.png and use on the dealer-map HQ pin)
+// placed inside a rounded-square colour fill. Each Kurumsal sub-page
+// uses a different accent colour so the visitor can tell them apart
+// at a glance; Hakkımızda's single entry uses the canonical favicon
+// red. Using the real logo (not a stand-in "B" letter) keeps the
+// brand language consistent.
 function BemisMark({ accent, size = 28 }: { accent: string; size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 64 64" aria-hidden="true">
-      <rect x="4" y="4" width="56" height="56" rx="14" fill={accent} />
-      <text
-        x="32"
-        y="42"
-        textAnchor="middle"
-        fontFamily="Arial Black, Arial, sans-serif"
-        fontWeight={900}
-        fontSize="32"
-        fill="#ffffff"
-      >
-        B
-      </text>
-    </svg>
+    <span
+      aria-hidden="true"
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: size,
+        height: size,
+        borderRadius: Math.round(size * 0.22),
+        background: accent,
+        flexShrink: 0,
+      }}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/favicon-white-192.png"
+        alt=""
+        width={size}
+        height={size}
+        style={{ width: "78%", height: "78%", objectFit: "contain" }}
+      />
+    </span>
   );
 }
 

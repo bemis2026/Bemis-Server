@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { GlobeMethods } from "react-globe.gl";
 import type { InternationalDealer } from "../context/ContentContext";
 
@@ -109,37 +109,38 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedId]);
 
-  // Country pins only. The HQ marker is a custom HTML overlay (logo+caption)
-  // so we can show our brand mark instead of a plain 3D label.
-  const labels = activeCountries.map(c => ({ ...c, color: BLUE, size: 0.7, isHQ: false as const }));
-
-  // Pulsing rings — slow steady ring under Bursa pin and one under each
-  // active country pin. Adds depth without the arc-line clutter.
-  const rings = [
-    { lat: BURSA.lat, lng: BURSA.lng, color: RED, maxR: 4.0, speed: 1.0, period: 2200 },
-    ...activeCountries.map(c => ({
-      lat: c.lat, lng: c.lng, color: BLUE, maxR: 2.2, speed: 0.7, period: 3200,
+  // Memoise the data arrays so their reference is stable across renders
+  // — react-globe.gl rebuilds its internal geometry whenever a data prop
+  // identity changes, which (with onLabelHover updating state on every
+  // pixel of movement) caused a tooltip flicker loop on hover.
+  const labels = useMemo(
+    () => activeCountries.map(c => ({ ...c, color: BLUE, size: 0.7, isHQ: false as const })),
+    [activeCountries],
+  );
+  const rings = useMemo(
+    () => [
+      { lat: BURSA.lat, lng: BURSA.lng, color: RED, maxR: 4.0, speed: 1.0, period: 2200 },
+      ...activeCountries.map(c => ({
+        lat: c.lat, lng: c.lng, color: BLUE, maxR: 2.2, speed: 0.7, period: 3200,
+      })),
+    ],
+    [activeCountries],
+  );
+  const htmlElements = useMemo(() => [{ lat: BURSA.lat, lng: BURSA.lng }], []);
+  const arcs = useMemo(
+    () => activeCountries.map(c => ({
+      startLat: BURSA.lat,
+      startLng: BURSA.lng,
+      endLat: c.lat,
+      endLng: c.lng,
     })),
-  ];
-
-  // Custom HTML overlay for HQ — uses our /icon route so the marker matches
-  // the browser tab favicon pixel-for-pixel.
-  const htmlElements = [{ lat: BURSA.lat, lng: BURSA.lng }];
-
-  // Thin export-flow arcs from Bursa to each active distributor country.
-  // Stroke kept tiny + alpha low so the lines feel like a soft trail rather
-  // than the busy fan we had before.
-  const arcs = activeCountries.map(c => ({
-    startLat: BURSA.lat,
-    startLng: BURSA.lng,
-    endLat: c.lat,
-    endLng: c.lng,
-  }));
+    [activeCountries],
+  );
 
   return (
     <div
       ref={wrapRef}
-      className="relative w-full"
+      className={`relative w-full ${dark ? "globe-dimmed" : ""}`}
       style={{
         minHeight: 380,
         height: size.h,
@@ -188,9 +189,13 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
         labelResolution={3}
         labelAltitude={0.012}
         onLabelHover={(d: object | null) => {
-          if (!d) return setHovered(null);
-          if ((d as { isHQ?: boolean }).isHQ) return setHovered(null);
-          setHovered(d as InternationalDealer);
+          const next = !d || (d as { isHQ?: boolean }).isHQ
+            ? null
+            : (d as InternationalDealer);
+          // Guard the state setter so hovering the same pin doesn't
+          // re-trigger a render → re-render → label-rebuild cycle that
+          // visibly flashed the tooltip every pixel of mouse movement.
+          setHovered(prev => (prev?.id ?? null) === (next?.id ?? null) ? prev : next);
         }}
         onLabelClick={(d: object) => {
           if ((d as { isHQ?: boolean }).isHQ) return;
