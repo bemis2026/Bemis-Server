@@ -23,16 +23,52 @@ async function getFaviconUrl(): Promise<string | null> {
   }
 }
 
+// True when the visible (alpha > 0) pixels are mostly bright. sharp's
+// channel stats average across transparent pixels too, which dragged the
+// mean way down on white-on-transparent PNGs and missed the case we
+// actually need to invert.
+async function isMostlyBrightLogo(input: Buffer): Promise<boolean> {
+  try {
+    const { data, info } = await sharp(input)
+      .ensureAlpha()
+      .raw()
+      .toBuffer({ resolveWithObject: true });
+    if (info.channels < 4) return false;
+    let visible = 0;
+    let sumLum = 0;
+    for (let i = 0; i < data.length; i += 4) {
+      if (data[i + 3] < 64) continue;
+      visible++;
+      sumLum += 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2];
+    }
+    return visible > 0 && sumLum / visible > 200;
+  } catch {
+    return false;
+  }
+}
+
 async function normalizeFavicon(bytes: ArrayBuffer): Promise<Buffer> {
   const input = Buffer.from(bytes);
-  const stats = await sharp(input).stats().catch(() => null);
-  const isWhiteLogo = !!stats && stats.channels.length >= 3 &&
-    stats.channels.slice(0, 3).every((c) => c.mean > 220);
-  let pipe = sharp(input);
-  if (isWhiteLogo) pipe = pipe.negate({ alpha: false });
-  return pipe
-    .flatten({ background: { r: 255, g: 255, b: 255 } })
-    .resize(64, 64, { fit: "contain", background: { r: 255, g: 255, b: 255 } })
+  // Negate first if the visible pixels are mostly bright; that flips the
+  // logo from white-on-transparent to dark-on-transparent (alpha is kept,
+  // so the inner shape that was carved out of the mark stays transparent).
+  let layer = sharp(input);
+  if (await isMostlyBrightLogo(input)) layer = layer.negate({ alpha: false });
+  // 56×56 leaves a 4px breathing margin inside the 64×64 favicon — Google
+  // and most browser tabs crop a bit off the edges so the mark needs slack.
+  const resized = await layer
+    .resize(56, 56, { fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } })
+    .png()
+    .toBuffer();
+  return sharp({
+    create: {
+      width: 64,
+      height: 64,
+      channels: 3,
+      background: { r: 255, g: 255, b: 255 },
+    },
+  })
+    .composite([{ input: resized }])
     .png()
     .toBuffer();
 }
