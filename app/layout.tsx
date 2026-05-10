@@ -69,8 +69,6 @@ async function getContentMeta(): Promise<ContentSnapshot> {
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { faviconUrl } = await getContentMeta();
-
   // Note: og:image / twitter:image meta tags are produced automatically
   // by app/opengraph-image.tsx — we deliberately don't set them here so
   // the dynamic generator stays the single source of truth (avoids
@@ -92,21 +90,15 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: "Bemis Teknik Elektrik A.Ş.",
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
     alternates: { canonical: "/" },
-    // No admin upload → ship the static black-on-white PNGs (the simplest,
-    // most cacheable thing). When an operator uploads a custom favicon via
-    // admin → Medya, route through /icon so sharp can normalize whatever
-    // shape they send before it lands in tabs and search results.
-    icons: faviconUrl
-      ? { icon: "/icon", shortcut: "/icon", apple: "/icon" }
-      : {
-          icon: [
-            { url: "/favicon-black-64.png", sizes: "64x64", type: "image/png" },
-            { url: "/favicon-black-192.png", sizes: "192x192", type: "image/png" },
-            { url: "/favicon-black-512.png", sizes: "512x512", type: "image/png" },
-          ],
-          shortcut: "/favicon-black-192.png",
-          apple: { url: "/favicon-black-512.png", sizes: "180x180" },
-        },
+    icons: {
+      icon: [
+        { url: "/favicon-black-64.png", sizes: "64x64", type: "image/png" },
+        { url: "/favicon-black-192.png", sizes: "192x192", type: "image/png" },
+        { url: "/favicon-black-512.png", sizes: "512x512", type: "image/png" },
+      ],
+      shortcut: "/favicon-black-192.png",
+      apple: { url: "/favicon-black-512.png", sizes: "180x180" },
+    },
     openGraph: {
       title: "Bemis E-V Charge | Yerli EV Şarj Ekipmanı Üreticisi",
       description:
