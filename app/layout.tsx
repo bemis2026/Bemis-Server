@@ -12,7 +12,6 @@ import GoogleAnalytics from "./components/GoogleAnalytics";
 import ContentLoadingBar from "./components/ContentLoadingBar";
 import ContentErrorToast from "./components/ContentErrorToast";
 import LanguageURLSync from "./components/LanguageURLSync";
-import FaviconInjector from "./components/FaviconInjector";
 import JsonLd from "./components/JsonLd";
 import { organizationSchema, websiteSchema } from "./lib/seo";
 import { getServerSiteContent } from "./lib/server-content";
@@ -93,11 +92,21 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: "Bemis Teknik Elektrik A.Ş.",
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
     alternates: { canonical: "/" },
-    icons: {
-      icon: "/icon",
-      shortcut: "/icon",
-      apple: "/icon",
-    },
+    // No admin upload → ship the static black-on-white PNGs (the simplest,
+    // most cacheable thing). When an operator uploads a custom favicon via
+    // admin → Medya, route through /icon so sharp can normalize whatever
+    // shape they send before it lands in tabs and search results.
+    icons: faviconUrl
+      ? { icon: "/icon", shortcut: "/icon", apple: "/icon" }
+      : {
+          icon: [
+            { url: "/favicon-black-64.png", sizes: "64x64", type: "image/png" },
+            { url: "/favicon-black-192.png", sizes: "192x192", type: "image/png" },
+            { url: "/favicon-black-512.png", sizes: "512x512", type: "image/png" },
+          ],
+          shortcut: "/favicon-black-192.png",
+          apple: { url: "/favicon-black-512.png", sizes: "180x180" },
+        },
     openGraph: {
       title: "Bemis E-V Charge | Yerli EV Şarj Ekipmanı Üreticisi",
       description:
@@ -150,7 +159,6 @@ export default async function RootLayout({
           <LanguageProvider>
             <ContentProvider initialContent={initialContent}>
               <EditModeProvider>
-                <FaviconInjector />
                 <ContentLoadingBar />
                 <ContentErrorToast />
                 <Suspense fallback={null}>
