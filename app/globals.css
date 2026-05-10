@@ -97,17 +97,21 @@ html[data-theme="light"] body::before {
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 .scrollbar-hide::-webkit-scrollbar { display: none; width: 0; height: 0; }
 
-/* Energy background — four short streaks. Two flow top→bottom (vertical
-   bars), two flow right→left (horizontal bars). Each streak is only
-   half the viewport in its travel axis (50vh tall or 50vw wide), so
-   they read as fragments of energy passing through, not full lines.
-   On top of the drift translation, each one also shimmers — the bright
-   spot of the gradient moves through the bar. Sits at z-index -1
-   inside the wrapper's isolated stacking context so cards and sections
-   always paint on top. Honors prefers-reduced-motion. */
+/* Energy background — seven short streaks (4 vertical, 3 horizontal),
+   each ~30% of the viewport in its travel axis. Verticals flow
+   top→bottom, horizontals flow right→left. On top of the drift each
+   one shimmers (background-position animates) so the bright spot
+   pulses through.
+
+   Two stacking guarantees:
+     1. z-index: -1 inside the wrapper's isolated stacking context, so
+        cards always paint on top.
+     2. inset: 80px 0 0 0 — the bg layer skips the top navbar zone, so
+        vertical streaks emerge from below the menu bar instead of
+        slicing through it. */
 .energy-bg {
   position: absolute;
-  inset: 0;
+  inset: 80px 0 0 0;
   pointer-events: none;
   z-index: -1;
   overflow: hidden;
@@ -123,9 +127,11 @@ html[data-theme="light"] body::before {
 
 /* ── Vertical streaks (top → bottom) ────────────────────────────── */
 .energy-streak.energy-v1,
-.energy-streak.energy-v2 {
+.energy-streak.energy-v2,
+.energy-streak.energy-v3,
+.energy-streak.energy-v4 {
   width: 1.5px;
-  height: 50vh;
+  height: 30vh;
   background-image: linear-gradient(180deg,
     transparent 0%,
     rgba(147, 197, 253, 0) 18%,
@@ -138,7 +144,9 @@ html[data-theme="light"] body::before {
   background-position: 0% 100%;
 }
 html[data-theme="light"] .energy-streak.energy-v1,
-html[data-theme="light"] .energy-streak.energy-v2 {
+html[data-theme="light"] .energy-streak.energy-v2,
+html[data-theme="light"] .energy-streak.energy-v3,
+html[data-theme="light"] .energy-streak.energy-v4 {
   background-image: linear-gradient(180deg,
     transparent 0%,
     rgba(96, 165, 250, 0) 18%,
@@ -151,8 +159,9 @@ html[data-theme="light"] .energy-streak.energy-v2 {
 
 /* ── Horizontal streaks (right → left) ──────────────────────────── */
 .energy-streak.energy-h1,
-.energy-streak.energy-h2 {
-  width: 50vw;
+.energy-streak.energy-h2,
+.energy-streak.energy-h3 {
+  width: 30vw;
   height: 1.5px;
   background-image: linear-gradient(90deg,
     transparent 0%,
@@ -166,7 +175,8 @@ html[data-theme="light"] .energy-streak.energy-v2 {
   background-position: 100% 0%;
 }
 html[data-theme="light"] .energy-streak.energy-h1,
-html[data-theme="light"] .energy-streak.energy-h2 {
+html[data-theme="light"] .energy-streak.energy-h2,
+html[data-theme="light"] .energy-streak.energy-h3 {
   background-image: linear-gradient(90deg,
     transparent 0%,
     rgba(96, 165, 250, 0) 18%,
@@ -177,36 +187,22 @@ html[data-theme="light"] .energy-streak.energy-h2 {
     transparent 100%);
 }
 
-/* Drift keyframes — two for each axis. The translation moves a bit
-   past the viewport edge so the streak fully clears before fading. */
-@keyframes energy-drift-down-1 {
-  0%   { transform: translate3d(0, -60vh, 0); opacity: 0; }
-  12%  { opacity: 1; }
-  88%  { opacity: 1; }
-  100% { transform: translate3d(0, 110vh, 0); opacity: 0; }
-}
-@keyframes energy-drift-down-2 {
-  0%   { transform: translate3d(0, -60vh, 0); opacity: 0; }
+/* Drift keyframes — translation moves a bit past the viewport edge so
+   the streak fully clears before fading out. */
+@keyframes energy-drift-down {
+  0%   { transform: translate3d(0, -40vh, 0); opacity: 0; }
   10%  { opacity: 1; }
   90%  { opacity: 1; }
   100% { transform: translate3d(0, 110vh, 0); opacity: 0; }
 }
-@keyframes energy-drift-left-1 {
-  0%   { transform: translate3d(110vw, 0, 0); opacity: 0; }
-  12%  { opacity: 1; }
-  88%  { opacity: 1; }
-  100% { transform: translate3d(-60vw, 0, 0); opacity: 0; }
-}
-@keyframes energy-drift-left-2 {
+@keyframes energy-drift-left {
   0%   { transform: translate3d(110vw, 0, 0); opacity: 0; }
   10%  { opacity: 1; }
   90%  { opacity: 1; }
-  100% { transform: translate3d(-60vw, 0, 0); opacity: 0; }
+  100% { transform: translate3d(-40vw, 0, 0); opacity: 0; }
 }
 
-/* Shimmer keyframes — bright spot of the gradient travels through the
-   streak. Direction matches the drift so it reads as "energy flowing
-   in the same direction the streak is moving". */
+/* Shimmer keyframes — bright spot travels through the gradient. */
 @keyframes energy-flow-v {
   from { background-position: 0% 100%; }
   to   { background-position: 0% -100%; }
@@ -216,37 +212,55 @@ html[data-theme="light"] .energy-streak.energy-h2 {
   to   { background-position: -100% 0%; }
 }
 
-/* ── Streak placements + timings ─────────────────────────────────
-   Slower than the previous version (32-44s drift, 6-8s shimmer) so the
-   motion stays in the periphery — visitors should feel the page is
-   alive without consciously tracking lines. */
+/* ── Streak placements + timings (24-34s drift, 4-6s shimmer) ──── */
 .energy-v1 {
-  left: 22%;
+  left: 14%;
   width: 1.5px;
   filter: blur(0.5px);
-  animation: energy-drift-down-1 36s linear infinite, energy-flow-v 6s linear infinite;
+  animation: energy-drift-down 26s linear infinite, energy-flow-v 4.5s linear infinite;
   animation-delay: 0s, 0s;
 }
 .energy-v2 {
-  left: 68%;
+  left: 38%;
+  width: 2.5px;
+  filter: blur(1.1px);
+  animation: energy-drift-down 32s linear infinite, energy-flow-v 6s linear infinite;
+  animation-delay: -10s, -1.5s;
+}
+.energy-v3 {
+  left: 60%;
+  width: 1.5px;
+  filter: blur(0.4px);
+  animation: energy-drift-down 24s linear infinite, energy-flow-v 4s linear infinite;
+  animation-delay: -18s, -0.5s;
+}
+.energy-v4 {
+  left: 82%;
   width: 3px;
   filter: blur(1.4px);
-  animation: energy-drift-down-2 44s linear infinite, energy-flow-v 8s linear infinite;
-  animation-delay: -16s, -2s;
+  animation: energy-drift-down 30s linear infinite, energy-flow-v 5.5s linear infinite;
+  animation-delay: -6s, -2s;
 }
 .energy-h1 {
-  top: 32%;
+  top: 24%;
   height: 1.5px;
   filter: blur(0.5px);
-  animation: energy-drift-left-1 32s linear infinite, energy-flow-h 5.5s linear infinite;
-  animation-delay: -8s, -1s;
+  animation: energy-drift-left 28s linear infinite, energy-flow-h 5s linear infinite;
+  animation-delay: -4s, -1s;
 }
 .energy-h2 {
-  top: 76%;
+  top: 52%;
   height: 2.5px;
   filter: blur(1px);
-  animation: energy-drift-left-2 40s linear infinite, energy-flow-h 7s linear infinite;
-  animation-delay: -22s, -3s;
+  animation: energy-drift-left 34s linear infinite, energy-flow-h 6s linear infinite;
+  animation-delay: -14s, -2.5s;
+}
+.energy-h3 {
+  top: 80%;
+  height: 1.5px;
+  filter: blur(0.4px);
+  animation: energy-drift-left 26s linear infinite, energy-flow-h 4.5s linear infinite;
+  animation-delay: -20s, -3s;
 }
 
 @media (prefers-reduced-motion: reduce) {

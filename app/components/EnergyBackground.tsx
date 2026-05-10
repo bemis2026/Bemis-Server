@@ -2,13 +2,18 @@
 
 import { useEffect, useState } from "react";
 
-// Four short streaks drifting in two directions: two flow top→bottom,
-// two flow right→left. Each is half the viewport in its travel axis
-// (50vh tall or 50vw wide) so they read as fragments rather than full
-// lines. On top of the drift translation, each streak shimmers
-// (background-position animates) so the brightness pulses through it.
-// Behind page content (z-index -1 inside the wrapper's isolated
-// stacking context). Mounted only on the product detail page for now.
+// Seven short streaks (4 vertical, 3 horizontal) drifting in two
+// directions — top→bottom and right→left. Each is roughly a third of
+// the viewport in its travel axis (≈30vh tall verticals, ≈30vw wide
+// horizontals). On top of the drift, each streak shimmers
+// (background-position animates) so the bright spot pulses through.
+//
+// Sits at z-index -1 inside the wrapper's isolated stacking context, so
+// cards always paint on top, AND the bg layer's `inset: 80px 0 0 0`
+// clips out the top navbar zone — vertical streaks emerge from below
+// the menu bar instead of slicing through it.
+//
+// Mounted only on the product detail page for now.
 export default function EnergyBackground() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -17,8 +22,11 @@ export default function EnergyBackground() {
     <div className="energy-bg" aria-hidden>
       <span className="energy-streak energy-v1" />
       <span className="energy-streak energy-v2" />
+      <span className="energy-streak energy-v3" />
+      <span className="energy-streak energy-v4" />
       <span className="energy-streak energy-h1" />
       <span className="energy-streak energy-h2" />
+      <span className="energy-streak energy-h3" />
     </div>
   );
 }
