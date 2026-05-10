@@ -90,11 +90,21 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: "Bemis Teknik Elektrik A.Ş.",
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
     alternates: { canonical: "/" },
+    // Dual favicons: black-on-white is the default (what Google's favicon
+    // crawler uses, and what shows in light-mode browser tabs / address
+    // bars). The white-on-transparent variant kicks in via the
+    // (prefers-color-scheme: dark) media query so dark-mode Chrome tabs
+    // keep showing the original mark instead of a black square on a dark
+    // strip. apple-touch-icon stays opaque because iOS fills any
+    // transparent area with the home-screen wallpaper.
     icons: {
       icon: [
         { url: "/favicon-black-64.png", sizes: "64x64", type: "image/png" },
         { url: "/favicon-black-192.png", sizes: "192x192", type: "image/png" },
         { url: "/favicon-black-512.png", sizes: "512x512", type: "image/png" },
+        { url: "/favicon-white-64.png", sizes: "64x64", type: "image/png", media: "(prefers-color-scheme: dark)" },
+        { url: "/favicon-white-192.png", sizes: "192x192", type: "image/png", media: "(prefers-color-scheme: dark)" },
+        { url: "/favicon-white-512.png", sizes: "512x512", type: "image/png", media: "(prefers-color-scheme: dark)" },
       ],
       shortcut: "/favicon-black-192.png",
       apple: { url: "/favicon-black-512.png", sizes: "180x180" },
