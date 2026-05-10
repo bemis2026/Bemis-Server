@@ -237,7 +237,7 @@ export default function ProductShowcase() {
                       boxShadow: "0 4px 20px rgba(0,0,0,0.25)",
                     }}
                   >
-                    <span className="text-[9px] font-bold uppercase tracking-widest" style={{ color: `${ACCENT}cc` }}>
+                    <span className="text-[10px] sm:text-[9px] font-bold uppercase tracking-widest" style={{ color: `${ACCENT}cc` }}>
                       {badgeText}
                     </span>
                     <span className="text-sm font-black text-white leading-tight mt-0.5">
@@ -277,7 +277,7 @@ export default function ProductShowcase() {
                     }}
                   >
                     <b.icon size={12} style={{ color: b.color, flexShrink: 0 }} />
-                    <p className="text-[9px] font-bold text-white leading-tight">{b.value}</p>
+                    <p className="text-[10px] sm:text-[9px] font-bold text-white leading-tight">{b.value}</p>
                   </div>
                 ))}
               </motion.div>

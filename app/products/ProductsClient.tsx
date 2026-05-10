@@ -10,6 +10,7 @@ import { groupVariantsByName } from "../../lib/productGroups";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
+import EnergyBackground from "../components/EnergyBackground";
 import {
   RiChargingPile2Line, RiBatteryChargeLine, RiFlashlightLine, RiPlugLine,
   RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
@@ -231,7 +232,8 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
   const totalProducts = categories.reduce((sum, c) => sum + (c.products?.length ?? 0), 0);
 
   return (
-    <div style={{ background: bg, minHeight: "100vh" }}>
+    <div style={{ background: bg, minHeight: "100vh", position: "relative", overflow: "hidden", isolation: "isolate" }}>
+      <EnergyBackground />
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 

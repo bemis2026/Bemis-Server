@@ -306,7 +306,15 @@ html[data-theme="light"] .energy-streak.energy-h5 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .energy-streak { animation: none; opacity: 0.04; }
+  .energy-streak { animation: none; opacity: 0.04; will-change: auto; }
+}
+
+/* Drop will-change on small screens — the streaks compound with
+   framer-motion's transforms on lower-end mobile GPUs and can cause
+   scroll jank. The animation still runs but the browser stops keeping
+   a dedicated compositor layer per streak. */
+@media (max-width: 640px) {
+  .energy-streak { will-change: auto; }
 }
 
 /* Section divider */

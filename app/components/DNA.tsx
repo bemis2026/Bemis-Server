@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import {
@@ -21,6 +21,15 @@ export default function DNA() {
   const router = useRouter();
   const { dna, products: productSection, dealer: dealerSection, sectionBgs } = useContent();
   const d = theme === "dark";
+
+  // Black poster fades out after the iframe has had a moment to start
+  // playing — hides YouTube's initial title-card / play-button thumb
+  // that flashes for ~1s before autoplay kicks in.
+  const [videoReady, setVideoReady] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setVideoReady(true), 1800);
+    return () => clearTimeout(t);
+  }, []);
 
   const textPrimary = d ? "#f0f0f4"                 : "#1a1a1a";
   const textMuted   = d ? "rgba(240,240,244,0.52)"  : "rgba(26,26,26,0.52)";
@@ -141,6 +150,15 @@ export default function DNA() {
               }}
             >
               <div className="absolute inset-0" style={{ backgroundImage: d ? "radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)" : "radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
+              {/* Black poster covers the YouTube initial frame until
+                  autoplay has had ~1.8s to take over. Fades to reveal
+                  the loop without flashing YouTube's thumbnail / play
+                  button to the visitor. */}
+              <div
+                aria-hidden
+                className="absolute inset-0 z-10 transition-opacity duration-700 pointer-events-none"
+                style={{ background: "#0a0a0a", opacity: videoReady ? 0 : 1 }}
+              />
               {dna.factoryVideo ? (() => {
                 const yt = dna.factoryVideo!.match(/(?:youtube\.com\/(?:[^/?]+\?.*v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
                 if (yt) {
