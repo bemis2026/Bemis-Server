@@ -8,6 +8,7 @@ import { useLanguage } from "../../context/LanguageContext";
 import { groupVariantsByName } from "../../../lib/productGroups";
 import Navbar from "../../components/Navbar";
 import ContactBar from "../../components/ContactBar";
+import EnergyBackground from "../../components/EnergyBackground";
 import { useState, useEffect, useRef } from "react";
 import SearchOverlay from "../../components/SearchOverlay";
 import {
@@ -62,7 +63,9 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
   }, [id, lang, initialCategory]);
 
   const bg            = d ? "#0c0c0e" : "#f8f8fb";
-  const surface       = d ? "rgba(255,255,255,0.04)" : "#ffffff";
+  // Solid surface in dark mode so the new background streaks behind
+  // the wrapper don't bleed through every listing card.
+  const surface       = d ? "#141416" : "#ffffff";
   const surfaceBorder = d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
   const textPrimary   = d ? "#f0f0f4" : "#1a1a2e";
   const textMuted     = d ? "rgba(240,240,244,0.50)" : "rgba(26,26,46,0.50)";
@@ -91,7 +94,8 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
   const categoryDescription = categories?.[id]?.description?.trim() ?? "";
 
   return (
-    <div style={{ background: bg, minHeight: "100vh" }}>
+    <div style={{ background: bg, minHeight: "100vh", position: "relative", overflow: "hidden", isolation: "isolate" }}>
+      <EnergyBackground />
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
