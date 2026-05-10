@@ -94,9 +94,9 @@ export async function generateMetadata(): Promise<Metadata> {
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
     alternates: { canonical: "/" },
     icons: {
-      icon: faviconUrl || "/logo.png",
-      shortcut: faviconUrl || "/logo.png",
-      apple: faviconUrl || "/logo.png",
+      icon: "/icon",
+      shortcut: "/icon",
+      apple: "/icon",
     },
     openGraph: {
       title: "Bemis E-V Charge | Yerli EV Şarj Ekipmanı Üreticisi",
