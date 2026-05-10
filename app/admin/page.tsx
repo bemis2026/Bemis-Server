@@ -88,11 +88,12 @@ import {
 import { WORLD_COUNTRIES } from "../../lib/worldCountries";
 import { DEALER_TIERS } from "../../lib/dealerTiers";
 import { PRODUCT_FEATURES } from "../../lib/productFeatures";
+import { PRODUCT_CERTIFICATES } from "../../lib/productCertificates";
 
 type SpecItem = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
 type ProductDocument = { label: string; url: string };
-type ProductEntry = { id: string; name: string; code?: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[]; generalFeatures?: string[]; documents?: ProductDocument[]; features?: string[] };
+type ProductEntry = { id: string; name: string; code?: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[]; generalFeatures?: string[]; documents?: ProductDocument[]; features?: string[]; certificates?: string[] };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
 type StatItem = { value: number; suffix: string; prefix?: string; label: string; description: string };
@@ -2313,6 +2314,58 @@ export default function AdminPage() {
                                               />
                                               <span className="inline-block w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: f.accent }} />
                                               <span className="text-[11px] font-semibold" style={{ color: enabled ? "#ffffff" : "rgba(255,255,255,0.55)" }}>{f.label}</span>
+                                            </label>
+                                          );
+                                        })}
+                                      </div>
+                                    </div>
+
+                                    {/* Certifications — IP ratings deliberately
+                                        not here; they belong in the Çevresel
+                                        spec group as a technical attribute. */}
+                                    <div className="space-y-2">
+                                      <div>
+                                        <p className="text-xs font-semibold text-white/50 mb-1">Sertifikalar</p>
+                                        <p className="text-[10px] text-white/30">Ürün açıklamasının altında küçük marka rozetleri olarak görünür. Sadece ürünün gerçekten sahip olduğu sertifikaları işaretle.</p>
+                                      </div>
+                                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+                                        {PRODUCT_CERTIFICATES.map((c) => {
+                                          const enabled = (currentProd.certificates ?? []).includes(c.id);
+                                          return (
+                                            <label
+                                              key={c.id}
+                                              title={c.fullLabel}
+                                              className="flex items-center gap-2 px-2.5 py-2 rounded-lg cursor-pointer transition-colors"
+                                              style={{
+                                                background: enabled ? "rgba(59,130,246,0.18)" : "rgba(255,255,255,0.03)",
+                                                border: enabled ? "1px solid rgba(59,130,246,0.55)" : "1px solid rgba(255,255,255,0.06)",
+                                              }}
+                                            >
+                                              <input
+                                                type="checkbox"
+                                                checked={enabled}
+                                                onChange={(e) => {
+                                                  setProducts((prev) => {
+                                                    const next = JSON.parse(JSON.stringify(prev)) as CategoryData[];
+                                                    const cat = next.find((cc) => cc.id === selCat);
+                                                    const prod = cat?.products.find((p) => p.id === selProd);
+                                                    if (!prod) return prev;
+                                                    const cur = new Set(prod.certificates ?? []);
+                                                    if (e.target.checked) cur.add(c.id); else cur.delete(c.id);
+                                                    prod.certificates = Array.from(cur);
+                                                    return next;
+                                                  });
+                                                }}
+                                                className="accent-blue-500"
+                                              />
+                                              <span
+                                                className="inline-flex items-center justify-center rounded-sm flex-shrink-0 bg-white"
+                                                style={{ width: 28, height: 18 }}
+                                              >
+                                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                <img src={c.image} alt={c.label} style={{ height: 14, width: "auto", objectFit: "contain" }} />
+                                              </span>
+                                              <span className="text-[11px] font-semibold" style={{ color: enabled ? "#ffffff" : "rgba(255,255,255,0.55)" }}>{c.label}</span>
                                             </label>
                                           );
                                         })}

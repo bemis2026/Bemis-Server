@@ -19,6 +19,7 @@ import {
   RiLightbulbLine,
 } from "react-icons/ri";
 import { featureById } from "../../../../lib/productFeatures";
+import { certificateById } from "../../../../lib/productCertificates";
 
 const DETAIL_FEATURE_ICONS: Record<string, React.ComponentType<{ size?: number; style?: React.CSSProperties }>> = {
   RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
@@ -38,6 +39,7 @@ type ProductEntry = {
   generalFeatures?: string[];
   documents?: ProductDocument[];
   features?: string[];
+  certificates?: string[];
 };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
@@ -379,9 +381,39 @@ export default function ProductDetailPage({
                     </p>
                   )}
 
-                  {/* Phase 2 will land certificate icons (CE / TSE / TÜV /
-                      IP rating / RoHS) here. Feature pills moved out — they
-                      already render in the "Genel Özellikler" tab below. */}
+                  {/* Quality / conformity certs as small brand chips. IP
+                      ratings stay in the Çevresel spec group — they're an
+                      attribute, not a certification. */}
+                  {product.certificates && product.certificates.length > 0 && (
+                    <div className="flex flex-wrap items-center gap-2 mt-4">
+                      {product.certificates.map((cid) => {
+                        const c = certificateById(cid);
+                        if (!c) return null;
+                        return (
+                          <span
+                            key={cid}
+                            title={c.fullLabel}
+                            className="inline-flex items-center justify-center rounded-md"
+                            style={{
+                              height: 30,
+                              padding: "0 8px",
+                              background: d ? "rgba(255,255,255,0.05)" : "#ffffff",
+                              border: `1px solid ${d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`,
+                            }}
+                          >
+                            <Image
+                              src={c.image}
+                              alt={c.label}
+                              width={48}
+                              height={20}
+                              className="h-4 w-auto object-contain"
+                              unoptimized
+                            />
+                          </span>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
 
                 {/* Specs / General Features / Documents — tabbed card.
