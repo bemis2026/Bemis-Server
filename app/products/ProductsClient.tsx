@@ -89,12 +89,6 @@ function BannerSlider({ categories, d }: { categories: CategoryData[]; d: boolea
           {/* Left: text */}
           <div className="flex-1 min-w-0 z-10">
             <div className="flex items-center gap-2 mb-2">
-              <div
-                className="flex items-center justify-center rounded-xl flex-shrink-0"
-                style={{ width: 36, height: 36, background: `${cat.accent}20`, border: `1px solid ${cat.accent}35` }}
-              >
-                <Icon style={{ fontSize: 18, color: cat.accent }} />
-              </div>
               <span
                 className="text-[10px] font-bold tracking-[0.18em] uppercase px-2.5 py-1 rounded-full"
                 style={{ background: `${cat.accent}14`, border: `1px solid ${cat.accent}28`, color: cat.accent }}
@@ -244,31 +238,8 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
       {/* ── Page header ── */}
       <div className="pt-28 pb-6 px-5 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <motion.button
-            initial={{ opacity: 0, x: -12 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3 }}
-            onClick={() => router.push("/#products")}
-            className="flex items-center gap-2 mb-6 group"
-            style={{ color: textMuted }}
-          >
-            <HiArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform duration-200" />
-            <span className="text-sm font-medium">Ana Sayfa</span>
-          </motion.button>
-
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
             <div>
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="flex items-center gap-2 mb-2"
-              >
-                <Image src={logos?.dark || "/logo-white.png"} alt="Bemis E-V Charge" width={160} height={48}
-                  className="h-9 w-auto object-contain"
-                  style={{ filter: d ? "none" : "brightness(0)" }}
-                />
-              </motion.div>
               <motion.h1
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -363,22 +334,17 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                 className="space-y-14"
               >
                 {filteredCategories.map((cat) => {
+                  // Per-card fallback when a product has no image — picks
+                  // an icon out of categoryIcons. Section header no longer
+                  // displays this; only the missing-image placeholder.
                   const Icon = categoryIcons[cat.id] || RiPlugLine;
                   return (
                     <div key={cat.id}>
                       {/* Category header */}
                       <div className="flex items-center justify-between mb-5">
-                        <div className="flex items-center gap-3">
-                          <div
-                            className="flex items-center justify-center rounded-xl flex-shrink-0"
-                            style={{ width: 40, height: 40, background: `${cat.accent}16`, border: `1px solid ${cat.accent}28` }}
-                          >
-                            <Icon style={{ fontSize: 20, color: cat.accent }} />
-                          </div>
-                          <div>
-                            <h2 className="text-base font-bold" style={{ color: textPrimary }}>{cat.name}</h2>
-                            <p className="text-xs" style={{ color: textMuted }}>{cat.tagline}</p>
-                          </div>
+                        <div>
+                          <h2 className="text-base font-bold" style={{ color: textPrimary }}>{cat.name}</h2>
+                          <p className="text-xs" style={{ color: textMuted }}>{cat.tagline}</p>
                         </div>
                         <button
                           onClick={() => router.push(`/products/${cat.id}`)}

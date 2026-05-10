@@ -103,12 +103,6 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
       <div className="pt-24 pb-8 px-5 sm:px-6 lg:px-8"
         style={{ background: d ? `radial-gradient(ellipse 70% 60% at 50% 0%, ${accent}10 0%, transparent 70%)` : `radial-gradient(ellipse 70% 60% at 50% 0%, ${accent}08 0%, transparent 70%)` }}>
         <div className="max-w-7xl mx-auto">
-          <motion.button initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3 }}
-            onClick={() => router.back()} className="flex items-center gap-2 mb-6 group" style={{ color: textMuted }}>
-            <HiArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform duration-200" />
-            <span className="text-sm font-medium">Ürünler</span>
-          </motion.button>
-
           <div className="flex items-stretch gap-4 mb-2">
             {/* Accent stripe — replaces the per-category icon block.
                 The icons that lived here used to clash with the actual
