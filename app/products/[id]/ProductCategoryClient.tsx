@@ -8,7 +8,6 @@ import { useLanguage } from "../../context/LanguageContext";
 import { groupVariantsByName } from "../../../lib/productGroups";
 import Navbar from "../../components/Navbar";
 import ContactBar from "../../components/ContactBar";
-import Footer from "../../components/Footer";
 import EnergyBackground from "../../components/EnergyBackground";
 import { useState, useEffect, useRef } from "react";
 import SearchOverlay from "../../components/SearchOverlay";
@@ -258,7 +257,6 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
       </div>
 
       <ContactBar />
-      <Footer />
     </div>
   );
 }

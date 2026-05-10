@@ -10,7 +10,6 @@ import { groupVariantsByName } from "../../lib/productGroups";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
-import Footer from "../components/Footer";
 import EnergyBackground from "../components/EnergyBackground";
 import {
   RiChargingPile2Line, RiBatteryChargeLine, RiFlashlightLine, RiPlugLine,
@@ -510,7 +509,6 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
       </div>
 
       <ContactBar />
-      <Footer />
     </div>
   );
 }
