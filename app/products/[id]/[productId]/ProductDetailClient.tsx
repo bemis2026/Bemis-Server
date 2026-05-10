@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../../context/ThemeContext";
 import { useLanguage } from "../../../context/LanguageContext";
@@ -48,25 +48,41 @@ const categoryIcons: Record<string, React.ElementType> = {
   accessories: RiPlugLine, "dc-units": RiGasStationLine,
 };
 
-export default function ProductDetailPage() {
+export default function ProductDetailPage({
+  initialCategory = null,
+  initialProduct = null,
+  initialAllCategories = [],
+}: {
+  initialCategory?: CategoryData | null;
+  initialProduct?: ProductEntry | null;
+  initialAllCategories?: CategoryData[];
+}) {
   const params    = useParams();
   const router    = useRouter();
   const { theme } = useTheme();
   const { lang } = useLanguage();
   const d         = theme === "dark";
   const [searchOpen, setSearchOpen] = useState(false);
-  const [category, setCategory]     = useState<CategoryData | null>(null);
-  const [product,  setProduct]      = useState<ProductEntry | null>(null);
-  const [loading,  setLoading]      = useState(true);
+  const [category, setCategory]     = useState<CategoryData | null>(initialCategory);
+  const [product,  setProduct]      = useState<ProductEntry | null>(initialProduct);
+  const [loading,  setLoading]      = useState(initialProduct === null);
   const [activeImg, setActiveImg]   = useState(0);
-  const [allCategories, setAllCategories] = useState<CategoryData[]>([]);
+  const [allCategories, setAllCategories] = useState<CategoryData[]>(initialAllCategories);
   const [activeTab, setActiveTab]   = useState<"specs" | "general" | "documents">("specs");
+  const isFirstMount = useRef(true);
 
   const categoryId = typeof params.id        === "string" ? params.id        : "";
   const productId  = typeof params.productId === "string" ? params.productId : "";
 
   useEffect(() => {
     if (!categoryId || !productId) return;
+    if (isFirstMount.current && lang === "tr" && initialProduct && initialCategory) {
+      isFirstMount.current = false;
+      trackEvent("view_item", { item_id: initialProduct.id, item_name: initialProduct.name, item_category: initialCategory.name });
+      return;
+    }
+    isFirstMount.current = false;
+    setLoading(true);
     fetch(`/api/products?lang=${lang}`)
       .then(r => r.json())
       .then((data: CategoryData[]) => {
@@ -80,7 +96,7 @@ export default function ProductDetailPage() {
       })
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, [categoryId, productId, lang]);
+  }, [categoryId, productId, lang, initialCategory, initialProduct]);
 
   const bg          = d ? "#0c0c0e" : "#f2f3f7";
   const surface     = d ? "#141416" : "#ffffff";

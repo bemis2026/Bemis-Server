@@ -8,7 +8,7 @@ import { useLanguage } from "../../context/LanguageContext";
 import { groupVariantsByName } from "../../../lib/productGroups";
 import Navbar from "../../components/Navbar";
 import ContactBar from "../../components/ContactBar";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import SearchOverlay from "../../components/SearchOverlay";
 import {
   RiChargingPile2Line, RiBatteryChargeLine, RiFlashlightLine,
@@ -151,7 +151,7 @@ function CompareModal({
 }
 
 // ── Main Page ──────────────────────────────────────────────────────────────
-export default function ProductCategoryPage() {
+export default function ProductCategoryPage({ initialCategory = null }: { initialCategory?: CategoryData | null }) {
   const params = useParams();
   const router = useRouter();
   const { theme } = useTheme();
@@ -159,20 +159,27 @@ export default function ProductCategoryPage() {
   const { lang } = useLanguage();
   const d = theme === "dark";
   const [searchOpen, setSearchOpen]     = useState(false);
-  const [category, setCategory]         = useState<CategoryData | null>(null);
-  const [loading, setLoading]           = useState(true);
+  const [category, setCategory]         = useState<CategoryData | null>(initialCategory);
+  const [loading, setLoading]           = useState(initialCategory === null);
   const [compareIds, setCompareIds]     = useState<string[]>([]);
   const [showCompare, setShowCompare]   = useState(false);
   const id = typeof params.id === "string" ? params.id : "";
+  const isFirstMount = useRef(true);
 
   useEffect(() => {
     if (!id) return;
+    if (isFirstMount.current && lang === "tr" && initialCategory) {
+      isFirstMount.current = false;
+      return;
+    }
+    isFirstMount.current = false;
+    setLoading(true);
     fetch(`/api/products?lang=${lang}`)
       .then(r => r.json())
       .then((data: CategoryData[]) => setCategory(data.find(c => c.id === id) ?? null))
       .catch(() => setCategory(null))
       .finally(() => setLoading(false));
-  }, [id, lang]);
+  }, [id, lang, initialCategory]);
 
   const bg            = d ? "#0c0c0e" : "#f8f8fb";
   const surface       = d ? "rgba(255,255,255,0.04)" : "#ffffff";

@@ -1,8 +1,11 @@
+import type { ComponentProps } from "react";
 import type { Metadata } from "next";
 import JsonLd from "../../../components/JsonLd";
 import { breadcrumbSchema, productSchema, productMetaTitle, productMetaDescription } from "../../../lib/seo";
 import { getServerProducts, getServerCategoriesMeta } from "../../../lib/server-content";
 import ProductDetailClient from "./ProductDetailClient";
+
+type DetailProps = ComponentProps<typeof ProductDetailClient>;
 
 export const revalidate = 60;
 export const dynamicParams = true;
@@ -76,6 +79,9 @@ export default async function ProductDetailPage({
   const product = category?.products?.find(p => p.id === productId);
   if (!category || !product) return <ProductDetailClient />;
   const meta = catsMeta[id] ?? {};
+  const initialCategory = category as unknown as NonNullable<DetailProps["initialCategory"]>;
+  const initialProduct = product as unknown as NonNullable<DetailProps["initialProduct"]>;
+  const initialAllCategories = categories as unknown as NonNullable<DetailProps["initialAllCategories"]>;
   const categoryName = meta.name || category.name;
   const jsonLd = [
     breadcrumbSchema([
@@ -89,7 +95,11 @@ export default async function ProductDetailPage({
   return (
     <>
       <JsonLd data={jsonLd} />
-      <ProductDetailClient />
+      <ProductDetailClient
+        initialCategory={initialCategory}
+        initialProduct={initialProduct}
+        initialAllCategories={initialAllCategories}
+      />
     </>
   );
 }

@@ -1,7 +1,10 @@
+import type { ComponentProps } from "react";
 import JsonLd from "../components/JsonLd";
 import { breadcrumbSchema, collectionPageSchema } from "../lib/seo";
 import { getServerProducts } from "../lib/server-content";
 import ProductsClient from "./ProductsClient";
+
+type ClientCategories = NonNullable<ComponentProps<typeof ProductsClient>["initialCategories"]>;
 
 export default async function ProductsPage() {
   const categories = await getServerProducts();
@@ -23,7 +26,7 @@ export default async function ProductsPage() {
   return (
     <>
       <JsonLd data={jsonLd} />
-      <ProductsClient />
+      <ProductsClient initialCategories={categories as unknown as ClientCategories} />
     </>
   );
 }

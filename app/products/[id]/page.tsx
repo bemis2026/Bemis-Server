@@ -1,8 +1,11 @@
+import type { ComponentProps } from "react";
 import type { Metadata } from "next";
 import JsonLd from "../../components/JsonLd";
 import { breadcrumbSchema, collectionPageSchema, categoryMetaTitle, categoryMetaDescription } from "../../lib/seo";
 import { getServerProducts, getServerCategoriesMeta } from "../../lib/server-content";
 import ProductCategoryClient from "./ProductCategoryClient";
+
+type ClientCategory = NonNullable<ComponentProps<typeof ProductCategoryClient>["initialCategory"]>;
 
 export const revalidate = 60;
 export const dynamicParams = true;
@@ -70,6 +73,7 @@ export default async function ProductCategoryPage({
   ]);
   const category = categories.find(c => c.id === id);
   if (!category) return <ProductCategoryClient />;
+  const initialCategory = category as unknown as ClientCategory;
   const meta = catsMeta[id] ?? {};
   const jsonLd = [
     breadcrumbSchema([
@@ -87,7 +91,7 @@ export default async function ProductCategoryPage({
   return (
     <>
       <JsonLd data={jsonLd} />
-      <ProductCategoryClient />
+      <ProductCategoryClient initialCategory={initialCategory} />
     </>
   );
 }

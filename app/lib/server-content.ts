@@ -20,15 +20,32 @@ export async function getServerSiteContent(): Promise<unknown> {
   return null;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function unwrapTr(record: any): CategoryShape[] {
+  if (Array.isArray(record)) return record as CategoryShape[];
+  if (record && typeof record === "object" && Array.isArray(record.products)) {
+    return record.products as CategoryShape[];
+  }
+  return [];
+}
+
+// Mirrors /api/products shard merge: TR catalog lives across `products` +
+// `productsExtra` due to JSONBin's free-tier 100KB/record cap. Server-rendered
+// pages must include both shards or charger-equipment (35 SKUs) silently
+// drops out of SSR HTML.
 export async function getServerProducts(): Promise<CategoryShape[]> {
-  try {
-    const data = await readBin("products");
-    if (Array.isArray(data)) return data as CategoryShape[];
-  } catch {}
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let main: any = null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let extra: any = null;
+  try { main = await readBin("products"); } catch {}
+  try { extra = await readBin("productsExtra"); } catch {}
+  const merged = [...unwrapTr(main), ...unwrapTr(extra)];
+  if (merged.length > 0) return merged;
   try {
     const fb = path.join(process.cwd(), "data", "products.json");
     const parsed = JSON.parse(readFileSync(fb, "utf-8"));
-    if (Array.isArray(parsed)) return parsed as CategoryShape[];
+    return unwrapTr(parsed);
   } catch {}
   return [];
 }

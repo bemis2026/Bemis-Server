@@ -186,18 +186,28 @@ function BannerSlider({ categories, d }: { categories: CategoryData[]; d: boolea
 
 // ── Main Page ─────────────────────────────────────────────────────────────────
 
-export default function AllProductsPage() {
+export default function AllProductsPage({ initialCategories = [] }: { initialCategories?: CategoryData[] }) {
   const { theme } = useTheme();
   const d = theme === "dark";
   const router = useRouter();
   const { categories: catMeta, logos, products: productsContent } = useContent();
   const { lang } = useLanguage();
   const [searchOpen, setSearchOpen] = useState(false);
-  const [categories, setCategories] = useState<CategoryData[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState<CategoryData[]>(initialCategories);
+  const [loading, setLoading] = useState(initialCategories.length === 0);
   const [activeFilter, setActiveFilter] = useState<string>("all");
+  const isFirstMount = useRef(true);
 
   useEffect(() => {
+    // First render with TR + SSR data: skip the refetch (data is already there).
+    // Re-merge sliderImage from catMeta in case context hydrated after initial state.
+    if (isFirstMount.current && lang === "tr" && initialCategories.length > 0) {
+      isFirstMount.current = false;
+      setCategories(initialCategories.map((c) => ({ ...c, sliderImage: catMeta[c.id]?.sliderImage })));
+      return;
+    }
+    isFirstMount.current = false;
+    setLoading(true);
     fetch(`/api/products?lang=${lang}`)
       .then((r) => r.json())
       .then((data: CategoryData[]) => {
@@ -209,7 +219,7 @@ export default function AllProductsPage() {
       })
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, [catMeta, lang]);
+  }, [catMeta, lang, initialCategories]);
 
   const bg           = d ? "linear-gradient(180deg, #0c0c0e 0%, #0f0f11 100%)" : "#f8f8fb";
   const surface      = d ? "rgba(255,255,255,0.04)" : "#ffffff";
