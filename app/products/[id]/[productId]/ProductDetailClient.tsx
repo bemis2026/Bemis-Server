@@ -5,7 +5,9 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../../context/ThemeContext";
 import { useLanguage } from "../../../context/LanguageContext";
+import { useContent } from "../../../context/ContentContext";
 import { findVariantGroup } from "../../../../lib/productGroups";
+import JsonLd from "../../../components/JsonLd";
 import Navbar from "../../../components/Navbar";
 import ContactBar from "../../../components/ContactBar";
 import SearchOverlay from "../../../components/SearchOverlay";
@@ -16,7 +18,7 @@ import {
   RiFileTextLine, RiFilePdfLine, RiExternalLinkLine,
   RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
   RiShieldCheckLine, RiBarChart2Line, RiCalendarCheckLine, RiTeamLine,
-  RiLightbulbLine,
+  RiLightbulbLine, RiAwardLine, RiAddLine, RiSubtractLine,
 } from "react-icons/ri";
 import { featureById } from "../../../../lib/productFeatures";
 import { certificateById } from "../../../../lib/productCertificates";
@@ -70,6 +72,7 @@ export default function ProductDetailPage({
   const router    = useRouter();
   const { theme } = useTheme();
   const { lang } = useLanguage();
+  const { categories: catMeta, warranty } = useContent();
   const d         = theme === "dark";
   const [searchOpen, setSearchOpen] = useState(false);
   const [category, setCategory]     = useState<CategoryData | null>(initialCategory);
@@ -78,6 +81,7 @@ export default function ProductDetailPage({
   const [activeImg, setActiveImg]   = useState(0);
   const [allCategories, setAllCategories] = useState<CategoryData[]>(initialAllCategories);
   const [activeTab, setActiveTab]   = useState<"specs" | "general" | "documents">("general");
+  const [openFaqIdx, setOpenFaqIdx]   = useState<number | null>(null);
   const isFirstMount = useRef(true);
 
   const categoryId = typeof params.id        === "string" ? params.id        : "";
@@ -661,11 +665,108 @@ export default function ProductDetailPage({
                   );
                 })()}
 
+                {/* Warranty / certification band — global content set in
+                    admin → İletişim → Garanti & Sertifikasyon Bandı.
+                    Hidden when warranty.show is explicitly false. */}
+                {warranty && warranty.show !== false && (warranty.duration || warranty.certification) && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.18 }}
+                    className="rounded-2xl px-4 py-3 flex flex-wrap items-center gap-x-6 gap-y-2"
+                    style={{
+                      background: d ? "rgba(255,255,255,0.04)" : "#ffffff",
+                      border: `1px solid ${border}`,
+                    }}
+                  >
+                    {warranty.duration && (
+                      <span className="inline-flex items-center gap-2 text-xs font-semibold" style={{ color: textPrimary }}>
+                        <RiShieldCheckLine size={16} style={{ color: BRAND_BLUE }} />
+                        {warranty.duration}
+                      </span>
+                    )}
+                    {warranty.certification && (
+                      <span className="inline-flex items-center gap-2 text-xs font-semibold" style={{ color: textPrimary }}>
+                        <RiAwardLine size={16} style={{ color: BRAND_BLUE }} />
+                        {warranty.certification}
+                      </span>
+                    )}
+                  </motion.div>
+                )}
+
               </div>
             </div>
           </motion.div>
         )}
       </div>
+
+      {/* ── Sıkça Sorulan Sorular (per-category accordion) ── */}
+      {!loading && product && category && (() => {
+        const faq = (catMeta?.[categoryId]?.faq ?? []).filter((f) => f && f.q && f.a);
+        if (faq.length === 0) return null;
+        const sd = theme === "dark";
+        return (
+          <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 pb-12">
+            {/* Google rich-snippet payload — only emitted when there's
+                actual content, so empty categories don't pollute SERP. */}
+            <JsonLd data={[{
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: faq.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            }]} />
+            <h2 className="text-base font-bold mb-4" style={{ color: sd ? "#f0f0f4" : "#111827" }}>Sıkça Sorulan Sorular</h2>
+            <div className="space-y-2">
+              {faq.map((item, i) => {
+                const open = openFaqIdx === i;
+                return (
+                  <div
+                    key={i}
+                    className="rounded-xl overflow-hidden"
+                    style={{
+                      background: sd ? "rgba(255,255,255,0.04)" : "#ffffff",
+                      border: `1px solid ${sd ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}`,
+                    }}
+                  >
+                    <button
+                      onClick={() => setOpenFaqIdx(open ? null : i)}
+                      className="w-full flex items-start gap-3 px-4 py-3 text-left transition-colors hover:bg-black/[0.02] dark:hover:bg-white/[0.02]"
+                    >
+                      <span
+                        className="inline-flex items-center justify-center rounded-lg flex-shrink-0 mt-0.5"
+                        style={{ width: 22, height: 22, background: `${BRAND_BLUE}14`, border: `1px solid ${BRAND_BLUE}30`, color: BRAND_BLUE }}
+                      >
+                        {open ? <RiSubtractLine size={14} /> : <RiAddLine size={14} />}
+                      </span>
+                      <span className="flex-1 text-sm font-semibold" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
+                        {item.q}
+                      </span>
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {open && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.22 }}
+                          style={{ overflow: "hidden" }}
+                        >
+                          <div className="px-4 pb-3 pt-0.5 pl-12 text-sm leading-relaxed whitespace-pre-line" style={{ color: sd ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
+                            {item.a}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })()}
 
       {/* ── Recommended products ── */}
       {!loading && product && category && (() => {

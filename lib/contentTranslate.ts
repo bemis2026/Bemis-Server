@@ -15,6 +15,8 @@ const TRANSLATABLE_PATHS: string[] = [
   "stats[].label", "stats[].description",
 
   "categories.*.name", "categories.*.subtitle", "categories.*.description", "categories.*.badge",
+  "categories.*.faq[].q", "categories.*.faq[].a",
+  "warranty.duration", "warranty.certification",
 
   "featured[].badge", "featured[].highlight",
 

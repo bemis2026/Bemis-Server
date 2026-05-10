@@ -98,8 +98,10 @@ type ProductEntry = { id: string; name: string; code?: string; subtitle: string;
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
 type StatItem = { value: number; suffix: string; prefix?: string; label: string; description: string };
-type CategoryMeta = { name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string; sliderImage?: string; description?: string };
+type FaqItem = { q: string; a: string };
+type CategoryMeta = { name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string; sliderImage?: string; description?: string; faq?: FaqItem[] };
 type FeaturedItem = { categoryId: string; productId: string; badge: string; highlight: string; visible: boolean };
+type WarrantyInfo = { show: boolean; duration: string; certification: string };
 
 type ContentData = {
   hero: {
@@ -111,6 +113,7 @@ type ContentData = {
   stats: StatItem[];
   categories: Record<string, CategoryMeta>;
   featured: FeaturedItem[];
+  warranty?: WarrantyInfo;
   contact: { phone: string; email: string; address: string; addressSub: string; workingHours: string; workingDays: string; whatsappPhone?: string; whatsappMessage?: string };
   company: { foundedYear: string; exportCountries: string; productCount: string; facilitySize: string };
   social: { linkedin: string; instagram: string; twitter: string };
@@ -1345,6 +1348,68 @@ export default function AdminPage() {
     setContent(next);
   };
 
+  // ── SSS (FAQ) helpers — capped at 10 items per category, surfaced under
+  // each category panel as a collapsible editor.
+  const FAQ_MAX = 10;
+  const ensureCategoryRecord = (next: ContentData, catId: string) => {
+    if (!next.categories) next.categories = {};
+    if (!next.categories[catId]) next.categories[catId] = { name: "", subtitle: "", modelCount: 0, badge: null, comingSoon: false };
+    if (!Array.isArray(next.categories[catId].faq)) next.categories[catId].faq = [];
+    return next.categories[catId];
+  };
+
+  const addFaqItem = (catId: string) => {
+    if (!content) return;
+    const next = JSON.parse(JSON.stringify(content)) as ContentData;
+    const meta = ensureCategoryRecord(next, catId);
+    const list = meta.faq ?? [];
+    if (list.length >= FAQ_MAX) {
+      showToast("err", `En fazla ${FAQ_MAX} soru ekleyebilirsiniz.`);
+      return;
+    }
+    meta.faq = [...list, { q: "", a: "" }];
+    setContent(next);
+  };
+
+  const updateFaqItem = (catId: string, idx: number, field: "q" | "a", value: string) => {
+    if (!content) return;
+    const next = JSON.parse(JSON.stringify(content)) as ContentData;
+    const meta = ensureCategoryRecord(next, catId);
+    const list = [...(meta.faq ?? [])];
+    if (!list[idx]) return;
+    list[idx] = { ...list[idx], [field]: value };
+    meta.faq = list;
+    setContent(next);
+  };
+
+  const removeFaqItem = (catId: string, idx: number) => {
+    if (!content) return;
+    const next = JSON.parse(JSON.stringify(content)) as ContentData;
+    const meta = ensureCategoryRecord(next, catId);
+    meta.faq = (meta.faq ?? []).filter((_, i) => i !== idx);
+    setContent(next);
+  };
+
+  const moveFaqItem = (catId: string, idx: number, dir: -1 | 1) => {
+    if (!content) return;
+    const next = JSON.parse(JSON.stringify(content)) as ContentData;
+    const meta = ensureCategoryRecord(next, catId);
+    const list = [...(meta.faq ?? [])];
+    const target = idx + dir;
+    if (target < 0 || target >= list.length) return;
+    [list[idx], list[target]] = [list[target], list[idx]];
+    meta.faq = list;
+    setContent(next);
+  };
+
+  const updateWarranty = (field: keyof WarrantyInfo, value: string | boolean) => {
+    if (!content) return;
+    const next = JSON.parse(JSON.stringify(content)) as ContentData;
+    const cur = next.warranty ?? { show: true, duration: "", certification: "" };
+    next.warranty = { ...cur, [field]: value };
+    setContent(next);
+  };
+
 
   // ── Loading screen ──────────────────────────────────────────
   if (authed === null) {
@@ -2028,6 +2093,55 @@ export default function AdminPage() {
                                     </button>
                                   )}
                                   <p className="text-[10px] text-white/20">Önerilen: 1200×400 WebP/JPG. Kaldırınca slider yerine başlık gösterilir.</p>
+                                </div>
+
+                                {/* Per-category FAQ — capped at FAQ_MAX entries.
+                                    Public site renders these between the
+                                    product detail and Benzer Ürünler, plus a
+                                    FAQPage JSON-LD for Google rich results. */}
+                                <div className="rounded-xl border border-white/8 p-3 space-y-2" style={{ background: "rgba(255,255,255,0.02)" }}>
+                                  <div className="flex items-center justify-between">
+                                    <div>
+                                      <p className="text-[11px] font-semibold text-white/55 uppercase tracking-wider">Sıkça Sorulan Sorular</p>
+                                      <p className="text-[10px] text-white/30 mt-0.5">Ürün detay sayfasında benzer ürünlerin üstünde accordion olarak görünür. {(meta.faq ?? []).length}/{FAQ_MAX}</p>
+                                    </div>
+                                    <button
+                                      onClick={() => addFaqItem(catId)}
+                                      disabled={(meta.faq ?? []).length >= FAQ_MAX}
+                                      className="flex items-center gap-1.5 text-xs text-white/50 hover:text-white px-2.5 py-1 rounded-lg border border-white/10 hover:border-white/20 disabled:opacity-30 disabled:hover:text-white/50"
+                                    >
+                                      <HiOutlinePlus size={12} /> Soru Ekle
+                                    </button>
+                                  </div>
+                                  {(meta.faq ?? []).length === 0 && (
+                                    <p className="text-[11px] text-white/25 italic px-1 py-2">Henüz soru eklenmemiş.</p>
+                                  )}
+                                  {(meta.faq ?? []).map((item, idx) => {
+                                    const last = (meta.faq ?? []).length - 1;
+                                    return (
+                                      <div key={idx} className="rounded-lg border border-white/7 p-2.5 space-y-2" style={{ background: "rgba(255,255,255,0.02)" }}>
+                                        <div className="flex items-center gap-2">
+                                          <span className="text-[10px] text-white/30 font-mono">#{idx + 1}</span>
+                                          <input
+                                            value={item.q}
+                                            onChange={(e) => updateFaqItem(catId, idx, "q", e.target.value)}
+                                            placeholder="Soru..."
+                                            className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-white/30"
+                                          />
+                                          <button onClick={() => moveFaqItem(catId, idx, -1)} disabled={idx === 0} className="text-white/40 hover:text-white disabled:opacity-25 px-1 py-0.5" title="Yukarı taşı">▲</button>
+                                          <button onClick={() => moveFaqItem(catId, idx, 1)} disabled={idx === last} className="text-white/40 hover:text-white disabled:opacity-25 px-1 py-0.5" title="Aşağı taşı">▼</button>
+                                          <button onClick={() => removeFaqItem(catId, idx)} className="text-rose-400/70 hover:text-rose-300 px-1.5 py-0.5" title="Sil">×</button>
+                                        </div>
+                                        <textarea
+                                          value={item.a}
+                                          onChange={(e) => updateFaqItem(catId, idx, "a", e.target.value)}
+                                          placeholder="Cevap..."
+                                          rows={2}
+                                          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-white/30 resize-y"
+                                        />
+                                      </div>
+                                    );
+                                  })}
                                 </div>
                               </div>
                             )}
@@ -2927,6 +3041,32 @@ export default function AdminPage() {
                         )}
                       </div>
                     )}
+                  </div>
+
+                  {/* Warranty / certification band shown on every product
+                      detail page below the spec / general / documents
+                      tabs. Single global config, edited here so it sits
+                      alongside the rest of the trust-signal content. */}
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-xs font-semibold text-white/50">Garanti & Sertifikasyon Bandı</p>
+                        <p className="text-[11px] text-white/30 mt-0.5">Tüm ürün detay sayfalarında, sekmelerin altında ince bir bant olarak görünür.</p>
+                      </div>
+                      <button
+                        onClick={() => updateWarranty("show", !(content.warranty?.show ?? true))}
+                        className="px-3 py-1.5 rounded-lg text-[11px] font-semibold transition-colors"
+                        style={{
+                          background: (content.warranty?.show ?? true) ? "rgba(59,130,246,0.18)" : "rgba(255,255,255,0.05)",
+                          color: (content.warranty?.show ?? true) ? "#cfe1ff" : "rgba(255,255,255,0.45)",
+                          border: (content.warranty?.show ?? true) ? "1px solid rgba(59,130,246,0.45)" : "1px solid rgba(255,255,255,0.10)",
+                        }}
+                      >
+                        {(content.warranty?.show ?? true) ? "Görünür ●" : "Gizli ○"}
+                      </button>
+                    </div>
+                    <Field label="Garanti Süresi" value={content.warranty?.duration ?? ""} onChange={(v) => updateWarranty("duration", v)} />
+                    <Field label="Sertifikasyon" value={content.warranty?.certification ?? ""} onChange={(v) => updateWarranty("certification", v)} />
                   </div>
                 </div>
               )}

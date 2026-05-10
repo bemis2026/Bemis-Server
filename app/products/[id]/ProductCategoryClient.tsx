@@ -326,7 +326,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                   {(product.images?.[0] ?? product.image) ? (
                     <Image src={(product.images?.[0] ?? product.image) as string} alt={product.name}
                       fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-contain p-3 transition-transform duration-350 group-hover:scale-105" />
+                      className="object-contain p-1 transition-transform duration-350 group-hover:scale-105" />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center">
                       <Icon style={{ fontSize: 44, color: d ? "rgba(255,255,255,0.18)" : `${accent}50`, transition: "transform 0.3s ease" }} />

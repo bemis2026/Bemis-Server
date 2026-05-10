@@ -7,9 +7,26 @@ export type StatItem = {
   value: number; suffix: string; prefix?: string; label: string; description: string;
 };
 
+export type FaqItem = { q: string; a: string };
+
 export type CategoryMeta = {
   name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string; sliderImage?: string;
   description?: string;
+  // Per-category FAQ — admin caps at 10 entries; public renders a
+  // collapsible accordion between the product detail and the "Benzer
+  // Ürünler" carousel, plus a FAQPage JSON-LD block for Google rich
+  // snippets.
+  faq?: FaqItem[];
+};
+
+// Warranty / certification badge shown on every product detail page,
+// directly below the spec / general / documents tabs. Single global
+// config — admin tweaks duration and certification line, the same band
+// renders for every SKU.
+export type WarrantyInfo = {
+  show: boolean;
+  duration: string;
+  certification: string;
 };
 
 export type FeaturedItem = {
@@ -128,6 +145,7 @@ export type SiteContent = {
   stats: StatItem[];
   categories: Record<string, CategoryMeta>;
   featured: FeaturedItem[];
+  warranty: WarrantyInfo;
   contact: {
     phone: string; email: string; address: string; addressSub: string;
     workingHours: string; workingDays: string;
@@ -297,6 +315,11 @@ const defaultContent: SiteContent = {
     { categoryId: "portable", productId: "portable-7kw", badge: "Plug & Play",          highlight: "6A–32A ayarlanabilir. Kurulum gerektirmez.",                visible: true },
     { categoryId: "cables",   productId: "dc-cable",     badge: "Profesyonel DC",       highlight: "350 kW · CCS2 · CHAdeMO · Aktif su soğutmalı 500A model.", visible: true },
   ],
+  warranty: {
+    show: true,
+    duration: "2 Yıl Üretici Garantisi",
+    certification: "CE & TSE Sertifikalı",
+  },
   contact: {
     phone: "+90 (224) 000 00 00", email: "info@bemisevcharge.com",
     address: "Bursa Organize Sanayi Bölgesi", addressSub: "Nilüfer / Bursa, Türkiye",

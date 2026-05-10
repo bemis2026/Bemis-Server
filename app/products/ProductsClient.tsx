@@ -428,7 +428,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                                 <img
                                   src={product.images?.[0] ?? product.image}
                                   alt={product.name}
-                                  className="absolute inset-0 w-full h-full object-contain p-3 transition-transform duration-350 group-hover:scale-105"
+                                  className="absolute inset-0 w-full h-full object-contain p-1 transition-transform duration-350 group-hover:scale-105"
                                 />
                               ) : (
                                 <div className="absolute inset-0 flex items-center justify-center">
