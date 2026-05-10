@@ -396,16 +396,24 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                                 <img
                                   src={product.images?.[0] ?? product.image}
                                   alt={product.name}
-                                  className="absolute inset-0 w-full h-full object-contain p-1 transition-transform duration-350 group-hover:scale-105"
+                                  className="absolute inset-0 w-full h-full object-contain p-1 transition-transform duration-350"
                                 />
                               ) : (
+                                // Larger discus + icon for the no-image
+                                // fallback so a missing product photo
+                                // still fills the card the way an actual
+                                // photo would.
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                  <Icon
+                                  <div
+                                    className="rounded-full flex items-center justify-center"
                                     style={{
-                                      fontSize: 42,
-                                      color: d ? "rgba(255,255,255,0.15)" : `${cat.accent}45`,
+                                      width: 86, height: 86,
+                                      background: `radial-gradient(circle at 50% 40%, ${cat.accent}22 0%, transparent 70%)`,
+                                      border: `1px solid ${cat.accent}33`,
                                     }}
-                                  />
+                                  >
+                                    <Icon style={{ fontSize: 44, color: d ? `${cat.accent}99` : cat.accent, opacity: 0.75 }} />
+                                  </div>
                                 </div>
                               )}
 

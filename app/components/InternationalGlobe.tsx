@@ -168,6 +168,7 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
     <div
       ref={wrapRef}
       className={`relative w-full ${dark ? "globe-dimmed" : ""}`}
+      onPointerLeave={() => setHovered(null)}
       style={{
         minHeight: 380,
         height: size.h,
@@ -231,13 +232,16 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
         pointRadius={(d: object) => (d as { radius: number }).radius}
         pointResolution={32}
         onLabelHover={(d: object | null) => {
-          const next = !d || (d as { isHQ?: boolean }).isHQ
-            ? null
-            : (d as InternationalDealer);
-          // Guard the state setter so hovering the same pin doesn't
-          // re-trigger a render → re-render → label-rebuild cycle that
-          // visibly flashed the tooltip every pixel of mouse movement.
-          setHovered(prev => (prev?.id ?? null) === (next?.id ?? null) ? prev : next);
+          // Only act on positive hovers — we ignore the null pulse that
+          // react-globe.gl emits whenever it rebuilds its label layer
+          // (autoRotate, every-frame raycaster updates, etc.), which
+          // was reading as an open/close flicker while the cursor was
+          // actually pinned on the dot. Tooltip clears on
+          // onPointerLeave at the wrapper level instead.
+          if (!d) return;
+          if ((d as { isHQ?: boolean }).isHQ) return;
+          const dealer = d as InternationalDealer;
+          setHovered(prev => prev?.id === dealer.id ? prev : dealer);
         }}
         onLabelClick={(d: object) => {
           if ((d as { isHQ?: boolean }).isHQ) return;

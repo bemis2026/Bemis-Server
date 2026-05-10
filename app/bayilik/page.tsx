@@ -168,9 +168,11 @@ export default function BayilikPage() {
         </div>
       </section>
 
-      {/* ── Bayi Ağımız Hakkında — kurumsal sayılar + kısa tanıtım ── */}
+      {/* ── Ağımız Hakkında — kurumsal sayılar + fuar/etkinlik
+          görselleri tek bölümde. Stats üstte, fuar galerisi altta;
+          her ikisi de aynı "kurumsal güven" mesajını destekliyor. ── */}
       <section style={{ background: bg, borderBottom: `1px solid ${border}`, padding: "52px 0" }}>
-        <div className="max-w-5xl mx-auto px-5 sm:px-8">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <div className="mb-7">
             <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: GREEN }}>
               Ağımız Hakkında
@@ -185,7 +187,7 @@ export default function BayilikPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-12">
             {NETWORK_STATS.map((s, i) => (
               <motion.div
                 key={s.label}
@@ -204,6 +206,69 @@ export default function BayilikPage() {
               </motion.div>
             ))}
           </div>
+
+          {/* Fuarlar & Marka Tanıtım — fair gallery folded into the
+              same Ağımız Hakkında frame so kurumsal sayılar and the
+              proof-in-the-field photos read as one story. */}
+          <div className="mb-5">
+            <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: GREEN }}>
+              Fuarlar & Marka Tanıtım
+            </p>
+            <h3 className="text-xl sm:text-2xl font-black leading-tight mb-1" style={{ color: text }}>
+              Sahada Bemis E-V Charge
+            </h3>
+            <p className="text-sm leading-relaxed max-w-3xl" style={{ color: muted }}>
+              Katıldığımız sektör fuarları, etkinlikler ve bayi buluşmalarından kareler.
+            </p>
+          </div>
+
+          {(cms.marketingEvents && cms.marketingEvents.length > 0) ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {cms.marketingEvents.map((ev, i) => (
+                <motion.div
+                  key={ev.id ?? i}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.06 * i }}
+                  className="rounded-2xl overflow-hidden"
+                  style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}
+                >
+                  {ev.image && (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
+                      src={ev.image}
+                      alt={ev.title ?? "Bemis etkinlik"}
+                      className="w-full object-cover"
+                      style={{ height: "clamp(180px, 22vw, 230px)" }}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  )}
+                  {(ev.title || ev.location || ev.date) && (
+                    <div className="p-4">
+                      {ev.title && (
+                        <p className="font-bold text-sm mb-1" style={{ color: text }}>{ev.title}</p>
+                      )}
+                      {(ev.location || ev.date) && (
+                        <p className="text-xs" style={{ color: muted }}>
+                          {[ev.location, ev.date].filter(Boolean).join(" · ")}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            <div
+              className="rounded-2xl p-6 text-center"
+              style={{ background: card, border: `1px dashed ${border}` }}
+            >
+              <p className="text-sm" style={{ color: muted }}>
+                Fuar ve etkinlik görselleri admin panelden yüklendiğinde burada listelenecek.
+              </p>
+            </div>
+          )}
         </div>
       </section>
 
@@ -289,74 +354,6 @@ export default function BayilikPage() {
               </button>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* ── Fuarlar & Marka Tanıtım — admin-managed image gallery
-          showcasing fairs we've attended and brand-activation events.
-          Empty state shows a placeholder so the section still has
-          presence when nothing is uploaded yet. ── */}
-      <section style={{ background: bg, borderBottom: `1px solid ${border}`, padding: "52px 0" }}>
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <div className="mb-7 max-w-2xl">
-            <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: GREEN }}>
-              Fuarlar & Marka Tanıtım
-            </p>
-            <h2 className="text-2xl sm:text-3xl font-black leading-tight mb-2" style={{ color: text }}>
-              Sahada Bemis E-V Charge
-            </h2>
-            <p className="text-sm leading-relaxed" style={{ color: muted }}>
-              Katıldığımız sektör fuarları, etkinlikler ve bayi buluşmalarından kareler.
-            </p>
-          </div>
-
-          {(cms.marketingEvents && cms.marketingEvents.length > 0) ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {cms.marketingEvents.map((ev, i) => (
-                <motion.div
-                  key={ev.id ?? i}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.06 * i }}
-                  className="rounded-2xl overflow-hidden"
-                  style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}
-                >
-                  {ev.image && (
-                    /* eslint-disable-next-line @next/next/no-img-element */
-                    <img
-                      src={ev.image}
-                      alt={ev.title ?? "Bemis etkinlik"}
-                      className="w-full object-cover"
-                      style={{ height: "clamp(180px, 22vw, 230px)" }}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  )}
-                  {(ev.title || ev.location || ev.date) && (
-                    <div className="p-4">
-                      {ev.title && (
-                        <p className="font-bold text-sm mb-1" style={{ color: text }}>{ev.title}</p>
-                      )}
-                      {(ev.location || ev.date) && (
-                        <p className="text-xs" style={{ color: muted }}>
-                          {[ev.location, ev.date].filter(Boolean).join(" · ")}
-                        </p>
-                      )}
-                    </div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          ) : (
-            <div
-              className="rounded-2xl p-8 text-center"
-              style={{ background: card, border: `1px dashed ${border}` }}
-            >
-              <p className="text-sm" style={{ color: muted }}>
-                Fuar ve etkinlik görselleri admin panelden yüklendiğinde burada listelenecek.
-              </p>
-            </div>
-          )}
         </div>
       </section>
 
