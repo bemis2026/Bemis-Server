@@ -148,13 +148,17 @@ export default function DNA() {
                   // (iOS Safari + Android Chrome). loading="eager" so the
                   // iframe boots immediately — lazy delay was causing the
                   // browser to skip autoplay on first viewport entry.
+                  // controls=0 hides the YouTube control bar; pointer-
+                  // events: none on the iframe ensures hover never wakes
+                  // up YouTube's overlay UI, so the video plays back like
+                  // a passive screen — no scrubber, no related tiles, no
+                  // keyboard/mouse interactivity.
                   return (
                     <iframe
-                      src={`https://www.youtube-nocookie.com/embed/${yt[1]}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${yt[1]}&controls=1&modestbranding=1&rel=0&iv_load_policy=3`}
+                      src={`https://www.youtube-nocookie.com/embed/${yt[1]}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${yt[1]}&controls=0&disablekb=1&modestbranding=1&rel=0&iv_load_policy=3&fs=0`}
                       title="Bemis fabrika videosu"
-                      allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                      allowFullScreen
-                      style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none" }}
+                      allow="autoplay; encrypted-media; picture-in-picture"
+                      style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none", pointerEvents: "none" }}
                     />
                   );
                 }

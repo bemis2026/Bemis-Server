@@ -99,7 +99,7 @@ type CategoryData = { id: string; name: string; tagline: string; accent: string;
 
 type StatItem = { value: number; suffix: string; prefix?: string; label: string; description: string };
 type FaqItem = { q: string; a: string };
-type CategoryMeta = { name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string; sliderImage?: string; description?: string; faq?: FaqItem[] };
+type CategoryMeta = { name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string; sliderImage?: string; description?: string; descriptionImage?: string; faq?: FaqItem[] };
 type FeaturedItem = { categoryId: string; productId: string; badge: string; highlight: string; visible: boolean };
 type ContentData = {
   hero: {
@@ -274,6 +274,9 @@ export default function AdminPage() {
   const [catSliderImgLoading, setCatSliderImgLoading] = useState<string | null>(null);
   const [catSliderImgTarget, setCatSliderImgTarget] = useState<string>("");
   const catSliderImgRef = useRef<HTMLInputElement>(null);
+  const [catDescImgLoading, setCatDescImgLoading] = useState<string | null>(null);
+  const [catDescImgTarget, setCatDescImgTarget] = useState<string>("");
+  const catDescImgRef = useRef<HTMLInputElement>(null);
   const [logoLoading, setLogoLoading] = useState<"dark" | "light" | null>(null);
   const logoDarkRef  = useRef<HTMLInputElement>(null);
   const logoLightRef = useRef<HTMLInputElement>(null);
@@ -1057,6 +1060,26 @@ export default function AdminPage() {
     setCatSliderImgLoading(null);
     setCatSliderImgTarget("");
     if (catSliderImgRef.current) catSliderImgRef.current.value = "";
+  };
+
+  const handleCatDescImgUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || !catDescImgTarget) return;
+    setCatDescImgLoading(catDescImgTarget);
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("folder", "category-descriptions");
+    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+    if (res.ok) {
+      const { url } = await res.json();
+      updateCatMeta(catDescImgTarget, "descriptionImage", url);
+      showToast("ok", "Açıklama görseli yüklendi.");
+    } else {
+      showToast("err", "Yükleme başarısız.");
+    }
+    setCatDescImgLoading(null);
+    setCatDescImgTarget("");
+    if (catDescImgRef.current) catDescImgRef.current.value = "";
   };
 
   const handleSectionBgUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -2003,6 +2026,47 @@ export default function AdminPage() {
                                 />
                                 <p className="text-[10px] text-white/20 -mt-2">Kategori sayfasının üst kısmında gösterilir. Boş bırakılırsa gizlenir.</p>
 
+                                {/* Description-side image — public renders
+                                    side-by-side with the description text
+                                    so short copy doesn't leave half the
+                                    hero empty. */}
+                                <div>
+                                  <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Açıklama Yanı Görseli</label>
+                                  {meta.descriptionImage && (
+                                    <div className="relative rounded-xl overflow-hidden mb-2" style={{ height: 80 }}>
+                                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                                      <img src={meta.descriptionImage} alt={meta.name} className="w-full h-full object-cover" />
+                                      <button
+                                        onClick={() => updateCatMeta(catId, "descriptionImage", "")}
+                                        className="absolute top-1.5 right-1.5 w-6 h-6 rounded-full flex items-center justify-center text-[10px] bg-black/60 text-white/70 hover:text-red-400 transition-colors"
+                                      >
+                                        ✕
+                                      </button>
+                                    </div>
+                                  )}
+                                  <div className="flex gap-2">
+                                    <input
+                                      value={meta.descriptionImage ?? ""}
+                                      onChange={(e) => updateCatMeta(catId, "descriptionImage", e.target.value || "")}
+                                      placeholder="/uploads/category-descriptions/... veya URL"
+                                      className="flex-1 bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22"
+                                    />
+                                    <button
+                                      onClick={() => { setCatDescImgTarget(catId); setTimeout(() => catDescImgRef.current?.click(), 50); }}
+                                      disabled={catDescImgLoading === catId}
+                                      className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-white/70 border border-white/12 hover:border-white/25 hover:text-white transition-colors disabled:opacity-50 whitespace-nowrap"
+                                    >
+                                      {catDescImgLoading === catId ? (
+                                        <div className="w-3 h-3 rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
+                                      ) : (
+                                        <RiImageAddLine size={13} />
+                                      )}
+                                      Yükle
+                                    </button>
+                                  </div>
+                                  <p className="text-[10px] text-white/20 mt-1.5">Kategori sayfası üstünde açıklama metninin sağına yerleşir. Önerilen: 800×600 veya 4:3 / 16:9 oranlı WebP/JPG.</p>
+                                </div>
+
                                 {/* Category card image */}
                                 <div>
                                   <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Kart Görseli</label>
@@ -2145,6 +2209,8 @@ export default function AdminPage() {
                   <input ref={catImgRef} type="file" accept="image/*" className="hidden" onChange={handleCatImgUpload} />
                   {/* Hidden file input for category slider image upload */}
                   <input ref={catSliderImgRef} type="file" accept="image/*" className="hidden" onChange={handleCatSliderImgUpload} />
+                  {/* Hidden file input for the description-side image */}
+                  <input ref={catDescImgRef} type="file" accept="image/*" className="hidden" onChange={handleCatDescImgUpload} />
 
                   {/* ── Sub-tab: Ürün Detayları ── */}
                   {prodSubTab === "specs" && (

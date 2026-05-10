@@ -136,6 +136,10 @@ const FAQS = {
       a: "Aracın V2L gücüne bağlıdır. Hyundai/Kia çoğu modelde 3.6 kW (16A), BYD ve MG modelleri 2.2 kW (10A), bazı yeni modeller 7.2 kW'a kadar çıkar. Bemis V2L adaptörlerimiz aracın çıkış gücünü güvenli şekilde aktarır; aracınızın limitini aşmaz. Tekli, ikili ve üçlü prizli versiyonlar aynı toplam gücü paylaştırır."
     },
     {
+      q: "C2L adaptörden ne kadar güç çekilebilir?",
+      a: "22 kW'a kadar — hangi C2L modelini seçtiğine ve bağlandığın şarj ünitesinin gücüne bağlı. Tek prizli modeller tek fazda 7.4 kW'a kadar destek verir; üç fazlı CEE çıkışlı modellerimiz şarj cihazınızın izin verdiği ölçüde 22 kW'a çıkabilir. Çıkış akımı her zaman şarj ünitesinin sağladığı gücün altında kalır."
+    },
+    {
       q: "V2L kullanımı bataryaya zarar verir mi?",
       a: "Hayır. V2L üretici tarafından öngörülen bir kullanım modudur; batarya yönetim sistemi (BMS) deşarj derinliğini kontrol eder. Çoğu araç, V2L modunda batarya seviyesini %20'ye indiğinde otomatik kapatır. Sürekli kullanım batarya ömrünü etkilemez."
     }

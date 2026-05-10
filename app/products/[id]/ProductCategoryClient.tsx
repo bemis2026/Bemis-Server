@@ -135,15 +135,44 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
             </div>
           </div>
 
-          {categoryDescription && (
-            <motion.p
-              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }}
-              className="text-sm sm:text-base leading-relaxed mt-4 max-w-3xl whitespace-pre-line"
-              style={{ color: textMuted }}
-            >
-              {categoryDescription}
-            </motion.p>
-          )}
+          {(() => {
+            // Description + side image — when an image is uploaded for
+            // the category, the hero gets a 2-column flow on lg+ so the
+            // empty space next to short description copy gets filled.
+            // No image → text alone, capped to 3xl as before.
+            const descImage = categories?.[id]?.descriptionImage?.trim() ?? "";
+            if (!categoryDescription && !descImage) return null;
+            return (
+              <motion.div
+                initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }}
+                className="mt-4 grid gap-5 items-center"
+                style={{ gridTemplateColumns: descImage ? "minmax(0, 3fr) minmax(0, 2fr)" : "1fr" }}
+              >
+                {categoryDescription && (
+                  <p
+                    className="text-sm sm:text-base leading-relaxed whitespace-pre-line max-w-3xl"
+                    style={{ color: textMuted }}
+                  >
+                    {categoryDescription}
+                  </p>
+                )}
+                {descImage && (
+                  <div
+                    className="relative rounded-2xl overflow-hidden"
+                    style={{ aspectRatio: "4/3", border: `1px solid ${surfaceBorder}` }}
+                  >
+                    <Image
+                      src={descImage}
+                      alt={category.name}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      className="object-cover"
+                    />
+                  </div>
+                )}
+              </motion.div>
+            );
+          })()}
 
         </div>
       </div>
