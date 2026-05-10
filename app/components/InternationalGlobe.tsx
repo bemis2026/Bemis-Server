@@ -92,6 +92,11 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
   }, [size.w]);
 
   // Fly to a country when the side-list selection changes.
+  // Depending on `activeCountries` here causes the effect to re-fire
+  // on every parent re-render (the array reference changes), which
+  // restarts the camera animation and reads as a repeated click.
+  // Closure read of activeCountries is fine — we only care about the
+  // current value at click time.
   useEffect(() => {
     if (!selectedId) return;
     const g = globeRef.current;
@@ -101,7 +106,8 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
     const controls = g.controls() as unknown as { autoRotate: boolean };
     if (controls) controls.autoRotate = false;
     g.pointOfView({ lat: target.lat, lng: target.lng, altitude: 1.4 }, 1100);
-  }, [selectedId, activeCountries]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedId]);
 
   // Country pins only. The HQ marker is a custom HTML overlay (logo+caption)
   // so we can show our brand mark instead of a plain 3D label.
@@ -164,11 +170,10 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
         // Earth textures — three-globe's stock 2K maps combined with retina
         // pixel ratio (set in useEffect below) keep coastlines sharp on HiDPI
         // screens without ballooning the bundle with 8K texture downloads.
-        globeImageUrl={
-          dark
-            ? "//unpkg.com/three-globe/example/img/earth-night.jpg"
-            : "//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-        }
+        // Always blue-marble — the night-side texture was too dark and
+        // the operator wanted the surface lighter regardless of UI theme.
+        // We'll dial brightness up further in a follow-up if needed.
+        globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
         bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
         atmosphereColor={BLUE}
         atmosphereAltitude={0.22}

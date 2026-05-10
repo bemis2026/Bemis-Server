@@ -10,6 +10,7 @@ import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
+import { useContent } from "../context/ContentContext";
 import { useUiStrings } from "../../lib/uiStrings";
 import {
   RiPlugLine,
@@ -40,6 +41,7 @@ export default function B2BPage() {
   const router = useRouter();
   const { theme } = useTheme();
   const { lang } = useLanguage();
+  const { dna } = useContent();
   const t = useUiStrings();
   const d = theme === "dark";
   const [searchOpen, setSearchOpen] = useState(false);
@@ -158,72 +160,89 @@ export default function B2BPage() {
         </div>
       </section>
 
-      {/* ── Applications — image-led case studies of OEM/manufacturer
-          deployments. The legacy 6-bullet advantages block has been
-          retired; this gallery is the only render now. Empty state shows
-          a soft placeholder message until admin populates entries. */}
+      {/* ── OEM Üreticilerine Sunduğumuz Çözümler — left image / right
+          text intro. The image source is dna.factoryImage (managed
+          from admin → Hakkımızda / DNA), so the operator can swap it
+          without touching B2B-specific admin fields. The legacy
+          applications gallery has been retired — what manufacturers
+          need on first scroll is a clear "what we do" statement, not
+          a wall of case-study tiles. */}
       <section style={{ background: bg, borderBottom: `1px solid ${border}`, padding: "52px 0" }}>
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <div className="mb-7 max-w-2xl">
-            <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: AMBER }}>Üretici Uygulamaları</p>
-            <h2 className="text-2xl sm:text-3xl font-black mb-2" style={{ color: text }}>Sahada Bemis Bileşenleri</h2>
-            <p className="text-sm leading-relaxed" style={{ color: muted }}>
-              OEM şarj ünitesi üreticilerinin Bemis kablo, soket ve elektronik kartlarını entegre ettiği gerçek uygulamalardan kareler.
-            </p>
-          </div>
-          {(b2bData.applications && b2bData.applications.length > 0) ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {b2bData.applications.map((app, i) => (
-                <motion.div
-                  key={app.id ?? i}
-                  initial={{ opacity: 0, y: 18 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.45, delay: 0.06 * i }}
-                  className="rounded-2xl overflow-hidden flex flex-col"
-                  style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}
-                >
-                  {app.image ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={app.image}
-                      alt={app.title ?? "OEM uygulama"}
-                      className="w-full object-cover"
-                      style={{ height: "clamp(180px, 22vw, 230px)" }}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  ) : (
-                    <div className="w-full flex items-center justify-center" style={{ height: "clamp(180px, 22vw, 230px)", background: d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.04)" }}>
-                      <span className="text-3xl font-black" style={{ color: d ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.18)" }}>
-                        {app.title?.[0] ?? "?"}
-                      </span>
-                    </div>
-                  )}
-                  <div className="p-5 flex-1">
-                    {app.title && (
-                      <p className="font-bold text-base mb-1.5" style={{ color: text }}>
-                        {app.title}
-                      </p>
-                    )}
-                    {app.body && (
-                      <p className="text-sm leading-relaxed" style={{ color: muted }}>
-                        {app.body}
-                      </p>
-                    )}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          ) : (
-            <div
-              className="rounded-2xl p-8 text-center"
-              style={{ background: card, border: `1px dashed ${border}` }}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {dna.factoryImage ? (
+              <motion.div
+                initial={{ opacity: 0, x: -18 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                className="relative rounded-3xl overflow-hidden"
+                style={{ aspectRatio: "4/3", border: `1px solid ${border}`, boxShadow: shadow }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={dna.factoryImage}
+                  alt="Bemis üretim tesisi"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </motion.div>
+            ) : (
+              <div
+                className="rounded-3xl flex items-center justify-center"
+                style={{ aspectRatio: "4/3", background: card, border: `1px dashed ${border}` }}
+              >
+                <span className="text-xs font-semibold" style={{ color: faint }}>
+                  Görsel admin → DNA → Üretim Görseli alanından yüklendiğinde burada görünecek.
+                </span>
+              </div>
+            )}
+            <motion.div
+              initial={{ opacity: 0, x: 18 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <p className="text-sm" style={{ color: muted }}>
-                Üretici uygulamaları admin panelinden yüklendiğinde burada listelenecek.
+              <p className="text-xs font-bold tracking-[0.18em] uppercase mb-3" style={{ color: AMBER }}>
+                Çözüm Ortaklığı
               </p>
-            </div>
-          )}
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black leading-tight mb-4" style={{ color: text }}>
+                OEM Üreticilerine Sunduğumuz Çözümler
+              </h2>
+              <p className="text-sm sm:text-base leading-relaxed mb-3" style={{ color: muted }}>
+                Bemis Teknik Elektrik, 1994&apos;ten bu yana endüstriyel elektrik
+                ekipmanı üretimi yapan, 60+ ülkeye ihracat gerçekleştiren bir
+                Türkiye üreticisidir. EV şarj cihazı üreten OEM firmalarına
+                bileşen ve mühendislik desteği sunuyoruz.
+              </p>
+              <p className="text-sm sm:text-base leading-relaxed mb-5" style={{ color: muted }}>
+                Type 2 ve CCS2 soketler, AC ve DC şarj kabloları, elektronik
+                kontrol kartları ve özel mahfaza tasarımları ile çözüm
+                ortağıyız. Ürün geliştirme sürecinin başından sertifikasyona
+                kadar mühendislik ekibimiz devreye girer; tedarik zinciri Bursa
+                OSB üretim tesisinden tek noktadan yönetilir.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "11.000 m² Üretim Tesisi",
+                  "60+ Ülke İhracat",
+                  "CE / TSE / TÜV Sertifikalı",
+                  "ISO 9001:2015",
+                ].map((chip) => (
+                  <span
+                    key={chip}
+                    className="text-xs font-bold px-3 py-1.5 rounded-full"
+                    style={{
+                      background: `${AMBER}15`,
+                      border: `1px solid ${AMBER}30`,
+                      color: AMBER,
+                    }}
+                  >
+                    {chip}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 

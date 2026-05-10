@@ -232,7 +232,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
   const totalProducts = categories.reduce((sum, c) => sum + (c.products?.length ?? 0), 0);
 
   return (
-    <div style={{ background: bg, minHeight: "100vh", position: "relative", overflow: "hidden", isolation: "isolate" }}>
+    <div style={{ background: bg, display: "flex", flexDirection: "column", minHeight: "100vh", position: "relative", overflow: "hidden", isolation: "isolate" }}>
       <EnergyBackground />
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
@@ -508,7 +508,9 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
         </div>
       </div>
 
-      <ContactBar />
+      <div style={{ marginTop: "auto" }}>
+        <ContactBar />
+      </div>
     </div>
   );
 }

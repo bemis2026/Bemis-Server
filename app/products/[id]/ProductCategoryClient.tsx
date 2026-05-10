@@ -94,7 +94,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
   const categoryDescription = categories?.[id]?.description?.trim() ?? "";
 
   return (
-    <div style={{ background: bg, minHeight: "100vh", position: "relative", overflow: "hidden", isolation: "isolate" }}>
+    <div style={{ background: bg, display: "flex", flexDirection: "column", minHeight: "100vh", position: "relative", overflow: "hidden", isolation: "isolate" }}>
       <EnergyBackground />
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
@@ -256,7 +256,12 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
         </div>
       </div>
 
-      <ContactBar />
+      {/* Push ContactBar to the bottom of the flex column on short
+          pages (e.g. a one-row category like dc-units), instead of
+          leaving a fat slab of empty wrapper bg below it. */}
+      <div style={{ marginTop: "auto" }}>
+        <ContactBar />
+      </div>
     </div>
   );
 }

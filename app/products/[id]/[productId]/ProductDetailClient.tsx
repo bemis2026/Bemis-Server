@@ -129,7 +129,7 @@ export default function ProductDetailPage({
   const Icon        = categoryIcons[categoryId] ?? RiChargingPile2Line;
 
   return (
-    <div style={{ background: bg, minHeight: "100vh", position: "relative", overflow: "hidden", isolation: "isolate" }}>
+    <div style={{ background: bg, display: "flex", flexDirection: "column", minHeight: "100vh", position: "relative", overflow: "hidden", isolation: "isolate" }}>
       <EnergyBackground />
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
@@ -816,8 +816,10 @@ export default function ProductDetailPage({
         ].slice(0, 12);
         if (carousel.length === 0) return null;
         return (
-          <div className="max-w-7xl mx-auto pb-20">
-            <div className="flex items-center justify-between mb-4 px-5 sm:px-6 lg:px-8">
+          <div className="pb-20">
+            {/* Header stays inside the page rail so the heading and the
+                "Tümünü Gör" button line up with the rest of the page. */}
+            <div className="max-w-7xl mx-auto flex items-center justify-between mb-4 px-5 sm:px-6 lg:px-8">
               <h2 className="text-base font-bold" style={{ color: theme === "dark" ? "#f0f0f4" : "#111827" }}>Benzer Ürünler</h2>
               <button
                 onClick={() => router.push(`/products/${categoryId}`)}
@@ -827,12 +829,14 @@ export default function ProductDetailPage({
                 Tümünü Gör <HiArrowRight size={13} />
               </button>
             </div>
-            {/* Horizontal carousel — snaps card-by-card on touch, hides
-                scrollbar, leaves the same outer padding as the page rail
-                so the first/last card line up with section headings. */}
+            {/* Carousel runs edge-to-edge so it never visually clips at
+                the 7xl rail on wide monitors. snap-proximity (not
+                snap-mandatory) keeps scroll-left feeling as natural as
+                scroll-right — mandatory was forcing a one-direction
+                anchor on trackpads. */}
             <div
-              className="flex gap-3 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-5 sm:px-6 lg:px-8"
-              style={{ scrollPaddingLeft: "1.25rem", WebkitOverflowScrolling: "touch" }}
+              className="flex gap-3 overflow-x-auto snap-x snap-proximity scrollbar-hide pl-5 sm:pl-6 lg:pl-8 pr-5 sm:pr-6 lg:pr-8"
+              style={{ scrollPaddingLeft: "1.25rem", scrollPaddingRight: "1.25rem", WebkitOverflowScrolling: "touch" }}
             >
               {carousel.map(({ cat, prod }, i) => {
                 const CatIcon = categoryIcons[cat.id] ?? RiPlugLine;
@@ -901,7 +905,9 @@ export default function ProductDetailPage({
         );
       })()}
 
-      <ContactBar />
+      <div style={{ marginTop: "auto" }}>
+        <ContactBar />
+      </div>
     </div>
   );
 }

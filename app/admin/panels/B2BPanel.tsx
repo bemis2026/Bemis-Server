@@ -384,126 +384,14 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
             </div>
           </B2BCard>
 
-          {/* OEM uygulama galerisi — eski 6-bullet özellikler bölümünün
-              yerini alır. Görselli kart listesi: gerçek üretici uygulamaları. */}
-          <B2BCard accent="#F59E0B">
-            <B2BSectionTitle label="Üretici Uygulamaları" hint="Görselli kart listesi — eski 6-özellik bloğunun yerini alır" />
-            <p className="text-[11px] text-white/45 -mt-2 mb-3">
-              Boş bırakırsanız sayfa eski 6-özellik (Made in Turkey, Seri Üretim…) listesine düşer.
-            </p>
-            <div className="space-y-3">
-              {(data.applications ?? []).map((app, i) => (
-                <div key={app.id ?? i} className="rounded-xl p-3.5 space-y-2.5"
-                  style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-lg flex items-center justify-center text-[10px] font-black"
-                        style={{ background: "rgba(245,158,11,0.15)", color: "#F59E0B", border: "1px solid rgba(245,158,11,0.25)" }}>
-                        {i + 1}
-                      </div>
-                      <p className="text-[11px] font-bold uppercase tracking-widest text-white/50">Uygulama {i + 1}</p>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <button
-                        onClick={() => setData(p => {
-                          if (!p) return p;
-                          const arr = [...(p.applications ?? [])];
-                          if (i > 0) [arr[i - 1], arr[i]] = [arr[i], arr[i - 1]];
-                          return { ...p, applications: arr };
-                        })}
-                        disabled={i === 0}
-                        className="text-[10px] text-white/30 hover:text-white/70 px-1.5 py-1 disabled:opacity-30"
-                      >▲</button>
-                      <button
-                        onClick={() => setData(p => {
-                          if (!p) return p;
-                          const arr = [...(p.applications ?? [])];
-                          if (i < arr.length - 1) [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
-                          return { ...p, applications: arr };
-                        })}
-                        disabled={i === (data.applications?.length ?? 0) - 1}
-                        className="text-[10px] text-white/30 hover:text-white/70 px-1.5 py-1 disabled:opacity-30"
-                      >▼</button>
-                      <button
-                        onClick={() => setData(p => p ? { ...p, applications: (p.applications ?? []).filter((_, j) => j !== i) } : p)}
-                        className="flex items-center gap-1 text-[10px] text-white/30 hover:text-red-400 transition-colors px-1.5 py-1"
-                      >
-                        <HiOutlineTrash size={11} />
-                      </button>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    <input
-                      className={inputCls}
-                      placeholder="Başlık (örn. AC Wallbox Üreticisi X)"
-                      value={app.title ?? ""}
-                      onChange={e => setData(p => {
-                        if (!p) return p;
-                        const arr = [...(p.applications ?? [])];
-                        arr[i] = { ...arr[i], title: e.target.value };
-                        return { ...p, applications: arr };
-                      })}
-                    />
-                    <input
-                      className={inputCls}
-                      placeholder="Açıklama (örn. Bemis Type 2 prizleri ile…)"
-                      value={app.body ?? ""}
-                      onChange={e => setData(p => {
-                        if (!p) return p;
-                        const arr = [...(p.applications ?? [])];
-                        arr[i] = { ...arr[i], body: e.target.value };
-                        return { ...p, applications: arr };
-                      })}
-                    />
-                  </div>
-                  <div>
-                    {app.image ? (
-                      <div className="relative rounded-xl overflow-hidden border border-white/10" style={{ aspectRatio: "16/9" }}>
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={app.image} alt="" className="w-full h-full object-cover" />
-                        <label className="absolute inset-x-2 bottom-2 flex items-center justify-center gap-1.5 text-[10px] font-semibold py-1.5 rounded cursor-pointer"
-                          style={{ background: "rgba(0,0,0,0.65)", color: "#ffffff" }}>
-                          Görseli Değiştir
-                          <input type="file" accept="image/*" className="hidden" onChange={e => {
-                            const f = e.target.files?.[0];
-                            if (f) uploadHeroBg(f, url => setData(p => {
-                              if (!p) return p;
-                              const arr = [...(p.applications ?? [])];
-                              arr[i] = { ...arr[i], image: url };
-                              return { ...p, applications: arr };
-                            }));
-                          }} />
-                        </label>
-                      </div>
-                    ) : (
-                      <label
-                        className="flex items-center justify-center gap-2 rounded-xl cursor-pointer text-xs font-semibold py-3"
-                        style={{ background: "rgba(245,158,11,0.10)", border: "1px dashed rgba(245,158,11,0.40)", color: "#F59E0B" }}
-                      >
-                        Görsel Yükle
-                        <input type="file" accept="image/*" className="hidden" onChange={e => {
-                          const f = e.target.files?.[0];
-                          if (f) uploadHeroBg(f, url => setData(p => {
-                            if (!p) return p;
-                            const arr = [...(p.applications ?? [])];
-                            arr[i] = { ...arr[i], image: url };
-                            return { ...p, applications: arr };
-                          }));
-                        }} />
-                      </label>
-                    )}
-                  </div>
-                </div>
-              ))}
-              <button
-                onClick={() => setData(p => p ? { ...p, applications: [...(p.applications ?? []), { id: `app-${Date.now()}`, image: "", title: "", body: "" }] } : p)}
-                className="w-full flex items-center justify-center gap-2 text-xs font-semibold py-2.5 rounded-xl transition-all"
-                style={{ background: "rgba(245,158,11,0.12)", border: "1px dashed rgba(245,158,11,0.40)", color: "#F59E0B" }}
-              >
-                <HiOutlinePlus size={13} /> Uygulama Ekle
-              </button>
-            </div>
-          </B2BCard>
+          {/* Üretici Uygulamaları gallery removed — public /b2b page now
+              leads with a single image+text intro block ("OEM
+              Üreticilerine Sunduğumuz Çözümler") sourced from
+              dna.factoryImage instead of a separate case-study tile
+              grid. Reference projects already live on the homepage
+              ("Sahada Bemis") marquee. Keeping `applications` in the
+              schema is harmless; no admin UI needed.
+          */}
         </div>
       )}
 
