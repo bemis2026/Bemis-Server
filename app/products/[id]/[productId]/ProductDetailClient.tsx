@@ -11,6 +11,7 @@ import JsonLd from "../../../components/JsonLd";
 import EnergyBackground from "../../../components/EnergyBackground";
 import Navbar from "../../../components/Navbar";
 import ContactBar from "../../../components/ContactBar";
+import Footer from "../../../components/Footer";
 import SearchOverlay from "../../../components/SearchOverlay";
 import {
   RiChargingPile2Line, RiBatteryChargeLine, RiFlashlightLine,
@@ -902,6 +903,7 @@ export default function ProductDetailPage({
       })()}
 
       <ContactBar />
+      <Footer />
     </div>
   );
 }
