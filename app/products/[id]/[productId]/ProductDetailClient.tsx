@@ -181,14 +181,14 @@ export default function ProductDetailPage({
 
                   return (
                     <div className="flex flex-col gap-3">
-                      {/* Main frame — fixed square */}
+                      {/* Main frame — fixed square. Solid surface bg (no
+                          accent-tinted gradient) so background streaks
+                          can't bleed through. */}
                       <div
                         className="relative rounded-2xl overflow-hidden w-full"
                         style={{
                           aspectRatio: "1/1",
-                          background: d
-                            ? `linear-gradient(145deg, ${accent}10 0%, #0e0e12 100%)`
-                            : `linear-gradient(145deg, ${accent}0c 0%, #eef0f5 100%)`,
+                          background: d ? "#0e0e12" : "#eef0f5",
                           border: `1px solid ${border}`,
                           boxShadow: d
                             ? `0 12px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04)`

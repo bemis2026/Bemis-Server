@@ -2,27 +2,23 @@
 
 import { useEffect, useState } from "react";
 
-// Six diagonal gradient streaks drifting across the page in mixed
-// directions and thicknesses. The streak shape itself is a translucent
-// gradient bar; on top of the drift translation each streak also
-// shimmers (background-position animates) so it reads as a flowing line
-// rather than a fixed line being moved. Sits behind page content (z-
-// index -1 inside an isolated stacking context, so cards/sections
-// always paint on top).
-//
-// Mounted only on the product detail page for now.
+// Four short streaks drifting in two directions: two flow top→bottom,
+// two flow right→left. Each is half the viewport in its travel axis
+// (50vh tall or 50vw wide) so they read as fragments rather than full
+// lines. On top of the drift translation, each streak shimmers
+// (background-position animates) so the brightness pulses through it.
+// Behind page content (z-index -1 inside the wrapper's isolated
+// stacking context). Mounted only on the product detail page for now.
 export default function EnergyBackground() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
   return (
     <div className="energy-bg" aria-hidden>
-      <span className="energy-streak energy-s1" />
-      <span className="energy-streak energy-s2" />
-      <span className="energy-streak energy-s3" />
-      <span className="energy-streak energy-s4" />
-      <span className="energy-streak energy-s5" />
-      <span className="energy-streak energy-s6" />
+      <span className="energy-streak energy-v1" />
+      <span className="energy-streak energy-v2" />
+      <span className="energy-streak energy-h1" />
+      <span className="energy-streak energy-h2" />
     </div>
   );
 }
