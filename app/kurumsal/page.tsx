@@ -76,6 +76,7 @@ export default function KurumsalPage() {
   const router = useRouter();
   const { dna } = useContent();
   const [searchOpen, setSearchOpen] = useState(false);
+  const [aboutVideoReady, setAboutVideoReady] = useState(false);
 
   const bg         = d ? "linear-gradient(180deg, #0c0c0e 0%, #111113 100%)" : "#f8f8fb";
   const surface    = d ? "rgba(255,255,255,0.04)" : "#ffffff";
@@ -254,18 +255,28 @@ export default function KurumsalPage() {
                   }}
                 >
                   <div style={{ position: "relative", paddingTop: "56.25%" }}>
+                    {/* Same passive-screen treatment as the homepage DNA
+                        video: hide YouTube controls, kill keyboard +
+                        fullscreen, block hover with pointer-events: none.
+                        Black poster covers the iframe until onLoad +
+                        700ms so the YouTube splash never flashes. */}
+                    <div
+                      aria-hidden
+                      className="transition-opacity duration-700 pointer-events-none"
+                      style={{ position: "absolute", inset: 0, zIndex: 10, background: "#0a0a0a", opacity: aboutVideoReady ? 0 : 1 }}
+                    />
                     <iframe
                       src={
                         `https://www.youtube-nocookie.com/embed/${aboutVideoId}` +
                         `?autoplay=1&mute=1` +
                         `&loop=1&playlist=${aboutVideoId}` +
-                        `&modestbranding=1&rel=0&playsinline=1` +
-                        `&iv_load_policy=3`
+                        `&controls=0&disablekb=1&modestbranding=1&rel=0&playsinline=1` +
+                        `&iv_load_policy=3&fs=0`
                       }
                       title="Bemis E-V Charge"
-                      allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                      allowFullScreen
-                      style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
+                      allow="autoplay; encrypted-media; picture-in-picture"
+                      onLoad={() => setTimeout(() => setAboutVideoReady(true), 700)}
+                      style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0, pointerEvents: "none" }}
                     />
                   </div>
                   <div
@@ -306,30 +317,67 @@ export default function KurumsalPage() {
                       {dna.groupBrandsBody}
                     </p>
                   )}
-                  <div className="flex flex-wrap items-center gap-2.5 mt-auto">
-                    {(dna.groupBrands ?? []).map((b, i) => (
-                      <div
-                        key={i}
-                        className="flex items-center gap-2 rounded-xl px-3 py-2"
-                        style={{
-                          background: d ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.95)",
-                          border: d ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.07)",
-                          minHeight: 48,
-                        }}
-                      >
-                        {b.logo ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img src={b.logo} alt={b.name} style={{ height: 28, width: "auto", maxWidth: 110, objectFit: "contain" }} loading="lazy" />
-                        ) : (
-                          <span
-                            className="inline-flex items-center justify-center rounded-lg text-[10px] font-black"
-                            style={{ width: 28, height: 28, background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)", border: d ? "1px dashed rgba(255,255,255,0.20)" : "1px dashed rgba(0,0,0,0.20)", color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.30)" }}
-                          >{b.name?.[0] ?? "?"}</span>
+                  {/* Org-tree layout: first brand (Bemis) sits as the
+                      parent on top, the rest hang below it with thin
+                      connector lines so the relationship reads at a
+                      glance. Falls back to a flat row if there's
+                      only one brand. */}
+                  {(() => {
+                    const brands = dna.groupBrands ?? [];
+                    if (brands.length === 0) return null;
+                    const [parent, ...children] = brands;
+                    const cardBg     = d ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.95)";
+                    const cardBorder = d ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.07)";
+                    const lineColor  = d ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.18)";
+                    const renderLogo = (b: { name: string; logo?: string }, size: number, maxW: number) => (
+                      b.logo ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={b.logo} alt={b.name} style={{ height: size, width: "auto", maxWidth: maxW, objectFit: "contain" }} loading="lazy" />
+                      ) : (
+                        <span
+                          className="inline-flex items-center justify-center rounded-lg font-black"
+                          style={{ width: size, height: size, fontSize: size * 0.4, background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)", border: d ? "1px dashed rgba(255,255,255,0.20)" : "1px dashed rgba(0,0,0,0.20)", color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.30)" }}
+                        >{b.name?.[0] ?? "?"}</span>
+                      )
+                    );
+                    return (
+                      <div className="mt-auto flex flex-col items-center w-full">
+                        {/* Parent brand — wider card, bigger logo */}
+                        <div
+                          className="flex items-center gap-2.5 rounded-xl px-4 py-2.5"
+                          style={{ background: cardBg, border: cardBorder, minHeight: 56 }}
+                        >
+                          {renderLogo(parent, 36, 140)}
+                          <span className="text-sm font-black tracking-tight" style={{ color: textPrimary }}>{parent.name}</span>
+                        </div>
+                        {/* Connector tree (T-shape) drawn between parent
+                            and children — only when there are children. */}
+                        {children.length > 0 && (
+                          <>
+                            <div style={{ width: 1, height: 14, background: lineColor }} />
+                            {children.length > 1 && (
+                              <div style={{ height: 1, background: lineColor, width: `${Math.min(80, children.length * 38)}%` }} />
+                            )}
+                            <div className="flex justify-center gap-3 w-full">
+                              {children.map((b, i) => (
+                                <div key={i} className="flex flex-col items-center">
+                                  {/* short vertical drop into the child card */}
+                                  <div style={{ width: 1, height: 10, background: lineColor }} />
+                                  <div
+                                    className="flex items-center gap-2 rounded-xl px-3 py-2"
+                                    style={{ background: cardBg, border: cardBorder, minHeight: 48 }}
+                                  >
+                                    {renderLogo(b, 24, 100)}
+                                    <span className="text-xs font-bold" style={{ color: textPrimary }}>{b.name}</span>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </>
                         )}
-                        <span className="text-xs font-bold" style={{ color: textPrimary }}>{b.name}</span>
                       </div>
-                    ))}
-                  </div>
+                    );
+                  })()}
                 </motion.div>
               )}
             </div>

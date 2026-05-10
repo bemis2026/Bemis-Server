@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX, HiSearch, HiChevronDown } from "react-icons/hi";
 import { HiSun, HiMoon } from "react-icons/hi2";
-import { RiBuilding2Line, RiStoreLine, RiWifiLine, RiArrowRightLine } from "react-icons/ri";
+import { RiArrowRightLine } from "react-icons/ri";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
@@ -23,14 +23,39 @@ const navLinks = [
   { label: "Kurumsal",    href: "#b2bcta"           },
 ];
 
+// Tiny "B mark" — same Bemis silhouette as the favicon, rendered as a
+// solid-coloured rounded square. The accent prop differentiates the
+// three Kurumsal sub-pages (each gets its own brand colour) and the
+// single Hakkımızda entry gets the neutral red of the canonical
+// favicon. Inline SVG so it stays crisp at any size and doesn't add a
+// network request.
+function BemisMark({ accent, size = 28 }: { accent: string; size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 64 64" aria-hidden="true">
+      <rect x="4" y="4" width="56" height="56" rx="14" fill={accent} />
+      <text
+        x="32"
+        y="42"
+        textAnchor="middle"
+        fontFamily="Arial Black, Arial, sans-serif"
+        fontWeight={900}
+        fontSize="32"
+        fill="#ffffff"
+      >
+        B
+      </text>
+    </svg>
+  );
+}
+
 const KURUMSAL_DROPDOWN = [
-  { label: "OEM & Üreticiler",        sub: "Teknik portföy ve mühendislik desteği", href: "/b2b",      icon: RiBuilding2Line, accent: "#3B82F6" },
-  { label: "Bayilik Başvurusu",        sub: "Bayi ağımıza katılın, bölge koruması", href: "/bayilik",  icon: RiStoreLine,     accent: "#10B981" },
-  { label: "Şarj Ağı Operatörleri",   sub: "OCPP ekipman, DLM, uzaktan izleme",    href: "/operator", icon: RiWifiLine,      accent: "#818CF8" },
+  { label: "OEM & Üreticiler",        sub: "Teknik portföy ve mühendislik desteği", href: "/b2b",      accent: "#3B82F6" },
+  { label: "Bayilik Başvurusu",        sub: "Bayi ağımıza katılın, bölge koruması", href: "/bayilik",  accent: "#10B981" },
+  { label: "Şarj Ağı Operatörleri",   sub: "OCPP ekipman, DLM, uzaktan izleme",    href: "/operator", accent: "#818CF8" },
 ];
 
 const HAKKIMIZDA_DROPDOWN = [
-  { label: "Bemis Dünyası",  sub: "Tarihçe, üretim süreci, sertifikalar", href: "/kurumsal", accent: "#3B82F6" },
+  { label: "Bemis Dünyası",  sub: "Tarihçe, üretim süreci, sertifikalar", href: "/kurumsal", accent: "#E11D48" },
 ];
 
 // Brand colour per category — used as a tiny accent dot in the navbar
@@ -228,9 +253,8 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)"; }}
                                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                               >
-                                <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                                  style={{ background: `${item.accent}15`, border: `1px solid ${item.accent}25` }}>
-                                  <item.icon size={18} style={{ color: item.accent }} />
+                                <div className="flex-shrink-0">
+                                  <BemisMark accent={item.accent} size={36} />
                                 </div>
                                 <div className="min-w-0">
                                   <p className="text-sm font-semibold leading-tight" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{item.label}</p>
@@ -470,7 +494,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                         {KURUMSAL_DROPDOWN.map(item => (
                           <button key={item.href} onClick={() => { setMobileOpen(false); router.push(item.href); }}
                             className={`flex items-center gap-2 w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black"}`}>
-                            <item.icon size={14} style={{ color: item.accent }} />
+                            <BemisMark accent={item.accent} size={20} />
                             {item.label}
                           </button>
                         ))}

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import {
@@ -22,14 +22,16 @@ export default function DNA() {
   const { dna, products: productSection, dealer: dealerSection, sectionBgs } = useContent();
   const d = theme === "dark";
 
-  // Black poster fades out after the iframe has had a moment to start
-  // playing — hides YouTube's initial title-card / play-button thumb
-  // that flashes for ~1s before autoplay kicks in.
+  // Black poster covers the iframe until the YouTube embed has both
+  // (a) finished loading its document and (b) had a beat to start
+  // playback. Tied to the iframe's `onLoad` event with a small buffer
+  // so the visitor never sees the YouTube splash / play button — even
+  // on slow networks where a fixed 1.8s timeout fires before autoplay
+  // catches up.
   const [videoReady, setVideoReady] = useState(false);
-  useEffect(() => {
-    const t = setTimeout(() => setVideoReady(true), 1800);
-    return () => clearTimeout(t);
-  }, []);
+  const handleVideoLoaded = () => {
+    setTimeout(() => setVideoReady(true), 700);
+  };
 
   const textPrimary = d ? "#f0f0f4"                 : "#1a1a1a";
   const textMuted   = d ? "rgba(240,240,244,0.52)"  : "rgba(26,26,26,0.52)";
@@ -176,6 +178,7 @@ export default function DNA() {
                       src={`https://www.youtube-nocookie.com/embed/${yt[1]}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${yt[1]}&controls=0&disablekb=1&modestbranding=1&rel=0&iv_load_policy=3&fs=0`}
                       title="Bemis fabrika videosu"
                       allow="autoplay; encrypted-media; picture-in-picture"
+                      onLoad={handleVideoLoaded}
                       style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none", pointerEvents: "none" }}
                     />
                   );
@@ -184,6 +187,7 @@ export default function DNA() {
                   <video
                     src={dna.factoryVideo}
                     autoPlay loop muted playsInline preload="auto"
+                    onLoadedData={handleVideoLoaded}
                     style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
                   />
                 );
