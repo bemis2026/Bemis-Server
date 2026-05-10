@@ -2,7 +2,11 @@
 // Falls back to the original string on any error so callers always get a result.
 
 const ENDPOINT = "https://api.mymemory.translated.net/get";
-const CONCURRENCY = 4;
+// Bumped 4 → 8 — MyMemory's anonymous tier handles parallel calls fine
+// up to ~10/s, and the email-tagged tier (we set `de=info@bemis.com.tr`
+// on every request) lifts that further. Cuts a typical category-FAQ
+// save from ~6s to ~3s on the worst case.
+const CONCURRENCY = 8;
 const TIMEOUT_MS = 10_000;
 
 async function translateOne(text: string, from: string, to: string): Promise<string> {

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { readFileSync } from "fs";
 import path from "path";
 import { revalidatePath } from "next/cache";
@@ -79,27 +79,45 @@ export async function POST(req: NextRequest) {
     const { tr: prevTr, extraIds } = await readShardedTr();
     const prevEn = await readShardedEn();
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const enArr = await translateProducts(trArr, prevTr as any[], prevEn as any[] | null);
-
-    // Split TR + EN back into the two shards. Categories that started
-    // in the extra bin stay there; new categories default to the main
-    // bin. The bin can be re-balanced later by editing the extraIds
-    // mapping.
+    // Stage 1 — write TR shards immediately so the admin save returns
+    // fast. Keep the previous EN in place for the brief window before
+    // stage 2 lands. Net effect: admin sees instant save, EN catches
+    // up a few seconds later.
     const trMain = trArr.filter((c) => !extraIds.has(c.id));
     const trEx   = trArr.filter((c) =>  extraIds.has(c.id));
+    const prevEnArr = (prevEn ?? []) as unknown[];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const enMain = enArr.filter((c: any) => !extraIds.has(c.id));
+    const prevEnMain = prevEnArr.filter((c: any) => !extraIds.has(c.id));
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const enEx   = enArr.filter((c: any) =>  extraIds.has(c.id));
-
+    const prevEnEx   = prevEnArr.filter((c: any) =>  extraIds.has(c.id));
     await Promise.all([
       writeBin("products",        { products: trMain }),
       writeBin("productsExtra",   { products: trEx }),
-      writeBin("productsEn",      { en: enMain }),
-      writeBin("productsEnExtra", { en: enEx }),
+      writeBin("productsEn",      { en: prevEnMain }),
+      writeBin("productsEnExtra", { en: prevEnEx }),
     ]);
     try { revalidatePath("/api/products"); revalidatePath("/"); revalidatePath("/products"); } catch {}
+
+    // Stage 2 — re-translate and overwrite EN shards in the background
+    // once the response is on its way back to the admin client.
+    after(async () => {
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const enArr = await translateProducts(trArr, prevTr as any[], prevEn as any[] | null);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const enMain = enArr.filter((c: any) => !extraIds.has(c.id));
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const enEx   = enArr.filter((c: any) =>  extraIds.has(c.id));
+        await Promise.all([
+          writeBin("productsEn",      { en: enMain }),
+          writeBin("productsEnExtra", { en: enEx }),
+        ]);
+        try { revalidatePath("/api/products"); } catch {}
+      } catch (e) {
+        console.error("[products] background translation failed, keeping previous EN:", e);
+      }
+    });
+
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error("products save error:", e);

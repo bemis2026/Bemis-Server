@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { readFileSync } from "fs";
 import path from "path";
 import { revalidatePath } from "next/cache";
@@ -61,7 +61,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true });
     }
 
-    // TR save — translate to EN, embed under _translations.en.
+    // TR save — write the new TR immediately so admin sees a fast
+    // success, then translate to EN in `after()` once the response is
+    // already on its way back. The end state is identical (TR + EN
+    // both in the bin), but the operator doesn't sit waiting on
+    // MyMemory while the spinner spins.
     const trBody = stripTranslations(body);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let prevBin: any = {};
@@ -69,16 +73,24 @@ export async function POST(req: NextRequest) {
     const prevTr = stripTranslations(prevBin);
     const prevEn = prevBin?._translations?.en ?? null;
 
-    let enBody = prevEn;
-    try {
-      enBody = await translateContent(trBody, prevTr, prevEn);
-    } catch (e) {
-      console.error("[content] translation failed, keeping previous EN:", e);
-    }
-
-    const next = { ...trBody, _translations: { ...(prevBin._translations ?? {}), en: enBody ?? trBody } };
-    await writeBin("content", next);
+    // Stage 1 — fast TR write keeping the previous EN. If translate
+    // fails later, this is the worst case (TR fresh, EN slightly stale).
+    const intermediate = { ...trBody, _translations: { ...(prevBin._translations ?? {}), en: prevEn ?? trBody } };
+    await writeBin("content", intermediate);
     try { revalidatePath("/api/content"); revalidatePath("/"); } catch {}
+
+    // Stage 2 — re-translate and write EN in the background.
+    after(async () => {
+      try {
+        const enBody = await translateContent(trBody, prevTr, prevEn);
+        const final = { ...trBody, _translations: { ...(prevBin._translations ?? {}), en: enBody ?? trBody } };
+        await writeBin("content", final);
+        try { revalidatePath("/api/content"); revalidatePath("/"); } catch {}
+      } catch (e) {
+        console.error("[content] background translation failed, keeping previous EN:", e);
+      }
+    });
+
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error("content save error:", e);

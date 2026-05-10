@@ -73,48 +73,64 @@ export default async function Image() {
           width: "100%",
           height: "100%",
           background:
-            "linear-gradient(135deg, #0c0c0e 0%, #111527 45%, #0a1530 100%)",
+            "linear-gradient(135deg, #0a0a0d 0%, #0e1224 35%, #08142e 75%, #0a0a0d 100%)",
           color: "white",
-          padding: "80px 90px",
+          padding: "70px 90px",
           fontFamily: "Inter, system-ui, sans-serif",
+          position: "relative",
         }}
       >
-        {/* Decorative blue glow */}
+        {/* Top-right blue glow */}
         <div
           style={{
             position: "absolute",
-            top: -200,
-            right: -120,
-            width: 520,
-            height: 520,
+            top: -180,
+            right: -160,
+            width: 560,
+            height: 560,
             borderRadius: "50%",
             background:
               "radial-gradient(circle, rgba(59,130,246,0.55) 0%, rgba(59,130,246,0) 70%)",
             display: "flex",
           }}
         />
+        {/* Bottom-left red accent — brand red so the card carries
+            both Bemis colours, not just blue. */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: -200,
+            left: -160,
+            width: 460,
+            height: 460,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(225,29,72,0.30) 0%, rgba(225,29,72,0) 70%)",
+            display: "flex",
+          }}
+        />
 
-        {/* Logo or brand mark */}
-        <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
+        {/* Logo + wordmark row */}
+        <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
           {logoUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={logoUrl}
               alt=""
-              width={120}
-              height={120}
-              style={{ width: 120, height: 120, objectFit: "contain" }}
+              width={104}
+              height={104}
+              style={{ width: 104, height: 104, objectFit: "contain" }}
             />
           ) : (
             <div
               style={{
-                width: 96,
-                height: 96,
-                borderRadius: 24,
+                width: 88,
+                height: 88,
+                borderRadius: 22,
                 background:
                   "linear-gradient(135deg, #3B82F6 0%, #2563EB 100%)",
                 color: "white",
-                fontSize: 56,
+                fontSize: 50,
                 fontWeight: 900,
                 display: "flex",
                 alignItems: "center",
@@ -124,34 +140,28 @@ export default async function Image() {
               B
             </div>
           )}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 6,
-            }}
-          >
+          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
             <span
               style={{
-                fontSize: 24,
-                color: "#93C5FD",
-                letterSpacing: 4,
+                fontSize: 28,
+                color: "#cfe1ff",
+                letterSpacing: 3,
                 textTransform: "uppercase",
-                fontWeight: 700,
+                fontWeight: 800,
               }}
             >
               Bemis E-V Charge
             </span>
             <span
               style={{
-                fontSize: 14,
-                color: "rgba(255,255,255,0.45)",
+                fontSize: 15,
+                color: "rgba(255,255,255,0.40)",
                 letterSpacing: 2,
                 textTransform: "uppercase",
                 fontWeight: 600,
               }}
             >
-              Bemis Teknik Elektrik A.Ş.
+              Bemis Teknik Elektrik A.Ş. · 1994
             </span>
           </div>
         </div>
@@ -162,46 +172,75 @@ export default async function Image() {
             display: "flex",
             flexDirection: "column",
             marginTop: "auto",
-            gap: 14,
+            gap: 18,
           }}
         >
           <span
             style={{
-              fontSize: 70,
+              fontSize: 82,
               fontWeight: 900,
-              lineHeight: 1.05,
-              maxWidth: 900,
+              lineHeight: 1.02,
+              maxWidth: 980,
+              letterSpacing: -1.5,
             }}
           >
-            Yerli EV Şarj Ekipmanı Üreticisi
+            Yerli EV Şarj Çözümleri
           </span>
           <span
             style={{
-              fontSize: 28,
+              fontSize: 26,
               fontWeight: 500,
-              color: "rgba(255,255,255,0.65)",
-              maxWidth: 920,
+              color: "rgba(255,255,255,0.62)",
+              maxWidth: 940,
             }}
           >
-            AC Wallbox · DC Hızlı Şarj · Şarj Kabloları · CE & IP65 Sertifikalı
+            AC Wallbox · DC Hızlı Şarj · V2L / C2L · Type 2 Kablolar · CE Sertifikalı
           </span>
         </div>
 
-        {/* Footer accent */}
+        {/* Trust chips row */}
+        <div
+          style={{
+            display: "flex",
+            gap: 12,
+            marginTop: 26,
+            flexWrap: "wrap",
+          }}
+        >
+          {["30+ Yıl Deneyim", "60+ Ülkeye İhracat", "Bursa OSB Üretim", "TSE / CE Onaylı"].map((t) => (
+            <span
+              key={t}
+              style={{
+                fontSize: 16,
+                fontWeight: 700,
+                color: "#cfe1ff",
+                background: "rgba(59,130,246,0.16)",
+                border: "1px solid rgba(59,130,246,0.35)",
+                padding: "8px 14px",
+                borderRadius: 999,
+                display: "flex",
+              }}
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+
+        {/* Footer */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 14,
-            marginTop: 32,
+            gap: 16,
+            marginTop: 28,
           }}
         >
           <div
             style={{
-              width: 44,
+              width: 48,
               height: 4,
               borderRadius: 2,
-              background: "#3B82F6",
+              background: "linear-gradient(90deg, #3B82F6 0%, #E11D48 100%)",
               display: "flex",
             }}
           />
@@ -211,7 +250,7 @@ export default async function Image() {
               color: "rgba(255,255,255,0.55)",
               letterSpacing: 3,
               textTransform: "uppercase",
-              fontWeight: 600,
+              fontWeight: 700,
             }}
           >
             bemisevcharge.com.tr
