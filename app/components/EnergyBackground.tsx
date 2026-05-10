@@ -2,18 +2,18 @@
 
 import { useEffect, useState } from "react";
 
-// Seven short streaks (4 vertical, 3 horizontal) drifting in two
-// directions — top→bottom and right→left. Each is roughly a third of
-// the viewport in its travel axis (≈30vh tall verticals, ≈30vw wide
-// horizontals). On top of the drift, each streak shimmers
-// (background-position animates) so the bright spot pulses through.
+// Ten short streaks distributed across the page height — five vertical
+// (top→bottom) and five horizontal (right→left) — so as the visitor
+// scrolls through the page they keep walking past new pockets of
+// motion. The streaks themselves shimmer (the gradient's bright spot
+// pulses through) on top of the drift, so each one reads as a living
+// flow rather than a rigid line.
 //
-// Sits at z-index -1 inside the wrapper's isolated stacking context, so
-// cards always paint on top, AND the bg layer's `inset: 80px 0 0 0`
-// clips out the top navbar zone — vertical streaks emerge from below
-// the menu bar instead of slicing through it.
-//
-// Mounted only on the product detail page for now.
+// The bg layer scrolls with the page (position: absolute, anchored to
+// the wrapper) so the effect feels like it lives inside the page, not
+// pinned to the viewport. The wrapper's isolation: isolate +
+// z-index: -1 on the bg keeps every card painted over it, and inset's
+// top: 80px keeps the streaks from drifting through the navbar.
 export default function EnergyBackground() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -24,9 +24,12 @@ export default function EnergyBackground() {
       <span className="energy-streak energy-v2" />
       <span className="energy-streak energy-v3" />
       <span className="energy-streak energy-v4" />
+      <span className="energy-streak energy-v5" />
       <span className="energy-streak energy-h1" />
       <span className="energy-streak energy-h2" />
       <span className="energy-streak energy-h3" />
+      <span className="energy-streak energy-h4" />
+      <span className="energy-streak energy-h5" />
     </div>
   );
 }
