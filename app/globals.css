@@ -97,17 +97,17 @@ html[data-theme="light"] body::before {
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 .scrollbar-hide::-webkit-scrollbar { display: none; width: 0; height: 0; }
 
-/* Energy background — diagonal gradient "streaks" drifting across the
-   viewport. Used (for now) only on product detail pages to give the
-   surface a living/electric feel without competing for attention. Each
-   streak is a thin gradient bar that translates left → right while
-   maintaining its rotation. Theme-aware: brighter on dark, faint on
-   white. Honors prefers-reduced-motion. */
+/* Energy background — six diagonal gradient streaks drifting across the
+   page in mixed directions, with varied thickness/blur. On top of the
+   drift each streak also shimmers (background-position animates) so it
+   reads as a flowing line rather than a static line being moved. Sits
+   at z-index -1 inside the wrapper's isolated stacking context so cards
+   and sections always paint on top. */
 .energy-bg {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
   overflow: hidden;
 }
 
@@ -119,60 +119,123 @@ html[data-theme="light"] body::before {
   filter: blur(0.5px);
   opacity: 0;
   left: 0;
-  background: linear-gradient(90deg,
+  background-image: linear-gradient(90deg,
     transparent 0%,
     rgba(147, 197, 253, 0) 18%,
-    rgba(147, 197, 253, 0.20) 38%,
-    rgba(59, 130, 246, 0.45) 50%,
-    rgba(147, 197, 253, 0.20) 62%,
+    rgba(147, 197, 253, 0.22) 38%,
+    rgba(59, 130, 246, 0.50) 50%,
+    rgba(147, 197, 253, 0.22) 62%,
     rgba(147, 197, 253, 0) 82%,
     transparent 100%);
-  will-change: transform, opacity;
+  background-size: 200% 100%;
+  background-position: 100% 0%;
+  will-change: transform, opacity, background-position;
 }
 
 html[data-theme="light"] .energy-streak {
-  background: linear-gradient(90deg,
+  background-image: linear-gradient(90deg,
     transparent 0%,
     rgba(96, 165, 250, 0) 18%,
-    rgba(96, 165, 250, 0.10) 38%,
-    rgba(59, 130, 246, 0.22) 50%,
-    rgba(96, 165, 250, 0.10) 62%,
+    rgba(96, 165, 250, 0.12) 38%,
+    rgba(59, 130, 246, 0.26) 50%,
+    rgba(96, 165, 250, 0.12) 62%,
     rgba(96, 165, 250, 0) 82%,
     transparent 100%);
 }
 
-@keyframes energy-drift-1 {
+@keyframes energy-flow {
+  from { background-position: 100% 0%; }
+  to   { background-position: -100% 0%; }
+}
+
+/* Six drift keyframes — three rightward (positive translateX), three
+   leftward — with varied rotation so streaks feel like they're moving
+   in different directions, not a uniform diagonal rain. */
+@keyframes energy-drift-r1 {  /* right, 112° */
   0%   { transform: translate3d(-110vw, 0, 0) rotate(112deg); opacity: 0; }
   10%  { opacity: 1; }
   90%  { opacity: 1; }
   100% { transform: translate3d(110vw, 0, 0) rotate(112deg); opacity: 0; }
 }
-@keyframes energy-drift-2 {
-  0%   { transform: translate3d(-110vw, 0, 0) rotate(118deg); opacity: 0; }
-  10%  { opacity: 1; }
-  90%  { opacity: 1; }
-  100% { transform: translate3d(110vw, 0, 0) rotate(118deg); opacity: 0; }
+@keyframes energy-drift-r2 {  /* right, 145° (more diagonal) */
+  0%   { transform: translate3d(-110vw, 0, 0) rotate(145deg); opacity: 0; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { transform: translate3d(110vw, 0, 0) rotate(145deg); opacity: 0; }
 }
-@keyframes energy-drift-3 {
-  0%   { transform: translate3d(-110vw, 0, 0) rotate(115deg); opacity: 0; }
+@keyframes energy-drift-r3 {  /* right, 95° (almost vertical) */
+  0%   { transform: translate3d(-110vw, 0, 0) rotate(95deg); opacity: 0; }
   10%  { opacity: 1; }
   90%  { opacity: 1; }
-  100% { transform: translate3d(110vw, 0, 0) rotate(115deg); opacity: 0; }
+  100% { transform: translate3d(110vw, 0, 0) rotate(95deg); opacity: 0; }
 }
-@keyframes energy-drift-4 {
-  0%   { transform: translate3d(-110vw, 0, 0) rotate(122deg); opacity: 0; }
+@keyframes energy-drift-l1 {  /* left, 60° (anti-diagonal) */
+  0%   { transform: translate3d(110vw, 0, 0) rotate(60deg); opacity: 0; }
   10%  { opacity: 1; }
   90%  { opacity: 1; }
-  100% { transform: translate3d(110vw, 0, 0) rotate(122deg); opacity: 0; }
+  100% { transform: translate3d(-110vw, 0, 0) rotate(60deg); opacity: 0; }
+}
+@keyframes energy-drift-l2 {  /* left, 25° (nearly horizontal) */
+  0%   { transform: translate3d(110vw, 0, 0) rotate(25deg); opacity: 0; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { transform: translate3d(-110vw, 0, 0) rotate(25deg); opacity: 0; }
+}
+@keyframes energy-drift-l3 {  /* left, 165° (nearly horizontal, opposite) */
+  0%   { transform: translate3d(110vw, 0, 0) rotate(165deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translate3d(-110vw, 0, 0) rotate(165deg); opacity: 0; }
 }
 
-.energy-s1 { top: 22%; animation: energy-drift-1 22s linear infinite; animation-delay: 0s; }
-.energy-s2 { top: 48%; animation: energy-drift-2 26s linear infinite; animation-delay: -7s; }
-.energy-s3 { top: 70%; animation: energy-drift-3 19s linear infinite; animation-delay: -13s; }
-.energy-s4 { top: 35%; animation: energy-drift-4 24s linear infinite; animation-delay: -4s; }
+/* Six streaks — different positions, thicknesses, blur, and timing.
+   Each runs both a drift (translation) and a flow (shimmer) animation
+   simultaneously, so the line reads as flowing rather than rigid. */
+.energy-s1 {
+  top: 18%;
+  height: 2px;
+  filter: blur(0.6px);
+  animation: energy-drift-r1 24s linear infinite, energy-flow 4s linear infinite;
+  animation-delay: 0s, 0s;
+}
+.energy-s2 {
+  top: 30%;
+  height: 1px;
+  filter: blur(0.3px);
+  animation: energy-drift-l2 17s linear infinite, energy-flow 3s linear infinite;
+  animation-delay: -5s, -1s;
+}
+.energy-s3 {
+  top: 44%;
+  height: 3px;
+  filter: blur(1.1px);
+  animation: energy-drift-r2 32s linear infinite, energy-flow 5s linear infinite;
+  animation-delay: -12s, -2s;
+}
+.energy-s4 {
+  top: 58%;
+  height: 1.5px;
+  filter: blur(0.4px);
+  animation: energy-drift-l1 19s linear infinite, energy-flow 3.5s linear infinite;
+  animation-delay: -8s, -1.5s;
+}
+.energy-s5 {
+  top: 72%;
+  height: 4px;
+  filter: blur(1.5px);
+  animation: energy-drift-r3 28s linear infinite, energy-flow 6s linear infinite;
+  animation-delay: -18s, -3s;
+}
+.energy-s6 {
+  top: 88%;
+  height: 2px;
+  filter: blur(0.6px);
+  animation: energy-drift-l3 21s linear infinite, energy-flow 4.5s linear infinite;
+  animation-delay: -3s, -0.5s;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .energy-streak { animation: none; opacity: 0.05; }
+  .energy-streak { animation: none; opacity: 0.04; }
 }
 
 /* Section divider */

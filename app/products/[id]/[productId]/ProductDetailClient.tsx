@@ -128,7 +128,7 @@ export default function ProductDetailPage({
   const Icon        = categoryIcons[categoryId] ?? RiChargingPile2Line;
 
   return (
-    <div style={{ background: bg, minHeight: "100vh", position: "relative", overflow: "hidden" }}>
+    <div style={{ background: bg, minHeight: "100vh", position: "relative", overflow: "hidden", isolation: "isolate" }}>
       <EnergyBackground />
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
