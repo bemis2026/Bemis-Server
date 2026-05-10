@@ -48,6 +48,11 @@ const categoryIcons: Record<string, React.ElementType> = {
   accessories: RiPlugLine, "dc-units": RiGasStationLine,
 };
 
+// Single-source brand blue for the unified Genel Özellikler palette so the
+// per-category accent (orange for DC, green for portable, etc.) doesn't
+// bleed into the feature cards. Matches Tailwind's blue-500.
+const BRAND_BLUE = "#3B82F6";
+
 export default function ProductDetailPage({
   initialCategory = null,
   initialProduct = null,
@@ -68,7 +73,7 @@ export default function ProductDetailPage({
   const [loading,  setLoading]      = useState(initialProduct === null);
   const [activeImg, setActiveImg]   = useState(0);
   const [allCategories, setAllCategories] = useState<CategoryData[]>(initialAllCategories);
-  const [activeTab, setActiveTab]   = useState<"specs" | "general" | "documents">("specs");
+  const [activeTab, setActiveTab]   = useState<"specs" | "general" | "documents">("general");
   const isFirstMount = useRef(true);
 
   const categoryId = typeof params.id        === "string" ? params.id        : "";
@@ -151,10 +156,11 @@ export default function ProductDetailPage({
             </nav>
 
             {/* ── Main content grid ── */}
-            <div className="grid lg:grid-cols-5 gap-6 lg:gap-8 items-start">
+            <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
 
-              {/* ── Left col: gallery + CTA ── */}
-              <div className="lg:col-span-2">
+              {/* ── Left col: gallery + CTA — bumped from 2/5 → 6/12 so the
+                   product image lands ~15% wider in the viewport. ── */}
+              <div className="lg:col-span-6">
                 {(() => {
                   const imgs = product.images ?? (product.image ? [product.image] : []);
                   const clamped = Math.min(activeImg, imgs.length - 1);
@@ -269,7 +275,7 @@ export default function ProductDetailPage({
               </div>
 
               {/* ── Right col: info + specs ── */}
-              <div className="lg:col-span-3 flex flex-col gap-5">
+              <div className="lg:col-span-6 flex flex-col gap-5">
 
                 {/* Variant selector — shown only when this product is one of
                     several same-name variants (e.g. Charger 2 Kablolu /
@@ -373,37 +379,9 @@ export default function ProductDetailPage({
                     </p>
                   )}
 
-                  {/* Feature badges driven by product.features. OCPP and
-                      App get a slightly larger pill with a label, others
-                      stay icon-only. */}
-                  {product.features && product.features.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      {product.features.map((fid) => {
-                        const f = featureById(fid);
-                        if (!f) return null;
-                        const Icon = DETAIL_FEATURE_ICONS[f.icon];
-                        const isMockup = !!f.mockup;
-                        return (
-                          <span
-                            key={fid}
-                            className="inline-flex items-center gap-1.5 rounded-lg"
-                            title={f.label}
-                            style={{
-                              padding: isMockup ? "5px 10px" : "5px 8px",
-                              background: `${f.accent}14`,
-                              border: `1px solid ${f.accent}40`,
-                              color: f.accent,
-                            }}
-                          >
-                            {Icon && <Icon size={isMockup ? 14 : 13} style={{ color: f.accent }} />}
-                            <span className="text-[11px] font-bold tracking-wide">
-                              {f.label}
-                            </span>
-                          </span>
-                        );
-                      })}
-                    </div>
-                  )}
+                  {/* Phase 2 will land certificate icons (CE / TSE / TÜV /
+                      IP rating / RoHS) here. Feature pills moved out — they
+                      already render in the "Genel Özellikler" tab below. */}
                 </div>
 
                 {/* Specs / General Features / Documents — tabbed card.
@@ -424,13 +402,13 @@ export default function ProductDetailPage({
                   // saved activeTab no longer has content (e.g. the operator
                   // just removed all general features).
                   let resolvedTab: "specs" | "general" | "documents" = activeTab;
-                  if (resolvedTab === "specs" && !hasSpecs)        resolvedTab = hasGeneral ? "general" : "documents";
                   if (resolvedTab === "general" && !hasGeneral)    resolvedTab = hasSpecs ? "specs" : "documents";
-                  if (resolvedTab === "documents" && !hasDocs)     resolvedTab = hasSpecs ? "specs" : "general";
+                  if (resolvedTab === "specs" && !hasSpecs)        resolvedTab = hasGeneral ? "general" : "documents";
+                  if (resolvedTab === "documents" && !hasDocs)     resolvedTab = hasGeneral ? "general" : "specs";
 
                   const tabs: { id: "specs" | "general" | "documents"; label: string; visible: boolean }[] = [
-                    { id: "specs",     label: "Teknik Özellikler", visible: hasSpecs },
                     { id: "general",   label: "Genel Özellikler",  visible: hasGeneral },
+                    { id: "specs",     label: "Teknik Özellikler", visible: hasSpecs },
                     { id: "documents", label: "Dökümanlar",        visible: hasDocs },
                   ];
                   const visibleTabs = tabs.filter((t) => t.visible);
@@ -505,28 +483,39 @@ export default function ProductDetailPage({
                         ];
                       })}
 
-                      {/* General features tab — first the checkbox-selected
-                          feature catalog rendered as a 2-col icon grid, then
-                          any legacy free-text generalFeatures bullets. */}
+                      {/* General features tab — unified white-card / brand-blue
+                          palette regardless of category accent (the colorful
+                          per-feature accents made the section look noisy and
+                          fought with light-mode contrast). Each card has a
+                          1px brand-blue rail on the left, a tinted icon
+                          chip, and a theme-aware label/background. */}
                       {resolvedTab === "general" && (
                         <div className="p-4 space-y-3">
                           {featureList.length > 0 && (
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                               {featureList.map((f) => {
                                 const Icon = DETAIL_FEATURE_ICONS[f.icon];
+                                const cardBg     = d ? "rgba(255,255,255,0.04)" : "#ffffff";
+                                const cardBorder = d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+                                const cardShadow = d ? "none" : "0 1px 2px rgba(0,0,0,0.04)";
                                 return (
                                   <div
                                     key={f.id}
-                                    className="flex items-center gap-3 rounded-xl px-3 py-2.5"
-                                    style={{ background: `${f.accent}10`, border: `1px solid ${f.accent}33` }}
+                                    className="relative flex items-center gap-3 rounded-xl pl-4 pr-3 py-2.5 overflow-hidden"
+                                    style={{ background: cardBg, border: `1px solid ${cardBorder}`, boxShadow: cardShadow }}
                                   >
                                     <span
+                                      aria-hidden
+                                      className="absolute left-0 top-0 bottom-0 w-1"
+                                      style={{ background: BRAND_BLUE }}
+                                    />
+                                    <span
                                       className="inline-flex items-center justify-center rounded-lg flex-shrink-0"
-                                      style={{ width: 30, height: 30, background: `${f.accent}1c`, border: `1px solid ${f.accent}40` }}
+                                      style={{ width: 30, height: 30, background: `${BRAND_BLUE}14`, border: `1px solid ${BRAND_BLUE}30` }}
                                     >
-                                      {Icon && <Icon size={16} style={{ color: f.accent }} />}
+                                      {Icon && <Icon size={16} style={{ color: BRAND_BLUE }} />}
                                     </span>
-                                    <span className="text-sm font-semibold" style={{ color: f.accent }}>{f.label}</span>
+                                    <span className="text-sm font-semibold" style={{ color: textPrimary }}>{f.label}</span>
                                   </div>
                                 );
                               })}
@@ -538,9 +527,9 @@ export default function ProductDetailPage({
                                 <div key={i} className="flex items-start gap-2.5">
                                   <div
                                     className="flex items-center justify-center rounded-full flex-shrink-0 mt-0.5"
-                                    style={{ width: 16, height: 16, background: `${accent}18`, border: `1px solid ${accent}30` }}
+                                    style={{ width: 16, height: 16, background: `${BRAND_BLUE}18`, border: `1px solid ${BRAND_BLUE}30` }}
                                   >
-                                    <RiCheckLine size={10} style={{ color: accent }} />
+                                    <RiCheckLine size={10} style={{ color: BRAND_BLUE }} />
                                   </div>
                                   <span className="text-sm leading-relaxed" style={{ color: textMuted }}>{feature}</span>
                                 </div>
