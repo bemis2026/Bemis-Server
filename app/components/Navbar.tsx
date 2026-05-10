@@ -173,7 +173,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
           {/* Logo */}
           <button className="flex-shrink-0 focus:outline-none" onClick={() => handleNavClick("#hero")} aria-label="Ana sayfa">
             <Image src={logoSrc} alt="Bemis E-V Charge" width={200} height={64}
-              className="h-14 w-auto object-contain block" style={{ filter: logoFilter }} priority />
+              className="h-11 sm:h-14 w-auto object-contain block" style={{ filter: logoFilter }} priority />
           </button>
 
           {/* Desktop Nav */}

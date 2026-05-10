@@ -60,7 +60,9 @@ export default function Contact() {
     { icon: RiInstagramLine, label: "Instagram", href: social.instagram },
   ].filter((s) => s.href);
 
-  const inputClass = `w-full rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors`;
+  // py-2.5 below sm: keeps more form fields visible when the mobile
+  // keyboard is up; py-3 returns at tablet+ for a fuller touch target.
+  const inputClass = `w-full rounded-xl px-4 py-2.5 sm:py-3 text-sm focus:outline-none transition-colors`;
   const inputStyle = {
     background: input,
     border: `1px solid ${inputBorder}`,

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, AnimatePresence, type PanInfo } from "framer-motion";
+import { motion, useInView, AnimatePresence, useReducedMotion, type PanInfo } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
@@ -30,6 +30,9 @@ export default function ProductShowcase() {
   const { productShowcase: ps } = useContent();
   const router = useRouter();
   const d = theme === "dark";
+  // Honor OS-level / browser reduce-motion preference; turns off the
+  // Ken Burns zoom/pan loop on the gallery image.
+  const reduceMotion = useReducedMotion();
 
   const bg = d
     ? "linear-gradient(135deg, #0d0d11 0%, #0c0c0e 50%, #111114 100%)"
@@ -129,11 +132,13 @@ export default function ProductShowcase() {
                 <div className="relative w-full h-full group select-none">
                   {/* Ken Burns wrapper — slow continuous zoom + pan on the
                       active image so the showcase doesn't sit still. The
-                      inner AnimatePresence still handles slide-on-swap. */}
+                      inner AnimatePresence still handles slide-on-swap.
+                      reduceMotion turns it into a still frame for users
+                      who opt out (or for OS-level reduce-motion). */}
                   <motion.div
                     className="absolute inset-0"
-                    animate={{ scale: [1, 1.07, 1.04, 1.07, 1], x: ["0%", "-1.5%", "1%", "-0.8%", "0%"], y: ["0%", "1%", "-0.8%", "0.6%", "0%"] }}
-                    transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+                    animate={reduceMotion ? undefined : { scale: [1, 1.07, 1.04, 1.07, 1], x: ["0%", "-1.5%", "1%", "-0.8%", "0%"], y: ["0%", "1%", "-0.8%", "0.6%", "0%"] }}
+                    transition={reduceMotion ? undefined : { duration: 18, repeat: Infinity, ease: "easeInOut" }}
                     style={{ transformOrigin: "50% 50%" }}
                   >
                     <AnimatePresence custom={direction} initial={false} mode="popLayout">
