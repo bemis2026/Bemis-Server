@@ -483,7 +483,7 @@ export default function DealerNetwork() {
                           title={tLabel}
                         >
                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src="/icon" alt="" width={18} height={18} style={{ objectFit: "contain", padding: 2 }} />
+                          <img src="/favicon-white-192.png" alt="" width={18} height={18} style={{ objectFit: "contain", padding: 2 }} />
                         </span>
                         <p className="text-sm font-semibold flex-1" style={{ color: d ? "rgba(255,255,255,0.80)" : "rgba(0,0,0,0.80)" }}>{dealer.name}</p>
                       </div>
@@ -691,7 +691,7 @@ export default function DealerNetwork() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="lg:col-span-3"
           >
-            {/* View tabs — Yurtiçi (Turkey map) / Yurtdışı (3D globe) */}
+            {/* View tabs — Türkiye (Turkey map) / Dünya (3D globe) */}
             <div
               className="flex rounded-xl p-1 mb-3 max-w-xs"
               style={{
@@ -701,7 +701,7 @@ export default function DealerNetwork() {
             >
               {(["yurtici", "yurtdisi"] as const).map((m) => {
                 const active = viewMode === m;
-                const label = m === "yurtici" ? "Yurtiçi" : "Yurtdışı";
+                const label = m === "yurtici" ? "Türkiye" : "Dünya";
                 return (
                   <button
                     key={m}
@@ -951,7 +951,7 @@ export default function DealerNetwork() {
                       </clipPath>
                     </defs>
                     <image
-                      href="/icon"
+                      href="/favicon-white-192.png"
                       x={BURSA_HQ.cx - logoSize / 2}
                       y={BURSA_HQ.cy - logoSize / 2}
                       width={logoSize}
@@ -1077,7 +1077,7 @@ export default function DealerNetwork() {
                           {/* Use the same /icon route the browser uses for the URL
                               favicon — guarantees both match pixel-for-pixel. */}
                           <img
-                            src="/icon"
+                            src="/favicon-white-192.png"
                             alt="Bemis E-V Charge"
                             width={32}
                             height={32}

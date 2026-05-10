@@ -235,7 +235,7 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
               display: flex; align-items: center; justify-content: center;
               overflow: hidden;
             ">
-              <img src="/icon" alt="Bemis" width="22" height="22" style="object-fit: contain; padding: 3px;" />
+              <img src="/favicon-white-192.png" alt="Bemis" width="22" height="22" style="object-fit: contain; padding: 3px;" />
             </div>
             <span style="
               position: absolute;
