@@ -8,7 +8,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 # Project context document
 
 A canonical project-context document is kept at:
-`C:\Users\sales\Desktop\Claude Bemis Website md\BEMIS_PROJECT_CONTEXT.md`
+`C:\Users\sales\Desktop\Claude Çalışmaları\Bemis Website\md\BEMIS_PROJECT_CONTEXT.md`
 
 **At session start:** if the user references prior work, bin IDs, env vars,
 sharding, or open issues — read that file first; it has the authoritative
