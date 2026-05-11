@@ -40,13 +40,30 @@ async function writeBin(id, body) {
   if (!r.ok) throw new Error(`write ${id} failed: ${r.status} ${await r.text()}`);
 }
 
+// TR bin record can be either [...] (legacy) or { products: [...] }.
+// EN bin record can be either [...] (legacy) or { en: [...] }.
+// Return [ array, putBack(updatedArray) ] so we write back in the
+// original shape.
+function unwrapTr(rec) {
+  if (Array.isArray(rec)) return [rec, arr => arr];
+  if (rec && Array.isArray(rec.products)) return [rec.products, arr => ({ ...rec, products: arr })];
+  return [null, null];
+}
+function unwrapEn(rec) {
+  if (Array.isArray(rec)) return [rec, arr => arr];
+  if (rec && Array.isArray(rec.en)) return [rec.en, arr => ({ ...rec, en: arr })];
+  return [null, null];
+}
+
 (async () => {
   for (const { tr, en, label } of BINS) {
     console.log(`\n[${label}]`);
-    const trData = await readBin(tr);
-    const enData = await readBin(en);
-    if (!Array.isArray(trData) || !Array.isArray(enData)) {
-      console.warn(`  Skipping — not arrays`);
+    const trRec = await readBin(tr);
+    const enRec = await readBin(en);
+    const [trData] = unwrapTr(trRec);
+    const [enData, enPutBack] = unwrapEn(enRec);
+    if (!trData || !enData) {
+      console.warn(`  Skipping — unrecognised bin shape (TR: ${typeof trRec}, EN: ${typeof enRec})`);
       continue;
     }
 
@@ -77,7 +94,7 @@ async function writeBin(id, body) {
       continue;
     }
     console.log(`  Writing ${fixes} fix(es) to EN bin…`);
-    await writeBin(en, enData);
+    await writeBin(en, enPutBack(enData));
     console.log(`  Done.`);
   }
   console.log("\nAll EN bins repaired. ✓");
