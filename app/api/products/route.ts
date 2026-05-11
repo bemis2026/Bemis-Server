@@ -48,9 +48,14 @@ function mergeCategories(trArr: any[], enArr: any[] | null): any[] {
     return {
       ...trCat,
       ...enCat,
+      // Identity / brand fields always come from TR — they're never
+      // translated, so any value still sitting in the EN bin (e.g.
+      // from older MyMemory passes when [].name was a translatable
+      // path) must be ignored.
       id: trCat.id,
       accent: trCat.accent,
       image: trCat.image,
+      name: trCat.name,
       products: Array.isArray(trCat.products)
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ? trCat.products.map((trP: any, j: number) => {
@@ -63,6 +68,7 @@ function mergeCategories(trArr: any[], enArr: any[] | null): any[] {
               code: trP.code,
               image: trP.image,
               images: trP.images,
+              name: trP.name,
               specs: Array.isArray(trP.specs)
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 ? trP.specs.map((trS: any, k: number) => {
