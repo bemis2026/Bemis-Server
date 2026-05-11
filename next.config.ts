@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withSentryConfig } from "@sentry/nextjs";
 
 // Content Security Policy — restricts what the browser is allowed to
 // load. Tuned for our actual third-party surface: Google Analytics,
@@ -15,7 +16,8 @@ const csp = [
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data: https://fonts.gstatic.com",
-  "connect-src 'self' https://api.jsonbin.io https://api.mymemory.translated.net https://www.google-analytics.com https://region1.google-analytics.com https://flagcdn.com https://api.imgbb.com https://api.cloudinary.com https://api.resend.com",
+  "connect-src 'self' https://api.jsonbin.io https://api.mymemory.translated.net https://www.google-analytics.com https://region1.google-analytics.com https://flagcdn.com https://api.imgbb.com https://api.cloudinary.com https://api.resend.com https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://*.ingest.de.sentry.io",
+  "worker-src 'self' blob:",
   "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com",
   "media-src 'self' blob: https://res.cloudinary.com https:",
   "object-src 'none'",
@@ -73,4 +75,26 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// Wrap with Sentry. The wrapper:
+//   1. Bundles the Sentry SDK into the client/server/edge runtimes
+//   2. Uploads source maps to Sentry at build time (needs SENTRY_AUTH_TOKEN)
+//   3. Strips sourcemap comments from the final JS so we don't leak
+//      original source paths
+//
+// If SENTRY_AUTH_TOKEN isn't set (local builds), source-map upload is
+// skipped silently and the build still succeeds.
+export default withSentryConfig(nextConfig, {
+  org: process.env.SENTRY_ORG ?? "bemis",
+  project: process.env.SENTRY_PROJECT ?? "bemis-evcharge-website",
+  silent: !process.env.CI,
+  widenClientFileUpload: true,
+  // We don't need Sentry's tunnel route — production isn't running an
+  // ad-blocker-heavy audience and the extra route adds latency.
+  tunnelRoute: undefined,
+  // Don't ship debug logger to clients (smaller bundle).
+  disableLogger: true,
+  sourcemaps: {
+    // Hide source maps from the public bundle to avoid leaking source.
+    deleteSourcemapsAfterUpload: true,
+  },
+});

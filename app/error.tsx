@@ -4,10 +4,14 @@ import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { HiOutlineRefresh, HiOutlineHome, HiOutlineExclamation } from "react-icons/hi";
+import * as Sentry from "@sentry/nextjs";
 
 export default function GlobalError({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
   useEffect(() => {
-    // Surface errors to console in production so support can grep deploy logs.
+    // Pipe the error into Sentry — `digest` is the server-generated id
+    // Next.js attaches so the prod build doesn't leak the stack; we keep
+    // it as an extra tag in case we cross-reference logs later.
+    Sentry.captureException(error, { tags: { digest: error.digest ?? "none" } });
     console.error("[error.tsx]", error);
   }, [error]);
 
