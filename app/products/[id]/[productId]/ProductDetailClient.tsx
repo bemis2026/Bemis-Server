@@ -29,7 +29,7 @@ const DETAIL_FEATURE_ICONS: Record<string, React.ComponentType<{ size?: number; 
   RiShieldCheckLine, RiBarChart2Line, RiPlugLine, RiFlashlightLine,
   RiCalendarCheckLine, RiTeamLine, RiLightbulbLine,
 };
-import { HiMail, HiDownload, HiArrowRight } from "react-icons/hi";
+import { HiDownload } from "react-icons/hi";
 import { trackEvent } from "../../../components/GoogleAnalytics";
 import Image from "next/image";
 
@@ -88,6 +88,7 @@ export default function ProductDetailPage({
   const [allCategories, setAllCategories] = useState<CategoryData[]>(initialAllCategories);
   const [activeTab, setActiveTab]   = useState<"specs" | "general" | "documents">("general");
   const [openFaqIdx, setOpenFaqIdx]   = useState<number | null>(null);
+  const carouselRef = useRef<HTMLDivElement | null>(null);
   const isFirstMount = useRef(true);
 
   const categoryId = typeof params.id        === "string" ? params.id        : "";
@@ -134,7 +135,7 @@ export default function ProductDetailPage({
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
-      <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 pt-24 pb-16">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-24 pb-16">
 
         {/* Loading */}
         {loading && (
@@ -746,14 +747,14 @@ export default function ProductDetailPage({
                 acceptedAnswer: { "@type": "Answer", text: f.a },
               })),
             }]} />
-            <h2 className="text-base font-bold mb-4" style={{ color: sd ? "#f0f0f4" : "#111827" }}>Sıkça Sorulan Sorular</h2>
-            <div className="space-y-2">
+            <h2 className="text-lg sm:text-xl font-black mb-5" style={{ color: sd ? "#f0f0f4" : "#111827" }}>Sıkça Sorulan Sorular</h2>
+            <div className="space-y-2.5">
               {faq.map((item, i) => {
                 const open = openFaqIdx === i;
                 return (
                   <div
                     key={i}
-                    className="rounded-xl overflow-hidden"
+                    className="rounded-2xl overflow-hidden"
                     style={{
                       background: sd ? "#141416" : "#ffffff",
                       border: `1px solid ${sd ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}`,
@@ -761,15 +762,15 @@ export default function ProductDetailPage({
                   >
                     <button
                       onClick={() => setOpenFaqIdx(open ? null : i)}
-                      className="w-full flex items-start gap-3 px-4 py-3 text-left transition-colors hover:bg-black/[0.02] dark:hover:bg-white/[0.02]"
+                      className="w-full flex items-center gap-4 px-5 sm:px-6 py-4 sm:py-5 text-left transition-colors hover:bg-black/[0.02] dark:hover:bg-white/[0.02]"
                     >
                       <span
-                        className="inline-flex items-center justify-center rounded-lg flex-shrink-0 mt-0.5"
-                        style={{ width: 22, height: 22, background: `${BRAND_BLUE}14`, border: `1px solid ${BRAND_BLUE}30`, color: BRAND_BLUE }}
+                        className="inline-flex items-center justify-center rounded-xl flex-shrink-0"
+                        style={{ width: 30, height: 30, background: `${BRAND_BLUE}14`, border: `1px solid ${BRAND_BLUE}30`, color: BRAND_BLUE }}
                       >
-                        {open ? <RiSubtractLine size={14} /> : <RiAddLine size={14} />}
+                        {open ? <RiSubtractLine size={17} /> : <RiAddLine size={17} />}
                       </span>
-                      <span className="flex-1 text-sm font-semibold" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
+                      <span className="flex-1 text-sm sm:text-base font-bold" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
                         {item.q}
                       </span>
                     </button>
@@ -782,7 +783,7 @@ export default function ProductDetailPage({
                           transition={{ duration: 0.22 }}
                           style={{ overflow: "hidden" }}
                         >
-                          <div className="px-4 pb-3 pt-0.5 pl-12 text-sm leading-relaxed whitespace-pre-line" style={{ color: sd ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
+                          <div className="px-5 sm:px-6 pb-5 pt-0.5 pl-[58px] sm:pl-[70px] text-sm sm:text-[15px] leading-relaxed whitespace-pre-line" style={{ color: sd ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
                             {item.a}
                           </div>
                         </motion.div>
@@ -818,26 +819,55 @@ export default function ProductDetailPage({
           ...otherCatProds.slice(0, Math.max(0, 12 - sameCat.length)),
         ].slice(0, 12);
         if (carousel.length === 0) return null;
+        const scrollCarousel = (dir: "left" | "right") => {
+          const el = carouselRef.current;
+          if (!el) return;
+          const delta = Math.max(240, el.clientWidth * 0.7) * (dir === "left" ? -1 : 1);
+          el.scrollBy({ left: delta, behavior: "smooth" });
+        };
         return (
           <div className="pb-20">
-            {/* Header stays inside the page rail so the heading and the
-                "Tümünü Gör" button line up with the rest of the page. */}
-            <div className="max-w-7xl mx-auto flex items-center justify-between mb-4 px-5 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto mb-4 px-5 sm:px-6 lg:px-8">
               <h2 className="text-base font-bold" style={{ color: theme === "dark" ? "#f0f0f4" : "#111827" }}>Benzer Ürünler</h2>
-              <button
-                onClick={() => router.push(`/products/${categoryId}`)}
-                className="flex items-center gap-1 text-xs font-semibold"
-                style={{ color: category.accent }}
-              >
-                Tümünü Gör <HiArrowRight size={13} />
-              </button>
             </div>
             {/* Carousel runs edge-to-edge so it never visually clips at
                 the 7xl rail on wide monitors. snap-proximity (not
                 snap-mandatory) keeps scroll-left feeling as natural as
                 scroll-right — mandatory was forcing a one-direction
-                anchor on trackpads. */}
+                anchor on trackpads. Side arrows replace the old
+                "Tümünü Gör" button — quicker swipe-by-click on desktop,
+                hidden on small screens where touch-scroll is natural. */}
+            <div className="relative">
+              <button
+                aria-label="Sola kaydır"
+                onClick={() => scrollCarousel("left")}
+                className="hidden sm:flex absolute left-2 lg:left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-105"
+                style={{
+                  background: theme === "dark" ? "rgba(20,20,22,0.85)" : "rgba(255,255,255,0.95)",
+                  border: `1px solid ${theme === "dark" ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`,
+                  color: category.accent,
+                  backdropFilter: "blur(8px)",
+                  boxShadow: theme === "dark" ? "0 4px 16px rgba(0,0,0,0.45)" : "0 4px 18px rgba(0,0,0,0.10)",
+                }}
+              >
+                <RiArrowLeftLine size={18} />
+              </button>
+              <button
+                aria-label="Sağa kaydır"
+                onClick={() => scrollCarousel("right")}
+                className="hidden sm:flex absolute right-2 lg:right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-105"
+                style={{
+                  background: theme === "dark" ? "rgba(20,20,22,0.85)" : "rgba(255,255,255,0.95)",
+                  border: `1px solid ${theme === "dark" ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`,
+                  color: category.accent,
+                  backdropFilter: "blur(8px)",
+                  boxShadow: theme === "dark" ? "0 4px 16px rgba(0,0,0,0.45)" : "0 4px 18px rgba(0,0,0,0.10)",
+                }}
+              >
+                <RiArrowRightSLine size={18} />
+              </button>
             <div
+              ref={carouselRef}
               className="flex gap-3 overflow-x-auto snap-x snap-proximity scrollbar-hide pl-5 sm:pl-6 lg:pl-8 pr-5 sm:pr-6 lg:pr-8"
               style={{ scrollPaddingLeft: "1.25rem", scrollPaddingRight: "1.25rem", WebkitOverflowScrolling: "touch" }}
             >
@@ -903,6 +933,7 @@ export default function ProductDetailPage({
                   </motion.div>
                 );
               })}
+            </div>
             </div>
           </div>
         );
