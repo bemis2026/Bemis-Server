@@ -189,6 +189,15 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                   background: surface,
                   border: `1px solid ${surfaceBorder}`,
                   cursor: "pointer",
+                  // Pin a minimum card height so categories with short
+                  // single-variant subtitles (portable: "Tek Fazlı ·
+                  // 2,3 - 3,7 kW") still render at the same vertical
+                  // size as categories with longer joined-variant
+                  // subtitles (wallbox: "5m. Kablolu · Pano Prizli").
+                  // Otherwise the grid lays them out at different
+                  // heights across categories and the operator reads
+                  // it as "AC Mobile cards look different".
+                  minHeight: 320,
                 }}
                 onMouseEnter={e => {
                   (e.currentTarget as HTMLDivElement).style.borderColor = `${accent}45`;
