@@ -16,6 +16,8 @@ import {
 } from "react-icons/ri";
 import { HiArrowLeft } from "react-icons/hi";
 import { useEffect } from "react";
+import JsonLd from "../components/JsonLd";
+import { serviceSchema } from "../lib/seo";
 
 const CAPABILITY_ICONS = [RiWifiLine, RiBarChartLine, RiGlobalLine, RiShieldCheckLine];
 const CAPABILITY_COLORS = ["#3B82F6", "#818CF8", "#10B981", "#F59E0B"];
@@ -81,6 +83,12 @@ export default function OperatorPage() {
 
   return (
     <div style={{ background: bg, minHeight: "100vh" }}>
+      <JsonLd data={serviceSchema({
+        name: "Şarj Ağı Operatörü Çözümleri",
+        description: "EV şarj ağı operatörleri için anahtar teslim çözümler: OCPP 1.6J / 2.0.1 uyumlu donanım, ödeme entegrasyonu, RFID, uzaktan izleme ve yönetim yazılımı.",
+        url: "/operator",
+        offerings: ["OCPP 1.6J / 2.0.1 Uyumlu Donanım", "RFID Kimlik Doğrulama", "Uzaktan İzleme & Yönetim", "Ödeme Entegrasyonu", "API & Yazılım Desteği"],
+      })} />
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 

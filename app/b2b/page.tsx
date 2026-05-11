@@ -19,6 +19,8 @@ import {
   RiArrowRightLine,
 } from "react-icons/ri";
 import { HiArrowLeft } from "react-icons/hi";
+import JsonLd from "../components/JsonLd";
+import { serviceSchema } from "../lib/seo";
 
 /* ─── Data types ────────────────────────────────────────────────────────── */
 type B2BFeaturedSlot = { categoryId?: string; productId?: string };
@@ -91,6 +93,12 @@ export default function B2BPage() {
 
   return (
     <div style={{ background: bg, minHeight: "100vh" }}>
+      <JsonLd data={serviceSchema({
+        name: "OEM & Üretici Çözümleri",
+        description: "EV şarj ürünleri OEM üretimi, white-label etiketleme, toplu sipariş ve özel mühendislik çözümleri. CE & IP65 sertifikalı, 60+ ülkeye ihracat tecrübesi.",
+        url: "/b2b",
+        offerings: ["OEM Üretim", "White-Label Etiketleme", "Toplu Sipariş", "Özel Mühendislik", "Sertifikalı Üretim"],
+      })} />
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 

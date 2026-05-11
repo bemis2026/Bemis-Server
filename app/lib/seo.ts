@@ -12,6 +12,10 @@ export type ProductShape = {
   description?: string;
   image?: string;
   images?: string[];
+  /** Optional spec groups — when present and a price group exists
+   *  (TR "Fiyat" / EN "Price"), productSchema() emits an Offer block
+   *  so the price shows up in Google's rich snippet. */
+  specs?: { group: string; items: { label: string; value: string }[] }[];
 };
 
 export type CategoryShape = {
@@ -99,6 +103,31 @@ export function breadcrumbSchema(
   };
 }
 
+/**
+ * Pull a price out of the product's spec groups. Looks for any group
+ * whose name reads "fiyat" (TR) or "price" (EN-translated) and grabs
+ * the first numeric value inside. Returns `null` when no parseable
+ * number exists — non-numeric admin notes like "Sorunuz" pass through.
+ */
+function extractOffer(product: ProductShape): { price: number; currency: string } | null {
+  if (!product.specs) return null;
+  const priceGroup = product.specs.find(g => /fiyat|price/i.test(g.group));
+  if (!priceGroup || !priceGroup.items?.length) return null;
+  // Prefer "Liste Fiyatı" if present, otherwise first row.
+  const item = priceGroup.items.find(i => /liste|list/i.test(i.label)) ?? priceGroup.items[0];
+  if (!item?.value) return null;
+  const match = item.value.match(/(\d{1,3}(?:[.,]\d{3})+|\d+)([.,]\d+)?/);
+  if (!match) return null;
+  const whole = match[1].replace(/[.,]/g, "");
+  const frac = match[2] ? match[2].replace(/[.,]/, ".") : "";
+  const price = Number(whole + frac);
+  if (!isFinite(price) || price <= 0) return null;
+  // Operator entered list prices in EUR (see BEMIS_PROJECT_CONTEXT.md);
+  // fall back to TRY only if the raw value carries a ₺/TL marker.
+  const currency = /₺|\bTL\b/.test(item.value) ? "TRY" : "EUR";
+  return { price, currency };
+}
+
 export function productSchema(opts: {
   product: ProductShape;
   categoryName?: string;
@@ -110,6 +139,7 @@ export function productSchema(opts: {
     .map(u => absolute(u))
     .filter((x): x is string => Boolean(x));
   const url = `${SITE_URL}/products/${categoryId}/${product.id}`;
+  const offer = extractOffer(product);
   return {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -119,13 +149,31 @@ export function productSchema(opts: {
     ...(product.description && { description: product.description }),
     ...(imgs.length > 0 && { image: imgs }),
     ...(product.code && { sku: product.code, mpn: product.code }),
-    brand: {
-      "@type": "Brand",
-      name: SITE_NAME,
-    },
+    brand: { "@type": "Brand", name: SITE_NAME },
     manufacturer: { "@id": `${SITE_URL}#organization` },
     ...(categoryName && { category: categoryName }),
     url,
+    ...(offer && {
+      offers: {
+        "@type": "Offer",
+        url,
+        price: offer.price.toFixed(2),
+        priceCurrency: offer.currency,
+        // Pricing is "Liste Fiyatı" — valid until end of current year
+        // (Bemis revises list prices annually). Conservative date so the
+        // markup never serves a stale "still valid" claim.
+        priceValidUntil: `${new Date().getFullYear()}-12-31`,
+        availability: "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
+        seller: { "@id": `${SITE_URL}#organization` },
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: offer.price.toFixed(2),
+          priceCurrency: offer.currency,
+          valueAddedTaxIncluded: false,
+        },
+      },
+    }),
   };
 }
 
@@ -155,6 +203,44 @@ export function collectionPageSchema(opts: {
         "@type": "ItemList",
         numberOfItems: itemListElement.length,
         itemListElement,
+      },
+    }),
+  };
+}
+
+/**
+ * Service schema for the four corporate sub-pages (/b2b, /bayilik,
+ * /operator, /kurumsal). These are services Bemis sells, not products,
+ * so they need a different markup than Product. Google surfaces them
+ * with a richer "service provider" panel + reviews when available.
+ */
+export function serviceSchema(opts: {
+  name: string;
+  description: string;
+  url: string;
+  /** Tags shown as the provider's offerings (e.g. ["OEM Manufacturing", "White Label", "Bulk Orders"]). */
+  offerings?: string[];
+  /** Service area — defaults to TR. */
+  areaServed?: string;
+}): JsonLdObject {
+  const { name, description, url, offerings, areaServed = "TR" } = opts;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    description,
+    url: absolute(url),
+    provider: { "@id": `${SITE_URL}#organization` },
+    areaServed,
+    ...(offerings && offerings.length > 0 && {
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name,
+        itemListElement: offerings.map((o, i) => ({
+          "@type": "Offer",
+          position: i + 1,
+          itemOffered: { "@type": "Service", name: o },
+        })),
       },
     }),
   };

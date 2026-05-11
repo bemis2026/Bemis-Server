@@ -8,6 +8,8 @@ import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
 import EnergyBackground from "../components/EnergyBackground";
+import JsonLd from "../components/JsonLd";
+import { serviceSchema } from "../lib/seo";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 import {
@@ -110,6 +112,13 @@ export default function BayilikPage() {
 
   return (
     <div style={{ background: bg, display: "flex", flexDirection: "column", minHeight: "100vh", position: "relative", overflow: "hidden", isolation: "isolate" }}>
+      <JsonLd data={serviceSchema({
+        name: "Bayi & Distribütör Programı",
+        description: "Türkiye'de bayi, yurt dışında distribütör programı. 80+ ilde yetkili bayi ağı, 60+ ülkede ihracat tecrübesi. Teknik eğitim, pazarlama desteği ve özel bayi fiyatları.",
+        url: "/bayilik",
+        offerings: ["Türkiye Bayilik", "Yurtdışı Distribütörlük", "Teknik Eğitim", "Pazarlama Desteği", "Bayi Özel Fiyatları"],
+        areaServed: "Worldwide",
+      })} />
       <EnergyBackground />
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
