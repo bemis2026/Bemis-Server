@@ -622,34 +622,11 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
             </div>
           </B2BCard>
 
-          {/* Info Table */}
-          <B2BCard accent="#10B981">
-            <B2BSectionTitle label="Hızlı Bilgi Tablosu" hint="Sayfada sağ panelde gösterilir" />
-            <div className="space-y-2">
-              {(data.bayilik?.infoTable ?? []).map((row, idx) => (
-                <div key={idx} className="flex gap-2">
-                  <input className={inputCls} value={row.label} placeholder="Etiket"
-                    onChange={e => setData(p => {
-                      if (!p?.bayilik) return p;
-                      const infoTable = [...p.bayilik.infoTable];
-                      infoTable[idx] = { ...infoTable[idx], label: e.target.value };
-                      return { ...p, bayilik: { ...p.bayilik, infoTable } };
-                    })} />
-                  <input className={inputCls} value={row.value} placeholder="Değer"
-                    onChange={e => setData(p => {
-                      if (!p?.bayilik) return p;
-                      const infoTable = [...p.bayilik.infoTable];
-                      infoTable[idx] = { ...infoTable[idx], value: e.target.value };
-                      return { ...p, bayilik: { ...p.bayilik, infoTable } };
-                    })} />
-                  {delBtn(() => setData(p => p?.bayilik ? { ...p, bayilik: { ...p.bayilik, infoTable: p.bayilik.infoTable.filter((_, i) => i !== idx) } } : p))}
-                </div>
-              ))}
-              <div className="pt-1">
-                {addBtn(() => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), infoTable: [...(p.bayilik?.infoTable ?? []), { label: "", value: "" }] } } : p), "Satır Ekle")}
-              </div>
-            </div>
-          </B2BCard>
+          {/* Hızlı Bilgi Tablosu admin editor removed — the public
+              /bayilik page no longer renders an info-table side panel
+              (rewritten around the Ağımız Hakkında stats block and
+              tabbed Aranan Kriterler). Keeping the field in the schema
+              is harmless; admin UI just stops surfacing it. */}
         </div>
       )}
 

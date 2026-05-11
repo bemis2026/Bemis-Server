@@ -125,33 +125,24 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedId]);
 
-  // Memoise the data arrays so their reference is stable across renders
-  // — react-globe.gl rebuilds its internal geometry whenever a data prop
-  // identity changes, which (with onLabelHover updating state on every
-  // pixel of movement) caused a tooltip flicker loop on hover.
-  const labels = useMemo(
-    () => activeCountries.map(c => ({ ...c, color: BLUE, size: 0.7, isHQ: false as const })),
-    [activeCountries],
-  );
-
-  // Single clean blue dot per country — the earlier white-halo+blue-dot
-  // double stack read as visually noisy ("çok bozuldu"). One layer,
-  // small radius, no second pass.
-  const pinPoints = useMemo(
-    () => activeCountries.map(c => ({
-      lat: c.lat, lng: c.lng, color: BLUE, radius: 0.30, altitude: 0.012,
-    })),
-    [activeCountries],
-  );
-  // Only HQ keeps its expanding ring — country rings were piling on top
-  // of the dot at low zoom and made the cluster look messy.
+  // Pin visuals moved entirely to htmlElementsData below — the
+  // points/labels layer was creating extruded-cylinder pins that read
+  // as "3D columns" instead of needles. HTML drop-pins (dot-on-stem)
+  // anchor cleanly on the surface and look like classic map pins.
   const rings = useMemo(
     () => [
       { lat: BURSA.lat, lng: BURSA.lng, color: RED, maxR: 4.0, speed: 1.0, period: 2200 },
     ],
     [],
   );
-  const htmlElements = useMemo(() => [{ lat: BURSA.lat, lng: BURSA.lng }], []);
+  // HTML overlay carries both the HQ badge AND each country needle pin.
+  const htmlElements = useMemo(
+    () => [
+      { lat: BURSA.lat, lng: BURSA.lng, isHQ: true as const, country: null as InternationalDealer | null },
+      ...activeCountries.map(c => ({ lat: c.lat, lng: c.lng, isHQ: false as const, country: c })),
+    ],
+    [activeCountries],
+  );
   const arcs = useMemo(
     () => activeCountries.map(c => ({
       startLat: BURSA.lat,
@@ -205,47 +196,12 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
         atmosphereColor={BLUE}
         atmosphereAltitude={0.22}
         showGraticules={false}
-        // Country name labels are intentionally invisible — the
-        // hover tooltip in the corner already does the naming. The
-        // label layer still carries the hit-target for hover (radius
-        // bumped to 0.85 so it's findable by mouse).
-        labelsData={labels}
-        labelLat={(d: object) => (d as { lat: number }).lat}
-        labelLng={(d: object) => (d as { lng: number }).lng}
-        labelText={() => ""}
-        labelSize={() => 0.001}
-        labelDotRadius={(d: object) => (d as { isHQ: boolean }).isHQ ? 0.85 : 0.85}
-        labelColor={() => "rgba(0,0,0,0)"}
-        labelResolution={3}
-        labelAltitude={0.012}
-        // Visible pin layer below the labels: outer white ring, inner
-        // brand-blue dot. Two pointsData passes stacked so the visual
-        // is "blue dot with white outline ring" without touching the
-        // hover layer above.
-        pointsData={pinPoints}
-        pointLat={(d: object) => (d as { lat: number }).lat}
-        pointLng={(d: object) => (d as { lng: number }).lng}
-        pointColor={(d: object) => (d as { color: string }).color}
-        pointAltitude={(d: object) => (d as { altitude: number }).altitude}
-        pointRadius={(d: object) => (d as { radius: number }).radius}
-        pointResolution={32}
-        onLabelHover={(d: object | null) => {
-          // Only act on positive hovers — we ignore the null pulse that
-          // react-globe.gl emits whenever it rebuilds its label layer
-          // (autoRotate, every-frame raycaster updates, etc.), which
-          // was reading as an open/close flicker while the cursor was
-          // actually pinned on the dot. Tooltip clears on
-          // onPointerLeave at the wrapper level instead.
-          if (!d) return;
-          if ((d as { isHQ?: boolean }).isHQ) return;
-          const dealer = d as InternationalDealer;
-          setHovered(prev => prev?.id === dealer.id ? prev : dealer);
-        }}
-        onLabelClick={(d: object) => {
-          if ((d as { isHQ?: boolean }).isHQ) return;
-          const id = (d as { id?: string }).id;
-          if (id && onSelect) onSelect(id);
-        }}
+        // Pin rendering moved to htmlElementsData below — the dual
+        // points+labels stack used to render 3D extruded cylinders
+        // which read as "columns". Drop-pins via HTML overlay match
+        // the classic map-marker silhouette.
+        labelsData={[]}
+        pointsData={[]}
         ringsData={rings}
         ringLat="lat"
         ringLng="lng"
@@ -271,43 +227,77 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
         htmlElementsData={htmlElements}
         htmlLat="lat"
         htmlLng="lng"
-        htmlAltitude={0.02}
-        htmlElement={() => {
-          // The wrapper is centered on lat/lng via translate(-50%, -50%).
-          // The badge sits at that center; the MERKEZ caption hangs below
-          // absolutely so the LOGO (not the column) stays exactly on Bursa.
+        htmlAltitude={0.005}
+        htmlElement={(d: object) => {
+          const item = d as { isHQ: boolean; country: InternationalDealer | null };
           const el = document.createElement("div");
-          el.style.cssText = "transform: translate(-50%, -50%); pointer-events: none; position: relative; width: 22px; height: 22px;";
+
+          if (item.isHQ) {
+            // HQ badge sits at globe centre, anchored top: translate(-50%, -50%)
+            el.style.cssText = "transform: translate(-50%, -50%); pointer-events: none; position: relative; width: 22px; height: 22px;";
+            el.innerHTML = `
+              <div style="
+                width: 26px; height: 26px;
+                border-radius: 50%;
+                background: #E11D48;
+                border: 2px solid #ffffff;
+                box-shadow: 0 0 0 2px ${RED}55, 0 6px 14px rgba(225,29,72,0.45);
+                display: flex; align-items: center; justify-content: center;
+                overflow: hidden;
+              ">
+                <img src="/favicon-white-192.png" alt="Bemis" width="22" height="22" style="object-fit: contain; padding: 3px;" />
+              </div>
+              <span style="
+                position: absolute; top: 100%; left: 50%;
+                transform: translateX(-50%);
+                margin-top: 3px;
+                font-size: 8px; font-weight: 800; letter-spacing: 0.10em;
+                color: ${dark ? "#fecaca" : "#B91C1C"};
+                text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+                padding: 1px 4px; border-radius: 3px;
+                background: ${dark ? "rgba(8,12,22,0.55)" : "rgba(255,255,255,0.75)"};
+                white-space: nowrap;
+              ">MERKEZ</span>
+            `;
+            return el;
+          }
+
+          // Country needle pin: dot head on a thin stem, anchored at the
+          // bottom of the stem so the tip touches the globe surface.
+          const c = item.country!;
+          el.style.cssText = `
+            transform: translate(-50%, -100%);
+            pointer-events: auto;
+            cursor: pointer;
+            position: relative;
+            width: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));
+          `;
           el.innerHTML = `
             <div style="
-              width: 26px; height: 26px;
-              border-radius: 50%;
-              /* Brand red so a white-on-transparent favicon stays visible. */
-              background: #E11D48;
+              width: 12px; height: 12px;
+              background: ${BLUE};
               border: 2px solid #ffffff;
-              box-shadow: 0 0 0 2px ${RED}55, 0 6px 14px rgba(225,29,72,0.45);
-              display: flex; align-items: center; justify-content: center;
-              overflow: hidden;
-            ">
-              <img src="/favicon-white-192.png" alt="Bemis" width="22" height="22" style="object-fit: contain; padding: 3px;" />
-            </div>
-            <span style="
-              position: absolute;
-              top: 100%;
-              left: 50%;
-              transform: translateX(-50%);
-              margin-top: 3px;
-              font-size: 8px;
-              font-weight: 800;
-              letter-spacing: 0.10em;
-              color: ${dark ? "#fecaca" : "#B91C1C"};
-              text-shadow: 0 1px 2px rgba(0,0,0,0.6);
-              padding: 1px 4px;
-              border-radius: 3px;
-              background: ${dark ? "rgba(8,12,22,0.55)" : "rgba(255,255,255,0.75)"};
-              white-space: nowrap;
-            ">MERKEZ</span>
+              border-radius: 50%;
+              box-shadow: 0 0 0 1px ${BLUE}55;
+              z-index: 2;
+            "></div>
+            <div style="
+              width: 2px; height: 14px;
+              background: linear-gradient(to bottom, ${BLUE} 0%, ${BLUE}22 100%);
+              margin-top: -1px;
+              border-radius: 1px;
+            "></div>
           `;
+          el.addEventListener("click", (ev) => {
+            ev.stopPropagation();
+            onSelect?.(c.id);
+          });
+          el.addEventListener("mouseenter", () => setHovered(c));
+          el.addEventListener("mouseleave", () => setHovered(prev => prev?.id === c.id ? null : prev));
           return el;
         }}
       />

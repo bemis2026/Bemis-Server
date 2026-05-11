@@ -10,6 +10,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
+import { useCurrency } from "../context/CurrencyContext";
 import E from "./E";
 
 const navLinks = [
@@ -106,6 +107,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const isDark = theme === "dark";
   const { navbar: navbarContent, logos, categories } = useContent();
   const { lang, setLang } = useLanguage();
+  const { currency, setCurrency } = useCurrency();
   const activeNavLinks = navbarContent?.links?.length ? navbarContent.links : navLinks;
   const logoSrc = logos?.dark || "/logo-white.png";
   const logoFilter = isDark ? undefined : "brightness(0)";
@@ -406,6 +408,20 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                 </button>
               ))}
             </div>
+            <div className="flex items-center rounded-lg overflow-hidden" style={{ border: isDark ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.12)" }}>
+              {(["TRY", "EUR"] as const).map((c) => (
+                <button key={c} onClick={() => setCurrency(c)}
+                  title={c === "TRY" ? "Türk Lirası" : "Euro (TCMB kuru)"}
+                  className="px-2.5 py-1 text-xs font-bold uppercase transition-colors duration-200"
+                  style={{
+                    background: currency === c ? (isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.08)") : "transparent",
+                    color: currency === c ? (isDark ? "#ffffff" : "#111111") : (isDark ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)"),
+                  }}
+                >
+                  {c === "TRY" ? "₺" : "€"}
+                </button>
+              ))}
+            </div>
             <button onClick={onSearchOpen} className={`p-2 rounded-lg transition-colors ${isDark ? "text-white/50 hover:text-white hover:bg-white/6" : "text-black/50 hover:text-black hover:bg-black/5"}`}>
               <HiSearch size={18} />
             </button>
@@ -423,7 +439,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
 
           {/* Mobile right */}
           <div className="lg:hidden flex items-center gap-1">
-            <div className="flex items-center rounded-lg overflow-hidden mr-1" style={{ border: isDark ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.12)" }}>
+            <div className="flex items-center rounded-lg overflow-hidden" style={{ border: isDark ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.12)" }}>
               {(["tr", "en"] as const).map((l) => (
                 <button key={l} onClick={() => setLang(l)}
                   className="px-2 py-1 text-[10px] font-bold uppercase transition-colors"
@@ -432,6 +448,17 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                     color: lang === l ? (isDark ? "#ffffff" : "#111111") : (isDark ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)"),
                   }}
                 >{l.toUpperCase()}</button>
+              ))}
+            </div>
+            <div className="flex items-center rounded-lg overflow-hidden mr-1" style={{ border: isDark ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.12)" }}>
+              {(["TRY", "EUR"] as const).map((c) => (
+                <button key={c} onClick={() => setCurrency(c)}
+                  className="px-2 py-1 text-[10px] font-bold uppercase transition-colors"
+                  style={{
+                    background: currency === c ? (isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.08)") : "transparent",
+                    color: currency === c ? (isDark ? "#ffffff" : "#111111") : (isDark ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)"),
+                  }}
+                >{c === "TRY" ? "₺" : "€"}</button>
               ))}
             </div>
             <button onClick={onSearchOpen} className={`p-2 rounded-lg ${isDark ? "text-white/50" : "text-black"}`}><HiSearch size={17} /></button>

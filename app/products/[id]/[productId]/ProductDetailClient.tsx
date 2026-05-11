@@ -5,7 +5,9 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../../context/ThemeContext";
 import { useLanguage } from "../../../context/LanguageContext";
+import { useCurrency } from "../../../context/CurrencyContext";
 import { useContent } from "../../../context/ContentContext";
+import { formatPrice } from "../../../../lib/formatPrice";
 import { findVariantGroup } from "../../../../lib/productGroups";
 import JsonLd from "../../../components/JsonLd";
 import EnergyBackground from "../../../components/EnergyBackground";
@@ -74,6 +76,7 @@ export default function ProductDetailPage({
   const router    = useRouter();
   const { theme } = useTheme();
   const { lang } = useLanguage();
+  const { currency, eurPerTry } = useCurrency();
   const { categories: catMeta } = useContent();
   // Warranty / certification copy is fixed company policy — same line for
   // every product, no admin knob.
@@ -593,7 +596,7 @@ export default function ProductDetailPage({
                             >
                               <span className="text-xs" style={{ color: textFaint, flexShrink: 0 }}>{item.label}</span>
                               <span className="text-xs font-semibold text-right inline-flex items-baseline gap-1.5" style={{ color: isPrice ? accent : textMuted }}>
-                                {item.value}
+                                {isPrice ? formatPrice(item.value, currency, eurPerTry) : item.value}
                                 {isPrice && (
                                   <span className="text-[10px] font-medium" style={{ color: `${accent}99` }}>+ KDV</span>
                                 )}
@@ -764,14 +767,14 @@ export default function ProductDetailPage({
                       onClick={() => setOpenFaqIdx(open ? null : i)}
                       className="w-full flex items-center gap-4 px-5 sm:px-6 py-4 sm:py-5 text-left transition-colors hover:bg-black/[0.02] dark:hover:bg-white/[0.02]"
                     >
+                      <span className="flex-1 text-sm sm:text-base font-bold" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
+                        {item.q}
+                      </span>
                       <span
                         className="inline-flex items-center justify-center rounded-xl flex-shrink-0"
                         style={{ width: 30, height: 30, background: `${BRAND_BLUE}14`, border: `1px solid ${BRAND_BLUE}30`, color: BRAND_BLUE }}
                       >
                         {open ? <RiSubtractLine size={17} /> : <RiAddLine size={17} />}
-                      </span>
-                      <span className="flex-1 text-sm sm:text-base font-bold" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
-                        {item.q}
                       </span>
                     </button>
                     <AnimatePresence initial={false}>

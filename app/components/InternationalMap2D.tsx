@@ -133,9 +133,9 @@ export default function InternationalMap2D({ dark, countries, selectedId, onSele
             <feColorMatrix
               type="matrix"
               values="
-                0.18 0.18 0.18 0 0
-                0.22 0.22 0.22 0 0
-                0.30 0.30 0.30 0 0
+                0.32 0.32 0.32 0 0
+                0.40 0.40 0.40 0 0
+                0.55 0.55 0.55 0 0
                 0    0    0    1 0
               "
             />
@@ -144,9 +144,9 @@ export default function InternationalMap2D({ dark, countries, selectedId, onSele
             <feColorMatrix
               type="matrix"
               values="
-                0.74 0.74 0.74 0 0
-                0.79 0.79 0.79 0 0
-                0.88 0.88 0.88 0 0
+                0.82 0.82 0.82 0 0
+                0.86 0.86 0.86 0 0
+                0.94 0.94 0.94 0 0
                 0    0    0    1 0
               "
             />
@@ -163,7 +163,7 @@ export default function InternationalMap2D({ dark, countries, selectedId, onSele
           height={MAP_H}
           preserveAspectRatio="xMidYMid meet"
           filter={`url(#${dark ? "mapTintDark" : "mapTintLight"})`}
-          opacity={dark ? 0.85 : 0.95}
+          opacity={dark ? 0.95 : 1}
         />
 
         {/* Arcs from Bursa to each active country */}

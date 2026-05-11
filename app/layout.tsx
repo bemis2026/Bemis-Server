@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import "./globals.css";
 import { ThemeProvider } from "./context/ThemeContext";
 import { LanguageProvider } from "./context/LanguageContext";
+import { CurrencyProvider } from "./context/CurrencyContext";
 import { ContentProvider } from "./context/ContentContext";
 import { EditModeProvider } from "./context/EditModeContext";
 import PropertiesPanelLoader from "./components/PropertiesPanelLoader";
@@ -159,18 +160,20 @@ export default async function RootLayout({
         <GoogleAnalytics />
         <ThemeProvider>
           <LanguageProvider>
-            <ContentProvider initialContent={initialContent}>
-              <EditModeProvider>
-                <ContentLoadingBar />
-                <ContentErrorToast />
-                <Suspense fallback={null}>
-                  <LanguageURLSync />
-                </Suspense>
-                {children}
-                <CookieConsent />
-                <PropertiesPanelLoader />
-              </EditModeProvider>
-            </ContentProvider>
+            <CurrencyProvider>
+              <ContentProvider initialContent={initialContent}>
+                <EditModeProvider>
+                  <ContentLoadingBar />
+                  <ContentErrorToast />
+                  <Suspense fallback={null}>
+                    <LanguageURLSync />
+                  </Suspense>
+                  {children}
+                  <CookieConsent />
+                  <PropertiesPanelLoader />
+                </EditModeProvider>
+              </ContentProvider>
+            </CurrencyProvider>
           </LanguageProvider>
         </ThemeProvider>
       </body>
