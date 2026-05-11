@@ -12,7 +12,7 @@ export const revalidate = 21600; // 6h
 // on weekends + holidays. For now we stick to today and ship a
 // fallback rate via the CurrencyContext.
 
-const DEFAULT = { eurPerTry: 0.027, date: null as string | null, source: "fallback" as const };
+const DEFAULT = { eurPerTry: 0.027, tryPerEur: 37, date: null as string | null, source: "fallback" as const };
 
 export async function GET() {
   try {

@@ -204,8 +204,9 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                   style={{ height: 180, background: d ? `linear-gradient(145deg, ${accent}0a 0%, #111111 100%)` : `linear-gradient(145deg, ${accent}0d 0%, #f4f4f4 100%)` }}>
                   {(product.images?.[0] ?? product.image) ? (
                     <Image src={(product.images?.[0] ?? product.image) as string} alt={product.name}
-                      fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-contain p-1 transition-transform duration-350 group-hover:scale-105" />
+                      fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
+                      className="object-contain p-1 transition-transform duration-350 group-hover:scale-105"
+                      loading="lazy" quality={75} />
                   ) : (
                     // No-image fallback fills the frame the way an actual
                     // product photo does — large icon centered inside an

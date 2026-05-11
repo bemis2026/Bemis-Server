@@ -1,50 +1,46 @@
 "use client";
 
-import { createContext, useCallback, useContext, useState, useEffect, useMemo, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, useMemo, ReactNode } from "react";
+import { useLanguage } from "./LanguageContext";
 
 export type Currency = "TRY" | "EUR";
 
 type CurrencyContextType = {
+  /** Derived from active language: TR → TRY, EN → EUR. No user toggle. */
   currency: Currency;
-  setCurrency: (c: Currency) => void;
-  /** EUR per 1 TRY (e.g. 0.0271). Multiply a TRY amount by this to get EUR. */
-  eurPerTry: number;
+  /** TRY per 1 EUR (e.g. 36.8). Multiply an EUR amount by this to get TRY. */
+  tryPerEur: number;
   /** ISO date string from TCMB feed, for display. */
   rateDate: string | null;
 };
 
-const DEFAULT_RATE = 0.027; // fallback used until /api/rate responds
+const DEFAULT_RATE = 37; // fallback used until /api/rate responds
 
 const CurrencyContext = createContext<CurrencyContextType>({
   currency: "TRY",
-  setCurrency: () => {},
-  eurPerTry: DEFAULT_RATE,
+  tryPerEur: DEFAULT_RATE,
   rateDate: null,
 });
 
 export function useCurrency() { return useContext(CurrencyContext); }
 
 export function CurrencyProvider({ children }: { children: ReactNode }) {
-  const [currency, setCurrencyState] = useState<Currency>("TRY");
-  const [eurPerTry, setEurPerTry] = useState<number>(DEFAULT_RATE);
+  const { lang } = useLanguage();
+  const currency: Currency = lang === "en" ? "EUR" : "TRY";
+
+  const [tryPerEur, setTryPerEur] = useState<number>(DEFAULT_RATE);
   const [rateDate, setRateDate] = useState<string | null>(null);
 
-  // Restore preference from localStorage.
-  useEffect(() => {
-    const stored = localStorage.getItem("currency") as Currency | null;
-    if (stored === "TRY" || stored === "EUR") setCurrencyState(stored);
-  }, []);
-
-  // Pull the live TCMB rate via our cached API route. The route revalidates
-  // daily, so this fetch is cheap and avoids a per-tab call to TCMB.
+  // Pull live TCMB rate via our daily-cached API route. The route does
+  // a server-side fetch and revalidates every 6h, so this is cheap.
   useEffect(() => {
     let cancelled = false;
     fetch("/api/rate")
       .then(r => r.json())
-      .then((data: { eurPerTry?: number; date?: string }) => {
+      .then((data: { tryPerEur?: number; date?: string }) => {
         if (cancelled) return;
-        if (typeof data.eurPerTry === "number" && data.eurPerTry > 0) {
-          setEurPerTry(data.eurPerTry);
+        if (typeof data.tryPerEur === "number" && data.tryPerEur > 0) {
+          setTryPerEur(data.tryPerEur);
         }
         if (data.date) setRateDate(data.date);
       })
@@ -52,14 +48,9 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
     return () => { cancelled = true; };
   }, []);
 
-  const setCurrency = useCallback((c: Currency) => {
-    setCurrencyState(c);
-    localStorage.setItem("currency", c);
-  }, []);
-
   const value = useMemo(
-    () => ({ currency, setCurrency, eurPerTry, rateDate }),
-    [currency, setCurrency, eurPerTry, rateDate],
+    () => ({ currency, tryPerEur, rateDate }),
+    [currency, tryPerEur, rateDate],
   );
 
   return (

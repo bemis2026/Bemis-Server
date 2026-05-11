@@ -13,6 +13,7 @@ import {
   RiCalendarCheckLine, RiTeamLine, RiLightbulbLine,
 } from "react-icons/ri";
 import { featureById } from "../../lib/productFeatures";
+import Image from "next/image";
 import E from "./E";
 
 // Map ProductFeatures icon strings → react-icons components.
@@ -166,13 +167,15 @@ export default function FeaturedProducts() {
                     visual weight inside the marquee card. */}
                 <div className="relative overflow-hidden" style={{ height: "clamp(150px, 18vw, 190px)" }}>
                   {item.prod?.image ? (
-                    <img
+                    <Image
                       src={item.prod.image}
                       alt={item.prod.name}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 640px) 80vw, (max-width: 1024px) 40vw, 280px"
+                      className="object-cover"
                       style={{ transition: "transform 0.4s ease", transform: isHov ? "scale(1.04)" : "scale(1)" }}
                       loading="lazy"
-                      decoding="async"
+                      quality={75}
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center"

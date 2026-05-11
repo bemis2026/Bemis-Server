@@ -393,10 +393,14 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                               }}
                             >
                               {(product.images?.[0] ?? product.image) ? (
-                                <img
-                                  src={product.images?.[0] ?? product.image}
+                                <Image
+                                  src={(product.images?.[0] ?? product.image) as string}
                                   alt={product.name}
-                                  className="absolute inset-0 w-full h-full object-contain p-1 transition-transform duration-350"
+                                  fill
+                                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 240px"
+                                  className="object-contain p-1 transition-transform duration-350"
+                                  loading="lazy"
+                                  quality={75}
                                 />
                               ) : (
                                 // Larger discus + icon for the no-image

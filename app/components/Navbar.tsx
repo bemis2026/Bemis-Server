@@ -10,7 +10,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
-import { useCurrency } from "../context/CurrencyContext";
+import { useContactOverlay } from "../context/ContactOverlayContext";
 import E from "./E";
 
 const navLinks = [
@@ -18,10 +18,10 @@ const navLinks = [
   { label: "Hakkımızda",  href: "#dna"              },
   { label: "Ürünler",     href: "#products"         },
   { label: "Projeler",    href: "#referenceprojects" },
-  { label: "Dökümanlar",  href: "/documents"        },
   { label: "Bayi Ağı",    href: "#dealer"           },
-  { label: "Hesaplayıcı", href: "#calculator"       },
   { label: "Kurumsal",    href: "#b2bcta"           },
+  { label: "Hesaplayıcı", href: "#calculator"       },
+  { label: "Dökümanlar",  href: "/documents"        },
 ];
 
 // Tiny brand mark — the actual white Bemis favicon (the same PNG we
@@ -107,7 +107,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const isDark = theme === "dark";
   const { navbar: navbarContent, logos, categories } = useContent();
   const { lang, setLang } = useLanguage();
-  const { currency, setCurrency } = useCurrency();
+  const { openContact } = useContactOverlay();
   const activeNavLinks = navbarContent?.links?.length ? navbarContent.links : navLinks;
   const logoSrc = logos?.dark || "/logo-white.png";
   const logoFilter = isDark ? undefined : "brightness(0)";
@@ -408,20 +408,6 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                 </button>
               ))}
             </div>
-            <div className="flex items-center rounded-lg overflow-hidden" style={{ border: isDark ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.12)" }}>
-              {(["TRY", "EUR"] as const).map((c) => (
-                <button key={c} onClick={() => setCurrency(c)}
-                  title={c === "TRY" ? "Türk Lirası" : "Euro (TCMB kuru)"}
-                  className="px-2.5 py-1 text-xs font-bold uppercase transition-colors duration-200"
-                  style={{
-                    background: currency === c ? (isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.08)") : "transparent",
-                    color: currency === c ? (isDark ? "#ffffff" : "#111111") : (isDark ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)"),
-                  }}
-                >
-                  {c === "TRY" ? "₺" : "€"}
-                </button>
-              ))}
-            </div>
             <button onClick={onSearchOpen} className={`p-2 rounded-lg transition-colors ${isDark ? "text-white/50 hover:text-white hover:bg-white/6" : "text-black/50 hover:text-black hover:bg-black/5"}`}>
               <HiSearch size={18} />
             </button>
@@ -429,7 +415,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
               {isDark ? <HiSun size={18} /> : <HiMoon size={18} />}
             </button>
             <button
-              onClick={() => handleNavClick("#contact")}
+              onClick={() => { setMobileOpen(false); openContact(); }}
               className="ml-1 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-white hover:opacity-90 active:scale-95"
               style={{ background: "linear-gradient(135deg, #3B82F6, #2563EB)", boxShadow: "0 4px 14px rgba(59,130,246,0.35)" }}
             >
@@ -448,17 +434,6 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                     color: lang === l ? (isDark ? "#ffffff" : "#111111") : (isDark ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)"),
                   }}
                 >{l.toUpperCase()}</button>
-              ))}
-            </div>
-            <div className="flex items-center rounded-lg overflow-hidden mr-1" style={{ border: isDark ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.12)" }}>
-              {(["TRY", "EUR"] as const).map((c) => (
-                <button key={c} onClick={() => setCurrency(c)}
-                  className="px-2 py-1 text-[10px] font-bold uppercase transition-colors"
-                  style={{
-                    background: currency === c ? (isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.08)") : "transparent",
-                    color: currency === c ? (isDark ? "#ffffff" : "#111111") : (isDark ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)"),
-                  }}
-                >{c === "TRY" ? "₺" : "€"}</button>
               ))}
             </div>
             <button onClick={onSearchOpen} className={`p-2 rounded-lg ${isDark ? "text-white/50" : "text-black"}`}><HiSearch size={17} /></button>
@@ -560,7 +535,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                 );
               })}
               <button
-                onClick={() => handleNavClick("#contact")}
+                onClick={() => { setMobileOpen(false); openContact(); }}
                 className="mt-3 font-semibold py-3 rounded-lg text-sm text-white"
                 style={{ background: "linear-gradient(135deg, #3B82F6, #2563EB)" }}
               >

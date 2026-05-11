@@ -17,6 +17,7 @@ import { HiArrowRight, HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import E from "./E";
+import Image from "next/image";
 
 const categories = [
   {
@@ -429,10 +430,12 @@ export default function Products() {
                 >
                   {/* Category image (if set) */}
                   {cat.image && (
-                    <img
+                    <Image
                       src={cat.image}
                       alt={cat.name}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 640px) 95vw, (max-width: 1024px) 48vw, 380px"
+                      className="object-cover"
                       style={{
                         opacity: isHovered ? 1.0 : 0.9,
                         transition: "opacity 0.35s ease, transform 0.4s ease",
@@ -440,7 +443,7 @@ export default function Products() {
                         zIndex: 0,
                       }}
                       loading="lazy"
-                      decoding="async"
+                      quality={75}
                     />
                   )}
                   {/* Radial accent glow */}

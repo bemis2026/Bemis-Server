@@ -22,7 +22,6 @@ const DealerNetwork = dynamic(() => import("./components/DealerNetwork"));
 const Reviews = dynamic(() => import("./components/Reviews"));
 const Calculator = dynamic(() => import("./components/Calculator"));
 const B2BCta = dynamic(() => import("./components/B2BCta"));
-const Contact = dynamic(() => import("./components/Contact"));
 const SearchOverlay = dynamic(() => import("./components/SearchOverlay"), { ssr: false });
 const AIChatButton = dynamic(() => import("./components/AIChatButton"), { ssr: false });
 
@@ -38,7 +37,6 @@ const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   reviews: Reviews,
   calculator: Calculator,
   b2bcta: B2BCta,
-  contact: Contact,
 };
 
 export default function Home() {
@@ -64,7 +62,6 @@ export default function Home() {
         );
       })}
 
-      <Contact />
       <Footer />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
       <AIChatButton />

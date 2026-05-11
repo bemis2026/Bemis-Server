@@ -76,7 +76,7 @@ export default function ProductDetailPage({
   const router    = useRouter();
   const { theme } = useTheme();
   const { lang } = useLanguage();
-  const { currency, eurPerTry } = useCurrency();
+  const { currency, tryPerEur } = useCurrency();
   const { categories: catMeta } = useContent();
   // Warranty / certification copy is fixed company policy — same line for
   // every product, no admin knob.
@@ -513,11 +513,15 @@ export default function ProductDetailPage({
                     eski madde-listesi alanı (generalFeatures) artistik desteği
                     için fallback olarak kalır ama yeni kayıtlarda kullanılmaz. */}
                 {(() => {
-                  const hasSpecs    = product.specs.length > 0;
+                  const nonPriceSpecs = product.specs.filter(g => !g.group.toLowerCase().includes("fiyat"));
+                  const priceRowsCount = product.specs
+                    .filter(g => g.group.toLowerCase().includes("fiyat"))
+                    .reduce((sum, g) => sum + g.items.length, 0);
+                  const hasSpecs    = nonPriceSpecs.length > 0;
                   const featureList = (product.features ?? []).map(featureById).filter(Boolean) as NonNullable<ReturnType<typeof featureById>>[];
                   const generalList = (product.generalFeatures ?? []).filter((s) => s && s.trim().length > 0);
                   const docList     = (product.documents ?? []).filter((d) => d && d.url && d.url.trim().length > 0);
-                  const hasGeneral  = featureList.length > 0 || generalList.length > 0;
+                  const hasGeneral  = featureList.length > 0 || generalList.length > 0 || priceRowsCount > 0;
                   const hasDocs     = docList.length > 0;
                   if (!hasSpecs && !hasGeneral && !hasDocs) return null;
 
@@ -571,21 +575,21 @@ export default function ProductDetailPage({
                         })}
                       </div>
 
-                      {/* Specs tab */}
-                      {resolvedTab === "specs" && product.specs.flatMap((group, gi) => {
-                        const isPrice = group.group.toLowerCase().includes("fiyat");
-                        return [
-                          product.specs.length > 1 ? (
+                      {/* Specs tab — price groups are filtered out and
+                          rendered inside the Genel Özellikler tab instead
+                          (price isn't a technical spec; it deserves to
+                          live next to the human-readable feature list). */}
+                      {resolvedTab === "specs" && product.specs
+                        .filter(g => !g.group.toLowerCase().includes("fiyat"))
+                        .flatMap((group, gi) => [
+                          product.specs.filter(g => !g.group.toLowerCase().includes("fiyat")).length > 1 ? (
                             <div
                               key={`g${gi}`}
                               className="px-4 py-1.5 flex items-center gap-1.5"
-                              style={{ background: isPrice ? `${accent}0c` : d ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.018)", borderTop: gi > 0 ? `1px solid ${divider}` : "none" }}
+                              style={{ background: d ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.018)", borderTop: gi > 0 ? `1px solid ${divider}` : "none" }}
                             >
-                              <div className="w-1 h-1 rounded-full" style={{ background: isPrice ? accent : `${accent}60` }} />
-                              <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: isPrice ? accent : textFaint }}>{group.group}</span>
-                              {isPrice && (
-                                <span className="ml-auto text-[9px] font-semibold px-1.5 py-0.5 rounded-full" style={{ background: `${accent}15`, color: `${accent}cc` }}>KDV Hariç</span>
-                              )}
+                              <div className="w-1 h-1 rounded-full" style={{ background: `${accent}60` }} />
+                              <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: textFaint }}>{group.group}</span>
                             </div>
                           ) : null,
                           ...group.items.map((item, ii) => (
@@ -595,16 +599,12 @@ export default function ProductDetailPage({
                               style={{ borderTop: `1px solid ${divider}` }}
                             >
                               <span className="text-xs" style={{ color: textFaint, flexShrink: 0 }}>{item.label}</span>
-                              <span className="text-xs font-semibold text-right inline-flex items-baseline gap-1.5" style={{ color: isPrice ? accent : textMuted }}>
-                                {isPrice ? formatPrice(item.value, currency, eurPerTry) : item.value}
-                                {isPrice && (
-                                  <span className="text-[10px] font-medium" style={{ color: `${accent}99` }}>+ KDV</span>
-                                )}
+                              <span className="text-xs font-semibold text-right" style={{ color: textMuted }}>
+                                {item.value}
                               </span>
                             </div>
                           )),
-                        ];
-                      })}
+                        ])}
 
                       {/* General features tab — unified white-card / brand-blue
                           palette regardless of category accent (the colorful
@@ -614,6 +614,43 @@ export default function ProductDetailPage({
                           chip, and a theme-aware label/background. */}
                       {resolvedTab === "general" && (
                         <div className="p-4 space-y-3">
+                          {/* Fiyat rows pulled from any spec group whose
+                              name contains "fiyat". Stored values are
+                              EUR; we convert to TRY when the active
+                              language is TR. Rendered before the feature
+                              chips so the visitor sees pricing first. */}
+                          {(() => {
+                            const priceGroups = product.specs.filter(g => g.group.toLowerCase().includes("fiyat"));
+                            const priceRows = priceGroups.flatMap(g => g.items);
+                            if (priceRows.length === 0) return null;
+                            return (
+                              <div
+                                className="rounded-xl overflow-hidden"
+                                style={{
+                                  background: d ? "rgba(59,130,246,0.06)" : "rgba(59,130,246,0.04)",
+                                  border: `1px solid ${BRAND_BLUE}26`,
+                                }}
+                              >
+                                <div className="px-4 py-2 flex items-center justify-between" style={{ borderBottom: `1px solid ${BRAND_BLUE}1f`, background: `${BRAND_BLUE}0c` }}>
+                                  <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: BRAND_BLUE }}>Fiyat Listesi</span>
+                                  <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full" style={{ background: `${BRAND_BLUE}15`, color: BRAND_BLUE }}>KDV Hariç</span>
+                                </div>
+                                {priceRows.map((row, i) => (
+                                  <div
+                                    key={i}
+                                    className="px-4 py-2 flex items-center justify-between gap-3"
+                                    style={{ borderTop: i > 0 ? `1px solid ${BRAND_BLUE}1a` : "none" }}
+                                  >
+                                    <span className="text-xs" style={{ color: textMuted }}>{row.label}</span>
+                                    <span className="text-sm font-bold text-right inline-flex items-baseline gap-1.5" style={{ color: BRAND_BLUE }}>
+                                      {formatPrice(row.value, currency, tryPerEur)}
+                                      <span className="text-[10px] font-medium opacity-70">+ KDV</span>
+                                    </span>
+                                  </div>
+                                ))}
+                              </div>
+                            );
+                          })()}
                           {featureList.length > 0 && (
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                               {featureList.map((f) => {
@@ -751,13 +788,13 @@ export default function ProductDetailPage({
               })),
             }]} />
             <h2 className="text-lg sm:text-xl font-black mb-5" style={{ color: sd ? "#f0f0f4" : "#111827" }}>Sıkça Sorulan Sorular</h2>
-            <div className="space-y-2.5">
+            <div className="space-y-3">
               {faq.map((item, i) => {
                 const open = openFaqIdx === i;
                 return (
                   <div
                     key={i}
-                    className="rounded-2xl overflow-hidden"
+                    className="rounded-2xl overflow-hidden w-full block"
                     style={{
                       background: sd ? "#141416" : "#ffffff",
                       border: `1px solid ${sd ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}`,
@@ -765,16 +802,17 @@ export default function ProductDetailPage({
                   >
                     <button
                       onClick={() => setOpenFaqIdx(open ? null : i)}
-                      className="w-full flex items-center gap-4 px-5 sm:px-6 py-4 sm:py-5 text-left transition-colors hover:bg-black/[0.02] dark:hover:bg-white/[0.02]"
+                      className="w-full flex items-center gap-4 px-5 sm:px-7 py-5 sm:py-6 text-left transition-colors hover:bg-black/[0.02] dark:hover:bg-white/[0.02]"
+                      style={{ minHeight: 70 }}
                     >
-                      <span className="flex-1 text-sm sm:text-base font-bold" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
+                      <span className="flex-1 text-base sm:text-lg font-bold leading-snug" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
                         {item.q}
                       </span>
                       <span
                         className="inline-flex items-center justify-center rounded-xl flex-shrink-0"
-                        style={{ width: 30, height: 30, background: `${BRAND_BLUE}14`, border: `1px solid ${BRAND_BLUE}30`, color: BRAND_BLUE }}
+                        style={{ width: 34, height: 34, background: `${BRAND_BLUE}14`, border: `1px solid ${BRAND_BLUE}30`, color: BRAND_BLUE }}
                       >
-                        {open ? <RiSubtractLine size={17} /> : <RiAddLine size={17} />}
+                        {open ? <RiSubtractLine size={18} /> : <RiAddLine size={18} />}
                       </span>
                     </button>
                     <AnimatePresence initial={false}>
@@ -786,7 +824,7 @@ export default function ProductDetailPage({
                           transition={{ duration: 0.22 }}
                           style={{ overflow: "hidden" }}
                         >
-                          <div className="px-5 sm:px-6 pb-5 pt-1 text-sm sm:text-[15px] leading-relaxed whitespace-pre-line" style={{ color: sd ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
+                          <div className="px-5 sm:px-7 pb-6 pt-1 text-sm sm:text-[15px] leading-relaxed whitespace-pre-line" style={{ color: sd ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
                             {item.a}
                           </div>
                         </motion.div>
@@ -910,10 +948,13 @@ export default function ProductDetailPage({
                       }}
                     >
                       {imgs[0] ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
+                        <Image
                           src={imgs[0]} alt={prod.name}
-                          className="absolute inset-0 w-full h-full object-contain p-1 transition-transform duration-300 group-hover:scale-105"
+                          fill
+                          sizes="(max-width: 640px) 50vw, 200px"
+                          className="object-contain p-1 transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                          quality={75}
                         />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center">

@@ -5,6 +5,8 @@ import "./globals.css";
 import { ThemeProvider } from "./context/ThemeContext";
 import { LanguageProvider } from "./context/LanguageContext";
 import { CurrencyProvider } from "./context/CurrencyContext";
+import { ContactOverlayProvider } from "./context/ContactOverlayContext";
+import ContactOverlay from "./components/ContactOverlay";
 import { ContentProvider } from "./context/ContentContext";
 import { EditModeProvider } from "./context/EditModeContext";
 import PropertiesPanelLoader from "./components/PropertiesPanelLoader";
@@ -162,16 +164,19 @@ export default async function RootLayout({
           <LanguageProvider>
             <CurrencyProvider>
               <ContentProvider initialContent={initialContent}>
-                <EditModeProvider>
-                  <ContentLoadingBar />
-                  <ContentErrorToast />
-                  <Suspense fallback={null}>
-                    <LanguageURLSync />
-                  </Suspense>
-                  {children}
-                  <CookieConsent />
-                  <PropertiesPanelLoader />
-                </EditModeProvider>
+                <ContactOverlayProvider>
+                  <EditModeProvider>
+                    <ContentLoadingBar />
+                    <ContentErrorToast />
+                    <Suspense fallback={null}>
+                      <LanguageURLSync />
+                    </Suspense>
+                    {children}
+                    <ContactOverlay />
+                    <CookieConsent />
+                    <PropertiesPanelLoader />
+                  </EditModeProvider>
+                </ContactOverlayProvider>
               </ContentProvider>
             </CurrencyProvider>
           </LanguageProvider>
