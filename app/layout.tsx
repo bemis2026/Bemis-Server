@@ -7,6 +7,8 @@ import { LanguageProvider } from "./context/LanguageContext";
 import { CurrencyProvider } from "./context/CurrencyContext";
 import { ContactOverlayProvider } from "./context/ContactOverlayContext";
 import ContactOverlay from "./components/ContactOverlay";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ContentProvider } from "./context/ContentContext";
 import { EditModeProvider } from "./context/EditModeContext";
 import PropertiesPanelLoader from "./components/PropertiesPanelLoader";
@@ -181,6 +183,14 @@ export default async function RootLayout({
             </CurrencyProvider>
           </LanguageProvider>
         </ThemeProvider>
+        {/* Vercel-owned trackers — Speed Insights samples Core Web
+            Vitals (LCP, CLS, INP, FCP, TTFB) and Analytics counts
+            pageviews + referrers. Both ship a tiny script that beacons
+            to vercel-insights.com; they're free on Vercel's Hobby tier
+            with monthly limits, and silently no-op when the deploy
+            isn't on Vercel infra (so local dev stays clean). */}
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
