@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import Navbar from "../components/Navbar";
@@ -11,7 +10,7 @@ import ContactBar from "../components/ContactBar";
 import Image from "next/image";
 import {
   RiShieldCheckLine, RiGlobalLine, RiLeafLine, RiAwardLine,
-  RiCpuLine, RiMedalLine, RiGlobeLine, RiBuilding4Line, RiArrowLeftLine,
+  RiCpuLine, RiMedalLine, RiGlobeLine, RiBuilding4Line,
   RiToolsLine, RiCodeLine, RiStackLine, RiCheckboxCircleLine, RiImageAddLine,
 } from "react-icons/ri";
 
@@ -73,7 +72,6 @@ const FALLBACK_TIMELINE = [
 export default function KurumsalPage() {
   const { theme } = useTheme();
   const d = theme === "dark";
-  const router = useRouter();
   const { dna } = useContent();
   const [searchOpen, setSearchOpen] = useState(false);
   const [aboutVideoReady, setAboutVideoReady] = useState(false);
@@ -112,17 +110,6 @@ export default function KurumsalPage() {
           }}
         >
           <div className="max-w-7xl mx-auto">
-            <motion.button
-              initial={{ opacity: 0, x: -12 }}
-              animate={{ opacity: 1, x: 0 }}
-              onClick={() => router.back()}
-              className="flex items-center gap-2 mb-8 group"
-              style={{ color: textFaint }}
-            >
-              <RiArrowLeftLine size={16} className="group-hover:-translate-x-1 transition-transform" />
-              <span className="text-sm font-medium">Ana Sayfa</span>
-            </motion.button>
-
             <div className="grid lg:grid-cols-2 gap-10 items-center">
               <div>
                 <motion.span
@@ -344,28 +331,28 @@ export default function KurumsalPage() {
                       <div className="flex flex-col items-center w-full">
                         {/* Parent brand — wider card, bigger logo */}
                         <div
-                          className="flex items-center gap-2.5 rounded-xl px-4 py-2.5"
-                          style={{ background: cardBg, border: cardBorder, minHeight: 56 }}
+                          className="flex items-center gap-3.5 rounded-2xl px-5 py-4"
+                          style={{ background: cardBg, border: cardBorder, minHeight: 84 }}
                         >
-                          {renderLogo(parent, 36, 140)}
-                          <span className="text-sm font-black tracking-tight" style={{ color: textPrimary }}>{parent.name}</span>
+                          {renderLogo(parent, 60, 220)}
+                          <span className="text-base font-black tracking-tight" style={{ color: textPrimary }}>{parent.name}</span>
                         </div>
                         {children.length > 0 && (
                           <>
-                            <div style={{ width: 1, height: 14, background: lineColor }} />
+                            <div style={{ width: 1, height: 18, background: lineColor }} />
                             {children.length > 1 && (
-                              <div style={{ height: 1, background: lineColor, width: `${Math.min(80, children.length * 38)}%` }} />
+                              <div style={{ height: 1, background: lineColor, width: `${Math.min(85, children.length * 42)}%` }} />
                             )}
                             <div className="flex justify-center gap-3 w-full">
                               {children.map((b, i) => (
                                 <div key={i} className="flex flex-col items-center">
-                                  <div style={{ width: 1, height: 10, background: lineColor }} />
+                                  <div style={{ width: 1, height: 14, background: lineColor }} />
                                   <div
-                                    className="flex items-center gap-2 rounded-xl px-3 py-2"
-                                    style={{ background: cardBg, border: cardBorder, minHeight: 48 }}
+                                    className="flex flex-col items-center gap-1.5 rounded-2xl px-3 py-3"
+                                    style={{ background: cardBg, border: cardBorder, minHeight: 84 }}
                                   >
-                                    {renderLogo(b, 24, 100)}
-                                    <span className="text-xs font-bold" style={{ color: textPrimary }}>{b.name}</span>
+                                    {renderLogo(b, 44, 150)}
+                                    <span className="text-[11px] font-bold text-center leading-tight" style={{ color: textPrimary }}>{b.name}</span>
                                   </div>
                                 </div>
                               ))}

@@ -164,15 +164,23 @@ export default function FeaturedProducts() {
                 <div style={{ height: 3, background: item.accent, opacity: isHov ? 1 : 0.5, transition: "opacity 0.3s" }} />
 
                 {/* Product image — sized so image and text body have similar
-                    visual weight inside the marquee card. */}
-                <div className="relative overflow-hidden" style={{ height: "clamp(150px, 18vw, 190px)" }}>
+                    visual weight inside the marquee card. object-contain
+                    so the whole product fits inside the frame (was
+                    cropping product silhouettes on tall packshots). */}
+                <div
+                  className="relative overflow-hidden"
+                  style={{
+                    height: "clamp(150px, 18vw, 190px)",
+                    background: d ? `linear-gradient(135deg, ${item.accent}10 0%, ${item.accent}03 100%)` : `linear-gradient(135deg, ${item.accent}0c 0%, #fafafa 100%)`,
+                  }}
+                >
                   {item.prod?.image ? (
                     <Image
                       src={item.prod.image}
                       alt={item.prod.name}
                       fill
                       sizes="(max-width: 640px) 80vw, (max-width: 1024px) 40vw, 280px"
-                      className="object-cover"
+                      className="object-contain p-3"
                       style={{ transition: "transform 0.4s ease", transform: isHov ? "scale(1.04)" : "scale(1)" }}
                       loading="lazy"
                       quality={75}

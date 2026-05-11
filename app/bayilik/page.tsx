@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
@@ -12,6 +11,7 @@ import JsonLd from "../components/JsonLd";
 import { serviceSchema } from "../lib/seo";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
+import { useDealerApplyOverlay } from "../context/DealerApplyOverlayContext";
 import {
   RiCheckLine, RiBuilding4Line, RiGlobalLine, RiArrowRightLine,
 } from "react-icons/ri";
@@ -83,9 +83,9 @@ const INTL_CRITERIA = [
 ];
 
 export default function BayilikPage() {
-  const router = useRouter();
   const { theme } = useTheme();
   const { lang } = useLanguage();
+  const { openDealerApply } = useDealerApplyOverlay();
   const d = theme === "dark";
   const [searchOpen, setSearchOpen] = useState(false);
   const [cms, setCms] = useState<BayilikContent>(DEFAULT);
@@ -351,11 +351,12 @@ export default function BayilikPage() {
 
             <div className="mt-6 pt-5" style={{ borderTop: `1px solid ${border}` }}>
               <button
-                onClick={() => router.push(tab === "tr" ? "/#contact?topic=dealer-apply" : "/#contact?topic=export")}
-                className="inline-flex items-center gap-2 text-sm font-bold px-5 py-2.5 rounded-xl transition-all"
+                onClick={() => openDealerApply(tab)}
+                className="inline-flex items-center gap-2 text-sm font-bold px-5 py-2.5 rounded-xl transition-all hover:scale-[1.02] hover:brightness-110 active:scale-95"
                 style={{
                   background: tab === "tr" ? GREEN : BLUE,
                   color: "#ffffff",
+                  boxShadow: `0 6px 20px ${(tab === "tr" ? GREEN : BLUE)}40`,
                 }}
               >
                 {tab === "tr" ? "Bayi Başvurusu" : "Distribütör Başvurusu"}

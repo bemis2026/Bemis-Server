@@ -38,7 +38,7 @@ const categories = [
     id: "portable",
     name: "AC Mobile Chargers",
     subtitle: "Taşınabilir Şarj Cihazları",
-    modelCount: 2,
+    modelCount: 3,
     icon: RiBatteryChargeLine,
     accent: "#10B981",
     accentGlow: "rgba(16,185,129,0.20)",
@@ -428,7 +428,13 @@ export default function Products() {
                     background: d ? cat.darkVisualBg : cat.lightVisualBg,
                   }}
                 >
-                  {/* Category image (if set) */}
+                  {/* Category image (if set) — object-cover so the kategori
+                      kartı reads as an atmospheric visual filling the
+                      entire frame, not a product packshot. The actual
+                      product photos live on /products/[id] and inside
+                      the FeaturedProducts marquee (both object-contain).
+                      Here the category just needs an evocative image
+                      behind the title overlay. */}
                   {cat.image && (
                     <Image
                       src={cat.image}

@@ -119,6 +119,25 @@ export type ReviewItem = {
   author: string; date: string; product: string; text: string;
 };
 
+export type SocialPost = {
+  /** Stable id for list editing in the admin panel. */
+  id: string;
+  /** Which channel this post belongs to. Renders alongside the matching
+   *  brand-coloured tile in the Reviews block. */
+  platform: "linkedin" | "instagram" | "youtube";
+  /** Post thumbnail (ImgBB or Cloudinary URL — same upload pipeline as
+   *  product photos). */
+  image: string;
+  /** Plain-text caption — 1-2 sentences fits the card; longer captions
+   *  get line-clamped. */
+  caption: string;
+  /** Public URL to the post on the original platform. Click target. */
+  link: string;
+  /** Human label like "2 hafta önce" or "12 May 2026". Admin-curated;
+   *  we don't parse dates from the source platform. */
+  date?: string;
+};
+
 export type HeroLayout = {
   logo:   { x: number; y: number };
   text:   { x: number; y: number };
@@ -148,7 +167,18 @@ export type SiteContent = {
   company: {
     foundedYear: string; exportCountries: string; productCount: string; facilitySize: string;
   };
-  social: { linkedin: string; instagram: string; twitter: string };
+  social: {
+    linkedin: string;
+    instagram: string;
+    twitter: string;
+    youtube: string;
+    /** Operator-curated "latest post" cards shown beside the reviews
+     *  block. There is no official public feed API for LinkedIn and
+     *  Instagram's Graph API requires a Meta business token — so we
+     *  pin a snapshot of the most recent post per platform that the
+     *  admin updates from the panel. */
+    recentPosts?: SocialPost[];
+  };
   dna: {
     sectionLabel: string; sectionHeading: string;
     brandHeading: string; brandPara1: string; brandPara2: string;
@@ -318,7 +348,7 @@ const defaultContent: SiteContent = {
   company: {
     foundedYear: "1994", exportCountries: "60+", productCount: "6000+", facilitySize: "11.000 m²",
   },
-  social: { linkedin: "", instagram: "", twitter: "" },
+  social: { linkedin: "", instagram: "", twitter: "", youtube: "", recentPosts: [] },
   dna: {
     sectionLabel: "Hakkımızda",
     sectionHeading: "Üretimden yazılıma — her şey bizden",

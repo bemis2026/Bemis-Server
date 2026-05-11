@@ -7,6 +7,8 @@ import { LanguageProvider } from "./context/LanguageContext";
 import { CurrencyProvider } from "./context/CurrencyContext";
 import { ContactOverlayProvider } from "./context/ContactOverlayContext";
 import ContactOverlay from "./components/ContactOverlay";
+import { DealerApplyOverlayProvider } from "./context/DealerApplyOverlayContext";
+import DealerApplyOverlay from "./components/DealerApplyOverlay";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ContentProvider } from "./context/ContentContext";
@@ -38,7 +40,7 @@ type ContentSnapshot = {
   email: string | null;
   addressStreet: string | null;
   addressLocality: string | null;
-  social: { linkedin: string; instagram: string; twitter: string };
+  social: { linkedin: string; instagram: string; twitter: string; youtube: string };
 };
 
 async function getContentMeta(): Promise<ContentSnapshot> {
@@ -47,7 +49,7 @@ async function getContentMeta(): Promise<ContentSnapshot> {
     const data = await readBin("content") as Record<string, unknown>;
     const logos = (data?.logos ?? {}) as { dark?: string; light?: string };
     const contact = (data?.contact ?? {}) as { phone?: string; email?: string; address?: string; addressSub?: string };
-    const social = (data?.social ?? {}) as { linkedin?: string; instagram?: string; twitter?: string };
+    const social = (data?.social ?? {}) as { linkedin?: string; instagram?: string; twitter?: string; youtube?: string };
     return {
       ogImage: (data?.ogImage as string) || null,
       faviconUrl: (data?.faviconUrl as string) || null,
@@ -61,6 +63,7 @@ async function getContentMeta(): Promise<ContentSnapshot> {
         linkedin: social.linkedin || "",
         instagram: social.instagram || "",
         twitter: social.twitter || "",
+        youtube: social.youtube || "",
       },
     };
   } catch {}
@@ -69,7 +72,7 @@ async function getContentMeta(): Promise<ContentSnapshot> {
     logoDark: null, logoLight: null,
     phone: null, email: null,
     addressStreet: null, addressLocality: null,
-    social: { linkedin: "", instagram: "", twitter: "" },
+    social: { linkedin: "", instagram: "", twitter: "", youtube: "" },
   };
 }
 
@@ -167,17 +170,20 @@ export default async function RootLayout({
             <CurrencyProvider>
               <ContentProvider initialContent={initialContent}>
                 <ContactOverlayProvider>
-                  <EditModeProvider>
-                    <ContentLoadingBar />
-                    <ContentErrorToast />
-                    <Suspense fallback={null}>
-                      <LanguageURLSync />
-                    </Suspense>
-                    {children}
-                    <ContactOverlay />
-                    <CookieConsent />
-                    <PropertiesPanelLoader />
-                  </EditModeProvider>
+                  <DealerApplyOverlayProvider>
+                    <EditModeProvider>
+                      <ContentLoadingBar />
+                      <ContentErrorToast />
+                      <Suspense fallback={null}>
+                        <LanguageURLSync />
+                      </Suspense>
+                      {children}
+                      <ContactOverlay />
+                      <DealerApplyOverlay />
+                      <CookieConsent />
+                      <PropertiesPanelLoader />
+                    </EditModeProvider>
+                  </DealerApplyOverlayProvider>
                 </ContactOverlayProvider>
               </ContentProvider>
             </CurrencyProvider>

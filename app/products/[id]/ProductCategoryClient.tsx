@@ -175,7 +175,11 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
         </div>
       </div>
 
-      {/* Product grid */}
+      {/* Product grid — uniform 5-col density across every category so
+          a smaller catalog (AC Mobile Chargers, dc-units) renders the
+          same compact tile size as a dense category (cables, v2l).
+          Empty slots after the last card read as expected catalog
+          rhythm, not "broken layout". */}
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-10">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
           {groupVariantsByName(category.products ?? []).map((group, pi) => {

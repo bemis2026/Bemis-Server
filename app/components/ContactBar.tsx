@@ -3,7 +3,7 @@
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import { HiLocationMarker, HiPhone, HiMail } from "react-icons/hi";
-import { RiLinkedinFill, RiInstagramLine } from "react-icons/ri";
+import { RiLinkedinFill, RiInstagramLine, RiYoutubeFill } from "react-icons/ri";
 
 export default function ContactBar() {
   const { contact, social, logos } = useContent();
@@ -88,6 +88,15 @@ export default function ContactBar() {
                 onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = socialColor)}
               >
                 <RiInstagramLine size={16} />
+              </a>
+            )}
+            {social?.youtube && (
+              <a href={social.youtube} target="_blank" rel="noopener noreferrer"
+                style={{ color: socialColor }}
+                onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = hoverColor)}
+                onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = socialColor)}
+              >
+                <RiYoutubeFill size={16} />
               </a>
             )}
             <span className="text-[10px] pl-2" style={{ color: copyColor }}>

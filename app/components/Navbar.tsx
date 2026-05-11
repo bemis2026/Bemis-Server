@@ -60,16 +60,48 @@ function BemisMark({ accent, size = 28 }: { accent: string; size?: number }) {
 
 // Accents match the destination page's own color palette so the
 // dropdown chip and the landing page hero read as the same brand
-// surface, not random palette picks.
-const KURUMSAL_DROPDOWN = [
-  { label: "OEM & Üreticiler",      sub: "Teknik portföy ve mühendislik desteği",    href: "/b2b",      accent: "#F59E0B" },
-  { label: "Bayi & Distribütör",    sub: "Türkiye bayilik & yurtdışı distribütörlük", href: "/bayilik",  accent: "#10B981" },
-  { label: "Şarj Ağı Operatörleri", sub: "OCPP ekipman, DLM, uzaktan izleme",        href: "/operator", accent: "#3B82F6" },
+// surface, not random palette picks. Localized labels keyed by lang
+// — falls back to TR when key is missing.
+type DropdownItem = {
+  label: { tr: string; en: string };
+  sub:   { tr: string; en: string };
+  href: string;
+  accent: string;
+};
+
+const KURUMSAL_DROPDOWN: DropdownItem[] = [
+  {
+    label: { tr: "OEM & Üreticiler", en: "OEM & Manufacturers" },
+    sub:   { tr: "Teknik portföy ve mühendislik desteği", en: "Technical portfolio & engineering support" },
+    href: "/b2b", accent: "#F59E0B",
+  },
+  {
+    label: { tr: "Bayi & Distribütör", en: "Dealer & Distributor" },
+    sub:   { tr: "Türkiye bayilik & yurtdışı distribütörlük", en: "Türkiye dealership & international distribution" },
+    href: "/bayilik", accent: "#10B981",
+  },
+  {
+    label: { tr: "Şarj Ağı Operatörleri", en: "Charging Network Operators" },
+    sub:   { tr: "OCPP ekipman, DLM, uzaktan izleme", en: "OCPP equipment, DLM, remote monitoring" },
+    href: "/operator", accent: "#3B82F6",
+  },
 ];
 
-const HAKKIMIZDA_DROPDOWN = [
-  { label: "Bemis Dünyası",  sub: "Tarihçe, üretim süreci, sertifikalar", href: "/kurumsal", accent: "#3B82F6" },
+const HAKKIMIZDA_DROPDOWN: DropdownItem[] = [
+  {
+    label: { tr: "Bemis Dünyası", en: "Bemis World" },
+    sub:   { tr: "Tarihçe, üretim süreci, sertifikalar", en: "History, production process, certifications" },
+    href: "/kurumsal", accent: "#3B82F6",
+  },
 ];
+
+const NAV_STRINGS = {
+  kurumsalFooter: { tr: "Ana sayfadaki kurumsal bölüme git →", en: "Go to corporate section on home →" },
+  kurumsalFooterMobile: { tr: "↳ Ana sayfadaki kurumsal bölüm", en: "↳ Corporate section on home" },
+  urunlerHeading: { tr: "Ürün Kategorileri", en: "Product Categories" },
+  urunlerFooter: { tr: "Tüm ürünlere göz at", en: "Browse all products" },
+  urunlerFooterMobile: { tr: "→ Tüm ürünlere göz at", en: "→ Browse all products" },
+};
 
 // Brand colour per category — used as a tiny accent dot in the navbar
 // dropdown and on the category-page header. The previous icon-per-
@@ -271,8 +303,8 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                                   <BemisMark accent={item.accent} size={36} />
                                 </div>
                                 <div className="min-w-0">
-                                  <p className="text-sm font-semibold leading-tight" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{item.label}</p>
-                                  <p className="text-[11px] mt-0.5 leading-tight" style={{ color: isDark ? "rgba(240,240,244,0.45)" : "rgba(26,26,26,0.45)" }}>{item.sub}</p>
+                                  <p className="text-sm font-semibold leading-tight" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{item.label[lang]}</p>
+                                  <p className="text-[11px] mt-0.5 leading-tight" style={{ color: isDark ? "rgba(240,240,244,0.45)" : "rgba(26,26,26,0.45)" }}>{item.sub[lang]}</p>
                                 </div>
                               </button>
                             ))}
@@ -284,7 +316,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.60)"; }}
                               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)"; }}
                             >
-                              Ana sayfadaki kurumsal bölüme git →
+                              {NAV_STRINGS.kurumsalFooter[lang]}
                             </button>
                           </div>
                         </motion.div>
@@ -317,8 +349,8 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                               >
                                 <div className="flex-1 min-w-0">
-                                  <p className="text-sm font-semibold leading-tight" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{item.label}</p>
-                                  <p className="text-xs leading-snug mt-0.5" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.50)" }}>{item.sub}</p>
+                                  <p className="text-sm font-semibold leading-tight" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{item.label[lang]}</p>
+                                  <p className="text-xs leading-snug mt-0.5" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.50)" }}>{item.sub[lang]}</p>
                                 </div>
                                 <RiArrowRightLine size={14} style={{ color: item.accent, opacity: 0.5, marginTop: 8 }} />
                               </button>
@@ -346,7 +378,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                           {/* Header */}
                           <div className="px-4 pt-3.5 pb-2.5" style={{ borderBottom: `1px solid ${isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"}` }}>
                             <p className="text-[11px] font-bold uppercase tracking-widest" style={{ color: isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)" }}>
-                              Ürün Kategorileri
+                              {NAV_STRINGS.urunlerHeading[lang]}
                             </p>
                           </div>
                           {/* 2-col grid */}
@@ -380,7 +412,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.60)"; }}
                               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)"; }}
                             >
-                              <span>Tüm ürünlere göz at</span>
+                              <span>{NAV_STRINGS.urunlerFooter[lang]}</span>
                               <RiArrowRightLine size={13} />
                             </button>
                           </div>
@@ -492,7 +524,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                         {HAKKIMIZDA_DROPDOWN.map(item => (
                           <button key={item.href} onClick={() => { setMobileOpen(false); router.push(item.href); }}
                             className={`block w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black"}`}>
-                            {item.label}
+                            {item.label[lang]}
                           </button>
                         ))}
                       </div>
@@ -503,13 +535,13 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                       <div className="py-2 space-y-1 pl-2">
                         <button onClick={() => { setMobileOpen(false); handleNavClick("#b2bcta"); }}
                           className={`block w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/40 hover:text-white/70" : "text-black/40 hover:text-black/70"}`}>
-                          ↳ Ana sayfadaki kurumsal bölüm
+                          {NAV_STRINGS.kurumsalFooterMobile[lang]}
                         </button>
                         {KURUMSAL_DROPDOWN.map(item => (
                           <button key={item.href} onClick={() => { setMobileOpen(false); router.push(item.href); }}
                             className={`flex items-center gap-2 w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black"}`}>
                             <BemisMark accent={item.accent} size={20} />
-                            {item.label}
+                            {item.label[lang]}
                           </button>
                         ))}
                       </div>
@@ -527,7 +559,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                         ))}
                         <button onClick={() => { setMobileOpen(false); router.push("/products"); }}
                           className={`block w-full text-left text-sm py-2 px-3 rounded-lg font-semibold ${isDark ? "text-blue-400" : "text-blue-600"}`}>
-                          → Tüm ürünlere göz at
+                          {NAV_STRINGS.urunlerFooterMobile[lang]}
                         </button>
                       </div>
                     )}
