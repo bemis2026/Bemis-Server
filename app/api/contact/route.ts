@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
 import { readBin, writeBin } from "../../../lib/jsonbin";
 import { checkRateLimit, recordFailure, getClientIp } from "@/lib/rate-limit";
+import { notifyAdmin, sendAutoReply } from "../../../lib/email";
 
 const CONTACT_RL_OPTS = {
   // 3 messages per IP per hour, 1 hour cool-down on the 4th attempt.
@@ -124,56 +124,38 @@ export async function POST(req: NextRequest) {
     receivedAt: new Date().toISOString(),
   });
 
-  // ── Resend (öncelikli) ──────────────────────────────────────────────────
-  const resendKey  = process.env.RESEND_API_KEY;
-  const toEmail    = process.env.CONTACT_TO_EMAIL;
+  // Two emails go out in parallel:
+  //   1. Admin notification → CONTACT_TO_EMAIL (sales@bemis.com.tr)
+  //   2. Auto-reply         → the form filler's own address
+  // Both use lib/email.ts which picks Resend → SMTP fallback. We don't
+  // block the response on either: the user sees "mesajınız alındı" as
+  // long as at least one mail dispatch succeeded, and the message has
+  // already been saved to the JSONBin in either case.
+  const adminHtml = buildHtml({ name, company, email, phone, message }, topicLabel, ip);
+  const [adminRes, replyRes] = await Promise.all([
+    notifyAdmin({
+      subject: `[Bemis Website] ${topicLabel} — ${name}`,
+      html: adminHtml,
+      fromUserEmail: email,
+    }),
+    sendAutoReply({
+      toUser: email,
+      name,
+      topicLabel,
+      originalMessage: message,
+      formKind: "İletişim formu",
+    }),
+  ]);
 
-  if (resendKey && toEmail) {
-    try {
-      const res = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${resendKey}` },
-        body: JSON.stringify({
-          from: process.env.RESEND_FROM_EMAIL ?? "Bemis Website <onboarding@resend.dev>",
-          to: [toEmail],
-          reply_to: email,
-          subject: `[Bemis Website] ${topicLabel} — ${name}`,
-          html: buildHtml({ name, company, email, phone, message }, topicLabel, ip),
-        }),
-      });
-      if (res.ok) return NextResponse.json({ ok: true });
-      console.error("[contact] Resend error:", await res.text());
-    } catch (e) {
-      console.error("[contact] Resend exception:", e);
-    }
-  }
-
-  // ── SMTP (yedek) ────────────────────────────────────────────────────────
-  const smtpHost = process.env.SMTP_HOST;
-  const smtpPort = Number(process.env.SMTP_PORT ?? 587);
-  const smtpUser = process.env.SMTP_USER;
-  const smtpPass = process.env.SMTP_PASS;
-  const smtpTo   = toEmail ?? smtpUser;
-
-  if (smtpHost && smtpUser && smtpPass && smtpTo) {
-    try {
-      const transporter = nodemailer.createTransport({
-        host: smtpHost, port: smtpPort, secure: smtpPort === 465,
-        auth: { user: smtpUser, pass: smtpPass },
-      });
-      await transporter.sendMail({
-        from: `"Bemis EV Charge Website" <${smtpUser}>`,
-        to: smtpTo, replyTo: email,
-        subject: `[Bemis Website] ${topicLabel} — ${name}`,
-        html: buildHtml({ name, company, email, phone, message }, topicLabel, ip),
-      });
-      return NextResponse.json({ ok: true });
-    } catch (err) {
-      console.error("[contact] SMTP failed:", err);
-    }
+  if (adminRes.ok || replyRes.ok) {
+    return NextResponse.json({
+      ok: true,
+      adminSent: adminRes.ok,
+      autoReplySent: replyRes.ok,
+    });
   }
 
   // Mesaj JSONBin'e kaydedildi ama e-posta gönderilemedi
-  console.error("[contact] All email providers failed or unconfigured.");
+  console.error("[contact] Both admin notify + auto-reply failed:", { adminRes, replyRes });
   return NextResponse.json({ error: "E-posta gönderilemedi, mesajınız kaydedildi." }, { status: 500 });
 }
