@@ -23,7 +23,24 @@ type B2BCapability = { title: string; body: string };
 type B2BCtaChannel = { href: string; label: string; sub: string };
 type B2BCta = { eyebrow: string; heading: string; description: string; tags: string[]; channels: B2BCtaChannel[] };
 type B2BMarketingEvent = { id: string; image: string; title?: string; location?: string; date?: string };
-type B2BBayilik = { heading1: string; heading2: string; description: string; infoTable: { label: string; value: string }[]; benefits: B2BBenefit[]; criteria: string[]; heroBg?: string; marketingEvents?: B2BMarketingEvent[] };
+type B2BNetworkStat = { value: string; label: string };
+type B2BBayilik = {
+  heading1: string;
+  heading2: string;
+  description: string;
+  infoTable: { label: string; value: string }[];
+  benefits: B2BBenefit[];
+  /** Legacy single-list field — kept so older bin shapes still load.
+   *  New tab-aware lists below; render reads `trCriteria` when present
+   *  and falls back to `criteria`. */
+  criteria: string[];
+  trCriteria?: string[];
+  intlCriteria?: string[];
+  /** Numeric stat blocks shown in "Ağımız Hakkında" — 4 cards. */
+  networkStats?: B2BNetworkStat[];
+  heroBg?: string;
+  marketingEvents?: B2BMarketingEvent[];
+};
 type B2BOperator = { heading1: string; heading2: string; description: string; capabilities: B2BCapability[]; ocppFeatures: string[]; heroBg?: string; featuredProducts?: B2BFeaturedSlot[] };
 type B2BApplication = { id: string; image: string; title?: string; body?: string };
 type B2BPageData = { hero: B2BHero; featuredProducts?: B2BFeaturedSlot[]; applications?: B2BApplication[]; cta?: B2BCta; bayilik?: B2BBayilik; operator?: B2BOperator };
@@ -493,11 +510,49 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
             </div>
           </B2BCard>
 
-          {/* Criteria */}
+          {/* Ağımız Hakkında — istatistik kartları */}
           <B2BCard accent="#10B981">
-            <B2BSectionTitle label="Aranan Kriterler" hint="Başvuru koşulları listesi" />
+            <B2BSectionTitle label="Ağımız Hakkında — İstatistikler" hint="Bayilik sayfasındaki 4 sayısal kart" />
             <div className="space-y-2">
-              {(data.bayilik?.criteria ?? []).map((c, idx) => (
+              {(data.bayilik?.networkStats ?? []).map((s, idx) => (
+                <div key={idx} className="flex gap-2 items-center">
+                  <input
+                    className={inputCls}
+                    style={{ maxWidth: 110 }}
+                    value={s.value}
+                    placeholder="30+"
+                    onChange={e => setData(p => {
+                      if (!p?.bayilik) return p;
+                      const list = [...(p.bayilik.networkStats ?? [])];
+                      list[idx] = { ...list[idx], value: e.target.value };
+                      return { ...p, bayilik: { ...p.bayilik, networkStats: list } };
+                    })}
+                  />
+                  <input
+                    className={inputCls}
+                    value={s.label}
+                    placeholder="Yıl Sektör Tecrübesi"
+                    onChange={e => setData(p => {
+                      if (!p?.bayilik) return p;
+                      const list = [...(p.bayilik.networkStats ?? [])];
+                      list[idx] = { ...list[idx], label: e.target.value };
+                      return { ...p, bayilik: { ...p.bayilik, networkStats: list } };
+                    })}
+                  />
+                  {delBtn(() => setData(p => p?.bayilik ? { ...p, bayilik: { ...p.bayilik, networkStats: (p.bayilik.networkStats ?? []).filter((_, i) => i !== idx) } } : p))}
+                </div>
+              ))}
+              <div className="pt-1">
+                {addBtn(() => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), networkStats: [...(p.bayilik?.networkStats ?? []), { value: "", label: "" }] } } : p), "İstatistik Ekle")}
+              </div>
+            </div>
+          </B2BCard>
+
+          {/* Türkiye Bayilik Kriterleri */}
+          <B2BCard accent="#10B981">
+            <B2BSectionTitle label="Türkiye Bayilik — Aranan Kriterler" hint="Yurtiçi bayi başvuru koşulları" />
+            <div className="space-y-2">
+              {(data.bayilik?.trCriteria ?? data.bayilik?.criteria ?? []).map((c, idx) => (
                 <div key={idx} className="flex gap-2 items-center">
                   <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
                     style={{ background: "rgba(16,185,129,0.12)", border: "1px solid rgba(16,185,129,0.22)" }}>
@@ -506,15 +561,50 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
                   <input className={inputCls} value={c} placeholder={`Kriter ${idx + 1}`}
                     onChange={e => setData(p => {
                       if (!p?.bayilik) return p;
-                      const criteria = [...p.bayilik.criteria];
-                      criteria[idx] = e.target.value;
-                      return { ...p, bayilik: { ...p.bayilik, criteria } };
+                      const list = [...(p.bayilik.trCriteria ?? p.bayilik.criteria ?? [])];
+                      list[idx] = e.target.value;
+                      return { ...p, bayilik: { ...p.bayilik, trCriteria: list, criteria: list } };
                     })} />
-                  {delBtn(() => setData(p => p?.bayilik ? { ...p, bayilik: { ...p.bayilik, criteria: p.bayilik.criteria.filter((_, i) => i !== idx) } } : p))}
+                  {delBtn(() => setData(p => {
+                    if (!p?.bayilik) return p;
+                    const next = (p.bayilik.trCriteria ?? p.bayilik.criteria ?? []).filter((_, i) => i !== idx);
+                    return { ...p, bayilik: { ...p.bayilik, trCriteria: next, criteria: next } };
+                  }))}
                 </div>
               ))}
               <div className="pt-1">
-                {addBtn(() => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), criteria: [...(p.bayilik?.criteria ?? []), ""] } } : p), "Kriter Ekle")}
+                {addBtn(() => setData(p => {
+                  if (!p) return p;
+                  const cur = p.bayilik?.trCriteria ?? p.bayilik?.criteria ?? [];
+                  const next = [...cur, ""];
+                  return { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), trCriteria: next, criteria: next } };
+                }), "Kriter Ekle")}
+              </div>
+            </div>
+          </B2BCard>
+
+          {/* Yurtdışı Distribütörlük Kriterleri */}
+          <B2BCard accent="#3B82F6">
+            <B2BSectionTitle label="Yurtdışı Distribütörlük — Aranan Kriterler" hint="Distribütör başvuru koşulları" />
+            <div className="space-y-2">
+              {(data.bayilik?.intlCriteria ?? []).map((c, idx) => (
+                <div key={idx} className="flex gap-2 items-center">
+                  <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ background: "rgba(59,130,246,0.12)", border: "1px solid rgba(59,130,246,0.22)" }}>
+                    <HiOutlineCheck size={10} style={{ color: "#3B82F6" }} />
+                  </div>
+                  <input className={inputCls} value={c} placeholder={`Kriter ${idx + 1}`}
+                    onChange={e => setData(p => {
+                      if (!p?.bayilik) return p;
+                      const list = [...(p.bayilik.intlCriteria ?? [])];
+                      list[idx] = e.target.value;
+                      return { ...p, bayilik: { ...p.bayilik, intlCriteria: list } };
+                    })} />
+                  {delBtn(() => setData(p => p?.bayilik ? { ...p, bayilik: { ...p.bayilik, intlCriteria: (p.bayilik.intlCriteria ?? []).filter((_, i) => i !== idx) } } : p))}
+                </div>
+              ))}
+              <div className="pt-1">
+                {addBtn(() => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), intlCriteria: [...(p.bayilik?.intlCriteria ?? []), ""] } } : p), "Kriter Ekle")}
               </div>
             </div>
           </B2BCard>

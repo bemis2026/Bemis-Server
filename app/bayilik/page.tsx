@@ -25,13 +25,19 @@ type MarketingEvent = {
   location?: string;
   date?: string;
 };
+type NetworkStat = { value: string; label: string };
 type BayilikContent = {
   heading1: string;
   heading2: string;
   description: string;
   infoTable: InfoRow[];
   benefits: Benefit[];
+  /** Legacy single-criteria list — old bins still ship this. New
+   *  tab-aware lists below; render prefers tr/intl when present. */
   criteria: string[];
+  trCriteria?: string[];
+  intlCriteria?: string[];
+  networkStats?: NetworkStat[];
   heroBg?: string;
   /** Fairs / events / brand-activation visuals — admin-managed. */
   marketingEvents?: MarketingEvent[];
@@ -50,20 +56,18 @@ const DEFAULT: BayilikContent = {
   criteria: [],
 };
 
-// Stat blocks shown in the "Bayi Ağımız Hakkında" section — kurumsal
-// rakamlar, sales pitch değil. Bunu zamanla admin'e taşıyabiliriz;
-// şimdilik fixed copy.
-const NETWORK_STATS = [
+// Fallbacks used only when the CMS hasn't been populated yet — keeps
+// freshly seeded bins from showing empty stat strips / criteria lists
+// on the first render. Once the operator fills them in from the admin
+// panel the CMS values take over.
+const FALLBACK_NETWORK_STATS: NetworkStat[] = [
   { value: "30+", label: "Yıl Sektör Tecrübesi" },
   { value: "80+", label: "İlde Yetkili Bayi" },
   { value: "60+", label: "Ülke İhracat" },
   { value: "24/7", label: "Teknik Destek" },
 ];
 
-// Criteria are tab-aware — domestic dealer expectations are different
-// from a country-wide distributor's. Both lists are hardcoded; if the
-// operator wants admin control later we can move them to CMS.
-const TR_CRITERIA = [
+const FALLBACK_TR_CRITERIA = [
   "Elektrik, enerji veya otomotiv sektöründe en az 5 yıl faaliyet",
   "Yetkili satış ve teknik servis kapasitesi",
   "Bölgesel müşteri portföyü veya alt-bayi ağı",
@@ -72,7 +76,7 @@ const TR_CRITERIA = [
   "Finansal yeterlilik ve düzenli sipariş kapasitesi",
 ];
 
-const INTL_CRITERIA = [
+const FALLBACK_INTL_CRITERIA = [
   "Ülke veya bölge için tek-dağıtıcılık (exclusive) taahhüdü",
   "EV şarj veya elektrik altyapı pazarına hakimiyet",
   "Yerel ürün sertifikasyon yeterliliği (CE, ulusal standartlar)",
@@ -108,7 +112,10 @@ export default function BayilikPage() {
   const GREEN  = "#10B981";
   const BLUE   = "#3B82F6";
 
-  const activeCriteria = tab === "tr" ? TR_CRITERIA : INTL_CRITERIA;
+  const trCriteria = (cms.trCriteria?.length ? cms.trCriteria : null) ?? (cms.criteria?.length ? cms.criteria : null) ?? FALLBACK_TR_CRITERIA;
+  const intlCriteria = (cms.intlCriteria?.length ? cms.intlCriteria : null) ?? FALLBACK_INTL_CRITERIA;
+  const activeCriteria = tab === "tr" ? trCriteria : intlCriteria;
+  const networkStats = (cms.networkStats?.length ? cms.networkStats : null) ?? FALLBACK_NETWORK_STATS;
 
   return (
     <div style={{ background: bg, display: "flex", flexDirection: "column", minHeight: "100vh", position: "relative", overflow: "hidden", isolation: "isolate" }}>
@@ -197,7 +204,7 @@ export default function BayilikPage() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-12">
-            {NETWORK_STATS.map((s, i) => (
+            {networkStats.map((s, i) => (
               <motion.div
                 key={s.label}
                 initial={{ opacity: 0, y: 16 }}
