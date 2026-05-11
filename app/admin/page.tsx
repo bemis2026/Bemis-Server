@@ -126,6 +126,16 @@ type ContentData = {
     factoryImage?: string;
     factoryVideo?: string;
     productionStepImages?: string[];
+    productionStepLabels?: string[];
+    productionFinalLabel?: string;
+    kurumsalLabels?: {
+      productionEyebrow?: string;
+      productionHeading?: string;
+      productionMadeIn?: string;
+      timelineEyebrow?: string;
+      timelineHeading?: string;
+      valuesEyebrow?: string;
+    };
     timeline?: { year: string; title: string; desc: string }[];
     aboutVideo?: string;
     certifications?: { label: string; sub: string }[];
@@ -3590,6 +3600,53 @@ export default function AdminPage() {
                               <p className="text-[10px] text-white/25 leading-relaxed">
                                 MP4, WebM, MOV desteklenir. Video yüklenince fotoğrafa göre önceliklidir; otomatik, sessiz, döngüsel oynar.
                               </p>
+                            </div>
+
+                            {/* Kurumsal section labels — eyebrow + heading
+                                strings for the /kurumsal sub-blocks. */}
+                            <div className="pt-3 border-t border-white/6 space-y-3">
+                              <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">/kurumsal Bölüm Etiketleri</p>
+                              <p className="text-[10px] text-white/25 leading-relaxed">Üretim Süreci, Tarihçe ve Değerler bölümlerinin eyebrow/başlık metinleri. Boş bırakılırsa varsayılan kullanılır.</p>
+                              <div className="grid grid-cols-2 gap-2.5">
+                                <Field label="Üretim Süreci · Eyebrow" value={content.dna.kurumsalLabels?.productionEyebrow ?? ""} onChange={(v) => updateContent(["dna","kurumsalLabels","productionEyebrow"], v)} placeholder="Üretim Süreci" />
+                                <Field label="Üretim Süreci · Başlık"   value={content.dna.kurumsalLabels?.productionHeading ?? ""} onChange={(v) => updateContent(["dna","kurumsalLabels","productionHeading"], v)} placeholder="Tasarımdan Son Ürüne" />
+                                <Field label="Üretim Süreci · Yerli Etiketi" value={content.dna.kurumsalLabels?.productionMadeIn ?? ""} onChange={(v) => updateContent(["dna","kurumsalLabels","productionMadeIn"], v)} placeholder="🇹🇷 Yerli Üretim" />
+                                <Field label="Tarihçe · Eyebrow" value={content.dna.kurumsalLabels?.timelineEyebrow ?? ""} onChange={(v) => updateContent(["dna","kurumsalLabels","timelineEyebrow"], v)} placeholder="Tarihçe" />
+                                <Field label="Tarihçe · Başlık" value={content.dna.kurumsalLabels?.timelineHeading ?? ""} onChange={(v) => updateContent(["dna","kurumsalLabels","timelineHeading"], v)} placeholder="Bemis Yolculuğu" />
+                                <Field label="Değerler · Eyebrow" value={content.dna.kurumsalLabels?.valuesEyebrow ?? ""} onChange={(v) => updateContent(["dna","kurumsalLabels","valuesEyebrow"], v)} placeholder="Değerlerimiz, Teknoloji & Sertifikalar" />
+                              </div>
+                            </div>
+
+                            {/* Production step labels — text only; images
+                                live in the section below. */}
+                            <div className="pt-3 border-t border-white/6 space-y-3">
+                              <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Üretim Adımı Etiketleri</p>
+                              <p className="text-[10px] text-white/25 leading-relaxed">5 üretim adımı + son ürün etiketi. Sıralama görselle eşleşir.</p>
+                              <div className="grid grid-cols-2 gap-2.5">
+                                {["PCB Tasarımı", "Elektronik İmalat", "Yazılım", "Cihaz Tasarımı", "Test & Kalite"].map((fb, i) => (
+                                  <Field
+                                    key={i}
+                                    label={`Adım ${i + 1}`}
+                                    value={content.dna.productionStepLabels?.[i] ?? ""}
+                                    placeholder={fb}
+                                    onChange={(v) => setContent((prev) => {
+                                      if (!prev) return prev;
+                                      const next = JSON.parse(JSON.stringify(prev)) as typeof prev;
+                                      const labels = [...(next.dna.productionStepLabels ?? ["", "", "", "", ""])];
+                                      while (labels.length < 5) labels.push("");
+                                      labels[i] = v;
+                                      next.dna.productionStepLabels = labels;
+                                      return next;
+                                    })}
+                                  />
+                                ))}
+                                <Field
+                                  label="Son Ürün Etiketi"
+                                  value={content.dna.productionFinalLabel ?? ""}
+                                  placeholder="Son Ürün"
+                                  onChange={(v) => updateContent(["dna","productionFinalLabel"], v)}
+                                />
+                              </div>
                             </div>
 
                             {/* Production step images */}

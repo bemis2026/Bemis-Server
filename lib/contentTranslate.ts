@@ -27,6 +27,11 @@ const TRANSLATABLE_PATHS: string[] = [
   "dna.timeline[].title", "dna.timeline[].desc",
   "dna.certifications[].sub",
   "dna.groupBrandsTitle", "dna.groupBrandsBody",
+  "dna.productionStepLabels[]", "dna.productionFinalLabel",
+  "dna.kurumsalLabels.productionEyebrow", "dna.kurumsalLabels.productionHeading",
+  "dna.kurumsalLabels.productionMadeIn",
+  "dna.kurumsalLabels.timelineEyebrow", "dna.kurumsalLabels.timelineHeading",
+  "dna.kurumsalLabels.valuesEyebrow",
 
   "products.heading", "products.subheading", "products.sectionLabel",
   "products.allProductsLabel", "products.viewLabel", "products.allProductsDescription",

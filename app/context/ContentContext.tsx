@@ -190,6 +190,21 @@ export type SiteContent = {
     factoryImage?: string;
     factoryVideo?: string;
     productionStepImages?: string[];
+    /** Editable labels for the 5 production steps + the "Son Ürün"
+     *  final card. Index 0-4 match the icons rendered in /kurumsal;
+     *  index 5 is the final-step label. */
+    productionStepLabels?: string[];
+    productionFinalLabel?: string;
+    /** Section eyebrows + headings for /kurumsal sub-blocks so the
+     *  operator can localize/rewrite without touching code. */
+    kurumsalLabels?: {
+      productionEyebrow?: string;
+      productionHeading?: string;
+      productionMadeIn?: string;
+      timelineEyebrow?: string;
+      timelineHeading?: string;
+      valuesEyebrow?: string;
+    };
     timeline?: TimelineItem[];
     aboutVideo?: string;
     certifications?: CertificationItem[];
@@ -397,6 +412,22 @@ const defaultContent: SiteContent = {
       { name: "Bemis E-V Charge", logo: "" },
       { name: "BYES",             logo: "" },
     ],
+    productionStepLabels: [
+      "PCB Tasarımı",
+      "Elektronik İmalat",
+      "Yazılım",
+      "Cihaz Tasarımı",
+      "Test & Kalite",
+    ],
+    productionFinalLabel: "Son Ürün",
+    kurumsalLabels: {
+      productionEyebrow: "Üretim Süreci",
+      productionHeading: "Tasarımdan Son Ürüne",
+      productionMadeIn: "🇹🇷 Yerli Üretim",
+      timelineEyebrow: "Tarihçe",
+      timelineHeading: "Bemis Yolculuğu",
+      valuesEyebrow: "Değerlerimiz, Teknoloji & Sertifikalar",
+    },
   },
   products: {
     heading: "EV Şarj Çözümleri",

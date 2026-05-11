@@ -53,12 +53,21 @@ const FALLBACK_CERTS = [
   { label: "TSE",       sub: "Türk Standartları"       },
 ];
 
-const PRODUCTION_STEPS = [
-  { icon: RiCpuLine,            label: "PCB Tasarımı"      },
-  { icon: RiToolsLine,          label: "Elektronik İmalat"  },
-  { icon: RiCodeLine,           label: "Yazılım"            },
-  { icon: RiStackLine,          label: "Cihaz Tasarımı"    },
-  { icon: RiCheckboxCircleLine, label: "Test & Kalite"     },
+// Icons stay code-side (visual identity), labels live in the CMS.
+const PRODUCTION_STEP_ICONS = [
+  RiCpuLine,            // PCB
+  RiToolsLine,          // Elektronik İmalat
+  RiCodeLine,           // Yazılım
+  RiStackLine,          // Cihaz Tasarımı
+  RiCheckboxCircleLine, // Test & Kalite
+];
+
+const FALLBACK_PRODUCTION_LABELS = [
+  "PCB Tasarımı",
+  "Elektronik İmalat",
+  "Yazılım",
+  "Cihaz Tasarımı",
+  "Test & Kalite",
 ];
 
 const FALLBACK_TIMELINE = [
@@ -90,6 +99,21 @@ export default function KurumsalPage() {
   const timeline   = (dna.timeline && dna.timeline.length > 0) ? dna.timeline : FALLBACK_TIMELINE;
   const certs      = (dna.certifications && dna.certifications.length > 0) ? dna.certifications : FALLBACK_CERTS;
   const aboutVideoId = extractYouTubeId(dna.aboutVideo ?? "");
+  const productionLabels = (() => {
+    const src = dna.productionStepLabels;
+    if (!src || src.length === 0) return FALLBACK_PRODUCTION_LABELS;
+    // Fall back per-slot so a partially-populated bin still renders the
+    // remaining step labels with the default copy.
+    return FALLBACK_PRODUCTION_LABELS.map((fb, i) => (src[i]?.trim() ? src[i] : fb));
+  })();
+  const productionFinalLabel = dna.productionFinalLabel?.trim() || "Son Ürün";
+  const kLabels = dna.kurumsalLabels ?? {};
+  const txtProductionEyebrow = kLabels.productionEyebrow || "Üretim Süreci";
+  const txtProductionHeading = kLabels.productionHeading || "Tasarımdan Son Ürüne";
+  const txtProductionMadeIn  = kLabels.productionMadeIn  || "🇹🇷 Yerli Üretim";
+  const txtTimelineEyebrow   = kLabels.timelineEyebrow   || "Tarihçe";
+  const txtTimelineHeading   = kLabels.timelineHeading   || "Bemis Yolculuğu";
+  const txtValuesEyebrow     = kLabels.valuesEyebrow     || "Değerlerimiz, Teknoloji & Sertifikalar";
   const GREEN      = "#10B981";
 
   return (
@@ -396,10 +420,10 @@ export default function KurumsalPage() {
                   color: d ? "#93C5FD" : BLUE,
                 }}
               >
-                Tarihçe
+                {txtTimelineEyebrow}
               </span>
               <h2 className="text-3xl sm:text-4xl font-black" style={{ color: textPrimary }}>
-                Bemis Yolculuğu
+                {txtTimelineHeading}
               </h2>
               <motion.div
                 initial={{ scaleX: 0, opacity: 0 }}
@@ -519,10 +543,10 @@ export default function KurumsalPage() {
                         color: d ? "#93C5FD" : BLUE,
                       }}
                     >
-                      Üretim Süreci
+                      {txtProductionEyebrow}
                     </span>
                     <h2 className="text-3xl sm:text-4xl font-black" style={{ color: textPrimary }}>
-                      Tasarımdan Son Ürüne
+                      {txtProductionHeading}
                     </h2>
                     <div
                       className="h-[2px] w-24 origin-left rounded-full mt-3"
@@ -533,15 +557,15 @@ export default function KurumsalPage() {
                     className="text-[10px] font-bold px-3 py-1.5 rounded-full self-start"
                     style={{ background: `${GREEN}15`, color: GREEN, border: `1px solid ${GREEN}30` }}
                   >
-                    🇹🇷 Yerli Üretim
+                    {txtProductionMadeIn}
                   </span>
                 </div>
 
                 {/* Production steps grid — 3 cols on tablet+, 2 on mobile */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
-                  {[...PRODUCTION_STEPS, { icon: null as null, label: "Son Ürün" }].map((step, i) => {
+                  {[...PRODUCTION_STEP_ICONS.map((icon, i) => ({ icon, label: productionLabels[i] })), { icon: null as null, label: productionFinalLabel }].map((step, i) => {
                     const imgSrc = dna.productionStepImages?.[i];
-                    const isFinal = i === PRODUCTION_STEPS.length;
+                    const isFinal = i === PRODUCTION_STEP_ICONS.length;
                     const StepIcon = step.icon;
 
                     return (
@@ -625,7 +649,7 @@ export default function KurumsalPage() {
                 className="inline-block text-[10px] font-bold tracking-[0.20em] uppercase px-3 py-1.5 rounded-full mb-4"
                 style={{ background: d ? `${BLUE}18` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`, color: d ? "#93C5FD" : BLUE }}
               >
-                Değerlerimiz, Teknoloji & Sertifikalar
+                {txtValuesEyebrow}
               </span>
               <div className="h-px w-16 mt-1" style={{ background: `linear-gradient(90deg, ${BLUE} 0%, transparent 100%)` }} />
             </div>
