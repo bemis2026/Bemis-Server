@@ -3,13 +3,19 @@ import { translateBatch } from "./translate";
 // Path notation for products (root is an array of categories):
 //   "[].field"          — every category's .field
 //   "[].arr[].field"    — every category's .arr items' .field
+//
+// Product names ("Pro Mobile", "Mini Mobile", "Charger 2", "BEVDC 80")
+// are model / brand names and MUST NOT be translated. MyMemory was
+// rewriting them ("Mini Mobile" → "Pro Mobile", "Mono Mobile" → "Şarj
+// Seti 20A Monofaze") which then collided with other product names and
+// merged them into one card via the variant-by-name grouper. Same goes
+// for category names ("AC Wallbox", "DC Şarj Üniteleri") — brand-y
+// labels should stay intact across languages.
 const TRANSLATABLE_PATHS: string[] = [
-  "[].name",
   "[].tagline",
   "[].subtitle",
   "[].description",
 
-  "[].products[].name",
   "[].products[].subtitle",
   "[].products[].description",
   "[].products[].badge",

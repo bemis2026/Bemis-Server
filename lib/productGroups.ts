@@ -29,8 +29,19 @@ export type ProductGroup<T extends ProductLike = ProductLike> = {
   variants: T[];
 };
 
+// IP rating (IP44, IP66, etc.) is a SPEC of the product, not part of
+// its identity — Otomatlı IP44 Kombinasyon and Otomatlı IP66 Kombinasyon
+// are the same product family with different ingress-protection
+// classes. Strip "IP##" from the grouping key so they collapse onto a
+// single card with a variant picker. The product's full name (with the
+// IP rating) is still rendered on the detail page.
 function normaliseKey(name: string): string {
-  return name.trim().toLocaleLowerCase("tr");
+  return name
+    .trim()
+    .toLocaleLowerCase("tr")
+    .replace(/\bip\s*\d+\b/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 /**
