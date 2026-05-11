@@ -84,11 +84,13 @@ html[data-theme="light"] body::before {
     );
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar { width: 5px; }
+/* Custom scrollbar — slightly more visible than the original 5px/#333
+   strip so visitors clearly see scroll affordance on long pages. */
+::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: #0A0A0A; }
-::-webkit-scrollbar-thumb { background: #333333; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #444444; }
+::-webkit-scrollbar-thumb { background: #4a4a4a; border-radius: 6px; border: 2px solid #0A0A0A; }
+::-webkit-scrollbar-thumb:hover { background: #6a6a6a; }
+* { scrollbar-width: thin; scrollbar-color: #4a4a4a #0A0A0A; }
 
 /* Hide scrollbar utility — used on horizontal carousels (filter chips,
    benzer ürünler, technical spec tabs) where the scrollbar bar is more
@@ -498,9 +500,12 @@ html[data-theme="light"] .btn-outline:hover {
   background: rgba(0,0,0,0.04);
 }
 
-/* Light scrollbar */
-html[data-theme="light"] ::-webkit-scrollbar-track { background: #F0F0F0; }
-html[data-theme="light"] ::-webkit-scrollbar-thumb { background: #C0C0C0; }
+/* Light scrollbar — darker thumb than the previous #C0C0C0 so it
+   stays visible against the page background. */
+html[data-theme="light"] ::-webkit-scrollbar-track { background: #ececf0; }
+html[data-theme="light"] ::-webkit-scrollbar-thumb { background: #8a8a92; border: 2px solid #ececf0; }
+html[data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: #6b6b75; }
+html[data-theme="light"] * { scrollbar-color: #8a8a92 #ececf0; }
 
 /* btn-primary in light mode */
 html[data-theme="light"] .btn-primary {

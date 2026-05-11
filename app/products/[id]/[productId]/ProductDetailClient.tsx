@@ -63,6 +63,15 @@ const categoryIcons: Record<string, React.ElementType> = {
 // bleed into the feature cards. Matches Tailwind's blue-500.
 const BRAND_BLUE = "#3B82F6";
 
+// A spec group is treated as a price block whenever the operator's
+// group name reads "fiyat" (TR) or "price" (EN auto-translation).
+// We pull these out of the technical specs tab and render them in
+// the Genel Özellikler tab regardless of language.
+function isPriceGroup(name: string): boolean {
+  const lower = name.toLowerCase();
+  return lower.includes("fiyat") || lower.includes("price");
+}
+
 export default function ProductDetailPage({
   initialCategory = null,
   initialProduct = null,
@@ -513,9 +522,9 @@ export default function ProductDetailPage({
                     eski madde-listesi alanı (generalFeatures) artistik desteği
                     için fallback olarak kalır ama yeni kayıtlarda kullanılmaz. */}
                 {(() => {
-                  const nonPriceSpecs = product.specs.filter(g => !g.group.toLowerCase().includes("fiyat"));
+                  const nonPriceSpecs = product.specs.filter(g => !isPriceGroup(g.group));
                   const priceRowsCount = product.specs
-                    .filter(g => g.group.toLowerCase().includes("fiyat"))
+                    .filter(g => isPriceGroup(g.group))
                     .reduce((sum, g) => sum + g.items.length, 0);
                   const hasSpecs    = nonPriceSpecs.length > 0;
                   const featureList = (product.features ?? []).map(featureById).filter(Boolean) as NonNullable<ReturnType<typeof featureById>>[];
@@ -580,9 +589,9 @@ export default function ProductDetailPage({
                           (price isn't a technical spec; it deserves to
                           live next to the human-readable feature list). */}
                       {resolvedTab === "specs" && product.specs
-                        .filter(g => !g.group.toLowerCase().includes("fiyat"))
+                        .filter(g => !isPriceGroup(g.group))
                         .flatMap((group, gi) => [
-                          product.specs.filter(g => !g.group.toLowerCase().includes("fiyat")).length > 1 ? (
+                          product.specs.filter(g => !isPriceGroup(g.group)).length > 1 ? (
                             <div
                               key={`g${gi}`}
                               className="px-4 py-1.5 flex items-center gap-1.5"
@@ -620,7 +629,7 @@ export default function ProductDetailPage({
                               language is TR. Rendered before the feature
                               chips so the visitor sees pricing first. */}
                           {(() => {
-                            const priceGroups = product.specs.filter(g => g.group.toLowerCase().includes("fiyat"));
+                            const priceGroups = product.specs.filter(g => isPriceGroup(g.group));
                             const priceRows = priceGroups.flatMap(g => g.items);
                             if (priceRows.length === 0) return null;
                             return (
@@ -787,14 +796,14 @@ export default function ProductDetailPage({
                 acceptedAnswer: { "@type": "Answer", text: f.a },
               })),
             }]} />
-            <h2 className="text-lg sm:text-xl font-black mb-5" style={{ color: sd ? "#f0f0f4" : "#111827" }}>Sıkça Sorulan Sorular</h2>
-            <div className="space-y-3">
+            <h2 className="text-base font-bold mb-4" style={{ color: sd ? "#f0f0f4" : "#111827" }}>Sıkça Sorulan Sorular</h2>
+            <div className="space-y-2">
               {faq.map((item, i) => {
                 const open = openFaqIdx === i;
                 return (
                   <div
                     key={i}
-                    className="rounded-2xl overflow-hidden w-full block"
+                    className="rounded-xl overflow-hidden w-full block"
                     style={{
                       background: sd ? "#141416" : "#ffffff",
                       border: `1px solid ${sd ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}`,
@@ -802,17 +811,16 @@ export default function ProductDetailPage({
                   >
                     <button
                       onClick={() => setOpenFaqIdx(open ? null : i)}
-                      className="w-full flex items-center gap-4 px-5 sm:px-7 py-5 sm:py-6 text-left transition-colors hover:bg-black/[0.02] dark:hover:bg-white/[0.02]"
-                      style={{ minHeight: 70 }}
+                      className="w-full flex items-center gap-3 px-4 sm:px-5 py-3.5 sm:py-4 text-left transition-colors hover:bg-black/[0.02] dark:hover:bg-white/[0.02]"
                     >
-                      <span className="flex-1 text-base sm:text-lg font-bold leading-snug" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
+                      <span className="flex-1 text-sm font-semibold leading-snug" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
                         {item.q}
                       </span>
                       <span
-                        className="inline-flex items-center justify-center rounded-xl flex-shrink-0"
-                        style={{ width: 34, height: 34, background: `${BRAND_BLUE}14`, border: `1px solid ${BRAND_BLUE}30`, color: BRAND_BLUE }}
+                        className="inline-flex items-center justify-center rounded-lg flex-shrink-0"
+                        style={{ width: 26, height: 26, background: `${BRAND_BLUE}14`, border: `1px solid ${BRAND_BLUE}30`, color: BRAND_BLUE }}
                       >
-                        {open ? <RiSubtractLine size={18} /> : <RiAddLine size={18} />}
+                        {open ? <RiSubtractLine size={14} /> : <RiAddLine size={14} />}
                       </span>
                     </button>
                     <AnimatePresence initial={false}>
@@ -824,7 +832,7 @@ export default function ProductDetailPage({
                           transition={{ duration: 0.22 }}
                           style={{ overflow: "hidden" }}
                         >
-                          <div className="px-5 sm:px-7 pb-6 pt-1 text-sm sm:text-[15px] leading-relaxed whitespace-pre-line" style={{ color: sd ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
+                          <div className="px-4 sm:px-5 pb-4 pt-0.5 text-sm leading-relaxed whitespace-pre-line" style={{ color: sd ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
                             {item.a}
                           </div>
                         </motion.div>
