@@ -12,13 +12,22 @@ import { withSentryConfig } from "@sentry/nextjs";
 // that prefer one over the other.
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.youtube-nocookie.com",
+  // Ads/marketing surface:
+  //   googletagmanager + google-analytics  — GA4 + Google Ads gtag
+  //   doubleclick.net                       — Google Ads remarketing pixel
+  //   connect.facebook.net                  — Meta Pixel fbevents.js
+  //   youtube-nocookie                      — embedded YouTube hero/DNA videos
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://www.googletagservices.com https://googleads.g.doubleclick.net https://connect.facebook.net https://www.youtube-nocookie.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data: https://fonts.gstatic.com",
-  "connect-src 'self' https://api.jsonbin.io https://api.mymemory.translated.net https://www.google-analytics.com https://region1.google-analytics.com https://flagcdn.com https://api.imgbb.com https://api.cloudinary.com https://api.resend.com https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://*.ingest.de.sentry.io https://vitals.vercel-insights.com https://vercel.live",
+  // beacon/XHR targets:
+  //   www.google-analytics.com / region1.google-analytics.com  — GA4 pageviews
+  //   stats.g.doubleclick.net + www.google.com                 — Google Ads conversions
+  //   www.facebook.com                                          — Meta Pixel event endpoint
+  "connect-src 'self' https://api.jsonbin.io https://api.mymemory.translated.net https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://www.google.com https://www.facebook.com https://flagcdn.com https://api.imgbb.com https://api.cloudinary.com https://api.resend.com https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://*.ingest.de.sentry.io https://vitals.vercel-insights.com https://vercel.live",
   "worker-src 'self' blob:",
-  "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com",
+  "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com https://td.doubleclick.net https://www.googletagmanager.com",
   "media-src 'self' blob: https://res.cloudinary.com https:",
   "object-src 'none'",
   "base-uri 'self'",
