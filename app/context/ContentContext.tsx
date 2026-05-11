@@ -144,6 +144,21 @@ export type HeroLayout = {
   button: { x: number; y: number };
 };
 
+/** Third-party tracking IDs that the operator can rotate from the
+ *  admin panel without redeploys. Empty string = disabled. */
+export type MarketingConfig = {
+  /** GA4 measurement ID, e.g. "G-XXXXXXXXXX". Falls back to the
+   *  legacy hardcoded ID in GoogleAnalytics.tsx when blank. */
+  ga4Id?: string;
+  /** Google Ads conversion / remarketing tag — "AW-XXXXXXXXX". */
+  googleAdsId?: string;
+  /** Conversion label for the form-submit conversion. Used as
+   *  `AW-XXX/{label}` in send_to. */
+  googleAdsContactLabel?: string;
+  /** Meta (Facebook) Pixel numeric ID. */
+  metaPixelId?: string;
+};
+
 export type SiteContent = {
   hero: {
     badge: string;
@@ -167,6 +182,7 @@ export type SiteContent = {
   company: {
     foundedYear: string; exportCountries: string; productCount: string; facilitySize: string;
   };
+  marketing?: MarketingConfig;
   social: {
     linkedin: string;
     instagram: string;
@@ -364,6 +380,7 @@ const defaultContent: SiteContent = {
   company: {
     foundedYear: "1994", exportCountries: "60+", productCount: "6000+", facilitySize: "11.000 m²",
   },
+  marketing: { ga4Id: "", googleAdsId: "", googleAdsContactLabel: "", metaPixelId: "" },
   social: { linkedin: "", instagram: "", twitter: "", youtube: "", facebook: "", recentPosts: [] },
   dna: {
     sectionLabel: "Hakkımızda",

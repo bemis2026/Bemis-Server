@@ -7,6 +7,9 @@ import { RiBuilding4Line, RiGlobalLine } from "react-icons/ri";
 import { useDealerApplyOverlay } from "../context/DealerApplyOverlayContext";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
+import { useContent } from "../context/ContentContext";
+import { trackEvent, trackGoogleAdsConversion } from "./GoogleAnalytics";
+import { trackMetaPixelEvent } from "./MetaPixel";
 
 type FormState = {
   name: string;
@@ -68,6 +71,7 @@ export default function DealerApplyOverlay() {
   const { open, mode, closeDealerApply } = useDealerApplyOverlay();
   const { theme } = useTheme();
   const { lang } = useLanguage();
+  const { marketing } = useContent();
   const d = theme === "dark";
   const t = STRINGS[lang];
 
@@ -144,6 +148,14 @@ export default function DealerApplyOverlay() {
         return;
       }
       setStatus("ok");
+      const topic = mode === "tr" ? "dealer-apply" : "export";
+      trackEvent("dealer_apply_submit", { mode, topic });
+      const adsId = marketing?.googleAdsId?.trim();
+      const convLabel = marketing?.googleAdsContactLabel?.trim();
+      if (adsId && convLabel) {
+        trackGoogleAdsConversion(`${adsId}/${convLabel}`);
+      }
+      trackMetaPixelEvent("Lead", { content_name: topic });
     } catch {
       setStatus("err"); setErrMsg(t.error);
     }

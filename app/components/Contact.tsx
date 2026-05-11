@@ -7,7 +7,8 @@ import { useContent } from "../context/ContentContext";
 import E from "./E";
 import { HiLocationMarker, HiPhone, HiMail, HiClock, HiCheckCircle } from "react-icons/hi";
 import { RiLinkedinFill, RiInstagramLine, RiYoutubeFill, RiFacebookFill } from "react-icons/ri";
-import { trackEvent } from "./GoogleAnalytics";
+import { trackEvent, trackGoogleAdsConversion } from "./GoogleAnalytics";
+import { trackMetaPixelEvent } from "./MetaPixel";
 import { useUiStrings, type UiStringKey } from "../../lib/uiStrings";
 
 const topicKeys: { value: string; key: UiStringKey }[] = [
@@ -25,7 +26,7 @@ export default function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
-  const { contact, social, contactSection, sectionBgs } = useContent();
+  const { contact, social, contactSection, sectionBgs, marketing } = useContent();
   const t = useUiStrings();
   const d = theme === "dark";
   const topics = topicKeys.map((tk) => ({ value: tk.value, label: t(tk.key) }));
@@ -211,9 +212,17 @@ export default function Contact() {
                         setSendError(j.error ?? t("contact_err_generic"));
                       } else {
                         setSubmitted(true);
-                        trackEvent("contact_form_submit", {
-                          topic: String(fd.get("topic") ?? ""),
-                        });
+                        const topic = String(fd.get("topic") ?? "");
+                        trackEvent("contact_form_submit", { topic });
+                        // Mirror to Google Ads conversion + Meta Pixel
+                        // Lead event so the same form fill counts in
+                        // every ad surface the operator runs.
+                        const adsId = marketing?.googleAdsId?.trim();
+                        const convLabel = marketing?.googleAdsContactLabel?.trim();
+                        if (adsId && convLabel) {
+                          trackGoogleAdsConversion(`${adsId}/${convLabel}`);
+                        }
+                        trackMetaPixelEvent("Lead", { content_name: topic });
                       }
                     } catch {
                       setSendError(t("contact_err_network"));

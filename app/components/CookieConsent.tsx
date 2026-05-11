@@ -26,6 +26,11 @@ export default function CookieConsent() {
   const persist = (value: "accepted" | "rejected") => {
     try { localStorage.setItem(STORAGE_KEY, value); } catch {}
     setAnalyticsConsent(value === "accepted");
+    // Broadcast to MetaPixel (and any future marketing pixel) so they
+    // can flip from "revoked" to "granted" without a reload.
+    try {
+      window.dispatchEvent(new CustomEvent("bemis:marketing-consent", { detail: value === "accepted" }));
+    } catch {}
     setChoice(value);
   };
 

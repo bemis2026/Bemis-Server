@@ -16,6 +16,7 @@ import { EditModeProvider } from "./context/EditModeContext";
 import PropertiesPanelLoader from "./components/PropertiesPanelLoader";
 import CookieConsent from "./components/CookieConsent";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import MetaPixel from "./components/MetaPixel";
 import ContentLoadingBar from "./components/ContentLoadingBar";
 import ContentErrorToast from "./components/ContentErrorToast";
 import LanguageURLSync from "./components/LanguageURLSync";
@@ -165,11 +166,12 @@ export default async function RootLayout({
     <html lang="tr" className={`${inter.variable} scroll-smooth`} suppressHydrationWarning>
       <body className="min-h-full antialiased bg-[#141414] text-white">
         <JsonLd data={jsonLd} />
-        <GoogleAnalytics />
         <ThemeProvider>
           <LanguageProvider>
             <CurrencyProvider>
               <ContentProvider initialContent={initialContent}>
+                <GoogleAnalytics />
+                <MetaPixel />
                 <ContactOverlayProvider>
                   <DealerApplyOverlayProvider>
                     <EditModeProvider>

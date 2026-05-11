@@ -113,6 +113,7 @@ type ContentData = {
   featured: FeaturedItem[];
   contact: { phone: string; email: string; address: string; addressSub: string; workingHours: string; workingDays: string; whatsappPhone?: string; whatsappMessage?: string };
   company: { foundedYear: string; exportCountries: string; productCount: string; facilitySize: string };
+  marketing?: { ga4Id?: string; googleAdsId?: string; googleAdsContactLabel?: string; metaPixelId?: string };
   social: {
     linkedin: string; instagram: string; twitter: string; youtube: string; facebook: string;
     recentPosts?: SocialPost[];
@@ -3049,6 +3050,46 @@ export default function AdminPage() {
 
                     </div>
                   )}
+
+                  {/* Reklam & Pixel Yönetimi — operatörün Google Ads
+                      conversion ID + Meta Pixel ID'sini admin'den
+                      değiştirebileceği basit form. Boş kalan alan o
+                      kanal için tracking'i kapatır. */}
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
+                    <div>
+                      <p className="text-xs font-semibold text-white/50 mb-0.5">Reklam & Pixel Yönetimi</p>
+                      <p className="text-[11px] text-white/30 leading-relaxed">
+                        Google Ads conversion ve Meta (Facebook) Pixel ID&apos;leri. Boş bırakılan kanal için tracking kapanır. Çerez onayı (Tümünü Kabul Et) gerekir — KVKK/GDPR uyumlu.
+                      </p>
+                    </div>
+                    <Field
+                      label="GA4 Measurement ID"
+                      value={content.marketing?.ga4Id ?? ""}
+                      onChange={(v) => updateContent(["marketing","ga4Id"], v)}
+                      placeholder="G-XXXXXXXXXX (boş bırakılırsa varsayılan kullanılır)"
+                    />
+                    <Field
+                      label="Google Ads Conversion ID"
+                      value={content.marketing?.googleAdsId ?? ""}
+                      onChange={(v) => updateContent(["marketing","googleAdsId"], v)}
+                      placeholder="AW-XXXXXXXXX"
+                    />
+                    <Field
+                      label="Google Ads — Form Conversion Label"
+                      value={content.marketing?.googleAdsContactLabel ?? ""}
+                      onChange={(v) => updateContent(["marketing","googleAdsContactLabel"], v)}
+                      placeholder="abcDEFghIJklmnOPq (Google Ads conversion etiketi)"
+                    />
+                    <Field
+                      label="Meta Pixel ID"
+                      value={content.marketing?.metaPixelId ?? ""}
+                      onChange={(v) => updateContent(["marketing","metaPixelId"], v)}
+                      placeholder="123456789012345 (sayısal)"
+                    />
+                    <p className="text-[10px] text-white/25 leading-relaxed">
+                      Form gönderildiğinde otomatik tetiklenen event&apos;ler: <code className="text-white/40">contact_form_submit</code>, <code className="text-white/40">dealer_apply_submit</code> (GA4), <code className="text-white/40">conversion → AW-X/Y</code> (Ads), <code className="text-white/40">Lead</code> (Meta).
+                    </p>
+                  </div>
 
                   {/* Mail sistemi diagnostiği */}
                   <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
