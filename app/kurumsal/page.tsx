@@ -319,7 +319,7 @@ export default function KurumsalPage() {
                     const renderLogo = (b: { name: string; logo?: string }, size: number, maxW: number) => (
                       b.logo ? (
                         // eslint-disable-next-line @next/next/no-img-element
-                        <img src={b.logo} alt={b.name} style={{ height: size, width: "auto", maxWidth: maxW, objectFit: "contain" }} loading="lazy" />
+                        <img src={b.logo} alt={b.name} style={{ height: size, width: "auto", maxWidth: maxW, objectFit: "contain" }} loading="lazy" decoding="async" />
                       ) : (
                         <span
                           className="inline-flex items-center justify-center rounded-lg font-black"

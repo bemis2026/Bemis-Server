@@ -361,6 +361,7 @@ export default function Reviews() {
                           alt={c.recent.caption || c.label}
                           className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                           loading="lazy"
+                          decoding="async"
                         />
                       </div>
                       <div className="px-3 py-2.5 flex flex-col gap-1">

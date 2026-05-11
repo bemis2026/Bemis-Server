@@ -387,20 +387,42 @@ export default function Products() {
                 initial={{ opacity: 0, y: 32 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.55, delay: 0.1 + i * 0.07 }}
-                onMouseEnter={() => !cat.comingSoon ? setHovered(cat.id) : undefined}
+                onMouseEnter={(e) => {
+                  if (cat.comingSoon) return;
+                  setHovered(cat.id);
+                  // Cache the card's bounding rect once on enter — getBoundingClientRect
+                  // forces layout, so calling it on every mousemove (the old code) cost
+                  // a full layout per pixel of movement and showed up as scroll jank on
+                  // mid-range laptops. Cleared on leave.
+                  const card = e.currentTarget as HTMLElement & { _tiltRect?: DOMRect };
+                  card._tiltRect = card.getBoundingClientRect();
+                }}
                 onMouseMove={(e) => {
                   if (cat.comingSoon) return;
                   // Tilt-on-hover — cursor offset from card centre drives a
                   // small 3D rotateX/Y so the card "leans" toward the cursor.
-                  const card = e.currentTarget as HTMLElement;
-                  const rect = card.getBoundingClientRect();
-                  const px = (e.clientX - rect.left) / rect.width - 0.5;
-                  const py = (e.clientY - rect.top) / rect.height - 0.5;
-                  card.style.transform = `perspective(900px) rotateY(${px * 6}deg) rotateX(${-py * 6}deg) scale(1.018)`;
+                  // rAF-throttled write so we only mutate transform once per
+                  // frame even when mousemove fires at sub-frame rates.
+                  const card = e.currentTarget as HTMLElement & { _tiltRect?: DOMRect; _tiltRaf?: number };
+                  if (card._tiltRaf) return;
+                  const x = e.clientX, y = e.clientY;
+                  card._tiltRaf = requestAnimationFrame(() => {
+                    card._tiltRaf = 0;
+                    const rect = card._tiltRect ?? card.getBoundingClientRect();
+                    const px = (x - rect.left) / rect.width - 0.5;
+                    const py = (y - rect.top) / rect.height - 0.5;
+                    card.style.transform = `perspective(900px) rotateY(${px * 6}deg) rotateX(${-py * 6}deg) scale(1.018)`;
+                  });
                 }}
                 onMouseLeave={(e) => {
                   setHovered(null);
-                  (e.currentTarget as HTMLElement).style.transform = "";
+                  const card = e.currentTarget as HTMLElement & { _tiltRect?: DOMRect; _tiltRaf?: number };
+                  if (card._tiltRaf) {
+                    cancelAnimationFrame(card._tiltRaf);
+                    card._tiltRaf = 0;
+                  }
+                  card._tiltRect = undefined;
+                  card.style.transform = "";
                 }}
                 onClick={() => !cat.comingSoon && router.push(`/products/${cat.id}`)}
                 className={`relative rounded-2xl overflow-hidden ${cat.comingSoon ? "opacity-65 cursor-default" : "cursor-pointer"}`}

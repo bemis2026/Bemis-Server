@@ -116,7 +116,7 @@ export default function Hero() {
         <div className="max-w-2xl">
           <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-7">
             <Image src={logoSrc} alt="Bemis E-V Charge" width={380} height={120}
-              className="h-14 xs:h-16 sm:h-20 w-auto max-w-[180px] sm:max-w-[260px] object-contain" style={logoStyle} priority />
+              className="h-14 xs:h-16 sm:h-20 w-auto max-w-[180px] sm:max-w-[260px] object-contain" style={logoStyle} />
             <motion.div
               initial={{ scaleX: 0, opacity: 0 }} animate={{ scaleX: 1, opacity: 1 }} transition={{ duration: 0.5, delay: 0.4 }}
               className="mt-4 mb-4 h-[2px] w-24 origin-left rounded-full"
@@ -188,7 +188,7 @@ export default function Hero() {
           style={{ left: `${layout.logo.x}%`, top: `${layout.logo.y}%`, maxWidth: "48%" }}
         >
           <Image src={logoSrc} alt="Bemis E-V Charge" width={380} height={120}
-            className="h-28 xl:h-32 w-auto object-contain" style={logoStyle} priority />
+            className="h-28 xl:h-32 w-auto object-contain" style={logoStyle} />
 
           <motion.div
             initial={{ scaleX: 0, opacity: 0 }} animate={{ scaleX: 1, opacity: 1 }} transition={{ duration: 0.5, delay: 0.32 }}

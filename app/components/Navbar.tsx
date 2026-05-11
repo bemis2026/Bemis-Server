@@ -157,10 +157,26 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
     : [];
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", handleScroll);
+    // Passive listener so wheel/touch scrolling never blocks on this
+    // handler; rAF coalesces bursts so setScrolled only fires when the
+    // 40-px threshold is crossed, not on every scroll tick.
+    let raf = 0;
+    let last = false;
+    const handleScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const next = window.scrollY > 40;
+        if (next !== last) {
+          last = next;
+          setScrolled(next);
+        }
+      });
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      if (raf) cancelAnimationFrame(raf);
       if (closeTimer.current) clearTimeout(closeTimer.current);
     };
   }, []);
