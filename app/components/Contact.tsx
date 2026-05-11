@@ -6,7 +6,7 @@ import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import E from "./E";
 import { HiLocationMarker, HiPhone, HiMail, HiClock, HiCheckCircle } from "react-icons/hi";
-import { RiLinkedinFill, RiInstagramLine, RiYoutubeFill } from "react-icons/ri";
+import { RiLinkedinFill, RiInstagramLine, RiYoutubeFill, RiFacebookFill } from "react-icons/ri";
 import { trackEvent } from "./GoogleAnalytics";
 import { useUiStrings, type UiStringKey } from "../../lib/uiStrings";
 
@@ -59,6 +59,7 @@ export default function Contact() {
     { icon: RiLinkedinFill,  label: "LinkedIn",  href: social.linkedin },
     { icon: RiInstagramLine, label: "Instagram", href: social.instagram },
     { icon: RiYoutubeFill,   label: "YouTube",   href: social.youtube },
+    { icon: RiFacebookFill,  label: "Facebook",  href: social.facebook },
   ].filter((s) => s.href);
 
   // py-2.5 below sm: keeps more form fields visible when the mobile

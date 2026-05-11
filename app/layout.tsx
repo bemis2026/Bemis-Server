@@ -40,7 +40,7 @@ type ContentSnapshot = {
   email: string | null;
   addressStreet: string | null;
   addressLocality: string | null;
-  social: { linkedin: string; instagram: string; twitter: string; youtube: string };
+  social: { linkedin: string; instagram: string; twitter: string; youtube: string; facebook: string };
 };
 
 async function getContentMeta(): Promise<ContentSnapshot> {
@@ -49,7 +49,7 @@ async function getContentMeta(): Promise<ContentSnapshot> {
     const data = await readBin("content") as Record<string, unknown>;
     const logos = (data?.logos ?? {}) as { dark?: string; light?: string };
     const contact = (data?.contact ?? {}) as { phone?: string; email?: string; address?: string; addressSub?: string };
-    const social = (data?.social ?? {}) as { linkedin?: string; instagram?: string; twitter?: string; youtube?: string };
+    const social = (data?.social ?? {}) as { linkedin?: string; instagram?: string; twitter?: string; youtube?: string; facebook?: string };
     return {
       ogImage: (data?.ogImage as string) || null,
       faviconUrl: (data?.faviconUrl as string) || null,
@@ -64,6 +64,7 @@ async function getContentMeta(): Promise<ContentSnapshot> {
         instagram: social.instagram || "",
         twitter: social.twitter || "",
         youtube: social.youtube || "",
+        facebook: social.facebook || "",
       },
     };
   } catch {}
@@ -72,7 +73,7 @@ async function getContentMeta(): Promise<ContentSnapshot> {
     logoDark: null, logoLight: null,
     phone: null, email: null,
     addressStreet: null, addressLocality: null,
-    social: { linkedin: "", instagram: "", twitter: "", youtube: "" },
+    social: { linkedin: "", instagram: "", twitter: "", youtube: "", facebook: "" },
   };
 }
 
@@ -144,7 +145,7 @@ export default async function RootLayout({
     getServerSiteContent(),
   ]);
   const orgLogo = meta.logoDark || meta.logoLight || `${BASE_URL}/logo.png`;
-  const sameAs = [meta.social.linkedin, meta.social.instagram, meta.social.twitter].filter(Boolean);
+  const sameAs = [meta.social.linkedin, meta.social.instagram, meta.social.twitter, meta.social.youtube, meta.social.facebook].filter(Boolean);
   const jsonLd = [
     organizationSchema({
       logo: orgLogo,

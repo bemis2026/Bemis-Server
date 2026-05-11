@@ -114,7 +114,7 @@ type ContentData = {
   contact: { phone: string; email: string; address: string; addressSub: string; workingHours: string; workingDays: string; whatsappPhone?: string; whatsappMessage?: string };
   company: { foundedYear: string; exportCountries: string; productCount: string; facilitySize: string };
   social: {
-    linkedin: string; instagram: string; twitter: string; youtube: string;
+    linkedin: string; instagram: string; twitter: string; youtube: string; facebook: string;
     recentPosts?: SocialPost[];
   };
   dna: {
@@ -197,7 +197,7 @@ type DealersData = Record<string, { dealers: Dealer[] }>;
 
 type DnaItem  = { title: string; desc: string };
 type ReviewItem = { platform: string; platformColor: string; rating: number; author: string; date: string; product: string; text: string };
-type SocialPost = { id: string; platform: "linkedin" | "instagram" | "youtube"; image: string; caption: string; link: string; date?: string };
+type SocialPost = { id: string; platform: "linkedin" | "instagram" | "youtube" | "facebook"; image: string; caption: string; link: string; date?: string };
 type ShowcaseProductItem = {
   badge?: string; name: string; tagline?: string; description?: string;
   image?: string; specs?: { label: string; value: string }[];
@@ -3028,13 +3028,21 @@ export default function AdminPage() {
                           placeholder="https://youtube.com/@bemisevcharge"
                           className="flex-1 bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
                       </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                          <span className="text-[10px] font-bold text-white/40">fb</span>
+                        </div>
+                        <input value={content.social?.facebook ?? ""} onChange={(e) => updateContent(["social", "facebook"], e.target.value)}
+                          placeholder="https://facebook.com/bemisevcharge"
+                          className="flex-1 bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22" />
+                      </div>
 
                       {/* Son Paylaşımlar — admin curates the latest post per
-                          channel because there's no public feed API. Three
-                          fixed slots (LinkedIn + Instagram + YouTube);
-                          leaving them empty hides the post slot on the
-                          public page and falls back to a "Bizi takip et"
-                          CTA. */}
+                          channel because there's no public feed API. Four
+                          fixed slots (LinkedIn + Instagram + YouTube +
+                          Facebook); leaving them empty hides the post
+                          slot on the public page and falls back to a
+                          "Bizi takip et" CTA. */}
                       <div className="pt-4 mt-2 border-t border-white/8 space-y-3">
                         <div>
                           <p className="text-xs font-semibold text-white/60">Son Paylaşımlar</p>
@@ -3043,11 +3051,19 @@ export default function AdminPage() {
                           </p>
                         </div>
 
-                        {(["linkedin", "instagram", "youtube"] as const).map((platform) => {
+                        {(["linkedin", "instagram", "youtube", "facebook"] as const).map((platform) => {
                           const posts: SocialPost[] = content.social?.recentPosts ?? [];
                           const post = posts.find((p) => p.platform === platform);
-                          const accent = platform === "linkedin" ? "#0A66C2" : platform === "instagram" ? "#E1306C" : "#FF0000";
-                          const label = platform === "linkedin" ? "LinkedIn" : platform === "instagram" ? "Instagram" : "YouTube";
+                          const accent =
+                            platform === "linkedin" ? "#0A66C2"
+                              : platform === "instagram" ? "#E1306C"
+                                : platform === "youtube" ? "#FF0000"
+                                  : "#1877F2";
+                          const label =
+                            platform === "linkedin" ? "LinkedIn"
+                              : platform === "instagram" ? "Instagram"
+                                : platform === "youtube" ? "YouTube"
+                                  : "Facebook";
 
                           const setField = (field: keyof SocialPost, value: string) => {
                             const cur: SocialPost = post ?? { id: `${platform}-${Date.now()}`, platform, image: "", caption: "", link: "", date: "" };

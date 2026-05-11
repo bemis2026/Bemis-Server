@@ -124,7 +124,7 @@ export type SocialPost = {
   id: string;
   /** Which channel this post belongs to. Renders alongside the matching
    *  brand-coloured tile in the Reviews block. */
-  platform: "linkedin" | "instagram" | "youtube";
+  platform: "linkedin" | "instagram" | "youtube" | "facebook";
   /** Post thumbnail (ImgBB or Cloudinary URL — same upload pipeline as
    *  product photos). */
   image: string;
@@ -172,6 +172,7 @@ export type SiteContent = {
     instagram: string;
     twitter: string;
     youtube: string;
+    facebook: string;
     /** Operator-curated "latest post" cards shown beside the reviews
      *  block. There is no official public feed API for LinkedIn and
      *  Instagram's Graph API requires a Meta business token — so we
@@ -348,7 +349,7 @@ const defaultContent: SiteContent = {
   company: {
     foundedYear: "1994", exportCountries: "60+", productCount: "6000+", facilitySize: "11.000 m²",
   },
-  social: { linkedin: "", instagram: "", twitter: "", youtube: "", recentPosts: [] },
+  social: { linkedin: "", instagram: "", twitter: "", youtube: "", facebook: "", recentPosts: [] },
   dna: {
     sectionLabel: "Hakkımızda",
     sectionHeading: "Üretimden yazılıma — her şey bizden",

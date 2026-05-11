@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { HiStar } from "react-icons/hi";
-import { RiLinkedinFill, RiInstagramLine, RiYoutubeFill, RiExternalLinkLine } from "react-icons/ri";
+import { RiLinkedinFill, RiInstagramLine, RiYoutubeFill, RiFacebookFill, RiExternalLinkLine } from "react-icons/ri";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
@@ -71,6 +71,7 @@ export default function Reviews() {
       linkedinSub: "Kurumsal haberler, kariyer fırsatları ve B2B duyuruları",
       instagramSub: "Atölye fotoğrafları, ürün lansmanları ve etkinlik kareleri",
       youtubeSub: "Ürün tanıtımları, kurulum rehberleri ve fuar videoları",
+      facebookSub: "Topluluk paylaşımları, kampanyalar ve duyurular",
       latestPosts: "Son paylaşımlarımız",
       latestVideos: "Son videolarımız",
     },
@@ -81,6 +82,7 @@ export default function Reviews() {
       linkedinSub: "Corporate news, careers and B2B announcements",
       instagramSub: "Workshop shots, product launches and event highlights",
       youtubeSub: "Product demos, installation guides and trade-show videos",
+      facebookSub: "Community updates, campaigns and announcements",
       latestPosts: "See latest posts",
       latestVideos: "See latest videos",
     },
@@ -93,7 +95,7 @@ export default function Reviews() {
   // channel (image + caption + link); if absent the tile falls back
   // to the "Bizi takip et" CTA only.
   const recentPosts = social.recentPosts ?? [];
-  const findPost = (platform: "linkedin" | "instagram" | "youtube") =>
+  const findPost = (platform: "linkedin" | "instagram" | "youtube" | "facebook") =>
     recentPosts.find((p) => p.platform === platform && p.image && p.link);
 
   const socialChannels = [
@@ -127,8 +129,18 @@ export default function Reviews() {
       brand: "#FF0000",
       recent: findPost("youtube"),
     } : null,
+    social.facebook ? {
+      key: "facebook" as const,
+      label: "Facebook",
+      url: social.facebook,
+      sub: sT.facebookSub,
+      ctaLabel: sT.latestPosts,
+      Icon: RiFacebookFill,
+      brand: "#1877F2",
+      recent: findPost("facebook"),
+    } : null,
   ].filter(Boolean) as Array<{
-    key: "linkedin" | "instagram" | "youtube"; label: string; url: string; sub: string;
+    key: "linkedin" | "instagram" | "youtube" | "facebook"; label: string; url: string; sub: string;
     ctaLabel: string;
     Icon: typeof RiLinkedinFill; brand: string;
     recent?: ReturnType<typeof findPost>;

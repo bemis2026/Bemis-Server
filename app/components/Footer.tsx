@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { RiLinkedinFill, RiInstagramLine, RiYoutubeFill } from "react-icons/ri";
+import { RiLinkedinFill, RiInstagramLine, RiYoutubeFill, RiFacebookFill } from "react-icons/ri";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useContent } from "../context/ContentContext";
@@ -105,6 +105,7 @@ export default function Footer() {
     { icon: RiLinkedinFill,  label: "LinkedIn",  href: social.linkedin },
     { icon: RiInstagramLine, label: "Instagram", href: social.instagram },
     { icon: RiYoutubeFill,   label: "YouTube",   href: social.youtube },
+    { icon: RiFacebookFill,  label: "Facebook",  href: social.facebook },
   ];
 
   const handleClick = (href: string, scroll: boolean) => {
