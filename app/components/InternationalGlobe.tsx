@@ -134,24 +134,22 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
     [activeCountries],
   );
 
-  // Two stacked point layers per country: outer white halo, inner
-  // brand-blue dot. The white outer ring reads as a clean outline
-  // around the blue dot at any zoom level.
+  // Single clean blue dot per country — the earlier white-halo+blue-dot
+  // double stack read as visually noisy ("çok bozuldu"). One layer,
+  // small radius, no second pass.
   const pinPoints = useMemo(
-    () => activeCountries.flatMap(c => [
-      { lat: c.lat, lng: c.lng, color: "#ffffff", radius: 0.55, altitude: 0.014 },
-      { lat: c.lat, lng: c.lng, color: BLUE,     radius: 0.32, altitude: 0.018 },
-    ]),
+    () => activeCountries.map(c => ({
+      lat: c.lat, lng: c.lng, color: BLUE, radius: 0.30, altitude: 0.012,
+    })),
     [activeCountries],
   );
+  // Only HQ keeps its expanding ring — country rings were piling on top
+  // of the dot at low zoom and made the cluster look messy.
   const rings = useMemo(
     () => [
       { lat: BURSA.lat, lng: BURSA.lng, color: RED, maxR: 4.0, speed: 1.0, period: 2200 },
-      ...activeCountries.map(c => ({
-        lat: c.lat, lng: c.lng, color: BLUE, maxR: 2.2, speed: 0.7, period: 3200,
-      })),
     ],
-    [activeCountries],
+    [],
   );
   const htmlElements = useMemo(() => [{ lat: BURSA.lat, lng: BURSA.lng }], []);
   const arcs = useMemo(

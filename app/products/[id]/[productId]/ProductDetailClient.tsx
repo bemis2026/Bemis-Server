@@ -783,7 +783,7 @@ export default function ProductDetailPage({
                           transition={{ duration: 0.22 }}
                           style={{ overflow: "hidden" }}
                         >
-                          <div className="px-5 sm:px-6 pb-5 pt-0.5 pl-[58px] sm:pl-[70px] text-sm sm:text-[15px] leading-relaxed whitespace-pre-line" style={{ color: sd ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
+                          <div className="px-5 sm:px-6 pb-5 pt-1 text-sm sm:text-[15px] leading-relaxed whitespace-pre-line" style={{ color: sd ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
                             {item.a}
                           </div>
                         </motion.div>
