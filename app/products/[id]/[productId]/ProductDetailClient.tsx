@@ -350,53 +350,6 @@ export default function ProductDetailPage({
               {/* ── Right col: info + specs ── */}
               <div className="lg:col-span-6 flex flex-col gap-5">
 
-                {/* Variant selector — shown only when this product is one of
-                    several same-name variants (e.g. Charger 2 Kablolu /
-                    Charger 2 Fişli). Each tab is a real link to the
-                    sibling's URL so SEO and back-button stay correct. */}
-                {(() => {
-                  const variantInfo = findVariantGroup(category.products ?? [], productId);
-                  if (!variantInfo || variantInfo.group.variants.length < 2) return null;
-                  return (
-                    <div
-                      className="rounded-2xl p-3"
-                      style={{ background: surface, border: `1px solid ${border}` }}
-                    >
-                      <p className="text-[10px] font-bold uppercase tracking-wider mb-2 px-1" style={{ color: textFaint }}>
-                        Versiyon Seçin
-                      </p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {variantInfo.group.variants.map((v) => {
-                          const isActive = v.id === productId;
-                          return (
-                            <button
-                              key={v.id}
-                              onClick={() => router.push(`/products/${categoryId}/${v.id}`)}
-                              className="text-left px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-150"
-                              style={{
-                                background: isActive ? accent : (d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)"),
-                                border: `1px solid ${isActive ? accent : border}`,
-                                color: isActive ? "#fff" : textPrimary,
-                                cursor: isActive ? "default" : "pointer",
-                              }}
-                            >
-                              <span className="block">{v.subtitle || v.code || "Standart"}</span>
-                              {v.code && v.subtitle && (
-                                <span
-                                  className="block text-[9px] font-mono mt-0.5"
-                                  style={{ color: isActive ? "rgba(255,255,255,0.75)" : textFaint }}
-                                >
-                                  {v.code}
-                                </span>
-                              )}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  );
-                })()}
-
                 {/* Product header card */}
                 <div
                   className="rounded-2xl p-5"
@@ -501,6 +454,54 @@ export default function ProductDetailPage({
                     </div>
                   )}
                 </div>
+
+                {/* Variant selector — sits between the title card and the
+                    spec tabs so visitors see the version options after
+                    reading what the product is. Each tab is a real
+                    link to the sibling's URL so SEO and back-button
+                    stay correct. */}
+                {(() => {
+                  const variantInfo = findVariantGroup(category.products ?? [], productId);
+                  if (!variantInfo || variantInfo.group.variants.length < 2) return null;
+                  return (
+                    <div
+                      className="rounded-2xl p-3"
+                      style={{ background: surface, border: `1px solid ${border}` }}
+                    >
+                      <p className="text-[10px] font-bold uppercase tracking-wider mb-2 px-1" style={{ color: textFaint }}>
+                        Versiyon Seçin
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {variantInfo.group.variants.map((v) => {
+                          const isActive = v.id === productId;
+                          return (
+                            <button
+                              key={v.id}
+                              onClick={() => router.push(`/products/${categoryId}/${v.id}`)}
+                              className="text-left px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-150"
+                              style={{
+                                background: isActive ? accent : (d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)"),
+                                border: `1px solid ${isActive ? accent : border}`,
+                                color: isActive ? "#fff" : textPrimary,
+                                cursor: isActive ? "default" : "pointer",
+                              }}
+                            >
+                              <span className="block">{v.subtitle || v.code || "Standart"}</span>
+                              {v.code && v.subtitle && (
+                                <span
+                                  className="block text-[9px] font-mono mt-0.5"
+                                  style={{ color: isActive ? "rgba(255,255,255,0.75)" : textFaint }}
+                                >
+                                  {v.code}
+                                </span>
+                              )}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })()}
 
                 {/* Specs / General Features / Documents — tabbed card.
                     "Genel Özellikler" sekmesi artık ürünün checkbox-seçilmiş
@@ -725,13 +726,15 @@ export default function ProductDetailPage({
         )}
       </div>
 
-      {/* ── Sıkça Sorulan Sorular (per-category accordion) ── */}
+      {/* ── Sıkça Sorulan Sorular (per-category accordion). max-w
+          bumped to 7xl so the section width matches the rest of the
+          page rail instead of looking like a narrower side-strip. ── */}
       {!loading && product && category && (() => {
         const faq = (catMeta?.[categoryId]?.faq ?? []).filter((f) => f && f.q && f.a);
         if (faq.length === 0) return null;
         const sd = theme === "dark";
         return (
-          <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 pb-12">
+          <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-12">
             {/* Google rich-snippet payload — only emitted when there's
                 actual content, so empty categories don't pollute SERP. */}
             <JsonLd data={[{
