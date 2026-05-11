@@ -10,6 +10,7 @@ import E from "./E";
 import { CITY_BY_ID } from "../../lib/turkeyCities";
 import { tierColor, tierLabel } from "../../lib/dealerTiers";
 import InternationalGlobe from "./InternationalGlobe";
+import InternationalMap2D from "./InternationalMap2D";
 
 const BLUE = "#3B82F6";
 
@@ -76,6 +77,10 @@ export default function DealerNetwork() {
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
   // Tabs: yurtici = Turkey SVG map, yurtdisi = 3D globe with international markets.
   const [viewMode, setViewMode] = useState<"yurtici" | "yurtdisi">("yurtici");
+  // 3D globe vs flat 2D map — only relevant on the "Dünya" view. Default
+  // to 3D so first impression stays the dramatic globe; user can flip
+  // for a quick equirectangular reference view.
+  const [worldRender, setWorldRender] = useState<"3d" | "2d">("3d");
   // Selected international country (yurtdisi mode) — drives the side card +
   // the globe's pointOfView fly-to.
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
@@ -729,12 +734,50 @@ export default function DealerNetwork() {
                   border: `1px solid ${BLUE}22`,
                 }}
               >
-                <InternationalGlobe
-                  dark={d}
-                  countries={dealerSection.internationalDealers ?? []}
-                  selectedId={selectedCountry}
-                  onSelect={(id) => setSelectedCountry(id)}
-                />
+                {worldRender === "3d" ? (
+                  <InternationalGlobe
+                    dark={d}
+                    countries={dealerSection.internationalDealers ?? []}
+                    selectedId={selectedCountry}
+                    onSelect={(id) => setSelectedCountry(id)}
+                  />
+                ) : (
+                  <InternationalMap2D
+                    dark={d}
+                    countries={dealerSection.internationalDealers ?? []}
+                    selectedId={selectedCountry}
+                    onSelect={(id) => setSelectedCountry(id)}
+                  />
+                )}
+
+                {/* 3D ↔ 2D toggle — sits top-left so it doesn't collide
+                    with the country-count badge at top-right. */}
+                <div
+                  className="absolute top-3 left-3 flex p-1 rounded-full backdrop-blur z-20"
+                  style={{
+                    background: d ? "rgba(8,12,22,0.65)" : "rgba(255,255,255,0.85)",
+                    border: `1px solid ${BLUE}45`,
+                    boxShadow: `0 4px 14px ${BLUE}22`,
+                  }}
+                >
+                  {(["3d", "2d"] as const).map((mode) => {
+                    const active = worldRender === mode;
+                    return (
+                      <button
+                        key={mode}
+                        onClick={() => setWorldRender(mode)}
+                        className="px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.18em] uppercase transition-all"
+                        style={{
+                          background: active ? BLUE : "transparent",
+                          color: active ? "#ffffff" : (d ? "rgba(207,225,255,0.65)" : "rgba(29,78,216,0.65)"),
+                          boxShadow: active ? `0 2px 8px ${BLUE}55` : "none",
+                        }}
+                      >
+                        {mode.toUpperCase()}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             ) : (
             <div
