@@ -317,11 +317,11 @@ export default function KurumsalPage() {
                       {dna.groupBrandsBody}
                     </p>
                   )}
-                  {/* Org-tree layout: first brand (Bemis) sits as the
-                      parent on top, the rest hang below it with thin
-                      connector lines so the relationship reads at a
-                      glance. Falls back to a flat row if there's
-                      only one brand. */}
+                  {/* Org-tree sits right under the body paragraph
+                      instead of pushed to the bottom of the card —
+                      that empty slot at the bottom is now reserved
+                      for the brand slogan, which moved here from the
+                      standalone quote block below. */}
                   {(() => {
                     const brands = dna.groupBrands ?? [];
                     if (brands.length === 0) return null;
@@ -341,7 +341,7 @@ export default function KurumsalPage() {
                       )
                     );
                     return (
-                      <div className="mt-auto flex flex-col items-center w-full">
+                      <div className="flex flex-col items-center w-full">
                         {/* Parent brand — wider card, bigger logo */}
                         <div
                           className="flex items-center gap-2.5 rounded-xl px-4 py-2.5"
@@ -350,8 +350,6 @@ export default function KurumsalPage() {
                           {renderLogo(parent, 36, 140)}
                           <span className="text-sm font-black tracking-tight" style={{ color: textPrimary }}>{parent.name}</span>
                         </div>
-                        {/* Connector tree (T-shape) drawn between parent
-                            and children — only when there are children. */}
                         {children.length > 0 && (
                           <>
                             <div style={{ width: 1, height: 14, background: lineColor }} />
@@ -361,7 +359,6 @@ export default function KurumsalPage() {
                             <div className="flex justify-center gap-3 w-full">
                               {children.map((b, i) => (
                                 <div key={i} className="flex flex-col items-center">
-                                  {/* short vertical drop into the child card */}
                                   <div style={{ width: 1, height: 10, background: lineColor }} />
                                   <div
                                     className="flex items-center gap-2 rounded-xl px-3 py-2"
@@ -378,6 +375,22 @@ export default function KurumsalPage() {
                       </div>
                     );
                   })()}
+                  {/* Slogan / quote — moved from its standalone
+                      centered block on the page into the bottom of
+                      this card so the brand identity reads as
+                      logos+statement together. */}
+                  {dna.quote && (
+                    <div className="mt-auto pt-6">
+                      <p className="text-sm italic font-semibold leading-snug text-center" style={{ color: textPrimary }}>
+                        &ldquo;{dna.quote}&rdquo;
+                      </p>
+                      {dna.quoteAttr && (
+                        <p className="text-[11px] mt-1.5 text-center" style={{ color: textFaint }}>
+                          — {dna.quoteAttr}
+                        </p>
+                      )}
+                    </div>
+                  )}
                 </motion.div>
               )}
             </div>
@@ -625,7 +638,7 @@ export default function KurumsalPage() {
                 className="inline-block text-[10px] font-bold tracking-[0.20em] uppercase px-3 py-1.5 rounded-full mb-4"
                 style={{ background: d ? `${BLUE}18` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`, color: d ? "#93C5FD" : BLUE }}
               >
-                Değerlerimiz & Teknoloji
+                Değerlerimiz, Teknoloji & Sertifikalar
               </span>
               <div className="h-px w-16 mt-1" style={{ background: `linear-gradient(90deg, ${BLUE} 0%, transparent 100%)` }} />
             </div>
@@ -674,20 +687,13 @@ export default function KurumsalPage() {
               </div>
             </div>
 
-            {/* Quote */}
-            <div className="mt-12 mb-12 text-center max-w-2xl mx-auto">
-              <p className="text-lg font-semibold italic mb-2" style={{ color: textPrimary }}>
-                &ldquo;{dna.quote}&rdquo;
-              </p>
-              <p className="text-xs" style={{ color: textFaint }}>— {dna.quoteAttr}</p>
-            </div>
-
-            {/* Sertifikalar — inline strip */}
-            <div style={{ borderTop: `1px solid ${divider}`, paddingTop: 32 }}>
-              <span className="text-[10px] font-bold tracking-[0.18em] uppercase block mb-5" style={{ color: textFaint }}>
-                Sertifikalar & Standartlar
-              </span>
-              <div className="flex flex-wrap gap-5">
+            {/* Sertifikalar — inline strip. No standalone quote
+                anymore (moved into the brand-bridge card next to the
+                video) and no separate sub-eyebrow ("Sertifikalar &
+                Standartlar") — this whole section is "Değerlerimiz,
+                Teknoloji & Sertifikalar" already. */}
+            <div className="mt-12 pt-8" style={{ borderTop: `1px solid ${divider}` }}>
+              <div className="flex flex-wrap gap-x-6 gap-y-3 justify-center">
                 {certs.map((c, i) => (
                   <div key={i} className="flex items-baseline gap-2">
                     <span className="text-sm font-bold" style={{ color: textPrimary }}>{c.label}</span>

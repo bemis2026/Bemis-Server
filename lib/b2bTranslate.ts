@@ -19,6 +19,7 @@ export const B2B_TRANSLATABLE_PATHS: string[] = [
   "bayilik.benefits[].title", "bayilik.benefits[].body",
   "bayilik.criteria[]",
   "bayilik.infoTable[].label", "bayilik.infoTable[].value",
+  "bayilik.marketingEvents[].title", "bayilik.marketingEvents[].location", "bayilik.marketingEvents[].date",
 
   // Operator page
   "operator.heading1", "operator.heading2", "operator.description",

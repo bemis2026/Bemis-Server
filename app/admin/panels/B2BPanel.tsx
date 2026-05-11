@@ -22,7 +22,8 @@ type B2BBenefit = { title: string; body: string };
 type B2BCapability = { title: string; body: string };
 type B2BCtaChannel = { href: string; label: string; sub: string };
 type B2BCta = { eyebrow: string; heading: string; description: string; tags: string[]; channels: B2BCtaChannel[] };
-type B2BBayilik = { heading1: string; heading2: string; description: string; infoTable: { label: string; value: string }[]; benefits: B2BBenefit[]; criteria: string[]; heroBg?: string };
+type B2BMarketingEvent = { id: string; image: string; title?: string; location?: string; date?: string };
+type B2BBayilik = { heading1: string; heading2: string; description: string; infoTable: { label: string; value: string }[]; benefits: B2BBenefit[]; criteria: string[]; heroBg?: string; marketingEvents?: B2BMarketingEvent[] };
 type B2BOperator = { heading1: string; heading2: string; description: string; capabilities: B2BCapability[]; ocppFeatures: string[]; heroBg?: string; featuredProducts?: B2BFeaturedSlot[] };
 type B2BApplication = { id: string; image: string; title?: string; body?: string };
 type B2BPageData = { hero: B2BHero; featuredProducts?: B2BFeaturedSlot[]; applications?: B2BApplication[]; cta?: B2BCta; bayilik?: B2BBayilik; operator?: B2BOperator };
@@ -515,6 +516,109 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
               <div className="pt-1">
                 {addBtn(() => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), criteria: [...(p.bayilik?.criteria ?? []), ""] } } : p), "Kriter Ekle")}
               </div>
+            </div>
+          </B2BCard>
+
+          {/* Fuarlar & Etkinlik Görselleri */}
+          <B2BCard accent="#10B981">
+            <B2BSectionTitle label="Fuarlar & Etkinlik Görselleri" hint="/bayilik > Ağımız Hakkında galeri" />
+            <p className="text-[11px] text-white/40 mb-4 -mt-1">
+              Katıldığınız fuar, etkinlik ve bayi buluşmalarından kareler. Görsel zorunlu; başlık, konum ve tarih opsiyoneldir. Boş kayıtlar sayfada gösterilmez.
+            </p>
+            <div className="space-y-3">
+              {(data.bayilik?.marketingEvents ?? []).map((ev, idx) => (
+                <div key={ev.id ?? idx} className="rounded-xl p-3.5 space-y-3"
+                  style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded-lg flex items-center justify-center text-[10px] font-black"
+                        style={{ background: "rgba(16,185,129,0.15)", color: "#10B981", border: "1px solid rgba(16,185,129,0.25)" }}>
+                        {idx + 1}
+                      </div>
+                      <p className="text-[11px] font-bold uppercase tracking-widest text-white/50">Etkinlik {idx + 1}</p>
+                    </div>
+                    <button onClick={() => setData(p => p?.bayilik ? { ...p, bayilik: { ...p.bayilik, marketingEvents: (p.bayilik.marketingEvents ?? []).filter((_, i) => i !== idx) } } : p)}
+                      className="flex items-center gap-1 text-[10px] text-white/30 hover:text-red-400 transition-colors">
+                      <HiOutlineTrash size={11} /> Sil
+                    </button>
+                  </div>
+                  {/* Görsel */}
+                  <div>
+                    {ev.image ? (
+                      <div className="relative rounded-xl overflow-hidden border border-white/10" style={{ aspectRatio: "16/10" }}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={ev.image} alt={ev.title ?? "Etkinlik"} className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                          <label className="text-xs bg-white/90 text-black font-semibold px-3 py-1.5 rounded-lg cursor-pointer">
+                            Değiştir
+                            <input type="file" accept="image/*" className="hidden"
+                              onChange={e => {
+                                const f = e.target.files?.[0];
+                                if (f) uploadHeroBg(f, url => setData(p => {
+                                  if (!p?.bayilik) return p;
+                                  const list = [...(p.bayilik.marketingEvents ?? [])];
+                                  list[idx] = { ...list[idx], image: url };
+                                  return { ...p, bayilik: { ...p.bayilik, marketingEvents: list } };
+                                }));
+                              }} />
+                          </label>
+                          <button onClick={() => setData(p => {
+                            if (!p?.bayilik) return p;
+                            const list = [...(p.bayilik.marketingEvents ?? [])];
+                            list[idx] = { ...list[idx], image: "" };
+                            return { ...p, bayilik: { ...p.bayilik, marketingEvents: list } };
+                          })} className="text-xs bg-red-500/80 text-white font-semibold px-3 py-1.5 rounded-lg">Kaldır</button>
+                        </div>
+                      </div>
+                    ) : (
+                      <label className="flex items-center justify-center gap-2 cursor-pointer rounded-xl py-4 text-xs text-white/40 hover:text-white/70 transition-colors" style={{ border: "1px dashed rgba(255,255,255,0.15)", aspectRatio: "16/10" }}>
+                        <span>+ Görsel Yükle</span>
+                        <input type="file" accept="image/*" className="hidden"
+                          onChange={e => {
+                            const f = e.target.files?.[0];
+                            if (f) uploadHeroBg(f, url => setData(p => {
+                              if (!p?.bayilik) return p;
+                              const list = [...(p.bayilik.marketingEvents ?? [])];
+                              list[idx] = { ...list[idx], image: url };
+                              return { ...p, bayilik: { ...p.bayilik, marketingEvents: list } };
+                            }));
+                          }} />
+                      </label>
+                    )}
+                  </div>
+                  {/* Meta */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                    <input className={inputCls} value={ev.title ?? ""} placeholder="Başlık (örn. Smart City Expo)"
+                      onChange={e => setData(p => {
+                        if (!p?.bayilik) return p;
+                        const list = [...(p.bayilik.marketingEvents ?? [])];
+                        list[idx] = { ...list[idx], title: e.target.value };
+                        return { ...p, bayilik: { ...p.bayilik, marketingEvents: list } };
+                      })} />
+                    <input className={inputCls} value={ev.location ?? ""} placeholder="Konum (örn. İstanbul)"
+                      onChange={e => setData(p => {
+                        if (!p?.bayilik) return p;
+                        const list = [...(p.bayilik.marketingEvents ?? [])];
+                        list[idx] = { ...list[idx], location: e.target.value };
+                        return { ...p, bayilik: { ...p.bayilik, marketingEvents: list } };
+                      })} />
+                    <input className={inputCls} value={ev.date ?? ""} placeholder="Tarih (örn. Mart 2026)"
+                      onChange={e => setData(p => {
+                        if (!p?.bayilik) return p;
+                        const list = [...(p.bayilik.marketingEvents ?? [])];
+                        list[idx] = { ...list[idx], date: e.target.value };
+                        return { ...p, bayilik: { ...p.bayilik, marketingEvents: list } };
+                      })} />
+                  </div>
+                </div>
+              ))}
+              <button
+                onClick={() => setData(p => p ? { ...p, bayilik: { ...(p.bayilik ?? defaultBayilik()), marketingEvents: [...(p.bayilik?.marketingEvents ?? []), { id: `ev-${Date.now().toString(36)}`, image: "" }] } } : p)}
+                className="w-full flex items-center justify-center gap-2 text-xs font-semibold py-2.5 rounded-xl transition-all"
+                style={{ background: "rgba(16,185,129,0.12)", border: "1px dashed rgba(16,185,129,0.40)", color: "#10B981" }}
+              >
+                <HiOutlinePlus size={13} /> Etkinlik Ekle
+              </button>
             </div>
           </B2BCard>
 
