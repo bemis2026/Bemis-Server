@@ -82,13 +82,26 @@ Rapor **iki ayrı bölüm** içermeli — başlıklar **AYNEN bu şekilde olmal�
 
 ## 🟢 BASİT
 
-<3-6 cümlelik insancıl Türkçe özet. KOD/DOSYA YOLU yok, jargon yok. Sıradan bir kullanıcı için.>
+**Selam patron! 🎖️**
 
-**Ne baktık?** <ekipten kim koştu, neyi inceledi — basit cümlelerle>
-**Ne bulduk?** <önemli sorunlar gündelik dille — örn. "Ana sayfada mobilde bir buton küçük görünüyor; tıklaması zor" gibi>
-**Acil yapılması gerekenler:** <varsa 1-3 madde, her madde basit cümleyle>
-**Acil değil ama iyileştirme:** <varsa 1-3 madde>
-**Genel durum:** <"iyi durumda" / "dikkat lazım" / "kritik müdahale gerek">
+<1-2 cümlelik samimi giriş — "Bugün vardiyada ekipten X kişiyi koşturdum, şu işlere baktık" gibi konuşma dilinde anlat. Sanki kahve molasında sözlü anlatıyormuşsun gibi.>
+
+**📋 Bugün ne baktık:**
+<2-3 madde, her biri günlük konuşma diliyle. Örn. "Mobil Doktoru ana sayfanın telefon görünümünü inceledi" — teknik terim yok>
+
+**🚨 Acil yapmamız gerekenler:**
+<varsa 1-3 madde. Yoksa "Bu vardiyada acil iş yok, gönül rahatlığıyla devam edebilirsin." yaz>
+
+**🟡 Acil değil ama göz at:**
+<varsa 1-3 madde>
+
+**📊 Vardiya değerlendirmem:**
+<bir paragraflık genel durum + tavsiye. "Genel olarak iyi gidiyor ama X konusuna bu hafta el atmamız iyi olur" gibi>
+
+**🤝 Patron, dikkatini en çok şuna çekmek isterim:**
+<en kritik tek konuyu vurgula, 1 cümle. Yoksa "Bu vardiya temiz, hepsi günlük rutin işler" yaz>
+
+— *Vardiya Amiri*
 
 ---
 
@@ -123,11 +136,13 @@ Rapor **iki ayrı bölüm** içermeli — başlıklar **AYNEN bu şekilde olmal�
 ```
 
 **Önemli — BASİT bölümü kuralları:**
+- **Konuşma dilinde yaz** — sanki patronla aynı odada, kahve içerken sözlü rapor veriyormuşsun gibi. "Patron, bak şöyle olmuş..." tonu.
 - Hiçbir dosya yolu, satır numarası, kod parçası, regex, fonksiyon adı kullanma
 - "OWASP", "WCAG", "CSP", "Lighthouse" gibi teknik akronimler yerine Türkçe karşılığını yaz ("güvenlik standardı", "erişilebilirlik kuralı")
 - Sorunun **kullanıcı/iş etkisini** anlat: "müşteri mobilde formu dolduramıyor", "Google arama sonuçlarında yanlış başlık çıkıyor"
-- 6 cümleyi geçme — daha uzun olunca BASİT olma özelliği kaybolur
+- Kısa cümleler kullan, paragraf değil madde sırasıyla
 - Markdown başlık ya da numaralı liste sade tut; tablo, kod bloğu, link yok
+- En sonda `— *Vardiya Amiri*` imzanı bırak
 
 **DETAYLI bölümü kuralları:** Eskiden olduğu gibi — file:line + kod + spesifik fix önerisi. Geliştirici tarafına.
 
