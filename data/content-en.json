@@ -1,12 +1,12 @@
 {
   "hero": {
     "badge": "Domestic Production · Bursa · 1994",
-    "headline1": "Turkey's",
+    "headline1": "Türkiye’s",
     "headline2": "E-V Charging Systems",
-    "headline3": "Manufacturer",
-    "subtitle": "From your home to your workplace, from parking solutions to field installations — we simplify the electric vehicle experience with certified AC charging units, cables and accessories.",
-    "ctaPrimary": "Discover Our EV Charging Solutions",
-    "ctaSecondary": "Find a Dealer",
+    "headline3": "Manufacurer",
+    "subtitle": "From your home to your workplace, from parking solutions to the field — we facilitate the electric vehicle experience with certified AC chargers, cables, and accessories.",
+    "ctaPrimary": "Explore Our EV Charging Solutions",
+    "ctaSecondary": " Find a Store                                                                                                                                                                                                                                             ",
     "heroBg": "https://i.ibb.co/WWcxt17Q/1778096944295-Gemini-Generated-Image-quuwpmquuwpmquuw-jpg.jpg",
     "layout": {
       "logo": {
@@ -22,43 +22,46 @@
         "y": 82
       }
     },
-    "heroBgPos": "75% 32%"
+    "heroBgPos": "75% 32%",
+    "headline2Words": [
+      "ElektrikMalzemeleri"
+    ]
   },
   "stats": [
     {
       "value": 30,
       "suffix": "+",
-      "label": "Years of Experience",
+      "label": "years experience",
       "description": "Since 1994"
     },
     {
       "value": 8000,
       "suffix": "+",
       "label": "Product Variety",
-      "description": "Wide product range"
+      "description": "Wide Range of Products"
     },
     {
       "value": 80,
       "suffix": "+",
-      "label": "Countries Exported",
-      "description": "Global market reach"
+      "label": "Country Export",
+      "description": "Global market access"
     },
     {
       "value": 9001,
       "prefix": "ISO",
       "suffix": "",
-      "label": "Certifications",
-      "description": "International standards"
+      "label": "Documents",
+      "description": "International standards "
     }
   ],
   "categories": {
     "wallbox": {
       "name": "AC Wallbox Chargers",
-      "subtitle": "22 – 7.4 kW Wall-Mounted Charging Stations",
+      "subtitle": "22-7.4kWWall Mounted Charging Station",
       "modelCount": 3,
       "badge": "Best Selling",
       "comingSoon": false,
-      "image": "/categories/1774980410514-WhatsApp_Image_2026-03-31_at_14.25.50.jpeg ",
+      "image": "https://i.ibb.co/pjkGRghk/1778569694754-Gemini-Generated-Image-qf1urcqf1urcqf1u-png.png",
       "sliderImage": "",
       "faq": [
         {
@@ -85,11 +88,13 @@
           "q": "Kurulum dahil mi?",
           "a": "Cihaz fiyatına kurulum dahil değildir. Yetkili bayimiz keşif yaparak hat çekimi, kablolama ve sigorta panosu çalışmaları için ayrı bir teklif verir. Ortalama kurulum maliyeti 5.000-15.000 TL arasında değişir; mevcut altyapıya göre belirlenir."
         }
-      ]
+      ],
+      "descriptionImage": "",
+      "description": "AC wall type charging stations designed for home, workplace and parking. Single and three-phase models from 7.4 kW to 22 kW charge your electric vehicle safely and efficiently with Type 2 socket or integrated cable options. CE & IP65 certified, in accordance with IEC 61851 / IEC 62196 standards."
     },
     "portable": {
       "name": "AC Mobile Chargers",
-      "subtitle": "22 – 3.7 kW Portable Charging Devices",
+      "subtitle": "22-3.7kW Portable Chargers",
       "modelCount": 2,
       "badge": "New",
       "comingSoon": false,
@@ -115,7 +120,8 @@
           "q": "Mobile şarj ile sabit wallbox arasında nasıl seçim yaparım?",
           "a": "Aracınızı her gün aynı yerde park ediyorsanız sabit wallbox daha hızlı, daha güvenli ve uzun vadede daha ekonomiktir. Sık seyahat ediyorsanız veya birden fazla mekan arasında geçiş yapıyorsanız mobile şarj cihazı daha esnek bir çözümdür. İkisini de almak da yaygın bir tercihtir."
         }
-      ]
+      ],
+      "description": "Portable AC chargers that do not require installation — from the standard outlet or CEE socket to the Type 2 vehicle socket. Flexible charging solution for road, camp and backup scenarios with single-phase 2.3 – 7.4 kW and three-phase 11 – 22 kW options."
     },
     "cables": {
       "name": "AC Charging Cables",
@@ -145,11 +151,12 @@
           "q": "Üç fazlı kablo benim aracımla çalışır mı?",
           "a": "Evet, üç fazlı kablo aynı zamanda tek fazlı şarjı da destekler. Aracınız tek fazlıysa kablo otomatik olarak tek fazda çalışır ve 7.4 kW ile sınırlanır. Üç fazlı kablo, ileride üç fazlı bir araç almanız durumunda gereksiz değişiklik yapmamanızı sağlar."
         }
-      ]
+      ],
+      "description": "Mode 2 and Mode 3 charging cables with Type 2 standard. It is designed for long-lasting use in single and three-phase, 16a – 32a current classes with IEC 62196 / IEC 61851 compliant, halogen-free outer sheath and high-current Type 2 connector."
     },
     "v2l-c2l": {
       "name": "V2L / C2L Adapters",
-      "subtitle": "Vehicle-to-Load & Charger-to-Load Discharge & Battery Charging",
+      "subtitle": "Vehicle-to-Load & Charger-to-Load Discharge & Battery Charge",
       "modelCount": 3,
       "badge": "Innovative",
       "comingSoon": false,
@@ -157,25 +164,30 @@
       "faq": [
         {
           "q": "V2L (Vehicle to Load) ne işe yarar?",
-          "a": "V2L, aracınızın bataryasını taşınabilir bir güç kaynağı olarak kullanmanızı sağlar. Adaptör araç soketine takılır ve standart prizden 220V çıkış verir. Kamp, outdoor etkinlik, elektrik kesintisi gibi durumlarda buzdolabı, projektör, küçük cihaz gibi ekipmanları çalıştırabilirsiniz."
+          "a": "V2L, aracınızın bataryasını taşınabilir bir güç kaynağı olarak kullanmanızı sağlar. Adaptör araç soketine takılır ve standart 220V çıkış verir. Kamp, outdoor etkinlik, elektrik kesintisi gibi durumlarda buzdolabı, projektör, küçük cihaz çalıştırabilirsiniz. Enerji aracın bataryasından gelir."
         },
         {
-          "q": "C2L ile V2L arasındaki fark nedir?",
-          "a": "V2L (Vehicle to Load) doğrudan araç soketinden yük beslemek içindir. C2L (Car to Load) ise iki araç arasında veya araçtan başka bir EV'ye enerji aktarımı için kullanılır — örneğin bataryası biten bir aracı park yerinde başka bir EV ile şarj edebilirsiniz."
+          "q": "C2L (Charger to Load) ne işe yarar?",
+          "a": "C2L adaptör, AC şarj istasyonunun Type 2 soketinden çekilen elektriği standart Schuko (ev tipi) veya CEE (sanayi tipi) prize dönüştürür. Böylece bir Type 2 şarj noktası, sadece araç şarjı değil — atölye, etkinlik alanı veya geçici kurulum için 220V/380V çıkış olarak da kullanılabilir. Enerji şarj ünitesinden gelir, aracınızın bataryasını kullanmaz."
+        },
+        {
+          "q": "V2L ile C2L arasındaki fark nedir?",
+          "a": "Tek farkı enerjinin nereden geldiğidir: V2L enerjiyi ARAÇTAN alır (aracın bataryası kaynak) — aracınız mobil bir güç kaynağına dönüşür. C2L enerjiyi ŞARJ ÜNİTESİNDEN alır (Type 2 charger kaynak) — bir şarj noktasını klasik prize çevirir. İkisi farklı amaçlara hizmet eder; Kombi Set ile her iki adaptörü tek pakette alabilirsiniz."
         },
         {
           "q": "Hangi araçlar V2L destekler?",
-          "a": "Hyundai Ioniq 5/6, Kia EV6/EV9, Genesis GV60, BYD Atto 3, MG ZS EV, Polestar 2 (yeni model yıl), Volkswagen ID.5/ID.7 (yazılım güncellemesiyle) gibi araçlar fabrika çıkışı V2L destekler. Tesla araçları standart olarak desteklemez; üçüncü parti çözümler vardır ama garanti dışı kalır."
+          "a": "Hyundai Ioniq 5/6, Kia EV6/EV9, Genesis GV60, Ssangyong (KGM) Torres EVX, MG ZS EV / MG4, BYD Atto 3 / Seal / Han, Skywell ET5 gibi araçlar fabrika çıkışı V2L destekler. Bemis V2L adaptörlerimiz bu üreticilerin soket pin diziliminde üretilir — ürünü seçerken aracınıza uygun varyantı işaretleyin (Hyundai/Kia/Ssangyong, MG, BYD/Skywell). Tesla araçları standart olarak desteklemez."
         },
         {
           "q": "V2L adaptörden ne kadar güç çekilebilir?",
-          "a": "Üretici aracın V2L gücüne bağlıdır. Hyundai/Kia çoğu modelde 3.6 kW (16A), BYD ve MG modelleri 2.2 kW (10A), bazı yeni modeller 7.2 kW'a kadar çıkar. Bemis V2L adaptörlerimiz aracın çıkış gücünü güvenli şekilde aktarır; aracınızın limitini aşmaz."
+          "a": "Aracın V2L gücüne bağlıdır. Hyundai/Kia çoğu modelde 3.6 kW (16A), BYD ve MG modelleri 2.2 kW (10A), bazı yeni modeller 7.2 kW'a kadar çıkar. Bemis V2L adaptörlerimiz aracın çıkış gücünü güvenli şekilde aktarır; aracınızın limitini aşmaz. Tekli, ikili ve üçlü prizli versiyonlar aynı toplam gücü paylaştırır."
         },
         {
           "q": "V2L kullanımı bataryaya zarar verir mi?",
           "a": "Hayır. V2L üretici tarafından öngörülen bir kullanım modudur; batarya yönetim sistemi (BMS) deşarj derinliğini kontrol eder. Çoğu araç, V2L modunda batarya seviyesini %20'ye indiğinde otomatik kapatır. Sürekli kullanım batarya ömrünü etkilemez."
         }
-      ]
+      ],
+      "description": "Adapters that convert the vehicle's battery (V2L) or charger (C2L) into an external power supply. Compatible with Type 2 inputs and schuko / Cee outputs and V2L-supported vehicles such as Hyundai, Kia, MG, BYD, Ssangyong and Skywell — for camping, workshop and emergency scenarios."
     },
     "converters": {
       "name": "Overtime & Combination",
@@ -205,7 +217,8 @@
           "q": "Türkiye'de hangi soket tipleri yaygın?",
           "a": "Ev şarjında Schuko (standart Türk prizi), 16A endüstriyel CEE mavi priz, 32A CEE kırmızı üç fazlı priz yaygındır. Halka açık AC noktalarda Type 2 standarttır. DC hızlı şarjda CCS2 (en yaygın) ve CHAdeMO (Nissan/eski araçlar) görülür."
         }
-      ]
+      ],
+      "description": "Extension cables and Ceenorm converters that carry existing charging equipment to different outlet types and distances. Combination solutions designed for single and three-phase 16a – 32a transitions."
     },
     "charger-equipment": {
       "name": "AC & DC Charging Unit Equipment",
@@ -236,11 +249,12 @@
           "q": "Yedek soket veya kablo değişimi mümkün mü?",
           "a": "Evet. Bemis şarj cihazlarımızın kabloları ve soketleri modüler tasarımdadır; aşınma veya hasar durumunda yetkili servisimiz hızla değiştirebilir. CCS2 sıvı soğutmalı kablolar gibi özel parçalar için stok yönetimi yapıyoruz."
         }
-      ]
+      ],
+      "descriptionImage": "https://i.ibb.co/hRwwjHtC/1778442054614-Whats-App-Image-2026-04-01-at-21-23-56-jpeg.jpg"
     },
     "accessories": {
       "name": "Accessories",
-      "subtitle": "Carry Bags, Pedestals & Other",
+      "subtitle": "Carrying Cases, Pedestals & Other",
       "modelCount": 4,
       "badge": null,
       "comingSoon": false,
@@ -266,11 +280,12 @@
           "q": "RFID kart kaybolursa ne yapmalıyım?",
           "a": "Kart kaybolduğunda admin panelinden veya satış ekibimize bildirerek devre dışı bırakılabilir. Yeni bir kart eşleşmesi 5 dakikada tamamlanır. Kayıp kartla yetkisiz kullanım riski ihmal edilebilir; çünkü her kart cihaz kayıt sistemine bağlıdır."
         }
-      ]
+      ],
+      "description": "RFID cards, carrying cases and mounting accessories — by-products that complement the operational and safety needs of a charging site."
     },
     "dc-units": {
       "name": "DC Charging Units",
-      "subtitle": "30 – 240 kW DC Fast Charging Stations",
+      "subtitle": "30-240kWFast DC Charging Stations",
       "modelCount": 5,
       "badge": null,
       "comingSoon": false,
@@ -296,22 +311,23 @@
           "q": "Kamuya açık DC şarj noktası açmak için ne gerekli?",
           "a": "EPDK'dan şarj hizmeti yönetmeliği kapsamında lisans veya yetki belgesi, OCPP destekli cihaz, EPVIS sistemine entegrasyon, fatura/ödeme altyapısı (Bemis CPO yazılımı veya 3. parti) gereklidir. Yatırım büyüklüğü 1-3 milyon TL arasında değişir; B2B ekibimiz yol haritası hazırlamada destek verir."
         }
-      ]
+      ],
+      "description": "BEVDC series DC fast chargers — single or double CCS2 output models from 40 kW to 200 kW. Suitable for commercial field use with OCPP 1.6J/ 2.0.1 support, RFID authentication, IP54 protection and wide temperature range (-25°C / +55°C)."
     }
   },
   "featured": [
     {
       "categoryId": "wallbox",
       "productId": "wallbox-22kw",
-      "badge": "Upcoming",
+      "badge": "M<g id=\"2\">ost popular plan</g>",
       "highlight": "22 kW three-phase smart charging station for individual and common space uses. IP65 · OCPP 1.6 · Dynamic load balancing.",
       "visible": true
     },
     {
       "categoryId": "portable",
       "productId": "mini-mobile",
-      "badge": "M<g id=\"2\">ost popular plan</g>",
-      "highlight": "22 kW three-phase smart charging station for individual and common space uses. IP65 · OCPP 1.6 · Dynamic load balancing.",
+      "badge": "Plug & Play",
+      "highlight": "No installation required. Plug in, charge. Ideal for both home and travel with 6A-32A adjustable current.",
       "visible": true
     },
     {
@@ -341,23 +357,21 @@
   "social": {
     "linkedin": "https://www.linkedin.com/company/104588906",
     "instagram": "https://www.instagram.com/bemis.evcharge/",
-    "twitter": ""
+    "twitter": "",
+    "youtube": "https://www.youtube.com/@bemisteknikelektrika.s.2025",
+    "facebook": "https://www.facebook.com/bemisteknik/?locale=tr_TR"
   },
   "dna": {
-    "sectionLabel": "Up to 400-500A capacity. CCS2  · model. For station manufacturers.",
-    "sectionHeading": "About Us",
-    "brandHeading": "From Software to Production  — It's All on Us",
+    "sectionLabel": "About Us",
+    "sectionHeading": "From Software to Production  — It's All on Us",
+    "brandHeading": "With Bemis quality\nDomestic EV charging solutions",
     "brandPara1": "Founded in 1994 in Bursa, Bemis Teknik Elektrik A.Ş. is one of the leading electrical equipment manufacturers in Turkey with 100% domestic production and more than 30 years of experience in the field of industrial plug socket. Bemis E-V Charge is our fully domestic EV charging brand built on this well-established infrastructure.",
-    "brandPara2": "Founded in 1994 in Bursa, Bemis Teknik Elektrik A.Ş. is one of the leading electrical equipment manufacturers in Turkey with 100% domestic production and more than 30 years of experience in the field of industrial plug socket. Bemis E-V Charge is our fully domestic EV charging brand built on this well-established infrastructure.",
-    "quote": "In our facility in Bursa OIZ, we carry out every stage from electronic card design to software, from cable production to final assembly. The products we export to more than 80 countries prove how domestic engineering can compete in the global arena.",
-    "quoteAttr": "Quality is the expression of respect.",
+    "brandPara2": "In our facility in Bursa OIZ, we carry out every stage from electronic card design to software, from cable production to final assembly. The products we export to more than 80 countries prove how domestic engineering can compete in the global arena.",
+    "quote": "Quality is the expression of respect.",
+    "quoteAttr": "Bemis E-V Charge Team · Bursa OIZ, Turkey",
     "yearLabel": "1994",
-    "yearSub": "Explore the Bemis World",
+    "yearSub": "Bursa · Turkey · Domestic Production",
     "highlights": [
-      {
-        "title": "Bursa · Turkey · Domestic Production",
-        "desc": "Clean Mobility"
-      },
       {
         "title": "30+ Years of Experience",
         "desc": "Uninterrupted production since 1994."
@@ -369,13 +383,13 @@
       {
         "title": "80+ Country Exports",
         "desc": "We bring Turkish engineering to the world."
+      },
+      {
+        "title": "Clean Mobility",
+        "desc": "Contribution to a sustainable future."
       }
     ],
     "features": [
-      {
-        "title": "Contribution to a sustainable future.",
-        "desc": "Sustainable Design"
-      },
       {
         "title": "Smart Charging Management",
         "desc": "OCPP 1.6/2 .0 protocol, dynamic load balancing and cloud-based remote management."
@@ -387,34 +401,52 @@
       {
         "title": "Universal Compatibility",
         "desc": "Type 2, CCS— compliant with all EV brands, IEC 61851 & IEC 62196 certified."
+      },
+      {
+        "title": "Sustainable Design",
+        "desc": "-40°C / +55°C operating range, 100,000 + hours lifespan. Long-lasting, little waste."
       }
     ],
     "factoryImage": "/kurumsal/1775044209322-WhatsApp_Image_2026-04-01_at_09.54.37.jpeg",
     "factoryVideo": "https://www.youtube.com/watch?v=BnoQBR9irTU",
-    "ctaLabel": "Bemis E-V Charge Team · Bursa OIZ, Turkey",
-    "aboutVideo": "https://www.youtube.com/watch?v=JVfchskAXC4&t=53s"
+    "ctaLabel": "Explore the World of Bemis",
+    "aboutVideo": "https://www.youtube.com/watch?v=JVfchskAXC4&t=53s",
+    "groupBrands": [
+      {
+        "name": "Bemis",
+        "logo": ""
+      },
+      {
+        "name": "Bemis E-V Charge",
+        "logo": "https://i.ibb.co/hxpt943H/1778522034826-1776676694649-favicon-png-png.png"
+      },
+      {
+        "name": "BYES",
+        "logo": ""
+      }
+    ]
   },
   "products": {
     "heading": "EV Charging Solutions",
-    "subheading": "EV Charging Solutions",
-    "sectionLabel": "Discover the charging solution that suits your needs",
-    "allProductsLabel": "Product Catalog",
-    "viewLabel": "All Products",
+    "subheading": "Discover the charging solution that suits your needs",
+    "sectionLabel": "Product Catalog",
+    "allProductsLabel": "All Products",
+    "viewLabel": "Review",
     "sliderEnabled": false
   },
   "dealer": {
-    "sectionLabel": "Review",
-    "heading": "Authorized Sales Network",
-    "description": "All over Turkey",
-    "applyText": "Select or contact our authorized dealers across Turkey from the map.",
+    "sectionLabel": "Authorized Sales Network",
+    "heading": "All over Turkey",
+    "description": "Select or contact our authorized dealers across Turkey from the map.",
+    "applyText": "Would you like to join our dealer network?",
     "statCities": "7",
     "statDealers": "50+",
-    "findDealerTitle": "Would you like to join our dealer network?",
-    "contactBtnLabel": " Find a Store                                                                                                                                                                                                                                             ",
+    "findDealerTitle": " Find a Store                                                                                                                                                                                                                                             ",
+    "contactBtnLabel": "Contact",
     "citiesLabel": "Dealer in the Territory",
-    "activeDealersLabel": "Dealer in the Territory",
-    "mapHint": "Active Dealer",
-    "mapTitle": "Click or hover over an area on the map",
+    "activeDealersLabel": "Active Dealer",
+    "mapHint": "Click or hover over an area on the map",
+    "mapTitle": "Turkey Authorized Dealer Map",
     "regionReps": [
       {
         "regionId": "marmara",
@@ -457,12 +489,12 @@
     }
   },
   "reviews": {
-    "sectionLabel": "Chile",
-    "heading": "User comments",
-    "subheading": "What Are Users Saying?",
-    "ratingLabel": "Real user experiences from Trendyol and HepsBurada",
-    "platformsPrefix": "rating",
-    "ratingCountSuffix": "Trendyol and HepsBurada",
+    "sectionLabel": "User comments",
+    "heading": "What Are Users Saying?",
+    "subheading": "Real user experiences from Trendyol and HepsBurada",
+    "ratingLabel": "rating",
+    "platformsPrefix": "Trendyol and HepsBurada",
+    "ratingCountSuffix": "consideration",
     "rating": "4.9",
     "ratingCount": "500+",
     "items": [
@@ -470,23 +502,14 @@
         "platform": "Trendyol",
         "platformColor": "#F27A1A",
         "rating": 5,
-        "author": "consideration",
-        "date": "Can M.",
-        "product": "Nov 2024",
-        "text": "DC Fast Charging Cable"
-      },
-      {
-        "platform": "HepsiBurada",
-        "platformColor": "#FF6000",
-        "rating": 5,
         "author": "Mehmet K.",
         "date": "Mar 2025",
         "product": "AC Wallbox 7kW",
         "text": "I have been using it for 3 months, it was very easy to install. Zero problems in everyday use. You feel the quality of Turkish goods, the quality of construction is very good. Highly recommend."
       },
       {
-        "platform": "Trendyol",
-        "platformColor": "#F27A1A",
+        "platform": "HepsiBurada",
+        "platformColor": "#FF6000",
         "rating": 5,
         "author": "Ayşe T.",
         "date": "FEBRUARY 2025",
@@ -494,8 +517,8 @@
         "text": "The cable quality is really excellent. The Type 2 connector fits perfectly with the vehicle, plugging and unplugging is very fluid. The 7-meter length is ideal for garage use."
       },
       {
-        "platform": "HepsiBurada",
-        "platformColor": "#FF6000",
+        "platform": "Trendyol",
+        "platformColor": "#F27A1A",
         "rating": 5,
         "author": "Serkan D.",
         "date": "January 2025",
@@ -503,8 +526,8 @@
         "text": "Great convenience on holiday trips. Plug in the standard socket and start charging. I never leave my side when traveling, I also use it in emergencies. Very practical!"
       },
       {
-        "platform": "Trendyol",
-        "platformColor": "#F27A1A",
+        "platform": "HepsiBurada",
+        "platformColor": "#FF6000",
         "rating": 5,
         "author": "Emre Y.",
         "date": "January 2025",
@@ -512,90 +535,95 @@
         "text": "We use it in the outdoor parking lot of our workplace. IP65 protection works perfectly even in the rain. We had a winter and had no problems. Domestic production gives confidence."
       },
       {
-        "platform": "HepsiBurada",
-        "platformColor": "#FF6000",
+        "platform": "Trendyol",
+        "platformColor": "#F27A1A",
         "rating": 5,
         "author": "Özlem B.",
         "date": "December 2024",
         "product": "V2L Adapter",
         "text": "It's great to get power from the car on a camping trip. The adapter is of good quality and works safely. I was able to turn on the laptop, the lights, even the small heater. Multi-brand compatibility is great."
+      },
+      {
+        "platform": "HepsiBurada",
+        "platformColor": "#FF6000",
+        "rating": 5,
+        "author": "Can M.",
+        "date": "Nov 2024",
+        "product": "DC Fast Charging Cable",
+        "text": "CCS connection works perfectly. The cable is flexible, does not have difficulty in crimping and unfolding. Connection quality is superior, no heating at high current. Best option on the market."
       }
     ]
   },
   "contactSection": {
-    "sectionLabel": "CCS connection works perfectly. The cable is flexible, does not have difficulty in crimping and unfolding. Connection quality is superior, no heating at high current. Best option on the market.",
-    "heading": "Contact",
+    "sectionLabel": "Contact",
+    "heading": "Contact Us",
     "subheading": "Contact us to discuss our products, dealership application, corporate sales, partnerships or feedback."
   },
   "featuredSection": {
-    "sectionLabel": "Contact us to discuss our products, dealership application, corporate sales, partnerships or feedback.",
-    "heading": "EDigital: Featured Products",
-    "subheading": "Most Preferred",
-    "ctaLabel": "Our most ordered products that our customers trust"
+    "sectionLabel": "EDigital: Featured Products",
+    "heading": "Most Preferred",
+    "subheading": "Our most ordered products that our customers trust",
+    "ctaLabel": "Read More About Product"
   },
   "navbar": {
-    "ctaLabel": "2 Years",
+    "ctaLabel": "Contact Us",
     "links": [
       {
-        "label": "Contact Us",
+        "label": "Home",
         "href": "#hero"
       },
       {
-        "label": "Home",
+        "label": "About Us",
         "href": "#dna"
       },
       {
-        "label": "About Us",
+        "label": "Products",
         "href": "#products"
       },
       {
-        "label": "Products",
+        "label": "Documents",
         "href": "/documents"
       },
       {
-        "label": "Documents",
+        "label": "Dealer Network",
         "href": "#dealer"
       },
       {
-        "label": "Dealer Network",
+        "label": "Calculator",
         "href": "#calculator"
       },
       {
-        "label": "Calculator",
+        "label": "Contact",
         "href": "#contact"
       },
       {
-        "label": "Contact",
+        "label": "Corporate",
         "href": "/b2b"
       }
     ]
   },
   "footer": {
-    "description": "Corporate",
-    "followLabel": "Our EV charging equipment brand within Bemis Teknik Elektrik A.Ş. Quality electrical equipment from Turkey to the world since 1994.",
-    "copyright": "Follow us:",
-    "rightsLabel": "© 2026 Bemis Teknik Elektrik A.Ş.",
-    "tagline": "All rights reserved",
-    "b2bText": "Domestic Production, Global Quality",
-    "b2bLinkText": "For manufacturers and OEM solutions",
-    "b2bSuffix": "our professional product page"
+    "description": "Our EV charging equipment brand within Bemis Teknik Elektrik A.Ş. Quality electrical equipment from Turkey to the world since 1994.",
+    "followLabel": "Follow us:",
+    "copyright": "© 2026 Bemis Teknik Elektrik A.Ş.",
+    "rightsLabel": "All rights reserved",
+    "tagline": "Domestic Production, Global Quality",
+    "b2bText": "For manufacturers and OEM solutions",
+    "b2bLinkText": "our professional product page",
+    "b2bSuffix": "information."
   },
   "logos": {
     "dark": "",
     "light": ""
   },
   "smartCharger": {
-    "sectionLabel": "",
-    "heading": "Smart Charging Technology",
+    "sectionLabel": "Smart Charging Technology",
+    "heading": "With Mobile App\nManage Anywhere",
     "subheading": "Thanks to the OCPP protocol, our Charger series charging units can manage real-time monitoring, remote control and energy optimization from a single platform in common areas such as site, shopping mall and parking lot. Integrates seamlessly with network operators.",
-    "ocppBadge": "Thanks to the OCPP protocol, our Charger series charging units can manage real-time monitoring, remote control and energy optimization from a single platform in common areas such as site, shopping mall and parking lot. Integrates seamlessly with network operators.",
-    "ctaLabel": "OCPP 1.6 / 2.0.1 Compliant",
+    "ocppBadge": "OCPP 1.6 / 2.0.1 Compliant",
+    "ctaLabel": "Review Charger Series",
     "ctaHref": "https://portal.bemis.com.tr/login?ReturnUrl=%2F",
     "features": [
-      {
-        "title": "Review Charger Series",
-        "desc": "Open OCPP Ecosystem"
-      },
       {
         "title": "Remote Monitoring & Control",
         "desc": "Track, start or stop the chargers in real time. Get instant status notifications."
@@ -603,25 +631,25 @@
       {
         "title": "Common Area Optimization",
         "desc": "Full management with multi-user access, dynamic load balancing and payment system integration."
+      },
+      {
+        "title": "Open OCPP Ecosystem",
+        "desc": "It works compatible with all network operators and back-end platforms with the standard OCPP protocol."
       }
     ],
     "playStoreHref": "https://play.google.com/store/apps/details?id=com.bemis.etechchargehub&pcampaignid=web_share",
     "mockupPhoneImage": ""
   },
   "productShowcase": {
-    "badge": "It works compatible with all network operators and back-end platforms with the standard OCPP protocol.",
-    "name": "Flagship Product",
-    "tagline": "AC Wallbox Smart Charger Pro 2",
+    "badge": "Flagship Product",
+    "name": "AC Wallbox Smart Charger Pro 2",
+    "tagline": "The new standard of smart charging",
     "description": "22 kW smart AC charging station with OCPP support developed for residential and workplace applications. Seamless performance for individual and shared use with mobile app integration, dynamic load management and IP65 protection.",
     "image": "https://i.ibb.co/n8m3gY86/1776719268258-Whats-App-Image-2026-04-01-at-14-54-58-7-jpeg.jpg",
     "specs": [
       {
-        "label": "Get Quotes",
-        "value": "22 kW"
-      },
-      {
         "label": "Power Output:",
-        "value": "Full Security"
+        "value": "22 kW"
       },
       {
         "label": "Protection category",
@@ -638,11 +666,15 @@
       {
         "label": "The temperature",
         "value": "-40°C +55°C"
+      },
+      {
+        "label": "Guarantee",
+        "value": "2 Years"
       }
     ],
-    "ctaPrimary": "22 kW smart AC charging station with OCPP support developed for residential and workplace applications. Seamless performance for individual and shared use with mobile app integration, dynamic load management and IP65 protection.",
+    "ctaPrimary": "Read More About Product",
     "ctaHref": "/products/wallbox",
-    "ctaSecondary": "Read More About Product",
+    "ctaSecondary": "Get Quotes",
     "ctaSecondaryHref": "/contact",
     "images": [
       "https://i.ibb.co/n8m3gY86/1776719268258-Whats-App-Image-2026-04-01-at-14-54-58-7-jpeg.jpg"

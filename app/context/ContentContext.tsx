@@ -196,6 +196,15 @@ export type SiteContent = {
      *  admin updates from the panel. */
     recentPosts?: SocialPost[];
   };
+  /** Search engine site-verification tokens. Each one rendered as a
+   *  `<meta name="…" content="…">` in <head> when present. Operators
+   *  paste the exact token Google / Yandex / Bing gives them — no
+   *  protocol, no quotes. Empty strings are skipped. */
+  siteVerification?: {
+    google?: string;
+    yandex?: string;
+    bing?: string;
+  };
   dna: {
     sectionLabel: string; sectionHeading: string;
     brandHeading: string; brandPara1: string; brandPara2: string;
@@ -382,6 +391,7 @@ const defaultContent: SiteContent = {
   },
   marketing: { ga4Id: "", googleAdsId: "", googleAdsContactLabel: "", metaPixelId: "" },
   social: { linkedin: "", instagram: "", twitter: "", youtube: "", facebook: "", recentPosts: [] },
+  siteVerification: { google: "", yandex: "", bing: "" },
   dna: {
     sectionLabel: "Hakkımızda",
     sectionHeading: "Üretimden yazılıma — her şey bizden",

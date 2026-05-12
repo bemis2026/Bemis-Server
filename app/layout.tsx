@@ -51,6 +51,7 @@ type ContentSnapshot = {
     ratingCount: number;
     items: ReviewSnapshotItem[];
   };
+  verification: { google: string; yandex: string; bing: string };
 };
 
 async function getContentMeta(): Promise<ContentSnapshot> {
@@ -60,6 +61,12 @@ async function getContentMeta(): Promise<ContentSnapshot> {
     const logos = (data?.logos ?? {}) as { dark?: string; light?: string };
     const contact = (data?.contact ?? {}) as { phone?: string; email?: string; address?: string; addressSub?: string };
     const social = (data?.social ?? {}) as { linkedin?: string; instagram?: string; twitter?: string; youtube?: string; facebook?: string };
+    const verifyRaw = (data?.siteVerification ?? {}) as { google?: string; yandex?: string; bing?: string };
+    const verification = {
+      google: (verifyRaw.google || "").trim(),
+      yandex: (verifyRaw.yandex || "").trim(),
+      bing:   (verifyRaw.bing   || "").trim(),
+    };
     const reviewsRaw = (data?.reviews ?? {}) as {
       rating?: number | string;
       ratingCount?: number | string;
@@ -100,6 +107,7 @@ async function getContentMeta(): Promise<ContentSnapshot> {
         facebook: social.facebook || "",
       },
       reviews,
+      verification,
     };
   } catch {}
   return {
@@ -109,10 +117,17 @@ async function getContentMeta(): Promise<ContentSnapshot> {
     addressStreet: null, addressLocality: null,
     social: { linkedin: "", instagram: "", twitter: "", youtube: "", facebook: "" },
     reviews: { rating: 0, ratingCount: 0, items: [] },
+    verification: { google: "", yandex: "", bing: "" },
   };
 }
 
 export async function generateMetadata(): Promise<Metadata> {
+  // Pull the snapshot once at build/revalidate time so we can render
+  // site-verification meta tags inline (Google / Yandex / Bing each
+  // require their own canonical name= header).
+  const verifyMeta = await getContentMeta();
+  const verifyOther: Record<string, string> = {};
+  if (verifyMeta.verification.bing) verifyOther["msvalidate.01"] = verifyMeta.verification.bing;
   // Note: og:image / twitter:image meta tags are produced automatically
   // by app/opengraph-image.tsx — we deliberately don't set them here so
   // the dynamic generator stays the single source of truth (avoids
@@ -166,6 +181,11 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title: "Bemis E-V Charge | Yerli EV Şarj Ekipmanı",
       description: "Türkiye'nin lider EV şarj ekipmanı üreticisi — CE & IP65 sertifikalı, 60+ ülkeye ihracat.",
+    },
+    verification: {
+      ...(verifyMeta.verification.google && { google: verifyMeta.verification.google }),
+      ...(verifyMeta.verification.yandex && { yandex: verifyMeta.verification.yandex }),
+      ...(Object.keys(verifyOther).length > 0 && { other: verifyOther }),
     },
   };
 }

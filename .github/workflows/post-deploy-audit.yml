@@ -1,0 +1,84 @@
+# Post-deploy lightweight audit suite.
+#
+# Runs the "fast" agents after every push to main — the ones whose
+# output is mostly diffable (perf, light-mode, mobile, consistency,
+# i18n) plus changelog-writer to draft release notes. Heavy audits
+# (seo, security, a11y) live on the monthly cadence instead.
+#
+# Each agent posts back to the same GitHub Issue title family so we
+# don't drown the issue tracker — re-runs append a comment rather
+# than opening a duplicate. See scripts/notify-finding.cjs.
+
+name: Post-deploy audit
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Cancel in-flight runs when a fresh push lands — there's no value
+# in auditing a stale commit.
+concurrency:
+  group: post-deploy-audit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      id-token: write
+    strategy:
+      fail-fast: false
+      matrix:
+        agent: [perf-audit, light-mode-audit, mobile-responsive-audit, site-consistency, en-i18n, changelog-writer]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 50   # Enough history for changelog-writer to diff.
+
+      - name: Run agent ${{ matrix.agent }}
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # The action loads the agent definition from
+          # .claude/agents/<name>.md and executes its instructions
+          # in a sandboxed checkout of the repo. Output is captured
+          # so we can route it through notify-finding.cjs.
+          prompt: |
+            Run the agent defined at .claude/agents/${{ matrix.agent }}.md
+            against the current working tree (commit ${{ github.sha }}).
+
+            When finished, emit a single JSON object to a file at
+            /tmp/finding.json with this shape:
+              {
+                "title": "<short summary, no commit hash>",
+                "severity": "critical" | "medium" | "low",
+                "body": "<full markdown report>",
+                "source": "${{ matrix.agent }}"
+              }
+
+            If the audit finds NOTHING worth surfacing, write
+              { "skip": true, "source": "${{ matrix.agent }}" }
+            and exit cleanly — we don't want a "no issues found" issue
+            opening on every quiet push.
+
+      - name: Forward finding
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO:  ${{ github.repository }}
+          RESEND_API_KEY:     ${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM_EMAIL:  ${{ secrets.RESEND_FROM_EMAIL }}
+          NOTIFY_EMAIL:       ${{ secrets.NOTIFY_EMAIL }}
+        run: |
+          if [ ! -f /tmp/finding.json ]; then
+            echo "no /tmp/finding.json — agent skipped or failed silently"
+            exit 0
+          fi
+          if jq -e '.skip == true' /tmp/finding.json > /dev/null; then
+            echo "agent reported nothing to surface"
+            exit 0
+          fi
+          cat /tmp/finding.json | node scripts/notify-finding.cjs

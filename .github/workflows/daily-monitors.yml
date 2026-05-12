@@ -1,0 +1,39 @@
+# Daily lightweight monitors.
+#
+# Three cheap checks that don't need Claude — just plain Node:
+#   1. Form spam      — JSONBin messages bin, count last 24h
+#   2. Bin size       — every bin >80KB triggers a "shard soon" issue
+#   3. SSL expiry     — certificate <14 days from expiry → issue
+#
+# All run in a single workflow because they share the same env and
+# notify-finding.cjs sink — keeps the Actions usage minutes tight.
+
+name: Daily monitors
+
+on:
+  schedule:
+    - cron: "0 3 * * *"   # 06:00 Europe/Istanbul
+  workflow_dispatch:
+
+jobs:
+  monitors:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+
+      - name: Form spam + bin size + SSL
+        env:
+          JSONBIN_MASTER_KEY: ${{ secrets.JSONBIN_MASTER_KEY }}
+          GH_TOKEN:           ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO:            ${{ github.repository }}
+          RESEND_API_KEY:     ${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM_EMAIL:  ${{ secrets.RESEND_FROM_EMAIL }}
+          NOTIFY_EMAIL:       ${{ secrets.NOTIFY_EMAIL }}
+        run: |
+          node scripts/daily-monitors.cjs

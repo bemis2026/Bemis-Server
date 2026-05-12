@@ -143,13 +143,13 @@ export function buildAutoReplyHtml(opts: {
               <a href="https://www.bemisevcharge.com.tr" style="color:${accent};text-decoration:none">www.bemisevcharge.com.tr</a>
             </td>
             <td style="text-align:right;padding:4px 0">
-              <a href="mailto:sales@bemis.com.tr" style="color:${accent};text-decoration:none">sales@bemis.com.tr</a>
+              <a href="mailto:info@bemisevcharge.com" style="color:${accent};text-decoration:none">info@bemisevcharge.com</a>
             </td>
           </tr>
         </table>
         <p style="margin:18px 0 0;font-size:11px;color:#aaa;text-align:center">
-          Bu mesaj otomatik gönderilmiştir. Bu adrese cevap vermeniz gerekmez —
-          sorularınız için <a href="mailto:sales@bemis.com.tr" style="color:#aaa">sales@bemis.com.tr</a> kullanın.
+          Bu mesaj otomatik gönderilmiştir. Cevap atmanız gerekmiyor —
+          ekibimize ulaşmak için <a href="mailto:info@bemisevcharge.com" style="color:#aaa">info@bemisevcharge.com</a> kullanın.
         </p>
       </div>
     </div>`;
@@ -162,6 +162,11 @@ export async function sendAutoReply(opts: {
   originalMessage: string;
   formKind?: string;
 }): Promise<SendResult> {
+  // Send from no-reply but route replies to the staffed inbox.
+  // Best practice: noreply@ as sender (so users don't accidentally
+  // reply into a black-hole mailbox), info@ as Reply-To so anyone
+  // who *does* hit reply lands at a monitored address.
+  const replyTo = process.env.REPLY_TO_EMAIL || "info@bemisevcharge.com";
   return sendEmail({
     to: opts.toUser,
     subject: `Mesajınız alındı — Bemis E-V Charge`,
@@ -171,6 +176,7 @@ export async function sendAutoReply(opts: {
       originalMessage: opts.originalMessage,
       formKind: opts.formKind,
     }),
+    replyTo,
   });
 }
 

@@ -1,0 +1,77 @@
+# Weekly production-health summary.
+#
+# Pulls 14-day Sentry data through scripts/sentry-health.cjs, hands the
+# raw report to the production-health agent, which groups issues by
+# severity and links each one back to the offending file in the tree.
+#
+# Fires every Monday at 09:00 Europe/Istanbul (06:00 UTC) so the
+# operator gets a fresh report at the start of the work week.
+
+name: Weekly production-health
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # Mon 06:00 UTC = 09:00 Europe/Istanbul
+  workflow_dispatch:
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Pull Sentry 14d window
+        id: sentry
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG:        ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT:    ${{ secrets.SENTRY_PROJECT }}
+          SENTRY_REGION:     ${{ secrets.SENTRY_REGION }}
+        run: |
+          node scripts/sentry-health.cjs 14d > /tmp/sentry.txt 2>&1 || true
+          echo "---"
+          head -c 3000 /tmp/sentry.txt
+
+      - name: Run production-health agent
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Sentry 14-day report has been pre-fetched to /tmp/sentry.txt.
+
+            Follow the steps in .claude/agents/production-health.md to:
+              1. Read the report.
+              2. Group issues by severity (🔴/🟡/🟢) and link each one
+                 to the source file in this repo.
+              3. Suggest a fix for at least the top 3 issues.
+
+            Emit /tmp/finding.json with:
+              {
+                "title": "Haftalık production-health raporu — <date>",
+                "severity": "critical" if any 🔴, otherwise "medium" or "low",
+                "body": "<full markdown report>",
+                "source": "production-health"
+              }
+
+            If Sentry report is empty / no new issues:
+              { "skip": true, "source": "production-health" }
+
+      - name: Forward finding
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO:  ${{ github.repository }}
+          RESEND_API_KEY:     ${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM_EMAIL:  ${{ secrets.RESEND_FROM_EMAIL }}
+          NOTIFY_EMAIL:       ${{ secrets.NOTIFY_EMAIL }}
+        run: |
+          if [ ! -f /tmp/finding.json ]; then exit 0; fi
+          if jq -e '.skip == true' /tmp/finding.json > /dev/null; then exit 0; fi
+          cat /tmp/finding.json | node scripts/notify-finding.cjs

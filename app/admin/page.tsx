@@ -118,6 +118,7 @@ type ContentData = {
     linkedin: string; instagram: string; twitter: string; youtube: string; facebook: string;
     recentPosts?: SocialPost[];
   };
+  siteVerification?: { google?: string; yandex?: string; bing?: string };
   dna: {
     sectionLabel: string; sectionHeading: string; brandHeading: string;
     brandPara1: string; brandPara2: string; quote: string; quoteAttr: string;
@@ -3050,6 +3051,51 @@ export default function AdminPage() {
 
                     </div>
                   )}
+
+                  {/* Arama motoru sahiplik doğrulama — Search Console,
+                      Yandex Webmaster, Bing Webmaster Tools verification
+                      token'larını <head> içine meta etiketi olarak gömüyoruz. */}
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
+                    <div>
+                      <p className="text-xs font-semibold text-white/60">Arama Motoru Sahiplik Doğrulama</p>
+                      <p className="text-[11px] text-white/30 leading-snug mt-0.5">
+                        Her platform &quot;HTML etiketi&quot; doğrulama yöntemiyle bir token verir; sadece <strong>content=&quot;...&quot;</strong> içindeki değeri yapıştırın (tırnak yok, tam etiket yok). Boş bırakılan platform gizlenir.
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                        <span className="text-[10px] font-bold text-white/40">G</span>
+                      </div>
+                      <input
+                        value={content.siteVerification?.google ?? ""}
+                        onChange={(e) => updateContent(["siteVerification", "google"], e.target.value)}
+                        placeholder="google-site-verification token'ı"
+                        className="flex-1 bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22 font-mono"
+                      />
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                        <span className="text-[10px] font-bold text-white/40">Y</span>
+                      </div>
+                      <input
+                        value={content.siteVerification?.yandex ?? ""}
+                        onChange={(e) => updateContent(["siteVerification", "yandex"], e.target.value)}
+                        placeholder="yandex-verification token'ı"
+                        className="flex-1 bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22 font-mono"
+                      />
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                        <span className="text-[10px] font-bold text-white/40">B</span>
+                      </div>
+                      <input
+                        value={content.siteVerification?.bing ?? ""}
+                        onChange={(e) => updateContent(["siteVerification", "bing"], e.target.value)}
+                        placeholder="msvalidate.01 token'ı"
+                        className="flex-1 bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22 font-mono"
+                      />
+                    </div>
+                  </div>
 
                   {/* Reklam & Pixel Yönetimi — operatörün Google Ads
                       conversion ID + Meta Pixel ID'sini admin'den

@@ -1,0 +1,96 @@
+# Monthly deep audit suite.
+#
+# The slow / wide-scope auditors that produce big reports best read
+# once a month, not on every push: seo-audit, security-audit,
+# a11y-audit. Also runs a sitemap + PageSpeed snapshot so the
+# operator can track index size + Core Web Vitals trends over time.
+#
+# Fires on the 1st of every month at 02:00 UTC = 05:00 Europe/Istanbul
+# — early enough to land before the work day starts, not so late
+# that the report sits unread for hours.
+
+name: Monthly deep audit
+
+on:
+  schedule:
+    - cron: "0 2 1 * *"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    strategy:
+      fail-fast: false
+      matrix:
+        agent: [seo-audit, security-audit, a11y-audit]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Run agent ${{ matrix.agent }}
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Run the agent at .claude/agents/${{ matrix.agent }}.md
+            against the production site (https://www.bemisevcharge.com.tr)
+            and the current working tree.
+
+            Emit /tmp/finding.json:
+              {
+                "title": "Aylık ${{ matrix.agent }} raporu — <YYYY-MM>",
+                "severity": "critical" | "medium" | "low",
+                "body": "<full markdown report>",
+                "source": "${{ matrix.agent }}"
+              }
+
+            Skip with { "skip": true, "source": "${{ matrix.agent }}" }
+            only if there are absolutely no findings — even an
+            informational "everything looks clean" report has value
+            as a monthly checkpoint, so prefer "low" over "skip".
+
+      - name: Forward finding
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO:  ${{ github.repository }}
+          RESEND_API_KEY:     ${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM_EMAIL:  ${{ secrets.RESEND_FROM_EMAIL }}
+          NOTIFY_EMAIL:       ${{ secrets.NOTIFY_EMAIL }}
+        run: |
+          if [ ! -f /tmp/finding.json ]; then exit 0; fi
+          if jq -e '.skip == true' /tmp/finding.json > /dev/null; then exit 0; fi
+          cat /tmp/finding.json | node scripts/notify-finding.cjs
+
+  pagespeed:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+
+      - name: PageSpeed snapshot + sitemap stats
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO:  ${{ github.repository }}
+          RESEND_API_KEY:     ${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM_EMAIL:  ${{ secrets.RESEND_FROM_EMAIL }}
+          NOTIFY_EMAIL:       ${{ secrets.NOTIFY_EMAIL }}
+        run: |
+          node scripts/seo-snapshot.cjs | tee /tmp/seo.txt
+          # Wrap the snapshot as a finding so it lands in the same
+          # notification surface as the agent reports.
+          jq -Rs --arg src "seo-snapshot" '{
+            title: "Aylık SEO durumu — " + (now | strftime("%Y-%m")),
+            severity: "low",
+            body: .,
+            source: $src
+          }' /tmp/seo.txt | node scripts/notify-finding.cjs
