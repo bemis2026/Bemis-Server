@@ -32,6 +32,10 @@ const inter = Inter({
   display: "swap",
 });
 
+type ReviewSnapshotItem = {
+  author: string; rating: number; text: string;
+  date?: string; platform?: string; product?: string;
+};
 type ContentSnapshot = {
   ogImage: string | null;
   faviconUrl: string | null;
@@ -42,6 +46,11 @@ type ContentSnapshot = {
   addressStreet: string | null;
   addressLocality: string | null;
   social: { linkedin: string; instagram: string; twitter: string; youtube: string; facebook: string };
+  reviews: {
+    rating: number;
+    ratingCount: number;
+    items: ReviewSnapshotItem[];
+  };
 };
 
 async function getContentMeta(): Promise<ContentSnapshot> {
@@ -51,6 +60,29 @@ async function getContentMeta(): Promise<ContentSnapshot> {
     const logos = (data?.logos ?? {}) as { dark?: string; light?: string };
     const contact = (data?.contact ?? {}) as { phone?: string; email?: string; address?: string; addressSub?: string };
     const social = (data?.social ?? {}) as { linkedin?: string; instagram?: string; twitter?: string; youtube?: string; facebook?: string };
+    const reviewsRaw = (data?.reviews ?? {}) as {
+      rating?: number | string;
+      ratingCount?: number | string;
+      items?: { author?: string; rating?: number; text?: string; date?: string; platform?: string; product?: string }[];
+    };
+    const reviews = {
+      rating: typeof reviewsRaw.rating === "number"
+        ? reviewsRaw.rating
+        : parseFloat(String(reviewsRaw.rating ?? "0").replace(",", ".")) || 0,
+      ratingCount: typeof reviewsRaw.ratingCount === "number"
+        ? reviewsRaw.ratingCount
+        : parseInt(String(reviewsRaw.ratingCount ?? "0").replace(/\D/g, ""), 10) || 0,
+      items: (reviewsRaw.items ?? [])
+        .filter((r) => r?.author && r?.text && (r.rating ?? 0) > 0)
+        .map((r) => ({
+          author: r.author!,
+          rating: r.rating!,
+          text: r.text!,
+          date: r.date,
+          platform: r.platform,
+          product: r.product,
+        })),
+    };
     return {
       ogImage: (data?.ogImage as string) || null,
       faviconUrl: (data?.faviconUrl as string) || null,
@@ -67,6 +99,7 @@ async function getContentMeta(): Promise<ContentSnapshot> {
         youtube: social.youtube || "",
         facebook: social.facebook || "",
       },
+      reviews,
     };
   } catch {}
   return {
@@ -75,6 +108,7 @@ async function getContentMeta(): Promise<ContentSnapshot> {
     phone: null, email: null,
     addressStreet: null, addressLocality: null,
     social: { linkedin: "", instagram: "", twitter: "", youtube: "", facebook: "" },
+    reviews: { rating: 0, ratingCount: 0, items: [] },
   };
 }
 
@@ -159,6 +193,12 @@ export default async function RootLayout({
         region: "Bursa",
         country: "TR",
       },
+      // Only attach the reviews block when there's enough data to
+      // satisfy Google's rich result requirements (≥1 review, score
+      // between 1 and 5). Empty bins fall back to a clean schema.
+      ...(meta.reviews.items.length > 0 && meta.reviews.rating >= 1 && {
+        reviews: meta.reviews,
+      }),
     }),
     websiteSchema(),
   ];

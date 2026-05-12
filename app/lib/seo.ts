@@ -32,12 +32,31 @@ function absolute(url: string | undefined): string | undefined {
   return `${SITE_URL}/${url}`;
 }
 
+export type ReviewShape = {
+  author: string;
+  rating: number;          // 1-5
+  text: string;
+  date?: string;           // ISO or "yyyy-mm-dd" — if not provided we omit datePublished
+  platform?: string;       // "Google" / "Trustpilot" — surfaced as publisher
+  product?: string;        // free-text — surfaced as itemReviewed.name
+};
+
+export type AggregateReviewInput = {
+  /** Average score, e.g. 4.9 */
+  rating: number;
+  /** Total number of reviews shown on site, e.g. "200+" → 200 */
+  ratingCount: number;
+  /** Individual reviews — schema only takes the top 10-ish anyway. */
+  items: ReviewShape[];
+};
+
 export function organizationSchema(opts: {
   logo?: string;
   sameAs?: string[];
   phone?: string;
   email?: string;
   address?: { street?: string; locality?: string; region?: string; country?: string };
+  reviews?: AggregateReviewInput;
 }): JsonLdObject {
   const sameAs = (opts.sameAs ?? []).filter(Boolean);
   const hasAddr = opts.address && (opts.address.street || opts.address.locality);
@@ -52,6 +71,40 @@ export function organizationSchema(opts: {
       availableLanguage: ["Turkish", "English"],
     });
   }
+  // Reviews block — when supplied, attach AggregateRating + the top
+  // few Review entities to the Organization. Schema.org accepts a
+  // standalone aggregateRating on Organization; per-review entries
+  // give Google more signal but only the aggregate drives the star
+  // snippet in SERP. We cap at 10 reviews to keep the JSON-LD small.
+  const reviewsBlock: JsonLdObject = {};
+  if (opts.reviews && opts.reviews.items.length > 0 && opts.reviews.rating > 0) {
+    reviewsBlock.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: opts.reviews.rating.toFixed(1),
+      reviewCount: Math.max(opts.reviews.ratingCount, opts.reviews.items.length),
+      bestRating: 5,
+      worstRating: 1,
+    };
+    reviewsBlock.review = opts.reviews.items.slice(0, 10).map((r) => ({
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: Math.max(1, Math.min(5, r.rating)),
+        bestRating: 5,
+        worstRating: 1,
+      },
+      author: { "@type": "Person", name: r.author },
+      reviewBody: r.text,
+      ...(r.date && /^\d/.test(r.date) && { datePublished: r.date }),
+      ...(r.platform && {
+        publisher: { "@type": "Organization", name: r.platform },
+      }),
+      ...(r.product && {
+        itemReviewed: { "@type": "Product", name: r.product },
+      }),
+    }));
+  }
+
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -73,6 +126,7 @@ export function organizationSchema(opts: {
         addressCountry: opts.address!.country ?? "TR",
       },
     }),
+    ...reviewsBlock,
   };
 }
 
