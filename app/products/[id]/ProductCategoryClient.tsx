@@ -17,6 +17,7 @@ import {
 } from "react-icons/ri";
 import { HiArrowLeft } from "react-icons/hi";
 import Image from "next/image";
+import { ProductGridSkeleton } from "../../components/ProductCardSkeleton";
 
 type SpecItem   = { label: string; value: string };
 type SpecGroup  = { group: string; items: SpecItem[] };
@@ -73,8 +74,28 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
   const groupHeaderBg = d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)";
 
   if (loading) return (
-    <div style={{ background: bg, minHeight: "100vh" }} className="flex items-center justify-center">
-      <div className="w-8 h-8 rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
+    <div style={{ background: bg, minHeight: "100vh", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden", isolation: "isolate" }}>
+      <EnergyBackground />
+      <Navbar onSearchOpen={() => setSearchOpen(true)} />
+      <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
+      {/* Mirror the real category page chrome (hero strip + grid)
+          but with placeholder geometry so the content swap doesn't
+          cause a layout shift when data lands. */}
+      <div className="pt-24 pb-8 px-5 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-stretch gap-4 mb-2">
+            <div className="flex-shrink-0 rounded-full w-1" style={{ background: "rgba(255,255,255,0.10)" }} />
+            <div className="space-y-2 flex-1">
+              <div className="h-3 rounded animate-pulse" style={{ background: "rgba(255,255,255,0.06)", width: 140 }} />
+              <div className="h-6 rounded animate-pulse" style={{ background: "rgba(255,255,255,0.08)", width: 220 }} />
+              <div className="h-3 rounded animate-pulse" style={{ background: "rgba(255,255,255,0.05)", width: 320 }} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-10 w-full">
+        <ProductGridSkeleton count={10} />
+      </div>
     </div>
   );
 

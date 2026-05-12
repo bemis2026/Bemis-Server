@@ -11,6 +11,7 @@ import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
 import EnergyBackground from "../components/EnergyBackground";
+import { ProductGridSkeleton } from "../components/ProductCardSkeleton";
 import {
   RiChargingPile2Line, RiBatteryChargeLine, RiFlashlightLine, RiPlugLine,
   RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
@@ -322,9 +323,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
       <div className="px-5 sm:px-6 lg:px-8 pb-20 pt-8">
         <div className="max-w-7xl mx-auto">
           {loading ? (
-            <div className="flex items-center justify-center py-32">
-              <div className="w-8 h-8 rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
-            </div>
+            <ProductGridSkeleton count={15} />
           ) : (
             <AnimatePresence mode="wait">
               <motion.div
