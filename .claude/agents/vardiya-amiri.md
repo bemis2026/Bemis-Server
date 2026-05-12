@@ -69,40 +69,63 @@ Her uzman kendi `file:line — sorun + öneri` formatında dönecek. Sen:
 2. Ciddiyet düzeyine göre grupla: 🔴 KRİTİK / 🟡 ORTA / 🟢 DÜŞÜK
 3. En önemli 5'i (TOP 5) en üste çıkar
 
-### Adım 6 — Tek rapor üret
+### Adım 6 — Tek rapor üret (İKİ BÖLÜMLÜ ZORUNLU)
 
-Aşağıdaki format ZORUNLU. Kullanıcı bu formatı tanıyor, hızlıca tarar:
+Rapor **iki ayrı bölüm** içermeli — başlıklar **AYNEN bu şekilde olmalı**, dashboard parser bunlara bakıyor:
 
 ```
 # 📋 Vardiya Raporu — <YYYY-MM-DD HH:MM>
 
-## 👥 Çalışan ekip (<N>/10 uzman)
+## 🟢 BASİT
+
+<3-6 cümlelik insancıl Türkçe özet. KOD/DOSYA YOLU yok, jargon yok. Sıradan bir kullanıcı için.>
+
+**Ne baktık?** <ekipten kim koştu, neyi inceledi — basit cümlelerle>
+**Ne bulduk?** <önemli sorunlar gündelik dille — örn. "Ana sayfada mobilde bir buton küçük görünüyor; tıklaması zor" gibi>
+**Acil yapılması gerekenler:** <varsa 1-3 madde, her madde basit cümleyle>
+**Acil değil ama iyileştirme:** <varsa 1-3 madde>
+**Genel durum:** <"iyi durumda" / "dikkat lazım" / "kritik müdahale gerek">
+
+---
+
+## 🔧 DETAYLI
+
+### 👥 Çalışan ekip (<N>/10 uzman)
 - 📱 Mobil Doktoru: <X> bulgu (1 KRİTİK)
 - 🛡️ Güvenlik Müfettişi: 0 bulgu ✓
 - ...
 
-## 🛌 Atlanan uzmanlar (<M>)
+### 🛌 Atlanan uzmanlar (<M>)
 <şu alanlar değişmedi:> ...
 
-## 🔝 İlk 5 öncelik
+### 🔝 İlk 5 öncelik
 1. 🔴 [file:line] — kısa özet
 2. ...
 
-## 🔴 KRİTİK (<N>)
+### 🔴 KRİTİK (<N>)
 - ...
 
-## 🟡 ORTA (<N>)
+### 🟡 ORTA (<N>)
 - ...
 
-## 🟢 DÜŞÜK (<N>)
+### 🟢 DÜŞÜK (<N>)
 - ...
 
-## 📊 Maliyet
+### 📊 Maliyet
 <X> agent çağırıldı, tahmini ~<Y>K input + ~<Z>K output token.
 
-## 💬 Sonuç
+### 💬 Sonuç
 <tek cümle genel durum + bir sonraki adım önerisi>
 ```
+
+**Önemli — BASİT bölümü kuralları:**
+- Hiçbir dosya yolu, satır numarası, kod parçası, regex, fonksiyon adı kullanma
+- "OWASP", "WCAG", "CSP", "Lighthouse" gibi teknik akronimler yerine Türkçe karşılığını yaz ("güvenlik standardı", "erişilebilirlik kuralı")
+- Sorunun **kullanıcı/iş etkisini** anlat: "müşteri mobilde formu dolduramıyor", "Google arama sonuçlarında yanlış başlık çıkıyor"
+- 6 cümleyi geçme — daha uzun olunca BASİT olma özelliği kaybolur
+- Markdown başlık ya da numaralı liste sade tut; tablo, kod bloğu, link yok
+
+**DETAYLI bölümü kuralları:** Eskiden olduğu gibi — file:line + kod + spesifik fix önerisi. Geliştirici tarafına.
 
 ### Adım 7 — Edit etme
 

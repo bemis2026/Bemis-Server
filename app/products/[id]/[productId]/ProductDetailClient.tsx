@@ -21,7 +21,7 @@ import {
   RiFileTextLine, RiFilePdfLine, RiExternalLinkLine,
   RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
   RiShieldCheckLine, RiBarChart2Line, RiCalendarCheckLine, RiTeamLine,
-  RiLightbulbLine, RiAddLine, RiSubtractLine,
+  RiLightbulbLine, RiAddLine,
 } from "react-icons/ri";
 import { featureById } from "../../../../lib/productFeatures";
 import { certificateById } from "../../../../lib/productCertificates";
@@ -100,7 +100,7 @@ export default function ProductDetailPage({
   const [activeImg, setActiveImg]   = useState(0);
   const [allCategories, setAllCategories] = useState<CategoryData[]>(initialAllCategories);
   const [activeTab, setActiveTab]   = useState<"specs" | "general" | "documents">("general");
-  const [openFaqIdx, setOpenFaqIdx]   = useState<number | null>(null);
+  // FAQ artık accordion değil — kartlar her zaman cevap görünür halde.
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const isFirstMount = useRef(true);
 
@@ -248,9 +248,48 @@ export default function ProductDetailPage({
                           </div>
                         )}
 
-                        {/* Variant selector overlay kaldırıldı —
-                            operator orijinal (kart-altı) konumu tercih
-                            etti, gallery image temiz bıraktı. */}
+                        {/* Variant selector overlay — top-right of the
+                            gallery image. Floating chip stack, backdrop
+                            blur, accent fill in the active chip. */}
+                        {(() => {
+                          const variantInfo = findVariantGroup(category.products ?? [], productId);
+                          if (!variantInfo || variantInfo.group.variants.length < 2) return null;
+                          return (
+                            <div className="absolute top-3 right-3 flex flex-col items-end gap-1.5 max-w-[60%]">
+                              <span
+                                className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md"
+                                style={{ background: "rgba(0,0,0,0.55)", color: "rgba(255,255,255,0.85)", backdropFilter: "blur(8px)" }}
+                              >
+                                Versiyon
+                              </span>
+                              <div className="flex flex-col items-end gap-1">
+                                {variantInfo.group.variants.map((v) => {
+                                  const isActive = v.id === productId;
+                                  return (
+                                    <button
+                                      key={v.id}
+                                      onClick={() => router.push(`/products/${categoryId}/${v.id}`)}
+                                      className="text-right px-2.5 py-1.5 rounded-lg text-[11px] font-semibold transition-all duration-150 backdrop-blur-sm"
+                                      style={{
+                                        background: isActive ? accent : "rgba(0,0,0,0.55)",
+                                        border: `1px solid ${isActive ? accent : "rgba(255,255,255,0.12)"}`,
+                                        color: "#ffffff",
+                                        cursor: isActive ? "default" : "pointer",
+                                      }}
+                                    >
+                                      <span className="block leading-tight">{v.subtitle || v.code || "Standart"}</span>
+                                      {v.code && v.subtitle && (
+                                        <span className="block text-[8px] font-mono mt-0.5" style={{ color: "rgba(255,255,255,0.7)" }}>
+                                          {v.code}
+                                        </span>
+                                      )}
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          );
+                        })()}
 
                         {/* Arrow nav for 2+ images */}
                         {imgs.length > 1 && (
@@ -492,52 +531,9 @@ export default function ProductDetailPage({
                   )}
                 </div>
 
-                {/* Variant selector — orijinal pozisyon: title card'ın
-                    altında, spec tab'larının üstünde kart formatında.
-                    Aktif varyant accent dolu, diğerleri açıklayıcı
-                    subtitle + kod ile listelenir. */}
-                {(() => {
-                  const variantInfo = findVariantGroup(category.products ?? [], productId);
-                  if (!variantInfo || variantInfo.group.variants.length < 2) return null;
-                  return (
-                    <div
-                      className="rounded-2xl p-3"
-                      style={{ background: surface, border: `1px solid ${border}` }}
-                    >
-                      <p className="text-[10px] font-bold uppercase tracking-wider mb-2 px-1" style={{ color: textFaint }}>
-                        Versiyon Seçin
-                      </p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {variantInfo.group.variants.map((v) => {
-                          const isActive = v.id === productId;
-                          return (
-                            <button
-                              key={v.id}
-                              onClick={() => router.push(`/products/${categoryId}/${v.id}`)}
-                              className="text-left px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-150"
-                              style={{
-                                background: isActive ? accent : (d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)"),
-                                border: `1px solid ${isActive ? accent : border}`,
-                                color: isActive ? "#fff" : textPrimary,
-                                cursor: isActive ? "default" : "pointer",
-                              }}
-                            >
-                              <span className="block">{v.subtitle || v.code || "Standart"}</span>
-                              {v.code && v.subtitle && (
-                                <span
-                                  className="block text-[9px] font-mono mt-0.5"
-                                  style={{ color: isActive ? "rgba(255,255,255,0.75)" : textFaint }}
-                                >
-                                  {v.code}
-                                </span>
-                              )}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  );
-                })()}
+                {/* Variant selector kart-altı kaldırıldı — overlay
+                    versiyonu (gallery image sağ üst köşesi) tek
+                    görünen variant switcher artık. */}
 
                 {/* Specs / General Features / Documents — tabbed card.
                     "Genel Özellikler" sekmesi artık ürünün checkbox-seçilmiş
@@ -807,56 +803,36 @@ export default function ProductDetailPage({
               })),
             }]} />
             <h2 className="text-base font-bold mb-4" style={{ color: sd ? "#f0f0f4" : "#111827" }}>Sıkça Sorulan Sorular</h2>
-            {/* Accordion geri geldi — kullanıcının asıl şikayeti
-                "yatay genişleme"ymiş, height değişimi değil. Tüm
-                kartlar her durumda `w-full block` + grid wrapper
-                aynı parent max-width'inde olduğu için açılıp kapansa
-                bile genişlik değişmez. Click sadece cevap'ı göster /
-                gizle yapar. */}
+            {/* SSS — accordion yok, kartlar her zaman 'açık' state'te:
+                soru + cevap birlikte görünür. Kart yatay olarak tam
+                w-full genişlikte (max-w-7xl parent). Her kart aynı
+                visual ağırlığa sahip, kapalı/açık ayrımı yok. */}
             <div className="space-y-2">
-              {faq.map((item, i) => {
-                const open = openFaqIdx === i;
-                return (
-                  <div
-                    key={i}
-                    className="rounded-xl overflow-hidden w-full block"
-                    style={{
-                      background: sd ? "#141416" : "#ffffff",
-                      border: `1px solid ${sd ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}`,
-                    }}
-                  >
-                    <button
-                      onClick={() => setOpenFaqIdx(open ? null : i)}
-                      className="w-full flex items-center gap-3 px-4 sm:px-5 py-3.5 sm:py-4 text-left transition-colors hover:bg-black/[0.02] dark:hover:bg-white/[0.02]"
+              {faq.map((item, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl w-full block px-4 sm:px-6 py-5"
+                  style={{
+                    background: sd ? "#141416" : "#ffffff",
+                    border: `1px solid ${sd ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}`,
+                  }}
+                >
+                  <div className="flex items-start gap-3 mb-2.5">
+                    <span
+                      className="inline-flex items-center justify-center rounded-lg flex-shrink-0 mt-0.5"
+                      style={{ width: 28, height: 28, background: `${BRAND_BLUE}14`, border: `1px solid ${BRAND_BLUE}30`, color: BRAND_BLUE }}
                     >
-                      <span className="flex-1 text-sm font-semibold leading-snug" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
-                        {item.q}
-                      </span>
-                      <span
-                        className="inline-flex items-center justify-center rounded-lg flex-shrink-0"
-                        style={{ width: 26, height: 26, background: `${BRAND_BLUE}14`, border: `1px solid ${BRAND_BLUE}30`, color: BRAND_BLUE }}
-                      >
-                        {open ? <RiSubtractLine size={14} /> : <RiAddLine size={14} />}
-                      </span>
-                    </button>
-                    <AnimatePresence initial={false}>
-                      {open && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.22 }}
-                          style={{ overflow: "hidden" }}
-                        >
-                          <div className="px-4 sm:px-5 pb-4 pt-0.5 text-sm leading-relaxed whitespace-pre-line" style={{ color: sd ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
-                            {item.a}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                      <RiAddLine size={14} style={{ transform: "rotate(45deg)" }} />
+                    </span>
+                    <p className="flex-1 text-sm sm:text-base font-semibold leading-snug" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
+                      {item.q}
+                    </p>
                   </div>
-                );
-              })}
+                  <p className="text-sm leading-relaxed whitespace-pre-line pl-[40px]" style={{ color: sd ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
+                    {item.a}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         );

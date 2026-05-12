@@ -353,13 +353,28 @@ export default function KurumsalPage() {
                     );
                     return (
                       <div className="flex flex-col items-center w-full">
-                        {/* Parent brand — wider card, bigger logo */}
+                        {/* Parent brand — logo'nun kendisi brand adını
+                            içerdiği için (Bemis logosu "bemis®" yazısı
+                            ile birlikte geliyor), yan yana metin koymuyoruz.
+                            Logo orta, dikey hizalı, height/width-cap
+                            daha cömert: wide-format logoyu da kare-format
+                            logoyu da rahat barındırır. */}
                         <div
-                          className="flex items-center gap-3.5 rounded-2xl px-5 py-4"
-                          style={{ background: cardBg, border: cardBorder, minHeight: 84 }}
+                          className="flex items-center justify-center rounded-2xl px-6 py-4"
+                          style={{ background: cardBg, border: cardBorder, minHeight: 96, minWidth: 240 }}
                         >
-                          {renderLogo(parent, 60, 220)}
-                          <span className="text-base font-black tracking-tight" style={{ color: textPrimary }}>{parent.name}</span>
+                          {parent.logo ? (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img
+                              src={parent.logo}
+                              alt={parent.name}
+                              style={{ height: 76, width: "auto", maxWidth: 320, objectFit: "contain" }}
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          ) : (
+                            <span className="text-lg font-black tracking-tight" style={{ color: textPrimary }}>{parent.name}</span>
+                          )}
                         </div>
                         {children.length > 0 && (
                           <>
