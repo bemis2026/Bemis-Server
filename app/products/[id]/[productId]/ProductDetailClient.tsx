@@ -951,8 +951,8 @@ export default function ProductDetailPage({
                       style={{
                         aspectRatio: "1/1",
                         background: sd
-                          ? `linear-gradient(145deg, ${cat.accent}0d 0%, #111 100%)`
-                          : `linear-gradient(145deg, ${cat.accent}0c 0%, #f0f0f5 100%)`,
+                          ? `linear-gradient(145deg, ${cat.accent}18 0%, #1c1c1f 100%)`
+                          : `linear-gradient(145deg, ${cat.accent}14 0%, #fafafa 100%)`,
                       }}
                     >
                       {imgs[0] ? (

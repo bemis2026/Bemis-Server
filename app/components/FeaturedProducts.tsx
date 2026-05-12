@@ -171,7 +171,7 @@ export default function FeaturedProducts() {
                   className="relative overflow-hidden"
                   style={{
                     height: "clamp(150px, 18vw, 190px)",
-                    background: d ? `linear-gradient(135deg, ${item.accent}10 0%, ${item.accent}03 100%)` : `linear-gradient(135deg, ${item.accent}0c 0%, #fafafa 100%)`,
+                    background: d ? `linear-gradient(135deg, ${item.accent}1f 0%, #1c1c1f 100%)` : `linear-gradient(135deg, ${item.accent}18 0%, #fafafa 100%)`,
                   }}
                 >
                   {item.prod?.image ? (
