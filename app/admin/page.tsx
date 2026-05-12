@@ -2574,9 +2574,57 @@ export default function AdminPage() {
                                         badges on product cards. Selected ids
                                         live in `product.features[]`. */}
                                     <div className="space-y-2">
-                                      <div>
-                                        <p className="text-xs font-semibold text-white/50 mb-1">Ürün Özellikleri</p>
-                                        <p className="text-[10px] text-white/30">Ürün kartlarında küçük ikon olarak gösterilir. OCPP ve Mobil Uygulama seçilirse karta browser/telefon mockup'ı eklenir.</p>
+                                      <div className="flex items-start justify-between gap-3">
+                                        <div>
+                                          <p className="text-xs font-semibold text-white/50 mb-1">Ürün Özellikleri</p>
+                                          <p className="text-[10px] text-white/30">Ürün kartlarında küçük ikon olarak gösterilir. OCPP ve Mobil Uygulama seçilirse karta browser/telefon mockup'ı eklenir.</p>
+                                        </div>
+                                        {/* "Varyantlara Uygula" — bu ürünün
+                                            features seçimini SADECE aynı isimli
+                                            (variant grubu) diğer ürünlere
+                                            kopyalar. Başka kategoriler veya
+                                            farklı isimli ürünler etkilenmez.
+                                            Ürün-bazlı tek tıklama: aynı
+                                            ailedeki tüm modellerin teknik
+                                            özellikleri zaten aynı, admin'de
+                                            tek tek seçmeye gerek yok. */}
+                                        {(() => {
+                                          const cat = products.find((c) => c.id === selCat);
+                                          if (!cat || !currentProd) return null;
+                                          const family = (cat.products ?? []).filter((p) => p.name === currentProd.name && p.id !== currentProd.id);
+                                          if (family.length === 0) return null;
+                                          return (
+                                            <button
+                                              type="button"
+                                              onClick={() => {
+                                                if (!window.confirm(`"${currentProd.name}" ailesindeki ${family.length} diğer varyanta bu özelliklerin AYNISI uygulanacak. Devam edilsin mi?`)) return;
+                                                setProducts((prev) => {
+                                                  const next = JSON.parse(JSON.stringify(prev)) as CategoryData[];
+                                                  const c = next.find((x) => x.id === selCat);
+                                                  const src = c?.products.find((p) => p.id === selProd);
+                                                  if (!c || !src) return prev;
+                                                  const srcFeatures = [...(src.features ?? [])];
+                                                  c.products.forEach((p) => {
+                                                    if (p.name === src.name && p.id !== src.id) {
+                                                      p.features = [...srcFeatures];
+                                                    }
+                                                  });
+                                                  return next;
+                                                });
+                                                showToast("ok", `${family.length} varyanta özellikler uygulandı.`);
+                                              }}
+                                              className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1.5 rounded-lg whitespace-nowrap transition-all hover:scale-[1.02] flex-shrink-0"
+                                              style={{
+                                                background: "rgba(59,130,246,0.15)",
+                                                border: "1px solid rgba(59,130,246,0.45)",
+                                                color: "#93C5FD",
+                                              }}
+                                              title={`Bu ürünün özelliklerini "${currentProd.name}" ailesindeki ${family.length} varyanta kopyala`}
+                                            >
+                                              ⤴ {family.length} varyanta uygula
+                                            </button>
+                                          );
+                                        })()}
                                       </div>
                                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
                                         {PRODUCT_FEATURES.map((f) => {

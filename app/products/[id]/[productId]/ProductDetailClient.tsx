@@ -21,7 +21,7 @@ import {
   RiFileTextLine, RiFilePdfLine, RiExternalLinkLine,
   RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
   RiShieldCheckLine, RiBarChart2Line, RiCalendarCheckLine, RiTeamLine,
-  RiLightbulbLine, RiAddLine,
+  RiLightbulbLine, RiAddLine, RiSubtractLine,
 } from "react-icons/ri";
 import { featureById } from "../../../../lib/productFeatures";
 import { certificateById } from "../../../../lib/productCertificates";
@@ -100,8 +100,7 @@ export default function ProductDetailPage({
   const [activeImg, setActiveImg]   = useState(0);
   const [allCategories, setAllCategories] = useState<CategoryData[]>(initialAllCategories);
   const [activeTab, setActiveTab]   = useState<"specs" | "general" | "documents">("general");
-  // FAQ artık accordion değil — soru + cevap her zaman görünür halde,
-  // kart yüksekliği sabit. State'e gerek yok.
+  const [openFaqIdx, setOpenFaqIdx]   = useState<number | null>(null);
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const isFirstMount = useRef(true);
 
@@ -249,7 +248,7 @@ export default function ProductDetailPage({
                           </div>
                         )}
 
-                        {/* Variant selector overlay — top-right of the
+                        {/* Variant selector overlay — top-left of the
                             gallery, one chip per sibling. Click switches
                             the product page; the active variant is the
                             visible (accent-filled) chip. */}
@@ -257,21 +256,21 @@ export default function ProductDetailPage({
                           const variantInfo = findVariantGroup(category.products ?? [], productId);
                           if (!variantInfo || variantInfo.group.variants.length < 2) return null;
                           return (
-                            <div className="absolute top-3 right-3 flex flex-col items-end gap-1.5 max-w-[60%]">
+                            <div className="absolute top-3 left-3 flex flex-col items-start gap-1.5 max-w-[60%]">
                               <span
                                 className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md"
                                 style={{ background: "rgba(0,0,0,0.55)", color: "rgba(255,255,255,0.85)", backdropFilter: "blur(8px)" }}
                               >
                                 Versiyon
                               </span>
-                              <div className="flex flex-col items-end gap-1">
+                              <div className="flex flex-col items-start gap-1">
                                 {variantInfo.group.variants.map((v) => {
                                   const isActive = v.id === productId;
                                   return (
                                     <button
                                       key={v.id}
                                       onClick={() => router.push(`/products/${categoryId}/${v.id}`)}
-                                      className="text-right px-2.5 py-1.5 rounded-lg text-[11px] font-semibold transition-all duration-150 backdrop-blur-sm"
+                                      className="text-left px-2.5 py-1.5 rounded-lg text-[11px] font-semibold transition-all duration-150 backdrop-blur-sm"
                                       style={{
                                         background: isActive ? accent : "rgba(0,0,0,0.55)",
                                         border: `1px solid ${isActive ? accent : "rgba(255,255,255,0.12)"}`,
@@ -480,28 +479,29 @@ export default function ProductDetailPage({
                     </div>
                   )}
 
-                  {/* Description */}
+                  {/* Description + warranty chip — gruplanmış. Chip
+                      description'ın hemen altında, paragraf bitince
+                      tek satır boşlukta belirir. Parent space-y
+                      ayrımı yerine inline gap kullanıyoruz ki garanti
+                      açıklamadan kopuk hissettirmesin. */}
                   {product.description && (
-                    <p className="text-sm leading-relaxed" style={{ color: textMuted }}>
-                      {product.description}
-                    </p>
+                    <div className="flex flex-col gap-2.5">
+                      <p className="text-sm leading-relaxed" style={{ color: textMuted }}>
+                        {product.description}
+                      </p>
+                      <div
+                        className="inline-flex items-center gap-2 rounded-xl px-3 py-1.5 text-xs font-semibold self-start"
+                        style={{
+                          background: d ? "rgba(59,130,246,0.10)" : "rgba(59,130,246,0.08)",
+                          border: `1px solid ${BRAND_BLUE}28`,
+                          color: d ? "#dbeafe" : "#1e3a8a",
+                        }}
+                      >
+                        <RiShieldCheckLine size={14} style={{ color: BRAND_BLUE }} />
+                        {WARRANTY_DURATION}
+                      </div>
+                    </div>
                   )}
-
-                  {/* Warranty chip — açıklamanın hemen altında.
-                      CE sertifika ayrıca aşağıdaki Belgeler sekmesinde
-                      görünür, burada çiftlemiyoruz. */}
-                  <div
-                    className="inline-flex items-center gap-2 rounded-xl px-3 py-1.5 text-xs font-semibold"
-                    style={{
-                      background: d ? "rgba(59,130,246,0.10)" : "rgba(59,130,246,0.08)",
-                      border: `1px solid ${BRAND_BLUE}28`,
-                      color: d ? "#dbeafe" : "#1e3a8a",
-                      alignSelf: "flex-start",
-                    }}
-                  >
-                    <RiShieldCheckLine size={14} style={{ color: BRAND_BLUE }} />
-                    {WARRANTY_DURATION}
-                  </div>
 
                   {/* Quality / conformity certs as plain text chips — the
                       DIY brand SVGs read cleaner as letterforms than as
@@ -654,15 +654,15 @@ export default function ProductDetailPage({
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                               {featureList.map((f) => {
                                 const Icon = DETAIL_FEATURE_ICONS[f.icon];
-                                // Sade nötr kart — accent / mavi rail kaldırıldı.
-                                // İkon ve metin tek renkli (textPrimary), arka
-                                // plan kart yüzeyiyle aynı, sınır neutral.
+                                // İkon mavi (brand BLUE), metin nötr
+                                // (beyaz / siyah). Kart yüzeyi neutral —
+                                // accent rail yok, accent background yok,
+                                // sadece icon'da brand vurgusu.
                                 const cardBg     = d ? "#141416" : "#ffffff";
                                 const cardBorder = d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)";
                                 const cardShadow = d ? "none" : "0 1px 2px rgba(0,0,0,0.04)";
-                                const iconColor  = d ? "rgba(255,255,255,0.85)" : "#1a1a2e";
-                                const iconBg     = d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)";
-                                const iconBorder = d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.07)";
+                                const iconBg     = d ? `${BRAND_BLUE}1a` : `${BRAND_BLUE}10`;
+                                const iconBorder = `${BRAND_BLUE}30`;
                                 return (
                                   <div
                                     key={f.id}
@@ -673,7 +673,7 @@ export default function ProductDetailPage({
                                       className="inline-flex items-center justify-center rounded-lg flex-shrink-0"
                                       style={{ width: 30, height: 30, background: iconBg, border: `1px solid ${iconBorder}` }}
                                     >
-                                      {Icon && <Icon size={16} style={{ color: iconColor }} />}
+                                      {Icon && <Icon size={16} style={{ color: BRAND_BLUE }} />}
                                     </span>
                                     <span className="text-sm font-semibold" style={{ color: textPrimary }}>{f.label}</span>
                                   </div>
@@ -804,39 +804,56 @@ export default function ProductDetailPage({
               })),
             }]} />
             <h2 className="text-base font-bold mb-4" style={{ color: sd ? "#f0f0f4" : "#111827" }}>Sıkça Sorulan Sorular</h2>
-            {/* Accordion-genişleme efekti kaldırıldı — soru ve cevap
-                her zaman görünür halde, kart boyutu sabit. "Tıklanınca
-                yatay genişliyor" şikayetinin asıl sebebi accordion'un
-                kapalı/açık state arasında yüksek farkı yaratıp parent
-                grid yeniden hesaplatmasıydı. Şimdi her kart aynı
-                içerik yüksekliğinde, hover/click yalnızca subtle bg
-                vurgusu. */}
+            {/* Accordion geri geldi — kullanıcının asıl şikayeti
+                "yatay genişleme"ymiş, height değişimi değil. Tüm
+                kartlar her durumda `w-full block` + grid wrapper
+                aynı parent max-width'inde olduğu için açılıp kapansa
+                bile genişlik değişmez. Click sadece cevap'ı göster /
+                gizle yapar. */}
             <div className="space-y-2">
-              {faq.map((item, i) => (
-                <div
-                  key={i}
-                  className="rounded-xl w-full block px-4 sm:px-5 py-4"
-                  style={{
-                    background: sd ? "#141416" : "#ffffff",
-                    border: `1px solid ${sd ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}`,
-                  }}
-                >
-                  <div className="flex items-start gap-3 mb-2">
-                    <span
-                      className="inline-flex items-center justify-center rounded-lg flex-shrink-0 mt-0.5"
-                      style={{ width: 26, height: 26, background: `${BRAND_BLUE}14`, border: `1px solid ${BRAND_BLUE}30`, color: BRAND_BLUE }}
+              {faq.map((item, i) => {
+                const open = openFaqIdx === i;
+                return (
+                  <div
+                    key={i}
+                    className="rounded-xl overflow-hidden w-full block"
+                    style={{
+                      background: sd ? "#141416" : "#ffffff",
+                      border: `1px solid ${sd ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}`,
+                    }}
+                  >
+                    <button
+                      onClick={() => setOpenFaqIdx(open ? null : i)}
+                      className="w-full flex items-center gap-3 px-4 sm:px-5 py-3.5 sm:py-4 text-left transition-colors hover:bg-black/[0.02] dark:hover:bg-white/[0.02]"
                     >
-                      <RiAddLine size={14} style={{ transform: "rotate(45deg)" }} />
-                    </span>
-                    <p className="flex-1 text-sm font-semibold leading-snug" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
-                      {item.q}
-                    </p>
+                      <span className="flex-1 text-sm font-semibold leading-snug" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
+                        {item.q}
+                      </span>
+                      <span
+                        className="inline-flex items-center justify-center rounded-lg flex-shrink-0"
+                        style={{ width: 26, height: 26, background: `${BRAND_BLUE}14`, border: `1px solid ${BRAND_BLUE}30`, color: BRAND_BLUE }}
+                      >
+                        {open ? <RiSubtractLine size={14} /> : <RiAddLine size={14} />}
+                      </span>
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {open && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.22 }}
+                          style={{ overflow: "hidden" }}
+                        >
+                          <div className="px-4 sm:px-5 pb-4 pt-0.5 text-sm leading-relaxed whitespace-pre-line" style={{ color: sd ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
+                            {item.a}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
-                  <p className="text-sm leading-relaxed whitespace-pre-line pl-[38px]" style={{ color: sd ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
-                    {item.a}
-                  </p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         );

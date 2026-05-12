@@ -261,12 +261,12 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                     </div>
                   )}
                   {variantCount > 1 ? (
-                    <div className="absolute top-2 right-2 text-[9px] font-bold px-2 py-0.5 rounded-full"
+                    <div className="absolute top-2.5 right-2.5 text-[11px] font-bold px-2.5 py-1 rounded-full"
                       style={{ background: `${accent}22`, border: `1px solid ${accent}40`, color: d ? "rgba(255,255,255,0.85)" : accent }}>
                       {variantCount} versiyon
                     </div>
                   ) : product.badge && (
-                    <div className="absolute top-2 right-2 text-[9px] font-bold px-2 py-0.5 rounded-full"
+                    <div className="absolute top-2.5 right-2.5 text-[11px] font-bold px-2.5 py-1 rounded-full"
                       style={{ background: `${accent}22`, border: `1px solid ${accent}40`, color: d ? "rgba(255,255,255,0.75)" : accent }}>
                       {product.badge}
                     </div>
