@@ -248,49 +248,9 @@ export default function ProductDetailPage({
                           </div>
                         )}
 
-                        {/* Variant selector overlay — top-left of the
-                            gallery, one chip per sibling. Click switches
-                            the product page; the active variant is the
-                            visible (accent-filled) chip. */}
-                        {(() => {
-                          const variantInfo = findVariantGroup(category.products ?? [], productId);
-                          if (!variantInfo || variantInfo.group.variants.length < 2) return null;
-                          return (
-                            <div className="absolute top-3 left-3 flex flex-col items-start gap-1.5 max-w-[60%]">
-                              <span
-                                className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md"
-                                style={{ background: "rgba(0,0,0,0.55)", color: "rgba(255,255,255,0.85)", backdropFilter: "blur(8px)" }}
-                              >
-                                Versiyon
-                              </span>
-                              <div className="flex flex-col items-start gap-1">
-                                {variantInfo.group.variants.map((v) => {
-                                  const isActive = v.id === productId;
-                                  return (
-                                    <button
-                                      key={v.id}
-                                      onClick={() => router.push(`/products/${categoryId}/${v.id}`)}
-                                      className="text-left px-2.5 py-1.5 rounded-lg text-[11px] font-semibold transition-all duration-150 backdrop-blur-sm"
-                                      style={{
-                                        background: isActive ? accent : "rgba(0,0,0,0.55)",
-                                        border: `1px solid ${isActive ? accent : "rgba(255,255,255,0.12)"}`,
-                                        color: "#ffffff",
-                                        cursor: isActive ? "default" : "pointer",
-                                      }}
-                                    >
-                                      <span className="block leading-tight">{v.subtitle || v.code || "Standart"}</span>
-                                      {v.code && v.subtitle && (
-                                        <span className="block text-[8px] font-mono mt-0.5" style={{ color: "rgba(255,255,255,0.7)" }}>
-                                          {v.code}
-                                        </span>
-                                      )}
-                                    </button>
-                                  );
-                                })}
-                              </div>
-                            </div>
-                          );
-                        })()}
+                        {/* Variant selector overlay kaldırıldı —
+                            operator orijinal (kart-altı) konumu tercih
+                            etti, gallery image temiz bıraktı. */}
 
                         {/* Arrow nav for 2+ images */}
                         {imgs.length > 1 && (
@@ -532,9 +492,52 @@ export default function ProductDetailPage({
                   )}
                 </div>
 
-                {/* Variant selector moved to the image area's top-right
-                    corner as a floating chip stack — see VariantOverlay
-                    inside the gallery component above. */}
+                {/* Variant selector — orijinal pozisyon: title card'ın
+                    altında, spec tab'larının üstünde kart formatında.
+                    Aktif varyant accent dolu, diğerleri açıklayıcı
+                    subtitle + kod ile listelenir. */}
+                {(() => {
+                  const variantInfo = findVariantGroup(category.products ?? [], productId);
+                  if (!variantInfo || variantInfo.group.variants.length < 2) return null;
+                  return (
+                    <div
+                      className="rounded-2xl p-3"
+                      style={{ background: surface, border: `1px solid ${border}` }}
+                    >
+                      <p className="text-[10px] font-bold uppercase tracking-wider mb-2 px-1" style={{ color: textFaint }}>
+                        Versiyon Seçin
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {variantInfo.group.variants.map((v) => {
+                          const isActive = v.id === productId;
+                          return (
+                            <button
+                              key={v.id}
+                              onClick={() => router.push(`/products/${categoryId}/${v.id}`)}
+                              className="text-left px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-150"
+                              style={{
+                                background: isActive ? accent : (d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)"),
+                                border: `1px solid ${isActive ? accent : border}`,
+                                color: isActive ? "#fff" : textPrimary,
+                                cursor: isActive ? "default" : "pointer",
+                              }}
+                            >
+                              <span className="block">{v.subtitle || v.code || "Standart"}</span>
+                              {v.code && v.subtitle && (
+                                <span
+                                  className="block text-[9px] font-mono mt-0.5"
+                                  style={{ color: isActive ? "rgba(255,255,255,0.75)" : textFaint }}
+                                >
+                                  {v.code}
+                                </span>
+                              )}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })()}
 
                 {/* Specs / General Features / Documents — tabbed card.
                     "Genel Özellikler" sekmesi artık ürünün checkbox-seçilmiş
