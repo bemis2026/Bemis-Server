@@ -202,7 +202,9 @@ export default function ProductDetailPage({
                         className="relative rounded-2xl overflow-hidden w-full"
                         style={{
                           aspectRatio: "1/1",
-                          background: d ? "#0e0e12" : "#eef0f5",
+                          background: d
+                            ? `linear-gradient(145deg, ${accent}18 0%, #1c1c1f 100%)`
+                            : `linear-gradient(145deg, ${accent}14 0%, #fafafa 100%)`,
                           border: `1px solid ${border}`,
                           boxShadow: d
                             ? `0 12px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04)`

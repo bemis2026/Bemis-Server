@@ -99,9 +99,16 @@ export function organizationSchema(opts: {
       ...(r.platform && {
         publisher: { "@type": "Organization", name: r.platform },
       }),
-      ...(r.product && {
-        itemReviewed: { "@type": "Product", name: r.product },
-      }),
+      // NOTE: we deliberately don't emit `itemReviewed` here even when
+      // the review mentions a product. Google's rich-result validator
+      // treats every emitted Product entity as a standalone product
+      // that needs its own offers/aggregateRating/review — and a free-
+      // form name string like "AC Wallbox 22kW" never resolves to a
+      // real catalog page. Result: 6 "1 kritik sorun" errors in GSC
+      // before this fix. Keeping the review attached to the
+      // Organization is enough for the SERP star snippet; per-product
+      // review schemas live in productSchema() on the actual product
+      // detail page where offers/price are present.
     }));
   }
 
