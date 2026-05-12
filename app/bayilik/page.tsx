@@ -68,12 +68,16 @@ const FALLBACK_NETWORK_STATS: NetworkStat[] = [
 ];
 
 const FALLBACK_TR_CRITERIA = [
-  "Elektrik, enerji veya otomotiv sektöründe en az 5 yıl faaliyet",
-  "Yetkili satış ve teknik servis kapasitesi",
-  "Bölgesel müşteri portföyü veya alt-bayi ağı",
-  "Showroom / sergi alanı (önerilir)",
-  "Sertifikalı kurulum ekibi veya alt yüklenici ağı",
-  "Finansal yeterlilik ve düzenli sipariş kapasitesi",
+  "En az 3 yaşında kurumsal şirket (LTD/A.Ş.) — ticaret sicili ile teyit",
+  "A-grubu banka üzerinden minimum 1.000.000 ₺ limitli DBS (Doğrudan Borçlandırma Sistemi) hattı",
+  "Fiziksel mağaza / satış noktası",
+  "SMM belgeli elektrik mühendisi veya MYK belgeli EV şarj kurulum teknisyeni (minimum 1 kişi)",
+  "Markalanmış en az 1 adet servis aracı ve bölgesel saha kurulum kapasitesi",
+  "Son 2 yıl bilanço pozitif; iflas / konkordato / icra haciz kaydı bulunmaması (Findeks teyitli)",
+  "Açılış siparişinde Bemis E-V Charge'ın belirlediği ürün karması üzerinden stok alımı taahhüdü",
+  "Münhasır bölge karşılığında minimum yıllık 5.000.000 ₺ ciro taahhüdü",
+  "Aylık dijital + saha pazarlama aktivitesi taahhüdü (sosyal medya, B2B ziyaret raporu)",
+  "Bemis E-V Charge Akademi teknik + satış sertifikasyon programını 6 ay içinde tamamlama",
 ];
 
 const FALLBACK_INTL_CRITERIA = [

@@ -11,6 +11,8 @@
  *   JSONBIN_MASTER_KEY='$2a$10$...' node scripts/seed-bayilik-defaults.cjs
  */
 
+const FORCE = process.argv.includes("--force");
+
 const MASTER = process.env.JSONBIN_MASTER_KEY;
 if (!MASTER) {
   console.error("HATA: JSONBIN_MASTER_KEY ortam değişkeni boş.");
@@ -24,12 +26,16 @@ const BIN_ID = "69e5093d36566621a8cd7509"; // b2b bin
 const BASE = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 
 const TR_CRITERIA = [
-  "Elektrik, enerji veya otomotiv sektöründe en az 5 yıl faaliyet",
-  "Yetkili satış ve teknik servis kapasitesi",
-  "Bölgesel müşteri portföyü veya alt-bayi ağı",
-  "Showroom / sergi alanı (önerilir)",
-  "Sertifikalı kurulum ekibi veya alt yüklenici ağı",
-  "Finansal yeterlilik ve düzenli sipariş kapasitesi",
+  "En az 3 yaşında kurumsal şirket (LTD/A.Ş.) — ticaret sicili ile teyit",
+  "A-grubu banka üzerinden minimum 1.000.000 ₺ limitli DBS (Doğrudan Borçlandırma Sistemi) hattı",
+  "Fiziksel mağaza / satış noktası",
+  "SMM belgeli elektrik mühendisi veya MYK belgeli EV şarj kurulum teknisyeni (minimum 1 kişi)",
+  "Markalanmış en az 1 adet servis aracı ve bölgesel saha kurulum kapasitesi",
+  "Son 2 yıl bilanço pozitif; iflas / konkordato / icra haciz kaydı bulunmaması (Findeks teyitli)",
+  "Açılış siparişinde Bemis E-V Charge'ın belirlediği ürün karması üzerinden stok alımı taahhüdü",
+  "Münhasır bölge karşılığında minimum yıllık 5.000.000 ₺ ciro taahhüdü",
+  "Aylık dijital + saha pazarlama aktivitesi taahhüdü (sosyal medya, B2B ziyaret raporu)",
+  "Bemis E-V Charge Akademi teknik + satış sertifikasyon programını 6 ay içinde tamamlama",
 ];
 
 const INTL_CRITERIA = [
@@ -72,12 +78,13 @@ const NETWORK_STATS = [
       ...record,
       bayilik: {
         ...cur,
-        // criteria zaten varsa dokunma — sadece trCriteria boşsa onu da bunla doldur
-        trCriteria:  cur.trCriteria?.length   ? cur.trCriteria   : TR_CRITERIA,
-        intlCriteria: cur.intlCriteria?.length ? cur.intlCriteria : INTL_CRITERIA,
+        // Default: sadece boşsa yaz. --force ile koşulsuz override.
+        trCriteria:   FORCE ? TR_CRITERIA   : (cur.trCriteria?.length   ? cur.trCriteria   : TR_CRITERIA),
+        intlCriteria: FORCE ? INTL_CRITERIA : (cur.intlCriteria?.length ? cur.intlCriteria : INTL_CRITERIA),
         networkStats: cur.networkStats?.length ? cur.networkStats : NETWORK_STATS,
       },
     };
+    if (FORCE) console.log("  ⚠ --force: trCriteria + intlCriteria koşulsuz override edilecek");
 
     console.log("→ Yazılıyor...");
     const writeRes = await fetch(BASE, {
