@@ -1,7 +1,10 @@
 import type { MetadataRoute } from "next";
+import { getServerProducts } from "./lib/server-content";
 
 const BASE = "https://www.bemisevcharge.com.tr";
 
+// Static categories — order + slugs are stable so this list doubles
+// as the source of truth for the canonical kategori URL set.
 const CATEGORY_IDS = [
   "wallbox",
   "portable",
@@ -13,35 +16,18 @@ const CATEGORY_IDS = [
   "dc-units",
 ];
 
-const PRODUCT_IDS: [string, string][] = [
-  ["wallbox",           "wallbox-7kw"],
-  ["wallbox",           "wallbox-11kw"],
-  ["wallbox",           "wallbox-22kw"],
-  ["portable",          "portable-2kw"],
-  ["portable",          "portable-7kw"],
-  ["cables",            "ac-cable-16a"],
-  ["cables",            "ac-cable-32a"],
-  ["cables",            "mod2-cable"],
-  ["cables",            "dc-cable"],
-  ["v2l-c2l",           "v2l"],
-  ["v2l-c2l",           "c2l"],
-  ["v2l-c2l",           "v2l-c2l-combo"],
-  ["converters",        "extension-cable"],
-  ["converters",        "schuko-adapter"],
-  ["converters",        "cee-adapter"],
-  ["converters",        "combo-box"],
-  ["charger-equipment", "type2-socket"],
-  ["charger-equipment", "holster"],
-  ["charger-equipment", "pedestal"],
-  ["charger-equipment", "wall-mount"],
-  ["charger-equipment", "cable-tray"],
-  ["accessories",       "electronics"],
-  ["accessories",       "rfid-card"],
-  ["accessories",       "surge-protector"],
-  ["accessories",       "charging-bag"],
-];
+// Next.js's MetadataRoute.Sitemap accepts an `images` field on every
+// entry; when present it emits the standard image sitemap extension
+// (xmlns:image) automatically, so Google Image Search indexes the
+// product packshots alongside the URL.
+//
+// We pull real product slugs + image URLs from the JSONBin shards via
+// getServerProducts() rather than hardcoding them (the previous list
+// was stale — 25 entries with placeholder IDs that didn't match the
+// actual catalog of 120 SKUs). Build runs once per deploy so the call
+// happens at static generation time, not on every request.
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -54,19 +40,54 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/operator`,  lastModified: now, changeFrequency: "monthly", priority: 0.7 },
   ];
 
-  const categoryRoutes: MetadataRoute.Sitemap = CATEGORY_IDS.map((id) => ({
-    url: `${BASE}/products/${id}`,
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: 0.8,
-  }));
+  let products: Awaited<ReturnType<typeof getServerProducts>> = [];
+  try {
+    products = await getServerProducts();
+  } catch {
+    // If JSONBin is unreachable at build time we still ship a
+    // sitemap with the static + category routes — partial coverage
+    // beats a build failure.
+  }
 
-  const productRoutes: MetadataRoute.Sitemap = PRODUCT_IDS.map(([catId, productId]) => ({
-    url: `${BASE}/products/${catId}/${productId}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
+  const productById = new Map(products.map((c) => [c.id, c]));
+
+  const categoryRoutes: MetadataRoute.Sitemap = CATEGORY_IDS.map((id) => {
+    const cat = productById.get(id);
+    // Collect a small set of representative images for the category
+    // — first product image plus the kategori showcase if it exists.
+    // Limit to ~5 so the sitemap stays small.
+    const imgs: string[] = [];
+    if (cat?.products) {
+      for (const p of cat.products) {
+        const img = (p.image || p.images?.[0] || "").trim();
+        if (img && !imgs.includes(img)) imgs.push(img);
+        if (imgs.length >= 5) break;
+      }
+    }
+    return {
+      url: `${BASE}/products/${id}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+      ...(imgs.length > 0 && { images: imgs }),
+    };
+  });
+
+  const productRoutes: MetadataRoute.Sitemap = products.flatMap((cat) =>
+    (cat.products ?? []).map((p) => {
+      const imgs = [p.image, ...(p.images ?? [])]
+        .map((x) => (x ?? "").trim())
+        .filter(Boolean)
+        .filter((v, i, arr) => arr.indexOf(v) === i); // de-dup
+      return {
+        url: `${BASE}/products/${cat.id}/${p.id}`,
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+        ...(imgs.length > 0 && { images: imgs }),
+      };
+    })
+  );
 
   return [...staticRoutes, ...categoryRoutes, ...productRoutes];
 }
