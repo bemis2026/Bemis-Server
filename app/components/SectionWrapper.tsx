@@ -54,8 +54,14 @@ export default function SectionWrapper({ id, index, total, children }: SectionWr
   const { reorderSections } = useContent();
 
   if (!isEditMode) {
+    // `contain: layout style paint` browser'a section iç değişikliğinin
+    // parent layout'unu etkilemediğini söyler — scroll sırasında repaint
+    // ve reflow alanı bu section'la sınırlanır, sayfa boyunca kaskad
+    // halinde reflow olmaz. CLS (Cumulative Layout Shift) ve uzun
+    // sayfaların scroll responsiveness'ı için en yüksek değerli safe
+    // kazanç. Görsel davranış değişmez.
     return (
-      <div style={{ position: "relative" }}>
+      <div style={{ position: "relative", contain: "layout style paint" }}>
         <SectionAccent />
         {children}
       </div>

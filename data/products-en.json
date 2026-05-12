@@ -644,7 +644,7 @@
         "name": "Pro Mobile",
         "code": "BEV-2331-0001",
         "subtitle": "Üç Fazlı · 11 - 22 kW",
-        "badge": "En Çok Satan",
+        "badge": null,
         "description": "Pro Mobile, 11–22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı.",
         "specs": [
           {
@@ -772,7 +772,7 @@
             "group": "Fiyat",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 58,00"
               }
             ]
@@ -802,15 +802,15 @@
             "group": "Elektriksel",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "3,7 kW"
               },
               {
-                "label": "Faz",
+                "label": "Phase",
                 "value": "Monofaze"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "20A"
               }
             ]
@@ -1449,7 +1449,7 @@
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -1479,7 +1479,7 @@
         "description": "Trifaze 20A — 11 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 5×2,5 mm² + 1×0,75 mm² halojensiz kablo; ticari ve iş yeri uygulamaları için orta-güç sınıfı.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
                 "label": "Güç",
@@ -1496,7 +1496,7 @@
             ]
           },
           {
-            "group": "Kablo & Bağlantı",
+            "group": "Wire Link",
             "items": [
               {
                 "label": "Kablo Uzunluğu",
@@ -1517,7 +1517,7 @@
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -1547,7 +1547,7 @@
         "description": "Trifaze 20A — 11 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 5×2,5 mm² + 1×0,75 mm² halojensiz kablo; ticari ve iş yeri uygulamaları için orta-güç sınıfı.",
         "specs": [
           {
-            "group": "Price",
+            "group": "Elektriksel",
             "items": [
               {
                 "label": "Güç",
@@ -1585,7 +1585,7 @@
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -1615,7 +1615,7 @@
         "description": "Trifaze 20A — 11 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 5×2,5 mm² + 1×0,75 mm² halojensiz kablo; ticari ve iş yeri uygulamaları için orta-güç sınıfı.",
         "specs": [
           {
-            "group": "Price",
+            "group": "Elektriksel",
             "items": [
               {
                 "label": "Güç",
@@ -1623,7 +1623,7 @@
               },
               {
                 "label": "Faz",
-                "value": "Mode 3 (IEC 61851-1)"
+                "value": "Trifaze"
               },
               {
                 "label": "Maks. Akım",
@@ -1653,7 +1653,7 @@
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -1683,7 +1683,7 @@
         "description": "Trifaze 20A — 11 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 5×2,5 mm² + 1×0,75 mm² halojensiz kablo; ticari ve iş yeri uygulamaları için orta-güç sınıfı.",
         "specs": [
           {
-            "group": "Price",
+            "group": "Elektriksel",
             "items": [
               {
                 "label": "Güç",
@@ -1721,7 +1721,7 @@
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -1751,18 +1751,18 @@
         "description": "Trifaze 20A — 11 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 5×2,5 mm² + 1×0,75 mm² halojensiz kablo; ticari ve iş yeri uygulamaları için orta-güç sınıfı.",
         "specs": [
           {
-            "group": "Price",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "11 kW"
               },
               {
-                "label": "Faz",
+                "label": "Phase",
                 "value": "Trifaze"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "20A"
               }
             ]
@@ -1771,19 +1771,19 @@
             "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Kablo Uzunluğu",
+                "label": "Cable Length",
                 "value": "15m"
               },
               {
-                "label": "Kablo Kesiti",
+                "label": "Cable section",
                 "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mod",
+                "label": "Mode",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -1792,7 +1792,7 @@
             "group": "Fiyat",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 140,00"
               }
             ]
@@ -1822,15 +1822,15 @@
             "group": "Elektriksel",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "22 kW"
               },
               {
-                "label": "Faz",
+                "label": "Phase",
                 "value": "Trifaze"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "32A"
               }
             ]
@@ -1839,19 +1839,19 @@
             "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Kablo Uzunluğu",
+                "label": "Cable Length",
                 "value": "3m"
               },
               {
-                "label": "Kablo Kesiti",
+                "label": "Cable section",
                 "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mod",
+                "label": "Mode",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -1860,7 +1860,7 @@
             "group": "Fiyat",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 114,00"
               }
             ]
@@ -1890,15 +1890,15 @@
             "group": "Elektriksel",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "22 kW"
               },
               {
-                "label": "Faz",
+                "label": "Phase",
                 "value": "Trifaze"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "32A"
               }
             ]
@@ -1907,19 +1907,19 @@
             "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Kablo Uzunluğu",
+                "label": "Cable Length",
                 "value": "5m"
               },
               {
-                "label": "Kablo Kesiti",
+                "label": "Cable section",
                 "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mod",
+                "label": "Mode",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -1928,7 +1928,7 @@
             "group": "Fiyat",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 122,50"
               }
             ]
@@ -1955,18 +1955,18 @@
         "description": "Trifaze 32A — 22 kW maksimum AC kapasiteli Type 2 — Type 2 Mod 3 şarj seti. 5×6 mm² + 1×0,75 mm² halojensiz kablo, hızlı AC şarjı destekleyen tüm kurulumlara uygundur.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "22 kW"
               },
               {
-                "label": "Faz",
+                "label": "Phase",
                 "value": "Trifaze"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "32A"
               }
             ]
@@ -1975,19 +1975,19 @@
             "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Kablo Uzunluğu",
+                "label": "Cable Length",
                 "value": "7m"
               },
               {
-                "label": "Kablo Kesiti",
+                "label": "Cable section",
                 "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mod",
+                "label": "Mode",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -1996,7 +1996,7 @@
             "group": "Fiyat",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 136,00"
               }
             ]
@@ -2023,18 +2023,18 @@
         "description": "Trifaze 32A — 22 kW maksimum AC kapasiteli Type 2 — Type 2 Mod 3 şarj seti. 5×6 mm² + 1×0,75 mm² halojensiz kablo, hızlı AC şarjı destekleyen tüm kurulumlara uygundur.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "22 kW"
               },
               {
-                "label": "Faz",
+                "label": "Phase",
                 "value": "Trifaze"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "32A"
               }
             ]
@@ -2043,19 +2043,19 @@
             "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Kablo Uzunluğu",
+                "label": "Cable Length",
                 "value": "8m"
               },
               {
-                "label": "Kablo Kesiti",
+                "label": "Cable section",
                 "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mod",
+                "label": "Mode",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -2064,7 +2064,7 @@
             "group": "Fiyat",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 143,00"
               }
             ]
@@ -2091,48 +2091,48 @@
         "description": "Trifaze 32A — 22 kW maksimum AC kapasiteli Type 2 — Type 2 Mod 3 şarj seti. 5×6 mm² + 1×0,75 mm² halojensiz kablo, hızlı AC şarjı destekleyen tüm kurulumlara uygundur.",
         "specs": [
           {
-            "group": "Price",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "22 kW"
               },
               {
-                "label": "Faz",
+                "label": "Phase",
                 "value": "Trifaze"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "32A"
               }
             ]
           },
           {
-            "group": "Electrical",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Kablo Uzunluğu",
+                "label": "Cable Length",
                 "value": "10m"
               },
               {
-                "label": "Kablo Kesiti",
+                "label": "Cable section",
                 "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mod",
+                "label": "Mode",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 160,00"
               }
             ]
@@ -2159,48 +2159,48 @@
         "description": "Trifaze 32A — 22 kW maksimum AC kapasiteli Type 2 — Type 2 Mod 3 şarj seti. 5×6 mm² + 1×0,75 mm² halojensiz kablo, hızlı AC şarjı destekleyen tüm kurulumlara uygundur.",
         "specs": [
           {
-            "group": "Price",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "22 kW"
               },
               {
-                "label": "Faz",
+                "label": "Phase",
                 "value": "Trifaze"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "32A"
               }
             ]
           },
           {
-            "group": "Electrical",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "Kablo Uzunluğu",
+                "label": "Cable Length",
                 "value": "15m"
               },
               {
-                "label": "Kablo Kesiti",
+                "label": "Cable section",
                 "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Mod",
+                "label": "Mode",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 200,00"
               }
             ]
@@ -2265,7 +2265,7 @@
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -2324,13 +2324,13 @@
                 "value": "Türkiye standartı (Schuko)"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "16A"
               }
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -2393,7 +2393,7 @@
             ]
           },
           {
-            "group": "Mechanical & Certificates",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -2461,7 +2461,7 @@
             ]
           },
           {
-            "group": "Content",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -2530,10 +2530,10 @@
             ]
           },
           {
-            "group": "Compatibility",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 49,50"
               }
             ]
@@ -2597,10 +2597,10 @@
             ]
           },
           {
-            "group": "Compatibility",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "Exit Date",
+                "label": "Liste Fiyatı",
                 "value": "EUR 49,50"
               }
             ]
@@ -2665,7 +2665,7 @@
             ]
           },
           {
-            "group": "Compatibility",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -2734,7 +2734,7 @@
             ]
           },
           {
-            "group": "Compatibility",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -2795,13 +2795,13 @@
                 "value": "Türkiye standartı (Schuko)"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "16A"
               }
             ]
           },
           {
-            "group": "Compatibility",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -2863,13 +2863,13 @@
                 "value": "Türkiye standartı (Schuko)"
               },
               {
-                "label": "Cable",
+                "label": "Maks. Akım",
                 "value": "16A"
               }
             ]
           },
           {
-            "group": "Compatibility",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -2938,7 +2938,7 @@
             ]
           },
           {
-            "group": "Compatibility",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -3005,7 +3005,7 @@
             ]
           },
           {
-            "group": "Compatibility",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -3073,10 +3073,10 @@
             ]
           },
           {
-            "group": "Compatibility",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 60,50"
               }
             ]
@@ -3137,10 +3137,10 @@
             ]
           },
           {
-            "group": "Compatibility",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "Compatible Vehicle",
+                "label": "Liste Fiyatı",
                 "value": "EUR 66,00"
               }
             ]
@@ -3201,7 +3201,7 @@
             ]
           },
           {
-            "group": "Compatibility",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -3265,7 +3265,7 @@
             ]
           },
           {
-            "group": "Compatibility",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -3323,13 +3323,13 @@
                 "value": "3/16A → Type 2 Monofaze 16A · 3m"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "16A"
               }
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -3393,7 +3393,7 @@
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -3448,7 +3448,7 @@
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -3484,7 +3484,7 @@
                 "value": "Fiş-Priz Dönüştürücü Adaptör"
               },
               {
-                "label": "Standart",
+                "label": "Standard",
                 "value": "CEE Norm"
               },
               {
@@ -3503,7 +3503,7 @@
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -3642,7 +3642,7 @@
         "description": "Kompakt fiş-priz dönüştürücü adaptör. 3×2,5 mm² TTR kablo, düşük akımlı standart priz uygulamaları için ekonomik çözüm.",
         "specs": [
           {
-            "group": "Price",
+            "group": "Genel",
             "items": [
               {
                 "label": "Tip",
@@ -3668,7 +3668,7 @@
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -3697,7 +3697,7 @@
         "description": "Monofaze 16A — 3×2,5 mm² TTR halojensiz seyyar uzatma kablosu. Atölye, saha ve geçici kurulumlarda esnek enerji aktarımı için.",
         "specs": [
           {
-            "group": "Price",
+            "group": "Genel",
             "items": [
               {
                 "label": "Tip",
@@ -3723,10 +3723,10 @@
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 18,75"
               }
             ]
@@ -3753,7 +3753,7 @@
         "description": "Monofaze 16A — 3×2,5 mm² TTR halojensiz seyyar uzatma kablosu. Atölye, saha ve geçici kurulumlarda esnek enerji aktarımı için.",
         "specs": [
           {
-            "group": "Price",
+            "group": "Genel",
             "items": [
               {
                 "label": "Tip",
@@ -3779,10 +3779,10 @@
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "Cable",
+                "label": "Liste Fiyatı",
                 "value": "EUR 28,75"
               }
             ]
@@ -3809,7 +3809,7 @@
         "description": "Monofaze 16A — 3×2,5 mm² TTR halojensiz seyyar uzatma kablosu. Atölye, saha ve geçici kurulumlarda esnek enerji aktarımı için.",
         "specs": [
           {
-            "group": "Price",
+            "group": "Genel",
             "items": [
               {
                 "label": "Tip",
@@ -3835,7 +3835,7 @@
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -3865,7 +3865,7 @@
         "description": "CEE Norm fiş-priz dönüşümlü seyyar uzatma kablosu. 3×2,5 mm² TTR kablo monofaze 16A girişini trifaze 3 pinli 32A prize aktarır; faz adaptasyonu gereken sahalar için.",
         "specs": [
           {
-            "group": "Price",
+            "group": "Genel",
             "items": [
               {
                 "label": "Tip",
@@ -3891,7 +3891,7 @@
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -3921,7 +3921,7 @@
         "description": "CEE Norm fiş-priz dönüşümlü seyyar uzatma kablosu. 3×2,5 mm² TTR kablo monofaze 16A girişini trifaze 3 pinli 32A prize aktarır; faz adaptasyonu gereken sahalar için.",
         "specs": [
           {
-            "group": "Bağlantı",
+            "group": "Genel",
             "items": [
               {
                 "label": "Tip",
@@ -3947,7 +3947,7 @@
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -3977,14 +3977,14 @@
         "description": "CEE Norm dönüşümlü seyyar uzatma kablosu. 3×2,5 mm² TTR kablo monofaze 16A girişini 5 pinli 32A prize aktarır; nötr + toprak içeren sistemlere geçiş için.",
         "specs": [
           {
-            "group": "Bağlantı",
+            "group": "Genel",
             "items": [
               {
                 "label": "Tip",
                 "value": "Seyyar Uzatma Kablosu"
               },
               {
-                "label": "Kablo",
+                "label": "Cable",
                 "value": "3 × 2,5 mm² ttr"
               },
               {
@@ -4003,10 +4003,10 @@
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "Cable",
+                "label": "Liste Fiyatı",
                 "value": "EUR 24,40"
               }
             ]
@@ -4033,7 +4033,7 @@
         "description": "CEE Norm dönüşümlü seyyar uzatma kablosu. 3×2,5 mm² TTR kablo monofaze 16A girişini 5 pinli 32A prize aktarır; nötr + toprak içeren sistemlere geçiş için.",
         "specs": [
           {
-            "group": "Bağlantı",
+            "group": "Genel",
             "items": [
               {
                 "label": "Tip",
@@ -4059,7 +4059,7 @@
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -4089,7 +4089,7 @@
         "description": "Trifaze 32A — 3×6 mm² TTR yüksek-akım seyyar uzatma kablosu. Şantiye ve sanayi kullanımlarında ana panodan iş alanına güvenli güç taşır.",
         "specs": [
           {
-            "group": "Bağlantı",
+            "group": "Genel",
             "items": [
               {
                 "label": "Tip",
@@ -4115,7 +4115,7 @@
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -4145,7 +4145,7 @@
         "description": "Trifaze 32A — 3×6 mm² TTR yüksek-akım seyyar uzatma kablosu. Şantiye ve sanayi kullanımlarında ana panodan iş alanına güvenli güç taşır.",
         "specs": [
           {
-            "group": "Bağlantı",
+            "group": "Genel",
             "items": [
               {
                 "label": "Tip",
@@ -4171,10 +4171,10 @@
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 87,50"
               }
             ]
@@ -4201,14 +4201,14 @@
         "description": "Trifaze + nötr + toprak (5 telli) 32A seyyar uzatma kablosu. 5×6 mm² TTR kablo, profesyonel altyapı projelerinde tam-sistem yükler için uygundur.",
         "specs": [
           {
-            "group": "İletişim",
+            "group": "Genel",
             "items": [
               {
                 "label": "Tip",
                 "value": "Seyyar Uzatma Kablosu"
               },
               {
-                "label": "List Price",
+                "label": "Kablo",
                 "value": "5 × 6 mm² ttr"
               },
               {
@@ -4227,7 +4227,7 @@
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -4257,7 +4257,7 @@
         "description": "Trifaze + nötr + toprak (5 telli) 32A seyyar uzatma kablosu. 5×6 mm² TTR kablo, profesyonel altyapı projelerinde tam-sistem yükler için uygundur.",
         "specs": [
           {
-            "group": "Contact",
+            "group": "Genel",
             "items": [
               {
                 "label": "Tip",
@@ -4283,7 +4283,7 @@
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -4321,7 +4321,7 @@
         "description": "Type 2 şarj kabloları için dayanıklı, fermuarlı taşıma çantası. Su iticili dış kumaş, kablo ucunu koruyan iç hücre — araç bagajında veya saha kullanımında kabloyu temiz ve düzenli tutar.",
         "specs": [
           {
-            "group": "Characteristics",
+            "group": "Genel",
             "items": [
               {
                 "label": "Tip",
@@ -4337,7 +4337,7 @@
             "group": "Fiyat",
             "items": [
               {
-                "label": "Type",
+                "label": "Liste Fiyatı",
                 "value": "EUR 18,70"
               }
             ]
@@ -4370,7 +4370,7 @@
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -4393,7 +4393,7 @@
         "description": "Bemis taşınabilir şarj cihazlarına özel taşıma çantası. Cihaz, kablo ve adaptörler için ayrı bölmeler; saha taşınması sırasında ekipmanı koruma altına alır.",
         "specs": [
           {
-            "group": "Genel",
+            "group": "General",
             "items": [
               {
                 "label": "Tip",
@@ -4406,7 +4406,7 @@
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -4429,7 +4429,7 @@
         "description": "Bemis taşınabilir şarj cihazlarına özel taşıma çantası. Cihaz, kablo ve adaptörler için ayrı bölmeler; saha taşınması sırasında ekipmanı koruma altına alır.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Genel",
             "items": [
               {
                 "label": "Tip",
@@ -4478,7 +4478,7 @@
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -4497,7 +4497,7 @@
         "description": "Bemis Charger serisi AC wallbox cihazları için tasarlanmış özel priz tutucu. Cihazın gövde rengiyle uyumlu, hızlı kelepçe ile cihaza monte edilir.",
         "specs": [
           {
-            "group": "Genel",
+            "group": "General",
             "items": [
               {
                 "label": "Tip",
@@ -4510,10 +4510,10 @@
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 6,60"
               }
             ]
@@ -4534,7 +4534,7 @@
         "description": "AC şarj istasyonu için zemine montajlı paslanmaz çelik pedestal kaide. Açık alan ve otopark kurulumlarında tek ya da çift cihaz montajına uygundur; kablo geçişi için iç kanallar.",
         "specs": [
           {
-            "group": "Özellikler",
+            "group": "Genel",
             "items": [
               {
                 "label": "Tip",
@@ -4584,10 +4584,10 @@
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Cable",
+                "label": "Liste Fiyatı",
                 "value": "EUR 6,60"
               }
             ]
@@ -4607,7 +4607,7 @@
         "description": "Taşınabilir Bemis şarj cihazları için duvara monte askı aparatı. Cihazın garaj, atölye veya tesiste düzenli ve hazır halde saklanmasını sağlar.",
         "specs": [
           {
-            "group": "Genel",
+            "group": "General",
             "items": [
               {
                 "label": "Tip",
@@ -4620,7 +4620,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -4659,7 +4659,7 @@
             "group": "Fiyat",
             "items": [
               {
-                "label": "Length",
+                "label": "Liste Fiyatı",
                 "value": "EUR 16,50"
               }
             ]
@@ -4855,7 +4855,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -4904,7 +4904,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Bağlantı",
             "items": [
               {
                 "label": "Konnektör",
@@ -5055,7 +5055,7 @@
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -5094,7 +5094,7 @@
                 "value": "160 kW"
               },
               {
-                "label": "Number of Sockets",
+                "label": "Giriş",
                 "value": "AC 380-480V, 3 Faz"
               },
               {
@@ -5155,7 +5155,7 @@
             ]
           },
           {
-            "group": "Electrical",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -5204,7 +5204,7 @@
             ]
           },
           {
-            "group": "Management",
+            "group": "Bağlantı",
             "items": [
               {
                 "label": "Konnektör",
@@ -5332,7 +5332,7 @@
             "group": "Fiyat",
             "items": [
               {
-                "label": "Installation",
+                "label": "Liste Fiyatı",
                 "value": "EUR 47,50"
               }
             ]
@@ -5521,7 +5521,7 @@
             "group": "Fiyat",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 87,50"
               }
             ]
@@ -5647,7 +5647,7 @@
             "group": "Fiyat",
             "items": [
               {
-                "label": "• Power",
+                "label": "Liste Fiyatı",
                 "value": "EUR 76,50"
               }
             ]
@@ -5832,7 +5832,7 @@
             "group": "Fiyat",
             "items": [
               {
-                "label": "Phase",
+                "label": "Liste Fiyatı",
                 "value": "EUR 48,40"
               }
             ]
@@ -5892,7 +5892,7 @@
             "group": "Fiyat",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 48,40"
               }
             ]
@@ -5919,7 +5919,7 @@
         "description": "Şarj panolarına entegrasyon için Type 2 pano prizi. Kilit motorlu monofaze ya da trifaze, 3 veya 4 noktadan montajlı varyantlarla AC şarj cihazı üreticilerine standart bileşen.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
                 "label": "Faz",
@@ -5943,13 +5943,13 @@
                 "value": "Var"
               },
               {
-                "label": "Cable section",
+                "label": "Tip",
                 "value": "Type 2 Pano Prizi (IEC 62196-2)"
               }
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -5979,7 +5979,7 @@
         "description": "Şarj panolarına entegrasyon için Type 2 pano prizi. Kilit motorlu monofaze ya da trifaze, 3 veya 4 noktadan montajlı varyantlarla AC şarj cihazı üreticilerine standart bileşen.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
                 "label": "Faz",
@@ -6009,7 +6009,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -6039,7 +6039,7 @@
         "description": "Kilit motoru olmayan ekonomik Type 2 pano prizi. Manuel kilitleme gerektirmeyen veya kilit mekanizması ayrı tedarik edilen üretici kurulumları için.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
                 "label": "Faz",
@@ -6069,7 +6069,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -6099,7 +6099,7 @@
         "description": "Kilit motoru olmayan ekonomik Type 2 pano prizi. Manuel kilitleme gerektirmeyen veya kilit mekanizması ayrı tedarik edilen üretici kurulumları için.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
                 "label": "Faz",
@@ -6129,7 +6129,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -6159,7 +6159,7 @@
         "description": "Kilit motoru olmayan ekonomik Type 2 pano prizi. Manuel kilitleme gerektirmeyen veya kilit mekanizması ayrı tedarik edilen üretici kurulumları için.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
                 "label": "Faz",
@@ -6189,7 +6189,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -6219,7 +6219,7 @@
         "description": "Kilit motoru olmayan ekonomik Type 2 pano prizi. Manuel kilitleme gerektirmeyen veya kilit mekanizması ayrı tedarik edilen üretici kurulumları için.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
                 "label": "Faz",
@@ -6249,7 +6249,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -6279,7 +6279,7 @@
         "description": "Şarj cihazı üreticileri için 1,5 m bir ucu açık enerji kablosu. Cihaz iç bağlantılarına doğrudan terminasyon, üretim hattı entegrasyonu sağlar.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
                 "label": "Faz",
@@ -6292,7 +6292,7 @@
             ]
           },
           {
-            "group": "Mechanical",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
                 "label": "Kablo Uzunluğu",
@@ -6313,7 +6313,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -6342,7 +6342,7 @@
         "description": "Şarj cihazı üreticileri için 1,5 m bir ucu açık enerji kablosu. Cihaz iç bağlantılarına doğrudan terminasyon, üretim hattı entegrasyonu sağlar.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
                 "label": "Faz",
@@ -6355,7 +6355,7 @@
             ]
           },
           {
-            "group": "Mechanical",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
                 "label": "Kablo Uzunluğu",
@@ -6376,7 +6376,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -6431,7 +6431,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -6487,10 +6487,10 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 112,50"
               }
             ]
@@ -6543,7 +6543,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -6599,7 +6599,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -6655,7 +6655,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -6711,10 +6711,10 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
-                "label": "Type",
+                "label": "Liste Fiyatı",
                 "value": "EUR 143,75"
               }
             ]
@@ -6741,7 +6741,7 @@
         "description": "DC hızlı şarj cihazı üreticileri için bir ucu açık CCS2 şarj soketi. İstediğiniz uzunluk ve akım kademesinde DC ünitelere doğrudan terminasyon — OEM kablolu çözüm.",
         "specs": [
           {
-            "group": "General",
+            "group": "Elektriksel",
             "items": [
               {
                 "label": "Tip",
@@ -6761,7 +6761,7 @@
             "group": "Kablo & Bağlantı",
             "items": [
               {
-                "label": "List Price",
+                "label": "Kablo Uzunluğu",
                 "value": "5m"
               },
               {
@@ -6771,7 +6771,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -6801,7 +6801,7 @@
         "description": "DC hızlı şarj cihazı üreticileri için bir ucu açık CCS2 şarj soketi. İstediğiniz uzunluk ve akım kademesinde DC ünitelere doğrudan terminasyon — OEM kablolu çözüm.",
         "specs": [
           {
-            "group": "General",
+            "group": "Elektriksel",
             "items": [
               {
                 "label": "Tip",
@@ -6831,7 +6831,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -6861,10 +6861,10 @@
         "description": "DC hızlı şarj cihazı üreticileri için bir ucu açık CCS2 şarj soketi. İstediğiniz uzunluk ve akım kademesinde DC ünitelere doğrudan terminasyon — OEM kablolu çözüm.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "Tip",
+                "label": "Type",
                 "value": "DC Hızlı Şarj Soketi (CCS2)"
               },
               {
@@ -6878,7 +6878,7 @@
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
                 "label": "Kablo Uzunluğu",
@@ -6891,7 +6891,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -6921,10 +6921,10 @@
         "description": "DC hızlı şarj cihazı üreticileri için bir ucu açık CCS2 şarj soketi. İstediğiniz uzunluk ve akım kademesinde DC ünitelere doğrudan terminasyon — OEM kablolu çözüm.",
         "specs": [
           {
-            "group": "Electrical",
+            "group": "Elektriksel",
             "items": [
               {
-                "label": "Tip",
+                "label": "Type",
                 "value": "DC Hızlı Şarj Soketi (CCS2)"
               },
               {
@@ -6938,7 +6938,7 @@
             ]
           },
           {
-            "group": "Wire Link",
+            "group": "Kablo & Bağlantı",
             "items": [
               {
                 "label": "Kablo Uzunluğu",
@@ -6951,7 +6951,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -6984,7 +6984,7 @@
             "group": "Elektriksel",
             "items": [
               {
-                "label": "Tip",
+                "label": "Type",
                 "value": "DC Hızlı Şarj Soketi (CCS2)"
               },
               {
@@ -7011,7 +7011,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
@@ -7044,7 +7044,7 @@
             "group": "Elektriksel",
             "items": [
               {
-                "label": "Tip",
+                "label": "Type",
                 "value": "DC Hızlı Şarj Soketi (CCS2)"
               },
               {
@@ -7071,7 +7071,7 @@
             ]
           },
           {
-            "group": "Price",
+            "group": "Fiyat",
             "items": [
               {
                 "label": "Liste Fiyatı",
