@@ -109,11 +109,25 @@ export function buildAutoReplyHtml(opts: {
 }): string {
   const accent = "#3B82F6";
   const formKind = opts.formKind ?? "İletişim formu";
+  // Brand logo: Vercel-served white-on-transparent favicon at 192px,
+  // tucked left of the heading. Email clients (Gmail, Outlook, iOS Mail)
+  // load this as a remote image — same domain as the site so SPF/DKIM
+  // alignment also protects the image origin.
+  const logoUrl = "https://www.bemisevcharge.com.tr/favicon-white-192.png";
   return `
     <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#111">
-      <div style="background:#1a1a1a;padding:28px 32px;border-radius:12px 12px 0 0">
-        <h2 style="color:#fff;margin:0;font-size:22px">Mesajınızı aldık 👋</h2>
-        <p style="color:rgba(255,255,255,0.55);margin:8px 0 0;font-size:13px">Bemis E-V Charge — ${formKind}</p>
+      <div style="background:#1a1a1a;padding:24px 32px;border-radius:12px 12px 0 0">
+        <table style="width:100%;border-collapse:collapse">
+          <tr>
+            <td style="width:48px;padding-right:14px;vertical-align:middle">
+              <img src="${logoUrl}" alt="Bemis E-V Charge" width="40" height="40" style="display:block;width:40px;height:40px;object-fit:contain" />
+            </td>
+            <td style="vertical-align:middle">
+              <h2 style="color:#fff;margin:0;font-size:22px;line-height:1.2">Mesajınızı aldık 👋</h2>
+              <p style="color:rgba(255,255,255,0.55);margin:4px 0 0;font-size:13px">Bemis E-V Charge — ${formKind}</p>
+            </td>
+          </tr>
+        </table>
       </div>
       <div style="background:#ffffff;padding:30px 32px;border-radius:0 0 12px 12px;border:1px solid #e0e0e0;border-top:none">
         <p style="margin:0 0 14px;font-size:15px;line-height:1.55;color:#222">

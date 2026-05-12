@@ -24,14 +24,14 @@ if (!MASTER) { console.error("JSONBIN_MASTER_KEY eksik."); process.exit(1); }
 const BIN_ID = "69e5093e856a6821894eaee8"; // products bin (ana shard)
 const BASE = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 
-// code → liste fiyatı (KDV hariç, EUR)
+// code → liste fiyatı (KDV hariç, EUR) — operatörün 12 Mayıs 2026 update'i.
 const DC_PRICES = {
-  "BEVDC-40-1":   4296.96,
-  "BEVDC-80-2":   9492.48,
-  "BEVDC-120-1": 11370.24,   // YENİ varyant: tek soketli
-  "BEVDC-120-2": 11612.16,   // mevcut: çift soketli
-  "BEVDC-160-2": 14238.72,
-  "BEVDC-200-2": 16611.84,
+  "BEVDC-40-1":   7161,
+  "BEVDC-80-2":  15820,
+  "BEVDC-120-1": 18950,   // tek soketli varyant
+  "BEVDC-120-2": 19353,   // çift soketli (mevcut)
+  "BEVDC-160-2": 23731,
+  "BEVDC-200-2": 27686,
 };
 
 const DELETE_NAMES = ["V2L Adaptör", "C2L Adaptör", "V2L / C2L Kombi Set"];
