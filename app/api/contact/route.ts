@@ -132,6 +132,18 @@ export async function POST(req: NextRequest) {
   // long as at least one mail dispatch succeeded, and the message has
   // already been saved to the JSONBin in either case.
   const adminHtml = buildHtml({ name, company, email, phone, message }, topicLabel, ip);
+
+  // Pull admin-edited auto-reply copy from the content bin. Errors here
+  // never block the form — empty template just means defaults from
+  // lib/email.ts kick in.
+  let autoReplyTemplate: Record<string, unknown> | undefined;
+  try {
+    const content = (await readBin("content")) as { emailTemplates?: { autoReply?: Record<string, unknown> } };
+    autoReplyTemplate = content?.emailTemplates?.autoReply;
+  } catch {
+    /* swallow — defaults fine */
+  }
+
   const [adminRes, replyRes] = await Promise.all([
     notifyAdmin({
       subject: `[Bemis Website] ${topicLabel} — ${name}`,
@@ -144,6 +156,7 @@ export async function POST(req: NextRequest) {
       topicLabel,
       originalMessage: message,
       formKind: "İletişim formu",
+      template: autoReplyTemplate,
     }),
   ]);
 

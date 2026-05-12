@@ -119,6 +119,13 @@ type ContentData = {
     recentPosts?: SocialPost[];
   };
   siteVerification?: { google?: string; yandex?: string; bing?: string };
+  emailTemplates?: {
+    autoReply?: {
+      subject?: string; heading?: string; greeting?: string;
+      intro1?: string; intro2?: string; quoteHeading?: string;
+      footerNote?: string; companyAddress?: string; contactEmail?: string;
+    };
+  };
   dna: {
     sectionLabel: string; sectionHeading: string; brandHeading: string;
     brandPara1: string; brandPara2: string; quote: string; quoteAttr: string;
@@ -3095,6 +3102,86 @@ export default function AdminPage() {
                         className="flex-1 bg-white/5 border border-white/8 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-white/22 font-mono"
                       />
                     </div>
+                  </div>
+
+                  {/* Otomatik Cevap Maili — form dolduran kullanıcıya
+                      gönderilen "mesajınız alındı" mailinin metinleri.
+                      Boş bırakılan alan koddaki varsayılana düşer.
+                      Değişkenler: {name}, {topicLabel}, {formKind},
+                      {contactEmail} — gönderim sırasında yerine geçer. */}
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                    <div>
+                      <p className="text-xs font-semibold text-white/60">Otomatik Cevap Maili Şablonu</p>
+                      <p className="text-[11px] text-white/30 leading-snug mt-0.5">
+                        Form dolduran kullanıcıya gönderilen &quot;Mesajınız alındı&quot; mailinin metinleri. Boş alanlar varsayılana düşer. Cümle içinde
+                        <code className="px-1 mx-0.5 text-white/55 bg-white/8 rounded">{"{name}"}</code>,
+                        <code className="px-1 mx-0.5 text-white/55 bg-white/8 rounded">{"{topicLabel}"}</code>,
+                        <code className="px-1 mx-0.5 text-white/55 bg-white/8 rounded">{"{formKind}"}</code>,
+                        <code className="px-1 mx-0.5 text-white/55 bg-white/8 rounded">{"{contactEmail}"}</code>
+                        yazarsan otomatik yerine konur.
+                      </p>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <Field
+                        label="Mail Konusu (Subject)"
+                        value={content.emailTemplates?.autoReply?.subject ?? ""}
+                        onChange={(v) => updateContent(["emailTemplates", "autoReply", "subject"], v)}
+                        placeholder="Mesajınız alındı — Bemis E-V Charge"
+                      />
+                      <Field
+                        label="Üst Başlık"
+                        value={content.emailTemplates?.autoReply?.heading ?? ""}
+                        onChange={(v) => updateContent(["emailTemplates", "autoReply", "heading"], v)}
+                        placeholder="Mesajınızı aldık 👋"
+                      />
+                    </div>
+                    <Field
+                      label="Karşılama (greeting)"
+                      value={content.emailTemplates?.autoReply?.greeting ?? ""}
+                      onChange={(v) => updateContent(["emailTemplates", "autoReply", "greeting"], v)}
+                      placeholder="Merhaba {name},"
+                    />
+                    <Field
+                      label="1. Paragraf"
+                      value={content.emailTemplates?.autoReply?.intro1 ?? ""}
+                      onChange={(v) => updateContent(["emailTemplates", "autoReply", "intro1"], v)}
+                      placeholder='"{topicLabel}" konulu mesajınız ekibimize ulaştı. En kısa sürede dönüş yapacağız — genellikle iş günleri içinde 24 saat içinde yanıt veriyoruz.'
+                      multiline
+                    />
+                    <Field
+                      label="2. Paragraf"
+                      value={content.emailTemplates?.autoReply?.intro2 ?? ""}
+                      onChange={(v) => updateContent(["emailTemplates", "autoReply", "intro2"], v)}
+                      placeholder="Acil bir durum varsa bize doğrudan telefondan da ulaşabilirsiniz."
+                      multiline
+                    />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <Field
+                        label="Mesaj Alıntı Başlığı"
+                        value={content.emailTemplates?.autoReply?.quoteHeading ?? ""}
+                        onChange={(v) => updateContent(["emailTemplates", "autoReply", "quoteHeading"], v)}
+                        placeholder="Bize Gönderdiğiniz Mesaj"
+                      />
+                      <Field
+                        label="Şirket Adresi"
+                        value={content.emailTemplates?.autoReply?.companyAddress ?? ""}
+                        onChange={(v) => updateContent(["emailTemplates", "autoReply", "companyAddress"], v)}
+                        placeholder="Bursa, Türkiye"
+                      />
+                    </div>
+                    <Field
+                      label="İletişim E-postası (alt-bilgi)"
+                      value={content.emailTemplates?.autoReply?.contactEmail ?? ""}
+                      onChange={(v) => updateContent(["emailTemplates", "autoReply", "contactEmail"], v)}
+                      placeholder="info@bemisevcharge.com"
+                    />
+                    <Field
+                      label="Alt Bilgi Notu"
+                      value={content.emailTemplates?.autoReply?.footerNote ?? ""}
+                      onChange={(v) => updateContent(["emailTemplates", "autoReply", "footerNote"], v)}
+                      placeholder="Bu mesaj otomatik gönderilmiştir. Cevap atmanız gerekmiyor — ekibimize ulaşmak için {contactEmail} kullanın."
+                      multiline
+                    />
                   </div>
 
                   {/* Reklam & Pixel Yönetimi — operatörün Google Ads

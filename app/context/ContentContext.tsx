@@ -205,6 +205,26 @@ export type SiteContent = {
     yandex?: string;
     bing?: string;
   };
+  /** Operator-editable email copy. Each field is optional — falls back
+   *  to the hardcoded default in lib/email.ts when empty. Variables in
+   *  curly braces are substituted at send time:
+   *    {name}        — form filler's name
+   *    {topicLabel}  — "Bayilik Başvurusu" / "Ürün Bilgisi" vb.
+   *    {formKind}    — "İletişim formu" / "Bayi başvurusu" vb.
+   */
+  emailTemplates?: {
+    autoReply?: {
+      subject?: string;       // Mail konusu — "Mesajınız alındı — Bemis E-V Charge"
+      heading?: string;       // Üst başlık — "Mesajınızı aldık 👋"
+      greeting?: string;      // Karşılama satırı — "Merhaba {name},"
+      intro1?: string;        // 1. paragraf — "{topicLabel} konulu mesajınız..."
+      intro2?: string;        // 2. paragraf — "Acil bir durum varsa..."
+      quoteHeading?: string;  // Mesaj alıntı başlığı — "Bize Gönderdiğiniz Mesaj"
+      footerNote?: string;    // Alt not — "Bu mesaj otomatik gönderilmiştir..."
+      companyAddress?: string;// "Bursa, Türkiye"
+      contactEmail?: string;  // İletişim mail'i — "info@bemisevcharge.com"
+    };
+  };
   dna: {
     sectionLabel: string; sectionHeading: string;
     brandHeading: string; brandPara1: string; brandPara2: string;
@@ -392,6 +412,19 @@ const defaultContent: SiteContent = {
   marketing: { ga4Id: "", googleAdsId: "", googleAdsContactLabel: "", metaPixelId: "" },
   social: { linkedin: "", instagram: "", twitter: "", youtube: "", facebook: "", recentPosts: [] },
   siteVerification: { google: "", yandex: "", bing: "" },
+  emailTemplates: {
+    autoReply: {
+      subject: "Mesajınız alındı — Bemis E-V Charge",
+      heading: "Mesajınızı aldık 👋",
+      greeting: "Merhaba {name},",
+      intro1: "\"{topicLabel}\" konulu mesajınız ekibimize ulaştı. En kısa sürede dönüş yapacağız — genellikle iş günleri içinde 24 saat içinde yanıt veriyoruz.",
+      intro2: "Acil bir durum varsa bize doğrudan telefondan da ulaşabilirsiniz.",
+      quoteHeading: "Bize Gönderdiğiniz Mesaj",
+      footerNote: "Bu mesaj otomatik gönderilmiştir. Cevap atmanız gerekmiyor — ekibimize ulaşmak için {contactEmail} kullanın.",
+      companyAddress: "Bursa, Türkiye",
+      contactEmail: "info@bemisevcharge.com",
+    },
+  },
   dna: {
     sectionLabel: "Hakkımızda",
     sectionHeading: "Üretimden yazılıma — her şey bizden",
