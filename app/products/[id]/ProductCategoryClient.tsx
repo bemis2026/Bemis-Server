@@ -235,7 +235,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
               >
                 {/* Product image / icon */}
                 <div className="relative overflow-hidden" onClick={() => router.push(`/products/${id}/${product.id}`)}
-                  style={{ height: 180, background: d ? `linear-gradient(145deg, ${accent}18 0%, #1c1c1f 100%)` : `linear-gradient(145deg, ${accent}14 0%, #fafafa 100%)` }}>
+                  style={{ height: 180, background: d ? `linear-gradient(145deg, ${accent}18 0%, transparent 100%), #1c1c1f` : `linear-gradient(145deg, ${accent}14 0%, transparent 100%), #fafafa` }}>
                   {(product.images?.[0] ?? product.image) ? (
                     <Image src={(product.images?.[0] ?? product.image) as string} alt={product.name}
                       fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"

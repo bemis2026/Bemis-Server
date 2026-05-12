@@ -21,7 +21,7 @@ import {
   RiFileTextLine, RiFilePdfLine, RiExternalLinkLine,
   RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
   RiShieldCheckLine, RiBarChart2Line, RiCalendarCheckLine, RiTeamLine,
-  RiLightbulbLine, RiAddLine,
+  RiLightbulbLine, RiAddLine, RiSubtractLine,
 } from "react-icons/ri";
 import { featureById } from "../../../../lib/productFeatures";
 import { certificateById } from "../../../../lib/productCertificates";
@@ -100,7 +100,7 @@ export default function ProductDetailPage({
   const [activeImg, setActiveImg]   = useState(0);
   const [allCategories, setAllCategories] = useState<CategoryData[]>(initialAllCategories);
   const [activeTab, setActiveTab]   = useState<"specs" | "general" | "documents">("general");
-  // FAQ artık accordion değil — kartlar her zaman cevap görünür halde.
+  const [openFaqIdx, setOpenFaqIdx]   = useState<number | null>(null);
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const isFirstMount = useRef(true);
 
@@ -203,9 +203,14 @@ export default function ProductDetailPage({
                         className="relative rounded-2xl overflow-hidden w-full"
                         style={{
                           aspectRatio: "1/1",
+                          // İki katmanlı arka plan: ALT katman OPAQUE
+                          // solid renk (energy-streak çizgileri arkadan
+                          // sızmasın diye), ÜST katman accent gradient
+                          // tinted overlay. Multiple-background CSS
+                          // syntax: ilk değer üstte render olur.
                           background: d
-                            ? `linear-gradient(145deg, ${accent}18 0%, #1c1c1f 100%)`
-                            : `linear-gradient(145deg, ${accent}14 0%, #fafafa 100%)`,
+                            ? `linear-gradient(145deg, ${accent}18 0%, transparent 100%), #1c1c1f`
+                            : `linear-gradient(145deg, ${accent}14 0%, transparent 100%), #fafafa`,
                           border: `1px solid ${border}`,
                           boxShadow: d
                             ? `0 12px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04)`
@@ -803,36 +808,56 @@ export default function ProductDetailPage({
               })),
             }]} />
             <h2 className="text-base font-bold mb-4" style={{ color: sd ? "#f0f0f4" : "#111827" }}>Sıkça Sorulan Sorular</h2>
-            {/* SSS — accordion yok, kartlar her zaman 'açık' state'te:
-                soru + cevap birlikte görünür. Kart yatay olarak tam
-                w-full genişlikte (max-w-7xl parent). Her kart aynı
-                visual ağırlığa sahip, kapalı/açık ayrımı yok. */}
+            {/* SSS accordion: kart yatay olarak full-width + sabit
+                dolu görünüm (px-6 py-5, soru alanı 28px chevron +
+                büyük font). Tıklanınca cevap motion ile alt'a açılır,
+                kart yüksekliği artar ama yatay (width) hep aynı.
+                Kapalı state'te de kart 'küçük' gözükmesin diye
+                padding cömert, chevron belirgin. */}
             <div className="space-y-2">
-              {faq.map((item, i) => (
-                <div
-                  key={i}
-                  className="rounded-xl w-full block px-4 sm:px-6 py-5"
-                  style={{
-                    background: sd ? "#141416" : "#ffffff",
-                    border: `1px solid ${sd ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}`,
-                  }}
-                >
-                  <div className="flex items-start gap-3 mb-2.5">
-                    <span
-                      className="inline-flex items-center justify-center rounded-lg flex-shrink-0 mt-0.5"
-                      style={{ width: 28, height: 28, background: `${BRAND_BLUE}14`, border: `1px solid ${BRAND_BLUE}30`, color: BRAND_BLUE }}
+              {faq.map((item, i) => {
+                const open = openFaqIdx === i;
+                return (
+                  <div
+                    key={i}
+                    className="rounded-xl overflow-hidden w-full block"
+                    style={{
+                      background: sd ? "#141416" : "#ffffff",
+                      border: `1px solid ${sd ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}`,
+                    }}
+                  >
+                    <button
+                      onClick={() => setOpenFaqIdx(open ? null : i)}
+                      className="w-full flex items-start gap-3 px-4 sm:px-6 py-5 text-left transition-colors hover:bg-black/[0.02] dark:hover:bg-white/[0.02]"
                     >
-                      <RiAddLine size={14} style={{ transform: "rotate(45deg)" }} />
-                    </span>
-                    <p className="flex-1 text-sm sm:text-base font-semibold leading-snug" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
-                      {item.q}
-                    </p>
+                      <span
+                        className="inline-flex items-center justify-center rounded-lg flex-shrink-0 mt-0.5"
+                        style={{ width: 28, height: 28, background: `${BRAND_BLUE}14`, border: `1px solid ${BRAND_BLUE}30`, color: BRAND_BLUE }}
+                      >
+                        {open ? <RiSubtractLine size={14} /> : <RiAddLine size={14} />}
+                      </span>
+                      <span className="flex-1 text-sm sm:text-base font-semibold leading-snug" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
+                        {item.q}
+                      </span>
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {open && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.22 }}
+                          style={{ overflow: "hidden" }}
+                        >
+                          <p className="px-4 sm:px-6 pb-5 text-sm leading-relaxed whitespace-pre-line pl-[56px] sm:pl-[64px]" style={{ color: sd ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
+                            {item.a}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
-                  <p className="text-sm leading-relaxed whitespace-pre-line pl-[40px]" style={{ color: sd ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.65)" }}>
-                    {item.a}
-                  </p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         );
@@ -943,8 +968,8 @@ export default function ProductDetailPage({
                       style={{
                         aspectRatio: "1/1",
                         background: sd
-                          ? `linear-gradient(145deg, ${cat.accent}18 0%, #1c1c1f 100%)`
-                          : `linear-gradient(145deg, ${cat.accent}14 0%, #fafafa 100%)`,
+                          ? `linear-gradient(145deg, ${cat.accent}18 0%, transparent 100%), #1c1c1f`
+                          : `linear-gradient(145deg, ${cat.accent}14 0%, transparent 100%), #fafafa`,
                       }}
                     >
                       {imgs[0] ? (
