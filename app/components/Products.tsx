@@ -471,7 +471,7 @@ export default function Products() {
                         zIndex: 0,
                       }}
                       loading="lazy"
-                      quality={75}
+                      quality={88}
                     />
                   )}
                   {/* Radial accent glow */}

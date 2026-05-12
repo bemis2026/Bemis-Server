@@ -183,7 +183,7 @@ export default function FeaturedProducts() {
                       className="object-contain p-3"
                       style={{ transition: "transform 0.4s ease", transform: isHov ? "scale(1.04)" : "scale(1)" }}
                       loading="lazy"
-                      quality={75}
+                      quality={88}
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center"

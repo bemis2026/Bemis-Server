@@ -964,7 +964,7 @@ export default function ProductDetailPage({
                           sizes="(max-width: 640px) 50vw, 200px"
                           className="object-contain p-1 transition-transform duration-300 group-hover:scale-105"
                           loading="lazy"
-                          quality={75}
+                          quality={88}
                         />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center">

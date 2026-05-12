@@ -61,6 +61,13 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   images: {
+    // Whitelist of quality values the next/image optimizer will accept.
+    // Next.js 16 only honours these — anything else logs a warning and
+    // falls back to 75. We use 88 for catalog packshots so product
+    // photos don't get mushy on Retina, 90 for above-the-fold hero
+    // backgrounds, and keep 75 in the list for the small admin
+    // thumbnails that don't need detail.
+    qualities: [75, 88, 90],
     remotePatterns: [
       { protocol: "https", hostname: "**.public.blob.vercel-storage.com" },
       { protocol: "https", hostname: "**.vercel-storage.com" },

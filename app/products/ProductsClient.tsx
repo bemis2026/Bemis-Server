@@ -399,7 +399,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 240px"
                                   className="object-contain p-1 transition-transform duration-350"
                                   loading="lazy"
-                                  quality={75}
+                                  quality={88}
                                 />
                               ) : (
                                 // Larger discus + icon for the no-image
