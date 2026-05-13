@@ -64,9 +64,10 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
   }, [id, lang, initialCategory]);
 
   const bg            = d ? "#0c0c0e" : "#f8f8fb";
-  // Solid surface in dark mode so the new background streaks behind
-  // the wrapper don't bleed through every listing card.
-  const surface       = d ? "#141416" : "#ffffff";
+  // Translucent surface so the energy-bg streaks pass behind every card
+  // without visual gaps; the .energy-bg ~ * z-index rule keeps the cards
+  // strictly in front of the streak layer.
+  const surface       = d ? "rgba(20,20,22,0.55)" : "rgba(255,255,255,0.55)";
   const surfaceBorder = d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
   const textPrimary   = d ? "#f0f0f4" : "#1a1a2e";
   const textMuted     = d ? "rgba(240,240,244,0.50)" : "rgba(26,26,46,0.50)";

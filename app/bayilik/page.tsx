@@ -107,7 +107,7 @@ export default function BayilikPage() {
 
   const bg     = d ? "#0c0c0e" : "#f8f8fb";
   const bgSub  = d ? "#111114" : "#ffffff";
-  const card   = d ? "#141416" : "#ffffff";
+  const card   = d ? "rgba(20,20,22,0.55)" : "rgba(255,255,255,0.55)";
   const border = d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
   const text   = d ? "#f0f0f4" : "#1a1a2e";
   const muted  = d ? "rgba(240,240,244,0.55)" : "rgba(26,26,46,0.55)";

@@ -132,8 +132,8 @@ export default function ProductDetailPage({
   }, [categoryId, productId, lang, initialCategory, initialProduct]);
 
   const bg          = d ? "#0c0c0e" : "#f2f3f7";
-  const surface     = d ? "#141416" : "#ffffff";
-  const surfaceAlt  = d ? "#111113" : "#f8f8fb";
+  const surface     = d ? "rgba(20,20,22,0.55)" : "rgba(255,255,255,0.55)";
+  const surfaceAlt  = d ? "rgba(17,17,19,0.55)" : "rgba(248,248,251,0.55)";
   const border      = d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
   const divider     = d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)";
   const textPrimary = d ? "#f0f0f4" : "#111827";
@@ -662,7 +662,7 @@ export default function ProductDetailPage({
                                 // (beyaz / siyah). Kart yüzeyi neutral —
                                 // accent rail yok, accent background yok,
                                 // sadece icon'da brand vurgusu.
-                                const cardBg     = d ? "#141416" : "#ffffff";
+                                const cardBg     = d ? "rgba(20,20,22,0.55)" : "rgba(255,255,255,0.55)";
                                 const cardBorder = d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)";
                                 const cardShadow = d ? "none" : "0 1px 2px rgba(0,0,0,0.04)";
                                 const iconBg     = d ? `${BRAND_BLUE}1a` : `${BRAND_BLUE}10`;
