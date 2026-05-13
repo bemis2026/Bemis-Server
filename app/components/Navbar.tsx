@@ -96,8 +96,6 @@ const HAKKIMIZDA_DROPDOWN: DropdownItem[] = [
 ];
 
 const NAV_STRINGS = {
-  kurumsalFooter: { tr: "Ana sayfadaki kurumsal bölüme git →", en: "Go to corporate section on home →" },
-  kurumsalFooterMobile: { tr: "↳ Ana sayfadaki kurumsal bölüm", en: "↳ Corporate section on home" },
   urunlerHeading: { tr: "Ürün Kategorileri", en: "Product Categories" },
   urunlerFooter: { tr: "Tüm ürünlere göz at", en: "Browse all products" },
   urunlerFooterMobile: { tr: "→ Tüm ürünlere göz at", en: "→ Browse all products" },
@@ -325,16 +323,6 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                               </button>
                             ))}
                           </div>
-                          <div style={{ borderTop: `1px solid ${isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"}` }}>
-                            <button onClick={() => { setActiveDropdown(null); handleNavClick("#b2bcta"); }}
-                              className="w-full px-4 py-2.5 text-xs font-semibold text-left transition-colors"
-                              style={{ color: isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)" }}
-                              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.60)"; }}
-                              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)"; }}
-                            >
-                              {NAV_STRINGS.kurumsalFooter[lang]}
-                            </button>
-                          </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -549,10 +537,6 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                     {/* Mobile Kurumsal sub-links */}
                     {isK && mobileKurumsalOpen && (
                       <div className="py-2 space-y-1 pl-2">
-                        <button onClick={() => { setMobileOpen(false); handleNavClick("#b2bcta"); }}
-                          className={`block w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/40 hover:text-white/70" : "text-black/40 hover:text-black/70"}`}>
-                          {NAV_STRINGS.kurumsalFooterMobile[lang]}
-                        </button>
                         {KURUMSAL_DROPDOWN.map(item => (
                           <button key={item.href} onClick={() => { setMobileOpen(false); router.push(item.href); }}
                             className={`flex items-center gap-2 w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black"}`}>

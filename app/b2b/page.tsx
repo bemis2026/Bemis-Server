@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
@@ -18,7 +17,6 @@ import {
   RiBuilding2Line,
   RiArrowRightLine,
 } from "react-icons/ri";
-import { HiArrowLeft } from "react-icons/hi";
 import JsonLd from "../components/JsonLd";
 import { serviceSchema } from "../lib/seo";
 
@@ -40,7 +38,6 @@ type ProductEntry = { id: string; name: string; subtitle?: string; description?:
 type Category = { id: string; name: string; tagline: string; accent: string; products?: ProductEntry[] };
 
 export default function B2BPage() {
-  const router = useRouter();
   const { theme } = useTheme();
   const { lang } = useLanguage();
   const { dna } = useContent();
@@ -126,12 +123,6 @@ export default function B2BPage() {
           </>
         )}
         <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8">
-          <motion.button initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }}
-            onClick={() => router.back()} className="flex items-center gap-2 mb-10 group"
-            style={{ color: faint, fontSize: "0.875rem" }}>
-            <HiArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-            {t("b2b_back_short")}
-          </motion.button>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
             <div className="flex items-center gap-2.5 mb-4">
               <RiShieldCheckLine style={{ color: AMBER, fontSize: 14 }} />
@@ -295,9 +286,9 @@ export default function B2BPage() {
                         onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = `${cat.accent}40`; }}
                         onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = border; }}>
                         {prod.image ? (
-                          <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4 / 3", background: inputBg }}>
+                          <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4 / 3", background: `${cat.accent}10` }}>
                             <Image src={prod.image} alt={prod.name} fill sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw"
-                              style={{ objectFit: "cover" }} />
+                              className="object-contain p-3" quality={88} />
                           </div>
                         ) : (
                           <div className="w-full flex items-center justify-center" style={{ aspectRatio: "4 / 3", background: `${cat.accent}10` }}>

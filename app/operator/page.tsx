@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
@@ -14,7 +13,6 @@ import {
   RiWifiLine, RiBarChartLine, RiShieldCheckLine, RiGlobalLine,
   RiPlugLine, RiCheckLine, RiArrowRightSLine,
 } from "react-icons/ri";
-import { HiArrowLeft } from "react-icons/hi";
 import { useEffect } from "react";
 import JsonLd from "../components/JsonLd";
 import { serviceSchema } from "../lib/seo";
@@ -28,6 +26,7 @@ type OperatorContent = {
   heading1: string; heading2: string; description: string;
   capabilities: Capability[]; ocppFeatures: string[];
   heroBg?: string;
+  featuresBg?: string;
   featuredProducts?: OperatorFeaturedSlot[];
 };
 
@@ -52,7 +51,6 @@ const DEFAULT_OP: OperatorContent = {
 };
 
 export default function OperatorPage() {
-  const router = useRouter();
   const { theme } = useTheme();
   const { lang } = useLanguage();
   const d = theme === "dark";
@@ -116,12 +114,6 @@ export default function OperatorPage() {
           </>
         )}
         <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8">
-          <motion.button initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }}
-            onClick={() => router.back()} className="flex items-center gap-2 mb-10 group"
-            style={{ color: faint, fontSize: "0.875rem" }}>
-            <HiArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-            Geri
-          </motion.button>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
             <div className="flex items-center gap-2.5 mb-4">
               <RiWifiLine style={{ color: PURPLE, fontSize: 14 }} />
@@ -150,18 +142,37 @@ export default function OperatorPage() {
         </div>
       </section>
 
-      {/* ── Capabilities — single card with bullet list ── */}
-      <section style={{ background: bg, borderBottom: `1px solid ${border}`, padding: "52px 0" }}>
-        <div className="max-w-5xl mx-auto px-5 sm:px-8">
-          <div className="mb-7">
+      {/* ── Operatör Odaklı Özellikler — birleşik bölüm: üst yarı 4 kapasite kartı,
+            alt yarı OCPP destekli fonksiyonlar listesi. Tek section, opsiyonel
+            arka plan görseli (admin → operator.featuresBg). ── */}
+      <section className="relative overflow-hidden" style={{ borderBottom: `1px solid ${border}`, padding: "64px 0" }}>
+        {cms.featuresBg ? (
+          <>
+            <Image src={cms.featuresBg} alt="" fill quality={88} sizes="100vw" className="object-cover" />
+            <div className="absolute inset-0" style={{
+              background: d
+                ? "linear-gradient(135deg, rgba(8,8,12,0.90) 0%, rgba(8,8,12,0.78) 60%, rgba(8,8,12,0.66) 100%)"
+                : "linear-gradient(135deg, rgba(255,255,255,0.86) 0%, rgba(255,255,255,0.72) 60%, rgba(255,255,255,0.58) 100%)",
+            }} />
+          </>
+        ) : (
+          <div className="absolute inset-0" style={{ background: bg }} />
+        )}
+        <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8">
+          <div className="mb-8">
             <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: PURPLE }}>Teknik Altyapı</p>
-            <h2 className="text-xl font-black" style={{ color: text }}>Operatör Odaklı Özellikler</h2>
+            <h2 className="text-2xl sm:text-3xl font-black mb-2" style={{ color: text }}>Operatör Odaklı Özellikler</h2>
+            <p className="text-sm max-w-2xl" style={{ color: muted }}>
+              OCPP 1.6J / 2.0.1 uyumlu donanımlar, dinamik güç yönetimi, uzaktan izleme ve sertifikalı altyapıyla şarj ağınız için uçtan uca operatör desteği.
+            </p>
           </div>
+
+          {/* Üst yarı: 4 kapasite kartı (eski Operatör Odaklı Özellikler) */}
           <motion.div
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
-            className="rounded-2xl p-6 sm:p-8"
-            style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}
+            className="rounded-2xl p-6 sm:p-8 mb-6"
+            style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow, backdropFilter: cms.featuresBg ? "blur(6px)" : "none" }}
           >
             <div className="flex flex-col gap-5">
               {(cms.capabilities ?? DEFAULT_OP.capabilities).map((c, i, arr) => {
@@ -185,6 +196,33 @@ export default function OperatorPage() {
                   </motion.div>
                 );
               })}
+            </div>
+          </motion.div>
+
+          {/* Alt yarı: OCPP destekli fonksiyonlar listesi */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.1 }}
+            className="rounded-2xl p-5 sm:p-6"
+            style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow, backdropFilter: cms.featuresBg ? "blur(6px)" : "none" }}
+          >
+            <div className="flex items-center gap-2 mb-4">
+              <RiCheckLine style={{ color: BLUE, fontSize: 14 }} />
+              <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: BLUE }}>OCPP Destekli Fonksiyonlar</span>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
+              {(cms.ocppFeatures ?? DEFAULT_OP.ocppFeatures).map(f => (
+                <div key={f} className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0"
+                    style={{ background: `${BLUE}18`, border: `1px solid ${BLUE}30` }}>
+                    <RiCheckLine style={{ fontSize: 10, color: BLUE }} />
+                  </div>
+                  <span className="text-xs" style={{ color: muted }}>{f}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-5 pt-4 text-xs" style={{ borderTop: `1px solid ${border}`, color: faint }}>
+              OCPP 1.6J ve 2.0.1 desteği · TLS 1.3 şifreleme · JSON & SOAP
             </div>
           </motion.div>
         </div>
@@ -231,9 +269,9 @@ export default function OperatorPage() {
                         onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = `${cat.accent}40`; }}
                         onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = border; }}>
                         {prod.image ? (
-                          <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4 / 3", background: d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)" }}>
+                          <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4 / 3", background: `${cat.accent}10` }}>
                             <Image src={prod.image} alt={prod.name} fill sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw"
-                              style={{ objectFit: "cover" }} />
+                              className="object-contain p-3" quality={88} />
                           </div>
                         ) : (
                           <div className="w-full flex items-center justify-center" style={{ aspectRatio: "4 / 3", background: `${cat.accent}10` }}>
@@ -262,32 +300,6 @@ export default function OperatorPage() {
           </section>
         );
       })()}
-
-      {/* ── OCPP feature list — full width since Products section moved to a dedicated catalog grid above ── */}
-      <section style={{ background: bg, padding: "52px 0", borderBottom: `1px solid ${border}` }}>
-        <div className="max-w-5xl mx-auto px-5 sm:px-8">
-          <div className="mb-7">
-            <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: BLUE }}>OCPP Özellik Listesi</p>
-            <h2 className="text-xl font-black" style={{ color: text }}>Desteklenen Fonksiyonlar</h2>
-          </div>
-          <div className="rounded-2xl p-5 sm:p-6" style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
-              {(cms.ocppFeatures ?? DEFAULT_OP.ocppFeatures).map(f => (
-                <div key={f} className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0"
-                    style={{ background: `${BLUE}18`, border: `1px solid ${BLUE}30` }}>
-                    <RiCheckLine style={{ fontSize: 10, color: BLUE }} />
-                  </div>
-                  <span className="text-xs" style={{ color: muted }}>{f}</span>
-                </div>
-              ))}
-            </div>
-            <div className="mt-5 pt-4 text-xs" style={{ borderTop: `1px solid ${border}`, color: faint }}>
-              OCPP 1.6J ve 2.0.1 desteği · TLS 1.3 şifreleme · JSON & SOAP
-            </div>
-          </div>
-        </div>
-      </section>
 
       <ContactBar />
     </div>

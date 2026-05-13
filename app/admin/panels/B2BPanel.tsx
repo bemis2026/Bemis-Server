@@ -41,7 +41,7 @@ type B2BBayilik = {
   heroBg?: string;
   marketingEvents?: B2BMarketingEvent[];
 };
-type B2BOperator = { heading1: string; heading2: string; description: string; capabilities: B2BCapability[]; ocppFeatures: string[]; heroBg?: string; featuredProducts?: B2BFeaturedSlot[] };
+type B2BOperator = { heading1: string; heading2: string; description: string; capabilities: B2BCapability[]; ocppFeatures: string[]; heroBg?: string; featuresBg?: string; featuredProducts?: B2BFeaturedSlot[] };
 type B2BApplication = { id: string; image: string; title?: string; body?: string };
 type B2BPageData = { hero: B2BHero; featuredProducts?: B2BFeaturedSlot[]; applications?: B2BApplication[]; cta?: B2BCta; bayilik?: B2BBayilik; operator?: B2BOperator };
 
@@ -763,6 +763,27 @@ export default function B2BPanel({ onSaved, postToPreview, onSubTabChange }: { o
                   <label className="flex items-center justify-center gap-2 cursor-pointer rounded-xl py-4 text-xs text-white/40 hover:text-white/70 transition-colors" style={{ border: "1px dashed rgba(255,255,255,0.15)", aspectRatio: "16/6" }}>
                     <span>+ Görsel Yükle</span>
                     <input type="file" accept="image/*" className="hidden" onChange={e => { const f = e.target.files?.[0]; if (f) uploadHeroBg(f, url => setOperatorField("heroBg", url)); }} />
+                  </label>
+                )}
+              </div>
+              <div>
+                <label className={labelCls}>Operatör Odaklı Özellikler — Arka Plan Görseli <span className="normal-case font-normal text-white/25">(opsiyonel)</span></label>
+                {data.operator?.featuresBg ? (
+                  <div className="relative rounded-xl overflow-hidden border border-white/10" style={{ aspectRatio: "16/6" }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={data.operator.featuresBg} alt="features-bg" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                      <label className="text-xs bg-white/90 text-black font-semibold px-3 py-1.5 rounded-lg cursor-pointer">
+                        Değiştir
+                        <input type="file" accept="image/*" className="hidden" onChange={e => { const f = e.target.files?.[0]; if (f) uploadHeroBg(f, url => setOperatorField("featuresBg", url)); }} />
+                      </label>
+                      <button onClick={() => setOperatorField("featuresBg", "")} className="text-xs bg-red-500/80 text-white font-semibold px-3 py-1.5 rounded-lg">Kaldır</button>
+                    </div>
+                  </div>
+                ) : (
+                  <label className="flex items-center justify-center gap-2 cursor-pointer rounded-xl py-4 text-xs text-white/40 hover:text-white/70 transition-colors" style={{ border: "1px dashed rgba(255,255,255,0.15)", aspectRatio: "16/6" }}>
+                    <span>+ Görsel Yükle</span>
+                    <input type="file" accept="image/*" className="hidden" onChange={e => { const f = e.target.files?.[0]; if (f) uploadHeroBg(f, url => setOperatorField("featuresBg", url)); }} />
                   </label>
                 )}
               </div>
