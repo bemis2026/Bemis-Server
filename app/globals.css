@@ -129,15 +129,6 @@ html[data-theme="light"] body::before {
   overflow: hidden;
 }
 
-/* Defensive: every sibling of .energy-bg (i.e. every section/main/nav inside
-   the same isolation: isolate wrapper) is lifted into the stacking context's
-   foreground. Even if a child unintentionally creates its own context, the
-   streak layer stays behind. */
-.energy-bg ~ * {
-  position: relative;
-  z-index: 1;
-}
-
 .energy-streak {
   position: absolute;
   border-radius: 999px;

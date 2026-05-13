@@ -218,7 +218,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
   }, [catMeta, lang, initialCategories]);
 
   const bg           = d ? "linear-gradient(180deg, #0c0c0e 0%, #0f0f11 100%)" : "#f8f8fb";
-  const surface      = d ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.55)";
+  const surface      = d ? "rgba(255,255,255,0.04)" : "#ffffff";
   const surfaceBorder= d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
   const textPrimary  = d ? "#f0f0f4" : "#1a1a1a";
   const textMuted    = d ? "rgba(240,240,244,0.50)" : "rgba(26,26,26,0.50)";
