@@ -1737,7 +1737,7 @@ export default function AdminPage() {
                     <Field label="Rozet Metni" value={content.hero.badge} onChange={(v) => updateContent(["hero", "badge"], v)} />
                     <div className="grid grid-cols-3 gap-3">
                       <Field label="Başlık Satır 1" value={content.hero.headline1} onChange={(v) => updateContent(["hero", "headline1"], v)} />
-                      <Field label="Başlık Satır 2 (varsayılan / boş listede)" value={content.hero.headline2} onChange={(v) => updateContent(["hero", "headline2"], v)} />
+                      <Field label="Başlık Satır 2 (Sabit Kısım — örn. 'Şarj')" value={content.hero.headline2} onChange={(v) => updateContent(["hero", "headline2"], v)} />
                       <div>
                         <Field
                           label="Satır 2 Dönen Kelimeler (virgülle ayır)"
@@ -1750,10 +1750,10 @@ export default function AdminPage() {
                             ["hero", "headline2Words"],
                             v.split(","),
                           )}
-                          placeholder="Şarj Sistemleri, Wallbox Çözümleri, Mobil İstasyonları, OCPP Üretimi"
+                          placeholder="Sistemleri, Wallbox Çözümleri, Mobil İstasyonları, OCPP Üretimi"
                         />
                         <p className="text-[10px] text-white/30 mt-1">
-                          2&apos;den fazla kelime girilirse Hero başlığında 2.5sn aralıkla dönerek değişir. Boş bırakırsanız sabit Satır 2 yazısı gösterilir.
+                          Bu kelimeler Hero başlığında &quot;Sabit Kısım&quot;ın yanında 2.5sn aralıkla dönerek değişir. Sadece değişmesini istediğin kelimeleri yaz — sabit prefix (örn. &quot;Şarj&quot;) yukarıdaki &quot;Başlık Satır 2&quot; alanından gelir. Boş bırakırsan sadece sabit kısım gösterilir.
                         </p>
                       </div>
                       <Field label="Başlık Satır 3 (soluk)" value={content.hero.headline3} onChange={(v) => updateContent(["hero", "headline3"], v)} />
