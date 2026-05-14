@@ -371,7 +371,16 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                             transition={{ duration: 0.4, delay: pi * 0.05 }}
                             onClick={() => router.push(`/products/${cat.id}/${product.id}`)}
                             className="group cursor-pointer rounded-2xl overflow-hidden transition-all duration-200"
-                            style={{ background: surface, border: `1px solid ${surfaceBorder}` }}
+                            style={{
+                              // Frosted glass: kart yarı saydam görünür ama
+                              // backdrop-filter ile arkadaki energy streak'ler
+                              // blurlanıp gizlenir — saydam ama arka plan
+                              // görünmüyor.
+                              background: d ? "rgba(20,20,22,0.55)" : "rgba(255,255,255,0.55)",
+                              backdropFilter: "blur(18px) saturate(140%)",
+                              WebkitBackdropFilter: "blur(18px) saturate(140%)",
+                              border: `1px solid ${surfaceBorder}`,
+                            }}
                             onMouseEnter={(e) => {
                               (e.currentTarget as HTMLDivElement).style.borderColor = `${cat.accent}45`;
                               (e.currentTarget as HTMLDivElement).style.boxShadow = `0 4px 28px ${cat.accent}12`;
