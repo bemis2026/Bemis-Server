@@ -111,12 +111,12 @@ html[data-theme="light"] body::before {
    çapraz kayış. Transform-only animasyon, GPU composite layer (will-change),
    reduced-motion'a saygı. 32 saniyelik döngü → takılma/kasma hissetmez. */
 @keyframes hero-ken-burns {
-  0%   { transform: scale(1)     translate3d(0,       0,       0); }
-  50%  { transform: scale(1.045) translate3d(-0.7%,  -0.6%,   0); }
-  100% { transform: scale(1)     translate3d(0,       0,       0); }
+  0%   { transform: scale(1)    translate3d(0,      0,     0); }
+  50%  { transform: scale(1.09) translate3d(-1.6%, -1.4%, 0); }
+  100% { transform: scale(1)    translate3d(0,      0,     0); }
 }
 .hero-bg-animate {
-  animation: hero-ken-burns 32s ease-in-out infinite;
+  animation: hero-ken-burns 26s ease-in-out infinite;
   will-change: transform;
   backface-visibility: hidden;
   transform: translateZ(0);
