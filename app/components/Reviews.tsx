@@ -50,11 +50,14 @@ export default function Reviews() {
   const d = theme === "dark";
 
   const BLUE       = "#3B82F6";
-  const surface    = d ? "#0d0d0d"                 : "#ffffff";
-  const border     = d ? "#1e1e1e"                 : "#e8e8e8";
+  // Dark-mode tonları "bir tık aydınlatıldı" — eski değerler çok karanlık
+  // hissediyordu (özellikle review/social kartları): surface #0d0d0d → #181820,
+  // border #1e1e1e → #2a2a30, body text alpha 0.60 → 0.72, muted 0.38 → 0.50.
+  const surface    = d ? "#181820"                 : "#ffffff";
+  const border     = d ? "#2a2a30"                 : "#e8e8e8";
   const textPrimary= d ? "#ffffff"                 : "#111111";
-  const textMuted  = d ? "rgba(255,255,255,0.38)"  : "rgba(0,0,0,0.38)";
-  const textBody   = d ? "rgba(255,255,255,0.60)"  : "rgba(0,0,0,0.62)";
+  const textMuted  = d ? "rgba(255,255,255,0.50)"  : "rgba(0,0,0,0.38)";
+  const textBody   = d ? "rgba(255,255,255,0.72)"  : "rgba(0,0,0,0.62)";
 
   const items = reviews.items ?? [];
 
@@ -153,7 +156,7 @@ export default function Reviews() {
       id="reviews"
       style={{
         background: d
-          ? "linear-gradient(135deg, #0e0e12 0%, #111114 50%, #0f0f13 100%)"
+          ? "linear-gradient(135deg, #16161c 0%, #1a1a22 50%, #17171e 100%)"
           : "linear-gradient(135deg, #f6f7fb 0%, #f2f3f7 50%, #f4f5f9 100%)",
       }}
       className="relative py-6 lg:py-8 overflow-hidden"
