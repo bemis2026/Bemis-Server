@@ -167,6 +167,41 @@ export default function Reviews() {
           <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(9,13,21,0.75)" : "rgba(245,250,255,0.78)" }} />
         </>
       )}
+
+      {/* Renkli accent glow blob'lar — section'a ilgi çekici brand-coloured
+          parıltı verir. Köşelere konumlanmış blurred radial-gradient'ler.
+          pointer-events:none, sadece dekoratif. Dark mode'da daha belirgin,
+          light mode'da subtle kalır. */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden>
+        <div
+          className="absolute"
+          style={{
+            top: "-10%", left: "-8%",
+            width: "55%", height: "70%",
+            background: `radial-gradient(circle, ${BLUE}${d ? "22" : "14"} 0%, transparent 60%)`,
+            filter: "blur(40px)",
+          }}
+        />
+        <div
+          className="absolute"
+          style={{
+            top: "10%", right: "-10%",
+            width: "50%", height: "60%",
+            background: `radial-gradient(circle, ${d ? "#E1306C26" : "#E1306C14"} 0%, transparent 60%)`,
+            filter: "blur(50px)",
+          }}
+        />
+        <div
+          className="absolute"
+          style={{
+            bottom: "-15%", left: "20%",
+            width: "60%", height: "55%",
+            background: `radial-gradient(circle, ${d ? "#8B5CF624" : "#8B5CF612"} 0%, transparent 65%)`,
+            filter: "blur(60px)",
+          }}
+        />
+      </div>
+
       <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -232,9 +267,32 @@ export default function Reviews() {
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.45, delay: 0.15 + i * 0.07 }}
-                  className="rounded-2xl p-4 flex flex-col gap-3"
-                  style={{ background: surface, border: `1px solid ${border}`, boxShadow: d ? "none" : "0 2px 16px rgba(0,0,0,0.05)" }}
+                  whileHover={{ y: -3 }}
+                  className="relative rounded-2xl p-4 flex flex-col gap-3 transition-all duration-300"
+                  style={{
+                    background: surface,
+                    border: `1px solid ${border}`,
+                    boxShadow: d ? "none" : "0 2px 16px rgba(0,0,0,0.05)",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.borderColor = `${review.platformColor}55`;
+                    (e.currentTarget as HTMLElement).style.boxShadow = d
+                      ? `0 8px 32px ${review.platformColor}28, 0 0 0 1px ${review.platformColor}18 inset`
+                      : `0 8px 28px ${review.platformColor}25`;
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.borderColor = border;
+                    (e.currentTarget as HTMLElement).style.boxShadow = d ? "none" : "0 2px 16px rgba(0,0,0,0.05)";
+                  }}
                 >
+                  {/* Platform-coloured top accent stripe */}
+                  <div
+                    className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl"
+                    style={{
+                      background: `linear-gradient(90deg, ${review.platformColor} 0%, ${review.platformColor}88 55%, transparent 100%)`,
+                    }}
+                    aria-hidden
+                  />
                   <div className="flex items-center justify-between">
                     <Stars count={review.rating} />
                     <span className="text-[10px] font-bold px-2.5 py-1 rounded-md"
@@ -321,16 +379,27 @@ export default function Reviews() {
                   initial={{ opacity: 0, y: 14 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.28 + i * 0.08 }}
-                  className="relative rounded-2xl overflow-hidden group block transition-all hover:scale-[1.01] active:scale-[0.99]"
+                  whileHover={{ y: -2, scale: 1.015 }}
+                  className="relative rounded-2xl overflow-hidden group block transition-all"
                   style={{
-                    // Site-tinted neutral surface (matches review cards),
-                    // with a thin brand-coloured left rail so the channel
-                    // is still recognisable but the tile no longer reads
-                    // as a saturated standalone advert.
-                    background: surface,
-                    border: `1px solid ${border}`,
+                    // Brand-tinted multiple-background: çok ince diagonal
+                    // gradient + alt katman surface — kartlar artık platform
+                    // rengini "yaşıyor" ama hala kompakt ve okunaklı.
+                    background: `linear-gradient(135deg, ${c.brand}18 0%, transparent 45%, ${c.brand}10 100%), ${surface}`,
+                    border: `1px solid ${c.brand}30`,
                     borderLeft: `3px solid ${c.brand}`,
-                    boxShadow: d ? "none" : "0 2px 16px rgba(0,0,0,0.05)",
+                    boxShadow: d ? `0 0 0 0 ${c.brand}00` : "0 2px 16px rgba(0,0,0,0.05)",
+                    transition: "box-shadow 0.3s ease, border-color 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.borderColor = `${c.brand}66`;
+                    (e.currentTarget as HTMLElement).style.boxShadow = d
+                      ? `0 10px 36px ${c.brand}35`
+                      : `0 8px 28px ${c.brand}30`;
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.borderColor = `${c.brand}30`;
+                    (e.currentTarget as HTMLElement).style.boxShadow = d ? `0 0 0 0 ${c.brand}00` : "0 2px 16px rgba(0,0,0,0.05)";
                   }}
                 >
                   <div className="flex items-center gap-2.5 px-3 py-2.5">
