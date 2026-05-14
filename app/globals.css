@@ -24,9 +24,11 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* scroll-behavior: smooth bilinçli olarak kaldırıldı — route geçişlerinde
+   tarayıcı window.scrollTo(0,0)'ı yumuşak animasyonla yapıyordu ve bu
+   "kayma" hissi rahatsız ediciydi. Anchor scroll'lar (navbar → bölüm)
+   programmatik olarak scrollIntoView({behavior:"smooth"}) ile yapılıyor,
+   o davranış korunuyor. */
 
 body {
   background: var(--background);
