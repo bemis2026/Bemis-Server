@@ -235,7 +235,7 @@ export default function ProductShowcase() {
                   style={{ maxWidth: "calc(100% - 32px)" }}
                 >
                   <div
-                    className="inline-flex flex-col px-3.5 py-2.5 rounded-2xl items-end text-right"
+                    className="inline-flex flex-col px-2.5 py-1.5 rounded-xl items-end text-right"
                     style={{
                       background: "rgba(8,12,24,0.82)",
                       border: "1px solid rgba(255,255,255,0.10)",
@@ -243,10 +243,10 @@ export default function ProductShowcase() {
                       boxShadow: "0 4px 20px rgba(0,0,0,0.25)",
                     }}
                   >
-                    <span className="text-[10px] sm:text-[9px] font-bold uppercase tracking-widest" style={{ color: `${ACCENT}cc` }}>
+                    <span className="text-[9px] sm:text-[8px] font-bold uppercase tracking-widest" style={{ color: `${ACCENT}cc` }}>
                       {badgeText}
                     </span>
-                    <span className="text-sm font-black text-white leading-tight mt-0.5">
+                    <span className="text-xs font-black text-white leading-tight mt-0.5">
                       {nameText}
                     </span>
                   </div>

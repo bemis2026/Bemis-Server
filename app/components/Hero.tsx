@@ -95,18 +95,21 @@ export default function Hero() {
       className="relative min-h-screen overflow-hidden"
       style={{ background: sectionBg }}
     >
-      {/* Background photo */}
+      {/* Background photo — Ken Burns wrapper: çok hafif zoom + çapraz pan.
+          GPU-only transform (will-change + translateZ) ile takılma yok. */}
       {hero.heroBg && (
-        <Image
-          src={hero.heroBg}
-          alt=""
-          fill
-          priority
-          quality={90}
-          className="object-cover"
-          style={{ objectPosition: hero.heroBgPos ?? "75% 50%" }}
-          sizes="100vw"
-        />
+        <div className="absolute inset-0 hero-bg-animate">
+          <Image
+            src={hero.heroBg}
+            alt=""
+            fill
+            priority
+            quality={100}
+            className="object-cover"
+            style={{ objectPosition: hero.heroBgPos ?? "75% 50%" }}
+            sizes="100vw"
+          />
+        </div>
       )}
 
       {/* Overlay */}
