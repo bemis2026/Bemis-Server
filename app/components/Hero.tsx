@@ -48,6 +48,11 @@ export default function Hero() {
   const { lang } = useLanguage();
   const d = theme === "dark";
 
+  // Admin "virgülle ayır" alanı ham split sonucu saklar (round-trip için
+  // boşluk/virgül koruyor). Render öncesi trim + boş eleman temizliği
+  // burada yapılır ki RotatingWord boş yazı flashlemeden geçişleri yapsın.
+  const cleanWords = (hero.headline2Words ?? []).map(s => s.trim()).filter(Boolean);
+
   // Scroll to whichever section sits right under the hero — preserves
   // the page's natural reading order regardless of the configured
   // sectionOrder. Falls back to a viewport-height scroll on the rare
@@ -127,8 +132,8 @@ export default function Hero() {
             />
             <h1 className={`text-3xl xs:text-4xl sm:text-5xl font-black tracking-tight leading-[1.18] ${headlineClass}`} style={{ textShadow }}>
               <E field="hero.headline1">{hero.headline1}</E><br />
-              {hero.headline2Words && hero.headline2Words.length > 1
-                ? <RotatingWord words={hero.headline2Words} />
+              {cleanWords.length > 1
+                ? <RotatingWord words={cleanWords} />
                 : <E field="hero.headline2">{hero.headline2}</E>}<br />
               <span
                 style={{
@@ -205,8 +210,8 @@ export default function Hero() {
             style={{ textShadow }}
           >
             <E field="hero.headline1">{hero.headline1}</E><br />
-            {hero.headline2Words && hero.headline2Words.length > 1
-              ? <RotatingWord words={hero.headline2Words} />
+            {cleanWords.length > 1
+              ? <RotatingWord words={cleanWords} />
               : <E field="hero.headline2">{hero.headline2}</E>}<br />
             <span
               style={{

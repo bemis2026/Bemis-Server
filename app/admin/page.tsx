@@ -1741,10 +1741,14 @@ export default function AdminPage() {
                       <div>
                         <Field
                           label="Satır 2 Dönen Kelimeler (virgülle ayır)"
-                          value={(content.hero.headline2Words ?? []).join(", ")}
+                          // value/onChange simetrik: hiçbir karakteri (virgül,
+                          // boşluk) kaybetmeden round-trip et. Temizlik
+                          // (trim + boş eleman silme) Hero render time'ında
+                          // RotatingWord öncesinde yapılır.
+                          value={(content.hero.headline2Words ?? []).join(",")}
                           onChange={(v) => updateContent(
                             ["hero", "headline2Words"],
-                            v.split(",").map(s => s.trim()).filter(Boolean),
+                            v.split(","),
                           )}
                           placeholder="Şarj Sistemleri, Wallbox Çözümleri, Mobil İstasyonları, OCPP Üretimi"
                         />
