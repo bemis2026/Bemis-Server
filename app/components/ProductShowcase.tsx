@@ -223,7 +223,7 @@ export default function ProductShowcase() {
                 </div>
               )}
 
-              {/* Product name overlay — top (re-mounts on slide change to animate) */}
+              {/* Product name overlay — sağ üst köşede (re-mounts on slide change to animate) */}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={`overlay-${index}-${nameText}`}
@@ -231,10 +231,11 @@ export default function ProductShowcase() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.3 }}
-                  className="absolute top-4 left-4 right-4"
+                  className="absolute top-4 right-4 flex justify-end"
+                  style={{ maxWidth: "calc(100% - 32px)" }}
                 >
                   <div
-                    className="inline-flex flex-col px-3.5 py-2.5 rounded-2xl"
+                    className="inline-flex flex-col px-3.5 py-2.5 rounded-2xl items-end text-right"
                     style={{
                       background: "rgba(8,12,24,0.82)",
                       border: "1px solid rgba(255,255,255,0.10)",
@@ -287,16 +288,6 @@ export default function ProductShowcase() {
                 ))}
               </motion.div>
 
-              {/* Yerli üretim — aligned with feature badges, above the dots row */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.4, delay: 0.75 }}
-                className="absolute right-4"
-                style={{ bottom: "calc(0.75rem + 24px + 10px)", width: 72, height: 72 }}
-              >
-                <Image src="/badges/yerli-uretim.jpg" alt="Yerli Üretim" width={72} height={72} className="w-full h-full object-contain drop-shadow-lg" />
-              </motion.div>
             </div>
           </motion.div>
 
@@ -395,11 +386,17 @@ export default function ProductShowcase() {
                 >
                   {specs.map((s: { label: string; value: string }, i: number) => {
                     const Icon = SPEC_ICONS[i % SPEC_ICONS.length];
+                    const isYerli = (s.label ?? "").toLowerCase().includes("yerli");
                     return (
                       <div key={i} className="flex flex-col gap-1 p-3 rounded-2xl"
                         style={{ background: specBg, border: `1px solid ${specBorder}`, boxShadow: d ? "none" : "0 1px 6px rgba(0,0,0,0.04)" }}>
                         <div className="flex items-center gap-1.5 mb-0.5">
-                          <Icon size={12} style={{ color: ACCENT, opacity: 0.8 }} />
+                          {isYerli ? (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img src="https://flagcdn.com/w20/tr.png" alt="Türkiye" width={14} height={10} className="rounded-sm" loading="lazy" decoding="async" />
+                          ) : (
+                            <Icon size={12} style={{ color: ACCENT, opacity: 0.8 }} />
+                          )}
                           <span className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: textMuted }}>{s.label}</span>
                         </div>
                         <span className="text-sm font-bold" style={{ color: textPrimary }}>{s.value}</span>
