@@ -75,11 +75,9 @@ function BannerSlider({ categories, d }: { categories: CategoryData[]; d: boolea
           transition={{ duration: 0.45, ease: "easeInOut" }}
           className="absolute inset-0 flex items-center px-8 sm:px-12 cursor-pointer overflow-hidden"
           style={{
-            // Multiple-background: alt katman OPAQUE solid (streak'ler arkadan
-            // sızmasın), üst katman accent tinted gradient overlay.
             background: d
-              ? `linear-gradient(135deg, ${cat.accent}22 0%, transparent 55%, ${cat.accent}08 100%), #0f0f12`
-              : `linear-gradient(135deg, ${cat.accent}18 0%, transparent 55%, ${cat.accent}06 100%), #f0f0f4`,
+              ? `linear-gradient(135deg, ${cat.accent}22 0%, #0f0f12 55%, ${cat.accent}08 100%)`
+              : `linear-gradient(135deg, ${cat.accent}18 0%, #f0f0f4 55%, ${cat.accent}06 100%)`,
           }}
           onClick={() => router.push(`/products/${cat.id}`)}
         >
@@ -243,65 +241,57 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
       {/* ── Page header ── */}
       <div className="pt-28 pb-6 px-5 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Opak surface container — energy streak çizgileri page header
-              text alanından geçmesin diye sayfa başlığı + banner tek bir
-              opak kart içinde toplanmış (ProductDetail patternı). */}
-          <div
-            className="rounded-2xl p-5 sm:p-6 lg:p-7"
-            style={{ background: surface, border: `1px solid ${surfaceBorder}` }}
-          >
-            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
-              <div>
-                <motion.h1
-                  initial={{ opacity: 0, y: 14 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.45, delay: 0.05 }}
-                  className="text-3xl sm:text-4xl lg:text-5xl font-black"
-                  style={{ color: textPrimary }}
-                >
-                  Tüm Ürünler
-                </motion.h1>
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
+            <div>
+              <motion.h1
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: 0.05 }}
+                className="text-3xl sm:text-4xl lg:text-5xl font-black"
+                style={{ color: textPrimary }}
+              >
+                Tüm Ürünler
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                className="text-sm mt-1"
+                style={{ color: textMuted }}
+              >
+                {loading ? "Yükleniyor…" : `${categories.length} kategori · ${totalProducts} ürün`}
+              </motion.p>
+              {productsContent?.allProductsDescription?.trim() && (
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.1 }}
-                  className="text-sm mt-1"
+                  transition={{ duration: 0.4, delay: 0.15 }}
+                  className="text-sm sm:text-base leading-relaxed mt-4 max-w-3xl whitespace-pre-line"
                   style={{ color: textMuted }}
                 >
-                  {loading ? "Yükleniyor…" : `${categories.length} kategori · ${totalProducts} ürün`}
+                  {productsContent.allProductsDescription}
                 </motion.p>
-                {productsContent?.allProductsDescription?.trim() && (
-                  <motion.p
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.15 }}
-                    className="text-sm sm:text-base leading-relaxed mt-4 max-w-3xl whitespace-pre-line"
-                    style={{ color: textMuted }}
-                  >
-                    {productsContent.allProductsDescription}
-                  </motion.p>
-                )}
-              </div>
+              )}
             </div>
-
-            {/* ── Banner Slider ── */}
-            {!loading && categories.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.15 }}
-              >
-                <BannerSlider categories={categories} d={d} />
-              </motion.div>
-            )}
           </div>
+
+          {/* ── Banner Slider ── */}
+          {!loading && categories.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+            >
+              <BannerSlider categories={categories} d={d} />
+            </motion.div>
+          )}
         </div>
       </div>
 
       {/* ── Filter tabs ── */}
       <div
         className="sticky top-16 z-30 px-5 sm:px-6 lg:px-8 py-3"
-        style={{ background: d ? "#0c0c0e" : "#f8f8fb", backdropFilter: "blur(16px)", borderBottom: `1px solid ${surfaceBorder}` }}
+        style={{ background: d ? "rgba(12,12,14,0.92)" : "rgba(248,248,251,0.92)", backdropFilter: "blur(16px)", borderBottom: `1px solid ${surfaceBorder}` }}
       >
         <div className="max-w-7xl mx-auto">
           <div className="flex gap-2 overflow-x-auto pb-0.5 scrollbar-hide">
@@ -351,12 +341,8 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                   const Icon = categoryIcons[cat.id] || RiPlugLine;
                   return (
                     <div key={cat.id}>
-                      {/* Category header — opak surface container so streaks
-                          can't pass behind the h2 + tagline text */}
-                      <div
-                        className="flex items-center justify-between mb-5 rounded-xl px-4 py-3"
-                        style={{ background: surface, border: `1px solid ${surfaceBorder}` }}
-                      >
+                      {/* Category header */}
+                      <div className="flex items-center justify-between mb-5">
                         <div>
                           <h2 className="text-base font-bold" style={{ color: textPrimary }}>{cat.name}</h2>
                           <p className="text-xs" style={{ color: textMuted }}>{cat.tagline}</p>
@@ -369,6 +355,8 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                           Kategoriye Git <HiArrowRight size={12} />
                         </button>
                       </div>
+
+                      <div className="mb-5" style={{ height: 1, background: surfaceBorder }} />
 
                       {/* Product cards — image grid */}
                       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
@@ -398,12 +386,9 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                               className="relative overflow-hidden"
                               style={{
                                 height: 170,
-                                // Multiple-background: alt katman OPAQUE solid
-                                // renk (energy streak çizgileri arkadan
-                                // sızmasın), üst katman accent gradient.
                                 background: d
-                                  ? `linear-gradient(145deg, ${cat.accent}0a 0%, transparent 100%), #1a1a1a`
-                                  : `linear-gradient(145deg, ${cat.accent}0d 0%, transparent 100%), #f4f4f4`,
+                                  ? `linear-gradient(145deg, ${cat.accent}0a 0%, #111111 100%)`
+                                  : `linear-gradient(145deg, ${cat.accent}0d 0%, #f4f4f4 100%)`,
                               }}
                             >
                               {(product.images?.[0] ?? product.image) ? (
