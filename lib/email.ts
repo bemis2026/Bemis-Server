@@ -175,57 +175,153 @@ export function buildAutoReplyHtml(opts: {
   // disappear there. Same domain as the site → SPF/DKIM alignment
   // covers the image origin.
   const logoUrl = "https://www.bemisevcharge.com.tr/favicon-on-black-192.png";
-  return `
-    <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#111">
-      <div style="background:#1a1a1a;padding:24px 32px;border-radius:12px 12px 0 0">
-        <table style="width:100%;border-collapse:collapse">
-          <tr>
-            <td style="width:48px;padding-right:14px;vertical-align:middle">
-              <img src="${logoUrl}" alt="Bemis E-V Charge" width="40" height="40" style="display:block;width:40px;height:40px;object-fit:contain" />
-            </td>
-            <td style="vertical-align:middle">
-              <h2 style="color:#fff;margin:0;font-size:22px;line-height:1.2">${escapeHtml(heading)}</h2>
-              <p style="color:rgba(255,255,255,0.55);margin:4px 0 0;font-size:13px">Bemis E-V Charge — ${escapeHtml(formKind)}</p>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div style="background:#ffffff;padding:30px 32px;border-radius:0 0 12px 12px;border:1px solid #e0e0e0;border-top:none">
-        <p style="margin:0 0 14px;font-size:15px;line-height:1.55;color:#222">
-          ${escapeHtml(greeting)}
-        </p>
-        <p style="margin:0 0 14px;font-size:14px;line-height:1.65;color:#444">
-          ${escapeHtml(intro1)}
-        </p>
-        <p style="margin:0 0 18px;font-size:14px;line-height:1.65;color:#444">
-          ${escapeHtml(intro2)}
-        </p>
-
-        <div style="margin:24px 0 8px;padding:14px 16px;background:#f7f7fa;border-radius:8px;border-left:3px solid ${accent}">
-          <p style="margin:0 0 6px;font-size:11px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:#888">
-            ${escapeHtml(t.quoteHeading)}
-          </p>
-          <p style="margin:0;font-size:13px;line-height:1.6;color:#333;white-space:pre-wrap">${escapeHtml(opts.originalMessage)}</p>
-        </div>
-
-        <hr style="border:none;border-top:1px solid #ececec;margin:28px 0 20px"/>
-        <table style="width:100%;font-size:12px;color:#777">
-          <tr>
-            <td style="padding:4px 0">
-              <strong style="color:#444">Bemis Teknik Elektrik A.Ş.</strong><br/>
-              ${escapeHtml(t.companyAddress)}<br/>
-              <a href="https://www.bemisevcharge.com.tr" style="color:${accent};text-decoration:none">www.bemisevcharge.com.tr</a>
-            </td>
-            <td style="text-align:right;padding:4px 0">
-              <a href="mailto:${escapeHtml(t.contactEmail)}" style="color:${accent};text-decoration:none">${escapeHtml(t.contactEmail)}</a>
-            </td>
-          </tr>
-        </table>
-        <p style="margin:18px 0 0;font-size:11px;color:#aaa;text-align:center">
-          ${escapeHtml(footerNote)}
-        </p>
-      </div>
-    </div>`;
+  const year = new Date().getFullYear();
+  const FONT = "-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif";
+  // Email-safe: tablo-bazlı outer wrapper (Outlook için), tüm stiller
+  // inline. max-width 640px, açık-gri sayfa zemini → beyaz kart hissi.
+  return `<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>${escapeHtml(heading)}</title>
+  </head>
+  <body style="margin:0;padding:0;background:#f4f5f7;font-family:${FONT};color:#1a1a1a;-webkit-font-smoothing:antialiased">
+    <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent">
+      ${escapeHtml(heading)} — ${escapeHtml(formKind)}
+    </div>
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f4f5f7;padding:32px 16px">
+      <tr>
+        <td align="center">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="640" style="max-width:640px;width:100%;background:#ffffff;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(15,23,42,0.06)">
+            <!-- Top brand band -->
+            <tr>
+              <td style="height:4px;line-height:4px;font-size:0;background:linear-gradient(90deg,${accent} 0%,#1D4ED8 100%);background-color:${accent}">&nbsp;</td>
+            </tr>
+            <!-- Header: logo + brand mark -->
+            <tr>
+              <td style="background:#0f172a;padding:32px 40px">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                  <tr>
+                    <td style="vertical-align:middle;width:56px;padding-right:16px">
+                      <img src="${logoUrl}" alt="Bemis E-V Charge" width="48" height="48" style="display:block;width:48px;height:48px;object-fit:contain;border-radius:10px" />
+                    </td>
+                    <td style="vertical-align:middle">
+                      <div style="color:#ffffff;font-size:17px;font-weight:700;line-height:1.2;letter-spacing:0.2px">Bemis E-V Charge</div>
+                      <div style="color:rgba(255,255,255,0.62);font-size:12px;font-weight:500;margin-top:3px;letter-spacing:0.6px;text-transform:uppercase">Türkiye'nin EV Şarj Üreticisi</div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!-- Heading section -->
+            <tr>
+              <td style="padding:36px 40px 8px">
+                <div style="font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:${accent};margin-bottom:10px">
+                  ${escapeHtml(formKind)}
+                </div>
+                <h1 style="margin:0 0 6px;font-size:26px;font-weight:800;line-height:1.25;color:#0f172a;letter-spacing:-0.3px">
+                  ${escapeHtml(heading)}
+                </h1>
+                <div style="height:3px;width:42px;background:${accent};border-radius:999px;margin-top:14px"></div>
+              </td>
+            </tr>
+            <!-- Body copy -->
+            <tr>
+              <td style="padding:24px 40px 8px">
+                <p style="margin:0 0 18px;font-size:15px;font-weight:600;line-height:1.55;color:#0f172a">
+                  ${escapeHtml(greeting)}
+                </p>
+                <p style="margin:0 0 14px;font-size:14.5px;line-height:1.7;color:#475569">
+                  ${escapeHtml(intro1)}
+                </p>
+                <p style="margin:0;font-size:14.5px;line-height:1.7;color:#475569">
+                  ${escapeHtml(intro2)}
+                </p>
+              </td>
+            </tr>
+            <!-- User's original message (quote block) -->
+            <tr>
+              <td style="padding:24px 40px 12px">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8fafc;border:1px solid #e2e8f0;border-left:3px solid ${accent};border-radius:10px">
+                  <tr>
+                    <td style="padding:18px 22px">
+                      <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#64748b;margin-bottom:10px">
+                        ${escapeHtml(t.quoteHeading)}
+                      </div>
+                      <div style="font-size:14px;line-height:1.65;color:#0f172a;white-space:pre-wrap;font-style:italic">${escapeHtml(opts.originalMessage)}</div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!-- Contact details card -->
+            <tr>
+              <td style="padding:18px 40px 0">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:10px">
+                  <tr>
+                    <td style="padding:18px 22px">
+                      <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#64748b;margin-bottom:12px">
+                        İletişim
+                      </div>
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="font-size:13.5px;color:#334155">
+                        <tr>
+                          <td style="padding:5px 0;width:96px;color:#94a3b8;font-weight:600">E-posta</td>
+                          <td style="padding:5px 0">
+                            <a href="mailto:${escapeHtml(t.contactEmail)}" style="color:${accent};text-decoration:none;font-weight:600">${escapeHtml(t.contactEmail)}</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding:5px 0;color:#94a3b8;font-weight:600">Web</td>
+                          <td style="padding:5px 0">
+                            <a href="https://www.bemisevcharge.com.tr" style="color:${accent};text-decoration:none;font-weight:600">www.bemisevcharge.com.tr</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding:5px 0;color:#94a3b8;font-weight:600">Adres</td>
+                          <td style="padding:5px 0;color:#334155">${escapeHtml(t.companyAddress)}</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!-- CTA button -->
+            <tr>
+              <td align="center" style="padding:28px 40px 8px">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td style="background:${accent};border-radius:8px">
+                      <a href="https://www.bemisevcharge.com.tr" style="display:inline-block;padding:13px 28px;font-size:13.5px;font-weight:700;color:#ffffff;text-decoration:none;letter-spacing:0.3px">Ürünlerimizi İnceleyin &nbsp;→</a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!-- Footer -->
+            <tr>
+              <td style="padding:32px 40px 28px">
+                <div style="border-top:1px solid #e2e8f0;padding-top:24px">
+                  <div style="font-size:13px;font-weight:700;color:#0f172a;margin-bottom:4px">Bemis Teknik Elektrik A.Ş.</div>
+                  <div style="font-size:12px;color:#94a3b8;line-height:1.6">
+                    ${escapeHtml(t.companyAddress)} · 1994'ten bu yana endüstriyel elektrik üretimi
+                  </div>
+                  <div style="font-size:11px;color:#cbd5e1;margin-top:14px;line-height:1.6">
+                    © ${year} Bemis Teknik Elektrik A.Ş. Tüm hakları saklıdır.
+                  </div>
+                  <div style="font-size:11px;color:#cbd5e1;margin-top:8px;line-height:1.6">
+                    ${escapeHtml(footerNote)}
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
 }
 
 export async function sendAutoReply(opts: {
