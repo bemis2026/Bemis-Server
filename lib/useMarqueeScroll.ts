@@ -21,6 +21,9 @@ export function useMarqueeScroll(opts?: { speed?: number }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef({ active: false, startX: 0, startScroll: 0 });
   const touchedRef = useRef(false);
+  // Button click başlattığında smooth scroll bitene kadar RAF'i durdur —
+  // aksi halde her frame'deki +speed smooth scroll'un hedefini ezer.
+  const buttonPauseUntil = useRef(0);
   const speed = opts?.speed ?? 0.5; // px / frame ≈ 30 px / sec @ 60 fps
 
   useEffect(() => {
@@ -28,9 +31,15 @@ export function useMarqueeScroll(opts?: { speed?: number }) {
     if (!el) return;
     let rafId = 0;
     const tick = () => {
-      // Drag veya touch aktifken auto-scroll atlanır — aksi halde hover
-      // dahil her durumda sürekli akar.
-      if (!dragRef.current.active && !touchedRef.current && el.scrollWidth > el.clientWidth) {
+      // Drag, touch veya aktif button-smooth-scroll varken auto-scroll
+      // atlanır — aksi halde hover dahil her durumda sürekli akar.
+      const buttonActive = performance.now() < buttonPauseUntil.current;
+      if (
+        !dragRef.current.active &&
+        !touchedRef.current &&
+        !buttonActive &&
+        el.scrollWidth > el.clientWidth
+      ) {
         el.scrollLeft += speed;
         if (el.scrollLeft >= el.scrollWidth / 2) el.scrollLeft = 0;
       }
@@ -75,7 +84,14 @@ export function useMarqueeScroll(opts?: { speed?: number }) {
   };
 
   const scrollByAmount = (delta: number) => {
-    scrollRef.current?.scrollBy({ left: delta, behavior: "smooth" });
+    const el = scrollRef.current;
+    if (!el) return;
+    // Smooth scroll'a ~700ms süre tanı; bu pencerede RAF dokunmaz.
+    // Klikten önce loop reset koşulunu kontrol et — eğer scrollLeft
+    // çok yüksekse (yarısına yakın) sıfırla ki sağ scroll loop'a yakın
+    // zıplama yapmasın.
+    buttonPauseUntil.current = performance.now() + 700;
+    el.scrollBy({ left: delta, behavior: "smooth" });
   };
 
   return { scrollRef, handlers, scrollByAmount };
