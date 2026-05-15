@@ -115,7 +115,6 @@ export default function ReferenceProjects() {
             style={{
               maskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
               WebkitMaskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
-              scrollSnapType: "x proximity",
             }}
           >
             <div className="flex gap-4 px-4 sm:px-6" style={{ width: "max-content" }}>
@@ -129,7 +128,6 @@ export default function ReferenceProjects() {
                     background: surface,
                     border: `1px solid ${border}`,
                     boxShadow: d ? "none" : "0 2px 16px rgba(0,0,0,0.06)",
-                    scrollSnapAlign: "start",
                   }}
                 >
                   <img

@@ -3386,21 +3386,36 @@ export default function AdminPage() {
                           <div key={fi} className="bg-white/4 border border-white/8 rounded-xl p-4 space-y-3">
                             <div className="flex items-center justify-between mb-1">
                               <span className="text-xs font-semibold text-white/50">Kart {fi + 1}</span>
-                              <label className="flex items-center gap-2 cursor-pointer">
-                                <span className="text-xs text-white/40">Görünür</span>
-                                <div
+                              <div className="flex items-center gap-3">
+                                <label className="flex items-center gap-2 cursor-pointer">
+                                  <span className="text-xs text-white/40">Görünür</span>
+                                  <div
+                                    onClick={() => {
+                                      const next = JSON.parse(JSON.stringify(content)) as ContentData;
+                                      next.featured[fi].visible = !next.featured[fi].visible;
+                                      setContent(next);
+                                    }}
+                                    className="w-9 h-5 rounded-full relative cursor-pointer transition-colors"
+                                    style={{ background: item.visible ? "#3B82F6" : "rgba(255,255,255,0.12)" }}
+                                  >
+                                    <div className="w-3.5 h-3.5 bg-white rounded-full absolute top-0.5 transition-all"
+                                      style={{ left: item.visible ? "calc(100% - 18px)" : "2px" }} />
+                                  </div>
+                                </label>
+                                <button
+                                  type="button"
                                   onClick={() => {
+                                    if (!confirm(`"Kart ${fi + 1}" silinsin mi?`)) return;
                                     const next = JSON.parse(JSON.stringify(content)) as ContentData;
-                                    next.featured[fi].visible = !next.featured[fi].visible;
+                                    next.featured.splice(fi, 1);
                                     setContent(next);
                                   }}
-                                  className="w-9 h-5 rounded-full relative cursor-pointer transition-colors"
-                                  style={{ background: item.visible ? "#3B82F6" : "rgba(255,255,255,0.12)" }}
+                                  className="text-[11px] font-semibold text-red-300/80 hover:text-red-200 px-2 py-1 rounded-md hover:bg-red-500/10 transition-colors"
+                                  aria-label={`Kart ${fi + 1} sil`}
                                 >
-                                  <div className="w-3.5 h-3.5 bg-white rounded-full absolute top-0.5 transition-all"
-                                    style={{ left: item.visible ? "calc(100% - 18px)" : "2px" }} />
-                                </div>
-                              </label>
+                                  Sil
+                                </button>
+                              </div>
                             </div>
                             <div className="grid grid-cols-2 gap-3">
                               <div>
@@ -3450,6 +3465,29 @@ export default function AdminPage() {
                           </div>
                         );
                       })}
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const next = JSON.parse(JSON.stringify(content)) as ContentData;
+                          const firstCat = products[0];
+                          const firstProd = firstCat?.products?.[0];
+                          next.featured = [
+                            ...(next.featured ?? []),
+                            {
+                              categoryId: firstCat?.id ?? "",
+                              productId: firstProd?.id ?? "",
+                              badge: "Yeni",
+                              highlight: "",
+                              visible: true,
+                            },
+                          ];
+                          setContent(next);
+                        }}
+                        className="w-full border-2 border-dashed border-white/15 hover:border-blue-400/40 hover:bg-blue-500/5 rounded-xl py-4 text-sm font-semibold text-white/50 hover:text-blue-300 transition-all"
+                      >
+                        + Yeni Ürün Ekle
+                      </button>
                   </div>
                 </div>
               )}

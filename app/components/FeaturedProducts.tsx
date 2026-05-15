@@ -165,7 +165,6 @@ export default function FeaturedProducts() {
             style={{
               maskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
               WebkitMaskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
-              scrollSnapType: "x proximity",
             }}
           >
             <div
