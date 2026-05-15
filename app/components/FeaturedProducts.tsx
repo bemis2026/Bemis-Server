@@ -6,7 +6,8 @@ import { useRouter } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
-import { HiArrowRight } from "react-icons/hi";
+import { HiArrowRight, HiChevronLeft, HiChevronRight } from "react-icons/hi";
+import { useMarqueeScroll } from "../../lib/useMarqueeScroll";
 import {
   RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
   RiShieldCheckLine, RiBarChart2Line, RiPlugLine, RiFlashlightLine,
@@ -79,6 +80,7 @@ export default function FeaturedProducts() {
   });
 
   const sectionBgUrl = sectionBgs?.["featured"] ?? "";
+  const { scrollRef, handlers, scrollByAmount } = useMarqueeScroll();
 
   return (
     <section id="featured" style={{ background: sectionBg }} className="relative py-8 lg:py-12 overflow-hidden">
@@ -122,25 +124,56 @@ export default function FeaturedProducts() {
           </motion.p>
         </div>
 
-        {/* Cards — infinite marquee. Items doubled so the -50% transform
-            wraps seamlessly. Pauses on hover via CSS animation-play-state. */}
-        <div
-          className="relative overflow-hidden"
-          style={{
-            maskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
-          }}
-        >
-          <div
-            className="flex gap-4 featured-marquee-track"
+        {/* Native horizontal scroll: drag + parmak + RAF auto-scroll loop +
+            sol/sağ button'lar. Mouse hover ile auto pause. */}
+        <div className="relative">
+          {/* Sol kaydırma butonu */}
+          <button
+            type="button"
+            onClick={() => scrollByAmount(-360)}
+            aria-label="Önceki ürünler"
+            className="hidden sm:flex absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-110 active:scale-95"
             style={{
-              width: "max-content",
-              animation: `featuredMarquee ${Math.max(28, resolved.length * 7)}s linear infinite`,
-              willChange: "transform",
-              transform: "translateZ(0)",
-              backfaceVisibility: "hidden",
+              background: d ? "rgba(20,20,24,0.88)" : "rgba(255,255,255,0.92)",
+              border: `1px solid ${border}`,
+              boxShadow: d ? "0 4px 16px rgba(0,0,0,0.4)" : "0 2px 12px rgba(0,0,0,0.12)",
+              backdropFilter: "blur(8px)",
             }}
           >
+            <HiChevronLeft size={20} style={{ color: textPrimary }} />
+          </button>
+          {/* Sağ kaydırma butonu */}
+          <button
+            type="button"
+            onClick={() => scrollByAmount(360)}
+            aria-label="Sonraki ürünler"
+            className="hidden sm:flex absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-110 active:scale-95"
+            style={{
+              background: d ? "rgba(20,20,24,0.88)" : "rgba(255,255,255,0.92)",
+              border: `1px solid ${border}`,
+              boxShadow: d ? "0 4px 16px rgba(0,0,0,0.4)" : "0 2px 12px rgba(0,0,0,0.12)",
+              backdropFilter: "blur(8px)",
+            }}
+          >
+            <HiChevronRight size={20} style={{ color: textPrimary }} />
+          </button>
+
+          <div
+            ref={scrollRef}
+            {...handlers}
+            className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none"
+            style={{
+              maskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
+              scrollSnapType: "x proximity",
+            }}
+          >
+            <div
+              className="flex gap-4 px-4 sm:px-6"
+              style={{
+                width: "max-content",
+              }}
+            >
           {[...resolved, ...resolved].map((item, i) => {
             const key = `${item.categoryId}-${item.productId}-${i}`;
             const isHov = hovered === key;
@@ -300,17 +333,11 @@ export default function FeaturedProducts() {
               </div>
             );
           })}
+            </div>
           </div>
         </div>
 
       </div>
-      <style jsx>{`
-        @keyframes featuredMarquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .featured-marquee-track:hover { animation-play-state: paused; }
-      `}</style>
     </section>
   );
 }

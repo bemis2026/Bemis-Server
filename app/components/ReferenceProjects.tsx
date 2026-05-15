@@ -4,7 +4,8 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
-import { HiLocationMarker } from "react-icons/hi";
+import { HiLocationMarker, HiChevronLeft, HiChevronRight } from "react-icons/hi";
+import { useMarqueeScroll } from "../../lib/useMarqueeScroll";
 import E from "./E";
 
 export default function ReferenceProjects() {
@@ -26,19 +27,11 @@ export default function ReferenceProjects() {
   const textPrimary = d ? "#ffffff" : "#111111";
   const textMuted   = d ? "rgba(255,255,255,0.42)" : "rgba(0,0,0,0.42)";
 
-  // We tile generously — at MAX translation (-100/copies%) the visible band
-  // must still extend past the right edge. Tight for short lists, so we
-  // scale copies up when items are few. Even a single-item list ends up
-  // tiled 20× so the strip never reveals an empty patch at the edge.
-  const copies = Math.max(8, Math.ceil(20 / Math.max(items.length, 1)));
-  const repeatedItems = Array.from({ length: copies }, (_, k) =>
-    items.map((it) => ({ ...it, _k: k }))
-  ).flat();
-  // Duration matched to FeaturedProducts marquee — same per-card speed so
-  // both bands feel like part of the same rhythm.
-  const duration = Math.max(28, items.length * 7);
-  const animEnd = `-${(100 / copies).toFixed(3)}%`;
+  // Native scroll + auto-scroll: 2× duplicate yeterli, scroll loop reset
+  // scrollWidth/2'de yapılır. Eski 8-20× tile artık gereksiz.
+  const repeatedItems = [...items, ...items];
   const sectionBgUrl = sectionBgs?.["referenceProjects"] ?? "";
+  const { scrollRef, handlers, scrollByAmount } = useMarqueeScroll();
 
   return (
     <section id="referenceprojects" style={{ background: sectionBg }} className="relative py-8 lg:py-12 overflow-hidden">
@@ -81,79 +74,99 @@ export default function ReferenceProjects() {
           </motion.p>
         </div>
 
-        {/* Marquee — items doubled so the -50% transform wraps seamlessly.
-            Pauses on hover via animation-play-state. Drift right→left to
-            visually balance the FeaturedProducts band that drifts left. */}
-        <div
-          className="relative overflow-hidden"
-          style={{
-            maskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
-          }}
-        >
-          <div
-            className="flex gap-4 reference-marquee-track"
+        {/* Native horizontal scroll: drag + parmak + RAF auto-scroll loop +
+            sol/sağ button'lar. Mouse hover ile auto pause. */}
+        <div className="relative">
+          {/* Sol kaydırma butonu */}
+          <button
+            type="button"
+            onClick={() => scrollByAmount(-360)}
+            aria-label="Önceki projeler"
+            className="hidden sm:flex absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-110 active:scale-95"
             style={{
-              width: "max-content",
-              animation: `referenceMarquee ${duration}s linear infinite reverse`,
-              ["--marquee-end" as string]: animEnd,
-              willChange: "transform",
-              transform: "translateZ(0)",
-              backfaceVisibility: "hidden",
+              background: d ? "rgba(20,20,24,0.88)" : "rgba(255,255,255,0.92)",
+              border: `1px solid ${border}`,
+              boxShadow: d ? "0 4px 16px rgba(0,0,0,0.4)" : "0 2px 12px rgba(0,0,0,0.12)",
+              backdropFilter: "blur(8px)",
             }}
           >
-            {repeatedItems.map((item, i) => (
-              <div
-                key={`${item.id}-${i}`}
-                className="relative rounded-2xl overflow-hidden flex-shrink-0"
-                style={{
-                  width: "clamp(280px, 30vw, 380px)",
-                  height: "clamp(190px, 22vw, 260px)",
-                  background: surface,
-                  border: `1px solid ${border}`,
-                  boxShadow: d ? "none" : "0 2px 16px rgba(0,0,0,0.06)",
-                }}
-              >
-                <img
-                  src={item.image}
-                  alt={item.title ?? "Bemis E-V Charge referans projesi"}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-                {(item.title || item.location) && (
-                  <div
-                    className="absolute inset-x-0 bottom-0 px-4 pt-10 pb-3"
-                    style={{
-                      background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 60%, transparent 100%)",
-                    }}
-                  >
-                    {item.title && (
-                      <p className="text-base font-bold leading-tight" style={{ color: "#ffffff" }}>
-                        {item.title}
-                      </p>
-                    )}
-                    {item.location && (
-                      <p className="text-xs flex items-center gap-1 mt-0.5" style={{ color: "rgba(255,255,255,0.78)" }}>
-                        <HiLocationMarker size={11} className="flex-shrink-0" />
-                        {item.location}
-                      </p>
-                    )}
-                  </div>
-                )}
-              </div>
-            ))}
+            <HiChevronLeft size={20} style={{ color: textPrimary }} />
+          </button>
+          {/* Sağ kaydırma butonu */}
+          <button
+            type="button"
+            onClick={() => scrollByAmount(360)}
+            aria-label="Sonraki projeler"
+            className="hidden sm:flex absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-110 active:scale-95"
+            style={{
+              background: d ? "rgba(20,20,24,0.88)" : "rgba(255,255,255,0.92)",
+              border: `1px solid ${border}`,
+              boxShadow: d ? "0 4px 16px rgba(0,0,0,0.4)" : "0 2px 12px rgba(0,0,0,0.12)",
+              backdropFilter: "blur(8px)",
+            }}
+          >
+            <HiChevronRight size={20} style={{ color: textPrimary }} />
+          </button>
+
+          <div
+            ref={scrollRef}
+            {...handlers}
+            className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none"
+            style={{
+              maskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
+              scrollSnapType: "x proximity",
+            }}
+          >
+            <div className="flex gap-4 px-4 sm:px-6" style={{ width: "max-content" }}>
+              {repeatedItems.map((item, i) => (
+                <div
+                  key={`${item.id}-${i}`}
+                  className="relative rounded-2xl overflow-hidden flex-shrink-0"
+                  style={{
+                    width: "clamp(280px, 30vw, 380px)",
+                    height: "clamp(190px, 22vw, 260px)",
+                    background: surface,
+                    border: `1px solid ${border}`,
+                    boxShadow: d ? "none" : "0 2px 16px rgba(0,0,0,0.06)",
+                    scrollSnapAlign: "start",
+                  }}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title ?? "Bemis E-V Charge referans projesi"}
+                    className="w-full h-full object-cover pointer-events-none"
+                    loading="lazy"
+                    decoding="async"
+                    draggable={false}
+                  />
+                  {(item.title || item.location) && (
+                    <div
+                      className="absolute inset-x-0 bottom-0 px-4 pt-10 pb-3 pointer-events-none"
+                      style={{
+                        background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 60%, transparent 100%)",
+                      }}
+                    >
+                      {item.title && (
+                        <p className="text-base font-bold leading-tight" style={{ color: "#ffffff" }}>
+                          {item.title}
+                        </p>
+                      )}
+                      {item.location && (
+                        <p className="text-xs flex items-center gap-1 mt-0.5" style={{ color: "rgba(255,255,255,0.78)" }}>
+                          <HiLocationMarker size={11} className="flex-shrink-0" />
+                          {item.location}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
       </div>
-      <style jsx>{`
-        @keyframes referenceMarquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(var(--marquee-end, -50%)); }
-        }
-        .reference-marquee-track:hover { animation-play-state: paused; }
-      `}</style>
     </section>
   );
 }
