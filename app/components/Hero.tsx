@@ -84,7 +84,9 @@ export default function Hero() {
   const scrollLabel    = d ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.55)";
 
   const headlineClass  = d ? "text-white" : "text-white";
-  const subtitleClass  = d ? "text-white/45" : "text-white/80";
+  // Tam beyaz + text-shadow ile her arka planda okunaklı (hero görseli koyu
+  // veya açık olabilir). Önceki text-white/45 dark mode'da çok soluktu.
+  const subtitleClass  = "text-white";
   const textShadow     = d ? undefined : "0 2px 16px rgba(0,0,0,0.70), 0 1px 4px rgba(0,0,0,0.50)";
   const logoSrc        = logos?.dark || "/logo-white.png";
   const logoStyle      = d ? {} : { filter: "brightness(0)" };
