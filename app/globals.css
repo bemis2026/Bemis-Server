@@ -340,9 +340,15 @@ html[data-theme="light"] .energy-streak.energy-h5 {
 /* Drop will-change on small screens — the streaks compound with
    framer-motion's transforms on lower-end mobile GPUs and can cause
    scroll jank. The animation still runs but the browser stops keeping
-   a dedicated compositor layer per streak. */
+   a dedicated compositor layer per streak.
+   Ayrıca yarısını (5 streak: v4, v5, h4, h5) gizle — küçük ekranda
+   10 streak yağlı, görsel olarak yine yeterli aktivite. */
 @media (max-width: 640px) {
   .energy-streak { will-change: auto; }
+  .energy-streak.energy-v4,
+  .energy-streak.energy-v5,
+  .energy-streak.energy-h4,
+  .energy-streak.energy-h5 { display: none; }
 }
 
 /* Section divider */

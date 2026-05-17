@@ -171,8 +171,9 @@ export default function Reviews() {
       {/* Renkli accent glow blob'lar — section'a ilgi çekici brand-coloured
           parıltı verir. Köşelere konumlanmış blurred radial-gradient'ler.
           pointer-events:none, sadece dekoratif. Dark mode'da daha belirgin,
-          light mode'da subtle kalır. */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden>
+          light mode'da subtle kalır. SADECE DESKTOP — mobile'da 3× blur
+          katmanı GPU yağlıyordu, lg breakpoint altında gizli. */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden hidden lg:block" aria-hidden>
         <div
           className="absolute"
           style={{

@@ -29,6 +29,13 @@ export function useMarqueeScroll(opts?: { speed?: number }) {
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
+    // Accessibility: kullanıcı OS'unda "reduce motion" tercihini açtıysa
+    // otomatik kayma çalışmaz; drag + button manuel kontrol kalır.
+    const reduceMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
     let rafId = 0;
     const tick = () => {
       // Drag, touch veya aktif button-smooth-scroll varken auto-scroll
