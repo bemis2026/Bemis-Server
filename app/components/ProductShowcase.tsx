@@ -167,32 +167,29 @@ export default function ProductShowcase() {
 
                   {galleryCount > 1 && (
                     <>
-                      {/* Prev/Next — her zaman görünür (mobile dahil), 44×44
-                          minimum touch hedefi. Hover'da hafif scale efekti. */}
+                      {/* Prev/Next — visible on hover (desktop), always on touch */}
                       <button
                         type="button"
                         onClick={(e) => { e.stopPropagation(); goPrev(); }}
                         aria-label="Önceki görsel"
-                        className="absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+                        className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100 focus:opacity-100"
                         style={{ background: "rgba(8,12,24,0.78)", color: "#fff", border: "1px solid rgba(255,255,255,0.14)", backdropFilter: "blur(10px)" }}
                       >
-                        <RiArrowLeftSLine size={22} />
+                        <RiArrowLeftSLine size={20} />
                       </button>
                       <button
                         type="button"
                         onClick={(e) => { e.stopPropagation(); goNext(); }}
                         aria-label="Sonraki görsel"
-                        className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+                        className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100 focus:opacity-100"
                         style={{ background: "rgba(8,12,24,0.78)", color: "#fff", border: "1px solid rgba(255,255,255,0.14)", backdropFilter: "blur(10px)" }}
                       >
-                        <RiArrowRightSLine size={22} />
+                        <RiArrowRightSLine size={20} />
                       </button>
 
-                      {/* Dots — görsel olarak küçük indicator + tıklanabilir
-                          alan 24×24 (touch hedef). Görünen pill aynı boyutta
-                          ama buton kendisi padding ile 24×24 yapılır. */}
+                      {/* Dots — at the very bottom of the image */}
                       <div
-                        className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-0.5 px-1.5 py-1 rounded-full"
+                        className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-full"
                         style={{
                           background: "rgba(8,12,24,0.55)",
                           backdropFilter: "blur(8px)",
@@ -205,18 +202,13 @@ export default function ProductShowcase() {
                             type="button"
                             onClick={(e) => { e.stopPropagation(); goTo(i); }}
                             aria-label={`Görsel ${i + 1}`}
-                            className="flex items-center justify-center"
-                            style={{ width: 24, height: 24 }}
-                          >
-                            <span
-                              className="rounded-full transition-all block"
-                              style={{
-                                width: i === index ? 18 : 6,
-                                height: 6,
-                                background: i === index ? ACCENT : "rgba(255,255,255,0.45)",
-                              }}
-                            />
-                          </button>
+                            className="rounded-full transition-all"
+                            style={{
+                              width: i === index ? 18 : 6,
+                              height: 6,
+                              background: i === index ? ACCENT : "rgba(255,255,255,0.45)",
+                            }}
+                          />
                         ))}
                       </div>
                     </>
@@ -394,17 +386,7 @@ export default function ProductShowcase() {
                 >
                   {specs.map((s: { label: string; value: string }, i: number) => {
                     const Icon = SPEC_ICONS[i % SPEC_ICONS.length];
-                    // EN modda label "Yerli Üretim" → "Domestic Production" gibi
-                    // çevrilir, "yerli" substring'i bulunmaz. Hem label hem value
-                    // üzerinden TR/EN ortak markerları yakala.
-                    const blob = `${s.label ?? ""} ${s.value ?? ""}`.toLowerCase();
-                    const isYerli =
-                      blob.includes("yerli") ||
-                      blob.includes("türkiye") ||
-                      blob.includes("turkiye") ||
-                      blob.includes("turkey") ||
-                      blob.includes("made in") ||
-                      blob.includes("domestic");
+                    const isYerli = (s.label ?? "").toLowerCase().includes("yerli");
                     return (
                       <div key={i} className="flex flex-col gap-1 p-3 rounded-2xl"
                         style={{ background: specBg, border: `1px solid ${specBorder}`, boxShadow: d ? "none" : "0 1px 6px rgba(0,0,0,0.04)" }}>

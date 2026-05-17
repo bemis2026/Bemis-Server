@@ -87,9 +87,7 @@ export default function Hero() {
   // Tam beyaz + text-shadow ile her arka planda okunaklı (hero görseli koyu
   // veya açık olabilir). Önceki text-white/45 dark mode'da çok soluktu.
   const subtitleClass  = "text-white";
-  // text-shadow her temada — heroBg dark mode'da bile açık renkli olabilir
-  // (örn. beyaz wallbox sahnesi), beyaz subtitle text okunmaya devam etsin.
-  const textShadow     = "0 2px 16px rgba(0,0,0,0.70), 0 1px 4px rgba(0,0,0,0.50)";
+  const textShadow     = d ? undefined : "0 2px 16px rgba(0,0,0,0.70), 0 1px 4px rgba(0,0,0,0.50)";
   const logoSrc        = logos?.dark || "/logo-white.png";
   const logoStyle      = d ? {} : { filter: "brightness(0)" };
 
