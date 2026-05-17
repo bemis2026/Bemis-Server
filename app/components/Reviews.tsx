@@ -56,7 +56,8 @@ export default function Reviews() {
   const surface    = d ? "#181820"                 : "#ffffff";
   const border     = d ? "#2a2a30"                 : "#e8e8e8";
   const textPrimary= d ? "#ffffff"                 : "#111111";
-  const textMuted  = d ? "rgba(255,255,255,0.50)"  : "rgba(0,0,0,0.38)";
+  // Light muted alpha 0.38 → 0.55 (WCAG AA: 3.66 → ~5.7 kontrast)
+  const textMuted  = d ? "rgba(255,255,255,0.50)"  : "rgba(0,0,0,0.55)";
   const textBody   = d ? "rgba(255,255,255,0.72)"  : "rgba(0,0,0,0.62)";
 
   const items = reviews.items ?? [];
@@ -263,7 +264,7 @@ export default function Reviews() {
         <div className={showSocialColumn ? "grid lg:grid-cols-5 gap-5" : ""}>
           <div className={showSocialColumn ? "lg:col-span-3" : ""}>
             <div className="grid sm:grid-cols-2 gap-4">
-              {items.slice(0, showSocialColumn ? 2 : 3).map((review, i) => (
+              {items.slice(0, 3).map((review, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.45, delay: 0.15 + i * 0.07 }}

@@ -221,8 +221,9 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
   const surface      = d ? "rgba(255,255,255,0.04)" : "#ffffff";
   const surfaceBorder= d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
   const textPrimary  = d ? "#f0f0f4" : "#1a1a1a";
-  const textMuted    = d ? "rgba(240,240,244,0.50)" : "rgba(26,26,26,0.50)";
-  const textFaint    = d ? "rgba(240,240,244,0.30)" : "rgba(26,26,26,0.30)";
+  // Light text alpha'ları bumped: muted 0.50 → 0.62 (~5.0:1), faint 0.30 → 0.55 (~3.8:1)
+  const textMuted    = d ? "rgba(240,240,244,0.50)" : "rgba(26,26,26,0.62)";
+  const textFaint    = d ? "rgba(240,240,244,0.30)" : "rgba(26,26,26,0.55)";
   const filterBase   = d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)";
   const filterBorder = d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.09)";
 
