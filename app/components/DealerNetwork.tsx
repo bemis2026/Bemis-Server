@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { HiArrowRight, HiPhone, HiLocationMarker, HiMail, HiUser, HiClock, HiExternalLink } from "react-icons/hi";
+import { HiArrowRight, HiPhone, HiLocationMarker, HiMail, HiUser, HiClock, HiExternalLink, HiX } from "react-icons/hi";
 import { RiMapPin2Line, RiWhatsappLine, RiGlobalLine, RiAwardLine, RiCustomerService2Line } from "react-icons/ri";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
@@ -75,6 +75,9 @@ export default function DealerNetwork() {
   const [dealers, setDealers] = useState<DealersData>({});
   const [hoveredCity, setHoveredCity] = useState<string | null>(null);
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
+  // Liste içinde şehir bazlı filtre — bölge birden fazla şehir içeriyorsa
+  // kullanıcı yalnızca bir şehre odaklanabilir. Bölge değişince reset.
+  const [cityFilter, setCityFilter] = useState<string | null>(null);
   // Tabs: yurtici = Turkey SVG map, yurtdisi = 3D globe with international markets.
   const [viewMode, setViewMode] = useState<"yurtici" | "yurtdisi">("yurtici");
   // 3D globe vs flat 2D map — only relevant on the "Dünya" view. Default
@@ -160,6 +163,12 @@ export default function DealerNetwork() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dealers]);
 
+  // Bölge değişince şehir filtresi sıfırlanır — kullanıcı bir bölgeden
+  // çıkıp diğerine geçince eski filtre takılı kalmasın.
+  useEffect(() => {
+    setCityFilter(null);
+  }, [selectedCity, hoveredCity]);
+
   const scrollToContact = () => {
     document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -195,7 +204,19 @@ export default function DealerNetwork() {
     REGIONS.find((r) => r.id === activeCity) ??
     (activeCity === BURSA_HQ.id ? BURSA_HQ : undefined);
   const activeRegionCities = activeRegion ? (citiesByRegion[activeRegion.id] ?? []) : [];
-  const activeDealers = activeRegionCities.flatMap((cityId) => dealers[cityId]?.dealers ?? []);
+  // Bölgenin tüm bayilerini şehir etiketiyle birlikte topla; sonra cityFilter
+  // varsa o şehre süz. Liste görünümünde her kart artık hangi şehirden olduğunu
+  // taşır (ileride göstermek istenirse hazır).
+  const allRegionDealers = activeRegionCities.flatMap((cityId) =>
+    (dealers[cityId]?.dealers ?? []).map((dealer) => ({
+      ...dealer,
+      _cityId: cityId,
+      _cityLabel: CITY_BY_ID[cityId]?.label ?? cityId,
+    })),
+  );
+  const activeDealers = cityFilter
+    ? allRegionDealers.filter((d) => d._cityId === cityFilter)
+    : allRegionDealers;
   const activeCityLabel = activeRegion?.label;
   // Bemis regional rep matched on regionId. Only render the card when at
   // least the rep's name or phone is set — empty default reps stay hidden.
@@ -486,6 +507,53 @@ export default function DealerNetwork() {
                   <RiMapPin2Line style={{ color: d ? "#93C5FD" : BLUE, fontSize: 14 }} />
                   <p className="font-semibold text-sm" style={{ color: d ? "#ffffff" : "#111111" }}>{activeCityLabel}</p>
                   <span className="text-xs" style={{ color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.40)" }}>· {activeDealers.length} bayi</span>
+
+                  <div className="flex-1" />
+
+                  {/* Şehir filtresi — bölgede birden fazla şehir varsa görünür.
+                      Native <select> ile küçük bir dropdown; Tümü + bölge
+                      şehirleri. */}
+                  {activeRegionCities.length > 1 && (
+                    <select
+                      value={cityFilter ?? ""}
+                      onChange={(e) => setCityFilter(e.target.value || null)}
+                      aria-label="Şehir filtresi"
+                      className="text-xs font-semibold rounded-md px-2 py-1 cursor-pointer focus:outline-none transition-colors"
+                      style={{
+                        background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)",
+                        border: `1px solid ${d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)"}`,
+                        color: d ? "#ffffff" : "#111111",
+                      }}
+                    >
+                      <option value="">Tüm şehirler</option>
+                      {activeRegionCities.map((cid) => (
+                        <option key={cid} value={cid}>
+                          {CITY_BY_ID[cid]?.label ?? cid}
+                        </option>
+                      ))}
+                    </select>
+                  )}
+
+                  {/* Listeyi kapat */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedCity(null);
+                      setHoveredCity(null);
+                      setCityFilter(null);
+                    }}
+                    aria-label="Listeyi kapat"
+                    className="flex items-center justify-center rounded-md transition-colors"
+                    style={{
+                      width: 24,
+                      height: 24,
+                      background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)",
+                      border: `1px solid ${d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)"}`,
+                      color: d ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.55)",
+                    }}
+                  >
+                    <HiX size={14} />
+                  </button>
                 </div>
                 {/* Scrollable kart konteyneri — sayfa aşağı doğru aşırı
                     uzamasın diye max-height + overflow-y. Header sabit
