@@ -163,11 +163,12 @@ export default function DealerNetwork() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dealers]);
 
-  // Bölge değişince şehir filtresi sıfırlanır — kullanıcı bir bölgeden
-  // çıkıp diğerine geçince eski filtre takılı kalmasın.
+  // Bölge SEÇİMİ (tıklama) değişince şehir filtresi sıfırlanır. Hover
+  // tetiklemez — yoksa kullanıcı şehir filtresi seçmişken mouse başka
+  // bölgenin üstünden geçtiğinde filtre kayboluyordu.
   useEffect(() => {
     setCityFilter(null);
-  }, [selectedCity, hoveredCity]);
+  }, [selectedCity]);
 
   const scrollToContact = () => {
     document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
@@ -197,7 +198,10 @@ export default function DealerNetwork() {
     if (r) (citiesByRegion[r] ||= []).push(cityId);
   }
 
-  const activeCity = hoveredCity || selectedCity;
+  // Kullanıcı bir şehir filtresi seçtiyse, başka bölge pin'inin üstünden
+  // mouse geçtiğinde liste değişmesin — sadece tıkladığı bölge sabit kalır.
+  // Yoksa hover'la önizleme davranışı eskisi gibi çalışır.
+  const activeCity = cityFilter ? selectedCity : (hoveredCity || selectedCity);
   // Resolve from REGIONS first, then fall back to the BURSA_HQ virtual region
   // so the "merkez" pin can drive the rep card without owning any dealer cities.
   const activeRegion =
