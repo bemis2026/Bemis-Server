@@ -198,10 +198,11 @@ export default function DealerNetwork() {
     if (r) (citiesByRegion[r] ||= []).push(cityId);
   }
 
-  // Kullanıcı bir şehir filtresi seçtiyse, başka bölge pin'inin üstünden
-  // mouse geçtiğinde liste değişmesin — sadece tıkladığı bölge sabit kalır.
-  // Yoksa hover'la önizleme davranışı eskisi gibi çalışır.
-  const activeCity = cityFilter ? selectedCity : (hoveredCity || selectedCity);
+  // Liste yalnızca tıkladığı bölgeye bağlı — başka bölge pin'inin üstünden
+  // mouse geçmek listeyi değiştirmesin. hoveredCity state'i sadece haritada
+  // görsel highlight (pin parıltısı) için kullanılır, dealer listesini
+  // etkilemez.
+  const activeCity = selectedCity;
   // Resolve from REGIONS first, then fall back to the BURSA_HQ virtual region
   // so the "merkez" pin can drive the rep card without owning any dealer cities.
   const activeRegion =
