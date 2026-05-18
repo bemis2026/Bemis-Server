@@ -140,6 +140,26 @@ export default function DealerNetwork() {
       .catch(() => {});
   }, []);
 
+  // Bayiler yüklendiğinde, eğer kullanıcı hiçbir region seçmemişse,
+  // ilk bayisi olan region'ı otomatik olarak seç → bayi listesi
+  // ilk açılışta hemen görünür (önceden boş bir map duruyordu, kullanıcı
+  // pin'e tıklamadan bayiler gizli kalıyordu).
+  useEffect(() => {
+    if (selectedCity || hoveredCity) return;
+    const dealerCities = Object.keys(dealers);
+    if (dealerCities.length === 0) return;
+    for (const region of REGIONS) {
+      const hasDealers = dealerCities.some(
+        (cid) => CITY_BY_ID[cid]?.region === region.id && (dealers[cid]?.dealers?.length ?? 0) > 0,
+      );
+      if (hasDealers) {
+        setSelectedCity(region.id);
+        break;
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dealers]);
+
   const scrollToContact = () => {
     document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
   };
