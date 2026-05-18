@@ -453,7 +453,13 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
             <button
               onClick={() => { setMobileOpen(false); openContact(); }}
               className="ml-1 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-white hover:opacity-90 active:scale-95"
-              style={{ background: "linear-gradient(135deg, #3B82F6, #2563EB)", boxShadow: "0 4px 14px rgba(59,130,246,0.35)" }}
+              style={{
+                // Light mode'da daha açık mavi gradient — beyaz yazıyla kontrast korunur.
+                background: isDark
+                  ? "linear-gradient(135deg, #3B82F6, #2563EB)"
+                  : "linear-gradient(135deg, #60A5FA, #3B82F6)",
+                boxShadow: isDark ? "0 4px 14px rgba(59,130,246,0.35)" : "0 4px 14px rgba(96,165,250,0.45)",
+              }}
             >
               <E field="navbar.ctaLabel" tag="span">{navbarContent?.ctaLabel ?? "Bize Ulaşın"}</E>
             </button>
@@ -569,7 +575,11 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
               <button
                 onClick={() => { setMobileOpen(false); openContact(); }}
                 className="mt-3 font-semibold py-3 rounded-lg text-sm text-white"
-                style={{ background: "linear-gradient(135deg, #3B82F6, #2563EB)" }}
+                style={{
+                  background: isDark
+                    ? "linear-gradient(135deg, #3B82F6, #2563EB)"
+                    : "linear-gradient(135deg, #60A5FA, #3B82F6)",
+                }}
               >
                 <E field="navbar.ctaLabel" tag="span">{navbarContent?.ctaLabel ?? "Bize Ulaşın"}</E>
               </button>

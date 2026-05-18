@@ -87,6 +87,17 @@ export default function Hero() {
   // Tam beyaz + text-shadow ile her arka planda okunaklı (hero görseli koyu
   // veya açık olabilir). Önceki text-white/45 dark mode'da çok soluktu.
   const subtitleClass  = "text-white";
+
+  // Light mode'da Hero CTA daha açık + beyaz dominant cam efekti; dark
+  // mode'da mevcut accent-cam efekti korunur.
+  const LIGHT_BLUE = "#60A5FA";
+  const heroCtaBg     = d ? `${ACCENT}26` : `rgba(255,255,255,0.22)`;
+  const heroCtaBd     = d ? `${ACCENT}55` : `${LIGHT_BLUE}99`;
+  const heroCtaSh     = d ? `0 10px 32px ${ACCENT}30, inset 0 1px 0 rgba(255,255,255,0.12)` : `0 10px 32px ${LIGHT_BLUE}45, inset 0 1px 0 rgba(255,255,255,0.45)`;
+  const heroCtaBgHv   = d ? `${ACCENT}40` : `rgba(255,255,255,0.35)`;
+  const heroCtaBdHv   = d ? `${ACCENT}90` : LIGHT_BLUE;
+  const heroCtaShHv   = d ? `0 12px 36px ${ACCENT}50, inset 0 1px 0 rgba(255,255,255,0.16)` : `0 14px 40px ${LIGHT_BLUE}55, inset 0 1px 0 rgba(255,255,255,0.55)`;
+  const heroCtaArrow  = d ? ACCENT : "#ffffff";
   const textShadow     = d ? undefined : "0 2px 16px rgba(0,0,0,0.70), 0 1px 4px rgba(0,0,0,0.50)";
   const logoSrc        = logos?.dark || "/logo-white.png";
   const logoStyle      = d ? {} : { filter: "brightness(0)" };
@@ -144,7 +155,7 @@ export default function Hero() {
                 style={{
                   backgroundImage: d
                     ? "linear-gradient(135deg, #93C5FD 0%, #3B82F6 100%)"
-                    : "linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)",
+                    : "linear-gradient(135deg, #60A5FA 0%, #93C5FD 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -163,28 +174,25 @@ export default function Hero() {
               onClick={scrollToNextSection}
               className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02] active:scale-95"
               style={{
-                // Slightly more saturated than the original 1A (10%) so the
-                // button reads as a proper brand-blue accent against the
-                // photo background — instead of a faint glassy hint.
-                background: `${ACCENT}26`,
+                background: heroCtaBg,
                 backdropFilter: "blur(14px)",
                 WebkitBackdropFilter: "blur(14px)",
-                border: `1px solid ${ACCENT}55`,
-                boxShadow: `0 10px 32px ${ACCENT}30, inset 0 1px 0 rgba(255,255,255,0.12)`,
+                border: `1px solid ${heroCtaBd}`,
+                boxShadow: heroCtaSh,
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = `${ACCENT}40`;
-                e.currentTarget.style.borderColor = `${ACCENT}90`;
-                e.currentTarget.style.boxShadow = `0 12px 36px ${ACCENT}50, inset 0 1px 0 rgba(255,255,255,0.16)`;
+                e.currentTarget.style.background = heroCtaBgHv;
+                e.currentTarget.style.borderColor = heroCtaBdHv;
+                e.currentTarget.style.boxShadow = heroCtaShHv;
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = `${ACCENT}26`;
-                e.currentTarget.style.borderColor = `${ACCENT}55`;
-                e.currentTarget.style.boxShadow = `0 10px 32px ${ACCENT}30, inset 0 1px 0 rgba(255,255,255,0.12)`;
+                e.currentTarget.style.background = heroCtaBg;
+                e.currentTarget.style.borderColor = heroCtaBd;
+                e.currentTarget.style.boxShadow = heroCtaSh;
               }}
             >
               <E field="hero.ctaPrimary" tag="span">{hero.ctaPrimary}</E>
-              <HiArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" style={{ color: ACCENT }} />
+              <HiArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" style={{ color: heroCtaArrow }} />
             </button>
           </motion.div>
         </div>
@@ -245,28 +253,25 @@ export default function Hero() {
               onClick={scrollToNextSection}
               className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02] active:scale-95"
               style={{
-                // Slightly more saturated than the original 1A (10%) so the
-                // button reads as a proper brand-blue accent against the
-                // photo background — instead of a faint glassy hint.
-                background: `${ACCENT}26`,
+                background: heroCtaBg,
                 backdropFilter: "blur(14px)",
                 WebkitBackdropFilter: "blur(14px)",
-                border: `1px solid ${ACCENT}55`,
-                boxShadow: `0 10px 32px ${ACCENT}30, inset 0 1px 0 rgba(255,255,255,0.12)`,
+                border: `1px solid ${heroCtaBd}`,
+                boxShadow: heroCtaSh,
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = `${ACCENT}40`;
-                e.currentTarget.style.borderColor = `${ACCENT}90`;
-                e.currentTarget.style.boxShadow = `0 12px 36px ${ACCENT}50, inset 0 1px 0 rgba(255,255,255,0.16)`;
+                e.currentTarget.style.background = heroCtaBgHv;
+                e.currentTarget.style.borderColor = heroCtaBdHv;
+                e.currentTarget.style.boxShadow = heroCtaShHv;
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = `${ACCENT}26`;
-                e.currentTarget.style.borderColor = `${ACCENT}55`;
-                e.currentTarget.style.boxShadow = `0 10px 32px ${ACCENT}30, inset 0 1px 0 rgba(255,255,255,0.12)`;
+                e.currentTarget.style.background = heroCtaBg;
+                e.currentTarget.style.borderColor = heroCtaBd;
+                e.currentTarget.style.boxShadow = heroCtaSh;
               }}
             >
               <E field="hero.ctaPrimary" tag="span">{hero.ctaPrimary}</E>
-              <HiArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" style={{ color: ACCENT }} />
+              <HiArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" style={{ color: heroCtaArrow }} />
             </button>
           </motion.div>
         </motion.div>

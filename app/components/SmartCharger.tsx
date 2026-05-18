@@ -117,9 +117,14 @@ export default function SmartCharger() {
                         className="relative rounded-[36px] overflow-hidden"
                         style={{
                           width: 240, height: 490,
-                          background: d ? "#0a0a0c" : "#1a1a1e",
-                          border: `2.5px solid ${d ? "rgba(255,255,255,0.14)" : "rgba(255,255,255,0.20)"}`,
-                          boxShadow: `0 32px 64px rgba(0,0,0,${d ? "0.65" : "0.35"}), 0 0 0 1px rgba(255,255,255,0.06)`,
+                          // Light mode'da telefon çerçevesi açık silver/grey
+                          // (önceden #1a1a1e koyuydu, açık temada karanlık
+                          // gözüküyordu); dark mode siyah kasası korunur.
+                          background: d ? "#0a0a0c" : "#e5e7eb",
+                          border: `2.5px solid ${d ? "rgba(255,255,255,0.14)" : "rgba(0,0,0,0.18)"}`,
+                          boxShadow: d
+                            ? "0 32px 64px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.06)"
+                            : "0 24px 48px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.06)",
                         }}
                       >
                         {/* Dynamic island */}
@@ -248,11 +253,13 @@ export default function SmartCharger() {
                         className="rounded-2xl overflow-hidden"
                         style={{
                           width: 310,
-                          background: d ? "#0d1420" : "#f8faff",
-                          border: `1.5px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(59,130,246,0.18)"}`,
+                          // Browser/laptop mockup light mode'da daha açık ve
+                          // belirgin border ile öne çıkar.
+                          background: d ? "#0d1420" : "#ffffff",
+                          border: `1.5px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.14)"}`,
                           boxShadow: d
                             ? "0 24px 56px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04)"
-                            : "0 20px 48px rgba(59,130,246,0.14), 0 0 0 1px rgba(59,130,246,0.08)",
+                            : "0 24px 56px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.06)",
                         }}
                       >
                         {/* Browser chrome */}

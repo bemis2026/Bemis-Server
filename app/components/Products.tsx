@@ -368,8 +368,12 @@ export default function Products() {
             onClick={() => router.push("/products")}
             className="group inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02] hover:brightness-110 active:scale-95"
             style={{
-              background: `linear-gradient(135deg, ${BLUE}, #2563EB)`,
-              boxShadow: `0 6px 20px ${BLUE}40`,
+              // Light mode'da daha açık mavi gradient (#60A5FA → #3B82F6),
+              // dark mode'da mevcut koyu mavi (BLUE → #2563EB).
+              background: d
+                ? `linear-gradient(135deg, ${BLUE}, #2563EB)`
+                : `linear-gradient(135deg, #60A5FA, #3B82F6)`,
+              boxShadow: d ? `0 6px 20px ${BLUE}40` : `0 6px 20px #60A5FA60`,
             }}
           >
             <E field="products.allProductsLabel" tag="span">{productSection.allProductsLabel}</E>

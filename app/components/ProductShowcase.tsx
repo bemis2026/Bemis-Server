@@ -416,7 +416,12 @@ export default function ProductShowcase() {
               <button
                 onClick={() => router.push(ctaPrimaryHref)}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02] hover:brightness-110 active:scale-95"
-                style={{ background: `linear-gradient(135deg, ${ACCENT}, #2563EB)`, boxShadow: `0 6px 22px ${ACCENT}40` }}
+                style={{
+                  background: d
+                    ? `linear-gradient(135deg, ${ACCENT}, #2563EB)`
+                    : `linear-gradient(135deg, #60A5FA, #3B82F6)`,
+                  boxShadow: d ? `0 6px 22px ${ACCENT}40` : `0 6px 22px #60A5FA60`,
+                }}
               >
                 {ctaPrimaryText}
                 <RiArrowRightLine size={16} />
