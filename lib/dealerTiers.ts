@@ -1,20 +1,23 @@
 // Dealer-status tier shared between the public dealer list and the admin
 // editor. Each tier maps to a colour that backs the brand-mark badge shown
-// next to the dealer entry, so visitors can spot at a glance whether a
-// listing is a standard authorised dealer, a strategic partner, or a full
-// solution-partner-tier collaboration.
+// next to the dealer entry, so visitors can spot at a glance which Charge
+// programme tier a listing belongs to.
+//
+// Tier ID'leri korunmuştur ("standart" / "stratejik" / "partner") —
+// bin'deki mevcut dealer.tier değerleri kırılmasın. Label + renk
+// güncellenerek üç-kademeli Charge programına remap edildi.
 export type DealerTier = "standart" | "stratejik" | "partner";
 
 export const DEALER_TIERS: { id: DealerTier; label: string; sub: string; color: string }[] = [
-  { id: "standart",  label: "Standart Bayi",  sub: "Yetkili Bayi",                color: "#64748B" }, // slate-500
-  { id: "stratejik", label: "Stratejik Bayi", sub: "Bölge Stratejik İş Ortağı",   color: "#F59E0B" }, // amber-500
-  { id: "partner",   label: "Çözüm Ortağı",    sub: "Premium Solution Partner",     color: "#8B5CF6" }, // violet-500
+  { id: "standart",  label: "Charge Bayi",     sub: "Yetkili Bayi",        color: "#64748B" }, // slate-500
+  { id: "stratejik", label: "Charge + Bayi",   sub: "Yetkili Bayi+",       color: "#3B82F6" }, // brand blue
+  { id: "partner",   label: "Charge Pro Bayi", sub: "Premium Yetkili Bayi", color: "#F59E0B" }, // amber-500 — premium accent
 ];
 
 export const TIER_META: Record<DealerTier, { label: string; sub: string; color: string }> = {
-  standart:  { label: "Standart Bayi",  sub: "Yetkili Bayi",                color: "#64748B" },
-  stratejik: { label: "Stratejik Bayi", sub: "Bölge Stratejik İş Ortağı",   color: "#F59E0B" },
-  partner:   { label: "Çözüm Ortağı",    sub: "Premium Solution Partner",     color: "#8B5CF6" },
+  standart:  { label: "Charge Bayi",     sub: "Yetkili Bayi",         color: "#64748B" },
+  stratejik: { label: "Charge + Bayi",   sub: "Yetkili Bayi+",        color: "#3B82F6" },
+  partner:   { label: "Charge Pro Bayi", sub: "Premium Yetkili Bayi", color: "#F59E0B" },
 };
 
 export function tierColor(tier?: string): string {

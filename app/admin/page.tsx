@@ -5306,6 +5306,48 @@ export default function AdminPage() {
                                     <HiOutlineTrash size={13} />
                                   </button>
                                 </div>
+
+                                {/* Bayi Statüsü — Charge Bayi / Charge + Bayi / Charge Pro Bayi
+                                    3-button picker. "Bayi Ekle" modal'ındaki picker'ın
+                                    inline kompakt versiyonu — kartın üstünde tier'ı
+                                    her zaman görünür yapar ve tek tıklamayla değiştirir. */}
+                                <div>
+                                  <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Bayi Statüsü</label>
+                                  <div className="grid grid-cols-3 gap-2">
+                                    {DEALER_TIERS.map((tier) => {
+                                      const currentTier = dealer.tier ?? "standart";
+                                      const selected = currentTier === tier.id;
+                                      return (
+                                        <button
+                                          key={tier.id}
+                                          type="button"
+                                          onClick={() => updateDealer(idx, "tier", tier.id)}
+                                          className="relative rounded-lg px-2.5 py-2 text-left transition-all"
+                                          style={{
+                                            background: selected ? `${tier.color}22` : "rgba(255,255,255,0.04)",
+                                            border: selected ? `1px solid ${tier.color}88` : "1px solid rgba(255,255,255,0.08)",
+                                            boxShadow: selected ? `0 0 0 1px ${tier.color}55` : "none",
+                                          }}
+                                        >
+                                          <div className="flex items-center gap-2">
+                                            <span
+                                              className="inline-block rounded-full flex-shrink-0"
+                                              style={{
+                                                width: 10, height: 10,
+                                                background: tier.color,
+                                                boxShadow: `0 0 0 1.5px rgba(255,255,255,0.85), 0 0 0 2.5px ${tier.color}55`,
+                                              }}
+                                            />
+                                            <span className="text-[11px] font-bold leading-tight" style={{ color: selected ? "#ffffff" : "rgba(255,255,255,0.70)" }}>
+                                              {tier.label}
+                                            </span>
+                                          </div>
+                                        </button>
+                                      );
+                                    })}
+                                  </div>
+                                </div>
+
                                 <div className="grid grid-cols-2 gap-3">
                                   <div>
                                     <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Bayi Adı</label>
