@@ -479,14 +479,23 @@ export default function DealerNetwork() {
                 key={activeCity}
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="rounded-2xl p-4 space-y-3"
+                className="rounded-2xl p-4"
                 style={{ background: `${BLUE}10`, border: `1px solid ${BLUE}30` }}
               >
-                <div className="flex items-center gap-2 mb-1">
+                <div className="flex items-center gap-2 mb-3">
                   <RiMapPin2Line style={{ color: d ? "#93C5FD" : BLUE, fontSize: 14 }} />
                   <p className="font-semibold text-sm" style={{ color: d ? "#ffffff" : "#111111" }}>{activeCityLabel}</p>
                   <span className="text-xs" style={{ color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.40)" }}>· {activeDealers.length} bayi</span>
                 </div>
+                {/* Scrollable kart konteyneri — sayfa aşağı doğru aşırı
+                    uzamasın diye max-height + overflow-y. Header sabit
+                    kalır, sadece kart listesi içeride scroll olur. Sağa
+                    küçük bir padding ile scrollbar kart içeriğine
+                    yapışmasın. */}
+                <div
+                  className="space-y-3 overflow-y-auto pr-1 -mr-1"
+                  style={{ maxHeight: "min(60vh, 520px)" }}
+                >
                 {activeDealers.map((dealer, i) => {
                   const muted = d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.55)";
                   const phoneDigits = (s: string) => s.replace(/[^\d+]/g, "");
@@ -571,6 +580,7 @@ export default function DealerNetwork() {
                     </div>
                   );
                 })}
+                </div>
               </motion.div>
             )}
 
