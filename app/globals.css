@@ -505,6 +505,17 @@ html[data-theme="light"] .text-white { color: #111111 !important; }
 html[data-theme="light"] [class*="text-white\/"] { color: #555555 !important; }
 /* hero içindeki yazılar beyaz kalır */
 html[data-theme="light"] #hero .text-white { color: #ffffff !important; }
+
+/* Button + link elementlerinde "text-white" KORUNUR. Bu component'lerin
+   hemen hepsi mavi gradient bg ile gelir (Tüm Ürünler, Bize Ulaşın,
+   ProductShowcase CTA, Hero CTA vb.); "siyahlaştır" override'ı mavinin
+   üzerine kötü kontrast verir. Bu istisna hem element'in kendisi
+   "<button class='text-white'>" için, hem de "<button><span class='text-white'>"
+   gibi child elementler için geçerli. */
+html[data-theme="light"] button.text-white,
+html[data-theme="light"] a.text-white,
+html[data-theme="light"] button .text-white,
+html[data-theme="light"] a .text-white { color: #ffffff !important; }
 html[data-theme="light"] #hero [class*="text-white\/10"] { color: rgba(255,255,255,0.10) !important; }
 html[data-theme="light"] #hero [class*="text-white\/20"] { color: rgba(255,255,255,0.20) !important; }
 html[data-theme="light"] #hero [class*="text-white\/25"] { color: rgba(255,255,255,0.25) !important; }
