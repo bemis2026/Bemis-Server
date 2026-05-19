@@ -236,6 +236,7 @@ export default function ProductShowcase() {
                 >
                   <div
                     className="inline-flex flex-col px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-lg sm:rounded-xl items-end text-right"
+                    data-keep-white="true"
                     style={{
                       // Daha opak ve daha koyu — light mode'da kutu beyaz
                       // pakajın üzerinde net duruyor olsun. Önceki 0.82
@@ -284,6 +285,7 @@ export default function ProductShowcase() {
                   <div
                     key={i}
                     className="flex items-center gap-1.5 rounded-xl px-2 py-1.5"
+                    data-keep-white="true"
                     style={{
                       background: "rgba(8,12,24,0.92)",
                       border: `1px solid ${b.color}55`,

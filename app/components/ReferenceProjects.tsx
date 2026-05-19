@@ -125,19 +125,21 @@ export default function ReferenceProjects() {
                   style={{
                     width: "clamp(280px, 30vw, 380px)",
                     height: "clamp(190px, 22vw, 260px)",
-                    // Image'ın altındaki katman: dark'ta surface, light'ta
-                    // nötr açık gri — object-contain ile letterbox oluşursa
-                    // boşluk markasız bir tonla doldurulur (önceden white
-                    // surface kart sırıtıyordu).
-                    background: d ? surface : "#e8e9ed",
+                    background: surface,
                     border: `1px solid ${border}`,
                     boxShadow: d ? "none" : "0 2px 16px rgba(0,0,0,0.06)",
                   }}
                 >
+                  {/* object-cover ile çerçeve kenarda boşluk bırakmadan dolar;
+                      object-position center → portrelerde / yatay fotoğraflarda
+                      görselin orta-üst kısmı odaklanır (yer kırpılır ama merkez
+                      görünür). Kart boyutu: clamp(280-380) × clamp(190-260)
+                      ≈ 4:3 yatay oran. */}
                   <img
                     src={item.image}
                     alt={item.title ?? "Bemis E-V Charge referans projesi"}
-                    className="w-full h-full object-contain pointer-events-none"
+                    className="w-full h-full object-cover pointer-events-none"
+                    style={{ objectPosition: "center" }}
                     loading="lazy"
                     decoding="async"
                     draggable={false}

@@ -144,6 +144,7 @@ export default function SmartCharger() {
                           />
                         ) : (
                         <div className="absolute inset-0 p-4 pt-11 flex flex-col gap-3"
+                          data-keep-white="true"
                           style={{ background: "linear-gradient(180deg, #0d1a2e 0%, #091526 100%)" }}>
 
                           {/* App header */}

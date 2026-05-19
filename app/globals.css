@@ -516,6 +516,14 @@ html[data-theme="light"] button.text-white,
 html[data-theme="light"] a.text-white,
 html[data-theme="light"] button .text-white,
 html[data-theme="light"] a .text-white { color: #ffffff !important; }
+
+/* data-keep-white="true" → her durumda beyaz text korunur. Görsel-üzeri
+   overlay'lerin (amiral gemisi name kutusu / feature badge'leri, smart
+   charger phone mockup içeriği vb.) light mode'da siyaha kaymasını engeller.
+   Container'a koy → içerdeki tüm text-white'lar etkilenir. */
+html[data-theme="light"] [data-keep-white="true"],
+html[data-theme="light"] [data-keep-white="true"] .text-white,
+html[data-theme="light"] [data-keep-white="true"] [class*="text-white\/"] { color: #ffffff !important; }
 html[data-theme="light"] #hero [class*="text-white\/10"] { color: rgba(255,255,255,0.10) !important; }
 html[data-theme="light"] #hero [class*="text-white\/20"] { color: rgba(255,255,255,0.20) !important; }
 html[data-theme="light"] #hero [class*="text-white\/25"] { color: rgba(255,255,255,0.25) !important; }
