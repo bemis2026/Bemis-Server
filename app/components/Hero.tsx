@@ -100,7 +100,10 @@ export default function Hero() {
   const heroCtaArrow  = d ? ACCENT : "#ffffff";
   const textShadow     = d ? undefined : "0 2px 16px rgba(0,0,0,0.70), 0 1px 4px rgba(0,0,0,0.50)";
   const logoSrc        = logos?.dark || "/logo-white.png";
-  const logoStyle      = d ? {} : { filter: "brightness(0)" };
+  // Hero üzerindeki logo: dark mode'da beyaz logo aynen, light mode'da
+  // siyah'a invert etmek yerine beyaza çevir + hafif drop-shadow ile her
+  // hero görseli üzerinde (açık ya da koyu) okunaklı kalır.
+  const logoStyle      = d ? {} : { filter: "brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.45))" };
 
   return (
     <section
@@ -155,7 +158,7 @@ export default function Hero() {
                 style={{
                   backgroundImage: d
                     ? "linear-gradient(135deg, #93C5FD 0%, #3B82F6 100%)"
-                    : "linear-gradient(135deg, #60A5FA 0%, #93C5FD 100%)",
+                    : "linear-gradient(135deg, #1D4ED8 0%, #3B82F6 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",

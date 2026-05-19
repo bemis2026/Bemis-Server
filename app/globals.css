@@ -86,6 +86,14 @@ html[data-theme="light"] body::before {
     );
 }
 
+/* Light mode için section'lar arasına ince ayrım çizgisi — aşırı beyaz
+   bütünlüğü kırar, mavi accent'lerle birlikte ortama derinlik katar.
+   Sadece anchor-id'li section'lara, navbar/footer'a değil. */
+html[data-theme="light"] main > section[id] + section[id],
+html[data-theme="light"] section[id] + section[id] {
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
 /* Custom scrollbar — slightly more visible than the original 5px/#333
    strip so visitors clearly see scroll affordance on long pages. */
 ::-webkit-scrollbar { width: 10px; height: 10px; }

@@ -125,7 +125,11 @@ export default function ReferenceProjects() {
                   style={{
                     width: "clamp(280px, 30vw, 380px)",
                     height: "clamp(190px, 22vw, 260px)",
-                    background: surface,
+                    // Image'ın altındaki katman: dark'ta surface, light'ta
+                    // nötr açık gri — object-contain ile letterbox oluşursa
+                    // boşluk markasız bir tonla doldurulur (önceden white
+                    // surface kart sırıtıyordu).
+                    background: d ? surface : "#e8e9ed",
                     border: `1px solid ${border}`,
                     boxShadow: d ? "none" : "0 2px 16px rgba(0,0,0,0.06)",
                   }}
@@ -133,7 +137,7 @@ export default function ReferenceProjects() {
                   <img
                     src={item.image}
                     alt={item.title ?? "Bemis E-V Charge referans projesi"}
-                    className="w-full h-full object-cover pointer-events-none"
+                    className="w-full h-full object-contain pointer-events-none"
                     loading="lazy"
                     decoding="async"
                     draggable={false}

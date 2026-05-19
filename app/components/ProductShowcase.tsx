@@ -237,16 +237,25 @@ export default function ProductShowcase() {
                   <div
                     className="inline-flex flex-col px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-lg sm:rounded-xl items-end text-right"
                     style={{
-                      background: "rgba(8,12,24,0.82)",
-                      border: "1px solid rgba(255,255,255,0.10)",
+                      // Daha opak ve daha koyu — light mode'da kutu beyaz
+                      // pakajın üzerinde net duruyor olsun. Önceki 0.82
+                      // opacity bazı görsellerde mavimsi karışım yapıyordu.
+                      background: "rgba(6,10,22,0.92)",
+                      border: "1px solid rgba(255,255,255,0.14)",
                       backdropFilter: "blur(16px)",
-                      boxShadow: "0 4px 20px rgba(0,0,0,0.25)",
+                      boxShadow: "0 6px 22px rgba(0,0,0,0.30)",
                     }}
                   >
-                    <span className="text-[7px] sm:text-[8px] font-bold uppercase tracking-widest" style={{ color: `${ACCENT}cc` }}>
+                    <span
+                      className="text-[7px] sm:text-[8px] font-bold uppercase tracking-widest"
+                      style={{ color: "#93C5FD", textShadow: "0 1px 2px rgba(0,0,0,0.5)" }}
+                    >
                       {badgeText}
                     </span>
-                    <span className="text-[10px] sm:text-xs font-black text-white leading-tight mt-0.5">
+                    <span
+                      className="text-[10px] sm:text-xs font-black text-white leading-tight mt-0.5"
+                      style={{ textShadow: "0 1px 2px rgba(0,0,0,0.5)" }}
+                    >
                       {nameText}
                     </span>
                   </div>
@@ -276,14 +285,19 @@ export default function ProductShowcase() {
                     key={i}
                     className="flex items-center gap-1.5 rounded-xl px-2 py-1.5"
                     style={{
-                      background: "rgba(10,15,30,0.88)",
-                      border: `1px solid ${b.color}30`,
+                      background: "rgba(8,12,24,0.92)",
+                      border: `1px solid ${b.color}55`,
                       backdropFilter: "blur(12px)",
-                      boxShadow: "0 2px 10px rgba(0,0,0,0.18)",
+                      boxShadow: "0 3px 12px rgba(0,0,0,0.25)",
                     }}
                   >
                     <b.icon size={12} style={{ color: b.color, flexShrink: 0 }} />
-                    <p className="text-[10px] sm:text-[9px] font-bold text-white leading-tight">{b.value}</p>
+                    <p
+                      className="text-[10px] sm:text-[9px] font-bold text-white leading-tight"
+                      style={{ textShadow: "0 1px 2px rgba(0,0,0,0.5)" }}
+                    >
+                      {b.value}
+                    </p>
                   </div>
                 ))}
               </motion.div>
