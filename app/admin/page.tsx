@@ -197,6 +197,7 @@ type ContentData = {
   ogImage?: string;
   faviconUrl?: string;
   sectionOrder?: string[];
+  navbar?: { ctaLabel?: string; b2bPortalUrl?: string; links?: { label: string; href: string }[] };
 };
 
 type Dealer = {
@@ -3051,6 +3052,22 @@ export default function AdminPage() {
                     </div>
                     <Field label="Adres (Şehir / Bölge)" value={content.contact.address} onChange={(v) => updateContent(["contact", "address"], v)} />
                     <Field label="Adres Alt Satır" value={content.contact.addressSub} onChange={(v) => updateContent(["contact", "addressSub"], v)} />
+                  </div>
+
+                  {/* B2B Portal kısayolu */}
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                    <div>
+                      <p className="text-xs font-semibold text-white/50 mb-0.5">B2B Portal Linki</p>
+                      <p className="text-[11px] text-white/30 leading-relaxed">
+                        Navbar&apos;da &quot;Bize Ulaşın&quot; tuşunun yanında küçük bir &quot;B2B&quot; pill olarak gözükür. Bayilerimiz tek tıkla B2B portala ulaşır. URL boş bırakılırsa pill hiç render edilmez.
+                      </p>
+                    </div>
+                    <Field
+                      label="B2B Portal URL"
+                      value={content.navbar?.b2bPortalUrl ?? ""}
+                      onChange={(v) => updateContent(["navbar", "b2bPortalUrl"], v)}
+                      placeholder="https://b2b.bemisevcharge.com.tr"
+                    />
                   </div>
 
                   {/* WhatsApp ayarları */}

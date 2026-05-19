@@ -463,6 +463,36 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
             >
               <E field="navbar.ctaLabel" tag="span">{navbarContent?.ctaLabel ?? "Bize Ulaşın"}</E>
             </button>
+            {/* B2B Portal kısayolu — sadece admin'den URL girilmişse görünür.
+                "Bize Ulaşın" CTA'sının hemen sağında, küçük + diskret bir
+                pill. Yeni sekmede açılır. Aramaya değil "ürünleri görenler
+                buradan giriyor" hissi vermesin diye CTA-gradient'siz, light
+                bordürlü tasarım. */}
+            {navbarContent?.b2bPortalUrl?.trim() && (
+              <a
+                href={navbarContent.b2bPortalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="B2B Portal"
+                title="B2B Portal"
+                className="ml-1.5 inline-flex items-center px-2 py-1 rounded-md text-[10px] font-bold tracking-[0.12em] uppercase transition-colors"
+                style={{
+                  color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.70)",
+                  border: `1px solid ${isDark ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.18)"}`,
+                  background: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.color = isDark ? "#ffffff" : "#3B82F6";
+                  (e.currentTarget as HTMLElement).style.borderColor = isDark ? "rgba(96,165,250,0.55)" : "rgba(59,130,246,0.55)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.70)";
+                  (e.currentTarget as HTMLElement).style.borderColor = isDark ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.18)";
+                }}
+              >
+                B2B
+              </a>
+            )}
           </div>
 
           {/* Mobile right */}
@@ -583,6 +613,23 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
               >
                 <E field="navbar.ctaLabel" tag="span">{navbarContent?.ctaLabel ?? "Bize Ulaşın"}</E>
               </button>
+              {/* Mobile B2B Portal kısayolu — sadece admin'den URL doluysa. */}
+              {navbarContent?.b2bPortalUrl?.trim() && (
+                <a
+                  href={navbarContent.b2bPortalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                  className="mt-2 inline-flex items-center justify-center py-2.5 rounded-lg text-xs font-bold tracking-[0.12em] uppercase transition-colors"
+                  style={{
+                    color: isDark ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.75)",
+                    border: `1px solid ${isDark ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.18)"}`,
+                    background: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)",
+                  }}
+                >
+                  B2B Portal
+                </a>
+              )}
             </div>
           </motion.div>
         )}

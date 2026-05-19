@@ -285,7 +285,7 @@ export type SiteContent = {
     subheading: string;
     items: ReferenceProject[];
   };
-  navbar: { ctaLabel: string; links: { label: string; href: string }[] };
+  navbar: { ctaLabel: string; links: { label: string; href: string }[]; b2bPortalUrl?: string };
   footer: {
     description: string; followLabel: string; copyright: string;
     rightsLabel: string; tagline: string;
@@ -623,6 +623,7 @@ const defaultContent: SiteContent = {
   },
   navbar: {
     ctaLabel: "Bize Ulaşın",
+    b2bPortalUrl: "",
     links: [
       { label: "Ana Sayfa",   href: "#hero"              },
       { label: "Hakkımızda",  href: "#dna"               },
