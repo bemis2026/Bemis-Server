@@ -475,7 +475,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                 rel="noopener noreferrer"
                 aria-label="B2B Portal"
                 title="B2B Portal"
-                className="ml-1.5 inline-flex items-center px-2 py-1 rounded-md text-[10px] font-bold tracking-[0.12em] uppercase transition-colors"
+                className="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold tracking-[0.10em] uppercase transition-colors leading-none"
                 style={{
                   color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.70)",
                   border: `1px solid ${isDark ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.18)"}`,
@@ -613,22 +613,26 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
               >
                 <E field="navbar.ctaLabel" tag="span">{navbarContent?.ctaLabel ?? "Bize Ulaşın"}</E>
               </button>
-              {/* Mobile B2B Portal kısayolu — sadece admin'den URL doluysa. */}
+              {/* Mobile B2B Portal kısayolu — sadece admin'den URL doluysa.
+                  Desktop pill ile aynı diskret stil, drawer'ın altında ortalı
+                  küçük bir pill (full-width değil) — primary CTA'yı bastırmasın. */}
               {navbarContent?.b2bPortalUrl?.trim() && (
-                <a
-                  href={navbarContent.b2bPortalUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setMobileOpen(false)}
-                  className="mt-2 inline-flex items-center justify-center py-2.5 rounded-lg text-xs font-bold tracking-[0.12em] uppercase transition-colors"
-                  style={{
-                    color: isDark ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.75)",
-                    border: `1px solid ${isDark ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.18)"}`,
-                    background: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)",
-                  }}
-                >
-                  B2B Portal
-                </a>
+                <div className="mt-2 flex justify-center">
+                  <a
+                    href={navbarContent.b2bPortalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileOpen(false)}
+                    className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold tracking-[0.10em] uppercase transition-colors leading-none"
+                    style={{
+                      color: isDark ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.75)",
+                      border: `1px solid ${isDark ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.18)"}`,
+                      background: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)",
+                    }}
+                  >
+                    B2B Portal
+                  </a>
+                </div>
               )}
             </div>
           </motion.div>
