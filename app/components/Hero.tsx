@@ -158,7 +158,7 @@ export default function Hero() {
                 style={{
                   backgroundImage: d
                     ? "linear-gradient(135deg, #93C5FD 0%, #3B82F6 100%)"
-                    : "linear-gradient(135deg, #1D4ED8 0%, #3B82F6 100%)",
+                    : "linear-gradient(135deg, #3B82F6 0%, #3B82F6 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
