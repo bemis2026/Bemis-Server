@@ -1237,6 +1237,10 @@ export default function DealerNetwork() {
                           key={i}
                           className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6"
                           style={{
+                            // Her rep aynı min yükseklikte — bazı rep'lerde
+                            // whatsapp / subregion / uzun title olsa da diğerleri
+                            // kompakt kalsa da kart tutarlı görünür.
+                            minHeight: 96,
                             paddingTop: i === 0 ? 0 : 14,
                             paddingBottom: i === activeReps.length - 1 ? 0 : 14,
                             borderTop: i > 0 ? `1px solid ${d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}` : "none",
@@ -1272,10 +1276,10 @@ export default function DealerNetwork() {
                                 Bemis Yetkilisi
                               </p>
                               <p className="text-sm font-semibold leading-tight mt-1" style={{ color: d ? "#ffffff" : "#111111" }}>
-                                {rep.name || activeCityLabel}
+                                {(rep.name || activeCityLabel).trim()}
                               </p>
                               <p className="text-xs leading-tight mt-0.5" style={{ color: d ? "rgba(255,255,255,0.62)" : "rgba(0,0,0,0.60)" }}>
-                                {rep.title || `${activeCityLabel} Bölge Temsilcisi`}
+                                {(rep.title || `${activeCityLabel} Bölge Temsilcisi`).trim()}
                               </p>
                               {rep.subregion && rep.subregion.trim().length > 0 && (
                                 <p className="text-[11px] font-medium leading-tight mt-0.5 inline-flex items-center gap-1" style={{ color: d ? "#93C5FD" : BLUE }}>
