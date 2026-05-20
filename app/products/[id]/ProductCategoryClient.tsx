@@ -202,20 +202,13 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
           Empty slots after the last card read as expected catalog
           rhythm, not "broken layout". */}
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-10">
-        {(() => {
-          // Adaptive grid — az ürünlü kategoriler (AC Mobile, DC Units gibi)
-          // 5-sütunlu yoğun grid'de küçük kartlar olarak sıkışıyordu.
-          // 4 ürün ve altıysa 3-sütunlu seyrek grid → her kart yatayda
-          // belirgin şekilde daha geniş. Kalabalık kategoriler (cables,
-          // converters) yine 5-sütun yoğun grid'i kullanır.
-          const groups = groupVariantsByName(category.products ?? []);
-          const sparse = groups.length <= 4;
-          const gridCls = sparse
-            ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
-            : "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4";
-          return (
-        <div className={gridCls}>
-          {groups.map((group, pi) => {
+        {/* 5-sütunlu yoğun grid — her kategori için aynı kart boyutu.
+            Az ürünlü kategoriler (AC Mobile Charger gibi) ilk slot'lardan
+            soldan başlar, kalan slot'lar boş kalır (CSS grid default).
+            Önceki adaptive 3-sütun grid kartları tüm satıra yayıyordu,
+            ortalanmış görünüyordu — bu hâl daha tutarlı. */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
+          {groupVariantsByName(category.products ?? []).map((group, pi) => {
             const product = group.primary;
             const variantCount = group.variants.length;
             return (
@@ -315,8 +308,6 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
             );
           })}
         </div>
-          );
-        })()}
       </div>
 
       {/* Push ContactBar to the bottom of the flex column on short
