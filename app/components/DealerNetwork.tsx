@@ -1276,10 +1276,10 @@ export default function DealerNetwork() {
                                 Bemis Yetkilisi
                               </p>
                               <p className="text-sm font-semibold leading-tight mt-1" style={{ color: d ? "#ffffff" : "#111111" }}>
-                                {(rep.name || activeCityLabel).trim()}
+                                {(rep.name || activeCityLabel || "").trim()}
                               </p>
                               <p className="text-xs leading-tight mt-0.5" style={{ color: d ? "rgba(255,255,255,0.62)" : "rgba(0,0,0,0.60)" }}>
-                                {(rep.title || `${activeCityLabel} Bölge Temsilcisi`).trim()}
+                                {(rep.title || `${activeCityLabel ?? ""} Bölge Temsilcisi`).trim()}
                               </p>
                               {rep.subregion && rep.subregion.trim().length > 0 && (
                                 <p className="text-[11px] font-medium leading-tight mt-0.5 inline-flex items-center gap-1" style={{ color: d ? "#93C5FD" : BLUE }}>
