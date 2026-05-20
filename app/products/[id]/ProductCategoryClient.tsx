@@ -219,15 +219,11 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                   background: surface,
                   border: `1px solid ${surfaceBorder}`,
                   cursor: "pointer",
-                  // Pin a minimum card height so categories with short
-                  // single-variant subtitles (portable: "Tek Fazlı ·
-                  // 2,3 - 3,7 kW") still render at the same vertical
-                  // size as categories with longer joined-variant
-                  // subtitles (wallbox: "5m. Kablolu · Pano Prizli").
-                  // Otherwise the grid lays them out at different
-                  // heights across categories and the operator reads
-                  // it as "AC Mobile cards look different".
-                  minHeight: 320,
+                  // minHeight kaldırıldı — CSS grid satırları zaten en uzun
+                  // kartın yüksekliğine kilitleniyor (grid items align stretch
+                  // default). Sabit minHeight: 320 az içerikli kartlarda
+                  // (AC Mobile gibi) alt taraf boşluğu yaratıyor; /products
+                  // sayfasındaki kartlardan görsel olarak farklılaşıyordu.
                 }}
                 onMouseEnter={e => {
                   (e.currentTarget as HTMLDivElement).style.borderColor = `${accent}45`;
@@ -238,9 +234,11 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                   (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
                 }}
               >
-                {/* Product image / icon */}
+                {/* Product image / icon — height /products listesindeki
+                    kartlarla aynı (170px); object-contain ile küçük cihazlar
+                    da kartın orta noktasında pürüzsüz oturur. */}
                 <div className="relative overflow-hidden" onClick={() => router.push(`/products/${id}/${product.id}`)}
-                  style={{ height: 180, background: d ? `linear-gradient(145deg, ${accent}18 0%, transparent 100%), #1c1c1f` : `linear-gradient(145deg, ${accent}14 0%, transparent 100%), #fafafa` }}>
+                  style={{ height: 170, background: d ? `linear-gradient(145deg, ${accent}18 0%, transparent 100%), #1c1c1f` : `linear-gradient(145deg, ${accent}14 0%, transparent 100%), #fafafa` }}>
                   {(product.images?.[0] ?? product.image) ? (
                     <Image src={(product.images?.[0] ?? product.image) as string} alt={product.name}
                       fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
