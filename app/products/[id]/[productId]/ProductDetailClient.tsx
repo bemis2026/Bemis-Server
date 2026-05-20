@@ -701,19 +701,36 @@ export default function ProductDetailPage({
                                   <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: BRAND_BLUE }}>Fiyat Listesi</span>
                                   <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full" style={{ background: `${BRAND_BLUE}15`, color: BRAND_BLUE }}>KDV Hariç</span>
                                 </div>
-                                {priceRows.map((row, i) => (
-                                  <div
-                                    key={i}
-                                    className="px-4 py-2 flex items-center justify-between gap-3"
-                                    style={{ borderTop: i > 0 ? `1px solid ${BRAND_BLUE}1a` : "none" }}
-                                  >
-                                    <span className="text-xs" style={{ color: textMuted }}>{row.label}</span>
-                                    <span className="text-sm font-bold text-right inline-flex items-baseline gap-1.5" style={{ color: BRAND_BLUE }}>
-                                      {formatPrice(row.value, currency, tryPerEur)}
-                                      <span className="text-[10px] font-medium opacity-70">+ KDV</span>
-                                    </span>
-                                  </div>
-                                ))}
+                                {priceRows.map((row, i) => {
+                                  // TR dilinde iki para birimi yan yana
+                                  // (TRY ana, EUR ikincil). EN dilinde sadece
+                                  // EUR. Sayı parse edilemiyorsa formatPrice
+                                  // raw string'i aynen döndürür → ikincil
+                                  // tutar gizlenir, sadece label görünür.
+                                  const tryText = formatPrice(row.value, "TRY", tryPerEur);
+                                  const eurText = formatPrice(row.value, "EUR", tryPerEur);
+                                  const hasNumeric = /\d/.test(row.value);
+                                  return (
+                                    <div
+                                      key={i}
+                                      className="px-4 py-2 flex items-center justify-between gap-3"
+                                      style={{ borderTop: i > 0 ? `1px solid ${BRAND_BLUE}1a` : "none" }}
+                                    >
+                                      <span className="text-xs" style={{ color: textMuted }}>{row.label}</span>
+                                      <span className="text-sm font-bold text-right inline-flex items-baseline gap-1.5 flex-wrap justify-end" style={{ color: BRAND_BLUE }}>
+                                        {currency === "TRY" && hasNumeric ? (
+                                          <>
+                                            <span>{tryText}</span>
+                                            <span className="text-[11px] font-semibold opacity-60">· {eurText}</span>
+                                          </>
+                                        ) : (
+                                          <span>{currency === "TRY" ? tryText : eurText}</span>
+                                        )}
+                                        <span className="text-[10px] font-medium opacity-70">+ KDV</span>
+                                      </span>
+                                    </div>
+                                  );
+                                })}
                               </div>
                             );
                           })()}
