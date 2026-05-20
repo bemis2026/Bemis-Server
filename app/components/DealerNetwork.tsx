@@ -223,16 +223,19 @@ export default function DealerNetwork() {
     ? allRegionDealers.filter((d) => d._cityId === cityFilter)
     : allRegionDealers;
   const activeCityLabel = activeRegion?.label;
-  // Bemis regional rep matched on regionId. Only render the card when at
-  // least the rep's name or phone is set — empty default reps stay hidden.
-  const activeRep = activeRegion
-    ? (dealerSection.regionReps ?? []).find((r) => r.regionId === activeRegion.id)
-    : undefined;
-  const hasActiveRep = !!activeRep && (
-    (activeRep.name && activeRep.name.trim().length > 0) ||
-    (activeRep.phone && activeRep.phone.trim().length > 0) ||
-    (activeRep.email && activeRep.email.trim().length > 0)
-  );
+  // Bemis regional reps matched on regionId — birden fazla temsilci olabilir.
+  // Sadece en az bir alan dolu olan rep'ler render edilir; boş kayıtlar gizli.
+  const activeReps = activeRegion
+    ? (dealerSection.regionReps ?? []).filter((r) =>
+        r.regionId === activeRegion.id &&
+        ((r.name && r.name.trim().length > 0) ||
+         (r.phone && r.phone.trim().length > 0) ||
+         (r.email && r.email.trim().length > 0))
+      )
+    : [];
+  const hasActiveRep = activeReps.length > 0;
+  // Geriye dönük uyumluluk: card üst kısmında tekil isim/ünvan placeholder.
+  const activeRep = activeReps[0];
 
   // Touch devices synthesize mouseenter/mouseleave around tap, which would
   // flicker hoveredCity on/off. Gate hover state on real pointing devices.
@@ -1225,80 +1228,102 @@ export default function DealerNetwork() {
                       boxShadow: `0 0 0 1px ${BLUE}15, 0 6px 22px ${BLUE}25`,
                     }}
                   >
-                    <div className="px-5 py-4 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
-                      {/* Identity */}
-                      <div className="flex items-center gap-3 flex-shrink-0">
-                        <span
-                          className="inline-flex items-center justify-center rounded-full overflow-hidden"
+                    {/* Tek bölgeye birden fazla temsilci atanabiliyor; her
+                        temsilci için ayrı satır. Tek temsilcisi olanlar eskisi
+                        gibi tek satır olarak render olur. */}
+                    <div className="px-5 py-4 flex flex-col divide-y" style={{ borderColor: "transparent" }}>
+                      {activeReps.map((rep, i) => (
+                        <div
+                          key={i}
+                          className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6"
                           style={{
-                            width: 38, height: 38,
-                            // Brand red — matches /icon's generated fallback so a
-                            // white-on-transparent favicon stays visible.
-                            background: "#E11D48",
-                            border: "1px solid rgba(225,29,72,0.55)",
-                            boxShadow: "0 0 0 2px rgba(225,29,72,0.20), 0 4px 10px rgba(225,29,72,0.20)",
+                            paddingTop: i === 0 ? 0 : 14,
+                            paddingBottom: i === activeReps.length - 1 ? 0 : 14,
+                            borderTop: i > 0 ? `1px solid ${d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}` : "none",
                           }}
                         >
-                          {/* Use the same /icon route the browser uses for the URL
-                              favicon — guarantees both match pixel-for-pixel. */}
-                          <img
-                            src="/favicon-white-192.png"
-                            alt="Bemis E-V Charge"
-                            width={32}
-                            height={32}
-                            className="object-contain"
-                            style={{ padding: 3 }}
+                          {/* Identity */}
+                          <div className="flex items-center gap-3 flex-shrink-0">
+                            <span
+                              className="inline-flex items-center justify-center rounded-full overflow-hidden"
+                              style={{
+                                width: 38, height: 38,
+                                background: "#E11D48",
+                                border: "1px solid rgba(225,29,72,0.55)",
+                                boxShadow: "0 0 0 2px rgba(225,29,72,0.20), 0 4px 10px rgba(225,29,72,0.20)",
+                              }}
+                            >
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img
+                                src="/favicon-white-192.png"
+                                alt="Bemis E-V Charge"
+                                width={32}
+                                height={32}
+                                className="object-contain"
+                                style={{ padding: 3 }}
+                              />
+                            </span>
+                            <div>
+                              <p className="text-[10px] font-bold tracking-[0.18em] uppercase" style={{ color: d ? "#93C5FD" : BLUE }}>
+                                Bemis Yetkilisi
+                              </p>
+                              <p className="text-sm font-semibold leading-tight mt-0.5" style={{ color: d ? "#ffffff" : "#111111" }}>
+                                {rep.name || activeCityLabel}
+                              </p>
+                              <p className="text-xs" style={{ color: d ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.55)" }}>
+                                {rep.title || `${activeCityLabel} Bölge Temsilcisi`}
+                              </p>
+                            </div>
+                          </div>
+
+                          {/* Vertical divider — desktop only, between identity and contact */}
+                          <div
+                            className="hidden sm:block w-px self-stretch"
+                            style={{ background: d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)" }}
                           />
-                        </span>
-                        <div>
-                          <p className="text-[10px] font-bold tracking-[0.18em] uppercase" style={{ color: d ? "#93C5FD" : BLUE }}>
-                            Bemis Yetkilisi
-                          </p>
-                          <p className="text-sm font-semibold leading-tight mt-0.5" style={{ color: d ? "#ffffff" : "#111111" }}>
-                            {activeRep?.name || activeCityLabel}
-                          </p>
-                          <p className="text-xs" style={{ color: d ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.55)" }}>
-                            {activeRep?.title || `${activeCityLabel} Bölge Temsilcisi`}
-                          </p>
+
+                          {/* Contact rows */}
+                          <div className="flex flex-col sm:flex-row gap-2 sm:gap-5 flex-wrap">
+                            {rep.phone && (
+                              <a
+                                href={`tel:${rep.phone.replace(/[^\d+]/g, "")}`}
+                                className="text-sm flex items-center gap-2 transition-colors hover:underline"
+                                style={{ color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.80)" }}
+                              >
+                                <HiPhone className="flex-shrink-0" size={14} style={{ color: d ? "#93C5FD" : BLUE }} />
+                                {rep.phone}
+                              </a>
+                            )}
+                            {rep.email && (
+                              <a
+                                href={`mailto:${rep.email}`}
+                                className="text-sm flex items-center gap-2 transition-colors hover:underline"
+                                style={{ color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.80)" }}
+                              >
+                                <HiMail className="flex-shrink-0" size={14} style={{ color: d ? "#93C5FD" : BLUE }} />
+                                {rep.email}
+                              </a>
+                            )}
+                            {rep.whatsapp && (
+                              <a
+                                href={`https://wa.me/${rep.whatsapp.replace(/[^\d+]/g, "").replace(/^\+/, "")}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-sm flex items-center gap-2 transition-colors hover:underline"
+                                style={{ color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.80)" }}
+                              >
+                                <RiWhatsappLine className="flex-shrink-0" size={14} style={{ color: d ? "#86EFAC" : "#22C55E" }} />
+                                {rep.whatsapp}
+                              </a>
+                            )}
+                            {!rep.phone && !rep.email && !rep.whatsapp && (
+                              <p className="text-xs italic" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>
+                                İletişim bilgileri için aşağıdaki forma yazabilirsiniz.
+                              </p>
+                            )}
+                          </div>
                         </div>
-                      </div>
-
-                      {/* Divider — vertical on desktop, horizontal on mobile */}
-                      <div
-                        className="hidden sm:block w-px self-stretch"
-                        style={{ background: d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)" }}
-                      />
-
-                      {/* Contact rows — phone + email only (no WhatsApp).
-                          When neither is filled, show a soft placeholder so
-                          the card layout stays the same across regions. */}
-                      <div className="flex flex-col sm:flex-row gap-2 sm:gap-5 flex-wrap">
-                        {activeRep?.phone && (
-                          <a
-                            href={`tel:${activeRep.phone.replace(/[^\d+]/g, "")}`}
-                            className="text-sm flex items-center gap-2 transition-colors hover:underline"
-                            style={{ color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.80)" }}
-                          >
-                            <HiPhone className="flex-shrink-0" size={14} style={{ color: d ? "#93C5FD" : BLUE }} />
-                            {activeRep.phone}
-                          </a>
-                        )}
-                        {activeRep?.email && (
-                          <a
-                            href={`mailto:${activeRep.email}`}
-                            className="text-sm flex items-center gap-2 transition-colors hover:underline"
-                            style={{ color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.80)" }}
-                          >
-                            <HiMail className="flex-shrink-0" size={14} style={{ color: d ? "#93C5FD" : BLUE }} />
-                            {activeRep.email}
-                          </a>
-                        )}
-                        {!activeRep?.phone && !activeRep?.email && (
-                          <p className="text-xs italic" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>
-                            İletişim bilgileri için aşağıdaki forma yazabilirsiniz.
-                          </p>
-                        )}
-                      </div>
+                      ))}
                     </div>
                   </div>
                 </motion.div>

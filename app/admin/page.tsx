@@ -4870,50 +4870,106 @@ export default function AdminPage() {
                         { id: "guneydogu",  label: "Güneydoğu Anadolu" },
                       ];
 
-                      const updateRep = (regionId: string, field: "name" | "title" | "phone" | "email", value: string) => {
+                      // Her temsilci array içindeki global index'iyle update/delete edilir.
+                      // Aynı bölgeye birden fazla temsilci eklenebilir; her temsilci
+                      // bağımsız bir kayıt. Önceki "findIndex(regionId)" mantığı ilk
+                      // eşleşeni güncellediği için 2.-3. temsilci kaydedilemiyordu.
+                      const updateRepAt = (globalIdx: number, field: "name" | "title" | "phone" | "email" | "whatsapp", value: string) => {
                         setContent((prev) => {
                           if (!prev) return prev;
                           const next = JSON.parse(JSON.stringify(prev)) as ContentData;
                           const arr = [...(next.dealer.regionReps ?? [])];
-                          const idx = arr.findIndex((r) => r.regionId === regionId);
-                          if (idx >= 0) {
-                            arr[idx] = { ...arr[idx], [field]: value };
-                          } else {
-                            const region = REGION_LABELS.find((r) => r.id === regionId);
-                            arr.push({
-                              regionId,
-                              name: "",
-                              title: region ? `${region.label} Bölge Temsilcisi` : "",
-                              phone: "",
-                              email: "",
-                              [field]: value,
-                            });
+                          if (arr[globalIdx]) {
+                            arr[globalIdx] = { ...arr[globalIdx], [field]: value };
+                            next.dealer.regionReps = arr;
                           }
+                          return next;
+                        });
+                      };
+
+                      const removeRepAt = (globalIdx: number) => {
+                        setContent((prev) => {
+                          if (!prev) return prev;
+                          const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                          const arr = [...(next.dealer.regionReps ?? [])];
+                          arr.splice(globalIdx, 1);
+                          next.dealer.regionReps = arr;
+                          return next;
+                        });
+                      };
+
+                      const addRep = (regionId: string, regionLabel: string) => {
+                        setContent((prev) => {
+                          if (!prev) return prev;
+                          const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                          const arr = [...(next.dealer.regionReps ?? [])];
+                          arr.push({
+                            regionId,
+                            name: "",
+                            title: `${regionLabel} Bölge Temsilcisi`,
+                            phone: "",
+                            email: "",
+                            whatsapp: "",
+                          });
                           next.dealer.regionReps = arr;
                           return next;
                         });
                       };
 
                       return REGION_LABELS.map((region) => {
-                        const rep = (content.dealer.regionReps ?? []).find((r) => r.regionId === region.id);
+                        const allReps = content.dealer.regionReps ?? [];
+                        const regionReps = allReps
+                          .map((r, i) => ({ rep: r, globalIdx: i }))
+                          .filter((x) => x.rep.regionId === region.id);
+
                         return (
                           <div key={region.id} className="rounded-xl border border-white/7 p-3 space-y-2" style={{ background: "rgba(255,255,255,0.02)" }}>
                             <div className="flex items-center justify-between mb-1">
                               <span className="text-[10px] font-bold text-white/55 uppercase tracking-wider">{region.label}</span>
-                              {rep && (rep.name || rep.phone || rep.email) && (
+                              {regionReps.length > 0 && (
                                 <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full" style={{ background: "rgba(59,130,246,0.18)", color: "#93C5FD" }}>
-                                  Aktif
+                                  {regionReps.length} temsilci
                                 </span>
                               )}
                             </div>
-                            <div className="grid grid-cols-2 gap-2">
-                              <Field label="Ad Soyad" value={rep?.name ?? ""} onChange={(v) => updateRep(region.id, "name", v)} />
-                              <Field label="Ünvan" value={rep?.title ?? ""} onChange={(v) => updateRep(region.id, "title", v)} placeholder={`${region.label} Bölge Temsilcisi`} />
-                            </div>
-                            <div className="grid grid-cols-2 gap-2">
-                              <Field label="Telefon" value={rep?.phone ?? ""} onChange={(v) => updateRep(region.id, "phone", v)} placeholder="+90 ..." />
-                              <Field label="E-Posta" value={rep?.email ?? ""} onChange={(v) => updateRep(region.id, "email", v)} validate={validateEmail} />
-                            </div>
+
+                            {regionReps.length === 0 && (
+                              <p className="text-[11px] text-white/30 italic py-1">Bu bölgede henüz temsilci yok.</p>
+                            )}
+
+                            {regionReps.map(({ rep, globalIdx }, localIdx) => (
+                              <div key={globalIdx} className="rounded-lg border border-white/5 p-2.5 space-y-2" style={{ background: "rgba(255,255,255,0.025)" }}>
+                                <div className="flex items-center justify-between mb-0.5">
+                                  <span className="text-[9px] font-bold text-white/40 uppercase tracking-wider">Temsilci {localIdx + 1}</span>
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      if (confirm("Bu temsilciyi silmek istediğine emin misin?")) removeRepAt(globalIdx);
+                                    }}
+                                    className="text-[10px] font-semibold text-red-300/80 hover:text-red-200 px-2 py-0.5 rounded hover:bg-red-500/10 transition-colors"
+                                  >
+                                    Sil
+                                  </button>
+                                </div>
+                                <div className="grid grid-cols-2 gap-2">
+                                  <Field label="Ad Soyad" value={rep.name ?? ""} onChange={(v) => updateRepAt(globalIdx, "name", v)} />
+                                  <Field label="Ünvan" value={rep.title ?? ""} onChange={(v) => updateRepAt(globalIdx, "title", v)} placeholder={`${region.label} Bölge Temsilcisi`} />
+                                </div>
+                                <div className="grid grid-cols-2 gap-2">
+                                  <Field label="Telefon" value={rep.phone ?? ""} onChange={(v) => updateRepAt(globalIdx, "phone", v)} placeholder="+90 ..." />
+                                  <Field label="E-Posta" value={rep.email ?? ""} onChange={(v) => updateRepAt(globalIdx, "email", v)} validate={validateEmail} />
+                                </div>
+                                <Field label="WhatsApp (opsiyonel)" value={rep.whatsapp ?? ""} onChange={(v) => updateRepAt(globalIdx, "whatsapp", v)} placeholder="+90 ..." />
+                              </div>
+                            ))}
+
+                            <button
+                              type="button"
+                              onClick={() => addRep(region.id, region.label)}
+                              className="w-full border border-dashed border-white/15 hover:border-blue-400/40 hover:bg-blue-500/5 rounded-lg py-2 text-[11px] font-semibold text-white/45 hover:text-blue-300 transition-all"
+                            >
+                              + Bu Bölgeye Temsilci Ekle
+                            </button>
                           </div>
                         );
                       });

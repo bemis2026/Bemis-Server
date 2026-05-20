@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { RiImageAddLine } from "react-icons/ri";
 import { HiOutlineStar, HiOutlineTrash, HiOutlinePhotograph, HiOutlineX } from "react-icons/hi";
+import { uploadDocument } from "../../../lib/clientDocumentUpload";
 
 type DocEntry = {
   id: string; title: string; description: string; category: string;
@@ -66,12 +67,10 @@ export default function DocumentsPanel() {
     const file = e.target.files?.[0];
     if (!file) return;
     setUploadLoading(true);
-    const fd = new FormData();
-    fd.append("file", file);
-    fd.append("folder", "documents");
-    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
-    const json = await res.json();
-    if (res.ok && json.url) {
+    try {
+      // uploadDocument: env varsa direct Cloudinary (Vercel limit bypass);
+      // yoksa eski /api/admin/upload akışı.
+      const { url } = await uploadDocument(file, "documents");
       const sizeKb = Math.round(file.size / 1024);
       const sizeStr = sizeKb > 1024 ? `${(sizeKb / 1024).toFixed(1)} MB` : `${sizeKb} KB`;
       const newDoc: DocEntry = {
@@ -79,7 +78,7 @@ export default function DocumentsPanel() {
         title: file.name.replace(/\.[^.]+$/, "").replace(/[-_]/g, " "),
         description: "",
         category: "other",
-        url: json.url,
+        url,
         filename: file.name,
         size: sizeStr,
         lang: "tr",
@@ -88,8 +87,8 @@ export default function DocumentsPanel() {
       };
       setEditDoc(newDoc);
       setShowModal(true);
-    } else {
-      alert(`Yükleme başarısız: ${json?.error ?? "Bilinmeyen hata"}`);
+    } catch (err) {
+      alert(`Yükleme başarısız: ${(err as Error).message}`);
     }
     setUploadLoading(false);
     if (uploadRef.current) uploadRef.current.value = "";
