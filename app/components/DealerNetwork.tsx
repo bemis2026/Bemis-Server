@@ -1246,8 +1246,10 @@ export default function DealerNetwork() {
                             borderTop: i > 0 ? `1px solid ${d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}` : "none",
                           }}
                         >
-                          {/* Identity */}
-                          <div className="flex items-center gap-3 flex-shrink-0">
+                          {/* Identity — sabit genişlik, sabit 4 satır slot
+                              (eyebrow, ad, ünvan, alt bölge). Eksik alanlarda
+                              da yer rezerve edilir → her rep aynı boyut. */}
+                          <div className="flex items-center gap-3 flex-shrink-0 sm:w-[280px]">
                             <span
                               className="inline-flex items-center justify-center rounded-full overflow-hidden"
                               style={{
@@ -1267,11 +1269,7 @@ export default function DealerNetwork() {
                                 style={{ padding: 3 }}
                               />
                             </span>
-                            <div className="min-w-0">
-                              {/* Sabit dizilim — her temsilci aynı 4 satır
-                                  formatında gösterilir: eyebrow / ad / ünvan /
-                                  alt bölge. Eksik alanlar yer kaplamaz ama
-                                  dolu olanlar her zaman aynı boyutta. */}
+                            <div className="min-w-0 flex-1">
                               <p className="text-[10px] font-bold tracking-[0.18em] uppercase leading-tight" style={{ color: d ? "#93C5FD" : BLUE }}>
                                 Bemis Yetkilisi
                               </p>
@@ -1281,12 +1279,20 @@ export default function DealerNetwork() {
                               <p className="text-xs leading-tight mt-0.5" style={{ color: d ? "rgba(255,255,255,0.62)" : "rgba(0,0,0,0.60)" }}>
                                 {(rep.title || `${activeCityLabel ?? ""} Bölge Temsilcisi`).trim()}
                               </p>
-                              {rep.subregion && rep.subregion.trim().length > 0 && (
-                                <p className="text-[11px] font-medium leading-tight mt-0.5 inline-flex items-center gap-1" style={{ color: d ? "#93C5FD" : BLUE }}>
-                                  <HiLocationMarker size={11} className="flex-shrink-0" />
-                                  {rep.subregion}
-                                </p>
-                              )}
+                              {/* Subregion slot — boş ise görünmez ama 16px
+                                  yer kaplar → her rep'in identity bloğu 4
+                                  satırlık eşit yüksekliği korur. */}
+                              <p
+                                className="text-[11px] font-medium leading-tight mt-0.5 inline-flex items-center gap-1"
+                                style={{
+                                  color: d ? "#93C5FD" : BLUE,
+                                  minHeight: 16,
+                                  visibility: rep.subregion && rep.subregion.trim().length > 0 ? "visible" : "hidden",
+                                }}
+                              >
+                                <HiLocationMarker size={11} className="flex-shrink-0" />
+                                {rep.subregion?.trim() || "—"}
+                              </p>
                             </div>
                           </div>
 
@@ -1296,42 +1302,52 @@ export default function DealerNetwork() {
                             style={{ background: d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)" }}
                           />
 
-                          {/* Contact rows */}
-                          <div className="flex flex-col sm:flex-row gap-2 sm:gap-5 flex-wrap">
-                            {rep.phone && (
-                              <a
-                                href={`tel:${rep.phone.replace(/[^\d+]/g, "")}`}
-                                className="text-sm flex items-center gap-2 transition-colors hover:underline"
-                                style={{ color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.80)" }}
-                              >
-                                <HiPhone className="flex-shrink-0" size={14} style={{ color: d ? "#93C5FD" : BLUE }} />
-                                {rep.phone}
-                              </a>
-                            )}
-                            {rep.email && (
-                              <a
-                                href={`mailto:${rep.email}`}
-                                className="text-sm flex items-center gap-2 transition-colors hover:underline"
-                                style={{ color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.80)" }}
-                              >
-                                <HiMail className="flex-shrink-0" size={14} style={{ color: d ? "#93C5FD" : BLUE }} />
-                                {rep.email}
-                              </a>
-                            )}
-                            {rep.whatsapp && (
-                              <a
-                                href={`https://wa.me/${rep.whatsapp.replace(/[^\d+]/g, "").replace(/^\+/, "")}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-sm flex items-center gap-2 transition-colors hover:underline"
-                                style={{ color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.80)" }}
-                              >
-                                <RiWhatsappLine className="flex-shrink-0" size={14} style={{ color: d ? "#86EFAC" : "#22C55E" }} />
-                                {rep.whatsapp}
-                              </a>
-                            )}
+                          {/* Contact rows — sabit dizilim: phone, email,
+                              whatsapp her zaman aynı sıra. Eksik field için
+                              yer ayrılır (visibility hidden) → her rep'in
+                              contact bloğu aynı yükseklikte. flex-col ile
+                              satırlar alt alta sabit. */}
+                          <div className="flex flex-col gap-1.5 flex-1 min-w-0">
+                            <a
+                              href={rep.phone ? `tel:${rep.phone.replace(/[^\d+]/g, "")}` : undefined}
+                              className="text-sm flex items-center gap-2 transition-colors hover:underline"
+                              style={{
+                                color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.80)",
+                                visibility: rep.phone ? "visible" : "hidden",
+                                minHeight: 20,
+                              }}
+                            >
+                              <HiPhone className="flex-shrink-0" size={14} style={{ color: d ? "#93C5FD" : BLUE }} />
+                              {rep.phone || "—"}
+                            </a>
+                            <a
+                              href={rep.email ? `mailto:${rep.email}` : undefined}
+                              className="text-sm flex items-center gap-2 transition-colors hover:underline"
+                              style={{
+                                color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.80)",
+                                visibility: rep.email ? "visible" : "hidden",
+                                minHeight: 20,
+                              }}
+                            >
+                              <HiMail className="flex-shrink-0" size={14} style={{ color: d ? "#93C5FD" : BLUE }} />
+                              {rep.email || "—"}
+                            </a>
+                            <a
+                              href={rep.whatsapp ? `https://wa.me/${rep.whatsapp.replace(/[^\d+]/g, "").replace(/^\+/, "")}` : undefined}
+                              target={rep.whatsapp ? "_blank" : undefined}
+                              rel={rep.whatsapp ? "noopener noreferrer" : undefined}
+                              className="text-sm flex items-center gap-2 transition-colors hover:underline"
+                              style={{
+                                color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.80)",
+                                visibility: rep.whatsapp ? "visible" : "hidden",
+                                minHeight: 20,
+                              }}
+                            >
+                              <RiWhatsappLine className="flex-shrink-0" size={14} style={{ color: d ? "#86EFAC" : "#22C55E" }} />
+                              {rep.whatsapp || "—"}
+                            </a>
                             {!rep.phone && !rep.email && !rep.whatsapp && (
-                              <p className="text-xs italic" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>
+                              <p className="text-xs italic absolute" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>
                                 İletişim bilgileri için aşağıdaki forma yazabilirsiniz.
                               </p>
                             )}
