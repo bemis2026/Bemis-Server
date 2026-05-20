@@ -99,7 +99,7 @@ type CategoryData = { id: string; name: string; tagline: string; accent: string;
 
 type StatItem = { value: number; suffix: string; prefix?: string; label: string; description: string };
 type FaqItem = { q: string; a: string };
-type CategoryMeta = { name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string; sliderImage?: string; description?: string; descriptionImage?: string; faq?: FaqItem[] };
+type CategoryMeta = { name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string; sliderImage?: string; description?: string; descriptionImage?: string; faq?: FaqItem[]; manuals?: { id: string; name: string; url: string; size?: string }[] };
 type FeaturedItem = { categoryId: string; productId: string; badge: string; highlight: string; visible: boolean };
 type ContentData = {
   hero: {
@@ -159,7 +159,7 @@ type ContentData = {
     findDealerTitle?: string; contactBtnLabel?: string;
     citiesLabel?: string; activeDealersLabel?: string;
     mapHint?: string; mapTitle?: string;
-    regionReps?: { regionId: string; name: string; title: string; phone: string; email: string; whatsapp?: string }[];
+    regionReps?: { regionId: string; name: string; title: string; phone: string; email: string; whatsapp?: string; subregion?: string }[];
     internationalDealers?: {
       id: string; countryCode: string; countryName: string;
       lat: number; lng: number; active: boolean;
@@ -2175,6 +2175,106 @@ export default function AdminPage() {
                                     </button>
                                   )}
                                   <p className="text-[10px] text-white/20">Önerilen: 1200×400 WebP/JPG. Kaldırınca slider yerine başlık gösterilir.</p>
+                                </div>
+
+                                {/* Per-category manuals — PDF kullanma kılavuzları.
+                                    Bu kategorideki TÜM ürünlerin detay sayfasında
+                                    "Belgeler" sekmesinde listelenir. Cloudinary
+                                    direct upload (Vercel 4.5MB limit bypass). */}
+                                <div className="rounded-xl border border-white/8 p-3 space-y-2" style={{ background: "rgba(255,255,255,0.02)" }}>
+                                  <div className="flex items-center justify-between">
+                                    <div>
+                                      <p className="text-[11px] font-semibold text-white/55 uppercase tracking-wider">Kullanma Kılavuzları (PDF)</p>
+                                      <p className="text-[10px] text-white/30 mt-0.5">
+                                        Bu kategorideki tüm ürün detay sayfalarında &quot;Belgeler&quot; sekmesinde listelenir.
+                                        {(meta.manuals ?? []).length > 0 && ` ${(meta.manuals ?? []).length} kılavuz.`}
+                                      </p>
+                                    </div>
+                                    <label className="flex items-center gap-1.5 text-xs text-white/50 hover:text-white px-2.5 py-1 rounded-lg border border-white/10 hover:border-white/20 cursor-pointer">
+                                      <HiOutlinePlus size={12} /> PDF Ekle
+                                      <input
+                                        type="file"
+                                        accept="application/pdf,.pdf"
+                                        className="hidden"
+                                        onChange={async (e) => {
+                                          const file = e.target.files?.[0];
+                                          e.currentTarget.value = "";
+                                          if (!file) return;
+                                          try {
+                                            const { uploadDocument } = await import("../../lib/clientDocumentUpload");
+                                            const { url } = await uploadDocument(file, "categories");
+                                            const sizeKb = Math.round(file.size / 1024);
+                                            const sizeStr = sizeKb > 1024 ? `${(sizeKb / 1024).toFixed(1)} MB` : `${sizeKb} KB`;
+                                            setContent((prev) => {
+                                              if (!prev) return prev;
+                                              const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                                              if (!next.categories[catId]) return prev;
+                                              const list = next.categories[catId].manuals ?? [];
+                                              list.push({
+                                                id: `manual-${Date.now()}`,
+                                                name: file.name.replace(/\.[^.]+$/, "").replace(/[-_]/g, " "),
+                                                url,
+                                                size: sizeStr,
+                                              });
+                                              next.categories[catId].manuals = list;
+                                              return next;
+                                            });
+                                          } catch (err) {
+                                            alert(`Yükleme başarısız: ${(err as Error).message}`);
+                                          }
+                                        }}
+                                      />
+                                    </label>
+                                  </div>
+                                  {(meta.manuals ?? []).length === 0 && (
+                                    <p className="text-[11px] text-white/25 italic px-1 py-2">Henüz kılavuz eklenmemiş.</p>
+                                  )}
+                                  {(meta.manuals ?? []).map((manual, idx) => (
+                                    <div key={manual.id} className="rounded-lg border border-white/7 p-2.5 flex items-center gap-2" style={{ background: "rgba(255,255,255,0.02)" }}>
+                                      <span className="text-[10px] text-white/30 font-mono">#{idx + 1}</span>
+                                      <input
+                                        value={manual.name}
+                                        onChange={(e) => {
+                                          setContent((prev) => {
+                                            if (!prev) return prev;
+                                            const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                                            const list = next.categories[catId]?.manuals;
+                                            if (list && list[idx]) list[idx].name = e.target.value;
+                                            return next;
+                                          });
+                                        }}
+                                        placeholder="Kılavuz adı"
+                                        className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-white/30"
+                                      />
+                                      {manual.size && (
+                                        <span className="text-[10px] text-white/30 font-mono">{manual.size}</span>
+                                      )}
+                                      <a
+                                        href={manual.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-[10px] font-semibold text-white/45 hover:text-white px-2 py-1 rounded-md border border-white/10 hover:border-white/25 transition-colors"
+                                      >
+                                        Aç
+                                      </a>
+                                      <button
+                                        onClick={() => {
+                                          if (!confirm(`"${manual.name}" silinsin mi?`)) return;
+                                          setContent((prev) => {
+                                            if (!prev) return prev;
+                                            const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                                            const list = next.categories[catId]?.manuals;
+                                            if (list) list.splice(idx, 1);
+                                            return next;
+                                          });
+                                        }}
+                                        className="text-rose-400/70 hover:text-rose-300 px-1.5 py-0.5"
+                                        title="Sil"
+                                      >
+                                        ×
+                                      </button>
+                                    </div>
+                                  ))}
                                 </div>
 
                                 {/* Per-category FAQ — capped at FAQ_MAX entries.
@@ -4874,7 +4974,7 @@ export default function AdminPage() {
                       // Aynı bölgeye birden fazla temsilci eklenebilir; her temsilci
                       // bağımsız bir kayıt. Önceki "findIndex(regionId)" mantığı ilk
                       // eşleşeni güncellediği için 2.-3. temsilci kaydedilemiyordu.
-                      const updateRepAt = (globalIdx: number, field: "name" | "title" | "phone" | "email" | "whatsapp", value: string) => {
+                      const updateRepAt = (globalIdx: number, field: "name" | "title" | "phone" | "email" | "whatsapp" | "subregion", value: string) => {
                         setContent((prev) => {
                           if (!prev) return prev;
                           const next = JSON.parse(JSON.stringify(prev)) as ContentData;
@@ -4910,6 +5010,7 @@ export default function AdminPage() {
                             phone: "",
                             email: "",
                             whatsapp: "",
+                            subregion: "",
                           });
                           next.dealer.regionReps = arr;
                           return next;
@@ -4955,6 +5056,12 @@ export default function AdminPage() {
                                   <Field label="Ad Soyad" value={rep.name ?? ""} onChange={(v) => updateRepAt(globalIdx, "name", v)} />
                                   <Field label="Ünvan" value={rep.title ?? ""} onChange={(v) => updateRepAt(globalIdx, "title", v)} placeholder={`${region.label} Bölge Temsilcisi`} />
                                 </div>
+                                <Field
+                                  label="Alt Bölge / Lokasyon (opsiyonel)"
+                                  value={rep.subregion ?? ""}
+                                  onChange={(v) => updateRepAt(globalIdx, "subregion", v)}
+                                  placeholder="örn. Kuzey Marmara · İstanbul Anadolu · Bursa"
+                                />
                                 <div className="grid grid-cols-2 gap-2">
                                   <Field label="Telefon" value={rep.phone ?? ""} onChange={(v) => updateRepAt(globalIdx, "phone", v)} placeholder="+90 ..." />
                                   <Field label="E-Posta" value={rep.email ?? ""} onChange={(v) => updateRepAt(globalIdx, "email", v)} validate={validateEmail} />

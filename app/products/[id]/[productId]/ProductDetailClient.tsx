@@ -553,7 +553,21 @@ export default function ProductDetailPage({
                   const hasSpecs    = nonPriceSpecs.length > 0;
                   const featureList = (product.features ?? []).map(featureById).filter(Boolean) as NonNullable<ReturnType<typeof featureById>>[];
                   const generalList = (product.generalFeatures ?? []).filter((s) => s && s.trim().length > 0);
-                  const docList     = (product.documents ?? []).filter((d) => d && d.url && d.url.trim().length > 0);
+                  const productDocs = (product.documents ?? []).filter((doc) => doc && doc.url && doc.url.trim().length > 0);
+                  // Kategori bazlı kılavuzlar — admin'de kategori meta'sına
+                  // yüklenir, o kategorideki tüm ürünlerin Belgeler sekmesinde
+                  // ek olarak listelenir. Product-spesifik doküman'larla
+                  // birleştirilir; aynı URL varsa duplicate edilmez.
+                  const catManualsRaw = (category ? catMeta?.[category.id]?.manuals : undefined) ?? [];
+                  // ProductDocument shape: { label, url, size?, kind? } — kategori
+                  // manual'larını da bu şekilde normalize ediyoruz ki Belgeler
+                  // sekmesi tek tip listede render etsin.
+                  const catManuals = catManualsRaw
+                    .filter((m) => m && m.url && m.url.trim().length > 0)
+                    .map((m) => ({ label: m.name, url: m.url, size: m.size }));
+                  const seenUrls = new Set(productDocs.map((d) => d.url));
+                  const mergedManuals = catManuals.filter((m) => !seenUrls.has(m.url));
+                  const docList = [...productDocs, ...mergedManuals];
                   const hasGeneral  = featureList.length > 0 || generalList.length > 0 || priceRowsCount > 0;
                   const hasDocs     = docList.length > 0;
                   if (!hasSpecs && !hasGeneral && !hasDocs) return null;

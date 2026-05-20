@@ -1263,16 +1263,26 @@ export default function DealerNetwork() {
                                 style={{ padding: 3 }}
                               />
                             </span>
-                            <div>
-                              <p className="text-[10px] font-bold tracking-[0.18em] uppercase" style={{ color: d ? "#93C5FD" : BLUE }}>
+                            <div className="min-w-0">
+                              {/* Sabit dizilim — her temsilci aynı 4 satır
+                                  formatında gösterilir: eyebrow / ad / ünvan /
+                                  alt bölge. Eksik alanlar yer kaplamaz ama
+                                  dolu olanlar her zaman aynı boyutta. */}
+                              <p className="text-[10px] font-bold tracking-[0.18em] uppercase leading-tight" style={{ color: d ? "#93C5FD" : BLUE }}>
                                 Bemis Yetkilisi
                               </p>
-                              <p className="text-sm font-semibold leading-tight mt-0.5" style={{ color: d ? "#ffffff" : "#111111" }}>
+                              <p className="text-sm font-semibold leading-tight mt-1" style={{ color: d ? "#ffffff" : "#111111" }}>
                                 {rep.name || activeCityLabel}
                               </p>
-                              <p className="text-xs" style={{ color: d ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.55)" }}>
+                              <p className="text-xs leading-tight mt-0.5" style={{ color: d ? "rgba(255,255,255,0.62)" : "rgba(0,0,0,0.60)" }}>
                                 {rep.title || `${activeCityLabel} Bölge Temsilcisi`}
                               </p>
+                              {rep.subregion && rep.subregion.trim().length > 0 && (
+                                <p className="text-[11px] font-medium leading-tight mt-0.5 inline-flex items-center gap-1" style={{ color: d ? "#93C5FD" : BLUE }}>
+                                  <HiLocationMarker size={11} className="flex-shrink-0" />
+                                  {rep.subregion}
+                                </p>
+                              )}
                             </div>
                           </div>
 

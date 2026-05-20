@@ -21,6 +21,10 @@ export type CategoryMeta = {
   // Ürünler" carousel, plus a FAQPage JSON-LD block for Google rich
   // snippets.
   faq?: FaqItem[];
+  // Kategori bazlı kullanma kılavuzları / PDF dokümantasyon — o
+  // kategorideki tüm ürünlerin detay sayfasında "Belgeler" sekmesinde
+  // ek olarak listelenir.
+  manuals?: { id: string; name: string; url: string; size?: string }[];
 };
 
 
@@ -38,6 +42,10 @@ export type RegionRep = {
   phone: string;
   email: string;
   whatsapp?: string;
+  // Alt bölge / lokasyon — örn. "Kuzey Marmara", "İstanbul Anadolu",
+  // "Bursa". Aynı bölgeye birden fazla temsilci atandığında hangi alt
+  // bölgeden sorumlu olduğunu gösterir.
+  subregion?: string;
 };
 
 // Export-team contact info — surfaced both on the dealer Yurtdışı tab and via
