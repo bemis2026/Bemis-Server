@@ -25,7 +25,7 @@ const csp = [
   //   www.google-analytics.com / region1.google-analytics.com  — GA4 pageviews
   //   stats.g.doubleclick.net + www.google.com                 — Google Ads conversions
   //   www.facebook.com                                          — Meta Pixel event endpoint
-  "connect-src 'self' https://api.jsonbin.io https://api.mymemory.translated.net https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://www.google.com https://www.facebook.com https://flagcdn.com https://api.imgbb.com https://api.cloudinary.com https://api.resend.com https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://*.ingest.de.sentry.io https://vitals.vercel-insights.com https://vercel.live",
+  "connect-src 'self' https://api.jsonbin.io https://api.mymemory.translated.net https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://www.google.com https://www.facebook.com https://flagcdn.com https://api.imgbb.com https://api.cloudinary.com https://api.resend.com https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://*.ingest.de.sentry.io https://vitals.vercel-insights.com https://vercel.live https://*.r2.cloudflarestorage.com https://*.r2.dev",
   "worker-src 'self' blob:",
   "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com https://td.doubleclick.net https://www.googletagmanager.com",
   "media-src 'self' blob: https://res.cloudinary.com https:",
