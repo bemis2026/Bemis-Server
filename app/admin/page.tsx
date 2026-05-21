@@ -224,6 +224,7 @@ type ShowcaseProductItem = {
   ctaPrimary?: string; ctaHref?: string; ctaSecondary?: string; ctaSecondaryHref?: string;
   overlayFeatures?: string[];
   imagePos?: string;
+  imageZoom?: number;
 };
 type HeroLayoutKey = "logo" | "text" | "button";
 
@@ -4754,6 +4755,7 @@ export default function AdminPage() {
                                     {(() => {
                                       const posStr = it.imagePos || "50% 50%";
                                       const [px, py] = posStr.split(" ").map(s => parseFloat(s) || 50);
+                                      const zoom = Math.max(1, Math.min(2, (it as ShowcaseProductItem).imageZoom ?? 1));
                                       const onTileClick = (e: React.MouseEvent<HTMLLabelElement>) => {
                                         if (!it.image) return; // label default → file input açılır
                                         e.preventDefault();
@@ -4779,7 +4781,11 @@ export default function AdminPage() {
                                               src={it.image}
                                               alt={`Ürün ${i + 1} — web önizleme`}
                                               className="absolute inset-0 w-full h-full object-cover"
-                                              style={{ objectPosition: posStr }}
+                                              style={{
+                                                objectPosition: posStr,
+                                                transform: zoom !== 1 ? `scale(${zoom})` : undefined,
+                                                transformOrigin: posStr,
+                                              }}
                                               draggable={false}
                                             />
                                           ) : (
@@ -4842,6 +4848,7 @@ export default function AdminPage() {
                                     {(() => {
                                       const posStr = it.imagePos || "50% 50%";
                                       const [px, py] = posStr.split(" ").map(s => parseFloat(s) || 50);
+                                      const zoomM = Math.max(1, Math.min(2, (it as ShowcaseProductItem).imageZoom ?? 1));
                                       const onMobileClick = (e: React.MouseEvent<HTMLDivElement>) => {
                                         if (!it.image) return;
                                         const rect = e.currentTarget.getBoundingClientRect();
@@ -4867,7 +4874,11 @@ export default function AdminPage() {
                                                 src={it.image}
                                                 alt={`Ürün ${i + 1} — mobil önizleme`}
                                                 className="absolute inset-0 w-full h-full object-cover"
-                                                style={{ objectPosition: posStr }}
+                                                style={{
+                                                  objectPosition: posStr,
+                                                  transform: zoomM !== 1 ? `scale(${zoomM})` : undefined,
+                                                  transformOrigin: posStr,
+                                                }}
                                                 draggable={false}
                                               />
                                               {/* Focus crosshair */}
@@ -4916,17 +4927,78 @@ export default function AdminPage() {
                                       </div>
                                       <Field label="Ürün Adı" value={it.name} onChange={(v) => update(i, "name", v)} />
                                       <Field label="Açıklama" value={it.description ?? ""} onChange={(v) => update(i, "description", v)} multiline />
-                                      {/* Odak noktası bilgisi + reset */}
+                                      {/* Odak noktası + Zoom kontrolleri */}
                                       {it.image && (
-                                        <div className="flex items-center justify-between text-[10px] text-white/40 px-1 pt-1">
-                                          <span>Odak noktası: <span className="font-mono text-white/70">{it.imagePos || "50% 50%"}</span></span>
-                                          <button
-                                            type="button"
-                                            onClick={() => update(i, "imagePos", "50% 50%")}
-                                            className="text-blue-300 hover:text-blue-200 font-semibold"
-                                          >
-                                            Ortaya al
-                                          </button>
+                                        <div className="space-y-1.5 pt-1">
+                                          <div className="flex items-center justify-between text-[10px] text-white/40 px-1">
+                                            <span>Odak: <span className="font-mono text-white/70">{it.imagePos || "50% 50%"}</span></span>
+                                            <button
+                                              type="button"
+                                              onClick={() => update(i, "imagePos", "50% 50%")}
+                                              className="text-blue-300 hover:text-blue-200 font-semibold"
+                                            >
+                                              Ortaya al
+                                            </button>
+                                          </div>
+                                          {/* Zoom satırı: − slider + */}
+                                          {(() => {
+                                            const curZoom = Math.max(1, Math.min(2, (it as ShowcaseProductItem).imageZoom ?? 1));
+                                            const setZoom = (z: number) => {
+                                              const clamped = Math.max(1, Math.min(2, +z.toFixed(2)));
+                                              setContent((prev) => {
+                                                if (!prev?.productShowcase) return prev;
+                                                const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                                                const list = [...(next.productShowcase!.products ?? [])];
+                                                list[i] = { ...list[i], imageZoom: clamped };
+                                                next.productShowcase!.products = list;
+                                                return next;
+                                              });
+                                            };
+                                            return (
+                                              <div className="flex items-center gap-2 px-1">
+                                                <span className="text-[10px] text-white/40 flex-shrink-0">Zoom</span>
+                                                <button
+                                                  type="button"
+                                                  onClick={() => setZoom(curZoom - 0.1)}
+                                                  disabled={curZoom <= 1.01}
+                                                  className="w-6 h-6 rounded-md border border-white/15 text-white/70 hover:border-white/40 hover:text-white text-xs font-bold disabled:opacity-30 disabled:cursor-not-allowed"
+                                                  title="Uzaklaş"
+                                                >
+                                                  −
+                                                </button>
+                                                <input
+                                                  type="range"
+                                                  min={1}
+                                                  max={2}
+                                                  step={0.05}
+                                                  value={curZoom}
+                                                  onChange={(e) => setZoom(parseFloat(e.target.value))}
+                                                  className="flex-1 accent-blue-500"
+                                                  style={{ height: 4 }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  onClick={() => setZoom(curZoom + 0.1)}
+                                                  disabled={curZoom >= 1.99}
+                                                  className="w-6 h-6 rounded-md border border-white/15 text-white/70 hover:border-white/40 hover:text-white text-xs font-bold disabled:opacity-30 disabled:cursor-not-allowed"
+                                                  title="Yakınlaş"
+                                                >
+                                                  +
+                                                </button>
+                                                <span className="text-[10px] text-white/70 font-mono w-10 text-right">{curZoom.toFixed(2)}×</span>
+                                                {curZoom !== 1 && (
+                                                  <button
+                                                    type="button"
+                                                    onClick={() => setZoom(1)}
+                                                    className="text-[10px] text-blue-300 hover:text-blue-200 font-semibold"
+                                                    title="Zoom'u sıfırla"
+                                                  >
+                                                    1×
+                                                  </button>
+                                                )}
+                                              </div>
+                                            );
+                                          })()}
                                         </div>
                                       )}
                                     </div>

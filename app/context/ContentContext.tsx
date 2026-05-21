@@ -128,6 +128,9 @@ export type ShowcaseProductItem = {
   // noktanın merkezde görüneceğini belirler. Admin'den click-to-focus
   // ile set edilir.
   imagePos?: string;
+  // Image zoom (1.0 = ham, 2.0 = %200). transform-origin imagePos'tan
+  // gelir, böylece odak noktasını merkez alarak yakınlaşır/uzaklaşır.
+  imageZoom?: number;
 };
 
 export type ReviewItem = {

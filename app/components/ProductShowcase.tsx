@@ -53,6 +53,7 @@ export default function ProductShowcase() {
     ctaPrimary?: string; ctaHref?: string;
     overlayFeatures?: string[];
     imagePos?: string;
+    imageZoom?: number;
   };
 
   const mainSlide: Slide | null = (ps?.image || ps?.name || ps?.badge)
@@ -67,6 +68,7 @@ export default function ProductShowcase() {
         ctaHref: ps?.ctaHref,
         overlayFeatures: ps?.overlayFeatures,
         imagePos: (ps as { imagePos?: string })?.imagePos,
+        imageZoom: (ps as { imageZoom?: number })?.imageZoom,
       }
     : null;
   const extraSlides: Slide[] = (ps?.products ?? []).filter(p => p && (p.image || p.name));
@@ -84,16 +86,18 @@ export default function ProductShowcase() {
     if (index >= galleryCount && galleryCount > 0) setIndex(0);
   }, [galleryCount, index]);
 
-  // Active slide — content (badge, name, description, specs, cta) buradan
-  // gelir. Slides boşsa ps.* fallback'ine düşer.
+  // Active slide — content buradan. EN translation walker bazı field'ları
+  // boş string olarak yazıyor; `??` empty string'i atlamadığı için `||`
+  // chain ile fallback (active varsa ama field boş → ps'e düş).
   const active = slides.length > 0 ? slides[Math.min(index, slides.length - 1)] : null;
-  const badgeText       = active?.badge       ?? ps?.badge       ?? "Amiral Gemisi Ürün";
-  const nameText        = active?.name        ?? ps?.name        ?? "AC Wallbox Smart Charger Pro 2";
-  const taglineText     = active?.tagline     ?? ps?.tagline;
-  const descriptionText = active?.description ?? ps?.description ?? "";
+  const pick = (a?: string, b?: string, fb = "") => (a?.trim() ? a : (b?.trim() ? b : fb));
+  const badgeText       = pick(active?.badge,       ps?.badge,       "Amiral Gemisi Ürün");
+  const nameText        = pick(active?.name,        ps?.name,        "AC Wallbox Smart Charger Pro 2");
+  const taglineText     = pick(active?.tagline,     ps?.tagline);
+  const descriptionText = pick(active?.description, ps?.description);
   const specs           = (active?.specs && active.specs.length > 0) ? active.specs : (ps?.specs ?? []);
-  const ctaPrimaryText  = active?.ctaPrimary  ?? ps?.ctaPrimary  ?? "Ürünü İncele";
-  const ctaPrimaryHref  = active?.ctaHref     ?? ps?.ctaHref     ?? "/products/wallbox";
+  const ctaPrimaryText  = pick(active?.ctaPrimary,  ps?.ctaPrimary,  "Ürünü İncele");
+  const ctaPrimaryHref  = pick(active?.ctaHref,     ps?.ctaHref,     "/products/wallbox");
 
   const goTo = (next: number) => {
     if (galleryCount === 0) return;
@@ -187,6 +191,13 @@ export default function ProductShowcase() {
                           // Slide'ın admin'den ayarlanmış odak noktası
                           // (örn. "50% 30%"). Boş ise center.
                           objectPosition: active?.imagePos || "50% 50%",
+                          // Slide'ın admin'den ayarlanmış zoom (1.0..2.0).
+                          // transform-origin objectPosition'a hizalı: odak
+                          // noktası merkez alınarak yakınlaşır/uzaklaşır.
+                          transform: active?.imageZoom && active.imageZoom !== 1
+                            ? `scale(${active.imageZoom})`
+                            : undefined,
+                          transformOrigin: active?.imagePos || "50% 50%",
                         }}
                       />
                     </AnimatePresence>
