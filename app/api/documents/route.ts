@@ -5,7 +5,8 @@ import { readBin } from "../../../lib/jsonbin";
 
 const fallbackPath = path.join(process.cwd(), "data", "documents.json");
 
-export const revalidate = 60;
+// 1 saat — admin save sonrası revalidatePath manuel temizliyor.
+export const revalidate = 3600;
 
 type DocumentItem = { visible?: boolean };
 

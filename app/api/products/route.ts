@@ -6,7 +6,8 @@ import path from "path";
 const fallbackPath = path.join(process.cwd(), "data", "products.json");
 const fallbackEnPath = path.join(process.cwd(), "data", "products-en.json");
 
-export const revalidate = 60;
+// 1 saat — admin save sonrası revalidatePath manuel temizliyor.
+export const revalidate = 3600;
 
 // Accept any of the three historical shapes:
 //   - bare array (legacy, pre-translations)

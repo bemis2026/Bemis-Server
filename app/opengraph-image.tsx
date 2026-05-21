@@ -5,9 +5,10 @@ export const alt = "Bemis E-V Charge — Yerli EV Şarj Ekipmanı Üreticisi";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// Re-runs at most every 5 minutes — cheap-enough that admin uploads
-// surface fast, but doesn't hammer JSONBin on every social-media scrape.
-export const revalidate = 300;
+// 1 saat — Vercel ISR write limit baskısı için 300s'den arttırıldı.
+// Sosyal medya scrape'leri saatte birkaç kere; admin ogImage'i değiştirirse
+// custom URL doğrudan kullanılır (regen'e gerek yok).
+export const revalidate = 3600;
 
 type ContentRecord = {
   ogImage?: string;

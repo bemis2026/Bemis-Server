@@ -7,7 +7,10 @@ import ProductCategoryClient from "./ProductCategoryClient";
 
 type ClientCategory = NonNullable<ComponentProps<typeof ProductCategoryClient>["initialCategory"]>;
 
-export const revalidate = 60;
+// 1 saat — kategori sayfaları çok ziyaret ediliyor; 60s revalidate ISR
+// write limit'ini hızlıca dolduruyordu. Admin save revalidatePath ile
+// anlık temizleme yapıyor zaten.
+export const revalidate = 3600;
 export const dynamicParams = true;
 
 export async function generateMetadata({

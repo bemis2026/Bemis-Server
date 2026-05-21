@@ -29,7 +29,8 @@ function stripTranslations(obj: any) {
 
 const fallbackPath = path.join(process.cwd(), "data", "b2b.json");
 
-export const revalidate = 60;
+// 1 saat — admin save sonrası revalidatePath manuel temizliyor.
+export const revalidate = 3600;
 
 export async function GET(req: NextRequest) {
   const lang = new URL(req.url).searchParams.get("lang") ?? "tr";

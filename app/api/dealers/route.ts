@@ -5,7 +5,11 @@ import { readBin } from "../../../lib/jsonbin";
 
 const fallbackPath = path.join(process.cwd(), "data", "dealers.json");
 
-export const revalidate = 60;
+// 1 saat — admin save zaten /api/dealers'ı `revalidatePath` ile anında
+// temizliyor; otomatik döngü sadece bot trafiği + edge cache miss fallback.
+// Önceden 60s idi → Vercel free ISR write limit'i (200K/ay) hızlıca dolup
+// projenin pause olmasına yol açıyordu.
+export const revalidate = 3600;
 
 export async function GET() {
   try {

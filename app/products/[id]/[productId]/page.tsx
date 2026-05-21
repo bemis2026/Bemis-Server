@@ -7,7 +7,9 @@ import ProductDetailClient from "./ProductDetailClient";
 
 type DetailProps = ComponentProps<typeof ProductDetailClient>;
 
-export const revalidate = 60;
+// 1 saat — ürün detayı 113 SSG path + bot trafiği ile çok yoğun.
+// Admin save revalidatePath ile anlık temizleme yapıyor.
+export const revalidate = 3600;
 export const dynamicParams = true;
 
 export async function generateMetadata({
