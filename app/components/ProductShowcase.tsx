@@ -19,7 +19,6 @@ import {
 import Image from "next/image";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
-import { useLanguage } from "../context/LanguageContext";
 
 const SPEC_ICONS = [RiFlashlightFill, RiShieldCheckLine, RiWifiLine, RiLeafLine, RiAwardLine];
 const ACCENT = "#3B82F6";
@@ -29,7 +28,6 @@ export default function ProductShowcase() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
   const { productShowcase: ps } = useContent();
-  const { lang } = useLanguage();
   const router = useRouter();
   const d = theme === "dark";
   // Honor OS-level / browser reduce-motion preference; turns off the
@@ -124,42 +122,6 @@ export default function ProductShowcase() {
 
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        {/* Sabit bölüm başlığı — admin'den yönetilmez, hep "Amiral Gemisi
-            Ürünler" (TR) / "Flagship Products" (EN). Diğer ana sayfa
-            bölümlerindeki eyebrow + heading + gradient line pattern'iyle
-            uyumlu. */}
-        <div className="text-center mb-10 sm:mb-12">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.4 }}
-            className="inline-block text-xs font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-full mb-4"
-            style={{
-              background: d ? `${ACCENT}18` : `${ACCENT}10`,
-              border: d ? `1px solid ${ACCENT}35` : `1px solid ${ACCENT}25`,
-              color: d ? "#93C5FD" : ACCENT,
-            }}
-          >
-            {lang === "en" ? "Flagship" : "Amiral Gemisi"}
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.08 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black mb-2"
-            style={{ color: textPrimary }}
-          >
-            {lang === "en" ? "Flagship Products" : "Amiral Gemisi Ürünler"}
-          </motion.h2>
-          <motion.div
-            initial={{ scaleX: 0, opacity: 0 }}
-            animate={inView ? { scaleX: 1, opacity: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mx-auto h-px w-20"
-            style={{ background: `linear-gradient(90deg, transparent 0%, ${ACCENT} 50%, transparent 100%)` }}
-          />
-        </div>
-
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-14 items-center">
 
           {/* ── Left: image ── */}
