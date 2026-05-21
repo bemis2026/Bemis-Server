@@ -223,6 +223,7 @@ type ShowcaseProductItem = {
   image?: string; specs?: { label: string; value: string }[];
   ctaPrimary?: string; ctaHref?: string; ctaSecondary?: string; ctaSecondaryHref?: string;
   overlayFeatures?: string[];
+  imagePos?: string;
 };
 type HeroLayoutKey = "logo" | "text" | "button";
 
@@ -4740,77 +4741,195 @@ export default function AdminPage() {
                                   </div>
                                 </div>
 
-                                {/* Image upload tile — ayrıca canlı önizleme:
-                                    image yüklendiğinde public sayfadaki gibi
-                                    name kutusu (sağ üst) + 4 feature kutusu
-                                    (sol alt) mockup olarak gözükür. */}
-                                <div className="grid grid-cols-3 gap-3 items-start">
-                                  <label
-                                    className="relative rounded-xl overflow-hidden border-2 border-dashed cursor-pointer flex items-center justify-center group"
-                                    style={{
-                                      aspectRatio: "3/4",
-                                      borderColor: it.image ? "rgba(255,255,255,0.10)" : "rgba(59,130,246,0.32)",
-                                      background: it.image ? "transparent" : "rgba(59,130,246,0.06)",
-                                      color: "#93C5FD",
-                                    }}
-                                  >
-                                    {it.image ? (
-                                      // eslint-disable-next-line @next/next/no-img-element
-                                      <img src={it.image} alt={`Ürün ${i + 1}`} className="absolute inset-0 w-full h-full object-cover" />
-                                    ) : (
-                                      <div className="text-center px-2">
-                                        {psItemImgLoadingIdx === i ? (
-                                          <div className="w-5 h-5 mx-auto rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
-                                        ) : (
-                                          <RiImageAddLine size={22} className="mx-auto" />
-                                        )}
-                                        <p className="text-[10px] mt-1 font-semibold">Görsel Yükle</p>
-                                      </div>
-                                    )}
-                                    {/* Mockup — name kutusu sağ üst (canlı sayfayla aynı stil) */}
-                                    {it.image && (it.name || it.badge) && (
-                                      <div className="absolute top-1.5 right-1.5 max-w-[80%]">
-                                        <div className="inline-flex flex-col items-end text-right px-1.5 py-0.5 rounded"
-                                          style={{ background: "rgba(6,10,22,0.92)", border: "1px solid rgba(255,255,255,0.14)" }}>
-                                          {it.badge && <span className="text-[5px] font-bold uppercase tracking-widest" style={{ color: "#93C5FD" }}>{it.badge}</span>}
-                                          <span className="text-[7px] font-black text-white leading-tight">{it.name}</span>
-                                        </div>
-                                      </div>
-                                    )}
-                                    {/* Mockup — 4 feature badge sol alt */}
-                                    {it.image && (it.overlayFeatures ?? []).filter(Boolean).length > 0 && (
-                                      <div className="absolute bottom-1.5 left-1.5 grid grid-cols-2 gap-0.5 max-w-[70%]">
-                                        {(it.overlayFeatures ?? []).slice(0, 4).map((f, fi) => f?.trim() && (
-                                          <div key={fi} className="px-1 py-0.5 rounded text-[6px] font-bold text-white leading-tight"
-                                            style={{ background: "rgba(8,12,24,0.92)", border: "1px solid rgba(59,130,246,0.4)" }}>
-                                            {f}
-                                          </div>
-                                        ))}
-                                      </div>
-                                    )}
-                                    {it.image && (
-                                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
-                                        style={{ background: "rgba(0,0,0,0.65)", backdropFilter: "blur(2px)" }}>
-                                        <span className="text-[10px] text-white font-bold">Görseli Değiştir</span>
-                                      </div>
-                                    )}
-                                    <input
-                                      type="file"
-                                      accept="image/*"
-                                      className="hidden"
-                                      onClick={() => { psItemTargetIdxRef.current = i; }}
-                                      onChange={(e) => { psItemTargetIdxRef.current = i; handlePsItemImgUpload(e); }}
-                                      disabled={psItemImgLoadingIdx !== null}
-                                    />
-                                  </label>
+                                {/* Web + Mobil canlı önizleme. Image yüklü iken
+                                    her iki mockup'a tıklayarak odak noktası
+                                    (imagePos) seçilir, crosshair pozisyonu
+                                    günceller, public sayfada objectPosition'a
+                                    yansır. Image yok ise tıklama upload eder. */}
+                                <div>
+                                  <p className="text-[10px] font-bold text-white/40 uppercase mb-2">Görsel Önizleme — Web + Mobil</p>
+                                  <p className="text-[10px] text-white/30 mb-2">{it.image ? "Görseldeki bir noktaya tıkla → odak (focal point) o noktaya kayar." : "Görsel yüklemek için aşağıdaki kutuya tıkla."}</p>
+                                  <div className="grid grid-cols-[3fr_2fr_5fr] gap-3 items-start">
+                                    {/* WEB MOCKUP — 3/4 aspect (public site card oranı) */}
+                                    {(() => {
+                                      const posStr = it.imagePos || "50% 50%";
+                                      const [px, py] = posStr.split(" ").map(s => parseFloat(s) || 50);
+                                      const onTileClick = (e: React.MouseEvent<HTMLLabelElement>) => {
+                                        if (!it.image) return; // label default → file input açılır
+                                        e.preventDefault();
+                                        const rect = e.currentTarget.getBoundingClientRect();
+                                        const x = Math.round(((e.clientX - rect.left) / rect.width) * 100);
+                                        const y = Math.round(((e.clientY - rect.top) / rect.height) * 100);
+                                        update(i, "imagePos", `${Math.max(0, Math.min(100, x))}% ${Math.max(0, Math.min(100, y))}%`);
+                                      };
+                                      return (
+                                        <label
+                                          className="relative rounded-xl overflow-hidden border-2 border-dashed cursor-crosshair flex items-center justify-center group"
+                                          style={{
+                                            aspectRatio: "3/4",
+                                            borderColor: it.image ? "rgba(255,255,255,0.10)" : "rgba(59,130,246,0.32)",
+                                            background: it.image ? "transparent" : "rgba(59,130,246,0.06)",
+                                            color: "#93C5FD",
+                                          }}
+                                          onClick={onTileClick}
+                                        >
+                                          {it.image ? (
+                                            // eslint-disable-next-line @next/next/no-img-element
+                                            <img
+                                              src={it.image}
+                                              alt={`Ürün ${i + 1} — web önizleme`}
+                                              className="absolute inset-0 w-full h-full object-cover"
+                                              style={{ objectPosition: posStr }}
+                                              draggable={false}
+                                            />
+                                          ) : (
+                                            <div className="text-center px-2">
+                                              {psItemImgLoadingIdx === i ? (
+                                                <div className="w-5 h-5 mx-auto rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
+                                              ) : (
+                                                <RiImageAddLine size={22} className="mx-auto" />
+                                              )}
+                                              <p className="text-[10px] mt-1 font-semibold">Görsel Yükle</p>
+                                            </div>
+                                          )}
+                                          {/* Focus crosshair */}
+                                          {it.image && (
+                                            <div className="absolute pointer-events-none" style={{ left: `${px}%`, top: `${py}%`, transform: "translate(-50%, -50%)" }}>
+                                              <div className="w-3.5 h-3.5 rounded-full border-2 border-white" style={{ boxShadow: "0 0 0 2px #3B82F6, 0 0 10px rgba(0,0,0,0.6)" }} />
+                                            </div>
+                                          )}
+                                          {/* Web etiketi sol üst */}
+                                          {it.image && (
+                                            <div className="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded text-[8px] font-bold uppercase tracking-wider"
+                                              style={{ background: "rgba(8,12,24,0.85)", color: "#93C5FD" }}>
+                                              WEB
+                                            </div>
+                                          )}
+                                          {/* Mockup — name kutusu sağ üst */}
+                                          {it.image && (it.name || it.badge) && (
+                                            <div className="absolute top-1.5 right-1.5 max-w-[60%]">
+                                              <div className="inline-flex flex-col items-end text-right px-1.5 py-0.5 rounded"
+                                                style={{ background: "rgba(6,10,22,0.92)", border: "1px solid rgba(255,255,255,0.14)" }}>
+                                                {it.badge && <span className="text-[5px] font-bold uppercase tracking-widest" style={{ color: "#93C5FD" }}>{it.badge}</span>}
+                                                <span className="text-[7px] font-black text-white leading-tight">{it.name}</span>
+                                              </div>
+                                            </div>
+                                          )}
+                                          {/* Mockup — 4 feature badge sol alt */}
+                                          {it.image && (it.overlayFeatures ?? []).filter(Boolean).length > 0 && (
+                                            <div className="absolute bottom-1.5 left-1.5 grid grid-cols-2 gap-0.5 max-w-[70%]">
+                                              {(it.overlayFeatures ?? []).slice(0, 4).map((f, fi) => f?.trim() && (
+                                                <div key={fi} className="px-1 py-0.5 rounded text-[6px] font-bold text-white leading-tight"
+                                                  style={{ background: "rgba(8,12,24,0.92)", border: "1px solid rgba(59,130,246,0.4)" }}>
+                                                  {f}
+                                                </div>
+                                              ))}
+                                            </div>
+                                          )}
+                                          <input
+                                            type="file"
+                                            accept="image/*"
+                                            className="hidden"
+                                            onClick={() => { psItemTargetIdxRef.current = i; }}
+                                            onChange={(e) => { psItemTargetIdxRef.current = i; handlePsItemImgUpload(e); }}
+                                            disabled={psItemImgLoadingIdx !== null}
+                                          />
+                                        </label>
+                                      );
+                                    })()}
 
-                                  <div className="col-span-2 space-y-2">
-                                    <div className="grid grid-cols-2 gap-2">
-                                      <Field label="Rozet" value={it.badge ?? ""} onChange={(v) => update(i, "badge", v)} />
-                                      <Field label="Tagline" value={it.tagline ?? ""} onChange={(v) => update(i, "tagline", v)} />
+                                    {/* MOBİL MOCKUP — 9/16 aspect (telefon ekranı oranı), upload yok, sadece görsel önizleme + click-to-focus */}
+                                    {(() => {
+                                      const posStr = it.imagePos || "50% 50%";
+                                      const [px, py] = posStr.split(" ").map(s => parseFloat(s) || 50);
+                                      const onMobileClick = (e: React.MouseEvent<HTMLDivElement>) => {
+                                        if (!it.image) return;
+                                        const rect = e.currentTarget.getBoundingClientRect();
+                                        const x = Math.round(((e.clientX - rect.left) / rect.width) * 100);
+                                        const y = Math.round(((e.clientY - rect.top) / rect.height) * 100);
+                                        update(i, "imagePos", `${Math.max(0, Math.min(100, x))}% ${Math.max(0, Math.min(100, y))}%`);
+                                      };
+                                      return (
+                                        <div
+                                          className="relative rounded-xl overflow-hidden border"
+                                          style={{
+                                            aspectRatio: "9/16",
+                                            borderColor: "rgba(255,255,255,0.10)",
+                                            background: "rgba(255,255,255,0.03)",
+                                            cursor: it.image ? "crosshair" : "default",
+                                          }}
+                                          onClick={onMobileClick}
+                                        >
+                                          {it.image ? (
+                                            <>
+                                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                                              <img
+                                                src={it.image}
+                                                alt={`Ürün ${i + 1} — mobil önizleme`}
+                                                className="absolute inset-0 w-full h-full object-cover"
+                                                style={{ objectPosition: posStr }}
+                                                draggable={false}
+                                              />
+                                              {/* Focus crosshair */}
+                                              <div className="absolute pointer-events-none" style={{ left: `${px}%`, top: `${py}%`, transform: "translate(-50%, -50%)" }}>
+                                                <div className="w-3 h-3 rounded-full border-2 border-white" style={{ boxShadow: "0 0 0 2px #3B82F6, 0 0 10px rgba(0,0,0,0.6)" }} />
+                                              </div>
+                                              <div className="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded text-[7px] font-bold uppercase tracking-wider"
+                                                style={{ background: "rgba(8,12,24,0.85)", color: "#FBBF24" }}>
+                                                MOBİL
+                                              </div>
+                                              {/* Mockup — name kutusu sağ üst (küçük) */}
+                                              {(it.name || it.badge) && (
+                                                <div className="absolute top-1.5 right-1.5 max-w-[55%]">
+                                                  <div className="inline-flex flex-col items-end text-right px-1 py-0.5 rounded"
+                                                    style={{ background: "rgba(6,10,22,0.92)", border: "1px solid rgba(255,255,255,0.14)" }}>
+                                                    {it.badge && <span className="text-[4px] font-bold uppercase tracking-wider" style={{ color: "#93C5FD" }}>{it.badge}</span>}
+                                                    <span className="text-[6px] font-black text-white leading-tight">{it.name}</span>
+                                                  </div>
+                                                </div>
+                                              )}
+                                              {/* Mockup — feature badges sol alt */}
+                                              {(it.overlayFeatures ?? []).filter(Boolean).length > 0 && (
+                                                <div className="absolute bottom-1 left-1 grid grid-cols-2 gap-0.5 max-w-[80%]">
+                                                  {(it.overlayFeatures ?? []).slice(0, 4).map((f, fi) => f?.trim() && (
+                                                    <div key={fi} className="px-0.5 py-0.5 rounded text-[5px] font-bold text-white leading-tight"
+                                                      style={{ background: "rgba(8,12,24,0.92)", border: "1px solid rgba(59,130,246,0.4)" }}>
+                                                      {f}
+                                                    </div>
+                                                  ))}
+                                                </div>
+                                              )}
+                                            </>
+                                          ) : (
+                                            <div className="absolute inset-0 flex items-center justify-center text-center px-2">
+                                              <p className="text-[9px] text-white/30">Önce görsel yükle</p>
+                                            </div>
+                                          )}
+                                        </div>
+                                      );
+                                    })()}
+
+                                    <div className="space-y-2">
+                                      <div className="grid grid-cols-2 gap-2">
+                                        <Field label="Rozet" value={it.badge ?? ""} onChange={(v) => update(i, "badge", v)} />
+                                        <Field label="Tagline" value={it.tagline ?? ""} onChange={(v) => update(i, "tagline", v)} />
+                                      </div>
+                                      <Field label="Ürün Adı" value={it.name} onChange={(v) => update(i, "name", v)} />
+                                      <Field label="Açıklama" value={it.description ?? ""} onChange={(v) => update(i, "description", v)} multiline />
+                                      {/* Odak noktası bilgisi + reset */}
+                                      {it.image && (
+                                        <div className="flex items-center justify-between text-[10px] text-white/40 px-1 pt-1">
+                                          <span>Odak noktası: <span className="font-mono text-white/70">{it.imagePos || "50% 50%"}</span></span>
+                                          <button
+                                            type="button"
+                                            onClick={() => update(i, "imagePos", "50% 50%")}
+                                            className="text-blue-300 hover:text-blue-200 font-semibold"
+                                          >
+                                            Ortaya al
+                                          </button>
+                                        </div>
+                                      )}
                                     </div>
-                                    <Field label="Ürün Adı" value={it.name} onChange={(v) => update(i, "name", v)} />
-                                    <Field label="Açıklama" value={it.description ?? ""} onChange={(v) => update(i, "description", v)} multiline />
                                   </div>
                                 </div>
 

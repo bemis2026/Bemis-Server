@@ -123,6 +123,11 @@ export type ShowcaseProductItem = {
   // Görsel üstündeki 4 özellik kutucuğu (sol alt). Slot 0..3.
   // Slide-spesifik; boş bırakılırsa global ps.overlayFeatures'a fallback.
   overlayFeatures?: string[];
+  // object-position değeri ("50% 50%" formatında) — image kart oranı (3/4)
+  // dosyanınkinden farklı olunca cover/cropping yapılır; bu alan hangi
+  // noktanın merkezde görüneceğini belirler. Admin'den click-to-focus
+  // ile set edilir.
+  imagePos?: string;
 };
 
 export type ReviewItem = {

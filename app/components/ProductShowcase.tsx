@@ -52,6 +52,7 @@ export default function ProductShowcase() {
     image?: string; specs?: { label: string; value: string }[];
     ctaPrimary?: string; ctaHref?: string;
     overlayFeatures?: string[];
+    imagePos?: string;
   };
 
   const mainSlide: Slide | null = (ps?.image || ps?.name || ps?.badge)
@@ -65,6 +66,7 @@ export default function ProductShowcase() {
         ctaPrimary: ps?.ctaPrimary,
         ctaHref: ps?.ctaHref,
         overlayFeatures: ps?.overlayFeatures,
+        imagePos: (ps as { imagePos?: string })?.imagePos,
       }
     : null;
   const extraSlides: Slide[] = (ps?.products ?? []).filter(p => p && (p.image || p.name));
@@ -180,7 +182,12 @@ export default function ProductShowcase() {
                         dragConstraints={{ left: 0, right: 0 }}
                         dragElastic={0.18}
                         onDragEnd={handleDragEnd}
-                        style={{ touchAction: galleryCount > 1 ? "pan-y" : "auto" }}
+                        style={{
+                          touchAction: galleryCount > 1 ? "pan-y" : "auto",
+                          // Slide'ın admin'den ayarlanmış odak noktası
+                          // (örn. "50% 30%"). Boş ise center.
+                          objectPosition: active?.imagePos || "50% 50%",
+                        }}
                       />
                     </AnimatePresence>
                   </motion.div>
