@@ -9,7 +9,13 @@ type DocEntry = {
   id: string; title: string; description: string; category: string;
   url: string; filename: string; size: string; lang: string; date: string; visible: boolean;
   coverUrl?: string;
+  // Bu dökümanın hangi ÜRÜN kategorilerine bağlı olduğu — bağlanmışsa o
+  // kategoriye ait tüm ürünlerin detay sayfasında 'Belgeler' sekmesinde
+  // otomatik olarak listelenir. Boş ise sadece /documents sayfasında görünür.
+  linkedProductCategories?: string[];
 };
+
+type ProductCatLite = { id: string; name: string };
 
 const DOC_CATEGORIES = [
   { id: "price-list",   label: "Fiyat Listesi" },
@@ -29,6 +35,7 @@ const DOC_LANGS = [
 
 export default function DocumentsPanel() {
   const [docs, setDocs] = useState<DocEntry[]>([]);
+  const [productCats, setProductCats] = useState<ProductCatLite[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [uploadLoading, setUploadLoading] = useState(false);
@@ -52,6 +59,17 @@ export default function DocumentsPanel() {
       .finally(() => setLoading(false));
   };
   useEffect(() => { load(); }, []);
+
+  // Ürün kategorilerini çek — edit modal'daki "Ürün Kategorilerine Bağla"
+  // çoklu seçim için. Public /api/products yeterli (id + name lazım).
+  useEffect(() => {
+    fetch("/api/products")
+      .then(r => r.json())
+      .then((data: { id: string; name: string }[]) => {
+        if (Array.isArray(data)) setProductCats(data.map(c => ({ id: c.id, name: c.name })));
+      })
+      .catch(() => {});
+  }, []);
 
   const save = async (updated: DocEntry[]) => {
     setSaving(true);
@@ -245,6 +263,15 @@ export default function DocumentsPanel() {
                     <span className="text-[10px] px-1.5 py-0.5 rounded-md font-bold"
                       style={{ background: `${accent}18`, color: accent }}>{catLabel}</span>
                     <span className="text-[10px] text-white/30 font-mono">{doc.lang?.toUpperCase()}</span>
+                    {(doc.linkedProductCategories?.length ?? 0) > 0 && (
+                      <span
+                        className="text-[10px] px-1.5 py-0.5 rounded-md font-bold inline-flex items-center gap-1"
+                        style={{ background: "rgba(59,130,246,0.18)", color: "#93C5FD", border: "1px solid rgba(59,130,246,0.40)" }}
+                        title={`Ürün kategorileri: ${(doc.linkedProductCategories ?? []).map(id => productCats.find(p => p.id === id)?.name ?? id).join(", ")}`}
+                      >
+                        🔗 {doc.linkedProductCategories!.length} kategori
+                      </span>
+                    )}
                   </div>
                   <div className="flex items-center gap-3 mt-0.5">
                     {doc.size && <span className="text-[10px] text-white/25">{doc.size}</span>}
@@ -376,6 +403,51 @@ export default function DocumentsPanel() {
                     {DOC_LANGS.map(l => <option key={l.id} value={l.id}>{l.label}</option>)}
                   </select>
                 </div>
+              </div>
+
+              {/* Ürün Kategorilerine Bağla — bu döküman seçilen ürün
+                  kategorilerindeki TÜM ürünlerin detay sayfasının "Belgeler"
+                  sekmesinde otomatik olarak listelenir. Birden fazla kategori
+                  seçilebilir; boş bırakılırsa yalnızca /documents sayfasında
+                  görünür. */}
+              <div>
+                <label className="block text-[11px] font-semibold text-white/40 mb-1 uppercase tracking-wider">Ürün Kategorilerine Bağla</label>
+                <p className="text-[10px] text-white/30 mb-2 leading-relaxed">
+                  İşaretlediğin kategorilerin tüm ürün detay sayfalarında bu döküman &quot;Belgeler&quot; sekmesinde otomatik olarak gözükür. Her ürün için ayrıca yüklemeye gerek kalmaz.
+                </p>
+                {productCats.length === 0 ? (
+                  <p className="text-[11px] text-white/25 italic px-1 py-2">Ürün kategorileri yükleniyor…</p>
+                ) : (
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 rounded-lg border border-white/8 p-2.5" style={{ background: "rgba(255,255,255,0.02)" }}>
+                    {productCats.map((pc) => {
+                      const linked = (editDoc.linkedProductCategories ?? []).includes(pc.id);
+                      return (
+                        <label
+                          key={pc.id}
+                          className="flex items-center gap-2 px-2.5 py-2 rounded-md cursor-pointer transition-colors"
+                          style={{
+                            background: linked ? "rgba(59,130,246,0.18)" : "rgba(255,255,255,0.03)",
+                            border: linked ? "1px solid rgba(59,130,246,0.55)" : "1px solid rgba(255,255,255,0.06)",
+                          }}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={linked}
+                            onChange={() => {
+                              const cur = new Set(editDoc.linkedProductCategories ?? []);
+                              if (cur.has(pc.id)) cur.delete(pc.id); else cur.add(pc.id);
+                              setEditDoc({ ...editDoc, linkedProductCategories: Array.from(cur) });
+                            }}
+                            className="accent-blue-500"
+                          />
+                          <span className="text-[12px] font-medium" style={{ color: linked ? "#93C5FD" : "rgba(255,255,255,0.75)" }}>
+                            {pc.name}
+                          </span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>

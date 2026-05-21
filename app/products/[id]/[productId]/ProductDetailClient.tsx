@@ -99,6 +99,13 @@ export default function ProductDetailPage({
   const [loading,  setLoading]      = useState(initialProduct === null);
   const [activeImg, setActiveImg]   = useState(0);
   const [allCategories, setAllCategories] = useState<CategoryData[]>(initialAllCategories);
+  // Global documents (admin → Dökümanlar tab) — her ürün için Belgeler
+  // sekmesinde 'linkedProductCategories' içinde aktif kategorinin id'si varsa
+  // listelenir. Kategori bazlı tek-yükleme yerine bağlama mantığı.
+  const [globalDocs, setGlobalDocs] = useState<Array<{
+    title?: string; url: string; size?: string; visible?: boolean;
+    linkedProductCategories?: string[];
+  }>>([]);
   const [activeTab, setActiveTab]   = useState<"specs" | "general" | "documents">("general");
   // FAQ artık accordion değil — kartlar her zaman cevap görünür halde.
   const carouselRef = useRef<HTMLDivElement | null>(null);
@@ -106,6 +113,19 @@ export default function ProductDetailPage({
 
   const categoryId = typeof params.id        === "string" ? params.id        : "";
   const productId  = typeof params.productId === "string" ? params.productId : "";
+
+  // Global documents bin (admin Dökümanlar tab) — bu kategoriye bağlı
+  // olanları ürün detayında listelemek için bir kez çek. Lang değişince
+  // yenilenmesine gerek yok; başlık/dil filtreleri client-side.
+  useEffect(() => {
+    fetch("/api/documents")
+      .then(r => r.json())
+      .then((data) => {
+        const arr = Array.isArray(data) ? data : (data?.documents ?? []);
+        if (Array.isArray(arr)) setGlobalDocs(arr);
+      })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     if (!categoryId || !productId) return;
@@ -565,9 +585,20 @@ export default function ProductDetailPage({
                   const catManuals = catManualsRaw
                     .filter((m) => m && m.url && m.url.trim().length > 0)
                     .map((m) => ({ label: m.name, url: m.url, size: m.size }));
+                  // Linked global documents — /api/documents'ten gelen, bu
+                  // ürün kategorisine bağlı (`linkedProductCategories` içinde
+                  // category.id var) ve görünür olanlar.
+                  const linkedDocs = (globalDocs ?? [])
+                    .filter((doc) => doc && doc.url && doc.url.trim().length > 0)
+                    .filter((doc) => doc.visible !== false)
+                    .filter((doc) => Array.isArray(doc.linkedProductCategories) && category && doc.linkedProductCategories.includes(category.id))
+                    .map((doc) => ({ label: doc.title || "Belge", url: doc.url, size: doc.size }));
+
                   const seenUrls = new Set(productDocs.map((d) => d.url));
                   const mergedManuals = catManuals.filter((m) => !seenUrls.has(m.url));
-                  const docList = [...productDocs, ...mergedManuals];
+                  mergedManuals.forEach((m) => seenUrls.add(m.url));
+                  const mergedLinked = linkedDocs.filter((l) => !seenUrls.has(l.url));
+                  const docList = [...productDocs, ...mergedManuals, ...mergedLinked];
                   const hasGeneral  = featureList.length > 0 || generalList.length > 0 || priceRowsCount > 0;
                   const hasDocs     = docList.length > 0;
                   if (!hasSpecs && !hasGeneral && !hasDocs) return null;
