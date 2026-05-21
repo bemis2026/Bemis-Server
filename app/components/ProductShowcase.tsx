@@ -42,18 +42,36 @@ export default function ProductShowcase() {
   const specBg = d ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.85)";
   const specBorder = d ? "rgba(255,255,255,0.09)" : "rgba(0,0,0,0.07)";
 
-  // Multi-product mode: each gallery slide is its own product (image + text).
-  // Falls back to legacy mode (single product, multiple images of it) when
-  // products[] is empty or absent.
-  const productsList = (ps?.products ?? []).filter(p => p && (p.image || p.name));
-  const isMultiProduct = productsList.length > 0;
+  // Showcase slides = ana ürün (ps.*) + products[] (admin'in eklediği ek
+  // vitrin ürünleri). Önceden products[] dolduğunda ana ürün tamamen
+  // gizleniyordu, kullanıcı "ilk tanıtılan ürün gitti" diye yakındı. Şimdi
+  // ana ürün her zaman ilk slide; eklenen ürünler arkasından sıralanır,
+  // hepsi yandan kaydırma butonlarıyla dönüşümlü gezilir.
+  type Slide = {
+    badge?: string; name?: string; tagline?: string; description?: string;
+    image?: string; specs?: { label: string; value: string }[];
+    ctaPrimary?: string; ctaHref?: string;
+  };
 
-  const galleryImages: string[] = isMultiProduct
-    ? productsList.map(p => p.image ?? "").filter(Boolean)
-    : (ps?.images && ps.images.length > 0
-        ? ps.images.filter(Boolean)
-        : (ps?.image ? [ps.image] : []));
-  const galleryCount = galleryImages.length;
+  const mainSlide: Slide | null = (ps?.image || ps?.name || ps?.badge)
+    ? {
+        badge: ps?.badge,
+        name: ps?.name,
+        tagline: ps?.tagline,
+        description: ps?.description,
+        image: ps?.image,
+        specs: ps?.specs,
+        ctaPrimary: ps?.ctaPrimary,
+        ctaHref: ps?.ctaHref,
+      }
+    : null;
+  const extraSlides: Slide[] = (ps?.products ?? []).filter(p => p && (p.image || p.name));
+  const slides: Slide[] = mainSlide ? [mainSlide, ...extraSlides] : extraSlides;
+
+  const galleryImages: string[] = slides.length > 0
+    ? slides.map(s => s.image ?? "").filter(Boolean)
+    : (ps?.images && ps.images.length > 0 ? ps.images.filter(Boolean) : []);
+  const galleryCount = Math.max(galleryImages.length, slides.length);
 
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -62,9 +80,9 @@ export default function ProductShowcase() {
     if (index >= galleryCount && galleryCount > 0) setIndex(0);
   }, [galleryCount, index]);
 
-  // Resolve the active product's text fields. In multi-product mode, fall
-  // back to ps.* for any field the product doesn't override.
-  const active = isMultiProduct ? productsList[Math.min(index, productsList.length - 1)] : null;
+  // Active slide — content (badge, name, description, specs, cta) buradan
+  // gelir. Slides boşsa ps.* fallback'ine düşer.
+  const active = slides.length > 0 ? slides[Math.min(index, slides.length - 1)] : null;
   const badgeText       = active?.badge       ?? ps?.badge       ?? "Amiral Gemisi Ürün";
   const nameText        = active?.name        ?? ps?.name        ?? "AC Wallbox Smart Charger Pro 2";
   const taglineText     = active?.tagline     ?? ps?.tagline;
@@ -167,24 +185,26 @@ export default function ProductShowcase() {
 
                   {galleryCount > 1 && (
                     <>
-                      {/* Prev/Next — visible on hover (desktop), always on touch */}
+                      {/* Prev/Next — her zaman görünür (hover-only değil),
+                          kullanıcının vitrin ürünleri arasında kaydırma
+                          tuşları olduğunu net görmesi için. */}
                       <button
                         type="button"
                         onClick={(e) => { e.stopPropagation(); goPrev(); }}
-                        aria-label="Önceki görsel"
-                        className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100 focus:opacity-100"
-                        style={{ background: "rgba(8,12,24,0.78)", color: "#fff", border: "1px solid rgba(255,255,255,0.14)", backdropFilter: "blur(10px)" }}
+                        aria-label="Önceki vitrin ürünü"
+                        className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95 z-10"
+                        style={{ background: "rgba(8,12,24,0.85)", color: "#fff", border: "1px solid rgba(255,255,255,0.18)", backdropFilter: "blur(10px)", boxShadow: "0 4px 14px rgba(0,0,0,0.35)" }}
                       >
-                        <RiArrowLeftSLine size={20} />
+                        <RiArrowLeftSLine size={22} />
                       </button>
                       <button
                         type="button"
                         onClick={(e) => { e.stopPropagation(); goNext(); }}
-                        aria-label="Sonraki görsel"
-                        className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100 focus:opacity-100"
-                        style={{ background: "rgba(8,12,24,0.78)", color: "#fff", border: "1px solid rgba(255,255,255,0.14)", backdropFilter: "blur(10px)" }}
+                        aria-label="Sonraki vitrin ürünü"
+                        className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95 z-10"
+                        style={{ background: "rgba(8,12,24,0.85)", color: "#fff", border: "1px solid rgba(255,255,255,0.18)", backdropFilter: "blur(10px)", boxShadow: "0 4px 14px rgba(0,0,0,0.35)" }}
                       >
-                        <RiArrowRightSLine size={20} />
+                        <RiArrowRightSLine size={22} />
                       </button>
 
                       {/* Dots — at the very bottom of the image */}
