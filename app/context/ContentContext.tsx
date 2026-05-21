@@ -120,6 +120,9 @@ export type ShowcaseProductItem = {
   ctaHref?: string;
   ctaSecondary?: string;
   ctaSecondaryHref?: string;
+  // Görsel üstündeki 4 özellik kutucuğu (sol alt). Slot 0..3.
+  // Slide-spesifik; boş bırakılırsa global ps.overlayFeatures'a fallback.
+  overlayFeatures?: string[];
 };
 
 export type ReviewItem = {

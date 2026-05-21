@@ -222,6 +222,7 @@ type ShowcaseProductItem = {
   badge?: string; name: string; tagline?: string; description?: string;
   image?: string; specs?: { label: string; value: string }[];
   ctaPrimary?: string; ctaHref?: string; ctaSecondary?: string; ctaSecondaryHref?: string;
+  overlayFeatures?: string[];
 };
 type HeroLayoutKey = "logo" | "text" | "button";
 
@@ -4739,10 +4740,13 @@ export default function AdminPage() {
                                   </div>
                                 </div>
 
-                                {/* Image upload tile */}
+                                {/* Image upload tile — ayrıca canlı önizleme:
+                                    image yüklendiğinde public sayfadaki gibi
+                                    name kutusu (sağ üst) + 4 feature kutusu
+                                    (sol alt) mockup olarak gözükür. */}
                                 <div className="grid grid-cols-3 gap-3 items-start">
                                   <label
-                                    className="relative rounded-xl overflow-hidden border-2 border-dashed cursor-pointer flex items-center justify-center"
+                                    className="relative rounded-xl overflow-hidden border-2 border-dashed cursor-pointer flex items-center justify-center group"
                                     style={{
                                       aspectRatio: "3/4",
                                       borderColor: it.image ? "rgba(255,255,255,0.10)" : "rgba(59,130,246,0.32)",
@@ -4763,10 +4767,31 @@ export default function AdminPage() {
                                         <p className="text-[10px] mt-1 font-semibold">Görsel Yükle</p>
                                       </div>
                                     )}
+                                    {/* Mockup — name kutusu sağ üst (canlı sayfayla aynı stil) */}
+                                    {it.image && (it.name || it.badge) && (
+                                      <div className="absolute top-1.5 right-1.5 max-w-[80%]">
+                                        <div className="inline-flex flex-col items-end text-right px-1.5 py-0.5 rounded"
+                                          style={{ background: "rgba(6,10,22,0.92)", border: "1px solid rgba(255,255,255,0.14)" }}>
+                                          {it.badge && <span className="text-[5px] font-bold uppercase tracking-widest" style={{ color: "#93C5FD" }}>{it.badge}</span>}
+                                          <span className="text-[7px] font-black text-white leading-tight">{it.name}</span>
+                                        </div>
+                                      </div>
+                                    )}
+                                    {/* Mockup — 4 feature badge sol alt */}
+                                    {it.image && (it.overlayFeatures ?? []).filter(Boolean).length > 0 && (
+                                      <div className="absolute bottom-1.5 left-1.5 grid grid-cols-2 gap-0.5 max-w-[70%]">
+                                        {(it.overlayFeatures ?? []).slice(0, 4).map((f, fi) => f?.trim() && (
+                                          <div key={fi} className="px-1 py-0.5 rounded text-[6px] font-bold text-white leading-tight"
+                                            style={{ background: "rgba(8,12,24,0.92)", border: "1px solid rgba(59,130,246,0.4)" }}>
+                                            {f}
+                                          </div>
+                                        ))}
+                                      </div>
+                                    )}
                                     {it.image && (
-                                      <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center"
-                                        style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(2px)" }}>
-                                        <span className="text-[10px] text-white font-bold">Değiştir</span>
+                                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                                        style={{ background: "rgba(0,0,0,0.65)", backdropFilter: "blur(2px)" }}>
+                                        <span className="text-[10px] text-white font-bold">Görseli Değiştir</span>
                                       </div>
                                     )}
                                     <input
@@ -4786,6 +4811,38 @@ export default function AdminPage() {
                                     </div>
                                     <Field label="Ürün Adı" value={it.name} onChange={(v) => update(i, "name", v)} />
                                     <Field label="Açıklama" value={it.description ?? ""} onChange={(v) => update(i, "description", v)} multiline />
+                                  </div>
+                                </div>
+
+                                {/* Görsel Üstü 4 Özellik Kutucuğu — slide-spesifik */}
+                                <div className="pt-2 border-t border-white/8 space-y-2">
+                                  <div>
+                                    <p className="text-[10px] font-bold text-white/40 uppercase">Görsel Üstü Özellik Kutucukları (4 slot)</p>
+                                    <p className="text-[10px] text-white/30 mt-0.5">Görselin sol alt köşesinde 2×2 grid olarak gözükür. Boş bırakırsanız ana ürünün overlayFeatures&apos;ı kullanılır.</p>
+                                  </div>
+                                  <div className="grid grid-cols-2 gap-2">
+                                    {[0, 1, 2, 3].map((slot) => (
+                                      <Field
+                                        key={slot}
+                                        label={`${slot + 1}. Kutu`}
+                                        value={(it.overlayFeatures ?? [])[slot] ?? ""}
+                                        onChange={(v) => {
+                                          setContent((prev) => {
+                                            if (!prev?.productShowcase) return prev;
+                                            const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                                            const list = [...(next.productShowcase!.products ?? [])];
+                                            const ov = [...((list[i] as ShowcaseProductItem).overlayFeatures ?? [])];
+                                            // Slot'u uzat, eksik index'leri boş bırak
+                                            while (ov.length <= slot) ov.push("");
+                                            ov[slot] = v;
+                                            list[i] = { ...list[i], overlayFeatures: ov };
+                                            next.productShowcase!.products = list;
+                                            return next;
+                                          });
+                                        }}
+                                        placeholder={slot === 0 ? "ör. IP 65" : slot === 1 ? "ör. Planlı Şarj" : slot === 2 ? "ör. Ortak Kullanım" : "ör. Mobil Uygulama"}
+                                      />
+                                    ))}
                                   </div>
                                 </div>
 

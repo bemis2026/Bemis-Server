@@ -51,6 +51,7 @@ export default function ProductShowcase() {
     badge?: string; name?: string; tagline?: string; description?: string;
     image?: string; specs?: { label: string; value: string }[];
     ctaPrimary?: string; ctaHref?: string;
+    overlayFeatures?: string[];
   };
 
   const mainSlide: Slide | null = (ps?.image || ps?.name || ps?.badge)
@@ -63,6 +64,7 @@ export default function ProductShowcase() {
         specs: ps?.specs,
         ctaPrimary: ps?.ctaPrimary,
         ctaHref: ps?.ctaHref,
+        overlayFeatures: ps?.overlayFeatures,
       }
     : null;
   const extraSlides: Slide[] = (ps?.products ?? []).filter(p => p && (p.image || p.name));
@@ -293,8 +295,17 @@ export default function ProductShowcase() {
                 style={{ bottom: "calc(0.75rem + 24px + 10px)", maxWidth: "calc(100% - 96px)" }}
               >
                 {(() => {
-                  const ov = ps?.overlayFeatures ?? [];
-                  const v = (i: number, fb: string) => (ov[i] && ov[i].trim()) ? ov[i] : fb;
+                  // Slide-spesifik overlayFeatures önceliklidir; eksik
+                  // slot'lar ps.overlayFeatures global fallback'inden gelir.
+                  const slideOv = active?.overlayFeatures ?? [];
+                  const globalOv = ps?.overlayFeatures ?? [];
+                  const v = (i: number, fb: string) => {
+                    const s = slideOv[i]?.trim();
+                    if (s) return s;
+                    const g = globalOv[i]?.trim();
+                    if (g) return g;
+                    return fb;
+                  };
                   return [
                     { icon: RiShieldCheckLine,    color: "#10B981", value: v(0, specs[1]?.value ?? "IP 65") },
                     { icon: RiCalendarCheckLine,  color: ACCENT,    value: v(1, "Planlı Şarj") },
