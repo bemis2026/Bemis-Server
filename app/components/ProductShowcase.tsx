@@ -95,7 +95,21 @@ export default function ProductShowcase() {
   const nameText        = pick(active?.name,        ps?.name,        "AC Wallbox Smart Charger Pro 2");
   const taglineText     = pick(active?.tagline,     ps?.tagline);
   const descriptionText = pick(active?.description, ps?.description);
-  const specs           = (active?.specs && active.specs.length > 0) ? active.specs : (ps?.specs ?? []);
+  // Specs — slide-spesifik; yoksa ps.specs fallback. "Yerli Üretim" spec'i
+  // her slide'da AYNI POZİSYONDA (slot 5 = index 4) gösterilsin: slide
+  // değişince TR bayraklı kutu yer değiştirmesin. Label veya value içinde
+  // yerli/türkiye/made in geçen spec varsa otomatik o slot'a taşınır.
+  const rawSpecs = (active?.specs && active.specs.length > 0) ? active.specs : (ps?.specs ?? []);
+  const specs = (() => {
+    const YERLI_RE = /(yerli|türkiye|turkiye|made\s*in)/i;
+    const yerliIdx = rawSpecs.findIndex(s => YERLI_RE.test(s?.label || "") || YERLI_RE.test(s?.value || ""));
+    const TARGET = 4; // 5. konum
+    if (yerliIdx < 0 || yerliIdx === TARGET || rawSpecs.length <= TARGET) return rawSpecs;
+    const next = [...rawSpecs];
+    const [yerli] = next.splice(yerliIdx, 1);
+    next.splice(TARGET, 0, yerli);
+    return next;
+  })();
   const ctaPrimaryText  = pick(active?.ctaPrimary,  ps?.ctaPrimary,  "Ürünü İncele");
   const ctaPrimaryHref  = pick(active?.ctaHref,     ps?.ctaHref,     "/products/wallbox");
 
