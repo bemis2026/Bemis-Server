@@ -41,3 +41,8 @@ if (dsn) {
     ],
   });
 }
+
+// Required by @sentry/nextjs (App Router) to instrument client-side route
+// transitions — without this, navigations between pages aren't traced.
+// No-ops safely when the DSN is unset (Sentry.init was skipped).
+export const onRouterTransitionStart = Sentry.captureRouterTransitionStart;

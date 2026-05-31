@@ -17,7 +17,6 @@ const navLinks = [
   { label: "Ana Sayfa",   href: "#hero"             },
   { label: "Hakkımızda",  href: "#dna"              },
   { label: "Ürünler",     href: "#products"         },
-  { label: "Projeler",    href: "#referenceprojects" },
   { label: "Bayi Ağı",    href: "#dealer"           },
   { label: "Kurumsal",    href: "#b2bcta"           },
   { label: "Hesaplayıcı", href: "#calculator"       },

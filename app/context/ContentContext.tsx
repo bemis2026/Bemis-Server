@@ -647,7 +647,6 @@ const defaultContent: SiteContent = {
       { label: "Ana Sayfa",   href: "#hero"              },
       { label: "Hakkımızda",  href: "#dna"               },
       { label: "Ürünler",     href: "#products"          },
-      { label: "Projeler",    href: "#referenceprojects" },
       { label: "Dökümanlar",  href: "/documents"         },
       { label: "Bayi Ağı",    href: "#dealer"            },
       { label: "Hesaplayıcı", href: "#calculator"        },
@@ -729,13 +728,12 @@ const defaultContent: SiteContent = {
 // Merges raw fetched content (from /api/content or server-side readBin) with
 // defaultContent so every nested field is guaranteed to exist. Used by both the
 // initial server-rendered hydration and runtime client refetches.
-// `lang` is used by the navbar migration to pick a localized label for the
-// auto-injected Projeler / Projects link (since it's added client-side and
-// therefore bypasses the bin's translation walker).
+// `lang` is retained for signature compatibility with existing callers; the
+// navbar migration no longer injects a localized link (see navbar block below).
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function mergeContent(data: any, lang: Lang = "tr"): SiteContent {
+  void lang;
   const safe = (data ?? {}) as Record<string, unknown> & { [k: string]: any };
-  const projelerLabel = lang === "en" ? "Projects" : "Projeler";
   return {
     ...defaultContent,
     ...safe,
@@ -765,21 +763,18 @@ export function mergeContent(data: any, lang: Lang = "tr"): SiteContent {
       //  1. Drop legacy "#contact / İletişim" — the "Bize Ulaşın" CTA in
       //     the navbar already covers contact (the section itself stays
       //     editable in admin).
-      //  2. Ensure "Projeler / #referenceprojects" exists.
+      //  2. Drop "Projeler / #referenceprojects" — removed from the menu by
+      //     request. The section itself still renders on the homepage; only
+      //     the nav shortcut is gone. We filter it out here (not just from
+      //     defaultContent) because the stored bin may still carry the link.
       //  3. Sort anchor links to match the homepage sectionOrder so the
       //     menu reads top-to-bottom in the same flow as the page.
       //     Non-anchor links (/documents, /b2b) keep their relative spot
       //     and drop to the end.
       type LinkItem = { label?: string; href?: string };
+      const DROP_HREFS = new Set(["#contact", "#referenceprojects"]);
       const baseLinks: LinkItem[] = safe.navbar?.links ?? defaultContent.navbar.links;
-      const cleaned = baseLinks.filter((l) => l?.href !== "#contact");
-      const hasProjeler = cleaned.some((l) => l?.href === "#referenceprojects");
-      // Always force the Projeler link to use the language-correct label so
-      // EN visitors see "Projects" — this link is injected client-side and
-      // therefore bypasses the bin's translation walker.
-      const withProjeler: LinkItem[] = hasProjeler
-        ? cleaned.map((l) => l?.href === "#referenceprojects" ? { ...l, label: projelerLabel } : l)
-        : [...cleaned, { label: projelerLabel, href: "#referenceprojects" }];
+      const cleaned = baseLinks.filter((l) => !DROP_HREFS.has(l?.href ?? ""));
 
       const order = migrateSectionOrder(safe.sectionOrder ?? DEFAULT_SECTION_ORDER);
       const sectionIdx = (href?: string) => {
@@ -789,7 +784,7 @@ export function mergeContent(data: any, lang: Lang = "tr"): SiteContent {
         const i = order.indexOf(id);
         return i >= 0 ? i : Number.POSITIVE_INFINITY;
       };
-      const links = [...withProjeler].sort((a, b) => sectionIdx(a.href) - sectionIdx(b.href));
+      const links = [...cleaned].sort((a, b) => sectionIdx(a.href) - sectionIdx(b.href));
       return { ...defaultContent.navbar, ...safe.navbar, links };
     })(),
     footer: { ...defaultContent.footer, ...safe.footer },
