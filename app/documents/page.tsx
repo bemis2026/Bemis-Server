@@ -102,7 +102,7 @@ export default function DocumentsPage() {
   const border      = d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
   const textPrimary = d ? "#f0f0f4" : "#1a1a1a";
   const textMuted   = d ? "rgba(240,240,244,0.50)" : "rgba(26,26,26,0.50)";
-  const textFaint   = d ? "rgba(240,240,244,0.28)" : "rgba(26,26,26,0.32)";
+  const textFaint   = d ? "rgba(240,240,244,0.70)" : "rgba(26,26,26,0.62)";
 
   const filtered = documents.filter(doc => {
     const matchCat = activeCategory === "all" || doc.category === activeCategory;

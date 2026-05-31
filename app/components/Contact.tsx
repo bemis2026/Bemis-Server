@@ -44,7 +44,8 @@ export default function Contact() {
   const inputFocus = d ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.20)";
   const textPrimary = d ? "#f0f0f4" : "#1a1a2e";
   const textMuted = d ? "rgba(240,240,244,0.50)" : "rgba(26,26,46,0.50)";
-  const textFaint = d ? "rgba(240,240,244,0.28)" : "rgba(26,26,46,0.28)";
+  // 0.28 -> daha okunur ton: form etiketleri/ipuçları WCAG AA (4.5:1) altındaydı.
+  const textFaint = d ? "rgba(240,240,244,0.70)" : "rgba(26,26,46,0.62)";
   const iconBg    = d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)";
   const iconBorder = d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)";
   const shadow    = d ? "none" : "0 2px 20px rgba(0,0,0,0.06)";
