@@ -98,10 +98,11 @@ export default function ProductShowcase() {
   // Specs — slide-spesifik; yoksa ps.specs fallback. "Yerli Üretim" spec'i
   // her slide'da AYNI POZİSYONDA (slot 5 = index 4) gösterilsin: slide
   // değişince TR bayraklı kutu yer değiştirmesin. Label veya value içinde
-  // yerli/türkiye/made in geçen spec varsa otomatik o slot'a taşınır.
+  // yerli/türkiye/made in (+ EN auto-çeviri çıktısı domestic/local/turkey)
+  // geçen spec varsa otomatik o slot'a taşınır — böylece EN dilinde de sabit.
   const rawSpecs = (active?.specs && active.specs.length > 0) ? active.specs : (ps?.specs ?? []);
   const specs = (() => {
-    const YERLI_RE = /(yerli|türkiye|turkiye|made\s*in)/i;
+    const YERLI_RE = /(yerli|türkiye|turkiye|turkey|made\s*in|domestic|local)/i;
     const yerliIdx = rawSpecs.findIndex(s => YERLI_RE.test(s?.label || "") || YERLI_RE.test(s?.value || ""));
     const TARGET = 4; // 5. konum
     if (yerliIdx < 0 || yerliIdx === TARGET || rawSpecs.length <= TARGET) return rawSpecs;

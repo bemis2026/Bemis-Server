@@ -24,6 +24,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     if (stored === "en" || stored === "tr") setLangState(stored);
   }, []);
 
+  // <html lang> her zaman 'tr' kalıyordu (layout.tsx'te sabit). EN'e
+  // geçince kök lang attribute'unu da güncelle — ekran okuyucu doğru dili
+  // seslendirsin ve arama motoruna doğru dil sinyali gitsin. (Görsel etki yok.)
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
+
   const setLang = useCallback((l: Lang) => {
     setLangState(l);
     localStorage.setItem("lang", l);

@@ -89,7 +89,7 @@ export default function ProductDetailPage({
   const { categories: catMeta } = useContent();
   // Warranty / certification copy is fixed company policy — same line for
   // every product, no admin knob.
-  const WARRANTY_DURATION = "2 Yıl Üretici Garantisi";
+  const WARRANTY_DURATION = lang === "en" ? "2-Year Manufacturer Warranty" : "2 Yıl Üretici Garantisi";
   // CE certification kept in the Belgeler tab via certificates list —
   // no longer rendered as a standalone chip alongside warranty.
   const d         = theme === "dark";
@@ -181,9 +181,9 @@ export default function ProductDetailPage({
         {/* Not found */}
         {!loading && !product && (
           <div className="text-center py-32">
-            <p className="text-lg font-bold mb-2" style={{ color: textPrimary }}>Ürün bulunamadı</p>
+            <p className="text-lg font-bold mb-2" style={{ color: textPrimary }}>{lang === "en" ? "Product not found" : "Ürün bulunamadı"}</p>
             <button onClick={() => router.push("/products")} className="text-sm underline" style={{ color: accent }}>
-              Tüm ürünlere dön
+              {lang === "en" ? "Back to all products" : "Tüm ürünlere dön"}
             </button>
           </div>
         )}
@@ -194,7 +194,7 @@ export default function ProductDetailPage({
             {/* ── Breadcrumb ── */}
             <nav className="flex items-center gap-1.5 mb-6 text-xs" style={{ color: textFaint }}>
               <button onClick={() => router.push("/products")} className="hover:underline transition-colors" style={{ color: textFaint }}>
-                Ürünler
+                {lang === "en" ? "Products" : "Ürünler"}
               </button>
               <RiArrowRightSLine size={13} />
               <button onClick={() => router.push(`/products/${categoryId}`)} className="hover:underline" style={{ color: textFaint }}>
@@ -285,7 +285,7 @@ export default function ProductDetailPage({
                                 className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md"
                                 style={{ background: "rgba(0,0,0,0.55)", color: "rgba(255,255,255,0.85)", backdropFilter: "blur(8px)" }}
                               >
-                                Versiyon
+                                {lang === "en" ? "Version" : "Versiyon"}
                               </span>
                               <div className="flex flex-col items-end gap-1">
                                 {variantInfo.group.variants.map((v) => {
@@ -302,7 +302,7 @@ export default function ProductDetailPage({
                                         cursor: isActive ? "default" : "pointer",
                                       }}
                                     >
-                                      <span className="block leading-tight">{v.subtitle || v.code || "Standart"}</span>
+                                      <span className="block leading-tight">{v.subtitle || v.code || (lang === "en" ? "Standard" : "Standart")}</span>
                                       {v.code && v.subtitle && (
                                         <span className="block text-[8px] font-mono mt-0.5" style={{ color: "rgba(255,255,255,0.7)" }}>
                                           {v.code}
@@ -365,7 +365,7 @@ export default function ProductDetailPage({
                           className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold transition-all hover:opacity-80"
                           style={{ background: d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)", color: textMuted, border: `1px solid ${border}` }}
                         >
-                          <HiDownload size={14} /> PDF Katalog İndir
+                          <HiDownload size={14} /> {lang === "en" ? "Download PDF Catalog" : "PDF Katalog İndir"}
                         </a>
                       )}
                     </div>
@@ -384,7 +384,7 @@ export default function ProductDetailPage({
                     className="mt-5"
                   >
                     <h3 className="text-[11px] font-bold uppercase tracking-wider mb-3" style={{ color: textFaint }}>
-                      Paket İçeriği
+                      {lang === "en" ? "What's in the Box" : "Paket İçeriği"}
                     </h3>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                       {product.boxContents.map((item, idx) => (
@@ -413,7 +413,7 @@ export default function ProductDetailPage({
                               />
                             ) : (
                               <div className="absolute inset-0 flex items-center justify-center" style={{ color: textFaint }}>
-                                <span className="text-[10px] uppercase tracking-wider">görsel yok</span>
+                                <span className="text-[10px] uppercase tracking-wider">{lang === "en" ? "no image" : "görsel yok"}</span>
                               </div>
                             )}
                           </div>
@@ -484,7 +484,7 @@ export default function ProductDetailPage({
                   {product.compatibleVehicles && product.compatibleVehicles.length > 0 && (
                     <div className="flex flex-wrap items-center gap-2 mb-3">
                       <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: textFaint }}>
-                        Uyumlu Araçlar
+                        {lang === "en" ? "Compatible Vehicles" : "Uyumlu Araçlar"}
                       </span>
                       {product.compatibleVehicles.map((brand) => (
                         <span
@@ -592,7 +592,7 @@ export default function ProductDetailPage({
                     .filter((doc) => doc && doc.url && doc.url.trim().length > 0)
                     .filter((doc) => doc.visible !== false)
                     .filter((doc) => Array.isArray(doc.linkedProductCategories) && category && doc.linkedProductCategories.includes(category.id))
-                    .map((doc) => ({ label: doc.title || "Belge", url: doc.url, size: doc.size }));
+                    .map((doc) => ({ label: doc.title || (lang === "en" ? "Document" : "Belge"), url: doc.url, size: doc.size }));
 
                   const seenUrls = new Set(productDocs.map((d) => d.url));
                   const mergedManuals = catManuals.filter((m) => !seenUrls.has(m.url));
@@ -743,8 +743,8 @@ export default function ProductDetailPage({
                                 }}
                               >
                                 <div className="px-4 py-2 flex items-center justify-between" style={{ borderBottom: `1px solid ${BRAND_BLUE}1f`, background: `${BRAND_BLUE}0c` }}>
-                                  <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: BRAND_BLUE }}>Fiyat Listesi</span>
-                                  <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full" style={{ background: `${BRAND_BLUE}15`, color: BRAND_BLUE }}>KDV Hariç</span>
+                                  <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: BRAND_BLUE }}>{lang === "en" ? "Price List" : "Fiyat Listesi"}</span>
+                                  <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full" style={{ background: `${BRAND_BLUE}15`, color: BRAND_BLUE }}>{lang === "en" ? "Excl. Tax" : "KDV Hariç"}</span>
                                 </div>
                                 {priceRows.map((row, i) => {
                                   // TR dilinde iki para birimi yan yana
@@ -771,7 +771,7 @@ export default function ProductDetailPage({
                                         ) : (
                                           <span>{currency === "TRY" ? tryText : eurText}</span>
                                         )}
-                                        <span className="text-[10px] font-medium opacity-70">+ KDV</span>
+                                        <span className="text-[10px] font-medium opacity-70">{lang === "en" ? "+ Tax" : "+ KDV"}</span>
                                       </span>
                                     </div>
                                   );
@@ -824,7 +824,7 @@ export default function ProductDetailPage({
                                 >
                                   <Ico size={18} />
                                 </div>
-                                <span className="flex-1 text-sm font-semibold truncate" style={{ color: textPrimary }}>{doc.label || "İndir"}</span>
+                                <span className="flex-1 text-sm font-semibold truncate" style={{ color: textPrimary }}>{doc.label || (lang === "en" ? "Download" : "İndir")}</span>
                                 {isPdf
                                   ? <HiDownload size={16} className="flex-shrink-0 transition-transform group-hover:translate-y-0.5" style={{ color: textFaint }} />
                                   : <RiExternalLinkLine size={16} className="flex-shrink-0" style={{ color: textFaint }} />
@@ -869,7 +869,7 @@ export default function ProductDetailPage({
                 acceptedAnswer: { "@type": "Answer", text: f.a },
               })),
             }]} />
-            <h2 className="text-base font-bold mb-4" style={{ color: sd ? "#f0f0f4" : "#111827" }}>Sıkça Sorulan Sorular</h2>
+            <h2 className="text-base font-bold mb-4" style={{ color: sd ? "#f0f0f4" : "#111827" }}>{lang === "en" ? "Frequently Asked Questions" : "Sıkça Sorulan Sorular"}</h2>
             {/* SSS — accordion yok, kartlar her zaman 'açık' state'te:
                 soru + cevap birlikte görünür. Kart yatay olarak tam
                 w-full genişlikte (max-w-7xl parent). Her kart aynı
@@ -936,7 +936,7 @@ export default function ProductDetailPage({
         return (
           <div className="pb-20">
             <div className="max-w-7xl mx-auto mb-4 px-5 sm:px-6 lg:px-8">
-              <h2 className="text-base font-bold" style={{ color: theme === "dark" ? "#f0f0f4" : "#111827" }}>Benzer Ürünler</h2>
+              <h2 className="text-base font-bold" style={{ color: theme === "dark" ? "#f0f0f4" : "#111827" }}>{lang === "en" ? "Related Products" : "Benzer Ürünler"}</h2>
             </div>
             {/* Carousel runs edge-to-edge so it never visually clips at
                 the 7xl rail on wide monitors. snap-proximity (not

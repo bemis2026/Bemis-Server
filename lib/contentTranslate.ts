@@ -41,6 +41,7 @@ const TRANSLATABLE_PATHS: string[] = [
   "dealer.citiesLabel", "dealer.activeDealersLabel",
   "dealer.mapHint", "dealer.mapTitle",
   "dealer.regionReps[].title",
+  "dealer.regionReps[].subregion",
   "dealer.internationalDealers[].countryName",
   "dealer.internationalDealers[].city",
   "dealer.internationalDealers[].address",

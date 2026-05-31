@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
+import { useLanguage, type Lang } from "../context/LanguageContext";
 import Navbar from "../components/Navbar";
 import ContactBar from "../components/ContactBar";
 import SearchOverlay from "../components/SearchOverlay";
@@ -31,15 +32,32 @@ type Document = {
   coverUrl?: string;
 };
 
-const CATEGORIES: { id: string; label: string }[] = [
-  { id: "all",          label: "Tümü" },
-  { id: "price-list",   label: "Fiyat Listesi" },
-  { id: "catalog",      label: "Katalog" },
-  { id: "installation", label: "Kurulum Kılavuzu" },
-  { id: "certificate",  label: "Sertifikalar" },
-  { id: "technical",    label: "Teknik Döküman" },
-  { id: "other",        label: "Diğer" },
+const CATEGORIES: { id: string; tr: string; en: string }[] = [
+  { id: "all",          tr: "Tümü",            en: "All" },
+  { id: "price-list",   tr: "Fiyat Listesi",   en: "Price List" },
+  { id: "catalog",      tr: "Katalog",         en: "Catalog" },
+  { id: "installation", tr: "Kurulum Kılavuzu", en: "Installation Guide" },
+  { id: "certificate",  tr: "Sertifikalar",    en: "Certificates" },
+  { id: "technical",    tr: "Teknik Döküman",  en: "Technical Document" },
+  { id: "other",        tr: "Diğer",           en: "Other" },
 ];
+const catLabel = (id: string, lang: Lang) => {
+  const c = CATEGORIES.find((x) => x.id === id);
+  return c ? (lang === "en" ? c.en : c.tr) : (lang === "en" ? "Other" : "Diğer");
+};
+
+// Sayfa-içi sabit metinler — yalnız EN modunda İngilizce; TR çıktı aynen korunur.
+const UI = {
+  home:      { tr: "Ana Sayfa",        en: "Home" },
+  title:     { tr: "Dökümanlar",       en: "Documents" },
+  loading:   { tr: "Yükleniyor…",      en: "Loading…" },
+  searchPh:  { tr: "Döküman ara…",     en: "Search documents…" },
+  emptyAll:  { tr: "Henüz döküman eklenmemiş", en: "No documents yet" },
+  noResult:  { tr: "Sonuç bulunamadı", en: "No results found" },
+  download:  { tr: "İndir",            en: "Download" },
+  docWordTr: "döküman",
+  docWordEn: "documents",
+} as const;
 
 function fileIcon(filename: string, accent: string) {
   const ext = filename.split(".").pop()?.toLowerCase();
@@ -63,6 +81,7 @@ export default function DocumentsPage() {
   const { theme } = useTheme();
   const d = theme === "dark";
   const { logos } = useContent();
+  const { lang } = useLanguage();
   const router = useRouter();
   const [searchOpen, setSearchOpen] = useState(false);
   const [documents, setDocuments] = useState<Document[]>([]);
@@ -94,7 +113,7 @@ export default function DocumentsPage() {
 
   const grouped = CATEGORIES.slice(1).reduce((acc, cat) => {
     const items = filtered.filter(d => d.category === cat.id);
-    if (items.length) acc.push({ ...cat, items });
+    if (items.length) acc.push({ id: cat.id, label: lang === "en" ? cat.en : cat.tr, items });
     return acc;
   }, [] as { id: string; label: string; items: Document[] }[]);
 
@@ -118,7 +137,7 @@ export default function DocumentsPage() {
             style={{ color: textMuted }}
           >
             <HiArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-            <span className="text-sm font-medium">Ana Sayfa</span>
+            <span className="text-sm font-medium">{lang === "en" ? UI.home.en : UI.home.tr}</span>
           </motion.button>
 
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
@@ -141,7 +160,7 @@ export default function DocumentsPage() {
                 className="text-3xl sm:text-4xl font-black"
                 style={{ color: textPrimary }}
               >
-                Dökümanlar
+                {lang === "en" ? UI.title.en : UI.title.tr}
               </motion.h1>
               <motion.div
                 initial={{ scaleX: 0, opacity: 0 }}
@@ -160,7 +179,9 @@ export default function DocumentsPage() {
                 className="text-sm mt-1"
                 style={{ color: textMuted }}
               >
-                {loading ? "Yükleniyor…" : `${documents.length} döküman`}
+                {loading
+                  ? (lang === "en" ? UI.loading.en : UI.loading.tr)
+                  : `${documents.length} ${lang === "en" ? UI.docWordEn : UI.docWordTr}`}
               </motion.p>
             </div>
 
@@ -176,7 +197,7 @@ export default function DocumentsPage() {
               <input
                 value={query}
                 onChange={e => setQuery(e.target.value)}
-                placeholder="Döküman ara…"
+                placeholder={lang === "en" ? UI.searchPh.en : UI.searchPh.tr}
                 className="pl-9 pr-4 py-2.5 rounded-xl text-sm outline-none w-64"
                 style={{ background: surface, border: `1px solid ${border}`, color: textPrimary }}
               />
@@ -203,7 +224,7 @@ export default function DocumentsPage() {
                   border: `1px solid ${activeCategory === cat.id ? "transparent" : border}`,
                 }}
               >
-                {cat.label}
+                {lang === "en" ? cat.en : cat.tr}
                 {cat.id !== "all" && (
                   <span className="ml-1.5 opacity-60">
                     {documents.filter(doc => doc.category === cat.id).length}
@@ -228,14 +249,14 @@ export default function DocumentsPage() {
           {!loading && documents.length === 0 && (
             <div className="flex flex-col items-center justify-center py-24 gap-3">
               <RiFilePdf2Line size={48} style={{ color: textFaint }} />
-              <p className="text-sm font-semibold" style={{ color: textMuted }}>Henüz döküman eklenmemiş</p>
+              <p className="text-sm font-semibold" style={{ color: textMuted }}>{lang === "en" ? UI.emptyAll.en : UI.emptyAll.tr}</p>
             </div>
           )}
 
           {!loading && documents.length > 0 && filtered.length === 0 && (
             <div className="flex flex-col items-center justify-center py-24 gap-3">
               <HiSearch size={40} style={{ color: textFaint }} />
-              <p className="text-sm font-semibold" style={{ color: textMuted }}>Sonuç bulunamadı</p>
+              <p className="text-sm font-semibold" style={{ color: textMuted }}>{lang === "en" ? UI.noResult.en : UI.noResult.tr}</p>
             </div>
           )}
 
@@ -257,12 +278,12 @@ export default function DocumentsPage() {
                           {group.items.length}
                         </span>
                       </div>
-                      <DocGrid docs={group.items} d={d} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} />
+                      <DocGrid docs={group.items} lang={lang} d={d} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} />
                     </motion.div>
                   ))}
                 </div>
               ) : (
-                <DocGrid docs={filtered} d={d} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} />
+                <DocGrid docs={filtered} lang={lang} d={d} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} />
               )}
             </>
           )}
@@ -274,8 +295,8 @@ export default function DocumentsPage() {
   );
 }
 
-function DocGrid({ docs, d, surface, border, textPrimary, textMuted, textFaint }: {
-  docs: Document[]; d: boolean;
+function DocGrid({ docs, lang, d, surface, border, textPrimary, textMuted, textFaint }: {
+  docs: Document[]; lang: Lang; d: boolean;
   surface: string; border: string;
   textPrimary: string; textMuted: string; textFaint: string;
 }) {
@@ -283,7 +304,7 @@ function DocGrid({ docs, d, surface, border, textPrimary, textMuted, textFaint }
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
       {docs.map((doc, i) => {
         const accent = CAT_ACCENTS[doc.category] ?? "#6B7280";
-        const catLabel = CATEGORIES.find(c => c.id === doc.category)?.label ?? "Diğer";
+        const catText = catLabel(doc.category, lang);
         return (
           <motion.div
             key={doc.id}
@@ -314,7 +335,7 @@ function DocGrid({ docs, d, surface, border, textPrimary, textMuted, textFaint }
                 <div className="absolute top-2 left-2 flex items-center gap-1.5">
                   <span className="text-[10px] font-bold px-2 py-0.5 rounded-md"
                     style={{ background: accent, color: "#fff" }}>
-                    {catLabel}
+                    {catText}
                   </span>
                   {doc.lang && (
                     <span className="text-[10px] font-bold px-2 py-0.5 rounded-md"
@@ -339,7 +360,7 @@ function DocGrid({ docs, d, surface, border, textPrimary, textMuted, textFaint }
                   <div className="flex items-center gap-1.5 mb-0.5">
                     <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md"
                       style={{ background: `${accent}15`, color: accent }}>
-                      {catLabel}
+                      {catText}
                     </span>
                     {doc.lang && (
                       <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md"
@@ -368,7 +389,7 @@ function DocGrid({ docs, d, surface, border, textPrimary, textMuted, textFaint }
                 )}
                 {doc.date && (
                   <span className="text-[10px]" style={{ color: textFaint }}>
-                    {new Date(doc.date).toLocaleDateString("tr-TR", { year: "numeric", month: "short" })}
+                    {new Date(doc.date).toLocaleDateString(lang === "en" ? "en-GB" : "tr-TR", { year: "numeric", month: "short" })}
                   </span>
                 )}
               </div>
@@ -382,7 +403,7 @@ function DocGrid({ docs, d, surface, border, textPrimary, textMuted, textFaint }
                 style={{ background: accent, color: "#fff" }}
               >
                 <HiDownload size={14} />
-                İndir
+                {lang === "en" ? UI.download.en : UI.download.tr}
               </a>
             </div>
           </motion.div>

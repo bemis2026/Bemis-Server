@@ -1,10 +1,20 @@
 import type { ComponentProps } from "react";
+import type { Metadata } from "next";
 import JsonLd from "../components/JsonLd";
 import { breadcrumbSchema, collectionPageSchema } from "../lib/seo";
 import { getServerProducts } from "../lib/server-content";
 import ProductsClient from "./ProductsClient";
 
 type ClientCategories = NonNullable<ComponentProps<typeof ProductsClient>["initialCategories"]>;
+
+// Kendi self-canonical + başlık/açıklaması olmadan bu sayfa root layout'tan
+// '/' canonical + ana sayfa title'ını miras alıyordu (duplicate sinyali).
+export const metadata: Metadata = {
+  title: "Tüm Ürünler — EV Şarj Ekipmanları Kataloğu",
+  description:
+    "AC Wallbox, taşınabilir şarj, DC üniteleri, Type 2 kablolar, V2L adaptörleri ve OEM ekipmanları. Bemis E-V Charge yerli üretim, CE & IP65 sertifikalı.",
+  alternates: { canonical: "/products" },
+};
 
 export default async function ProductsPage() {
   const categories = await getServerProducts();
