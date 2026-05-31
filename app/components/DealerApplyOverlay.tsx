@@ -10,6 +10,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { useContent } from "../context/ContentContext";
 import { trackEvent, trackGoogleAdsConversion } from "./GoogleAnalytics";
 import { trackMetaPixelEvent } from "./MetaPixel";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
 type FormState = {
   name: string;
@@ -69,6 +70,7 @@ const STRINGS = {
 
 export default function DealerApplyOverlay() {
   const { open, mode, closeDealerApply } = useDealerApplyOverlay();
+  const panelRef = useFocusTrap<HTMLDivElement>(open);
   const { theme } = useTheme();
   const { lang } = useLanguage();
   const { marketing } = useContent();
@@ -185,6 +187,10 @@ export default function DealerApplyOverlay() {
           }}
         >
           <motion.div
+            ref={panelRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label={title}
             initial={{ opacity: 0, y: 24, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 24, scale: 0.98 }}
@@ -228,7 +234,7 @@ export default function DealerApplyOverlay() {
                 </div>
 
                 {status === "ok" ? (
-                  <div className="text-center py-8">
+                  <div role="status" aria-live="polite" className="text-center py-8">
                     <div
                       className="mx-auto w-16 h-16 rounded-full flex items-center justify-center mb-4"
                       style={{ background: `${accent}18`, border: `1px solid ${accent}40` }}
@@ -249,20 +255,22 @@ export default function DealerApplyOverlay() {
                   <form onSubmit={handleSubmit} className="space-y-3 mt-2">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-[11px] font-bold tracking-wide uppercase mb-1.5" style={{ color: muted }}>
+                        <label htmlFor="da-name" className="block text-[11px] font-bold tracking-wide uppercase mb-1.5" style={{ color: muted }}>
                           {t.name} *
                         </label>
                         <input
+                          id="da-name"
                           type="text" required value={form.name}
                           onChange={(e) => setForm({ ...form, name: e.target.value })}
                           className={inputCls} style={inputStyle}
                         />
                       </div>
                       <div>
-                        <label className="block text-[11px] font-bold tracking-wide uppercase mb-1.5" style={{ color: muted }}>
+                        <label htmlFor="da-company" className="block text-[11px] font-bold tracking-wide uppercase mb-1.5" style={{ color: muted }}>
                           {t.company}
                         </label>
                         <input
+                          id="da-company"
                           type="text" value={form.company}
                           onChange={(e) => setForm({ ...form, company: e.target.value })}
                           className={inputCls} style={inputStyle}
@@ -272,20 +280,22 @@ export default function DealerApplyOverlay() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-[11px] font-bold tracking-wide uppercase mb-1.5" style={{ color: muted }}>
+                        <label htmlFor="da-location" className="block text-[11px] font-bold tracking-wide uppercase mb-1.5" style={{ color: muted }}>
                           {locationLabel} *
                         </label>
                         <input
+                          id="da-location"
                           type="text" required value={form.location}
                           onChange={(e) => setForm({ ...form, location: e.target.value })}
                           className={inputCls} style={inputStyle}
                         />
                       </div>
                       <div>
-                        <label className="block text-[11px] font-bold tracking-wide uppercase mb-1.5" style={{ color: muted }}>
+                        <label htmlFor="da-phone" className="block text-[11px] font-bold tracking-wide uppercase mb-1.5" style={{ color: muted }}>
                           {t.phone}
                         </label>
                         <input
+                          id="da-phone"
                           type="tel" value={form.phone}
                           onChange={(e) => setForm({ ...form, phone: e.target.value })}
                           className={inputCls} style={inputStyle}
@@ -294,10 +304,11 @@ export default function DealerApplyOverlay() {
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-bold tracking-wide uppercase mb-1.5" style={{ color: muted }}>
+                      <label htmlFor="da-email" className="block text-[11px] font-bold tracking-wide uppercase mb-1.5" style={{ color: muted }}>
                         {t.email} *
                       </label>
                       <input
+                        id="da-email"
                         type="email" required value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
                         className={inputCls} style={inputStyle}
@@ -305,10 +316,11 @@ export default function DealerApplyOverlay() {
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-bold tracking-wide uppercase mb-1.5" style={{ color: muted }}>
+                      <label htmlFor="da-message" className="block text-[11px] font-bold tracking-wide uppercase mb-1.5" style={{ color: muted }}>
                         {t.message}
                       </label>
                       <textarea
+                        id="da-message"
                         rows={3} value={form.message} placeholder={t.messagePh}
                         onChange={(e) => setForm({ ...form, message: e.target.value })}
                         className={inputCls} style={{ ...inputStyle, resize: "vertical", minHeight: 80 }}
@@ -316,7 +328,7 @@ export default function DealerApplyOverlay() {
                     </div>
 
                     {status === "err" && errMsg && (
-                      <p className="text-xs font-semibold px-3 py-2 rounded-lg" style={{ background: "#EF444412", color: "#EF4444", border: "1px solid #EF444433" }}>
+                      <p role="alert" className="text-xs font-semibold px-3 py-2 rounded-lg" style={{ background: "#EF444412", color: "#EF4444", border: "1px solid #EF444433" }}>
                         {errMsg}
                       </p>
                     )}

@@ -168,7 +168,7 @@ export default function Contact() {
             >
               {submitted ? (
                 /* Success state */
-                <div className="flex flex-col items-center justify-center py-12 text-center">
+                <div role="status" aria-live="polite" className="flex flex-col items-center justify-center py-12 text-center">
                   <div
                     className="w-14 h-14 rounded-full flex items-center justify-center mb-4"
                     style={{ background: "rgba(16,185,129,0.12)", border: "1px solid rgba(16,185,129,0.25)" }}
@@ -239,8 +239,9 @@ export default function Contact() {
                   {/* Name + Company */}
                   <div className="grid sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="text-xs mb-1.5 block" style={{ color: textFaint }}>{t("contact_name")} *</label>
+                      <label htmlFor="contact-name" className="text-xs mb-1.5 block" style={{ color: textFaint }}>{t("contact_name")} *</label>
                       <input
+                        id="contact-name"
                         required
                         name="name"
                         type="text"
@@ -252,8 +253,9 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="text-xs mb-1.5 block" style={{ color: textFaint }}>{t("contact_company")}</label>
+                      <label htmlFor="contact-company" className="text-xs mb-1.5 block" style={{ color: textFaint }}>{t("contact_company")}</label>
                       <input
+                        id="contact-company"
                         name="company"
                         type="text"
                         placeholder={t("contact_company_ph")}
@@ -268,8 +270,9 @@ export default function Contact() {
                   {/* Email + Phone */}
                   <div className="grid sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="text-xs mb-1.5 block" style={{ color: textFaint }}>{t("contact_label_email")} *</label>
+                      <label htmlFor="contact-email" className="text-xs mb-1.5 block" style={{ color: textFaint }}>{t("contact_label_email")} *</label>
                       <input
+                        id="contact-email"
                         required
                         name="email"
                         type="email"
@@ -281,8 +284,9 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="text-xs mb-1.5 block" style={{ color: textFaint }}>{t("contact_phone")}</label>
+                      <label htmlFor="contact-phone" className="text-xs mb-1.5 block" style={{ color: textFaint }}>{t("contact_phone")}</label>
                       <input
+                        id="contact-phone"
                         name="phone"
                         type="tel"
                         placeholder={t("contact_phone_ph")}
@@ -296,9 +300,10 @@ export default function Contact() {
 
                   {/* Topic */}
                   <div>
-                    <label className="text-xs mb-1.5 block" style={{ color: textFaint }}>{t("contact_subject")} *</label>
+                    <label htmlFor="contact-topic" className="text-xs mb-1.5 block" style={{ color: textFaint }}>{t("contact_subject")} *</label>
                     <div className="relative">
                       <select
+                        id="contact-topic"
                         required
                         name="topic"
                         className={`${inputClass} appearance-none cursor-pointer pr-8`}
@@ -323,8 +328,9 @@ export default function Contact() {
 
                   {/* Message */}
                   <div>
-                    <label className="text-xs mb-1.5 block" style={{ color: textFaint }}>{t("contact_message")} *</label>
+                    <label htmlFor="contact-message" className="text-xs mb-1.5 block" style={{ color: textFaint }}>{t("contact_message")} *</label>
                     <textarea
+                      id="contact-message"
                       required
                       name="message"
                       rows={4}
@@ -337,7 +343,7 @@ export default function Contact() {
                   </div>
 
                   {sendError && (
-                    <p className="text-xs text-center rounded-xl px-4 py-2.5" style={{ background: "rgba(239,68,68,0.10)", color: "#F87171", border: "1px solid rgba(239,68,68,0.20)" }}>
+                    <p role="alert" className="text-xs text-center rounded-xl px-4 py-2.5" style={{ background: "rgba(239,68,68,0.10)", color: "#F87171", border: "1px solid rgba(239,68,68,0.20)" }}>
                       {sendError}
                     </p>
                   )}

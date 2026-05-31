@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { HiSearch, HiX } from "react-icons/hi";
 import { useLanguage } from "../context/LanguageContext";
 import { groupVariantsByName } from "../../lib/productGroups";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
 type ProductEntry = {
   id: string;
@@ -53,6 +54,7 @@ export default function SearchOverlay({ isOpen, onClose }: Props) {
   const [categories, setCategories] = useState<Category[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
   const fetchedLangRef = useRef<string | null>(null);
+  const panelRef = useFocusTrap<HTMLDivElement>(isOpen);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -150,6 +152,10 @@ export default function SearchOverlay({ isOpen, onClose }: Props) {
           <div className="absolute inset-0 bg-black/70 backdrop-blur-md" onClick={onClose} />
 
           <motion.div
+            ref={panelRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site araması"
             initial={{ opacity: 0, y: -24, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -16, scale: 0.97 }}

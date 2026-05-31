@@ -958,9 +958,13 @@ export default function DealerNetwork() {
                         animate={inView ? { scale: 1, opacity: 1 } : {}}
                         transition={{ duration: 0.3, delay: 0.5 + i * 0.06 }}
                         style={{ cursor: "pointer" }}
+                        tabIndex={0}
+                        role="button"
+                        aria-label={`${region.label} bölgesi bayilerini göster`}
                         onPointerEnter={(e) => handleCityEnter(region, e)}
                         onPointerLeave={(e) => handleCityLeave(e)}
                         onClick={(e) => handleCityClick(region, e as unknown as React.MouseEvent)}
+                        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleCityClick(region, e as unknown as React.MouseEvent); } }}
                       >
                         {/* Invisible mobile-friendly tap target. The
                             visible pin is ~31px radius in viewBox units,
@@ -1055,9 +1059,13 @@ export default function DealerNetwork() {
                     animate={inView ? { scale: 1, opacity: 1 } : {}}
                     transition={{ duration: 0.35, delay: 0.95 }}
                     style={{ cursor: "pointer" }}
+                    tabIndex={0}
+                    role="button"
+                    aria-label={`${BURSA_HQ.label} bayilerini göster`}
                     onPointerEnter={(e) => handleCityEnter(BURSA_HQ as typeof REGIONS[number], e)}
                     onPointerLeave={(e) => handleCityLeave(e)}
                     onClick={(e) => handleCityClick(BURSA_HQ as typeof REGIONS[number], e as unknown as React.MouseEvent)}
+                    onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleCityClick(BURSA_HQ as typeof REGIONS[number], e as unknown as React.MouseEvent); } }}
                   >
                     {/* Invisible mobile-friendly tap target — same
                         finger-sized disc treatment as the region markers. */}

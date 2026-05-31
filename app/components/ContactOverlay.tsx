@@ -6,6 +6,7 @@ import { HiX } from "react-icons/hi";
 import dynamic from "next/dynamic";
 import { useContactOverlay } from "../context/ContactOverlayContext";
 import { useTheme } from "../context/ThemeContext";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
 // Contact is dynamically loaded — the form has its own state machine
 // and chunked dependencies, no reason to ship them with the navbar
@@ -16,6 +17,7 @@ export default function ContactOverlay() {
   const { open, closeContact } = useContactOverlay();
   const { theme } = useTheme();
   const d = theme === "dark";
+  const panelRef = useFocusTrap<HTMLDivElement>(open);
 
   // Close on Escape + lock body scroll while open.
   useEffect(() => {
@@ -47,6 +49,10 @@ export default function ContactOverlay() {
           }}
         >
           <motion.div
+            ref={panelRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="İletişim"
             initial={{ opacity: 0, y: 24, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 24, scale: 0.98 }}
