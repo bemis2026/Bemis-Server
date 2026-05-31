@@ -2,9 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { readBin, writeBin } from "../../../../lib/jsonbin";
 import { readFileSync } from "fs";
 import path from "path";
+import { verifyAdminSession } from "@/lib/adminAuth";
 
 function isAuthed(req: NextRequest) {
-  return req.cookies.get("admin_auth")?.value === "1";
+  return verifyAdminSession(req.cookies.get("admin_auth")?.value);
 }
 
 const fallbackPath = path.join(process.cwd(), "data", "changelog.json");

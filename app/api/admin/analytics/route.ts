@@ -1,11 +1,12 @@
 import { BetaAnalyticsDataClient } from "@google-analytics/data";
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
+import { verifyAdminSession } from "@/lib/adminAuth";
 
 // ── Auth check ─────────────────────────────────────────────────────────────
 async function isAuthed(): Promise<boolean> {
   const cookieStore = await cookies();
-  return cookieStore.get("admin_auth")?.value === "1";
+  return verifyAdminSession(cookieStore.get("admin_auth")?.value);
 }
 
 // ── GA4 client ─────────────────────────────────────────────────────────────

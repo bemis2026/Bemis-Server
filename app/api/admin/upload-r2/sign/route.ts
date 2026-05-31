@@ -11,10 +11,26 @@
 import { NextRequest, NextResponse } from "next/server";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import { verifyAdminSession } from "@/lib/adminAuth";
 
 function isAuthed(req: NextRequest) {
-  return req.cookies.get("admin_auth")?.value === "1";
+  return verifyAdminSession(req.cookies.get("admin_auth")?.value);
 }
+
+// Sadece doküman + görsel türlerine presigned URL ver — keyfi/yürütülebilir
+// dosya yüklemesini (ör. .html/.js → XSS, .exe) engeller.
+const ALLOWED_EXT = /\.(pdf|jpe?g|png|webp|gif|svg|docx?|xlsx?|pptx?|txt|zip)$/i;
+const ALLOWED_CONTENT_TYPES = new Set([
+  "application/pdf",
+  "image/jpeg", "image/png", "image/webp", "image/gif", "image/svg+xml",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "application/vnd.ms-excel",
+  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "application/vnd.ms-powerpoint",
+  "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  "text/plain", "application/zip",
+]);
 
 // Cloudflare R2 — AWS S3 uyumlu, region "auto"; endpoint env'den
 // `https://<account-id>.r2.cloudflarestorage.com` formatında gelir.
@@ -39,6 +55,13 @@ export async function POST(req: NextRequest) {
     const { filename, contentType, folder } = await req.json();
     if (!filename || typeof filename !== "string") {
       return NextResponse.json({ error: "filename gerekli" }, { status: 400 });
+    }
+    // Tür/uzantı allow-list — yalnız doküman & görsel yüklenebilir.
+    if (!ALLOWED_EXT.test(filename)) {
+      return NextResponse.json({ error: "Desteklenmeyen dosya türü" }, { status: 415 });
+    }
+    if (contentType && typeof contentType === "string" && !ALLOWED_CONTENT_TYPES.has(contentType)) {
+      return NextResponse.json({ error: "Desteklenmeyen içerik türü" }, { status: 415 });
     }
     const bucket = process.env.R2_BUCKET;
     const publicBase = process.env.R2_PUBLIC_URL?.replace(/\/$/, "");

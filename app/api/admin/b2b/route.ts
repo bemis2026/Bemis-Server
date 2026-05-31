@@ -5,9 +5,10 @@ import { revalidatePath } from "next/cache";
 import { readBin, writeBin } from "../../../../lib/jsonbin";
 import { translateContent } from "../../../../lib/contentTranslate";
 import { B2B_TRANSLATABLE_PATHS } from "../../../../lib/b2bTranslate";
+import { verifyAdminSession } from "@/lib/adminAuth";
 
 function isAuthed(req: NextRequest) {
-  return req.cookies.get("admin_auth")?.value === "1";
+  return verifyAdminSession(req.cookies.get("admin_auth")?.value);
 }
 
 const fallbackPath = path.join(process.cwd(), "data", "b2b.json");

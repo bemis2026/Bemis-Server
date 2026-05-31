@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 import bcrypt from "bcryptjs";
 import { checkRateLimit, recordFailure, clearRateLimit, getClientIp } from "@/lib/rate-limit";
+import { createAdminSession } from "@/lib/adminAuth";
 
 const RL_OPTS = {
   maxAttempts: 5,
@@ -91,11 +92,13 @@ export async function POST(req: NextRequest) {
 
     clearRateLimit(rlKey);
 
+    const maxAge = rememberMe ? 60 * 60 * 24 * 30 : 60 * 60 * 8;
     const res = NextResponse.json({ ok: true });
-    res.cookies.set("admin_auth", "1", {
+    res.cookies.set("admin_auth", createAdminSession(maxAge), {
       httpOnly: true,
       sameSite: "lax",
-      maxAge: rememberMe ? 60 * 60 * 24 * 30 : 60 * 60 * 8,
+      secure: process.env.NODE_ENV === "production",
+      maxAge,
       path: "/",
     });
     return res;

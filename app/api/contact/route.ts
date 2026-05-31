@@ -24,8 +24,25 @@ const topicLabels: Record<string, string> = {
   "other":           "Diğer",
 };
 
-function buildHtml(fields: Record<string, string>, topicLabel: string, ip: string) {
-  const { name, company, email, phone, message } = fields;
+// Kullanıcı girdisini admin e-postasının HTML'ine gömmeden önce kaçışla —
+// aksi halde ad/mesaj alanına <script>/<img onerror> enjekte edilebilir.
+function esc(v: string): string {
+  return String(v ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function buildHtml(fields: Record<string, string>, topicLabelRaw: string, ipRaw: string) {
+  const name = esc(fields.name);
+  const company = esc(fields.company);
+  const email = esc(fields.email);
+  const phone = esc(fields.phone);
+  const message = esc(fields.message);
+  const topicLabel = esc(topicLabelRaw);
+  const ip = esc(ipRaw);
   return `
     <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#111">
       <div style="background:#1a1a1a;padding:24px 32px;border-radius:12px 12px 0 0">

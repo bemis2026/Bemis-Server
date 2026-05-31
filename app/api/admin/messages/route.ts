@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readBin, writeBin } from "../../../../lib/jsonbin";
+import { verifyAdminSession } from "@/lib/adminAuth";
 
 function isAuthed(req: NextRequest) {
-  return req.cookies.get("admin_auth")?.value === "1";
+  return verifyAdminSession(req.cookies.get("admin_auth")?.value);
 }
 
 type MessageItem = {

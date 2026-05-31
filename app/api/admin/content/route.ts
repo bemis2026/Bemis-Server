@@ -4,9 +4,10 @@ import path from "path";
 import { revalidatePath } from "next/cache";
 import { readBin, writeBin } from "../../../../lib/jsonbin";
 import { translateContent } from "../../../../lib/contentTranslate";
+import { verifyAdminSession } from "@/lib/adminAuth";
 
 function isAuthed(req: NextRequest) {
-  return req.cookies.get("admin_auth")?.value === "1";
+  return verifyAdminSession(req.cookies.get("admin_auth")?.value);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
