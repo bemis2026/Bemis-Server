@@ -401,7 +401,11 @@ export default function KurumsalPage() {
                                 loading="lazy"
                                 decoding="async"
                               />
-                              <span className="text-[11px] font-bold text-center leading-tight" style={{ color: textPrimary }}>{parent.name}</span>
+                              {/* Parent caption a step larger than the child
+                                  captions: Bemis is the headline brand and its
+                                  logo is bigger, so 11px read visually smaller
+                                  beside it. 14px sits as the primary label. */}
+                              <span className="text-sm font-bold text-center leading-tight" style={{ color: textPrimary }}>{parent.name}</span>
                             </>
                           ) : (
                             <span className="text-lg font-black tracking-tight" style={{ color: textPrimary }}>{parent.name}</span>
