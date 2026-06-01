@@ -100,5 +100,7 @@ sorunuyla yapılamadı → **Blob'a taşındı.**
 - **Auto-güncelleme:** Claude anlamlı milestone'larda + bağlam dolarken bu dosyayı GÜNCELLER (standing kural,
   bu başlıkta + CLAUDE.md'de yazılı). Claude Code ayrıca bağlam dolunca otomatik compact eder (yerleşik).
 - **MEMORY.md**'de ⭐ kayıt bu dosyayı işaret eder (her oturum yüklenen auto-memory).
-- *(Opsiyonel, kurulmadı:* PreCompact hook ile ham transcript yedeği — istenirse eklenir; çekirdek süreklilik
-  zaten bu dosya + @import ile sağlanıyor.)*
+- **PreCompact hook** (global `~/.claude/settings.json`): her compact (auto+manual) ÖNCESİ transcript'i
+  `C:\Users\sales\.claude\backups\transcript-<tarih>.jsonl`'e otomatik yedekler. **2026-06-02'de test edildi, çalışıyor** (11.7MB yedek alındı).
+- **SessionStart hook** (matcher `compact|clear`): temizlik/compact sonrası "çalıştığın projenin
+  BEMIS_OTURUM_BAGLAM.md'sini oku" hatırlatması basar (proje-bağımsız).
