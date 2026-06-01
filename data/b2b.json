@@ -1,27 +1,55 @@
 {
   "hero": {
     "eyebrow": "Kurumsal & OEM Çözümler",
-    "heading1": "EV Altyapısı için",
+    "heading1": "Üreticiler İçin",
     "heading2": "Profesyonel Çözümler",
-    "description": "Şarj ağı operatörleri, OEM üreticiler ve sistem entegratörleri için teknik ürün portföyü, özel fiyatlandırma ve mühendislik desteği. Türkiye'nin yerli EV altyapı üreticisinden.",
-    "sectorTags": ["OEM Üretici", "Şarj Ağı Operatörü", "Sistem Entegratörü", "Distribütör / Bayi", "Kamu & Belediye"]
+    "description": "Üreticiler için teknik ürün portföyü, özel fiyatlandırma ve mühendislik desteği. Türkiye'nin yerli EV altyapı üreticisinden. OEM seçnekleri.",
+    "sectorTags": []
   },
   "featuredProducts": [
-    { "categoryId": "cables",            "productId": "dc-cable"      },
-    { "categoryId": "cables",            "productId": "ac-cable-32a"  },
-    { "categoryId": "charger-equipment", "productId": "type2-socket"  },
-    { "categoryId": "accessories",       "productId": "electronics"   }
+    {
+      "categoryId": "charger-equipment",
+      "productId": "bir-ucu-acik-kablolu-sarj-prizi-5m-trifaze-22-kw-5x6-mm"
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "pano-prizi-trifaze-11-22-kw-4-noktadan-montaj"
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m"
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "bir-ucu-acik-enerji-kablosu-532a-trifaze-11-22-kw-5x6-mm"
+    }
   ],
   "applications": [],
   "cta": {
     "eyebrow": "OEM & Kurumsal Satış",
-    "heading": "Üretici veya kurumsal alıcı mısınız?",
-    "description": "DC şarj üniteleri, şarj panoları, OEM elektronik kartlar ve profesyonel DC kablolar — EV altyapı çözümleri geliştiren şirketler için özel portföy.",
-    "tags": ["OEM Üretici", "Şarj Ağı Operatörü", "Distribütör / Bayi"],
+    "heading": "Üreticiler, Operatörler ve Bayiler İçin Özel Çözümler",
+    "description": "Üreticiler için özel renk ve markalama seçenekleri. Operatör CPO'lar için özel çözümler. Son kullanıcı odaklı ürün portföyü ve birçok avantaj için detaylı bilgi alın.",
+    "tags": [
+      "OEM Üretici",
+      "Şarj Ağı Operatörü",
+      "Distribütör / Bayi"
+    ],
     "channels": [
-      { "href": "/b2b",       "label": "OEM & Üreticiler",         "sub": "Teknik portföy, özel fiyat, mühendislik desteği" },
-      { "href": "/bayilik",   "label": "Bayilik Başvurusu",         "sub": "Bayi ağımıza katılın, bölge koruması alın" },
-      { "href": "/operator",  "label": "Şarj Ağı Operatörleri",    "sub": "OCPP uyumlu ekipman, DLM, uzaktan izleme" }
+      {
+        "href": "/b2b",
+        "label": "OEM & Üreticiler",
+        "sub": "Teknik portföy, özel fiyat, mühendislik desteği"
+      },
+      {
+        "href": "/bayilik",
+        "label": "Bayilik Başvurusu",
+        "sub": "Bayi ağımıza katılın, bölge koruması alın"
+      },
+      {
+        "href": "/operator",
+        "label": "Şarj Ağı Operatörleri",
+        "sub": "OCPP uyumlu ekipman, DLM, uzaktan izleme"
+      }
     ]
   },
   "bayilik": {
@@ -29,12 +57,30 @@
     "heading2": "Bayisi Olun",
     "description": "Türkiye genelinde büyüyen bayi ağımıza katılın; EV şarj altyapısı pazarındaki hızlı büyümeden birlikte yararlanın. Rekabetçi fiyatlar, teknik destek ve bölge koruması.",
     "benefits": [
-      { "title": "Rekabetçi Bayi Fiyatları",  "body": "Hacme göre kademeli iskonto yapısı; küçük başlayıp büyüyebilirsiniz." },
-      { "title": "Stok & Tedarik Güvencesi",  "body": "Öncelikli sipariş kuyruğu ve garantili teslimat takvimi." },
-      { "title": "Teknik Destek",              "body": "Kurulum, arıza ve müşteri sorularında doğrudan teknik hat." },
-      { "title": "Bölge Koruması",             "body": "Anlaşmalı bayilere bölgesel münhasırlık imkânı." },
-      { "title": "Pazarlama Desteği",          "body": "Ürün görselleri, kataloglar, demo ürün ve showroom materyalleri." },
-      { "title": "Hızlı Başlangıç",           "body": "Minimum stok yükümlülüğüyle bayiliğe başlayın, büyüdükçe artırın." }
+      {
+        "title": "Rekabetçi Bayi Fiyatları",
+        "body": "Hacme göre kademeli iskonto yapısı; küçük başlayıp büyüyebilirsiniz."
+      },
+      {
+        "title": "Stok & Tedarik Güvencesi",
+        "body": "Öncelikli sipariş kuyruğu ve garantili teslimat takvimi."
+      },
+      {
+        "title": "Teknik Destek",
+        "body": "Kurulum, arıza ve müşteri sorularında doğrudan teknik hat."
+      },
+      {
+        "title": "Bölge Koruması",
+        "body": "Anlaşmalı bayilere bölgesel münhasırlık imkânı."
+      },
+      {
+        "title": "Pazarlama Desteği",
+        "body": "Ürün görselleri, kataloglar, demo ürün ve showroom materyalleri."
+      },
+      {
+        "title": "Hızlı Başlangıç",
+        "body": "Minimum stok yükümlülüğüyle bayiliğe başlayın, büyüdükçe artırın."
+      }
     ],
     "criteria": [
       "Elektrik, enerji veya otomotiv sektöründe faaliyet",
@@ -43,27 +89,460 @@
       "Temel teknik kurulum bilgisi (veya ekip)"
     ],
     "infoTable": [
-      { "label": "Minimum Stok Yükümlülüğü", "value": "Esnek — büyüklüğünüze göre" },
-      { "label": "Bayi Sözleşme Süresi",     "value": "1 yıl (yenilenebilir)" },
-      { "label": "Teknik Eğitim",            "value": "Ücretsiz — Bursa'da veya online" },
-      { "label": "Başvuru Yanıt Süresi",     "value": "5 iş günü içinde" }
+      {
+        "label": "Minimum Stok Yükümlülüğü",
+        "value": "Esnek — büyüklüğünüze göre"
+      },
+      {
+        "label": "Bayi Sözleşme Süresi",
+        "value": "1 yıl (yenilenebilir)"
+      },
+      {
+        "label": "Teknik Eğitim",
+        "value": "Ücretsiz — Bursa'da veya online"
+      },
+      {
+        "label": "Başvuru Yanıt Süresi",
+        "value": "5 iş günü içinde"
+      }
+    ],
+    "trCriteria": [
+      "En az 3 yaşında kurumsal şirket (LTD/A.Ş.) — ticaret sicili ile teyit",
+      "A-grubu banka üzerinden minimum 1.000.000 ₺ limitli DBS (Doğrudan Borçlandırma Sistemi) hattı",
+      "Fiziksel mağaza / satış noktası",
+      "SMM belgeli elektrik mühendisi veya MYK belgeli EV şarj kurulum teknisyeni (minimum 1 kişi)",
+      "Markalanmış en az 1 adet servis aracı ve bölgesel saha kurulum kapasitesi",
+      "Son 2 yıl bilanço pozitif; iflas / konkordato / icra haciz kaydı bulunmaması (Findeks teyitli)",
+      "Açılış siparişinde Bemis E-V Charge'ın belirlediği ürün karması üzerinden stok alımı taahhüdü",
+      "Münhasır bölge karşılığında minimum yıllık 5.000.000 ₺ ciro taahhüdü",
+      "Aylık dijital + saha pazarlama aktivitesi taahhüdü (sosyal medya, B2B ziyaret raporu)",
+      "Bemis E-V Charge Akademi teknik + satış sertifikasyon programını 6 ay içinde tamamlama"
+    ],
+    "intlCriteria": [
+      "Ülke veya bölge için tek-dağıtıcılık (exclusive) taahhüdü",
+      "EV şarj veya elektrik altyapı pazarına hakimiyet",
+      "Yerel ürün sertifikasyon yeterliliği (CE, ulusal standartlar)",
+      "İthalat lisansı ve gümrük operasyon altyapısı",
+      "Bölgesel depo ve lojistik kapasitesi",
+      "Minimum yıllık ciro / sipariş hedefi taahhüdü",
+      "Satış sonrası servis ve müşteri destek altyapısı"
+    ],
+    "networkStats": [
+      {
+        "value": "30+",
+        "label": "Yıl Sektör Tecrübesi"
+      },
+      {
+        "value": "80+",
+        "label": "İlde Yetkili Bayi"
+      },
+      {
+        "value": "60+",
+        "label": "Ülke İhracat"
+      },
+      {
+        "value": "24/7",
+        "label": "Teknik Destek"
+      }
     ]
   },
   "operator": {
     "heading1": "Şarj Ağınızı",
     "heading2": "Bizimle Büyütün",
-    "description": "OCPP uyumlu DC hızlı şarj üniteleri, akıllı şarj panoları ve entegrasyon hazır kontrol kartlarıyla şarj ağı operatörlerine uçtan uca donanım çözümü sunuyoruz.",
+    "description": "OCPP uyumlu AC & DC hızlı şarj üniteleri, akıllı şarj panoları ve entegrasyon hazır kontrol kartlarıyla şarj ağı operatörlerine uçtan uca donanım çözümü sunuyoruz.",
     "capabilities": [
-      { "title": "OCPP 1.6 / 2.0.1",       "body": "Tüm büyük yönetim platformlarıyla uyumlu açık protokol desteği." },
-      { "title": "Dinamik Güç Yönetimi",   "body": "Anlık tüketimi izleyerek şarj noktaları arasında yükü dengeler." },
-      { "title": "Uzaktan İzleme & OTA",   "body": "Bulut tabanlı firmware güncellemesi ve gerçek zamanlı arıza uyarısı." },
-      { "title": "CE & IEC Sertifikası",   "body": "Avrupa ihracat standartlarına uygun; sertifika süreçlerinde destek." }
+      {
+        "title": "OCPP 1.6 / 2.0.1",
+        "body": "Tüm büyük yönetim platformlarıyla uyumlu açık protokol desteği."
+      },
+      {
+        "title": "Dinamik Güç Yönetimi",
+        "body": "Anlık tüketimi izleyerek şarj noktaları arasında yükü dengeler."
+      },
+      {
+        "title": "Uzaktan İzleme & OTA",
+        "body": "Bulut tabanlı firmware güncellemesi ve gerçek zamanlı arıza uyarısı."
+      },
+      {
+        "title": "CE & IEC Sertifikası",
+        "body": "Avrupa ihracat standartlarına uygun; sertifika süreçlerinde destek."
+      }
     ],
     "ocppFeatures": [
-      "Uzaktan başlat / durdur", "RFID kimlik doğrulama",
-      "Gerçek zamanlı güç ölçümü", "Çoklu ödeme entegrasyonu",
-      "Oturum geçmişi & faturalandırma", "Firmware OTA güncelleme",
-      "Hata kodu raporlama", "Dinamik tarife desteği"
+      "Uzaktan başlat / durdur",
+      "RFID kimlik doğrulama",
+      "Gerçek zamanlı güç ölçümü",
+      "Çoklu ödeme entegrasyonu",
+      "Oturum geçmişi & faturalandırma",
+      "Firmware OTA güncelleme",
+      "Hata kodu raporlama",
+      "Dinamik tarife desteği"
+    ],
+    "featuredProducts": [
+      {
+        "categoryId": "wallbox",
+        "productId": "charger-pro-2-pano"
+      },
+      {
+        "categoryId": "wallbox",
+        "productId": "charger-plus-2-pano"
+      },
+      {
+        "categoryId": "charger-equipment",
+        "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m"
+      },
+      {
+        "categoryId": "charger-equipment",
+        "productId": "otomatli-ip66-kombinasyon-bd2m6130-1191-x"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-40-1"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-80-2"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-120-2"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-160-2"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-200-2"
+      }
     ]
+  },
+  "solutions": [
+    {
+      "id": "dc-charger",
+      "name": "DC Şarj Kabloları 150-250-400&500A",
+      "subtitle": "Ticari & Özel İstasyonlar için",
+      "tag": "Mevcut",
+      "tagColor": "#F97316",
+      "accentColor": "#F97316",
+      "detail": "Yüksek güçlü DC şarj üniteleri için özel üretilmiş tamamen yerli Bemis DC şarj kabloları modüler gövde yapısı sayedinde kırılma durumlarında kolay değişim imkanı sağlar.",
+      "specs": [
+        "CCS2",
+        "Modüler ön gövde",
+        "IP54 dış mekan kasası",
+        "CE, TÜV sertifikalı"
+      ]
+    },
+    {
+      "id": "charge-panel",
+      "name": "AC Şarj Kabloları 22-11-7,4-3,7 kW",
+      "subtitle": "Bir Ucu Açık AC Ünite Kabloları",
+      "tag": "Mevcut",
+      "tagColor": "#10B981",
+      "accentColor": "#3B82F6",
+      "detail": "Tek bir ana beslemeden onlarca şarj noktasını besleyen akıllı dağıtım panoları; maliyet düşürücü yük yönetimi algoritmasıyla.",
+      "specs": [
+        "Monofaze / Trifaze",
+        "Type 2",
+        "CE, TÜV Sertifikalı",
+        "IP54"
+      ]
+    },
+    {
+      "id": "dc-cable",
+      "name": "AC Şarj Ünite Pano Prizi",
+      "subtitle": "Kilit Mekanizmalı",
+      "tag": "Mevcut",
+      "tagColor": "#10B981",
+      "accentColor": "#10B981",
+      "detail": "Şarj üniteleri üzerinde kullanılan kilit mekanizmalı pano priz. Özel markalama ve eşsiz tasarımı ile ünitenize tam uygun.",
+      "specs": [
+        "16-32A",
+        "Type 2",
+        "IP54",
+        "CE, TÜV sertifikalı"
+      ]
+    },
+    {
+      "id": "ecu",
+      "name": "DC Soket Tutucu Aparat",
+      "subtitle": "Dc Şarj Kablo Askı Aparatı",
+      "tag": "OEM Mevcut",
+      "tagColor": "#818CF8",
+      "accentColor": "#818CF8",
+      "detail": "Dc şarj ünitelerinde kullanılan DC kabloların boşta asılı durabilmeleri amacıyla üretilen DC Priz Tutucu Aparat bilyalı ve kasaaltına gömülü tasarımı ile ideal bir seçenek olarak öne çıkıyor. Bilyalı yapısı sayesinde kırılma sorunu ortadan kalkmaktadır. Kasa içine gömülü gövde yapısı ile ünite tasarımınız ile tam uyumlu.",
+      "specs": [
+        "Bilyalı",
+        "CCS2",
+        "Sıva altı",
+        "CE sertifikalı"
+      ]
+    }
+  ],
+  "_translations": {
+    "en": {
+      "hero": {
+        "eyebrow": "Enterprise & OEM Solutions",
+        "heading1": "For Manufacturers",
+        "heading2": "Professional Solutions",
+        "description": "Technical product portfolio, custom pricing and engineering support for manufacturers. From Turkey 'S domestic home infrastructure manufacturer. OEM options.",
+        "sectorTags": []
+      },
+      "featuredProducts": [
+        {
+          "categoryId": "charger-equipment",
+          "productId": "bir-ucu-acik-kablolu-sarj-prizi-5m-trifaze-22-kw-5x6-mm"
+        },
+        {
+          "categoryId": "charger-equipment",
+          "productId": "pano-prizi-trifaze-11-22-kw-4-noktadan-montaj"
+        },
+        {
+          "categoryId": "charger-equipment",
+          "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m"
+        },
+        {
+          "categoryId": "charger-equipment",
+          "productId": "bir-ucu-acik-enerji-kablosu-532a-trifaze-11-22-kw-5x6-mm"
+        }
+      ],
+      "applications": [],
+      "cta": {
+        "eyebrow": "Enterprise Sales",
+        "heading": "Custom Solutions for Manufacturers, Operators and Dealers",
+        "description": "Custom color and marking options for manufacturers. Tailored solutions for operator CPOs. Get detailed information for an end-user-oriented product portfolio and many benefits.",
+        "tags": [
+          "OEM Manufacturer",
+          "Charging Network Operator",
+          "Distributor / Dealer"
+        ],
+        "channels": [
+          {
+            "href": "/b2b",
+            "label": "OEMs & Manufacturers",
+            "sub": "Technical portfolio, special price, engineering support"
+          },
+          {
+            "href": "/bayilik",
+            "label": "Franchise ",
+            "sub": "Join our dealer network, get zone protection"
+          },
+          {
+            "href": "/operator",
+            "label": "Charging Network Operators",
+            "sub": "OCPP compliant equipment, DLM, remote monitoring"
+          }
+        ]
+      },
+      "bayilik": {
+        "heading1": "Bemis E-V Charge",
+        "heading2": "Become a Dealer",
+        "description": "Join our growing dealer network across Turkey and benefit from the rapid growth in the EV charging infrastructure market. Competitive prices, technical support and zone protection.",
+        "benefits": [
+          {
+            "title": "Competitive Dealer Prices",
+            "body": "Gradual discount structure by volume; you can start small and grow."
+          },
+          {
+            "title": "Inventory & Supply Assurance",
+            "body": "Priority order queue and guaranteed delivery schedule."
+          },
+          {
+            "title": "Technical Support",
+            "body": "Direct technical line for installation, breakdown and customer inquiries."
+          },
+          {
+            "title": "Zone Protection",
+            "body": "Regional exclusivity opportunity for contracted dealers."
+          },
+          {
+            "title": "Marketing Support",
+            "body": "Product images, catalogs, demo products and showroom materials."
+          },
+          {
+            "title": "Quick Start.",
+            "body": "Start dealership with minimum stock obligation, increase as you grow."
+          }
+        ],
+        "criteria": [
+          "Operating in the electricity, energy or automotive sector",
+          "Authorized sales & service capacity",
+          "Regional customer portfolio or dealer network",
+          "Basic technical installation knowledge (or team)"
+        ],
+        "infoTable": [
+          {
+            "label": "Minimum Stock Obligation",
+            "value": "Flexible — depending on your size"
+          },
+          {
+            "label": "Contract Duration",
+            "value": "1 year (renewable)"
+          },
+          {
+            "label": "Technical Training",
+            "value": "Free — in Bursa or online"
+          },
+          {
+            "label": "Application Response Time",
+            "value": "Within 5 working days"
+          }
+        ],
+        "trCriteria": [
+          "At least 3-year-old corporate entity (LLC/Inc.) — verified via trade registry",
+          "Minimum ₺1,000,000 DDS (Direct Debit System) credit line through a Tier-A bank",
+          "Physical store / sales point",
+          "Licensed electrical engineer or VQA-certified EV charging installation technician (minimum 1 person)",
+          "At least 1 branded service vehicle and regional on-site installation capacity",
+          "Positive balance sheet for the last 2 years; no bankruptcy / composition / debt enforcement records (verified via credit bureau)",
+          "Opening order commitment based on the product mix defined by Bemis E-V Charge",
+          "Minimum annual revenue commitment of ₺5,000,000 in exchange for exclusive territory rights",
+          "Monthly digital + field marketing activity commitment (social media, B2B visit reports)",
+          "Completion of the Bemis E-V Charge Academy technical + sales certification program within 6 months"
+        ],
+        "intlCriteria": [
+          "Exclusive distribution commitment for the country or region",
+          "Strong market presence in EV charging or electrical infrastructure",
+          "Local product certification competence (CE, national standards)",
+          "Import license and customs operation infrastructure",
+          "Regional warehousing and logistics capacity",
+          "Minimum annual revenue / order target commitment",
+          "After-sales service and customer support infrastructure"
+        ]
+      },
+      "operator": {
+        "heading1": "Your Charging Network",
+        "heading2": "Grow with Us",
+        "description": "We offer end-to-end hardware solution to charging network operators with OCPP-compliant AC & DC fast chargers, smart charging boards and integration-ready control cards.",
+        "capabilities": [
+          {
+            "title": "OCPP 1.6 / 2.0.1",
+            "body": "Open protocol support compatible with all major management platforms."
+          },
+          {
+            "title": "Dynamic Power Management",
+            "body": "It balances the load between charging points by monitoring instantaneous consumption."
+          },
+          {
+            "title": "Remote Monitoring",
+            "body": "Cloud-based firmware update and real-time failure alert."
+          },
+          {
+            "title": "CE & IEC Certificate",
+            "body": "Complies with European export standards; support in certification processes."
+          }
+        ],
+        "ocppFeatures": [
+          "Remote start / stop",
+          "authentication",
+          "Real-time power measurement",
+          "Multi-payment integration",
+          "Session history & billing",
+          "Firmware OTA update",
+          "Error code reporting",
+          "Dynamic tariff support"
+        ],
+        "featuredProducts": [
+          {
+            "categoryId": "wallbox",
+            "productId": "charger-pro-2-pano"
+          },
+          {
+            "categoryId": "wallbox",
+            "productId": "charger-plus-2-pano"
+          },
+          {
+            "categoryId": "charger-equipment",
+            "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m"
+          },
+          {
+            "categoryId": "charger-equipment",
+            "productId": "otomatli-ip66-kombinasyon-bd2m6130-1191-x"
+          },
+          {
+            "categoryId": "dc-units",
+            "productId": "bevdc-40-1"
+          },
+          {
+            "categoryId": "dc-units",
+            "productId": "bevdc-80-2"
+          },
+          {
+            "categoryId": "dc-units",
+            "productId": "bevdc-120-2"
+          },
+          {
+            "categoryId": "dc-units",
+            "productId": "bevdc-160-2"
+          },
+          {
+            "categoryId": "dc-units",
+            "productId": "bevdc-200-2"
+          }
+        ]
+      },
+      "solutions": [
+        {
+          "id": "dc-charger",
+          "name": "DC Şarj Kabloları 150-250-400&500A",
+          "subtitle": "Ticari & Özel İstasyonlar için",
+          "tag": "Mevcut",
+          "tagColor": "#F97316",
+          "accentColor": "#F97316",
+          "detail": "Yüksek güçlü DC şarj üniteleri için özel üretilmiş tamamen yerli Bemis DC şarj kabloları modüler gövde yapısı sayedinde kırılma durumlarında kolay değişim imkanı sağlar.",
+          "specs": [
+            "CCS2",
+            "Modüler ön gövde",
+            "IP54 dış mekan kasası",
+            "CE, TÜV sertifikalı"
+          ]
+        },
+        {
+          "id": "charge-panel",
+          "name": "AC Şarj Kabloları 22-11-7,4-3,7 kW",
+          "subtitle": "Bir Ucu Açık AC Ünite Kabloları",
+          "tag": "Mevcut",
+          "tagColor": "#10B981",
+          "accentColor": "#3B82F6",
+          "detail": "Tek bir ana beslemeden onlarca şarj noktasını besleyen akıllı dağıtım panoları; maliyet düşürücü yük yönetimi algoritmasıyla.",
+          "specs": [
+            "Monofaze / Trifaze",
+            "Type 2",
+            "CE, TÜV Sertifikalı",
+            "IP54"
+          ]
+        },
+        {
+          "id": "dc-cable",
+          "name": "AC Şarj Ünite Pano Prizi",
+          "subtitle": "Kilit Mekanizmalı",
+          "tag": "Mevcut",
+          "tagColor": "#10B981",
+          "accentColor": "#10B981",
+          "detail": "Şarj üniteleri üzerinde kullanılan kilit mekanizmalı pano priz. Özel markalama ve eşsiz tasarımı ile ünitenize tam uygun.",
+          "specs": [
+            "16-32A",
+            "Type 2",
+            "IP54",
+            "CE, TÜV sertifikalı"
+          ]
+        },
+        {
+          "id": "ecu",
+          "name": "DC Soket Tutucu Aparat",
+          "subtitle": "Dc Şarj Kablo Askı Aparatı",
+          "tag": "OEM Mevcut",
+          "tagColor": "#818CF8",
+          "accentColor": "#818CF8",
+          "detail": "Dc şarj ünitelerinde kullanılan DC kabloların boşta asılı durabilmeleri amacıyla üretilen DC Priz Tutucu Aparat bilyalı ve kasaaltına gömülü tasarımı ile ideal bir seçenek olarak öne çıkıyor. Bilyalı yapısı sayesinde kırılma sorunu ortadan kalkmaktadır. Kasa içine gömülü gövde yapısı ile ünite tasarımınız ile tam uyumlu.",
+          "specs": [
+            "Bilyalı",
+            "CCS2",
+            "Sıva altı",
+            "CE sertifikalı"
+          ]
+        }
+      ]
+    }
   }
 }

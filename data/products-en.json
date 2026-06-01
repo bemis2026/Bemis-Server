@@ -433,7 +433,21 @@
         "images": [
           "https://i.ibb.co/tT5C3XrW/1778479149931-BEV-3012-0000-png.png"
         ],
-        "image": "https://i.ibb.co/tT5C3XrW/1778479149931-BEV-3012-0000-png.png"
+        "image": "https://i.ibb.co/tT5C3XrW/1778479149931-BEV-3012-0000-png.png",
+        "features": [
+          "rfid",
+          "ocpp",
+          "screen",
+          "app",
+          "schedule",
+          "shared",
+          "wifi"
+        ],
+        "certificates": [
+          "ce",
+          "tuv",
+          "tse"
+        ]
       },
       {
         "id": "charger-pro-2-gsm-kablolu",
@@ -4682,7 +4696,7 @@
         "id": "bevdc-40-1",
         "code": "BEVDC-40-1",
         "name": "BEVDC 40",
-        "subtitle": "40kW DC Hızlı Şarj İstasyonu",
+        "subtitle": "40kW DC Fast Charging Station",
         "badge": null,
         "description": "40 kW tek CCS2 çıkışlı kompakt DC hızlı şarj istasyonu. Kafe, restoran, otel ve şehir içi otopark kurulumları için ideal güç sınıfı; OCPP 1.6J / 2.0.1 desteği, RFID kullanıcı yetkilendirme, IP54 dış mekan kullanımı.",
         "specs": [
@@ -4782,7 +4796,7 @@
         "id": "bevdc-80-2",
         "code": "BEVDC-80-2",
         "name": "BEVDC 80",
-        "subtitle": "80kW DC Hızlı Şarj İstasyonu",
+        "subtitle": "80kW DC Fast Charging Station",
         "badge": null,
         "description": "80 kW çift CCS2 çıkışlı DC hızlı şarj istasyonu. İki aracı eş zamanlı şarj eden orta-güç çözümü; AVM otoparkları, kurumsal kampüs ve şehirlerarası ana akslar için. OCPP, RFID, IP54 koruma.",
         "specs": [
@@ -4882,7 +4896,7 @@
         "id": "bevdc-120-1",
         "code": "BEVDC-120-1",
         "name": "BEVDC 120",
-        "subtitle": "120kW DC Hızlı Şarj İstasyonu",
+        "subtitle": "120kW DC Fast Charging Station",
         "badge": null,
         "description": "120 kW tek veya çift CCS2 çıkışlı DC hızlı şarj istasyonu. Yüksek-trafiğe sahip otoyol dinlenme alanları ve filo merkezlerinde 30 dakika içinde önemli menzil sağlar; OCPP, RFID, IP54 koruma.",
         "specs": [
@@ -4982,7 +4996,7 @@
         "id": "bevdc-120-2",
         "code": "BEVDC-120-2",
         "name": "BEVDC 120",
-        "subtitle": "Çift Soketli · 120kW DC Hızlı Şarj İstasyonu",
+        "subtitle": "Dual Socket · 120kW DC Fast Charging Station",
         "badge": null,
         "description": "120 kW tek veya çift CCS2 çıkışlı DC hızlı şarj istasyonu. Yüksek-trafiğe sahip otoyol dinlenme alanları ve filo merkezlerinde 30 dakika içinde önemli menzil sağlar; OCPP, RFID, IP54 koruma.",
         "specs": [
@@ -5082,7 +5096,7 @@
         "id": "bevdc-160-2",
         "code": "BEVDC-160-2",
         "name": "BEVDC 160",
-        "subtitle": "160kW DC Hızlı Şarj İstasyonu",
+        "subtitle": "160kW DC Fast Charging Station",
         "badge": null,
         "description": "160 kW çift CCS2 çıkışlı yüksek-güç DC hızlı şarj istasyonu. Otoyol pit-stop ve yoğun ticari filo şarjı için, dinamik güç paylaşımı ile iki aracı maksimum kapasitede besler.",
         "specs": [
@@ -5182,7 +5196,7 @@
         "id": "bevdc-200-2",
         "code": "BEVDC-200-2",
         "name": "BEVDC 200",
-        "subtitle": "200kW DC Hızlı Şarj İstasyonu",
+        "subtitle": "200kW DC Fast Charging Station",
         "badge": null,
         "description": "200 kW çift CCS2 çıkışlı amiral DC hızlı şarj istasyonu. Otoyol koridoru ve yüksek-trafik istasyon kurulumları için en üst güç sınıfı; ultra hızlı şarj senaryolarında 15-20 dakikada önemli menzil ekler.",
         "specs": [

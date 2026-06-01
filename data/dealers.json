@@ -1,1 +1,331 @@
-{}
+{
+  "istanbul": {
+    "dealers": [
+      {
+        "name": "Tümpa Elektrikkk",
+        "address": "Bağcılar / İstanbul",
+        "phone": "+90 (212) 000 00 00",
+        "website": "www.bemis.com.tr",
+        "email": "info@xn--tmpa-0ra.com.tr",
+        "whatsapp": "+905497971000",
+        "contactPerson": "",
+        "tier": "standart",
+        "mapUrl": "https://tumpaelektrik.com/?srsltid=AfmBOoqXSxbU1dEQTKCZd17psHgiXImv2H7A8Ouj__qd1nhILyvf_YJp"
+      },
+      {
+        "name": "BYCO MÜHENDISLIK ELEKTRIK TAAH. VE İNŞ. TİC.A.Ş",
+        "address": "KÜÇÜKBAKKALKÖY MAH. KOCA SINAN CAD. NO: 8 -10A ATASEHIR/ ISTANBUL",
+        "phone": "(0216) 356 29 26",
+        "email": "info@byco.com.tr",
+        "tier": "standart",
+        "contactPerson": "",
+        "mapUrl": "https://www.byco.com.tr/anasayfa"
+      },
+      {
+        "name": "FUTURE TEKNİK ENERJİ SİSTEMLERİ TİCARET LİMİTED ŞİRKETİ",
+        "address": "SAFA MAH. KELEŞOĞLU CAD. NO:27 A SANCAKTEPE / İSTANBUL",
+        "phone": "05306770845",
+        "email": "info@futureteknik.com.tr",
+        "contactPerson": "UĞUR ÇAMLICA",
+        "whatsapp": "05333065200",
+        "tier": "standart",
+        "mapUrl": "https://www.futureteknik.com.tr/"
+      },
+      {
+        "name": "OPA ELEKTRİK İNŞAAT DIŞ TİCARET LİMİTED ŞİRKETİ",
+        "address": "AYDINTEPE MAHALLE BAĞDAT CAD. NO:38/A TUZLA/İSTANBUL",
+        "phone": "02122388226",
+        "email": "opaelektrik@hotmail.com",
+        "tier": "standart",
+        "contactPerson": "",
+        "mapUrl": "https://opaelektrik.com.tr/"
+      },
+      {
+        "name": "ALİ YAYLA (BB ENERGY)",
+        "address": "İÇERENKÖY MAH. KAVAKLAR SOKAK NO:18 A ATAŞEHİR/İSTANBUL",
+        "phone": "05336832457",
+        "email": "bbenergyev@gmail.com",
+        "tier": "standart",
+        "contactPerson": ""
+      },
+      {
+        "name": "PLUGİNN ELEKTRİKLİ  TAŞITLAR  SARJ SIST.VE YAZ.HİZM.SAN.TİC.A.Ş",
+        "address": "MASLAK MAH. AHI EVRAN CAD. POLARIS PLAZA NO: 21 IÇ KAPI NO: 37 SARIYER/ ISTANBUL",
+        "phone": "08503993010",
+        "email": "info@pluginn.com",
+        "contactPerson": "GERÇEK GÖZKÜN",
+        "whatsapp": "05495194855",
+        "tier": "standart",
+        "mapUrl": "https://pluginn.co/"
+      },
+      {
+        "name": "TUNÇSAN ELEKTRİK ELEKT.SAN.VE TİC.LTD.ŞTİ",
+        "address": "H.RIFAT PAŞA  MAH. PERPA TİC.MERKEZİ 737-739  741 A 8 ŞİŞLİ İSTANBUL",
+        "phone": "02122229083",
+        "email": "muhasebe@tuncsanelektrik.com.tr",
+        "contactPerson": "OLCA TUNÇ",
+        "whatsapp": "0532 591 06 62",
+        "tier": "standart",
+        "mapUrl": "https://www.elektrikmalzemeleri.net/"
+      },
+      {
+        "name": "YUNUS ELEKTRİK SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+        "address": "HALİL RIFATPAŞA MAH.PERPA TİC. MRK.A BLOK KAT.2 NO.9/0040 ŞİŞLİ/İSTANBUL",
+        "phone": "0212 251 64 82",
+        "email": "info@yunuselektrik.com.tr",
+        "tier": "standart",
+        "contactPerson": "",
+        "mapUrl": "https://yunuselektrik.com.tr/index.php"
+      },
+      {
+        "name": "UZMAN ELK.İNŞ.İTH.VE İHR.SAN.TİC.LTD.ŞTİ",
+        "address": "İNÖNÜ MAHALLESİ HALKALI CAD. 1320  ÇIKMAZ SOKAK  ERK İŞ MERKEZİ  NO:192/22-1  SEFAKÖY-KÜÇÜKÇEKMECE İSTANBUL",
+        "phone": "02124727105",
+        "email": "info@uzman-elektrik.com.tr",
+        "tier": "standart",
+        "contactPerson": "",
+        "mapUrl": "http://www.uzman-elektrik.com.tr/index.php"
+      },
+      {
+        "name": "MC2 ELEKTRİK ENERJİ SİSTEMLERİ SAN. VE TİC. LTD.ŞTi",
+        "address": "HALİL RIFAT PAŞA MAH. YÜZER HAVUZ  SOKAK PERPA TİC. MERKEZİ A BLOK  KAT:5 NO:296 ŞİŞLİ/İSTANBUL",
+        "phone": "02122106172",
+        "whatsapp": "05550862226",
+        "tier": "standart",
+        "contactPerson": "",
+        "mapUrl": "https://mc2enerji.com/"
+      }
+    ]
+  },
+  "ankara": {
+    "dealers": [
+      {
+        "name": "TAMER ELEKTRİK İML.SAN.TİC.LTD.ŞTİ",
+        "address": "İVEDİK OSB MAH. 1467 CAD. NO:2 İÇ KAPI NO:29 YENİMAHALLE/ANKARA",
+        "phone": "0312 8154552",
+        "email": "muhasebe2@tamerelektrik.com.tr",
+        "tier": "standart",
+        "mapUrl": "https://tamerelektrik.com.tr/"
+      },
+      {
+        "name": "ZEYBEK ELEKTRİK AŞ",
+        "address": "SANAYİ CAD. GÜREŞÇİLER SK.N:11/29 ULUS ALTINDAĞ/ANKARA",
+        "phone": "03123943559",
+        "email": "akgulakgul@zeybekgrup.com",
+        "contactPerson": "AKGÜL AKGÜL",
+        "tier": "standart",
+        "mapUrl": "https://www.zeybekgrup.com/"
+      },
+      {
+        "name": "A1 ELEKTRİK ENERJİ  SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+        "address": "IVEDIKOSB MAH. 1419 CAD. NO:1 V YENİMAHALLE ANKARA",
+        "phone": "03123546364",
+        "tier": "standart",
+        "mapUrl": "https://www.a1elektrik.com.tr/"
+      },
+      {
+        "name": "PG GÜVENLİK SİS.ELEK.İNŞ.OTO.EML.SAN. VE TİC. LTD.ŞTİ",
+        "address": "YUKARI ÖVEÇLER MAH. LİZBON CAD. NO: 40/B ÇANKAYA ANKARA",
+        "phone": "05537797790",
+        "email": "pgok.cemal@gmail.com",
+        "tier": "standart",
+        "mapUrl": "https://pgelektronik.com/"
+      }
+    ]
+  },
+  "izmir": {
+    "dealers": [
+      {
+        "name": "SİEM ELEKTRİK ELEKT.OTO.İNŞ.SAN.VE TİC.A.Ş.",
+        "address": "TUNA MAH. 5500/1 SOKAK  NO:18/A  BORNOVA /İZMİR",
+        "phone": "02324694900",
+        "email": "info@siem.com.tr",
+        "tier": "standart",
+        "mapUrl": "https://siem.com.tr/"
+      },
+      {
+        "name": "MERKÜR AYDINLATMA ENERJI SANAYI VE TICARET LIMITED SIRKETI",
+        "address": "HALKAPINAR MAH. 1203/11 SOKAK ÖMER ATLI İŞ MERKEZİ  NO:3 KONAK/İZMİR",
+        "phone": "",
+        "email": "info@merkuraydinlatma.com",
+        "whatsapp": "05073603995",
+        "tier": "standart",
+        "mapUrl": "https://www.merkurenerji.com/"
+      }
+    ]
+  },
+  "bursa": {
+    "dealers": [
+      {
+        "name": "4M ALTIN ELEKT.İNŞ.TEK.GID.SAN.VE TİC.A.Ş",
+        "address": "ALAADDİNBEY MAH. PAZAR (380)CAD.  NO:14 NİLÜFER/BURSA",
+        "phone": "022242499144",
+        "email": "gulten@4maltinelektrik.com.tr",
+        "tier": "standart",
+        "contactPerson": "",
+        "mapUrl": "https://4maltinelektrik.com.tr/"
+      },
+      {
+        "name": "ENES CAN",
+        "address": "KONAK MAHALLESİ, YAVUZ(120) SK. BİRLİK NO: 4 İÇ KAPI NO: 9 NİLÜFER/BURSA",
+        "phone": "",
+        "email": "enescan0217@gmail.com",
+        "contactPerson": "ENES CAN",
+        "whatsapp": "05469272804",
+        "tier": "standart"
+      },
+      {
+        "name": "ENERSER ENERJİ ELEKTRİK ELEKT.İNŞ.SAN.TİC.LTD.ŞTİ",
+        "address": "NİLÜFER TİCARET MERKEZİ 637 SK.NO:18",
+        "phone": "0224 441 24 41",
+        "email": "emrehansarioglu@enerser.com.tr",
+        "tier": "standart",
+        "contactPerson": ""
+      },
+      {
+        "name": "ESMANUR BUSE ÖKTEM",
+        "address": "KAZIM KARABEKIR MAH. 12.GÜL SK. NO: 3 A YILDIRIM/BURSA",
+        "phone": "05539662216",
+        "email": "buseoktem08@gmail.com",
+        "tier": "standart",
+        "contactPerson": ""
+      }
+    ]
+  },
+  "antalya": {
+    "dealers": [
+      {
+        "name": "REYA MÜHENDİSLİK İTHALAT İHRACAT SANAYİ TİCARET",
+        "address": "BARAJ MAH. KIRÇİÇEĞİ CAD. B1-B2  BLOK SİTESİ AKSOY PLAZA NO: 38F KEPEZ / ANTALYA",
+        "phone": "05012427392",
+        "email": "info@reyaelektronik.com",
+        "contactPerson": "Oğuzhan ESEN",
+        "whatsapp": "0507 240 7392",
+        "tier": "standart",
+        "mapUrl": "https://reyaelektronik.com/"
+      }
+    ]
+  },
+  "konya": {
+    "dealers": [
+      {
+        "name": "KONYA ENERJİ ELEKT.MALZ.TİC.VE SAN LTD.ŞTİ",
+        "address": "FEVZİ ÇAKMAK MAH. BÜSAN ORG.SAN.BÖLG.KOSGEB CAD. NO:66",
+        "phone": "03323450900",
+        "email": "konyaenerji@konyaenerji.com.tr",
+        "tier": "standart",
+        "mapUrl": "https://www.konyaenerji.com.tr/"
+      },
+      {
+        "name": "KD ELEKTRİK A.Ş",
+        "address": "FEVZİ ÇAKMAK MAH. ÇELİK CAD. NO:59  İÇ KAPI NO:1 KARATAY/KONYA",
+        "phone": "03323450536",
+        "tier": "standart",
+        "mapUrl": "https://www.kdelektrik.com.tr/"
+      }
+    ]
+  },
+  "gaziantep": {
+    "dealers": [
+      {
+        "name": "UĞUR ELEKTROMARKET OTO İNŞ.TAAH.SAN.VE TİC.LTD.ŞTİ",
+        "address": "İNCİLİPINAR MAH.8 NOLU SOKAK NO:4/A",
+        "phone": "03423247060",
+        "email": "muhasebe@ugurelektromarket.com",
+        "tier": "standart",
+        "mapUrl": "https://www.ugurelektromarket.com.tr/"
+      }
+    ]
+  },
+  "trabzon": {
+    "dealers": [
+      {
+        "name": "KARADENİZ ELEKTRO MARKET TİCARET A.Ş.",
+        "address": "KUTLUGÜN MAH. HACI MEHMET ORTA KÜME EVLERİ NO:2 ORTAHİSAR/TRABZON",
+        "phone": "04623257705",
+        "email": "muhasebe@karadenizelektromarket.com.tr",
+        "tier": "standart",
+        "mapUrl": "https://www.karadenizelektromarket.com.tr/"
+      }
+    ]
+  },
+  "samsun": {
+    "dealers": [
+      {
+        "name": "HGS ŞARJ MUSTAFA YILMAZ",
+        "address": "İlkadım Sanayi Sitesi İstiklal mah. 55. Sk. No:24 Tekkeköy / Samsun",
+        "phone": "05309715215",
+        "email": "info@hgssarj.com",
+        "tier": "standart",
+        "mapUrl": "https://www.hgssarj.com/"
+      },
+      {
+        "name": "GALİP MÜHENDİSLİK ELK.SAN.TİC.A.Ş-",
+        "address": "ŞABANOĞLU MAH. 23 NİSAN CAD. NO:125",
+        "phone": "03624352713",
+        "email": "muhasebe@galip.com.tr",
+        "tier": "standart",
+        "mapUrl": "https://galip.com.tr/"
+      }
+    ]
+  },
+  "diyarbakir": {
+    "dealers": [
+      {
+        "name": "DOSTDOĞRU ELEKTRİK SAN.TİC.LTD.ŞTİ.",
+        "address": "ÜÇKUYULAR MAH. ELAZIĞ BULVARI NO:265-1",
+        "phone": "04122904659",
+        "email": "info@dostdogru.com.tr",
+        "tier": "standart",
+        "mapUrl": "https://www.dostdogru.com.tr/"
+      }
+    ]
+  },
+  "sakarya": {
+    "dealers": [
+      {
+        "name": "EVA TAŞIT TEK.EĞİT.SAN.VE TİC.LTD.ŞTİ",
+        "address": "Erenler Mahallesi, Fevzi Kılıç Caddesi, 72/A, Erenler, Sakarya",
+        "phone": "05324549589",
+        "email": "yavuzsoydan966@gmail.com",
+        "contactPerson": "YAVUZ SOYDAN",
+        "tier": "standart"
+      }
+    ]
+  },
+  "elazig": {
+    "dealers": [
+      {
+        "name": "ELZEM ELEKTRİK İMALAT SANAYİ VE TİCARET LTD.ŞTİ-",
+        "address": "KÜLTÜR MAH.ŞEHİT İDRİS DOĞAN CAD.NO:84/1-A  ELAZIĞ",
+        "phone": "04242124004",
+        "email": "elzemelektrikmuhasebe@gmail.com",
+        "tier": "standart",
+        "mapUrl": "https://elzemelektrik.com/"
+      }
+    ]
+  },
+  "eskisehir": {
+    "dealers": [
+      {
+        "name": "KIRAÇ ELEKTRİK ANONİM ŞİRKETİ",
+        "address": "Organize Sanayi Bölgesi Şehitler Bulvarı No:21 Odunpazarı / Eskişehir",
+        "phone": "0222 236 15 00",
+        "tier": "standart",
+        "mapUrl": "https://kiracelektrik.com/"
+      }
+    ]
+  },
+  "aydin": {
+    "dealers": [
+      {
+        "name": "ÖZPO ELEKTRİK MAK.MON.İNŞ.SAN.VE TİC.LTD.ŞTİ",
+        "address": "ATA MAH. 677 SK. NO:5/A-5 EFELER AYDIN",
+        "phone": "0546 498 35 65",
+        "email": "info@ozpo.com.tr",
+        "tier": "standart",
+        "mapUrl": "https://www.ozpo.com.tr/"
+      }
+    ]
+  }
+}

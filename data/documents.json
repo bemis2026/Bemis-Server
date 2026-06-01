@@ -1,3 +1,151 @@
 {
-  "documents": []
+  "documents": [
+    {
+      "id": "doc-1779264262427",
+      "title": "Bemis e-v charge hızlı kurulum kılavuzu",
+      "description": "Bemis E-V Charge cihazlarının güvenli ve doğru şekilde kurulumu için özetlenmiş kurulum adımlarını içeren tek sayfalık PDF dosyasını buradan indirebilirsiniz.",
+      "category": "installation",
+      "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779264259/documents/1779264258846-bemis-ev-charge-hizli-kurulum-kilavuzu.pdf",
+      "filename": "bemis-ev-charge-hizli-kurulum-kilavuzu.pdf",
+      "size": "866 KB",
+      "lang": "tr",
+      "date": "2026-05-20",
+      "visible": true
+    },
+    {
+      "id": "doc-1779265324270",
+      "title": "Bemis sarj cihazları fiyat listesi 2026",
+      "description": "Ürün modelleri, teknik seçenekler ve güncel fiyat bilgilerine bu dosya üzerinden ulaşabilirsiniz.",
+      "category": "price-list",
+      "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779265321/documents/1779265320569-bemis-sarj-cihazlari-fiyat-listesi-2026.pdf",
+      "filename": "bemis-sarj-cihazlari-fiyat-listesi-2026.pdf",
+      "size": "3.1 MB",
+      "lang": "tr",
+      "date": "2026-05-20",
+      "visible": true
+    },
+    {
+      "id": "doc-1779265418156",
+      "title": "Bemis Servis ve Bakım",
+      "description": "Servis ve bakım talimatları için PDF dosyasını buradan indirin.",
+      "category": "technical",
+      "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779265414/documents/1779265414165-bemis-servis-bakim.pdf",
+      "filename": "bemis-servis-bakim.pdf",
+      "size": "4.0 MB",
+      "lang": "tr",
+      "date": "2026-05-20",
+      "visible": true
+    },
+    {
+      "id": "doc-1779265469359",
+      "title": "C2L Adaptör Kullanma Kılavuzu",
+      "description": "C2L adaptörünüzün güvenli ve doğru kullanımı için hazırlanmış kullanım kılavuzu. Kurulum adımları, bağlantı detayları, teknik bilgiler ve güvenlik uyarılarına bu doküman üzerinden ulaşabilirsiniz.",
+      "category": "installation",
+      "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779265466/documents/1779265465896-C2L-kullanma-kilavuzu.pdf",
+      "filename": "C2L-kullanma-kilavuzu.pdf",
+      "size": "1.5 MB",
+      "lang": "tr",
+      "date": "2026-05-20",
+      "visible": true
+    },
+    {
+      "id": "doc-1779265535780",
+      "title": "Elektrikli Araç Mobil Şarj Cihazları Kullanma Kılavuzu",
+      "description": "Elektrikli araç mobil şarj cihazlarının güvenli ve verimli kullanımı için hazırlanan kullanım kılavuzu. Kurulum, kullanım adımları, teknik özellikler, güvenlik uyarıları ve bakım bilgilerine bu doküman üzerinden ulaşabilirsiniz.",
+      "category": "installation",
+      "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779265532/documents/1779265532366-elektrikli-arac-mobil-sarj-cihazlari-kullanim-kilavuzu.pdf",
+      "filename": "elektrikli-arac-mobil-sarj-cihazlari-kullanim-kilavuzu.pdf",
+      "size": "980 KB",
+      "lang": "tr",
+      "date": "2026-05-20",
+      "visible": true,
+      "linkedProductCategories": [
+        "portable"
+      ]
+    },
+    {
+      "id": "doc-1779265573112",
+      "title": "Keşif ve Montaj Formu",
+      "description": "Bemis E-V charge Keşif ve Montaj Formunu aşağıdan indirerek doldurabilirsiniz.",
+      "category": "technical",
+      "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779265569/documents/1779265569808-kesifvemontaj-formu.xlsx",
+      "filename": "kesifvemontaj-formu.xlsx",
+      "size": "47 KB",
+      "lang": "tr",
+      "date": "2026-05-20",
+      "visible": true
+    },
+    {
+      "id": "doc-1779265678991",
+      "title": "Şarj Cihazları Broşürü 2025",
+      "description": "2025 yılına ait elektrikli araç şarj çözümleri broşürü. AC şarj cihazları, mobil şarj çözümleri ve aksesuar ürünlerine ait teknik bilgiler, özellikler ve ürün detaylarını bu dokümanda inceleyebilirsiniz.",
+      "category": "catalog",
+      "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779265675/documents/1779265675130-sarj-cihazlari-brosur-2025.pdf",
+      "filename": "sarj-cihazlari-brosur-2025.pdf",
+      "size": "1.6 MB",
+      "lang": "tr",
+      "date": "2026-05-20",
+      "visible": true
+    },
+    {
+      "id": "doc-1779265754321",
+      "title": "V2L Adaptör Kullanma Kılavuzu",
+      "description": "V2L adaptörünüzün güvenli ve doğru kullanımı için hazırlanan kullanım kılavuzu. Bağlantı adımları, kullanım detayları, teknik bilgiler ve önemli güvenlik uyarılarına bu doküman üzerinden ulaşabilirsiniz.",
+      "category": "installation",
+      "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779265751/documents/1779265750755-V2L-kullanma-kilavuzu.pdf",
+      "filename": "V2L-kullanma-kilavuzu.pdf",
+      "size": "1.3 MB",
+      "lang": "tr",
+      "date": "2026-05-20",
+      "visible": true
+    },
+    {
+      "id": "doc-1779265994121",
+      "title": "Bemis Mobil Uygulama",
+      "description": "Bemis mobil uygulama bilgilerini içeren PDF dosyasını indirin.",
+      "category": "technical",
+      "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779265990/documents/1779265990220-bemis-mobile-app.pdf",
+      "filename": "bemis-mobile-app.pdf",
+      "size": "1.3 MB",
+      "lang": "tr",
+      "date": "2026-05-20",
+      "visible": true
+    },
+    {
+      "id": "doc-1779369254380",
+      "title": "Şarj Cihazları Broşürü 2026",
+      "description": "2026 yılına ait elektrikli araç şarj çözümleri broşürü. AC şarj cihazları, mobil şarj çözümleri ve aksesuar ürünlerine ait teknik bilgiler, özellikler ve ürün detaylarını bu dokümanda inceleyebilirsiniz.",
+      "category": "catalog",
+      "url": "https://pub-134960785b31499d992cb27aa3b0d652.r2.dev/documents/1779369249757-elektrikli-arac-urunleri-brosuru-2026.pdf",
+      "filename": "elektrikli-arac-urunleri-brosuru-2026.pdf",
+      "size": "13.0 MB",
+      "lang": "tr",
+      "date": "2026-05-21",
+      "visible": true
+    },
+    {
+      "id": "doc-1779369452055",
+      "title": "Kurulum Prosedürleri",
+      "description": "Bemis E-V Charge cihazları kurulum prosedürleri & dikkat edilmesi gereken detaylar için PDF dosyasını indirin.",
+      "category": "installation",
+      "url": "https://pub-134960785b31499d992cb27aa3b0d652.r2.dev/documents/1779369450123-kurulum-prosedurleri.pdf",
+      "filename": "kurulum-prosedurleri.pdf",
+      "size": "5.0 MB",
+      "lang": "tr",
+      "date": "2026-05-21",
+      "visible": true
+    },
+    {
+      "id": "doc-1779369707048",
+      "title": "Elektrikli Araç Şarj Cihazları Kullanma Kılavuzu",
+      "description": "Elektrikli araç şarj cihazlarının güvenli ve verimli kullanımı için hazırlanan kullanım kılavuzu. Kurulum adımları, kullanım talimatları, teknik özellikler, bakım önerileri ve güvenlik uyarılarına bu doküman üzerinden ulaşabilirsiniz.",
+      "category": "installation",
+      "url": "https://pub-134960785b31499d992cb27aa3b0d652.r2.dev/documents/1779369705206-sarj-cihazlari-kullanim-kilavuzu.pdf",
+      "filename": "sarj-cihazlari-kullanim-kilavuzu.pdf",
+      "size": "4.8 MB",
+      "lang": "tr",
+      "date": "2026-05-21",
+      "visible": true
+    }
+  ]
 }
