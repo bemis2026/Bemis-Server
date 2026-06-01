@@ -113,6 +113,9 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
   const Icon = categoryIcons[id] || RiPlugLine;
   const accent = category.accent;
   const categoryDescription = categories?.[id]?.description?.trim() ?? "";
+  // The per-category image now greets the visitor as the hero background
+  // (behind the title + description) instead of sitting beside the copy.
+  const descImage = categories?.[id]?.descriptionImage?.trim() ?? "";
 
   return (
     <div style={{ background: bg, display: "flex", flexDirection: "column", minHeight: "100vh", position: "relative", overflow: "hidden", isolation: "isolate" }}>
@@ -121,9 +124,33 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
       {/* Category hero */}
-      <div className="pt-24 pb-8 px-5 sm:px-6 lg:px-8"
-        style={{ background: d ? `radial-gradient(ellipse 70% 60% at 50% 0%, ${accent}10 0%, transparent 70%)` : `radial-gradient(ellipse 70% 60% at 50% 0%, ${accent}08 0%, transparent 70%)` }}>
-        <div className="max-w-7xl mx-auto">
+      <div className="relative overflow-hidden pt-24 pb-8 px-5 sm:px-6 lg:px-8"
+        style={{
+          background: d ? `radial-gradient(ellipse 70% 60% at 50% 0%, ${accent}10 0%, transparent 70%)` : `radial-gradient(ellipse 70% 60% at 50% 0%, ${accent}08 0%, transparent 70%)`,
+          minHeight: descImage ? 300 : undefined,
+        }}>
+        {/* Full-bleed category image as the hero backdrop. A theme-aware
+            scrim — strongest on the left where the copy sits, lighter on
+            the right — keeps the title + description legible over any
+            uploaded photo, and a bottom fade blends into the product grid. */}
+        {descImage && (
+          <div className="absolute inset-0" style={{ zIndex: 0 }} aria-hidden>
+            <Image src={descImage} alt={category.name} fill sizes="100vw" className="object-cover" priority />
+            <div
+              className="absolute inset-0"
+              style={{
+                background: d
+                  ? "linear-gradient(90deg, rgba(10,10,12,0.93) 0%, rgba(10,10,12,0.66) 55%, rgba(10,10,12,0.55) 100%)"
+                  : "linear-gradient(90deg, rgba(248,248,251,0.95) 0%, rgba(248,248,251,0.74) 55%, rgba(248,248,251,0.62) 100%)",
+              }}
+            />
+            <div
+              className="absolute inset-x-0 bottom-0 h-16"
+              style={{ background: d ? "linear-gradient(to top, #0c0c0e 0%, transparent 100%)" : "linear-gradient(to top, #f8f8fb 0%, transparent 100%)" }}
+            />
+          </div>
+        )}
+        <div className="relative max-w-7xl mx-auto" style={{ zIndex: 1 }}>
           <div className="flex items-stretch gap-4 mb-2">
             {/* Accent stripe — replaces the per-category icon block.
                 The icons that lived here used to clash with the actual
@@ -154,44 +181,25 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
             </div>
           </div>
 
-          {(() => {
-            // Description + side image — when an image is uploaded for
-            // the category, the hero gets a 2-column flow on lg+ so the
-            // empty space next to short description copy gets filled.
-            // No image → text alone, capped to 3xl as before.
-            const descImage = categories?.[id]?.descriptionImage?.trim() ?? "";
-            if (!categoryDescription && !descImage) return null;
-            return (
-              <motion.div
-                initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }}
-                className="mt-4 grid gap-5 items-center"
-                style={{ gridTemplateColumns: descImage ? "minmax(0, 3fr) minmax(0, 2fr)" : "1fr" }}
+          {categoryDescription && (
+            <motion.div
+              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }}
+              className="mt-4"
+            >
+              <p
+                className="text-sm sm:text-base leading-relaxed whitespace-pre-line max-w-3xl"
+                style={{
+                  // Over the hero image the muted copy needs a touch more
+                  // weight + a soft shadow to stay readable; without an
+                  // image it keeps the original muted tone.
+                  color: descImage ? (d ? "rgba(240,240,244,0.82)" : "rgba(26,26,46,0.84)") : textMuted,
+                  textShadow: descImage ? (d ? "0 1px 16px rgba(0,0,0,0.6)" : "0 1px 16px rgba(248,248,251,0.75)") : undefined,
+                }}
               >
-                {categoryDescription && (
-                  <p
-                    className="text-sm sm:text-base leading-relaxed whitespace-pre-line max-w-3xl"
-                    style={{ color: textMuted }}
-                  >
-                    {categoryDescription}
-                  </p>
-                )}
-                {descImage && (
-                  <div
-                    className="relative rounded-2xl overflow-hidden"
-                    style={{ aspectRatio: "4/3", border: `1px solid ${surfaceBorder}` }}
-                  >
-                    <Image
-                      src={descImage}
-                      alt={category.name}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 40vw"
-                      className="object-cover"
-                    />
-                  </div>
-                )}
-              </motion.div>
-            );
-          })()}
+                {categoryDescription}
+              </p>
+            </motion.div>
+          )}
 
         </div>
       </div>

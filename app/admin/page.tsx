@@ -2057,12 +2057,12 @@ export default function AdminPage() {
                                 />
                                 <p className="text-[10px] text-white/20 -mt-2">Kategori sayfasının üst kısmında gösterilir. Boş bırakılırsa gizlenir.</p>
 
-                                {/* Description-side image — public renders
-                                    side-by-side with the description text
-                                    so short copy doesn't leave half the
-                                    hero empty. */}
+                                {/* Category hero background image — public
+                                    renders it full-bleed behind the title +
+                                    description so it greets the visitor when
+                                    the category page opens. */}
                                 <div>
-                                  <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Açıklama Yanı Görseli</label>
+                                  <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Hero Arka Plan Görseli</label>
                                   {meta.descriptionImage && (
                                     <div className="relative rounded-xl overflow-hidden mb-2" style={{ height: 80 }}>
                                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -2095,7 +2095,7 @@ export default function AdminPage() {
                                       Yükle
                                     </button>
                                   </div>
-                                  <p className="text-[10px] text-white/20 mt-1.5">Kategori sayfası üstünde açıklama metninin sağına yerleşir. Önerilen: 800×600 veya 4:3 / 16:9 oranlı WebP/JPG.</p>
+                                  <p className="text-[10px] text-white/20 mt-1.5">Kategori sayfasına girince başlık ve açıklamanın arkasına tam-genişlik arka plan olarak yerleşir. Önerilen: geniş (16:9) WebP/JPG, en az 1600px.</p>
                                 </div>
 
                                 {/* Category card image */}

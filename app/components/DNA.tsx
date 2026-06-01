@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import {
@@ -10,7 +10,7 @@ import {
 import { useRouter } from "next/navigation";
 import E from "./E";
 import EImage from "./EImage";
-import { useVideoSound } from "./useVideoSound";
+import { useBackgroundVideo } from "./useBackgroundVideo";
 
 
 const BLUE = "#3B82F6";
@@ -23,19 +23,15 @@ export default function DNA() {
   const { dna, products: productSection, dealer: dealerSection, sectionBgs } = useContent();
   const d = theme === "dark";
 
-  // Black poster covers the iframe until the YouTube embed has both
-  // (a) finished loading its document and (b) had a beat to start
-  // playback. Tied to the iframe's `onLoad` event with a small buffer
-  // so the visitor never sees the YouTube splash / play button — even
-  // on slow networks where a fixed 1.8s timeout fires before autoplay
-  // catches up.
-  const [videoReady, setVideoReady] = useState(false);
-  const handleVideoLoaded = () => {
-    setTimeout(() => setVideoReady(true), 700);
-  };
-  // Opt-in sound: the factory video autoplays muted (browser policy); a
-  // bottom-right button lets the visitor turn audio on. Defaults to off.
-  const { ref: soundRef, soundOn, toggle: toggleSound } = useVideoSound();
+  // Background video controller. Keeps a black poster over the YouTube
+  // player until it is genuinely PLAYING (and re-covers it on tab switch),
+  // so the splash / play button never shows on first load or focus changes.
+  // Also drives the opt-in sound toggle (autoplays muted; the bottom-right
+  // button turns audio on).
+  const {
+    ref: soundRef, soundOn, toggle: toggleSound,
+    covered, onIframeLoad, onVideoPlaying,
+  } = useBackgroundVideo();
 
   const textPrimary = d ? "#f0f0f4"                 : "#1a1a1a";
   const textMuted   = d ? "rgba(240,240,244,0.52)"  : "rgba(26,26,26,0.52)";
@@ -156,14 +152,14 @@ export default function DNA() {
               }}
             >
               <div className="absolute inset-0" style={{ backgroundImage: d ? "radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)" : "radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
-              {/* Black poster covers the YouTube initial frame until
-                  autoplay has had ~1.8s to take over. Fades to reveal
-                  the loop without flashing YouTube's thumbnail / play
-                  button to the visitor. */}
+              {/* Black poster stays over the player until it is genuinely
+                  PLAYING (driven by the IFrame API), and snaps back whenever
+                  the tab is backgrounded — so YouTube's thumbnail / play
+                  button never flashes on load, tab switches, or refocus. */}
               <div
                 aria-hidden
-                className="absolute inset-0 z-10 transition-opacity duration-700 pointer-events-none"
-                style={{ background: "#0a0a0a", opacity: videoReady ? 0 : 1 }}
+                className="absolute inset-0 z-10 transition-opacity duration-500 pointer-events-none"
+                style={{ background: "#0a0a0a", opacity: covered ? 1 : 0 }}
               />
               {dna.factoryVideo ? (() => {
                 const yt = dna.factoryVideo!.match(/(?:youtube\.com\/(?:[^/?]+\?.*v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
@@ -183,7 +179,7 @@ export default function DNA() {
                       src={`https://www.youtube-nocookie.com/embed/${yt[1]}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${yt[1]}&controls=0&disablekb=1&modestbranding=1&rel=0&iv_load_policy=3&fs=0&enablejsapi=1`}
                       title="Bemis fabrika videosu"
                       allow="autoplay; encrypted-media; picture-in-picture"
-                      onLoad={handleVideoLoaded}
+                      onLoad={onIframeLoad}
                       style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none", pointerEvents: "none" }}
                     />
                   );
@@ -193,7 +189,7 @@ export default function DNA() {
                     ref={soundRef}
                     src={dna.factoryVideo}
                     autoPlay loop muted playsInline preload="auto"
-                    onLoadedData={handleVideoLoaded}
+                    onPlaying={onVideoPlaying}
                     style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
                   />
                 );

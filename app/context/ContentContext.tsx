@@ -12,9 +12,9 @@ export type FaqItem = { q: string; a: string };
 export type CategoryMeta = {
   name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string; sliderImage?: string;
   description?: string;
-  // Optional image rendered next to `description` on the category
-  // page — fills what would otherwise be empty space when the copy
-  // is short. Wide aspect (16:9 or 4:3) reads best.
+  // Optional category-hero background image. Rendered full-bleed behind
+  // the title + `description` on the category page so it greets the
+  // visitor on entry. Wide aspect (16:9) and ≥1600px read best.
   descriptionImage?: string;
   // Per-category FAQ — admin caps at 10 entries; public renders a
   // collapsible accordion between the product detail and the "Benzer

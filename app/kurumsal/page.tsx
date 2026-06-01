@@ -7,7 +7,7 @@ import { useContent } from "../context/ContentContext";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
-import { useVideoSound } from "../components/useVideoSound";
+import { useBackgroundVideo } from "../components/useBackgroundVideo";
 import Image from "next/image";
 import {
   RiShieldCheckLine, RiGlobalLine, RiLeafLine, RiAwardLine,
@@ -85,9 +85,13 @@ export default function KurumsalPage() {
   const d = theme === "dark";
   const { dna } = useContent();
   const [searchOpen, setSearchOpen] = useState(false);
-  const [aboutVideoReady, setAboutVideoReady] = useState(false);
-  // Opt-in sound for the about video (autoplays muted). Defaults to off.
-  const { ref: soundRef, soundOn, toggle: toggleSound } = useVideoSound();
+  // Background video controller: keeps the YouTube player chrome hidden
+  // until the clip is genuinely playing (and re-covers on tab switch), and
+  // drives the opt-in sound toggle (autoplays muted; button turns audio on).
+  const {
+    ref: soundRef, soundOn, toggle: toggleSound,
+    covered, onIframeLoad,
+  } = useBackgroundVideo();
 
   const bg         = d ? "linear-gradient(180deg, #0c0c0e 0%, #111113 100%)" : "#f8f8fb";
   const surface    = d ? "rgba(255,255,255,0.04)" : "#ffffff";
@@ -277,8 +281,8 @@ export default function KurumsalPage() {
                         700ms so the YouTube splash never flashes. */}
                     <div
                       aria-hidden
-                      className="transition-opacity duration-700 pointer-events-none"
-                      style={{ position: "absolute", inset: 0, zIndex: 10, background: "#0a0a0a", opacity: aboutVideoReady ? 0 : 1 }}
+                      className="transition-opacity duration-500 pointer-events-none"
+                      style={{ position: "absolute", inset: 0, zIndex: 10, background: "#0a0a0a", opacity: covered ? 1 : 0 }}
                     />
                     <iframe
                       ref={soundRef}
@@ -291,7 +295,7 @@ export default function KurumsalPage() {
                       }
                       title="Bemis E-V Charge"
                       allow="autoplay; encrypted-media; picture-in-picture"
-                      onLoad={() => setTimeout(() => setAboutVideoReady(true), 700)}
+                      onLoad={onIframeLoad}
                       style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0, pointerEvents: "none" }}
                     />
                   </div>
