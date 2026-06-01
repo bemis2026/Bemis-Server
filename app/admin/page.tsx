@@ -94,7 +94,7 @@ type SpecItem = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
 type ProductDocument = { label: string; url: string };
 type BoxContentItem = { name: string; image?: string };
-type ProductEntry = { id: string; name: string; code?: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[]; generalFeatures?: string[]; documents?: ProductDocument[]; features?: string[]; certificates?: string[]; boxContents?: BoxContentItem[]; compatibleVehicles?: string[] };
+type ProductEntry = { id: string; name: string; code?: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[]; generalFeatures?: string[]; documents?: ProductDocument[]; features?: string[]; certificates?: string[]; boxContents?: BoxContentItem[]; compatibleVehicles?: string[]; ean?: string; desi?: string };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
 type StatItem = { value: number; suffix: string; prefix?: string; label: string; description: string };
@@ -2618,6 +2618,10 @@ export default function AdminPage() {
                                       <div className="grid grid-cols-2 gap-3">
                                         <Field label="Ürün Adı" value={currentProd.name} onChange={(v) => updateProd("name", v)} />
                                         <Field label="Ürün Kodu" value={currentProd.code ?? ""} onChange={(v) => updateProd("code", v || undefined as unknown as null)} />
+                                      </div>
+                                      <div className="grid grid-cols-2 gap-3">
+                                        <Field label="EAN / Barkod (pazaryeri)" value={currentProd.ean ?? ""} onChange={(v) => updateProd("ean", (v || undefined) as unknown as null)} />
+                                        <Field label="Desi (kargo)" value={currentProd.desi ?? ""} onChange={(v) => updateProd("desi", (v || undefined) as unknown as null)} />
                                       </div>
                                       <Field label="Alt Başlık" value={currentProd.subtitle} onChange={(v) => updateProd("subtitle", v)} />
                                       <Field label="Rozet (boş bırakın = yok)" value={currentProd.badge ?? ""} onChange={(v) => updateProd("badge", v || null)} />

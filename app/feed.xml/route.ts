@@ -65,6 +65,7 @@ type FeedProduct = {
   brand: string;
   product_type: string;
   price_eur: number | null;
+  gtin: string | null;
 };
 
 function buildFeedItems(categories: Awaited<ReturnType<typeof getServerProducts>>): FeedProduct[] {
@@ -103,6 +104,7 @@ function buildFeedItems(categories: Awaited<ReturnType<typeof getServerProducts>
         brand: "Bemis E-V Charge",
         product_type: productType,
         price_eur: priceEur,
+        gtin: ((p as { ean?: string }).ean ?? "").trim() || null,
       });
     }
   }
@@ -138,7 +140,8 @@ export async function GET() {
       <g:condition>new</g:condition>
       <g:brand>${escape(p.brand)}</g:brand>
       <g:product_type>${cdata(p.product_type)}</g:product_type>
-      <g:identifier_exists>no</g:identifier_exists>
+      ${p.gtin ? `<g:gtin>${escape(p.gtin)}</g:gtin>
+      <g:identifier_exists>yes</g:identifier_exists>` : `<g:identifier_exists>no</g:identifier_exists>`}
       ${p.price_eur != null ? `<g:price>${p.price_eur.toFixed(2)} EUR</g:price>` : ""}
     </item>`).join("")}
   </channel>
