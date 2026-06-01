@@ -84,14 +84,14 @@ export function useBackgroundVideo() {
     return () => window.removeEventListener("message", onMessage);
   }, [postYT, reveal]);
 
-  // Re-cover when the tab is backgrounded; nudge playback + reveal on return.
+  // Re-cover on ANY visibility change, then (when visible again) nudge
+  // playback and reveal only once it truly resumes — so the paused player's
+  // play button never peeks through during the resume gap.
   useEffect(() => {
     const onVis = () => {
+      setCovered(true); // cover first, no matter the direction
+      if (document.visibilityState !== "visible") return;
       const el = elRef.current;
-      if (document.visibilityState === "hidden") {
-        setCovered(true);
-        return;
-      }
       if (el) {
         if (el.tagName === "IFRAME") postYT("playVideo"); // a PLAYING event will reveal
         else (el as HTMLVideoElement).play?.().catch(() => {});
