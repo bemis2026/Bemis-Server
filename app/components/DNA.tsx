@@ -5,11 +5,12 @@ import { useRef, useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import {
-  RiBuilding4Line, RiArrowRightLine,
+  RiBuilding4Line, RiArrowRightLine, RiVolumeUpLine, RiVolumeMuteLine,
 } from "react-icons/ri";
 import { useRouter } from "next/navigation";
 import E from "./E";
 import EImage from "./EImage";
+import { useVideoSound } from "./useVideoSound";
 
 
 const BLUE = "#3B82F6";
@@ -32,6 +33,9 @@ export default function DNA() {
   const handleVideoLoaded = () => {
     setTimeout(() => setVideoReady(true), 700);
   };
+  // Opt-in sound: the factory video autoplays muted (browser policy); a
+  // bottom-right button lets the visitor turn audio on. Defaults to off.
+  const { ref: soundRef, soundOn, toggle: toggleSound } = useVideoSound();
 
   const textPrimary = d ? "#f0f0f4"                 : "#1a1a1a";
   const textMuted   = d ? "rgba(240,240,244,0.52)"  : "rgba(26,26,26,0.52)";
@@ -175,7 +179,8 @@ export default function DNA() {
                   // keyboard/mouse interactivity.
                   return (
                     <iframe
-                      src={`https://www.youtube-nocookie.com/embed/${yt[1]}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${yt[1]}&controls=0&disablekb=1&modestbranding=1&rel=0&iv_load_policy=3&fs=0`}
+                      ref={soundRef}
+                      src={`https://www.youtube-nocookie.com/embed/${yt[1]}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${yt[1]}&controls=0&disablekb=1&modestbranding=1&rel=0&iv_load_policy=3&fs=0&enablejsapi=1`}
                       title="Bemis fabrika videosu"
                       allow="autoplay; encrypted-media; picture-in-picture"
                       onLoad={handleVideoLoaded}
@@ -185,6 +190,7 @@ export default function DNA() {
                 }
                 return (
                   <video
+                    ref={soundRef}
                     src={dna.factoryVideo}
                     autoPlay loop muted playsInline preload="auto"
                     onLoadedData={handleVideoLoaded}
@@ -215,6 +221,28 @@ export default function DNA() {
                   <div className="text-[9px] font-medium" style={{ color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.30)" }}>Bursa · Türkiye</div>
                 </div>
               </div>
+              {dna.factoryVideo && (
+                <button
+                  type="button"
+                  onClick={toggleSound}
+                  aria-label={soundOn ? "Video sesini kapat" : "Video sesini aç"}
+                  aria-pressed={soundOn}
+                  className="absolute bottom-3 right-3 flex items-center justify-center rounded-full transition-colors"
+                  style={{
+                    zIndex: 11,
+                    width: 38,
+                    height: 38,
+                    background: d ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.85)",
+                    backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)",
+                    border: `1px solid ${BLUE}40`,
+                    color: soundOn ? BLUE : d ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.55)",
+                    cursor: "pointer",
+                  }}
+                >
+                  {soundOn ? <RiVolumeUpLine size={18} /> : <RiVolumeMuteLine size={18} />}
+                </button>
+              )}
             </div>
 
           </motion.div>

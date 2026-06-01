@@ -7,11 +7,13 @@ import { useContent } from "../context/ContentContext";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
+import { useVideoSound } from "../components/useVideoSound";
 import Image from "next/image";
 import {
   RiShieldCheckLine, RiGlobalLine, RiLeafLine, RiAwardLine,
   RiCpuLine, RiMedalLine, RiGlobeLine, RiBuilding4Line,
   RiToolsLine, RiCodeLine, RiStackLine, RiCheckboxCircleLine, RiImageAddLine,
+  RiVolumeUpLine, RiVolumeMuteLine,
 } from "react-icons/ri";
 
 // Accept any of the common YouTube URL shapes and return the bare video ID.
@@ -84,6 +86,8 @@ export default function KurumsalPage() {
   const { dna } = useContent();
   const [searchOpen, setSearchOpen] = useState(false);
   const [aboutVideoReady, setAboutVideoReady] = useState(false);
+  // Opt-in sound for the about video (autoplays muted). Defaults to off.
+  const { ref: soundRef, soundOn, toggle: toggleSound } = useVideoSound();
 
   const bg         = d ? "linear-gradient(180deg, #0c0c0e 0%, #111113 100%)" : "#f8f8fb";
   const surface    = d ? "rgba(255,255,255,0.04)" : "#ffffff";
@@ -277,12 +281,13 @@ export default function KurumsalPage() {
                       style={{ position: "absolute", inset: 0, zIndex: 10, background: "#0a0a0a", opacity: aboutVideoReady ? 0 : 1 }}
                     />
                     <iframe
+                      ref={soundRef}
                       src={
                         `https://www.youtube-nocookie.com/embed/${aboutVideoId}` +
                         `?autoplay=1&mute=1` +
                         `&loop=1&playlist=${aboutVideoId}` +
                         `&controls=0&disablekb=1&modestbranding=1&rel=0&playsinline=1` +
-                        `&iv_load_policy=3&fs=0`
+                        `&iv_load_policy=3&fs=0&enablejsapi=1`
                       }
                       title="Bemis E-V Charge"
                       allow="autoplay; encrypted-media; picture-in-picture"
@@ -302,6 +307,26 @@ export default function KurumsalPage() {
                     <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: BLUE }} />
                     <span className="text-[10px] font-bold tracking-widest uppercase" style={{ color: d ? "#93C5FD" : BLUE }}>HD</span>
                   </div>
+                  <button
+                    type="button"
+                    onClick={toggleSound}
+                    aria-label={soundOn ? "Video sesini kapat" : "Video sesini aç"}
+                    aria-pressed={soundOn}
+                    className="absolute bottom-4 right-4 flex items-center justify-center rounded-full transition-colors"
+                    style={{
+                      zIndex: 11,
+                      width: 40,
+                      height: 40,
+                      background: d ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.85)",
+                      backdropFilter: "blur(10px)",
+                      WebkitBackdropFilter: "blur(10px)",
+                      border: `1px solid ${BLUE}40`,
+                      color: soundOn ? BLUE : d ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.55)",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {soundOn ? <RiVolumeUpLine size={19} /> : <RiVolumeMuteLine size={19} />}
+                  </button>
                 </motion.div>
               )}
 
@@ -353,25 +378,27 @@ export default function KurumsalPage() {
                     );
                     return (
                       <div className="flex flex-col items-center w-full">
-                        {/* Parent brand — logo'nun kendisi brand adını
-                            içerdiği için (Bemis logosu "bemis®" yazısı
-                            ile birlikte geliyor), yan yana metin koymuyoruz.
-                            Logo orta, dikey hizalı, height/width-cap
-                            daha cömert: wide-format logoyu da kare-format
-                            logoyu da rahat barındırır. */}
+                        {/* Parent brand — logo on top, brand name beneath,
+                            mirroring the child-brand cards so every logo in
+                            the group strip is captioned the same way. Logo
+                            is centered with a generous height/width-cap so
+                            wide- and square-format logos both sit cleanly. */}
                         <div
-                          className="flex items-center justify-center rounded-2xl px-6 py-4"
+                          className="flex flex-col items-center justify-center gap-2 rounded-2xl px-6 py-4"
                           style={{ background: cardBg, border: cardBorder, minHeight: 96, minWidth: 240 }}
                         >
                           {parent.logo ? (
-                            // eslint-disable-next-line @next/next/no-img-element
-                            <img
-                              src={parent.logo}
-                              alt={parent.name}
-                              style={{ height: 76, width: "auto", maxWidth: 320, objectFit: "contain" }}
-                              loading="lazy"
-                              decoding="async"
-                            />
+                            <>
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img
+                                src={parent.logo}
+                                alt={parent.name}
+                                style={{ height: 76, width: "auto", maxWidth: 320, objectFit: "contain" }}
+                                loading="lazy"
+                                decoding="async"
+                              />
+                              <span className="text-[11px] font-bold text-center leading-tight" style={{ color: textPrimary }}>{parent.name}</span>
+                            </>
                           ) : (
                             <span className="text-lg font-black tracking-tight" style={{ color: textPrimary }}>{parent.name}</span>
                           )}
