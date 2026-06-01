@@ -1,12 +1,13 @@
 # Daily lightweight monitors.
 #
-# Three cheap checks that don't need Claude — just plain Node:
-#   1. Form spam      — JSONBin messages bin, count last 24h
-#   2. Bin size       — every bin >80KB triggers a "shard soon" issue
-#   3. SSL expiry     — certificate <14 days from expiry → issue
+# Two cheap checks that don't need Claude — just plain Node:
+#   1. Form spam   — Vercel Blob messages bin, count last 24h
+#   2. SSL expiry  — certificate <14 days from expiry → issue
 #
-# All run in a single workflow because they share the same env and
-# notify-finding.cjs sink — keeps the Actions usage minutes tight.
+# (Eski "bin size" kontrolü kaldırıldı — veri Vercel Blob'a taşındı, 100KB
+#  kayıt limiti yok.)
+#
+# notify-finding.cjs ortak bildirim kanalı (GitHub Issue + e-posta).
 
 name: Daily monitors
 
@@ -27,9 +28,12 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: "20" }
 
-      - name: Form spam + bin size + SSL
+      - name: Install deps
+        run: npm ci
+
+      - name: Form spam + SSL
         env:
-          JSONBIN_MASTER_KEY: ${{ secrets.JSONBIN_MASTER_KEY }}
+          BLOB_READ_WRITE_TOKEN: ${{ secrets.BLOB_READ_WRITE_TOKEN }}
           GH_TOKEN:           ${{ secrets.GITHUB_TOKEN }}
           GH_REPO:            ${{ github.repository }}
           RESEND_API_KEY:     ${{ secrets.RESEND_API_KEY }}

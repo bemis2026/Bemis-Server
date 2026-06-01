@@ -1,48 +1,33 @@
 #!/usr/bin/env node
 /**
- * Daily monitor sweep — three quick checks, each gated by a hard
- * threshold so we only ping the operator when something actually
- * needs attention.
+ * Daily monitor sweep — quick checks, each gated by a hard threshold so we
+ * only ping the operator when something actually needs attention.
  *
  *   form-spam : new contact-form submissions in the last 24h > 10
- *   bin-size  : any JSONBin record > 80KB (free-tier 100KB hard cap)
  *   ssl-expiry: production cert < 14 days from expiry
+ *
+ * NOT: Eski "bin-size" kontrolü kaldırıldı — veri JSONBin'den Vercel Blob'a
+ * taşındı (2026-06-01). Blob'da 100KB kayıt limiti YOK, dolayısıyla boyut
+ * uyarısına gerek kalmadı.
  *
  * Each surfaced finding is piped through notify-finding.cjs so the
  * notification surface stays uniform (GitHub Issue + email).
  *
  * Env required:
- *   JSONBIN_MASTER_KEY  — read bin sizes + messages bin
- *   GH_TOKEN + GH_REPO  — issue creation
- *   RESEND_API_KEY + NOTIFY_EMAIL  — email pipe (notify-finding)
+ *   BLOB_READ_WRITE_TOKEN — read messages bin from Vercel Blob
+ *   GH_TOKEN + GH_REPO    — issue creation
+ *   RESEND_API_KEY + NOTIFY_EMAIL — email pipe (notify-finding)
  *
- * Idempotency: notify-finding.cjs already de-dupes by issue title,
- * so an unresolved condition re-comments on the same issue daily
- * instead of opening a new one.
+ * Idempotency: notify-finding.cjs already de-dupes by issue title.
  */
 
 const { spawnSync } = require("child_process");
 const tls = require("tls");
+const { get } = require("@vercel/blob");
 
-const MASTER = process.env.JSONBIN_MASTER_KEY;
-const BASE = "https://api.jsonbin.io/v3/b";
-
-// Bin map mirrored from lib/jsonbin.ts — kept in sync manually.
-const BIN_IDS = {
-  b2b:             "69e5093d36566621a8cd7509",
-  content:         "69e5093daaba88219716e044",
-  dealers:         "69e5093e36566621a8cd750f",
-  products:        "69e5093e856a6821894eaee8",
-  productsExtra:   "69fbcdf1c0954111d8e90670",
-  productsEn:      "69fbc8a0c0954111d8e8ed31",
-  productsEnExtra: "69fbcdf2250b1311c313f456",
-  documents:       "69e5093f856a6821894eaeec",
-  messages:        "69fb7b59adc21f119a61e79f",
-  changelog:       "69fb7b5eadc21f119a61e7c8",
-};
+const BLOB_TOKEN = process.env.BLOB_READ_WRITE_TOKEN;
 
 const FORM_SPAM_THRESHOLD = 10;     // mesaj / 24h
-const BIN_SIZE_THRESHOLD  = 80_000; // 80KB → tavanına 20KB kala uyar
 const SSL_DAYS_THRESHOLD  = 14;
 
 function notify(title, severity, body, source) {
@@ -54,20 +39,21 @@ function notify(title, severity, body, source) {
   if (r.status !== 0) console.error("[monitors] notify failed");
 }
 
+// Vercel Blob'dan bin oku (private). store.ts ile aynı yöntem.
 async function readBin(name) {
-  if (!MASTER) throw new Error("JSONBIN_MASTER_KEY missing");
-  const r = await fetch(`${BASE}/${BIN_IDS[name]}/latest`, {
-    headers: { "X-Master-Key": MASTER },
-  });
-  if (!r.ok) throw new Error(`bin ${name}: HTTP ${r.status}`);
-  return r.json();
+  if (!BLOB_TOKEN) throw new Error("BLOB_READ_WRITE_TOKEN missing");
+  const res = await get(`bins/${name}.json`, { access: "private", token: BLOB_TOKEN });
+  if (!res || res.statusCode !== 200 || !res.stream) {
+    throw new Error(`bin ${name}: status ${res && res.statusCode}`);
+  }
+  return await new Response(res.stream).json();
 }
 
 // ── form spam ──
 async function checkFormSpam() {
   try {
-    const j = await readBin("messages");
-    const items = j.record?.items ?? [];
+    const data = await readBin("messages");
+    const items = data?.items ?? [];
     const since = Date.now() - 24 * 60 * 60 * 1000;
     const recent = items.filter((i) => {
       const t = Date.parse(i.receivedAt ?? "");
@@ -92,39 +78,6 @@ async function checkFormSpam() {
     }
   } catch (e) {
     console.error("form spam check failed:", e.message);
-  }
-}
-
-// ── bin size ──
-async function checkBinSize() {
-  try {
-    const offenders = [];
-    for (const name of Object.keys(BIN_IDS)) {
-      try {
-        const j = await readBin(name);
-        const bytes = Buffer.byteLength(JSON.stringify(j.record ?? {}), "utf8");
-        if (bytes > BIN_SIZE_THRESHOLD) offenders.push({ name, bytes });
-        console.log(`bin ${name.padEnd(18)} ${(bytes / 1024).toFixed(1)} KB`);
-      } catch (e) {
-        console.warn(`bin ${name}: ${e.message}`);
-      }
-    }
-    if (offenders.length > 0) {
-      notify(
-        `JSONBin tavan uyarısı — ${offenders.length} bin >80KB`,
-        offenders.some((o) => o.bytes > 95_000) ? "critical" : "medium",
-        [
-          `Free tier 100KB hard limit. >80KB olan bin'leri shard'a bölmek gerek:`,
-          ``,
-          ...offenders.map((o) => `  · ${o.name}: ${(o.bytes / 1024).toFixed(1)} KB`),
-          ``,
-          `Mevcut pattern: products↔productsExtra (charger-equipment overflow). Yeni shard eklerken lib/jsonbin.ts'deki BIN_IDS + app/api/products/route.ts merge mantığını güncelle.`,
-        ].join("\n"),
-        "bin-size"
-      );
-    }
-  } catch (e) {
-    console.error("bin size check failed:", e.message);
   }
 }
 
@@ -172,8 +125,6 @@ async function checkSslExpiry() {
 (async () => {
   console.log(`=== Daily monitors — ${new Date().toISOString()} ===\n`);
   await checkFormSpam();
-  console.log("");
-  await checkBinSize();
   console.log("");
   await checkSslExpiry();
 })();
