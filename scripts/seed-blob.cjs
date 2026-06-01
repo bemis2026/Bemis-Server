@@ -42,7 +42,7 @@ function load(fn) {
   for (const [name, fn] of Object.entries(MAP)) {
     const data = load(fn);
     const res = await put(`bins/${name}.json`, JSON.stringify(data), {
-      access: "public",
+      access: "private",
       addRandomSuffix: false,
       allowOverwrite: true,
       contentType: "application/json",
