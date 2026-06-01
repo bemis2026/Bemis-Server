@@ -2911,7 +2911,7 @@ export default function AdminPage() {
                                       {currentProd.specs.map((group, gi) => {
                                         const gkey = `${selCat}-${selProd}-${gi}`;
                                         const expanded = expandedGroups[gkey] !== false;
-                                        const isPrice = group.group.toLowerCase().includes("fiyat");
+                                        const isPrice = /fiyat|price/i.test(group.group);
                                         return (
                                           <div key={gi} className="bg-white/3 border border-white/7 rounded-2xl overflow-hidden">
                                             <div className="flex items-center gap-2 px-4 py-3 border-b border-white/6">

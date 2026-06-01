@@ -26,6 +26,7 @@ const TRANSLATABLE_PATHS: string[] = [
 
   "[].products[].generalFeatures[]",
   "[].products[].documents[].label",
+  "[].products[].boxContents[].name",
 ];
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

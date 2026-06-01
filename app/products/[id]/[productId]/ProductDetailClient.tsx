@@ -303,6 +303,16 @@ export default function ProductDetailPage({
                                       }}
                                     >
                                       <span className="block leading-tight">{v.subtitle || v.code || (lang === "en" ? "Standard" : "Standart")}</span>
+                                      {(() => {
+                                        // IP sınıfını üründen türet (ör. "Otomatlı IP44 Kombinasyon" → "IP44").
+                                        // IP44/IP66 gibi aynı subtitle'a sahip varyantlar çipte ayırt edilsin.
+                                        const ip = v.name?.match(/\bIP\s?\d{2}\b/i)?.[0]?.replace(/\s/g, "").toUpperCase();
+                                        return ip ? (
+                                          <span className="inline-block text-[8px] font-bold mt-0.5 px-1 py-px rounded" style={{ background: "rgba(255,255,255,0.18)" }}>
+                                            {ip}
+                                          </span>
+                                        ) : null;
+                                      })()}
                                       {v.code && v.subtitle && (
                                         <span className="block text-[8px] font-mono mt-0.5" style={{ color: "rgba(255,255,255,0.7)" }}>
                                           {v.code}
@@ -779,7 +789,9 @@ export default function ProductDetailPage({
                               </div>
                             );
                           })()}
-                          {generalList.length > 0 && (
+                          {/* Yeni features[] ikon-grid'i varsa eski generalFeatures
+                              madde-listesini gizle (çift gösterim olmasın). */}
+                          {featureList.length === 0 && generalList.length > 0 && (
                             <div className="space-y-2 pt-1">
                               {generalList.map((feature, i) => (
                                 <div key={i} className="flex items-start gap-2.5">
