@@ -29,6 +29,20 @@ type Dealer = {
 };
 type DealersData = Record<string, { dealers: Dealer[] }>;
 
+// "Haritada Aç" must always open a MAP. `mapUrl` is trusted only when it
+// actually points at a mapping service; when it's empty — or a website was
+// mistakenly pasted into that field (which is what was happening) — we fall
+// back to a Google Maps search built from the dealer's name + address, so
+// the button never lands on the dealer's website.
+const MAP_DOMAINS =
+  /(?:google\.[a-z.]+\/maps|maps\.google|maps\.app\.goo\.gl|goo\.gl\/maps|g\.page|openstreetmap\.org|yandex\.[a-z.]+\/maps)/i;
+function dealerMapHref(dealer: { name?: string; address?: string; mapUrl?: string }): string {
+  const u = dealer.mapUrl?.trim();
+  if (u && MAP_DOMAINS.test(u)) return u;
+  const q = encodeURIComponent([dealer.name, dealer.address].filter(Boolean).join(" ").trim());
+  return q ? `https://www.google.com/maps/search/?api=1&query=${q}` : (u || "#");
+}
+
 // Region centers calibrated to the 1327×621 Turkey map image (7 coğrafi bölge).
 // City→region membership comes from lib/turkeyCities so adding a city in admin
 // auto-places it in the right region without code changes.
@@ -642,8 +656,8 @@ export default function DealerNetwork() {
                           <span className="truncate">{dealer.website.replace(/^https?:\/\//, "")}</span>
                         </a>
                       )}
-                      {dealer.mapUrl && (
-                        <a href={dealer.mapUrl} target="_blank" rel="noopener noreferrer" className="text-xs flex items-center gap-1 mt-1.5 transition-colors hover:underline" style={{ color: d ? "#93C5FD" : BLUE }}>
+                      {(dealer.mapUrl || dealer.address) && (
+                        <a href={dealerMapHref(dealer)} target="_blank" rel="noopener noreferrer" className="text-xs flex items-center gap-1 mt-1.5 transition-colors hover:underline" style={{ color: d ? "#93C5FD" : BLUE }}>
                           <HiExternalLink className="flex-shrink-0" />
                           Haritada Aç
                         </a>
