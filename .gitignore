@@ -43,6 +43,9 @@ next-env.d.ts
 # sensitive data — never commit to git
 data/auth.json
 
+# one-off migration backups (scripts/_backup-*.json)
+scripts/_backup-*.json
+
 # large media files
 public/**/*.mp4
 public/**/*.mov

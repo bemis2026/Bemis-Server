@@ -5,12 +5,12 @@
         "name": "Tümpa Elektrikkk",
         "address": "Bağcılar / İstanbul",
         "phone": "+90 (212) 000 00 00",
-        "website": "www.bemis.com.tr",
+        "website": "https://tumpaelektrik.com/",
         "email": "info@xn--tmpa-0ra.com.tr",
         "whatsapp": "+905497971000",
         "contactPerson": "",
         "tier": "standart",
-        "mapUrl": "https://tumpaelektrik.com/?srsltid=AfmBOoqXSxbU1dEQTKCZd17psHgiXImv2H7A8Ouj__qd1nhILyvf_YJp"
+        "mapUrl": ""
       },
       {
         "name": "BYCO MÜHENDISLIK ELEKTRIK TAAH. VE İNŞ. TİC.A.Ş",
@@ -19,7 +19,8 @@
         "email": "info@byco.com.tr",
         "tier": "standart",
         "contactPerson": "",
-        "mapUrl": "https://www.byco.com.tr/anasayfa"
+        "mapUrl": "",
+        "website": "https://www.byco.com.tr/anasayfa"
       },
       {
         "name": "FUTURE TEKNİK ENERJİ SİSTEMLERİ TİCARET LİMİTED ŞİRKETİ",
@@ -29,7 +30,8 @@
         "contactPerson": "UĞUR ÇAMLICA",
         "whatsapp": "05333065200",
         "tier": "standart",
-        "mapUrl": "https://www.futureteknik.com.tr/"
+        "mapUrl": "",
+        "website": "https://www.futureteknik.com.tr/"
       },
       {
         "name": "OPA ELEKTRİK İNŞAAT DIŞ TİCARET LİMİTED ŞİRKETİ",
@@ -38,7 +40,8 @@
         "email": "opaelektrik@hotmail.com",
         "tier": "standart",
         "contactPerson": "",
-        "mapUrl": "https://opaelektrik.com.tr/"
+        "mapUrl": "",
+        "website": "https://opaelektrik.com.tr/"
       },
       {
         "name": "ALİ YAYLA (BB ENERGY)",
@@ -56,7 +59,8 @@
         "contactPerson": "GERÇEK GÖZKÜN",
         "whatsapp": "05495194855",
         "tier": "standart",
-        "mapUrl": "https://pluginn.co/"
+        "mapUrl": "",
+        "website": "https://pluginn.co/"
       },
       {
         "name": "TUNÇSAN ELEKTRİK ELEKT.SAN.VE TİC.LTD.ŞTİ",
@@ -66,7 +70,8 @@
         "contactPerson": "OLCA TUNÇ",
         "whatsapp": "0532 591 06 62",
         "tier": "standart",
-        "mapUrl": "https://www.elektrikmalzemeleri.net/"
+        "mapUrl": "",
+        "website": "https://www.elektrikmalzemeleri.net/"
       },
       {
         "name": "YUNUS ELEKTRİK SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
@@ -75,7 +80,8 @@
         "email": "info@yunuselektrik.com.tr",
         "tier": "standart",
         "contactPerson": "",
-        "mapUrl": "https://yunuselektrik.com.tr/index.php"
+        "mapUrl": "",
+        "website": "https://yunuselektrik.com.tr/index.php"
       },
       {
         "name": "UZMAN ELK.İNŞ.İTH.VE İHR.SAN.TİC.LTD.ŞTİ",
@@ -84,7 +90,8 @@
         "email": "info@uzman-elektrik.com.tr",
         "tier": "standart",
         "contactPerson": "",
-        "mapUrl": "http://www.uzman-elektrik.com.tr/index.php"
+        "mapUrl": "",
+        "website": "http://www.uzman-elektrik.com.tr/index.php"
       },
       {
         "name": "MC2 ELEKTRİK ENERJİ SİSTEMLERİ SAN. VE TİC. LTD.ŞTi",
@@ -93,7 +100,8 @@
         "whatsapp": "05550862226",
         "tier": "standart",
         "contactPerson": "",
-        "mapUrl": "https://mc2enerji.com/"
+        "mapUrl": "",
+        "website": "https://mc2enerji.com/"
       }
     ]
   },
@@ -105,7 +113,8 @@
         "phone": "0312 8154552",
         "email": "muhasebe2@tamerelektrik.com.tr",
         "tier": "standart",
-        "mapUrl": "https://tamerelektrik.com.tr/"
+        "mapUrl": "",
+        "website": "https://tamerelektrik.com.tr/"
       },
       {
         "name": "ZEYBEK ELEKTRİK AŞ",
@@ -114,14 +123,16 @@
         "email": "akgulakgul@zeybekgrup.com",
         "contactPerson": "AKGÜL AKGÜL",
         "tier": "standart",
-        "mapUrl": "https://www.zeybekgrup.com/"
+        "mapUrl": "",
+        "website": "https://www.zeybekgrup.com/"
       },
       {
         "name": "A1 ELEKTRİK ENERJİ  SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
         "address": "IVEDIKOSB MAH. 1419 CAD. NO:1 V YENİMAHALLE ANKARA",
         "phone": "03123546364",
         "tier": "standart",
-        "mapUrl": "https://www.a1elektrik.com.tr/"
+        "mapUrl": "",
+        "website": "https://www.a1elektrik.com.tr/"
       },
       {
         "name": "PG GÜVENLİK SİS.ELEK.İNŞ.OTO.EML.SAN. VE TİC. LTD.ŞTİ",
@@ -129,7 +140,8 @@
         "phone": "05537797790",
         "email": "pgok.cemal@gmail.com",
         "tier": "standart",
-        "mapUrl": "https://pgelektronik.com/"
+        "mapUrl": "",
+        "website": "https://pgelektronik.com/"
       }
     ]
   },
@@ -141,7 +153,8 @@
         "phone": "02324694900",
         "email": "info@siem.com.tr",
         "tier": "standart",
-        "mapUrl": "https://siem.com.tr/"
+        "mapUrl": "",
+        "website": "https://siem.com.tr/"
       },
       {
         "name": "MERKÜR AYDINLATMA ENERJI SANAYI VE TICARET LIMITED SIRKETI",
@@ -150,7 +163,8 @@
         "email": "info@merkuraydinlatma.com",
         "whatsapp": "05073603995",
         "tier": "standart",
-        "mapUrl": "https://www.merkurenerji.com/"
+        "mapUrl": "",
+        "website": "https://www.merkurenerji.com/"
       }
     ]
   },
@@ -163,7 +177,8 @@
         "email": "gulten@4maltinelektrik.com.tr",
         "tier": "standart",
         "contactPerson": "",
-        "mapUrl": "https://4maltinelektrik.com.tr/"
+        "mapUrl": "",
+        "website": "https://4maltinelektrik.com.tr/"
       },
       {
         "name": "ENES CAN",
@@ -202,7 +217,8 @@
         "contactPerson": "Oğuzhan ESEN",
         "whatsapp": "0507 240 7392",
         "tier": "standart",
-        "mapUrl": "https://reyaelektronik.com/"
+        "mapUrl": "",
+        "website": "https://reyaelektronik.com/"
       }
     ]
   },
@@ -214,14 +230,16 @@
         "phone": "03323450900",
         "email": "konyaenerji@konyaenerji.com.tr",
         "tier": "standart",
-        "mapUrl": "https://www.konyaenerji.com.tr/"
+        "mapUrl": "",
+        "website": "https://www.konyaenerji.com.tr/"
       },
       {
         "name": "KD ELEKTRİK A.Ş",
         "address": "FEVZİ ÇAKMAK MAH. ÇELİK CAD. NO:59  İÇ KAPI NO:1 KARATAY/KONYA",
         "phone": "03323450536",
         "tier": "standart",
-        "mapUrl": "https://www.kdelektrik.com.tr/"
+        "mapUrl": "",
+        "website": "https://www.kdelektrik.com.tr/"
       }
     ]
   },
@@ -233,7 +251,8 @@
         "phone": "03423247060",
         "email": "muhasebe@ugurelektromarket.com",
         "tier": "standart",
-        "mapUrl": "https://www.ugurelektromarket.com.tr/"
+        "mapUrl": "",
+        "website": "https://www.ugurelektromarket.com.tr/"
       }
     ]
   },
@@ -245,7 +264,8 @@
         "phone": "04623257705",
         "email": "muhasebe@karadenizelektromarket.com.tr",
         "tier": "standart",
-        "mapUrl": "https://www.karadenizelektromarket.com.tr/"
+        "mapUrl": "",
+        "website": "https://www.karadenizelektromarket.com.tr/"
       }
     ]
   },
@@ -257,7 +277,8 @@
         "phone": "05309715215",
         "email": "info@hgssarj.com",
         "tier": "standart",
-        "mapUrl": "https://www.hgssarj.com/"
+        "mapUrl": "",
+        "website": "https://www.hgssarj.com/"
       },
       {
         "name": "GALİP MÜHENDİSLİK ELK.SAN.TİC.A.Ş-",
@@ -265,7 +286,8 @@
         "phone": "03624352713",
         "email": "muhasebe@galip.com.tr",
         "tier": "standart",
-        "mapUrl": "https://galip.com.tr/"
+        "mapUrl": "",
+        "website": "https://galip.com.tr/"
       }
     ]
   },
@@ -277,7 +299,8 @@
         "phone": "04122904659",
         "email": "info@dostdogru.com.tr",
         "tier": "standart",
-        "mapUrl": "https://www.dostdogru.com.tr/"
+        "mapUrl": "",
+        "website": "https://www.dostdogru.com.tr/"
       }
     ]
   },
@@ -301,7 +324,8 @@
         "phone": "04242124004",
         "email": "elzemelektrikmuhasebe@gmail.com",
         "tier": "standart",
-        "mapUrl": "https://elzemelektrik.com/"
+        "mapUrl": "",
+        "website": "https://elzemelektrik.com/"
       }
     ]
   },
@@ -312,7 +336,8 @@
         "address": "Organize Sanayi Bölgesi Şehitler Bulvarı No:21 Odunpazarı / Eskişehir",
         "phone": "0222 236 15 00",
         "tier": "standart",
-        "mapUrl": "https://kiracelektrik.com/"
+        "mapUrl": "",
+        "website": "https://kiracelektrik.com/"
       }
     ]
   },
@@ -324,7 +349,8 @@
         "phone": "0546 498 35 65",
         "email": "info@ozpo.com.tr",
         "tier": "standart",
-        "mapUrl": "https://www.ozpo.com.tr/"
+        "mapUrl": "",
+        "website": "https://www.ozpo.com.tr/"
       }
     ]
   }

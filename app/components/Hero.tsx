@@ -156,9 +156,10 @@ export default function Hero() {
               <br />
               <span
                 style={{
-                  backgroundImage: d
-                    ? "linear-gradient(135deg, #93C5FD 0%, #3B82F6 100%)"
-                    : "linear-gradient(135deg, #3B82F6 0%, #3B82F6 100%)",
+                  // Üreticisi (headline3): aydınlık ve karanlık modda AYNI
+                  // parlak mavi gradyan — hero koyu overlay'i üzerinde her
+                  // iki temada da aynı okunur (önce light daha koyu maviydi).
+                  backgroundImage: "linear-gradient(135deg, #93C5FD 0%, #3B82F6 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -231,9 +232,8 @@ export default function Hero() {
             <br />
             <span
               style={{
-                backgroundImage: d
-                  ? "linear-gradient(135deg, #93C5FD 0%, #3B82F6 100%)"
-                  : "linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)",
+                // Üreticisi (headline3): light = dark, parlak mavi gradyan.
+                backgroundImage: "linear-gradient(135deg, #93C5FD 0%, #3B82F6 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
