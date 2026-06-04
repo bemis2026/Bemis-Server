@@ -28,6 +28,8 @@ const UI = {
   download: { tr: "İndir",                 en: "Download" },
   newTab:   { tr: "Yeni sekmede aç",       en: "Open in new tab" },
   noPreview:{ tr: "Bu dosya tarayıcıda önizlenemez — indirip açın.", en: "This file can't be previewed — download to open." },
+  openPdf:  { tr: "PDF'i Aç",              en: "Open PDF" },
+  mobilAc:  { tr: "PDF'i görüntülemek için açın ya da indirin.", en: "Open or download to view the PDF." },
 } as const;
 
 export default function DocumentViewerPage() {
@@ -43,6 +45,17 @@ export default function DocumentViewerPage() {
 
   const [doc, setDoc] = useState<DocItem | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isMobil, setIsMobil] = useState(false);
+
+  // iOS Safari (ve dar ekran) iframe'de PDF'i gömülü göstermez → mobilde
+  // gömülü görünüm yerine "Aç / İndir" odaklı kart gösterilir.
+  useEffect(() => {
+    const ua = navigator.userAgent || "";
+    const ios =
+      /iPad|iPhone|iPod/.test(ua) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    setIsMobil(ios || window.innerWidth < 820);
+  }, []);
 
   useEffect(() => {
     let alive = true;
@@ -176,7 +189,7 @@ export default function DocumentViewerPage() {
             {t("back")}
           </button>
         </div>
-      ) : isPdf ? (
+      ) : isPdf && !isMobil ? (
         <iframe
           src={url}
           title={doc.title}
@@ -186,14 +199,32 @@ export default function DocumentViewerPage() {
         <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14, padding: 24 }}>
           <RiFilePdf2Line size={52} style={{ color: "#3B82F6" }} />
           <p style={{ color: textPrimary, fontSize: 15, fontWeight: 700, textAlign: "center" }}>{doc.title}</p>
-          <p style={{ color: textMuted, fontSize: 13, textAlign: "center", maxWidth: 360 }}>{t("noPreview")}</p>
-          <button
-            onClick={indir}
-            style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 18px", borderRadius: 12, background: "#3B82F6", color: "#fff", fontSize: 13.5, fontWeight: 700 }}
-          >
-            <HiDownload size={16} />
-            {t("download")}
-          </button>
+          <p style={{ color: textMuted, fontSize: 13, textAlign: "center", maxWidth: 360 }}>
+            {isPdf ? t("mobilAc") : t("noPreview")}
+          </p>
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
+            {isPdf && (
+              <button
+                onClick={() => window.open(url, "_blank", "noopener,noreferrer")}
+                style={{ display: "flex", alignItems: "center", gap: 8, padding: "11px 20px", borderRadius: 12, background: "#3B82F6", color: "#fff", fontSize: 14, fontWeight: 700 }}
+              >
+                <HiExternalLink size={16} />
+                {t("openPdf")}
+              </button>
+            )}
+            <button
+              onClick={indir}
+              style={{
+                display: "flex", alignItems: "center", gap: 8, padding: "11px 20px", borderRadius: 12, fontSize: 14, fontWeight: 700,
+                color: isPdf ? textPrimary : "#fff",
+                background: isPdf ? (d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)") : "#3B82F6",
+                border: isPdf ? `1px solid ${border}` : "none",
+              }}
+            >
+              <HiDownload size={16} />
+              {t("download")}
+            </button>
+          </div>
         </div>
       )}
     </div>
