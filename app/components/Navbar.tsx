@@ -139,9 +139,37 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const { openContact } = useContactOverlay();
   const activeNavLinks = navbarContent?.links?.length ? navbarContent.links : navLinks;
   const logoSrc = logos?.dark || "/logo-white.png";
-  const logoFilter = isDark ? undefined : "brightness(0)";
   const router = useRouter();
   const pathname = usePathname();
+
+  // Ana sayfada en tepede navbar şeffaf ve KOYU hero görselinin üstünde
+  // durur → bu durumda (açık modda) ön plan, karanlık moddaki gibi BEYAZ
+  // olmalı. Kaydırınca beyaz arka plan gelince tekrar KOYU ön plana döner.
+  // Diğer sayfalarda tepe zaten açık olduğundan dokunulmuyor (siyah kalır).
+  const lightTop = pathname === "/" && !isDark && !scrolled;
+
+  const logoFilter = (isDark || lightTop) ? undefined : "brightness(0)";
+  const navWordClass = isDark
+    ? "text-white/80 hover:text-white"
+    : lightTop ? "text-white/90 hover:text-white" : "text-black/85 hover:text-black";
+  const navUnderlineClass = (isDark || lightTop) ? "bg-white/50" : "bg-black/50";
+  const iconBtnClass = isDark
+    ? "text-white/50 hover:text-white hover:bg-white/6"
+    : lightTop ? "text-white/80 hover:text-white hover:bg-white/10" : "text-black/50 hover:text-black hover:bg-black/5";
+  const mobileIconClass = isDark ? "text-white/70" : lightTop ? "text-white/90" : "text-black";
+  const langBorder = isDark
+    ? "1px solid rgba(255,255,255,0.10)"
+    : lightTop ? "1px solid rgba(255,255,255,0.30)" : "1px solid rgba(0,0,0,0.12)";
+  const langActiveBg = isDark
+    ? "rgba(255,255,255,0.12)" : lightTop ? "rgba(255,255,255,0.22)" : "rgba(0,0,0,0.08)";
+  const langActiveColor = (isDark || lightTop) ? "#ffffff" : "#111111";
+  const langIdleColor = isDark
+    ? "rgba(255,255,255,0.35)" : lightTop ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.35)";
+  const b2bColor       = isDark ? "rgba(255,255,255,0.65)" : lightTop ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.70)";
+  const b2bBorderColor = isDark ? "rgba(255,255,255,0.18)" : lightTop ? "rgba(255,255,255,0.38)" : "rgba(0,0,0,0.18)";
+  const b2bBg          = isDark ? "rgba(255,255,255,0.05)" : lightTop ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.03)";
+  const b2bHoverColor  = isDark ? "#ffffff" : lightTop ? "#ffffff" : "#3B82F6";
+  const b2bHoverBorder = isDark ? "rgba(96,165,250,0.55)" : lightTop ? "rgba(255,255,255,0.65)" : "rgba(59,130,246,0.55)";
 
   const categoryList = categories
     ? Object.entries(categories as Record<string, { name: string; subtitle?: string }>).map(([key, val]) => ({
@@ -279,13 +307,11 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                 >
                   <button
                     onClick={() => handleNavClick(isK ? "#b2bcta" : link.href)}
-                    className={`flex items-center gap-1 text-sm font-semibold transition-colors duration-200 relative group ${
-                      isDark ? "text-white/80 hover:text-white" : "text-black/85 hover:text-black"
-                    }`}
+                    className={`flex items-center gap-1 text-sm font-semibold transition-colors duration-200 relative group ${navWordClass}`}
                   >
                     <E field={`navbar.links.${idx}.label`} tag="span">{link.label}</E>
                     {hasDropdown && <HiChevronDown size={13} className={`transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />}
-                    <span className={`absolute -bottom-0.5 left-0 w-0 h-px group-hover:w-full transition-all duration-300 ${isDark ? "bg-white/50" : "bg-black/50"}`} />
+                    <span className={`absolute -bottom-0.5 left-0 w-0 h-px group-hover:w-full transition-all duration-300 ${navUnderlineClass}`} />
                   </button>
 
                   {/* Kurumsal Dropdown */}
@@ -430,23 +456,23 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
 
           {/* Right actions */}
           <div className="hidden lg:flex items-center gap-2">
-            <div className="flex items-center rounded-lg overflow-hidden" style={{ border: isDark ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.12)" }}>
+            <div className="flex items-center rounded-lg overflow-hidden" style={{ border: langBorder }}>
               {(["tr", "en"] as const).map((l) => (
                 <button key={l} onClick={() => setLang(l)}
                   className="px-2.5 py-1 text-xs font-bold uppercase transition-colors duration-200"
                   style={{
-                    background: lang === l ? (isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.08)") : "transparent",
-                    color: lang === l ? (isDark ? "#ffffff" : "#111111") : (isDark ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)"),
+                    background: lang === l ? langActiveBg : "transparent",
+                    color: lang === l ? langActiveColor : langIdleColor,
                   }}
                 >
                   {l.toUpperCase()}
                 </button>
               ))}
             </div>
-            <button onClick={onSearchOpen} className={`p-2 rounded-lg transition-colors ${isDark ? "text-white/50 hover:text-white hover:bg-white/6" : "text-black/50 hover:text-black hover:bg-black/5"}`}>
+            <button onClick={onSearchOpen} className={`p-2 rounded-lg transition-colors ${iconBtnClass}`}>
               <HiSearch size={18} />
             </button>
-            <button onClick={toggle} className={`p-2 rounded-lg transition-colors ${isDark ? "text-white/50 hover:text-white hover:bg-white/6" : "text-black/50 hover:text-black hover:bg-black/5"}`}>
+            <button onClick={toggle} className={`p-2 rounded-lg transition-colors ${iconBtnClass}`}>
               {isDark ? <HiSun size={18} /> : <HiMoon size={18} />}
             </button>
             <button
@@ -476,17 +502,17 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                 title="B2B Portal"
                 className="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold tracking-[0.10em] uppercase transition-colors leading-none"
                 style={{
-                  color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.70)",
-                  border: `1px solid ${isDark ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.18)"}`,
-                  background: isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)",
+                  color: b2bColor,
+                  border: `1px solid ${b2bBorderColor}`,
+                  background: b2bBg,
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.color = isDark ? "#ffffff" : "#3B82F6";
-                  (e.currentTarget as HTMLElement).style.borderColor = isDark ? "rgba(96,165,250,0.55)" : "rgba(59,130,246,0.55)";
+                  (e.currentTarget as HTMLElement).style.color = b2bHoverColor;
+                  (e.currentTarget as HTMLElement).style.borderColor = b2bHoverBorder;
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.70)";
-                  (e.currentTarget as HTMLElement).style.borderColor = isDark ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.18)";
+                  (e.currentTarget as HTMLElement).style.color = b2bColor;
+                  (e.currentTarget as HTMLElement).style.borderColor = b2bBorderColor;
                 }}
               >
                 B2B
@@ -496,20 +522,20 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
 
           {/* Mobile right */}
           <div className="lg:hidden flex items-center gap-1">
-            <div className="flex items-center rounded-lg overflow-hidden" style={{ border: isDark ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.12)" }}>
+            <div className="flex items-center rounded-lg overflow-hidden" style={{ border: langBorder }}>
               {(["tr", "en"] as const).map((l) => (
                 <button key={l} onClick={() => setLang(l)}
                   className="px-2 py-1 text-[10px] font-bold uppercase transition-colors"
                   style={{
-                    background: lang === l ? (isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.08)") : "transparent",
-                    color: lang === l ? (isDark ? "#ffffff" : "#111111") : (isDark ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)"),
+                    background: lang === l ? langActiveBg : "transparent",
+                    color: lang === l ? langActiveColor : langIdleColor,
                   }}
                 >{l.toUpperCase()}</button>
               ))}
             </div>
-            <button onClick={onSearchOpen} className={`p-2 rounded-lg ${isDark ? "text-white/50" : "text-black"}`}><HiSearch size={17} /></button>
-            <button onClick={toggle} className={`p-2 rounded-lg ${isDark ? "text-white/50" : "text-black"}`}>{isDark ? <HiSun size={17} /> : <HiMoon size={17} />}</button>
-            <button onClick={() => setMobileOpen(!mobileOpen)} className={`p-2 ${isDark ? "text-white/70" : "text-black"}`}>
+            <button onClick={onSearchOpen} className={`p-2 rounded-lg ${mobileIconClass}`}><HiSearch size={17} /></button>
+            <button onClick={toggle} className={`p-2 rounded-lg ${mobileIconClass}`}>{isDark ? <HiSun size={17} /> : <HiMoon size={17} />}</button>
+            <button onClick={() => setMobileOpen(!mobileOpen)} className={`p-2 ${mobileIconClass}`}>
               {mobileOpen ? <HiX size={22} /> : <HiMenuAlt3 size={22} />}
             </button>
           </div>
