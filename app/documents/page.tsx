@@ -9,8 +9,9 @@ import Navbar from "../components/Navbar";
 import ContactBar from "../components/ContactBar";
 import SearchOverlay from "../components/SearchOverlay";
 import Image from "next/image";
+import Link from "next/link";
 import {
-  HiArrowLeft, HiDownload, HiSearch,
+  HiArrowLeft, HiEye, HiSearch,
 } from "react-icons/hi";
 import {
   RiFilePdf2Line, RiFileExcel2Line, RiFileWord2Line,
@@ -55,6 +56,7 @@ const UI = {
   emptyAll:  { tr: "Henüz döküman eklenmemiş", en: "No documents yet" },
   noResult:  { tr: "Sonuç bulunamadı", en: "No results found" },
   download:  { tr: "İndir",            en: "Download" },
+  view:      { tr: "Görüntüle",        en: "View" },
   docWordTr: "döküman",
   docWordEn: "documents",
 } as const;
@@ -394,17 +396,14 @@ function DocGrid({ docs, lang, d, surface, border, textPrimary, textMuted, textF
                 )}
               </div>
 
-              <a
-                href={doc.url}
-                download
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href={`/documents/${encodeURIComponent(doc.id)}`}
                 className="flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-semibold transition-all hover:opacity-90"
                 style={{ background: accent, color: "#fff" }}
               >
-                <HiDownload size={14} />
-                {lang === "en" ? UI.download.en : UI.download.tr}
-              </a>
+                <HiEye size={14} />
+                {lang === "en" ? UI.view.en : UI.view.tr}
+              </Link>
             </div>
           </motion.div>
         );
