@@ -25,9 +25,14 @@ const csp = [
   //   www.google-analytics.com / region1.google-analytics.com  — GA4 pageviews
   //   stats.g.doubleclick.net + www.google.com                 — Google Ads conversions
   //   www.facebook.com                                          — Meta Pixel event endpoint
-  "connect-src 'self' https://api.jsonbin.io https://api.mymemory.translated.net https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://www.google.com https://www.facebook.com https://flagcdn.com https://api.imgbb.com https://api.cloudinary.com https://api.resend.com https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://*.ingest.de.sentry.io https://vitals.vercel-insights.com https://vercel.live https://*.r2.cloudflarestorage.com https://*.r2.dev",
+  // res.cloudinary.com + *.r2.dev are our document (PDF) asset hosts — the
+  // /documents viewer fetches them as a blob for a clean download.
+  "connect-src 'self' https://api.jsonbin.io https://api.mymemory.translated.net https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://www.google.com https://www.facebook.com https://flagcdn.com https://api.imgbb.com https://api.cloudinary.com https://res.cloudinary.com https://api.resend.com https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://*.ingest.de.sentry.io https://vitals.vercel-insights.com https://vercel.live https://*.r2.cloudflarestorage.com https://*.r2.dev",
   "worker-src 'self' blob:",
-  "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com https://td.doubleclick.net https://www.googletagmanager.com",
+  // res.cloudinary.com + *.r2.dev are where document PDFs live — the
+  // /documents/[id] viewer embeds them in an <iframe> for inline preview.
+  // Without these the PDF frame is blank (CSP blocks the load).
+  "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com https://td.doubleclick.net https://www.googletagmanager.com https://res.cloudinary.com https://*.r2.dev",
   "media-src 'self' blob: https://res.cloudinary.com https:",
   "object-src 'none'",
   "base-uri 'self'",
