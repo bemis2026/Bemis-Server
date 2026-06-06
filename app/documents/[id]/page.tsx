@@ -73,30 +73,28 @@ export default function DocumentViewerPage() {
   }, [id]);
 
   const url = doc?.url || "";
+  // Açma/önizleme/indirme — hepsi kendi alan adımızdaki vekil (proxy) route
+  // üzerinden gider: tarayıcı için same-origin olur, böylece CSP frame-src,
+  // cross-origin iframe kuralları, R2 erişimi ve mobil davranış sorunları
+  // ortadan kalkar. inline = önizleme, dl=1 = indirme.
+  const fileId = doc?.id ? encodeURIComponent(doc.id) : "";
+  const viewUrl = fileId ? `/api/documents/file?id=${fileId}` : "";
+  const downloadUrl = fileId ? `/api/documents/file?id=${fileId}&dl=1` : "";
   const isPdf =
     (doc?.filename || "").toLowerCase().endsWith(".pdf") ||
     url.toLowerCase().includes(".pdf") ||
     url.toLowerCase().includes("/raw/upload/"); // Cloudinary raw PDF
 
-  // Temiz indirme: dosyayı blob olarak çek → ham (Cloudinary/R2) URL kullanıcıya
-  // gösterilmez. CORS engellerse ham URL'i yeni sekmede açmaya düşer.
-  async function indir() {
-    if (!doc) return;
-    try {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error();
-      const blob = await res.blob();
-      const obj = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = obj;
-      a.download = doc.filename || `${doc.title || "dokuman"}.pdf`;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      setTimeout(() => URL.revokeObjectURL(obj), 5000);
-    } catch {
-      window.open(url, "_blank", "noopener,noreferrer");
-    }
+  // İndirme: vekil route dosyayı `attachment` disposition ile döndürür →
+  // tek bir navigasyon temiz indirir (mobil dahil), ham URL gösterilmez.
+  function indir() {
+    if (!downloadUrl) return;
+    const a = document.createElement("a");
+    a.href = downloadUrl;
+    a.rel = "noopener";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
   }
 
   const bg = d ? "#0c0c0e" : "#f8f8fb";
@@ -146,7 +144,7 @@ export default function DocumentViewerPage() {
         {doc && (
           <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
             <button
-              onClick={() => window.open(url, "_blank", "noopener,noreferrer")}
+              onClick={() => window.open(viewUrl, "_blank", "noopener,noreferrer")}
               title={t("newTab")}
               style={{ display: "flex", alignItems: "center", gap: 6, padding: "7px 10px", borderRadius: 10, fontSize: 12.5, fontWeight: 600, color: textMuted, border: `1px solid ${border}` }}
             >
@@ -191,7 +189,7 @@ export default function DocumentViewerPage() {
         </div>
       ) : isPdf && !isMobil ? (
         <iframe
-          src={url}
+          src={viewUrl}
           title={doc.title}
           style={{ flex: 1, width: "100%", border: 0, background: d ? "#1a1a1a" : "#e5e5e5" }}
         />
@@ -205,7 +203,7 @@ export default function DocumentViewerPage() {
           <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
             {isPdf && (
               <button
-                onClick={() => window.open(url, "_blank", "noopener,noreferrer")}
+                onClick={() => window.open(viewUrl, "_blank", "noopener,noreferrer")}
                 style={{ display: "flex", alignItems: "center", gap: 8, padding: "11px 20px", borderRadius: 12, background: "#3B82F6", color: "#fff", fontSize: 14, fontWeight: 700 }}
               >
                 <HiExternalLink size={16} />
