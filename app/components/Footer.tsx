@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { RiLinkedinFill, RiInstagramLine, RiYoutubeFill, RiFacebookFill } from "react-icons/ri";
+import { HiPhone, HiMail } from "react-icons/hi";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useContent } from "../context/ContentContext";
@@ -80,7 +81,7 @@ const NAV_GROUPS = {
 
 export default function Footer() {
   const router = useRouter();
-  const { social, footer: footerContent, logos } = useContent();
+  const { social, footer: footerContent, logos, contact } = useContent();
   const { theme } = useTheme();
   const { lang } = useLanguage();
   const d = theme === "dark";
@@ -215,6 +216,34 @@ export default function Footer() {
                 )
               ))}
             </div>
+
+            {/* İletişim — telefon + e-posta (content.contact'tan; admin'den düzenlenir) */}
+            {(contact?.phone || contact?.email) && (
+              <div className="flex flex-col gap-2">
+                {contact.phone && (
+                  <a
+                    href={`tel:${contact.phone.replace(/[^\d+]/g, "")}`}
+                    className="inline-flex items-center gap-2 text-sm transition-colors duration-200"
+                    style={{ color: textMuted }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = textHead; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = textMuted; }}
+                  >
+                    <HiPhone className="flex-shrink-0" style={{ color: textFaint }} /> {contact.phone}
+                  </a>
+                )}
+                {contact.email && (
+                  <a
+                    href={`mailto:${contact.email}`}
+                    className="inline-flex items-center gap-2 text-sm transition-colors duration-200"
+                    style={{ color: textMuted }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = textHead; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = textMuted; }}
+                  >
+                    <HiMail className="flex-shrink-0" style={{ color: textFaint }} /> {contact.email}
+                  </a>
+                )}
+              </div>
+            )}
 
           </div>
 
