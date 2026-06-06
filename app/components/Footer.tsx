@@ -217,34 +217,6 @@ export default function Footer() {
               ))}
             </div>
 
-            {/* İletişim — telefon + e-posta (content.contact'tan; admin'den düzenlenir) */}
-            {(contact?.phone || contact?.email) && (
-              <div className="flex flex-col gap-2">
-                {contact.phone && (
-                  <a
-                    href={`tel:${contact.phone.replace(/[^\d+]/g, "")}`}
-                    className="inline-flex items-center gap-2 text-sm transition-colors duration-200"
-                    style={{ color: textMuted }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = textHead; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = textMuted; }}
-                  >
-                    <HiPhone className="flex-shrink-0" style={{ color: textFaint }} /> {contact.phone}
-                  </a>
-                )}
-                {contact.email && (
-                  <a
-                    href={`mailto:${contact.email}`}
-                    className="inline-flex items-center gap-2 text-sm transition-colors duration-200"
-                    style={{ color: textMuted }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = textHead; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = textMuted; }}
-                  >
-                    <HiMail className="flex-shrink-0" style={{ color: textFaint }} /> {contact.email}
-                  </a>
-                )}
-              </div>
-            )}
-
           </div>
 
           {/* Nav columns */}
@@ -289,7 +261,17 @@ export default function Footer() {
               <span className="hidden sm:block" style={{ color: textFainter }}>·</span>
               <E field="footer.tagline" tag="span">{footerContent.tagline}</E>
             </div>
-            <div className="flex items-center gap-4 text-xs" style={{ color: textFaint }}>
+            <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-4 gap-y-1 text-xs" style={{ color: textFaint }}>
+              {contact?.phone && (
+                <a href={`tel:${contact.phone.replace(/[^\d+]/g, "")}`} className="inline-flex items-center gap-1.5 transition-colors hover:opacity-70">
+                  <HiPhone style={{ fontSize: 12 }} /> {contact.phone}
+                </a>
+              )}
+              {contact?.email && (
+                <a href={`mailto:${contact.email}`} className="inline-flex items-center gap-1.5 transition-colors hover:opacity-70">
+                  <HiMail style={{ fontSize: 12 }} /> {contact.email}
+                </a>
+              )}
               <button className="transition-colors hover:opacity-70">Gizlilik Politikası</button>
               <button className="transition-colors hover:opacity-70">KVKK</button>
               <button onClick={() => router.push("/b2b")} className="transition-colors hover:opacity-70">OEM / B2B</button>
