@@ -92,6 +92,110 @@ export const BLOG_POSTS: BlogPost[] = [
       { label: "Tüm Ürünler", href: "/products" },
     ],
   },
+
+  {
+    slug: "ac-dc-sarj-farki",
+    title: "AC ve DC Şarj Arasındaki Fark Nedir? Ev ve İstasyon Rehberi",
+    description:
+      "AC şarj ile DC hızlı şarj arasındaki fark nedir, hangisi ne zaman kullanılır, ev için hangisi uygun? Güç, hız, maliyet ve donanım farklarını sade anlatıyoruz.",
+    excerpt:
+      "AC mı DC mi? İkisinin nasıl çalıştığını, hız ve maliyet farkını ve ev/istasyon için hangisinin doğru olduğunu basitçe açıklıyoruz.",
+    category: "Rehber",
+    datePublished: "2026-06-06",
+    readingMinutes: 5,
+    keywords: ["ac dc şarj farkı", "ac şarj nedir", "dc hızlı şarj", "elektrikli araç şarj türleri"],
+    body: [
+      { type: "p", text: "Elektrikli araç şarjında en sık karışan konu AC ve DC ayrımıdır. İkisi de aynı amaca hizmet eder — bataryayı doldurmak — ama çalışma şekilleri, hızları ve kullanım yerleri tamamen farklıdır. Bu rehber, doğru cihazı seçebilmeniz için ikisini sade bir dille karşılaştırıyor." },
+
+      { type: "h2", text: "AC şarj nedir?" },
+      { type: "p", text: "AC (alternatif akım) şarjda elektrik şebekeden araca alternatif akım olarak gelir; aracın içindeki 'on-board charger' (dahili şarj ünitesi) bunu bataryanın kullanabileceği doğru akıma (DC) çevirir. Yani dönüşüm aracın içinde olur. Bu yüzden AC şarj hızı, aracın dahili şarj ünitesinin kapasitesiyle sınırlıdır — tipik olarak 7,4 kW (tek faz) ile 11–22 kW (üç faz) arası." },
+      { type: "h3", text: "Nerede kullanılır?" },
+      { type: "p", text: "Ev, iş yeri, otopark, AVM gibi aracın uzun süre park ettiği yerler. Donanımı görece basit ve uygun maliyetlidir; günlük kullanımda gece boyu şarj için idealdir." },
+
+      { type: "h2", text: "DC hızlı şarj nedir?" },
+      { type: "p", text: "DC (doğru akım) şarjda dönüşüm istasyonun içinde yapılır; cihaz şebekedeki AC'yi DC'ye çevirip doğrudan bataryaya verir, aracın dahili şarj ünitesini baypas eder. Bu nedenle çok daha yüksek güçlere çıkabilir (50 kW'tan 350 kW'a kadar) ve bataryayı dakikalar içinde önemli oranda doldurur." },
+      { type: "h3", text: "Nerede kullanılır?" },
+      { type: "p", text: "Otoyol dinlenme tesisleri, şehir içi hızlı şarj noktaları, filo ve ticari işletmeler. Donanım daha karmaşık ve maliyetlidir; 'yola devam etmek için 20 dakikada hızlı dolum' senaryosuna uygundur." },
+
+      { type: "h2", text: "Özet karşılaştırma" },
+      { type: "ul", items: [
+        "Dönüşüm yeri: AC → araçta · DC → istasyonda.",
+        "Hız: AC 7,4–22 kW · DC 50–350+ kW.",
+        "Maliyet: AC uygun · DC yüksek.",
+        "Kullanım: AC ev/iş yeri (uzun park) · DC yol/ticari (hızlı dolum).",
+        "Batarya ömrü: günlük AC şarj daha naziktir; DC'yi gerektiğinde kullanmak idealdir.",
+      ]},
+
+      { type: "quote", text: "Pratik kural: Her gün evde/işte AC ile yavaş ve ucuz şarj edin; uzun yolda DC hızlı şarjı kullanın." },
+
+      { type: "h2", text: "Ev için hangisi?" },
+      { type: "p", text: "Evde neredeyse her zaman doğru tercih bir AC Wallbox'tır: aracınız gece park halindeyken sabaha kadar dolar, donanım ve kurulum maliyeti makuldür. DC hızlı şarj evde hem çok pahalı hem de gereksizdir. Bemis'in AC Wallbox ve taşınabilir şarj cihazları tam da bu günlük kullanım için tasarlanmıştır." },
+
+      { type: "cta", text: "Ev ve iş yeri için AC Wallbox modellerini inceleyin — yerli üretim, OCPP uyumlu.", href: "/products/wallbox", label: "AC Wallbox Modelleri" },
+    ],
+    faq: [
+      { q: "AC ve DC şarj arasındaki temel fark nedir?", a: "AC şarjda akım dönüşümü aracın içinde yapılır ve hız aracın dahili şarj ünitesiyle sınırlıdır (7,4–22 kW). DC şarjda dönüşüm istasyonda yapılır, çok daha hızlıdır (50–350+ kW)." },
+      { q: "Ev için AC mı DC mi almalıyım?", a: "Ev için AC Wallbox doğru tercihtir; gece boyu uygun maliyetle şarj eder. DC hızlı şarj ev için hem gereksiz hem çok pahalıdır." },
+      { q: "DC hızlı şarj bataryaya zarar verir mi?", a: "Ara sıra DC kullanımı sorun değildir; ancak her gün yalnızca DC ile şarj etmek yerine günlük AC şarjı tercih etmek batarya sağlığı için daha iyidir." },
+    ],
+    related: [
+      { label: "AC Wallbox", href: "/products/wallbox" },
+      { label: "DC Şarj Üniteleri", href: "/products/dc-units" },
+      { label: "AC Şarj Kabloları", href: "/products/cables" },
+    ],
+  },
+
+  {
+    slug: "ev-icin-sarj-cihazi-nasil-secilir",
+    title: "Ev İçin Elektrikli Araç Şarj Cihazı Nasıl Seçilir?",
+    description:
+      "Ev tipi elektrikli araç şarj cihazı seçerken güç (7,4/11/22 kW), prizli mi kablolu mu, akıllı özellikler ve güvenlik sertifikalarına nasıl bakılır? Pratik seçim rehberi.",
+    excerpt:
+      "Kaç kW? Prizli mi kablolu mu? Akıllı özellikler ve güvenlik neden önemli? Ev tipi şarj cihazı seçimini adım adım anlatıyoruz.",
+    category: "Rehber",
+    datePublished: "2026-06-06",
+    readingMinutes: 6,
+    keywords: ["ev şarj cihazı seçimi", "ev tipi şarj cihazı", "kaç kw şarj cihazı", "wallbox seçimi", "prizli kablolu şarj"],
+    body: [
+      { type: "p", text: "Elektrikli araç aldıktan sonraki ilk soru genellikle aynı: \"Eve hangi şarj cihazını alayım?\" Doğru cihaz, aracınızı her sabah dolu teslim alırken yıllarca sorunsuz çalışır; yanlış cihaz ise hem yavaş şarj hem güvenlik riski demektir. İşte ev tipi şarj cihazı seçerken bakılacak 5 başlık." },
+
+      { type: "h2", text: "1) Güç: 7,4 kW mı, 11/22 kW mı?" },
+      { type: "p", text: "Güç hem evinizin elektrik altyapısına hem aracınızın dahili şarj kapasitesine bağlıdır. Tek fazlı tesisatta genelde 7,4 kW; üç fazlı tesisatta 11 veya 22 kW mümkündür. Ancak aracınızın dahili şarj ünitesi 11 kW kabul ediyorsa 22 kW cihaz almak ekstra hız getirmez. Çoğu ev kullanıcısı için 7,4–11 kW gece boyu rahat dolum sağlar." },
+
+      { type: "h2", text: "2) Prizli (soketli) mi, kablolu mu?" },
+      { type: "ul", items: [
+        "Kablolu (tethered): kablo cihaza sabittir; gelip fişi takarsınız, en pratiği.",
+        "Prizli (soketli): kablo ayrıdır; farklı araç/kablolarla esneklik sağlar, kablo gerektiğinde değişir.",
+        "Apartman/ortak otoparkta prizli model, müstakil garajda kablolu model genelde daha kullanışlıdır.",
+      ]},
+
+      { type: "h2", text: "3) Akıllı özellikler" },
+      { type: "p", text: "OCPP uyumu (uzaktan yönetim/şarj ağına bağlanabilme), mobil uygulama, zamanlı şarj (ucuz gece tarifesinde başlatma), yük yönetimi (evin sigortasını zorlamadan dengeli şarj) ve kullanıcı yetkilendirme (RFID) cihazı bugünden yarına taşır. Bemis cihazları OCPP uyumlu tasarlanır." },
+
+      { type: "h2", text: "4) Güvenlik ve sertifikalar" },
+      { type: "ul", items: [
+        "CE uygunluk ve ilgili IEC standartları (IEC 61851).",
+        "Dış mekân için yeterli koruma sınıfı (örn. IP65) — toz ve suya dayanım.",
+        "Dahili kaçak akım koruması (RCD / DC leakage) — ayrı pano ekipmanı maliyetini düşürür.",
+        "Aşırı akım, aşırı gerilim ve sıcaklık korumaları.",
+      ]},
+
+      { type: "h2", text: "5) Kurulum ve marka" },
+      { type: "p", text: "Şarj cihazı yetkili bir elektrikçi tarafından, tercihen ayrı bir hat ve uygun koruma ile kurulmalıdır. Yedek parça, garanti ve teknik destek için yerli ve ulaşılabilir bir üretici seçmek uzun vadede fark yaratır. Bemis, Bursa'daki kendi tesisinde üretim yapan yerli bir EV şarj ekipmanı üreticisidir; AC Wallbox, taşınabilir cihazlar, kablolar ve adaptörlerle eksiksiz bir ev ekosistemi sunar." },
+
+      { type: "cta", text: "Eve uygun modeli seçin: Bemis AC Wallbox ve taşınabilir şarj cihazları.", href: "/products/wallbox", label: "Ürünleri İncele" },
+    ],
+    faq: [
+      { q: "Ev için kaç kW şarj cihazı yeterli?", a: "Çoğu ev kullanıcısı için 7,4–11 kW gece boyu rahat dolum sağlar. Üç fazlı tesisat ve uygun araçta 22 kW mümkündür, ancak aracın dahili şarj kapasitesini aşan güç ekstra hız getirmez." },
+      { q: "Prizli mi kablolu mu şarj cihazı daha iyi?", a: "Kablolu model en pratiğidir (gel-tak). Prizli model farklı araç ve kablolarla esneklik sağlar; ortak otoparklarda genelde tercih edilir." },
+      { q: "Ev tipi şarj cihazında nelere dikkat etmeliyim?", a: "Güç uyumu, prizli/kablolu tercihi, OCPP ve akıllı özellikler, IP65 gibi koruma sınıfı ve dahili kaçak akım koruması, CE sertifikası, yetkili kurulum ve ulaşılabilir yerli üretici desteği." },
+    ],
+    related: [
+      { label: "AC Wallbox", href: "/products/wallbox" },
+      { label: "Taşınabilir Şarj Cihazları", href: "/products/portable" },
+      { label: "AC Şarj Kabloları", href: "/products/cables" },
+    ],
+  },
 ];
 
 export function allPosts(): BlogPost[] {
