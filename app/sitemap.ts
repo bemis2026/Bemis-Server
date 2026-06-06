@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getServerProducts } from "./lib/server-content";
+import { allPosts } from "./blog/posts";
 
 const BASE = "https://www.bemisevcharge.com.tr";
 
@@ -89,5 +90,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
   );
 
-  return [...staticRoutes, ...categoryRoutes, ...productRoutes];
+  const blogRoutes: MetadataRoute.Sitemap = [
+    { url: `${BASE}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    ...allPosts().map((p) => ({
+      url: `${BASE}/blog/${p.slug}`,
+      lastModified: new Date(p.dateModified ?? p.datePublished),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+  ];
+
+  return [...staticRoutes, ...categoryRoutes, ...productRoutes, ...blogRoutes];
 }

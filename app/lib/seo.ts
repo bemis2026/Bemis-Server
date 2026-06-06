@@ -307,6 +307,62 @@ export function serviceSchema(opts: {
   };
 }
 
+export function articleSchema(opts: {
+  title: string;
+  description: string;
+  url: string;
+  image?: string;
+  datePublished: string;
+  dateModified?: string;
+}): JsonLdObject {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: opts.title,
+    description: opts.description,
+    ...(opts.image && { image: absolute(opts.image) }),
+    datePublished: opts.datePublished,
+    dateModified: opts.dateModified ?? opts.datePublished,
+    author: { "@type": "Organization", name: SITE_NAME, "@id": `${SITE_URL}#organization` },
+    publisher: { "@id": `${SITE_URL}#organization` },
+    mainEntityOfPage: absolute(opts.url),
+    inLanguage: "tr-TR",
+  };
+}
+
+export function faqSchema(items: { q: string; a: string }[]): JsonLdObject {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((it) => ({
+      "@type": "Question",
+      name: it.q,
+      acceptedAnswer: { "@type": "Answer", text: it.a },
+    })),
+  };
+}
+
+export function blogListingSchema(opts: {
+  url: string;
+  posts: { title: string; url: string; datePublished: string }[];
+}): JsonLdObject {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${SITE_URL}/blog#blog`,
+    name: `${SITE_NAME} Blog`,
+    url: absolute(opts.url),
+    inLanguage: "tr-TR",
+    publisher: { "@id": `${SITE_URL}#organization` },
+    blogPost: opts.posts.map((p) => ({
+      "@type": "BlogPosting",
+      headline: p.title,
+      url: absolute(p.url),
+      datePublished: p.datePublished,
+    })),
+  };
+}
+
 export function safeJsonLdString(data: JsonLdObject | JsonLdObject[]): string {
   return JSON.stringify(data).replace(/</g, "\\u003c");
 }

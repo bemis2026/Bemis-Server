@@ -22,6 +22,7 @@ const NAV_GROUPS = {
     ]},
     { title: "Şirket", links: [
       { label: "Hakkımızda",        href: "#dna",        scroll: true },
+      { label: "Blog",              href: "/blog",       scroll: false },
       { label: "Teknoloji",         href: "#technology", scroll: true },
       { label: "Kalite & Belgeler", href: "#technology", scroll: true },
       { label: "İstatistikler",     href: "#stats",      scroll: true },
@@ -54,6 +55,7 @@ const NAV_GROUPS = {
     ]},
     { title: "Company", links: [
       { label: "About Us",           href: "#dna",        scroll: true },
+      { label: "Blog",               href: "/blog",       scroll: false },
       { label: "Technology",         href: "#technology", scroll: true },
       { label: "Quality & Certs",    href: "#technology", scroll: true },
       { label: "Statistics",         href: "#stats",      scroll: true },
