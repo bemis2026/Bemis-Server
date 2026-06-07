@@ -376,33 +376,6 @@ export default function ProductDetailPage({
                           <HiDownload size={14} /> {lang === "en" ? "Download PDF Catalog" : "PDF Katalog İndir"}
                         </a>
                       )}
-                      {/* Satın alma / iletişim — WhatsApp'tan teklif + bayi ağına
-                          yönlendirme; müşteri ürüne hızlı ulaşsın. */}
-                      {(() => {
-                        const waPhone = (contact?.whatsappPhone || contact?.phone || "").replace(/[^\d]/g, "");
-                        const waText = encodeURIComponent(`Merhaba, ${product.name} ürünü hakkında bilgi/teklif almak istiyorum.`);
-                        return (
-                          <div className={`grid ${waPhone ? "grid-cols-2" : "grid-cols-1"} gap-2`}>
-                            {waPhone && (
-                              <a
-                                href={`https://wa.me/${waPhone}?text=${waText}`}
-                                target="_blank" rel="noopener noreferrer"
-                                className="flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90"
-                                style={{ background: "#25D366" }}
-                              >
-                                <RiWhatsappLine size={16} /> {lang === "en" ? "Get a Quote" : "Teklif Al"}
-                              </a>
-                            )}
-                            <a
-                              href="/#dealer"
-                              className="flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90"
-                              style={{ background: BRAND_BLUE }}
-                            >
-                              <RiMapPin2Line size={16} /> {lang === "en" ? "Find a Dealer" : "Bayi Bul"}
-                            </a>
-                          </div>
-                        );
-                      })()}
                     </div>
                   );
                 })()}
@@ -544,23 +517,50 @@ export default function ProductDetailPage({
                       ayrımı yerine inline gap kullanıyoruz ki garanti
                       açıklamadan kopuk hissettirmesin. */}
                   {product.description && (
-                    <div className="flex flex-col gap-2.5">
-                      <p className="text-sm leading-relaxed" style={{ color: textMuted }}>
-                        {product.description}
-                      </p>
-                      <div
-                        className="inline-flex items-center gap-2 rounded-xl px-3 py-1.5 text-xs font-semibold self-start"
-                        style={{
-                          background: d ? "rgba(59,130,246,0.10)" : "rgba(59,130,246,0.08)",
-                          border: `1px solid ${BRAND_BLUE}28`,
-                          color: d ? "#dbeafe" : "#1e3a8a",
-                        }}
-                      >
-                        <RiShieldCheckLine size={14} style={{ color: BRAND_BLUE }} />
-                        {WARRANTY_DURATION}
-                      </div>
-                    </div>
+                    <p className="text-sm leading-relaxed mb-2.5" style={{ color: textMuted }}>
+                      {product.description}
+                    </p>
                   )}
+                  {/* Garanti rozeti (sol) + sadeleştirilmiş Teklif Al / Bayi Bul
+                      (açıklamanın sağ-alt boşluğunda, kompakt pill'ler). */}
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div
+                      className="inline-flex items-center gap-2 rounded-xl px-3 py-1.5 text-xs font-semibold"
+                      style={{
+                        background: d ? "rgba(59,130,246,0.10)" : "rgba(59,130,246,0.08)",
+                        border: `1px solid ${BRAND_BLUE}28`,
+                        color: d ? "#dbeafe" : "#1e3a8a",
+                      }}
+                    >
+                      <RiShieldCheckLine size={14} style={{ color: BRAND_BLUE }} />
+                      {WARRANTY_DURATION}
+                    </div>
+                    {(() => {
+                      const waPhone = (contact?.whatsappPhone || contact?.phone || "").replace(/[^\d]/g, "");
+                      const waText = encodeURIComponent(`Merhaba, ${product.name} ürünü hakkında bilgi/teklif almak istiyorum.`);
+                      return (
+                        <div className="flex items-center gap-2">
+                          {waPhone && (
+                            <a
+                              href={`https://wa.me/${waPhone}?text=${waText}`}
+                              target="_blank" rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold text-white transition-all hover:opacity-90"
+                              style={{ background: "#25D366" }}
+                            >
+                              <RiWhatsappLine size={14} /> {lang === "en" ? "Quote" : "Teklif Al"}
+                            </a>
+                          )}
+                          <a
+                            href="/#dealer"
+                            className="inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all hover:opacity-80"
+                            style={{ background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)", color: textPrimary, border: `1px solid ${border}` }}
+                          >
+                            <RiMapPin2Line size={14} /> {lang === "en" ? "Dealers" : "Bayi Bul"}
+                          </a>
+                        </div>
+                      );
+                    })()}
+                  </div>
 
                   {/* Quality / conformity certs as plain text chips — the
                       DIY brand SVGs read cleaner as letterforms than as
