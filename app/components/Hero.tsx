@@ -99,6 +99,14 @@ export default function Hero() {
   const heroCtaShHv   = d ? `0 12px 36px ${ACCENT}50, inset 0 1px 0 rgba(255,255,255,0.16)` : `0 14px 40px ${LIGHT_BLUE}55, inset 0 1px 0 rgba(255,255,255,0.55)`;
   const heroCtaArrow  = d ? ACCENT : "#ffffff";
   const textShadow     = d ? undefined : "0 2px 16px rgba(0,0,0,0.70), 0 1px 4px rgba(0,0,0,0.50)";
+  // Üreticisi (headline3) gradyanı tema-bazlı:
+  //  • dark  → parlak mavi (#93C5FD→#3B82F6): koyu hero üzerinde harika parlıyor.
+  //  • light → derin/doygun mavi (#3B82F6→#1E40AF) + gölge: açık hero görselinin
+  //    az karartılan parlak bölgelerinde de net okunur (#93C5FD light'ta soluyordu).
+  const headline3Gradient = d
+    ? "linear-gradient(135deg, #93C5FD 0%, #3B82F6 100%)"
+    : "linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%)";
+  const headline3Filter   = d ? undefined : "drop-shadow(0 2px 10px rgba(0,0,0,0.45))";
   const logoSrc        = logos?.dark || "/logo-white.png";
   // Hero üzerindeki logo: dark mode'da beyaz logo aynen, light mode'da
   // siyah'a invert etmek yerine beyaza çevir + hafif drop-shadow ile her
@@ -156,13 +164,12 @@ export default function Hero() {
               <br />
               <span
                 style={{
-                  // Üreticisi (headline3): aydınlık ve karanlık modda AYNI
-                  // parlak mavi gradyan — hero koyu overlay'i üzerinde her
-                  // iki temada da aynı okunur (önce light daha koyu maviydi).
-                  backgroundImage: "linear-gradient(135deg, #93C5FD 0%, #3B82F6 100%)",
+                  // Üreticisi (headline3): dark = parlak mavi, light = derin mavi + gölge.
+                  backgroundImage: headline3Gradient,
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
+                  filter: headline3Filter,
                 }}
               >
                 <E field="hero.headline3">{hero.headline3}</E>
@@ -232,11 +239,12 @@ export default function Hero() {
             <br />
             <span
               style={{
-                // Üreticisi (headline3): light = dark, parlak mavi gradyan.
-                backgroundImage: "linear-gradient(135deg, #93C5FD 0%, #3B82F6 100%)",
+                // Üreticisi (headline3): dark = parlak mavi, light = derin mavi + gölge.
+                backgroundImage: headline3Gradient,
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
+                filter: headline3Filter,
               }}
             >
               <E field="hero.headline3">{hero.headline3}</E>
