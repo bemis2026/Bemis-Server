@@ -98,7 +98,7 @@ export default function DNA() {
             <motion.div initial={{ opacity: 0, y: 14 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.07 }}>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.08]" style={{ color: textPrimary }}>
                 {hasAccent ? (
-                  <>{headingParts[0].trim()}<br /><span style={{ color: BLUE }}>{headingParts.slice(1).join("—").trim()}</span></>
+                  <>{headingParts[0].trim()}<br /><span style={{ color: d ? "#93C5FD" : BLUE }}>{headingParts.slice(1).join("—").trim()}</span></>
                 ) : dna.sectionHeading}
               </h2>
             </motion.div>

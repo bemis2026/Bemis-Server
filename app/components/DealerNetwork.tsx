@@ -292,7 +292,7 @@ export default function DealerNetwork() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4 }}
             className="inline-block text-xs font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-full mb-4"
-            style={{ background: `${BLUE}18`, border: `1px solid ${BLUE}35`, color: d ? "#93C5FD" : BLUE }}
+            style={{ background: d ? `${BLUE}18` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`, color: d ? "#93C5FD" : BLUE }}
           >
             {viewMode === "yurtdisi"
               ? (dealerSection.worldSection?.sectionLabel ?? "Küresel Distribütör Ağı")

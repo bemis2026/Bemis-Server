@@ -483,11 +483,11 @@ export default function SmartCharger() {
               initial={{ opacity: 0, y: 12 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full"
-              style={{ background: `${ACCENT}12`, border: `1px solid ${ACCENT}25` }}
+              className="inline-flex items-center gap-1.5 mb-4 px-3 py-1.5 rounded-full"
+              style={{ background: d ? `${ACCENT}18` : `${ACCENT}10`, border: d ? `1px solid ${ACCENT}35` : `1px solid ${ACCENT}25` }}
             >
-              <RiSmartphoneLine size={12} style={{ color: ACCENT }} />
-              <span className="text-xs font-semibold tracking-wider uppercase" style={{ color: ACCENT }}>
+              <RiSmartphoneLine size={12} style={{ color: d ? "#93C5FD" : ACCENT }} />
+              <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: d ? "#93C5FD" : ACCENT }}>
                 {smartCharger.sectionLabel}
               </span>
             </motion.div>
@@ -502,7 +502,7 @@ export default function SmartCharger() {
             >
               {headingLines.map((line, i) => (
                 <span key={i}>
-                  {i === 1 ? <span style={{ color: ACCENT }}>{line}</span> : line}
+                  {i === 1 ? <span style={{ color: d ? "#93C5FD" : ACCENT }}>{line}</span> : line}
                   {i < headingLines.length - 1 && <br />}
                 </span>
               ))}

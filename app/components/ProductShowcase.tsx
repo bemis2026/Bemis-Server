@@ -378,10 +378,10 @@ export default function ProductShowcase() {
               initial={{ opacity: 0, y: 12 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 mb-5 px-3.5 py-1.5 rounded-full"
-              style={{ background: `${ACCENT}14`, border: `1px solid ${ACCENT}28` }}
+              className="inline-flex items-center gap-1.5 mb-4 px-3 py-1.5 rounded-full"
+              style={{ background: d ? `${ACCENT}18` : `${ACCENT}10`, border: d ? `1px solid ${ACCENT}35` : `1px solid ${ACCENT}25` }}
             >
-              <RiAwardLine size={12} style={{ color: ACCENT }} />
+              <RiAwardLine size={12} style={{ color: d ? "#93C5FD" : ACCENT }} />
               <AnimatePresence mode="wait">
                 <motion.span
                   key={`badge-${index}-${badgeText}`}
@@ -390,7 +390,7 @@ export default function ProductShowcase() {
                   exit={{ opacity: 0, y: -4 }}
                   transition={{ duration: 0.22 }}
                   className="text-xs font-bold tracking-[0.18em] uppercase"
-                  style={{ color: ACCENT }}
+                  style={{ color: d ? "#93C5FD" : ACCENT }}
                 >
                   {badgeText}
                 </motion.span>
