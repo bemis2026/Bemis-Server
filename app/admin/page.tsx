@@ -242,7 +242,7 @@ const SECTION_META: Record<string, { tab: Tab; label: string; icon: React.Elemen
   "products":       { tab: "products",         label: "Ürünler",        icon: HiOutlineCube           },
   "featured":       { tab: "featured",        label: "Öne Çıkanlar",   icon: HiOutlineStar           },
   "referenceprojects": { tab: "refprojects",   label: "Referans Projeler", icon: HiOutlinePhotograph  },
-  "reviews":        { tab: "reviews",         label: "Yorumlar",       icon: HiOutlineStar           },
+  "reviews":        { tab: "reviews",         label: "Yorumlar & Blog", icon: HiOutlineStar          },
   "dealer":         { tab: "dealers",         label: "Bayi Haritası",  icon: HiOutlineLocationMarker },
   "b2bcta":         { tab: "b2b",             label: "OEM & Kurumsal", icon: HiOutlineOfficeBuilding },
   "calculator":     { tab: "calculator",      label: "Hesaplayıcı",    icon: HiOutlineLightningBolt  },
@@ -5090,8 +5090,8 @@ export default function AdminPage() {
               {tab === "reviews" && (
                 <div className="max-w-2xl space-y-5">
                   <div>
-                    <h2 className="text-base font-bold mb-1">Kullanıcı Yorumları</h2>
-                    <p className="text-xs text-white/35">Ana sayfadaki kullanıcı yorum kartları.</p>
+                    <h2 className="text-base font-bold mb-1">Kullanıcı Yorumları & Blog</h2>
+                    <p className="text-xs text-white/35">Ana sayfadaki birleşik bölüm: yorum kartları + sosyal medya + son blog yazıları (blog yazıları otomatik eklenir). Aşağıdaki başlık/etiket bu birleşik bölümü temsil eder.</p>
                   </div>
                   <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
                     <div className="grid grid-cols-2 gap-3">

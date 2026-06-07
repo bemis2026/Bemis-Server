@@ -576,9 +576,9 @@
     }
   },
   "reviews": {
-    "sectionLabel": "Kullanıcı Yorumları",
-    "heading": "Kullanıcılar Ne Diyor?",
-    "subheading": "Trendyol ve HepsiBurada'dan gerçek kullanıcı deneyimleri",
+    "sectionLabel": "Görüşler & İçerik",
+    "heading": "Görüşler ve Rehberler",
+    "subheading": "Gerçek kullanıcı yorumları ve EV şarj rehberlerimiz bir arada.",
     "ratingLabel": "ortalama puan",
     "platformsPrefix": "Trendyol ve HepsiBurada'da",
     "ratingCountSuffix": "değerlendirme",

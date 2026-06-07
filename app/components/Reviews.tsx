@@ -7,6 +7,7 @@ import { RiLinkedinFill, RiInstagramLine, RiYoutubeFill, RiFacebookFill, RiExter
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
+import { allPosts } from "../blog/posts";
 import E from "./E";
 
 // Stars fade + scale in one-by-one when the parent card enters the
@@ -60,6 +61,11 @@ export default function Reviews() {
   const textBody   = d ? "rgba(255,255,255,0.72)"  : "rgba(0,0,0,0.62)";
 
   const items = reviews.items ?? [];
+
+  // Son blog yazıları — bölümün altına kompakt şerit olarak eklenir.
+  // Açık-gri tonla uyumlu kartlar; "Kullanıcı Yorumları + Blog" birleşimi.
+  const latestPosts = allPosts().slice(0, 3);
+  const blogSurface = d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.03)";
 
   const sectionBgUrl = sectionBgs?.["reviews"] ?? "";
 
@@ -475,6 +481,49 @@ export default function Reviews() {
             </motion.aside>
           )}
         </div>
+
+        {/* Blog / Rehberler şeridi — son yazılar. Bölümü şişirmeden kompakt;
+            açık-gri tonla uyumlu yüzey, "Yorumlar + Blog" birleşimini tamamlar. */}
+        {latestPosts.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-5 pt-5"
+            style={{ borderTop: `1px solid ${border}` }}
+          >
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-sm font-bold" style={{ color: textPrimary }}>
+                {lang === "en" ? "Latest Guides & Blog" : "Son Rehberler & Blog"}
+              </h3>
+              <a href="/blog" className="text-xs font-semibold inline-flex items-center gap-1 transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>
+                {lang === "en" ? "All posts" : "Tüm yazılar"} →
+              </a>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {latestPosts.map((p) => (
+                <a
+                  key={p.slug}
+                  href={`/blog/${p.slug}`}
+                  className="rounded-xl p-3.5 flex flex-col transition-all duration-200 hover:-translate-y-0.5"
+                  style={{ background: blogSurface, border: `1px solid ${border}` }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = `${BLUE}55`; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = border; }}
+                >
+                  <span className="self-start text-[10px] font-bold px-2 py-0.5 rounded-md mb-2"
+                    style={{ background: `${BLUE}14`, color: d ? "#93C5FD" : BLUE, border: `1px solid ${BLUE}25` }}>
+                    {p.category}
+                  </span>
+                  <p className="text-sm font-semibold leading-snug mb-2 flex-1"
+                    style={{ color: textPrimary, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+                    {p.title}
+                  </p>
+                  <span className="text-[11px] font-semibold inline-flex items-center gap-1" style={{ color: d ? "#93C5FD" : BLUE }}>
+                    {lang === "en" ? "Read" : "Oku"} →
+                  </span>
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
       </div>
     </section>
   );
