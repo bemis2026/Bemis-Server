@@ -14,6 +14,7 @@ import EnergyBackground from "../../../components/EnergyBackground";
 import Navbar from "../../../components/Navbar";
 import ContactBar from "../../../components/ContactBar";
 import SearchOverlay from "../../../components/SearchOverlay";
+import DealerPickerModal from "../../../components/DealerPickerModal";
 import {
   RiChargingPile2Line, RiBatteryChargeLine, RiFlashlightLine,
   RiPlugLine, RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
@@ -98,6 +99,7 @@ export default function ProductDetailPage({
   const [product,  setProduct]      = useState<ProductEntry | null>(initialProduct);
   const [loading,  setLoading]      = useState(initialProduct === null);
   const [activeImg, setActiveImg]   = useState(0);
+  const [dealerOpen, setDealerOpen] = useState(false);
   const [allCategories, setAllCategories] = useState<CategoryData[]>(initialAllCategories);
   // Global documents (admin → Dökümanlar tab) — her ürün için Belgeler
   // sekmesinde 'linkedProductCategories' içinde aktif kategorinin id'si varsa
@@ -167,6 +169,7 @@ export default function ProductDetailPage({
       <EnergyBackground />
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
+      <DealerPickerModal open={dealerOpen} onClose={() => setDealerOpen(false)} productName={initialProduct?.name} />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-24 pb-16">
 
@@ -550,13 +553,14 @@ export default function ProductDetailPage({
                               <RiWhatsappLine size={14} /> {lang === "en" ? "Quote" : "Teklif Al"}
                             </a>
                           )}
-                          <a
-                            href="/#dealer"
+                          <button
+                            type="button"
+                            onClick={() => setDealerOpen(true)}
                             className="inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all hover:opacity-80"
                             style={{ background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)", color: textPrimary, border: `1px solid ${border}` }}
                           >
                             <RiMapPin2Line size={14} /> {lang === "en" ? "Dealers" : "Bayi Bul"}
-                          </a>
+                          </button>
                         </div>
                       );
                     })()}
