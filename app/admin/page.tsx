@@ -106,6 +106,7 @@ type ContentData = {
     badge: string; headline1: string; headline2: string; headline2Words?: string[]; headline3: string;
     subtitle: string; ctaPrimary: string; ctaSecondary: string; heroBg: string;
     heroBgPos?: string;
+    heroImages?: string[];
     layout: { logo: { x: number; y: number }; text: { x: number; y: number }; button: { x: number; y: number } };
   };
   stats: StatItem[];
@@ -272,6 +273,7 @@ export default function AdminPage() {
   const [dragFrom, setDragFrom] = useState<number | null>(null);
   const [dragTo, setDragTo] = useState<number | null>(null);
   const [heroBgLoading, setHeroBgLoading] = useState(false);
+  const [heroImgLoading, setHeroImgLoading] = useState(false);
   const [factoryImgLoading, setFactoryImgLoading] = useState(false);
   const [factoryVideoLoading, setFactoryVideoLoading] = useState(false);
   const [catImgLoading, setCatImgLoading] = useState<string | null>(null); // catId while uploading
@@ -281,6 +283,7 @@ export default function AdminPage() {
   const prodImgRef = useRef<HTMLInputElement>(null);
   const bcImgRef = useRef<HTMLInputElement>(null);
   const heroBgRef = useRef<HTMLInputElement>(null);
+  const heroImgRef = useRef<HTMLInputElement>(null);
   const factoryImgRef = useRef<HTMLInputElement>(null);
   const factoryVideoRef = useRef<HTMLInputElement>(null);
   const catImgRef = useRef<HTMLInputElement>(null);
@@ -885,6 +888,22 @@ export default function AdminPage() {
     }
     setHeroBgLoading(false);
     if (heroBgRef.current) heroBgRef.current.value = "";
+  };
+
+  // İlave hero görseli yükle → hero.heroImages dizisine ekle (slider).
+  const handleHeroImageAdd = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setHeroImgLoading(true);
+    try {
+      const { url } = await uploadImage(file, "hero");
+      updateContent(["hero", "heroImages"], [...(content?.hero?.heroImages ?? []), url]);
+      showToast("ok", "İlave hero görseli eklendi.");
+    } catch (err) {
+      showToast("err", `Yükleme başarısız: ${(err as Error).message}`);
+    }
+    setHeroImgLoading(false);
+    if (heroImgRef.current) heroImgRef.current.value = "";
   };
 
   const handleFactoryImgUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -1867,6 +1886,39 @@ export default function AdminPage() {
                           Görseli kaldır
                         </button>
                       )}
+
+                      {/* İlave hero görselleri — heroBg ile birlikte 3 sn'de bir otomatik geçer (slider) */}
+                      <div className="pt-3 mt-1 border-t border-white/8">
+                        <div className="flex items-center justify-between mb-2">
+                          <p className="text-[11px] font-semibold text-white/45 uppercase tracking-wider">İlave Görseller (slider)</p>
+                          <button
+                            onClick={() => heroImgRef.current?.click()}
+                            disabled={heroImgLoading}
+                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-semibold text-white/70 border border-white/12 hover:border-white/25 hover:text-white transition-colors disabled:opacity-50"
+                          >
+                            {heroImgLoading ? <div className="w-3 h-3 rounded-full border-2 border-white/20 border-t-white/60 animate-spin" /> : "+ Görsel ekle"}
+                          </button>
+                          <input ref={heroImgRef} type="file" accept="image/*" className="hidden" onChange={handleHeroImageAdd} />
+                        </div>
+                        {(content.hero.heroImages ?? []).length > 0 ? (
+                          <div className="grid grid-cols-4 gap-2">
+                            {(content.hero.heroImages ?? []).map((img, i) => (
+                              <div key={i} className="relative rounded-lg overflow-hidden group" style={{ aspectRatio: "16 / 10" }}>
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img src={img} alt="" className="w-full h-full object-cover" />
+                                <button
+                                  onClick={() => updateContent(["hero", "heroImages"], (content.hero.heroImages ?? []).filter((_, j) => j !== i))}
+                                  className="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/70 text-white text-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                                  title="Kaldır"
+                                >×</button>
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <p className="text-[10px] text-white/25">Ana görselle birlikte döngüye girecek ek görseller ekleyin (3 sn'de bir otomatik geçer).</p>
+                        )}
+                      </div>
+
                       <p className="text-[10px] text-white/25 leading-relaxed">
                         Görsel üzerine karanlık overlay uygulanır — okunaklılık korunur. Önerilen: 1920×1080 veya daha büyük, WebP/JPG.
                       </p>

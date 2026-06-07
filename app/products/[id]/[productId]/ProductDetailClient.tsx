@@ -660,9 +660,9 @@ export default function ProductDetailPage({
                   if (resolvedTab === "documents" && !hasDocs)     resolvedTab = hasGeneral ? "general" : "specs";
 
                   const tabs: { id: "specs" | "general" | "documents"; label: string; visible: boolean }[] = [
-                    { id: "general",   label: "Genel Özellikler",  visible: hasGeneral },
-                    { id: "specs",     label: "Teknik Özellikler", visible: hasSpecs },
-                    { id: "documents", label: "Dökümanlar",        visible: hasDocs },
+                    { id: "general",   label: lang === "en" ? "Overview" : "Genel Özellikler",       visible: hasGeneral },
+                    { id: "specs",     label: lang === "en" ? "Specifications" : "Teknik Özellikler", visible: hasSpecs },
+                    { id: "documents", label: lang === "en" ? "Documents" : "Dökümanlar",             visible: hasDocs },
                   ];
                   const visibleTabs = tabs.filter((t) => t.visible);
 

@@ -352,7 +352,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                   onMouseLeave={hasDropdown ? scheduleClose : undefined}
                 >
                   <button
-                    onClick={() => handleNavClick(isK ? "#b2bcta" : link.href)}
+                    onClick={() => handleNavClick(isK ? "#b2bcta" : isR ? "/blog#rehberler" : link.href)}
                     className={`flex items-center gap-1 text-sm font-semibold transition-colors duration-200 relative group ${navWordClass}`}
                   >
                     <E field={`navbar.links.${idx}.label`} tag="span">{link.label}</E>

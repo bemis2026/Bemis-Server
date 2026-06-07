@@ -16,6 +16,7 @@ import {
 import { HiArrowRight, HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
+import { useLanguage } from "../context/LanguageContext";
 import E from "./E";
 import Image from "next/image";
 
@@ -139,6 +140,7 @@ export default function Products() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
   const { categories: catMeta, products: productSection, sectionBgs } = useContent();
+  const { lang } = useLanguage();
   const router = useRouter();
   const d = theme === "dark";
   const [hovered, setHovered] = useState<string | null>(null);
@@ -301,11 +303,11 @@ export default function Products() {
                             className="inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-xl transition-all duration-200 hover:gap-2.5"
                             style={{ background: cat.accent, color: "#fff" }}
                           >
-                            Kategoriye Git <HiArrowRight size={13} />
+                            {lang === "en" ? "View Category" : "Kategoriye Git"} <HiArrowRight size={13} />
                           </button>
                         ) : (
-                          <span className="text-xs font-semibold px-3 py-1.5 rounded-xl" style={{ background: "rgba(245,158,11,0.15)", color: "#FBBF24", border: "1px solid rgba(245,158,11,0.30)" }}>
-                            Yakında
+                          <span className="text-xs font-semibold px-3 py-1.5 rounded-xl" style={{ background: "rgba(245,158,11,0.15)", color: d ? "#FBBF24" : "#B45309", border: "1px solid rgba(245,158,11,0.30)" }}>
+                            {lang === "en" ? "Soon" : "Yakında"}
                           </span>
                         )}
                       </div>
@@ -554,7 +556,7 @@ export default function Products() {
                       {cat.name}
                     </p>
                     <p className="text-xs font-semibold mt-0.5" style={{ color: cat.accent }}>
-                      {cat.comingSoon ? "Yakında" : `${cat.modelCount} Model`}
+                      {cat.comingSoon ? (lang === "en" ? "Soon" : "Yakında") : `${cat.modelCount} ${lang === "en" ? "Models" : "Model"}`}
                     </p>
                   </div>
                 </div>

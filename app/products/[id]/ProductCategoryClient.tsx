@@ -83,11 +83,11 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
       <div className="pt-24 pb-8 px-5 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-stretch gap-4 mb-2">
-            <div className="flex-shrink-0 rounded-full w-1" style={{ background: "rgba(255,255,255,0.10)" }} />
+            <div className="flex-shrink-0 rounded-full w-1" style={{ background: d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)" }} />
             <div className="space-y-2 flex-1">
-              <div className="h-3 rounded animate-pulse" style={{ background: "rgba(255,255,255,0.06)", width: 140 }} />
-              <div className="h-6 rounded animate-pulse" style={{ background: "rgba(255,255,255,0.08)", width: 220 }} />
-              <div className="h-3 rounded animate-pulse" style={{ background: "rgba(255,255,255,0.05)", width: 320 }} />
+              <div className="h-3 rounded animate-pulse" style={{ background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)", width: 140 }} />
+              <div className="h-6 rounded animate-pulse" style={{ background: d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)", width: 220 }} />
+              <div className="h-3 rounded animate-pulse" style={{ background: d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)", width: 320 }} />
             </div>
           </div>
         </div>
@@ -101,9 +101,9 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
   if (!category) return (
     <div style={{ background: bg, minHeight: "100vh", color: textPrimary }} className="flex items-center justify-center">
       <div className="text-center">
-        <p className="text-lg mb-4" style={{ color: textMuted }}>Ürün kategorisi bulunamadı</p>
+        <p className="text-lg mb-4" style={{ color: textMuted }}>{lang === "en" ? "Product category not found" : "Ürün kategorisi bulunamadı"}</p>
         <button onClick={() => router.push("/")} className="text-sm font-medium underline" style={{ color: textMuted }}>
-          Ana sayfaya dön
+          {lang === "en" ? "Back to home" : "Ana sayfaya dön"}
         </button>
       </div>
     </div>
@@ -147,7 +147,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
               <div>
                 <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.05 }}
                   className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: accent }}>
-                  Ürün Kategorisi · {category.products?.length ?? 0} Ürün
+                  {lang === "en" ? "Product Category" : "Ürün Kategorisi"} · {category.products?.length ?? 0} {lang === "en" ? "Products" : "Ürün"}
                 </motion.p>
                 <motion.h1 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}
                   className="text-2xl sm:text-3xl lg:text-4xl font-bold" style={{ color: textPrimary }}>
@@ -268,7 +268,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                   {variantCount > 1 ? (
                     <div className="absolute top-2.5 right-2.5 text-[11px] font-bold px-2.5 py-1 rounded-full"
                       style={{ background: `${accent}22`, border: `1px solid ${accent}40`, color: d ? "rgba(255,255,255,0.85)" : accent }}>
-                      {variantCount} versiyon
+                      {variantCount} {lang === "en" ? "versions" : "versiyon"}
                     </div>
                   ) : product.badge && (
                     <div className="absolute top-2.5 right-2.5 text-[11px] font-bold px-2.5 py-1 rounded-full"
@@ -285,7 +285,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                   <p className="font-bold text-xs leading-tight mb-0.5" style={{ color: textPrimary }}>{product.name}</p>
                   {variantCount > 1 ? (
                     <p className="text-[10px] leading-snug mb-2" style={{ color: textFaint }}>
-                      {group.variants.map(v => v.subtitle).filter(Boolean).join(" · ") || `${variantCount} farklı versiyon`}
+                      {group.variants.map(v => v.subtitle).filter(Boolean).join(" · ") || `${variantCount} ${lang === "en" ? "different versions" : "farklı versiyon"}`}
                     </p>
                   ) : product.subtitle && (
                     <p className="text-[10px] leading-snug mb-2" style={{ color: textFaint }}>{product.subtitle}</p>
@@ -301,7 +301,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                     </div>
                   )}
                   <div className="flex items-center justify-end mt-auto">
-                    <span className="text-[10px] font-semibold" style={{ color: accent }}>Detaylar →</span>
+                    <span className="text-[10px] font-semibold" style={{ color: accent }}>{lang === "en" ? "Details" : "Detaylar"} →</span>
                   </div>
                 </div>
               </motion.div>

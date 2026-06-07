@@ -188,6 +188,8 @@ export type SiteContent = {
     headline3: string;
     subtitle: string; ctaPrimary: string; ctaSecondary: string; heroBg: string;
     heroBgPos?: string;
+    /** Ek hero arka plan görselleri — heroBg ile birlikte 3 sn'de bir otomatik geçer (slider). */
+    heroImages?: string[];
     layout: HeroLayout;
   };
   stats: StatItem[];
@@ -395,7 +397,7 @@ const defaultContent: SiteContent = {
     headline2Words: [],
     headline3: "Üreticisi",
     subtitle: "Evinizden iş yerinize, otopark çözümlerinden sahaya kadar — IP65 sertifikalı AC şarj üniteleri, kablolar ve aksesuarlarla elektrikli araç deneyimini kolaylaştırıyoruz.",
-    ctaPrimary: "Ürün Kataloğu", ctaSecondary: "Bayi Bul", heroBg: "", heroBgPos: "75% 50%",
+    ctaPrimary: "Ürün Kataloğu", ctaSecondary: "Bayi Bul", heroBg: "", heroBgPos: "75% 50%", heroImages: [],
     layout: DEFAULT_LAYOUT,
   },
   stats: [

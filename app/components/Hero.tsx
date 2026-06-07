@@ -53,6 +53,17 @@ export default function Hero() {
   // burada yapılır ki RotatingWord boş yazı flashlemeden geçişleri yapsın.
   const cleanWords = (hero.headline2Words ?? []).map(s => s.trim()).filter(Boolean);
 
+  // Hero arka plan görselleri: ana heroBg + adminden eklenen ilave görseller.
+  // Birden fazlaysa 3 sn'de bir otomatik geçer (crossfade); tekse statik.
+  const heroImages = [hero.heroBg, ...(hero.heroImages ?? [])].map((s) => (s ?? "").trim()).filter(Boolean);
+  const [activeHero, setActiveHero] = useState(0);
+  useEffect(() => {
+    if (heroImages.length <= 1) return;
+    const t = setInterval(() => setActiveHero((n) => (n + 1) % heroImages.length), 3000);
+    return () => clearInterval(t);
+  }, [heroImages.length]);
+  const activeHeroIdx = heroImages.length ? activeHero % heroImages.length : 0;
+
   // Scroll to whichever section sits right under the hero — preserves
   // the page's natural reading order regardless of the configured
   // sectionOrder. Falls back to a viewport-height scroll on the rare
@@ -121,18 +132,27 @@ export default function Hero() {
     >
       {/* Background photo — Ken Burns wrapper: çok hafif zoom + çapraz pan.
           GPU-only transform (will-change + translateZ) ile takılma yok. */}
-      {hero.heroBg && (
-        <div className="absolute inset-0 hero-bg-animate">
-          <Image
-            src={hero.heroBg}
-            alt=""
-            fill
-            priority
-            quality={90}
-            className="object-cover"
-            style={{ objectPosition: hero.heroBgPos ?? "75% 50%" }}
-            sizes="100vw"
-          />
+      {heroImages.length > 0 && (
+        <div className="absolute inset-0">
+          {heroImages.map((img, i) => (
+            <div
+              key={img + i}
+              className={`absolute inset-0 ${i === activeHeroIdx ? "hero-bg-animate" : ""}`}
+              style={{ opacity: i === activeHeroIdx ? 1 : 0, transition: "opacity 1.1s ease-in-out" }}
+              aria-hidden={i !== activeHeroIdx}
+            >
+              <Image
+                src={img}
+                alt=""
+                fill
+                priority={i === 0}
+                quality={90}
+                className="object-cover"
+                style={{ objectPosition: hero.heroBgPos ?? "75% 50%" }}
+                sizes="100vw"
+              />
+            </div>
+          ))}
         </div>
       )}
 

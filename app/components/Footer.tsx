@@ -274,8 +274,8 @@ export default function Footer() {
                   <HiMail style={{ fontSize: 12 }} /> {contact.email}
                 </a>
               )}
-              <button className="transition-colors hover:opacity-70">Gizlilik Politikası</button>
-              <button className="transition-colors hover:opacity-70">KVKK</button>
+              <button className="transition-colors hover:opacity-70">{lang === "en" ? "Privacy Policy" : "Gizlilik Politikası"}</button>
+              <button className="transition-colors hover:opacity-70">{lang === "en" ? "GDPR" : "KVKK"}</button>
               <button onClick={() => router.push("/b2b")} className="transition-colors hover:opacity-70">OEM / B2B</button>
             </div>
           </div>
