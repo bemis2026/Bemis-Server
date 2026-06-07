@@ -385,6 +385,98 @@ export const BLOG_POSTS: BlogPost[] = [
       { label: "Bayilik / İletişim", href: "/bayilik" },
     ],
   },
+
+  {
+    slug: "is-yerine-sarj-istasyonu-kurulumu",
+    title: "İş Yerine Elektrikli Araç Şarj İstasyonu Kurmanın 6 Avantajı",
+    description:
+      "İş yerine / ofise / otoparka elektrikli araç şarj istasyonu kurmanın avantajları nelerdir? Müşteri çekme, ek gelir, çalışan memnuniyeti ve kurulum rehberi.",
+    excerpt:
+      "Ofis, AVM veya işletme otoparkına şarj istasyonu kurmak neden mantıklı? Müşteri çekmekten ek gelire 6 somut avantaj ve nelere dikkat etmeli.",
+    category: "Rehber",
+    datePublished: "2026-06-06",
+    readingMinutes: 5,
+    keywords: ["iş yerine şarj kurulumu", "ofis şarj istasyonu", "ticari şarj istasyonu", "işletme ev şarj"],
+    body: [
+      { type: "p", text: "Elektrikli araç sayısı arttıkça, işletmeler için otoparkta şarj imkânı sunmak bir ayrıcalık olmaktan çıkıp beklentiye dönüşüyor. İster ofis, ister AVM, otel, restoran veya site yönetimi olun — iş yerine şarj istasyonu kurmanın somut faydaları var." },
+
+      { type: "h2", text: "6 somut avantaj" },
+      { type: "ul", items: [
+        "Müşteri çekme: EV sürücüleri şarj imkânı olan mekânları tercih eder; kalma süresi (ve harcama) artar.",
+        "Ek gelir: kullanım başına ücretlendirme ile şarj noktası bir gelir kalemi olur.",
+        "Çalışan memnuniyeti: işe gelirken araç şarj olur; yan hak olarak değerli.",
+        "Marka & sürdürülebilirlik: çevreci imaj, kurumsal sorumluluk göstergesi.",
+        "Rekabet avantajı: rakip işletmelerden ayrışma.",
+        "Geleceğe hazırlık: artan EV talebine bugünden uyum.",
+      ]},
+
+      { type: "h2", text: "Kurarken nelere dikkat etmeli?" },
+      { type: "ul", items: [
+        "OCPP uyumlu cihaz: uzaktan yönetim + kullanım başına faturalandırma.",
+        "Yük yönetimi (DLM): birden çok nokta şebekeyi zorlamasın.",
+        "IP65/IP66 koruma: dış/otopark kullanımı.",
+        "RFID / uygulama ile yetkilendirme: kim kullandı, ne kadar ödedi.",
+        "Yetkili kurulum ve ayrı hat.",
+      ]},
+
+      { type: "quote", text: "İpucu: Önce 1-2 nokta ile başlayıp talebe göre büyütmek, hem maliyeti hem riski düşürür." },
+
+      { type: "cta", text: "İşletmeniz için OCPP uyumlu Bemis çözümlerini inceleyin.", href: "/products/wallbox", label: "Ticari Çözümler" },
+    ],
+    faq: [
+      { q: "İş yerine şarj istasyonu kurmak gelir getirir mi?", a: "Evet; OCPP uyumlu cihaz ve faturalandırma ile kullanım başına ücretlendirme yaparak şarj noktasını bir gelir kalemine dönüştürebilirsiniz." },
+      { q: "İşletme için hangi şarj cihazı uygun?", a: "OCPP uyumlu, yük yönetimi destekleyen, IP65/IP66 korumalı ve RFID/uygulama ile yetkilendirme yapabilen AC Wallbox modelleri ticari kullanım için uygundur." },
+      { q: "Kaç şarj noktasıyla başlamalıyım?", a: "Genellikle 1-2 nokta ile başlayıp talebe göre büyütmek en mantıklısıdır; yük yönetimi sayesinde ileride sorunsuz genişletebilirsiniz." },
+    ],
+    related: [
+      { label: "AC Wallbox", href: "/products/wallbox" },
+      { label: "Şarj Ağı Operatörleri", href: "/operator" },
+      { label: "Yerli Üretici", href: "/uretici" },
+    ],
+  },
+
+  {
+    slug: "tesla-sarj-turkiye-type-2",
+    title: "Tesla Şarj Türkiye: Type 2 ile Tesla Nasıl Şarj Edilir?",
+    description:
+      "Tesla Model 3 / Model Y Türkiye'de nasıl şarj edilir? Evde Type 2 AC şarj, gerekli kablo ve wallbox, Supercharger farkı — Tesla şarj rehberi.",
+    excerpt:
+      "Tesla'nızı evde nasıl şarj edersiniz? Type 2 AC şarj, gerekli kablo/wallbox ve Supercharger farkını sade anlatıyoruz.",
+    category: "Rehber",
+    datePublished: "2026-06-06",
+    readingMinutes: 5,
+    keywords: ["tesla şarj", "tesla type 2", "tesla model 3 şarj", "tesla ev şarj"],
+    body: [
+      { type: "p", text: "Türkiye'de (ve Avrupa'da) satılan Tesla modelleri AC şarjda standart Type 2 konektörünü kullanır. Bu, Tesla'nızı evde herhangi bir standart Type 2 wallbox veya kabloyla şarj edebileceğiniz anlamına gelir. İşte Tesla şarjı hakkında bilmeniz gerekenler." },
+
+      { type: "h2", text: "Tesla hangi konektörü kullanır?" },
+      { type: "p", text: "Avrupa/Türkiye versiyonu Tesla Model 3 ve Model Y, AC (yavaş/normal) şarjda Type 2, DC hızlı şarjda ise CCS Combo 2 kullanır. Yani evde AC şarj için ihtiyacınız olan şey standart bir Type 2 ekipmandır — Tesla'ya özel bir cihaz şart değildir." },
+
+      { type: "h2", text: "Tesla'yı evde nasıl şarj ederim?" },
+      { type: "ul", items: [
+        "Type 2 AC Wallbox: en pratik ev çözümü; gece boyu dolum.",
+        "Type 2 şarj kablosu: prizli wallbox veya genel istasyonlarda kullanım için.",
+        "Güç: aracın dahili şarj kapasitesine göre 7,4–11 kW (tek/üç faz).",
+      ]},
+
+      { type: "h2", text: "Supercharger ile ev şarjı farkı" },
+      { type: "p", text: "Tesla Supercharger'lar DC hızlı şarjdır; yolda hızlı dolum için idealdir. Günlük kullanımda ise evde AC şarj hem daha ucuz hem batarya için daha naziktir. Çoğu Tesla sahibi evde AC ile şarj edip Supercharger'ı uzun yolda kullanır." },
+
+      { type: "quote", text: "Özet: Tesla'nızı evde standart bir Type 2 wallbox/kablo ile rahatça şarj edebilirsiniz; Tesla'ya özel ekipman gerekmez." },
+
+      { type: "cta", text: "Tesla ve diğer EV'ler için uygun Type 2 wallbox ve kabloları inceleyin.", href: "/products/wallbox", label: "Wallbox & Kablolar" },
+    ],
+    faq: [
+      { q: "Tesla Type 2 ile şarj olur mu?", a: "Evet. Avrupa/Türkiye versiyonu Tesla Model 3 ve Model Y, AC şarjda standart Type 2 konektörü kullanır; herhangi bir Type 2 wallbox veya kabloyla evde şarj edebilirsiniz." },
+      { q: "Tesla'yı evde şarj etmek için neye ihtiyacım var?", a: "Bir Type 2 AC Wallbox (en pratiği) veya Type 2 şarj kablosu yeterlidir. Tesla'ya özel bir cihaz gerekmez." },
+      { q: "Tesla evde kaç kW ile şarj olur?", a: "Aracın dahili şarj kapasitesine ve tesisatınıza göre genelde 7,4–11 kW arasında AC şarj olur." },
+    ],
+    related: [
+      { label: "AC Wallbox", href: "/products/wallbox" },
+      { label: "AC Şarj Kabloları (Type 2)", href: "/products/cables" },
+      { label: "Yerli Üretici", href: "/uretici" },
+    ],
+  },
 ];
 
 export function allPosts(): BlogPost[] {
