@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
+import { useContent } from "../context/ContentContext";
 import Navbar from "../components/Navbar";
 import ContactBar from "../components/ContactBar";
 import SearchOverlay from "../components/SearchOverlay";
@@ -60,15 +61,26 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
   posts: BlogPost[]; surface: string; border: string; textPrimary: string; textMuted: string; textFaint: string; fmtDate: (s: string) => string;
 }) {
   const press = allPress();
-  // Haberler önce (varsayılan sekme). #rehberler hash'i ile rehberlere geçilir.
-  const [tab, setTab] = useState<"rehberler" | "haberler">("haberler");
+  const { categories } = useContent();
+  // Tüm kategorilerin SSS'lerini topla (kaynak: admin → kategori meta `faq`).
+  const faqGroups = Object.entries((categories ?? {}) as Record<string, { name?: string; faq?: { q: string; a: string }[] }>)
+    .map(([id, c]) => ({ id, name: c.name ?? id, faq: (c.faq ?? []).filter((f) => f && f.q && f.a) }))
+    .filter((g) => g.faq.length > 0);
+  const faqCount = faqGroups.reduce((n, g) => n + g.faq.length, 0);
+
+  // Varsayılan: Haberler. #rehberler / #sss hash'i ile ilgili sekme açılır.
+  const [tab, setTab] = useState<"rehberler" | "haberler" | "sss">("haberler");
   useEffect(() => {
-    if (typeof window !== "undefined" && window.location.hash === "#rehberler") setTab("rehberler");
+    if (typeof window === "undefined") return;
+    const h = window.location.hash;
+    if (h === "#rehberler") setTab("rehberler");
+    else if (h === "#sss") setTab("sss");
   }, []);
 
-  const tabs: { k: "rehberler" | "haberler"; label: string; count: number }[] = [
+  const tabs: { k: "rehberler" | "haberler" | "sss"; label: string; count: number }[] = [
     { k: "haberler", label: "Haberler & Fuarlar", count: press.length },
     { k: "rehberler", label: "Rehberler", count: posts.length },
+    { k: "sss", label: "SSS", count: faqCount },
   ];
 
   return (
@@ -91,7 +103,7 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
                 aria-selected={active}
                 onClick={() => {
                   setTab(t.k);
-                  if (typeof window !== "undefined") history.replaceState(null, "", t.k === "haberler" ? "#haberler" : "#rehberler");
+                  if (typeof window !== "undefined") history.replaceState(null, "", "#" + t.k);
                 }}
                 className="px-4 py-2 rounded-xl text-sm font-bold transition-all"
                 style={active
@@ -124,6 +136,26 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
               </motion.div>
             ))}
           </div>
+        ) : tab === "sss" ? (
+          faqGroups.length > 0 ? (
+            <div className="space-y-8">
+              {faqGroups.map((g) => (
+                <div key={g.id}>
+                  <h2 className="text-lg font-black mb-3" style={{ color: textPrimary }}>{g.name}</h2>
+                  <div className="space-y-2.5">
+                    {g.faq.map((f, i) => (
+                      <div key={i} className="rounded-2xl p-5" style={{ background: surface, border: `1px solid ${border}` }}>
+                        <p className="text-sm font-bold mb-1.5" style={{ color: textPrimary }}>{f.q}</p>
+                        <p className="text-sm leading-relaxed whitespace-pre-line" style={{ color: textMuted }}>{f.a}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-sm py-10" style={{ color: textMuted }}>Henüz soru-cevap eklenmemiş.</p>
+          )
         ) : (
           <div className="grid sm:grid-cols-2 gap-4">
             {press.map((it) => {

@@ -99,6 +99,25 @@ const HAKKIMIZDA_DROPDOWN: DropdownItem[] = [
   },
 ];
 
+// "Rehber" dropdown (eski "Hesaplayıcı" linki) — alt: Hesaplayıcı + Rehberler + SSS.
+const REHBER_DROPDOWN: DropdownItem[] = [
+  {
+    label: { tr: "Hesaplayıcı", en: "Calculator" },
+    sub:   { tr: "Maliyet & şarj süresi hesaplama", en: "Cost & charge-time calculator" },
+    href: "#calculator", accent: "#10B981",
+  },
+  {
+    label: { tr: "Rehberler", en: "Guides" },
+    sub:   { tr: "EV şarj rehberleri & teknik yazılar", en: "EV charging guides & articles" },
+    href: "/blog#rehberler", accent: "#3B82F6",
+  },
+  {
+    label: { tr: "SSS", en: "FAQ" },
+    sub:   { tr: "Sıkça sorulan sorular", en: "Frequently asked questions" },
+    href: "/blog#sss", accent: "#F59E0B",
+  },
+];
+
 const NAV_STRINGS = {
   urunlerHeading: { tr: "Ürün Kategorileri", en: "Product Categories" },
   urunlerFooter: { tr: "Tüm ürünlere göz at", en: "Browse all products" },
@@ -145,11 +164,13 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileKurumsalOpen, setMobileKurumsalOpen] = useState(false);
   const [mobileUrunlerOpen, setMobileUrunlerOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<"kurumsal" | "urunler" | "hakkimizda" | null>(null);
+  const [activeDropdown, setActiveDropdown] = useState<"kurumsal" | "urunler" | "hakkimizda" | "rehber" | null>(null);
   const [mobileHakkimizdaOpen, setMobileHakkimizdaOpen] = useState(false);
+  const [mobileRehberOpen, setMobileRehberOpen] = useState(false);
   const kurumsalRef = useRef<HTMLDivElement>(null);
   const urunlerRef = useRef<HTMLDivElement>(null);
   const hakkimizdaRef = useRef<HTMLDivElement>(null);
+  const rehberRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { theme, toggle } = useTheme();
   const isDark = theme === "dark";
@@ -260,7 +281,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
     }
   };
 
-  const openDropdown = (which: "kurumsal" | "urunler" | "hakkimizda") => {
+  const openDropdown = (which: "kurumsal" | "urunler" | "hakkimizda" | "rehber") => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setActiveDropdown(which);
   };
@@ -276,6 +297,10 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
 
   const isHakkimizda = (link: { label: string; href: string }) =>
     link.label === "Hakkımızda" || link.href === "#dna";
+
+  // "Hesaplayıcı" linki artık "Rehber" dropdown'ı (Hesaplayıcı + Rehberler + SSS).
+  const isRehber = (link: { label: string; href: string }) =>
+    link.href === "#calculator" || link.label === "Rehber" || link.label === "Guide";
 
   const dropdownBase = {
     background: isDark ? "rgba(12,13,18,0.97)" : "rgba(255,255,255,0.98)",
@@ -314,14 +339,15 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
               const isK = isKurumsal(link);
               const isU = isUrunler(link);
               const isH = isHakkimizda(link);
-              const hasDropdown = isK || isU || isH;
-              const dropdownKey: "kurumsal" | "urunler" | "hakkimizda" =
-                isK ? "kurumsal" : isU ? "urunler" : "hakkimizda";
+              const isR = isRehber(link);
+              const hasDropdown = isK || isU || isH || isR;
+              const dropdownKey: "kurumsal" | "urunler" | "hakkimizda" | "rehber" =
+                isK ? "kurumsal" : isU ? "urunler" : isH ? "hakkimizda" : "rehber";
               const isOpen = activeDropdown === dropdownKey;
 
               return (
                 <div key={link.href + idx} className="relative"
-                  ref={isK ? kurumsalRef : isU ? urunlerRef : isH ? hakkimizdaRef : undefined}
+                  ref={isK ? kurumsalRef : isU ? urunlerRef : isH ? hakkimizdaRef : isR ? rehberRef : undefined}
                   onMouseEnter={hasDropdown ? () => openDropdown(dropdownKey) : undefined}
                   onMouseLeave={hasDropdown ? scheduleClose : undefined}
                 >
@@ -483,6 +509,43 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                       )}
                     </AnimatePresence>
                   )}
+
+                  {/* Rehber Dropdown (Hesaplayıcı + Rehberler + SSS) */}
+                  {isR && (
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 6, scale: 0.97 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 4, scale: 0.97 }}
+                          transition={{ duration: 0.16 }}
+                          onMouseEnter={() => openDropdown("rehber")}
+                          onMouseLeave={scheduleClose}
+                          className="absolute left-1/2 -translate-x-1/2 top-full mt-2 rounded-2xl overflow-hidden"
+                          style={{ width: 300, ...dropdownBase }}
+                        >
+                          <div className="p-1.5 space-y-0.5">
+                            {REHBER_DROPDOWN.map((item) => (
+                              <button
+                                key={item.href}
+                                onClick={() => { setActiveDropdown(null); handleNavClick(item.href); }}
+                                className="flex items-start justify-between gap-3 w-full px-3 py-2.5 rounded-xl text-left transition-all duration-150"
+                                style={{ background: "transparent" }}
+                                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)"; }}
+                                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+                              >
+                                <div className="flex-1 min-w-0">
+                                  <p className="text-sm font-semibold leading-tight" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{item.label[lang]}</p>
+                                  <p className="text-xs leading-snug mt-0.5" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.50)" }}>{item.sub[lang]}</p>
+                                </div>
+                                <RiArrowRightLine size={14} style={{ color: item.accent, opacity: 0.5, marginTop: 8 }} />
+                              </button>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  )}
                 </div>
               );
             })}
@@ -591,6 +654,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                 const isK = isKurumsal(link);
                 const isU = isUrunler(link);
                 const isH = isHakkimizda(link);
+                const isR = isRehber(link);
                 return (
                   <div key={link.href + i}>
                     <motion.button
@@ -601,6 +665,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                         if (isK) setMobileKurumsalOpen(v => !v);
                         else if (isU) setMobileUrunlerOpen(v => !v);
                         else if (isH) setMobileHakkimizdaOpen(v => !v);
+                        else if (isR) setMobileRehberOpen(v => !v);
                         else handleNavClick(link.href);
                       }}
                       className={`w-full flex items-center justify-between text-base font-medium py-3 text-left border-b transition-colors ${
@@ -608,11 +673,12 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                       }`}
                     >
                       <E field={`navbar.links.${i}.label`} tag="span">{link.label}</E>
-                      {(isK || isU || isH) && (
+                      {(isK || isU || isH || isR) && (
                         <HiChevronDown size={16} className={`transition-transform ${
                           (isK && mobileKurumsalOpen) ||
                           (isU && mobileUrunlerOpen) ||
-                          (isH && mobileHakkimizdaOpen) ? "rotate-180" : ""
+                          (isH && mobileHakkimizdaOpen) ||
+                          (isR && mobileRehberOpen) ? "rotate-180" : ""
                         }`} />
                       )}
                     </motion.button>
@@ -622,6 +688,18 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                       <div className="py-2 space-y-1 pl-2">
                         {HAKKIMIZDA_DROPDOWN.map(item => (
                           <button key={item.href} onClick={() => { setMobileOpen(false); router.push(item.href); }}
+                            className={`block w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black"}`}>
+                            {item.label[lang]}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Mobile Rehber sub-links */}
+                    {isR && mobileRehberOpen && (
+                      <div className="py-2 space-y-1 pl-2">
+                        {REHBER_DROPDOWN.map(item => (
+                          <button key={item.href} onClick={() => { setMobileOpen(false); handleNavClick(item.href); }}
                             className={`block w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black"}`}>
                             {item.label[lang]}
                           </button>
