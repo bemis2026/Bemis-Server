@@ -517,6 +517,13 @@ html[data-theme="light"] a.text-white,
 html[data-theme="light"] button .text-white,
 html[data-theme="light"] a .text-white { color: #ffffff !important; }
 
+/* Navbar — ana sayfa tepesinde navbar şeffaf ve KOYU hero üstünde durur;
+   bu durumda menü kelimeleri/ikonları text-white/X ile beyaz olmalı. Yukarıdaki
+   genel "text-white/X → #555" kuralı bunları gri yapıyordu. Kaydırınca navbar
+   zaten text-black/X kullandığından bu kural o durumu ETKİLEMEZ (yalnız
+   tepedeki şeffaf beyaz durumu düzeltir). */
+html[data-theme="light"] nav [class*="text-white\/"] { color: #ffffff !important; }
+
 /* data-keep-white="true" → her durumda beyaz text korunur. Görsel-üzeri
    overlay'lerin (amiral gemisi name kutusu / feature badge'leri, smart
    charger phone mockup içeriği vb.) light mode'da siyaha kaymasını engeller.
