@@ -50,6 +50,33 @@ export const PRESS_ITEMS: PressItem[] = [
     summary:
       "Dünyanın elektrikli araç şarj altyapısına odaklı ilk ve tek fuarı EV Charge Show'da (12-14 Kasım 2025, İstanbul Fuar Merkezi) Bemis E-V Charge, yerli üretim şarj çözümleriyle sektör profesyonellerinin karşısına çıktı.",
   },
+  {
+    id: "sektorum-uretime-basladi",
+    title: "Bemis Şarj Ekipmanları Üretimine Başladı",
+    source: "Sektörüm Dergisi",
+    url: "https://www.sektorumdergisi.com/bemis-sarj-ekipmanlari-uretimine-basladi/",
+    type: "news",
+    summary:
+      "30 yıllık endüstriyel elektrik birikimine sahip Bemis, %100 yerli yazılım ve üretim süreçleriyle elektrikli araç şarj ekipmanları üretimine başladığını duyurdu.",
+  },
+  {
+    id: "sektorum-v2l-c2l-adaptorler",
+    title: "Bemis E-V Charge: Elektrikli Araç Teknolojisinde Devrim Yaratan V2L ve C2L Adaptörleri",
+    source: "Sektörüm Dergisi",
+    url: "https://www.sektorumdergisi.com/bemis-e-v-charge-elektrikli-arac-teknolojisinde-devrim-yaratan-v2l-ve-c2l-adaptorleri/",
+    type: "news",
+    summary:
+      "Bemis E-V Charge'ın V2L (Vehicle-to-Load) ve C2L (Charger-to-Load) adaptörleri aracı seyyar bir elektrik kaynağına çeviriyor; talebin Çin'den karşılandığı Mini Adaptör'ün yerli üretimi de duyuruldu.",
+  },
+  {
+    id: "sektorum-yerli-urunler-tuketiciyle",
+    title: "Bemis'in %100 Yerli EV Şarj Ürünleri E-V Charge'lar Tüketiciyle Buluştu",
+    source: "Sektörüm Dergisi",
+    url: "https://www.sektorumdergisi.com/bemisin-0-yerli-elektrikli-arac-sarj-urunleri-e-v-chargelar-tuketiciyle-bulustu/",
+    type: "news",
+    summary:
+      "Charger, Charger Plus ve Charger Pro modelleri (7,4–22 kW; IP66/IP65; QR, RFID, NFC, Wi-Fi, OCPP 1.6J) %100 yerli yazılım ve üretimle tüketiciyle buluştu.",
+  },
 ];
 
 // Tarihe göre yeni→eski sıralı. (Tarihsiz kayıtlar sona düşer.)
