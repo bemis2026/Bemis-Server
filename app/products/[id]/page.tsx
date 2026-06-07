@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 import type { Metadata } from "next";
 import JsonLd from "../../components/JsonLd";
-import { breadcrumbSchema, collectionPageSchema, categoryMetaTitle, categoryMetaDescription } from "../../lib/seo";
+import { breadcrumbSchema, collectionPageSchema, faqSchema, categoryMetaTitle, categoryMetaDescription } from "../../lib/seo";
 import { getServerProducts, getServerCategoriesMeta } from "../../lib/server-content";
 import ProductCategoryClient from "./ProductCategoryClient";
 
@@ -78,6 +78,9 @@ export default async function ProductCategoryPage({
   if (!category) return <ProductCategoryClient />;
   const initialCategory = category as unknown as ClientCategory;
   const meta = catsMeta[id] ?? {};
+  // faq, getServerCategoriesMeta'nın dar tipinde yok ama çalışma zamanında
+  // CMS verisinde mevcut (data.categories tam obje) — cast ile alıyoruz.
+  const catFaq = (meta as unknown as { faq?: { q: string; a: string }[] }).faq ?? [];
   const jsonLd = [
     breadcrumbSchema([
       { name: "Ana Sayfa", url: "/" },
@@ -90,6 +93,7 @@ export default async function ProductCategoryPage({
       url: `/products/${id}`,
       products: (category.products ?? []).map(p => ({ id: p.id, name: p.name, categoryId: id })),
     }),
+    ...(catFaq.length > 0 ? [faqSchema(catFaq)] : []),
   ];
   return (
     <>

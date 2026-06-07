@@ -21,7 +21,7 @@ import {
   RiFileTextLine, RiFilePdfLine, RiExternalLinkLine,
   RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
   RiShieldCheckLine, RiBarChart2Line, RiCalendarCheckLine, RiTeamLine,
-  RiLightbulbLine, RiAddLine,
+  RiLightbulbLine, RiAddLine, RiWhatsappLine, RiMapPin2Line,
 } from "react-icons/ri";
 import { featureById } from "../../../../lib/productFeatures";
 import { certificateById } from "../../../../lib/productCertificates";
@@ -86,7 +86,7 @@ export default function ProductDetailPage({
   const { theme } = useTheme();
   const { lang } = useLanguage();
   const { currency, tryPerEur } = useCurrency();
-  const { categories: catMeta } = useContent();
+  const { categories: catMeta, contact } = useContent();
   // Warranty / certification copy is fixed company policy — same line for
   // every product, no admin knob.
   const WARRANTY_DURATION = lang === "en" ? "2-Year Manufacturer Warranty" : "2 Yıl Üretici Garantisi";
@@ -367,8 +367,6 @@ export default function ProductDetailPage({
                           ))}
                         </div>
                       )}
-                      {/* "Teklif Al" CTA removed per spec — product detail
-                          now leads with the PDF catalog link instead. */}
                       {product.pdf && (
                         <a
                           href={product.pdf} download target="_blank" rel="noreferrer"
@@ -378,6 +376,33 @@ export default function ProductDetailPage({
                           <HiDownload size={14} /> {lang === "en" ? "Download PDF Catalog" : "PDF Katalog İndir"}
                         </a>
                       )}
+                      {/* Satın alma / iletişim — WhatsApp'tan teklif + bayi ağına
+                          yönlendirme; müşteri ürüne hızlı ulaşsın. */}
+                      {(() => {
+                        const waPhone = (contact?.whatsappPhone || contact?.phone || "").replace(/[^\d]/g, "");
+                        const waText = encodeURIComponent(`Merhaba, ${product.name} ürünü hakkında bilgi/teklif almak istiyorum.`);
+                        return (
+                          <div className={`grid ${waPhone ? "grid-cols-2" : "grid-cols-1"} gap-2`}>
+                            {waPhone && (
+                              <a
+                                href={`https://wa.me/${waPhone}?text=${waText}`}
+                                target="_blank" rel="noopener noreferrer"
+                                className="flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90"
+                                style={{ background: "#25D366" }}
+                              >
+                                <RiWhatsappLine size={16} /> {lang === "en" ? "Get a Quote" : "Teklif Al"}
+                              </a>
+                            )}
+                            <a
+                              href="/#dealer"
+                              className="flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90"
+                              style={{ background: BRAND_BLUE }}
+                            >
+                              <RiMapPin2Line size={16} /> {lang === "en" ? "Find a Dealer" : "Bayi Bul"}
+                            </a>
+                          </div>
+                        );
+                      })()}
                     </div>
                   );
                 })()}

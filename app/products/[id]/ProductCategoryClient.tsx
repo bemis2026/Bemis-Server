@@ -316,6 +316,27 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
         </div>
       </div>
 
+      {/* SSS — kategori bazlı (CMS'ten). FAQPage JSON-LD sunucu sayfasında. */}
+      {(() => {
+        const faqList = categories?.[id]?.faq ?? [];
+        if (faqList.length === 0) return null;
+        return (
+          <div className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 pb-16 w-full">
+            <h2 className="text-2xl font-black mb-5" style={{ color: textPrimary }}>
+              {lang === "en" ? "Frequently Asked Questions" : "Sıkça Sorulan Sorular"}
+            </h2>
+            <div className="space-y-3">
+              {faqList.map((f, i) => (
+                <div key={i} className="rounded-2xl p-4" style={{ background: surface, border: `1px solid ${surfaceBorder}` }}>
+                  <p className="text-sm font-bold mb-1.5" style={{ color: textPrimary }}>{f.q}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: textMuted }}>{f.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
+
       {/* Push ContactBar to the bottom of the flex column on short
           pages (e.g. a one-row category like dc-units), instead of
           leaving a fat slab of empty wrapper bg below it. */}
