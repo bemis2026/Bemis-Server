@@ -292,6 +292,99 @@ export const BLOG_POSTS: BlogPost[] = [
       { label: "Yerli Üretici", href: "/uretici" },
     ],
   },
+
+  {
+    slug: "ocpp-nedir",
+    title: "OCPP Nedir? Şarj İstasyonlarında Neden Önemli?",
+    description:
+      "OCPP (Open Charge Point Protocol) nedir, ne işe yarar, neden önemli? OCPP 1.6J ile uzaktan yönetim, faturalandırma ve marka bağımsızlığı — sade rehber.",
+    excerpt:
+      "OCPP, şarj istasyonunuzu hangi yazılıma isterseniz bağlamanızı sağlayan açık standarttır. Ne işe yarar ve neden OCPP uyumlu cihaz almalısınız?",
+    category: "Teknik",
+    datePublished: "2026-06-06",
+    readingMinutes: 5,
+    keywords: ["ocpp nedir", "ocpp uyumlu şarj cihazı", "ocpp 1.6j", "şarj yönetim sistemi"],
+    body: [
+      { type: "p", text: "Şarj istasyonu alırken sık karşılaştığınız kısaltma OCPP, cihazınızın geleceğini doğrudan etkiler. Bu yazıda OCPP'nin ne olduğunu, ne işe yaradığını ve neden OCPP uyumlu bir cihaz seçmeniz gerektiğini sade bir dille anlatıyoruz." },
+
+      { type: "h2", text: "OCPP nedir?" },
+      { type: "p", text: "OCPP (Open Charge Point Protocol / Açık Şarj Noktası Protokolü), şarj istasyonu ile onu yöneten merkezi yazılım (CSMS — şarj yönetim sistemi) arasındaki açık, standart haberleşme dilidir. Açık standart olması şu demek: cihazınızı tek bir markanın yazılımına mahkûm kalmadan, OCPP destekleyen herhangi bir yönetim sistemine bağlayabilirsiniz." },
+
+      { type: "h2", text: "OCPP ne işe yarar?" },
+      { type: "ul", items: [
+        "Uzaktan izleme & yönetim: istasyonu uzaktan görün, başlatın/durdurun, arıza alın.",
+        "Faturalandırma & yetkilendirme: RFID/uygulama ile kullanıcı tanıma, kullanım başına ücretlendirme.",
+        "Uzaktan firmware güncelleme: cihaza gitmeden yazılım güncellemesi.",
+        "Yük yönetimi: birden çok istasyonu şebekeyi zorlamadan dengeli çalıştırma.",
+        "Roaming: farklı şarj ağları arasında ortak kullanım.",
+      ]},
+
+      { type: "h2", text: "Marka bağımsızlığı neden önemli?" },
+      { type: "p", text: "OCPP uyumlu olmayan bir cihaz, üreticinin kapalı sistemine bağlıdır; o şirket desteği keserse ya da fiyat artırırsa elinizde seçenek kalmaz. OCPP uyumlu cihaz ise istediğiniz yönetim sistemine taşınabilir — yatırımınızı korur." },
+
+      { type: "h2", text: "OCPP 1.6J ve 2.0.1" },
+      { type: "p", text: "Bugün en yaygın sürüm OCPP 1.6J'dir (JSON tabanlı); birçok yönetim sistemiyle uyumludur. OCPP 2.0.1 ise gelişmiş güvenlik ve akıllı şarj özellikleri ekler. Bemis cihazları OCPP 1.6J uyumlu olarak üretilir; böylece açık şarj ekosistemine sorunsuz bağlanır." },
+
+      { type: "cta", text: "OCPP uyumlu Bemis AC Wallbox modellerini inceleyin.", href: "/products/wallbox", label: "OCPP Uyumlu Cihazlar" },
+    ],
+    faq: [
+      { q: "OCPP açılımı nedir?", a: "OCPP, Open Charge Point Protocol (Açık Şarj Noktası Protokolü) demektir; şarj istasyonu ile yönetim sistemi arasındaki açık haberleşme standardıdır." },
+      { q: "Neden OCPP uyumlu cihaz almalıyım?", a: "OCPP uyumlu cihaz, tek bir markanın kapalı yazılımına bağlı kalmadan istediğiniz şarj yönetim sistemine bağlanmanızı sağlar; uzaktan yönetim, faturalandırma ve yük yönetimi sunar." },
+      { q: "Bemis cihazları OCPP destekliyor mu?", a: "Evet, Bemis'in akıllı modelleri OCPP 1.6J uyumlu olarak üretilir ve açık şarj yönetim sistemlerine bağlanabilir." },
+    ],
+    related: [
+      { label: "AC Wallbox", href: "/products/wallbox" },
+      { label: "Şarj Ağı Operatörleri", href: "/operator" },
+      { label: "Yerli Üretici", href: "/uretici" },
+    ],
+  },
+
+  {
+    slug: "apartmana-sarj-istasyonu-kurulumu",
+    title: "Apartmana / Siteye Elektrikli Araç Şarj İstasyonu Kurulumu",
+    description:
+      "Apartman ve site otoparkına elektrikli araç şarj istasyonu kurulumu nasıl yapılır? Kat malikleri kararı, elektrik altyapısı, yük yönetimi ve faturalandırma adım adım.",
+    excerpt:
+      "Sitenizin otoparkına şarj istasyonu mu kuracaksınız? Kat malikleri kararı, altyapı, yük yönetimi ve faturalandırma için bilmeniz gerekenler.",
+    category: "Rehber",
+    datePublished: "2026-06-06",
+    readingMinutes: 6,
+    keywords: ["apartmana şarj kurulumu", "siteye şarj istasyonu", "otopark şarj istasyonu", "apartman ev şarj"],
+    body: [
+      { type: "p", text: "Elektrikli araç sahibi olunca en kritik konu evde şarj edebilmektir. Müstakil garajda bu kolaydır; ama apartman/site otoparkında birkaç ek adım gerekir. İşte sürecin sağlıklı ilerlemesi için bilmeniz gerekenler." },
+
+      { type: "h2", text: "1) Kat malikleri kararı" },
+      { type: "p", text: "Ortak alandaki (otopark) kurulum için yönetim/kat malikleri onayı gerekir. Türkiye'de mevzuat, elektrikli araç şarj altyapısı taleplerini kolaylaştıracak yönde gelişmektedir; yine de kurulumdan önce yönetimle görüşüp gerekli kararı almak en doğrusudur." },
+
+      { type: "h2", text: "2) Elektrik altyapısı" },
+      { type: "p", text: "Şarj cihazı, mümkünse panodan çekilen ayrı bir hat üzerinden beslenmelidir. Mevcut tesisatın kapasitesi (ana sigorta, kablo kesiti) değerlendirilmeli; gerekirse ayrı sayaç düşünülmelidir. Bu değerlendirmeyi yetkili bir elektrikçi yapmalıdır." },
+
+      { type: "h2", text: "3) Yük yönetimi (birden fazla araç için)" },
+      { type: "p", text: "Sitede birden çok şarj noktası olacaksa, hepsi aynı anda tam güç çekerse şebeke zorlanır. Yük yönetimi (DLM) özellikli cihazlar, mevcut gücü noktalar arasında dengeli paylaştırarak bu sorunu çözer." },
+
+      { type: "h2", text: "4) Faturalandırma & yetkilendirme" },
+      { type: "p", text: "Ortak kullanımda kimin ne kadar harcadığını ayırmak için RFID kart, mobil uygulama veya OCPP tabanlı yönetim sistemi kullanılır. Böylece her kullanıcı kendi tüketimini öder." },
+
+      { type: "ul", items: [
+        "OCPP uyumlu cihaz seçin (uzaktan yönetim + faturalandırma).",
+        "IP65/IP66 koruma sınıfı (otopark/dış mekân).",
+        "Yük yönetimi desteği (çoklu nokta için).",
+        "Yetkili kurulum + ayrı hat.",
+      ]},
+
+      { type: "cta", text: "Site ve iş yeri için OCPP uyumlu Bemis çözümlerini inceleyin.", href: "/products/wallbox", label: "Şarj İstasyonlarını Gör" },
+    ],
+    faq: [
+      { q: "Apartmana şarj istasyonu kurmak için izin gerekir mi?", a: "Ortak alan (otopark) kurulumu için yönetim/kat malikleri kararı gerekir. Kurulumdan önce yönetimle görüşüp onay almak doğru yaklaşımdır." },
+      { q: "Sitede birden çok şarj noktası nasıl yönetilir?", a: "Yük yönetimi (DLM) özellikli ve OCPP uyumlu cihazlarla; mevcut güç noktalar arasında dengeli paylaştırılır, her kullanıcının tüketimi RFID/uygulama ile ayrı faturalandırılır." },
+      { q: "Apartman şarjı için hangi cihaz uygun?", a: "OCPP uyumlu, yük yönetimi destekleyen, IP65/IP66 korumalı bir AC Wallbox apartman/site otoparkı için uygundur." },
+    ],
+    related: [
+      { label: "AC Wallbox", href: "/products/wallbox" },
+      { label: "Şarj Ağı Operatörleri", href: "/operator" },
+      { label: "Bayilik / İletişim", href: "/bayilik" },
+    ],
+  },
 ];
 
 export function allPosts(): BlogPost[] {
