@@ -15,7 +15,6 @@ import {
   RiChargingPile2Line, RiBatteryChargeLine, RiFlashlightLine,
   RiPlugLine, RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
 } from "react-icons/ri";
-import { HiArrowLeft } from "react-icons/hi";
 import Image from "next/image";
 import { ProductGridSkeleton } from "../../components/ProductCardSkeleton";
 
@@ -113,9 +112,13 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
   const Icon = categoryIcons[id] || RiPlugLine;
   const accent = category.accent;
   const categoryDescription = categories?.[id]?.description?.trim() ?? "";
-  // The per-category image now greets the visitor as the hero background
-  // (behind the title + description) instead of sitting beside the copy.
-  const descImage = categories?.[id]?.descriptionImage?.trim() ?? "";
+  // Görsel alanı: önce anasayfa kategori görseli (image), yoksa eski
+  // descriptionImage. Kullanıcı isteği: kategori sayfasında da anasayfadaki
+  // kategori görseli karşılasın (hero arka planı olarak).
+  const descImage = categories?.[id]?.image?.trim() || categories?.[id]?.descriptionImage?.trim() || "";
+  // Ürün-görselli (şeffaf PNG) kategorilerde hero arka planı BEYAZ olsun
+  // (kullanıcı isteği: "ac dc şarj ekipmanları görseli beyaz png").
+  const whiteHero = id === "charger-equipment";
 
   return (
     <div style={{ background: bg, display: "flex", flexDirection: "column", minHeight: "100vh", position: "relative", overflow: "hidden", isolation: "isolate" }}>
@@ -123,84 +126,75 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
-      {/* Category hero */}
+      {/* Category hero — iki kolon: metin SOLDA, görsel SAĞDA çerçeveli kart
+          içinde (contain + padding → kenara yapışmaz, açıklamanın yanında düzgün). */}
       <div className="relative overflow-hidden pt-24 pb-8 px-5 sm:px-6 lg:px-8"
         style={{
           background: d ? `radial-gradient(ellipse 70% 60% at 50% 0%, ${accent}10 0%, transparent 70%)` : `radial-gradient(ellipse 70% 60% at 50% 0%, ${accent}08 0%, transparent 70%)`,
-          minHeight: descImage ? 300 : undefined,
         }}>
-        {/* Full-bleed category image as the hero backdrop. A theme-aware
-            scrim — strongest on the left where the copy sits, lighter on
-            the right — keeps the title + description legible over any
-            uploaded photo, and a bottom fade blends into the product grid. */}
-        {descImage && (
-          <div className="absolute inset-0" style={{ zIndex: 0 }} aria-hidden>
-            <Image src={descImage} alt={category.name} fill sizes="100vw" className="object-cover" priority />
-            <div
-              className="absolute inset-0"
-              style={{
-                background: d
-                  ? "linear-gradient(90deg, rgba(10,10,12,0.93) 0%, rgba(10,10,12,0.66) 55%, rgba(10,10,12,0.55) 100%)"
-                  : "linear-gradient(90deg, rgba(248,248,251,0.95) 0%, rgba(248,248,251,0.74) 55%, rgba(248,248,251,0.62) 100%)",
-              }}
-            />
-            <div
-              className="absolute inset-x-0 bottom-0 h-16"
-              style={{ background: d ? "linear-gradient(to top, #0c0c0e 0%, transparent 100%)" : "linear-gradient(to top, #f8f8fb 0%, transparent 100%)" }}
-            />
-          </div>
-        )}
-        <div className="relative max-w-7xl mx-auto" style={{ zIndex: 1 }}>
-          <div className="flex items-stretch gap-4 mb-2">
-            {/* Accent stripe — replaces the per-category icon block.
-                The icons that lived here used to clash with the actual
-                category meaning (e.g. flashlight on a cables page);
-                a tall colour stripe keeps the visual rhythm without
-                pretending to symbolise the category. */}
-            <motion.div
-              initial={{ scaleY: 0, opacity: 0 }}
-              animate={{ scaleY: 1, opacity: 1 }}
-              transition={{ duration: 0.45 }}
-              className="flex-shrink-0 rounded-full origin-top"
-              style={{ width: 4, background: `linear-gradient(180deg, ${accent} 0%, ${accent}66 100%)` }}
-              aria-hidden
-            />
-            <div>
-              <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.05 }}
-                className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: accent }}>
-                Ürün Kategorisi · {category.products?.length ?? 0} Ürün
-              </motion.p>
-              <motion.h1 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}
-                className="text-2xl sm:text-3xl font-bold" style={{ color: textPrimary }}>
-                {category.name}
-              </motion.h1>
-              <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.15 }}
-                className="text-sm mt-0.5" style={{ color: textMuted }}>
-                {category.tagline}
-              </motion.p>
+        <div className="relative max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-8">
+          {/* SOL: başlık + açıklama (içerik genişliğinde → görsel açıklamaya yakın durur) */}
+          <div className="w-full lg:max-w-2xl min-w-0">
+            <div className="flex items-stretch gap-4 mb-2">
+              <motion.div
+                initial={{ scaleY: 0, opacity: 0 }}
+                animate={{ scaleY: 1, opacity: 1 }}
+                transition={{ duration: 0.45 }}
+                className="flex-shrink-0 rounded-full origin-top"
+                style={{ width: 4, background: `linear-gradient(180deg, ${accent} 0%, ${accent}66 100%)` }}
+                aria-hidden
+              />
+              <div>
+                <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.05 }}
+                  className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: accent }}>
+                  Ürün Kategorisi · {category.products?.length ?? 0} Ürün
+                </motion.p>
+                <motion.h1 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}
+                  className="text-2xl sm:text-3xl lg:text-4xl font-bold" style={{ color: textPrimary }}>
+                  {category.name}
+                </motion.h1>
+                <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.15 }}
+                  className="text-sm mt-0.5" style={{ color: textMuted }}>
+                  {category.tagline}
+                </motion.p>
+              </div>
             </div>
+
+            {categoryDescription && (
+              <motion.div
+                initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }}
+                className="mt-4"
+              >
+                <p className="text-sm sm:text-base leading-relaxed whitespace-pre-line max-w-2xl" style={{ color: textMuted }}>
+                  {categoryDescription}
+                </p>
+              </motion.div>
+            )}
           </div>
 
-          {categoryDescription && (
+          {/* SAĞ: kategori görseli — çerçeveli kart, contain (kırpmaz/yakınlaşmaz) */}
+          {descImage && (
             <motion.div
-              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }}
-              className="mt-4"
+              initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.15 }}
+              className="w-full max-w-[300px] mx-auto lg:max-w-[360px] lg:mx-0 flex-shrink-0"
             >
-              <p
-                className="text-sm sm:text-base leading-relaxed whitespace-pre-line max-w-3xl"
+              <div
+                className="relative rounded-2xl overflow-hidden"
                 style={{
-                  // Over the hero image the muted copy needs a touch more
-                  // weight + a soft shadow to stay readable; without an
-                  // image it keeps the original muted tone.
-                  color: descImage ? (d ? "rgba(240,240,244,0.82)" : "rgba(26,26,46,0.84)") : textMuted,
-                  textShadow: descImage ? (d ? "0 1px 16px rgba(0,0,0,0.6)" : "0 1px 16px rgba(248,248,251,0.75)") : undefined,
+                  // Standart KARE çerçeve — tüm kategorilerde AYNI sabit ölçü.
+                  aspectRatio: "1 / 1",
+                  background: whiteHero ? "#ffffff" : d ? "#15151b" : "#f1f3f6",
+                  border: `1px solid ${d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`,
+                  boxShadow: d ? "0 10px 40px rgba(0,0,0,0.35)" : "0 10px 36px rgba(0,0,0,0.10)",
                 }}
               >
-                {categoryDescription}
-              </p>
+                {/* Sahne/foto görseller kareyi TAM doldurur (object-cover).
+                    Ürün-görselli (şeffaf PNG, charger-equipment) beyaz zeminde
+                    object-contain ile tam görünür (kırpılmaz). Çerçeve her kategoride aynı. */}
+                <Image src={descImage} alt={category.name} fill sizes="(max-width: 1024px) 100vw, 440px" quality={90} className={whiteHero ? "object-contain p-6" : "object-cover"} style={{ objectPosition: "center" }} priority />
+              </div>
             </motion.div>
           )}
-
         </div>
       </div>
 

@@ -92,6 +92,11 @@ const HAKKIMIZDA_DROPDOWN: DropdownItem[] = [
     sub:   { tr: "Tarihçe, üretim süreci, sertifikalar", en: "History, production process, certifications" },
     href: "/kurumsal", accent: "#3B82F6",
   },
+  {
+    label: { tr: "Blog & Haberler", en: "Blog & News" },
+    sub:   { tr: "Rehberler, haberler ve fuar paylaşımları", en: "Guides, news & trade-show updates" },
+    href: "/blog", accent: "#10B981",
+  },
 ];
 
 const NAV_STRINGS = {
@@ -115,6 +120,20 @@ const CATEGORY_ACCENTS: Record<string, string> = {
   "charger-equipment": "#64748B",
   "accessories":       "#A855F7",
   "dc-units":          "#F97316",
+};
+
+// Dropdown menüsünde kategori başına gösterilecek TEMSİLİ ÜRÜN görseli
+// (şeffaf PNG). Kategori atmosfer görseli yerine ürün görseli — küçük
+// thumbnail'da daha net okunur. Kullanıcı isteği: "görselleri ürünlerden al".
+const CATEGORY_MENU_IMAGE: Record<string, string> = {
+  "wallbox":           "https://i.ibb.co/Y4y9X34b/1778104941457-BEV-1011-0005-png.png",
+  "portable":          "https://i.ibb.co/C3Wy4zG1/1778250667732-mini-mobile-r-n-png.png",
+  "cables":            "https://i.ibb.co/b5vGJ10c/1778479575431-fi-priz-kablolu-png.png",
+  "v2l-c2l":           "https://i.ibb.co/8LRBhSCn/1778480827934-BEV2-L-3201-3203-png.png",
+  "converters":        "https://i.ibb.co/Q778yMT0/1778481170734-BKT-0111-2211-png.png",
+  "charger-equipment": "https://i.ibb.co/DHJDfrs7/1778482597259-32-A-type2-IIA-mod3-pano-prizi-2-png.png",
+  "accessories":       "https://i.ibb.co/6QmxMCH/1778482448259-bemis-mobil-canta-png.png",
+  "dc-units":          "https://i.ibb.co/FbKK7nJq/1778482081859-40-kw-DC-saj-cihaz-beyaz-golgesiz-png.png",
 };
 
 interface NavbarProps {
@@ -172,10 +191,11 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const b2bHoverBorder = isDark ? "rgba(96,165,250,0.55)" : lightTop ? "rgba(255,255,255,0.65)" : "rgba(59,130,246,0.55)";
 
   const categoryList = categories
-    ? Object.entries(categories as Record<string, { name: string; subtitle?: string }>).map(([key, val]) => ({
+    ? Object.entries(categories as Record<string, { name: string; subtitle?: string; image?: string }>).map(([key, val]) => ({
         key,
         name: val.name,
         subtitle: val.subtitle ?? "",
+        image: CATEGORY_MENU_IMAGE[key] || val.image?.trim() || "",
         href: `/products/${key}`,
         accent: CATEGORY_ACCENTS[key] ?? "#3B82F6",
       }))
@@ -402,7 +422,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                           onMouseEnter={() => openDropdown("urunler")}
                           onMouseLeave={scheduleClose}
                           className="absolute left-1/2 -translate-x-1/2 top-full mt-2 rounded-2xl overflow-hidden"
-                          style={{ width: 480, ...dropdownBase }}
+                          style={{ width: 520, ...dropdownBase }}
                         >
                           {/* Header */}
                           <div className="px-4 pt-3.5 pb-2.5" style={{ borderBottom: `1px solid ${isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"}` }}>
@@ -421,13 +441,27 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)"; }}
                                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                               >
-                                <span
-                                  className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                                  style={{ background: cat.accent, boxShadow: `0 0 6px ${cat.accent}66` }}
-                                  aria-hidden
-                                />
+                                {cat.image ? (
+                                  // eslint-disable-next-line @next/next/no-img-element
+                                  <img
+                                    src={cat.image}
+                                    alt=""
+                                    className="w-14 h-11 rounded-lg object-contain flex-shrink-0 p-1"
+                                    style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`, background: "#f3f4f6" }}
+                                    loading="lazy"
+                                  />
+                                ) : (
+                                  <span
+                                    className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                                    style={{ background: `${cat.accent}1a`, border: `1px solid ${cat.accent}33` }}
+                                    aria-hidden
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full" style={{ background: cat.accent, boxShadow: `0 0 6px ${cat.accent}66` }} />
+                                  </span>
+                                )}
                                 <div className="min-w-0">
                                   <p className="text-xs font-semibold leading-tight truncate" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{cat.name}</p>
+                                  {cat.subtitle && <p className="text-[10px] leading-tight truncate mt-0.5" style={{ color: isDark ? "rgba(255,255,255,0.38)" : "rgba(0,0,0,0.42)" }}>{cat.subtitle}</p>}
                                 </div>
                               </button>
                             ))}

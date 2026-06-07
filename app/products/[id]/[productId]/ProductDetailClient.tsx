@@ -27,6 +27,14 @@ import {
 import { featureById } from "../../../../lib/productFeatures";
 import { certificateById } from "../../../../lib/productCertificates";
 
+// Anasayfa SmartCharger ile AYNI mağaza ikonları (App Store / Google Play).
+function AppleIcon({ size = 16 }: { size?: number }) {
+  return (<svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" /></svg>);
+}
+function GooglePlayIcon({ size = 16 }: { size?: number }) {
+  return (<svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.35.2.74.24 1.12.14L15.5 12 12 8.5 3.18 23.76zm17.46-11.16c-.38-.22-3.98-2.28-6.44-3.68L10.5 12l3.7 3.7c2.46-1.4 6.06-3.46 6.44-3.68.54-.32.86-.9.86-1.51-.01-.62-.33-1.19-.86-1.51zM2.3.24C2.1.44 2 .73 2 1.06v21.87c0 .34.1.63.3.83L2.44 24l12.22-12.22L2.44.1 2.3.24zm8.2 11.76L2.44 0l-.14.14C2.1.34 2 .63 2 .96v.1L10.5 12z" /></svg>);
+}
+
 const DETAIL_FEATURE_ICONS: Record<string, React.ComponentType<{ size?: number; style?: React.CSSProperties }>> = {
   RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
   RiShieldCheckLine, RiBarChart2Line, RiPlugLine, RiFlashlightLine,
@@ -87,7 +95,7 @@ export default function ProductDetailPage({
   const { theme } = useTheme();
   const { lang } = useLanguage();
   const { currency, tryPerEur } = useCurrency();
-  const { categories: catMeta, contact } = useContent();
+  const { categories: catMeta, contact, smartCharger } = useContent();
   // Warranty / certification copy is fixed company policy — same line for
   // every product, no admin knob.
   const WARRANTY_DURATION = lang === "en" ? "2-Year Manufacturer Warranty" : "2 Yıl Üretici Garantisi";
@@ -801,7 +809,7 @@ export default function ProductDetailPage({
                                       className="px-4 py-2 flex items-center justify-between gap-3"
                                       style={{ borderTop: i > 0 ? `1px solid ${BRAND_BLUE}1a` : "none" }}
                                     >
-                                      <span className="text-xs" style={{ color: textMuted }}>{row.label}</span>
+                                      <span className="text-xs" style={{ color: textMuted }}>{/liste/i.test(row.label) ? (lang === "en" ? "Price" : "Fiyat") : row.label}</span>
                                       <span className="text-sm font-bold text-right inline-flex items-baseline gap-1.5 flex-wrap justify-end" style={{ color: BRAND_BLUE }}>
                                         {currency === "TRY" && hasNumeric ? (
                                           <>
@@ -890,6 +898,134 @@ export default function ProductDetailPage({
           </motion.div>
         )}
       </div>
+
+      {/* ── Akıllı Yönetim tanıtımı (ÖNİZLEME İSKELETİ) — yalnız "Mobil Uygulama"
+          (app) veya "OCPP" (ocpp) özellikli akıllı şarj cihazlarında görünür.
+          Cihaz mockup'ları CSS yer-tutucudur; GERÇEK ekran görüntüleri +
+          uygulama/web panel bağlantıları KULLANICIDAN gelince doldurulacak. ── */}
+      {!loading && product && (() => {
+        const feats = product.features ?? [];
+        const hasApp = feats.includes("app");
+        const hasOcpp = feats.includes("ocpp");
+        if (!hasApp && !hasOcpp) return null;
+        const sd = theme === "dark";
+        const cardBg = sd ? "rgba(255,255,255,0.04)" : "#ffffff";
+        const txt = sd ? "#f0f0f4" : "#111827";
+        const muted = sd ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.55)";
+        const PURPLE = "#8B5CF6";
+        return (
+          <section className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-12">
+            <div
+              className="rounded-3xl p-6 sm:p-8 lg:p-10"
+              style={{
+                background: sd
+                  ? `linear-gradient(135deg, ${BRAND_BLUE}1a 0%, ${PURPLE}12 100%)`
+                  : `linear-gradient(135deg, ${BRAND_BLUE}0d 0%, ${PURPLE}0a 100%)`,
+                border: `1px solid ${sd ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"}`,
+              }}
+            >
+              <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+                {/* SOL: metin + butonlar */}
+                <div>
+                  <span className="inline-block text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3"
+                    style={{ background: `${BRAND_BLUE}18`, color: sd ? "#93C5FD" : BRAND_BLUE, border: `1px solid ${BRAND_BLUE}30` }}>
+                    {lang === "en" ? "Smart Management" : "Akıllı Yönetim"}
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl font-black mb-3" style={{ color: txt }}>
+                    {lang === "en" ? "Manage your charger from anywhere" : "Cihazınızı her yerden yönetin"}
+                  </h2>
+                  <p className="text-sm sm:text-base leading-relaxed mb-5 max-w-md" style={{ color: muted }}>
+                    {lang === "en"
+                      ? "Real-time monitoring, scheduled charging, user authorization, RFID and reporting — via the Bemis E-V Charge mobile app and web panel."
+                      : "Mobil uygulama ve web panel ile anlık izleme, planlı şarj, kullanıcı yetkilendirme, RFID ve raporlama — akıllı Bemis E-V Charge cihazlarında."}
+                  </p>
+                  {/* Mağaza + web panel butonları — anasayfa SmartCharger ile AYNI linkler. */}
+                  <div className="flex flex-wrap gap-2.5">
+                    <a href={smartCharger?.appStoreHref || "#"} target={smartCharger?.appStoreHref ? "_blank" : undefined} rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all hover:opacity-85"
+                      style={{ background: sd ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)", color: txt, border: `1px solid ${sd ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.10)"}` }}>
+                      <AppleIcon size={18} />
+                      <span className="text-left leading-none"><span className="block text-[9px] mb-0.5" style={{ color: muted }}>{lang === "en" ? "Download on" : "İndir"}</span><span className="block text-xs font-bold">App Store</span></span>
+                    </a>
+                    <a href={smartCharger?.playStoreHref || "#"} target={smartCharger?.playStoreHref ? "_blank" : undefined} rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all hover:opacity-85"
+                      style={{ background: sd ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)", color: txt, border: `1px solid ${sd ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.10)"}` }}>
+                      <span style={{ color: "#4CAF50" }}><GooglePlayIcon size={17} /></span>
+                      <span className="text-left leading-none"><span className="block text-[9px] mb-0.5" style={{ color: muted }}>{lang === "en" ? "Get it on" : "İndir"}</span><span className="block text-xs font-bold">Google Play</span></span>
+                    </a>
+                    {smartCharger?.ctaHref && /^https?:\/\//.test(smartCharger.ctaHref) && (
+                      <a href={smartCharger.ctaHref} target="_blank" rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90" style={{ background: BRAND_BLUE }}>
+                        {/* B logosu — Bemis portalı olduğu anlaşılsın */}
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src="/favicon-white-192.png" alt="Bemis" className="w-4 h-4 object-contain" /> Web Panel
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                {/* SAĞ: cihaz mockup'ları (CSS yer-tutucu — web panel + mobil HER ZAMAN) */}
+                <div className="flex items-center justify-center gap-3 sm:gap-5">
+                  {/* Web panel (tarayıcı) */}
+                  <div className="flex-1 max-w-[290px] rounded-xl overflow-hidden" style={{ background: cardBg, border: `1px solid ${sd ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`, boxShadow: "0 16px 40px rgba(0,0,0,0.20)" }}>
+                    <div className="flex items-center gap-1.5 px-3 py-2" style={{ background: sd ? "rgba(255,255,255,0.06)" : "#eef0f3" }}>
+                      {["#ef4444", "#f59e0b", "#22c55e"].map((cc) => <span key={cc} className="w-2 h-2 rounded-full" style={{ background: cc }} />)}
+                      <div className="ml-2 flex-1 h-3 rounded-full" style={{ background: sd ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.06)" }} />
+                    </div>
+                    {smartCharger?.mockupWebImage ? (
+                      <div style={{ aspectRatio: "16 / 11" }}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={smartCharger.mockupWebImage} alt="Bemis E-V Charge web paneli" className="w-full h-full object-cover" loading="lazy" decoding="async" />
+                      </div>
+                    ) : (
+                      <div className="p-2.5" style={{ aspectRatio: "16 / 11", background: `linear-gradient(150deg, ${PURPLE}, ${BRAND_BLUE})` }}>
+                        <div className="flex gap-2 h-full">
+                          <div className="w-1/4 rounded-lg p-1.5 flex flex-col gap-1" style={{ background: "rgba(255,255,255,0.12)" }}>
+                            {[0, 1, 2, 3].map((i) => <div key={i} className="rounded h-1.5" style={{ background: "rgba(255,255,255,0.5)", width: i === 0 ? "100%" : "70%" }} />)}
+                          </div>
+                          <div className="flex-1 flex flex-col gap-1.5 min-w-0">
+                            <div className="grid grid-cols-3 gap-1.5">{[0, 1, 2].map((i) => <div key={i} className="rounded h-7" style={{ background: "rgba(255,255,255,0.22)" }} />)}</div>
+                            <div className="flex-1 rounded-lg p-2 flex items-end gap-1" style={{ background: "rgba(255,255,255,0.14)" }}>
+                              {[40, 65, 50, 80, 55, 72].map((h, i) => <div key={i} className="flex-1 rounded-sm" style={{ height: `${h}%`, background: "rgba(255,255,255,0.6)" }} />)}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  {/* Mobil uygulama (telefon) */}
+                  <div className="relative flex-shrink-0" style={{ width: 116 }}>
+                    <div className="rounded-[1.7rem] p-1.5" style={{ background: sd ? "#0a0a0c" : "#1a1a1a", boxShadow: "0 18px 44px rgba(0,0,0,0.30)" }}>
+                      <div className="rounded-[1.3rem] overflow-hidden" style={{ aspectRatio: "9 / 19", background: `linear-gradient(165deg, ${BRAND_BLUE}, ${PURPLE})` }}>
+                        {smartCharger?.mockupPhoneImage ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img src={smartCharger.mockupPhoneImage} alt="Bemis E-V Charge mobil uygulama" className="w-full h-full object-cover" loading="lazy" decoding="async" />
+                        ) : (
+                          <>
+                            <div className="flex justify-between items-center px-3 pt-2">
+                              <span className="text-[7px] font-semibold text-white/85">9:41</span>
+                              <div className="flex gap-0.5">{[0, 1, 2].map((i) => <span key={i} className="w-1 h-1 rounded-full bg-white/70" />)}</div>
+                            </div>
+                            <div className="px-3 pt-2 text-white">
+                              <div className="text-[8px] font-bold tracking-wide">Bemis E-V Charge</div>
+                              <div className="mx-auto mt-2 rounded-full flex items-center justify-center" style={{ width: 50, height: 50, border: "4px solid rgba(255,255,255,0.35)", borderTopColor: "rgba(255,255,255,0.92)" }}>
+                                <span className="text-[9px] font-black">7,4</span>
+                              </div>
+                              <div className="text-[7px] text-center mt-1 text-white/80">Şarj oluyor…</div>
+                              <div className="mt-2 space-y-1">{[0, 1].map((i) => <div key={i} className="rounded h-2.5" style={{ background: "rgba(255,255,255,0.2)" }} />)}</div>
+                              <div className="mt-2 rounded-lg h-6" style={{ background: "rgba(255,255,255,0.28)" }} />
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* ── Sıkça Sorulan Sorular (per-category accordion). max-w
           bumped to 7xl so the section width matches the rest of the

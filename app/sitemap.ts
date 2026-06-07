@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getServerProducts } from "./lib/server-content";
 import { allPosts } from "./blog/posts";
+import { allPress } from "./blog/press";
 
 const BASE = "https://www.bemisevcharge.com.tr";
 
@@ -98,6 +99,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(p.dateModified ?? p.datePublished),
       changeFrequency: "monthly" as const,
       priority: 0.6,
+    })),
+    ...allPress().map((p) => ({
+      url: `${BASE}/blog/haber/${p.id}`,
+      lastModified: p.date ? new Date(p.date) : now,
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
     })),
   ];
 

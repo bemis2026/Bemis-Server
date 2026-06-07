@@ -1,9 +1,10 @@
 // Harici basın / haber / fuar paylaşımları — Bemis E-V Charge ile ilgili
-// GERÇEK, doğrulanmış dış kaynaklar. Hem /blog "Haberler & Fuarlar" bölümünde
-// hem de anasayfa blog şeridinde kullanılır.
+// GERÇEK, doğrulanmış dış kaynaklar. Hem /blog "Haberler & Fuarlar" bölümünde,
+// hem anasayfa blog şeridinde, hem de /blog/haber/[id] İÇ ÖZET sayfalarında kullanılır.
 //
 // ⚠️ KURAL: Buraya yalnızca GERÇEK, erişilebilir haber/fuar linkleri ekleyin.
-// Uydurma başlık/URL EKLEMEYİN — her kayıt doğrulanmış olmalı.
+// Uydurma başlık/URL EKLEMEYİN. `body` özetleri ÖZGÜN (kaynaktan kopyalanmamış),
+// doğrulanmış gerçeklere dayalı kısa metinlerdir.
 //
 // İstemci + sunucu ortak import eder; bu yüzden burada İSTEMCİ kodu olmamalı.
 
@@ -16,7 +17,9 @@ export type PressItem = {
   url: string;         // harici kaynak (yeni sekmede açılır)
   type: PressType;
   date?: string;       // ISO "yyyy-mm-dd" (varsa)
-  summary: string;     // kısa, gerçek özet (kaynaktan)
+  summary: string;     // kısa, gerçek özet (kart üzerinde görünür)
+  body?: string[];     // iç özet sayfası için ÖZGÜN paragraflar (/blog/haber/[id])
+  image?: string;      // haber görseli (kaynağın OG görseli) — kart + özet sayfası
 };
 
 export const PRESS_ITEMS: PressItem[] = [
@@ -27,8 +30,14 @@ export const PRESS_ITEMS: PressItem[] = [
     url: "https://electricityturkey.com/haber/bemis_kasim_ayinda_uc_kitada_turkiyenin_enerji_vizyonunu_temsil_ediyor_-27097.html",
     type: "news",
     date: "2026-01-02",
+    image: "https://www.electricityturkey.com/resimler/2026-1/2/25344363419687.webp",
     summary:
       "Bemis; Tanzanya (Power & Energy 2025), Kolombiya (FISE 2025) ve İstanbul (EV Charge Show 2025) fuarlarında TÜV sertifikalı Bemis E-V Charge çözümlerini ve 'Made in Türkiye' enerji ürünlerini uluslararası profesyonellere tanıttı.",
+    body: [
+      "Bemis, Kasım 2025'te üç ayrı kıtada düzenlenen büyük enerji etkinliklerinde yer alarak 'Made in Türkiye' enerji vizyonunu uluslararası sahneye taşıdı.",
+      "Afrika'da Tanzanya Power & Energy 2025, Latin Amerika'da Kolombiya'daki FISE 2025 (11-13 Kasım) ve Avrupa'da İstanbul'daki EV Charge Show (12-14 Kasım) etkinliklerinde, Bemis E-V Charge'ın TÜV sertifikalı elektrikli araç şarj çözümleri ve yenilikçi enerji ürünleri tanıtıldı.",
+      "70'ten fazla ülkeye ihracat yapan ve 7.000'i aşkın ürün çeşidine sahip Bemis, yerli üretim gücünü küresel pazarlarda göstermeyi sürdürüyor.",
+    ],
   },
   {
     id: "eko-haber-yogun-ilgi",
@@ -37,8 +46,13 @@ export const PRESS_ITEMS: PressItem[] = [
     url: "https://www.ekohaber.com.tr/bemis-e-v-charge-urunlerine-yogun-ilgi",
     type: "news",
     date: "2024-11-18",
+    image: "https://ekohabercomtr.teimg.com/crop/1280x720/ekohaber-com-tr/uploads/2024/11/1486-m5.jpg",
     summary:
       "Bemis E-V Charge, İstanbul'daki EV Charge Show fuarında 30 yıllık birikimle geliştirdiği güvenli şarj cihazlarını, kablolarını ve aksesuarlarını sergiledi; ziyaretçilerden yoğun ilgi gördü.",
+    body: [
+      "Bemis E-V Charge, İstanbul'da düzenlenen EV Charge Show fuarında elektrikli araç şarj cihazları, kabloları ve aksesuarlarıyla ziyaretçilerden yoğun ilgi gördü.",
+      "30 yıllık endüstriyel elektrik birikimiyle geliştirilen güvenli ve yerli şarj çözümleri, fuarda sektör profesyonelleriyle buluştu.",
+    ],
   },
   {
     id: "ev-charge-show-2025",
@@ -49,6 +63,10 @@ export const PRESS_ITEMS: PressItem[] = [
     date: "2025-11-12",
     summary:
       "Dünyanın elektrikli araç şarj altyapısına odaklı ilk ve tek fuarı EV Charge Show'da (12-14 Kasım 2025, İstanbul Fuar Merkezi) Bemis E-V Charge, yerli üretim şarj çözümleriyle sektör profesyonellerinin karşısına çıktı.",
+    body: [
+      "Dünyanın elektrikli araç şarj altyapısına odaklanan ilk ve tek fuarı EV Charge Show, 12-14 Kasım 2025 tarihlerinde İstanbul Fuar Merkezi'nde gerçekleşti.",
+      "Bemis E-V Charge; yerli üretim AC şarj cihazları, V2L/C2L adaptörleri ve şarj ünitesi ekipmanlarıyla fuarda yer alarak sektörün önde gelen markalarıyla aynı sahneyi paylaştı.",
+    ],
   },
   {
     id: "sektorum-uretime-basladi",
@@ -58,6 +76,10 @@ export const PRESS_ITEMS: PressItem[] = [
     type: "news",
     summary:
       "30 yıllık endüstriyel elektrik birikimine sahip Bemis, %100 yerli yazılım ve üretim süreçleriyle elektrikli araç şarj ekipmanları üretimine başladığını duyurdu.",
+    body: [
+      "30 yıllık endüstriyel elektrik üreticisi Bemis, elektrikli araç şarj ekipmanları üretimine başladığını duyurdu.",
+      "Şirket; AC şarj cihazlarını, şarj prizlerini ve ilgili ekipmanları %100 yerli yazılım ve üretim süreçleriyle kendi tesislerinde üretiyor.",
+    ],
   },
   {
     id: "sektorum-v2l-c2l-adaptorler",
@@ -67,6 +89,10 @@ export const PRESS_ITEMS: PressItem[] = [
     type: "news",
     summary:
       "Bemis E-V Charge'ın V2L (Vehicle-to-Load) ve C2L (Charger-to-Load) adaptörleri aracı seyyar bir elektrik kaynağına çeviriyor; talebin Çin'den karşılandığı Mini Adaptör'ün yerli üretimi de duyuruldu.",
+    body: [
+      "Bemis E-V Charge'ın V2L (Vehicle-to-Load) ve C2L (Charger-to-Load) adaptörleri, elektrikli aracın bataryasını seyyar bir elektrik kaynağına dönüştürerek kamp, saha ve acil durumlarda dış cihazların beslenmesine olanak tanıyor.",
+      "Şirket ayrıca, talebin büyük ölçüde Çin'den karşılandığı Mini Adaptör'ün yerli üretimine başladığını açıklayarak bu alanda ithalata bağımlılığı azaltmayı hedefliyor.",
+    ],
   },
   {
     id: "sektorum-yerli-urunler-tuketiciyle",
@@ -76,9 +102,16 @@ export const PRESS_ITEMS: PressItem[] = [
     type: "news",
     summary:
       "Charger, Charger Plus ve Charger Pro modelleri (7,4–22 kW; IP66/IP65; QR, RFID, NFC, Wi-Fi, OCPP 1.6J) %100 yerli yazılım ve üretimle tüketiciyle buluştu.",
+    body: [
+      "Bemis'in %100 yerli elektrikli araç şarj ürünleri E-V Charge ailesi tüketiciyle buluştu.",
+      "Charger, Charger Plus ve Charger Pro modelleri 7,4 kW'tan 22 kW'a kadar güç seçenekleri sunuyor; IP66/IP65 koruma sınıfı ile QR kod, RFID, NFC, Wi-Fi ve OCPP 1.6J protokol desteği içeriyor.",
+    ],
   },
 ];
 
 // Tarihe göre yeni→eski sıralı. (Tarihsiz kayıtlar sona düşer.)
 export const allPress = (): PressItem[] =>
   [...PRESS_ITEMS].sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
+
+export const getPress = (id: string): PressItem | undefined =>
+  PRESS_ITEMS.find((p) => p.id === id);

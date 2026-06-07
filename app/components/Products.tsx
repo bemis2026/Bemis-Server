@@ -451,7 +451,8 @@ export default function Products() {
                   className="relative overflow-hidden"
                   style={{
                     height: "clamp(160px, 36vw, 290px)",
-                    background: d ? cat.darkVisualBg : cat.lightVisualBg,
+                    // charger-equipment ürün görseli (şeffaf PNG) → beyaz zemin.
+                    background: cat.id === "charger-equipment" ? "#ffffff" : d ? cat.darkVisualBg : cat.lightVisualBg,
                   }}
                 >
                   {/* Category image (if set) — object-cover so the kategori
@@ -467,7 +468,7 @@ export default function Products() {
                       alt={cat.name}
                       fill
                       sizes="(max-width: 640px) 95vw, (max-width: 1024px) 48vw, 380px"
-                      className="object-cover"
+                      className={cat.id === "charger-equipment" ? "object-contain p-5" : "object-cover"}
                       style={{
                         opacity: isHovered ? 1.0 : 0.9,
                         transition: "opacity 0.35s ease, transform 0.4s ease",

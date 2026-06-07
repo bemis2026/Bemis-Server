@@ -52,9 +52,8 @@ export default function Reviews() {
   const d = theme === "dark";
 
   const BLUE       = "#3B82F6";
-  // Dark-mode tonları "bir tık aydınlatıldı" — eski değerler çok karanlık
-  // hissediyordu (özellikle review/social kartları): surface #0d0d0d → #181820,
-  // border #1e1e1e → #2a2a30, body text alpha 0.60 → 0.72, muted 0.38 → 0.50.
+  const AMBER      = "#F59E0B";
+  // Dark-mode tonları "bir tık aydınlatıldı".
   const surface    = d ? "#181820"                 : "#ffffff";
   const border     = d ? "#2a2a30"                 : "#e8e8e8";
   const textPrimary= d ? "#ffffff"                 : "#111111";
@@ -63,103 +62,25 @@ export default function Reviews() {
 
   const items = reviews.items ?? [];
 
-  // Son blog yazıları — bölümün altına kompakt şerit olarak eklenir.
-  // Açık-gri tonla uyumlu kartlar; "Kullanıcı Yorumları + Blog" birleşimi.
-  // Anasayfa şeridi: alanı BÜYÜTMEDEN (yine 3 kart) blog + haber karışımı —
-  // 2 son rehber + 1 son haber/fuar. Tam liste /blog'da.
-  const latestPosts = allPosts().slice(0, 2);
-  const latestNews = allPress().filter((p) => p.type !== "social").slice(0, 1);
+  // Haberler (anasayfa SAĞ kolon, büyük) — yorum+sosyal SOL'da küçültüldü,
+  // haber alanı büyütüldü (toplam boy korunur). Sosyal tipini hariç tut.
+  const latestNews = allPress().filter((p) => p.type !== "social").slice(0, 3);
+  const latestPosts = allPosts().slice(0, 3);
   const blogSurface = d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.03)";
 
   const sectionBgUrl = sectionBgs?.["reviews"] ?? "";
 
-  // Localized strings for the side-by-side Social Media block. Pure
-  // UI strings (no admin override) since the values themselves —
-  // profile URLs — are admin-managed via the "Medya / Social" panel.
-  const SOCIAL_T = {
-    tr: {
-      eyebrow: "Sosyal Medya",
-      heading: "Bizi takip edin",
-      sub: "Atölyemizden son anlar, ürün lansmanları ve fuar paylaşımları için sosyal medyamıza katılın.",
-      linkedinSub: "Kurumsal haberler, kariyer fırsatları ve B2B duyuruları",
-      instagramSub: "Atölye fotoğrafları, ürün lansmanları ve etkinlik kareleri",
-      youtubeSub: "Ürün tanıtımları, kurulum rehberleri ve fuar videoları",
-      facebookSub: "Topluluk paylaşımları, kampanyalar ve duyurular",
-      latestPosts: "Son paylaşımlarımız",
-      latestVideos: "Son videolarımız",
-    },
-    en: {
-      eyebrow: "Social Media",
-      heading: "Follow us",
-      sub: "Workshop moments, product launches and trade-show highlights — join us on social.",
-      linkedinSub: "Corporate news, careers and B2B announcements",
-      instagramSub: "Workshop shots, product launches and event highlights",
-      youtubeSub: "Product demos, installation guides and trade-show videos",
-      facebookSub: "Community updates, campaigns and announcements",
-      latestPosts: "See latest posts",
-      latestVideos: "See latest videos",
-    },
-  } as const;
-  const sT = SOCIAL_T[lang];
-
-  // Only render social tiles for the platforms the operator has
-  // actually configured. URLs come from admin → Content → social.
-  // `recentPost` is the latest post the operator has pinned for this
-  // channel (image + caption + link); if absent the tile falls back
-  // to the "Bizi takip et" CTA only.
-  const recentPosts = social.recentPosts ?? [];
-  const findPost = (platform: "linkedin" | "instagram" | "youtube" | "facebook") =>
-    recentPosts.find((p) => p.platform === platform && p.image && p.link);
-
+  // Sosyal kanal verisi (admin → Content → social). Artık kompakt ikon
+  // çipleri olarak SOL kolonda gösterilir (eski büyük kartlar kaldırıldı).
   const socialChannels = [
-    social.linkedin ? {
-      key: "linkedin" as const,
-      label: "LinkedIn",
-      url: social.linkedin,
-      sub: sT.linkedinSub,
-      ctaLabel: sT.latestPosts,
-      Icon: RiLinkedinFill,
-      brand: "#0A66C2",
-      recent: findPost("linkedin"),
-    } : null,
-    social.instagram ? {
-      key: "instagram" as const,
-      label: "Instagram",
-      url: social.instagram,
-      sub: sT.instagramSub,
-      ctaLabel: sT.latestPosts,
-      Icon: RiInstagramLine,
-      brand: "#E1306C",
-      recent: findPost("instagram"),
-    } : null,
-    social.youtube ? {
-      key: "youtube" as const,
-      label: "YouTube",
-      url: social.youtube,
-      sub: sT.youtubeSub,
-      ctaLabel: sT.latestVideos,
-      Icon: RiYoutubeFill,
-      brand: "#FF0000",
-      recent: findPost("youtube"),
-    } : null,
-    social.facebook ? {
-      key: "facebook" as const,
-      label: "Facebook",
-      url: social.facebook,
-      sub: sT.facebookSub,
-      ctaLabel: sT.latestPosts,
-      Icon: RiFacebookFill,
-      brand: "#1877F2",
-      recent: findPost("facebook"),
-    } : null,
-  ].filter(Boolean) as Array<{
-    key: "linkedin" | "instagram" | "youtube" | "facebook"; label: string; url: string; sub: string;
-    ctaLabel: string;
-    Icon: typeof RiLinkedinFill; brand: string;
-    recent?: ReturnType<typeof findPost>;
-  }>;
+    social.linkedin  ? { key: "linkedin"  as const, label: "LinkedIn",  url: social.linkedin,  Icon: RiLinkedinFill,  brand: "#0A66C2" } : null,
+    social.instagram ? { key: "instagram" as const, label: "Instagram", url: social.instagram, Icon: RiInstagramLine, brand: "#E1306C" } : null,
+    social.youtube   ? { key: "youtube"   as const, label: "YouTube",   url: social.youtube,   Icon: RiYoutubeFill,   brand: "#FF0000" } : null,
+    social.facebook  ? { key: "facebook"  as const, label: "Facebook",  url: social.facebook,  Icon: RiFacebookFill,  brand: "#1877F2" } : null,
+  ].filter(Boolean) as Array<{ key: string; label: string; url: string; Icon: typeof RiLinkedinFill; brand: string }>;
 
-  const showSocialColumn = socialChannels.length > 0;
+  const fairLabel = lang === "en" ? "Fair" : "Fuar";
+  const newsLabel = lang === "en" ? "News" : "Haber";
 
   return (
     <section
@@ -178,39 +99,11 @@ export default function Reviews() {
         </>
       )}
 
-      {/* Renkli accent glow blob'lar — section'a ilgi çekici brand-coloured
-          parıltı verir. Köşelere konumlanmış blurred radial-gradient'ler.
-          pointer-events:none, sadece dekoratif. Dark mode'da daha belirgin,
-          light mode'da subtle kalır. SADECE DESKTOP — mobile'da 3× blur
-          katmanı GPU yağlıyordu, lg breakpoint altında gizli. */}
+      {/* Dekoratif accent glow blob'lar (sadece desktop). */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden hidden lg:block" aria-hidden>
-        <div
-          className="absolute"
-          style={{
-            top: "-10%", left: "-8%",
-            width: "55%", height: "70%",
-            background: `radial-gradient(circle, ${BLUE}${d ? "22" : "14"} 0%, transparent 60%)`,
-            filter: "blur(40px)",
-          }}
-        />
-        <div
-          className="absolute"
-          style={{
-            top: "10%", right: "-10%",
-            width: "50%", height: "60%",
-            background: `radial-gradient(circle, ${d ? "#E1306C26" : "#E1306C14"} 0%, transparent 60%)`,
-            filter: "blur(50px)",
-          }}
-        />
-        <div
-          className="absolute"
-          style={{
-            bottom: "-15%", left: "20%",
-            width: "60%", height: "55%",
-            background: `radial-gradient(circle, ${d ? "#8B5CF624" : "#8B5CF612"} 0%, transparent 65%)`,
-            filter: "blur(60px)",
-          }}
-        />
+        <div className="absolute" style={{ top: "-10%", left: "-8%", width: "55%", height: "70%", background: `radial-gradient(circle, ${BLUE}${d ? "22" : "14"} 0%, transparent 60%)`, filter: "blur(40px)" }} />
+        <div className="absolute" style={{ top: "10%", right: "-10%", width: "50%", height: "60%", background: `radial-gradient(circle, ${d ? "#E1306C26" : "#E1306C14"} 0%, transparent 60%)`, filter: "blur(50px)" }} />
+        <div className="absolute" style={{ bottom: "-15%", left: "20%", width: "60%", height: "55%", background: `radial-gradient(circle, ${d ? "#8B5CF624" : "#8B5CF612"} 0%, transparent 65%)`, filter: "blur(60px)" }} />
       </div>
 
       <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -220,11 +113,7 @@ export default function Reviews() {
           <motion.span
             initial={{ opacity: 0, y: 10 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4 }}
             className="inline-block text-xs font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-full mb-4"
-            style={{
-              background: d ? `${BLUE}18` : `${BLUE}10`,
-              border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`,
-              color: d ? "#93C5FD" : BLUE,
-            }}
+            style={{ background: d ? `${BLUE}18` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`, color: d ? "#93C5FD" : BLUE }}
           >
             <E field="reviews.sectionLabel" tag="span">{reviews.sectionLabel}</E>
           </motion.span>
@@ -248,311 +137,153 @@ export default function Reviews() {
           >
             <E field="reviews.subheading" tag="span">{reviews.subheading}</E>
           </motion.p>
-
-          {/* Platform chips */}
-          <motion.div
-            initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex items-center justify-center gap-4 mt-3"
-          >
-            {Array.from(new Set(items.map((r) => r.platform))).map((p) => {
-              const color = items.find((r) => r.platform === p)?.platformColor ?? "#888";
-              return (
-                <span key={p} className="text-xs font-bold px-3 py-1.5 rounded-lg"
-                  style={{ background: `${color}10`, color, border: `1px solid ${color}25` }}>
-                  {p}
-                </span>
-              );
-            })}
-          </motion.div>
         </div>
 
-        {/* Two-column layout: customer reviews on the left, live social
-            channels on the right. On mobile the social block stacks
-            below the reviews. The reviews column is taller (col-span-3)
-            to keep the long quote cards readable; the social column
-            (col-span-2) holds the two brand-coloured tiles compactly. */}
-        <div className={showSocialColumn ? "grid lg:grid-cols-5 gap-5" : ""}>
-          <div className={showSocialColumn ? "lg:col-span-3" : ""}>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {items.slice(0, showSocialColumn ? 2 : 3).map((review, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.45, delay: 0.15 + i * 0.07 }}
-                  whileHover={{ y: -3 }}
-                  className="relative rounded-2xl p-4 flex flex-col gap-3 transition-all duration-300"
-                  style={{
-                    background: surface,
-                    border: `1px solid ${border}`,
-                    boxShadow: d ? "none" : "0 2px 16px rgba(0,0,0,0.05)",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = `${review.platformColor}55`;
-                    (e.currentTarget as HTMLElement).style.boxShadow = d
-                      ? `0 8px 32px ${review.platformColor}28, 0 0 0 1px ${review.platformColor}18 inset`
-                      : `0 8px 28px ${review.platformColor}25`;
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = border;
-                    (e.currentTarget as HTMLElement).style.boxShadow = d ? "none" : "0 2px 16px rgba(0,0,0,0.05)";
-                  }}
-                >
-                  {/* Platform-coloured top accent stripe */}
-                  <div
-                    className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl"
-                    style={{
-                      background: `linear-gradient(90deg, ${review.platformColor} 0%, ${review.platformColor}88 55%, transparent 100%)`,
-                    }}
-                    aria-hidden
-                  />
-                  <div className="flex items-center justify-between">
-                    <Stars count={review.rating} />
-                    <span className="text-[10px] font-bold px-2.5 py-1 rounded-md"
-                      style={{ background: `${review.platformColor}14`, color: review.platformColor, border: `1px solid ${review.platformColor}28` }}>
-                      {review.platform}
-                    </span>
-                  </div>
+        {/* Ana grid: SOL kompakt (yorum + sosyal), SAĞ büyük (haberler).
+            Kullanıcı isteği: haber alanı büyük, yorum+sosyal küçük, boy sabit. */}
+        <div className="grid lg:grid-cols-5 gap-5 items-start">
 
-                  <p className="text-sm leading-relaxed flex-1" style={{ color: textBody }}>
-                    &ldquo;{review.text}&rdquo;
-                  </p>
-
-                  <div className="text-xs font-medium px-3 py-1.5 rounded-lg self-start"
-                    style={{ background: d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.04)", color: textMuted, border: d ? "1px solid rgba(255,255,255,0.07)" : "1px solid rgba(0,0,0,0.07)" }}>
-                    {review.product}
-                  </div>
-
-                  <div className="flex items-center justify-between pt-2" style={{ borderTop: `1px solid ${border}` }}>
-                    <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold"
-                        style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)", color: textMuted }}>
-                        {review.author[0]}
-                      </div>
-                      <span className="text-sm font-semibold" style={{ color: textPrimary }}>{review.author}</span>
-                    </div>
-                    <span className="text-sm" style={{ color: textMuted }}>{review.date}</span>
-                  </div>
-                </motion.div>
-              ))}
+          {/* ── SOL: müşteri yorumları (kompakt) + sosyal çipler ── */}
+          <div className="lg:col-span-2 flex flex-col gap-3">
+            <div className="flex items-center justify-between">
+              <h3 className="text-sm font-black" style={{ color: textPrimary }}>
+                {lang === "en" ? "Customer Reviews" : "Müşteri Yorumları"}
+              </h3>
+              {/* Kompakt puan rozeti */}
+              <div className="inline-flex items-center gap-1.5">
+                <HiStar className="text-[#F59E0B] text-sm" />
+                <span className="text-sm font-black tabular-nums" style={{ color: textPrimary }}>{reviews.rating}</span>
+                <span className="text-[11px]" style={{ color: textMuted }}>· {reviews.ratingCount}</span>
+              </div>
             </div>
 
-            {/* Aggregate rating — sits below the two review cards in the
-                reviews column. Big numeric rating on the left so the
-                viewer immediately reads "4.9", smaller platform-count
-                summary on the right. Subtle BLUE-tinted background so
-                the card feels like a "summary" callout rather than
-                another review card. */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.45 }}
-              className="mt-4 rounded-2xl p-5 sm:p-6 flex items-center gap-5 sm:gap-7"
-              style={{
-                background: d
-                  ? `linear-gradient(135deg, ${BLUE}14 0%, rgba(255,255,255,0.03) 100%)`
-                  : `linear-gradient(135deg, ${BLUE}10 0%, #ffffff 100%)`,
-                border: `1px solid ${d ? `${BLUE}28` : `${BLUE}22`}`,
-                boxShadow: d ? "none" : `0 4px 22px ${BLUE}12`,
-              }}
-            >
-              <div className="flex flex-col items-start gap-1 flex-shrink-0">
-                <span className="text-5xl sm:text-6xl font-black tabular-nums leading-none" style={{ color: textPrimary }}>
-                  {reviews.rating}
-                </span>
-                <div className="scale-110 origin-left">
-                  <Stars count={5} />
+            {items.slice(0, 2).map((review, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4, delay: 0.12 + i * 0.07 }}
+                className="rounded-xl p-3.5 flex flex-col gap-2"
+                style={{ background: surface, border: `1px solid ${border}`, boxShadow: d ? "none" : "0 2px 12px rgba(0,0,0,0.04)" }}
+              >
+                <div className="flex items-center justify-between">
+                  <Stars count={review.rating} />
+                  <span className="text-[9px] font-bold px-2 py-0.5 rounded" style={{ background: `${review.platformColor}14`, color: review.platformColor, border: `1px solid ${review.platformColor}28` }}>
+                    {review.platform}
+                  </span>
                 </div>
-              </div>
-              <div className="min-w-0 flex flex-col gap-1">
-                <E field="reviews.ratingLabel" tag="p" className="text-xs sm:text-sm font-bold" style={{ color: textPrimary }}>
-                  {reviews.ratingLabel}
-                </E>
-                <p className="text-xs sm:text-sm leading-snug" style={{ color: textMuted }}>
-                  <E field="reviews.platformsPrefix" tag="span">{reviews.platformsPrefix}</E>{" "}
-                  <span style={{ color: d ? "#93C5FD" : BLUE, fontWeight: 800 }}>{reviews.ratingCount}</span>{" "}
-                  <E field="reviews.ratingCountSuffix" tag="span">{reviews.ratingCountSuffix}</E>
+                <p className="text-xs leading-relaxed" style={{ color: textBody, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+                  &ldquo;{review.text}&rdquo;
                 </p>
+                <div className="flex items-center gap-2 mt-auto pt-1">
+                  <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0" style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)", color: textMuted }}>
+                    {review.author[0]}
+                  </div>
+                  <span className="text-xs font-semibold truncate" style={{ color: textPrimary }}>{review.author}</span>
+                  <span className="text-[10px] ml-auto flex-shrink-0" style={{ color: textMuted }}>{review.date}</span>
+                </div>
+              </motion.div>
+            ))}
+
+            {/* Sosyal — kompakt ikon çipleri (eski büyük kartlar kaldırıldı) */}
+            {socialChannels.length > 0 && (
+              <div className="flex flex-wrap gap-2 pt-0.5">
+                {socialChannels.map((c) => (
+                  <a
+                    key={c.key}
+                    href={c.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-all hover:-translate-y-0.5"
+                    style={{ background: `${c.brand}14`, color: c.brand, border: `1px solid ${c.brand}33` }}
+                  >
+                    <c.Icon style={{ fontSize: 14 }} /> {c.label}
+                  </a>
+                ))}
               </div>
-            </motion.div>
+            )}
           </div>
 
-          {showSocialColumn && (
-            <motion.aside
-              initial={{ opacity: 0, y: 24 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.45, delay: 0.25 }}
-              className="lg:col-span-2 flex flex-col gap-3"
-              aria-label={sT.heading}
-            >
-              {socialChannels.map((c, i) => (
-                <motion.a
-                  key={c.key}
-                  href={c.recent?.link || c.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 14 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.28 + i * 0.08 }}
-                  whileHover={{ y: -2, scale: 1.015 }}
-                  className="relative rounded-2xl overflow-hidden group block transition-all"
-                  style={{
-                    // Brand-tinted multiple-background: çok ince diagonal
-                    // gradient + alt katman surface — kartlar artık platform
-                    // rengini "yaşıyor" ama hala kompakt ve okunaklı.
-                    background: `linear-gradient(135deg, ${c.brand}18 0%, transparent 45%, ${c.brand}10 100%), ${surface}`,
-                    border: `1px solid ${c.brand}30`,
-                    borderLeft: `3px solid ${c.brand}`,
-                    boxShadow: d ? `0 0 0 0 ${c.brand}00` : "0 2px 16px rgba(0,0,0,0.05)",
-                    transition: "box-shadow 0.3s ease, border-color 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = `${c.brand}66`;
-                    (e.currentTarget as HTMLElement).style.boxShadow = d
-                      ? `0 10px 36px ${c.brand}35`
-                      : `0 8px 28px ${c.brand}30`;
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = `${c.brand}30`;
-                    (e.currentTarget as HTMLElement).style.boxShadow = d ? `0 0 0 0 ${c.brand}00` : "0 2px 16px rgba(0,0,0,0.05)";
-                  }}
-                >
-                  <div className="flex items-center gap-2.5 px-3 py-2.5">
-                    <div
-                      className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                      style={{ background: `${c.brand}18`, border: `1px solid ${c.brand}35` }}
-                    >
-                      <c.Icon style={{ fontSize: 16, color: c.brand }} />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <p className="font-bold text-xs leading-tight" style={{ color: textPrimary }}>{c.label}</p>
-                      <p className="text-[10px] leading-tight" style={{ color: textMuted }}>
-                        {c.recent ? c.ctaLabel : "@bemisevcharge"}
-                      </p>
-                    </div>
-                    <RiExternalLinkLine style={{ fontSize: 13, color: textMuted }} />
-                  </div>
-
-                  {/* Pinned-post preview (admin curated) — small image
-                      strip + 2-line caption. Fallback: 1-line pitch +
-                      compact follow CTA. */}
-                  {c.recent ? (
-                    <>
-                      <div
-                        className="relative w-full overflow-hidden"
-                        style={{ aspectRatio: "16 / 9", background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.04)" }}
-                      >
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={c.recent.image}
-                          alt={c.recent.caption || c.label}
-                          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </div>
-                      <div className="px-3 py-2.5 flex flex-col gap-1">
-                        <p
-                          className="text-[11px] leading-snug"
-                          style={{
-                            color: textBody,
-                            display: "-webkit-box",
-                            WebkitLineClamp: 2,
-                            WebkitBoxOrient: "vertical",
-                            overflow: "hidden",
-                          }}
-                        >
-                          {c.recent.caption}
-                        </p>
-                        {c.recent.date && (
-                          <p className="text-[9px]" style={{ color: textMuted }}>
-                            {c.recent.date}
-                          </p>
-                        )}
-                      </div>
-                    </>
-                  ) : (
-                    <div className="px-3 pb-3 pt-0 flex items-center justify-between gap-2">
-                      <p className="text-[11px] leading-snug flex-1" style={{ color: textMuted }}>
-                        {c.sub}
-                      </p>
-                      <div
-                        className="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-1 rounded-full flex-shrink-0 transition-all group-hover:gap-1.5"
-                        style={{ background: `${c.brand}14`, color: c.brand, border: `1px solid ${c.brand}30` }}
-                      >
-                        {c.ctaLabel}
-                      </div>
-                    </div>
-                  )}
-                </motion.a>
-              ))}
-            </motion.aside>
-          )}
-        </div>
-
-        {/* Blog / Rehberler şeridi — son yazılar. Bölümü şişirmeden kompakt;
-            açık-gri tonla uyumlu yüzey, "Yorumlar + Blog" birleşimini tamamlar. */}
-        {(latestPosts.length > 0 || latestNews.length > 0) && (
-          <motion.div
-            initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-5 pt-5"
-            style={{ borderTop: `1px solid ${border}` }}
-          >
+          {/* ── SAĞ: Haberler & Basında (BÜYÜK) ── */}
+          <div className="lg:col-span-3">
             <div className="flex items-center justify-between mb-3">
-              <h3 className="text-sm font-bold" style={{ color: textPrimary }}>
-                {lang === "en" ? "Guides & News" : "Rehberler & Haberler"}
+              <h3 className="text-base font-black" style={{ color: textPrimary }}>
+                {lang === "en" ? "News & Press" : "Haberler & Basında"}
               </h3>
-              <a href="/blog" className="text-xs font-semibold inline-flex items-center gap-1 transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>
-                {lang === "en" ? "All posts" : "Tüm yazılar"} →
+              <a href="/blog#haberler" className="text-xs font-semibold inline-flex items-center gap-1 transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>
+                {lang === "en" ? "All news" : "Tüm haberler"} →
               </a>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {/* Haber/Fuar kartı (harici) — yeni içerik öne çıksın diye ilk sırada */}
-              {latestNews.map((n) => (
-                <a
-                  key={n.id}
-                  href={n.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-xl p-3.5 flex flex-col transition-all duration-200 hover:-translate-y-0.5"
-                  style={{ background: blogSurface, border: `1px solid ${border}` }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "#F59E0B66"; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = border; }}
-                >
-                  <span className="self-start text-[10px] font-bold px-2 py-0.5 rounded-md mb-2"
-                    style={{ background: "#F59E0B1f", color: "#F59E0B", border: "1px solid #F59E0B45" }}>
-                    {n.type === "fair" ? (lang === "en" ? "Fair" : "Fuar") : (lang === "en" ? "News" : "Haber")} · {n.source}
-                  </span>
-                  <p className="text-sm font-semibold leading-snug mb-2 flex-1"
-                    style={{ color: textPrimary, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
-                    {n.title}
-                  </p>
-                  <span className="text-[11px] font-semibold inline-flex items-center gap-1" style={{ color: "#F59E0B" }}>
-                    {lang === "en" ? "Read" : "Oku"} <RiExternalLinkLine size={11} />
-                  </span>
-                </a>
-              ))}
-              {latestPosts.map((p) => (
-                <a
-                  key={p.slug}
-                  href={`/blog/${p.slug}`}
-                  className="rounded-xl p-3.5 flex flex-col transition-all duration-200 hover:-translate-y-0.5"
-                  style={{ background: blogSurface, border: `1px solid ${border}` }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = `${BLUE}55`; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = border; }}
-                >
-                  <span className="self-start text-[10px] font-bold px-2 py-0.5 rounded-md mb-2"
-                    style={{ background: `${BLUE}14`, color: d ? "#93C5FD" : BLUE, border: `1px solid ${BLUE}25` }}>
-                    {p.category}
-                  </span>
-                  <p className="text-sm font-semibold leading-snug mb-2 flex-1"
-                    style={{ color: textPrimary, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
-                    {p.title}
-                  </p>
-                  <span className="text-[11px] font-semibold inline-flex items-center gap-1" style={{ color: d ? "#93C5FD" : BLUE }}>
-                    {lang === "en" ? "Read" : "Oku"} →
-                  </span>
-                </a>
-              ))}
+
+            {/* Kompakt YATAY kartlar (thumbnail sol + metin sağ) — sol kolonla
+                boyca dengeli, alanı şişirmez, görseller korunur. */}
+            <div className="flex flex-col gap-2.5">
+              {latestNews.map((n, i) => {
+                const isFair = n.type === "fair";
+                const c = isFair ? AMBER : BLUE;
+                return (
+                  <motion.div
+                    key={n.id}
+                    initial={{ opacity: 0, y: 12 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4, delay: 0.15 + i * 0.05 }}
+                    className="flex rounded-xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5"
+                    style={{ background: blogSurface, border: `1px solid ${border}` }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = `${c}66`; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = border; }}
+                  >
+                    {/* Thumbnail (görsel veya markalı placeholder) */}
+                    <div className="relative flex-shrink-0 w-24 sm:w-28" style={{ background: `${c}12` }}>
+                      {n.image ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={n.image} alt={n.title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center p-2 text-center">
+                          <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: c, opacity: 0.8 }}>{n.source}</span>
+                        </div>
+                      )}
+                    </div>
+                    {/* Metin */}
+                    <div className="flex-1 min-w-0 p-3 flex flex-col">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-[9px] font-bold px-1.5 py-0.5 rounded" style={{ background: `${c}1f`, color: c, border: `1px solid ${c}45` }}>
+                          {isFair ? fairLabel : newsLabel}
+                        </span>
+                        <span className="text-[10px] font-semibold truncate" style={{ color: textMuted }}>{n.source}</span>
+                        {n.date && <span className="text-[10px] ml-auto flex-shrink-0" style={{ color: textMuted }}>{n.date}</span>}
+                      </div>
+                      <p className="text-[13px] font-bold leading-snug mb-1.5 flex-1" style={{ color: textPrimary, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+                        {n.title}
+                      </p>
+                      <div className="flex items-center gap-3">
+                        <a href={n.url} target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold inline-flex items-center gap-1 transition-opacity hover:opacity-70" style={{ color: c }}>
+                          {lang === "en" ? "Read" : "Haberi Oku"} <RiExternalLinkLine size={10} />
+                        </a>
+                        <a href={`/blog/haber/${n.id}`} className="text-[10px] font-bold inline-flex items-center gap-1 ml-auto transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>
+                          {lang === "en" ? "Summary" : "Özet İncele"} →
+                        </a>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
-          </motion.div>
-        )}
+
+            {/* Rehberler — kompakt mini-liste (haberlerin altında, ilave; bölümü büyütmez) */}
+            {latestPosts.length > 0 && (
+              <div className="mt-3 pt-3" style={{ borderTop: `1px solid ${border}` }}>
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: textMuted }}>{lang === "en" ? "Guides" : "Rehberler"}</span>
+                  <a href="/blog#rehberler" className="text-[10px] font-semibold transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>{lang === "en" ? "All" : "Tümü"} →</a>
+                </div>
+                <div className="flex flex-col gap-1">
+                  {latestPosts.map((p) => (
+                    <a key={p.slug} href={`/blog/${p.slug}`} className="text-[11px] inline-flex items-center gap-1.5 transition-opacity hover:opacity-70" style={{ color: textMuted }}>
+                      <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: BLUE }} />
+                      <span className="truncate">{p.title}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );
