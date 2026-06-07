@@ -63,6 +63,12 @@
    **+ (2026-06-07 son — Hero slider + QA, CANLI):** "Rehber"e TIKLAYINCA artık `/blog#rehberler` (hesaplayıcıya değil); hover'da alt menü.
    **Hero arka plan SLIDER:** `hero.heroImages` (ContentContext + admin tip) + Hero.tsx 3sn crossfade (tek görselse statik); adminde "İlave Görseller" yükle/sil UI.
    **final-qa-scan workflow** (4 ajan: responsive **0** / light 2 / EN 6 / regresyon 1) → HEPSİ düzeltildi: tüm güncellemeler **EN-i18n** (BlogShell + DealerPickerModal + Products + ProductCategoryClient + ProductDetail tabs + Footer; sub-bileşenlere `useLanguage`, `pressLabel` helper); 2 **light** fix (Products "Yakında" badge, kategori skeleton); **BlogShell hashchange listener** (/blog'dayken Rehber menüsünden #sss/#rehberler sekmeyi değiştirir).
+   **+ (2026-06-08 — anasayfa başlık tutarlılığı, CANLI · commit 78a5d44):** Tüm anasayfa bölüm **eyebrow**'ları tek standarda hizalandı:
+   renk `d ? #93C5FD : #3B82F6`, `text-xs font-bold tracking-[0.18em]`, aynı chip opaklığı/kenarlık/padding. **SmartCharger** + **ProductShowcase**
+   eyebrow'ları karanlık modda yanlışlıkla `#3B82F6` idi → `#93C5FD`. **B2BCta** h2 bir tık küçüktü → `text-4xl sm:text-5xl lg:text-6xl` (artık
+   TÜM section h2 eşit, 36px@base). **DNA** + **SmartCharger** başlıklarındaki mavi vurgu satırı eyebrow tonuna (`d ? #93C5FD : #3B82F6`). **DealerNetwork**
+   eyebrow chip bg/border dark/light varyantlı. 5 dosya/12 satır. Hem dark hem light canlı doğrulandı (tüm eyebrow tek renk, tüm h2 tek boyut).
+   Kasıtlı istisna (bölüm başlığı DEĞİL): Hero "AC Şarj · 11 kW" ürün-spec rozeti (#3B82F6); ProductShowcase görsel üstündeki koyu cam karttaki etiket (#93C5FD).
    **Kilit SEO dosyaları:** `app/blog/*`, `app/uretici/*`, `app/lib/seo.ts` (articleSchema/faqSchema/
    blogListingSchema), `app/sitemap.ts`, `Footer.tsx`, `ProductDetailClient.tsx`, `ProductCategoryClient.tsx`.
    **GBP gerçeği:** Bemis Teknik kartı VAR; aynı adreste AYRI "Bemis E-V Charge" kartı Google yinelenen
