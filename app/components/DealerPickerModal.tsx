@@ -4,7 +4,7 @@ import { useEffect, useState, type CSSProperties } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { CITY_BY_ID } from "../../lib/turkeyCities";
 import {
-  RiCloseLine, RiGlobalLine, RiMapPin2Line, RiPhoneLine, RiWhatsappLine, RiArrowRightLine,
+  RiCloseLine, RiGlobalLine, RiMapPin2Line, RiPhoneLine, RiWhatsappLine, RiArrowRightLine, RiSearchLine,
 } from "react-icons/ri";
 
 type Dealer = {
@@ -25,6 +25,7 @@ export default function DealerPickerModal({
   const d = theme === "dark";
   const [data, setData] = useState<DealersData>({});
   const [city, setCity] = useState<string>("all");
+  const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
 
   // Bayileri yalnızca modal açılınca çek (gereksiz istek yok).
@@ -58,8 +59,19 @@ export default function DealerPickerModal({
   const cities = Object.keys(data)
     .filter((c) => (data[c]?.dealers?.length ?? 0) > 0)
     .sort((a, b) => cityLabel(a).localeCompare(cityLabel(b), "tr"));
-  const visibleCities = city === "all" ? cities : cities.filter((c) => c === city);
-  const totalDealers = cities.reduce((n, c) => n + data[c].dealers.length, 0);
+
+  // Arama: şehir adı VEYA firma adı/adresi (TR-duyarsız). Şehir çipiyle birlikte (AND) çalışır.
+  const q = query.trim().toLocaleLowerCase("tr");
+  const matchesQuery = (c: string, dl: Dealer) =>
+    !q ||
+    (dl.name || "").toLocaleLowerCase("tr").includes(q) ||
+    (dl.address || "").toLocaleLowerCase("tr").includes(q) ||
+    cityLabel(c).toLocaleLowerCase("tr").includes(q);
+  const dealersFor = (c: string) => (data[c]?.dealers ?? []).filter((dl) => matchesQuery(c, dl));
+  const visibleCities = (city === "all" ? cities : cities.filter((c) => c === city)).filter(
+    (c) => dealersFor(c).length > 0
+  );
+  const totalDealers = cities.reduce((n, c) => n + dealersFor(c).length, 0);
 
   const chipStyle = (active: boolean): CSSProperties =>
     active
@@ -76,7 +88,7 @@ export default function DealerPickerModal({
       aria-label="Bayi Bul"
     >
       <div
-        className="w-full sm:max-w-2xl max-h-[90vh] sm:max-h-[85vh] rounded-t-3xl sm:rounded-3xl flex flex-col overflow-hidden"
+        className="w-full sm:max-w-2xl h-[85vh] sm:h-[640px] sm:max-h-[90vh] rounded-t-3xl sm:rounded-3xl flex flex-col overflow-hidden"
         style={{ background: bg, border: `1px solid ${border}`, boxShadow: "0 24px 70px rgba(0,0,0,0.45)" }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -98,9 +110,38 @@ export default function DealerPickerModal({
           </button>
         </div>
 
+        {/* Arama (şehir veya firma) */}
+        {cities.length > 0 && (
+          <div className="px-5 sm:px-6 pt-4 flex-shrink-0">
+            <div className="flex items-center gap-2 rounded-xl px-3 py-2.5" style={{ background: cardBg, border: `1px solid ${border}` }}>
+              <RiSearchLine size={16} style={{ color: textMuted, flexShrink: 0 }} />
+              <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Şehir veya firma ara…"
+                aria-label="Şehir veya firma ara"
+                className="flex-1 min-w-0 bg-transparent outline-none text-sm"
+                style={{ color: textPrimary }}
+              />
+              {query && (
+                <button
+                  type="button"
+                  onClick={() => setQuery("")}
+                  aria-label="Aramayı temizle"
+                  className="flex-shrink-0 transition-opacity hover:opacity-70"
+                  style={{ color: textMuted }}
+                >
+                  <RiCloseLine size={16} />
+                </button>
+              )}
+            </div>
+          </div>
+        )}
+
         {/* Şehir seçimi */}
         {cities.length > 0 && (
-          <div className="px-5 sm:px-6 pt-4 pb-1 flex flex-wrap gap-2 flex-shrink-0">
+          <div className="px-5 sm:px-6 pt-3 pb-1 flex flex-wrap gap-2 flex-shrink-0">
             <button onClick={() => setCity("all")} className="text-xs font-semibold px-3 py-1.5 rounded-full transition-all" style={chipStyle(city === "all")}>
               Tümü ({totalDealers})
             </button>
@@ -113,16 +154,16 @@ export default function DealerPickerModal({
         )}
 
         {/* Bayi listesi */}
-        <div className="flex-1 overflow-y-auto px-5 sm:px-6 py-4 space-y-5">
+        <div className="flex-1 min-h-0 overflow-y-auto px-5 sm:px-6 py-4 space-y-5">
           {loading && <p className="text-sm text-center py-10" style={{ color: textMuted }}>Yükleniyor…</p>}
-          {!loading && cities.length === 0 && <p className="text-sm text-center py-10" style={{ color: textMuted }}>Bayi bulunamadı.</p>}
+          {!loading && visibleCities.length === 0 && <p className="text-sm text-center py-10" style={{ color: textMuted }}>{q ? "Aramanıza uygun bayi bulunamadı." : "Bayi bulunamadı."}</p>}
           {!loading && visibleCities.map((c) => (
             <div key={c}>
               <p className="text-[11px] font-bold uppercase tracking-wider mb-2.5 flex items-center gap-1.5" style={{ color: d ? "#93C5FD" : BLUE }}>
-                <RiMapPin2Line size={13} /> {cityLabel(c)} <span style={{ color: textMuted }}>· {data[c].dealers.length}</span>
+                <RiMapPin2Line size={13} /> {cityLabel(c)} <span style={{ color: textMuted }}>· {dealersFor(c).length}</span>
               </p>
               <div className="space-y-2.5">
-                {data[c].dealers.map((dl, i) => (
+                {dealersFor(c).map((dl, i) => (
                   <div key={i} className="rounded-2xl p-3.5 sm:p-4" style={{ background: cardBg, border: `1px solid ${border}` }}>
                     <p className="text-sm font-bold leading-snug" style={{ color: textPrimary }}>{dl.name}</p>
                     {dl.address && <p className="text-xs mt-1 leading-snug" style={{ color: textMuted }}>{dl.address}</p>}
