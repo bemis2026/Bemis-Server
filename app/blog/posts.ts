@@ -194,6 +194,102 @@ export const BLOG_POSTS: BlogPost[] = [
       { label: "AC Wallbox", href: "/products/wallbox" },
       { label: "Taşınabilir Şarj Cihazları", href: "/products/portable" },
       { label: "AC Şarj Kabloları", href: "/products/cables" },
+      { label: "Yerli Üretici", href: "/uretici" },
+    ],
+  },
+
+  {
+    slug: "togg-v2l-aractan-elektrik",
+    title: "Togg ile V2L: Araçtan Elektrik (Araç-Dışı Güç) Kullanımı",
+    description:
+      "Togg V2L (araçtan elektrik) özelliği nedir, nasıl kullanılır, hangi adaptör gerekir? Togg'unuzu kamp, saha ve acil durumda seyyar güç kaynağına çeviren V2L rehberi.",
+    excerpt:
+      "Togg'un V2L özelliğiyle aracınızı taşınabilir bir prize çevirin: nasıl çalışır, ne için kullanılır ve hangi V2L adaptörü gerekir?",
+    category: "Rehber",
+    datePublished: "2026-06-06",
+    readingMinutes: 5,
+    keywords: ["togg v2l", "togg araçtan elektrik", "v2l adaptör", "togg şarj"],
+    body: [
+      { type: "p", text: "Yerli otomobil Togg, elektrikli araçların en kullanışlı özelliklerinden biri olan V2L'yi (Vehicle-to-Load / araçtan elektrik) destekler. Bu sayede Togg'unuzun bataryasını dışarıdan elektrikli cihazları beslemek için kullanabilirsiniz. Bu rehber, V2L'nin Togg'da nasıl çalıştığını ve doğru adaptörü nasıl seçeceğinizi anlatıyor." },
+
+      { type: "h2", text: "V2L (araçtan elektrik) nedir?" },
+      { type: "p", text: "V2L, aracın sürüş bataryasındaki enerjiyi 230V şebeke gerilimine çevirip dış cihazlara aktarmasıdır. Araç bir tüketici olmaktan çıkar, taşınabilir bir güç istasyonuna dönüşür. Togg ile kamp, saha ve kısa elektrik kesintilerinde cihazlarınızı çalıştırabilirsiniz." },
+
+      { type: "h2", text: "Togg'da V2L nasıl kullanılır?" },
+      { type: "p", text: "Aracın şarj soketine (Type 2) takılan bir V2L adaptörü, çıkışı standart topraklı prize (Schuko) çevirir; cihazınızı doğrudan bu prize takarsınız. Adaptör sayesinde ekstra kurulum gerekmez — bagajda taşıyıp her yerde elektrik alırsınız. (Aracınızın V2L gücünü ve önerilen kullanım sınırlarını kullanım kılavuzundan teyit edin.)" },
+      { type: "ul", items: [
+        "Kamp & karavan: buzdolabı, aydınlatma, telefon/laptop şarjı.",
+        "Saha & şantiye: matkap, taşlama gibi elektrikli el aletleri.",
+        "Acil durum: kısa kesintilerde buzdolabı ve modem gibi kritik cihazlar.",
+        "Etkinlik & piknik: ses sistemi, ızgara, küçük cihazlar.",
+      ]},
+
+      { type: "quote", text: "İpucu: Bağladığınız cihazların toplam gücü aracın V2L limitinin altında kalsın; adaptörü kuru tutun ve sertifikalı ürün kullanın." },
+
+      { type: "cta", text: "Togg ve diğer V2L destekli araçlar için uygun adaptörü inceleyin — Bemis yerli üretim.", href: "/products/v2l-c2l", label: "V2L / C2L Adaptörleri Gör" },
+    ],
+    faq: [
+      { q: "Togg V2L'yi destekliyor mu?", a: "Evet, Togg araçtan elektrik (V2L) özelliğini destekler. Şarj soketine takılan bir V2L adaptörü ile dış cihazlarınızı besleyebilirsiniz." },
+      { q: "Togg V2L için hangi adaptör gerekir?", a: "Aracın Type 2 şarj soketine uygun bir V2L/C2L adaptörü gerekir; bu adaptör çıkışı standart topraklı prize (Schuko) çevirir." },
+      { q: "V2L ile neleri çalıştırabilirim?", a: "Toplam gücü araç limitinin altında kalmak şartıyla buzdolabı, aydınlatma, küçük elektrikli aletler, ses sistemi ve şarj cihazları gibi cihazları çalıştırabilirsiniz." },
+    ],
+    related: [
+      { label: "V2L / C2L Adaptörler", href: "/products/v2l-c2l" },
+      { label: "Ioniq 5 V2L Rehberi", href: "/blog/ioniq-5-v2l-nasil-kullanilir" },
+      { label: "Yerli Üretici", href: "/uretici" },
+    ],
+  },
+
+  {
+    slug: "ev-sarj-kablosu-secimi-type-2",
+    title: "Elektrikli Araç Şarj Kablosu Nasıl Seçilir? (Type 2 Rehberi)",
+    description:
+      "Type 2 elektrikli araç şarj kablosu seçerken amper (16A/32A), güç (7,4–22 kW), kablo uzunluğu ve kaliteye nasıl bakılır? Yerli üretim şarj kablosu seçim rehberi.",
+    excerpt:
+      "16A mı 32A mı? Kaç metre? Type 2 şarj kablosu seçerken bakılacak amper, güç, uzunluk ve kalite kriterlerini sade anlatıyoruz.",
+    category: "Rehber",
+    datePublished: "2026-06-06",
+    readingMinutes: 5,
+    keywords: ["şarj kablosu", "type 2 şarj kablosu", "ev şarj kablosu seçimi", "elektrikli araç şarj kablosu"],
+    body: [
+      { type: "p", text: "Elektrikli araç şarj kablosu, aracınızı bir prize ya da istasyona bağlayan en temel ekipmandır. Doğru kablo hem hızlı hem güvenli şarj sağlar; yanlış seçim ise yavaş şarj veya ısınma riski demektir. İşte Type 2 şarj kablosu seçerken bakılacak başlıklar." },
+
+      { type: "h2", text: "Type 2 nedir?" },
+      { type: "p", text: "Type 2 (IEC 62196), Avrupa ve Türkiye'de AC şarjın standart konektörüdür. Neredeyse tüm yeni elektrikli araçlar ve AC şarj istasyonları Type 2 kullanır. Mode 3 kablolar, araç ile istasyon arasında güvenli haberleşmeyi de sağlar." },
+
+      { type: "h2", text: "1) Amper ve güç: 16A mı, 32A mı?" },
+      { type: "ul", items: [
+        "16A: tek fazda ~3,7 kW, üç fazda ~11 kW.",
+        "32A: tek fazda ~7,4 kW, üç fazda ~22 kW.",
+        "Kablonuzun amperi, aracınızın ve istasyonun desteklediğinin altındaysa şarjı o sınırlar — en yüksek ortak değeri seçin.",
+      ]},
+
+      { type: "h2", text: "2) Tek faz mı, üç faz mı?" },
+      { type: "p", text: "Üç fazlı kablo (5 telli) daha yüksek güç taşır (11–22 kW); evinizde/istasyonda üç faz varsa ve aracınız destekliyorsa avantajlıdır. Tek fazlı tesisatta tek faz kablo yeterlidir." },
+
+      { type: "h2", text: "3) Uzunluk" },
+      { type: "p", text: "5 metre çoğu kullanım için idealdir; aracın park yeri ile soket arası mesafeye göre seçin. Çok uzun kablo taşımayı zorlaştırır, çok kısa kablo esnekliği azaltır." },
+
+      { type: "h2", text: "4) Kalite ve güvenlik" },
+      { type: "ul", items: [
+        "Dayanıklı, esnek dış kılıf ve sağlam konektör (sık tak-çıkar için).",
+        "Doğru sıcaklık ve aşırı akım dayanımı; IEC 62196 / IEC 61851 uyumu.",
+        "Yerli ve ulaşılabilir üreticiden alın — garanti ve değişim kolay olsun.",
+      ]},
+
+      { type: "quote", text: "Bemis, Type 2 şarj kablolarını kendi tesisinde üreten yerli bir şarj kablo üreticisidir — kalite ve tedarik güvencesiyle." },
+
+      { type: "cta", text: "Aracınıza uygun Type 2 şarj kablosunu seçin — Bemis yerli üretim.", href: "/products/cables", label: "Şarj Kablolarını Gör" },
+    ],
+    faq: [
+      { q: "16A mı 32A şarj kablosu mu almalıyım?", a: "Aracınızın ve istasyonun desteklediği en yüksek ortak değeri seçin. 32A kablo tek fazda 7,4 kW, üç fazda 22 kW'a kadar taşır; 16A ise 3,7/11 kW ile sınırlıdır." },
+      { q: "Şarj kablosu kaç metre olmalı?", a: "5 metre çoğu kullanım için idealdir. Aracın park konumu ile prize/istasyona olan mesafeye göre seçin." },
+      { q: "Type 2 kablo her araçla uyumlu mu?", a: "Avrupa ve Türkiye'de satılan yeni elektrikli araçların neredeyse tamamı AC şarjda Type 2 kullanır; aracınızın soket tipini teyit etmeniz yeterlidir." },
+    ],
+    related: [
+      { label: "AC Şarj Kabloları (Type 2)", href: "/products/cables" },
+      { label: "AC Wallbox", href: "/products/wallbox" },
+      { label: "Yerli Üretici", href: "/uretici" },
     ],
   },
 ];
