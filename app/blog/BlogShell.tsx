@@ -9,9 +9,17 @@ import Navbar from "../components/Navbar";
 import ContactBar from "../components/ContactBar";
 import SearchOverlay from "../components/SearchOverlay";
 import { HiArrowLeft, HiArrowRight, HiClock, HiCalendar } from "react-icons/hi";
+import { RiExternalLinkLine } from "react-icons/ri";
 import type { BlogPost, BlogSection } from "./posts";
+import { allPress, type PressItem } from "./press";
 
 const BLUE = "#3B82F6";
+
+const PRESS_META: Record<PressItem["type"], { label: string; color: string }> = {
+  news:   { label: "Haber",  color: "#3B82F6" },
+  fair:   { label: "Fuar",   color: "#F59E0B" },
+  social: { label: "Sosyal", color: "#E1306C" },
+};
 
 export default function BlogShell({ post, posts }: { post?: BlogPost; posts?: BlogPost[] }) {
   const { theme } = useTheme();
@@ -49,6 +57,7 @@ export default function BlogShell({ post, posts }: { post?: BlogPost; posts?: Bl
 function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fmtDate }: {
   posts: BlogPost[]; surface: string; border: string; textPrimary: string; textMuted: string; textFaint: string; fmtDate: (s: string) => string;
 }) {
+  const press = allPress();
   return (
     <div className="pt-28 pb-20 px-5 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
@@ -77,6 +86,46 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
             </motion.div>
           ))}
         </div>
+
+        {/* Haberler & Fuarlar — Bemis E-V Charge ile ilgili GERÇEK dış basın
+            ve fuar linkleri. Harici kaynaklara yeni sekmede açılır. */}
+        {press.length > 0 && (
+          <div className="mt-14 pt-10" style={{ borderTop: `1px solid ${border}` }}>
+            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: BLUE }}>Basında Biz</p>
+            <h2 className="text-2xl sm:text-3xl font-black mb-3" style={{ color: textPrimary }}>Haberler &amp; Fuarlar</h2>
+            <p className="text-sm mb-6 max-w-2xl" style={{ color: textMuted }}>
+              Bemis E-V Charge&apos;ın basında yer aldığı haberler ve katıldığı uluslararası fuarlar.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {press.map((it) => {
+                const meta = PRESS_META[it.type];
+                return (
+                  <a
+                    key={it.id}
+                    href={it.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group rounded-2xl p-5 flex flex-col h-full transition-transform hover:-translate-y-0.5"
+                    style={{ background: surface, border: `1px solid ${border}` }}
+                  >
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-md" style={{ background: `${meta.color}18`, color: meta.color, border: `1px solid ${meta.color}30` }}>
+                        {meta.label}
+                      </span>
+                      <span className="text-[11px] font-semibold" style={{ color: textMuted }}>{it.source}</span>
+                      {it.date && <span className="text-[11px] ml-auto" style={{ color: textFaint }}>{fmtDate(it.date)}</span>}
+                    </div>
+                    <h3 className="text-base font-bold leading-snug mb-2" style={{ color: textPrimary }}>{it.title}</h3>
+                    <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: textMuted }}>{it.summary}</p>
+                    <span className="text-[12px] font-semibold inline-flex items-center gap-1" style={{ color: BLUE }}>
+                      Haberi oku <RiExternalLinkLine size={13} className="transition-transform group-hover:translate-x-0.5" />
+                    </span>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

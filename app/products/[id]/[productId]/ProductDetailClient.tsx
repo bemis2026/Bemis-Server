@@ -22,7 +22,7 @@ import {
   RiFileTextLine, RiFilePdfLine, RiExternalLinkLine,
   RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
   RiShieldCheckLine, RiBarChart2Line, RiCalendarCheckLine, RiTeamLine,
-  RiLightbulbLine, RiAddLine, RiWhatsappLine, RiMapPin2Line,
+  RiLightbulbLine, RiAddLine, RiWhatsappLine, RiMapPin2Line, RiVerifiedBadgeFill,
 } from "react-icons/ri";
 import { featureById } from "../../../../lib/productFeatures";
 import { certificateById } from "../../../../lib/productCertificates";
@@ -578,15 +578,16 @@ export default function ProductDetailPage({
                         return (
                           <span
                             key={cid}
-                            title={c.fullLabel}
-                            className="inline-flex items-center rounded-md text-[11px] font-bold tracking-wider"
+                            title={`${c.fullLabel} — onaylı belge`}
+                            className="inline-flex items-center gap-1 rounded-md text-[11px] font-bold tracking-wider"
                             style={{
-                              padding: "5px 10px",
+                              padding: "5px 9px 5px 7px",
                               background: d ? "#141416" : "#ffffff",
                               border: `1px solid ${d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`,
                               color: d ? "rgba(255,255,255,0.85)" : "#1a1a2e",
                             }}
                           >
+                            <RiVerifiedBadgeFill size={13} style={{ color: d ? "#4ade80" : "#16a34a", flexShrink: 0 }} aria-hidden />
                             {c.label}
                           </span>
                         );

@@ -8,6 +8,7 @@ import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
 import { allPosts } from "../blog/posts";
+import { allPress } from "../blog/press";
 import E from "./E";
 
 // Stars fade + scale in one-by-one when the parent card enters the
@@ -64,7 +65,10 @@ export default function Reviews() {
 
   // Son blog yazıları — bölümün altına kompakt şerit olarak eklenir.
   // Açık-gri tonla uyumlu kartlar; "Kullanıcı Yorumları + Blog" birleşimi.
-  const latestPosts = allPosts().slice(0, 3);
+  // Anasayfa şeridi: alanı BÜYÜTMEDEN (yine 3 kart) blog + haber karışımı —
+  // 2 son rehber + 1 son haber/fuar. Tam liste /blog'da.
+  const latestPosts = allPosts().slice(0, 2);
+  const latestNews = allPress().filter((p) => p.type !== "social").slice(0, 1);
   const blogSurface = d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.03)";
 
   const sectionBgUrl = sectionBgs?.["reviews"] ?? "";
@@ -484,7 +488,7 @@ export default function Reviews() {
 
         {/* Blog / Rehberler şeridi — son yazılar. Bölümü şişirmeden kompakt;
             açık-gri tonla uyumlu yüzey, "Yorumlar + Blog" birleşimini tamamlar. */}
-        {latestPosts.length > 0 && (
+        {(latestPosts.length > 0 || latestNews.length > 0) && (
           <motion.div
             initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.4 }}
             className="mt-5 pt-5"
@@ -492,13 +496,38 @@ export default function Reviews() {
           >
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-sm font-bold" style={{ color: textPrimary }}>
-                {lang === "en" ? "Latest Guides & Blog" : "Son Rehberler & Blog"}
+                {lang === "en" ? "Guides & News" : "Rehberler & Haberler"}
               </h3>
               <a href="/blog" className="text-xs font-semibold inline-flex items-center gap-1 transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>
                 {lang === "en" ? "All posts" : "Tüm yazılar"} →
               </a>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {/* Haber/Fuar kartı (harici) — yeni içerik öne çıksın diye ilk sırada */}
+              {latestNews.map((n) => (
+                <a
+                  key={n.id}
+                  href={n.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-xl p-3.5 flex flex-col transition-all duration-200 hover:-translate-y-0.5"
+                  style={{ background: blogSurface, border: `1px solid ${border}` }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "#F59E0B66"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = border; }}
+                >
+                  <span className="self-start text-[10px] font-bold px-2 py-0.5 rounded-md mb-2"
+                    style={{ background: "#F59E0B1f", color: "#F59E0B", border: "1px solid #F59E0B45" }}>
+                    {n.type === "fair" ? (lang === "en" ? "Fair" : "Fuar") : (lang === "en" ? "News" : "Haber")} · {n.source}
+                  </span>
+                  <p className="text-sm font-semibold leading-snug mb-2 flex-1"
+                    style={{ color: textPrimary, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+                    {n.title}
+                  </p>
+                  <span className="text-[11px] font-semibold inline-flex items-center gap-1" style={{ color: "#F59E0B" }}>
+                    {lang === "en" ? "Read" : "Oku"} <RiExternalLinkLine size={11} />
+                  </span>
+                </a>
+              ))}
               {latestPosts.map((p) => (
                 <a
                   key={p.slug}
