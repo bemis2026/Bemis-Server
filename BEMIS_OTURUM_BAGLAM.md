@@ -69,6 +69,23 @@
    TÜM section h2 eşit, 36px@base). **DNA** + **SmartCharger** başlıklarındaki mavi vurgu satırı eyebrow tonuna (`d ? #93C5FD : #3B82F6`). **DealerNetwork**
    eyebrow chip bg/border dark/light varyantlı. 5 dosya/12 satır. Hem dark hem light canlı doğrulandı (tüm eyebrow tek renk, tüm h2 tek boyut).
    Kasıtlı istisna (bölüm başlığı DEĞİL): Hero "AC Şarj · 11 kW" ürün-spec rozeti (#3B82F6); ProductShowcase görsel üstündeki koyu cam karttaki etiket (#93C5FD).
+   **+ (2026-06-08 — ISR Writes limiti + döküman kapağı + odak noktası, CANLI · commit 6b7eaa4/0eba64d/9e7e462):**
+   **(a) ⚠️ ISR Writes (200k/ay) doluyordu — Vercel uyarı maili (geçen ay da olmuştu).** KÖK NEDEN: ürün kategori
+   (`products/[id]`) + detay (`products/[id]/[productId]`) sayfaları `dynamicParams=true` + ISR (`revalidate=3600`) idi;
+   bot/tarayıcı taramaları geçersiz `/products/<rastgele>` ve `/products/<x>/<y>` yollarını 200 sayfa render edip ISR
+   cache'e YAZIYORDU → her benzersiz yol = 1 yazma, iki segment = sınırsız kombinasyon → 200k doldu. `revalidate=3600`
+   bunu ÇÖZMEZ (her YENİ yol yine yazar). ÇÖZÜM: her iki sayfaya **`export const dynamic="force-dynamic"`** (SSR; ISR'a
+   HİÇ yazmaz) + `generateStaticParams`/`revalidate`/`dynamicParams` KALDIRILDI. Canlı doğrulandı: `x-vercel-cache: MISS`
+   + `cache-control: private,no-store` (eskiden STALE+Age). **⚠️ BU İKİ SAYFAYI TEKRAR ISR/revalidate'E ÇEVİRME — bot
+   amplifikasyonu geri döner.** (Görünür içerik zaten client `/api/products`'tan taze; `getServerProducts` Blob hatasında
+   `data/products.json` fallback'i var. Tamamlayıcı öneri: Vercel Firewall bot koruması.) ISR Writes AYLIK sıfırlanır.
+   **(b) Döküman KAPAK görseli `/documents`'ta çıkmıyordu:** public `/api/documents` `revalidate=3600` cache'li ama admin
+   döküman kaydı (`app/api/admin/documents` POST) `revalidatePath` ÇAĞIRMIYORDU (diğer tüm admin route'ları çağırıyor —
+   unutulmuş). Kapak Blob'a (`coverUrl`, ImgBB) kaydoluyor ama public 1 saate kadar bayat liste serviste. FIX:
+   `revalidatePath("/api/documents")+("/documents")` eklendi. Deploy sonrası 12 dökümandan 9'unun kapağı canlıda göründü.
+   **(c) Referans Projeler — görsel ODAK NOKTASI (focal point):** adminde tıkla-odakla önizleme (public kartla aynı
+   ≈3:2 + object-cover + başlık gradyanı), `imagePos` alanı (ContentContext `ReferenceProject` + admin tip), public kart
+   `objectPosition=item.imagePos||"center"` → `object-cover` kırparken cihaz yarıda kalmaz. ProductShowcase deseniyle aynı.
    **Kilit SEO dosyaları:** `app/blog/*`, `app/uretici/*`, `app/lib/seo.ts` (articleSchema/faqSchema/
    blogListingSchema), `app/sitemap.ts`, `Footer.tsx`, `ProductDetailClient.tsx`, `ProductCategoryClient.tsx`.
    **GBP gerçeği:** Bemis Teknik kartı VAR; aynı adreste AYRI "Bemis E-V Charge" kartı Google yinelenen
