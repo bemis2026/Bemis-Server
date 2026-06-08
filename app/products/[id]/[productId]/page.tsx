@@ -7,10 +7,15 @@ import ProductDetailClient from "./ProductDetailClient";
 
 type DetailProps = ComponentProps<typeof ProductDetailClient>;
 
-// 1 saat — ürün detayı 113 SSG path + bot trafiği ile çok yoğun.
-// Admin save revalidatePath ile anlık temizleme yapıyor.
-export const revalidate = 3600;
-export const dynamicParams = true;
+// DİNAMİK (SSR) — ISR DEĞİL.
+// Neden: dynamicParams=true + ISR iken bot/tarayıcı taramaları geçersiz
+// /products/<rastgele>/<rastgele> yollarını 200 sayfa olarak render edip ISR
+// cache'e YAZIYORDU (iki segment = sınırsız kombinasyon). Her benzersiz yol =
+// 1 ISR yazma → Vercel "ISR Writes" limiti (200k/ay) doluyor, proje
+// duraklatılma riskine giriyordu. force-dynamic ile sayfa her istekte sunucuda
+// render edilir, ISR'a HİÇ yazılmaz; içerik her zaman GÜNCEL; yeni ürünler
+// redeploy beklemeden çalışır. (Görünür içerik zaten client-side taze geliyor.)
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
@@ -54,17 +59,6 @@ export async function generateMetadata({
       ...(image && { images: [image] }),
     },
   };
-}
-
-export async function generateStaticParams() {
-  const categories = await getServerProducts();
-  const out: { id: string; productId: string }[] = [];
-  for (const cat of categories) {
-    for (const p of (cat.products ?? [])) {
-      out.push({ id: cat.id, productId: p.id });
-    }
-  }
-  return out;
 }
 
 export default async function ProductDetailPage({
