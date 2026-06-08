@@ -72,6 +72,7 @@ export type ReferenceProject = {
   title?: string;
   location?: string;
   description?: string;
+  imagePos?: string; // object-position "x% y%" — adminde tıkla-odakla; public kartta object-cover odak noktası (cihaz yarıda kalmasın)
 };
 
 

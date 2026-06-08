@@ -188,7 +188,7 @@ type ContentData = {
   featuredSection?: { sectionLabel: string; heading: string; subheading: string; ctaLabel: string };
   referenceProjectsSection?: {
     sectionLabel: string; heading: string; subheading: string;
-    items: { id: string; image: string; title?: string; location?: string; description?: string }[];
+    items: { id: string; image: string; title?: string; location?: string; description?: string; imagePos?: string }[];
   };
   calculator?: { sectionLabel: string; heading: string; subheading: string; tabCharge: string; tabSavings: string; chargeSimLabel: string };
   smartCharger?: { sectionLabel: string; heading: string; subheading: string; ocppBadge: string; ctaLabel: string; ctaHref: string; appStoreHref: string; playStoreHref: string; features: { title: string; desc: string }[]; mockupPhoneImage?: string; mockupWebImage?: string };
@@ -3845,6 +3845,66 @@ export default function AdminPage() {
                                 {item.image && (
                                   <p className="text-[10px] text-white/30 mt-1 truncate font-mono" title={item.image}>{item.image}</p>
                                 )}
+                                {/* Odak noktası — kart önizleme. Public kartla AYNI oran (≈3:2)
+                                    + object-cover + başlık gradyanı (WYSIWYG). Görseldeki bir
+                                    noktaya tıkla → o nokta kartta merkezlenir, cihaz yarıda
+                                    kalmaz. Crosshair seçili odağı gösterir; "Ortala" sıfırlar. */}
+                                {item.image && (() => {
+                                  const posStr = item.imagePos || "50% 50%";
+                                  const [px, py] = posStr.split(" ").map((s) => parseFloat(s) || 50);
+                                  const onFocusClick = (e: React.MouseEvent<HTMLDivElement>) => {
+                                    const rect = e.currentTarget.getBoundingClientRect();
+                                    const x = Math.round(((e.clientX - rect.left) / rect.width) * 100);
+                                    const y = Math.round(((e.clientY - rect.top) / rect.height) * 100);
+                                    updateItem(idx, "imagePos", `${Math.max(0, Math.min(100, x))}% ${Math.max(0, Math.min(100, y))}%`);
+                                  };
+                                  return (
+                                    <div className="mt-3">
+                                      <div className="flex items-center justify-between mb-1.5">
+                                        <p className="text-[10px] font-bold text-white/40 uppercase tracking-wider">Odak Noktası — Kart Önizleme</p>
+                                        {posStr !== "50% 50%" && (
+                                          <button
+                                            type="button"
+                                            onClick={() => updateItem(idx, "imagePos", "50% 50%")}
+                                            className="text-[10px] text-white/40 hover:text-white/75 transition-colors"
+                                          >
+                                            Ortala ↺
+                                          </button>
+                                        )}
+                                      </div>
+                                      <p className="text-[10px] text-white/30 mb-2">Cihaz yarıda kalıyorsa, görselde görünmesini istediğin noktaya tıkla — kart o noktaya odaklanır.</p>
+                                      <div
+                                        className="relative rounded-xl overflow-hidden border cursor-crosshair mx-auto select-none"
+                                        style={{ aspectRatio: "380 / 260", maxWidth: 320, borderColor: "rgba(255,255,255,0.12)" }}
+                                        onClick={onFocusClick}
+                                        title="Odak noktası seçmek için tıkla"
+                                      >
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img
+                                          src={item.image}
+                                          alt={`Proje ${idx + 1} odak önizleme`}
+                                          className="absolute inset-0 w-full h-full object-cover"
+                                          style={{ objectPosition: posStr }}
+                                          draggable={false}
+                                        />
+                                        {/* Public karttaki başlık gradyanı — gerçek sonuç görünür */}
+                                        {(item.title || item.location) && (
+                                          <div
+                                            className="absolute inset-x-0 bottom-0 px-3 pt-8 pb-2 pointer-events-none"
+                                            style={{ background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 60%, transparent 100%)" }}
+                                          >
+                                            {item.title && <p className="text-xs font-bold text-white leading-tight">{item.title}</p>}
+                                            {item.location && <p className="text-[10px] text-white/80 leading-tight">{item.location}</p>}
+                                          </div>
+                                        )}
+                                        {/* Odak crosshair */}
+                                        <div className="absolute pointer-events-none" style={{ left: `${px}%`, top: `${py}%`, transform: "translate(-50%, -50%)" }}>
+                                          <div className="w-4 h-4 rounded-full border-2 border-white" style={{ boxShadow: "0 0 0 2px #3B82F6, 0 0 10px rgba(0,0,0,0.65)" }} />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  );
+                                })()}
                               </div>
                             </div>
                           ))}
