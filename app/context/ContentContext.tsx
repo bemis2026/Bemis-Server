@@ -996,7 +996,11 @@ export function ContentProvider({ children, initialContent }: { children: ReactN
   useEffect(() => {
     const controller = new AbortController();
     setContentLoading(true);
-    fetch(`/api/content?lang=${lang}`, { signal: controller.signal })
+    // cache:"no-store" → statik anasayfa SSR'ı bayat olsa bile (admin save sonrası
+    // Blob read-after-write gecikmesiyle revalidatePath eski veriyi pişirebiliyor),
+    // client her zaman TAZE içeriği çeker ve ekranı günceller. Tarayıcı/proxy bayat
+    // /api/content servis edemez → imagePos vb. admin değişiklikleri anında görünür.
+    fetch(`/api/content?lang=${lang}`, { signal: controller.signal, cache: "no-store" })
       .then(r => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         return r.json();
