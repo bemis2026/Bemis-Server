@@ -86,6 +86,16 @@
    **(c) Referans Projeler — görsel ODAK NOKTASI (focal point):** adminde tıkla-odakla önizleme (public kartla aynı
    ≈3:2 + object-cover + başlık gradyanı), `imagePos` alanı (ContentContext `ReferenceProject` + admin tip), public kart
    `objectPosition=item.imagePos||"center"` → `object-cover` kırparken cihaz yarıda kalmaz. ProductShowcase deseniyle aynı.
+   **+ (2026-06-08 — anasayfa içerik TAZELİĞİ / staleness, CANLI · commit 90b52c0):** Adminden Referans Projeler `imagePos`
+   (odak noktası) değiştirildi ama canlıda görünmüyordu. KÖK NEDEN: anasayfa **STATİK** (`○`); `app/layout.tsx` (server)
+   içeriği build/revalidate anında okuyup `ContentProvider`'a `initialContent` veriyor. Admin save'in `revalidatePath("/")`'i
+   Vercel Blob **read-after-write gecikmesiyle** write propagasyonundan ÖNCE okuyup BAYAT SSR pişirebiliyor → imagePos
+   "center"da takılı kaldı. **⚠️ Anasayfa `app/page.tsx` `"use client"` olduğu için tek başına `force-dynamic` YAPILAMAZ**
+   (route segment config server bileşende olmalı; `layout.tsx`'e koymak TÜM siteyi dinamik yapar). ÇÖZÜM: `ContentProvider`
+   client refetch'ine (`ContentContext.tsx` ~1000) **`cache:"no-store"`** → statik SSR bayat olsa bile tarayıcı TAZE
+   `/api/content`'i çekip ekranı günceller. Deploy ayrıca statik anasayfayı taze Blob ile yeniden pişirdi (canlı SSR'da artık
+   `54% 34%` / `49% 27%` var, doğrulandı). **GENEL DERS:** admin içerik değişikliği statik anasayfada görünmüyorsa → bu
+   Blob gecikmesidir; `no-store` client refetch maskeler + yeni deploy SSR'ı tazeler. (`/api/content` zaten dinamik + MISS.)
    **Kilit SEO dosyaları:** `app/blog/*`, `app/uretici/*`, `app/lib/seo.ts` (articleSchema/faqSchema/
    blogListingSchema), `app/sitemap.ts`, `Footer.tsx`, `ProductDetailClient.tsx`, `ProductCategoryClient.tsx`.
    **GBP gerçeği:** Bemis Teknik kartı VAR; aynı adreste AYRI "Bemis E-V Charge" kartı Google yinelenen
