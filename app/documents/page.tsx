@@ -314,11 +314,11 @@ function DocGrid({ docs, lang, d, surface, border, textPrimary, textMuted, textF
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, delay: i * 0.05 }}
             className="rounded-2xl overflow-hidden flex flex-col"
-            style={{ background: surface, border: `1px solid ${border}` }}
+            style={{ background: surface }}
           >
-            {/* Cover image (if any) — ÇERÇEVE YOK: PNG doğrudan kartın yüzeyinde
-                (şeffaf zemin) gösterilir, ürün kartlarındaki gibi. object-contain
-                + padding ile görsel tam ve "yüzer" görünür, kutu/gradyan kullanılmaz. */}
+            {/* Cover image (if any) — ÇERÇEVESİZ + BÜYÜK: kart kenarlığı YOK,
+                görsel padding YOK → tüm alanı kaplar. Şeffaf zemin + object-contain
+                → PNG tam genişlikte, kutu/çerçeve olmadan gösterilir. */}
             {doc.coverUrl && (
               <div
                 className="relative w-full aspect-[3/4] overflow-hidden flex items-center justify-center"
@@ -328,7 +328,7 @@ function DocGrid({ docs, lang, d, surface, border, textPrimary, textMuted, textF
                 <img
                   src={doc.coverUrl}
                   alt={doc.title}
-                  className="w-full h-full object-contain p-3"
+                  className="w-full h-full object-contain"
                   loading="lazy"
                   decoding="async"
                 />
