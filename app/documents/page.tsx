@@ -316,21 +316,19 @@ function DocGrid({ docs, lang, d, surface, border, textPrimary, textMuted, textF
             className="rounded-2xl overflow-hidden flex flex-col"
             style={{ background: surface, border: `1px solid ${border}` }}
           >
-            {/* Cover image (if any) — portrait 3:4 frame, full image visible (object-contain) */}
+            {/* Cover image (if any) — ÇERÇEVE YOK: PNG doğrudan kartın yüzeyinde
+                (şeffaf zemin) gösterilir, ürün kartlarındaki gibi. object-contain
+                + padding ile görsel tam ve "yüzer" görünür, kutu/gradyan kullanılmaz. */}
             {doc.coverUrl && (
               <div
                 className="relative w-full aspect-[3/4] overflow-hidden flex items-center justify-center"
-                style={{
-                  background: d
-                    ? "linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(0,0,0,0.25) 100%)"
-                    : "linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.10) 100%)",
-                }}
+                style={{ background: "transparent" }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={doc.coverUrl}
                   alt={doc.title}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain p-3"
                   loading="lazy"
                   decoding="async"
                 />

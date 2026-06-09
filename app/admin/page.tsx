@@ -6749,7 +6749,7 @@ export default function AdminPage() {
                       <iframe ref={iframeRef} key={`desktop-${previewKey}-${tab}`} src={previewSrc} title="Masaüstü Önizleme"
                         onLoad={handleIframeLoad}
                         style={{ position: "absolute", top: 0, left: 0, width: 1024, height: 768, border: "none",
-                          transformOrigin: "top left", transform: "scale(0.426)", pointerEvents: "none" }} />
+                          transformOrigin: "top left", transform: "scale(0.426)", pointerEvents: "auto" }} />
                     </div>
                   </div>
                 ) : (
@@ -6787,7 +6787,7 @@ export default function AdminPage() {
                                 border: "none",
                                 transformOrigin: "top left",
                                 transform: `scale(${SCALE})`,
-                                pointerEvents: "none",
+                                pointerEvents: "auto",
                               }}
                             />
                           </div>

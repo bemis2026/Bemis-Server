@@ -473,7 +473,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                                     src={cat.image}
                                     alt=""
                                     className="w-14 h-11 rounded-lg object-contain flex-shrink-0 p-1"
-                                    style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`, background: "#f3f4f6" }}
+                                    style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`, background: isDark ? "rgba(255,255,255,0.06)" : "#f3f4f6" }}
                                     loading="lazy"
                                   />
                                 ) : (
