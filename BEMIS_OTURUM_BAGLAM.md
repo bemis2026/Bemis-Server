@@ -144,6 +144,16 @@
    whileInView görünmezlik/paylaşılan accentLine/TS/perf HEPSİ temiz; tek minör fix = eyebrow nabız span'ına `aria-hidden`
    (eklendi). Build ○ static; canlı doğrulandı. Değişen: `Navbar.tsx`, `kurumsal/page.tsx`, `uretici/UreticiClient.tsx`.
    ⚠️ /uretici artık TEK animasyon deseni kullanıyor (whileInView); değiştirirken useInView ile KARIŞTIRMA.
+   **+ (2026-06-13 son — Footer ölü link temizliği, CANLI):** Kullanıcı: footer'da basınca en üste (hero'ya) atan
+   ölü kelimeler. KÖK NEDEN: `#contact` (Contact.tsx) ve `#technology` (Technology.tsx) bileşenleri VAR ama anasayfada
+   RENDER EDİLMİYOR (`SECTION_COMPONENTS` map'inde yok) → o hash linkleri hedefsiz, alt sayfadan tıklayınca home'a gidip
+   hero'da kalıyordu. FIX (`Footer.tsx` NAV_GROUPS tr+en + alt bar): Şirket → Teknoloji/Kalite&Belgeler(#technology)/Kariyer
+   kaldırıldı, "Bemis Dünyası→/kurumsal" eklendi (5 dolu link). Destek → İletişim/Teknik Destek/Garanti/KVKK (#contact)
+   kaldırıldı; Dökümanlar, Kalite&Belgeler→**/documents**, SSS→**/blog#sss**, Rehberler→**/blog#rehberler**,
+   Hesaplayıcı→#calculator (5 dolu). Alt bar → ölü "Gizlilik Politikası"+"GDPR/KVKK" (onClick yok) butonları kaldırıldı;
+   telefon+e-posta+OEM/B2B kaldı. ⚠️ Gerçek hedefi olmayan link EKLEME: anasayfada render edilen section id'leri =
+   #dna/#stats/#products/#dealer/#calculator/#dealer-export/#hero; #contact + #technology YOK. KVKK/İletişim sayfası yok
+   (gerekirse ileride eklenebilir; iletişim şu an footer alt barda tel+mail). Değişen: `Footer.tsx`.
 
 1. **[KULLANICI] Admin kayıt testi** — Vercel'den `ADMIN_PASSWORD` ayarla → `/admin` giriş →
    bir ürünü değiştir → Kaydet → yenile → durdu mu? **Blob'a yazmanın uygulama üzerinden son

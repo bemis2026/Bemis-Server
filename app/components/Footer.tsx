@@ -22,13 +22,11 @@ const NAV_GROUPS = {
       { label: "DC Şarj Üniteleri → Yakında",  href: "#products",            scroll: true  },
     ]},
     { title: "Şirket", links: [
-      { label: "Hakkımızda",        href: "#dna",        scroll: true },
-      { label: "Yerli Üretim",      href: "/uretici",    scroll: false },
-      { label: "Blog",              href: "/blog",       scroll: false },
-      { label: "Teknoloji",         href: "#technology", scroll: true },
-      { label: "Kalite & Belgeler", href: "#technology", scroll: true },
-      { label: "İstatistikler",     href: "#stats",      scroll: true },
-      { label: "Kariyer",           href: "#contact",    scroll: true },
+      { label: "Hakkımızda",      href: "#dna",      scroll: true  },
+      { label: "Bemis Dünyası",   href: "/kurumsal", scroll: false },
+      { label: "Yerli Üretim",    href: "/uretici",  scroll: false },
+      { label: "Blog & Haberler", href: "/blog",     scroll: false },
+      { label: "İstatistikler",   href: "#stats",    scroll: true  },
     ]},
     { title: "İş Ortaklığı", links: [
       { label: "Bayi Bul",             href: "#dealer",   scroll: true  },
@@ -38,11 +36,11 @@ const NAV_GROUPS = {
       { label: "İhracat / Export",     href: "#dealer-export", scroll: true  },
     ]},
     { title: "Destek", links: [
-      { label: "İletişim",      href: "#contact",   scroll: true  },
-      { label: "Teknik Destek", href: "#contact",   scroll: true  },
-      { label: "Dökümanlar",    href: "/documents", scroll: false },
-      { label: "Garanti",       href: "#contact",   scroll: true  },
-      { label: "KVKK",          href: "#contact",   scroll: true  },
+      { label: "Dökümanlar",            href: "/documents",      scroll: false },
+      { label: "Kalite & Belgeler",     href: "/documents",      scroll: false },
+      { label: "Sıkça Sorulan Sorular", href: "/blog#sss",       scroll: false },
+      { label: "Rehberler",             href: "/blog#rehberler", scroll: false },
+      { label: "Hesaplayıcı",           href: "#calculator",     scroll: true  },
     ]},
   ],
   en: [
@@ -56,13 +54,11 @@ const NAV_GROUPS = {
       { label: "DC Charging Units → Coming Soon", href: "#products",         scroll: true  },
     ]},
     { title: "Company", links: [
-      { label: "About Us",           href: "#dna",        scroll: true },
-      { label: "Domestic Production", href: "/uretici",   scroll: false },
-      { label: "Blog",               href: "/blog",       scroll: false },
-      { label: "Technology",         href: "#technology", scroll: true },
-      { label: "Quality & Certs",    href: "#technology", scroll: true },
-      { label: "Statistics",         href: "#stats",      scroll: true },
-      { label: "Careers",            href: "#contact",    scroll: true },
+      { label: "About Us",            href: "#dna",      scroll: true  },
+      { label: "Bemis World",         href: "/kurumsal", scroll: false },
+      { label: "Domestic Production", href: "/uretici",  scroll: false },
+      { label: "Blog & News",         href: "/blog",     scroll: false },
+      { label: "Statistics",          href: "#stats",    scroll: true  },
     ]},
     { title: "Partnership", links: [
       { label: "Find a Dealer",      href: "#dealer",   scroll: true  },
@@ -72,11 +68,11 @@ const NAV_GROUPS = {
       { label: "Export",             href: "#dealer-export", scroll: true  },
     ]},
     { title: "Support", links: [
-      { label: "Contact",          href: "#contact",   scroll: true  },
-      { label: "Technical Support",href: "#contact",   scroll: true  },
-      { label: "Documents",        href: "/documents", scroll: false },
-      { label: "Warranty",         href: "#contact",   scroll: true  },
-      { label: "Privacy Policy",   href: "#contact",   scroll: true  },
+      { label: "Documents",       href: "/documents",      scroll: false },
+      { label: "Quality & Certs", href: "/documents",      scroll: false },
+      { label: "FAQ",             href: "/blog#sss",       scroll: false },
+      { label: "Guides",          href: "/blog#rehberler", scroll: false },
+      { label: "Calculator",      href: "#calculator",     scroll: true  },
     ]},
   ],
 };
@@ -274,8 +270,6 @@ export default function Footer() {
                   <HiMail style={{ fontSize: 12 }} /> {contact.email}
                 </a>
               )}
-              <button className="transition-colors hover:opacity-70">{lang === "en" ? "Privacy Policy" : "Gizlilik Politikası"}</button>
-              <button className="transition-colors hover:opacity-70">{lang === "en" ? "GDPR" : "KVKK"}</button>
               <button onClick={() => router.push("/b2b")} className="transition-colors hover:opacity-70">OEM / B2B</button>
             </div>
           </div>
