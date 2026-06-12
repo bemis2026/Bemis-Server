@@ -70,12 +70,12 @@ export default function Stats() {
           className="text-center max-w-3xl mx-auto mb-8"
         >
           <span
-            className="inline-block text-[11px] sm:text-xs font-bold tracking-[0.16em] uppercase px-3 py-1.5 rounded-full mb-3"
+            className="inline-block text-xs font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-full mb-4"
             style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.22)", color: "#ffffff" }}
           >
             {"1994'ten beri · Bemis Teknik Elektrik A.Ş."}
           </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black leading-tight mb-3" style={{ color: "#ffffff" }}>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-3" style={{ color: "#ffffff" }}>
             32 yıllık üretim mirası, elektrikli araç şarjında
           </h2>
           <p className="text-sm sm:text-base leading-relaxed mb-5" style={{ color: "rgba(255,255,255,0.82)" }}>
@@ -83,10 +83,10 @@ export default function Stats() {
           </p>
           <Link
             href="/uretici"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 hover:gap-3"
+            className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-2xl text-sm font-bold transition-all duration-200 hover:gap-3"
             style={{ background: "#ffffff", color: "#1d4ed8" }}
           >
-            Yerli Üretici Hikayemiz <RiArrowRightLine size={15} />
+            Yerli Üretici Hikayemiz <RiArrowRightLine size={16} />
           </Link>
         </motion.div>
         <div

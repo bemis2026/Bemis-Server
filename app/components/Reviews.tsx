@@ -153,7 +153,7 @@ export default function Reviews() {
               <div className="inline-flex items-center gap-1.5">
                 <HiStar className="text-[#F59E0B] text-sm" />
                 <span className="text-sm font-black tabular-nums" style={{ color: textPrimary }}>{reviews.rating}</span>
-                <span className="text-[11px]" style={{ color: textMuted }}>· {reviews.ratingCount}</span>
+                <span className="text-xs" style={{ color: textMuted }}>· {reviews.ratingCount}</span>
               </div>
             </div>
 
@@ -166,7 +166,7 @@ export default function Reviews() {
               >
                 <div className="flex items-center justify-between">
                   <Stars count={review.rating} />
-                  <span className="text-[9px] font-bold px-2 py-0.5 rounded" style={{ background: `${review.platformColor}14`, color: review.platformColor, border: `1px solid ${review.platformColor}28` }}>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded" style={{ background: `${review.platformColor}14`, color: review.platformColor, border: `1px solid ${review.platformColor}28` }}>
                     {review.platform}
                   </span>
                 </div>
@@ -174,11 +174,11 @@ export default function Reviews() {
                   &ldquo;{review.text}&rdquo;
                 </p>
                 <div className="flex items-center gap-2 mt-auto pt-1">
-                  <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0" style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)", color: textMuted }}>
+                  <div className="w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold flex-shrink-0" style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)", color: textMuted }}>
                     {review.author[0]}
                   </div>
                   <span className="text-xs font-semibold truncate" style={{ color: textPrimary }}>{review.author}</span>
-                  <span className="text-[10px] ml-auto flex-shrink-0" style={{ color: textMuted }}>{review.date}</span>
+                  <span className="text-[11px] ml-auto flex-shrink-0" style={{ color: textMuted }}>{review.date}</span>
                 </div>
               </motion.div>
             ))}
@@ -235,27 +235,27 @@ export default function Reviews() {
                         <img src={n.image} alt={n.title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center p-2 text-center">
-                          <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: c, opacity: 0.8 }}>{n.source}</span>
+                          <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: c, opacity: 0.8 }}>{n.source}</span>
                         </div>
                       )}
                     </div>
                     {/* Metin */}
                     <div className="flex-1 min-w-0 p-3 flex flex-col">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-[9px] font-bold px-1.5 py-0.5 rounded" style={{ background: `${c}1f`, color: c, border: `1px solid ${c}45` }}>
+                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded" style={{ background: `${c}1f`, color: c, border: `1px solid ${c}45` }}>
                           {isFair ? fairLabel : newsLabel}
                         </span>
-                        <span className="text-[10px] font-semibold truncate" style={{ color: textMuted }}>{n.source}</span>
-                        {n.date && <span className="text-[10px] ml-auto flex-shrink-0" style={{ color: textMuted }}>{n.date}</span>}
+                        <span className="text-[11px] font-semibold truncate" style={{ color: textMuted }}>{n.source}</span>
+                        {n.date && <span className="text-[11px] ml-auto flex-shrink-0" style={{ color: textMuted }}>{n.date}</span>}
                       </div>
-                      <p className="text-[13px] font-bold leading-snug mb-1.5 flex-1" style={{ color: textPrimary, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+                      <p className="text-[15px] font-bold leading-snug mb-1.5 flex-1" style={{ color: textPrimary, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
                         {n.title}
                       </p>
                       <div className="flex items-center gap-3">
-                        <a href={n.url} target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold inline-flex items-center gap-1 transition-opacity hover:opacity-70" style={{ color: c }}>
+                        <a href={n.url} target="_blank" rel="noopener noreferrer" className="text-[11px] font-bold inline-flex items-center gap-1 transition-opacity hover:opacity-70" style={{ color: c }}>
                           {lang === "en" ? "Read" : "Haberi Oku"} <RiExternalLinkLine size={10} />
                         </a>
-                        <a href={`/blog/haber/${n.id}`} className="text-[10px] font-bold inline-flex items-center gap-1 ml-auto transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>
+                        <a href={`/blog/haber/${n.id}`} className="text-[11px] font-bold inline-flex items-center gap-1 ml-auto transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>
                           {lang === "en" ? "Summary" : "Özet İncele"} →
                         </a>
                       </div>
@@ -269,12 +269,12 @@ export default function Reviews() {
             {latestPosts.length > 0 && (
               <div className="mt-3 pt-3" style={{ borderTop: `1px solid ${border}` }}>
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: textMuted }}>{lang === "en" ? "Guides" : "Rehberler"}</span>
-                  <a href="/blog#rehberler" className="text-[10px] font-semibold transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>{lang === "en" ? "All" : "Tümü"} →</a>
+                  <span className="text-xs font-bold uppercase tracking-wider" style={{ color: textMuted }}>{lang === "en" ? "Guides" : "Rehberler"}</span>
+                  <a href="/blog#rehberler" className="text-[11px] font-semibold transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>{lang === "en" ? "All" : "Tümü"} →</a>
                 </div>
                 <div className="flex flex-col gap-1">
                   {latestPosts.map((p) => (
-                    <a key={p.slug} href={`/blog/${p.slug}`} className="text-[11px] inline-flex items-center gap-1.5 transition-opacity hover:opacity-70" style={{ color: textMuted }}>
+                    <a key={p.slug} href={`/blog/${p.slug}`} className="text-xs inline-flex items-center gap-1.5 transition-opacity hover:opacity-70" style={{ color: textMuted }}>
                       <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: BLUE }} />
                       <span className="truncate">{p.title}</span>
                     </a>
