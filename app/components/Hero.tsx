@@ -54,12 +54,12 @@ export default function Hero() {
   const cleanWords = (hero.headline2Words ?? []).map(s => s.trim()).filter(Boolean);
 
   // Hero arka plan görselleri: ana heroBg + adminden eklenen ilave görseller.
-  // Birden fazlaysa 3 sn'de bir otomatik geçer (crossfade); tekse statik.
+  // Birden fazlaysa 5 sn'de bir, yumuşak/uzun crossfade ile geçer (zoom YOK); tekse statik.
   const heroImages = [hero.heroBg, ...(hero.heroImages ?? [])].map((s) => (s ?? "").trim()).filter(Boolean);
   const [activeHero, setActiveHero] = useState(0);
   useEffect(() => {
     if (heroImages.length <= 1) return;
-    const t = setInterval(() => setActiveHero((n) => (n + 1) % heroImages.length), 3000);
+    const t = setInterval(() => setActiveHero((n) => (n + 1) % heroImages.length), 5000);
     return () => clearInterval(t);
   }, [heroImages.length]);
   const activeHeroIdx = heroImages.length ? activeHero % heroImages.length : 0;
@@ -83,8 +83,8 @@ export default function Hero() {
     : "linear-gradient(160deg, #f0f0f0 0%, #e8e8e8 50%, #eeeeee 100%)";
 
   const overlay    = d
-    ? "linear-gradient(135deg, rgba(5,5,8,0.55) 0%, rgba(5,5,8,0.38) 50%, rgba(5,5,8,0.18) 100%)"
-    : "linear-gradient(135deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.32) 55%, rgba(0,0,0,0.10) 100%)";
+    ? "linear-gradient(135deg, rgba(5,5,8,0.40) 0%, rgba(5,5,8,0.26) 50%, rgba(5,5,8,0.10) 100%)"
+    : "linear-gradient(135deg, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.22) 55%, rgba(0,0,0,0.06) 100%)";
 
   const groundFade = d
     ? "linear-gradient(to top, #1a1a1a 0%, rgba(26,26,26,0.7) 50%, transparent 100%)"
@@ -130,15 +130,16 @@ export default function Hero() {
       className="relative min-h-screen overflow-hidden"
       style={{ background: sectionBg }}
     >
-      {/* Background photo — Ken Burns wrapper: çok hafif zoom + çapraz pan.
-          GPU-only transform (will-change + translateZ) ile takılma yok. */}
+      {/* Background photo — yakınlaşma/uzaklaşma (Ken Burns zoom) KALDIRILDI:
+          görsel sabit durur, sadece yumuşak + uzun crossfade ile geçer
+          (daha temiz/premium görünüm; eski zoom-reset kötü gözüküyordu). */}
       {heroImages.length > 0 && (
         <div className="absolute inset-0">
           {heroImages.map((img, i) => (
             <div
               key={img + i}
-              className={`absolute inset-0 ${i === activeHeroIdx ? "hero-bg-animate" : ""}`}
-              style={{ opacity: i === activeHeroIdx ? 1 : 0, transition: "opacity 1.1s ease-in-out" }}
+              className="absolute inset-0"
+              style={{ opacity: i === activeHeroIdx ? 1 : 0, transition: "opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1)" }}
               aria-hidden={i !== activeHeroIdx}
             >
               <Image
