@@ -11,10 +11,7 @@ import ContactBar from "../components/ContactBar";
 import { useBackgroundVideo } from "../components/useBackgroundVideo";
 import Image from "next/image";
 import {
-  RiShieldCheckLine, RiGlobalLine, RiLeafLine, RiAwardLine,
-  RiCpuLine, RiMedalLine, RiGlobeLine, RiBuilding4Line,
-  RiToolsLine, RiCodeLine, RiStackLine, RiCheckboxCircleLine, RiImageAddLine,
-  RiVolumeUpLine, RiVolumeMuteLine, RiArrowRightLine,
+  RiBuilding4Line, RiVolumeUpLine, RiVolumeMuteLine, RiArrowRightLine,
 } from "react-icons/ri";
 
 // Accept any of the common YouTube URL shapes and return the bare video ID.
@@ -31,47 +28,6 @@ function extractYouTubeId(url: string): string | null {
   if (/^[a-zA-Z0-9_-]{11}$/.test(url.trim())) return url.trim();
   return null;
 }
-
-const HIGHLIGHT_META = [
-  { icon: RiAwardLine,       accent: "#e0e0e8" },
-  { icon: RiShieldCheckLine, accent: "#c8c8d2" },
-  { icon: RiGlobalLine,      accent: "#b8b8c4" },
-  { icon: RiLeafLine,        accent: "#d0d0da" },
-];
-
-const FEATURE_META = [
-  { icon: RiCpuLine,   accent: "#d8d8e2" },
-  { icon: RiMedalLine, accent: "#c0c0cc" },
-  { icon: RiGlobeLine, accent: "#c8c8d4" },
-  { icon: RiLeafLine,  accent: "#b0b0bc" },
-];
-
-const FALLBACK_CERTS = [
-  { label: "CE",        sub: "Avrupa Uygunluk"        },
-  { label: "IP65",      sub: "Toz & Su Koruması"      },
-  { label: "IEC 61851", sub: "EV Şarj Sistemi Std."   },
-  { label: "IEC 62196", sub: "EV Konektör Std."        },
-  { label: "OCPP 2.0",  sub: "Açık Şarj Protokolü"   },
-  { label: "ISO 9001",  sub: "Kalite Yönetim Sistemi" },
-  { label: "TSE",       sub: "Türk Standartları"       },
-];
-
-// Icons stay code-side (visual identity), labels live in the CMS.
-const PRODUCTION_STEP_ICONS = [
-  RiCpuLine,            // PCB
-  RiToolsLine,          // Elektronik İmalat
-  RiCodeLine,           // Yazılım
-  RiStackLine,          // Cihaz Tasarımı
-  RiCheckboxCircleLine, // Test & Kalite
-];
-
-const FALLBACK_PRODUCTION_LABELS = [
-  "PCB Tasarımı",
-  "Elektronik İmalat",
-  "Yazılım",
-  "Cihaz Tasarımı",
-  "Test & Kalite",
-];
 
 const FALLBACK_TIMELINE = [
   { year: "1994", title: "Kuruluş",     desc: "Bursa'da Bemis Teknik Elektrik A.Ş. kuruldu." },
@@ -100,30 +56,13 @@ export default function KurumsalPage() {
   const textPrimary= d ? "#f0f0f4" : "#1a1a1a";
   const textMuted  = d ? "rgba(240,240,244,0.52)" : "rgba(26,26,26,0.52)";
   const textFaint  = d ? "rgba(240,240,244,0.28)" : "rgba(26,26,26,0.28)";
-  const divider    = d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.07)";
   const BLUE       = "#3B82F6";
 
-  const highlights = (dna.highlights ?? []).map((h, i) => ({ ...HIGHLIGHT_META[i % HIGHLIGHT_META.length], ...h }));
-  const features   = (dna.features   ?? []).map((f, i) => ({ ...FEATURE_META[i % FEATURE_META.length],   ...f }));
   const timeline   = (dna.timeline && dna.timeline.length > 0) ? dna.timeline : FALLBACK_TIMELINE;
-  const certs      = (dna.certifications && dna.certifications.length > 0) ? dna.certifications : FALLBACK_CERTS;
   const aboutVideoId = extractYouTubeId(dna.aboutVideo ?? "");
-  const productionLabels = (() => {
-    const src = dna.productionStepLabels;
-    if (!src || src.length === 0) return FALLBACK_PRODUCTION_LABELS;
-    // Fall back per-slot so a partially-populated bin still renders the
-    // remaining step labels with the default copy.
-    return FALLBACK_PRODUCTION_LABELS.map((fb, i) => (src[i]?.trim() ? src[i] : fb));
-  })();
-  const productionFinalLabel = dna.productionFinalLabel?.trim() || "Son Ürün";
   const kLabels = dna.kurumsalLabels ?? {};
-  const txtProductionEyebrow = kLabels.productionEyebrow || "Üretim Süreci";
-  const txtProductionHeading = kLabels.productionHeading || "Tasarımdan Son Ürüne";
-  const txtProductionMadeIn  = kLabels.productionMadeIn  || "🇹🇷 Yerli Üretim";
   const txtTimelineEyebrow   = kLabels.timelineEyebrow   || "Tarihçe";
   const txtTimelineHeading   = kLabels.timelineHeading   || "Bemis Yolculuğu";
-  const txtValuesEyebrow     = kLabels.valuesEyebrow     || "Değerlerimiz, Teknoloji & Sertifikalar";
-  const GREEN      = "#10B981";
 
   return (
     <div style={{ background: bg, minHeight: "100vh" }}>
@@ -587,203 +526,6 @@ export default function KurumsalPage() {
                 })}
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* ── Production process ── */}
-        <div className="py-12 px-5 sm:px-6 lg:px-8" style={{ borderTop: `1px solid ${divider}` }}>
-          <div className="max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-                {/* Section heading — matches the timeline + values
-                    sections so the kurumsal page reads as one coherent
-                    document. */}
-                <div className="flex items-start justify-between mb-8 gap-4 flex-wrap">
-                  <div>
-                    <span
-                      className="inline-block text-[10px] font-bold tracking-[0.20em] uppercase px-3 py-1.5 rounded-full mb-3"
-                      style={{
-                        background: d ? `${BLUE}18` : `${BLUE}10`,
-                        border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`,
-                        color: d ? "#93C5FD" : BLUE,
-                      }}
-                    >
-                      {txtProductionEyebrow}
-                    </span>
-                    <h2 className="text-3xl sm:text-4xl font-black" style={{ color: textPrimary }}>
-                      {txtProductionHeading}
-                    </h2>
-                    <div
-                      className="h-[2px] w-24 origin-left rounded-full mt-3"
-                      style={{ background: `linear-gradient(90deg, ${BLUE} 0%, ${BLUE}66 60%, transparent 100%)`, boxShadow: `0 0 12px ${BLUE}45` }}
-                    />
-                  </div>
-                  <span
-                    className="text-[10px] font-bold px-3 py-1.5 rounded-full self-start"
-                    style={{ background: `${GREEN}15`, color: GREEN, border: `1px solid ${GREEN}30` }}
-                  >
-                    {txtProductionMadeIn}
-                  </span>
-                </div>
-
-                {/* Production steps grid — 3 cols on tablet+, 2 on mobile */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
-                  {[...PRODUCTION_STEP_ICONS.map((icon, i) => ({ icon, label: productionLabels[i] })), { icon: null as null, label: productionFinalLabel }].map((step, i) => {
-                    const imgSrc = dna.productionStepImages?.[i];
-                    const isFinal = i === PRODUCTION_STEP_ICONS.length;
-                    const StepIcon = step.icon;
-
-                    return (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.22 + i * 0.06 }}
-                        className="rounded-xl overflow-hidden"
-                        style={{
-                          border: isFinal
-                            ? `1px solid ${GREEN}50`
-                            : `1px solid ${border}`,
-                          background: isFinal
-                            ? `${GREEN}08`
-                            : surface,
-                        }}
-                      >
-                        {/* Image area */}
-                        <div
-                          className="relative w-full overflow-hidden"
-                          style={{ aspectRatio: "4/3", background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.04)" }}
-                        >
-                          {imgSrc ? (
-                            <Image src={imgSrc} alt={step.label} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
-                          ) : (
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              {isFinal ? (
-                                <RiCheckboxCircleLine style={{ fontSize: 26, color: `${GREEN}50` }} />
-                              ) : StepIcon ? (
-                                <StepIcon style={{ fontSize: 26, color: d ? `${BLUE}40` : `${BLUE}30` }} />
-                              ) : (
-                                <RiImageAddLine style={{ fontSize: 22, color: d ? `${BLUE}40` : `${BLUE}30` }} />
-                              )}
-                            </div>
-                          )}
-
-                          {/* Step number badge */}
-                          <div
-                            className="absolute top-1.5 left-1.5 text-[9px] font-bold px-1.5 py-0.5 rounded-md"
-                            style={{
-                              background: isFinal ? GREEN : (d ? "rgba(0,0,0,0.70)" : "rgba(255,255,255,0.88)"),
-                              color: isFinal ? "#fff" : (d ? "#93C5FD" : BLUE),
-                              backdropFilter: "blur(6px)",
-                            }}
-                          >
-                            {isFinal ? "✓" : `0${i + 1}`}
-                          </div>
-                        </div>
-
-                        {/* Label row */}
-                        <div className="flex items-center gap-1.5 px-2.5 py-2">
-                          {isFinal ? (
-                            <RiCheckboxCircleLine style={{ fontSize: 11, color: GREEN, flexShrink: 0 }} />
-                          ) : StepIcon ? (
-                            <StepIcon style={{ fontSize: 11, color: d ? "#93C5FD" : BLUE, flexShrink: 0 }} />
-                          ) : null}
-                          <span
-                            className="text-[10px] font-semibold truncate"
-                            style={{ color: isFinal ? GREEN : textPrimary }}
-                          >
-                            {step.label}
-                          </span>
-                        </div>
-                      </motion.div>
-                    );
-                  })}
-                </div>
-
-            </motion.div>
-          </div>
-        </div>
-
-        {/* ── Integrated: Değerlerimiz, Teknoloji & Sertifikalar ── */}
-        <div className="py-14 px-5 sm:px-6 lg:px-8" style={{ borderTop: `1px solid ${divider}` }}>
-          <div className="max-w-7xl mx-auto">
-
-            {/* Section heading */}
-            <div className="mb-10">
-              <span
-                className="inline-block text-[10px] font-bold tracking-[0.20em] uppercase px-3 py-1.5 rounded-full mb-4"
-                style={{ background: d ? `${BLUE}18` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`, color: d ? "#93C5FD" : BLUE }}
-              >
-                {txtValuesEyebrow}
-              </span>
-              <div className="h-px w-16 mt-1" style={{ background: `linear-gradient(90deg, ${BLUE} 0%, transparent 100%)` }} />
-            </div>
-
-            {/* Two-column editorial list */}
-            <div className="grid lg:grid-cols-2 gap-x-16 gap-y-0">
-
-              {/* Left — highlights */}
-              <div>
-                {highlights.map((item, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 * i }}
-                    className="flex gap-4 py-6"
-                    style={{ borderBottom: i < highlights.length - 1 ? `1px solid ${divider}` : "none" }}
-                  >
-                    <item.icon style={{ fontSize: 18, color: d ? "#93C5FD" : BLUE, marginTop: 2, flexShrink: 0 }} />
-                    <div>
-                      <h4 className="font-bold text-sm mb-1" style={{ color: textPrimary }}>{item.title}</h4>
-                      <p className="text-sm leading-relaxed" style={{ color: textMuted }}>{item.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Right — features */}
-              <div>
-                {features.map((f, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: 12 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 * i + 0.08 }}
-                    className="flex gap-4 py-6"
-                    style={{ borderBottom: i < features.length - 1 ? `1px solid ${divider}` : "none" }}
-                  >
-                    <f.icon style={{ fontSize: 18, color: d ? "#93C5FD" : BLUE, marginTop: 2, flexShrink: 0 }} />
-                    <div>
-                      <h4 className="font-bold text-sm mb-1" style={{ color: textPrimary }}>{f.title}</h4>
-                      <p className="text-sm leading-relaxed" style={{ color: textMuted }}>{f.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Sertifikalar — inline strip. No standalone quote
-                anymore (moved into the brand-bridge card next to the
-                video) and no separate sub-eyebrow ("Sertifikalar &
-                Standartlar") — this whole section is "Değerlerimiz,
-                Teknoloji & Sertifikalar" already. */}
-            <div className="mt-12 pt-8" style={{ borderTop: `1px solid ${divider}` }}>
-              <div className="flex flex-wrap gap-x-6 gap-y-3 justify-center">
-                {certs.map((c, i) => (
-                  <div key={i} className="flex items-baseline gap-2">
-                    <span className="text-sm font-bold" style={{ color: textPrimary }}>{c.label}</span>
-                    <span className="text-xs" style={{ color: textFaint }}>{c.sub}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Bemis Grup Markaları stripi videonun yanına taşındı */}
-
           </div>
         </div>
 

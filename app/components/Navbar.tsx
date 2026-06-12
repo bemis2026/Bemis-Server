@@ -89,8 +89,13 @@ const KURUMSAL_DROPDOWN: DropdownItem[] = [
 const HAKKIMIZDA_DROPDOWN: DropdownItem[] = [
   {
     label: { tr: "Bemis Dünyası", en: "Bemis World" },
-    sub:   { tr: "Tarihçe, üretim süreci, sertifikalar", en: "History, production process, certifications" },
+    sub:   { tr: "Tarihçe, marka hikayesi, Bemis grubu", en: "History, brand story, Bemis group" },
     href: "/kurumsal", accent: "#3B82F6",
+  },
+  {
+    label: { tr: "Yerli Üretim", en: "Local Manufacturing" },
+    sub:   { tr: "Türkiye'de üretim, üretim süreci, OEM", en: "Made in Türkiye, production, OEM" },
+    href: "/uretici", accent: "#DC0E1A",
   },
   {
     label: { tr: "Blog & Haberler", en: "Blog & News" },
