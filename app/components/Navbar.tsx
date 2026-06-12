@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX, HiSearch, HiChevronDown } from "react-icons/hi";
 import { HiSun, HiMoon } from "react-icons/hi2";
-import { RiArrowRightLine } from "react-icons/ri";
+import { RiArrowRightLine, RiFileTextLine } from "react-icons/ri";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
@@ -118,6 +118,18 @@ const REHBER_DROPDOWN: DropdownItem[] = [
   },
 ];
 
+// Döküman kategorileri (public /documents sayfası ile birebir) — navbar
+// "Dökümanlar" dropdown'ında yüklü dökümanlar bu kategoriler altında listelenir.
+type NavDoc = { id: string; title: string; category: string; lang?: string; visible?: boolean };
+const DOC_CATEGORIES: { id: string; label: { tr: string; en: string }; accent: string }[] = [
+  { id: "price-list",   label: { tr: "Fiyat Listesi",    en: "Price List" },         accent: "#F59E0B" },
+  { id: "catalog",      label: { tr: "Katalog",          en: "Catalog" },            accent: "#3B82F6" },
+  { id: "installation", label: { tr: "Kurulum Kılavuzu", en: "Installation Guide" }, accent: "#10B981" },
+  { id: "certificate",  label: { tr: "Sertifikalar",     en: "Certificates" },       accent: "#8B5CF6" },
+  { id: "technical",    label: { tr: "Teknik Döküman",   en: "Technical Document" }, accent: "#EF4444" },
+  { id: "other",        label: { tr: "Diğer",            en: "Other" },              accent: "#6B7280" },
+];
+
 const NAV_STRINGS = {
   urunlerHeading: { tr: "Ürün Kategorileri", en: "Product Categories" },
   urunlerFooter: { tr: "Tüm ürünlere göz at", en: "Browse all products" },
@@ -164,13 +176,19 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileKurumsalOpen, setMobileKurumsalOpen] = useState(false);
   const [mobileUrunlerOpen, setMobileUrunlerOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<"kurumsal" | "urunler" | "hakkimizda" | "rehber" | null>(null);
+  const [activeDropdown, setActiveDropdown] = useState<"kurumsal" | "urunler" | "hakkimizda" | "rehber" | "dokumanlar" | null>(null);
   const [mobileHakkimizdaOpen, setMobileHakkimizdaOpen] = useState(false);
   const [mobileRehberOpen, setMobileRehberOpen] = useState(false);
+  const [mobileDokumanlarOpen, setMobileDokumanlarOpen] = useState(false);
   const kurumsalRef = useRef<HTMLDivElement>(null);
   const urunlerRef = useRef<HTMLDivElement>(null);
   const hakkimizdaRef = useRef<HTMLDivElement>(null);
   const rehberRef = useRef<HTMLDivElement>(null);
+  const dokumanlarRef = useRef<HTMLDivElement>(null);
+  // Dökümanlar dropdown verisi — yalnız ilk açılışta /api/documents'tan çekilir.
+  const [docs, setDocs] = useState<NavDoc[] | null>(null);
+  const [openDocCat, setOpenDocCat] = useState<string | null>(null);
+  const docsLoadingRef = useRef(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { theme, toggle } = useTheme();
   const isDark = theme === "dark";
@@ -281,8 +299,26 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
     }
   };
 
-  const openDropdown = (which: "kurumsal" | "urunler" | "hakkimizda" | "rehber") => {
+  // Dökümanları yalnız dropdown ilk açıldığında çek (navbar her sayfada olduğu
+  // için mount'ta gereksiz istek olmasın). /api/documents = yayındaki dökümanlar.
+  const loadDocs = () => {
+    if (docs !== null || docsLoadingRef.current) return;
+    docsLoadingRef.current = true;
+    fetch("/api/documents", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : []))
+      .then((d) => {
+        const arr: NavDoc[] = Array.isArray(d) ? d : [];
+        setDocs(arr);
+        // İlk dolu kategoriyi otomatik aç → dropdown açılınca boş görünmesin.
+        const first = DOC_CATEGORIES.find((c) => arr.some((x) => x?.category === c.id));
+        if (first) setOpenDocCat(first.id);
+      })
+      .catch(() => setDocs([]));
+  };
+
+  const openDropdown = (which: "kurumsal" | "urunler" | "hakkimizda" | "rehber" | "dokumanlar") => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
+    if (which === "dokumanlar") loadDocs();
     setActiveDropdown(which);
   };
   const scheduleClose = () => {
@@ -301,6 +337,14 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   // "Hesaplayıcı" linki artık "Rehber" dropdown'ı (Hesaplayıcı + Rehberler + SSS).
   const isRehber = (link: { label: string; href: string }) =>
     link.href === "#calculator" || link.label === "Rehber" || link.label === "Guide";
+
+  const isDokumanlar = (link: { label: string; href: string }) =>
+    link.href === "/documents" || link.label === "Dökümanlar" || link.label === "Documents";
+
+  // Yüklü dökümanları kategoriye göre grupla (boş kategoriler menüde gizlenir).
+  const docCategories = DOC_CATEGORIES
+    .map((c) => ({ ...c, items: (docs ?? []).filter((d) => d?.category === c.id) }))
+    .filter((c) => c.items.length > 0);
 
   const dropdownBase = {
     background: isDark ? "rgba(12,13,18,0.97)" : "rgba(255,255,255,0.98)",
@@ -340,14 +384,15 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
               const isU = isUrunler(link);
               const isH = isHakkimizda(link);
               const isR = isRehber(link);
-              const hasDropdown = isK || isU || isH || isR;
-              const dropdownKey: "kurumsal" | "urunler" | "hakkimizda" | "rehber" =
-                isK ? "kurumsal" : isU ? "urunler" : isH ? "hakkimizda" : "rehber";
+              const isD = isDokumanlar(link);
+              const hasDropdown = isK || isU || isH || isR || isD;
+              const dropdownKey: "kurumsal" | "urunler" | "hakkimizda" | "rehber" | "dokumanlar" =
+                isK ? "kurumsal" : isU ? "urunler" : isH ? "hakkimizda" : isD ? "dokumanlar" : "rehber";
               const isOpen = activeDropdown === dropdownKey;
 
               return (
                 <div key={link.href + idx} className="relative"
-                  ref={isK ? kurumsalRef : isU ? urunlerRef : isH ? hakkimizdaRef : isR ? rehberRef : undefined}
+                  ref={isK ? kurumsalRef : isU ? urunlerRef : isH ? hakkimizdaRef : isR ? rehberRef : isD ? dokumanlarRef : undefined}
                   onMouseEnter={hasDropdown ? () => openDropdown(dropdownKey) : undefined}
                   onMouseLeave={hasDropdown ? scheduleClose : undefined}
                 >
@@ -546,6 +591,90 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                       )}
                     </AnimatePresence>
                   )}
+
+                  {/* Dökümanlar Dropdown — yüklü dökümanlar kategori bazlı listelenir;
+                      kategoriye tıkla → içindeki dökümanlar açılır → tıkla → /documents/[id]. */}
+                  {isD && (
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 6, scale: 0.97 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 4, scale: 0.97 }}
+                          transition={{ duration: 0.16 }}
+                          onMouseEnter={() => openDropdown("dokumanlar")}
+                          onMouseLeave={scheduleClose}
+                          className="absolute right-0 top-full mt-2 rounded-2xl overflow-hidden"
+                          style={{ width: 340, ...dropdownBase }}
+                        >
+                          <div className="p-1.5 max-h-[68vh] overflow-y-auto">
+                            {docs === null ? (
+                              <p className="px-3 py-4 text-xs" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>{lang === "en" ? "Loading…" : "Yükleniyor…"}</p>
+                            ) : docCategories.length === 0 ? (
+                              <p className="px-3 py-4 text-xs" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>{lang === "en" ? "No documents yet." : "Henüz döküman yok."}</p>
+                            ) : docCategories.map((cat) => {
+                              const exp = openDocCat === cat.id;
+                              return (
+                                <div key={cat.id}>
+                                  <button
+                                    onClick={() => setOpenDocCat(exp ? null : cat.id)}
+                                    className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-left transition-all duration-150"
+                                    style={{ background: "transparent" }}
+                                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)"; }}
+                                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+                                  >
+                                    <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: cat.accent, boxShadow: `0 0 6px ${cat.accent}66` }} aria-hidden />
+                                    <span className="flex-1 text-sm font-semibold leading-tight" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{cat.label[lang]}</span>
+                                    <span className="text-[11px] tabular-nums" style={{ color: isDark ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.40)" }}>{cat.items.length}</span>
+                                    <HiChevronDown size={13} className={`transition-transform duration-200 ${exp ? "rotate-180" : ""}`} style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.40)" }} />
+                                  </button>
+                                  <AnimatePresence initial={false}>
+                                    {exp && (
+                                      <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: "auto" }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        transition={{ duration: 0.18 }}
+                                        className="overflow-hidden pl-4 pr-1 pb-1 space-y-0.5"
+                                      >
+                                        {cat.items.map((doc) => (
+                                          <button
+                                            key={doc.id}
+                                            onClick={() => { setActiveDropdown(null); router.push(`/documents/${encodeURIComponent(doc.id)}`); }}
+                                            className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left transition-all duration-150"
+                                            style={{ background: "transparent" }}
+                                            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)"; }}
+                                            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+                                          >
+                                            <RiFileTextLine size={14} style={{ color: cat.accent, flexShrink: 0, opacity: 0.85 }} />
+                                            <span className="flex-1 text-xs leading-snug truncate" style={{ color: isDark ? "rgba(240,240,244,0.78)" : "rgba(26,26,26,0.78)" }}>{doc.title}</span>
+                                            {doc.lang && <span className="text-[9px] font-bold uppercase tracking-wide flex-shrink-0" style={{ color: isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)" }}>{doc.lang}</span>}
+                                          </button>
+                                        ))}
+                                      </motion.div>
+                                    )}
+                                  </AnimatePresence>
+                                </div>
+                              );
+                            })}
+                          </div>
+                          {/* Footer: Tüm Dökümanlar sayfası */}
+                          <div style={{ borderTop: `1px solid ${isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"}` }}>
+                            <button
+                              onClick={() => { setActiveDropdown(null); router.push("/documents"); }}
+                              className="w-full px-4 py-2.5 flex items-center justify-between text-xs font-semibold transition-colors"
+                              style={{ color: isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)" }}
+                              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.60)"; }}
+                              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)"; }}
+                            >
+                              <span>{lang === "en" ? "All Documents" : "Tüm Dökümanlar"}</span>
+                              <RiArrowRightLine size={13} />
+                            </button>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  )}
                 </div>
               );
             })}
@@ -655,6 +784,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                 const isU = isUrunler(link);
                 const isH = isHakkimizda(link);
                 const isR = isRehber(link);
+                const isD = isDokumanlar(link);
                 return (
                   <div key={link.href + i}>
                     <motion.button
@@ -666,6 +796,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                         else if (isU) setMobileUrunlerOpen(v => !v);
                         else if (isH) setMobileHakkimizdaOpen(v => !v);
                         else if (isR) setMobileRehberOpen(v => !v);
+                        else if (isD) { loadDocs(); setMobileDokumanlarOpen(v => !v); }
                         else handleNavClick(link.href);
                       }}
                       className={`w-full flex items-center justify-between text-base font-medium py-3 text-left border-b transition-colors ${
@@ -673,12 +804,13 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                       }`}
                     >
                       <E field={`navbar.links.${i}.label`} tag="span">{link.label}</E>
-                      {(isK || isU || isH || isR) && (
+                      {(isK || isU || isH || isR || isD) && (
                         <HiChevronDown size={16} className={`transition-transform ${
                           (isK && mobileKurumsalOpen) ||
                           (isU && mobileUrunlerOpen) ||
                           (isH && mobileHakkimizdaOpen) ||
-                          (isR && mobileRehberOpen) ? "rotate-180" : ""
+                          (isR && mobileRehberOpen) ||
+                          (isD && mobileDokumanlarOpen) ? "rotate-180" : ""
                         }`} />
                       )}
                     </motion.button>
@@ -733,6 +865,51 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                         <button onClick={() => { setMobileOpen(false); router.push("/products"); }}
                           className={`block w-full text-left text-sm py-2 px-3 rounded-lg font-semibold ${isDark ? "text-blue-400" : "text-blue-600"}`}>
                           {NAV_STRINGS.urunlerFooterMobile[lang]}
+                        </button>
+                      </div>
+                    )}
+
+                    {/* Mobile Dökümanlar sub-links — kategori → dökümanlar */}
+                    {isD && mobileDokumanlarOpen && (
+                      <div className="py-2 space-y-1 pl-2">
+                        {docs === null ? (
+                          <p className="text-xs px-3 py-2" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>{lang === "en" ? "Loading…" : "Yükleniyor…"}</p>
+                        ) : docCategories.length === 0 ? (
+                          <p className="text-xs px-3 py-2" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>{lang === "en" ? "No documents yet." : "Henüz döküman yok."}</p>
+                        ) : docCategories.map((cat) => {
+                          const exp = openDocCat === cat.id;
+                          return (
+                            <div key={cat.id}>
+                              <button
+                                onClick={() => setOpenDocCat(exp ? null : cat.id)}
+                                className={`flex items-center gap-2 w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/70 hover:text-white" : "text-black/70 hover:text-black"}`}
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: cat.accent }} aria-hidden />
+                                <span className="flex-1 font-medium">{cat.label[lang]}</span>
+                                <span className="text-[11px] opacity-50">{cat.items.length}</span>
+                                <HiChevronDown size={14} className={`transition-transform ${exp ? "rotate-180" : ""}`} />
+                              </button>
+                              {exp && (
+                                <div className="pl-4 space-y-0.5 pb-1">
+                                  {cat.items.map((doc) => (
+                                    <button
+                                      key={doc.id}
+                                      onClick={() => { setMobileOpen(false); router.push(`/documents/${encodeURIComponent(doc.id)}`); }}
+                                      className={`flex items-center gap-2 w-full text-left text-xs py-2 px-3 rounded-lg ${isDark ? "text-white/55 hover:text-white" : "text-black/55 hover:text-black"}`}
+                                    >
+                                      <RiFileTextLine size={13} style={{ color: cat.accent, flexShrink: 0 }} />
+                                      <span className="flex-1 truncate">{doc.title}</span>
+                                      {doc.lang && <span className="text-[9px] uppercase opacity-50">{doc.lang}</span>}
+                                    </button>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })}
+                        <button onClick={() => { setMobileOpen(false); router.push("/documents"); }}
+                          className={`block w-full text-left text-sm py-2 px-3 rounded-lg font-semibold ${isDark ? "text-blue-400" : "text-blue-600"}`}>
+                          {lang === "en" ? "→ All Documents" : "→ Tüm Dökümanlar"}
                         </button>
                       </div>
                     )}
