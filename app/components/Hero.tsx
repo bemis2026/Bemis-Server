@@ -112,11 +112,11 @@ export default function Hero() {
   const textShadow     = d ? undefined : "0 2px 16px rgba(0,0,0,0.70), 0 1px 4px rgba(0,0,0,0.50)";
   // Üreticisi (headline3) gradyanı tema-bazlı:
   //  • dark  → parlak mavi (#93C5FD→#3B82F6): koyu hero üzerinde harika parlıyor.
-  //  • light → derin/doygun mavi (#3B82F6→#1E40AF) + gölge: açık hero görselinin
-  //    az karartılan parlak bölgelerinde de net okunur (#93C5FD light'ta soluyordu).
+  //  • light → BEYAZ (kullanıcı isteği): headline1/2 ile aynı, tüm başlık tek
+  //    parça beyaz; karartılmış hero overlay + drop-shadow ile net okunur.
   const headline3Gradient = d
     ? "linear-gradient(135deg, #93C5FD 0%, #3B82F6 100%)"
-    : "linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%)";
+    : "linear-gradient(135deg, #ffffff 0%, #ffffff 100%)";
   const headline3Filter   = d ? undefined : "drop-shadow(0 2px 10px rgba(0,0,0,0.45))";
   const logoSrc        = logos?.dark || "/logo-white.png";
   // Hero üzerindeki logo: dark mode'da beyaz logo aynen, light mode'da
