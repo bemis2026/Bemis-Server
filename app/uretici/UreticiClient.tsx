@@ -2,14 +2,18 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { HiChevronDown } from "react-icons/hi";
 import { useTheme } from "../context/ThemeContext";
+import { useContent } from "../context/ContentContext";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
+import { allPress } from "../blog/press";
 import {
   RiShieldCheckLine, RiToolsLine, RiGlobalLine, RiCpuLine,
-  RiPriceTag3Line, RiCustomerService2Line, RiArrowRightLine, RiCheckboxCircleLine,
+  RiPriceTag3Line, RiCustomerService2Line, RiArrowRightLine, RiCheckboxCircleLine, RiExternalLinkLine,
 } from "react-icons/ri";
 
 const BLUE = "#3B82F6";
@@ -36,7 +40,11 @@ const CERTS = ["CE", "IP65 / IP66", "IEC 61851", "IEC 62196", "OCPP 1.6J", "RCD 
 export default function UreticiClient({ faq }: { faq: { q: string; a: string }[] }) {
   const { theme } = useTheme();
   const d = theme === "dark";
+  const { dna } = useContent();
   const [searchOpen, setSearchOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  // Bemis basın/haber alıntıları (anasayfayla aynı kaynak) — sayfa sonunda minik.
+  const press = allPress().filter((p) => p.type !== "social").slice(0, 4);
 
   const bg          = d ? "linear-gradient(180deg,#0c0c0e 0%,#0f0f11 100%)" : "#f8f8fb";
   const surface     = d ? "rgba(255,255,255,0.04)" : "#ffffff";
@@ -74,6 +82,30 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
             <Link href="/b2b" className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold" style={{ color: textPrimary, background: surface, border: `1px solid ${border}` }}>
               OEM & Özel Üretim
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Fabrika görseli (/kurumsal ile aynı kaynak: dna.factoryImage) — hero
+          video alanı gibi büyük çerçeve + 32 yıllık Bemis Teknik mirası +
+          bemis.com.tr linki/alıntısı. */}
+      <section className="pt-2 pb-2 px-5 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          {dna.factoryImage && (
+            <div className="relative rounded-3xl overflow-hidden mb-4" style={{ border: `1px solid ${border}`, aspectRatio: "16 / 7", boxShadow: d ? "0 20px 60px rgba(0,0,0,0.45)" : "0 16px 48px rgba(0,0,0,0.10)" }}>
+              <Image src={dna.factoryImage} alt="Bemis üretim tesisi — Bursa OSB" fill priority sizes="(max-width:768px) 100vw, 1024px" className="object-cover" />
+              <div className="absolute inset-x-0 bottom-0 p-5" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.18) 55%, transparent 100%)" }}>
+                <p className="text-white text-sm sm:text-base font-bold">Bursa OSB · 16.000 m² üretim tesisi · 1994&apos;ten beri</p>
+              </div>
+            </div>
+          )}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-between rounded-2xl p-4" style={{ background: surface, border: `1px solid ${border}` }}>
+            <p className="text-sm leading-relaxed" style={{ color: textMuted }}>
+              Bemis E-V Charge, <strong style={{ color: textPrimary, fontWeight: 700 }}>1994&apos;ten beri üreten Bemis Teknik Elektrik A.Ş.</strong>&apos;nin elektrikli araç şarj markasıdır — 32 yıllık endüstriyel üretim mirası.
+            </p>
+            <a href="https://www.bemis.com.tr" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold flex-shrink-0" style={{ color: textPrimary, background: d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)", border: `1px solid ${border}` }}>
+              Bemis Teknik · bemis.com.tr <RiExternalLinkLine size={15} />
+            </a>
           </div>
         </div>
       </section>
@@ -134,30 +166,66 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
         </div>
       </section>
 
-      {/* OEM CTA */}
-      <section className="py-10 px-5 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto rounded-3xl p-7 sm:p-9 text-center" style={{ background: d ? "rgba(59,130,246,0.10)" : "rgba(59,130,246,0.07)", border: `1px solid ${BLUE}30` }}>
-          <h2 className="text-2xl font-black mb-2" style={{ color: textPrimary }}>OEM & Özel Üretim mi arıyorsunuz?</h2>
-          <p className="text-sm sm:text-base leading-relaxed mb-5 max-w-2xl mx-auto" style={{ color: textMuted }}>
-            Kendi markanızla (white-label) şarj cihazı, özel etiket ve toplu siparişler için üretim kapasitemizden yararlanın.
-          </p>
-          <Link href="/b2b" className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white" style={{ background: BLUE }}>
-            OEM Çözümleri <RiArrowRightLine size={16} />
-          </Link>
-        </div>
-      </section>
-
-      {/* FAQ */}
+      {/* FAQ — basınca açılır akordeon */}
       {faq.length > 0 && (
         <section className="py-10 px-5 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl font-black mb-5" style={{ color: textPrimary }}>Sıkça Sorulan Sorular</h2>
             <div className="space-y-3">
-              {faq.map((f, i) => (
-                <div key={i} className="rounded-2xl p-4" style={{ background: surface, border: `1px solid ${border}` }}>
-                  <p className="text-sm font-bold mb-1.5" style={{ color: textPrimary }}>{f.q}</p>
-                  <p className="text-sm leading-relaxed" style={{ color: textMuted }}>{f.a}</p>
-                </div>
+              {faq.map((f, i) => {
+                const open = openFaq === i;
+                return (
+                  <div key={i} className="rounded-2xl overflow-hidden" style={{ background: surface, border: `1px solid ${open ? `${BLUE}40` : border}` }}>
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(open ? null : i)}
+                      aria-expanded={open}
+                      className="w-full flex items-center justify-between gap-3 text-left p-4 cursor-pointer"
+                    >
+                      <span className="text-sm font-bold" style={{ color: textPrimary }}>{f.q}</span>
+                      <HiChevronDown
+                        size={18}
+                        className="flex-shrink-0 transition-transform duration-200"
+                        style={{ color: d ? "#93C5FD" : BLUE, transform: open ? "rotate(180deg)" : "none" }}
+                      />
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {open && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.22 }}
+                          style={{ overflow: "hidden" }}
+                        >
+                          <p className="text-sm leading-relaxed px-4 pb-4" style={{ color: textMuted }}>{f.a}</p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Bemis basın & haberler — minik şerit (anasayfa Reviews ile aynı kaynak) */}
+      {press.length > 0 && (
+        <section className="py-8 px-5 sm:px-6 lg:px-8" style={{ borderTop: `1px solid ${border}` }}>
+          <div className="max-w-5xl mx-auto">
+            <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
+              <h2 className="text-lg font-black" style={{ color: textPrimary }}>Bemis Basında & Haberler</h2>
+              <a href="https://www.bemis.com.tr" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-bold" style={{ color: d ? "#93C5FD" : BLUE }}>
+                bemis.com.tr <RiExternalLinkLine size={13} />
+              </a>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {press.map((p) => (
+                <a key={p.id} href={p.url} target="_blank" rel="noopener noreferrer" className="block rounded-2xl p-4 transition-transform hover:-translate-y-0.5" style={{ background: surface, border: `1px solid ${border}` }}>
+                  <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: d ? "#93C5FD" : BLUE }}>{p.source}</span>
+                  <p className="text-xs font-bold leading-snug mt-1.5 line-clamp-3" style={{ color: textPrimary }}>{p.title}</p>
+                </a>
               ))}
             </div>
           </div>

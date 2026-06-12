@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
@@ -13,7 +14,7 @@ import {
   RiShieldCheckLine, RiGlobalLine, RiLeafLine, RiAwardLine,
   RiCpuLine, RiMedalLine, RiGlobeLine, RiBuilding4Line,
   RiToolsLine, RiCodeLine, RiStackLine, RiCheckboxCircleLine, RiImageAddLine,
-  RiVolumeUpLine, RiVolumeMuteLine,
+  RiVolumeUpLine, RiVolumeMuteLine, RiArrowRightLine,
 } from "react-icons/ri";
 
 // Accept any of the common YouTube URL shapes and return the bare video ID.
@@ -201,6 +202,23 @@ export default function KurumsalPage() {
                 >
                   {dna.brandPara2}
                 </motion.p>
+
+                {/* "Yerli Üretici Hikayemiz" → /uretici amiral sayfası (32 yıllık
+                    Bemis Teknik mirası + fabrika + üretim süreci ayrıntılı). */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.22 }}
+                  className="mt-6"
+                >
+                  <Link
+                    href="/uretici"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:gap-3"
+                    style={{ background: BLUE, boxShadow: `0 8px 24px ${BLUE}40` }}
+                  >
+                    Yerli Üretici Hikayemiz <RiArrowRightLine size={16} />
+                  </Link>
+                </motion.div>
               </div>
 
               {/* Factory image or placeholder */}

@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import {
@@ -118,8 +119,13 @@ export default function DNA() {
               <E field="dna.brandPara1" tag="span">{dna.brandPara1}</E>
             </motion.p>
 
-            {/* Button */}
-            <motion.div initial={{ opacity: 0, y: 8 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4, delay: 0.25 }}>
+            {/* Button + Yerli Üretici linki — ikincisi anasayfa→/uretici
+                TARANABİLİR iç link (gerçek <a>, SEO için; "Bemis Dünyasını
+                Keşfet" router.push button taranmaz). */}
+            <motion.div
+              initial={{ opacity: 0, y: 8 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4, delay: 0.25 }}
+              className="flex flex-wrap items-center gap-x-5 gap-y-3"
+            >
               <button
                 onClick={() => router.push("/kurumsal")}
                 className="flex items-center gap-2 text-sm font-bold px-6 py-3 rounded-2xl transition-all duration-200"
@@ -130,6 +136,13 @@ export default function DNA() {
                 <E field="dna.ctaLabel" tag="span">{dna.ctaLabel}</E>
                 <RiArrowRightLine size={16} />
               </button>
+              <Link
+                href="/uretici"
+                className="inline-flex items-center gap-1.5 text-sm font-bold transition-opacity hover:opacity-70"
+                style={{ color: d ? "#93C5FD" : BLUE }}
+              >
+                Yerli Üretici Hikayemiz <RiArrowRightLine size={15} />
+              </Link>
             </motion.div>
 
           </div>
