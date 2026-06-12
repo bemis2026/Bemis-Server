@@ -258,12 +258,10 @@ export default function Products() {
                     }}
                     onClick={() => !cat.comingSoon && router.push(`/products/${cat.id}`)}
                   >
-                    {/* Slider background image overlay */}
+                    {/* Slider arka plan görseli — KARARTMA YOK (kullanıcı isteği):
+                        görsel tam canlı gösterilir, metinler text-shadow ile okunur. */}
                     {(cat as typeof cat & { sliderImage?: string }).sliderImage && (
-                      <>
-                        <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${(cat as typeof cat & { sliderImage?: string }).sliderImage})`, backgroundSize: "cover", backgroundPosition: "center" }} />
-                        <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.70)" : "rgba(255,255,255,0.42)" }} />
-                      </>
+                      <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${(cat as typeof cat & { sliderImage?: string }).sliderImage})`, backgroundSize: "cover", backgroundPosition: "center" }} />
                     )}
                     {/* Left: text */}
                     <div className="flex-1 min-w-0 z-10">
@@ -286,13 +284,13 @@ export default function Products() {
 
                       <h2
                         className="font-black leading-tight mb-1 truncate"
-                        style={{ fontSize: "clamp(1.3rem, 3.5vw, 2.2rem)", color: textPrimary }}
+                        style={{ fontSize: "clamp(1.3rem, 3.5vw, 2.2rem)", color: textPrimary, textShadow: (cat as typeof cat & { sliderImage?: string }).sliderImage ? (d ? "0 1px 12px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.55)" : "0 1px 12px rgba(255,255,255,0.75), 0 1px 3px rgba(255,255,255,0.6)") : undefined }}
                       >
                         {cat.name}
                       </h2>
                       <p
                         className="text-sm leading-snug line-clamp-1 mb-4 max-w-md"
-                        style={{ color: textMuted }}
+                        style={{ color: textMuted, textShadow: (cat as typeof cat & { sliderImage?: string }).sliderImage ? (d ? "0 1px 8px rgba(0,0,0,0.55)" : "0 1px 8px rgba(255,255,255,0.7)") : undefined }}
                       >
                         {cat.subtitle}
                       </p>

@@ -2,7 +2,7 @@
   "documents": [
     {
       "id": "doc-1779264262427",
-      "title": "Bemis e-v charge hızlı kurulum kılavuzu",
+      "title": "E-V Charge Hızlı Kurulum Kılavuzu",
       "description": "Bemis E-V Charge cihazlarının güvenli ve doğru şekilde kurulumu için özetlenmiş kurulum adımlarını içeren tek sayfalık PDF dosyasını buradan indirebilirsiniz.",
       "category": "installation",
       "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779264259/documents/1779264258846-bemis-ev-charge-hizli-kurulum-kilavuzu.pdf",
@@ -14,7 +14,7 @@
     },
     {
       "id": "doc-1779265324270",
-      "title": "Bemis sarj cihazları fiyat listesi 2026",
+      "title": "Şarj Cihazları Fiyat Listesi 2026",
       "description": "Ürün modelleri, teknik seçenekler ve güncel fiyat bilgilerine bu dosya üzerinden ulaşabilirsiniz.",
       "category": "price-list",
       "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779265321/documents/1779265320569-bemis-sarj-cihazlari-fiyat-listesi-2026.pdf",
@@ -26,7 +26,7 @@
     },
     {
       "id": "doc-1779265418156",
-      "title": "Bemis Servis ve Bakım",
+      "title": "Servis ve Bakım Kılavuzu",
       "description": "Servis ve bakım talimatları için PDF dosyasını buradan indirin.",
       "category": "technical",
       "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779265414/documents/1779265414165-bemis-servis-bakim.pdf",
@@ -101,7 +101,7 @@
     },
     {
       "id": "doc-1779265994121",
-      "title": "Bemis Mobil Uygulama",
+      "title": "Bemis Mobil Uygulama Kılavuzu",
       "description": "Bemis mobil uygulama bilgilerini içeren PDF dosyasını indirin.",
       "category": "technical",
       "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779265990/documents/1779265990220-bemis-mobile-app.pdf",
