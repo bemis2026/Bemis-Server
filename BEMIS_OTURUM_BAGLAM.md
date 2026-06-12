@@ -96,6 +96,17 @@
    `/api/content`'i çekip ekranı günceller. Deploy ayrıca statik anasayfayı taze Blob ile yeniden pişirdi (canlı SSR'da artık
    `54% 34%` / `49% 27%` var, doğrulandı). **GENEL DERS:** admin içerik değişikliği statik anasayfada görünmüyorsa → bu
    Blob gecikmesidir; `no-store` client refetch maskeler + yeni deploy SSR'ı tazeler. (`/api/content` zaten dinamik + MISS.)
+   **+ (2026-06-09 — navbar Dökümanlar dropdown + SEO ilerleme):**
+   **(a) Navbar "Dökümanlar" alt-açılır (commit 502c694):** üst menü Dökümanlar artık dropdown — yüklü dökümanlar
+   (`/api/documents`) kategoriye göre gruplanır (Fiyat/Katalog/Kurulum/Sertifika/Teknik/Diğer); kategoriye tıkla →
+   akordeon açılır (ilki otomatik), dökümana tıkla → `/documents/[id]`. Footer "Tüm Dökümanlar". Desktop hover +
+   mobil accordion, TR/EN, veri lazy (`Navbar.tsx`: `DOC_CATEGORIES`, `loadDocs`, `isDokumanlar`, `openDocCat`).
+   **(b) 🔴 SEO — `bemis.com.tr` ERİŞİMİ AÇILDI (kullanıcı):** eski sitenin üst menüsündeki "E-V Charge" linki
+   YENİ siteye (`https://www.bemisevcharge.com.tr/`) bağlandı ✓. **KALAN (en kritik, B planı):** eski sitedeki EV
+   sayfaları (`/sarj-cihazlari`, `/BEV-xxxx-xxxx` ~8+ ürün, `/ev-charge-dokumanlar`) Google'da hâlâ sıralanıyor →
+   bunları **301** ile yeni siteye yönlendir (kanibalizasyon biter, otorite aktarılır). Eski site **Next.js** (panel/ajans
+   301 destekliyor mu öğrenilecek). ⚠️ Sadece EV sayfaları; endüstriyel fiş-priz sitesine DOKUNMA. + GSC'ye yeni site
+   ekle/sitemap + GBP (Bursa). Tam plan: `MD'ler/BEMIS_SEO_MASTER_PLAN.md`.
    **Kilit SEO dosyaları:** `app/blog/*`, `app/uretici/*`, `app/lib/seo.ts` (articleSchema/faqSchema/
    blogListingSchema), `app/sitemap.ts`, `Footer.tsx`, `ProductDetailClient.tsx`, `ProductCategoryClient.tsx`.
    **GBP gerçeği:** Bemis Teknik kartı VAR; aynı adreste AYRI "Bemis E-V Charge" kartı Google yinelenen
