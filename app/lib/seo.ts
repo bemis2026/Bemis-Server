@@ -122,6 +122,14 @@ export function organizationSchema(opts: {
     ...(opts.logo && { logo: absolute(opts.logo) }),
     foundingDate: "1994",
     foundingLocation: "Bursa, Türkiye",
+    // Google'a "Bemis E-V Charge, 1994'ten beri üreten Bemis Teknik Elektrik
+    // A.Ş.'nin markasıdır" sinyali — köklü şirket otoritesini bağlar + iki
+    // domaini (bemisevcharge.com.tr ↔ bemis.com.tr) aynı kurum olarak işaretler.
+    parentOrganization: {
+      "@type": "Organization",
+      name: "Bemis Teknik Elektrik A.Ş.",
+      url: "https://www.bemis.com.tr",
+    },
     ...(sameAs.length > 0 && { sameAs }),
     ...(contactPoints.length > 0 && { contactPoint: contactPoints }),
     ...(hasAddr && {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -43,6 +43,29 @@ export default function Home() {
   const [searchOpen, setSearchOpen] = useState(false);
   const { isEditMode } = useEditMode();
   const { sectionOrder } = useContent();
+
+  // Alt sayfadan #bölüm menüsüyle gelince (örn. /#dealer) anasayfanın TEPESİNE
+  // düşme ("boş dönüş") sorununu çözer: bölümler dinamik yüklendiği için hedef
+  // DOM'a gelene kadar birkaç kez deneyip ilgili bölüme yumuşak kaydırır.
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash || hash.length < 2) return;
+    const id = decodeURIComponent(hash.slice(1));
+    let tries = 0;
+    let timer: ReturnType<typeof setTimeout>;
+    const tryScroll = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        // Aşağıdaki bölümler yüklendikçe konum kayabilir → bir kez daha hizala.
+        setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "center" }), 700);
+        return;
+      }
+      if (tries++ < 48) timer = setTimeout(tryScroll, 250); // ~12 sn'ye kadar dene
+    };
+    timer = setTimeout(tryScroll, 400);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <main className="relative" style={{ paddingLeft: isEditMode ? 48 : 0, transition: "padding-left 0.2s" }}>

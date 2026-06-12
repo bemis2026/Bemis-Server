@@ -2,6 +2,8 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import Link from "next/link";
+import { RiArrowRightLine } from "react-icons/ri";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import E from "./E";
@@ -59,6 +61,34 @@ export default function Stats() {
       )}
       <div className="section-divider" style={{ background: d ? undefined : "linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)" }} />
       <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-8 lg:py-10">
+        {/* 32 yıllık Bemis Teknik mirası — istatistiklerin üstünde; /uretici'ye
+            güçlü iç link + ziyaretçiye güven, Google'a E-E-A-T (deneyim/otorite). */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-8"
+        >
+          <span
+            className="inline-block text-[11px] sm:text-xs font-bold tracking-[0.16em] uppercase px-3 py-1.5 rounded-full mb-3"
+            style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.22)", color: "#ffffff" }}
+          >
+            {"1994'ten beri · Bemis Teknik Elektrik A.Ş."}
+          </span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black leading-tight mb-3" style={{ color: "#ffffff" }}>
+            32 yıllık üretim mirası, elektrikli araç şarjında
+          </h2>
+          <p className="text-sm sm:text-base leading-relaxed mb-5" style={{ color: "rgba(255,255,255,0.82)" }}>
+            {"Bemis E-V Charge, 1994'ten beri Bursa'da üretim yapan Bemis Teknik Elektrik A.Ş.'nin elektrikli araç şarj markasıdır. Endüstriyel fiş-priz üretim mirası, 60+ ülkeye ihracat ve kendi Ar-Ge'siyle — donanımdan yazılıma yerli üretim."}
+          </p>
+          <Link
+            href="/uretici"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 hover:gap-3"
+            style={{ background: "#ffffff", color: "#1d4ed8" }}
+          >
+            Yerli Üretici Hikayemiz <RiArrowRightLine size={15} />
+          </Link>
+        </motion.div>
         <div
           className="grid grid-cols-2 lg:grid-cols-4 gap-px rounded-2xl overflow-hidden"
           style={{ background: gridGap }}
