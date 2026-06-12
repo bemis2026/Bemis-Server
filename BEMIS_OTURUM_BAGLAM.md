@@ -129,6 +129,21 @@
    /b2b duruyor); **SSS basınca-açılır AKORDEON** (`openFaq` state, tek-açık, HiChevronDown, AnimatePresence; ilki açık);
    en alta **"Bemis Basında & Haberler"** minik 4'lü şerit (`allPress()`, type≠social). Build ○ static geçti; canlı
    /uretici+/kurumsal+anasayfa doğrulandı. Değişen: `Stats.tsx`, `DNA.tsx`, `kurumsal/page.tsx`, `uretici/UreticiClient.tsx`.
+   **+ (2026-06-13 ileri — /uretici canlı animasyon + /kurumsal sadeleştirme + Hakkımızda menü, CANLI · commit 293bbd9):**
+   Kullanıcı: /uretici "soğuk/hareketsiz"; /kurumsal'dan 2 bölüm kaldır; /uretici'yi üst menüye ekle. **5-ajan analiz
+   workflow** (site animasyon dili + /uretici cold-spot + navbar yapısı + /kurumsal sınırlar → animasyon spec) sonra
+   uygulandı: **(a) /kurumsal**'dan "Üretim Süreci" + "Değerlerimiz/Teknoloji/Sertifikalar" bölümleri KALDIRILDI (timeline +
+   hero + video + grup markaları KALDI); kullanılmayan 12 ikon importu + 16 const temizlendi (197 satır; `node` scriptiyle
+   güvenlik-kontrollü silme). **(b) Navbar** `HAKKIMIZDA_DROPDOWN` HARDCODED (CMS değil) → "Yerli Üretim → /uretici"
+   eklendi (desktop+mobil otomatik; accent #DC0E1A); /kurumsal alt-metni güncellendi. **(c) /uretici** site animasyon
+   diline hizalandı — TÜM bölümler `whileInView` scroll-reveal (`viewport={{once:true,margin:"-60px"}}`, sayfa-içi tek
+   desen; useInView DEĞİL), stagger `0.1+i*0.07`, kart hover `whileHover y:-4` + JS border/box-shadow glow (FeaturedProducts
+   deseni), başlık altı accent çizgiler (tek varyant A), fabrika görseline çok yavaş **Ken Burns** (16sn scale 1→1.06),
+   eyebrow **nabız noktası**, CERTS çipleri **backOut pop** stagger, hero dekoratif blob, FAQ ok rotate framer'a taşındı,
+   **`prefers-reduced-motion`** (Ken Burns + nabız kısılır). Çekişmeli inceleme (1 ajan): motion çakışması/Ken Burns/
+   whileInView görünmezlik/paylaşılan accentLine/TS/perf HEPSİ temiz; tek minör fix = eyebrow nabız span'ına `aria-hidden`
+   (eklendi). Build ○ static; canlı doğrulandı. Değişen: `Navbar.tsx`, `kurumsal/page.tsx`, `uretici/UreticiClient.tsx`.
+   ⚠️ /uretici artık TEK animasyon deseni kullanıyor (whileInView); değiştirirken useInView ile KARIŞTIRMA.
 
 1. **[KULLANICI] Admin kayıt testi** — Vercel'den `ADMIN_PASSWORD` ayarla → `/admin` giriş →
    bir ürünü değiştir → Kaydet → yenile → durdu mu? **Blob'a yazmanın uygulama üzerinden son

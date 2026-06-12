@@ -89,7 +89,7 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
             className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.18em] uppercase mb-3"
             style={{ color: d ? "#93C5FD" : BLUE }}
           >
-            <span className="relative flex h-2 w-2">
+            <span aria-hidden className="relative flex h-2 w-2">
               {!reduce && (
                 <motion.span
                   className="absolute inline-flex h-full w-full rounded-full" style={{ background: BLUE }}
