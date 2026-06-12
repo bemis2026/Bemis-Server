@@ -154,6 +154,12 @@
    telefon+e-posta+OEM/B2B kaldı. ⚠️ Gerçek hedefi olmayan link EKLEME: anasayfada render edilen section id'leri =
    #dna/#stats/#products/#dealer/#calculator/#dealer-export/#hero; #contact + #technology YOK. KVKK/İletişim sayfası yok
    (gerekirse ileride eklenebilir; iletişim şu an footer alt barda tel+mail). Değişen: `Footer.tsx`.
+   **+ (2026-06-13 son2 — grup logo linkleri + /uretici marka görselleri, CANLI · commit 1a89922):** /kurumsal grup
+   markaları logoları artık TIKLANABİLİR (`BrandLink` + `BRAND_URLS` isim→url: **Bemis→bemis.com.tr, BYES→byes.com.tr**,
+   yeni sekme; Bemis E-V Charge bu site=linksiz). groupBrands CMS verisinde url alanı YOK → isimle eşleniyor (live ad
+   "Bemis"/"BYES" tam eşleşmeli). /uretici: hero'ya **yerli-üretim güven rozeti** (`/badges/yerli-uretim.jpg`, siyah rozet
+   beyaz çipte=iki modda okunur) + miras kartına **kırmızı Bemis ana-şirket logosu** (`/brand/bemis-logo.png`). Varlıklar:
+   `/brand/bemis-logo.png`=kırmızı Bemis, `/badges/yerli-uretim.jpg`=YERLİ ÜRETİM damgası, `/logo*.png`=EV Charge logoları.
 
 1. **[KULLANICI] Admin kayıt testi** — Vercel'den `ADMIN_PASSWORD` ayarla → `/admin` giriş →
    bir ürünü değiştir → Kaydet → yenile → durdu mu? **Blob'a yazmanın uygulama üzerinden son
