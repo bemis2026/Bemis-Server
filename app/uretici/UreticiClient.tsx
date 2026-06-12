@@ -138,6 +138,17 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
               OEM & Özel Üretim
             </Link>
           </motion.div>
+
+          {/* Yerli Üretim güven rozeti — beyaz çip (siyah rozet iki modda da okunur) */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.4 }}
+            className="mt-6 inline-flex items-center gap-3 rounded-2xl px-3.5 py-2.5 bg-white shadow-sm"
+            style={{ border: "1px solid rgba(0,0,0,0.08)" }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/badges/yerli-uretim.jpg" alt="Yerli Üretim — Made in Türkiye" className="h-9 w-auto" loading="eager" decoding="async" />
+            <span className="text-xs font-bold leading-tight pr-1" style={{ color: "#1a1a1a" }}>%100 Türkiye&apos;de<br />tasarım &amp; üretim</span>
+          </motion.div>
         </div>
       </section>
 
@@ -174,12 +185,17 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
           )}
           <motion.div
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-col sm:flex-row sm:items-center gap-3 justify-between rounded-2xl p-4"
+            className="flex flex-col sm:flex-row sm:items-center gap-4 justify-between rounded-2xl p-4"
             style={{ background: surface, border: `1px solid ${border}` }}
           >
-            <p className="text-sm leading-relaxed" style={{ color: textMuted }}>
-              Bemis E-V Charge, <strong style={{ color: textPrimary, fontWeight: 700 }}>1994&apos;ten beri üreten Bemis Teknik Elektrik A.Ş.</strong>&apos;nin elektrikli araç şarj markasıdır — 32 yıllık endüstriyel üretim mirası.
-            </p>
+            <div className="flex items-center gap-4">
+              {/* Kırmızı Bemis (ana şirket) logosu */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/brand/bemis-logo.png" alt="Bemis Teknik Elektrik A.Ş." className="h-8 sm:h-9 w-auto flex-shrink-0" loading="lazy" decoding="async" />
+              <p className="text-sm leading-relaxed" style={{ color: textMuted }}>
+                Bemis E-V Charge, <strong style={{ color: textPrimary, fontWeight: 700 }}>1994&apos;ten beri üreten Bemis Teknik Elektrik A.Ş.</strong>&apos;nin elektrikli araç şarj markasıdır — 32 yıllık endüstriyel üretim mirası.
+              </p>
+            </div>
             <a
               href="https://www.bemis.com.tr" target="_blank" rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold flex-shrink-0 transition-all duration-200 hover:-translate-y-0.5"

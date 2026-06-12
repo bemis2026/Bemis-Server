@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode, type CSSProperties } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
@@ -36,6 +36,32 @@ const FALLBACK_TIMELINE = [
   { year: "2020", title: "EV Dönüşümü", desc: "Bemis E-V Charge markasıyla EV şarj pazarına girildi." },
   { year: "2024", title: "Bugün",       desc: "60+ ülkeye ihracat, 6000+ ürün çeşidi." },
 ];
+
+// Grup markaları logoları → ilgili kurumsal sitelere link (groupBrands CMS
+// verisinde url alanı yok, isimden eşliyoruz). "Bemis E-V Charge" bu sitedir → linksiz.
+const BRAND_URLS: Record<string, string> = {
+  "Bemis": "https://www.bemis.com.tr",
+  "BYES":  "https://www.byes.com.tr",
+};
+
+// Marka logosu kartı — ilgili markanın kurumsal sitesi varsa <a>, yoksa <div>.
+function BrandLink({ url, className, style, children }: { url?: string; className?: string; style?: CSSProperties; children: ReactNode }) {
+  if (url) {
+    return (
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={`${url.replace("https://www.", "")} →`}
+        className={`${className ?? ""} transition-transform duration-200 hover:-translate-y-0.5`}
+        style={{ ...style, cursor: "pointer", textDecoration: "none" }}
+      >
+        {children}
+      </a>
+    );
+  }
+  return <div className={className} style={style}>{children}</div>;
+}
 
 export default function KurumsalPage() {
   const { theme } = useTheme();
@@ -344,7 +370,8 @@ export default function KurumsalPage() {
                             the group strip is captioned the same way. Logo
                             is centered with a generous height/width-cap so
                             wide- and square-format logos both sit cleanly. */}
-                        <div
+                        <BrandLink
+                          url={BRAND_URLS[parent.name]}
                           className="flex flex-col items-center justify-center gap-2 rounded-2xl px-6 py-4"
                           style={{ background: cardBg, border: cardBorder, minHeight: 96, minWidth: 240 }}
                         >
@@ -367,7 +394,7 @@ export default function KurumsalPage() {
                           ) : (
                             <span className="text-lg font-black tracking-tight" style={{ color: textPrimary }}>{parent.name}</span>
                           )}
-                        </div>
+                        </BrandLink>
                         {children.length > 0 && (
                           <>
                             <div style={{ width: 1, height: 18, background: lineColor }} />
@@ -378,13 +405,14 @@ export default function KurumsalPage() {
                               {children.map((b, i) => (
                                 <div key={i} className="flex flex-col items-center">
                                   <div style={{ width: 1, height: 14, background: lineColor }} />
-                                  <div
+                                  <BrandLink
+                                    url={BRAND_URLS[b.name]}
                                     className="flex flex-col items-center gap-1.5 rounded-2xl px-3 py-3"
                                     style={{ background: cardBg, border: cardBorder, minHeight: 84 }}
                                   >
                                     {renderLogo(b, 44, 150)}
                                     <span className="text-[11px] font-bold text-center leading-tight" style={{ color: textPrimary }}>{b.name}</span>
-                                  </div>
+                                  </BrandLink>
                                 </div>
                               ))}
                             </div>
