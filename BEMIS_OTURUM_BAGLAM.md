@@ -7,7 +7,7 @@
 > Derin teknik bağlam: `Desktop/Claude Çalışmaları/Bemis Website/md/BEMIS_PROJECT_CONTEXT.md`
 > (özellikle §15.16 denetim, §15.17 Blob taşıması).
 >
-> Son güncelleme: **2026-06-07**
+> Son güncelleme: **2026-06-13**
 
 ---
 
@@ -115,6 +115,20 @@
    (feed.xml hazır ama EUR fiyat + sepet olmadan tam çalışmaz). 
    **Sıradaki sen-işi:** GSC'de yeni sayfalara "dizine eklenmesini iste" + GBP doldur + ürün açıklamaları(TL).
    **Sıradaki ben-işi (opsiyon):** şehir sayfaları, daha çok blog. İkinci hedef: e-ticaret (ödeme sağlayıcı + TL fiyat gelince).
+   **+ (2026-06-13 — /uretici zenginleştirme + Stats duplikasyon temizliği, CANLI · commit 17003d7):**
+   Kullanıcı: anasayfa Stats'taki "32 yıllık miras" bloğu üst bölüm/DNA ile NEREDEYSE AYNI içerikti (duplikasyon) +
+   mavi bandda mavi eyebrow okunmuyordu. **ÇÖZÜM:** (1) **Stats**'tan miras bloğu KALDIRILDI (sadece istatistik grid
+   kaldı; `Link`+`RiArrowRightLine` importları da temizlendi). (2) Miras anlatısı zaten **/kurumsal** (1994 tarihçe,
+   marka, fabrika, video) + **/uretici** amiral sayfasında var → tekrar bitti. (3) ⚠️ Stats bloğu anasayfanın TEK
+   taranabilir (`<a>`) /uretici linkiydi (footer "Yerli Üretim" `<button>`=taranmaz) → SEO kaybı olmasın diye **DNA**
+   (Hakkımızda) "Bemis Dünyasını Keşfet" butonunun yanına GERÇEK `<a href="/uretici">` "Yerli Üretici Hikayemiz" linki
+   eklendi (anasayfa→/uretici iç link korundu, canlı doğrulandı: anasayfada 1 adet). (4) **/kurumsal** hero'suna
+   "Yerli Üretici Hikayemiz" → /uretici butonu. (5) **/uretici** geliştirmeleri: hero'dan sonra **fabrika görseli**
+   (`dna.factoryImage` — /kurumsal ile AYNI kaynak, 16:7 büyük çerçeve, `priority`/LCP) + **bemis.com.tr** linki &
+   32 yıllık Bemis Teknik mirası alıntısı; alttaki **"OEM Çözümleri" CTA bölümü kaldırıldı** (hero'daki OEM butonu +
+   /b2b duruyor); **SSS basınca-açılır AKORDEON** (`openFaq` state, tek-açık, HiChevronDown, AnimatePresence; ilki açık);
+   en alta **"Bemis Basında & Haberler"** minik 4'lü şerit (`allPress()`, type≠social). Build ○ static geçti; canlı
+   /uretici+/kurumsal+anasayfa doğrulandı. Değişen: `Stats.tsx`, `DNA.tsx`, `kurumsal/page.tsx`, `uretici/UreticiClient.tsx`.
 
 1. **[KULLANICI] Admin kayıt testi** — Vercel'den `ADMIN_PASSWORD` ayarla → `/admin` giriş →
    bir ürünü değiştir → Kaydet → yenile → durdu mu? **Blob'a yazmanın uygulama üzerinden son
