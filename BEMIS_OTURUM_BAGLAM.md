@@ -160,13 +160,29 @@
    "Bemis"/"BYES" tam eşleşmeli). /uretici: hero'ya **yerli-üretim güven rozeti** (`/badges/yerli-uretim.jpg`, siyah rozet
    beyaz çipte=iki modda okunur) + miras kartına **kırmızı Bemis ana-şirket logosu** (`/brand/bemis-logo.png`). Varlıklar:
    `/brand/bemis-logo.png`=kırmızı Bemis, `/badges/yerli-uretim.jpg`=YERLİ ÜRETİM damgası, `/logo*.png`=EV Charge logoları.
+   **+ (2026-06-13 son3 — admin uyum + güvenlik + Bursa SEO sayfası, CANLI · commit'ler 909091c/2aeee12/b59fb21):**
+   **(a) Admin uyumu:** /kurumsal'dan kaldırılan Üretim Süreci + Değerler/Sertifika bölümlerinin admin "hayalet
+   editörleri" temizlendi (`admin/page.tsx`): productionStep* / highlights / features / certifications editörleri +
+   kurumsalLabels production*/valuesEyebrow alanları + cascade (updateDnaHighlight/Feature, handleStepImgUpload,
+   stepImg* state/ref) kaldırıldı. KALDI: Tarihçe (timeline), Hakkımızda Videosu, **Grup Markaları**, fabrika foto/video.
+   ⚠️ Veri/tip DEĞİŞMEDİ — `content` alanları + Blob verisi korundu, sadece editör UI kalktı (geri eklenebilir).
+   **(b) Güvenlik:** GitHub secret `JSONBIN_MASTER_KEY` SİLİNDİ (hiçbir workflow kullanmıyordu) + anahtarın gömülü
+   gerçek değeri 5 `scripts/*.cjs` yorumundan `<JSONBIN_MASTER_KEY>` ile temizlendi. ⚠️ Anahtar git GEÇMİŞİNDE hâlâ var;
+   tam etkisizleştirme = jsonbin.io'da anahtarı iptal/yenile (KULLANICI). **(c) SEO — Bursa yerel landing sayfası:**
+   `/bursa-ev-sarj-istasyonu` ("bursa ev şarj" aramasına yönelik). Veri-tabanlı: **`app/lib/cities.ts`** (CITY_PAGES;
+   yeni şehir = 1 kayıt + `app/<slug>/page.tsx` kopyası) + **`CityLandingClient.tsx`** (tekrar kullanılabilir UI,
+   /uretici animasyon dili). JSON-LD: Breadcrumb + Service `areaServed:Bursa` + FAQPage. sitemap'e eklendi (prio 0.75),
+   /uretici'den taranabilir iç link ("Bölgesel: …"). İçerik ÖZGÜN, rakip marka yok. ⚠️ Yeni şehir sayfası eklerken:
+   gerçek/var-olmayan hedefe link verme, içeriği özgün tut. **Sıradaki ben-işi (opsiyon):** daha çok şehir (İstanbul/
+   Ankara/İzmir) + blog. **Hâlâ KULLANICI'da:** 301 (en kritik), GBP, GSC dizine-ekleme, Workspace mail alias.
 
 1. **[KULLANICI] Admin kayıt testi** — Vercel'den `ADMIN_PASSWORD` ayarla → `/admin` giriş →
    bir ürünü değiştir → Kaydet → yenile → durdu mu? **Blob'a yazmanın uygulama üzerinden son
    kanıtı.** Hata verirse Vercel'de `BLOB_READ_WRITE_TOKEN` env'inin deploy'da olduğunu kontrol et.
 2. **[KULLANICI] Katalog veri girişi** — EAN/desi/uzun açıklama değerleri (alanlar hazır; uydurulamaz).
 3. **[ERTELENDİ] hreflang `/en/`** — ayrı indekslenebilir EN URL; görünür+riskli → ayrı oturum.
-4. **[GÜVENLİK] temizlik** — GitHub'daki eski `JSONBIN_MASTER_KEY` secret'ını sil; (ops.) Blob token + JSONBin key yenile (transcript'te geçti).
+4. **[GÜVENLİK] temizlik** — ✅ GitHub secret `JSONBIN_MASTER_KEY` SİLİNDİ + gömülü değer script'lerden temizlendi (2026-06-13).
+   **KALAN [KULLANICI]:** anahtar git GEÇMİŞİNDE duruyor → jsonbin.io'da iptal/yenile (tam etkisizleştirme). (ops.) Blob token yenile.
 
 ---
 
