@@ -277,8 +277,6 @@ export default function AdminPage() {
   const [factoryImgLoading, setFactoryImgLoading] = useState(false);
   const [factoryVideoLoading, setFactoryVideoLoading] = useState(false);
   const [catImgLoading, setCatImgLoading] = useState<string | null>(null); // catId while uploading
-  const [stepImgLoadingIdx, setStepImgLoadingIdx] = useState<number | null>(null);
-  const [stepImgTargetIdx, setStepImgTargetIdx] = useState<number>(0);
   const fileRef = useRef<HTMLInputElement>(null);
   const prodImgRef = useRef<HTMLInputElement>(null);
   const bcImgRef = useRef<HTMLInputElement>(null);
@@ -287,7 +285,6 @@ export default function AdminPage() {
   const factoryImgRef = useRef<HTMLInputElement>(null);
   const factoryVideoRef = useRef<HTMLInputElement>(null);
   const catImgRef = useRef<HTMLInputElement>(null);
-  const stepImgRef = useRef<HTMLInputElement>(null);
   const [catImgTarget, setCatImgTarget] = useState<string>(""); // catId for pending upload
   const [sectionBgLoading, setSectionBgLoading] = useState<string | null>(null);
   const [sectionBgTarget, setSectionBgTarget] = useState<string>("");
@@ -580,23 +577,6 @@ export default function AdminPage() {
     if (!content) return;
     const next = JSON.parse(JSON.stringify(content)) as ContentData;
     next.hero.layout = { logo: { x: 4, y: 12 }, text: { x: 4, y: 38 }, button: { x: 4, y: 72 } };
-    setContent(next);
-  };
-
-  // DNA array helpers
-  const updateDnaHighlight = (idx: number, field: keyof DnaItem, val: string) => {
-    if (!content) return;
-    const next = JSON.parse(JSON.stringify(content)) as ContentData;
-    if (!next.dna.highlights[idx]) return;
-    next.dna.highlights[idx][field] = val;
-    setContent(next);
-  };
-
-  const updateDnaFeature = (idx: number, field: keyof DnaItem, val: string) => {
-    if (!content) return;
-    const next = JSON.parse(JSON.stringify(content)) as ContentData;
-    if (!next.dna.features[idx]) return;
-    next.dna.features[idx][field] = val;
     setContent(next);
   };
 
@@ -1039,33 +1019,6 @@ export default function AdminPage() {
     }
     setMockupImgLoading(null);
     if (mockupImgRef.current) mockupImgRef.current.value = "";
-  };
-
-  const handleStepImgUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const idx = stepImgTargetIdx;
-    setStepImgLoadingIdx(idx);
-    const fd = new FormData();
-    fd.append("file", file);
-    fd.append("folder", "kurumsal");
-    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
-    if (res.ok) {
-      const { url } = await res.json();
-      setContent((prev) => {
-        if (!prev) return prev;
-        const next = JSON.parse(JSON.stringify(prev)) as ContentData;
-        const imgs = [...(next.dna.productionStepImages ?? ["", "", "", "", "", ""])];
-        imgs[idx] = url;
-        next.dna.productionStepImages = imgs;
-        return next;
-      });
-      showToast("ok", `Adım ${idx + 1} görseli yüklendi.`);
-    } else {
-      showToast("err", "Yükleme başarısız.");
-    }
-    setStepImgLoadingIdx(null);
-    if (stepImgRef.current) stepImgRef.current.value = "";
   };
 
   const handleCatImgUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -4102,135 +4055,17 @@ export default function AdminPage() {
                               </p>
                             </div>
 
-                            {/* Kurumsal section labels — eyebrow + heading
-                                strings for the /kurumsal sub-blocks. */}
+                            {/* Kurumsal section labels — yalnızca Tarihçe
+                                (timeline) bölümü /kurumsal'da kaldı; Üretim
+                                Süreci + Değerler bölümleri kaldırıldı. */}
                             <div className="pt-3 border-t border-white/6 space-y-3">
-                              <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">/kurumsal Bölüm Etiketleri</p>
-                              <p className="text-[10px] text-white/25 leading-relaxed">Üretim Süreci, Tarihçe ve Değerler bölümlerinin eyebrow/başlık metinleri. Boş bırakılırsa varsayılan kullanılır.</p>
+                              <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">/kurumsal Tarihçe Etiketleri</p>
+                              <p className="text-[10px] text-white/25 leading-relaxed">Tarihçe bölümünün eyebrow/başlık metinleri. Boş bırakılırsa varsayılan kullanılır.</p>
                               <div className="grid grid-cols-2 gap-2.5">
-                                <Field label="Üretim Süreci · Eyebrow" value={content.dna.kurumsalLabels?.productionEyebrow ?? ""} onChange={(v) => updateContent(["dna","kurumsalLabels","productionEyebrow"], v)} placeholder="Üretim Süreci" />
-                                <Field label="Üretim Süreci · Başlık"   value={content.dna.kurumsalLabels?.productionHeading ?? ""} onChange={(v) => updateContent(["dna","kurumsalLabels","productionHeading"], v)} placeholder="Tasarımdan Son Ürüne" />
-                                <Field label="Üretim Süreci · Yerli Etiketi" value={content.dna.kurumsalLabels?.productionMadeIn ?? ""} onChange={(v) => updateContent(["dna","kurumsalLabels","productionMadeIn"], v)} placeholder="🇹🇷 Yerli Üretim" />
                                 <Field label="Tarihçe · Eyebrow" value={content.dna.kurumsalLabels?.timelineEyebrow ?? ""} onChange={(v) => updateContent(["dna","kurumsalLabels","timelineEyebrow"], v)} placeholder="Tarihçe" />
                                 <Field label="Tarihçe · Başlık" value={content.dna.kurumsalLabels?.timelineHeading ?? ""} onChange={(v) => updateContent(["dna","kurumsalLabels","timelineHeading"], v)} placeholder="Bemis Yolculuğu" />
-                                <Field label="Değerler · Eyebrow" value={content.dna.kurumsalLabels?.valuesEyebrow ?? ""} onChange={(v) => updateContent(["dna","kurumsalLabels","valuesEyebrow"], v)} placeholder="Değerlerimiz, Teknoloji & Sertifikalar" />
                               </div>
                             </div>
-
-                            {/* Production step labels — text only; images
-                                live in the section below. */}
-                            <div className="pt-3 border-t border-white/6 space-y-3">
-                              <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Üretim Adımı Etiketleri</p>
-                              <p className="text-[10px] text-white/25 leading-relaxed">5 üretim adımı + son ürün etiketi. Sıralama görselle eşleşir.</p>
-                              <div className="grid grid-cols-2 gap-2.5">
-                                {["PCB Tasarımı", "Elektronik İmalat", "Yazılım", "Cihaz Tasarımı", "Test & Kalite"].map((fb, i) => (
-                                  <Field
-                                    key={i}
-                                    label={`Adım ${i + 1}`}
-                                    value={content.dna.productionStepLabels?.[i] ?? ""}
-                                    placeholder={fb}
-                                    onChange={(v) => setContent((prev) => {
-                                      if (!prev) return prev;
-                                      const next = JSON.parse(JSON.stringify(prev)) as typeof prev;
-                                      const labels = [...(next.dna.productionStepLabels ?? ["", "", "", "", ""])];
-                                      while (labels.length < 5) labels.push("");
-                                      labels[i] = v;
-                                      next.dna.productionStepLabels = labels;
-                                      return next;
-                                    })}
-                                  />
-                                ))}
-                                <Field
-                                  label="Son Ürün Etiketi"
-                                  value={content.dna.productionFinalLabel ?? ""}
-                                  placeholder="Son Ürün"
-                                  onChange={(v) => updateContent(["dna","productionFinalLabel"], v)}
-                                />
-                              </div>
-                            </div>
-
-                            {/* Production step images */}
-                            <div className="pt-2 border-t border-white/6 space-y-3">
-                              <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Üretim Adımı Görselleri</p>
-                              <p className="text-[10px] text-white/25 leading-relaxed">Her adım için yuvarlak alanda görünecek küçük fotoğraf. Önerilen: 1:1 kare, min 128×128px.</p>
-                              {["PCB Tasarımı", "Elektronik İmalat", "Yazılım", "Cihaz Tasarımı", "Test & Kalite", "Son Ürün 🇹🇷"].map((label, i) => {
-                                const imgSrc = content.dna.productionStepImages?.[i] ?? "";
-                                return (
-                                  <div key={i} className="flex items-center gap-3 border-t border-white/5 pt-3">
-                                    {/* Preview circle */}
-                                    <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center border border-white/12" style={{ background: "rgba(255,255,255,0.04)" }}>
-                                      {imgSrc ? (
-                                        <img src={imgSrc} alt={label} className="w-full h-full object-cover" />
-                                      ) : (
-                                        <span className="text-white/20 text-lg font-bold">{i + 1}</span>
-                                      )}
-                                    </div>
-                                    <div className="flex-1 min-w-0">
-                                      <p className="text-[10px] font-semibold text-white/50 mb-1.5">{label}</p>
-                                      <div className="flex gap-2">
-                                        <input
-                                          value={imgSrc}
-                                          onChange={(e) => {
-                                            setContent((prev) => {
-                                              if (!prev) return prev;
-                                              const next = JSON.parse(JSON.stringify(prev)) as ContentData;
-                                              const imgs = [...(next.dna.productionStepImages ?? ["", "", "", "", "", ""])];
-                                              imgs[i] = e.target.value;
-                                              next.dna.productionStepImages = imgs;
-                                              return next;
-                                            });
-                                          }}
-                                          placeholder="Görsel URL veya /uploads/..."
-                                          className="flex-1 bg-white/5 border border-white/8 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-white/22"
-                                        />
-                                        <button
-                                          onClick={() => { setStepImgTargetIdx(i); setTimeout(() => stepImgRef.current?.click(), 0); }}
-                                          disabled={stepImgLoadingIdx === i}
-                                          className="flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-semibold text-white/70 border border-white/12 hover:border-white/25 hover:text-white transition-colors disabled:opacity-50 flex-shrink-0"
-                                        >
-                                          {stepImgLoadingIdx === i ? (
-                                            <div className="w-3 h-3 rounded-full border-2 border-white/20 border-t-white/60 animate-spin" />
-                                          ) : (
-                                            <RiImageAddLine size={13} />
-                                          )}
-                                        </button>
-                                        {imgSrc && (
-                                          <button
-                                            onClick={() => {
-                                              setContent((prev) => {
-                                                if (!prev) return prev;
-                                                const next = JSON.parse(JSON.stringify(prev)) as ContentData;
-                                                const imgs = [...(next.dna.productionStepImages ?? ["", "", "", "", "", ""])];
-                                                imgs[i] = "";
-                                                next.dna.productionStepImages = imgs;
-                                                return next;
-                                              });
-                                            }}
-                                            className="text-xs text-red-400/50 hover:text-red-400 transition-colors flex-shrink-0 px-1"
-                                          >✕</button>
-                                        )}
-                                      </div>
-                                    </div>
-                                  </div>
-                                );
-                              })}
-                              <input ref={stepImgRef} type="file" accept="image/*" className="hidden" onChange={handleStepImgUpload} />
-                            </div>
-
-                            <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider pt-2">Öne Çıkan Kartlar (4 adet)</p>
-                            {content.dna.highlights.map((h, i) => (
-                              <div key={i} className="grid grid-cols-2 gap-3 border-t border-white/6 pt-3">
-                                <Field label={`Kart ${i+1} Başlık`} value={h.title} onChange={(v) => updateDnaHighlight(i, "title", v)} />
-                                <Field label={`Kart ${i+1} Açıklama`} value={h.desc} onChange={(v) => updateDnaHighlight(i, "desc", v)} />
-                              </div>
-                            ))}
-                            <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider pt-2">Teknoloji Kartları (4 adet)</p>
-                            {content.dna.features.map((f, i) => (
-                              <div key={i} className="border-t border-white/6 pt-3 space-y-2">
-                                <Field label={`Özellik ${i+1} Başlık`} value={f.title} onChange={(v) => updateDnaFeature(i, "title", v)} />
-                                <Field label={`Özellik ${i+1} Açıklama`} value={f.desc} onChange={(v) => updateDnaFeature(i, "desc", v)} multiline />
-                              </div>
-                            ))}
 
                             {/* ── Tarihçe (Timeline) ── */}
                             <div className="pt-4 border-t border-white/6 space-y-3">
@@ -4339,80 +4174,6 @@ export default function AdminPage() {
                               />
                             </div>
 
-                            {/* ── Sertifikalar & Belgeler ── */}
-                            <div className="pt-4 border-t border-white/6 space-y-3">
-                              <div className="flex items-center justify-between">
-                                <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Sertifikalar & Belgeler</p>
-                                <button
-                                  onClick={() => {
-                                    setContent((prev) => {
-                                      if (!prev) return prev;
-                                      const next = JSON.parse(JSON.stringify(prev)) as ContentData;
-                                      const arr = [...(next.dna.certifications ?? [])];
-                                      arr.push({ label: "", sub: "" });
-                                      next.dna.certifications = arr;
-                                      return next;
-                                    });
-                                  }}
-                                  className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-medium text-white/50 border border-white/10 hover:border-white/20 hover:text-white/80 transition-colors"
-                                >
-                                  + Ekle
-                                </button>
-                              </div>
-                              <p className="text-[10px] text-white/35">
-                                Kurumsal sayfasının en altındaki sertifikalar listesi. Hiç madde eklemezseniz varsayılan 7 sertifika gösterilir.
-                              </p>
-                              {(content.dna.certifications ?? []).map((c, i) => (
-                                <div key={i} className="rounded-xl border border-white/7 p-3 space-y-2" style={{ background: "rgba(255,255,255,0.02)" }}>
-                                  <div className="flex items-center justify-between mb-1">
-                                    <span className="text-[10px] font-bold text-white/30">#{i + 1}</span>
-                                    <button
-                                      onClick={() => {
-                                        setContent((prev) => {
-                                          if (!prev) return prev;
-                                          const next = JSON.parse(JSON.stringify(prev)) as ContentData;
-                                          next.dna.certifications = (next.dna.certifications ?? []).filter((_, k) => k !== i);
-                                          return next;
-                                        });
-                                      }}
-                                      className="text-[10px] text-red-400/50 hover:text-red-400 transition-colors"
-                                    >
-                                      Sil
-                                    </button>
-                                  </div>
-                                  <div className="grid grid-cols-2 gap-2">
-                                    <Field
-                                      label="Etiket (örn. CE)"
-                                      value={c.label}
-                                      onChange={(v) => {
-                                        setContent((prev) => {
-                                          if (!prev) return prev;
-                                          const next = JSON.parse(JSON.stringify(prev)) as ContentData;
-                                          const arr = [...(next.dna.certifications ?? [])];
-                                          arr[i] = { ...arr[i], label: v };
-                                          next.dna.certifications = arr;
-                                          return next;
-                                        });
-                                      }}
-                                    />
-                                    <Field
-                                      label="Açıklama"
-                                      value={c.sub}
-                                      onChange={(v) => {
-                                        setContent((prev) => {
-                                          if (!prev) return prev;
-                                          const next = JSON.parse(JSON.stringify(prev)) as ContentData;
-                                          const arr = [...(next.dna.certifications ?? [])];
-                                          arr[i] = { ...arr[i], sub: v };
-                                          next.dna.certifications = arr;
-                                          return next;
-                                        });
-                                      }}
-                                    />
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
                   </div>
                 </div>
               )}
