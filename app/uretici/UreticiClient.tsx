@@ -11,6 +11,7 @@ import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
 import { allPress } from "../blog/press";
+import { CITY_PAGES } from "../lib/cities";
 import {
   RiShieldCheckLine, RiToolsLine, RiGlobalLine, RiCpuLine,
   RiPriceTag3Line, RiCustomerService2Line, RiArrowRightLine, RiCheckboxCircleLine, RiExternalLinkLine,
@@ -407,6 +408,20 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
                 </motion.div>
               ))}
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* Bölgesel sayfalar — yerel SEO iç linkleri */}
+      {CITY_PAGES.length > 0 && (
+        <section className="pb-10 px-5 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto flex flex-wrap items-center gap-x-3 gap-y-2 text-xs" style={{ color: textFaint }}>
+            <span className="font-semibold uppercase tracking-wider">Bölgesel:</span>
+            {CITY_PAGES.map((c) => (
+              <Link key={c.slug} href={`/${c.slug}`} className="font-bold transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>
+                {c.city} EV Şarj İstasyonu
+              </Link>
+            ))}
           </div>
         </section>
       )}

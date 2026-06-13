@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { getServerProducts } from "./lib/server-content";
 import { allPosts } from "./blog/posts";
 import { allPress } from "./blog/press";
+import { CITY_PAGES } from "./lib/cities";
 
 const BASE = "https://www.bemisevcharge.com.tr";
 
@@ -42,6 +43,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/bayilik`,   lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/operator`,  lastModified: now, changeFrequency: "monthly", priority: 0.7 },
   ];
+
+  // Şehir bazlı yerel-SEO landing sayfaları (örn. /bursa-ev-sarj-istasyonu).
+  const cityRoutes: MetadataRoute.Sitemap = CITY_PAGES.map((c) => ({
+    url: `${BASE}/${c.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
 
   let products: Awaited<ReturnType<typeof getServerProducts>> = [];
   try {
@@ -108,5 +117,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   ];
 
-  return [...staticRoutes, ...categoryRoutes, ...productRoutes, ...blogRoutes];
+  return [...staticRoutes, ...cityRoutes, ...categoryRoutes, ...productRoutes, ...blogRoutes];
 }
