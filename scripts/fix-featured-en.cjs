@@ -6,7 +6,7 @@
  *
  * Çalıştırma (cmd):
  *   cd C:\Users\sales\bemis-evcharge-website
- *   set JSONBIN_MASTER_KEY=$2a$10$zWJKdAUgfHbBy/CeORFuGesiyZ/OdkdVHfK9AiQfwg1fAfbTlnCH.
+ *   set JSONBIN_MASTER_KEY=<JSONBIN_MASTER_KEY>.
  *   node scripts/fix-featured-en.cjs
  */
 
