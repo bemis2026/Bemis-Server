@@ -172,9 +172,20 @@
    `/bursa-ev-sarj-istasyonu` ("bursa ev şarj" aramasına yönelik). Veri-tabanlı: **`app/lib/cities.ts`** (CITY_PAGES;
    yeni şehir = 1 kayıt + `app/<slug>/page.tsx` kopyası) + **`CityLandingClient.tsx`** (tekrar kullanılabilir UI,
    /uretici animasyon dili). JSON-LD: Breadcrumb + Service `areaServed:Bursa` + FAQPage. sitemap'e eklendi (prio 0.75),
-   /uretici'den taranabilir iç link ("Bölgesel: …"). İçerik ÖZGÜN, rakip marka yok. ⚠️ Yeni şehir sayfası eklerken:
-   gerçek/var-olmayan hedefe link verme, içeriği özgün tut. **Sıradaki ben-işi (opsiyon):** daha çok şehir (İstanbul/
-   Ankara/İzmir) + blog. **Hâlâ KULLANICI'da:** 301 (en kritik), GBP, GSC dizine-ekleme, Workspace mail alias.
+   /uretici'den taranabilir iç link ("Bölgesel: …"). İçerik ÖZGÜN, rakip marka yok.
+   **+ (2026-06-14 — logo fix + 2 blog + iç link; KARAR: şehir sayfası YAPMA, CANLI · commit'ler 962bb66/b12438b):**
+   **(a) Logo:** `/brand/bemis-logo.png` (kırmızı Bemis, /uretici miras kartı) RGBA idi ama 'b' counter'ı + ® içi OPAK
+   BEYAZ → karanlık modda beyaz leke. `sharp` ile beyaz/açık pikseller şeffaf yapıldı (kenar yumuşatmalı); yıldızdaki B
+   knockout oldu (iki modda doğru). **(b) ⭐ KARAR (kullanıcı):** YENİ ŞEHİR SAYFASI YAPMA — şehirsel SEO içeriği BLOG'da
+   yapılacak. `/bursa-ev-sarj-istasyonu` KALIYOR (kullanıcı GSC'ye verdi); İstanbul/Ankara/İzmir vb. için AYRI SAYFA AÇMA,
+   blog yaz. `app/lib/cities.ts` + `CityLandingClient.tsx` duruyor ama YENİ kayıt EKLEME. **(c) Blog (9→11):** 2 özgün yazı —
+   `turkiye-sehir-sehir-ev-sarj-rehberi` (İstanbul/Ankara/İzmir/Bursa, şehirsel detay blogda) + `ev-sarj-istasyonu-maliyeti`
+   (yüksek-arama fiyat sorgusu, spesifik fiyat/rakip YOK). **(d) İç link:** yeni postlar /bursa + ürünler + /uretici + çapraz
+   blog; apartmana-kurulum postuna /bursa + şehir-rehberi eklendi. Blog slug→statik sayfa + sitemap OTOMATİK (BLOG_POSTS'a ekle).
+   **⚠️ Kullanıcı yeni blog 2 URL'i GSC'ye verecek.** **Hâlâ KULLANICI'da:** **301 (EN KRİTİK** — 2026-06-14 doğrulandı, eski
+   bemis.com.tr EV sayfaları hâlâ 200/sıralanıyor, kanibalizasyon sürüyor; redirect haritası geçmiş turda verildi**)**, GBP
+   kartı sahiplen/doğrula (kart VAR ama "Own this business?"), GSC dizine-ekleme. (Mail = info@bemisevcharge.com SİZDE,
+   Workspace alias GEREKMEZ.) **Site içi SEO + marka sıralaması İYİ** (yeni site "bemis ev charge"de #2).
 
 1. **[KULLANICI] Admin kayıt testi** — Vercel'den `ADMIN_PASSWORD` ayarla → `/admin` giriş →
    bir ürünü değiştir → Kaydet → yenile → durdu mu? **Blob'a yazmanın uygulama üzerinden son
