@@ -186,6 +186,16 @@
    bemis.com.tr EV sayfaları hâlâ 200/sıralanıyor, kanibalizasyon sürüyor; redirect haritası geçmiş turda verildi**)**, GBP
    kartı sahiplen/doğrula (kart VAR ama "Own this business?"), GSC dizine-ekleme. (Mail = info@bemisevcharge.com SİZDE,
    Workspace alias GEREKMEZ.) **Site içi SEO + marka sıralaması İYİ** (yeni site "bemis ev charge"de #2).
+   **+ (2026-06-14 son — kategori/ürün meta keyword optimizasyonu, CANLI · commit 6641733):** Kullanıcı: "elektrikli araç
+   şarj kablosu yerli üretici"de çıkmıyoruz. KÖK NEDEN: kategori meta başlığı SADECE CMS adıydı ("AC Şarj Kabloları") —
+   rakipler (elektromarketim "Elektrikli Araç Şarj Kablosu Tip 2 Modelleri" #1, truwatt.com.tr, greenc-ev.com "EV Şarj
+   Kablosu Üreticisi") tam arama kelimesini başlığa koyuyor. FIX (`lib/seo.ts`): **CATEGORY_SEO** haritası (8 kategori,
+   title+desc+short). `categoryMetaTitle` artık keyword başlığı ("Elektrikli Araç Şarj Kablosu — Type 2"); `categoryMetaDescription`
+   keyword-optimize; `productMetaDescription` kategori kelimesini öne alıyor ("Type 2 EV Şarj Kablosu — …"). Ürün page.tsx'e
+   kategori id geçildi. ⚠️ Ahrefs/keyword MCP araçları "Insufficient plan" → gerçek keyword verisi çekilemedi (plan gerekir).
+   **EN BÜYÜK BEKLEYEN [KULLANICI] (rakip avantajı):** **marketplace listeleme** (hepsiburada/n11/akakçe/pazarama — rakipler
+   oradan kazanıyor, hem satış hem backlink) + 301 + backlink + GBP+yorum. **Ben-işi opsiyon:** kategori H1/ürün adlarına
+   keyword (CMS/kod), daha çok blog. AI/GEO: net "Bemis = Türkiye'de Type 2 EV şarj kablosu üreticisi" entity cümleleri + şema.
 
 1. **[KULLANICI] Admin kayıt testi** — Vercel'den `ADMIN_PASSWORD` ayarla → `/admin` giriş →
    bir ürünü değiştir → Kaydet → yenile → durdu mu? **Blob'a yazmanın uygulama üzerinden son
