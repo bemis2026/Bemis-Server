@@ -224,6 +224,12 @@ export default async function RootLayout({
   return (
     <html lang="tr" className={`${inter.variable} scroll-smooth`} suppressHydrationWarning>
       <body className="min-h-full antialiased bg-[#141414] text-white">
+        {/* Üçüncü-taraf bağlantıyı erken aç (DNS + TLS el sıkışması) — GA/GTM ve
+            Meta Pixel afterInteractive yüklenirken ilk byte daha hızlı gelir.
+            (next/font zaten fonts.gstatic preconnect'i ekliyor; Next bu link'leri
+            <head>'e taşır.) */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://connect.facebook.net" />
         <JsonLd data={jsonLd} />
         <ThemeProvider>
           <LanguageProvider>

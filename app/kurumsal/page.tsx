@@ -210,7 +210,7 @@ export default function KurumsalPage() {
                   }}
                 />
                 {dna.factoryImage ? (
-                  <Image src={dna.factoryImage} alt="Bemis Fabrika" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+                  <Image src={dna.factoryImage} alt="Bemis Fabrika" fill priority sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
                 ) : (
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
                     <RiBuilding4Line style={{ fontSize: 72, color: d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)" }} />

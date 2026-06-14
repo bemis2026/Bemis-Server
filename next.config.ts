@@ -65,14 +65,27 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // react-icons (onlarca named import) + framer-motion barrel'larını per-export
+  // chunk'a böler → her dinamik section chunk'ına giren ikon/motion JS azalır.
+  // Görünüm/davranış değişmez; sadece daha az client JS.
+  experimental: {
+    optimizePackageImports: ["react-icons", "react-icons/ri", "react-icons/hi", "react-icons/hi2", "framer-motion"],
+  },
   images: {
     // Whitelist of quality values the next/image optimizer will accept.
     // Next.js 16 only honours these — anything else logs a warning and
     // falls back to 75. We use 88 for catalog packshots so product
     // photos don't get mushy on Retina, 90 for above-the-fold hero
     // backgrounds, and keep 75 in the list for the small admin
-    // thumbnails that don't need detail.
+    // thumbnails that don't need detail. ⚠️ Quality DEĞİŞMİYOR (kalite kaybı yok).
     qualities: [75, 88, 90],
+    // AVIF, AYNI quality'de WebP'den ~%20-30 küçük dosya verir (görsel olarak
+    // fark yok — zaten lossy WebP servis ediliyordu). Eski tarayıcılar otomatik
+    // WebP'ye düşer. Piksel/kalite kaybı yok; sadece daha verimli kodlama.
+    formats: ["image/avif", "image/webp"],
+    // Optimize edilen görseller edge cache'inde 30 gün kalır → her istekte
+    // yeniden transcode/transfer olmaz.
+    minimumCacheTTL: 2592000,
     remotePatterns: [
       { protocol: "https", hostname: "**.public.blob.vercel-storage.com" },
       { protocol: "https", hostname: "**.vercel-storage.com" },
@@ -114,6 +127,14 @@ export default withSentryConfig(nextConfig, {
   tunnelRoute: undefined,
   // Don't ship debug logger to clients (smaller bundle).
   disableLogger: true,
+  // Pazarlama sitesi — Session Replay/ekstra Replay entegrasyonları
+  // KULLANILMIYOR; client bundle'dan çıkar (hata yakalama korunur).
+  bundleSizeOptimizations: {
+    excludeReplayShadowDom: true,
+    excludeReplayIframe: true,
+    excludeReplayWorker: true,
+    excludeDebugStatements: true,
+  },
   sourcemaps: {
     // Hide source maps from the public bundle to avoid leaking source.
     deleteSourcemapsAfterUpload: true,

@@ -63,6 +63,17 @@ export default function Hero() {
     return () => clearInterval(t);
   }, [heroImages.length]);
   const activeHeroIdx = heroImages.length ? activeHero % heroImages.length : 0;
+  // Çift-tampon: tüm slider görsellerini değil, yalnız aktif + komşu (önceki/
+  // sonraki) katmanı DOM'a bas → geçiş anında en fazla ~2-3 tam-ekran görsel
+  // canlı kalır (mobil GPU jank biter). Komşu zaten DOM'da olduğu için bir
+  // sonraki görsel önceden decode edilir → boş/atlamalı crossfade olmaz.
+  const heroVisible = heroImages.length
+    ? new Set<number>([
+        activeHeroIdx,
+        (activeHeroIdx - 1 + heroImages.length) % heroImages.length,
+        (activeHeroIdx + 1) % heroImages.length,
+      ])
+    : new Set<number>();
 
   // Scroll to whichever section sits right under the hero — preserves
   // the page's natural reading order regardless of the configured
@@ -135,7 +146,7 @@ export default function Hero() {
           (daha temiz/premium görünüm; eski zoom-reset kötü gözüküyordu). */}
       {heroImages.length > 0 && (
         <div className="absolute inset-0">
-          {heroImages.map((img, i) => (
+          {heroImages.map((img, i) => !heroVisible.has(i) ? null : (
             <div
               key={img + i}
               className="absolute inset-0"
@@ -169,6 +180,7 @@ export default function Hero() {
         <div className="max-w-2xl">
           <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-7">
             <Image src={logoSrc} alt="Bemis E-V Charge" width={380} height={120}
+              sizes="(max-width: 1024px) 260px, 380px"
               className="h-14 xs:h-16 sm:h-20 w-auto max-w-[180px] sm:max-w-[260px] object-contain" style={logoStyle} />
             <motion.div
               initial={{ scaleX: 0, opacity: 0 }} animate={{ scaleX: 1, opacity: 1 }} transition={{ duration: 0.5, delay: 0.4 }}
@@ -238,6 +250,7 @@ export default function Hero() {
           style={{ left: `${layout.logo.x}%`, top: `${layout.logo.y}%`, maxWidth: "48%" }}
         >
           <Image src={logoSrc} alt="Bemis E-V Charge" width={380} height={120}
+            sizes="380px"
             className="h-28 xl:h-32 w-auto object-contain" style={logoStyle} />
 
           <motion.div

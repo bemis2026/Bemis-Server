@@ -147,7 +147,7 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
             style={{ border: "1px solid rgba(0,0,0,0.08)" }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/badges/yerli-uretim.jpg" alt="Yerli Üretim — Made in Türkiye" className="h-9 w-auto" loading="eager" decoding="async" />
+            <img src="/badges/yerli-uretim.jpg" alt="Yerli Üretim — Made in Türkiye" className="h-9 w-auto" loading="lazy" decoding="async" />
             <span className="text-xs font-bold leading-tight pr-1" style={{ color: "#1a1a1a" }}>%100 Türkiye&apos;de<br />tasarım &amp; üretim</span>
           </motion.div>
         </div>

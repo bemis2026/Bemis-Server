@@ -21,7 +21,7 @@ export default function GoogleAnalytics() {
     <>
       {/* Consent Mode v2: deny everything by default. CookieConsent component
           flips the relevant flags to "granted" after the user accepts. */}
-      <Script id="ga-consent-default" strategy="beforeInteractive">
+      <Script id="ga-consent-default" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

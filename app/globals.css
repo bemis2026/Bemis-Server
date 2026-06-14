@@ -115,24 +115,6 @@ html[data-theme="light"] section[id] + section[id] {
    and tooltip stay at full opacity. */
 .globe-dimmed canvas { filter: brightness(0.72) saturate(0.9); }
 
-/* Hero arka plan — çok hafif Ken Burns: yavaş yakınlaşıp uzaklaşma + minik
-   çapraz kayış. Transform-only animasyon, GPU composite layer (will-change),
-   reduced-motion'a saygı. 32 saniyelik döngü → takılma/kasma hissetmez. */
-@keyframes hero-ken-burns {
-  0%   { transform: scale(1)    translate3d(0,      0,     0); }
-  50%  { transform: scale(1.09) translate3d(-1.6%, -1.4%, 0); }
-  100% { transform: scale(1)    translate3d(0,      0,     0); }
-}
-.hero-bg-animate {
-  animation: hero-ken-burns 26s ease-in-out infinite;
-  will-change: transform;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-bg-animate { animation: none; }
-}
-
 /* Energy background — ten short streaks (5 vertical top→bottom, 5
    horizontal right→left) scattered across the wrapper at varied
    positions so the visitor walks past new motion as they scroll. Each
