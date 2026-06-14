@@ -125,7 +125,7 @@ const REHBER_DROPDOWN: DropdownItem[] = [
 
 // Döküman kategorileri (public /documents sayfası ile birebir) — navbar
 // "Dökümanlar" dropdown'ında yüklü dökümanlar bu kategoriler altında listelenir.
-type NavDoc = { id: string; title: string; category: string; lang?: string; visible?: boolean };
+type NavDoc = { id: string; title: string; category: string; lang?: string; visible?: boolean; coverUrl?: string };
 const DOC_CATEGORIES: { id: string; label: { tr: string; en: string }; accent: string }[] = [
   { id: "price-list",   label: { tr: "Fiyat Listesi",    en: "Price List" },         accent: "#F59E0B" },
   { id: "catalog",      label: { tr: "Katalog",          en: "Catalog" },            accent: "#3B82F6" },
@@ -651,7 +651,17 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                                             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)"; }}
                                             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                                           >
-                                            <RiFileTextLine size={14} style={{ color: cat.accent, flexShrink: 0, opacity: 0.85 }} />
+                                            {doc.coverUrl ? (
+                                              <>
+                                                {/* Dökümanın kendi kapak görseli (ikon yerine) */}
+                                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                <img src={doc.coverUrl} alt="" className="w-8 h-10 rounded-md object-cover object-top flex-shrink-0" style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`, background: isDark ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)" }} loading="lazy" decoding="async" />
+                                              </>
+                                            ) : (
+                                              <span className="w-8 h-10 rounded-md flex items-center justify-center flex-shrink-0" style={{ background: `${cat.accent}14`, border: `1px solid ${cat.accent}30` }}>
+                                                <RiFileTextLine size={15} style={{ color: cat.accent, opacity: 0.85 }} />
+                                              </span>
+                                            )}
                                             <span className="flex-1 text-xs leading-snug truncate" style={{ color: isDark ? "rgba(240,240,244,0.78)" : "rgba(26,26,26,0.78)" }}>{doc.title}</span>
                                             {doc.lang && <span className="text-[9px] font-bold uppercase tracking-wide flex-shrink-0" style={{ color: isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)" }}>{doc.lang}</span>}
                                           </button>
@@ -902,7 +912,16 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                                       onClick={() => { setMobileOpen(false); router.push(`/documents/${encodeURIComponent(doc.id)}`); }}
                                       className={`flex items-center gap-2 w-full text-left text-xs py-2 px-3 rounded-lg ${isDark ? "text-white/55 hover:text-white" : "text-black/55 hover:text-black"}`}
                                     >
-                                      <RiFileTextLine size={13} style={{ color: cat.accent, flexShrink: 0 }} />
+                                      {doc.coverUrl ? (
+                                        <>
+                                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                                          <img src={doc.coverUrl} alt="" className="w-7 h-9 rounded-md object-cover object-top flex-shrink-0" style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}` }} loading="lazy" decoding="async" />
+                                        </>
+                                      ) : (
+                                        <span className="w-7 h-9 rounded-md flex items-center justify-center flex-shrink-0" style={{ background: `${cat.accent}14`, border: `1px solid ${cat.accent}30` }}>
+                                          <RiFileTextLine size={13} style={{ color: cat.accent }} />
+                                        </span>
+                                      )}
                                       <span className="flex-1 truncate">{doc.title}</span>
                                       {doc.lang && <span className="text-[9px] uppercase opacity-50">{doc.lang}</span>}
                                     </button>
