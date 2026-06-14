@@ -196,6 +196,17 @@
    **EN BÜYÜK BEKLEYEN [KULLANICI] (rakip avantajı):** **marketplace listeleme** (hepsiburada/n11/akakçe/pazarama — rakipler
    oradan kazanıyor, hem satış hem backlink) + 301 + backlink + GBP+yorum. **Ben-işi opsiyon:** kategori H1/ürün adlarına
    keyword (CMS/kod), daha çok blog. AI/GEO: net "Bemis = Türkiye'de Type 2 EV şarj kablosu üreticisi" entity cümleleri + şema.
+   **+ (2026-06-14 son2 — performans optimizasyonu, KALİTE KAYBI YOK, CANLI · commit 761ef32):** 4-ajanlı denetim workflow'u
+   (görsel/hero-geçiş/bundle/CWV-mobil) + sentez. ⚠️ **Görsel quality DEĞİŞMEDİ (75/88/90) — piksel kaybı YOK** (CWV ajanının
+   hero q90→82 önerisi kurala aykırı diye PLANA ALINMADI). Uygulanan 10 hızlı kazanım + hero çift-tampon: **AVIF format**
+   (`next.config` formats avif+webp; canlı WebP-only dönüyordu → şimdi AVIF, örnek %27 küçük, aynı kalite) + minimumCacheTTL 30g +
+   **optimizePackageImports** (react-icons/framer-motion) + **Sentry bundleSizeOptimizations** (Replay çıkar) + GA consent
+   afterInteractive + **preconnect** (gtm/fb) + kurumsal hero `priority` + Hero logo `sizes` + /uretici rozet eager→lazy + ölü
+   `.hero-bg-animate` CSS sil + **HERO SLIDER ÇİFT-TAMPON** (Hero.tsx: yalnız aktif+komşu katman render → mobil GPU jank biter,
+   crossfade korunur). ⚠️ ContentContext no-store refetch'e DOKUNULMADI (dokümante staleness fix). **SONRAKİ TUR (büyük dokunuş,
+   denetimde "later"):** section CSS bg'leri → next/image (AVIF kazanır), ham `<img>`'ler (ProductShowcase/ReferenceProjects/
+   DealerNetwork harita) → next/image, JS reduced-motion saygısı, InternationalGlobe dynamic import + globe dokularını self-host,
+   SectionWrapper framer→CSS, hash-scroll polling→IntersectionObserver, energy-streak background-position shimmer kaldır.
 
 1. **[KULLANICI] Admin kayıt testi** — Vercel'den `ADMIN_PASSWORD` ayarla → `/admin` giriş →
    bir ürünü değiştir → Kaydet → yenile → durdu mu? **Blob'a yazmanın uygulama üzerinden son
