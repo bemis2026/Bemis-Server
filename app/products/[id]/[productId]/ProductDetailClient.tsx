@@ -1217,7 +1217,28 @@ export default function ProductDetailPage({
                     </div>
                     <div className="px-3 py-2.5">
                       <p className="text-[11px] font-bold leading-tight mb-0.5 line-clamp-2" style={{ color: sd ? "#f0f0f4" : "#111827" }}>{prod.name}</p>
-                      <p className="text-[10px] truncate" style={{ color: cat.accent }}>{cat.name}</p>
+                      {(() => {
+                        // Ürünleri ayrıştıran kısa spec satırı: güç (kW) + alt başlık
+                        // (örn. kablo uzunluğu "5m Kablolu"). Aynı isimli varyantlar
+                        // (3m/5m/7m kablolar) böylece kartta ayırt edilir.
+                        let kw = "";
+                        for (const g of prod.specs ?? []) {
+                          for (const it of g.items ?? []) {
+                            if (it?.value && /\bkW\b/i.test(it.value)) { kw = it.value.trim(); break; }
+                          }
+                          if (kw) break;
+                        }
+                        const parts: string[] = [];
+                        if (kw) parts.push(kw);
+                        if (prod.subtitle?.trim()) parts.push(prod.subtitle.trim());
+                        const line = parts.join(" · ");
+                        return (
+                          <>
+                            <p className="text-[10px] font-semibold truncate" style={{ color: cat.accent }}>{line || cat.name}</p>
+                            {line && <p className="text-[9px] truncate mt-0.5" style={{ color: sd ? "rgba(255,255,255,0.38)" : "rgba(0,0,0,0.40)" }}>{cat.name}</p>}
+                          </>
+                        );
+                      })()}
                     </div>
                   </motion.div>
                 );
