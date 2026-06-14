@@ -38,7 +38,7 @@ export async function generateMetadata({
   const meta = catsMeta[id] ?? {};
   const categoryName = meta.name || category.name;
   const title = productMetaTitle(product, categoryName);
-  const description = productMetaDescription(product, categoryName);
+  const description = productMetaDescription(product, categoryName, id);
   const canonical = `/products/${id}/${productId}`;
   const image = product.image || product.images?.[0];
   return {

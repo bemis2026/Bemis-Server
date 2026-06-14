@@ -389,25 +389,79 @@ function clampTitle(text: string, max = 60): string {
   return t.slice(0, max - 1).trimEnd() + "…";
 }
 
+// ── Kategori bazlı SEO anahtar kelimeleri ───────────────────────────────────
+// Rakiplerin (elektromarketim, truwatt, greenc) hedeflediği yüksek-hacimli
+// aramalar. Kategori ve ürün meta BAŞLIK/AÇIKLAMALARINA enjekte edilir —
+// kategori başlığında CMS adının yerine geçer (örn. "AC Şarj Kabloları" yerine
+// "Elektrikli Araç Şarj Kablosu — Type 2"). Yeni kategori = buraya 1 kayıt.
+const CATEGORY_SEO: Record<string, { title: string; desc: string; short: string }> = {
+  wallbox: {
+    title: "Elektrikli Araç Şarj İstasyonu — AC Wallbox",
+    desc: "Bemis yerli üretim AC Wallbox ev şarj istasyonu: 7,4–22 kW, Type 2, OCPP uyumlu. Ev ve iş yeri için. CE, IP65 — üreticisinden.",
+    short: "AC Wallbox Şarj İstasyonu",
+  },
+  portable: {
+    title: "Taşınabilir Elektrikli Araç Şarj Cihazı",
+    desc: "Bemis yerli üretim taşınabilir (seyyar) elektrikli araç şarj cihazı: Type 2, monofaze/trifaze, fişe tak-şarj et. CE, IP65 — üreticisinden.",
+    short: "Taşınabilir Şarj Cihazı",
+  },
+  cables: {
+    title: "Elektrikli Araç Şarj Kablosu — Type 2",
+    desc: "Bemis yerli üretim Type 2 (Tip 2) elektrikli araç şarj kablosu: 16A/32A, monofaze ve trifaze, 3–10 m. CE, IP65 — üreticisinden teklif alın.",
+    short: "Type 2 EV Şarj Kablosu",
+  },
+  "v2l-c2l": {
+    title: "V2L / C2L Adaptör — Araçtan Elektrik",
+    desc: "Bemis yerli üretim V2L ve C2L adaptör: aracınızı seyyar elektrik kaynağına çevirin. Type 2 uyumlu, kamp ve saha için. CE sertifikalı.",
+    short: "V2L / C2L Adaptör",
+  },
+  converters: {
+    title: "EV Şarj Uzatma & Dönüştürücü Kablo",
+    desc: "Bemis yerli üretim elektrikli araç şarj uzatma kablosu ve dönüştürücü adaptör. Type 2 uyumlu. CE, IP65 — üreticisinden.",
+    short: "Şarj Uzatma & Dönüştürücü",
+  },
+  "charger-equipment": {
+    title: "Elektrikli Araç Şarj Ünitesi Ekipmanları",
+    desc: "Bemis yerli üretim elektrikli araç şarj ünitesi ekipmanları: Type 2 priz, pano prizi ve şarj ekipmanları. CE, IP65 — üreticisinden.",
+    short: "Şarj Ünitesi Ekipmanı",
+  },
+  accessories: {
+    title: "Elektrikli Araç Şarj Aksesuarları",
+    desc: "Bemis yerli üretim elektrikli araç şarj aksesuarları: tutucu, adaptör ve ekipmanlar. Type 2 uyumlu. Üreticisinden.",
+    short: "EV Şarj Aksesuarı",
+  },
+  "dc-units": {
+    title: "DC Hızlı Şarj Üniteleri — CCS2",
+    desc: "Bemis elektrikli araç DC hızlı şarj üniteleri: CCS2, yüksek güçlü hızlı şarj. Yerli üretim — üreticisinden.",
+    short: "DC Hızlı Şarj Ünitesi",
+  },
+};
+
 export function productMetaTitle(product: ProductShape, categoryName?: string): string {
-  const parts = [product.name];
-  if (product.subtitle) parts.push(product.subtitle);
-  if (categoryName) parts.push(categoryName);
-  // layout.tsx adds " | Bemis E-V Charge" suffix so leave room for it
-  return clampTitle(parts.join(" · "), 50);
+  // Ürün başlığı: ad + ayrıştırıcı alt başlık (örn. "Şarj Seti 20A Monofaze ·
+  // 5m Kablolu"). Anahtar kelimeler açıklamada — başlığa marka soneki eklendiği
+  // için kısa tutulur (layout " | Bemis E-V Charge" ekler).
+  const core = [product.name, product.subtitle, categoryName].filter(Boolean).join(" · ");
+  return clampTitle(core, 55);
 }
 
-export function productMetaDescription(product: ProductShape, categoryName?: string): string {
+export function productMetaDescription(product: ProductShape, categoryName?: string, categoryId?: string): string {
+  // Açıklamaya kategori anahtar kelimesini öne al (rakip deseni: "Type 2 EV
+  // Şarj Kablosu — ..."). Kendi açıklaması varsa korunur, başına kelime eklenir.
+  const seo = categoryId ? CATEGORY_SEO[categoryId] : undefined;
+  const kw = seo?.short || categoryName;
   const own = product.description?.trim();
-  if (own) return clampDescription(own);
-  // Fall back to a generic but data-driven description
-  const head = [product.name, product.subtitle, categoryName].filter(Boolean).join(" — ");
-  const tail = ". Bemis E-V Charge — Türkiye'nin yerli EV şarj ekipmanı üreticisi. CE, IP65 sertifikalı.";
+  if (own) {
+    return clampDescription(kw ? `${kw} — ${own}` : own);
+  }
+  const head = [kw, product.name, product.subtitle].filter(Boolean).join(" · ");
+  const tail = ". Bemis yerli üretim — CE, IP65. Üreticisinden teklif alın.";
   return clampDescription(head + tail);
 }
 
 export function categoryMetaTitle(category: CategoryShape, displayName?: string): string {
-  return clampTitle(displayName || category.name, 50);
+  const seo = CATEGORY_SEO[category.id];
+  return clampTitle(seo?.title || displayName || category.name, 56);
 }
 
 export function categoryMetaDescription(opts: {
@@ -416,11 +470,16 @@ export function categoryMetaDescription(opts: {
   description?: string;
   productCount: number;
 }): string {
+  // Eşlenen kategoriler için anahtar-kelime optimize açıklama (meta görünmez,
+  // saf SEO alanı — sayfadaki CMS açıklaması ayrı). Eşleşmeyen kategoriler için
+  // CMS açıklaması + güven sinyalleri.
+  const seo = CATEGORY_SEO[opts.category.id];
+  if (seo?.desc) return clampDescription(seo.desc);
   const own = opts.description?.trim() || opts.category.tagline?.trim();
   const name = opts.displayName || opts.category.name;
   const hint = opts.productCount > 0
-    ? ` ${opts.productCount} model · IP65 sertifikalı · OCPP uyumlu · Bemis yerli üretim.`
-    : " IP65 sertifikalı · OCPP uyumlu · Bemis yerli üretim.";
+    ? ` ${opts.productCount} model · CE, IP65 · Bemis yerli üretim.`
+    : ` CE, IP65 · Bemis yerli üretim.`;
   const base = own || `${name} kategorisi.`;
   return clampDescription(base + hint);
 }
