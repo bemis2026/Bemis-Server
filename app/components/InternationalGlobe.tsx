@@ -190,8 +190,8 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
         // Always blue-marble — the night-side texture was too dark and
         // the operator wanted the surface lighter regardless of UI theme.
         // We'll dial brightness up further in a follow-up if needed.
-        globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-        bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
+        globeImageUrl="/globe/earth-blue-marble.jpg"
+        bumpImageUrl="/globe/earth-topology.png"
         atmosphereColor={BLUE}
         atmosphereAltitude={0.22}
         showGraticules={false}

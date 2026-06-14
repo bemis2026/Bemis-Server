@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { HiArrowRight } from "react-icons/hi";
 import { useContent } from "../context/ContentContext";
@@ -16,13 +16,14 @@ const ACCENT = "#3B82F6";
 // for editors who clear the rotating list.
 function RotatingWord({ words }: { words: string[] }) {
   const [i, setI] = useState(0);
+  const reduceMotion = useReducedMotion();
   useEffect(() => {
-    if (words.length <= 1) return;
+    if (reduceMotion || words.length <= 1) return;
     const t = setInterval(() => setI((n) => (n + 1) % words.length), 2500);
     return () => clearInterval(t);
-  }, [words.length]);
+  }, [words.length, reduceMotion]);
   if (words.length === 0) return null;
-  if (words.length === 1) return <span>{words[0]}</span>;
+  if (words.length === 1 || reduceMotion) return <span>{words[0]}</span>;
   return (
     <span className="relative inline-block align-baseline" style={{ minWidth: "5ch" }}>
       <AnimatePresence mode="wait">
@@ -57,11 +58,13 @@ export default function Hero() {
   // Birden fazlaysa 5 sn'de bir, yumuşak/uzun crossfade ile geçer (zoom YOK); tekse statik.
   const heroImages = [hero.heroBg, ...(hero.heroImages ?? [])].map((s) => (s ?? "").trim()).filter(Boolean);
   const [activeHero, setActiveHero] = useState(0);
+  const reduceMotion = useReducedMotion();
   useEffect(() => {
-    if (heroImages.length <= 1) return;
+    // prefers-reduced-motion: slider'ı döndürme — statik ilk görsel kalsın.
+    if (reduceMotion || heroImages.length <= 1) return;
     const t = setInterval(() => setActiveHero((n) => (n + 1) % heroImages.length), 5000);
     return () => clearInterval(t);
-  }, [heroImages.length]);
+  }, [heroImages.length, reduceMotion]);
   const activeHeroIdx = heroImages.length ? activeHero % heroImages.length : 0;
   // Çift-tampon: tüm slider görsellerini değil, yalnız aktif + komşu (önceki/
   // sonraki) katmanı DOM'a bas → geçiş anında en fazla ~2-3 tam-ekran görsel

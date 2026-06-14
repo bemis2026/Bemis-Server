@@ -7,6 +7,7 @@ import { RiMapPin2Line, RiWhatsappLine, RiGlobalLine, RiAwardLine, RiCustomerSer
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import E from "./E";
+import Image from "next/image";
 import { CITY_BY_ID } from "../../lib/turkeyCities";
 import { tierColor, tierLabel } from "../../lib/dealerTiers";
 import InternationalGlobe from "./InternationalGlobe";
@@ -919,17 +920,19 @@ export default function DealerNetwork() {
 
               {/* Turkey PNG map image */}
               <div className="relative w-full">
-                <img
+                <Image
                   src="/images/turkey-map.png"
                   alt="Türkiye Haritası"
-                  className="w-full block"
+                  width={1327}
+                  height={621}
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  className="w-full h-auto block"
                   style={{
                     filter: d ? "invert(1) brightness(0.92)" : "brightness(0.55) sepia(0.2)",
                     opacity: 0.90,
                   }}
                   draggable={false}
                   loading="lazy"
-                  decoding="async"
                 />
 
                 {/* Logo overlay — covers original top-right PNG logo */}
