@@ -207,6 +207,13 @@
    denetimde "later"):** section CSS bg'leri → next/image (AVIF kazanır), ham `<img>`'ler (ProductShowcase/ReferenceProjects/
    DealerNetwork harita) → next/image, JS reduced-motion saygısı, InternationalGlobe dynamic import + globe dokularını self-host,
    SectionWrapper framer→CSS, hash-scroll polling→IntersectionObserver, energy-streak background-position shimmer kaldır.
+   **+ (2026-06-14 son3 — perf 2. tur, CANLI · commit 012cb24):** YAPILDI: DealerNetwork Türkiye haritası ham `<img>` →
+   `next/image` (AVIF, 1327x621, `Image` importu eklendi); Hero `prefers-reduced-motion` JS saygısı (slider crossfade interval
+   + RotatingWord, reduce'da durur); InternationalGlobe doku görselleri unpkg → **self-host `/public/globe/`** (4K blue-marble
+   1.46MB + 2K topology, KÜÇÜLTÜLMEDİ). ⚠️ **ATLANDI (no-op/risk):** section bg görselleri + referans projeler migrasyonu —
+   canlı veride **0 set** (şu an hiçbir şeye dokunmuyor; admin bg yüklerse ileride yapılır); ProductShowcase galeri (drag/slide/
+   zoom/odak karmaşık framer — tek görsel için bozma riski). energy-streak background-position dokunulmadı (görsel değişikliği
+   riski). ⚠️ Build sırasında `.next` stale-types bozulması olursa `rm -rf .next && npm run build` (eşzamanlı dev+build çakışması).
 
 1. **[KULLANICI] Admin kayıt testi** — Vercel'den `ADMIN_PASSWORD` ayarla → `/admin` giriş →
    bir ürünü değiştir → Kaydet → yenile → durdu mu? **Blob'a yazmanın uygulama üzerinden son
