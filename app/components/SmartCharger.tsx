@@ -598,7 +598,13 @@ export default function SmartCharger() {
               transition={{ duration: 0.4, delay: 0.52 }}
             >
               <button
-                onClick={() => router.push(smartCharger.ctaHref)}
+                onClick={() => {
+                  // ctaHref harici (portal.bemis.com.tr gibi) olabilir; router.push
+                  // harici URL'i iç route sanıp AÇMAZ → yeni sekmede aç. İç yolsa router.
+                  const href = smartCharger.ctaHref || "";
+                  if (/^https?:\/\//.test(href)) window.open(href, "_blank", "noopener,noreferrer");
+                  else if (href) router.push(href);
+                }}
                 className="self-start inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-bold transition-all duration-200 hover:scale-[1.02] hover:brightness-110 active:scale-95"
                 style={{ background: `linear-gradient(135deg, ${ACCENT}, #2563EB)`, color: "#fff", boxShadow: `0 6px 20px ${ACCENT}40` }}
               >
