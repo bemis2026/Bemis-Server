@@ -35,7 +35,7 @@ export const CITY_PAGES: CityPage[] = [
     intro:
       "Bemis E-V Charge, Bursa Organize Sanayi Bölgesi'ndeki 16.000 m² tesisinde elektrikli araç şarj cihazlarını kendi üreten yerli bir markadır. Bursa'da ev, iş yeri ve filonuz için AC Wallbox şarj istasyonu, taşınabilir şarj cihazı, Type 2 şarj kablosu ve V2L/C2L adaptörlerini doğrudan üreticisinden temin edebilirsiniz.",
     localPitch:
-      "Üretim merkezimiz Bursa'da olduğu için cihaza, kurulum desteğine ve yedek parçaya en hızlı eriştiğiniz şehir Bursa'dır. 1994'ten beri süren Bemis Teknik üretim mirası ve kendi Ar-Ge'mizle, donanımdan yazılıma kadar yerli üretim yapıyoruz.",
+      "Üretim merkezimiz Bursa'dadır. 1994'ten gelen Bemis Teknik mirası ve kendi Ar-Ge'mizle, donanımdan yazılıma yerli üretim yaparak bölgemizdeki müşterilerimize cihaz, kurulum ve yedek parçada en hızlı erişimi sağlıyoruz.",
     metaDescription:
       "Bursa'da elektrikli araç şarj istasyonu ve şarj cihazı — Bemis E-V Charge, Bursa OSB'deki tesisinde üreten yerli üretici. AC Wallbox, taşınabilir şarj, Type 2 kablo. CE, IP65, OCPP.",
     keywords: [

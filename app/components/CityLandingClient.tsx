@@ -115,19 +115,6 @@ export default function CityLandingClient({ city }: { city: CityPage }) {
         </div>
       </section>
 
-      {/* Yerel anlatı */}
-      <section className="py-6 px-5 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5 }}
-          className="max-w-5xl mx-auto rounded-2xl p-5 sm:p-6"
-          style={{ background: d ? "rgba(59,130,246,0.07)" : "rgba(59,130,246,0.05)", border: `1px solid ${BLUE}22` }}
-        >
-          <p className="text-sm sm:text-base leading-relaxed" style={{ color: textMuted }}>
-            {city.localPitch}
-          </p>
-        </motion.div>
-      </section>
-
       {/* Neden Bemis */}
       <section className="py-10 px-5 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
@@ -202,28 +189,6 @@ export default function CityLandingClient({ city }: { city: CityPage }) {
         </div>
       </section>
 
-      {/* Nereden alınır CTA */}
-      <section className="py-8 px-5 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5 }}
-          className="max-w-5xl mx-auto rounded-3xl p-7 text-center"
-          style={{ background: d ? "rgba(59,130,246,0.10)" : "rgba(59,130,246,0.07)", border: `1px solid ${BLUE}30` }}
-        >
-          <h2 className="text-2xl font-black mb-2" style={{ color: textPrimary }}>{city.city}&apos;da şarj cihazınızı seçelim</h2>
-          <p className="text-sm sm:text-base leading-relaxed mb-5 max-w-2xl mx-auto" style={{ color: textMuted }}>
-            Ürünleri inceleyin, size en yakın bayiyi bulun veya doğrudan üreticisinden teklif alın.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <Link href="/products" className="group inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02] hover:brightness-110 active:scale-95" style={{ background: BLUE, boxShadow: `0 6px 22px ${BLUE}45` }}>
-              Ürünleri İncele <RiArrowRightLine size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
-            </Link>
-            <Link href="/#dealer" className="group inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:scale-[1.02] active:scale-95" style={{ color: textPrimary, background: surface, border: `1px solid ${border}` }}>
-              <RiStore2Line size={16} /> Bayi Bul
-            </Link>
-          </div>
-        </motion.div>
-      </section>
-
       {/* FAQ — basınca açılır akordeon */}
       <section className="py-10 px-5 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
@@ -234,6 +199,12 @@ export default function CityLandingClient({ city }: { city: CityPage }) {
             {city.city} · Sıkça Sorulan Sorular
           </motion.h2>
           {accentLine}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5 }}
+            className="text-sm sm:text-base leading-relaxed mb-6" style={{ color: textMuted }}
+          >
+            {city.localPitch}
+          </motion.p>
           <div className="space-y-3">
             {city.faq.map((f, i) => {
               const open = openFaq === i;
