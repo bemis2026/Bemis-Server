@@ -61,7 +61,7 @@
     "wallbox": {
       "name": "AC Wallbox Chargers",
       "subtitle": "22-7,4kW Duvar Tipi Şarj İstasyonu",
-      "modelCount": 3,
+      "modelCount": 8,
       "badge": "En Çok Satan",
       "comingSoon": false,
       "image": "https://i.ibb.co/pjkGRghk/1778569694754-Gemini-Generated-Image-qf1urcqf1urcqf1u-png.png",
@@ -112,7 +112,7 @@
     "portable": {
       "name": "AC Mobile Chargers",
       "subtitle": "22-3,7kW Taşınabilir Şarj Cihazları",
-      "modelCount": 2,
+      "modelCount": 3,
       "badge": "Yeni",
       "comingSoon": false,
       "image": "/categories/1775071751364-Gemini_Generated_Image_13f87313f87313f8.png",
@@ -144,7 +144,7 @@
     "cables": {
       "name": "AC Şarj Kabloları",
       "subtitle": "Type 2 · Mod 3 ",
-      "modelCount": 4,
+      "modelCount": 22,
       "badge": null,
       "comingSoon": false,
       "image": "/categories/1775071211208-Gemini_Generated_Image_9pbk3k9pbk3k9pbk.png",
@@ -176,7 +176,7 @@
     "v2l-c2l": {
       "name": "V2L / C2L Adaptörler",
       "subtitle": "Vehicle-to-Load & Charger-to-Load Deşarj & Akü Şarj",
-      "modelCount": 3,
+      "modelCount": 17,
       "badge": "İnovatif",
       "comingSoon": false,
       "image": "/categories/1775068456394-V2L-kamp2.png",
@@ -212,7 +212,7 @@
     "converters": {
       "name": "Uzatma & Kombinasyon",
       "subtitle": "Uzatma Kabloları, Dönüştürücüler & Kombinasyon Kutuları",
-      "modelCount": 4,
+      "modelCount": 17,
       "badge": null,
       "comingSoon": false,
       "image": "/categories/1775068429165-BKT-0102-2105.jpg",
@@ -244,7 +244,7 @@
     "charger-equipment": {
       "name": "AC & DC Şarj Ünitesi Ekipmanları",
       "subtitle": "Type 2, CCS2 Soket, Ünite Prizi, Holder",
-      "modelCount": 5,
+      "modelCount": 30,
       "badge": null,
       "comingSoon": false,
       "image": "https://i.ibb.co/DHJDfrs7/1778482597259-32-A-type2-IIA-mod3-pano-prizi-2-png.png",
@@ -276,7 +276,7 @@
     "accessories": {
       "name": "Aksesuarlar",
       "subtitle": "Taşıma Çantaları, Pedestal & Diğer",
-      "modelCount": 4,
+      "modelCount": 10,
       "badge": null,
       "comingSoon": false,
       "image": "/categories/1775068320447-charger-cable.png",
@@ -307,7 +307,7 @@
     "dc-units": {
       "name": "DC Şarj Üniteleri",
       "subtitle": "40-200kW Hızlı Şarj Üniteleri",
-      "modelCount": 5,
+      "modelCount": 6,
       "badge": null,
       "comingSoon": false,
       "image": "https://i.ibb.co/5gSrg92z/1778431849159-Whats-App-Image-2026-05-07-at-15-52-07-jpeg.jpg",
