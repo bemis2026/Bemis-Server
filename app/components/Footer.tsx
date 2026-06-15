@@ -18,8 +18,9 @@ const NAV_GROUPS = {
       { label: "AC Şarj Kabloları Type 2",     href: "/products/cables",     scroll: false },
       { label: "V2L / C2L Adaptörler",         href: "/products/v2l-c2l",   scroll: false },
       { label: "Uzatma & Dönüştürücüler",      href: "/products/converters", scroll: false },
+      { label: "DC Şarj Üniteleri",            href: "/products/dc-units",   scroll: false },
+      { label: "Şarj Ünitesi Ekipmanları",     href: "/products/charger-equipment", scroll: false },
       { label: "Aksesuarlar",                  href: "/products/accessories",scroll: false },
-      { label: "DC Şarj Üniteleri → Yakında",  href: "#products",            scroll: true  },
     ]},
     { title: "Şirket", links: [
       { label: "Hakkımızda",      href: "#dna",      scroll: true  },
@@ -50,8 +51,9 @@ const NAV_GROUPS = {
       { label: "AC Charging Cables Type 2",    href: "/products/cables",     scroll: false },
       { label: "V2L / C2L Adapters",           href: "/products/v2l-c2l",   scroll: false },
       { label: "Extension & Converters",       href: "/products/converters", scroll: false },
+      { label: "DC Charging Units",            href: "/products/dc-units",   scroll: false },
+      { label: "Charger Equipment",            href: "/products/charger-equipment", scroll: false },
       { label: "Accessories",                  href: "/products/accessories",scroll: false },
-      { label: "DC Charging Units → Coming Soon", href: "#products",         scroll: true  },
     ]},
     { title: "Company", links: [
       { label: "About Us",            href: "#dna",      scroll: true  },
