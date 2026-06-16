@@ -2,6 +2,47 @@ export const SITE_URL = "https://www.bemisevcharge.com.tr";
 export const SITE_NAME = "Bemis E-V Charge";
 export const ORG_LEGAL_NAME = "Bemis Teknik Elektrik A.Ş.";
 
+// GEO/AEO — yapay zeka aramaları (ChatGPT/Perplexity/AI Overviews) markayı net ve
+// doğru anlasın diye Organization şemasına eklenen entity sinyalleri. Tüm değerler
+// doğrulanmış gerçeklere dayanır (1994/tesis = ANA ŞİRKET; EV markası onun markası).
+// sameAs sabit baseline'dır → içerik verisi build'de okunamasa bile her zaman yayında olur.
+const ORG_SAME_AS = [
+  "https://www.linkedin.com/company/104588906",
+  "https://www.instagram.com/bemis.evcharge/",
+  "https://www.youtube.com/@bemisteknikelektrika.s.2025",
+  "https://www.facebook.com/bemisteknik/?locale=tr_TR",
+];
+const ORG_DESCRIPTION =
+  "Bemis E-V Charge, 1994'ten beri üreten Bemis Teknik Elektrik A.Ş.'nin yerli elektrikli araç (EV) şarj markasıdır. " +
+  "Bursa Organize Sanayi Bölgesi'ndeki üretim tesisinden AC Wallbox şarj istasyonları (7,4–22 kW), taşınabilir AC şarj " +
+  "cihazları, Type 2 şarj kabloları (Mod 2 & Mod 3), V2L/C2L adaptörler, CEE uzatma & dönüştürücüler, DC hızlı şarj " +
+  "üniteleri ve şarj ünitesi ekipmanları sunar. Ürünler CE ve IP65/IP66 korumalı, OCPP uyumludur; 60+ ülkeye ihraç edilir.";
+const ORG_SLOGAN = "Yerli üretim elektrikli araç şarj çözümleri — doğrudan üreticiden.";
+const ORG_KNOWS_ABOUT = [
+  "Elektrikli araç şarj istasyonu üretimi",
+  "AC Wallbox şarj istasyonu",
+  "Taşınabilir AC şarj cihazı",
+  "Type 2 şarj kablosu",
+  "Mod 2 ve Mod 3 şarj kabloları",
+  "V2L adaptör",
+  "C2L adaptör",
+  "DC hızlı şarj ünitesi",
+  "OCPP uyumlu şarj cihazı",
+  "CEE uzatma ve dönüştürücü",
+  "Type 2 priz ve soket ekipmanları",
+  "Yerli EV şarj üreticisi",
+];
+const ORG_OFFER_CATALOG = [
+  "AC Wallbox Şarj İstasyonları",
+  "AC Taşınabilir/Mobil Şarj Cihazları",
+  "Type 2 Şarj Kabloları (Mod 2 & Mod 3)",
+  "V2L/C2L Adaptörler",
+  "Uzatma ve Dönüştürücüler (CEE)",
+  "Aksesuarlar",
+  "DC Hızlı Şarj Üniteleri",
+  "Şarj Ünitesi Ekipmanları",
+];
+
 export type JsonLdObject = Record<string, unknown>;
 
 export type ProductShape = {
@@ -58,7 +99,9 @@ export function organizationSchema(opts: {
   address?: { street?: string; locality?: string; region?: string; country?: string };
   reviews?: AggregateReviewInput;
 }): JsonLdObject {
-  const sameAs = (opts.sameAs ?? []).filter(Boolean);
+  // Sabit baseline (gerçek sosyal profiller) + içerikten gelenleri birleştir, tekille.
+  // Böylece içerik verisi build'de boş gelse bile sameAs ASLA boş kalmaz (entity sinyali).
+  const sameAs = [...new Set([...ORG_SAME_AS, ...(opts.sameAs ?? [])])].filter(Boolean);
   const hasAddr = opts.address && (opts.address.street || opts.address.locality);
   const contactPoints: JsonLdObject[] = [];
   if (opts.phone || opts.email) {
@@ -122,6 +165,20 @@ export function organizationSchema(opts: {
     ...(opts.logo && { logo: absolute(opts.logo) }),
     foundingDate: "1994",
     foundingLocation: "Bursa, Türkiye",
+    // GEO/AEO entity sinyalleri — YZ'nin "Bemis = yerli EV şarj üreticisi" + ne ürettiğini
+    // net anlaması için. (Atıf: 1994/tesis ANA ŞİRKET; bkz. parentOrganization.)
+    description: ORG_DESCRIPTION,
+    slogan: ORG_SLOGAN,
+    knowsAbout: ORG_KNOWS_ABOUT,
+    areaServed: "Türkiye",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Elektrikli Araç Şarj Ürünleri",
+      itemListElement: ORG_OFFER_CATALOG.map((catName) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Product", name: catName },
+      })),
+    },
     // Google'a "Bemis E-V Charge, 1994'ten beri üreten Bemis Teknik Elektrik
     // A.Ş.'nin markasıdır" sinyali — köklü şirket otoritesini bağlar + iki
     // domaini (bemisevcharge.com.tr ↔ bemis.com.tr) aynı kurum olarak işaretler.
