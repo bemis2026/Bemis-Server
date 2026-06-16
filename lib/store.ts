@@ -1,5 +1,5 @@
 import "server-only";
-import { revalidateTag } from "next/cache";
+import { revalidateTag, unstable_cache } from "next/cache";
 import { put, get } from "@vercel/blob";
 
 // Kalıcı veri deposu — Vercel Blob (private).
@@ -21,13 +21,32 @@ const BINS = new Set([
   "productsEn", "productsEnExtra", "documents", "messages", "changelog",
 ]);
 
-export async function readBin(name: string, _opts: { fresh?: boolean } = {}): Promise<unknown> {
-  if (!BINS.has(name)) throw new Error(`Unknown bin: ${name}`);
+// Asıl Blob okuması (cache'siz). private get → stream → JSON.
+// Hata fırlatırsa (token yok / Blob erişilemez) çağıranlar data/*.json yedeğine düşer.
+async function readBlobRaw(name: string): Promise<unknown> {
   const res = await get(pathFor(name), { access: "private" });
   if (!res || res.statusCode !== 200 || !res.stream) {
     throw new Error(`Blob read failed: ${name} status=${res?.statusCode ?? "none"}`);
   }
   return await new Response(res.stream as unknown as ReadableStream).json();
+}
+
+// readBin: genel (salt-okuma) çağrılar Next Data Cache'inde tutulur — böylece her
+// ziyaretçi/bot Blob'a "advanced operation" göndermez (Vercel Blob ücretsiz kotası
+// 2.000 işlem/ay; önbelleksiz her istek bunu hızla tüketiyordu). Cache yalnız
+// writeBin'in revalidateTag'i ile (admin/iletişim kaydı) ya da revalidate süresi
+// (güvenlik ağı) dolunca tazelenir → Blob işlemi ~%95+ azalır.
+// ⚠️ Oku-değiştir-yaz akışları (admin route'ları + iletişim formu mesaj ekleme)
+// `{ fresh: true }` geçer → cache ATLANIR, taze veri okunur (stale yazma riski yok).
+export async function readBin(name: string, opts: { fresh?: boolean } = {}): Promise<unknown> {
+  if (!BINS.has(name)) throw new Error(`Unknown bin: ${name}`);
+  if (opts.fresh) return readBlobRaw(name);
+  const cached = unstable_cache(
+    () => readBlobRaw(name),
+    ["store", name],
+    { tags: [tagFor(name)], revalidate: 1800 },
+  );
+  return cached();
 }
 
 export async function writeBin(name: string, body: unknown): Promise<void> {
