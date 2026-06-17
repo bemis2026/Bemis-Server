@@ -250,7 +250,9 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                 className="text-3xl sm:text-4xl lg:text-5xl font-black"
                 style={{ color: textPrimary }}
               >
-                Tüm Ürünler
+                {/* Keyword'lü + iki dilli H1 (eskiden sabit "Tüm Ürünler"). Ana ürün
+                    sayfası "elektrikli araç şarj ürünleri" head-term'ünü hedefler. */}
+                {lang === "en" ? "EV Charging Products" : "Elektrikli Araç Şarj Ürünleri"}
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
