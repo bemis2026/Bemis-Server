@@ -494,6 +494,13 @@ const CATEGORY_SEO: Record<string, { title: string; desc: string; short: string 
   },
 };
 
+/** Görünür kategori H1'i için keyword'lü başlık (TR). Yoksa undefined → çağıran
+ *  `category.name`e (CMS adı) düşer. CMS verisine DOKUNMAZ; sadece görünür H1'i
+ *  SEO için zenginleştirir (meta başlığıyla aynı kaynak: CATEGORY_SEO.title). */
+export function categoryH1(categoryId: string): string | undefined {
+  return CATEGORY_SEO[categoryId]?.title;
+}
+
 export function productMetaTitle(product: ProductShape, categoryName?: string): string {
   // Ürün başlığı: ad + ayrıştırıcı alt başlık (örn. "Şarj Seti 20A Monofaze ·
   // 5m Kablolu"). Anahtar kelimeler açıklamada — başlığa marka soneki eklendiği
