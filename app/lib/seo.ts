@@ -187,6 +187,7 @@ export function organizationSchema(opts: {
       "@type": "Organization",
       name: "Bemis Teknik Elektrik A.Ş.",
       url: "https://www.bemis.com.tr",
+      sameAs: ["https://www.wikidata.org/wiki/Q140267525"], // ana şirket Wikidata varlığı
     },
     ...(sameAs.length > 0 && { sameAs }),
     ...(contactPoints.length > 0 && { contactPoint: contactPoints }),
