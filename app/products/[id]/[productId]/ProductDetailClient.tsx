@@ -2,6 +2,8 @@
 
 import { useParams, useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
+import type { MouseEvent as RMouseEvent, PointerEvent as RPointerEvent } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../../context/ThemeContext";
 import { useLanguage } from "../../../context/LanguageContext";
@@ -81,6 +83,95 @@ function isPriceGroup(name: string): boolean {
   return lower.includes("fiyat") || lower.includes("price");
 }
 
+// Teknik çizim haritası (ürün kodu → self-host yol). Galeri + lightbox ortak kullanır.
+const TECH_DRAWINGS: Record<string, string> = {
+  "BEV-1011-0005": "/teknik-cizim/BEV-1011-0005.jpg",
+  "BEV-1011-0105": "/teknik-cizim/BEV-1011-0105.jpg",
+  "BEV-2012-0000": "/teknik-cizim/BEV-2012-0000.jpg",
+  "BEV-3011-0005": "/teknik-cizim/BEV-3011-0005.jpg",
+  "BEV-3012-0000": "/teknik-cizim/BEV-3012-0000.jpg",
+  "BEV-3011-1005": "/teknik-cizim/BEV-3011-1005.jpg",
+  "BEV-3012-1000": "/teknik-cizim/BEV-3012-1000.jpg",
+};
+
+// Görsel lightbox — tıkla→tam ekran büyük popup; görsele tıkla yakınlaş (2.4x), sürükle
+// gezin, ok tuşları/yan oklarla gezinme, Esc/dış tık/✕ ile kapat. createPortal ile body'ye
+// taşınır (framer-motion transform'larından kaçmak için şart). Mouse+dokunmatik tek
+// handler seti (Pointer Events API).
+function ImageLightbox({ images, index, setIndex, onClose, productName }: {
+  images: string[]; index: number; setIndex: (i: number) => void; onClose: () => void; productName: string;
+}) {
+  const [scale, setScale] = useState(1);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const drag = useRef<{ sx: number; sy: number; bx: number; by: number } | null>(null);
+  const moved = useRef(false);
+  const reset = () => { setScale(1); setPos({ x: 0, y: 0 }); };
+  const go = (dir: number) => setIndex((index + dir + images.length) % images.length);
+
+  useEffect(() => { reset(); }, [index]);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      else if (e.key === "ArrowLeft") go(-1);
+      else if (e.key === "ArrowRight") go(1);
+    };
+    document.addEventListener("keydown", onKey);
+    const prevOv = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.removeEventListener("keydown", onKey); document.body.style.overflow = prevOv; };
+  });
+
+  const toggleZoom = (e: RMouseEvent) => {
+    if (moved.current) { moved.current = false; return; }
+    if (scale > 1) { reset(); return; }
+    const s = 2.4, cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+    setScale(s);
+    setPos({ x: -(e.clientX - cx) * (s - 1), y: -(e.clientY - cy) * (s - 1) });
+  };
+  const onDown = (e: RPointerEvent) => {
+    if (scale <= 1) return;
+    drag.current = { sx: e.clientX, sy: e.clientY, bx: pos.x, by: pos.y };
+    moved.current = false;
+    try { (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId); } catch {}
+  };
+  const onMove = (e: RPointerEvent) => {
+    if (!drag.current) return;
+    const dx = e.clientX - drag.current.sx, dy = e.clientY - drag.current.sy;
+    if (Math.abs(dx) > 3 || Math.abs(dy) > 3) moved.current = true;
+    setPos({ x: drag.current.bx + dx, y: drag.current.by + dy });
+  };
+  const onUp = () => { drag.current = null; };
+
+  if (typeof document === "undefined" || !images.length) return null;
+  const ctrl = "absolute z-10 flex items-center justify-center text-white rounded-full";
+  const ctrlBg = { background: "rgba(255,255,255,0.14)", backdropFilter: "blur(6px)" };
+
+  return createPortal(
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+      className="fixed inset-0 z-[200] flex items-center justify-center overflow-hidden"
+      style={{ background: "rgba(0,0,0,0.95)" }} onClick={onClose}>
+      <button onClick={onClose} aria-label="Kapat" className={`${ctrl} top-4 right-4 w-10 h-10 text-lg`} style={ctrlBg}>✕</button>
+      {images.length > 1 && (
+        <div className="absolute top-5 left-1/2 -translate-x-1/2 z-10 text-white/75 text-sm font-medium tabular-nums">{index + 1} / {images.length}</div>
+      )}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={images[index]} alt={productName} draggable={false}
+        onClick={(e) => { e.stopPropagation(); toggleZoom(e); }}
+        onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}
+        className="max-w-[92vw] max-h-[86vh] object-contain select-none touch-none"
+        style={{ transform: `translate(${pos.x}px, ${pos.y}px) scale(${scale})`, cursor: scale > 1 ? "grab" : "zoom-in", transition: drag.current ? "none" : "transform 0.22s ease", willChange: "transform" }} />
+      {images.length > 1 && (<>
+        <button onClick={(e) => { e.stopPropagation(); go(-1); }} aria-label="Önceki" className={`${ctrl} left-3 top-1/2 -translate-y-1/2 w-11 h-11 text-2xl`} style={ctrlBg}>‹</button>
+        <button onClick={(e) => { e.stopPropagation(); go(1); }} aria-label="Sonraki" className={`${ctrl} right-3 top-1/2 -translate-y-1/2 w-11 h-11 text-2xl`} style={ctrlBg}>›</button>
+      </>)}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-white/55 text-xs text-center px-4">
+        {scale > 1 ? "Sürükleyerek gezin · görsele tıkla: uzaklaş" : "Yakınlaştırmak için görsele tıkla"}
+      </div>
+    </motion.div>,
+    document.body
+  );
+}
+
 export default function ProductDetailPage({
   initialCategory = null,
   initialProduct = null,
@@ -108,6 +199,14 @@ export default function ProductDetailPage({
   const [loading,  setLoading]      = useState(initialProduct === null);
   const [activeImg, setActiveImg]   = useState(0);
   const [dealerOpen, setDealerOpen] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  // Galeri görselleri (ürün foto + varsa teknik çizim) — galeri ve lightbox ortak kullanır.
+  const galleryImages: string[] = (() => {
+    if (!product) return [];
+    const base = product.images ?? (product.image ? [product.image] : []);
+    const td = product.code ? TECH_DRAWINGS[product.code.trim()] : undefined;
+    return td && !base.includes(td) ? [...base, td] : base;
+  })();
   const [allCategories, setAllCategories] = useState<CategoryData[]>(initialAllCategories);
   // Global documents (admin → Dökümanlar tab) — her ürün için Belgeler
   // sekmesinde 'linkedProductCategories' içinde aktif kategorinin id'si varsa
@@ -178,6 +277,15 @@ export default function ProductDetailPage({
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
       <DealerPickerModal open={dealerOpen} onClose={() => setDealerOpen(false)} productName={initialProduct?.name} />
+      {lightboxOpen && galleryImages.length > 0 && (
+        <ImageLightbox
+          images={galleryImages}
+          index={Math.min(activeImg, Math.max(0, galleryImages.length - 1))}
+          setIndex={setActiveImg}
+          onClose={() => setLightboxOpen(false)}
+          productName={product?.name ?? ""}
+        />
+      )}
 
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-24 pb-16">
 
@@ -222,21 +330,8 @@ export default function ProductDetailPage({
                    product image lands ~15% wider in the viewport. ── */}
               <div className="lg:col-span-6">
                 {(() => {
-                  // Teknik çizimler — eski bemis.com.tr'den çekilip self-host edildi
-                  // (public/teknik-cizim/). Ürün koduyla eşleşirse galeri SONUNA eklenir
-                  // (object-contain ile tam görünür, ölçüler kesilmez). Yeni kod = 1 satır.
-                  const TECH_DRAWINGS: Record<string, string> = {
-                    "BEV-1011-0005": "/teknik-cizim/BEV-1011-0005.jpg",
-                    "BEV-1011-0105": "/teknik-cizim/BEV-1011-0105.jpg",
-                    "BEV-2012-0000": "/teknik-cizim/BEV-2012-0000.jpg",
-                    "BEV-3011-0005": "/teknik-cizim/BEV-3011-0005.jpg",
-                    "BEV-3012-0000": "/teknik-cizim/BEV-3012-0000.jpg",
-                    "BEV-3011-1005": "/teknik-cizim/BEV-3011-1005.jpg",
-                    "BEV-3012-1000": "/teknik-cizim/BEV-3012-1000.jpg",
-                  };
-                  const baseImgs = product.images ?? (product.image ? [product.image] : []);
-                  const techDrawing = product.code ? TECH_DRAWINGS[product.code.trim()] : undefined;
-                  const imgs = techDrawing && !baseImgs.includes(techDrawing) ? [...baseImgs, techDrawing] : baseImgs;
+                  // imgs (ürün foto + varsa teknik çizim) bileşen gövdesinde galleryImages olarak hesaplanır.
+                  const imgs = galleryImages;
                   const clamped = Math.min(activeImg, imgs.length - 1);
 
                   return (
@@ -277,7 +372,8 @@ export default function ProductDetailPage({
                                 alt={`${product.name} ${clamped + 1}`}
                                 fill
                                 sizes="(max-width: 1024px) 100vw, 50vw"
-                                className={`object-contain ${imgs[clamped]?.startsWith("/teknik-cizim/") ? "p-1" : "p-4"}`}
+                                onClick={() => setLightboxOpen(true)}
+                                className={`object-contain cursor-zoom-in ${imgs[clamped]?.startsWith("/teknik-cizim/") ? "p-1" : "p-4"}`}
                                 priority
                               />
                             </motion.div>
