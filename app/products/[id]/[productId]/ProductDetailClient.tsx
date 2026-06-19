@@ -222,7 +222,21 @@ export default function ProductDetailPage({
                    product image lands ~15% wider in the viewport. ── */}
               <div className="lg:col-span-6">
                 {(() => {
-                  const imgs = product.images ?? (product.image ? [product.image] : []);
+                  // Teknik çizimler — eski bemis.com.tr'den çekilip self-host edildi
+                  // (public/teknik-cizim/). Ürün koduyla eşleşirse galeri SONUNA eklenir
+                  // (object-contain ile tam görünür, ölçüler kesilmez). Yeni kod = 1 satır.
+                  const TECH_DRAWINGS: Record<string, string> = {
+                    "BEV-1011-0005": "/teknik-cizim/BEV-1011-0005.jpg",
+                    "BEV-1011-0105": "/teknik-cizim/BEV-1011-0105.jpg",
+                    "BEV-2012-0000": "/teknik-cizim/BEV-2012-0000.jpg",
+                    "BEV-3011-0005": "/teknik-cizim/BEV-3011-0005.jpg",
+                    "BEV-3012-0000": "/teknik-cizim/BEV-3012-0000.jpg",
+                    "BEV-3011-1005": "/teknik-cizim/BEV-3011-1005.jpg",
+                    "BEV-3012-1000": "/teknik-cizim/BEV-3012-1000.jpg",
+                  };
+                  const baseImgs = product.images ?? (product.image ? [product.image] : []);
+                  const techDrawing = product.code ? TECH_DRAWINGS[product.code.trim()] : undefined;
+                  const imgs = techDrawing && !baseImgs.includes(techDrawing) ? [...baseImgs, techDrawing] : baseImgs;
                   const clamped = Math.min(activeImg, imgs.length - 1);
 
                   return (
