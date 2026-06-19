@@ -123,21 +123,22 @@ export default function ReferenceProjects() {
                   key={`${item.id}-${i}`}
                   className="relative rounded-2xl overflow-hidden flex-shrink-0"
                   style={{
+                    width: "clamp(280px, 30vw, 380px)",
                     height: "clamp(190px, 22vw, 260px)",
-                    minWidth: "110px",
                     background: surface,
                     border: `1px solid ${border}`,
                     boxShadow: d ? "none" : "0 2px 16px rgba(0,0,0,0.06)",
                   }}
                 >
-                  {/* Kart SABİT YÜKSEKLİK + görselin oranına göre OTOMATİK GENİŞLİK
-                      (h-full w-auto). Böylece dikey/yatay her foto çerçeveyi TAM doldurur:
-                      ne kırpılır ne kenarda boşluk kalır. Kartlar farklı genişlikte olur
-                      (film şeridi) — karışık oranlı referans fotoları için doğru çözüm. */}
+                  {/* SABİT 3:2 çerçeve + object-cover (kenarda boşluk bırakmadan doldurur).
+                      objectPosition = adminden seçilen odak noktası (imagePos); seçilmezse
+                      "center". Operatör admin'den her görselin çerçevede görünen yerini ayarlar.
+                      ⚠️ Kullanıcı kararı: bu hale (cover+imagePos) DÖNÜLDÜ, manuel odakla yönetilecek. */}
                   <img
                     src={item.image}
                     alt={item.title ?? "Bemis E-V Charge referans projesi"}
-                    className="h-full w-auto block pointer-events-none"
+                    className="w-full h-full object-cover pointer-events-none"
+                    style={{ objectPosition: item.imagePos || "center" }}
                     loading="lazy"
                     decoding="async"
                     draggable={false}

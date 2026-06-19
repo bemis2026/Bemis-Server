@@ -277,7 +277,7 @@ export default function ProductDetailPage({
                                 alt={`${product.name} ${clamped + 1}`}
                                 fill
                                 sizes="(max-width: 1024px) 100vw, 50vw"
-                                className="object-contain p-4"
+                                className={`object-contain ${imgs[clamped]?.startsWith("/teknik-cizim/") ? "p-1" : "p-4"}`}
                                 priority
                               />
                             </motion.div>

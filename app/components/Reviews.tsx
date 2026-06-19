@@ -144,7 +144,9 @@ export default function Reviews() {
         <div className="grid lg:grid-cols-5 gap-5 items-start">
 
           {/* ── SOL: müşteri yorumları (kompakt) + sosyal çipler ── */}
-          <div className="lg:col-span-2 flex flex-col gap-3">
+          {/* min-w-0: grid item'ın içerik min-content'i sütunu container'dan geniş
+              yapıp mobilde sağdan taşmasını/kırpılmasını engeller. */}
+          <div className="lg:col-span-2 min-w-0 flex flex-col gap-3">
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-black" style={{ color: textPrimary }}>
                 {lang === "en" ? "Customer Reviews" : "Müşteri Yorumları"}
@@ -203,7 +205,7 @@ export default function Reviews() {
           </div>
 
           {/* ── SAĞ: Haberler & Basında (BÜYÜK) ── */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 min-w-0">
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-base font-black" style={{ color: textPrimary }}>
                 {lang === "en" ? "News & Press" : "Haberler & Basında"}
