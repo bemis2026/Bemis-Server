@@ -242,11 +242,14 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                     kartlarla aynı (170px); object-contain ile küçük cihazlar
                     da kartın orta noktasında pürüzsüz oturur. */}
                 <div className="relative overflow-hidden" onClick={() => router.push(`/products/${id}/${product.id}`)}
-                  style={{ height: 170, background: d ? `linear-gradient(145deg, ${accent}18 0%, transparent 100%), #1c1c1f` : `linear-gradient(145deg, ${accent}14 0%, transparent 100%), #fafafa` }}>
+                  style={{ ...(id === "portable" ? { aspectRatio: "1 / 1" } : { height: 170 }), background: d ? `linear-gradient(145deg, ${accent}18 0%, transparent 100%), #1c1c1f` : `linear-gradient(145deg, ${accent}14 0%, transparent 100%), #fafafa` }}>
+                  {/* portable fotolar KARE (≈1.05) → görsel alanı da KARE (aspect-square) yapıldı ki
+                      contain ile çerçeveyi TAM doldursun, kırpılmadan. Diğer kategoriler dikey foto +
+                      sabit 170px (değişmedi). */}
                   {(product.images?.[0] ?? product.image) ? (
                     <Image src={(product.images?.[0] ?? product.image) as string} alt={product.name}
                       fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
-                      className={`${id === "portable" ? "object-cover" : "object-contain p-1"} transition-transform duration-350 group-hover:scale-105`}
+                      className="object-contain p-1 transition-transform duration-350 group-hover:scale-105"
                       loading="lazy" quality={88} />
                   ) : (
                     // No-image fallback fills the frame the way an actual
