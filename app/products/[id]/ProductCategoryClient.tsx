@@ -66,8 +66,11 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
   const bg            = d ? "#0c0c0e" : "#f8f8fb";
   // Solid surface in dark mode so the new background streaks behind
   // the wrapper don't bleed through every listing card.
-  const surface       = d ? "#141416" : "#ffffff";
-  const surfaceBorder = d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+  // Karanlık modda kart zemini, sayfa zemininden (#0c0c0e) belirgin ayrışsın diye
+  // bir tık daha açık (#1d1d22) + kenarlık azıcık güçlü → kartlar siyah arka planda
+  // daha kolay seçilir.
+  const surface       = d ? "#1d1d22" : "#ffffff";
+  const surfaceBorder = d ? "rgba(255,255,255,0.11)" : "rgba(0,0,0,0.07)";
   const textPrimary   = d ? "#f0f0f4" : "#1a1a2e";
   const textMuted     = d ? "rgba(240,240,244,0.50)" : "rgba(26,26,46,0.50)";
   const textFaint     = d ? "rgba(240,240,244,0.30)" : "rgba(26,26,46,0.30)";
