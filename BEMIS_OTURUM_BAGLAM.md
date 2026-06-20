@@ -7,11 +7,111 @@
 > Derin teknik bağlam: `Desktop/Claude Çalışmaları/Bemis Website/md/BEMIS_PROJECT_CONTEXT.md`
 > (özellikle §15.16 denetim, §15.17 Blob taşıması).
 >
-> Son güncelleme: **2026-06-13**
+> Son güncelleme: **2026-06-20**
 
 ---
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
+
+> 🆕 **WIKIDATA BİTTİ + 3 YENİ BLOG (2026-06-20, CANLI · commit f7bf64d):**
+> **(a) WIKIDATA %100 KAPANDI** — kullanıcı logo dahil tamamladı. ⚠️ ÖĞRENİLEN: Wikidata **logo image
+> (P154)** alanı **Commons media file** tipindedir → değer **yalnız çıplak dosya adı + uzantı** (örn.
+> `Bemis-ev-charge-logo-siyah (2).png`); `[[File:...|thumb|...]]` wiki-markup KOYMA ("file extension is
+> missing" hatası bundan). Logo dosyası Commons'ta DOĞRULANDI (arama yeni yüklemeyi geç indeksler; tam-ad
+> imageinfo sorgusu kesin). **(b) 3 YENİ BLOG (blog 15→18):** taslak→çekişmeli fact-check workflow (6 ajan)
+> ile üretildi, hepsi diske yazılıp `posts.ts` BAŞINA eklendi (tsc temiz): `elektrikli-arac-sarj-yuk-yonetimi`
+> (Yük Yönetimi/Load Management, Teknik) · `arac-filosu-elektrikli-sarj-cozumleri` (Filo/depo-gece şarjı, Rehber)
+> · `elektrikli-arac-sarj-istasyonu-nasil-calisir` (çalışma prensibi AC/DC/güvenlik, Teknik). Fact-check: post-0'da
+> "33kW/3 araç=tam 11kW" matematik hatası düzeltildi; diğer 2 temiz. Uydurma sertifika/fiyat/garanti/EPDK YOK
+> (yalnız CE/IP65-66 + "OCPP uyumlu modeller"). Gerçek içerik boşlukları, mevcut 15 yazıyla çakışma yok.
+> **(c) ⚠️ 301 HÂLÂ YAPILMADI:** 2026-06-20'de `bemis.com.tr/sarj-cihazlari` hâlâ **200** (kendi ürün listesini
+> gösteriyor; ajans "yaptık" dedi ama uygulanmamış). EN BÜYÜK SEO kaldıracı; harita `Desktop\Bemis_301_Yonlendirme_Haritasi.txt`.
+> **KALAN tamamen [KULLANICI]:** 301 · GBP 3 ürün (6 Çanta/7 BEVDC40/8 Kablolu Priz) + kart sahiplenme · pazaryeri
+> listeleme (hepsiburada/n11) · bayi backlink mesajı (`Desktop\Bemis_Bayi_Link_Talebi.txt` hazır) · jsonbin key iptali.
+
+> 🔔 **HATIRLATMA — KULLANICI (2026-06-16):** GBP'ye (Google İşletme Profili → Ürünler) amiral
+> ürünler ekleniyor. **1-5 EKLENDİ** (Charger 2 · Mini Mobile · Type 2 Seti · V2L · CEE Norm Adaptör).
+> **KALAN 3:** 6 Şarj Kablosu Çantası · 7 BEVDC 40 · 8 Kablolu Şarj Prizi (charger-equipment). + **GBP
+> Soru-Cevap:** kullanıcı bölümü bulamadı — public kartta (knowledge panel/Haritalar), Düzenle'de değil;
+> yeni profilde hiç görünmeyebilir → opsiyonel, çıkmazsa atla. ⚠️ Ben GBP'yi tamamlayamam (Google login
+> yasağı + Chrome eklentisi bağlı değildi). Kullanıcı "sonra bakacağız, hatırlat" dedi → **bu satırı
+> görünce HATIRLAT.** Her ürün için hazır kart (ad/açıklama/link) + GBP kategori adı önceki sohbette
+> verildi; tekrar gerekirse `/api/products`'tan amiral ürün + `/products/<cat>/<id>` linki üret.
+> ⚠️ GBP ürünleri ORTA fayda (vitrin/dönüşüm), sıralama kozu değil. **Asıl kaldıraç hâlâ 301:**
+> eski `bemis.com.tr/sarj-cihazlari` + `/ev-charge` 2026-06-16'da hâlâ **200** (yönlendirme YAPILMADI).
+> **301 HARİTASI HAZIRLANDI (2026-06-16):** `C:\Users\sales\Desktop\Bemis_301_Yonlendirme_Haritasi.txt`
+> — 11 EV ürünü (BEV kodundan birebir) + 8 EV kategori/landing → yeni URL, hepsi 200 doğrulandı +
+> .htaccess/Nginx örnekleri. **Kullanıcı ajansa/panele İLETECEK** (eski site klasik PHP template, soft-404
+> her URL'ye 200 döner; gerçek linkler /sarj-cihazlari sayfasından çıkarıldı). ⚠️ /dokumanlar endüstriyelle
+> ortak → yönlendirme; sadece EV URL'leri. → Uygulanınca bu satırı güncelle.
+
+> ⚙️ **BLOB KOTA FIX (2026-06-16, CANLI · commit 00c4524):** Vercel maili "Advanced Requests (2.000
+> işlem/ay) %100" → kaynak: `lib/store.ts` `readBin` her private `get`'i = 1 Blob *advanced op*, ÖNBELLEKSİZ
+> her ziyaretçi/bot isteği bunu tüketiyordu. **FIX:** `readBin` salt-okuma çağrıları artık `unstable_cache`
+> (tag `store:<bin>`, `revalidate:1800`); `writeBin`'in mevcut `revalidateTag(store:<bin>,"max")`'i yazınca
+> temizler. **Oku-değiştir-yaz akışları ZATEN `{fresh:true}` geçiyor** (tüm admin route + iletişim formu
+> mesaj-ekleme) → cache'i atlar, stale-yazma yok. Blob op ~%95+ düştü. ⚠️ **DİKKAT:** (1) `scripts/*.cjs`
+> Blob'a DOĞRUDAN yazar (writeBin değil) → `revalidateTag` ÇAĞIRMAZ → değişiklik en geç 30 dk'da (veya yeni
+> deploy) görünür; acil tazelik gerekiyorsa redeploy. (2) Statik sayfalar artık 30m revalidate (ISR, 200k/ay
+> bol kota — sorun değil); `[id]` ürün sayfaları HÂLÂ force-dynamic (bot-amplifikasyon riski yok). (3) Kota
+> AYLIK sıfırlanır; trafik büyürse Pro kalıcı çözüm. `cacheComponents:true` AÇILMADI (çok kapsamlı/riskli).
+
+> 🤖 **GEO/AEO — YZ ARAMA GÖRÜNÜRLÜĞÜ (2026-06-16, CANLI · commit bf6d1ae):** YZ (ChatGPT/Perplexity/
+> AI Overviews) Bemis'i doğru tanısın+alıntılasın diye sitenin "ben yerli EV şarj üreticisiyim" tarafı
+> güçlendirildi. **(a)** `lib/seo.ts` `organizationSchema`: `sameAs` SABİT baseline (4 gerçek sosyal link —
+> içerik build'de boş gelse bile asla boş kalmaz; eskiden canlıda sameAs=0 idi) + `description` + `slogan` +
+> `knowsAbout` (12) + `areaServed:"Türkiye"` + `hasOfferCatalog` (8 ürün hattı). Atıf DOĞRU: 1994/16.000m²/
+> miras = `parentOrganization` Bemis Teknik; EV markası onun markası. **(b)** YENİ `app/llms.txt/route.ts`
+> (statik, /llms.txt) — YZ tarayıcılarına marka özeti + ana sayfalar. **(c)** YENİ blog
+> `turkiye-yerli-ev-sarj-istasyonu-ureticisi` (category "Marka") — YZ sorgularını ("yerli EV şarj üreticisi
+> kim") alıntılanabilir Soru-Cevapla cevaplar; sitemap+listede otomatik. İçerik 4-ajanlı workflow ile üretilip
+> ÇEKİŞMELİ fact-check edildi (uydurma sertifika/bölge/blanket-OCPP düzeltildi; yalnız CE/IP65-66/OCPP/60+ ülke).
+> JSON-LD canlı doğrulandı (parse OK, &amp; kaçağı yok). robots YZ botlarını ZATEN engellemiyor (iyi).
+> ⚠️ **KALAN [KULLANICI] off-site (asıl öneri gücü):** Wikidata kaydı · "en iyi yerli EV şarj markaları"
+> listelerine girmek · pazaryeri (Hepsiburada/N11) · Google+forum yorumları. (sameAs sosyal linkleri kodda
+> SABİT — admin'de sosyal değişirse `ORG_SAME_AS`'i de güncelle.)
+
+> 🗂️ **GBP ürün + Wikidata (2026-06-16):** GBP'ye ürün ekleme Chrome eklentisiyle DENENDİ →
+> **ürün fotoğrafı ZORUNLU** ve foto seçimi Windows native dosya penceresi (sayfa Google iframe'i,
+> erişilebilir file-input yok) → **otomasyonla yüklenemiyor.** Kullanıcı 3 kalan ürünü (6 Çanta,
+> 7 BEVDC 40, 8 Kablolu Priz) KENDİ ekliyor; görseller indirildi: `C:\Users\sales\bemis_gbp\`
+> (6-canta.png/7-bevdc.png/8-priz.png) + metinler hazır. **Wikidata paketi HAZIR (off-site GEO):**
+> `Desktop\Bemis_Wikidata_Paketi.txt` (doldurmaya hazır: label/açıklama/ifadeler/kaynak; marka +
+> opsiyonel ana şirket öğesi). Kullanıcı Wikidata Q-no verince → sitedeki `ORG_SAME_AS`'e Wikidata
+> linkini EKLE (entity bağını kapatır). Yol haritası: `Desktop\Bemis_Yol_Haritasi.txt`.
+
+> 🌐 **WIKIDATA DURUM (2026-06-16):** Bemis E-V Charge öğesi CANLI = **Q140262626** (instance of Brand,
+> country TR, website, Instagram/LinkedIn/Facebook). **Siteye `sameAs` olarak EKLENDİ** (`lib/seo.ts`
+> ORG_SAME_AS, commit 28a9cfe — entity bağı kapandı). ⚠️ **KULLANICIDA 2 DÜZELTME:** (a) owned-by (P127)
+> KENDİNE işaret ediyor (Q140262626→Q140262626, self-ref) → Bemis Teknik'e çevrilecek; (b) headquarters
+> (P159) İstanbul YANLIŞ → **Bursa (Q40858)**. **Bemis Teknik Elektrik A.Ş. Wikidata'da YOK** → kullanıcı
+> oluşturacak (roadmap verildi: instance business, inception 1994, HQ Bursa, brand→Q140262626; sonra
+> Q140262626 owned-by = Bemis Teknik). Referans haber linkleri = `app/blog/press.ts` (5 canlı: Electricity
+> Turkey, Eko Haber, 3× Sektörüm Dergisi). Daha çok Bemis öğesi Wikidata'da yok (sadece soyadı/yer adları).
+> **GÜNCELLEME (tamamlandı):** Bemis Teknik = **Q140267525** oluşturuldu (instance business, country TR,
+> HQ Bursa=**Q40738**, inception 1994, website bemis.com.tr, brand→Q140262626). Q140262626 owned-by ARTIK
+> Q140267525 (self-ref düzeltildi). HQ zaten Q40738=Bursa idi (DOĞRU; "İstanbul" ilk WebFetch'in yanlış
+> etiketiydi). ⚠️ NOT: **Q40858 = doğalgaz, Bursa DEĞİL** (Bursa=Q40738). Q140267525 siteye
+> `parentOrganization.sameAs` olarak EKLENDİ (commit 86c59a2). Tam zincir canlı: site→Q140262626→Q140267525.
+> ✅ **WIKIDATA %100 TAMAM (2026-06-16):** her iki öğede 4'er referans (haber + site) + alias'lar eklendi/
+> temizlendi (parent'tan yanlış marka-alias + "plugs and sockets...ceenorm" çöpü silindi; en: Bemis Technic/
+> Electric/Turkey, tr: Bemis Teknik/Elektrik). API ile doğrulandı. Bu iş KAPANDI — yeni rötuş gerekmez.
+
+> ✍️ **SEO içerik 2 iş (2026-06-16, CANLI · commit f44e07a):** (2) YENİ blog
+> `ev-sarj-soketi-tipleri-type-2-ccs2-chademo` ("Type 2/CCS2/CHAdeMO farkı" — YZ-citable karşılaştırma,
+> category "Teknik"; 2-ajan workflow + çekişmeli fact-check, verdict TEMİZ). (3) **Kategori H1'leri
+> keyword'lü:** `lib/seo.ts`'e `categoryH1(id)` eklendi (CATEGORY_SEO.title döner) + `ProductCategoryClient`
+> H1'i TR'de `categoryH1(category.id) || category.name` (EN + SEO'suz kategori → category.name; CMS verisi
+> DEĞİŞMEDİ). Örn. cables H1 = "Elektrikli Araç Şarj Kablosu — Type 2", dc-units = "DC Hızlı Şarj Üniteleri
+> — CCS2". H1 artık meta <title> ile aynı (tutarlılık). Canlı SSR'da doğrulandı. ⚠️ Kategori H1 değişmek
+> istenirse CMS değil `CATEGORY_SEO[id].title` düzenlenir (seo.ts).
+
+> ✍️ **SEO içerik 2. raund (2026-06-16, CANLI · commit 590640c):** (2) YENİ blog
+> `elektrikli-arac-sarj-suresi-kac-saatte-dolar` ("EV kaç saatte dolar" — formül + AC/DC örnek hesap,
+> kabul-gücü/taper vurgulu; 2-ajan workflow + fact-check TEMİZ). (3) **/products ana H1:** sabit
+> "Tüm Ürünler" → iki dilli keyword `ProductsClient` ("Elektrikli Araç Şarj Ürünleri" / "EV Charging
+> Products"). **Bu oturumda blog 11→14** (marka-entity + soket-tipleri + şarj-süresi). Blog deseni:
+> `app/blog/posts.ts` BLOG_POSTS'a ekle → /blog liste + sitemap + JSON-LD OTOMATİK.
 
 0. **⭐ ANA ODAK: SEO / Google görünürlüğü.** Teşhis yapıldı (2026-06-06): yeni site
    `bemisevcharge.com.tr` Google'da görünmez; eski `bemis.com.tr` (EV ürünleri) + bayiler
@@ -224,6 +324,32 @@
    **KALAN [KULLANICI]:** anahtar git GEÇMİŞİNDE duruyor → jsonbin.io'da iptal/yenile (tam etkisizleştirme). (ops.) Blob token yenile.
 
 ---
+
+> 🖼️ **UI (2026-06-16):** (a) **Referans Projeler — KULLANICI SON KARARI (commit 29c584b):** SABİT 3:2 çerçeve
+> (`width clamp280-380 × height clamp190-260`) + görsel `w-full h-full object-cover` + `objectPosition=imagePos`.
+> Kullanıcı kırpmayı **admin'den manuel odak noktasıyla** yönetiyor. ⚠️ Flip-flop çok oldu (contain→cover→
+> contain→auto-width→**ŞİMDİ cover+imagePos**); kullanıcı KASITLI bunu seçti → DEĞİŞTİRME, sorMADAN dokunma.
+> (b) **Portable kart görselleri (commit 29c584b):** `ProductCategoryClient` kart Image'i portable'da `object-cover`
+> (diğerleri `object-contain p-1`). NEDEN: portable fotolar ≈KARE (1.05) → contain'de uzun kart çerçevesini
+> doldurmaz, küçük kalır; wallbox fotolar DİKEY (0.46-0.94) → contain'de zaten doluyor. `id==="portable"` özel.
+> (c) **Reviews mobil overflow (commit 29c584b):** `Reviews.tsx` grid item'larına (`lg:col-span-2/3`) **min-w-0**
+> → mobilde grid sütunu 387→335px (içerik min-content sütunu şişirip section overflow-hidden ile kırpıyordu).
+> (d) **Teknik çizim galeri padding:** `/teknik-cizim/` görseli ise `p-1` (yoksa `p-4`) → çizim daha büyük oturur.
+> (b) **Navbar "Ürünler" thumbnail zemini `#e8eaee` açık gri** (eskiden dark `rgba(255,255,255,0.06)` → ürünler
+> kayboluyordu). ℹ️ JSX etiketi İÇİNE `//` yorum koyma = parse hatası (öğrenildi).
+
+> 📐 **TEKNİK ÇİZİMLER (2026-06-16, CANLI · commit fdd20bf):** Eski bemis.com.tr'de teknik çizim deseni
+> `bemis.com.tr/img/resimler/bemis/teknikcizim/ev-charge/<KOD>.jpg` — sadece **7 wallbox şarj cihazında** var.
+> 7'si indirilip **self-host:** `public/teknik-cizim/<KOD>.jpg`. `ProductDetailClient.tsx` içinde **TECH_DRAWINGS**
+> (kod→yol) haritası galeri SONUNA ekler (object-contain). ⚠️ Blob `products` bin'i 403 verdi → veri yerine
+> KOD ile çözüldü (daha temiz). Yeni çizim eklemek = görseli `public/teknik-cizim/`'e koy + TECH_DRAWINGS'e 1 satır.
+> ⚠️ TECH_DRAWINGS artık `ProductDetailClient.tsx` **module-level**; galeri+lightbox ortak `galleryImages` (gövdede).
+> 🔍 **GÖRSEL LIGHTBOX (commit dd49bec):** ürün galeri görseline tıkla → `ImageLightbox` (createPortal→body,
+> framer transform'larından kaçar) TAM EKRAN açılır; tıkla-yakınlaş 2.4x (tıklanan noktaya), Pointer Events ile
+> sürükle-gezin (mouse+dokunmatik), prev/next + ok tuşları, Esc/dış-tık/✕ kapat, body kilitli. Preview doğrulandı
+> (portal-to-body, inline scale 2.4). ⚠️ Mobil PINCH yok (tap-zoom + drag-pan var); istenirse 2-parmak eklenir.
+> ⚠️ 301 HÂLÂ YOK (ajans "yaptık" dedi ama 2026-06-16'da eski EV sayfaları hâlâ 200). Hosting Vercel'de KALIYOR
+> (kullanıcı kararı; WordPress'e çevirme önerilmedi — SEO downgrade olur).
 
 ## 1. HIZLI DURUM
 
