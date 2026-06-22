@@ -5,8 +5,8 @@ import { readBin } from "../../../lib/jsonbin";
 
 const fallbackPath = path.join(process.cwd(), "data", "documents.json");
 
-// 1 saat — admin save sonrası revalidatePath manuel temizliyor.
-export const revalidate = 3600;
+// 6 saat — admin save revalidatePath ile anında temizler (backstop; daha az ISR write).
+export const revalidate = 21600;
 
 type DocumentItem = { visible?: boolean };
 

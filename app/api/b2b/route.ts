@@ -29,8 +29,8 @@ function stripTranslations(obj: any) {
 
 const fallbackPath = path.join(process.cwd(), "data", "b2b.json");
 
-// 1 saat — admin save sonrası revalidatePath manuel temizliyor.
-export const revalidate = 3600;
+// 6 saat — admin save revalidatePath ile anında temizler (backstop; daha az ISR write).
+export const revalidate = 21600;
 
 export async function GET(req: NextRequest) {
   const lang = new URL(req.url).searchParams.get("lang") ?? "tr";

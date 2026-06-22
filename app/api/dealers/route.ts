@@ -9,7 +9,7 @@ const fallbackPath = path.join(process.cwd(), "data", "dealers.json");
 // temizliyor; otomatik döngü sadece bot trafiği + edge cache miss fallback.
 // Önceden 60s idi → Vercel free ISR write limit'i (200K/ay) hızlıca dolup
 // projenin pause olmasına yol açıyordu.
-export const revalidate = 3600;
+export const revalidate = 21600; // 6 saat — admin save revalidatePath ile anında tazelenir
 
 export async function GET() {
   try {

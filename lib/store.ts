@@ -44,7 +44,7 @@ export async function readBin(name: string, opts: { fresh?: boolean } = {}): Pro
   const cached = unstable_cache(
     () => readBlobRaw(name),
     ["store", name],
-    { tags: [tagFor(name)], revalidate: 1800 },
+    { tags: [tagFor(name)], revalidate: 21600 },
   );
   return cached();
 }

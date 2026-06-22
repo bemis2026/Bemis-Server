@@ -7,8 +7,9 @@ import path from "path";
 const fallbackPath = path.join(process.cwd(), "data", "products.json");
 const fallbackEnPath = path.join(process.cwd(), "data", "products-en.json");
 
-// 1 saat — admin save sonrası revalidatePath manuel temizliyor.
-export const revalidate = 3600;
+// 6 saat — admin save revalidatePath ile ANINDA temizler; bu yalnız backstop.
+// Uzun backstop = çok daha az ISR write (Vercel free 200K/ay limiti dolmasın).
+export const revalidate = 21600;
 
 // Accept any of the three historical shapes:
 //   - bare array (legacy, pre-translations)
