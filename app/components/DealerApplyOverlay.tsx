@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { HiX, HiCheckCircle } from "react-icons/hi";
 import { RiBuilding4Line, RiGlobalLine } from "react-icons/ri";
 import { useDealerApplyOverlay } from "../context/DealerApplyOverlayContext";
@@ -80,6 +80,9 @@ export default function DealerApplyOverlay() {
   const [form, setForm] = useState<FormState>(EMPTY);
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
   const [errMsg, setErrMsg] = useState<string>("");
+  // Bot koruması: form render anı (zaman-tuzağı) + gizli honeypot input ref'i.
+  const startedAtRef = useRef(Date.now());
+  const hpRef = useRef<HTMLInputElement>(null);
 
   // Close on Escape + lock body scroll while open.
   useEffect(() => {
@@ -141,6 +144,8 @@ export default function DealerApplyOverlay() {
           phone: form.phone,
           topic: mode === "tr" ? "dealer-apply" : "export",
           message: messageBody,
+          website: hpRef.current?.value ?? "", // honeypot (gizli)
+          elapsed: Date.now() - startedAtRef.current,
         }),
       });
       const data = await res.json().catch(() => ({}));
@@ -253,6 +258,12 @@ export default function DealerApplyOverlay() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-3 mt-2">
+                    {/* Honeypot — gizli; sadece bot doldurur → sunucu sessizce reddeder */}
+                    <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
+                      <label>Web Siteniz (boş bırakın)
+                        <input ref={hpRef} type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
+                      </label>
+                    </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
                         <label htmlFor="da-name" className="block text-[11px] font-bold tracking-wide uppercase mb-1.5" style={{ color: muted }}>

@@ -114,6 +114,18 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Geçersiz istek" }, { status: 400 });
   }
 
+  // Honeypot + zaman-tuzağı: spam'i Blob/e-posta HARCAMADAN sessizce reddet.
+  // Botlara "başarılı" (200) görünürüz ki varyasyon deneyip durmasınlar; hiçbir
+  // işlem yapılmaz → readBin/writeBin(messages) ÇALIŞMAZ (Blob op tüketilmez).
+  //  - website: gizli honeypot alanı (gerçek kullanıcı boş bırakır, bot doldurur)
+  //  - elapsed: formun render'ından submit'e geçen süre; < 2 sn = otomasyon
+  const b = body as Record<string, unknown>;
+  const honeypot = String(b.website ?? "").trim();
+  const elapsedMs = Number(b.elapsed);
+  if (honeypot || (Number.isFinite(elapsedMs) && elapsedMs >= 0 && elapsedMs < 2000)) {
+    return NextResponse.json({ ok: true });
+  }
+
   const { name, company, email, phone, topic, message } = body as Record<string, string>;
   if (!name || !email || !topic || !message) {
     recordFailure(rlKey, CONTACT_RL_OPTS);

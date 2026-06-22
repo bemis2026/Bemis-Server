@@ -34,6 +34,8 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending]     = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
+  // Form ilk render anı — submit'te "elapsed" olarak gönderilir (bot zaman-tuzağı).
+  const startedAtRef = useRef(Date.now());
 
   const BLUE      = "#3B82F6";
   const bg        = d ? "linear-gradient(155deg, #0f0f13 0%, #0d0d11 60%, #111116 100%)" : "linear-gradient(155deg, #f5f6fa 0%, #f2f3f7 60%, #f7f8fb 100%)";
@@ -206,6 +208,8 @@ export default function Contact() {
                           phone:   fd.get("phone"),
                           topic:   fd.get("topic"),
                           message: fd.get("message"),
+                          website: fd.get("website"), // honeypot (gizli; sadece bot doldurur)
+                          elapsed: Date.now() - startedAtRef.current,
                         }),
                       });
                       if (!res.ok) {
@@ -236,6 +240,13 @@ export default function Contact() {
                   <h3 className="font-bold text-base mb-5" style={{ color: textPrimary }}>
                     {t("contact_form_title")}
                   </h3>
+
+                  {/* Honeypot — gerçek kullanıcı görmez/doldurmaz; bot doldurursa sunucu sessizce reddeder (Blob/e-posta harcanmaz) */}
+                  <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
+                    <label>Web Siteniz (boş bırakın)
+                      <input type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
+                    </label>
+                  </div>
 
                   {/* Name + Company */}
                   <div className="grid sm:grid-cols-2 gap-3">
