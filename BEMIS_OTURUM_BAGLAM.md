@@ -28,13 +28,20 @@
 > ⚠️ **`scripts/fix-*.cjs` Blob `get`'leri artık lokalden 403 alabilir** (yazma da güvenilmez); Blob veri
 > düzeltmesi gerekiyorsa admin paneli veya Vercel runtime üzerinden yapılmalı. SEO regen: geçici workflow
 > (scriptler repo'da tutulmadı). EN ürün sayfaları SEO override almaz → otomatik üretilene düşer (kabul).
-> 🔎 **VERCEL KOTA (2026-06-20):** kullanıcı yine "free tier %100" maili alıyor. Teşhis: son 48 saatte
-> **runtime HATA YOK** (fonksiyon süresini yiyen döngü yok), dağıtım sıklığı normal (kaçak redeploy yok).
-> Kota **5 projenin** (apeiron · bemis-server · bemis-b2b · bemis-konfigurator · sales) PAYLAŞTIĞI ücretsiz
-> trafik limitlerinden doluyor — muhtemelen **Image Optimization** veya fonksiyon/edge istekleri. MCP'de
-> kullanım meteri endpoint'i YOK → hangi metrik %100, maile/panele bakılmalı (kullanıcı söyleyince hedefli
-> çözeriz). Kalıcı: **Pro (~$20/ay)** ya da hedefli kısıtlama (Firewall bot kuralı / image variant azaltma /
-> bazı projeleri ayır). ⚠️ Bu SEO işi kotayı ARTIRMAZ (Blob yazımı yapılmadı; sadece kod + deploy).
+> 🔎 **VERCEL KOTA — GERÇEK METRİK + FIX (2026-06-20, CANLI · commit f6cdb9e):** Kullanıcı ekran görüntüsü
+> verdi. AŞILAN 2 metrik (aylık): **ISR Writes 209K/200K** + **Blob Advanced Operations 3.1K/2K** (diğer
+> HEPSİ limit altında — Image Optimization 1.6K/5K, Edge 260K/1M vb. SORUN DEĞİL). Bunlar tam olarak önceki
+> oturumların "düzelttiği" iki metrik → free tier bu büyüyen site için DAR. KÖK NEDEN: `readBin`
+> `unstable_cache` (revalidate **1800s**) + okuma API'leri (**3600s**) çok sık tazeleniyordu → content/
+> products okuyan STATİK sayfalar ~30dk'da bir yeniden yazılıyor (ISR write patlaması) + cache-miss Blob
+> okumaları. **FIX:** tüm okuma backstop'ları **21600s (6 saat)** — `lib/store.ts` readBin + `/api/products`,
+> `/api/dealers`, `/api/documents`, `/api/b2b`. Bayatlama YOK (admin/içerik/ürün/iletişim yazımları
+> `revalidateTag(store:<bin>,"max")` + `revalidatePath` ile cache'i ANINDA temizler; 6 saat sadece backstop).
+> Beklenen: ISR write ~10×, Blob read ~12× düşer → ikisi de limit altına. ⚠️ Metrikler AYLIK sıfırlanır +
+> fix birkaç günde meterde görünür. **Blob ops'ta 2. olası kaynak: iletişim formu spam'i** (her mesaj =
+> readBin(fresh)+writeBin = 2 Blob op); spam varsa contact route'a rate-limit/honeypot eklenebilir (henüz
+> yapılmadı). **Kalıcı güvenlik = Vercel Pro (~$20/ay)** — 5 proje + büyüyen trafik için free tier tekrar
+> tökezler (Pro: ISR 200K→2M, Blob 2K→çok daha fazla). ⚠️ revalidate değerlerini TEKRAR kısaltma — kota dolar.
 
 > 🆕 **WIKIDATA BİTTİ + 3 YENİ BLOG (2026-06-20, CANLI · commit f7bf64d):**
 > **(a) WIKIDATA %100 KAPANDI** — kullanıcı logo dahil tamamladı. ⚠️ ÖĞRENİLEN: Wikidata **logo image
