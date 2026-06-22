@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 import type { Metadata } from "next";
 import JsonLd from "../../../components/JsonLd";
-import { breadcrumbSchema, productSchema, productMetaTitle, productMetaDescription } from "../../../lib/seo";
+import { breadcrumbSchema, productSchema, productMetaTitle, productMetaDescription, productKeywords } from "../../../lib/seo";
 import { getServerProducts, getServerCategoriesMeta } from "../../../lib/server-content";
 import ProductDetailClient from "./ProductDetailClient";
 
@@ -37,13 +37,16 @@ export async function generateMetadata({
   }
   const meta = catsMeta[id] ?? {};
   const categoryName = meta.name || category.name;
-  const title = productMetaTitle(product, categoryName);
-  const description = productMetaDescription(product, categoryName, id);
+  // Ürün bazlı SEO geçersiz kılmaları (admin) varsa onları kullan; yoksa üret.
+  const title = product.metaTitle?.trim() || productMetaTitle(product, categoryName);
+  const description = product.metaDescription?.trim() || productMetaDescription(product, categoryName, id);
+  const keywords = productKeywords(product);
   const canonical = `/products/${id}/${productId}`;
   const image = product.image || product.images?.[0];
   return {
     title,
     description,
+    ...(keywords && { keywords }),
     alternates: { canonical },
     openGraph: {
       title,

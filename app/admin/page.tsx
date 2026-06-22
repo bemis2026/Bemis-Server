@@ -94,7 +94,7 @@ type SpecItem = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };
 type ProductDocument = { label: string; url: string };
 type BoxContentItem = { name: string; image?: string };
-type ProductEntry = { id: string; name: string; code?: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[]; generalFeatures?: string[]; documents?: ProductDocument[]; features?: string[]; certificates?: string[]; boxContents?: BoxContentItem[]; compatibleVehicles?: string[]; ean?: string; desi?: string };
+type ProductEntry = { id: string; name: string; code?: string; subtitle: string; badge: string | null; description: string; specs: SpecGroup[]; image?: string; images?: string[]; generalFeatures?: string[]; documents?: ProductDocument[]; features?: string[]; certificates?: string[]; boxContents?: BoxContentItem[]; compatibleVehicles?: string[]; ean?: string; desi?: string; metaTitle?: string; metaDescription?: string; focusKeyword?: string; keywords?: string };
 type CategoryData = { id: string; name: string; tagline: string; accent: string; products: ProductEntry[] };
 
 type StatItem = { value: number; suffix: string; prefix?: string; label: string; description: string };
@@ -2631,6 +2631,20 @@ export default function AdminPage() {
                                       <Field label="Alt Başlık" value={currentProd.subtitle} onChange={(v) => updateProd("subtitle", v)} />
                                       <Field label="Rozet (boş bırakın = yok)" value={currentProd.badge ?? ""} onChange={(v) => updateProd("badge", v || null)} />
                                       <Field label="Açıklama" value={currentProd.description} onChange={(v) => updateProd("description", v)} multiline />
+                                      {/* SEO (arama motoru) — boş alanlar otomatik üretilir */}
+                                      <div className="pt-3 mt-1 border-t border-white/8 space-y-3">
+                                        <div className="flex items-center gap-2">
+                                          <p className="text-xs font-semibold text-white/50">Arama Motoru (SEO)</p>
+                                          <span className="text-[10px] text-white/25">Google / pazaryeri için</span>
+                                        </div>
+                                        <Field label="SEO Başlığı (meta title)" value={currentProd.metaTitle ?? ""} onChange={(v) => updateProd("metaTitle", (v || undefined) as unknown as null)} placeholder="Boş = otomatik (ürün adı · alt başlık · kategori). ~55 karakter." />
+                                        <Field label="SEO Açıklaması (meta description)" value={currentProd.metaDescription ?? ""} onChange={(v) => updateProd("metaDescription", (v || undefined) as unknown as null)} multiline placeholder="Boş = otomatik. ~150-160 karakter; Google sonucunda görünen açıklama." />
+                                        <div className="grid grid-cols-2 gap-3">
+                                          <Field label="Odak Anahtar Kelime" value={currentProd.focusKeyword ?? ""} onChange={(v) => updateProd("focusKeyword", (v || undefined) as unknown as null)} placeholder="örn. type 2 şarj kablosu" />
+                                          <Field label="Anahtar Kelimeler (virgülle)" value={currentProd.keywords ?? ""} onChange={(v) => updateProd("keywords", (v || undefined) as unknown as null)} placeholder="kelime1, kelime2, kelime3" />
+                                        </div>
+                                        <p className="text-[10px] text-white/30 leading-relaxed">Boş bıraktığınız alanlar otomatik üretilir; doldurduklarınız Google&apos;da ve sayfa etiketlerinde (başlık, açıklama, Product şeması) aynen kullanılır.</p>
+                                      </div>
                                       {/* Product images */}
                                       <div>
                                         <div className="flex items-center justify-between mb-2">

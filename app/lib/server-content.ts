@@ -3,6 +3,7 @@ import { readBin } from "../../lib/jsonbin";
 import { readFileSync } from "fs";
 import path from "path";
 import type { CategoryShape } from "./seo";
+import { applyProductSeo } from "./productSeo";
 
 type CategoriesMeta = Record<string, { name?: string; subtitle?: string; description?: string }>;
 
@@ -41,11 +42,11 @@ export async function getServerProducts(): Promise<CategoryShape[]> {
   try { main = await readBin("products"); } catch {}
   try { extra = await readBin("productsExtra"); } catch {}
   const merged = [...unwrapTr(main), ...unwrapTr(extra)];
-  if (merged.length > 0) return merged;
+  if (merged.length > 0) return applyProductSeo(merged);
   try {
     const fb = path.join(process.cwd(), "data", "products.json");
     const parsed = JSON.parse(readFileSync(fb, "utf-8"));
-    return unwrapTr(parsed);
+    return applyProductSeo(unwrapTr(parsed));
   } catch {}
   return [];
 }

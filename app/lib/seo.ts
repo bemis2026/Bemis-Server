@@ -54,6 +54,13 @@ export type ProductShape = {
   description?: string;
   image?: string;
   images?: string[];
+  /** Ürün bazlı SEO geçersiz kılmaları (admin'den düzenlenir). Boş ise
+   *  üretilen (productMetaTitle/Description) değere düşülür — asla boş kalmaz. */
+  metaTitle?: string;
+  metaDescription?: string;
+  focusKeyword?: string;
+  /** Virgülle ayrılmış anahtar kelimeler. */
+  keywords?: string;
   /** Optional spec groups — when present and a price group exists
    *  (TR "Fiyat" / EN "Price"), productSchema() emits an Offer block
    *  so the price shows up in Google's rich snippet. */
@@ -256,6 +263,28 @@ function extractOffer(product: ProductShape): { price: number; currency: string 
   return { price, currency };
 }
 
+/** focusKeyword + keywords (virgülle) → tekilleştirilmiş, virgülle birleşik
+ *  kelime dizisi (JSON-LD Product.keywords + <meta name="keywords"> için).
+ *  Hiçbiri yoksa undefined. */
+export function productKeywords(product: ProductShape): string | undefined {
+  const parts: string[] = [];
+  if (product.focusKeyword?.trim()) parts.push(product.focusKeyword.trim());
+  if (product.keywords?.trim()) {
+    for (const k of product.keywords.split(",")) {
+      const t = k.trim();
+      if (t) parts.push(t);
+    }
+  }
+  const seen = new Set<string>();
+  const uniq = parts.filter((p) => {
+    const key = p.toLocaleLowerCase("tr");
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+  return uniq.length ? uniq.join(", ") : undefined;
+}
+
 export function productSchema(opts: {
   product: ProductShape;
   categoryName?: string;
@@ -268,6 +297,7 @@ export function productSchema(opts: {
     .filter((x): x is string => Boolean(x));
   const url = `${SITE_URL}/products/${categoryId}/${product.id}`;
   const offer = extractOffer(product);
+  const kw = productKeywords(product);
   return {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -280,6 +310,7 @@ export function productSchema(opts: {
     brand: { "@type": "Brand", name: SITE_NAME },
     manufacturer: { "@id": `${SITE_URL}#organization` },
     ...(categoryName && { category: categoryName }),
+    ...(kw && { keywords: kw }),
     url,
     ...(offer && {
       offers: {

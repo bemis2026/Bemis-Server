@@ -4,6 +4,7 @@ import path from "path";
 import { revalidatePath } from "next/cache";
 import { readBin, writeBin } from "../../../../lib/jsonbin";
 import { translateProducts } from "../../../../lib/productsTranslate";
+import { applyProductSeo } from "../../../lib/productSeo";
 import { verifyAdminSession } from "@/lib/adminAuth";
 
 function isAuthed(req: NextRequest) {
@@ -66,7 +67,8 @@ async function readShardedEn(): Promise<unknown[] | null> {
 export async function GET(req: NextRequest) {
   if (!isAuthed(req)) return NextResponse.json({ error: "Yetkisiz" }, { status: 401 });
   const { tr } = await readShardedTr();
-  return NextResponse.json(tr);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return NextResponse.json(applyProductSeo(tr as any[]));
 }
 
 export async function POST(req: NextRequest) {

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readBin } from "../../../lib/jsonbin";
+import { applyProductSeo } from "../../lib/productSeo";
 import { readFileSync } from "fs";
 import path from "path";
 
@@ -134,7 +135,9 @@ export async function GET(req: NextRequest) {
   const { tr, primary: trRecord } = await readShardedTr();
   if (tr.length === 0) return NextResponse.json({ error: "Ürünler yüklenemedi" }, { status: 500 });
 
-  if (lang === "tr") return NextResponse.json(tr);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const trSeo = applyProductSeo(tr as any[]);
+  if (lang === "tr") return NextResponse.json(trSeo);
 
   // EN comes from its own bin pair (or the local fallback file).
   let en = await readShardedEn();
@@ -146,5 +149,5 @@ export async function GET(req: NextRequest) {
     const fileEn = loadJsonFile(fallbackEnPath);
     if (Array.isArray(fileEn)) en = fileEn;
   }
-  return NextResponse.json(mergeCategories(tr, en));
+  return NextResponse.json(mergeCategories(trSeo, en));
 }
