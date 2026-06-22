@@ -13,6 +13,29 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🆕 **ÜRÜN SEO ALANLARI + 113 ÜRÜN ÖN-DOLDURMA (2026-06-20, CANLI · commit 757fd2b):** Admin ürün
+> düzenlemeye **4 SEO alanı** eklendi (SEO Başlığı / SEO Açıklaması / Odak Anahtar Kelime / Anahtar
+> Kelimeler — IdeaSoft tarzı; `ProductEntry`+`ProductShape`'e alan). BOŞ = otomatik üretilen meta;
+> DOLU = `<title>` / meta description / `<meta keywords>` / Product JSON-LD `keywords`'te AYNEN
+> (product `generateMetadata` + `productSchema`; yeni `productKeywords()` helper, seo.ts). **113 ürünün
+> TAMAMI ön-dolduruldu** (8-ajanlı çekişmeli fact-check workflow) → `app/lib/productSeo.ts` `PRODUCT_SEO`
+> haritası; `applyProductSeo` 3 okuma yoluna (**getServerProducts + /api/products + /api/admin/products
+> GET**) birleştirir. ⚠️ **Üründe zaten değer varsa KORUNUR → admin'de düzenlenen / Blob değeri DAİMA
+> KAZANIR** (override edilebilir; `pick`). Admin bir ürünü düzenleyip kaydederse o değer Blob'a yazılır.
+> ⚠️ **NEDEN KOD HARİTASI, doğrudan Blob DEĞİL:** lokal makineden `@vercel/blob` **`get` (private içerik
+> okuma) = 403 Forbidden** (`list` ÇALIŞIR; private blob içeriği yalnız Vercel ağı/OIDC ile okunur). Yani
+> mevcut sharding'i okuyamadan Blob'a yazmak kataloğu bozma riski → SEO kodda fallback olarak tutuldu.
+> ⚠️ **`scripts/fix-*.cjs` Blob `get`'leri artık lokalden 403 alabilir** (yazma da güvenilmez); Blob veri
+> düzeltmesi gerekiyorsa admin paneli veya Vercel runtime üzerinden yapılmalı. SEO regen: geçici workflow
+> (scriptler repo'da tutulmadı). EN ürün sayfaları SEO override almaz → otomatik üretilene düşer (kabul).
+> 🔎 **VERCEL KOTA (2026-06-20):** kullanıcı yine "free tier %100" maili alıyor. Teşhis: son 48 saatte
+> **runtime HATA YOK** (fonksiyon süresini yiyen döngü yok), dağıtım sıklığı normal (kaçak redeploy yok).
+> Kota **5 projenin** (apeiron · bemis-server · bemis-b2b · bemis-konfigurator · sales) PAYLAŞTIĞI ücretsiz
+> trafik limitlerinden doluyor — muhtemelen **Image Optimization** veya fonksiyon/edge istekleri. MCP'de
+> kullanım meteri endpoint'i YOK → hangi metrik %100, maile/panele bakılmalı (kullanıcı söyleyince hedefli
+> çözeriz). Kalıcı: **Pro (~$20/ay)** ya da hedefli kısıtlama (Firewall bot kuralı / image variant azaltma /
+> bazı projeleri ayır). ⚠️ Bu SEO işi kotayı ARTIRMAZ (Blob yazımı yapılmadı; sadece kod + deploy).
+
 > 🆕 **WIKIDATA BİTTİ + 3 YENİ BLOG (2026-06-20, CANLI · commit f7bf64d):**
 > **(a) WIKIDATA %100 KAPANDI** — kullanıcı logo dahil tamamladı. ⚠️ ÖĞRENİLEN: Wikidata **logo image
 > (P154)** alanı **Commons media file** tipindedir → değer **yalnız çıplak dosya adı + uzantı** (örn.
