@@ -39,8 +39,11 @@
 > `revalidateTag(store:<bin>,"max")` + `revalidatePath` ile cache'i ANINDA temizler; 6 saat sadece backstop).
 > Beklenen: ISR write ~10×, Blob read ~12× düşer → ikisi de limit altına. ⚠️ Metrikler AYLIK sıfırlanır +
 > fix birkaç günde meterde görünür. **Blob ops'ta 2. olası kaynak: iletişim formu spam'i** (her mesaj =
-> readBin(fresh)+writeBin = 2 Blob op); spam varsa contact route'a rate-limit/honeypot eklenebilir (henüz
-> yapılmadı). **Kalıcı güvenlik = Vercel Pro (~$20/ay)** — 5 proje + büyüyen trafik için free tier tekrar
+> readBin(fresh)+writeBin = 2 Blob op) → **ÇÖZÜLDÜ (commit da55d55):** iletişim + bayilik formlarına
+> **honeypot** (gizli `website` alanı) + **zaman-tuzağı** (`elapsed`<2sn) eklendi; `app/api/contact`
+> bunları Blob/e-posta'dan ÖNCE kontrol eder → spam'de SESSİZCE 200 döner, `writeBin(messages)` ÇALIŞMAZ
+> (Blob op tüketilmez). Mevcut IP rate-limit (3/saat) korunuyor. Honeypot dolu/elapsed<2sn yolları canlı
+> doğrulandı (yanıt sadece `{ok:true}`, adminSent yok). **Kalıcı güvenlik = Vercel Pro (~$20/ay)** — 5 proje + büyüyen trafik için free tier tekrar
 > tökezler (Pro: ISR 200K→2M, Blob 2K→çok daha fazla). ⚠️ revalidate değerlerini TEKRAR kısaltma — kota dolar.
 
 > 🆕 **WIKIDATA BİTTİ + 3 YENİ BLOG (2026-06-20, CANLI · commit f7bf64d):**
