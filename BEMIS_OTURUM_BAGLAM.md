@@ -13,6 +13,21 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🖼️ **WHATSAPP/OG GÖRSEL FIX (2026-06-24, CANLI · commit c3f6176):** WhatsApp'ta link paylaşınca admin'in
+> yüklediği özel marka görseli (content bin `ogImage` = i.ibb.co beton-duvar Bemis logosu) yerine JENERİK
+> sentez kart görünüyordu. KÖK NEDEN: `app/opengraph-image.tsx` (og:image üreteci) `runtime` sabit değildi →
+> edge'de çalışıp `readBin("content")` BAŞARISIZ oluyordu → `ogOverride` null → sentez karta düşüyordu (logo da
+> "B" yedeği = aynı başarısız okuma). FIX: (1) `export const runtime = "nodejs"`; (2) `fetchBranding` Blob
+> okunamazsa `data/content.json` mirror'ına düşer (ogImage+faviconUrl orada da senkron). Runtime log temiz.
+> ⏳ **Görsel GÖZLE doğrulanamadı** (aşağıdaki challenge yüzünden); mantık+log sağlam, kullanıcı WhatsApp'ta teyit edecek.
+> ⚠️ OG görsel admin → İçerik → `ogImage`'den yönetilir; değişince WhatsApp cache'i için yeni paylaşım gerekir
+> (`?v=` param'lı link veya FB Sharing Debugger ile "Scrape Again").
+> ⚠️⚠️ **DERS (ÖNEMLİ — tekrarlama):** deploy beklerken `gh api .../status` + yüzlerce hızlı `curl` gecikme
+> döngüsü KULLANMA → Vercel **otomatik bot/saldırı mitigation**'ını tetikler (`X-Vercel-Mitigated: challenge`,
+> tüm route'lar IP'ne 403 — IP'ye özel + geçici; gerçek kullanıcı/WhatsApp scraper ETKİLENMEZ ama lokal curl
+> doğrulaması bloke olur, dakikalarca sürebilir). Poll'u SEYREK + az tekrarlı yap; gecikme için homepage'i
+> döngüyle dövme. Mitigation site genelinde DEĞİL (ilk curl'ler geçti, çok istekten sonra başladı = rate-temelli).
+
 > 🆕 **ÜRÜN SEO ALANLARI + 113 ÜRÜN ÖN-DOLDURMA (2026-06-20, CANLI · commit 757fd2b):** Admin ürün
 > düzenlemeye **4 SEO alanı** eklendi (SEO Başlığı / SEO Açıklaması / Odak Anahtar Kelime / Anahtar
 > Kelimeler — IdeaSoft tarzı; `ProductEntry`+`ProductShape`'e alan). BOŞ = otomatik üretilen meta;
