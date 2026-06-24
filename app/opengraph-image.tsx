@@ -1,9 +1,18 @@
 import { ImageResponse } from "next/og";
 import { readBin } from "../lib/jsonbin";
+import { readFileSync } from "fs";
+import path from "path";
 
 export const alt = "Bemis E-V Charge — Yerli EV Şarj Ekipmanı Üreticisi";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+// ⚠️ Node runtime ZORUNLU: next/og + private Blob okuması (readBin) için.
+// Runtime sabitlenmeyince route edge'de çalışıp readBin("content") BAŞARISIZ
+// oluyordu → admin'in yüklediği özel ogImage ATLANIP sentez karta düşülüyordu
+// (WhatsApp/sosyal önizleme yanlış görsel gösteriyordu). fetchBranding ayrıca
+// Blob okunamazsa data/content.json mirror'ına düşer (ogImage orada da senkron).
+export const runtime = "nodejs";
 
 // 1 saat — Vercel ISR write limit baskısı için 300s'den arttırıldı.
 // Sosyal medya scrape'leri saatte birkaç kere; admin ogImage'i değiştirirse
@@ -16,21 +25,35 @@ type ContentRecord = {
   logos?: { dark?: string; light?: string };
 };
 
+function brandingFrom(data: ContentRecord | null): {
+  ogOverride: string | null;
+  logoUrl: string | null;
+} {
+  const ogOverride = data?.ogImage?.trim() || null;
+  const logoUrl =
+    data?.logos?.dark?.trim() ||
+    data?.logos?.light?.trim() ||
+    data?.faviconUrl?.trim() ||
+    null;
+  return { ogOverride, logoUrl };
+}
+
 async function fetchBranding(): Promise<{
   ogOverride: string | null;
   logoUrl: string | null;
 }> {
+  // Önce canlı Blob (admin'in en güncel ogImage'i). Bu route'un ortamında
+  // private Blob okuması başarısız olursa data/content.json mirror'ına düş —
+  // ogImage + faviconUrl orada da senkron tutuluyor → özel görsel asla atlanmaz.
   try {
-    const data = (await readBin("content")) as ContentRecord;
-    const ogOverride = data?.ogImage?.trim() || null;
-    const logoUrl =
-      data?.logos?.dark?.trim() ||
-      data?.logos?.light?.trim() ||
-      data?.faviconUrl?.trim() ||
-      null;
-    return { ogOverride, logoUrl };
+    return brandingFrom((await readBin("content")) as ContentRecord);
   } catch {
-    return { ogOverride: null, logoUrl: null };
+    try {
+      const fb = path.join(process.cwd(), "data", "content.json");
+      return brandingFrom(JSON.parse(readFileSync(fb, "utf-8")) as ContentRecord);
+    } catch {
+      return { ogOverride: null, logoUrl: null };
+    }
   }
 }
 
