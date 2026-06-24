@@ -138,8 +138,9 @@ export async function generateMetadata(): Promise<Metadata> {
       default: "Bemis E-V Charge | Yerli EV Şarj Ekipmanı Üreticisi",
       template: "%s | Bemis E-V Charge",
     },
+    // ~155 karakter, hedef: "yerli EV şarj üreticisi" + "AC/DC şarj istasyonu".
     description:
-      "Bemis E-V Charge — Türkiye'nin lider EV şarj ekipmanı üreticisi. AC Wallbox, taşınabilir şarj cihazları, DC ve AC şarj kabloları, V2L adaptörler. CE & IP65 sertifikalı, 60+ ülkeye ihracat.",
+      "Bemis E-V Charge — yerli EV şarj üreticisi. AC/DC şarj istasyonu, Type 2 AC Wallbox, taşınabilir şarj cihazı ve şarj kabloları. CE & IP65, 60+ ülkeye ihracat.",
     keywords: [
       "EV şarj istasyonu", "elektrikli araç şarj", "AC wallbox", "DC şarj kablosu",
       "Type 2 şarj kablosu", "V2L adaptör", "yerli üretim EV şarj", "Bemis",

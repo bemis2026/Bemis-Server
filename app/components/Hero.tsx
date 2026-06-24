@@ -265,7 +265,12 @@ export default function Hero() {
             }}
           />
 
-          <motion.h1
+          {/* Masaüstü başlık: SEO için TEK H1 mobil layout'ta (satır ~196); bu
+              görsel ikiz bir div + aria-level=1 (ekran okuyucu için başlık,
+              ama ikinci bir <h1> ETİKETİ değil → sayfada tek h1 kalır). */}
+          <motion.div
+            role="heading"
+            aria-level={1}
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
             className={`text-5xl xl:text-6xl 2xl:text-7xl font-black tracking-tight leading-[1.18] ${headlineClass} mb-5`}
             style={{ textShadow }}
@@ -286,7 +291,7 @@ export default function Hero() {
             >
               <E field="hero.headline3">{hero.headline3}</E>
             </span>
-          </motion.h1>
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.18 }}
