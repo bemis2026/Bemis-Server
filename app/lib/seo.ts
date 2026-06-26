@@ -182,9 +182,16 @@ export function organizationSchema(opts: {
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Elektrikli Araç Şarj Ürünleri",
+      // ⚠️ itemOffered = "Service" (Product DEĞİL): bunlar kategori HATLARI
+      // (gerçek ürün sayfası değil). "@type: Product" yapılırsa Google Rich
+      // Results her birini ürün-snippet'i sayıp "image + offers/review/
+      // aggregateRating eksik" uyarısı verir (8 hat = 8 uyarı). Service bu
+      // doğrulamayı tetiklemez; GEO "ne üretiyoruz" sinyali korunur. GERÇEK
+      // Product snippet'leri ürün DETAY sayfalarında (image+offers+sku tam).
+      // ⚠️ Product'a GERİ ÇEVİRME — Rich Results uyarıları geri gelir.
       itemListElement: ORG_OFFER_CATALOG.map((catName) => ({
         "@type": "Offer",
-        itemOffered: { "@type": "Product", name: catName },
+        itemOffered: { "@type": "Service", name: catName },
       })),
     },
     // Google'a "Bemis E-V Charge, 1994'ten beri üreten Bemis Teknik Elektrik
