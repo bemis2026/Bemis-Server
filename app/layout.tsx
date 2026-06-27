@@ -21,7 +21,7 @@ import ContentLoadingBar from "./components/ContentLoadingBar";
 import ContentErrorToast from "./components/ContentErrorToast";
 import LanguageURLSync from "./components/LanguageURLSync";
 import JsonLd from "./components/JsonLd";
-import { organizationSchema, websiteSchema, productSchema, categoryProductSchema, categoryH1 } from "./lib/seo";
+import { organizationSchema, websiteSchema, productSchema, categoryListSchema, categoryH1 } from "./lib/seo";
 import { getServerSiteContent, getServerProducts } from "./lib/server-content";
 
 const BASE_URL = "https://www.bemisevcharge.com.tr";
@@ -151,13 +151,12 @@ export async function generateMetadata(): Promise<Metadata> {
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
     alternates: {
       canonical: "/",
-      // hreflang (Context7-doğrulanmış syntax): TR=/ , EN=/?lang=en , x-default=TR.
-      // ⚠️ EN içeriği şu an İSTEMCİ-taraflı uygulanıyor (SSR her ikisinde TR) +
-      // canonical paylaşımlı → EN sinyali KISMİ. Tam etki için EN'nin sunucu-
-      // render + kendi canonical'ı gerekir (ayrı/riskli iş). Markup geçerli + zararsız.
+      // hreflang: TR=/ , x-default=TR. ⚠️ SAHTE "en"=/?lang=en KALDIRILDI — aynı TR
+      // HTML'i dönüyordu (gerçek ayrı EN URL değil), Google'a yanlış sinyaldi. Gerçek
+      // EN sayfa yalnız /export (kendi en/x-default alternatifi orada). Yeni gerçek EN
+      // URL eklenmedikçe homepage'e "en" KOYMA.
       languages: {
         tr: "/",
-        en: "/?lang=en",
         "x-default": "/",
       },
     },
@@ -226,15 +225,13 @@ export default async function RootLayout({
     .filter((x): x is NonNullable<typeof x> => x !== null);
   // [SEO] Her kategori HATTI için Product + AggregateOffer (fiyat aralığı) —
   // hasOfferCatalog'daki Service'e EK (Service KORUNUR, silinmez). name + image +
-  // brand + AggregateOffer => tam Product, çıplak-Product uyarısı YOK.
-  const contentCats = ((initialContent as { categories?: Record<string, { image?: string }> } | null)?.categories) ?? {};
-  const categoryProductSchemas = products
+  // Kategori HATTI = ItemList (kategori Product DEĞİL — audit). Kategori sayfaları CollectionPage kullanır.
+  const categoryListSchemas = products
     .map((cat) =>
       cat.products?.length
-        ? categoryProductSchema({
+        ? categoryListSchema({
             categoryId: cat.id,
             name: categoryH1(cat.id) ?? cat.name,
-            image: contentCats[cat.id]?.image ?? cat.products[0]?.image,
             products: cat.products,
           })
         : null
@@ -263,7 +260,7 @@ export default async function RootLayout({
     }),
     websiteSchema(),
     ...featuredProductSchemas,
-    ...categoryProductSchemas,
+    ...categoryListSchemas,
   ];
   return (
     <html lang="tr" className={`${inter.variable} scroll-smooth`} suppressHydrationWarning>

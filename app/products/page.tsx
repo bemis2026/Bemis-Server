@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 import type { Metadata } from "next";
 import JsonLd from "../components/JsonLd";
-import { breadcrumbSchema, collectionPageSchema } from "../lib/seo";
+import { breadcrumbSchema, collectionPageSchema, ogImage, OG_URL } from "../lib/seo";
 import { getServerProducts } from "../lib/server-content";
 import ProductsClient from "./ProductsClient";
 
@@ -13,7 +13,22 @@ export const metadata: Metadata = {
   title: "Tüm Ürünler — EV Şarj Ekipmanları Kataloğu",
   description:
     "AC Wallbox, taşınabilir şarj, DC üniteleri, Type 2 kablolar, V2L adaptörleri ve OEM ekipmanları. Bemis E-V Charge yerli üretim, CE & IP65 sertifikalı.",
-  alternates: { canonical: "/products" },
+  alternates: { canonical: "/products", languages: { tr: "/products", "x-default": "/products" } },
+  openGraph: {
+    title: "Tüm Ürünler — EV Şarj Ekipmanları Kataloğu",
+    description:
+      "AC Wallbox, taşınabilir şarj, DC üniteleri, Type 2 kablolar, V2L adaptörleri ve OEM ekipmanları. Bemis E-V Charge yerli üretim, CE & IP65 sertifikalı.",
+    type: "website",
+    url: "/products",
+    images: ogImage("Bemis E-V Charge — elektrikli araç şarj ekipmanları ürün kataloğu"),
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tüm Ürünler — EV Şarj Ekipmanları Kataloğu",
+    description:
+      "AC Wallbox, taşınabilir şarj, DC üniteleri, Type 2 kablolar, V2L adaptörleri ve OEM ekipmanları. Bemis E-V Charge yerli üretim, CE & IP65 sertifikalı.",
+    images: [OG_URL],
+  },
 };
 
 export default async function ProductsPage() {

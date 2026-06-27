@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import JsonLd from "../../components/JsonLd";
-import { definedTermSchema, breadcrumbSchema } from "../../lib/seo";
+import { definedTermSchema, breadcrumbSchema, ogImage, OG_URL } from "../../lib/seo";
 import { allTerms, getTerm } from "../../lib/glossary";
 import GlossaryClient from "../GlossaryClient";
 
@@ -21,7 +21,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description: t.short,
     keywords: t.keywords,
     alternates: { canonical, languages: { tr: canonical, "x-default": canonical } },
-    openGraph: { title: t.term, description: t.short, type: "article", url: canonical },
+    openGraph: { title: t.term, description: t.short, type: "article", url: canonical, images: ogImage(t.term) },
+    twitter: { card: "summary_large_image", title: t.term, description: t.short, images: [OG_URL] },
   };
 }
 

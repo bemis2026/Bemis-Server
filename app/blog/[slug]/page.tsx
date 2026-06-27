@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import JsonLd from "../../components/JsonLd";
-import { articleSchema, faqSchema, breadcrumbSchema, howToSchema } from "../../lib/seo";
+import { articleSchema, faqSchema, breadcrumbSchema, howToSchema, ogImage, OG_URL } from "../../lib/seo";
 import { allPosts, getPost, type BlogPost } from "../posts";
 import BlogShell from "../BlogShell";
 
@@ -37,13 +37,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: post.description,
       type: "article",
       url: canonical,
-      ...(post.cover && { images: [{ url: post.cover }] }),
+      // Kapak varsa onu KORU; yoksa sitenin OG kartına düş.
+      images: post.cover ? [{ url: post.cover }] : ogImage(post.title),
     },
     twitter: {
-      card: post.cover ? "summary_large_image" : "summary",
+      card: "summary_large_image",
       title: post.title,
       description: post.description,
-      ...(post.cover && { images: [post.cover] }),
+      images: post.cover ? [post.cover] : [OG_URL],
     },
   };
 }

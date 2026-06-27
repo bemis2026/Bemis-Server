@@ -104,14 +104,14 @@ export type AggregateReviewInput = {
 // (GEO/AEO + yerel SEO entity sinyali — sameAs baseline'ı ile aynı mantık).
 const ORG_PHONE = "+90 224 433 02 16";
 const ORG_EMAIL = "info@bemisevcharge.com";
-const ORG_ADDRESS = { street: "Bursa Organize Sanayi Bölgesi", locality: "Bursa", region: "Bursa", country: "TR" } as const;
+const ORG_ADDRESS = { street: "Yeşil Cad. No:31", locality: "Bursa", region: "Bursa", postalCode: "16140", country: "TR" } as const;
 
 export function organizationSchema(opts: {
   logo?: string;
   sameAs?: string[];
   phone?: string;
   email?: string;
-  address?: { street?: string; locality?: string; region?: string; country?: string };
+  address?: { street?: string; locality?: string; region?: string; postalCode?: string; country?: string };
   reviews?: AggregateReviewInput;
 }): JsonLdObject {
   // Sabit baseline (gerçek sosyal profiller) + içerikten gelenleri birleştir, tekille.
@@ -217,10 +217,19 @@ export function organizationSchema(opts: {
       ...(addr.street && { streetAddress: addr.street }),
       ...(addr.locality && { addressLocality: addr.locality }),
       ...(addr.region && { addressRegion: addr.region }),
+      ...(addr.postalCode && { postalCode: addr.postalCode }),
       addressCountry: addr.country ?? "TR",
     },
     ...reviewsBlock,
   };
+}
+
+// OG görsel meta — sitenin /opengraph-image kartı (1200×630). Custom openGraph
+// kuran iç sayfalar dosya-tabanlı OG'yi kaybediyordu; bunu metadata'ya açıkça
+// eklemek için (og:image + width/height/alt + twitter:image).
+export const OG_URL = `${SITE_URL}/opengraph-image`;
+export function ogImage(alt: string) {
+  return [{ url: OG_URL, width: 1200, height: 630, alt }];
 }
 
 export function websiteSchema(): JsonLdObject {
@@ -306,7 +315,8 @@ export function productSchema(opts: {
   const imgs = [product.image, ...(product.images ?? [])]
     .filter((x): x is string => Boolean(x))
     .map(u => absolute(u))
-    .filter((x): x is string => Boolean(x));
+    .filter((x): x is string => Boolean(x))
+    .filter((v, i, arr) => arr.indexOf(v) === i); // dedupe — aynı URL 2 kez olmasın
   const url = `${SITE_URL}/products/${categoryId}/${product.id}`;
   const offer = extractOffer(product);
   const kw = productKeywords(product);
@@ -348,46 +358,33 @@ export function productSchema(opts: {
   };
 }
 
-/** Kategori HATTI için Product + AggregateOffer (fiyat aralığı). Ana sayfada
- *  hasOfferCatalog'daki Service'e EK olarak kategoriyi TAM bir Product işaretler:
- *  name + image + brand + AggregateOffer(lowPrice/highPrice/offerCount) →
- *  çıplak-Product uyarısı YOK. Kategoride fiyatlı ürün yoksa null döner.
- *  ⚠️ Gerçek tekil ürünlerin tam Product şeması ürün DETAY sayfalarında. */
-export function categoryProductSchema(opts: {
+/** Kategori HATTI için ItemList (kategori bir Product DEĞİL — audit). Ürünleri
+ *  ListItem olarak işaretler; tekil ürünlerin TAM Product şeması ürün DETAY
+ *  sayfalarında (fiyatlar orada). Boş kategoride null döner.
+ *  ⚠️ Kategoriyi Product + AggregateOffer ile İŞARETLEME (yanlış tip; Rich Results
+ *  her birini ürün-snippet'i sayıp offers/image bekler). Kategori sayfaları zaten
+ *  collectionPageSchema (CollectionPage) kullanıyor. */
+export function categoryListSchema(opts: {
   categoryId: string;
   name: string;
-  image?: string;
   products: ProductShape[];
 }): JsonLdObject | null {
-  const { categoryId, name, image, products } = opts;
-  const prices: number[] = [];
-  let currency = "EUR";
-  for (const p of products) {
-    const o = extractOffer(p);
-    if (o) { prices.push(o.price); currency = o.currency; }
-  }
-  if (prices.length === 0) return null;
+  const { categoryId, name, products } = opts;
+  if (products.length === 0) return null;
   const url = `${SITE_URL}/products/${categoryId}`;
-  const img = absolute(image);
   return {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "ItemList",
     "@id": `${url}#category`,
     name,
-    ...(img && { image: img }),
-    brand: { "@type": "Brand", name: SITE_NAME },
-    manufacturer: { "@id": `${SITE_URL}#organization` },
-    category: name,
     url,
-    offers: {
-      "@type": "AggregateOffer",
-      priceCurrency: currency,
-      lowPrice: Math.min(...prices).toFixed(2),
-      highPrice: Math.max(...prices).toFixed(2),
-      offerCount: products.length,
-      availability: "https://schema.org/InStock",
-      seller: { "@id": `${SITE_URL}#organization` },
-    },
+    numberOfItems: products.length,
+    itemListElement: products.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: p.name,
+      url: `${SITE_URL}/products/${categoryId}/${p.id}`,
+    })),
   };
 }
 

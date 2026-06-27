@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 import type { Metadata } from "next";
 import JsonLd from "../../components/JsonLd";
-import { breadcrumbSchema, collectionPageSchema, faqSchema, categoryMetaTitle, categoryMetaDescription } from "../../lib/seo";
+import { breadcrumbSchema, collectionPageSchema, faqSchema, categoryMetaTitle, categoryMetaDescription, ogImage, OG_URL } from "../../lib/seo";
 import { getServerProducts, getServerCategoriesMeta } from "../../lib/server-content";
 import ProductCategoryClient from "./ProductCategoryClient";
 
@@ -49,17 +49,19 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical },
+    alternates: { canonical, languages: { tr: canonical, "x-default": canonical } },
     openGraph: {
       title,
       description,
       type: "website",
       url: canonical,
+      images: ogImage(title),
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title,
       description,
+      images: [OG_URL],
     },
   };
 }

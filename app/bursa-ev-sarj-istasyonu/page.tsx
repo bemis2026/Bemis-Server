@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import JsonLd from "../components/JsonLd";
-import { serviceSchema, faqSchema, breadcrumbSchema } from "../lib/seo";
+import { serviceSchema, faqSchema, breadcrumbSchema, ogImage, OG_URL } from "../lib/seo";
 import { getCityPage } from "../lib/cities";
 import CityLandingClient from "../components/CityLandingClient";
 
@@ -10,13 +10,20 @@ const city = getCityPage(SLUG)!;
 export const metadata: Metadata = {
   title: city.title,
   description: city.metaDescription,
-  alternates: { canonical: `/${SLUG}` },
+  alternates: { canonical: `/${SLUG}`, languages: { tr: `/${SLUG}`, "x-default": `/${SLUG}` } },
   keywords: city.keywords,
   openGraph: {
     title: `${city.h1} — Bemis E-V Charge`,
     description: city.metaDescription,
     type: "website",
     url: `/${SLUG}`,
+    images: ogImage(`${city.h1} — Bemis E-V Charge`),
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: city.title,
+    description: city.metaDescription,
+    images: [OG_URL],
   },
 };
 

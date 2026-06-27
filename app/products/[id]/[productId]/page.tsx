@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 import type { Metadata } from "next";
 import JsonLd from "../../../components/JsonLd";
-import { breadcrumbSchema, productSchema, productMetaTitle, productMetaDescription, productKeywords } from "../../../lib/seo";
+import { breadcrumbSchema, productSchema, productMetaTitle, productMetaDescription, productKeywords, ogImage, OG_URL } from "../../../lib/seo";
 import { getServerProducts, getServerCategoriesMeta } from "../../../lib/server-content";
 import ProductDetailClient from "./ProductDetailClient";
 
@@ -47,19 +47,20 @@ export async function generateMetadata({
     title,
     description,
     ...(keywords && { keywords }),
-    alternates: { canonical },
+    alternates: { canonical, languages: { tr: canonical, "x-default": canonical } },
     openGraph: {
       title,
       description,
       type: "website",
       url: canonical,
-      ...(image && { images: [{ url: image, alt: product.name }] }),
+      // Üründe foto varsa onu KORU (override etme); yoksa sitenin OG kartına düş.
+      images: image ? [{ url: image, alt: product.name }] : ogImage(product.name),
     },
     twitter: {
-      card: image ? "summary_large_image" : "summary",
+      card: "summary_large_image",
       title,
       description,
-      ...(image && { images: [image] }),
+      images: image ? [image] : [OG_URL],
     },
   };
 }

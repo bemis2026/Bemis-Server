@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import JsonLd from "../components/JsonLd";
-import { serviceSchema, faqSchema, breadcrumbSchema } from "../lib/seo";
+import { serviceSchema, faqSchema, breadcrumbSchema, ogImage, OG_URL } from "../lib/seo";
 import ExportLandingClient from "./ExportLandingClient";
 
 const URL_PATH = "/export";
@@ -26,6 +26,14 @@ export const metadata: Metadata = {
     type: "website",
     url: URL_PATH,
     locale: "en_US",
+    images: ogImage("Bemis E-V Charge — EV charging cable & charger manufacturer, Türkiye"),
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EV Charging Cable & Charger Manufacturer (Türkiye)",
+    description:
+      "Bemis E-V Charge — EU-adjacent manufacturer of Type 2 / Mode 3 EV charging cables, AC wallboxes & DC chargers. CE, IP65/IP66, OCPP. OEM/ODM, export to 60+ countries. Request a quote.",
+    images: [OG_URL],
   },
 };
 

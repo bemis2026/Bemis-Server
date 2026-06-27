@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import JsonLd from "../components/JsonLd";
-import { definedTermSetSchema, breadcrumbSchema } from "../lib/seo";
+import { definedTermSetSchema, breadcrumbSchema, ogImage, OG_URL } from "../lib/seo";
 import { allTerms } from "../lib/glossary";
 import GlossaryClient from "./GlossaryClient";
 
@@ -18,6 +18,14 @@ export const metadata: Metadata = {
     description: "EV şarjında en çok merak edilen terimlerin (Type 2, CCS2, OCPP, V2L, kW/kWh…) kısa ve net açıklamaları.",
     type: "website",
     url: "/sozluk",
+    images: ogImage("Elektrikli araç şarj terimleri sözlüğü — Bemis E-V Charge"),
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Elektrikli Araç Şarj Terimleri Sözlüğü",
+    description:
+      "Type 2, CCS2, OCPP, AC/DC, kW–kWh, V2L, yük yönetimi (DLM), IP65/IP66 ve daha fazlası — elektrikli araç şarjındaki terimlerin kısa, net ve doğru açıklamaları.",
+    images: [OG_URL],
   },
 };
 
