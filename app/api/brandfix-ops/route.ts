@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidateTag, revalidatePath } from "next/cache";
 import { readBin, writeBin } from "../../../lib/jsonbin";
 
 // ⚠️ GEÇİCİ — tek seferlik rakip-marka temizliği (Aksesuarlar SSS). Vercel runtime'da
@@ -41,6 +42,16 @@ function fixBin(bin: unknown): { fixed: unknown; tr: number; en: number; unknown
 export async function GET(req: NextRequest) {
   if (req.nextUrl.searchParams.get("k") !== KEY) {
     return NextResponse.json({ error: "not found" }, { status: 404 });
+  }
+  // Cache invalidation modu — Blob get() bozuksa (403) bayat-cache markalı içerik
+  // serve ediliyor. store:content tag'ini düşürünce sonraki okuma cache-miss olur →
+  // readBin 403 fırlatır → çağıranlar markasız data/content.json'a düşer. Blob'a YAZMAZ.
+  if (req.nextUrl.searchParams.get("revalidate") === "1") {
+    revalidateTag("store:content");
+    for (const p of ["/", "/api/content", "/blog", "/products", "/products/accessories", "/products/wallbox", "/export", "/sozluk"]) {
+      try { revalidatePath(p); } catch {}
+    }
+    return NextResponse.json({ ok: true, revalidated: true });
   }
   const dryRun = req.nextUrl.searchParams.get("dry") === "1";
   let bin: unknown;
