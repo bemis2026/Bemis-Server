@@ -30,6 +30,123 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "elektrikli-arac-sarj-istasyonu-kurulum-rehberi",
+    title: "Elektrikli Araç Şarj İstasyonu Kurulum Rehberi",
+    description:
+      "Elektrikli araç şarj istasyonu kurulumu adım adım: planlama, gerekli izinler, elektrik altyapısı, kablo kesiti, cihaz seçimi, yük yönetimi ve devreye alma rehberi.",
+    excerpt:
+      "Ev, site veya iş yerine elektrikli araç şarj istasyonu nasıl kurulur? Planlamadan izinlere, altyapıdan cihaz seçimine ve devreye almaya kadar tüm adımları tek rehberde topladık.",
+    category: "Rehber",
+    datePublished: "2026-06-27",
+    readingMinutes: 10,
+    keywords: [
+      "elektrikli araç şarj istasyonu kurulumu",
+      "ev şarj istasyonu kurulumu",
+      "şarj istasyonu kurulum rehberi",
+      "wallbox kurulumu",
+      "ev şarj cihazı kurulumu",
+      "şarj istasyonu izinleri",
+      "şarj istasyonu elektrik altyapısı",
+      "kablo kesiti ev şarj",
+      "kaçak akım koruması ev şarj",
+      "ac wallbox kurulum",
+      "şarj istasyonu yük yönetimi",
+      "şarj istasyonu devreye alma",
+    ],
+    body: [
+      { type: "p", text: "Elektrikli araca geçtikten sonra en çok merak edilen konu, aracı nerede ve nasıl şarj edeceğinizdir. En pratik ve ekonomik yöntem aracı evde, sitede veya iş yerinde kendi şarj istasyonunuzdan doldurmaktır. Ancak bir AC wallbox'ı duvara monte edip fişi takmak kadar basit değildir: doğru planlama, uygun elektrik altyapısı, gerekli izinler ve yetkili bir kurulum gerekir. Bu rehberde ev, site/apartman ve iş yeri kurulumlarını tek yerde toplayarak, sürecin baştan sona sağlıklı ilerlemesi için bilmeniz gereken her adımı sade biçimde anlatıyoruz." },
+
+      { type: "h2", text: "Kuruluma başlamadan önce neler planlanmalı?" },
+      { type: "p", text: "İyi bir kurulum, henüz hiçbir kablo çekilmeden masa başında başlar. İlk olarak aracınızı nerede park ettiğinizi ve şarj cihazının hangi noktaya monte edileceğini belirleyin; bu nokta ile elektrik panosu arasındaki mesafe, çekilecek kablonun uzunluğunu ve maliyetini doğrudan etkiler. Ardından aracınızın dahili (on-board) şarj kapasitesini öğrenin: aracınız en fazla kaç kW AC kabul ediyorsa, daha güçlü bir cihaz kursanız bile şarj hızı o sınırla belirlenir." },
+      { type: "p", text: "Planlama aşamasında karar vermeniz gereken temel başlıklar şunlardır:" },
+      { type: "ul", items: [
+        "Kurulum yeri: müstakil garaj, apartman/site otoparkı veya iş yeri otoparkı (her biri farklı izin ve altyapı gerektirir).",
+        "Hedef güç: aracın kabul ettiği güç ve evin/işletmenin elektrik kapasitesiyle uyumlu bir değer (7,4–22 kW AC aralığında).",
+        "Tek faz mı, üç faz mı: tesisatınız monofaze ise tipik üst sınır 7,4 kW, trifaze ise 11–22 kW'a kadar çıkılabilir.",
+        "Kablo güzergâhı ve mesafe: pano ile cihaz arası uzaklık, kablo kesiti ve işçilik maliyetini belirler.",
+        "Gelecek ihtiyacı: ileride ikinci bir araç veya ikinci bir nokta eklenecekse altyapıyı baştan buna göre tasarlamak en ekonomik yoldur.",
+      ]},
+
+      { type: "h2", text: "Şarj istasyonu kurmak için hangi izinler gerekir?" },
+      { type: "p", text: "Müstakil bir evde, kendi mülkünüz içindeki garaja kurulum yapıyorsanız genellikle ek bir izne gerek kalmaz; karar tamamen size aittir. Apartman veya site otoparkı gibi ortak bir alana kurulum yapacaksanız durum farklıdır: ortak alanda tadilat ve ek tesisat anlamına geldiği için önce yönetim veya kat malikleriyle görüşüp gerekli kararı almanız gerekir. Türkiye'de mevzuat, elektrikli araç şarj altyapısı taleplerini kolaylaştıracak yönde gelişmektedir; yine de güncel ve bağlayıcı durumu netleştirmek için yönetiminizle ve yetkili bir elektrikçiyle görüşmek en doğrusudur." },
+      { type: "p", text: "İkinci önemli başlık, dağıtım (şebeke) tarafıdır. Düşük güçlü tek bir ev kurulumunda çoğu zaman mevcut abonelik yeterli olur. Ancak yüksek güçlü veya çok noktalı kurulumlarda toplam talep, mevcut abonelik gücünüzü aşabilir; bu durumda elektrik dağıtım şirketinden güç artırımı veya şebeke görüşü gerekebilir. Bu değerlendirmeyi yetkili elektrikçiniz yapar ve gerekiyorsa dağıtım şirketiyle yürütülecek süreci size anlatır." },
+      { type: "quote", text: "Genel kural: Kendi garajınız size aittir; ortak alan kararı yönetime, şebeke kapasitesi ise dağıtım şirketine bağlıdır. İzinleri kurulumdan önce netleştirin." },
+
+      { type: "h2", text: "Şarj istasyonu için nasıl bir elektrik altyapısı gerekir?" },
+      { type: "p", text: "Şarj cihazı, evin geri kalanından bağımsız çalışabilmesi için mümkün olduğunca elektrik panosundan çekilen ayrı bir hat üzerinden beslenmelidir. Bu hat, cihaza özel bir sigorta ve koruma ile panoda kendi devresini oluşturur; böylece şarj sırasında evin diğer yükleriyle çakışma yaşanmaz ve güvenlik artar. Mevcut tesisatın kapasitesi, yani ana sigorta ve mevcut kablolama, cihazın çekeceği sürekli yüke göre değerlendirilmelidir." },
+      { type: "h3", text: "Kablo kesiti neden önemli?" },
+      { type: "p", text: "Kablo kesiti, bir kablonun ısınmadan güvenle taşıyabileceği akımı belirleyen en kritik unsurdur. Şarj cihazı uzun süre boyunca yüksek ve sürekli akım çeker; kesiti yetersiz bir kablo bu yük altında ısınır, verim düşer ve güvenlik riski oluşur. Doğru kesit; cihazın gücüne (amper değerine), tek/üç faz oluşuna ve pano ile cihaz arasındaki mesafeye göre belirlenir. Mesafe arttıkça gerilim düşümünü telafi etmek için genellikle daha kalın bir kablo gerekir. Bu hesabı kesin değerlerle yetkili bir elektrikçi yapmalıdır; tahminle kablo seçmek doğru bir yaklaşım değildir." },
+      { type: "h3", text: "Kaçak akım koruması (RCD) şart mı?" },
+      { type: "p", text: "Evet. Şarj cihazının beslendiği hatta uygun bir kaçak akım koruma rölesi (RCD) bulunmalıdır. RCD, bir kaçak akım veya yalıtım hatası durumunda devreyi anında keserek elektrik çarpması riskine karşı koruma sağlar. Elektrikli araç şarjı sürekli ve yüksek akımlı bir kullanım olduğundan, bu koruma standart bir ev prizine göre çok daha kritiktir. Cihazın kendi iç güvenlik fonksiyonları olsa bile, pano tarafındaki doğru tipte kaçak akım ve aşırı akım koruması kurulumun vazgeçilmez bir parçasıdır." },
+      { type: "ul", items: [
+        "Panodan ayrı, cihaza özel bir besleme hattı.",
+        "Güce ve mesafeye göre doğru hesaplanmış kablo kesiti.",
+        "Uygun tipte kaçak akım koruması (RCD) ve aşırı akım koruması (sigorta).",
+        "Gerekiyorsa cihaz için ayrı sayaç (özellikle ortak alanda tüketim ayrımı için).",
+        "Sağlam ve standartlara uygun topraklama.",
+      ]},
+
+      { type: "h2", text: "Hangi şarj cihazını seçmeliyim?" },
+      { type: "p", text: "Ev, site ve iş yeri kurulumlarının büyük çoğunluğunda tercih edilen cihaz tipi AC wallbox'tır. Aracın uzun süre park ettiği yerlerde (gece evde, gündüz iş yerinde) AC şarj hem yeterli hem de batarya için naziktir. Güç olarak tek fazlı tesisatlarda tipik olarak 7,4 kW, üç fazlı tesisatlarda 11–22 kW arası modeller kullanılır. Cihaz seçerken aracınızın kabul ettiği gücü ve tesisatınızın kapasitesini birlikte değerlendirin; ihtiyaçtan fazla güçlü bir cihaz, aracınız o gücü alamıyorsa fayda sağlamaz." },
+      { type: "p", text: "Bir AC wallbox seçerken dikkat edilmesi gereken temel özellikler:" },
+      { type: "ul", items: [
+        "Konektör: Türkiye ve Avrupa standardı olan Type 2 (tüm modern elektrikli araçlarla uyumlu).",
+        "Güç ve faz: tesisata göre 7,4 kW (monofaze) veya 11–22 kW (trifaze).",
+        "Koruma sınıfı: dış mekân ve otopark için IP65/IP66 (toz ve suya dayanım).",
+        "OCPP uyumu: uzaktan yönetim, izleme ve kullanım başına faturalandırma gereken kurulumlar için.",
+        "Yük yönetimi (DLM) desteği: birden fazla nokta kurulacaksa gücü dengeli paylaştırmak için.",
+      ]},
+      { type: "p", text: "Bemis; yerli üretim AC wallbox modellerini Bursa'daki tesisinde üretir. Ürün gamında 7,4–22 kW AC aralığında, Type 2 konektörlü, IP65/IP66 korumalı ve OCPP uyumlu modeller ile yol/filo kullanımına yönelik CCS2 konektörlü DC hızlı şarj çözümleri yer alır. Cihazların CE işareti bulunur. Hangi modelin hangi kuruluma uygun olduğuna; aracınızın gücü, tesisatınız ve kullanım senaryonuza göre yetkili ekiple birlikte karar verebilirsiniz." },
+
+      { type: "h2", text: "Birden fazla şarj noktasında yük yönetimi nasıl çalışır?" },
+      { type: "p", text: "Site, iş yeri veya filo gibi birden fazla aracın aynı anda şarj olabileceği kurulumlarda tek başına yeterli olmayan şey çoğu zaman cihaz değil, binanın elektrik kapasitesidir. Tüm noktalar aynı anda tam güç çekerse ana sigorta atabilir veya şebeke zorlanır. Yük yönetimi (DLM – Dynamic Load Management), mevcut gücü noktalar arasında akıllıca paylaştırarak toplam tüketimin tesisin güvenli sınırını aşmamasını sağlar. Tek araç bağlıyken ona daha fazla güç verilir; ikinci ve üçüncü araç eklendikçe sistem gücü otomatik olarak dengeli biçimde dağıtır." },
+      { type: "p", text: "Bu sayede pahalı bir abonelik gücü artırımına veya yeni bir trafoya gerek kalmadan, mevcut altyapıyla daha fazla noktada şarj sunulabilir. OCPP uyumlu cihazlar bu yönetimi merkezi bir yazılım üzerinden uzaktan yapmanıza ve her kullanıcının tüketimini ayrı ayrı faturalandırmanıza imkân tanır. Yük yönetiminin nasıl çalıştığını ayrıntılı incelemek isterseniz konuya özel rehberimize göz atabilirsiniz." },
+      { type: "cta", text: "Statik ve dinamik yük dengelemenin nasıl çalıştığını ayrıntılı öğrenin.", href: "/blog/elektrikli-arac-sarj-yuk-yonetimi", label: "Yük Yönetimini İncele" },
+
+      { type: "h2", text: "Kurulum adımları nelerdir?" },
+      { type: "p", text: "İzinler ve plan hazır olduğunda fiziki kurulum genellikle kısa sürer. Tipik bir kurulum şu sırayla ilerler: yetkili elektrikçi keşif yapar ve montaj noktasını belirler; panodan cihaza ayrı besleme hattı çekilir; kaçak akım ve aşırı akım koruması panoya eklenir; cihaz duvara veya ayağa sabitlenir ve kablolaması yapılır; topraklama bağlanır. Son olarak cihaz çalıştırılıp test edilir ve gerekiyorsa OCPP/yönetim yazılımına tanımlanır." },
+      { type: "table", caption: "Kurulum yerine göre dikkat edilmesi gerekenler", headers: ["Kurulum yeri", "Dikkat edilmesi gerekenler"], rows: [
+        ["Müstakil ev / garaj", "Ayrı hat + RCD; genelde ek izin gerekmez; tek faz ise 7,4 kW tipik."],
+        ["Apartman / site otoparkı", "Kat malikleri kararı; ortak hattan tüketim ayrımı (ayrı sayaç / RFID); IP65-66; çok noktada yük yönetimi."],
+        ["İş yeri / ticari otopark", "OCPP ile faturalandırma; yük yönetimi; gerekiyorsa şebeke güç artırımı; dış mekân koruması."],
+      ]},
+
+      { type: "h2", text: "Şarj istasyonunu kim kurmalı ve devreye almalı?" },
+      { type: "p", text: "Şarj istasyonu kurulumu, elektrik tesisatına müdahale gerektiren ve sürekli yüksek akım taşıyan bir iştir; bu nedenle mutlaka yetkili bir elektrikçi veya yetkili servis tarafından yapılmalıdır. Yetkisiz veya gelişigüzel bir montaj; yangın, elektrik çarpması ve cihaz arızası riski taşır, ayrıca garanti kapsamını da etkileyebilir. Yetkili kurulum, kablo kesitinin doğru hesaplanmasından koruma elemanlarının uygun seçilmesine kadar her ayrıntının standartlara uygun yapılmasını güvence altına alır." },
+      { type: "p", text: "Kurulum tamamlandıktan sonra cihaz devreye alınır ve test edilir: koruma elemanlarının doğru çalıştığı, topraklamanın sağlam olduğu ve cihazın belirlenen güçte sorunsuz şarj verdiği kontrol edilir. OCPP uyumlu bir kurulumda cihaz, yönetim yazılımına tanımlanarak uzaktan izleme ve faturalandırma için hazırlanır. Bu devreye alma adımı, ilk şarjdan önce her şeyin güvenli ve doğru çalıştığını teyit ettiği için atlanmaması gereken son halkadır." },
+
+      { type: "p", text: "Kurulumunuz ev, site veya iş yeri için olsun; doğru cihaz seçimi ve yetkili bir kurulumla yıllarca sorunsuz şarj edebilirsiniz. Aşağıdaki rehberlerden kendi senaryonuza en uygun olanı inceleyebilir, Bemis'in OCPP uyumlu yerli üretim modellerine göz atabilirsiniz." },
+      { type: "cta", text: "Ev, site ve iş yeri için OCPP uyumlu Bemis çözümlerini inceleyin.", href: "/products/wallbox", label: "Şarj İstasyonlarını Gör" },
+    ],
+    faq: [
+      { "q": "Elektrikli araç şarj istasyonu kurmak için izin gerekir mi?", "a": "Bu, kurulum yerine bağlıdır. Müstakil bir evin kendi garajına kurulum yapıyorsanız genellikle ek bir izne gerek kalmaz, karar size aittir. Apartman veya site otoparkı gibi ortak bir alana kurulum yapacaksanız önce yönetim veya kat malikleri kararı almanız gerekir; çünkü ortak alanda ek tesisat söz konusudur. Ayrıca yüksek güçlü veya çok noktalı kurulumlarda toplam talep mevcut aboneliği aşabileceğinden elektrik dağıtım şirketinden güç artırımı veya şebeke görüşü gerekebilir. Türkiye'de mevzuat şarj altyapısını kolaylaştıracak yönde gelişse de, güncel durumu netleştirmek için yönetiminizle ve yetkili bir elektrikçiyle görüşmek en doğru yaklaşımdır." },
+      { "q": "Şarj istasyonu için ayrı bir elektrik hattı şart mı?", "a": "Evet, sağlıklı bir kurulum için şarj cihazı mümkün olduğunca elektrik panosundan çekilen ayrı bir hat üzerinden beslenmelidir. Bu hat, cihaza özel bir sigorta ve kaçak akım koruması ile panoda kendi devresini oluşturur; böylece şarj sırasında evin diğer yükleriyle çakışma yaşanmaz ve güvenlik artar. Şarj cihazı uzun süre yüksek ve sürekli akım çektiği için standart bir priz hattı bu yükü güvenle taşımaya uygun değildir. Ayrı hattın kablo kesiti, cihazın gücüne, tek veya üç faz oluşuna ve pano ile cihaz arasındaki mesafeye göre yetkili bir elektrikçi tarafından doğru hesaplanmalıdır. Bu, hem güvenli hem de verimli bir şarj deneyiminin temelidir." },
+      { "q": "Şarj istasyonu için kablo kesiti nasıl belirlenir?", "a": "Kablo kesiti, bir kablonun ısınmadan güvenle taşıyabileceği akımı belirler ve şarj kurulumunun en kritik teknik unsurlarından biridir. Doğru kesit; cihazın gücüne yani amper değerine, tesisatın tek mi yoksa üç faz mı olduğuna ve pano ile cihaz arasındaki mesafeye göre hesaplanır. Mesafe arttıkça gerilim düşümünü telafi etmek için genellikle daha kalın bir kablo gerekir. Kesiti yetersiz bir kablo, sürekli yük altında ısınır, verim kaybına ve güvenlik riskine yol açar. Bu nedenle kabloyu tahminle seçmek yerine, kesin hesabı yetkili bir elektrikçiye yaptırmak gerekir. Doğru boyutlandırılmış kablo, cihazın tam performansla ve güvenle çalışmasını sağlar." },
+      { "q": "Ev şarj cihazı için hangi güç ve koruma sınıfı uygundur?", "a": "Güç, aracınızın kabul ettiği değere ve tesisatınızın kapasitesine göre seçilir. Tek fazlı (monofaze) tesisatlarda tipik üst sınır 7,4 kW iken, üç fazlı (trifaze) bir bağlantı 11–22 kW arası daha hızlı şarja imkân tanır. İhtiyaçtan fazla güçlü bir cihaz, aracınız o gücü alamıyorsa ekstra fayda sağlamaz. Koruma sınıfı açısından, açık veya yarı açık otopark gibi dış mekânlar için IP65 veya IP66 sınıfındaki cihazlar tercih edilmelidir; bu sınıf cihazı toza ve suya karşı korur. Bemis'in IP65/IP66 korumalı, Type 2 konektörlü ve 7,4–22 kW aralığındaki modelleri bu tür kullanımlar düşünülerek üretilir. Doğru güç ve koruma seçimi uzun ömür için önemlidir." },
+      { "q": "Birden fazla şarj noktası kurarken yük yönetimi neden gerekir?", "a": "Site, iş yeri veya filo gibi birden fazla aracın aynı anda şarj olabileceği kurulumlarda tüm noktalar tam güç çekerse binanın elektrik kapasitesi aşılabilir ve ana sigorta atabilir. Yük yönetimi (DLM), mevcut gücü noktalar arasında akıllıca paylaştırarak toplam tüketimin güvenli sınırın altında kalmasını sağlar. Tek araç bağlıyken ona daha fazla güç verilir; yeni araçlar eklendikçe sistem gücü otomatik olarak dengeli biçimde dağıtır. Bu sayede pahalı bir abonelik artırımına veya yeni trafoya gerek kalmadan mevcut altyapıyla daha fazla noktada şarj sunulabilir. OCPP uyumlu cihazlar bu yönetimi uzaktan yapmanıza ve her kullanıcının tüketimini ayrı faturalandırmanıza imkân tanır." },
+      { "q": "Şarj istasyonunu kim kurmalı ve devreye almalıdır?", "a": "Şarj istasyonu kurulumu elektrik tesisatına müdahale gerektiren ve sürekli yüksek akım taşıyan bir iştir; bu nedenle mutlaka yetkili bir elektrikçi veya yetkili servis tarafından yapılmalıdır. Yetkisiz bir montaj yangın, elektrik çarpması ve cihaz arızası riski taşır, garanti kapsamını da etkileyebilir. Yetkili kurulum; kablo kesitinin doğru hesaplanmasından koruma elemanlarının seçimine kadar her ayrıntının standartlara uygun olmasını güvence altına alır. Kurulum bittikten sonra cihaz devreye alınır ve test edilir: koruma elemanlarının çalıştığı, topraklamanın sağlam olduğu ve cihazın belirlenen güçte sorunsuz şarj verdiği kontrol edilir. OCPP uyumlu bir kurulumda cihaz ayrıca yönetim yazılımına tanımlanarak uzaktan izleme için hazırlanır." },
+    ],
+    related: [
+      { label: "Apartmana / Siteye Şarj İstasyonu Kurulumu", href: "/blog/apartmana-sarj-istasyonu-kurulumu" },
+      { label: "İş Yerine Şarj İstasyonu Kurulumu", href: "/blog/is-yerine-sarj-istasyonu-kurulumu" },
+      { label: "EV Şarjında Yük Yönetimi", href: "/blog/elektrikli-arac-sarj-yuk-yonetimi" },
+      { label: "AC Wallbox", href: "/products/wallbox" },
+      { label: "EV Şarj Sözlüğü", href: "/sozluk" },
+    ],
+    howTo: {
+      name: "Elektrikli Araç Şarj İstasyonu Kurulumu",
+      steps: [
+        { name: "Planlama ve izinler", text: "Cihazın monte edileceği noktayı, hedef gücü ve kullanım yerini belirleyin. Müstakil garajda genelde ek izin gerekmez; apartman/site otoparkında kat malikleri kararı, yüksek güçlü veya çok noktalı kurulumlarda ise dağıtım şirketinden şebeke görüşü/güç artırımı gerekebilir." },
+        { name: "Elektrik altyapısının hazırlanması", text: "Şarj cihazını panodan çekilen ayrı bir hat üzerinden besleyin. Cihazın gücüne, tek/üç faz oluşuna ve mesafeye göre kablo kesitini yetkili elektrikçiye hesaplatın; uygun tipte kaçak akım koruması (RCD), aşırı akım koruması ve sağlam topraklamayı panoya ekleyin." },
+        { name: "Cihaz seçimi", text: "Aracın kabul ettiği güce ve tesisat kapasitesine uygun bir AC wallbox seçin: Type 2 konektör, 7,4–22 kW güç, dış mekân için IP65/IP66 koruma ve gerekiyorsa OCPP uyumu. Bemis'in yerli üretim, OCPP uyumlu modelleri bu kullanım için uygundur." },
+        { name: "Yük yönetiminin kurgulanması", text: "Birden fazla nokta kuracaksanız yük yönetimi (DLM) ile mevcut gücü noktalar arasında dengeli paylaştırın; böylece tüm araçlar şebekeyi zorlamadan aynı anda şarj olur ve abonelik gücü artırımı ihtiyacı azalır." },
+        { name: "Fiziki montaj ve kablolama", text: "Yetkili elektrikçi cihazı duvara veya ayağa sabitler, ayrı besleme hattını ve koruma elemanlarını bağlar, topraklamayı tamamlar. Ortak alanda tüketim ayrımı için gerekiyorsa ayrı sayaç veya RFID/uygulama yetkilendirmesi eklenir." },
+        { name: "Devreye alma ve test", text: "Kurulum sonrası cihaz çalıştırılıp test edilir: koruma elemanları, topraklama ve şarj gücü kontrol edilir. OCPP uyumlu kurulumda cihaz yönetim yazılımına tanımlanarak uzaktan izleme ve faturalandırma için hazırlanır." },
+      ],
+    },
+  },
+
+  {
     "slug": "elektrikli-arac-sarj-yuk-yonetimi",
     "title": "Elektrikli Araç Şarjında Yük Yönetimi (Load Management) Nedir?",
     "description": "EV şarj yük yönetimi nedir, statik ve dinamik yük dengeleme nasıl çalışır? Abonelik gücünü aşmadan çok sayıda aracı aynı anda şarj etmenin yolu.",

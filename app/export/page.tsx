@@ -6,7 +6,7 @@ import ExportLandingClient from "./ExportLandingClient";
 const URL_PATH = "/export";
 
 export const metadata: Metadata = {
-  title: "EV Charging Cable & Charger Manufacturer (Türkiye)",
+  title: "EV Charging Cable & Charger Manufacturer",
   description:
     "Bemis E-V Charge — EU-adjacent manufacturer of Type 2 / Mode 3 EV charging cables, AC wallboxes & DC chargers. CE, IP65/IP66, OCPP. OEM/ODM, export to 60+ countries. Request a quote.",
   keywords: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "EV Charging Cable & Charger Manufacturer (Türkiye)",
+    title: "EV Charging Cable & Charger Manufacturer",
     description:
       "Bemis E-V Charge — EU-adjacent manufacturer of Type 2 / Mode 3 EV charging cables, AC wallboxes & DC chargers. CE, IP65/IP66, OCPP. OEM/ODM, export to 60+ countries. Request a quote.",
     images: [OG_URL],

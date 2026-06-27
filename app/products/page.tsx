@@ -10,12 +10,12 @@ type ClientCategories = NonNullable<ComponentProps<typeof ProductsClient>["initi
 // Kendi self-canonical + başlık/açıklaması olmadan bu sayfa root layout'tan
 // '/' canonical + ana sayfa title'ını miras alıyordu (duplicate sinyali).
 export const metadata: Metadata = {
-  title: "Tüm Ürünler — EV Şarj Ekipmanları Kataloğu",
+  title: "EV Şarj Ekipmanları — Tüm Ürünler",
   description:
     "AC Wallbox, taşınabilir şarj, DC üniteleri, Type 2 kablolar, V2L adaptörleri ve OEM ekipmanları. Bemis E-V Charge yerli üretim, CE & IP65 sertifikalı.",
   alternates: { canonical: "/products", languages: { tr: "/products", "x-default": "/products" } },
   openGraph: {
-    title: "Tüm Ürünler — EV Şarj Ekipmanları Kataloğu",
+    title: "EV Şarj Ekipmanları — Tüm Ürünler",
     description:
       "AC Wallbox, taşınabilir şarj, DC üniteleri, Type 2 kablolar, V2L adaptörleri ve OEM ekipmanları. Bemis E-V Charge yerli üretim, CE & IP65 sertifikalı.",
     type: "website",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tüm Ürünler — EV Şarj Ekipmanları Kataloğu",
+    title: "EV Şarj Ekipmanları — Tüm Ürünler",
     description:
       "AC Wallbox, taşınabilir şarj, DC üniteleri, Type 2 kablolar, V2L adaptörleri ve OEM ekipmanları. Bemis E-V Charge yerli üretim, CE & IP65 sertifikalı.",
     images: [OG_URL],

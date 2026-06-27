@@ -5,7 +5,7 @@ import { allPosts } from "./posts";
 import BlogShell from "./BlogShell";
 
 export const metadata: Metadata = {
-  title: "Blog — EV Şarj Rehberleri & Teknik Yazılar",
+  title: "EV Şarj Rehberleri & Teknik Yazılar",
   description:
     "Elektrikli araç şarjı, V2L, kablo ve adaptör seçimi, kurulum ve yerli üretim üzerine pratik rehberler. Bemis E-V Charge blog.",
   alternates: { canonical: "/blog", languages: { tr: "/blog", "x-default": "/blog" } },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog — EV Şarj Rehberleri & Teknik Yazılar",
+    title: "EV Şarj Rehberleri & Teknik Yazılar",
     description:
       "Elektrikli araç şarjı, V2L, kablo ve adaptör seçimi, kurulum ve yerli üretim üzerine pratik rehberler. Bemis E-V Charge blog.",
     images: [OG_URL],
