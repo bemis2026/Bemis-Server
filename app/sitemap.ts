@@ -42,6 +42,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/b2b`,       lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/bayilik`,   lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/operator`,  lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/export`,    lastModified: now, changeFrequency: "monthly", priority: 0.85 },
   ];
 
   // Şehir bazlı yerel-SEO landing sayfaları (örn. /bursa-ev-sarj-istasyonu).

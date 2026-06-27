@@ -31,6 +31,7 @@ Bemis E-V Charge ürün gamı 8 kategoride ~113 ürün içerir: AC Wallbox şarj
 - [Blog](https://www.bemisevcharge.com.tr/blog): EV şarj teknolojileri ve kullanım rehberleri içerikleri.
 - [Dokümanlar](https://www.bemisevcharge.com.tr/documents): Ürün kataloğu, teknik doküman ve sertifikalar.
 - [Bursa EV Şarj İstasyonu](https://www.bemisevcharge.com.tr/bursa-ev-sarj-istasyonu): Bursa'da EV şarj istasyonu çözümlerine yönelik bölgesel sayfa.
+- [EV Charging Manufacturer / Export (EN)](https://www.bemisevcharge.com.tr/export): İhracat alıcıları için İngilizce üretici sayfası — Type 2 / Mode 3 kablolar, AC wallbox, DC şarj, OEM/ODM, 60+ ülke ihracat ve "Request a Quote" teklif formu.
 
 ## Karşılaştırma ve Rehberler
 
