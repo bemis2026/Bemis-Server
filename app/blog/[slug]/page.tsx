@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!post) return { title: "Yazı bulunamadı" };
   const canonical = `/blog/${post.slug}`;
   return {
-    title: post.title,
+    title: post.metaTitle || post.title,
     description: post.description,
     keywords: post.keywords,
     alternates: { canonical, languages: { tr: canonical, "x-default": canonical } },

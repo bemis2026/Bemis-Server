@@ -251,12 +251,10 @@ export default async function RootLayout({
         region: "Bursa",
         country: "TR",
       },
-      // Only attach the reviews block when there's enough data to
-      // satisfy Google's rich result requirements (≥1 review, score
-      // between 1 and 5). Empty bins fall back to a clean schema.
-      ...(meta.reviews.items.length > 0 && meta.reviews.rating >= 1 && {
-        reviews: meta.reviews,
-      }),
+      // NOT: Marka-geneli yorumlar (4.9/500+) Organization'a BASILMAZ — Google
+      // bunu "self-serving" sayar (yıldız vermez + manuel-aksiyon riski). Gerçek
+      // ürün yorumları ürün DETAY sayfalarında Product şemasına bağlanır
+      // (bkz. reviewsForProduct + productSchema). Ana sayfada görünür kalır.
     }),
     websiteSchema(),
     ...featuredProductSchemas,

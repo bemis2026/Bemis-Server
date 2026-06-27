@@ -1,8 +1,8 @@
 import type { ComponentProps } from "react";
 import type { Metadata } from "next";
 import JsonLd from "../../../components/JsonLd";
-import { breadcrumbSchema, productSchema, productMetaTitle, productMetaDescription, productKeywords, ogImage, OG_URL } from "../../../lib/seo";
-import { getServerProducts, getServerCategoriesMeta } from "../../../lib/server-content";
+import { breadcrumbSchema, productSchema, productMetaTitle, productMetaDescription, productKeywords, ogImage, OG_URL, reviewsForProduct, type ReviewShape } from "../../../lib/seo";
+import { getServerProducts, getServerCategoriesMeta, getServerSiteContent } from "../../../lib/server-content";
 import ProductDetailClient from "./ProductDetailClient";
 
 type DetailProps = ComponentProps<typeof ProductDetailClient>;
@@ -80,9 +80,10 @@ export default async function ProductDetailPage({
   params: Promise<{ id: string; productId: string }>;
 }) {
   const { id, productId } = await params;
-  const [categories, catsMeta] = await Promise.all([
+  const [categories, catsMeta, site] = await Promise.all([
     getServerProducts(),
     getServerCategoriesMeta(),
+    getServerSiteContent(),
   ]);
   const category = categories.find(c => c.id === id);
   const product = category?.products?.find(p => p.id === productId);
@@ -92,6 +93,9 @@ export default async function ProductDetailPage({
   const initialProduct = product as unknown as NonNullable<DetailProps["initialProduct"]>;
   const initialAllCategories = categories as unknown as NonNullable<DetailProps["initialAllCategories"]>;
   const categoryName = meta.name || category.name;
+  // Bu ürüne ait gerçek müşteri yorumları (curated eşleşme) → Product'a yıldız.
+  const reviewItems = ((site as { reviews?: { items?: ReviewShape[] } })?.reviews?.items) ?? [];
+  const productReviews = reviewsForProduct(productId, reviewItems);
   const jsonLd = [
     breadcrumbSchema([
       { name: "Ana Sayfa", url: "/" },
@@ -99,7 +103,7 @@ export default async function ProductDetailPage({
       { name: categoryName, url: `/products/${id}` },
       { name: product.name, url: `/products/${id}/${productId}` },
     ]),
-    productSchema({ product, categoryName, categoryId: id }),
+    productSchema({ product, categoryName, categoryId: id, reviews: productReviews }),
   ];
   return (
     <>

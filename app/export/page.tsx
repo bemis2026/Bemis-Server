@@ -17,7 +17,11 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: URL_PATH,
-    languages: { en: URL_PATH, "x-default": URL_PATH },
+    // EN sayfası: tr→anasayfa (TR sürüm), en→kendisi, x-default→TR anasayfa (varsayılan).
+    // NOT: Anasayfa "use client" olduğu için karşılıklı en→/export etiketini şu an
+    // veremiyor (root'a eklemek 8 sayfayı kirletir); tam resiprokal küme anasayfa
+    // server-wrapper refactor'u ister. Bu taraf yine de doğru + güvenli.
+    languages: { tr: "/", en: URL_PATH, "x-default": "/" },
   },
   openGraph: {
     title: "EV Charging Cable & Charger Manufacturer — Bemis E-V Charge (Türkiye)",

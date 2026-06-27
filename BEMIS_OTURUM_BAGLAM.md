@@ -7,11 +7,29 @@
 > Derin teknik bağlam: `Desktop/Claude Çalışmaları/Bemis Website/md/BEMIS_PROJECT_CONTEXT.md`
 > (özellikle §15.16 denetim, §15.17 Blob taşıması).
 >
-> Son güncelleme: **2026-06-20**
+> Son güncelleme: **2026-06-28**
 
 ---
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
+
+> 🔧 **ON-SITE DENETİM 81→86 — FOOTER NAP + ÜRÜN YILDIZ + LocalBusiness (2026-06-28, CANLI):**
+> **#1 Footer NAP regresyonu:** footer'ı besleyen `contact` verisi ESKİ "Yeşil cd. NO:19" + home-footer eski email gösteriyordu
+> → `data/content.json` + `content-en.json`: adres→**"Yeşil Cad. No:31"**, addressSub→"16140 Bursa, Türkiye", gömülü-EN
+> email→info@bemisevcharge.com (3 nokta; 0 eski değer kaldı). Org JSON-LD zaten ORG_ADDRESS ile doğruydu; footer
+> `meta.addressStreet`(=content.address) okuyordu → regresyon oradaydı. **#2 Yorum yıldızı:** marka-geneli 4.9/500+
+> **self-serving** (Google `Organization`'a yıldız VERMEZ + risk) → layout'tan org-reviews spread KALDIRILDI; 6 gerçek müşteri
+> yorumu (Trendyol/Hepsiburada, her birinde `product` alanı) curated `PRODUCT_REVIEW_KEY` ile 6 ürün DETAY sayfasına
+> **Product AggregateRating+Review** olarak bağlandı (`reviewsForProduct`+productSchema `reviews` param; eşleşme 6/6 doğrulandı;
+> review metni kW içermez→ürün-agnostik güvenli). **#3 Title ≤60:** blog'a `metaTitle` alanı (H1 zengin KALIR, `<title>` kısalır:
+> "AC ve DC Şarj Farkı Nedir?" / "Apartmana EV Şarj İstasyonu Kurulumu") + wallbox kategori "—AC Wallbox"→"—Wallbox".
+> **#4 LocalBusiness:** `openingHoursSpecification` (Pzt–Cuma 08:30–18:00 GERÇEK) /iletisim inline + `localBusinessSchema`
+> helper'a (→ /bursa). **geo lat/long KULLANICI KOORDİNATI bekliyor** (uydurmadım; helper'da `geo?` param hazır).
+> **#5a /export hreflang:** `tr:/ + en:/export + x-default:/` (doğru küme). ⚠️ Anasayfa "use client" → karşılıklı `en→/export`
+> + `<html lang=en>` ERTELENDİ (root'a eklemek 8 client sayfasını kirletir; tam küme anasayfa server-wrapper refactor ister;
+> mevcut izole-x-default GÜVENLİ). **#5b** 15 sözlük tanımı ~109→~133-169 kelimeye (alt-ajan, sadece `definition`; marka
+> taraması TEMİZ). tsc 0 + `next build` 0 (ürünler ● SSG) + curl doğrulandı. **[KULLANICI]:** #4 geo → GBP/Maps'ten
+> enlem,boylam ver. Ayrı GBP kartı (EV Charge, doğrulanmış, 25 yorum) sende; harita-sıralaması GBP tarafında.
 
 > 🎯 **KAPSAMLI SEO/GEO ON-SITE DENETİMİ — P0+P1+P2 (2026-06-27, CANLI · commit'ler 202e92f→d53eae7):**
 > A-Z denetim sonrası on-site düzeltmeler. **YAPILDI+canlı:** **#1 hreflang** (homepage SAHTE 'en'=/?lang=en KALDIRILDI →

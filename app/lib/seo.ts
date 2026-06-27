@@ -233,9 +233,9 @@ export function ogImage(alt: string) {
 }
 
 // LocalBusiness — kanonik NAP (ORG_*) ile. /iletisim ve şehir landing'lerinde
-// yerel-SEO sinyali. ⚠️ geo (lat/long) + openingHoursSpecification gerçek veri
-// gelince eklenmeli (şu an uydurma değil → yok).
-export function localBusinessSchema(opts: { url: string; areaServed?: string }): JsonLdObject {
+// yerel-SEO sinyali. openingHoursSpecification = gerçek mesai (Pzt–Cuma 08:30–18:00,
+// sitede görünür). geo (lat/long) yalnız kullanıcı GERÇEK koordinatı verince (uydurma yok).
+export function localBusinessSchema(opts: { url: string; areaServed?: string; geo?: { lat: number; lng: number } }): JsonLdObject {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -255,6 +255,15 @@ export function localBusinessSchema(opts: { url: string; areaServed?: string }):
       addressCountry: ORG_ADDRESS.country,
     },
     ...(opts.areaServed && { areaServed: opts.areaServed }),
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:30",
+      closes: "18:00",
+    },
+    ...(opts.geo && {
+      geo: { "@type": "GeoCoordinates", latitude: opts.geo.lat, longitude: opts.geo.lng },
+    }),
     parentOrganization: { "@id": `${SITE_URL}#organization` },
   };
 }
@@ -337,6 +346,7 @@ export function productSchema(opts: {
   product: ProductShape;
   categoryName?: string;
   categoryId: string;
+  reviews?: ReviewShape[]; // gerçek müşteri yorumları (curated eşleşme) → AggregateRating + Review
 }): JsonLdObject {
   const { product, categoryName, categoryId } = opts;
   const imgs = [product.image, ...(product.images ?? [])]
@@ -353,6 +363,38 @@ export function productSchema(opts: {
     .flatMap(g => g.items ?? [])
     .filter(it => it && it.label && it.value)
     .map(it => ({ "@type": "PropertyValue", name: it.label, value: it.value }));
+  // Gerçek müşteri yorumları → AggregateRating + Review. Yıldız zengin sonucu
+  // PRODUCT tipinde çıkar; marka-geneli "4.9/500+" SELF-SERVING olduğu için
+  // Organization'a DEĞİL, yalnız gerçek ürün yorumları buraya basılır.
+  const prodReviews = (opts.reviews ?? [])
+    .filter((r) => r?.author && r?.text && (r.rating ?? 0) > 0)
+    .slice(0, 10);
+  const reviewBlock: JsonLdObject = {};
+  if (prodReviews.length > 0) {
+    const avg =
+      prodReviews.reduce((s, r) => s + Math.max(1, Math.min(5, r.rating)), 0) /
+      prodReviews.length;
+    reviewBlock.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: avg.toFixed(1),
+      reviewCount: prodReviews.length,
+      bestRating: 5,
+      worstRating: 1,
+    };
+    reviewBlock.review = prodReviews.map((r) => ({
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: Math.max(1, Math.min(5, r.rating)),
+        bestRating: 5,
+        worstRating: 1,
+      },
+      author: { "@type": "Person", name: r.author },
+      reviewBody: r.text,
+      ...(r.date && /^\d/.test(r.date) && { datePublished: r.date }),
+      ...(r.platform && { publisher: { "@type": "Organization", name: r.platform } }),
+    }));
+  }
   return {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -367,6 +409,7 @@ export function productSchema(opts: {
     ...(categoryName && { category: categoryName }),
     ...(kw && { keywords: kw }),
     ...(addProps.length > 0 && { additionalProperty: addProps }),
+    ...reviewBlock,
     url,
     ...(offer && {
       offers: {
@@ -390,6 +433,28 @@ export function productSchema(opts: {
       },
     }),
   };
+}
+
+/** Curated review→ürün eşlemesi: ana sayfadaki gerçek müşteri yorumlarını (her
+ *  birinde `product` serbest-metni var) doğru ürün DETAY sayfasına bağlar. Yıldız
+ *  zengin sonucu Product tipinde çıkar. Marka-geneli "4.9/500+" buraya GİRMEZ
+ *  (self-serving). Eşleşme curated çünkü review.product ("AC Wallbox 7kW") tek bir
+ *  ürün id'sine otomatik çözülemez; review METNİ kW içermez → ürün-agnostik, güvenli. */
+const PRODUCT_REVIEW_KEY: Record<string, string> = {
+  "charger-2-kablolu": "AC Wallbox 7kW",
+  "charger-plus-2-kablolu": "AC Wallbox 22kW",
+  "sarj-seti-20a-monofaze-7m": "Type 2 AC Şarj Kablosu 7m",
+  "mini-mobile": "Taşınabilir Şarj Cihazı",
+  "tek-cikisli-v2l-adaptor-hyundai": "V2L Adaptör",
+  "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m": "DC Hızlı Şarj Kablosu",
+};
+
+export function reviewsForProduct(productId: string, allReviews: ReviewShape[]): ReviewShape[] {
+  const key = PRODUCT_REVIEW_KEY[productId];
+  if (!key) return [];
+  return (allReviews ?? []).filter(
+    (r) => r?.product === key && r?.author && r?.text && (r.rating ?? 0) > 0,
+  );
 }
 
 /** Kategori HATTI için ItemList (kategori bir Product DEĞİL — audit). Ürünleri
@@ -641,7 +706,7 @@ function clampTitle(text: string, max = 60): string {
 // "Elektrikli Araç Şarj Kablosu — Type 2"). Yeni kategori = buraya 1 kayıt.
 const CATEGORY_SEO: Record<string, { title: string; desc: string; short: string }> = {
   wallbox: {
-    title: "Elektrikli Araç Şarj İstasyonu — AC Wallbox",
+    title: "Elektrikli Araç Şarj İstasyonu — Wallbox",
     desc: "Bemis yerli üretim AC Wallbox ev şarj istasyonu: 7,4–22 kW, Type 2, OCPP uyumlu. Ev ve iş yeri için. CE, IP65 — üreticisinden.",
     short: "AC Wallbox Şarj İstasyonu",
   },

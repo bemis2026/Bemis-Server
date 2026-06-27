@@ -51,6 +51,12 @@ const localBusiness: JsonLdObject = {
     postalCode: "16140",
     addressCountry: "TR",
   },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "08:30",
+    closes: "18:00",
+  },
   parentOrganization: { "@id": `${SITE}#organization` },
 };
 

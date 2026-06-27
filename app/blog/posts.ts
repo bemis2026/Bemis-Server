@@ -15,6 +15,7 @@ export type BlogSection =
 export type BlogPost = {
   slug: string;
   title: string;          // H1 + SEO başlık
+  metaTitle?: string;     // <title> override (≤60 hedef); yoksa title. H1 zengin kalır.
   description: string;    // meta description (~150-160 karakter)
   excerpt: string;        // liste kartında görünen kısa özet
   category: string;       // "Rehber" / "Teknik" vb.
@@ -1410,6 +1411,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "ac-dc-sarj-farki",
     title: "AC ve DC Şarj Arasındaki Fark Nedir? Ev ve İstasyon Rehberi",
+    metaTitle: "AC ve DC Şarj Farkı Nedir?",
     description:
       "AC şarj ile DC hızlı şarj arasındaki fark nedir, hangisi ne zaman kullanılır, ev için hangisi uygun? Güç, hız, maliyet ve donanım farklarını sade anlatıyoruz.",
     excerpt:
@@ -1684,6 +1686,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "apartmana-sarj-istasyonu-kurulumu",
     title: "Apartmana / Siteye Elektrikli Araç Şarj İstasyonu Kurulumu",
+    metaTitle: "Apartmana EV Şarj İstasyonu Kurulumu",
     description:
       "Apartman ve site otoparkına elektrikli araç şarj istasyonu kurulumu nasıl yapılır? Kat malikleri kararı, elektrik altyapısı, yük yönetimi ve faturalandırma adım adım.",
     excerpt:
