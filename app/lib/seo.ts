@@ -99,6 +99,13 @@ export type AggregateReviewInput = {
   items: ReviewShape[];
 };
 
+// İletişim + adres baseline (gerçek, doğrulanmış veri). content meta build'de
+// boş gelse bile Organization'da contactPoint + PostalAddress ASLA boş kalmaz
+// (GEO/AEO + yerel SEO entity sinyali — sameAs baseline'ı ile aynı mantık).
+const ORG_PHONE = "+90 224 433 02 16";
+const ORG_EMAIL = "info@bemisevcharge.com";
+const ORG_ADDRESS = { street: "Bursa Organize Sanayi Bölgesi", locality: "Bursa", region: "Bursa", country: "TR" } as const;
+
 export function organizationSchema(opts: {
   logo?: string;
   sameAs?: string[];
@@ -110,18 +117,18 @@ export function organizationSchema(opts: {
   // Sabit baseline (gerçek sosyal profiller) + içerikten gelenleri birleştir, tekille.
   // Böylece içerik verisi build'de boş gelse bile sameAs ASLA boş kalmaz (entity sinyali).
   const sameAs = [...new Set([...ORG_SAME_AS, ...(opts.sameAs ?? [])])].filter(Boolean);
-  const hasAddr = opts.address && (opts.address.street || opts.address.locality);
-  const contactPoints: JsonLdObject[] = [];
-  if (opts.phone || opts.email) {
-    contactPoints.push({
-      "@type": "ContactPoint",
-      contactType: "customer service",
-      ...(opts.phone && { telephone: opts.phone }),
-      ...(opts.email && { email: opts.email }),
-      areaServed: "TR",
-      availableLanguage: ["Turkish", "English"],
-    });
-  }
+  // Baseline fallback — content meta boş gelse bile contactPoint + adres dolu kalır.
+  const phone = opts.phone ?? ORG_PHONE;
+  const email = opts.email ?? ORG_EMAIL;
+  const addr = opts.address && (opts.address.street || opts.address.locality) ? opts.address : ORG_ADDRESS;
+  const contactPoints: JsonLdObject[] = [{
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    telephone: phone,
+    email,
+    areaServed: "TR",
+    availableLanguage: ["Turkish", "English"],
+  }];
   // Reviews block — when supplied, attach AggregateRating + the top
   // few Review entities to the Organization. Schema.org accepts a
   // standalone aggregateRating on Organization; per-review entries
@@ -204,16 +211,14 @@ export function organizationSchema(opts: {
       sameAs: ["https://www.wikidata.org/wiki/Q140267525"], // ana şirket Wikidata varlığı
     },
     ...(sameAs.length > 0 && { sameAs }),
-    ...(contactPoints.length > 0 && { contactPoint: contactPoints }),
-    ...(hasAddr && {
-      address: {
-        "@type": "PostalAddress",
-        ...(opts.address!.street && { streetAddress: opts.address!.street }),
-        ...(opts.address!.locality && { addressLocality: opts.address!.locality }),
-        ...(opts.address!.region && { addressRegion: opts.address!.region }),
-        addressCountry: opts.address!.country ?? "TR",
-      },
-    }),
+    contactPoint: contactPoints,
+    address: {
+      "@type": "PostalAddress",
+      ...(addr.street && { streetAddress: addr.street }),
+      ...(addr.locality && { addressLocality: addr.locality }),
+      ...(addr.region && { addressRegion: addr.region }),
+      addressCountry: addr.country ?? "TR",
+    },
     ...reviewsBlock,
   };
 }
@@ -462,19 +467,31 @@ export function articleSchema(opts: {
   image?: string;
   datePublished: string;
   dateModified?: string;
+  wordCount?: number;
+  keywords?: string[];
+  articleSection?: string;
 }): JsonLdObject {
+  // image → ImageObject. Kapak varsa onu kullan; yoksa sitenin OG kartı (1200×630).
+  // width/height YALNIZ default OG'de emit edilir (boyutu kesin); kapak görselinin
+  // boyutu bilinmediğinden orada sadece url verilir (yanlış boyut iddiası olmasın).
+  const image: JsonLdObject = opts.image
+    ? { "@type": "ImageObject", url: absolute(opts.image) }
+    : { "@type": "ImageObject", url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630 };
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: opts.title,
     description: opts.description,
-    ...(opts.image && { image: absolute(opts.image) }),
+    image,
     datePublished: opts.datePublished,
     dateModified: opts.dateModified ?? opts.datePublished,
     author: { "@type": "Organization", name: SITE_NAME, "@id": `${SITE_URL}#organization` },
     publisher: { "@id": `${SITE_URL}#organization` },
     mainEntityOfPage: absolute(opts.url),
     inLanguage: "tr-TR",
+    ...(opts.wordCount && opts.wordCount > 0 && { wordCount: opts.wordCount }),
+    ...(opts.keywords && opts.keywords.length > 0 && { keywords: opts.keywords.join(", ") }),
+    ...(opts.articleSection && { articleSection: opts.articleSection }),
   };
 }
 

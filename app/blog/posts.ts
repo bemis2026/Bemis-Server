@@ -208,31 +208,31 @@ export const BLOG_POSTS: BlogPost[] = [
     "faq": [
       {
         "q": "EV şarjında yük yönetimi (load management) nedir?",
-        "a": "Yük yönetimi, bir tesisin mevcut elektrik kapasitesini aşmadan birden fazla şarj cihazına gücü akıllıca dağıtan kontrol sistemidir. Toplam tüketimi sürekli izleyerek şarj akımını yükseltir veya düşürür; böylece aynı anda birçok araç güvenle şarj olabilir."
+        "a": "Yük yönetimi (load management), bir tesisin mevcut elektrik kapasitesini aşmadan birden fazla şarj cihazına gücü akıllıca dağıtan kontrol sistemidir. Sistem ana girişten çekilen toplam gücü sürekli izler ve şarj cihazlarının verdiği akımı (amper) otomatik yükseltip düşürerek dengeler. Tek araç bağlıyken ona daha fazla güç verilir; ikinci ve üçüncü araç eklendiğinde güç bunların arasında paylaştırılır. Böylece aynı anda şarj olan araç sayısı artsa bile toplam tüketim, binanın abonelik gücünün güvenli sınırı içinde kalır ve sigorta atması, trafo zorlanması ya da elektrik kesintisi yaşanmaz."
       },
       {
         "q": "Statik ve dinamik yük dengeleme arasındaki fark nedir?",
-        "a": "Statik yük dengeleme, şarja önceden belirlenmiş sabit bir güç bütçesi ayırır ve binanın anlık tüketimini dikkate almaz. Dinamik yük dengeleme ise ana girişe konan bir sayaçla binanın gerçek tüketimini okuyup şarja kalan boş kapasiteyi gerçek zamanlı dağıtır; bu yüzden mevcut altyapıyı çok daha verimli kullanır."
+        "a": "Statik yük dengeleme, şarja önceden belirlenmiş sabit bir güç bütçesi (örneğin 40 kW) ayırır ve binanın geri kalanının o an ne çektiğini dikkate almaz; bu yüzden bütçe düşük ve güvenli tutulur, boşta kalan kapasite kullanılamaz. Dinamik yük dengeleme ise ana girişe konan akıllı bir sayaçla binanın gerçek anlık tüketimini okur ve şarja kalan boş kapasiteyi gerçek zamanlı dağıtır. Akşam diğer yükler düşünce şarja daha çok güç açılır, tüketim sınıra yaklaşınca otomatik kısılır. Sonuçta dinamik yöntem, mevcut altyapıyı çok daha verimli kullanır."
       },
       {
         "q": "Yük yönetimi neden apartman ve iş yeri kurulumlarında gereklidir?",
-        "a": "Çünkü bu tesislerin abonelik gücü sınırlıdır ve tüm şarj cihazları aynı anda tam güçte çalışırsa toplam talep kapasiteyi aşıp sigorta atmasına yol açar. Yük yönetimi, gücü araçlar arasında paylaştırarak pahalı abonelik artırımı yapmadan daha fazla şarj noktası kurulmasını sağlar."
+        "a": "Apartman, site ve iş yeri otoparklarının abonelik gücü sınırlıdır ve bu güç asansör, aydınlatma, klima gibi yüklerle paylaşılır. Birden fazla şarj cihazı aynı anda tam güçte çalışırsa toplam talep kapasiteyi aşar; ana sigorta atar veya trafo zorlanır. Örneğin beş adet 22 kW wallbox aynı anda 110 kW çeker ki çoğu bina bunu kaldırmaz. Yük yönetimi gücü araçlar arasında paylaştırarak bu aşımı önler ve pahalı bir abonelik gücü artırımı ya da trafo yatırımı yapmadan, mevcut altyapıyla daha fazla şarj noktası kurulmasına imkân tanır."
       },
       {
         "q": "Faz dengeleme (phase balancing) ne işe yarar?",
-        "a": "Faz dengeleme, trifaze tesislerde şarj yükünü üç faz arasında olabildiğince eşit dağıtır. Böylece tek bir faz aşırı yüklenip diğerleri boşta kalmaz, sigorta atmaları önlenir ve mevcut kapasiteden azami verim alınır."
+        "a": "Türkiye'deki çoğu kurumsal tesiste elektrik üç faz (trifaze) gelir; araç ve cihazların bir kısmı tek fazdan, bir kısmı üç fazdan güç çeker. Şarj yükleri fazlara dengesiz dağılırsa bir faz aşırı yüklenip diğerleri boşta kalır; bu da sigorta atmalarına ve kapasitenin verimsiz kullanılmasına yol açar. Faz dengeleme (phase balancing), şarj yükünü üç faz arasında olabildiğince eşit dağıtarak hiçbir fazın aşırı yüklenmemesini sağlar. Akıllı yük yönetimi sistemleri hangi aracın hangi fazdan çektiğini izleyerek dağıtımı optimize eder ve mevcut kapasiteden azami verim alınmasına yardımcı olur."
       },
       {
         "q": "OCPP yük yönetiminde ne rol oynar?",
-        "a": "OCPP, şarj cihazları ile merkezi yönetim yazılımı (CSMS) arasındaki açık iletişim standardıdır. OCPP uyumlu cihazlar uzaktan izlenebilir, gruplandırılabilir ve akıllı şarj profilleriyle yönetilebilir; bu da gücün cihazlar arasında merkezi olarak dengelenmesine imkân tanır."
+        "a": "OCPP (Open Charge Point Protocol), şarj cihazları ile merkezi yönetim yazılımı (CSMS) arasında konuşulan açık bir iletişim standardıdır. Çok cihazlı kurulumlarda yük yönetiminin merkezi bir beyne ihtiyacı vardır; CSMS tüm istasyonların durumunu görür, akım sınırlarını ayarlar ve gücü cihazlar arasında paylaştırma komutları gönderir. OCPP uyumlu cihazlar uzaktan izlenebilir, gruplandırılabilir ve akıllı şarj profilleriyle yönetilebilir. Yönetici; gece tarifesinde şarjı önceliklendirme, belirli saatlerde gücü kısma veya araç gruplarına farklı limitler tanımlama gibi senaryoları merkezden kurgulayabilir. Bemis'in OCPP uyumlu modelleri bu tür akıllı yönetime uygundur."
       },
       {
         "q": "Tek bir wallbox için de yük yönetimi gerekir mi?",
-        "a": "Tek bir wallbox'ın bağlandığı bağımsız bir kurulumda yük yönetimi zorunlu değildir. Ancak iki veya daha fazla şarj noktası aynı aboneliği paylaşıyorsa, toplam talebin sınırı aşmaması için yük yönetimi pratikte gereklidir."
+        "a": "Tek bir wallbox'ın bağlandığı, başka şarj noktasıyla aynı aboneliği paylaşmayan bağımsız bir kurulumda (örneğin müstakil bir villa) yük yönetimi zorunlu değildir; cihaz mevcut kapasite içinde tek başına çalışır. Ancak iki veya daha fazla şarj noktası aynı aboneliği paylaşıyorsa durum değişir: araçlar aynı anda tam güçte şarj olmak isterse toplam talep sınırı aşabilir. Bu yüzden apartman, iş yeri, AVM ve filo gibi çok noktalı tüm kurulumlarda yük yönetimi pratikte bir gerekliliktir. Kurulumu baştan planlarken güç bütçesini ve olası eş zamanlı araç sayısını hesaba katmak gerekir."
       },
       {
         "q": "Yük yönetimi şarj hızını düşürür mü?",
-        "a": "Yük yönetimi yalnızca toplam talep tesis sınırına yaklaştığında şarj gücünü geçici olarak kısar. Kapasite boştayken araçlar tam güçte şarj olur; başka araçlar ayrıldıkça boşalan güç hâlâ şarj olan araçlara otomatik aktarılır."
+        "a": "Yük yönetimi araçları sürekli yavaş şarj etmez; yalnızca toplam talep tesisin güvenli sınırına yaklaştığında şarj gücünü geçici olarak kısar. Kapasite boştayken, örneğin gece az sayıda araç bağlıyken, her araç tam gücünde şarj olur. Bir araç şarjını tamamlayıp ayrıldığında boşalan güç, hâlâ şarj olan araçlara otomatik aktarılır. Yani toplam şarj süresi yalnızca çok sayıda aracın aynı anda zirve yaptığı kısa anlarda bir miktar uzayabilir; araçlar genellikle gece boyunca park hâlinde olduğundan bu gecikme pratikte fark edilmez ve tüm araçlar sabaha hazır olur."
       }
     ],
     "related": [
@@ -497,31 +497,31 @@ export const BLOG_POSTS: BlogPost[] = [
     "faq": [
       {
         "q": "Araç filosu için AC mi yoksa DC şarj mı daha uygun?",
-        "a": "Çoğu filo için temel çözüm AC şarjdır; çünkü araçlar gece depoda uzun süre park hâlinde durur ve yüksek hıza ihtiyaç yoktur. CCS2 DC hızlı şarj ise gündüz, vardiya arası veya yüksek kilometreli operasyonlarda kısa süreli takviye için kullanılır. İdeal kurgu çoğunlukla çok sayıda AC ile az sayıda DC'nin birlikte kullanıldığı melez bir yapıdır."
+        "a": "Çoğu filo için temel çözüm AC şarjdır; çünkü araçlar gece depoda veya otoparkta 8-12 saat park hâlinde durur ve bu uzun pencerede yüksek hıza ihtiyaç yoktur. AC wallbox cihazları daha sade, ekonomik ve çok sayıda park yerine yaygınlaştırmaya uygundur. CCS2 DC hızlı şarj ise gündüz; vardiyalı çalışan, gün içinde yüksek kilometre yapan veya teslimat arası kısa olan operasyonlarda kısa süreli takviye için kullanılır. İdeal kurgu çoğunlukla melezdir: geceyi karşılayan çok sayıda AC ile gündüz kritik takviyeyi üstlenen az sayıda DC bir arada çalışır; böylece yatırım da dengeli kalır."
       },
       {
         "q": "Depoda kaç adet şarj cihazına ihtiyacım var?",
-        "a": "Cihaz sayısı; filodaki araç sayısına, günlük ortalama kilometreye ve araçların tesiste park penceresine bağlıdır. Araçlar gece uzun süre takılı kalabiliyorsa daha çok sayıda düşük güçlü AC cihaz yeterli olur. Doğru sayı, her aracın gece alması gereken enerji (kWh) ve mevcut park süresi hesaplanarak (sizing ile) belirlenir."
+        "a": "Cihaz sayısı; filodaki araç sayısına, günlük ortalama kilometreye, araçların tesiste park penceresine ve mevcut tesis gücüne bağlıdır. Doğru sayı 'sizing' ile belirlenir: önce her aracın gece alması gereken enerji (kWh) günlük kilometreden hesaplanır, sonra bu enerji park süresine bölünerek araç başına gerekli güç (kW) bulunur. Araçlar gece uzun süre takılı kalabiliyorsa, az sayıda yüksek güçlü cihaz yerine çok sayıda düşük güçlü AC noktası genellikle daha verimlidir. Az cihaz kuyruğa ve dolmayan araca, gereğinden fazla güç ise gereksiz altyapı maliyetine yol açar; denge bu hesapla kurulur."
       },
       {
         "q": "Yük yönetimi (load management) nedir ve neden gereklidir?",
-        "a": "Yük yönetimi, tesisin toplam elektrik gücünü o anda şarj olan araçlara akıllıca paylaştıran sistemdir. Tüm cihazlar aynı anda tam güçte çalışırsa tesisin aboneliği yetmeyebilir; yük yönetimi gücü dinamik olarak dağıtarak ana sigortayı zorlamadan daha çok cihaz kurmayı sağlar. Bu sayede pahalı bir trafo veya abonelik yükseltmesinden kaçınılabilir."
+        "a": "Yük yönetimi (load management), tesisin toplam elektrik gücünü o anda şarj olan araçlara akıllıca paylaştıran sistemdir. Örneğin 10 adet 22 kW cihaz aynı anda tam güçte çalışırsa 220 kW'lık anlık talep doğar; oysa tesisin aboneliği bunu kaldırmayabilir. Yük yönetimi gücü dinamik olarak dağıtır: az araç takılıysa her birine daha çok güç verir, çok araç doluyorsa adil biçimde böler ve ana sigortayı/trafoyu zorlamaz. Kritik araçlara (örneğin sabah erken çıkacak servis) öncelik de tanınabilir. Bu sayede pahalı bir trafo veya abonelik yükseltmesi yapmadan aynı altyapıyla daha çok cihaz kurmak mümkün olur."
       },
       {
         "q": "Hangi sürücünün ne kadar şarj yaptığını nasıl takip ederim?",
-        "a": "RFID kartlar her sürücüye veya araca kimlik atayarak şarjı belirli bir kullanıcıya bağlar; kart okutulmadan oturum başlamaz. OCPP uyumlu cihazlar ise merkezi yönetim yazılımıyla konuşarak her oturumun enerji tüketimini raporlar. Böylece sürücü veya araç bazında kWh dökümü, maliyet dağılımı ve kullanım yoğunluğu görüntülenebilir."
+        "a": "Filoda 'kim, hangi araçla, ne kadar şarj yaptı' sorusunun cevabı iki bileşenle verilir: yetkilendirme ve raporlama. RFID kartlar her sürücüye veya araca bir kimlik atar; cihaza kart okutulmadan oturum başlamaz, böylece hem yetkisiz kullanım engellenir hem de her şarj belirli bir kullanıcıya bağlanır. OCPP uyumlu cihazlar ise merkezi yönetim yazılımıyla (CSMS) konuşarak her oturumun enerji tüketimini raporlar. Sonuçta sürücü veya araç bazında aylık kWh dökümü, maliyetin departman/şube bazında giderlendirilmesi, şarj noktası kullanım yoğunluğu ve arızalı/atıl cihaz tespiti tek panelden görüntülenebilir."
       },
       {
         "q": "Filom büyürse mevcut kurulum yeterli olur mu?",
-        "a": "Altyapı baştan ölçeklenebilir tasarlandıysa yeni cihaz eklemek kolay ve ekonomik olur. Pano, kablolama ve güç tahsisi gelecekteki büyüme düşünülerek planlanmalıdır. OCPP uyumlu cihazlar aynı merkezi sisteme dahil edilebildiğinden, yeni istasyonlar ek bir yönetim yükü oluşturmadan filoya eklenir."
+        "a": "Altyapı baştan ölçeklenebilir tasarlandıysa filo büyüdükçe yeni cihaz eklemek kolay ve ekonomik olur. Bunun için pano, kablolama ve güç tahsisi ilk kurulumda gelecekteki büyüme düşünülerek planlanmalıdır. OCPP uyumlu cihazlar aynı merkezi yönetim sistemine dahil edilebildiğinden, yeni istasyonlar ayrı bir yönetim yükü oluşturmadan filoya eklenir. Yük yönetimi sayesinde de mevcut güç, artan cihaz sayısına otomatik yeniden paylaştırılır. Bu yaklaşımla bugün 5 araçla başlayan bir filo, ileride 50 araca çıktığında altyapıyı baştan kurmak zorunda kalmaz; kademeli ve düşük maliyetli bir büyüme mümkün olur."
       },
       {
         "q": "kW ile kWh arasındaki fark filo planlamasında neden önemlidir?",
-        "a": "kW gücü, yani şarj hızını ifade eder; kWh ise araca aktarılan toplam enerji miktarıdır. Filo planlamasında önce bir aracın günde ne kadar enerji (kWh) tükettiği hesaplanır, sonra bu enerji park penceresine bölünerek gerekli güç (kW) bulunur. Bu ayrım yapılmadan doğru cihaz gücü ve sayısı seçilemez."
+        "a": "kW gücü, yani şarj hızını ifade eder; kWh ise araca aktarılan toplam enerji miktarıdır. Filo planlamasında bu ayrım belirleyicidir: önce bir aracın günde ne kadar enerji (kWh) tükettiği günlük kilometreden hesaplanır, sonra bu enerji araçların park penceresine (gece kaç saat takılı kalacağına) bölünerek araç başına gerekli güç (kW) bulunur. 'Pencere ne kadar uzunsa, gerekli güç o kadar düşer' kuralı geçerlidir. Bu hesap yapılmadan doğru cihaz gücü ve sayısı seçilemez; gereksiz yüksek güçlü cihazlara yatırım yapmak ya da yetersiz kapasiteyle kuyruk oluşturmak riski doğar."
       },
       {
         "q": "Bemis E-V Charge filo projeleri için hangi ürünleri sunuyor?",
-        "a": "Bemis E-V Charge; gece şarjı için 7,4-22 kW Type 2 AC wallbox cihazları, gündüz takviyesi için CCS2 DC hızlı şarj üniteleri, araç bağlantısı için Type 2 şarj kabloları ve uzaktan/akıllı yönetim için OCPP uyumlu modeller sunar. Tüm bu bileşenler Bursa'da yerli üretimle sağlanır ve kurumsal filo projeleri B2B süreciyle planlanır."
+        "a": "Bemis E-V Charge, bir filo projesinin tüm bileşenlerini yerli üretimle tek çatı altında sunar: gece şarjı için 7,4-22 kW Type 2 AC wallbox cihazları, gündüz takviyesi için CCS2 DC hızlı şarj üniteleri, araçların onboard charger gücüne (monofaze/trifaze, 16A/32A) uygun Type 2 şarj kabloları ve uzaktan izleme/akıllı yönetim için OCPP uyumlu modeller. Tüm ekipman Bursa'daki tesiste, CE ve IP65-IP66 koruma sınıfında üretilir. Kurumsal filo projelerinde planlama, sizing ve cihaz tedariki, bu süreci birlikte ele alan B2B sürecimizle yürütülür."
       }
     ],
     "related": [
@@ -756,31 +756,31 @@ export const BLOG_POSTS: BlogPost[] = [
     "faq": [
       {
         "q": "EV şarj istasyonu nasıl çalışır?",
-        "a": "EV şarj istasyonu, şebekeden gelen elektriği araca güvenli ve kontrollü biçimde aktaran bir arayüzdür. Önce araçla pilot sinyali üzerinden haberleşip azami akım sınırını belirler, gerekirse yetkilendirme yapar, güvenlik kontrollerini tamamlar ve ardından enerji akışını başlatır. AC modellerde dönüşümü araç, DC modellerde istasyon yapar."
+        "a": "EV şarj istasyonu, şebekeden gelen elektriği araca güvenli ve kontrollü biçimde aktaran bir arayüzdür; yaygın sanılanın aksine bataryayı doğrudan 'doldurmaz'. Bir seans şöyle ilerler: kablo takılınca proximity sinyaliyle bağlantı algılanır, pilot sinyali üzerinden araç ve istasyon birbirini tanıyıp azami akım sınırında anlaşır, gerekiyorsa RFID/uygulama ile yetkilendirme yapılır, soket kilitlenip güvenlik kontrolleri tamamlanır ve enerji akışı başlar. AC modellerde dönüşümü aracın içindeki onboard charger, DC modellerde ise istasyonun içindeki güç modülleri yapar. İstasyon tüm seans boyunca akımı ve güvenliği sürekli izler."
       },
       {
         "q": "AC ve DC şarj istasyonu arasındaki temel fark nedir?",
-        "a": "AC şarjda istasyon alternatif akımı araca iletir ve doğru akıma dönüşümü aracın içindeki onboard charger yapar. DC hızlı şarjda dönüşüm istasyonun içindeki güç modülleri tarafından yapılır ve doğru akım doğrudan bataryaya verilir; bu nedenle DC çok daha yüksek güce ulaşır."
+        "a": "Temel fark, AC'den DC'ye dönüşümün nerede yapıldığıdır. AC şarjda istasyon şebekenin alternatif akımını araca iletir; bataryanın ihtiyaç duyduğu doğru akıma dönüşümü aracın içindeki onboard charger yapar. Bu yüzden AC hızının üst sınırını çoğunlukla aracın onboard charger kapasitesi belirler (örneğin 11 kW'lık bir araç, 22 kW istasyonda da ~11 kW alır). DC hızlı şarjda ise dönüşüm istasyonun içindeki güçlü modüller tarafından yapılır ve doğru akım doğrudan bataryaya verilir; onboard charger devre dışı kaldığından çok daha yüksek güce ulaşılır. Type 2 AC'nin, CCS2 ise DC hızlı şarjın Türkiye/Avrupa standardıdır."
       },
       {
         "q": "Control Pilot (pilot sinyali) nedir?",
-        "a": "Control Pilot, araç ile şarj istasyonu arasındaki temel iletişim hattıdır. Araç ile istasyonun birbirine bağlı ve şarja hazır olduğunu teyit eder ve istasyonun araca izin verilen azami akımı bildirmesini sağlar. Böylece kablo ve istasyon kapasitesinin üzerinde akım çekilmesi engellenir."
+        "a": "Control Pilot (CP), Type 2 ve CCS2 soketlerinde araç ile şarj istasyonu arasındaki temel iletişim hattıdır. Şarj başlamadan önce istasyon pilot hattına bir sinyal gönderir; araç bağlandığında bu sinyali değiştirerek 'bağlandım' ve 'şarja hazırım' durumlarını bildirir. İstasyon sinyalin biçimi üzerinden araca izin verilen azami akımı iletir, araç da kendi onboard charger kapasitesine göre bu sınırın altında akım çeker. Böylece kablo veya istasyonun taşıyabileceğinden fazla akım çekilmesi en baştan engellenir. DC şarjda buna ek olarak; batarya gerilimi, sıcaklık ve anlık akım talebini paylaşan gelişmiş bir dijital haberleşme katmanı da devreye girer."
       },
       {
         "q": "Onboard charger nedir ve şarj hızını nasıl etkiler?",
-        "a": "Onboard charger, aracın içinde bulunan ve AC şarjda gelen alternatif akımı bataryanın ihtiyacı olan doğru akıma çeviren birimdir. AC şarj hızının üst sınırını çoğunlukla istasyon değil bu birim belirler; örneğin 11 kW onboard charger'a sahip bir araç, 22 kW istasyonda bile yaklaşık 11 kW ile şarj olur."
+        "a": "Onboard charger, aracın içinde bulunan ve AC şarjda gelen alternatif akımı bataryanın ihtiyaç duyduğu doğru akıma çeviren birimdir. AC şarj hızının üst sınırını çoğunlukla istasyon değil bu birim belirler: örneğin 11 kW onboard charger'a sahip bir araç, 22 kW verebilen bir istasyona bağlansa bile pratikte yaklaşık 11 kW ile şarj olur. Aracın tek faz (monofaze) mı yoksa üç faz (trifaze) mı kabul ettiği de gücü etkiler; bu nedenle AC tarafında 7,4 kW ile 22 kW arasında farklı değerler görülür. DC hızlı şarjda ise dönüşüm istasyonda yapıldığı için onboard charger sınırı devre dışı kalır ve çok daha yüksek güce çıkılabilir."
       },
       {
         "q": "Şarj sırasında güvenlik nasıl sağlanır?",
-        "a": "Şarj istasyonu kaçak akım koruması, topraklama, aşırı akım ve sıcaklık izleme ile soket kilidi gibi katmanlı önlemler kullanır. Bir hata algılandığında enerji anında kesilir ve şarj güvenle sonlanmadan fiş kilidi açılmaz. Bemis modellerinde IP65–IP66 koruma sınıfı ve CE uygunluğu dış ortam dayanımını ve uygunluk gerekliliklerini gösterir."
+        "a": "Şarj sırasında yüksek güç söz konusu olduğundan güvenlik istasyonun en kritik parçasıdır ve katmanlı çalışır. Kaçak akım koruması, devrede istenmeyen bir kaçak (örneğin yalıtım hatası) algılandığında enerjiyi anında keserek çarpılma riskini önler. Topraklama, hata durumunda kaçak akıma güvenli bir yol sağlayarak gövde gibi yüzeylerin gerilim altında kalmasını engeller. İstasyon ayrıca aşırı akım ve aşırı sıcaklığı izler; soket kilidi ise enerji akarken fişin kazara çıkarılmasını önler ve şarj güvenle sonlanmadan açılmaz. Bemis modellerinde IP65–IP66 koruma sınıfı dış ortam (toz/su) dayanımını, CE işareti ise ilgili Avrupa uygunluk gerekliliklerini gösterir."
       },
       {
         "q": "Batarya neden %80'den sonra daha yavaş şarj olur?",
-        "a": "Bu duruma taper (kademeli yavaşlama) denir ve bir arıza değildir. Batarya dolduğunda yüksek akımı güvenle kabul edemez; aşırı ısınmayı ve hücre ömrünün kısalmasını önlemek için araç istasyondan daha az akım ister, istasyon da çıkışını düşürür. Bu yüzden hızlı şarjda son %20 orantısız biçimde uzun sürebilir."
+        "a": "Bu duruma 'taper' (kademeli yavaşlama) denir ve bir arıza değil, bilinçli bir koruma davranışıdır. Batarya belli bir doluluğa (sıklıkla yaklaşık %80) ulaştığında yüksek akımı güvenle kabul edemez; aşırı ısınmayı ve hücre ömrünün kısalmasını önlemek için araç istasyondan giderek daha az akım talep eder, istasyon da çıkışını buna göre düşürür. Bu yüzden özellikle DC hızlı şarjda en verimli aralık düşük doluluktan %80'e kadar olan bölümdür; son %20 orantısız biçimde daha uzun sürebilir. AC şarjda güçler zaten daha düşük olduğundan bu yavaşlama çoğu zaman daha az belirgindir."
       },
       {
         "q": "Şarjı başlatmak için yetkilendirme nasıl yapılır?",
-        "a": "Ev kullanımında çoğu wallbox araç takılınca şarja başlayabilir. Ortak alan, iş yeri ve halka açık istasyonlarda ise RFID kart veya mobil uygulama ile yetkilendirme yapılır. OCPP uyumlu modeller, istasyonun merkezi bir yönetim sistemine bağlanarak yetkilendirme, uzaktan başlat/durdur ve kullanım takibini sağlamasına imkân verir."
+        "a": "Ev kullanımında çoğu wallbox, araç takılır takılmaz şarja başlayacak biçimde kullanılabilir. Ortak alan, iş yeri ve halka açık istasyonlarda ise şarjın yalnızca yetkili kişilerce başlatılması istenir; bunun en yaygın yolları RFID kart ve mobil uygulamadır. Kullanıcı kartını okutur veya uygulamadan seansı başlatır, istasyon yetkilendirmeyi doğrular ve ardından enerji akışına izin verir. OCPP uyumlu modeller istasyonu merkezi bir yönetim sistemine (CSMS) bağlar; böylece yetkilendirme, uzaktan başlat/durdur, kullanım takibi ve enerji ölçümü merkezden yönetilebilir. Bu, birden fazla istasyonun işletildiği iş yeri ve filo senaryolarında özellikle önemlidir."
       }
     ],
     "related": [

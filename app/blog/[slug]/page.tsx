@@ -2,10 +2,21 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import JsonLd from "../../components/JsonLd";
 import { articleSchema, faqSchema, breadcrumbSchema } from "../../lib/seo";
-import { allPosts, getPost } from "../posts";
+import { allPosts, getPost, type BlogPost } from "../posts";
 import BlogShell from "../BlogShell";
 
 export const dynamicParams = false;
+
+// JSON-LD wordCount için gövde + SSS metnindeki yaklaşık kelime sayısı.
+function countWords(post: BlogPost): number {
+  let text = "";
+  for (const b of post.body) {
+    if (b.type === "p" || b.type === "h2" || b.type === "h3" || b.type === "quote") text += " " + b.text;
+    else if (b.type === "ul") text += " " + b.items.join(" ");
+  }
+  if (post.faq) for (const f of post.faq) text += ` ${f.q} ${f.a}`;
+  return text.trim().split(/\s+/).filter(Boolean).length;
+}
 
 export function generateStaticParams() {
   return allPosts().map((p) => ({ slug: p.slug }));
@@ -20,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: post.title,
     description: post.description,
     keywords: post.keywords,
-    alternates: { canonical },
+    alternates: { canonical, languages: { tr: canonical, "x-default": canonical } },
     openGraph: {
       title: post.title,
       description: post.description,
@@ -55,6 +66,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       image: post.cover,
       datePublished: post.datePublished,
       dateModified: post.dateModified,
+      wordCount: countWords(post),
+      keywords: post.keywords,
+      articleSection: post.category,
     }),
     ...(post.faq && post.faq.length > 0 ? [faqSchema(post.faq)] : []),
   ];
