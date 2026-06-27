@@ -2,10 +2,18 @@
 
 import { useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { motion } from "framer-motion";
+import {
+  RiArrowRightLine, RiShieldCheckLine, RiGlobalLine, RiBuilding2Line,
+  RiStackLine, RiTruckLine,
+} from "react-icons/ri";
+import { useTheme } from "../context/ThemeContext";
+import Navbar from "../components/Navbar";
+import SearchOverlay from "../components/SearchOverlay";
+import Footer from "../components/Footer";
 
 const BLUE = "#3B82F6";
-const ACCENT = "#DC0E1A";
+const VIEWPORT = { once: true, margin: "-60px" } as const;
 
 const TRUST = [
   "Manufacturer since 1994",
@@ -17,19 +25,19 @@ const TRUST = [
 ];
 
 const WHY = [
-  { t: "A real factory — not a trading company", d: "Produced in our own 16,000 m² facility in Bursa, Türkiye (Bemis Teknik Elektrik A.Ş., since 1994). You buy direct from the manufacturer." },
-  { t: "EU standards, EU-adjacent location", d: "Type 2 / Mode 3 (IEC 62196), CE, IP65/IP66. Türkiye sits at Europe's doorstep — typically shorter lead times and simpler logistics to the EU than China." },
-  { t: "OEM / ODM / private label", d: "Your brand, our production. Custom branding, packaging and configurations for distributors and importers." },
-  { t: "Full range from one supplier", d: "AC wallboxes, portable chargers, Type 2 cables, DC fast chargers, V2L/C2L adapters and charging equipment — one reliable source." },
+  { icon: RiBuilding2Line, t: "A real factory — not a trading company", d: "Produced in our own 16,000 m² facility in Bursa, Türkiye (Bemis Teknik Elektrik A.Ş., since 1994). You buy direct from the manufacturer." },
+  { icon: RiGlobalLine, t: "EU standards, EU-adjacent location", d: "Type 2 / Mode 3 (IEC 62196), CE, IP65/IP66. Türkiye sits at Europe's doorstep — typically shorter lead times and simpler logistics to the EU than China." },
+  { icon: RiStackLine, t: "OEM / ODM / private label", d: "Your brand, our production. Custom branding, packaging and configurations for distributors and importers." },
+  { icon: RiTruckLine, t: "Full range from one supplier", d: "AC wallboxes, portable chargers, Type 2 cables, DC fast chargers, V2L/C2L adapters and charging equipment — one reliable source." },
 ];
 
 const PRODUCTS = [
-  { t: "AC Wallbox", d: "7.4–22 kW, Type 2, OCPP-ready." },
-  { t: "Type 2 Charging Cables", d: "Mode 2 & Mode 3, 16A/32A, 1- & 3-phase." },
-  { t: "Portable Chargers", d: "Plug-and-charge, adjustable current." },
-  { t: "DC Fast Charging", d: "CCS2 units (e.g. 40 kW BEVDC)." },
-  { t: "V2L / C2L Adapters", d: "Vehicle-to-load power solutions." },
-  { t: "Charging Equipment", d: "Type 2 sockets, holsters, accessories." },
+  { t: "AC Wallbox", d: "7.4–22 kW, Type 2, OCPP-ready.", href: "/products/wallbox" },
+  { t: "Type 2 Charging Cables", d: "Mode 2 & Mode 3, 16A/32A, 1- & 3-phase.", href: "/products/cables" },
+  { t: "Portable Chargers", d: "Plug-and-charge, adjustable current.", href: "/products/portable" },
+  { t: "DC Fast Charging", d: "CCS2 units (e.g. 40 kW BEVDC).", href: "/products/dc-units" },
+  { t: "V2L / C2L Adapters", d: "Vehicle-to-load power solutions.", href: "/products/v2l-c2l" },
+  { t: "Charging Equipment", d: "Type 2 sockets, holsters, accessories.", href: "/products/charger-equipment" },
 ];
 
 const FAQ = [
@@ -42,11 +50,21 @@ const FAQ = [
 ];
 
 export default function ExportLandingClient() {
+  const { theme } = useTheme();
+  const d = theme === "dark";
+  const [searchOpen, setSearchOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   const startedAtRef = useRef(Date.now());
   const hpRef = useRef<HTMLInputElement>(null);
+
+  const bg = d ? "linear-gradient(180deg,#0c0c0e 0%,#0f0f11 100%)" : "#f8f8fb";
+  const surface = d ? "rgba(255,255,255,0.04)" : "#ffffff";
+  const border = d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
+  const textPrimary = d ? "#f0f0f4" : "#1a1a1a";
+  const textMuted = d ? "rgba(240,240,244,0.62)" : "rgba(26,26,26,0.62)";
+  const inputBg = d ? "rgba(255,255,255,0.05)" : "#ffffff";
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -60,128 +78,138 @@ export default function ExportLandingClient() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: fd.get("name"),
-          company: fd.get("company"),
-          email: fd.get("email"),
-          phone: fd.get("phone"),
-          topic: "export",
-          message: `Country: ${country}\n\n${note}`,
-          website: hpRef.current?.value ?? "", // honeypot
-          elapsed: Date.now() - startedAtRef.current,
+          name: fd.get("name"), company: fd.get("company"), email: fd.get("email"), phone: fd.get("phone"),
+          topic: "export", message: `Country: ${country}\n\n${note}`,
+          website: hpRef.current?.value ?? "", elapsed: Date.now() - startedAtRef.current,
         }),
       });
       if (!res.ok) {
         const j = await res.json().catch(() => ({}));
-        setErr(j.error ?? "Could not send. Please try again or email info@bemisevcharge.com.");
-      } else {
-        setSubmitted(true);
-      }
+        setErr(j.error ?? "Could not send. Please email info@bemisevcharge.com.");
+      } else setSubmitted(true);
     } catch {
-      setErr("Network error. Please try again or email info@bemisevcharge.com.");
-    } finally {
-      setSending(false);
-    }
+      setErr("Network error. Please email info@bemisevcharge.com.");
+    } finally { setSending(false); }
   };
 
-  const inputCls =
-    "w-full rounded-xl px-4 py-3 text-sm text-white bg-white/5 border border-white/12 focus:border-white/30 focus:outline-none placeholder-white/35";
+  const card = "rounded-2xl p-5";
+  const cardStyle = { background: surface, border: `1px solid ${border}` };
+  const inputCls = "w-full rounded-xl px-4 py-3 text-sm focus:outline-none";
+  const inputStyle = { background: inputBg, border: `1px solid ${border}`, color: textPrimary };
+  const eyebrow = (
+    <p className="inline-flex items-center gap-1.5 text-xs font-bold tracking-[0.18em] uppercase mb-3" style={{ color: d ? "#93C5FD" : BLUE }}>
+      <RiGlobalLine size={14} /> EV Charging Manufacturer · Türkiye / Europe
+    </p>
+  );
 
   return (
-    <main className="min-h-screen text-white" style={{ background: "linear-gradient(160deg,#0a0a0d 0%,#0e1224 45%,#08142e 80%,#0a0a0d 100%)" }}>
-      {/* Minimal English header */}
-      <header className="flex items-center justify-between px-5 sm:px-10 py-5 max-w-6xl mx-auto">
-        <Link href="/" className="flex items-center gap-3">
-          <Image src="/favicon-white-192.png" alt="Bemis E-V Charge" width={36} height={36} className="w-9 h-9 object-contain" />
-          <span className="font-extrabold tracking-wide text-sm sm:text-base">BEMIS E-V CHARGE</span>
-        </Link>
-        <a href="#quote" className="rounded-xl px-4 py-2 text-sm font-bold text-white" style={{ background: BLUE }}>Request a Quote</a>
-      </header>
+    <div style={{ background: bg, minHeight: "100vh" }}>
+      <Navbar onSearchOpen={() => setSearchOpen(true)} />
+      <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
       {/* Hero */}
-      <section className="max-w-6xl mx-auto px-5 sm:px-10 pt-8 pb-14">
-        <p className="text-xs font-bold tracking-[0.18em] uppercase mb-4" style={{ color: "#93C5FD" }}>EV Charging Manufacturer · Türkiye / Europe</p>
-        <h1 className="text-3xl sm:text-5xl font-black leading-tight max-w-3xl">
-          EV Charging Cable &amp; Charger <span style={{ color: "#93C5FD" }}>Manufacturer</span> in Türkiye / Europe
-        </h1>
-        <p className="mt-5 text-base sm:text-lg text-white/70 max-w-2xl leading-relaxed">
-          Bemis E-V Charge is a <strong className="text-white">real EU-adjacent manufacturer</strong> (since 1994). Type 2 / Mode 3 charging cables, AC wallboxes, DC fast chargers and adapters — CE, IP65/IP66, OCPP-ready. <strong className="text-white">OEM / ODM / private label</strong>, export to 60+ countries.
-        </p>
-        <div className="mt-7 flex flex-wrap gap-3">
-          <a href="#quote" className="rounded-2xl px-7 py-3.5 text-sm font-bold text-white" style={{ background: BLUE }}>Request a Quote →</a>
-          <Link href="/products" className="rounded-2xl px-7 py-3.5 text-sm font-bold text-white/90 border border-white/20">View Products</Link>
-        </div>
-        <div className="mt-9 flex flex-wrap gap-2.5">
-          {TRUST.map((t) => (
-            <span key={t} className="text-xs font-semibold rounded-full px-3.5 py-1.5" style={{ color: "#cfe1ff", background: "rgba(59,130,246,0.14)", border: "1px solid rgba(59,130,246,0.3)" }}>{t}</span>
-          ))}
+      <section className="relative overflow-hidden pt-28 pb-10 px-5 sm:px-6 lg:px-8">
+        <div aria-hidden className="pointer-events-none absolute -top-24 right-0 w-[480px] h-[480px] rounded-full" style={{ background: `radial-gradient(circle, ${BLUE}12 0%, transparent 70%)`, filter: "blur(40px)" }} />
+        <div className="relative max-w-5xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>{eyebrow}</motion.div>
+          <motion.h1 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.05 }} className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-4" style={{ color: textPrimary }}>
+            EV Charging Cable &amp; Charger <span style={{ color: d ? "#93C5FD" : BLUE }}>Manufacturer</span> in Türkiye / Europe
+          </motion.h1>
+          <motion.div initial={{ scaleX: 0, opacity: 0 }} animate={{ scaleX: 1, opacity: 1 }} transition={{ duration: 0.5, delay: 0.18 }} className="h-px w-24 origin-left mb-5" style={{ background: `linear-gradient(90deg, ${BLUE} 0%, transparent 100%)` }} />
+          <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.22 }} className="text-base sm:text-lg leading-relaxed max-w-3xl mb-7" style={{ color: textMuted }}>
+            Bemis E-V Charge is a <strong style={{ color: textPrimary }}>real EU-adjacent manufacturer</strong> (since 1994). Type 2 / Mode 3 charging cables, AC wallboxes, DC fast chargers and adapters — CE, IP65/IP66, OCPP-ready. <strong style={{ color: textPrimary }}>OEM / ODM / private label</strong>, export to 60+ countries.
+          </motion.p>
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.3 }} className="flex flex-wrap gap-3">
+            <a href="#quote" className="group inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02] hover:brightness-110 active:scale-95" style={{ background: BLUE, boxShadow: `0 6px 22px ${BLUE}45` }}>
+              Request a Quote <RiArrowRightLine size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+            </a>
+            <Link href="/products" className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:scale-[1.02] active:scale-95" style={{ color: textPrimary, background: surface, border: `1px solid ${border}` }}>
+              View Products
+            </Link>
+          </motion.div>
+          <div className="mt-8 flex flex-wrap gap-2.5">
+            {TRUST.map((t) => (
+              <span key={t} className="inline-flex items-center gap-1.5 text-xs font-semibold rounded-full px-3.5 py-1.5" style={{ color: d ? "#cfe1ff" : BLUE, background: d ? "rgba(59,130,246,0.14)" : "rgba(59,130,246,0.08)", border: `1px solid ${d ? "rgba(59,130,246,0.3)" : "rgba(59,130,246,0.2)"}` }}>
+                <RiShieldCheckLine size={13} /> {t}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Why Bemis */}
-      <section className="max-w-6xl mx-auto px-5 sm:px-10 py-10">
-        <h2 className="text-2xl sm:text-3xl font-black mb-2">Why source from Bemis, not a Chinese trader?</h2>
-        <p className="text-white/60 mb-8 max-w-2xl">A direct, EU-standard manufacturer with the proximity and flexibility importers and distributors need.</p>
-        <div className="grid sm:grid-cols-2 gap-4">
-          {WHY.map((w) => (
-            <div key={w.t} className="rounded-2xl p-5 bg-white/4 border border-white/8">
-              <h3 className="font-bold text-base mb-1.5">{w.t}</h3>
-              <p className="text-sm text-white/65 leading-relaxed">{w.d}</p>
-            </div>
-          ))}
+      <section className="py-10 px-5 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5 }} className="text-2xl sm:text-3xl font-black mb-2" style={{ color: textPrimary }}>
+            Why source from Bemis, not a Chinese trader?
+          </motion.h2>
+          <p className="mb-7 max-w-2xl" style={{ color: textMuted }}>A direct, EU-standard manufacturer with the proximity and flexibility importers and distributors need.</p>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {WHY.map((w, i) => (
+              <motion.div key={w.t} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.45, delay: i * 0.05 }} className={card} style={cardStyle}>
+                <w.icon size={22} style={{ color: BLUE }} className="mb-2" />
+                <h3 className="font-bold text-base mb-1.5" style={{ color: textPrimary }}>{w.t}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: textMuted }}>{w.d}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Product range */}
-      <section className="max-w-6xl mx-auto px-5 sm:px-10 py-10">
-        <h2 className="text-2xl sm:text-3xl font-black mb-8">Product range</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {PRODUCTS.map((p) => (
-            <div key={p.t} className="rounded-2xl p-5 bg-white/4 border border-white/8">
-              <h3 className="font-bold text-base mb-1" style={{ color: "#93C5FD" }}>{p.t}</h3>
-              <p className="text-sm text-white/65">{p.d}</p>
-            </div>
-          ))}
+      <section className="py-10 px-5 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5 }} className="text-2xl sm:text-3xl font-black mb-7" style={{ color: textPrimary }}>Product range</motion.h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {PRODUCTS.map((p) => (
+              <Link key={p.t} href={p.href} className={`${card} block transition-transform hover:scale-[1.02]`} style={cardStyle}>
+                <h3 className="font-bold text-base mb-1" style={{ color: d ? "#93C5FD" : BLUE }}>{p.t}</h3>
+                <p className="text-sm" style={{ color: textMuted }}>{p.d}</p>
+              </Link>
+            ))}
+          </div>
+          <p className="mt-6 text-sm" style={{ color: textMuted }}>For OEM / distributors: private label &amp; custom branding, bulk &amp; wholesale pricing, CE documentation, technical support and reliable lead times. <Link href="/b2b" className="underline" style={{ color: d ? "#93C5FD" : BLUE }}>OEM / B2B details →</Link></p>
         </div>
-        <p className="mt-6 text-sm text-white/60">For OEM / distributors: private label &amp; custom branding, bulk &amp; wholesale pricing, CE documentation, technical support and reliable lead times. <Link href="/b2b" className="underline" style={{ color: "#93C5FD" }}>OEM / B2B details →</Link></p>
       </section>
 
       {/* FAQ */}
-      <section className="max-w-6xl mx-auto px-5 sm:px-10 py-10">
-        <h2 className="text-2xl sm:text-3xl font-black mb-8">Export FAQ</h2>
-        <div className="space-y-3 max-w-3xl">
-          {FAQ.map((f) => (
-            <div key={f.q} className="rounded-2xl p-5 bg-white/4 border border-white/8">
-              <h3 className="font-bold text-[15px] mb-1.5">{f.q}</h3>
-              <p className="text-sm text-white/65 leading-relaxed">{f.a}</p>
-            </div>
-          ))}
+      <section className="py-10 px-5 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto">
+          <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5 }} className="text-2xl sm:text-3xl font-black mb-7" style={{ color: textPrimary }}>Export FAQ</motion.h2>
+          <div className="space-y-3">
+            {FAQ.map((f) => (
+              <div key={f.q} className={card} style={cardStyle}>
+                <h3 className="font-bold text-[15px] mb-1.5" style={{ color: textPrimary }}>{f.q}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: textMuted }}>{f.a}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Quote form */}
-      <section id="quote" className="max-w-6xl mx-auto px-5 sm:px-10 py-12">
-        <div className="rounded-3xl p-6 sm:p-10 border border-white/10" style={{ background: "rgba(59,130,246,0.07)" }}>
-          <h2 className="text-2xl sm:text-3xl font-black mb-2">Request a Quote</h2>
-          <p className="text-white/65 mb-7 max-w-xl">Tell us what you need — product, quantity and your country. We reply with pricing, lead time and OEM options.</p>
+      <section id="quote" className="py-12 px-5 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto rounded-3xl p-6 sm:p-10" style={{ background: d ? "rgba(59,130,246,0.07)" : "rgba(59,130,246,0.05)", border: `1px solid ${border}` }}>
+          <h2 className="text-2xl sm:text-3xl font-black mb-2" style={{ color: textPrimary }}>Request a Quote</h2>
+          <p className="mb-7 max-w-xl" style={{ color: textMuted }}>Tell us what you need — product, quantity and your country. We reply with pricing, lead time and OEM options.</p>
           {submitted ? (
-            <div className="rounded-2xl p-6 bg-white/5 border border-white/12">
-              <p className="font-bold text-lg mb-1">Thank you — your request was received. ✅</p>
-              <p className="text-white/65 text-sm">Our export team will reply by email shortly. For urgent requests: WhatsApp +90 533 956 25 46.</p>
+            <div className={card} style={cardStyle}>
+              <p className="font-bold text-lg mb-1" style={{ color: textPrimary }}>Thank you — your request was received. ✅</p>
+              <p className="text-sm" style={{ color: textMuted }}>Our export team will reply by email shortly. Urgent? WhatsApp +90 533 956 25 46.</p>
             </div>
           ) : (
             <form onSubmit={onSubmit} className="grid sm:grid-cols-2 gap-4 max-w-3xl">
-              {/* Honeypot */}
               <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
                 <label>Website (leave empty)<input ref={hpRef} type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" /></label>
               </div>
-              <input name="name" required placeholder="Full name *" className={inputCls} />
-              <input name="company" placeholder="Company" className={inputCls} />
-              <input name="email" required type="email" placeholder="Email *" className={inputCls} />
-              <input name="country" required placeholder="Country *" className={inputCls} />
-              <input name="phone" placeholder="Phone / WhatsApp (optional)" className={`${inputCls} sm:col-span-2`} />
-              <textarea name="message" required rows={4} placeholder="What do you need? (product, quantity, OEM…) *" className={`${inputCls} sm:col-span-2 resize-none`} />
-              {err && <p className="sm:col-span-2 text-sm text-red-400">{err}</p>}
-              <button type="submit" disabled={sending} className="sm:col-span-2 rounded-2xl px-7 py-3.5 text-sm font-bold text-white disabled:opacity-60" style={{ background: BLUE }}>
+              <input name="name" required placeholder="Full name *" className={inputCls} style={inputStyle} />
+              <input name="company" placeholder="Company" className={inputCls} style={inputStyle} />
+              <input name="email" required type="email" placeholder="Email *" className={inputCls} style={inputStyle} />
+              <input name="country" required placeholder="Country *" className={inputCls} style={inputStyle} />
+              <input name="phone" placeholder="Phone / WhatsApp (optional)" className={`${inputCls} sm:col-span-2`} style={inputStyle} />
+              <textarea name="message" required rows={4} placeholder="What do you need? (product, quantity, OEM…) *" className={`${inputCls} sm:col-span-2 resize-none`} style={inputStyle} />
+              {err && <p className="sm:col-span-2 text-sm" style={{ color: "#f87171" }}>{err}</p>}
+              <button type="submit" disabled={sending} className="sm:col-span-2 rounded-xl px-7 py-3.5 text-sm font-bold text-white disabled:opacity-60 hover:brightness-110 transition" style={{ background: BLUE, boxShadow: `0 6px 22px ${BLUE}45` }}>
                 {sending ? "Sending…" : "Send Request"}
               </button>
             </form>
@@ -189,23 +217,7 @@ export default function ExportLandingClient() {
         </div>
       </section>
 
-      {/* Minimal English footer */}
-      <footer className="border-t border-white/10 mt-6">
-        <div className="max-w-6xl mx-auto px-5 sm:px-10 py-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm text-white/55">
-          <div>
-            <p className="font-bold text-white">Bemis E-V Charge</p>
-            <p>Bemis Teknik Elektrik A.Ş. · Bursa, Türkiye · since 1994</p>
-          </div>
-          <div className="flex flex-wrap gap-x-5 gap-y-1">
-            <a href="mailto:info@bemisevcharge.com" className="hover:text-white">info@bemisevcharge.com</a>
-            <a href="tel:+902244330216" className="hover:text-white">+90 224 433 02 16</a>
-            <a href="https://wa.me/905339562546" target="_blank" rel="noopener" className="hover:text-white">WhatsApp</a>
-            <Link href="/products" className="hover:text-white">Products</Link>
-            <Link href="/" className="hover:text-white">Home</Link>
-          </div>
-        </div>
-        <div className="text-center text-xs text-white/30 pb-6" style={{ borderTop: `2px solid ${ACCENT}22` }}>© Bemis E-V Charge — EV charging manufacturer · OEM / ODM · Export</div>
-      </footer>
-    </main>
+      <Footer />
+    </div>
   );
 }

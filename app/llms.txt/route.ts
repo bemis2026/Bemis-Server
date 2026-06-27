@@ -33,10 +33,8 @@ Bemis E-V Charge ürün gamı 8 kategoride ~113 ürün içerir: AC Wallbox şarj
 - [Bursa EV Şarj İstasyonu](https://www.bemisevcharge.com.tr/bursa-ev-sarj-istasyonu): Bursa'da EV şarj istasyonu çözümlerine yönelik bölgesel sayfa.
 - [EV Charging Manufacturer / Export (EN)](https://www.bemisevcharge.com.tr/export): İhracat alıcıları için İngilizce üretici sayfası — Type 2 / Mode 3 kablolar, AC wallbox, DC şarj, OEM/ODM, 60+ ülke ihracat ve "Request a Quote" teklif formu.
 
-## Karşılaştırma ve Rehberler
+## Rehberler
 
-- [Türkiye'nin En İyi Yerli EV Şarj (Wallbox) Markaları](https://www.bemisevcharge.com.tr/blog/turkiye-en-iyi-yerli-ev-sarj-wallbox-markalari): Ev/iş yeri wallbox seçim kriterleri (güç, IP koruma, OCPP, yerlilik, ürün gamı, fiyat) ve Türkiye'deki yerli/küresel markaların (Vestel, Bemis, Tunçmatik, ABB vb.) tarafsız karşılaştırması.
-- [Bemis vs Vestel Karşılaştırması](https://www.bemisevcharge.com.tr/blog/bemis-vs-vestel-ev-sarj-istasyonu-karsilastirma): İki yerli EV şarj markasının koruma sınıfı (Bemis IP65/IP66 — Vestel IP54), ürün gamı, akıllı özellikler ve erişim açısından dengeli kıyaslaması.
 - [EV İçin Şarj Cihazı Nasıl Seçilir](https://www.bemisevcharge.com.tr/blog/ev-icin-sarj-cihazi-nasil-secilir): Wallbox seçim rehberi.
 - [OCPP Nedir](https://www.bemisevcharge.com.tr/blog/ocpp-nedir): Açık şarj protokolü ve akıllı yönetim.
 
