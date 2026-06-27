@@ -234,7 +234,7 @@ export default function Reviews() {
                     <div className="relative flex-shrink-0 w-24 sm:w-28" style={{ background: `${c}12` }}>
                       {n.image ? (
                         // eslint-disable-next-line @next/next/no-img-element
-                        <img src={n.image} alt={n.title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
+                        <img src={n.image} alt={n.title} width={160} height={120} className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center p-2 text-center">
                           <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: c, opacity: 0.8 }}>{n.source}</span>

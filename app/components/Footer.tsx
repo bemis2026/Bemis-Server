@@ -27,6 +27,7 @@ const NAV_GROUPS = {
       { label: "Bemis Dünyası",   href: "/kurumsal", scroll: false },
       { label: "Yerli Üretim",    href: "/uretici",  scroll: false },
       { label: "Blog & Haberler", href: "/blog",     scroll: false },
+      { label: "Bursa EV Şarj",   href: "/bursa-ev-sarj-istasyonu", scroll: false },
       { label: "İstatistikler",   href: "#stats",    scroll: true  },
     ]},
     { title: "İş Ortaklığı", links: [
@@ -60,6 +61,7 @@ const NAV_GROUPS = {
       { label: "Bemis World",         href: "/kurumsal", scroll: false },
       { label: "Domestic Production", href: "/uretici",  scroll: false },
       { label: "Blog & News",         href: "/blog",     scroll: false },
+      { label: "Bursa EV Charging",   href: "/bursa-ev-sarj-istasyonu", scroll: false },
       { label: "Statistics",          href: "#stats",    scroll: true  },
     ]},
     { title: "Partnership", links: [
