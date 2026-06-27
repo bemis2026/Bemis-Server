@@ -29,6 +29,7 @@ Bemis E-V Charge ürün gamı 8 kategoride ~113 ürün içerir: AC Wallbox şarj
 - [Aksesuarlar](https://www.bemisevcharge.com.tr/products/accessories): Tutucu (holster), adaptör ve EV şarj aksesuarları.
 - [Yerli Üretici](https://www.bemisevcharge.com.tr/uretici): Bemis'in yerli EV şarj üreticisi kimliğini anlatan amiral sayfa.
 - [Blog](https://www.bemisevcharge.com.tr/blog): EV şarj teknolojileri ve kullanım rehberleri içerikleri.
+- [Sözlük](https://www.bemisevcharge.com.tr/sozluk): EV şarj terimleri sözlüğü — Type 2, CCS2, OCPP, AC/DC, kW/kWh, V2L, yük yönetimi (DLM), IP65/IP66 gibi terimlerin "X nedir" tanımları.
 - [Dokümanlar](https://www.bemisevcharge.com.tr/documents): Ürün kataloğu, teknik doküman ve sertifikalar.
 - [Bursa EV Şarj İstasyonu](https://www.bemisevcharge.com.tr/bursa-ev-sarj-istasyonu): Bursa'da EV şarj istasyonu çözümlerine yönelik bölgesel sayfa.
 - [EV Charging Manufacturer / Export (EN)](https://www.bemisevcharge.com.tr/export): İhracat alıcıları için İngilizce üretici sayfası — Type 2 / Mode 3 kablolar, AC wallbox, DC şarj, OEM/ODM, 60+ ülke ihracat ve "Request a Quote" teklif formu.

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import JsonLd from "../../components/JsonLd";
-import { articleSchema, faqSchema, breadcrumbSchema } from "../../lib/seo";
+import { articleSchema, faqSchema, breadcrumbSchema, howToSchema } from "../../lib/seo";
 import { allPosts, getPost, type BlogPost } from "../posts";
 import BlogShell from "../BlogShell";
 
@@ -71,6 +71,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       articleSection: post.category,
     }),
     ...(post.faq && post.faq.length > 0 ? [faqSchema(post.faq)] : []),
+    ...(post.howTo ? [howToSchema(post.howTo)] : []),
   ];
   return (
     <>

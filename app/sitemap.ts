@@ -3,6 +3,7 @@ import { getServerProducts } from "./lib/server-content";
 import { allPosts } from "./blog/posts";
 import { allPress } from "./blog/press";
 import { CITY_PAGES } from "./lib/cities";
+import { allTerms } from "./lib/glossary";
 
 const BASE = "https://www.bemisevcharge.com.tr";
 
@@ -118,5 +119,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   ];
 
-  return [...staticRoutes, ...cityRoutes, ...categoryRoutes, ...productRoutes, ...blogRoutes];
+  const glossaryRoutes: MetadataRoute.Sitemap = [
+    { url: `${BASE}/sozluk`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    ...allTerms().map((t) => ({
+      url: `${BASE}/sozluk/${t.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+  ];
+
+  return [...staticRoutes, ...cityRoutes, ...categoryRoutes, ...productRoutes, ...blogRoutes, ...glossaryRoutes];
 }

@@ -25,6 +25,7 @@ export type BlogPost = {
   body: BlogSection[];
   faq?: { q: string; a: string }[];
   related?: { label: string; href: string }[]; // ürün/iç linkler
+  howTo?: { name: string; steps: { name: string; text: string }[] }; // HowTo JSON-LD (adımlı kurulum rehberleri)
 };
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -1593,6 +1594,15 @@ export const BLOG_POSTS: BlogPost[] = [
       { label: "Bursa EV Şarj İstasyonu", href: "/bursa-ev-sarj-istasyonu" },
       { label: "Şehir Şehir EV Şarj Rehberi", href: "/blog/turkiye-sehir-sehir-ev-sarj-rehberi" },
     ],
+    howTo: {
+      name: "Apartmana / Siteye Elektrikli Araç Şarj İstasyonu Kurulumu",
+      steps: [
+        { name: "Kat malikleri kararı", text: "Ortak alandaki (otopark) kurulum için yönetim/kat malikleri onayını alın. Türkiye'de mevzuat EV şarj altyapısını kolaylaştıracak yönde gelişmektedir; yine de kurulumdan önce yönetimle görüşüp gerekli kararı almak en doğrusudur." },
+        { name: "Elektrik altyapısı", text: "Şarj cihazını mümkünse panodan çekilen ayrı bir hat üzerinden besleyin. Mevcut tesisatın kapasitesini (ana sigorta, kablo kesiti) yetkili bir elektrikçiye değerlendirtin; gerekirse ayrı sayaç planlayın." },
+        { name: "Yük yönetimi", text: "Sitede birden çok şarj noktası olacaksa, hepsi aynı anda tam güç çekerse şebeke zorlanır. Yük yönetimi (DLM) özellikli cihazlar mevcut gücü noktalar arasında dengeli paylaştırarak bu sorunu çözer." },
+        { name: "Faturalandırma ve yetkilendirme", text: "Ortak kullanımda kimin ne kadar harcadığını ayırmak için RFID kart, mobil uygulama veya OCPP tabanlı yönetim sistemi kullanın; böylece her kullanıcı kendi tüketimini öder." },
+      ],
+    },
   },
 
   {

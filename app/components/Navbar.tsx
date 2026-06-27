@@ -121,6 +121,11 @@ const REHBER_DROPDOWN: DropdownItem[] = [
     sub:   { tr: "Sıkça sorulan sorular", en: "Frequently asked questions" },
     href: "/blog#sss", accent: "#F59E0B",
   },
+  {
+    label: { tr: "Sözlük", en: "Glossary" },
+    sub:   { tr: "EV şarj terimleri (Type 2, OCPP, V2L…)", en: "EV charging terms" },
+    href: "/sozluk", accent: "#8B5CF6",
+  },
 ];
 
 // Döküman kategorileri (public /documents sayfası ile birebir) — navbar

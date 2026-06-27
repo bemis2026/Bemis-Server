@@ -509,6 +509,61 @@ export function faqSchema(items: { q: string; a: string }[]): JsonLdObject {
   };
 }
 
+// Sözlük (GEO/AEO) — DefinedTermSet + DefinedTerm. "X nedir" sorgularını
+// alıntılanabilir tanımlarla karşılar. name = kısa terim etiketi (abbr).
+const GLOSSARY_SET_ID = `${SITE_URL}/sozluk#definedtermset`;
+const GLOSSARY_SET_NAME = "Elektrikli Araç Şarj Terimleri Sözlüğü";
+
+export function definedTermSetSchema(terms: { slug: string; abbr: string; definition: string }[]): JsonLdObject {
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "@id": GLOSSARY_SET_ID,
+    name: GLOSSARY_SET_NAME,
+    url: `${SITE_URL}/sozluk`,
+    inLanguage: "tr-TR",
+    hasDefinedTerm: terms.map((t) => ({
+      "@type": "DefinedTerm",
+      name: t.abbr,
+      description: t.definition,
+      url: `${SITE_URL}/sozluk/${t.slug}`,
+    })),
+  };
+}
+
+export function definedTermSchema(t: { slug: string; abbr: string; definition: string }): JsonLdObject {
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    "@id": `${SITE_URL}/sozluk/${t.slug}#definedterm`,
+    name: t.abbr,
+    description: t.definition,
+    url: `${SITE_URL}/sozluk/${t.slug}`,
+    inLanguage: "tr-TR",
+    inDefinedTermSet: { "@type": "DefinedTermSet", "@id": GLOSSARY_SET_ID, name: GLOSSARY_SET_NAME, url: `${SITE_URL}/sozluk` },
+  };
+}
+
+export function howToSchema(opts: {
+  name: string;
+  description?: string;
+  steps: { name: string; text: string }[];
+}): JsonLdObject {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: opts.name,
+    ...(opts.description && { description: opts.description }),
+    inLanguage: "tr-TR",
+    step: opts.steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+    })),
+  };
+}
+
 export function blogListingSchema(opts: {
   url: string;
   posts: { title: string; url: string; datePublished: string }[];
