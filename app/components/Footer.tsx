@@ -10,6 +10,8 @@ import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 import E from "./E";
 
+// Footer iç linkleri (SSR — Google taraması için sayılır). Ürünler: 8 kategori;
+// Şirket: Bemis Dünyası/Yerli Üretim/Blog/Bursa EV Şarj; Destek: Dökümanlar/SSS/Rehberler.
 const NAV_GROUPS = {
   tr: [
     { title: "Ürünler", links: [
