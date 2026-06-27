@@ -199,7 +199,7 @@ const FAQS = {
     },
     {
       q: "Bemis aksesuarları diğer markalarla uyumlu mu?",
-      a: "Konnektör standartları (Type 2, CCS2, RFID Mifare) evrensel olduğundan Bemis aksesuarlarımız ABB, Schneider, Wallbox, Easee ve diğer büyük markalarla uyumludur. Marka-spesifik özellikler (firmware kilidi, tescilli kart sistemi) varsa dökümanda belirtilir."
+      a: "Konnektör standartları (Type 2, CCS2, RFID Mifare) evrensel olduğundan Bemis aksesuarlarımız Type 2 / CCS2 standart konnektörlü tüm elektrikli araçlar ve şarj istasyonlarıyla uyumludur. Marka-spesifik özellikler (firmware kilidi, tescilli kart sistemi) varsa dökümanda belirtilir."
     },
     {
       q: "Yedek aksesuar siparişi nasıl verilir?",

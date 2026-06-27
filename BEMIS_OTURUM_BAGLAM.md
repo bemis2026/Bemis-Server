@@ -13,6 +13,62 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 📚 **GEO 2. RAUND — skor 75 → (haber şema + tablo + SÖZLÜK HUB) (2026-06-27, CANLI · commit'ler 113dec4 / c7fca73):**
+> Re-denetim 63→**75/100** sonrası 5 yeni açık. **Task 1,3,4,5 YAPILDI+canlı; Task 2 KULLANICIDA (admin).**
+> **#1 Haber Article şema:** `articleSchema` `datePublished` OPSİYONEL; `press.ts`'e `keywords` alanı + 6 habere keyword;
+> haber page TÜM 6 habere full Article (image 1200×630, wordCount, keywords, articleSection=Haber/Fuar). Tarihsiz 3 haber
+> de Article alır (uydurma tarih YOK). **#3 llms.txt** Rehberler 2→9. **#4 Nötr spec tablo:** blog'a yeni **`table` blok tipi**
+> (BlogSection union + BlogShell `Section` case, tema-uyumlu HTML `<table>`); 2 rehbere RAKİPSİZ tablo (ac-dc: AC vs DC;
+> nasil-secilir: Bemis ürün gamı — ⚠️ DC **BEVDC 40/80/120 = 40–120 kW** doğrulandı, sadece 40 değil). **#5 SÖZLÜK HUB:**
+> `app/lib/glossary.ts` (15 terim) + `/sozluk` (DefinedTermSet) + `/sozluk/[slug]` (DefinedTerm + 40-60 kelime doğrudan-cevap)
+> + `GlossaryClient` (tema-uyumlu Navbar/Footer); `seo.ts`'e `definedTermSetSchema`/`definedTermSchema`/`howToSchema`; **HowTo**
+> apartmana-kurulum'a (4 step; is-yerine prosedürel değil→eklenmedi; BlogPost'a `howTo?` alanı + blog page emit); keşif:
+> sitemap (16) + llms + Navbar "Rehber" dropdown'a Sözlük. tsc temiz, hepsi canlı doğrulandı. **Yeni blog/terim eklerken bu desenleri kullan.**
+> **⛔ #2 (admin işi — BEN YAPAMAM):** rakip marka cümlesi SADECE canlı **Blob**'da (repo zaten jenerik). Lokalden raw bin
+> okunamıyor (403) + `/api/content` `_translations`'ı stripliyor → geri yazarsam **EN bozulur**. Kullanıcı admin'den
+> Aksesuarlar→SSS cevabını jenerikleştirmeli (TR+EN). ⚠️ Bu cümleyi Blob-write script ile düzeltmeye ÇALIŞMA (EN siler).
+
+> ⛔ **AKSESUAR-SSS RAKİP MARKA TEMİZLİĞİ (2026-06-27):** "Bemis aksesuarları diğer markalarla
+> uyumlu mu?" SSS yanıtı (accessories kategorisi) rakip marka listesi içeriyordu — TR: "…Bemis
+> aksesuarlarımız **ABB, Schneider, Wallbox, Easee** ve diğer…" / EN aynısı. **REPO'DA DÜZELTİLDİ**
+> (markasız → TR: "Type 2 / CCS2 standart konnektörlü tüm elektrikli araçlar ve şarj istasyonlarıyla
+> uyumludur" · EN: "compatible with all electric vehicles and charging stations that use standard
+> Type 2 / CCS2 connectors"): `data/content.json` (TR @294 + gömülü `_translations.en` @1151),
+> `data/content-en.json` @290, `scripts/seed-faqs.cjs` @202 (defunct JSONBin seed, hijyen).
+> ⚠️ **CANLI HÂLÂ ESKİ** — içerik **Blob** `content` bin'inden okunur (layout → ContentProvider →
+> HER sayfanın HTML'ine gömülü; canlı anasayfada string 2× görünüyordu), repo dosyaları sadece
+> **fallback**. Lokal makinede `BLOB_READ_WRITE_TOKEN` YOK → Blob'a yazamıyorum. **Canlıya yansıtmak
+> için:** admin panel → **Aksesuarlar** kategorisi → bu SSS yanıtını markasız TR metinle yeniden
+> KAYDET (kaydedince TR Blob'a yazılır + arka planda `translateContent` EN'i otomatik tazeler →
+> `_translations.en` da temizlenir). Tarama yapıldı: başka rakip-marka (Vestel/ABB/Schneider/KEBA/
+> go-e/Easee) YOK; jenerik "AC Wallbox" kategori/ürün adı serbest.
+
+> 🌍 **/export İNGİLİZCE SAYFA + RAKİP-MARKA TEMİZLİĞİ + GEO #2-5 (2026-06-27, CANLI · commit'ler 6c12da8 / 98da2f9 / 515ae6e):**
+> **(a) `/export`** — yabancı/İngilizce alıcılar için İngilizce üretici landing'i + "Request a Quote" formu (→ `/api/contact`,
+> `topic:"export"`, honeypot+elapsed spam korumalı). İLK sürüm off-brand'di → **siteyle TAM uyumlu yeniden kuruldu:** gerçek
+> `<Navbar>` (gerçek logo) + `<SearchOverlay>` + `<Footer>` + `useTheme` açık/koyu mod + site renk token'ları/hero/kart stili
+> (`CityLandingClient` deseni). `app/export/ExportLandingClient.tsx` (use client) + `app/export/page.tsx` (EN metadata +
+> Service/FAQPage/Breadcrumb JSON-LD). sitemap (prio 0.85) + llms.txt'te. ⚠️ Footer'a iç link EKLENMEDİ (eski Footer
+> build-cache takıntısı); keşif sitemap+llms+reklam üzerinden. **Reklam Export(EN) kampanyası → `/export`'a yönlendirilecek.**
+> **(b) ⛔ RAKİP MARKA YASAĞI (kullanıcı kesin kararı):** sitede **Vestel/ABB vb. RAKİP MARKA ASLA olmayacak** ("saçma
+> algılanır"). "Bemis vs Vestel" + "Türkiye'nin en iyi yerli markalar" yazıları **SİLİNDİ → 404** (posts.ts'ten string-güvenli
+> brace-match script + llms.txt'ten). ⚠️ **Rakip adı geçen içerik/karşılaştırma/öneri ÜRETME.** (Markasız "nasıl seçilir"
+> rehberi serbest.) ⚠️ GEO denetimleri bu 2 silinen yazıyı işaret ederse = **BAYAT rapor** (silmeden önce alınmış).
+> **(c-2) FAQ DERİNLİĞİ SİTE GENELİ (2026-06-27, CANLI · commit b8ffd29):** kalan 15 yazının FAQ'ı da ~30 → **~98 kelime**
+> ortalamaya çıkarıldı (5 paralel general-purpose ajan, her yazının KENDİ fact-check'li gövdesinden; çekişmeli kontrol: rakip
+> marka YOK, uydurma fiyat/EPDK/garanti YOK; bazılarına gövdeden 1-2 yeni soru). Ajanlar JSON'a yazdı → string-güvenli
+> bracket-match script `posts.ts`'e uyguladı (faq item'ları artık tırnaklı `{ "q":, "a": }`, anahtar `faq:` tırnaksız kaldı; tsc OK).
+> **ARTIK 18 blog yazısının HEPSİ derin FAQ + FAQPage şemalı** (84 FAQ canlı doğrulandı). ⚠️ Yeni blog eklerken FAQ'ı baştan
+> ~80-100 kelime yaz.
+> **(c) GEO açıkları #2-5 (re-denetim 47→62, hedef 75+):** **#2** `articleSchema` (seo.ts) → `image`=ImageObject (kapak varsa o,
+> yoksa `${SITE_URL}/opengraph-image` **1200×630**) + `wordCount`/`keywords`/`articleSection`; blog `[slug]/page.tsx` `countWords()`
+> + post.keywords/category geçiyor (TÜM yazılara otomatik). **#3** 3 ana rehberin (yük-yönetimi/filo/nasıl-çalışır) **21 FAQ
+> yanıtı ~40-55 → ~90 kelime** (self-contained; içerik fact-check'li gövdeden, uydurma YOK). **#4** soru-H2 bu 3 yazıda ZATEN
+> vardı (3-6/yazı) → ek iş yok. **#5** blog metadata `alternates.languages {tr, x-default}` (Next `hrefLang` camelCase basar=normal)
+> + `organizationSchema` BASELINE: `ORG_PHONE`(+90 224 433 02 16)/`ORG_EMAIL`(info@bemisevcharge.com)/`ORG_ADDRESS`(Bursa OSB) →
+> content meta boş gelse de contactPoint+PostalAddress HEP emit (sameAs baseline mantığı; canlıda boştu). Canlı doğrulandı.
+> **(d) ⚠️ 301 HÂLÂ KULLANICIDA** (en büyük lever) + GBP 3 ürün + marketplace + Ads launch.
+
 > 🖼️ **WHATSAPP/OG GÖRSEL FIX (2026-06-24, CANLI · commit c3f6176):** WhatsApp'ta link paylaşınca admin'in
 > yüklediği özel marka görseli (content bin `ogImage` = i.ibb.co beton-duvar Bemis logosu) yerine JENERİK
 > sentez kart görünüyordu. KÖK NEDEN: `app/opengraph-image.tsx` (og:image üreteci) `runtime` sabit değildi →
