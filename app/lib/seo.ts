@@ -343,6 +343,49 @@ export function productSchema(opts: {
   };
 }
 
+/** Kategori HATTI için Product + AggregateOffer (fiyat aralığı). Ana sayfada
+ *  hasOfferCatalog'daki Service'e EK olarak kategoriyi TAM bir Product işaretler:
+ *  name + image + brand + AggregateOffer(lowPrice/highPrice/offerCount) →
+ *  çıplak-Product uyarısı YOK. Kategoride fiyatlı ürün yoksa null döner.
+ *  ⚠️ Gerçek tekil ürünlerin tam Product şeması ürün DETAY sayfalarında. */
+export function categoryProductSchema(opts: {
+  categoryId: string;
+  name: string;
+  image?: string;
+  products: ProductShape[];
+}): JsonLdObject | null {
+  const { categoryId, name, image, products } = opts;
+  const prices: number[] = [];
+  let currency = "EUR";
+  for (const p of products) {
+    const o = extractOffer(p);
+    if (o) { prices.push(o.price); currency = o.currency; }
+  }
+  if (prices.length === 0) return null;
+  const url = `${SITE_URL}/products/${categoryId}`;
+  const img = absolute(image);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": `${url}#category`,
+    name,
+    ...(img && { image: img }),
+    brand: { "@type": "Brand", name: SITE_NAME },
+    manufacturer: { "@id": `${SITE_URL}#organization` },
+    category: name,
+    url,
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: currency,
+      lowPrice: Math.min(...prices).toFixed(2),
+      highPrice: Math.max(...prices).toFixed(2),
+      offerCount: products.length,
+      availability: "https://schema.org/InStock",
+      seller: { "@id": `${SITE_URL}#organization` },
+    },
+  };
+}
+
 export function collectionPageSchema(opts: {
   name: string;
   description?: string;

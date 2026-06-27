@@ -21,7 +21,7 @@ import ContentLoadingBar from "./components/ContentLoadingBar";
 import ContentErrorToast from "./components/ContentErrorToast";
 import LanguageURLSync from "./components/LanguageURLSync";
 import JsonLd from "./components/JsonLd";
-import { organizationSchema, websiteSchema, productSchema } from "./lib/seo";
+import { organizationSchema, websiteSchema, productSchema, categoryProductSchema, categoryH1 } from "./lib/seo";
 import { getServerSiteContent, getServerProducts } from "./lib/server-content";
 
 const BASE_URL = "https://www.bemisevcharge.com.tr";
@@ -224,6 +224,22 @@ export default async function RootLayout({
       return productSchema({ product: prod, categoryName: cat.name, categoryId: cat.id });
     })
     .filter((x): x is NonNullable<typeof x> => x !== null);
+  // [SEO] Her kategori HATTI için Product + AggregateOffer (fiyat aralığı) —
+  // hasOfferCatalog'daki Service'e EK (Service KORUNUR, silinmez). name + image +
+  // brand + AggregateOffer => tam Product, çıplak-Product uyarısı YOK.
+  const contentCats = ((initialContent as { categories?: Record<string, { image?: string }> } | null)?.categories) ?? {};
+  const categoryProductSchemas = products
+    .map((cat) =>
+      cat.products?.length
+        ? categoryProductSchema({
+            categoryId: cat.id,
+            name: categoryH1(cat.id) ?? cat.name,
+            image: contentCats[cat.id]?.image ?? cat.products[0]?.image,
+            products: cat.products,
+          })
+        : null
+    )
+    .filter((x): x is NonNullable<typeof x> => x !== null);
   const orgLogo = meta.logoDark || meta.logoLight || `${BASE_URL}/logo.png`;
   const sameAs = [meta.social.linkedin, meta.social.instagram, meta.social.twitter, meta.social.youtube, meta.social.facebook].filter(Boolean);
   const jsonLd = [
@@ -247,6 +263,7 @@ export default async function RootLayout({
     }),
     websiteSchema(),
     ...featuredProductSchemas,
+    ...categoryProductSchemas,
   ];
   return (
     <html lang="tr" className={`${inter.variable} scroll-smooth`} suppressHydrationWarning>
