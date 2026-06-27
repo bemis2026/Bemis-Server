@@ -13,6 +13,16 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🚨 **KRİTİK İNFRA BULGUSU — SİTE BLOB DEĞİL data/content.json OKUYOR (2026-06-27):** `vercel link bemis-server` +
+> `env pull production` ile doğrulandı: bemis-server'ın **`BLOB_READ_WRITE_TOKEN`'ı APEIRON blob store'una bakıyor**
+> (`list` → 13 apeiron blob'u, **`bins/content.json` YOK**; env'de ayrıca `APEIRON_PIN` var = projeler karışmış).
+> Sonuç: `readBin("content")` → `get("bins/content.json")` 403/not-found → app **`data/content.json` fallback'ine düşüyor.**
+> KANIT: `/api/content` ≡ `data/content.json` (company/contact birebir). **Yani bemis Blob içerik katmanı ÇALIŞMIYOR;
+> site repo'daki data/*.json'ı serve ediyor → admin panel değişiklikleri canlıya YANSIMIYOR olabilir.** ⚠️ DERS: içerik
+> düzeltmesi = `data/*.json`'ı düzenle+commit+deploy (Blob'a yazma anlamsız/yanlış store). **[KULLANICI/DEV]:** Vercel →
+> bemis-server → Storage'da doğru bemis Blob store'una yeniden bağla + apeiron env'lerini ayıkla. (Path B Blob-write
+> denendi→TIKANDI: get 403 her yerden + revalidate route build'i bozdu; geçici route+token temizlendi.)
+
 > 📚 **GEO 2. RAUND — skor 75 → (haber şema + tablo + SÖZLÜK HUB) (2026-06-27, CANLI · commit'ler 113dec4 / c7fca73):**
 > Re-denetim 63→**75/100** sonrası 5 yeni açık. **Task 1,3,4,5 YAPILDI+canlı; Task 2 KULLANICIDA (admin).**
 > **#1 Haber Article şema:** `articleSchema` `datePublished` OPSİYONEL; `press.ts`'e `keywords` alanı + 6 habere keyword;
