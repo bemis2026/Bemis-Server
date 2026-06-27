@@ -24,9 +24,15 @@
 > + `GlossaryClient` (tema-uyumlu Navbar/Footer); `seo.ts`'e `definedTermSetSchema`/`definedTermSchema`/`howToSchema`; **HowTo**
 > apartmana-kurulum'a (4 step; is-yerine prosedürel değil→eklenmedi; BlogPost'a `howTo?` alanı + blog page emit); keşif:
 > sitemap (16) + llms + Navbar "Rehber" dropdown'a Sözlük. tsc temiz, hepsi canlı doğrulandı. **Yeni blog/terim eklerken bu desenleri kullan.**
-> **⛔ #2 (admin işi — BEN YAPAMAM):** rakip marka cümlesi SADECE canlı **Blob**'da (repo zaten jenerik). Lokalden raw bin
-> okunamıyor (403) + `/api/content` `_translations`'ı stripliyor → geri yazarsam **EN bozulur**. Kullanıcı admin'den
-> Aksesuarlar→SSS cevabını jenerikleştirmeli (TR+EN). ⚠️ Bu cümleyi Blob-write script ile düzeltmeye ÇALIŞMA (EN siler).
+> **✅ #2 RAKİP MARKA — CANLIDA ÇÖZÜLDÜ (fallback yoluyla, commit 4d49519/3dc9613):** TR+EN tüm sayfalar + /api/content'te
+> "ABB, Schneider, Wallbox, Easee" = **0** (kapsamlı doğrulandı). NASIL: `data/content.json` + `content-en.json` MARKASIZ
+> commit'lendi → deploy content cache'ini düşürdü → **Blob `get()` 403 verince** (lokal+Vercel ikisinde de!) layout
+> markasız **`data/content.json` fallback'ine düştü**. Yani site şu an **Blob'u değil fallback'i serve ediyor** = markasız.
+> ⚠️ **ÖNEMLİ İNFRA BULGUSU:** Blob `content` `get()` Vercel runtime'da DA 403 → site genel olarak data/content.json
+> fallback'inde çalışıyor (admin Blob değişiklikleri okunmuyor olabilir). Token/@vercel/blob `get` access'i ileride
+> incelenmeli. Blob okuması düzelir + branded Blob yeniden cache'lenirse markalar GERİ DÖNEBİLİR → kalıcı garanti için
+> uygun olunca admin'den o SSS'i bir kez markasız KAYDET (writeBin → Blob da temizlenir). Path B (lokal/sunucu read-modify-write)
+> denenip TIKANDI: get 403 + revalidatePath route build'i bozdu; geçici route kaldırıldı, token temizlendi.
 
 > ⛔ **AKSESUAR-SSS RAKİP MARKA TEMİZLİĞİ (2026-06-27):** "Bemis aksesuarları diğer markalarla
 > uyumlu mu?" SSS yanıtı (accessories kategorisi) rakip marka listesi içeriyordu — TR: "…Bemis
