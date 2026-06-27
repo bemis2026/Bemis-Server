@@ -8,7 +8,8 @@ export type BlogSection =
   | { type: "h3"; text: string }
   | { type: "ul"; items: string[] }
   | { type: "quote"; text: string }
-  | { type: "cta"; text: string; href: string; label: string };
+  | { type: "cta"; text: string; href: string; label: string }
+  | { type: "table"; caption?: string; headers: string[]; rows: string[][] };
 
 export type BlogPost = {
   slug: string;
@@ -1301,12 +1302,14 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "p", text: "Otoyol dinlenme tesisleri, şehir içi hızlı şarj noktaları, filo ve ticari işletmeler. Donanım daha karmaşık ve maliyetlidir; 'yola devam etmek için 20 dakikada hızlı dolum' senaryosuna uygundur." },
 
       { type: "h2", text: "Özet karşılaştırma" },
-      { type: "ul", items: [
-        "Dönüşüm yeri: AC → araçta · DC → istasyonda.",
-        "Hız: AC 7,4–22 kW · DC 50–350+ kW.",
-        "Maliyet: AC uygun · DC yüksek.",
-        "Kullanım: AC ev/iş yeri (uzun park) · DC yol/ticari (hızlı dolum).",
-        "Batarya ömrü: günlük AC şarj daha naziktir; DC'yi gerektiğinde kullanmak idealdir.",
+      { type: "table", caption: "AC ve DC şarjın temel farkları", headers: ["Özellik", "AC Şarj", "DC Hızlı Şarj"], rows: [
+        ["AC→DC dönüşümü", "Araç içinde (on-board charger)", "İstasyon içinde"],
+        ["Tipik güç", "7,4 kW (tek faz) – 22 kW (üç faz)", "50–350+ kW"],
+        ["Hız sınırını belirleyen", "Aracın dahili şarj ünitesi", "İstasyon + batarya kabulü"],
+        ["Soket (Türkiye / Avrupa)", "Type 2", "CCS2"],
+        ["Tipik kullanım", "Ev, iş yeri — uzun park", "Yol, filo — hızlı dolum"],
+        ["Maliyet / kurulum", "Uygun, basit altyapı", "Yüksek, güçlü altyapı"],
+        ["Batarya için", "Günlük şarjda daha nazik", "Ara sıra / gerektiğinde ideal"],
       ]},
 
       { type: "quote", text: "Pratik kural: Her gün evde/işte AC ile yavaş ve ucuz şarj edin; uzun yolda DC hızlı şarjı kullanın." },
@@ -1367,6 +1370,15 @@ export const BLOG_POSTS: BlogPost[] = [
 
       { type: "h2", text: "5) Kurulum ve marka" },
       { type: "p", text: "Şarj cihazı yetkili bir elektrikçi tarafından, tercihen ayrı bir hat ve uygun koruma ile kurulmalıdır. Yedek parça, garanti ve teknik destek için yerli ve ulaşılabilir bir üretici seçmek uzun vadede fark yaratır. Bemis, Bursa'daki kendi tesisinde üretim yapan yerli bir EV şarj ekipmanı üreticisidir; AC Wallbox, taşınabilir cihazlar, kablolar ve adaptörlerle eksiksiz bir ev ekosistemi sunar." },
+
+      { type: "h2", text: "Bemis ürün gamı: hangi çözüm nerede kullanılır?" },
+      { type: "table", caption: "Bemis E-V Charge çözümleri — ihtiyaca göre seçim (yalnızca kendi ürün gamı)", headers: ["Çözüm", "Güç / Akım", "Soket", "Koruma", "OCPP", "Kullanım yeri"], rows: [
+        ["AC Wallbox (Charger · Plus · Pro)", "7,4–22 kW", "Type 2", "IP65 / IP66", "1.6J / 2.0.1", "Ev · iş yeri · site"],
+        ["Taşınabilir (Mini · Mono · Pro Mobile)", "Monofaze & trifaze", "Type 2 / Schuko", "—", "—", "Seyyar · yedek · yolda"],
+        ["DC Hızlı Şarj (BEVDC 40–120)", "40–120 kW", "CCS2", "—", "1.6J / 2.0.1", "Filo · ortak alan · hızlı takviye"],
+        ["Type 2 Şarj Kablosu", "Monofaze/trifaze · 16–32A", "Type 2 ↔ Type 2", "—", "—", "Araç–istasyon bağlantısı"],
+        ["V2L / C2L Adaptör", "Araç çıkışı", "Type 2 → Schuko/CEE", "—", "—", "Araçtan elektrik (kamp/saha)"],
+      ]},
 
       { type: "cta", text: "Eve uygun modeli seçin: Bemis AC Wallbox ve taşınabilir şarj cihazları.", href: "/products/wallbox", label: "Ürünleri İncele" },
     ],

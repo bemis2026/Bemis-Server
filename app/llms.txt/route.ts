@@ -35,8 +35,16 @@ Bemis E-V Charge ürün gamı 8 kategoride ~113 ürün içerir: AC Wallbox şarj
 
 ## Rehberler
 
-- [EV İçin Şarj Cihazı Nasıl Seçilir](https://www.bemisevcharge.com.tr/blog/ev-icin-sarj-cihazi-nasil-secilir): Wallbox seçim rehberi.
-- [OCPP Nedir](https://www.bemisevcharge.com.tr/blog/ocpp-nedir): Açık şarj protokolü ve akıllı yönetim.
+- [EV İçin Şarj Cihazı Nasıl Seçilir](https://www.bemisevcharge.com.tr/blog/ev-icin-sarj-cihazi-nasil-secilir): Ev/iş yeri için wallbox seçim kriterleri (güç, faz, IP, OCPP, yük yönetimi).
+- [OCPP Nedir](https://www.bemisevcharge.com.tr/blog/ocpp-nedir): Açık şarj protokolü (OCPP 1.6J/2.0.1), CSMS ve akıllı şarj yönetimi.
+- [AC ve DC Şarj Farkı Nedir](https://www.bemisevcharge.com.tr/blog/ac-dc-sarj-farki): AC (araç içi dönüşüm) ve DC (istasyon içi dönüşüm) şarjın farkı, hız ve kullanım yerleri.
+- [EV Şarj Soketi Tipleri (Type 2 / CCS2 / CHAdeMO)](https://www.bemisevcharge.com.tr/blog/ev-sarj-soketi-tipleri-type-2-ccs2-chademo): Türkiye/Avrupa soket standartları ve hangi araçta hangisi.
+- [Elektrikli Araç Şarj Süresi: Kaç Saatte Dolar](https://www.bemisevcharge.com.tr/blog/elektrikli-arac-sarj-suresi-kac-saatte-dolar): Şarj süresi hesabı; AC/DC örnek senaryolar, kabul gücü ve taper.
+- [Elektrikli Araç Şarjında Yük Yönetimi (Load Management)](https://www.bemisevcharge.com.tr/blog/elektrikli-arac-sarj-yuk-yonetimi): Statik/dinamik yük dengeleme, faz dengeleme ve OCPP ile çok cihazlı kurulum.
+- [Apartmana / Siteye Şarj İstasyonu Kurulumu](https://www.bemisevcharge.com.tr/blog/apartmana-sarj-istasyonu-kurulumu): Kat malikleri kararı, elektrik altyapısı, yük yönetimi ve faturalandırma.
+- [İş Yerine Şarj İstasyonu Kurulumu](https://www.bemisevcharge.com.tr/blog/is-yerine-sarj-istasyonu-kurulumu): İş yeri/ofis otoparkı için şarj altyapısı, güç planlaması ve yetkilendirme.
+- [Şarj İstasyonu Nasıl Çalışır](https://www.bemisevcharge.com.tr/blog/elektrikli-arac-sarj-istasyonu-nasil-calisir): Pilot sinyali, AC/DC dönüşüm, güvenlik (kaçak akım/topraklama/soket kilidi) ve yetkilendirme.
+- [Araç Filosu için Elektrikli Şarj Çözümleri](https://www.bemisevcharge.com.tr/blog/arac-filosu-elektrikli-sarj-cozumleri): Depo/gece AC, gündüz DC takviye, cihaz sayısı planlaması, RFID/OCPP raporlama.
 
 ## İletişim
 

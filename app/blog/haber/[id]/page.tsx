@@ -31,17 +31,28 @@ export default async function PressPage({ params }: { params: Promise<{ id: stri
   const item = getPress(id);
   if (!item) notFound();
   const url = `/blog/haber/${item.id}`;
+  // wordCount = özet + özgün gövde paragraflarındaki kelime sayısı.
+  const wordCount = [item.summary, ...(item.body ?? [])].join(" ").trim().split(/\s+/).filter(Boolean).length;
+  const articleSection = item.type === "fair" ? "Fuar" : item.type === "social" ? "Sosyal Medya" : "Haber";
   const jsonLd = [
     breadcrumbSchema([
       { name: "Ana Sayfa", url: "/" },
       { name: "Blog", url: "/blog" },
       { name: item.title, url },
     ]),
-    // Tarihli haberlerde Article şeması ekle; tarihsizlerde (uydurma tarih
-    // koymamak için) yalnızca breadcrumb yeterli.
-    ...(item.date
-      ? [articleSchema({ title: item.title, description: item.summary, url, datePublished: item.date })]
-      : []),
+    // Article şeması TÜM haberlere eklenir (datePublished opsiyonel — tarihsizlerde
+    // uydurma tarih KONMAZ, yalnızca diğer alanlar). image yoksa articleSchema
+    // sitenin OG kartına (1200×630) düşer.
+    articleSchema({
+      title: item.title,
+      description: item.summary,
+      url,
+      image: item.image,
+      datePublished: item.date,
+      wordCount,
+      keywords: item.keywords,
+      articleSection,
+    }),
   ];
   return (
     <>

@@ -368,6 +368,38 @@ function Section({ s, d, textPrimary, textMuted }: { s: BlogSection; d: boolean;
           </Link>
         </div>
       );
+    case "table":
+      return (
+        <div className="overflow-x-auto rounded-2xl my-2" style={{ border: `1px solid ${d ? "rgba(255,255,255,0.09)" : "rgba(0,0,0,0.08)"}` }}>
+          <table className="w-full text-left text-[13px] sm:text-sm border-collapse">
+            {s.caption && (
+              <caption className="text-xs px-4 pt-3 pb-1 text-left" style={{ color: textMuted, captionSide: "top" }}>{s.caption}</caption>
+            )}
+            <thead>
+              <tr>
+                {s.headers.map((h, i) => (
+                  <th key={i} scope="col" className="px-3 py-2.5 font-bold align-bottom"
+                    style={{ color: textPrimary, background: d ? "rgba(59,130,246,0.12)" : "rgba(59,130,246,0.08)", borderBottom: `1px solid ${BLUE}55` }}>
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {s.rows.map((row, ri) => (
+                <tr key={ri} style={{ background: ri % 2 ? (d ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.015)") : "transparent" }}>
+                  {row.map((cell, ci) => (
+                    <td key={ci} className="px-3 py-2.5 align-top"
+                      style={{ color: ci === 0 ? textPrimary : textMuted, fontWeight: ci === 0 ? 600 : 400, borderTop: `1px solid ${d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)"}` }}>
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
     default:
       return null;
   }

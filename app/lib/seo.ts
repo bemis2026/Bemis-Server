@@ -465,7 +465,7 @@ export function articleSchema(opts: {
   description: string;
   url: string;
   image?: string;
-  datePublished: string;
+  datePublished?: string;
   dateModified?: string;
   wordCount?: number;
   keywords?: string[];
@@ -483,8 +483,10 @@ export function articleSchema(opts: {
     headline: opts.title,
     description: opts.description,
     image,
-    datePublished: opts.datePublished,
-    dateModified: opts.dateModified ?? opts.datePublished,
+    ...(opts.datePublished && {
+      datePublished: opts.datePublished,
+      dateModified: opts.dateModified ?? opts.datePublished,
+    }),
     author: { "@type": "Organization", name: SITE_NAME, "@id": `${SITE_URL}#organization` },
     publisher: { "@id": `${SITE_URL}#organization` },
     mainEntityOfPage: absolute(opts.url),

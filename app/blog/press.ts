@@ -20,11 +20,13 @@ export type PressItem = {
   summary: string;     // kısa, gerçek özet (kart üzerinde görünür)
   body?: string[];     // iç özet sayfası için ÖZGÜN paragraflar (/blog/haber/[id])
   image?: string;      // haber görseli (kaynağın OG görseli) — kart + özet sayfası
+  keywords?: string[]; // Article JSON-LD keywords (SEO/GEO)
 };
 
 export const PRESS_ITEMS: PressItem[] = [
   {
     id: "electricity-turkey-uc-kita",
+    keywords: ["Bemis", "Made in Türkiye enerji", "EV Charge Show 2025", "FISE 2025", "Power Energy Tanzanya", "yerli EV şarj ihracat", "TÜV sertifikalı şarj"],
     title: "Bemis, Kasım Ayında Üç Kıtada Türkiye'nin Enerji Vizyonunu Temsil Ediyor",
     source: "Electricity Turkey",
     url: "https://electricityturkey.com/haber/bemis_kasim_ayinda_uc_kitada_turkiyenin_enerji_vizyonunu_temsil_ediyor_-27097.html",
@@ -41,6 +43,7 @@ export const PRESS_ITEMS: PressItem[] = [
   },
   {
     id: "eko-haber-yogun-ilgi",
+    keywords: ["Bemis E-V Charge", "EV Charge Show", "yerli şarj cihazı", "elektrikli araç şarj fuarı", "şarj kablosu", "şarj aksesuarları"],
     title: "Bemis E-V Charge ürünlerine yoğun ilgi",
     source: "Eko Haber",
     url: "https://www.ekohaber.com.tr/bemis-e-v-charge-urunlerine-yogun-ilgi",
@@ -56,6 +59,7 @@ export const PRESS_ITEMS: PressItem[] = [
   },
   {
     id: "ev-charge-show-2025",
+    keywords: ["EV Charge Show 2025", "İstanbul EV şarj fuarı", "Bemis yerli üretim", "AC şarj cihazı", "V2L C2L adaptör", "şarj ünitesi ekipmanları"],
     title: "Bemis E-V Charge, EV Charge Show 2025'te",
     source: "EV Charge Show",
     url: "https://evchargeshow.com/",
@@ -70,6 +74,7 @@ export const PRESS_ITEMS: PressItem[] = [
   },
   {
     id: "sektorum-uretime-basladi",
+    keywords: ["Bemis şarj ekipmanları", "yerli EV şarj üretimi", "AC şarj cihazı", "%100 yerli yazılım", "şarj prizi", "elektrikli araç şarj üreticisi"],
     title: "Bemis Şarj Ekipmanları Üretimine Başladı",
     source: "Sektörüm Dergisi",
     url: "https://www.sektorumdergisi.com/bemis-sarj-ekipmanlari-uretimine-basladi/",
@@ -83,6 +88,7 @@ export const PRESS_ITEMS: PressItem[] = [
   },
   {
     id: "sektorum-v2l-c2l-adaptorler",
+    keywords: ["V2L adaptör", "C2L adaptör", "araçtan elektrik", "yerli V2L üretimi", "Bemis E-V Charge", "Vehicle-to-Load", "Mini Adaptör"],
     title: "Bemis E-V Charge: Elektrikli Araç Teknolojisinde Devrim Yaratan V2L ve C2L Adaptörleri",
     source: "Sektörüm Dergisi",
     url: "https://www.sektorumdergisi.com/bemis-e-v-charge-elektrikli-arac-teknolojisinde-devrim-yaratan-v2l-ve-c2l-adaptorleri/",
@@ -96,6 +102,7 @@ export const PRESS_ITEMS: PressItem[] = [
   },
   {
     id: "sektorum-yerli-urunler-tuketiciyle",
+    keywords: ["Bemis Charger", "Charger Plus", "Charger Pro", "OCPP 1.6J", "IP66 IP65 şarj", "yerli EV şarj", "RFID NFC Wi-Fi şarj"],
     title: "Bemis'in %100 Yerli EV Şarj Ürünleri E-V Charge'lar Tüketiciyle Buluştu",
     source: "Sektörüm Dergisi",
     url: "https://www.sektorumdergisi.com/bemisin-0-yerli-elektrikli-arac-sarj-urunleri-e-v-chargelar-tuketiciyle-bulustu/",
