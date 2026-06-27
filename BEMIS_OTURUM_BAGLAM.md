@@ -24,7 +24,9 @@
 > navbar 'İletişim' + sitemap; /bursa'ya da LocalBusiness). **#9** H1 bitişik düzeltildi (homepage Hero + /kurumsal: `<br/>`
 > sınırına `{" "}`) + 4 sayfa `<title>` ≤60 (export/products/uretici/blog). **#10** i.ibb.co preconnect+dns-prefetch.
 > **#13 YENİ blog** `elektrikli-arac-sarj-istasyonu-kurulum-rehberi` (HowTo 6-step + FAQ + tablo). **#14a YENİ /llms-full.txt**
-> (`app/llms-full.txt/`: sözlük + 10 rehber TAM gövde; glossary+posts'tan). Tümü tsc 0 + curl doğrulandı.
+> (`app/llms-full.txt/`: sözlük + 10 rehber TAM gövde; glossary+posts'tan). **#12** 15 sözlük tanımı ~50→~109 kelimeye
+> (`glossary.ts` definition; passage citability; alt-ajan, sadece definition). **#14b** 19 blog Article'ına gerçek
+> `dateModified: "2026-06-27"` (hepsi bugün FAQ-derinleştirme/yeni rehberle düzenlendi). Tümü tsc 0 + curl doğrulandı.
 > **⏸️ BİLİNÇLİ ERTELENEN (gerekçeli — yapma DEME, riskli):** **#6 cache + #7 bundle** → ürün sayfaları KASITLI force-dynamic
 > (ISR-Writes kota patlamasını önlemek için, §0 eski not). Cache/bundle değişikliği prod-incident riski → ayrı test-odaklı iş,
 > körlemesine YAPMA. **#11 VideoObject** kullanıcının YouTube video URL'i gerek. **#12** passage citability (FAQ-derinleştirme
