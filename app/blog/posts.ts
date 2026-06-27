@@ -38,6 +38,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Ev, site veya iş yerine elektrikli araç şarj istasyonu nasıl kurulur? Planlamadan izinlere, altyapıdan cihaz seçimine ve devreye almaya kadar tüm adımları tek rehberde topladık.",
     category: "Rehber",
     datePublished: "2026-06-27",
+    dateModified: "2026-06-27",
     readingMinutes: 10,
     keywords: [
       "elektrikli araç şarj istasyonu kurulumu",
@@ -153,6 +154,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "excerpt": "Yük yönetimi, bir tesisin elektrik kapasitesini aşmadan birden fazla aracı aynı anda şarj etmeyi sağlayan akıllı güç dağıtım sistemidir. Bu yazıda statik ve dinamik yük dengeleme, faz dengeleme ve OCPP'nin rolünü pratik örneklerle açıklıyoruz.",
     "category": "Teknik",
     "datePublished": "2026-06-20",
+    "dateModified": "2026-06-27",
     "readingMinutes": 8,
     "keywords": [
       "ev şarj yük yönetimi",
@@ -384,6 +386,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "excerpt": "Araç filosunu elektrikliye geçiren şirketler için depo ve gece şarjı, cihaz sayısı planlaması, yük yönetimi ve sürücü bazlı raporlamanın nasıl kurgulandığını anlatan kapsamlı bir rehber. AC wallbox, CCS2 DC ve OCPP uyumlu modellerin filo senaryosundaki rolünü açıklar.",
     "category": "Rehber",
     "datePublished": "2026-06-20",
+    "dateModified": "2026-06-27",
     "readingMinutes": 8,
     "keywords": [
       "filo şarj çözümleri",
@@ -673,6 +676,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "excerpt": "Bir elektrikli araç şarj istasyonunun perde arkasında ne olduğunu uçtan uca anlatıyoruz: araç ile istasyon nasıl haberleşir, AC ve DC yolu nerede farklılaşır, güvenlik nasıl sağlanır. Pilot sinyalinden batarya %80 sonrası yavaşlamaya kadar tüm aşamalar tek yazıda.",
     "category": "Teknik",
     "datePublished": "2026-06-20",
+    "dateModified": "2026-06-27",
     "readingMinutes": 8,
     "keywords": [
       "ev şarj istasyonu nasıl çalışır",
@@ -934,6 +938,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Elektrikli araç şarjını anlamak için bilmeniz gereken terimleri net, kısa tanımlarla gruplara ayırarak topladık: akım tipleri, soketler, güç birimleri, akıllı şarj protokolleri ve güvenlik sınıfları.",
     category: "Teknik",
     datePublished: "2026-06-16",
+    dateModified: "2026-06-27",
     readingMinutes: 7,
     keywords: ["elektrikli araç şarj terimleri", "ev şarj sözlüğü", "Type 2 nedir", "CCS2 nedir", "AC DC şarj farkı", "kW kWh farkı", "OCPP nedir", "Mod 2 Mod 3", "V2L", "wallbox", "yük yönetimi"],
     body: [
@@ -1024,6 +1029,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Elektrikli araç şarj süresi temelde batarya kapasitesine ve şarj gücüne bağlıdır. Basit formülle AC ve DC için süreyi nasıl hesaplayacağınızı, aracın kabul gücü sınırının neden belirleyici olduğunu örnek hesaplarla açıklıyoruz.",
     category: "Rehber",
     datePublished: "2026-06-16",
+    dateModified: "2026-06-27",
     readingMinutes: 6,
     keywords: ["elektrikli araç şarj süresi", "ev kaç saatte dolar", "ac şarj süresi", "dc hızlı şarj süresi", "11 kw şarj süresi", "22 kw şarj süresi", "onboard charger", "type 2", "ccs2", "wallbox şarj süresi"],
     body: [
@@ -1100,6 +1106,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Elektrikli araç şarj soketleri kafa karıştırabilir: Type 2, CCS2, CHAdeMO ne demek? Her birini tanımlayıp farklarını net şekilde karşılaştırıyor, Türkiye'de hangisinin geçerli olduğunu ve evde ile uzun yolda hangi soketi kullanacağınızı açıklıyoruz.",
     category: "Teknik",
     datePublished: "2026-06-16",
+    dateModified: "2026-06-27",
     readingMinutes: 6,
     keywords: ["ev şarj soketi tipleri", "type 2 soket", "ccs2 soket", "chademo", "type 2 ccs2 farkı", "elektrikli araç şarj konnektörü", "türkiye ev şarj soketi", "ac dc şarj", "type 2 kablo", "ev şarj standartları"],
     body: [
@@ -1173,6 +1180,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Türkiye'de yerli EV şarj cihazı üreticisi arıyorsanız net cevap: Bemis E-V Charge, Bursa'da üreten, 60+ ülkeye ihracat yapan, CE/IP65/OCPP uyumlu yerli wallbox, Type 2 kablo, V2L ve DC şarj markasıdır.",
     category: "Marka",
     datePublished: "2026-06-16",
+    dateModified: "2026-06-27",
     readingMinutes: 7,
     keywords: ["yerli ev şarj cihazı üreticisi", "türkiye yerli wallbox üreticisi", "elektrikli araç şarj cihazı üreticisi türkiye", "ocpp uyumlu türk şarj cihazı", "type 2 şarj kablosu yerli üretici", "v2l adaptör üreticisi türkiye", "bemis ev charge"],
     body: [
@@ -1241,6 +1249,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Hangi şehirde elektrikli araç şarjı nasıl planlanır? İstanbul, Ankara, İzmir ve Bursa için ev ve iş yeri şarj istasyonu, AC kurulum ve cihaz seçimi rehberi.",
     category: "Rehber",
     datePublished: "2026-06-14",
+    dateModified: "2026-06-27",
     readingMinutes: 7,
     keywords: ["istanbul ev şarj istasyonu", "ankara ev şarj", "izmir ev şarj istasyonu", "bursa ev şarj", "şehir içi elektrikli araç şarj", "ev tipi şarj istasyonu kurulumu"],
     body: [
@@ -1292,6 +1301,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Ev şarj istasyonu maliyeti cihazdan kuruluma kadar nelere bağlı? Fiyatı belirleyen faktörleri ve yerli üretimin avantajını sade bir rehberde topladık.",
     category: "Rehber",
     datePublished: "2026-06-14",
+    dateModified: "2026-06-27",
     readingMinutes: 6,
     keywords: ["ev şarj istasyonu maliyeti", "ev şarj cihazı fiyatı", "elektrikli araç şarj maliyeti", "wallbox fiyatı", "evde şarj elektrik gideri"],
     body: [
@@ -1336,6 +1346,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Elektrikli aracınızın bataryasını seyyar bir elektrik kaynağına çevirin: V2L nedir, Ioniq 5'te kaç kW güç alırsınız ve doğru V2L/C2L adaptörünü nasıl seçersiniz?",
     category: "Rehber",
     datePublished: "2026-06-06",
+    dateModified: "2026-06-27",
     readingMinutes: 6,
     keywords: ["ioniq 5 v2l", "v2l nedir", "c2l adaptör", "v2l adaptör", "araçtan elektrik", "vehicle to load"],
     body: [
@@ -1404,6 +1415,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "AC mı DC mi? İkisinin nasıl çalıştığını, hız ve maliyet farkını ve ev/istasyon için hangisinin doğru olduğunu basitçe açıklıyoruz.",
     category: "Rehber",
     datePublished: "2026-06-06",
+    dateModified: "2026-06-27",
     readingMinutes: 5,
     keywords: ["ac dc şarj farkı", "ac şarj nedir", "dc hızlı şarj", "elektrikli araç şarj türleri"],
     body: [
@@ -1460,6 +1472,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Kaç kW? Prizli mi kablolu mu? Akıllı özellikler ve güvenlik neden önemli? Ev tipi şarj cihazı seçimini adım adım anlatıyoruz.",
     category: "Rehber",
     datePublished: "2026-06-06",
+    dateModified: "2026-06-27",
     readingMinutes: 6,
     keywords: ["ev şarj cihazı seçimi", "ev tipi şarj cihazı", "kaç kw şarj cihazı", "wallbox seçimi", "prizli kablolu şarj"],
     body: [
@@ -1524,6 +1537,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Togg'un V2L özelliğiyle aracınızı taşınabilir bir prize çevirin: nasıl çalışır, ne için kullanılır ve hangi V2L adaptörü gerekir?",
     category: "Rehber",
     datePublished: "2026-06-06",
+    dateModified: "2026-06-27",
     readingMinutes: 5,
     keywords: ["togg v2l", "togg araçtan elektrik", "v2l adaptör", "togg şarj"],
     body: [
@@ -1568,6 +1582,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "16A mı 32A mı? Kaç metre? Type 2 şarj kablosu seçerken bakılacak amper, güç, uzunluk ve kalite kriterlerini sade anlatıyoruz.",
     category: "Rehber",
     datePublished: "2026-06-06",
+    dateModified: "2026-06-27",
     readingMinutes: 5,
     keywords: ["şarj kablosu", "type 2 şarj kablosu", "ev şarj kablosu seçimi", "elektrikli araç şarj kablosu"],
     body: [
@@ -1623,6 +1638,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "OCPP, şarj istasyonunuzu hangi yazılıma isterseniz bağlamanızı sağlayan açık standarttır. Ne işe yarar ve neden OCPP uyumlu cihaz almalısınız?",
     category: "Teknik",
     datePublished: "2026-06-06",
+    dateModified: "2026-06-27",
     readingMinutes: 5,
     keywords: ["ocpp nedir", "ocpp uyumlu şarj cihazı", "ocpp 1.6j", "şarj yönetim sistemi"],
     body: [
@@ -1671,6 +1687,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Sitenizin otoparkına şarj istasyonu mu kuracaksınız? Kat malikleri kararı, altyapı, yük yönetimi ve faturalandırma için bilmeniz gerekenler.",
     category: "Rehber",
     datePublished: "2026-06-06",
+    dateModified: "2026-06-27",
     readingMinutes: 6,
     keywords: ["apartmana şarj kurulumu", "siteye şarj istasyonu", "otopark şarj istasyonu", "apartman ev şarj"],
     body: [
@@ -1731,6 +1748,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Ofis, AVM veya işletme otoparkına şarj istasyonu kurmak neden mantıklı? Müşteri çekmekten ek gelire 6 somut avantaj ve nelere dikkat etmeli.",
     category: "Rehber",
     datePublished: "2026-06-06",
+    dateModified: "2026-06-27",
     readingMinutes: 5,
     keywords: ["iş yerine şarj kurulumu", "ofis şarj istasyonu", "ticari şarj istasyonu", "işletme ev şarj"],
     body: [
@@ -1782,6 +1800,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Tesla'nızı evde nasıl şarj edersiniz? Type 2 AC şarj, gerekli kablo/wallbox ve Supercharger farkını sade anlatıyoruz.",
     category: "Rehber",
     datePublished: "2026-06-06",
+    dateModified: "2026-06-27",
     readingMinutes: 5,
     keywords: ["tesla şarj", "tesla type 2", "tesla model 3 şarj", "tesla ev şarj"],
     body: [
