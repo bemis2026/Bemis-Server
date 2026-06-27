@@ -7,15 +7,24 @@ import ProductDetailClient from "./ProductDetailClient";
 
 type DetailProps = ComponentProps<typeof ProductDetailClient>;
 
-// DİNAMİK (SSR) — ISR DEĞİL.
-// Neden: dynamicParams=true + ISR iken bot/tarayıcı taramaları geçersiz
-// /products/<rastgele>/<rastgele> yollarını 200 sayfa olarak render edip ISR
-// cache'e YAZIYORDU (iki segment = sınırsız kombinasyon). Her benzersiz yol =
-// 1 ISR yazma → Vercel "ISR Writes" limiti (200k/ay) doluyor, proje
-// duraklatılma riskine giriyordu. force-dynamic ile sayfa her istekte sunucuda
-// render edilir, ISR'a HİÇ yazılmaz; içerik her zaman GÜNCEL; yeni ürünler
-// redeploy beklemeden çalışır. (Görünür içerik zaten client-side taze geliyor.)
-export const dynamic = "force-dynamic";
+// STATİK (ISR, SINIRLI yazma) — generateStaticParams + dynamicParams=false + uzun revalidate.
+// ⚠️ Eski force-dynamic'in sebebi: dynamicParams=TRUE + ISR iken botlar
+// /products/<rastgele>/<rastgele> üretip ISR'a SINIRSIZ yazıyordu (200k/ay kota
+// patlaması — gerçek olay). YENİ YÖNTEM AMPLİFİKASYONU GİDERİR: dynamicParams=FALSE
+// ile YALNIZ gerçek ürün yolları üretilir, bilinmeyen URL 404 → amplifikasyon YOK.
+// revalidate=86400 (1 gün) → ~113 sayfa × günde 1 ≈ aylık birkaç bin yazma (200k'nın
+// çok altında). Ürün verisi build'de getServerProducts (data/products.json fallback);
+// yeni ürünler redeploy ile yayınlanır (Blob okuması kapalı, içerik zaten commit'le geliyor).
+// ⚠️ ISR Writes metriğini birkaç gün İZLE; beklenmedik artışta revalidate'i uzat / geri al.
+export const dynamicParams = false;
+export const revalidate = 86400;
+
+export async function generateStaticParams() {
+  const categories = await getServerProducts();
+  return categories.flatMap((c) =>
+    (c.products ?? []).map((p) => ({ id: c.id, productId: p.id })),
+  );
+}
 
 export async function generateMetadata({
   params,

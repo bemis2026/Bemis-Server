@@ -7,16 +7,20 @@ import ProductCategoryClient from "./ProductCategoryClient";
 
 type ClientCategory = NonNullable<ComponentProps<typeof ProductCategoryClient>["initialCategory"]>;
 
-// DİNAMİK (SSR) — ISR DEĞİL.
-// Neden: dynamicParams=true + ISR iken bot/tarayıcı taramaları geçersiz
-// /products/<rastgele> yollarını 200 sayfa olarak render edip ISR cache'e
-// YAZIYORDU. Her benzersiz yol = 1 ISR yazma → Vercel "ISR Writes" limiti
-// (200k/ay) doluyor, proje duraklatılma riskine giriyordu. revalidate=3600
-// bunu çözmedi çünkü her YENİ yol yine bir kez yazıyor.
-// force-dynamic ile sayfa her istekte sunucuda render edilir, ISR'a HİÇ
-// yazılmaz; içerik her zaman GÜNCEL; yeni ürünler redeploy beklemeden çalışır.
-// (Kullanıcının gördüğü içerik zaten client-side /api/products'tan taze geliyor.)
-export const dynamic = "force-dynamic";
+// STATİK (ISR) — generateStaticParams (8 kategori) + dynamicParams=false + uzun revalidate.
+// ⚠️ Eski force-dynamic'in sebebi: dynamicParams=TRUE + ISR iken botlar
+// /products/<rastgele> üretip ISR'a sınırsız yazıyordu (200k/ay kota patlaması).
+// YENİ YÖNTEM AMPLİFİKASYONU GİDERİR: dynamicParams=FALSE ile yalnız gerçek kategori
+// yolları üretilir, bilinmeyen URL 404 → amplifikasyon YOK. revalidate=86400 (1 gün).
+// Veri build'de getServerProducts (data/products.json fallback); yeni kategori redeploy ile.
+// ⚠️ ISR Writes metriğini birkaç gün İZLE; artışta revalidate'i uzat / geri al.
+export const dynamicParams = false;
+export const revalidate = 86400;
+
+export async function generateStaticParams() {
+  const categories = await getServerProducts();
+  return categories.map((c) => ({ id: c.id }));
+}
 
 export async function generateMetadata({
   params,
