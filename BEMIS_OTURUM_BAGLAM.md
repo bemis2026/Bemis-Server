@@ -27,10 +27,14 @@
 > (`app/llms-full.txt/`: sözlük + 10 rehber TAM gövde; glossary+posts'tan). **#12** 15 sözlük tanımı ~50→~109 kelimeye
 > (`glossary.ts` definition; passage citability; alt-ajan, sadece definition). **#14b** 19 blog Article'ına gerçek
 > `dateModified: "2026-06-27"` (hepsi bugün FAQ-derinleştirme/yeni rehberle düzenlendi). Tümü tsc 0 + curl doğrulandı.
-> **⏸️ BİLİNÇLİ ERTELENEN (gerekçeli — yapma DEME, riskli):** **#6 cache + #7 bundle** → ürün sayfaları KASITLI force-dynamic
-> (ISR-Writes kota patlamasını önlemek için, §0 eski not). Cache/bundle değişikliği prod-incident riski → ayrı test-odaklı iş,
-> körlemesine YAPMA. **#11 VideoObject** kullanıcının YouTube video URL'i gerek. **#12** passage citability (FAQ-derinleştirme
-> zaten karşıladı). **#9 kategori başlıkları** (CATEGORY_SEO keyword-optimize, kısaltma riski) + **#14b dateModified** (fiddly).
+> **#6 cache — YAPILDI+CANLI (commit 5c8b3fe):** ürün+kategori sayfaları force-dynamic → **static**: `generateStaticParams` +
+> **`dynamicParams=false`** (bilinmeyen URL 404 → bot AMPLİFİKASYONU YOK; eski force-dynamic kararının asıl korkusu çözüldü) +
+> `revalidate=86400`. Canlı doğrulandı: gerçek ürün/kategori 200, uydurma URL 404, **X-Vercel-Cache MISS→HIT** (TTFB düştü).
+> ⚠️ ISR Writes düşük (~113 sayfa, kotanın çok altında) ama **birkaç gün metriği İZLE**; artışta revalidate'i uzat/geri al.
+> ⚠️ Yeni ürün artık redeploy ister (Blob okuması kapalı zaten content'i commit'le veriyordu → tutarlı). **#7 bundle:** ana
+> sayfa ZATEN tam `next/dynamic` kod-bölünmüş (globe react-globe.gl ssr:false dahil); actionable kısım bitik. Kalan kabuk
+> ağırlığı = framer→CSS gibi derin/riskli refactor (profil gerek) → yapılmadı. **#11 video** kullanıcının YouTube URL'i bekliyor
+> (SVG diyagram YAPILDI). **#9 kategori başlıkları** keyword-optimize (62kr marjinal, korundu).
 
 > 🚨 **KRİTİK İNFRA BULGUSU — SİTE BLOB DEĞİL data/content.json OKUYOR (2026-06-27):** `vercel link bemis-server` +
 > `env pull production` ile doğrulandı: bemis-server'ın **`BLOB_READ_WRITE_TOKEN`'ı APEIRON blob store'una bakıyor**
