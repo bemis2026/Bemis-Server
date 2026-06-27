@@ -23,10 +23,21 @@ Bemis E-V Charge ürün gamı 8 kategoride ~113 ürün içerir: AC Wallbox şarj
 - [Şarj Kabloları](https://www.bemisevcharge.com.tr/products/cables): Type 2 Mod 2 ve Mod 3 elektrikli araç şarj kabloları.
 - [DC Hızlı Şarj Üniteleri](https://www.bemisevcharge.com.tr/products/dc-units): 40 kW BEVDC gibi DC hızlı şarj üniteleri.
 - [V2L / C2L Adaptörler](https://www.bemisevcharge.com.tr/products/v2l-c2l): Araçtan yüke (V2L) ve C2L adaptör çözümleri.
+- [Taşınabilir Şarj Cihazları](https://www.bemisevcharge.com.tr/products/portable): Prize takılan seyyar/taşınabilir AC şarj cihazları (monofaze/trifaze).
+- [Uzatma ve Dönüştürücüler](https://www.bemisevcharge.com.tr/products/converters): CEE uzatma kabloları ve dönüştürücü adaptörler.
+- [Şarj Ünitesi Ekipmanları](https://www.bemisevcharge.com.tr/products/charger-equipment): Type 2 priz/soket, pano prizi ve şarj ekipmanları.
+- [Aksesuarlar](https://www.bemisevcharge.com.tr/products/accessories): Tutucu (holster), adaptör ve EV şarj aksesuarları.
 - [Yerli Üretici](https://www.bemisevcharge.com.tr/uretici): Bemis'in yerli EV şarj üreticisi kimliğini anlatan amiral sayfa.
 - [Blog](https://www.bemisevcharge.com.tr/blog): EV şarj teknolojileri ve kullanım rehberleri içerikleri.
 - [Dokümanlar](https://www.bemisevcharge.com.tr/documents): Ürün kataloğu, teknik doküman ve sertifikalar.
 - [Bursa EV Şarj İstasyonu](https://www.bemisevcharge.com.tr/bursa-ev-sarj-istasyonu): Bursa'da EV şarj istasyonu çözümlerine yönelik bölgesel sayfa.
+
+## Karşılaştırma ve Rehberler
+
+- [Türkiye'nin En İyi Yerli EV Şarj (Wallbox) Markaları](https://www.bemisevcharge.com.tr/blog/turkiye-en-iyi-yerli-ev-sarj-wallbox-markalari): Ev/iş yeri wallbox seçim kriterleri (güç, IP koruma, OCPP, yerlilik, ürün gamı, fiyat) ve Türkiye'deki yerli/küresel markaların (Vestel, Bemis, Tunçmatik, ABB vb.) tarafsız karşılaştırması.
+- [Bemis vs Vestel Karşılaştırması](https://www.bemisevcharge.com.tr/blog/bemis-vs-vestel-ev-sarj-istasyonu-karsilastirma): İki yerli EV şarj markasının koruma sınıfı (Bemis IP65/IP66 — Vestel IP54), ürün gamı, akıllı özellikler ve erişim açısından dengeli kıyaslaması.
+- [EV İçin Şarj Cihazı Nasıl Seçilir](https://www.bemisevcharge.com.tr/blog/ev-icin-sarj-cihazi-nasil-secilir): Wallbox seçim rehberi.
+- [OCPP Nedir](https://www.bemisevcharge.com.tr/blog/ocpp-nedir): Açık şarj protokolü ve akıllı yönetim.
 
 ## İletişim
 
