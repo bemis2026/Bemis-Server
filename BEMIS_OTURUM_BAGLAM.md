@@ -13,6 +13,23 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🎯 **KAPSAMLI SEO/GEO ON-SITE DENETİMİ — P0+P1+P2 (2026-06-27, CANLI · commit'ler 202e92f→d53eae7):**
+> A-Z denetim sonrası on-site düzeltmeler. **YAPILDI+canlı:** **#1 hreflang** (homepage SAHTE 'en'=/?lang=en KALDIRILDI →
+> tr+x-default; /products, kategoriler, ürünler, /uretici, /bursa, /kurumsal, /blog'a tr+x-default; /export en+x-default).
+> **#2 og:image** 11 sayfaya (yeni `ogImage()`/`OG_URL` helper, 1200×630+alt+twitter; ürün foto/post kapağı KORUNUR).
+> **#3 schema:** kategori hattı **Product+AggregateOffer → ItemList** (`categoryProductSchema`→`categoryListSchema`; kategori
+> sayfaları zaten CollectionPage); productSchema image **dedupe** + **additionalProperty** (specs→PropertyValue). **#4 NAP:**
+> ORG_ADDRESS **Yeşil Cad. No:31, 16140 Bursa** + postalCode (tel +90 224 433 02 16 / info@bemisevcharge.com — KANONİK, kullanıcı
+> teyit etti). **#5 YENİ /iletisim** (`app/iletisim/`: NAP+harita+ContactPage+LocalBusiness; yeni `localBusinessSchema` helper;
+> navbar 'İletişim' + sitemap; /bursa'ya da LocalBusiness). **#9** H1 bitişik düzeltildi (homepage Hero + /kurumsal: `<br/>`
+> sınırına `{" "}`) + 4 sayfa `<title>` ≤60 (export/products/uretici/blog). **#10** i.ibb.co preconnect+dns-prefetch.
+> **#13 YENİ blog** `elektrikli-arac-sarj-istasyonu-kurulum-rehberi` (HowTo 6-step + FAQ + tablo). **#14a YENİ /llms-full.txt**
+> (`app/llms-full.txt/`: sözlük + 10 rehber TAM gövde; glossary+posts'tan). Tümü tsc 0 + curl doğrulandı.
+> **⏸️ BİLİNÇLİ ERTELENEN (gerekçeli — yapma DEME, riskli):** **#6 cache + #7 bundle** → ürün sayfaları KASITLI force-dynamic
+> (ISR-Writes kota patlamasını önlemek için, §0 eski not). Cache/bundle değişikliği prod-incident riski → ayrı test-odaklı iş,
+> körlemesine YAPMA. **#11 VideoObject** kullanıcının YouTube video URL'i gerek. **#12** passage citability (FAQ-derinleştirme
+> zaten karşıladı). **#9 kategori başlıkları** (CATEGORY_SEO keyword-optimize, kısaltma riski) + **#14b dateModified** (fiddly).
+
 > 🚨 **KRİTİK İNFRA BULGUSU — SİTE BLOB DEĞİL data/content.json OKUYOR (2026-06-27):** `vercel link bemis-server` +
 > `env pull production` ile doğrulandı: bemis-server'ın **`BLOB_READ_WRITE_TOKEN`'ı APEIRON blob store'una bakıyor**
 > (`list` → 13 apeiron blob'u, **`bins/content.json` YOK**; env'de ayrıca `APEIRON_PIN` var = projeler karışmış).
