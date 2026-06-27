@@ -400,6 +400,21 @@ function Section({ s, d, textPrimary, textMuted }: { s: BlogSection; d: boolean;
           </table>
         </div>
       );
+    case "figure":
+      return (
+        <figure className="my-2">
+          <div
+            role="img"
+            aria-label={s.alt}
+            className="rounded-2xl p-4 overflow-x-auto flex justify-center"
+            style={{ background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.02)", border: `1px solid ${d ? "rgba(255,255,255,0.09)" : "rgba(0,0,0,0.08)"}`, color: textPrimary }}
+            dangerouslySetInnerHTML={{ __html: s.svg }}
+          />
+          {s.caption && (
+            <figcaption className="text-xs mt-2 text-center" style={{ color: textMuted }}>{s.caption}</figcaption>
+          )}
+        </figure>
+      );
     default:
       return null;
   }
