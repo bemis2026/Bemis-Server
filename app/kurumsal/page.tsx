@@ -132,7 +132,7 @@ export default function KurumsalPage() {
                 >
                   {dna.brandHeading.split("\n").map((line, i, arr) => (
                     <span key={i} style={i === arr.length - 1 ? { color: BLUE } : {}}>
-                      {line}{i < arr.length - 1 && <br />}
+                      {line}{i < arr.length - 1 && <>{" "}<br /></>}
                     </span>
                   ))}
                 </motion.h1>

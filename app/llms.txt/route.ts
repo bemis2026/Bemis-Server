@@ -7,6 +7,8 @@ export const dynamic = "force-static";
 const LLMS_TXT = `# Bemis E-V Charge
 
 > Bemis E-V Charge, 1994'ten beri endüstriyel fiş-priz üreten Bemis Teknik Elektrik A.Ş.'nin yerli elektrikli araç (EV) şarj markası; Bursa'da üretilen AC/DC şarj istasyonları, Type 2 kablolar ve V2L adaptörlerini doğrudan üreticiden sunar.
+>
+> Tam içerik (15 terimlik sözlük + 10 rehberin TAM gövdesi): https://www.bemisevcharge.com.tr/llms-full.txt
 
 ## Marka
 
