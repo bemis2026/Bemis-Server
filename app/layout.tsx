@@ -21,8 +21,8 @@ import ContentLoadingBar from "./components/ContentLoadingBar";
 import ContentErrorToast from "./components/ContentErrorToast";
 import LanguageURLSync from "./components/LanguageURLSync";
 import JsonLd from "./components/JsonLd";
-import { organizationSchema, websiteSchema } from "./lib/seo";
-import { getServerSiteContent } from "./lib/server-content";
+import { organizationSchema, websiteSchema, productSchema } from "./lib/seo";
+import { getServerSiteContent, getServerProducts } from "./lib/server-content";
 
 const BASE_URL = "https://www.bemisevcharge.com.tr";
 
@@ -138,9 +138,9 @@ export async function generateMetadata(): Promise<Metadata> {
       default: "Bemis E-V Charge | Yerli EV Şarj Ekipmanı Üreticisi",
       template: "%s | Bemis E-V Charge",
     },
-    // ~155 karakter, hedef: "yerli EV şarj üreticisi" + "AC/DC şarj istasyonu".
+    // ~158 karakter, hedef: "yerli EV şarj üreticisi" + "AC/DC şarj istasyonu".
     description:
-      "Bemis E-V Charge — yerli EV şarj üreticisi. AC/DC şarj istasyonu, Type 2 AC Wallbox, taşınabilir şarj cihazı ve şarj kabloları. CE & IP65, 60+ ülkeye ihracat.",
+      "Bemis E-V Charge — yerli EV şarj üreticisi. AC/DC şarj istasyonu, Type 2 Wallbox, taşınabilir şarj cihazı ve kablolar. CE & IP65, 60+ ülkeye ihracat.",
     keywords: [
       "EV şarj istasyonu", "elektrikli araç şarj", "AC wallbox", "DC şarj kablosu",
       "Type 2 şarj kablosu", "V2L adaptör", "yerli üretim EV şarj", "Bemis",
@@ -149,7 +149,18 @@ export async function generateMetadata(): Promise<Metadata> {
     authors: [{ name: "Bemis Teknik Elektrik A.Ş.", url: BASE_URL }],
     creator: "Bemis Teknik Elektrik A.Ş.",
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
-    alternates: { canonical: "/" },
+    alternates: {
+      canonical: "/",
+      // hreflang (Context7-doğrulanmış syntax): TR=/ , EN=/?lang=en , x-default=TR.
+      // ⚠️ EN içeriği şu an İSTEMCİ-taraflı uygulanıyor (SSR her ikisinde TR) +
+      // canonical paylaşımlı → EN sinyali KISMİ. Tam etki için EN'nin sunucu-
+      // render + kendi canonical'ı gerekir (ayrı/riskli iş). Markup geçerli + zararsız.
+      languages: {
+        tr: "/",
+        en: "/?lang=en",
+        "x-default": "/",
+      },
+    },
     // Marka yönü: beyaz B logo her yerde görünmeli. Tek sıkıntı
     // light-mode tab/adres çubuğunda (beyaz arka plan) — şeffaf beyaz
     // logo kaybolur. Onun için light-mode için "siyah kare içinde
@@ -195,10 +206,24 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [meta, initialContent] = await Promise.all([
+  const [meta, initialContent, products] = await Promise.all([
     getContentMeta(),
     getServerSiteContent(),
+    getServerProducts(),
   ]);
+  // Ana sayfadaki amiral (featured) ürünler için TAM Product+Offer JSON-LD
+  // (name, image, description, brand, fiyat/availability). Service OfferCatalog'a
+  // EK — onu SİLMEZ. productSchema detay sayfalarıyla aynı (image+offer+sku tam) →
+  // çıplak-Product uyarısı vermez (113 ürünün hepsi fiyatlı + resimli).
+  const featuredCfg = (((initialContent as { featured?: Array<{ categoryId: string; productId: string; visible?: boolean }> } | null)?.featured) ?? []).filter((f) => f && f.visible !== false);
+  const featuredProductSchemas = featuredCfg
+    .map((f) => {
+      const cat = products.find((c) => c.id === f.categoryId);
+      const prod = cat?.products?.find((p) => p.id === f.productId);
+      if (!cat || !prod) return null;
+      return productSchema({ product: prod, categoryName: cat.name, categoryId: cat.id });
+    })
+    .filter((x): x is NonNullable<typeof x> => x !== null);
   const orgLogo = meta.logoDark || meta.logoLight || `${BASE_URL}/logo.png`;
   const sameAs = [meta.social.linkedin, meta.social.instagram, meta.social.twitter, meta.social.youtube, meta.social.facebook].filter(Boolean);
   const jsonLd = [
@@ -221,6 +246,7 @@ export default async function RootLayout({
       }),
     }),
     websiteSchema(),
+    ...featuredProductSchemas,
   ];
   return (
     <html lang="tr" className={`${inter.variable} scroll-smooth`} suppressHydrationWarning>

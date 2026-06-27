@@ -136,7 +136,7 @@ export default function ReferenceProjects() {
                       ⚠️ Kullanıcı kararı: bu hale (cover+imagePos) DÖNÜLDÜ, manuel odakla yönetilecek. */}
                   <img
                     src={item.image}
-                    alt={item.title ?? "Bemis E-V Charge referans projesi"}
+                    alt={item.title?.trim() ? item.title : "Bemis E-V Charge elektrikli araç şarj istasyonu referans projesi"}
                     className="w-full h-full object-cover pointer-events-none"
                     style={{ objectPosition: item.imagePos || "center" }}
                     loading="lazy"
