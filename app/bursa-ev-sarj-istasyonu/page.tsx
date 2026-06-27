@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import JsonLd from "../components/JsonLd";
-import { serviceSchema, faqSchema, breadcrumbSchema, ogImage, OG_URL } from "../lib/seo";
+import { serviceSchema, faqSchema, breadcrumbSchema, localBusinessSchema, ogImage, OG_URL } from "../lib/seo";
 import { getCityPage } from "../lib/cities";
 import CityLandingClient from "../components/CityLandingClient";
 
@@ -46,6 +46,7 @@ export default function BursaCityPage() {
         "Kurumsal & filo şarj çözümleri",
       ],
     }),
+    localBusinessSchema({ url: `/${SLUG}`, areaServed: city.region }),
     faqSchema(city.faq),
   ];
   return (

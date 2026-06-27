@@ -21,6 +21,7 @@ const navLinks = [
   { label: "Kurumsal",    href: "#b2bcta"           },
   { label: "Hesaplayıcı", href: "#calculator"       },
   { label: "Dökümanlar",  href: "/documents"        },
+  { label: "İletişim",    href: "/iletisim"         },
 ];
 
 // Tiny brand mark — the actual white Bemis favicon (the same PNG we

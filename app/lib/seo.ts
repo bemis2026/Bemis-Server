@@ -232,6 +232,33 @@ export function ogImage(alt: string) {
   return [{ url: OG_URL, width: 1200, height: 630, alt }];
 }
 
+// LocalBusiness — kanonik NAP (ORG_*) ile. /iletisim ve şehir landing'lerinde
+// yerel-SEO sinyali. ⚠️ geo (lat/long) + openingHoursSpecification gerçek veri
+// gelince eklenmeli (şu an uydurma değil → yok).
+export function localBusinessSchema(opts: { url: string; areaServed?: string }): JsonLdObject {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${absolute(opts.url)}#localbusiness`,
+    name: SITE_NAME,
+    legalName: ORG_LEGAL_NAME,
+    url: absolute(opts.url),
+    image: OG_URL,
+    telephone: ORG_PHONE,
+    email: ORG_EMAIL,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: ORG_ADDRESS.street,
+      addressLocality: ORG_ADDRESS.locality,
+      addressRegion: ORG_ADDRESS.region,
+      postalCode: ORG_ADDRESS.postalCode,
+      addressCountry: ORG_ADDRESS.country,
+    },
+    ...(opts.areaServed && { areaServed: opts.areaServed }),
+    parentOrganization: { "@id": `${SITE_URL}#organization` },
+  };
+}
+
 export function websiteSchema(): JsonLdObject {
   return {
     "@context": "https://schema.org",
@@ -320,6 +347,12 @@ export function productSchema(opts: {
   const url = `${SITE_URL}/products/${categoryId}/${product.id}`;
   const offer = extractOffer(product);
   const kw = productKeywords(product);
+  // Teknik özellikler → additionalProperty (güç/faz/soket/IP/kablo). Fiyat grubu hariç (offers'ta).
+  const addProps = (product.specs ?? [])
+    .filter(g => !/fiyat|price/i.test(g.group))
+    .flatMap(g => g.items ?? [])
+    .filter(it => it && it.label && it.value)
+    .map(it => ({ "@type": "PropertyValue", name: it.label, value: it.value }));
   return {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -333,6 +366,7 @@ export function productSchema(opts: {
     manufacturer: { "@id": `${SITE_URL}#organization` },
     ...(categoryName && { category: categoryName }),
     ...(kw && { keywords: kw }),
+    ...(addProps.length > 0 && { additionalProperty: addProps }),
     url,
     ...(offer && {
       offers: {

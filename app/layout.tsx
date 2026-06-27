@@ -271,6 +271,9 @@ export default async function RootLayout({
             <head>'e taşır.) */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://connect.facebook.net" />
+        {/* i.ibb.co hero + ürün görsellerini barındırıyor — LCP/ilk boya için preconnect. */}
+        <link rel="preconnect" href="https://i.ibb.co" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://i.ibb.co" />
         <JsonLd data={jsonLd} />
         <ThemeProvider>
           <LanguageProvider>

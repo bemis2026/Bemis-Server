@@ -194,9 +194,9 @@ export default function Hero() {
               }}
             />
             <h1 className={`text-3xl xs:text-4xl sm:text-5xl font-black tracking-tight leading-[1.18] ${headlineClass}`} style={{ textShadow }}>
-              <E field="hero.headline1">{hero.headline1}</E><br />
+              <E field="hero.headline1">{hero.headline1}</E>{" "}<br />
               <E field="hero.headline2">{hero.headline2}</E>
-              {cleanWords.length > 0 && <> <RotatingWord words={cleanWords} /></>}
+              {cleanWords.length > 0 && <> <RotatingWord words={cleanWords} /></>}{" "}
               <br />
               <span
                 style={{
