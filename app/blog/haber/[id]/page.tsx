@@ -40,14 +40,14 @@ export default async function PressPage({ params }: { params: Promise<{ id: stri
       { name: "Blog", url: "/blog" },
       { name: item.title, url },
     ]),
-    // Article şeması TÜM haberlere eklenir (datePublished opsiyonel — tarihsizlerde
-    // uydurma tarih KONMAZ, yalnızca diğer alanlar). image yoksa articleSchema
-    // sitenin OG kartına (1200×630) düşer.
+    // Article şeması TÜM haberlere. Şema image'i KASITLI olarak item.image GEÇMEZ →
+    // sitenin /opengraph-image kartına (1200×630, boyutlu, self-host) düşer. Dış kaynak
+    // haber fotoları (electricityturkey, ekohaber…) boyut+host garantisi vermez; gösterim
+    // görseli (item.image) BlogShell'de ayrı kullanılır. datePublished opsiyonel (tarih yoksa atlanır).
     articleSchema({
       title: item.title,
       description: item.summary,
       url,
-      image: item.image,
       datePublished: item.date,
       wordCount,
       keywords: item.keywords,
