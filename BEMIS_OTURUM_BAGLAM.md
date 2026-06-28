@@ -31,7 +31,12 @@
 > okumak = headers()→tüm site dinamik olur, statik ürünleri bozar; route-group restructure riskli → client HtmlLang
 > kalıyor), **2.2** ürün yorum hacmi (gerçek ek yorum yok, uydurma yasak), **2.5** http+non-www→https+www tek-hop
 > (**Vercel domain ayarı = KULLANICI**, kod değil; www'yi primary yap). **TIER 3:** 3.1 cache ✅ zaten; 3.2 bundle
-> AYRI branch+profil ister (riskli, yapılmadı). **TIER 4:** görsel/video verisi gelince (SVG diyagram + VideoObject).
+> AYRI branch+profil ister (riskli, yapılmadı). **TIER 4.1 SVG ✅:** 3 özgün inline-SVG teknik diyagram
+> eklendi (`posts.ts` figure): **Type 2 vs CCS2 pin dizilimi** → `ev-sarj-soketi-tipleri-...` postu; **Mod 2 vs
+> Mod 3** + **DLM yük paylaşımı** → `...kurulum-rehberi` postu (currentColor+#3B82F6, etiketli, BlogShell figure
+> render). 4.2 VideoObject = kullanıcıda video yok (sonra). **PWA install KALDIRILDI** (manifest `display: browser`
+> — kullanıcı "uygulama yükle" istemini istemedi; theme-color/SEO kaldı). **KULLANICI tarafı DURUM:** Wikidata P159
+> Bursa ✅, Vercel www primary ✅, backlink (bemis.com.tr + devam) ✅; ürün yorumları + video kullanıcıdan gelecek.
 
 
 
