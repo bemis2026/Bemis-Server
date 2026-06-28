@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import JsonLd from "../components/JsonLd";
 import { serviceSchema, faqSchema, breadcrumbSchema, ogImage, OG_URL } from "../lib/seo";
 import ExportLandingClient from "./ExportLandingClient";
+import HtmlLang from "../components/HtmlLang";
 
 const URL_PATH = "/export";
 
@@ -77,6 +78,8 @@ export default function ExportPage() {
   return (
     <>
       <JsonLd data={jsonLd} />
+      {/* İngilizce sayfa → <html lang="en"> (istemci tarafında; bkz. HtmlLang). */}
+      <HtmlLang lang="en" />
       <ExportLandingClient />
     </>
   );

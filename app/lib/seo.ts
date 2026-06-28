@@ -342,6 +342,22 @@ export function productKeywords(product: ProductShape): string | undefined {
   return uniq.length ? uniq.join(", ") : undefined;
 }
 
+// Türkçe "Ay YYYY" (ör. "Mart 2025") veya ISO tarihi → ISO "YYYY-MM-01".
+// Tanınmazsa undefined döner → datePublished EMIT EDİLMEZ (uydurma tarih yok).
+const TR_AYLAR: Record<string, string> = {
+  ocak: "01", şubat: "02", subat: "02", mart: "03", nisan: "04", mayıs: "05",
+  mayis: "05", haziran: "06", temmuz: "07", ağustos: "08", agustos: "08",
+  eylül: "09", eylul: "09", ekim: "10", kasım: "11", kasim: "11", aralık: "12", aralik: "12",
+};
+function toIsoDate(date?: string): string | undefined {
+  if (!date) return undefined;
+  const d = date.trim();
+  if (/^\d{4}-\d{2}(-\d{2})?$/.test(d)) return d.length === 7 ? `${d}-01` : d;
+  const m = d.toLowerCase().match(/^([a-zçğıöşü]+)\s+(\d{4})$/);
+  const mm = m ? TR_AYLAR[m[1]] : undefined;
+  return mm && m ? `${m[2]}-${mm}-01` : undefined;
+}
+
 export function productSchema(opts: {
   product: ProductShape;
   categoryName?: string;
@@ -381,19 +397,22 @@ export function productSchema(opts: {
       bestRating: 5,
       worstRating: 1,
     };
-    reviewBlock.review = prodReviews.map((r) => ({
-      "@type": "Review",
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: Math.max(1, Math.min(5, r.rating)),
-        bestRating: 5,
-        worstRating: 1,
-      },
-      author: { "@type": "Person", name: r.author },
-      reviewBody: r.text,
-      ...(r.date && /^\d/.test(r.date) && { datePublished: r.date }),
-      ...(r.platform && { publisher: { "@type": "Organization", name: r.platform } }),
-    }));
+    reviewBlock.review = prodReviews.map((r) => {
+      const iso = toIsoDate(r.date);
+      return {
+        "@type": "Review",
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: Math.max(1, Math.min(5, r.rating)),
+          bestRating: 5,
+          worstRating: 1,
+        },
+        author: { "@type": "Person", name: r.author },
+        reviewBody: r.text,
+        ...(iso && { datePublished: iso }),
+        ...(r.platform && { publisher: { "@type": "Organization", name: r.platform } }),
+      };
+    });
   }
   return {
     "@context": "https://schema.org",

@@ -13,6 +13,19 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🔧 **ON-SITE 88→ (hreflang ÇİFT-YÖNLÜ + review datePublished) (2026-06-28b, CANLI):**
+> **#1 hreflang resiprokal:** anasayfa `app/page.tsx` artık SERVER sarmalayıcı (tüm UI →
+> `app/HomeClient.tsx`, git mv) → `en→/export` geri-dönen etiketi ekler (Google çifti artık
+> görür; client sayfa metadata veremiyordu, refactor bunu çözdü). /export → yeni `HtmlLang`
+> client bileşeni `document.documentElement.lang="en"` yapar (SSR lang="tr" KALIR; tam SSR
+> override route-group ROOT layout ister = riskli, yapılmadı). **#2 datePublished:** 6 ürün
+> review'ına TR "Ay YYYY"→ISO (`toIsoDate` helper, ör. Kasım 2024→2024-11-01). ⚠️ Ek GERÇEK
+> yorum YOK (uydurma yasak) → reviewCount=1 kalıyor; daha fazlası gerçek Trendyol/HB yorumu
+> ister (kullanıcıda). **#3 geo:** HÂLÂ kullanıcı koordinatı bekliyor (/iletisim Maps iframe
+> `q=adres-metni` kullanıyor, coords yok; US-only WebSearch Türk binasında güvenilmez; yanlış
+> coord GBP ile çelişir → uydurmadım). tsc 0 + next build 0 (anasayfa ○ static korundu).
+> **[KULLANICI]:** GBP/Maps'te pin → sağ tık → enlem,boylam ver → `localBusinessSchema({geo})`.
+
 > 🔧 **ON-SITE DENETİM 81→86 — FOOTER NAP + ÜRÜN YILDIZ + LocalBusiness (2026-06-28, CANLI):**
 > **#1 Footer NAP regresyonu:** footer'ı besleyen `contact` verisi ESKİ "Yeşil cd. NO:19" + home-footer eski email gösteriyordu
 > → `data/content.json` + `content-en.json`: adres→**"Yeşil Cad. No:31"**, addressSub→"16140 Bursa, Türkiye", gömülü-EN
