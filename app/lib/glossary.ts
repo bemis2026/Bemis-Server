@@ -5,8 +5,11 @@
 // Her tanım 40-60 kelime, kendi kendine yeten DOĞRUDAN cevaptır. İçerik
 // blog gövdelerindeki fact-check'li bilgilere dayanır; uydurma spec yoktur.
 
+import { DIAGRAM_TYPE2_CCS2, DIAGRAM_MOD23, DIAGRAM_DLM, type Diagram } from "./diagrams";
+
 export type GlossaryTerm = {
   slug: string;
+  diagram?: Diagram;   // sözlük sayfasında server-render edilen teknik SVG diyagram (figure+caption)
   term: string;        // başlık (H1) — "Type 2 nedir?"
   abbr: string;        // kısa etiket (kart + liste)
   short: string;       // tek cümlelik özet (index kartı + meta description çekirdeği)
@@ -19,6 +22,7 @@ export type GlossaryTerm = {
 export const GLOSSARY: GlossaryTerm[] = [
   {
     slug: "type-2",
+    diagram: DIAGRAM_TYPE2_CCS2,
     term: "Type 2 Nedir?",
     abbr: "Type 2",
     short: "Türkiye ve Avrupa'nın standart AC şarj soketi (IEC 62196-2).",
@@ -46,6 +50,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   },
   {
     slug: "ccs2",
+    diagram: DIAGRAM_TYPE2_CCS2,
     term: "CCS2 Nedir?",
     abbr: "CCS2",
     short: "Türkiye ve Avrupa'nın standart DC hızlı şarj soketi (Combo 2).",
@@ -206,6 +211,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   },
   {
     slug: "yuk-yonetimi-dlm",
+    diagram: DIAGRAM_DLM,
     term: "Yük Yönetimi (DLM) Nedir?",
     abbr: "Yük yönetimi / DLM",
     short: "Sınırlı gücü birden çok şarj cihazına akıllıca paylaştıran sistem.",
@@ -312,6 +318,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   },
   {
     slug: "mod-2-mod-3",
+    diagram: DIAGRAM_MOD23,
     term: "Mod 2 ve Mod 3 Şarj Nedir?",
     abbr: "Mod 2 / Mod 3",
     short: "Prizden taşınabilir (Mod 2) ve sabit istasyondan (Mod 3) AC şarj.",

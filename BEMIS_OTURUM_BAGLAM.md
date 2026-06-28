@@ -13,6 +13,15 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🔧 **SVG DİYAGRAM YERLEŞİM DÜZELTMESİ (2026-06-28d, CANLI):** 3 teknik SVG önce SADECE blog postlarındaydı;
+> denetim `/sozluk/*` bekliyordu (orada `<text>`=0, `<figure>`=0). **KÖK SEBEP = yanlış route** (render/client/
+> deploy hatası DEĞİL — GlossaryClient "use client" ama statik JSX'i SSR'lanıyor; FAQ/tanım ham HTML'de). **FİX:**
+> SVG'ler `app/lib/diagrams.ts` **TEK KAYNAK**'a alındı (`DIAGRAM_TYPE2_CCS2/MOD23/DLM`) → `glossary.ts` 4 terime
+> (`type-2`, `ccs2`, `mod-2-mod-3`, `yuk-yonetimi-dlm`) `diagram` alanı + `GlossaryClient` term-mode'a
+> `<figure>`+svg(dangerouslySetInnerHTML)+`<figcaption>` (server-render → ham HTML'de `<text>` etiketleri). Blog
+> inline kopyalar şimdilik DURUYOR (diagrams.ts ile aynı; dedup sonraki tur). tsc 0 + next build 0 (sözlük ● SSG).
+
+
 > 🟦 **TIER 1 ON-SITE (mesh + FAQ + manifest + ImageObject) (2026-06-28c, CANLI):**
 > Kapsamlı TIER planının TIER 1'i. **1.3 İÇ-LİNK MESH (en değerli):** `glossary.ts` → `TERM_SEE_ALSO`
 > haritası (terim↔terim); `definedTermSchema(t, seeAlso)` → `seeAlso` JSON-LD; `GlossaryClient` term-mode'a

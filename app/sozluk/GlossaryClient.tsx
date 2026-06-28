@@ -83,6 +83,13 @@ export default function GlossaryClient(props: Props) {
               {props.term.definition}
             </div>
 
+            {props.term.diagram && (
+              <figure className="mb-10">
+                <div role="img" aria-label={props.term.diagram.alt} className="rounded-2xl px-4 py-5 overflow-x-auto" style={{ background: surface, border: `1px solid ${border}`, color: textPrimary }} dangerouslySetInnerHTML={{ __html: props.term.diagram.svg }} />
+                <figcaption className="text-sm mt-2.5 leading-relaxed" style={{ color: textMuted }}>{props.term.diagram.caption}</figcaption>
+              </figure>
+            )}
+
             {props.term.faq && props.term.faq.length > 0 && (
               <div className="mb-10">
                 <h2 className="text-lg font-black mb-4" style={{ color: textPrimary }}>Sıkça Sorulan Sorular</h2>
