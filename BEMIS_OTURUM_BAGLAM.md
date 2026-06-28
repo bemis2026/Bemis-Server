@@ -44,7 +44,9 @@
 > AYRI branch+profil ister (riskli, yapılmadı). **TIER 4.1 SVG ✅:** 3 özgün inline-SVG teknik diyagram
 > eklendi (`posts.ts` figure): **Type 2 vs CCS2 pin dizilimi** → `ev-sarj-soketi-tipleri-...` postu; **Mod 2 vs
 > Mod 3** + **DLM yük paylaşımı** → `...kurulum-rehberi` postu (currentColor+#3B82F6, etiketli, BlogShell figure
-> render). 4.2 VideoObject = kullanıcıda video yok (sonra). **PWA install KALDIRILDI** (manifest `display: browser`
+> render). 4.2 VideoObject = kullanıcıda video yok (sonra). **PWA/manifest TAMAMEN KALDIRILDI** (2026-06-28e: önce `display: browser` yaptım ama kullanıcı HÂLÂ
+> "uygulamada aç" görüyordu → layout `manifest:` satırı + `public/site.webmanifest` SİLİNDİ; manifest yoksa
+> tarayıcı PWA install/app affordance sunamaz; theme-color `viewport.themeColor`'dan kalır, site %100 normal web). _(eski: manifest `display: browser`_
 > — kullanıcı "uygulama yükle" istemini istemedi; theme-color/SEO kaldı). **KULLANICI tarafı DURUM:** Wikidata P159
 > Bursa ✅, Vercel www primary ✅, backlink (bemis.com.tr + devam) ✅; ürün yorumları + video kullanıcıdan gelecek.
 

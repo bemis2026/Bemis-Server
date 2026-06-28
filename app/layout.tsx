@@ -157,7 +157,9 @@ export async function generateMetadata(): Promise<Metadata> {
     authors: [{ name: "Bemis Teknik Elektrik A.Ş.", url: BASE_URL }],
     creator: "Bemis Teknik Elektrik A.Ş.",
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
-    manifest: "/site.webmanifest",
+    // NOT: web app manifest KALDIRILDI — kullanıcı "uygulamada aç / yükle" istemini
+    // istemiyor. Manifest olmadan tarayıcı PWA install/app affordance sunamaz.
+    // theme-color ayrı (viewport.themeColor) → korunur; site %100 normal web sitesi.
     alternates: {
       canonical: "/",
       // hreflang: TR=/ , x-default=TR. ⚠️ SAHTE "en"=/?lang=en KALDIRILDI — aynı TR
