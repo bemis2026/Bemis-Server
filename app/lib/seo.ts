@@ -8,6 +8,7 @@ export const ORG_LEGAL_NAME = "Bemis Teknik Elektrik A.Ş.";
 // sameAs sabit baseline'dır → içerik verisi build'de okunamasa bile her zaman yayında olur.
 const ORG_SAME_AS = [
   "https://www.wikidata.org/wiki/Q140262626", // Bemis E-V Charge Wikidata varlığı — entity bağı (Google KG + YZ)
+  "https://maps.app.goo.gl/xXSxhLffa5WDA81V7", // Google Business Profile (GBP) — site↔harita kartı entity bağı (yerel SEO)
   "https://www.linkedin.com/company/104588906",
   "https://www.instagram.com/bemis.evcharge/",
   "https://www.youtube.com/@bemisteknikelektrika.s.2025",

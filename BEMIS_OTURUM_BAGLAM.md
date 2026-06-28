@@ -24,6 +24,8 @@
 > ister (kullanıcıda). **#3 geo: TAMAM** — kullanıcı GBP pin koordinatını verdi →
 > `export const ORG_GEO = {lat:40.245558, lng:28.945849}` (seo.ts, TEK KAYNAK) →
 > `localBusinessSchema` artık HER ZAMAN `geo` emit eder (/bursa) + /iletisim inline `geo`.
+> Ayrıca kullanıcı GBP Maps linkini verdi → `ORG_SAME_AS`'a eklendi (`maps.app.goo.gl/...` —
+> site↔GBP kartı entity bağı, her sayfada organizationSchema.sameAs; harita/yerel SEO sinyali).
 > tsc 0 (geo küçük değişiklik; full build önceki commit'te yeşildi, Vercel build net).
 
 > 🔧 **ON-SITE DENETİM 81→86 — FOOTER NAP + ÜRÜN YILDIZ + LocalBusiness (2026-06-28, CANLI):**
