@@ -19,7 +19,8 @@
 > SVG'ler `app/lib/diagrams.ts` **TEK KAYNAK**'a alındı (`DIAGRAM_TYPE2_CCS2/MOD23/DLM`) → `glossary.ts` 4 terime
 > (`type-2`, `ccs2`, `mod-2-mod-3`, `yuk-yonetimi-dlm`) `diagram` alanı + `GlossaryClient` term-mode'a
 > `<figure>`+svg(dangerouslySetInnerHTML)+`<figcaption>` (server-render → ham HTML'de `<text>` etiketleri). Blog
-> inline kopyalar şimdilik DURUYOR (diagrams.ts ile aynı; dedup sonraki tur). tsc 0 + next build 0 (sözlük ● SSG).
+> inline kopyalar DEDUP EDİLDİ → `posts.ts` artık `diagrams.ts`'ten import ediyor (`{type:"figure", ...DIAGRAM_X}`);
+> `diagrams.ts` GERÇEK tek kaynak (yalnız orijinal AC/DC figürü blog'da inline kaldı). tsc 0 + next build 0 (sözlük ● SSG).
 
 
 > 🟦 **TIER 1 ON-SITE (mesh + FAQ + manifest + ImageObject) (2026-06-28c, CANLI):**
