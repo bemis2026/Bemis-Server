@@ -14,9 +14,11 @@
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
 > 🎨 **GÖRSEL/TASARIM DENETİMİ (2026-06-28f) — skor 58/100 (seo-visual ajan + kod):**
-> **DÜZELTİLEN (canlı):** **K2 iletişim haritası** — `<iframe src=google.com/maps>` vardı ama CSP `frame-src`'te
-> google.com YOKTU → tarayıcı blokluyordu (boş alan). next.config'e `https://www.google.com https://maps.google.com`
-> eklendi → harita yüklenir. **AÇIK DESIGN KARARLARI (kullanıcıda, ben tek-taraflı redesign yapmadım):**
+> **TEŞHİS EDİLEN (ama GERİ ALINDI — kullanıcı "sadece değerlendir, değişiklik yapma" dedi):** **K2 iletişim haritası**
+> = BUG: `<iframe src=google.com/maps?output=embed>` var ama CSP `frame-src`'te google.com YOK → tarayıcı blokluyor
+> (boş alan). FIX 1 satır (next.config frame-src'e `https://www.google.com https://maps.google.com` ekle) — uygulandı,
+> doğrulandı (CSP header'da göründü), sonra kullanıcı isteğiyle GERİ ALINDI. Onay verilince anında re-apply. ⚠️ ŞU AN
+> kullanıcı yalnız DEĞERLENDİRME istiyor, hiçbir görsel/kod değişikliği YAPMA. **AÇIK DESIGN KARARLARI (kullanıcıda, ben tek-taraflı redesign yapmadım):**
 > **K1 (kritik) tema tutarsızlığı** — site %60 KOYU (ana/products/kurumsal) ama sözlük/blog/export AÇIK/beyaz →
 > "siteyi değiştirdim mi?" hissi; sistematik kural lazım (hep-koyu / hep-açık / koyu-nav+açık-içerik hibrit).
 > **K3 ürün listesi** kart ayırt-edilebilirliği düşük (koyu kart+koyu ürün foto → kayboluyor; açık inner-card öneri).
