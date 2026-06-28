@@ -21,10 +21,10 @@
 > override route-group ROOT layout ister = riskli, yapılmadı). **#2 datePublished:** 6 ürün
 > review'ına TR "Ay YYYY"→ISO (`toIsoDate` helper, ör. Kasım 2024→2024-11-01). ⚠️ Ek GERÇEK
 > yorum YOK (uydurma yasak) → reviewCount=1 kalıyor; daha fazlası gerçek Trendyol/HB yorumu
-> ister (kullanıcıda). **#3 geo:** HÂLÂ kullanıcı koordinatı bekliyor (/iletisim Maps iframe
-> `q=adres-metni` kullanıyor, coords yok; US-only WebSearch Türk binasında güvenilmez; yanlış
-> coord GBP ile çelişir → uydurmadım). tsc 0 + next build 0 (anasayfa ○ static korundu).
-> **[KULLANICI]:** GBP/Maps'te pin → sağ tık → enlem,boylam ver → `localBusinessSchema({geo})`.
+> ister (kullanıcıda). **#3 geo: TAMAM** — kullanıcı GBP pin koordinatını verdi →
+> `export const ORG_GEO = {lat:40.245558, lng:28.945849}` (seo.ts, TEK KAYNAK) →
+> `localBusinessSchema` artık HER ZAMAN `geo` emit eder (/bursa) + /iletisim inline `geo`.
+> tsc 0 (geo küçük değişiklik; full build önceki commit'te yeşildi, Vercel build net).
 
 > 🔧 **ON-SITE DENETİM 81→86 — FOOTER NAP + ÜRÜN YILDIZ + LocalBusiness (2026-06-28, CANLI):**
 > **#1 Footer NAP regresyonu:** footer'ı besleyen `contact` verisi ESKİ "Yeşil cd. NO:19" + home-footer eski email gösteriyordu

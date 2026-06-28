@@ -105,6 +105,8 @@ export type AggregateReviewInput = {
 const ORG_PHONE = "+90 224 433 02 16";
 const ORG_EMAIL = "info@bemisevcharge.com";
 const ORG_ADDRESS = { street: "Yeşil Cad. No:31", locality: "Bursa", region: "Bursa", postalCode: "16140", country: "TR" } as const;
+// Gerçek işletme koordinatı (GBP pin — Nilüfer/OSB Bursa, kullanıcı verdi). LocalBusiness geo tek kaynağı.
+export const ORG_GEO = { lat: 40.245558, lng: 28.945849 } as const;
 
 export function organizationSchema(opts: {
   logo?: string;
@@ -261,9 +263,11 @@ export function localBusinessSchema(opts: { url: string; areaServed?: string; ge
       opens: "08:30",
       closes: "18:00",
     },
-    ...(opts.geo && {
-      geo: { "@type": "GeoCoordinates", latitude: opts.geo.lat, longitude: opts.geo.lng },
-    }),
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: opts.geo?.lat ?? ORG_GEO.lat,
+      longitude: opts.geo?.lng ?? ORG_GEO.lng,
+    },
     parentOrganization: { "@id": `${SITE_URL}#organization` },
   };
 }

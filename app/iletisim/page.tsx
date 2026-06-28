@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import JsonLd from "../components/JsonLd";
-import { breadcrumbSchema, ogImage, OG_URL, SITE_URL, type JsonLdObject } from "../lib/seo";
+import { breadcrumbSchema, ogImage, OG_URL, SITE_URL, ORG_GEO, type JsonLdObject } from "../lib/seo";
 import ContactPageClient from "./ContactPageClient";
 
 const URL_PATH = "/iletisim";
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
 };
 
-// LocalBusiness — page'e özgü inline (seo.ts'te yardımcı yok).
-// TODO: geo lat/long + openingHoursSpecification kullanıcı verisiyle eklenecek.
+// LocalBusiness — page'e özgü inline (seo.ts'te yardımcı yok). geo + openingHours
+// artık GERÇEK veriyle dolu (geo = ORG_GEO, GBP pin koordinatı; mesai sitede görünür).
 const localBusiness: JsonLdObject = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -57,6 +57,7 @@ const localBusiness: JsonLdObject = {
     opens: "08:30",
     closes: "18:00",
   },
+  geo: { "@type": "GeoCoordinates", latitude: ORG_GEO.lat, longitude: ORG_GEO.lng },
   parentOrganization: { "@id": `${SITE}#organization` },
 };
 
