@@ -1,0 +1,17 @@
+{
+  "name": "Bemis E-V Charge",
+  "short_name": "Bemis E-V",
+  "description": "Yerli üretim elektrikli araç şarj çözümleri: AC Wallbox, taşınabilir şarj, Type 2 kablo, V2L adaptör ve DC hızlı şarj — doğrudan üreticiden.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#E31E24",
+  "lang": "tr-TR",
+  "dir": "ltr",
+  "categories": ["business", "shopping", "utilities"],
+  "icons": [
+    { "src": "/favicon-on-black-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/favicon-on-black-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

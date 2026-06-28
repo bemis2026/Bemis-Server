@@ -483,7 +483,7 @@ export default function ProductDetailPage({
                                 background: surfaceAlt,
                               }}
                             >
-                              <Image src={src} alt="" width={56} height={56} className="w-full h-full object-contain p-1" />
+                              <Image src={src} alt={`${product.name} küçük görsel ${i + 1}`} width={56} height={56} className="w-full h-full object-contain p-1" />
                             </button>
                           ))}
                         </div>

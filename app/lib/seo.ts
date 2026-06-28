@@ -426,11 +426,22 @@ export function productSchema(opts: {
     name: product.name,
     ...(product.subtitle && { alternateName: product.subtitle }),
     ...(product.description && { description: product.description }),
-    ...(imgs.length > 0 && { image: imgs }),
+    ...(imgs.length > 0 && {
+      // ImageObject (sadece URL değil) → AI multimodal + Google Görseller alıntı bağlamı.
+      image: imgs.map((u) => ({
+        "@type": "ImageObject",
+        contentUrl: u,
+        name: product.name,
+        caption: `${product.name}${categoryName ? ` — ${categoryName}` : ""} · Bemis E-V Charge yerli üretim`,
+      })),
+    }),
     ...(product.code && { sku: product.code, mpn: product.code }),
     brand: { "@type": "Brand", name: SITE_NAME },
     manufacturer: { "@id": `${SITE_URL}#organization` },
     ...(categoryName && { category: categoryName }),
+    ...(CATEGORY_TERM[categoryId] && {
+      about: { "@type": "DefinedTerm", "@id": `${SITE_URL}/sozluk/${CATEGORY_TERM[categoryId]}#definedterm` },
+    }),
     ...(kw && { keywords: kw }),
     ...(addProps.length > 0 && { additionalProperty: addProps }),
     ...reviewBlock,
@@ -464,6 +475,17 @@ export function productSchema(opts: {
  *  zengin sonucu Product tipinde çıkar. Marka-geneli "4.9/500+" buraya GİRMEZ
  *  (self-serving). Eşleşme curated çünkü review.product ("AC Wallbox 7kW") tek bir
  *  ürün id'sine otomatik çözülemez; review METNİ kW içermez → ürün-agnostik, güvenli. */
+// Kategori → ilgili sözlük terimi (Product.about → DefinedTerm mesh). Belirsiz olanlar (converters,
+// accessories) eşlenmez. @id formatı definedTermSchema ile birebir (#definedterm).
+const CATEGORY_TERM: Record<string, string> = {
+  wallbox: "wallbox",
+  cables: "type-2",
+  "v2l-c2l": "v2l",
+  "dc-units": "ccs2",
+  portable: "mod-2-mod-3",
+  "charger-equipment": "ccs2",
+};
+
 const PRODUCT_REVIEW_KEY: Record<string, string> = {
   "charger-2-kablolu": "AC Wallbox 7kW",
   "charger-plus-2-kablolu": "AC Wallbox 22kW",
@@ -651,7 +673,7 @@ export function definedTermSetSchema(terms: { slug: string; abbr: string; defini
   };
 }
 
-export function definedTermSchema(t: { slug: string; abbr: string; definition: string }): JsonLdObject {
+export function definedTermSchema(t: { slug: string; abbr: string; definition: string }, seeAlso?: string[]): JsonLdObject {
   return {
     "@context": "https://schema.org",
     "@type": "DefinedTerm",
@@ -661,6 +683,7 @@ export function definedTermSchema(t: { slug: string; abbr: string; definition: s
     url: `${SITE_URL}/sozluk/${t.slug}`,
     inLanguage: "tr-TR",
     inDefinedTermSet: { "@type": "DefinedTermSet", "@id": GLOSSARY_SET_ID, name: GLOSSARY_SET_NAME, url: `${SITE_URL}/sozluk` },
+    ...(seeAlso && seeAlso.length > 0 && { seeAlso }), // terim↔terim mesh (TERM_SEE_ALSO)
   };
 }
 

@@ -8,7 +8,7 @@ import { useTheme } from "../context/ThemeContext";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import Footer from "../components/Footer";
-import type { GlossaryTerm } from "../lib/glossary";
+import { TERM_SEE_ALSO, type GlossaryTerm } from "../lib/glossary";
 
 const BLUE = "#3B82F6";
 const VIEWPORT = { once: true, margin: "-60px" } as const;
@@ -83,6 +83,20 @@ export default function GlossaryClient(props: Props) {
               {props.term.definition}
             </div>
 
+            {props.term.faq && props.term.faq.length > 0 && (
+              <div className="mb-10">
+                <h2 className="text-lg font-black mb-4" style={{ color: textPrimary }}>Sıkça Sorulan Sorular</h2>
+                <div className="flex flex-col gap-3">
+                  {props.term.faq.map((f, i) => (
+                    <div key={i} className="rounded-2xl px-5 py-4" style={{ background: surface, border: `1px solid ${border}` }}>
+                      <h3 className="text-[15px] font-bold mb-1.5" style={{ color: textPrimary }}>{f.q}</h3>
+                      <p className="text-sm leading-relaxed" style={{ color: textMuted }}>{f.a}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {props.term.related && props.term.related.length > 0 && (
               <div className="mb-10">
                 <h2 className="text-sm font-bold uppercase tracking-wider mb-3" style={{ color: textMuted }}>İlgili içerik</h2>
@@ -102,6 +116,24 @@ export default function GlossaryClient(props: Props) {
                 Ürünleri İncele <RiArrowRightLine size={15} />
               </Link>
             </div>
+
+            {(() => {
+              const seeAlso = (TERM_SEE_ALSO[props.term.slug] ?? [])
+                .map((s) => props.terms.find((t) => t.slug === s))
+                .filter((t): t is GlossaryTerm => Boolean(t));
+              return seeAlso.length > 0 ? (
+                <div className="mb-8">
+                  <h2 className="text-sm font-bold uppercase tracking-wider mb-3" style={{ color: textMuted }}>İlgili Terimler</h2>
+                  <div className="flex flex-wrap gap-2.5">
+                    {seeAlso.map((t) => (
+                      <Link key={t.slug} href={`/sozluk/${t.slug}`} className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-transform hover:scale-[1.03]" style={{ background: surface, border: `1px solid ${border}`, color: textPrimary }}>
+                        {t.abbr} <RiArrowRightLine size={14} style={{ color: accent }} />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : null;
+            })()}
 
             <h2 className="text-sm font-bold uppercase tracking-wider mb-3" style={{ color: textMuted }}>Diğer terimler</h2>
             <div className="flex flex-wrap gap-2">

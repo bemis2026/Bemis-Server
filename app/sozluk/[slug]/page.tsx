@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import JsonLd from "../../components/JsonLd";
-import { definedTermSchema, breadcrumbSchema, ogImage, OG_URL } from "../../lib/seo";
-import { allTerms, getTerm } from "../../lib/glossary";
+import { definedTermSchema, breadcrumbSchema, faqSchema, ogImage, OG_URL, SITE_URL } from "../../lib/seo";
+import { allTerms, getTerm, TERM_SEE_ALSO } from "../../lib/glossary";
 import GlossaryClient from "../GlossaryClient";
 
 export const dynamicParams = false;
@@ -37,7 +37,8 @@ export default async function TermPage({ params }: { params: Promise<{ slug: str
       { name: "Sözlük", url: "/sozluk" },
       { name: t.abbr, url },
     ]),
-    definedTermSchema(t),
+    definedTermSchema(t, (TERM_SEE_ALSO[t.slug] ?? []).map((s) => `${SITE_URL}/sozluk/${s}`)),
+    ...(t.faq && t.faq.length > 0 ? [faqSchema(t.faq)] : []),
   ];
   return (
     <>

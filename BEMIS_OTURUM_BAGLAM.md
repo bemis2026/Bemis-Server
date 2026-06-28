@@ -13,6 +13,22 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🟦 **TIER 1 ON-SITE (mesh + FAQ + manifest + ImageObject) (2026-06-28c, CANLI):**
+> Kapsamlı TIER planının TIER 1'i. **1.3 İÇ-LİNK MESH (en değerli):** `glossary.ts` → `TERM_SEE_ALSO`
+> haritası (terim↔terim); `definedTermSchema(t, seeAlso)` → `seeAlso` JSON-LD; `GlossaryClient` term-mode'a
+> görünür **"İlgili Terimler"** + **FAQ** blokları; `productSchema` → **`about`→DefinedTerm** (`CATEGORY_TERM`
+> haritası: wallbox→wallbox, cables→type-2, v2l-c2l→v2l, dc-units/charger-equipment→ccs2, portable→mod-2-mod-3).
+> Homepage→kategori crawl: **Footer'da 8 kategori `<a href>` zaten var** → hero kartları (router.push) DEĞİŞMEDİ
+> (riskli, gereksiz). **1.4 FAQPage:** 15 sözlük terimine `faq` (2-3 Q&A, tanımlardan türetildi, 41 soru) + term
+> sayfasına `faqSchema` + görünür FAQ; kategoriler zaten vardı. ⚠️ alt-ajan stall oldu (11/15), kalan 4'ü
+> (mod-2-mod-3/rfid/taper/wallbox) elle ekledim; tarama TEMİZ (rakip marka 0, uydurma spec 0). **1.2 ImageObject:**
+> `productSchema` image → ImageObject+caption (Google Görseller); hero=globe→OG, kategori kapak ertelendi.
+> **1.5 alt:** ProductDetailClient thumbnail `alt=""`→açıklayıcı. **1.7:** `public/site.webmanifest` +
+> `viewport.themeColor` (light/dark). **1.1 geo** (önceki batch) + **3.1 cache** zaten ✅. **ERTELENEN:** 1.6 OG
+> (ImageResponse PNG sıkıştırılamaz), 1.8 SearchAction (URL arama yok→atla). tsc 0 + next build 0 (sözlük ● SSG).
+
+
+
 > 🔧 **ON-SITE 88→ (hreflang ÇİFT-YÖNLÜ + review datePublished) (2026-06-28b, CANLI):**
 > **#1 hreflang resiprokal:** anasayfa `app/page.tsx` artık SERVER sarmalayıcı (tüm UI →
 > `app/HomeClient.tsx`, git mv) → `en→/export` geri-dönen etiketi ekler (Google çifti artık

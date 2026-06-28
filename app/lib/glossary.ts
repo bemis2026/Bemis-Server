@@ -13,6 +13,7 @@ export type GlossaryTerm = {
   definition: string;  // 40-60 kelime doğrudan-cevap bloğu
   keywords: string[];
   related?: { label: string; href: string }[];
+  faq?: { q: string; a: string }[]; // 2-3 soru-cevap (AEO) — gövdedeki GERÇEK bilgilerden türetilir
 };
 
 export const GLOSSARY: GlossaryTerm[] = [
@@ -28,6 +29,20 @@ export const GLOSSARY: GlossaryTerm[] = [
       { label: "EV Şarj Soketi Tipleri", href: "/blog/ev-sarj-soketi-tipleri-type-2-ccs2-chademo" },
       { label: "Type 2 Şarj Kabloları", href: "/products/cables" },
     ],
+    faq: [
+      {
+        q: "Type 2 kaç kW'a kadar şarj eder?",
+        a: "Type 2 soketi AC şarjda 7,4 kW'tan 22 kW'a kadar güç aktarımına izin verir. Konnektör hem tek faz (monofaze) hem üç faz (trifaze) bağlantıyı destekler; trifaze tesisatta aynı soketle 11 veya 22 kW'a kadar güç verilebilir. Bemis'in yerli üretim AC cihazları ve kabloları da bu standarttadır.",
+      },
+      {
+        q: "Type 2 soketi hangi araçlarla uyumludur?",
+        a: "Type 2, 2014'ten bu yana Avrupa'da fiili standart olduğu için bugün satılan elektrikli araçların ve AC wallbox'ların neredeyse tamamı bu soketi kullanır. Ortak standart sayesinde farklı marka araç ve istasyonlar sorunsuz çalışır; sürücü, araca özel adaptör aramadan farklı Type 2 istasyonlara bağlanabilir.",
+      },
+      {
+        q: "Type 2 soketindeki CP ve PP pinleri ne işe yarar?",
+        a: "Type 2 yedi pinli bir konnektördür; güç pinlerine ek olarak CP (Control Pilot) ve PP (Proximity Pilot) haberleşme hatları bulunur. Bu hatlar araç ile istasyonun birbirini tanımasını, akımın güvenle ayarlanmasını ve kablonun doğru kavrandığının doğrulanmasını sağlar.",
+      },
+    ],
   },
   {
     slug: "ccs2",
@@ -40,6 +55,20 @@ export const GLOSSARY: GlossaryTerm[] = [
     related: [
       { label: "EV Şarj Soketi Tipleri", href: "/blog/ev-sarj-soketi-tipleri-type-2-ccs2-chademo" },
       { label: "DC Hızlı Şarj Üniteleri", href: "/products/dc-units" },
+    ],
+    faq: [
+      {
+        q: "CCS2 neden \"kombine\" olarak adlandırılır?",
+        a: "CCS2, Type 2 soketinin altına eklenen iki güçlü DC piniyle aynı konnektörde hem AC (üstteki Type 2 kısmı) hem DC şarjı destekler; adını buradan alır. Bu sayede araçta tek bir şarj girişi yeterli olur ve sürücü ayrı soketlere ihtiyaç duymaz.",
+      },
+      {
+        q: "CCS2 neden AC şarjdan daha hızlıdır?",
+        a: "CCS2'de akım dönüşümü araç yerine istasyonun içinde yapılır, böylece güç bataryaya doğrudan verilir ve aracın onboard charger sınırına takılmaz. Bu sayede araç AC şarja kıyasla dakikalar içinde önemli oranda dolar. Bemis'in BEVDC serisi (40–120 kW DC) CCS2 konnektör kullanır.",
+      },
+      {
+        q: "CCS2 Türkiye'de standart mıdır?",
+        a: "Evet, Türkiye'deki kamuya açık hızlı şarj ağlarının ve yeni nesil elektrikli araçların ortak standardı CCS2'dir. Yol üstündeki bir CCS2 istasyonu uzun yolculukta aracı kısa molada doldururken, aynı soket bir AVM otoparkında alışveriş süresince hızlı şarj sağlar.",
+      },
     ],
   },
   {
@@ -54,6 +83,20 @@ export const GLOSSARY: GlossaryTerm[] = [
       { label: "OCPP Nedir? (Rehber)", href: "/blog/ocpp-nedir" },
       { label: "Yük Yönetimi", href: "/blog/elektrikli-arac-sarj-yuk-yonetimi" },
     ],
+    faq: [
+      {
+        q: "OCPP ne işe yarar?",
+        a: "OCPP, şarj istasyonları ile merkezi yönetim yazılımı (CSMS) arasındaki açık iletişim standardıdır. Cihazın markasından bağımsız olarak uzaktan izlemeyi, kullanıcı yetkilendirmesini, faturalandırmayı, yazılım güncellemesini ve yük yönetimini tek bir merkezden yürütmeyi sağlar. Yaygın sürümleri OCPP 1.6J ve 2.0.1'dir.",
+      },
+      {
+        q: "OCPP'nin açık standart olması ne avantaj sağlar?",
+        a: "Açık standart olması, işletmecinin tek bir üreticinin kapalı sistemine kilitlenmemesi anlamına gelir. Farklı markalardan cihazlar aynı yönetim yazılımında birlikte yönetilebilir ve ileride yazılım veya donanım değiştirmek kolaylaşır. Bu yüzden OCPP, kamuya açık istasyonlar, filolar ve çok cihazlı kurulumlar için fiili sektör standardıdır.",
+      },
+      {
+        q: "Bemis cihazları OCPP destekler mi?",
+        a: "Bemis'in akıllı (OCPP uyumlu) modelleri bu protokolü destekler ve standart bir merkezi yönetim yazılımına bağlanabilir. Örneğin bir site otoparkında onlarca cihaz tek bir ekrandan izlenebilir, her oturum kullanıcıya bağlanarak faturalandırılabilir ve cihaz yazılımı uzaktan güncellenebilir.",
+      },
+    ],
   },
   {
     slug: "ac-dc-sarj",
@@ -67,6 +110,20 @@ export const GLOSSARY: GlossaryTerm[] = [
       { label: "AC ve DC Şarj Farkı", href: "/blog/ac-dc-sarj-farki" },
       { label: "Şarj İstasyonu Nasıl Çalışır", href: "/blog/elektrikli-arac-sarj-istasyonu-nasil-calisir" },
     ],
+    faq: [
+      {
+        q: "AC ve DC şarj arasındaki fark nedir?",
+        a: "Fark, akım dönüşümünün nerede yapıldığıdır. AC şarjda istasyon şebekeden gelen alternatif akımı araca iletir ve doğru akıma dönüşümü aracın içindeki onboard charger yapar (tipik 7,4–22 kW). DC hızlı şarjda dönüşüm istasyonun içinde yapılır ve doğru akım doğrudan bataryaya verilir, bu yüzden çok daha yüksek güce çıkılabilir.",
+      },
+      {
+        q: "DC hızlı şarj neden daha yüksek güce çıkabiliyor?",
+        a: "DC şarjda dönüşüm istasyonun içindeki güçlü çevirici tarafından yapılır ve aracın küçük onboard charger'ı devreye girmez. Bu nedenle aracın AC sınırına takılmadan 50 kW ve üzeri güce çıkılabilir; Bemis'in BEVDC serisi DC üniteleri 40–120 kW aralığında çalışır.",
+      },
+      {
+        q: "Evde AC mi, DC hızlı şarj mı kullanmalıyım?",
+        a: "AC şarj ev, iş yeri ve gece park gibi saatlerce süren senaryolara uygundur; DC hızlı şarj ise yol üstü ve filo gibi dakikalar içinde menzil eklenmesi gereken durumlara uygundur. Çoğu kullanıcı için pratik kurulum, günlük kullanımda AC ev şarjı ile uzun yolda DC hızlı şarjın birlikte kullanılmasıdır.",
+      },
+    ],
   },
   {
     slug: "kw-kwh",
@@ -78,6 +135,20 @@ export const GLOSSARY: GlossaryTerm[] = [
     keywords: ["kw kwh farkı", "kw nedir", "kwh nedir", "şarj gücü enerji"],
     related: [
       { label: "Şarj Süresi: Kaç Saatte Dolar", href: "/blog/elektrikli-arac-sarj-suresi-kac-saatte-dolar" },
+    ],
+    faq: [
+      {
+        q: "kW ve kWh arasındaki fark nedir?",
+        a: "kW (kilowatt) gücü, yani şarjın hızını ifade eder; kWh (kilowatt-saat) ise araca aktarılan veya bataryada depolanan toplam enerji miktarını gösterir. Basit benzetmeyle kW musluğun debisi (suyun ne kadar hızlı aktığı), kWh ise dolan su miktarıdır (kovaya toplam ne kadar su girdiği).",
+      },
+      {
+        q: "11 kW ile 1 saat şarj kaç kWh enerji verir?",
+        a: "Aktarılan enerji (kWh), güç (kW) ile şarj süresinin (saat) çarpımına yaklaşık eşittir. Örneğin 11 kW güçle 1 saat şarj yaklaşık 11 kWh enerji aktarır; aynı 11 kW ile 22 kWh enerji yüklemek ise kabaca 2 saat sürer.",
+      },
+      {
+        q: "Cihaz seçerken kW mı kWh mi önemli?",
+        a: "Araç menzilini belirleyen kWh (batarya kapasitesi), ne kadar hızlı dolacağını belirleyen ise kW'tır. Evde gece 8 saat park eden araç için düşük kW'lı bir AC cihaz yeterliyken, yol üstünde aynı enerjiyi kısa sürede yüklemek yüksek kW'lı bir DC ünitesi gerektirir. İhtiyaç \"ne kadar enerji\" değil, \"ne kadar sürede\" sorusuyla belirlenir.",
+      },
     ],
   },
   {
@@ -92,6 +163,20 @@ export const GLOSSARY: GlossaryTerm[] = [
       { label: "V2L / C2L Adaptörler", href: "/products/v2l-c2l" },
       { label: "Togg V2L ile Araçtan Elektrik", href: "/blog/togg-v2l-aractan-elektrik" },
     ],
+    faq: [
+      {
+        q: "V2L nasıl çalışır?",
+        a: "V2L, elektrikli aracın bataryasındaki enerjiyi dış cihazları beslemek için kullanır. Bir V2L adaptörü aracın Type 2 soketine takılır ve normal priz (Schuko) çıkışı verir; böylece şebeke veya jeneratör olmadan laptop, aydınlatma, buzdolabı gibi cihazlar doğrudan araçtan çalıştırılabilir. Akım dönüşümü araç tarafından yapıldığı için adaptör güvenli bir köprü görevi görür.",
+      },
+      {
+        q: "V2L her araçta var mı?",
+        a: "Hayır, V2L'yi her elektrikli araç desteklemez; aracın bu özelliğe ve uygun soket çıkışına sahip olması gerekir. Kullanmadan önce aracınızın V2L'yi desteklediğini ve verdiği çıkış gücünü kontrol etmek gerekir. Bemis, Type 2 standardına uygun yerli üretim V2L adaptörleri üretir.",
+      },
+      {
+        q: "V2L hangi durumlarda işe yarar?",
+        a: "V2L, aracı seyyar bir elektrik kaynağına dönüştürdüğü için kamp, açık hava etkinlikleri, saha çalışmaları ve elektrik kesintisi gibi acil durumlarda pratiktir. Örneğin hafta sonu kampında araç buzdolabını, aydınlatmayı ve telefon şarjını jeneratörsüz besleyebilir; evde elektrik kesintisinde de kısa süreli yedek güç kaynağı olur.",
+      },
+    ],
   },
   {
     slug: "c2l",
@@ -103,6 +188,20 @@ export const GLOSSARY: GlossaryTerm[] = [
     keywords: ["c2l nedir", "charger to load", "c2l adaptör", "araçtan güç"],
     related: [
       { label: "V2L / C2L Adaptörler", href: "/products/v2l-c2l" },
+    ],
+    faq: [
+      {
+        q: "C2L ile V2L arasındaki fark nedir?",
+        a: "İkisi de aracı seyyar bir güç kaynağına çevirir, ancak C2L'de çözüm şarj cihazı/kablo tarafından kurgulanır. C2L, araç Type 2 soketine bağlanarak standart priz ya da CEE (endüstriyel) çıkışı sağlar. Akım yine araç tarafından yönetilir ve adaptör güvenli bir arayüz görevi görür.",
+      },
+      {
+        q: "C2L hangi kullanımlar için daha uygundur?",
+        a: "C2L, özellikle CEE (endüstriyel) çıkışı gereken profesyonel saha kullanımlarında V2L'ye göre daha esnektir. Örneğin bir şantiyede CEE çıkışı sayesinde üç fazlı el aletleri veya saha ekipmanları doğrudan araçtan beslenebilir; standart priz çıkışı ise atölyede küçük cihazlar için pratik bir enerji kaynağı sağlar.",
+      },
+      {
+        q: "C2L her araçta çalışır mı?",
+        a: "V2L gibi C2L özelliği de aracın desteğine bağlıdır. Kamp, atölye, şantiye ve elektrik kesintisi gibi senaryolarda taşınabilir bir enerji çıkışı sunar. Bemis, V2L ve C2L adaptörlerini Type 2 standardına uygun yerli üretimle sunar.",
+      },
     ],
   },
   {
@@ -117,6 +216,20 @@ export const GLOSSARY: GlossaryTerm[] = [
       { label: "Yük Yönetimi (Load Management)", href: "/blog/elektrikli-arac-sarj-yuk-yonetimi" },
       { label: "Araç Filosu Şarj Çözümleri", href: "/blog/arac-filosu-elektrikli-sarj-cozumleri" },
     ],
+    faq: [
+      {
+        q: "Yük yönetimi (DLM) ne işe yarar?",
+        a: "Yük yönetimi, bir tesisin elektrik kapasitesini aşmadan birden fazla şarj cihazına gücü akıllıca paylaştıran sistemdir. Binanın anlık toplam tüketimini ölçer ve cihazlara verilen akımı gerçek zamanlı ayarlar; böylece çok sayıda araç aynı anda güvenle şarj olurken ana sigorta zorlanmaz ve çoğu zaman pahalı bir altyapı yükseltmesine gerek kalmaz.",
+      },
+      {
+        q: "Dinamik yük yönetimi statik paylaşımdan nasıl farklıdır?",
+        a: "Statik paylaşımdan farkı, boştaki kapasiteyi anlık ihtiyaca göre dinamik dağıtmasıdır. Az araç bağlıyken her birine daha çok güç verir, talep artınca otomatik dengeler. Örneğin apartman otoparkında tek araç bağlıyken tam güç verilir, akşam birçok araç takıldığında sistem akımı otomatik bölüştürür.",
+      },
+      {
+        q: "Yük yönetimi trafo yükseltme maliyetinden kurtarır mı?",
+        a: "Evet, yük yönetimi sayesinde mevcut elektrik aboneliği çoğu zaman yeterli olur ve trafo yükseltme maliyetinden kaçınılır. Apartman otoparkları, iş yerleri, AVM'ler ve filolar gibi çok cihazlı kurulumlarda pratik bir zorunluluktur. Bemis'in OCPP uyumlu akıllı modelleri merkezi yönetim yazılımı üzerinden yük yönetimine uygundur.",
+      },
+    ],
   },
   {
     slug: "ip65-ip66",
@@ -130,6 +243,20 @@ export const GLOSSARY: GlossaryTerm[] = [
       { label: "Şarj Cihazı Nasıl Seçilir", href: "/blog/ev-icin-sarj-cihazi-nasil-secilir" },
       { label: "AC Wallbox Ürünleri", href: "/products/wallbox" },
     ],
+    faq: [
+      {
+        q: "IP65 ile IP66 arasındaki fark nedir?",
+        a: "Her iki sınıfta da ilk rakam 6'dır, yani cihaz toza karşı tam sızdırmazlık sağlar (içeriye toz girmez). İkinci rakam su dayanımını ayırır: IP65 her yönden gelen düşük basınçlı su jetlerine, IP66 ise daha güçlü su jetlerine karşı korur. Kodun ilk rakamı katı cisim/toz korumasını, ikinci rakamı su korumasını gösterir.",
+      },
+      {
+        q: "IP65/IP66 şarj cihazı dış mekânda kullanılabilir mi?",
+        a: "Evet, bu koruma sınıfı bir şarj cihazının yağmur, toz ve rüzgârlı koşullarda açık otoparkta veya duvar üzerinde dış mekânda güvenle kullanılabileceği anlamına gelir. Açık bir otoparkta dış duvara monte edilmiş bir wallbox yağmur altında veya tozlu bir sanayi bölgesinde sorunsuz çalışabilir. Bemis'in yerli üretim modelleri IP65/IP66 koruma sınıfındadır.",
+      },
+      {
+        q: "IP65/IP66 cihaz su altında kalabilir mi?",
+        a: "Hayır, bu seviye doğrudan su altında kalmaya değil, dış ortam koşullarına dayanıklılığa işaret eder. Yine de bu koruma sayesinde cihaz için ayrı bir kapalı muhafaza veya sundurma çoğu zaman gerekmez; ev kullanıcısı cihazı bahçe duvarına ya da garaj dışına güvenle takabilir.",
+      },
+    ],
   },
   {
     slug: "faz",
@@ -142,6 +269,20 @@ export const GLOSSARY: GlossaryTerm[] = [
     related: [
       { label: "Şarj Cihazı Nasıl Seçilir", href: "/blog/ev-icin-sarj-cihazi-nasil-secilir" },
     ],
+    faq: [
+      {
+        q: "Monofaze ve trifaze arasındaki fark nedir?",
+        a: "Tek faz (monofaze) tek bir akım hattı taşır ve AC şarjda tipik olarak 7,4 kW'a kadar güç sunar. Üç faz (trifaze) birbirini dengeleyen üç hat taşıdığı için aynı kabloyla çok daha fazla gücü (11 veya 22 kW) aktarabilir. Çoğu ev tek fazlı, iş yeri ve site otoparkları çoğunlukla üç fazlıdır.",
+      },
+      {
+        q: "Trifaze tesisatta her zaman 22 kW şarj olur mu?",
+        a: "Hayır, gerçek şarj hızı hem tesisin fazına hem de aracın onboard charger kapasitesine bağlıdır. Trifaze bir tesisat olsa bile araç yalnızca 11 kW kabul ediyorsa şarj 11 kW ile sınırlı kalır. Bu yüzden doğru güç seçimi için tesisin fazını ve aracın kapasitesini birlikte bilmek gerekir.",
+      },
+      {
+        q: "Evime tek fazlı mı üç fazlı cihaz almalıyım?",
+        a: "Tek fazlı bir müstakil evde 7,4 kW'lık bir cihaz tesisata uyar; üç fazlı bir iş yeri otoparkında ise 11 veya 22 kW'lık bir cihaz aynı kabloyla daha hızlı şarj sağlar. Bu yüzden cihaz seçmeden önce tesisatın tek faz mı üç faz mı olduğunu teyit etmek doğru güç kararını kolaylaştırır. Bemis AC cihazları her iki kuruluma uygun modeller sunar.",
+      },
+    ],
   },
   {
     slug: "onboard-charger",
@@ -153,6 +294,20 @@ export const GLOSSARY: GlossaryTerm[] = [
     keywords: ["onboard charger nedir", "araç içi şarj ünitesi", "ac şarj hızı", "on-board charger"],
     related: [
       { label: "Şarj İstasyonu Nasıl Çalışır", href: "/blog/elektrikli-arac-sarj-istasyonu-nasil-calisir" },
+    ],
+    faq: [
+      {
+        q: "Onboard charger ne işe yarar?",
+        a: "Onboard charger (araç içi şarj ünitesi), elektrikli aracın içinde bulunan ve AC şarjda gelen alternatif akımı bataryanın ihtiyaç duyduğu doğru akıma çeviren birimdir. AC şarj hızının üst sınırını çoğunlukla istasyon değil bu ünite belirler.",
+      },
+      {
+        q: "İstasyonum 22 kW olduğu hâlde neden daha hızlı dolmuyor?",
+        a: "Bunun yanıtı genellikle aracın onboard charger kapasitesidir. Örneğin 11 kW onboard charger'lı bir araç, 22 kW kapasiteli bir istasyona bağlansa bile yaklaşık 11 kW ile şarj olur, çünkü darboğaz araçtadır. DC hızlı şarjda ise dönüşüm istasyonda yapıldığından onboard charger devre dışı kalır ve aracın AC sınırı geçerli olmaz.",
+      },
+      {
+        q: "Cihaz seçerken onboard charger gücünü bilmek neden önemli?",
+        a: "Doğru AC cihazını seçerken aracın onboard charger gücünü bilmek, gereğinden yüksek güçlü bir cihaza para harcamamak açısından önemlidir. Örneğin aracı yalnızca 11 kW kabul eden bir kullanıcı için evde 22 kW'lık cihaz ek hız getirmez; araca uygun 11 kW'lık model hem yeterli hem daha ekonomik olur. Bemis AC wallbox cihazları 7,4–22 kW seçenekler sunar.",
+      },
     ],
   },
   {
@@ -167,6 +322,10 @@ export const GLOSSARY: GlossaryTerm[] = [
       { label: "Type 2 Şarj Kabloları", href: "/products/cables" },
       { label: "Taşınabilir Şarj Cihazları", href: "/products/portable" },
     ],
+    faq: [
+      { q: "Mod 2 ve Mod 3 şarj arasındaki fark nedir?", a: "Mod 2, araç ile normal veya CEE priz arasında kabloya entegre koruma kutusu (IC-CPD) ile yapılan taşınabilir şarjdır; güç prizle sınırlı olduğundan görece yavaştır. Mod 3 ise sabit bir istasyon (wallbox) üzerinden, araç ve istasyonun sürekli haberleştiği kalıcı AC şarjdır — daha yüksek güç ve daha güvenlidir." },
+      { q: "Mod 2 mi Mod 3 mü tercih etmeliyim?", a: "Mod 2 daha çok acil veya seyrek kullanım ve seyahat için bagajda taşınan tamamlayıcı çözümdür. Günlük şarj için evde duvara monte bir Mod 3 wallbox hem daha hızlı hem daha güvenlidir. Bemis hem Mod 2 taşınabilir çözümleri hem Mod 3 sabit AC wallbox cihazları üretir." },
+    ],
   },
   {
     slug: "rfid",
@@ -179,6 +338,10 @@ export const GLOSSARY: GlossaryTerm[] = [
     related: [
       { label: "Araç Filosu Şarj Çözümleri", href: "/blog/arac-filosu-elektrikli-sarj-cozumleri" },
     ],
+    faq: [
+      { q: "RFID şarjda ne işe yarar?", a: "RFID, şarj istasyonlarında temassız kartla kullanıcı yetkilendirmesi sağlar. Kullanıcı kartını okutarak şarjı başlatır; kart okutulmadan oturum açılmaz, böylece istasyonu yalnızca yetkili kişiler kullanır. Bu, kamuya açık alanlarda, sitelerde ve filolarda yetkisiz kullanımı engeller." },
+      { q: "RFID ile tüketim kişi bazında raporlanabilir mi?", a: "Evet. RFID her şarj oturumunu belirli bir karta (kişiye veya departmana) bağlar; bu kayıt tüketimin kullanıcı bazında raporlanmasını ve maliyet paylaşımını mümkün kılar. OCPP uyumlu sistemlerde yetkilendirme merkezi yazılımdan yönetilir. Bemis'in akıllı modelleri RFID'yi destekler." },
+    ],
   },
   {
     slug: "taper",
@@ -190,6 +353,10 @@ export const GLOSSARY: GlossaryTerm[] = [
     keywords: ["taper nedir", "şarj neden yavaşlar", "%80 sonrası şarj", "batarya şarj eğrisi"],
     related: [
       { label: "Şarj Süresi: Kaç Saatte Dolar", href: "/blog/elektrikli-arac-sarj-suresi-kac-saatte-dolar" },
+    ],
+    faq: [
+      { q: "Şarj neden %80'den sonra yavaşlar?", a: "Buna taper (kademeli yavaşlama) denir ve bir arıza değil, bataryayı koruyan normal bir davranıştır. Hücreler dolmaya yaklaştıkça yüksek akımı güvenle kabul edemez; aracın batarya yönetim sistemi ısınma ve yıpranmayı azaltmak için daha az akım ister. Özellikle DC hızlı şarjda bu fark belirgindir." },
+      { q: "Hızlı şarjı %100'e tamamlamalı mıyım?", a: "Genelde hayır. İlk %80 hızlı dolarken son %20 orantısız uzar; en verimli kullanım hızlı şarjı yaklaşık %80'de bırakıp yola devam etmektir. Bu davranış araçtan kaynaklanır, cihaz markasından değil; Bemis'in DC üniteleri de bataryanın istediği akım eğrisine uyar. Evde gece AC şarjda %100 sorun değildir." },
     ],
   },
   {
@@ -204,9 +371,32 @@ export const GLOSSARY: GlossaryTerm[] = [
       { label: "AC Wallbox Ürünleri", href: "/products/wallbox" },
       { label: "Şarj Cihazı Nasıl Seçilir", href: "/blog/ev-icin-sarj-cihazi-nasil-secilir" },
     ],
+    faq: [
+      { q: "Wallbox nedir ve nerede kullanılır?", a: "Wallbox, duvara monte edilen sabit AC şarj istasyonudur. Ev, iş yeri ve site otoparklarında kullanılır; tipik olarak Type 2 soketli, 7,4–22 kW güç aralığında ve Mod 3 yöntemiyle çalışır. Taşınabilir prizden şarja göre çok daha hızlı ve güvenlidir, kablo karmaşası yaratmaz." },
+      { q: "Akıllı wallbox hangi özellikleri sunar?", a: "Akıllı modeller OCPP, mobil uygulama, yük yönetimi (DLM) ve RFID ile yetkilendirme sunarak çok cihazlı ve filo kurulumlarına uygundur. Bemis'in Charger serisi Type 2 standardında ve IP65/IP66 korumalı yerli üretim AC wallbox cihazlarıdır; açık otoparkta dış duvara da takılabilir." },
+    ],
   },
 ];
 
 export const allTerms = (): GlossaryTerm[] => GLOSSARY;
+// Terim↔terim ilişki ağı (mesh). seeAlso (DefinedTerm JSON-LD) + görünür "İlgili Terimler".
+export const TERM_SEE_ALSO: Record<string, string[]> = {
+  "type-2": ["ccs2", "mod-2-mod-3", "wallbox"],
+  "ccs2": ["type-2", "ac-dc-sarj"],
+  "ocpp": ["yuk-yonetimi-dlm", "rfid"],
+  "ac-dc-sarj": ["kw-kwh", "onboard-charger", "ccs2"],
+  "kw-kwh": ["ac-dc-sarj", "onboard-charger", "taper"],
+  "v2l": ["c2l", "type-2"],
+  "c2l": ["v2l"],
+  "yuk-yonetimi-dlm": ["ocpp", "faz"],
+  "ip65-ip66": ["wallbox"],
+  "faz": ["onboard-charger", "yuk-yonetimi-dlm", "kw-kwh"],
+  "onboard-charger": ["ac-dc-sarj", "kw-kwh", "faz", "taper"],
+  "mod-2-mod-3": ["type-2", "wallbox"],
+  "rfid": ["ocpp"],
+  "taper": ["kw-kwh", "onboard-charger"],
+  "wallbox": ["type-2", "ip65-ip66", "mod-2-mod-3", "ocpp"],
+};
+
 export const getTerm = (slug: string): GlossaryTerm | undefined =>
   GLOSSARY.find((t) => t.slug === slug);

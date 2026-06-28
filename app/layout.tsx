@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Suspense } from "react";
 import "./globals.css";
@@ -23,6 +23,14 @@ import LanguageURLSync from "./components/LanguageURLSync";
 import JsonLd from "./components/JsonLd";
 import { organizationSchema, websiteSchema, productSchema, categoryListSchema, categoryH1 } from "./lib/seo";
 import { getServerSiteContent, getServerProducts } from "./lib/server-content";
+
+// Mobil tarayıcı çubuğu rengi — renk şemasına göre sayfa zeminiyle uyumlu (theme-color).
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#1e1e1e" },
+  ],
+};
 
 const BASE_URL = "https://www.bemisevcharge.com.tr";
 
@@ -149,6 +157,7 @@ export async function generateMetadata(): Promise<Metadata> {
     authors: [{ name: "Bemis Teknik Elektrik A.Ş.", url: BASE_URL }],
     creator: "Bemis Teknik Elektrik A.Ş.",
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+    manifest: "/site.webmanifest",
     alternates: {
       canonical: "/",
       // hreflang: TR=/ , x-default=TR. ⚠️ SAHTE "en"=/?lang=en KALDIRILDI — aynı TR
