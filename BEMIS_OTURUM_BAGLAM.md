@@ -13,6 +13,20 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🎨 **GÖRSEL/TASARIM DENETİMİ (2026-06-28f) — skor 58/100 (seo-visual ajan + kod):**
+> **DÜZELTİLEN (canlı):** **K2 iletişim haritası** — `<iframe src=google.com/maps>` vardı ama CSP `frame-src`'te
+> google.com YOKTU → tarayıcı blokluyordu (boş alan). next.config'e `https://www.google.com https://maps.google.com`
+> eklendi → harita yüklenir. **AÇIK DESIGN KARARLARI (kullanıcıda, ben tek-taraflı redesign yapmadım):**
+> **K1 (kritik) tema tutarsızlığı** — site %60 KOYU (ana/products/kurumsal) ama sözlük/blog/export AÇIK/beyaz →
+> "siteyi değiştirdim mi?" hissi; sistematik kural lazım (hep-koyu / hep-açık / koyu-nav+açık-içerik hibrit).
+> **K3 ürün listesi** kart ayırt-edilebilirliği düşük (koyu kart+koyu ürün foto → kayboluyor; açık inner-card öneri).
+> **O4 buton sistemi** tutarsız (kırmızı dolgu / mavi outline / yeşil badge — 3 aksiyona 3 renk). **DİĞER quick-win:**
+> mobil çerez-popup iletişimi örtüyor (O1), mobil ürün foto küçük ~200px (O2), export ortada boş alan (O3), footer
+> sosyal ikon <48px dokunma (K01), blog hero görseli yok (K02). **TEMEL:** tasarım token'ı YOK → renkler inline
+> hardcoded (178× #3b82f6) → açık-mod ~30 `!important` override yaması (kırılgan ama public orphan az: navbar/layout
+> theme-aware). Marka: kırmızı **#E31E24** (gradient-text) + mavi **#3B82F6** (enerji, baskın). SVG diyagramlar render OK.
+
+
 > 🔧 **SVG DİYAGRAM YERLEŞİM DÜZELTMESİ (2026-06-28d, CANLI):** 3 teknik SVG önce SADECE blog postlarındaydı;
 > denetim `/sozluk/*` bekliyordu (orada `<text>`=0, `<figure>`=0). **KÖK SEBEP = yanlış route** (render/client/
 > deploy hatası DEĞİL — GlossaryClient "use client" ama statik JSX'i SSR'lanıyor; FAQ/tanım ham HTML'de). **FİX:**
