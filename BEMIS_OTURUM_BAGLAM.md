@@ -26,6 +26,12 @@
 > **1.5 alt:** ProductDetailClient thumbnail `alt=""`→açıklayıcı. **1.7:** `public/site.webmanifest` +
 > `viewport.themeColor` (light/dark). **1.1 geo** (önceki batch) + **3.1 cache** zaten ✅. **ERTELENEN:** 1.6 OG
 > (ImageResponse PNG sıkıştırılamaz), 1.8 SearchAction (URL arama yok→atla). tsc 0 + next build 0 (sözlük ● SSG).
+> **TIER 2 (kısmi):** **2.4** llms-full.txt'e sözlük FAQ eklendi; **2.3** term sayfasına `openGraph.modifiedTime`
+> (`GLOSSARY_UPDATED` const, tazelik). **ERTELENEN:** **2.1** /export SSR `<html lang=en>` (root layout'ta pathname
+> okumak = headers()→tüm site dinamik olur, statik ürünleri bozar; route-group restructure riskli → client HtmlLang
+> kalıyor), **2.2** ürün yorum hacmi (gerçek ek yorum yok, uydurma yasak), **2.5** http+non-www→https+www tek-hop
+> (**Vercel domain ayarı = KULLANICI**, kod değil; www'yi primary yap). **TIER 3:** 3.1 cache ✅ zaten; 3.2 bundle
+> AYRI branch+profil ister (riskli, yapılmadı). **TIER 4:** görsel/video verisi gelince (SVG diyagram + VideoObject).
 
 
 

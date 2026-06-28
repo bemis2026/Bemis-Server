@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import JsonLd from "../../components/JsonLd";
 import { definedTermSchema, breadcrumbSchema, faqSchema, ogImage, OG_URL, SITE_URL } from "../../lib/seo";
-import { allTerms, getTerm, TERM_SEE_ALSO } from "../../lib/glossary";
+import { allTerms, getTerm, TERM_SEE_ALSO, GLOSSARY_UPDATED } from "../../lib/glossary";
 import GlossaryClient from "../GlossaryClient";
 
 export const dynamicParams = false;
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description: t.short,
     keywords: t.keywords,
     alternates: { canonical, languages: { tr: canonical, "x-default": canonical } },
-    openGraph: { title: t.term, description: t.short, type: "article", url: canonical, images: ogImage(t.term) },
+    openGraph: { title: t.term, description: t.short, type: "article", url: canonical, modifiedTime: GLOSSARY_UPDATED, images: ogImage(t.term) },
     twitter: { card: "summary_large_image", title: t.term, description: t.short, images: [OG_URL] },
   };
 }

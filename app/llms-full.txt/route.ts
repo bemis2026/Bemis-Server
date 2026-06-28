@@ -59,7 +59,7 @@ Bemis, ürünlerini 60+ ülkeye ihraç eden, AB'ye komşu (EU-adjacent) bir üre
 
   p.push(`# Sözlük — Elektrikli Araç Şarj Terimleri`);
   for (const t of GLOSSARY) {
-    p.push(`## ${t.abbr}\n${t.definition}\nDetay: https://www.bemisevcharge.com.tr/sozluk/${t.slug}`);
+    p.push(`## ${t.abbr}\n${t.definition}${t.faq?.length ? "\n\n" + t.faq.map((f) => `**${f.q}** ${f.a}`).join("\n") : ""}\nDetay: https://www.bemisevcharge.com.tr/sozluk/${t.slug}`);
   }
 
   p.push(`# Rehberler (Tam Metin)`);

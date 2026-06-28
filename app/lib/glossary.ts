@@ -379,6 +379,9 @@ export const GLOSSARY: GlossaryTerm[] = [
 ];
 
 export const allTerms = (): GlossaryTerm[] => GLOSSARY;
+// Sözlük içeriğinin son güncellenme tarihi (tazelik sinyali — term sayfası openGraph.modifiedTime).
+// İçerik anlamlı güncellenince GERÇEK tarihle yenile.
+export const GLOSSARY_UPDATED = "2026-06-28T00:00:00+03:00";
 // Terim↔terim ilişki ağı (mesh). seeAlso (DefinedTerm JSON-LD) + görünür "İlgili Terimler".
 export const TERM_SEE_ALSO: Record<string, string[]> = {
   "type-2": ["ccs2", "mod-2-mod-3", "wallbox"],
