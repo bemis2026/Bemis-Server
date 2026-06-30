@@ -16,6 +16,10 @@ export type CategoryMeta = {
   // the title + `description` on the category page so it greets the
   // visitor on entry. Wide aspect (16:9) and ≥1600px read best.
   descriptionImage?: string;
+  // Kategori hero düzeni: "bg"/boş (varsayılan) = kategori görseli tam-bleed
+  // arka plan (başlık+açıklama üstüne biner); "split" = klasik yan-yana
+  // (başlık solda, görsel sağda çerçeveli). Admin başına ayarlanabilir.
+  heroStyle?: "split" | "bg";
   // Per-category FAQ — admin caps at 10 entries; public renders a
   // collapsible accordion between the product detail and the "Benzer
   // Ürünler" carousel, plus a FAQPage JSON-LD block for Google rich

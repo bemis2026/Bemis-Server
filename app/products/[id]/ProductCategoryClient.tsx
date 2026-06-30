@@ -123,10 +123,17 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
   // Ürün-görselli (şeffaf PNG) kategorilerde hero arka planı BEYAZ olsun
   // (kullanıcı isteği: "ac dc şarj ekipmanları görseli beyaz png").
   const whiteHero = id === "charger-equipment";
-  // Kategori görseli tam-genişlik ARKA PLAN hero (sahne fotosu olan TÜM kategoriler).
-  // whiteHero (charger-equipment, şeffaf ürün PNG'si) hariç — o tam-bleed arka plana uymaz.
-  // TODO(admin): ileride per-kategori "heroStyle" admin ayarına bağlanacak (bgHeroOverride).
-  const bgHero = !!descImage && !whiteHero && (categories?.[id]?.heroStyle !== "split");
+  // Kategori görseli tam-genişlik ARKA PLAN hero (sahne fotosu olan kategoriler).
+  // whiteHero (charger-equipment, şeffaf ürün PNG'si) bg'ye uymaz → split.
+  // Ürün-fotolu (beyaz zemin) kategoriler de split kalır: converters (uzatma
+  // kablosu) + accessories (şarj çantası) — düz ürün fotosu tam-bleed'e uymaz.
+  // Sahne fotolular (wallbox/portable/cables/v2l-c2l/dc-units) bg-hero olur.
+  // Admin "heroStyle" ayarı (categories[id].heroStyle) DAİMA önceliklidir;
+  // boşsa aşağıdaki kod varsayılanı kullanılır.
+  const productPhotoCategory = id === "converters" || id === "accessories";
+  const heroStyleResolved =
+    categories?.[id]?.heroStyle ?? (productPhotoCategory ? "split" : "bg");
+  const bgHero = !!descImage && !whiteHero && heroStyleResolved !== "split";
 
   return (
     <div style={{ background: bg, display: "flex", flexDirection: "column", minHeight: "100vh", position: "relative", overflow: "hidden", isolation: "isolate" }}>
