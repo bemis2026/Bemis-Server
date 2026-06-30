@@ -123,6 +123,9 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
   // Ürün-görselli (şeffaf PNG) kategorilerde hero arka planı BEYAZ olsun
   // (kullanıcı isteği: "ac dc şarj ekipmanları görseli beyaz png").
   const whiteHero = id === "charger-equipment";
+  // cables: kategori görseli tam-genişlik ARKA PLAN hero (foto; şeffaf ürün PNG'si değil).
+  // Yalnız bu kategoriye özel canlandırılmış hero; diğerleri yan-yana düzende kalır.
+  const bgHero = id === "cables" && !!descImage && !whiteHero;
 
   return (
     <div style={{ background: bg, display: "flex", flexDirection: "column", minHeight: "100vh", position: "relative", overflow: "hidden", isolation: "isolate" }}>
@@ -136,6 +139,36 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
         style={{
           background: d ? `radial-gradient(ellipse 70% 60% at 50% 0%, ${accent}10 0%, transparent 70%)` : `radial-gradient(ellipse 70% 60% at 50% 0%, ${accent}08 0%, transparent 70%)`,
         }}>
+        {bgHero ? (
+          /* CABLES: kategori görseli tam-genişlik arka plan; metin sol koyu gradyan üstüne biner. */
+          <div className="relative max-w-7xl 2xl:max-w-[1600px] mx-auto">
+            <div className="relative overflow-hidden rounded-3xl min-h-[320px] lg:min-h-[420px] flex items-center">
+              <Image src={descImage} alt={category.name} fill sizes="(max-width: 1024px) 100vw, 1600px" quality={92} className="object-cover" style={{ objectPosition: "center" }} priority />
+              <div className="absolute inset-0" aria-hidden style={{ background: "linear-gradient(100deg, rgba(8,10,14,0.95) 0%, rgba(8,10,14,0.82) 36%, rgba(8,10,14,0.42) 68%, rgba(8,10,14,0.12) 100%)" }} />
+              <div className="absolute left-0 top-0 bottom-0" aria-hidden style={{ width: 4, background: `linear-gradient(180deg, ${accent} 0%, ${accent}66 100%)` }} />
+              <div className="relative z-10 px-7 sm:px-10 lg:px-14 py-10 lg:py-12 max-w-2xl">
+                <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.05 }}
+                  className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: "#8fbcf7" }}>
+                  {lang === "en" ? "Product Category" : "Ürün Kategorisi"} · {category.products?.length ?? 0} {lang === "en" ? "Products" : "Ürün"}
+                </motion.p>
+                <motion.h1 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}
+                  className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
+                  {(lang === "tr" && categoryH1(category.id)) || category.name}
+                </motion.h1>
+                <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.15 }}
+                  className="text-sm mt-1.5" style={{ color: "rgba(255,255,255,0.72)" }}>
+                  {category.tagline}
+                </motion.p>
+                {categoryDescription && (
+                  <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }}
+                    className="text-sm sm:text-base leading-relaxed whitespace-pre-line mt-4 max-w-xl" style={{ color: "rgba(255,255,255,0.85)" }}>
+                    {categoryDescription}
+                  </motion.p>
+                )}
+              </div>
+            </div>
+          </div>
+        ) : (
         <div className="relative max-w-7xl 2xl:max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-8">
           {/* SOL: başlık + açıklama (içerik genişliğinde → görsel açıklamaya yakın durur) */}
           <div className="w-full lg:max-w-2xl min-w-0">
@@ -201,6 +234,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
             </motion.div>
           )}
         </div>
+        )}
       </div>
 
       {/* Product grid — uniform 5-col density across every category so
