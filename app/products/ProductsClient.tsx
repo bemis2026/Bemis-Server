@@ -396,7 +396,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                             <div
                               className="relative overflow-hidden"
                               style={{
-                                height: 170,
+                                aspectRatio: "1 / 1",
                                 background: d
                                   ? `linear-gradient(145deg, ${cat.accent}0a 0%, #111111 100%)`
                                   : `linear-gradient(145deg, ${cat.accent}0d 0%, #f4f4f4 100%)`,

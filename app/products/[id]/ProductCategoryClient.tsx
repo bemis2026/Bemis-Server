@@ -245,10 +245,10 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                     kartlarla aynı (170px); object-contain ile küçük cihazlar
                     da kartın orta noktasında pürüzsüz oturur. */}
                 <div className="relative overflow-hidden" onClick={() => router.push(`/products/${id}/${product.id}`)}
-                  style={{ ...(id === "portable" ? { aspectRatio: "1 / 1" } : { height: 170 }), background: d ? `linear-gradient(145deg, ${accent}18 0%, transparent 100%), #1c1c1f` : `linear-gradient(145deg, ${accent}14 0%, transparent 100%), #fafafa` }}>
-                  {/* portable fotolar KARE (≈1.05) → görsel alanı da KARE (aspect-square) yapıldı ki
-                      contain ile çerçeveyi TAM doldursun, kırpılmadan. Diğer kategoriler dikey foto +
-                      sabit 170px (değişmedi). */}
+                  style={{ aspectRatio: "1 / 1", background: d ? `linear-gradient(145deg, ${accent}18 0%, transparent 100%), #1c1c1f` : `linear-gradient(145deg, ${accent}14 0%, transparent 100%), #fafafa` }}>
+                  {/* TÜM kategoriler KARE (1:1) — foto-uyumu: portable'ın kare fotoları tam dolar,
+                      diğer kategorilerin dikey fotoları 170px yatay çerçeveye göre daha büyük/dolu
+                      görünür; object-contain ile kırpılmadan oturur. Liste sayfası (ProductsClient) da kare. */}
                   {(product.images?.[0] ?? product.image) ? (
                     <Image src={(product.images?.[0] ?? product.image) as string} alt={product.name}
                       fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
