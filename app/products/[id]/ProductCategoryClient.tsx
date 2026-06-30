@@ -208,7 +208,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
           same compact tile size as a dense category (cables, v2l).
           Empty slots after the last card read as expected catalog
           rhythm, not "broken layout". */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-10">
+      <div className="max-w-7xl mx-auto w-full px-5 sm:px-6 lg:px-8 pb-10">
         {/* 5-sütunlu yoğun grid — her kategori için aynı kart boyutu.
             Az ürünlü kategoriler (AC Mobile Charger gibi) ilk slot'lardan
             soldan başlar, kalan slot'lar boş kalır (CSS grid default).
