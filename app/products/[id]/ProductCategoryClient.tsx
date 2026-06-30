@@ -123,9 +123,10 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
   // Ürün-görselli (şeffaf PNG) kategorilerde hero arka planı BEYAZ olsun
   // (kullanıcı isteği: "ac dc şarj ekipmanları görseli beyaz png").
   const whiteHero = id === "charger-equipment";
-  // cables: kategori görseli tam-genişlik ARKA PLAN hero (foto; şeffaf ürün PNG'si değil).
-  // Yalnız bu kategoriye özel canlandırılmış hero; diğerleri yan-yana düzende kalır.
-  const bgHero = id === "cables" && !!descImage && !whiteHero;
+  // Kategori görseli tam-genişlik ARKA PLAN hero (sahne fotosu olan TÜM kategoriler).
+  // whiteHero (charger-equipment, şeffaf ürün PNG'si) hariç — o tam-bleed arka plana uymaz.
+  // TODO(admin): ileride per-kategori "heroStyle" admin ayarına bağlanacak (bgHeroOverride).
+  const bgHero = !!descImage && !whiteHero && (categories?.[id]?.heroStyle !== "split");
 
   return (
     <div style={{ background: bg, display: "flex", flexDirection: "column", minHeight: "100vh", position: "relative", overflow: "hidden", isolation: "isolate" }}>
