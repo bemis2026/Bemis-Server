@@ -136,7 +136,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
         style={{
           background: d ? `radial-gradient(ellipse 70% 60% at 50% 0%, ${accent}10 0%, transparent 70%)` : `radial-gradient(ellipse 70% 60% at 50% 0%, ${accent}08 0%, transparent 70%)`,
         }}>
-        <div className="relative max-w-7xl 2xl:max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-8">
+        <div className="relative max-w-7xl 2xl:max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-8">
           {/* SOL: başlık + açıklama (içerik genişliğinde → görsel açıklamaya yakın durur) */}
           <div className="w-full lg:max-w-2xl min-w-0">
             <div className="flex items-stretch gap-4 mb-2">
@@ -181,7 +181,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
           {descImage && (
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.15 }}
-              className="w-full max-w-[300px] mx-auto lg:max-w-[360px] lg:mx-0 flex-shrink-0"
+              className="w-full max-w-[300px] mx-auto lg:max-w-[360px] 2xl:max-w-[460px] lg:mx-0 flex-shrink-0"
             >
               <div
                 className="relative rounded-2xl overflow-hidden"
