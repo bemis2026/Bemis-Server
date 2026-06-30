@@ -85,7 +85,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
           but with placeholder geometry so the content swap doesn't
           cause a layout shift when data lands. */}
       <div className="pt-24 pb-8 px-5 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
           <div className="flex items-stretch gap-4 mb-2">
             <div className="flex-shrink-0 rounded-full w-1" style={{ background: d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)" }} />
             <div className="space-y-2 flex-1">
@@ -96,7 +96,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
           </div>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-10 w-full">
+      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8 pb-10 w-full">
         <ProductGridSkeleton count={10} />
       </div>
     </div>
@@ -136,7 +136,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
         style={{
           background: d ? `radial-gradient(ellipse 70% 60% at 50% 0%, ${accent}10 0%, transparent 70%)` : `radial-gradient(ellipse 70% 60% at 50% 0%, ${accent}08 0%, transparent 70%)`,
         }}>
-        <div className="relative max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-8">
+        <div className="relative max-w-7xl 2xl:max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-8">
           {/* SOL: başlık + açıklama (içerik genişliğinde → görsel açıklamaya yakın durur) */}
           <div className="w-full lg:max-w-2xl min-w-0">
             <div className="flex items-stretch gap-4 mb-2">
@@ -208,13 +208,13 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
           same compact tile size as a dense category (cables, v2l).
           Empty slots after the last card read as expected catalog
           rhythm, not "broken layout". */}
-      <div className="max-w-7xl mx-auto w-full px-5 sm:px-6 lg:px-8 pb-10">
+      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto w-full px-5 sm:px-6 lg:px-8 pb-10">
         {/* 5-sütunlu yoğun grid — her kategori için aynı kart boyutu.
             Az ürünlü kategoriler (AC Mobile Charger gibi) ilk slot'lardan
             soldan başlar, kalan slot'lar boş kalır (CSS grid default).
             Önceki adaptive 3-sütun grid kartları tüm satıra yayıyordu,
             ortalanmış görünüyordu — bu hâl daha tutarlı. */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3 sm:gap-4">
           {groupVariantsByName(category.products ?? []).map((group, pi) => {
             const product = group.primary;
             const variantCount = group.variants.length;
@@ -323,7 +323,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
         const faqList = categories?.[id]?.faq ?? [];
         if (faqList.length === 0) return null;
         return (
-          <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-16 w-full">
+          <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8 pb-16 w-full">
             <h2 className="text-2xl font-black mb-5" style={{ color: textPrimary }}>
               {lang === "en" ? "Frequently Asked Questions" : "Sıkça Sorulan Sorular"}
             </h2>

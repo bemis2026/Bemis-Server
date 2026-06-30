@@ -240,7 +240,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
 
       {/* ── Page header ── */}
       <div className="pt-28 pb-6 px-5 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
             <div>
               <motion.h1
@@ -295,7 +295,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
         className="sticky top-16 z-30 px-5 sm:px-6 lg:px-8 py-3"
         style={{ background: d ? "rgba(12,12,14,0.92)" : "rgba(248,248,251,0.92)", backdropFilter: "blur(16px)", borderBottom: `1px solid ${surfaceBorder}` }}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
           <div className="flex gap-2 overflow-x-auto pb-0.5 scrollbar-hide">
             <FilterChip
               label="Tümü"
@@ -323,7 +323,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
 
       {/* ── Products list ── */}
       <div className="px-5 sm:px-6 lg:px-8 pb-20 pt-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
           {loading ? (
             <ProductGridSkeleton count={15} />
           ) : (
@@ -361,7 +361,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                       <div className="mb-5" style={{ height: 1, background: surfaceBorder }} />
 
                       {/* Product cards — image grid */}
-                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3 sm:gap-4">
                         {groupVariantsByName(cat.products ?? []).map((group, pi) => {
                           const product = group.primary;
                           const variantCount = group.variants.length;
