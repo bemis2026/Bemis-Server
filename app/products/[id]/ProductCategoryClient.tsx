@@ -134,6 +134,20 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
   const heroStyleResolved =
     categories?.[id]?.heroStyle ?? (productPhotoCategory ? "split" : "bg");
   const bgHero = !!descImage && !whiteHero && heroStyleResolved !== "split";
+  // bg-hero fotosunun ODAK NOKTASI (object-position). Geniş-kısa hero'da
+  // object-cover üst/altı kırpar → dikey odak (Y) hangi yatay şeridin
+  // görüneceğini belirler. Dikey fotolu kategoriler (wallbox/portable/cables)
+  // için ÖZNE (cihaz/konnektör) görünsün diye Y elle ayarlandı; yataylar
+  // (dc-units/v2l-c2l) hafif. Admin descImagePos verirse o önceliklidir.
+  const CATEGORY_HERO_FOCUS: Record<string, string> = {
+    wallbox: "50% 30%",
+    portable: "50% 38%",
+    cables: "50% 40%",
+    "dc-units": "50% 42%",
+    "v2l-c2l": "60% 50%",
+  };
+  const heroFocus =
+    categories?.[id]?.descImagePos?.trim() || CATEGORY_HERO_FOCUS[id] || "center";
 
   return (
     <div style={{ background: bg, display: "flex", flexDirection: "column", minHeight: "100vh", position: "relative", overflow: "hidden", isolation: "isolate" }}>
@@ -151,7 +165,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
           /* CABLES: kategori görseli tam-genişlik arka plan; metin sol koyu gradyan üstüne biner. */
           <div className="relative max-w-7xl 2xl:max-w-[1600px] mx-auto">
             <div className="relative overflow-hidden rounded-3xl min-h-[320px] lg:min-h-[420px] flex items-center">
-              <Image src={descImage} alt={category.name} fill sizes="(max-width: 1024px) 100vw, 1600px" quality={92} className="object-cover" style={{ objectPosition: "center" }} priority />
+              <Image src={descImage} alt={category.name} fill sizes="(max-width: 1024px) 100vw, 1600px" quality={92} className="object-cover" style={{ objectPosition: heroFocus }} priority />
               <div className="absolute inset-0" aria-hidden style={{ background: "linear-gradient(100deg, rgba(8,10,14,0.95) 0%, rgba(8,10,14,0.82) 36%, rgba(8,10,14,0.42) 68%, rgba(8,10,14,0.12) 100%)" }} />
               <div className="absolute left-0 top-0 bottom-0" aria-hidden style={{ width: 4, background: `linear-gradient(180deg, ${accent} 0%, ${accent}66 100%)` }} />
               <div className="relative z-10 px-7 sm:px-10 lg:px-14 py-10 lg:py-12 max-w-2xl">
@@ -287,7 +301,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                     kartlarla aynı (170px); object-contain ile küçük cihazlar
                     da kartın orta noktasında pürüzsüz oturur. */}
                 <div className="relative overflow-hidden" onClick={() => router.push(`/products/${id}/${product.id}`)}
-                  style={{ aspectRatio: "1 / 1", background: d ? `linear-gradient(145deg, ${accent}18 0%, transparent 100%), #1c1c1f` : `linear-gradient(145deg, ${accent}14 0%, transparent 100%), #fafafa` }}>
+                  style={{ aspectRatio: "1 / 1", background: `linear-gradient(150deg, ${accent}0f 0%, transparent 55%), #f3f4f6` }}>
                   {/* TÜM kategoriler KARE (1:1) — foto-uyumu: portable'ın kare fotoları tam dolar,
                       diğer kategorilerin dikey fotoları 170px yatay çerçeveye göre daha büyük/dolu
                       görünür; object-contain ile kırpılmadan oturur. Liste sayfası (ProductsClient) da kare. */}
@@ -317,17 +331,17 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                   )}
                   {variantCount > 1 ? (
                     <div className="absolute top-2.5 right-2.5 text-[11px] font-bold px-2.5 py-1 rounded-full"
-                      style={{ background: `${accent}22`, border: `1px solid ${accent}40`, color: d ? "rgba(255,255,255,0.85)" : accent }}>
+                      style={{ background: `${accent}22`, border: `1px solid ${accent}40`, color: accent }}>
                       {variantCount} {lang === "en" ? "versions" : "versiyon"}
                     </div>
                   ) : product.badge && (
                     <div className="absolute top-2.5 right-2.5 text-[11px] font-bold px-2.5 py-1 rounded-full"
-                      style={{ background: `${accent}22`, border: `1px solid ${accent}40`, color: d ? "rgba(255,255,255,0.75)" : accent }}>
+                      style={{ background: `${accent}22`, border: `1px solid ${accent}40`, color: accent }}>
                       {product.badge}
                     </div>
                   )}
                   <div className="absolute bottom-0 left-0 right-0 h-10"
-                    style={{ background: d ? "linear-gradient(to top, rgba(10,10,12,0.9) 0%, transparent 100%)" : "linear-gradient(to top, rgba(255,255,255,0.9) 0%, transparent 100%)" }} />
+                    style={{ background: "linear-gradient(to top, rgba(243,244,246,0.92) 0%, transparent 100%)" }} />
                 </div>
 
                 {/* Info */}

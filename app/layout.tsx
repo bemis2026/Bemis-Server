@@ -21,6 +21,7 @@ import ContentLoadingBar from "./components/ContentLoadingBar";
 import ContentErrorToast from "./components/ContentErrorToast";
 import LanguageURLSync from "./components/LanguageURLSync";
 import JsonLd from "./components/JsonLd";
+import NoAppInstall from "./components/NoAppInstall";
 import { organizationSchema, websiteSchema, productSchema, categoryListSchema, categoryH1 } from "./lib/seo";
 import { getServerSiteContent, getServerProducts } from "./lib/server-content";
 
@@ -284,6 +285,8 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://i.ibb.co" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://i.ibb.co" />
         <JsonLd data={jsonLd} />
+        {/* "Uygulama olarak yükle" istemini aktif engelle + eski SW temizliği */}
+        <NoAppInstall />
         <ThemeProvider>
           <LanguageProvider>
             <CurrencyProvider>

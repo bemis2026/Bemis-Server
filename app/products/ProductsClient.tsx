@@ -397,9 +397,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                               className="relative overflow-hidden"
                               style={{
                                 aspectRatio: "1 / 1",
-                                background: d
-                                  ? `linear-gradient(145deg, ${cat.accent}0a 0%, #111111 100%)`
-                                  : `linear-gradient(145deg, ${cat.accent}0d 0%, #f4f4f4 100%)`,
+                                background: `linear-gradient(150deg, ${cat.accent}0f 0%, transparent 55%), #f3f4f6`,
                               }}
                             >
                               {(product.images?.[0] ?? product.image) ? (
@@ -437,7 +435,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                                   style={{
                                     background: `${cat.accent}22`,
                                     border: `1px solid ${cat.accent}40`,
-                                    color: d ? "rgba(255,255,255,0.85)" : cat.accent,
+                                    color: cat.accent,
                                   }}
                                 >
                                   {variantCount} versiyon
@@ -448,7 +446,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                                   style={{
                                     background: `${cat.accent}22`,
                                     border: `1px solid ${cat.accent}40`,
-                                    color: d ? "rgba(255,255,255,0.80)" : cat.accent,
+                                    color: cat.accent,
                                   }}
                                 >
                                   {product.badge}
@@ -459,9 +457,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                               <div
                                 className="absolute bottom-0 left-0 right-0 h-10"
                                 style={{
-                                  background: d
-                                    ? "linear-gradient(to top, rgba(10,10,12,0.9) 0%, transparent 100%)"
-                                    : "linear-gradient(to top, rgba(255,255,255,0.9) 0%, transparent 100%)",
+                                  background: "linear-gradient(to top, rgba(243,244,246,0.92) 0%, transparent 100%)",
                                 }}
                               />
                             </div>
