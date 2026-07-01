@@ -46,11 +46,16 @@ export default function GoogleAnalytics() {
           } catch (e) {}
         `}
       </Script>
+      {/* ⚡ gtag.js (≈178KB + ana-iş bloğu) sayfa TAMAMEN yüklendikten sonra
+          insin (lazyOnload). Üstteki consent stub'ı window.gtag'ı erken
+          tanımlıyor → araya gelen tüm gtag()/trackEvent çağrıları dataLayer'da
+          KUYRUKLANIR, gtag.js gelince işlenir — veri kaybolmaz, sadece
+          gönderim ilk saniyelerde gecikir. */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics" strategy="lazyOnload">
         {`
           gtag('js', new Date());
           gtag('config', '${gaId}', {

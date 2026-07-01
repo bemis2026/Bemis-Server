@@ -20,6 +20,32 @@ import { useCallback, useEffect, useRef, useState } from "react";
  * poster opacity; wire `onIframeLoad` to the iframe's onLoad and
  * `onVideoPlaying` to the <video>'s onPlaying.
  */
+/**
+ * ⚡ Ağır embed'leri (YouTube iframe ≈1MB player JS + ≈4MB video akışı) SAYFA
+ * AÇILIŞINDA indirmemek için: verilen kutunun viewport'a YAKLAŞMASINI bekler
+ * (rootMargin kadar önce tetiklenir). `near` bir kez true olur ve geri dönmez
+ * → embed o anda mount edilir; autoplay + siyah-poster akışı birebir aynı
+ * çalışır (kullanıcı bölüme varmadan yükleme çoktan başlamış olur).
+ * IntersectionObserver yoksa hemen true → eski (eager) davranışa düşer.
+ */
+export function useNearViewport<T extends HTMLElement>(rootMargin = "600px 0px") {
+  const boxRef = useRef<T | null>(null);
+  const [near, setNear] = useState(false);
+  useEffect(() => {
+    if (near) return;
+    const el = boxRef.current;
+    // Kutu render edilmemiş / API yok → güvenli taraf: hemen mount et.
+    if (!el || typeof IntersectionObserver === "undefined") { setNear(true); return; }
+    const io = new IntersectionObserver(
+      (entries) => { if (entries.some((e) => e.isIntersecting)) setNear(true); },
+      { rootMargin },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [near, rootMargin]);
+  return { boxRef, near };
+}
+
 export function useBackgroundVideo() {
   const elRef = useRef<HTMLIFrameElement | HTMLVideoElement | null>(null);
   const revealTimer = useRef<ReturnType<typeof setTimeout> | null>(null);

@@ -11,7 +11,7 @@ import {
 import { useRouter } from "next/navigation";
 import E from "./E";
 import EImage from "./EImage";
-import { useBackgroundVideo } from "./useBackgroundVideo";
+import { useBackgroundVideo, useNearViewport } from "./useBackgroundVideo";
 
 
 const BLUE = "#3B82F6";
@@ -33,6 +33,10 @@ export default function DNA() {
     ref: soundRef, soundOn, toggle: toggleSound,
     covered, onIframeLoad, onVideoPlaying,
   } = useBackgroundVideo();
+  // ⚡ YouTube player'ı (≈1MB JS + ≈4MB video) sayfa açılışında İNDİRME:
+  // video kutusu viewport'a 600px yaklaşınca mount et. Poster (covered)
+  // zaten mount'a kadar siyah kalıyor → görsel akış birebir aynı.
+  const { boxRef: videoBoxRef, near: videoNear } = useNearViewport<HTMLDivElement>();
 
   const textPrimary = d ? "#f0f0f4"                 : "#1a1a1a";
   const textMuted   = d ? "rgba(240,240,244,0.52)"  : "rgba(26,26,26,0.52)";
@@ -156,6 +160,7 @@ export default function DNA() {
             className="lg:col-span-3"
           >
             <div
+              ref={videoBoxRef}
               className="relative rounded-2xl overflow-hidden aspect-video"
               style={{
                 background: d
@@ -174,7 +179,9 @@ export default function DNA() {
                 className="absolute inset-0 z-10 transition-opacity duration-500 pointer-events-none"
                 style={{ background: "#0a0a0a", opacity: covered ? 1 : 0 }}
               />
-              {dna.factoryVideo ? (() => {
+              {/* videoNear false iken player MOUNT EDİLMEZ (null) — üstteki
+                  siyah poster kutuyu kaplıyor, yaklaşınca yükleme başlar. */}
+              {dna.factoryVideo ? (!videoNear ? null : (() => {
                 const yt = dna.factoryVideo!.match(/(?:youtube\.com\/(?:[^/?]+\?.*v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
                 if (yt) {
                   // playsinline=1 + mute=1 are mandatory for mobile autoplay
@@ -206,7 +213,7 @@ export default function DNA() {
                     style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
                   />
                 );
-              })() : (
+              })()) : (
                 <EImage
                   field="dna.factoryImage"
                   src={dna.factoryImage ?? ""}

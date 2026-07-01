@@ -8,7 +8,7 @@ import { useContent } from "../context/ContentContext";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
-import { useBackgroundVideo } from "../components/useBackgroundVideo";
+import { useBackgroundVideo, useNearViewport } from "../components/useBackgroundVideo";
 import Image from "next/image";
 import {
   RiBuilding4Line, RiVolumeUpLine, RiVolumeMuteLine, RiArrowRightLine,
@@ -75,6 +75,9 @@ export default function KurumsalPage() {
     ref: soundRef, soundOn, toggle: toggleSound,
     covered, onIframeLoad,
   } = useBackgroundVideo();
+  // ⚡ YouTube player'ı (≈1MB JS + video akışı) sayfa açılışında İNDİRME:
+  // video kutusu viewport'a 600px yaklaşınca mount et (anasayfa DNA ile aynı).
+  const { boxRef: videoBoxRef, near: videoNear } = useNearViewport<HTMLDivElement>();
 
   const bg         = d ? "linear-gradient(180deg, #0c0c0e 0%, #111113 100%)" : "#f8f8fb";
   const surface    = d ? "rgba(255,255,255,0.04)" : "#ffffff";
@@ -256,7 +259,7 @@ export default function KurumsalPage() {
                       : `0 16px 48px rgba(0,0,0,0.12), 0 0 0 1px ${BLUE}10, 0 0 60px ${BLUE}10`,
                   }}
                 >
-                  <div style={{ position: "relative", paddingTop: "56.25%" }}>
+                  <div ref={videoBoxRef} style={{ position: "relative", paddingTop: "56.25%" }}>
                     {/* Same passive-screen treatment as the homepage DNA
                         video: hide YouTube controls, kill keyboard +
                         fullscreen, block hover with pointer-events: none.
@@ -267,7 +270,8 @@ export default function KurumsalPage() {
                       className="transition-opacity duration-500 pointer-events-none"
                       style={{ position: "absolute", inset: 0, zIndex: 10, background: "#0a0a0a", opacity: covered ? 1 : 0 }}
                     />
-                    <iframe
+                    {/* videoNear false iken player MOUNT EDİLMEZ — poster kaplıyor. */}
+                    {videoNear && <iframe
                       ref={soundRef}
                       src={
                         `https://www.youtube-nocookie.com/embed/${aboutVideoId}` +
@@ -280,7 +284,7 @@ export default function KurumsalPage() {
                       allow="autoplay; encrypted-media; picture-in-picture"
                       onLoad={onIframeLoad}
                       style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0, pointerEvents: "none" }}
-                    />
+                    />}
                   </div>
                   <div
                     className="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full pointer-events-none"
