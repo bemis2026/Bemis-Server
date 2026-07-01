@@ -60,8 +60,18 @@ export default function SectionWrapper({ id, index, total, children }: SectionWr
     // halinde reflow olmaz. CLS (Cumulative Layout Shift) ve uzun
     // sayfaların scroll responsiveness'ı için en yüksek değerli safe
     // kazanç. Görsel davranış değişmez.
+    // ⚡ Ekran-dışı bölümlerin RENDER/paint/layout maliyetini atla (1900+ DOM
+    // elemanlı sayfada ilk yük + scroll responsiveness rahatlar). İlk bölüm
+    // (index 0) hariç — o folda yakın, LCP'ye dokunma. Desteklemeyen tarayıcı
+    // özelliği yok sayar → bölüm normal render olur (güvenli degrade). Anchor
+    // çalışır (getElementById + scrollIntoView render'ı tetikler; intrinsic
+    // boyut kaydırmayı hizalar). GÖRÜNÜM DEĞİŞMEZ (bölüme gelince zaten render).
+    const offscreen: React.CSSProperties =
+      index >= 1
+        ? ({ contentVisibility: "auto", containIntrinsicSize: "auto 900px" } as React.CSSProperties)
+        : {};
     return (
-      <div style={{ position: "relative", contain: "layout style paint" }}>
+      <div style={{ position: "relative", contain: "layout style paint", ...offscreen }}>
         <SectionAccent />
         {children}
       </div>
