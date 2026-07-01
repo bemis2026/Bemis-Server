@@ -21,8 +21,15 @@
 > doğrulandı, özneler görünür). Yeni odak istenirse `referenceProjectsSection.items[].imagePos`'a göm (Blob'a yazma).
 > **(2) Karanlık mod kart zemini:** bir önceki tur ürün-kartı görsel alanı açık `#f3f4f6` HER modda idi → dark modda
 > çok STARK. Artık **mod-koşullu**: dark `#dbdee3` (yumuşak) + accent tint biraz fazla, light `#f3f4f6`; bottom-fade
-> de dark zemine uyumlandı (`ProductCategoryClient` + `ProductsClient`). Canlı ✓. **[AÇIK — KULLANICI]** Bayi Ağı'nda
-> MC2 bayisini işaretledi; veri+linkler geçerli çıktı (whatsapp wa.me, website link) — spesifik istenen netleşmedi.
+> de dark zemine uyumlandı (`ProductCategoryClient` + `ProductsClient`). Canlı ✓.
+> **(3) ⚠️ ADMIN KAYDI CANLIYA YANSIMIYOR — KULLANICI TARAFINDAN TEYİT EDİLDİ (önemli):** kullanıcı MC2 bayisinin
+> iletişimini admin'den değiştirip kaydetti ama ana sayfada düzelmedi. KÖK NEDEN = aynı **Blob bozuk** sorunu (admin
+> Blob'a yazıyor, site `data/*.json` fallback okuyor). ⚠️ Bu SADECE bu bayi değil — **TÜM admin düzenlemeleri
+> (ürün/içerik/bayi) canlıya yansımıyor** (Blob token apeiron store'a bakıyor). Kalıcı çözüm = Vercel'de doğru bemis
+> Blob store'unu yeniden bağlamak (dev/infra, KULLANICI). O düzelene kadar değişiklikler koda/veriye elle işleniyor.
+> MC2 örnegi ÇÖZÜLDÜ (commit c3272bc, `data/dealers.json`): whatsapp `05550862226→05550862227`, email
+> `satis@mc2enerji.com` eklendi (telefon+website korundu); canlı `/api/dealers` doğrulandı. ⚠️ Bayi düzenlemesi =
+> `data/dealers.json` (şehir→dealers[]); EN kopyası yok.
 
 > 🎯 **HERO ODAK NOKTALARI + KART GÖRSELİ AÇIK ZEMİN + "UYGULAMA YÜKLE" (2026-07-01, CANLI · commit'ler ec0b66c/2fa9e6e):**
 > Kullanıcı: "görsellerin çerçeveye oturması + odak noktaları doğru yeri göstersin; ürün kartı görselleri çerçeveye uyumlu olsun."
