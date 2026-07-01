@@ -34,6 +34,69 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi",
+    title: "Ev Şarj Ünitesi mi, Taşınabilir Şarj Cihazı mı? Hangisi Size Uygun?",
+    metaTitle: "Ev Şarj Ünitesi mi, Taşınabilir Cihaz mı?",
+    description:
+      "Evde elektrikli araç şarjı için wallbox (ev şarj ünitesi) mi, taşınabilir şarj cihazı mı almalısınız? Güç, kurulum ve kullanım farklarıyla sade karar rehberi.",
+    excerpt:
+      "Evde şarj için iki yol var: duvara sabit ev şarj ünitesi (wallbox) ya da prize takılan taşınabilir cihaz. Hangisi sizin için doğru? Farkları ve karar rehberi.",
+    category: "Rehber",
+    datePublished: "2026-07-02",
+    readingMinutes: 6,
+    keywords: ["ev şarj ünitesi", "elektrikli araç şarj cihazı", "wallbox nedir", "taşınabilir şarj cihazı", "ev tipi şarj cihazı", "şarj cihazı çeşitleri", "evde elektrikli araç şarjı"],
+    body: [
+      { type: "p", text: "Evde elektrikli aracınızı şarj etmenin iki temel yolu var: duvara sabitlenen bir ev şarj ünitesi (wallbox) ya da prize takıp kullandığınız taşınabilir bir şarj cihazı. İkisi de aracınızı şarj eder, ama kullanım, hız ve kurulum açısından farklıdırlar. Bu rehberde hangisinin size uygun olduğunu netleştiriyoruz." },
+
+      { type: "h2", text: "Ev şarj ünitesi (wallbox) nedir?" },
+      { type: "p", text: "Wallbox, garaj ya da otopark duvarına sabitlenen, kendine ait bir elektrik hattından beslenen sabit şarj ünitesidir. Kurulumunu bir elektrikçi yapar. Adanmış hat sayesinde daha yüksek ve kararlı güç sunar; monofaze tesisatta 7,4 kW'a, trifaze tesisatta 22 kW'a kadar çıkabilir." },
+      { type: "ul", items: [
+        "Daha hızlı ve kararlı şarj (adanmış hat).",
+        "Her gün eve gelince tak-şarj et pratikliği.",
+        "Akıllı modellerde uygulama, RFID, OCPP ve yük yönetimi gibi özellikler.",
+        "Sabit, düzenli görünüm — kablo karmaşası yok.",
+      ]},
+
+      { type: "h2", text: "Taşınabilir şarj cihazı nedir?" },
+      { type: "p", text: "Taşınabilir şarj cihazı, mevcut bir prize (evdeki schuko prize veya endüstriyel CEE prize) takıp kullandığınız, yanınızda taşıyabildiğiniz cihazdır. Kurulum gerektirmez; çantasından çıkarıp takarsınız. Schuko prizde güç genellikle daha düşüktür (yaklaşık 2,3–3,7 kW); uygun CEE prizde daha yükseğe çıkabilir." },
+      { type: "ul", items: [
+        "Kurulum yok — herhangi bir uygun prize takılır.",
+        "Taşınabilir: seyahatte, yazlıkta, misafirlikte yanınızda.",
+        "Wallbox'ın yedeği olarak da işe yarar.",
+        "Genelde daha uygun fiyatlı bir başlangıç çözümü.",
+      ]},
+
+      { type: "h2", text: "İkisi arasındaki temel farklar" },
+      { type: "ul", items: [
+        "Güç/hız: Wallbox genelde daha yüksek ve kararlı; schuko'ya takılan taşınabilir cihaz daha yavaştır.",
+        "Kurulum: Wallbox elektrikçi + adanmış hat ister; taşınabilir cihaz tak-çalıştır.",
+        "Taşınabilirlik: Taşınabilir cihaz yanınızda gider; wallbox sabittir.",
+        "Akıllı özellikler: Uygulama/OCPP/yük yönetimi genelde wallbox tarafında güçlüdür.",
+      ]},
+
+      { type: "h2", text: "Hangisini seçmelisiniz?" },
+      { type: "ul", items: [
+        "Her gün evde şarj ediyor, en hızlı ve düzenli çözümü istiyorsanız → ev şarj ünitesi (wallbox).",
+        "Kurulumla uğraşmadan başlamak, cihazı yanınızda taşımak veya yedek istiyorsanız → taşınabilir şarj cihazı.",
+        "İdeal senaryo: Evde wallbox + araçta yedek olarak taşınabilir cihaz birlikte bulundurmak.",
+      ]},
+
+      { type: "cta", text: "Bemis ev şarj üniteleri (AC Wallbox) ve taşınabilir şarj cihazları yerli üretilir — modelleri karşılaştırın.", href: "/products/wallbox", label: "Ev Şarj Ünitelerini İncele" },
+    ],
+    faq: [
+      { q: "Ev şarj ünitesi (wallbox) nedir?", a: "Ev şarj ünitesi, yaygın adıyla wallbox, garaj veya otopark duvarına sabitlenen ve kendine ait bir elektrik hattından beslenen sabit bir şarj cihazıdır. Kurulumunu bir elektrikçi yapar ve adanmış hat sayesinde yüksek, kararlı güç sunar: monofaze (tek faz) tesisatta 7,4 kW'a, trifaze (üç faz) tesisatta 22 kW'a kadar çıkabilir. Her gün eve gelince kabloyu takıp şarj etmenizi sağlar; akıllı modellerde uygulamadan kontrol, RFID ile yetkilendirme, OCPP uyumu ve birden çok cihazı dengeleyen yük yönetimi gibi özellikler bulunur. Sabit ve düzenli görünümüyle günlük ev kullanımı için en pratik çözümdür." },
+      { q: "Taşınabilir şarj cihazı evde günlük kullanıma uygun mu?", a: "Evet, taşınabilir şarj cihazı günlük ev kullanımında rahatlıkla çalışır; özellikle günlük kilometreniz düşükse gece boyunca aracınızı doldurmak için yeterlidir. Kurulum gerektirmemesi büyük avantajdır: uygun bir prize takıp kullanırsınız. Ancak evdeki standart schuko prizde güç genellikle daha düşüktür (yaklaşık 2,3–3,7 kW), bu yüzden şarj daha yavaş olur. Yüksek günlük kilometreniz varsa veya aracı kısa sürede doldurmak istiyorsanız sabit bir ev şarj ünitesi (wallbox) daha uygundur. Birçok kullanıcı, evde wallbox kullanıp taşınabilir cihazı seyahat ve yedek amaçlı yanında bulundurur." },
+      { q: "Ev şarj ünitesi mi daha hızlı şarj eder?", a: "Genellikle evet. Ev şarj ünitesi (wallbox) kendine ait, adanmış bir elektrik hattından beslendiği için daha yüksek ve kararlı güç verir; monofaze tesisatta 7,4 kW'a, trifaze tesisatta 22 kW'a kadar çıkabilir. Standart schuko prize takılan taşınabilir bir cihaz ise genellikle 2,3–3,7 kW civarında kalır, bu yüzden daha yavaş şarj eder. Yine de gerçek şarj hızını aracınızın içindeki AC şarj birimi (onboard şarj cihazı) de sınırlar; aracınız düşük güçlü AC şarj alıyorsa iki yöntem arasındaki fark küçülür. Hız önceliğinizse wallbox daha avantajlıdır." },
+      { q: "Wallbox kurulumu için ne gerekir?", a: "Wallbox kurulumu için genellikle elektrik panonuzdan çekilen adanmış (ayrı) bir hat, uygun kesitte kablo ve doğru koruma elemanları (kaçak akım rölesi ve sigorta) gerekir. Trifaze 22 kW'lık bir kurulum için tesisatınızın üç fazlı olması gerekir; tek fazlı tesisatta güç 7,4 kW ile sınırlıdır. Kurulumu mutlaka yetkili bir elektrikçiye yaptırın; hem güvenlik hem de cihazın doğru çalışması için hattın ve korumaların uygun seçilmesi önemlidir. Apartman veya site otoparkına kuruluyorsa yönetimden izin ve ortak sayaç/bireysel sayaç düzeni de planlanmalıdır." },
+    ],
+    related: [
+      { label: "AC Wallbox", href: "/products/wallbox" },
+      { label: "Taşınabilir Şarj", href: "/products/portable" },
+      { label: "Yerli Üretici", href: "/uretici" },
+    ],
+  },
+
+  {
     slug: "elektrikli-arac-sarj-kablosu-kac-metre-kac-amper",
     title: "Elektrikli Araç Şarj Kablosu Kaç Metre ve Kaç Amper Olmalı?",
     metaTitle: "Şarj Kablosu Kaç Metre, Kaç Amper Olmalı?",
