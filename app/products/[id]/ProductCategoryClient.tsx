@@ -125,14 +125,18 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
   const whiteHero = id === "charger-equipment";
   // Kategori görseli tam-genişlik ARKA PLAN hero (sahne fotosu olan kategoriler).
   // whiteHero (charger-equipment, şeffaf ürün PNG'si) bg'ye uymaz → split.
-  // Ürün-fotolu (beyaz zemin) kategoriler de split kalır: converters (uzatma
-  // kablosu) + accessories (şarj çantası) — düz ürün fotosu tam-bleed'e uymaz.
-  // Sahne fotolular (wallbox/portable/cables/v2l-c2l/dc-units) bg-hero olur.
+  // VARSAYILAN split (yan-yana) kalan kategoriler:
+  //  - converters (uzatma kablosu) + accessories (şarj çantası): düz ÜRÜN
+  //    fotosu, beyaz zemin — tam-bleed arka plana uymaz.
+  //  - wallbox: sahne fotosu ama ÖZNESİ (duvar cihazı) fotoğrafın SOLUNDA;
+  //    sol-hizalı metin gradyanı onu örtüyor → çerçeveli görsel daha net.
+  // bg-hero olanlar: portable / cables / v2l-c2l / dc-units (öznesi merkez-sağ).
   // Admin "heroStyle" ayarı (categories[id].heroStyle) DAİMA önceliklidir;
   // boşsa aşağıdaki kod varsayılanı kullanılır.
-  const productPhotoCategory = id === "converters" || id === "accessories";
+  const splitByDefault =
+    id === "converters" || id === "accessories" || id === "wallbox";
   const heroStyleResolved =
-    categories?.[id]?.heroStyle ?? (productPhotoCategory ? "split" : "bg");
+    categories?.[id]?.heroStyle ?? (splitByDefault ? "split" : "bg");
   const bgHero = !!descImage && !whiteHero && heroStyleResolved !== "split";
   // bg-hero fotosunun ODAK NOKTASI (object-position). Geniş-kısa hero'da
   // object-cover üst/altı kırpar → dikey odak (Y) hangi yatay şeridin
