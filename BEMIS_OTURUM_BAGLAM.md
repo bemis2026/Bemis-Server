@@ -13,6 +13,23 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> ✍️ **SON-KULLANICI SEO BLOG SERİSİ + PWA (kesin) + AI-Bakışı link (2026-07-02, CANLI · commit 75b988a/076a806):**
+> Kullanıcı: "üretici" GEÇMEYEN alıcı-cümleleri hedefleyen bloglar ("elektrikli araç şarj kablosu / şarj cihazı /
+> ev şarj ünitesi / şarj kablosu ac"). Plan (AskUserQuestion): **3'ünü de sırayla** — (1) 2-3 amiral rehber →
+> (2) kategori/ürün sayfalarını bu cümlelere göre güçlendir → (3) 5-6'lık seri. **YAPILDI (#1'in ilk 2'si, CANLI+
+> doğrulandı, FAQPage+Article şema, sitemap+/blog listesinde):** `elektrikli-arac-sarj-kablosu-kac-metre-kac-amper`
+> (16A/32A, monofaze 7,4kW/trifaze 22kW, 5-7-10m, onboard limit) + `ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi`
+> (wallbox vs portable karar rehberi). Uydurma spec YOK, rakip marka YOK, iç link (cables/wallbox/portable/uretici).
+> **⏳ KALAN: #1'in 3. yazısı (ops.) → PLAN #2 (sayfa güçlendirme) → PLAN #3 (5-6 seri).** Blog eklemek = `app/blog/
+> posts.ts` BLOG_POSTS başına ekle (slug/title/description/excerpt/category/datePublished/readingMinutes/keywords/
+> body[p·h2·ul·cta]/faq[~90kelime]/related) → /blog+sitemap+JSON-LD otomatik. **⛔ PWA (4. kez, KESİN):** site %100
+> temiz (manifest yok, SW yok, 5 endpoint 404, web-app-capable meta yok). Gördüğü "uygulama olarak indir" =
+> **Chrome'un HER sitede sunduğu "sayfayı uygulama yap"** (google.com dahil); **kod ile kapatılamaz** (web standardı
+> yok). NoAppInstall zaten ekli. theme-color/apple-touch-icon kaldırmak Chrome'u DURDURMAZ + legit → yapılmadı.
+> **🎯 AI-Bakışı:** "elektrikli araç şarj kablosu yerli üretici"de Bemis **EN ÜSTTE** (entity işi tuttu) ama LİNKSİZ;
+> rakipte link var çünkü Google onların ürün sayfasını KAYNAK seçmiş. Link zorlanamaz; blog+sayfa güçlendirme
+> (plan #2/#3) alıntı-kaynağı seçilme ihtimalini artırır (dolaylı yol).
+
 > ⚡⚡ **PERF 2. RAUND — YOUTUBE LAZY (ASIL SUÇLU) + GTM lazyOnload (2026-07-01, CANLI · commit 7c22ac6, Fable 5):**
 > PageSpeed derin döküm: **6MB'lik yükün ~%80'i (~4.9MB) = DNA bölümü YouTube arka plan videosu** (googlevideo
 > 3.8MB + player JS 1.1MB) İLK YÜKTE otomatik iniyordu; ayrıca LCP elementi görsel değil **H1 başlık** (animasyon
