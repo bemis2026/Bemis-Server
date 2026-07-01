@@ -13,6 +13,18 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> ⚡ **PERF / PageSpeed mobil — globe mobil-2D + EImage lazy (2026-07-01, CANLI · commit 2a93374):**
+> Kullanıcı PSI mobil paylaştı. Yerel Lighthouse: mobil **28/100** (LCP 16.5s, TBT 5.3s, ~6MB, ana-iş 36.7s —
+> ⚠️ yerel makinede şişkin olabilir; teşhis kesin: **JS + görsel ağır anasayfa**). Config ZATEN optimize (brotli
+> 382→68KB, AVIF, kod-böl, 30g cache, Sentry Replay çıkık, TTFB 0.31s). **KULLANICI ONAYI:** geç-yükleme + görünmez
+> kazanımlar + globe→mobil-statik; **animasyon/hero'ya DOKUNMA** (reddetti). **YAPILDI:** (1) `DealerNetwork` mobilde
+> (≤767px) worldRender VARSAYILAN **"2d"** → react-globe.gl (three.js/WebGL/4K doku) mobilde İNMEZ (globe zaten
+> "Dünya" sekmesine ertelenmiş = ilk skoru değil mobil-Dünya'yı hafifletir; masaüstü 3D aynen, toggle duruyor).
+> (2) `EImage` (içerik görsel bileşeni) `loading=lazy`+`decoding=async` → ekran-dışı içerik görselleri geldikçe
+> yüklenir (canlı 25 lazy img); LCP hero'da (next/image) → etkilenmez. **ⓘ ASIL İLK-SKOR KALDIRACI AÇIK:** 11
+> animasyonlu bölümün geç-hidrasyonu — ama bölümler **#anchor hedefi** (#calculator/#dealer in-page link) + SEO
+> içeriği → ssr:false/lazy aceleye gelmez (navigasyon/SEO kırar); dikkatli per-bölüm iş = ayrı odaklı tur.
+
 > 🖼️ **REFERANS PROJE ODAKLARI (data'ya gömüldü) + KARANLIK KART ZEMİNİ YUMUŞADI (2026-07-01, CANLI · commit 2ed4bb1):**
 > **(1) Referans projeler "revert" bug'ı:** admin'den `imagePos` (odak) ayarı KALMIYOR. KÖK NEDEN = **Blob bozuk**
 > (apeiron token); site `data/content.json` okuyor, admin Blob'a yazıyor → yansımıyor → center'a döner. ⚠️ Blob
