@@ -33,7 +33,9 @@ export default function EImage({
     return (
       <div className={className} style={style}>
         {src ? (
-          <img src={src} alt={alt} className={imgClassName} style={imgStyle} />
+          // Ekran-dışı içerik görselleri (hero DEĞİL — o next/image) tarayıcıya
+          // geldikçe yüklensin → ilk yük + ağ trafiği düşer, LCP etkilenmez.
+          <img src={src} alt={alt} className={imgClassName} style={imgStyle} loading="lazy" decoding="async" />
         ) : (
           <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 6 }}>
             {children}

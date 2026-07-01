@@ -99,6 +99,15 @@ export default function DealerNetwork() {
   // to 3D so first impression stays the dramatic globe; user can flip
   // for a quick equirectangular reference view.
   const [worldRender, setWorldRender] = useState<"3d" | "2d">("3d");
+  // ⚡ Mobil performans: 3D globe = react-globe.gl (three.js + WebGL) çok ağır
+  // (büyük JS + 4K doku + WebGL render). Mobilde "Dünya" görünümü VARSAYILAN
+  // olarak hafif 2D haritaya düşer → three.js/doku İNMEZ, ana-iş parçacığı
+  // rahatlar. Kullanıcı isterse toggle ile 3D'ye geçebilir. Masaüstü aynen 3D.
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia?.("(max-width: 767px)").matches) {
+      setWorldRender("2d");
+    }
+  }, []);
   // Selected international country (yurtdisi mode) — drives the side card +
   // the globe's pointOfView fly-to.
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
