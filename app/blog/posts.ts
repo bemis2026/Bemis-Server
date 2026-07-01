@@ -34,6 +34,57 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "elektrikli-arac-sarj-kablosu-disarida-yagmurda-kullanilir-mi",
+    title: "Elektrikli Araç Şarj Kablosu Dışarıda ve Yağmurda Kullanılır mı?",
+    metaTitle: "Şarj Kablosu Yağmurda Kullanılır mı? (IP)",
+    description:
+      "Elektrikli araç şarj kablosu ve cihazı dışarıda, yağmurda güvenle kullanılır mı? IP65/IP66 koruma sınıfı ne demek, nelere dikkat etmeli — sade güvenlik rehberi.",
+    excerpt:
+      "Aracınızı açık otoparkta veya yağmurda şarj etmek güvenli mi? Şarj kablosu ve cihazının dış mekân kullanımı, IP koruma sınıfları ve güvenlik ipuçları.",
+    category: "Rehber",
+    datePublished: "2026-07-02",
+    readingMinutes: 5,
+    keywords: ["elektrikli araç şarj kablosu", "şarj kablosu yağmurda", "şarj kablosu dışarıda kullanım", "ip65 ip66 şarj", "şarj cihazı su geçirir mi", "type 2 kablo koruma", "açık otopark şarj"],
+    body: [
+      { type: "p", text: "Yeni elektrikli araç sahiplerinin en çok merak ettiği sorulardan biri: aracımı açık otoparkta veya yağmur altında şarj etmek güvenli mi? Kısa cevap evet — çünkü elektrikli araç şarj ekipmanları en baştan dış mekân koşulları düşünülerek üretilir. Ama detay, cihazın ve kablonun koruma sınıfında gizli. Bu rehberde neye dikkat etmeniz gerektiğini açıklıyoruz." },
+
+      { type: "h2", text: "Kısa cevap: Evet, doğru IP korumasıyla güvenli" },
+      { type: "p", text: "Elektrikli araç şarjı zaten büyük ölçüde açık alanda (evlerin bahçesi, açık otoparklar, yol kenarı istasyonlar) yapılır. Bu yüzden şarj cihazları, kablolar ve Type 2 konnektörler suya ve toza karşı korumalı üretilir. Anahtar, ekipmanın 'IP koruma sınıfı'nın yeterli olmasıdır." },
+
+      { type: "h2", text: "IP koruma sınıfı nedir?" },
+      { type: "p", text: "IP koruma sınıfı, 'IP' harflerinin ardından gelen iki rakamla gösterilir. İlk rakam toza, ikinci rakam suya karşı direnci ifade eder. Elektrikli araç ekipmanlarında en sık şu değerleri görürsünüz:" },
+      { type: "ul", items: [
+        "IP54: Toza karşı büyük ölçüde, su sıçramasına karşı korumalı — hafif koşullar.",
+        "IP65: Toz sızdırmaz + her yönden gelen su jetlerine karşı korumalı.",
+        "IP66: Toz sızdırmaz + güçlü su jetlerine karşı korumalı — dış mekân için ideal.",
+      ]},
+      { type: "p", text: "Açık otoparkta veya yağış alan bir yerde sabit kurulum yapacaksanız IP65 ve üzeri bir cihaz tercih edin. Bemis cihaz ve kabloları CE belgeli ve IP korumalı olarak üretilir." },
+
+      { type: "h2", text: "Güvenli dış kullanım için ipuçları" },
+      { type: "ul", items: [
+        "Konnektörü kullanmadığınızda kapağını kapalı tutun; yere bırakmayın.",
+        "Islak veya hasarlı bir kabloyu/konnektörü kullanmayın; çatlak, kesik veya ezik varsa değiştirin.",
+        "Konnektörü araca takarken temas yüzeyini mümkün olduğunca kuru tutun.",
+        "Kabloyu kapı, tekerlek veya keskin kenarların altında ezilmeyecek şekilde konumlandırın.",
+        "Kurulumu (özellikle sabit ünite) yetkili bir elektrikçiye, topraklama ve kaçak akım koruması ile yaptırın.",
+      ]},
+
+      { type: "cta", text: "Bemis CE belgeli, IP korumalı Type 2 şarj kablolarını inceleyin.", href: "/products/cables", label: "Şarj Kablolarını İncele" },
+    ],
+    faq: [
+      { q: "Elektrikli araç şarj kablosu yağmurda kullanılır mı?", a: "Evet. Elektrikli araç şarj kabloları ve konnektörleri en baştan dış mekân koşulları düşünülerek, suya ve toza karşı korumalı üretilir; çünkü şarjın büyük kısmı zaten açık alanda yapılır. Güvenli kullanımın anahtarı ekipmanın IP koruma sınıfının yeterli olmasıdır — dış mekân için IP65 ve üzeri önerilir. Yağmurda şarj ederken konnektörün temas yüzeyini mümkün olduğunca kuru tutmak, kullanılmayan konnektörün kapağını kapalı tutmak ve hasarlı bir kabloyu asla kullanmamak iyi bir alışkanlıktır. Bu kurallara uyulduğunda yağmurlu havada şarj güvenlidir." },
+      { q: "IP65 ile IP66 arasındaki fark nedir?", a: "İkisi de ilk rakamı 6 olduğu için tamamen toz sızdırmazdır; fark ikinci rakamda, yani suya karşı dirençte ortaya çıkar. IP65, her yönden gelen düşük basınçlı su jetlerine karşı koruma sağlar. IP66 ise daha güçlü, yüksek basınçlı su jetlerine karşı dayanıklıdır. Pratikte ikisi de açık otopark ve yağmurlu koşullar için uygundur; IP66 daha zorlu ortamlar (örneğin sık yıkanan alanlar, şiddetli yağış bölgeleri) için ekstra güvenlik marjı sunar. Elektrikli araç dış kurulumlarında IP65 çoğu durum için yeterlidir, IP66 ise üst düzey koruma isteyenler için tercih edilir." },
+      { q: "Şarj cihazı su geçirir mi?", a: "Uygun IP koruma sınıfına sahip bir elektrikli araç şarj cihazı, normal kullanım koşullarında suya karşı korumalıdır ve yağmur, sıçrama gibi durumlarda içine su almaz. Örneğin IP65 sınıfı bir cihaz toz sızdırmaz ve her yönden gelen su jetlerine dayanır. Ancak hiçbir cihaz 'suya batırılabilir' değildir; sel, su birikintisine daldırma veya basınçlı yıkama gibi aşırı koşullardan kaçınmak gerekir. Cihazın kapakları ve contaları sağlam olmalı, kablo girişleri doğru sızdırmazlıkla kurulmalıdır. Bemis cihazları CE belgeli ve IP korumalı üretilir; yine de kurulumu yetkili bir elektrikçiye yaptırmak koruma bütünlüğü için önemlidir." },
+      { q: "Açık otoparkta sabit şarj ünitesi kurulabilir mi?", a: "Evet, açık otoparklara sabit şarj ünitesi (wallbox) kurulabilir; bu çok yaygın bir kullanımdır. Önemli olan, dış mekâna uygun IP koruma sınıfına (tercihen IP65 ve üzeri) sahip bir cihaz seçmek ve kurulumu doğru yapmaktır. Kurulumda adanmış bir hat, uygun kablo kesiti, kaçak akım rölesi ve düzgün topraklama şarttır; bunları mutlaka yetkili bir elektrikçi planlamalıdır. Cihazın doğrudan güneş ve yağışa maruz kaldığı yerlerde küçük bir sundurma cihazın ömrünü uzatır ama zorunlu değildir. Site veya ortak otoparklarda ayrıca yönetim izni ve sayaç düzeninin de önceden planlanması gerekir." },
+    ],
+    related: [
+      { label: "Şarj Kabloları", href: "/products/cables" },
+      { label: "AC Wallbox", href: "/products/wallbox" },
+      { label: "Yerli Üretici", href: "/uretici" },
+    ],
+  },
+
+  {
     slug: "ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi",
     title: "Ev Şarj Ünitesi mi, Taşınabilir Şarj Cihazı mı? Hangisi Size Uygun?",
     metaTitle: "Ev Şarj Ünitesi mi, Taşınabilir Cihaz mı?",
