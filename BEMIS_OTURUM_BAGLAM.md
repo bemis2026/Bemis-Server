@@ -13,6 +13,17 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🖼️ **REFERANS PROJE ODAKLARI (data'ya gömüldü) + KARANLIK KART ZEMİNİ YUMUŞADI (2026-07-01, CANLI · commit 2ed4bb1):**
+> **(1) Referans projeler "revert" bug'ı:** admin'den `imagePos` (odak) ayarı KALMIYOR. KÖK NEDEN = **Blob bozuk**
+> (apeiron token); site `data/content.json` okuyor, admin Blob'a yazıyor → yansımıyor → center'a döner. ⚠️ Blob
+> düzelene kadar admin kalıcı DEĞİL. GEÇİCİ ÇÖZÜM: 3 referans görseline `imagePos` **`data/content.json`'a GÖMÜLDÜ**
+> (TR + `_translations.en`): ref0 duvar `"50% 42%"` / ref1 showroom `"50% 45%"` / ref2 gece `"50% 40%"` (canlı
+> doğrulandı, özneler görünür). Yeni odak istenirse `referenceProjectsSection.items[].imagePos`'a göm (Blob'a yazma).
+> **(2) Karanlık mod kart zemini:** bir önceki tur ürün-kartı görsel alanı açık `#f3f4f6` HER modda idi → dark modda
+> çok STARK. Artık **mod-koşullu**: dark `#dbdee3` (yumuşak) + accent tint biraz fazla, light `#f3f4f6`; bottom-fade
+> de dark zemine uyumlandı (`ProductCategoryClient` + `ProductsClient`). Canlı ✓. **[AÇIK — KULLANICI]** Bayi Ağı'nda
+> MC2 bayisini işaretledi; veri+linkler geçerli çıktı (whatsapp wa.me, website link) — spesifik istenen netleşmedi.
+
 > 🎯 **HERO ODAK NOKTALARI + KART GÖRSELİ AÇIK ZEMİN + "UYGULAMA YÜKLE" (2026-07-01, CANLI · commit'ler ec0b66c/2fa9e6e):**
 > Kullanıcı: "görsellerin çerçeveye oturması + odak noktaları doğru yeri göstersin; ürün kartı görselleri çerçeveye uyumlu olsun."
 > **(1) bg-hero ODAK:** `CATEGORY_HERO_FOCUS` kod-haritası (object-position) — geniş-kısa hero object-cover üst/altı
