@@ -34,6 +34,71 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "elektrikli-arac-sarj-kablosu-kac-metre-kac-amper",
+    title: "Elektrikli Araç Şarj Kablosu Kaç Metre ve Kaç Amper Olmalı?",
+    metaTitle: "Şarj Kablosu Kaç Metre, Kaç Amper Olmalı?",
+    description:
+      "Elektrikli araç şarj kablosu seçerken kaç amper (16A/32A) ve kaç metre (5–10 m) gerekir? Monofaze/trifaze farkı ve aracınıza göre doğru kablo — sade alıcı rehberi.",
+    excerpt:
+      "Şarj kablosu alırken en çok sorulan iki soru: kaç amper, kaç metre? Aracınızın gücüne ve park mesafenize göre doğru kabloyu seçmenin pratik rehberi.",
+    category: "Rehber",
+    datePublished: "2026-07-02",
+    readingMinutes: 6,
+    keywords: ["elektrikli araç şarj kablosu", "araç şarj kablosu kaç metre", "şarj kablosu kaç amper", "16a 32a şarj kablosu", "monofaze trifaze şarj kablosu", "type 2 şarj kablosu", "şarj kablosu ac", "ev şarj kablosu"],
+    body: [
+      { type: "p", text: "Elektrikli araç şarj kablosu alırken en çok sorulan iki soru: kaç amper (kaç kW) ve kaç metre? Doğru cevap aracınızın alabildiği şarj gücüne ve aracınızı nereye park ettiğinize bağlı. Bu rehberde ikisini de örneklerle netleştiriyoruz." },
+
+      { type: "h2", text: "Kısa cevap" },
+      { type: "ul", items: [
+        "Çoğu ev kullanıcısı için: 32A, 5–7 metre Type 2 kablo idealdir.",
+        "Eviniz tek fazlıysa (monofaze) 32A ile 7,4 kW'a kadar şarj alırsınız.",
+        "Eviniz/işyeriniz üç fazlıysa (trifaze) ve aracınız destekliyorsa 32A ile 22 kW mümkündür.",
+        "Araç prize yakın parkediyorsa 5 metre yeter; priz uzaksa 7–10 metre seçin.",
+      ]},
+
+      { type: "h2", text: "Kaç amper olmalı? (16A mı, 32A mı?)" },
+      { type: "p", text: "Amper, kablonun taşıyabileceği akımı — yani şarj gücünü — belirler. İki yaygın değer vardır: 16A ve 32A. Faz sayısına göre karşılık gelen güçler şöyle:" },
+      { type: "ul", items: [
+        "Monofaze (tek faz, ~230V): 16A ≈ 3,7 kW · 32A ≈ 7,4 kW",
+        "Trifaze (üç faz, ~400V): 16A ≈ 11 kW · 32A ≈ 22 kW",
+      ]},
+      { type: "p", text: "Ama kablo ne kadar güçlü olursa olsun, gerçek şarj hızını aracınızın içindeki AC şarj birimi (onboard şarj cihazı) sınırlar. Örneğin aracınız en fazla 11 kW AC alıyorsa, 22 kW'lık kabloyla bile 11 kW şarj olur. Bu yüzden asıl soru: 'aracım kaç kW AC şarj alıyor?' Emin değilseniz 32A kablo güvenli seçimdir; hem bugünkü hem gelecekteki aracınıza yeter." },
+
+      { type: "h2", text: "Kaç metre olmalı?" },
+      { type: "p", text: "Uzunluk tamamen pratiklikle ilgilidir. Standart seçenekler 5, 7 ve 10 metredir:" },
+      { type: "ul", items: [
+        "5 metre: Araç şarj ünitesine/prize yakın parkediyorsanız yeterli; en toparlı ve en uygun fiyatlı.",
+        "7 metre: En dengeli seçim — çoğu garaj ve otopark düzeni için rahat mesafe.",
+        "10 metre: Priz uzaktaysa, aracı ters yöne parkediyorsanız veya ortak otoparkta esneklik istiyorsanız.",
+      ]},
+      { type: "p", text: "Gereğinden uzun kablo almak zararlı değildir ama daha ağır, daha pahalı ve toplaması zahmetlidir. İhtiyacınızdan 1–2 metre fazlası ideal bir tampondur." },
+
+      { type: "h2", text: "Monofaze mi, trifaze mi?" },
+      { type: "p", text: "Bu hem aracınıza hem elektrik tesisatınıza bağlıdır. Çoğu evde tek faz (monofaze) elektrik vardır; bu durumda en fazla 7,4 kW (32A) alırsınız. İşyeri, site otoparkı veya trifaze aboneliği olan evlerde üç faz mevcutsa ve aracınız da destekliyorsa 22 kW'a kadar çıkabilirsiniz. Kablo seçmeden önce tesisatınızın kaç faz olduğunu bir elektrikçiye teyit ettirmek en sağlıklısıdır." },
+
+      { type: "h2", text: "Özet: doğru kabloyu 3 soruda seçin" },
+      { type: "ul", items: [
+        "Aracım kaç kW AC şarj alıyor? → gereken amperi belirler (genelde 32A güvenli).",
+        "Tesisatım tek faz mı, üç faz mı? → monofaze 7,4 kW / trifaze 22 kW tavanını belirler.",
+        "Aracımı prize ne kadar uzağa parkediyorum? → 5, 7 veya 10 metre.",
+      ]},
+
+      { type: "cta", text: "Bemis Type 2 şarj kabloları 16A/32A, monofaze ve trifaze, 5–10 metre seçenekleriyle yerli üretilir.", href: "/products/cables", label: "Şarj Kablolarını İncele" },
+    ],
+    faq: [
+      { q: "Elektrikli araç şarj kablosu kaç amper olmalı?", a: "En yaygın iki değer 16A ve 32A'dır. Monofaze (tek faz) tesisatta 16A yaklaşık 3,7 kW, 32A yaklaşık 7,4 kW güç verir; trifaze (üç faz) tesisatta 16A yaklaşık 11 kW, 32A yaklaşık 22 kW'a çıkar. Ancak kablo ne kadar güçlü olursa olsun gerçek şarj hızını aracınızın içindeki AC şarj birimi (onboard şarj cihazı) sınırlar. Bu yüzden önce aracınızın kaç kW AC şarj aldığına bakın. Emin değilseniz 32A kablo güvenli tercihtir; hem mevcut hem gelecekteki aracınıza yeterli kapasiteyi sunar ve düşük güçlü araçlarda da sorunsuz çalışır." },
+      { q: "5 metre şarj kablosu yeterli mi?", a: "Aracınızı şarj ünitesine veya prize yakın park ediyorsanız 5 metre çoğu ev kullanımı için yeterlidir; en toparlı ve en uygun fiyatlı seçenektir. Ancak priz garajın uzak köşesindeyse, aracı bazen ters yöne park ediyorsanız ya da ortak otoparkta esneklik istiyorsanız 7 metre en dengeli seçimdir. Priz gerçekten uzaktaysa 10 metre tercih edin. Genel kural: ihtiyacınız olan mesafeye 1–2 metre tampon ekleyin. Gereğinden uzun kablo çalışır ama daha ağır, daha pahalı ve toplaması daha zahmetlidir." },
+      { q: "16A ve 32A şarj kablosu arasındaki fark nedir?", a: "Fark, kablonun taşıyabildiği akımda ve dolayısıyla şarj gücündedir. 32A kablo, 16A'nın yaklaşık iki katı güç taşır: monofaze tesisatta 16A ≈ 3,7 kW iken 32A ≈ 7,4 kW; trifaze tesisatta 16A ≈ 11 kW iken 32A ≈ 22 kW olur. Yani 32A kablo aracınızı daha kısa sürede şarj etme potansiyeli sunar. Ancak bu potansiyeli görebilmeniz için hem tesisatınızın hem de aracınızın o gücü desteklemesi gerekir. Aracınız düşük güçlüyse 32A kablo yine çalışır, sadece aracın limitinde şarj eder." },
+      { q: "Monofaze araçta trifaze kablo kullanılır mı?", a: "Evet, kullanılabilir. Type 2 konnektör hem monofaze hem trifaze için aynıdır, bu yüzden trifaze bir kablo monofaze bir araca ya da monofaze tesisata takıldığında fiziksel bir uyumsuzluk yaşanmaz. Bu durumda şarj, sistemdeki en düşük kapasiteye göre gerçekleşir: aracınız veya tesisatınız tek fazlıysa güç 7,4 kW (32A) ile sınırlı kalır, kablonun trifaze olması ekstra hız getirmez. Yani trifaze kablo geleceğe dönük güvenli bir yatırımdır; ileride trifaze tesisata veya araca geçerseniz aynı kabloyu kullanmaya devam edersiniz." },
+    ],
+    related: [
+      { label: "Şarj Kabloları", href: "/products/cables" },
+      { label: "AC Wallbox", href: "/products/wallbox" },
+      { label: "Yerli Üretici", href: "/uretici" },
+    ],
+  },
+
+  {
     slug: "elektrikli-arac-sarj-istasyonu-kurulum-rehberi",
     title: "Elektrikli Araç Şarj İstasyonu Kurulum Rehberi",
     description:
