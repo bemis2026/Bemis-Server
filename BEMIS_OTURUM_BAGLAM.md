@@ -20,7 +20,9 @@
 > doğrulandı, FAQPage+Article şema, sitemap+/blog listesinde):** `elektrikli-arac-sarj-kablosu-kac-metre-kac-amper`
 > (16A/32A, monofaze 7,4kW/trifaze 22kW, 5-7-10m, onboard limit) + `ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi`
 > (wallbox vs portable karar rehberi). Uydurma spec YOK, rakip marka YOK, iç link (cables/wallbox/portable/uretici).
-> **⏳ KALAN: #1'in 3. yazısı (ops.) → PLAN #2 (sayfa güçlendirme) → PLAN #3 (5-6 seri).** Blog eklemek = `app/blog/
+> **+ 3. yazı CANLI:** `elektrikli-arac-sarj-kablosu-disarida-yagmurda-kullanilir-mi` (IP54/65/66 dış-kullanım/yağmur —
+> alıcı merak konusu). **✅ PLAN #1 TAMAM (3 amiral rehber canlı+doğrulandı).** **⏳ KALAN: PLAN #2 (kategori/ürün
+> sayfalarını bu cümlelere göre güçlendir — /products/cables + /uretici) → PLAN #3 (5-6'lık geniş seri).** Blog eklemek = `app/blog/
 > posts.ts` BLOG_POSTS başına ekle (slug/title/description/excerpt/category/datePublished/readingMinutes/keywords/
 > body[p·h2·ul·cta]/faq[~90kelime]/related) → /blog+sitemap+JSON-LD otomatik. **⛔ PWA (4. kez, KESİN):** site %100
 > temiz (manifest yok, SW yok, 5 endpoint 404, web-app-capable meta yok). Gördüğü "uygulama olarak indir" =
