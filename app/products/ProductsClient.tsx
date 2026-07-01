@@ -397,7 +397,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                               className="relative overflow-hidden"
                               style={{
                                 aspectRatio: "1 / 1",
-                                background: `linear-gradient(150deg, ${cat.accent}0f 0%, transparent 55%), #f3f4f6`,
+                                background: d ? `linear-gradient(150deg, ${cat.accent}16 0%, transparent 55%), #dbdee3` : `linear-gradient(150deg, ${cat.accent}0f 0%, transparent 55%), #f3f4f6`,
                               }}
                             >
                               {(product.images?.[0] ?? product.image) ? (
@@ -457,7 +457,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                               <div
                                 className="absolute bottom-0 left-0 right-0 h-10"
                                 style={{
-                                  background: "linear-gradient(to top, rgba(243,244,246,0.92) 0%, transparent 100%)",
+                                  background: d ? "linear-gradient(to top, rgba(219,222,227,0.92) 0%, transparent 100%)" : "linear-gradient(to top, rgba(243,244,246,0.92) 0%, transparent 100%)",
                                 }}
                               />
                             </div>

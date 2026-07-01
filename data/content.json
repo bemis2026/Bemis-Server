@@ -823,21 +823,24 @@
         "image": "https://i.ibb.co/gbh9cQb8/1778222990267-Whats-App-Image-2026-04-01-at-14-55-14-jpeg.jpg",
         "title": "",
         "location": "",
-        "description": ""
+        "description": "",
+        "imagePos": "50% 42%"
       },
       {
         "id": "proj-1778223862154",
         "image": "https://i.ibb.co/VpWYLBC6/1778223867694-Whats-App-Image-2026-04-01-at-14-55-14-11-jpeg.jpg",
         "title": "",
         "location": "",
-        "description": ""
+        "description": "",
+        "imagePos": "50% 45%"
       },
       {
         "id": "proj-1778223874319",
         "image": "https://i.ibb.co/YT11KVrR/1778223929555-Whats-App-Image-2026-04-01-at-14-55-14-16-jpeg.jpg",
         "title": "",
         "location": "",
-        "description": ""
+        "description": "",
+        "imagePos": "50% 40%"
       }
     ]
   },
@@ -1684,21 +1687,24 @@
             "image": "https://i.ibb.co/gbh9cQb8/1778222990267-Whats-App-Image-2026-04-01-at-14-55-14-jpeg.jpg",
             "title": "",
             "location": "",
-            "description": ""
+            "description": "",
+            "imagePos": "50% 42%"
           },
           {
             "id": "proj-1778223862154",
             "image": "https://i.ibb.co/VpWYLBC6/1778223867694-Whats-App-Image-2026-04-01-at-14-55-14-11-jpeg.jpg",
             "title": "",
             "location": "",
-            "description": ""
+            "description": "",
+            "imagePos": "50% 45%"
           },
           {
             "id": "proj-1778223874319",
             "image": "https://i.ibb.co/YT11KVrR/1778223929555-Whats-App-Image-2026-04-01-at-14-55-14-16-jpeg.jpg",
             "title": "",
             "location": "",
-            "description": ""
+            "description": "",
+            "imagePos": "50% 40%"
           }
         ]
       },

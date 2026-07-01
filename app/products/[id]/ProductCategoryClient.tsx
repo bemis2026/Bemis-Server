@@ -305,7 +305,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                     kartlarla aynı (170px); object-contain ile küçük cihazlar
                     da kartın orta noktasında pürüzsüz oturur. */}
                 <div className="relative overflow-hidden" onClick={() => router.push(`/products/${id}/${product.id}`)}
-                  style={{ aspectRatio: "1 / 1", background: `linear-gradient(150deg, ${accent}0f 0%, transparent 55%), #f3f4f6` }}>
+                  style={{ aspectRatio: "1 / 1", background: d ? `linear-gradient(150deg, ${accent}16 0%, transparent 55%), #dbdee3` : `linear-gradient(150deg, ${accent}0f 0%, transparent 55%), #f3f4f6` }}>
                   {/* TÜM kategoriler KARE (1:1) — foto-uyumu: portable'ın kare fotoları tam dolar,
                       diğer kategorilerin dikey fotoları 170px yatay çerçeveye göre daha büyük/dolu
                       görünür; object-contain ile kırpılmadan oturur. Liste sayfası (ProductsClient) da kare. */}
@@ -345,7 +345,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                     </div>
                   )}
                   <div className="absolute bottom-0 left-0 right-0 h-10"
-                    style={{ background: "linear-gradient(to top, rgba(243,244,246,0.92) 0%, transparent 100%)" }} />
+                    style={{ background: d ? "linear-gradient(to top, rgba(219,222,227,0.92) 0%, transparent 100%)" : "linear-gradient(to top, rgba(243,244,246,0.92) 0%, transparent 100%)" }} />
                 </div>
 
                 {/* Info */}
