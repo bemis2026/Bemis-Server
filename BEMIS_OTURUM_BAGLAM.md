@@ -13,6 +13,21 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> ⚡⚡ **PERF 2. RAUND — YOUTUBE LAZY (ASIL SUÇLU) + GTM lazyOnload (2026-07-01, CANLI · commit 7c22ac6, Fable 5):**
+> PageSpeed derin döküm: **6MB'lik yükün ~%80'i (~4.9MB) = DNA bölümü YouTube arka plan videosu** (googlevideo
+> 3.8MB + player JS 1.1MB) İLK YÜKTE otomatik iniyordu; ayrıca LCP elementi görsel değil **H1 başlık** (animasyon
+> opacity-0 → JS bekliyor). **KULLANICI SEÇİMİ (AskUserQuestion):** YouTube-lazy ✓ + GTM geciktir ✓ + küçük
+> temizlikler ✓; **LCP-H1 fix REDDETTİ** (mikro görünür fark istemedi). **YAPILDI:** (1) `useNearViewport` hook'u
+> (`useBackgroundVideo.ts`) — kutu viewport'a 600px yaklaşınca `near=true` (IO yoksa eager fallback); **DNA +
+> /kurumsal** video iframe'i artık `videoNear` gate'li → player sayfa açılışında İNMEZ, poster+autoplay akışı
+> birebir aynı. (2) `GoogleAnalytics`: gtag.js+config **lazyOnload** (consent stub afterInteractive kaldı →
+> dataLayer kuyruklanır, veri kaybolmaz). CANLI KANIT: SSR HTML'de youtube-nocookie **0** + gtag **0** (önce 1'er).
+> (3) 43KB ham i.ibb.co görseli: optimizer SAĞLIKLI (AVIF 200 döndü); ham iniş content-JSON yan kullanımı →
+> kovalanmadı (kazanç küçük). Legacy-JS 12KB browserslist işi ATLANDI (tüm-bundle regresyon riski > kazanç).
+> **SEO/GEO HIZLI DOĞRULAMA (drift): TEMİZ** — Org şema + Wikidata/GBP sameAs + hreflang tr/en/x-default +
+> llms/sitemap/robots 200 + sözlük DefinedTerm/FAQ/seeAlso/SVG + ürün Product/AggregateRating/Review/ImageObject ✓.
+> ⓘ Fable 5 token: ayrı kova YOK, "all models"ten düşer (3.-parti kaynak, resmi doc erişilemedi; Settings→Usage kesin).
+
 > ⚡ **PERF / PageSpeed mobil — globe mobil-2D + EImage lazy (2026-07-01, CANLI · commit 2a93374):**
 > Kullanıcı PSI mobil paylaştı. Yerel Lighthouse: mobil **28/100** (LCP 16.5s, TBT 5.3s, ~6MB, ana-iş 36.7s —
 > ⚠️ yerel makinede şişkin olabilir; teşhis kesin: **JS + görsel ağır anasayfa**). Config ZATEN optimize (brotli
