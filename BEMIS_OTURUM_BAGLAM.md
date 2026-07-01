@@ -21,9 +21,13 @@
 > (≤767px) worldRender VARSAYILAN **"2d"** → react-globe.gl (three.js/WebGL/4K doku) mobilde İNMEZ (globe zaten
 > "Dünya" sekmesine ertelenmiş = ilk skoru değil mobil-Dünya'yı hafifletir; masaüstü 3D aynen, toggle duruyor).
 > (2) `EImage` (içerik görsel bileşeni) `loading=lazy`+`decoding=async` → ekran-dışı içerik görselleri geldikçe
-> yüklenir (canlı 25 lazy img); LCP hero'da (next/image) → etkilenmez. **ⓘ ASIL İLK-SKOR KALDIRACI AÇIK:** 11
-> animasyonlu bölümün geç-hidrasyonu — ama bölümler **#anchor hedefi** (#calculator/#dealer in-page link) + SEO
-> içeriği → ssr:false/lazy aceleye gelmez (navigasyon/SEO kırar); dikkatli per-bölüm iş = ayrı odaklı tur.
+> yüklenir (canlı 25 lazy img); LCP hero'da (next/image) → etkilenmez. (3) **`SectionWrapper`** (index≥1)
+> **`content-visibility:auto`** + `contain-intrinsic-size:auto 900px` (commit d72740c) → ekran-dışı **10 bölümün**
+> render/paint/layout maliyeti atlanır (1900+ DOM); mevcut `contain:layout style paint`'i genişletir. İlk bölüm
+> (index 0) hariç = folda yakın/LCP. Canlı doğrulandı: HTML'de 11 `contain:` / **10 content-visibility** + anchor
+> id'leri (#dealer/#calculator/#products/#dna) DURUYOR → SSR/SEO/navigasyon/görünüm korundu; desteklemeyen tarayıcı
+> yok sayar (güvenli degrade); anchor render'ı scrollIntoView+retry tetikler. **ⓘ KALAN İLK-SKOR KALDIRACI:**
+> animasyon azaltma (kullanıcı REDDETTİ) VEYA gerçek `ssr:false` per-bölüm lazy (anchor/SEO riski, dikkatli tur).
 
 > 🖼️ **REFERANS PROJE ODAKLARI (data'ya gömüldü) + KARANLIK KART ZEMİNİ YUMUŞADI (2026-07-01, CANLI · commit 2ed4bb1):**
 > **(1) Referans projeler "revert" bug'ı:** admin'den `imagePos` (odak) ayarı KALMIYOR. KÖK NEDEN = **Blob bozuk**
