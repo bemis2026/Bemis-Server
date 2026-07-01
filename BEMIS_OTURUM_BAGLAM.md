@@ -7,11 +7,45 @@
 > Derin teknik bağlam: `Desktop/Claude Çalışmaları/Bemis Website/md/BEMIS_PROJECT_CONTEXT.md`
 > (özellikle §15.16 denetim, §15.17 Blob taşıması).
 >
-> Son güncelleme: **2026-06-28**
+> Son güncelleme: **2026-07-01**
 
 ---
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
+
+> 🎯 **HERO ODAK NOKTALARI + KART GÖRSELİ AÇIK ZEMİN + "UYGULAMA YÜKLE" (2026-07-01, CANLI · commit'ler ec0b66c/2fa9e6e):**
+> Kullanıcı: "görsellerin çerçeveye oturması + odak noktaları doğru yeri göstersin; ürün kartı görselleri çerçeveye uyumlu olsun."
+> **(1) bg-hero ODAK:** `CATEGORY_HERO_FOCUS` kod-haritası (object-position) — geniş-kısa hero object-cover üst/altı
+> kırpar, dikey Y özneyi ortalar: portable `"50% 38%"` · cables `"50% 40%"` · dc-units `"50% 42%"` · v2l-c2l `"60% 50%"`
+> (hepsi CANLI Playwright ile doğrulandı, özneler net görünüyor). `CategoryMeta`'ya `descImagePos?` eklendi (admin override).
+> **(2) ⚠️ wallbox → SPLIT'e ALINDI:** wallbox fotosunda duvar cihazı SOLDA; sol-hizalı metin gradyanı örtüyordu
+> (canlı doğrulandı; odakla DÜZELMEZ çünkü tam-genişlik görünür = yatay kaydırılamaz) → `splitByDefault`'a eklendi
+> (çerçeveli görsel cihazı NET gösteriyor, canlı ✓). **bg-hero artık 4:** portable/cables/v2l-c2l/dc-units. **split:**
+> converters/accessories/**wallbox** + charger-equipment(whiteHero). **(3) ÜRÜN KARTLARI = AÇIK ZEMİN:** kart image
+> alanı dark modda KOYU idi (#1c1c1f) → beyaz-zeminli ürün fotoları beyaz blok / şeffaflar koyuya karışıyordu (TUTARSIZ).
+> Artık HER modda açık zemin (`#f3f4f6`) → tüm ürün fotoları tek tutarlı yüzeyde, net (K3 "açık inner-card"). Badge metni
+> (`accent`) + bottom-fade açık zemine uyumlandı. `ProductCategoryClient` + `ProductsClient` (kategori + tüm-ürünler). Canlı 4/4 ✓.
+> **(4) "UYGULAMA OLARAK YÜKLE" tuşu:** kullanıcı yine gördü. TARAMA: site %100 temiz (manifest yok, SW yok, /*.webmanifest
+> = 404, beforeinstallprompt/serviceWorker kodu yok, pwa/workbox paketi yok) → önceki kaldırma sağlam. Buton = TARAYICININ
+> KENDİ özelliği (özellikle **Edge** adres çubuğunda her sitede "uygulama yükle" gösterir — site KALDIRAMAZ). Ek güvence:
+> `NoAppInstall.tsx` (layout) → `beforeinstallprompt` preventDefault + eski SW unregister (yine de residual buton = tarayıcı).
+
+> 🖼️ **KATEGORİ HERO = TAM-BLEED ARKA PLAN (sahne fotolu kategoriler) (2026-07-01, CANLI · commit feebac8):**
+> Kullanıcı önce cables'ta denedi+beğendi (`670fd2a`), sonra "kaldığın yerden devam" → **sahne fotolu TÜM
+> kategorilere** yayıldı. `ProductCategoryClient.tsx` hero artık koşullu: **bgHero** (tam-bleed `object-cover`
+> arka plan + sol→sağ koyu gradyan + üstüne beyaz eyebrow/H1/tagline/açıklama) vs **split** (klasik yan-yana,
+> başlık sol + çerçeveli görsel sağ). **bg-hero (5):** wallbox·portable·cables·v2l-c2l(kamp)·dc-units(DC+Tesla
+> sahnesi). **split (3):** converters(uzatma kablosu) + accessories(şarj çantası) = ÜRÜN fotosu beyaz zemin →
+> tam-bleed'de kötü durur; charger-equipment = whiteHero (şeffaf PNG) zaten hariç. Karar görselleri TEK TEK
+> görerek verildi (foto kaynağı incelendi). **Mantık:** `productPhotoCategory=converters|accessories`;
+> `heroStyleResolved = categories[id].heroStyle ?? (productPhotoCategory?"split":"bg")` → **admin `heroStyle`
+> ayarı DAİMA öncelikli** (ileride per-kategori UI). `CategoryMeta`'ya `heroStyle?:"split"|"bg"` eklendi
+> (ContentContext.tsx). ⚠️ **BUILD FIX:** önceki `c4061a0` deploy FAIL idi (`heroStyle` CategoryMeta tipinde
+> yoktu = TS2339) → `feebac8` düzeltti (tsc 0, Vercel success). Canlı doğrulandı (Playwright): dc-units bg-hero
+> ✓ + converters split ✓. Bir kategoriyi çevirmek = `productPhotoCategory`/kod-varsayılanına 1 kelime (veya
+> Blob düzelince admin `heroStyle`). ⚠️ Tam admin-panel kontrolü Blob-write düzelmesini bekler (apeiron token sorunu).
+> ⚠️ Ayrıca bu turda: ürün grid'leri 2xl'de `max-w-[1600px]`+`2xl:grid-cols-6` (geniş ekran adaptive); portable kart-boyutu
+> bug'ı düzeldi (`w-full`). Değişen: `ProductCategoryClient.tsx`, `ProductsClient.tsx`, `ContentContext.tsx`.
 
 > 🎨 **GÖRSEL/TASARIM DENETİMİ (2026-06-28f) — skor 58/100 (seo-visual ajan + kod):**
 > **TEŞHİS EDİLEN (ama GERİ ALINDI — kullanıcı "sadece değerlendir, değişiklik yapma" dedi):** **K2 iletişim haritası**
