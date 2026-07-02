@@ -18,11 +18,17 @@
 > `POST /api/admin/products 500 — Vercel Blob: This store has been suspended.` (bugün 09:19–09:25 onlarca 500).
 > Yani aylardır not edilen Blob kota/token sorunu SONUÇLANDI: **Blob store SUSPENDED.** `writeBin`→`put`→reddediliyor
 > → 500 → **tüm admin saves (ürün/içerik/bayi/döküman) FAIL** (hepsi Blob'a yazıyor). Site ÇALIŞIYOR (data/*.json
-> fallback). **✅ ÇÖZÜM = KULLANICI/VERCEL (kod DEĞİL):** Vercel → `bemis-server` → Storage → Blob deposu → askı
-> sebebini gör (kota/fatura) → çöz: **Vercel Pro'ya yükselt** VEYA **yeni Blob store aç + `BLOB_READ_WRITE_TOKEN`'ı
-> yenisine bağla → redeploy.** Askı kalkınca admin anında çalışır. **BEN YAPTIM (58167d3):** admin ürün-kayıt hatası
-> artık gerçek sebebi gösteriyor ("Vercel Blob depolama ASKIDA..."). **⏳ WORKAROUND (Blob düzelene kadar):** içerik/
-> görsel değişikliği = `data/*.json`'a ELLE işle + commit (site onu okuyor). Kullanıcı görsel URL'i + ürün verirse yapılır.
+> fallback). **✅✅ ÜCRETSİZ ÇÖZÜLDÜ — VERİ KATMANI BLOB→CLOUDFLARE R2'YE TAŞINDI (kod, commit 24cee9a):**
+> `lib/store.ts` `readBin/writeBin` artık **@aws-sdk/client-s3 ile R2** kullanıyor (Get/PutObject). R2 free tier ÇOK
+> cömert (10GB + milyonlarca işlem) → kota/suspension sorunu YOK. R2 zaten entegreydi (döküman yüklemeleri, env
+> mevcut: `R2_ENDPOINT/R2_ACCESS_KEY_ID/R2_SECRET_ACCESS_KEY/R2_BUCKET`; canlıda 3 döküman r2.dev'den servisleniyor).
+> readBin R2'de bin yoksa (ilk anda hepsi boş) `data/*.json` yedeğine düşer → **site çalışmaya devam** (canlı: 200,
+> 8 kategori). İlk admin SAVE her bin'i R2'ye tohumlar → sonraki okumalar R2'den. ⚠️ **GÜVENLİK:** r2.dev bucket'ı
+> PUBLIC → `messages` (iletişim PII) R2'ye YAZILMIYOR (writeBin guard; form yine Resend e-posta gönderiyor; private
+> bins bucket'ı kurulunca guard kalkar). **Vercel Blob'a Pro/yeni-store GEREK YOK — Blob tamamen bırakıldı.**
+> **⚠️ KULLANICI TEST ETMELİ:** admin → ürün görseli değiştir → KAYDET → artık "kaydedildi" demeli (Blob değil R2'ye
+> yazar). Ayrıca admin ürün-kayıt hatası artık gerçek sebebi gösteriyor (58167d3). ⚠️ **YENİ KURAL:** veri = R2 (Blob DEĞİL);
+> lib/store.ts R2 adaptörü; yeni bin eklerken BINS set'ine ekle.
 
 
 > 🚀 **HERO LCP KÖK-NEDEN FIX (Codex dış-denetim → mobil LCP 21.5s) (2026-07-02, CANLI · commit 01316e2):**
