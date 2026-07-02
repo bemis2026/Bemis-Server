@@ -27,7 +27,10 @@
 > (TR kartlar/navbar Türkçeleşti, canlı). ✅✅ **EN OFF-BY-ONE DÜZELTİLDİ (099efae):** 8 kategori EN `name`+`subtitle`
 > +1 kaymıştı (her kategori bir SONRAKİNİN EN'ini gösteriyordu; wallbox EN'i kayıp, dc-units duplike) — HER İKİ kaynakta
 > (gömülü `_translations.en` + `content-en.json`) doğru geri-hizalandı; wallbox EN yeniden yazıldı ("AC Wallbox Chargers"),
-> "Overtime"→"Extension" düzeltildi. ⚠️ FAQ ZATEN doğruydu (kaymamış) → dokunulmadı. Canlı doğrulandı. footer/testimonial İngilizcesi ayrıca kontrol. (c) i.ibb.co ürün
+> "Overtime"→"Extension" düzeltildi. ⚠️ FAQ ZATEN doğruydu (kaymamış) → dokunulmadı. Canlı doğrulandı. **footer/
+> testimonial/vitrin İngilizce KONTROL EDİLDİ → TEMİZ** (İngilizce YOK; Codex bu bulguda da font gibi imprecise). **✅ TR/EN
+> ITEM TAMAMEN BİTTİ.** ⏳ **KALAN (kaliteyi riske atmadan yapılamaz, taze/dikkatli oturum):** JS split (framer=görsel risk;
+> edit-mode weaving=riskli) + i.ibb.co 112 görsel self-host (yanlış giderse KIRIK görsel = kalite düşer). (c) i.ibb.co ürün
 > görsellerini self-host (112 görsel, büyük migrasyon). (d) YouTube facade (poster+tık) = Lighthouse skorunu daha çok
 > artırır ama autoplay-passive UX değişir (SOR). **Codex FONT bulgusu YANLIŞ:** Roboto/Google Fonts YOK (0), next/font
 > Inter self-hosted zaten. **Zaten yapılmış (Codex tekrar önerdi):** YouTube scroll-lazy, content-visibility, meta,
