@@ -26,8 +26,9 @@
 > **PLAN #2 BAŞLADI (meta adımı, canlı d9af638):** `CATEGORY_SEO` (lib/seo.ts) desc'leri artık **alıcı-cümlesiyle
 > başlıyor** ("Elektrikli araç şarj kablosu…", "Ev şarj ünitesi…", "Taşınabilir elektrikli araç şarj cihazı…") — eskiden
 > "Bemis yerli üretim…" ile başlıyordu; başlıklar zaten alıcı-cümlesiydi. Bemis entity+specs korundu. **+ llms.txt
-> (93dd47c):** 3 yeni blog `app/llms.txt/route.ts` Rehberler'e eklendi (ELLE liste — otomatik değil; AI tarayıcı keşfi,
-> canlı doğrulandı). **⏳ KALAN PLAN #2:**
+> (93dd47c):** 3 yeni blog `app/llms.txt/route.ts` Rehberler'e + **`app/llms-full.txt/route.ts` `GUIDE_SLUGS`'a** (tam
+> gövde, c80ed1c) eklendi (İKİSİ DE ELLE liste — otomatik değil! yeni blog eklerken GUIDE_SLUGS + llms.txt'e de ekle;
+> canlı doğrulandı). Artık yeni bloglar sitemap+llms.txt+llms-full.txt = tam AI keşif/alıntı kapsamı. **⏳ KALAN PLAN #2:**
 > kategori sayfası GÖVDE içeriğini zenginleştir + 3 yeni blogu kategori/uretici sayfalarından çapraz-linkle (topikal
 > otorite → AI-Bakışı kaynak-seçimi). **⏳ PLAN #3:** 5-6'lık geniş seri (şarj cihazı çeşitleri, evde şarj maliyeti-güncel,
 > AC şarj nedir, filo, apartman vb. — mevcut 19 yazıyla ÇAKIŞTIRMA). Blog eklemek = `app/blog/
