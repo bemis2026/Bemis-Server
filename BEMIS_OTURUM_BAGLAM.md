@@ -13,6 +13,22 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🚀 **HERO LCP KÖK-NEDEN FIX (Codex dış-denetim → mobil LCP 21.5s) (2026-07-02, CANLI · commit 01316e2):**
+> Kullanıcı ChatGPT-Codex analiz raporu paylaştı (mobil Lighthouse **49/100**, LCP **21.5s**, LCP öğesi = hero
+> paragrafı). **KÖK NEDEN BULUNDU + DÜZELTİLDİ:** Hero H1/paragraf/logo `motion` **`initial:{opacity:0}`** ile
+> başlıyordu → SSR'da görünmez, **JS hidrasyonuna kadar boş** → yavaş mobil JS'te LCP 21s. FIX (`Hero.tsx`): 6 hero
+> üst-kısım öğesinden (3 mobil + 3 masaüstü) **`opacity:0` kaldırıldı**, y-kayma animasyonu KALDI → metin SSR'da
+> ANINDA görünür (LCP≈FCP ~3.8s). Canlı doğrulandı: hero 5 öğesi opacity:0-suz (accent-bar bilerek kaldı; kalan
+> opacity:0'lar ekran-dışı whileInView bölümler = normal). ⚠️ Görsel: hero fade-in gitti, kayma kaldı (kabul). **Codex
+> raporu YENİ bulgular (kalan, taze oturum):** (a) JS bundle böl — 519KB unused JS (framer + `17r_1domwcj4v.js`);
+> user animasyon-azaltmayı reddetti ama edit-mode/overlay split denenebilir. (b) ⚠️ **TR/EN karışımı** (footer/ürün
+> vitrini/testimonial'da İngilizce metin — TR sitede SEO odağı zayıflatır, DOĞRULANMADI, kontrol et). (c) i.ibb.co ürün
+> görsellerini self-host (112 görsel, büyük migrasyon). (d) YouTube facade (poster+tık) = Lighthouse skorunu daha çok
+> artırır ama autoplay-passive UX değişir (SOR). **Codex FONT bulgusu YANLIŞ:** Roboto/Google Fonts YOK (0), next/font
+> Inter self-hosted zaten. **Zaten yapılmış (Codex tekrar önerdi):** YouTube scroll-lazy, content-visibility, meta,
+> blog→ürün iç link, çapraz-link, 3 blog, llms/llms-full.
+
+
 > ✍️ **SON-KULLANICI SEO BLOG SERİSİ + PWA (kesin) + AI-Bakışı link (2026-07-02, CANLI · commit 75b988a/076a806):**
 > Kullanıcı: "üretici" GEÇMEYEN alıcı-cümleleri hedefleyen bloglar ("elektrikli araç şarj kablosu / şarj cihazı /
 > ev şarj ünitesi / şarj kablosu ac"). Plan (AskUserQuestion): **3'ünü de sırayla** — (1) 2-3 amiral rehber →
