@@ -754,17 +754,17 @@ function clampTitle(text: string, max = 60): string {
 const CATEGORY_SEO: Record<string, { title: string; desc: string; short: string }> = {
   wallbox: {
     title: "Elektrikli Araç Şarj İstasyonu — Wallbox",
-    desc: "Bemis yerli üretim AC Wallbox ev şarj ünitesi ve istasyonu: 7,4–22 kW, Type 2, OCPP uyumlu. Ev ve iş yeri için. CE, IP65 — üreticisinden.",
+    desc: "Ev şarj ünitesi (AC Wallbox): 7,4–22 kW, Type 2, OCPP uyumlu elektrikli araç şarj istasyonu. Ev ve iş yeri için. Bemis yerli üretim, CE & IP65.",
     short: "AC Wallbox Şarj İstasyonu",
   },
   portable: {
     title: "Taşınabilir Elektrikli Araç Şarj Cihazı",
-    desc: "Bemis yerli üretim taşınabilir (seyyar) elektrikli araç şarj cihazı: Type 2, monofaze/trifaze, fişe tak-şarj et. CE, IP65 — üreticisinden.",
+    desc: "Taşınabilir elektrikli araç şarj cihazı: Type 2, monofaze/trifaze, prize tak-şarj et, kurulum yok. Seyahat ve yedek için ideal. Bemis yerli üretim, CE & IP65.",
     short: "Taşınabilir Şarj Cihazı",
   },
   cables: {
     title: "Elektrikli Araç Şarj Kablosu — Type 2",
-    desc: "Bemis yerli üretim Type 2 (Tip 2) AC elektrikli araç şarj kablosu: 16A/32A, monofaze ve trifaze, 3–10 m. CE, IP65 — üreticisinden teklif alın.",
+    desc: "Elektrikli araç şarj kablosu — Type 2 (Tip 2), 16A/32A, monofaze ve trifaze AC, 3–10 m seçenekler. Aracınıza uygun kabloyu seçin. Bemis yerli üretim, CE & IP65.",
     short: "Type 2 EV Şarj Kablosu",
   },
   "v2l-c2l": {
