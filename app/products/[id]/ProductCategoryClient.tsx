@@ -399,6 +399,51 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
         );
       })()}
 
+      {/* İlgili Rehberler — kategori→blog çapraz-link (topikal otorite +
+          AI Bakışı/GEO kaynak-seçilme sinyali). Yalnız TR; eşleşen kategoride. */}
+      {(() => {
+        if (lang === "en") return null;
+        const GUIDES: Record<string, { label: string; href: string }[]> = {
+          cables: [
+            { label: "Şarj kablosu kaç metre, kaç amper olmalı?", href: "/blog/elektrikli-arac-sarj-kablosu-kac-metre-kac-amper" },
+            { label: "Şarj kablosu dışarıda/yağmurda kullanılır mı?", href: "/blog/elektrikli-arac-sarj-kablosu-disarida-yagmurda-kullanilir-mi" },
+            { label: "EV şarj kablosu seçimi (Type 2)", href: "/blog/ev-sarj-kablosu-secimi-type-2" },
+          ],
+          wallbox: [
+            { label: "Ev şarj ünitesi mi, taşınabilir cihaz mı?", href: "/blog/ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi" },
+            { label: "EV için şarj cihazı nasıl seçilir?", href: "/blog/ev-icin-sarj-cihazi-nasil-secilir" },
+            { label: "Apartmana / siteye şarj istasyonu kurulumu", href: "/blog/apartmana-sarj-istasyonu-kurulumu" },
+          ],
+          portable: [
+            { label: "Ev şarj ünitesi mi, taşınabilir cihaz mı?", href: "/blog/ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi" },
+            { label: "Şarj kablosu kaç metre, kaç amper olmalı?", href: "/blog/elektrikli-arac-sarj-kablosu-kac-metre-kac-amper" },
+          ],
+          "dc-units": [
+            { label: "AC ve DC şarj farkı nedir?", href: "/blog/ac-dc-sarj-farki" },
+            { label: "Şarj istasyonu nasıl çalışır?", href: "/blog/elektrikli-arac-sarj-istasyonu-nasil-calisir" },
+          ],
+          "v2l-c2l": [
+            { label: "IONIQ 5 V2L nasıl kullanılır?", href: "/blog/ioniq-5-v2l-nasil-kullanilir" },
+            { label: "Togg V2L: araçtan elektrik", href: "/blog/togg-v2l-aractan-elektrik" },
+          ],
+        };
+        const guides = GUIDES[id];
+        if (!guides || guides.length === 0) return null;
+        return (
+          <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8 pb-16 w-full">
+            <h2 className="text-2xl font-black mb-5" style={{ color: textPrimary }}>İlgili Rehberler</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 items-stretch">
+              {guides.map((g) => (
+                <a key={g.href} href={g.href} className="rounded-2xl p-4 flex items-center gap-3 transition-transform hover:-translate-y-0.5" style={{ background: surface, border: `1px solid ${surfaceBorder}` }}>
+                  <span className="text-sm font-semibold leading-snug" style={{ color: textPrimary }}>{g.label}</span>
+                  <span className="ml-auto text-lg flex-shrink-0" style={{ color: accent }}>→</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
+
       {/* Push ContactBar to the bottom of the flex column on short
           pages (e.g. a one-row category like dc-units), instead of
           leaving a fat slab of empty wrapper bg below it. */}
