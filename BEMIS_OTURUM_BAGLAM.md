@@ -22,7 +22,13 @@
 > (wallbox vs portable karar rehberi). Uydurma spec YOK, rakip marka YOK, iç link (cables/wallbox/portable/uretici).
 > **+ 3. yazı CANLI:** `elektrikli-arac-sarj-kablosu-disarida-yagmurda-kullanilir-mi` (IP54/65/66 dış-kullanım/yağmur —
 > alıcı merak konusu). **✅ PLAN #1 TAMAM (3 amiral rehber canlı+doğrulandı).** **⏳ KALAN: PLAN #2 (kategori/ürün
-> sayfalarını bu cümlelere göre güçlendir — /products/cables + /uretici) → PLAN #3 (5-6'lık geniş seri).** Blog eklemek = `app/blog/
+> sayfalarını bu cümlelere göre güçlendir — /products/cables + /uretici) → PLAN #3 (5-6'lık geniş seri).**
+> **PLAN #2 BAŞLADI (meta adımı, canlı d9af638):** `CATEGORY_SEO` (lib/seo.ts) desc'leri artık **alıcı-cümlesiyle
+> başlıyor** ("Elektrikli araç şarj kablosu…", "Ev şarj ünitesi…", "Taşınabilir elektrikli araç şarj cihazı…") — eskiden
+> "Bemis yerli üretim…" ile başlıyordu; başlıklar zaten alıcı-cümlesiydi. Bemis entity+specs korundu. **⏳ KALAN PLAN #2:**
+> kategori sayfası GÖVDE içeriğini zenginleştir + 3 yeni blogu kategori/uretici sayfalarından çapraz-linkle (topikal
+> otorite → AI-Bakışı kaynak-seçimi). **⏳ PLAN #3:** 5-6'lık geniş seri (şarj cihazı çeşitleri, evde şarj maliyeti-güncel,
+> AC şarj nedir, filo, apartman vb. — mevcut 19 yazıyla ÇAKIŞTIRMA). Blog eklemek = `app/blog/
 > posts.ts` BLOG_POSTS başına ekle (slug/title/description/excerpt/category/datePublished/readingMinutes/keywords/
 > body[p·h2·ul·cta]/faq[~90kelime]/related) → /blog+sitemap+JSON-LD otomatik. **⛔ PWA (4. kez, KESİN):** site %100
 > temiz (manifest yok, SW yok, 5 endpoint 404, web-app-capable meta yok). Gördüğü "uygulama olarak indir" =
