@@ -30,8 +30,11 @@
 > gövde, c80ed1c) eklendi (İKİSİ DE ELLE liste — otomatik değil! yeni blog eklerken GUIDE_SLUGS + llms.txt'e de ekle;
 > canlı doğrulandı). Artık yeni bloglar sitemap+llms.txt+llms-full.txt = tam AI keşif/alıntı kapsamı. **⏳ KALAN PLAN #2:**
 > kategori sayfası GÖVDE içeriğini zenginleştir + 3 yeni blogu kategori/uretici sayfalarından çapraz-linkle (topikal
-> otorite → AI-Bakışı kaynak-seçimi). **⏳ PLAN #3:** 5-6'lık geniş seri (şarj cihazı çeşitleri, evde şarj maliyeti-güncel,
-> AC şarj nedir, filo, apartman vb. — mevcut 19 yazıyla ÇAKIŞTIRMA). Blog eklemek = `app/blog/
+> otorite → AI-Bakışı kaynak-seçimi). **✅ ÇAPRAZ-LİNK YAPILDI (b613a57):** `ProductCategoryClient`'e FAQ'tan sonra
+> **"İlgili Rehberler"** bloğu (IIFE, TR-only, `GUIDES` kategori→blog haritası: cables/wallbox/portable/dc-units/v2l-c2l);
+> bloglar zaten kategorilere linkliydi → mesh çift-yönlü oldu, canlı doğrulandı. **✅ PLAN #2 TAMAM** (meta + llms +
+> llms-full + çapraz-link). **⏳ KALAN: yalnız PLAN #3** = 5-6'lık yeni blog serisi (şarj cihazı çeşitleri, AC şarj nedir,
+> evde şarj maliyeti vb. — ⚠️ mevcut ~22 yazıyla ÇAKIŞTIRMA; yeni içerik = taze bağlam işi). Blog eklemek = `app/blog/
 > posts.ts` BLOG_POSTS başına ekle (slug/title/description/excerpt/category/datePublished/readingMinutes/keywords/
 > body[p·h2·ul·cta]/faq[~90kelime]/related) → /blog+sitemap+JSON-LD otomatik. **⛔ PWA (4. kez, KESİN):** site %100
 > temiz (manifest yok, SW yok, 5 endpoint 404, web-app-capable meta yok). Gördüğü "uygulama olarak indir" =
