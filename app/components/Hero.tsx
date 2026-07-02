@@ -181,7 +181,7 @@ export default function Hero() {
       {/* ── MOBILE layout ── */}
       <div className="lg:hidden relative z-20 w-full pt-28 pb-24 px-5 sm:px-6 flex flex-col justify-center min-h-screen">
         <div className="max-w-2xl">
-          <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-7">
+          <motion.div initial={{ y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-7">
             <Image src={logoSrc} alt="Bemis E-V Charge" width={380} height={120}
               sizes="(max-width: 1024px) 260px, 380px"
               className="h-14 xs:h-16 sm:h-20 w-auto max-w-[180px] sm:max-w-[260px] object-contain" style={logoStyle} />
@@ -212,11 +212,11 @@ export default function Hero() {
               </span>
             </h1>
           </motion.div>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
+          <motion.p initial={{ y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
             className={`${subtitleClass} text-sm sm:text-base leading-relaxed max-w-lg mb-8`} style={{ textShadow }}>
             <E field="hero.subtitle" tag="span">{hero.subtitle}</E>
           </motion.p>
-          <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}>
+          <motion.div initial={{ y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}>
             <button
               onClick={scrollToNextSection}
               className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02] active:scale-95"
@@ -248,7 +248,7 @@ export default function Hero() {
       {/* ── DESKTOP layout ── */}
       <div className="hidden lg:block absolute inset-0 z-20">
         <motion.div
-          initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
+          initial={{ y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
           className="absolute"
           style={{ left: `${layout.logo.x}%`, top: `${layout.logo.y}%`, maxWidth: "48%" }}
         >
@@ -271,7 +271,7 @@ export default function Hero() {
           <motion.div
             role="heading"
             aria-level={1}
-            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
+            initial={{ y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
             className={`text-5xl xl:text-6xl 2xl:text-7xl font-black tracking-tight leading-[1.18] ${headlineClass} mb-5`}
             style={{ textShadow }}
           >
@@ -294,7 +294,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.p
-            initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.18 }}
+            initial={{ y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.18 }}
             className={`${subtitleClass} text-lg leading-relaxed mb-8`}
             style={{ textShadow }}
           >
