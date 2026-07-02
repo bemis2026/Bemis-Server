@@ -22,7 +22,11 @@
 > opacity:0'lar ekran-dışı whileInView bölümler = normal). ⚠️ Görsel: hero fade-in gitti, kayma kaldı (kabul). **Codex
 > raporu YENİ bulgular (kalan, taze oturum):** (a) JS bundle böl — 519KB unused JS (framer + `17r_1domwcj4v.js`);
 > user animasyon-azaltmayı reddetti ama edit-mode/overlay split denenebilir. (b) ⚠️ **TR/EN karışımı** (footer/ürün
-> vitrini/testimonial'da İngilizce metin — TR sitede SEO odağı zayıflatır, DOĞRULANMADI, kontrol et). (c) i.ibb.co ürün
+> vitrini/testimonial'da İngilizce metin). ✅ **KISMEN DÜZELTİLDİ (d430c55):** `categories.wallbox.name`
+> 'AC Wallbox Chargers'→'AC Wallbox Şarj İstasyonu', `portable.name` 'AC Mobile Chargers'→'Taşınabilir Şarj Cihazı'
+> (TR kartlar/navbar Türkçeleşti, canlı). ⚠️⚠️ **KALAN KRİTİK: `_translations.en.categories` adları KAYMIŞ (off-by-one!
+> her kategori bir SONRAKİNİN EN adını gösteriyor — EN sitede kategori adları YANLIŞ). 8 kategori TR+EN elle eşlenip
+> düzeltilmeli (data/content.json `_translations.en` — DİKKATLİ, dokunulmadı).** footer/testimonial İngilizcesi ayrıca kontrol. (c) i.ibb.co ürün
 > görsellerini self-host (112 görsel, büyük migrasyon). (d) YouTube facade (poster+tık) = Lighthouse skorunu daha çok
 > artırır ama autoplay-passive UX değişir (SOR). **Codex FONT bulgusu YANLIŞ:** Roboto/Google Fonts YOK (0), next/font
 > Inter self-hosted zaten. **Zaten yapılmış (Codex tekrar önerdi):** YouTube scroll-lazy, content-visibility, meta,
