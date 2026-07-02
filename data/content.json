@@ -923,8 +923,8 @@
       ],
       "categories": {
         "wallbox": {
-          "name": "AC Mobile Chargers",
-          "subtitle": "22-3.7kW Portable Chargers",
+          "name": "AC Wallbox Chargers",
+          "subtitle": "22-7.4kW Wall-Mounted Charging Station",
           "modelCount": 3,
           "badge": "New",
           "comingSoon": false,
@@ -974,8 +974,8 @@
           ]
         },
         "portable": {
-          "name": "AC Charging Cables",
-          "subtitle": "Type 2 · Mode 3",
+          "name": "AC Mobile Chargers",
+          "subtitle": "22-3.7kW Portable Chargers",
           "modelCount": 2,
           "badge": "Innovative",
           "comingSoon": false,
@@ -1006,8 +1006,8 @@
           "sliderImage": "https://i.ibb.co/5pCgVZG/1779257520729-mobil-png.png"
         },
         "cables": {
-          "name": "V2L / C2L Adapters",
-          "subtitle": "Vehicle-to-Load & Charger-to-Load Discharge & Battery Charge",
+          "name": "AC Charging Cables",
+          "subtitle": "Type 2 · Mode 3",
           "modelCount": 4,
           "badge": null,
           "comingSoon": false,
@@ -1038,8 +1038,8 @@
           "sliderImage": "https://i.ibb.co/fYD410G4/1779257794033-sarjseti-png.png"
         },
         "v2l-c2l": {
-          "name": "Overtime & Combination",
-          "subtitle": "Extension Cables, Converters & Combination Boxes",
+          "name": "V2L / C2L Adapters",
+          "subtitle": "Vehicle-to-Load & Charger-to-Load Discharge & Battery Charge",
           "modelCount": 3,
           "badge": "How do I use the AC Wallbox charger in my home?",
           "comingSoon": false,
@@ -1074,8 +1074,8 @@
           "sliderImage": "https://i.ibb.co/JwSyz55M/1779258172698-v2l-png.png"
         },
         "converters": {
-          "name": "AC & DC Charging Unit Equipment",
-          "subtitle": "Type 2, CCS2 Socket, Unit Socket, Holder",
+          "name": "Extension & Combination",
+          "subtitle": "Extension Cables, Converters & Combination Boxes",
           "modelCount": 4,
           "badge": null,
           "comingSoon": false,
@@ -1106,8 +1106,8 @@
           "sliderImage": "https://i.ibb.co/WvwvPryY/1779258512863-uzatma-png.png"
         },
         "charger-equipment": {
-          "name": "Accessories",
-          "subtitle": "Carrying Cases, Pedestals & Other",
+          "name": "AC & DC Charging Unit Equipment",
+          "subtitle": "Type 2, CCS2 Socket, Unit Socket, Holder",
           "modelCount": 5,
           "badge": null,
           "comingSoon": false,
@@ -1138,8 +1138,8 @@
           "descriptionImage": "https://i.ibb.co/hRwwjHtC/1778442054614-Whats-App-Image-2026-04-01-at-21-23-56-jpeg.jpg"
         },
         "accessories": {
-          "name": "DC Charging Units",
-          "subtitle": "40-200kWFast Charging Units",
+          "name": "Accessories",
+          "subtitle": "Carrying Cases, Pedestals & Other",
           "modelCount": 4,
           "badge": null,
           "comingSoon": false,
@@ -1170,7 +1170,7 @@
         },
         "dc-units": {
           "name": "DC Charging Units",
-          "subtitle": "40-200kW Fast Charging Units",
+          "subtitle": "40-200kWFast Charging Units",
           "modelCount": 5,
           "badge": null,
           "comingSoon": false,
