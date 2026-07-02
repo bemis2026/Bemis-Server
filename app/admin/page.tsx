@@ -697,7 +697,14 @@ export default function AdminPage() {
     try {
       const res = await fetch("/api/admin/products", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(products) });
       if (res.ok) { productsCleanRef.current = products; setProductsDirty(false); showToast("ok", "Ürün verileri kaydedildi."); setPreviewKey((k) => k + 1); }
-      else showToast("err", "Kayıt başarısız.");
+      else {
+        // Gerçek sebebi göster (sunucu döndürüyor). En sık: Blob deposu askıda.
+        const detail = (await res.json().catch(() => ({}))) as { error?: string };
+        const isBlob = /suspend|Blob|store has been/i.test(detail?.error || "");
+        showToast("err", isBlob
+          ? "Kayıt başarısız: Vercel Blob depolama ASKIDA. Vercel → Storage → Blob deposunu aktifleştirin (kota/fatura)."
+          : "Kayıt başarısız." + (detail?.error ? ` (${String(detail.error).slice(0, 90)})` : ""));
+      }
     } catch { showToast("err", "Ağ hatası."); }
     setSavingProducts(false);
   };
