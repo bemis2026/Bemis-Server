@@ -754,7 +754,7 @@ function clampTitle(text: string, max = 60): string {
 const CATEGORY_SEO: Record<string, { title: string; desc: string; short: string }> = {
   wallbox: {
     title: "Elektrikli Araç Şarj İstasyonu — Wallbox",
-    desc: "Bemis yerli üretim AC Wallbox ev şarj istasyonu: 7,4–22 kW, Type 2, OCPP uyumlu. Ev ve iş yeri için. CE, IP65 — üreticisinden.",
+    desc: "Bemis yerli üretim AC Wallbox ev şarj ünitesi ve istasyonu: 7,4–22 kW, Type 2, OCPP uyumlu. Ev ve iş yeri için. CE, IP65 — üreticisinden.",
     short: "AC Wallbox Şarj İstasyonu",
   },
   portable: {
@@ -764,7 +764,7 @@ const CATEGORY_SEO: Record<string, { title: string; desc: string; short: string 
   },
   cables: {
     title: "Elektrikli Araç Şarj Kablosu — Type 2",
-    desc: "Bemis yerli üretim Type 2 (Tip 2) elektrikli araç şarj kablosu: 16A/32A, monofaze ve trifaze, 3–10 m. CE, IP65 — üreticisinden teklif alın.",
+    desc: "Bemis yerli üretim Type 2 (Tip 2) AC elektrikli araç şarj kablosu: 16A/32A, monofaze ve trifaze, 3–10 m. CE, IP65 — üreticisinden teklif alın.",
     short: "Type 2 EV Şarj Kablosu",
   },
   "v2l-c2l": {
