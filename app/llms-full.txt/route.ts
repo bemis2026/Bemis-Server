@@ -27,6 +27,9 @@ function bodyToText(body: BlogSection[]): string {
 
 // GEO için en değerli 10 rehber (tam gövde).
 const GUIDE_SLUGS = [
+  "elektrikli-arac-sarj-kablosu-kac-metre-kac-amper",
+  "ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi",
+  "elektrikli-arac-sarj-kablosu-disarida-yagmurda-kullanilir-mi",
   "ocpp-nedir",
   "ac-dc-sarj-farki",
   "ev-sarj-soketi-tipleri-type-2-ccs2-chademo",
