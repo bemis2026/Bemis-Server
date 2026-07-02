@@ -13,6 +13,18 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🔴🔴 **BLOB DEPOSU ASKIYA ALINMIŞ → TÜM ADMİN KAYITLARI FAIL (2026-07-02, KESİN TEŞHİS · Vercel canlı log):**
+> Kullanıcı şarj cihazı görsellerini admin'den değiştiremiyor ("Kayıt başarısız"). **Vercel log KESİN kanıt:**
+> `POST /api/admin/products 500 — Vercel Blob: This store has been suspended.` (bugün 09:19–09:25 onlarca 500).
+> Yani aylardır not edilen Blob kota/token sorunu SONUÇLANDI: **Blob store SUSPENDED.** `writeBin`→`put`→reddediliyor
+> → 500 → **tüm admin saves (ürün/içerik/bayi/döküman) FAIL** (hepsi Blob'a yazıyor). Site ÇALIŞIYOR (data/*.json
+> fallback). **✅ ÇÖZÜM = KULLANICI/VERCEL (kod DEĞİL):** Vercel → `bemis-server` → Storage → Blob deposu → askı
+> sebebini gör (kota/fatura) → çöz: **Vercel Pro'ya yükselt** VEYA **yeni Blob store aç + `BLOB_READ_WRITE_TOKEN`'ı
+> yenisine bağla → redeploy.** Askı kalkınca admin anında çalışır. **BEN YAPTIM (58167d3):** admin ürün-kayıt hatası
+> artık gerçek sebebi gösteriyor ("Vercel Blob depolama ASKIDA..."). **⏳ WORKAROUND (Blob düzelene kadar):** içerik/
+> görsel değişikliği = `data/*.json`'a ELLE işle + commit (site onu okuyor). Kullanıcı görsel URL'i + ürün verirse yapılır.
+
+
 > 🚀 **HERO LCP KÖK-NEDEN FIX (Codex dış-denetim → mobil LCP 21.5s) (2026-07-02, CANLI · commit 01316e2):**
 > Kullanıcı ChatGPT-Codex analiz raporu paylaştı (mobil Lighthouse **49/100**, LCP **21.5s**, LCP öğesi = hero
 > paragrafı). **KÖK NEDEN BULUNDU + DÜZELTİLDİ:** Hero H1/paragraf/logo `motion` **`initial:{opacity:0}`** ile
