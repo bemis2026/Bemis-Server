@@ -7,7 +7,11 @@ const URL_PATH = "/iletisim";
 const SITE = SITE_URL; // https://www.bemisevcharge.com.tr
 
 export const metadata: Metadata = {
-  title: "İletişim | Bemis E-V Charge",
+  // NOT: layout.tsx başlık şablonu "%s | Bemis E-V Charge" markayı otomatik
+  // ekler → başlığa markayı TEKRAR yazma (yoksa "…| Bemis E-V Charge | Bemis
+  // E-V Charge" çift-marka olur). openGraph/twitter başlıkları şablonlanmaz,
+  // onlarda tam ad kalır.
+  title: "İletişim",
   description:
     "Bemis E-V Charge iletişim: Yeşil Cad. No:31, 16140 Bursa. Telefon +90 224 433 02 16, e-posta info@bemisevcharge.com. Ürün, bayilik ve teklif talepleriniz için bize ulaşın.",
   keywords: ["bemis iletişim", "bemis bursa", "ev şarj iletişim"],
