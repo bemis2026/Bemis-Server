@@ -49,3 +49,5 @@ scripts/_backup-*.json
 # large media files
 public/**/*.mp4
 public/**/*.mov
+
+.vercel

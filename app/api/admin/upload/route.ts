@@ -16,6 +16,11 @@ const MIME: Record<string, string> = {
   xlsx: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
 };
 
+const IMAGE_MIME: Record<string, string> = {
+  jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png",
+  webp: "image/webp", gif: "image/gif", ico: "image/x-icon",
+};
+
 async function uploadToImgbb(bytes: ArrayBuffer, filename: string, apiKey: string): Promise<string> {
   const base64 = Buffer.from(bytes).toString("base64");
   const body = new URLSearchParams();
@@ -71,6 +76,35 @@ async function uploadToCloudinary(bytes: ArrayBuffer, filename: string, ext: str
   return json.secure_url as string;
 }
 
+// Görseller Cloudinary'nin /image/upload ucuna gider (res.cloudinary.com — kalıcı,
+// güvenilir görsel CDN'i; folder=products). Orijinal bayt yüklenir → kalite AYNI
+// (yeniden boyutlandırma/sıkıştırma YOK). public_id verilmez → Cloudinary otomatik
+// benzersiz kimlik üretir (çakışma yok). Bu, eski i.ibb.co (ImgBB) bağımlılığını
+// yeni yüklemelerde de ortadan kaldırır; ImgBB yalnızca yedek yol olarak kalır.
+async function uploadImageToCloudinary(bytes: ArrayBuffer, ext: string, cloudName: string, preset: string): Promise<string> {
+  const base64 = Buffer.from(bytes).toString("base64");
+  const mime = IMAGE_MIME[ext] ?? "image/png";
+
+  const body = new URLSearchParams();
+  body.append("file", `data:${mime};base64,${base64}`);
+  body.append("upload_preset", preset);
+  body.append("folder", "products");
+
+  const res = await fetch(
+    `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+    { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: body.toString() }
+  );
+  const json = await res.json();
+  if (!res.ok || json.error) {
+    const cloudinaryMsg: string = json?.error?.message ?? `HTTP ${res.status}`;
+    if (/unknown api key/i.test(cloudinaryMsg)) {
+      throw new Error(`Cloudinary görsel hatası: "${cloudinaryMsg}". Vercel'de CLOUDINARY_CLOUD_NAME=\"${cloudName}\" olarak ayarlanmış. Cloudinary dashboard'daki Cloud name (sol üst) ile birebir aynı mı kontrol edin.`);
+    }
+    throw new Error(`Cloudinary görsel hatası: ${cloudinaryMsg}`);
+  }
+  return json.secure_url as string;
+}
+
 export async function POST(req: NextRequest) {
   if (!isAuthed(req)) return NextResponse.json({ error: "Yetkisiz" }, { status: 401 });
 
@@ -83,8 +117,21 @@ export async function POST(req: NextRequest) {
     const bytes = await file.arrayBuffer();
 
     if (IMAGE_EXTS.includes(ext)) {
+      // Öncelik: Cloudinary /image/upload (kalıcı, güvenilir CDN). Env varsa oraya.
+      const cloudName = process.env.CLOUDINARY_CLOUD_NAME?.trim();
+      const preset    = process.env.CLOUDINARY_UPLOAD_PRESET?.trim();
+      if (cloudName && preset) {
+        const url = await uploadImageToCloudinary(bytes, ext, cloudName, preset);
+        return NextResponse.json({ url });
+      }
+      // Yedek: ImgBB (eski yol) — Cloudinary env'i yoksa.
       const apiKey = process.env.IMGBB_API_KEY;
-      if (!apiKey) return NextResponse.json({ error: "IMGBB_API_KEY tanımlı değil" }, { status: 500 });
+      if (!apiKey) {
+        return NextResponse.json(
+          { error: "Görsel yükleme yapılandırması eksik: CLOUDINARY_CLOUD_NAME + CLOUDINARY_UPLOAD_PRESET (önerilen) veya IMGBB_API_KEY tanımlı olmalı." },
+          { status: 500 }
+        );
+      }
       const url = await uploadToImgbb(bytes, file.name, apiKey);
       return NextResponse.json({ url });
     }

@@ -7,7 +7,7 @@
     "subtitle": "From your home to your workplace, from parking solutions to the field — we facilitate the electric vehicle experience with certified AC chargers, cables, and accessories.",
     "ctaPrimary": "Explore Our EV Charging Solutions",
     "ctaSecondary": " Find a Store                                                                                                                                                                                                                                             ",
-    "heroBg": "https://i.ibb.co/WWcxt17Q/1778096944295-Gemini-Generated-Image-quuwpmquuwpmquuw-jpg.jpg",
+    "heroBg": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075723/products/gdbptkvmtravx8isr209.jpg",
     "layout": {
       "logo": {
         "x": 4,
@@ -64,8 +64,8 @@
       "modelCount": 3,
       "badge": "New",
       "comingSoon": false,
-      "image": "https://i.ibb.co/pjkGRghk/1778569694754-Gemini-Generated-Image-qf1urcqf1urcqf1u-png.png",
-      "sliderImage": "https://i.ibb.co/S4k2dDnz/1779257322572-wallbox-png.png",
+      "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075730/products/thqh0i7nvr1om2na9ppo.png",
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075739/products/mkblh61xfa551ewuadj8.png",
       "faq": [
         {
           "q": "What is the difference between 7 kW and 11 kW and 22 kW?",
@@ -139,7 +139,7 @@
         }
       ],
       "description": "Mode 2 and Mode 3 charging cables with Type 2 standard. It is designed for long-lasting use in single and three-phase, 16a – 32a current classes with IEC 62196 / IEC 61851 compliant, halogen-free outer sheath and high-current Type 2 connector.",
-      "sliderImage": "https://i.ibb.co/5pCgVZG/1779257520729-mobil-png.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075745/products/phrdrgmnycwteac03l3c.png"
     },
     "cables": {
       "name": "AC Charging Cables",
@@ -171,7 +171,7 @@
         }
       ],
       "description": "Adapters that convert the vehicle's battery (V2L) or charger (C2L) into an external power supply. Compatible with Type 2 inputs and schuko / Cee outputs and V2L-supported vehicles such as Hyundai, Kia, MG, BYD, Ssangyong and Skywell — for camping, workshop and emergency scenarios.",
-      "sliderImage": "https://i.ibb.co/fYD410G4/1779257794033-sarjseti-png.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075750/products/yquclaq2d8incbvlonxk.png"
     },
     "v2l-c2l": {
       "name": "V2L / C2L Adapters",
@@ -207,7 +207,7 @@
         }
       ],
       "description": "Extension cables and Ceenorm converters that carry existing charging equipment to different outlet types and distances. Combination solutions designed for single and three-phase 16a – 32a transitions.",
-      "sliderImage": "https://i.ibb.co/JwSyz55M/1779258172698-v2l-png.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075755/products/jjaugl6l5h7o20jastmg.png"
     },
     "converters": {
       "name": "Extension & Combination",
@@ -239,7 +239,7 @@
         }
       ],
       "description": "Fully domestic Bemis DC charging cables specially produced for high-power DC charging units provide easy replacement in case of breakage thanks to their modular body structure.\nPanel socket with lock mechanism used on charging units. With its special branding and unique design, it is perfect for your unit. The DC Socket Holder Bracket, which is produced for the DC cables used in DC charging units to hang idle, stands out as an ideal option with its ball and embedded design. Thanks to its ball structure, the fracture problem is eliminated. With its body structure embedded in the case, it is fully compatible with your unit design.",
-      "sliderImage": "https://i.ibb.co/WvwvPryY/1779258512863-uzatma-png.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075761/products/f0fshjhhljmvpkcrxxzu.png"
     },
     "charger-equipment": {
       "name": "AC & DC Charging Unit Equipment",
@@ -271,7 +271,7 @@
           "a": "The RFID card provides user authorization at the charging station — someone you don't want can't use the device. It is used to track who charges how much with which vehicle in corporate/workplace installations. You can do the same job with the mobile application in OCPP supported stations."
         }
       ],
-      "descriptionImage": "https://i.ibb.co/hRwwjHtC/1778442054614-Whats-App-Image-2026-04-01-at-21-23-56-jpeg.jpg"
+      "descriptionImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075765/products/xl61vku2recrvjsag3x8.jpg"
     },
     "accessories": {
       "name": "Accessories",
@@ -310,7 +310,7 @@
       "modelCount": 5,
       "badge": null,
       "comingSoon": false,
-      "image": "https://i.ibb.co/5gSrg92z/1778431849159-Whats-App-Image-2026-05-07-at-15-52-07-jpeg.jpg",
+      "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075768/products/pfihve1gfgyuchjlylkm.jpg",
       "faq": [
         {
           "q": "What is the difference between DC charging and AC charging?",
@@ -435,15 +435,15 @@
     "groupBrands": [
       {
         "name": "Bemis",
-        "logo": "https://i.ibb.co/qMmcR3yx/1779122993225-logo-png.png"
+        "logo": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075770/products/olt39pufnjbk1q2ziubx.png"
       },
       {
         "name": "Bemis E-V Charge",
-        "logo": "https://i.ibb.co/hxpt943H/1778522034826-1776676694649-favicon-png-png.png"
+        "logo": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075772/products/lzpqyh2z2gjksrqlxmzk.png"
       },
       {
         "name": "BYES",
-        "logo": "https://i.ibb.co/1Jj0m6r9/1778611027285-logo-white-png.png"
+        "logo": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075776/products/vpdt79iih2dtee6pt3b9.png"
       }
     ]
   },
@@ -733,7 +733,7 @@
     "name": "AC Wallbox Smart Charger Pro 2",
     "tagline": "The new standard of smart charging",
     "description": "22 kW smart AC charging station with OCPP support developed for residential and workplace applications. Seamless performance for individual and shared use with mobile app integration, dynamic load management and IP65 protection.",
-    "image": "https://i.ibb.co/n8m3gY86/1776719268258-Whats-App-Image-2026-04-01-at-14-54-58-7-jpeg.jpg",
+    "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075777/products/aapzodkxb904ww8ybo3h.jpg",
     "specs": [
       {
         "label": "Power Output:",
@@ -765,7 +765,7 @@
     "ctaSecondary": "Get Quotes",
     "ctaSecondaryHref": "/contact",
     "images": [
-      "https://i.ibb.co/n8m3gY86/1776719268258-Whats-App-Image-2026-04-01-at-14-54-58-7-jpeg.jpg"
+      "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075777/products/aapzodkxb904ww8ybo3h.jpg"
     ],
     "products": [
       {
@@ -773,7 +773,7 @@
         "name": "80 kW DC Fast Charger",
         "tagline": "Fast charging for fleet and commercial use",
         "description": "Dual CCS2 80 kW DC fast charging station. A compact solution charging two vehicles simultaneously at parking entrances, shopping malls, hotels and fleet centers. 20% → 80% battery in 30 minutes. Ready for year-round outdoor deployment with OCPP 1.6J / 2.0.1 support, RFID authentication, IP54 protection and a wide -25°C / +55°C temperature range.",
-        "image": "https://i.ibb.co/s9L9GNFv/1779370698470-Chat-GPT-Image-5-May-2026-11-12-31-png.png",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075789/products/bcmgy8awcmtb9yrpwn92.png",
         "specs": [
           {
             "label": "Power Output",
@@ -811,8 +811,8 @@
       }
     ]
   },
-  "faviconUrl": "https://i.ibb.co/7t32Yqz9/1778186724411-1776676694649-favicon-png-png.png",
-  "ogImage": "https://i.ibb.co/C5W96KPw/1776719037072-Whats-App-Image-2026-04-01-at-14-54-58-6-jpeg.jpg",
+  "faviconUrl": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075791/products/xt103etp3dcuoxvu7aib.png",
+  "ogImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075793/products/jjkaqljqa9thzeeyntup.jpg",
   "referenceProjectsSection": {
     "sectionLabel": "Reference projects",
     "heading": "Bemis E-V Charge on Site",
@@ -820,21 +820,21 @@
     "items": [
       {
         "id": "proj-1778222222146",
-        "image": "https://i.ibb.co/gbh9cQb8/1778222990267-Whats-App-Image-2026-04-01-at-14-55-14-jpeg.jpg",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075798/products/d5irceuqxwl8cksh0xvw.jpg",
         "title": "",
         "location": "",
         "description": ""
       },
       {
         "id": "proj-1778223862154",
-        "image": "https://i.ibb.co/VpWYLBC6/1778223867694-Whats-App-Image-2026-04-01-at-14-55-14-11-jpeg.jpg",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075804/products/yzeknlqcmjczuj99jyqk.jpg",
         "title": "",
         "location": "",
         "description": ""
       },
       {
         "id": "proj-1778223874319",
-        "image": "https://i.ibb.co/YT11KVrR/1778223929555-Whats-App-Image-2026-04-01-at-14-55-14-16-jpeg.jpg",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075807/products/p62d1er8jqhc6ppthodo.jpg",
         "title": "",
         "location": "",
         "description": ""
@@ -848,7 +848,7 @@
     "items": [
       {
         "id": "g-1778223748755",
-        "image": "https://i.ibb.co/xK1NbGhQ/1778223754579-Whats-App-Image-2026-04-01-at-14-55-14-11-jpeg.jpg",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075810/products/rxpfjpundvynbs0gbwjc.jpg",
         "caption": "",
         "aspect": "square"
       }

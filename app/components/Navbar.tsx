@@ -168,14 +168,14 @@ const CATEGORY_ACCENTS: Record<string, string> = {
 // (şeffaf PNG). Kategori atmosfer görseli yerine ürün görseli — küçük
 // thumbnail'da daha net okunur. Kullanıcı isteği: "görselleri ürünlerden al".
 const CATEGORY_MENU_IMAGE: Record<string, string> = {
-  "wallbox":           "https://i.ibb.co/Y4y9X34b/1778104941457-BEV-1011-0005-png.png",
-  "portable":          "https://i.ibb.co/C3Wy4zG1/1778250667732-mini-mobile-r-n-png.png",
-  "cables":            "https://i.ibb.co/b5vGJ10c/1778479575431-fi-priz-kablolu-png.png",
-  "v2l-c2l":           "https://i.ibb.co/8LRBhSCn/1778480827934-BEV2-L-3201-3203-png.png",
-  "converters":        "https://i.ibb.co/Q778yMT0/1778481170734-BKT-0111-2211-png.png",
-  "charger-equipment": "https://i.ibb.co/DHJDfrs7/1778482597259-32-A-type2-IIA-mod3-pano-prizi-2-png.png",
-  "accessories":       "https://i.ibb.co/6QmxMCH/1778482448259-bemis-mobil-canta-png.png",
-  "dc-units":          "https://i.ibb.co/FbKK7nJq/1778482081859-40-kw-DC-saj-cihaz-beyaz-golgesiz-png.png",
+  "wallbox":           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074871/products/k8yjbbw07cp1kpbij7pg.png",
+  "portable":          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074914/products/ssmfsr68loa4hecvpnya.png",
+  "cables":            "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074926/products/m4xy2xidais3lsqebpbr.png",
+  "v2l-c2l":           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074942/products/un6onm3b6kihvwfgbp3w.png",
+  "converters":        "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074998/products/kuxlacga82z0pbt2tqyt.png",
+  "charger-equipment": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075211/products/slovarwtn9dt80fx55zc.png",
+  "accessories":       "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075098/products/hjtuhulovozll09t9ijg.png",
+  "dc-units":          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075174/products/zcprvbro7tkheffuxtmf.png",
 };
 
 interface NavbarProps {
