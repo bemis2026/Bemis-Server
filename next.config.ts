@@ -102,6 +102,16 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      // Google, eski/gömülü içerik referanslarından (productShowcase'in
+      // render edilmeyen ctaSecondaryHref'i) /contact URL'ini keşfetmiş; ama
+      // gerçek iletişim sayfası /iletisim → Search Console "bulunamadı (404)"
+      // hatası veriyordu. Kalıcı (308) yönlendirme ile /contact geçerli sayfaya
+      // çözülür; hata kapanır, gelecekteki her /contact referansı da çalışır.
+      { source: "/contact", destination: "/iletisim", permanent: true },
+    ];
+  },
   async rewrites() {
     return [
       { source: "/favicon.ico", destination: "/icon" },
