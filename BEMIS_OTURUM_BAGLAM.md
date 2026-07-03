@@ -7,11 +7,35 @@
 > Derin teknik bağlam: `Desktop/Claude Çalışmaları/Bemis Website/md/BEMIS_PROJECT_CONTEXT.md`
 > (özellikle §15.16 denetim, §15.17 Blob taşıması).
 >
-> Son güncelleme: **2026-07-01**
+> Son güncelleme: **2026-07-03**
 
 ---
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
+
+> 🖼️✅ **TÜM GÖRSELLER i.ibb.co → CLOUDINARY'E TAŞINDI (2026-07-03, CANLI · commit'ler d3b91d4 + 30288a6):**
+> Codex denetiminin işaret ettiği i.ibb.co (ücretsiz ImgBB) bağımlılığı TAMAMEN kaldırıldı. **94 benzersiz görsel
+> BİREBİR (orijinal bayt, yeniden boyutlandırma/sıkıştırma YOK → kalite AYNI) `res.cloudinary.com`'a taşındı**
+> (Cloudinary hesap: cloud **dmnttjyzm**, unsigned preset `CLOUDINARY_UPLOAD_PRESET`, folder `products`; env zaten
+> vardı = dökümanlar için). **⚠️ KRİTİK ÖĞRENME:** görseller 3 KATMANDA duruyordu, hepsi taşındı: **(1) repo `data/*.json`
+> fallback** (products/products-en/content/content-en — commit d3b91d4). **(2) R2 bin'leri = ASIL SERVİS EDİLEN** —
+> admin save yapıldığı için R2'ye i.ibb.co tohumlanmıştı; site R2 okuyor, data/*.json fallback DEĞİL → R2 bin'leri de
+> güncellendi (`bins/products.json`+`content.json`+`productsEn.json`: R2'den oku → SADECE görsel URL'leri Cloudinary'e
+> çevir → geri yaz; diğer TÜM admin verisi korundu; yedekler alındı). R2 içinde **9 görsel kullanıcının BUGÜN admin'den
+> yüklediği YENİ ürün fotoları** idi (i.ibb.co'ya gitmişti; onlar da taşındı → kullanıcının yeni fotoları canlıda Cloudinary'de).
+> **(3) Kod:** `Navbar.tsx` 8 kategori thumbnail + `layout.tsx` preconnect i.ibb.co→res.cloudinary.com. **CACHE-BUST:**
+> `readBin` `unstable_cache` (Vercel Data Cache) eski i.ibb.co'yu 6 saat tutuyordu (redeploy TEMİZLEMEZ) → **cache anahtarı
+> sürümlendi** `["store",name]`→`["store",name,"v2-cloudinary"]` (commit 30288a6) = tek-seferlik miss = R2'den taze okuma;
+> aynı redeploy statik sayfaları da taze R2 ile pişirdi. **✅ CANLI DOĞRULANDI:** /api/products + /api/content + anasayfa +
+> /products/wallbox + /products/portable HTML'de **i.ibb.co = 0**, Cloudinary = 100+; next/image optimizer Cloudinary'i
+> kabul ediyor (200, AVIF/WebP). **✅ ADMIN UPLOAD ROTASI DEĞİŞTİ** (`app/api/admin/upload/route.ts`): YENİ görsel
+> yüklemeleri artık **Cloudinary `/image/upload`** (ImgBB yalnız yedek, env yoksa) → i.ibb.co bağımlılığı yeni yüklemelerde
+> de bitti. ⚠️ **KALAN/NOT:** (a) `next.config` remotePatterns'te i.ibb.co KASITLI duruyor (ImgBB fallback güvenliği). (b) İlk
+> migration turu verify-adımı Windows `%{http_code}` bug'ıyla fail olunca 62 orphan Cloudinary upload oldu (zararsız, free tier;
+> unsigned preset'te silinemez). (c) repo `data/products.json` fallback'i o 9 admin-yeni-fotoyu içermiyor (eski-ama-Cloudinary
+> fotolar) — R2 (asıl servis) kullanıcının yenilerini gösteriyor; fallback yalnız R2 boşalırsa devreye girer. ⚠️ **DERS:**
+> görsel/veri değişikliği canlıya yansımıyorsa SADECE data/*.json değil **R2 bin'lerini de** güncelle (`readBin` R2 okur) +
+> cache anahtarını bump'la; R2'yi doğrudan okumak/yazmak için store.ts deseni (S3 SDK, `bins/<name>.json`, env R2_*).
 
 > 🔴🔴 **BLOB DEPOSU ASKIYA ALINMIŞ → TÜM ADMİN KAYITLARI FAIL (2026-07-02, KESİN TEŞHİS · Vercel canlı log):**
 > Kullanıcı şarj cihazı görsellerini admin'den değiştiremiyor ("Kayıt başarısız"). **Vercel log KESİN kanıt:**
