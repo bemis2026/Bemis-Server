@@ -237,15 +237,25 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {group.links.map((link, j) => (
                   <li key={j}>
-                    <button
-                      onClick={() => handleClick(link.href, link.scroll ?? true)}
-                      className="text-sm transition-colors duration-200 text-left"
+                    {/* Gerçek <a href> → Google taranabilir iç-link olarak görür
+                        (sitelink adayı + iç-link gücü). onClick SPA/yumuşak-kaydırma
+                        davranışını korur; hash hedefleri "/#..." ile ana sayfaya çözülür. */}
+                    <a
+                      href={link.scroll ? `/${link.href}` : link.href}
+                      onClick={e => {
+                        // Sol-tık (modifiersiz) → SPA/kaydırma davranışı; ctrl/cmd/shift-tık
+                        // → href sayesinde tarayıcı yeni sekmede açar (engelleme).
+                        if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+                        e.preventDefault();
+                        handleClick(link.href, link.scroll ?? true);
+                      }}
+                      className="text-sm transition-colors duration-200 text-left inline-block"
                       style={{ color: textMuted }}
                       onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = textHead; }}
                       onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = textMuted; }}
                     >
                       {link.label}
-                    </button>
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -276,7 +286,7 @@ export default function Footer() {
                   <HiMail style={{ fontSize: 12 }} /> {contact.email}
                 </a>
               )}
-              <button onClick={() => router.push("/b2b")} className="transition-colors hover:opacity-70">OEM / B2B</button>
+              <a href="/b2b" onClick={e => { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); router.push("/b2b"); }} className="transition-colors hover:opacity-70">OEM / B2B</a>
             </div>
           </div>
         </div>
