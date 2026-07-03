@@ -24,7 +24,7 @@ import {
   RiFileTextLine, RiFilePdfLine, RiExternalLinkLine,
   RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
   RiShieldCheckLine, RiBarChart2Line, RiCalendarCheckLine, RiTeamLine,
-  RiLightbulbLine, RiAddLine, RiWhatsappLine, RiMapPin2Line, RiVerifiedBadgeFill,
+  RiLightbulbLine, RiAddLine, RiMapPin2Line, RiVerifiedBadgeFill,
 } from "react-icons/ri";
 import { featureById } from "../../../../lib/productFeatures";
 import { certificateById } from "../../../../lib/productCertificates";
@@ -186,7 +186,7 @@ export default function ProductDetailPage({
   const { theme } = useTheme();
   const { lang } = useLanguage();
   const { currency, tryPerEur } = useCurrency();
-  const { categories: catMeta, contact, smartCharger } = useContent();
+  const { categories: catMeta, smartCharger } = useContent();
   // Warranty / certification copy is fixed company policy — same line for
   // every product, no admin knob.
   const WARRANTY_DURATION = lang === "en" ? "2-Year Manufacturer Warranty" : "2 Yıl Üretici Garantisi";
@@ -642,8 +642,9 @@ export default function ProductDetailPage({
                       {product.description}
                     </p>
                   )}
-                  {/* Garanti rozeti (sol) + sadeleştirilmiş Teklif Al / Bayi Bul
-                      (açıklamanın sağ-alt boşluğunda, kompakt pill'ler). */}
+                  {/* Garanti rozeti (sol) + Bayi Bul (sağ, kompakt pill).
+                      "Teklif Al" (WhatsApp → doğrudan Bemis) bayilerin talebiyle
+                      kaldırıldı; müşteri artık ürün için bayiye yönlendirilir. */}
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div
                       className="inline-flex items-center gap-2 rounded-xl px-3 py-1.5 text-xs font-semibold"
@@ -656,32 +657,14 @@ export default function ProductDetailPage({
                       <RiShieldCheckLine size={14} style={{ color: BRAND_BLUE }} />
                       {WARRANTY_DURATION}
                     </div>
-                    {(() => {
-                      const waPhone = (contact?.whatsappPhone || contact?.phone || "").replace(/[^\d]/g, "");
-                      const waText = encodeURIComponent(`Merhaba, ${product.name} ürünü hakkında bilgi/teklif almak istiyorum.`);
-                      return (
-                        <div className="flex items-center gap-2">
-                          {waPhone && (
-                            <a
-                              href={`https://wa.me/${waPhone}?text=${waText}`}
-                              target="_blank" rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold text-white transition-all hover:opacity-90"
-                              style={{ background: "#25D366" }}
-                            >
-                              <RiWhatsappLine size={14} /> {lang === "en" ? "Quote" : "Teklif Al"}
-                            </a>
-                          )}
-                          <button
-                            type="button"
-                            onClick={() => setDealerOpen(true)}
-                            className="inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all hover:opacity-80"
-                            style={{ background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)", color: textPrimary, border: `1px solid ${border}` }}
-                          >
-                            <RiMapPin2Line size={14} /> {lang === "en" ? "Dealers" : "Bayi Bul"}
-                          </button>
-                        </div>
-                      );
-                    })()}
+                    <button
+                      type="button"
+                      onClick={() => setDealerOpen(true)}
+                      className="inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all hover:opacity-80"
+                      style={{ background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)", color: textPrimary, border: `1px solid ${border}` }}
+                    >
+                      <RiMapPin2Line size={14} /> {lang === "en" ? "Dealers" : "Bayi Bul"}
+                    </button>
                   </div>
 
                   {/* Quality / conformity certs as plain text chips — the
