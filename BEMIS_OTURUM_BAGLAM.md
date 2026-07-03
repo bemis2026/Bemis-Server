@@ -13,6 +13,24 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🖥️✅ **GENİŞ EKRAN OPTİMİZASYONU + A-Z rapor (29.06) değerlendirmesi (2026-07-03, CANLI · commit a0372ba):**
+> Kullanıcı: "geniş ekranlarda içerik ortada sıkışmasın, ekranı verimli kullan." **KÖK NEDEN:** site-geneli bölüm
+> konteynerleri `max-w-7xl mx-auto` (1280px) → 1440p/4K/ultra-geniş monitörlerde ortada sıkışıp iki yanda geniş boşluk.
+> **FIX (`app/globals.css`, TEK NOKTA):** iki-sınıf seçici `.max-w-7xl.mx-auto` ile kademeli genişleme →
+> **2xl(≥1536px) 1600px, ultra-geniş(≥1920px) 1800px**. Dizüstü (<1536px) 1280px'de DEĞİŞMEDİ. İki-sınıf seçici YALNIZ
+> bölüm konteynerlerini hedefler; **blog/sözlük gövde metni `max-w-3xl/5xl` kullandığı için ETKİLENMEZ** (okunabilirlik/
+> satır uzunluğu korundu). **Preview ile doğrulandı** (dev 3942): 1366px=1280 (değişmez) · 1920px=1800 · 2560px=1800 cap
+> (kenar 380px, eski ~640'a karşı) · yatay taşma YOK · konsol 0 hata · ürün grid 6 sütun geniş alanı kullanıyor. Üretim
+> CSS'inde 2 media query teyit edildi. ⚠️ Wrapper deseni tek: `max-w-7xl mx-auto px-5 sm:px-6 lg:px-8` (18 bileşende);
+> daha genişletmek istenirse globals.css'teki 1600/1800 değerlerini artır (blog prose max-w-3xl/5xl'e DOKUNMA).
+> **A-Z RAPOR (kullanıcı 29.06 raporunu iletti):** on-site maddeleri **r6-r10 dalgaları + Cloudinary göçüyle ZATEN
+> KAPANMIŞ** — canlı teyit: kategori `ItemList+CollectionPage` ✅, hero i.ibb.co=0 ✅, SVG diyagram canlı ✅ (raporun
+> perf/görsel/schema/hreflang/og:image/NAP/review/additionalProperty maddeleri hep yapılmış; Wikidata P159 İstanbul→Bursa
+> kullanıcı düzeltti). **Raporun kendi teşhisi:** "Bundan sonraki kazanç KOD DEĞİL, off-site otorite (DR 10)." Yani
+> asıl darboğaz **off-site** (kullanıcı yürütüyor: off-site paketinde 1 ok, 2-3 yapıldı, 4-5 bekliyor). Kalan on-site =
+> tiny/bloklu: **first-party video/VideoObject** (video kullanıcıda yok → multimodal tavan 80'de), /export SSR lang=en
+> (route-group riski), JS bundle/ISR perf turu (ayrı/riskli). SERP 34 = düşük DR sonucu, içerik değil.
+
 > 🤖✅ **GEO 3-FAZ İŞ — off-site paketi + CI guard + ticari-sorgu blogu (2026-07-03, CANLI · commit'ler 4c3e0c8/c350bde/4041fd7):**
 > Kullanıcı 27.06 tarihli GEO rapor arşivini paylaştı; "değerlendir, aksiyon gerekirse seçmeli sor" dedi. **KRİTİK:
 > rapor 6 gün eskiydi** — canlı doğrulandı, açık maddelerin ÇOĞU zaten kapanmış (sözlük mesh ✅, SVG diyagram ✅,
