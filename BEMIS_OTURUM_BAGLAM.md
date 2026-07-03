@@ -13,6 +13,31 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🤖✅ **GEO 3-FAZ İŞ — off-site paketi + CI guard + ticari-sorgu blogu (2026-07-03, CANLI · commit'ler 4c3e0c8/c350bde/4041fd7):**
+> Kullanıcı 27.06 tarihli GEO rapor arşivini paylaştı; "değerlendir, aksiyon gerekirse seçmeli sor" dedi. **KRİTİK:
+> rapor 6 gün eskiydi** — canlı doğrulandı, açık maddelerin ÇOĞU zaten kapanmış (sözlük mesh ✅, SVG diyagram ✅,
+> rakip-marka 0 ✅ [anasayfadaki "2 abb" = `cursor-grabbing` yanlış-pozitifi], Wikidata %100 ✅). AskUserQuestion →
+> kullanıcı **3 fazın hepsini** seçti. **YAPILDI:**
+> **Faz 1 (off-site, kullanıcı uygular):** `C:\Users\sales\Desktop\Bemis_GEO_OffSite_Paketi.md` hazır — NAP kartı
+> (Bemis Teknik Elektrik A.Ş. · Yeşil Cad. No:31, 16140 Bursa · +90 224 433 02 16 · info@bemisevcharge.com) + GBP
+> tamamlama checklist + sektörel/ihracat dizin listesi (BTSO/TOBB/UİB/Europages/Kompass/TurkishExporter/pazaryeri) +
+> PR açıları + bayi backlink şablonu + öncelikli takvim. **ASIL KALDIRAÇ artık burada** (on-site taban ~82, doygun).
+> **Faz 2 (on-site şema):** ⚠️ **DÜRÜST BULGU — rapordaki HowTo-yayma + QAPage önerileri EKSİMİŞ** (Mayıs 2026: HowTo
+> deprecated, FAQ rich-results emekli→AI-alıntı için tutulur, QAPage sadece gerçek kullanıcı-Q&A için). hasDocumentation
+> da eklenmedi (dökümanlar ürüne değil kategoriye bağlı → zorlarsam yanlış şema). Gerçek kalıcı iş = **CI GUARD:**
+> `scripts/check-no-competitor-brands.cjs` build script'ine zincirli (`node ... && next build`) → rakip marka
+> (ABB/Schneider/Vestel/Easee/KEBA/Zaptec/Alfen/Tritium/Fronius/go-e) build'de bulunursa deploy DURUR (denetimlerin
+> defalarca temizlediği regresyon bir daha gelemez). Jenerik "wallbox" hariç; ABB/KEBA büyük-harf duyarlı. Vercel'de
+> guard'lı build başarılı geçti (teyit). Manuel: `npm run check:brands`.
+> **Faz 3 (ticari-sorgu içeriği):** raporun ilk #1 boşluğu ("en iyi/hangi wallbox" ticari sorgularda Bemis yoktu).
+> YENİ blog **`ev-sarj-cihazi-modelleri-karsilastirma`** (blog 19→20) — rakip adı GEÇMEDEN 3 gerçek spec-karşılaştırma
+> tablosu: AC (Charger 2/Plus/Pro/Pro GSM), DC (BEVDC 40–200 kW), taşınabilir (Mini/Mono/Pro Mobile) + "kablolu mu
+> pano prizli mi" + "hangi senaryoda hangi model" + 5 SSS (~90 kelime). TÜM spec'ler `data/products.json`'dan (uydurma
+> YOK). Canlı doğrulandı: 200, 3 `<table>`, Article+FAQPage şema, sitemap+llms.txt+llms-full.txt. ⚠️ **DERS: hızlı
+> ardışık 2 push'ta GitHub→Vercel webhook 2.'yi (c350bde) KAÇIRDI** → blog 404 kaldı; **boş commit** (`git commit
+> --allow-empty` → 4041fd7) push'u deploy'u tetikledi, blog canlıya çıktı. (Ardışık push'larda deploy'u teyit et.)
+> **⏳ KALAN: yalnız off-site (kullanıcı) + first-party video (video sende yok→bloklu).** Aylık GEO turu (ayın 15'i) izle.
+
 > 🖼️✅ **TÜM GÖRSELLER i.ibb.co → CLOUDINARY'E TAŞINDI (2026-07-03, CANLI · commit'ler d3b91d4 + 30288a6):**
 > Codex denetiminin işaret ettiği i.ibb.co (ücretsiz ImgBB) bağımlılığı TAMAMEN kaldırıldı. **94 benzersiz görsel
 > BİREBİR (orijinal bayt, yeniden boyutlandırma/sıkıştırma YOK → kalite AYNI) `res.cloudinary.com`'a taşındı**
