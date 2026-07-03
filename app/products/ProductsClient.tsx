@@ -222,7 +222,10 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
   const surfaceBorder= d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
   const textPrimary  = d ? "#f0f0f4" : "#1a1a1a";
   const textMuted    = d ? "rgba(240,240,244,0.50)" : "rgba(26,26,26,0.50)";
-  const textFaint    = d ? "rgba(240,240,244,0.30)" : "rgba(26,26,26,0.30)";
+  // Ürün kartı alt-başlık + spec metni. %30 opak açık/beyaz kartta okunmuyordu
+  // (kullanıcı geri bildirimi) → %55'e çıkarıldı: isimden (100%) hâlâ açık ama
+  // net okunur; her iki modda geçerli.
+  const textFaint    = d ? "rgba(240,240,244,0.55)" : "rgba(26,26,26,0.55)";
   const filterBase   = d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)";
   const filterBorder = d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.09)";
 

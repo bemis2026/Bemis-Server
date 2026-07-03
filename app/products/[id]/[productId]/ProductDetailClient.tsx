@@ -348,9 +348,13 @@ export default function ProductDetailPage({
                           // sızmasın diye), ÜST katman accent gradient
                           // tinted overlay. Multiple-background CSS
                           // syntax: ilk değer üstte render olur.
+                          // /products kartlarıyla UYUMLU görsel-alan zemini:
+                          // eskiden light #fafafa (aşırı parlak) + dark #1c1c1f (koyu,
+                          // kartlar açıkken tutarsız) idi → kartların reçetesi (açık
+                          // zemin + hafif accent tint) her modda birebir kullanıldı.
                           background: d
-                            ? `linear-gradient(145deg, ${accent}18 0%, transparent 100%), #1c1c1f`
-                            : `linear-gradient(145deg, ${accent}14 0%, transparent 100%), #fafafa`,
+                            ? `linear-gradient(145deg, ${accent}16 0%, transparent 55%), #dbdee3`
+                            : `linear-gradient(145deg, ${accent}0f 0%, transparent 55%), #f3f4f6`,
                           border: `1px solid ${border}`,
                           boxShadow: d
                             ? `0 12px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04)`
@@ -1280,9 +1284,11 @@ export default function ProductDetailPage({
                       className="relative overflow-hidden"
                       style={{
                         aspectRatio: "1/1",
+                        // Benzer Ürünler görsel-alanı — /products kartlarıyla uyumlu
+                        // (aşırı parlak #fafafa / koyu #1c1c1f yerine açık zemin).
                         background: sd
-                          ? `linear-gradient(145deg, ${cat.accent}18 0%, transparent 100%), #1c1c1f`
-                          : `linear-gradient(145deg, ${cat.accent}14 0%, transparent 100%), #fafafa`,
+                          ? `linear-gradient(145deg, ${cat.accent}16 0%, transparent 55%), #dbdee3`
+                          : `linear-gradient(145deg, ${cat.accent}0f 0%, transparent 55%), #f3f4f6`,
                       }}
                     >
                       {imgs[0] ? (
