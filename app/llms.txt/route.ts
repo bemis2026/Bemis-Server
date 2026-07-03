@@ -38,6 +38,7 @@ Bemis E-V Charge ürün gamı 8 kategoride ~113 ürün içerir: AC Wallbox şarj
 
 ## Rehberler
 
+- [EV Şarj Cihazı Modelleri Karşılaştırma: Hangi Model Size Uygun](https://www.bemisevcharge.com.tr/blog/ev-sarj-cihazi-modelleri-karsilastirma): AC wallbox (Charger / Plus / Pro / Pro GSM), DC hızlı şarj (BEVDC 40–200 kW) ve taşınabilir (Mini / Mono / Pro Mobile) modelleri güç, faz, konnektör ve OCPP'ye göre karşılaştıran, karar tablolu alıcı rehberi.
 - [Şarj Kablosu Kaç Metre ve Kaç Amper Olmalı](https://www.bemisevcharge.com.tr/blog/elektrikli-arac-sarj-kablosu-kac-metre-kac-amper): Elektrikli araç şarj kablosu seçimi — 16A/32A güç, monofaze 7,4 kW / trifaze 22 kW, 5–10 m ve onboard şarj limiti.
 - [Ev Şarj Ünitesi mi, Taşınabilir Şarj Cihazı mı](https://www.bemisevcharge.com.tr/blog/ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi): Ev şarj ünitesi (wallbox) ile taşınabilir şarj cihazının güç, kurulum ve kullanım farkları; hangisi kime uygun.
 - [Şarj Kablosu Dışarıda ve Yağmurda Kullanılır mı](https://www.bemisevcharge.com.tr/blog/elektrikli-arac-sarj-kablosu-disarida-yagmurda-kullanilir-mi): Dış mekân ve yağmurda güvenli kullanım; IP54/IP65/IP66 koruma sınıfları ve pratik güvenlik ipuçları.

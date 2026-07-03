@@ -34,6 +34,88 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "ev-sarj-cihazi-modelleri-karsilastirma",
+    title: "EV Şarj Cihazı Modelleri Karşılaştırma: Hangi Model Size Uygun?",
+    metaTitle: "EV Şarj Cihazı Modelleri Karşılaştırma",
+    description:
+      "AC wallbox, DC hızlı şarj ve taşınabilir elektrikli araç şarj cihazı modellerini güç, faz, konnektör ve akıllı özelliklere göre karşılaştırın — hangi modelin size uygun olduğunu adım adım seçin.",
+    excerpt:
+      "Ev, iş yeri veya kamu için hangi şarj cihazı? AC wallbox, DC ve taşınabilir modelleri güç, faz ve OCPP'ye göre karşılaştıran, karar tablolu alıcı rehberi.",
+    category: "Rehber",
+    datePublished: "2026-07-03",
+    readingMinutes: 8,
+    keywords: ["ev şarj cihazı modelleri", "ev şarj cihazı karşılaştırma", "hangi ev şarj cihazı", "wallbox karşılaştırma", "ac wallbox modelleri", "dc şarj cihazı", "taşınabilir şarj cihazı", "ev şarj cihazı seçimi"],
+    body: [
+      { type: "p", text: "Elektrikli araç şarj cihazı seçerken en çok sorulan soru şu: bu kadar model arasından hangisi bana uygun? Doğru cevap tek bir modelde değil, kullanım senaryonuzda gizli — evde mi, iş yerinde mi yoksa kamuya açık bir noktada mı şarj edeceksiniz; elektrik tesisatınız monofaze mi trifaze mi; hız mı yoksa taşınabilirlik mi önceliğiniz? Bu rehberde AC wallbox, DC hızlı şarj ve taşınabilir cihaz modellerini gerçek teknik değerleriyle karşılaştırıp, hangi durumda hangisini seçmeniz gerektiğini net tablolarla açıklıyoruz." },
+
+      { type: "h2", text: "Önce karar: AC mi, DC mi, taşınabilir mi?" },
+      { type: "p", text: "Model seçmeden önce şarj tipini belirlemek gerekir. Üç ana grup vardır ve çoğu kullanıcı için tercih hızlıca netleşir:" },
+      { type: "ul", items: [
+        "AC Wallbox (duvar tipi): Ev, apartman ve iş yeri için standart çözüm. Aracın kendi soğutmalı şarj cihazı üzerinden 3,7–22 kW arası şarj eder; gece boyu veya mesai boyu şarj için idealdir.",
+        "DC Hızlı Şarj: Kamuya açık noktalar, otoyol, AVM ve filo için. 40 kW ve üzeri güçle aracı çok daha hızlı doldurur; trifaze yüksek güçlü altyapı ister, eve kurulmaz.",
+        "Taşınabilir Şarj Cihazı: Yanınızda taşıdığınız, prize takılan esnek çözüm; ikinci/yedek şarj veya sabit ünite kuramayanlar için uygundur.",
+      ]},
+
+      { type: "h2", text: "AC Wallbox modelleri karşılaştırma" },
+      { type: "p", text: "Bemis AC wallbox serisi tamamen Type 2 (IEC 62196-2) konnektörlü ve trifaze altyapıya kadar 22 kW'a çıkar. Seri giriş modelden akıllı/bağlantılı modele doğru genişler; ayrıca her modelde 5 metre kablolu veya pano prizli (soketli) çıkış seçeneği vardır." },
+      { type: "table", caption: "Bemis AC Wallbox modelleri — teknik karşılaştırma", headers: ["Model", "Güç", "Faz", "Maks. Akım", "Konnektör", "Akıllı / OCPP"], rows: [
+        ["Charger 2", "11 – 22 kW", "Trifaze", "16 – 32A", "Type 2", "–"],
+        ["Charger Plus 2", "4 / 7 / 11 / 22 kW (ayarlanabilir)", "Trifaze", "6 – 32A", "Type 2", "–"],
+        ["Charger Pro 2", "4 / 7 / 11 / 22 kW (ayarlanabilir)", "Trifaze", "6 – 32A", "Type 2", "–"],
+        ["Charger Pro 2 GSM", "4 / 7 / 11 / 22 kW (ayarlanabilir)", "Trifaze", "6 – 32A", "Type 2", "GSM + OCPP 1.6"],
+      ]},
+      { type: "p", text: "Charger 2 sabit 11/22 kW ile giriş seviyesidir. Charger Plus 2 ve Charger Pro 2 gücü 4/7/11/22 kW arasında ayarlayabilmenizi sağlar (tesisat sınırınıza göre kısabilirsiniz). Charger Pro 2 GSM ise GSM modülü ve OCPP 1.6 protokolüyle uzaktan yönetim, kullanıcı yetkilendirme ve raporlama gerektiren iş yeri/filo senaryoları içindir." },
+
+      { type: "h2", text: "DC hızlı şarj modelleri karşılaştırma" },
+      { type: "p", text: "Bemis DC serisi (BEVDC) kamuya açık ve filo kullanımı içindir; hepsi AC 380–480V 3 faz giriş, 150–1000V DC çıkış ve CCS2 konnektör kullanır, OCPP 1.6J / 2.0.1 uyumludur. Güç ve soket sayısı ihtiyaca göre seçilir:" },
+      { type: "table", caption: "Bemis DC hızlı şarj modelleri — teknik karşılaştırma", headers: ["Model", "Çıkış Gücü", "Soket Sayısı", "Eş Zamanlı Şarj", "Konnektör", "OCPP"], rows: [
+        ["BEVDC 40", "40 kW", "1", "Hayır", "CCS2", "1.6J / 2.0.1"],
+        ["BEVDC 80", "80 kW", "2", "Evet", "CCS2", "1.6J / 2.0.1"],
+        ["BEVDC 120", "120 kW", "1 veya 2", "Evet", "CCS2", "1.6J / 2.0.1"],
+        ["BEVDC 160", "160 kW", "2", "Evet", "CCS2", "1.6J / 2.0.1"],
+        ["BEVDC 200", "200 kW", "2", "Evet", "CCS2", "1.6J / 2.0.1"],
+      ]},
+      { type: "p", text: "Tek soketli düşük güçlü modeller (BEVDC 40) küçük işletme ve tek-nokta senaryoları için; çift soketli, eş zamanlı şarj yapabilen yüksek güçlü modeller (80 kW ve üzeri) yoğun kullanılan istasyon ve otoyol noktaları için uygundur." },
+
+      { type: "h2", text: "Taşınabilir şarj cihazı modelleri" },
+      { type: "p", text: "Taşınabilir seri, sabit kurulum yapmadan prize takıp kullanabileceğiniz, çantasıyla birlikte gelen esnek çözümlerdir. Güç ihtiyacınıza ve tesisatınıza (monofaze/trifaze) göre üç kademe vardır:" },
+      { type: "table", caption: "Bemis taşınabilir şarj cihazı modelleri", headers: ["Model", "Güç", "Faz", "Maks. Akım", "Kablo"], rows: [
+        ["Mini Mobile", "2,3 – 3,7 kW", "Tek Fazlı", "16A", "5 m"],
+        ["Mono Mobile", "3,7 – 7,4 kW", "Tek Fazlı", "32A", "5 m"],
+        ["Pro Mobile", "11 – 22 kW", "Üç Fazlı", "32A", "5 m"],
+      ]},
+      { type: "p", text: "Mini Mobile ev prizi ve acil/yedek kullanım için en kompakt seçenektir. Mono Mobile monofaze tesisatta daha yüksek güç sağlar ve priz adaptörleriyle gelir. Pro Mobile ise trifaze tesisatta 22 kW'a kadar çıkar — taşınabilir olmasına rağmen wallbox'a yakın güç isteyenler içindir." },
+
+      { type: "h2", text: "Kablolu mu, pano prizli mi?" },
+      { type: "p", text: "AC modellerde sık karşılaşılan ikinci karar çıkış tipidir. Kablolu modelde 5 metrelik Type 2 kablo cihaza sabittir — takıp şarj edersiniz, pratiktir. Pano prizli (soketli) modelde ise cihazın üzerinde Type 2 priz bulunur ve kendi kablonuzu takarsınız; birden fazla araç/kablo kullanan veya kabloyu ayrı saklamak isteyen kullanıcılar için uygundur. İkisi de aynı gücü verir; fark kullanım alışkanlığındadır." },
+
+      { type: "h2", text: "Hangi senaryoda hangi model?" },
+      { type: "ul", items: [
+        "Ev / apartman (tek araç, gece şarjı): AC Wallbox Charger 2 veya güç ayarlanabilir Charger Plus 2 — 7–11 kW çoğu araç için gece boyu fazlasıyla yeterlidir.",
+        "İş yeri / filo (yetkilendirme, raporlama, ödeme): Charger Pro 2 GSM — OCPP 1.6 ile uzaktan yönetim ve kullanıcı bazlı raporlama.",
+        "Kamuya açık / otoyol / AVM (hız önemli): DC seri — trafik yoğunluğuna göre BEVDC 40 (tek nokta) veya çift soketli 80–200 kW.",
+        "Seyahat / yedek / kurulum yapılamayan yer: Taşınabilir seri — monofaze için Mini/Mono Mobile, trifaze güç için Pro Mobile.",
+      ]},
+
+      { type: "cta", text: "Tüm Bemis EV şarj modellerini teknik özellikleriyle inceleyin — hepsi yerli üretim.", href: "/products", label: "Ürünleri İncele" },
+
+      { type: "p", text: "Hangi modeli seçerseniz seçin, Bemis E-V Charge ürünleri Bursa'daki entegre tesislerde yerli olarak üretilir; yazılım ve PCB kart tasarımı Bemis'e aittir. Doğru model seçimi için aracınızın onboard şarj gücünü ve elektrik tesisatınızın kapasitesini de dikkate almayı unutmayın — emin değilseniz teklif aşamasında birlikte netleştirebiliriz." },
+    ],
+    faq: [
+      { q: "Ev için kaç kW şarj cihazı yeterli?", a: "Çoğu ev kullanıcısı için 7–11 kW arası bir AC wallbox fazlasıyla yeterlidir. Aracınız gece park halindeyken 8–10 saatte 7,4 kW bile çoğu bataryayı tam doldurur. Daha yüksek güç (22 kW) ancak trifaze tesisatınız varsa ve aracınızın onboard şarj cihazı bu gücü kabul ediyorsa anlam kazanır; aksi halde araç gücü zaten sınırlar. Bemis Charger Plus ve Pro modellerinde gücü 4/7/11/22 kW arasında ayarlayabildiğiniz için, tesisatınıza uygun değeri seçip güvenle kullanabilirsiniz. Kararı verirken hem sigorta/hat kapasitenizi hem de aracınızın kabul gücünü birlikte değerlendirin." },
+      { q: "Kablolu model mi yoksa pano prizli (soketli) model mi almalıyım?", a: "İkisi de aynı gücü verir; fark kullanım alışkanlığındadır. Kablolu modelde 5 metrelik Type 2 kablo cihaza sabittir — eve gelip takıp şarj edersiniz, en pratik yöntemdir ve tek araçlı ev kullanımının çoğu için idealdir. Pano prizli (soketli) modelde cihazda bir Type 2 priz bulunur ve kendi kablonuzu takarsınız; birden fazla araç kullanan, kabloyu bagajda taşımak isteyen veya kabloyu ayrı saklamak isteyen kullanıcılar için uygundur. İş yerlerinde farklı kullanıcıların kendi kablosuyla gelmesi durumunda da soketli model tercih edilebilir." },
+      { q: "DC hızlı şarj cihazı eve kurulabilir mi?", a: "Pratikte hayır. DC hızlı şarj cihazları (BEVDC serisi) 40 kW ve üzeri güçte çalışır, AC 380–480V trifaze yüksek güçlü bir giriş altyapısı ister ve kamuya açık noktalar, otoyol, AVM ve filo depoları için tasarlanmıştır. Bir evin standart elektrik altyapısı bu gücü karşılamaz ve bu ölçekte bir yatırım ev kullanımı için gereksizdir. Ev şarjı için doğru çözüm AC wallbox'tır — 7–11 kW gücüyle aracınızı gece boyunca sessizce ve güvenle doldurur. DC hızlı şarj, uzun yolda kısa molada hızlı doldurma ihtiyacını karşılamak için kamusal istasyonlarda konumlanır." },
+      { q: "Akıllı şarj (OCPP) ne zaman gereklidir?", a: "OCPP (Open Charge Point Protocol), şarj cihazını bir yönetim sistemine bağlayan açık bir standarttır ve genellikle iş yeri, site ve filo senaryolarında gerekir. Kullanıcıları yetkilendirmek (RFID/uygulama), her kullanıcının tükettiği enerjiyi raporlamak, ücretlendirme yapmak veya birden çok cihazı merkezi izlemek istiyorsanız OCPP uyumlu bir model şarttır. Bemis Charger Pro 2 GSM modeli GSM modülü ve OCPP 1.6 protokolüyle bu ihtiyaçları karşılar. Tek araçlı ev kullanımında ise OCPP zorunlu değildir; basit bir wallbox yeterlidir. İhtiyacınız ileride büyüyecekse baştan OCPP uyumlu bir model seçmek dönüşümü kolaylaştırır." },
+      { q: "Taşınabilir şarj cihazı sabit wallbox'ın yerini tutar mı?", a: "Kısmen — ihtiyaca bağlıdır. Taşınabilir cihaz (Mini/Mono/Pro Mobile) prize takılıp kullanılan, yanınızda taşıdığınız esnek bir çözümdür; sabit kurulum yapamayan, kiracı olan veya ikinci/yedek şarj isteyen kullanıcılar için idealdir. Pro Mobile trifaze tesisatta 22 kW'a kadar çıkarak güç açısından wallbox'a yaklaşır. Ancak sabit wallbox, adanmış hattı, sabit montajı ve genellikle daha oturmuş kablo yönetimiyle günlük ev şarjında daha konforlu ve dayanıklıdır. Düzenli tek noktada şarj edecekseniz wallbox, hareketli/esnek kullanım için taşınabilir cihaz mantıklıdır; birçok kullanıcı ikisini birlikte kullanır." },
+    ],
+    related: [
+      { label: "Tüm Ürünler", href: "/products" },
+      { label: "AC Wallbox", href: "/products/wallbox" },
+      { label: "DC Şarj Üniteleri", href: "/products/dc-units" },
+      { label: "Şarj Cihazı Nasıl Seçilir", href: "/blog/ev-icin-sarj-cihazi-nasil-secilir" },
+    ],
+  },
+  {
     slug: "elektrikli-arac-sarj-kablosu-disarida-yagmurda-kullanilir-mi",
     title: "Elektrikli Araç Şarj Kablosu Dışarıda ve Yağmurda Kullanılır mı?",
     metaTitle: "Şarj Kablosu Yağmurda Kullanılır mı? (IP)",

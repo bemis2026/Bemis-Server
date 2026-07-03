@@ -27,6 +27,7 @@ function bodyToText(body: BlogSection[]): string {
 
 // GEO için en değerli 10 rehber (tam gövde).
 const GUIDE_SLUGS = [
+  "ev-sarj-cihazi-modelleri-karsilastirma",
   "elektrikli-arac-sarj-kablosu-kac-metre-kac-amper",
   "ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi",
   "elektrikli-arac-sarj-kablosu-disarida-yagmurda-kullanilir-mi",
