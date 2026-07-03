@@ -658,3 +658,20 @@ html[data-theme="light"] .calc-slider {
 }
 html[data-theme="light"] .calc-slider::-moz-range-track { background: #dddddd; }
 html[data-theme="light"] .calc-slider::-webkit-slider-thumb { border-color: rgba(0,0,0,0.1); }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   GENİŞ EKRAN OPTİMİZASYONU
+   Bölüm konteynerleri site genelinde `max-w-7xl mx-auto` (1280px) + ortalı.
+   Büyük monitörlerde (1440p / 4K / ultra-geniş) içerik ortada sıkışıp iki
+   yanda geniş boş bırakıyordu. İki-sınıf seçici (.max-w-7xl.mx-auto) YALNIZ
+   bölüm konteynerlerini hedefler; blog/sözlük gövde metni max-w-3xl/5xl
+   kullandığı için ETKİLENMEZ → uzun satır/okunabilirlik korunur. Kademeli
+   genişleme: dizüstü 1280px (değişmez) → 2xl 1600px → ultra-geniş 1800px.
+   Yatay padding (px-5/6/8) zaten kenar boşluğunu koruyor.
+   ───────────────────────────────────────────────────────────────────────── */
+@media (min-width: 1536px) {
+  .max-w-7xl.mx-auto { max-width: 1600px; }
+}
+@media (min-width: 1920px) {
+  .max-w-7xl.mx-auto { max-width: 1800px; }
+}
