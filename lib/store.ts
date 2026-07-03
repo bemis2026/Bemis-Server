@@ -69,7 +69,11 @@ export async function readBin(name: string, opts: { fresh?: boolean } = {}): Pro
   if (opts.fresh) return readBlobRaw(name);
   const cached = unstable_cache(
     () => readBlobRaw(name),
-    ["store", name],
+    // ⚠️ Cache anahtarı sürümlü: görseller i.ibb.co→Cloudinary'e taşınınca (2026-07)
+    // R2 bin'leri güncellendi ama eski unstable_cache (Data Cache) i.ibb.co URL'lerini
+    // 6 saat tutuyordu. Sürüm segmentini bump'lamak = yeni anahtar = tek seferlik
+    // cache miss = R2'den TAZE okuma (Cloudinary). İleride benzer veri göçünde bump'la.
+    ["store", name, "v2-cloudinary"],
     { tags: [tagFor(name)], revalidate: 21600 },
   );
   return cached();
