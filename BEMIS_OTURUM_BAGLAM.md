@@ -13,6 +13,29 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🔗✅ **SEO/UX turu — Teklif Al kaldırma + /contact redirect + footer crawlable + sitelink (2026-07-03/04, CANLI):**
+> **(1) "Teklif Al" ürün sayfalarından KALDIRILDI** (commit 4717eb5): bayilerin talebi — buton müşteriyi doğrudan
+> Bemis WhatsApp'ına bağlayıp bayileri atlıyordu. `ProductDetailClient.tsx`'te WhatsApp `<a>` + gereksiz waPhone/
+> RiWhatsappLine/contact temizlendi; **"Bayi Bul" KALDI** (müşteri bayiye yönlenir). ContactBar (genel tel/e-posta)
+> dokunulmadı. Kalan "Teklif Al" (productShowcase.ctaSecondary) = render-EDİLMEYEN orphan veri.
+> **(2) /contact 404 → /iletisim 308 redirect** (commit 26d8ac0, `next.config.ts` `redirects()`): GSC "bulunamadı"
+> veriyordu; gerçek sayfa /iletisim. Google URL'i productShowcase'in render-edilmeyen ctaSecondaryHref'inden yakalamış.
+> Redirect + ContentContext default temizliği (/contact→/iletisim, "Teklif Al"→"Bayi Bul"). ⚠️ /contact hiç gerçek
+> sayfa DEĞİL — /iletisim kullan.
+> **(3) GSC "Sayfayı dizine ekleme": teknik iş YOK** — "alternatif sayfa/canonical" (6) NORMAL (Google kopya-eleme),
+> "taranmış-eklenmemiş" (2) = otorite (off-site). Sadece 404 (=/contact) gerçekti, o da çözüldü.
+> **(4) "Uygulama olarak aç" butonu (5.+ kez): site %100 TEMİZ** — canlı kesin denetim: manifest 0, /manifest.json+
+> site.webmanifest+/manifest hepsi 404, mobile-web-app-capable 0, SW yok. Buton = **tarayıcının** (özellikle Edge)
+> HER siteye sunduğu özellik; **kod ile kapatılamaz** (web standardı yok). Kanıt: google.com'da da aynı. ZARARSIZ.
+> **(5) SİTELİNKS (OvoCRM gibi alt-sayfalı görünüm):** OTOMATİK — zorlanamaz, teşvik edilir (marka-sorgusu + otorite +
+> #1). Bemis "bemis ev charge"de #1 → muhtemelen zaten temel sitelink alıyor. **YAPILDI:** (a) `/iletisim` çift-marka
+> başlığı düzeltildi (commit 9ae216e — layout `%s | Bemis E-V Charge` şablonu + title'da marka = çiftti → title "İletişim").
+> (b) **Footer nav'ı crawlable `<a href>` yapıldı** (commit cbc8742, `Footer.tsx`): eskiden `<button onClick=router.push>`
+> (Google takip edemiyordu) → şimdi gerçek `<a href>` (canlı 29 iç-link, 8 anahtar sayfa) + onClick SPA/kaydırma korunur
+> + ctrl-tık yeni sekme. Preview doğrulandı (görünüm AYNI, nav çalışıyor). ⚠️ **Navbar HÂLÂ router.push** (kasıtlı,
+> "riskli" — değiştirme). Sitelink'in ASIL kaldıracı = off-site otorite (kullanıcı yürütüyor). **⛔ bemis.com.tr SEO
+> spec'i** (ayrı endüstri sitesi, ajansa) → `Desktop\Bemis_ComTr_SEO_Duzeltme_Spec.md` (meta/H1/JSON-LD hazır).
+
 > 🖥️✅ **GENİŞ EKRAN OPTİMİZASYONU + A-Z rapor (29.06) değerlendirmesi (2026-07-03, CANLI · commit a0372ba):**
 > Kullanıcı: "geniş ekranlarda içerik ortada sıkışmasın, ekranı verimli kullan." **KÖK NEDEN:** site-geneli bölüm
 > konteynerleri `max-w-7xl mx-auto` (1280px) → 1440p/4K/ultra-geniş monitörlerde ortada sıkışıp iki yanda geniş boşluk.
