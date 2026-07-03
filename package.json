@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "check:brands": "node scripts/check-no-competitor-brands.cjs",
+    "build": "node scripts/check-no-competitor-brands.cjs && next build",
     "start": "next start"
   },
   "dependencies": {
