@@ -13,6 +13,7 @@ import { HiArrowLeft, HiArrowRight, HiClock, HiCalendar } from "react-icons/hi";
 import { RiExternalLinkLine } from "react-icons/ri";
 import type { BlogPost, BlogSection } from "./posts";
 import { allPress, type PressItem } from "./press";
+import { trBlogPost } from "../lib/blogI18n";
 
 const BLUE = "#3B82F6";
 
@@ -50,11 +51,11 @@ export default function BlogShell({ post, posts, pressItem }: { post?: BlogPost;
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
       {post ? (
-        <Article post={post} d={d} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} fmtDate={fmtDate} />
+        <Article post={trBlogPost(post, lang)} d={d} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} fmtDate={fmtDate} />
       ) : pressItem ? (
         <PressArticle item={pressItem} d={d} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} fmtDate={fmtDate} />
       ) : (
-        <Listing posts={posts ?? []} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} fmtDate={fmtDate} />
+        <Listing posts={(posts ?? []).map((p) => trBlogPost(p, lang))} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} fmtDate={fmtDate} />
       )}
 
       <ContactBar />
