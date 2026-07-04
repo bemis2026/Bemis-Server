@@ -13,6 +13,28 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🌍🔄 **ÇOK-DİLLİ ÇEVİRİ — KREDİ YOK → CLAUDE ELLE ÇEVİRİYOR (ücretsiz); SÖZLÜK 5 DİLDE BİTTİ (2026-07-04, uncommitted):**
+> **DURUM:** API anahtarı GEÇERLİ ama Anthropic hesabında **kredi yok** (ilk `npm run translate` "credit balance too low" ile durdu). Kullanıcı krediyi "yapmayalım" dedi → **yöntem: "Ben çeviririm"** = Claude (Opus 4.8) sohbet içinde ELLE / paralel-ajanla çevirir, ücretsiz + en yüksek kalite; aynı JSON dosyalarını doldurur. **Oto-yenileme yarı-otomatik** (içerik değişince kullanıcı "güncelle" der, Claude çevirir). ✅✅ **SÖZLÜK 5 DİLDE BİTTİ** (EN elle + **DE/ES/AR/RU 4 paralel general-purpose ajanla**, hepsi ücretsiz/harness → `data/i18n/glossary.json`; 5×15 terim, `scratchpad/merge-glossary.cjs` ile birleştirilip doğrulandı — eksik/fazla/SSS-sayısı 0; tsc 0; rakip-marka guard temiz; temp `_wip_*.json` silindi). ⚠️ AC/DC dile göre değişik (DE/AR "AC" bıraktı, ES "CA", RU açık yazdı) — istenirse hepsi "AC/DC" yapılır. ⏳ **SIRADA: blog (22 yazı `posts.ts`) + sayfa/UI sabit dizeleri + CMS**; hepsi bitince **dil seçici (LanguageContext tr/en→6 dil + Navbar) + Arapça RTL**. ⚠️ **DE/ES/AR/RU HENÜZ SEÇİCİDE YOK** — şimdi açarsam sözlük dışı her şey TR-fallback görünür (yarım UX) → önce site içeriği çevrilmeli. Pipeline (`npm run translate`) kredi gelirse hâlâ tam-otomatik. ⚠️ Anahtar sohbete yapıştırıldı → iş bitince Console'dan REVOKE + üretim için yeni anahtar. **(altta pipeline kurulum detayları — referans):**
+> 🌍⏳ **ÇOK-DİLLİ AI ÇEVİRİ PIPELINE'I KURULDU (2026-07-04, uncommitted):**
+> Kullanıcı: "başka diller ekle, tüm siteyi eksiksiz+doğru çevir, her güncellemede kendini yenilesin." Diller
+> **EN + DE + ES + AR + RU** (+ EN tamamla); kalite **AI çevirisi**; kapsam **tüm site**. Kullanıcı "A" dedi =
+> Anthropic API anahtarıyla pipeline kur. **KURULDU + DOĞRULANDI (tsc 0, dry-run çalışıyor, runtime import OK):**
+> `app/lib/languages.ts` (6 dil TEK KAYNAK, ar=rtl) · `lib/aiTranslate.ts` (Claude motoru, model env `TRANSLATE_MODEL`
+> vars. **claude-opus-4-8**, EV-terminoloji sistem-prompt'u + korunan terimler Bemis/Type 2/CCS2/OCPP/kW... + rakip-marka
+> yasağı + uydurma-yok) · `scripts/translate.ts` (`npm run translate`, oto-senkron: `data/i18n/.manifest.json` hash'le
+> yalnız DEĞİŞENİ çevirir) · `data/i18n/glossary.json` (sözlük çevirileri; **glossaryI18n.ts artık BURADAN okur**, elle-
+> yazılan 4 EN terim seed + backfill) · deps `@anthropic-ai/sdk`+`tsx`, npm script `translate`. Tam kılavuz:
+> **`bemis-evcharge-website/TRANSLATION_PIPELINE.md`**. **PILOT = SÖZLÜK** (15 terim). Dry-run: EN 11 (4 seed atlandı),
+> DE/ES/AR/RU 15'er = 670 metin. **🔴 ŞU AN AÇIK İŞ:** (1) **[KULLANICI] ANTHROPIC_API_KEY** (console.anthropic.com →
+> `$env:ANTHROPIC_API_KEY="sk-ant-..."` → `npm run translate`; ya da kalıcı `setx` + ben çalıştırayım). Anahtar YOKKEN
+> çeviri üretilemez (dry-run + backfill anahtarsız çalışır). (2) Anahtar gelince: `npm run translate` → sözlük 5 dile çevrilir
+> → **commit** (glossary.json + .manifest.json). (3) SONRA: `SOURCES`'a **blog** (`posts.ts`) + **sayfa/UI dizeleri** +
+> **CMS** (contentTranslate/productsTranslate'i MyMemory→bu motora + 5 dile yükselt, Vercel env ANTHROPIC_API_KEY). (4) EN
+> SON: **dil seçici** (LanguageContext tr/en→6 dil + Navbar) + **RTL** (ar `<html dir=rtl>`) — çeviriler ÜRETİLDİKTEN sonra
+> (yoksa boş/TR-fallback görünür). ⚠️ Şu an seçici hâlâ tr/en; kullanıcı yeni dilleri HENÜZ GÖREMEZ (kasıtlı sıralama).
+> Maliyet (tek-sefer): sözlük ~$2 (Opus); tüm site ~$50-100 Opus / ~$15-25 Sonnet / ~$5-8 Haiku (TRANSLATE_MODEL ile
+> seçilir). Oto-senkron sonrası güncellemeler = kuruş (yalnız değişen).
+
 > 🔗✅ **SEO/UX turu — Teklif Al kaldırma + /contact redirect + footer crawlable + sitelink (2026-07-03/04, CANLI):**
 > **(1) "Teklif Al" ürün sayfalarından KALDIRILDI** (commit 4717eb5): bayilerin talebi — buton müşteriyi doğrudan
 > Bemis WhatsApp'ına bağlayıp bayileri atlıyordu. `ProductDetailClient.tsx`'te WhatsApp `<a>` + gereksiz waPhone/
