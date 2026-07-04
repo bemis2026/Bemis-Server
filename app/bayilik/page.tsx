@@ -75,7 +75,7 @@ const FALLBACK_TR_CRITERIA = [
   "Markalanmış en az 1 adet servis aracı ve bölgesel saha kurulum kapasitesi",
   "Son 2 yıl bilanço pozitif; iflas / konkordato / icra haciz kaydı bulunmaması (Findeks teyitli)",
   "Açılış siparişinde Bemis E-V Charge'ın belirlediği ürün karması üzerinden stok alımı taahhüdü",
-  "Münhasır bölge karşılığında minimum yıllık 5.000.000 ₺ ciro taahhüdü",
+  "Münhasır bölge karşılığında yıllık ciro / sipariş hedefi taahhüdü",
   "Aylık dijital + saha pazarlama aktivitesi taahhüdü (sosyal medya, B2B ziyaret raporu)",
   "Bemis E-V Charge Akademi teknik + satış sertifikasyon programını 6 ay içinde tamamlama",
 ];
@@ -83,7 +83,6 @@ const FALLBACK_TR_CRITERIA = [
 const FALLBACK_INTL_CRITERIA = [
   "Ülke veya bölge için tek-dağıtıcılık (exclusive) taahhüdü",
   "EV şarj veya elektrik altyapı pazarına hakimiyet",
-  "Yerel ürün sertifikasyon yeterliliği (CE, ulusal standartlar)",
   "İthalat lisansı ve gümrük operasyon altyapısı",
   "Bölgesel depo ve lojistik kapasitesi",
   "Minimum yıllık ciro / sipariş hedefi taahhüdü",
