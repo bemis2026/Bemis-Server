@@ -24,8 +24,14 @@ function RotatingWord({ words }: { words: string[] }) {
   }, [words.length, reduceMotion]);
   if (words.length === 0) return null;
   if (words.length === 1 || reduceMotion) return <span>{words[0]}</span>;
+  // Konteyner genişliğini EN UZUN kelimenin uzunluğu kadar SABİTLE (min-width) →
+  // kelime değişince kutu ne büyür ne küçülür, satır KAYMAZ (her dilde: min-width
+  // o dilin en uzun kelimesinden hesaplanır). Kelime AKIŞ İÇİNDE kalır → baseline
+  // çevredeki başlıkla doğal hizalı (absolute/grid'in hizalama sorunu yok).
+  // +1ch tampon + sola dayalı; whitespace-nowrap ile kırpılmaz.
+  const maxLen = words.reduce((m, w) => Math.max(m, w.length), 0);
   return (
-    <span className="relative inline-block align-baseline" style={{ minWidth: "5ch" }}>
+    <span className="relative inline-block align-baseline text-left" style={{ minWidth: `${maxLen + 1}ch`, whiteSpace: "nowrap" }}>
       <AnimatePresence mode="wait">
         <motion.span
           key={words[i]}
