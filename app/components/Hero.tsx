@@ -7,8 +7,11 @@ import { HiArrowRight } from "react-icons/hi";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import E from "./E";
+
+// Dönen kelime kutusunun genişliğini ölçmek için tek paylaşılan canvas (DOM'a girmez).
+let _measureCanvas: HTMLCanvasElement | null = null;
 
 const ACCENT = "#3B82F6";
 
@@ -17,22 +20,38 @@ const ACCENT = "#3B82F6";
 // for editors who clear the rotating list.
 function RotatingWord({ words }: { words: string[] }) {
   const [i, setI] = useState(0);
+  const [minW, setMinW] = useState<number | undefined>(undefined);
+  const ref = useRef<HTMLSpanElement>(null);
   const reduceMotion = useReducedMotion();
   useEffect(() => {
     if (reduceMotion || words.length <= 1) return;
     const t = setInterval(() => setI((n) => (n + 1) % words.length), 2500);
     return () => clearInterval(t);
   }, [words.length, reduceMotion]);
+  // Kutu genişliği = EN UZUN kelimenin GERÇEK piksel genişliği (canvas ile ölçülür).
+  // Eski `(maxLen+1)ch` büyük fontta kutuyu aşırı şişiriyordu (48px'te ~375px → kelimeden
+  // ~145px geniş boşluk = "satırlar bozuk" görünüyordu). Canvas ölçümü kelimeye TAM oturur:
+  // ne kayma ne boşluk. Her dilde aynı davranış (TR referans) — kutu o dilin en uzun kelimesi kadar.
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof document === "undefined") return;
+    const cs = getComputedStyle(el);
+    const canvas = _measureCanvas || (_measureCanvas = document.createElement("canvas"));
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    ctx.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+    let max = 0;
+    for (const w of words) max = Math.max(max, ctx.measureText(w).width);
+    setMinW(Math.ceil(max) + 2);
+  }, [words]);
   if (words.length === 0) return null;
-  if (words.length === 1 || reduceMotion) return <span>{words[0]}</span>;
-  // Konteyner genişliğini EN UZUN kelimenin uzunluğu kadar SABİTLE (min-width) →
-  // kelime değişince kutu ne büyür ne küçülür, satır KAYMAZ (her dilde: min-width
-  // o dilin en uzun kelimesinden hesaplanır). Kelime AKIŞ İÇİNDE kalır → baseline
-  // çevredeki başlıkla doğal hizalı (absolute/grid'in hizalama sorunu yok).
-  // +1ch tampon + sola dayalı; whitespace-nowrap ile kırpılmaz.
-  const maxLen = words.reduce((m, w) => Math.max(m, w.length), 0);
+  if (words.length === 1 || reduceMotion) return <span ref={ref}>{words[0]}</span>;
   return (
-    <span className="relative inline-block align-baseline text-left" style={{ minWidth: `${maxLen + 1}ch`, whiteSpace: "nowrap" }}>
+    <span
+      ref={ref}
+      className="relative inline-block align-baseline text-left"
+      style={{ minWidth: minW ? `${minW}px` : undefined, whiteSpace: "nowrap" }}
+    >
       <AnimatePresence mode="wait">
         <motion.span
           key={words[i]}
