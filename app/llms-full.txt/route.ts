@@ -25,8 +25,10 @@ function bodyToText(body: BlogSection[]): string {
   return out.join("\n\n");
 }
 
-// GEO için en değerli 10 rehber (tam gövde).
+// GEO için en değerli rehberler (tam gövde).
 const GUIDE_SLUGS = [
+  "evde-elektrikli-arac-sarj-maliyeti-km-basina",
+  "monofaze-mi-trifaze-mi-ev-sarj",
   "ev-sarj-cihazi-modelleri-karsilastirma",
   "elektrikli-arac-sarj-kablosu-kac-metre-kac-amper",
   "ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi",

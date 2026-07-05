@@ -8,7 +8,7 @@ const LLMS_TXT = `# Bemis E-V Charge
 
 > Bemis E-V Charge, 1994'ten beri endüstriyel fiş-priz üreten Bemis Teknik Elektrik A.Ş.'nin yerli elektrikli araç (EV) şarj markası; Bursa'da üretilen AC/DC şarj istasyonları, Type 2 kablolar ve V2L adaptörlerini doğrudan üreticiden sunar.
 >
-> Tam içerik (15 terimlik sözlük + 10 rehberin TAM gövdesi): https://www.bemisevcharge.com.tr/llms-full.txt
+> Tam içerik (15 terimlik sözlük + rehberlerin TAM gövdesi): https://www.bemisevcharge.com.tr/llms-full.txt
 
 ## Marka
 
@@ -38,6 +38,8 @@ Bemis E-V Charge ürün gamı 8 kategoride ~113 ürün içerir: AC Wallbox şarj
 
 ## Rehberler
 
+- [Evde EV Şarj Maliyeti: Km Başına Kaç TL](https://www.bemisevcharge.com.tr/blog/evde-elektrikli-arac-sarj-maliyeti-km-basina): Evde şarjın km başına maliyetini kWh tüketimi, birim elektrik fiyatı, ~%10 şarj kaybı ve gece (çok zamanlı) tarifesiyle hesaplama formülü; benzinliyle kıyas için aynı yöntem. Tüm rakamlar varsayımsal; okuyucu kendi güncel fiyatını koyar.
+- [Monofaze mi, Trifaze (3 Faz) mı: Evinize Hangi Şarj Cihazı](https://www.bemisevcharge.com.tr/blog/monofaze-mi-trifaze-mi-ev-sarj): Ev tipi wallbox için monofaze (~230V, ~7,4 kW) ve trifaze (~400V, 22 kW'a kadar) farkı, gece şarj süresi, evin fazını anlama ve gücü ayarlanabilir Bemis modelleriyle (Charger Plus 2 / Pro 2) doğru seçim.
 - [EV Şarj Cihazı Modelleri Karşılaştırma: Hangi Model Size Uygun](https://www.bemisevcharge.com.tr/blog/ev-sarj-cihazi-modelleri-karsilastirma): AC wallbox (Charger / Plus / Pro / Pro GSM), DC hızlı şarj (BEVDC 40–200 kW) ve taşınabilir (Mini / Mono / Pro Mobile) modelleri güç, faz, konnektör ve OCPP'ye göre karşılaştıran, karar tablolu alıcı rehberi.
 - [Şarj Kablosu Kaç Metre ve Kaç Amper Olmalı](https://www.bemisevcharge.com.tr/blog/elektrikli-arac-sarj-kablosu-kac-metre-kac-amper): Elektrikli araç şarj kablosu seçimi — 16A/32A güç, monofaze 7,4 kW / trifaze 22 kW, 5–10 m ve onboard şarj limiti.
 - [Ev Şarj Ünitesi mi, Taşınabilir Şarj Cihazı mı](https://www.bemisevcharge.com.tr/blog/ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi): Ev şarj ünitesi (wallbox) ile taşınabilir şarj cihazının güç, kurulum ve kullanım farkları; hangisi kime uygun.

@@ -34,6 +34,383 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    "slug": "evde-elektrikli-arac-sarj-maliyeti-km-basina",
+    "title": "Evde Elektrikli Araç Şarj Maliyeti: Km Başına Kaç TL?",
+    "metaTitle": "Evde Elektrikli Araç Şarj Maliyeti (Km Başına)",
+    "description": "Evde elektrikli araç şarj maliyeti km başına kaç TL? Tüketim, elektrik birim fiyatı ve gece tarifesiyle basit hesap formülü ve örnek karşılaştırma.",
+    "excerpt": "Evde EV şarj maliyetini km başına nasıl hesaplarsınız? kWh tüketimi, birim elektrik fiyatı, %10 şarj kaybı ve gece tarifesiyle adım adım örnek.",
+    "category": "Rehber",
+    "datePublished": "2026-07-05",
+    "readingMinutes": 7,
+    "keywords": [
+      "evde şarj maliyeti",
+      "elektrikli araç şarj maliyeti",
+      "km başına şarj maliyeti",
+      "ev şarj hesaplama",
+      "gece tarifesi şarj",
+      "çok zamanlı tarife elektrikli araç",
+      "elektrikli araç kWh tüketimi",
+      "evde wallbox maliyeti"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Elektrikli araç almadan önce herkesin sorduğu ilk soru şu: \"Evde şarj edersem gerçekten ne kadara mal olur?\" İyi haber, bu hesap sanıldığından çok daha basit. Bu rehberde evde elektrikli araç şarj maliyetini km başına nasıl hesaplayacağınızı adım adım gösteriyor, benzinli bir araçla kıyasın nasıl yapılacağını açıklıyoruz. Tüm sayısal örnekler varsayımsaldır; siz kendi faturanızdaki güncel birim fiyatı yerine koyarak net rakamı bulacaksınız."
+      },
+      {
+        "type": "h2",
+        "text": "Şarj maliyetinin temel formülü"
+      },
+      {
+        "type": "p",
+        "text": "Evde şarj maliyeti tek bir çarpımdan ibarettir: tükettiğiniz enerji (kWh) ile elektriğin birim fiyatını (TL/kWh) çarparsınız. Örneğin aküye 40 kWh enerji girdiyse ve birim fiyat X TL/kWh ise, o şarjın maliyeti 40 × X TL olur. Km başına maliyeti bulmak içinse aracın 100 km'de kaç kWh harcadığını bilmeniz yeterli."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Bir şarjın maliyeti = Tüketilen enerji (kWh) × Birim elektrik fiyatı (TL/kWh)",
+          "Km başına maliyet = (Aracın tüketimi kWh/100km ÷ 100) × Birim elektrik fiyatı (TL/kWh)",
+          "100 km'lik maliyet = Tüketim (kWh/100km) × Birim elektrik fiyatı (TL/kWh)"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Aracınız 100 km'de kaç kWh harcıyor?"
+      },
+      {
+        "type": "p",
+        "text": "Elektrikli araçların ortalama enerji tüketimi genellikle 100 km başına 15 ile 22 kWh arasındadır. Kompakt ve verimli modeller alt sınıra, büyük SUV'ler ve yüksek hızda gidilen otoyol sürüşleri üst sınıra yakın seyreder. Kesin değeri aracınızın ekranındaki \"kWh/100km\" ortalama tüketim göstergesinden okuyabilirsiniz. Kış aylarında kabin ısıtması ve batarya ısınma ihtiyacı yüzünden tüketim bir miktar artar; bunu da hesabınızda pay bırakarak dikkate almakta fayda var."
+      },
+      {
+        "type": "h2",
+        "text": "Şarj kaybını unutmayın (~%10)"
+      },
+      {
+        "type": "p",
+        "text": "Prizden çektiğiniz enerji, akünüze giren enerjiden biraz fazladır. Aradaki fark, kablo, dönüştürücü ve batarya yönetimi sırasında ısıya dönüşerek kaybolur. Ev tipi AC şarjda bu kayıp yaklaşık %10 düzeyindedir. Yani aracınızın kullandığı enerjiyi hesapladıktan sonra, faturaya yansıyan gerçek tüketimi bulmak için sonucu kabaca 1,1 ile çarpmak (veya %10 eklemek) daha doğru bir maliyet verir. Küçük bir fark gibi görünse de yılda binlerce km yapan bir sürücüde toplamda hissedilir."
+      },
+      {
+        "type": "h2",
+        "text": "Türkiye'de çok zamanlı tarife: gece şarjı neden ucuz?"
+      },
+      {
+        "type": "p",
+        "text": "Türkiye'de konut aboneleri, tek zamanlı tarife yerine çok zamanlı (üç zamanlı) tarifeyi tercih edebilir. Bu tarifede gün üç dilime ayrılır: gündüz, akşam-puant (tüketimin en yoğun olduğu, birim fiyatın en yüksek olduğu dilim) ve gece. Gece dilimi belirgin biçimde en ucuz olan dilimdir. Elektrikli araç sahibi için bu tam bir fırsattır: aracı akşam eve gelince fişe takıp şarjı gece dilimine denk getirdiğinizde, aynı enerjiyi çok daha düşük birim fiyattan alırsınız."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Gündüz dilimi: orta seviye birim fiyat, gün içi kullanım.",
+          "Puant (akşam) dilimi: en yüksek birim fiyat; mümkünse şarjı bu saatlere denk getirmeyin.",
+          "Gece dilimi: en düşük birim fiyat; araç şarjı için ideal aralık.",
+          "Dilimlerin saat aralıkları dağıtım şirketine göre değişebilir; güncel saatleri faturanızdan veya dağıtım şirketinizden teyit edin."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Aracı her akşam elle takip etmek zorunda değilsiniz. Bemis'in akıllı modelleri (örneğin GSM bağlantılı Charger Pro 2 ve OCPP 1.6 destekli cihazlar), şarjı zamanlayarak planlama ve gece diliminde çalıştırma senaryolarını yönetmenize yardımcı olur; böylece en ucuz saatleri kaçırmazsınız."
+      },
+      {
+        "type": "h2",
+        "text": "Adım adım örnek hesap (varsayımsal)"
+      },
+      {
+        "type": "p",
+        "text": "Aşağıdaki örnekte birim elektrik fiyatını A TL/kWh olarak, tamamen varsayımsal bir değer şeklinde etiketliyoruz. Siz bu A'nın yerine kendi faturanızdaki güncel birim fiyatı (tercihen gece dilimi fiyatını) koyduğunuzda gerçek maliyetinizi görürsünüz. Aracımızın 100 km'de 18 kWh harcadığını varsayalım."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Adım 1 — Aracın tüketimi: 18 kWh/100km (varsayımsal, örnek araç).",
+          "Adım 2 — Şarj kaybını ekle: 18 × 1,1 ≈ 19,8 kWh (prizden çekilen gerçek enerji).",
+          "Adım 3 — Birim fiyatla çarp: 19,8 kWh × A TL = 100 km maliyeti.",
+          "Adım 4 — Km başına: (19,8 × A) ÷ 100 = km başına maliyet TL/km."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Görüldüğü gibi tek bilinmeyen A, yani sizin birim fiyatınız. A'yı yerine koyduğunuz anda hem 100 km'lik hem de km başına maliyet netleşir. Gece tarifesindeki düşük A değeriyle bu rakam gündüze göre belirgin biçimde aşağı iner."
+      },
+      {
+        "type": "table",
+        "caption": "Varsayımsal örnek: farklı tüketim değerlerinde km başına maliyet (A = birim elektrik fiyatı, TL/kWh)",
+        "headers": [
+          "Araç tüketimi (kWh/100km)",
+          "Şarj kaybı dahil (kWh/100km)",
+          "100 km maliyeti",
+          "Km başına maliyet"
+        ],
+        "rows": [
+          [
+            "15",
+            "16,5",
+            "16,5 × A TL",
+            "0,165 × A TL/km"
+          ],
+          [
+            "18",
+            "19,8",
+            "19,8 × A TL",
+            "0,198 × A TL/km"
+          ],
+          [
+            "22",
+            "24,2",
+            "24,2 × A TL",
+            "0,242 × A TL/km"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Benzinli araçla kıyas nasıl yapılır?"
+      },
+      {
+        "type": "p",
+        "text": "Elmayla elmayı karşılaştırmak için aynı mantığı benzinli araca da uygulayın. Benzinli aracın maliyeti de tek çarpımdır: 100 km'de yakılan litre ile yakıtın litre fiyatını çarparsınız. Diyelim benzinli araç 100 km'de 7 litre yakıyor ve litre fiyatı B TL (yine varsayımsal). O zaman 100 km maliyeti 7 × B TL, km başına maliyet ise (7 × B) ÷ 100 = 0,07 × B TL/km olur."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Benzinli 100 km maliyeti = Yakıt tüketimi (L/100km) × Litre fiyatı (B TL/L)",
+          "Benzinli km başına maliyet = (L/100km ÷ 100) × B TL/L",
+          "Karşılaştırma: elektrikli km başına maliyet (0,198 × A) ile benzinli km başına maliyeti (0,07 × B) kendi güncel A ve B değerlerinizle yan yana koyun."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Kendi faturanızdaki elektrik birim fiyatı (A) ile pompadaki güncel yakıt fiyatını (B) yerine koyduğunuzda, evde gece tarifesiyle şarj eden bir elektrikli aracın km başına yakıt giderinin genellikle benzinli bir araca kıyasla ciddi biçimde düşük çıktığını görürsünüz. Rakamlar zamanla değiştiği için formülü elinizin altında tutmak, her dönem güncel karşılaştırmayı kendiniz yapmanızı sağlar."
+      },
+      {
+        "type": "h2",
+        "text": "Evde şarj maliyetini düşürmenin pratik yolları"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Çok zamanlı tarifeye geçip şarjı gece dilimine planlayın.",
+          "Aracın gerçek kWh/100km tüketimini takip edip abartılı tahminlerden kaçının.",
+          "Şarj kaybını (~%10) hesaba katarak bütçenizi gerçekçi tutun.",
+          "Zamanlanabilir bir ev şarj cihazıyla en ucuz saatleri otomatik yakalayın.",
+          "Evinizin panosuna uygun güçte bir wallbox seçerek güvenli ve verimli şarj edin."
+        ]
+      },
+      {
+        "type": "cta",
+        "text": "Evinize uygun güçte, zamanlanabilir bir şarj çözümü mü arıyorsunuz? Bemis ev tipi wallbox modellerini inceleyin.",
+        "href": "/products/wallbox",
+        "label": "Wallbox modellerini incele"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Evde elektrikli araç şarjı km başına ne kadar tutar?",
+        "a": "Km başına maliyet iki şeye bağlıdır: aracınızın 100 km'de harcadığı kWh ve elektriğin birim fiyatı. Formül şudur: (tüketim kWh/100km ÷ 100) × birim fiyat. Örneğin 100 km'de 18 kWh harcayan bir araçta, %10 şarj kaybını da ekleyip 19,8 kWh üzerinden hesap yaparsınız. Sonucu görebilmek için faturanızdaki güncel birim fiyatı yerine koymanız gerekir. Kesin bir TL rakamı vermiyoruz çünkü elektrik fiyatları zamanla değişir; ama formül her zaman aynıdır ve kendi rakamınızı saniyeler içinde bulmanızı sağlar."
+      },
+      {
+        "q": "Gece tarifesiyle şarj etmek ne kadar tasarruf sağlar?",
+        "a": "Türkiye'de çok zamanlı tarifede gün üç dilime ayrılır ve gece dilimi belirgin biçimde en ucuzudur. Aracı akşam takıp şarjı gece saatlerine denk getirdiğinizde, aynı enerjiyi gündüz veya puant dilimine göre daha düşük birim fiyattan alırsınız. Tasarrufun tam oranı, dilimler arasındaki güncel fiyat farkına bağlıdır; bu farkı faturanızdan görebilirsiniz. Zamanlanabilir bir şarj cihazı, aracı elle takip etmenize gerek kalmadan şarjı otomatik olarak gece dilimine planlayarak bu avantajı düzenli biçimde yakalamanıza yardımcı olur."
+      },
+      {
+        "q": "Şarj kaybı nedir, maliyeti nasıl etkiler?",
+        "a": "Prizden çektiğiniz enerji, akünüze giren enerjiden bir miktar fazladır. Aradaki fark; kablo, dönüştürücü ve batarya yönetimi sırasında ısı olarak kaybolur. Ev tipi AC şarjda bu kayıp yaklaşık %10'dur. Yani faturaya yansıyan gerçek tüketim, aracın kullandığı net enerjiden biraz yüksektir. Maliyeti doğru hesaplamak için aracın kWh tüketimini kabaca 1,1 ile çarpın veya üzerine %10 ekleyin. Tek seferde küçük görünse de yıllık yüksek kilometrede toplam fark hissedilir olur, bu yüzden bütçe planında dikkate almak gerekir."
+      },
+      {
+        "q": "Elektrikli araç benzinliye göre gerçekten daha mı ucuz?",
+        "a": "Karşılaştırmayı doğru yapmak için her iki aracı da aynı formülle hesaplayın. Elektrikli için km başına maliyet, tüketim ile birim elektrik fiyatının çarpımıdır; benzinli için ise litre tüketimi ile litre fiyatının çarpımıdır. Kendi güncel elektrik ve yakıt fiyatlarınızı yerine koyduğunuzda, özellikle evde gece tarifesiyle şarj eden bir elektrikli aracın km başına yakıt giderinin genellikle benzinliye kıyasla ciddi biçimde düşük çıktığını görürsünüz. Kesin oran fiyatlara göre değişir; bu yüzden en sağlıklısı, formülü kullanıp güncel rakamlarla karşılaştırmayı kendiniz yapmaktır."
+      },
+      {
+        "q": "Aracımın 100 km'de kaç kWh harcadığını nasıl öğrenirim?",
+        "a": "En doğru değer aracınızın kendi ekranındadır. Çoğu elektrikli araçta ortalama tüketim, gösterge panelinde \"kWh/100km\" olarak yer alır ve gerçek sürüş alışkanlığınızı yansıtır. Genel bir aralık vermek gerekirse, elektrikli araçlar tipik olarak 100 km'de 15 ile 22 kWh arasında tüketir; kompakt modeller alt sınıra, büyük araçlar ve yüksek hızlı otoyol sürüşü üst sınıra yakındır. Kışın ısıtma nedeniyle tüketim artar. Maliyet hesabınızda tahmin yerine aracın gösterdiği gerçek ortalamayı kullanmak, en isabetli km başına rakamı verir."
+      }
+    ],
+    "related": [
+      {
+        "label": "Ev tipi wallbox şarj cihazları",
+        "href": "/products/wallbox"
+      },
+      {
+        "label": "EV şarj istasyonu kurulum maliyeti",
+        "href": "/blog/ev-sarj-istasyonu-maliyeti"
+      },
+      {
+        "label": "AC ve DC şarj arasındaki fark",
+        "href": "/blog/ac-dc-sarj-farki"
+      },
+      {
+        "label": "Elektrikli araç kaç saatte şarj olur?",
+        "href": "/blog/elektrikli-arac-sarj-suresi-kac-saatte-dolar"
+      }
+    ]
+  },
+  {
+    "slug": "monofaze-mi-trifaze-mi-ev-sarj",
+    "title": "Monofaze mi, Trifaze (3 Faz) mı? Evinize Hangi Şarj Cihazı Uygun?",
+    "metaTitle": "Monofaze mi Trifaze mi? Evime Hangi Şarj Cihazı?",
+    "description": "Elektrikli araç şarj cihazı alırken monofaze mi trifaze mi seçmelisiniz? Ev tipi wallbox için 7,4 kW ve 22 kW farkını, süreyi ve doğru kararı basitçe anlatıyoruz.",
+    "excerpt": "Evinize wallbox alırken en kritik soru: monofaze mi, 3 faz mı? İki seçeneğin gücünü, şarj süresini ve hangi kullanıcıya hangisinin uyduğunu karar odaklı bir rehberle açıklıyoruz.",
+    "category": "Teknik",
+    "datePublished": "2026-07-05",
+    "readingMinutes": 7,
+    "keywords": [
+      "monofaze trifaze şarj",
+      "3 faz şarj cihazı",
+      "evime hangi faz",
+      "monofaze mi trifaze mi",
+      "ev tipi wallbox güç",
+      "7.4 kW 22 kW şarj",
+      "elektrikli araç şarj cihazı seçimi",
+      "trifaze şarj istasyonu"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Evinize elektrikli araç şarj cihazı alırken en çok kafa karıştıran soru genellikle şu olur: monofaze mi, yoksa trifaze (3 faz) mı almalıyım? Bu aslında bir marka ya da model tercihinden önce gelen, elektrik tesisatınızla ilgili bir karardır. Doğru cevap, evinizin elektrik altyapısına ve günlük kullanım alışkanlığınıza göre değişir. Bu rehberde iki seçeneği gerçek teknik değerleriyle karşılaştırıyor, hangi kullanıcıya hangisinin uyduğunu net biçimde anlatıyoruz."
+      },
+      {
+        "type": "h2",
+        "text": "Monofaze ve trifaze arasındaki fark nedir?"
+      },
+      {
+        "type": "p",
+        "text": "Fark, evinize gelen elektriğin kaç faz üzerinden taşındığıyla ilgilidir. Monofaze tek faz demektir ve yaklaşık 230 volt gerilim taşır. Türkiye'de çoğu konutun aboneliği monofazedir; yani evinizde büyük olasılıkla tek fazlı elektrik vardır. Trifaze ise üç faz demektir ve yaklaşık 400 volt gerilimle daha fazla gücü aynı anda taşıyabilir. Trifaze, aynı sürede daha çok enerji aktarabildiği için şarjı hızlandırır, ancak 3 fazlı bir abonelik ve buna uygun tesisat gerektirir."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Monofaze (1 faz, ~230V): Ev tipi wallbox'ta pratik üst sınır yaklaşık 7,4 kW'tır (32A). Çoğu konut aboneliği bu yapıdadır.",
+          "Trifaze (3 faz, ~400V): Wallbox'ta 22 kW'a (32A) kadar çıkabilir. Daha hızlı şarj sağlar, ancak 3 fazlı abonelik/tesisat ister."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "7,4 kW mı, 22 kW mı? Şarj süresi ne kadar değişir?"
+      },
+      {
+        "type": "p",
+        "text": "İki seçeneği somutlaştırmak için gece boyunca aracınızı şarja taktığınızı düşünelim. Monofaze bir wallbox 7,4 kW ile yaklaşık 8 saatte aracınıza kabaca 59 kWh enerji yükler. Bu, çoğu sürücünün günlük ihtiyacını, yani birkaç yüz kilometrelik menzili fazlasıyla karşılar. Trifaze bir wallbox ise 22 kW ile aynı sürede yaklaşık 3 kat enerji aktarır. Yani günde çok yüksek kilometre yapan, iş yerinde şarj eden ya da tek noktada birden fazla aracı besleyen kullanıcılar için trifaze anlamlı bir avantaj sunar."
+      },
+      {
+        "type": "table",
+        "caption": "Monofaze ve trifaze wallbox karşılaştırması (ev tipi)",
+        "headers": [
+          "Özellik",
+          "Monofaze",
+          "Trifaze (3 Faz)"
+        ],
+        "rows": [
+          [
+            "Faz sayısı",
+            "1 faz (~230V)",
+            "3 faz (~400V)"
+          ],
+          [
+            "Wallbox güç üst sınırı",
+            "~7,4 kW (32A)",
+            "22 kW'a kadar (32A)"
+          ],
+          [
+            "~8 saatte yüklenen enerji",
+            "~59 kWh",
+            "~3 kat daha fazla"
+          ],
+          [
+            "Gerekli abonelik",
+            "Genellikle mevcut",
+            "3 fazlı abonelik/tesisat"
+          ],
+          [
+            "En uygun kullanım",
+            "Ev, günlük şehir içi kullanım",
+            "İş yeri, yüksek km, çok araç"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Kısaca: monofaze / 7,4 kW, evde gece şarj eden ve günlük menzili birkaç yüz kilometreyi geçmeyen çoğu kullanıcı için yeterlidir. Trifaze / 22 kW ise şarj süresini kısaltmak isteyen, günde uzun mesafe yapan veya iş yeri gibi yoğun senaryolarda kullanacak sürücüler için mantıklıdır."
+      },
+      {
+        "type": "h2",
+        "text": "Evimin fazını nasıl anlarım?"
+      },
+      {
+        "type": "p",
+        "text": "Evinizin monofaze mi trifaze mi olduğunu anlamak için başvurabileceğiniz birkaç ipucu vardır. Elektrik faturanızda veya abonelik tipinizde faz bilgisi yer alabilir. Dağıtım (sigorta) panonuza baktığınızda, üç faz bir kuruluma özgü bir görünüm ipucu verebilir. Ancak bunlar yalnızca fikir edinmek içindir; kesin karar için mutlaka yetkili bir elektrikçiye danışmalısınız. Faz yapısını, mevcut hattın taşıma kapasitesini ve gerekiyorsa trifazeye geçiş imkanını doğru şekilde ancak bir uzman değerlendirebilir."
+      },
+      {
+        "type": "p",
+        "text": "Güvenlik burada en önemli başlıktır. Şarj cihazı kurulumu yüksek güçle çalışan bir elektrik işidir; kablo kesiti, koruma ekipmanları ve topraklama doğru seçilmelidir. Kurulumun yetkili bir elektrikçi tarafından yapılması ve uygun koruma önlemlerinin (örneğin kaçak akım rölesi) sağlanması, hem güvenliğiniz hem de cihazın sağlıklı çalışması için gereklidir. Bu yazı genel bir yönlendirme sunar; kesin tesisat kararlarını yerinde inceleme yapan uzmana bırakın."
+      },
+      {
+        "type": "h2",
+        "text": "Bemis şarj cihazları hangi faza uyar?"
+      },
+      {
+        "type": "p",
+        "text": "İyi haber şu: doğru cihaz seçilirse, faz kararınızı cihaz esnek biçimde karşılayabilir. Bemis wallbox ailesindeki Charger Plus 2 ve Charger Pro 2 modellerinin gücü 4 / 7 / 11 / 22 kW arasında ayarlanabilir. Bu sayede aynı cihaz, tesisatınıza göre hem monofaze hem de trifaze kurulumlara uyum sağlar; kurulum sırasında gücü mevcut altyapınıza göre ayarlarsınız. Giriş modeli olan Charger 2 ise 11/22 kW trifaze bir cihazdır ve 3 fazlı altyapıya sahip kullanıcılar için uygundur. Modellerin tamamı Type 2 konnektörlüdür."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Charger Plus 2: Gücü 4 / 7 / 11 / 22 kW arasında ayarlanabilir; hem monofaze hem trifaze tesisata uyar, Type 2 konnektör.",
+          "Charger Pro 2: Gücü 4 / 7 / 11 / 22 kW arasında ayarlanabilir; hem monofaze hem trifaze tesisata uyar, Type 2 konnektör.",
+          "Charger 2: 11/22 kW trifaze giriş modeli; 3 fazlı altyapı için, Type 2 konnektör."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Yani faz konusunda kararsızsanız ya da ileride trifazeye geçmeyi düşünüyorsanız, gücü ayarlanabilen bir model esneklik sağlar: bugün monofaze tesisatınızda daha düşük güçle çalışır, koşullarınız değiştiğinde daha yüksek güce ayarlanabilir. Doğru güç ve kurulum ayarını, tesisatınızı gören elektrikçiyle birlikte belirlemeniz en sağlıklı yoldur."
+      },
+      {
+        "type": "cta",
+        "text": "Gücü tesisatınıza göre ayarlanabilen Type 2 wallbox modellerini inceleyin ve evinize en uygun çözümü seçin.",
+        "href": "/products/wallbox",
+        "label": "Wallbox Modellerini İncele"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Evime monofaze mi trifaze mi şarj cihazı almalıyım?",
+        "a": "Bu, elektrik altyapınıza ve kullanımınıza bağlıdır. Türkiye'de çoğu konutta monofaze abonelik bulunur ve monofaze bir wallbox yaklaşık 7,4 kW ile gece boyunca çoğu günlük ihtiyacı rahatça karşılar. Günde çok yüksek kilometre yapıyorsanız, iş yerinde şarj edecekseniz ya da tek noktada birden çok aracı besleyecekseniz, 22 kW'a kadar çıkabilen trifaze mantıklıdır. Kesin karar için evinizin faz yapısını yetkili bir elektrikçiye kontrol ettirmenizi öneririz."
+      },
+      {
+        "q": "Monofaze şarj cihazı yeterli mi?",
+        "a": "Çoğu ev kullanıcısı için evet. Monofaze wallbox'ın ev tipinde pratik üst sınırı yaklaşık 7,4 kW'tır (32A) ve bu güçle yaklaşık 8 saatte kabaca 59 kWh enerji yüklenir. Bu, birkaç yüz kilometrelik günlük menzil demektir ve normal şehir içi kullanımda fazlasıyla yeterlidir. Aracınızı genellikle gece evde şarj ediyorsanız monofaze pratik ve ekonomik bir çözümdür. Daha kısa şarj süresi öncelikliyse trifazeyi değerlendirebilirsiniz."
+      },
+      {
+        "q": "Trifaze şarj gerçekten daha mı hızlı?",
+        "a": "Evet. Trifaze yaklaşık 400 volt üzerinden çalışır ve aynı anda daha fazla güç taşıyabildiği için wallbox'ta 22 kW'a kadar çıkabilir. Aynı sürede, monofaze 7,4 kW'a göre kabaca 3 kat daha fazla enerji aktarır. Ancak bu hız için 3 fazlı bir abonelik ve uygun tesisat gerekir. Aracınızın kendi iç şarj ünitesinin de bu gücü desteklemesi önemlidir; bu nedenle yatırım öncesi hem tesisatınızı hem aracınızın kapasitesini kontrol etmek gerekir."
+      },
+      {
+        "q": "Evimin monofaze mi trifaze mi olduğunu nasıl anlarım?",
+        "a": "Elektrik faturanız veya abonelik tipiniz faz bilgisi içerebilir; dağıtım panonuzun görünümü de fikir verebilir. Ancak bunlar yalnızca ön ipuçlarıdır. Faz yapısını, mevcut hattın kapasitesini ve gerekiyorsa trifazeye geçiş imkanını kesin olarak yalnızca yerinde inceleme yapan yetkili bir elektrikçi belirleyebilir. Yüksek güçlü bir kurulum olduğu için bu değerlendirmeyi ve kurulumu mutlaka uzmana yaptırın."
+      },
+      {
+        "q": "Bemis şarj cihazı hem monofaze hem trifaze çalışır mı?",
+        "a": "Charger Plus 2 ve Charger Pro 2 modellerinin gücü 4 / 7 / 11 / 22 kW arasında ayarlanabildiği için hem monofaze hem trifaze tesisata uyum sağlar; kurulumda güç, mevcut altyapınıza göre ayarlanır. Giriş modeli Charger 2 ise 11/22 kW trifaze bir cihazdır ve 3 fazlı altyapı için uygundur. Modellerin tamamı Type 2 konnektörlüdür. Hangi modelin ve hangi güç ayarının size uyduğunu tesisatınızı gören elektrikçiyle birlikte belirlemeniz en doğru yaklaşımdır."
+      }
+    ],
+    "related": [
+      {
+        "label": "EV İçin Şarj Cihazı Nasıl Seçilir?",
+        "href": "/blog/ev-icin-sarj-cihazi-nasil-secilir"
+      },
+      {
+        "label": "Elektrikli Araç Şarj Kablosu: Kaç Metre, Kaç Amper?",
+        "href": "/blog/elektrikli-arac-sarj-kablosu-kac-metre-kac-amper"
+      },
+      {
+        "label": "Apartmana Şarj İstasyonu Kurulumu",
+        "href": "/blog/apartmana-sarj-istasyonu-kurulumu"
+      },
+      {
+        "label": "Wallbox Modelleri",
+        "href": "/products/wallbox"
+      }
+    ]
+  },
+  {
     slug: "ev-sarj-cihazi-modelleri-karsilastirma",
     title: "EV Şarj Cihazı Modelleri Karşılaştırma: Hangi Model Size Uygun?",
     metaTitle: "EV Şarj Cihazı Modelleri Karşılaştırma",
