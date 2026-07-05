@@ -1,4 +1,5 @@
 "use client";
+import { pickText } from "../lib/ui";
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -255,7 +256,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
               >
                 {/* Keyword'lü + iki dilli H1 (eskiden sabit "Tüm Ürünler"). Ana ürün
                     sayfası "elektrikli araç şarj ürünleri" head-term'ünü hedefler. */}
-                {lang === "en" ? "EV Charging Products" : "Elektrikli Araç Şarj Ürünleri"}
+                {pickText(lang, "Elektrikli Araç Şarj Ürünleri", "EV Charging Products")}
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}

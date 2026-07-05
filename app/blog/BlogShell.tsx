@@ -1,4 +1,5 @@
 "use client";
+import { pickText } from "../lib/ui";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -25,9 +26,9 @@ const PRESS_META: Record<PressItem["type"], { label: string; color: string }> = 
 
 // Dile göre basın tipi etiketi (PRESS_META.color sabit kalir).
 const pressLabel = (type: PressItem["type"], lang: string) =>
-  type === "fair" ? (lang === "en" ? "Fair" : "Fuar")
-    : type === "social" ? (lang === "en" ? "Social" : "Sosyal")
-      : (lang === "en" ? "News" : "Haber");
+  type === "fair" ? (pickText(lang, "Fuar", "Fair"))
+    : type === "social" ? (pickText(lang, "Sosyal", "Social"))
+      : (pickText(lang, "Haber", "News"));
 
 export default function BlogShell({ post, posts, pressItem }: { post?: BlogPost; posts?: BlogPost[]; pressItem?: PressItem }) {
   const { theme } = useTheme();
@@ -92,16 +93,16 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
   }, []);
 
   const tabs: { k: "rehberler" | "haberler" | "sss"; label: string; count: number }[] = [
-    { k: "haberler", label: lang === "en" ? "News & Fairs" : "Haberler & Fuarlar", count: press.length },
-    { k: "rehberler", label: lang === "en" ? "Guides" : "Rehberler", count: posts.length },
-    { k: "sss", label: lang === "en" ? "FAQ" : "SSS", count: faqCount },
+    { k: "haberler", label: pickText(lang, "Haberler & Fuarlar", "News & Fairs"), count: press.length },
+    { k: "rehberler", label: pickText(lang, "Rehberler", "Guides"), count: posts.length },
+    { k: "sss", label: pickText(lang, "SSS", "FAQ"), count: faqCount },
   ];
 
   return (
     <div className="pt-28 pb-20 px-5 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: BLUE }}>Bemis E-V Charge · Blog</p>
-        <h1 className="text-3xl sm:text-4xl font-black mb-3" style={{ color: textPrimary }}>{lang === "en" ? "Blog & News" : "Blog & Haberler"}</h1>
+        <h1 className="text-3xl sm:text-4xl font-black mb-3" style={{ color: textPrimary }}>{pickText(lang, "Blog & Haberler", "Blog & News")}</h1>
         <p className="text-sm sm:text-base mb-6 max-w-2xl" style={{ color: textMuted }}>
           {lang === "en"
             ? "Practical EV-charging guides plus the latest Bemis E-V Charge news and trade-show updates."
@@ -144,8 +145,8 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
                     <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: textMuted }}>{p.excerpt}</p>
                     <div className="flex items-center gap-3 text-[11px]" style={{ color: textFaint }}>
                       <span className="flex items-center gap-1"><HiCalendar size={12} />{fmtDate(p.datePublished)}</span>
-                      <span className="flex items-center gap-1"><HiClock size={12} />{p.readingMinutes} {lang === "en" ? "min" : "dk"}</span>
-                      <span className="ml-auto flex items-center gap-1 font-semibold" style={{ color: BLUE }}>{lang === "en" ? "Read" : "Oku"} <HiArrowRight size={12} /></span>
+                      <span className="flex items-center gap-1"><HiClock size={12} />{p.readingMinutes} {pickText(lang, "dk", "min")}</span>
+                      <span className="ml-auto flex items-center gap-1 font-semibold" style={{ color: BLUE }}>{pickText(lang, "Oku", "Read")} <HiArrowRight size={12} /></span>
                     </div>
                   </div>
                 </Link>
@@ -170,7 +171,7 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
               ))}
             </div>
           ) : (
-            <p className="text-sm py-10" style={{ color: textMuted }}>{lang === "en" ? "No questions yet." : "Henüz soru-cevap eklenmemiş."}</p>
+            <p className="text-sm py-10" style={{ color: textMuted }}>{pickText(lang, "Henüz soru-cevap eklenmemiş.", "No questions yet.")}</p>
           )
         ) : (
           <div className="grid sm:grid-cols-2 gap-4">
@@ -200,7 +201,7 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
                     <h3 className="text-base font-bold leading-snug mb-2" style={{ color: textPrimary }}>{it.title}</h3>
                     <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: textMuted }}>{it.summary}</p>
                     <span className="text-[12px] font-semibold inline-flex items-center gap-1" style={{ color: BLUE }}>
-                      {lang === "en" ? "Read Summary" : "Özet İncele"} <HiArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
+                      {pickText(lang, "Özet İncele", "Read Summary")} <HiArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
                     </span>
                   </div>
                 </Link>
@@ -229,7 +230,7 @@ function Article({ post, d, surface, border, textPrimary, textMuted, textFaint, 
         <h1 className="text-3xl sm:text-4xl font-black leading-tight mb-4" style={{ color: textPrimary }}>{post.title}</h1>
         <div className="flex items-center gap-4 text-xs mb-8 pb-6" style={{ color: textFaint, borderBottom: `1px solid ${border}` }}>
           <span className="flex items-center gap-1.5"><HiCalendar size={13} />{fmtDate(post.datePublished)}</span>
-          <span className="flex items-center gap-1.5"><HiClock size={13} />{post.readingMinutes} {lang === "en" ? "min read" : "dakika okuma"}</span>
+          <span className="flex items-center gap-1.5"><HiClock size={13} />{post.readingMinutes} {pickText(lang, "dakika okuma", "min read")}</span>
         </div>
 
         {/* Gövde */}
@@ -240,7 +241,7 @@ function Article({ post, d, surface, border, textPrimary, textMuted, textFaint, 
         {/* SSS */}
         {post.faq && post.faq.length > 0 && (
           <div className="mt-12">
-            <h2 className="text-xl font-black mb-4" style={{ color: textPrimary }}>{lang === "en" ? "Frequently Asked Questions" : "Sıkça Sorulan Sorular"}</h2>
+            <h2 className="text-xl font-black mb-4" style={{ color: textPrimary }}>{pickText(lang, "Sıkça Sorulan Sorular", "Frequently Asked Questions")}</h2>
             <div className="space-y-3">
               {post.faq.map((f, i) => (
                 <div key={i} className="rounded-2xl p-4" style={{ background: surface, border: `1px solid ${border}` }}>
@@ -255,7 +256,7 @@ function Article({ post, d, surface, border, textPrimary, textMuted, textFaint, 
         {/* İlgili / iç linkler */}
         {post.related && post.related.length > 0 && (
           <div className="mt-12 pt-6" style={{ borderTop: `1px solid ${border}` }}>
-            <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: textFaint }}>{lang === "en" ? "Related" : "İlgili"}</p>
+            <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: textFaint }}>{pickText(lang, "İlgili", "Related")}</p>
             <div className="flex flex-wrap gap-2">
               {post.related.map((r) => (
                 <Link key={r.href} href={r.href} className="text-sm font-semibold px-3.5 py-2 rounded-xl transition-colors"
@@ -309,16 +310,16 @@ function PressArticle({ item, d, surface, border, textPrimary, textMuted, textFa
 
         {/* Kaynak — linklemeye devam */}
         <div className="mt-8 rounded-2xl px-5 py-5" style={{ background: d ? "rgba(59,130,246,0.10)" : "rgba(59,130,246,0.07)", border: `1px solid ${BLUE}30` }}>
-          <p className="text-sm font-semibold mb-3" style={{ color: textPrimary }}>{lang === "en" ? "This is a curated summary. Read the full story at the source:" : "Bu içerik bir derleme özetidir. Haberin tamamı için kaynağa gidin:"}</p>
+          <p className="text-sm font-semibold mb-3" style={{ color: textPrimary }}>{pickText(lang, "Bu içerik bir derleme özetidir. Haberin tamamı için kaynağa gidin:", "This is a curated summary. Read the full story at the source:")}</p>
           <a href={item.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white" style={{ background: BLUE }}>
-            {lang === "en" ? "Read source" : "Kaynağı Oku"}: {item.source} <RiExternalLinkLine size={15} />
+            {pickText(lang, "Kaynağı Oku", "Read source")}: {item.source} <RiExternalLinkLine size={15} />
           </a>
         </div>
 
         {/* Diğer haberler — iç linkleme */}
         {others.length > 0 && (
           <div className="mt-12 pt-6" style={{ borderTop: `1px solid ${border}` }}>
-            <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: textFaint }}>{lang === "en" ? "Other News" : "Diğer Haberler"}</p>
+            <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: textFaint }}>{pickText(lang, "Diğer Haberler", "Other News")}</p>
             <div className="grid sm:grid-cols-2 gap-3">
               {others.map((o) => (
                 <Link key={o.id} href={`/blog/haber/${o.id}`} className="rounded-xl p-3.5 transition-transform hover:-translate-y-0.5" style={{ background: surface, border: `1px solid ${border}` }}>

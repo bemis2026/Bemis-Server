@@ -1,1 +1,1742 @@
-{}
+{
+  "Download on the": {
+    "de": "Download im",
+    "es": "Descargar en la",
+    "ar": "متوفر على",
+    "ru": "Скачать в"
+  },
+  "Get it on": {
+    "de": "Jetzt bei",
+    "es": "Disponible en",
+    "ar": "احصل عليه من",
+    "ru": "Доступно в"
+  },
+  "BEMIS CHARGE": {
+    "de": "BEMIS CHARGE",
+    "es": "BEMIS CHARGE",
+    "ar": "BEMIS CHARGE",
+    "ru": "BEMIS CHARGE"
+  },
+  "Charging Management": {
+    "de": "Lademanagement",
+    "es": "Gestión de carga",
+    "ar": "إدارة الشحن",
+    "ru": "Управление зарядкой"
+  },
+  "Connected": {
+    "de": "Verbunden",
+    "es": "Conectado",
+    "ar": "متصل",
+    "ru": "Подключено"
+  },
+  "Charging": {
+    "de": "Lädt",
+    "es": "Cargando",
+    "ar": "قيد الشحن",
+    "ru": "Зарядка"
+  },
+  "Power": {
+    "de": "Leistung",
+    "es": "Potencia",
+    "ar": "الطاقة",
+    "ru": "Мощность"
+  },
+  "Time": {
+    "de": "Dauer",
+    "es": "Tiempo",
+    "ar": "المدة",
+    "ru": "Время"
+  },
+  "Units": {
+    "de": "Einheiten",
+    "es": "Unidades",
+    "ar": "الوحدات",
+    "ru": "Устройства"
+  },
+  "Unit": {
+    "de": "Einheit",
+    "es": "Unidad",
+    "ar": "الوحدة",
+    "ru": "Устройство"
+  },
+  "Available": {
+    "de": "Verfügbar",
+    "es": "Disponible",
+    "ar": "متاح",
+    "ru": "Доступно"
+  },
+  "Charging Management Panel": {
+    "de": "Lademanagement-Panel",
+    "es": "Panel de gestión de carga",
+    "ar": "لوحة إدارة الشحن",
+    "ru": "Панель управления зарядкой"
+  },
+  "Live": {
+    "de": "Live",
+    "es": "En vivo",
+    "ar": "مباشر",
+    "ru": "В реальном времени"
+  },
+  "Active": {
+    "de": "Aktiv",
+    "es": "Activo",
+    "ar": "نشط",
+    "ru": "Активно"
+  },
+  "Revenue": {
+    "de": "Umsatz",
+    "es": "Ingresos",
+    "ar": "الإيرادات",
+    "ru": "Доход"
+  },
+  "Daily Usage (kWh)": {
+    "de": "Täglicher Verbrauch (kWh)",
+    "es": "Consumo diario (kWh)",
+    "ar": "الاستهلاك اليومي (kWh)",
+    "ru": "Суточное потребление (кВт·ч)"
+  },
+  "Floor": {
+    "de": "Etage",
+    "es": "Planta",
+    "ar": "الطابق",
+    "ru": "Этаж"
+  },
+  "Entrance": {
+    "de": "Eingang",
+    "es": "Entrada",
+    "ar": "المدخل",
+    "ru": "Вход"
+  },
+  "Garden": {
+    "de": "Garten",
+    "es": "Jardín",
+    "ar": "الحديقة",
+    "ru": "Сад"
+  },
+  "Web Management Panel": {
+    "de": "Web-Verwaltungspanel",
+    "es": "Panel de gestión web",
+    "ar": "لوحة الإدارة عبر الويب",
+    "ru": "Веб-панель управления"
+  },
+  "Web Browser": {
+    "de": "Webbrowser",
+    "es": "Navegador web",
+    "ar": "متصفح الويب",
+    "ru": "Браузер"
+  },
+  "Access from any device": {
+    "de": "Zugriff von jedem Gerät",
+    "es": "Acceso desde cualquier dispositivo",
+    "ar": "الوصول من أي جهاز",
+    "ru": "Доступ с любого устройства"
+  },
+  "Mobile App": {
+    "de": "Mobile App",
+    "es": "Aplicación móvil",
+    "ar": "تطبيق الجوال",
+    "ru": "Мобильное приложение"
+  },
+  "Mobile": {
+    "de": "Mobil",
+    "es": "Móvil",
+    "ar": "الجوال",
+    "ru": "Мобильное"
+  },
+  "Full Name": {
+    "de": "Vor- und Nachname",
+    "es": "Nombre completo",
+    "ar": "الاسم الكامل",
+    "ru": "Имя и фамилия"
+  },
+  "Email": {
+    "de": "E-Mail",
+    "es": "Correo electrónico",
+    "ar": "البريد الإلكتروني",
+    "ru": "Эл. почта"
+  },
+  "Phone": {
+    "de": "Telefon",
+    "es": "Teléfono",
+    "ar": "الهاتف",
+    "ru": "Телефон"
+  },
+  "Company": {
+    "de": "Unternehmen",
+    "es": "Empresa",
+    "ar": "الشركة",
+    "ru": "Компания"
+  },
+  "Subject": {
+    "de": "Betreff",
+    "es": "Asunto",
+    "ar": "الموضوع",
+    "ru": "Тема"
+  },
+  "Your Message": {
+    "de": "Ihre Nachricht",
+    "es": "Su mensaje",
+    "ar": "رسالتك",
+    "ru": "Ваше сообщение"
+  },
+  "Send Message": {
+    "de": "Nachricht senden",
+    "es": "Enviar mensaje",
+    "ar": "إرسال الرسالة",
+    "ru": "Отправить сообщение"
+  },
+  "Sending…": {
+    "de": "Wird gesendet…",
+    "es": "Enviando…",
+    "ar": "جارٍ الإرسال…",
+    "ru": "Отправка…"
+  },
+  "Your message has been sent. We'll get back to you shortly.": {
+    "de": "Ihre Nachricht wurde gesendet. Wir melden uns in Kürze bei Ihnen.",
+    "es": "Su mensaje ha sido enviado. Le responderemos en breve.",
+    "ar": "تم إرسال رسالتك. سنعاود التواصل معك قريبًا.",
+    "ru": "Ваше сообщение отправлено. Мы свяжемся с вами в ближайшее время."
+  },
+  "Could not send the message. Please try again.": {
+    "de": "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
+    "es": "No se pudo enviar el mensaje. Inténtelo de nuevo.",
+    "ar": "تعذّر إرسال الرسالة. يُرجى المحاولة مرة أخرى.",
+    "ru": "Не удалось отправить сообщение. Попробуйте ещё раз."
+  },
+  "What is your inquiry about?": {
+    "de": "Worum geht es bei Ihrer Anfrage?",
+    "es": "¿Sobre qué desea consultar?",
+    "ar": "ما موضوع استفسارك؟",
+    "ru": "По какому вопросу вы обращаетесь?"
+  },
+  "General Information": {
+    "de": "Allgemeine Informationen",
+    "es": "Información general",
+    "ar": "معلومات عامة",
+    "ru": "Общая информация"
+  },
+  "Dealer Application": {
+    "de": "Händlerbewerbung",
+    "es": "Solicitud de distribuidor",
+    "ar": "طلب وكالة",
+    "ru": "Заявка на дилерство"
+  },
+  "Corporate / OEM": {
+    "de": "Firmenkunden / OEM",
+    "es": "Corporativo / OEM",
+    "ar": "الشركات / OEM",
+    "ru": "Корпоративный / OEM"
+  },
+  "Technical Support": {
+    "de": "Technischer Support",
+    "es": "Soporte técnico",
+    "ar": "الدعم الفني",
+    "ru": "Техническая поддержка"
+  },
+  "(optional)": {
+    "de": "(optional)",
+    "es": "(opcional)",
+    "ar": "(اختياري)",
+    "ru": "(необязательно)"
+  },
+  "* required fields": {
+    "de": "* Pflichtfelder",
+    "es": "* campos obligatorios",
+    "ar": "* حقول إلزامية",
+    "ru": "* обязательные поля"
+  },
+  "Send a Message": {
+    "de": "Nachricht senden",
+    "es": "Enviar un mensaje",
+    "ar": "أرسل رسالة",
+    "ru": "Отправить сообщение"
+  },
+  "Your name": {
+    "de": "Ihr Name",
+    "es": "Su nombre",
+    "ar": "اسمك",
+    "ru": "Ваше имя"
+  },
+  "Company name": {
+    "de": "Firmenname",
+    "es": "Nombre de la empresa",
+    "ar": "اسم الشركة",
+    "ru": "Название компании"
+  },
+  "email@company.com": {
+    "de": "email@firma.com",
+    "es": "email@empresa.com",
+    "ar": "email@company.com",
+    "ru": "email@company.com"
+  },
+  "Write your message here...": {
+    "de": "Schreiben Sie Ihre Nachricht hier...",
+    "es": "Escriba su mensaje aquí...",
+    "ar": "اكتب رسالتك هنا...",
+    "ru": "Напишите ваше сообщение..."
+  },
+  "Select a topic": {
+    "de": "Thema auswählen",
+    "es": "Seleccione un tema",
+    "ar": "اختر موضوعًا",
+    "ru": "Выберите тему"
+  },
+  "Your data is protected under our privacy policy and applicable regulations.": {
+    "de": "Ihre Daten werden gemäß unserer Datenschutzrichtlinie und den geltenden Vorschriften geschützt.",
+    "es": "Sus datos están protegidos conforme a nuestra política de privacidad y la normativa aplicable.",
+    "ar": "بياناتك محمية بموجب سياسة الخصوصية واللوائح المعمول بها.",
+    "ru": "Ваши данные защищены в соответствии с нашей политикой конфиденциальности и действующим законодательством."
+  },
+  "An error occurred — please try again.": {
+    "de": "Ein Fehler ist aufgetreten – bitte versuchen Sie es erneut.",
+    "es": "Se produjo un error. Inténtelo de nuevo.",
+    "ar": "حدث خطأ — يُرجى المحاولة مرة أخرى.",
+    "ru": "Произошла ошибка — попробуйте ещё раз."
+  },
+  "Connection error. Please try again.": {
+    "de": "Verbindungsfehler. Bitte versuchen Sie es erneut.",
+    "es": "Error de conexión. Inténtelo de nuevo.",
+    "ar": "خطأ في الاتصال. يُرجى المحاولة مرة أخرى.",
+    "ru": "Ошибка соединения. Попробуйте ещё раз."
+  },
+  "Address": {
+    "de": "Adresse",
+    "es": "Dirección",
+    "ar": "العنوان",
+    "ru": "Адрес"
+  },
+  "Working Hours": {
+    "de": "Öffnungszeiten",
+    "es": "Horario de atención",
+    "ar": "ساعات العمل",
+    "ru": "Часы работы"
+  },
+  "General info and inquiries": {
+    "de": "Allgemeine Infos und Anfragen",
+    "es": "Información general y consultas",
+    "ar": "معلومات واستفسارات عامة",
+    "ru": "Общая информация и вопросы"
+  },
+  "Product Information": {
+    "de": "Produktinformation",
+    "es": "Información del producto",
+    "ar": "معلومات المنتج",
+    "ru": "Информация о продукте"
+  },
+  "Price Quote": {
+    "de": "Preisangebot",
+    "es": "Presupuesto",
+    "ar": "عرض سعر",
+    "ru": "Ценовое предложение"
+  },
+  "Corporate Sales": {
+    "de": "Firmenkundenvertrieb",
+    "es": "Ventas corporativas",
+    "ar": "المبيعات المؤسسية",
+    "ru": "Корпоративные продажи"
+  },
+  "Export": {
+    "de": "Export",
+    "es": "Exportación",
+    "ar": "التصدير",
+    "ru": "Экспорт"
+  },
+  "Installation Help": {
+    "de": "Installationshilfe",
+    "es": "Ayuda de instalación",
+    "ar": "المساعدة في التركيب",
+    "ru": "Помощь с установкой"
+  },
+  "Partnership": {
+    "de": "Partnerschaft",
+    "es": "Colaboración",
+    "ar": "شراكة",
+    "ru": "Партнёрство"
+  },
+  "Other": {
+    "de": "Sonstiges",
+    "es": "Otro",
+    "ar": "أخرى",
+    "ru": "Другое"
+  },
+  "Message received!": {
+    "de": "Nachricht erhalten!",
+    "es": "¡Mensaje recibido!",
+    "ar": "تم استلام رسالتك!",
+    "ru": "Сообщение получено!"
+  },
+  "We'll get back to you as soon as possible.": {
+    "de": "Wir melden uns so schnell wie möglich bei Ihnen.",
+    "es": "Le responderemos lo antes posible.",
+    "ar": "سنعاود التواصل معك في أقرب وقت ممكن.",
+    "ru": "Мы свяжемся с вами в ближайшее время."
+  },
+  "Send another message": {
+    "de": "Weitere Nachricht senden",
+    "es": "Enviar otro mensaje",
+    "ar": "إرسال رسالة أخرى",
+    "ru": "Отправить ещё одно сообщение"
+  },
+  "h": {
+    "de": "Std.",
+    "es": "h",
+    "ar": "س",
+    "ru": "ч"
+  },
+  "min": {
+    "de": "Min.",
+    "es": "min",
+    "ar": "د",
+    "ru": "мин"
+  },
+  "OEM & Corporate": {
+    "de": "OEM & Firmenkunden",
+    "es": "OEM y corporativo",
+    "ar": "OEM والشركات",
+    "ru": "OEM и корпоративным клиентам"
+  },
+  "Professional EV Charging Solutions": {
+    "de": "Professionelle EV-Ladelösungen",
+    "es": "Soluciones profesionales de carga para vehículos eléctricos",
+    "ar": "حلول احترافية لشحن المركبات الكهربائية",
+    "ru": "Профессиональные решения для зарядки электромобилей"
+  },
+  "OEM solutions, OCPP-integrated platforms and custom manufacturing for producers, operators and fleet managers.": {
+    "de": "OEM-Lösungen, OCPP-integrierte Plattformen und kundenspezifische Fertigung für Hersteller, Betreiber und Flottenmanager.",
+    "es": "Soluciones OEM, plataformas integradas con OCPP y fabricación personalizada para fabricantes, operadores y gestores de flotas.",
+    "ar": "حلول OEM ومنصات متكاملة مع OCPP وتصنيع مخصّص للمصنّعين والمشغّلين ومديري الأساطيل.",
+    "ru": "OEM-решения, платформы с интеграцией OCPP и производство под заказ для производителей, операторов и управляющих автопарками."
+  },
+  "OEM Manufacturing": {
+    "de": "OEM-Fertigung",
+    "es": "Fabricación OEM",
+    "ar": "تصنيع OEM",
+    "ru": "OEM-производство"
+  },
+  "White-label products, custom design and high-volume manufacturing for your brand.": {
+    "de": "White-Label-Produkte, individuelles Design und Serienfertigung für Ihre Marke.",
+    "es": "Productos de marca blanca, diseño personalizado y fabricación de alto volumen para su marca.",
+    "ar": "منتجات بعلامة بيضاء وتصميم مخصّص وتصنيع بكميات كبيرة لعلامتك التجارية.",
+    "ru": "White-label продукция, индивидуальный дизайн и крупносерийное производство под вашим брендом."
+  },
+  "Charging Network Operator": {
+    "de": "Ladenetzbetreiber",
+    "es": "Operador de red de carga",
+    "ar": "مشغّل شبكة الشحن",
+    "ru": "Оператор зарядной сети"
+  },
+  "AC/DC station equipment, OCPP 2.0 integration and fleet-management solutions.": {
+    "de": "AC/DC-Stationsausrüstung, OCPP 2.0-Integration und Flottenmanagement-Lösungen.",
+    "es": "Equipos de estación AC/DC, integración con OCPP 2.0 y soluciones de gestión de flotas.",
+    "ar": "معدّات محطات AC/DC وتكامل OCPP 2.0 وحلول إدارة الأساطيل.",
+    "ru": "Оборудование станций AC/DC, интеграция OCPP 2.0 и решения для управления автопарком."
+  },
+  "Fleet & Logistics": {
+    "de": "Flotte & Logistik",
+    "es": "Flotas y logística",
+    "ar": "الأساطيل والخدمات اللوجستية",
+    "ru": "Автопарк и логистика"
+  },
+  "High-capacity bulk charging infrastructure for warehouses and distribution centers.": {
+    "de": "Hochleistungs-Ladeinfrastruktur für Lager- und Distributionszentren.",
+    "es": "Infraestructura de carga masiva de alta capacidad para almacenes y centros de distribución.",
+    "ar": "بنية تحتية للشحن الجماعي عالية السعة للمستودعات ومراكز التوزيع.",
+    "ru": "Высокомощная инфраструктура массовой зарядки для складов и распределительных центров."
+  },
+  "Contact Us": {
+    "de": "Kontakt",
+    "es": "Contáctenos",
+    "ar": "تواصل معنا",
+    "ru": "Связаться с нами"
+  },
+  "Request an OEM Quote": {
+    "de": "OEM-Angebot anfordern",
+    "es": "Solicitar presupuesto OEM",
+    "ar": "اطلب عرض سعر OEM",
+    "ru": "Запросить OEM-предложение"
+  },
+  "Operator Solutions": {
+    "de": "Betreiberlösungen",
+    "es": "Soluciones para operadores",
+    "ar": "حلول المشغّلين",
+    "ru": "Решения для операторов"
+  },
+  "Fleet Discussion": {
+    "de": "Flottengespräch",
+    "es": "Consulta para flotas",
+    "ar": "مناقشة الأساطيل",
+    "ru": "Обсуждение для автопарков"
+  },
+  "Back to Home": {
+    "de": "Zurück zur Startseite",
+    "es": "Volver al inicio",
+    "ar": "العودة إلى الرئيسية",
+    "ru": "На главную"
+  },
+  "Loading…": {
+    "de": "Wird geladen…",
+    "es": "Cargando…",
+    "ar": "جارٍ التحميل…",
+    "ru": "Загрузка…"
+  },
+  "Back": {
+    "de": "Zurück",
+    "es": "Atrás",
+    "ar": "رجوع",
+    "ru": "Назад"
+  },
+  "Close": {
+    "de": "Schließen",
+    "es": "Cerrar",
+    "ar": "إغلاق",
+    "ru": "Закрыть"
+  },
+  "Charging Modes": {
+    "de": "Lademodi",
+    "es": "Modos de carga",
+    "ar": "أوضاع الشحن",
+    "ru": "Режимы зарядки"
+  },
+  "Calculation": {
+    "de": "Berechnung",
+    "es": "Cálculo",
+    "ar": "الحساب",
+    "ru": "Расчёт"
+  },
+  "50+ Models": {
+    "de": "50+ Modelle",
+    "es": "Más de 50 modelos",
+    "ar": "أكثر من 50 موديلًا",
+    "ru": "50+ моделей"
+  },
+  "EV Cars": {
+    "de": "E-Fahrzeuge",
+    "es": "Vehículos eléctricos",
+    "ar": "المركبات الكهربائية",
+    "ru": "Электромобили"
+  },
+  "Savings": {
+    "de": "Ersparnis",
+    "es": "Ahorro",
+    "ar": "التوفير",
+    "ru": "Экономия"
+  },
+  "Analysis": {
+    "de": "Analyse",
+    "es": "Análisis",
+    "ar": "التحليل",
+    "ru": "Анализ"
+  },
+  "Fuel vs": {
+    "de": "Kraftstoff vs.",
+    "es": "Combustible vs",
+    "ar": "الوقود مقابل",
+    "ru": "Топливо и"
+  },
+  "Electricity": {
+    "de": "Strom",
+    "es": "Electricidad",
+    "ar": "الكهرباء",
+    "ru": "Электричество"
+  },
+  "Vehicle Model (optional)": {
+    "de": "Fahrzeugmodell (optional)",
+    "es": "Modelo de vehículo (opcional)",
+    "ar": "موديل المركبة (اختياري)",
+    "ru": "Модель авто (необязательно)"
+  },
+  "— Manual entry —": {
+    "de": "— Manuelle Eingabe —",
+    "es": "— Entrada manual —",
+    "ar": "— إدخال يدوي —",
+    "ru": "— Ввести вручную —"
+  },
+  "Battery:": {
+    "de": "Batterie:",
+    "es": "Batería:",
+    "ar": "البطارية:",
+    "ru": "Батарея:"
+  },
+  "AC max:": {
+    "de": "AC max.:",
+    "es": "AC máx:",
+    "ar": "أقصى AC:",
+    "ru": "AC макс.:"
+  },
+  "DC max:": {
+    "de": "DC max.:",
+    "es": "DC máx:",
+    "ar": "أقصى DC:",
+    "ru": "DC макс.:"
+  },
+  "AC Charging": {
+    "de": "AC-Laden",
+    "es": "Carga AC",
+    "ar": "شحن AC",
+    "ru": "Зарядка AC"
+  },
+  "DC Fast Charging": {
+    "de": "DC-Schnellladen",
+    "es": "Carga rápida DC",
+    "ar": "شحن DC السريع",
+    "ru": "Быстрая зарядка DC"
+  },
+  "Battery Capacity": {
+    "de": "Batteriekapazität",
+    "es": "Capacidad de la batería",
+    "ar": "سعة البطارية",
+    "ru": "Ёмкость батареи"
+  },
+  "vehicle data": {
+    "de": "Fahrzeugdaten",
+    "es": "datos del vehículo",
+    "ar": "بيانات المركبة",
+    "ru": "данные авто"
+  },
+  "Current Charge": {
+    "de": "Aktueller Ladestand",
+    "es": "Carga actual",
+    "ar": "الشحن الحالي",
+    "ru": "Текущий заряд"
+  },
+  "Target Charge": {
+    "de": "Ziel-Ladestand",
+    "es": "Carga objetivo",
+    "ar": "الشحن المستهدف",
+    "ru": "Целевой заряд"
+  },
+  "AC Charging Power": {
+    "de": "AC-Ladeleistung",
+    "es": "Potencia de carga AC",
+    "ar": "قدرة شحن AC",
+    "ru": "Мощность зарядки AC"
+  },
+  "DC Station Power": {
+    "de": "DC-Stationsleistung",
+    "es": "Potencia de la estación DC",
+    "ar": "قدرة محطة DC",
+    "ru": "Мощность станции DC"
+  },
+  "Vehicle max:": {
+    "de": "Fahrzeug max.:",
+    "es": "Máx. del vehículo:",
+    "ar": "أقصى للمركبة:",
+    "ru": "Макс. для авто:"
+  },
+  "Usage Information": {
+    "de": "Nutzungsangaben",
+    "es": "Datos de uso",
+    "ar": "معلومات الاستخدام",
+    "ru": "Данные об использовании"
+  },
+  "Annual Driving Distance": {
+    "de": "Jährliche Fahrleistung",
+    "es": "Distancia anual recorrida",
+    "ar": "مسافة القيادة السنوية",
+    "ru": "Годовой пробег"
+  },
+  "EV Consumption": {
+    "de": "EV-Verbrauch",
+    "es": "Consumo del vehículo eléctrico",
+    "ar": "استهلاك المركبة الكهربائية",
+    "ru": "Расход электромобиля"
+  },
+  "Electricity Price": {
+    "de": "Strompreis",
+    "es": "Precio de la electricidad",
+    "ar": "سعر الكهرباء",
+    "ru": "Цена электроэнергии"
+  },
+  "Vehicle Fuel Consumption": {
+    "de": "Kraftstoffverbrauch des Fahrzeugs",
+    "es": "Consumo de combustible del vehículo",
+    "ar": "استهلاك وقود المركبة",
+    "ru": "Расход топлива авто"
+  },
+  "Fuel Price": {
+    "de": "Kraftstoffpreis",
+    "es": "Precio del combustible",
+    "ar": "سعر الوقود",
+    "ru": "Цена топлива"
+  },
+  "ESTIMATED TIME": {
+    "de": "GESCHÄTZTE DAUER",
+    "es": "TIEMPO ESTIMADO",
+    "ar": "المدة التقديرية",
+    "ru": "РАСЧЁТНОЕ ВРЕМЯ"
+  },
+  "Energy": {
+    "de": "Energie",
+    "es": "Energía",
+    "ar": "الطاقة",
+    "ru": "Энергия"
+  },
+  "Range Added": {
+    "de": "Zusätzliche Reichweite",
+    "es": "Autonomía añadida",
+    "ar": "المدى المُضاف",
+    "ru": "Добавленный запас хода"
+  },
+  "Efficiency": {
+    "de": "Effizienz",
+    "es": "Eficiencia",
+    "ar": "الكفاءة",
+    "ru": "Эффективность"
+  },
+  "Electricity Cost": {
+    "de": "Stromkosten",
+    "es": "Coste de electricidad",
+    "ar": "تكلفة الكهرباء",
+    "ru": "Стоимость электроэнергии"
+  },
+  "Electricity Tariff": {
+    "de": "Stromtarif",
+    "es": "Tarifa eléctrica",
+    "ar": "تعرفة الكهرباء",
+    "ru": "Тариф на электроэнергию"
+  },
+  "Annual Fuel Savings": {
+    "de": "Jährliche Kraftstoffersparnis",
+    "es": "Ahorro anual de combustible",
+    "ar": "التوفير السنوي في الوقود",
+    "ru": "Годовая экономия на топливе"
+  },
+  "fuel vs. electricity difference": {
+    "de": "Differenz Kraftstoff vs. Strom",
+    "es": "diferencia entre combustible y electricidad",
+    "ar": "الفرق بين الوقود والكهرباء",
+    "ru": "разница между топливом и электричеством"
+  },
+  "EV Cost": {
+    "de": "EV-Kosten",
+    "es": "Coste del vehículo eléctrico",
+    "ar": "تكلفة المركبة الكهربائية",
+    "ru": "Затраты на электромобиль"
+  },
+  "Fuel Cost": {
+    "de": "Kraftstoffkosten",
+    "es": "Coste del combustible",
+    "ar": "تكلفة الوقود",
+    "ru": "Затраты на топливо"
+  },
+  "Monthly Savings": {
+    "de": "Monatliche Ersparnis",
+    "es": "Ahorro mensual",
+    "ar": "التوفير الشهري",
+    "ru": "Экономия в месяц"
+  },
+  "CO₂ Savings": {
+    "de": "CO₂-Ersparnis",
+    "es": "Ahorro de CO₂",
+    "ar": "توفير CO₂",
+    "ru": "Сокращение CO₂"
+  },
+  "tons/yr": {
+    "de": "t/Jahr",
+    "es": "t/año",
+    "ar": "طن/سنة",
+    "ru": "т/год"
+  },
+  "EV / yr": {
+    "de": "EV / Jahr",
+    "es": "EV / año",
+    "ar": "كهربائية / سنة",
+    "ru": "Электромобиль / год"
+  },
+  "Fuel / yr": {
+    "de": "Kraftstoff / Jahr",
+    "es": "Combustible / año",
+    "ar": "وقود / سنة",
+    "ru": "Топливо / год"
+  },
+  "Calculations are estimates. Actual results vary depending on vehicle model, driving habits and current tariff prices.": {
+    "de": "Die Berechnungen sind Schätzwerte. Die tatsächlichen Ergebnisse hängen von Fahrzeugmodell, Fahrverhalten und aktuellen Tarifpreisen ab.",
+    "es": "Los cálculos son estimaciones. Los resultados reales pueden variar según el modelo del vehículo, los hábitos de conducción y las tarifas vigentes.",
+    "ar": "الحسابات تقديرية. قد تختلف النتائج الفعلية حسب موديل المركبة وعادات القيادة وأسعار التعرفة الحالية.",
+    "ru": "Расчёты являются ориентировочными. Фактические результаты зависят от модели авто, стиля вождения и текущих тарифов."
+  },
+  "Home Electricity": {
+    "de": "Haushaltsstrom",
+    "es": "Electricidad doméstica",
+    "ar": "كهرباء المنزل",
+    "ru": "Домашнее электричество"
+  },
+  "~5-6 ₺/kWh · Residential rate": {
+    "de": "~5–6 ₺/kWh · Haushaltstarif",
+    "es": "~5-6 ₺/kWh · Tarifa residencial",
+    "ar": "~5-6 ₺/kWh · تعرفة سكنية",
+    "ru": "~5–6 ₺/кВт·ч · Тариф для жилья"
+  },
+  "AC Public Station": {
+    "de": "Öffentliche AC-Station",
+    "es": "Estación pública AC",
+    "ar": "محطة AC عامة",
+    "ru": "Публичная станция AC"
+  },
+  "~9-11 ₺/kWh · Public": {
+    "de": "~9–11 ₺/kWh · Öffentlich",
+    "es": "~9-11 ₺/kWh · Pública",
+    "ar": "~9-11 ₺/kWh · عامة",
+    "ru": "~9–11 ₺/кВт·ч · Публичная"
+  },
+  "Night Tariff": {
+    "de": "Nachttarif",
+    "es": "Tarifa nocturna",
+    "ar": "التعرفة الليلية",
+    "ru": "Ночной тариф"
+  },
+  "kW (vehicle limit)": {
+    "de": "kW (Fahrzeuggrenze)",
+    "es": "kW (límite del vehículo)",
+    "ar": "kW (حد المركبة)",
+    "ru": "кВт (ограничение авто)"
+  },
+  "Back to home": {
+    "de": "Zurück zur Startseite",
+    "es": "Volver al inicio",
+    "ar": "العودة إلى الرئيسية",
+    "ru": "На главную"
+  },
+  "Corporate & OEM Solutions": {
+    "de": "Firmenkunden- & OEM-Lösungen",
+    "es": "Soluciones corporativas y OEM",
+    "ar": "حلول الشركات وOEM",
+    "ru": "Корпоративные и OEM-решения"
+  },
+  "For EV Infrastructure": {
+    "de": "Für EV-Infrastruktur",
+    "es": "Para infraestructura de vehículos eléctricos",
+    "ar": "لبنية شحن المركبات الكهربائية",
+    "ru": "Для инфраструктуры электромобилей"
+  },
+  "Professional Solutions": {
+    "de": "Professionelle Lösungen",
+    "es": "Soluciones profesionales",
+    "ar": "حلول احترافية",
+    "ru": "Профессиональные решения"
+  },
+  "Technical product portfolio for charging-network operators, OEM manufacturers and system integrators.": {
+    "de": "Technisches Produktportfolio für Ladenetzbetreiber, OEM-Hersteller und Systemintegratoren.",
+    "es": "Portafolio técnico de productos para operadores de red de carga, fabricantes OEM e integradores de sistemas.",
+    "ar": "محفظة منتجات فنية لمشغّلي شبكات الشحن ومصنّعي OEM ومتكاملي الأنظمة.",
+    "ru": "Технический портфель продукции для операторов зарядных сетей, OEM-производителей и системных интеграторов."
+  },
+  "OEM Manufacturer": {
+    "de": "OEM-Hersteller",
+    "es": "Fabricante OEM",
+    "ar": "مصنّع OEM",
+    "ru": "OEM-производитель"
+  },
+  "System Integrator": {
+    "de": "Systemintegrator",
+    "es": "Integrador de sistemas",
+    "ar": "متكامل أنظمة",
+    "ru": "Системный интегратор"
+  },
+  "Project Contractor": {
+    "de": "Projektunternehmer",
+    "es": "Contratista de proyectos",
+    "ar": "مقاول مشاريع",
+    "ru": "Подрядчик проекта"
+  },
+  "Made in Turkey": {
+    "de": "Made in Türkei",
+    "es": "Fabricado en Turquía",
+    "ar": "صُنع في تركيا",
+    "ru": "Сделано в Турции"
+  },
+  "Production in our Bursa facilities; short lead times and customs-free logistics.": {
+    "de": "Fertigung in unseren Werken in Bursa; kurze Lieferzeiten und zollfreie Logistik.",
+    "es": "Producción en nuestras instalaciones de Bursa; plazos de entrega cortos y logística sin aduanas.",
+    "ar": "إنتاج في منشآتنا بمدينة بورصة؛ مدد تسليم قصيرة وخدمات لوجستية دون جمارك.",
+    "ru": "Производство на наших предприятиях в Бурсе; короткие сроки поставки и логистика без таможенных пошлин."
+  },
+  "Serial Production Capacity": {
+    "de": "Serienfertigungskapazität",
+    "es": "Capacidad de producción en serie",
+    "ar": "سعة الإنتاج المتسلسل",
+    "ru": "Мощности серийного производства"
+  },
+  "High monthly volume capacity for AC / DC charging cables and charging sockets.": {
+    "de": "Hohe monatliche Produktionskapazität für AC-/DC-Ladekabel und Ladesteckdosen.",
+    "es": "Alta capacidad de volumen mensual de cables de carga y tomas de carga AC / DC.",
+    "ar": "سعة إنتاج شهرية كبيرة لكابلات الشحن AC / DC ومقابس الشحن.",
+    "ru": "Высокие месячные объёмы производства зарядных кабелей AC / DC и зарядных розеток."
+  },
+  "International Certifications": {
+    "de": "Internationale Zertifizierungen",
+    "es": "Certificaciones internacionales",
+    "ar": "شهادات دولية",
+    "ru": "Международные сертификаты"
+  },
+  "CE, TÜV and IEC 62196 compliant products — portfolio ready for European export.": {
+    "de": "CE-, TÜV- und IEC 62196-konforme Produkte – Portfolio bereit für den Export nach Europa.",
+    "es": "Productos conformes con CE, TÜV e IEC 62196 — portafolio listo para exportación a Europa.",
+    "ar": "منتجات متوافقة مع CE وTÜV وIEC 62196 — محفظة جاهزة للتصدير إلى أوروبا.",
+    "ru": "Продукция, соответствующая CE, TÜV и IEC 62196 — портфель, готовый к экспорту в Европу."
+  },
+  "Custom Configuration": {
+    "de": "Individuelle Konfiguration",
+    "es": "Configuración personalizada",
+    "ar": "إعداد مخصّص",
+    "ru": "Индивидуальная конфигурация"
+  },
+  "Custom length, color and connector options (Type 2 / CCS2 / GB-T).": {
+    "de": "Individuelle Länge, Farbe und Steckertypen (Type 2 / CCS2 / GB-T).",
+    "es": "Opciones personalizadas de longitud, color y conector (Type 2 / CCS2 / GB-T).",
+    "ar": "خيارات مخصّصة للطول واللون والموصّل (Type 2 / CCS2 / GB-T).",
+    "ru": "Индивидуальная длина, цвет и варианты разъёмов (Type 2 / CCS2 / GB-T)."
+  },
+  "Fast Samples & Documentation": {
+    "de": "Schnelle Muster & Dokumentation",
+    "es": "Muestras y documentación rápidas",
+    "ar": "عيّنات ووثائق سريعة",
+    "ru": "Быстрые образцы и документация"
+  },
+  "Fast prototype samples; datasheet, 3D model and test report sharing.": {
+    "de": "Schnelle Prototyp-Muster; Bereitstellung von Datenblatt, 3D-Modell und Prüfbericht.",
+    "es": "Muestras rápidas de prototipos; entrega de ficha técnica, modelo 3D e informe de pruebas.",
+    "ar": "عيّنات نماذج أولية سريعة؛ مشاركة صحيفة البيانات والنموذج ثلاثي الأبعاد وتقرير الاختبار.",
+    "ru": "Быстрые образцы для прототипов; предоставление даташитов, 3D-моделей и протоколов испытаний."
+  },
+  "OEM After-Sales": {
+    "de": "OEM-Kundendienst",
+    "es": "Posventa OEM",
+    "ar": "خدمات OEM بعد البيع",
+    "ru": "OEM-послепродажное обслуживание"
+  },
+  "Warranty, spare parts and engineering-level technical support.": {
+    "de": "Garantie, Ersatzteile und technischer Support auf Ingenieursebene.",
+    "es": "Garantía, repuestos y soporte técnico a nivel de ingeniería.",
+    "ar": "ضمان وقطع غيار ودعم فني على المستوى الهندسي.",
+    "ru": "Гарантия, запчасти и техническая поддержка на инженерном уровне."
+  },
+  "EV Manufacturer (OEM)": {
+    "de": "EV-Hersteller (OEM)",
+    "es": "Fabricante de vehículos eléctricos (OEM)",
+    "ar": "مصنّع مركبات كهربائية (OEM)",
+    "ru": "Производитель электромобилей (OEM)"
+  },
+  "Project Contractor / EPC": {
+    "de": "Projektunternehmer / EPC",
+    "es": "Contratista de proyectos / EPC",
+    "ar": "مقاول مشاريع / EPC",
+    "ru": "Подрядчик проекта / EPC"
+  },
+  "Distributor / Dealer": {
+    "de": "Distributor / Händler",
+    "es": "Distribuidor / concesionario",
+    "ar": "موزّع / وكيل",
+    "ru": "Дистрибьютор / дилер"
+  },
+  "Public / Municipality": {
+    "de": "Öffentlicher Sektor / Kommune",
+    "es": "Sector público / municipio",
+    "ar": "جهة عامة / بلدية",
+    "ru": "Госсектор / муниципалитет"
+  },
+  "DC Fast Charging Unit": {
+    "de": "DC-Schnellladeeinheit",
+    "es": "Unidad de carga rápida DC",
+    "ar": "وحدة شحن DC السريع",
+    "ru": "Блок быстрой зарядки DC"
+  },
+  "Charging Panel & Distribution": {
+    "de": "Ladeverteiler & Verteilung",
+    "es": "Panel de carga y distribución",
+    "ar": "لوحة الشحن والتوزيع",
+    "ru": "Зарядный щит и распределение"
+  },
+  "DC Charging Cable (CCS2)": {
+    "de": "DC-Ladekabel (CCS2)",
+    "es": "Cable de carga DC (CCS2)",
+    "ar": "كابل شحن DC (CCS2)",
+    "ru": "Зарядный кабель DC (CCS2)"
+  },
+  "Electronic Control Unit (ECU)": {
+    "de": "Elektronische Steuereinheit (ECU)",
+    "es": "Unidad de control electrónico (ECU)",
+    "ar": "وحدة التحكم الإلكترونية (ECU)",
+    "ru": "Электронный блок управления (ECU)"
+  },
+  "Why Bemis?": {
+    "de": "Warum Bemis?",
+    "es": "¿Por qué Bemis?",
+    "ar": "لماذا Bemis؟",
+    "ru": "Почему Bemis?"
+  },
+  "Supply & Partnership Inquiry": {
+    "de": "Liefer- & Partnerschaftsanfrage",
+    "es": "Consulta de suministro y colaboración",
+    "ar": "استفسار عن التوريد والشراكة",
+    "ru": "Запрос на поставку и партнёрство"
+  },
+  "Fill the form for OEM-specific pricing, technical documents and sample requests.": {
+    "de": "Füllen Sie das Formular für OEM-Preise, technische Unterlagen und Musteranfragen aus.",
+    "es": "Complete el formulario para precios OEM, documentación técnica y solicitudes de muestras.",
+    "ar": "املأ النموذج للحصول على أسعار خاصة بـ OEM ووثائق فنية وطلبات عيّنات.",
+    "ru": "Заполните форму для получения OEM-цен, технической документации и образцов."
+  },
+  "Full Name *": {
+    "de": "Vor- und Nachname *",
+    "es": "Nombre completo *",
+    "ar": "الاسم الكامل *",
+    "ru": "Имя и фамилия *"
+  },
+  "Company *": {
+    "de": "Unternehmen *",
+    "es": "Empresa *",
+    "ar": "الشركة *",
+    "ru": "Компания *"
+  },
+  "Email *": {
+    "de": "E-Mail *",
+    "es": "Correo electrónico *",
+    "ar": "البريد الإلكتروني *",
+    "ru": "Эл. почта *"
+  },
+  "Sector *": {
+    "de": "Branche *",
+    "es": "Sector *",
+    "ar": "القطاع *",
+    "ru": "Отрасль *"
+  },
+  "Select your sector": {
+    "de": "Branche auswählen",
+    "es": "Seleccione su sector",
+    "ar": "اختر قطاعك",
+    "ru": "Выберите вашу отрасль"
+  },
+  "Products / Services of Interest": {
+    "de": "Produkte / Leistungen von Interesse",
+    "es": "Productos / servicios de interés",
+    "ar": "المنتجات / الخدمات محل الاهتمام",
+    "ru": "Интересующие товары / услуги"
+  },
+  "Message / Request Details": {
+    "de": "Nachricht / Anfragedetails",
+    "es": "Detalles del mensaje / solicitud",
+    "ar": "تفاصيل الرسالة / الطلب",
+    "ru": "Сообщение / детали запроса"
+  },
+  "Project scope, quantity, technical requirements...": {
+    "de": "Projektumfang, Menge, technische Anforderungen...",
+    "es": "Alcance del proyecto, cantidad, requisitos técnicos...",
+    "ar": "نطاق المشروع، الكمية، المتطلبات الفنية...",
+    "ru": "Объём проекта, количество, технические требования..."
+  },
+  "Send Application": {
+    "de": "Bewerbung senden",
+    "es": "Enviar solicitud",
+    "ar": "إرسال الطلب",
+    "ru": "Отправить заявку"
+  },
+  "Application Received": {
+    "de": "Bewerbung erhalten",
+    "es": "Solicitud recibida",
+    "ar": "تم استلام الطلب",
+    "ru": "Заявка получена"
+  },
+  "Our sales engineering team will contact you shortly.": {
+    "de": "Unser Vertriebsingenieurteam wird sich in Kürze mit Ihnen in Verbindung setzen.",
+    "es": "Nuestro equipo de ingeniería de ventas se pondrá en contacto con usted en breve.",
+    "ar": "سيتواصل معك فريق هندسة المبيعات لدينا قريبًا.",
+    "ru": "Наш отдел технических продаж свяжется с вами в ближайшее время."
+  },
+  "An error occurred while sending.": {
+    "de": "Beim Senden ist ein Fehler aufgetreten.",
+    "es": "Se produjo un error al enviar.",
+    "ar": "حدث خطأ أثناء الإرسال.",
+    "ru": "Произошла ошибка при отправке."
+  },
+  "Professional Product Portfolio": {
+    "de": "Professionelles Produktportfolio",
+    "es": "Portafolio profesional de productos",
+    "ar": "محفظة منتجات احترافية",
+    "ru": "Профессиональный портфель продукции"
+  },
+  "Technical equipment for operators, OEM manufacturers and fleet managers.": {
+    "de": "Technische Ausrüstung für Betreiber, OEM-Hersteller und Flottenmanager.",
+    "es": "Equipos técnicos para operadores, fabricantes OEM y gestores de flotas.",
+    "ar": "معدّات فنية للمشغّلين ومصنّعي OEM ومديري الأساطيل.",
+    "ru": "Техническое оборудование для операторов, OEM-производителей и управляющих автопарками."
+  },
+  "Manufacturer Portfolio": {
+    "de": "Herstellerportfolio",
+    "es": "Portafolio para fabricantes",
+    "ar": "محفظة المصنّعين",
+    "ru": "Портфель для производителей"
+  },
+  "Featured Products for Charging Unit Manufacturers": {
+    "de": "Ausgewählte Produkte für Ladeeinheiten-Hersteller",
+    "es": "Productos destacados para fabricantes de unidades de carga",
+    "ar": "منتجات مميّزة لمصنّعي وحدات الشحن",
+    "ru": "Рекомендуемые продукты для производителей зарядных станций"
+  },
+  "Charging cables and sockets for AC and DC unit manufacturers — open-end configurations, multiple length and connector options.": {
+    "de": "Ladekabel und Steckdosen für AC- und DC-Einheitenhersteller – Konfigurationen mit offenem Ende, verschiedene Längen und Steckertypen.",
+    "es": "Cables y tomas de carga para fabricantes de unidades AC y DC — configuraciones de extremo abierto y múltiples opciones de longitud y conector.",
+    "ar": "كابلات ومقابس شحن لمصنّعي وحدات AC وDC — تكوينات بطرف مفتوح وخيارات متعددة للطول والموصّل.",
+    "ru": "Зарядные кабели и розетки для производителей блоков AC и DC — конфигурации со свободным концом, различные варианты длины и разъёмов."
+  },
+  "View Product": {
+    "de": "Produkt ansehen",
+    "es": "Ver producto",
+    "ar": "عرض المنتج",
+    "ru": "Смотреть продукт"
+  },
+  "Technical Quote Request": {
+    "de": "Technische Angebotsanfrage",
+    "es": "Solicitud de presupuesto técnico",
+    "ar": "طلب عرض سعر فني",
+    "ru": "Запрос технического предложения"
+  },
+  "Get a Quote": {
+    "de": "Angebot anfordern",
+    "es": "Solicitar presupuesto",
+    "ar": "احصل على عرض سعر",
+    "ru": "Получить предложение"
+  },
+  "John Smith": {
+    "de": "Max Mustermann",
+    "es": "John Smith",
+    "ar": "أحمد محمد",
+    "ru": "Иван Иванов"
+  },
+  "ABC Technology Inc.": {
+    "de": "ABC Technologie GmbH",
+    "es": "ABC Technology Inc.",
+    "ar": "شركة ABC للتكنولوجيا",
+    "ru": "ООО «АБВ Технологии»"
+  },
+  "john@company.com": {
+    "de": "max@firma.com",
+    "es": "john@empresa.com",
+    "ar": "ahmad@company.com",
+    "ru": "ivan@company.com"
+  },
+  "OEM & Manufacturers": {
+    "de": "OEM & Hersteller",
+    "es": "OEM y fabricantes",
+    "ar": "OEM والمصنّعون",
+    "ru": "OEM и производители"
+  },
+  "Technical portfolio & engineering support": {
+    "de": "Technisches Portfolio & Engineering-Support",
+    "es": "Portafolio técnico y soporte de ingeniería",
+    "ar": "محفظة فنية ودعم هندسي",
+    "ru": "Технический портфель и инженерная поддержка"
+  },
+  "Dealer & Distributor": {
+    "de": "Händler & Distributor",
+    "es": "Concesionario y distribuidor",
+    "ar": "الوكلاء والموزّعون",
+    "ru": "Дилер и дистрибьютор"
+  },
+  "Türkiye dealership & international distribution": {
+    "de": "Vertretung in der Türkei & internationaler Vertrieb",
+    "es": "Concesionarios en Türkiye y distribución internacional",
+    "ar": "وكالة في تركيا وتوزيع دولي",
+    "ru": "Дилерство в Турции и международная дистрибуция"
+  },
+  "Charging Network Operators": {
+    "de": "Ladenetzbetreiber",
+    "es": "Operadores de red de carga",
+    "ar": "مشغّلو شبكات الشحن",
+    "ru": "Операторы зарядных сетей"
+  },
+  "OCPP equipment, DLM, remote monitoring": {
+    "de": "OCPP-Ausrüstung, DLM, Fernüberwachung",
+    "es": "Equipos OCPP, DLM, monitorización remota",
+    "ar": "معدّات OCPP وDLM ومراقبة عن بُعد",
+    "ru": "Оборудование OCPP, DLM, удалённый мониторинг"
+  },
+  "Bemis World": {
+    "de": "Bemis Welt",
+    "es": "Mundo Bemis",
+    "ar": "عالم Bemis",
+    "ru": "Мир Bemis"
+  },
+  "History, brand story, Bemis group": {
+    "de": "Geschichte, Markenstory, Bemis Gruppe",
+    "es": "Historia, trayectoria de la marca, grupo Bemis",
+    "ar": "التاريخ، قصة العلامة، مجموعة Bemis",
+    "ru": "История, история бренда, группа Bemis"
+  },
+  "Local Manufacturing": {
+    "de": "Lokale Fertigung",
+    "es": "Fabricación local",
+    "ar": "التصنيع المحلي",
+    "ru": "Местное производство"
+  },
+  "Made in Türkiye, production, OEM": {
+    "de": "Made in Türkei, Produktion, OEM",
+    "es": "Fabricado en Türkiye, producción, OEM",
+    "ar": "صُنع في تركيا، الإنتاج، OEM",
+    "ru": "Сделано в Турции, производство, OEM"
+  },
+  "Blog & News": {
+    "de": "Blog & News",
+    "es": "Blog y noticias",
+    "ar": "المدوّنة والأخبار",
+    "ru": "Блог и новости"
+  },
+  "Guides, news & trade-show updates": {
+    "de": "Ratgeber, News & Messe-Updates",
+    "es": "Guías, noticias y novedades de ferias",
+    "ar": "أدلة وأخبار ومستجدّات المعارض",
+    "ru": "Руководства, новости и репортажи с выставок"
+  },
+  "Calculator": {
+    "de": "Rechner",
+    "es": "Calculadora",
+    "ar": "الحاسبة",
+    "ru": "Калькулятор"
+  },
+  "Cost & charge-time calculator": {
+    "de": "Kosten- & Ladezeitrechner",
+    "es": "Calculadora de coste y tiempo de carga",
+    "ar": "حاسبة التكلفة ومدة الشحن",
+    "ru": "Расчёт стоимости и времени зарядки"
+  },
+  "Guides": {
+    "de": "Ratgeber",
+    "es": "Guías",
+    "ar": "الأدلة",
+    "ru": "Руководства"
+  },
+  "EV charging guides & articles": {
+    "de": "EV-Laderatgeber & Fachartikel",
+    "es": "Guías y artículos sobre carga de vehículos eléctricos",
+    "ar": "أدلة ومقالات شحن المركبات الكهربائية",
+    "ru": "Руководства и статьи по зарядке электромобилей"
+  },
+  "FAQ": {
+    "de": "FAQ",
+    "es": "Preguntas frecuentes",
+    "ar": "الأسئلة الشائعة",
+    "ru": "Вопросы и ответы"
+  },
+  "Frequently asked questions": {
+    "de": "Häufig gestellte Fragen",
+    "es": "Preguntas frecuentes",
+    "ar": "الأسئلة المتكرّرة",
+    "ru": "Часто задаваемые вопросы"
+  },
+  "Glossary": {
+    "de": "Glossar",
+    "es": "Glosario",
+    "ar": "المصطلحات",
+    "ru": "Словарь терминов"
+  },
+  "EV charging terms": {
+    "de": "EV-Ladebegriffe",
+    "es": "Términos de carga de vehículos eléctricos",
+    "ar": "مصطلحات شحن المركبات الكهربائية",
+    "ru": "Термины зарядки электромобилей"
+  },
+  "Price List": {
+    "de": "Preisliste",
+    "es": "Lista de precios",
+    "ar": "قائمة الأسعار",
+    "ru": "Прайс-лист"
+  },
+  "Catalog": {
+    "de": "Katalog",
+    "es": "Catálogo",
+    "ar": "الكتالوج",
+    "ru": "Каталог"
+  },
+  "Installation Guide": {
+    "de": "Installationsanleitung",
+    "es": "Guía de instalación",
+    "ar": "دليل التركيب",
+    "ru": "Руководство по установке"
+  },
+  "Certificates": {
+    "de": "Zertifikate",
+    "es": "Certificados",
+    "ar": "الشهادات",
+    "ru": "Сертификаты"
+  },
+  "Technical Document": {
+    "de": "Technisches Dokument",
+    "es": "Documento técnico",
+    "ar": "وثيقة فنية",
+    "ru": "Техническая документация"
+  },
+  "Product Categories": {
+    "de": "Produktkategorien",
+    "es": "Categorías de productos",
+    "ar": "فئات المنتجات",
+    "ru": "Категории продукции"
+  },
+  "Browse all products": {
+    "de": "Alle Produkte durchsuchen",
+    "es": "Ver todos los productos",
+    "ar": "تصفّح جميع المنتجات",
+    "ru": "Смотреть все продукты"
+  },
+  "→ Browse all products": {
+    "de": "→ Alle Produkte durchsuchen",
+    "es": "→ Ver todos los productos",
+    "ar": "← تصفّح جميع المنتجات",
+    "ru": "→ Смотреть все продукты"
+  },
+  "Fair": {
+    "de": "Messe",
+    "es": "Ferias",
+    "ar": "معرض",
+    "ru": "Выставки"
+  },
+  "Social": {
+    "de": "Social Media",
+    "es": "Redes sociales",
+    "ar": "التواصل الاجتماعي",
+    "ru": "Соцсети"
+  },
+  "News": {
+    "de": "News",
+    "es": "Noticias",
+    "ar": "الأخبار",
+    "ru": "Новости"
+  },
+  "News & Fairs": {
+    "de": "News & Messen",
+    "es": "Noticias y ferias",
+    "ar": "الأخبار والمعارض",
+    "ru": "Новости и выставки"
+  },
+  "Read": {
+    "de": "Lesen",
+    "es": "Leer",
+    "ar": "قراءة",
+    "ru": "Читать"
+  },
+  "No questions yet.": {
+    "de": "Noch keine Fragen.",
+    "es": "Aún no hay preguntas.",
+    "ar": "لا توجد أسئلة بعد.",
+    "ru": "Пока нет вопросов."
+  },
+  "Read Summary": {
+    "de": "Zusammenfassung lesen",
+    "es": "Leer resumen",
+    "ar": "قراءة الملخص",
+    "ru": "Читать кратко"
+  },
+  "min read": {
+    "de": "Min. Lesezeit",
+    "es": "min de lectura",
+    "ar": "دقيقة قراءة",
+    "ru": "мин чтения"
+  },
+  "Frequently Asked Questions": {
+    "de": "Häufig gestellte Fragen",
+    "es": "Preguntas frecuentes",
+    "ar": "الأسئلة الشائعة",
+    "ru": "Часто задаваемые вопросы"
+  },
+  "Related": {
+    "de": "Ähnliches",
+    "es": "Relacionados",
+    "ar": "ذات صلة",
+    "ru": "Похожее"
+  },
+  "This is a curated summary. Read the full story at the source:": {
+    "de": "Dies ist eine redaktionelle Zusammenfassung. Den vollständigen Beitrag finden Sie an der Quelle:",
+    "es": "Este es un resumen editado. Lea la noticia completa en la fuente:",
+    "ar": "هذا ملخص منسّق. اقرأ القصة كاملة من المصدر:",
+    "ru": "Это краткое изложение. Читайте полностью в источнике:"
+  },
+  "Read source": {
+    "de": "Quelle lesen",
+    "es": "Ver fuente",
+    "ar": "قراءة المصدر",
+    "ru": "Читать источник"
+  },
+  "Other News": {
+    "de": "Weitere News",
+    "es": "Otras noticias",
+    "ar": "أخبار أخرى",
+    "ru": "Другие новости"
+  },
+  "EV Charging Products": {
+    "de": "EV-Ladeprodukte",
+    "es": "Productos de carga para vehículos eléctricos",
+    "ar": "منتجات شحن السيارات الكهربائية",
+    "ru": "Зарядные устройства для электромобилей"
+  },
+  "2-Year Manufacturer Warranty": {
+    "de": "2 Jahre Herstellergarantie",
+    "es": "Garantía del fabricante de 2 años",
+    "ar": "ضمان المُصنّع لمدة عامين",
+    "ru": "Гарантия производителя 2 года"
+  },
+  "Product not found": {
+    "de": "Produkt nicht gefunden",
+    "es": "Producto no encontrado",
+    "ar": "المنتج غير موجود",
+    "ru": "Товар не найден"
+  },
+  "Back to all products": {
+    "de": "Zurück zu allen Produkten",
+    "es": "Volver a todos los productos",
+    "ar": "العودة إلى جميع المنتجات",
+    "ru": "Ко всем товарам"
+  },
+  "Products": {
+    "de": "Produkte",
+    "es": "Productos",
+    "ar": "المنتجات",
+    "ru": "Продукция"
+  },
+  "Version": {
+    "de": "Version",
+    "es": "Versión",
+    "ar": "الإصدار",
+    "ru": "Версия"
+  },
+  "Standard": {
+    "de": "Standard",
+    "es": "Estándar",
+    "ar": "قياسي",
+    "ru": "Стандартная"
+  },
+  "Download PDF Catalog": {
+    "de": "PDF-Katalog herunterladen",
+    "es": "Descargar catálogo en PDF",
+    "ar": "تنزيل كتالوج PDF",
+    "ru": "Скачать каталог PDF"
+  },
+  "What's in the Box": {
+    "de": "Lieferumfang",
+    "es": "Contenido de la caja",
+    "ar": "محتويات العلبة",
+    "ru": "Комплектация"
+  },
+  "no image": {
+    "de": "kein Bild",
+    "es": "sin imagen",
+    "ar": "لا توجد صورة",
+    "ru": "нет изображения"
+  },
+  "Compatible Vehicles": {
+    "de": "Kompatible Fahrzeuge",
+    "es": "Vehículos compatibles",
+    "ar": "المركبات المتوافقة",
+    "ru": "Совместимые автомобили"
+  },
+  "Dealers": {
+    "de": "Händler",
+    "es": "Distribuidores",
+    "ar": "الموزّعون",
+    "ru": "Дилеры"
+  },
+  "Document": {
+    "de": "Dokument",
+    "es": "Documento",
+    "ar": "مستند",
+    "ru": "Документ"
+  },
+  "Overview": {
+    "de": "Überblick",
+    "es": "Resumen",
+    "ar": "نظرة عامة",
+    "ru": "Обзор"
+  },
+  "Specifications": {
+    "de": "Technische Daten",
+    "es": "Especificaciones",
+    "ar": "المواصفات",
+    "ru": "Характеристики"
+  },
+  "Documents": {
+    "de": "Dokumente",
+    "es": "Documentos",
+    "ar": "المستندات",
+    "ru": "Документы"
+  },
+  "Excl. Tax": {
+    "de": "zzgl. MwSt.",
+    "es": "sin IVA",
+    "ar": "بدون ضريبة",
+    "ru": "без НДС"
+  },
+  "Price": {
+    "de": "Preis",
+    "es": "Precio",
+    "ar": "السعر",
+    "ru": "Цена"
+  },
+  "+ Tax": {
+    "de": "+ MwSt.",
+    "es": "+ IVA",
+    "ar": "+ ضريبة",
+    "ru": "+ НДС"
+  },
+  "Download": {
+    "de": "Herunterladen",
+    "es": "Descargar",
+    "ar": "تنزيل",
+    "ru": "Скачать"
+  },
+  "Smart Management": {
+    "de": "Smart-Management",
+    "es": "Gestión inteligente",
+    "ar": "الإدارة الذكية",
+    "ru": "Умное управление"
+  },
+  "Manage your charger from anywhere": {
+    "de": "Steuern Sie Ihre Ladestation von überall",
+    "es": "Gestione su cargador desde cualquier lugar",
+    "ar": "أدِر شاحنك من أي مكان",
+    "ru": "Управляйте зарядкой из любой точки"
+  },
+  "Download on": {
+    "de": "Herunterladen bei",
+    "es": "Descargar en",
+    "ar": "حمّله من",
+    "ru": "Загрузите в"
+  },
+  "Related Products": {
+    "de": "Ähnliche Produkte",
+    "es": "Productos relacionados",
+    "ar": "منتجات ذات صلة",
+    "ru": "Похожие товары"
+  },
+  "Product category not found": {
+    "de": "Produktkategorie nicht gefunden",
+    "es": "Categoría de producto no encontrada",
+    "ar": "فئة المنتج غير موجودة",
+    "ru": "Категория товаров не найдена"
+  },
+  "Product Category": {
+    "de": "Produktkategorie",
+    "es": "Categoría de producto",
+    "ar": "فئة المنتج",
+    "ru": "Категория товаров"
+  },
+  "versions": {
+    "de": "Versionen",
+    "es": "versiones",
+    "ar": "إصدارات",
+    "ru": "версии"
+  },
+  "different versions": {
+    "de": "verschiedene Versionen",
+    "es": "versiones diferentes",
+    "ar": "إصدارات مختلفة",
+    "ru": "разных версий"
+  },
+  "Details": {
+    "de": "Details",
+    "es": "Detalles",
+    "ar": "التفاصيل",
+    "ru": "Подробнее"
+  },
+  "Find a Dealer": {
+    "de": "Händler finden",
+    "es": "Encontrar un distribuidor",
+    "ar": "ابحث عن موزّع",
+    "ru": "Найти дилера"
+  },
+  "Find a Dealer & Buy": {
+    "de": "Händler finden & kaufen",
+    "es": "Encontrar un distribuidor y comprar",
+    "ar": "ابحث عن موزّع واشترِ",
+    "ru": "Найти дилера и купить"
+  },
+  "buy from our authorized dealers": {
+    "de": "bei unseren autorisierten Händlern kaufen",
+    "es": "compre en nuestros distribuidores autorizados",
+    "ar": "اشترِ من موزّعينا المعتمدين",
+    "ru": "купить у наших официальных дилеров"
+  },
+  "Buy from our authorized dealers": {
+    "de": "Bei unseren autorisierten Händlern kaufen",
+    "es": "Compre en nuestros distribuidores autorizados",
+    "ar": "اشترِ من موزّعينا المعتمدين",
+    "ru": "Купить у наших официальных дилеров"
+  },
+  "Search city or company…": {
+    "de": "Stadt oder Unternehmen suchen…",
+    "es": "Buscar ciudad o empresa…",
+    "ar": "ابحث عن مدينة أو شركة…",
+    "ru": "Поиск по городу или компании…"
+  },
+  "Search city or company": {
+    "de": "Stadt oder Unternehmen suchen",
+    "es": "Buscar ciudad o empresa",
+    "ar": "ابحث عن مدينة أو شركة",
+    "ru": "Поиск по городу или компании"
+  },
+  "Clear search": {
+    "de": "Suche zurücksetzen",
+    "es": "Borrar búsqueda",
+    "ar": "مسح البحث",
+    "ru": "Очистить поиск"
+  },
+  "All": {
+    "de": "Alle",
+    "es": "Todos",
+    "ar": "الكل",
+    "ru": "Все"
+  },
+  "No dealers match your search.": {
+    "de": "Keine Händler für Ihre Suche gefunden.",
+    "es": "Ningún distribuidor coincide con su búsqueda.",
+    "ar": "لا يوجد موزّعون مطابقون لبحثك.",
+    "ru": "Дилеры по запросу не найдены."
+  },
+  "No dealers found.": {
+    "de": "Keine Händler gefunden.",
+    "es": "No se encontraron distribuidores.",
+    "ar": "لم يتم العثور على موزّعين.",
+    "ru": "Дилеры не найдены."
+  },
+  "Website": {
+    "de": "Website",
+    "es": "Sitio web",
+    "ar": "الموقع الإلكتروني",
+    "ru": "Сайт"
+  },
+  "Call": {
+    "de": "Anrufen",
+    "es": "Llamar",
+    "ar": "اتصال",
+    "ru": "Позвонить"
+  },
+  "No documents yet.": {
+    "de": "Noch keine Dokumente.",
+    "es": "Aún no hay documentos.",
+    "ar": "لا توجد مستندات بعد.",
+    "ru": "Пока нет документов."
+  },
+  "All Documents": {
+    "de": "Alle Dokumente",
+    "es": "Todos los documentos",
+    "ar": "جميع المستندات",
+    "ru": "Все документы"
+  },
+  "→ All Documents": {
+    "de": "→ Alle Dokumente",
+    "es": "→ Todos los documentos",
+    "ar": "→ جميع المستندات",
+    "ru": "→ Все документы"
+  },
+  "Explore": {
+    "de": "Entdecken",
+    "es": "Explorar",
+    "ar": "استكشف",
+    "ru": "Смотреть"
+  },
+  "View Category": {
+    "de": "Kategorie ansehen",
+    "es": "Ver categoría",
+    "ar": "عرض الفئة",
+    "ru": "Открыть категорию"
+  },
+  "Soon": {
+    "de": "Bald",
+    "es": "Próximamente",
+    "ar": "قريباً",
+    "ru": "Скоро"
+  },
+  "Models": {
+    "de": "Modelle",
+    "es": "Modelos",
+    "ar": "الطُرز",
+    "ru": "Модели"
+  },
+  "Customer Reviews": {
+    "de": "Kundenbewertungen",
+    "es": "Opiniones de clientes",
+    "ar": "آراء العملاء",
+    "ru": "Отзывы клиентов"
+  },
+  "News & Press": {
+    "de": "News & Presse",
+    "es": "Noticias y prensa",
+    "ar": "الأخبار والصحافة",
+    "ru": "Новости и пресса"
+  },
+  "All news": {
+    "de": "Alle News",
+    "es": "Todas las noticias",
+    "ar": "جميع الأخبار",
+    "ru": "Все новости"
+  },
+  "Summary": {
+    "de": "Zusammenfassung",
+    "es": "Resumen",
+    "ar": "الملخص",
+    "ru": "Кратко"
+  },
+  "Home": {
+    "de": "Startseite",
+    "es": "Inicio",
+    "ar": "الرئيسية",
+    "ru": "Главная"
+  },
+  "Search documents…": {
+    "de": "Dokumente suchen…",
+    "es": "Buscar documentos…",
+    "ar": "ابحث في المستندات…",
+    "ru": "Поиск документов…"
+  },
+  "No documents yet": {
+    "de": "Noch keine Dokumente",
+    "es": "Aún no hay documentos",
+    "ar": "لا توجد مستندات بعد",
+    "ru": "Пока нет документов"
+  },
+  "No results found": {
+    "de": "Keine Ergebnisse gefunden",
+    "es": "No se encontraron resultados",
+    "ar": "لم يتم العثور على نتائج",
+    "ru": "Ничего не найдено"
+  },
+  "View": {
+    "de": "Ansehen",
+    "es": "Ver",
+    "ar": "عرض",
+    "ru": "Открыть"
+  },
+  "documents": {
+    "de": "Dokumente",
+    "es": "documentos",
+    "ar": "مستندات",
+    "ru": "документы"
+  },
+  "Document not found": {
+    "de": "Dokument nicht gefunden",
+    "es": "Documento no encontrado",
+    "ar": "المستند غير موجود",
+    "ru": "Документ не найден"
+  },
+  "Open in new tab": {
+    "de": "In neuem Tab öffnen",
+    "es": "Abrir en una pestaña nueva",
+    "ar": "فتح في علامة تبويب جديدة",
+    "ru": "Открыть в новой вкладке"
+  },
+  "This file can't be previewed — download to open.": {
+    "de": "Diese Datei kann nicht in der Vorschau angezeigt werden – zum Öffnen herunterladen.",
+    "es": "Este archivo no se puede previsualizar; descárguelo para abrirlo.",
+    "ar": "لا يمكن معاينة هذا الملف — نزّله لفتحه.",
+    "ru": "Предпросмотр недоступен — скачайте, чтобы открыть."
+  },
+  "Open PDF": {
+    "de": "PDF öffnen",
+    "es": "Abrir PDF",
+    "ar": "فتح PDF",
+    "ru": "Открыть PDF"
+  },
+  "Open or download to view the PDF.": {
+    "de": "PDF öffnen oder herunterladen, um sie anzusehen.",
+    "es": "Abra o descargue el archivo para ver el PDF.",
+    "ar": "افتح أو نزّل لعرض ملف PDF.",
+    "ru": "Откройте или скачайте, чтобы просмотреть PDF."
+  }
+}

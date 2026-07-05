@@ -1,4 +1,5 @@
 "use client";
+import { pickText } from "../../../lib/ui";
 
 import { useParams, useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
@@ -189,7 +190,7 @@ export default function ProductDetailPage({
   const { categories: catMeta, smartCharger } = useContent();
   // Warranty / certification copy is fixed company policy — same line for
   // every product, no admin knob.
-  const WARRANTY_DURATION = lang === "en" ? "2-Year Manufacturer Warranty" : "2 Yıl Üretici Garantisi";
+  const WARRANTY_DURATION = pickText(lang, "2 Yıl Üretici Garantisi", "2-Year Manufacturer Warranty");
   // CE certification kept in the Belgeler tab via certificates list —
   // no longer rendered as a standalone chip alongside warranty.
   const d         = theme === "dark";
@@ -300,9 +301,9 @@ export default function ProductDetailPage({
         {/* Not found */}
         {!loading && !product && (
           <div className="text-center py-32">
-            <p className="text-lg font-bold mb-2" style={{ color: textPrimary }}>{lang === "en" ? "Product not found" : "Ürün bulunamadı"}</p>
+            <p className="text-lg font-bold mb-2" style={{ color: textPrimary }}>{pickText(lang, "Ürün bulunamadı", "Product not found")}</p>
             <button onClick={() => router.push("/products")} className="text-sm underline" style={{ color: accent }}>
-              {lang === "en" ? "Back to all products" : "Tüm ürünlere dön"}
+              {pickText(lang, "Tüm ürünlere dön", "Back to all products")}
             </button>
           </div>
         )}
@@ -313,7 +314,7 @@ export default function ProductDetailPage({
             {/* ── Breadcrumb ── */}
             <nav className="flex items-center gap-1.5 mb-6 text-xs" style={{ color: textFaint }}>
               <button onClick={() => router.push("/products")} className="hover:underline transition-colors" style={{ color: textFaint }}>
-                {lang === "en" ? "Products" : "Ürünler"}
+                {pickText(lang, "Ürünler", "Products")}
               </button>
               <RiArrowRightSLine size={13} />
               <button onClick={() => router.push(`/products/${categoryId}`)} className="hover:underline" style={{ color: textFaint }}>
@@ -410,7 +411,7 @@ export default function ProductDetailPage({
                                 className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md"
                                 style={{ background: "rgba(0,0,0,0.55)", color: "rgba(255,255,255,0.85)", backdropFilter: "blur(8px)" }}
                               >
-                                {lang === "en" ? "Version" : "Versiyon"}
+                                {pickText(lang, "Versiyon", "Version")}
                               </span>
                               <div className="flex flex-col items-end gap-1">
                                 {variantInfo.group.variants.map((v) => {
@@ -427,7 +428,7 @@ export default function ProductDetailPage({
                                         cursor: isActive ? "default" : "pointer",
                                       }}
                                     >
-                                      <span className="block leading-tight">{v.subtitle || v.code || (lang === "en" ? "Standard" : "Standart")}</span>
+                                      <span className="block leading-tight">{v.subtitle || v.code || (pickText(lang, "Standart", "Standard"))}</span>
                                       {(() => {
                                         // IP sınıfını üründen türet (ör. "Otomatlı IP44 Kombinasyon" → "IP44").
                                         // IP44/IP66 gibi aynı subtitle'a sahip varyantlar çipte ayırt edilsin.
@@ -498,7 +499,7 @@ export default function ProductDetailPage({
                           className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold transition-all hover:opacity-80"
                           style={{ background: d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)", color: textMuted, border: `1px solid ${border}` }}
                         >
-                          <HiDownload size={14} /> {lang === "en" ? "Download PDF Catalog" : "PDF Katalog İndir"}
+                          <HiDownload size={14} /> {pickText(lang, "PDF Katalog İndir", "Download PDF Catalog")}
                         </a>
                       )}
                     </div>
@@ -517,7 +518,7 @@ export default function ProductDetailPage({
                     className="mt-5"
                   >
                     <h3 className="text-[11px] font-bold uppercase tracking-wider mb-3" style={{ color: textFaint }}>
-                      {lang === "en" ? "What's in the Box" : "Paket İçeriği"}
+                      {pickText(lang, "Paket İçeriği", "What's in the Box")}
                     </h3>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                       {product.boxContents.map((item, idx) => (
@@ -546,7 +547,7 @@ export default function ProductDetailPage({
                               />
                             ) : (
                               <div className="absolute inset-0 flex items-center justify-center" style={{ color: textFaint }}>
-                                <span className="text-[10px] uppercase tracking-wider">{lang === "en" ? "no image" : "görsel yok"}</span>
+                                <span className="text-[10px] uppercase tracking-wider">{pickText(lang, "görsel yok", "no image")}</span>
                               </div>
                             )}
                           </div>
@@ -617,7 +618,7 @@ export default function ProductDetailPage({
                   {product.compatibleVehicles && product.compatibleVehicles.length > 0 && (
                     <div className="flex flex-wrap items-center gap-2 mb-3">
                       <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: textFaint }}>
-                        {lang === "en" ? "Compatible Vehicles" : "Uyumlu Araçlar"}
+                        {pickText(lang, "Uyumlu Araçlar", "Compatible Vehicles")}
                       </span>
                       {product.compatibleVehicles.map((brand) => (
                         <span
@@ -667,7 +668,7 @@ export default function ProductDetailPage({
                       className="inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all hover:opacity-80"
                       style={{ background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)", color: textPrimary, border: `1px solid ${border}` }}
                     >
-                      <RiMapPin2Line size={14} /> {lang === "en" ? "Dealers" : "Bayi Bul"}
+                      <RiMapPin2Line size={14} /> {pickText(lang, "Bayi Bul", "Dealers")}
                     </button>
                   </div>
 
@@ -737,7 +738,7 @@ export default function ProductDetailPage({
                     .filter((doc) => doc && doc.url && doc.url.trim().length > 0)
                     .filter((doc) => doc.visible !== false)
                     .filter((doc) => Array.isArray(doc.linkedProductCategories) && category && doc.linkedProductCategories.includes(category.id))
-                    .map((doc) => ({ label: doc.title || (lang === "en" ? "Document" : "Belge"), url: doc.url, size: doc.size }));
+                    .map((doc) => ({ label: doc.title || (pickText(lang, "Belge", "Document")), url: doc.url, size: doc.size }));
 
                   const seenUrls = new Set(productDocs.map((d) => d.url));
                   const mergedManuals = catManuals.filter((m) => !seenUrls.has(m.url));
@@ -757,9 +758,9 @@ export default function ProductDetailPage({
                   if (resolvedTab === "documents" && !hasDocs)     resolvedTab = hasGeneral ? "general" : "specs";
 
                   const tabs: { id: "specs" | "general" | "documents"; label: string; visible: boolean }[] = [
-                    { id: "general",   label: lang === "en" ? "Overview" : "Genel Özellikler",       visible: hasGeneral },
-                    { id: "specs",     label: lang === "en" ? "Specifications" : "Teknik Özellikler", visible: hasSpecs },
-                    { id: "documents", label: lang === "en" ? "Documents" : "Dökümanlar",             visible: hasDocs },
+                    { id: "general",   label: pickText(lang, "Genel Özellikler", "Overview"),       visible: hasGeneral },
+                    { id: "specs",     label: pickText(lang, "Teknik Özellikler", "Specifications"), visible: hasSpecs },
+                    { id: "documents", label: pickText(lang, "Dökümanlar", "Documents"),             visible: hasDocs },
                   ];
                   const visibleTabs = tabs.filter((t) => t.visible);
 
@@ -888,8 +889,8 @@ export default function ProductDetailPage({
                                 }}
                               >
                                 <div className="px-4 py-2 flex items-center justify-between" style={{ borderBottom: `1px solid ${BRAND_BLUE}1f`, background: `${BRAND_BLUE}0c` }}>
-                                  <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: BRAND_BLUE }}>{lang === "en" ? "Price List" : "Fiyat Listesi"}</span>
-                                  <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full" style={{ background: `${BRAND_BLUE}15`, color: BRAND_BLUE }}>{lang === "en" ? "Excl. Tax" : "KDV Hariç"}</span>
+                                  <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: BRAND_BLUE }}>{pickText(lang, "Fiyat Listesi", "Price List")}</span>
+                                  <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full" style={{ background: `${BRAND_BLUE}15`, color: BRAND_BLUE }}>{pickText(lang, "KDV Hariç", "Excl. Tax")}</span>
                                 </div>
                                 {priceRows.map((row, i) => {
                                   // TR dilinde iki para birimi yan yana
@@ -906,7 +907,7 @@ export default function ProductDetailPage({
                                       className="px-4 py-2 flex items-center justify-between gap-3"
                                       style={{ borderTop: i > 0 ? `1px solid ${BRAND_BLUE}1a` : "none" }}
                                     >
-                                      <span className="text-xs" style={{ color: textMuted }}>{/liste/i.test(row.label) ? (lang === "en" ? "Price" : "Fiyat") : row.label}</span>
+                                      <span className="text-xs" style={{ color: textMuted }}>{/liste/i.test(row.label) ? (pickText(lang, "Fiyat", "Price")) : row.label}</span>
                                       <span className="text-sm font-bold text-right inline-flex items-baseline gap-1.5 flex-wrap justify-end" style={{ color: BRAND_BLUE }}>
                                         {currency === "TRY" && hasNumeric ? (
                                           <>
@@ -916,7 +917,7 @@ export default function ProductDetailPage({
                                         ) : (
                                           <span>{currency === "TRY" ? tryText : eurText}</span>
                                         )}
-                                        <span className="text-[10px] font-medium opacity-70">{lang === "en" ? "+ Tax" : "+ KDV"}</span>
+                                        <span className="text-[10px] font-medium opacity-70">{pickText(lang, "+ KDV", "+ Tax")}</span>
                                       </span>
                                     </div>
                                   );
@@ -971,7 +972,7 @@ export default function ProductDetailPage({
                                 >
                                   <Ico size={18} />
                                 </div>
-                                <span className="flex-1 text-sm font-semibold truncate" style={{ color: textPrimary }}>{doc.label || (lang === "en" ? "Download" : "İndir")}</span>
+                                <span className="flex-1 text-sm font-semibold truncate" style={{ color: textPrimary }}>{doc.label || (pickText(lang, "İndir", "Download"))}</span>
                                 {isPdf
                                   ? <HiDownload size={16} className="flex-shrink-0 transition-transform group-hover:translate-y-0.5" style={{ color: textFaint }} />
                                   : <RiExternalLinkLine size={16} className="flex-shrink-0" style={{ color: textFaint }} />
@@ -1026,10 +1027,10 @@ export default function ProductDetailPage({
                 <div>
                   <span className="inline-block text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3"
                     style={{ background: `${BRAND_BLUE}18`, color: sd ? "#93C5FD" : BRAND_BLUE, border: `1px solid ${BRAND_BLUE}30` }}>
-                    {lang === "en" ? "Smart Management" : "Akıllı Yönetim"}
+                    {pickText(lang, "Akıllı Yönetim", "Smart Management")}
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-black mb-3" style={{ color: txt }}>
-                    {lang === "en" ? "Manage your charger from anywhere" : "Cihazınızı her yerden yönetin"}
+                    {pickText(lang, "Cihazınızı her yerden yönetin", "Manage your charger from anywhere")}
                   </h2>
                   <p className="text-sm sm:text-base leading-relaxed mb-5 max-w-md" style={{ color: muted }}>
                     {lang === "en"
@@ -1042,13 +1043,13 @@ export default function ProductDetailPage({
                       className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all hover:opacity-85"
                       style={{ background: sd ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)", color: txt, border: `1px solid ${sd ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.10)"}` }}>
                       <AppleIcon size={18} />
-                      <span className="text-left leading-none"><span className="block text-[9px] mb-0.5" style={{ color: muted }}>{lang === "en" ? "Download on" : "İndir"}</span><span className="block text-xs font-bold">App Store</span></span>
+                      <span className="text-left leading-none"><span className="block text-[9px] mb-0.5" style={{ color: muted }}>{pickText(lang, "İndir", "Download on")}</span><span className="block text-xs font-bold">App Store</span></span>
                     </a>
                     <a href={smartCharger?.playStoreHref || "#"} target={smartCharger?.playStoreHref ? "_blank" : undefined} rel="noopener noreferrer"
                       className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all hover:opacity-85"
                       style={{ background: sd ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)", color: txt, border: `1px solid ${sd ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.10)"}` }}>
                       <span style={{ color: "#4CAF50" }}><GooglePlayIcon size={17} /></span>
-                      <span className="text-left leading-none"><span className="block text-[9px] mb-0.5" style={{ color: muted }}>{lang === "en" ? "Get it on" : "İndir"}</span><span className="block text-xs font-bold">Google Play</span></span>
+                      <span className="text-left leading-none"><span className="block text-[9px] mb-0.5" style={{ color: muted }}>{pickText(lang, "İndir", "Get it on")}</span><span className="block text-xs font-bold">Google Play</span></span>
                     </a>
                     {smartCharger?.ctaHref && /^https?:\/\//.test(smartCharger.ctaHref) && (
                       <a href={smartCharger.ctaHref} target="_blank" rel="noopener noreferrer"
@@ -1144,7 +1145,7 @@ export default function ProductDetailPage({
                 acceptedAnswer: { "@type": "Answer", text: f.a },
               })),
             }]} />
-            <h2 className="text-base font-bold mb-4" style={{ color: sd ? "#f0f0f4" : "#111827" }}>{lang === "en" ? "Frequently Asked Questions" : "Sıkça Sorulan Sorular"}</h2>
+            <h2 className="text-base font-bold mb-4" style={{ color: sd ? "#f0f0f4" : "#111827" }}>{pickText(lang, "Sıkça Sorulan Sorular", "Frequently Asked Questions")}</h2>
             {/* SSS — accordion yok, kartlar her zaman 'açık' state'te:
                 soru + cevap birlikte görünür. Kart yatay olarak tam
                 w-full genişlikte (max-w-7xl parent). Her kart aynı
@@ -1211,7 +1212,7 @@ export default function ProductDetailPage({
         return (
           <div className="pb-20">
             <div className="max-w-7xl mx-auto mb-4 px-5 sm:px-6 lg:px-8">
-              <h2 className="text-base font-bold" style={{ color: theme === "dark" ? "#f0f0f4" : "#111827" }}>{lang === "en" ? "Related Products" : "Benzer Ürünler"}</h2>
+              <h2 className="text-base font-bold" style={{ color: theme === "dark" ? "#f0f0f4" : "#111827" }}>{pickText(lang, "Benzer Ürünler", "Related Products")}</h2>
             </div>
             {/* Carousel runs edge-to-edge so it never visually clips at
                 the 7xl rail on wide monitors. snap-proximity (not

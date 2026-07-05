@@ -1,4 +1,5 @@
 "use client";
+import { pickText } from "../lib/ui";
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -79,8 +80,8 @@ export default function Reviews() {
     social.facebook  ? { key: "facebook"  as const, label: "Facebook",  url: social.facebook,  Icon: RiFacebookFill,  brand: "#1877F2" } : null,
   ].filter(Boolean) as Array<{ key: string; label: string; url: string; Icon: typeof RiLinkedinFill; brand: string }>;
 
-  const fairLabel = lang === "en" ? "Fair" : "Fuar";
-  const newsLabel = lang === "en" ? "News" : "Haber";
+  const fairLabel = pickText(lang, "Fuar", "Fair");
+  const newsLabel = pickText(lang, "Haber", "News");
 
   return (
     <section
@@ -149,7 +150,7 @@ export default function Reviews() {
           <div className="lg:col-span-2 min-w-0 flex flex-col gap-3">
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-black" style={{ color: textPrimary }}>
-                {lang === "en" ? "Customer Reviews" : "Müşteri Yorumları"}
+                {pickText(lang, "Müşteri Yorumları", "Customer Reviews")}
               </h3>
               {/* Kompakt puan rozeti */}
               <div className="inline-flex items-center gap-1.5">
@@ -208,10 +209,10 @@ export default function Reviews() {
           <div className="lg:col-span-3 min-w-0">
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-base font-black" style={{ color: textPrimary }}>
-                {lang === "en" ? "News & Press" : "Haberler & Basında"}
+                {pickText(lang, "Haberler & Basında", "News & Press")}
               </h3>
               <a href="/blog#haberler" className="text-xs font-semibold inline-flex items-center gap-1 transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>
-                {lang === "en" ? "All news" : "Tüm haberler"} →
+                {pickText(lang, "Tüm haberler", "All news")} →
               </a>
             </div>
 
@@ -255,10 +256,10 @@ export default function Reviews() {
                       </p>
                       <div className="flex items-center gap-3">
                         <a href={n.url} target="_blank" rel="noopener noreferrer" className="text-[11px] font-bold inline-flex items-center gap-1 transition-opacity hover:opacity-70" style={{ color: c }}>
-                          {lang === "en" ? "Read" : "Haberi Oku"} <RiExternalLinkLine size={10} />
+                          {pickText(lang, "Haberi Oku", "Read")} <RiExternalLinkLine size={10} />
                         </a>
                         <a href={`/blog/haber/${n.id}`} className="text-[11px] font-bold inline-flex items-center gap-1 ml-auto transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>
-                          {lang === "en" ? "Summary" : "Özet İncele"} →
+                          {pickText(lang, "Özet İncele", "Summary")} →
                         </a>
                       </div>
                     </div>
@@ -271,8 +272,8 @@ export default function Reviews() {
             {latestPosts.length > 0 && (
               <div className="mt-3 pt-3" style={{ borderTop: `1px solid ${border}` }}>
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-xs font-bold uppercase tracking-wider" style={{ color: textMuted }}>{lang === "en" ? "Guides" : "Rehberler"}</span>
-                  <a href="/blog#rehberler" className="text-[11px] font-semibold transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>{lang === "en" ? "All" : "Tümü"} →</a>
+                  <span className="text-xs font-bold uppercase tracking-wider" style={{ color: textMuted }}>{pickText(lang, "Rehberler", "Guides")}</span>
+                  <a href="/blog#rehberler" className="text-[11px] font-semibold transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>{pickText(lang, "Tümü", "All")} →</a>
                 </div>
                 <div className="flex flex-col gap-1">
                   {latestPosts.map((p) => (

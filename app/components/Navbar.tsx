@@ -10,9 +10,10 @@ import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
-import { byLang } from "../lib/ui";
+import { byLang, pickText } from "../lib/ui";
 import { useContactOverlay } from "../context/ContactOverlayContext";
 import E from "./E";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const navLinks = [
   { label: "Ana Sayfa",   href: "#hero"             },
@@ -205,7 +206,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const { theme, toggle } = useTheme();
   const isDark = theme === "dark";
   const { navbar: navbarContent, logos, categories } = useContent();
-  const { lang, setLang } = useLanguage();
+  const { lang } = useLanguage();
   const { openContact } = useContactOverlay();
   const activeNavLinks = navbarContent?.links?.length ? navbarContent.links : navLinks;
   const logoSrc = logos?.dark || "/logo-white.png";
@@ -235,6 +236,10 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const langActiveColor = (isDark || lightTop) ? "#ffffff" : "#111111";
   const langIdleColor = isDark
     ? "rgba(255,255,255,0.35)" : lightTop ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.35)";
+  // 6-dil seçici açılır panel renkleri (okunur solid zemin, tema-uyumlu)
+  const langPanelBg = isDark ? "#16171c" : "#ffffff";
+  const langPanelBorder = isDark ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.08)";
+  const langPanelText = isDark ? "#e8e8ea" : "#1a1a1a";
   const b2bColor       = isDark ? "rgba(255,255,255,0.65)" : lightTop ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.70)";
   const b2bBorderColor = isDark ? "rgba(255,255,255,0.18)" : lightTop ? "rgba(255,255,255,0.38)" : "rgba(0,0,0,0.18)";
   const b2bBg          = isDark ? "rgba(255,255,255,0.05)" : lightTop ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.03)";
@@ -621,9 +626,9 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                         >
                           <div className="p-1.5 max-h-[68vh] overflow-y-auto">
                             {docs === null ? (
-                              <p className="px-3 py-4 text-xs" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>{lang === "en" ? "Loading…" : "Yükleniyor…"}</p>
+                              <p className="px-3 py-4 text-xs" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>{pickText(lang, "Yükleniyor…", "Loading…")}</p>
                             ) : docCategories.length === 0 ? (
-                              <p className="px-3 py-4 text-xs" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>{lang === "en" ? "No documents yet." : "Henüz döküman yok."}</p>
+                              <p className="px-3 py-4 text-xs" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>{pickText(lang, "Henüz döküman yok.", "No documents yet.")}</p>
                             ) : docCategories.map((cat) => {
                               const exp = openDocCat === cat.id;
                               return (
@@ -689,7 +694,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.60)"; }}
                               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)"; }}
                             >
-                              <span>{lang === "en" ? "All Documents" : "Tüm Dökümanlar"}</span>
+                              <span>{pickText(lang, "Tüm Dökümanlar", "All Documents")}</span>
                               <RiArrowRightLine size={13} />
                             </button>
                           </div>
@@ -704,19 +709,10 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
 
           {/* Right actions */}
           <div className="hidden lg:flex items-center gap-2">
-            <div className="flex items-center rounded-lg overflow-hidden" style={{ border: langBorder }}>
-              {(["tr", "en"] as const).map((l) => (
-                <button key={l} onClick={() => setLang(l)}
-                  className="px-2.5 py-1 text-xs font-bold uppercase transition-colors duration-200"
-                  style={{
-                    background: lang === l ? langActiveBg : "transparent",
-                    color: lang === l ? langActiveColor : langIdleColor,
-                  }}
-                >
-                  {l.toUpperCase()}
-                </button>
-              ))}
-            </div>
+            <LanguageSwitcher
+              border={langBorder} activeBg={langActiveBg} activeColor={langActiveColor} idleColor={langIdleColor}
+              panelBg={langPanelBg} panelBorder={langPanelBorder} panelText={langPanelText}
+            />
             <button onClick={onSearchOpen} className={`p-2 rounded-lg transition-colors ${iconBtnClass}`}>
               <HiSearch size={18} />
             </button>
@@ -770,17 +766,10 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
 
           {/* Mobile right */}
           <div className="lg:hidden flex items-center gap-1">
-            <div className="flex items-center rounded-lg overflow-hidden" style={{ border: langBorder }}>
-              {(["tr", "en"] as const).map((l) => (
-                <button key={l} onClick={() => setLang(l)}
-                  className="px-2 py-1 text-[10px] font-bold uppercase transition-colors"
-                  style={{
-                    background: lang === l ? langActiveBg : "transparent",
-                    color: lang === l ? langActiveColor : langIdleColor,
-                  }}
-                >{l.toUpperCase()}</button>
-              ))}
-            </div>
+            <LanguageSwitcher compact
+              border={langBorder} activeBg={langActiveBg} activeColor={langActiveColor} idleColor={langIdleColor}
+              panelBg={langPanelBg} panelBorder={langPanelBorder} panelText={langPanelText}
+            />
             <button onClick={onSearchOpen} className={`p-2 rounded-lg ${mobileIconClass}`}><HiSearch size={17} /></button>
             <button onClick={toggle} className={`p-2 rounded-lg ${mobileIconClass}`}>{isDark ? <HiSun size={17} /> : <HiMoon size={17} />}</button>
             <button onClick={() => setMobileOpen(!mobileOpen)} className={`p-2 ${mobileIconClass}`}>
@@ -895,9 +884,9 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                     {isD && mobileDokumanlarOpen && (
                       <div className="py-2 space-y-1 pl-2">
                         {docs === null ? (
-                          <p className="text-xs px-3 py-2" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>{lang === "en" ? "Loading…" : "Yükleniyor…"}</p>
+                          <p className="text-xs px-3 py-2" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>{pickText(lang, "Yükleniyor…", "Loading…")}</p>
                         ) : docCategories.length === 0 ? (
-                          <p className="text-xs px-3 py-2" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>{lang === "en" ? "No documents yet." : "Henüz döküman yok."}</p>
+                          <p className="text-xs px-3 py-2" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>{pickText(lang, "Henüz döküman yok.", "No documents yet.")}</p>
                         ) : docCategories.map((cat) => {
                           const exp = openDocCat === cat.id;
                           return (
@@ -940,7 +929,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                         })}
                         <button onClick={() => { setMobileOpen(false); router.push("/documents"); }}
                           className={`block w-full text-left text-sm py-2 px-3 rounded-lg font-semibold ${isDark ? "text-blue-400" : "text-blue-600"}`}>
-                          {lang === "en" ? "→ All Documents" : "→ Tüm Dökümanlar"}
+                          {pickText(lang, "→ Tüm Dökümanlar", "→ All Documents")}
                         </button>
                       </div>
                     )}

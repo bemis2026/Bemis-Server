@@ -1,4 +1,5 @@
 "use client";
+import { byLang } from "../../lib/ui";
 
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
@@ -38,7 +39,7 @@ export default function DocumentViewerPage() {
   const { theme } = useTheme();
   const d = theme === "dark";
   const { lang } = useLanguage();
-  const t = (k: keyof typeof UI) => (lang === "en" ? UI[k].en : UI[k].tr);
+  const t = (k: keyof typeof UI) => (byLang(UI[k], lang));
 
   const rawId = params?.id;
   const id = decodeURIComponent(Array.isArray(rawId) ? rawId[0] : (rawId ?? ""));

@@ -1,4 +1,5 @@
 "use client";
+import { pickText } from "../../lib/ui";
 
 import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
@@ -105,9 +106,9 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
   if (!category) return (
     <div style={{ background: bg, minHeight: "100vh", color: textPrimary }} className="flex items-center justify-center">
       <div className="text-center">
-        <p className="text-lg mb-4" style={{ color: textMuted }}>{lang === "en" ? "Product category not found" : "Ürün kategorisi bulunamadı"}</p>
+        <p className="text-lg mb-4" style={{ color: textMuted }}>{pickText(lang, "Ürün kategorisi bulunamadı", "Product category not found")}</p>
         <button onClick={() => router.push("/")} className="text-sm font-medium underline" style={{ color: textMuted }}>
-          {lang === "en" ? "Back to home" : "Ana sayfaya dön"}
+          {pickText(lang, "Ana sayfaya dön", "Back to home")}
         </button>
       </div>
     </div>
@@ -175,7 +176,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
               <div className="relative z-10 px-7 sm:px-10 lg:px-14 py-10 lg:py-12 max-w-2xl">
                 <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.05 }}
                   className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: "#8fbcf7" }}>
-                  {lang === "en" ? "Product Category" : "Ürün Kategorisi"} · {category.products?.length ?? 0} {lang === "en" ? "Products" : "Ürün"}
+                  {pickText(lang, "Ürün Kategorisi", "Product Category")} · {category.products?.length ?? 0} {pickText(lang, "Ürün", "Products")}
                 </motion.p>
                 <motion.h1 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}
                   className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
@@ -210,7 +211,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
               <div>
                 <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.05 }}
                   className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: accent }}>
-                  {lang === "en" ? "Product Category" : "Ürün Kategorisi"} · {category.products?.length ?? 0} {lang === "en" ? "Products" : "Ürün"}
+                  {pickText(lang, "Ürün Kategorisi", "Product Category")} · {category.products?.length ?? 0} {pickText(lang, "Ürün", "Products")}
                 </motion.p>
                 <motion.h1 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}
                   className="text-2xl sm:text-3xl lg:text-4xl font-bold" style={{ color: textPrimary }}>
@@ -336,7 +337,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                   {variantCount > 1 ? (
                     <div className="absolute top-2.5 right-2.5 text-[11px] font-bold px-2.5 py-1 rounded-full"
                       style={{ background: `${accent}22`, border: `1px solid ${accent}40`, color: accent }}>
-                      {variantCount} {lang === "en" ? "versions" : "versiyon"}
+                      {variantCount} {pickText(lang, "versiyon", "versions")}
                     </div>
                   ) : product.badge && (
                     <div className="absolute top-2.5 right-2.5 text-[11px] font-bold px-2.5 py-1 rounded-full"
@@ -353,7 +354,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                   <p className="font-bold text-xs leading-tight mb-0.5" style={{ color: textPrimary }}>{product.name}</p>
                   {variantCount > 1 ? (
                     <p className="text-[10px] leading-snug mb-2" style={{ color: textFaint }}>
-                      {group.variants.map(v => v.subtitle).filter(Boolean).join(" · ") || `${variantCount} ${lang === "en" ? "different versions" : "farklı versiyon"}`}
+                      {group.variants.map(v => v.subtitle).filter(Boolean).join(" · ") || `${variantCount} ${pickText(lang, "farklı versiyon", "different versions")}`}
                     </p>
                   ) : product.subtitle && (
                     <p className="text-[10px] leading-snug mb-2" style={{ color: textFaint }}>{product.subtitle}</p>
@@ -369,7 +370,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                     </div>
                   )}
                   <div className="flex items-center justify-end mt-auto">
-                    <span className="text-[10px] font-semibold" style={{ color: accent }}>{lang === "en" ? "Details" : "Detaylar"} →</span>
+                    <span className="text-[10px] font-semibold" style={{ color: accent }}>{pickText(lang, "Detaylar", "Details")} →</span>
                   </div>
                 </div>
               </motion.div>
@@ -385,7 +386,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
         return (
           <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8 pb-16 w-full">
             <h2 className="text-2xl font-black mb-5" style={{ color: textPrimary }}>
-              {lang === "en" ? "Frequently Asked Questions" : "Sıkça Sorulan Sorular"}
+              {pickText(lang, "Sıkça Sorulan Sorular", "Frequently Asked Questions")}
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 items-start">
               {faqList.map((f, i) => (

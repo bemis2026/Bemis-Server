@@ -1,4 +1,5 @@
 "use client";
+import { byLang, pickText } from "../lib/ui";
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -44,7 +45,7 @@ const CATEGORIES: { id: string; tr: string; en: string }[] = [
 ];
 const catLabel = (id: string, lang: Lang) => {
   const c = CATEGORIES.find((x) => x.id === id);
-  return c ? (lang === "en" ? c.en : c.tr) : (lang === "en" ? "Other" : "Diğer");
+  return c ? (byLang(c, lang)) : (pickText(lang, "Diğer", "Other"));
 };
 
 // Sayfa-içi sabit metinler — yalnız EN modunda İngilizce; TR çıktı aynen korunur.
@@ -115,7 +116,7 @@ export default function DocumentsPage() {
 
   const grouped = CATEGORIES.slice(1).reduce((acc, cat) => {
     const items = filtered.filter(d => d.category === cat.id);
-    if (items.length) acc.push({ id: cat.id, label: lang === "en" ? cat.en : cat.tr, items });
+    if (items.length) acc.push({ id: cat.id, label: byLang(cat, lang), items });
     return acc;
   }, [] as { id: string; label: string; items: Document[] }[]);
 
@@ -139,7 +140,7 @@ export default function DocumentsPage() {
             style={{ color: textMuted }}
           >
             <HiArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-            <span className="text-sm font-medium">{lang === "en" ? UI.home.en : UI.home.tr}</span>
+            <span className="text-sm font-medium">{byLang(UI.home, lang)}</span>
           </motion.button>
 
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
@@ -162,7 +163,7 @@ export default function DocumentsPage() {
                 className="text-3xl sm:text-4xl font-black"
                 style={{ color: textPrimary }}
               >
-                {lang === "en" ? UI.title.en : UI.title.tr}
+                {byLang(UI.title, lang)}
               </motion.h1>
               <motion.div
                 initial={{ scaleX: 0, opacity: 0 }}
@@ -182,8 +183,8 @@ export default function DocumentsPage() {
                 style={{ color: textMuted }}
               >
                 {loading
-                  ? (lang === "en" ? UI.loading.en : UI.loading.tr)
-                  : `${documents.length} ${lang === "en" ? UI.docWordEn : UI.docWordTr}`}
+                  ? (byLang(UI.loading, lang))
+                  : `${documents.length} ${pickText(lang, UI.docWordTr, UI.docWordEn)}`}
               </motion.p>
             </div>
 
@@ -199,7 +200,7 @@ export default function DocumentsPage() {
               <input
                 value={query}
                 onChange={e => setQuery(e.target.value)}
-                placeholder={lang === "en" ? UI.searchPh.en : UI.searchPh.tr}
+                placeholder={byLang(UI.searchPh, lang)}
                 className="pl-9 pr-4 py-2.5 rounded-xl text-sm outline-none w-64"
                 style={{ background: surface, border: `1px solid ${border}`, color: textPrimary }}
               />
@@ -226,7 +227,7 @@ export default function DocumentsPage() {
                   border: `1px solid ${activeCategory === cat.id ? "transparent" : border}`,
                 }}
               >
-                {lang === "en" ? cat.en : cat.tr}
+                {byLang(cat, lang)}
                 {cat.id !== "all" && (
                   <span className="ml-1.5 opacity-60">
                     {documents.filter(doc => doc.category === cat.id).length}
@@ -251,14 +252,14 @@ export default function DocumentsPage() {
           {!loading && documents.length === 0 && (
             <div className="flex flex-col items-center justify-center py-24 gap-3">
               <RiFilePdf2Line size={48} style={{ color: textFaint }} />
-              <p className="text-sm font-semibold" style={{ color: textMuted }}>{lang === "en" ? UI.emptyAll.en : UI.emptyAll.tr}</p>
+              <p className="text-sm font-semibold" style={{ color: textMuted }}>{byLang(UI.emptyAll, lang)}</p>
             </div>
           )}
 
           {!loading && documents.length > 0 && filtered.length === 0 && (
             <div className="flex flex-col items-center justify-center py-24 gap-3">
               <HiSearch size={40} style={{ color: textFaint }} />
-              <p className="text-sm font-semibold" style={{ color: textMuted }}>{lang === "en" ? UI.noResult.en : UI.noResult.tr}</p>
+              <p className="text-sm font-semibold" style={{ color: textMuted }}>{byLang(UI.noResult, lang)}</p>
             </div>
           )}
 
@@ -400,7 +401,7 @@ function DocGrid({ docs, lang, d, surface, border, textPrimary, textMuted, textF
                 style={{ background: accent, color: "#fff" }}
               >
                 <HiEye size={14} />
-                {lang === "en" ? UI.view.en : UI.view.tr}
+                {byLang(UI.view, lang)}
               </Link>
             </div>
           </motion.div>

@@ -1,4 +1,5 @@
 "use client";
+import { pickText } from "../lib/ui";
 
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
@@ -301,11 +302,11 @@ export default function Products() {
                             className="inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-xl transition-all duration-200 hover:gap-2.5"
                             style={{ background: cat.accent, color: "#fff" }}
                           >
-                            {lang === "en" ? "View Category" : "Kategoriye Git"} <HiArrowRight size={13} />
+                            {pickText(lang, "Kategoriye Git", "View Category")} <HiArrowRight size={13} />
                           </button>
                         ) : (
                           <span className="text-xs font-semibold px-3 py-1.5 rounded-xl" style={{ background: "rgba(245,158,11,0.15)", color: d ? "#FBBF24" : "#B45309", border: "1px solid rgba(245,158,11,0.30)" }}>
-                            {lang === "en" ? "Soon" : "Yakında"}
+                            {pickText(lang, "Yakında", "Soon")}
                           </span>
                         )}
                       </div>
@@ -554,7 +555,7 @@ export default function Products() {
                       {cat.name}
                     </p>
                     <p className="text-xs font-semibold mt-0.5" style={{ color: cat.accent }}>
-                      {cat.comingSoon ? (lang === "en" ? "Soon" : "Yakında") : `${cat.modelCount} ${lang === "en" ? "Models" : "Model"}`}
+                      {cat.comingSoon ? (pickText(lang, "Yakında", "Soon")) : `${cat.modelCount} ${pickText(lang, "Model", "Models")}`}
                     </p>
                   </div>
                 </div>
