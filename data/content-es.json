@@ -1,12 +1,12 @@
 {
   "hero": {
-    "badge": "Producción Nacional · Bursa · 1994",
-    "headline1": "El Fabricante de",
-    "headline2": "Carga de Vehículos",
-    "headline3": "Eléctricos de Türkiye",
-    "subtitle": "Desde tu hogar hasta tu lugar de trabajo, desde soluciones de aparcamiento hasta el campo, facilitamos la experiencia del vehículo eléctrico con cargadores AC, cables y accesorios certificados.",
-    "ctaPrimary": "Descubre Nuestras Soluciones de Carga para VE",
-    "ctaSecondary": " Encontrar una Tienda                                                                                                                                                                                                                                             ",
+    "badge": "Fabricación propia · Desde 1994",
+    "headline1": "Fabricante de",
+    "headline2": "carga E-V:",
+    "headline3": "a tu medida",
+    "subtitle": "De tu hogar a tu negocio, del aparcamiento a la vía pública: unidades de carga AC certificadas, cables y accesorios que simplifican la experiencia del vehículo eléctrico.",
+    "ctaPrimary": "Descubre nuestras soluciones EV",
+    "ctaSecondary": "Encuentra un punto",
     "heroBg": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075723/products/gdbptkvmtravx8isr209.jpg",
     "layout": {
       "logo": {
@@ -47,7 +47,7 @@
       "value": 80,
       "suffix": "+",
       "label": "Documentos",
-      "description": "Estándares internacionales "
+      "description": "Estándares internacionales"
     },
     {
       "value": 9001,
@@ -348,7 +348,7 @@
       "categoryId": "portable",
       "productId": "pro-mobile",
       "badge": "Cable de Carga DC Profesional CCS2",
-      "highlight": "Capacidad de hasta 400-500A. Modelo CCS2  ·. Para fabricantes de estaciones.",
+      "highlight": "Capacidad de hasta 400-500A. Modelo CCS2 ·. Para fabricantes de estaciones.",
       "visible": true
     },
     {
@@ -385,9 +385,9 @@
   "dna": {
     "sectionLabel": "Del Software a la Producción — Todo Corre por Nuestra Cuenta",
     "sectionHeading": "Con la calidad Bemis\nSoluciones nacionales de carga para VE",
-    "brandHeading": "Fundada en 1994 en Bursa, Bemis Teknik Elektrik A.Ş. es uno de los principales fabricantes de equipamiento eléctrico de Turquía, con una producción 100% nacional y más de 30 años de experiencia en el campo de las tomas y clavijas industriales. Bemis E-V Charge es nuestra marca de carga para VE totalmente nacional, construida sobre esta consolidada infraestructura.",
-    "brandPara1": "En nuestras instalaciones del Polígono Industrial de Bursa, llevamos a cabo cada etapa, desde el diseño de la tarjeta electrónica hasta el software, y desde la producción del cable hasta el montaje final. Los productos que exportamos a más de 80 países demuestran cómo la ingeniería nacional puede competir en el ámbito global.",
-    "brandPara2": "La calidad es la expresión del respeto.",
+    "brandHeading": "Calidad Bemis\nen carga EV para todo el mundo",
+    "brandPara1": "Fundada en 1994, Bemis Teknik Elektrik A.Ş. es uno de los principales fabricantes de equipos eléctricos, con más de 30 años de experiencia en tomas y clavijas industriales. Bemis E-V Charge es nuestra marca de carga para vehículos eléctricos, construida sobre esta base consolidada.",
+    "brandPara2": "En nuestra planta desarrollamos cada etapa: del diseño de la placa electrónica al software, de la producción del cable al montaje final. Nuestros productos, exportados a más de 80 países, demuestran cómo la ingeniería propia compite en el escenario global.",
     "quote": "Equipo Bemis E-V Charge · Polígono Industrial de Bursa, Turquía",
     "quoteAttr": "Descubre el Mundo de Bemis",
     "yearLabel": "1994",
@@ -459,7 +459,7 @@
     "sectionLabel": "En toda Turquía",
     "heading": "Selecciona o ponte en contacto con nuestros distribuidores autorizados de toda Turquía desde el mapa.",
     "description": "¿Te gustaría unirte a nuestra red de distribuidores?",
-    "applyText": " Encontrar una Tienda                                                                                                                                                                                                                                             ",
+    "applyText": "Encontrar una Tienda",
     "statCities": "7",
     "statDealers": "50+",
     "findDealerTitle": "Contacto",
@@ -572,7 +572,7 @@
     ],
     "exportContact": {
       "contactPerson": "Timur Emrul",
-      "whatsapp": " "
+      "whatsapp": ""
     }
   },
   "reviews": {
@@ -691,11 +691,11 @@
     "b2bPortalUrl": "https://b2b.bemisevcharge.com.tr"
   },
   "footer": {
-    "description": "Nuestra marca de equipamiento de carga para VE dentro de Bemis Teknik Elektrik A.Ş. Equipamiento eléctrico de calidad, de Turquía para el mundo, desde 1994.",
+    "description": "Nuestra marca de equipos de carga EV dentro de Bemis Teknik Elektrik A.Ş. Equipos eléctricos de calidad para el mundo desde 1994.",
     "followLabel": "Síguenos:",
     "copyright": "© 2026 Bemis Teknik Elektrik A.Ş.",
     "rightsLabel": "Todos los derechos reservados",
-    "tagline": "Producción Nacional, Calidad Global",
+    "tagline": "Fabricación propia, calidad global",
     "b2bText": "Para fabricantes y soluciones OEM",
     "b2bLinkText": "nuestra página de productos profesionales",
     "b2bSuffix": "información."

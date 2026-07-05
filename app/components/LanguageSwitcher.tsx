@@ -49,12 +49,17 @@ export default function LanguageSwitcher({
         aria-label="Language"
         aria-haspopup="listbox"
         aria-expanded={open}
-        className={`flex items-center rounded-lg font-bold uppercase transition-colors ${compact ? "gap-1 px-2 py-1 text-[10px]" : "gap-1.5 px-2.5 py-1.5 text-xs"}`}
+        title={current.native}
+        className={`flex items-center rounded-lg font-semibold transition-colors ${compact ? "gap-1 px-2 py-1 text-[11px]" : "gap-1.5 px-2.5 py-1.5 text-xs"}`}
         style={{ border, color: activeColor, background: "transparent" }}
       >
-        <span aria-hidden style={{ fontSize: compact ? 12 : 14, lineHeight: 1 }}>{current.flag}</span>
-        <span>{current.code.toUpperCase()}</span>
-        <svg width="9" height="6" viewBox="0 0 10 6" fill="none" aria-hidden style={{ opacity: 0.55, transform: open ? "rotate(180deg)" : "none", transition: "transform .2s" }}>
+        {/* Dünya ikonu (SVG) — emoji bayrağı Windows'ta "TR" harfine dönüp kodla tekrar ediyordu; bu her yerde tutarlı */}
+        <svg width={compact ? 13 : 15} height={compact ? 13 : 15} viewBox="0 0 24 24" fill="none" aria-hidden style={{ opacity: 0.8, flexShrink: 0 }}>
+          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.7" />
+          <path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18" stroke="currentColor" strokeWidth="1.4" />
+        </svg>
+        <span>{current.native}</span>
+        <svg width="9" height="6" viewBox="0 0 10 6" fill="none" aria-hidden style={{ opacity: 0.55, flexShrink: 0, transform: open ? "rotate(180deg)" : "none", transition: "transform .2s" }}>
           <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
@@ -78,9 +83,8 @@ export default function LanguageSwitcher({
                 onMouseEnter={(e) => { if (!sel) (e.currentTarget as HTMLElement).style.background = activeBg; }}
                 onMouseLeave={(e) => { if (!sel) (e.currentTarget as HTMLElement).style.background = "transparent"; }}
               >
-                <span aria-hidden style={{ fontSize: 16, lineHeight: 1 }}>{l.flag}</span>
                 <span className="flex-1 text-left">{l.native}</span>
-                <span className="text-[10px] font-bold uppercase" style={{ opacity: 0.5 }}>{l.code}</span>
+                <span className="text-[10px] font-bold uppercase" style={{ opacity: 0.5, letterSpacing: "0.04em" }}>{l.code}</span>
               </button>
             );
           })}

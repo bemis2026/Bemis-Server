@@ -43,6 +43,17 @@
 > reuse); admin route'ları (content/b2b `after()` 5-dil döngü; products EN shard bin + de/es/ar/ru products bin
 > `_translations`). Runtime products route de/es/ar/ru için `_translations[lang]` ?? premium dosya okur. ⚠️ Ürün
 > ADI/kod TR-kanonik (productsTranslate paths'te YOK — MyMemory model adı bozuyordu). tsc + next build temiz.
+> 🎨✅ **DİL CİLASI — seçici + taşma + global metin (2026-07-05, kullanıcı geri bildirimi):** (1) **Dil seçici**
+> `LanguageSwitcher.tsx` bayrak emoji → **dünya SVG ikonu + dilin kendi adı** (Windows'ta 🇹🇷→"TR" olup kodla "TR TR"
+> tekrar ediyordu; artık "Türkçe/Deutsch/Русский/العربية…"). (2) **Taşma bug'ı:** çeviri ajanları bazı butonlara
+> **240+ boşluk** eklemişti (ctaSecondary DE/RU 252 karakter → kutu bozuluyordu; content-en.json'da bile 6 alan!).
+> `scratchpad/normalize-ws.cjs` tüm overlay dosyalarında yatay-boşluk dizilerini tek boşluğa indirdi + trim (27 alan).
+> (3) **HERO + Türkiye-odaklı metinler → GLOBAL/kısa** (4 ajan, `reframe-source.json`→`patch-reframe.cjs`): "Türkiye'nin
+> E-V Şarj Üreticisi" / "Yerli Üretim" → dünya-odaklı ("Производим E-V [Системы] по всему миру", "Zuverlässige E-V
+> Lade [Systeme] Hersteller", AR "نصنع أنظمة بخبرة منذ 1994", ES "Fabricante de carga E-V a tu medida"); hero satırları
+> TR uzunluğuna çekildi (≤~16 kr), dönen kelimeler ≤7 kr. Preview: RU+AR **horizOverflow=0**, AR dir=rtl, seçici native ad.
+> ⚠️ **KURAL:** yabancı dillerde Türkiye-milliyetçi ifade ("yerli/Türkiye'nin/from Turkey") KULLANMA → global/Avrupa
+> çerçeve (1994/Bursa/ihracat nötr-olgu olarak kalabilir). Reframe premium temelde → admin TR hero'yu düzenlemezse korunur.
 
 > 🎯✅ **HERO DÖNEN-KELİME SATIR KAYMASI + CANLI EN İÇERİK DÜZELTME (2026-07-05, CANLI · commit c9c66ef):**
 > Kullanıcı: EN hero'da dönen kelime uzayınca satır kayıyor (hiçbir dilde olmamalı) + "SİLİNECEK" diye kelime çıkıyor.

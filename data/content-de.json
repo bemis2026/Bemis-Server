@@ -1,12 +1,12 @@
 {
   "hero": {
-    "badge": "Heimische Produktion · Bursa · 1994",
-    "headline1": "Türkiyes",
-    "headline2": "E-V-Lade",
+    "badge": "Eigenfertigung · Bursa · 1994",
+    "headline1": "Zuverlässige",
+    "headline2": "E-V Lade-",
     "headline3": "Hersteller",
-    "subtitle": "Von Ihrem Zuhause bis zu Ihrem Arbeitsplatz, von Parklösungen bis ins Feld – wir erleichtern das Erlebnis mit dem Elektrofahrzeug durch zertifizierte AC-Ladegeräte, Kabel und Zubehör.",
-    "ctaPrimary": "Entdecken Sie unsere EV-Ladelösungen",
-    "ctaSecondary": " Händler finden                                                                                                                                                                                                                                             ",
+    "subtitle": "Von Zuhause bis zum Betrieb, von Parkflächen bis in die Anlage — zertifizierte AC-Ladegeräte, Kabel und Zubehör für ein müheloses E-Auto-Erlebnis.",
+    "ctaPrimary": "EV-Ladelösungen entdecken",
+    "ctaSecondary": "Händler finden",
     "heroBg": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075723/products/gdbptkvmtravx8isr209.jpg",
     "layout": {
       "logo": {
@@ -25,8 +25,8 @@
     "heroBgPos": "75% 32%",
     "headline2Words": [
       "Systeme",
-      "Einheiten",
-      "Steckdosen",
+      "Geräte",
+      "Stecker",
       "Kabel"
     ]
   },
@@ -47,7 +47,7 @@
       "value": 80,
       "suffix": "+",
       "label": "Dokumente",
-      "description": "Internationale Standards "
+      "description": "Internationale Standards"
     },
     {
       "value": 9001,
@@ -348,7 +348,7 @@
       "categoryId": "portable",
       "productId": "pro-mobile",
       "badge": "Professionelles DC-Ladekabel CCS2",
-      "highlight": "Bis zu 400-500A Kapazität. CCS2  · Modell. Für Stationshersteller.",
+      "highlight": "Bis zu 400-500A Kapazität. CCS2 · Modell. Für Stationshersteller.",
       "visible": true
     },
     {
@@ -385,9 +385,9 @@
   "dna": {
     "sectionLabel": "Von der Software bis zur Produktion — alles bei uns",
     "sectionHeading": "Mit Bemis-Qualität\nHeimische EV-Ladelösungen",
-    "brandHeading": "Die 1994 in Bursa gegründete Bemis Teknik Elektrik A.Ş. ist mit 100 % heimischer Produktion und mehr als 30 Jahren Erfahrung im Bereich Industriesteckdosen einer der führenden Hersteller elektrischer Ausrüstung in der Türkei. Bemis E-V Charge ist unsere vollständig heimische EV-Lademarke, die auf dieser etablierten Infrastruktur aufbaut.",
-    "brandPara1": "In unserer Anlage im Industriegebiet Bursa führen wir jede Phase durch, vom Design der elektronischen Karten bis zur Software, von der Kabelproduktion bis zur Endmontage. Die Produkte, die wir in mehr als 80 Länder exportieren, beweisen, wie heimische Ingenieurskunst auf der globalen Bühne konkurrieren kann.",
-    "brandPara2": "Qualität ist der Ausdruck von Respekt.",
+    "brandHeading": "EV-Ladelösungen\nin Bemis-Qualität",
+    "brandPara1": "1994 in Bursa gegründet, zählt Bemis Teknik Elektrik A.Ş. zu den führenden Herstellern elektrischer Ausrüstung mit eigener Fertigung und über 30 Jahren Erfahrung bei Industriesteckverbindern. Bemis E-V Charge ist unsere auf dieser Basis aufgebaute EV-Lademarke.",
+    "brandPara2": "In unserem Werk in Bursa realisieren wir jede Stufe selbst — vom Elektronikdesign über die Software bis zur Kabelfertigung und Endmontage. Unsere Produkte gehen in über 80 Länder und beweisen, wie Engineering im globalen Wettbewerb überzeugt.",
     "quote": "Bemis E-V Charge Team · Industriegebiet Bursa, Türkei",
     "quoteAttr": "Entdecken Sie die Welt von Bemis",
     "yearLabel": "1994",
@@ -459,7 +459,7 @@
     "sectionLabel": "In der ganzen Türkei",
     "heading": "Wählen Sie unsere autorisierten Händler in der ganzen Türkei auf der Karte aus oder kontaktieren Sie sie.",
     "description": "Möchten Sie unserem Händlernetz beitreten?",
-    "applyText": " Händler finden                                                                                                                                                                                                                                             ",
+    "applyText": "Händler finden",
     "statCities": "7",
     "statDealers": "50+",
     "findDealerTitle": "Kontakt",
@@ -572,7 +572,7 @@
     ],
     "exportContact": {
       "contactPerson": "Timur Emrul",
-      "whatsapp": " "
+      "whatsapp": ""
     }
   },
   "reviews": {
@@ -691,11 +691,11 @@
     "b2bPortalUrl": "https://b2b.bemisevcharge.com.tr"
   },
   "footer": {
-    "description": "Unsere EV-Ladeausrüstungsmarke innerhalb der Bemis Teknik Elektrik A.Ş. Hochwertige elektrische Ausrüstung von der Türkei in die Welt seit 1994.",
+    "description": "Unsere EV-Lademarke innerhalb der Bemis Teknik Elektrik A.Ş. Hochwertige Elektroausrüstung mit weltweitem Export seit 1994.",
     "followLabel": "Folgen Sie uns:",
     "copyright": "© 2026 Bemis Teknik Elektrik A.Ş.",
     "rightsLabel": "Alle Rechte vorbehalten",
-    "tagline": "Heimische Produktion, globale Qualität",
+    "tagline": "Eigenfertigung, globale Qualität",
     "b2bText": "Für Hersteller und OEM-Lösungen",
     "b2bLinkText": "unsere professionelle Produktseite",
     "b2bSuffix": "Informationen."

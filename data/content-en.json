@@ -6,7 +6,7 @@
     "headline3": "Manufacturer",
     "subtitle": "From your home to your workplace, from parking solutions to the field — we facilitate the electric vehicle experience with certified AC chargers, cables, and accessories.",
     "ctaPrimary": "Explore Our EV Charging Solutions",
-    "ctaSecondary": " Find a Store                                                                                                                                                                                                                                             ",
+    "ctaSecondary": "Find a Store",
     "heroBg": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075723/products/gdbptkvmtravx8isr209.jpg",
     "layout": {
       "logo": {
@@ -47,7 +47,7 @@
       "value": 80,
       "suffix": "+",
       "label": "Documents",
-      "description": "International standards "
+      "description": "International standards"
     },
     {
       "value": 9001,
@@ -348,7 +348,7 @@
       "categoryId": "portable",
       "productId": "pro-mobile",
       "badge": "Professional DC Charging Cable CCS2",
-      "highlight": "Up to 400-500A capacity. CCS2  · model. For station manufacturers.",
+      "highlight": "Up to 400-500A capacity. CCS2 · model. For station manufacturers.",
       "visible": true
     },
     {
@@ -383,7 +383,7 @@
     "facebook": "https://www.facebook.com/bemisteknik/?locale=tr_TR"
   },
   "dna": {
-    "sectionLabel": "From Software to Production  — It's All on Us",
+    "sectionLabel": "From Software to Production — It's All on Us",
     "sectionHeading": "With Bemis quality\nDomestic EV charging solutions",
     "brandHeading": "Founded in 1994 in Bursa, Bemis Teknik Elektrik A.Ş. is one of the leading electrical equipment manufacturers in Turkey with 100% domestic production and more than 30 years of experience in the field of industrial plug socket. Bemis E-V Charge is our fully domestic EV charging brand built on this well-established infrastructure.",
     "brandPara1": "In our facility in Bursa OIZ, we carry out every stage from electronic card design to software, from cable production to final assembly. The products we export to more than 80 countries prove how domestic engineering can compete in the global arena.",
@@ -459,7 +459,7 @@
     "sectionLabel": "All over Turkey",
     "heading": "Select or contact our authorized dealers across Turkey from the map.",
     "description": "Would you like to join our dealer network?",
-    "applyText": " Find a Store                                                                                                                                                                                                                                             ",
+    "applyText": "Find a Store",
     "statCities": "7",
     "statDealers": "50+",
     "findDealerTitle": "Contact",
@@ -572,7 +572,7 @@
     ],
     "exportContact": {
       "contactPerson": "Timur Emrul",
-      "whatsapp": " "
+      "whatsapp": ""
     }
   },
   "reviews": {
