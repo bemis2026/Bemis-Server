@@ -44,11 +44,17 @@ export async function GET(req: NextRequest) {
 
   const tr = bin ? mergeDeep(localData, stripTranslations(bin) as Rec) : localData;
 
-  if (lang !== "en") return NextResponse.json(tr);
+  if (lang === "tr") return NextResponse.json(tr);
 
-  // EN: prefer in-bin translation, then fall back to TR.
+  // Çeviri overlay'i (en/de/es/ar/ru): önce bin içi _translations, sonra
+  // paketlenmiş data/b2b-<lang>.json; yoksa TR döner. Merge dil-bağımsız —
+  // yapısal alanlar (href/id/görsel) TR'den, yalnız metin overlay'den gelir.
+  const overlayLang = ["en", "de", "es", "ar", "ru"].includes(lang) ? lang : null;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const enFromBin: any = bin?._translations?.en ?? null;
+  let enFromBin: any = overlayLang ? (bin?._translations?.[overlayLang] ?? null) : null;
+  if (!enFromBin && overlayLang) {
+    try { enFromBin = JSON.parse(readFileSync(path.join(process.cwd(), "data", `b2b-${overlayLang}.json`), "utf-8")); } catch {}
+  }
   if (!enFromBin) return NextResponse.json(tr);
 
   // Per-section merge so untranslatable structural fields (hrefs, image refs,

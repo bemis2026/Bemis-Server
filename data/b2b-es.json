@@ -1,0 +1,263 @@
+{
+  "hero": {
+    "eyebrow": "Soluciones para Empresas y OEM",
+    "heading1": "Para Fabricantes",
+    "heading2": "Soluciones Profesionales",
+    "description": "Portafolio técnico de productos, precios personalizados y soporte de ingeniería para fabricantes. Fabricante nacional de infraestructura doméstica de Turquía. Opciones OEM.",
+    "sectorTags": []
+  },
+  "featuredProducts": [
+    {
+      "categoryId": "charger-equipment",
+      "productId": "bir-ucu-acik-kablolu-sarj-prizi-5m-trifaze-22-kw-5x6-mm"
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "pano-prizi-trifaze-11-22-kw-4-noktadan-montaj"
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m"
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "bir-ucu-acik-enerji-kablosu-532a-trifaze-11-22-kw-5x6-mm"
+    }
+  ],
+  "applications": [],
+  "cta": {
+    "eyebrow": "Ventas Corporativas",
+    "heading": "Soluciones Personalizadas para Fabricantes, Operadores y Distribuidores",
+    "description": "Opciones de color y marcado personalizadas para fabricantes. Soluciones a medida para CPO de operadores. Obtenga información detallada sobre un portafolio de productos orientado al usuario final y muchos beneficios.",
+    "tags": [
+      "Fabricante OEM",
+      "Operador de Red de Carga",
+      "Distribuidor / Concesionario"
+    ],
+    "channels": [
+      {
+        "href": "/b2b",
+        "label": "OEM y Fabricantes",
+        "sub": "Portafolio técnico, precio especial, soporte de ingeniería"
+      },
+      {
+        "href": "/bayilik",
+        "label": "Franquicia",
+        "sub": "Únase a nuestra red de distribuidores y obtenga protección de zona"
+      },
+      {
+        "href": "/operator",
+        "label": "Operadores de Red de Carga",
+        "sub": "Equipos compatibles con OCPP, DLM, monitoreo remoto"
+      }
+    ]
+  },
+  "bayilik": {
+    "heading1": "Bemis E-V Charge",
+    "heading2": "Conviértase en Distribuidor",
+    "description": "Únase a nuestra creciente red de distribuidores en toda Turquía y benefíciese del rápido crecimiento del mercado de infraestructura de carga de vehículos eléctricos. Precios competitivos, soporte técnico y protección de zona.",
+    "benefits": [
+      {
+        "title": "Precios Competitivos para Distribuidores",
+        "body": "Estructura de descuentos escalonada por volumen; puede empezar en pequeño y crecer."
+      },
+      {
+        "title": "Garantía de Inventario y Suministro",
+        "body": "Cola de pedidos prioritaria y calendario de entrega garantizado."
+      },
+      {
+        "title": "Soporte Técnico",
+        "body": "Línea técnica directa para instalación, averías y consultas de clientes."
+      },
+      {
+        "title": "Protección de Zona",
+        "body": "Oportunidad de exclusividad regional para distribuidores contratados."
+      },
+      {
+        "title": "Soporte de Marketing",
+        "body": "Imágenes de productos, catálogos, productos de demostración y materiales para showroom."
+      },
+      {
+        "title": "Inicio Rápido.",
+        "body": "Comience la distribución con una obligación mínima de stock y aumente a medida que crece."
+      }
+    ],
+    "criteria": [
+      "Operar en el sector de la electricidad, la energía o la automoción",
+      "Capacidad autorizada de venta y servicio",
+      "Portafolio de clientes regional o red de distribuidores",
+      "Conocimientos técnicos básicos de instalación (o equipo)"
+    ],
+    "infoTable": [
+      {
+        "label": "Obligación Mínima de Stock",
+        "value": "Flexible — según su tamaño"
+      },
+      {
+        "label": "Duración del Contrato",
+        "value": "1 año (renovable)"
+      },
+      {
+        "label": "Formación Técnica",
+        "value": "Gratuita — en Bursa o en línea"
+      },
+      {
+        "label": "Tiempo de Respuesta a la Solicitud",
+        "value": "Dentro de 5 días hábiles"
+      }
+    ],
+    "trCriteria": [
+      "Entidad corporativa (S.L./S.A.) con al menos 3 años de antigüedad — verificada mediante el registro mercantil",
+      "Línea de crédito mínima de ₺1.000.000 DDS (Sistema de Débito Directo) a través de un banco de nivel A",
+      "Tienda física / punto de venta",
+      "Ingeniero eléctrico colegiado o técnico de instalación de carga de vehículos eléctricos con certificación VQA (mínimo 1 persona)",
+      "Al menos 1 vehículo de servicio con la marca y capacidad de instalación regional in situ",
+      "Balance positivo en los últimos 2 años; sin registros de quiebra / concurso / ejecución de deudas (verificado mediante buró de crédito)",
+      "Compromiso de pedido inicial basado en la combinación de productos definida por Bemis E-V Charge",
+      "Compromiso de objetivo anual de ingresos / pedidos a cambio de derechos de territorio exclusivo",
+      "Compromiso mensual de actividad de marketing digital + de campo (redes sociales, informes de visitas B2B)",
+      "Finalización del programa de certificación técnica + de ventas de la Academia Bemis E-V Charge en un plazo de 6 meses"
+    ],
+    "intlCriteria": [
+      "Compromiso de distribución exclusiva para el país o la región",
+      "Fuerte presencia en el mercado de carga de vehículos eléctricos o infraestructura eléctrica",
+      "Licencia de importación e infraestructura de operación aduanera",
+      "Capacidad regional de almacenamiento y logística",
+      "Compromiso de objetivo mínimo anual de ingresos / pedidos",
+      "Infraestructura de servicio posventa y soporte al cliente"
+    ]
+  },
+  "operator": {
+    "heading1": "Su Red de Carga",
+    "heading2": "Crezca con Nosotros",
+    "description": "Ofrecemos una solución de hardware integral a los operadores de redes de carga con cargadores rápidos AC y DC compatibles con OCPP, cuadros de carga inteligentes y tarjetas de control listas para integración.",
+    "capabilities": [
+      {
+        "title": "OCPP 1.6 / 2.0.1",
+        "body": "Soporte de protocolo abierto compatible con todas las principales plataformas de gestión."
+      },
+      {
+        "title": "Gestión Dinámica de la Potencia",
+        "body": "Equilibra la carga entre los puntos de carga monitoreando el consumo instantáneo."
+      },
+      {
+        "title": "Monitoreo Remoto",
+        "body": "Actualización de firmware basada en la nube y alerta de fallos en tiempo real."
+      },
+      {
+        "title": "Certificado CE e IEC",
+        "body": "Cumple con las normas europeas de exportación; soporte en los procesos de certificación."
+      }
+    ],
+    "ocppFeatures": [
+      "Inicio / parada remotos",
+      "autenticación",
+      "Medición de potencia en tiempo real",
+      "Integración de múltiples pagos",
+      "Historial de sesiones y facturación",
+      "Actualización OTA de firmware",
+      "Notificación de códigos de error",
+      "Soporte de tarifas dinámicas"
+    ],
+    "featuredProducts": [
+      {
+        "categoryId": "wallbox",
+        "productId": "charger-pro-2-pano"
+      },
+      {
+        "categoryId": "wallbox",
+        "productId": "charger-plus-2-pano"
+      },
+      {
+        "categoryId": "charger-equipment",
+        "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m"
+      },
+      {
+        "categoryId": "charger-equipment",
+        "productId": "otomatli-ip66-kombinasyon-bd2m6130-1191-x"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-40-1"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-80-2"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-120-2"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-160-2"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-200-2"
+      }
+    ]
+  },
+  "solutions": [
+    {
+      "id": "dc-charger",
+      "name": "Cables de Carga DC 150-250-400 y 500 A",
+      "subtitle": "Para Estaciones Comerciales y Privadas",
+      "tag": "Disponible",
+      "tagColor": "#F97316",
+      "accentColor": "#F97316",
+      "detail": "Los cables de carga DC Bemis, totalmente nacionales y fabricados a medida para unidades de carga DC de alta potencia, ofrecen un reemplazo fácil en caso de rotura gracias a su estructura de cuerpo modular.",
+      "specs": [
+        "CCS2",
+        "Cuerpo frontal modular",
+        "Carcasa de exterior IP54",
+        "Certificado CE, TÜV"
+      ]
+    },
+    {
+      "id": "charge-panel",
+      "name": "Cables de Carga AC 22-11-7,4-3,7 kW",
+      "subtitle": "Cables para Unidad AC con un Extremo Abierto",
+      "tag": "Disponible",
+      "tagColor": "#10B981",
+      "accentColor": "#3B82F6",
+      "detail": "Cuadros de distribución inteligentes que alimentan decenas de puntos de carga desde una sola fuente principal; con un algoritmo de gestión de carga que reduce costos.",
+      "specs": [
+        "Monofásico / Trifásico",
+        "Type 2",
+        "Certificado CE, TÜV",
+        "IP54"
+      ]
+    },
+    {
+      "id": "dc-cable",
+      "name": "Toma de Cuadro para Unidad de Carga AC",
+      "subtitle": "Con Mecanismo de Bloqueo",
+      "tag": "Disponible",
+      "tagColor": "#10B981",
+      "accentColor": "#10B981",
+      "detail": "Toma de cuadro con mecanismo de bloqueo utilizada en las unidades de carga. Perfectamente adaptada a su unidad con marcado personalizado y diseño único.",
+      "specs": [
+        "16-32A",
+        "Type 2",
+        "IP54",
+        "Certificado CE, TÜV"
+      ]
+    },
+    {
+      "id": "ecu",
+      "name": "Aparato Soporte de Conector DC",
+      "subtitle": "Aparato de Suspensión para Cable de Carga DC",
+      "tag": "OEM Disponible",
+      "tagColor": "#818CF8",
+      "accentColor": "#818CF8",
+      "detail": "El Aparato Soporte de Toma DC, fabricado para que los cables DC utilizados en las unidades de carga DC puedan quedar suspendidos en reposo, destaca como una opción ideal gracias a su diseño con rótula y empotrado en la carcasa. Gracias a su estructura con rótula, se elimina el problema de rotura. Con su cuerpo empotrado dentro de la carcasa, es totalmente compatible con el diseño de su unidad.",
+      "specs": [
+        "Con rótula",
+        "CCS2",
+        "Empotrado",
+        "Certificado CE"
+      ]
+    }
+  ]
+}

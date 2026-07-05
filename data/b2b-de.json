@@ -1,0 +1,263 @@
+{
+  "hero": {
+    "eyebrow": "Enterprise- & OEM-Lösungen",
+    "heading1": "Für Hersteller",
+    "heading2": "Professionelle Lösungen",
+    "description": "Technisches Produktportfolio, individuelle Preisgestaltung und Engineering-Support für Hersteller. Vom türkischen Hersteller für die heimische Ladeinfrastruktur. OEM-Optionen.",
+    "sectorTags": []
+  },
+  "featuredProducts": [
+    {
+      "categoryId": "charger-equipment",
+      "productId": "bir-ucu-acik-kablolu-sarj-prizi-5m-trifaze-22-kw-5x6-mm"
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "pano-prizi-trifaze-11-22-kw-4-noktadan-montaj"
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m"
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "bir-ucu-acik-enerji-kablosu-532a-trifaze-11-22-kw-5x6-mm"
+    }
+  ],
+  "applications": [],
+  "cta": {
+    "eyebrow": "Enterprise-Vertrieb",
+    "heading": "Individuelle Lösungen für Hersteller, Betreiber und Händler",
+    "description": "Individuelle Farb- und Kennzeichnungsoptionen für Hersteller. Maßgeschneiderte Lösungen für Betreiber-CPOs. Erhalten Sie detaillierte Informationen zu einem endkundenorientierten Produktportfolio und zahlreichen Vorteilen.",
+    "tags": [
+      "OEM-Hersteller",
+      "Ladenetzbetreiber",
+      "Distributor / Händler"
+    ],
+    "channels": [
+      {
+        "href": "/b2b",
+        "label": "OEMs & Hersteller",
+        "sub": "Technisches Portfolio, Sonderpreis, Engineering-Support"
+      },
+      {
+        "href": "/bayilik",
+        "label": "Franchise ",
+        "sub": "Treten Sie unserem Händlernetz bei, sichern Sie sich Gebietsschutz"
+      },
+      {
+        "href": "/operator",
+        "label": "Ladenetzbetreiber",
+        "sub": "OCPP-konforme Ausrüstung, DLM, Fernüberwachung"
+      }
+    ]
+  },
+  "bayilik": {
+    "heading1": "Bemis E-V Charge",
+    "heading2": "Händler werden",
+    "description": "Treten Sie unserem wachsenden Händlernetz in der gesamten Türkei bei und profitieren Sie vom rasanten Wachstum im Markt für EV-Ladeinfrastruktur. Wettbewerbsfähige Preise, technischer Support und Gebietsschutz.",
+    "benefits": [
+      {
+        "title": "Wettbewerbsfähige Händlerpreise",
+        "body": "Gestaffelte Rabattstruktur nach Volumen; Sie können klein anfangen und wachsen."
+      },
+      {
+        "title": "Bestands- & Liefergarantie",
+        "body": "Bevorzugte Auftragsabwicklung und garantierter Lieferplan."
+      },
+      {
+        "title": "Technischer Support",
+        "body": "Direkte technische Hotline für Installation, Störungen und Kundenanfragen."
+      },
+      {
+        "title": "Gebietsschutz",
+        "body": "Möglichkeit regionaler Exklusivität für Vertragshändler."
+      },
+      {
+        "title": "Marketing-Unterstützung",
+        "body": "Produktbilder, Kataloge, Demoprodukte und Showroom-Materialien."
+      },
+      {
+        "title": "Schneller Start.",
+        "body": "Starten Sie den Handel mit minimaler Bestandsverpflichtung und bauen Sie ihn mit Ihrem Wachstum aus."
+      }
+    ],
+    "criteria": [
+      "Tätigkeit in der Elektro-, Energie- oder Automobilbranche",
+      "Autorisierte Vertriebs- & Servicekapazität",
+      "Regionales Kundenportfolio oder Händlernetz",
+      "Grundlegende technische Installationskenntnisse (oder ein Team)"
+    ],
+    "infoTable": [
+      {
+        "label": "Mindestbestandsverpflichtung",
+        "value": "Flexibel — abhängig von Ihrer Größe"
+      },
+      {
+        "label": "Vertragslaufzeit",
+        "value": "1 Jahr (verlängerbar)"
+      },
+      {
+        "label": "Technische Schulung",
+        "value": "Kostenlos — in Bursa oder online"
+      },
+      {
+        "label": "Bearbeitungszeit der Bewerbung",
+        "value": "Innerhalb von 5 Werktagen"
+      }
+    ],
+    "trCriteria": [
+      "Mindestens 3 Jahre bestehende Kapitalgesellschaft (GmbH/AG) — verifiziert über das Handelsregister",
+      "Mindestens 1.000.000 ₺ Kreditlinie im Lastschriftverfahren (DDS, Direct Debit System) über eine Tier-A-Bank",
+      "Physisches Geschäft / Verkaufsstelle",
+      "Zugelassener Elektroingenieur oder VQA-zertifizierter Installationstechniker für EV-Ladetechnik (mindestens 1 Person)",
+      "Mindestens 1 markiertes Servicefahrzeug und regionale Vor-Ort-Installationskapazität",
+      "Positive Bilanz der letzten 2 Jahre; keine Insolvenz- / Vergleichs- / Vollstreckungseinträge (verifiziert über die Wirtschaftsauskunftei)",
+      "Erstbestellverpflichtung auf Basis des von Bemis E-V Charge definierten Produktmix",
+      "Verpflichtung zu einem jährlichen Umsatz- / Bestellziel im Gegenzug für exklusive Gebietsrechte",
+      "Verpflichtung zu monatlichen digitalen + Feld-Marketingaktivitäten (Social Media, B2B-Besuchsberichte)",
+      "Abschluss des technischen + vertrieblichen Zertifizierungsprogramms der Bemis E-V Charge Academy innerhalb von 6 Monaten"
+    ],
+    "intlCriteria": [
+      "Exklusive Vertriebsverpflichtung für das Land oder die Region",
+      "Starke Marktpräsenz im Bereich EV-Ladung oder elektrische Infrastruktur",
+      "Importlizenz und Zollabwicklungsinfrastruktur",
+      "Regionale Lager- und Logistikkapazität",
+      "Verpflichtung zu einem jährlichen Mindestumsatz- / Bestellziel",
+      "After-Sales-Service- und Kundensupport-Infrastruktur"
+    ]
+  },
+  "operator": {
+    "heading1": "Ihr Ladenetz",
+    "heading2": "Wachsen Sie mit uns",
+    "description": "Wir bieten Ladenetzbetreibern eine durchgängige Hardwarelösung mit OCPP-konformen AC- & DC-Schnellladern, intelligenten Ladepanels und integrationsbereiten Steuerkarten.",
+    "capabilities": [
+      {
+        "title": "OCPP 1.6 / 2.0.1",
+        "body": "Unterstützung offener Protokolle, kompatibel mit allen gängigen Managementplattformen."
+      },
+      {
+        "title": "Dynamisches Lastmanagement",
+        "body": "Es verteilt die Last zwischen den Ladepunkten durch Überwachung des Momentanverbrauchs."
+      },
+      {
+        "title": "Fernüberwachung",
+        "body": "Cloudbasiertes Firmware-Update und Echtzeit-Störungsalarm."
+      },
+      {
+        "title": "CE- & IEC-Zertifikat",
+        "body": "Erfüllt europäische Exportstandards; Unterstützung bei Zertifizierungsprozessen."
+      }
+    ],
+    "ocppFeatures": [
+      "Fernstart / -stopp",
+      "Authentifizierung",
+      "Echtzeit-Leistungsmessung",
+      "Multi-Zahlungsintegration",
+      "Sitzungsverlauf & Abrechnung",
+      "Firmware-OTA-Update",
+      "Fehlercode-Meldung",
+      "Dynamische Tarifunterstützung"
+    ],
+    "featuredProducts": [
+      {
+        "categoryId": "wallbox",
+        "productId": "charger-pro-2-pano"
+      },
+      {
+        "categoryId": "wallbox",
+        "productId": "charger-plus-2-pano"
+      },
+      {
+        "categoryId": "charger-equipment",
+        "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m"
+      },
+      {
+        "categoryId": "charger-equipment",
+        "productId": "otomatli-ip66-kombinasyon-bd2m6130-1191-x"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-40-1"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-80-2"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-120-2"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-160-2"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-200-2"
+      }
+    ]
+  },
+  "solutions": [
+    {
+      "id": "dc-charger",
+      "name": "DC-Ladekabel 150-250-400&500A",
+      "subtitle": "Für kommerzielle & private Ladestationen",
+      "tag": "Verfügbar",
+      "tagColor": "#F97316",
+      "accentColor": "#F97316",
+      "detail": "Speziell für Hochleistungs-DC-Ladeeinheiten gefertigte, vollständig einheimische Bemis DC-Ladekabel ermöglichen dank ihrer modularen Gehäusestruktur einen einfachen Austausch bei Bruch.",
+      "specs": [
+        "CCS2",
+        "Modulares Frontgehäuse",
+        "IP54-Außengehäuse",
+        "CE-, TÜV-zertifiziert"
+      ]
+    },
+    {
+      "id": "charge-panel",
+      "name": "AC-Ladekabel 22-11-7,4-3,7 kW",
+      "subtitle": "Einseitig offene AC-Einheitenkabel",
+      "tag": "Verfügbar",
+      "tagColor": "#10B981",
+      "accentColor": "#3B82F6",
+      "detail": "Intelligente Verteilerpanels, die aus einer einzigen Hauptzuleitung Dutzende von Ladepunkten versorgen; mit kostensenkendem Lastmanagement-Algorithmus.",
+      "specs": [
+        "Einphasig / Dreiphasig",
+        "Type 2",
+        "CE-, TÜV-zertifiziert",
+        "IP54"
+      ]
+    },
+    {
+      "id": "dc-cable",
+      "name": "AC-Ladeeinheit-Panelsteckdose",
+      "subtitle": "Mit Verriegelungsmechanismus",
+      "tag": "Verfügbar",
+      "tagColor": "#10B981",
+      "accentColor": "#10B981",
+      "detail": "Panelsteckdose mit Verriegelungsmechanismus zur Verwendung an Ladeeinheiten. Mit individueller Kennzeichnung und einzigartigem Design perfekt auf Ihre Einheit abgestimmt.",
+      "specs": [
+        "16-32A",
+        "Type 2",
+        "IP54",
+        "CE-, TÜV-zertifiziert"
+      ]
+    },
+    {
+      "id": "ecu",
+      "name": "DC-Steckhalterung",
+      "subtitle": "DC-Ladekabel-Aufhängevorrichtung",
+      "tag": "OEM verfügbar",
+      "tagColor": "#818CF8",
+      "accentColor": "#818CF8",
+      "detail": "Die für DC-Ladeeinheiten gefertigte DC-Steckhalterung, damit die DC-Kabel frei aufgehängt bleiben können, überzeugt mit ihrem kugelgelagerten und in das Gehäuse eingelassenen Design als ideale Wahl. Dank ihrer kugelgelagerten Struktur entfällt das Bruchproblem. Mit der in das Gehäuse eingelassenen Bauform ist sie perfekt auf Ihr Einheitendesign abgestimmt.",
+      "specs": [
+        "Kugelgelagert",
+        "CCS2",
+        "Unterputz",
+        "CE-zertifiziert"
+      ]
+    }
+  ]
+}

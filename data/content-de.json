@@ -1,0 +1,861 @@
+{
+  "hero": {
+    "badge": "Heimische Produktion · Bursa · 1994",
+    "headline1": "Türkiyes",
+    "headline2": "E-V-Lade",
+    "headline3": "Hersteller",
+    "subtitle": "Von Ihrem Zuhause bis zu Ihrem Arbeitsplatz, von Parklösungen bis ins Feld – wir erleichtern das Erlebnis mit dem Elektrofahrzeug durch zertifizierte AC-Ladegeräte, Kabel und Zubehör.",
+    "ctaPrimary": "Entdecken Sie unsere EV-Ladelösungen",
+    "ctaSecondary": " Händler finden                                                                                                                                                                                                                                             ",
+    "heroBg": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075723/products/gdbptkvmtravx8isr209.jpg",
+    "layout": {
+      "logo": {
+        "x": 4,
+        "y": 12
+      },
+      "text": {
+        "x": 4,
+        "y": 36
+      },
+      "button": {
+        "x": 4,
+        "y": 82
+      }
+    },
+    "heroBgPos": "75% 32%",
+    "headline2Words": [
+      "Systeme",
+      "Einheiten",
+      "Steckdosen",
+      "Kabel"
+    ]
+  },
+  "stats": [
+    {
+      "value": 30,
+      "suffix": "+",
+      "label": "Produktvielfalt",
+      "description": "Breites Produktsortiment"
+    },
+    {
+      "value": 8000,
+      "suffix": "+",
+      "label": "Länderexport",
+      "description": "Globaler Marktzugang"
+    },
+    {
+      "value": 80,
+      "suffix": "+",
+      "label": "Dokumente",
+      "description": "Internationale Standards "
+    },
+    {
+      "value": 9001,
+      "prefix": "ISO",
+      "suffix": "",
+      "label": "Seit 1994",
+      "description": "AC-Wallbox-Ladegeräte"
+    }
+  ],
+  "categories": {
+    "wallbox": {
+      "name": "AC-Wallbox-Ladegeräte",
+      "subtitle": "22-7,4 kW wandmontierte Ladestation",
+      "modelCount": 3,
+      "badge": "Neu",
+      "comingSoon": false,
+      "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075730/products/thqh0i7nvr1om2na9ppo.png",
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075739/products/mkblh61xfa551ewuadj8.png",
+      "faq": [
+        {
+          "q": "Was ist der Unterschied zwischen 7 kW, 11 kW und 22 kW?",
+          "a": "Mit 7-kW-Einphasenanschluss betrieben und ausreichend für das Laden über Nacht; lädt ein typisches EV in 6-8 Stunden vollständig auf. Erfordert einen 11-kW- und 22-kW-Dreiphasenanschluss; dasselbe Fahrzeug ist mit 22 kW in 2-3 Stunden voll. Wenn die AC-Ladeannahmeleistung Ihres Fahrzeugs 11 kW beträgt, bringt ein 22-kW-Gerät keine zusätzliche Geschwindigkeit; prüfen Sie vor dem Kauf Ihr Fahrzeughandbuch."
+        },
+        {
+          "q": "Ist der Type-2-Stecker mit allen Elektrofahrzeugen kompatibel?",
+          "a": "Ja. Alle auf dem europäischen Markt verkauften Elektrofahrzeuge (einschließlich Tesla Model 3/Y), chinesische BYD- und MG-Modelle sowie koreanische und japanische EVs verwenden auf der AC-Seite den Standard IEC 62196-2 (Type 2). Unsere Bemis-Wallbox-Geräte entsprechen diesem Standard; es sind keine zusätzlichen Adapter erforderlich."
+        },
+        {
+          "q": "Was ist dynamisches Lastmanagement?",
+          "a": "Während andere an derselben Netzleitung angeschlossene Geräte hohe Leistung ziehen (Klimaanlage, Backofen, Wärmepumpe), senkt die Wallbox automatisch die Ladeleistung und verhindert, dass die Sicherung auslöst. Bei Installationen mit mehreren Wallboxen verteilt sie die insgesamt verfügbare Leistung ausgewogen zwischen den Geräten. Es ist eine entscheidende Funktion, die sowohl die Sicherheit erhöht als auch die Infrastrukturkosten senkt."
+        },
+        {
+          "q": "Was bedeutet die Schutzklasse IP65?",
+          "a": "IP65 bedeutet, dass das Gerät vollständig staubdicht (6) und beständig gegen Strahlwasser aus allen Richtungen (5) ist. Unsere Bemis-Wallboxen entsprechen dieser Klasse; für Außenparkplätze, Balkone und Außeninstallationen ist keine zusätzliche Schutzkabine erforderlich."
+        },
+        {
+          "q": "Installation inbegriffen",
+          "a": "Der Gerätepreis beinhaltet nicht die Installation. Unser autorisierter Händler führt eine Besichtigung durch und erstellt ein separates Angebot für Leitungsverlegung, Verkabelung und Arbeiten am Sicherungskasten. Die durchschnittlichen Installationskosten liegen zwischen 5.000-15.000 TL; sie werden entsprechend der vorhandenen Infrastruktur bestimmt."
+        },
+        {
+          "q": "Funktioniert das tragbare Ladegerät an einer normalen Steckdose?",
+          "a": "Ja. Unsere mobilen Bemis-Ladegeräte funktionieren sowohl mit standardmäßigen einphasigen 16A-Steckdosen als auch mit 32A-Industriesteckdosen vom Typ CEE. Pro-Modelle bieten Laden aus einer dreiphasigen 32A-Steckdose bis 22 kW; Mini-Modelle eignen sich mit 3,6 kW für Haushaltssteckdosen."
+        }
+      ],
+      "descriptionImage": "",
+      "description": "Tragbare AC-Ladegeräte, die keine Installation erfordern – von der Standardsteckdose oder CEE-Steckdose bis zur Type-2-Fahrzeugsteckdose. Flexible Ladelösung für Straßen-, Camping- und Notfallszenarien mit einphasigen Optionen von 2,3 – 7,4 kW und dreiphasigen Optionen von 11 – 22 kW.",
+      "manuals": [
+        {
+          "id": "manual-1779303159452",
+          "name": "AC Wallbox Kullanım Klavuzu",
+          "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779303157/documents/1779303157143-wallbox-kullanim-kilavuzu.pdf",
+          "size": "2.5 MB"
+        },
+        {
+          "id": "manual-1779303206674",
+          "name": "AC Kurulum Klavuzu",
+          "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779303205/documents/1779303205436-bemis-ev-charge-hizli-kurulum-kilavuzu__1_.pdf",
+          "size": "866 KB"
+        }
+      ]
+    },
+    "portable": {
+      "name": "Mobile AC-Ladegeräte",
+      "subtitle": "22-3,7 kW tragbare Ladegeräte",
+      "modelCount": 2,
+      "badge": "Innovativ",
+      "comingSoon": false,
+      "image": "/categories/1775071751364-Gemini_Generated_Image_13f87313f87313f8.png",
+      "faq": [
+        {
+          "q": "Was ist der Unterschied zwischen Mini Mobile und Pro Mobile?",
+          "a": "Mini Mobile: 3,6 kW einphasig, kompakte Größe, ideal für Zuhause/Reisen. Pro Mobile: einstellbare Leistung von 7-22 kW, Dreiphasen-Unterstützung, für den professionellen Einsatz. Beim Pro-Modell lässt sich die Strombegrenzung (6A-32A) am Display einstellen; beim Mini ist die Leistung konstant."
+        },
+        {
+          "q": "Was passiert, wenn das mobile Ladegerät untergetaucht wird?",
+          "a": "Die Schutzklasse IP54 ist für den Einsatz bei Regen geeignet, das Produkt sollte jedoch nicht unter Wasser sein. Nachdem das Gehäuse des Geräts nass geworden ist, sollte es vor dem Einstecken mit einem trockenen Tuch abgewischt werden. Bei Überschwemmung nicht in Betrieb nehmen, ohne es zum autorisierten Service zu bringen."
+        },
+        {
+          "q": "Kann es als Reserve auf der Reise verwendet werden?",
+          "a": "Ja, genau dafür sind tragbare Ladegeräte gedacht. An Orten wie Hotels, Campingplätzen und Feriendörfern, wo es keinen DC/AC-Ladepunkt gibt, wird aus den vorhandenen Steckdosen geladen. Es wird in seiner Tasche verstaut und wiegt durchschnittlich 4-6 kg."
+        },
+        {
+          "q": "Wie wähle ich zwischen mobilem Laden und fester Wallbox?",
+          "a": "Wenn Sie Ihr Auto jeden Tag am selben Ort parken, ist die feste Wallbox auf lange Sicht schneller, sicherer und wirtschaftlicher. Wenn Sie häufig reisen oder zwischen mehreren Standorten wechseln, ist ein mobiles Ladegerät die flexiblere Lösung. Es ist auch eine gängige Wahl, beide mitzunehmen."
+        },
+        {
+          "q": "Wie viele Meter sollte das AC-Ladekabel haben?",
+          "a": "Wir sehen, dass 5 Meter Kabel in den meisten Fällen ausreichen: Es ist ideal, wenn der Abstand der Fahrzeug-Ladesteckdose zur Wand beim Parken 3-4 Meter nicht überschreitet. Wenn Ihre Garagen-/Parkplatzanordnung anders ist, gibt es Optionen mit 7,5 m oder 10 m. Je länger das Kabel, desto schwerer und steifer ist es; eine unnötig lange Wahl erschwert das Tragen."
+        }
+      ],
+      "description": "Ladekabel für Modus 2 und Modus 3 mit Type-2-Standard. Konzipiert für langlebigen Einsatz in ein- und dreiphasigen Stromklassen von 16A – 32A, konform mit IEC 62196 / IEC 61851, mit halogenfreiem Außenmantel und Hochstrom-Type-2-Stecker.",
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075745/products/phrdrgmnycwteac03l3c.png"
+    },
+    "cables": {
+      "name": "AC-Ladekabel",
+      "subtitle": "Type 2 · Modus 3",
+      "modelCount": 4,
+      "badge": null,
+      "comingSoon": false,
+      "image": "/categories/1775071211208-Gemini_Generated_Image_9pbk3k9pbk3k9pbk.png",
+      "faq": [
+        {
+          "q": "Was ist der Unterschied zwischen Type 2 und Type 1?",
+          "a": "Type 1 (SAE J1772) wird bei nordamerikanischen und älteren asiatischen Fahrzeugen verwendet und unterstützt einphasig bis 7,4 kW. Type 2 (IEC 62196-2) ist der europäische Standard und unterstützt bis zu 22 kW dreiphasig. Fast alle neuen EVs auf dem türkischen Markt verwenden Type 2. Die älteren Versionen des Tesla Model S/X waren Type 1; die neueren Teslas sind Type 2."
+        },
+        {
+          "q": "Wie wähle ich zwischen einem 16A- und einem 32A-Kabel?",
+          "a": "16A-Kabel halten bis zu 3,7 kW einphasig und 11 kW dreiphasig stand. 32A-Kabel haben eine Kapazität von 7,4 kW einphasig und 22 kW dreiphasig. Je höher der Strom, den die Wallbox oder das Fahrzeug ziehen kann, wählen Sie das Kabel entsprechend diesem Strom; wenn es beim Kabel einen Engpass gibt, sinkt die Ladegeschwindigkeit."
+        },
+        {
+          "q": "Variiert die Kabelauswahl je nach Fahrzeugmarke?",
+          "a": "Da der Steckertyp standardisiert ist (Type 2 in fast allen europäischen Märkten), ist die Kabelauswahl markenunabhängig. Der einzige Unterschied ist die AC-Ladeannahmekapazität jedes Fahrzeugs: Wenn Sie ein 22-kW-Kabel zu einem Fahrzeug nehmen, das 11 kW annimmt, fließt nicht mehr Leistung, sondern nur mehr Sicherheit."
+        },
+        {
+          "q": "Funktioniert das Dreiphasenkabel mit meinem Fahrzeug?",
+          "a": "Ja, das Dreiphasenkabel unterstützt auch einphasiges Laden. Wenn Ihr Fahrzeug einphasig ist, läuft das Kabel automatisch einphasig und ist auf 7,4 kW begrenzt. Das Dreiphasenkabel stellt sicher, dass Sie keine unnötigen Änderungen vornehmen müssen, falls Sie in Zukunft ein dreiphasiges Fahrzeug kaufen."
+        },
+        {
+          "q": "Was macht V2L (Vehicle to Load)?",
+          "a": "V2L ermöglicht es Ihnen, die Batterie Ihres Fahrzeugs als tragbare Stromquelle zu nutzen. Der Adapter wird in die Fahrzeugsteckdose gesteckt und gibt einen standardmäßigen 220V-Ausgang aus. Sie können Kühlschränke, Projektoren und kleine Geräte in Situationen wie Camping, Outdoor-Aktivitäten oder Stromausfällen betreiben. Die Energie kommt aus der Fahrzeugbatterie."
+        }
+      ],
+      "description": "Adapter, die die Fahrzeugbatterie (V2L) oder das Ladegerät (C2L) in eine externe Stromversorgung umwandeln. Kompatibel mit Type-2-Eingängen und Schuko-/CEE-Ausgängen sowie V2L-fähigen Fahrzeugen wie Hyundai, Kia, MG, BYD, Ssangyong und Skywell – für Camping-, Werkstatt- und Notfallszenarien.",
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075750/products/yquclaq2d8incbvlonxk.png"
+    },
+    "v2l-c2l": {
+      "name": "V2L / C2L Adapter",
+      "subtitle": "Vehicle-to-Load & Charger-to-Load Entladung & Batterieladung",
+      "modelCount": 3,
+      "badge": "Wie nutze ich das AC-Wallbox-Ladegerät in meinem Zuhause?",
+      "comingSoon": false,
+      "image": "/categories/1775068456394-V2L-kamp2.png",
+      "faq": [
+        {
+          "q": "Was macht C2L (Charger to Load)?",
+          "a": "Der C2L-Adapter wandelt Strom, der aus der Type-2-Steckdose der AC-Ladestation gezogen wird, in eine standardmäßige Schuko- (Haushalt) oder CEE-Steckdose (Industrie) um. So kann ein Type-2-Ladepunkt nicht nur zum Laden von Fahrzeugen genutzt werden – sondern auch als 220V/380V-Ausgang für Werkstatt, Veranstaltungsraum oder temporäre Installation. Die Energie kommt aus dem Ladegerät, es wird nicht die Batterie Ihres Fahrzeugs verwendet."
+        },
+        {
+          "q": "Was ist der Unterschied zwischen V2L und C2L?",
+          "a": "Der einzige Unterschied ist, woher die Energie kommt: V2L bezieht die Energie AUS dem Fahrzeug (die Fahrzeugbatterie ist die Quelle) – Ihr Fahrzeug wird zu einer mobilen Stromquelle. C2L bezieht Energie aus der LADEEINHEIT (Type-2-Ladegerät als Quelle) – es wandelt einen Ladepunkt in eine herkömmliche Steckdose um. Die beiden dienen unterschiedlichen Zwecken; mit dem Kombi-Set erhalten Sie beide Adapter in einem Paket."
+        },
+        {
+          "q": "Welche Fahrzeuge unterstützen V2L?",
+          "a": "Fahrzeuge wie Hyundai Ioniq 5/6, Kia EV6/EV9, Genesis GV60, Ssangyong (KGM) Torres EVX, MG ZS EV / MG4, BYD Atto 3/Seal / Han und Skywell ET5 unterstützen V2L ab Werk. Unsere Bemis-V2L-Adapter sind in der Steckdosen-Pinbelegung dieser Hersteller gefertigt – markieren Sie bei der Produktauswahl die für Ihr Fahrzeug passende Variante (Hyundai/Kia/Ssangyong, MG, BYD/Skywell). Tesla-Fahrzeuge werden standardmäßig nicht unterstützt."
+        },
+        {
+          "q": "Wie viel Leistung kann aus dem V2L-Adapter gezogen werden?",
+          "a": "Hängt von der V2L-Leistung des Fahrzeugs ab. Hyundai/Kia bei den meisten Modellen bis zu 3,6 kW (16A), BYD und MG bis zu 2,2 kW (10A), einige neuere Modelle bis zu 7,2 kW. Unsere Bemis-V2L-Adapter übertragen die Ausgangsleistung des Fahrzeugs sicher; sie überschreitet nicht die Grenze Ihres Fahrzeugs. Versionen mit einer, zwei und drei Steckdosen teilen sich dieselbe Gesamtleistung."
+        },
+        {
+          "q": "Schadet die Nutzung von V2L der Batterie?",
+          "a": "Nein. V2L ist ein vom Hersteller vorgeschriebener Nutzungsmodus; das Batteriemanagementsystem (BMS) steuert die Entladetiefe. Die meisten Fahrzeuge schalten sich im V2L-Modus automatisch ab, wenn der Batteriestand auf 20 % sinkt. Dauerhafte Nutzung beeinträchtigt die Batterielebensdauer nicht."
+        },
+        {
+          "q": "Ist die Verlängerung des Ladekabels sicher?",
+          "a": "Unsere Bemis-Verlängerungskabel werden nach denselben Standards (IEC 62196-2, 32A-Kupferleiter) wie das Originalkabel gefertigt. Verbindungsabschnitte der Klasse IP54 sind gegen Wasser geschützt. Minderwertige Verlängerungen von Drittanbietern können ein Brandrisiko darstellen; verwenden Sie nur zertifizierte Produkte."
+        }
+      ],
+      "description": "Verlängerungskabel und CEE-Norm-Konverter, die vorhandene Ladeausrüstung zu verschiedenen Steckdosentypen und Distanzen führen. Kombinationslösungen, konzipiert für ein- und dreiphasige Übergänge von 16A – 32A.",
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075755/products/jjaugl6l5h7o20jastmg.png"
+    },
+    "converters": {
+      "name": "Verlängerung & Kombination",
+      "subtitle": "Verlängerungskabel, Konverter & Kombinationsboxen",
+      "modelCount": 4,
+      "badge": null,
+      "comingSoon": false,
+      "image": "/categories/1775068429165-BKT-0102-2105.jpg",
+      "faq": [
+        {
+          "q": "In welchen Fällen ist die Verwendung einer Verlängerung notwendig?",
+          "a": "Wenn der Ort, an dem das Fahrzeug geparkt wird, weit von der Wand entfernt ist, an der sich die Wallbox befindet, wenn der Parkeinfahrtsbereich lang ist, wenn der Ladepunkt in mobilen Umgebungen wie Camping weit entfernt ist, wird eine Verlängerung verwendet. Eine zusätzliche Verlängerung ist unnötig, wenn Ihr Standardkabel von 5 m ausreicht; jede Steckverbindung ist ein zusätzlicher empfindlicher Punkt."
+        },
+        {
+          "q": "Können verschiedene Steckertypen mit dem Konverter kompatibel gemacht werden?",
+          "a": "Ja, wir haben Adapter für gängige Umwandlungen wie Type 1 zu Type 2, CEE-Steckdose zu Type 2, Type 2 zu Schuko. Aber es gibt keine Umwandlung zwischen DC und AC; jedes System arbeitet separat. Die Konverter übernehmen die Leistungsgrenze der niedrigeren Seite."
+        },
+        {
+          "q": "Wie viele Meter kann das Verlängerungskabel sein?",
+          "a": "Die Gesamtkabellänge (Original + Verlängerung) sollte für 22 kW einphasig 15 Meter und für 11 kW dreiphasig 25 Meter nicht überschreiten. Bei größeren Distanzen sinkt die Leistung und die Erwärmung nimmt aufgrund des Kabelwiderstands zu. Für Installationen, die große Distanzen erfordern, wird eine feste Verkabelung empfohlen."
+        },
+        {
+          "q": "Welche Steckdosentypen sind in der Türkei üblich?",
+          "a": "Schuko (türkische Standardsteckdose), blaue 16A-Industrie-CEE-Steckdose und rote 32A-CEE-Dreiphasensteckdose sind beim Laden zu Hause üblich. Type 2 ist Standard an öffentlichen AC-Punkten. CCS2 (am häufigsten) und CHAdeMO (Nissan/ältere Fahrzeuge) treten beim DC-Schnellladen auf."
+        },
+        {
+          "q": "Was ist in der Kategorie Ladeeinheiten-Ausrüstung enthalten?",
+          "a": "Professionelle Ausrüstung, die bei Ladestationsinstallationen verwendet wird, umfasst: AC- und DC-Ladesteckdosen (Type 2, CCS2), kabelgebundene und kabellose Versionen, Steckdosenabdeckungen, Verriegelungsmechanismen, optionale Kommunikationsmodule und Ersatzteile, die in das Ladegerät integriert werden können. Nutzt OEM-Hersteller und -Service."
+        }
+      ],
+      "description": "Vollständig heimische Bemis-DC-Ladekabel, speziell für Hochleistungs-DC-Ladeeinheiten hergestellt, ermöglichen dank ihrer modularen Gehäusestruktur einen einfachen Austausch im Falle eines Bruchs.\nPaneelsteckdose mit Verriegelungsmechanismus, die an Ladeeinheiten verwendet wird. Mit ihrem speziellen Branding und einzigartigen Design ist sie perfekt für Ihre Einheit. Der DC-Steckdosenhalter, der dafür hergestellt wird, die in DC-Ladeeinheiten verwendeten DC-Kabel im Leerlauf aufzuhängen, überzeugt mit seinem Kugel- und eingelassenen Design als ideale Option. Dank seiner Kugelstruktur wird das Bruchproblem beseitigt. Mit seiner in das Gehäuse eingelassenen Struktur ist er vollständig kompatibel mit Ihrem Einheitendesign.",
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075761/products/f0fshjhhljmvpkcrxxzu.png"
+    },
+    "charger-equipment": {
+      "name": "AC- & DC-Ladeeinheiten-Ausrüstung",
+      "subtitle": "Type 2, CCS2 Steckdose, Einheitensteckdose, Halter",
+      "modelCount": 5,
+      "badge": null,
+      "comingSoon": false,
+      "image": "/categories/1774998252477-110001360852184.jpg",
+      "description": "RFID-Karten, Tragetaschen und Montagezubehör – Nebenprodukte, die den betrieblichen und sicherheitstechnischen Bedarf eines Ladestandorts ergänzen.",
+      "faq": [
+        {
+          "q": "Was ist der Unterschied zwischen einer DC-Ladesteckdose und einer AC-Ladesteckdose?",
+          "a": "AC-Steckdosen (Type 2) leiten maximal 22 kW Wechselstrom und sind einfach aufgebaut. DC-Steckdosen (CCS2) liefern 50-350 kW Gleichstrom, einschließlich Flüssigkeitskühlung, Temperatursensor und dickerer Leiter. DC-Steckdosen sind 3-4 Mal schwerer und erfordern eine spezielle Installation."
+        },
+        {
+          "q": "Was ist für einen Betreiber erforderlich, der eine Ladestation installieren möchte?",
+          "a": "Erforderlich sind ein Transformatoranschluss oder ausreichende Anschlussleistung, Ladegeräte mit Unterstützung für OCPP 1.6J/2.0.1, eine CPO-Software für Abrechnung/Verwaltung sowie eine EMRA-Lizenz oder eine Händlervereinbarung. Unser Bemis-B2B-Team unterstützt die schlüsselfertige Installation von der Standortbesichtigung bis zur Hardwarebeschaffung."
+        },
+        {
+          "q": "Was ist eine CCS2-Steckdose?",
+          "a": "Das Combined Charging System 2 (CCS2) ist der DC-Schnellladestandard des europäischen Marktes. Es ist ein kombiniertes Design mit zwei zusätzlichen DC-Pins, die unter dem Type-2-AC-Stecker angebracht sind; sowohl AC- als auch DC-Laden kann aus derselben Fahrzeugsteckdose erfolgen. Es unterstützt Leistungen von 50-350 kW."
+        },
+        {
+          "q": "Ist der Austausch einer Ersatzsteckdose oder eines Ersatzkabels möglich?",
+          "a": "Ja. Die Kabel und Steckdosen unserer Bemis-Ladegeräte sind modular aufgebaut; bei Verschleiß oder Beschädigung kann unser autorisierter Service sie schnell austauschen. Für spezielle Teile wie CCS2-flüssigkeitsgekühlte Kabel verwalten wir einen Lagerbestand."
+        },
+        {
+          "q": "Warum benötige ich eine RFID-Karte?",
+          "a": "Die RFID-Karte ermöglicht die Benutzerautorisierung an der Ladestation – jemand, den Sie nicht möchten, kann das Gerät nicht nutzen. Sie wird verwendet, um in Unternehmens-/Arbeitsplatzinstallationen zu verfolgen, wer wie viel mit welchem Fahrzeug lädt. Denselben Zweck erfüllen Sie an OCPP-fähigen Stationen mit der mobilen Anwendung."
+        }
+      ],
+      "descriptionImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075765/products/xl61vku2recrvjsag3x8.jpg"
+    },
+    "accessories": {
+      "name": "Zubehör",
+      "subtitle": "Tragetaschen, Standsäulen & Sonstiges",
+      "modelCount": 4,
+      "badge": null,
+      "comingSoon": false,
+      "image": "/categories/1775068320447-charger-cable.png",
+      "faq": [
+        {
+          "q": "Warum eine Tasche für das Ladekabel kaufen?",
+          "a": "Das mobile Ladegerät ohne Tasche im Kofferraum des Fahrzeugs zu transportieren, beschädigt sowohl das Kabel als auch die Innenverkleidung des Fahrzeugs. Die Tasche isoliert die Feuchtigkeit im Stoff, schützt die Stecker vor Quetschungen und ermöglicht eine praktische Nutzung auf Reisen. Taschen können bei unseren Pro-Mobile-Produkten Standard und bei anderen optional sein."
+        },
+        {
+          "q": "Sind Bemis-Zubehörteile mit anderen Marken kompatibel?",
+          "a": "Da die Steckerstandards (Type 2, CCS2, RFID Mifare) universell sind, ist unser Bemis-Zubehör mit allen Elektrofahrzeugen und Ladestationen kompatibel, die standardmäßige Type-2-/CCS2-Stecker verwenden. Markenspezifische Merkmale (Firmware-Sperre, registriertes Kartensystem) werden, falls vorhanden, im Dokument angegeben."
+        },
+        {
+          "q": "Wie bestellt man Ersatzzubehör?",
+          "a": "Die Anfrage kann mit dem Produktcode direkt über das Kontaktformular gesendet werden, unser Vertriebsteam leitet den Händler an. Für Betreiber mit Großbestellungen ist eine integrierte Bestellung per API über ein OEM-Konto möglich. Teile, die nicht in unserem Lager sind, werden innerhalb von 2-4 Wochen geliefert."
+        },
+        {
+          "q": "Was soll ich tun, wenn die RFID-Karte verloren geht?",
+          "a": "Wenn die Karte verloren geht, kann sie über das Admin-Panel oder durch Benachrichtigung unseres Vertriebsteams deaktiviert werden. Eine neue Kartenzuordnung ist in 5 Minuten abgeschlossen. Das Risiko einer unbefugten Nutzung mit der verlorenen Karte ist vernachlässigbar, da jede Karte mit dem Geräteregistrierungssystem verbunden ist."
+        },
+        {
+          "q": "Was ist der Unterschied zwischen DC-Laden und AC-Laden?",
+          "a": "Beim AC-Laden fließt der Strom als Wechselstrom zum Fahrzeug und der interne Wandler wandelt ihn in Gleichstrom um; daher ist er auf 22 kW begrenzt. Beim DC-Laden erfolgt die Umwandlung innerhalb der Station und der Gleichstrom fließt direkt zur Batterie; er kann bis zu 50-350 kW erreichen. Fazit: Mit DC erreicht ein EV in 20-40 Minuten 80 %, während bei AC 6-8 Stunden erforderlich sind."
+        }
+      ],
+      "description": "DC-Schnellladegeräte der BEVDC-Serie – Modelle mit einem oder zwei CCS2-Ausgängen von 40 kW bis 200 kW. Geeignet für den kommerziellen Feldeinsatz mit Unterstützung für OCPP 1.6J/ 2.0.1, RFID-Authentifizierung, IP54-Schutz und weitem Temperaturbereich (-25°C / +55°C)."
+    },
+    "dc-units": {
+      "name": "DC-Ladeeinheiten",
+      "subtitle": "40-200 kW Schnellladeeinheiten",
+      "modelCount": 5,
+      "badge": null,
+      "comingSoon": false,
+      "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075768/products/pfihve1gfgyuchjlylkm.jpg",
+      "faq": [
+        {
+          "q": "Was ist der Unterschied zwischen DC-Laden und AC-Laden?",
+          "a": "Beim AC-Laden erreicht der Strom das Fahrzeug als Wechselstrom und der bordeigene Wandler richtet ihn gleich; dies begrenzt die Rate auf 22 kW. Beim DC-Laden erfolgt die Umwandlung innerhalb der Station und der Gleichstrom fließt direkt in die Batterie und erreicht bis zu 50-350 kW. Das Ergebnis: Ein EV erreicht mit DC in 20-40 Minuten 80 %, während AC 6-8 Stunden benötigt."
+        },
+        {
+          "q": "Wie viele Fahrzeuge können BEVDC-Modelle gleichzeitig laden?",
+          "a": "BEVDC-40 hat eine einzelne Steckdose und liefert 40 kW an ein einzelnes Fahrzeug. BEVDC-80, BEVDC-120, BEVDC-160 und BEVDC-200 haben zwei Steckdosen; die Gesamtleistung kann gleichzeitig zwischen zwei Fahrzeugen aufgeteilt werden. Zum Beispiel kann das BEVDC-200 gleichzeitig jedem von zwei Fahrzeugen 100 kW liefern oder 200 kW an ein einzelnes Fahrzeug (sofern das Fahrzeug dies unterstützt)."
+        },
+        {
+          "q": "Was ist für die Installation eines DC-Ladegeräts erforderlich?",
+          "a": "DC-Einheiten erfordern einen dreiphasigen 380-480V-Netzanschluss, einen Transformator oder einen Hochleistungsanschluss (200-400 kVA) für BEVDC-120 und höher, ein Bodenbefestigungspodest, ausreichenden Luftstrom zur Kühlung sowie eine Ethernet- oder 4G-Leitung für die OCPP-Kommunikation. Das Bemis-B2B-Team verwaltet den gesamten Prozess von der Standortbesichtigung bis zur Inbetriebnahme."
+        },
+        {
+          "q": "Welches BEVDC-Modell passt zu meinem Fuhrpark?",
+          "a": "BEVDC-40 reicht aus, wenn Ihre Flottenfahrzeuge durchschnittlich 50-60 kWh Batterien haben und städtisch bleiben. Für Langstrecken-Nutzfahrzeugflotten oder Taxi-/Kurierbetriebe mit schnellem Umschlag erreicht BEVDC-120 in 30 Minuten 80 %. Für stark frequentierte öffentliche Stationen wird BEVDC-160/200 empfohlen; zwei Fahrzeuge laden gleichzeitig schnell."
+        },
+        {
+          "q": "Was ist erforderlich, um einen öffentlichen DC-Ladepunkt zu eröffnen?",
+          "a": "Gemäß der Ladeservice-Verordnung der EMRA benötigen Sie eine Lizenz oder Genehmigung, ein OCPP-fähiges Gerät, eine Integration in das EPVIS-System sowie einen Abrechnungs-/Zahlungs-Stack (Bemis-CPO-Software oder eine Drittanbieter-Plattform). Die Investitionsgröße liegt zwischen 1-3 Millionen TL; unser B2B-Team unterstützt bei der Erstellung des Fahrplans."
+        }
+      ],
+      "description": "DC-Schnellladeeinheiten der BEVDC-Serie – Modelle mit einem oder zwei CCS2-Ausgängen von 40 kW bis 200 kW. Mit Unterstützung für OCPP 1.6J / 2.0.1, RFID-Authentifizierung, IP54-Schutz und einem weiten Temperaturbereich (-25°C / +55°C), geeignet für den kommerziellen Feldeinsatz."
+    }
+  },
+  "featured": [
+    {
+      "categoryId": "wallbox",
+      "productId": "charger-plus-2-kablolu",
+      "badge": "Plug & Play",
+      "highlight": "Keine Installation erforderlich. Einstecken, laden. Ideal für Zuhause und Reisen mit einstellbarem Strom von 6A-32A.",
+      "visible": true
+    },
+    {
+      "categoryId": "portable",
+      "productId": "pro-mobile",
+      "badge": "Professionelles DC-Ladekabel CCS2",
+      "highlight": "Bis zu 400-500A Kapazität. CCS2  · Modell. Für Stationshersteller.",
+      "visible": true
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
+      "badge": "22-kW-Dreiphasen-Smart-Ladestation für den individuellen Gebrauch und Gemeinschaftsflächen. IP65 · OCPP 1.6 · Dynamisches Lastmanagement.",
+      "highlight": "Über uns",
+      "visible": true
+    }
+  ],
+  "contact": {
+    "phone": "+90 (224) 433 02 16",
+    "email": "info@bemisevcharge.com",
+    "address": "Yeşil Cad. No:31",
+    "addressSub": "16140 Bursa, Türkiye",
+    "workingHours": "08:30 — 18:00",
+    "workingDays": "Montag — Freitag",
+    "whatsappPhone": "+90 533 956 25 46",
+    "whatsappMessage": "Hallo, ich möchte Informationen über die Produkte von Bemis E-V Charge erhalten."
+  },
+  "company": {
+    "foundedYear": "1994",
+    "exportCountries": "80+",
+    "productCount": "8000+",
+    "facilitySize": "16.000 m²"
+  },
+  "social": {
+    "linkedin": "https://www.linkedin.com/company/104588906",
+    "instagram": "https://www.instagram.com/bemis.evcharge/",
+    "twitter": "",
+    "youtube": "https://www.youtube.com/@bemisteknikelektrika.s.2025",
+    "facebook": "https://www.facebook.com/bemisteknik/?locale=tr_TR"
+  },
+  "dna": {
+    "sectionLabel": "Von der Software bis zur Produktion — alles bei uns",
+    "sectionHeading": "Mit Bemis-Qualität\nHeimische EV-Ladelösungen",
+    "brandHeading": "Die 1994 in Bursa gegründete Bemis Teknik Elektrik A.Ş. ist mit 100 % heimischer Produktion und mehr als 30 Jahren Erfahrung im Bereich Industriesteckdosen einer der führenden Hersteller elektrischer Ausrüstung in der Türkei. Bemis E-V Charge ist unsere vollständig heimische EV-Lademarke, die auf dieser etablierten Infrastruktur aufbaut.",
+    "brandPara1": "In unserer Anlage im Industriegebiet Bursa führen wir jede Phase durch, vom Design der elektronischen Karten bis zur Software, von der Kabelproduktion bis zur Endmontage. Die Produkte, die wir in mehr als 80 Länder exportieren, beweisen, wie heimische Ingenieurskunst auf der globalen Bühne konkurrieren kann.",
+    "brandPara2": "Qualität ist der Ausdruck von Respekt.",
+    "quote": "Bemis E-V Charge Team · Industriegebiet Bursa, Türkei",
+    "quoteAttr": "Entdecken Sie die Welt von Bemis",
+    "yearLabel": "1994",
+    "yearSub": "30+ Jahre Erfahrung",
+    "highlights": [
+      {
+        "title": "Zertifizierte Qualität",
+        "desc": "TÜV, CE, IP65 und internationale EV-Ladestandards."
+      },
+      {
+        "title": "Exporte in 80+ Länder",
+        "desc": "Wir bringen türkische Ingenieurskunst in die Welt."
+      },
+      {
+        "title": "Saubere Mobilität",
+        "desc": "Beitrag zu einer nachhaltigen Zukunft."
+      },
+      {
+        "title": "Ununterbrochene Produktion seit 1994.",
+        "desc": "Intelligentes Lademanagement"
+      }
+    ],
+    "features": [
+      {
+        "title": "Heimische Produktionsqualität",
+        "desc": "Produktion nach europäischen Standards TÜV, CE und ISO 9001 in unserer Anlage im Industriegebiet Bursa. Vollständig heimisch von der Software bis zur Elektronik."
+      },
+      {
+        "title": "Universelle Kompatibilität",
+        "desc": "Type 2, CCS — kompatibel mit allen EV-Marken, zertifiziert nach IEC 61851 & IEC 62196."
+      },
+      {
+        "title": "Nachhaltiges Design",
+        "desc": "Betriebsbereich -40°C / +55°C, über 100.000 Stunden Lebensdauer. Langlebig, wenig Abfall."
+      },
+      {
+        "title": "Protokoll OCPP 1.6/2.0, dynamisches Lastmanagement und cloudbasierte Fernverwaltung.",
+        "desc": "EV-Ladelösungen"
+      }
+    ],
+    "factoryImage": "/kurumsal/1775044209322-WhatsApp_Image_2026-04-01_at_09.54.37.jpeg",
+    "factoryVideo": "https://www.youtube.com/watch?v=BnoQBR9irTU",
+    "ctaLabel": "Bursa · Türkei · Heimische Produktion",
+    "aboutVideo": "https://www.youtube.com/watch?v=JVfchskAXC4&t=53s",
+    "groupBrands": [
+      {
+        "name": "Bemis",
+        "logo": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075770/products/olt39pufnjbk1q2ziubx.png"
+      },
+      {
+        "name": "Bemis E-V Charge",
+        "logo": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075772/products/lzpqyh2z2gjksrqlxmzk.png"
+      },
+      {
+        "name": "BYES",
+        "logo": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075776/products/vpdt79iih2dtee6pt3b9.png"
+      }
+    ]
+  },
+  "products": {
+    "heading": "Entdecken Sie die Ladelösung, die zu Ihren Bedürfnissen passt",
+    "subheading": "Produktkatalog",
+    "sectionLabel": "Alle Produkte",
+    "allProductsLabel": "Ansehen",
+    "viewLabel": "Autorisiertes Vertriebsnetz",
+    "sliderEnabled": false
+  },
+  "dealer": {
+    "sectionLabel": "In der ganzen Türkei",
+    "heading": "Wählen Sie unsere autorisierten Händler in der ganzen Türkei auf der Karte aus oder kontaktieren Sie sie.",
+    "description": "Möchten Sie unserem Händlernetz beitreten?",
+    "applyText": " Händler finden                                                                                                                                                                                                                                             ",
+    "statCities": "7",
+    "statDealers": "50+",
+    "findDealerTitle": "Kontakt",
+    "contactBtnLabel": "Händler im Gebiet",
+    "citiesLabel": "Aktiver Händler",
+    "activeDealersLabel": "Klicken Sie auf ein Gebiet auf der Karte oder fahren Sie mit der Maus darüber",
+    "mapHint": "Karte der autorisierten Händler in der Türkei",
+    "mapTitle": "Leitender Vertriebsspezialist Region Marmara",
+    "regionReps": [
+      {
+        "regionId": "marmara",
+        "name": "Berkin Uygun",
+        "title": "Bursa Zentrum (Hauptsitz)",
+        "phone": "+90 549 797 10 42",
+        "email": "buygun@bemis.com.tr",
+        "whatsapp": "+90 549 797 10 42"
+      },
+      {
+        "regionId": "merkez",
+        "name": "Enise Şengün",
+        "title": "Deutschland",
+        "phone": "",
+        "email": "satis@bemis.com.tr"
+      },
+      {
+        "regionId": "karadeniz",
+        "name": "TEMEL BEŞLİ",
+        "title": "Regionalvertreter Schwarzmeerregion",
+        "phone": "0 533 140 13 64",
+        "email": "tbesli@bemis.com.tr"
+      },
+      {
+        "regionId": "dogu",
+        "name": "MUSTAFA KOZANOĞLU",
+        "title": "Regionalvertreter Ostanatolien",
+        "phone": "0 549 797 10 45",
+        "email": "guneydogu@bemis.com.tr"
+      },
+      {
+        "regionId": "guneydogu",
+        "name": "MUSTAFA KOZANOĞLU",
+        "title": "Regionalvertreter Südostanatolien",
+        "phone": "0 549 797 10 45",
+        "email": "guneydogu@bemis.com.tr"
+      },
+      {
+        "regionId": "ic_anadolu",
+        "name": "MEHMET ÇANAK",
+        "title": "Regionalvertreter Zentralanatolien",
+        "phone": "0 549 839 13 36",
+        "email": "mcanak@bemis.com.tr"
+      },
+      {
+        "regionId": "ege",
+        "name": "VOLKAN ÜÇÜNCÜ",
+        "title": "Regionalvertreter",
+        "phone": "0 549 804 85 99",
+        "email": "vucuncu@bemis.com.tr"
+      },
+      {
+        "regionId": "akdeniz",
+        "name": "ABDULSAMED ÇALIŞKAN",
+        "title": "Regionalvertreter Mittelmeerregion",
+        "phone": "0 530 321 56 57",
+        "email": "tanitim@bemis.com.tr"
+      },
+      {
+        "regionId": "marmara",
+        "name": "YİĞİT BOZKURT",
+        "title": "Regionalvertreter Marmara",
+        "phone": "0 546 529 97 54",
+        "email": "marmara2@bemis.com.tr",
+        "whatsapp": ""
+      },
+      {
+        "regionId": "marmara",
+        "name": "MEHMET AKKILIÇ",
+        "title": "Regionalvertreter Marmara",
+        "phone": "0 549 839 13 34",
+        "email": "marmara@bemis.com.tr",
+        "whatsapp": ""
+      }
+    ],
+    "internationalDealers": [
+      {
+        "id": "de",
+        "countryCode": "DE",
+        "countryName": "Deutschland",
+        "lat": 51.2,
+        "lng": 10.4,
+        "active": true,
+        "distributorName": ""
+      },
+      {
+        "id": "cl",
+        "countryCode": "CL",
+        "countryName": "Chile",
+        "lat": -35.7,
+        "lng": -71.5,
+        "active": true
+      },
+      {
+        "id": "pt",
+        "countryCode": "PT",
+        "countryName": "Portugal",
+        "lat": 39.4,
+        "lng": -8.2,
+        "active": true
+      }
+    ],
+    "exportContact": {
+      "contactPerson": "Timur Emrul",
+      "whatsapp": " "
+    }
+  },
+  "reviews": {
+    "sectionLabel": "Nutzerkommentare",
+    "heading": "Was sagen die Nutzer?",
+    "subheading": "Echte Nutzererfahrungen von Trendyol und HepsBurada",
+    "ratingLabel": "Bewertung",
+    "platformsPrefix": "Trendyol und HepsBurada",
+    "ratingCountSuffix": "Bewertung",
+    "rating": "4.9",
+    "ratingCount": "500+",
+    "items": [
+      {
+        "platform": "Trendyol",
+        "platformColor": "#F27A1A",
+        "rating": 5,
+        "author": "Mehmet K.",
+        "date": "März 2025",
+        "product": "AC Wallbox 7kW",
+        "text": "Ich nutze es seit 3 Monaten, die Installation war sehr einfach. Null Probleme im täglichen Gebrauch. Man spürt die Qualität türkischer Ware, die Verarbeitungsqualität ist sehr gut. Sehr empfehlenswert."
+      },
+      {
+        "platform": "HepsiBurada",
+        "platformColor": "#FF6000",
+        "rating": 5,
+        "author": "Ayşe T.",
+        "date": "FEBRUAR 2025",
+        "product": "Type 2 AC-Ladekabel 7m",
+        "text": "Die Kabelqualität ist wirklich hervorragend. Der Type-2-Stecker passt perfekt zum Fahrzeug, das Ein- und Ausstecken geht sehr flüssig. Die Länge von 7 Metern ist ideal für den Gebrauch in der Garage."
+      },
+      {
+        "platform": "Trendyol",
+        "platformColor": "#F27A1A",
+        "rating": 5,
+        "author": "Serkan D.",
+        "date": "Januar 2025",
+        "product": "Kabellose Powerbank",
+        "text": "Großer Komfort bei Urlaubsreisen. In die Standardsteckdose einstecken und das Laden starten. Auf Reisen habe ich es immer dabei, ich nutze es auch in Notfällen. Sehr praktisch!"
+      },
+      {
+        "platform": "HepsiBurada",
+        "platformColor": "#FF6000",
+        "rating": 5,
+        "author": "Emre Y.",
+        "date": "Januar 2025",
+        "product": "AC Wallbox 22kW",
+        "text": "Wir nutzen es auf dem Außenparkplatz unseres Arbeitsplatzes. Der IP65-Schutz funktioniert selbst bei Regen perfekt. Wir hatten einen Winter und hatten keine Probleme. Heimische Produktion gibt Vertrauen."
+      },
+      {
+        "platform": "Trendyol",
+        "platformColor": "#F27A1A",
+        "rating": 5,
+        "author": "Özlem B.",
+        "date": "Dezember 2024",
+        "product": "V2L Adapter",
+        "text": "Es ist großartig, auf einer Campingreise Strom aus dem Auto zu beziehen. Der Adapter ist von guter Qualität und funktioniert sicher. Ich konnte den Laptop, die Lichter und sogar den kleinen Heizlüfter einschalten. Die Mehrmarken-Kompatibilität ist großartig."
+      },
+      {
+        "platform": "HepsiBurada",
+        "platformColor": "#FF6000",
+        "rating": 5,
+        "author": "Can M.",
+        "date": "Nov. 2024",
+        "product": "DC-Schnellladekabel",
+        "text": "Die CCS-Verbindung funktioniert perfekt. Das Kabel ist flexibel, hat keine Schwierigkeiten beim Aufrollen und Ausrollen. Die Verbindungsqualität ist überlegen, keine Erwärmung bei hohem Strom. Beste Option auf dem Markt."
+      }
+    ]
+  },
+  "contactSection": {
+    "sectionLabel": "Kontakt",
+    "heading": "Kontaktieren Sie uns",
+    "subheading": "Kontaktieren Sie uns, um über unsere Produkte, eine Händlerbewerbung, Firmenkundenverkauf, Partnerschaften oder Feedback zu sprechen."
+  },
+  "featuredSection": {
+    "sectionLabel": "EDigital: Ausgewählte Produkte",
+    "heading": "Am meisten bevorzugt",
+    "subheading": "Unsere meistbestellten Produkte, denen unsere Kunden vertrauen",
+    "ctaLabel": "Mehr über das Produkt lesen"
+  },
+  "navbar": {
+    "ctaLabel": "Kontaktieren Sie uns",
+    "links": [
+      {
+        "label": "Startseite",
+        "href": "#hero"
+      },
+      {
+        "label": "Über uns",
+        "href": "#dna"
+      },
+      {
+        "label": "Produkte",
+        "href": "#products"
+      },
+      {
+        "label": "Dokumente",
+        "href": "/documents"
+      },
+      {
+        "label": "Händlernetz",
+        "href": "#dealer"
+      },
+      {
+        "label": "Rechner",
+        "href": "#calculator"
+      },
+      {
+        "label": "Kontakt",
+        "href": "#contact"
+      },
+      {
+        "label": "Unternehmen",
+        "href": "/b2b"
+      }
+    ],
+    "b2bPortalUrl": "https://b2b.bemisevcharge.com.tr"
+  },
+  "footer": {
+    "description": "Unsere EV-Ladeausrüstungsmarke innerhalb der Bemis Teknik Elektrik A.Ş. Hochwertige elektrische Ausrüstung von der Türkei in die Welt seit 1994.",
+    "followLabel": "Folgen Sie uns:",
+    "copyright": "© 2026 Bemis Teknik Elektrik A.Ş.",
+    "rightsLabel": "Alle Rechte vorbehalten",
+    "tagline": "Heimische Produktion, globale Qualität",
+    "b2bText": "Für Hersteller und OEM-Lösungen",
+    "b2bLinkText": "unsere professionelle Produktseite",
+    "b2bSuffix": "Informationen."
+  },
+  "logos": {
+    "dark": "",
+    "light": ""
+  },
+  "smartCharger": {
+    "sectionLabel": "Intelligente Ladetechnologie",
+    "heading": "Mit mobiler App\nüberall verwalten",
+    "subheading": "Dank des OCPP-Protokolls können die Ladeeinheiten unserer Charger-Serie Echtzeit-Überwachung, Fernsteuerung und Energieoptimierung von einer einzigen Plattform aus in Gemeinschaftsflächen wie Wohnanlagen, Einkaufszentren und Parkplätzen verwalten. Integriert sich nahtlos mit Netzbetreibern.",
+    "ocppBadge": "OCPP 1.6 / 2.0.1 konform",
+    "ctaLabel": "Charger-Serie ansehen",
+    "ctaHref": "https://portal.bemis.com.tr/login?ReturnUrl=%2F",
+    "features": [
+      {
+        "title": "Fernüberwachung & -steuerung",
+        "desc": "Verfolgen, starten oder stoppen Sie die Ladegeräte in Echtzeit. Erhalten Sie sofortige Statusbenachrichtigungen."
+      },
+      {
+        "title": "Optimierung von Gemeinschaftsflächen",
+        "desc": "Vollständige Verwaltung mit Mehrbenutzerzugriff, dynamischem Lastmanagement und Integration des Zahlungssystems."
+      },
+      {
+        "title": "Offenes OCPP-Ökosystem",
+        "desc": "Es funktioniert kompatibel mit allen Netzbetreibern und Backend-Plattformen über das Standard-OCPP-Protokoll."
+      }
+    ],
+    "playStoreHref": "https://play.google.com/store/apps/details?id=com.bemis.etechchargehub&pcampaignid=web_share",
+    "mockupPhoneImage": ""
+  },
+  "productShowcase": {
+    "badge": "Flaggschiff-Produkt",
+    "name": "AC Wallbox Smart Charger Pro 2",
+    "tagline": "Der neue Standard des intelligenten Ladens",
+    "description": "22-kW-Smart-AC-Ladestation mit OCPP-Unterstützung, entwickelt für Wohn- und Arbeitsplatzanwendungen. Nahtlose Leistung für den individuellen und gemeinsamen Gebrauch mit mobiler App-Integration, dynamischem Lastmanagement und IP65-Schutz.",
+    "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075777/products/aapzodkxb904ww8ybo3h.jpg",
+    "specs": [
+      {
+        "label": "Leistungsausgang:",
+        "value": "22 kW"
+      },
+      {
+        "label": "Schutzkategorie",
+        "value": "Vollständige Sicherheit"
+      },
+      {
+        "label": "Bağlantı",
+        "value": "OCPP 1.6 / 2.0.1"
+      },
+      {
+        "label": "Anschluss",
+        "value": "Type 2 (IEC 62196)"
+      },
+      {
+        "label": "Heimische Produktion",
+        "value": "Hergestellt in der Türkei"
+      },
+      {
+        "label": "Garantie",
+        "value": "2 Jahre"
+      }
+    ],
+    "ctaPrimary": "Mehr über das Produkt lesen",
+    "ctaHref": "/products/wallbox",
+    "ctaSecondary": "Angebote einholen",
+    "ctaSecondaryHref": "/contact",
+    "images": [
+      "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075777/products/aapzodkxb904ww8ybo3h.jpg"
+    ],
+    "products": [
+      {
+        "badge": "Neues Flaggschiff-Produkt",
+        "name": "80 kW DC-Schnellladegerät",
+        "tagline": "Schnellladen für Flotten- und kommerziellen Einsatz",
+        "description": "Dual-CCS2-80-kW-DC-Schnellladestation. Eine kompakte Lösung, die zwei Fahrzeuge gleichzeitig an Parkeinfahrten, Einkaufszentren, Hotels und Flottenzentren lädt. 20 % → 80 % Batterie in 30 Minuten. Bereit für den ganzjährigen Außeneinsatz mit Unterstützung für OCPP 1.6J / 2.0.1, RFID-Authentifizierung, IP54-Schutz und einem weiten Temperaturbereich von -25°C / +55°C.",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075789/products/bcmgy8awcmtb9yrpwn92.png",
+        "specs": [
+          {
+            "label": "Leistungsausgang",
+            "value": "80 kW (2 × 40 kW)"
+          },
+          {
+            "label": "Anschlüsse",
+            "value": "2 × CCS2"
+          },
+          {
+            "label": "Protokoll",
+            "value": "OCPP 1.6J / 2.0.1"
+          },
+          {
+            "label": "Schutz",
+            "value": "IP54"
+          },
+          {
+            "label": "Temperatur",
+            "value": "-25°C / +55°C"
+          },
+          {
+            "label": "Herstellung",
+            "value": "Hergestellt in Türkiye"
+          }
+        ],
+        "ctaPrimary": "Produkt ansehen",
+        "ctaHref": "/products",
+        "overlayFeatures": [
+          "80 kW DC",
+          "2 × CCS2",
+          "OCPP 2.0.1",
+          "IP54"
+        ]
+      }
+    ]
+  },
+  "faviconUrl": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075791/products/xt103etp3dcuoxvu7aib.png",
+  "ogImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075793/products/jjkaqljqa9thzeeyntup.jpg",
+  "referenceProjectsSection": {
+    "sectionLabel": "Referenzprojekte",
+    "heading": "Bemis E-V Charge vor Ort",
+    "subheading": "Aufnahmen der Anwendungen, die wir in Einkaufszentren, Parkplätzen, Hotels und Firmencampussen in Betrieb genommen haben.",
+    "items": [
+      {
+        "id": "proj-1778222222146",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075798/products/d5irceuqxwl8cksh0xvw.jpg",
+        "title": "",
+        "location": "",
+        "description": ""
+      },
+      {
+        "id": "proj-1778223862154",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075804/products/yzeknlqcmjczuj99jyqk.jpg",
+        "title": "",
+        "location": "",
+        "description": ""
+      },
+      {
+        "id": "proj-1778223874319",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075807/products/p62d1er8jqhc6ppthodo.jpg",
+        "title": "",
+        "location": "",
+        "description": ""
+      }
+    ]
+  },
+  "gallerySection": {
+    "sectionLabel": "Galerie",
+    "heading": "Showroom & Produktion",
+    "subheading": "Aufnahmen aus unserer Produktionsstätte und unserem Showroom in Bursa.",
+    "items": [
+      {
+        "id": "g-1778223748755",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075810/products/rxpfjpundvynbs0gbwjc.jpg",
+        "caption": "",
+        "aspect": "square"
+      }
+    ]
+  },
+  "siteVerification": {
+    "yandex": "ae9fa7a5c2813c45",
+    "bing": "C167616D2A8624840B7BB7B05FF168F3"
+  }
+}

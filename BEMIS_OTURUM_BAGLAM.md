@@ -13,6 +13,29 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🌍🚀 **6-DİL ÇEVİRİ — KOD ARAYÜZ + SEÇİCİ BİTTİ (commit c1efb10, PUSH YOK); CMS OVERLAY DEVAM (2026-07-05):**
+> Diller: TR/EN + **DE/ES/AR/RU**. Yöntem: kredi yok → **Claude paralel ajanla ELLE çevirir** (ücretsiz).
+> ✅ **BİTEN + commit'li (c1efb10, henüz PUSH edilmedi):** (1) `data/i18n/ui.json` = **290 EN anahtar × de/es/ar/ru**
+> (chrome + ürün/blog/döküman chrome'u). (2) **88 satır-içi `lang==="en"?EN:TR` üçlüsü → `pickText(lang,TR,EN)`**
+> (9 dosya) + documents/* yerel `{tr,en}` dict'leri → `byLang` (locale/para-birimi üçlüleri korundu). (3)
+> **`LanguageSwitcher.tsx`** — Navbar'daki TR/EN pill yerine **6-dilli açılır seçici** (bayrak+native ad; `app/lib/
+> languages.ts` LANGS). (4) **Arapça `dir=rtl`** (LanguageContext effect) — canlı preview'da doğrulandı (htmlDir=rtl).
+> tsc + rakip-marka guard temiz. Sözlük (a84d7c7) + blog (9d0a5b3) ZATEN 5 dilde canlıydı. **Yardımcılar:** `app/lib/
+> ui.ts` `pickText(lang,tr,en)` [tr→tr·en→en·diğer→ui.json'dan, yoksa EN] + `byLang(map,lang)` [`{tr,en}` nesne-indeks].
+> 🔄 **DEVAM EDEN — CMS içerik overlay'i (kullanıcı "CMS'i de çevir + birlikte yayınla" seçti):** Üst menü/hero/bölüm
+> metinleri + 113 ürün **`/api/content?lang=` & `/api/products?lang=` & `/api/b2b?lang=`** ile SUNUCU tarafında; şu an
+> TR-dışı her dil → EN dönüyordu. **3 route GENELLEŞTİRİLDİ** (overlay kaynağı dile göre: `_translations[lang]` yoksa
+> `data/<bin>-<lang>.json`; merge dil-bağımsız — **kimlik/marka alanları id/code/**name**/image/accent/href DAİMA TR'den**,
+> yalnız açıklama/spec/özellik/tagline metni çevrilir). ✅ **`data/content-{de,es,ar,ru}.json` (4) BİTTİ + yapısal
+> doğrulandı** (23 top-level key, derin shape birebir). 🔄 **`data/products-{de,es,ar,ru}.json` ÜRETİLİYOR** (16 ajan:
+> 4 chunk[cables·charger-equipment·v2l+converters·wallbox+portable+accessories+dc-units] × 4 dil → `_wip_prod_<lang>_<n>`
+> → `reassemble-products.cjs` kategori-id ile 8-sıraya dizer + hiza doğrular). ⏳ **b2b overlay** (kaynak `data/b2b.json`
+> TR → `data/b2b-<lang>.json`, 4 ajan) SIRADA. **SONRA:** tsc + brand guard + build → **preview'da de/es/ar/ru doğrula**
+> → **commit + PUSH** (hepsi birlikte yayınlanacak — kullanıcı kararı). ⚠️ **Canlı R2 okur** ama overlay dosyaları
+> REPO'da (deploy'la paketlenir) → R2 yazma/cache-bump GEREKMEZ (yapısal alanlar canlı TR base'den merge). ⚠️ Ürün
+> ADLARI TR kalır (route `name`i TR'den zorlar — EN'de de böyle; tutarlı). ⚠️ Scriptler `scratchpad/`de (merge-ui,
+> ternary-codemod, split/reassemble-products, validate-content). Pipeline (`npm run translate`) kredi gelirse tam-oto.
+
 > 🎯✅ **HERO DÖNEN-KELİME SATIR KAYMASI + CANLI EN İÇERİK DÜZELTME (2026-07-05, CANLI · commit c9c66ef):**
 > Kullanıcı: EN hero'da dönen kelime uzayınca satır kayıyor (hiçbir dilde olmamalı) + "SİLİNECEK" diye kelime çıkıyor.
 > **KÖK NEDEN:** (1) `Hero.tsx` `RotatingWord` `minWidth:5ch` idi → 5ch'ten uzun kelimede kutu büyüyüp satırı kaydırıyordu.

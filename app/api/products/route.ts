@@ -140,15 +140,23 @@ export async function GET(req: NextRequest) {
   const trSeo = applyProductSeo(tr as any[]);
   if (lang === "tr") return NextResponse.json(trSeo);
 
-  // EN comes from its own bin pair (or the local fallback file).
-  let en = await readShardedEn();
-  // Legacy fallback: very early bins kept EN inside the products record.
-  if (!en && trRecord && typeof trRecord === "object" && trRecord._translations?.en) {
-    en = unwrapEn(trRecord._translations.en);
-  }
-  if (!en) {
-    const fileEn = loadJsonFile(fallbackEnPath);
-    if (Array.isArray(fileEn)) en = fileEn;
+  // Çeviri overlay'i seç. EN kendi bin çiftinden (veya dosya yedeği); de/es/ar/ru
+  // paketlenmiş data/products-<lang>.json'dan. mergeCategories dil-bağımsızdır
+  // (kimlik/marka alanları — id/code/name/image — DAİMA TR'den; yalnız açıklama/
+  // spec/özellik metni çevrilir). Bilinmeyen dil → overlay yok → TR'ye düşer.
+  let en: unknown[] | null = null;
+  if (lang === "en") {
+    en = await readShardedEn();
+    if (!en && trRecord && typeof trRecord === "object" && trRecord._translations?.en) {
+      en = unwrapEn(trRecord._translations.en);
+    }
+    if (!en) {
+      const fileEn = loadJsonFile(fallbackEnPath);
+      if (Array.isArray(fileEn)) en = fileEn;
+    }
+  } else if (["de", "es", "ar", "ru"].includes(lang)) {
+    const f = loadJsonFile(path.join(process.cwd(), "data", `products-${lang}.json`));
+    if (Array.isArray(f)) en = f;
   }
   return NextResponse.json(mergeCategories(trSeo, en));
 }
