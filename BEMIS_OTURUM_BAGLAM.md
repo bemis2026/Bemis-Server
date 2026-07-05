@@ -13,6 +13,24 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> ✍️✅ **VERİ-ODAKLI BLOG — 2 YENİ ALICI-NİYETLİ YAZI (2026-07-05, CANLI · commit fd1fb6d):**
+> Kullanıcı "bekleyen blog işine başlayalım mı" + "veri-odaklı" dedi. ⚠️ **GSC/Ahrefs MCP plan-gated** ("Insufficient
+> plan") → canlı GSC verisi çekilemedi; bunun yerine **mevcut 23 yazının kapsamından boşluk analizi** yapıldı. Kullanıcı
+> AskUserQuestion'da 2 konu seçti (solar/işletmecilik/güvenlik/menzil'i ERTELEDİ). YAZILDI (2 paralel ajan + fact-review):
+> **`evde-elektrikli-arac-sarj-maliyeti-km-basina`** (km başına maliyet formülü, %10 şarj kaybı, gece/çok-zamanlı tarife,
+> benzinli kıyas — ⚠️ TÜM fiyatlar VARSAYIMSAL, uydurma fiyat/EPDK YOK) + **`monofaze-mi-trifaze-mi-ev-sarj`** (7,4 kW vs
+> 22 kW, faz kararı, güvenlik→yetkili elektrikçi, ayarlanabilir Bemis Charger Plus/Pro 2). Gerçek Bemis specleri, rakip
+> marka 0, tsc+build+guard temiz. Blog eklendi → sitemap+/blog OTOMATİK; **llms.txt Rehberler + llms-full GUIDE_SLUGS ELLE**
+> eklendi (yeni blog eklerken bu 2'sini de güncelle). **⏳ KALAN blog serisi (istenirse):** güneş/solar şarj · şarj
+> istasyonu işletmeciliği/gelir · evde şarj güvenliği · menzil/şarj sıklığı. **SEO NOTU (kullanıcı sordu):** çok-dilli
+> çeviri **SEO'ya zarar VERMİYOR** ama doğrudan sıralama faydası da YOK (ayrı indekslenebilir /de/ /es/ URL yok → Google
+> SSR=TR indeksliyor); fayda UX/dönüşüm. Dilleri SEO'ya çevirmek = ayrı URL+SSR+hreflang (ayrı orta-büyük iş). **Yeni TR
+> blog = indekslenebilir = gerçek SEO getirisi** (bu yüzden blog önceliklendirildi).
+> 🎯 **DİL SEÇİCİ KOMPAKT (commit f82bf43):** üst bar tetikleyicisi tam native ad yerine 2-harf KOD (TR/EN/DE) + küçük
+> dünya ikonu (üst menüyü sıkıştırmasın); açılır listede tam adlar kalıyor. + **HERO dönen-kelime kutusu** artık canvas ile
+> gerçek piksel ölçülüyor (eski (maxLen+1)ch 48px'te ~375px şişiriyordu → boşluk/satır bozuk) → kutu kelimeye tam oturur,
+> her dilde temiz (commit c2a8d46). + Türkiye-odaklı hero/pazarlama yabancı dillerde GLOBAL'e çevrildi (bkz. dil cilası).
+
 > 🌍✅ **6-DİL SİTE TAM ÇEVİRİ — CANLI (TR/EN/DE/ES/AR/RU; commit'ler c1efb10 + a762dc3 PUSH edildi, 2026-07-05):**
 > Diller: TR/EN + **DE/ES/AR/RU**. Yöntem: kredi yok → **Claude paralel ajanla ELLE çevirir** (ücretsiz).
 > ✅ **BİTEN + commit'li (c1efb10, henüz PUSH edilmedi):** (1) `data/i18n/ui.json` = **290 EN anahtar × de/es/ar/ru**
