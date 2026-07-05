@@ -50,16 +50,17 @@ export default function LanguageSwitcher({
         aria-haspopup="listbox"
         aria-expanded={open}
         title={current.native}
-        className={`flex items-center rounded-lg font-semibold transition-colors ${compact ? "gap-1 px-2 py-1 text-[11px]" : "gap-1.5 px-2.5 py-1.5 text-xs"}`}
+        className={`flex items-center rounded-lg font-bold uppercase transition-colors ${compact ? "gap-0.5 px-1.5 py-1 text-[10px]" : "gap-1 px-2 py-1 text-[11px]"}`}
         style={{ border, color: activeColor, background: "transparent" }}
       >
-        {/* Dünya ikonu (SVG) — emoji bayrağı Windows'ta "TR" harfine dönüp kodla tekrar ediyordu; bu her yerde tutarlı */}
-        <svg width={compact ? 13 : 15} height={compact ? 13 : 15} viewBox="0 0 24 24" fill="none" aria-hidden style={{ opacity: 0.8, flexShrink: 0 }}>
-          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.7" />
-          <path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18" stroke="currentColor" strokeWidth="1.4" />
+        {/* Küçük dünya ikonu + dil KODU (TR/EN/DE…) — üst barı sıkıştırmayan kompakt gösterim.
+            (Emoji bayrağı Windows'ta harfe dönüp kodla tekrar ediyordu; SVG her yerde tutarlı.) */}
+        <svg width={compact ? 12 : 13} height={compact ? 12 : 13} viewBox="0 0 24 24" fill="none" aria-hidden style={{ opacity: 0.75, flexShrink: 0 }}>
+          <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8" />
+          <path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18" stroke="currentColor" strokeWidth="1.5" />
         </svg>
-        <span>{current.native}</span>
-        <svg width="9" height="6" viewBox="0 0 10 6" fill="none" aria-hidden style={{ opacity: 0.55, flexShrink: 0, transform: open ? "rotate(180deg)" : "none", transition: "transform .2s" }}>
+        <span>{current.code.toUpperCase()}</span>
+        <svg width="8" height="5" viewBox="0 0 10 6" fill="none" aria-hidden style={{ opacity: 0.5, flexShrink: 0, transform: open ? "rotate(180deg)" : "none", transition: "transform .2s" }}>
           <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
