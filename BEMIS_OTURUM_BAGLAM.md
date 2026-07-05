@@ -35,6 +35,14 @@
 > REPO'da (deploy'la paketlenir) → R2 yazma/cache-bump GEREKMEZ (yapısal alanlar canlı TR base'den merge). ⚠️ Ürün
 > ADLARI TR kalır (route `name`i TR'den zorlar — EN'de de böyle; tutarlı). ⚠️ Scriptler `scratchpad/`de (merge-ui,
 > ternary-codemod, split/reassemble-products, validate-content). Pipeline (`npm run translate`) kredi gelirse tam-oto.
+> ✅ **AKILLI HİBRİT OTOMATİK GÜNCELLEME (kullanıcı seçti, CANLI):** Artık admin'den TR içerik/ürün/b2b
+> kaydedilince, **DEĞİŞEN alanlar** ücretsiz **MyMemory** ile 5 dile (en/de/es/ar/ru) otomatik çevrilir;
+> **değişmeyen her şey premium çevirisini KORUR** (temel = bin `_translations[lang]` ?? `data/<bin>-<lang>.json`).
+> Yani bedava + otomatik + mevcut premium kalite bozulmaz (yalnız yeni düzenlenen alanlar makine-kalitesinde).
+> Motor: `lib/translate.ts` `TransLang` 6-dil + `contentTranslate.ts`/`productsTranslate.ts` `to` param (diff-aware
+> reuse); admin route'ları (content/b2b `after()` 5-dil döngü; products EN shard bin + de/es/ar/ru products bin
+> `_translations`). Runtime products route de/es/ar/ru için `_translations[lang]` ?? premium dosya okur. ⚠️ Ürün
+> ADI/kod TR-kanonik (productsTranslate paths'te YOK — MyMemory model adı bozuyordu). tsc + next build temiz.
 
 > 🎯✅ **HERO DÖNEN-KELİME SATIR KAYMASI + CANLI EN İÇERİK DÜZELTME (2026-07-05, CANLI · commit c9c66ef):**
 > Kullanıcı: EN hero'da dönen kelime uzayınca satır kayıyor (hiçbir dilde olmamalı) + "SİLİNECEK" diye kelime çıkıyor.

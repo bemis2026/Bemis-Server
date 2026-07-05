@@ -1,5 +1,9 @@
-// Free TR↔EN translation via MyMemory (no API key required).
+// Free TR→(en/de/es/ar/ru) translation via MyMemory (no API key required).
 // Falls back to the original string on any error so callers always get a result.
+// Kullanım (akıllı hibrit): yalnız DEĞİŞEN alanlar bu motorla çevrilir; değişmeyen
+// alanlar önceki premium çeviriyi (data/<bin>-<lang>.json) korur (bkz. contentTranslate).
+
+export type TransLang = "tr" | "en" | "de" | "es" | "ar" | "ru";
 
 const ENDPOINT = "https://api.mymemory.translated.net/get";
 // Bumped 4 → 8 — MyMemory's anonymous tier handles parallel calls fine
@@ -38,8 +42,8 @@ async function translateOne(text: string, from: string, to: string): Promise<str
 
 export async function translateBatch(
   texts: string[],
-  from: "tr" | "en" = "tr",
-  to: "tr" | "en" = "en",
+  from: TransLang = "tr",
+  to: TransLang = "en",
 ): Promise<string[]> {
   if (texts.length === 0) return [];
   const out: string[] = new Array(texts.length).fill("");

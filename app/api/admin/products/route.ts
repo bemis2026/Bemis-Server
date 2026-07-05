@@ -13,6 +13,18 @@ function isAuthed(req: NextRequest) {
 
 const fallbackPath = path.join(process.cwd(), "data", "products.json");
 
+// Akıllı hibrit: de/es/ar/ru çevirileri products bin'inin _translations'ında
+// tutulur (EN kendi shard bin'lerinde kalır). Değişen alan MyMemory'ye, değişmeyen
+// premium temele (bin _translations[lang] ?? data/products-<lang>.json) kalır.
+const HYBRID_LANGS = ["de", "es", "ar", "ru"] as const;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function loadOverlayFile(lang: string): any[] | null {
+  try {
+    const f = JSON.parse(readFileSync(path.join(process.cwd(), "data", `products-${lang}.json`), "utf-8"));
+    return Array.isArray(f) ? f : null;
+  } catch { return null; }
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function unwrapTr(record: any): unknown[] {
   if (Array.isArray(record)) return record;
@@ -82,6 +94,14 @@ export async function POST(req: NextRequest) {
     const { tr: prevTr, extraIds } = await readShardedTr();
     const prevEn = await readShardedEn();
 
+    // Mevcut de/es/ar/ru çevirileri products bin'inin _translations'ında saklanır;
+    // yeniden yazarken kaybolmasın diye önce oku (premium temel budur).
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let prevMain: any = null;
+    try { prevMain = await readBin("products", { fresh: true }); } catch {}
+    const prevTranslations: Record<string, unknown> =
+      (prevMain && typeof prevMain === "object" && prevMain._translations) ? prevMain._translations : {};
+
     // Stage 1 — write TR shards immediately so the admin save returns
     // fast. Keep the previous EN in place for the brief window before
     // stage 2 lands. Net effect: admin sees instant save, EN catches
@@ -94,19 +114,21 @@ export async function POST(req: NextRequest) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const prevEnEx   = prevEnArr.filter((c: any) =>  extraIds.has(c.id));
     await Promise.all([
-      writeBin("products",        { products: trMain }),
+      writeBin("products",        { products: trMain, _translations: prevTranslations }),
       writeBin("productsExtra",   { products: trEx }),
       writeBin("productsEn",      { en: prevEnMain }),
       writeBin("productsEnExtra", { en: prevEnEx }),
     ]);
     try { revalidatePath("/api/products"); revalidatePath("/"); revalidatePath("/products"); } catch {}
 
-    // Stage 2 — re-translate and overwrite EN shards in the background
-    // once the response is on its way back to the admin client.
+    // Stage 2 — arka planda EN (kendi shard bin'leri) + de/es/ar/ru (products
+    // bin _translations) yeniden çevir. Her dil için temel = mevcut çeviri ??
+    // premium overlay dosyası; yalnız TR'si değişen alan MyMemory'ye gider.
     after(async () => {
+      // EN — mevcut shard akışı korunur.
       try {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const enArr = await translateProducts(trArr, prevTr as any[], prevEn as any[] | null);
+        const enArr = await translateProducts(trArr, prevTr as any[], prevEn as any[] | null, "en");
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const enMain = enArr.filter((c: any) => !extraIds.has(c.id));
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -115,9 +137,26 @@ export async function POST(req: NextRequest) {
           writeBin("productsEn",      { en: enMain }),
           writeBin("productsEnExtra", { en: enEx }),
         ]);
-        try { revalidatePath("/api/products"); } catch {}
       } catch (e) {
-        console.error("[products] background translation failed, keeping previous EN:", e);
+        console.error("[products] EN arka-plan çeviri başarısız, önceki korunuyor:", e);
+      }
+      // de/es/ar/ru — products bin _translations'a tam çeviri dizisi (index hizalı).
+      const nextTranslations: Record<string, unknown> = { ...prevTranslations };
+      for (const lng of HYBRID_LANGS) {
+        try {
+          const base = Array.isArray(prevTranslations[lng]) ? (prevTranslations[lng] as unknown[]) : loadOverlayFile(lng);
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const arr = await translateProducts(trArr, prevTr as any[], (base as any[]) ?? null, lng);
+          nextTranslations[lng] = arr;
+        } catch (e) {
+          console.error(`[products] ${lng} arka-plan çeviri başarısız, önceki korunuyor:`, e);
+        }
+      }
+      try {
+        await writeBin("products", { products: trMain, _translations: nextTranslations });
+        revalidatePath("/api/products");
+      } catch (e) {
+        console.error("[products] _translations final write failed:", e);
       }
     });
 

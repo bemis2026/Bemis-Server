@@ -155,8 +155,15 @@ export async function GET(req: NextRequest) {
       if (Array.isArray(fileEn)) en = fileEn;
     }
   } else if (["de", "es", "ar", "ru"].includes(lang)) {
-    const f = loadJsonFile(path.join(process.cwd(), "data", `products-${lang}.json`));
-    if (Array.isArray(f)) en = f;
+    // Önce admin auto-çevirisi (products bin _translations[lang], akıllı hibrit),
+    // sonra paketlenmiş premium overlay dosyası.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const t = trRecord && typeof trRecord === "object" ? (trRecord as any)._translations?.[lang] : null;
+    if (Array.isArray(t)) en = t;
+    if (!en) {
+      const f = loadJsonFile(path.join(process.cwd(), "data", `products-${lang}.json`));
+      if (Array.isArray(f)) en = f;
+    }
   }
   return NextResponse.json(mergeCategories(trSeo, en));
 }

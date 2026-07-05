@@ -1,4 +1,4 @@
-import { translateBatch } from "./translate";
+import { translateBatch, type TransLang } from "./translate";
 
 // Path notation:
 //   "a.b.c"        — nested object
@@ -167,7 +167,8 @@ function collectVisits(root: Any, paths: string[] = TRANSLATABLE_PATHS): Visit[]
 export async function translateContent(
   tr: Any,
   prevTr: Any | null,
-  prevEn: Any | null,
+  prevEn: Any | null,        // önceki hedef-dil temeli (premium dosya veya bin _translations[lang])
+  to: TransLang = "en",      // hedef dil — değişmeyen alanlar prevEn'den korunur, yalnız değişen alan çevrilir
   paths: string[] = TRANSLATABLE_PATHS,
 ): Promise<Any> {
   // Deep clone TR — we'll mutate the clone in place.
@@ -201,7 +202,7 @@ export async function translateContent(
 
   if (toTranslateText.length === 0) return clone;
 
-  const translated = await translateBatch(toTranslateText, "tr", "en");
+  const translated = await translateBatch(toTranslateText, "tr", to);
   toTranslateIdx.forEach((visitIdx, k) => {
     visits[visitIdx].setter(translated[k] || visits[visitIdx].getter());
   });

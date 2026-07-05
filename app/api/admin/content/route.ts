@@ -4,7 +4,19 @@ import path from "path";
 import { revalidatePath } from "next/cache";
 import { readBin, writeBin } from "../../../../lib/jsonbin";
 import { translateContent } from "../../../../lib/contentTranslate";
+import type { TransLang } from "../../../../lib/translate";
 import { verifyAdminSession } from "@/lib/adminAuth";
+
+// Akıllı hibrit için hedef diller. TR kaydında DEĞİŞEN alanlar MyMemory ile
+// çevrilir; değişmeyenler her dilin premium temelinden (bin _translations[lang]
+// yoksa data/content-<lang>.json) KORUNUR → bedava + otomatik + premium kalite.
+const HYBRID_LANGS: TransLang[] = ["en", "de", "es", "ar", "ru"];
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function loadOverlayFile(lang: string): any | null {
+  try { return JSON.parse(readFileSync(path.join(process.cwd(), "data", `content-${lang}.json`), "utf-8")); }
+  catch { return null; }
+}
 
 function isAuthed(req: NextRequest) {
   return verifyAdminSession(req.cookies.get("admin_auth")?.value);
@@ -80,15 +92,26 @@ export async function POST(req: NextRequest) {
     await writeBin("content", intermediate);
     try { revalidatePath("/api/content"); revalidatePath("/"); } catch {}
 
-    // Stage 2 — re-translate and write EN in the background.
+    // Stage 2 — arka planda 5 dile (en/de/es/ar/ru) yeniden çevir. Her dil için
+    // temel = mevcut bin çevirisi ?? premium overlay dosyası; sadece TR'si değişen
+    // alanlar MyMemory'ye gider, gerisi premium korunur.
     after(async () => {
+      const nextTranslations: Record<string, unknown> = { ...(prevBin._translations ?? {}) };
+      for (const lng of HYBRID_LANGS) {
+        try {
+          const baseline = prevBin?._translations?.[lng] ?? loadOverlayFile(lng);
+          const translated = await translateContent(trBody, prevTr, baseline, lng);
+          nextTranslations[lng] = translated ?? baseline ?? trBody;
+        } catch (e) {
+          console.error(`[content] ${lng} arka-plan çeviri başarısız, önceki korunuyor:`, e);
+        }
+      }
       try {
-        const enBody = await translateContent(trBody, prevTr, prevEn);
-        const final = { ...trBody, _translations: { ...(prevBin._translations ?? {}), en: enBody ?? trBody } };
+        const final = { ...trBody, _translations: nextTranslations };
         await writeBin("content", final);
-        try { revalidatePath("/api/content"); revalidatePath("/"); } catch {}
+        revalidatePath("/api/content"); revalidatePath("/");
       } catch (e) {
-        console.error("[content] background translation failed, keeping previous EN:", e);
+        console.error("[content] final write failed:", e);
       }
     });
 

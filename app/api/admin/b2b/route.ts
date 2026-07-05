@@ -1,9 +1,10 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { readFileSync } from "fs";
 import path from "path";
 import { revalidatePath } from "next/cache";
 import { readBin, writeBin } from "../../../../lib/jsonbin";
 import { translateContent } from "../../../../lib/contentTranslate";
+import type { TransLang } from "../../../../lib/translate";
 import { B2B_TRANSLATABLE_PATHS } from "../../../../lib/b2bTranslate";
 import { verifyAdminSession } from "@/lib/adminAuth";
 
@@ -12,6 +13,15 @@ function isAuthed(req: NextRequest) {
 }
 
 const fallbackPath = path.join(process.cwd(), "data", "b2b.json");
+
+// Akıllı hibrit hedef dilleri (bkz. content). Değişen alan MyMemory'ye,
+// değişmeyen premium temele (bin _translations[lang] ?? data/b2b-<lang>.json) kalır.
+const HYBRID_LANGS: TransLang[] = ["en", "de", "es", "ar", "ru"];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function loadOverlayFile(lang: string): any | null {
+  try { return JSON.parse(readFileSync(path.join(process.cwd(), "data", `b2b-${lang}.json`), "utf-8")); }
+  catch { return null; }
+}
 
 type Rec = Record<string, unknown>;
 
@@ -56,24 +66,39 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
 
-    // Save TR + auto-translate to EN, mirroring the content bin pattern.
+    // Save TR + auto-translate to 5 langs (akıllı hibrit), mirroring content.
     const trBody = stripTranslations(body);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let prevBin: any = {};
     try { prevBin = (await readBin("b2b", { fresh: true })) ?? {}; } catch {}
     const prevTr = stripTranslations(prevBin);
-    const prevEn = prevBin?._translations?.en ?? null;
 
-    let enBody = prevEn;
-    try {
-      enBody = await translateContent(trBody, prevTr, prevEn, B2B_TRANSLATABLE_PATHS);
-    } catch (e) {
-      console.error("[b2b] translation failed, keeping previous EN:", e);
-    }
+    // Stage 1 — hızlı TR yaz, mevcut çevirileri koru (kısa pencere premium kalır).
+    const intermediate = { ...trBody, _translations: { ...(prevBin._translations ?? {}) } };
+    await writeBin("b2b", intermediate);
+    const revalidate = () => { try { revalidatePath("/api/b2b"); revalidatePath("/"); revalidatePath("/b2b"); revalidatePath("/bayilik"); revalidatePath("/operator"); } catch {} };
+    revalidate();
 
-    const next = { ...trBody, _translations: { ...(prevBin._translations ?? {}), en: enBody ?? trBody } };
-    await writeBin("b2b", next);
-    try { revalidatePath("/api/b2b"); revalidatePath("/"); revalidatePath("/b2b"); revalidatePath("/bayilik"); revalidatePath("/operator"); } catch {}
+    // Stage 2 — arka planda 5 dile çevir (yalnız değişen alan; gerisi premium temelden).
+    after(async () => {
+      const nextTranslations: Record<string, unknown> = { ...(prevBin._translations ?? {}) };
+      for (const lng of HYBRID_LANGS) {
+        try {
+          const baseline = prevBin?._translations?.[lng] ?? loadOverlayFile(lng);
+          const translated = await translateContent(trBody, prevTr, baseline, lng, B2B_TRANSLATABLE_PATHS);
+          nextTranslations[lng] = translated ?? baseline ?? trBody;
+        } catch (e) {
+          console.error(`[b2b] ${lng} arka-plan çeviri başarısız, önceki korunuyor:`, e);
+        }
+      }
+      try {
+        await writeBin("b2b", { ...trBody, _translations: nextTranslations });
+        revalidate();
+      } catch (e) {
+        console.error("[b2b] final write failed:", e);
+      }
+    });
+
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error("b2b save error:", e);

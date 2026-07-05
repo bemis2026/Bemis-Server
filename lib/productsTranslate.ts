@@ -1,4 +1,4 @@
-import { translateBatch } from "./translate";
+import { translateBatch, type TransLang } from "./translate";
 
 // Path notation for products (root is an array of categories):
 //   "[].field"          — every category's .field
@@ -81,7 +81,8 @@ function collectVisits(root: Any): Visit[] {
 export async function translateProducts(
   tr: Any[],
   prevTr: Any[] | null,
-  prevEn: Any[] | null,
+  prevEn: Any[] | null,        // önceki hedef-dil temeli (premium dosya veya bin çevirisi)
+  to: TransLang = "en",        // hedef dil — değişmeyen alanlar prevEn'den korunur
 ): Promise<Any[]> {
   const clone: Any[] = JSON.parse(JSON.stringify(tr));
   const visits = collectVisits(clone);
@@ -109,7 +110,7 @@ export async function translateProducts(
 
   if (toTranslateText.length === 0) return clone;
 
-  const translated = await translateBatch(toTranslateText, "tr", "en");
+  const translated = await translateBatch(toTranslateText, "tr", to);
   toTranslateIdx.forEach((visitIdx, k) => {
     visits[visitIdx].setter(translated[k] || visits[visitIdx].getter());
   });
