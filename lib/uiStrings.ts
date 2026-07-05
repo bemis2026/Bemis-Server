@@ -145,6 +145,14 @@ const STRINGS = {
   calc_b_fuelvs:          { tr: "Yakıt vs",                      en: "Fuel vs" },
   calc_b_elec:            { tr: "Elektrik",                      en: "Electricity" },
 
+  // ── Calculator: section headings (CMS calculator.* boş → t() ile 6 dile çevrilir) ──
+  calc_section_label:     { tr: "Hesaplayıcı",                   en: "Calculator" },
+  calc_heading:           { tr: "Şarj Süresi Hesaplayıcı",       en: "Charging Time Calculator" },
+  calc_tab_charge:        { tr: "Şarj Süresi",                   en: "Charging Time" },
+  calc_tab_savings:       { tr: "Tasarruf Analizi",              en: "Savings Analysis" },
+  calc_sim_label:         { tr: "Şarj Simülasyonu",              en: "Charging Simulation" },
+  calc_subheading:        { tr: "Araç seçin veya manuel değer girin — şarj sürenizi ve yakıt tasarrufunuzu hesaplayın", en: "Select a vehicle or enter values manually — calculate your charging time and fuel savings" },
+
   // ── Calculator: form labels ──
   calc_vehicle_label:     { tr: "Araç Modeli (isteğe bağlı)",   en: "Vehicle Model (optional)" },
   calc_manual_entry:      { tr: "— Manuel gir —",                en: "— Manual entry —" },

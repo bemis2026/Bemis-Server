@@ -1190,7 +1190,7 @@
   "Calculator": {
     "de": "Rechner",
     "es": "Calculadora",
-    "ar": "الحاسبة",
+    "ar": "حاسبة",
     "ru": "Калькулятор"
   },
   "Cost & charge-time calculator": {
@@ -1738,5 +1738,35 @@
     "es": "Abra o descargue el archivo para ver el PDF.",
     "ar": "افتح أو نزّل لعرض ملف PDF.",
     "ru": "Откройте или скачайте, чтобы просмотреть PDF."
+  },
+  "Charging Time Calculator": {
+    "de": "Ladezeit-Rechner",
+    "es": "Calculadora de tiempo de carga",
+    "ar": "حاسبة وقت الشحن",
+    "ru": "Калькулятор времени зарядки"
+  },
+  "Charging Time": {
+    "de": "Ladezeit",
+    "es": "Tiempo de carga",
+    "ar": "وقت الشحن",
+    "ru": "Время зарядки"
+  },
+  "Savings Analysis": {
+    "de": "Ersparnisanalyse",
+    "es": "Análisis de ahorro",
+    "ar": "تحليل التوفير",
+    "ru": "Анализ экономии"
+  },
+  "Charging Simulation": {
+    "de": "Ladesimulation",
+    "es": "Simulación de carga",
+    "ar": "محاكاة الشحن",
+    "ru": "Симуляция зарядки"
+  },
+  "Select a vehicle or enter values manually — calculate your charging time and fuel savings": {
+    "de": "Fahrzeug wählen oder Werte manuell eingeben – berechnen Sie Ladezeit und Kraftstoffersparnis",
+    "es": "Seleccione un vehículo o introduzca los valores manualmente: calcule su tiempo de carga y ahorro de combustible",
+    "ar": "اختر مركبة أو أدخل القيم يدويًا — احسب وقت الشحن وتوفير الوقود",
+    "ru": "Выберите автомобиль или введите значения вручную — рассчитайте время зарядки и экономию топлива"
   }
 }

@@ -370,7 +370,10 @@ export default function Calculator() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
-  const { sectionBgs, logos, calculator: calc } = useContent();
+  // Hesaplayıcı başlık/sekme metinleri artık t() (uiStrings→ui.json) ile 6 dile çevrilir.
+  // CMS `calculator` nesnesi TR-tek-dilliydi (R2'de) ve çevrilmiyordu → başlık/sekmeler
+  // yabancı dillerde Türkçe kalıyordu; t() tek-kaynak + doğru çeviri sağlar.
+  const { sectionBgs, logos } = useContent();
   const t = useUiStrings();
   const d = theme === "dark";
   const calcLogoSrc = logos?.dark || "/logo-white.png";
@@ -527,7 +530,7 @@ export default function Calculator() {
               color: d ? "#93C5FD" : BLUE,
             }}
           >
-            {calc?.sectionLabel ?? "Hesaplayıcı"}
+            {t("calc_section_label")}
           </motion.span>
 
           {/* Heading + animated needle */}
@@ -539,7 +542,7 @@ export default function Calculator() {
             <TachometerNeedle d={d} blue={BLUE} />
 
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black" style={{ color: textPrimary }}>
-              {calc?.heading ?? "Şarj Süresi Hesaplayıcı"}
+              {t("calc_heading")}
             </h2>
 
             {/* Animated ibra — right (mirror) */}
@@ -553,7 +556,7 @@ export default function Calculator() {
           >
             <BatteryCharging d={d} blue={BLUE} />
             <span className="text-sm tracking-widest uppercase font-semibold" style={{ color: d ? `${BLUE}80` : `${BLUE}99` }}>
-              {calc?.chargeSimLabel ?? "Şarj Simülasyonu"}
+              {t("calc_sim_label")}
             </span>
           </motion.div>
 
@@ -566,7 +569,7 @@ export default function Calculator() {
             initial={{ opacity: 0, y: 14 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.25 }}
             className="text-sm" style={{ color: textMuted }}
           >
-            {calc?.subheading ?? "Araç seçin veya manuel değer girin — şarj sürenizi ve yakıt tasarrufunuzu hesaplayın"}
+            {t("calc_subheading")}
           </motion.p>
         </div>
 
@@ -585,7 +588,7 @@ export default function Calculator() {
                 boxShadow: activeTab === tab && d ? "0 1px 6px rgba(0,0,0,0.4)" : "none",
               }}
             >
-              {tab === "charge" ? (calc?.tabCharge ?? "Şarj Süresi") : (calc?.tabSavings ?? "Tasarruf Analizi")}
+              {tab === "charge" ? t("calc_tab_charge") : t("calc_tab_savings")}
             </button>
           ))}
         </motion.div>
@@ -714,7 +717,7 @@ export default function Calculator() {
                       </motion.div>
                     </AnimatePresence>
 
-                    <CalcBanner d={d} accent={accentColor} tab="charge" border={border} textMuted={textMuted} logoSrc={calcLogoSrc} t={t} chargeTimeLabel={calc?.tabCharge ?? "Şarj Süresi"} />
+                    <CalcBanner d={d} accent={accentColor} tab="charge" border={border} textMuted={textMuted} logoSrc={calcLogoSrc} t={t} chargeTimeLabel={t("calc_tab_charge")} />
 
                   </div>
                 </motion.div>
@@ -741,7 +744,7 @@ export default function Calculator() {
                     <Slider label={t("calc_fuel_price")} value={fuelPrice} min={20} max={70} step={0.5} unit=" ₺/L"
                       accent={GREEN} textMuted={textMuted} textPrimary={textPrimary} onChange={setFuelPrice} />
 
-                    <CalcBanner d={d} accent={GREEN} tab="savings" border={border} textMuted={textMuted} logoSrc={calcLogoSrc} t={t} chargeTimeLabel={calc?.tabCharge ?? "Şarj Süresi"} />
+                    <CalcBanner d={d} accent={GREEN} tab="savings" border={border} textMuted={textMuted} logoSrc={calcLogoSrc} t={t} chargeTimeLabel={t("calc_tab_charge")} />
                   </div>
                 </motion.div>
               )}
