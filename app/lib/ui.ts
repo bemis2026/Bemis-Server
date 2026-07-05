@@ -17,9 +17,17 @@ export function pickText(lang: string, tr: string, en: string): string {
   return UI[en]?.[lang] ?? en;
 }
 
-// `{ tr, en }[lang]` biçimindeki nesne-indeksleme desenini 6 dile güvenli açar:
-// dilin anahtarı varsa onu, yoksa İngilizce'ye (en son TR'ye) düşer. Değer string
-// olmak zorunda değil (Footer'da nav grubu dizisi gibi) → jenerik T döner.
+// `{ tr, en }[lang]` biçimindeki nesne-indeksleme desenini 6 dile güvenli açar.
+// Dilin anahtarı varsa onu döner; yoksa STRING değerlerde ui.json çevirisini
+// dener (çeviriler tek yerde toplansın), en son İngilizce'ye (sonra TR'ye) düşer.
+// Değer string olmak zorunda değil (Footer nav grubu dizisi gibi) → jenerik T.
 export function byLang<T>(map: Record<string, T>, lang: string): T {
-  return map[lang] ?? map.en ?? map.tr;
+  const v = map[lang];
+  if (v != null) return v;
+  const en = map.en;
+  if (typeof en === "string" && lang !== "tr" && lang !== "en") {
+    const t = UI[en]?.[lang];
+    if (typeof t === "string") return t as unknown as T;
+  }
+  return en ?? map.tr;
 }

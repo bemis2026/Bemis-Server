@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
+import { byLang } from "../lib/ui";
 import E from "./E";
 
 // Footer iç linkleri (SSR — Google taraması için sayılır). Ürünler: 8 kategori;
@@ -89,7 +90,7 @@ export default function Footer() {
   const { theme } = useTheme();
   const { lang } = useLanguage();
   const d = theme === "dark";
-  const navGroups = NAV_GROUPS[lang] ?? NAV_GROUPS.tr;
+  const navGroups = byLang(NAV_GROUPS, lang);
 
   const bg          = d ? "linear-gradient(180deg, #202022 0%, #1c1c1e 50%, #1a1a1c 100%)"
                         : "linear-gradient(180deg, #efefef 0%, #e8e8e8 50%, #e4e4e4 100%)";

@@ -1,8 +1,11 @@
 "use client";
 
 import { createContext, useCallback, useContext, useState, useEffect, useMemo, ReactNode } from "react";
+import { type LangCode, isLangCode, isRTL } from "../lib/languages";
 
-export type Lang = "tr" | "en";
+// Lang = 6 dil (tr/en/de/es/ar/ru). Mevcut `lang === "en"`/`"tr"` karşılaştırmaları
+// aynen geçerli; nesne-indeksleme (`{tr,en}[lang]`) siteleri byLang() kullanır.
+export type Lang = LangCode;
 
 type LanguageContextType = {
   lang: Lang;
@@ -20,15 +23,15 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("tr");
 
   useEffect(() => {
-    const stored = localStorage.getItem("lang") as Lang | null;
-    if (stored === "en" || stored === "tr") setLangState(stored);
+    const stored = localStorage.getItem("lang");
+    if (isLangCode(stored)) setLangState(stored);
   }, []);
 
-  // <html lang> her zaman 'tr' kalıyordu (layout.tsx'te sabit). EN'e
-  // geçince kök lang attribute'unu da güncelle — ekran okuyucu doğru dili
-  // seslendirsin ve arama motoruna doğru dil sinyali gitsin. (Görsel etki yok.)
+  // Dil değişince kök <html> lang + dir güncellenir (ekran okuyucu + SEO sinyali;
+  // Arapça için dir=rtl → sağdan-sola yerleşim).
   useEffect(() => {
     document.documentElement.lang = lang;
+    document.documentElement.dir = isRTL(lang) ? "rtl" : "ltr";
   }, [lang]);
 
   const setLang = useCallback((l: Lang) => {

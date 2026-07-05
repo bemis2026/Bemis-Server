@@ -10,6 +10,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
+import { byLang } from "../lib/ui";
 import { useContactOverlay } from "../context/ContactOverlayContext";
 import E from "./E";
 
@@ -444,8 +445,8 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                                   <BemisMark accent={item.accent} size={36} />
                                 </div>
                                 <div className="min-w-0">
-                                  <p className="text-sm font-semibold leading-tight" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{item.label[lang]}</p>
-                                  <p className="text-[11px] mt-0.5 leading-tight" style={{ color: isDark ? "rgba(240,240,244,0.45)" : "rgba(26,26,26,0.45)" }}>{item.sub[lang]}</p>
+                                  <p className="text-sm font-semibold leading-tight" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{byLang(item.label, lang)}</p>
+                                  <p className="text-[11px] mt-0.5 leading-tight" style={{ color: isDark ? "rgba(240,240,244,0.45)" : "rgba(26,26,26,0.45)" }}>{byLang(item.sub, lang)}</p>
                                 </div>
                               </button>
                             ))}
@@ -480,8 +481,8 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                               >
                                 <div className="flex-1 min-w-0">
-                                  <p className="text-sm font-semibold leading-tight" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{item.label[lang]}</p>
-                                  <p className="text-xs leading-snug mt-0.5" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.50)" }}>{item.sub[lang]}</p>
+                                  <p className="text-sm font-semibold leading-tight" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{byLang(item.label, lang)}</p>
+                                  <p className="text-xs leading-snug mt-0.5" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.50)" }}>{byLang(item.sub, lang)}</p>
                                 </div>
                                 <RiArrowRightLine size={14} style={{ color: item.accent, opacity: 0.5, marginTop: 8 }} />
                               </button>
@@ -509,7 +510,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                           {/* Header */}
                           <div className="px-4 pt-3.5 pb-2.5" style={{ borderBottom: `1px solid ${isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"}` }}>
                             <p className="text-[11px] font-bold uppercase tracking-widest" style={{ color: isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)" }}>
-                              {NAV_STRINGS.urunlerHeading[lang]}
+                              {byLang(NAV_STRINGS.urunlerHeading, lang)}
                             </p>
                           </div>
                           {/* 2-col grid */}
@@ -557,7 +558,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.60)"; }}
                               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)"; }}
                             >
-                              <span>{NAV_STRINGS.urunlerFooter[lang]}</span>
+                              <span>{byLang(NAV_STRINGS.urunlerFooter, lang)}</span>
                               <RiArrowRightLine size={13} />
                             </button>
                           </div>
@@ -591,8 +592,8 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                               >
                                 <div className="flex-1 min-w-0">
-                                  <p className="text-sm font-semibold leading-tight" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{item.label[lang]}</p>
-                                  <p className="text-xs leading-snug mt-0.5" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.50)" }}>{item.sub[lang]}</p>
+                                  <p className="text-sm font-semibold leading-tight" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{byLang(item.label, lang)}</p>
+                                  <p className="text-xs leading-snug mt-0.5" style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.50)" }}>{byLang(item.sub, lang)}</p>
                                 </div>
                                 <RiArrowRightLine size={14} style={{ color: item.accent, opacity: 0.5, marginTop: 8 }} />
                               </button>
@@ -635,7 +636,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                                   >
                                     <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: cat.accent, boxShadow: `0 0 6px ${cat.accent}66` }} aria-hidden />
-                                    <span className="flex-1 text-sm font-semibold leading-tight" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{cat.label[lang]}</span>
+                                    <span className="flex-1 text-sm font-semibold leading-tight" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{byLang(cat.label, lang)}</span>
                                     <span className="text-[11px] tabular-nums" style={{ color: isDark ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.40)" }}>{cat.items.length}</span>
                                     <HiChevronDown size={13} className={`transition-transform duration-200 ${exp ? "rotate-180" : ""}`} style={{ color: isDark ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.40)" }} />
                                   </button>
@@ -842,7 +843,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                         {HAKKIMIZDA_DROPDOWN.map(item => (
                           <button key={item.href} onClick={() => { setMobileOpen(false); router.push(item.href); }}
                             className={`block w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black"}`}>
-                            {item.label[lang]}
+                            {byLang(item.label, lang)}
                           </button>
                         ))}
                       </div>
@@ -854,7 +855,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                         {REHBER_DROPDOWN.map(item => (
                           <button key={item.href} onClick={() => { setMobileOpen(false); handleNavClick(item.href); }}
                             className={`block w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black"}`}>
-                            {item.label[lang]}
+                            {byLang(item.label, lang)}
                           </button>
                         ))}
                       </div>
@@ -867,7 +868,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                           <button key={item.href} onClick={() => { setMobileOpen(false); router.push(item.href); }}
                             className={`flex items-center gap-2 w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black"}`}>
                             <BemisMark accent={item.accent} size={20} />
-                            {item.label[lang]}
+                            {byLang(item.label, lang)}
                           </button>
                         ))}
                       </div>
@@ -885,7 +886,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                         ))}
                         <button onClick={() => { setMobileOpen(false); router.push("/products"); }}
                           className={`block w-full text-left text-sm py-2 px-3 rounded-lg font-semibold ${isDark ? "text-blue-400" : "text-blue-600"}`}>
-                          {NAV_STRINGS.urunlerFooterMobile[lang]}
+                          {byLang(NAV_STRINGS.urunlerFooterMobile, lang)}
                         </button>
                       </div>
                     )}
@@ -906,7 +907,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                                 className={`flex items-center gap-2 w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/70 hover:text-white" : "text-black/70 hover:text-black"}`}
                               >
                                 <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: cat.accent }} aria-hidden />
-                                <span className="flex-1 font-medium">{cat.label[lang]}</span>
+                                <span className="flex-1 font-medium">{byLang(cat.label, lang)}</span>
                                 <span className="text-[11px] opacity-50">{cat.items.length}</span>
                                 <HiChevronDown size={14} className={`transition-transform ${exp ? "rotate-180" : ""}`} />
                               </button>

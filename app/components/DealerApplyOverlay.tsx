@@ -7,6 +7,7 @@ import { RiBuilding4Line, RiGlobalLine } from "react-icons/ri";
 import { useDealerApplyOverlay } from "../context/DealerApplyOverlayContext";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
+import { byLang } from "../lib/ui";
 import { useContent } from "../context/ContentContext";
 import { trackEvent, trackGoogleAdsConversion } from "./GoogleAnalytics";
 import { trackMetaPixelEvent } from "./MetaPixel";
@@ -75,7 +76,7 @@ export default function DealerApplyOverlay() {
   const { lang } = useLanguage();
   const { marketing } = useContent();
   const d = theme === "dark";
-  const t = STRINGS[lang];
+  const t = byLang(STRINGS, lang);
 
   const [form, setForm] = useState<FormState>(EMPTY);
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");

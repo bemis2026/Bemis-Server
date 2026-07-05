@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "../app/context/LanguageContext";
+import { pickText } from "../app/lib/ui";
 
 type Pair = { tr: string; en: string };
 
@@ -291,5 +292,9 @@ export type UiStringKey = keyof typeof STRINGS;
 
 export function useUiStrings() {
   const { lang } = useLanguage();
-  return (key: UiStringKey): string => STRINGS[key][lang];
+  // de/es/ar/ru: ui.json çevirisi (yoksa İngilizce yedek); tr/en aynen.
+  return (key: UiStringKey): string => {
+    const p = STRINGS[key];
+    return pickText(lang, p.tr, p.en);
+  };
 }
