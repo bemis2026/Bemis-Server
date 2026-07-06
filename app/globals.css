@@ -675,3 +675,12 @@ html[data-theme="light"] .calc-slider::-webkit-slider-thumb { border-color: rgba
 @media (min-width: 1920px) {
   .max-w-7xl.mx-auto { max-width: 1800px; }
 }
+
+/* Hakkımızda (#dna): metin + video 2 kolonlu bölüm — grid gibi genişlikten
+   FAYDALANMIYOR; 1600/1800'e yayılınca video devleşiyor + metin seyrekleşip
+   çok boş alan kalıyordu. Bu bölümü ortada TOPLA (tasarım aynı, sadece daha dar
+   + ortalı). #dna id seçicisi (daha yüksek özgüllük) global kuralı geçersiz kılar;
+   ürün grid'i gibi diğer bölümler geniş ekranı kullanmaya devam eder. */
+@media (min-width: 1536px) {
+  #dna > .max-w-7xl.mx-auto { max-width: 1360px; }
+}
