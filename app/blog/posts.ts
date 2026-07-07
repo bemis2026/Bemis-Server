@@ -34,6 +34,240 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    "slug": "40-kw-dc-sarj-istasyonu",
+    "title": "40 kW DC Şarj İstasyonu Nedir, Kime Uygun ve Ne Kadar Hızlı?",
+    "metaTitle": "40 kW DC Şarj İstasyonu: Hız, Kullanım, Seçim",
+    "description": "40 kW DC şarj istasyonu nedir, AC'ye göre neden daha hızlı, hangi işletmeye uygun? DC hızlı şarjın çalışması, örnek süre hesabı ve Bemis BEVDC serisi.",
+    "excerpt": "AVM, otel, market ve küçük filolar için maliyet-etkin DC giriş noktası: 40 kW DC şarj nasıl çalışır, ne kadar hızlıdır ve Bemis BEVDC serisinde yeri nedir?",
+    "category": "Rehber",
+    "datePublished": "2026-07-08",
+    "readingMinutes": 7,
+    "keywords": [
+      "40 kw dc şarj istasyonu",
+      "dc hızlı şarj",
+      "40 kw dc",
+      "dc şarj cihazı",
+      "ccs2 dc şarj",
+      "hızlı şarj istasyonu",
+      "işletme için dc şarj",
+      "bevdc 40"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "\"40 kW DC şarj istasyonu\" aramasını yapan kişi genellikle iki şeyi merak eder: bu istasyon aracı ne kadar hızlı doldurur ve benim işletmeme (AVM, otel, market, plaza ya da küçük araç filosu) uygun mu? Bu rehberde DC hızlı şarjın neden AC'den daha hızlı olduğunu, 40 kW gücün gerçekte ne anlama geldiğini örnek bir hesapla, hangi noktalara yakıştığını ve Bemis'in BEVDC serisindeki 40 kW seçeneğinin yerini sade bir dille anlatıyoruz. Kesin dakika ve fiyat vermek yerine, kararınızı doğru temellere oturtacak gerçek teknik bilgiye odaklanıyoruz."
+      },
+      {
+        "type": "h2",
+        "text": "DC hızlı şarj nedir, neden AC'den hızlıdır?"
+      },
+      {
+        "type": "p",
+        "text": "Farkı anlamanın en kolay yolu, elektriğin \"nerede dönüştürüldüğüne\" bakmaktır. Şebekeden gelen elektrik alternatif akımdır (AC); batarya ise doğru akımla (DC) dolar. AC şarjda bu AC→DC dönüşümünü aracın içindeki dönüştürücü (onboard şarj ünitesi) yapar ve bu ünite genellikle 7,4-22 kW ile sınırlıdır — yani istasyon ne kadar güçlü olursa olsun, aracın kendi ünitesi tavanı belirler. DC şarjda ise dönüşüm istasyonun İÇİNDE yapılır ve bataryaya doğrudan DC verilir. Böylece araç içi ünitenin sınırı devreden çıkar; çok daha yüksek güçle, çok daha hızlı şarj mümkün olur. \"Hızlı şarj\" tam olarak bu yüzden mümkündür."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "AC şarj: dönüşüm araçta yapılır; hızı aracın içindeki dönüştürücü (çoğunlukla 7,4-22 kW) sınırlar.",
+          "DC şarj: dönüşüm istasyonun içinde yapılır; bataryaya doğrudan DC verilir, araç içi ünitenin tavanı aşılır.",
+          "Sonuç: DC istasyon aynı sürede çok daha fazla enerji aktarır — bu yüzden \"hızlı şarj\" denir.",
+          "Türkiye'de halka açık DC şarjda standart konnektör CCS2'dir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "40 kW DC şarj istasyonu ne kadar hızlı?"
+      },
+      {
+        "type": "p",
+        "text": "Kaba bir tahmin için basit bir formül vardır: süre ≈ bataryaya eklenecek enerji (kWh) ÷ şarj gücü (kW). Örnek (varsayımsal): bataryanıza 40 kWh enerji eklemek istediğinizi düşünün. 40 kW gücü tam kabul eden bir araçta bu teorik olarak yaklaşık 1 saat sürer (40 ÷ 40 = 1). Aynı 40 kWh'ı 22 kW AC ile almak yaklaşık 2 saati bulur; üstelik birçok aracın içindeki dönüştürücü 22 değil 11 kW kabul ettiği için AC'de süre daha da uzayabilir. Gerçek süre; aracın o an kabul ettiği güce ve bataryanın (özellikle %80 sonrası) bilinçli olarak yavaşlamasına, yani taper'a bağlıdır. Bu yüzden net bir \"X dakikada dolar\" vaadi gerçekçi değildir — formül size yalnızca doğru büyüklük sırasını verir."
+      },
+      {
+        "type": "h2",
+        "text": "40 kW DC kimin için? Nerede kullanılır?"
+      },
+      {
+        "type": "p",
+        "text": "40 kW, DC dünyasına maliyet-etkin bir giriş noktasıdır: AC'den belirgin biçimde hızlı, ama otoyol tipi çok yüksek güçlü ünitelerden daha uygun ölçekli. Müşterinin veya çalışanın aracını park edip bir işini görürken (alışveriş, yemek, toplantı, konaklama) kayda değer bir dolum aldığı orta yoğunluklu noktalar için biçilmiş kaftandır."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Alışveriş merkezleri ve marketler: müşteri alışveriş yaparken araç şarj olur.",
+          "Otel, plaza ve restoranlar: konaklama veya ziyaret süresi şarj için yeterli zaman tanır.",
+          "İşletme ve ofis otoparkları: personel ve ziyaretçi araçları için pratik bir hız.",
+          "Küçük araç filoları: gün içi ara dolumlarla aracı sahada tutar."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Buna karşılık otoyol dinlenme tesisleri, çok yüksek araç sirkülasyonu olan ya da \"ara vermeden en kısa sürede doldur\" beklentisi olan noktalarda 40 kW yetersiz kalabilir; bu tür yerlerde 80-200 kW aralığındaki daha yüksek güçlü DC üniteler tercih edilir. Doğru güç, cihazın markasından çok, kullanılacağı yerin trafiğine ve kabul edilebilir bekleme süresine göre seçilir."
+      },
+      {
+        "type": "h2",
+        "text": "AC 22 kW mı, DC 40 kW mı, DC 80-120 kW mı? Karar tablosu"
+      },
+      {
+        "type": "table",
+        "caption": "Kullanım yerine göre güç seçimi",
+        "headers": [
+          "Seçenek",
+          "Tipik hız",
+          "Nereye uygun",
+          "Kime uygun"
+        ],
+        "rows": [
+          [
+            "AC 22 kW (wallbox)",
+            "En yavaş; araç içi ünite sınırlar",
+            "Ev, iş yeri, uzun süre park edilen noktalar",
+            "Gece veya gün boyu park eden son kullanıcı"
+          ],
+          [
+            "DC 40 kW",
+            "Orta-hızlı; AC'den belirgin hızlı",
+            "AVM, otel, market, plaza, restoran, ofis",
+            "Maliyet-etkin DC isteyen işletme"
+          ],
+          [
+            "DC 80-120 kW",
+            "Yüksek; kısa molada ciddi dolum",
+            "Otoyol, yoğun trafikli halka açık nokta",
+            "Hızlı devir ve yüksek sirkülasyon isteyen yatırımcı"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Tabloyu okurken kilit soru şudur: aracı park eden kişi orada ne kadar kalıyor? Kalış süresi uzun ve amaç \"gece boyunca dolsun\" ise AC 22 kW yeterlidir. Kalış birkaç saatlik (alışveriş, yemek, konaklama) ve müşteriye somut bir dolum sunmak istiyorsanız 40 kW DC tam da bu boşluğu doldurur. Kalış çok kısa ve amaç \"en kısa sürede yola devam\" ise 80 kW ve üzeri gerekir. Bu nedenle birçok işletme, yatırımı büyütmeden önce 40 kW DC ile başlayıp gerçek talebi gördükçe ölçeklemeyi tercih eder."
+      },
+      {
+        "type": "h2",
+        "text": "Bemis BEVDC serisi: 40, 80, 120, 160 ve 200 kW"
+      },
+      {
+        "type": "p",
+        "text": "Bemis'in DC hızlı şarj ailesi BEVDC serisidir ve 40 kW'tan 200 kW'a kadar seçenekler sunar. Tüm seri CCS2 konnektörlüdür, OCPP 1.6J / 2.0.1 protokolleriyle uyumludur (uzaktan yönetim, kullanıcı yetkilendirme ve raporlama), AC 380-480V üç faz giriş alır, 150-1000V DC çıkış verir ve dış mekân kullanımı için korumalı gövdeye sahiptir. Girişte 40 kW olan BEVDC 40 tek soketlidir; yani aynı anda tek aracı şarj eder ve tek-nokta senaryoları için idealdir."
+      },
+      {
+        "type": "table",
+        "caption": "Bemis BEVDC serisi — genel bakış",
+        "headers": [
+          "Model",
+          "Çıkış gücü",
+          "Soket",
+          "Eş zamanlı şarj",
+          "Konnektör",
+          "OCPP"
+        ],
+        "rows": [
+          [
+            "BEVDC 40",
+            "40 kW",
+            "1",
+            "Hayır",
+            "CCS2",
+            "1.6J / 2.0.1"
+          ],
+          [
+            "BEVDC 80",
+            "80 kW",
+            "2",
+            "Evet",
+            "CCS2",
+            "1.6J / 2.0.1"
+          ],
+          [
+            "BEVDC 120",
+            "120 kW",
+            "1 veya 2",
+            "Evet",
+            "CCS2",
+            "1.6J / 2.0.1"
+          ],
+          [
+            "BEVDC 160",
+            "160 kW",
+            "2",
+            "Evet",
+            "CCS2",
+            "1.6J / 2.0.1"
+          ],
+          [
+            "BEVDC 200",
+            "200 kW",
+            "2",
+            "Evet",
+            "CCS2",
+            "1.6J / 2.0.1"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Tek soketli BEVDC 40, küçük işletme ve tek-nokta kurulumları için düşük giriş maliyetiyle DC hıza geçmenin yoludur. İhtiyaç büyüdükçe — daha çok araç, daha yüksek sirkülasyon — çift soketli ve eş zamanlı şarj yapabilen 80 kW ve üzeri modeller devreye girer. Böylece bugün 40 kW ile başlayıp yarın daha yüksek güce doğru planlama yapmak mümkündür."
+      },
+      {
+        "type": "p",
+        "text": "OCPP uyumluluğu işletmeci açısından da önemlidir: uzaktan izleme, kullanıcı yetkilendirme ve raporlama sayesinde istasyon bir yönetim yazılımına bağlanabilir, kullanım takip edilebilir ve farklı ücretlendirme senaryoları kurulabilir. Bu özellik, halka açık veya filo kullanımında istasyonu yalnızca bir cihaz olmaktan çıkarıp yönetilebilir bir hizmet noktasına dönüştürür — yatırımın işletme tarafını da kolaylaştırır."
+      },
+      {
+        "type": "h2",
+        "text": "40 kW DC istasyon kurmak için ne gerekir?"
+      },
+      {
+        "type": "p",
+        "text": "DC hızlı şarj, AC bir wallbox'a kıyasla daha güçlü bir elektrik altyapısı ister. Genel gereksinim, üç fazlı ve yeterli güçte bir besleme (BEVDC serisi AC 380-480V üç faz giriş alır) ile yetkili bir ekip tarafından yapılan kurulumdur. Tesisinizin mevcut abonelik gücü, pano ve kablo kesitleri, gerekli koruma ekipmanları ve olası güç artırma ihtiyacı gibi kesin elektriksel değerler mutlaka bir uzman tarafından yerinde değerlendirilmelidir. Doğru boyutlandırma hem güvenlik hem de istasyonun sorunsuz çalışması için şarttır."
+      },
+      {
+        "type": "cta",
+        "text": "İşletmeniz için doğru DC gücü mü arıyorsunuz? 40 kW'tan 200 kW'a kadar Bemis BEVDC hızlı şarj ünitelerini inceleyin.",
+        "href": "/products/dc-units",
+        "label": "DC hızlı şarj ünitelerini incele"
+      }
+    ],
+    "faq": [
+      {
+        "q": "40 kW DC şarj istasyonu bir aracı ne kadar sürede doldurur?",
+        "a": "Kesin bir dakika vermek doğru olmaz, çünkü süre aracınıza bağlıdır. Kaba tahmin için formül şudur: süre ≈ eklenecek enerji (kWh) ÷ şarj gücü (kW). Örneğin 40 kW'ı tam kabul eden bir araçta 40 kWh yaklaşık 1 saatte eklenir. Ancak her araç 40 kW'ı kabul etmez ve batarya %80'i geçince şarj hızı bilinçli olarak yavaşlar (taper). Bu nedenle gerçek süre aracın kabul gücüne ve doluluk seviyesine göre değişir; formül yalnızca doğru büyüklük sırasını verir, kesin bir vaat değildir."
+      },
+      {
+        "q": "40 kW DC şarj, AC 22 kW'a göre neden daha hızlı?",
+        "a": "Çünkü AC ve DC şarjda enerjinin dönüştürüldüğü yer farklıdır. AC şarjda şebekenin alternatif akımını bataryanın doğru akımına çeviren dönüştürücü aracın içindedir ve genellikle 7,4-22 kW ile sınırlıdır; istasyon daha güçlü olsa bile bu tavan aşılamaz. DC şarjda dönüşüm istasyonun içinde yapılır ve bataryaya doğrudan DC verilir, böylece araç içi ünitenin sınırı devreden çıkar. Bu sayede 40 kW DC istasyon, aynı sürede 22 kW AC'ye göre belirgin biçimde daha fazla enerji aktarır ve aracı daha kısa sürede doldurur."
+      },
+      {
+        "q": "40 kW DC şarj istasyonu hangi işletmeler için uygundur?",
+        "a": "40 kW, orta yoğunluklu noktalar için maliyet-etkin bir DC seçeneğidir. AVM ve marketler, otel, plaza ve restoranlar, ofis ve işletme otoparkları ile küçük araç filoları için idealdir; çünkü müşteri ya da personel aracını park edip işini görürken kayda değer bir dolum alır. Otoyol dinlenme tesisleri, çok yüksek araç sirkülasyonu olan veya en kısa sürede dolum beklenen noktalarda ise 80-200 kW aralığındaki daha yüksek güçlü DC üniteler daha uygundur. Doğru güç, kullanılacak yerin trafiğine göre seçilir."
+      },
+      {
+        "q": "Bemis BEVDC 40 kaç soketlidir ve hangi araçlarla çalışır?",
+        "a": "BEVDC 40, 40 kW gücünde ve tek soketlidir; yani aynı anda tek aracı şarj eder ve tek-nokta senaryoları için tasarlanmıştır. CCS2 konnektörü kullanır ki bu, Türkiye'de halka açık DC şarjın standart konnektörüdür. OCPP 1.6J / 2.0.1 protokolleriyle uyumludur (uzaktan yönetim, yetkilendirme ve raporlama), AC 380-480V üç faz giriş alır, 150-1000V DC çıkış verir ve dış mekân kullanımı için korumalı gövdeye sahiptir. Daha fazla araç veya daha yüksek güç gerektiğinde çift soketli 80 kW ve üzeri BEVDC modelleri tercih edilir."
+      },
+      {
+        "q": "40 kW DC şarj istasyonu kurmak için nasıl bir altyapı gerekir?",
+        "a": "DC hızlı şarj, AC bir wallbox'a kıyasla daha güçlü bir elektrik altyapısı ister. Genel olarak üç fazlı ve yeterli güçte bir besleme gerekir; Bemis BEVDC serisi AC 380-480V üç faz giriş üzerinde çalışır. Kurulum mutlaka yetkili bir ekip tarafından yapılmalıdır. Mevcut abonelik gücünüz, pano ve kablo kesitleri, koruma ekipmanları ve gerekiyorsa güç artırımı gibi kesin elektriksel değerler yerinde bir uzman tarafından değerlendirilmelidir. Doğru boyutlandırma hem güvenlik hem de istasyonun kesintisiz çalışması için kritik önemdedir."
+      }
+    ],
+    "related": [
+      {
+        "label": "DC hızlı şarj üniteleri (BEVDC)",
+        "href": "/products/dc-units"
+      },
+      {
+        "label": "EV şarj cihazı modelleri karşılaştırma",
+        "href": "/blog/ev-sarj-cihazi-modelleri-karsilastirma"
+      },
+      {
+        "label": "AC ve DC şarj arasındaki fark",
+        "href": "/blog/ac-dc-sarj-farki"
+      },
+      {
+        "label": "Elektrikli araç şarj istasyonu nasıl çalışır?",
+        "href": "/blog/elektrikli-arac-sarj-istasyonu-nasil-calisir"
+      }
+    ]
+  },
+  {
     "slug": "evde-elektrikli-arac-sarj-maliyeti-km-basina",
     "title": "Evde Elektrikli Araç Şarj Maliyeti: Km Başına Kaç TL?",
     "metaTitle": "Evde Elektrikli Araç Şarj Maliyeti (Km Başına)",

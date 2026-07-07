@@ -38,6 +38,7 @@ Bemis E-V Charge ürün gamı 8 kategoride ~113 ürün içerir: AC Wallbox şarj
 
 ## Rehberler
 
+- [40 kW DC Şarj İstasyonu: Hız, Kullanım ve Seçim](https://www.bemisevcharge.com.tr/blog/40-kw-dc-sarj-istasyonu): DC hızlı şarjın neden AC'den hızlı olduğu (dönüşüm istasyon içinde), 40 kW için örnek süre hesabı ve taper, AVM/otel/market/plaza/küçük filo için uygunluk, AC 22 kW vs DC 40 vs DC 80–120 kW karar tablosu ve Bemis BEVDC serisi (40–200 kW, CCS2, OCPP 1.6J/2.0.1, AC 380–480V 3 faz giriş).
 - [Evde EV Şarj Maliyeti: Km Başına Kaç TL](https://www.bemisevcharge.com.tr/blog/evde-elektrikli-arac-sarj-maliyeti-km-basina): Evde şarjın km başına maliyetini kWh tüketimi, birim elektrik fiyatı, ~%10 şarj kaybı ve gece (çok zamanlı) tarifesiyle hesaplama formülü; benzinliyle kıyas için aynı yöntem. Tüm rakamlar varsayımsal; okuyucu kendi güncel fiyatını koyar.
 - [Monofaze mi, Trifaze (3 Faz) mı: Evinize Hangi Şarj Cihazı](https://www.bemisevcharge.com.tr/blog/monofaze-mi-trifaze-mi-ev-sarj): Ev tipi wallbox için monofaze (~230V, ~7,4 kW) ve trifaze (~400V, 22 kW'a kadar) farkı, gece şarj süresi, evin fazını anlama ve gücü ayarlanabilir Bemis modelleriyle (Charger Plus 2 / Pro 2) doğru seçim.
 - [EV Şarj Cihazı Modelleri Karşılaştırma: Hangi Model Size Uygun](https://www.bemisevcharge.com.tr/blog/ev-sarj-cihazi-modelleri-karsilastirma): AC wallbox (Charger / Plus / Pro / Pro GSM), DC hızlı şarj (BEVDC 40–200 kW) ve taşınabilir (Mini / Mono / Pro Mobile) modelleri güç, faz, konnektör ve OCPP'ye göre karşılaştıran, karar tablolu alıcı rehberi.

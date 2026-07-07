@@ -27,6 +27,7 @@ function bodyToText(body: BlogSection[]): string {
 
 // GEO için en değerli rehberler (tam gövde).
 const GUIDE_SLUGS = [
+  "40-kw-dc-sarj-istasyonu",
   "evde-elektrikli-arac-sarj-maliyeti-km-basina",
   "monofaze-mi-trifaze-mi-ev-sarj",
   "ev-sarj-cihazi-modelleri-karsilastirma",
