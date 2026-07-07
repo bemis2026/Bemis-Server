@@ -515,25 +515,33 @@ export default function DealerNetwork() {
                 gerek yok; şehir seçimi gibi bir dropdown. Başlangıçta seçili yok. */}
             {viewMode === "yurtici" && regionsWithDealers.length > 0 && (
               <div
-                className="flex items-center gap-2 rounded-xl px-3 py-2"
+                className="flex flex-col gap-1.5 rounded-xl px-3.5 py-3"
                 style={{ background: `${BLUE}0c`, border: `1px solid ${BLUE}22` }}
               >
-                <RiMapPin2Line className="flex-shrink-0" style={{ color: d ? "#93C5FD" : BLUE, fontSize: 15 }} />
+                <label htmlFor="dealer-region-select" className="flex items-center gap-1.5 text-xs font-bold" style={{ color: d ? "#93C5FD" : BLUE }}>
+                  <RiMapPin2Line style={{ fontSize: 14 }} />
+                  Bölgenizi seçin — size en yakın yetkili bayileri görün
+                </label>
                 <select
+                  id="dealer-region-select"
                   value={selectedCity ?? ""}
                   onChange={(e) => { setSelectedCity(e.target.value || null); setCityFilter(null); }}
                   aria-label="Bölge seçin"
-                  className="flex-1 text-sm font-semibold rounded-lg px-2 py-1.5 cursor-pointer focus:outline-none transition-colors"
+                  className="w-full text-sm font-semibold rounded-lg px-3 py-2 cursor-pointer focus:outline-none transition-colors"
                   style={{
-                    background: d ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.9)",
-                    border: `1px solid ${d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)"}`,
+                    background: d ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.95)",
+                    border: `1px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.12)"}`,
                     color: d ? "#ffffff" : "#111111",
                   }}
                 >
                   <option value="">Bölge seçin…</option>
-                  {regionsWithDealers.map((r) => (
-                    <option key={r.id} value={r.id}>{r.label}</option>
-                  ))}
+                  {regionsWithDealers.map((r) => {
+                    const count = Object.keys(dealers).reduce(
+                      (n, cid) => (CITY_BY_ID[cid]?.region === r.id ? n + (dealers[cid]?.dealers?.length ?? 0) : n),
+                      0,
+                    );
+                    return <option key={r.id} value={r.id}>{r.label} — {count} bayi</option>;
+                  })}
                 </select>
               </div>
             )}

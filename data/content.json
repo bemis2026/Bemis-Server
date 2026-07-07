@@ -458,7 +458,7 @@
   "dealer": {
     "sectionLabel": "Yetkili Satış Ağı",
     "heading": "Türkiye'nin Her Yerinde",
-    "description": "Türkiye genelinde yetkili bayilerimizi haritadan seçin veya iletişime geçin.",
+    "description": "Bemis son kullanıcıya doğrudan satış yapmaz. En doğru ürün seçimi, kurulum ve satış sonrası destek için sizi bölgenizdeki yetkili bayilere yönlendiriyoruz. Haritadan bölgenizi seçin; ürün tedariki ve hizmeti en uygun şekilde yetkili bayimiz sağlasın.",
     "applyText": "Bayi ağımıza katılmak ister misiniz?",
     "statCities": "7",
     "statDealers": "50+",
@@ -1322,7 +1322,7 @@
       "dealer": {
         "sectionLabel": "All over Turkey",
         "heading": "Select or contact our authorized dealers across Turkey from the map.",
-        "description": "Would you like to join our dealer network?",
+        "description": "Bemis does not sell directly to end users. For the right product choice, installation and after-sales support, we direct you to the authorized dealer in your region. Select your region on the map — our dealer supplies the product and service in the most suitable way.",
         "applyText": " Find a Store                                                                                                                                                                                                                                             ",
         "statCities": "7",
         "statDealers": "50+",
