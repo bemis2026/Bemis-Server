@@ -167,25 +167,15 @@ export default function DealerNetwork() {
       .catch(() => {});
   }, []);
 
-  // Bayiler yüklendiğinde, eğer kullanıcı hiçbir region seçmemişse,
-  // ilk bayisi olan region'ı otomatik olarak seç → bayi listesi
-  // ilk açılışta hemen görünür (önceden boş bir map duruyordu, kullanıcı
-  // pin'e tıklamadan bayiler gizli kalıyordu).
-  useEffect(() => {
-    if (selectedCity || hoveredCity) return;
-    const dealerCities = Object.keys(dealers);
-    if (dealerCities.length === 0) return;
-    for (const region of REGIONS) {
-      const hasDealers = dealerCities.some(
-        (cid) => CITY_BY_ID[cid]?.region === region.id && (dealers[cid]?.dealers?.length ?? 0) > 0,
-      );
-      if (hasDealers) {
-        setSelectedCity(region.id);
-        break;
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dealers]);
+  // Başlangıçta HİÇBİR bölge seçili DEĞİL (kullanıcı isteği) — eski otomatik
+  // "ilk bayili bölgeyi seç" davranışı kaldırıldı. Kullanıcı aşağıdaki
+  // "Bölge seçin" dropdown'ından (her zaman görünür) veya haritadan seçer.
+  // Dropdown seçenekleri için: en az bir bayisi olan bölgeler.
+  const regionsWithDealers = REGIONS.filter((region) =>
+    Object.keys(dealers).some(
+      (cid) => CITY_BY_ID[cid]?.region === region.id && (dealers[cid]?.dealers?.length ?? 0) > 0,
+    ),
+  );
 
   // Bölge SEÇİMİ (tıklama) değişince şehir filtresi sıfırlanır. Hover
   // tetiklemez — yoksa kullanıcı şehir filtresi seçmişken mouse başka
@@ -521,6 +511,32 @@ export default function DealerNetwork() {
               ))}
             </div>
 
+            {/* Bölge seçici — HER ZAMAN görünür (yurtiçi), harita pinine tıklamaya
+                gerek yok; şehir seçimi gibi bir dropdown. Başlangıçta seçili yok. */}
+            {viewMode === "yurtici" && regionsWithDealers.length > 0 && (
+              <div
+                className="flex items-center gap-2 rounded-xl px-3 py-2"
+                style={{ background: `${BLUE}0c`, border: `1px solid ${BLUE}22` }}
+              >
+                <RiMapPin2Line className="flex-shrink-0" style={{ color: d ? "#93C5FD" : BLUE, fontSize: 15 }} />
+                <select
+                  value={selectedCity ?? ""}
+                  onChange={(e) => { setSelectedCity(e.target.value || null); setCityFilter(null); }}
+                  aria-label="Bölge seçin"
+                  className="flex-1 text-sm font-semibold rounded-lg px-2 py-1.5 cursor-pointer focus:outline-none transition-colors"
+                  style={{
+                    background: d ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.9)",
+                    border: `1px solid ${d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.10)"}`,
+                    color: d ? "#ffffff" : "#111111",
+                  }}
+                >
+                  <option value="">Bölge seçin…</option>
+                  {regionsWithDealers.map((r) => (
+                    <option key={r.id} value={r.id}>{r.label}</option>
+                  ))}
+                </select>
+              </div>
+            )}
 
             {/* The Bemis-rep card used to live above the dealer list here.
                 Moved out under the map (right column) so it doesn't push

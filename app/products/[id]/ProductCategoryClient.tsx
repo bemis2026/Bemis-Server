@@ -336,12 +336,12 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                   )}
                   {variantCount > 1 ? (
                     <div className="absolute top-2.5 right-2.5 text-[11px] font-bold px-2.5 py-1 rounded-full"
-                      style={{ background: `${accent}22`, border: `1px solid ${accent}40`, color: accent }}>
+                      style={{ background: accent, border: `1px solid ${accent}`, color: "#ffffff", boxShadow: "0 2px 6px rgba(0,0,0,0.18)", textShadow: "0 1px 2px rgba(0,0,0,0.28)" }}>
                       {variantCount} {pickText(lang, "versiyon", "versions")}
                     </div>
                   ) : product.badge && (
                     <div className="absolute top-2.5 right-2.5 text-[11px] font-bold px-2.5 py-1 rounded-full"
-                      style={{ background: `${accent}22`, border: `1px solid ${accent}40`, color: accent }}>
+                      style={{ background: accent, border: `1px solid ${accent}`, color: "#ffffff", boxShadow: "0 2px 6px rgba(0,0,0,0.18)", textShadow: "0 1px 2px rgba(0,0,0,0.28)" }}>
                       {product.badge}
                     </div>
                   )}

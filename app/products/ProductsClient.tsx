@@ -437,9 +437,11 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                                 <div
                                   className="absolute top-2 right-2 text-[9px] font-bold px-2 py-0.5 rounded-full"
                                   style={{
-                                    background: `${cat.accent}22`,
-                                    border: `1px solid ${cat.accent}40`,
-                                    color: cat.accent,
+                                    background: cat.accent,
+                                    border: `1px solid ${cat.accent}`,
+                                    color: "#ffffff",
+                                    boxShadow: "0 2px 6px rgba(0,0,0,0.18)",
+                                    textShadow: "0 1px 2px rgba(0,0,0,0.28)",
                                   }}
                                 >
                                   {variantCount} versiyon
@@ -448,9 +450,11 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                                 <div
                                   className="absolute top-2 right-2 text-[9px] font-bold px-2 py-0.5 rounded-full"
                                   style={{
-                                    background: `${cat.accent}22`,
-                                    border: `1px solid ${cat.accent}40`,
-                                    color: cat.accent,
+                                    background: cat.accent,
+                                    border: `1px solid ${cat.accent}`,
+                                    color: "#ffffff",
+                                    boxShadow: "0 2px 6px rgba(0,0,0,0.18)",
+                                    textShadow: "0 1px 2px rgba(0,0,0,0.28)",
                                   }}
                                 >
                                   {product.badge}
