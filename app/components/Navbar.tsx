@@ -709,10 +709,6 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
 
           {/* Right actions */}
           <div className="hidden lg:flex items-center gap-2">
-            <LanguageSwitcher
-              border={langBorder} activeBg={langActiveBg} activeColor={langActiveColor} idleColor={langIdleColor}
-              panelBg={langPanelBg} panelBorder={langPanelBorder} panelText={langPanelText}
-            />
             <button onClick={onSearchOpen} className={`p-2 rounded-lg transition-colors ${iconBtnClass}`}>
               <HiSearch size={18} />
             </button>
@@ -732,6 +728,11 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
             >
               <E field="navbar.ctaLabel" tag="span">{navbarContent?.ctaLabel ?? "Bize Ulaşın"}</E>
             </button>
+            {/* Dil seçici — kullanıcı isteği: "Bize Ulaşın" ile B2B arasında. */}
+            <LanguageSwitcher
+              border={langBorder} activeBg={langActiveBg} activeColor={langActiveColor} idleColor={langIdleColor}
+              panelBg={langPanelBg} panelBorder={langPanelBorder} panelText={langPanelText}
+            />
             {/* B2B Portal kısayolu — sadece admin'den URL girilmişse görünür.
                 "Bize Ulaşın" CTA'sının hemen sağında, küçük + diskret bir
                 pill. Yeni sekmede açılır. Aramaya değil "ürünleri görenler
