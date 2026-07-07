@@ -89,7 +89,7 @@ export default function Reviews() {
       style={{
         background: d
           ? "linear-gradient(135deg, #16161c 0%, #1a1a22 50%, #17171e 100%)"
-          : "linear-gradient(135deg, #f6f7fb 0%, #f2f3f7 50%, #f4f5f9 100%)",
+          : "linear-gradient(135deg, #f4f7fc 0%, #eef3fb 50%, #f2f6fd 100%)",
       }}
       className="relative py-6 lg:py-8 overflow-hidden"
     >
@@ -100,11 +100,14 @@ export default function Reviews() {
         </>
       )}
 
-      {/* Dekoratif accent glow blob'lar (sadece desktop). */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden hidden lg:block" aria-hidden>
-        <div className="absolute" style={{ top: "-10%", left: "-8%", width: "55%", height: "70%", background: `radial-gradient(circle, ${BLUE}${d ? "22" : "14"} 0%, transparent 60%)`, filter: "blur(40px)" }} />
-        <div className="absolute" style={{ top: "10%", right: "-10%", width: "50%", height: "60%", background: `radial-gradient(circle, ${d ? "#E1306C26" : "#E1306C14"} 0%, transparent 60%)`, filter: "blur(50px)" }} />
-        <div className="absolute" style={{ bottom: "-15%", left: "20%", width: "60%", height: "55%", background: `radial-gradient(circle, ${d ? "#8B5CF624" : "#8B5CF612"} 0%, transparent 65%)`, filter: "blur(60px)" }} />
+      {/* Dekoratif glow blob'lar — açık gri zemin + MAVİ tonlar (mavi · gök mavisi
+          · yumuşak indigo; eski pembe/mor kaldırıldı). Hafifçe süzülüp "nefes alır"
+          (transform animasyonu → blur katmanı GPU'da önbelleklenir, mobilde de ucuz;
+          reduced-motion'da durur). Artık mobilde de görünür. */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden>
+        <div className="absolute reviews-blob" style={{ top: "-10%", left: "-8%", width: "55%", height: "70%", background: `radial-gradient(circle, rgba(59,130,246,${d ? "0.26" : "0.16"}) 0%, transparent 62%)`, filter: "blur(44px)", animation: "reviewsBlob1 21s ease-in-out infinite alternate" }} />
+        <div className="absolute reviews-blob" style={{ top: "8%", right: "-12%", width: "52%", height: "64%", background: `radial-gradient(circle, rgba(56,189,248,${d ? "0.22" : "0.14"}) 0%, transparent 62%)`, filter: "blur(50px)", animation: "reviewsBlob2 26s ease-in-out infinite alternate" }} />
+        <div className="absolute reviews-blob" style={{ bottom: "-18%", left: "22%", width: "60%", height: "58%", background: `radial-gradient(circle, rgba(99,102,241,${d ? "0.20" : "0.12"}) 0%, transparent 66%)`, filter: "blur(58px)", animation: "reviewsBlob3 24s ease-in-out infinite alternate" }} />
       </div>
 
       <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">

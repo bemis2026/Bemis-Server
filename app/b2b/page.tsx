@@ -122,7 +122,7 @@ export default function B2BPage() {
             />
           </>
         )}
-        <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8">
+        <div className="relative z-10 max-w-5xl mx-auto wide-content px-5 sm:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
             <div className="flex items-center gap-2.5 mb-4">
               <RiShieldCheckLine style={{ color: AMBER, fontSize: 14 }} />
@@ -260,7 +260,7 @@ export default function B2BPage() {
         if (resolved.length === 0) return null;
         return (
           <section style={{ background: bgSub, borderBottom: `1px solid ${border}`, padding: "56px 0" }}>
-            <div className="max-w-5xl mx-auto px-5 sm:px-8">
+            <div className="max-w-5xl mx-auto wide-content px-5 sm:px-8">
               <div className="mb-8">
                 <div className="flex items-center gap-2 mb-2">
                   <RiBuilding2Line style={{ color: AMBER, fontSize: 14 }} />

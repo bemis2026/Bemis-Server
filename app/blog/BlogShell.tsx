@@ -100,7 +100,7 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
 
   return (
     <div className="pt-28 pb-20 px-5 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto wide-content">
         <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: BLUE }}>Bemis E-V Charge · Blog</p>
         <h1 className="text-3xl sm:text-4xl font-black mb-3" style={{ color: textPrimary }}>{pickText(lang, "Blog & Haberler", "Blog & News")}</h1>
         <p className="text-sm sm:text-base mb-6 max-w-2xl" style={{ color: textMuted }}>

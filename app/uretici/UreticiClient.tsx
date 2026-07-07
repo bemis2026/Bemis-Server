@@ -84,7 +84,7 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
           className="pointer-events-none absolute -top-24 right-0 w-[480px] h-[480px] rounded-full"
           style={{ background: `radial-gradient(circle, ${BLUE}12 0%, transparent 70%)`, filter: "blur(40px)" }}
         />
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative max-w-5xl mx-auto wide-content">
           <motion.p
             initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
             className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.18em] uppercase mb-3"
@@ -157,7 +157,7 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
           çerçeve + çok yavaş Ken Burns + 32 yıllık Bemis Teknik mirası +
           bemis.com.tr linki/alıntısı. */}
       <section className="pt-2 pb-2 px-5 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto wide-content">
           {dna.factoryImage && (
             <motion.div
               initial={{ opacity: 0, y: 24, scale: 0.985 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={VIEWPORT}
@@ -212,7 +212,7 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
 
       {/* Neden yerli üretici */}
       <section className="py-10 px-5 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto wide-content">
           <motion.h2
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5 }}
             className="text-2xl font-black mb-3" style={{ color: textPrimary }}
@@ -244,7 +244,7 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
 
       {/* Ne üretiyoruz */}
       <section className="py-10 px-5 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto wide-content">
           <motion.h2
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5 }}
             className="text-2xl font-black mb-2" style={{ color: textPrimary }}
@@ -289,7 +289,7 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
         <motion.div
           initial={{ opacity: 0, y: 20, scale: 0.99 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={VIEWPORT}
           transition={{ duration: 0.55, ease: "easeOut" }}
-          className="max-w-5xl mx-auto rounded-3xl p-7" style={{ background: surface, border: `1px solid ${border}` }}
+          className="max-w-5xl mx-auto wide-content rounded-3xl p-7" style={{ background: surface, border: `1px solid ${border}` }}
         >
           <h2 className="text-2xl font-black mb-3" style={{ color: textPrimary }}>Üretim & Kalite</h2>
           <p className="text-sm sm:text-base leading-relaxed mb-5 max-w-3xl" style={{ color: textMuted }}>
@@ -374,7 +374,7 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
       {/* Bemis basın & haberler — minik şerit (anasayfa Reviews ile aynı kaynak) */}
       {press.length > 0 && (
         <section className="py-8 px-5 sm:px-6 lg:px-8" style={{ borderTop: `1px solid ${border}` }}>
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto wide-content">
             <motion.div
               initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5 }}
               className="flex items-center justify-between gap-3 mb-4 flex-wrap"
@@ -415,7 +415,7 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
       {/* Bölgesel sayfalar — yerel SEO iç linkleri */}
       {CITY_PAGES.length > 0 && (
         <section className="pb-10 px-5 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto flex flex-wrap items-center gap-x-3 gap-y-2 text-xs" style={{ color: textFaint }}>
+          <div className="max-w-5xl mx-auto wide-content flex flex-wrap items-center gap-x-3 gap-y-2 text-xs" style={{ color: textFaint }}>
             <span className="font-semibold uppercase tracking-wider">Bölgesel:</span>
             {CITY_PAGES.map((c) => (
               <Link key={c.slug} href={`/${c.slug}`} className="font-bold transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>

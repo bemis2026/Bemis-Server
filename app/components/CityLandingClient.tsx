@@ -69,7 +69,7 @@ export default function CityLandingClient({ city }: { city: CityPage }) {
           className="pointer-events-none absolute -top-24 right-0 w-[480px] h-[480px] rounded-full"
           style={{ background: `radial-gradient(circle, ${BLUE}12 0%, transparent 70%)`, filter: "blur(40px)" }}
         />
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative max-w-5xl mx-auto wide-content">
           <motion.p
             initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
             className="inline-flex items-center gap-1.5 text-xs font-bold tracking-[0.18em] uppercase mb-3"
@@ -117,7 +117,7 @@ export default function CityLandingClient({ city }: { city: CityPage }) {
 
       {/* Neden Bemis */}
       <section className="py-10 px-5 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto wide-content">
           <motion.h2
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5 }}
             className="text-2xl font-black mb-3" style={{ color: textPrimary }}
@@ -149,7 +149,7 @@ export default function CityLandingClient({ city }: { city: CityPage }) {
 
       {/* Ürünler */}
       <section className="py-10 px-5 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto wide-content">
           <motion.h2
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5 }}
             className="text-2xl font-black mb-2" style={{ color: textPrimary }}

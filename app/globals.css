@@ -684,3 +684,23 @@ html[data-theme="light"] .calc-slider::-webkit-slider-thumb { border-color: rgba
 @media (min-width: 1536px) {
   #dna > .max-w-7xl.mx-auto { max-width: 1360px; }
 }
+
+/* Görüşler & Rehberler (#reviews) dekoratif mavi blob'ları — yavaş süzülüp
+   "nefes alır". Yalnız transform animasyonu → blur'lu katman GPU'da önbelleklenir
+   (mobilde de ucuz). reduced-motion'da tamamen durur. */
+@keyframes reviewsBlob1 { from { transform: translate(0, 0) scale(1); }    to { transform: translate(7%, 5%) scale(1.14); } }
+@keyframes reviewsBlob2 { from { transform: translate(0, 0) scale(1.05); } to { transform: translate(-6%, 4%) scale(0.94); } }
+@keyframes reviewsBlob3 { from { transform: translate(0, 0) scale(1); }    to { transform: translate(4%, -6%) scale(1.12); } }
+@media (prefers-reduced-motion: reduce) {
+  .reviews-blob { animation: none !important; }
+}
+
+/* İçerik sayfaları (/üretici, blog listesi …) bölüm çerçeveleri max-w-5xl (1024px)
+   → geniş ekranda "ortada toplanıp" iki yanda çok boş bırakıyordu. `wide-content`
+   işaretli konteynerler ≥1536px'de anasayfa mantığıyla 1360'a genişler (Hakkımızda
+   ile aynı, kullanıcı onaylı ölçek) + ortalı. Dizüstü/normal ekran DEĞİŞMEZ (1024).
+   Gövde metni max-w-3xl/2xl kullandığından okunabilirlik korunur (sadece çerçeve
+   genişler). `.wide-content.mx-auto` (özgüllük 0,2,0) Tailwind max-w-5xl'i (0,1,0) geçer. */
+@media (min-width: 1536px) {
+  .wide-content.mx-auto { max-width: 1360px; }
+}

@@ -110,7 +110,7 @@ export default function ExportLandingClient() {
       {/* Hero */}
       <section className="relative overflow-hidden pt-28 pb-10 px-5 sm:px-6 lg:px-8">
         <div aria-hidden className="pointer-events-none absolute -top-24 right-0 w-[480px] h-[480px] rounded-full" style={{ background: `radial-gradient(circle, ${BLUE}12 0%, transparent 70%)`, filter: "blur(40px)" }} />
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative max-w-5xl mx-auto wide-content">
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>{eyebrow}</motion.div>
           <motion.h1 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.05 }} className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-4" style={{ color: textPrimary }}>
             EV Charging Cable &amp; Charger <span style={{ color: d ? "#93C5FD" : BLUE }}>Manufacturer</span> in Türkiye / Europe
@@ -139,7 +139,7 @@ export default function ExportLandingClient() {
 
       {/* Why Bemis */}
       <section className="py-10 px-5 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto wide-content">
           <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5 }} className="text-2xl sm:text-3xl font-black mb-2" style={{ color: textPrimary }}>
             Why source from Bemis, not a Chinese trader?
           </motion.h2>
@@ -158,7 +158,7 @@ export default function ExportLandingClient() {
 
       {/* Product range */}
       <section className="py-10 px-5 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto wide-content">
           <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5 }} className="text-2xl sm:text-3xl font-black mb-7" style={{ color: textPrimary }}>Product range</motion.h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {PRODUCTS.map((p) => (
@@ -189,7 +189,7 @@ export default function ExportLandingClient() {
 
       {/* Quote form */}
       <section id="quote" className="py-12 px-5 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto rounded-3xl p-6 sm:p-10" style={{ background: d ? "rgba(59,130,246,0.07)" : "rgba(59,130,246,0.05)", border: `1px solid ${border}` }}>
+        <div className="max-w-5xl mx-auto wide-content rounded-3xl p-6 sm:p-10" style={{ background: d ? "rgba(59,130,246,0.07)" : "rgba(59,130,246,0.05)", border: `1px solid ${border}` }}>
           <h2 className="text-2xl sm:text-3xl font-black mb-2" style={{ color: textPrimary }}>Request a Quote</h2>
           <p className="mb-7 max-w-xl" style={{ color: textMuted }}>Tell us what you need — product, quantity and your country. We reply with pricing, lead time and OEM options.</p>
           {submitted ? (

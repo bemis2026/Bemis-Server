@@ -113,7 +113,7 @@ export default function OperatorPage() {
             />
           </>
         )}
-        <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8">
+        <div className="relative z-10 max-w-5xl mx-auto wide-content px-5 sm:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
             <div className="flex items-center gap-2.5 mb-4">
               <RiWifiLine style={{ color: PURPLE, fontSize: 14 }} />
@@ -158,7 +158,7 @@ export default function OperatorPage() {
         ) : (
           <div className="absolute inset-0" style={{ background: bg }} />
         )}
-        <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8">
+        <div className="relative z-10 max-w-5xl mx-auto wide-content px-5 sm:px-8">
           <div className="mb-8">
             <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: PURPLE }}>Teknik Altyapı</p>
             <h2 className="text-2xl sm:text-3xl font-black mb-2" style={{ color: text }}>Operatör Odaklı Özellikler</h2>
@@ -243,7 +243,7 @@ export default function OperatorPage() {
         if (resolved.length === 0) return null;
         return (
           <section style={{ background: bgSub, padding: "56px 0", borderBottom: `1px solid ${border}` }}>
-            <div className="max-w-5xl mx-auto px-5 sm:px-8">
+            <div className="max-w-5xl mx-auto wide-content px-5 sm:px-8">
               <div className="mb-8">
                 <div className="flex items-center gap-2 mb-2">
                   <RiWifiLine style={{ color: PURPLE, fontSize: 14 }} />
