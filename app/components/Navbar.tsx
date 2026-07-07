@@ -554,17 +554,18 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                               </button>
                             ))}
                           </div>
-                          {/* Footer */}
-                          <div style={{ borderTop: `1px solid ${isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"}` }}>
+                          {/* Footer — "Tüm ürünlere göz at": eskiden %30-35 opak gri (okunmuyordu);
+                              artık mavi aksan + kalın + hafif zemin ile belirgin bir aksiyon (mobil ile tutarlı). */}
+                          <div style={{ borderTop: `1px solid ${isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}` }}>
                             <button
                               onClick={() => { setActiveDropdown(null); router.push("/products"); }}
-                              className="w-full px-4 py-2.5 flex items-center justify-between text-xs font-semibold transition-colors"
-                              style={{ color: isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)" }}
-                              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.60)"; }}
-                              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)"; }}
+                              className="w-full px-4 py-3 flex items-center justify-between text-[13px] font-bold transition-colors"
+                              style={{ color: isDark ? "#93C5FD" : "#2563EB", background: isDark ? "rgba(59,130,246,0.06)" : "rgba(59,130,246,0.05)" }}
+                              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "#BFDBFE" : "#1D4ED8"; (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(59,130,246,0.12)" : "rgba(59,130,246,0.10)"; }}
+                              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = isDark ? "#93C5FD" : "#2563EB"; (e.currentTarget as HTMLElement).style.background = isDark ? "rgba(59,130,246,0.06)" : "rgba(59,130,246,0.05)"; }}
                             >
                               <span>{byLang(NAV_STRINGS.urunlerFooter, lang)}</span>
-                              <RiArrowRightLine size={13} />
+                              <RiArrowRightLine size={14} />
                             </button>
                           </div>
                         </motion.div>
