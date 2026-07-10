@@ -561,11 +561,16 @@ export default function Products() {
                 </div>
 
                 {/* ── Card content below visual ── */}
-                <div className="px-4 py-4 flex items-center justify-between">
-                  <p className="text-xs" style={{ color: textMuted }}>{cat.subtitle}</p>
+                {/* Açıklama + İncele: açıklama en fazla 2 satır (line-clamp) ve
+                    esneyip küçülebilir (min-w-0 flex-1); İncele asla küçülmez
+                    (flex-shrink-0) + aralarında gap → dar/mobil kartlarda uzun
+                    açıklama İncele tuşuna binmez (eski hâlde gap=0, çok satırlı
+                    açıklama tuşa değiyordu). */}
+                <div className="px-4 py-4 flex items-center justify-between gap-2.5">
+                  <p className="text-xs min-w-0 flex-1 line-clamp-2" style={{ color: textMuted }}>{cat.subtitle}</p>
                   {!cat.comingSoon && (
                     <div
-                      className="flex items-center gap-1 text-xs font-semibold"
+                      className="flex items-center gap-1 text-xs font-semibold flex-shrink-0"
                       style={{
                         color: cat.accent,
                         transform: isHovered ? "translateX(2px)" : "translateX(0)",

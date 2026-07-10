@@ -126,13 +126,17 @@ export default function DNA() {
             {/* Button + Yerli Üretici linki — ikincisi anasayfa→/uretici
                 TARANABİLİR iç link (gerçek <a>, SEO için; "Bemis Dünyasını
                 Keşfet" router.push button taranmaz). */}
+            {/* Mobilde iki aksiyon KASITLI dikey yığın: birincil buton tam
+                genişlik (ortalı), ikincil link altında ortalı — eski flex-wrap
+                mobilde linki "kazara alta kaymış" gibi gösteriyordu. sm+ eski
+                satır-içi düzen (flex-row wrap) korunur. */}
             <motion.div
               initial={{ opacity: 0, y: 8 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4, delay: 0.25 }}
-              className="flex flex-wrap items-center gap-x-5 gap-y-3"
+              className="flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5 sm:gap-y-3"
             >
               <button
                 onClick={() => router.push("/kurumsal")}
-                className="flex items-center gap-2 text-sm font-bold px-6 py-3 rounded-2xl transition-all duration-200"
+                className="flex items-center justify-center sm:justify-start gap-2 text-sm font-bold px-6 py-3 rounded-2xl transition-all duration-200 w-full sm:w-auto"
                 style={{ background: d ? `${BLUE}15` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}28`, color: d ? "#93C5FD" : BLUE }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}25` : `${BLUE}18`; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}15` : `${BLUE}10`; }}
@@ -142,7 +146,7 @@ export default function DNA() {
               </button>
               <Link
                 href="/uretici"
-                className="inline-flex items-center gap-1.5 text-sm font-bold transition-opacity hover:opacity-70"
+                className="flex sm:inline-flex items-center justify-center sm:justify-start gap-1.5 text-sm font-bold transition-opacity hover:opacity-70"
                 style={{ color: d ? "#93C5FD" : BLUE }}
               >
                 Yerli Üretici Hikayemiz <RiArrowRightLine size={15} />
