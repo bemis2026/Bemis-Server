@@ -589,19 +589,28 @@
         "platform": "HepsiBurada",
         "platformColor": "#FF6000",
         "rating": 5,
-        "author": "İ. T.",
-        "date": "Şubat 2026",
+        "author": "M. C.",
+        "date": "Kasım 2025",
         "product": "Trifaze 11 kW Çantalı Taşınabilir Şarj Seti",
-        "text": "Kendi çantasında, özenli ve hızlı bir şekilde kargolanmış olarak geldi. Satıcı her soruma cevap vermiştir; kendisine teşekkür ediyorum, hayırlı işler diliyorum."
+        "text": "Sağlam ve eksiksiz teslim edildi. Bemis markasını bildiğim, kalitesine güvendiğim ve ayrıca yerli üretim olduğu için tercih etmiştim zaten. Çanta ile birlikte, çok yer kaplamadan kullanılabiliyor."
+      },
+      {
+        "platform": "Trendyol",
+        "platformColor": "#F27A1A",
+        "rating": 5,
+        "author": "Onur D.",
+        "date": "Mart 2026",
+        "product": "Pro Mobile 11-22 kW Taşınabilir Şarj Cihazı",
+        "text": "Başarılı. Sorunsuz çalışıyor, kargo hızlıydı, paketleme iyiydi."
       },
       {
         "platform": "HepsiBurada",
         "platformColor": "#FF6000",
         "rating": 5,
-        "author": "M. C.",
-        "date": "Kasım 2025",
+        "author": "İ. T.",
+        "date": "Şubat 2026",
         "product": "Trifaze 11 kW Çantalı Taşınabilir Şarj Seti",
-        "text": "Sağlam ve eksiksiz teslim edildi. Bemis markasını bildiğim, kalitesine güvendiğim ve ayrıca yerli üretim olduğu için tercih etmiştim zaten. Çanta ile birlikte, çok yer kaplamadan kullanılabiliyor."
+        "text": "Kendi çantasında, özenli ve hızlı bir şekilde kargolanmış olarak geldi. Satıcı her soruma cevap vermiştir; kendisine teşekkür ediyorum, hayırlı işler diliyorum."
       }
     ]
   },
@@ -1417,19 +1426,28 @@
             "platform": "HepsiBurada",
             "platformColor": "#FF6000",
             "rating": 5,
-            "author": "İ. T.",
-            "date": "Feb 2026",
+            "author": "M. C.",
+            "date": "Nov 2025",
             "product": "Three-phase 11 kW Portable Charging Set with Bag",
-            "text": "It arrived in its own bag, carefully packed and quickly shipped. The seller answered all my questions — many thanks and best wishes."
+            "text": "Delivered sturdy and complete. I already chose it because I know the Bemis brand, trust its quality, and it is locally made. With the bag, it can be used without taking up much space."
+          },
+          {
+            "platform": "Trendyol",
+            "platformColor": "#F27A1A",
+            "rating": 5,
+            "author": "Onur D.",
+            "date": "Mar 2026",
+            "product": "Pro Mobile 11-22 kW Portable Charger",
+            "text": "Great. Works flawlessly, shipping was fast and the packaging was good."
           },
           {
             "platform": "HepsiBurada",
             "platformColor": "#FF6000",
             "rating": 5,
-            "author": "M. C.",
-            "date": "Nov 2025",
+            "author": "İ. T.",
+            "date": "Feb 2026",
             "product": "Three-phase 11 kW Portable Charging Set with Bag",
-            "text": "Delivered sturdy and complete. I already chose it because I know the Bemis brand, trust its quality, and it is locally made. With the bag, it can be used without taking up much space."
+            "text": "It arrived in its own bag, carefully packed and quickly shipped. The seller answered all my questions — many thanks and best wishes."
           }
         ]
       },
