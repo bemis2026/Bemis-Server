@@ -486,14 +486,11 @@ const CATEGORY_TERM: Record<string, string> = {
   "charger-equipment": "ccs2",
 };
 
-const PRODUCT_REVIEW_KEY: Record<string, string> = {
-  "charger-2-kablolu": "AC Wallbox 7kW",
-  "charger-plus-2-kablolu": "AC Wallbox 22kW",
-  "sarj-seti-20a-monofaze-7m": "Type 2 AC Şarj Kablosu 7m",
-  "mini-mobile": "Taşınabilir Şarj Cihazı",
-  "tek-cikisli-v2l-adaptor-hyundai": "V2L Adaptör",
-  "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m": "DC Hızlı Şarj Kablosu",
-};
+// Gerçek müşteri yorumları artık YALNIZ anasayfada gösteriliyor (Hepsiburada 11 kW
+// kablo, doğrulanmış 5.0/59). Ürün DETAY sayfası review şeması, gerçek per-ürün yorum
+// verisi netleşince (ör. Pro Mobile Trendyol) doğru id→ürün eşlemesiyle bağlanacak.
+// Eski placeholder eşlemeler kaldırıldı — uydurma review şeması riski taşıyordu.
+const PRODUCT_REVIEW_KEY: Record<string, string> = {};
 
 export function reviewsForProduct(productId: string, allReviews: ReviewShape[]): ReviewShape[] {
   const key = PRODUCT_REVIEW_KEY[productId];

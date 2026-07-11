@@ -582,62 +582,26 @@
     "ratingLabel": "rating",
     "platformsPrefix": "Trendyol and HepsBurada",
     "ratingCountSuffix": "consideration",
-    "rating": "4.9",
-    "ratingCount": "500+",
+    "rating": "5.0",
+    "ratingCount": "59",
     "items": [
       {
-        "platform": "Trendyol",
-        "platformColor": "#F27A1A",
+        "platform": "HepsiBurada",
+        "platformColor": "#FF6000",
         "rating": 5,
-        "author": "Mehmet K.",
-        "date": "Mar 2025",
-        "product": "AC Wallbox 7kW",
-        "text": "I have been using it for 3 months, it was very easy to install. Zero problems in everyday use. You feel the quality of Turkish goods, the quality of construction is very good. Highly recommend."
+        "author": "İ. T.",
+        "date": "Feb 2026",
+        "product": "Three-phase 11 kW Portable Charging Set with Bag",
+        "text": "It arrived in its own bag, carefully packed and quickly shipped. The seller answered all my questions — many thanks and best wishes."
       },
       {
         "platform": "HepsiBurada",
         "platformColor": "#FF6000",
         "rating": 5,
-        "author": "Ayşe T.",
-        "date": "FEBRUARY 2025",
-        "product": "Type 2 AC Charging Cable 7m",
-        "text": "The cable quality is really excellent. The Type 2 connector fits perfectly with the vehicle, plugging and unplugging is very fluid. The 7-meter length is ideal for garage use."
-      },
-      {
-        "platform": "Trendyol",
-        "platformColor": "#F27A1A",
-        "rating": 5,
-        "author": "Serkan D.",
-        "date": "January 2025",
-        "product": "Wireless Power Bank",
-        "text": "Great convenience on holiday trips. Plug in the standard socket and start charging. I never leave my side when traveling, I also use it in emergencies. Very practical!"
-      },
-      {
-        "platform": "HepsiBurada",
-        "platformColor": "#FF6000",
-        "rating": 5,
-        "author": "Emre Y.",
-        "date": "January 2025",
-        "product": "AC Wallbox 22kW",
-        "text": "We use it in the outdoor parking lot of our workplace. IP65 protection works perfectly even in the rain. We had a winter and had no problems. Domestic production gives confidence."
-      },
-      {
-        "platform": "Trendyol",
-        "platformColor": "#F27A1A",
-        "rating": 5,
-        "author": "Özlem B.",
-        "date": "December 2024",
-        "product": "V2L Adapter",
-        "text": "It's great to get power from the car on a camping trip. The adapter is of good quality and works safely. I was able to turn on the laptop, the lights, even the small heater. Multi-brand compatibility is great."
-      },
-      {
-        "platform": "HepsiBurada",
-        "platformColor": "#FF6000",
-        "rating": 5,
-        "author": "Can M.",
-        "date": "Nov 2024",
-        "product": "DC Fast Charging Cable",
-        "text": "CCS connection works perfectly. The cable is flexible, does not have difficulty in crimping and unfolding. Connection quality is superior, no heating at high current. Best option on the market."
+        "author": "M. C.",
+        "date": "Nov 2025",
+        "product": "Three-phase 11 kW Portable Charging Set with Bag",
+        "text": "Delivered sturdy and complete. I already chose it because I know the Bemis brand, trust its quality, and it is locally made. With the bag, it can be used without taking up much space."
       }
     ]
   },
