@@ -6206,6 +6206,7 @@ export default function AdminPage() {
                       { id: "dealer",     label: "Bayi Ağı" },
                       { id: "reviews",    label: "Kullanıcı Yorumları" },
                       { id: "calculator", label: "Şarj Hesaplayıcı" },
+                      { id: "b2bcta",     label: "OEM & Kurumsal Satış (B2B)" },
                       { id: "contact",    label: "Bize Ulaşın" },
                     ].map(({ id, label }) => {
                       const currentUrl = content?.sectionBgs?.[id] ?? "";
