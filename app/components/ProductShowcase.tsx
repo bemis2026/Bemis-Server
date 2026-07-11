@@ -303,7 +303,7 @@ export default function ProductShowcase() {
                     }}
                   >
                     <span
-                      className="text-[7px] sm:text-[8px] font-bold uppercase tracking-widest"
+                      className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest"
                       style={{ color: "#93C5FD", textShadow: "0 1px 2px rgba(0,0,0,0.5)" }}
                     >
                       {badgeText}
