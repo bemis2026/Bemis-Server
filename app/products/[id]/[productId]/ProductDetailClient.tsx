@@ -26,6 +26,7 @@ import {
   RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
   RiShieldCheckLine, RiBarChart2Line, RiCalendarCheckLine, RiTeamLine,
   RiLightbulbLine, RiAddLine, RiMapPin2Line, RiVerifiedBadgeFill,
+  RiStarFill,
 } from "react-icons/ri";
 import { featureById } from "../../../../lib/productFeatures";
 import { certificateById } from "../../../../lib/productCertificates";
@@ -173,14 +174,23 @@ function ImageLightbox({ images, index, setIndex, onClose, productName }: {
   );
 }
 
+// Gerçek pazaryeri yorumu (server page.tsx reviewsForProduct ile eşleştirip
+// geçer; yalnız gerçek yorumu olan üründe dolu gelir).
+type ProductReview = {
+  platform?: string; platformColor?: string; rating: number;
+  author: string; date?: string; text: string; product?: string;
+};
+
 export default function ProductDetailPage({
   initialCategory = null,
   initialProduct = null,
   initialAllCategories = [],
+  productReviews = [],
 }: {
   initialCategory?: CategoryData | null;
   initialProduct?: ProductEntry | null;
   initialAllCategories?: CategoryData[];
+  productReviews?: ProductReview[];
 }) {
   const params    = useParams();
   const router    = useRouter();
@@ -1122,6 +1132,66 @@ export default function ProductDetailPage({
               </div>
             </div>
           </section>
+        );
+      })()}
+
+      {/* ── GERÇEK Müşteri Yorumları — yalnız gerçek pazaryeri yorumu eşleşen
+          üründe görünür (server reviewsForProduct → productReviews prop).
+          Google kuralı: yıldız şeması ancak yorumlar SAYFADA görünürse
+          meşru → şema page.tsx'te, görünür blok burada. ── */}
+      {!loading && product && productReviews.length > 0 && (() => {
+        const sd = theme === "dark";
+        const avg = productReviews.reduce((s, r) => s + Math.max(1, Math.min(5, r.rating)), 0) / productReviews.length;
+        return (
+          <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-12">
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+              <h2 className="text-base font-bold" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
+                {pickText(lang, "Müşteri Yorumları", "Customer Reviews")}
+              </h2>
+              <span className="inline-flex items-center gap-1.5 text-sm font-black tabular-nums" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
+                <RiStarFill style={{ color: "#F59E0B", fontSize: 16 }} />
+                {avg.toFixed(1)}
+                <span className="text-xs font-semibold" style={{ color: sd ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.40)" }}>
+                  · {productReviews.length} {pickText(lang, "değerlendirme", "reviews")}
+                </span>
+              </span>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {productReviews.map((r, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl px-4 sm:px-5 py-4 flex flex-col gap-2"
+                  style={{
+                    background: sd ? "#141416" : "#ffffff",
+                    border: `1px solid ${sd ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}`,
+                  }}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="inline-flex gap-0.5">
+                      {Array.from({ length: Math.max(1, Math.min(5, r.rating)) }).map((_, s) => (
+                        <RiStarFill key={s} style={{ color: "#F59E0B", fontSize: 13 }} />
+                      ))}
+                    </span>
+                    {r.platform && (
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded" style={{ background: `${r.platformColor ?? "#FF6000"}14`, color: r.platformColor ?? "#FF6000", border: `1px solid ${r.platformColor ?? "#FF6000"}28` }}>
+                        {r.platform}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm leading-relaxed" style={{ color: sd ? "rgba(255,255,255,0.72)" : "rgba(0,0,0,0.62)" }}>
+                    &ldquo;{r.text}&rdquo;
+                  </p>
+                  <div className="flex items-center gap-2 mt-auto pt-1">
+                    <span className="text-xs font-semibold" style={{ color: sd ? "#f0f0f4" : "#111827" }}>{r.author}</span>
+                    {r.date && <span className="text-[11px] ml-auto" style={{ color: sd ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.38)" }}>{r.date}</span>}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-[11px] mt-2.5" style={{ color: sd ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)" }}>
+              {pickText(lang, "Yorumlar, ürünün pazaryeri sayfalarındaki gerçek müşteri değerlendirmelerinden alınmıştır.", "Reviews are taken from real customer evaluations on the product's marketplace listings.")}
+            </p>
+          </div>
         );
       })()}
 

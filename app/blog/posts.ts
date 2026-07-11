@@ -34,6 +34,487 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    "slug": "isletmeler-icin-dc-hizli-sarj-istasyonu-yatirimi",
+    "title": "İşletmeler için DC Hızlı Şarj İstasyonu Yatırımı: Karar Rehberi",
+    "metaTitle": "DC Hızlı Şarj İstasyonu Yatırımı: İşletme Rehberi",
+    "description": "AVM, otel, restoran, otopark ve filolar için DC hızlı şarj istasyonu yatırım rehberi: AC/DC kararı, 40-200 kW güç seçimi, altyapı, işletme modeli, kurulum.",
+    "excerpt": "İş yerinize DC hızlı şarj istasyonu koymalı mısınız? Ziyaret süresine göre AC/DC kararı, 40-80-120+ kW güç seçimi, altyapı ön kontrolü ve işletme modeliyle adım adım yatırım rehberi.",
+    "category": "Rehber",
+    "datePublished": "2026-07-11",
+    "readingMinutes": 8,
+    "keywords": [
+      "işletmeler için dc şarj istasyonu",
+      "dc şarj istasyonu yatırımı",
+      "dc hızlı şarj istasyonu kurulumu",
+      "avm şarj istasyonu",
+      "otel şarj istasyonu",
+      "otopark şarj istasyonu",
+      "ticari şarj istasyonu",
+      "hangi güçte şarj istasyonu",
+      "bevdc"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "“İş yerime DC hızlı şarj istasyonu koysam mı?” sorusu artık yalnızca büyük şarj operatörlerinin değil; AVM, otel, restoran, market, otopark işletmesi ve küçük filo sahiplerinin de gündeminde. Bu rehber, kararı üç temel soruya indirger: Bu yatırım işletmeme ne kazandırır? Hangi güç sınıfı bana uygun? Süreci nasıl ilerletirim? Kesin fiyat veya geri dönüş vaadi vermek yerine, doğru karar için ihtiyacınız olan çerçeveyi sade bir dille sunuyoruz."
+      },
+      {
+        "type": "h2",
+        "text": "Neden şimdi: şarj istasyonu işletmenize ne kazandırır?"
+      },
+      {
+        "type": "p",
+        "text": "Elektrikli araç sayısı her geçen yıl artıyor ve bu araçların sürücüleri, gidecekleri noktayı seçerken şarj imkânını giderek daha fazla dikkate alıyor. İşletme tarafında bunun karşılığı iki somut değerdir: çekim gücü ve kalış süresi. Şarj imkânı sunan bir AVM, restoran ya da otel, elektrikli araç sürücüsü için aynı hizmeti sunan rakibine göre bir adım öndedir; araç şarj olurken geçen süre de mekân içinde geçirilen — ve çoğu zaman harcamaya dönüşen — süredir."
+      },
+      {
+        "type": "p",
+        "text": "Bununla birlikte beklentiyi doğru kurmak gerekir: şarj istasyonu her işletmede tek başına bir kâr merkezi olmayabilir. Doğru kurgu, istasyonu ya müşteri deneyiminin bir parçası ya da ölçülebilir bir ek gelir kalemi olarak konumlandırmaktır; bu iki modeli aşağıda ayrıca ele alıyoruz. Karar aşamasındaki sağlıklı soru “şarj istasyonu moda mı?” değil, “benim müşterim burada ne kadar kalıyor ve bu süre şarj için anlamlı mı?” sorusudur."
+      },
+      {
+        "type": "h2",
+        "text": "AC mi DC mi? Cevap ziyaret süresinde"
+      },
+      {
+        "type": "p",
+        "text": "AC ve DC şarj arasındaki teknik farkın işletme sahibi için tek cümlelik özeti şudur: AC şarjda hız, aracın içindeki dönüştürücüyle (çoğunlukla 7,4-22 kW) sınırlıdır; DC şarjda dönüşüm istasyonun içinde yapıldığı için araca çok daha yüksek güç aktarılır ve aynı sürede kat kat fazla enerji yüklenir. Bu yüzden karar, cihaz kataloğundan değil müşterinizin ziyaret süresinden başlamalıdır."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ziyaret 30 dakikadan kısa (uğrayıp geçilen nokta): ancak 80 kW ve üzeri DC bu sürede anlamlı bir dolum sunar.",
+          "Ziyaret 30-90 dakika (restoran, market, AVM turu): DC 40-80 kW ideal aralıktır — müşteri işini bitirene kadar araç kayda değer şarj alır.",
+          "Ziyaret 2 saatten uzun veya gece konaklama (otel, ofis, abone otoparkı): AC 22 kW çoğu senaryoda yeterlidir; DC burada hızlı ihtiyaçlar için tamamlayıcıdır."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Kısacası DC hızlı şarj, “müşterim kısa kalıyor ama araç giderken dolu olsun” diyen işletmenin aracıdır. Uzun kalışların baskın olduğu noktalarda ise AC ağırlıklı, DC destekli karma bir kurulum genellikle daha dengeli bir yatırımdır."
+      },
+      {
+        "type": "h2",
+        "text": "Güç seçimi: 40, 80 ve 120+ kW hangi işletmeye?"
+      },
+      {
+        "type": "p",
+        "text": "Güç sınıfı seçerken üç değişkene bakın: müşterinin tipik kalış süresi, otoparktaki elektrikli araç sirkülasyonu ve mevcut elektrik altyapınızın kaldırabileceği güç. Aşağıdaki tablo, yaygın işletme tipleri için pratik bir başlangıç noktasıdır."
+      },
+      {
+        "type": "table",
+        "caption": "İşletme tipine göre önerilen DC güç sınıfı",
+        "headers": [
+          "İşletme tipi",
+          "Tipik kalış süresi",
+          "Önerilen güç",
+          "Neden"
+        ],
+        "rows": [
+          [
+            "AVM / alışveriş merkezi",
+            "1-3 saat",
+            "DC 40-80 kW",
+            "Alışveriş süresine belirgin dolum sığar; çift soketli 80 kW aynı anda iki aracı şarj eder"
+          ],
+          [
+            "Otel",
+            "Birkaç saat - gece konaklama",
+            "DC 40 kW + AC destek",
+            "Konaklayan misafir için AC yeterli; kısa ziyaretçi ve restoran misafiri için DC fark yaratır"
+          ],
+          [
+            "Restoran / kafe",
+            "30-90 dakika",
+            "DC 40 kW",
+            "Yemek süresine sığan anlamlı dolum; çoğu noktada tek soket yeterli"
+          ],
+          [
+            "Market / süpermarket",
+            "30-60 dakika",
+            "DC 40-80 kW",
+            "Kısa alışverişte bile kayda değer şarj; sirkülasyon yüksekse çift soket avantajlı"
+          ],
+          [
+            "Otopark işletmesi",
+            "1 saat - tüm gün",
+            "Karma: AC + DC 40-80 kW",
+            "Kısa park eden için DC, abone ve uzun park için AC; talebe göre ölçeklenir"
+          ],
+          [
+            "Küçük araç filosu",
+            "Gün içi ara dolum",
+            "DC 40-120 kW",
+            "Gece AC ile tam dolum, gündüz DC ile hızlı ara dolum aracı sahada tutar"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "120 kW ve üzeri sınıf, otoyol güzergâhı, yüksek sirkülasyonlu halka açık istasyon ve yoğun ticari filo senaryolarına aittir. Çoğu işletme için akılcı strateji, 40 veya 80 kW ile başlayıp gerçek kullanım verisini gördükten sonra ölçeklemektir; OCPP tabanlı yönetim, ileride eklenen üniteleri aynı sistem altında toplamayı kolaylaştırır."
+      },
+      {
+        "type": "h2",
+        "text": "Elektrik altyapısı: yatırımdan önce ön kontrol"
+      },
+      {
+        "type": "p",
+        "text": "DC hızlı şarj istasyonları üç faz şebeke bağlantısıyla çalışır ve istasyonun gücü doğrudan işletmenizin bağlantı gücünden karşılanır. Bu yüzden sipariş vermeden önce cevaplanması gereken soru tektir: mevcut elektrik altyapım bu ek yükü kaldırıyor mu?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Bağlantı / sözleşme gücü: işletmenin mevcut en yüksek tüketimi ile istasyon gücü toplandığında sınır aşılıyor mu?",
+          "Trafo ve ana pano: kapasite ek yük için yeterli mi; panoda istasyona ayrılacak, uygun koruma elemanlı bir çıkış var mı?",
+          "Kablolama: pano ile istasyon konumu arasındaki mesafe ve kablo güzergâhı; mesafe uzadıkça maliyet ve kayıp artar.",
+          "Konum: araç manevrasına uygun, kablo erişimi rahat bir park alanı seçin; dış mekân korumalı gövdeye sahip istasyonlar açık otoparka kurulabilir."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Bu kontrollerin tamamı, elektrik projesi yetkisi olan bir elektrik mühendisi veya yetkili tesisatçı ile yapılmalıdır. Süreç keşifle başlar; keşif sonucunda gerekiyorsa bağlantı gücü artışı veya pano yenilemesi de yatırım planına eklenir. Altyapı tarafı cihaz seçiminden bağımsız olarak lokasyondan lokasyona değiştiği için, hazır tek tip teklif yerine keşfe dayalı teklif istemek en sağlıklısıdır."
+      },
+      {
+        "type": "h2",
+        "text": "İşletme modeli: ücretsiz hizmet mi, ücretli şarj mı?"
+      },
+      {
+        "type": "p",
+        "text": "İstasyonu nasıl işleteceğiniz, cihaz ve yazılım seçimini de etkiler. Üç yaygın model var:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ücretsiz müşteri hizmeti: şarj, otopark veya müşteri deneyiminin bir parçası olarak sunulur; amaç doğrudan gelir değil, çekim gücü ve kalış süresidir. RFID kart veya mobil uygulama yetkilendirmesiyle hizmeti yalnızca kendi müşterilerinizle sınırlayabilirsiniz.",
+          "Ücretli şarj: kullanım başına ücretlendirme yapılır. Bunun için OCPP uyumlu bir istasyon ve buna bağlı bir şarj yönetim yazılımı gerekir; oturum kayıtları, fiyatlandırma, raporlama ve uzaktan yönetim bu yazılım üzerinden yürür.",
+          "Karma model: kendi müşterinize ücretsiz veya indirimli, dışarıdan gelen kullanıcıya ücretli. RFID ve uygulama tabanlı yetkilendirme bu ayrımı teknik olarak mümkün kılar."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Ücretli halka açık şarj hizmetinin lisans ve mevzuat boyutu bu rehberin kapsamı dışındadır; işletme modelinizi netleştirirken yetkili kurumlara ve konunun uzmanı danışmanlara başvurmanızı öneririz. Teknik tarafta ise kural nettir: ileride ücretlendirme ihtimali varsa, bugünden OCPP destekli bir istasyon seçmek geçiş maliyetini ortadan kaldırır."
+      },
+      {
+        "type": "h2",
+        "text": "Kurulum süreci adım adım"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "1. Keşif: kurulum noktası, mevcut elektrik altyapısı ve güç ihtiyacı yerinde incelenir; güç sınıfı ve konum netleşir.",
+          "2. Proje ve izinler: yetkili elektrik mühendisi elektrik projesini hazırlar; bağlantı gücü artışı gerekiyorsa başvurular bu aşamada yapılır.",
+          "3. Altyapı hazırlığı: kablo kanalı ve güzergâhı, pano çıkışı ve koruma elemanları, istasyon kaidesi hazırlanır.",
+          "4. Montaj: istasyon yerine sabitlenir, elektrik bağlantıları tamamlanır.",
+          "5. Devreye alma: fonksiyon testleri yapılır; istasyon Ethernet veya 4G üzerinden yönetim yazılımına bağlanır, RFID kartlar ve kullanıcı tanımları yüklenir.",
+          "6. İşletmeye geçiş: personel bilgilendirmesi, yönlendirme işaretleri ve periyodik bakım planı ile istasyon hizmete açılır."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Takvim, altyapının hazırlık düzeyine göre değişir: pano kapasitesi ve bağlantı gücü yeterliyse süreç kısa sürer; güç artışı veya trafo tarafında iş varsa süre uzar. Keşif aşaması bu belirsizliği en baştan netleştirir — bu yüzden sürecin en kritik adımı ilk adımdır."
+      },
+      {
+        "type": "h2",
+        "text": "Bemis BEVDC serisi: 40 kW'tan 200 kW'a"
+      },
+      {
+        "type": "p",
+        "text": "Bemis'in DC hızlı şarj ailesi BEVDC serisi; 40, 80, 120, 160 ve 200 kW güç seçenekleriyle bu rehberdeki tüm senaryoları kapsar. Serinin tamamı CCS2 konnektör kullanır, OCPP 1.6J / 2.0.1 protokollerini destekler, RFID kart ve mobil uygulama ile kullanıcı doğrulama yapar, Ethernet veya 4G üzerinden yönetim sistemine bağlanır. Giriş AC 380-480V üç fazdır, çıkış 150-1000V DC aralığındadır; IP54 koruma sınıfı ve -25°C ile +55°C çalışma aralığı sayesinde dış mekân kurulumlarına uygundur."
+      },
+      {
+        "type": "p",
+        "text": "Seri içinde kademeli bir yol vardır: BEVDC 40 tek CCS2 soketli kompakt giriş modelidir; BEVDC 80 çift soketiyle iki aracı aynı anda şarj eder; BEVDC 120 tek veya çift soket seçeneği sunar; BEVDC 160 çift soketli yapısında dinamik güç paylaşımıyla iki aracı besler; BEVDC 200 ise serinin amiral modelidir. Ürün detayları için sitemizdeki DC Şarj Üniteleri sayfasını inceleyebilir, işletmenize uygun güç ve model seçimi için İletişim sayfamızdan bize ulaşabilirsiniz; keşiften devreye almaya kadar süreci birlikte planlayalım."
+      },
+      {
+        "type": "cta",
+        "text": "İşletmeniz için doğru DC gücünü birlikte belirleyelim — BEVDC serisini inceleyin veya keşif için bize ulaşın.",
+        "href": "/products/dc-units",
+        "label": "DC Hızlı Şarj Ünitelerini İncele"
+      }
+    ],
+    "faq": [
+      {
+        "q": "İşletmeme DC şarj istasyonu kurmak mantıklı mı, karara nereden başlamalıyım?",
+        "a": "Karara müşterinizin ortalama kalış süresinden başlayın. Ziyaretçileriniz 30-90 dakika kalıyorsa (restoran, market, AVM) DC hızlı şarj bu süreye anlamlı bir dolum sığdırır ve işletmenize çekim gücü katar; gece boyu park eden misafirin baskın olduğu bir otelde ise AC ağırlıklı bir kurulum daha dengelidir. İkinci adım elektrik altyapısı ön kontrolüdür: bağlantı gücü, trafo ve pano kapasitesi ek yükü kaldırmalıdır. Üçüncü adım işletme modelidir: ücretsiz hizmet mi, ücretli şarj mı? Bu üç soruya verdiğiniz cevaplar hem kurulum kararını hem de hangi güç sınıfının uygun olduğunu büyük ölçüde netleştirir."
+      },
+      {
+        "q": "40 kW DC şarj istasyonu işletmem için yeterli mi, ne zaman 80 kW ve üzeri gerekir?",
+        "a": "40 kW, müşterisi 30-90 dakika kalan işletmeler için DC dünyasına maliyet-etkin bir giriş noktasıdır; restoran, market, otel ve şehir içi otopark senaryolarında bu süreye kayda değer bir dolum sığar. Bemis BEVDC 40 tek CCS2 soketlidir, yani aynı anda tek aracı şarj eder. Elektrikli araç sirkülasyonunuz yüksekse ve aynı anda birden fazla aracın şarj olması gerekiyorsa, çift soketli BEVDC 80 iki aracı eş zamanlı besler. Ziyaret süresi 30 dakikanın altındaysa veya müşteride en kısa sürede yola devam beklentisi baskınsa 120 kW ve üzeri sınıfa bakmak gerekir. Doğru güç, kalış süresi ile sirkülasyonun kesişiminden çıkar."
+      },
+      {
+        "q": "DC şarj istasyonu için elektrik altyapımda neler gerekli?",
+        "a": "DC hızlı şarj istasyonları üç faz şebeke bağlantısı ister; Bemis BEVDC serisinde giriş AC 380-480V'tur. Kurulumdan önce üç şey kontrol edilmelidir: işletmenizin bağlantı (sözleşme) gücünün mevcut tüketime ek olarak istasyon gücünü karşılayıp karşılamadığı; trafo ve ana pano kapasitesinin yeterliliği; istasyona ayrılacak korumalı pano çıkışı ile pano-istasyon arası kablo mesafesi. Güç yetersizse bağlantı gücü artışı gündeme gelir. Bu değerlendirme ve elektrik projesi mutlaka yetkili bir elektrik mühendisi veya yetkili tesisatçı tarafından yapılmalıdır; süreç keşifle başlar ve altyapı ihtiyaçları keşif sonucunda netleşir."
+      },
+      {
+        "q": "Şarjı müşterilere ücretsiz mi sunmalıyım, ücretli mi işletmeliyim?",
+        "a": "İki modelin de yeri vardır. Ücretsiz model, şarjı müşteri deneyiminin parçası yapar; amaç doğrudan gelir değil çekim gücü ve kalış süresidir, hizmet RFID kart veya mobil uygulama yetkilendirmesiyle yalnızca kendi müşterilerinizle sınırlanabilir. Ücretli model kullanım başına gelir üretir; bunun için OCPP uyumlu bir istasyon ve şarj yönetim yazılımı gerekir. BEVDC serisi OCPP 1.6J / 2.0.1 desteğiyle bu yazılımlara bağlanır. Kendi müşterinize ücretsiz, dışarıdan gelene ücretli karma model de teknik olarak mümkündür. Ücretli halka açık şarj hizmetinin lisans ve mevzuat boyutu için yetkili kurumlara ve uzman danışmanlara başvurmanızı öneririz."
+      }
+    ],
+    "related": [
+      {
+        "label": "40 kW DC Şarj İstasyonu Nedir, Kime Uygun ve Ne Kadar Hızlı?",
+        "href": "/blog/40-kw-dc-sarj-istasyonu"
+      },
+      {
+        "label": "İş Yerine Elektrikli Araç Şarj İstasyonu Kurmanın 6 Avantajı",
+        "href": "/blog/is-yerine-sarj-istasyonu-kurulumu"
+      },
+      {
+        "label": "Araç Filosu için Elektrikli Şarj Çözümleri: Depo ve Gece Şarjı Rehberi",
+        "href": "/blog/arac-filosu-elektrikli-sarj-cozumleri"
+      }
+    ]
+  },
+  {
+    "slug": "hangi-sarj-kablosu-aracima-uyumlu-type-2",
+    "title": "Togg, Tesla ve Tüm Elektrikli Araçlar İçin Şarj Kablosu Uyumluluğu: Type 2 Rehberi",
+    "metaTitle": "Togg ve Tesla'ya Hangi Şarj Kablosu Uyar? (Type 2)",
+    "description": "Togg'a, Tesla'ya ve tüm Avrupa elektrikli araçlarına hangi şarj kablosu uyar? Type 2 uyumluluğu, Mod 3, monofaze/trifaze ve amper seçimi tek pratik rehberde.",
+    "excerpt": "Türkiye ve Avrupa'da satılan tüm yeni elektrikli araçlar AC şarjda Type 2 girişi kullanır — doğru Type 2 kablo Togg'dan Tesla'ya kadar hepsiyle uyumludur. Aracınıza göre faz, amper ve uzunluk seçimini bu rehberle netleştirin.",
+    "category": "Rehber",
+    "datePublished": "2026-07-11",
+    "readingMinutes": 7,
+    "keywords": [
+      "togg şarj kablosu",
+      "tesla type 2 kablo uyumlu mu",
+      "hangi şarj kablosu aracıma uyar",
+      "elektrikli araç şarj kablosu uyumluluğu",
+      "type 2 şarj kablosu",
+      "togg t10x şarj kablosu",
+      "tesla şarj kablosu",
+      "ev şarj kablosu hangi araçlara uyar"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Kısa cevap: Türkiye ve Avrupa'da satılan tüm yeni elektrikli araçlar — Togg, Tesla, Hyundai, Kia, Renault, BMW, Mercedes, Volvo, BYD ve diğerleri — AC şarjda aynı standart girişi kullanır: Type 2 (IEC 62196-2). Bu yüzden Type 2 — Type 2 bir şarj kablosu bu araçların hepsiyle uyumludur. \"Bu kablo benim aracıma uyar mı?\" endişesi, marka fark etmeksizin bu tek standart sayesinde büyük ölçüde ortadan kalkar."
+      },
+      {
+        "type": "p",
+        "text": "Yine de soru hep markaya göre soruluyor: \"Togg'a hangi kablo?\", \"Tesla'ya Type 2 uyar mı?\", \"Yeni aldığım araca hangi kabloyu almalıyım?\" Bu rehber soket tiplerinin teknik ansiklopedisi değil; araç sahibinin uyumluluk endişesini çözen pratik bir kontrol listesi. Togg ve Tesla'ya özel cevaplar, marka marka özet tablo, Mod 2 / Mod 3 ayrımı, amper-faz seçimi ve satın almadan önce bakılacak işaretler — hepsi tek sayfada."
+      },
+      {
+        "type": "h2",
+        "text": "Togg'a hangi şarj kablosu uyar?"
+      },
+      {
+        "type": "p",
+        "text": "Togg T10X'in AC şarj girişi Type 2'dir. Evde wallbox'tan ya da halka açık AC istasyonundan şarj ederken kullanacağınız kablo, Type 2 — Type 2 bir Mod 3 şarj setidir. Önemli bir pratik detay: halka açık AC istasyonlarının çoğunda kablo istasyona dahil değildir, sürücü kendi kablosunu takar. Bu yüzden Togg'unuzun bagajında bir Type 2 kablo bulundurmak yalnızca konfor değil, fiilen bir gerekliliktir."
+      },
+      {
+        "type": "p",
+        "text": "Kapasite seçimi kuruluma göre yapılır. Evinizde trifaze hat ve trifaze wallbox varsa 11 kW'lık kurulumlar için 20A trifaze, 22 kW'a kadar kurulumlar için 32A trifaze kablo bu kurulumun hakkını verir. Monofaze hatta ise 32A monofaze set 7,4 kW'a kadar yeterlidir. Aracınızın AC şarjda kabul ettiği azami güç kullanım kılavuzunda yazar; kablo bu değeri taşıyabilecek kapasitede seçilmelidir. Kararsızsanız 32A trifaze set en esnek tercihtir: bugün düşük güçlü kurulumda da sorunsuz çalışır, yarın güç artırdığınızda değiştirmeniz gerekmez."
+      },
+      {
+        "type": "h2",
+        "text": "Tesla'ya hangi şarj kablosu uyar?"
+      },
+      {
+        "type": "p",
+        "text": "\"Tesla Type 2 kablo uyumlu mu?\" sorusunun cevabı net: evet. Avrupa pazarı için üretilen ve Türkiye'de satılan Tesla'lar — Model 3 ve Model Y dahil — AC şarjda standart Type 2 girişi kullanır. Tesla için ayrı bir \"Tesla kablosu\" aramanız gerekmez; CE işaretli, IEC 62196-2 uyumlu bir Type 2 — Type 2 kablo, evdeki wallbox'ta ve halka açık AC istasyonlarında Tesla ile sorunsuz çalışır."
+      },
+      {
+        "type": "p",
+        "text": "İki not düşelim. Birincisi: ABD pazarında kullanılan farklı bağlantı standardı (NACS), Türkiye'de satılan Tesla'lar için geçerli değildir; buradaki araçlar Avrupa donanımıyla gelir. İkincisi: DC hızlı şarjda — Supercharger dahil — kablo her zaman istasyonun üzerinde sabittir, kendi kablonuzu kullanmazsınız. Taşınabilir Type 2 kablonuz yalnızca AC şarj içindir. Tesla'nın Türkiye'de şarj edilmesini ayrıntılı anlattığımız rehberi ilgili yazılarda bulabilirsiniz."
+      },
+      {
+        "type": "h2",
+        "text": "Marka marka AC şarj girişi: hepsi Type 2"
+      },
+      {
+        "type": "p",
+        "text": "Aşağıdaki tablo en çok sorulan markaların AC şarj girişini özetliyor. Kural bilinçli olarak basit: Türkiye ve Avrupa pazarında satışa sunulan yeni elektrikli araçlarda AC giriş standardı Type 2'dir. Tabloda görmediğiniz markalar için de aynı kural geçerlidir."
+      },
+      {
+        "type": "table",
+        "caption": "Türkiye/Avrupa pazarı — markalara göre AC şarj girişi",
+        "headers": [
+          "Marka (örnek modeller)",
+          "AC şarj girişi",
+          "Type 2 kablo uyumu"
+        ],
+        "rows": [
+          [
+            "Togg (T10X)",
+            "Type 2",
+            "Uyumlu"
+          ],
+          [
+            "Tesla (Model 3, Model Y)",
+            "Type 2",
+            "Uyumlu"
+          ],
+          [
+            "Hyundai / Kia (Ioniq 5, EV6...)",
+            "Type 2",
+            "Uyumlu"
+          ],
+          [
+            "Renault / Fiat / Peugeot / Opel",
+            "Type 2",
+            "Uyumlu"
+          ],
+          [
+            "BMW / Mercedes / Audi / Volkswagen",
+            "Type 2",
+            "Uyumlu"
+          ],
+          [
+            "Volvo / MG / BYD",
+            "Type 2",
+            "Uyumlu"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Tek istisna geçmişte kaldı: 2010'ların başında satılan bazı modeller Type 1 adı verilen farklı bir AC giriş kullanıyordu. Sıfır araçlarda bu durumla karşılaşmazsınız; yaşı büyük ikinci el bir araç alıyorsanız şarj kapağını açıp bakmanız yeterlidir — 7 pinli yuvarlak Type 2 girişi kolayca tanınır. Soket tiplerinin tamamını (DC tarafındaki CCS2 ve CHAdeMO dahil) ayrıntılı anlattığımız ayrı bir rehberimiz var; bu yazının odağı AC kablo uyumluluğudur."
+      },
+      {
+        "type": "h2",
+        "text": "Mod 2 mi, Mod 3 mü? Prizden mi, wallbox'tan mı?"
+      },
+      {
+        "type": "p",
+        "text": "Kablo ararken karşınıza çıkan ikinci kavram \"Mod\"dur ve cevabı nereden şarj edeceğinize bağlıdır:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Mod 3 — wallbox ve AC istasyon kablosu: Şarj istasyonu ile araç arasında kullanılan Type 2 — Type 2 kablodur. Sinyalleşme istasyon tarafından yürütülür, konnektör şarj boyunca mekanik olarak kilitlenir. Bu rehberin konusu olan şarj kabloları Mod 3 sınıfındadır (IEC 61851-1).",
+          "Mod 2 — kablo değil, taşınabilir cihaz: Ev prizinden şarj etmek için üzerinde koruma ve kontrol kutusu bulunan taşınabilir bir şarj cihazı kullanılır; güvenliği prize takılan taraf ile araç arasında bu kutu sağlar."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Pratik özet: wallbox'ınız soketli (kablosuz) tipse ayrıca bir Mod 3 Type 2 kablo almanız gerekir; kablolu tipse kablo cihazın üzerinde hazırdır. Evde wallbox mı, taşınabilir şarj cihazı mı sorusunu ayrı bir rehberde ayrıntılı karşılaştırdık."
+      },
+      {
+        "type": "h2",
+        "text": "Kaç amper, kaç faz? Şarj hızını belirleyen basit kural"
+      },
+      {
+        "type": "p",
+        "text": "Type 2 uyumu fiziksel bağlantıyı garanti eder; şarj hızını ise üç değerin en düşüğü belirler: aracınızın AC kabul gücü, istasyonun gücü ve kablonun taşıma kapasitesi. Kablolar faz ve akım değerleriyle anılır; karşılıkları şöyle özetlenebilir:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Monofaze 20A → 3,7 kW · Monofaze 32A → 7,4 kW",
+          "Trifaze 20A → 11 kW · Trifaze 32A → 22 kW",
+          "Kablonun kapasitesi ihtiyacın üzerindeyse sorun oluşturmaz; altındaysa şarj hızı kablonun sınırına iner."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Kaç metre sorusu da benzer bir denge işidir: kısa kablo park pozisyonunuzu kısıtlar, gereksiz uzun kablo taşıma ve sarma yükü getirir. Uzunluk ve amper seçiminin tüm ayrıntılarını — ev tesisatı, kullanım senaryoları ve örneklerle — \"Şarj Kablosu Kaç Metre ve Kaç Amper Olmalı?\" rehberimizde bulabilirsiniz."
+      },
+      {
+        "type": "h2",
+        "text": "Şarj kablosu alırken nelere dikkat etmeli?"
+      },
+      {
+        "type": "p",
+        "text": "Uyumluluğu doğruladıktan sonra sıra kalite ve güvenlik işaretlerinde. Satın almadan önce şu maddeleri kontrol etmenizi öneririz:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "CE işareti ve uygunluk testleri: Kablonun ilgili standartlara göre test edildiğinin temel göstergesidir.",
+          "IEC 62196-2 uyumlu Type 2 konnektör: Araç ve istasyon tarafında sorunsuz, standart bağlantı sağlar.",
+          "Mod 3 sinyalleşme ve mekanik kilitleme (IEC 61851-1): Şarj sırasında konnektörün yerinden çıkmasını engeller.",
+          "Kablo kesiti: Akım arttıkça iletken kesiti de büyümelidir — örneğin 20A setlerde 2,5 mm², 32A setlerde 6 mm² kesit kullanılır.",
+          "Dış kılıf dayanımı: UV ve hava koşullarına dayanıklı, halojensiz kablo yapısı dış mekân kullanımında ömrü uzatır.",
+          "IP koruma sınıfı: Kablo sık sık dışarıda kullanılacaksa konnektörlerin koruma sınıfını üretici belgelerinden doğrulayın."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Bemis Type 2 şarj kablosu aileleri"
+      },
+      {
+        "type": "p",
+        "text": "Bemis, Type 2 — Type 2 Mod 3 şarj setlerini dört ana kapasitede üretiyor. Tüm setlerde IEC 62196-2 konnektör, mekanik kilitlemeli Mod 3 sinyalleşme (IEC 61851-1), esnek bakır iletken ve UV ile hava koşullarına dayanıklı halojensiz dış kılıf kullanılıyor; setler CE ve TSE uygunluk testlerinden geçiyor. Yani tablodaki tüm araçlarla — Togg'dan Tesla'ya — uyumludur."
+      },
+      {
+        "type": "table",
+        "caption": "Bemis Type 2 şarj seti aileleri (Mod 3, IEC 62196-2)",
+        "headers": [
+          "Set",
+          "Faz / Akım",
+          "Güç",
+          "Kablo kesiti",
+          "Uzunluk seçenekleri"
+        ],
+        "rows": [
+          [
+            "Şarj Seti 20A Monofaze",
+            "Monofaze / 20A",
+            "3,7 kW",
+            "3×2,5 mm² + 1×0,75 mm²",
+            "3 / 5 / 7 / 8 / 10 m"
+          ],
+          [
+            "Şarj Seti 32A Monofaze",
+            "Monofaze / 32A",
+            "7,4 kW",
+            "3×6 mm² + 1×0,75 mm²",
+            "3 / 5 / 7 / 8 / 10 m"
+          ],
+          [
+            "Şarj Seti 20A Trifaze",
+            "Trifaze / 20A",
+            "11 kW",
+            "5×2,5 mm² + 1×0,75 mm²",
+            "3 / 5 / 7 / 8 / 10 / 15 m"
+          ],
+          [
+            "Şarj Seti 32A Trifaze",
+            "Trifaze / 32A",
+            "22 kW",
+            "5×6 mm² + 1×0,75 mm²",
+            "3 / 5 / 7 / 8 / 10 / 15 m"
+          ]
+        ]
+      },
+      {
+        "type": "cta",
+        "text": "Aracınıza uygun uzunluk ve kapasiteyi karşılaştırmak için ürün sayfamıza göz atın.",
+        "href": "/products/cables",
+        "label": "Type 2 Şarj Kablolarını İncele"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Togg T10X'e hangi şarj kablosu uyar?",
+        "a": "Togg T10X, Türkiye ve Avrupa'daki tüm yeni elektrikli araçlar gibi AC şarjda Type 2 giriş kullanır; Type 2 — Type 2 bir Mod 3 şarj kablosu T10X ile uyumludur. Evinizde trifaze wallbox varsa 11 kW'lık kurulumlar için 20A trifaze, 22 kW'a kadar kurulumlar için 32A trifaze kablo kurulumun hakkını verir; monofaze hatta 32A monofaze set 7,4 kW'a kadar yeterlidir. Aracın AC tarafında kabul ettiği azami güç kullanım kılavuzunda yazar; kablo bu değeri taşıyabilecek kapasitede seçilmelidir. Halka açık AC istasyonlarının çoğunda kendi kablonuzu taktığınız için araçta bir Type 2 kablo bulundurmak Togg sahipleri için pratik bir gerekliliktir."
+      },
+      {
+        "q": "Tesla Model 3 veya Model Y'ye Type 2 kablo uyumlu mu?",
+        "a": "Evet. Avrupa pazarı için üretilen ve Türkiye'de satılan Tesla'lar — Model 3 ve Model Y dahil — AC şarjda standart Type 2 girişi kullanır. Bu nedenle Type 2 — Type 2 Mod 3 bir şarj kablosu evdeki wallbox'ta ve halka açık AC istasyonlarında Tesla ile sorunsuz çalışır; ayrı bir \"Tesla kablosu\" aramanıza gerek yoktur. ABD pazarındaki farklı bağlantı standardı (NACS) Türkiye'de satılan araçlar için geçerli değildir. DC hızlı şarjda — Supercharger dahil — kablo istasyonun üzerinde sabittir; kendi kablonuzu kullanmazsınız. CE işaretli, IEC 62196-2 uyumlu kaliteli bir Type 2 kablo Tesla'nız için yeterlidir."
+      },
+      {
+        "q": "Şarj kablosunun aracıma uyup uymadığını nasıl anlarım?",
+        "a": "Üç kontrol yeterlidir. Birincisi konnektör: Türkiye ve Avrupa'da satılan tüm yeni elektrikli araçların AC girişi Type 2'dir; kablonuzun araç tarafı Type 2 ise fiziksel uyum tamamdır. İkincisi güç: aracınızın AC şarjda kabul ettiği azami değer kullanım kılavuzunda yazar; kablonun faz ve akım kapasitesi bu değeri taşıyabilmelidir. Taşıyamazsa tehlike oluşmaz, şarj yalnızca kablonun sınırında gerçekleşir. Üçüncüsü belgeler: CE işareti ile IEC 62196-2 ve IEC 61851-1 uygunluğu güvenli üretimin göstergesidir. Tek istisna 2010'ların başındaki Type 1 girişli bazı eski modellerdir; yaşı büyük ikinci el bir araç alıyorsanız şarj kapağını açıp 7 pinli yuvarlak Type 2 girişini gözle doğrulayın."
+      },
+      {
+        "q": "Aracım 11 kW kabul ediyor; 22 kW kapasiteli kablo alırsam sorun olur mu?",
+        "a": "Hayır, sorun olmaz — tersine esneklik kazandırır. Şarj gücünü her zaman zincirin en düşük halkası belirler: aracınız 11 kW kabul ediyorsa, 22 kW taşıyabilen 32A trifaze kabloyla da şarj 11 kW'ta gerçekleşir. Kablo araca \"fazla güç yüklemez\"; yalnızca taşıyabileceği üst sınırı tanımlar. Yüksek kapasiteli kablonun avantajı geleceğe hazırlıktır: bir sonraki aracınız veya yeni wallbox'ınız 22 kW AC destekliyorsa aynı kabloyu kullanmaya devam edersiniz. Dikkat edilecek durum tersidir: kablonun kapasitesi aracın ve istasyonun altında kalırsa şarj hızı kablonun sınırına düşer. Kabloyu bugünkü kurulumunuza değil, birkaç yıllık ihtiyacınıza göre seçmek en mantıklısıdır."
+      }
+    ],
+    "related": [
+      {
+        "label": "Elektrikli Araç Şarj Kablosu Kaç Metre ve Kaç Amper Olmalı?",
+        "href": "/blog/elektrikli-arac-sarj-kablosu-kac-metre-kac-amper"
+      },
+      {
+        "label": "Elektrikli Araç Şarj Soketi Tipleri: Type 2, CCS2 ve CHAdeMO Farkı",
+        "href": "/blog/ev-sarj-soketi-tipleri-type-2-ccs2-chademo"
+      },
+      {
+        "label": "Tesla Şarj Türkiye: Type 2 ile Tesla Nasıl Şarj Edilir?",
+        "href": "/blog/tesla-sarj-turkiye-type-2"
+      }
+    ]
+  },
+  {
     "slug": "40-kw-dc-sarj-istasyonu",
     "title": "40 kW DC Şarj İstasyonu Nedir, Kime Uygun ve Ne Kadar Hızlı?",
     "metaTitle": "40 kW DC Şarj İstasyonu: Hız, Kullanım, Seçim",

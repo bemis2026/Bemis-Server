@@ -112,6 +112,7 @@ export default async function ProductDetailPage({
         initialCategory={initialCategory}
         initialProduct={initialProduct}
         initialAllCategories={initialAllCategories}
+        productReviews={productReviews}
       />
     </>
   );

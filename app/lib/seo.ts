@@ -486,11 +486,17 @@ const CATEGORY_TERM: Record<string, string> = {
   "charger-equipment": "ccs2",
 };
 
-// Gerçek müşteri yorumları artık YALNIZ anasayfada gösteriliyor (Hepsiburada 11 kW
-// kablo, doğrulanmış 5.0/59). Ürün DETAY sayfası review şeması, gerçek per-ürün yorum
-// verisi netleşince (ör. Pro Mobile Trendyol) doğru id→ürün eşlemesiyle bağlanacak.
-// Eski placeholder eşlemeler kaldırıldı — uydurma review şeması riski taşıyordu.
-const PRODUCT_REVIEW_KEY: Record<string, string> = {};
+// GERÇEK yorum→ürün eşlemesi (2026-07-11). Anahtarlar content.reviews.items'taki
+// `product` alanıyla birebir; değerler gerçek pazaryeri yorumlarının ait olduğu
+// KATALOG ürünleri: Hepsiburada "5m Trifaze 20A-11 kW Çantalı" = sarj-seti-20a-
+// trifaze-5m (2 yorum, İ.T.+M.C.), Trendyol "11-22 kW Pro Mobil" = pro-mobile
+// (1 yorum, Onur D.). Şema dürüst: yalnız SAYFADA GÖSTERİLEN yorumlardan
+// AggregateRating üretir (5.0/2 ve 5.0/1). ⚠️ UYDURMA eşleme EKLEME — yalnız
+// gerçek pazaryeri yorumu olan ürünler buraya girer.
+const PRODUCT_REVIEW_KEY: Record<string, string> = {
+  "sarj-seti-20a-trifaze-5m": "Trifaze 11 kW Çantalı Taşınabilir Şarj Seti",
+  "pro-mobile": "Pro Mobile 11-22 kW Taşınabilir Şarj Cihazı",
+};
 
 export function reviewsForProduct(productId: string, allReviews: ReviewShape[]): ReviewShape[] {
   const key = PRODUCT_REVIEW_KEY[productId];

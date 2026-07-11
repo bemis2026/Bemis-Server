@@ -321,6 +321,30 @@ export default async function RootLayout({
             isn't on Vercel infra (so local dev stays clean). */}
         <SpeedInsights />
         <Analytics />
+        {/* ⚡ Speculation Rules — Chrome 121+ linke hover edilince hedef sayfayı
+            arka planda ÖN-RENDER eder → tıklamada geçiş anında olur. Diğer
+            tarayıcılar bu script tipini yok sayar (zararsız). /admin ve /api
+            hariç tutulur; "moderate" = yalnız hover/pointerdown niyeti (sunucuyu
+            yormaz). Görünür hiçbir değişiklik yok, sadece gezinme hızlanır. */}
+        <script
+          type="speculationrules"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              prerender: [
+                {
+                  where: {
+                    and: [
+                      { href_matches: "/*" },
+                      { not: { href_matches: "/admin*" } },
+                      { not: { href_matches: "/api/*" } },
+                    ],
+                  },
+                  eagerness: "moderate",
+                },
+              ],
+            }),
+          }}
+        />
       </body>
     </html>
   );

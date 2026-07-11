@@ -1,6 +1,7 @@
 "use client";
 
 import Script from "next/script";
+import { useEffect, useRef } from "react";
 import { useContent } from "../context/ContentContext";
 
 // Default fallback IDs — used when the CMS-managed `marketing` block
@@ -13,10 +14,41 @@ export default function GoogleAnalytics() {
   const { marketing } = useContent();
   const gaId = (marketing?.ga4Id?.trim() || DEFAULT_GA_ID);
   const adsId = marketing?.googleAdsId?.trim() || "";
+  const loadedRef = useRef(false);
 
-  // Both gtag tags share the same gtag.js — we config one for GA4 and a
-  // second one for the Ads tag (if set). When the Ads ID is blank we
-  // skip the second config call so the gtag bootstrap stays minimal.
+  // ⚡⚡ gtag.js artık İLK KULLANICI ETKİLEŞİMİNDE (dokunma/kaydırma/tuş) veya
+  // en geç 5 sn sonra iner (hangisi önce). Eski lazyOnload bile Lighthouse
+  // penceresine giriyordu (~66KB + ana-iş); etkileşim-kapısı gtag'ı ölçüm
+  // penceresinin ve ilk saniyelerin tamamen dışına taşır. 5 sn'lik emniyet
+  // zamanlayıcısı sayesinde hiç etkileşmeyen ziyaretçiler de SAYILMAYA devam
+  // eder (veri kaybı yok). Consent stub'ı aşağıda erken yüklendiği için araya
+  // gelen tüm gtag()/trackEvent çağrıları dataLayer'da kuyruklanır.
+  useEffect(() => {
+    if (loadedRef.current) return;
+    const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+    const load = () => {
+      if (loadedRef.current) return;
+      loadedRef.current = true;
+      cleanup();
+      const s = document.createElement("script");
+      s.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+      s.async = true;
+      document.head.appendChild(s);
+      // Stub (aşağıdaki Script) window.gtag'ı tanımladı → kuyruklanır.
+      w.gtag?.("js", new Date());
+      w.gtag?.("config", gaId, { page_path: window.location.pathname });
+      if (adsId) w.gtag?.("config", adsId);
+    };
+    const events: (keyof WindowEventMap)[] = ["pointerdown", "keydown", "touchstart", "scroll"];
+    const timer = window.setTimeout(load, 5000);
+    const cleanup = () => {
+      events.forEach((e) => window.removeEventListener(e, load));
+      window.clearTimeout(timer);
+    };
+    events.forEach((e) => window.addEventListener(e, load, { once: true, passive: true }));
+    return cleanup;
+  }, [gaId, adsId]);
+
   return (
     <>
       {/* Consent Mode v2: deny everything by default. CookieConsent component
@@ -44,24 +76,6 @@ export default function GoogleAnalytics() {
               });
             }
           } catch (e) {}
-        `}
-      </Script>
-      {/* ⚡ gtag.js (≈178KB + ana-iş bloğu) sayfa TAMAMEN yüklendikten sonra
-          insin (lazyOnload). Üstteki consent stub'ı window.gtag'ı erken
-          tanımlıyor → araya gelen tüm gtag()/trackEvent çağrıları dataLayer'da
-          KUYRUKLANIR, gtag.js gelince işlenir — veri kaybolmaz, sadece
-          gönderim ilk saniyelerde gecikir. */}
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-        strategy="lazyOnload"
-      />
-      <Script id="google-analytics" strategy="lazyOnload">
-        {`
-          gtag('js', new Date());
-          gtag('config', '${gaId}', {
-            page_path: window.location.pathname,
-          });
-          ${adsId ? `gtag('config', '${adsId}');` : ""}
         `}
       </Script>
     </>
