@@ -1325,8 +1325,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "elektrikli-arac-sarj-kablosu-kac-metre-kac-amper",
     title: "Elektrikli Araç Şarj Kablosu Kaç Metre ve Kaç Amper Olmalı?",
     metaTitle: "Şarj Kablosu Kaç Metre, Kaç Amper Olmalı?",
-    description:
-      "Elektrikli araç şarj kablosu seçerken kaç amper (16A/32A) ve kaç metre (5–10 m) gerekir? Monofaze/trifaze farkı ve aracınıza göre doğru kablo — sade alıcı rehberi.",
+    description: "16A mı 32A mı, 5 m mi 8 m mi? Aracınızın kabul gücüne ve park düzeninize göre doğru şarj kablosu seçimi — monofaze/trifaze farkı ve pratik önerilerle.",
     excerpt:
       "Şarj kablosu alırken en çok sorulan iki soru: kaç amper, kaç metre? Aracınızın gücüne ve park mesafenize göre doğru kabloyu seçmenin pratik rehberi.",
     category: "Rehber",
@@ -2382,8 +2381,8 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "elektrikli-arac-sarj-suresi-kac-saatte-dolar",
     title: "Elektrikli Araç Şarj Süresi: Kaç Saatte Dolar? (AC ve DC)",
-    description:
-      "Elektrikli araç kaç saatte dolar? AC ve DC şarj sürelerini basit formülle hesaplayın, örnek senaryoları görün ve aracın kabul gücü sınırını öğrenin.",
+    metaTitle: "Elektrikli Araç Kaç Saatte Şarj Olur? (7,4/22 kW ve DC)",
+    description: "Elektrikli araç kaç saatte şarj olur? Basit formülle kendi sürenizi hesaplayın: 7,4 kW ve 22 kW AC örnekleri, DC hızlı şarj, aracın kabul gücü ve taper etkisi.",
     excerpt:
       "Elektrikli araç şarj süresi temelde batarya kapasitesine ve şarj gücüne bağlıdır. Basit formülle AC ve DC için süreyi nasıl hesaplayacağınızı, aracın kabul gücü sınırının neden belirleyici olduğunu örnek hesaplarla açıklıyoruz.",
     category: "Rehber",
@@ -2459,6 +2458,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "ev-sarj-soketi-tipleri-type-2-ccs2-chademo",
     title: "Elektrikli Araç Şarj Soketi Tipleri: Type 2, CCS2 ve CHAdeMO Farkı",
+    metaTitle: "Type 2, CCS2, CHAdeMO: Şarj Soketi Tipleri ve Farkları",
     description:
       "Type 2, CCS2 ve CHAdeMO soketleri arasındaki fark nedir? AC ve DC şarj soketlerini karşılaştırıyor, Türkiye'de hangi standardın kullanıldığını net olarak açıklıyoruz.",
     excerpt:
@@ -2769,9 +2769,8 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "ac-dc-sarj-farki",
     title: "AC ve DC Şarj Arasındaki Fark Nedir? Ev ve İstasyon Rehberi",
-    metaTitle: "AC ve DC Şarj Farkı Nedir?",
-    description:
-      "AC şarj ile DC hızlı şarj arasındaki fark nedir, hangisi ne zaman kullanılır, ev için hangisi uygun? Güç, hız, maliyet ve donanım farklarını sade anlatıyoruz.",
+    metaTitle: "AC Şarj Nedir, DC Şarj Nedir? Aradaki Fark",
+    description: "AC şarj nedir, DC şarj nedir? Dönüşümün nerede yapıldığı, hız farkının nedeni, ev–istasyon kullanımı ve hangi durumda hangisinin doğru seçim olduğu — sade anlatım.",
     excerpt:
       "AC mı DC mi? İkisinin nasıl çalıştığını, hız ve maliyet farkını ve ev/istasyon için hangisinin doğru olduğunu basitçe açıklıyoruz.",
     category: "Rehber",
@@ -2894,6 +2893,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "togg-v2l-aractan-elektrik",
     title: "Togg ile V2L: Araçtan Elektrik (Araç-Dışı Güç) Kullanımı",
+    metaTitle: "Togg V2L Adaptör: Araçtan Elektrik Alma Rehberi",
     description:
       "Togg V2L (araçtan elektrik) özelliği nedir, nasıl kullanılır, hangi adaptör gerekir? Togg'unuzu kamp, saha ve acil durumda seyyar güç kaynağına çeviren V2L rehberi.",
     excerpt:

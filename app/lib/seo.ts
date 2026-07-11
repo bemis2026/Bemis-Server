@@ -754,7 +754,10 @@ function clampTitle(text: string, max = 60): string {
 // aramalar. Kategori ve ürün meta BAŞLIK/AÇIKLAMALARINA enjekte edilir —
 // kategori başlığında CMS adının yerine geçer (örn. "AC Şarj Kabloları" yerine
 // "Elektrikli Araç Şarj Kablosu — Type 2"). Yeni kategori = buraya 1 kayıt.
-const CATEGORY_SEO: Record<string, { title: string; desc: string; short: string }> = {
+// metaTitle (opsiyonel): YALNIZ <title> etiketinde kullanılır — `title` alanı
+// kategori sayfasının GÖRÜNÜR H1'i olduğu için (categoryH1), SERP başlığını
+// H1'den bağımsız optimize etmek gerektiğinde metaTitle doldurulur.
+const CATEGORY_SEO: Record<string, { title: string; metaTitle?: string; desc: string; short: string }> = {
   wallbox: {
     title: "Elektrikli Araç Şarj İstasyonu — Wallbox",
     desc: "Ev şarj ünitesi (AC Wallbox): 7,4–22 kW, Type 2, OCPP uyumlu elektrikli araç şarj istasyonu. Ev ve iş yeri için. Bemis yerli üretim, CE & IP65.",
@@ -772,7 +775,11 @@ const CATEGORY_SEO: Record<string, { title: string; desc: string; short: string 
   },
   "v2l-c2l": {
     title: "V2L / C2L Adaptör — Araçtan Elektrik",
-    desc: "Bemis yerli üretim V2L ve C2L adaptör: aracınızı seyyar elektrik kaynağına çevirin. Type 2 uyumlu, kamp ve saha için. CE sertifikalı.",
+    // GSC (2026-07): "v2l adaptör" 239 gösterimle sitenin EN BÜYÜK marka-dışı
+    // sorgusu (poz 4,7). SERP başlığı sorgu diliyle açılır + gerçek varyant
+    // markaları (Hyundai/MG/BYD katalogda VAR). H1 (title) DEĞİŞMEDİ — görünür UI aynı.
+    metaTitle: "V2L Adaptör — Araçtan Elektrik (Hyundai, MG, BYD)",
+    desc: "Bemis yerli üretim V2L ve C2L adaptör: Hyundai, MG ve BYD uyumlu modellerle aracınızı seyyar elektrik kaynağına çevirin. Tek/2'li/3'lü priz, kamp ve saha için. CE.",
     short: "V2L / C2L Adaptör",
   },
   converters: {
@@ -828,7 +835,8 @@ export function productMetaDescription(product: ProductShape, categoryName?: str
 
 export function categoryMetaTitle(category: CategoryShape, displayName?: string): string {
   const seo = CATEGORY_SEO[category.id];
-  return clampTitle(seo?.title || displayName || category.name, 56);
+  // metaTitle varsa <title> için o kullanılır (H1 = title, görünür UI etkilenmez).
+  return clampTitle(seo?.metaTitle || seo?.title || displayName || category.name, 56);
 }
 
 export function categoryMetaDescription(opts: {

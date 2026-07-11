@@ -16,13 +16,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const t = getTerm(slug);
   if (!t) return { title: "Terim bulunamadı" };
   const canonical = `/sozluk/${t.slug}`;
+  // CTR: GSC verisi (2026-07) sözlük terimlerinin "x nedir / x ne demek"
+  // sorgularında gösterim alıp tıklanmadığını gösterdi (IP65/IP66 133 gösterim
+  // %0, kW/kWh 94, CCS2 59). <title>'a "Nedir?" kalıbı sorgu diliyle birebir
+  // eşleşir → SERP başlığı tıklanabilirleşir. SAYFA İÇERİĞİ DEĞİŞMEZ (yalnız meta).
+  const metaTitle = /nedir/i.test(t.term) ? t.term : `${t.term} Nedir?`;
   return {
-    title: t.term,
+    title: metaTitle,
     description: t.short,
     keywords: t.keywords,
     alternates: { canonical, languages: { tr: canonical, "x-default": canonical } },
-    openGraph: { title: t.term, description: t.short, type: "article", url: canonical, modifiedTime: GLOSSARY_UPDATED, images: ogImage(t.term) },
-    twitter: { card: "summary_large_image", title: t.term, description: t.short, images: [OG_URL] },
+    openGraph: { title: metaTitle, description: t.short, type: "article", url: canonical, modifiedTime: GLOSSARY_UPDATED, images: ogImage(t.term) },
+    twitter: { card: "summary_large_image", title: metaTitle, description: t.short, images: [OG_URL] },
   };
 }
 
