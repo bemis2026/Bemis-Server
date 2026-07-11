@@ -73,7 +73,7 @@ export async function readBin(name: string, opts: { fresh?: boolean } = {}): Pro
     // R2 bin'leri güncellendi ama eski unstable_cache (Data Cache) i.ibb.co URL'lerini
     // 6 saat tutuyordu. Sürüm segmentini bump'lamak = yeni anahtar = tek seferlik
     // cache miss = R2'den TAZE okuma (Cloudinary). İleride benzer veri göçünde bump'la.
-    ["store", name, "v7-reviews-ty"],
+    ["store", name, "v8-dealers"],
     { tags: [tagFor(name)], revalidate: 21600 },
   );
   return cached();
