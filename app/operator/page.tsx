@@ -67,8 +67,8 @@ export default function OperatorPage() {
     }).catch(() => {});
   }, [lang]);
 
-  const bg      = d ? "#0c0c0e" : "#f8f8fb";
-  const bgSub   = d ? "#111114" : "#ffffff";
+  const bg      = d ? "#131318" : "#f8f8fb";
+  const bgSub   = d ? "#1a1a20" : "#ffffff";
   const card    = d ? "rgba(255,255,255,0.04)" : "#ffffff";
   const border  = d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
   const inputBg = d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)";

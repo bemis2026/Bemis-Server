@@ -98,7 +98,7 @@ export default function DocumentViewerPage() {
     a.remove();
   }
 
-  const bg = d ? "#0c0c0e" : "#f8f8fb";
+  const bg = d ? "#131318" : "#f8f8fb";
   const barBg = d ? "rgba(18,18,20,0.92)" : "rgba(255,255,255,0.94)";
   const border = d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)";
   const textPrimary = d ? "#f0f0f4" : "#1a1a1a";

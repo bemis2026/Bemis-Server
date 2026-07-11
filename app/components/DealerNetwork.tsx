@@ -3,7 +3,7 @@
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { HiArrowRight, HiPhone, HiLocationMarker, HiMail, HiUser, HiClock, HiExternalLink, HiX } from "react-icons/hi";
-import { RiMapPin2Line, RiWhatsappLine, RiGlobalLine, RiAwardLine, RiCustomerService2Line } from "react-icons/ri";
+import { RiMapPin2Line, RiWhatsappLine, RiGlobalLine, RiAwardLine, RiCustomerService2Line, RiArrowDownSLine, RiCheckLine } from "react-icons/ri";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import E from "./E";
@@ -93,6 +93,17 @@ export default function DealerNetwork() {
   // Liste içinde şehir bazlı filtre — bölge birden fazla şehir içeriyorsa
   // kullanıcı yalnızca bir şehre odaklanabilir. Bölge değişince reset.
   const [cityFilter, setCityFilter] = useState<string | null>(null);
+  // Modern bölge seçici (native <select> yerine tasarım odaklı özel dropdown).
+  const [regionOpen, setRegionOpen] = useState(false);
+  const regionMenuRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!regionOpen) return;
+    const onDown = (e: MouseEvent) => { if (regionMenuRef.current && !regionMenuRef.current.contains(e.target as Node)) setRegionOpen(false); };
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setRegionOpen(false); };
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => { document.removeEventListener("mousedown", onDown); document.removeEventListener("keydown", onKey); };
+  }, [regionOpen]);
   // Tabs: yurtici = Turkey SVG map, yurtdisi = 3D globe with international markets.
   const [viewMode, setViewMode] = useState<"yurtici" | "yurtdisi">("yurtici");
   // 3D globe vs flat 2D map — only relevant on the "Dünya" view. Default
@@ -511,40 +522,118 @@ export default function DealerNetwork() {
               ))}
             </div>
 
-            {/* Bölge seçici — HER ZAMAN görünür (yurtiçi), harita pinine tıklamaya
-                gerek yok; şehir seçimi gibi bir dropdown. Başlangıçta seçili yok. */}
-            {viewMode === "yurtici" && regionsWithDealers.length > 0 && (
-              <div
-                className="flex flex-col gap-1.5 rounded-xl px-3.5 py-3"
-                style={{ background: `${BLUE}0c`, border: `1px solid ${BLUE}22` }}
-              >
-                <label htmlFor="dealer-region-select" className="flex items-center gap-1.5 text-xs font-bold" style={{ color: d ? "#93C5FD" : BLUE }}>
-                  <RiMapPin2Line style={{ fontSize: 14 }} />
-                  Bölgenizi seçin — size en yakın yetkili bayileri görün
-                </label>
-                <select
-                  id="dealer-region-select"
-                  value={selectedCity ?? ""}
-                  onChange={(e) => { setSelectedCity(e.target.value || null); setCityFilter(null); }}
-                  aria-label="Bölge seçin"
-                  className="w-full text-sm font-semibold rounded-lg px-3 py-2 cursor-pointer focus:outline-none transition-colors"
-                  style={{
-                    background: d ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.95)",
-                    border: `1px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.12)"}`,
-                    color: d ? "#ffffff" : "#111111",
-                  }}
+            {/* Bölge seçici — modern ÖZEL dropdown (native <select> yerine).
+                Harita pinine tıklamaya gerek yok; tasarım odaklı açılır liste:
+                pin ikonu + bayi sayısı rozeti + aktif/hover durumları. */}
+            {viewMode === "yurtici" && regionsWithDealers.length > 0 && (() => {
+              const regionCount = (rid: string) => Object.keys(dealers).reduce(
+                (n, cid) => (CITY_BY_ID[cid]?.region === rid ? n + (dealers[cid]?.dealers?.length ?? 0) : n),
+                0,
+              );
+              const activeRegion = regionsWithDealers.find((r) => r.id === selectedCity);
+              return (
+                <div
+                  ref={regionMenuRef}
+                  className="relative flex flex-col gap-1.5 rounded-xl px-3.5 py-3"
+                  style={{ background: `${BLUE}0c`, border: `1px solid ${BLUE}22` }}
                 >
-                  <option value="">Bölge seçin…</option>
-                  {regionsWithDealers.map((r) => {
-                    const count = Object.keys(dealers).reduce(
-                      (n, cid) => (CITY_BY_ID[cid]?.region === r.id ? n + (dealers[cid]?.dealers?.length ?? 0) : n),
-                      0,
-                    );
-                    return <option key={r.id} value={r.id}>{r.label} — {count} bayi</option>;
-                  })}
-                </select>
-              </div>
-            )}
+                  <span className="flex items-center gap-1.5 text-xs font-bold" style={{ color: d ? "#93C5FD" : BLUE }}>
+                    <RiMapPin2Line style={{ fontSize: 14 }} />
+                    Bölgenizi seçin — size en yakın yetkili bayileri görün
+                  </span>
+
+                  {/* Tetikleyici buton */}
+                  <button
+                    type="button"
+                    onClick={() => setRegionOpen((o) => !o)}
+                    aria-haspopup="listbox"
+                    aria-expanded={regionOpen}
+                    className="group w-full flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-semibold transition-all"
+                    style={{
+                      background: d ? "rgba(255,255,255,0.06)" : "#ffffff",
+                      border: `1px solid ${regionOpen ? BLUE : d ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.10)"}`,
+                      color: activeRegion ? (d ? "#ffffff" : "#111111") : (d ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.45)"),
+                      boxShadow: regionOpen ? `0 0 0 3px ${BLUE}22` : "none",
+                    }}
+                  >
+                    <span className="flex items-center justify-center w-6 h-6 rounded-md flex-shrink-0" style={{ background: `${BLUE}18`, color: d ? "#93C5FD" : BLUE }}>
+                      <RiMapPin2Line style={{ fontSize: 13 }} />
+                    </span>
+                    <span className="flex-1 text-left truncate">
+                      {activeRegion ? activeRegion.label : "Bölge seçin…"}
+                    </span>
+                    {activeRegion && (
+                      <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0" style={{ background: `${BLUE}1a`, color: d ? "#93C5FD" : BLUE }}>
+                        {regionCount(activeRegion.id)} bayi
+                      </span>
+                    )}
+                    <RiArrowDownSLine className="flex-shrink-0 transition-transform duration-200" style={{ fontSize: 18, color: d ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.4)", transform: regionOpen ? "rotate(180deg)" : "none" }} />
+                  </button>
+
+                  {/* Açılır liste — AnimatePresence KULLANMADAN koşullu mount:
+                      DealerNetwork sık yeniden render olduğu için AnimatePresence
+                      çıkış-animasyonlu düğümü opacity:0'da DOM'da bırakıyordu
+                      (görünmez ama tıklamayı yutan katman = bug). Koşullu mount
+                      kapanınca ANINDA unmount eder; giriş animasyonu korunur. */}
+                  {regionOpen && (
+                      <motion.div
+                        role="listbox"
+                        initial={{ opacity: 0, y: -6, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
+                        className="absolute left-3.5 right-3.5 top-full z-30 mt-1.5 rounded-xl overflow-hidden p-1.5"
+                        style={{
+                          background: d ? "#1a1a22" : "#ffffff",
+                          border: `1px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.10)"}`,
+                          boxShadow: d ? "0 12px 36px rgba(0,0,0,0.55)" : "0 12px 36px rgba(0,0,0,0.14)",
+                          maxHeight: 288, overflowY: "auto",
+                        }}
+                      >
+                        {/* Temizle satırı — bir bölge seçiliyse */}
+                        {activeRegion && (
+                          <button
+                            type="button"
+                            onClick={() => { setSelectedCity(null); setCityFilter(null); setRegionOpen(false); }}
+                            className="w-full flex items-center gap-2 rounded-lg px-2.5 py-2 text-xs font-semibold transition-colors mb-0.5"
+                            style={{ color: d ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.45)" }}
+                            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)"; }}
+                            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+                          >
+                            <span className="flex items-center justify-center w-6 h-6 flex-shrink-0"><HiX style={{ fontSize: 13 }} /></span>
+                            Seçimi temizle (tüm bölgeler)
+                          </button>
+                        )}
+                        {regionsWithDealers.map((r) => {
+                          const count = regionCount(r.id);
+                          const isActive = r.id === selectedCity;
+                          return (
+                            <button
+                              key={r.id}
+                              type="button"
+                              role="option"
+                              aria-selected={isActive}
+                              onClick={() => { setSelectedCity(isActive ? null : r.id); setCityFilter(null); setRegionOpen(false); }}
+                              className="w-full flex items-center gap-2.5 rounded-lg px-2.5 py-2.5 text-sm font-semibold transition-colors text-left"
+                              style={{ background: isActive ? `${BLUE}14` : "transparent", color: d ? "#ffffff" : "#111111" }}
+                              onMouseEnter={(e) => { if (!isActive) (e.currentTarget as HTMLElement).style.background = d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.035)"; }}
+                              onMouseLeave={(e) => { if (!isActive) (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+                            >
+                              <span className="flex items-center justify-center w-6 h-6 rounded-md flex-shrink-0" style={{ background: isActive ? BLUE : `${BLUE}14`, color: isActive ? "#ffffff" : (d ? "#93C5FD" : BLUE) }}>
+                                <RiMapPin2Line style={{ fontSize: 13 }} />
+                              </span>
+                              <span className="flex-1 truncate">{r.label}</span>
+                              <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0" style={{ background: d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.05)", color: d ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.55)" }}>
+                                {count} bayi
+                              </span>
+                              {isActive && <RiCheckLine className="flex-shrink-0" style={{ fontSize: 16, color: d ? "#93C5FD" : BLUE }} />}
+                            </button>
+                          );
+                        })}
+                      </motion.div>
+                  )}
+                </div>
+              );
+            })()}
 
             {/* The Bemis-rep card used to live above the dealer list here.
                 Moved out under the map (right column) so it doesn't push

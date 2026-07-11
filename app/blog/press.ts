@@ -25,6 +25,38 @@ export type PressItem = {
 
 export const PRESS_ITEMS: PressItem[] = [
   {
+    id: "power2drive-europe-2026-munih",
+    keywords: ["Power2Drive Europe 2026", "Bemis E-V Charge Münih", "The smarter E Europe", "Avrupa EV şarj fuarı", "yerli EV şarj ihracat", "Hall B6"],
+    title: "Bemis E-V Charge, Power2Drive Europe 2026'da (Münih)",
+    source: "Power2Drive Europe",
+    url: "https://www.powertodrive.de/",
+    type: "fair",
+    date: "2026-06-23",
+    summary:
+      "Avrupa'nın en büyük enerji fuar ittifakı The smarter E Europe kapsamındaki Power2Drive Europe 2026'da (23-25 Haziran, Messe München) Bemis E-V Charge, Hall B6'daki standıyla yeni nesil elektrikli araç şarj çözümlerini uluslararası ziyaretçilerle buluşturdu.",
+    body: [
+      "Bemis E-V Charge, 23-25 Haziran 2026 tarihlerinde Münih'te düzenlenen Power2Drive Europe 2026 fuarında yerini aldı. Fuar, Avrupa'nın enerji sektörüne yönelik en büyük fuar ittifakı olan The smarter E Europe kapsamında gerçekleştiriliyor.",
+      "Messe München'deki Hall B6'da yer alan Bemis standında markanın yeni nesil elektrikli araç şarj çözümleri sektör profesyonelleriyle buluştu; yeni iş birlikleri ve ihracat fırsatları üzerine görüşmeler yapıldı.",
+      "Avrupa'nın merkezindeki bu katılım, Bemis'in yerli üretim EV şarj çözümlerini uluslararası pazarlara taşıma vizyonunun bir parçası oldu.",
+    ],
+  },
+  {
+    id: "light-building-2026-frankfurt",
+    keywords: ["Light + Building 2026", "Bemis Grup Frankfurt", "EV şarj teknolojileri fuarı", "endüstriyel elektrik", "Bemis üç marka"],
+    title: "Bemis Grup, Light + Building 2026'da (Frankfurt)",
+    source: "Light + Building",
+    url: "https://light-building.messefrankfurt.com/",
+    type: "fair",
+    date: "2026-03-08",
+    summary:
+      "Frankfurt'ta düzenlenen Light + Building 2026'da (8-13 Mart) Bemis Grup, üç markasıyla elektrikli araç şarj teknolojileri ve endüstriyel elektrik çözümlerindeki yeniliklerini uluslararası sektör profesyonelleriyle paylaştı.",
+    body: [
+      "Bemis Grup, 8-13 Mart 2026 tarihlerinde Frankfurt'ta düzenlenen Light + Building 2026 fuarında yer aldı. Light + Building, aydınlatma, elektrik ve bina teknolojilerinin dünyadaki en büyük fuarlarından biridir.",
+      "Bemis E-V Charge ve grup markaları, fuarda elektrikli araç şarj teknolojilerindeki ve endüstriyel elektrik çözümlerindeki en yeni ürünlerini dünyanın dört bir yanından gelen ziyaretçilere tanıttı.",
+      "Katılım, Bemis'in yerli üretim gücünü ve yenilikçi ürün gamını küresel ölçekte görünür kılma hedefini pekiştirdi.",
+    ],
+  },
+  {
     id: "electricity-turkey-uc-kita",
     keywords: ["Bemis", "Made in Türkiye enerji", "EV Charge Show 2025", "FISE 2025", "Power Energy Tanzanya", "yerli EV şarj ihracat", "TÜV sertifikalı şarj"],
     title: "Bemis, Kasım Ayında Üç Kıtada Türkiye'nin Enerji Vizyonunu Temsil Ediyor",

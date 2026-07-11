@@ -64,10 +64,10 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
       .finally(() => setLoading(false));
   }, [id, lang, initialCategory]);
 
-  const bg            = d ? "#0c0c0e" : "#f8f8fb";
+  const bg            = d ? "#131318" : "#f8f8fb";
   // Solid surface in dark mode so the new background streaks behind
   // the wrapper don't bleed through every listing card.
-  // Karanlık modda kart zemini, sayfa zemininden (#0c0c0e) belirgin ayrışsın diye
+  // Karanlık modda kart zemini, sayfa zemininden (#131318) belirgin ayrışsın diye
   // bir tık daha açık (#1d1d22) + kenarlık azıcık güçlü → kartlar siyah arka planda
   // daha kolay seçilir.
   const surface       = d ? "#1d1d22" : "#ffffff";

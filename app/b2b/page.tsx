@@ -57,8 +57,8 @@ export default function B2BPage() {
   };
   const [b2bData, setB2bData] = useState<B2BData>(localizedDefault);
 
-  const bg        = d ? "#0c0c0e" : "#f8f8fb";
-  const bgSub     = d ? "#111114" : "#ffffff";
+  const bg        = d ? "#131318" : "#f8f8fb";
+  const bgSub     = d ? "#1a1a20" : "#ffffff";
   const card      = d ? "rgba(255,255,255,0.04)" : "#ffffff";
   const border    = d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
   const inputBg   = d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)";
@@ -170,15 +170,16 @@ export default function B2BPage() {
         {/* wide-content: geniş ekranda (≥1536px) diğer bölümlerle aynı 1360px'e
             genişler (eskiden max-w-6xl'de sıkışıp görsel dar kalıyordu). */}
         <div className="max-w-6xl mx-auto wide-content px-5 sm:px-8">
-          {/* Dengeli 2 sütun (görsel/metin ~50/50) — eski 2:3 bölünmede görsel
-              yalnız %40'tı ve geniş ekranda çok dar görünüyordu. */}
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Görsel-ağırlıklı 12'li ızgara (görsel 7/12 ≈ %58, metin 5/12) —
+              geniş ekranda görsel belirgin/büyük dursun (50/50 hâlâ küçük
+              geliyordu); metin başlık+paragraflar için yeterli genişlikte kalır. */}
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {dna.factoryImage ? (
               <motion.div
                 initial={{ opacity: 0, x: -18 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
-                className="relative rounded-3xl overflow-hidden"
+                className="relative rounded-3xl overflow-hidden lg:col-span-7"
                 // 16/9: görselin GERÇEK oranı (1600×900) → object-cover ile
                 // kırpma OLMADAN çerçeveye tam oturur (sıkışma/bozulma yok).
                 style={{ aspectRatio: "16/9", border: `1px solid ${border}`, boxShadow: shadow }}
@@ -194,7 +195,7 @@ export default function B2BPage() {
               </motion.div>
             ) : (
               <div
-                className="rounded-3xl flex items-center justify-center"
+                className="rounded-3xl flex items-center justify-center lg:col-span-7"
                 style={{ aspectRatio: "16/9", background: card, border: `1px dashed ${border}` }}
               >
                 <span className="text-xs font-semibold" style={{ color: faint }}>
@@ -206,6 +207,7 @@ export default function B2BPage() {
               initial={{ opacity: 0, x: 18 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
+              className="lg:col-span-5"
             >
               <p className="text-xs font-bold tracking-[0.18em] uppercase mb-3" style={{ color: AMBER }}>
                 Çözüm Ortaklığı
