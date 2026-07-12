@@ -73,7 +73,7 @@ export default function ContactBar() {
           {/* Social + copyright */}
           <div className="flex items-center gap-4 flex-shrink-0">
             {social?.linkedin && (
-              <a href={social.linkedin} target="_blank" rel="noopener noreferrer"
+              <a href={social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Bemis LinkedIn sayfası"
                 style={{ color: socialColor }}
                 onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = hoverColor)}
                 onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = socialColor)}
@@ -82,7 +82,7 @@ export default function ContactBar() {
               </a>
             )}
             {social?.instagram && (
-              <a href={social.instagram} target="_blank" rel="noopener noreferrer"
+              <a href={social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Bemis Instagram sayfası"
                 style={{ color: socialColor }}
                 onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = hoverColor)}
                 onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = socialColor)}
@@ -91,7 +91,7 @@ export default function ContactBar() {
               </a>
             )}
             {social?.youtube && (
-              <a href={social.youtube} target="_blank" rel="noopener noreferrer"
+              <a href={social.youtube} target="_blank" rel="noopener noreferrer" aria-label="Bemis YouTube kanalı"
                 style={{ color: socialColor }}
                 onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = hoverColor)}
                 onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = socialColor)}
@@ -100,7 +100,7 @@ export default function ContactBar() {
               </a>
             )}
             {social?.facebook && (
-              <a href={social.facebook} target="_blank" rel="noopener noreferrer"
+              <a href={social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Bemis Facebook sayfası"
                 style={{ color: socialColor }}
                 onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = hoverColor)}
                 onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = socialColor)}

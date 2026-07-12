@@ -23,7 +23,7 @@ export default function Loading() {
           animation: "bemis-spin 0.8s linear infinite",
         }}
       />
-      <style>{`@keyframes bemis-spin { to { transform: rotate(360deg); } }`}</style>
+      {/* keyframe globals.css'te (W3C: gövdede <style> geçersizdi) */}
     </div>
   );
 }

@@ -185,6 +185,7 @@ function Slider({ label, value, min, max, step = 1, unit = "", accent, textMuted
       </div>
       <input type="range" min={min} max={max} step={step} value={value}
         onChange={(e) => onChange(Number(e.target.value))}
+        aria-label={label}
         className="calc-slider w-full" style={sliderStyle(value, min, max, accent)} />
       <div className="flex justify-between mt-1">
         <span className="text-sm" style={{ color: textMuted }}>{min.toLocaleString("tr-TR")}{unit}</span>
@@ -621,6 +622,7 @@ export default function Calculator() {
                         <select
                           value={selectedCar}
                           onChange={(e) => handleCarSelect(e.target.value)}
+                          aria-label="Araç modeli seçin"
                           className="w-full rounded-xl px-3 py-2 text-sm appearance-none cursor-pointer focus:outline-none transition-colors pr-8"
                           style={{ background: inputBg, border: `1px solid ${inputBorder}`, color: selectedCar ? textPrimary : textMuted }}
                         >
@@ -916,6 +918,7 @@ export default function Calculator() {
                     </div>
                     <input type="range" min={1} max={20} step={0.1} value={chargeElecPrice}
                       onChange={(e) => setChargeElecPrice(Number(e.target.value))}
+                      aria-label="Elektrik birim fiyatı (TL/kWh)"
                       className="calc-slider w-full" style={sliderStyle(chargeElecPrice, 1, 20, GREEN)} />
                     <div className="flex justify-between mt-1">
                       <span className="text-xs" style={{ color: d ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.28)" }}>1 ₺/kWh</span>

@@ -162,18 +162,20 @@ export default function B2BCta() {
                   (e.currentTarget as HTMLElement).style.boxShadow = (hasBg || d) ? "none" : "0 2px 12px rgba(0,0,0,0.07)";
                 }}
               >
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors"
+                {/* W3C: <button> içinde yalnız phrasing content geçerli → div/p
+                    yerine span (block/flex sınıfları aynı görünümü verir). */}
+                <span className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors"
                   style={{ background: `${ch.accent}18`, border: `1px solid ${ch.accent}30` }}>
                   <ch.icon style={{ fontSize: 22, color: ch.accent }} />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-base font-bold leading-tight" style={{ color: textPrimary }}>{ch.label}</p>
-                  <p className="text-xs leading-snug mt-1" style={{ color: textMuted }}>{ch.sub}</p>
-                </div>
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all group-hover:translate-x-0.5"
+                </span>
+                <span className="block flex-1 min-w-0">
+                  <span className="block text-base font-bold leading-tight" style={{ color: textPrimary }}>{ch.label}</span>
+                  <span className="block text-xs leading-snug mt-1" style={{ color: textMuted }}>{ch.sub}</span>
+                </span>
+                <span className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all group-hover:translate-x-0.5"
                   style={{ background: `${ch.accent}12` }}>
                   <RiArrowRightLine size={16} style={{ color: ch.accent }} />
-                </div>
+                </span>
               </button>
             ))}
           </div>

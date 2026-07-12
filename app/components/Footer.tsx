@@ -234,7 +234,8 @@ export default function Footer() {
               transition={{ duration: 0.4, delay: i * 0.07 }}
               className="col-span-1"
             >
-              <h4 className="font-semibold text-sm mb-4" style={{ color: textHead }}>{group.title}</h4>
+              {/* h4→h3: W3C başlık sırası (h2'den sonra h4 atlamaydı); görünüm sınıflardan, birebir aynı. */}
+              <h3 className="font-semibold text-sm mb-4" style={{ color: textHead }}>{group.title}</h3>
               <ul className="space-y-2.5">
                 {group.links.map((link, j) => (
                   <li key={j}>

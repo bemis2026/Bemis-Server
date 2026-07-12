@@ -1322,7 +1322,7 @@ export default function ProductDetailPage({
               </button>
             <div
               ref={carouselRef}
-              className="flex gap-3 overflow-x-auto snap-x snap-proximity scrollbar-hide pl-5 sm:pl-6 lg:pl-8 pr-5 sm:pr-6 lg:pr-8"
+              tabIndex={0} role="region" aria-label="Benzer ürünler — yatay kaydırılabilir liste" className="flex gap-3 overflow-x-auto snap-x snap-proximity scrollbar-hide pl-5 sm:pl-6 lg:pl-8 pr-5 sm:pr-6 lg:pr-8"
               style={{ scrollPaddingLeft: "1.25rem", scrollPaddingRight: "1.25rem", WebkitOverflowScrolling: "touch" }}
             >
               {carousel.map(({ cat, prod }, i) => {

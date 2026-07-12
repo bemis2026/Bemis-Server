@@ -704,3 +704,13 @@ html[data-theme="light"] .calc-slider::-webkit-slider-thumb { border-color: rgba
 @media (min-width: 1536px) {
   .wide-content.mx-auto { max-width: 1360px; }
 }
+
+/* ContentErrorToast giriş animasyonu — styled-jsx'ten taşındı (W3C: gövdede
+   <style> geçersizdi). Toast'ın inline animation'ı bu adı kullanır. */
+@keyframes bemisToastIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Route loading spinner — loading.tsx içindeki <style> gövde-HTML'ine sızıyordu (W3C). */
+@keyframes bemis-spin { to { transform: rotate(360deg); } }

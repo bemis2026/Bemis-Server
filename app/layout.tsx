@@ -16,6 +16,7 @@ import { EditModeProvider } from "./context/EditModeContext";
 import PropertiesPanelLoader from "./components/PropertiesPanelLoader";
 import CookieConsent from "./components/CookieConsent";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import WebVitals from "./components/WebVitals";
 import MetaPixel from "./components/MetaPixel";
 import ContentLoadingBar from "./components/ContentLoadingBar";
 import ContentErrorToast from "./components/ContentErrorToast";
@@ -292,6 +293,8 @@ export default async function RootLayout({
             <CurrencyProvider>
               <ContentProvider initialContent={initialContent}>
                 <GoogleAnalytics />
+                {/* Gerçek ziyaretçi Core Web Vitals → GA4 (CrUX boşken saha verisi) */}
+                <WebVitals />
                 <MetaPixel />
                 <ContactOverlayProvider>
                   <DealerApplyOverlayProvider>

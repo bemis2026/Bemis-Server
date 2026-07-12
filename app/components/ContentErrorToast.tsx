@@ -77,12 +77,8 @@ export default function ContentErrorToast() {
           </div>
         </div>
       </div>
-      <style jsx>{`
-        @keyframes bemisToastIn {
-          from { opacity: 0; transform: translateY(12px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
+      {/* @keyframes bemisToastIn globals.css'e taşındı — styled-jsx gövde içine
+          <style> basıyordu (W3C: div içinde style geçersiz). Görünüm aynı. */}
     </div>
   );
 }

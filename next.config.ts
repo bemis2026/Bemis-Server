@@ -17,7 +17,12 @@ const csp = [
   //   doubleclick.net                       — Google Ads remarketing pixel
   //   connect.facebook.net                  — Meta Pixel fbevents.js
   //   youtube-nocookie                      — embedded YouTube hero/DNA videos
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://www.googletagservices.com https://googleads.g.doubleclick.net https://connect.facebook.net https://www.youtube-nocookie.com",
+  // ⚡ GÜVENLİK (2026-07-12): 'unsafe-eval' YALNIZ dev'de (webpack HMR eval ister).
+  // Üretimde Next/framer/gtag/Sentry eval KULLANMAZ → kaldırmak Mozilla Observatory
+  // B+ → A adayı. Yerel prod (next start) ile doğrulandı. 'unsafe-inline' KALIYOR
+  // (Next inline runtime + GA consent stub + speculation rules bunu ister; nonce
+  // refaktörü ayrı/riskli iş).
+  `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://www.googletagservices.com https://googleads.g.doubleclick.net https://connect.facebook.net https://www.youtube-nocookie.com`,
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data: https://fonts.gstatic.com",
@@ -127,7 +132,12 @@ const nextConfig: NextConfig = {
 //
 // If SENTRY_AUTH_TOKEN isn't set (local builds), source-map upload is
 // skipped silently and the build still succeeds.
-export default withSentryConfig(nextConfig, {
+// Bundle röntgeni: ANALYZE=true npm run build → .next/analyze/*.html raporları.
+// Normal build'lerde tamamen devre dışı (sıfır etki).
+import withBundleAnalyzer from "@next/bundle-analyzer";
+const withAnalyzer = withBundleAnalyzer({ enabled: process.env.ANALYZE === "true", openAnalyzer: false });
+
+export default withAnalyzer(withSentryConfig(nextConfig, {
   org: process.env.SENTRY_ORG ?? "bemis",
   project: process.env.SENTRY_PROJECT ?? "bemis-evcharge-website",
   silent: !process.env.CI,
@@ -149,4 +159,4 @@ export default withSentryConfig(nextConfig, {
     // Hide source maps from the public bundle to avoid leaking source.
     deleteSourcemapsAfterUpload: true,
   },
-});
+}));
