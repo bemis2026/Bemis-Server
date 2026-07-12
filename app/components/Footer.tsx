@@ -289,6 +289,9 @@ export default function Footer() {
                 </a>
               )}
               <a href="/b2b" onClick={e => { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); router.push("/b2b"); }} className="transition-colors hover:opacity-70">OEM / B2B</a>
+              {/* KVKK sayfaları — kullanıcı metinleri onayladı (2026-07-12); gerçek <a> = taranabilir */}
+              <a href="/gizlilik" onClick={e => { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); router.push("/gizlilik"); }} className="transition-colors hover:opacity-70">Gizlilik / KVKK</a>
+              <a href="/cerez-politikasi" onClick={e => { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); router.push("/cerez-politikasi"); }} className="transition-colors hover:opacity-70">Çerez Politikası</a>
             </div>
           </div>
         </div>

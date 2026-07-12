@@ -4,12 +4,12 @@ import LegalPage from "../components/LegalPage";
 // KVKK Aydınlatma Metni — sitenin GERÇEK veri akışına göre yazılmış taslak
 // (iletişim/bayilik formu → Resend e-posta; IP rate-limit; consent-mode GA4/
 // Meta yalnız onayla; Sentry maskeli hata izleme; Vercel/Cloudflare barındırma).
-// ⚠️ Kullanıcı metni ONAYLAYANA kadar: robots noindex + footer'da LİNK YOK.
+// Kullanıcı metinleri onayladı (2026-07-12) → indexlenebilir + footer linkli.
 export const metadata: Metadata = {
   title: "Gizlilik ve Kişisel Verilerin Korunması",
   description:
     "Bemis E-V Charge web sitesi KVKK aydınlatma metni: hangi kişisel veriler, hangi amaçlarla işlenir, kimlere aktarılır ve haklarınız nelerdir.",
-  robots: { index: false, follow: true }, // onay sonrası index: true yapılacak
+  robots: { index: true, follow: true }, // kullanıcı metni onayladı (2026-07-12)
   alternates: { canonical: "/gizlilik" },
 };
 

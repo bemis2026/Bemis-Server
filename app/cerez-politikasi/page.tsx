@@ -3,12 +3,12 @@ import LegalPage from "../components/LegalPage";
 
 // Çerez Politikası — sitenin GERÇEK davranışına göre (Consent Mode v2 varsayılan
 // RED; GA4/Ads/Meta yalnız kabulle; tema/dil/tercih localStorage; YouTube nocookie).
-// ⚠️ Kullanıcı metni ONAYLAYANA kadar: robots noindex + footer'da LİNK YOK.
+// Kullanıcı metinleri onayladı (2026-07-12) → indexlenebilir + footer linkli.
 export const metadata: Metadata = {
   title: "Çerez Politikası",
   description:
     "Bemis E-V Charge web sitesinde kullanılan çerezler ve benzeri teknolojiler: zorunlu, analitik ve pazarlama çerezleri ile tercihlerinizi nasıl yöneteceğiniz.",
-  robots: { index: false, follow: true }, // onay sonrası index: true yapılacak
+  robots: { index: true, follow: true }, // kullanıcı metni onayladı (2026-07-12)
   alternates: { canonical: "/cerez-politikasi" },
 };
 

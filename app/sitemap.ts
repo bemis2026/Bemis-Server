@@ -45,6 +45,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/operator`,  lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/export`,    lastModified: now, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/iletisim`,  lastModified: now, changeFrequency: "yearly",  priority: 0.7 },
+    { url: `${BASE}/gizlilik`,        lastModified: now, changeFrequency: "yearly",  priority: 0.3 },
+    { url: `${BASE}/cerez-politikasi`, lastModified: now, changeFrequency: "yearly",  priority: 0.3 },
   ];
 
   // Şehir bazlı yerel-SEO landing sayfaları (örn. /bursa-ev-sarj-istasyonu).
