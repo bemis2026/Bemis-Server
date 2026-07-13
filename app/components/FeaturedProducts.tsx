@@ -12,6 +12,7 @@ import {
   RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
   RiShieldCheckLine, RiBarChart2Line, RiPlugLine, RiFlashlightLine,
   RiCalendarCheckLine, RiTeamLine, RiLightbulbLine,
+  RiDashboard3Line, RiHammerLine, RiEqualizerLine,
 } from "react-icons/ri";
 import { featureById } from "../../lib/productFeatures";
 import Image from "next/image";
@@ -22,6 +23,7 @@ const FEATURE_ICONS: Record<string, React.ComponentType<{ size?: number; style?:
   RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
   RiShieldCheckLine, RiBarChart2Line, RiPlugLine, RiFlashlightLine,
   RiCalendarCheckLine, RiTeamLine, RiLightbulbLine,
+  RiDashboard3Line, RiHammerLine, RiEqualizerLine,
 };
 
 type SpecItem = { label: string; value: string };

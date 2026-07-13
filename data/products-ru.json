@@ -191,7 +191,11 @@
         "images": [
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png"
         ],
-        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png"
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png",
+        "features": [
+          "autostart",
+          "mid"
+        ]
       },
       {
         "id": "charger-plus-2-pano",
@@ -244,7 +248,11 @@
         "images": [
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png"
         ],
-        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png"
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png",
+        "features": [
+          "autostart",
+          "mid"
+        ]
       },
       {
         "id": "charger-pro-2-kablolu",
@@ -307,7 +315,8 @@
           "rfid",
           "ocpp",
           "wifi",
-          "ip65"
+          "ip65",
+          "mid"
         ],
         "documents": [
           {
@@ -367,7 +376,11 @@
         "images": [
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074903/products/u09cxjqwgszkpw6visgt.png"
         ],
-        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074903/products/u09cxjqwgszkpw6visgt.png"
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074903/products/u09cxjqwgszkpw6visgt.png",
+        "features": [
+          "mid",
+          "app"
+        ]
       },
       {
         "id": "charger-pro-2-gsm-pano",
@@ -441,7 +454,8 @@
           "app",
           "schedule",
           "shared",
-          "wifi"
+          "wifi",
+          "mid"
         ],
         "certificates": [
           "ce",
@@ -513,7 +527,11 @@
         "images": [
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074909/products/kqqtxvxryazaz2jk8l2w.png"
         ],
-        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074909/products/kqqtxvxryazaz2jk8l2w.png"
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074909/products/kqqtxvxryazaz2jk8l2w.png",
+        "features": [
+          "mid",
+          "app"
+        ]
       }
     ]
   },
@@ -655,11 +673,11 @@
       },
       {
         "id": "pro-mobile",
-        "name": "Pro Mobile",
+        "name": "Pro Mobile 2",
         "code": "BEV-2331-0001",
         "subtitle": "Трёхфазный · 11 - 22 kW",
         "badge": null,
-        "description": "Pro Mobile — трёхфазное портативное зарядное устройство AC мощностью 11–22 кВт. С промышленными адаптерами CEE 5/16A и 5/32A обеспечивает высокомощную зарядку на объекте; разработан для профессионального и автопаркового использования. Зарядный ток регулируется в 6 ступенях (6/10/16/20/25/32А) через мобильное приложение или кнопку на устройстве — гибкая и безопасная зарядка даже при слабой электросети.",
+        "description": "Pro Mobile 2 — трёхфазное портативное зарядное устройство AC мощностью 11–22 кВт. С промышленными адаптерами CEE 5/16A и 5/32A обеспечивает высокомощную зарядку на объекте; разработан для профессионального и автопаркового использования. Зарядный ток регулируется в 6 ступенях (6/10/16/20/25/32А) через мобильное приложение или кнопку на устройстве — гибкая и безопасная зарядка даже при слабой электросети.",
         "specs": [
           {
             "group": "Электрические характеристики",
@@ -730,7 +748,13 @@
         "images": [
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png"
         ],
-        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png"
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png",
+        "features": [
+          "app",
+          "ip65",
+          "autostart",
+          "amp6"
+        ]
       }
     ]
   },
@@ -4787,7 +4811,10 @@
           "rfid",
           "shared",
           "ccs2",
-          "screen"
+          "screen",
+          "load",
+          "plugplay",
+          "safety"
         ],
         "generalFeatures": [],
         "documents": [],
@@ -4887,7 +4914,10 @@
           "rfid",
           "shared",
           "ccs2",
-          "screen"
+          "screen",
+          "load",
+          "plugplay",
+          "safety"
         ],
         "generalFeatures": [],
         "documents": [],
@@ -4987,7 +5017,11 @@
           "rfid",
           "shared",
           "ccs2",
-          "screen"
+          "screen",
+          "load",
+          "plugplay",
+          "safety",
+          "ik10"
         ],
         "generalFeatures": [],
         "documents": [],
@@ -5087,7 +5121,11 @@
           "rfid",
           "shared",
           "ccs2",
-          "screen"
+          "screen",
+          "load",
+          "plugplay",
+          "safety",
+          "ik10"
         ],
         "generalFeatures": [],
         "documents": [],
@@ -5187,7 +5225,11 @@
           "rfid",
           "shared",
           "ccs2",
-          "screen"
+          "screen",
+          "load",
+          "plugplay",
+          "safety",
+          "ik10"
         ],
         "generalFeatures": [],
         "documents": [],
@@ -5287,7 +5329,11 @@
           "rfid",
           "shared",
           "ccs2",
-          "screen"
+          "screen",
+          "load",
+          "plugplay",
+          "safety",
+          "ik10"
         ],
         "generalFeatures": [],
         "documents": [],

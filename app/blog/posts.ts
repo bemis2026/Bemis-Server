@@ -1174,7 +1174,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "table", caption: "Bemis taşınabilir şarj cihazı modelleri", headers: ["Model", "Güç", "Faz", "Maks. Akım", "Kablo"], rows: [
         ["Mini Mobile", "2,3 – 3,7 kW", "Tek Fazlı", "16A", "5 m"],
         ["Mono Mobile", "3,7 – 7,4 kW", "Tek Fazlı", "32A", "5 m"],
-        ["Pro Mobile", "11 – 22 kW", "Üç Fazlı", "6 – 32A", "5 m"],
+        ["Pro Mobile 2", "11 – 22 kW", "Üç Fazlı", "6 – 32A", "5 m"],
       ]},
       { type: "p", text: "Mini Mobile ev prizi ve acil/yedek kullanım için en kompakt seçenektir. Mono Mobile monofaze tesisatta daha yüksek güç sağlar ve priz adaptörleriyle gelir. Pro Mobile ise trifaze tesisatta 22 kW'a kadar çıkar — taşınabilir olmasına rağmen wallbox'a yakın güç isteyenler içindir." },
 
