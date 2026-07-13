@@ -248,8 +248,8 @@ export default function SmartCharger() {
                     transition={{ duration: 0.35, ease: "easeInOut" }}
                     className="absolute inset-0 flex items-center justify-center pointer-events-none"
                   >
-                    {/* ── Web browser mockup ── */}
-                    <div>
+                    {/* ── Web browser mockup ── (telefona göre bir tık büyütüldü) */}
+                    <div style={{ transform: "scale(1.13)" }}>
                       <div
                         className="rounded-2xl overflow-hidden"
                         style={{
