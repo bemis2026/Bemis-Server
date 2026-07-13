@@ -659,7 +659,7 @@
         "code": "BEV-2331-0001",
         "subtitle": "Dreiphasig · 11 - 22 kW",
         "badge": null,
-        "description": "Das Pro Mobile ist ein dreiphasiges tragbares AC-Ladegerät mit 11–22 kW. Mit CEE 5/16A- und 5/32A-Industrieadaptern bietet es Hochleistungs-Laden vor Ort; entwickelt für den professionellen Einsatz und Flotten.",
+        "description": "Das Pro Mobile ist ein dreiphasiges tragbares AC-Ladegerät mit 11–22 kW. Mit CEE 5/16A- und 5/32A-Industrieadaptern bietet es Hochleistungs-Laden vor Ort; entwickelt für den professionellen Einsatz und Flotten. Der Ladestrom ist in 6 Stufen (6/10/16/20/25/32A) über die mobile App oder die Taste am Gerät einstellbar — flexibles, sicheres Laden auch bei schwacher Installation.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -674,11 +674,15 @@
               },
               {
                 "label": "Strom",
-                "value": "16A - 32A"
+                "value": "6 / 10 / 16 / 20 / 25 / 32 A (6-stufig einstellbar)"
               },
               {
                 "label": "Kabellänge",
                 "value": "5 Meter"
+              },
+              {
+                "label": "Stromeinstellung",
+                "value": "6 Stufen über die mobile App und die Taste am Gerät"
               }
             ]
           },

@@ -659,7 +659,7 @@
         "code": "BEV-2331-0001",
         "subtitle": "Üç Fazlı · 11 - 22 kW",
         "badge": null,
-        "description": "Pro Mobile, 11–22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı.",
+        "description": "Pro Mobile, 11–22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. The charging current is adjustable in 6 steps (6/10/16/20/25/32A) from the mobile app or the button on the device — flexible, safe charging even on weak installations.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -674,11 +674,15 @@
               },
               {
                 "label": "Akım",
-                "value": "16A - 32A"
+                "value": "6 / 10 / 16 / 20 / 25 / 32 A (6-step adjustable)"
               },
               {
                 "label": "Kablo Uzunluğu",
                 "value": "5 metre"
+              },
+              {
+                "label": "Current Setting",
+                "value": "6 steps via the mobile app and the button on the device"
               }
             ]
           },

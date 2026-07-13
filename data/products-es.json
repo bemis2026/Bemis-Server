@@ -659,7 +659,7 @@
         "code": "BEV-2331-0001",
         "subtitle": "Trifásico · 11 - 22 kW",
         "badge": null,
-        "description": "Pro Mobile es un cargador AC portátil trifásico de 11-22 kW. Con adaptadores industriales CEE 5/16A y 5/32A ofrece carga de campo de alta potencia; diseñado para uso profesional y de flotas.",
+        "description": "Pro Mobile es un cargador AC portátil trifásico de 11-22 kW. Con adaptadores industriales CEE 5/16A y 5/32A ofrece carga de campo de alta potencia; diseñado para uso profesional y de flotas. La corriente de carga es ajustable en 6 niveles (6/10/16/20/25/32A) desde la app móvil o el botón del dispositivo — carga flexible y segura incluso en instalaciones débiles.",
         "specs": [
           {
             "group": "Eléctrico",
@@ -674,11 +674,15 @@
               },
               {
                 "label": "Corriente",
-                "value": "16A - 32A"
+                "value": "6 / 10 / 16 / 20 / 25 / 32 A (ajustable en 6 niveles)"
               },
               {
                 "label": "Longitud del cable",
                 "value": "5 metros"
+              },
+              {
+                "label": "Ajuste de corriente",
+                "value": "6 niveles mediante la app móvil y el botón del dispositivo"
               }
             ]
           },
