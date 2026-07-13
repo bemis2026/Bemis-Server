@@ -11,7 +11,7 @@
         "code": "BEV-1011-0005",
         "subtitle": "5m. Kablolu",
         "badge": null,
-        "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 11–22 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır.",
+        "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 11–22 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır. Renewed outer casing for easy installation: the unit is ready without opening it — just wire the power terminal from the outside and fix it with the external mounting ears.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -63,7 +63,8 @@
           "app",
           "screen",
           "wifi",
-          "schedule"
+          "schedule",
+          "montaj"
         ],
         "certificates": [
           "ce",
@@ -76,7 +77,7 @@
         "code": "BEV-1011-0105",
         "subtitle": "5m. Kablolu / 5-32A Fişli",
         "badge": "Fişli",
-        "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 11–22 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır.",
+        "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 11–22 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır. Renewed outer casing for easy installation: the unit is ready without opening it — just wire the power terminal from the outside and fix it with the external mounting ears.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -127,12 +128,13 @@
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074881/products/q5ecl4by91znhkwo8a4y.png",
         "features": [
+          "ip65",
           "rfid",
-          "screen",
           "app",
-          "schedule",
+          "screen",
           "wifi",
-          "ip65"
+          "schedule",
+          "montaj"
         ],
         "certificates": [
           "ce",
@@ -146,7 +148,7 @@
         "code": "BEV-2011-0005",
         "subtitle": "5m. Kablolu",
         "badge": null,
-        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi.",
+        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Renewed outer casing for easy installation: the unit is ready without opening it — just wire the power terminal from the outside and fix it with the external mounting ears.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -193,8 +195,18 @@
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png",
         "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
           "autostart",
-          "mid"
+          "mid",
+          "montaj"
         ]
       },
       {
@@ -203,7 +215,7 @@
         "code": "BEV-2012-0000",
         "subtitle": "Pano Prizli",
         "badge": "Pano Prizli",
-        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi.",
+        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Renewed outer casing for easy installation: the unit is ready without opening it — just wire the power terminal from the outside and fix it with the external mounting ears.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -250,8 +262,18 @@
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png",
         "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
           "autostart",
-          "mid"
+          "mid",
+          "montaj"
         ]
       },
       {
@@ -260,7 +282,7 @@
         "code": "BEV-3011-0005",
         "subtitle": "5m. Kablolu",
         "badge": null,
-        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal.",
+        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Renewed outer casing for easy installation: the unit is ready without opening it — just wire the power terminal from the outside and fix it with the external mounting ears.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -307,16 +329,17 @@
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074899/products/vtsdnxy0k1gmfwbugdh1.png",
         "features": [
-          "screen",
-          "app",
-          "shared",
-          "schedule",
-          "load",
-          "rfid",
-          "ocpp",
-          "wifi",
           "ip65",
-          "mid"
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "mid",
+          "montaj"
         ],
         "documents": [
           {
@@ -331,7 +354,7 @@
         "code": "BEV-3012-0000",
         "subtitle": "Pano Prizli",
         "badge": "Pano Prizli",
-        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal.",
+        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Renewed outer casing for easy installation: the unit is ready without opening it — just wire the power terminal from the outside and fix it with the external mounting ears.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -378,8 +401,17 @@
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074903/products/u09cxjqwgszkpw6visgt.png",
         "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
           "mid",
-          "app"
+          "montaj"
         ]
       },
       {
@@ -388,7 +420,7 @@
         "code": "BEV-3012-1000",
         "subtitle": "Pano Prizli / GSM Modüllü",
         "badge": "GSM",
-        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için.",
+        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Renewed outer casing for easy installation: the unit is ready without opening it — just wire the power terminal from the outside and fix it with the external mounting ears.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -448,14 +480,17 @@
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074905/products/pxn7fd3il80godqoqqvj.png",
         "features": [
+          "ip65",
           "rfid",
-          "ocpp",
-          "screen",
           "app",
-          "schedule",
-          "shared",
+          "screen",
           "wifi",
-          "mid"
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "mid",
+          "montaj"
         ],
         "certificates": [
           "ce",
@@ -469,7 +504,7 @@
         "code": "BEV-3011-1005",
         "subtitle": "5m. Kablolu / GSM Modüllü",
         "badge": "GSM",
-        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için.",
+        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Renewed outer casing for easy installation: the unit is ready without opening it — just wire the power terminal from the outside and fix it with the external mounting ears.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -529,8 +564,17 @@
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074909/products/kqqtxvxryazaz2jk8l2w.png",
         "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
           "mid",
-          "app"
+          "montaj"
         ]
       }
     ]
@@ -677,7 +721,7 @@
         "code": "BEV-2331-0001",
         "subtitle": "Üç Fazlı · 11 - 22 kW",
         "badge": null,
-        "description": "Pro Mobile 2, 11–22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. The charging current is adjustable in 6 steps (6/10/16/20/25/32A) from the mobile app or the button on the device — flexible, safe charging even on weak installations.",
+        "description": "Pro Mobile 2, 11–22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. The charging current is adjustable in 6 steps (6/10/16/20/25/32A) from the mobile app or the button on the device — flexible, safe charging even on weak installations. Renewed outer casing for easy installation: the unit is ready without opening it — just wire the power terminal from the outside and fix it with the external mounting ears.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -750,10 +794,15 @@
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png",
         "features": [
-          "app",
           "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
           "autostart",
-          "amp6"
+          "amp6",
+          "montaj"
         ]
       }
     ]

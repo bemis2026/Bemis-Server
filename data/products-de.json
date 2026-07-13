@@ -11,7 +11,7 @@
         "code": "BEV-1011-0005",
         "subtitle": "5 m Kabel",
         "badge": null,
-        "description": "Der Bemis Charger 2 ist eine AC-Wandladestation für den Einsatz zu Hause und im Betrieb, mit den Optionen einphasig 7,4 kW und dreiphasig 11–22 kW. Mit 5 Meter integriertem Type 2-Kabel oder der Schalttafel-Steckdosen-Version arbeitet das CE- & IP65-zertifizierte Gehäuse im Innen- und Außenbereich sicher.",
+        "description": "Der Bemis Charger 2 ist eine AC-Wandladestation für den Einsatz zu Hause und im Betrieb, mit den Optionen einphasig 7,4 kW und dreiphasig 11–22 kW. Mit 5 Meter integriertem Type 2-Kabel oder der Schalttafel-Steckdosen-Version arbeitet das CE- & IP65-zertifizierte Gehäuse im Innen- und Außenbereich sicher. Erneuertes Außengehäuse für einfache Montage: Das Gerät ist ohne Öffnen betriebsbereit — die Leistungsklemme nur von außen anschließen und über die äußeren Montagelaschen befestigen.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -63,7 +63,8 @@
           "app",
           "screen",
           "wifi",
-          "schedule"
+          "schedule",
+          "montaj"
         ],
         "certificates": [
           "ce",
@@ -76,7 +77,7 @@
         "code": "BEV-1011-0105",
         "subtitle": "5 m Kabel / 5-32A mit Stecker",
         "badge": "Mit Stecker",
-        "description": "Der Bemis Charger 2 ist eine AC-Wandladestation für den Einsatz zu Hause und im Betrieb, mit den Optionen einphasig 7,4 kW und dreiphasig 11–22 kW. Mit 5 Meter integriertem Type 2-Kabel oder der Schalttafel-Steckdosen-Version arbeitet das CE- & IP65-zertifizierte Gehäuse im Innen- und Außenbereich sicher.",
+        "description": "Der Bemis Charger 2 ist eine AC-Wandladestation für den Einsatz zu Hause und im Betrieb, mit den Optionen einphasig 7,4 kW und dreiphasig 11–22 kW. Mit 5 Meter integriertem Type 2-Kabel oder der Schalttafel-Steckdosen-Version arbeitet das CE- & IP65-zertifizierte Gehäuse im Innen- und Außenbereich sicher. Erneuertes Außengehäuse für einfache Montage: Das Gerät ist ohne Öffnen betriebsbereit — die Leistungsklemme nur von außen anschließen und über die äußeren Montagelaschen befestigen.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -127,12 +128,13 @@
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074881/products/q5ecl4by91znhkwo8a4y.png",
         "features": [
+          "ip65",
           "rfid",
-          "screen",
           "app",
-          "schedule",
+          "screen",
           "wifi",
-          "ip65"
+          "schedule",
+          "montaj"
         ],
         "certificates": [
           "ce",
@@ -146,7 +148,7 @@
         "code": "BEV-2011-0005",
         "subtitle": "5 m Kabel",
         "badge": null,
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Erneuertes Außengehäuse für einfache Montage: Das Gerät ist ohne Öffnen betriebsbereit — die Leistungsklemme nur von außen anschließen und über die äußeren Montagelaschen befestigen.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -193,8 +195,18 @@
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png",
         "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
           "autostart",
-          "mid"
+          "mid",
+          "montaj"
         ]
       },
       {
@@ -203,7 +215,7 @@
         "code": "BEV-2012-0000",
         "subtitle": "Mit Schalttafel-Steckdose",
         "badge": "Mit Schalttafel-Steckdose",
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Erneuertes Außengehäuse für einfache Montage: Das Gerät ist ohne Öffnen betriebsbereit — die Leistungsklemme nur von außen anschließen und über die äußeren Montagelaschen befestigen.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -250,8 +262,18 @@
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png",
         "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
           "autostart",
-          "mid"
+          "mid",
+          "montaj"
         ]
       },
       {
@@ -260,7 +282,7 @@
         "code": "BEV-3011-0005",
         "subtitle": "5 m Kabel",
         "badge": null,
-        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden.",
+        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Erneuertes Außengehäuse für einfache Montage: Das Gerät ist ohne Öffnen betriebsbereit — die Leistungsklemme nur von außen anschließen und über die äußeren Montagelaschen befestigen.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -307,16 +329,17 @@
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074899/products/vtsdnxy0k1gmfwbugdh1.png",
         "features": [
-          "screen",
-          "app",
-          "shared",
-          "schedule",
-          "load",
-          "rfid",
-          "ocpp",
-          "wifi",
           "ip65",
-          "mid"
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "mid",
+          "montaj"
         ],
         "documents": [
           {
@@ -331,7 +354,7 @@
         "code": "BEV-3012-0000",
         "subtitle": "Mit Schalttafel-Steckdose",
         "badge": "Mit Schalttafel-Steckdose",
-        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden.",
+        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Erneuertes Außengehäuse für einfache Montage: Das Gerät ist ohne Öffnen betriebsbereit — die Leistungsklemme nur von außen anschließen und über die äußeren Montagelaschen befestigen.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -378,8 +401,17 @@
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074903/products/u09cxjqwgszkpw6visgt.png",
         "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
           "mid",
-          "app"
+          "montaj"
         ]
       },
       {
@@ -388,7 +420,7 @@
         "code": "BEV-3012-1000",
         "subtitle": "Mit Schalttafel-Steckdose / GSM-Modul",
         "badge": "GSM",
-        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur.",
+        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Erneuertes Außengehäuse für einfache Montage: Das Gerät ist ohne Öffnen betriebsbereit — die Leistungsklemme nur von außen anschließen und über die äußeren Montagelaschen befestigen.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -448,14 +480,17 @@
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074905/products/pxn7fd3il80godqoqqvj.png",
         "features": [
+          "ip65",
           "rfid",
-          "ocpp",
-          "screen",
           "app",
-          "schedule",
-          "shared",
+          "screen",
           "wifi",
-          "mid"
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "mid",
+          "montaj"
         ],
         "certificates": [
           "ce",
@@ -469,7 +504,7 @@
         "code": "BEV-3011-1005",
         "subtitle": "5 m Kabel / GSM-Modul",
         "badge": "GSM",
-        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur.",
+        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Erneuertes Außengehäuse für einfache Montage: Das Gerät ist ohne Öffnen betriebsbereit — die Leistungsklemme nur von außen anschließen und über die äußeren Montagelaschen befestigen.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -529,8 +564,17 @@
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074909/products/kqqtxvxryazaz2jk8l2w.png",
         "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
           "mid",
-          "app"
+          "montaj"
         ]
       }
     ]
@@ -677,7 +721,7 @@
         "code": "BEV-2331-0001",
         "subtitle": "Dreiphasig · 11 - 22 kW",
         "badge": null,
-        "description": "Das Pro Mobile 2 ist ein dreiphasiges tragbares AC-Ladegerät mit 11–22 kW. Mit CEE 5/16A- und 5/32A-Industrieadaptern bietet es Hochleistungs-Laden vor Ort; entwickelt für den professionellen Einsatz und Flotten. Der Ladestrom ist in 6 Stufen (6/10/16/20/25/32A) über die mobile App oder die Taste am Gerät einstellbar — flexibles, sicheres Laden auch bei schwacher Installation.",
+        "description": "Das Pro Mobile 2 ist ein dreiphasiges tragbares AC-Ladegerät mit 11–22 kW. Mit CEE 5/16A- und 5/32A-Industrieadaptern bietet es Hochleistungs-Laden vor Ort; entwickelt für den professionellen Einsatz und Flotten. Der Ladestrom ist in 6 Stufen (6/10/16/20/25/32A) über die mobile App oder die Taste am Gerät einstellbar — flexibles, sicheres Laden auch bei schwacher Installation. Erneuertes Außengehäuse für einfache Montage: Das Gerät ist ohne Öffnen betriebsbereit — die Leistungsklemme nur von außen anschließen und über die äußeren Montagelaschen befestigen.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -750,10 +794,15 @@
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png",
         "features": [
-          "app",
           "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
           "autostart",
-          "amp6"
+          "amp6",
+          "montaj"
         ]
       }
     ]

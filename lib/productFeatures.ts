@@ -29,6 +29,8 @@ export const PRODUCT_FEATURES: ProductFeature[] = [
   { id: "safety",      label: "Güvenlik Korumaları",  icon: "RiShieldCheckLine",  accent: "#EF4444" },
   { id: "ik10",        label: "IK10 Darbe Dayanımı",  icon: "RiHammerLine",       accent: "#78716C" },
   { id: "amp6",        label: "6 Kademe Amper",       icon: "RiEqualizerLine",    accent: "#6366F1" },
+  // Yenilenen dış kasa — içi açılmadan dıştan klemens + dış montaj kulakları (2026-07-13).
+  { id: "montaj",      label: "Kolay Montaj",         icon: "RiToolsLine",        accent: "#0EA5E9" },
   // type2 / ccs2 / v2l are technical attributes (connector / capability),
   // not general feature flags — they belong in the Çevresel/Bağlantı spec
   // groups instead. Existing products that still carry these ids in

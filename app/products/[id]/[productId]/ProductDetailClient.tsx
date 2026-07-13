@@ -43,7 +43,7 @@ const DETAIL_FEATURE_ICONS: Record<string, React.ComponentType<{ size?: number; 
   RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
   RiShieldCheckLine, RiBarChart2Line, RiPlugLine, RiFlashlightLine,
   RiCalendarCheckLine, RiTeamLine, RiLightbulbLine,
-  RiDashboard3Line, RiHammerLine, RiEqualizerLine,
+  RiDashboard3Line, RiHammerLine, RiEqualizerLine, RiToolsLine,
 };
 import { HiDownload } from "react-icons/hi";
 import { trackEvent } from "../../../components/GoogleAnalytics";
