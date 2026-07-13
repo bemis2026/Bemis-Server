@@ -11,7 +11,7 @@
         "code": "BEV-1011-0005",
         "subtitle": "5m. Kablolu",
         "badge": null,
-        "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 11–22 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır. Yenilenen dış kasa ile pratik montaj: cihazın içi açılmadan yalnızca dıştan güç klemensine bağlanıp dış montaj kulaklarından sabitlenerek hızla kurulur.",
+        "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 11–22 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -77,7 +77,7 @@
         "code": "BEV-1011-0105",
         "subtitle": "5m. Kablolu / 5-32A Fişli",
         "badge": "Fişli",
-        "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 11–22 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır. Yenilenen dış kasa ile pratik montaj: cihazın içi açılmadan yalnızca dıştan güç klemensine bağlanıp dış montaj kulaklarından sabitlenerek hızla kurulur.",
+        "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 11–22 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -148,7 +148,7 @@
         "code": "BEV-2011-0005",
         "subtitle": "5m. Kablolu",
         "badge": null,
-        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Otomatik Şarj Başlatma İnovasyonu ile elektrik kesilip geldiğinde şarjı otomatik sürdürür; opsiyonel MID sayaç ile sertifikalı enerji ölçümü sunar. Yenilenen dış kasa ile pratik montaj: cihazın içi açılmadan yalnızca dıştan güç klemensine bağlanıp dış montaj kulaklarından sabitlenerek hızla kurulur.",
+        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Otomatik Şarj Başlatma İnovasyonu ile elektrik kesilip geldiğinde şarjı otomatik sürdürür; opsiyonel MID sayaç ile sertifikalı enerji ölçümü sunar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -228,7 +228,7 @@
         "code": "BEV-2012-0000",
         "subtitle": "Pano Prizli",
         "badge": "Pano Prizli",
-        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Otomatik Şarj Başlatma İnovasyonu ile elektrik kesilip geldiğinde şarjı otomatik sürdürür; opsiyonel MID sayaç ile sertifikalı enerji ölçümü sunar. Yenilenen dış kasa ile pratik montaj: cihazın içi açılmadan yalnızca dıştan güç klemensine bağlanıp dış montaj kulaklarından sabitlenerek hızla kurulur.",
+        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Otomatik Şarj Başlatma İnovasyonu ile elektrik kesilip geldiğinde şarjı otomatik sürdürür; opsiyonel MID sayaç ile sertifikalı enerji ölçümü sunar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -308,7 +308,7 @@
         "code": "BEV-3011-0005",
         "subtitle": "5m. Kablolu",
         "badge": null,
-        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasa ile pratik montaj: cihazın içi açılmadan yalnızca dıştan güç klemensine bağlanıp dış montaj kulaklarından sabitlenerek hızla kurulur.",
+        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -393,7 +393,7 @@
         "code": "BEV-3012-0000",
         "subtitle": "Pano Prizli",
         "badge": "Pano Prizli",
-        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasa ile pratik montaj: cihazın içi açılmadan yalnızca dıştan güç klemensine bağlanıp dış montaj kulaklarından sabitlenerek hızla kurulur.",
+        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -472,7 +472,7 @@
         "code": "BEV-3012-1000",
         "subtitle": "Pano Prizli / GSM Modüllü",
         "badge": "GSM",
-        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasa ile pratik montaj: cihazın içi açılmadan yalnızca dıştan güç klemensine bağlanıp dış montaj kulaklarından sabitlenerek hızla kurulur.",
+        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -569,7 +569,7 @@
         "code": "BEV-3011-1005",
         "subtitle": "5m. Kablolu / GSM Modüllü",
         "badge": "GSM",
-        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasa ile pratik montaj: cihazın içi açılmadan yalnızca dıştan güç klemensine bağlanıp dış montaj kulaklarından sabitlenerek hızla kurulur.",
+        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -851,7 +851,7 @@
         "code": "BEV-2331-0001",
         "subtitle": "Üç Fazlı · 11 - 22 kW",
         "badge": null,
-        "description": "Pro Mobile 2, 11–22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. Şarj akımı 6 kademede (6/10/16/20/25/32A) mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanabilir — zayıf tesisatlarda bile güvenli, esnek şarj sağlar. Yenilenen dış kasa ile pratik montaj: cihazın içi açılmadan yalnızca dıştan güç klemensine bağlanıp dış montaj kulaklarından sabitlenerek hızla kurulur.",
+        "description": "Pro Mobile 2, 11–22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. Şarj akımı 6 kademede (6/10/16/20/25/32A) mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanabilir — zayıf tesisatlarda bile güvenli, esnek şarj sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
           {
             "group": "Elektriksel",

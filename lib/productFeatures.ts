@@ -24,7 +24,7 @@ export const PRODUCT_FEATURES: ProductFeature[] = [
   // otomatik checkbox olarak listeler (senkron). İkonlar Detail + FeaturedProducts
   // ikon haritalarına da eklendi (RiDashboard3Line / RiHammerLine / RiEqualizerLine yeni).
   { id: "autostart",   label: "Otomatik Şarj Başlatma", icon: "RiFlashlightLine",  accent: "#F97316" },
-  { id: "mid",         label: "MID Sayaç",            icon: "RiDashboard3Line",   accent: "#14B8A6" },
+  { id: "mid",         label: "MID Sayaç (Opsiyonel)", icon: "RiDashboard3Line",  accent: "#14B8A6" },
   { id: "plugplay",    label: "Tak-Çalıştır",         icon: "RiPlugLine",         accent: "#22C55E" },
   { id: "safety",      label: "Güvenlik Korumaları",  icon: "RiShieldCheckLine",  accent: "#EF4444" },
   { id: "ik10",        label: "IK10 Darbe Dayanımı",  icon: "RiHammerLine",       accent: "#78716C" },
