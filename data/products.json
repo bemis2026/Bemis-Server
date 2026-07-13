@@ -146,7 +146,7 @@
         "code": "BEV-2011-0005",
         "subtitle": "5m. Kablolu",
         "badge": null,
-        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi.",
+        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Otomatik Şarj Başlatma İnovasyonu ile elektrik kesilip geldiğinde şarjı otomatik sürdürür; opsiyonel MID sayaç ile sertifikalı enerji ölçümü sunar.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -186,6 +186,19 @@
                 "value": "EUR 649,00"
               }
             ]
+          },
+          {
+            "group": "Akıllı & Opsiyonel",
+            "items": [
+              {
+                "label": "Otomatik Şarj Başlatma",
+                "value": "Var — elektrik kesintisi sonrası her 3 dk'da bir otomatik başlatma"
+              },
+              {
+                "label": "MID Sayaç",
+                "value": "Opsiyonel (sertifikalı enerji ölçümü)"
+              }
+            ]
           }
         ],
         "images": [
@@ -199,7 +212,7 @@
         "code": "BEV-2012-0000",
         "subtitle": "Pano Prizli",
         "badge": "Pano Prizli",
-        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi.",
+        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Otomatik Şarj Başlatma İnovasyonu ile elektrik kesilip geldiğinde şarjı otomatik sürdürür; opsiyonel MID sayaç ile sertifikalı enerji ölçümü sunar.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -239,6 +252,19 @@
                 "value": "EUR 632,50"
               }
             ]
+          },
+          {
+            "group": "Akıllı & Opsiyonel",
+            "items": [
+              {
+                "label": "Otomatik Şarj Başlatma",
+                "value": "Var — elektrik kesintisi sonrası her 3 dk'da bir otomatik başlatma"
+              },
+              {
+                "label": "MID Sayaç",
+                "value": "Opsiyonel (sertifikalı enerji ölçümü)"
+              }
+            ]
           }
         ],
         "images": [
@@ -252,7 +278,7 @@
         "code": "BEV-3011-0005",
         "subtitle": "5m. Kablolu",
         "badge": null,
-        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal.",
+        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -292,6 +318,19 @@
                 "value": "EUR 764,50"
               }
             ]
+          },
+          {
+            "group": "Akıllı & Opsiyonel",
+            "items": [
+              {
+                "label": "MID Sayaç",
+                "value": "Opsiyonel (sertifikalı enerji ölçümü)"
+              },
+              {
+                "label": "Mobil Uygulama",
+                "value": "Uzaktan aç/kapa, zaman ayarlayıcı, şarj geçmişi (bağlantılı modeller)"
+              }
+            ]
           }
         ],
         "images": [
@@ -322,7 +361,7 @@
         "code": "BEV-3012-0000",
         "subtitle": "Pano Prizli",
         "badge": "Pano Prizli",
-        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal.",
+        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -362,6 +401,19 @@
                 "value": "EUR 748,00"
               }
             ]
+          },
+          {
+            "group": "Akıllı & Opsiyonel",
+            "items": [
+              {
+                "label": "MID Sayaç",
+                "value": "Opsiyonel (sertifikalı enerji ölçümü)"
+              },
+              {
+                "label": "Mobil Uygulama",
+                "value": "Uzaktan aç/kapa, zaman ayarlayıcı, şarj geçmişi (bağlantılı modeller)"
+              }
+            ]
           }
         ],
         "images": [
@@ -375,7 +427,7 @@
         "code": "BEV-3012-1000",
         "subtitle": "Pano Prizli / GSM Modüllü",
         "badge": "GSM",
-        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için.",
+        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -428,6 +480,19 @@
                 "value": "EUR 874,50"
               }
             ]
+          },
+          {
+            "group": "Akıllı & Opsiyonel",
+            "items": [
+              {
+                "label": "MID Sayaç",
+                "value": "Opsiyonel (sertifikalı enerji ölçümü)"
+              },
+              {
+                "label": "Mobil Uygulama",
+                "value": "Uzaktan aç/kapa, zaman ayarlayıcı, şarj geçmişi (bağlantılı modeller)"
+              }
+            ]
           }
         ],
         "images": [
@@ -455,7 +520,7 @@
         "code": "BEV-3011-1005",
         "subtitle": "5m. Kablolu / GSM Modüllü",
         "badge": "GSM",
-        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için.",
+        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -506,6 +571,19 @@
               {
                 "label": "Liste Fiyatı",
                 "value": "EUR 891,00"
+              }
+            ]
+          },
+          {
+            "group": "Akıllı & Opsiyonel",
+            "items": [
+              {
+                "label": "MID Sayaç",
+                "value": "Opsiyonel (sertifikalı enerji ölçümü)"
+              },
+              {
+                "label": "Mobil Uygulama",
+                "value": "Uzaktan aç/kapa, zaman ayarlayıcı, şarj geçmişi (bağlantılı modeller)"
               }
             ]
           }
@@ -567,6 +645,32 @@
               {
                 "label": "Liste Fiyatı",
                 "value": "€ 286,00"
+              }
+            ]
+          },
+          {
+            "group": "Fiziksel Özellikler",
+            "items": [
+              {
+                "label": "Gövde Malzemesi",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Kablo Tipi",
+                "value": "Tip 2"
+              }
+            ]
+          },
+          {
+            "group": "Çevresel",
+            "items": [
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP65"
+              },
+              {
+                "label": "Çalışma Sıcaklığı",
+                "value": "-40°C / +55°C"
               }
             ]
           }
@@ -634,6 +738,32 @@
               {
                 "label": "Liste Fiyatı",
                 "value": "€ 308,00"
+              }
+            ]
+          },
+          {
+            "group": "Fiziksel Özellikler",
+            "items": [
+              {
+                "label": "Gövde Malzemesi",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Kablo Tipi",
+                "value": "Tip 2"
+              }
+            ]
+          },
+          {
+            "group": "Çevresel",
+            "items": [
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP65"
+              },
+              {
+                "label": "Çalışma Sıcaklığı",
+                "value": "-40°C / +55°C"
               }
             ]
           }
@@ -705,6 +835,32 @@
               {
                 "label": "Liste Fiyatı",
                 "value": "€ 429,00"
+              }
+            ]
+          },
+          {
+            "group": "Fiziksel Özellikler",
+            "items": [
+              {
+                "label": "Gövde Malzemesi",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Kablo Tipi",
+                "value": "Tip 2"
+              }
+            ]
+          },
+          {
+            "group": "Çevresel",
+            "items": [
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP65"
+              },
+              {
+                "label": "Çalışma Sıcaklığı",
+                "value": "-40°C / +55°C"
               }
             ]
           }
@@ -4694,11 +4850,11 @@
     "products": [
       {
         "id": "bevdc-40-1",
-        "code": "BEVDC-40-1",
+        "code": "BEVDCC-4223-0005",
         "name": "BEVDC 40",
         "subtitle": "40kW DC Hızlı Şarj İstasyonu",
         "badge": null,
-        "description": "40 kW tek CCS2 çıkışlı kompakt DC hızlı şarj istasyonu. Kafe, restoran, otel ve şehir içi otopark kurulumları için ideal güç sınıfı; OCPP 1.6J / 2.0.1 desteği, RFID kullanıcı yetkilendirme, IP54 dış mekan kullanımı.",
+        "description": "40 kW tek CCS2 çıkışlı kompakt DC hızlı şarj istasyonu. Kafe, restoran, otel ve şehir içi otopark kurulumları için ideal güç sınıfı; OCPP 1.6J / 2.0.1 desteği, RFID kullanıcı yetkilendirme, IP54 dış mekan kullanımı. Tak-çalıştır kurulum ve uzaktan yönetim ile hızlı devreye alma, güç dengeleme ile araçlar arası akıllı güç paylaşımı ve NFC temassız ödeme desteği sunar.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -4748,6 +4904,10 @@
               {
                 "label": "Bağlantı",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Ödeme Yöntemleri",
+                "value": "RFID / NFC temassız, Kredi/Banka Kartı (CPO), Mobil"
               }
             ]
           },
@@ -4776,6 +4936,36 @@
                 "value": "7.161,00 € (KDV hariç)"
               }
             ]
+          },
+          {
+            "group": "Fiziksel Özellikler",
+            "items": [
+              {
+                "label": "Ölçüler (G×D×Y)",
+                "value": "600 × 320 × 900 mm"
+              },
+              {
+                "label": "Ağırlık",
+                "value": "80 kg"
+              }
+            ]
+          },
+          {
+            "group": "Belgeler & Garanti",
+            "items": [
+              {
+                "label": "Garanti",
+                "value": "2 Yıl Üretici (ek ücretle +3 yıl uzatma imkanı)"
+              },
+              {
+                "label": "Yerli Malı Belgesi",
+                "value": "%94"
+              },
+              {
+                "label": "Sertifika",
+                "value": "CE"
+              }
+            ]
           }
         ],
         "features": [
@@ -4794,11 +4984,11 @@
       },
       {
         "id": "bevdc-80-2",
-        "code": "BEVDC-80-2",
+        "code": "BEVDCC-4321-0005",
         "name": "BEVDC 80",
         "subtitle": "80kW DC Hızlı Şarj İstasyonu",
         "badge": null,
-        "description": "80 kW çift CCS2 çıkışlı DC hızlı şarj istasyonu. İki aracı eş zamanlı şarj eden orta-güç çözümü; AVM otoparkları, kurumsal kampüs ve şehirlerarası ana akslar için. OCPP, RFID, IP54 koruma.",
+        "description": "80 kW çift CCS2 çıkışlı DC hızlı şarj istasyonu. İki aracı eş zamanlı şarj eden orta-güç çözümü; AVM otoparkları, kurumsal kampüs ve şehirlerarası ana akslar için. OCPP, RFID, IP54 koruma. Tak-çalıştır kurulum ve uzaktan yönetim ile hızlı devreye alma, güç dengeleme ile araçlar arası akıllı güç paylaşımı ve NFC temassız ödeme desteği sunar.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -4848,6 +5038,10 @@
               {
                 "label": "Bağlantı",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Ödeme Yöntemleri",
+                "value": "RFID / NFC temassız, Kredi/Banka Kartı (CPO), Mobil"
               }
             ]
           },
@@ -4876,6 +5070,32 @@
                 "value": "15.820,00 € (KDV hariç)"
               }
             ]
+          },
+          {
+            "group": "Fiziksel Özellikler",
+            "items": [
+              {
+                "label": "Ölçüler (G×D×Y)",
+                "value": "693 × 603 × 1865 mm"
+              }
+            ]
+          },
+          {
+            "group": "Belgeler & Garanti",
+            "items": [
+              {
+                "label": "Garanti",
+                "value": "2 Yıl Üretici (ek ücretle +3 yıl uzatma imkanı)"
+              },
+              {
+                "label": "Yerli Malı Belgesi",
+                "value": "%94"
+              },
+              {
+                "label": "Sertifika",
+                "value": "CE"
+              }
+            ]
           }
         ],
         "features": [
@@ -4894,11 +5114,11 @@
       },
       {
         "id": "bevdc-120-1",
-        "code": "BEVDC-120-1",
+        "code": "BEVDCC-4421-0005",
         "name": "BEVDC 120",
         "subtitle": "120kW DC Hızlı Şarj İstasyonu",
         "badge": null,
-        "description": "120 kW tek veya çift CCS2 çıkışlı DC hızlı şarj istasyonu. Yüksek-trafiğe sahip otoyol dinlenme alanları ve filo merkezlerinde 30 dakika içinde önemli menzil sağlar; OCPP, RFID, IP54 koruma.",
+        "description": "120 kW tek veya çift CCS2 çıkışlı DC hızlı şarj istasyonu. Yüksek-trafiğe sahip otoyol dinlenme alanları ve filo merkezlerinde 30 dakika içinde önemli menzil sağlar; OCPP, RFID, IP54 koruma. Tak-çalıştır kurulum ve uzaktan yönetim ile hızlı devreye alma, güç dengeleme ile araçlar arası akıllı güç paylaşımı ve NFC temassız ödeme desteği sunar.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -4948,6 +5168,10 @@
               {
                 "label": "Bağlantı",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Ödeme Yöntemleri",
+                "value": "RFID / NFC temassız, Kredi/Banka Kartı (CPO), Mobil"
               }
             ]
           },
@@ -4965,6 +5189,14 @@
               {
                 "label": "Kurulum",
                 "value": "Dış Mekan"
+              },
+              {
+                "label": "Darbe Dayanımı",
+                "value": "IK10"
+              },
+              {
+                "label": "Ekran",
+                "value": "10\" LCD Kapasitif Dokunmatik"
               }
             ]
           },
@@ -4974,6 +5206,41 @@
               {
                 "label": "Liste Fiyatı",
                 "value": "18.950,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Fiziksel Özellikler",
+            "items": [
+              {
+                "label": "Ölçüler (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Güvenlik",
+            "items": [
+              {
+                "label": "Koruma Fonksiyonları",
+                "value": "Kısa Devre, Aşırı Akım, Aşırı Sıcaklık, Acil Stop, Yüksek/Düşük Çıkış Gerilimi, DC Toprak Kaçak Uyarısı"
+              }
+            ]
+          },
+          {
+            "group": "Belgeler & Garanti",
+            "items": [
+              {
+                "label": "Garanti",
+                "value": "2 Yıl Üretici (ek ücretle +3 yıl uzatma imkanı)"
+              },
+              {
+                "label": "Yerli Malı Belgesi",
+                "value": "%94"
+              },
+              {
+                "label": "Sertifika",
+                "value": "CE"
               }
             ]
           }
@@ -4994,11 +5261,11 @@
       },
       {
         "id": "bevdc-120-2",
-        "code": "BEVDC-120-2",
+        "code": "BEVDCC-4421-0005",
         "name": "BEVDC 120",
         "subtitle": "Çift Soketli · 120kW DC Hızlı Şarj İstasyonu",
         "badge": null,
-        "description": "120 kW tek veya çift CCS2 çıkışlı DC hızlı şarj istasyonu. Yüksek-trafiğe sahip otoyol dinlenme alanları ve filo merkezlerinde 30 dakika içinde önemli menzil sağlar; OCPP, RFID, IP54 koruma.",
+        "description": "120 kW tek veya çift CCS2 çıkışlı DC hızlı şarj istasyonu. Yüksek-trafiğe sahip otoyol dinlenme alanları ve filo merkezlerinde 30 dakika içinde önemli menzil sağlar; OCPP, RFID, IP54 koruma. Tak-çalıştır kurulum ve uzaktan yönetim ile hızlı devreye alma, güç dengeleme ile araçlar arası akıllı güç paylaşımı ve NFC temassız ödeme desteği sunar.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -5048,6 +5315,10 @@
               {
                 "label": "Bağlantı",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Ödeme Yöntemleri",
+                "value": "RFID / NFC temassız, Kredi/Banka Kartı (CPO), Mobil"
               }
             ]
           },
@@ -5065,6 +5336,14 @@
               {
                 "label": "Kurulum",
                 "value": "Dış Mekan"
+              },
+              {
+                "label": "Darbe Dayanımı",
+                "value": "IK10"
+              },
+              {
+                "label": "Ekran",
+                "value": "10\" LCD Kapasitif Dokunmatik"
               }
             ]
           },
@@ -5074,6 +5353,41 @@
               {
                 "label": "Liste Fiyatı",
                 "value": "19.353,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Fiziksel Özellikler",
+            "items": [
+              {
+                "label": "Ölçüler (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Güvenlik",
+            "items": [
+              {
+                "label": "Koruma Fonksiyonları",
+                "value": "Kısa Devre, Aşırı Akım, Aşırı Sıcaklık, Acil Stop, Yüksek/Düşük Çıkış Gerilimi, DC Toprak Kaçak Uyarısı"
+              }
+            ]
+          },
+          {
+            "group": "Belgeler & Garanti",
+            "items": [
+              {
+                "label": "Garanti",
+                "value": "2 Yıl Üretici (ek ücretle +3 yıl uzatma imkanı)"
+              },
+              {
+                "label": "Yerli Malı Belgesi",
+                "value": "%94"
+              },
+              {
+                "label": "Sertifika",
+                "value": "CE"
               }
             ]
           }
@@ -5094,11 +5408,11 @@
       },
       {
         "id": "bevdc-160-2",
-        "code": "BEVDC-160-2",
+        "code": "BEVDCC-4521-0005",
         "name": "BEVDC 160",
         "subtitle": "160kW DC Hızlı Şarj İstasyonu",
         "badge": null,
-        "description": "160 kW çift CCS2 çıkışlı yüksek-güç DC hızlı şarj istasyonu. Otoyol pit-stop ve yoğun ticari filo şarjı için, dinamik güç paylaşımı ile iki aracı maksimum kapasitede besler.",
+        "description": "160 kW çift CCS2 çıkışlı yüksek-güç DC hızlı şarj istasyonu. Otoyol pit-stop ve yoğun ticari filo şarjı için, dinamik güç paylaşımı ile iki aracı maksimum kapasitede besler. Tak-çalıştır kurulum ve uzaktan yönetim ile hızlı devreye alma, güç dengeleme ile araçlar arası akıllı güç paylaşımı ve NFC temassız ödeme desteği sunar.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -5148,6 +5462,10 @@
               {
                 "label": "Bağlantı",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Ödeme Yöntemleri",
+                "value": "RFID / NFC temassız, Kredi/Banka Kartı (CPO), Mobil"
               }
             ]
           },
@@ -5165,6 +5483,14 @@
               {
                 "label": "Kurulum",
                 "value": "Dış Mekan"
+              },
+              {
+                "label": "Darbe Dayanımı",
+                "value": "IK10"
+              },
+              {
+                "label": "Ekran",
+                "value": "10\" LCD Kapasitif Dokunmatik"
               }
             ]
           },
@@ -5174,6 +5500,41 @@
               {
                 "label": "Liste Fiyatı",
                 "value": "23.731,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Fiziksel Özellikler",
+            "items": [
+              {
+                "label": "Ölçüler (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Güvenlik",
+            "items": [
+              {
+                "label": "Koruma Fonksiyonları",
+                "value": "Kısa Devre, Aşırı Akım, Aşırı Sıcaklık, Acil Stop, Yüksek/Düşük Çıkış Gerilimi, DC Toprak Kaçak Uyarısı"
+              }
+            ]
+          },
+          {
+            "group": "Belgeler & Garanti",
+            "items": [
+              {
+                "label": "Garanti",
+                "value": "2 Yıl Üretici (ek ücretle +3 yıl uzatma imkanı)"
+              },
+              {
+                "label": "Yerli Malı Belgesi",
+                "value": "%94"
+              },
+              {
+                "label": "Sertifika",
+                "value": "CE"
               }
             ]
           }
@@ -5194,11 +5555,11 @@
       },
       {
         "id": "bevdc-200-2",
-        "code": "BEVDC-200-2",
+        "code": "BEVDCC-4721-0005",
         "name": "BEVDC 200",
         "subtitle": "200kW DC Hızlı Şarj İstasyonu",
         "badge": null,
-        "description": "200 kW çift CCS2 çıkışlı amiral DC hızlı şarj istasyonu. Otoyol koridoru ve yüksek-trafik istasyon kurulumları için en üst güç sınıfı; ultra hızlı şarj senaryolarında 15-20 dakikada önemli menzil ekler.",
+        "description": "200 kW çift CCS2 çıkışlı amiral DC hızlı şarj istasyonu. Otoyol koridoru ve yüksek-trafik istasyon kurulumları için en üst güç sınıfı; ultra hızlı şarj senaryolarında 15-20 dakikada önemli menzil ekler. Tak-çalıştır kurulum ve uzaktan yönetim ile hızlı devreye alma, güç dengeleme ile araçlar arası akıllı güç paylaşımı ve NFC temassız ödeme desteği sunar.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -5248,6 +5609,10 @@
               {
                 "label": "Bağlantı",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Ödeme Yöntemleri",
+                "value": "RFID / NFC temassız, Kredi/Banka Kartı (CPO), Mobil"
               }
             ]
           },
@@ -5265,6 +5630,14 @@
               {
                 "label": "Kurulum",
                 "value": "Dış Mekan"
+              },
+              {
+                "label": "Darbe Dayanımı",
+                "value": "IK10"
+              },
+              {
+                "label": "Ekran",
+                "value": "10\" LCD Kapasitif Dokunmatik"
               }
             ]
           },
@@ -5274,6 +5647,41 @@
               {
                 "label": "Liste Fiyatı",
                 "value": "27.686,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Fiziksel Özellikler",
+            "items": [
+              {
+                "label": "Ölçüler (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Güvenlik",
+            "items": [
+              {
+                "label": "Koruma Fonksiyonları",
+                "value": "Kısa Devre, Aşırı Akım, Aşırı Sıcaklık, Acil Stop, Yüksek/Düşük Çıkış Gerilimi, DC Toprak Kaçak Uyarısı"
+              }
+            ]
+          },
+          {
+            "group": "Belgeler & Garanti",
+            "items": [
+              {
+                "label": "Garanti",
+                "value": "2 Yıl Üretici (ek ücretle +3 yıl uzatma imkanı)"
+              },
+              {
+                "label": "Yerli Malı Belgesi",
+                "value": "%94"
+              },
+              {
+                "label": "Sertifika",
+                "value": "CE"
               }
             ]
           }

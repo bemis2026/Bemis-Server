@@ -1,6 +1,55 @@
 {
   "documents": [
     {
+      "id": "doc-1783940147818",
+      "title": "bemis ev charge DC sarj cihazı kullanıcı el kitabı",
+      "description": "",
+      "category": "installation",
+      "url": "https://pub-134960785b31499d992cb27aa3b0d652.r2.dev/documents/1783940142450-bemis-ev-charge-DC-sarj-cihazi-kullanici-el-kitabi.pdf",
+      "filename": "bemis-ev-charge-DC-sarj-cihazi-kullanici-el-kitabi.pdf",
+      "size": "1.9 MB",
+      "lang": "tr",
+      "date": "2026-07-13",
+      "visible": true,
+      "linkedProductCategories": [
+        "dc-units"
+      ]
+    },
+    {
+      "id": "doc-1783940179286",
+      "title": "bemis ev charge 2026 broşür",
+      "description": "",
+      "category": "catalog",
+      "url": "https://pub-134960785b31499d992cb27aa3b0d652.r2.dev/documents/1783940173552-bemis-ev-charge-2026-brosur.pdf",
+      "filename": "bemis-ev-charge-2026-brosur.pdf",
+      "size": "2.0 MB",
+      "lang": "tr",
+      "date": "2026-07-13",
+      "visible": true,
+      "linkedProductCategories": [
+        "dc-units",
+        "wallbox",
+        "portable"
+      ]
+    },
+    {
+      "id": "doc-1783940197449",
+      "title": "bemis ev charge 2026 brochure",
+      "description": "",
+      "category": "catalog",
+      "url": "https://pub-134960785b31499d992cb27aa3b0d652.r2.dev/documents/1783940191989-bemis-ev-charge-2026-brochure.pdf",
+      "filename": "bemis-ev-charge-2026-brochure.pdf",
+      "size": "1.9 MB",
+      "lang": "en",
+      "date": "2026-07-13",
+      "visible": true,
+      "linkedProductCategories": [
+        "wallbox",
+        "portable",
+        "dc-units"
+      ]
+    },
+    {
       "id": "doc-1779264262427",
       "title": "E-V Charge Hızlı Kurulum Kılavuzu",
       "description": "Bemis E-V Charge cihazlarının güvenli ve doğru şekilde kurulumu için özetlenmiş kurulum adımlarını içeren tek sayfalık PDF dosyasını buradan indirebilirsiniz.",
@@ -109,18 +158,6 @@
       "size": "1.3 MB",
       "lang": "tr",
       "date": "2026-05-20",
-      "visible": true
-    },
-    {
-      "id": "doc-1779369254380",
-      "title": "Şarj Cihazları Broşürü 2026",
-      "description": "2026 yılına ait elektrikli araç şarj çözümleri broşürü. AC şarj cihazları, mobil şarj çözümleri ve aksesuar ürünlerine ait teknik bilgiler, özellikler ve ürün detaylarını bu dokümanda inceleyebilirsiniz.",
-      "category": "catalog",
-      "url": "https://pub-134960785b31499d992cb27aa3b0d652.r2.dev/documents/1779369249757-elektrikli-arac-urunleri-brosuru-2026.pdf",
-      "filename": "elektrikli-arac-urunleri-brosuru-2026.pdf",
-      "size": "13.0 MB",
-      "lang": "tr",
-      "date": "2026-05-21",
       "visible": true
     },
     {

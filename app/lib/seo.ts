@@ -384,6 +384,11 @@ export function productSchema(opts: {
     .flatMap(g => g.items ?? [])
     .filter(it => it && it.label && it.value)
     .map(it => ({ "@type": "PropertyValue", name: it.label, value: it.value }));
+  // Gövde malzemesi (varsa) → schema.org `material` (ör. taşınabilirlerde "PA6 %30GF").
+  // additionalProperty'de de var ama first-class `material` alanını Google/AI daha iyi tanır.
+  const materialVal = (product.specs ?? [])
+    .flatMap(g => g.items ?? [])
+    .find(it => it?.label && it?.value && /malzeme|material/i.test(it.label))?.value;
   // Gerçek müşteri yorumları → AggregateRating + Review. Yıldız zengin sonucu
   // PRODUCT tipinde çıkar; marka-geneli "4.9/500+" SELF-SERVING olduğu için
   // Organization'a DEĞİL, yalnız gerçek ürün yorumları buraya basılır.
@@ -438,6 +443,9 @@ export function productSchema(opts: {
     ...(product.code && { sku: product.code, mpn: product.code }),
     brand: { "@type": "Brand", name: SITE_NAME },
     manufacturer: { "@id": `${SITE_URL}#organization` },
+    // Menşei: tüm Bemis ürünleri Bursa'da üretiliyor (yerli üretici sinyali — GEO/AI güven).
+    countryOfOrigin: { "@type": "Country", name: "Türkiye" },
+    ...(materialVal && { material: materialVal }),
     ...(categoryName && { category: categoryName }),
     ...(CATEGORY_TERM[categoryId] && {
       about: { "@type": "DefinedTerm", "@id": `${SITE_URL}/sozluk/${CATEGORY_TERM[categoryId]}#definedterm` },
@@ -458,6 +466,12 @@ export function productSchema(opts: {
         priceValidUntil: `${new Date().getFullYear()}-12-31`,
         availability: "https://schema.org/InStock",
         itemCondition: "https://schema.org/NewCondition",
+        // Standart üretici garantisi 2 yıl (DC'de ek ücretle +3 yıl uzatma opsiyonu var;
+        // şemada dahil/standart olanı belirtiyoruz — abartısız, doğru).
+        warranty: {
+          "@type": "WarrantyPromise",
+          durationOfWarranty: { "@type": "QuantitativeValue", value: 2, unitCode: "ANN" },
+        },
         seller: { "@id": `${SITE_URL}#organization` },
         priceSpecification: {
           "@type": "UnitPriceSpecification",

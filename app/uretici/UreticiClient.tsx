@@ -20,7 +20,7 @@ import {
 const BLUE = "#3B82F6";
 
 const BENEFITS = [
-  { icon: RiCpuLine,            title: "Yerli mühendislik & yazılım", text: "Donanım ve gömülü yazılım kendi Ar-Ge ekibimizde geliştirilir — ithal değil, yerli üretim." },
+  { icon: RiCpuLine,            title: "Yerli mühendislik & yazılım", text: "Donanım ve gömülü yazılım kendi Ar-Ge ekibimizde geliştirilir; %94 Yerli Malı Belgesi ile belgeli, ithal değil yerli üretim." },
   { icon: RiCustomerService2Line, title: "Hızlı destek & yedek parça", text: "Üretici doğrudan yanınızda; servis ve yedek parça için aracı/ithalatçı beklemezsiniz." },
   { icon: RiShieldCheckLine,    title: "Sertifikalı kalite",          text: "CE, IP65/IP66, IEC 61851 ve OCPP uyumu — uluslararası standartlarda güvenli cihazlar." },
   { icon: RiGlobalLine,         title: "İhracat tecrübesi",           text: "60+ ülkeye ihracat yapan bir üretim altyapısının güvenilirliği." },

@@ -7,6 +7,8 @@ const FAQ = [
   { q: "Bemis nerede üretim yapıyor?", a: "Bemis, Bursa Organize Sanayi Bölgesi'ndeki 16.000 m² tesisinde, PCB tasarımından gömülü yazılıma ve son teste kadar üretimini kendi bünyesinde yapan yerli bir üreticidir." },
   { q: "Yerli şarj cihazı almak neden avantajlı?", a: "Üreticiden doğrudan tedarik; hızlı teknik destek ve yedek parça, aracı/ithalat marjı olmadan uygun fiyat, ve CE/IP65 gibi sertifikalı yerli mühendislik avantajı sağlar." },
   { q: "Şarj kablolarını da kendiniz mi üretiyorsunuz?", a: "Evet. AC Wallbox ve taşınabilir cihazların yanında Type 2 şarj kabloları, V2L/C2L adaptörler ve aksesuarlar da Bemis tarafından üretilir." },
+  { q: "Elektrikli araç şarj istasyonu (DC) da üretiyor musunuz?", a: "Evet. AC Wallbox ve taşınabilir cihazların yanı sıra 40 kW'tan 200 kW'a kadar DC hızlı şarj istasyonlarını da Bursa'daki tesisimizde üretiyoruz. Bemis, hem ev hem de kamuya açık kullanım için yerli bir elektrikli araç şarj istasyonu üreticisidir." },
+  { q: "Türkiye'de ne zamandır şarj cihazı üretiyorsunuz?", a: "Bemis Teknik Elektrik 1994'ten beri üretim yapan, 30+ yıllık endüstriyel mirasa sahip yerli bir üreticidir. Elektrikli araç şarj cihazları bu köklü altyapıda, 60+ ülkeye ihracat tecrübesiyle Türkiye'de üretilir." },
   { q: "OEM / özel üretim (white-label) yapıyor musunuz?", a: "Evet. Kendi markanızla şarj cihazı, özel etiket ve toplu siparişler için üretim kapasitemizden yararlanabilirsiniz; detaylar için OEM sayfamızla iletişime geçin." },
   { q: "Cihazlar hangi sertifika ve standartlara sahip?", a: "Ürünlerimiz CE, IP65/IP66, IEC 61851, IEC 62196 ve OCPP 1.6J gibi uluslararası standartlara uygun olarak üretilir ve test edilir." },
 ];
@@ -20,6 +22,9 @@ export const metadata: Metadata = {
     "yerli ev şarj üreticisi",
     "yerli şarj kablo üreticisi",
     "elektrikli araç şarj cihazı üreticisi",
+    "elektrikli araç şarj istasyonu üreticisi",
+    "türkiye şarj cihazı üreticisi",
+    "DC şarj istasyonu üreticisi",
     "ev şarj cihazı imalatı",
     "OEM şarj cihazı üretimi",
   ],
