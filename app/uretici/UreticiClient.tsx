@@ -31,7 +31,7 @@ const BENEFITS = [
 const PRODUCTS = [
   { name: "AC Wallbox Şarj İstasyonları", href: "/products/wallbox",  note: "Ev & iş yeri · 7,4–22 kW" },
   { name: "Taşınabilir Şarj Cihazları",   href: "/products/portable", note: "Mobil / seyyar şarj" },
-  { name: "Type 2 Şarj Kabloları",        href: "/products/cables",   note: "Yerli şarj kablosu üretimi" },
+  { name: "Yerli Type 2 Şarj Kabloları",  href: "/products/cables",   note: "Kendi tesisimizde üretim · 3–10 m" },
   { name: "V2L / C2L Adaptörler",         href: "/products/v2l-c2l",  note: "Araçtan elektrik çözümleri" },
   { name: "Aksesuarlar",                  href: "/products/accessories", note: "Tutucu, adaptör, ekipman" },
 ];

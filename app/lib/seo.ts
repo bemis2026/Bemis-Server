@@ -783,9 +783,14 @@ const CATEGORY_SEO: Record<string, { title: string; metaTitle?: string; desc: st
     short: "Taşınabilir Şarj Cihazı",
   },
   cables: {
-    title: "Elektrikli Araç Şarj Kablosu — Type 2",
-    desc: "Elektrikli araç şarj kablosu — Type 2 (Tip 2), 16A/32A, monofaze ve trifaze AC, 3–10 m seçenekler. Aracınıza uygun kabloyu seçin. Bemis yerli üretim, CE & IP65.",
-    short: "Type 2 EV Şarj Kablosu",
+    // "ev şarj kablosu yerli" (2026-07-13): SERP'te hiç çıkmıyorduk — otorite
+    // sorunu DEĞİL (Bemis DR 10 > çıkan rakipler DR 8 ve DR 0); o niyeti
+    // hedefleyen SAYFA yoktu. "Yerli üretim" H1'e + SERP başlığına + desc'in
+    // BAŞINA alındı; short tüm kablo ürün meta'larına "yerli" sinyali taşır.
+    title: "Yerli Üretim Elektrikli Araç Şarj Kablosu — Type 2",
+    metaTitle: "Yerli Üretim Ev Şarj Kablosu — Type 2 (16A/32A)",
+    desc: "Yerli üretim ev şarj kablosu — Type 2 (Tip 2), 16A/32A, monofaze ve trifaze AC, 3–10 m seçenekler. Bemis'in Bursa'daki kendi tesisinde üretilir; CE & IP65.",
+    short: "Yerli Üretim Type 2 Şarj Kablosu",
   },
   "v2l-c2l": {
     title: "V2L / C2L Adaptör — Araçtan Elektrik",
