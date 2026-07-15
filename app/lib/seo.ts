@@ -773,9 +773,14 @@ function clampTitle(text: string, max = 60): string {
 // H1'den bağımsız optimize etmek gerektiğinde metaTitle doldurulur.
 const CATEGORY_SEO: Record<string, { title: string; metaTitle?: string; desc: string; short: string }> = {
   wallbox: {
+    // ⚠️ EŞ ANLAMLI BOŞLUĞU (2026-07-13): "ev tipi", "araba", "evde şarj",
+    // "garantili" sitede SIFIRDI — oysa "ev tipi şarj istasyonu" ve "elektrikli
+    // araba şarj cihazı" en yaygın günlük aramalardan. metaTitle SERP'i hedefler;
+    // H1 (title) DEĞİŞMEDİ.
     title: "Elektrikli Araç Şarj İstasyonu — Wallbox",
-    desc: "Ev şarj ünitesi (AC Wallbox): 7,4–22 kW, Type 2, OCPP uyumlu elektrikli araç şarj istasyonu. Ev ve iş yeri için. Bemis yerli üretim, CE & IP65.",
-    short: "AC Wallbox Şarj İstasyonu",
+    metaTitle: "Ev Tipi Elektrikli Araç Şarj İstasyonu — Wallbox",
+    desc: "Ev tipi elektrikli araç (araba) şarj istasyonu — AC Wallbox: 7,4–22 kW, Type 2, OCPP uyumlu. Evde şarj ve iş yeri için. Bemis yerli üretim, CE & IP65, garantili.",
+    short: "Ev Tipi AC Wallbox Şarj İstasyonu",
   },
   portable: {
     // ⚠️ EŞ ANLAMLI BOŞLUĞU (2026-07-13): "portatif" ve "şarj aleti" sitede
@@ -822,9 +827,13 @@ const CATEGORY_SEO: Record<string, { title: string; metaTitle?: string; desc: st
     short: "EV Şarj Aksesuarı",
   },
   "dc-units": {
+    // ⚠️ Bu sayfa metin açısından en zayıfıydı (taramada tüm varyantlar 0).
+    // "istasyon" (ünite eş anlamlısı), "araba" ve güven kelimeleri eklendi.
+    // metaTitle SERP'i hedefler; H1 (title) DEĞİŞMEDİ.
     title: "DC Hızlı Şarj Üniteleri — CCS2",
-    desc: "Bemis elektrikli araç DC hızlı şarj üniteleri: CCS2, yüksek güçlü hızlı şarj. Yerli üretim — üreticisinden.",
-    short: "DC Hızlı Şarj Ünitesi",
+    metaTitle: "DC Hızlı Şarj İstasyonu — CCS2, 40–200 kW",
+    desc: "Elektrikli araç (araba) DC hızlı şarj istasyonu / ünitesi: CCS2, 40–200 kW. %94 Yerli Malı Belgeli, CE sertifikalı ve garantili üretim — üreticisinden.",
+    short: "DC Hızlı Şarj İstasyonu",
   },
 };
 

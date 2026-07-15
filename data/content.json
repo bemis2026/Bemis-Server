@@ -68,6 +68,10 @@
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075739/products/mkblh61xfa551ewuadj8.png",
       "faq": [
         {
+          "q": "Ev tipi şarj istasyonu, duvar tipi şarj cihazı ve wallbox aynı şey mi?",
+          "a": "Evet, üçü de aynı ürünü tanımlar. Elektrikli arabanızı evde şarj etmek için duvara monte edilen AC şarj cihazına Türkiye'de ev tipi şarj istasyonu, duvar tipi şarj cihazı veya wallbox denir. Bemis'in Charger 2, Charger Plus 2 ve Charger Pro 2 modelleri bu gruptadır; kurulum yetkili bir elektrikçi tarafından yapılır."
+        },
+        {
           "q": "AC Wallbox şarj cihazını evimde nasıl kullanırım?",
           "a": "Bemis AC Wallbox cihazları hem ev hem iş yerlerine duvar tipi olarak kurulur. Müstakil ev veya villada doğrudan ana hat sigortasından çekilen bir besleme hattı yeterlidir. Apartmanda kullanım için bina yönetiminin onayı ve ortak sayaca bağlı bir kurulum planı gereklidir. Yetkili bayimiz keşif sonrası en uygun seçeneği önerir."
         },
@@ -93,7 +97,7 @@
         }
       ],
       "descriptionImage": "",
-      "description": "Ev, iş yeri ve otopark için tasarlanmış AC duvar tipi şarj istasyonları. 7,4 kW – 22 kW arası tek ve üç fazlı modeller; Type 2 soket veya entegre kablo seçenekleriyle elektrikli aracınızı güvenli ve verimli şekilde şarj eder. CE & IP65 sertifikalı, IEC 61851 / IEC 62196 standartlarına uygun.",
+      "description": "Ev tipi (duvar tipi) AC şarj istasyonları — ev, iş yeri ve otopark için. 7,4 kW – 22 kW arası tek ve üç fazlı modeller; Type 2 soket veya entegre kablo seçenekleriyle elektrikli aracınızı (arabanızı) güvenli ve verimli şekilde şarj eder. Evde şarj için ideal; CE & IP65 sertifikalı, IEC 61851 / IEC 62196 standartlarına uygun, %94 Yerli Malı Belgeli ve garantili yerli üretim.",
       "manuals": [
         {
           "id": "manual-1779303159452",
@@ -210,7 +214,7 @@
           "a": "Hayır. V2L üretici tarafından öngörülen bir kullanım modudur; batarya yönetim sistemi (BMS) deşarj derinliğini kontrol eder. Çoğu araç, V2L modunda batarya seviyesini %20'ye indiğinde otomatik kapatır. Sürekli kullanım batarya ömrünü etkilemez."
         }
       ],
-      "description": "Aracın bataryasını (V2L) veya şarj cihazını (C2L) harici güç kaynağına dönüştüren adaptörler. Type 2 girişi ve schuko / Cee çıkışları ile Hyundai, Kia, MG, BYD, Ssangyong ve Skywell gibi V2L destekli araçlarla uyumlu — kamp, atölye ve acil durum senaryoları için.",
+      "description": "Aracın bataryasını (V2L) veya şarj cihazını (C2L) harici güç kaynağına dönüştüren adaptörler. Type 2 girişi ve schuko / Cee çıkışları ile Hyundai, Kia, MG, BYD, Ssangyong ve Skywell gibi V2L destekli araçlarla uyumlu — kamp, atölye ve acil durum senaryoları için. Elektrikli arabanızı seyyar bir güç kaynağına çevirir; kamp, saha ve acil durumlarda pratik çözüm. %94 Yerli Malı Belgeli, CE sertifikalı ve garantili yerli üretim.",
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075755/products/jjaugl6l5h7o20jastmg.png"
     },
     "converters": {
@@ -242,7 +246,7 @@
           "a": "Ev şarjında Schuko (standart Türk prizi), 16A endüstriyel CEE mavi priz, 32A CEE kırmızı üç fazlı priz yaygındır. Halka açık AC noktalarda Type 2 standarttır. DC hızlı şarjda CCS2 (en yaygın) ve CHAdeMO (Nissan/eski araçlar) görülür."
         }
       ],
-      "description": "Mevcut şarj ekipmanını farklı priz tipleri ve uzaklıklara taşıyan uzatma kabloları ve Ceenorm dönüştürücüler. Tek ve üç fazlı 16A – 32A geçişler için tasarlanmış kombinasyon çözümleri.",
+      "description": "Mevcut şarj ekipmanını farklı priz tipleri ve uzaklıklara taşıyan uzatma kabloları ve Ceenorm dönüştürücüler. Tek ve üç fazlı 16A – 32A geçişler için tasarlanmış kombinasyon çözümleri. Elektrikli arabanızın şarj kurulumunu farklı priz ve mesafelere uyarlar. %94 Yerli Malı Belgeli, CE sertifikalı ve garantili yerli üretim.",
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075761/products/f0fshjhhljmvpkcrxxzu.png"
     },
     "charger-equipment": {
@@ -252,7 +256,7 @@
       "badge": null,
       "comingSoon": false,
       "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075211/products/slovarwtn9dt80fx55zc.png",
-      "description": "Yüksek güçlü DC şarj üniteleri için özel üretilmiş tamamen yerli Bemis DC şarj kabloları modüler gövde yapısı sayedinde kırılma durumlarında kolay değişim imkanı sağlar.\nŞarj üniteleri üzerinde kullanılan kilit mekanizmalı pano priz. Özel markalama ve eşsiz tasarımı ile ünitenize tam uygun. Dc şarj ünitelerinde kullanılan DC kabloların boşta asılı durabilmeleri amacıyla üretilen DC Priz Tutucu Aparat bilyalı ve kasaaltına gömülü tasarımı ile ideal bir seçenek olarak öne çıkıyor. Bilyalı yapısı sayesinde kırılma sorunu ortadan kalkmaktadır. Kasa içine gömülü gövde yapısı ile ünite tasarımınız ile tam uyumlu.",
+      "description": "Yüksek güçlü DC şarj üniteleri için özel üretilmiş tamamen yerli Bemis DC şarj kabloları modüler gövde yapısı sayedinde kırılma durumlarında kolay değişim imkanı sağlar.\nŞarj üniteleri üzerinde kullanılan kilit mekanizmalı pano priz. Özel markalama ve eşsiz tasarımı ile ünitenize tam uygun. Dc şarj ünitelerinde kullanılan DC kabloların boşta asılı durabilmeleri amacıyla üretilen DC Priz Tutucu Aparat bilyalı ve kasaaltına gömülü tasarımı ile ideal bir seçenek olarak öne çıkıyor. Bilyalı yapısı sayesinde kırılma sorunu ortadan kalkmaktadır. Kasa içine gömülü gövde yapısı ile ünite tasarımınız ile tam uyumlu. Şarj istasyonu üreticileri ve OEM projeleri için; %94 Yerli Malı Belgeli, CE sertifikalı ve garantili yerli üretim.",
       "faq": [
         {
           "q": "Şarj Ünitesi Ekipmanları kategorisinde ne bulunur?",
@@ -306,7 +310,7 @@
           "a": "Kart kaybolduğunda admin panelinden veya satış ekibimize bildirerek devre dışı bırakılabilir. Yeni bir kart eşleşmesi 5 dakikada tamamlanır. Kayıp kartla yetkisiz kullanım riski ihmal edilebilir; çünkü her kart cihaz kayıt sistemine bağlıdır."
         }
       ],
-      "description": "RFID kartlar, taşıma çantaları ve montaj aksesuarları — bir şarj sahasının operasyonel ve güvenlik ihtiyaçlarını tamamlayan yan ürünler."
+      "description": "RFID kartlar, taşıma çantaları ve montaj aksesuarları — bir şarj sahasının operasyonel ve güvenlik ihtiyaçlarını tamamlayan yan ürünler. Elektrikli araba ve şarj istasyonu kullanımını kolaylaştıran, dayanıklı ve garantili yerli üretim aksesuarlar."
     },
     "dc-units": {
       "name": "DC Şarj Üniteleri",
@@ -337,7 +341,7 @@
           "a": "EPDK'dan şarj hizmeti yönetmeliği kapsamında lisans veya yetki belgesi, OCPP destekli cihaz, EPVIS sistemine entegrasyon, fatura/ödeme altyapısı (Bemis CPO yazılımı veya 3. parti) gereklidir. Yatırım büyüklüğü 1-3 milyon TL arasında değişir; B2B ekibimiz yol haritası hazırlamada destek verir."
         }
       ],
-      "description": "BEVDC serisi DC hızlı şarj üniteleri — 40 kW'tan 200 kW'a kadar tek veya çift CCS2 çıkışlı modeller. OCPP 1.6J / 2.0.1 desteği, RFID kimlik doğrulama, IP54 koruma ve geniş sıcaklık aralığı (-25°C / +55°C) ile ticari saha kullanımına uygun."
+      "description": "BEVDC serisi DC hızlı şarj istasyonları (üniteleri) — 40 kW'tan 200 kW'a kadar tek veya çift CCS2 çıkışlı modeller. Elektrikli araç ve arabaları dakikalar içinde şarj eder; OCPP 1.6J / 2.0.1 desteği, RFID kimlik doğrulama, IP54 koruma ve geniş sıcaklık aralığı (-25°C / +55°C) ile ticari saha kullanımına uygun. %94 Yerli Malı Belgeli, CE sertifikalı ve garantili yerli üretim."
     }
   },
   "featured": [
