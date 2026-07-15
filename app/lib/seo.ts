@@ -778,9 +778,14 @@ const CATEGORY_SEO: Record<string, { title: string; metaTitle?: string; desc: st
     short: "AC Wallbox Şarj İstasyonu",
   },
   portable: {
+    // ⚠️ EŞ ANLAMLI BOŞLUĞU (2026-07-13): "portatif" ve "şarj aleti" sitede
+    // SIFIR kez geçiyordu, "araba" da hiç yoktu (yalnız "araç") → bu aramalarda
+    // çıkmamız imkansızdı. Kullanıcı bu grubu "seyyar / portatif / mobil şarj
+    // aleti" diye de arıyor. metaTitle SERP'i hedefler; H1 (title) DEĞİŞMEDİ.
     title: "Taşınabilir Elektrikli Araç Şarj Cihazı",
-    desc: "Taşınabilir elektrikli araç şarj cihazı: Type 2, monofaze/trifaze, prize tak-şarj et, kurulum yok. Seyahat ve yedek için ideal. Bemis yerli üretim, CE & IP65.",
-    short: "Taşınabilir Şarj Cihazı",
+    metaTitle: "Taşınabilir Şarj Cihazı — Seyyar & Portatif Type 2",
+    desc: "Taşınabilir (seyyar / portatif) elektrikli araç şarj cihazı: Type 2, monofaze/trifaze, prize tak-şarj et, kurulum yok. Seyahat ve yedek için ideal. Bemis yerli üretim, CE & IP65.",
+    short: "Taşınabilir / Seyyar Şarj Cihazı",
   },
   cables: {
     // "ev şarj kablosu yerli" (2026-07-13): SERP'te hiç çıkmıyorduk — otorite

@@ -118,6 +118,10 @@
       "image": "/categories/1775071751364-Gemini_Generated_Image_13f87313f87313f8.png",
       "faq": [
         {
+          "q": "Portatif şarj aleti, seyyar şarj cihazı, taşınabilir şarj — aynı şey mi?",
+          "a": "Evet, hepsi aynı ürün grubunu tanımlar. Türkiye'de bu cihazlar için taşınabilir şarj cihazı, seyyar şarj cihazı, portatif şarj aleti veya mobil şarj ifadeleri birbirinin yerine kullanılır. Bemis'in Mini Mobile, Mono Mobile ve Pro Mobile 2 modelleri bu gruptadır: sabit kurulum ve elektrik tesisatı işi gerektirmeden, mevcut prizden elektrikli arabanızı şarj edersiniz."
+        },
+        {
           "q": "Taşınabilir şarj cihazı normal prizden çalışır mı?",
           "a": "Evet. Bemis Mobile Charger ürünlerimiz hem standart 16A tek fazlı priz hem de 32A endüstriyel tip CEE prizlerle çalışır. Pro modeller üç fazlı 32A prizden 22 kW'a kadar şarj sunar; Mini modeller ise 3.6 kW ile ev tipi prizlere uygundur."
         },
@@ -138,7 +142,7 @@
           "a": "Aracınızı her gün aynı yerde park ediyorsanız sabit wallbox daha hızlı, daha güvenli ve uzun vadede daha ekonomiktir. Sık seyahat ediyorsanız veya birden fazla mekan arasında geçiş yapıyorsanız mobile şarj cihazı daha esnek bir çözümdür. İkisini de almak da yaygın bir tercihtir."
         }
       ],
-      "description": "Kurulum gerektirmeyen taşınabilir AC şarj cihazları — standart prizden veya Cee soketten Type 2 araç soketine kadar. Tek fazlı 2,3 – 7,4 kW ve üç fazlı 11 – 22 kW seçenekleriyle yolda, kampta ve yedek senaryolarda esnek şarj çözümü.",
+      "description": "Kurulum gerektirmeyen taşınabilir (seyyar / portatif) AC şarj cihazları — standart prizden veya Cee soketten Type 2 araç soketine kadar. Tek fazlı 2,3 – 7,4 kW ve üç fazlı 11 – 22 kW seçenekleriyle yolda, kampta ve yedek senaryolarda esnek şarj çözümü. Elektrikli arabanız için yanınızda taşıyabileceğiniz, %94 Yerli Malı Belgeli ve CE sertifikalı yerli üretim.",
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075745/products/phrdrgmnycwteac03l3c.png"
     },
     "cables": {
