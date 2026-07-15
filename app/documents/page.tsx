@@ -130,7 +130,7 @@ export default function DocumentsPage() {
 
       {/* Header */}
       <div className="pt-28 pb-8 px-5 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
           <motion.button
             initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
@@ -241,7 +241,7 @@ export default function DocumentsPage() {
 
       {/* Content */}
       <div className="px-5 sm:px-6 lg:px-8 pb-20">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
           {loading && (
             <div className="flex items-center justify-center py-24">
               <div className="w-8 h-8 rounded-full border-2 border-t-transparent animate-spin"
@@ -304,7 +304,7 @@ function DocGrid({ docs, lang, d, surface, border, textPrimary, textMuted, textF
   textPrimary: string; textMuted: string; textFaint: string;
 }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
       {docs.map((doc, i) => {
         const accent = CAT_ACCENTS[doc.category] ?? "#6B7280";
         const catText = catLabel(doc.category, lang);
