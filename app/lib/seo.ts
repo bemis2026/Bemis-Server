@@ -6,9 +6,13 @@ export const ORG_LEGAL_NAME = "Bemis Teknik Elektrik A.Ş.";
 // doğru anlasın diye Organization şemasına eklenen entity sinyalleri. Tüm değerler
 // doğrulanmış gerçeklere dayanır (1994/tesis = ANA ŞİRKET; EV markası onun markası).
 // sameAs sabit baseline'dır → içerik verisi build'de okunamasa bile her zaman yayında olur.
+// GBP harita linki — İKİ yerde kullanılır: sameAs (entity bağı) + LocalBusiness.hasMap
+// (2026-07-13). hasMap, adres+koordinat zaten varken "yol tarifi"ni doğrudan haritaya
+// bağlayan son parça; AI aramaları (ChatGPT/Perplexity/AI Overviews) konum sorularında bunu okur.
+const ORG_MAP_URL = "https://maps.app.goo.gl/xXSxhLffa5WDA81V7";
 const ORG_SAME_AS = [
   "https://www.wikidata.org/wiki/Q140262626", // Bemis E-V Charge Wikidata varlığı — entity bağı (Google KG + YZ)
-  "https://maps.app.goo.gl/xXSxhLffa5WDA81V7", // Google Business Profile (GBP) — site↔harita kartı entity bağı (yerel SEO)
+  ORG_MAP_URL, // Google Business Profile (GBP) — site↔harita kartı entity bağı (yerel SEO)
   "https://www.linkedin.com/company/104588906",
   "https://www.instagram.com/bemis.evcharge/",
   "https://www.youtube.com/@bemisteknikelektrika.s.2025",
@@ -269,6 +273,9 @@ export function localBusinessSchema(opts: { url: string; areaServed?: string; ge
       latitude: opts.geo?.lat ?? ORG_GEO.lat,
       longitude: opts.geo?.lng ?? ORG_GEO.lng,
     },
+    // Yol tarifi sinyali — adres + koordinat zaten var; hasMap doğrudan GBP
+    // harita kartına bağlar (AI konum sorularının okuduğu son parça).
+    hasMap: ORG_MAP_URL,
     parentOrganization: { "@id": `${SITE_URL}#organization` },
   };
 }
