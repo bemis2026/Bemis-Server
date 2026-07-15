@@ -163,7 +163,7 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
               initial={{ opacity: 0, y: 24, scale: 0.985 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={VIEWPORT}
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="relative rounded-3xl overflow-hidden mb-4"
-              style={{ border: `1px solid ${border}`, aspectRatio: "16 / 7", boxShadow: d ? "0 20px 60px rgba(0,0,0,0.45)" : "0 16px 48px rgba(0,0,0,0.10)" }}
+              style={{ border: `1px solid ${border}`, aspectRatio: "16 / 6", boxShadow: d ? "0 20px 60px rgba(0,0,0,0.45)" : "0 16px 48px rgba(0,0,0,0.10)" }}
             >
               <motion.div
                 className="absolute inset-0"
@@ -172,7 +172,7 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
                 transition={reduce ? undefined : { duration: 16, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
                 style={{ willChange: "transform" }}
               >
-                <Image src={dna.factoryImage} alt="Bemis üretim tesisi — Bursa OSB" fill priority sizes="(max-width:768px) 100vw, 1024px" className="object-cover" />
+                <Image src={dna.factoryImage} alt="Bemis üretim tesisi — Bursa OSB" fill priority sizes="(max-width:768px) 100vw, (max-width:1536px) 1280px, 1600px" className="object-cover" />
               </motion.div>
               <div className="absolute inset-x-0 bottom-0 p-5 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.18) 55%, transparent 100%)" }}>
                 <motion.p
