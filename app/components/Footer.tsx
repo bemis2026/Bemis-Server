@@ -292,6 +292,18 @@ export default function Footer() {
               {/* KVKK sayfaları — kullanıcı metinleri onayladı (2026-07-12); gerçek <a> = taranabilir */}
               <a href="/gizlilik" onClick={e => { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); router.push("/gizlilik"); }} className="transition-colors hover:opacity-70">Gizlilik / KVKK</a>
               <a href="/cerez-politikasi" onClick={e => { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); router.push("/cerez-politikasi"); }} className="transition-colors hover:opacity-70">Çerez Politikası</a>
+              {/* Bemis Grup — kardeş markalar. Basit tutuldu (kullanıcı kararı 2026-07-13):
+                  şemada karmaşık hiyerarşi YOK; Organization.parentOrganization zaten
+                  bemis.com.tr + ana şirket Wikidata bağını taşıyor. Bu satır ziyaretçiye
+                  grup yapısını gösterir; flex-wrap içinde olduğu için footer BÜYÜMEZ.
+                  ⚠️ Bunlar DIŞ link — bize backlink kazandırmaz (asıl kazanç: bemis.com.tr'nin
+                  bize link vermesi, o taraf ayrı sitede yapılmalı). */}
+              <span className="inline-flex items-center gap-2">
+                <span style={{ color: textFainter }}>Bemis Grup:</span>
+                <a href="https://www.bemis.com.tr" target="_blank" rel="noopener" className="transition-colors hover:opacity-70">Bemis Teknik</a>
+                <span style={{ color: textFainter }}>·</span>
+                <a href="https://www.byes.com.tr" target="_blank" rel="noopener" className="transition-colors hover:opacity-70">BYES</a>
+              </span>
             </div>
           </div>
         </div>
