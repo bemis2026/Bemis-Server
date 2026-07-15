@@ -59,7 +59,10 @@ export default function GlossaryClient(props: Props) {
         <>
           <section className="relative overflow-hidden pt-28 pb-8 px-5 sm:px-6 lg:px-8">
             <div aria-hidden className="pointer-events-none absolute -top-24 right-0 w-[480px] h-[480px] rounded-full" style={{ background: `radial-gradient(circle, ${BLUE}12 0%, transparent 70%)`, filter: "blur(40px)" }} />
-            <div className="relative max-w-5xl mx-auto">
+            {/* Geniş ekran (2026-07-13): hero, altındaki terim grid'iyle aynı hizada
+                olsun diye ürün/blog sayfalarıyla aynı desene geçti. İçerideki
+                tanıtım metni kendi max-w-3xl'ini korur (okunabilir satır boyu). */}
+            <div className="relative max-w-7xl 2xl:max-w-[1600px] mx-auto">
               <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>{eyebrow}</motion.div>
               <motion.h1 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.05 }} className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-4" style={{ color: textPrimary }}>
                 {ui.indexTitle}
@@ -72,7 +75,7 @@ export default function GlossaryClient(props: Props) {
           </section>
 
           <section className="py-8 px-5 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
               {props.terms.map((t, i) => (
                 <motion.div key={t.slug} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.4, delay: (i % 3) * 0.05 }}>
                   <Link href={`/sozluk/${t.slug}`} className="block rounded-2xl p-5 h-full transition-transform hover:scale-[1.02]" style={{ background: surface, border: `1px solid ${border}` }}>

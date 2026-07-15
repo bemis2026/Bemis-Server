@@ -299,7 +299,7 @@ export default function ProductDetailPage({
         />
       )}
 
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-24 pb-16">
+      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8 pt-24 pb-16">
 
         {/* Loading */}
         {loading && (
@@ -1023,7 +1023,7 @@ export default function ProductDetailPage({
         const muted = sd ? "rgba(255,255,255,0.60)" : "rgba(0,0,0,0.55)";
         const PURPLE = "#8B5CF6";
         return (
-          <section className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-12">
+          <section className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8 pb-12">
             <div
               className="rounded-3xl p-6 sm:p-8 lg:p-10"
               style={{
@@ -1175,7 +1175,7 @@ export default function ProductDetailPage({
         const sd = theme === "dark";
         const avg = productReviews.reduce((s, r) => s + Math.max(1, Math.min(5, r.rating)), 0) / productReviews.length;
         return (
-          <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-12">
+          <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8 pb-12">
             <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
               <h2 className="text-base font-bold" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
                 {pickText(lang, "Müşteri Yorumları", "Customer Reviews")}
@@ -1235,7 +1235,7 @@ export default function ProductDetailPage({
         if (faq.length === 0) return null;
         const sd = theme === "dark";
         return (
-          <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-12">
+          <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8 pb-12">
             {/* Google rich-snippet payload — only emitted when there's
                 actual content, so empty categories don't pollute SERP. */}
             <JsonLd data={[{
@@ -1313,7 +1313,7 @@ export default function ProductDetailPage({
         };
         return (
           <div className="pb-20">
-            <div className="max-w-7xl mx-auto mb-4 px-5 sm:px-6 lg:px-8">
+            <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto mb-4 px-5 sm:px-6 lg:px-8">
               <h2 className="text-base font-bold" style={{ color: theme === "dark" ? "#f0f0f4" : "#111827" }}>{pickText(lang, "Benzer Ürünler", "Related Products")}</h2>
             </div>
             {/* Carousel runs edge-to-edge so it never visually clips at

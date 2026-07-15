@@ -100,7 +100,12 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
 
   return (
     <div className="pt-28 pb-20 px-5 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto wide-content">
+      {/* Geniş ekran (2026-07-13): eskiden `max-w-5xl mx-auto wide-content` idi →
+          1280–1512px ekranlarda 1024px'te takılıp ortada toplanıyordu (wide-content
+          yalnız ≥1536px'te 1360px veriyor). Ürün/döküman sayfalarıyla AYNI desene
+          geçildi. ⚠️ `wide-content` KALDIRILDI: `.wide-content.mx-auto` özgüllüğü
+          (0,2,0) Tailwind'in 2xl:max-w-[1600px]'ini (0,1,0) ezip 1360px'e sabitliyordu. */}
+      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
         <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: BLUE }}>Bemis E-V Charge · Blog</p>
         <h1 className="text-3xl sm:text-4xl font-black mb-3" style={{ color: textPrimary }}>{pickText(lang, "Blog & Haberler", "Blog & News")}</h1>
         <p className="text-sm sm:text-base mb-6 max-w-2xl" style={{ color: textMuted }}>
@@ -109,8 +114,12 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
             : "EV şarjı üzerine pratik rehberler ile Bemis E-V Charge hakkında güncel haberler ve fuar paylaşımları."}
         </p>
 
-        {/* Sekmeler — Rehberler / Haberler & Fuarlar */}
-        <div className="flex flex-wrap gap-2 mb-8" role="tablist">
+        {/* Sekmeler — Rehberler / Haberler & Fuarlar (+ yanında Sözlük linki).
+            ⚠️ Sözlük bir SEKME DEĞİL, ayrı sayfaya gider → role="tablist" İÇİNE
+            konulmaz (tablist yalnız tab içermeli). Dış flex sarmalayıcı ile
+            görsel olarak aynı satırda, aynı stilde duruyor. */}
+        <div className="flex flex-wrap items-center gap-2 mb-8">
+        <div className="flex flex-wrap gap-2" role="tablist">
           {tabs.map((t) => {
             const active = tab === t.k;
             return (
@@ -132,9 +141,18 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
             );
           })}
         </div>
+          {/* Şarj Sözlüğü — sekmelerle aynı stil (pasif sekme görünümü) */}
+          <Link
+            href="/sozluk"
+            className="px-4 py-2 rounded-xl text-sm font-bold transition-all hover:opacity-80"
+            style={{ background: surface, color: textMuted, border: `1px solid ${border}` }}
+          >
+            {pickText(lang, "Şarj Sözlüğü", "Glossary")}
+          </Link>
+        </div>
 
         {tab === "rehberler" ? (
-          <div className="grid sm:grid-cols-2 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
             {posts.map((p, i) => (
               <motion.div key={p.slug} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.06 }}>
                 <Link href={`/blog/${p.slug}`} className="block rounded-2xl overflow-hidden h-full transition-transform hover:-translate-y-0.5"
@@ -174,7 +192,7 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
             <p className="text-sm py-10" style={{ color: textMuted }}>{pickText(lang, "Henüz soru-cevap eklenmemiş.", "No questions yet.")}</p>
           )
         ) : (
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
             {press.map((it) => {
               const meta = PRESS_META[it.type];
               return (

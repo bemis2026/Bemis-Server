@@ -110,7 +110,7 @@ export default function KurumsalPage() {
               : "linear-gradient(160deg, #f2f2f2 0%, #f8f8f8 100%)",
           }}
         >
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
             <div className="grid lg:grid-cols-2 gap-10 items-center">
               <div>
                 <motion.span
@@ -244,7 +244,7 @@ export default function KurumsalPage() {
              reads beside it. Stacks on mobile. */}
         {(aboutVideoId || (dna.groupBrands && dna.groupBrands.length > 0)) && (
           <div className="pt-12 pb-2 px-5 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto grid lg:grid-cols-5 gap-6 items-stretch">
+            <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto grid lg:grid-cols-5 gap-6 items-stretch">
               {aboutVideoId && (
                 <motion.div
                   initial={{ opacity: 0, y: 18 }}
@@ -449,7 +449,7 @@ export default function KurumsalPage() {
 
         {/* ── Timeline (full-width, horizontal "journey" map) ── */}
         <div className="py-16 px-5 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
             <div className="mb-10">
               <span
                 className="inline-block text-[10px] font-bold tracking-[0.20em] uppercase px-3 py-1.5 rounded-full mb-4"
