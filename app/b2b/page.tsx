@@ -122,7 +122,7 @@ export default function B2BPage() {
             />
           </>
         )}
-        <div className="relative z-10 max-w-7xl mx-auto wide-content px-5 sm:px-8">
+        <div className="relative z-10 max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
             <div className="flex items-center gap-2.5 mb-4">
               <RiShieldCheckLine style={{ color: AMBER, fontSize: 14 }} />
@@ -167,9 +167,11 @@ export default function B2BPage() {
           need on first scroll is a clear "what we do" statement, not
           a wall of case-study tiles. */}
       <section style={{ background: bg, borderBottom: `1px solid ${border}`, padding: "52px 0" }}>
-        {/* wide-content: geniş ekranda (≥1536px) diğer bölümlerle aynı 1360px'e
-            genişler (eskiden max-w-6xl'de sıkışıp görsel dar kalıyordu). */}
-        <div className="max-w-7xl mx-auto wide-content px-5 sm:px-8">
+        {/* Geniş ekran (2026-07-13): Kurumsal 3 sayfası (b2b/bayilik/operator)
+            blog/sözlük/ürün ile aynı 1600px desenine geçti. ⚠️ `wide-content`
+            KALDIRILDI: `.wide-content.mx-auto` özgüllüğü (0,2,0) Tailwind'in
+            2xl:max-w-[1600px]'ini (0,1,0) ezip 1360px'e sabitliyordu. */}
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-8">
           {/* Görsel-ağırlıklı 12'li ızgara (görsel 7/12 ≈ %58, metin 5/12) —
               geniş ekranda görsel belirgin/büyük dursun (50/50 hâlâ küçük
               geliyordu); metin başlık+paragraflar için yeterli genişlikte kalır. */}
@@ -267,7 +269,7 @@ export default function B2BPage() {
         if (resolved.length === 0) return null;
         return (
           <section style={{ background: bgSub, borderBottom: `1px solid ${border}`, padding: "56px 0" }}>
-            <div className="max-w-7xl mx-auto wide-content px-5 sm:px-8">
+            <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-8">
               <div className="mb-8">
                 <div className="flex items-center gap-2 mb-2">
                   <RiBuilding2Line style={{ color: AMBER, fontSize: 14 }} />

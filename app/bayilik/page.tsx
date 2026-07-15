@@ -155,7 +155,7 @@ export default function BayilikPage() {
             />
           </>
         )}
-        <div className="relative z-10 max-w-7xl mx-auto wide-content px-5 sm:px-8">
+        <div className="relative z-10 max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
             <div className="flex items-center gap-2.5 mb-4">
               <span className="w-1 h-4 rounded-full" style={{ background: GREEN }} />
