@@ -389,7 +389,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
         <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
-          <button className="flex-shrink-0 focus:outline-none" onClick={() => handleNavClick("#hero")} aria-label="Ana sayfa">
+          <button className="flex-shrink-0 focus:outline-none" onClick={() => handleNavClick("#hero")} aria-label={pickText(lang, "Ana sayfa", "Home")}>
             <Image src={logoSrc} alt="Bemis E-V Charge" width={200} height={64}
               className="h-11 sm:h-14 w-auto object-contain block" style={{ filter: logoFilter }} priority />
           </button>
@@ -710,7 +710,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
 
           {/* Right actions */}
           <div className="hidden lg:flex items-center gap-2">
-            <button onClick={onSearchOpen} aria-label="Site içinde ara" className={`p-2 rounded-lg transition-colors ${iconBtnClass}`}>
+            <button onClick={onSearchOpen} aria-label={pickText(lang, "Site içinde ara", "Search the site")} className={`p-2 rounded-lg transition-colors ${iconBtnClass}`}>
               <HiSearch size={18} />
             </button>
             <button onClick={toggle} className={`p-2 rounded-lg transition-colors ${iconBtnClass}`}>
@@ -772,9 +772,9 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
               border={langBorder} activeBg={langActiveBg} activeColor={langActiveColor} idleColor={langIdleColor}
               panelBg={langPanelBg} panelBorder={langPanelBorder} panelText={langPanelText}
             />
-            <button onClick={onSearchOpen} aria-label="Site içinde ara" className={`p-2 rounded-lg ${mobileIconClass}`}><HiSearch size={17} /></button>
+            <button onClick={onSearchOpen} aria-label={pickText(lang, "Site içinde ara", "Search the site")} className={`p-2 rounded-lg ${mobileIconClass}`}><HiSearch size={17} /></button>
             <button onClick={toggle} className={`p-2 rounded-lg ${mobileIconClass}`}>{isDark ? <HiSun size={17} /> : <HiMoon size={17} />}</button>
-            <button onClick={() => setMobileOpen(!mobileOpen)} aria-label={mobileOpen ? "Menüyü kapat" : "Menüyü aç"} aria-expanded={mobileOpen} className={`p-2 ${mobileIconClass}`}>
+            <button onClick={() => setMobileOpen(!mobileOpen)} aria-label={mobileOpen ? pickText(lang, "Menüyü kapat", "Close menu") : pickText(lang, "Menüyü aç", "Open menu")} aria-expanded={mobileOpen} className={`p-2 ${mobileIconClass}`}>
               {mobileOpen ? <HiX size={22} /> : <HiMenuAlt3 size={22} />}
             </button>
           </div>

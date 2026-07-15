@@ -57,3 +57,18 @@ export function promptLangName(code: LangCode): string {
   const m = BY_CODE[code];
   return m ? `${m.english} (${m.native})` : code;
 }
+
+/**
+ * İçeriği YALNIZ İngilizce yazılmış sayfalar. Buralarda menü/footer de İngilizce
+ * gösterilir — aksi halde İngilizce gövdenin etrafında Türkçe menü çıkıyor
+ * (yabancı alıcı için tutarsız; /export reklamlarının iniş sayfası).
+ *
+ * ⚠️ Bu bir GÖRÜNÜM zorlaması, tercih DEĞİL: LanguageContext bunu localStorage'a
+ * YAZMAZ → sayfadan çıkan Türk ziyaretçi kendi dilinde devam eder. Ziyaretçi bu
+ * sayfadayken seçiciden dil seçerse onun seçimi kazanır.
+ */
+export const ENGLISH_ONLY_PATHS: readonly string[] = ["/export"];
+
+export function isEnglishOnlyPath(pathname: string | null | undefined): boolean {
+  return !!pathname && ENGLISH_ONLY_PATHS.includes(pathname);
+}
