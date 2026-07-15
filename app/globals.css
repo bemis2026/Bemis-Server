@@ -695,15 +695,13 @@ html[data-theme="light"] .calc-slider::-webkit-slider-thumb { border-color: rgba
   .reviews-blob { animation: none !important; }
 }
 
-/* İçerik sayfaları (/üretici, blog listesi …) bölüm çerçeveleri max-w-5xl (1024px)
-   → geniş ekranda "ortada toplanıp" iki yanda çok boş bırakıyordu. `wide-content`
-   işaretli konteynerler ≥1536px'de anasayfa mantığıyla 1360'a genişler (Hakkımızda
-   ile aynı, kullanıcı onaylı ölçek) + ortalı. Dizüstü/normal ekran DEĞİŞMEZ (1024).
-   Gövde metni max-w-3xl/2xl kullandığından okunabilirlik korunur (sadece çerçeve
-   genişler). `.wide-content.mx-auto` (özgüllük 0,2,0) Tailwind max-w-5xl'i (0,1,0) geçer. */
-@media (min-width: 1536px) {
-  .wide-content.mx-auto { max-width: 1360px; }
-}
+/* `wide-content` (≥1536px'de 1360px) 2026-07-13'te KALDIRILDI: site artık geniş
+   ekranda TEK genişlik konvansiyonu kullanıyor — `max-w-7xl 2xl:max-w-[1600px]`
+   (listeler, ürünler, kurumsal VE pazarlama landing'leri). Kullanıcı iki düzenin
+   canlı önizlemesini görüp 1600'ü seçti (sayfa geçişinde içerik kenarı zıplamasın).
+   ⚠️ Sınıfı geri getirme: `.wide-content.mx-auto` özgüllüğü (0,2,0) Tailwind'in
+   `2xl:max-w-[1600px]`ini (0,1,0) sessizce EZER. Okunabilirlik gövde metnindeki
+   max-w-3xl (768px) ile korunur — o konteynerlere dokunma. */
 
 /* ContentErrorToast giriş animasyonu — styled-jsx'ten taşındı (W3C: gövdede
    <style> geçersizdi). Toast'ın inline animation'ı bu adı kullanır. */
