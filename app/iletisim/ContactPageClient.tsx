@@ -86,7 +86,7 @@ export default function ContactPageClient() {
           className="pointer-events-none absolute -top-24 right-0 w-[480px] h-[480px] rounded-full"
           style={{ background: `radial-gradient(circle, ${BLUE}12 0%, transparent 70%)`, filter: "blur(40px)" }}
         />
-        <div className="relative max-w-5xl mx-auto wide-content">
+        <div className="relative max-w-7xl mx-auto wide-content">
           <motion.p
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -126,7 +126,7 @@ export default function ContactPageClient() {
       </section>
 
       <section className="py-8 px-5 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto wide-content">
+        <div className="max-w-7xl mx-auto wide-content">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
