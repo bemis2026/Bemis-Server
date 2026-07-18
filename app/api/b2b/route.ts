@@ -42,7 +42,10 @@ export async function GET(req: NextRequest) {
   let bin: any = null;
   try { bin = await readBin("b2b") as Rec; } catch {}
 
-  const tr = bin ? mergeDeep(localData, stripTranslations(bin) as Rec) : localData;
+  // ⚠️ localData'nın _translations'ı da soyulmalı — eskiden bin-null dalında ham
+  // _translations bloğu HER yanıta sızıyordu (payload şişkinliği; 2026-07-18).
+  const localClean = stripTranslations(localData) as Rec;
+  const tr = bin ? mergeDeep(localClean, stripTranslations(bin) as Rec) : localClean;
 
   if (lang === "tr") return NextResponse.json(tr);
 
@@ -54,6 +57,13 @@ export async function GET(req: NextRequest) {
   let enFromBin: any = overlayLang ? (bin?._translations?.[overlayLang] ?? null) : null;
   if (!enFromBin && overlayLang) {
     try { enFromBin = JSON.parse(readFileSync(path.join(process.cwd(), "data", `b2b-${overlayLang}.json`), "utf-8")); } catch {}
+  }
+  // Son çare: repo b2b.json'a GÖMÜLÜ _translations (EN'in tek kaynağı burası —
+  // ayrı b2b-en.json hiç olmadı; R2'de b2b bin'i de yokken EN, TR olarak
+  // sızıyordu: kullanıcı /b2b EN'de Türkçe hero gördü, 2026-07-18).
+  if (!enFromBin && overlayLang) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    enFromBin = (localData as any)?._translations?.[overlayLang] ?? null;
   }
   if (!enFromBin) return NextResponse.json(tr);
 
