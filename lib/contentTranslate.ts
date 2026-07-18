@@ -102,10 +102,16 @@ type Visit = { path: string; getter: () => string; setter: (v: string) => void }
 
 function walkPath(root: Any, path: string, visits: Visit[]) {
   const parts = path.split(".");
-  walk(root, parts, 0, visits);
+  walk(root, parts, 0, visits, "");
 }
 
-function walk(node: Any, parts: string[], i: number, visits: Visit[]) {
+// ⚠️ `prefix` = köke kadar TAM yol ("navbar.links[3].label" gibi). Eskiden Visit.path
+// yalnız SON parçayı taşıyordu ("label") ve diff eşlemesi POZİSYONLA yapılıyordu —
+// herhangi bir dizi uzayınca (yeni SSS/hero görseli/haber) sonraki tüm ziyaretler
+// kayıyor, her alan KOMŞUSUNUN eski çevirisini "değişmemiş" sanıp devralıyordu
+// (2026-07: navbar'a footer metni, dealer başlığına paragraf... 94 bozuk alan).
+// Tam yol = kararlı kimlik → eşleme artık yolla yapılır (bkz. translateContent).
+function walk(node: Any, parts: string[], i: number, visits: Visit[], prefix: string) {
   if (node == null) return;
   if (i >= parts.length) return;
   const seg = parts[i];
@@ -119,7 +125,7 @@ function walk(node: Any, parts: string[], i: number, visits: Visit[]) {
       arr.forEach((v, idx) => {
         if (typeof v === "string") {
           visits.push({
-            path: `${key}[${idx}]`,
+            path: `${prefix}${key}[${idx}]`,
             getter: () => arr[idx],
             setter: (s: string) => { arr[idx] = s; },
           });
@@ -127,13 +133,19 @@ function walk(node: Any, parts: string[], i: number, visits: Visit[]) {
       });
       return;
     }
-    arr.forEach((_, idx) => walk(arr[idx], parts, i + 1, visits));
+    arr.forEach((item, idx) => {
+      // Dizi öğesinin kalıcı kimliği varsa (id) yolu ona bağla — araya öğe
+      // eklense bile mevcut öğelerin çevirisi korunur; yoksa indeks kullan.
+      const idPart = item && typeof item === "object" && typeof item.id === "string" && item.id
+        ? `[id=${item.id}]` : `[${idx}]`;
+      walk(item, parts, i + 1, visits, `${prefix}${key}${idPart}.`);
+    });
     return;
   }
 
   if (seg === "*") {
     if (typeof node !== "object") return;
-    for (const k of Object.keys(node)) walk(node[k], parts, i + 1, visits);
+    for (const k of Object.keys(node)) walk(node[k], parts, i + 1, visits, `${prefix}${k}.`);
     return;
   }
 
@@ -141,7 +153,7 @@ function walk(node: Any, parts: string[], i: number, visits: Visit[]) {
     const v = node[seg];
     if (typeof v === "string") {
       visits.push({
-        path: seg,
+        path: `${prefix}${seg}`,
         getter: () => node[seg],
         setter: (s: string) => { node[seg] = s; },
       });
@@ -149,7 +161,7 @@ function walk(node: Any, parts: string[], i: number, visits: Visit[]) {
     return;
   }
 
-  walk(node[seg], parts, i + 1, visits);
+  walk(node[seg], parts, i + 1, visits, `${prefix}${seg}.`);
 }
 
 function collectVisits(root: Any, paths: string[] = TRANSLATABLE_PATHS): Visit[] {
@@ -175,17 +187,22 @@ export async function translateContent(
   const clone: Any = JSON.parse(JSON.stringify(tr));
   const visits = collectVisits(clone, paths);
 
-  // For diffing, we need the same visit order on prevTr and prevEn.
-  const prevTrVisits = prevTr ? collectVisits(JSON.parse(JSON.stringify(prevTr)), paths) : [];
-  const prevEnVisits = prevEn ? collectVisits(JSON.parse(JSON.stringify(prevEn)), paths) : [];
+  // ⚠️ Eşleme TAM YOL anahtarıyla — POZİSYONLA DEĞİL. Pozisyonel eşleme, bir dizi
+  // uzadığında tüm sonraki alanlara komşularının eski çevirisini bulaştırıyordu
+  // (kayma hastalığı). Yol eşleşmezse alan yeniden çevrilir: en kötü sonuç fazladan
+  // bir çeviri çağrısı, asla yanlış metin.
+  const prevTrByPath = new Map<string, string>();
+  if (prevTr) for (const v of collectVisits(JSON.parse(JSON.stringify(prevTr)), paths)) prevTrByPath.set(v.path, v.getter());
+  const prevEnByPath = new Map<string, string>();
+  if (prevEn) for (const v of collectVisits(JSON.parse(JSON.stringify(prevEn)), paths)) prevEnByPath.set(v.path, v.getter());
 
   const toTranslateIdx: number[] = [];
   const toTranslateText: string[] = [];
 
   visits.forEach((v, idx) => {
     const trVal = v.getter();
-    const prevTrVal = prevTrVisits[idx]?.getter();
-    const prevEnVal = prevEnVisits[idx]?.getter();
+    const prevTrVal = prevTrByPath.get(v.path);
+    const prevEnVal = prevEnByPath.get(v.path);
 
     // If prev TR matches and prev EN exists, reuse — saves API calls.
     if (prevTrVal != null && prevEnVal != null && prevTrVal === trVal) {

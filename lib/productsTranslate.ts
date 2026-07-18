@@ -32,9 +32,13 @@ const TRANSLATABLE_PATHS: string[] = [
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Any = any;
 
-type Visit = { getter: () => string; setter: (v: string) => void };
+type Visit = { path: string; getter: () => string; setter: (v: string) => void };
 
-function walk(node: Any, parts: string[], i: number, visits: Visit[]) {
+// ⚠️ `prefix` = TAM yol; diff eşlemesi eskiden POZİSYONLA yapılıyordu — bir kategoriye
+// ürün eklendiğinde sonraki TÜM alanlar kayıp komşularının çevirisini devralıyordu
+// (2026-07-02 "EN kategoriler +1 kaymıştı" olayının gerçek kökü). Dizi öğeleri kalıcı
+// `id`lerine bağlanır ([id=charger-2-kablolu]) → araya ekleme mevcut çevirileri bozmaz.
+function walk(node: Any, parts: string[], i: number, visits: Visit[], prefix: string) {
   if (node == null) return;
   if (i >= parts.length) return;
   const seg = parts[i];
@@ -47,6 +51,7 @@ function walk(node: Any, parts: string[], i: number, visits: Visit[]) {
       arr.forEach((v, idx) => {
         if (typeof v === "string") {
           visits.push({
+            path: `${prefix}${key}[${idx}]`,
             getter: () => arr[idx],
             setter: (s: string) => { arr[idx] = s; },
           });
@@ -54,7 +59,11 @@ function walk(node: Any, parts: string[], i: number, visits: Visit[]) {
       });
       return;
     }
-    arr.forEach((_, idx) => walk(arr[idx], parts, i + 1, visits));
+    arr.forEach((item, idx) => {
+      const idPart = item && typeof item === "object" && typeof item.id === "string" && item.id
+        ? `[id=${item.id}]` : `[${idx}]`;
+      walk(item, parts, i + 1, visits, `${prefix}${key}${idPart}.`);
+    });
     return;
   }
 
@@ -62,6 +71,7 @@ function walk(node: Any, parts: string[], i: number, visits: Visit[]) {
     const v = node[seg];
     if (typeof v === "string") {
       visits.push({
+        path: `${prefix}${seg}`,
         getter: () => node[seg],
         setter: (s: string) => { node[seg] = s; },
       });
@@ -69,12 +79,12 @@ function walk(node: Any, parts: string[], i: number, visits: Visit[]) {
     return;
   }
 
-  walk(node[seg], parts, i + 1, visits);
+  walk(node[seg], parts, i + 1, visits, `${prefix}${seg}.`);
 }
 
 function collectVisits(root: Any): Visit[] {
   const all: Visit[] = [];
-  for (const p of TRANSLATABLE_PATHS) walk(root, p.split("."), 0, all);
+  for (const p of TRANSLATABLE_PATHS) walk(root, p.split("."), 0, all, "");
   return all;
 }
 
@@ -86,16 +96,19 @@ export async function translateProducts(
 ): Promise<Any[]> {
   const clone: Any[] = JSON.parse(JSON.stringify(tr));
   const visits = collectVisits(clone);
-  const prevTrVisits = prevTr ? collectVisits(JSON.parse(JSON.stringify(prevTr))) : [];
-  const prevEnVisits = prevEn ? collectVisits(JSON.parse(JSON.stringify(prevEn))) : [];
+  // Eşleme TAM YOL anahtarıyla (id-bağlı) — pozisyonel kayma hastalığına karşı.
+  const prevTrByPath = new Map<string, string>();
+  if (prevTr) for (const v of collectVisits(JSON.parse(JSON.stringify(prevTr)))) prevTrByPath.set(v.path, v.getter());
+  const prevEnByPath = new Map<string, string>();
+  if (prevEn) for (const v of collectVisits(JSON.parse(JSON.stringify(prevEn)))) prevEnByPath.set(v.path, v.getter());
 
   const toTranslateIdx: number[] = [];
   const toTranslateText: string[] = [];
 
   visits.forEach((v, idx) => {
     const trVal = v.getter();
-    const prevTrVal = prevTrVisits[idx]?.getter();
-    const prevEnVal = prevEnVisits[idx]?.getter();
+    const prevTrVal = prevTrByPath.get(v.path);
+    const prevEnVal = prevEnByPath.get(v.path);
 
     if (prevTrVal != null && prevEnVal != null && prevTrVal === trVal) {
       v.setter(prevEnVal);
