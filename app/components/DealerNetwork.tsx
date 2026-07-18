@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { HiArrowRight, HiPhone, HiLocationMarker, HiMail, HiUser, HiClock, HiExternalLink, HiX } from "react-icons/hi";
 import { RiMapPin2Line, RiWhatsappLine, RiGlobalLine, RiAwardLine, RiCustomerService2Line, RiArrowDownSLine, RiCheckLine } from "react-icons/ri";
 import { useContent } from "../context/ContentContext";
@@ -94,15 +95,45 @@ export default function DealerNetwork() {
   // kullanıcı yalnızca bir şehre odaklanabilir. Bölge değişince reset.
   const [cityFilter, setCityFilter] = useState<string | null>(null);
   // Modern bölge seçici (native <select> yerine tasarım odaklı özel dropdown).
+  // ⚠️ Açılır liste PORTAL ile <body>'ye taşınır: bu bölüm SectionWrapper'ın
+  // `contain: layout style paint`'i içinde; absolute/fixed dropdown o kutuya
+  // KIRPILIYORDU ("liste tam görünmüyor, alt bölümün altında kalıyor"). Portal
+  // containment'tan kaçar; konum trigger rect'inden hesaplanıp scroll/resize'da
+  // güncellenir.
   const [regionOpen, setRegionOpen] = useState(false);
   const regionMenuRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const menuNodeRef = useRef<HTMLDivElement>(null);
+  const [menuPos, setMenuPos] = useState<{ top: number; left: number; width: number } | null>(null);
   useEffect(() => {
     if (!regionOpen) return;
-    const onDown = (e: MouseEvent) => { if (regionMenuRef.current && !regionMenuRef.current.contains(e.target as Node)) setRegionOpen(false); };
+    // Dış tık: tetikleyici sarmalayıcı VEYA portal düğümü içindeyse kapatma
+    // (portal <body>'de olduğu için regionMenuRef onu içermez).
+    const onDown = (e: MouseEvent) => {
+      const t = e.target as Node;
+      if (regionMenuRef.current?.contains(t) || menuNodeRef.current?.contains(t)) return;
+      setRegionOpen(false);
+    };
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setRegionOpen(false); };
     document.addEventListener("mousedown", onDown);
     document.addEventListener("keydown", onKey);
     return () => { document.removeEventListener("mousedown", onDown); document.removeEventListener("keydown", onKey); };
+  }, [regionOpen]);
+  // Portal konumu: trigger'ın altına yerleş; scroll/resize'da yeniden hesapla;
+  // trigger ekrandan çıkarsa listeyi kapat (havada asılı kalmasın).
+  useEffect(() => {
+    if (!regionOpen) return;
+    const place = () => {
+      const el = triggerRef.current;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight) { setRegionOpen(false); return; }
+      setMenuPos({ top: r.bottom + 6, left: r.left, width: r.width });
+    };
+    place();
+    window.addEventListener("scroll", place, true);
+    window.addEventListener("resize", place);
+    return () => { window.removeEventListener("scroll", place, true); window.removeEventListener("resize", place); };
   }, [regionOpen]);
   // Tabs: yurtici = Turkey SVG map, yurtdisi = 3D globe with international markets.
   const [viewMode, setViewMode] = useState<"yurtici" | "yurtdisi">("yurtici");
@@ -544,6 +575,7 @@ export default function DealerNetwork() {
 
                   {/* Tetikleyici buton */}
                   <button
+                    ref={triggerRef}
                     type="button"
                     onClick={() => setRegionOpen((o) => !o)}
                     aria-haspopup="listbox"
@@ -575,14 +607,18 @@ export default function DealerNetwork() {
                       çıkış-animasyonlu düğümü opacity:0'da DOM'da bırakıyordu
                       (görünmez ama tıklamayı yutan katman = bug). Koşullu mount
                       kapanınca ANINDA unmount eder; giriş animasyonu korunur. */}
-                  {regionOpen && (
+                  {regionOpen && menuPos && typeof document !== "undefined" && createPortal(
                       <motion.div
+                        ref={menuNodeRef}
                         role="listbox"
                         initial={{ opacity: 0, y: -6, scale: 0.98 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
-                        className="absolute left-3.5 right-3.5 top-full z-30 mt-1.5 rounded-xl overflow-hidden p-1.5"
+                        className="rounded-xl overflow-hidden p-1.5"
                         style={{
+                          position: "fixed",
+                          top: menuPos.top, left: menuPos.left, width: menuPos.width,
+                          zIndex: 9999,
                           background: d ? "#1a1a22" : "#ffffff",
                           border: `1px solid ${d ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.10)"}`,
                           boxShadow: d ? "0 12px 36px rgba(0,0,0,0.55)" : "0 12px 36px rgba(0,0,0,0.14)",
@@ -629,7 +665,8 @@ export default function DealerNetwork() {
                             </button>
                           );
                         })}
-                      </motion.div>
+                      </motion.div>,
+                      document.body
                   )}
                 </div>
               );

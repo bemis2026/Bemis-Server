@@ -300,6 +300,10 @@ export default function Footer() {
                   bize link vermesi, o taraf ayrı sitede yapılmalı). */}
               <span className="inline-flex items-center gap-2">
                 <span style={{ color: textFainter }}>Bemis Grup:</span>
+                {/* Kendi markamız — basınca anasayfa (SPA, aynı sekme). Kardeş
+                    markalar (Bemis Teknik / BYES) dış site → yeni sekme. */}
+                <a href="/" onClick={e => { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); router.push("/"); }} className="transition-colors hover:opacity-70">Bemis E-V Charge</a>
+                <span style={{ color: textFainter }}>·</span>
                 <a href="https://www.bemis.com.tr" target="_blank" rel="noopener" className="transition-colors hover:opacity-70">Bemis Teknik</a>
                 <span style={{ color: textFainter }}>·</span>
                 <a href="https://www.byes.com.tr" target="_blank" rel="noopener" className="transition-colors hover:opacity-70">BYES</a>
