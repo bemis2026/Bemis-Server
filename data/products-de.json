@@ -172,7 +172,7 @@
             "items": [
               {
                 "label": "Ausgang",
-                "value": "5 m Kabel"
+                "value": "5m. Kablolu"
               },
               {
                 "label": "Stecker",
@@ -186,6 +186,19 @@
               {
                 "label": "Listenpreis",
                 "value": "EUR 649,00"
+              }
+            ]
+          },
+          {
+            "group": "Intelligent & Optional",
+            "items": [
+              {
+                "label": "Automatischer Ladestart",
+                "value": "Ja — automatischer Neustart alle 3 Min. nach einem Stromausfall"
+              },
+              {
+                "label": "MID-Zähler",
+                "value": "Optional (zertifizierte Energiemessung)"
               }
             ]
           }
@@ -255,6 +268,19 @@
                 "value": "EUR 632,50"
               }
             ]
+          },
+          {
+            "group": "Intelligent & Optional",
+            "items": [
+              {
+                "label": "Automatischer Ladestart",
+                "value": "Ja — automatischer Neustart alle 3 Min. nach einem Stromausfall"
+              },
+              {
+                "label": "MID-Zähler",
+                "value": "Optional (zertifizierte Energiemessung)"
+              }
+            ]
           }
         ],
         "images": [
@@ -306,7 +332,7 @@
             "items": [
               {
                 "label": "Ausgang",
-                "value": "5 m Kabel"
+                "value": "5m. Kablolu"
               },
               {
                 "label": "Stecker",
@@ -333,6 +359,19 @@
               {
                 "label": "Listenpreis",
                 "value": "EUR 775,50"
+              }
+            ]
+          },
+          {
+            "group": "Intelligent & Optional",
+            "items": [
+              {
+                "label": "Automatischer Ladestart",
+                "value": "Ja — automatischer Neustart alle 3 Min. nach einem Stromausfall"
+              },
+              {
+                "label": "MID-Zähler",
+                "value": "Optional (zertifizierte Energiemessung)"
               }
             ]
           }
@@ -415,6 +454,19 @@
                 "value": "EUR 759,00"
               }
             ]
+          },
+          {
+            "group": "Intelligent & Optional",
+            "items": [
+              {
+                "label": "Automatischer Ladestart",
+                "value": "Ja — automatischer Neustart alle 3 Min. nach einem Stromausfall"
+              },
+              {
+                "label": "MID-Zähler",
+                "value": "Optional (zertifizierte Energiemessung)"
+              }
+            ]
           }
         ],
         "images": [
@@ -466,7 +518,7 @@
             "items": [
               {
                 "label": "Ausgang",
-                "value": "5 m Kabel"
+                "value": "5m. Kablolu"
               },
               {
                 "label": "Stecker",
@@ -493,6 +545,19 @@
               {
                 "label": "Listenpreis",
                 "value": "EUR 875,50"
+              }
+            ]
+          },
+          {
+            "group": "Intelligent & Optional",
+            "items": [
+              {
+                "label": "Automatischer Ladestart",
+                "value": "Ja — automatischer Neustart alle 3 Min. nach einem Stromausfall"
+              },
+              {
+                "label": "MID-Zähler",
+                "value": "Integriert (eingebauter zertifizierter MID-Energiezähler)"
               }
             ]
           }
@@ -575,6 +640,19 @@
                 "value": "EUR 859,00"
               }
             ]
+          },
+          {
+            "group": "Intelligent & Optional",
+            "items": [
+              {
+                "label": "Automatischer Ladestart",
+                "value": "Ja — automatischer Neustart alle 3 Min. nach einem Stromausfall"
+              },
+              {
+                "label": "MID-Zähler",
+                "value": "Integriert (eingebauter zertifizierter MID-Energiezähler)"
+              }
+            ]
           }
         ],
         "images": [
@@ -626,7 +704,7 @@
             "items": [
               {
                 "label": "Ausgang",
-                "value": "5 m Kabel"
+                "value": "5m. Kablolu"
               },
               {
                 "label": "Stecker",
@@ -640,6 +718,19 @@
               {
                 "label": "Listenpreis",
                 "value": "EUR 764,50"
+              }
+            ]
+          },
+          {
+            "group": "Intelligent & Optional",
+            "items": [
+              {
+                "label": "MID-Zähler",
+                "value": "Optional (zertifizierte Energiemessung)"
+              },
+              {
+                "label": "Mobile App",
+                "value": "Fernein-/-ausschalten, Timer, Ladeverlauf (vernetzte Modelle)"
               }
             ]
           }
@@ -712,6 +803,19 @@
               {
                 "label": "Listenpreis",
                 "value": "EUR 748,00"
+              }
+            ]
+          },
+          {
+            "group": "Intelligent & Optional",
+            "items": [
+              {
+                "label": "MID-Zähler",
+                "value": "Optional (zertifizierte Energiemessung)"
+              },
+              {
+                "label": "Mobile App",
+                "value": "Fernein-/-ausschalten, Timer, Ladeverlauf (vernetzte Modelle)"
               }
             ]
           }
@@ -793,6 +897,19 @@
                 "value": "EUR 874,50"
               }
             ]
+          },
+          {
+            "group": "Intelligent & Optional",
+            "items": [
+              {
+                "label": "MID-Zähler",
+                "value": "Optional (zertifizierte Energiemessung)"
+              },
+              {
+                "label": "Mobile App",
+                "value": "Fernein-/-ausschalten, Timer, Ladeverlauf (vernetzte Modelle)"
+              }
+            ]
           }
         ],
         "images": [
@@ -848,7 +965,7 @@
             "items": [
               {
                 "label": "Ausgang",
-                "value": "5 m Kabel"
+                "value": "5m. Kablolu"
               },
               {
                 "label": "Stecker",
@@ -875,6 +992,19 @@
               {
                 "label": "Listenpreis",
                 "value": "EUR 891,00"
+              }
+            ]
+          },
+          {
+            "group": "Intelligent & Optional",
+            "items": [
+              {
+                "label": "MID-Zähler",
+                "value": "Optional (zertifizierte Energiemessung)"
+              },
+              {
+                "label": "Mobile App",
+                "value": "Fernein-/-ausschalten, Timer, Ladeverlauf (vernetzte Modelle)"
               }
             ]
           }
@@ -927,7 +1057,7 @@
             "items": [
               {
                 "label": "Ausgang",
-                "value": "5 m Kabel"
+                "value": "5m. Kablolu"
               },
               {
                 "label": "Stecker",
@@ -954,6 +1084,19 @@
               {
                 "label": "Listenpreis",
                 "value": "EUR 991,00"
+              }
+            ]
+          },
+          {
+            "group": "Intelligent & Optional",
+            "items": [
+              {
+                "label": "MID-Zähler",
+                "value": "Integriert (eingebauter zertifizierter MID-Energiezähler)"
+              },
+              {
+                "label": "Mobile App",
+                "value": "Fernein-/-ausschalten, Timer, Ladeverlauf (vernetzte Modelle)"
               }
             ]
           }
@@ -1035,6 +1178,19 @@
                 "value": "EUR 974,50"
               }
             ]
+          },
+          {
+            "group": "Intelligent & Optional",
+            "items": [
+              {
+                "label": "MID-Zähler",
+                "value": "Integriert (eingebauter zertifizierter MID-Energiezähler)"
+              },
+              {
+                "label": "Mobile App",
+                "value": "Fernein-/-ausschalten, Timer, Ladeverlauf (vernetzte Modelle)"
+              }
+            ]
           }
         ],
         "images": [
@@ -1114,6 +1270,32 @@
                 "value": "€ 286,00"
               }
             ]
+          },
+          {
+            "group": "Physikalische Eigenschaften",
+            "items": [
+              {
+                "label": "Gehäusematerial",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Kabeltyp",
+                "value": "Tip 2"
+              }
+            ]
+          },
+          {
+            "group": "Umgebung",
+            "items": [
+              {
+                "label": "Schutzklasse",
+                "value": "IP65"
+              },
+              {
+                "label": "Betriebstemperatur",
+                "value": "-40°C / +55°C"
+              }
+            ]
           }
         ],
         "images": [
@@ -1179,6 +1361,32 @@
               {
                 "label": "Listenpreis",
                 "value": "€ 308,00"
+              }
+            ]
+          },
+          {
+            "group": "Physikalische Eigenschaften",
+            "items": [
+              {
+                "label": "Gehäusematerial",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Kabeltyp",
+                "value": "Tip 2"
+              }
+            ]
+          },
+          {
+            "group": "Umgebung",
+            "items": [
+              {
+                "label": "Schutzklasse",
+                "value": "IP65"
+              },
+              {
+                "label": "Betriebstemperatur",
+                "value": "-40°C / +55°C"
               }
             ]
           }
@@ -1254,6 +1462,32 @@
               {
                 "label": "Listenpreis",
                 "value": "€ 429,00"
+              }
+            ]
+          },
+          {
+            "group": "Physikalische Eigenschaften",
+            "items": [
+              {
+                "label": "Gehäusematerial",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Kabeltyp",
+                "value": "Tip 2"
+              }
+            ]
+          },
+          {
+            "group": "Umgebung",
+            "items": [
+              {
+                "label": "Schutzklasse",
+                "value": "IP65"
+              },
+              {
+                "label": "Betriebstemperatur",
+                "value": "-40°C / +55°C"
               }
             ]
           }
@@ -5308,6 +5542,10 @@
               {
                 "label": "Anschluss",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Zahlungsmethoden",
+                "value": "RFID / NFC kontaktlos, Kredit-/Debitkarte (CPO), Mobil"
               }
             ]
           },
@@ -5333,7 +5571,37 @@
             "items": [
               {
                 "label": "Listenpreis",
-                "value": "7.161,00 € (zzgl. MwSt.)"
+                "value": "7.161,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Physikalische Eigenschaften",
+            "items": [
+              {
+                "label": "Abmessungen (G×D×Y)",
+                "value": "600 × 320 × 900 mm"
+              },
+              {
+                "label": "Gewicht",
+                "value": "80 kg"
+              }
+            ]
+          },
+          {
+            "group": "Dokumente & Garantie",
+            "items": [
+              {
+                "label": "Garantie",
+                "value": "2 Jahre Hersteller (optionale Verlängerung um +3 Jahre gegen Aufpreis)"
+              },
+              {
+                "label": "Zertifikat für einheimische Produktion",
+                "value": "%94"
+              },
+              {
+                "label": "Zertifizierung",
+                "value": "CE"
               }
             ]
           }
@@ -5411,6 +5679,10 @@
               {
                 "label": "Anschluss",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Zahlungsmethoden",
+                "value": "RFID / NFC kontaktlos, Kredit-/Debitkarte (CPO), Mobil"
               }
             ]
           },
@@ -5436,7 +5708,33 @@
             "items": [
               {
                 "label": "Listenpreis",
-                "value": "15.820,00 € (zzgl. MwSt.)"
+                "value": "15.820,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Physikalische Eigenschaften",
+            "items": [
+              {
+                "label": "Abmessungen (G×D×Y)",
+                "value": "693 × 603 × 1865 mm"
+              }
+            ]
+          },
+          {
+            "group": "Dokumente & Garantie",
+            "items": [
+              {
+                "label": "Garantie",
+                "value": "2 Jahre Hersteller (optionale Verlängerung um +3 Jahre gegen Aufpreis)"
+              },
+              {
+                "label": "Zertifikat für einheimische Produktion",
+                "value": "%94"
+              },
+              {
+                "label": "Zertifizierung",
+                "value": "CE"
               }
             ]
           }
@@ -5514,6 +5812,10 @@
               {
                 "label": "Anschluss",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Zahlungsmethoden",
+                "value": "RFID / NFC kontaktlos, Kredit-/Debitkarte (CPO), Mobil"
               }
             ]
           },
@@ -5531,6 +5833,14 @@
               {
                 "label": "Installation",
                 "value": "Außenbereich"
+              },
+              {
+                "label": "Schlagfestigkeit",
+                "value": "IK10"
+              },
+              {
+                "label": "Display",
+                "value": "10\" LCD kapazitiver Touchscreen"
               }
             ]
           },
@@ -5539,7 +5849,42 @@
             "items": [
               {
                 "label": "Listenpreis",
-                "value": "18.950,00 € (zzgl. MwSt.)"
+                "value": "18.950,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Physikalische Eigenschaften",
+            "items": [
+              {
+                "label": "Abmessungen (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Sicherheit",
+            "items": [
+              {
+                "label": "Schutzfunktionen",
+                "value": "Kurzschluss, Überstrom, Übertemperatur, Not-Aus, Hohe/Niedrige Ausgangsspannung, DC-Erdschlusswarnung"
+              }
+            ]
+          },
+          {
+            "group": "Dokumente & Garantie",
+            "items": [
+              {
+                "label": "Garantie",
+                "value": "2 Jahre Hersteller (optionale Verlängerung um +3 Jahre gegen Aufpreis)"
+              },
+              {
+                "label": "Zertifikat für einheimische Produktion",
+                "value": "%94"
+              },
+              {
+                "label": "Zertifizierung",
+                "value": "CE"
               }
             ]
           }
@@ -5618,6 +5963,10 @@
               {
                 "label": "Anschluss",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Zahlungsmethoden",
+                "value": "RFID / NFC kontaktlos, Kredit-/Debitkarte (CPO), Mobil"
               }
             ]
           },
@@ -5635,6 +5984,14 @@
               {
                 "label": "Installation",
                 "value": "Außenbereich"
+              },
+              {
+                "label": "Schlagfestigkeit",
+                "value": "IK10"
+              },
+              {
+                "label": "Display",
+                "value": "10\" LCD kapazitiver Touchscreen"
               }
             ]
           },
@@ -5643,7 +6000,42 @@
             "items": [
               {
                 "label": "Listenpreis",
-                "value": "19.353,00 € (zzgl. MwSt.)"
+                "value": "19.353,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Physikalische Eigenschaften",
+            "items": [
+              {
+                "label": "Abmessungen (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Sicherheit",
+            "items": [
+              {
+                "label": "Schutzfunktionen",
+                "value": "Kurzschluss, Überstrom, Übertemperatur, Not-Aus, Hohe/Niedrige Ausgangsspannung, DC-Erdschlusswarnung"
+              }
+            ]
+          },
+          {
+            "group": "Dokumente & Garantie",
+            "items": [
+              {
+                "label": "Garantie",
+                "value": "2 Jahre Hersteller (optionale Verlängerung um +3 Jahre gegen Aufpreis)"
+              },
+              {
+                "label": "Zertifikat für einheimische Produktion",
+                "value": "%94"
+              },
+              {
+                "label": "Zertifizierung",
+                "value": "CE"
               }
             ]
           }
@@ -5722,6 +6114,10 @@
               {
                 "label": "Anschluss",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Zahlungsmethoden",
+                "value": "RFID / NFC kontaktlos, Kredit-/Debitkarte (CPO), Mobil"
               }
             ]
           },
@@ -5739,6 +6135,14 @@
               {
                 "label": "Installation",
                 "value": "Außenbereich"
+              },
+              {
+                "label": "Schlagfestigkeit",
+                "value": "IK10"
+              },
+              {
+                "label": "Display",
+                "value": "10\" LCD kapazitiver Touchscreen"
               }
             ]
           },
@@ -5747,7 +6151,42 @@
             "items": [
               {
                 "label": "Listenpreis",
-                "value": "23.731,00 € (zzgl. MwSt.)"
+                "value": "23.731,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Physikalische Eigenschaften",
+            "items": [
+              {
+                "label": "Abmessungen (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Sicherheit",
+            "items": [
+              {
+                "label": "Schutzfunktionen",
+                "value": "Kurzschluss, Überstrom, Übertemperatur, Not-Aus, Hohe/Niedrige Ausgangsspannung, DC-Erdschlusswarnung"
+              }
+            ]
+          },
+          {
+            "group": "Dokumente & Garantie",
+            "items": [
+              {
+                "label": "Garantie",
+                "value": "2 Jahre Hersteller (optionale Verlängerung um +3 Jahre gegen Aufpreis)"
+              },
+              {
+                "label": "Zertifikat für einheimische Produktion",
+                "value": "%94"
+              },
+              {
+                "label": "Zertifizierung",
+                "value": "CE"
               }
             ]
           }
@@ -5826,6 +6265,10 @@
               {
                 "label": "Anschluss",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Zahlungsmethoden",
+                "value": "RFID / NFC kontaktlos, Kredit-/Debitkarte (CPO), Mobil"
               }
             ]
           },
@@ -5843,6 +6286,14 @@
               {
                 "label": "Installation",
                 "value": "Außenbereich"
+              },
+              {
+                "label": "Schlagfestigkeit",
+                "value": "IK10"
+              },
+              {
+                "label": "Display",
+                "value": "10\" LCD kapazitiver Touchscreen"
               }
             ]
           },
@@ -5851,7 +6302,42 @@
             "items": [
               {
                 "label": "Listenpreis",
-                "value": "27.686,00 € (zzgl. MwSt.)"
+                "value": "27.686,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Physikalische Eigenschaften",
+            "items": [
+              {
+                "label": "Abmessungen (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Sicherheit",
+            "items": [
+              {
+                "label": "Schutzfunktionen",
+                "value": "Kurzschluss, Überstrom, Übertemperatur, Not-Aus, Hohe/Niedrige Ausgangsspannung, DC-Erdschlusswarnung"
+              }
+            ]
+          },
+          {
+            "group": "Dokumente & Garantie",
+            "items": [
+              {
+                "label": "Garantie",
+                "value": "2 Jahre Hersteller (optionale Verlängerung um +3 Jahre gegen Aufpreis)"
+              },
+              {
+                "label": "Zertifikat für einheimische Produktion",
+                "value": "%94"
+              },
+              {
+                "label": "Zertifizierung",
+                "value": "CE"
               }
             ]
           }

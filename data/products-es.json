@@ -172,7 +172,7 @@
             "items": [
               {
                 "label": "Salida",
-                "value": "Con cable de 5 m"
+                "value": "5m. Kablolu"
               },
               {
                 "label": "Conector",
@@ -186,6 +186,19 @@
               {
                 "label": "Precio de lista",
                 "value": "EUR 649,00"
+              }
+            ]
+          },
+          {
+            "group": "Inteligente y opcional",
+            "items": [
+              {
+                "label": "Inicio automático de carga",
+                "value": "Sí — reinicio automático cada 3 min tras un corte de energía"
+              },
+              {
+                "label": "Contador MID",
+                "value": "Opcional (medición de energía certificada)"
               }
             ]
           }
@@ -255,6 +268,19 @@
                 "value": "EUR 632,50"
               }
             ]
+          },
+          {
+            "group": "Inteligente y opcional",
+            "items": [
+              {
+                "label": "Inicio automático de carga",
+                "value": "Sí — reinicio automático cada 3 min tras un corte de energía"
+              },
+              {
+                "label": "Contador MID",
+                "value": "Opcional (medición de energía certificada)"
+              }
+            ]
           }
         ],
         "images": [
@@ -306,7 +332,7 @@
             "items": [
               {
                 "label": "Salida",
-                "value": "Con cable de 5 m"
+                "value": "5m. Kablolu"
               },
               {
                 "label": "Conector",
@@ -333,6 +359,19 @@
               {
                 "label": "Precio de lista",
                 "value": "EUR 775,50"
+              }
+            ]
+          },
+          {
+            "group": "Inteligente y opcional",
+            "items": [
+              {
+                "label": "Inicio automático de carga",
+                "value": "Sí — reinicio automático cada 3 min tras un corte de energía"
+              },
+              {
+                "label": "Contador MID",
+                "value": "Opcional (medición de energía certificada)"
               }
             ]
           }
@@ -415,6 +454,19 @@
                 "value": "EUR 759,00"
               }
             ]
+          },
+          {
+            "group": "Inteligente y opcional",
+            "items": [
+              {
+                "label": "Inicio automático de carga",
+                "value": "Sí — reinicio automático cada 3 min tras un corte de energía"
+              },
+              {
+                "label": "Contador MID",
+                "value": "Opcional (medición de energía certificada)"
+              }
+            ]
           }
         ],
         "images": [
@@ -466,7 +518,7 @@
             "items": [
               {
                 "label": "Salida",
-                "value": "Con cable de 5 m"
+                "value": "5m. Kablolu"
               },
               {
                 "label": "Conector",
@@ -493,6 +545,19 @@
               {
                 "label": "Precio de lista",
                 "value": "EUR 875,50"
+              }
+            ]
+          },
+          {
+            "group": "Inteligente y opcional",
+            "items": [
+              {
+                "label": "Inicio automático de carga",
+                "value": "Sí — reinicio automático cada 3 min tras un corte de energía"
+              },
+              {
+                "label": "Contador MID",
+                "value": "Integrado (contador de energía MID certificado incorporado)"
               }
             ]
           }
@@ -575,6 +640,19 @@
                 "value": "EUR 859,00"
               }
             ]
+          },
+          {
+            "group": "Inteligente y opcional",
+            "items": [
+              {
+                "label": "Inicio automático de carga",
+                "value": "Sí — reinicio automático cada 3 min tras un corte de energía"
+              },
+              {
+                "label": "Contador MID",
+                "value": "Integrado (contador de energía MID certificado incorporado)"
+              }
+            ]
           }
         ],
         "images": [
@@ -626,7 +704,7 @@
             "items": [
               {
                 "label": "Salida",
-                "value": "Con cable de 5 m"
+                "value": "5m. Kablolu"
               },
               {
                 "label": "Conector",
@@ -640,6 +718,19 @@
               {
                 "label": "Precio de lista",
                 "value": "EUR 764,50"
+              }
+            ]
+          },
+          {
+            "group": "Inteligente y opcional",
+            "items": [
+              {
+                "label": "Contador MID",
+                "value": "Opcional (medición de energía certificada)"
+              },
+              {
+                "label": "Aplicación móvil",
+                "value": "Encendido/apagado remoto, temporizador, historial de carga (modelos conectados)"
               }
             ]
           }
@@ -712,6 +803,19 @@
               {
                 "label": "Precio de lista",
                 "value": "EUR 748,00"
+              }
+            ]
+          },
+          {
+            "group": "Inteligente y opcional",
+            "items": [
+              {
+                "label": "Contador MID",
+                "value": "Opcional (medición de energía certificada)"
+              },
+              {
+                "label": "Aplicación móvil",
+                "value": "Encendido/apagado remoto, temporizador, historial de carga (modelos conectados)"
               }
             ]
           }
@@ -793,6 +897,19 @@
                 "value": "EUR 874,50"
               }
             ]
+          },
+          {
+            "group": "Inteligente y opcional",
+            "items": [
+              {
+                "label": "Contador MID",
+                "value": "Opcional (medición de energía certificada)"
+              },
+              {
+                "label": "Aplicación móvil",
+                "value": "Encendido/apagado remoto, temporizador, historial de carga (modelos conectados)"
+              }
+            ]
           }
         ],
         "images": [
@@ -848,7 +965,7 @@
             "items": [
               {
                 "label": "Salida",
-                "value": "Con cable de 5 m"
+                "value": "5m. Kablolu"
               },
               {
                 "label": "Conector",
@@ -875,6 +992,19 @@
               {
                 "label": "Precio de lista",
                 "value": "EUR 891,00"
+              }
+            ]
+          },
+          {
+            "group": "Inteligente y opcional",
+            "items": [
+              {
+                "label": "Contador MID",
+                "value": "Opcional (medición de energía certificada)"
+              },
+              {
+                "label": "Aplicación móvil",
+                "value": "Encendido/apagado remoto, temporizador, historial de carga (modelos conectados)"
               }
             ]
           }
@@ -927,7 +1057,7 @@
             "items": [
               {
                 "label": "Salida",
-                "value": "Con cable de 5 m"
+                "value": "5m. Kablolu"
               },
               {
                 "label": "Conector",
@@ -954,6 +1084,19 @@
               {
                 "label": "Precio de lista",
                 "value": "EUR 991,00"
+              }
+            ]
+          },
+          {
+            "group": "Inteligente y opcional",
+            "items": [
+              {
+                "label": "Contador MID",
+                "value": "Integrado (contador de energía MID certificado incorporado)"
+              },
+              {
+                "label": "Aplicación móvil",
+                "value": "Encendido/apagado remoto, temporizador, historial de carga (modelos conectados)"
               }
             ]
           }
@@ -1035,6 +1178,19 @@
                 "value": "EUR 974,50"
               }
             ]
+          },
+          {
+            "group": "Inteligente y opcional",
+            "items": [
+              {
+                "label": "Contador MID",
+                "value": "Integrado (contador de energía MID certificado incorporado)"
+              },
+              {
+                "label": "Aplicación móvil",
+                "value": "Encendido/apagado remoto, temporizador, historial de carga (modelos conectados)"
+              }
+            ]
           }
         ],
         "images": [
@@ -1114,6 +1270,32 @@
                 "value": "€ 286,00"
               }
             ]
+          },
+          {
+            "group": "Características físicas",
+            "items": [
+              {
+                "label": "Material de la carcasa",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Tipo de cable",
+                "value": "Tip 2"
+              }
+            ]
+          },
+          {
+            "group": "Ambiental",
+            "items": [
+              {
+                "label": "Clase de protección",
+                "value": "IP65"
+              },
+              {
+                "label": "Temperatura de funcionamiento",
+                "value": "-40°C / +55°C"
+              }
+            ]
           }
         ],
         "images": [
@@ -1179,6 +1361,32 @@
               {
                 "label": "Precio de lista",
                 "value": "€ 308,00"
+              }
+            ]
+          },
+          {
+            "group": "Características físicas",
+            "items": [
+              {
+                "label": "Material de la carcasa",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Tipo de cable",
+                "value": "Tip 2"
+              }
+            ]
+          },
+          {
+            "group": "Ambiental",
+            "items": [
+              {
+                "label": "Clase de protección",
+                "value": "IP65"
+              },
+              {
+                "label": "Temperatura de funcionamiento",
+                "value": "-40°C / +55°C"
               }
             ]
           }
@@ -1254,6 +1462,32 @@
               {
                 "label": "Precio de lista",
                 "value": "€ 429,00"
+              }
+            ]
+          },
+          {
+            "group": "Características físicas",
+            "items": [
+              {
+                "label": "Material de la carcasa",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Tipo de cable",
+                "value": "Tip 2"
+              }
+            ]
+          },
+          {
+            "group": "Ambiental",
+            "items": [
+              {
+                "label": "Clase de protección",
+                "value": "IP65"
+              },
+              {
+                "label": "Temperatura de funcionamiento",
+                "value": "-40°C / +55°C"
               }
             ]
           }
@@ -5303,11 +5537,15 @@
               },
               {
                 "label": "Autenticación de usuario",
-                "value": "Tarjeta RFID + aplicación móvil"
+                "value": "Tarjeta RFID + Aplicación móvil"
               },
               {
                 "label": "Conexión",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Métodos de pago",
+                "value": "RFID / NFC sin contacto, tarjeta de crédito/débito (CPO), móvil"
               }
             ]
           },
@@ -5333,7 +5571,37 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "7.161,00 € (IVA no incluido)"
+                "value": "7.161,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Características físicas",
+            "items": [
+              {
+                "label": "Dimensiones (G×D×Y)",
+                "value": "600 × 320 × 900 mm"
+              },
+              {
+                "label": "Peso",
+                "value": "80 kg"
+              }
+            ]
+          },
+          {
+            "group": "Documentos y garantía",
+            "items": [
+              {
+                "label": "Garantía",
+                "value": "2 años de fabricante (opción de ampliación de +3 años con coste adicional)"
+              },
+              {
+                "label": "Certificado de producción nacional",
+                "value": "%94"
+              },
+              {
+                "label": "Certificación",
+                "value": "CE"
               }
             ]
           }
@@ -5406,11 +5674,15 @@
               },
               {
                 "label": "Autenticación de usuario",
-                "value": "Tarjeta RFID + aplicación móvil"
+                "value": "Tarjeta RFID + Aplicación móvil"
               },
               {
                 "label": "Conexión",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Métodos de pago",
+                "value": "RFID / NFC sin contacto, tarjeta de crédito/débito (CPO), móvil"
               }
             ]
           },
@@ -5436,7 +5708,33 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "15.820,00 € (IVA no incluido)"
+                "value": "15.820,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Características físicas",
+            "items": [
+              {
+                "label": "Dimensiones (G×D×Y)",
+                "value": "693 × 603 × 1865 mm"
+              }
+            ]
+          },
+          {
+            "group": "Documentos y garantía",
+            "items": [
+              {
+                "label": "Garantía",
+                "value": "2 años de fabricante (opción de ampliación de +3 años con coste adicional)"
+              },
+              {
+                "label": "Certificado de producción nacional",
+                "value": "%94"
+              },
+              {
+                "label": "Certificación",
+                "value": "CE"
               }
             ]
           }
@@ -5509,11 +5807,15 @@
               },
               {
                 "label": "Autenticación de usuario",
-                "value": "Tarjeta RFID + aplicación móvil"
+                "value": "Tarjeta RFID + Aplicación móvil"
               },
               {
                 "label": "Conexión",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Métodos de pago",
+                "value": "RFID / NFC sin contacto, tarjeta de crédito/débito (CPO), móvil"
               }
             ]
           },
@@ -5531,6 +5833,14 @@
               {
                 "label": "Instalación",
                 "value": "Exterior"
+              },
+              {
+                "label": "Resistencia a impactos",
+                "value": "IK10"
+              },
+              {
+                "label": "Pantalla",
+                "value": "LCD táctil capacitiva de 10\""
               }
             ]
           },
@@ -5539,7 +5849,42 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "18.950,00 € (IVA no incluido)"
+                "value": "18.950,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Características físicas",
+            "items": [
+              {
+                "label": "Dimensiones (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Seguridad",
+            "items": [
+              {
+                "label": "Funciones de protección",
+                "value": "Cortocircuito, sobrecorriente, sobretemperatura, parada de emergencia, sobretensión/subtensión de salida, aviso de fuga a tierra DC"
+              }
+            ]
+          },
+          {
+            "group": "Documentos y garantía",
+            "items": [
+              {
+                "label": "Garantía",
+                "value": "2 años de fabricante (opción de ampliación de +3 años con coste adicional)"
+              },
+              {
+                "label": "Certificado de producción nacional",
+                "value": "%94"
+              },
+              {
+                "label": "Certificación",
+                "value": "CE"
               }
             ]
           }
@@ -5613,11 +5958,15 @@
               },
               {
                 "label": "Autenticación de usuario",
-                "value": "Tarjeta RFID + aplicación móvil"
+                "value": "Tarjeta RFID + Aplicación móvil"
               },
               {
                 "label": "Conexión",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Métodos de pago",
+                "value": "RFID / NFC sin contacto, tarjeta de crédito/débito (CPO), móvil"
               }
             ]
           },
@@ -5635,6 +5984,14 @@
               {
                 "label": "Instalación",
                 "value": "Exterior"
+              },
+              {
+                "label": "Resistencia a impactos",
+                "value": "IK10"
+              },
+              {
+                "label": "Pantalla",
+                "value": "LCD táctil capacitiva de 10\""
               }
             ]
           },
@@ -5643,7 +6000,42 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "19.353,00 € (IVA no incluido)"
+                "value": "19.353,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Características físicas",
+            "items": [
+              {
+                "label": "Dimensiones (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Seguridad",
+            "items": [
+              {
+                "label": "Funciones de protección",
+                "value": "Cortocircuito, sobrecorriente, sobretemperatura, parada de emergencia, sobretensión/subtensión de salida, aviso de fuga a tierra DC"
+              }
+            ]
+          },
+          {
+            "group": "Documentos y garantía",
+            "items": [
+              {
+                "label": "Garantía",
+                "value": "2 años de fabricante (opción de ampliación de +3 años con coste adicional)"
+              },
+              {
+                "label": "Certificado de producción nacional",
+                "value": "%94"
+              },
+              {
+                "label": "Certificación",
+                "value": "CE"
               }
             ]
           }
@@ -5717,11 +6109,15 @@
               },
               {
                 "label": "Autenticación de usuario",
-                "value": "Tarjeta RFID + aplicación móvil"
+                "value": "Tarjeta RFID + Aplicación móvil"
               },
               {
                 "label": "Conexión",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Métodos de pago",
+                "value": "RFID / NFC sin contacto, tarjeta de crédito/débito (CPO), móvil"
               }
             ]
           },
@@ -5739,6 +6135,14 @@
               {
                 "label": "Instalación",
                 "value": "Exterior"
+              },
+              {
+                "label": "Resistencia a impactos",
+                "value": "IK10"
+              },
+              {
+                "label": "Pantalla",
+                "value": "LCD táctil capacitiva de 10\""
               }
             ]
           },
@@ -5747,7 +6151,42 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "23.731,00 € (IVA no incluido)"
+                "value": "23.731,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Características físicas",
+            "items": [
+              {
+                "label": "Dimensiones (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Seguridad",
+            "items": [
+              {
+                "label": "Funciones de protección",
+                "value": "Cortocircuito, sobrecorriente, sobretemperatura, parada de emergencia, sobretensión/subtensión de salida, aviso de fuga a tierra DC"
+              }
+            ]
+          },
+          {
+            "group": "Documentos y garantía",
+            "items": [
+              {
+                "label": "Garantía",
+                "value": "2 años de fabricante (opción de ampliación de +3 años con coste adicional)"
+              },
+              {
+                "label": "Certificado de producción nacional",
+                "value": "%94"
+              },
+              {
+                "label": "Certificación",
+                "value": "CE"
               }
             ]
           }
@@ -5821,11 +6260,15 @@
               },
               {
                 "label": "Autenticación de usuario",
-                "value": "Tarjeta RFID + aplicación móvil"
+                "value": "Tarjeta RFID + Aplicación móvil"
               },
               {
                 "label": "Conexión",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Métodos de pago",
+                "value": "RFID / NFC sin contacto, tarjeta de crédito/débito (CPO), móvil"
               }
             ]
           },
@@ -5843,6 +6286,14 @@
               {
                 "label": "Instalación",
                 "value": "Exterior"
+              },
+              {
+                "label": "Resistencia a impactos",
+                "value": "IK10"
+              },
+              {
+                "label": "Pantalla",
+                "value": "LCD táctil capacitiva de 10\""
               }
             ]
           },
@@ -5851,7 +6302,42 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "27.686,00 € (IVA no incluido)"
+                "value": "27.686,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Características físicas",
+            "items": [
+              {
+                "label": "Dimensiones (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Seguridad",
+            "items": [
+              {
+                "label": "Funciones de protección",
+                "value": "Cortocircuito, sobrecorriente, sobretemperatura, parada de emergencia, sobretensión/subtensión de salida, aviso de fuga a tierra DC"
+              }
+            ]
+          },
+          {
+            "group": "Documentos y garantía",
+            "items": [
+              {
+                "label": "Garantía",
+                "value": "2 años de fabricante (opción de ampliación de +3 años con coste adicional)"
+              },
+              {
+                "label": "Certificado de producción nacional",
+                "value": "%94"
+              },
+              {
+                "label": "Certificación",
+                "value": "CE"
               }
             ]
           }

@@ -151,41 +151,54 @@
         "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "4 / 7 / 11 / 22 kW"
               },
               {
-                "label": "Faz",
-                "value": "Trifaze"
+                "label": "Phase",
+                "value": "Three-phase"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
               }
             ]
           },
           {
-            "group": "Kablo & Bağlantı",
+            "group": "Wire Link",
             "items": [
               {
-                "label": "Çıkış",
+                "label": "Exit Date",
                 "value": "5m. Kablolu"
               },
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "Type 2 (IEC 62196-2)"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 649,00"
+              }
+            ]
+          },
+          {
+            "group": "Smart & Optional",
+            "items": [
+              {
+                "label": "Automatic Charging Start",
+                "value": "Yes — automatic restart every 3 min after a power outage"
+              },
+              {
+                "label": "MID Meter",
+                "value": "Optional (certified energy metering)"
               }
             ]
           }
@@ -218,41 +231,54 @@
         "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "4 / 7 / 11 / 22 kW"
               },
               {
-                "label": "Faz",
-                "value": "Trifaze"
+                "label": "Phase",
+                "value": "Three-phase"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
               }
             ]
           },
           {
-            "group": "Kablo & Bağlantı",
+            "group": "Wire Link",
             "items": [
               {
-                "label": "Çıkış",
-                "value": "Pano Prizli"
+                "label": "Exit Date",
+                "value": "Panel Socket"
               },
               {
-                "label": "Soket",
+                "label": "Internet socket",
                 "value": "Type 2 (IEC 62196-2)"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 632,50"
+              }
+            ]
+          },
+          {
+            "group": "Smart & Optional",
+            "items": [
+              {
+                "label": "Automatic Charging Start",
+                "value": "Yes — automatic restart every 3 min after a power outage"
+              },
+              {
+                "label": "MID Meter",
+                "value": "Optional (certified energy metering)"
               }
             ]
           }
@@ -285,54 +311,67 @@
         "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. Thanks to its built-in GSM/4G module, it provides cloud-based remote monitoring and management over OCPP 1.6 even at sites without wired internet infrastructure.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "4 / 7 / 11 / 22 kW"
               },
               {
-                "label": "Faz",
-                "value": "Trifaze"
+                "label": "Phase",
+                "value": "Three-phase"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
               }
             ]
           },
           {
-            "group": "Kablo & Bağlantı",
+            "group": "Wire Link",
             "items": [
               {
-                "label": "Çıkış",
+                "label": "Exit Date",
                 "value": "5m. Kablolu"
               },
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "Type 2 (IEC 62196-2)"
               }
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Connectivity",
             "items": [
               {
-                "label": "İletişim",
-                "value": "GSM Modüllü"
+                "label": "Contact",
+                "value": "GSM Modulated"
               },
               {
-                "label": "Protokol",
+                "label": "Protocol",
                 "value": "OCPP 1.6"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 775,50"
+              }
+            ]
+          },
+          {
+            "group": "Smart & Optional",
+            "items": [
+              {
+                "label": "Automatic Charging Start",
+                "value": "Yes — automatic restart every 3 min after a power outage"
+              },
+              {
+                "label": "MID Meter",
+                "value": "Optional (certified energy metering)"
               }
             ]
           }
@@ -365,54 +404,67 @@
         "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. Thanks to its built-in GSM/4G module, it provides cloud-based remote monitoring and management over OCPP 1.6 even at sites without wired internet infrastructure.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "4 / 7 / 11 / 22 kW"
               },
               {
-                "label": "Faz",
-                "value": "Trifaze"
+                "label": "Phase",
+                "value": "Three-phase"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
               }
             ]
           },
           {
-            "group": "Kablo & Bağlantı",
+            "group": "Wire Link",
             "items": [
               {
-                "label": "Çıkış",
-                "value": "Pano Prizli"
+                "label": "Exit Date",
+                "value": "Panel Socket"
               },
               {
-                "label": "Soket",
+                "label": "Internet socket",
                 "value": "Type 2 (IEC 62196-2)"
               }
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Connectivity",
             "items": [
               {
-                "label": "İletişim",
-                "value": "GSM Modüllü"
+                "label": "Contact",
+                "value": "GSM Modulated"
               },
               {
-                "label": "Protokol",
+                "label": "Protocol",
                 "value": "OCPP 1.6"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 759,00"
+              }
+            ]
+          },
+          {
+            "group": "Smart & Optional",
+            "items": [
+              {
+                "label": "Automatic Charging Start",
+                "value": "Yes — automatic restart every 3 min after a power outage"
+              },
+              {
+                "label": "MID Meter",
+                "value": "Optional (certified energy metering)"
               }
             ]
           }
@@ -445,54 +497,67 @@
         "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. Thanks to its built-in GSM/4G module, it provides cloud-based remote monitoring and management over OCPP 1.6 even at sites without wired internet infrastructure. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use. Made in Türkiye.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "4 / 7 / 11 / 22 kW"
               },
               {
-                "label": "Faz",
-                "value": "Trifaze"
+                "label": "Phase",
+                "value": "Three-phase"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
               }
             ]
           },
           {
-            "group": "Kablo & Bağlantı",
+            "group": "Wire Link",
             "items": [
               {
-                "label": "Çıkış",
+                "label": "Exit Date",
                 "value": "5m. Kablolu"
               },
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "Type 2 (IEC 62196-2)"
               }
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Connectivity",
             "items": [
               {
-                "label": "İletişim",
-                "value": "GSM Modüllü"
+                "label": "Contact",
+                "value": "GSM Modulated"
               },
               {
-                "label": "Protokol",
+                "label": "Protocol",
                 "value": "OCPP 1.6"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 875,50"
+              }
+            ]
+          },
+          {
+            "group": "Smart & Optional",
+            "items": [
+              {
+                "label": "Automatic Charging Start",
+                "value": "Yes — automatic restart every 3 min after a power outage"
+              },
+              {
+                "label": "MID Meter",
+                "value": "Integrated (built-in certified MID energy meter)"
               }
             ]
           }
@@ -525,54 +590,67 @@
         "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. Thanks to its built-in GSM/4G module, it provides cloud-based remote monitoring and management over OCPP 1.6 even at sites without wired internet infrastructure. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use. Made in Türkiye.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "4 / 7 / 11 / 22 kW"
               },
               {
-                "label": "Faz",
-                "value": "Trifaze"
+                "label": "Phase",
+                "value": "Three-phase"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
               }
             ]
           },
           {
-            "group": "Kablo & Bağlantı",
+            "group": "Wire Link",
             "items": [
               {
-                "label": "Çıkış",
-                "value": "Pano Prizli"
+                "label": "Exit Date",
+                "value": "Panel Socket"
               },
               {
-                "label": "Soket",
+                "label": "Internet socket",
                 "value": "Type 2 (IEC 62196-2)"
               }
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Connectivity",
             "items": [
               {
-                "label": "İletişim",
-                "value": "GSM Modüllü"
+                "label": "Contact",
+                "value": "GSM Modulated"
               },
               {
-                "label": "Protokol",
+                "label": "Protocol",
                 "value": "OCPP 1.6"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 859,00"
+              }
+            ]
+          },
+          {
+            "group": "Smart & Optional",
+            "items": [
+              {
+                "label": "Automatic Charging Start",
+                "value": "Yes — automatic restart every 3 min after a power outage"
+              },
+              {
+                "label": "MID Meter",
+                "value": "Integrated (built-in certified MID energy meter)"
               }
             ]
           }
@@ -605,41 +683,54 @@
         "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "4 / 7 / 11 / 22 kW"
               },
               {
-                "label": "Faz",
-                "value": "Trifaze"
+                "label": "Phase",
+                "value": "Three-phase"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
               }
             ]
           },
           {
-            "group": "Kablo & Bağlantı",
+            "group": "Wire Link",
             "items": [
               {
-                "label": "Çıkış",
+                "label": "Exit Date",
                 "value": "5m. Kablolu"
               },
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "Type 2 (IEC 62196-2)"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 764,50"
+              }
+            ]
+          },
+          {
+            "group": "Smart & Optional",
+            "items": [
+              {
+                "label": "MID Meter",
+                "value": "Optional (certified energy metering)"
+              },
+              {
+                "label": "Mobile App",
+                "value": "Remote on/off, timer, charging history (connected models)"
               }
             ]
           }
@@ -677,41 +768,54 @@
         "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "4 / 7 / 11 / 22 kW"
               },
               {
-                "label": "Faz",
-                "value": "Trifaze"
+                "label": "Phase",
+                "value": "Three-phase"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
               }
             ]
           },
           {
-            "group": "Kablo & Bağlantı",
+            "group": "Wire Link",
             "items": [
               {
-                "label": "Çıkış",
-                "value": "Pano Prizli"
+                "label": "Exit Date",
+                "value": "Panel Socket"
               },
               {
-                "label": "Soket",
+                "label": "Internet socket",
                 "value": "Type 2 (IEC 62196-2)"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 748,00"
+              }
+            ]
+          },
+          {
+            "group": "Smart & Optional",
+            "items": [
+              {
+                "label": "MID Meter",
+                "value": "Optional (certified energy metering)"
+              },
+              {
+                "label": "Mobile App",
+                "value": "Remote on/off, timer, charging history (connected models)"
               }
             ]
           }
@@ -743,54 +847,67 @@
         "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "4 / 7 / 11 / 22 kW"
               },
               {
-                "label": "Faz",
-                "value": "Trifaze"
+                "label": "Phase",
+                "value": "Three-phase"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
               }
             ]
           },
           {
-            "group": "Kablo & Bağlantı",
+            "group": "Wire Link",
             "items": [
               {
-                "label": "Çıkış",
-                "value": "Pano Prizli"
+                "label": "Exit Date",
+                "value": "Panel Socket"
               },
               {
-                "label": "Soket",
+                "label": "Internet socket",
                 "value": "Type 2 (IEC 62196-2)"
               }
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Connectivity",
             "items": [
               {
-                "label": "İletişim",
-                "value": "GSM Modüllü"
+                "label": "Contact",
+                "value": "GSM Modulated"
               },
               {
-                "label": "Protokol",
+                "label": "Protocol",
                 "value": "OCPP 1.6"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 874,50"
+              }
+            ]
+          },
+          {
+            "group": "Smart & Optional",
+            "items": [
+              {
+                "label": "MID Meter",
+                "value": "Optional (certified energy metering)"
+              },
+              {
+                "label": "Mobile App",
+                "value": "Remote on/off, timer, charging history (connected models)"
               }
             ]
           }
@@ -827,54 +944,67 @@
         "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "4 / 7 / 11 / 22 kW"
               },
               {
-                "label": "Faz",
-                "value": "Trifaze"
+                "label": "Phase",
+                "value": "Three-phase"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
               }
             ]
           },
           {
-            "group": "Kablo & Bağlantı",
+            "group": "Wire Link",
             "items": [
               {
-                "label": "Çıkış",
+                "label": "Exit Date",
                 "value": "5m. Kablolu"
               },
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "Type 2 (IEC 62196-2)"
               }
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Connectivity",
             "items": [
               {
-                "label": "İletişim",
-                "value": "GSM Modüllü"
+                "label": "Contact",
+                "value": "GSM Modulated"
               },
               {
-                "label": "Protokol",
+                "label": "Protocol",
                 "value": "OCPP 1.6"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 891,00"
+              }
+            ]
+          },
+          {
+            "group": "Smart & Optional",
+            "items": [
+              {
+                "label": "MID Meter",
+                "value": "Optional (certified energy metering)"
+              },
+              {
+                "label": "Mobile App",
+                "value": "Remote on/off, timer, charging history (connected models)"
               }
             ]
           }
@@ -906,54 +1036,67 @@
         "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use. Made in Türkiye.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "4 / 7 / 11 / 22 kW"
               },
               {
-                "label": "Faz",
-                "value": "Trifaze"
+                "label": "Phase",
+                "value": "Three-phase"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
               }
             ]
           },
           {
-            "group": "Kablo & Bağlantı",
+            "group": "Wire Link",
             "items": [
               {
-                "label": "Çıkış",
+                "label": "Exit Date",
                 "value": "5m. Kablolu"
               },
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "Type 2 (IEC 62196-2)"
               }
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Connectivity",
             "items": [
               {
-                "label": "İletişim",
-                "value": "GSM Modüllü"
+                "label": "Contact",
+                "value": "GSM Modulated"
               },
               {
-                "label": "Protokol",
+                "label": "Protocol",
                 "value": "OCPP 1.6"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 991,00"
+              }
+            ]
+          },
+          {
+            "group": "Smart & Optional",
+            "items": [
+              {
+                "label": "MID Meter",
+                "value": "Integrated (built-in certified MID energy meter)"
+              },
+              {
+                "label": "Mobile App",
+                "value": "Remote on/off, timer, charging history (connected models)"
               }
             ]
           }
@@ -985,54 +1128,67 @@
         "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use. Made in Türkiye.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "4 / 7 / 11 / 22 kW"
               },
               {
-                "label": "Faz",
-                "value": "Trifaze"
+                "label": "Phase",
+                "value": "Three-phase"
               },
               {
-                "label": "Maks. Akım",
+                "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
               }
             ]
           },
           {
-            "group": "Kablo & Bağlantı",
+            "group": "Wire Link",
             "items": [
               {
-                "label": "Çıkış",
-                "value": "Pano Prizli"
+                "label": "Exit Date",
+                "value": "Panel Socket"
               },
               {
-                "label": "Soket",
+                "label": "Internet socket",
                 "value": "Type 2 (IEC 62196-2)"
               }
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Connectivity",
             "items": [
               {
-                "label": "İletişim",
-                "value": "GSM Modüllü"
+                "label": "Contact",
+                "value": "GSM Modulated"
               },
               {
-                "label": "Protokol",
+                "label": "Protocol",
                 "value": "OCPP 1.6"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "EUR 974,50"
+              }
+            ]
+          },
+          {
+            "group": "Smart & Optional",
+            "items": [
+              {
+                "label": "MID Meter",
+                "value": "Integrated (built-in certified MID energy meter)"
+              },
+              {
+                "label": "Mobile App",
+                "value": "Remote on/off, timer, charging history (connected models)"
               }
             ]
           }
@@ -1077,41 +1233,67 @@
         "description": "Mini Mobile, 2,3–3,7 kW gücünde monofaze taşınabilir AC şarj cihazı. Schuko prize doğrudan takılarak ev tipi prizlerden güvenli şarj sağlar; taşıma çantası ile birlikte gelir, yedek ve seyahat senaryolarında ideal.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "2,3 - 3,7 kW"
               },
               {
-                "label": "Faz",
-                "value": "Tek Fazlı"
+                "label": "Phase",
+                "value": "mono-phase"
               },
               {
-                "label": "Akım",
+                "label": "Current.",
                 "value": "10A - 16A"
               },
               {
-                "label": "Kablo Uzunluğu",
-                "value": "5 metre"
+                "label": "Cable Length",
+                "value": "5 meters"
               }
             ]
           },
           {
-            "group": "İçerik",
+            "group": "Content",
             "items": [
               {
-                "label": "Aksesuar",
-                "value": "Çanta"
+                "label": "Accessories",
+                "value": "  Satchel"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "€ 286,00"
+              }
+            ]
+          },
+          {
+            "group": "Physical Specifications",
+            "items": [
+              {
+                "label": "Housing Material",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Cable Type",
+                "value": "Tip 2"
+              }
+            ]
+          },
+          {
+            "group": "Environmental",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP65"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-40°C / +55°C"
               }
             ]
           }
@@ -1136,49 +1318,75 @@
         "description": "Mono Mobile, 3,7–7,4 kW monofaze taşınabilir şarj cihazı. CEE 16/32A endüstriyel priz adaptörleri ve schuko çıkışı dahil; ev, iş yeri ve mobil kullanım arasında esnek geçiş sağlar.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Güç",
-                "value": "3,7 - 7,4 kW"
+                "label": "• Power",
+                "value": "3.7 - 7.4 kW"
               },
               {
-                "label": "Faz",
-                "value": "Tek Fazlı"
+                "label": "Phase",
+                "value": "mono-phase"
               },
               {
-                "label": "Akım",
+                "label": "Current.",
                 "value": "16A - 32A"
               },
               {
-                "label": "Kablo Uzunluğu",
-                "value": "5 metre"
+                "label": "Cable Length",
+                "value": "5 meters"
               }
             ]
           },
           {
-            "group": "İçerik",
+            "group": "Content",
             "items": [
               {
-                "label": "Aksesuar",
-                "value": "Çanta"
+                "label": "Accessories",
+                "value": "  Satchel"
               },
               {
-                "label": "Priz",
-                "value": "3/32A Priz"
+                "label": "Socket",
+                "value": "3/32A Plug"
               },
               {
-                "label": "Adaptör",
-                "value": "1/16A Fiş Dönüştürücü"
+                "label": "Adapter",
+                "value": "1/16A Plug Converter"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "€ 308,00"
+              }
+            ]
+          },
+          {
+            "group": "Physical Specifications",
+            "items": [
+              {
+                "label": "Housing Material",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Cable Type",
+                "value": "Tip 2"
+              }
+            ]
+          },
+          {
+            "group": "Environmental",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP65"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-40°C / +55°C"
               }
             ]
           }
@@ -1207,23 +1415,23 @@
         "description": "Pro Mobile 2, 11–22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. The charging current is adjustable in 6 steps (6/10/16/20/25/32A) from the mobile app or the button on the device — flexible, safe charging even on weak installations. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Güç",
+                "label": "• Power",
                 "value": "11 - 22 kW"
               },
               {
-                "label": "Faz",
-                "value": "Üç Fazlı"
+                "label": "Phase",
+                "value": "- Three phase"
               },
               {
-                "label": "Akım",
+                "label": "Current.",
                 "value": "6 / 10 / 16 / 20 / 25 / 32 A (6-step adjustable)"
               },
               {
-                "label": "Kablo Uzunluğu",
-                "value": "5 metre"
+                "label": "Cable Length",
+                "value": "5 meters"
               },
               {
                 "label": "Current Setting",
@@ -1232,28 +1440,54 @@
             ]
           },
           {
-            "group": "İçerik",
+            "group": "Content",
             "items": [
               {
-                "label": "Aksesuar",
-                "value": "Çanta"
+                "label": "Accessories",
+                "value": "  Satchel"
               },
               {
-                "label": "Priz",
-                "value": "5/32A Priz"
+                "label": "Socket",
+                "value": "5/32A Plug"
               },
               {
-                "label": "Adaptör",
-                "value": "1/16 Fiş Dönüştürücü"
+                "label": "Adapter",
+                "value": "1/16 Plug Converter"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "€ 429,00"
+              }
+            ]
+          },
+          {
+            "group": "Physical Specifications",
+            "items": [
+              {
+                "label": "Housing Material",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Cable Type",
+                "value": "Tip 2"
+              }
+            ]
+          },
+          {
+            "group": "Environmental",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP65"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-40°C / +55°C"
               }
             ]
           }
@@ -5261,79 +5495,113 @@
         "description": "40 kW tek CCS2 çıkışlı kompakt DC hızlı şarj istasyonu. Kafe, restoran, otel ve şehir içi otopark kurulumları için ideal güç sınıfı; OCPP 1.6J / 2.0.1 desteği, RFID kullanıcı yetkilendirme, IP54 dış mekan kullanımı.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Çıkış Gücü",
+                "label": "Output Power",
                 "value": "40 kW"
               },
               {
-                "label": "Giriş",
-                "value": "AC 380-480V, 3 Faz"
+                "label": "Introduction",
+                "value": "AC 380-480V, 3 Phase"
               },
               {
-                "label": "Çıkış Gerilimi",
+                "label": "Output Voltage",
                 "value": "150-1000V DC"
               }
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Connectivity",
             "items": [
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "CCS2"
               },
               {
-                "label": "Soket Sayısı",
+                "label": "Number of Sockets",
                 "value": "1"
               },
               {
-                "label": "Eş Zamanlı Şarj",
-                "value": "Hayır"
+                "label": "Concurrent",
+                "value": "No"
               }
             ]
           },
           {
-            "group": "Yönetim",
+            "group": "Management",
             "items": [
               {
-                "label": "Protokol",
+                "label": "Protocol",
                 "value": "OCPP 1.6J / 2.0.1"
               },
               {
-                "label": "Kullanıcı Doğrulama",
-                "value": "RFID Kart + Mobil Uygulama"
+                "label": "User Authentication",
+                "value": "RFID Card + Mobile App"
               },
               {
-                "label": "Bağlantı",
+                "label": "Connectivity",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Payment Methods",
+                "value": "RFID / NFC contactless, Credit/Debit Card (CPO), Mobile"
               }
             ]
           },
           {
-            "group": "Çevresel",
+            "group": "Environmental",
             "items": [
               {
-                "label": "Koruma Sınıfı",
+                "label": "Protection category",
                 "value": "IP54"
               },
               {
-                "label": "Çalışma Sıcaklığı",
+                "label": "Operating temperature:",
                 "value": "-25°C ~ +55°C"
               },
               {
-                "label": "Kurulum",
-                "value": "Dış Mekan"
+                "label": "Installation",
+                "value": "Outdoor"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "7.161,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Physical Specifications",
+            "items": [
+              {
+                "label": "Dimensions (G×D×Y)",
+                "value": "600 × 320 × 900 mm"
+              },
+              {
+                "label": "Weight",
+                "value": "80 kg"
+              }
+            ]
+          },
+          {
+            "group": "Documents & Warranty",
+            "items": [
+              {
+                "label": "Warranty",
+                "value": "2-year manufacturer (optional +3-year extension for a fee)"
+              },
+              {
+                "label": "Domestic Goods Certificate",
+                "value": "%94"
+              },
+              {
+                "label": "Certification",
+                "value": "CE"
               }
             ]
           }
@@ -5364,79 +5632,109 @@
         "description": "80 kW çift CCS2 çıkışlı DC hızlı şarj istasyonu. İki aracı eş zamanlı şarj eden orta-güç çözümü; AVM otoparkları, kurumsal kampüs ve şehirlerarası ana akslar için. OCPP, RFID, IP54 koruma.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Çıkış Gücü",
+                "label": "Output Power",
                 "value": "80 kW"
               },
               {
-                "label": "Giriş",
-                "value": "AC 380-480V, 3 Faz"
+                "label": "Introduction",
+                "value": "AC 380-480V, 3 Phase"
               },
               {
-                "label": "Çıkış Gerilimi",
+                "label": "Output Voltage",
                 "value": "150-1000V DC"
               }
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Connectivity",
             "items": [
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "CCS2"
               },
               {
-                "label": "Soket Sayısı",
+                "label": "Number of Sockets",
                 "value": "2"
               },
               {
-                "label": "Eş Zamanlı Şarj",
-                "value": "Evet"
+                "label": "Concurrent",
+                "value": "Yes"
               }
             ]
           },
           {
-            "group": "Yönetim",
+            "group": "Management",
             "items": [
               {
-                "label": "Protokol",
+                "label": "Protocol",
                 "value": "OCPP 1.6J / 2.0.1"
               },
               {
-                "label": "Kullanıcı Doğrulama",
-                "value": "RFID Kart + Mobil Uygulama"
+                "label": "User Authentication",
+                "value": "RFID Card + Mobile App"
               },
               {
-                "label": "Bağlantı",
+                "label": "Connectivity",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Payment Methods",
+                "value": "RFID / NFC contactless, Credit/Debit Card (CPO), Mobile"
               }
             ]
           },
           {
-            "group": "Çevresel",
+            "group": "Environmental",
             "items": [
               {
-                "label": "Koruma Sınıfı",
+                "label": "Protection category",
                 "value": "IP54"
               },
               {
-                "label": "Çalışma Sıcaklığı",
+                "label": "Operating temperature:",
                 "value": "-25°C ~ +55°C"
               },
               {
-                "label": "Kurulum",
-                "value": "Dış Mekan"
+                "label": "Installation",
+                "value": "Outdoor"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "15.820,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Physical Specifications",
+            "items": [
+              {
+                "label": "Dimensions (G×D×Y)",
+                "value": "693 × 603 × 1865 mm"
+              }
+            ]
+          },
+          {
+            "group": "Documents & Warranty",
+            "items": [
+              {
+                "label": "Warranty",
+                "value": "2-year manufacturer (optional +3-year extension for a fee)"
+              },
+              {
+                "label": "Domestic Goods Certificate",
+                "value": "%94"
+              },
+              {
+                "label": "Certification",
+                "value": "CE"
               }
             ]
           }
@@ -5467,79 +5765,126 @@
         "description": "120 kW tek veya çift CCS2 çıkışlı DC hızlı şarj istasyonu. Yüksek-trafiğe sahip otoyol dinlenme alanları ve filo merkezlerinde 30 dakika içinde önemli menzil sağlar; OCPP, RFID, IP54 koruma.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Çıkış Gücü",
+                "label": "Output Power",
                 "value": "120 kW"
               },
               {
-                "label": "Giriş",
-                "value": "AC 380-480V, 3 Faz"
+                "label": "Introduction",
+                "value": "AC 380-480V, 3 Phase"
               },
               {
-                "label": "Çıkış Gerilimi",
+                "label": "Output Voltage",
                 "value": "150-1000V DC"
               }
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Connectivity",
             "items": [
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "CCS2"
               },
               {
-                "label": "Soket Sayısı",
+                "label": "Number of Sockets",
                 "value": "1"
               },
               {
-                "label": "Eş Zamanlı Şarj",
-                "value": "Evet"
+                "label": "Concurrent",
+                "value": "Yes"
               }
             ]
           },
           {
-            "group": "Yönetim",
+            "group": "Management",
             "items": [
               {
-                "label": "Protokol",
+                "label": "Protocol",
                 "value": "OCPP 1.6J / 2.0.1"
               },
               {
-                "label": "Kullanıcı Doğrulama",
-                "value": "RFID Kart + Mobil Uygulama"
+                "label": "User Authentication",
+                "value": "RFID Card + Mobile App"
               },
               {
-                "label": "Bağlantı",
+                "label": "Connectivity",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Payment Methods",
+                "value": "RFID / NFC contactless, Credit/Debit Card (CPO), Mobile"
               }
             ]
           },
           {
-            "group": "Çevresel",
+            "group": "Environmental",
             "items": [
               {
-                "label": "Koruma Sınıfı",
+                "label": "Protection category",
                 "value": "IP54"
               },
               {
-                "label": "Çalışma Sıcaklığı",
+                "label": "Operating temperature:",
                 "value": "-25°C ~ +55°C"
               },
               {
-                "label": "Kurulum",
-                "value": "Dış Mekan"
+                "label": "Installation",
+                "value": "Outdoor"
+              },
+              {
+                "label": "Impact Resistance",
+                "value": "IK10"
+              },
+              {
+                "label": "Display",
+                "value": "10\" LCD Capacitive Touch"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "18.950,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Physical Specifications",
+            "items": [
+              {
+                "label": "Dimensions (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Safety",
+            "items": [
+              {
+                "label": "Protection Functions",
+                "value": "Short Circuit, Overcurrent, Overtemperature, Emergency Stop, High/Low Output Voltage, DC Ground Leakage Warning"
+              }
+            ]
+          },
+          {
+            "group": "Documents & Warranty",
+            "items": [
+              {
+                "label": "Warranty",
+                "value": "2-year manufacturer (optional +3-year extension for a fee)"
+              },
+              {
+                "label": "Domestic Goods Certificate",
+                "value": "%94"
+              },
+              {
+                "label": "Certification",
+                "value": "CE"
               }
             ]
           }
@@ -5571,70 +5916,82 @@
         "description": "120 kW tek veya çift CCS2 çıkışlı DC hızlı şarj istasyonu. Yüksek-trafiğe sahip otoyol dinlenme alanları ve filo merkezlerinde 30 dakika içinde önemli menzil sağlar; OCPP, RFID, IP54 koruma.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Çıkış Gücü",
+                "label": "Output Power",
                 "value": "120 kW"
               },
               {
-                "label": "Giriş",
-                "value": "AC 380-480V, 3 Faz"
+                "label": "Introduction",
+                "value": "AC 380-480V, 3 Phase"
               },
               {
-                "label": "Çıkış Gerilimi",
+                "label": "Output Voltage",
                 "value": "150-1000V DC"
               }
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Connectivity",
             "items": [
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "CCS2"
               },
               {
-                "label": "Soket Sayısı",
+                "label": "Number of Sockets",
                 "value": "2"
               },
               {
-                "label": "Eş Zamanlı Şarj",
-                "value": "Evet"
+                "label": "Concurrent",
+                "value": "Yes"
               }
             ]
           },
           {
-            "group": "Yönetim",
+            "group": "Management",
             "items": [
               {
-                "label": "Protokol",
+                "label": "Protocol",
                 "value": "OCPP 1.6J / 2.0.1"
               },
               {
-                "label": "Kullanıcı Doğrulama",
-                "value": "RFID Kart + Mobil Uygulama"
+                "label": "User Authentication",
+                "value": "RFID Card + Mobile App"
               },
               {
-                "label": "Bağlantı",
+                "label": "Connectivity",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Payment Methods",
+                "value": "RFID / NFC contactless, Credit/Debit Card (CPO), Mobile"
               }
             ]
           },
           {
-            "group": "Çevresel",
+            "group": "Environmental",
             "items": [
               {
-                "label": "Koruma Sınıfı",
+                "label": "Protection category",
                 "value": "IP54"
               },
               {
-                "label": "Çalışma Sıcaklığı",
+                "label": "Operating temperature:",
                 "value": "-25°C ~ +55°C"
               },
               {
-                "label": "Kurulum",
-                "value": "Dış Mekan"
+                "label": "Installation",
+                "value": "Outdoor"
+              },
+              {
+                "label": "Impact Resistance",
+                "value": "IK10"
+              },
+              {
+                "label": "Display",
+                "value": "10\" LCD Capacitive Touch"
               }
             ]
           },
@@ -5642,8 +5999,43 @@
             "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "19.353,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Physical Specifications",
+            "items": [
+              {
+                "label": "Dimensions (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Safety",
+            "items": [
+              {
+                "label": "Protection Functions",
+                "value": "Short Circuit, Overcurrent, Overtemperature, Emergency Stop, High/Low Output Voltage, DC Ground Leakage Warning"
+              }
+            ]
+          },
+          {
+            "group": "Documents & Warranty",
+            "items": [
+              {
+                "label": "Warranty",
+                "value": "2-year manufacturer (optional +3-year extension for a fee)"
+              },
+              {
+                "label": "Domestic Goods Certificate",
+                "value": "%94"
+              },
+              {
+                "label": "Certification",
+                "value": "CE"
               }
             ]
           }
@@ -5675,79 +6067,126 @@
         "description": "160 kW çift CCS2 çıkışlı yüksek-güç DC hızlı şarj istasyonu. Otoyol pit-stop ve yoğun ticari filo şarjı için, dinamik güç paylaşımı ile iki aracı maksimum kapasitede besler.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Çıkış Gücü",
+                "label": "Output Power",
                 "value": "160 kW"
               },
               {
-                "label": "Giriş",
-                "value": "AC 380-480V, 3 Faz"
+                "label": "Introduction",
+                "value": "AC 380-480V, 3 Phase"
               },
               {
-                "label": "Çıkış Gerilimi",
+                "label": "Output Voltage",
                 "value": "150-1000V DC"
               }
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Connectivity",
             "items": [
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "CCS2"
               },
               {
-                "label": "Soket Sayısı",
+                "label": "Number of Sockets",
                 "value": "2"
               },
               {
-                "label": "Eş Zamanlı Şarj",
-                "value": "Evet"
+                "label": "Concurrent",
+                "value": "Yes"
               }
             ]
           },
           {
-            "group": "Yönetim",
+            "group": "Management",
             "items": [
               {
-                "label": "Protokol",
+                "label": "Protocol",
                 "value": "OCPP 1.6J / 2.0.1"
               },
               {
-                "label": "Kullanıcı Doğrulama",
-                "value": "RFID Kart + Mobil Uygulama"
+                "label": "User Authentication",
+                "value": "RFID Card + Mobile App"
               },
               {
-                "label": "Bağlantı",
+                "label": "Connectivity",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Payment Methods",
+                "value": "RFID / NFC contactless, Credit/Debit Card (CPO), Mobile"
               }
             ]
           },
           {
-            "group": "Çevresel",
+            "group": "Environmental",
             "items": [
               {
-                "label": "Koruma Sınıfı",
+                "label": "Protection category",
                 "value": "IP54"
               },
               {
-                "label": "Çalışma Sıcaklığı",
+                "label": "Operating temperature:",
                 "value": "-25°C ~ +55°C"
               },
               {
-                "label": "Kurulum",
-                "value": "Dış Mekan"
+                "label": "Installation",
+                "value": "Outdoor"
+              },
+              {
+                "label": "Impact Resistance",
+                "value": "IK10"
+              },
+              {
+                "label": "Display",
+                "value": "10\" LCD Capacitive Touch"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "23.731,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Physical Specifications",
+            "items": [
+              {
+                "label": "Dimensions (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Safety",
+            "items": [
+              {
+                "label": "Protection Functions",
+                "value": "Short Circuit, Overcurrent, Overtemperature, Emergency Stop, High/Low Output Voltage, DC Ground Leakage Warning"
+              }
+            ]
+          },
+          {
+            "group": "Documents & Warranty",
+            "items": [
+              {
+                "label": "Warranty",
+                "value": "2-year manufacturer (optional +3-year extension for a fee)"
+              },
+              {
+                "label": "Domestic Goods Certificate",
+                "value": "%94"
+              },
+              {
+                "label": "Certification",
+                "value": "CE"
               }
             ]
           }
@@ -5779,79 +6218,126 @@
         "description": "200 kW çift CCS2 çıkışlı amiral DC hızlı şarj istasyonu. Otoyol koridoru ve yüksek-trafik istasyon kurulumları için en üst güç sınıfı; ultra hızlı şarj senaryolarında 15-20 dakikada önemli menzil ekler.",
         "specs": [
           {
-            "group": "Elektriksel",
+            "group": "Electrical",
             "items": [
               {
-                "label": "Çıkış Gücü",
+                "label": "Output Power",
                 "value": "200 kW"
               },
               {
-                "label": "Giriş",
-                "value": "AC 380-480V, 3 Faz"
+                "label": "Introduction",
+                "value": "AC 380-480V, 3 Phase"
               },
               {
-                "label": "Çıkış Gerilimi",
+                "label": "Output Voltage",
                 "value": "150-1000V DC"
               }
             ]
           },
           {
-            "group": "Bağlantı",
+            "group": "Connectivity",
             "items": [
               {
-                "label": "Konnektör",
+                "label": "Connector",
                 "value": "CCS2"
               },
               {
-                "label": "Soket Sayısı",
+                "label": "Number of Sockets",
                 "value": "2"
               },
               {
-                "label": "Eş Zamanlı Şarj",
-                "value": "Evet"
+                "label": "Concurrent",
+                "value": "Yes"
               }
             ]
           },
           {
-            "group": "Yönetim",
+            "group": "Management",
             "items": [
               {
-                "label": "Protokol",
+                "label": "Protocol",
                 "value": "OCPP 1.6J / 2.0.1"
               },
               {
-                "label": "Kullanıcı Doğrulama",
-                "value": "RFID Kart + Mobil Uygulama"
+                "label": "User Authentication",
+                "value": "RFID Card + Mobile App"
               },
               {
-                "label": "Bağlantı",
+                "label": "Connectivity",
                 "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Payment Methods",
+                "value": "RFID / NFC contactless, Credit/Debit Card (CPO), Mobile"
               }
             ]
           },
           {
-            "group": "Çevresel",
+            "group": "Environmental",
             "items": [
               {
-                "label": "Koruma Sınıfı",
+                "label": "Protection category",
                 "value": "IP54"
               },
               {
-                "label": "Çalışma Sıcaklığı",
+                "label": "Operating temperature:",
                 "value": "-25°C ~ +55°C"
               },
               {
-                "label": "Kurulum",
-                "value": "Dış Mekan"
+                "label": "Installation",
+                "value": "Outdoor"
+              },
+              {
+                "label": "Impact Resistance",
+                "value": "IK10"
+              },
+              {
+                "label": "Display",
+                "value": "10\" LCD Capacitive Touch"
               }
             ]
           },
           {
-            "group": "Fiyat",
+            "group": "Price",
             "items": [
               {
-                "label": "Liste Fiyatı",
+                "label": "List Price",
                 "value": "27.686,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Physical Specifications",
+            "items": [
+              {
+                "label": "Dimensions (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Safety",
+            "items": [
+              {
+                "label": "Protection Functions",
+                "value": "Short Circuit, Overcurrent, Overtemperature, Emergency Stop, High/Low Output Voltage, DC Ground Leakage Warning"
+              }
+            ]
+          },
+          {
+            "group": "Documents & Warranty",
+            "items": [
+              {
+                "label": "Warranty",
+                "value": "2-year manufacturer (optional +3-year extension for a fee)"
+              },
+              {
+                "label": "Domestic Goods Certificate",
+                "value": "%94"
+              },
+              {
+                "label": "Certification",
+                "value": "CE"
               }
             ]
           }
