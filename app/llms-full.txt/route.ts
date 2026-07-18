@@ -27,6 +27,8 @@ function bodyToText(body: BlogSection[]): string {
 
 // GEO için en değerli rehberler (tam gövde).
 const GUIDE_SLUGS = [
+  "gunes-enerjisi-solar-ile-elektrikli-arac-sarji",
+  "evde-elektrikli-arac-sarji-guvenli-mi",
   "isletmeler-icin-dc-hizli-sarj-istasyonu-yatirimi",
   "hangi-sarj-kablosu-aracima-uyumlu-type-2",
   "40-kw-dc-sarj-istasyonu",

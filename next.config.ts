@@ -22,7 +22,10 @@ const csp = [
   // B+ → A adayı. Yerel prod (next start) ile doğrulandı. 'unsafe-inline' KALIYOR
   // (Next inline runtime + GA consent stub + speculation rules bunu ister; nonce
   // refaktörü ayrı/riskli iş).
-  `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://www.googletagservices.com https://googleads.g.doubleclick.net https://connect.facebook.net https://www.youtube-nocookie.com`,
+  // youtube.com: GA4'ün gelişmiş video ölçümü, gömülü videoları izlemek için
+  // youtube.com/iframe_api yükler — yalnız nocookie izinliyken her videolu
+  // sayfada CSP konsol hatası basıyordu (2026-07-18, Playwright'ta yakalandı).
+  `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://www.googletagservices.com https://googleads.g.doubleclick.net https://connect.facebook.net https://www.youtube-nocookie.com https://www.youtube.com`,
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data: https://fonts.gstatic.com",
@@ -32,7 +35,10 @@ const csp = [
   //   www.facebook.com                                          — Meta Pixel event endpoint
   // res.cloudinary.com + *.r2.dev are our document (PDF) asset hosts — the
   // /documents viewer fetches them as a blob for a clean download.
-  "connect-src 'self' https://api.jsonbin.io https://api.mymemory.translated.net https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://www.google.com https://www.facebook.com https://flagcdn.com https://api.imgbb.com https://api.cloudinary.com https://res.cloudinary.com https://api.resend.com https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://*.ingest.de.sentry.io https://vitals.vercel-insights.com https://vercel.live https://*.r2.cloudflarestorage.com https://*.r2.dev",
+  // analytics.google.com + *.google-analytics.com: GA4 collect beacon'ları (consent
+  // mode bölge yönlendirmesiyle) bu uçlara da gider — yalnız www+region1 izinliyken
+  // gerçek ölçüm istekleri CSP'ye takılıyordu = VERİ KAYBI (2026-07-18, Playwright).
+  "connect-src 'self' https://api.jsonbin.io https://api.mymemory.translated.net https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://www.google.com https://www.facebook.com https://flagcdn.com https://api.imgbb.com https://api.cloudinary.com https://res.cloudinary.com https://api.resend.com https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://*.ingest.de.sentry.io https://vitals.vercel-insights.com https://vercel.live https://*.r2.cloudflarestorage.com https://*.r2.dev",
   "worker-src 'self' blob:",
   // res.cloudinary.com + *.r2.dev are where document PDFs live — the
   // /documents/[id] viewer embeds them in an <iframe> for inline preview.

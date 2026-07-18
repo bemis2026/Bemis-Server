@@ -34,6 +34,330 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    "slug": "gunes-enerjisi-solar-ile-elektrikli-arac-sarji",
+    "title": "Güneş Enerjisi (Solar) ile Elektrikli Araç Şarjı: Evde Güneş Panelinden Araç Şarj Etmek",
+    "metaTitle": "Güneş Enerjisi (Solar) ile Elektrikli Araç Şarjı",
+    "description": "Evde güneş panelinden araç şarjı mümkün mü? On-grid sistem mantığı, kaç panel gerektiği (örnek hesap) ve ayarlanabilir akımlı Bemis wallbox seçimi rehberde.",
+    "excerpt": "Çatınızdaki güneş panellerinden aracınızı şarj edebilirsiniz: on-grid sistemde paneller evin panosunu, pano da şarj cihazını besler. Kaç panel gerektiğini örnek hesapla, güneşe en uygun ayarlanabilir akımlı şarj cihazı özelliklerini bu rehberde bulun.",
+    "category": "Rehber",
+    "datePublished": "2026-07-18",
+    "readingMinutes": 9,
+    "keywords": [
+      "güneş enerjisi ile araba şarj etme",
+      "solar panel elektrikli araç şarj",
+      "güneş panelinden ev şarj istasyonu",
+      "hibrit inverter ev şarj cihazı",
+      "güneş enerjisi ile elektrikli araç şarjı",
+      "evde güneş paneli ile araç şarjı",
+      "on-grid güneş enerjisi araç şarjı",
+      "ayarlanabilir akımlı şarj cihazı",
+      "öz tüketim güneş enerjisi şarj",
+      "solar wallbox"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Evet — evinizin çatısındaki güneş panellerinden ürettiğiniz elektrikle aracınızı şarj edebilirsiniz. Şebekeye bağlı (on-grid) bir güneş enerjisi sisteminde paneller evin elektrik tesisatını besler; ev şarj cihazınız da aynı tesisata bağlı olduğu için, güneş üretimi sürerken başlattığınız şarjın önemli bir bölümü doğrudan güneşten karşılanır. Bu rehberde sistemin nasıl çalıştığını, örnek bir hesapla kaç panel gerektiğini ve güneşle en verimli çalışan şarj cihazı özelliklerini sade bir dille anlatıyoruz."
+      },
+      {
+        "type": "p",
+        "text": "Güneş enerjisi ile araba şarj etme fikri, iki yatırımı — çatı tipi güneş enerjisi sistemi ile evdeki şarj istasyonunu — aynı hedefte birleştirir: kilometre başına enerji maliyetini düşürmek ve aracı kendi ürettiğiniz elektrikle beslemek. Önemli bir netleştirmeyle başlayalım: Bemis, elektrikli araç şarj cihazı üreticisidir; güneş paneli ve inverter ayrı bir ekipman grubudur ve güneş enerjisi firmanız tarafından projelendirilir. İyi haber şu ki, doğru kurgulanmış her ev tipi şarj istasyonu güneş enerjisi sistemiyle sorunsuz birlikte çalışır."
+      },
+      {
+        "type": "h2",
+        "text": "Güneş panelinden elektrikli araç şarjı nasıl çalışır?"
+      },
+      {
+        "type": "p",
+        "text": "Ev tipi güneş enerjisi sistemlerinin büyük çoğunluğu şebekeye bağlı, yani on-grid çalışır. Paneller güneşten doğru akım (DC) elektrik üretir; inverter bu elektriği evde kullanılan alternatif akıma (AC) çevirir ve ana elektrik panosuna verir. O andan itibaren üretilen enerji, evde o an hangi cihaz çalışıyorsa onu besler — buzdolabı, klima ve tabii ki elektrikli araç şarj cihazı. Üretim tüketimden azsa aradaki fark şebekeden tamamlanır; fazlaysa fazla enerji şebekeye aktarılır. Bu akışın tamamı otomatiktir: şarjı başlattığınızda arka planda hangi kaynağın kullanıldığını düşünmeniz gerekmez."
+      },
+      {
+        "type": "p",
+        "text": "Bu mimaride şarj cihazının rolü nettir: duvar tipi şarj istasyonu (wallbox) evin panosuna bağlanır ve panodan gelen enerjiyi araca güvenle aktarır. Enerjinin o an panelden mi şebekeden mi geldiği şarj cihazının çalışmasını değiştirmez — bu yüzden \"güneşe özel şarj cihazı\" aramanıza gerek yoktur. Batarya depolamalı sistemlerde kullanılan hibrit inverter da bu mantığı değiştirmez: hibrit inverter panelleri ve bataryayı yönetir, evin panosunu besler; ev şarj cihazı yine panoya bağlı çalışır. Güneşten karşılanan payı yükselten asıl şey, şarjı üretimin yüksek olduğu saatlere denk getirmek ve şarj akımını üretime göre ayarlayabilmektir."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Paneller DC üretir → inverter AC'ye çevirir → ana pano hem evi hem şarj cihazını besler.",
+          "Güneş yeterliyse şarj ağırlıklı olarak panellerden gelir; yetersizse eksik şebekeden tamamlanır — şarj hiç kesilmez.",
+          "Wallbox; panel ve inverter markasından bağımsız çalışır, şarj cihazının özel bir \"solar sürümü\" gerekmez.",
+          "Pano bağlantısı ve kurulum her durumda yetkili bir elektrik tesisatçısı tarafından yapılmalıdır."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kaç panel, kaç kW gerekir? Varsayımsal örnek hesap"
+      },
+      {
+        "type": "p",
+        "text": "Cevap, aracınızın tüketimine ve günlük kaç kilometre yol yaptığınıza bağlıdır. Yaygın bir varsayımla başlayalım: bir elektrikli otomobil 100 kilometrede yaklaşık 15-20 kWh enerji tüketir. Günde ortalama 40 km yol yapan bir sürücünün günlük enerji ihtiyacı bu varsayımla 6-8 kWh civarındadır; şarj sırasındaki yaklaşık %10 kayıp da eklendiğinde, günde kabaca 7-9 kWh'lik üretim bu kullanımı karşılar."
+      },
+      {
+        "type": "p",
+        "text": "Panel tarafında da varsayımsal bir ortalama kullanalım: 1 kWp kurulu gücün Türkiye koşullarında günde ortalama 3,5-4,5 kWh ürettiğini kabul edelim (bölgeye, mevsime, çatının yönüne ve gölgelenmeye göre belirgin şekilde değişir — bu değerler yalnızca fikir vermek içindir). Bu iki varsayımı birleştirince ortaya şu tablo çıkar:"
+      },
+      {
+        "type": "table",
+        "caption": "Varsayımsal örnek hesap — panel değerleri temsilidir; gerçek boyutlandırma keşifle netleşir",
+        "headers": [
+          "Günlük sürüş",
+          "Yaklaşık enerji ihtiyacı",
+          "Varsayımsal panel gücü",
+          "Panel sayısı (450 Wp varsayımı)"
+        ],
+        "rows": [
+          [
+            "20 km",
+            "3-4 kWh",
+            "~1 kWp",
+            "2-3 panel"
+          ],
+          [
+            "40 km",
+            "6-8 kWh",
+            "~1,5-2 kWp",
+            "4-5 panel"
+          ],
+          [
+            "100 km",
+            "15-20 kWh",
+            "~4-5 kWp",
+            "9-12 panel"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "İki not önemli. Birincisi, bu hesap yalnızca aracın payını gösterir; evin kendi tüketimi (beyaz eşya, aydınlatma, klima) için ayrıca kapasite planlanır. İkincisi, üretim mevsimseldir — yazın günlük hedefin üzerine çıkan bir sistem, kışın altında kalabilir. Gerçek boyutlandırma; çatı alanı, yön, eğim ve tüketim profiline bakılarak güneş enerjisi firmanızın yapacağı keşifle netleşir. Buradaki değerleri ön fikir olarak kullanın, yatırım kararını keşfe dayandırın."
+      },
+      {
+        "type": "h2",
+        "text": "Hangi şarj cihazı güneş enerjisine uygun?"
+      },
+      {
+        "type": "p",
+        "text": "Teknik olarak Type 2 konnektörlü her AC ev şarj istasyonu güneş enerjili bir evde çalışır. Verim açısından fark yaratan özellik ise şudur: şarj akımının — dolayısıyla gücün — ayarlanabilmesi. Güneş üretimi gün içinde sürekli değişir; öğle saatlerinde tepe yapar, sabah ve akşam düşer. Şarj gücünü düşük bir kademeye çekebildiğinizde, cihazın çektiği güç üretime yaklaşır ve şarjın daha büyük bölümü şebeke yerine panellerden karşılanır. Üretimin bol olduğu saatlerde ise kademeyi yükselterek güneşi daha hızlı araca aktarırsınız."
+      },
+      {
+        "type": "p",
+        "text": "Bemis Charger Plus 2 ve Charger Pro 2 tam bu esnekliği sunar: güç seviyesi 4-7-11-22 kW arasında (6-10-16-32A) ayarlanabilir. Plus 2'nin akıllı şarj algoritması aracın kabul ettiği maksimum akıma otomatik uyum sağlar; Otomatik Şarj Başlatma özelliği, elektrik kesilip geldiğinde şarjı kendiliğinden sürdürür. Pro 2 buna gelişmiş yük yönetimi (DLM), OCPP 1.6 desteği ve kullanıcı yetkilendirme ekler; bağlantılı modellerde mobil uygulama üzerinden uzaktan açma-kapama, zaman ayarlayıcı ve şarj geçmişi takibi yapılır. Her iki model de IP65 korumalı gövdesiyle açık alana kurulabilir."
+      },
+      {
+        "type": "h3",
+        "text": "Dinamik yük dengeleme güneşli evde neden avantaj?"
+      },
+      {
+        "type": "p",
+        "text": "Yük dengeleme (DLM), evin toplam tüketimini izleyip şarj gücünü tesisatın güvenli sınırına göre otomatik ayarlar. Güneş enerjili bir evde bunun pratik karşılığı şudur: öğlen üretim yüksekken ve evde büyük tüketici çalışmıyorken şarj yüksek güçte ilerler; fırın, klima gibi yükler devreye girince şarj otomatik kısılır, yük azalınca yeniden yükselir. Böylece hem ana sigorta korunur hem de üretimin bol olduğu saatler tesisatı zorlamadan en verimli şekilde değerlendirilir. Zaman ayarlayıcı ile şarjı üretimin tepe yaptığı öğle aralığına planlamak da güneşten karşılanan payı artıran basit ve etkili bir yöntemdir."
+      },
+      {
+        "type": "p",
+        "text": "Sabit kurulum istemeyenler veya güneş enerjili bağ evi, yazlık gibi ikinci bir lokasyonu olanlar için Bemis Pro Mobile 2 pratik bir alternatiftir: 11-22 kW güç sunan bu taşınabilir trifaze şarj cihazında akım, mobil uygulamadan veya cihaz üzerindeki tuştan 6 kademede (6/10/16/20/25/32A) ayarlanır. Düşük kademeler, üretimi sınırlı küçük güneş sistemlerinde bile şarjın önemli bölümünü güneşten karşılamayı kolaylaştırır. IP65 koruma sınıfı ve -40°C / +55°C çalışma aralığı cihazı dört mevsim dış ortamda kullanılabilir kılar; kutusundan taşıma çantası ve monofaze fiş dönüştürücü adaptörü çıkar."
+      },
+      {
+        "type": "cta",
+        "text": "Güneş enerjisiyle uyumlu, ayarlanabilir akımlı şarj cihazınızı seçin — kullanımınıza uygun model için birlikte karar verelim.",
+        "href": "/products/wallbox",
+        "label": "AC Wallbox Şarj İstasyonlarını İncele"
+      },
+      {
+        "type": "h2",
+        "text": "Gece ve bulutlu günlerde şarj nasıl devam eder?"
+      },
+      {
+        "type": "p",
+        "text": "On-grid sistemin en büyük konforu kesintisizliktir: güneş yetmediğinde eksik kısım, siz hiçbir şey yapmadan şebekeden tamamlanır. Gece şarjında enerji tamamen şebekeden gelir; bulutlu günlerde ise üretim düşer ama sıfırlanmaz — paneller azalan bir katkı vermeye devam eder, kalanı şebeke üstlenir. Araç şarjı hiçbir senaryoda yarıda kalmaz. Elektrik tarifeniz gece saatlerinde daha uygunsa, şarj cihazındaki zaman ayarlayıcı ile şarjı geceye planlayıp güneşin olmadığı saatlerin maliyetini de yönetebilirsiniz."
+      },
+      {
+        "type": "p",
+        "text": "Batarya depolamalı (hibrit inverter'lı) sistemler, gündüz üretilen fazla enerjiyi depolayıp akşam kullanıma sunar; bu enerji öncelikle evin kendi tüketimini hafifletir. Aracın bataryası ev tipi depolama bataryalarından çok daha büyük olduğu için, gece araç şarjını tamamen ev bataryasından karşılamak çoğu kurulumda gerçekçi değildir — depolamayı tam araç şarjı için değil, destek olarak düşünmek gerekir. Özetle en verimli kurgu: mümkünse şarjı güneşli saatlere planlamak, akımı üretime göre ayarlamak ve kalan ihtiyacı gece tarifesinde şebekeden tamamlamak."
+      },
+      {
+        "type": "p",
+        "text": "Bemis, 1994'ten bu yana Bursa'da üretim yapan Bemis Teknik mirasıyla ev ve iş yeri için AC şarj istasyonları üretir. Güneş enerjisi sisteminizin panel ve inverter tarafını güneş enerjisi firmanızla projelendirdikten sonra, şarj tarafını ayarlanabilir akımlı Charger Plus 2, Charger Pro 2 veya taşınabilir Pro Mobile 2 ile tamamlayabilirsiniz. Hangi modelin kullanımınıza uygun olduğuna karar vermek için İletişim sayfamızdan bize ulaşabilirsiniz."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Güneş panelinden doğrudan elektrikli araç şarj edilebilir mi?",
+        "a": "Panelin ürettiği doğru akım (DC) elektrik araca doğrudan verilmez; önce inverter tarafından evde kullanılan alternatif akıma (AC) çevrilir ve ana elektrik panosuna aktarılır. Ev şarj cihazınız bu panoya bağlı çalıştığı için, güneş üretimi sürerken yaptığınız şarjın önemli bölümü panellerden karşılanır; eksik kalan kısım otomatik olarak şebekeden tamamlanır. Yani \"panelden şarj\" pratikte, şebekeye bağlı (on-grid) güneş enerjisi sisteminin beslediği ev tesisatından şarj etmek demektir. Bu kurguda şarj cihazının özel bir donanıma ihtiyacı yoktur; Type 2 konnektörlü her AC wallbox sistemle uyumlu çalışır."
+      },
+      {
+        "q": "Elektrikli araç şarjı için kaç güneş paneli gerekir?",
+        "a": "Varsayımsal bir örnekle anlatalım: elektrikli araçlar 100 km'de yaklaşık 15-20 kWh tüketir; günde 40 km yol yapan bir sürücünün günlük ihtiyacı 6-8 kWh'tir. 1 kWp kurulu gücün Türkiye ortalamasında günde yaklaşık 3,5-4,5 kWh ürettiği varsayılırsa, bu kullanım için 1,5-2 kWp — yani 450 Wp panellerle 4-5 panel — yeterli olur. Günde 100 km için ihtiyaç 4-5 kWp'ye (9-12 panel) çıkar. Bu değerler yalnızca fikir vermek içindir; gerçek panel sayısı çatınızın yönü, eğimi, bölgeniz, mevsim ve evin kendi tüketimi dikkate alınarak güneş enerjisi firmasının keşfiyle belirlenir."
+      },
+      {
+        "q": "Güneş enerjisiyle şarj için özel bir şarj cihazı mı gerekir?",
+        "a": "Hayır. Şebekeye bağlı güneş enerjisi sistemi olan bir evde standart Type 2 AC şarj istasyonu sorunsuz çalışır, çünkü cihaz enerjiyi panellerden değil evin panosundan alır. Verimi artıran özellik akım ayarıdır: Bemis Charger Plus 2 ve Charger Pro 2'de güç 4-7-11-22 kW arasında ayarlanabilir; taşınabilir Pro Mobile 2'de ise akım mobil uygulamadan veya cihaz üzerindeki tuştan 6 kademede (6-32A) seçilir. Düşük kademeler çekilen gücü güneş üretimine yaklaştırır, yüksek kademeler üretimin bol olduğu saatlerde şarjı hızlandırır. Böylece aynı cihaz hem güneşli hem güneşsiz saatlerde verimli kullanılır."
+      },
+      {
+        "q": "Hibrit inverter ile ev şarj cihazı birlikte çalışır mı?",
+        "a": "Evet. Hibrit inverter; güneş panellerini ve varsa batarya depolamayı yöneten, evin ana panosunu besleyen ekipmandır. Ev şarj cihazı ise bu panoya bağlanan ayrı bir cihazdır. İkisi doğrudan birbirine bağlanmaz, aynı tesisat üzerinden birlikte çalışır — bu yüzden inverter markası ile şarj cihazı markasının eşleşmesi gerekmez. Bemis wallbox modelleri, panel ve inverter altyapısından bağımsız olarak on-grid veya hibrit sistemli her eve kurulabilir. Bağlantının pano üzerinden, uygun koruma elemanlarıyla ve yetkili bir elektrik tesisatçısı tarafından yapılması yeterlidir. Kurulumdan önce tesisatın uygunluğunu keşifle doğrulamak, hem güneş hem şarj yatırımının sağlıklı ilerlemesini sağlar."
+      },
+      {
+        "q": "Gece veya bulutlu havada araç şarjı nasıl olur?",
+        "a": "Şebekeye bağlı (on-grid) sistemlerde şarj hiç kesilmez: güneş üretimi yetmediğinde eksik kısım otomatik olarak şebekeden tamamlanır. Gece şarjı tamamen şebekeden beslenir; bulutlu günlerde paneller azalan bir katkı vermeye devam eder ve fark yine şebekeden karşılanır. Elektrik tarifeniz gece daha uygunsa, şarj cihazındaki zaman ayarlayıcı ile şarjı gece saatlerine planlayarak güneşsiz saatlerin maliyetini de yönetebilirsiniz. Batarya depolamalı sistemler gündüz fazlasını akşama taşır; ancak araç bataryası ev tipi bataryadan çok daha büyük olduğundan, depolamayı tam araç şarjı için değil destek olarak düşünmek gerekir."
+      }
+    ],
+    "related": [
+      {
+        "label": "Evde Elektrikli Araç Şarj Maliyeti: Km Başına Kaç TL?",
+        "href": "/blog/evde-elektrikli-arac-sarj-maliyeti-km-basina"
+      },
+      {
+        "label": "Monofaze mi, Trifaze (3 Faz) mı? Evinize Hangi Şarj Cihazı Uygun?",
+        "href": "/blog/monofaze-mi-trifaze-mi-ev-sarj"
+      },
+      {
+        "label": "Elektrikli Araç Şarjında Yük Yönetimi (Load Management) Nedir?",
+        "href": "/blog/elektrikli-arac-sarj-yuk-yonetimi"
+      },
+      {
+        "label": "AC Wallbox Şarj İstasyonları",
+        "href": "/products/wallbox"
+      }
+    ]
+  },
+  {
+    "slug": "evde-elektrikli-arac-sarji-guvenli-mi",
+    "title": "Evde Elektrikli Araç Şarjı Güvenli mi? Priz, Sigorta ve Kaçak Akım Rehberi",
+    "metaTitle": "Evde Elektrikli Araç Şarjı Güvenli mi? Güvenlik Rehberi",
+    "description": "Evde elektrikli araç şarj etmek güvenli mi? Normal prizden şarjın sınırları, uzatma kablosu riski, kaçak akım rölesi, ayrı hat ve wallbox güvenliği bir arada.",
+    "excerpt": "Evde araç şarjı, doğru ekipman ve sağlıklı tesisatla güvenlidir. Normal prizden şarjın sınırları, uzatma kablosu riskleri, kaçak akım rölesi ve wallbox'ın neden en güvenli yol olduğu bu rehberde.",
+    "category": "Rehber",
+    "datePublished": "2026-07-18",
+    "readingMinutes": 7,
+    "keywords": [
+      "evde elektrikli araç şarj etmek güvenli mi",
+      "elektrikli araç normal prizden şarj",
+      "ev şarj cihazı sigorta",
+      "kaçak akım rölesi araç şarj",
+      "elektrikli araç şarj yangın riski",
+      "evde şarj güvenliği",
+      "uzatma kablosu ile araç şarjı",
+      "taşınabilir şarj cihazı güvenli mi",
+      "wallbox güvenli mi"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Elektrikli araç almayı düşünen ya da yeni alan herkesin aklındaki soru aynı: evde şarj etmek gerçekten güvenli mi? Kısa ve net cevap: evet — doğru ekipman ve sağlıklı bir elektrik tesisatıyla evde şarj, elektrikli araç sahipliğinin en pratik ve en güvenli rutinlerinden biridir. Şarj ekipmanları en baştan bu iş için tasarlanır; cihaz araçla sürekli haberleşir ve koşullar uygun olmadığında akım vermez. Riskler ise çoğunlukla ekipmanın kendisinden değil, çevresinden gelir: yıpranmış prizler, uzatma kabloları ve bakımsız tesisat. Bu rehberde neyin güvenli, neyin riskli olduğunu madde madde netleştiriyoruz."
+      },
+      {
+        "type": "h2",
+        "text": "Normal ev prizinden şarj etmek güvenli mi?"
+      },
+      {
+        "type": "p",
+        "text": "Evdeki standart topraklı prizden (schuko) şarj, taşınabilir bir şarj cihazıyla mümkündür ve doğru koşullarda güvenlidir. Burada kritik bir ayrım var: aracı prize bağlayan şey basit bir kablo değil, içinde kontrol ünitesi bulunan bir şarj cihazıdır. Bu ünite araçla haberleşir, akımı ayarlı seviyede sınırlar ve bağlantı sağlıklı değilse şarjı başlatmaz. Asıl soru priz tarafındadır: standart ev prizleri günlük kısa süreli kullanıma göre düşünülmüştür; araç şarjı ise saatler süren kesintisiz bir yüktür. Eski, gevşek veya yıpranmış bir prizde bu yük ısınmaya yol açabilir."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Uzatma kablosu ve çoklu priz kullanmayın: Uzun süreli yüksek yükte ısınmanın en yaygın kaynağı uzatma kabloları, makaralar ve grup prizlerdir; şarj cihazı her zaman doğrudan duvar prizine takılmalıdır.",
+          "Prizin durumunu kontrol ettirin: Şarjda kullanılacak priz sağlam ve topraklı olmalı; gevşemiş, kararmış veya ara sıra kıvılcım çıkaran bir priz önce elektrikçiye gösterilmelidir.",
+          "Akımı tesisata göre seçin: Prizden şarjda cihazın akım seviyesini düşük tutmak, hattı zorlamadan güvenli şarjın en pratik yoludur."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Bemis'in taşınabilir şarj cihazları tam bu senaryo için tasarlanmıştır: Mini Mobile, standart schuko prizden 2,3–3,7 kW ile şarj eder; IP65 korumalı gövdesi ve geniş çalışma sıcaklığı aralığıyla günlük kullanıma dayanıklıdır. Pro Mobile 2'de ise şarj akımı 6 kademede (6–32A) mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanabilir — emin olmadığınız ya da zayıf bir tesisatta akımı düşürerek hattı zorlamadan şarj etmenizi sağlar. Taşınabilir cihazı her gün kullanacaksanız, elektrikçiniz şarj noktanız için ayrı hatlı bir CEE (endüstriyel) priz veya Bemis'in dahili otomatlı kombinasyon üniteleri gibi korumalı bir priz noktası da kurabilir; bu, priz tarafını en baştan şarj yüküne göre boyutlandırmak demektir."
+      },
+      {
+        "type": "h2",
+        "text": "Wallbox neden evde şarjın en güvenli yolu?"
+      },
+      {
+        "type": "p",
+        "text": "Duvara sabitlenen şarj istasyonu (wallbox), evde şarjın en güvenli ve en konforlu biçimidir; çünkü prize değil, elektrik panosundan kendisi için çekilen ayrı bir hatta bağlanır. Bu hat, yetkili elektrikçi tarafından şarj yüküne göre boyutlandırılır ve panoda kendi sigortası ile kaçak akım koruması altında çalışır. Böylece şarj, evin diğer cihazlarıyla aynı hattı paylaşmaz; yük en baştan doğru planlanmış bir altyapıdan geçer."
+      },
+      {
+        "type": "p",
+        "text": "Bemis wallbox ailesi bu yaklaşımı cihaz tarafında tamamlar: Charger Plus 2 ve Charger Pro 2 modellerinde güç 4/7/11/22 kW arasında ayarlanabilir ve akıllı şarj algoritması aracın kabul ettiği maksimum akıma otomatik uyum sağlar. Charger Plus 2'deki Otomatik Şarj Başlatma özelliği, elektrik kesintisi sonrasında şarjı kendiliğinden sürdürür; RFID kart yetkilendirmesi cihazı yalnızca sizin başlatmanıza imkân verir. CE belgeli ve IP65 korumalı gövde sayesinde wallbox açık otoparka veya bahçeye de kurulabilir; dış mekân ve yağmur konusunu ayrı bir rehberde detaylı ele aldık. Monofaze mi trifaze mi sorusu ise güvenlikten çok tesisat kapasitesiyle ilgili ayrı bir karardır — onun için de karar rehberimize bakabilirsiniz."
+      },
+      {
+        "type": "h2",
+        "text": "Tesisat tarafı: kurulumdan önce nelere bakılmalı?"
+      },
+      {
+        "type": "p",
+        "text": "Ev şarjında güvenliğin asıl belirleyicisi cihazdan çok tesisattır. Aşağıdaki başlıklar, yetkili elektrikçinizin keşif sırasında değerlendireceği tipik konulardır; kesin değerleri ve malzeme seçimini her evin kendi tesisatına göre uzman belirler:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaçak akım koruması: Şarj hattında uygun tipte bir kaçak akım rölesi bulunmalıdır; hangi tip ve değerin doğru olduğuna tesisatı gören elektrikçiniz karar verir.",
+          "Ayrı (adanmış) hat: Şarj cihazının panodan kendine ait sigortalı bir hatla beslenmesi, hem prizleri hem evin diğer devrelerini rahatlatır.",
+          "Topraklama: Sağlıklı bir topraklama güvenli şarjın ön koşuludur; özellikle eski binalarda mutlaka ölçtürülmelidir.",
+          "Kablo kesiti ve hat uzunluğu: Kesit, taşınacak akıma ve mesafeye göre seçilir; ince kesitli veya ekli-uzatmalı hatlar uzun süreli yükte ısınma riski taşır.",
+          "Pano ve sigortalar: Panonun genel durumu, boş sigorta yuvası ve ana sigorta kapasitesi keşifte birlikte değerlendirilir."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Bu listedeki hiçbir adım kendi başınıza yapacağınız bir iş değildir; amaç, elektrikçinizle konuşurken neyin neden yapıldığını bilmenizdir. Tesisat değerlendirmesi ve kurulum, her durumda yetkili bir elektrikçi tarafından yapılmalıdır."
+      },
+      {
+        "type": "h2",
+        "text": "Yangın söylentileri ve gerçekler"
+      },
+      {
+        "type": "p",
+        "text": "Sosyal medyada zaman zaman dolaşan \"elektrikli araç şarjda yangın çıkarır\" söylentisi, konunun en çok merak edilen tarafı. Gerçek tablo şudur: şarj, sürekli haberleşme üzerine kurulu kontrollü bir süreçtir. Akım, ancak araç ile cihaz arasındaki bağlantı doğrulandığında ve izin verilen seviyede akar; bağlantı koptuğunda ya da bir sorun algılandığında şarj durur. Standartlara uygun, sertifikalı ekipman kendi başına bir risk kaynağı değildir."
+      },
+      {
+        "type": "p",
+        "text": "Ev şarjında sorun yaşanan durumların ortak paydası çoğunlukla ekipman dışıdır: standart dışı ucuz adaptörler, uzatma kabloları, yıpranmış prizler, bakımsız ya da bilinçsizce tadil edilmiş tesisatlar. Riski yöneten üç basit kural vardır: CE belgeli, Type 2 (IEC 62196-2) standardına uygun ekipman kullanın; şarj cihazını doğrudan prize takın ya da tercihen ayrı hatlı bir wallbox kurdurun; tesisatınızı yetkili bir elektrikçiye kontrol ettirin. Bu üç kurala uyulduğunda evde şarj, günlük hayatın sıradan ve güvenli bir parçasıdır. Şarj sırasında fişi ve cihazı ara sıra gözle kontrol etmek — aşırı ısınma, hasar, gevşeme var mı — her elektrikli cihazda olduğu gibi iyi bir alışkanlıktır."
+      },
+      {
+        "type": "cta",
+        "text": "Evinize uygun, CE belgeli ve IP65 korumalı Bemis şarj çözümlerini inceleyin — ister sabit wallbox ister taşınabilir cihaz, güvenli şarj doğru ekipmanla başlar.",
+        "href": "/products/wallbox",
+        "label": "Wallbox Modellerini İncele"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Evde elektrikli araç şarj etmek güvenli mi?",
+        "a": "Evet. Doğru ekipman ve sağlıklı bir elektrik tesisatıyla evde şarj güvenlidir. Şarj ekipmanları bu iş için tasarlanır; cihaz araçla sürekli haberleşir ve yalnızca koşullar uygunken, izin verilen seviyede akım verir. Riskler çoğunlukla ekipmandan değil çevresinden gelir: yıpranmış prizler, uzatma kabloları, standart dışı adaptörler ve bakımsız tesisat. En güvenli düzen, panodan ayrı bir hatla beslenen ve kaçak akım koruması bulunan bir wallbox kurdurmaktır; taşınabilir cihaz kullanıyorsanız cihazı doğrudan sağlam, topraklı bir prize takın. Tesisat kontrolünü ve kurulumu mutlaka yetkili bir elektrikçiye yaptırın."
+      },
+      {
+        "q": "Elektrikli araç normal ev prizinden şarj edilir mi?",
+        "a": "Edilir; taşınabilir bir şarj cihazıyla standart topraklı (schuko) prizden şarj mümkündür ve doğru koşullarda güvenlidir. Cihazın içindeki kontrol ünitesi akımı sınırlar ve bağlantı sağlıklı değilse şarjı başlatmaz. Dikkat edilmesi gerekenler priz tarafındadır: priz sağlam ve topraklı olmalı, hat saatler süren yüke uygun olmalı, uzatma kablosu ve çoklu priz asla kullanılmamalıdır. Prizden şarj özellikle gece boyu yapılan, acelesi olmayan şarjlar için pratiktir; her gün şarj ediyorsanız orta vadede ayrı hatlı bir wallbox hem daha hızlı hem daha rahattır. Emin değilseniz prizi ve hattı elektrikçinize kontrol ettirin."
+      },
+      {
+        "q": "Uzatma kablosu veya çoklu prizle araç şarj edilir mi?",
+        "a": "Hayır, önerilmez. Araç şarjı saatler süren kesintisiz ve yüksek bir yüktür; uzatma kabloları, makaralar ve grup prizler bu tür yükler için tasarlanmamıştır. Ara temas noktaları ve ince kesitli iletkenler uzun süreli yükte ısınabilir; makaraya sarılı kabloda ısı daha da birikir. Bu, ev şarjında yaşanan sorunların en yaygın kaynağıdır ve bu yüzden şarj cihazı her zaman doğrudan duvar prizine takılmalıdır. Prizin konumu yetmiyorsa çözüm uzatma kablosu değil, elektrikçinize aracınızın park yerine uygun, ayrı hatlı yeni bir priz veya şarj çıkışı kurdurmaktır."
+      },
+      {
+        "q": "Ev şarj cihazı için ayrı sigorta veya kaçak akım rölesi gerekir mi?",
+        "a": "Sabit bir wallbox kurulumunda genel kabul gören yaklaşım, cihazın panodan kendine ait sigortalı bir hatla beslenmesi ve bu hatta uygun tipte bir kaçak akım rölesinin bulunmasıdır. Bu düzen, şarj yükünü evin diğer devrelerinden ayırır ve olası bir kaçak durumunda devreyi hızla keser. Taşınabilir cihazla prizden şarjda da prizin beslendiği hattın korumalı olması aynı derecede önemlidir. Hangi sigorta değerinin, hangi kaçak akım rölesi tipinin ve hangi kablo kesitinin uygun olduğu evin tesisatına, hattın uzunluğuna ve seçilen şarj gücüne bağlıdır; bu seçimleri yalnızca yerinde inceleme yapan yetkili bir elektrikçi yapmalıdır."
+      },
+      {
+        "q": "Elektrikli araç şarjı yangın riski taşır mı?",
+        "a": "Sertifikalı ekipman ve doğru kurulumla evde şarj kontrollü, güvenli bir süreçtir; akım yalnızca araç ile cihaz arasındaki bağlantı doğrulandığında ve izin verilen seviyede akar, sorun algılanırsa şarj durur. Yaşanan olayların ortak paydası çoğunlukla ekipman dışıdır: standart dışı adaptörler, uzatma kabloları, yıpranmış prizler ve bakımsız tesisat. Riski küçültmenin yolu üç adımdır: CE belgeli, Type 2 (IEC 62196-2) standardına uygun ekipman kullanmak; cihazı doğrudan prize takmak ya da ayrı hatlı bir wallbox kurdurmak; tesisatı yetkili bir elektrikçiye kontrol ettirmek. Konu korku değil, basit bir özen meselesidir."
+      }
+    ],
+    "related": [
+      {
+        "label": "Elektrikli Araç Şarj Kablosu Dışarıda ve Yağmurda Kullanılır mı?",
+        "href": "/blog/elektrikli-arac-sarj-kablosu-disarida-yagmurda-kullanilir-mi"
+      },
+      {
+        "label": "Monofaze mi, Trifaze (3 Faz) mı? Evinize Hangi Şarj Cihazı Uygun?",
+        "href": "/blog/monofaze-mi-trifaze-mi-ev-sarj"
+      },
+      {
+        "label": "Ev Şarj Ünitesi mi, Taşınabilir Şarj Cihazı mı?",
+        "href": "/blog/ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi"
+      },
+      {
+        "label": "Taşınabilir Şarj Cihazları",
+        "href": "/products/portable"
+      }
+    ]
+  },
+  {
     "slug": "isletmeler-icin-dc-hizli-sarj-istasyonu-yatirimi",
     "title": "İşletmeler için DC Hızlı Şarj İstasyonu Yatırımı: Karar Rehberi",
     "metaTitle": "DC Hızlı Şarj İstasyonu Yatırımı: İşletme Rehberi",
