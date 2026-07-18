@@ -7,6 +7,8 @@ import { HiArrowRight, HiPhone, HiLocationMarker, HiMail, HiUser, HiClock, HiExt
 import { RiMapPin2Line, RiWhatsappLine, RiGlobalLine, RiAwardLine, RiCustomerService2Line, RiArrowDownSLine, RiCheckLine } from "react-icons/ri";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
 import E from "./E";
 import Image from "next/image";
 import { CITY_BY_ID } from "../../lib/turkeyCities";
@@ -64,6 +66,19 @@ const REGIONS = [
 const BURSA_HQ = { id: "merkez", label: "Bursa Merkez", cx: 270, cy: 272 };
 const HQ_RED = "#EF4444";
 
+// Bölge adlarının İngilizce karşılıkları — pickText bunları EN'de doğrudan,
+// de/es/ar/ru'da ui.json sözlüğü üzerinden çevirir (TR görünüm değişmez).
+const REGION_EN: Record<string, string> = {
+  marmara: "Marmara",
+  ege: "Aegean",
+  akdeniz: "Mediterranean",
+  ic_anadolu: "Central Anatolia",
+  karadeniz: "Black Sea",
+  dogu: "Eastern Anatolia",
+  guneydogu: "Southeast Anatolia",
+  merkez: "Bursa HQ",
+};
+
 // Language → ISO-3166 country code + native label lookup. `cc` drives the
 // flagcdn.com PNG so flags render the same across Windows / Mac / Linux
 // (Windows doesn't ship colour emoji flags out of the box).
@@ -87,6 +102,10 @@ export default function DealerNetwork() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { dealer: dealerSection, sectionBgs, logos } = useContent();
   const { theme } = useTheme();
+  const { lang } = useLanguage();
+  // Kısa çeviri yardımcıları: L(tr,en) chrome dizeleri; regionLabel bölge adları.
+  const L = (tr: string, en: string) => pickText(lang, tr, en);
+  const regionLabel = (r: { id: string; label: string }) => L(r.label, REGION_EN[r.id] ?? r.label);
   const d = theme === "dark";
   const [dealers, setDealers] = useState<DealersData>({});
   const [hoveredCity, setHoveredCity] = useState<string | null>(null);
@@ -278,7 +297,7 @@ export default function DealerNetwork() {
   const activeDealers = cityFilter
     ? allRegionDealers.filter((d) => d._cityId === cityFilter)
     : allRegionDealers;
-  const activeCityLabel = activeRegion?.label;
+  const activeCityLabel = activeRegion ? regionLabel(activeRegion) : undefined;
   // Bemis regional reps matched on regionId — birden fazla temsilci olabilir.
   // Sadece en az bir alan dolu olan rep'ler render edilir; boş kayıtlar gizli.
   const activeReps = activeRegion
@@ -337,7 +356,7 @@ export default function DealerNetwork() {
             style={{ background: d ? `${BLUE}18` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`, color: d ? "#93C5FD" : BLUE }}
           >
             {viewMode === "yurtdisi"
-              ? (dealerSection.worldSection?.sectionLabel ?? "Küresel Distribütör Ağı")
+              ? (dealerSection.worldSection?.sectionLabel ?? L("Küresel Distribütör Ağı", "Global Distributor Network"))
               : <E field="dealer.sectionLabel" tag="span">{dealerSection.sectionLabel}</E>}
           </motion.span>
           <motion.h2
@@ -349,7 +368,7 @@ export default function DealerNetwork() {
             style={{ color: d ? "#ffffff" : "#111111" }}
           >
             {viewMode === "yurtdisi"
-              ? (dealerSection.worldSection?.heading ?? "Dünyaya Açılan Bemis")
+              ? (dealerSection.worldSection?.heading ?? L("Dünyaya Açılan Bemis", "Bemis Across the World"))
               : <E field="dealer.heading">{dealerSection.heading}</E>}
           </motion.h2>
           <motion.div
@@ -380,7 +399,7 @@ export default function DealerNetwork() {
             >
               <h3 className="font-bold text-base mb-1.5" style={{ color: d ? "#ffffff" : "#111111" }}>
                 {viewMode === "yurtdisi"
-                  ? (dealerSection.worldSection?.introTitle ?? "Bursa'dan Dünyaya")
+                  ? (dealerSection.worldSection?.introTitle ?? L("Bursa'dan Dünyaya", "From Bursa to the World"))
                   : <E field="dealer.findDealerTitle">{dealerSection.findDealerTitle}</E>}
               </h3>
               <p className="text-sm leading-relaxed mb-4" style={{ color: d ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.55)" }}>
@@ -515,9 +534,9 @@ export default function DealerNetwork() {
                   style={{ background: d ? `${BLUE}15` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}28`, color: d ? "#93C5FD" : BLUE }}
                   onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}25` : `${BLUE}18`; }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = d ? `${BLUE}15` : `${BLUE}10`; }}
-                  title="Haritadaki bölgeleri vurgular"
+                  title={L("Haritadaki bölgeleri vurgular", "Highlights regions on the map")}
                 >
-                  Bayi Bul
+                  {L("Bayi Bul", "Find a Dealer")}
                   <HiArrowRight />
                 </button>
               )}
@@ -527,7 +546,7 @@ export default function DealerNetwork() {
             <div className="grid grid-cols-2 gap-2.5">
               {(viewMode === "yurtdisi"
                 ? [
-                    { value: String(sortedIntl.length),                 label: "Aktif Ülke" },
+                    { value: String(sortedIntl.length),                 label: L("Aktif Ülke", "Active Countries") },
                     { value: String(new Set(sortedIntl.map(c => {
                         // Bucket continent by lng band — rough but useful as a stat
                         if (c.lng > -25 && c.lng < 60 && c.lat > 30) return "EU";
@@ -535,7 +554,7 @@ export default function DealerNetwork() {
                         if (c.lng < -25) return "AM";
                         if (c.lng >= 75) return "AS";
                         return "AF";
-                      })).size),                                          label: "Kıta" },
+                      })).size),                                          label: L("Kıta", "Continents") },
                   ]
                 : [
                     { value: dealerSection.statCities,  label: dealerSection.citiesLabel   },
@@ -592,11 +611,11 @@ export default function DealerNetwork() {
                       <RiMapPin2Line style={{ fontSize: 13 }} />
                     </span>
                     <span className="flex-1 text-left truncate">
-                      {activeRegion ? activeRegion.label : "Bölge seçin…"}
+                      {activeRegion ? regionLabel(activeRegion) : L("Bölge seçin…", "Select region…")}
                     </span>
                     {activeRegion && (
                       <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0" style={{ background: `${BLUE}1a`, color: d ? "#93C5FD" : BLUE }}>
-                        {regionCount(activeRegion.id)} bayi
+                        {regionCount(activeRegion.id)} {L("bayi", "dealers")}
                       </span>
                     )}
                     <RiArrowDownSLine className="flex-shrink-0 transition-transform duration-200" style={{ fontSize: 18, color: d ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.4)", transform: regionOpen ? "rotate(180deg)" : "none" }} />
@@ -657,9 +676,9 @@ export default function DealerNetwork() {
                               <span className="flex items-center justify-center w-6 h-6 rounded-md flex-shrink-0" style={{ background: isActive ? BLUE : `${BLUE}14`, color: isActive ? "#ffffff" : (d ? "#93C5FD" : BLUE) }}>
                                 <RiMapPin2Line style={{ fontSize: 13 }} />
                               </span>
-                              <span className="flex-1 truncate">{r.label}</span>
+                              <span className="flex-1 truncate">{regionLabel(r)}</span>
                               <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0" style={{ background: d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.05)", color: d ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.55)" }}>
-                                {count} bayi
+                                {count} {L("bayi", "dealers")}
                               </span>
                               {isActive && <RiCheckLine className="flex-shrink-0" style={{ fontSize: 16, color: d ? "#93C5FD" : BLUE }} />}
                             </button>
@@ -699,7 +718,7 @@ export default function DealerNetwork() {
                     <select
                       value={cityFilter ?? ""}
                       onChange={(e) => setCityFilter(e.target.value || null)}
-                      aria-label="Şehir filtresi"
+                      aria-label={L("Şehir filtresi", "City filter")}
                       className="text-xs font-semibold rounded-md px-2 py-1 cursor-pointer focus:outline-none transition-colors"
                       style={{
                         background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)",
@@ -707,7 +726,7 @@ export default function DealerNetwork() {
                         color: d ? "#ffffff" : "#111111",
                       }}
                     >
-                      <option value="">Tüm şehirler</option>
+                      <option value="">{L("Tüm şehirler", "All cities")}</option>
                       {activeRegionCities.map((cid) => (
                         <option key={cid} value={cid}>
                           {CITY_BY_ID[cid]?.label ?? cid}
@@ -819,7 +838,7 @@ export default function DealerNetwork() {
                       {(dealer.mapUrl || dealer.address) && (
                         <a href={dealerMapHref(dealer)} target="_blank" rel="noopener noreferrer" className="text-xs flex items-center gap-1 mt-1.5 transition-colors hover:underline" style={{ color: d ? "#93C5FD" : BLUE }}>
                           <HiExternalLink className="flex-shrink-0" />
-                          Haritada Aç
+                          {L("Haritada Aç", "Open in Maps")}
                         </a>
                       )}
                       {dealer.notes && (
@@ -848,8 +867,8 @@ export default function DealerNetwork() {
               >
                 <div className="px-4 py-3 flex items-center gap-2" style={{ borderBottom: `1px solid ${BLUE}20` }}>
                   <RiGlobalLine style={{ color: d ? "#93C5FD" : BLUE, fontSize: 14 }} />
-                  <p className="font-semibold text-sm" style={{ color: d ? "#ffffff" : "#111111" }}>Distribütör Ülkeler</p>
-                  <span className="text-xs ml-auto" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.50)" }}>{sortedIntl.length} ülke</span>
+                  <p className="font-semibold text-sm" style={{ color: d ? "#ffffff" : "#111111" }}>{L("Distribütör Ülkeler", "Distributor Countries")}</p>
+                  <span className="text-xs ml-auto" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.50)" }}>{sortedIntl.length} {L("ülke", "countries")}</span>
                 </div>
 
                 {sortedIntl.length === 0 ? (
@@ -986,7 +1005,7 @@ export default function DealerNetwork() {
             >
               {(["yurtici", "yurtdisi"] as const).map((m) => {
                 const active = viewMode === m;
-                const label = m === "yurtici" ? "Türkiye" : "Dünya";
+                const label = m === "yurtici" ? "Türkiye" : L("Dünya", "World");
                 return (
                   <button
                     key={m}
@@ -1081,7 +1100,7 @@ export default function DealerNetwork() {
               <div className="relative w-full">
                 <Image
                   src="/images/turkey-map.png"
-                  alt="Türkiye Haritası"
+                  alt={L("Türkiye Haritası", "Türkiye map")}
                   width={1327}
                   height={621}
                   sizes="(max-width: 1024px) 100vw, 60vw"
@@ -1136,7 +1155,7 @@ export default function DealerNetwork() {
                         style={{ cursor: "pointer" }}
                         tabIndex={0}
                         role="button"
-                        aria-label={`${region.label} bölgesi bayilerini göster`}
+                        aria-label={`${regionLabel(region)}`}
                         onPointerEnter={(e) => handleCityEnter(region, e)}
                         onPointerLeave={(e) => handleCityLeave(e)}
                         onClick={(e) => handleCityClick(region, e as unknown as React.MouseEvent)}
@@ -1214,7 +1233,7 @@ export default function DealerNetwork() {
                             strokeLinejoin: "round",
                           }}
                         >
-                          {region.label}
+                          {regionLabel(region)}
                         </text>
                       </motion.g>
                     );
@@ -1461,7 +1480,7 @@ export default function DealerNetwork() {
                                 {(rep.name || activeCityLabel || "").trim()}
                               </p>
                               <p className="text-xs leading-tight mt-0.5" style={{ color: d ? "rgba(255,255,255,0.62)" : "rgba(0,0,0,0.60)" }}>
-                                {(rep.title || `${activeCityLabel ?? ""} Bölge Temsilcisi`).trim()}
+                                {(rep.title || `${activeCityLabel ?? ""} ${L("Bölge Temsilcisi", "Regional Representative")}`).trim()}
                               </p>
                               {/* Subregion slot — boş ise görünmez ama 16px
                                   yer kaplar → her rep'in identity bloğu 4

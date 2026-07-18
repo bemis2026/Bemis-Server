@@ -1,0 +1,179 @@
+{
+  "_comment": "Basın/haber başlık+özet çevirileri. Yapı: { <pressId>: { <lang>: {title, summary} } }. Gövde (body) kasıtlı TR kalır — Türk basınından özgün alıntılardır; app/lib/pressI18n.ts yalnız title+summary'yi katmanlar. Yeni haber eklerken buraya da çeviri ekle (yoksa o dilde TR görünür).",
+  "power2drive-europe-2026-munih": {
+    "en": {
+      "title": "Bemis E-V Charge at Power2Drive Europe 2026 (Munich)",
+      "summary": "At Power2Drive Europe 2026 (23–25 June, Messe München), part of Europe's largest energy exhibition alliance The smarter E Europe, Bemis E-V Charge presented its next-generation EV charging solutions to international visitors at its Hall B6 stand."
+    },
+    "de": {
+      "title": "Bemis E-V Charge auf der Power2Drive Europe 2026 (München)",
+      "summary": "Auf der Power2Drive Europe 2026 (23.–25. Juni, Messe München), Teil von The smarter E Europe, Europas größtem Messeverbund der Energiebranche, präsentierte Bemis E-V Charge an seinem Stand in Halle B6 internationalen Besuchern Ladelösungen der neuen Generation für Elektrofahrzeuge."
+    },
+    "es": {
+      "title": "Bemis E-V Charge en Power2Drive Europe 2026 (Múnich)",
+      "summary": "En Power2Drive Europe 2026 (23-25 de junio, Messe München), parte de The smarter E Europe, la mayor alianza de ferias de energía de Europa, Bemis E-V Charge presentó en su estand del pabellón B6 sus soluciones de carga de nueva generación para vehículos eléctricos a los visitantes internacionales."
+    },
+    "ar": {
+      "title": "Bemis E-V Charge في Power2Drive Europe 2026 (ميونخ)",
+      "summary": "في إطار The smarter E Europe، أكبر تحالف لمعارض الطاقة في أوروبا، عرضت Bemis E-V Charge خلال Power2Drive Europe 2026 (من 23 إلى 25 يونيو، Messe München) حلول شحن السيارات الكهربائية من الجيل الجديد أمام الزوار الدوليين عبر جناحها في القاعة B6."
+    },
+    "ru": {
+      "title": "Bemis E-V Charge на Power2Drive Europe 2026 (Мюнхен)",
+      "summary": "В рамках The smarter E Europe — крупнейшего альянса энергетических выставок Европы — компания Bemis E-V Charge представила на Power2Drive Europe 2026 (23–25 июня, Messe München) зарядные решения нового поколения для электромобилей международным посетителям на своём стенде в зале B6."
+    }
+  },
+  "light-building-2026-frankfurt": {
+    "en": {
+      "title": "Bemis Group at Light + Building 2026 (Frankfurt)",
+      "summary": "At Light + Building 2026 in Frankfurt (8–13 March), Bemis Group shared its latest EV charging technologies and industrial electrical solutions with international industry professionals across its three brands."
+    },
+    "de": {
+      "title": "Bemis Grup auf der Light + Building 2026 (Frankfurt)",
+      "summary": "Auf der Light + Building 2026 in Frankfurt (8.–13. März) präsentierte Bemis Grup mit seinen drei Marken internationalen Branchenexperten seine Neuheiten bei Ladetechnologien für Elektrofahrzeuge und industriellen Elektrolösungen."
+    },
+    "es": {
+      "title": "Bemis Grup en Light + Building 2026 (Fráncfort)",
+      "summary": "En Light + Building 2026, celebrada en Fráncfort (8-13 de marzo), Bemis Grup compartió con los profesionales internacionales del sector, a través de sus tres marcas, sus novedades en tecnologías de carga para vehículos eléctricos y soluciones eléctricas industriales."
+    },
+    "ar": {
+      "title": "Bemis Grup في Light + Building 2026 (فرانكفورت)",
+      "summary": "في معرض Light + Building 2026 المُقام في فرانكفورت (من 8 إلى 13 مارس)، عرضت Bemis Grup من خلال علاماتها التجارية الثلاث ابتكاراتها في تقنيات شحن السيارات الكهربائية وحلول الكهرباء الصناعية أمام المتخصصين الدوليين في القطاع."
+    },
+    "ru": {
+      "title": "Bemis Grup на Light + Building 2026 (Франкфурт)",
+      "summary": "На выставке Light + Building 2026 во Франкфурте (8–13 марта) Bemis Grup с тремя своими брендами поделилась с международными отраслевыми специалистами новинками в области технологий зарядки электромобилей и промышленных электротехнических решений."
+    }
+  },
+  "electricity-turkey-uc-kita": {
+    "en": {
+      "title": "Bemis Represents Türkiye's Energy Vision on Three Continents in November",
+      "summary": "At trade fairs in Tanzania (Power & Energy 2025), Colombia (FISE 2025) and Istanbul (EV Charge Show 2025), Bemis introduced its TÜV-certified Bemis E-V Charge solutions and 'Made in Türkiye' energy products to international professionals."
+    },
+    "de": {
+      "title": "Bemis vertritt im November die Energievision der Türkei auf drei Kontinenten",
+      "summary": "Auf Messen in Tansania (Power & Energy 2025), Kolumbien (FISE 2025) und Istanbul (EV Charge Show 2025) stellte Bemis internationalen Fachleuten TÜV-zertifizierte Lösungen von Bemis E-V Charge sowie Energieprodukte 'Made in Türkiye' vor."
+    },
+    "es": {
+      "title": "Bemis representa en noviembre la visión energética de Turquía en tres continentes",
+      "summary": "En las ferias de Tanzania (Power & Energy 2025), Colombia (FISE 2025) y Estambul (EV Charge Show 2025), Bemis presentó a los profesionales internacionales las soluciones de Bemis E-V Charge con certificación TÜV y sus productos energéticos 'Made in Türkiye'."
+    },
+    "ar": {
+      "title": "Bemis تمثّل رؤية تركيا للطاقة في ثلاث قارات خلال نوفمبر",
+      "summary": "قدّمت Bemis للمتخصصين الدوليين حلول Bemis E-V Charge الحاصلة على شهادة TÜV ومنتجات الطاقة التي تحمل علامة «Made in Türkiye» في معارض تنزانيا (Power & Energy 2025) وكولومبيا (FISE 2025) وإسطنبول (EV Charge Show 2025)."
+    },
+    "ru": {
+      "title": "Bemis в ноябре представляет энергетическое видение Турции на трёх континентах",
+      "summary": "Компания Bemis представила международным специалистам сертифицированные TÜV решения Bemis E-V Charge и энергетическую продукцию «Made in Türkiye» на выставках в Танзании (Power & Energy 2025), Колумбии (FISE 2025) и Стамбуле (EV Charge Show 2025)."
+    }
+  },
+  "eko-haber-yogun-ilgi": {
+    "en": {
+      "title": "Strong interest in Bemis E-V Charge products",
+      "summary": "At the EV Charge Show in Istanbul, Bemis E-V Charge exhibited the safe charging devices, cables and accessories developed with 30 years of experience, drawing strong interest from visitors."
+    },
+    "de": {
+      "title": "Großes Interesse an den Produkten von Bemis E-V Charge",
+      "summary": "Auf der Messe EV Charge Show in Istanbul stellte Bemis E-V Charge seine mit 30 Jahren Erfahrung entwickelten sicheren Ladegeräte, Kabel und Zubehörteile aus und stieß bei den Besuchern auf großes Interesse."
+    },
+    "es": {
+      "title": "Gran interés por los productos de Bemis E-V Charge",
+      "summary": "En la feria EV Charge Show de Estambul, Bemis E-V Charge exhibió sus cargadores seguros, cables y accesorios, desarrollados con 30 años de experiencia, y despertó un gran interés entre los visitantes."
+    },
+    "ar": {
+      "title": "اهتمام كبير بمنتجات Bemis E-V Charge",
+      "summary": "عرضت Bemis E-V Charge في معرض EV Charge Show بإسطنبول أجهزة الشحن الآمنة والكابلات والإكسسوارات التي طوّرتها بخبرة 30 عاماً، ولاقت منتجاتها اهتماماً كبيراً من الزوار."
+    },
+    "ru": {
+      "title": "Большой интерес к продукции Bemis E-V Charge",
+      "summary": "На выставке EV Charge Show в Стамбуле Bemis E-V Charge продемонстрировала безопасные зарядные устройства, кабели и аксессуары, разработанные на основе 30-летнего опыта; продукция вызвала большой интерес посетителей."
+    }
+  },
+  "ev-charge-show-2025": {
+    "en": {
+      "title": "Bemis E-V Charge at EV Charge Show 2025",
+      "summary": "At EV Charge Show (12–14 November 2025, Istanbul Expo Center), the world's first and only trade fair dedicated to EV charging infrastructure, Bemis E-V Charge presented its charging solutions manufactured in Türkiye to industry professionals."
+    },
+    "de": {
+      "title": "Bemis E-V Charge auf der EV Charge Show 2025",
+      "summary": "Auf der EV Charge Show (12.–14. November 2025, Istanbul Expo Center), der weltweit ersten und einzigen Messe mit Fokus auf die Ladeinfrastruktur für Elektrofahrzeuge, präsentierte Bemis E-V Charge den Branchenprofis seine in der Türkei gefertigten Ladelösungen."
+    },
+    "es": {
+      "title": "Bemis E-V Charge en EV Charge Show 2025",
+      "summary": "En EV Charge Show (12-14 de noviembre de 2025, Istanbul Expo Center), la primera y única feria del mundo centrada en la infraestructura de carga para vehículos eléctricos, Bemis E-V Charge se presentó ante los profesionales del sector con sus soluciones de carga fabricadas en Turquía."
+    },
+    "ar": {
+      "title": "Bemis E-V Charge في EV Charge Show 2025",
+      "summary": "عرضت Bemis E-V Charge حلول شحن مصنّعة في تركيا أمام المتخصصين في القطاع خلال EV Charge Show (من 12 إلى 14 نوفمبر 2025، مركز إسطنبول للمعارض)، المعرض الأول والوحيد في العالم المتخصص في البنية التحتية لشحن السيارات الكهربائية."
+    },
+    "ru": {
+      "title": "Bemis E-V Charge на EV Charge Show 2025",
+      "summary": "На EV Charge Show (12–14 ноября 2025, Стамбульский выставочный центр) — первой и единственной в мире выставке, посвящённой инфраструктуре зарядки электромобилей, — Bemis E-V Charge представила отраслевым специалистам зарядные решения, произведённые в Турции."
+    }
+  },
+  "sektorum-uretime-basladi": {
+    "en": {
+      "title": "Bemis Starts Production of EV Charging Equipment",
+      "summary": "Bemis, with 30 years of industrial electrical experience, announced that it has started manufacturing EV charging equipment with fully in-house software and production processes."
+    },
+    "de": {
+      "title": "Bemis startet die Produktion von Ladeausrüstung",
+      "summary": "Bemis, ein Unternehmen mit 30 Jahren Erfahrung in der Industrieelektrik, gab den Start der Produktion von Ladeausrüstung für Elektrofahrzeuge bekannt – mit zu 100 % in der Türkei entwickelter Software und Fertigung."
+    },
+    "es": {
+      "title": "Bemis inicia la producción de equipos de carga",
+      "summary": "Bemis, con 30 años de experiencia en electricidad industrial, anunció el inicio de la producción de equipos de carga para vehículos eléctricos con software y procesos de fabricación desarrollados al 100 % en Turquía."
+    },
+    "ar": {
+      "title": "Bemis تبدأ إنتاج معدات الشحن",
+      "summary": "أعلنت شركة Bemis، التي تمتلك خبرة 30 عاماً في مجال الكهرباء الصناعية، أنها بدأت إنتاج معدات شحن السيارات الكهربائية ببرمجيات وعمليات إنتاج تُنفَّذ بالكامل (100%) في تركيا."
+    },
+    "ru": {
+      "title": "Bemis начала производство зарядного оборудования",
+      "summary": "Компания Bemis, обладающая 30-летним опытом в области промышленной электротехники, объявила о начале производства зарядного оборудования для электромобилей — с программным обеспечением и производственными процессами, на 100% реализованными в Турции."
+    }
+  },
+  "sektorum-v2l-c2l-adaptorler": {
+    "en": {
+      "title": "Bemis E-V Charge: V2L and C2L Adapters Transforming EV Technology",
+      "summary": "Bemis E-V Charge's V2L (Vehicle-to-Load) and C2L (Charger-to-Load) adapters turn the car into a portable power source; local production of the Mini Adapter, previously sourced from China, was also announced."
+    },
+    "de": {
+      "title": "Bemis E-V Charge: Revolutionäre V2L- und C2L-Adapter für die Elektrofahrzeugtechnik",
+      "summary": "Die V2L- (Vehicle-to-Load) und C2L-Adapter (Charger-to-Load) von Bemis E-V Charge verwandeln das Fahrzeug in eine mobile Stromquelle; zudem wurde angekündigt, dass der bislang aus China bezogene Mini-Adapter künftig in der Türkei gefertigt wird."
+    },
+    "es": {
+      "title": "Bemis E-V Charge: adaptadores V2L y C2L que revolucionan la tecnología del vehículo eléctrico",
+      "summary": "Los adaptadores V2L (Vehicle-to-Load) y C2L (Charger-to-Load) de Bemis E-V Charge convierten el vehículo en una fuente de electricidad portátil; además se anunció la fabricación en Turquía del Mini Adaptador, cuya demanda se cubría hasta ahora desde China."
+    },
+    "ar": {
+      "title": "Bemis E-V Charge: محوّلات V2L وC2L تُحدِث ثورة في تقنيات السيارات الكهربائية",
+      "summary": "تحوّل محوّلات V2L (Vehicle-to-Load) وC2L (Charger-to-Load) من Bemis E-V Charge السيارة إلى مصدر كهرباء متنقل؛ كما أُعلن عن بدء إنتاج محوّل Mini Adaptör في تركيا بعد أن كان الطلب عليه يُلبَّى من الصين."
+    },
+    "ru": {
+      "title": "Bemis E-V Charge: революционные адаптеры V2L и C2L для электромобилей",
+      "summary": "Адаптеры V2L (Vehicle-to-Load) и C2L (Charger-to-Load) от Bemis E-V Charge превращают автомобиль в мобильный источник электроэнергии; также объявлено о запуске производства в Турции адаптера Mini Adaptör, спрос на который ранее покрывался поставками из Китая."
+    }
+  },
+  "sektorum-yerli-urunler-tuketiciyle": {
+    "en": {
+      "title": "Bemis E-V Charge Products, Fully Made in Türkiye, Reach Consumers",
+      "summary": "The Charger, Charger Plus and Charger Pro models (7.4–22 kW; IP66/IP65; QR, RFID, NFC, Wi-Fi, OCPP 1.6J) reached consumers with fully in-house software and manufacturing."
+    },
+    "de": {
+      "title": "Die zu 100 % in der Türkei gefertigten E-V Charge Produkte von Bemis erreichen die Verbraucher",
+      "summary": "Die Modelle Charger, Charger Plus und Charger Pro (7,4–22 kW; IP66/IP65; QR, RFID, NFC, Wi-Fi, OCPP 1.6J) haben die Verbraucher erreicht – mit zu 100 % in der Türkei entwickelter Software und Fertigung."
+    },
+    "es": {
+      "title": "Los productos E-V Charge de Bemis, fabricados al 100 % en Turquía, llegan al consumidor",
+      "summary": "Los modelos Charger, Charger Plus y Charger Pro (7,4–22 kW; IP66/IP65; QR, RFID, NFC, Wi-Fi, OCPP 1.6J) llegaron al consumidor con software y fabricación desarrollados al 100 % en Turquía."
+    },
+    "ar": {
+      "title": "منتجات Bemis E-V Charge المصنّعة بالكامل في تركيا تصل إلى المستهلكين",
+      "summary": "وصلت طرازات Charger وCharger Plus وCharger Pro (7.4–22 kW؛ IP66/IP65؛ QR وRFID وNFC وWi-Fi وOCPP 1.6J) إلى المستهلكين، وقد طُوِّرت برمجياتها وجرى إنتاجها بالكامل (100%) في تركيا."
+    },
+    "ru": {
+      "title": "Продукция Bemis E-V Charge, полностью произведённая в Турции, стала доступна потребителям",
+      "summary": "Модели Charger, Charger Plus и Charger Pro (7,4–22 kW; IP66/IP65; QR, RFID, NFC, Wi-Fi, OCPP 1.6J) стали доступны потребителям — с программным обеспечением и производством, на 100% выполненными в Турции."
+    }
+  }
+}

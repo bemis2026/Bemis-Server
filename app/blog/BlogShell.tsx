@@ -14,6 +14,7 @@ import { HiArrowLeft, HiArrowRight, HiClock, HiCalendar } from "react-icons/hi";
 import { RiExternalLinkLine } from "react-icons/ri";
 import type { BlogPost, BlogSection } from "./posts";
 import { allPress, type PressItem } from "./press";
+import { trPress, trPressList } from "../lib/pressI18n";
 import { trBlogPost } from "../lib/blogI18n";
 
 const BLUE = "#3B82F6";
@@ -54,7 +55,7 @@ export default function BlogShell({ post, posts, pressItem }: { post?: BlogPost;
       {post ? (
         <Article post={trBlogPost(post, lang)} d={d} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} fmtDate={fmtDate} />
       ) : pressItem ? (
-        <PressArticle item={pressItem} d={d} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} fmtDate={fmtDate} />
+        <PressArticle item={trPress(pressItem, lang)} d={d} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} fmtDate={fmtDate} />
       ) : (
         <Listing posts={(posts ?? []).map((p) => trBlogPost(p, lang))} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} fmtDate={fmtDate} />
       )}
@@ -68,8 +69,8 @@ export default function BlogShell({ post, posts, pressItem }: { post?: BlogPost;
 function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fmtDate }: {
   posts: BlogPost[]; surface: string; border: string; textPrimary: string; textMuted: string; textFaint: string; fmtDate: (s: string) => string;
 }) {
-  const press = allPress();
   const { lang } = useLanguage();
+  const press = trPressList(allPress(), lang);
   const { categories } = useContent();
   // Tüm kategorilerin SSS'lerini topla (kaynak: admin → kategori meta `faq`).
   const faqGroups = Object.entries((categories ?? {}) as Record<string, { name?: string; faq?: { q: string; a: string }[] }>)

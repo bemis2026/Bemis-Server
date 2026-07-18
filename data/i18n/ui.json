@@ -1537,7 +1537,7 @@
   },
   "Find a Dealer": {
     "de": "Händler finden",
-    "es": "Encontrar un distribuidor",
+    "es": "Buscar distribuidor",
     "ar": "ابحث عن موزّع",
     "ru": "Найти дилера"
   },
@@ -1768,5 +1768,149 @@
     "es": "Seleccione un vehículo o introduzca los valores manualmente: calcule su tiempo de carga y ahorro de combustible",
     "ar": "اختر مركبة أو أدخل القيم يدويًا — احسب وقت الشحن وتوفير الوقود",
     "ru": "Выберите автомобиль или введите значения вручную — рассчитайте время зарядки и экономию топлива"
+  },
+  "Open in Maps": {
+    "de": "In Karten öffnen",
+    "es": "Abrir en Maps",
+    "ar": "افتح في الخرائط",
+    "ru": "Открыть в картах"
+  },
+  "Select region…": {
+    "de": "Region wählen…",
+    "es": "Elige región…",
+    "ar": "اختر المنطقة…",
+    "ru": "Выберите регион…"
+  },
+  "dealers": {
+    "de": "Händler",
+    "es": "distribuidores",
+    "ar": "موزّع",
+    "ru": "дилеров"
+  },
+  "Active Countries": {
+    "de": "Aktive Länder",
+    "es": "Países activos",
+    "ar": "دول نشطة",
+    "ru": "Активные страны"
+  },
+  "Continents": {
+    "de": "Kontinente",
+    "es": "Continentes",
+    "ar": "قارات",
+    "ru": "Континенты"
+  },
+  "City filter": {
+    "de": "Stadtfilter",
+    "es": "Filtro de ciudad",
+    "ar": "تصفية المدن",
+    "ru": "Фильтр городов"
+  },
+  "All cities": {
+    "de": "Alle Städte",
+    "es": "Todas las ciudades",
+    "ar": "كل المدن",
+    "ru": "Все города"
+  },
+  "Distributor Countries": {
+    "de": "Distributionsländer",
+    "es": "Países distribuidores",
+    "ar": "دول التوزيع",
+    "ru": "Страны-дистрибьюторы"
+  },
+  "countries": {
+    "de": "Länder",
+    "es": "países",
+    "ar": "دولة",
+    "ru": "стран"
+  },
+  "World": {
+    "de": "Welt",
+    "es": "Mundo",
+    "ar": "العالم",
+    "ru": "Мир"
+  },
+  "Türkiye map": {
+    "de": "Türkei-Karte",
+    "es": "Mapa de Turquía",
+    "ar": "خريطة تركيا",
+    "ru": "Карта Турции"
+  },
+  "Highlights regions on the map": {
+    "de": "Hebt Regionen auf der Karte hervor",
+    "es": "Resalta regiones en el mapa",
+    "ar": "يُبرز المناطق على الخريطة",
+    "ru": "Подсвечивает регионы на карте"
+  },
+  "Regional Representative": {
+    "de": "Regionalvertreter",
+    "es": "Representante regional",
+    "ar": "الممثل الإقليمي",
+    "ru": "Региональный представитель"
+  },
+  "Global Distributor Network": {
+    "de": "Globales Distributionsnetz",
+    "es": "Red global de distribuidores",
+    "ar": "شبكة توزيع عالمية",
+    "ru": "Глобальная дилерская сеть"
+  },
+  "Bemis Across the World": {
+    "de": "Bemis weltweit",
+    "es": "Bemis en el mundo",
+    "ar": "Bemis حول العالم",
+    "ru": "Bemis по всему миру"
+  },
+  "From Bursa to the World": {
+    "de": "Von Bursa in die Welt",
+    "es": "De Bursa al mundo",
+    "ar": "من بورصة إلى العالم",
+    "ru": "Из Бурсы — в мир"
+  },
+  "Aegean": {
+    "de": "Ägäis",
+    "es": "Egeo",
+    "ar": "إيجه",
+    "ru": "Эгейский регион"
+  },
+  "Mediterranean": {
+    "de": "Mittelmeer",
+    "es": "Mediterráneo",
+    "ar": "البحر المتوسط",
+    "ru": "Средиземноморье"
+  },
+  "Central Anatolia": {
+    "de": "Zentralanatolien",
+    "es": "Anatolia Central",
+    "ar": "وسط الأناضول",
+    "ru": "Центральная Анатолия"
+  },
+  "Black Sea": {
+    "de": "Schwarzes Meer",
+    "es": "Mar Negro",
+    "ar": "البحر الأسود",
+    "ru": "Черноморье"
+  },
+  "Eastern Anatolia": {
+    "de": "Ostanatolien",
+    "es": "Anatolia Oriental",
+    "ar": "شرق الأناضول",
+    "ru": "Восточная Анатолия"
+  },
+  "Southeast Anatolia": {
+    "de": "Südostanatolien",
+    "es": "Anatolia Sudoriental",
+    "ar": "جنوب شرق الأناضول",
+    "ru": "Юго-Вост. Анатолия"
+  },
+  "Bursa HQ": {
+    "de": "Zentrale Bursa",
+    "es": "Sede de Bursa",
+    "ar": "مقر بورصة",
+    "ru": "Центр — Бурса"
+  },
+  "Guide": {
+    "de": "Ratgeber",
+    "es": "Guía",
+    "ar": "الدليل",
+    "ru": "Гид"
   }
 }

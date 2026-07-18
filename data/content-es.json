@@ -177,7 +177,7 @@
       "name": "Adaptadores V2L / C2L",
       "subtitle": "Vehicle-to-Load & Charger-to-Load Descarga y Carga de Batería",
       "modelCount": 3,
-      "badge": "¿Cómo uso el cargador AC Wallbox en mi hogar?",
+      "badge": "Innovador",
       "comingSoon": false,
       "image": "/categories/1775068456394-V2L-kamp2.png",
       "faq": [
@@ -354,7 +354,7 @@
     {
       "categoryId": "charger-equipment",
       "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
-      "badge": "Estación de carga inteligente trifásica de 22 kW para usos individuales y de espacios comunes. IP65 · OCPP 1.6 · Equilibrado dinámico de carga.",
+      "badge": "Cable de carga DC profesional CCS2",
       "highlight": "Sobre Nosotros",
       "visible": true
     }
@@ -383,7 +383,7 @@
     "facebook": "https://www.facebook.com/bemisteknik/?locale=tr_TR"
   },
   "dna": {
-    "sectionLabel": "Del Software a la Producción — Todo Corre por Nuestra Cuenta",
+    "sectionLabel": "Sobre Nosotros",
     "sectionHeading": "Con la calidad Bemis\nSoluciones nacionales de carga para VE",
     "brandHeading": "Calidad Bemis\nen carga EV para todo el mundo",
     "brandPara1": "Fundada en 1994, Bemis Teknik Elektrik A.Ş. es uno de los principales fabricantes de equipos eléctricos, con más de 30 años de experiencia en tomas y clavijas industriales. Bemis E-V Charge es nuestra marca de carga para vehículos eléctricos, construida sobre esta base consolidada.",
@@ -457,7 +457,7 @@
   },
   "dealer": {
     "sectionLabel": "En toda Turquía",
-    "heading": "Selecciona o ponte en contacto con nuestros distribuidores autorizados de toda Turquía desde el mapa.",
+    "heading": "En Toda Turquía",
     "description": "Bemis no vende directamente al usuario final. Para elegir el producto adecuado, la instalación y el soporte posventa, le dirigimos al distribuidor autorizado de su región. Seleccione su región en el mapa: nuestro distribuidor le ofrece el producto y el servicio de la mejor manera.",
     "applyText": "Encontrar una Tienda",
     "statCities": "7",
@@ -649,7 +649,7 @@
         "href": "#dealer"
       },
       {
-        "label": "Calculadora",
+        "label": "Guía",
         "href": "#calculator"
       },
       {

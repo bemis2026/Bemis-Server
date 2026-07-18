@@ -177,7 +177,7 @@
       "name": "V2L / C2L Adapter",
       "subtitle": "Vehicle-to-Load & Charger-to-Load Entladung & Batterieladung",
       "modelCount": 3,
-      "badge": "Wie nutze ich das AC-Wallbox-Ladegerät in meinem Zuhause?",
+      "badge": "Innovativ",
       "comingSoon": false,
       "image": "/categories/1775068456394-V2L-kamp2.png",
       "faq": [
@@ -354,7 +354,7 @@
     {
       "categoryId": "charger-equipment",
       "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
-      "badge": "22-kW-Dreiphasen-Smart-Ladestation für den individuellen Gebrauch und Gemeinschaftsflächen. IP65 · OCPP 1.6 · Dynamisches Lastmanagement.",
+      "badge": "Professionelles DC-Ladekabel CCS2",
       "highlight": "Über uns",
       "visible": true
     }
@@ -383,7 +383,7 @@
     "facebook": "https://www.facebook.com/bemisteknik/?locale=tr_TR"
   },
   "dna": {
-    "sectionLabel": "Von der Software bis zur Produktion — alles bei uns",
+    "sectionLabel": "Über uns",
     "sectionHeading": "Mit Bemis-Qualität\nHeimische EV-Ladelösungen",
     "brandHeading": "EV-Ladelösungen\nin Bemis-Qualität",
     "brandPara1": "1994 in Bursa gegründet, zählt Bemis Teknik Elektrik A.Ş. zu den führenden Herstellern elektrischer Ausrüstung mit eigener Fertigung und über 30 Jahren Erfahrung bei Industriesteckverbindern. Bemis E-V Charge ist unsere auf dieser Basis aufgebaute EV-Lademarke.",
@@ -457,7 +457,7 @@
   },
   "dealer": {
     "sectionLabel": "In der ganzen Türkei",
-    "heading": "Wählen Sie unsere autorisierten Händler in der ganzen Türkei auf der Karte aus oder kontaktieren Sie sie.",
+    "heading": "In der ganzen Türkei",
     "description": "Bemis verkauft nicht direkt an Endkunden. Für die richtige Produktauswahl, Installation und den Kundendienst leiten wir Sie an den autorisierten Händler in Ihrer Region weiter. Wählen Sie Ihre Region auf der Karte — unser Händler liefert Produkt und Service optimal.",
     "applyText": "Händler finden",
     "statCities": "7",
@@ -465,7 +465,7 @@
     "findDealerTitle": "Kontakt",
     "contactBtnLabel": "Händler im Gebiet",
     "citiesLabel": "Aktiver Händler",
-    "activeDealersLabel": "Klicken Sie auf ein Gebiet auf der Karte oder fahren Sie mit der Maus darüber",
+    "activeDealersLabel": "Aktive Händler",
     "mapHint": "Karte der autorisierten Händler in der Türkei",
     "mapTitle": "Leitender Vertriebsspezialist Region Marmara",
     "regionReps": [
@@ -649,7 +649,7 @@
         "href": "#dealer"
       },
       {
-        "label": "Rechner",
+        "label": "Ratgeber",
         "href": "#calculator"
       },
       {

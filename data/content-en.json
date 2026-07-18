@@ -177,7 +177,7 @@
       "name": "V2L / C2L Adapters",
       "subtitle": "Vehicle-to-Load & Charger-to-Load Discharge & Battery Charge",
       "modelCount": 3,
-      "badge": "How do I use the AC Wallbox charger in my home?",
+      "badge": "Innovative",
       "comingSoon": false,
       "image": "/categories/1775068456394-V2L-kamp2.png",
       "faq": [
@@ -354,7 +354,7 @@
     {
       "categoryId": "charger-equipment",
       "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
-      "badge": "22 kW three-phase smart charging station for individual and common space uses. IP65 · OCPP 1.6 · Dynamic load balancing.",
+      "badge": "Professional DC Charging Cable CCS2",
       "highlight": "About Us",
       "visible": true
     }
@@ -385,7 +385,7 @@
   "dna": {
     "sectionLabel": "From Software to Production — It's All on Us",
     "sectionHeading": "With Bemis quality\nDomestic EV charging solutions",
-    "brandHeading": "Founded in 1994 in Bursa, Bemis Teknik Elektrik A.Ş. is one of the leading electrical equipment manufacturers in Turkey with 100% domestic production and more than 30 years of experience in the field of industrial plug socket. Bemis E-V Charge is our fully domestic EV charging brand built on this well-established infrastructure.",
+    "brandHeading": "With Bemis quality\nEV charging solutions",
     "brandPara1": "In our facility in Bursa OIZ, we carry out every stage from electronic card design to software, from cable production to final assembly. The products we export to more than 80 countries prove how domestic engineering can compete in the global arena.",
     "brandPara2": "Quality is the expression of respect.",
     "quote": "Bemis E-V Charge Team · Bursa OIZ, Turkey",
@@ -649,7 +649,7 @@
         "href": "#dealer"
       },
       {
-        "label": "Calculator",
+        "label": "Guide",
         "href": "#calculator"
       },
       {

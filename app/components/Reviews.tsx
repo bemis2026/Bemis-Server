@@ -10,6 +10,7 @@ import { useContent } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
 import { allPosts } from "../blog/posts";
 import { allPress } from "../blog/press";
+import { trPressList } from "../lib/pressI18n";
 import E from "./E";
 
 // Stars fade + scale in one-by-one when the parent card enters the
@@ -65,7 +66,7 @@ export default function Reviews() {
 
   // Haberler (anasayfa SAĞ kolon, büyük) — yorum+sosyal SOL'da küçültüldü,
   // haber alanı büyütüldü (toplam boy korunur). Sosyal tipini hariç tut.
-  const latestNews = allPress().filter((p) => p.type !== "social").slice(0, 3);
+  const latestNews = trPressList(allPress().filter((p) => p.type !== "social"), lang).slice(0, 3);
   const latestPosts = allPosts().slice(0, 3);
   const blogSurface = d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.03)";
 
