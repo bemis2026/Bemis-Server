@@ -228,6 +228,9 @@ export default function ProductDetailPage({
     linkedProductCategories?: string[];
   }>>([]);
   const [activeTab, setActiveTab]   = useState<"specs" | "general" | "documents">("general");
+  // Genel Özellikler kartına hover → portal tooltip (kartla AYNI desen; tab
+  // paneli overflow'una takılmasın diye body'ye portal). Kısa açıklama gösterir.
+  const [featTip, setFeatTip] = useState<{ label: string; desc: string; x: number; y: number } | null>(null);
   // FAQ artık accordion değil — kartlar her zaman cevap görünür halde.
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const isFirstMount = useRef(true);
@@ -875,7 +878,12 @@ export default function ProductDetailPage({
                                 return (
                                   <div
                                     key={f.id}
-                                    className="flex items-center gap-3 rounded-xl px-3 py-2.5"
+                                    className="flex items-center gap-3 rounded-xl px-3 py-2.5 cursor-default transition-transform duration-200 hover:-translate-y-0.5"
+                                    onMouseEnter={(e) => {
+                                      const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
+                                      setFeatTip({ label: f.label, desc: f.desc ?? "", x: r.left + r.width / 2, y: r.top });
+                                    }}
+                                    onMouseLeave={() => setFeatTip(null)}
                                     style={{ background: cardBg, border: `1px solid ${cardBorder}`, boxShadow: cardShadow }}
                                   >
                                     <span
@@ -1457,6 +1465,26 @@ export default function ProductDetailPage({
       <div style={{ marginTop: "auto" }}>
         <ContactBar />
       </div>
+
+      {/* Genel Özellikler hover tooltip — portal (kartla AYNI stil). */}
+      {featTip && typeof document !== "undefined" && createPortal(
+        <div
+          role="tooltip"
+          style={{
+            position: "fixed", left: featTip.x, top: featTip.y - 10,
+            transform: "translate(-50%, -100%)", zIndex: 9999, maxWidth: 230,
+            pointerEvents: "none",
+            background: d ? "#1c1c24" : "#0f172a", color: "#ffffff",
+            borderRadius: 10, padding: "8px 11px",
+            border: d ? "1px solid rgba(255,255,255,0.12)" : "1px solid rgba(255,255,255,0.10)",
+            boxShadow: "0 12px 32px rgba(0,0,0,0.38)",
+          }}
+        >
+          <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: "-0.01em" }}>{featTip.label}</div>
+          {featTip.desc && <div style={{ fontSize: 11, marginTop: 3, lineHeight: 1.4, opacity: 0.82 }}>{featTip.desc}</div>}
+        </div>,
+        document.body
+      )}
     </div>
   );
 }

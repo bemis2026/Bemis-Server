@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import { createPortal } from "react-dom";
 import { motion, useInView } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
@@ -75,6 +76,9 @@ export default function FeaturedProducts() {
   const featIcon   = d ? "#9ca3af" : "#64748b";
   const featChipBg = d ? "rgba(255,255,255,0.05)" : "rgba(2,6,23,0.04)";
   const featChipBd = d ? "rgba(255,255,255,0.12)" : "rgba(2,6,23,0.10)";
+  // Feature rozetine hover → portal tooltip (kart overflow-hidden olduğu için
+  // içeri koyarsak kırpılır; body'ye portal ederiz). Konum chip rect'inden.
+  const [featTip, setFeatTip] = useState<{ label: string; desc: string; x: number; y: number } | null>(null);
 
   const visibleFeatured = featured.filter((f) => f.visible);
   if (visibleFeatured.length === 0) return null;
@@ -300,8 +304,13 @@ export default function FeaturedProducts() {
                         return (
                           <span
                             key={fid}
-                            className="inline-flex items-center gap-1 rounded-md"
-                            title={f.label}
+                            className="inline-flex items-center gap-1 rounded-md cursor-default transition-transform duration-200 will-change-transform hover:scale-[1.18] hover:-translate-y-0.5"
+                            aria-label={f.label}
+                            onMouseEnter={(e) => {
+                              const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
+                              setFeatTip({ label: f.label, desc: f.desc ?? "", x: r.left + r.width / 2, y: r.top });
+                            }}
+                            onMouseLeave={() => setFeatTip(null)}
                             style={{
                               padding: isMockup ? "3px 6px" : "3px 5px",
                               background: featChipBg,
@@ -345,6 +354,27 @@ export default function FeaturedProducts() {
         </div>
 
       </div>
+
+      {/* Feature hover tooltip — portal to <body> (kart overflow-hidden'ından
+          kaçar). Chip'in üstünde konumlanır; label + kısa açıklama gösterir. */}
+      {featTip && typeof document !== "undefined" && createPortal(
+        <div
+          role="tooltip"
+          style={{
+            position: "fixed", left: featTip.x, top: featTip.y - 10,
+            transform: "translate(-50%, -100%)", zIndex: 9999, maxWidth: 230,
+            pointerEvents: "none",
+            background: d ? "#1c1c24" : "#0f172a", color: "#ffffff",
+            borderRadius: 10, padding: "8px 11px",
+            border: d ? "1px solid rgba(255,255,255,0.12)" : "1px solid rgba(255,255,255,0.10)",
+            boxShadow: "0 12px 32px rgba(0,0,0,0.38)",
+          }}
+        >
+          <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: "-0.01em" }}>{featTip.label}</div>
+          {featTip.desc && <div style={{ fontSize: 11, marginTop: 3, lineHeight: 1.4, opacity: 0.82 }}>{featTip.desc}</div>}
+        </div>,
+        document.body
+      )}
     </section>
   );
 }
