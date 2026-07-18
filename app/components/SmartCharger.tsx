@@ -9,14 +9,13 @@ import {
   RiCodeSSlashLine,
   RiSmartphoneLine,
   RiArrowRightLine,
-  RiSignalWifiLine,
-  RiBatteryChargeLine,
   RiComputerLine,
   RiGlobalLine,
 } from "react-icons/ri";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import { useUiStrings } from "../../lib/uiStrings";
+import { PhoneScreen, WebScreen } from "./AppMockups";
 
 const FEATURE_ICONS = [RiWifiLine, RiBuilding4Line, RiCodeSSlashLine];
 const FEATURE_ACCENTS = ["#3B82F6", "#10B981", "#818CF8"];
@@ -143,89 +142,7 @@ export default function SmartCharger() {
                             decoding="async"
                           />
                         ) : (
-                        <div className="absolute inset-0 p-4 pt-11 flex flex-col gap-3"
-                          data-keep-white="true"
-                          style={{ background: "linear-gradient(180deg, #0d1a2e 0%, #091526 100%)" }}>
-
-                          {/* App header */}
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <p className="text-[9px] font-semibold" style={{ color: "rgba(255,255,255,0.40)" }}>{t("smc_brand")}</p>
-                              <p className="text-[12px] font-bold text-white">{t("smc_mng")}</p>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                              <RiSignalWifiLine size={13} style={{ color: ACCENT2 }} />
-                              <span className="text-[9px] font-semibold" style={{ color: ACCENT2 }}>{t("smc_connected")}</span>
-                            </div>
-                          </div>
-
-                          {/* Charging ring */}
-                          <div className="flex justify-center my-1">
-                            <div className="relative flex items-center justify-center" style={{ width: 96, height: 96 }}>
-                              <svg width="96" height="96" className="absolute">
-                                <circle cx="48" cy="48" r="42" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="5" />
-                                <motion.circle
-                                  cx="48" cy="48" r="42" fill="none"
-                                  stroke={ACCENT} strokeWidth="5"
-                                  strokeLinecap="round"
-                                  strokeDasharray="264"
-                                  initial={{ strokeDashoffset: 264 }}
-                                  animate={inView ? { strokeDashoffset: 79 } : { strokeDashoffset: 264 }}
-                                  transition={{ duration: 1.8, delay: 0.5, ease: "easeOut" }}
-                                  style={{ transformOrigin: "center", transform: "rotate(-90deg)" }}
-                                />
-                              </svg>
-                              <div className="flex flex-col items-center">
-                                <RiBatteryChargeLine size={18} style={{ color: ACCENT }} />
-                                <span className="text-lg font-black text-white leading-none">70%</span>
-                                <span className="text-[8px]" style={{ color: "rgba(255,255,255,0.4)" }}>{t("smc_charging")}</span>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Stats */}
-                          <div className="grid grid-cols-3 gap-2">
-                            {[
-                              { label: t("smc_power"), value: "7.4 kW" },
-                              { label: t("smc_time"),  value: `1${t("hour_short")} 22${t("min_short")}` },
-                              { label: "₺",            value: "18.40" },
-                            ].map(s => (
-                              <div key={s.label} className="rounded-xl p-2.5 text-center"
-                                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.07)" }}>
-                                <p className="text-[8px] font-medium" style={{ color: "rgba(255,255,255,0.38)" }}>{s.label}</p>
-                                <p className="text-[11px] font-bold text-white">{s.value}</p>
-                              </div>
-                            ))}
-                          </div>
-
-                          {/* Charger list */}
-                          <div className="space-y-2">
-                            <p className="text-[9px] font-semibold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.28)" }}>{t("smc_units")}</p>
-                            {[
-                              { name: `${t("smc_unit")} #1`, status: t("smc_charging"),  color: ACCENT2 },
-                              { name: `${t("smc_unit")} #2`, status: t("smc_available"), color: "rgba(255,255,255,0.28)" },
-                              { name: `${t("smc_unit")} #3`, status: t("smc_available"), color: "rgba(255,255,255,0.28)" },
-                            ].map(u => (
-                              <div key={u.name} className="flex items-center justify-between px-3 py-2 rounded-xl"
-                                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                                <div className="flex items-center gap-2">
-                                  <div className="w-2 h-2 rounded-full" style={{ background: u.color }} />
-                                  <span className="text-[10px] font-medium text-white">{u.name}</span>
-                                </div>
-                                <span className="text-[9px]" style={{ color: u.color }}>{u.status}</span>
-                              </div>
-                            ))}
-                          </div>
-
-                          {/* OCPP badge */}
-                          <div className="mt-auto">
-                            <div className="flex items-center justify-center gap-2 py-2 rounded-xl"
-                              style={{ background: `${ACCENT}12`, border: `1px solid ${ACCENT}25` }}>
-                              <RiSmartphoneLine size={10} style={{ color: ACCENT }} />
-                              <span className="text-[9px] font-semibold" style={{ color: ACCENT }}>{smartCharger.ocppBadge}</span>
-                            </div>
-                          </div>
-                        </div>
+                        <div className="absolute inset-0"><PhoneScreen w={235} /></div>
                         )}
 
                         {/* Home indicator */}
@@ -274,7 +191,7 @@ export default function SmartCharger() {
                           <div className="flex-1 mx-1.5 px-2.5 py-1 rounded-lg flex items-center gap-1.5"
                             style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)" }}>
                             <RiGlobalLine size={9} style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)" }} />
-                            <span className="text-[8px] font-mono truncate" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.40)" }}>app.bemischarge.com</span>
+                            <span className="text-[8px] font-mono truncate" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.40)" }}>panel.bemisevcharge.com.tr</span>
                           </div>
                           <div className="w-5 h-5 rounded-md flex items-center justify-center" style={{ background: `${ACCENT2}20` }}>
                             <div className="w-1.5 h-1.5 rounded-full" style={{ background: ACCENT2 }} />
@@ -294,81 +211,7 @@ export default function SmartCharger() {
                             />
                           </div>
                         ) : (
-                        <div className="flex" style={{ height: 310 }}>
-                          {/* Sidebar */}
-                          <div className="flex flex-col gap-1 p-2 flex-shrink-0"
-                            style={{ width: 44, background: d ? "rgba(255,255,255,0.025)" : "rgba(0,0,0,0.03)", borderRight: `1px solid ${d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)"}` }}>
-                            {[ACCENT, ACCENT2, "#818CF8", "#F59E0B", "#F43F5E"].map((c, i) => (
-                              <div key={i} className="w-7 h-7 rounded-xl flex items-center justify-center mx-auto"
-                                style={{ background: i === 0 ? `${c}20` : "transparent", border: i === 0 ? `1px solid ${c}30` : "none" }}>
-                                <div className="w-2.5 h-2.5 rounded-sm" style={{ background: i === 0 ? c : `rgba(${d ? "255,255,255" : "0,0,0"},0.15)` }} />
-                              </div>
-                            ))}
-                          </div>
-
-                          {/* Main content */}
-                          <div className="flex-1 p-3 space-y-2.5 overflow-hidden">
-                            {/* Title + live badge */}
-                            <div className="flex items-center justify-between">
-                              <span className="text-[10px] font-bold" style={{ color: textPrimary }}>{t("smc_web_panel")}</span>
-                              <span className="text-[8px] px-2 py-0.5 rounded-full font-semibold flex items-center gap-1"
-                                style={{ background: `${ACCENT2}18`, color: ACCENT2 }}>
-                                <span className="w-1 h-1 rounded-full inline-block" style={{ background: ACCENT2 }} />{t("smc_live")}
-                              </span>
-                            </div>
-
-                            {/* Stat cards */}
-                            <div className="grid grid-cols-3 gap-1.5">
-                              {[
-                                { label: t("smc_active"),    value: "12",    color: ACCENT2 },
-                                { label: t("smc_available"), value: "4",     color: ACCENT },
-                                { label: t("smc_revenue"),   value: "₺2.4k", color: "#F59E0B" },
-                              ].map(s => (
-                                <div key={s.label} className="rounded-xl p-2 text-center"
-                                  style={{ background: d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)", border: `1px solid ${s.color}20` }}>
-                                  <p className="text-[10px] font-black" style={{ color: s.color }}>{s.value}</p>
-                                  <p className="text-[7px]" style={{ color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.35)" }}>{s.label}</p>
-                                </div>
-                              ))}
-                            </div>
-
-                            {/* Bar chart */}
-                            <div className="rounded-xl p-2.5"
-                              style={{ background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.02)", border: `1px solid ${d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)"}` }}>
-                              <p className="text-[8px] mb-1.5 font-medium" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.40)" }}>{t("smc_daily_usage")}</p>
-                              <div className="flex items-end gap-1 h-16">
-                                {[30, 55, 45, 70, 60, 85, 50].map((h, i) => (
-                                  <motion.div
-                                    key={i}
-                                    className="flex-1 rounded-sm"
-                                    style={{ background: i === 5 ? ACCENT : (d ? "rgba(255,255,255,0.10)" : "rgba(59,130,246,0.15)") }}
-                                    initial={{ height: 0 }}
-                                    animate={{ height: `${h}%` }}
-                                    transition={{ duration: 0.6, delay: 0.1 + i * 0.06, ease: "easeOut" }}
-                                  />
-                                ))}
-                              </div>
-                            </div>
-
-                            {/* Station list */}
-                            <div className="space-y-1">
-                              {[
-                                { name: `${t("smc_unit")} #1 — ${t("smc_floor")} -1`,    color: ACCENT2, status: t("smc_charge_short") },
-                                { name: `${t("smc_unit")} #2 — ${t("smc_entrance")}`,     color: d ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.20)", status: t("smc_available") },
-                                { name: `${t("smc_unit")} #3 — ${t("smc_garden")}`,       color: d ? "rgba(255,255,255,0.20)" : "rgba(0,0,0,0.20)", status: t("smc_available") },
-                              ].map(u => (
-                                <div key={u.name} className="flex items-center justify-between rounded-lg px-2.5 py-1.5"
-                                  style={{ background: d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.02)" }}>
-                                  <div className="flex items-center gap-1.5">
-                                    <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: u.color }} />
-                                    <span className="text-[8px] font-medium" style={{ color: textPrimary }}>{u.name}</span>
-                                  </div>
-                                  <span className="text-[7px] font-semibold" style={{ color: u.color }}>{u.status}</span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
+                        <WebScreen w={310} />
                         )}
                       </div>
 

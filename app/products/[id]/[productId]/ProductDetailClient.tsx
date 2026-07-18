@@ -29,6 +29,7 @@ import {
   RiStarFill, RiDashboard3Line, RiHammerLine, RiEqualizerLine,
 } from "react-icons/ri";
 import { featureById } from "../../../../lib/productFeatures";
+import { PhoneScreen, WebScreen } from "../../../components/AppMockups";
 import { certificateById } from "../../../../lib/productCertificates";
 
 // Anasayfa SmartCharger ile AYNI mağaza ikonları (App Store / Google Play).
@@ -1086,87 +1087,34 @@ export default function ProductDetailPage({
 
                 {/* SAĞ: cihaz mockup'ları (CSS yer-tutucu — web panel + mobil HER ZAMAN) */}
                 <div className="flex items-center justify-center gap-3 sm:gap-4">
-                  {/* Web panel (tarayıcı) */}
-                  <div className="flex-1 max-w-[236px] rounded-xl overflow-hidden" style={{ background: cardBg, border: `1px solid ${sd ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`, boxShadow: "0 16px 40px rgba(0,0,0,0.20)" }}>
+                  {/* Web panel (tarayıcı) — ortak WebScreen (anasayfa ile AYNI iç görsel) */}
+                  <div className="flex-shrink-0 rounded-xl overflow-hidden" style={{ width: 224, background: cardBg, border: `1px solid ${sd ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`, boxShadow: "0 16px 40px rgba(0,0,0,0.20)" }}>
                     <div className="flex items-center gap-1.5 px-3 py-2" style={{ background: sd ? "rgba(255,255,255,0.06)" : "#eef0f3" }}>
                       {["#ef4444", "#f59e0b", "#22c55e"].map((cc) => <span key={cc} className="w-2 h-2 rounded-full" style={{ background: cc }} />)}
-                      <div className="ml-2 flex-1 h-3 rounded-full" style={{ background: sd ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.06)" }} />
+                      <div className="ml-2 flex-1 h-3 rounded-full flex items-center px-2" style={{ background: sd ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.06)" }}>
+                        <span className="text-[6px] font-semibold truncate" style={{ color: sd ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.45)" }}>panel.bemisevcharge.com.tr</span>
+                      </div>
                     </div>
                     {smartCharger?.mockupWebImage ? (
-                      <div style={{ aspectRatio: "16 / 11" }}>
+                      <div style={{ aspectRatio: "3 / 2" }}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={smartCharger.mockupWebImage} alt="Bemis E-V Charge web paneli" className="w-full h-full object-cover" loading="lazy" decoding="async" />
                       </div>
                     ) : (
-                      <div className="p-2.5 flex flex-col gap-2" style={{ aspectRatio: "16 / 11", background: sd ? "#0f1622" : "#f7f9fc" }}>
-                        {/* başlık + CANLI rozeti */}
-                        <div className="flex items-center justify-between">
-                          <span className="text-[9px] font-bold" style={{ color: txt }}>{pickText(lang, "Şarj Yönetim Paneli", "Charge Management")}</span>
-                          <span className="inline-flex items-center gap-1 text-[7px] font-bold px-1.5 py-0.5 rounded-full" style={{ background: "#10B98118", color: "#10B981" }}>
-                            <span className="w-1 h-1 rounded-full" style={{ background: "#10B981" }} />{pickText(lang, "CANLI", "LIVE")}
-                          </span>
-                        </div>
-                        {/* net renkli istatistik kartları */}
-                        <div className="grid grid-cols-3 gap-1.5">
-                          {[
-                            { v: "12", l: pickText(lang, "Aktif", "Active"), c: "#3B82F6" },
-                            { v: "4", l: pickText(lang, "Müsait", "Free"), c: "#10B981" },
-                            { v: "₺2.4k", l: pickText(lang, "Bugün", "Today"), c: "#F59E0B" },
-                          ].map((s) => (
-                            <div key={s.l} className="rounded-lg py-1.5 text-center" style={{ background: sd ? "rgba(255,255,255,0.05)" : "#ffffff", border: `1px solid ${s.c}2e` }}>
-                              <p className="text-[11px] font-black leading-none" style={{ color: s.c }}>{s.v}</p>
-                              <p className="text-[7px] mt-0.5" style={{ color: muted }}>{s.l}</p>
-                            </div>
-                          ))}
-                        </div>
-                        {/* enerji grafiği */}
-                        <div className="flex-1 rounded-lg p-2 flex items-end gap-1" style={{ background: sd ? "rgba(255,255,255,0.04)" : "#ffffff", border: `1px solid ${sd ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)"}` }}>
-                          {[42, 66, 50, 84, 58, 74, 62].map((h, i) => <div key={i} className="flex-1 rounded-sm" style={{ height: `${h}%`, background: i === 3 ? "#3B82F6" : "#3B82F666" }} />)}
-                        </div>
-                      </div>
+                      <WebScreen w={224} />
                     )}
                   </div>
-                  {/* Mobil uygulama (telefon) */}
-                  <div className="relative flex-shrink-0" style={{ width: 100 }}>
+                  {/* Mobil uygulama (telefon) — ortak PhoneScreen (anasayfa ile AYNI iç görsel) */}
+                  <div className="relative flex-shrink-0" style={{ width: 104 }}>
                     <div className="rounded-[1.5rem] p-1" style={{ background: sd ? "#0a0a0c" : "#18181b", boxShadow: "0 16px 40px rgba(0,0,0,0.28)" }}>
-                      <div className="rounded-[1.2rem] overflow-hidden" style={{ aspectRatio: "9 / 19", background: "#0d1a2e" }}>
+                      <div className="rounded-[1.2rem] overflow-hidden" style={{ background: "#0b0c11" }}>
                         {smartCharger?.mockupPhoneImage ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img src={smartCharger.mockupPhoneImage} alt="Bemis E-V Charge mobil uygulama" className="w-full h-full object-cover" loading="lazy" decoding="async" />
-                        ) : (
-                          <div className="h-full flex flex-col px-2.5 pt-2 pb-2.5">
-                            <div className="flex justify-between items-center">
-                              <span className="text-[6px] font-semibold text-white/80">9:41</span>
-                              <span className="inline-flex items-center gap-0.5 text-[6px] font-semibold" style={{ color: "#34D399" }}>
-                                <span className="w-1 h-1 rounded-full" style={{ background: "#34D399" }} />{pickText(lang, "Bağlı", "Online")}
-                              </span>
-                            </div>
-                            <div className="text-[7px] font-bold text-white mt-1.5">Bemis E-V Charge</div>
-                            {/* şarj halkası */}
-                            <div className="mx-auto mt-2 relative flex items-center justify-center" style={{ width: 52, height: 52 }}>
-                              <svg width="52" height="52" className="absolute" style={{ transform: "rotate(-90deg)" }}>
-                                <circle cx="26" cy="26" r="22" fill="none" stroke="rgba(255,255,255,0.13)" strokeWidth="4" />
-                                <circle cx="26" cy="26" r="22" fill="none" stroke="#3B82F6" strokeWidth="4" strokeLinecap="round" strokeDasharray="138" strokeDashoffset="41" />
-                              </svg>
-                              <div className="flex flex-col items-center leading-none">
-                                <span className="text-[11px] font-black text-white">70%</span>
-                                <span className="text-[5px] text-white/55 mt-0.5">{pickText(lang, "şarj", "charge")}</span>
-                              </div>
-                            </div>
-                            {/* istatistikler */}
-                            <div className="grid grid-cols-3 gap-1 mt-2">
-                              {[["7.4", "kW"], ["1s22", pickText(lang, "süre", "time")], ["₺18", pickText(lang, "tutar", "cost")]].map(([v, l]) => (
-                                <div key={l} className="rounded-md py-1 text-center" style={{ background: "rgba(255,255,255,0.07)" }}>
-                                  <p className="text-[7px] font-bold text-white leading-none">{v}</p>
-                                  <p className="text-[5px] text-white/45 mt-0.5">{l}</p>
-                                </div>
-                              ))}
-                            </div>
-                            {/* durdur butonu */}
-                            <div className="mt-auto rounded-lg h-5 flex items-center justify-center" style={{ background: "#EF4444" }}>
-                              <span className="text-[6.5px] font-bold text-white">{pickText(lang, "Şarjı Durdur", "Stop")}</span>
-                            </div>
+                          <div style={{ aspectRatio: "220 / 455" }}>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={smartCharger.mockupPhoneImage} alt="Bemis E-V Charge mobil uygulama" className="w-full h-full object-cover" loading="lazy" decoding="async" />
                           </div>
+                        ) : (
+                          <PhoneScreen w={96} />
                         )}
                       </div>
                     </div>
