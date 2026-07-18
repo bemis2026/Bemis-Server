@@ -386,16 +386,22 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        {/* gap-3: gruplar (logo/menü/sağ) daralınca bile ASLA bitişemez — genişken
+            justify-between zaten daha fazla boşluk dağıttığı için görünüm değişmez. */}
+        <div className="flex items-center justify-between gap-3 h-16">
 
           {/* Logo */}
-          <button className="flex-shrink-0 focus:outline-none" onClick={() => handleNavClick("#hero")} aria-label={pickText(lang, "Ana sayfa", "Home")}>
+          {/* ⚠️ shrink-0 (v4 adı) — eski `flex-shrink-0` Tailwind v4'te YOK (ölü sınıf);
+              koruma sessizce düşünce dar masaüstünde (1024-1200) flex logoyu 79px'e
+              eziyordu ("menü logonun üstüne biniyor" şikayeti, 2026-07-18). Logo lg
+              aralığında h-11 kompakt, ≥xl bugünkü h-14 (görünüm ≥1280'de DEĞİŞMEZ). */}
+          <button className="shrink-0 focus:outline-none" onClick={() => handleNavClick("#hero")} aria-label={pickText(lang, "Ana sayfa", "Home")}>
             <Image src={logoSrc} alt="Bemis E-V Charge" width={200} height={64}
-              className="h-11 sm:h-14 w-auto object-contain block" style={{ filter: logoFilter }} priority />
+              className="h-11 sm:h-14 lg:h-11 xl:h-14 w-auto object-contain block" style={{ filter: logoFilter }} priority />
           </button>
 
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-6">
+          {/* Desktop Nav — gap lg aralığında sıkı (2.5), ≥xl bugünkü 6 (değişmez) */}
+          <div className="hidden lg:flex items-center gap-2.5 xl:gap-6">
             {activeNavLinks.map((link, idx) => {
               const isK = isKurumsal(link);
               const isU = isUrunler(link);
@@ -709,16 +715,18 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
           </div>
 
           {/* Right actions */}
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-1 xl:gap-2">
             <button onClick={onSearchOpen} aria-label={pickText(lang, "Site içinde ara", "Search the site")} className={`p-2 rounded-lg transition-colors ${iconBtnClass}`}>
               <HiSearch size={18} />
             </button>
             <button onClick={toggle} className={`p-2 rounded-lg transition-colors ${iconBtnClass}`}>
               {isDark ? <HiSun size={18} /> : <HiMoon size={18} />}
             </button>
+            {/* "Bize Ulaşın" lg aralığında kompakt (px-3/13px), ≥xl bugünkü boy (değişmez) —
+                kullanıcı: "daraltınca büyük kalıyor" (2026-07-18) */}
             <button
               onClick={() => { setMobileOpen(false); openContact(); }}
-              className="ml-1 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-white hover:opacity-90 active:scale-95"
+              className="ml-0.5 xl:ml-1 px-3 xl:px-4 py-2 rounded-xl text-[13px] xl:text-sm font-semibold transition-all duration-200 text-white hover:opacity-90 active:scale-95 whitespace-nowrap"
               style={{
                 // Light mode'da daha açık mavi gradient — beyaz yazıyla kontrast korunur.
                 background: isDark
