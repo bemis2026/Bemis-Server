@@ -172,7 +172,7 @@
             "items": [
               {
                 "label": "Ausgang",
-                "value": "5m. Kablolu"
+                "value": "5 m Kabel"
               },
               {
                 "label": "Stecker",
@@ -332,7 +332,7 @@
             "items": [
               {
                 "label": "Ausgang",
-                "value": "5m. Kablolu"
+                "value": "5 m Kabel"
               },
               {
                 "label": "Stecker",
@@ -518,7 +518,7 @@
             "items": [
               {
                 "label": "Ausgang",
-                "value": "5m. Kablolu"
+                "value": "5 m Kabel"
               },
               {
                 "label": "Stecker",
@@ -704,7 +704,7 @@
             "items": [
               {
                 "label": "Ausgang",
-                "value": "5m. Kablolu"
+                "value": "5 m Kabel"
               },
               {
                 "label": "Stecker",
@@ -965,7 +965,7 @@
             "items": [
               {
                 "label": "Ausgang",
-                "value": "5m. Kablolu"
+                "value": "5 m Kabel"
               },
               {
                 "label": "Stecker",
@@ -1057,7 +1057,7 @@
             "items": [
               {
                 "label": "Ausgang",
-                "value": "5m. Kablolu"
+                "value": "5 m Kabel"
               },
               {
                 "label": "Stecker",
@@ -1280,7 +1280,7 @@
               },
               {
                 "label": "Kabeltyp",
-                "value": "Tip 2"
+                "value": "Type 2"
               }
             ]
           },
@@ -1373,7 +1373,7 @@
               },
               {
                 "label": "Kabeltyp",
-                "value": "Tip 2"
+                "value": "Type 2"
               }
             ]
           },
@@ -1474,7 +1474,7 @@
               },
               {
                 "label": "Kabeltyp",
-                "value": "Tip 2"
+                "value": "Type 2"
               }
             ]
           },
@@ -1567,11 +1567,11 @@
                 "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -1610,7 +1610,7 @@
             "group": "Elektrisch",
             "items": [
               {
-                "label": "• Leistung",
+                "label": "Leistung",
                 "value": "3,7 kW"
               },
               {
@@ -1635,11 +1635,11 @@
                 "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -1703,11 +1703,11 @@
                 "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -1771,11 +1771,11 @@
                 "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -1839,11 +1839,11 @@
                 "value": "3 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -1907,11 +1907,11 @@
                 "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -1975,11 +1975,11 @@
                 "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -2043,11 +2043,11 @@
                 "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -2111,11 +2111,11 @@
                 "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -2179,11 +2179,11 @@
                 "value": "3 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -2247,11 +2247,11 @@
                 "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -2315,11 +2315,11 @@
                 "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -2383,11 +2383,11 @@
                 "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -2451,11 +2451,11 @@
                 "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -2519,11 +2519,11 @@
                 "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -2562,7 +2562,7 @@
             "group": "Elektrisch",
             "items": [
               {
-                "label": "• Leistung",
+                "label": "Leistung",
                 "value": "11 kW"
               },
               {
@@ -2587,11 +2587,11 @@
                 "value": "5 × 2.5 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -2630,7 +2630,7 @@
             "group": "Elektrisch",
             "items": [
               {
-                "label": "• Leistung",
+                "label": "Leistung",
                 "value": "22 kW"
               },
               {
@@ -2655,11 +2655,11 @@
                 "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -2698,7 +2698,7 @@
             "group": "Elektrisch",
             "items": [
               {
-                "label": "• Leistung",
+                "label": "Leistung",
                 "value": "22 kW"
               },
               {
@@ -2723,11 +2723,11 @@
                 "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -2766,7 +2766,7 @@
             "group": "Elektrisch",
             "items": [
               {
-                "label": "• Leistung",
+                "label": "Leistung",
                 "value": "22 kW"
               },
               {
@@ -2791,11 +2791,11 @@
                 "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -2834,7 +2834,7 @@
             "group": "Elektrisch",
             "items": [
               {
-                "label": "• Leistung",
+                "label": "Leistung",
                 "value": "22 kW"
               },
               {
@@ -2859,11 +2859,11 @@
                 "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -2902,7 +2902,7 @@
             "group": "Elektrisch",
             "items": [
               {
-                "label": "• Leistung",
+                "label": "Leistung",
                 "value": "22 kW"
               },
               {
@@ -2927,11 +2927,11 @@
                 "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -2970,7 +2970,7 @@
             "group": "Elektrisch",
             "items": [
               {
-                "label": "• Leistung",
+                "label": "Leistung",
                 "value": "22 kW"
               },
               {
@@ -2995,11 +2995,11 @@
                 "value": "5 × 6 mm² + 1 × 0.75 mm² ttr"
               },
               {
-                "label": "Steckverbinder",
+                "label": "Stecker",
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modus",
+                "label": "Mod",
                 "value": "Mod 3 (IEC 61851-1)"
               }
             ]
@@ -4183,11 +4183,11 @@
               },
               {
                 "label": "Norm",
-                "value": "CEE-Norm"
+                "value": "CEE Norm"
               },
               {
                 "label": "Kabel",
-                "value": "30 cm · 3 × 2,5 mm² TTR"
+                "value": "30 cm · 3 × 2,5 mm² ttr"
               }
             ]
           },
@@ -4238,11 +4238,11 @@
               },
               {
                 "label": "Norm",
-                "value": "CEE-Norm"
+                "value": "CEE Norm"
               },
               {
                 "label": "Kabel",
-                "value": "30 cm · 3 × 2,5 mm² TTR"
+                "value": "30 cm · 3 × 2,5 mm² ttr"
               }
             ]
           },
@@ -4293,11 +4293,11 @@
               },
               {
                 "label": "Norm",
-                "value": "CEE-Norm"
+                "value": "CEE Norm"
               },
               {
                 "label": "Kabel",
-                "value": "30 cm · 3 × 2,5 mm² TTR"
+                "value": "30 cm · 3 × 2,5 mm² ttr"
               }
             ]
           },
@@ -4348,11 +4348,11 @@
               },
               {
                 "label": "Norm",
-                "value": "CEE-Norm"
+                "value": "CEE Norm"
               },
               {
                 "label": "Kabel",
-                "value": "30 cm · 3 × 6 mm² TTR"
+                "value": "30 cm · 3 × 6 mm² ttr"
               }
             ]
           },
@@ -4403,11 +4403,11 @@
               },
               {
                 "label": "Norm",
-                "value": "Standard"
+                "value": "Norm"
               },
               {
                 "label": "Kabel",
-                "value": "3 × 2,5 mm² TTR"
+                "value": "3 × 2,5 mm² ttr"
               }
             ]
           },
@@ -4458,11 +4458,11 @@
               },
               {
                 "label": "Norm",
-                "value": "Standard"
+                "value": "Norm"
               },
               {
                 "label": "Kabel",
-                "value": "3 × 2,5 mm² TTR"
+                "value": "3 × 2,5 mm² ttr"
               }
             ]
           },
@@ -4513,7 +4513,7 @@
               },
               {
                 "label": "Kabel",
-                "value": "3 × 2,5 mm² TTR"
+                "value": "3 × 2,5 mm² ttr"
               },
               {
                 "label": "Länge",
@@ -4569,7 +4569,7 @@
               },
               {
                 "label": "Kabel",
-                "value": "3 × 2,5 mm² TTR"
+                "value": "3 × 2,5 mm² ttr"
               },
               {
                 "label": "Länge",
@@ -4625,11 +4625,11 @@
               },
               {
                 "label": "Kabel",
-                "value": "3 × 2,5 mm² TTR"
+                "value": "3 × 2,5 mm² ttr"
               },
               {
                 "label": "Länge",
-                "value": "10 m IP68"
+                "value": "10m. IP68"
               }
             ]
           },
@@ -4681,11 +4681,11 @@
               },
               {
                 "label": "Kabel",
-                "value": "3 × 2,5 mm² TTR"
+                "value": "3 × 2,5 mm² ttr"
               },
               {
                 "label": "Länge",
-                "value": "5 m"
+                "value": "5m"
               }
             ]
           },
@@ -4737,11 +4737,11 @@
               },
               {
                 "label": "Kabel",
-                "value": "3 × 2,5 mm² TTR"
+                "value": "3 × 2,5 mm² ttr"
               },
               {
                 "label": "Länge",
-                "value": "10 m"
+                "value": "10m"
               }
             ]
           },
@@ -4793,11 +4793,11 @@
               },
               {
                 "label": "Kabel",
-                "value": "3 × 2,5 mm² TTR"
+                "value": "3 × 2,5 mm² ttr"
               },
               {
                 "label": "Länge",
-                "value": "5 m"
+                "value": "5m"
               }
             ]
           },
@@ -4849,11 +4849,11 @@
               },
               {
                 "label": "Kabel",
-                "value": "3 × 2,5 mm² TTR"
+                "value": "3 × 2,5 mm² ttr"
               },
               {
                 "label": "Länge",
-                "value": "10 m"
+                "value": "10m"
               }
             ]
           },
@@ -4905,11 +4905,11 @@
               },
               {
                 "label": "Kabel",
-                "value": "3 × 6 mm² TTR"
+                "value": "3 × 6 mm² ttr"
               },
               {
                 "label": "Länge",
-                "value": "5 m"
+                "value": "5m"
               }
             ]
           },
@@ -4918,7 +4918,7 @@
             "items": [
               {
                 "label": "Anschlussrichtung",
-                "value": "3/32A Fiş → 3/32A Priz"
+                "value": "3/32A Stecker → 3/32A Steckdose"
               }
             ]
           },
@@ -4961,11 +4961,11 @@
               },
               {
                 "label": "Kabel",
-                "value": "3 × 6 mm² TTR"
+                "value": "3 × 6 mm² ttr"
               },
               {
                 "label": "Länge",
-                "value": "10 m"
+                "value": "10m"
               }
             ]
           },
@@ -4974,7 +4974,7 @@
             "items": [
               {
                 "label": "Anschlussrichtung",
-                "value": "3/32A Fiş → 3/32A Priz"
+                "value": "3/32A Stecker → 3/32A Steckdose"
               }
             ]
           },
@@ -5017,11 +5017,11 @@
               },
               {
                 "label": "Kabel",
-                "value": "5 × 6 mm² TTR"
+                "value": "5 × 6 mm² ttr"
               },
               {
                 "label": "Länge",
-                "value": "5 m"
+                "value": "5m"
               }
             ]
           },
@@ -5073,11 +5073,11 @@
               },
               {
                 "label": "Kabel",
-                "value": "5 × 6 mm² TTR"
+                "value": "5 × 6 mm² ttr"
               },
               {
                 "label": "Länge",
-                "value": "10 m"
+                "value": "10m"
               }
             ]
           },
@@ -5571,7 +5571,7 @@
             "items": [
               {
                 "label": "Listenpreis",
-                "value": "7.161,00 € (KDV hariç)"
+                "value": "7.161,00 € (zzgl. MwSt.)"
               }
             ]
           },
@@ -5708,7 +5708,7 @@
             "items": [
               {
                 "label": "Listenpreis",
-                "value": "15.820,00 € (KDV hariç)"
+                "value": "15.820,00 € (zzgl. MwSt.)"
               }
             ]
           },
@@ -5849,7 +5849,7 @@
             "items": [
               {
                 "label": "Listenpreis",
-                "value": "18.950,00 € (KDV hariç)"
+                "value": "18.950,00 € (zzgl. MwSt.)"
               }
             ]
           },
@@ -6000,7 +6000,7 @@
             "items": [
               {
                 "label": "Listenpreis",
-                "value": "19.353,00 € (KDV hariç)"
+                "value": "19.353,00 € (zzgl. MwSt.)"
               }
             ]
           },
@@ -6151,7 +6151,7 @@
             "items": [
               {
                 "label": "Listenpreis",
-                "value": "23.731,00 € (KDV hariç)"
+                "value": "23.731,00 € (zzgl. MwSt.)"
               }
             ]
           },
@@ -6302,7 +6302,7 @@
             "items": [
               {
                 "label": "Listenpreis",
-                "value": "27.686,00 € (KDV hariç)"
+                "value": "27.686,00 € (zzgl. MwSt.)"
               }
             ]
           },
@@ -6398,7 +6398,7 @@
             "items": [
               {
                 "label": "Kabellänge",
-                "value": "5 m"
+                "value": "5m"
               },
               {
                 "label": "Kabelquerschnitt",
@@ -6461,7 +6461,7 @@
             "items": [
               {
                 "label": "Kabellänge",
-                "value": "8 m"
+                "value": "8m"
               },
               {
                 "label": "Kabelquerschnitt",
@@ -6524,7 +6524,7 @@
             "items": [
               {
                 "label": "Kabellänge",
-                "value": "5 m"
+                "value": "5m"
               },
               {
                 "label": "Kabelquerschnitt",
@@ -6587,7 +6587,7 @@
             "items": [
               {
                 "label": "Kabellänge",
-                "value": "8 m"
+                "value": "8m"
               },
               {
                 "label": "Kabelquerschnitt",
@@ -6650,7 +6650,7 @@
             "items": [
               {
                 "label": "Kabellänge",
-                "value": "5 m"
+                "value": "5m"
               },
               {
                 "label": "Kabelquerschnitt",
@@ -6713,7 +6713,7 @@
             "items": [
               {
                 "label": "Kabellänge",
-                "value": "8 m"
+                "value": "8m"
               },
               {
                 "label": "Kabelquerschnitt",
@@ -6776,7 +6776,7 @@
             "items": [
               {
                 "label": "Kabellänge",
-                "value": "5 m"
+                "value": "5m"
               },
               {
                 "label": "Kabelquerschnitt",
@@ -6839,7 +6839,7 @@
             "items": [
               {
                 "label": "Kabellänge",
-                "value": "8 m"
+                "value": "8m"
               },
               {
                 "label": "Kabelquerschnitt",
@@ -7378,7 +7378,7 @@
             "items": [
               {
                 "label": "Kabellänge",
-                "value": "1,5 m"
+                "value": "1,5m"
               },
               {
                 "label": "Kabelquerschnitt",
@@ -7441,7 +7441,7 @@
             "items": [
               {
                 "label": "Kabellänge",
-                "value": "1,5 m"
+                "value": "1,5m"
               },
               {
                 "label": "Kabelquerschnitt",
@@ -7494,7 +7494,7 @@
                 "value": "Kombination mit Sicherungsautomat"
               },
               {
-                "label": "Schutzart",
+                "label": "Schutzklasse",
                 "value": "IP44"
               },
               {
@@ -7550,7 +7550,7 @@
                 "value": "Kombination mit Sicherungsautomat"
               },
               {
-                "label": "Schutzart",
+                "label": "Schutzklasse",
                 "value": "IP44"
               },
               {
@@ -7606,7 +7606,7 @@
                 "value": "Kombination mit Sicherungsautomat"
               },
               {
-                "label": "Schutzart",
+                "label": "Schutzklasse",
                 "value": "IP44"
               },
               {
@@ -7662,7 +7662,7 @@
                 "value": "Kombination mit Sicherungsautomat"
               },
               {
-                "label": "Schutzart",
+                "label": "Schutzklasse",
                 "value": "IP66"
               },
               {
@@ -7718,7 +7718,7 @@
                 "value": "Kombination mit Sicherungsautomat"
               },
               {
-                "label": "Schutzart",
+                "label": "Schutzklasse",
                 "value": "IP66"
               },
               {
@@ -7774,7 +7774,7 @@
                 "value": "Kombination mit Sicherungsautomat"
               },
               {
-                "label": "Schutzart",
+                "label": "Schutzklasse",
                 "value": "IP66"
               },
               {
@@ -7844,7 +7844,7 @@
             "items": [
               {
                 "label": "Kabellänge",
-                "value": "5 m"
+                "value": "5m"
               },
               {
                 "label": "Konfiguration",
@@ -7904,7 +7904,7 @@
             "items": [
               {
                 "label": "Kabellänge",
-                "value": "8 m"
+                "value": "8m"
               },
               {
                 "label": "Konfiguration",
@@ -7964,7 +7964,7 @@
             "items": [
               {
                 "label": "Kabellänge",
-                "value": "5 m"
+                "value": "5m"
               },
               {
                 "label": "Konfiguration",
@@ -8024,7 +8024,7 @@
             "items": [
               {
                 "label": "Kabellänge",
-                "value": "8 m"
+                "value": "8m"
               },
               {
                 "label": "Konfiguration",
@@ -8084,7 +8084,7 @@
             "items": [
               {
                 "label": "Kabellänge",
-                "value": "5 m"
+                "value": "5m"
               },
               {
                 "label": "Konfiguration",
@@ -8144,7 +8144,7 @@
             "items": [
               {
                 "label": "Kabellänge",
-                "value": "8 m"
+                "value": "8m"
               },
               {
                 "label": "Konfiguration",

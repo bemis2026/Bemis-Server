@@ -172,7 +172,7 @@
             "items": [
               {
                 "label": "Salida",
-                "value": "5m. Kablolu"
+                "value": "Con cable de 5 m"
               },
               {
                 "label": "Conector",
@@ -332,7 +332,7 @@
             "items": [
               {
                 "label": "Salida",
-                "value": "5m. Kablolu"
+                "value": "Con cable de 5 m"
               },
               {
                 "label": "Conector",
@@ -518,7 +518,7 @@
             "items": [
               {
                 "label": "Salida",
-                "value": "5m. Kablolu"
+                "value": "Con cable de 5 m"
               },
               {
                 "label": "Conector",
@@ -704,7 +704,7 @@
             "items": [
               {
                 "label": "Salida",
-                "value": "5m. Kablolu"
+                "value": "Con cable de 5 m"
               },
               {
                 "label": "Conector",
@@ -965,7 +965,7 @@
             "items": [
               {
                 "label": "Salida",
-                "value": "5m. Kablolu"
+                "value": "Con cable de 5 m"
               },
               {
                 "label": "Conector",
@@ -1057,7 +1057,7 @@
             "items": [
               {
                 "label": "Salida",
-                "value": "5m. Kablolu"
+                "value": "Con cable de 5 m"
               },
               {
                 "label": "Conector",
@@ -1280,7 +1280,7 @@
               },
               {
                 "label": "Tipo de cable",
-                "value": "Tip 2"
+                "value": "Type 2"
               }
             ]
           },
@@ -1373,7 +1373,7 @@
               },
               {
                 "label": "Tipo de cable",
-                "value": "Tip 2"
+                "value": "Type 2"
               }
             ]
           },
@@ -1474,7 +1474,7 @@
               },
               {
                 "label": "Tipo de cable",
-                "value": "Tip 2"
+                "value": "Type 2"
               }
             ]
           },
@@ -1571,8 +1571,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -1610,7 +1610,7 @@
             "group": "Eléctrico",
             "items": [
               {
-                "label": "• Potencia",
+                "label": "Potencia",
                 "value": "3,7 kW"
               },
               {
@@ -1639,8 +1639,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -1707,8 +1707,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -1775,8 +1775,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -1843,8 +1843,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -1911,8 +1911,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -1979,8 +1979,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -2047,8 +2047,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -2115,8 +2115,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -2183,8 +2183,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -2251,8 +2251,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -2319,8 +2319,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -2387,8 +2387,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -2455,8 +2455,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -2523,8 +2523,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -2562,7 +2562,7 @@
             "group": "Eléctrico",
             "items": [
               {
-                "label": "• Potencia",
+                "label": "Potencia",
                 "value": "11 kW"
               },
               {
@@ -2591,8 +2591,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -2630,7 +2630,7 @@
             "group": "Eléctrico",
             "items": [
               {
-                "label": "• Potencia",
+                "label": "Potencia",
                 "value": "22 kW"
               },
               {
@@ -2659,8 +2659,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -2698,7 +2698,7 @@
             "group": "Eléctrico",
             "items": [
               {
-                "label": "• Potencia",
+                "label": "Potencia",
                 "value": "22 kW"
               },
               {
@@ -2727,8 +2727,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -2766,7 +2766,7 @@
             "group": "Eléctrico",
             "items": [
               {
-                "label": "• Potencia",
+                "label": "Potencia",
                 "value": "22 kW"
               },
               {
@@ -2795,8 +2795,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -2834,7 +2834,7 @@
             "group": "Eléctrico",
             "items": [
               {
-                "label": "• Potencia",
+                "label": "Potencia",
                 "value": "22 kW"
               },
               {
@@ -2863,8 +2863,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -2902,7 +2902,7 @@
             "group": "Eléctrico",
             "items": [
               {
-                "label": "• Potencia",
+                "label": "Potencia",
                 "value": "22 kW"
               },
               {
@@ -2931,8 +2931,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -2970,7 +2970,7 @@
             "group": "Eléctrico",
             "items": [
               {
-                "label": "• Potencia",
+                "label": "Potencia",
                 "value": "22 kW"
               },
               {
@@ -2999,8 +2999,8 @@
                 "value": "Type 2 — Type 2 (IEC 62196-2)"
               },
               {
-                "label": "Modo",
-                "value": "Modo 3 (IEC 61851-1)"
+                "label": "Mod",
+                "value": "Mod 3 (IEC 61851-1)"
               }
             ]
           },
@@ -5571,7 +5571,7 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "7.161,00 € (KDV hariç)"
+                "value": "7.161,00 € (IVA no incluido)"
               }
             ]
           },
@@ -5708,7 +5708,7 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "15.820,00 € (KDV hariç)"
+                "value": "15.820,00 € (IVA no incluido)"
               }
             ]
           },
@@ -5849,7 +5849,7 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "18.950,00 € (KDV hariç)"
+                "value": "18.950,00 € (IVA no incluido)"
               }
             ]
           },
@@ -6000,7 +6000,7 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "19.353,00 € (KDV hariç)"
+                "value": "19.353,00 € (IVA no incluido)"
               }
             ]
           },
@@ -6151,7 +6151,7 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "23.731,00 € (KDV hariç)"
+                "value": "23.731,00 € (IVA no incluido)"
               }
             ]
           },
@@ -6302,7 +6302,7 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "27.686,00 € (KDV hariç)"
+                "value": "27.686,00 € (IVA no incluido)"
               }
             ]
           },
