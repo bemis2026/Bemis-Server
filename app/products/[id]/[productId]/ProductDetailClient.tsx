@@ -867,8 +867,11 @@ export default function ProductDetailPage({
                                 const cardBg     = d ? "#1c1c22" : "#ffffff";
                                 const cardBorder = d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)";
                                 const cardShadow = d ? "none" : "0 1px 2px rgba(0,0,0,0.04)";
-                                const iconBg     = d ? `${BRAND_BLUE}1a` : `${BRAND_BLUE}10`;
-                                const iconBorder = `${BRAND_BLUE}30`;
+                                // İkonlar NÖTR gri (eskiden marka mavisiydi; kullanıcı
+                                // "sade+şık" → kartlarla birebir aynı nötr palet).
+                                const featIcon   = d ? "#9ca3af" : "#64748b";
+                                const iconBg     = d ? "rgba(255,255,255,0.06)" : "rgba(2,6,23,0.05)";
+                                const iconBorder = d ? "rgba(255,255,255,0.12)" : "rgba(2,6,23,0.10)";
                                 return (
                                   <div
                                     key={f.id}
@@ -879,7 +882,7 @@ export default function ProductDetailPage({
                                       className="inline-flex items-center justify-center rounded-lg flex-shrink-0"
                                       style={{ width: 30, height: 30, background: iconBg, border: `1px solid ${iconBorder}` }}
                                     >
-                                      {Icon && <Icon size={16} style={{ color: BRAND_BLUE }} />}
+                                      {Icon && <Icon size={16} style={{ color: featIcon }} />}
                                     </span>
                                     <span className="text-sm font-semibold" style={{ color: textPrimary }}>{f.label}</span>
                                   </div>

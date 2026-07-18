@@ -69,6 +69,12 @@ export default function FeaturedProducts() {
   const textPrimary = d ? "#ffffff" : "#111111";
   const textMuted   = d ? "rgba(255,255,255,0.42)" : "rgba(0,0,0,0.42)";
   const textFaint   = d ? "rgba(255,255,255,0.22)" : "rgba(0,0,0,0.22)";
+  // Özellik rozetleri NÖTR gri — eskiden her rozet kendi feature accent'iyle
+  // 6 renkli "gökkuşağı" oluyordu (kullanıcı: "renkleri azalt, sade+şık").
+  // Kartın kategori rengi yalnız üst çubuk/rozet/fiyat/CTA'da kalır; ikonlar nötr.
+  const featIcon   = d ? "#9ca3af" : "#64748b";
+  const featChipBg = d ? "rgba(255,255,255,0.05)" : "rgba(2,6,23,0.04)";
+  const featChipBd = d ? "rgba(255,255,255,0.12)" : "rgba(2,6,23,0.10)";
 
   const visibleFeatured = featured.filter((f) => f.visible);
   if (visibleFeatured.length === 0) return null;
@@ -298,13 +304,13 @@ export default function FeaturedProducts() {
                             title={f.label}
                             style={{
                               padding: isMockup ? "3px 6px" : "3px 5px",
-                              background: isMockup ? `${f.accent}1c` : `${f.accent}10`,
-                              border: `1px solid ${f.accent}40`,
+                              background: featChipBg,
+                              border: `1px solid ${featChipBd}`,
                             }}
                           >
-                            {Icon && <Icon size={12} style={{ color: f.accent }} />}
+                            {Icon && <Icon size={12} style={{ color: featIcon }} />}
                             {isMockup && (
-                              <span className="text-[9px] font-bold tracking-wide" style={{ color: f.accent }}>
+                              <span className="text-[9px] font-bold tracking-wide" style={{ color: featIcon }}>
                                 {f.mockup === "phone" ? "App" : "OCPP"}
                               </span>
                             )}
