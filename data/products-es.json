@@ -277,6 +277,326 @@
         ]
       },
       {
+        "id": "charger-plus-2-gsm-kablolu",
+        "name": "Charger Plus 2 GSM",
+        "code": "BEV-2011-1005",
+        "subtitle": "Con cable de 5 m / Módulo GSM",
+        "badge": "GSM",
+        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Gracias a su módulo GSM/4G integrado, ofrece supervisión y gestión remotas basadas en la nube a través de OCPP 1.6, incluso en instalaciones sin infraestructura de internet por cable.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Corriente máx.",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Cable y conexión",
+            "items": [
+              {
+                "label": "Salida",
+                "value": "Con cable de 5 m"
+              },
+              {
+                "label": "Conector",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Conexión",
+            "items": [
+              {
+                "label": "Comunicación",
+                "value": "Con módulo GSM"
+              },
+              {
+                "label": "Protocolo",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 775,50"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-plus-2-gsm-pano",
+        "name": "Charger Plus 2 GSM",
+        "code": "BEV-2012-1000",
+        "subtitle": "Con toma para cuadro / Módulo GSM",
+        "badge": "GSM",
+        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Gracias a su módulo GSM/4G integrado, ofrece supervisión y gestión remotas basadas en la nube a través de OCPP 1.6, incluso en instalaciones sin infraestructura de internet por cable.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Corriente máx.",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Cable y conexión",
+            "items": [
+              {
+                "label": "Salida",
+                "value": "Con toma para cuadro"
+              },
+              {
+                "label": "Zócalo",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Conexión",
+            "items": [
+              {
+                "label": "Comunicación",
+                "value": "Con módulo GSM"
+              },
+              {
+                "label": "Protocolo",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 759,00"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-plus-2-gsm-mid-kablolu",
+        "name": "Charger Plus 2 GSM MID Sayaçlı",
+        "code": "BEV-2011-1015",
+        "subtitle": "Con cable de 5 m / Módulo GSM · Contador MID integrado",
+        "badge": "GSM · MID",
+        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Gracias a su módulo GSM/4G integrado, ofrece supervisión y gestión remotas basadas en la nube a través de OCPP 1.6, incluso en instalaciones sin infraestructura de internet por cable. Este modelo incorpora un contador de energía MID certificado integrado en la carcasa; es totalmente apto para la facturación basada en mediciones a través de OCPP y para un uso comercial exigente. Fabricado en Türkiye.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Corriente máx.",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Cable y conexión",
+            "items": [
+              {
+                "label": "Salida",
+                "value": "Con cable de 5 m"
+              },
+              {
+                "label": "Conector",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Conexión",
+            "items": [
+              {
+                "label": "Comunicación",
+                "value": "Con módulo GSM"
+              },
+              {
+                "label": "Protocolo",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 875,50"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-plus-2-gsm-mid-pano",
+        "name": "Charger Plus 2 GSM MID Sayaçlı",
+        "code": "BEV-2012-1010",
+        "subtitle": "Con toma para cuadro / Módulo GSM · Contador MID integrado",
+        "badge": "GSM · MID",
+        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Gracias a su módulo GSM/4G integrado, ofrece supervisión y gestión remotas basadas en la nube a través de OCPP 1.6, incluso en instalaciones sin infraestructura de internet por cable. Este modelo incorpora un contador de energía MID certificado integrado en la carcasa; es totalmente apto para la facturación basada en mediciones a través de OCPP y para un uso comercial exigente. Fabricado en Türkiye.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Corriente máx.",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Cable y conexión",
+            "items": [
+              {
+                "label": "Salida",
+                "value": "Con toma para cuadro"
+              },
+              {
+                "label": "Zócalo",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Conexión",
+            "items": [
+              {
+                "label": "Comunicación",
+                "value": "Con módulo GSM"
+              },
+              {
+                "label": "Protocolo",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 859,00"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
         "id": "charger-pro-2-kablolu",
         "name": "Charger Pro 2",
         "code": "BEV-3011-0005",
@@ -575,6 +895,169 @@
           "load",
           "mid",
           "montaj"
+        ]
+      },
+      {
+        "id": "charger-pro-2-gsm-mid-kablolu",
+        "name": "Charger Pro 2 GSM MID Sayaçlı",
+        "code": "BEV-3011-1015",
+        "subtitle": "Con cable de 5 m / con módulo GSM · Contador MID integrado",
+        "badge": "GSM · MID",
+        "description": "La versión Charger Pro 2 GSM integra en campo la supervisión y gestión remota basadas en la nube gracias a su módulo 4G interno. Se conecta a plataformas de operadores externos a través de OCPP 1.6; para instalaciones de campo sin infraestructura de internet por cable. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Este modelo incorpora un contador de energía MID certificado integrado en la carcasa; es totalmente apto para la facturación basada en mediciones a través de OCPP y para un uso comercial exigente. Fabricado en Türkiye.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Corriente máx.",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Cable y conexión",
+            "items": [
+              {
+                "label": "Salida",
+                "value": "Con cable de 5 m"
+              },
+              {
+                "label": "Conector",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Conexión",
+            "items": [
+              {
+                "label": "Comunicación",
+                "value": "Con módulo GSM"
+              },
+              {
+                "label": "Protocolo",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 991,00"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074909/products/kqqtxvxryazaz2jk8l2w.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074909/products/kqqtxvxryazaz2jk8l2w.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-pro-2-gsm-mid-pano",
+        "name": "Charger Pro 2 GSM MID Sayaçlı",
+        "code": "BEV-3012-1010",
+        "subtitle": "Con toma para cuadro / con módulo GSM · Contador MID integrado",
+        "badge": "GSM · MID",
+        "description": "La versión Charger Pro 2 GSM integra en campo la supervisión y gestión remota basadas en la nube gracias a su módulo 4G interno. Se conecta a plataformas de operadores externos a través de OCPP 1.6; para instalaciones de campo sin infraestructura de internet por cable. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Este modelo incorpora un contador de energía MID certificado integrado en la carcasa; es totalmente apto para la facturación basada en mediciones a través de OCPP y para un uso comercial exigente. Fabricado en Türkiye.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Corriente máx.",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Cable y conexión",
+            "items": [
+              {
+                "label": "Salida",
+                "value": "Con toma para cuadro"
+              },
+              {
+                "label": "Zócalo",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Conexión",
+            "items": [
+              {
+                "label": "Comunicación",
+                "value": "Con módulo GSM"
+              },
+              {
+                "label": "Protocolo",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 974,50"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074905/products/pxn7fd3il80godqoqqvj.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074905/products/pxn7fd3il80godqoqqvj.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "mid",
+          "montaj"
+        ],
+        "certificates": [
+          "ce",
+          "tuv",
+          "tse"
         ]
       }
     ]

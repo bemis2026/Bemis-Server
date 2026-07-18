@@ -277,6 +277,326 @@
         ]
       },
       {
+        "id": "charger-plus-2-gsm-kablolu",
+        "name": "Charger Plus 2 GSM",
+        "code": "BEV-2011-1005",
+        "subtitle": "5m. Kablolu / GSM Module",
+        "badge": "GSM",
+        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. Thanks to its built-in GSM/4G module, it provides cloud-based remote monitoring and management over OCPP 1.6 even at sites without wired internet infrastructure.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Çıkış",
+                "value": "5m. Kablolu"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "İletişim",
+                "value": "GSM Modüllü"
+              },
+              {
+                "label": "Protokol",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 775,50"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-plus-2-gsm-pano",
+        "name": "Charger Plus 2 GSM",
+        "code": "BEV-2012-1000",
+        "subtitle": "Pano Prizli / GSM Module",
+        "badge": "GSM",
+        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. Thanks to its built-in GSM/4G module, it provides cloud-based remote monitoring and management over OCPP 1.6 even at sites without wired internet infrastructure.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Çıkış",
+                "value": "Pano Prizli"
+              },
+              {
+                "label": "Soket",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "İletişim",
+                "value": "GSM Modüllü"
+              },
+              {
+                "label": "Protokol",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 759,00"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-plus-2-gsm-mid-kablolu",
+        "name": "Charger Plus 2 GSM MID Sayaçlı",
+        "code": "BEV-2011-1015",
+        "subtitle": "5m. Kablolu / GSM Module · Integrated MID Meter",
+        "badge": "GSM · MID",
+        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. Thanks to its built-in GSM/4G module, it provides cloud-based remote monitoring and management over OCPP 1.6 even at sites without wired internet infrastructure. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use. Made in Türkiye.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Çıkış",
+                "value": "5m. Kablolu"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "İletişim",
+                "value": "GSM Modüllü"
+              },
+              {
+                "label": "Protokol",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 875,50"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-plus-2-gsm-mid-pano",
+        "name": "Charger Plus 2 GSM MID Sayaçlı",
+        "code": "BEV-2012-1010",
+        "subtitle": "Pano Prizli / GSM Module · Integrated MID Meter",
+        "badge": "GSM · MID",
+        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. Thanks to its built-in GSM/4G module, it provides cloud-based remote monitoring and management over OCPP 1.6 even at sites without wired internet infrastructure. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use. Made in Türkiye.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Çıkış",
+                "value": "Pano Prizli"
+              },
+              {
+                "label": "Soket",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "İletişim",
+                "value": "GSM Modüllü"
+              },
+              {
+                "label": "Protokol",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 859,00"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
         "id": "charger-pro-2-kablolu",
         "name": "Charger Pro 2",
         "code": "BEV-3011-0005",
@@ -575,6 +895,169 @@
           "load",
           "mid",
           "montaj"
+        ]
+      },
+      {
+        "id": "charger-pro-2-gsm-mid-kablolu",
+        "name": "Charger Pro 2 GSM MID Sayaçlı",
+        "code": "BEV-3011-1015",
+        "subtitle": "5m. Kablolu / GSM Modüllü · Integrated MID Meter",
+        "badge": "GSM · MID",
+        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use. Made in Türkiye.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Çıkış",
+                "value": "5m. Kablolu"
+              },
+              {
+                "label": "Konnektör",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "İletişim",
+                "value": "GSM Modüllü"
+              },
+              {
+                "label": "Protokol",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 991,00"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074909/products/kqqtxvxryazaz2jk8l2w.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074909/products/kqqtxvxryazaz2jk8l2w.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-pro-2-gsm-mid-pano",
+        "name": "Charger Pro 2 GSM MID Sayaçlı",
+        "code": "BEV-3012-1010",
+        "subtitle": "Pano Prizli / GSM Modüllü · Integrated MID Meter",
+        "badge": "GSM · MID",
+        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use. Made in Türkiye.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Güç",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Maks. Akım",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kablo & Bağlantı",
+            "items": [
+              {
+                "label": "Çıkış",
+                "value": "Pano Prizli"
+              },
+              {
+                "label": "Soket",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Bağlantı",
+            "items": [
+              {
+                "label": "İletişim",
+                "value": "GSM Modüllü"
+              },
+              {
+                "label": "Protokol",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 974,50"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074905/products/pxn7fd3il80godqoqqvj.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074905/products/pxn7fd3il80godqoqqvj.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "mid",
+          "montaj"
+        ],
+        "certificates": [
+          "ce",
+          "tuv",
+          "tse"
         ]
       }
     ]

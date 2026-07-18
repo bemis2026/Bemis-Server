@@ -277,6 +277,326 @@
         ]
       },
       {
+        "id": "charger-plus-2-gsm-kablolu",
+        "name": "Charger Plus 2 GSM",
+        "code": "BEV-2011-1005",
+        "subtitle": "5 m Kabel / GSM-Modul",
+        "badge": "GSM",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Leistung",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Max. Strom",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kabel & Anschluss",
+            "items": [
+              {
+                "label": "Ausgang",
+                "value": "5 m Kabel"
+              },
+              {
+                "label": "Stecker",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Anschluss",
+            "items": [
+              {
+                "label": "Kommunikation",
+                "value": "GSM-Modul"
+              },
+              {
+                "label": "Protokoll",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 775,50"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-plus-2-gsm-pano",
+        "name": "Charger Plus 2 GSM",
+        "code": "BEV-2012-1000",
+        "subtitle": "Mit Schalttafel-Steckdose / GSM-Modul",
+        "badge": "GSM",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Leistung",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Max. Strom",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kabel & Anschluss",
+            "items": [
+              {
+                "label": "Ausgang",
+                "value": "Mit Schalttafel-Steckdose"
+              },
+              {
+                "label": "Buchse",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Anschluss",
+            "items": [
+              {
+                "label": "Kommunikation",
+                "value": "GSM-Modul"
+              },
+              {
+                "label": "Protokoll",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 759,00"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-plus-2-gsm-mid-kablolu",
+        "name": "Charger Plus 2 GSM MID Sayaçlı",
+        "code": "BEV-2011-1015",
+        "subtitle": "5 m Kabel / GSM-Modul · Integrierter MID-Zähler",
+        "badge": "GSM · MID",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Leistung",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Max. Strom",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kabel & Anschluss",
+            "items": [
+              {
+                "label": "Ausgang",
+                "value": "5 m Kabel"
+              },
+              {
+                "label": "Stecker",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Anschluss",
+            "items": [
+              {
+                "label": "Kommunikation",
+                "value": "GSM-Modul"
+              },
+              {
+                "label": "Protokoll",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 875,50"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-plus-2-gsm-mid-pano",
+        "name": "Charger Plus 2 GSM MID Sayaçlı",
+        "code": "BEV-2012-1010",
+        "subtitle": "Mit Schalttafel-Steckdose / GSM-Modul · Integrierter MID-Zähler",
+        "badge": "GSM · MID",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Leistung",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Max. Strom",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kabel & Anschluss",
+            "items": [
+              {
+                "label": "Ausgang",
+                "value": "Mit Schalttafel-Steckdose"
+              },
+              {
+                "label": "Buchse",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Anschluss",
+            "items": [
+              {
+                "label": "Kommunikation",
+                "value": "GSM-Modul"
+              },
+              {
+                "label": "Protokoll",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 859,00"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
         "id": "charger-pro-2-kablolu",
         "name": "Charger Pro 2",
         "code": "BEV-3011-0005",
@@ -575,6 +895,169 @@
           "load",
           "mid",
           "montaj"
+        ]
+      },
+      {
+        "id": "charger-pro-2-gsm-mid-kablolu",
+        "name": "Charger Pro 2 GSM MID Sayaçlı",
+        "code": "BEV-3011-1015",
+        "subtitle": "5 m Kabel / GSM-Modul · Integrierter MID-Zähler",
+        "badge": "GSM · MID",
+        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Leistung",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Max. Strom",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kabel & Anschluss",
+            "items": [
+              {
+                "label": "Ausgang",
+                "value": "5 m Kabel"
+              },
+              {
+                "label": "Stecker",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Anschluss",
+            "items": [
+              {
+                "label": "Kommunikation",
+                "value": "GSM-Modul"
+              },
+              {
+                "label": "Protokoll",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 991,00"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074909/products/kqqtxvxryazaz2jk8l2w.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074909/products/kqqtxvxryazaz2jk8l2w.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-pro-2-gsm-mid-pano",
+        "name": "Charger Pro 2 GSM MID Sayaçlı",
+        "code": "BEV-3012-1010",
+        "subtitle": "Mit Schalttafel-Steckdose / GSM-Modul · Integrierter MID-Zähler",
+        "badge": "GSM · MID",
+        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Leistung",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Max. Strom",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kabel & Anschluss",
+            "items": [
+              {
+                "label": "Ausgang",
+                "value": "Mit Schalttafel-Steckdose"
+              },
+              {
+                "label": "Buchse",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Anschluss",
+            "items": [
+              {
+                "label": "Kommunikation",
+                "value": "GSM-Modul"
+              },
+              {
+                "label": "Protokoll",
+                "value": "OCPP 1.6"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 974,50"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074905/products/pxn7fd3il80godqoqqvj.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074905/products/pxn7fd3il80godqoqqvj.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "mid",
+          "montaj"
+        ],
+        "certificates": [
+          "ce",
+          "tuv",
+          "tse"
         ]
       }
     ]
