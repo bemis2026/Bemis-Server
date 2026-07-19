@@ -199,6 +199,12 @@ export type SiteContent = {
     heroBgPos?: string;
     /** Ek hero arka plan görselleri — heroBg ile birlikte 3 sn'de bir otomatik geçer (slider). */
     heroImages?: string[];
+    /** İlave görsellerin ODAK NOKTALARI (heroImages ile AYNI sırada, object-position).
+     *  ⚠️ Tek bir heroBgPos'u tüm slider görsellerine uygulamak YANLIŞ: her görselin
+     *  kompozisyonu farklı olduğu için ana görsele göre ayarlanmış odak, diğerlerinde
+     *  boş bir bölgeyi (cihazın sağındaki zemin, duvar, gökyüzü) gösteriyordu.
+     *  Boş bırakılırsa "50% 50%" (merkez) kullanılır — heroBgPos DEVRALINMAZ. */
+    heroImagesPos?: string[];
     layout: HeroLayout;
   };
   stats: StatItem[];
@@ -406,7 +412,7 @@ const defaultContent: SiteContent = {
     headline2Words: [],
     headline3: "Üreticisi",
     subtitle: "Evinizden iş yerinize, otopark çözümlerinden sahaya kadar — IP65 sertifikalı AC şarj üniteleri, kablolar ve aksesuarlarla elektrikli araç deneyimini kolaylaştırıyoruz.",
-    ctaPrimary: "Ürün Kataloğu", ctaSecondary: "Bayi Bul", heroBg: "", heroBgPos: "75% 50%", heroImages: [],
+    ctaPrimary: "Ürün Kataloğu", ctaSecondary: "Bayi Bul", heroBg: "", heroBgPos: "75% 50%", heroImages: [], heroImagesPos: [],
     layout: DEFAULT_LAYOUT,
   },
   stats: [

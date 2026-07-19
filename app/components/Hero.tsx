@@ -82,25 +82,38 @@ export default function Hero() {
 
   // Hero arka plan görselleri: ana heroBg + adminden eklenen ilave görseller.
   // Birden fazlaysa 5 sn'de bir, yumuşak/uzun crossfade ile geçer (zoom YOK); tekse statik.
-  const heroImages = [hero.heroBg, ...(hero.heroImages ?? [])].map((s) => (s ?? "").trim()).filter(Boolean);
+  // ⚠️ Her slide KENDİ odak noktasını taşır. Eskiden tek bir heroBgPos TÜM görsellere
+  // uygulanıyordu; ana görsele göre ayarlanan odak (ör. "75% 32%") farklı kompozisyondaki
+  // slider görsellerinde boş bölgeyi (cihazın sağındaki zemin / duvar / gökyüzü) kırpıp
+  // gösteriyordu — görsel yüklüydü ama "boş arka plan" gibi görünüyordu.
+  // İlave görseller heroBgPos'u DEVRALMAZ → varsayılan merkez ("50% 50%").
+  const heroSlides = [
+    { src: hero.heroBg, pos: hero.heroBgPos || "75% 50%" },
+    ...(hero.heroImages ?? []).map((src, i) => ({
+      src,
+      pos: (hero.heroImagesPos ?? [])[i] || "50% 50%",
+    })),
+  ]
+    .map((s) => ({ src: (s.src ?? "").trim(), pos: s.pos }))
+    .filter((s) => s.src);
   const [activeHero, setActiveHero] = useState(0);
   const reduceMotion = useReducedMotion();
   useEffect(() => {
     // prefers-reduced-motion: slider'ı döndürme — statik ilk görsel kalsın.
-    if (reduceMotion || heroImages.length <= 1) return;
-    const t = setInterval(() => setActiveHero((n) => (n + 1) % heroImages.length), 5000);
+    if (reduceMotion || heroSlides.length <= 1) return;
+    const t = setInterval(() => setActiveHero((n) => (n + 1) % heroSlides.length), 5000);
     return () => clearInterval(t);
-  }, [heroImages.length, reduceMotion]);
-  const activeHeroIdx = heroImages.length ? activeHero % heroImages.length : 0;
+  }, [heroSlides.length, reduceMotion]);
+  const activeHeroIdx = heroSlides.length ? activeHero % heroSlides.length : 0;
   // Çift-tampon: tüm slider görsellerini değil, yalnız aktif + komşu (önceki/
   // sonraki) katmanı DOM'a bas → geçiş anında en fazla ~2-3 tam-ekran görsel
   // canlı kalır (mobil GPU jank biter). Komşu zaten DOM'da olduğu için bir
   // sonraki görsel önceden decode edilir → boş/atlamalı crossfade olmaz.
-  const heroVisible = heroImages.length
+  const heroVisible = heroSlides.length
     ? new Set<number>([
         activeHeroIdx,
-        (activeHeroIdx - 1 + heroImages.length) % heroImages.length,
-        (activeHeroIdx + 1) % heroImages.length,
+        (activeHeroIdx - 1 + heroSlides.length) % heroSlides.length,
+        (activeHeroIdx + 1) % heroSlides.length,
       ])
     : new Set<number>();
 
@@ -173,23 +186,23 @@ export default function Hero() {
       {/* Background photo — yakınlaşma/uzaklaşma (Ken Burns zoom) KALDIRILDI:
           görsel sabit durur, sadece yumuşak + uzun crossfade ile geçer
           (daha temiz/premium görünüm; eski zoom-reset kötü gözüküyordu). */}
-      {heroImages.length > 0 && (
+      {heroSlides.length > 0 && (
         <div className="absolute inset-0">
-          {heroImages.map((img, i) => !heroVisible.has(i) ? null : (
+          {heroSlides.map((slide, i) => !heroVisible.has(i) ? null : (
             <div
-              key={img + i}
+              key={slide.src + i}
               className="absolute inset-0"
               style={{ opacity: i === activeHeroIdx ? 1 : 0, transition: "opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1)" }}
               aria-hidden={i !== activeHeroIdx}
             >
               <Image
-                src={img}
+                src={slide.src}
                 alt="Bemis E-V Charge elektrikli araç şarj istasyonu"
                 fill
                 priority={i === 0}
                 quality={90}
                 className="object-cover"
-                style={{ objectPosition: hero.heroBgPos ?? "75% 50%" }}
+                style={{ objectPosition: slide.pos }}
                 sizes="100vw"
               />
             </div>

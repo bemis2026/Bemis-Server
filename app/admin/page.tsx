@@ -107,6 +107,8 @@ type ContentData = {
     subtitle: string; ctaPrimary: string; ctaSecondary: string; heroBg: string;
     heroBgPos?: string;
     heroImages?: string[];
+    /** heroImages ile AYNI sıradaki odak noktaları (object-position). Boşsa merkez. */
+    heroImagesPos?: string[];
     layout: { logo: { x: number; y: number }; text: { x: number; y: number }; button: { x: number; y: number } };
   };
   stats: StatItem[];
@@ -1861,19 +1863,58 @@ export default function AdminPage() {
                           <input ref={heroImgRef} type="file" accept="image/*" className="hidden" onChange={handleHeroImageAdd} />
                         </div>
                         {(content.hero.heroImages ?? []).length > 0 ? (
-                          <div className="grid grid-cols-4 gap-2">
-                            {(content.hero.heroImages ?? []).map((img, i) => (
-                              <div key={i} className="relative rounded-lg overflow-hidden group" style={{ aspectRatio: "16 / 10" }}>
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img src={img} alt="" className="w-full h-full object-cover" />
-                                <button
-                                  onClick={() => updateContent(["hero", "heroImages"], (content.hero.heroImages ?? []).filter((_, j) => j !== i))}
-                                  className="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/70 text-white text-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                                  title="Kaldır"
-                                >×</button>
-                              </div>
-                            ))}
-                          </div>
+                          <>
+                            <div className="grid grid-cols-4 gap-2">
+                              {(content.hero.heroImages ?? []).map((img, i) => {
+                                // Her görselin KENDİ odağı — tek ortak odak farklı kompozisyonlarda
+                                // boş bölgeyi (zemin/duvar/gökyüzü) gösteriyordu.
+                                const posStr = (content.hero.heroImagesPos ?? [])[i] || "50% 50%";
+                                const [px, py] = posStr.split(" ").map((v) => parseFloat(v) || 50);
+                                return (
+                                  <div key={i} className="relative rounded-lg overflow-hidden group" style={{ aspectRatio: "16 / 10" }}>
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                      src={img}
+                                      alt=""
+                                      className="w-full h-full object-cover cursor-crosshair"
+                                      style={{ objectPosition: posStr }}
+                                      title="Tıklayarak odak noktası seç — hero'da bu nokta görünür kalır"
+                                      onClick={(e) => {
+                                        const r = e.currentTarget.getBoundingClientRect();
+                                        const x = Math.round(((e.clientX - r.left) / r.width) * 100);
+                                        const y = Math.round(((e.clientY - r.top) / r.height) * 100);
+                                        const next = [...(content.hero.heroImagesPos ?? [])];
+                                        while (next.length < (content.hero.heroImages ?? []).length) next.push("50% 50%");
+                                        next[i] = `${Math.max(0, Math.min(100, x))}% ${Math.max(0, Math.min(100, y))}%`;
+                                        updateContent(["hero", "heroImagesPos"], next);
+                                      }}
+                                    />
+                                    {/* Seçili odak göstergesi */}
+                                    <div
+                                      className="absolute w-3 h-3 rounded-full border-2 border-white pointer-events-none"
+                                      style={{ left: `${px}%`, top: `${py}%`, transform: "translate(-50%,-50%)", boxShadow: "0 0 0 1px rgba(0,0,0,0.5)" }}
+                                    />
+                                    <button
+                                      onClick={() => {
+                                        // ⚠️ updateContent her çağrıda content'in TAM kopyasını alır →
+                                        // ardışık iki çağrı birbirini ezer. İkisini tek seferde güncelle.
+                                        if (!content) return;
+                                        const next = JSON.parse(JSON.stringify(content)) as ContentData;
+                                        next.hero.heroImages = (content.hero.heroImages ?? []).filter((_, j) => j !== i);
+                                        next.hero.heroImagesPos = (content.hero.heroImagesPos ?? []).filter((_, j) => j !== i);
+                                        setContent(next);
+                                      }}
+                                      className="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/70 text-white text-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                                      title="Kaldır"
+                                    >×</button>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                            <p className="text-[10px] text-white/25 mt-2 leading-relaxed">
+                              Görsele <b className="text-white/40">tıklayarak odak noktası</b> seçin — hero ekranı doldururken (object-cover) bu nokta görünür kalır. Her görselin odağı ayrıdır.
+                            </p>
+                          </>
                         ) : (
                           <p className="text-[10px] text-white/25">Ana görselle birlikte döngüye girecek ek görseller ekleyin (3 sn'de bir otomatik geçer).</p>
                         )}
