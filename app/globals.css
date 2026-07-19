@@ -42,7 +42,10 @@ body {
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
+  /* ⚠️ Viewport'tan BÜYÜK: animasyon artık transform ile yapılıyor ve katman
+     104px çapraz kayıyor — kenarda boşluk görünmesin diye taşırıldı.
+     position:fixed olduğu için kaydırılabilir alanı BÜYÜTMEZ (scrollbar çıkmaz). */
+  inset: -120px;
   pointer-events: none;
   z-index: -1;
   background-image:
@@ -60,12 +63,23 @@ body::before {
       transparent 1px,
       transparent 104px
     );
+  /* ⚠️⚠️ PERFORMANS — background-position animasyonu KULLANMA (ölçümle kanıtlandı).
+     Eskiden `background-position` animate ediliyordu. Bu özellik GPU'ya alınamaz →
+     tam ekran sabit (position:fixed) bir katman HER KAREDE yeniden boyanıyordu ve
+     masaüstünde kaydırma kasmasının BİRİNCİ sebebiydi.
+     Playwright ölçümü (2 tur, dönüşümlü A/B): bu animasyon kapatılınca kaydırmada
+     düşen kare oranı %46 → %26, ortalama kare 25.7ms → 20.2ms.
+     (Aynı testte Reviews blob'ları kapatmak HİÇ fark yaratmadı — suçlu buydu.)
+     ÇÖZÜM: transform ile aynı görüntü. transform composited = 0 repaint.
+     104px seçildi çünkü iki katmanın periyodu 52px ve 104px → 104px kayma
+     İKİSİNİ DE tam periyoda oturtur, döngü dikişsiz kalır. */
   animation: stripe-drift 18s linear infinite;
+  will-change: transform;
 }
 
 @keyframes stripe-drift {
-  from { background-position: 0 0, 0 0; }
-  to   { background-position: 52px 52px, 104px 104px; }
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(104px, 104px, 0); }
 }
 
 html[data-theme="light"] body::before {
