@@ -27,11 +27,11 @@ export default function ReferenceProjects() {
   const textPrimary = d ? "#ffffff" : "#111111";
   const textMuted   = d ? "rgba(255,255,255,0.42)" : "rgba(0,0,0,0.42)";
 
-  // Native scroll + auto-scroll: 2× duplicate yeterli, scroll loop reset
-  // scrollWidth/2'de yapılır. Eski 8-20× tile artık gereksiz.
-  const repeatedItems = [...items, ...items];
   const sectionBgUrl = sectionBgs?.["referenceProjects"] ?? "";
-  const { scrollRef, handlers, scrollByAmount } = useMarqueeScroll();
+  const { scrollRef, handlers, scrollByAmount, isMarquee } = useMarqueeScroll();
+  // Marquee (masaüstü) → 2× kopya ile kesintisiz akış; mobil (coarse pointer)
+  // → 1× + native scroll (çift kopya + başa-fırlatma yok).
+  const repeatedItems = isMarquee ? [...items, ...items] : items;
 
   return (
     <section id="referenceprojects" style={{ background: sectionBg }} className="relative py-8 lg:py-12 overflow-hidden">

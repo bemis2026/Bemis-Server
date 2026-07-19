@@ -92,7 +92,10 @@ export default function FeaturedProducts() {
   });
 
   const sectionBgUrl = sectionBgs?.["featured"] ?? "";
-  const { scrollRef, handlers, scrollByAmount } = useMarqueeScroll();
+  const { scrollRef, handlers, scrollByAmount, isMarquee } = useMarqueeScroll();
+  // Marquee (masaüstü) → 2× kopya ile kesintisiz akış; mobil → 1× (çift kopya
+  // görünmesin, native scroll temiz).
+  const marqueeList = isMarquee ? [...resolved, ...resolved] : resolved;
 
   return (
     <section id="featured" style={{ background: sectionBg }} className="relative py-8 lg:py-12 overflow-hidden">
@@ -185,7 +188,7 @@ export default function FeaturedProducts() {
                 width: "max-content",
               }}
             >
-          {[...resolved, ...resolved].map((item, i) => {
+          {marqueeList.map((item, i) => {
             const key = `${item.categoryId}-${item.productId}-${i}`;
             const isHov = hovered === key;
 

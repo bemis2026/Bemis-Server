@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Native overflow-x scroll + slow auto-scroll loop + drag-to-scroll (mouse) +
 // native touch + smooth scroll button helper.
@@ -26,15 +26,21 @@ export function useMarqueeScroll(opts?: { speed?: number }) {
   const buttonPauseUntil = useRef(0);
   const speed = opts?.speed ?? 0.5; // px / frame ≈ 30 px / sec @ 60 fps
 
+  // ⚠️ Marquee YALNIZ masaüstünde (fine pointer). Dokunmatik cihazlarda
+  // (pointer: coarse = telefon/tablet) otomatik kaydırma parmak-kaydırmasıyla
+  // çakışıyordu: parmak bırakılınca RAF devreye girip scrollLeft'i yarıda
+  // sıfırlıyor = "kaydırınca başa dönüyor". Mobilde marquee kapalı → saf native
+  // scroll. isMarquee ayrıca bileşende 2× kopya yerine 1× göstermek için kullanılır
+  // (SSR = false → mobil ilk render'la uyumlu, hydration mismatch yok).
+  const [isMarquee, setIsMarquee] = useState(false);
+
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
-    // Accessibility: kullanıcı OS'unda "reduce motion" tercihini açtıysa
-    // otomatik kayma çalışmaz; drag + button manuel kontrol kalır.
-    const reduceMotion =
-      typeof window !== "undefined" &&
-      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) return;
+    const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    const coarse = window.matchMedia?.("(pointer: coarse)").matches;
+    if (reduceMotion || coarse) return; // isMarquee false kalır → mobil/erişilebilirlik: manuel scroll
+    setIsMarquee(true);
 
     let rafId = 0;
     const tick = () => {
@@ -48,7 +54,10 @@ export function useMarqueeScroll(opts?: { speed?: number }) {
         el.scrollWidth > el.clientWidth
       ) {
         el.scrollLeft += speed;
-        if (el.scrollLeft >= el.scrollWidth / 2) el.scrollLeft = 0;
+        // Sıfıra ZIPLAMA yerine yarıyı ÇIKAR (wrap) → hem auto-scroll seamless
+        // hem masaüstünde yarıyı geçen drag'de sarsıntısız devam (eski hard-0
+        // reset drag'i de başa fırlatıyordu).
+        if (el.scrollLeft >= el.scrollWidth / 2) el.scrollLeft -= el.scrollWidth / 2;
       }
       rafId = requestAnimationFrame(tick);
     };
@@ -101,5 +110,5 @@ export function useMarqueeScroll(opts?: { speed?: number }) {
     el.scrollBy({ left: delta, behavior: "smooth" });
   };
 
-  return { scrollRef, handlers, scrollByAmount };
+  return { scrollRef, handlers, scrollByAmount, isMarquee };
 }

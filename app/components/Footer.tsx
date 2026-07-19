@@ -176,7 +176,9 @@ export default function Footer() {
               />
             </motion.div>
 
-            <p className="text-sm leading-relaxed mb-5 max-w-xs" style={{ color: textMuted }}>
+            {/* Uzun tanıtım paragrafı mobilde GİZLİ — footer'ı gereksiz uzatıyordu
+                (kullanıcı isteği). Masaüstünde (sm+) marka anlatısı olarak kalır. */}
+            <p className="hidden sm:block text-sm leading-relaxed mb-5 max-w-xs" style={{ color: textMuted }}>
               <E field="footer.description" tag="span" multiline>{footerContent.description}</E>
             </p>
 
