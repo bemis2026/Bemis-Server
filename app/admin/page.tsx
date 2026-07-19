@@ -1447,7 +1447,7 @@ export default function AdminPage() {
       <div className="min-h-screen bg-[#0c0c0e] flex items-center justify-center px-4">
         <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-sm">
           <div className="text-center mb-8">
-            <Image src="/logo-white.png" alt="Bemis Logo" width={160} height={40} priority className="h-10 w-auto object-contain mx-auto mb-5" />
+            <Image src="/logo-white.png" alt="Bemis Logo" width={160} height={40} quality={90} priority className="h-10 w-auto object-contain mx-auto mb-5" />
             <h1 className="text-white font-bold text-xl">Yönetim Paneli</h1>
             <p className="text-white/40 text-sm mt-1">Bemis E-V Charge</p>
           </div>
@@ -1566,7 +1566,7 @@ export default function AdminPage() {
       {/* Header */}
       <header className="border-b border-white/8 px-5 sm:px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Image src="/logo-white.png" alt="Bemis Logo" width={112} height={28} className="h-7 w-auto object-contain" />
+          <Image src="/logo-white.png" alt="Bemis Logo" width={112} height={28} quality={90} className="h-7 w-auto object-contain" />
           <div className="border-l border-white/12 pl-3">
             <p className="text-sm font-semibold">Yönetim Paneli</p>
             <p className="text-xs text-white/30">Bemis E-V Charge</p>

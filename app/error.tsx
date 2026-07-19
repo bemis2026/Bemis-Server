@@ -23,7 +23,7 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
 
       <div className="relative z-10 w-full max-w-2xl">
         <Link href="/" className="inline-block mb-12">
-          <Image src="/logo-white.png" alt="Bemis E-V Charge" width={180} height={56}
+          <Image src="/logo-white.png" alt="Bemis E-V Charge" width={180} height={56} quality={90}
             className="h-10 w-auto object-contain" priority />
         </Link>
 
