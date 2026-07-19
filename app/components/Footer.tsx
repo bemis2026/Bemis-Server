@@ -171,6 +171,7 @@ export default function Footer() {
                 alt="Bemis E-V Charge"
                 width={220}
                 height={72}
+                quality={90}
                 className="h-14 w-auto object-contain"
                 style={logoStyle}
               />

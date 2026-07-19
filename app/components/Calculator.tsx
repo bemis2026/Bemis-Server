@@ -238,7 +238,7 @@ function CalcBanner({ d, accent, tab, border, textMuted, logoSrc, t, chargeTimeL
     >
       {/* Logo — solda küçük */}
       <Image
-        src={logoSrc} alt="Bemis E-V Charge" width={96} height={32}
+        src={logoSrc} alt="Bemis E-V Charge" width={96} height={32} quality={90}
         className="h-7 w-auto object-contain flex-shrink-0"
         style={{ opacity: 0.38, filter: d ? undefined : "brightness(0)" }}
       />

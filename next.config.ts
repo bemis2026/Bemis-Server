@@ -83,13 +83,16 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["react-icons", "react-icons/ri", "react-icons/hi", "react-icons/hi2", "framer-motion"],
   },
   images: {
-    // Whitelist of quality values the next/image optimizer will accept.
-    // Next.js 16 only honours these — anything else logs a warning and
-    // falls back to 75. We use 88 for catalog packshots so product
-    // photos don't get mushy on Retina, 90 for above-the-fold hero
-    // backgrounds, and keep 75 in the list for the small admin
-    // thumbnails that don't need detail. ⚠️ Quality DEĞİŞMİYOR (kalite kaybı yok).
-    qualities: [75, 88, 90],
+    // next/image optimizer'ın KABUL ETTİĞİ quality değerleri.
+    // ⚠️ Listede OLMAYAN değer istenirse optimizer HTTP 400 döner; render anında
+    //    Next en yakın izinli değere yuvarlar (canlıda doğrulandı: quality={92}
+    //    → q=90 servis edildi — eski yorumdaki "75'e düşer" bilgisi YANLIŞTI).
+    // ⚠️ KURAL (kullanıcı): adminden/kullanıcıdan yüklenen görsellerin kalitesi
+    //    ASLA düşürülmez. Bu yüzden <Image>'a quality VERMEYİ UNUTMA — prop yoksa
+    //    Next varsayılanı 75'tir ve fotoğraf gözle görülür yumuşar.
+    // Kademeler: 95 hero/tam-ekran · 90 kullanıcı fotoğrafı (ürün galerisi,
+    // fabrika, harita, logo) · 88 katalog packshot · 75 yalnız admin küçük önizleme.
+    qualities: [75, 88, 90, 95],
     // AVIF, AYNI quality'de WebP'den ~%20-30 küçük dosya verir (görsel olarak
     // fark yok — zaten lossy WebP servis ediliyordu). Eski tarayıcılar otomatik
     // WebP'ye düşer. Piksel/kalite kaybı yok; sadece daha verimli kodlama.

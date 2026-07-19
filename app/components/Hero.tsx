@@ -200,7 +200,9 @@ export default function Hero() {
                 alt="Bemis E-V Charge elektrikli araç şarj istasyonu"
                 fill
                 priority={i === 0}
-                quality={90}
+                // Hero = markanın ilk izlenimi + tam ekran → en yüksek kademe (95).
+                // ⚠️ Değeri değiştirirken next.config `qualities` listesinde OLMALI.
+                quality={95}
                 className="object-cover"
                 style={{ objectPosition: slide.pos }}
                 sizes="100vw"
@@ -221,7 +223,7 @@ export default function Hero() {
       <div className="lg:hidden relative z-20 w-full pt-28 pb-24 px-5 sm:px-6 flex flex-col justify-center min-h-screen">
         <div className="max-w-2xl">
           <motion.div initial={{ y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-7">
-            <Image src={logoSrc} alt="Bemis E-V Charge" width={380} height={120}
+            <Image src={logoSrc} alt="Bemis E-V Charge" width={380} height={120} quality={90}
               sizes="(max-width: 1024px) 260px, 380px"
               className="h-14 xs:h-16 sm:h-20 w-auto max-w-[180px] sm:max-w-[260px] object-contain" style={logoStyle} />
             <motion.div
@@ -291,7 +293,7 @@ export default function Hero() {
           className="absolute"
           style={{ left: `${layout.logo.x}%`, top: `${layout.logo.y}%`, maxWidth: "48%" }}
         >
-          <Image src={logoSrc} alt="Bemis E-V Charge" width={380} height={120}
+          <Image src={logoSrc} alt="Bemis E-V Charge" width={380} height={120} quality={90}
             sizes="380px"
             className="h-28 xl:h-32 w-auto object-contain" style={logoStyle} />
 

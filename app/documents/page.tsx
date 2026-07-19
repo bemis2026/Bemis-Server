@@ -151,7 +151,7 @@ export default function DocumentsPage() {
                 transition={{ duration: 0.4 }}
                 className="flex items-center gap-2 mb-2"
               >
-                <Image src={logos?.dark || "/logo-white.png"} alt="Bemis E-V Charge" width={140} height={42}
+                <Image src={logos?.dark || "/logo-white.png"} alt="Bemis E-V Charge" width={140} height={42} quality={90}
                   className="h-8 w-auto object-contain"
                   style={{ filter: d ? "none" : "brightness(0)" }}
                 />

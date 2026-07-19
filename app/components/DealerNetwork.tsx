@@ -1103,6 +1103,7 @@ export default function DealerNetwork() {
                   alt={L("Türkiye Haritası", "Türkiye map")}
                   width={1327}
                   height={621}
+                  quality={90}
                   sizes="(max-width: 1024px) 100vw, 60vw"
                   className="w-full h-auto block"
                   style={{

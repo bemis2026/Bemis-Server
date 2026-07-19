@@ -170,7 +170,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
           /* CABLES: kategori görseli tam-genişlik arka plan; metin sol koyu gradyan üstüne biner. */
           <div className="relative max-w-7xl 2xl:max-w-[1600px] mx-auto">
             <div className="relative overflow-hidden rounded-3xl min-h-[320px] lg:min-h-[420px] flex items-center">
-              <Image src={descImage} alt={category.name} fill sizes="(max-width: 1024px) 100vw, 1600px" quality={92} className="object-cover" style={{ objectPosition: heroFocus }} priority />
+              <Image src={descImage} alt={category.name} fill sizes="(max-width: 1024px) 100vw, 1600px" quality={95} className="object-cover" style={{ objectPosition: heroFocus }} priority />
               <div className="absolute inset-0" aria-hidden style={{ background: "linear-gradient(100deg, rgba(8,10,14,0.95) 0%, rgba(8,10,14,0.82) 36%, rgba(8,10,14,0.42) 68%, rgba(8,10,14,0.12) 100%)" }} />
               <div className="absolute left-0 top-0 bottom-0" aria-hidden style={{ width: 4, background: `linear-gradient(180deg, ${accent} 0%, ${accent}66 100%)` }} />
               <div className="relative z-10 px-7 sm:px-10 lg:px-14 py-10 lg:py-12 max-w-2xl">

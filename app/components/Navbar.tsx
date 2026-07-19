@@ -396,7 +396,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
               eziyordu ("menü logonun üstüne biniyor" şikayeti, 2026-07-18). Logo lg
               aralığında h-11 kompakt, ≥xl bugünkü h-14 (görünüm ≥1280'de DEĞİŞMEZ). */}
           <button className="shrink-0 focus:outline-none" onClick={() => handleNavClick("#hero")} aria-label={pickText(lang, "Ana sayfa", "Home")}>
-            <Image src={logoSrc} alt="Bemis E-V Charge" width={200} height={64}
+            <Image src={logoSrc} alt="Bemis E-V Charge" width={200} height={64} quality={90}
               className="h-11 sm:h-14 lg:h-11 xl:h-14 w-auto object-contain block" style={{ filter: logoFilter }} priority />
           </button>
 

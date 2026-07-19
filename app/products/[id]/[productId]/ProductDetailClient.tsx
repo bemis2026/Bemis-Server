@@ -389,6 +389,7 @@ export default function ProductDetailPage({
                             >
                               <Image
                                 src={imgs[clamped]}
+                                quality={90}
                                 alt={`${product.name} ${clamped + 1}`}
                                 fill
                                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -503,7 +504,7 @@ export default function ProductDetailPage({
                                 background: surfaceAlt,
                               }}
                             >
-                              <Image src={src} alt={`${product.name} küçük görsel ${i + 1}`} width={56} height={56} className="w-full h-full object-contain p-1" />
+                              <Image src={src} alt={`${product.name} küçük görsel ${i + 1}`} width={56} height={56} quality={88} className="w-full h-full object-contain p-1" />
                             </button>
                           ))}
                         </div>
@@ -555,6 +556,7 @@ export default function ProductDetailPage({
                             {item.image ? (
                               <Image
                                 src={item.image}
+                                quality={88}
                                 alt={item.name || ""}
                                 fill
                                 sizes="(max-width: 640px) 50vw, 200px"

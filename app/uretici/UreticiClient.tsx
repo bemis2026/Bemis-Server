@@ -172,7 +172,7 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
                 transition={reduce ? undefined : { duration: 16, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
                 style={{ willChange: "transform" }}
               >
-                <Image src={dna.factoryImage} alt="Bemis üretim tesisi — Bursa OSB" fill priority sizes="(max-width:768px) 100vw, (max-width:1536px) 1280px, 1600px" className="object-cover" />
+                <Image src={dna.factoryImage} alt="Bemis üretim tesisi — Bursa OSB" fill priority quality={90} sizes="(max-width:768px) 100vw, (max-width:1536px) 1280px, 1600px" className="object-cover" />
               </motion.div>
               <div className="absolute inset-x-0 bottom-0 p-5 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.18) 55%, transparent 100%)" }}>
                 <motion.p
