@@ -199,6 +199,17 @@ export type SiteContent = {
     heroBgPos?: string;
     /** Ek hero arka plan görselleri — heroBg ile birlikte 3 sn'de bir otomatik geçer (slider). */
     heroImages?: string[];
+    /** MOBİL odak noktası (ana hero görseli). Boşsa masaüstü değeri (heroBgPos) kullanılır.
+     *  ⚠️ Neden ayrı: mobilde hero çok dar/uzun olduğu için object-cover görselin yalnız
+     *  %20-26'sını gösterir → masaüstüne göre ayarlanmış odak mobilde boş bölgeye düşer. */
+    heroBgPosMobile?: string;
+    /** Yakınlaştırma (1 = normal cover). transform:scale, odak noktası merkezli. */
+    heroBgZoom?: number;
+    heroBgZoomMobile?: number;
+    /** İlave görsellerin MOBİL odak/yakınlaştırma değerleri (heroImages ile AYNI sırada). */
+    heroImagesPosMobile?: string[];
+    heroImagesZoom?: number[];
+    heroImagesZoomMobile?: number[];
     /** İlave görsellerin ODAK NOKTALARI (heroImages ile AYNI sırada, object-position).
      *  ⚠️ Tek bir heroBgPos'u tüm slider görsellerine uygulamak YANLIŞ: her görselin
      *  kompozisyonu farklı olduğu için ana görsele göre ayarlanmış odak, diğerlerinde

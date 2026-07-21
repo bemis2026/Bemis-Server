@@ -87,14 +87,31 @@ export default function Hero() {
   // slider görsellerinde boş bölgeyi (cihazın sağındaki zemin / duvar / gökyüzü) kırpıp
   // gösteriyordu — görsel yüklüydü ama "boş arka plan" gibi görünüyordu.
   // İlave görseller heroBgPos'u DEVRALMAZ → varsayılan merkez ("50% 50%").
+  // ⚠️ Her slide MASAÜSTÜ + MOBİL için AYRI odak/yakınlaştırma taşır. Mobilde hero
+  // çok dar/uzun olduğundan object-cover görselin yalnız ~%20-26'sını gösterir →
+  // masaüstüne göre ayarlanan odak mobilde boş bölgeye düşüyordu. Mobil değeri
+  // boşsa masaüstü değerine düşer (geriye uyumlu).
   const heroSlides = [
-    { src: hero.heroBg, pos: hero.heroBgPos || "75% 50%" },
-    ...(hero.heroImages ?? []).map((src, i) => ({
-      src,
-      pos: (hero.heroImagesPos ?? [])[i] || "50% 50%",
-    })),
+    {
+      src: hero.heroBg,
+      pos: hero.heroBgPos || "75% 50%",
+      posM: hero.heroBgPosMobile || hero.heroBgPos || "75% 50%",
+      zoom: hero.heroBgZoom ?? 1,
+      zoomM: hero.heroBgZoomMobile ?? hero.heroBgZoom ?? 1,
+    },
+    ...(hero.heroImages ?? []).map((src, i) => {
+      const pos = (hero.heroImagesPos ?? [])[i] || "50% 50%";
+      const zoom = (hero.heroImagesZoom ?? [])[i] ?? 1;
+      return {
+        src,
+        pos,
+        posM: (hero.heroImagesPosMobile ?? [])[i] || pos,
+        zoom,
+        zoomM: (hero.heroImagesZoomMobile ?? [])[i] ?? zoom,
+      };
+    }),
   ]
-    .map((s) => ({ src: (s.src ?? "").trim(), pos: s.pos }))
+    .map((s) => ({ ...s, src: (s.src ?? "").trim() }))
     .filter((s) => s.src);
   const [activeHero, setActiveHero] = useState(0);
   const reduceMotion = useReducedMotion();
@@ -191,8 +208,18 @@ export default function Hero() {
           {heroSlides.map((slide, i) => !heroVisible.has(i) ? null : (
             <div
               key={slide.src + i}
-              className="absolute inset-0"
-              style={{ opacity: i === activeHeroIdx ? 1 : 0, transition: "opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1)" }}
+              className="absolute inset-0 hero-slide"
+              style={{
+                opacity: i === activeHeroIdx ? 1 : 0,
+                transition: "opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1)",
+                // ⚠️ Yalnız -d / -m çiftleri inline verilir; --hp/--hz'yi globals.css
+                // medya sorgusu seçer. (Inline stil, stylesheet'i EZER → --hp'yi burada
+                // set edersek mobil geçersiz kalırdı.)
+                ["--hp-d" as string]: slide.pos,
+                ["--hz-d" as string]: String(slide.zoom),
+                ["--hp-m" as string]: slide.posM,
+                ["--hz-m" as string]: String(slide.zoomM),
+              } as React.CSSProperties}
               aria-hidden={i !== activeHeroIdx}
             >
               <Image
@@ -204,7 +231,13 @@ export default function Hero() {
                 // ⚠️ Değeri değiştirirken next.config `qualities` listesinde OLMALI.
                 quality={95}
                 className="object-cover"
-                style={{ objectPosition: slide.pos }}
+                // Yakınlaştırma odak noktası MERKEZLİ (transform-origin = odak) →
+                // zoom yapınca seçilen nokta yerinde kalır. transform composited.
+                style={{
+                  objectPosition: "var(--hp)",
+                  transform: "scale(var(--hz))",
+                  transformOrigin: "var(--hp)",
+                }}
                 sizes="100vw"
               />
             </div>

@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { useUnsavedChanges } from "../hooks/useUnsavedChanges";
 import { uploadImage } from "../../lib/clientImageUpload";
 import { groupVariantsByName, findVariantGroup } from "../../lib/productGroups";
+import HeroFramer from "./HeroFramer";
 
 // ── Soft validators — return error message or null ──
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -106,9 +107,15 @@ type ContentData = {
     badge: string; headline1: string; headline2: string; headline2Words?: string[]; headline3: string;
     subtitle: string; ctaPrimary: string; ctaSecondary: string; heroBg: string;
     heroBgPos?: string;
+    heroBgPosMobile?: string;
+    heroBgZoom?: number;
+    heroBgZoomMobile?: number;
     heroImages?: string[];
     /** heroImages ile AYNI sıradaki odak noktaları (object-position). Boşsa merkez. */
     heroImagesPos?: string[];
+    heroImagesPosMobile?: string[];
+    heroImagesZoom?: number[];
+    heroImagesZoomMobile?: number[];
     layout: { logo: { x: number; y: number }; text: { x: number; y: number }; button: { x: number; y: number } };
   };
   stats: StatItem[];
@@ -1234,6 +1241,44 @@ export default function AdminPage() {
     setContent(next);
   };
 
+  // Slider görsellerinden hangisinin çerçeveleme editörü açık (null = kapalı)
+  const [frameSlide, setFrameSlide] = useState<number | null>(null);
+
+  // ⚠️ Hero çerçeveleme 4 alanı BİRDEN yazar. updateContent her çağrıda content'in
+  // TAM kopyasını aldığı için ardışık çağrılar birbirini ezer → tek setContent şart.
+  const applyHeroFrame = (v: { desktop: { pos: string; zoom: number }; mobile: { pos: string; zoom: number } }) => {
+    if (!content) return;
+    const next = JSON.parse(JSON.stringify(content)) as ContentData;
+    next.hero.heroBgPos = v.desktop.pos;
+    next.hero.heroBgZoom = v.desktop.zoom;
+    next.hero.heroBgPosMobile = v.mobile.pos;
+    next.hero.heroBgZoomMobile = v.mobile.zoom;
+    setContent(next);
+  };
+
+  /** Slider görselinin çerçevelemesi — 4 paralel dizi, heroImages ile aynı sırada. */
+  const applySlideFrame = (i: number, v: { desktop: { pos: string; zoom: number }; mobile: { pos: string; zoom: number } }) => {
+    if (!content) return;
+    const next = JSON.parse(JSON.stringify(content)) as ContentData;
+    const n = (content.hero.heroImages ?? []).length;
+    const grow = <T,>(arr: T[] | undefined, fill: T): T[] => {
+      const a = [...(arr ?? [])];
+      while (a.length < n) a.push(fill);
+      return a;
+    };
+    const pos = grow(next.hero.heroImagesPos, "50% 50%");
+    const posM = grow(next.hero.heroImagesPosMobile, "50% 50%");
+    const zoom = grow(next.hero.heroImagesZoom, 1);
+    const zoomM = grow(next.hero.heroImagesZoomMobile, 1);
+    pos[i] = v.desktop.pos; zoom[i] = v.desktop.zoom;
+    posM[i] = v.mobile.pos; zoomM[i] = v.mobile.zoom;
+    next.hero.heroImagesPos = pos;
+    next.hero.heroImagesPosMobile = posM;
+    next.hero.heroImagesZoom = zoom;
+    next.hero.heroImagesZoomMobile = zoomM;
+    setContent(next);
+  };
+
   const updateContent = (path: string[], value: string | number | null | string[] | SocialPost[]) => {
     if (!content) return;
     const next = JSON.parse(JSON.stringify(content)) as ContentData;
@@ -1775,70 +1820,22 @@ export default function AdminPage() {
                       </div>
 
                       {/* ── Focal Point Picker ── */}
-                      {content.hero.heroBg && (() => {
-                        const raw = content.hero.heroBgPos ?? "50% 50%";
-                        const parts = raw.trim().split(/\s+/);
-                        const fx = parseFloat(parts[0]) || 50;
-                        const fy = parseFloat(parts[1]) || 50;
-                        return (
-                          <div className="space-y-2">
-                            <div className="flex items-center justify-between">
-                              <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Odak Noktası — Tıkla veya Sürükle</p>
-                              <div className="flex items-center gap-2">
-                                <span className="text-[10px] font-mono text-white/30">{fx}% {fy}%</span>
-                                <button
-                                  onClick={() => updateContent(["hero", "heroBgPos"], "50% 50%")}
-                                  className="text-[10px] text-white/25 hover:text-white/55 transition-colors underline underline-offset-2"
-                                >Ortala</button>
-                              </div>
-                            </div>
-                            <div className="flex gap-3">
-                              {/* Main 16:9 picker */}
-                              <div
-                                ref={focalRef}
-                                className="relative rounded-xl overflow-hidden flex-1 cursor-crosshair select-none"
-                                style={{ height: 150 }}
-                                onMouseDown={handleFocalMove}
-                                onMouseMove={(e) => { if (e.buttons === 1) handleFocalMove(e); }}
-                              >
-                                <img
-                                  src={content.hero.heroBg}
-                                  alt=""
-                                  className="w-full h-full object-cover pointer-events-none"
-                                  style={{ objectPosition: `${fx}% ${fy}%` }}
-                                  draggable={false}
-                                />
-                                {/* Grid lines */}
-                                {[33,66].map(p => <div key={`v${p}`} className="absolute inset-y-0 pointer-events-none" style={{ left:`${p}%`, width:1, background:"rgba(255,255,255,0.08)" }} />)}
-                                {[33,66].map(p => <div key={`h${p}`} className="absolute inset-x-0 pointer-events-none" style={{ top:`${p}%`, height:1, background:"rgba(255,255,255,0.08)" }} />)}
-                                {/* Focal dot */}
-                                <div
-                                  className="absolute pointer-events-none"
-                                  style={{ left:`${fx}%`, top:`${fy}%`, transform:"translate(-50%,-50%)", zIndex:10 }}
-                                >
-                                  <div style={{ width:20, height:20, borderRadius:"50%", border:"2.5px solid #fff", boxShadow:"0 0 0 1.5px rgba(0,0,0,0.5), 0 0 8px rgba(0,0,0,0.6)" }} />
-                                  <div style={{ position:"absolute", top:"50%", left:"50%", transform:"translate(-50%,-50%)", width:4, height:4, borderRadius:"50%", background:"#fff" }} />
-                                </div>
-                                {/* Label */}
-                                <div className="absolute bottom-1 left-2 text-[9px] text-white/40 pointer-events-none">Geniş ekran</div>
-                              </div>
-
-                              {/* Mobile 9:16 crop preview */}
-                              <div className="relative rounded-xl overflow-hidden flex-shrink-0 select-none" style={{ width:60, height:150 }}>
-                                <img
-                                  src={content.hero.heroBg}
-                                  alt=""
-                                  className="w-full h-full object-cover pointer-events-none"
-                                  style={{ objectPosition: `${fx}% ${fy}%` }}
-                                  draggable={false}
-                                />
-                                <div className="absolute bottom-1 left-0 right-0 text-center text-[9px] text-white/40 pointer-events-none">Mobil</div>
-                              </div>
-                            </div>
-                            <p className="text-[10px] text-white/20">Sol taraftaki görsele tıklayın veya sürükleyin — odak noktası hemen canlı önizlemede yansır.</p>
-                          </div>
-                        );
-                      })()}
+                      {/* Hero çerçeveleme — masaüstü ve mobil AYRI odak + yakınlaştırma.
+                          Eski tek-odaklı seçici kaldırıldı: mobilde hero çok dar olduğu için
+                          object-cover görselin yalnız ~%20-26'sını gösteriyor, masaüstü odağı
+                          orada boş bölgeye düşüyordu. */}
+                      {content.hero.heroBg && (
+                        <HeroFramer
+                          src={content.hero.heroBg}
+                          title="Hero Çerçeveleme — Sürükle & Yakınlaştır"
+                          desktop={{ pos: content.hero.heroBgPos ?? "50% 50%", zoom: content.hero.heroBgZoom ?? 1 }}
+                          mobile={{
+                            pos: content.hero.heroBgPosMobile ?? content.hero.heroBgPos ?? "50% 50%",
+                            zoom: content.hero.heroBgZoomMobile ?? content.hero.heroBgZoom ?? 1,
+                          }}
+                          onChange={applyHeroFrame}
+                        />
+                      )}
 
                       {content.hero.heroBg && (
                         <button
@@ -1864,55 +1861,73 @@ export default function AdminPage() {
                         </div>
                         {(content.hero.heroImages ?? []).length > 0 ? (
                           <>
+                            {/* Küçük görseller — tıklayınca altta çerçeveleme editörü açılır */}
                             <div className="grid grid-cols-4 gap-2">
                               {(content.hero.heroImages ?? []).map((img, i) => {
-                                // Her görselin KENDİ odağı — tek ortak odak farklı kompozisyonlarda
-                                // boş bölgeyi (zemin/duvar/gökyüzü) gösteriyordu.
                                 const posStr = (content.hero.heroImagesPos ?? [])[i] || "50% 50%";
-                                const [px, py] = posStr.split(" ").map((v) => parseFloat(v) || 50);
+                                const z = (content.hero.heroImagesZoom ?? [])[i] ?? 1;
+                                const acik = frameSlide === i;
                                 return (
-                                  <div key={i} className="relative rounded-lg overflow-hidden group" style={{ aspectRatio: "16 / 10" }}>
+                                  <div
+                                    key={i}
+                                    onClick={() => setFrameSlide(acik ? null : i)}
+                                    className={`relative rounded-lg overflow-hidden group cursor-pointer transition-all ${acik ? "ring-2 ring-white/70" : "ring-1 ring-white/10 hover:ring-white/30"}`}
+                                    style={{ aspectRatio: "16 / 10" }}
+                                    title="Çerçevelemek için tıkla"
+                                  >
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
                                       src={img}
                                       alt=""
-                                      className="w-full h-full object-cover cursor-crosshair"
-                                      style={{ objectPosition: posStr }}
-                                      title="Tıklayarak odak noktası seç — hero'da bu nokta görünür kalır"
-                                      onClick={(e) => {
-                                        const r = e.currentTarget.getBoundingClientRect();
-                                        const x = Math.round(((e.clientX - r.left) / r.width) * 100);
-                                        const y = Math.round(((e.clientY - r.top) / r.height) * 100);
-                                        const next = [...(content.hero.heroImagesPos ?? [])];
-                                        while (next.length < (content.hero.heroImages ?? []).length) next.push("50% 50%");
-                                        next[i] = `${Math.max(0, Math.min(100, x))}% ${Math.max(0, Math.min(100, y))}%`;
-                                        updateContent(["hero", "heroImagesPos"], next);
-                                      }}
-                                    />
-                                    {/* Seçili odak göstergesi */}
-                                    <div
-                                      className="absolute w-3 h-3 rounded-full border-2 border-white pointer-events-none"
-                                      style={{ left: `${px}%`, top: `${py}%`, transform: "translate(-50%,-50%)", boxShadow: "0 0 0 1px rgba(0,0,0,0.5)" }}
+                                      className="w-full h-full object-cover pointer-events-none"
+                                      style={{ objectPosition: posStr, transform: `scale(${z})`, transformOrigin: posStr }}
                                     />
                                     <button
-                                      onClick={() => {
-                                        // ⚠️ updateContent her çağrıda content'in TAM kopyasını alır →
-                                        // ardışık iki çağrı birbirini ezer. İkisini tek seferde güncelle.
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        // ⚠️ 5 diziyi TEK setContent'te güncelle (updateContent tam kopya alır → ardışık çağrı ezer)
                                         if (!content) return;
                                         const next = JSON.parse(JSON.stringify(content)) as ContentData;
-                                        next.hero.heroImages = (content.hero.heroImages ?? []).filter((_, j) => j !== i);
-                                        next.hero.heroImagesPos = (content.hero.heroImagesPos ?? []).filter((_, j) => j !== i);
+                                        const drop = <T,>(arr: T[] | undefined) => (arr ?? []).filter((_, j) => j !== i);
+                                        next.hero.heroImages = drop(content.hero.heroImages);
+                                        next.hero.heroImagesPos = drop(content.hero.heroImagesPos);
+                                        next.hero.heroImagesPosMobile = drop(content.hero.heroImagesPosMobile);
+                                        next.hero.heroImagesZoom = drop(content.hero.heroImagesZoom);
+                                        next.hero.heroImagesZoomMobile = drop(content.hero.heroImagesZoomMobile);
                                         setContent(next);
+                                        setFrameSlide(null);
                                       }}
                                       className="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/70 text-white text-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                                       title="Kaldır"
                                     >×</button>
+                                    {acik && <div className="absolute bottom-1 left-1 text-[9px] px-1.5 py-0.5 rounded bg-white/85 text-black font-semibold">düzenleniyor</div>}
                                   </div>
                                 );
                               })}
                             </div>
+
+                            {frameSlide !== null && (content.hero.heroImages ?? [])[frameSlide] && (
+                              <div className="mt-3 p-3 rounded-xl bg-black/30 border border-white/10">
+                                <HeroFramer
+                                  key={frameSlide}
+                                  src={(content.hero.heroImages ?? [])[frameSlide]}
+                                  title={`Slider görseli ${frameSlide + 1} — Çerçeveleme`}
+                                  desktop={{
+                                    pos: (content.hero.heroImagesPos ?? [])[frameSlide] ?? "50% 50%",
+                                    zoom: (content.hero.heroImagesZoom ?? [])[frameSlide] ?? 1,
+                                  }}
+                                  mobile={{
+                                    pos: (content.hero.heroImagesPosMobile ?? [])[frameSlide] ?? (content.hero.heroImagesPos ?? [])[frameSlide] ?? "50% 50%",
+                                    zoom: (content.hero.heroImagesZoomMobile ?? [])[frameSlide] ?? (content.hero.heroImagesZoom ?? [])[frameSlide] ?? 1,
+                                  }}
+                                  onChange={(v) => applySlideFrame(frameSlide, v)}
+                                />
+                              </div>
+                            )}
+
                             <p className="text-[10px] text-white/25 mt-2 leading-relaxed">
-                              Görsele <b className="text-white/40">tıklayarak odak noktası</b> seçin — hero ekranı doldururken (object-cover) bu nokta görünür kalır. Her görselin odağı ayrıdır.
+                              Bir görsele <b className="text-white/40">tıklayın</b> → altında sürükle/yakınlaştır editörü açılır.
+                              Masaüstü ve mobil ayrı ayarlanır.
                             </p>
                           </>
                         ) : (

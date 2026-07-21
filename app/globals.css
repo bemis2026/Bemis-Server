@@ -726,3 +726,14 @@ html[data-theme="light"] .calc-slider::-webkit-slider-thumb { border-color: rgba
 
 /* Route loading spinner — loading.tsx içindeki <style> gövde-HTML'ine sızıyordu (W3C). */
 @keyframes bemis-spin { to { transform: rotate(360deg); } }
+
+/* ── Hero slide çerçeveleme: masaüstü / mobil AYRI odak + yakınlaştırma ──
+   Hero.tsx her slide'a inline olarak YALNIZ --hp-d/--hz-d (masaüstü) ve
+   --hp-m/--hz-m (mobil) çiftlerini verir; hangisinin kullanılacağını BURASI seçer.
+   ⚠️ --hp/--hz'yi inline vermek YASAK: inline stil stylesheet'i ezer, mobil
+   geçersiz kalır. Değerler admin → Hero Çerçeveleme editöründen gelir.
+   Mobilde object-cover görselin yalnız ~%20-26'sını gösterdiği için ayrı odak şart. */
+.hero-slide { --hp: var(--hp-d, 50% 50%); --hz: var(--hz-d, 1); }
+@media (max-width: 767px) {
+  .hero-slide { --hp: var(--hp-m, var(--hp-d, 50% 50%)); --hz: var(--hz-m, var(--hz-d, 1)); }
+}
