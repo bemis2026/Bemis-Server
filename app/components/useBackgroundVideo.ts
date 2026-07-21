@@ -21,14 +21,23 @@ import { useCallback, useEffect, useRef, useState } from "react";
  * `onVideoPlaying` to the <video>'s onPlaying.
  */
 /**
- * ⚡ Ağır embed'leri (YouTube iframe ≈1MB player JS + ≈4MB video akışı) SAYFA
- * AÇILIŞINDA indirmemek için: verilen kutunun viewport'a YAKLAŞMASINI bekler
- * (rootMargin kadar önce tetiklenir). `near` bir kez true olur ve geri dönmez
- * → embed o anda mount edilir; autoplay + siyah-poster akışı birebir aynı
- * çalışır (kullanıcı bölüme varmadan yükleme çoktan başlamış olur).
+ * ⚡ Ağır embed'leri (YouTube iframe ≈860KB player JS + ≈1.4MB video akışı) SAYFA
+ * AÇILIŞINDA indirmemek için: verilen kutu viewport'a girene kadar bekler.
+ * `near` bir kez true olur ve geri dönmez → embed o anda mount edilir;
+ * autoplay + poster akışı birebir aynı çalışır (poster `covered=true` ile
+ * video PLAYING olana dek örttüğü için görsel boşluk OLUŞMAZ).
  * IntersectionObserver yoksa hemen true → eski (eager) davranışa düşer.
+ *
+ * ⚠️⚠️ rootMargin NEDEN "0px" (eskiden "600px 0px" idi — MOBİLDE BOZUKTU):
+ * Hero `min-h-screen` olduğu için video bölümü (DNA / kurumsal) ekranın TAM
+ * dibinde başlıyor → mobilde (390×844) kutunun ekran altına uzaklığı **0px**.
+ * 600px'lik önden-yükleme marjı bunu kapsadığından kapı SAYFA AÇILIR AÇILMAZ
+ * tetikleniyordu = "lazy" koruma mobilde hiç devreye girmiyor, ilk yüklemede
+ * ~2.2MB YouTube iniyordu (ölçüldü: sayfa ağırlığının %61'i, ana iş
+ * parçacığının 5.7s'si). Ölçüm kanıtı ve karar: BEMIS_OTURUM_BAGLAM.md.
+ * ⚠️ Bu değeri tekrar büyütme — mobilde lazy-load'u sessizce iptal eder.
  */
-export function useNearViewport<T extends HTMLElement>(rootMargin = "600px 0px") {
+export function useNearViewport<T extends HTMLElement>(rootMargin = "0px") {
   const boxRef = useRef<T | null>(null);
   const [near, setNear] = useState(false);
   useEffect(() => {
