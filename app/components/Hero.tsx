@@ -21,8 +21,17 @@ const ACCENT = "#3B82F6";
 function RotatingWord({ words }: { words: string[] }) {
   const [i, setI] = useState(0);
   const [minW, setMinW] = useState<number | undefined>(undefined);
+  // ⚠️ LCP KRİTİK: bu kelime H1 içindedir → H1 sitenin mobil LCP öğesi.
+  // Eskiden framer `initial={{opacity:0}}` ilk kelimeyi SSR'da GÖRÜNMEZ basıyordu;
+  // Lighthouse H1'i "boyandı" saymak için JS hidrasyonunu (~2.2s) bekliyordu →
+  // LCP 5.8s. `mounted` false iken (ilk render / SSR) kelime opak-1 başlar,
+  // animasyon YALNIZ hidrasyon sonrası kelime GEÇİŞLERİNDE oynar (görünüm aynı,
+  // ama ilk boya JS'i beklemez). Hero üst-metnindeki opacity:0'lar 2026-07-02'de
+  // zaten bu sebeple kaldırılmıştı — bu, gözden kaçan dönen-kelime kalıntısıydı.
+  const [mounted, setMounted] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
   const reduceMotion = useReducedMotion();
+  useEffect(() => { setMounted(true); }, []);
   useEffect(() => {
     if (reduceMotion || words.length <= 1) return;
     const t = setInterval(() => setI((n) => (n + 1) % words.length), 2500);
@@ -52,10 +61,12 @@ function RotatingWord({ words }: { words: string[] }) {
       className="relative inline-block align-baseline text-left"
       style={{ minWidth: minW ? `${minW}px` : undefined, whiteSpace: "nowrap" }}
     >
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" initial={false}>
         <motion.span
           key={words[i]}
-          initial={{ y: "0.6em", opacity: 0 }}
+          // ⚠️ İlk render (mounted=false): opak-1 başla → LCP JS beklemez.
+          // Hidrasyon sonrası kelime geçişlerinde animasyon aynen oynar.
+          initial={mounted ? { y: "0.6em", opacity: 0 } : false}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: "-0.6em", opacity: 0 }}
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
