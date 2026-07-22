@@ -34,6 +34,12 @@ export function useMarqueeScroll(opts?: { speed?: number }) {
   // (SSR = false → mobil ilk render'la uyumlu, hydration mismatch yok).
   const [isMarquee, setIsMarquee] = useState(false);
 
+  // ⚠️ Önbelleğe alınan ölçüler. scrollWidth/clientWidth'i HER KAREDE okumak —
+  // hele scrollLeft yazımından SONRA — zorunlu senkron reflow tetikler (PSI
+  // "Forced reflow" bulgusu + scroll takılması). Bu değerler yalnız resize /
+  // içerik yüklenince değişir → ResizeObserver ile ölçülüp önbelleğe alınır.
+  const metrics = useRef({ half: 0, overflow: false });
+
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
@@ -42,27 +48,48 @@ export function useMarqueeScroll(opts?: { speed?: number }) {
     if (reduceMotion || coarse) return; // isMarquee false kalır → mobil/erişilebilirlik: manuel scroll
     setIsMarquee(true);
 
+    // Ölçümü tek yerde yap; içerik (ürün görselleri) async yüklendikçe scrollWidth
+    // büyür → ResizeObserver yeniden ölçer. Kare döngüsü artık layout OKUMAZ.
+    const measure = () => {
+      metrics.current.half = el.scrollWidth / 2;
+      metrics.current.overflow = el.scrollWidth > el.clientWidth;
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    if (el.firstElementChild) ro.observe(el.firstElementChild); // iç şerit de büyüyünce
+
     let rafId = 0;
+    let running = false;
     const tick = () => {
-      // Drag, touch veya aktif button-smooth-scroll varken auto-scroll
-      // atlanır — aksi halde hover dahil her durumda sürekli akar.
       const buttonActive = performance.now() < buttonPauseUntil.current;
-      if (
-        !dragRef.current.active &&
-        !touchedRef.current &&
-        !buttonActive &&
-        el.scrollWidth > el.clientWidth
-      ) {
-        el.scrollLeft += speed;
-        // Sıfıra ZIPLAMA yerine yarıyı ÇIKAR (wrap) → hem auto-scroll seamless
-        // hem masaüstünde yarıyı geçen drag'de sarsıntısız devam (eski hard-0
-        // reset drag'i de başa fırlatıyordu).
-        if (el.scrollLeft >= el.scrollWidth / 2) el.scrollLeft -= el.scrollWidth / 2;
+      if (!dragRef.current.active && !touchedRef.current && !buttonActive && metrics.current.overflow) {
+        // scrollLeft'i başta bir kez oku (layout temizken = zorlamasız), önbellekli
+        // yarı-genişlikle sar, sonra yaz. Kare içinde scrollWidth OKUNMAZ.
+        let next = el.scrollLeft + speed;
+        if (next >= metrics.current.half) next -= metrics.current.half;
+        el.scrollLeft = next;
       }
       rafId = requestAnimationFrame(tick);
     };
-    rafId = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafId);
+    const start = () => { if (!running) { running = true; rafId = requestAnimationFrame(tick); } };
+    const stop = () => { running = false; cancelAnimationFrame(rafId); };
+
+    // ⚠️ Yalnız şerit EKRANDA iken çalış — iki marquee aksi halde sayfa çok
+    // aşağıdayken bile sürekli RAF + scroll yazımı yapıp ana-işi meşgul ediyordu.
+    // 200px rootMargin: kullanıcı yaklaşınca zaten akıyor, "durmuş" görünmez.
+    let io: IntersectionObserver | null = null;
+    if (typeof IntersectionObserver !== "undefined") {
+      io = new IntersectionObserver(
+        (entries) => { if (entries.some((e) => e.isIntersecting)) start(); else stop(); },
+        { rootMargin: "200px 0px" },
+      );
+      io.observe(el);
+    } else {
+      start(); // gözlemci yoksa güvenli taraf: her zaman çalış (eski davranış)
+    }
+
+    return () => { stop(); io?.disconnect(); ro.disconnect(); };
   }, [speed]);
 
   const handlers = {
