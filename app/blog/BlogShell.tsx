@@ -15,7 +15,7 @@ import { RiExternalLinkLine } from "react-icons/ri";
 import type { BlogPost, BlogSection } from "./posts";
 import { allPress, type PressItem } from "./press";
 import { trPress, trPressList } from "../lib/pressI18n";
-import { trBlogPost } from "../lib/blogI18n";
+import { trBlogPost, loadBlogI18n } from "../lib/blogI18n";
 
 const BLUE = "#3B82F6";
 
@@ -36,6 +36,16 @@ export default function BlogShell({ post, posts, pressItem }: { post?: BlogPost;
   const d = theme === "dark";
   const { lang } = useLanguage();
   const [searchOpen, setSearchOpen] = useState(false);
+
+  // Blog çevirileri (blog.json ~344 KB) YALNIZ yabancı dilde tembel yüklenir.
+  // TR/EN ziyaretçisi indirmez. Yüklenince i18nTick artar → yeniden render → çeviri görünür.
+  // (TR zaten çeviri kullanmaz; EN de çoğu içerikte TR kaynak metniyle aynı olduğundan
+  //  yüklenene dek kısa süre TR görünmesi kabul edilebilir — mevcut dil-sıçraması deseniyle uyumlu.)
+  const [i18nTick, setI18nTick] = useState(0);
+  useEffect(() => {
+    if (lang !== "tr") loadBlogI18n().then(() => setI18nTick((t) => t + 1));
+  }, [lang]);
+  void i18nTick; // yalnız yeniden-render tetikleyicisi
 
   const bg          = d ? "linear-gradient(180deg,#0c0c0e 0%,#0f0f11 100%)" : "#f8f8fb";
   const surface     = d ? "rgba(255,255,255,0.04)" : "#ffffff";

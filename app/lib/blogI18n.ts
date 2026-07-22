@@ -7,7 +7,6 @@
 //   body?[ (tipe göre metin alanları) ], faq?[{q,a}], related?[{label}] }
 // body dizisi TR body ile 1:1 hizalı olmalı (aynı uzunluk/sıra); değilse o yazı TR kalır.
 
-import blogData from "../../data/i18n/blog.json";
 import type { BlogPost, BlogSection } from "../blog/posts";
 
 type SectionT = {
@@ -30,7 +29,22 @@ export type BlogTranslation = {
   related?: { label?: string }[];
 };
 
-export const BLOG_I18N = blogData as Record<string, Record<string, BlogTranslation>>;
+// ⚠️ blog.json (1.5 MB — 30 yazının 5 dildeki TÜM çevirisi, ~344 KB transfer) artık
+// STATİK import DEĞİL: TR/EN çoğunluğu bu dosyayı hiç indirmesin diye YALNIZ yabancı dil
+// (de/es/ar/ru) seçilince tembel yüklenir. Yüklenene kadar trBlogPost TR döner (güvenli).
+let BLOG_I18N: Record<string, Record<string, BlogTranslation>> | null = null;
+let loadPromise: Promise<void> | null = null;
+
+/** blog.json'u bir kez dinamik yükler (tekrar çağrı aynı promise'i döndürür). */
+export function loadBlogI18n(): Promise<void> {
+  if (BLOG_I18N) return Promise.resolve();
+  if (!loadPromise) {
+    loadPromise = import("../../data/i18n/blog.json")
+      .then((m) => { BLOG_I18N = ((m as { default?: unknown }).default ?? m) as Record<string, Record<string, BlogTranslation>>; })
+      .catch(() => { loadPromise = null; }); // hata olursa tekrar denenebilir; TR gösterilir
+  }
+  return loadPromise;
+}
 
 // Bir bölümün metnini çeviriyle değiştir; tip/href/svg TR kaynaktan korunur.
 function mergeSection(src: BlogSection, t: SectionT | undefined): BlogSection {
@@ -62,7 +76,8 @@ function mergeSection(src: BlogSection, t: SectionT | undefined): BlogSection {
 /** Bir blog yazısını aktif dile çevir (TR yapının üstüne bindirir, yoksa TR döner). */
 export function trBlogPost(post: BlogPost, lang: string): BlogPost {
   if (lang === "tr") return post;
-  const t = BLOG_I18N[lang]?.[post.slug];
+  // Henüz yüklenmemişse (veya bu yazının çevirisi yoksa) TR döner — güvenli düşüş.
+  const t = BLOG_I18N?.[lang]?.[post.slug];
   if (!t) return post;
 
   const body =
