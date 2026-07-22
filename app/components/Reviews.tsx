@@ -8,7 +8,11 @@ import { RiLinkedinFill, RiInstagramLine, RiYoutubeFill, RiFacebookFill, RiExter
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
-import { allPosts } from "../blog/posts";
+// ⚠️ posts.ts (346 KB — 30 yazının TÜM gövde+FAQ metni) DEĞİL, hafif indeks (6 KB).
+// Anasayfa Reviews yalnız son 3 rehberin slug+başlığını gösterir; tam blog verisini
+// client bundle'ına çekmek anasayfada 93 KB brotli israftı (ölçüldü). postsIndex build'de
+// posts.ts'ten otomatik üretilir (scripts/gen-posts-index.ts).
+import { POSTS_INDEX } from "../blog/postsIndex";
 import { allPress } from "../blog/press";
 import { trPressList } from "../lib/pressI18n";
 import E from "./E";
@@ -67,7 +71,7 @@ export default function Reviews() {
   // Haberler (anasayfa SAĞ kolon, büyük) — yorum+sosyal SOL'da küçültüldü,
   // haber alanı büyütüldü (toplam boy korunur). Sosyal tipini hariç tut.
   const latestNews = trPressList(allPress().filter((p) => p.type !== "social"), lang).slice(0, 3);
-  const latestPosts = allPosts().slice(0, 3);
+  const latestPosts = POSTS_INDEX.slice(0, 3);
   const blogSurface = d ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.03)";
 
   const sectionBgUrl = sectionBgs?.["reviews"] ?? "";

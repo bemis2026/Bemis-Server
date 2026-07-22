@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "check:brands": "node scripts/check-no-competitor-brands.cjs",
-    "build": "node scripts/check-no-competitor-brands.cjs && next build",
+    "build": "tsx scripts/gen-posts-index.ts && node scripts/check-no-competitor-brands.cjs && next build",
     "start": "next start",
-    "translate": "tsx scripts/translate.ts"
+    "translate": "tsx scripts/translate.ts",
+    "gen:blog-index": "tsx scripts/gen-posts-index.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.110.0",
