@@ -34,6 +34,231 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    "slug": "portatif-seyyar-sarj-cihazi-nedir-ne-kadar",
+    "title": "Portatif (Seyyar) Elektrikli Araç Şarj Cihazı: Nedir, Kimlere Uygun, Ne Kadar?",
+    "metaTitle": "Portatif (Seyyar) Araç Şarj Cihazı Nedir, Ne Kadar?",
+    "description": "Portatif ve seyyar elektrikli araç şarj cihazı nedir, kimlere uygun, fiyatı neye göre değişir? Prize takıp şarj eden taşınabilir şarj aletini anlattık.",
+    "excerpt": "Prize takıp arabanızı şarj eden portatif (seyyar) şarj cihazı nedir, kimler için uygun ve fiyatını ne belirler? Bemis'in çantalı taşınabilir şarj modellerini ve seçim ipuçlarını sade bir dille anlattık.",
+    "category": "Rehber",
+    "datePublished": "2026-07-23",
+    "dateModified": "2026-07-23",
+    "readingMinutes": 7,
+    "keywords": [
+      "portatif şarj cihazı",
+      "seyyar şarj cihazı",
+      "taşınabilir şarj cihazı",
+      "araba şarj aleti",
+      "elektrikli araç şarj aleti",
+      "portatif ev şarj cihazı",
+      "seyyar araç şarj cihazı",
+      "prize takılan şarj cihazı",
+      "şarj aleti ne kadar",
+      "taşınabilir araba şarj cihazı"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Elektrikli otomobil aldınız ama evinize ya da garajınıza duvara sabitlenen bir şarj ünitesi (wallbox) monte etmek her zaman kolay değil. Kiracı olabilirsiniz, otoparkınız ortak olabilir ya da arabayı farklı yerlerde şarj etmeniz gerekebilir. İşte tam bu noktada portatif (seyyar) şarj cihazı devreye giriyor: çantasından çıkarıp prize takıyor, arabanızı şarj ediyorsunuz. Bu yazıda taşınabilir araba şarj aletinin ne olduğunu, kimlere uygun olduğunu ve fiyatını neyin belirlediğini sade bir dille anlatıyoruz."
+      },
+      {
+        "type": "h2",
+        "text": "Portatif (seyyar) şarj cihazı nedir?"
+      },
+      {
+        "type": "p",
+        "text": "Portatif şarj cihazı; sabit montaj gerektirmeyen, yanınızda taşıyabileceğiniz bir araba şarj aletidir. Çoğu modeli bir taşıma çantasıyla gelir, bagajınızda durur ve ihtiyacınız olduğunda prize takıp kullanırsınız. 'Seyyar şarj cihazı', 'taşınabilir şarj cihazı' ya da kısaca 'şarj aleti' hep aynı ürünü tarif eder. Duvara monte edilen sabit şarj ünitesinden (wallbox) temel farkı budur: biri duvarda sabit durur ve kurulum ister, diğeri çantada gezer ve prize takılır."
+      },
+      {
+        "type": "h2",
+        "text": "Seyyar şarj aleti kimler için uygun?"
+      },
+      {
+        "type": "p",
+        "text": "Taşınabilir şarj cihazı, sabit ünite kurmanın zor ya da gereksiz olduğu hemen her durumda işe yarar:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kiracı olanlar ya da otoparkına sabit ünite monte edemeyenler",
+          "Garajı olmayan, arabayı sokakta veya farklı noktalarda şarj edenler",
+          "Yazlık, ikinci ev ya da köy evi gibi ara sıra gidilen yerler için pratik bir çözüm isteyenler",
+          "Aracını hem evde hem iş yerinde şarj etmek isteyenler",
+          "Filo, saha ekipleri ve servisler gibi farklı lokasyonlarda şarj gereken profesyoneller",
+          "Yol için bagajda yedek bir şarj aleti bulundurmak isteyen sürücüler"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Normal ev prizinden araba şarj edilir mi? Güvenlik notu"
+      },
+      {
+        "type": "p",
+        "text": "Evet, en temel modelle standart ev prizinden (schuko) şarj yapabilirsiniz; ancak bu yöntem en yavaş ve en çok dikkat isteyen yoldur. Araba şarjı prizi uzun süre yük altında tutar, bu yüzden sağlam ve kaliteli bir tesisat şarttır. Mutlaka CE uygunluk testinden geçmiş bir cihaz kullanın ve cihazı doğrudan duvar prizine takın; uzatma kablosu ve çoklu priz (grup priz) kullanmaktan kaçının, çünkü bunlar ısınma ve yangın riski yaratır. Priziniz eski ya da zayıfsa, şarja başlamadan önce bir yetkili elektrikçiye kontrol ettirin."
+      },
+      {
+        "type": "h2",
+        "text": "Kendim takıp kullanabilir miyim?"
+      },
+      {
+        "type": "p",
+        "text": "Portatif cihazın en büyük avantajı budur: cihazın kendisi tak-çalıştır mantığında olduğu için kullanmak için elektrikçiye ihtiyacınız yoktur; çantadan çıkarır, uygun prize takar ve şarjı başlatırsınız. Duvara monte wallbox ise sabit kurulum, kablolama ve çoğu zaman bir elektrikçi gerektirir. Tek istisna priz tarafındadır: daha yüksek güçte şarj için endüstriyel (CEE) priz ya da trifaze hat gerekiyorsa, bu prizin veya hattın bir yetkili elektrikçi tarafından çekilmesi gerekebilir. Cihazı takıp kullanmak serbest; altyapı gerektiğinde işi uzmanına bırakın."
+      },
+      {
+        "type": "h2",
+        "text": "Bemis portatif şarj cihazı modelleri"
+      },
+      {
+        "type": "p",
+        "text": "Bemis'in taşınabilir şarj cihazları, en temel ev prizinden profesyonel trifaze kullanıma kadar üç modelde toplanır. Hepsi yerli üretimdir, CE uygunluk testinden geçer ve IP65 koruma sınıfına sahiptir (toza ve suya dayanıklı). Aşağıdaki tablo hangi modelin kime uygun olduğunu özetliyor:"
+      },
+      {
+        "type": "table",
+        "caption": "Bemis portatif (seyyar) şarj cihazı modellerinin karşılaştırması",
+        "headers": [
+          "Model",
+          "Güç",
+          "Faz",
+          "Kimlere uygun"
+        ],
+        "rows": [
+          [
+            "Mini Mobile",
+            "2,3–3,7 kW",
+            "Monofaze",
+            "Standart ev prizine (schuko) doğrudan takılır; çantalı, en temel günlük kullanım"
+          ],
+          [
+            "Mono Mobile",
+            "3,7–7,4 kW",
+            "Monofaze",
+            "CEE 16/32A endüstriyel priz adaptörleri ve schuko çıkışı; ev ile iş yerinde daha hızlı şarj"
+          ],
+          [
+            "Pro Mobile 2",
+            "11–22 kW",
+            "Trifaze",
+            "CEE 5/16A ve 5/32A adaptörleri, 6 kademe ayarlanabilir amper; profesyonel, filo ve saha kullanımı"
+          ]
+        ]
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Mini Mobile: Evdeki normal prize (schuko) doğrudan takılan en sade seçenek; taşıma çantasıyla gelir.",
+          "Mono Mobile: Monofaze tarafında daha yüksek güç; CEE 16/32A endüstriyel priz adaptörleri ve schuko çıkışıyla farklı prizlere uyum sağlar.",
+          "Pro Mobile 2: 11–22 kW trifaze güç, CEE 5/16A ile 5/32A adaptörleri ve 6/10/16/20/25/32A arasında ayarlanabilen amper kademeleriyle profesyonel kullanım için tasarlanmıştır."
+        ]
+      },
+      {
+        "type": "cta",
+        "text": "Üç modelin detaylarını ve teknik özelliklerini inceleyin.",
+        "href": "/products/portable",
+        "label": "Portatif şarj modellerini gör"
+      },
+      {
+        "type": "h2",
+        "text": "Portatif şarj cihazı ne kadar? Fiyatını ne belirler?"
+      },
+      {
+        "type": "p",
+        "text": "Açık konuşalım: taşınabilir şarj cihazının tek bir 'liste fiyatı' yoktur, çünkü fiyat ihtiyacınıza göre değişir. Bemis fiyatlarını bayileri üzerinden, güncel koşullara göre verir. Bu yüzden internette gördüğünüz genel rakamlara değil, size özel çıkarılan teklife bakmanız daha doğru olur. Fiyatı belirleyen başlıca unsurlar şunlardır:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Güç (kW): Daha yüksek güç, daha hızlı şarj demektir ve maliyeti etkiler.",
+          "Monofaze mi trifaze mi: Trifaze modeller (örneğin Pro Mobile 2) daha güçlüdür.",
+          "Adaptör seti: Schuko, CEE 16/32A gibi ek priz adaptörlerinin kapsamı değişir.",
+          "Çanta ve aksesuarlar: Taşıma çantası ve ek donanımlar pakete dahil olabilir.",
+          "Marka, sertifika ve garanti: CE uygunluk testi, IP65 koruma ve yerli üretim güvencesi kalıcı bir değer katar."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Kısacası 'kaç para?' sorusunun cevabı seçtiğiniz modele ve ihtiyacınıza bağlıdır. Net ve güncel fiyat için size en yakın Bemis bayisinden teklif almanız yeterli."
+      },
+      {
+        "type": "cta",
+        "text": "Size en yakın bayiden güncel fiyat ve teklif alın.",
+        "href": "/products/portable",
+        "label": "Fiyat/teklif için modelleri görün"
+      },
+      {
+        "type": "h2",
+        "text": "Hangi modeli seçmeliyim?"
+      },
+      {
+        "type": "p",
+        "text": "Seçim aslında iki soruya bakıyor: elinizdeki priz ne ve ne kadar hızlı şarj istiyorsunuz?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Sadece evdeki normal priz var ve temel bir çözüm yeterli: Mini Mobile.",
+          "Daha hızlı şarj istiyor, endüstriyel (CEE) prize erişebiliyorsunuz: Mono Mobile.",
+          "Profesyonel, filo ya da saha kullanımı ve trifaze güç gerekiyor: Pro Mobile 2."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Kararsız kaldıysanız doğru cihazı adım adım seçmenize yardımcı olan rehberimize göz atabilir ya da sabit ünite ile taşınabilir cihazı karşılaştıran yazımızı okuyabilirsiniz."
+      },
+      {
+        "type": "cta",
+        "text": "Hangi şarj cihazı size uygun? Adım adım anlattık.",
+        "href": "/blog/ev-icin-sarj-cihazi-nasil-secilir",
+        "label": "EV için şarj cihazı nasıl seçilir?"
+      },
+      {
+        "type": "cta",
+        "text": "Sabit şarj ünitesi mi, taşınabilir cihaz mı? İkisini karşılaştırdık.",
+        "href": "/blog/ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi",
+        "label": "Ünite mi, taşınabilir mi?"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Portatif (seyyar) şarj cihazı ne demek, ne işe yarar?",
+        "a": "Portatif şarj cihazı, arabanızı şarj etmek için yanınızda taşıyabileceğiniz, prize takıp kullandığınız bir şarj aletidir. Genellikle bir taşıma çantasıyla gelir ve bagajınızda durur; duvara monte edilen sabit ünitelerin (wallbox) aksine kurulum gerektirmez. 'Seyyar şarj cihazı' ve 'taşınabilir şarj cihazı' da aynı ürünü anlatır. Evde, iş yerinde, yazlıkta ya da yolda farklı prizlerden şarj yapmanızı sağlar. Özellikle kiracıysanız, ortak otopark kullanıyorsanız ya da garajınıza sabit ünite monte edemiyorsanız oldukça pratik bir çözümdür. Böylece tek bir noktaya bağlı kalmadan, ihtiyaç duyduğunuz yerde arabanızı rahatça şarj edebilirsiniz."
+      },
+      {
+        "q": "Portatif şarj cihazı ne kadar, kaç para?",
+        "a": "Taşınabilir şarj cihazının tek bir sabit fiyatı yoktur; fiyat seçtiğiniz modele ve ihtiyacınıza göre değişir. Cihazın gücü (kW), monofaze mi trifaze mi olduğu, birlikte gelen priz adaptörleri (schuko, CEE 16/32A gibi), taşıma çantası ve sertifikalar fiyatı belirleyen başlıca unsurlardır. Aynı model bile farklı adaptör seti veya aksesuarla farklı fiyatlanabilir; bu yüzden önce ihtiyacınızı netleştirmek, sonra teklif almak en doğrusudur. Bemis fiyatlarını bayileri üzerinden, güncel koşullara göre verdiği için en doğru ve net rakamı size en yakın bayiden teklif alarak öğrenirsiniz. İnternette gördüğünüz genel rakamlara değil, ihtiyacınıza göre çıkarılan kişisel teklife bakmanız daha sağlıklı olur."
+      },
+      {
+        "q": "Normal ev prizinden araba şarj edilir mi?",
+        "a": "Evet. En temel model olan Mini Mobile, standart ev prizine (schuko) doğrudan takılarak arabanızı şarj eder. Ancak ev prizinden şarj en yavaş ve en çok dikkat isteyen yöntemdir; priz uzun süre yük altında kalır. Bu nedenle CE uygunluk testinden geçmiş kaliteli bir cihaz kullanın ve cihazı doğrudan duvar prizine takın. Uzatma kablosu ile çoklu (grup) priz kullanmaktan kaçının, çünkü ısınma ve yangın riski oluşturur. Priziniz eski veya zayıfsa, şarja başlamadan önce bir yetkili elektrikçiye kontrol ettirmeniz en güvenli yoldur. Daha yüksek güçte ve daha hızlı şarj istiyorsanız endüstriyel prizli ya da trifaze modellere yönelmek daha mantıklı olur."
+      },
+      {
+        "q": "Hangi portatif şarj modelini seçmeliyim?",
+        "a": "Seçim, elinizdeki prize ve istediğiniz şarj hızına bağlıdır. Sadece evdeki normal priz varsa ve temel bir çözüm yetiyorsa Mini Mobile (2,3–3,7 kW monofaze) uygundur. Daha hızlı şarj istiyor ve endüstriyel (CEE) prize erişebiliyorsanız Mono Mobile (3,7–7,4 kW monofaze) öne çıkar. Profesyonel, filo ya da saha kullanımı ve trifaze güç gerekiyorsa Pro Mobile 2 (11–22 kW, ayarlanabilir amper) doğru tercihtir. Kısaca doğru model, ne kadar güce ihtiyaç duyduğunuz ve hangi prize erişiminiz olduğuyla şekillenir. Emin değilseniz seçim rehberimizi okuyabilir ya da size en yakın Bemis bayisine danışarak ihtiyacınıza en uygun modeli belirleyebilirsiniz."
+      },
+      {
+        "q": "Seyyar şarj cihazını kendim takıp kullanabilir miyim?",
+        "a": "Cihazın kendisi tak-çalıştır mantığındadır; çantadan çıkarır, uygun prize takar ve şarjı başlatırsınız, yani cihazı kullanmak için elektrikçiye gerek yoktur. Duvara monte wallbox ise sabit kurulum ve genellikle bir elektrikçi ister. Tek dikkat edilecek nokta priz tarafıdır: yüksek güçte şarj için endüstriyel (CEE) priz ya da trifaze hat gerekiyorsa, bu prizin veya hattın yetkili bir elektrikçi tarafından çekilmesi gerekebilir. Özetle cihazı takıp kullanmak serbesttir; yalnızca uygun priz altyapısı yoksa kurulumu bir uzmana yaptırın. Böylece cihazı alıp hemen kullanmaya başlayabilir, yalnızca gerektiğinde priz tarafı için elektrikçiden destek alırsınız."
+      }
+    ],
+    "related": [
+      {
+        "label": "Taşınabilir Şarj Cihazları",
+        "href": "/products/portable"
+      },
+      {
+        "label": "EV için Şarj Cihazı Nasıl Seçilir?",
+        "href": "/blog/ev-icin-sarj-cihazi-nasil-secilir"
+      },
+      {
+        "label": "Ünite mi, Taşınabilir mi?",
+        "href": "/blog/ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi"
+      },
+      {
+        "label": "Wallbox Şarj İstasyonları",
+        "href": "/products/wallbox"
+      }
+    ]
+  },
+
+  {
     "slug": "hangi-araclarda-v2l-var-turkiye",
     "title": "Türkiye'de Hangi Elektrikli Araçlarda V2L Var? (2026 Güncel Liste)",
     "metaTitle": "Hangi Araçlarda V2L Var? (2026 Güncel Liste)",
