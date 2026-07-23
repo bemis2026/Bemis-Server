@@ -34,6 +34,157 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    "slug": "elektrikli-arabami-evde-nasil-sarj-ederim",
+    "title": "Elektrikli Arabamı Evde Nasıl Şarj Ederim? Yeni Başlayanlar İçin Şarj Aleti Rehberi",
+    "metaTitle": "Elektrikli Arabamı Evde Nasıl Şarj Ederim?",
+    "description": "Elektrikli araba aldınız veya alacaksınız; arabamı evde nasıl şarj ederim? Normal prizden şarj olur mu, hangi şarj aleti uygun, kendim takabilir miyim — hepsi sade bir dille.",
+    "excerpt": "Elektrikli arabanızı evde şarj etmenin üç yolu var: normal ev prizi (en yavaş), taşınabilir şarj aleti ve duvara takılan şarj aleti (wallbox). Bu rehberde \"arabamı nasıl şarj ederim\", \"normal prizden olur mu\", \"kendim takabilir miyim\" gibi en çok sorulan soruları günlük bir dille yanıtlıyoruz.",
+    "category": "Rehber",
+    "datePublished": "2026-07-20",
+    "readingMinutes": 8,
+    "keywords": [
+      "elektrikli arabamı nasıl şarj ederim",
+      "elektrikli araba şarj aleti",
+      "arabayı evde şarj etme",
+      "elektrikli araba evde şarj",
+      "ev tipi şarj aleti",
+      "elektrikli araba normal prizden şarj olur mu",
+      "arabama hangi şarj aleti uygun",
+      "elektrikli araba şarj cihazı kendim takabilir miyim",
+      "taşınabilir araba şarj aleti",
+      "elektrikli araba fişi"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Elektrikli bir araba aldınız ya da almak üzeresiniz ve aklınızdaki ilk soru büyük ihtimalle şu: \"Arabamı evde nasıl şarj edeceğim?\" İyi haber, cevabı sandığınızdan çok daha basit. Benzinli arabada nasıl haftada bir benzinciye uğruyorsanız, elektrikli arabada da çoğu insan arabasını evinde, gece uyurken şarj eder — sabah kalktığınızda araba dolu olur. Bu rehberde hiç teknik bilgi gerektirmeden, günlük bir dille arabanızı evde şarj etmenin yollarını anlatıyoruz."
+      },
+      {
+        "type": "p",
+        "text": "Elektrikli arabayı evde şarj etmenin üç yolu vardır ve aralarındaki tek temel fark hız ile güvenliktir: (1) normal ev prizi, (2) taşınabilir şarj aleti, (3) duvara sabitlenen şarj aleti — yani wallbox. Şimdi bunları tek tek, en çok merak edilen sorularla açalım."
+      },
+      {
+        "type": "h2",
+        "text": "Elektrikli araba normal ev prizinden şarj olur mu?"
+      },
+      {
+        "type": "p",
+        "text": "Kısa cevap: olur, ama en yavaş ve en az önerilen yöntem budur. Arabanızla birlikte gelen kabloyla evdeki normal prize (schuko, yani üçlü priz) takıp şarj edebilirsiniz. Sorun şu ki normal ev prizi sürekli yüksek akım çekmek için tasarlanmamıştır; saatlerce tam yükte çalışınca priz ve tesisat ısınabilir. Bu yüzden normal prizden şarj yalnızca acil durumda veya çok düşük güçle (genelde 1,8-2,3 kW) düşünülmelidir."
+      },
+      {
+        "type": "p",
+        "text": "Bir örnekle somutlaştıralım: 60 kWh bataryalı bir arabayı normal prizden doldurmak 20 saatin üzerinde sürebilir. Yani akşam takıp sabah çıkmak isteyen biri için tek başına yeterli değildir. Buna karşılık ev tipi bir şarj aleti aynı arabayı çok daha kısa sürede doldurur. Normal prizi \"idare eder\" olarak görün; asıl çözüm aşağıdaki iki yöntemdir."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Normal ev prizi = en yavaş, uzun sürer, tesisatı zorlar — sadece acil/ara sıra.",
+          "Kesinlikle uzatma kablosu veya çoklu priz üzerinden şarj etmeyin.",
+          "Sık şarj edecekseniz, elektrikçinize ayrı bir hat çektirip taşınabilir veya duvar tipi şarj aletine geçmek hem daha hızlı hem çok daha güvenlidir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Duvara takılan şarj aleti (wallbox) nedir, kimler için?"
+      },
+      {
+        "type": "p",
+        "text": "Evde en çok tercih edilen çözüm, duvara sabitlenen şarj aletidir; sektörde buna \"wallbox\" da denir. Elektrik panonuzdan ayrı bir hatla beslenen, kapı yanına ya da garaja monte edilen bu cihaz, arabanızı normal prize göre kat kat hızlı ve çok daha güvenli şarj eder. Kendi eviniz, müstakil bir garajınız veya kapalı otoparkta sabit yeriniz varsa en mantıklı seçim budur."
+      },
+      {
+        "type": "p",
+        "text": "Ev tipi şarj aletleri gücüne göre ikiye ayrılır: tek fazlı (monofaze) modeller genelde 7,4 kW'a kadar, üç fazlı (trifaze) modeller ise 11-22 kW'a kadar şarj eder. Evinizde üç faz elektrik varsa daha hızlı şarj mümkündür; yoksa tek fazlı model de günlük kullanım için fazlasıyla yeterlidir. Bemis'in Charger 2, Charger Plus 2 ve Charger Pro 2 modelleri bu duvar tipi şarj aletleridir; hepsi Type 2 soketlidir (Türkiye ve Avrupa'da standart olan soket), CE belgeli ve IP65 korumalıdır — yani dış mekâna, yağmura dayanıklıdır."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kendi eviniz / garajınız / sabit otopark yeriniz varsa: duvar tipi şarj aleti (wallbox) en iyi seçim.",
+          "Tek fazlı ev için 7,4 kW'a kadar; üç fazlı ev için 11-22 kW'a kadar modeller mevcut.",
+          "Ayarlanabilir akımlı modeller (ör. Charger Plus 2), evin sigortasını zorlamamak için şarj gücünü kısabilmenizi sağlar."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Taşınabilir şarj aleti kimler için mantıklı?"
+      },
+      {
+        "type": "p",
+        "text": "Duvara sabit cihaz taktıramıyorsanız — örneğin kiracıysanız, otoparkta sabit yeriniz yoksa ya da hem evde hem yolda kullanmak istiyorsanız — taşınabilir şarj aleti iyi bir orta yoldur. Bunlar bir çantaya sığan, prize takıp kullanabileceğiniz cihazlardır. Bemis'in Mini Mobile ve Pro Mobile 2 modelleri bu gruba girer. Özellikle Pro Mobile 2, cihaz üstündeki tuş veya mobil uygulamayla şarj akımını 6 kademe (6-32 amper) arasında ayarlayabildiği için farklı prizlerde güvenle kullanılabilir."
+      },
+      {
+        "type": "p",
+        "text": "Taşınabilir cihazın avantajı esnekliktir: bagajda durur, gittiğiniz yerde uygun priz varsa şarj edebilirsiniz. Dezavantajı, kalıcı bir çözüm olmaması ve yüksek güçte sabit wallbox kadar pratik olmamasıdır. Karar verirken kendinize sorun: arabayı hep aynı yerde mi şarj edeceğim (o zaman wallbox), yoksa yer yer değişiyor mu (o zaman taşınabilir)?"
+      },
+      {
+        "type": "h2",
+        "text": "Arabama hangi şarj aleti uygun? (Kaç kW seçmeliyim?)"
+      },
+      {
+        "type": "p",
+        "text": "Bu, en sık sorulan sorulardan biri ve cevabı iki şeye bağlı: evinizin elektrik altyapısı ve arabanızın kabul ettiği güç. Şöyle düşünün — şarj aleti ne kadar güçlü olursa olsun, arabanız kendi sınırından fazlasını almaz. Çoğu elektrikli otomobil AC şarjda 7,4 kW veya 11 kW'a kadar kabul eder; yani evde 22 kW'lık bir cihaz almak, arabanız 11 kW alıyorsa hız kazandırmaz. Doğru yaklaşım, arabanızın kabul ettiği gücü öğrenip ona uygun modeli seçmektir."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Önce arabanızın \"AC şarj gücü\" kaç kW öğrenin (araç kullanım kılavuzunda yazar).",
+          "Eviniz tek fazlıysa 7,4 kW'a kadar model; üç fazlıysa 11 veya 22 kW model uygundur.",
+          "Emin değilseniz ayarlanabilir akımlı bir model alın — hem bugünkü hem ileride alacağınız arabaya uyum sağlar.",
+          "Soket tipi Type 2 olsun; Türkiye'de ve Avrupa'da standart budur (Togg, Tesla dahil çoğu araç Type 2 kullanır)."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Şarj aletini kendim takabilir miyim?"
+      },
+      {
+        "type": "p",
+        "text": "Dürüst cevap: taşınabilir cihazı prize takıp kendiniz kullanabilirsiniz, ama duvara sabitlenen şarj aletinin elektrik bağlantısını kesinlikle kendiniz yapmayın. Wallbox, panodan ayrı bir hatla ve uygun sigortayla beslenmelidir; bu bağlantı mutlaka yetkili bir elektrik tesisatçısı tarafından yapılmalıdır. Bu hem yasal bir gereklilik hem de güvenlik meselesidir — yanlış bağlanan yüksek akımlı bir hat yangın riski taşır. Cihazı siz seçersiniz, montajı uzman yapar."
+      },
+      {
+        "type": "p",
+        "text": "Apartmanda oturuyorsanız bir adım daha vardır: ortak otoparka şarj aleti taktırmak için genellikle yönetim/kat malikleri onayı ve sayaç düzenlemesi gerekir. Bu konuyu ayrı bir rehberde ele aldık; aşağıdaki bağlantılardan ulaşabilirsiniz."
+      },
+      {
+        "type": "cta",
+        "text": "Evinize uygun şarj aletini birlikte seçelim — ister duvar tipi (wallbox) ister taşınabilir, arabanıza ve evinizin altyapısına göre doğru modeli bulun. Tümü yerli üretim, CE belgeli ve IP65 korumalı.",
+        "href": "/products",
+        "label": "Şarj Aletlerini İncele"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Elektrikli arabamı normal ev prizinden şarj edebilir miyim?",
+        "a": "Edebilirsiniz ama en yavaş yöntem budur ve normal priz saatlerce yüksek akıma uygun tasarlanmadığı için tesisatı zorlar. Uzatma kablosu veya çoklu priz asla kullanmayın. Sık şarj edecekseniz taşınabilir ya da duvar tipi bir şarj aletine geçmek hem çok daha hızlı hem güvenlidir."
+      },
+      {
+        "q": "Elektrikli arabamı evde şarj etmek ne kadar sürer?",
+        "a": "Aracın batarya büyüklüğüne ve şarj aletinin gücüne bağlıdır. Normal prizden (yaklaşık 2 kW) 60 kWh'lik bir araba 20 saatin üzerinde sürebilirken, 11 kW'lık bir ev tipi şarj aleti aynı aracı gece boyunca rahatça doldurur. Çoğu kullanıcı akşam takıp sabah dolu araca kavuşur."
+      },
+      {
+        "q": "Arabama hangi güçte şarj aleti almalıyım?",
+        "a": "Arabanızın kabul ettiği AC şarj gücünü aşan bir cihaz ekstra hız kazandırmaz. Önce aracınızın kaç kW kabul ettiğini öğrenin, sonra evinizin tek fazlı mı üç fazlı mı olduğuna bakın. Emin değilseniz ayarlanabilir akımlı bir model en esnek seçimdir."
+      },
+      {
+        "q": "Şarj aletinin montajını kendim yapabilir miyim?",
+        "a": "Taşınabilir cihazı prize takıp kendiniz kullanabilirsiniz. Ancak duvara sabitlenen wallbox'ın elektrik bağlantısı mutlaka yetkili bir elektrik tesisatçısı tarafından, panodan ayrı hat ve uygun sigortayla yapılmalıdır. Bu hem yasal zorunluluk hem güvenlik gereğidir."
+      }
+    ],
+    "related": [
+      {
+        "label": "Ev Tipi Şarj Ünitesi mi, Taşınabilir Şarj Cihazı mı?",
+        "href": "/blog/ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi"
+      },
+      {
+        "label": "Apartmana Elektrikli Araç Şarj İstasyonu Kurulumu",
+        "href": "/blog/apartmana-sarj-istasyonu-kurulumu"
+      },
+      {
+        "label": "Elektrikli Araç Şarj Süresi: Kaç Saatte Dolar?",
+        "href": "/blog/elektrikli-arac-sarj-suresi-kac-saatte-dolar"
+      }
+    ]
+  },
+  {
     "slug": "gunes-enerjisi-solar-ile-elektrikli-arac-sarji",
     "title": "Güneş Enerjisi (Solar) ile Elektrikli Araç Şarjı: Evde Güneş Panelinden Araç Şarj Etmek",
     "metaTitle": "Güneş Enerjisi (Solar) ile Elektrikli Araç Şarjı",
