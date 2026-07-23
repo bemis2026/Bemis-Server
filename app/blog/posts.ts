@@ -34,6 +34,269 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    "slug": "hangi-araclarda-v2l-var-turkiye",
+    "title": "Türkiye'de Hangi Elektrikli Araçlarda V2L Var? (2026 Güncel Liste)",
+    "metaTitle": "Hangi Araçlarda V2L Var? (2026 Güncel Liste)",
+    "description": "V2L hangi araçlarda var? Hyundai Ioniq 5/6, Kia EV6, Togg T10F, MG, BYD, KGM Torres, Skywell — Türkiye'de satılan V2L destekli modellerin 2026 listesi.",
+    "excerpt": "V2L olan araçlar giderek çoğalıyor. Hyundai Ioniq 5/6, Kia EV6/EV9, Togg T10F, MG, BYD, KGM (Ssangyong) Torres EVX ve Skywell gibi Türkiye'de satılan V2L destekli modellerin doğrulanmış 2026 listesini, kaç kW güç verdiklerini ve aracınıza uygun V2L adaptörünü tek yazıda topladık.",
+    "category": "Rehber",
+    "datePublished": "2026-07-23",
+    "dateModified": "2026-07-23",
+    "readingMinutes": 9,
+    "keywords": [
+      "v2l hangi araçlarda var",
+      "hangi araçlarda v2l var",
+      "v2l nedir",
+      "v2l olan araçlar",
+      "elektrikli araçtan elektrik alma",
+      "v2l adaptör",
+      "v2l çıkış adaptörü",
+      "araçtan elektrik alma",
+      "vehicle to load",
+      "tesla v2l var mı"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Elektrikli arabanızın bataryasını dev bir taşınabilir prize çevirmek — kamp alanında buzdolabı çalıştırmak, sahada matkap kullanmak, elektrik kesintisinde evi idare etmek — işte V2L tam olarak bunu yapar. Peki Türkiye'de hangi elektrikli araçlarda V2L var? Kısa cevap: Hyundai Ioniq 5 ve 6, Kia EV6 ve EV9, Togg T10F, MG4 / ZS EV / Marvel R, BYD Atto 3 / Dolphin / Seal, KGM (Ssangyong) Torres EVX ve Skywell ET5/BE11 gibi pek çok model V2L destekliyor. Aşağıda her modeli tek tek doğruladık; kaç kW güç verdiğini ve aracınıza uygun V2L adaptörünü sade bir dille anlattık."
+      },
+      {
+        "type": "h2",
+        "text": "V2L nedir? (Araçtan elektrik alma)"
+      },
+      {
+        "type": "p",
+        "text": "V2L (Vehicle-to-Load, yani 'araçtan yüke'), elektrikli aracın sürüş bataryasındaki enerjiyi standart şebeke gerilimine (230V) çevirip dışarıdaki cihazlara aktarmasıdır. Yani arabanız sadece elektrik tüketen bir şey olmaktan çıkıp, tıpkı dev bir güç istasyonu gibi elektrik veren bir kaynağa dönüşür. 'Elektrikli araçtan elektrik alma' dendiğinde kastedilen tam olarak budur. Araç bataryası çok büyük olduğu için, küçük bir taşınabilir güç istasyonunun kat kat üzerinde enerji sunar."
+      },
+      {
+        "type": "h2",
+        "text": "Türkiye'de hangi elektrikli araçlarda V2L var? (2026 listesi)"
+      },
+      {
+        "type": "p",
+        "text": "Aşağıdaki tabloda yalnızca V2L özelliğini doğruladığımız, Türkiye'de satılan modelleri listeledik. Emin olamadığımız modelleri bilerek eklemedik. Not: V2L bazı modellerde donanım paketine veya yazılım sürümüne bağlı olabilir; kesin bilgi için kendi aracınızın kullanım kılavuzuna ya da ekran menüsüne bakın."
+      },
+      {
+        "type": "table",
+        "caption": "Türkiye'de satılan, V2L özelliği doğrulanmış elektrikli araçlar (2026)",
+        "headers": [
+          "Araç",
+          "V2L",
+          "Not"
+        ],
+        "rows": [
+          [
+            "Hyundai Ioniq 5",
+            "✓",
+            "E-GMP platformu; ~3,6 kW. İç priz + dış soket çıkışı."
+          ],
+          [
+            "Hyundai Ioniq 6",
+            "✓",
+            "E-GMP platformu; ~3,6 kW."
+          ],
+          [
+            "Kia EV6",
+            "✓",
+            "~3,6 kW. Dış soket adaptörüyle."
+          ],
+          [
+            "Kia EV9",
+            "✓",
+            "~3,7 kW'a kadar çıkış."
+          ],
+          [
+            "Togg T10F",
+            "✓",
+            "2026 (2.1.1) yazılım güncellemesiyle aktif; Togg adaptörü."
+          ],
+          [
+            "MG4",
+            "✓",
+            "V2L destekli; harici adaptörle."
+          ],
+          [
+            "MG ZS EV",
+            "✓",
+            "V2L destekli; harici adaptörle."
+          ],
+          [
+            "MG Marvel R",
+            "✓",
+            "'V2L Energy Sharing' özelliğiyle."
+          ],
+          [
+            "BYD Atto 3",
+            "✓",
+            "Araç 3,6 kW'a kadar destekler."
+          ],
+          [
+            "BYD Dolphin",
+            "✓",
+            "Araç 3,6 kW'a kadar destekler."
+          ],
+          [
+            "BYD Seal",
+            "✓",
+            "V2L destekli; harici adaptörle."
+          ],
+          [
+            "KGM (Ssangyong) Torres EVX",
+            "✓",
+            "~3,5 kW; şarj soketine adaptörle."
+          ],
+          [
+            "Skywell ET5 / BE11",
+            "✓",
+            "220V V2L çıkışı (Long Range donanımı)."
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Listede aracınızı göremiyorsanız bu, kesinlikle V2L yok demek değildir; yalnızca bu yazıyı hazırlarken doğrulayamadığımız anlamına gelir. Yeni modeller sık sık ekleniyor ve bazı araçlar V2L'yi sonradan gelen yazılım güncellemeleriyle kazanıyor — nitekim Togg T10F bu özelliği 2026'da yazılım güncellemesiyle kazandı. (Togg T10X tarafında V2L henüz resmen netleşmedi; aracınızın ekran menüsünden teyit edin.)"
+      },
+      {
+        "type": "h2",
+        "text": "Tesla'da V2L var mı?"
+      },
+      {
+        "type": "p",
+        "text": "Kısa cevap: hayır. Tesla'nın satıştaki modellerinin büyük çoğunluğu (Model 3 ve Model Y dahil) fabrika çıkışı V2L özelliği sunmaz; yani bir Tesla'yı doğrudan prize çevirip cihaz besleyemezsiniz ve bu yazıdaki markaya özel V2L adaptörleri Tesla için uygun değildir. V2L, özellikle Hyundai ve Kia (E-GMP platformu), Togg, MG, BYD ve KGM gibi markaların öne çıkan bir kozudur. Aracından elektrik almak isteyen bir sürücü için satın alma kararında V2L desteğini kontrol etmek mantıklıdır."
+      },
+      {
+        "type": "h2",
+        "text": "V2L kaç kW güç verir, neler çalıştırabilir?"
+      },
+      {
+        "type": "p",
+        "text": "Çoğu araçta V2L çıkışı yaklaşık 3–3,7 kW civarındadır (genelde 230V ve 16A'e kadar tek bir topraklı schuko priz). Kesin değer araca göre değişir — örneğin Hyundai Ioniq 5 ve Kia EV6 yaklaşık 3,6 kW, KGM Torres EVX yaklaşık 3,5 kW verir. Bu güç, günlük hayatta şaşırtıcı derecede çok işe yarar."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kamp & karavan: buzdolabı, aydınlatma, kahve makinesi, telefon ve laptop şarjı.",
+          "Saha & atölye: matkap, taşlama, küçük kompresör gibi elektrikli el aletleri.",
+          "Ev & acil durum: kısa elektrik kesintisinde buzdolabı, modem ve birkaç lamba.",
+          "Etkinlik & piknik: ses sistemi, ızgara, projeksiyon.",
+          "İmdat: düşük güçte başka bir cihazı ya da aracı besleme."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Tek kural: aynı anda bağladığınız cihazların toplam gücü aracın V2L sınırını aşmasın. Fırın, elektrikli ısıtıcı veya kaynak makinesi gibi yüksek güç çeken cihazlar bu sınırı hızlıca zorlayabilir."
+      },
+      {
+        "type": "h2",
+        "text": "V2L çıkış adaptörü nedir, neden gerekli?"
+      },
+      {
+        "type": "p",
+        "text": "Aracın kabin içinde prizi yoksa (ya da yetmiyorsa), V2L'yi kullanmanın yolu dış şarj soketidir. Ama bu sokete doğrudan fişinizi takamazsınız; araya bir V2L çıkış adaptörü girer. Bu adaptör, aracın Type 2 şarj soketini alıp size standart topraklı bir priz (schuko) sunar — siz de cihazınızı doğrudan bu prize takarsınız. Kurulum yok, saniyeler içinde hazır ve bagajda taşınır."
+      },
+      {
+        "type": "p",
+        "text": "Önemli nokta: V2L adaptörleri çoğunlukla markaya özeldir. Çünkü farklı üreticiler soketteki V2L çıkışını farklı pin düzeni ve haberleşme (el sıkışma) mantığıyla verir. Bu yüzden Hyundai için üretilmiş bir adaptörle örneğin bir MG'yi beslemeye çalışmak doğru sonuç vermez. Doğru adaptör = markanıza uygun adaptör."
+      },
+      {
+        "type": "h2",
+        "text": "Aracınıza uygun V2L adaptörü (Bemis uyumluluk)"
+      },
+      {
+        "type": "p",
+        "text": "Bemis'in yerli üretim, CE uygunluk testli V2L / C2L adaptörleri, aracın Type 2 soketini standart Türk prizine (schuko) çevirir ve 16A'e kadar güvenli akım sunar. Markanıza göre doğru modeli seçin:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hyundai · Kia · KGM (Ssangyong) — ör. Ioniq 5/6, EV6, EV9, Torres EVX → Hyundai/Kia/KGM uyumlu adaptör.",
+          "MG — ör. MG4, ZS EV, Marvel R → MG uyumlu adaptör.",
+          "BYD · Skywell — ör. Atto 3, Dolphin, Seal, Skywell ET5/BE11 → BYD/Skywell uyumlu adaptör.",
+          "Togg (T10F) — Togg kendi V2L adaptörünü sunar; kullanım detayları için Togg V2L rehberimize bakın."
+        ]
+      },
+      {
+        "type": "cta",
+        "text": "Hyundai, Kia ve KGM (Ssangyong) araçlar için tek çıkışlı V2L adaptörünü inceleyin.",
+        "href": "/products/v2l-c2l/tek-cikisli-v2l-adaptor-hyundai",
+        "label": "Hyundai · Kia · KGM V2L Adaptörü"
+      },
+      {
+        "type": "cta",
+        "text": "MG (MG4, ZS EV, Marvel R) araçlar için tek çıkışlı V2L adaptörünü inceleyin.",
+        "href": "/products/v2l-c2l/tek-cikisli-v2l-adaptor-mg",
+        "label": "MG V2L Adaptörü"
+      },
+      {
+        "type": "cta",
+        "text": "BYD ve Skywell araçlar için tek çıkışlı V2L adaptörünü inceleyin.",
+        "href": "/products/v2l-c2l/tek-cikisli-v2l-adaptor-byd",
+        "label": "BYD · Skywell V2L Adaptörü"
+      },
+      {
+        "type": "h2",
+        "text": "V2L kullanırken 5 güvenlik ipucu"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Toplam gücü aşmayın: bağladığınız cihazların toplam watt değeri aracın V2L limitinin altında kalsın.",
+          "Her zaman topraklı priz kullanın ve adaptörü kuru tutun; dış mekânda yağmurdan koruyun.",
+          "Kompresör veya motor gibi yüksek kalkış akımı çeken cihazlarda ani yük dalgalanmasına dikkat edin.",
+          "Uzun kullanımda batarya seviyesini takip edin; araç belirli bir eşikte çıkışı otomatik keserek kendini korur.",
+          "Kaliteli ve sertifikalı adaptör tercih edin — ucuz adaptörler ısınma ve güvenlik riski taşır."
+        ]
+      },
+      {
+        "type": "cta",
+        "text": "Aracınıza uygun V2L / C2L adaptörünü seçin — Bemis yerli üretim, CE uygunluk testli.",
+        "href": "/products/v2l-c2l",
+        "label": "Tüm V2L / C2L Adaptörleri"
+      }
+    ],
+    "faq": [
+      {
+        "q": "V2L hangi araçlarda var?",
+        "a": "V2L, Türkiye'de satılan pek çok elektrikli araçta bulunur. Doğruladığımız modeller arasında Hyundai Ioniq 5 ve Ioniq 6, Kia EV6 ve EV9, Togg T10F, MG4, MG ZS EV ve Marvel R, BYD Atto 3, Dolphin ve Seal, KGM (Ssangyong) Torres EVX ile Skywell ET5/BE11 yer alır. V2L bazı modellerde donanım paketine veya yazılım sürümüne bağlı olabildiği için, kesin bilgi için kendi aracınızın kullanım kılavuzuna ya da ekran menüsüne bakmanız önemlidir. Tesla'nın çoğu modelinde ise fabrika çıkışı V2L bulunmaz."
+      },
+      {
+        "q": "V2L nedir ve araçtan nasıl elektrik alınır?",
+        "a": "V2L (Vehicle-to-Load), elektrikli aracın bataryasındaki enerjiyi 230V şebeke gerilimine çevirip dışarıdaki cihazlara aktarması özelliğidir; kısaca araçtan elektrik alma demektir. Araç böylece dev bir taşınabilir prize dönüşür. Elektriği almak için aracın şarj soketine bir V2L çıkış adaptörü takarsınız; bu adaptör size standart topraklı bir priz (schuko) sunar ve cihazınızı doğrudan bu prize bağlarsınız. Bazı modellerde ayrıca kabin içinde hazır bir 230V priz bulunur. Kurulum gerektirmez, saniyeler içinde hazır olur ve kamptan acil duruma kadar her yerde işinize yarar."
+      },
+      {
+        "q": "Tesla'da V2L var mı?",
+        "a": "Hayır; Tesla'nın satıştaki modellerinin büyük çoğunluğu (Model 3 ve Model Y dahil) fabrika çıkışı V2L özelliği sunmaz. Yani bir Tesla'yı doğrudan prize çevirip buzdolabı veya elektrikli alet besleyemezsiniz ve bu yazıdaki markaya özel V2L adaptörleri Tesla için uygun değildir. V2L özellikle Hyundai ve Kia (E-GMP platformu), Togg, MG, BYD ve KGM gibi markaların öne çıkan bir özelliğidir. Aracından elektrik almak isteyen bir sürücü için, satın alma kararında V2L desteğini kontrol etmek mantıklıdır; çünkü bu özellik markaya ve modele göre değişir."
+      },
+      {
+        "q": "V2L çıkış adaptörü ne işe yarar ve neden markaya özeldir?",
+        "a": "V2L çıkış adaptörü, aracın Type 2 şarj soketindeki çıkışı standart topraklı prize (schuko) çeviren donanımdır. Aracın dış çıkışına doğrudan fiş takamazsınız; arada bu adaptör gerekir. Adaptörü sokete takarsınız, o da size normal bir priz sunar. Adaptörler çoğunlukla markaya özeldir, çünkü farklı üreticiler V2L çıkışını farklı pin düzeni ve haberleşme mantığıyla verir; Hyundai için üretilen bir adaptör bir MG veya BYD ile aynı şekilde çalışmayabilir. Bu yüzden markanıza uygun adaptörü seçmek önemlidir. Bemis'in V2L/C2L adaptörleri Hyundai/Kia/KGM, MG ve BYD/Skywell için ayrı modeller sunar."
+      },
+      {
+        "q": "V2L kaç kW güç verir, neler çalıştırır?",
+        "a": "V2L çıkışı çoğu araçta yaklaşık 3–3,7 kW civarındadır; genelde 230V ve 16A'e kadar tek bir topraklı priz sunar. Kesin değer araca göre değişir — örneğin Hyundai Ioniq 5 ve Kia EV6 yaklaşık 3,6 kW, KGM Torres EVX yaklaşık 3,5 kW verir. Bu güçle kampta buzdolabı, aydınlatma ve kahve makinesi; sahada matkap ve taşlama; acil durumda modem ile birkaç lambayı rahatça çalıştırabilirsiniz. Tek kural, aynı anda bağladığınız cihazların toplam gücünün aracın V2L sınırını aşmamasıdır. Fırın veya elektrikli ısıtıcı gibi yüksek güçlü cihazlar bu sınırı hızla zorlar."
+      }
+    ],
+    "related": [
+      {
+        "label": "V2L / C2L Adaptörler",
+        "href": "/products/v2l-c2l"
+      },
+      {
+        "label": "Ioniq 5 ile V2L Nasıl Kullanılır?",
+        "href": "/blog/ioniq-5-v2l-nasil-kullanilir"
+      },
+      {
+        "label": "Togg V2L: Araçtan Elektrik Alma",
+        "href": "/blog/togg-v2l-aractan-elektrik"
+      },
+      {
+        "label": "AC Şarj Kabloları (Type 2)",
+        "href": "/products/cables"
+      }
+    ]
+  },
+
+  {
     "slug": "elektrikli-arabami-evde-nasil-sarj-ederim",
     "title": "Elektrikli Arabamı Evde Nasıl Şarj Ederim? Yeni Başlayanlar İçin Şarj Aleti Rehberi",
     "metaTitle": "Elektrikli Arabamı Evde Nasıl Şarj Ederim?",
