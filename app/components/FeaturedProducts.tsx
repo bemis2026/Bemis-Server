@@ -221,16 +221,16 @@ export default function FeaturedProducts() {
                     background: d ? `linear-gradient(135deg, ${item.accent}1f 0%, #1c1c1f 100%)` : `linear-gradient(135deg, ${item.accent}18 0%, #fafafa 100%)`,
                   }}
                 >
-                  {item.prod?.image ? (
+                  {(item.image ?? item.prod?.image) ? (
                     <Image
-                      src={item.prod.image}
-                      alt={item.prod.name}
+                      src={(item.image ?? item.prod?.image) as string}
+                      alt={item.prod?.name ?? item.badge}
                       fill
                       sizes="(max-width: 640px) 80vw, (max-width: 1024px) 40vw, 280px"
                       className="object-contain p-3"
                       style={{ transition: "transform 0.4s ease", transform: isHov ? "scale(1.04)" : "scale(1)" }}
                       loading="lazy"
-                      quality={88}
+                      quality={90}
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center"

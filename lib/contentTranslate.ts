@@ -19,6 +19,9 @@ const TRANSLATABLE_PATHS: string[] = [
 
   "featured[].badge", "featured[].highlight",
 
+  "projectSection.eyebrow", "projectSection.title", "projectSection.description",
+  "projectSection.ctaPrimaryLabel", "projectSection.ctaSecondaryLabel",
+
   "dna.sectionLabel", "dna.sectionHeading", "dna.brandHeading",
   "dna.brandPara1", "dna.brandPara2", "dna.quote", "dna.quoteAttr",
   "dna.ctaLabel", "dna.yearSub",

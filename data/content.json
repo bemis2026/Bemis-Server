@@ -93,7 +93,7 @@
         },
         {
           "q": "Kurulum dahil mi?",
-          "a": "Cihaz fiyatına kurulum dahil değildir. Yetkili bayimiz keşif yaparak hat çekimi, kablolama ve sigorta panosu çalışmaları için ayrı bir teklif verir. Ortalama kurulum maliyeti 5.000-15.000 TL arasında değişir; mevcut altyapıya göre belirlenir."
+          "a": "Cihaz fiyatına kurulum dahil değildir. Yetkili bayimiz keşif yaparak hat çekimi, kablolama ve sigorta panosu çalışmaları için ihtiyacınıza özel ayrı bir teklif verir; kurulum maliyeti mevcut altyapınıza göre keşifte netleştirilir."
         }
       ],
       "descriptionImage": "",
@@ -365,6 +365,14 @@
       "badge": "Profesyonel DC Şarj Kablosu CCS2",
       "highlight": "400-500A kapasiteye kadar. CCS2  · model. İstasyon üreticileri için.",
       "visible": true
+    },
+    {
+      "categoryId": "cables",
+      "productId": "sarj-seti-32a-trifaze-5m",
+      "badge": "En Çok Tercih Edilen",
+      "highlight": "22 kW üç fazlı Type 2 şarj seti. 5 metre halojensiz kablo, taşıma çantası dahil. Ev ve seyahat için pratik.",
+      "visible": true,
+      "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1784930192/products/ztyklydkn4qsquhnolel.png"
     }
   ],
   "contact": {
@@ -930,7 +938,7 @@
             },
             {
               "q": "Installation included",
-              "a": "The price of the device does not include installation. Our authorized dealer makes an exploration and makes a separate offer for line drawing, cabling and fuse board works. The average installation cost varies between 5,000-15,000 TL; it is determined according to the existing infrastructure."
+              "a": "The price of the device does not include installation. Our authorized dealer conducts a site survey and provides a separate quote for line routing, cabling and fuse-panel work; the installation cost is determined during the survey according to your existing infrastructure."
             },
             {
               "q": "Does the portable charger operate from a normal outlet?",
@@ -1201,6 +1209,13 @@
           "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
           "badge": "22 kW three-phase smart charging station for individual and common space uses. IP65 · OCPP 1.6 · Dynamic load balancing.",
           "highlight": "About Us",
+          "visible": true
+        },
+        {
+          "categoryId": "cables",
+          "productId": "sarj-seti-32a-trifaze-5m",
+          "badge": "Most Preferred",
+          "highlight": "22 kW three-phase Type 2 charging set. 5-meter halogen-free cable, carry bag included. Practical for home and travel.",
           "visible": true
         }
       ],
@@ -1678,7 +1693,36 @@
       "siteVerification": {
         "yandex": "ae9fa7a5c2813c45",
         "bing": "C167616D2A8624840B7BB7B05FF168F3"
+      },
+      "projectSection": {
+        "eyebrow": "Custom Manufacturing",
+        "title": "Your Project, Your Color and Length",
+        "description": "Because we manufacture in our own facility, for project-based and bulk orders we can customize the cable length, the cable and connector color — even the device color — to your request. Let's find the best solution for your corporate project together.",
+        "ctaPrimaryLabel": "Contact Us for a Custom Project",
+        "ctaSecondaryLabel": "Find a Dealer"
       }
     }
+  },
+  "projectSection": {
+    "enabled": true,
+    "categories": [
+      "wallbox",
+      "cables"
+    ],
+    "eyebrow": "Projeye Özel Üretim",
+    "title": "Projenize Özel Renk ve Uzunluk",
+    "description": "Ürünlerimiz kendi tesisimizde üretildiği için, proje bazlı ve adetli işlerde kablo boyunu, kablo ve soket rengini, hatta cihaz rengini talebinize göre özelleştirebiliyoruz. Kurumsal projeniz için en uygun çözümü birlikte belirleyelim.",
+    "swatches": [
+      "#111111",
+      "#ffffff",
+      "#E31E24",
+      "#2563eb",
+      "#16a34a",
+      "#f59e0b"
+    ],
+    "ctaPrimaryLabel": "Özel Proje İçin İletişime Geçin",
+    "ctaPrimaryHref": "/iletisim",
+    "ctaSecondaryLabel": "Bayi Bul",
+    "ctaSecondaryHref": "/#dealer"
   }
 }

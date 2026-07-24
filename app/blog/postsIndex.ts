@@ -5,6 +5,24 @@
 export type PostIndexItem = { slug: string; title: string; category: string; datePublished: string; image?: string };
 export const POSTS_INDEX: PostIndexItem[] = [
   {
+    "slug": "portatif-seyyar-sarj-cihazi-nedir-ne-kadar",
+    "title": "Portatif (Seyyar) Elektrikli Araç Şarj Cihazı: Nedir, Kimlere Uygun, Ne Kadar?",
+    "category": "Rehber",
+    "datePublished": "2026-07-23"
+  },
+  {
+    "slug": "hangi-araclarda-v2l-var-turkiye",
+    "title": "Türkiye'de Hangi Elektrikli Araçlarda V2L Var? (2026 Güncel Liste)",
+    "category": "Rehber",
+    "datePublished": "2026-07-23"
+  },
+  {
+    "slug": "elektrikli-arabami-evde-nasil-sarj-ederim",
+    "title": "Elektrikli Arabamı Evde Nasıl Şarj Ederim? Yeni Başlayanlar İçin Şarj Aleti Rehberi",
+    "category": "Rehber",
+    "datePublished": "2026-07-20"
+  },
+  {
     "slug": "gunes-enerjisi-solar-ile-elektrikli-arac-sarji",
     "title": "Güneş Enerjisi (Solar) ile Elektrikli Araç Şarjı: Evde Güneş Panelinden Araç Şarj Etmek",
     "category": "Rehber",

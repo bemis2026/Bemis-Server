@@ -101,7 +101,7 @@ type CategoryData = { id: string; name: string; tagline: string; accent: string;
 type StatItem = { value: number; suffix: string; prefix?: string; label: string; description: string };
 type FaqItem = { q: string; a: string };
 type CategoryMeta = { name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string; sliderImage?: string; description?: string; descriptionImage?: string; faq?: FaqItem[]; manuals?: { id: string; name: string; url: string; size?: string }[] };
-type FeaturedItem = { categoryId: string; productId: string; badge: string; highlight: string; visible: boolean };
+type FeaturedItem = { categoryId: string; productId: string; badge: string; highlight: string; visible: boolean; image?: string };
 type ContentData = {
   hero: {
     badge: string; headline1: string; headline2: string; headline2Words?: string[]; headline3: string;
@@ -3676,6 +3676,38 @@ export default function AdminPage() {
                               next.featured[fi].highlight = v;
                               setContent(next);
                             }} multiline />
+                            {/* Kart görseli override — boşsa ürünün ana görseli kullanılır
+                                (ör. rozetsiz/temiz özel kapak). */}
+                            <div>
+                              <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Kart Görseli (opsiyonel)</label>
+                              <div className="flex items-center gap-2.5">
+                                <div className="w-11 h-11 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden flex-shrink-0">
+                                  {item.image
+                                    ? <img src={item.image} alt="" className="w-full h-full object-contain" />
+                                    : <span className="text-[9px] text-white/30 text-center leading-tight px-1">ürün<br />görseli</span>}
+                                </div>
+                                <label className="text-[11px] font-semibold text-white/70 px-2.5 py-1.5 rounded-lg bg-white/8 border border-white/12 cursor-pointer hover:bg-white/12 transition-colors">
+                                  {item.image ? "Değiştir" : "Yükle"}
+                                  <input type="file" accept="image/*" className="hidden" onChange={async (e) => {
+                                    const f = e.target.files?.[0]; if (!f) return;
+                                    try {
+                                      const { url } = await uploadImage(f, "products");
+                                      const next = JSON.parse(JSON.stringify(content)) as ContentData;
+                                      next.featured[fi].image = url;
+                                      setContent(next);
+                                    } catch (err) { alert("Yükleme hatası: " + (err as Error).message); }
+                                  }} />
+                                </label>
+                                {item.image && (
+                                  <button type="button" onClick={() => {
+                                    const next = JSON.parse(JSON.stringify(content)) as ContentData;
+                                    delete next.featured[fi].image;
+                                    setContent(next);
+                                  }} className="text-[11px] font-semibold text-red-300/80 hover:text-red-200 px-2 py-1 rounded-md hover:bg-red-500/10 transition-colors">Kaldır</button>
+                                )}
+                              </div>
+                              <p className="text-[10px] text-white/30 mt-1">Boş bırakılırsa ürünün ana görseli kullanılır.</p>
+                            </div>
                           </div>
                         );
                       })}

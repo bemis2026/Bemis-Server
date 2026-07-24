@@ -152,6 +152,20 @@ export async function getContentForLang(lang: string): Promise<any | null> {
     })(),
     contactSection:  { ...tr.contactSection,  ...(en.contactSection  ?? {}) },
     featuredSection: { ...tr.featuredSection, ...(en.featuredSection ?? {}) },
+    // Projeye Özel Üretim kartı: overlay yalnız METİN alanlarını çevirir
+    // (eyebrow/title/description/cta etiketleri). Yapısal alanlar TR-kanonik:
+    // enabled/categories/swatches/href'ler çevrilmez, TR'den gelir.
+    projectSection: (tr.projectSection || en.projectSection)
+      ? {
+          ...(tr.projectSection ?? {}),
+          ...(en.projectSection ?? {}),
+          enabled:          tr.projectSection?.enabled,
+          categories:       tr.projectSection?.categories,
+          swatches:         tr.projectSection?.swatches,
+          ctaPrimaryHref:   tr.projectSection?.ctaPrimaryHref,
+          ctaSecondaryHref: tr.projectSection?.ctaSecondaryHref,
+        }
+      : tr.projectSection,
     referenceProjectsSection: (() => {
       const trRP = tr.referenceProjectsSection ?? {};
       const enRP = en.referenceProjectsSection ?? {};

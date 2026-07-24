@@ -38,6 +38,9 @@ export type CategoryMeta = {
 
 export type FeaturedItem = {
   categoryId: string; productId: string; badge: string; highlight: string; visible: boolean;
+  // Opsiyonel kart görseli — boşsa ürünün ana görseli kullanılır. Bazı öne
+  // çıkan kartlarda özel (ör. rozetsiz/temiz) bir kapak gerekebilir.
+  image?: string;
 };
 
 export type DnaItem = { title: string; desc: string };

@@ -85,7 +85,7 @@
         },
         {
           "q": "¿La instalación está incluida?",
-          "a": "El precio del dispositivo no incluye la instalación. Nuestro distribuidor autorizado realiza una inspección y presenta una oferta aparte para los trabajos de tendido de línea, cableado y cuadro de fusibles. El coste medio de instalación varía entre 5.000 y 15.000 TL; se determina según la infraestructura existente."
+          "a": "El precio del dispositivo no incluye la instalación. Nuestro distribuidor autorizado realiza una inspección y presenta una oferta aparte para el tendido de línea, el cableado y los trabajos del cuadro de fusibles; el coste de instalación se determina durante la inspección según su infraestructura existente."
         },
         {
           "q": "¿El cargador portátil funciona con una toma normal?",
@@ -356,6 +356,13 @@
       "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
       "badge": "Cable de carga DC profesional CCS2",
       "highlight": "Sobre Nosotros",
+      "visible": true
+    },
+    {
+      "categoryId": "cables",
+      "productId": "sarj-seti-32a-trifaze-5m",
+      "badge": "Los más elegidos",
+      "highlight": "Set de carga Type 2 trifásico de 22 kW. Cable de 5 metros libre de halógenos, bolsa de transporte incluida. Práctico para casa y viajes.",
       "visible": true
     }
   ],
@@ -830,5 +837,12 @@
   "siteVerification": {
     "yandex": "ae9fa7a5c2813c45",
     "bing": "C167616D2A8624840B7BB7B05FF168F3"
+  },
+  "projectSection": {
+    "eyebrow": "Fabricación a Medida",
+    "title": "Su Proyecto, en Su Color y Longitud",
+    "description": "Como fabricamos en nuestras propias instalaciones, en pedidos por proyecto y por volumen podemos personalizar la longitud del cable, el color del cable y del conector — incluso el color del dispositivo — según su solicitud. Definamos juntos la mejor solución para su proyecto.",
+    "ctaPrimaryLabel": "Contáctenos para un Proyecto a Medida",
+    "ctaSecondaryLabel": "Buscar Distribuidor"
   }
 }

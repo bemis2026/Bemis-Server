@@ -85,7 +85,7 @@
         },
         {
           "q": "Installation inbegriffen",
-          "a": "Der Gerätepreis beinhaltet nicht die Installation. Unser autorisierter Händler führt eine Besichtigung durch und erstellt ein separates Angebot für Leitungsverlegung, Verkabelung und Arbeiten am Sicherungskasten. Die durchschnittlichen Installationskosten liegen zwischen 5.000-15.000 TL; sie werden entsprechend der vorhandenen Infrastruktur bestimmt."
+          "a": "Der Gerätepreis beinhaltet nicht die Installation. Unser autorisierter Händler führt eine Besichtigung durch und erstellt ein separates Angebot für Leitungsverlegung, Verkabelung und Arbeiten am Sicherungskasten; die Installationskosten werden bei der Besichtigung entsprechend Ihrer vorhandenen Infrastruktur festgelegt."
         },
         {
           "q": "Funktioniert das tragbare Ladegerät an einer normalen Steckdose?",
@@ -356,6 +356,13 @@
       "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
       "badge": "Professionelles DC-Ladekabel CCS2",
       "highlight": "Über uns",
+      "visible": true
+    },
+    {
+      "categoryId": "cables",
+      "productId": "sarj-seti-32a-trifaze-5m",
+      "badge": "Am beliebtesten",
+      "highlight": "22 kW dreiphasiges Type-2-Ladeset. 5-Meter halogenfreies Kabel, Tragetasche inklusive. Praktisch für Zuhause und unterwegs.",
       "visible": true
     }
   ],
@@ -830,5 +837,12 @@
   "siteVerification": {
     "yandex": "ae9fa7a5c2813c45",
     "bing": "C167616D2A8624840B7BB7B05FF168F3"
+  },
+  "projectSection": {
+    "eyebrow": "Fertigung nach Maß",
+    "title": "Ihr Projekt in Ihrer Farbe und Länge",
+    "description": "Da wir in unserem eigenen Werk fertigen, können wir bei projektbezogenen Aufträgen und Stückzahlen die Kabellänge, die Kabel- und Steckerfarbe – sogar die Gerätefarbe – nach Ihren Wünschen anpassen. Lassen Sie uns gemeinsam die beste Lösung für Ihr Projekt finden.",
+    "ctaPrimaryLabel": "Für ein individuelles Projekt kontaktieren",
+    "ctaSecondaryLabel": "Händler finden"
   }
 }

@@ -230,7 +230,9 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
         {bgHero ? (
           /* CABLES: kategori görseli tam-genişlik arka plan; metin sol koyu gradyan üstüne biner. */
           <div className="relative max-w-7xl 2xl:max-w-[1600px] mx-auto">
-            <div className="relative overflow-hidden rounded-3xl min-h-[320px] lg:min-h-[420px] flex items-center">
+            {/* Metin DİKEY ALTA hizalı — görselin alt kenarına yakın otursun
+                (kullanıcı: "başlık/açıklamayı hero görselin altına yakın, ortada değil"). */}
+            <div className="relative overflow-hidden rounded-3xl min-h-[320px] lg:min-h-[420px] flex items-end">
               <Image src={descImage} alt={category.name} fill sizes="(max-width: 1024px) 100vw, 1600px" quality={95} className="object-cover" style={{ objectPosition: heroFocus }} priority />
               <div className="absolute inset-0" aria-hidden style={{ background: "linear-gradient(100deg, rgba(8,10,14,0.95) 0%, rgba(8,10,14,0.82) 36%, rgba(8,10,14,0.42) 68%, rgba(8,10,14,0.12) 100%)" }} />
               <div className="absolute left-0 top-0 bottom-0" aria-hidden style={{ width: 4, background: `linear-gradient(180deg, ${accent} 0%, ${accent}66 100%)` }} />
@@ -420,7 +422,40 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                   ) : product.subtitle && (
                     <p className="text-[10px] leading-snug mb-2" style={{ color: textFaint }}>{product.subtitle}</p>
                   )}
-                  {product.specs?.[0]?.items?.length > 0 && (
+                  {id === "cables" ? (() => {
+                    // Kablo kartlarında EN ÖNEMLİ ayrım kW (güç); yanında kablo
+                    // kesiti (çap). specs içinden etikete göre bul, kesiti kısalt.
+                    const findSpec = (rx: RegExp): string | null => {
+                      for (const g of product.specs ?? []) {
+                        const it = (g.items ?? []).find((i) => rx.test(i.label));
+                        if (it) return it.value;
+                      }
+                      return null;
+                    };
+                    const power = findSpec(/güç|power/i);
+                    const kesitRaw = findSpec(/kesit|cross|section/i);
+                    const kesit = kesitRaw
+                      ? (kesitRaw.match(/\d+\s*[×x]\s*[\d.,]+\s*mm²?/i)?.[0]?.replace(/\s+/g, "") ?? kesitRaw.split("+")[0].trim())
+                      : null;
+                    if (!power && !kesit) return null;
+                    return (
+                      <div className="flex flex-wrap items-center gap-1.5 mb-2">
+                        {power && (
+                          <span className="text-[11px] font-extrabold px-2 py-[3px] rounded-md leading-none"
+                            style={{ background: accent, color: "#ffffff" }}>
+                            {power}
+                          </span>
+                        )}
+                        {kesit && (
+                          <span className="inline-flex items-center gap-1 text-[9.5px] font-semibold px-1.5 py-[3px] rounded-md leading-none"
+                            style={{ background: d ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.05)", color: textMuted }}>
+                            <RiRulerLine size={11} style={{ opacity: 0.75 }} />
+                            {kesit}
+                          </span>
+                        )}
+                      </div>
+                    );
+                  })() : product.specs?.[0]?.items?.length > 0 && (
                     <div className="flex flex-wrap gap-1 mb-2">
                       {product.specs[0].items.slice(0, 2).map((s, si) => (
                         <span key={si} className="text-[9px] px-1.5 py-0.5 rounded-md font-medium"
