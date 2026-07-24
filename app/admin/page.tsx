@@ -201,6 +201,7 @@ type ContentData = {
   };
   calculator?: { sectionLabel: string; heading: string; subheading: string; tabCharge: string; tabSavings: string; chargeSimLabel: string };
   smartCharger?: { sectionLabel: string; heading: string; subheading: string; ocppBadge: string; ctaLabel: string; ctaHref: string; appStoreHref: string; playStoreHref: string; features: { title: string; desc: string }[]; mockupPhoneImage?: string; mockupWebImage?: string };
+  projectSection?: { enabled: boolean; categories: string[]; eyebrow: string; title: string; description: string; swatches: string[]; ctaPrimaryLabel: string; ctaPrimaryHref: string; ctaSecondaryLabel: string; ctaSecondaryHref: string };
   productShowcase?: { badge: string; name: string; tagline: string; description: string; image: string; images?: string[]; specs: { label: string; value: string }[]; ctaPrimary: string; ctaHref: string; ctaSecondary: string; ctaSecondaryHref: string; products?: ShowcaseProductItem[]; overlayFeatures?: string[] };
   sectionBgs?: Record<string, string>;
   logos?: { dark: string; light: string };
@@ -238,7 +239,7 @@ type ShowcaseProductItem = {
 };
 type HeroLayoutKey = "logo" | "text" | "button";
 
-type Tab = "hero" | "dna" | "stats" | "products-section" | "smartcharger" | "productshowcase" | "featured" | "refprojects" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b" | "messages";
+type Tab = "hero" | "dna" | "stats" | "products-section" | "smartcharger" | "productshowcase" | "featured" | "refprojects" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b" | "messages" | "projectcard";
 
 const ADMIN_DEFAULT_SECTION_ORDER = [
   "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "referenceprojects", "reviews", "dealer", "b2bcta", "calculator"
@@ -1279,7 +1280,7 @@ export default function AdminPage() {
     setContent(next);
   };
 
-  const updateContent = (path: string[], value: string | number | null | string[] | SocialPost[]) => {
+  const updateContent = (path: string[], value: string | number | boolean | null | string[] | SocialPost[]) => {
     if (!content) return;
     const next = JSON.parse(JSON.stringify(content)) as ContentData;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -1659,6 +1660,13 @@ export default function AdminPage() {
               className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-xs font-medium text-left transition-all duration-200 ${tab === "hero" ? "bg-white/10 text-white" : "text-white/40 hover:text-white/70 hover:bg-white/4"}`}
             >
               <HiOutlineHome size={13} className="flex-shrink-0" /> Hero
+            </button>
+            {/* Kategori sayfası "Projeye Özel Üretim" kartı — homepage bölümü değil,
+                kategori sayfalarında (kablo/wallbox) görünür → standalone buton. */}
+            <button onClick={() => setTab("projectcard")}
+              className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-xs font-medium text-left transition-all duration-200 ${tab === "projectcard" ? "bg-white/10 text-white" : "text-white/40 hover:text-white/70 hover:bg-white/4"}`}
+            >
+              <HiOutlineCube size={13} className="flex-shrink-0" /> Proje Kartı
             </button>
             {/* Remaining sections: derived from sectionOrder, draggable.
                 Stale bin orders (missing newly-added sections) get the
@@ -4254,6 +4262,84 @@ export default function AdminPage() {
                   </div>
                 </div>
               )}
+
+              {/* ── PROJE KARTI (kategori sayfası "projeye özel üretim") ── */}
+              {tab === "projectcard" && (() => {
+                // ⚠️ Partial-merge: bin'de projectSection eksik/kısmi olsa da editör
+                // varsayılanları gösterir (ilk düzenlemeden sonra alanlar boşalmaz).
+                // Public tarafta ContentContext mergeContent aynı varsayılanları doldurur.
+                const D = {
+                  enabled: true, categories: ["wallbox", "cables"],
+                  eyebrow: "Projeye Özel Üretim", title: "Projenize Özel Renk ve Uzunluk",
+                  description: "Ürünlerimiz kendi tesisimizde üretildiği için, proje bazlı ve adetli işlerde kablo boyunu, kablo ve soket rengini, hatta cihaz rengini talebinize göre özelleştirebiliyoruz. Kurumsal projeniz için en uygun çözümü birlikte belirleyelim.",
+                  swatches: ["#111111", "#ffffff", "#E31E24", "#2563eb", "#16a34a", "#f59e0b"],
+                  ctaPrimaryLabel: "Özel Proje İçin İletişime Geçin", ctaPrimaryHref: "/iletisim",
+                  ctaSecondaryLabel: "Bayi Bul", ctaSecondaryHref: "/#dealer",
+                };
+                const ps = { ...D, ...(content.projectSection ?? {}) };
+                const cats = ps.categories ?? [];
+                const swatches = ps.swatches ?? [];
+                const allCats = Object.keys(content.categories ?? {});
+                const toggleCat = (cid: string) => updateContent(["projectSection", "categories"], cats.includes(cid) ? cats.filter((c) => c !== cid) : [...cats, cid]);
+                return (
+                  <div className="max-w-2xl space-y-5">
+                    <div>
+                      <h2 className="text-base font-bold mb-1">Proje Kartı — Projeye Özel Üretim</h2>
+                      <p className="text-xs text-white/35">Ürün kategori sayfalarında (ürünler ile SSS arasında) görünen tanıtım kartı. &quot;Kablo/soket/cihaz rengi ve uzunluğu özelleştirilebilir&quot; mesajı — yalnız seçtiğiniz kategorilerde çıkar.</p>
+                    </div>
+                    <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
+                      <label className="flex items-center gap-2.5 cursor-pointer">
+                        <input type="checkbox" checked={ps.enabled} onChange={(e) => updateContent(["projectSection", "enabled"], e.target.checked)} className="w-4 h-4 accent-white/80" />
+                        <span className="text-sm font-semibold">Kart aktif (seçili kategorilerde göster)</span>
+                      </label>
+
+                      <div className="pt-3 border-t border-white/6">
+                        <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider mb-2">Hangi Kategorilerde Görünsün</p>
+                        <div className="flex flex-wrap gap-2">
+                          {allCats.map((cid) => (
+                            <button key={cid} type="button" onClick={() => toggleCat(cid)}
+                              className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-colors ${cats.includes(cid) ? "bg-white/15 border-white/30 text-white" : "border-white/12 text-white/40 hover:text-white/70"}`}>
+                              {content.categories?.[cid]?.name || cid}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="pt-3 border-t border-white/6 space-y-3">
+                        <Field label="Üst Etiket (eyebrow)" value={ps.eyebrow} onChange={(v) => updateContent(["projectSection", "eyebrow"], v)} />
+                        <Field label="Başlık" value={ps.title} onChange={(v) => updateContent(["projectSection", "title"], v)} />
+                        <Field label="Açıklama" value={ps.description} onChange={(v) => updateContent(["projectSection", "description"], v)} multiline />
+                      </div>
+
+                      <div className="pt-3 border-t border-white/6">
+                        <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider mb-2">Renk Örnekleri (görsel ipucu)</p>
+                        <div className="flex flex-wrap items-center gap-2">
+                          {swatches.map((c, i) => (
+                            <div key={i} className="relative group">
+                              <input type="color" value={c} onChange={(e) => { const n = [...swatches]; n[i] = e.target.value; updateContent(["projectSection", "swatches"], n); }} className="w-9 h-9 rounded-lg cursor-pointer bg-transparent border border-white/15" title={c} />
+                              <button type="button" onClick={() => updateContent(["projectSection", "swatches"], swatches.filter((_, j) => j !== i))} className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-black/80 text-white text-[10px] flex items-center justify-center opacity-0 group-hover:opacity-100">×</button>
+                            </div>
+                          ))}
+                          <button type="button" onClick={() => updateContent(["projectSection", "swatches"], [...swatches, "#000000"])} className="w-9 h-9 rounded-lg border border-dashed border-white/25 text-white/50 hover:text-white text-lg leading-none">+</button>
+                        </div>
+                      </div>
+
+                      <div className="pt-3 border-t border-white/6 space-y-3">
+                        <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Butonlar</p>
+                        <div className="grid grid-cols-2 gap-3">
+                          <Field label="1. Buton Metni" value={ps.ctaPrimaryLabel} onChange={(v) => updateContent(["projectSection", "ctaPrimaryLabel"], v)} />
+                          <Field label="1. Buton Linki" value={ps.ctaPrimaryHref} onChange={(v) => updateContent(["projectSection", "ctaPrimaryHref"], v)} />
+                        </div>
+                        <div className="grid grid-cols-2 gap-3">
+                          <Field label="2. Buton Metni" value={ps.ctaSecondaryLabel} onChange={(v) => updateContent(["projectSection", "ctaSecondaryLabel"], v)} />
+                          <Field label="2. Buton Linki" value={ps.ctaSecondaryHref} onChange={(v) => updateContent(["projectSection", "ctaSecondaryHref"], v)} />
+                        </div>
+                        <p className="text-[10px] text-white/30">Buton metnini boş bırakırsanız o buton görünmez. Link örn: /iletisim veya /#dealer</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })()}
 
               {/* ── SMART CHARGER SECTION ── */}
               {tab === "smartcharger" && (

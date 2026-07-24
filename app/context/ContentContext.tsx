@@ -367,6 +367,21 @@ export type SiteContent = {
     /** Optional screenshot to overlay inside the web (browser) mockup frame. */
     mockupWebImage?: string;
   };
+  /** Kategori sayfalarında (ürünler↔SSS arası) "projeye özel üretim" tanıtım kartı. */
+  projectSection?: {
+    enabled: boolean;
+    /** Hangi kategori id'lerinde görünsün (varsayılan: wallbox + cables). */
+    categories: string[];
+    eyebrow: string;
+    title: string;
+    description: string;
+    /** Renk noktaları (özelleştirme görseli) — hex dizisi. */
+    swatches: string[];
+    ctaPrimaryLabel: string;
+    ctaPrimaryHref: string;
+    ctaSecondaryLabel: string;
+    ctaSecondaryHref: string;
+  };
   productShowcase: {
     badge: string;
     name: string;
@@ -724,6 +739,18 @@ const defaultContent: SiteContent = {
       { title: "Ortak Alan Optimizasyonu", desc: "Çok kullanıcılı erişim, dinamik yük dengeleme ve ödeme sistemi entegrasyonu ile tam yönetim. Standart OCPP protokolü ile tüm ağ operatörleri ve back-end platformlarıyla uyumlu çalışır." },
     ],
   },
+  projectSection: {
+    enabled: true,
+    categories: ["wallbox", "cables"],
+    eyebrow: "Projeye Özel Üretim",
+    title: "Projenize Özel Renk ve Uzunluk",
+    description: "Ürünlerimiz kendi tesisimizde üretildiği için, proje bazlı ve adetli işlerde kablo boyunu, kablo ve soket rengini, hatta cihaz rengini talebinize göre özelleştirebiliyoruz. Kurumsal projeniz için en uygun çözümü birlikte belirleyelim.",
+    swatches: ["#111111", "#ffffff", "#E31E24", "#2563eb", "#16a34a", "#f59e0b"],
+    ctaPrimaryLabel: "Özel Proje İçin İletişime Geçin",
+    ctaPrimaryHref: "/iletisim",
+    ctaSecondaryLabel: "Bayi Bul",
+    ctaSecondaryHref: "/#dealer",
+  },
   productShowcase: {
     badge: "Amiral Gemisi Ürün",
     name: "AC Wallbox Smart Charger Pro 2",
@@ -836,6 +863,9 @@ export function mergeContent(data: any, lang: Lang = "tr"): SiteContent {
         ? safe.smartCharger.ctaLabel
         : defaultContent.smartCharger.ctaLabel,
     },
+    // Eski içerik bin'lerinde projectSection yoksa varsayılana düşer; admin
+    // düzenlerse safe.projectSection kazanır. (Dizi alanları da tam override.)
+    projectSection: { ...defaultContent.projectSection!, ...safe.projectSection },
     productShowcase: {
       ...defaultContent.productShowcase,
       ...safe.productShowcase,
