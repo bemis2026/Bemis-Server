@@ -36,6 +36,66 @@ const categoryIcons: Record<string, React.ElementType> = {
 };
 
 // ── Main Page ──────────────────────────────────────────────────────────────
+/**
+ * Kategori banner açıklaması — MOBİLDE 2 satıra kırpılır + "Devamını oku" ile açılır.
+ * Masaüstünde (≥640px) tam metin görünür, buton gizli. ⚠️ Tam metin DAİMA DOM'da
+ * (line-clamp yalnız görsel kırpma) → Google mobil-öncelikli indekslemede metni
+ * tam görür, SEO kaybı YOK. Açıklamalar 247-730 karakter olduğu için mobilde
+ * çok uzundu; teaser + isteğe bağlı genişletme ile banner sadeleşir.
+ */
+function ExpandableDescription({ text, colorStyle, maxWidthClass, buttonColor }: {
+  text: string;
+  colorStyle: React.CSSProperties;
+  maxWidthClass: string;
+  buttonColor: string;
+}) {
+  const { lang } = useLanguage();
+  const [expanded, setExpanded] = useState(false);
+  const [overflowing, setOverflowing] = useState(false);
+  const ref = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const check = () => {
+      // Buton yalnız MOBİLDE + metin gerçekten 2 satırı aşıyorsa görünür.
+      // Overflow'u yalnız KAPALIYKEN ölç (açıkken clamp yok → yanlış ölçüm olmasın).
+      if (expanded) return;
+      if (typeof window !== "undefined" && window.innerWidth >= 640) { setOverflowing(false); return; }
+      setOverflowing(el.scrollHeight > el.clientHeight + 2);
+    };
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, [text, expanded]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }}
+      className={`mt-4 ${maxWidthClass}`}
+    >
+      <p
+        ref={ref}
+        className={`text-sm sm:text-base leading-relaxed whitespace-pre-line ${expanded ? "" : "line-clamp-2 sm:line-clamp-none"}`}
+        style={colorStyle}
+      >
+        {text}
+      </p>
+      {overflowing && (
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          className="sm:hidden mt-1.5 text-xs font-semibold underline underline-offset-2 hover:opacity-80 transition-opacity"
+          style={{ color: buttonColor }}
+          aria-expanded={expanded}
+        >
+          {expanded ? pickText(lang, "Daha az", "Show less") : pickText(lang, "Devamını oku", "Read more")}
+        </button>
+      )}
+    </motion.div>
+  );
+}
+
 export default function ProductCategoryPage({ initialCategory = null }: { initialCategory?: CategoryData | null }) {
   const params = useParams();
   const router = useRouter();
@@ -187,10 +247,12 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                   {category.tagline}
                 </motion.p>
                 {categoryDescription && (
-                  <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }}
-                    className="text-sm sm:text-base leading-relaxed whitespace-pre-line mt-4 max-w-xl" style={{ color: "rgba(255,255,255,0.85)" }}>
-                    {categoryDescription}
-                  </motion.p>
+                  <ExpandableDescription
+                    text={categoryDescription}
+                    colorStyle={{ color: "rgba(255,255,255,0.85)" }}
+                    maxWidthClass="max-w-xl"
+                    buttonColor="rgba(255,255,255,0.92)"
+                  />
                 )}
               </div>
             </div>
@@ -226,14 +288,12 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
             </div>
 
             {categoryDescription && (
-              <motion.div
-                initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }}
-                className="mt-4"
-              >
-                <p className="text-sm sm:text-base leading-relaxed whitespace-pre-line max-w-2xl" style={{ color: textMuted }}>
-                  {categoryDescription}
-                </p>
-              </motion.div>
+              <ExpandableDescription
+                text={categoryDescription}
+                colorStyle={{ color: textMuted }}
+                maxWidthClass="max-w-2xl"
+                buttonColor={accent}
+              />
             )}
           </div>
 
