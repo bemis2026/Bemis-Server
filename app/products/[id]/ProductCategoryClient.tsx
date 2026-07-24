@@ -37,11 +37,12 @@ const categoryIcons: Record<string, React.ElementType> = {
 
 // ── Main Page ──────────────────────────────────────────────────────────────
 /**
- * Kategori banner açıklaması — MOBİLDE 2 satıra kırpılır + "Devamını oku" ile açılır.
- * Masaüstünde (≥640px) tam metin görünür, buton gizli. ⚠️ Tam metin DAİMA DOM'da
- * (line-clamp yalnız görsel kırpma) → Google mobil-öncelikli indekslemede metni
- * tam görür, SEO kaybı YOK. Açıklamalar 247-730 karakter olduğu için mobilde
- * çok uzundu; teaser + isteğe bağlı genişletme ile banner sadeleşir.
+ * Kategori banner açıklaması — HER EKRANDA (mobil + masaüstü) 2 satıra kırpılır +
+ * "Devamını oku" ile açılır. ⚠️ Tam metin DAİMA DOM'da (line-clamp yalnız görsel
+ * kırpma) → Google metni tam görür, SEO kaybı YOK. Açıklamalar 247-730 karakter
+ * olduğu için masaüstünde de banner'ı bozacak kadar uzundu; teaser + genişletme
+ * ile her yerde sade kalır. (Önce yalnız mobilde kırpılıyordu; kullanıcı masaüstünde
+ * de görüntünün bozulduğunu bildirdi → kırpma tüm ekranlara alındı.)
  */
 function ExpandableDescription({ text, colorStyle, maxWidthClass, buttonColor }: {
   text: string;
@@ -58,10 +59,9 @@ function ExpandableDescription({ text, colorStyle, maxWidthClass, buttonColor }:
     const el = ref.current;
     if (!el) return;
     const check = () => {
-      // Buton yalnız MOBİLDE + metin gerçekten 2 satırı aşıyorsa görünür.
+      // Buton, metin gerçekten 2 satırı aşıyorsa görünür (mobil + masaüstü).
       // Overflow'u yalnız KAPALIYKEN ölç (açıkken clamp yok → yanlış ölçüm olmasın).
       if (expanded) return;
-      if (typeof window !== "undefined" && window.innerWidth >= 640) { setOverflowing(false); return; }
       setOverflowing(el.scrollHeight > el.clientHeight + 2);
     };
     check();
@@ -76,7 +76,7 @@ function ExpandableDescription({ text, colorStyle, maxWidthClass, buttonColor }:
     >
       <p
         ref={ref}
-        className={`text-sm sm:text-base leading-relaxed whitespace-pre-line ${expanded ? "" : "line-clamp-2 sm:line-clamp-none"}`}
+        className={`text-sm sm:text-base leading-relaxed whitespace-pre-line ${expanded ? "" : "line-clamp-2"}`}
         style={colorStyle}
       >
         {text}
@@ -85,7 +85,7 @@ function ExpandableDescription({ text, colorStyle, maxWidthClass, buttonColor }:
         <button
           type="button"
           onClick={() => setExpanded((v) => !v)}
-          className="sm:hidden mt-1.5 text-xs font-semibold underline underline-offset-2 hover:opacity-80 transition-opacity"
+          className="mt-1.5 text-xs font-semibold underline underline-offset-2 hover:opacity-80 transition-opacity"
           style={{ color: buttonColor }}
           aria-expanded={expanded}
         >
