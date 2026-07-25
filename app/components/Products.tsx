@@ -1,5 +1,6 @@
 "use client";
 import { pickText } from "../lib/ui";
+import { accentInk } from "../lib/accentInk";
 
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
@@ -276,7 +277,7 @@ export default function Products() {
                         {cat.badge && (
                           <span
                             className="text-[10px] font-bold px-2.5 py-1 rounded-full"
-                            style={{ background: `${cat.accent}18`, border: `1px solid ${cat.accent}35`, color: cat.accent }}
+                            style={{ background: `${cat.accent}18`, border: `1px solid ${cat.accent}35`, color: accentInk(cat.accent, d) }}
                           >
                             {cat.badge}
                           </span>
@@ -554,7 +555,7 @@ export default function Products() {
                     <p className="font-bold text-base leading-tight" style={{ color: textPrimary }}>
                       {cat.name}
                     </p>
-                    <p className="text-xs font-semibold mt-0.5" style={{ color: cat.accent }}>
+                    <p className="text-xs font-semibold mt-0.5" style={{ color: accentInk(cat.accent, d) }}>
                       {cat.comingSoon ? (pickText(lang, "Yakında", "Soon")) : `${cat.modelCount} ${pickText(lang, "Model", "Models")}`}
                     </p>
                   </div>
@@ -572,7 +573,7 @@ export default function Products() {
                     <div
                       className="flex items-center gap-1 text-xs font-semibold flex-shrink-0"
                       style={{
-                        color: cat.accent,
+                        color: accentInk(cat.accent, d),
                         transform: isHovered ? "translateX(2px)" : "translateX(0)",
                         transition: "transform 0.25s ease",
                       }}

@@ -1,6 +1,7 @@
 "use client";
 import { pickText } from "../../lib/ui";
 import CustomProductionSection from "../../components/CustomProductionSection";
+import { accentInk } from "../../lib/accentInk";
 
 import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
@@ -276,7 +277,7 @@ export default function ProductCategoryPage({ initialCategory = null, titleOverr
               />
               <div>
                 <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.05 }}
-                  className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: accent }}>
+                  className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: accentInk(accent, d) }}>
                   {pickText(lang, "Ürün Kategorisi", "Product Category")} · {category.products?.length ?? 0} {pickText(lang, "Ürün", "Products")}
                 </motion.p>
                 <motion.h1 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}
@@ -467,7 +468,7 @@ export default function ProductCategoryPage({ initialCategory = null, titleOverr
                     </div>
                   )}
                   <div className="flex items-center justify-end mt-auto">
-                    <span className="text-[10px] font-semibold" style={{ color: accent }}>{pickText(lang, "Detaylar", "Details")} →</span>
+                    <span className="text-[10px] font-semibold" style={{ color: accentInk(accent, d) }}>{pickText(lang, "Detaylar", "Details")} →</span>
                   </div>
                 </div>
               </motion.div>
@@ -556,7 +557,7 @@ export default function ProductCategoryPage({ initialCategory = null, titleOverr
               {guides.map((g) => (
                 <a key={g.href} href={g.href} className="rounded-2xl p-4 flex items-center gap-3 transition-transform hover:-translate-y-0.5" style={{ background: surface, border: `1px solid ${surfaceBorder}` }}>
                   <span className="text-sm font-semibold leading-snug" style={{ color: textPrimary }}>{g.label}</span>
-                  <span className="ml-auto text-lg flex-shrink-0" style={{ color: accent }}>→</span>
+                  <span className="ml-auto text-lg flex-shrink-0" style={{ color: accentInk(accent, d) }}>→</span>
                 </a>
               ))}
             </div>

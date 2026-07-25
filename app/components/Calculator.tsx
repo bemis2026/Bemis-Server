@@ -4,6 +4,7 @@ import { useState, useMemo, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { RiFlashlightLine, RiLeafLine, RiCalculatorLine, RiCarLine, RiBatteryChargeLine, RiGasStationLine, RiBarChartLine } from "react-icons/ri";
 import { useTheme } from "../context/ThemeContext";
+import { accentInk } from "../lib/accentInk";
 import { useContent } from "../context/ContentContext";
 import { useUiStrings, type UiStringKey } from "../../lib/uiStrings";
 import Image from "next/image";
@@ -639,7 +640,7 @@ export default function Calculator() {
                       </div>
                       {selectedCarData && (
                         <div className="flex flex-wrap gap-1.5 mt-2">
-                          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: `${BLUE}15`, color: BLUE, border: `1px solid ${BLUE}25` }}>{t("calc_battery")} {selectedCarData.battery} kWh</span>
+                          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: `${BLUE}15`, color: accentInk(BLUE, d), border: `1px solid ${BLUE}25` }}>{t("calc_battery")} {selectedCarData.battery} kWh</span>
                           <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: `${GREEN}15`, color: GREEN, border: `1px solid ${GREEN}25` }}>{t("calc_ac_max")} {selectedCarData.maxAcKw} kW</span>
                           <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: `${ORANGE}15`, color: ORANGE, border: `1px solid ${ORANGE}25` }}>{t("calc_dc_max")} {selectedCarData.maxDcKw} kW</span>
                         </div>
@@ -931,7 +932,7 @@ export default function Calculator() {
                     <p className="text-xs pb-4 text-center" style={{ color: ORANGE }}>⚡ {selectedCarData.maxDcKw} {t("calc_constrained_dc")}</p>
                   )}
                   {selectedCarData && chargeMode === "ac" && chargerPower > selectedCarData.maxAcKw && (
-                    <p className="text-xs pb-4 text-center" style={{ color: BLUE }}>{selectedCarData.maxAcKw} {t("calc_constrained_ac")}</p>
+                    <p className="text-xs pb-4 text-center" style={{ color: accentInk(BLUE, d) }}>{selectedCarData.maxAcKw} {t("calc_constrained_ac")}</p>
                   )}
                 </motion.div>
               ) : (
@@ -1015,7 +1016,7 @@ export default function Calculator() {
                     style={{ border: `1px solid ${d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}` }}>
                     <div className="px-4 py-3.5 text-center" style={{ borderRight: `1px solid ${d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}`, background: d ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.7)" }}>
                       <p className="text-xs uppercase tracking-wide mb-1" style={{ color: d ? "rgba(255,255,255,0.38)" : "rgba(0,0,0,0.40)" }}>{t("calc_ev_per_year")}</p>
-                      <p className="text-base font-black" style={{ color: BLUE }}>{fmt(savingsCalc.annualEvCost)} ₺</p>
+                      <p className="text-base font-black" style={{ color: accentInk(BLUE, d) }}>{fmt(savingsCalc.annualEvCost)} ₺</p>
                     </div>
                     <div className="px-4 py-3.5 text-center" style={{ background: d ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.7)" }}>
                       <p className="text-xs uppercase tracking-wide mb-1" style={{ color: d ? "rgba(255,255,255,0.38)" : "rgba(0,0,0,0.40)" }}>{t("calc_fuel_per_year")}</p>

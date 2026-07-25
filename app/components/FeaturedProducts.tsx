@@ -18,6 +18,7 @@ import {
 import { featureById } from "../../lib/productFeatures";
 import Image from "next/image";
 import E from "./E";
+import { accentInk } from "../lib/accentInk";
 
 // Map ProductFeatures icon strings → react-icons components.
 const FEATURE_ICONS: Record<string, React.ComponentType<{ size?: number; style?: React.CSSProperties }>> = {
@@ -261,7 +262,7 @@ export default function FeaturedProducts() {
                   <div className="flex items-center justify-between mb-2">
                     <span
                       className="text-[10px] font-bold px-2 py-0.5 rounded-full"
-                      style={{ background: `${item.accent}18`, color: item.accent, border: `1px solid ${item.accent}28` }}
+                      style={{ background: `${item.accent}18`, color: accentInk(item.accent, d), border: `1px solid ${item.accent}28` }}
                     >
                       {item.badge}
                     </span>
@@ -276,7 +277,7 @@ export default function FeaturedProducts() {
                   <h3 className="text-base font-bold leading-tight mb-0.5" style={{ color: textPrimary }}>
                     {item.prod?.name ?? item.productId}
                   </h3>
-                  <p className="text-xs mb-1.5" style={{ color: item.accent }}>
+                  <p className="text-xs mb-1.5" style={{ color: accentInk(item.accent, d) }}>
                     {item.cat?.name}
                   </p>
 
@@ -341,7 +342,7 @@ export default function FeaturedProducts() {
                   <div
                     className="flex items-center gap-1.5 text-xs font-semibold"
                     style={{
-                      color: item.accent,
+                      color: accentInk(item.accent, d),
                       transform: isHov ? "translateX(3px)" : "translateX(0)",
                       transition: "transform 0.25s",
                     }}

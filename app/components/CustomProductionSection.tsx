@@ -9,6 +9,7 @@ import { RiPaletteLine, RiRulerLine, RiPlugLine, RiArrowRightLine } from "react-
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 import { pickText } from "../lib/ui";
+import { accentInk } from "../lib/accentInk";
 
 export type CustomProductionProps = {
   eyebrow?: string;
@@ -38,6 +39,7 @@ export default function CustomProductionSection({
   const surface       = d ? "#1d1d22" : "#ffffff";
   const surfaceBorder = d ? "rgba(255,255,255,0.11)" : "rgba(0,0,0,0.07)";
   const sw = (swatches ?? []).filter(Boolean).slice(0, 8);
+  const ink = accentInk(accent, d); // aydınlıkta metin/ikon için okunur accent
 
   const attrs = [
     { Icon: RiPaletteLine, label: pickText(lang, "Kablo & soket rengi", "Cable & connector color") },
@@ -69,7 +71,7 @@ export default function CustomProductionSection({
           <div className="min-w-0">
             {eyebrow && (
               <p className="inline-flex text-[11px] sm:text-xs font-bold tracking-[0.16em] uppercase mb-3 px-3 py-1 rounded-full"
-                style={{ color: accent, background: `${accent}14`, border: `1px solid ${accent}2e` }}>
+                style={{ color: ink, background: `${accent}14`, border: `1px solid ${accent}2e` }}>
                 {eyebrow}
               </p>
             )}
@@ -105,7 +107,7 @@ export default function CustomProductionSection({
             {sw.length > 0 && (
               <div className="mb-5">
                 <div className="flex items-center gap-2 mb-3">
-                  <RiPaletteLine style={{ color: accent, fontSize: 15 }} aria-hidden />
+                  <RiPaletteLine style={{ color: ink, fontSize: 15 }} aria-hidden />
                   <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: textMuted }}>
                     {pickText(lang, "İstediğiniz Renkte", "In Your Color")}
                   </span>
@@ -124,7 +126,7 @@ export default function CustomProductionSection({
               {attrs.map((a, i) => (
                 <li key={i} className="flex items-center gap-2.5 text-sm" style={{ color: textPrimary }}>
                   <span className="flex items-center justify-center w-7 h-7 rounded-lg flex-shrink-0"
-                    style={{ background: `${accent}16`, color: accent }}>
+                    style={{ background: `${accent}16`, color: ink }}>
                     <a.Icon size={15} aria-hidden />
                   </span>
                   <span className="font-medium">{a.label}</span>
