@@ -238,7 +238,11 @@ export default function ProductCategoryPage({ initialCategory = null, titleOverr
               <Image src={descImage} alt={category.name} fill sizes="(max-width: 1024px) 100vw, 1600px" quality={95} className="object-cover" style={{ objectPosition: heroFocus }} priority />
               <div className="absolute inset-0" aria-hidden style={{ background: "linear-gradient(100deg, rgba(8,10,14,0.95) 0%, rgba(8,10,14,0.82) 36%, rgba(8,10,14,0.42) 68%, rgba(8,10,14,0.12) 100%)" }} />
               <div className="absolute left-0 top-0 bottom-0" aria-hidden style={{ width: 4, background: `linear-gradient(180deg, ${accent} 0%, ${accent}66 100%)` }} />
-              <div className="relative z-10 px-7 sm:px-10 lg:px-14 py-10 lg:py-12 max-w-2xl">
+              {/* data-keep-white: bu blok KOYU foto + koyu gradyan üstünde durur;
+                  aydınlık modda globals.css'teki ".text-white → #111" kuralı H1'i
+                  okunmaz hale getiriyordu (koyu zeminde koyu yazı). Kapsayıcıya
+                  konunca içerideki beyazlar her iki temada da beyaz kalır. */}
+              <div data-keep-white="true" className="relative z-10 px-7 sm:px-10 lg:px-14 py-10 lg:py-12 max-w-2xl">
                 <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.05 }}
                   className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: "#8fbcf7" }}>
                   {pickText(lang, "Ürün Kategorisi", "Product Category")} · {category.products?.length ?? 0} {pickText(lang, "Ürün", "Products")}
