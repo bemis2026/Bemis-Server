@@ -178,16 +178,19 @@ export default function Products() {
   const badgeBg = d ? "rgba(255,255,255,0.07)" : "rgba(255,255,255,0.85)";
   const badgeColor = d ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.45)";
   const badgeBorder = d ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.10)";
-  // ⚠️ Aydınlık modda kart görselinin altındaki BEYAZ perde KALDIRILDI (kullanıcı
-  // isteği): fotoğrafı yıkayıp "beyaz aydınlatma" gibi duruyordu. Başlık okunurluğu
-  // artık geniş yıkama yerine harflere yapışık DAR bir halo ile sağlanır — fotoğraf
-  // temiz kalır. Koyu mod DEĞİŞMEDİ (orada perde fotoğrafı bozmuyor).
+  // ⚠️ AYDINLIK MOD — kart başlığı (kullanıcı kararı 2026-07-25): fotoğrafa yayılan
+  // beyaz gradyan "perde/aydınlatma" gibi duruyordu, kaldırıldı; yerine denenen dar
+  // halo ise okunurluk için yetmedi. Şimdi: yazının arkasında DÜZ (opak) beyaz şerit
+  // → fotoğrafın üst kısmı tertemiz kalır, başlık her zeminde kesin okunur. Şerit
+  // kartın alt içerik alanıyla aynı renk (surface) olduğu için dikişsiz birleşir.
+  // Koyu mod DEĞİŞMEDİ (orada yumuşak koyu gradyan fotoğrafı bozmuyor).
   const overlayGrad = d
     ? "linear-gradient(to top, rgba(13,13,13,0.97) 0%, rgba(13,13,13,0.55) 55%, transparent 100%)"
-    : "transparent";
-  const overlayTextShadow = d
-    ? undefined
-    : "0 1px 2px rgba(255,255,255,0.95), 0 0 6px rgba(255,255,255,0.9)";
+    : surface;
+  // Düz şeritte gölgeye gerek yok; koyu modda da gradyan zaten yeterli.
+  const overlayTextShadow = undefined;
+  // Gradyan yumuşak geçiş için üstte pay ister; düz şerit yazıyı sarmalı.
+  const overlayPadding = d ? "24px 18px 16px" : "12px 18px 14px";
 
   const sectionBgUrl = sectionBgs?.["products"] ?? "";
 
@@ -554,7 +557,7 @@ export default function Products() {
                       bottom: 0,
                       left: 0,
                       right: 0,
-                      padding: "24px 18px 16px",
+                      padding: overlayPadding,
                       background: overlayGrad,
                       zIndex: 15,
                     }}
