@@ -13,6 +13,7 @@ import {
   RiGlobalLine,
 } from "react-icons/ri";
 import { useTheme } from "../context/ThemeContext";
+import { accentInk } from "../lib/accentInk";
 import { useContent } from "../context/ContentContext";
 import { useUiStrings } from "../../lib/uiStrings";
 import { PhoneScreen, WebScreen } from "./AppMockups";
@@ -425,7 +426,7 @@ export default function SmartCharger() {
                         <div className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1 rounded-lg"
                           style={{ background: `${ACCENT2}12`, border: `1px solid ${ACCENT2}25` }}>
                           <RiCodeSSlashLine size={11} style={{ color: ACCENT2 }} />
-                          <span className="text-[10px] font-semibold" style={{ color: ACCENT2 }}>{smartCharger.ocppBadge}</span>
+                          <span className="text-[10px] font-semibold" style={{ color: accentInk(ACCENT2, d) }}>{smartCharger.ocppBadge}</span>
                         </div>
                       )}
                     </div>

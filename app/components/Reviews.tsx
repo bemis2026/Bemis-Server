@@ -198,7 +198,7 @@ export default function Reviews() {
               >
                 <div className="flex items-center justify-between">
                   <Stars count={review.rating} />
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded" style={{ background: `${review.platformColor}14`, color: review.platformColor, border: `1px solid ${review.platformColor}28` }}>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded" style={{ background: `${review.platformColor}14`, color: accentInk(review.platformColor, d), border: `1px solid ${review.platformColor}28` }}>
                     {review.platform}
                   </span>
                 </div>

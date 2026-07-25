@@ -7,6 +7,7 @@ import type { MouseEvent as RMouseEvent, PointerEvent as RPointerEvent } from "r
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../../context/ThemeContext";
+import { accentInk } from "../../../lib/accentInk";
 import { useLanguage } from "../../../context/LanguageContext";
 import { useCurrency } from "../../../context/CurrencyContext";
 import { useContent } from "../../../context/ContentContext";
@@ -317,7 +318,7 @@ export default function ProductDetailPage({
         {!loading && !product && (
           <div className="text-center py-32">
             <p className="text-lg font-bold mb-2" style={{ color: textPrimary }}>{pickText(lang, "Ürün bulunamadı", "Product not found")}</p>
-            <button onClick={() => router.push("/products")} className="text-sm underline" style={{ color: accent }}>
+            <button onClick={() => router.push("/products")} className="text-sm underline" style={{ color: accentInk(accent, d) }}>
               {pickText(lang, "Tüm ürünlere dön", "Back to all products")}
             </button>
           </div>
@@ -597,7 +598,7 @@ export default function ProductDetailPage({
                   {/* Category label + product code — no category icon
                       anymore; the title was reading too crowded with it. */}
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-semibold" style={{ color: accent }}>{category.name}</span>
+                    <span className="text-xs font-semibold" style={{ color: accentInk(accent, d) }}>{category.name}</span>
                     {product.code && (
                       <span
                         className="ml-auto text-[10px] font-mono px-2 py-0.5 rounded-lg"
@@ -618,7 +619,7 @@ export default function ProductDetailPage({
                     {product.badge && (
                       <span
                         className="text-[11px] font-bold px-2.5 py-0.5 rounded-full"
-                        style={{ background: `${accent}18`, color: accent, border: `1px solid ${accent}35` }}
+                        style={{ background: `${accent}18`, color: accentInk(accent, d), border: `1px solid ${accent}35` }}
                       >
                         {product.badge}
                       </span>
@@ -993,7 +994,7 @@ export default function ProductDetailPage({
                               >
                                 <div
                                   className="flex items-center justify-center rounded-lg flex-shrink-0"
-                                  style={{ width: 36, height: 36, background: `${accent}15`, border: `1px solid ${accent}25`, color: accent }}
+                                  style={{ width: 36, height: 36, background: `${accent}15`, border: `1px solid ${accent}25`, color: accentInk(accent, d) }}
                                 >
                                   <Ico size={18} />
                                 </div>
@@ -1166,7 +1167,7 @@ export default function ProductDetailPage({
                       ))}
                     </span>
                     {r.platform && (
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded" style={{ background: `${r.platformColor ?? "#FF6000"}14`, color: r.platformColor ?? "#FF6000", border: `1px solid ${r.platformColor ?? "#FF6000"}28` }}>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded" style={{ background: `${r.platformColor ?? "#FF6000"}14`, color: accentInk(r.platformColor ?? "#FF6000", sd), border: `1px solid ${r.platformColor ?? "#FF6000"}28` }}>
                         {r.platform}
                       </span>
                     )}
@@ -1372,7 +1373,7 @@ export default function ProductDetailPage({
                       {prod.badge && (
                         <div
                           className="absolute top-1.5 right-1.5 text-[9px] font-bold px-1.5 py-0.5 rounded-full"
-                          style={{ background: `${cat.accent}22`, border: `1px solid ${cat.accent}40`, color: sd ? "rgba(255,255,255,0.75)" : cat.accent }}
+                          style={{ background: `${cat.accent}22`, border: `1px solid ${cat.accent}40`, color: sd ? "rgba(255,255,255,0.75)" : accentInk(cat.accent, false) }}
                         >
                           {prod.badge}
                         </div>
@@ -1397,7 +1398,7 @@ export default function ProductDetailPage({
                         const line = parts.join(" · ");
                         return (
                           <>
-                            <p className="text-[10px] font-semibold truncate" style={{ color: cat.accent }}>{line || cat.name}</p>
+                            <p className="text-[10px] font-semibold truncate" style={{ color: accentInk(cat.accent, sd) }}>{line || cat.name}</p>
                             {line && <p className="text-[9px] truncate mt-0.5" style={{ color: sd ? "rgba(255,255,255,0.38)" : "rgba(0,0,0,0.40)" }}>{cat.name}</p>}
                           </>
                         );

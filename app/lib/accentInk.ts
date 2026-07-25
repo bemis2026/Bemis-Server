@@ -26,7 +26,8 @@ const contrastOnWhite = (r: number, g: number, b: number) => 1.05 / (relLum(r, g
 /**
  * @param hex   accent rengi (#RRGGBB veya #RGB)
  * @param isDark tema koyu mu (useTheme().theme === "dark")
- * @returns koyu modda hex; aydınlıkta beyaz zeminde ≥4.6:1 olacak kadar karartılmış hex
+ * @returns koyu modda hex; aydınlıkta beyaz zeminde ≥5.2:1 olacak kadar karartılmış hex
+ *          (5.2 hedefi, bölüm zeminleri saf beyaz olmadığı için — ~#eef'e kadar AA ≥4.5 marjı)
  */
 export function accentInk(hex: string, isDark: boolean): string {
   if (isDark || !hex || hex[0] !== "#") return hex;
