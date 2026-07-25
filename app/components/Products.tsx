@@ -178,19 +178,17 @@ export default function Products() {
   const badgeBg = d ? "rgba(255,255,255,0.07)" : "rgba(255,255,255,0.85)";
   const badgeColor = d ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.45)";
   const badgeBorder = d ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.10)";
-  // ⚠️ AYDINLIK MOD — kart başlığı (kullanıcı kararı 2026-07-25): fotoğrafa yayılan
-  // beyaz gradyan "perde/aydınlatma" gibi duruyordu, kaldırıldı; yerine denenen dar
-  // halo ise okunurluk için yetmedi. Şimdi: yazının arkasında DÜZ (opak) beyaz şerit
-  // → fotoğrafın üst kısmı tertemiz kalır, başlık her zeminde kesin okunur. Şerit
-  // kartın alt içerik alanıyla aynı renk (surface) olduğu için dikişsiz birleşir.
-  // Koyu mod DEĞİŞMEDİ (orada yumuşak koyu gradyan fotoğrafı bozmuyor).
-  const overlayGrad = d
-    ? "linear-gradient(to top, rgba(13,13,13,0.97) 0%, rgba(13,13,13,0.55) 55%, transparent 100%)"
-    : surface;
-  // Düz şeritte gölgeye gerek yok; koyu modda da gradyan zaten yeterli.
-  const overlayTextShadow = undefined;
-  // Gradyan yumuşak geçiş için üstte pay ister; düz şerit yazıyı sarmalı.
-  const overlayPadding = d ? "24px 18px 16px" : "12px 18px 14px";
+  // ⚠️ KART BAŞLIĞI — TEMADAN BAĞIMSIZ (kullanıcı kararı 2026-07-25, son hâl):
+  // Denenenler: (1) aydınlıkta beyaz gradyan perde → fotoğrafı yıkıyordu, (2) perdesiz
+  // + dar halo → okunmuyordu, (3) düz beyaz şerit → beğenilmedi. KARAR: aydınlık mod da
+  // KOYU MODUN AYNISI olsun — yumuşak koyu gradyan + BEYAZ yazı. Fotoğraf canlı kalır,
+  // yazı her zeminde okunur (açık zeminli ürün kartlarında da gradyan alt tarafı
+  // koyulaştırdığı için beyaz yazı kaybolmaz).
+  const overlayGrad = "linear-gradient(to top, rgba(13,13,13,0.97) 0%, rgba(13,13,13,0.55) 55%, transparent 100%)";
+  const overlayPadding = "24px 18px 16px";
+  const overlayTitleColor = "#ffffff";
+  // Model sayısı: koyu zemin üstünde PARLAK accent (karartılmış ink değil).
+  const overlayAccent = (hex: string) => hex;
 
   const sectionBgUrl = sectionBgs?.["products"] ?? "";
 
@@ -562,10 +560,10 @@ export default function Products() {
                       zIndex: 15,
                     }}
                   >
-                    <p className="font-bold text-base leading-tight" style={{ color: textPrimary, textShadow: overlayTextShadow }}>
+                    <p className="font-bold text-base leading-tight" style={{ color: overlayTitleColor }}>
                       {cat.name}
                     </p>
-                    <p className="text-xs font-semibold mt-0.5" style={{ color: accentInk(cat.accent, d), textShadow: overlayTextShadow }}>
+                    <p className="text-xs font-semibold mt-0.5" style={{ color: overlayAccent(cat.accent) }}>
                       {cat.comingSoon ? (pickText(lang, "Yakında", "Soon")) : `${cat.modelCount} ${pickText(lang, "Model", "Models")}`}
                     </p>
                   </div>
