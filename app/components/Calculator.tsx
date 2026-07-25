@@ -177,12 +177,14 @@ interface SliderProps {
 }
 
 function Slider({ label, value, min, max, step = 1, unit = "", accent, textMuted, textPrimary, onChange, formatValue }: SliderProps) {
+  const { theme } = useTheme();
+  const d = theme === "dark";
   const displayValue = formatValue ? formatValue(value) : `${value.toLocaleString("tr-TR")}${unit}`;
   return (
     <div className="mb-3">
       <div className="flex justify-between items-center mb-1.5">
         <span className="text-sm font-medium" style={{ color: textMuted }}>{label}</span>
-        <span className="text-sm font-bold tabular-nums" style={{ color: accent }}>{displayValue}</span>
+        <span className="text-sm font-bold tabular-nums" style={{ color: accentInk(accent, d) }}>{displayValue}</span>
       </div>
       <input type="range" min={min} max={max} step={step} value={value}
         onChange={(e) => onChange(Number(e.target.value))}
@@ -982,7 +984,7 @@ export default function Calculator() {
                       <div key={i}>
                         <div className="flex justify-between items-center mb-1.5">
                           <span className="text-sm font-semibold" style={{ color: d ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.55)" }}>{item.label}</span>
-                          <span className="text-sm font-black tabular-nums" style={{ color: item.color }}>{fmt(item.value)} ₺</span>
+                          <span className="text-sm font-black tabular-nums" style={{ color: accentInk(item.color, d) }}>{fmt(item.value)} ₺</span>
                         </div>
                         <div className="h-2.5 rounded-full overflow-hidden" style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.08)" }}>
                           <motion.div
