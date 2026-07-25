@@ -915,8 +915,8 @@ export default function ProductDetailPage({
                                 }}
                               >
                                 <div className="px-4 py-2 flex items-center justify-between" style={{ borderBottom: `1px solid ${BRAND_BLUE}1f`, background: `${BRAND_BLUE}0c` }}>
-                                  <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: BRAND_BLUE }}>{pickText(lang, "Fiyat Listesi", "Price List")}</span>
-                                  <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full" style={{ background: `${BRAND_BLUE}15`, color: BRAND_BLUE }}>{pickText(lang, "KDV Hariç", "Excl. Tax")}</span>
+                                  <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: accentInk(BRAND_BLUE, d) }}>{pickText(lang, "Fiyat Listesi", "Price List")}</span>
+                                  <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full" style={{ background: `${BRAND_BLUE}15`, color: accentInk(BRAND_BLUE, d) }}>{pickText(lang, "KDV Hariç", "Excl. Tax")}</span>
                                 </div>
                                 {priceRows.map((row, i) => {
                                   // TR dilinde iki para birimi yan yana
@@ -934,7 +934,7 @@ export default function ProductDetailPage({
                                       style={{ borderTop: i > 0 ? `1px solid ${BRAND_BLUE}1a` : "none" }}
                                     >
                                       <span className="text-xs" style={{ color: textMuted }}>{/liste/i.test(row.label) ? (pickText(lang, "Fiyat", "Price")) : row.label}</span>
-                                      <span className="text-sm font-bold text-right inline-flex items-baseline gap-1.5 flex-wrap justify-end" style={{ color: BRAND_BLUE }}>
+                                      <span className="text-sm font-bold text-right inline-flex items-baseline gap-1.5 flex-wrap justify-end" style={{ color: accentInk(BRAND_BLUE, d) }}>
                                         {currency === "TRY" && hasNumeric ? (
                                           <>
                                             <span>{tryText}</span>
