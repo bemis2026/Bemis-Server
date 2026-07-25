@@ -81,6 +81,8 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
   posts: BlogPost[]; surface: string; border: string; textPrimary: string; textMuted: string; textFaint: string; fmtDate: (s: string) => string;
 }) {
   const { lang } = useLanguage();
+  const { theme } = useTheme();
+  const d = theme === "dark";
   const press = trPressList(allPress(), lang);
   const { categories } = useContent();
   // Tüm kategorilerin SSS'lerini topla (kaynak: admin → kategori meta `faq`).
