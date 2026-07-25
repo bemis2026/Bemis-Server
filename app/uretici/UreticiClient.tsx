@@ -10,6 +10,7 @@ import { useContent } from "../context/ContentContext";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
+import CustomProductionSection from "../components/CustomProductionSection";
 import { allPress } from "../blog/press";
 import { CITY_PAGES } from "../lib/cities";
 import {
@@ -311,6 +312,21 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
           </div>
         </motion.div>
       </section>
+
+      {/* OEM / Özel Üretim — markaya özel renk/uzunluk/etiket. Ürün kategori
+          sayfalarındaki kartla AYNI CustomProductionSection (tutarlı tasarım). */}
+      <CustomProductionSection
+        eyebrow="OEM / White-Label Üretim"
+        title="Kendi Markanızla, Kendi Renginizde Üretim"
+        description="Ürünlerimizi kendi tesisimizde ürettiğimiz için; kablo boyunu, kablo ve soket rengini, hatta cihaz rengini ve etiketini markanıza göre özelleştiriyoruz. Toplu ve proje bazlı OEM / white-label siparişlerde uçtan uca üretim ve tasarım desteği sağlıyoruz."
+        swatches={["#111111", "#ffffff", "#E31E24", "#2563eb", "#16a34a", "#f59e0b"]}
+        accent={BLUE}
+        ctaPrimaryLabel="OEM Teklifi Alın"
+        ctaPrimaryHref="/iletisim"
+        ctaSecondaryLabel="Ürünleri İncele"
+        ctaSecondaryHref="/products"
+        outerClassName="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8 py-10 w-full"
+      />
 
       {/* FAQ — basınca açılır akordeon */}
       {faq.length > 0 && (

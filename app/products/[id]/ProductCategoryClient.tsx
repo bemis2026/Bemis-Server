@@ -1,5 +1,6 @@
 "use client";
 import { pickText } from "../../lib/ui";
+import CustomProductionSection from "../../components/CustomProductionSection";
 
 import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
@@ -15,7 +16,7 @@ import SearchOverlay from "../../components/SearchOverlay";
 import {
   RiChargingPile2Line, RiBatteryChargeLine, RiFlashlightLine,
   RiPlugLine, RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
-  RiRulerLine, RiPaletteLine,
+  RiRulerLine,
 } from "react-icons/ri";
 import Image from "next/image";
 import { ProductGridSkeleton } from "../../components/ProductCardSkeleton";
@@ -476,67 +477,24 @@ export default function ProductCategoryPage({ initialCategory = null, titleOverr
       </div>
 
       {/* Projeye özel üretim tanıtım kartı — yalnız seçili kategorilerde (admin:
-          content.projectSection.categories, varsayılan wallbox + cables). Ürünler↔SSS arası. */}
+          content.projectSection.categories, varsayılan wallbox + cables). Ürünler↔SSS arası.
+          Paylaşılan CustomProductionSection (/uretici OEM sayfasıyla AYNI tasarım dili). */}
       {(() => {
         const ps = projectSection;
         if (!ps?.enabled || !Array.isArray(ps.categories) || !ps.categories.includes(id)) return null;
-        const swatches = (ps.swatches ?? []).filter(Boolean).slice(0, 8);
         return (
-          <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8 pb-14 w-full">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.5 }}
-              className="relative overflow-hidden rounded-3xl p-7 sm:p-9 lg:p-11"
-              style={{
-                background: d ? "linear-gradient(135deg, #17171c 0%, #121216 100%)" : "linear-gradient(135deg, #f6f8fc 0%, #eceff6 100%)",
-                border: `1px solid ${surfaceBorder}`,
-              }}
-            >
-              {/* accent parıltı */}
-              <div className="absolute -top-20 -right-20 w-56 h-56 rounded-full pointer-events-none" style={{ background: `radial-gradient(circle, ${accent}26 0%, transparent 70%)` }} aria-hidden />
-              <div className="relative z-[1] max-w-2xl">
-                <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2.5" style={{ color: accent }}>{ps.eyebrow}</p>
-                <h2 className="text-2xl sm:text-3xl font-black mb-3 leading-tight" style={{ color: textPrimary }}>{ps.title}</h2>
-                <p className="text-sm sm:text-base leading-relaxed mb-6" style={{ color: textMuted }}>{ps.description}</p>
-
-                {/* Renk + uzunluk görsel ipucu */}
-                <div className="flex flex-wrap items-center gap-x-7 gap-y-3 mb-7">
-                  {swatches.length > 0 && (
-                    <div className="flex items-center gap-2.5">
-                      <RiPaletteLine style={{ color: accent, fontSize: 18, flexShrink: 0 }} aria-hidden />
-                      <span className="text-xs font-semibold" style={{ color: textMuted }}>{pickText(lang, "İstenen renkte", "Custom color")}</span>
-                      <div className="flex items-center gap-1.5">
-                        {swatches.map((c, i) => (
-                          <span key={i} className="w-5 h-5 rounded-full" style={{ background: c, border: "1px solid rgba(128,128,128,0.35)", boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.18)" }} title={c} />
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                  <div className="flex items-center gap-2.5">
-                    <RiRulerLine style={{ color: accent, fontSize: 18, flexShrink: 0 }} aria-hidden />
-                    <span className="text-xs font-semibold" style={{ color: textMuted }}>{pickText(lang, "İstenen uzunlukta", "Custom length")}</span>
-                  </div>
-                </div>
-
-                {/* CTA'lar — İletişim/Teklif + Bayi Bul (admin'den düzenlenebilir) */}
-                <div className="flex flex-col sm:flex-row gap-3">
-                  {ps.ctaPrimaryLabel?.trim() && (
-                    <a href={ps.ctaPrimaryHref || "/iletisim"}
-                      className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-transform hover:-translate-y-0.5 active:translate-y-0"
-                      style={{ background: accent, boxShadow: `0 8px 22px ${accent}40` }}>
-                      {ps.ctaPrimaryLabel}
-                    </a>
-                  )}
-                  {ps.ctaSecondaryLabel?.trim() && (
-                    <a href={ps.ctaSecondaryHref || "/#dealer"}
-                      className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-sm font-bold transition-colors hover:opacity-80"
-                      style={{ color: textPrimary, border: `1.5px solid ${surfaceBorder}` }}>
-                      {ps.ctaSecondaryLabel}
-                    </a>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          </div>
+          <CustomProductionSection
+            eyebrow={ps.eyebrow}
+            title={ps.title}
+            description={ps.description}
+            swatches={ps.swatches}
+            accent={accent}
+            ctaPrimaryLabel={ps.ctaPrimaryLabel}
+            ctaPrimaryHref={ps.ctaPrimaryHref || "/iletisim"}
+            ctaSecondaryLabel={ps.ctaSecondaryLabel}
+            ctaSecondaryHref={ps.ctaSecondaryHref || "/#dealer"}
+            outerClassName="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8 pb-14 w-full"
+          />
         );
       })()}
 
