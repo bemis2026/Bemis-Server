@@ -1532,7 +1532,7 @@
     "products": [
       {
         "id": "sarj-seti-20a-monofaze-3m",
-        "name": "Şarj Seti 20A Monofaze",
+        "name": "Şarj Seti 20A Monofaze 3,7 kW",
         "code": "BEV-3020-1203",
         "subtitle": "3m Kablolu",
         "badge": null,
@@ -1601,7 +1601,7 @@
       },
       {
         "id": "sarj-seti-20a-monofaze-5m",
-        "name": "Şarj Seti 20A Monofaze",
+        "name": "Şarj Seti 20A Monofaze 3,7 kW",
         "code": "BEV-3020-1205",
         "subtitle": "5m Kablolu",
         "badge": null,
@@ -1670,7 +1670,7 @@
       },
       {
         "id": "sarj-seti-20a-monofaze-7m",
-        "name": "Şarj Seti 20A Monofaze",
+        "name": "Şarj Seti 20A Monofaze 3,7 kW",
         "code": "BEV-3020-1207",
         "subtitle": "7m Kablolu",
         "badge": null,
@@ -1739,7 +1739,7 @@
       },
       {
         "id": "sarj-seti-20a-monofaze-8m",
-        "name": "Şarj Seti 20A Monofaze",
+        "name": "Şarj Seti 20A Monofaze 3,7 kW",
         "code": "BEV-3020-1208",
         "subtitle": "8m Kablolu",
         "badge": null,
@@ -1808,7 +1808,7 @@
       },
       {
         "id": "sarj-seti-20a-monofaze-10m",
-        "name": "Şarj Seti 20A Monofaze",
+        "name": "Şarj Seti 20A Monofaze 3,7 kW",
         "code": "BEV-3020-1210",
         "subtitle": "10m Kablolu",
         "badge": null,
@@ -1877,7 +1877,7 @@
       },
       {
         "id": "sarj-seti-32a-monofaze-3m",
-        "name": "Şarj Seti 32A Monofaze",
+        "name": "Şarj Seti 32A Monofaze 7,4 kW",
         "code": "BEV-3032-1203",
         "subtitle": "3m Kablolu",
         "badge": null,
@@ -1946,7 +1946,7 @@
       },
       {
         "id": "sarj-seti-32a-monofaze-5m",
-        "name": "Şarj Seti 32A Monofaze",
+        "name": "Şarj Seti 32A Monofaze 7,4 kW",
         "code": "BEV-3032-1205",
         "subtitle": "5m Kablolu",
         "badge": null,
@@ -2015,7 +2015,7 @@
       },
       {
         "id": "sarj-seti-32a-monofaze-7m",
-        "name": "Şarj Seti 32A Monofaze",
+        "name": "Şarj Seti 32A Monofaze 7,4 kW",
         "code": "BEV-3032-1207",
         "subtitle": "7m Kablolu",
         "badge": null,
@@ -2084,7 +2084,7 @@
       },
       {
         "id": "sarj-seti-32a-monofaze-8m",
-        "name": "Şarj Seti 32A Monofaze",
+        "name": "Şarj Seti 32A Monofaze 7,4 kW",
         "code": "BEV-3032-1208",
         "subtitle": "8m Kablolu",
         "badge": null,
@@ -2153,7 +2153,7 @@
       },
       {
         "id": "sarj-seti-32a-monofaze-10m",
-        "name": "Şarj Seti 32A Monofaze",
+        "name": "Şarj Seti 32A Monofaze 7,4 kW",
         "code": "BEV-3032-1210",
         "subtitle": "10m Kablolu",
         "badge": null,
@@ -2222,7 +2222,7 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-3m",
-        "name": "Şarj Seti 20A Trifaze",
+        "name": "Şarj Seti 20A Trifaze 11 kW",
         "code": "BEV-5020-1203",
         "subtitle": "3m Kablolu",
         "badge": null,
@@ -2291,7 +2291,7 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-5m",
-        "name": "Şarj Seti 20A Trifaze",
+        "name": "Şarj Seti 20A Trifaze 11 kW",
         "code": "BEV-5020-1205",
         "subtitle": "5m Kablolu",
         "badge": null,
@@ -2360,7 +2360,7 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-7m",
-        "name": "Şarj Seti 20A Trifaze",
+        "name": "Şarj Seti 20A Trifaze 11 kW",
         "code": "BEV-5020-1207",
         "subtitle": "7m Kablolu",
         "badge": null,
@@ -2429,7 +2429,7 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-8m",
-        "name": "Şarj Seti 20A Trifaze",
+        "name": "Şarj Seti 20A Trifaze 11 kW",
         "code": "BEV-5020-1208",
         "subtitle": "8m Kablolu",
         "badge": null,
@@ -2498,7 +2498,7 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-10m",
-        "name": "Şarj Seti 20A Trifaze",
+        "name": "Şarj Seti 20A Trifaze 11 kW",
         "code": "BEV-5020-1210",
         "subtitle": "10m Kablolu",
         "badge": null,
@@ -2567,7 +2567,7 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-15m",
-        "name": "Şarj Seti 20A Trifaze",
+        "name": "Şarj Seti 20A Trifaze 11 kW",
         "code": "BEV-5020-1215",
         "subtitle": "15m Kablolu",
         "badge": null,
@@ -2635,7 +2635,7 @@
       },
       {
         "id": "sarj-seti-32a-trifaze-3m",
-        "name": "Şarj Seti 32A Trifaze",
+        "name": "Şarj Seti 32A Trifaze 22 kW",
         "code": "BEV-5032-1203",
         "subtitle": "3m Kablolu",
         "badge": null,
@@ -2704,7 +2704,7 @@
       },
       {
         "id": "sarj-seti-32a-trifaze-5m",
-        "name": "Şarj Seti 32A Trifaze",
+        "name": "Şarj Seti 32A Trifaze 22 kW",
         "code": "BEV-5032-1205",
         "subtitle": "5m Kablolu",
         "badge": null,
@@ -2773,7 +2773,7 @@
       },
       {
         "id": "sarj-seti-32a-trifaze-7m",
-        "name": "Şarj Seti 32A Trifaze",
+        "name": "Şarj Seti 32A Trifaze 22 kW",
         "code": "BEV-5032-1207",
         "subtitle": "7m Kablolu",
         "badge": null,
@@ -2842,7 +2842,7 @@
       },
       {
         "id": "sarj-seti-32a-trifaze-8m",
-        "name": "Şarj Seti 32A Trifaze",
+        "name": "Şarj Seti 32A Trifaze 22 kW",
         "code": "BEV-5032-1208",
         "subtitle": "8m Kablolu",
         "badge": null,
@@ -2911,7 +2911,7 @@
       },
       {
         "id": "sarj-seti-32a-trifaze-10m",
-        "name": "Şarj Seti 32A Trifaze",
+        "name": "Şarj Seti 32A Trifaze 22 kW",
         "code": "BEV-5032-1210",
         "subtitle": "10m Kablolu",
         "badge": null,
@@ -2980,7 +2980,7 @@
       },
       {
         "id": "sarj-seti-32a-trifaze-15m",
-        "name": "Şarj Seti 32A Trifaze",
+        "name": "Şarj Seti 32A Trifaze 22 kW",
         "code": "BEV-5032-1215",
         "subtitle": "15m Kablolu",
         "badge": null,
