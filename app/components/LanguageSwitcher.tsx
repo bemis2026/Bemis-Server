@@ -6,8 +6,9 @@
 // ⚠️ Windows'ta bayrak emoji glyph'i olmayabilir → yanında native ad + kod DAİMA görünür (belirsizlik yok).
 
 import { useState, useRef, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
-import { LANGS } from "../lib/languages";
+import { LANGS, type LangCode } from "../lib/languages";
 
 type Props = {
   compact?: boolean;
@@ -27,6 +28,20 @@ export default function LanguageSwitcher({
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const current = LANGS.find((l) => l.code === lang) ?? LANGS[0];
+  const pathname = usePathname();
+  const router = useRouter();
+
+  // Ürün/kategori sayfalarında dil = GERÇEK URL (indekslenebilir /en). Eşleme
+  // varsa oraya git; /en sayfaları İngilizce zorlar (setLang'e gerek yok → Türk
+  // ziyaretçinin tercihi localStorage'a yazılmaz). Diğer sayfalarda client-side.
+  function onPick(code: LangCode) {
+    setOpen(false);
+    const trSeg = (pathname ?? "").match(/^\/products(\/[^/]+)?$/);
+    const enSeg = (pathname ?? "").match(/^\/en\/products(\/[^/]+)?$/);
+    if (code === "en" && trSeg) { router.push(`/en/products${trSeg[1] ?? ""}`); return; }
+    if (enSeg && code !== "en") { setLang(code); router.push(`/products${enSeg[1] ?? ""}`); return; }
+    setLang(code);
+  }
 
   useEffect(() => {
     if (!open) return;
@@ -78,7 +93,7 @@ export default function LanguageSwitcher({
                 key={l.code}
                 role="option"
                 aria-selected={sel}
-                onClick={() => { setLang(l.code); setOpen(false); }}
+                onClick={() => onPick(l.code)}
                 className="w-full flex items-center gap-2.5 px-3 py-2 text-sm transition-colors"
                 style={{ background: sel ? activeBg : "transparent", color: panelText, fontWeight: sel ? 700 : 500 }}
                 onMouseEnter={(e) => { if (!sel) (e.currentTarget as HTMLElement).style.background = activeBg; }}

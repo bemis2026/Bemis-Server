@@ -36,7 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: BASE,                lastModified: now, changeFrequency: "weekly",  priority: 1.0 },
-    { url: `${BASE}/products`,  lastModified: now, changeFrequency: "weekly",  priority: 0.9 },
+    { url: `${BASE}/products`,  lastModified: now, changeFrequency: "weekly",  priority: 0.9, alternates: { languages: { tr: `${BASE}/products`, en: `${BASE}/en/products` } } },
     { url: `${BASE}/uretici`,   lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/kurumsal`,  lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/documents`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
@@ -86,9 +86,41 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now,
       changeFrequency: "weekly" as const,
       priority: 0.8,
+      alternates: { languages: { tr: `${BASE}/products/${id}`, en: `${BASE}/en/products/${id}` } },
       ...(imgs.length > 0 && { images: imgs }),
     };
   });
+
+  // İngilizce (indekslenebilir) ürün + kategori sayfaları — /en/products(/id).
+  // hreflang alternates ile TR karşılığına çift yönlü bağlı (Google keşfi + dil eşleme).
+  const enProductRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE}/en/products`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.85,
+      alternates: { languages: { tr: `${BASE}/products`, en: `${BASE}/en/products` } },
+    },
+    ...CATEGORY_IDS.map((id) => {
+      const cat = productById.get(id);
+      const imgs: string[] = [];
+      if (cat?.products) {
+        for (const p of cat.products) {
+          const img = (p.image || p.images?.[0] || "").trim();
+          if (img && !imgs.includes(img)) imgs.push(img);
+          if (imgs.length >= 5) break;
+        }
+      }
+      return {
+        url: `${BASE}/en/products/${id}`,
+        lastModified: now,
+        changeFrequency: "weekly" as const,
+        priority: 0.8,
+        alternates: { languages: { tr: `${BASE}/products/${id}`, en: `${BASE}/en/products/${id}` } },
+        ...(imgs.length > 0 && { images: imgs }),
+      };
+    }),
+  ];
 
   const productRoutes: MetadataRoute.Sitemap = products.flatMap((cat) =>
     (cat.products ?? []).map((p) => {
@@ -132,5 +164,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   ];
 
-  return [...staticRoutes, ...cityRoutes, ...categoryRoutes, ...productRoutes, ...blogRoutes, ...glossaryRoutes];
+  return [...staticRoutes, ...cityRoutes, ...categoryRoutes, ...enProductRoutes, ...productRoutes, ...blogRoutes, ...glossaryRoutes];
 }

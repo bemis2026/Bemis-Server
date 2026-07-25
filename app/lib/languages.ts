@@ -69,6 +69,14 @@ export function promptLangName(code: LangCode): string {
  */
 export const ENGLISH_ONLY_PATHS: readonly string[] = ["/export"];
 
+/**
+ * ⚠️ 2026-07-25: Çok-dilli URL yapısı — `/en` ve `/en/*` tüm yolları da İngilizce
+ * zorlanır (indekslenebilir İngilizce ürün/kategori sayfaları: /en/products,
+ * /en/products/<kategori>). Böylece Google TR ve EN'i AYRI URL'ler olarak indeksler;
+ * hreflang ile karşılıklı bağlanır. Kabuk (menü/footer/html-lang) İngilizce olur.
+ */
 export function isEnglishOnlyPath(pathname: string | null | undefined): boolean {
-  return !!pathname && ENGLISH_ONLY_PATHS.includes(pathname);
+  if (!pathname) return false;
+  if (ENGLISH_ONLY_PATHS.includes(pathname)) return true;
+  return pathname === "/en" || pathname.startsWith("/en/");
 }
