@@ -33,12 +33,12 @@ export function accentInk(hex: string, isDark: boolean): string {
   const key = hex.toLowerCase();
   if (_cache[key]) return _cache[key];
   const [r, g, b] = hexToRgb(hex);
-  if (contrastOnWhite(r, g, b) >= 4.6) { _cache[key] = hex; return hex; }
+  if (contrastOnWhite(r, g, b) >= 5.2) { _cache[key] = hex; return hex; }
   let out = toHex(r, g, b);
   for (let t = 0.06; t <= 0.9; t += 0.06) {
     const rr = r * (1 - t), gg = g * (1 - t), bb = b * (1 - t);
     out = toHex(rr, gg, bb);
-    if (contrastOnWhite(rr, gg, bb) >= 4.6) break;
+    if (contrastOnWhite(rr, gg, bb) >= 5.2) break;
   }
   _cache[key] = out;
   return out;
