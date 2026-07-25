@@ -36,8 +36,11 @@ export default function LanguageSwitcher({
   // ziyaretçinin tercihi localStorage'a yazılmaz). Diğer sayfalarda client-side.
   function onPick(code: LangCode) {
     setOpen(false);
-    const trSeg = (pathname ?? "").match(/^\/products(\/[^/]+)?$/);
-    const enSeg = (pathname ?? "").match(/^\/en\/products(\/[^/]+)?$/);
+    // {0,2} segment: /products · /products/<kategori> · /products/<kategori>/<ürün>
+    // (ürün DETAY sayfaları da eşlensin — tek segmentte kalınca detayda dil
+    // değiştirmek TR↔EN geçişi yapmıyordu).
+    const trSeg = (pathname ?? "").match(/^\/products((?:\/[^/]+){0,2})$/);
+    const enSeg = (pathname ?? "").match(/^\/en\/products((?:\/[^/]+){0,2})$/);
     if (code === "en" && trSeg) { router.push(`/en/products${trSeg[1] ?? ""}`); return; }
     if (enSeg && code !== "en") { setLang(code); router.push(`/products${enSeg[1] ?? ""}`); return; }
     setLang(code);

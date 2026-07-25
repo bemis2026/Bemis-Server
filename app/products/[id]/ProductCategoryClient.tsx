@@ -3,7 +3,7 @@ import { pickText } from "../../lib/ui";
 import CustomProductionSection from "../../components/CustomProductionSection";
 import { accentInk } from "../../lib/accentInk";
 
-import { useParams, useRouter } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { useContent } from "../../context/ContentContext";
@@ -110,6 +110,11 @@ export default function ProductCategoryPage({ initialCategory = null, titleOverr
   const [category, setCategory]         = useState<CategoryData | null>(initialCategory);
   const [loading, setLoading]           = useState(initialCategory === null);
   const id = typeof params.id === "string" ? params.id : "";
+  // ⚠️ Bu bileşen HEM /products/[id] HEM /en/products/[id] altında çalışır.
+  // /en'deyken ürün linkleri de /en kalmalı — yoksa İngilizce ziyaretçi tek
+  // tıkta Türkçe ürün sayfasına düşüyordu (dil zinciri kopuyordu).
+  const pathname = usePathname();
+  const base = pathname?.startsWith("/en/") ? "/en/products" : "/products";
   const isFirstMount = useRef(true);
 
   useEffect(() => {
@@ -374,7 +379,7 @@ export default function ProductCategoryPage({ initialCategory = null, titleOverr
                 {/* Product image / icon — height /products listesindeki
                     kartlarla aynı (170px); object-contain ile küçük cihazlar
                     da kartın orta noktasında pürüzsüz oturur. */}
-                <div className="relative overflow-hidden" onClick={() => router.push(`/products/${id}/${product.id}`)}
+                <div className="relative overflow-hidden" onClick={() => router.push(`${base}/${id}/${product.id}`)}
                   style={{ aspectRatio: "1 / 1", background: d ? `linear-gradient(150deg, ${accent}16 0%, transparent 55%), #dbdee3` : `linear-gradient(150deg, ${accent}0f 0%, transparent 55%), #f3f4f6` }}>
                   {/* TÜM kategoriler KARE (1:1) — foto-uyumu: portable'ın kare fotoları tam dolar,
                       diğer kategorilerin dikey fotoları 170px yatay çerçeveye göre daha büyük/dolu
@@ -419,7 +424,7 @@ export default function ProductCategoryPage({ initialCategory = null, titleOverr
                 </div>
 
                 {/* Info */}
-                <div className="px-3 py-3 flex flex-col flex-1" onClick={() => router.push(`/products/${id}/${product.id}`)}>
+                <div className="px-3 py-3 flex flex-col flex-1" onClick={() => router.push(`${base}/${id}/${product.id}`)}>
                   <p className="font-bold text-xs leading-tight mb-0.5" style={{ color: textPrimary }}>{product.name}</p>
                   {variantCount > 1 ? (
                     <p className="text-[10px] leading-snug mb-2" style={{ color: textFaint }}>

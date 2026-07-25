@@ -56,7 +56,8 @@ export async function generateMetadata({
     title,
     description,
     ...(keywords && { keywords }),
-    alternates: { canonical, languages: { tr: canonical, "x-default": canonical } },
+    // Karşılıklı hreflang: İngilizce eşi /en/products/... (2026-07-25).
+    alternates: { canonical, languages: { tr: canonical, en: `/en${canonical}`, "x-default": canonical } },
     openGraph: {
       title,
       description,

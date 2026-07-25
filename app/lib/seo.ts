@@ -375,6 +375,9 @@ export function productSchema(opts: {
   categoryName?: string;
   categoryId: string;
   reviews?: ReviewShape[]; // gerçek müşteri yorumları (curated eşleşme) → AggregateRating + Review
+  /** Şemadaki canonical URL yolu — /en ürün sayfaları kendi URL'ini vermeli
+   *  (varsayılan TR yolu: /products/<kategori>/<ürün>). */
+  urlPath?: string;
 }): JsonLdObject {
   const { product, categoryName, categoryId } = opts;
   const imgs = [product.image, ...(product.images ?? [])]
@@ -382,7 +385,7 @@ export function productSchema(opts: {
     .map(u => absolute(u))
     .filter((x): x is string => Boolean(x))
     .filter((v, i, arr) => arr.indexOf(v) === i); // dedupe — aynı URL 2 kez olmasın
-  const url = `${SITE_URL}/products/${categoryId}/${product.id}`;
+  const url = `${SITE_URL}${opts.urlPath ?? `/products/${categoryId}/${product.id}`}`;
   const offer = extractOffer(product);
   const kw = productKeywords(product);
   // Teknik özellikler → additionalProperty (güç/faz/soket/IP/kablo). Fiyat grubu hariç (offers'ta).

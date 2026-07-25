@@ -133,6 +133,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: now,
         changeFrequency: "monthly" as const,
         priority: 0.7,
+        alternates: { languages: { tr: `${BASE}/products/${cat.id}/${p.id}`, en: `${BASE}/en/products/${cat.id}/${p.id}` } },
+        ...(imgs.length > 0 && { images: imgs }),
+      };
+    })
+  );
+
+  // İngilizce ürün DETAY sayfaları (/en/products/<kategori>/<ürün>) — TR eşiyle
+  // çift yönlü hreflang. Kategori/liste EN girişleri yukarıda (enProductRoutes).
+  const enProductDetailRoutes: MetadataRoute.Sitemap = products.flatMap((cat) =>
+    (cat.products ?? []).map((p) => {
+      const imgs = [p.image, ...(p.images ?? [])]
+        .map((x) => (x ?? "").trim())
+        .filter(Boolean)
+        .filter((v, i, arr) => arr.indexOf(v) === i);
+      return {
+        url: `${BASE}/en/products/${cat.id}/${p.id}`,
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+        alternates: { languages: { tr: `${BASE}/products/${cat.id}/${p.id}`, en: `${BASE}/en/products/${cat.id}/${p.id}` } },
         ...(imgs.length > 0 && { images: imgs }),
       };
     })
@@ -164,5 +184,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   ];
 
-  return [...staticRoutes, ...cityRoutes, ...categoryRoutes, ...enProductRoutes, ...productRoutes, ...blogRoutes, ...glossaryRoutes];
+  return [...staticRoutes, ...cityRoutes, ...categoryRoutes, ...enProductRoutes, ...enProductDetailRoutes, ...productRoutes, ...blogRoutes, ...glossaryRoutes];
 }
