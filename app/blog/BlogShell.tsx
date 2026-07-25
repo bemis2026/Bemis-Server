@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
+import { accentInk } from "../lib/accentInk";
 import { useLanguage } from "../context/LanguageContext";
 import { useContent } from "../context/ContentContext";
 import Navbar from "../components/Navbar";
@@ -117,7 +118,7 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
           geçildi. ⚠️ `wide-content` KALDIRILDI: `.wide-content.mx-auto` özgüllüğü
           (0,2,0) Tailwind'in 2xl:max-w-[1600px]'ini (0,1,0) ezip 1360px'e sabitliyordu. */}
       <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
-        <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: BLUE }}>Bemis E-V Charge · Blog</p>
+        <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: accentInk(BLUE, d) }}>Bemis E-V Charge · Blog</p>
         <h1 className="text-3xl sm:text-4xl font-black mb-3" style={{ color: textPrimary }}>{pickText(lang, "Blog & Haberler", "Blog & News")}</h1>
         <p className="text-sm sm:text-base mb-6 max-w-2xl" style={{ color: textMuted }}>
           {lang === "en"
@@ -169,13 +170,13 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
                 <Link href={`/blog/${p.slug}`} className="block rounded-2xl overflow-hidden h-full transition-transform hover:-translate-y-0.5"
                   style={{ background: surface, border: `1px solid ${border}` }}>
                   <div className="p-5 flex flex-col h-full">
-                    <span className="self-start text-[10px] font-bold px-2 py-0.5 rounded-md mb-3" style={{ background: `${BLUE}18`, color: BLUE }}>{p.category}</span>
+                    <span className="self-start text-[10px] font-bold px-2 py-0.5 rounded-md mb-3" style={{ background: `${BLUE}18`, color: accentInk(BLUE, d) }}>{p.category}</span>
                     <h2 className="text-lg font-bold leading-snug mb-2" style={{ color: textPrimary }}>{p.title}</h2>
                     <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: textMuted }}>{p.excerpt}</p>
                     <div className="flex items-center gap-3 text-[11px]" style={{ color: textFaint }}>
                       <span className="flex items-center gap-1"><HiCalendar size={12} />{fmtDate(p.datePublished)}</span>
                       <span className="flex items-center gap-1"><HiClock size={12} />{p.readingMinutes} {pickText(lang, "dk", "min")}</span>
-                      <span className="ml-auto flex items-center gap-1 font-semibold" style={{ color: BLUE }}>{pickText(lang, "Oku", "Read")} <HiArrowRight size={12} /></span>
+                      <span className="ml-auto flex items-center gap-1 font-semibold" style={{ color: accentInk(BLUE, d) }}>{pickText(lang, "Oku", "Read")} <HiArrowRight size={12} /></span>
                     </div>
                   </div>
                 </Link>
@@ -221,7 +222,7 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
                   )}
                   <div className="p-5 flex flex-col flex-1">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-md" style={{ background: `${meta.color}18`, color: meta.color, border: `1px solid ${meta.color}30` }}>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-md" style={{ background: `${meta.color}18`, color: accentInk(meta.color, d), border: `1px solid ${meta.color}30` }}>
                         {pressLabel(it.type, lang)}
                       </span>
                       <span className="text-[11px] font-semibold" style={{ color: textMuted }}>{it.source}</span>
@@ -229,7 +230,7 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
                     </div>
                     <h3 className="text-base font-bold leading-snug mb-2" style={{ color: textPrimary }}>{it.title}</h3>
                     <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: textMuted }}>{it.summary}</p>
-                    <span className="text-[12px] font-semibold inline-flex items-center gap-1" style={{ color: BLUE }}>
+                    <span className="text-[12px] font-semibold inline-flex items-center gap-1" style={{ color: accentInk(BLUE, d) }}>
                       {pickText(lang, "Özet İncele", "Read Summary")} <HiArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
                     </span>
                   </div>
@@ -255,7 +256,7 @@ function Article({ post, d, surface, border, textPrimary, textMuted, textFaint, 
           <HiArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Blog
         </Link>
 
-        <span className="inline-block text-[10px] font-bold px-2 py-0.5 rounded-md mb-3" style={{ background: `${BLUE}18`, color: BLUE }}>{post.category}</span>
+        <span className="inline-block text-[10px] font-bold px-2 py-0.5 rounded-md mb-3" style={{ background: `${BLUE}18`, color: accentInk(BLUE, d) }}>{post.category}</span>
         <h1 className="text-3xl sm:text-4xl font-black leading-tight mb-4" style={{ color: textPrimary }}>{post.title}</h1>
         <div className="flex items-center gap-4 text-xs mb-8 pb-6" style={{ color: textFaint, borderBottom: `1px solid ${border}` }}>
           <span className="flex items-center gap-1.5"><HiCalendar size={13} />{fmtDate(post.datePublished)}</span>
@@ -289,7 +290,7 @@ function Article({ post, d, surface, border, textPrimary, textMuted, textFaint, 
             <div className="flex flex-wrap gap-2">
               {post.related.map((r) => (
                 <Link key={r.href} href={r.href} className="text-sm font-semibold px-3.5 py-2 rounded-xl transition-colors"
-                  style={{ background: `${BLUE}14`, color: BLUE, border: `1px solid ${BLUE}30` }}>
+                  style={{ background: `${BLUE}14`, color: accentInk(BLUE, d), border: `1px solid ${BLUE}30` }}>
                   {r.label} →
                 </Link>
               ))}
@@ -317,7 +318,7 @@ function PressArticle({ item, d, surface, border, textPrimary, textMuted, textFa
         </Link>
 
         <div className="flex items-center gap-2 mb-3">
-          <span className="text-[11px] font-bold px-2.5 py-1 rounded-md" style={{ background: `${meta.color}18`, color: meta.color, border: `1px solid ${meta.color}30` }}>{pressLabel(item.type, lang)}</span>
+          <span className="text-[11px] font-bold px-2.5 py-1 rounded-md" style={{ background: `${meta.color}18`, color: accentInk(meta.color, d), border: `1px solid ${meta.color}30` }}>{pressLabel(item.type, lang)}</span>
           <span className="text-xs font-semibold" style={{ color: textMuted }}>{item.source}</span>
           {item.date && <span className="text-xs ml-auto" style={{ color: textFaint }}>{fmtDate(item.date)}</span>}
         </div>
@@ -352,7 +353,7 @@ function PressArticle({ item, d, surface, border, textPrimary, textMuted, textFa
             <div className="grid sm:grid-cols-2 gap-3">
               {others.map((o) => (
                 <Link key={o.id} href={`/blog/haber/${o.id}`} className="rounded-xl p-3.5 transition-transform hover:-translate-y-0.5" style={{ background: surface, border: `1px solid ${border}` }}>
-                  <p className="text-[11px] font-semibold mb-1" style={{ color: PRESS_META[o.type].color }}>{pressLabel(o.type, lang)} · {o.source}</p>
+                  <p className="text-[11px] font-semibold mb-1" style={{ color: accentInk(PRESS_META[o.type].color, d) }}>{pressLabel(o.type, lang)} · {o.source}</p>
                   <p className="text-sm font-semibold leading-snug" style={{ color: textPrimary }}>{o.title}</p>
                 </Link>
               ))}

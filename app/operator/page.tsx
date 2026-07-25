@@ -8,6 +8,7 @@ import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
 import { useTheme } from "../context/ThemeContext";
+import { accentInk } from "../lib/accentInk";
 import { useLanguage } from "../context/LanguageContext";
 import {
   RiWifiLine, RiBarChartLine, RiShieldCheckLine, RiGlobalLine,
@@ -116,14 +117,14 @@ export default function OperatorPage() {
         <div className="relative z-10 max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
             <div className="flex items-center gap-2.5 mb-4">
-              <RiWifiLine style={{ color: PURPLE, fontSize: 14 }} />
-              <span className="text-xs font-bold tracking-[0.20em] uppercase" style={{ color: PURPLE }}>
+              <RiWifiLine style={{ color: accentInk(PURPLE, d), fontSize: 14 }} />
+              <span className="text-xs font-bold tracking-[0.20em] uppercase" style={{ color: accentInk(PURPLE, d) }}>
                 Şarj Ağı Operatörleri
               </span>
             </div>
             <h1 className="font-black leading-tight mb-3" style={{ fontSize: "clamp(1.75rem, 4vw, 2.75rem)", color: text }}>
               {cms.heading1}<br />
-              <span style={{ color: PURPLE }}>{cms.heading2}</span>
+              <span style={{ color: accentInk(PURPLE, d) }}>{cms.heading2}</span>
             </h1>
             <motion.div
               initial={{ scaleX: 0, opacity: 0 }}
@@ -160,7 +161,7 @@ export default function OperatorPage() {
         )}
         <div className="relative z-10 max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-8">
           <div className="mb-8">
-            <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: PURPLE }}>Teknik Altyapı</p>
+            <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: accentInk(PURPLE, d) }}>Teknik Altyapı</p>
             <h2 className="text-2xl sm:text-3xl font-black mb-2" style={{ color: text }}>Operatör Odaklı Özellikler</h2>
             <p className="text-sm max-w-2xl" style={{ color: muted }}>
               OCPP 1.6J / 2.0.1 uyumlu donanımlar, dinamik güç yönetimi, uzaktan izleme ve sertifikalı altyapıyla şarj ağınız için uçtan uca operatör desteği.
@@ -207,15 +208,15 @@ export default function OperatorPage() {
             style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow, backdropFilter: cms.featuresBg ? "blur(6px)" : "none" }}
           >
             <div className="flex items-center gap-2 mb-4">
-              <RiCheckLine style={{ color: BLUE, fontSize: 14 }} />
-              <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: BLUE }}>OCPP Destekli Fonksiyonlar</span>
+              <RiCheckLine style={{ color: accentInk(BLUE, d), fontSize: 14 }} />
+              <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: accentInk(BLUE, d) }}>OCPP Destekli Fonksiyonlar</span>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
               {(cms.ocppFeatures ?? DEFAULT_OP.ocppFeatures).map(f => (
                 <div key={f} className="flex items-center gap-2">
                   <div className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0"
                     style={{ background: `${BLUE}18`, border: `1px solid ${BLUE}30` }}>
-                    <RiCheckLine style={{ fontSize: 10, color: BLUE }} />
+                    <RiCheckLine style={{ fontSize: 10, color: accentInk(BLUE, d) }} />
                   </div>
                   <span className="text-xs" style={{ color: muted }}>{f}</span>
                 </div>
@@ -246,8 +247,8 @@ export default function OperatorPage() {
             <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-8">
               <div className="mb-8">
                 <div className="flex items-center gap-2 mb-2">
-                  <RiWifiLine style={{ color: PURPLE, fontSize: 14 }} />
-                  <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: PURPLE }}>Operatör Portföyü</span>
+                  <RiWifiLine style={{ color: accentInk(PURPLE, d), fontSize: 14 }} />
+                  <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: accentInk(PURPLE, d) }}>Operatör Portföyü</span>
                 </div>
                 <h2 className="text-xl font-black mb-1" style={{ color: text }}>Operatörlere Özel Ürünler</h2>
                 <p className="text-sm max-w-2xl" style={{ color: muted }}>
@@ -275,18 +276,18 @@ export default function OperatorPage() {
                           </div>
                         ) : (
                           <div className="w-full flex items-center justify-center" style={{ aspectRatio: "4 / 3", background: `${cat.accent}10` }}>
-                            <RiPlugLine style={{ fontSize: 36, color: cat.accent, opacity: 0.6 }} />
+                            <RiPlugLine style={{ fontSize: 36, color: accentInk(cat.accent, d), opacity: 0.6 }} />
                           </div>
                         )}
                         <div className="p-4">
                           <span className="inline-block text-[10px] font-bold px-2 py-0.5 rounded-full mb-2"
-                            style={{ background: `${cat.accent}15`, color: cat.accent, border: `1px solid ${cat.accent}28` }}>
+                            style={{ background: `${cat.accent}15`, color: accentInk(cat.accent, d), border: `1px solid ${cat.accent}28` }}>
                             {cat.name}
                           </span>
                           <h3 className="font-bold text-sm mb-0.5" style={{ color: text }}>{prod.name}</h3>
                           {prod.subtitle && <p className="text-xs mb-2" style={{ color: faint }}>{prod.subtitle}</p>}
                           {shortDesc && <p className="text-xs leading-relaxed mb-3" style={{ color: muted }}>{shortDesc}</p>}
-                          <div className="flex items-center gap-1 text-xs font-semibold" style={{ color: cat.accent }}>
+                          <div className="flex items-center gap-1 text-xs font-semibold" style={{ color: accentInk(cat.accent, d) }}>
                             Ürünü İncele
                             <RiArrowRightSLine size={14} className="group-hover:translate-x-0.5 transition-transform" />
                           </div>

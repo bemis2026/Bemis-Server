@@ -8,6 +8,7 @@ import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
 import { useTheme } from "../context/ThemeContext";
+import { accentInk } from "../lib/accentInk";
 import { useLanguage } from "../context/LanguageContext";
 import { useContent } from "../context/ContentContext";
 import { useUiStrings } from "../../lib/uiStrings";
@@ -125,14 +126,14 @@ export default function B2BPage() {
         <div className="relative z-10 max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
             <div className="flex items-center gap-2.5 mb-4">
-              <RiShieldCheckLine style={{ color: AMBER, fontSize: 14 }} />
-              <span className="text-xs font-bold tracking-[0.20em] uppercase" style={{ color: AMBER }}>
+              <RiShieldCheckLine style={{ color: accentInk(AMBER, d), fontSize: 14 }} />
+              <span className="text-xs font-bold tracking-[0.20em] uppercase" style={{ color: accentInk(AMBER, d) }}>
                 {b2bData.hero.eyebrow}
               </span>
             </div>
             <h1 className="font-black leading-tight mb-3" style={{ fontSize: "clamp(1.75rem, 4vw, 2.75rem)", color: text }}>
               {b2bData.hero.heading1}<br />
-              <span style={{ color: AMBER }}>{b2bData.hero.heading2}</span>
+              <span style={{ color: accentInk(AMBER, d) }}>{b2bData.hero.heading2}</span>
             </h1>
             <motion.div
               initial={{ scaleX: 0, opacity: 0 }}
@@ -211,7 +212,7 @@ export default function B2BPage() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="lg:col-span-5"
             >
-              <p className="text-xs font-bold tracking-[0.18em] uppercase mb-3" style={{ color: AMBER }}>
+              <p className="text-xs font-bold tracking-[0.18em] uppercase mb-3" style={{ color: accentInk(AMBER, d) }}>
                 Çözüm Ortaklığı
               </p>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black leading-tight mb-4" style={{ color: text }}>
@@ -243,7 +244,7 @@ export default function B2BPage() {
                     style={{
                       background: `${AMBER}15`,
                       border: `1px solid ${AMBER}30`,
-                      color: AMBER,
+                      color: accentInk(AMBER, d),
                     }}
                   >
                     {chip}
@@ -272,8 +273,8 @@ export default function B2BPage() {
             <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-8">
               <div className="mb-8">
                 <div className="flex items-center gap-2 mb-2">
-                  <RiBuilding2Line style={{ color: AMBER, fontSize: 14 }} />
-                  <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: AMBER }}>{t("b2b_oem_eyebrow")}</span>
+                  <RiBuilding2Line style={{ color: accentInk(AMBER, d), fontSize: 14 }} />
+                  <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: accentInk(AMBER, d) }}>{t("b2b_oem_eyebrow")}</span>
                 </div>
                 <h2 className="text-xl font-black mb-1" style={{ color: text }}>{t("b2b_oem_heading")}</h2>
                 <p className="text-sm max-w-2xl" style={{ color: muted }}>

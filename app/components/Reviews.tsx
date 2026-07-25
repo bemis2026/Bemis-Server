@@ -1,5 +1,6 @@
 "use client";
 import { pickText } from "../lib/ui";
+import { accentInk } from "../lib/accentInk";
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
@@ -142,7 +143,7 @@ export default function Reviews() {
           <motion.span
             initial={{ opacity: 0, y: 10 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4 }}
             className="inline-block text-xs font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-full mb-4"
-            style={{ background: d ? `${BLUE}18` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`, color: d ? "#93C5FD" : BLUE }}
+            style={{ background: d ? `${BLUE}18` : `${BLUE}10`, border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`, color: d ? "#93C5FD" : accentInk(BLUE, false)}}
           >
             <E field="reviews.sectionLabel" tag="span">{reviews.sectionLabel}</E>
           </motion.span>
@@ -239,7 +240,7 @@ export default function Reviews() {
               <h3 className="text-base font-black" style={{ color: textPrimary }}>
                 {pickText(lang, "Haberler & Basında", "News & Press")}
               </h3>
-              <a href="/blog#haberler" className="text-xs font-semibold inline-flex items-center gap-1 transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>
+              <a href="/blog#haberler" className="text-xs font-semibold inline-flex items-center gap-1 transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : accentInk(BLUE, false)}}>
                 {pickText(lang, "Tüm haberler", "All news")} →
               </a>
             </div>
@@ -266,7 +267,7 @@ export default function Reviews() {
                     {/* Metin */}
                     <div className="flex-1 min-w-0 p-3 flex flex-col">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded" style={{ background: `${c}1f`, color: c, border: `1px solid ${c}45` }}>
+                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded" style={{ background: `${c}1f`, color: accentInk(c, d), border: `1px solid ${c}45` }}>
                           {isFair ? fairLabel : newsLabel}
                         </span>
                         <span className="text-[11px] font-semibold truncate" style={{ color: textMuted }}>{n.source}</span>
@@ -276,10 +277,10 @@ export default function Reviews() {
                         {n.title}
                       </p>
                       <div className="flex items-center gap-3">
-                        <a href={n.url} target="_blank" rel="noopener noreferrer" className="text-[11px] font-bold inline-flex items-center gap-1 transition-opacity hover:opacity-70" style={{ color: c }}>
+                        <a href={n.url} target="_blank" rel="noopener noreferrer" className="text-[11px] font-bold inline-flex items-center gap-1 transition-opacity hover:opacity-70" style={{ color: accentInk(c, d) }}>
                           {pickText(lang, "Haberi Oku", "Read")} <RiExternalLinkLine size={10} />
                         </a>
-                        <a href={`/blog/haber/${n.id}`} className="text-[11px] font-bold inline-flex items-center gap-1 ml-auto transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>
+                        <a href={`/blog/haber/${n.id}`} className="text-[11px] font-bold inline-flex items-center gap-1 ml-auto transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : accentInk(BLUE, false)}}>
                           {pickText(lang, "Özet İncele", "Summary")} →
                         </a>
                       </div>
@@ -294,7 +295,7 @@ export default function Reviews() {
               <div className="mt-3 pt-3" style={{ borderTop: `1px solid ${border}` }}>
                 <div className="flex items-center justify-between mb-1.5">
                   <span className="text-xs font-bold uppercase tracking-wider" style={{ color: textMuted }}>{pickText(lang, "Rehberler", "Guides")}</span>
-                  <a href="/blog#rehberler" className="text-[11px] font-semibold transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>{pickText(lang, "Tümü", "All")} →</a>
+                  <a href="/blog#rehberler" className="text-[11px] font-semibold transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : accentInk(BLUE, false)}}>{pickText(lang, "Tümü", "All")} →</a>
                 </div>
                 <div className="flex flex-col gap-1">
                   {latestPosts.map((p) => (

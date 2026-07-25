@@ -7,6 +7,7 @@ import {
   RiTimeLine, RiArrowRightLine,
 } from "react-icons/ri";
 import { useTheme } from "../context/ThemeContext";
+import { accentInk } from "../lib/accentInk";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import Footer from "../components/Footer";
@@ -28,7 +29,7 @@ export default function ContactPageClient() {
   const border = d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)";
   const textPrimary = d ? "#f0f0f4" : "#1a1a1a";
   const textMuted = d ? "rgba(240,240,244,0.62)" : "rgba(26,26,26,0.62)";
-  const accent = d ? "#93C5FD" : BLUE;
+  const accent = d ? "#93C5FD" : accentInk(BLUE, false); // aydınlıkta okunur koyu mavi
 
   const items = [
     {
