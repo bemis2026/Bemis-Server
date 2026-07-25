@@ -476,8 +476,28 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                                 {product.name}
                               </p>
                               {variantCount > 1 ? (
+                                /* Varyantlar TIKLANABİLİR (2026-07-25) — aynı adlı modeller
+                                   tek kartta gruplanıyor; her varyant kendi sayfasına gider
+                                   (kart tıklaması ana modele). Kombinasyonlar gibi 3 versiyonlu
+                                   ürünlerde modellerin hepsi buradan erişilebilir olur. */
                                 <p className="text-[10px] leading-snug mb-2" style={{ color: textFaint }}>
-                                  {group.variants.map(v => v.subtitle).filter(Boolean).join(" · ") || `${variantCount} farklı versiyon`}
+                                  {group.variants.filter(v => v.subtitle).map((v, vi, arr) => (
+                                    <span key={v.id}>
+                                      <button
+                                        type="button"
+                                        onClick={(e) => { e.stopPropagation(); router.push(`/products/${cat.id}/${v.id}`); }}
+                                        className="cursor-pointer underline decoration-dotted underline-offset-2 active:opacity-70"
+                                        style={{ color: "inherit" }}
+                                        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = cat.accent; }}
+                                        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "inherit"; }}
+                                        aria-label={`${product.name} — ${v.subtitle}`}
+                                      >
+                                        {v.subtitle}
+                                      </button>
+                                      {vi < arr.length - 1 && " · "}
+                                    </span>
+                                  ))}
+                                  {group.variants.filter(v => v.subtitle).length === 0 && `${variantCount} farklı versiyon`}
                                 </p>
                               ) : product.subtitle && (
                                 <p className="text-[10px] leading-snug mb-2" style={{ color: textFaint }}>

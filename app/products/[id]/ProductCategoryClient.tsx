@@ -427,8 +427,29 @@ export default function ProductCategoryPage({ initialCategory = null, titleOverr
                 <div className="px-3 py-3 flex flex-col flex-1" onClick={() => router.push(`${base}/${id}/${product.id}`)}>
                   <p className="font-bold text-xs leading-tight mb-0.5" style={{ color: textPrimary }}>{product.name}</p>
                   {variantCount > 1 ? (
+                    /* Varyantlar TIKLANABİLİR (2026-07-25): aynı adlı modeller tek kartta
+                       gruplanıyor (ör. 3 Otomatlı IP44 Kombinasyon) — eskiden varyantlar
+                       yalnız düz metin listesiydi, tek tek modele gidilemiyordu. Artık her
+                       varyant kendi ürün sayfasına gider; kart tıklaması ana modele gider. */
                     <p className="text-[10px] leading-snug mb-2" style={{ color: textFaint }}>
-                      {group.variants.map(v => v.subtitle).filter(Boolean).join(" · ") || `${variantCount} ${pickText(lang, "farklı versiyon", "different versions")}`}
+                      {group.variants.filter(v => v.subtitle).map((v, vi, arr) => (
+                        <span key={v.id}>
+                          <button
+                            type="button"
+                            onClick={(e) => { e.stopPropagation(); router.push(`${base}/${id}/${v.id}`); }}
+                            className="cursor-pointer underline decoration-dotted underline-offset-2 transition-colors hover:opacity-100 active:opacity-70"
+                            style={{ color: "inherit" }}
+                            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = accentInk(accent, d); }}
+                            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "inherit"; }}
+                            aria-label={`${product.name} — ${v.subtitle}`}
+                          >
+                            {v.subtitle}
+                          </button>
+                          {vi < arr.length - 1 && " · "}
+                        </span>
+                      ))}
+                      {group.variants.filter(v => v.subtitle).length === 0 &&
+                        `${variantCount} ${pickText(lang, "farklı versiyon", "different versions")}`}
                     </p>
                   ) : product.subtitle && (
                     <p className="text-[10px] leading-snug mb-2" style={{ color: textFaint }}>{product.subtitle}</p>
