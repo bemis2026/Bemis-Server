@@ -256,7 +256,7 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
             initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5, delay: 0.08 }}
             className="text-sm mb-3" style={{ color: textMuted }}
           >
-            Eviniz, iş yeriniz ve filolarınız için eksiksiz bir EV şarj ürün ailesi.
+            Eviniz, iş yeriniz ve filolarınız için eksiksiz bir EV şarj ürün ailesi — tasarımdan son teste kadar kendi tesisimizde.
           </motion.p>
           {accentLine}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -282,35 +282,36 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Üretim & Kalite */}
-      <section className="py-10 px-5 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.99 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={VIEWPORT}
-          transition={{ duration: 0.55, ease: "easeOut" }}
-          className="max-w-7xl 2xl:max-w-[1600px] mx-auto rounded-3xl p-7" style={{ background: surface, border: `1px solid ${border}` }}
-        >
-          <h2 className="text-2xl font-black mb-3" style={{ color: textPrimary }}>Üretim & Kalite</h2>
-          <p className="text-sm sm:text-base leading-relaxed mb-5 max-w-3xl" style={{ color: textMuted }}>
-            PCB tasarımından gömülü yazılıma, mekanik tasarımdan son test ve kalite kontrolüne kadar üretim süreci
-            kendi tesisimizde yürütülür. Cihazlarımız uluslararası standartlara uygun olarak üretilir ve test edilir.
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {CERTS.map((c, i) => (
-              <motion.span
-                key={c}
-                initial={{ opacity: 0, scale: 0.8, y: 6 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={VIEWPORT}
-                transition={{ duration: 0.35, delay: 0.2 + i * 0.06, ease: "backOut" }} whileHover={{ scale: 1.06, y: -2 }}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg cursor-default"
-                style={{ background: `${BLUE}12`, color: d ? "#93C5FD" : BLUE, border: `1px solid ${BLUE}25` }}
-              >
-                <RiCheckboxCircleLine size={13} /> {c}
-              </motion.span>
-            ))}
-          </div>
-        </motion.div>
+          {/* Üretim & Kalite — AYRI bölümdü, kullanıcı isteğiyle "Ne üretiyoruz?"
+              ile BİRLEŞTİRİLDİ: ne ürettiğimiz + nasıl ürettiğimiz tek anlatı.
+              h2 değil h3 (bölümün alt bloğu), kart ölçüsü sayfanın diğer
+              kartlarıyla aynı (rounded-2xl / p-5). */}
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.99 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={VIEWPORT}
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            className="rounded-2xl p-5 sm:p-6 mt-4" style={{ background: surface, border: `1px solid ${border}` }}
+          >
+            <h3 className="text-base font-black mb-2" style={{ color: textPrimary }}>Üretim & Kalite</h3>
+            <p className="text-sm leading-relaxed mb-4 max-w-3xl" style={{ color: textMuted }}>
+              PCB tasarımından gömülü yazılıma, mekanik tasarımdan son test ve kalite kontrolüne kadar üretim süreci
+              kendi tesisimizde yürütülür. Cihazlarımız uluslararası standartlara uygun olarak üretilir ve test edilir.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {CERTS.map((c, i) => (
+                <motion.span
+                  key={c}
+                  initial={{ opacity: 0, scale: 0.8, y: 6 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={VIEWPORT}
+                  transition={{ duration: 0.35, delay: 0.2 + i * 0.06, ease: "backOut" }} whileHover={{ scale: 1.06, y: -2 }}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg cursor-default"
+                  style={{ background: `${BLUE}12`, color: d ? "#93C5FD" : BLUE, border: `1px solid ${BLUE}25` }}
+                >
+                  <RiCheckboxCircleLine size={13} /> {c}
+                </motion.span>
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* OEM / Özel Üretim — markaya özel renk/uzunluk/etiket. Ürün kategori

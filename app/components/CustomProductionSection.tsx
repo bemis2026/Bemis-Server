@@ -66,19 +66,21 @@ export default function CustomProductionSection({
         <div className="absolute -top-24 -right-16 w-72 h-72 rounded-full pointer-events-none"
           style={{ background: `radial-gradient(circle, ${accent}22 0%, transparent 70%)` }} aria-hidden />
 
-        <div className="relative z-[1] grid lg:grid-cols-[1.1fr_0.9fr] gap-7 lg:gap-10 items-center p-6 sm:p-9 lg:p-11">
+        {/* Ölçüler sayfanın KENDİ bölümleriyle hizalı: h2 text-2xl (24px), gövde
+            text-sm, kart p-7 — /uretici "Üretim & Kalite" ve kategori SSS bloklarıyla aynı. */}
+        <div className="relative z-[1] grid lg:grid-cols-[1.1fr_0.9fr] gap-6 lg:gap-8 items-center p-6 sm:p-7">
           {/* SOL: içerik */}
           <div className="min-w-0">
             {eyebrow && (
-              <p className="inline-flex text-[11px] sm:text-xs font-bold tracking-[0.16em] uppercase mb-3 px-3 py-1 rounded-full"
+              <p className="inline-flex text-[11px] font-bold tracking-[0.16em] uppercase mb-2.5 px-2.5 py-1 rounded-full"
                 style={{ color: ink, background: `${accent}14`, border: `1px solid ${accent}2e` }}>
                 {eyebrow}
               </p>
             )}
-            <h2 className="text-2xl sm:text-3xl lg:text-[2rem] font-black leading-[1.13] mb-3.5" style={{ color: textPrimary }}>
+            <h2 className="text-2xl font-black leading-tight mb-2.5" style={{ color: textPrimary }}>
               {title}
             </h2>
-            <p className="text-sm sm:text-[15px] leading-relaxed mb-6 max-w-xl" style={{ color: textMuted }}>
+            <p className="text-sm leading-relaxed mb-5 max-w-xl" style={{ color: textMuted }}>
               {description}
             </p>
 
@@ -86,15 +88,15 @@ export default function CustomProductionSection({
             <div className="flex flex-col sm:flex-row gap-3">
               {ctaPrimaryLabel?.trim() && (
                 <a href={ctaPrimaryHref}
-                  className="group inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white cursor-pointer transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
-                  style={{ background: accent, boxShadow: `0 10px 26px ${accent}45` }}>
+                  className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white cursor-pointer transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+                  style={{ background: accent, boxShadow: `0 8px 22px ${accent}40` }}>
                   {ctaPrimaryLabel}
                   <RiArrowRightLine className="transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden />
                 </a>
               )}
               {ctaSecondaryLabel?.trim() && (
                 <a href={ctaSecondaryHref}
-                  className="inline-flex items-center justify-center px-6 py-3 rounded-xl text-sm font-bold cursor-pointer transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-sm font-bold cursor-pointer transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
                   style={{ color: textPrimary, border: `1.5px solid ${surfaceBorder}`, background: d ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.6)" }}>
                   {ctaSecondaryLabel}
                 </a>
@@ -103,10 +105,10 @@ export default function CustomProductionSection({
           </div>
 
           {/* SAĞ: özelleştirme paneli (site kart diliyle uyumlu çerçeve) */}
-          <div className="rounded-2xl p-5 sm:p-6" style={{ background: surface, border: `1px solid ${surfaceBorder}` }}>
+          <div className="rounded-2xl p-5" style={{ background: surface, border: `1px solid ${surfaceBorder}` }}>
             {sw.length > 0 && (
-              <div className="mb-5">
-                <div className="flex items-center gap-2 mb-3">
+              <div className="mb-4">
+                <div className="flex items-center gap-2 mb-2.5">
                   <RiPaletteLine style={{ color: ink, fontSize: 15 }} aria-hidden />
                   <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: textMuted }}>
                     {pickText(lang, "İstediğiniz Renkte", "In Your Color")}
@@ -114,7 +116,7 @@ export default function CustomProductionSection({
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {sw.map((c, i) => (
-                    <span key={i} className="w-8 h-8 rounded-full transition-transform duration-200 hover:scale-110"
+                    <span key={i} className="w-7 h-7 rounded-full transition-transform duration-200 hover:scale-110"
                       style={{ background: c, border: "1px solid rgba(128,128,128,0.3)", boxShadow: "inset 0 0 0 1.5px rgba(255,255,255,0.22)" }}
                       title={c} aria-hidden />
                   ))}
