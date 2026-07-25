@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readBin } from "../../../lib/jsonbin";
 import { applyProductSeo } from "../../lib/productSeo";
+import { productNameEn } from "../../lib/productNamesEn";
 import { readFileSync } from "fs";
 import path from "path";
 
@@ -165,5 +166,21 @@ export async function GET(req: NextRequest) {
       if (Array.isArray(f)) en = f;
     }
   }
-  return NextResponse.json(mergeCategories(trSeo, en));
+  const merged = mergeCategories(trSeo, en);
+
+  // ⚠️ Ürün ADI merge'de TR-kilitli (kimlik alanı; eski çeviri geçişlerinden gelen
+  // productsEn adlarına güvenilmiyor). İngilizce sayfalarda adın Türkçe kalmaması
+  // için elle küratörlü harita (app/lib/productNamesEn.ts) BURADA uygulanır.
+  // Eşlemesi olmayan ad AYNEN kalır → sessiz bozulma yok. Yalnız lang="en".
+  if (lang === "en") {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    for (const cat of merged as any[]) {
+      if (!Array.isArray(cat?.products)) continue;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      cat.products = cat.products.map((p: any) =>
+        p && typeof p.name === "string" ? { ...p, name: productNameEn(p.name) } : p,
+      );
+    }
+  }
+  return NextResponse.json(merged);
 }

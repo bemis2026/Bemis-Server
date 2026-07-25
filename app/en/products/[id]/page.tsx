@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import JsonLd from "../../../components/JsonLd";
 import { breadcrumbSchema, collectionPageSchema, ogImage, OG_URL } from "../../../lib/seo";
 import { getServerProducts } from "../../../lib/server-content";
+import { productNameEn } from "../../../lib/productNamesEn";
 import { getContentForLang } from "../../../../lib/contentLang";
 import ProductCategoryClient from "../../../products/[id]/ProductCategoryClient";
 
@@ -113,7 +114,9 @@ export default async function EnProductCategoryPage({ params }: { params: Promis
   const categories = await getServerProducts();
   const category = categories.find((c) => c.id === id);
   const m = enMeta(id, category?.name || id);
-  const products = (category?.products ?? []).map((p) => ({ id: p.id, name: p.name, categoryId: id }));
+  // Ürün adları veride TR — İngilizce sayfanın JSON-LD'sinde de İngilizce olmalı
+  // (Google şemayı okur). Eşlemesi olmayan ad aynen kalır.
+  const products = (category?.products ?? []).map((p) => ({ id: p.id, name: productNameEn(p.name), categoryId: id }));
   const jsonLd = [
     breadcrumbSchema([
       { name: "Home", url: "/" },
