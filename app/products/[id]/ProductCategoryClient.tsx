@@ -97,7 +97,7 @@ function ExpandableDescription({ text, colorStyle, maxWidthClass, buttonColor }:
   );
 }
 
-export default function ProductCategoryPage({ initialCategory = null }: { initialCategory?: CategoryData | null }) {
+export default function ProductCategoryPage({ initialCategory = null, titleOverride }: { initialCategory?: CategoryData | null; titleOverride?: string }) {
   const params = useParams();
   const router = useRouter();
   const { theme } = useTheme();
@@ -243,7 +243,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                 </motion.p>
                 <motion.h1 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}
                   className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
-                  {(lang === "tr" && categoryH1(category.id)) || category.name}
+                  {titleOverride || (lang === "tr" && categoryH1(category.id)) || category.name}
                 </motion.h1>
                 <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.15 }}
                   className="text-sm mt-1.5" style={{ color: "rgba(255,255,255,0.72)" }}>
@@ -281,7 +281,7 @@ export default function ProductCategoryPage({ initialCategory = null }: { initia
                 <motion.h1 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}
                   className="text-2xl sm:text-3xl lg:text-4xl font-bold" style={{ color: textPrimary }}>
                   {/* TR'de keyword'lü H1 (CATEGORY_SEO.title); yoksa/EN'de CMS adı. CMS verisi değişmez. */}
-                  {(lang === "tr" && categoryH1(category.id)) || category.name}
+                  {titleOverride || (lang === "tr" && categoryH1(category.id)) || category.name}
                 </motion.h1>
                 <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.15 }}
                   className="text-sm mt-0.5" style={{ color: textMuted }}>

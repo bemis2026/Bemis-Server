@@ -132,7 +132,9 @@ export default async function EnProductCategoryPage({ params }: { params: Promis
   return (
     <>
       <JsonLd data={jsonLd} />
-      <ProductCategoryClient />
+      {/* titleOverride → H1 İngilizce (kategori adı kimlik-alanı olduğu için ürün
+          verisinde TR sabit; İngilizce sayfada İngilizce H1 SEO için şart). */}
+      <ProductCategoryClient titleOverride={m.name} />
     </>
   );
 }
