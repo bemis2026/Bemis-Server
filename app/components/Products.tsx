@@ -178,9 +178,16 @@ export default function Products() {
   const badgeBg = d ? "rgba(255,255,255,0.07)" : "rgba(255,255,255,0.85)";
   const badgeColor = d ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.45)";
   const badgeBorder = d ? "1px solid rgba(255,255,255,0.10)" : "1px solid rgba(0,0,0,0.10)";
+  // ⚠️ Aydınlık modda kart görselinin altındaki BEYAZ perde KALDIRILDI (kullanıcı
+  // isteği): fotoğrafı yıkayıp "beyaz aydınlatma" gibi duruyordu. Başlık okunurluğu
+  // artık geniş yıkama yerine harflere yapışık DAR bir halo ile sağlanır — fotoğraf
+  // temiz kalır. Koyu mod DEĞİŞMEDİ (orada perde fotoğrafı bozmuyor).
   const overlayGrad = d
     ? "linear-gradient(to top, rgba(13,13,13,0.97) 0%, rgba(13,13,13,0.55) 55%, transparent 100%)"
-    : "linear-gradient(to top, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.30) 55%, transparent 100%)";
+    : "transparent";
+  const overlayTextShadow = d
+    ? undefined
+    : "0 1px 2px rgba(255,255,255,0.95), 0 0 6px rgba(255,255,255,0.9)";
 
   const sectionBgUrl = sectionBgs?.["products"] ?? "";
 
@@ -552,10 +559,10 @@ export default function Products() {
                       zIndex: 15,
                     }}
                   >
-                    <p className="font-bold text-base leading-tight" style={{ color: textPrimary }}>
+                    <p className="font-bold text-base leading-tight" style={{ color: textPrimary, textShadow: overlayTextShadow }}>
                       {cat.name}
                     </p>
-                    <p className="text-xs font-semibold mt-0.5" style={{ color: accentInk(cat.accent, d) }}>
+                    <p className="text-xs font-semibold mt-0.5" style={{ color: accentInk(cat.accent, d), textShadow: overlayTextShadow }}>
                       {cat.comingSoon ? (pickText(lang, "Yakında", "Soon")) : `${cat.modelCount} ${pickText(lang, "Model", "Models")}`}
                     </p>
                   </div>
