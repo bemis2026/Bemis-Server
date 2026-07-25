@@ -64,7 +64,8 @@ export const PRESS_ITEMS: PressItem[] = [
     url: "https://electricityturkey.com/haber/bemis_kasim_ayinda_uc_kitada_turkiyenin_enerji_vizyonunu_temsil_ediyor_-27097.html",
     type: "news",
     date: "2026-01-02",
-    image: "https://www.electricityturkey.com/resimler/2026-1/2/25344363419687.webp",
+    // ⚠️ electricityturkey.com görseli 404 (site kaldırdı) → kaldırıldı; NewsThumb
+    // markalı placeholder gösterir. Kalıcı görsel için Bemis'in kendi fotoğrafı yüklenebilir.
     summary:
       "Bemis; Tanzanya (Power & Energy 2025), Kolombiya (FISE 2025) ve İstanbul (EV Charge Show 2025) fuarlarında TÜV sertifikalı Bemis E-V Charge çözümlerini ve 'Made in Türkiye' enerji ürünlerini uluslararası profesyonellere tanıttı.",
     body: [

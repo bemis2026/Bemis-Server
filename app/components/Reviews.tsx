@@ -2,9 +2,9 @@
 import { pickText } from "../lib/ui";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { HiStar } from "react-icons/hi";
-import { RiLinkedinFill, RiInstagramLine, RiYoutubeFill, RiFacebookFill, RiExternalLinkLine } from "react-icons/ri";
+import { RiLinkedinFill, RiInstagramLine, RiYoutubeFill, RiFacebookFill, RiExternalLinkLine, RiNewspaperLine } from "react-icons/ri";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
@@ -16,6 +16,26 @@ import { POSTS_INDEX } from "../blog/postsIndex";
 import { allPress } from "../blog/press";
 import { trPressList } from "../lib/pressI18n";
 import E from "./E";
+
+// Haber küçük görseli — dış haber sitelerine hotlink kırılgan (biri 404 olabiliyor);
+// onError ile markalı placeholder'a düşer → kırık görsel ikonu ASLA çıkmaz.
+function NewsThumb({ src, alt, source, color }: { src?: string; alt: string; source: string; color: string }) {
+  const [ok, setOk] = useState(!!src);
+  if (ok && src) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img src={src} alt={alt} width={160} height={120} loading="lazy" decoding="async"
+        className="absolute inset-0 w-full h-full object-cover" onError={() => setOk(false)} />
+    );
+  }
+  return (
+    <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 p-2 text-center"
+      style={{ background: `linear-gradient(135deg, ${color}2a 0%, ${color}0a 100%)` }}>
+      <RiNewspaperLine size={20} style={{ color, opacity: 0.85 }} aria-hidden />
+      <span className="text-[10px] font-bold uppercase tracking-wider leading-tight" style={{ color, opacity: 0.9 }}>{source}</span>
+    </div>
+  );
+}
 
 // Stars fade + scale in one-by-one when the parent card enters the
 // viewport — Framer's whileInView triggers each child's stagger via the
@@ -241,14 +261,7 @@ export default function Reviews() {
                   >
                     {/* Thumbnail (görsel veya markalı placeholder) */}
                     <div className="relative flex-shrink-0 w-24 sm:w-28" style={{ background: `${c}12` }}>
-                      {n.image ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img src={n.image} alt={n.title} width={160} height={120} className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
-                      ) : (
-                        <div className="absolute inset-0 flex items-center justify-center p-2 text-center">
-                          <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: c, opacity: 0.8 }}>{n.source}</span>
-                        </div>
-                      )}
+                      <NewsThumb src={n.image} alt={n.title} source={n.source} color={c} />
                     </div>
                     {/* Metin */}
                     <div className="flex-1 min-w-0 p-3 flex flex-col">
