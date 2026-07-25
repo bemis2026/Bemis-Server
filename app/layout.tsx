@@ -273,8 +273,15 @@ export default async function RootLayout({
     ...featuredProductSchemas,
     ...categoryListSchemas,
   ];
+  // ⚠️ `scroll-smooth` sınıfı KALDIRILDI (2026-07-25): Next App Router sayfa
+  // geçişinde en üste kaydırırken CSS smooth devredeydi → yeni sayfa ÖNCEKİ
+  // scroll konumunda (altta) açılıp yukarı doğru kayıyordu ("Tüm Ürünler"e
+  // basınca görülen davranış). globals.css'te aynı kural daha önce bu sebeple
+  // kaldırılmıştı ama buradaki sınıf kalmıştı — asıl uygulayan buydu.
+  // ⓘ Sayfa içi yumuşak kaydırmalar ETKİLENMEZ: navbar/hero/footer/arama
+  // hepsi JS ile `behavior:"smooth"` veriyor.
   return (
-    <html lang="tr" className={`${inter.variable} scroll-smooth`} suppressHydrationWarning>
+    <html lang="tr" className={inter.variable} suppressHydrationWarning>
       <body className="min-h-full antialiased bg-[#141414] text-white">
         {/* Üçüncü-taraf bağlantıyı erken aç (DNS + TLS el sıkışması) — GA/GTM ve
             Meta Pixel afterInteractive yüklenirken ilk byte daha hızlı gelir.

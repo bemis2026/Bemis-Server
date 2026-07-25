@@ -737,3 +737,31 @@ html[data-theme="light"] .calc-slider::-webkit-slider-thumb { border-color: rgba
 @media (max-width: 767px) {
   .hero-slide { --hp: var(--hp-m, var(--hp-d, 50% 50%)); --hz: var(--hz-m, var(--hz-d, 1)); }
 }
+
+/* ── ÇOK DİLLİ BAŞLIK TAŞMASI (2026-07-25) ─────────────────────────────────
+   Bölüm başlıkları `text-4xl sm:text-5xl lg:text-6xl` ölçeğiyle yazıldı; bu
+   ölçek TÜRKÇE'ye göre ayarlı. RU/DE/ES/AR çevirileri belirgin şekilde daha
+   uzun olduğu için 60px'te satırlara yığılıp düzeni bozuyordu — canlı ölçüm
+   (RU, 1440px): Hakkımızda 6 satır/389px · OEM 5 satır/375px · Akıllı Şarj
+   4 satır · Ürün Kategorileri 3 satır · Bayi Ağı 3 satır (Türkçe'de 1-2 satır).
+
+   ÇÖZÜM: Türkçe DIŞINDAKİ dillerde bu ölçekteki başlıklar akışkan küçültülür +
+   dengeli sarılır. Türkçe HİÇ etkilenmez (kural html[lang="tr"]'yi dışlar);
+   `lang` attribute'unu LanguageContext kök <html>'e yazar. Tek kural olduğu
+   için TÜM sayfalarda (anasayfa, kategori, /uretici, /b2b …) geçerlidir.
+   `overflow-wrap: anywhere` → uzun tek kelime kutuyu taşırmaz (RU'da görüldü). */
+html:not([lang="tr"]) h2[class*="text-6xl"] {
+  font-size: clamp(1.6rem, 2.9vw, 2.5rem);
+  line-height: 1.14;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+/* Aynı sorun tablet/mobil kırılımında da var (sm:text-5xl = 48px). */
+@media (max-width: 1023px) {
+  html:not([lang="tr"]) h2[class*="text-5xl"] {
+    font-size: clamp(1.45rem, 5vw, 2.1rem);
+    line-height: 1.15;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+}
