@@ -176,9 +176,17 @@
         {
           "q": "Üç fazlı kablo benim aracımla çalışır mı?",
           "a": "Evet, üç fazlı kablo aynı zamanda tek fazlı şarjı da destekler. Aracınız tek fazlıysa kablo otomatik olarak tek fazda çalışır ve 7.4 kW ile sınırlanır. Üç fazlı kablo, ileride üç fazlı bir araç almanız durumunda gereksiz değişiklik yapmamanızı sağlar."
+        },
+        {
+          "q": "Elektrikli araba şarj kablosunun yerli üreticisi kimdir?",
+          "a": "Bemis E-V Charge, elektrikli araba şarj kablolarını Bursa Organize Sanayi Bölgesi'ndeki 16.000 m² tesisinde üreten yerli bir üreticidir. 1994'ten gelen Bemis Teknik Elektrik mirasıyla üretim yapar; Type 2 (Mod 3) kabloları %94 Yerli Malı Belgeli ve CE sertifikalıdır. Kablolar ithal edilip etiketlenmez, kendi tesisimizde üretilir."
+        },
+        {
+          "q": "Şarj kablosu ithal mi, Türkiye'de mi üretiliyor?",
+          "a": "Bemis E-V Charge şarj kabloları Türkiye'de, Bursa'daki kendi tesisimizde üretilir. Bu sayede ürüne, yedek parçaya ve teknik desteğe doğrudan üreticiden ulaşırsınız; proje bazlı işlerde kablo boyu ve soket rengi talebe göre özelleştirilebilir."
         }
       ],
-      "description": "Bemis'in Bursa'daki kendi tesisinde üretilen yerli Type 2 şarj kabloları. Tek ve üç fazlı, 16A – 32A akım sınıflarında; IEC 62196 / IEC 61851 uyumlu, halojensiz dış kılıf ve yüksek-akım Type 2 konektörü ile uzun ömürlü kullanım için tasarlandı. %94 Yerli Malı Belgeli ve CE sertifikalı üretim; tedarik ve teknik destek doğrudan üreticiden sağlanır.",
+      "description": "Elektrikli araba şarj kablonuzu doğrudan üreticisinden alın. Bemis E-V Charge, Type 2 (Mod 3) şarj kablolarını Bursa Organize Sanayi Bölgesi'ndeki 16.000 m² kendi tesisinde üreten yerli üreticidir; kablolar ithal edilip etiketlenmez. Tek ve üç fazlı, 16A – 32A akım sınıflarında ve 3 metreden 15 metreye kadar uzunluk seçenekleriyle sunulur. IEC 62196 / IEC 61851 uyumlu, halojensiz dış kılıf ve yüksek akım Type 2 konektörü ile uzun ömürlü kullanım için tasarlandı. %94 Yerli Malı Belgeli ve CE sertifikalı üretim; tedarik, yedek parça ve teknik destek doğrudan üreticiden sağlanır.",
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075750/products/yquclaq2d8incbvlonxk.png"
     },
     "v2l-c2l": {
