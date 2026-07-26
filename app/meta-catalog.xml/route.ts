@@ -149,6 +149,10 @@ ${extra.map((u) => `      <g:additional_image_link>${esc(abs(u))}</g:additional_
     <title>${esc(BRAND)} — Ürün Kataloğu</title>
     <link>${SITE_URL}</link>
     <description>Bemis E-V Charge elektrikli araç şarj ürünleri (Meta Commerce Manager / Google Merchant Center uyumlu feed).</description>
+    <!-- Tanı: platformun HANGİ sürümü çektiğini anlamak için. Merchant/Meta'daki
+         "son güncelleme" bu tarihten ESKİYSE, panel eski kopyayı işlemiştir. -->
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <generator>bemis-feed v3 · ${items.length} ürün · ${FEED_CURRENCY}</generator>
 ${items.join("\n")}
   </channel>
 </rss>
@@ -157,8 +161,10 @@ ${items.join("\n")}
   return new Response(xml, {
     headers: {
       "Content-Type": "application/xml; charset=utf-8",
-      // Platform çekicileri için makul önbellek; ürün sayısı loglanmaz.
-      "Cache-Control": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
+      // ⚠️ s-maxage, ISR penceresiyle (21600 = 6sa) EŞİT olmalı. Önceden 86400'dü:
+      // CDN, feed düzeltildikten sonra bile 24 saate kadar ESKİ kopyayı servis
+      // edebiliyordu → "düzelttim ama panelde hâlâ eski sayı" durumu.
+      "Cache-Control": "public, max-age=1800, s-maxage=21600, stale-while-revalidate=86400",
       "X-Robots-Tag": "noindex", // feed arama sonuçlarında çıkmasın
       "X-Item-Count": String(items.length),
       "X-Skipped": String(skippedNoPrice),
