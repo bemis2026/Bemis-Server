@@ -184,10 +184,23 @@
         {
           "q": "Şarj kablosu ithal mi, Türkiye'de mi üretiliyor?",
           "a": "Bemis E-V Charge şarj kabloları Türkiye'de, Bursa'daki kendi tesisimizde üretilir. Bu sayede ürüne, yedek parçaya ve teknik desteğe doğrudan üreticiden ulaşırsınız; proje bazlı işlerde kablo boyu ve soket rengi talebe göre özelleştirilebilir."
+        },
+        {
+          "q": "Şarj kablosu ile şarj seti arasındaki fark nedir?",
+          "a": "Şarj kablosu iki ucu da soketli (Type 2 – Type 2) bir kablodur; duvar tipi şarj istasyonunu ya da ortak alandaki bir üniteyi aracınıza bağlar. Şarj seti (Mod 2) ise bir ucunda priz fişi, ortasında kontrol kutusu bulunan taşınabilir çözümdür; ayrı bir şarj istasyonu olmadan doğrudan prizden şarj etmenizi sağlar. Evinizde duvar tipi cihaz varsa şarj kablosu, yolda veya yedek çözüm arıyorsanız şarj seti uygundur."
+        },
+        {
+          "q": "Kablo şarj hızını etkiler mi?",
+          "a": "Kablo, taşıyabileceği akımın üzerinde bir hız üretmez; şarj hızını asıl belirleyen aracınızın dahili AC şarj ünitesidir. Örneğin aracınız 7,4 kW ile sınırlıysa üç fazlı 32A kablo takmanız hızı artırmaz. Buna karşılık kapasitesi düşük bir kablo hızı sınırlar: tek fazlı 16A kablo 3,7 kW'a, tek fazlı 32A 7,4 kW'a, üç fazlı 32A ise 22 kW'a kadar taşır. Doğru seçim, aracınızın ve şarj cihazınızın desteklediği en yüksek değere uyan kablodur."
+        },
+        {
+          "q": "Şarj kablomda arıza olursa ne yapmalıyım?",
+          "a": "Ürünlerimiz 2 yıl üretici garantisi kapsamındadır. Kabloyu kendiniz açmayın veya onarmaya çalışmayın; soketi prizden çekip kullanımdan kaldırın. Ürünü aldığınız yetkili bayiyle iletişime geçin ya da sitemizin Rehber menüsündeki \"Arıza & Garanti\" sayfasındaki adımları izleyerek bize ulaşın. Ürün kodu, satın alma belgesi ve sorunu gösteren bir fotoğraf veya video süreci hızlandırır."
         }
       ],
       "description": "Elektrikli araba şarj kablonuzu doğrudan üreticisinden alın. Bemis E-V Charge, Type 2 (Mod 3) şarj kablolarını Bursa Organize Sanayi Bölgesi'ndeki 16.000 m² kendi tesisinde üreten yerli üreticidir; kablolar ithal edilip etiketlenmez. Tek ve üç fazlı, 16A – 32A akım sınıflarında ve 3 metreden 15 metreye kadar uzunluk seçenekleriyle sunulur. IEC 62196 / IEC 61851 uyumlu, halojensiz dış kılıf ve yüksek akım Type 2 konektörü ile uzun ömürlü kullanım için tasarlandı. %94 Yerli Malı Belgeli ve CE sertifikalı üretim; tedarik, yedek parça ve teknik destek doğrudan üreticiden sağlanır.",
-      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075750/products/yquclaq2d8incbvlonxk.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075750/products/yquclaq2d8incbvlonxk.png",
+      "tagline": "Type 2 elektrikli araba şarj kabloları — 16A/32A, tek ve üç faz, 3–15 metre, yerli üretim"
     },
     "v2l-c2l": {
       "name": "V2L / C2L Adaptörler",
