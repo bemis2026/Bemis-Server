@@ -77,6 +77,24 @@ const esc = (s: unknown) =>
     .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;").replace(/'/g, "&apos;");
 
+/**
+ * ⚠️ GOOGLE `id` SINIRI 50 KARAKTER (Meta'da 100). Uzun ürün id'leri Merchant
+ * Center'da SESSİZCE ELENİYORDU: feed 118 ürün gönderiyordu, Merchant 104
+ * gösteriyordu — aradaki 14, id'si 50 karakteri aşan ürünlerdi (ör.
+ * "pano-prizi-kilit-motorsuz-monofaze-3-7-7-4-kw-3-noktadan-montaj" = 63 kr).
+ *
+ * Kısaltma KARARLI olmalı (her üretimde aynı sonuç) — id değişirse platform onu
+ * YENİ ürün sayar. Yöntem: ilk 42 karakter + tam id'den türetilen 7 haneli hash
+ * (42+1+7 = 50). 50 karakteri aşmayan id'lere DOKUNULMAZ → Merchant'ta hâlihazırda
+ * işlenmiş 104 ürünün kimliği korunur.
+ */
+function feedId(id: string): string {
+  if (id.length <= 50) return id;
+  let h = 0;
+  for (let i = 0; i < id.length; i++) h = (Math.imul(h, 31) + id.charCodeAt(i)) >>> 0;
+  return `${id.slice(0, 42)}-${h.toString(36).padStart(7, "0").slice(-7)}`;
+}
+
 /** Varyantları tek ürün ailesinde toplamak için ad-tabanlı grup anahtarı. */
 const groupKey = (name: unknown) =>
   String(name ?? "").toLocaleLowerCase("tr").replace(/[^a-z0-9ğüşiöç]+/gi, "-").replace(/(^-|-$)/g, "").slice(0, 60);
@@ -109,7 +127,7 @@ export async function GET() {
 
       items.push(
         `    <item>
-      <g:id>${esc(p.id)}</g:id>
+      <g:id>${esc(feedId(p.id))}</g:id>
       <g:title>${esc(title)}</g:title>
       <g:description>${esc(desc)}</g:description>
       <g:link>${esc(link)}</g:link>
