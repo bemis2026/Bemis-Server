@@ -47,6 +47,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/iletisim`,  lastModified: now, changeFrequency: "yearly",  priority: 0.7 },
     { url: `${BASE}/gizlilik`,        lastModified: now, changeFrequency: "yearly",  priority: 0.3 },
     { url: `${BASE}/cerez-politikasi`, lastModified: now, changeFrequency: "yearly",  priority: 0.3 },
+    // Son kullanıcı destek sayfası — "şarj cihazım çalışmıyor" gibi aramaların hedefi.
+    { url: `${BASE}/destek`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
   ];
 
   // Şehir bazlı yerel-SEO landing sayfaları (örn. /bursa-ev-sarj-istasyonu).

@@ -670,17 +670,23 @@ export default function ProductDetailPage({
                       "Teklif Al" (WhatsApp → doğrudan Bemis) bayilerin talebiyle
                       kaldırıldı; müşteri artık ürün için bayiye yönlendirilir. */}
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <div
-                      className="inline-flex items-center gap-2 rounded-xl px-3 py-1.5 text-xs font-semibold"
+                    {/* ⚠️ Eskiden tıklanamayan ÖLÜ metindi: "2 Yıl Üretici Garantisi" yazıyordu
+                        ama arkasında hiçbir sayfa yoktu (denetim 2026-07-26). Artık /destek'e
+                        gider — garanti kapsamı, arıza kaydı ve iade süreci orada. */}
+                    <a
+                      href="/destek"
+                      className="group inline-flex items-center gap-2 rounded-xl px-3 py-1.5 text-xs font-semibold cursor-pointer transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
                       style={{
                         background: d ? "rgba(59,130,246,0.10)" : "rgba(59,130,246,0.08)",
                         border: `1px solid ${BRAND_BLUE}28`,
                         color: d ? "#dbeafe" : "#1e3a8a",
                       }}
+                      aria-label={pickText(lang, "Garanti ve destek bilgileri", "Warranty and support information")}
                     >
                       <RiShieldCheckLine size={14} style={{ color: BRAND_BLUE }} />
                       {WARRANTY_DURATION}
-                    </div>
+                      <span className="opacity-50 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden>→</span>
+                    </a>
                     <button
                       type="button"
                       onClick={() => setDealerOpen(true)}

@@ -17,6 +17,7 @@ const topicKeys: { value: string; key: UiStringKey }[] = [
   { value: "corporate-sales", key: "topic_corp" },
   { value: "export",          key: "topic_export" },
   { value: "technical",       key: "topic_tech" },
+  { value: "warranty",        key: "topic_warranty" },
   { value: "installation",    key: "topic_install" },
   { value: "partnership",     key: "topic_partnership" },
   { value: "other",           key: "topic_other" },

@@ -94,6 +94,10 @@ const STRINGS = {
   topic_corp:             { tr: "Kurumsal Satış",          en: "Corporate Sales" },
   topic_export:           { tr: "İhracat / Export",        en: "Export" },
   topic_tech:             { tr: "Teknik Destek",           en: "Technical Support" },
+  // ⚠️ 2026-07-26: Arızalı ürünü olan son kullanıcının seçebileceği bir konu YOKTU
+  // (denetimde çıktı) — "Teknik Destek"/"Diğer"e zorlanıyordu. Listede satın alma
+  // konularından SONRA, teknik başlıkların yanında duruyor.
+  topic_warranty:         { tr: "Arıza / Garanti / Servis", en: "Fault / Warranty / Service" },
   topic_install:          { tr: "Kurulum Yardımı",         en: "Installation Help" },
   topic_partnership:      { tr: "İş Ortaklığı",            en: "Partnership" },
   topic_other:            { tr: "Diğer",                   en: "Other" },

@@ -41,6 +41,9 @@ const NAV_GROUPS = {
       { label: "İhracat / Export",     href: "#dealer-export", scroll: true  },
     ]},
     { title: "Destek", links: [
+      // ⚠️ 2026-07-26: "Destek" sütunu vardı ama arızalı ürünü olan kullanıcı için
+      // hiçbir giriş yoktu (döküman/SSS/hesaplayıcı). En üste eklendi.
+      { label: "Arıza & Garanti",       href: "/destek",         scroll: false },
       { label: "Dökümanlar",            href: "/documents",      scroll: false },
       { label: "Kalite & Belgeler",     href: "/documents",      scroll: false },
       { label: "Sıkça Sorulan Sorular", href: "/blog#sss",       scroll: false },
