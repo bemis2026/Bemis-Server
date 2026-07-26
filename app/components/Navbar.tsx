@@ -109,6 +109,15 @@ const HAKKIMIZDA_DROPDOWN: DropdownItem[] = [
 
 // "Rehber" dropdown (eski "Hesaplayıcı" linki) — alt: Hesaplayıcı + Rehberler + SSS.
 const REHBER_DROPDOWN: DropdownItem[] = [
+  // ⚠️ EN ÜSTTE: arızalı ürünü olan kullanıcı için en acil giriş (denetim 2026-07-26 —
+  // menüde destek girişi hiç yoktu). Üst menüye AYRI madde eklemek yerine buraya
+  // konuldu: menü çubuğu uzamıyor (RU/DE'de taşma riski yok), "yardım" kümesiyle
+  // (hesaplayıcı/rehber/SSS/sözlük) aynı yerde duruyor.
+  {
+    label: { tr: "Arıza & Garanti", en: "Support & Warranty" },
+    sub:   { tr: "Ürününüz çalışmıyorsa buradan başlayın", en: "Start here if your product isn't working" },
+    href: "/destek", accent: "#EF4444",
+  },
   {
     label: { tr: "Hesaplayıcı", en: "Calculator" },
     sub:   { tr: "Maliyet & şarj süresi hesaplama", en: "Cost & charge-time calculator" },
