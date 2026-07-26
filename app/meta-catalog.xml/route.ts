@@ -77,10 +77,19 @@ function eurOf(product: { specs?: { group?: string; items?: { label?: string; va
 // oran tutmak yasak: biri güncellenip diğeri unutulursa Merchant "fiyat
 // uyuşmazlığı" verir. Oran değişirse yalnız lib/vat.ts güncellenir.
 
-/** Feed fiyatı — KDV DAHİL: "24098.36 TRY" | "448.80 EUR" */
+/**
+ * Feed fiyatı — KDV DAHİL: "24098.00 TRY" | "449.00 EUR"
+ *
+ * ⚠️ TAM SAYIYA YUVARLANIR çünkü ürün sayfası fiyatı tam sayı gösterir
+ * (lib/formatPrice → Intl maximumFractionDigits: 0 → "₺24.098"). Feed 24098.36
+ * gönderirken sayfa ₺24.098 gösterirse Google "fiyat uyuşmazlığı" işaretleyebilir.
+ * Aynı yuvarlama kuralı (Math.round) iki tarafta da uygulanır → birebir eşleşme.
+ */
 function formatPrice(eur: number, rate: number): string {
   const gross = withVat(eur);
-  return FEED_CURRENCY === "TRY" ? `${(gross * rate).toFixed(2)} TRY` : `${gross.toFixed(2)} EUR`;
+  return FEED_CURRENCY === "TRY"
+    ? `${Math.round(gross * rate).toFixed(2)} TRY`
+    : `${Math.round(gross).toFixed(2)} EUR`;
 }
 
 const esc = (s: unknown) =>
