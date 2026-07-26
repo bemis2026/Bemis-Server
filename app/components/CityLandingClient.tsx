@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { HiChevronDown } from "react-icons/hi";
 import {
   RiCpuLine, RiCustomerService2Line, RiShieldCheckLine, RiMapPin2Line,
@@ -232,19 +232,19 @@ export default function CityLandingClient({ city }: { city: CityPage }) {
                       <HiChevronDown size={18} />
                     </motion.span>
                   </button>
-                  <AnimatePresence initial={false}>
-                    {open && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.22 }}
-                        style={{ overflow: "hidden" }}
-                      >
-                        <p className="text-sm leading-relaxed px-4 pb-4" style={{ color: textMuted }}>{f.a}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  {/* ⚠️ SEO/GEO: cevap DAİMA DOM'da (koşullu mount DEĞİL) — yalnız yüksekliği
+                      animasyonla kapanır. Eskiden `{open && ...}` idi ve akordeon kapalıyken cevap
+                      HTML'e HİÇ basılmıyordu → 6 SSS cevabının 5'i ne Google'ın gövde metnine ne de
+                      AI tarayıcılarına görünüyordu (FAQPage şeması doluydu ama sayfa boştu). */}
+                  <motion.div
+                    initial={false}
+                    animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+                    transition={{ duration: 0.22 }}
+                    style={{ overflow: "hidden" }}
+                    aria-hidden={!open}
+                  >
+                    <p className="text-sm leading-relaxed px-4 pb-4" style={{ color: textMuted }}>{f.a}</p>
+                  </motion.div>
                 </motion.div>
               );
             })}
