@@ -17,32 +17,59 @@
 import { getServerProducts, getServerCategoriesMeta } from "../lib/server-content";
 import { SITE_URL } from "../lib/seo";
 
-export const revalidate = 86400; // 1 gün — platformlar zaten günde birkaç kez çeker
+// ⚠️ 6 saat: kur (/api/rate, TCMB) da 6 saatte bir tazeleniyor. Feed'i onunla
+// AYNI pencerede tutmak, feed fiyatı ile sayfada görünen ₺ fiyatın birbirinden
+// kaymasını (Merchant Center "fiyat uyuşmazlığı" uyarısı) engeller.
+export const revalidate = 21600;
 
 const BRAND = "Bemis E-V Charge";
 
-/** "EUR 374,00" · "€ 286,00" · "7.161,00 € (KDV hariç)" → "374.00 EUR" */
-function parsePrice(raw: unknown): string | null {
+// Para birimi: Türkçe ürün sayfaları fiyatı ₺ gösterir (CurrencyContext:
+// lang==="en" ? EUR : TRY) ve feed TÜRKÇE sayfaya link verir → Merchant Center
+// hedef ülkesi Türkiye için doğru olan TRY'dir. env CATALOG_CURRENCY=EUR ile
+// ham EUR liste fiyatına dönülebilir.
+const FEED_CURRENCY = (process.env.CATALOG_CURRENCY ?? "TRY").toUpperCase() === "EUR" ? "EUR" : "TRY";
+
+/** TCMB EUR/TRY kuru — /api/rate ile AYNI kaynak ve aynı 6 saatlik önbellek. */
+async function tryPerEur(): Promise<number> {
+  try {
+    const res = await fetch("https://www.tcmb.gov.tr/kurlar/today.xml", { next: { revalidate: 21600 } });
+    if (!res.ok) return 37;
+    const xml = await res.text();
+    const block = xml.match(/<Currency\s+[^>]*CurrencyCode="EUR"[^>]*>([\s\S]*?)<\/Currency>/);
+    const rate = Number(block?.[1].match(/<ForexBuying>([\d.]+)<\/ForexBuying>/)?.[1]);
+    return Number.isFinite(rate) && rate > 0 ? rate : 37;
+  } catch {
+    return 37; // CurrencyContext ile aynı yedek kur
+  }
+}
+
+/** "EUR 374,00" · "€ 286,00" · "7.161,00 € (KDV hariç)" → 374 (sayısal EUR) */
+function parseEur(raw: unknown): number | null {
   if (typeof raw !== "string") return null;
-  // Sayı bloğunu al (binlik ".", ondalık ","), para birimi metinden bağımsız (hepsi EUR).
+  // Sayı bloğunu al (binlik ".", ondalık ","); tüm liste fiyatları EUR cinsinden.
   const m = raw.match(/(\d{1,3}(?:\.\d{3})*|\d+)(?:,(\d{1,2}))?/);
   if (!m) return null;
   const whole = m[1].replace(/\./g, "");
   const frac = (m[2] ?? "00").padEnd(2, "0");
   const val = Number(`${whole}.${frac}`);
-  if (!Number.isFinite(val) || val <= 0) return null;
-  return `${val.toFixed(2)} EUR`;
+  return Number.isFinite(val) && val > 0 ? val : null;
 }
 
-function priceOf(product: { specs?: { group?: string; items?: { label?: string; value?: string }[] }[] }): string | null {
+function eurOf(product: { specs?: { group?: string; items?: { label?: string; value?: string }[] }[] }): number | null {
   for (const g of product.specs ?? []) {
     if (!/fiyat|price/i.test(g.group ?? "")) continue;
     for (const it of g.items ?? []) {
-      const p = parsePrice(it?.value);
+      const p = parseEur(it?.value);
       if (p) return p;
     }
   }
   return null;
+}
+
+/** Feed para birimine çevrilmiş fiyat metni: "14025.00 TRY" | "374.00 EUR" */
+function formatPrice(eur: number, rate: number): string {
+  return FEED_CURRENCY === "TRY" ? `${(eur * rate).toFixed(2)} TRY` : `${eur.toFixed(2)} EUR`;
 }
 
 const esc = (s: unknown) =>
@@ -58,7 +85,11 @@ const abs = (u: string) => (u.startsWith("http") ? u : `${SITE_URL}${u.startsWit
 
 export async function GET() {
   const withPrice = (process.env.CATALOG_PRICES ?? "on").toLowerCase() !== "off";
-  const [categories, catsMeta] = await Promise.all([getServerProducts(), getServerCategoriesMeta()]);
+  const [categories, catsMeta, rate] = await Promise.all([
+    getServerProducts(),
+    getServerCategoriesMeta(),
+    tryPerEur(),
+  ]);
 
   const items: string[] = [];
   let skippedNoPrice = 0;
@@ -66,7 +97,8 @@ export async function GET() {
   for (const cat of categories) {
     const catName = catsMeta[cat.id]?.name || cat.name;
     for (const p of cat.products ?? []) {
-      const price = priceOf(p);
+      const eur = eurOf(p);
+      const price = eur !== null ? formatPrice(eur, rate) : null;
       if (withPrice && !price) { skippedNoPrice++; continue; } // fiyatsız ürün platformca reddedilir
       const img = (p.image || p.images?.[0] || "").trim();
       if (!img) { skippedNoPrice++; continue; }               // görsel de zorunlu
@@ -112,6 +144,8 @@ ${items.join("\n")}
       "X-Robots-Tag": "noindex", // feed arama sonuçlarında çıkmasın
       "X-Item-Count": String(items.length),
       "X-Skipped": String(skippedNoPrice),
+      "X-Currency": FEED_CURRENCY,
+      "X-Eur-Try": String(rate), // hangi kurla üretildiği (uyuşmazlık teşhisi için)
     },
   });
 }
