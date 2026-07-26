@@ -12,6 +12,7 @@ import { useLanguage } from "../../../context/LanguageContext";
 import { useCurrency } from "../../../context/CurrencyContext";
 import { useContent } from "../../../context/ContentContext";
 import { formatPrice } from "../../../../lib/formatPrice";
+import { VAT_MULTIPLIER } from "../../../../lib/vat";
 import { findVariantGroup } from "../../../../lib/productGroups";
 import JsonLd from "../../../components/JsonLd";
 import EnergyBackground from "../../../components/EnergyBackground";
@@ -934,16 +935,29 @@ export default function ProductDetailPage({
                                       style={{ borderTop: i > 0 ? `1px solid ${BRAND_BLUE}1a` : "none" }}
                                     >
                                       <span className="text-xs" style={{ color: textMuted }}>{/liste/i.test(row.label) ? (pickText(lang, "Fiyat", "Price")) : row.label}</span>
-                                      <span className="text-sm font-bold text-right inline-flex items-baseline gap-1.5 flex-wrap justify-end" style={{ color: accentInk(BRAND_BLUE, d) }}>
-                                        {currency === "TRY" && hasNumeric ? (
-                                          <>
-                                            <span>{tryText}</span>
-                                            <span className="text-[11px] font-semibold opacity-60">· {eurText}</span>
-                                          </>
-                                        ) : (
-                                          <span>{currency === "TRY" ? tryText : eurText}</span>
+                                      <span className="text-sm font-bold text-right inline-flex flex-col items-end" style={{ color: accentInk(BRAND_BLUE, d) }}>
+                                        <span className="inline-flex items-baseline gap-1.5 flex-wrap justify-end">
+                                          {currency === "TRY" && hasNumeric ? (
+                                            <>
+                                              <span>{tryText}</span>
+                                              <span className="text-[11px] font-semibold opacity-60">· {eurText}</span>
+                                            </>
+                                          ) : (
+                                            <span>{currency === "TRY" ? tryText : eurText}</span>
+                                          )}
+                                          <span className="text-[10px] font-medium opacity-70">{pickText(lang, "+ KDV", "+ Tax")}</span>
+                                        </span>
+                                        {/* KDV DAHİL tutar — ürün feed'i (/meta-catalog.xml) bu sayıyı
+                                            gönderir. Google TR fiyatın KDV dahil olmasını bekler ve
+                                            feed↔sayfa eşleşmesini denetler; oran lib/vat.ts'te TEK
+                                            kaynakta. Liste fiyatı (KDV hariç) B2B referansı olarak
+                                            üstte kalır. */}
+                                        {hasNumeric && (
+                                          <span className="text-[10px] font-semibold opacity-70 mt-0.5">
+                                            {pickText(lang, "KDV dahil", "Incl. VAT")}:{" "}
+                                            {formatPrice(row.value, currency, tryPerEur, VAT_MULTIPLIER)}
+                                          </span>
                                         )}
-                                        <span className="text-[10px] font-medium opacity-70">{pickText(lang, "+ KDV", "+ Tax")}</span>
                                       </span>
                                     </div>
                                   );

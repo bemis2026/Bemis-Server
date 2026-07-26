@@ -16,6 +16,7 @@
 // Google Merchant Center ve ileride dinamik reklam istenirse hazır bekler.
 import { getServerProducts, getServerCategoriesMeta } from "../lib/server-content";
 import { SITE_URL } from "../lib/seo";
+import { VAT_RATE, withVat } from "../../lib/vat";
 
 // ⚠️ 6 saat: kur (/api/rate, TCMB) da 6 saatte bir tazeleniyor. Feed'i onunla
 // AYNI pencerede tutmak, feed fiyatı ile sayfada görünen ₺ fiyatın birbirinden
@@ -67,9 +68,19 @@ function eurOf(product: { specs?: { group?: string; items?: { label?: string; va
   return null;
 }
 
-/** Feed para birimine çevrilmiş fiyat metni: "14025.00 TRY" | "374.00 EUR" */
+// ⚠️ KDV: Google (ve Meta) Türkiye hedefinde fiyatın KDV DAHİL olmasını bekler.
+// Ürün liste fiyatları KDV HARİÇ tutuluyor (sözleşme de iskonto/prim hesaplarını
+// "KDV hariç" üzerinden kurar) → feed'e yazılırken KDV eklenir. Ürün sayfasında da
+// KDV dahil tutar GÖRÜNÜR (bkz. ProductDetailClient fiyat bloğu) — feed ile sayfa
+// aynı sayıyı gösterir, "fiyat uyuşmazlığı" uyarısı oluşmaz.
+// ⚠️ Oran `lib/vat.ts`ten gelir — sayfa da AYNI dosyayı kullanır. Env ile ayrı bir
+// oran tutmak yasak: biri güncellenip diğeri unutulursa Merchant "fiyat
+// uyuşmazlığı" verir. Oran değişirse yalnız lib/vat.ts güncellenir.
+
+/** Feed fiyatı — KDV DAHİL: "24098.36 TRY" | "448.80 EUR" */
 function formatPrice(eur: number, rate: number): string {
-  return FEED_CURRENCY === "TRY" ? `${(eur * rate).toFixed(2)} TRY` : `${eur.toFixed(2)} EUR`;
+  const gross = withVat(eur);
+  return FEED_CURRENCY === "TRY" ? `${(gross * rate).toFixed(2)} TRY` : `${gross.toFixed(2)} EUR`;
 }
 
 const esc = (s: unknown) =>
@@ -152,7 +163,7 @@ ${extra.map((u) => `      <g:additional_image_link>${esc(abs(u))}</g:additional_
     <!-- Tanı: platformun HANGİ sürümü çektiğini anlamak için. Merchant/Meta'daki
          "son güncelleme" bu tarihten ESKİYSE, panel eski kopyayı işlemiştir. -->
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <generator>bemis-feed v3 · ${items.length} ürün · ${FEED_CURRENCY}</generator>
+    <generator>bemis-feed v4 · ${items.length} ürün · ${FEED_CURRENCY} · KDV %${VAT_RATE} dahil</generator>
 ${items.join("\n")}
   </channel>
 </rss>

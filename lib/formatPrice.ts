@@ -17,7 +17,11 @@ const NUM_RE = /(\d{1,3}(?:[.,]\d{3})+|\d+)([.,]\d+)?/;
  * - If a number can't be parsed, the original string is returned
  *   unchanged.
  */
-export function formatPrice(raw: string | undefined | null, currency: Currency, tryPerEur: number): string {
+/**
+ * @param multiplier Tutara uygulanacak çarpan (varsayılan 1). KDV dahil tutar
+ *   için `VAT_MULTIPLIER` (lib/vat.ts) geçilir — feed ile aynı kaynağı kullanır.
+ */
+export function formatPrice(raw: string | undefined | null, currency: Currency, tryPerEur: number, multiplier = 1): string {
   if (!raw) return "";
   const m = raw.match(NUM_RE);
   if (!m) return raw;
@@ -25,7 +29,7 @@ export function formatPrice(raw: string | undefined | null, currency: Currency, 
   // Normalize to a JS-parseable form.
   const whole = m[1].replace(/[.,]/g, "");
   const frac = m[2] ? m[2].replace(/[.,]/, ".") : "";
-  const eurAmount = Number(whole + frac);
+  const eurAmount = Number(whole + frac) * multiplier;
   if (!isFinite(eurAmount) || eurAmount <= 0) return raw;
 
   if (currency === "EUR") {
