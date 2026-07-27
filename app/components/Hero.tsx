@@ -334,7 +334,7 @@ export default function Hero() {
                 boxShadow: `0 0 12px ${ACCENT}60`,
               }}
             />
-            <h1 className={`text-[26px] xs:text-3xl sm:text-4xl font-black tracking-tight leading-[1.2] ${headlineClass}`} style={{ textShadow }}>
+            <h1 className={`text-[30px] xs:text-[34px] sm:text-4xl font-black tracking-tight leading-[1.18] ${headlineClass}`} style={{ textShadow }}>
               <E field="hero.headline1">{hero.headline1}</E>{" "}<br />
               <E field="hero.headline2">{hero.headline2}</E>
               {cleanWords.length > 0 && <> <RotatingWord words={cleanWords} /></>}{" "}

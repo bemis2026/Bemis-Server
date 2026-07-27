@@ -813,3 +813,21 @@ html:not([lang="tr"]) h2[class*="text-6xl"] {
     text-shadow: 0 1px 3px rgba(0,0,0,0.78), 0 0 12px rgba(0,0,0,0.45);
   }
 }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   MOBİL BAŞLIK ÖLÇEĞİ (2026-07-28)
+   Ölçüm (TR, 390px): hero H1 30px iken sayfadaki 10 bölüm başlığının HEPSİ
+   36px'ti → sayfanın ANA başlığı, alt başlıklarından küçük kalıyordu (ters
+   hiyerarşi). Kullanıcı seçimi: "hero 34 + bölüm başlıkları 30".
+   Bölüm başlıkları `text-4xl sm:text-5xl lg:text-6xl` ölçeğiyle yazılmış;
+   burada YALNIZ <640px (mobil) düşürülür — sm ve üzeri, masaüstü DEĞİŞMEZ.
+   ⚠️ Yalnız TR'ye uygulanır: yabancı dillerde zaten daha küçük bir clamp
+   kuralı var (uzun RU/DE başlıkları taşırmasın diye) — onu ezmemek için
+   `html[lang="tr"]` ile sınırlandı.
+   ⚠️ Hero H1 bu kuralın DIŞINDA (h1) ve 34px → hiyerarşi: hero > bölümler.  */
+@media (max-width: 639px) {
+  html[lang="tr"] h2[class*="text-6xl"] {
+    font-size: 1.875rem; /* 30px */
+    line-height: 1.16;
+  }
+}
