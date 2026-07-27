@@ -20,6 +20,10 @@ export type CityPage = {
   metaDescription: string;
   keywords: string[];
   faq: CityFaq[];
+  // ⚠️ İç link çapası. Boşsa "<city> EV Şarj İstasyonu"na düşer — aynı şehirde
+  // BİRDEN FAZLA sayfa olunca (Bursa: istasyon + kablo) hepsi aynı çapayla
+  // linkleniyordu; Google'a yanlış sinyal. Yeni şehir sayfasında MUTLAKA doldur.
+  linkLabel?: string;
 };
 
 export const CITY_PAGES: CityPage[] = [
@@ -29,19 +33,26 @@ export const CITY_PAGES: CityPage[] = [
     loc: "Bursa'da",
     region: "Bursa",
     isHQ: true,
-    title: "Bursa EV Şarj İstasyonu ve Şarj Cihazı",
-    h1: "Bursa EV Şarj İstasyonu ve Şarj Cihazı",
-    eyebrow: "Bursa · Yerli Üretim",
+    linkLabel: "Bursa Elektrikli Araba Şarj Cihazı",
+    // ⚠️ 2026-07-27: "elektrikli araba şarj cihazı bursa" aramasında 11. sıradaydık ve
+    // Google bu sayfa yerine /uretici'yi gösteriyordu. Ölçüm: bu sayfada "elektrikli
+    // araba" 0 kez geçiyordu (metin "elektrikli araç" diyordu) → kullanıcının YAZDIĞI
+    // kelime sayfada yoktu. Başlık/H1/giriş/SSS günlük dile göre yeniden yazıldı;
+    // "araç" kullanımı da korundu (iki yazım da geçiyor).
+    title: "Bursa Elektrikli Araba Şarj Cihazı ve Şarj İstasyonu",
+    h1: "Bursa Elektrikli Araba Şarj Cihazı ve Şarj İstasyonu",
+    eyebrow: "Bursa · Kendi Tesisimizde Üretim",
     intro:
-      "Bemis E-V Charge, Bursa Organize Sanayi Bölgesi'ndeki 16.000 m² tesisinde elektrikli araç şarj cihazlarını kendi üreten yerli bir markadır. Bursa'da ev, iş yeri ve filonuz için AC Wallbox şarj istasyonu, taşınabilir şarj cihazı, Type 2 şarj kablosu ve V2L/C2L adaptörlerini doğrudan üreticisinden temin edebilirsiniz.",
+      "Elektrikli araba şarj cihazınızı Bursa'da doğrudan üreticisinden alın. Bemis E-V Charge, Bursa Organize Sanayi Bölgesi'ndeki 16.000 m² tesisinde elektrikli araç şarj cihazlarını kendi üreten yerli bir markadır. Ev, iş yeri ve filonuz için duvar tipi (wallbox) şarj istasyonu, taşınabilir şarj cihazı, Type 2 şarj kablosu ve V2L/C2L adaptörleri tek noktadan temin edilir.",
     localPitch:
-      "Üretim merkezimiz Bursa'dadır. 1994'ten gelen Bemis Teknik mirası ve kendi Ar-Ge'mizle, donanımdan yazılıma yerli üretim yaparak bölgemizdeki müşterilerimize cihaz, kurulum ve yedek parçada en hızlı erişimi sağlıyoruz.",
+      "Üretim merkezimiz Bursa'dadır. 1994'ten gelen Bemis Teknik mirası ve kendi Ar-Ge'mizle, donanımdan yazılıma yerli üretim yaparız. Cihazlar ithal edilip etiketlenmez; bu yüzden Bursa ve çevresindeki müşterilerimiz ürüne, yedek parçaya ve teknik desteğe doğrudan üreticiden erişir. Satış ve kurulum keşfi yetkili bayilerimiz üzerinden yürür.",
     metaDescription:
-      "Bursa'da elektrikli araç şarj istasyonu ve şarj cihazı — Bemis E-V Charge, Bursa OSB'deki tesisinde üreten yerli üretici. AC Wallbox, taşınabilir şarj, Type 2 kablo. CE, IP65, OCPP.",
+      "Bursa elektrikli araba şarj cihazı — Bemis E-V Charge, Bursa OSB'deki kendi tesisinde üreten yerli üretici. Ev tipi wallbox (7,4–22 kW), taşınabilir şarj cihazı, Type 2 kablo. CE, IP65, OCPP.",
     keywords: [
+      "bursa elektrikli araba şarj cihazı",
+      "elektrikli araba şarj cihazı bursa",
       "bursa ev şarj istasyonu",
       "bursa ev şarj cihazı",
-      "bursa elektrikli araç şarj",
       "bursa wallbox",
       "bursa ev şarj cihazı üreticisi",
       "bursa araç şarj istasyonu kurulumu",
@@ -67,6 +78,18 @@ export const CITY_PAGES: CityPage[] = [
         q: "İş yeri ve filo için toplu şarj çözümünüz var mı?",
         a: "Evet. İş yeri, AVM, otel ve filolar için çoklu kurulum, OCPP yönetimi ve OEM/özel üretim seçeneklerimiz mevcuttur.",
       },
+      {
+        q: "Bursa'da elektrikli araba şarj cihazı fiyatı ne kadar?",
+        a: "Fiyat; cihazın gücüne (7,4 kW tek faz — 22 kW üç faz), kablolu mu soketli mi olduğuna, ekran, RFID, uygulama ve MID sayaç gibi özelliklere göre değişir. Güncel liste fiyatları ürün sayfalarımızda yayınlanır. Kurulum cihaz fiyatına dahil değildir; yetkili bayimiz keşif yaparak hat çekimi ve pano işleri için ayrı teklif verir.",
+      },
+      {
+        q: "Elektrikli araba şarj cihazı seçerken nelere dikkat etmeliyim?",
+        a: "Önce tesisatınızın tek fazlı mı üç fazlı mı olduğunu ve aracınızın dahili AC şarj limitini öğrenin — şarj hızını cihaz değil aracınız belirler. Aracınız 7,4 kW ile sınırlıysa 22 kW cihaz daha hızlı şarj etmez. Dış mekân kullanımında IP65 koruma sınıfı, ortak alan veya iş yerinde ise OCPP uyumu ve RFID yetkilendirme önem kazanır.",
+      },
+      {
+        q: "Evime şarj cihazı taktırmak için ne gerekiyor?",
+        a: "Cihazın bağlanacağı hattın uygun kesitte kablo, kendi sigortası ve kaçak akım koruması ile çekilmesi gerekir. Bu işler yetkili bir elektrikçi tarafından, ürün kurulum şartnamesine uygun yapılmalıdır. Site veya apartman otoparkında ayrıca yönetim onayı ve sayaç/abonelik düzeni gündeme gelir. Yetkili bayimiz keşifte mevcut altyapınızı değerlendirip gereken işleri çıkarır.",
+      },
     ],
   },
   // ⚠️ 2026-07-26 — "bursa şarj kablosu" aramasında 2. sayfadaydık. Teşhis: bu
@@ -81,6 +104,7 @@ export const CITY_PAGES: CityPage[] = [
     loc: "Bursa'da",
     region: "Bursa",
     isHQ: true,
+    linkLabel: "Bursa Şarj Kablosu",
     title: "Bursa Şarj Kablosu — Type 2 Elektrikli Araba Şarj Kablosu",
     h1: "Bursa Şarj Kablosu — Yerli Üretim Type 2",
     eyebrow: "Bursa · Kendi Tesisimizde Üretim",

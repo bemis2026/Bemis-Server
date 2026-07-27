@@ -12,7 +12,7 @@ import { useTheme } from "../context/ThemeContext";
 import Navbar from "./Navbar";
 import SearchOverlay from "./SearchOverlay";
 import ContactBar from "./ContactBar";
-import type { CityPage } from "../lib/cities";
+import { CITY_PAGES, type CityPage } from "../lib/cities";
 
 const BLUE = "#3B82F6";
 const VIEWPORT = { once: true, margin: "-60px" } as const;
@@ -251,6 +251,26 @@ export default function CityLandingClient({ city }: { city: CityPage }) {
           </div>
         </div>
       </section>
+
+      {/* İlgili bölgesel sayfalar — şehir sayfaları arası çapraz link.
+          ⚠️ Bu sayfalar birbirine HİÇ link vermiyordu; aynı şehirdeki ikinci sayfa
+          (ör. Bursa şarj kablosu) yalnız /uretici ve sitemap üzerinden bulunabiliyordu.
+          Çapa metni sayfaya özel `linkLabel`. */}
+      {CITY_PAGES.filter((c) => c.slug !== city.slug).length > 0 && (
+        <section className="pb-10 px-5 sm:px-6 lg:px-8">
+          <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto flex flex-wrap items-center gap-x-3 gap-y-2 text-xs" style={{ color: textFaint }}>
+            <span className="font-semibold uppercase tracking-wider">İlgili sayfalar:</span>
+            {CITY_PAGES.filter((c) => c.slug !== city.slug).map((c) => (
+              <Link key={c.slug} href={`/${c.slug}`} className="font-bold transition-opacity hover:opacity-70 cursor-pointer" style={{ color: d ? "#93C5FD" : BLUE }}>
+                {c.linkLabel || `${c.city} EV Şarj İstasyonu`}
+              </Link>
+            ))}
+            <Link href="/uretici" className="font-bold transition-opacity hover:opacity-70 cursor-pointer" style={{ color: d ? "#93C5FD" : BLUE }}>
+              Yerli Üretici Hikayemiz
+            </Link>
+          </div>
+        </section>
+      )}
 
       <div className="pb-6" />
       <ContactBar />

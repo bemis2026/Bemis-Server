@@ -16,6 +16,7 @@ import { CITY_PAGES } from "../lib/cities";
 import {
   RiShieldCheckLine, RiToolsLine, RiGlobalLine, RiCpuLine,
   RiPriceTag3Line, RiCustomerService2Line, RiArrowRightLine, RiCheckboxCircleLine, RiExternalLinkLine,
+  RiMapPin2Line,
 } from "react-icons/ri";
 
 const BLUE = "#3B82F6";
@@ -131,6 +132,17 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
               style={{ background: BLUE, boxShadow: `0 6px 22px ${BLUE}45` }}
             >
               Ürünleri İncele <RiArrowRightLine size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+            </Link>
+            {/* ⚠️ 2026-07-27: Google birçok aramada (ör. "elektrikli araba şarj cihazı
+                bursa") anasayfa yerine BU sayfayı gösteriyor → burası fiilen bir GİRİŞ
+                sayfası. Hero'da yalnız "Ürünleri İncele" + OEM vardı; son kullanıcının
+                asıl aksiyonu olan "Bayi Bul" yoktu. */}
+            <Link
+              href="/#dealer"
+              className="group inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:scale-[1.02] active:scale-95"
+              style={{ color: textPrimary, background: surface, border: `1px solid ${border}` }}
+            >
+              <RiMapPin2Line size={16} /> Size En Yakın Bayi
             </Link>
             <Link
               href="/b2b"
@@ -435,8 +447,12 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
           <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto flex flex-wrap items-center gap-x-3 gap-y-2 text-xs" style={{ color: textFaint }}>
             <span className="font-semibold uppercase tracking-wider">Bölgesel:</span>
             {CITY_PAGES.map((c) => (
+              // ⚠️ Çapa metni sayfaya ÖZEL (`linkLabel`). Eskiden hepsine
+              // "<şehir> EV Şarj İstasyonu" yazılıyordu → aynı şehirde ikinci
+              // sayfa (Bursa şarj kablosu) açılınca iki farklı sayfa AYNI çapayla
+              // linkleniyordu; Google'a yanlış sinyal.
               <Link key={c.slug} href={`/${c.slug}`} className="font-bold transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : BLUE }}>
-                {c.city} EV Şarj İstasyonu
+                {c.linkLabel || `${c.city} EV Şarj İstasyonu`}
               </Link>
             ))}
           </div>
