@@ -145,18 +145,65 @@ export default function Hero() {
       ])
     : new Set<number>();
 
-  // Scroll to whichever section sits right under the hero — preserves
-  // the page's natural reading order regardless of the configured
-  // sectionOrder. Falls back to a viewport-height scroll on the rare
-  // case the hero has no following sibling.
-  const scrollToNextSection = () => {
+  // Hero CTA ("EV Şarj Çözümlerimizi Keşfet") → ÜRÜN KATEGORİLERİ bölümü (#products).
+  // ⚠️ Eskiden hero'nun bir SONRAKİ kardeş bölümüne kaydırıyordu (pratikte Hakkımızda) —
+  // kullanıcı butonun ürün kategorilerini açmasını istedi (2026-07-27).
+  //
+  // ⚠️ Kaydırma neden JS'te: `scroll-behavior: smooth` sayfa genelinde KULLANILMIYOR
+  // (route değişiminde sayfa alttan açılıp yukarı kayıyordu — bkz. layout.tsx notu).
+  //
+  // ⚠️ Neden tarayıcının `behavior:"smooth"`u değil: yerleşik yumuşak kaydırma uzun
+  // mesafede çok hızlanıyor ve sert duruyor. Burada mesafeyle ölçeklenen süre
+  // (900–1700 ms) + easeInOutCubic var = "sakin" his. Kullanıcı arada kendi
+  // kaydırırsa (tekerlek/dokunma) animasyon BIRAKILIR, kaydırma kaçırılmaz.
+  const NAV_OFFSET = 76; // sabit üst menü yüksekliği — bölüm başlığı altında kalmasın
+
+  const smoothScrollToY = (hedefY: number) => {
+    const baslangic = window.scrollY;
+    const fark = hedefY - baslangic;
+    const azalt = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (azalt || Math.abs(fark) < 8) { window.scrollTo(0, hedefY); return; }
+
+    // Süre mesafeyle ölçeklenir. Ölçüm: hero → #products mesafesi ~3300px;
+    // 0.55/1700ms'te tempo ~3000px/sn (aradaki 3 bölüm hızla akıyordu) →
+    // 0.6/2000ms ile ~2200px/sn = kullanıcının istediği "sakin" his.
+    const sure = Math.min(2000, Math.max(900, Math.abs(fark) * 0.6));
+    const t0 = performance.now();
+    const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+    let iptal = false;
+    const birak = () => { iptal = true; temizle(); };
+    const temizle = () => {
+      window.removeEventListener("wheel", birak);
+      window.removeEventListener("touchstart", birak);
+      window.removeEventListener("keydown", birak);
+    };
+    window.addEventListener("wheel", birak, { passive: true });
+    window.addEventListener("touchstart", birak, { passive: true });
+    window.addEventListener("keydown", birak);
+
+    const adim = (simdi: number) => {
+      if (iptal) return;
+      const p = Math.min(1, (simdi - t0) / sure);
+      window.scrollTo(0, baslangic + fark * ease(p));
+      if (p < 1) requestAnimationFrame(adim);
+      else temizle();
+    };
+    requestAnimationFrame(adim);
+  };
+
+  const scrollToProducts = () => {
+    const hedef = document.getElementById("products");
+    if (hedef) {
+      const y = window.scrollY + hedef.getBoundingClientRect().top - NAV_OFFSET;
+      smoothScrollToY(Math.max(0, y));
+      return;
+    }
+    // Ürün bölümü sayfada yoksa (admin bölüm sıralamasından çıkarılmışsa) eski davranış
     const hero = document.getElementById("hero");
     const next = hero?.nextElementSibling as HTMLElement | null;
-    if (next) {
-      next.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else {
-      window.scrollBy({ top: window.innerHeight - 72, behavior: "smooth" });
-    }
+    if (next) next.scrollIntoView({ behavior: "smooth", block: "start" });
+    else window.scrollBy({ top: window.innerHeight - 72, behavior: "smooth" });
   };
 
   const sectionBg  = d
@@ -303,7 +350,7 @@ export default function Hero() {
           </motion.p>
           <motion.div initial={{ y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}>
             <button
-              onClick={scrollToNextSection}
+              onClick={scrollToProducts}
               className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02] active:scale-95"
               style={{
                 background: heroCtaBg,
@@ -388,7 +435,7 @@ export default function Hero() {
 
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.32 }}>
             <button
-              onClick={scrollToNextSection}
+              onClick={scrollToProducts}
               className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02] active:scale-95"
               style={{
                 background: heroCtaBg,
