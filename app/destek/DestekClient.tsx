@@ -228,7 +228,7 @@ export default function DestekClient() {
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-12 items-start">
             <div>
               <motion.p
-                initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
+                initial={{ y: 8 }} animate={{ y: 0 }} transition={{ duration: 0.4 }}
                 className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.18em] uppercase mb-3"
                 style={{ color: ink }}
               >
@@ -243,7 +243,7 @@ export default function DestekClient() {
                 Destek · Arıza &amp; Garanti
               </motion.p>
               <motion.h1
-                initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.05 }}
+                initial={{ y: 10 }} animate={{ y: 0 }} transition={{ duration: 0.45, delay: 0.05 }}
                 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-4" style={{ color: text }}
               >
                 Ürününüzle ilgili bir sorun mu var?
@@ -253,14 +253,14 @@ export default function DestekClient() {
                 className="h-px w-24 origin-left mb-5" style={{ background: `linear-gradient(90deg, ${BLUE} 0%, transparent 100%)` }}
               />
               <motion.p
-                initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.22 }}
+                initial={{ y: 10 }} animate={{ y: 0 }} transition={{ duration: 0.45, delay: 0.22 }}
                 className="text-base sm:text-lg leading-relaxed max-w-2xl mb-6" style={{ color: muted }}
               >
                 Şarj cihazınız çalışmıyor, beklediğiniz hızda şarj etmiyor ya da garanti kapsamında bir talebiniz mi var?
                 Aşağıdaki adımlar çoğu sorunu birkaç dakikada çözer; çözülmezse arıza kaydınızı nasıl açacağınızı adım adım anlattık.
               </motion.p>
               <motion.div
-                initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.3 }}
+                initial={{ y: 10 }} animate={{ y: 0 }} transition={{ duration: 0.45, delay: 0.3 }}
                 className="flex flex-wrap gap-2.5"
               >
                 <CTA href="#hizli-kontrol" icon={<RiToolsLine aria-hidden />} primary>Hızlı Kontrol Adımları</CTA>
@@ -270,7 +270,7 @@ export default function DestekClient() {
 
             {/* Sağ: hızlı iletişim kartı — kullanıcı acildeyse hemen kanal bulsun */}
             <motion.aside
-              initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.25 }}
+              initial={{ y: 16 }} animate={{ y: 0 }} transition={{ duration: 0.5, delay: 0.25 }}
               className="rounded-2xl p-5 sm:p-6 w-full"
               style={{ background: card, border: `1px solid ${line}`, boxShadow: d ? "0 16px 44px rgba(0,0,0,0.35)" : "0 14px 40px rgba(0,0,0,0.07)" }}
             >
