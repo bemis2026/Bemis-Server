@@ -208,7 +208,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen overflow-hidden"
+      className="relative hero-shell overflow-hidden"
       style={{ background: sectionBg }}
     >
       {/* Background photo — yakınlaşma/uzaklaşma (Ken Burns zoom) KALDIRILDI:
@@ -264,7 +264,7 @@ export default function Hero() {
         style={{ background: groundFade }} />
 
       {/* ── MOBILE layout ── */}
-      <div className="lg:hidden relative z-20 w-full pt-28 pb-24 px-5 sm:px-6 flex flex-col justify-center min-h-screen">
+      <div className="lg:hidden relative z-20 w-full pt-24 pb-16 px-5 sm:px-6 flex flex-col justify-center hero-shell">
         <div className="max-w-2xl">
           <motion.div initial={{ y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-7">
             <Image src={logoSrc} alt="Bemis E-V Charge" width={380} height={120} quality={90}

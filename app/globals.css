@@ -765,3 +765,51 @@ html:not([lang="tr"]) h2[class*="text-6xl"] {
     overflow-wrap: anywhere;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   MOBİL HERO KADRAJI (2026-07-27)
+   Ölçüm: mobilde (390x844) hero kutusu 380x844 = oran 0.45; hero fotoğrafları
+   ise YATAY (1.50 / 1.79 / 2.33). `object-fit: cover` bu durumda fotoğrafın
+   kenarlarını kesip ortasını büyütüyordu → görünen genişlik yalnız %30 / %25 /
+   %19, büyütme 1.98x / 2.36x / 3.08x (3. görsel 1600px kaynaktan 3x büyüdüğü
+   için gözle görülür yumuşama). Kullanıcı: "ekrana sığmıyor, çok zoomlamış".
+   ÇÖZÜM (kullanıcı seçimi: "hero'yu kısalt"): mobilde tam ekran yerine %72 →
+   kutu oranı 0.62'ye çıkar, görünen genişlik ~%42'ye yükselir, büyütme düşer.
+   ⚠️ 100vh'e GERİ DÖNME — kırpma aynen geri gelir.
+   ⚠️ DAHA FAZLA KISALTMA: DNA bölümündeki YouTube kutusu sayfa üstünden 1275px'te.
+   Hero 844→608 olunca video ~1039px'e çıkar ve ilk ekranın (844) ALTINDA kalır =
+   video sayfa açılışında YÜKLENMEZ. Daha çok kısaltılırsa video ilk ekrana girer
+   ve 2026-07-20'deki mobil kazanım (3708→1225 KB) kaybolur.
+   svh: adres çubuğu açılıp kapanınca hero zıplamasın diye (vh yedekli).       */
+.hero-shell { min-height: 72vh; }
+@supports (height: 1svh) { .hero-shell { min-height: 72svh; } }
+@media (min-width: 1024px) { .hero-shell { min-height: 100vh; } }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   ÜRÜN KATEGORİSİ HERO PERDESİ (2026-07-27)
+   Masaüstünde metin geniş alana yayıldığı için soldan sağa koyu gradyan şart.
+   Mobilde ise kart dar (≈340x320) ve metin perdenin üstünü kapladığı için
+   fotoğraf neredeyse hiç görünmüyordu (kullanıcı: "karartmayı azalt").
+   Mobil sürüm: yön üstten alta, alfalar düşük; metnin oturduğu ALT bölge yine
+   koyu kalır → okunurluk korunur, fotoğraf görünür hale gelir.                */
+.cat-hero-scrim {
+  background: linear-gradient(100deg,
+    rgba(8,10,14,0.95) 0%, rgba(8,10,14,0.82) 36%,
+    rgba(8,10,14,0.42) 68%, rgba(8,10,14,0.12) 100%);
+}
+@media (max-width: 767px) {
+  /* ⚠️ ALFA SEÇİMİ ÖLÇÜMLE YAPILDI (canvas ile fotoğrafın metin altındaki gerçek
+     parlaklığı): ortalama parlaklık 0.18-0.25 → alfa 0.55'te kontrast ~6.5:1 (AA
+     rahat geçer). AMA metin alanının %13'ü PARLAK piksel (L>0.5, en yüksek 0.99);
+     oralarda düz perde 2:1'e düşüyor. Bu yüzden perde hafifletilirken metne
+     `.cat-hero-text` ile gölge/halo verildi — parlak lekelerde okunurluk oradan
+     geliyor. Perdeyi TEK BAŞINA daha da açma: harfler parlak bölgede kaybolur. */
+  .cat-hero-scrim {
+    background: linear-gradient(180deg,
+      rgba(8,10,14,0.55) 0%, rgba(8,10,14,0.62) 42%,
+      rgba(8,10,14,0.74) 76%, rgba(8,10,14,0.82) 100%);
+  }
+  .cat-hero-text {
+    text-shadow: 0 1px 3px rgba(0,0,0,0.78), 0 0 12px rgba(0,0,0,0.45);
+  }
+}
