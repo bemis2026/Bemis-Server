@@ -51,6 +51,14 @@ const FAQ = [
     a: "Ürün adı ve ürün kodu (ör. BEV-1011-0005), satın alma faturası veya bayi bilgisi, arızanın kısa açıklaması, mümkünse cihazın ışık/ekran durumunu gösteren fotoğraf veya kısa video ve aracınızın marka-modeli. Bu bilgilerle kaydınız tek seferde açılır.",
   },
   {
+    q: "Şarj sırasında kendiliğinden duruyor, cihaz arızalı mı?",
+    a: "Önce aracın şarj limitinin (ör. %80) dolup dolmadığını araç ekranından kontrol edin. Soketin araca tam oturduğundan ve kablonun gergin durmadığından emin olun. Kaçak akım rölesi atıyorsa sorun tesisat tarafında olabilir; yetkili elektrikçiye başvurun. Çok sıcak ortamlarda araç ve cihaz koruma amacıyla gücü düşürebilir veya şarjı duraklatabilir.",
+  },
+  {
+    q: "Mobil uygulama şarj cihazını göremiyor, ne yapmalıyım?",
+    a: "Uygulama destekli modellerde önce cihazın bağlandığı WiFi ağının kapsama alanında olduğundan emin olun ve modemi yeniden başlatmayı deneyin. Uygulamadan çıkıp tekrar giriş yapın ve cihazı yeniden ekleyin. GSM'li modellerde operatör sinyalinin zayıf olması bağlantıyı etkiler. Cihaz şarj işlevini uygulamadan bağımsız sürdürür; şarj devam ediyorsa acil bir arıza yoktur.",
+  },
+  {
     q: "Ürünü nasıl iade veya değişim yapabilirim?",
     a: "Ürünler yetkili bayi ağı üzerinden satılır. İade ve değişim talepleriniz, satın alma işlemini gerçekleştirdiğiniz bayi üzerinden, ilgili mevzuat ve bayinin satış koşulları çerçevesinde değerlendirilir. Ürün kutusunu ve faturanızı saklamanız süreci kolaylaştırır.",
   },
