@@ -158,11 +158,18 @@ export default function Hero() {
   // kaydırırsa (tekerlek/dokunma) animasyon BIRAKILIR, kaydırma kaçırılmaz.
   const NAV_OFFSET = 76; // sabit üst menü yüksekliği — bölüm başlığı altında kalmasın
 
-  const smoothScrollToY = (hedefY: number) => {
+  // ⚠️ HEDEF HER KAREDE YENİDEN HESAPLANIR (sabit Y değil). Neden: kaydırma
+  // sürerken üstteki bölümlerin yüksekliği değişiyor (whileInView animasyonları,
+  // `content-visibility:auto` bölümlerin açılması, geç yüklenen görseller) →
+  // tıklama anında hesaplanan sabit Y bayatlıyor. Canlı ölçümde bu yüzden hedefi
+  // 71px AŞMIŞTIK (yerelde +21px isabetliyken canlıda -71px). Hareketli hedefi
+  // izleyince varış her koşulda doğru oluyor.
+  const smoothScrollToTarget = (hedefHesapla: () => number) => {
     const baslangic = window.scrollY;
-    const fark = hedefY - baslangic;
+    const ilkHedef = hedefHesapla();
+    const fark = ilkHedef - baslangic;
     const azalt = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-    if (azalt || Math.abs(fark) < 8) { window.scrollTo(0, hedefY); return; }
+    if (azalt || Math.abs(fark) < 8) { window.scrollTo(0, ilkHedef); return; }
 
     // Süre mesafeyle ölçeklenir. Ölçüm: hero → #products mesafesi ~3300px;
     // 0.55/1700ms'te tempo ~3000px/sn (aradaki 3 bölüm hızla akıyordu) →
@@ -185,9 +192,10 @@ export default function Hero() {
     const adim = (simdi: number) => {
       if (iptal) return;
       const p = Math.min(1, (simdi - t0) / sure);
-      window.scrollTo(0, baslangic + fark * ease(p));
+      const guncelHedef = hedefHesapla(); // hareketli hedefi izle
+      window.scrollTo(0, baslangic + (guncelHedef - baslangic) * ease(p));
       if (p < 1) requestAnimationFrame(adim);
-      else temizle();
+      else { window.scrollTo(0, hedefHesapla()); temizle(); }
     };
     requestAnimationFrame(adim);
   };
@@ -195,8 +203,9 @@ export default function Hero() {
   const scrollToProducts = () => {
     const hedef = document.getElementById("products");
     if (hedef) {
-      const y = window.scrollY + hedef.getBoundingClientRect().top - NAV_OFFSET;
-      smoothScrollToY(Math.max(0, y));
+      smoothScrollToTarget(() =>
+        Math.max(0, window.scrollY + hedef.getBoundingClientRect().top - NAV_OFFSET),
+      );
       return;
     }
     // Ürün bölümü sayfada yoksa (admin bölüm sıralamasından çıkarılmışsa) eski davranış
