@@ -781,8 +781,8 @@ html:not([lang="tr"]) h2[class*="text-6xl"] {
    video sayfa açılışında YÜKLENMEZ. Daha çok kısaltılırsa video ilk ekrana girer
    ve 2026-07-20'deki mobil kazanım (3708→1225 KB) kaybolur.
    svh: adres çubuğu açılıp kapanınca hero zıplamasın diye (vh yedekli).       */
-.hero-shell { min-height: 72vh; }
-@supports (height: 1svh) { .hero-shell { min-height: 72svh; } }
+.hero-shell { min-height: 92vh; }
+@supports (height: 1svh) { .hero-shell { min-height: 92svh; } }
 @media (min-width: 1024px) { .hero-shell { min-height: 100vh; } }
 
 /* ─────────────────────────────────────────────────────────────────────────

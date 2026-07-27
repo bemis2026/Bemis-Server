@@ -322,19 +322,19 @@ export default function Hero() {
       {/* ── MOBILE layout ── */}
       <div className="lg:hidden relative z-20 w-full pt-24 pb-16 px-5 sm:px-6 flex flex-col justify-center hero-shell">
         <div className="max-w-2xl">
-          <motion.div initial={{ y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-7">
+          <motion.div initial={{ y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-6">
             <Image src={logoSrc} alt="Bemis E-V Charge" width={380} height={120} quality={90}
               sizes="(max-width: 1024px) 260px, 380px"
-              className="h-14 xs:h-16 sm:h-20 w-auto max-w-[180px] sm:max-w-[260px] object-contain" style={logoStyle} />
+              className="h-12 xs:h-14 sm:h-16 w-auto max-w-[160px] sm:max-w-[220px] object-contain" style={logoStyle} />
             <motion.div
               initial={{ scaleX: 0, opacity: 0 }} animate={{ scaleX: 1, opacity: 1 }} transition={{ duration: 0.5, delay: 0.4 }}
-              className="mt-4 mb-4 h-[2px] w-24 origin-left rounded-full"
+              className="mt-3 mb-3.5 h-[2px] w-20 origin-left rounded-full"
               style={{
                 background: `linear-gradient(90deg, ${ACCENT} 0%, ${ACCENT}AA 60%, transparent 100%)`,
                 boxShadow: `0 0 12px ${ACCENT}60`,
               }}
             />
-            <h1 className={`text-3xl xs:text-4xl sm:text-5xl font-black tracking-tight leading-[1.18] ${headlineClass}`} style={{ textShadow }}>
+            <h1 className={`text-[26px] xs:text-3xl sm:text-4xl font-black tracking-tight leading-[1.2] ${headlineClass}`} style={{ textShadow }}>
               <E field="hero.headline1">{hero.headline1}</E>{" "}<br />
               <E field="hero.headline2">{hero.headline2}</E>
               {cleanWords.length > 0 && <> <RotatingWord words={cleanWords} /></>}{" "}
@@ -354,7 +354,7 @@ export default function Hero() {
             </h1>
           </motion.div>
           <motion.p initial={{ y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className={`${subtitleClass} text-sm sm:text-base leading-relaxed max-w-lg mb-8`} style={{ textShadow }}>
+            className={`${subtitleClass} text-sm sm:text-[15px] leading-[1.55] max-w-lg mb-6`} style={{ textShadow }}>
             <E field="hero.subtitle" tag="span">{hero.subtitle}</E>
           </motion.p>
           <motion.div initial={{ y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }}>
