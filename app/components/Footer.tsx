@@ -65,7 +65,8 @@ const NAV_GROUPS = {
     { title: "Company", links: [
       { label: "About Us",            href: "#dna",      scroll: true  },
       { label: "Bemis World",         href: "/kurumsal", scroll: false },
-      { label: "Domestic Production", href: "/uretici",  scroll: false },
+      // ⚠️ Yabancı dilde milliyet vurgusu yok (kural): "Domestic Production" → üretim yetkinliği.
+      { label: "In-House Production", href: "/uretici",  scroll: false },
       { label: "Blog & News",         href: "/blog",     scroll: false },
       { label: "Bursa EV Charging",   href: "/bursa-ev-sarj-istasyonu", scroll: false },
       { label: "Statistics",          href: "#stats",    scroll: true  },
