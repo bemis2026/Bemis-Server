@@ -7,60 +7,130 @@ export const POSTS_INDEX: PostIndexItem[] = [
   {
     "slug": "portatif-seyyar-sarj-cihazi-nedir-ne-kadar",
     "title": "Portatif (Seyyar) Elektrikli Araç Şarj Cihazı: Nedir, Kimlere Uygun, Ne Kadar?",
+    "titleI18n": {
+      "en": "Portable EV Charger: What It Is, Who It Suits and What It Costs",
+      "de": "Mobiles EV-Ladegerät: Was es ist, für wen es passt und was es kostet",
+      "es": "Cargador portátil para VE: qué es, para quién es y cuánto cuesta",
+      "ar": "شاحن السيارات الكهربائية المحمول: ما هو، ولمن يناسب، وكم يكلّف؟",
+      "ru": "Портативное зарядное устройство для электромобиля: что это, кому подходит и сколько стоит"
+    },
     "category": "Rehber",
     "datePublished": "2026-07-23"
   },
   {
     "slug": "hangi-araclarda-v2l-var-turkiye",
     "title": "Türkiye'de Hangi Elektrikli Araçlarda V2L Var? (2026 Güncel Liste)",
+    "titleI18n": {
+      "en": "Which Electric Cars Have V2L? (Updated 2026 List)",
+      "de": "Welche Elektroautos haben V2L? (Aktuelle Liste 2026)",
+      "es": "¿Qué coches eléctricos tienen V2L? (Lista actualizada 2026)",
+      "ar": "ما السيارات الكهربائية المزوّدة بخاصية V2L؟ (قائمة محدّثة 2026)",
+      "ru": "В каких электромобилях есть V2L? (актуальный список 2026)"
+    },
     "category": "Rehber",
     "datePublished": "2026-07-23"
   },
   {
     "slug": "elektrikli-arabami-evde-nasil-sarj-ederim",
     "title": "Elektrikli Arabamı Evde Nasıl Şarj Ederim? Yeni Başlayanlar İçin Şarj Aleti Rehberi",
+    "titleI18n": {
+      "en": "How Do I Charge My Electric Car at Home? A Beginner's Guide",
+      "de": "Wie lade ich mein Elektroauto zu Hause? Ein Leitfaden für Einsteiger",
+      "es": "¿Cómo cargo mi coche eléctrico en casa? Guía para principiantes",
+      "ar": "كيف أشحن سيارتي الكهربائية في المنزل؟ دليل للمبتدئين",
+      "ru": "Как зарядить электромобиль дома? Руководство для начинающих"
+    },
     "category": "Rehber",
     "datePublished": "2026-07-20"
   },
   {
     "slug": "gunes-enerjisi-solar-ile-elektrikli-arac-sarji",
     "title": "Güneş Enerjisi (Solar) ile Elektrikli Araç Şarjı: Evde Güneş Panelinden Araç Şarj Etmek",
+    "titleI18n": {
+      "en": "Charging an Electric Car with Solar Power: Home Solar EV Charging",
+      "de": "Elektroauto mit Solarstrom laden: EV-Laden mit der eigenen PV-Anlage",
+      "es": "Cargar el coche eléctrico con energía solar: carga con paneles en casa",
+      "ar": "شحن السيارة الكهربائية بالطاقة الشمسية: الشحن المنزلي بالألواح الشمسية",
+      "ru": "Зарядка электромобиля от солнечной энергии: домашние солнечные панели"
+    },
     "category": "Rehber",
     "datePublished": "2026-07-18"
   },
   {
     "slug": "evde-elektrikli-arac-sarji-guvenli-mi",
     "title": "Evde Elektrikli Araç Şarjı Güvenli mi? Priz, Sigorta ve Kaçak Akım Rehberi",
+    "titleI18n": {
+      "en": "Is Home EV Charging Safe? Sockets, Fuses and RCD Guide",
+      "de": "Ist das Laden zu Hause sicher? Steckdosen, Sicherungen und FI-Schutzschalter",
+      "es": "¿Es segura la carga en casa? Guía de tomas, fusibles y diferencial",
+      "ar": "هل شحن السيارة الكهربائية في المنزل آمن؟ دليل المقابس والمصهرات وقاطع التسرّب",
+      "ru": "Безопасна ли домашняя зарядка электромобиля? Розетки, автоматы и УЗО"
+    },
     "category": "Rehber",
     "datePublished": "2026-07-18"
   },
   {
     "slug": "isletmeler-icin-dc-hizli-sarj-istasyonu-yatirimi",
     "title": "İşletmeler için DC Hızlı Şarj İstasyonu Yatırımı: Karar Rehberi",
+    "titleI18n": {
+      "en": "DC Fast Charging Investment for Businesses: A Decision Guide",
+      "de": "DC-Schnellladeinvestition für Unternehmen: ein Entscheidungsleitfaden",
+      "es": "Inversión en carga rápida DC para empresas: guía de decisión",
+      "ar": "الاستثمار في الشحن السريع DC للشركات: دليل اتخاذ القرار",
+      "ru": "Инвестиции в быструю DC-зарядку для бизнеса: руководство по выбору"
+    },
     "category": "Rehber",
     "datePublished": "2026-07-11"
   },
   {
     "slug": "hangi-sarj-kablosu-aracima-uyumlu-type-2",
     "title": "Togg, Tesla ve Tüm Elektrikli Araçlar İçin Şarj Kablosu Uyumluluğu: Type 2 Rehberi",
+    "titleI18n": {
+      "en": "Charging Cable Compatibility for Every Electric Car: The Type 2 Guide",
+      "de": "Ladekabel-Kompatibilität für jedes Elektroauto: der Typ-2-Leitfaden",
+      "es": "Compatibilidad del cable de carga para cada coche eléctrico: guía Type 2",
+      "ar": "توافق كابل الشحن مع كل سيارة كهربائية: دليل Type 2",
+      "ru": "Совместимость зарядного кабеля для любого электромобиля: руководство по Type 2"
+    },
     "category": "Rehber",
     "datePublished": "2026-07-11"
   },
   {
     "slug": "40-kw-dc-sarj-istasyonu",
     "title": "40 kW DC Şarj İstasyonu Nedir, Kime Uygun ve Ne Kadar Hızlı?",
+    "titleI18n": {
+      "en": "What Is a 40 kW DC Charging Station, Who Is It For and How Fast Is It?",
+      "de": "Was ist eine 40-kW-DC-Ladestation, für wen eignet sie sich und wie schnell ist sie?",
+      "es": "¿Qué es una estación de carga DC de 40 kW, para quién es y qué tan rápida es?",
+      "ar": "ما محطة الشحن DC بقدرة 40 كيلوواط، ولمن تناسب، وما سرعتها؟",
+      "ru": "Что такое DC-станция 40 кВт, кому она подходит и насколько быстра?"
+    },
     "category": "Rehber",
     "datePublished": "2026-07-08"
   },
   {
     "slug": "evde-elektrikli-arac-sarj-maliyeti-km-basina",
     "title": "Evde Elektrikli Araç Şarj Maliyeti: Km Başına Kaç TL?",
+    "titleI18n": {
+      "en": "Home EV Charging Cost: How Much per Kilometre?",
+      "de": "Kosten für das Laden zu Hause: Wie viel pro Kilometer?",
+      "es": "Coste de carga en casa: ¿cuánto por kilómetro?",
+      "ar": "تكلفة الشحن المنزلي: كم لكل كيلومتر؟",
+      "ru": "Стоимость домашней зарядки: сколько за километр?"
+    },
     "category": "Rehber",
     "datePublished": "2026-07-05"
   },
   {
     "slug": "monofaze-mi-trifaze-mi-ev-sarj",
     "title": "Monofaze mi, Trifaze (3 Faz) mı? Evinize Hangi Şarj Cihazı Uygun?",
+    "titleI18n": {
+      "en": "Single-Phase or Three-Phase? Choosing the Right Home Charger",
+      "de": "Einphasig oder dreiphasig? Die richtige Wallbox für Ihr Zuhause",
+      "es": "¿Monofásico o trifásico? Cómo elegir el cargador adecuado para casa",
+      "ar": "أحادي الطور أم ثلاثي الأطوار؟ اختيار الشاحن المنزلي المناسب",
+      "ru": "Однофазная или трёхфазная? Как выбрать домашнюю зарядную станцию"
+    },
     "category": "Teknik",
     "datePublished": "2026-07-05"
   },
