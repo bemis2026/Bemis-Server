@@ -831,3 +831,19 @@ html:not([lang="tr"]) h2[class*="text-6xl"] {
     line-height: 1.16;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   DOKUNMA HEDEFİ GENİŞLETİCİ (2026-07-28 denetimi)
+   Navbar ikon düğmeleri (arama / tema / menü) 33-38px'ti; mobil kılavuzu 44px
+   önerir. Düğmeyi BÜYÜTMEK navbar'ı kalabalıklaştırırdı (5 öğe yan yana) →
+   bunun yerine görünmez bir ::after ile tıklama alanı genişletilir:
+   ikon boyutu, boşluklar ve görünüm AYNEN kalır, parmak alanı 44px'e çıkar.
+   ⚠️ Kapsayıcıda `overflow: hidden` varsa alan kırpılır — navbar'da yok.     */
+.tap-44 { position: relative; }
+.tap-44::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 44px; height: 44px;
+  transform: translate(-50%, -50%);
+}

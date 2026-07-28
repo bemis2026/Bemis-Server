@@ -3,6 +3,7 @@ import { pickText } from "../../lib/ui";
 import CustomProductionSection from "../../components/CustomProductionSection";
 import { accentInk } from "../../lib/accentInk";
 
+import Link from "next/link";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
@@ -431,7 +432,22 @@ export default function ProductCategoryPage({ initialCategory = null, titleOverr
 
                 {/* Info */}
                 <div className="px-3 py-3 flex flex-col flex-1" onClick={() => router.push(`${base}/${id}/${product.id}`)}>
-                  <p className="font-bold text-xs leading-tight mb-0.5" style={{ color: textPrimary }}>{product.name}</p>
+                  {/* ⚠️ BAŞLIK GERÇEK LİNK (2026-07-28 denetimi): kart tıklaması `router.push`
+                      ile çalışıyordu, yani sayfada ürün detayına giden TEK BİR `<a href>` yoktu.
+                      Sonuç: Google ürün sayfalarını yalnız sitemap'ten buluyordu — kategoriden
+                      ürüne iç link akışı ve ÇAPA METNİ (ürün adı) hiç oluşmuyordu; kullanıcı da
+                      kartı yeni sekmede açamıyordu. Aynı ders footer'da alınmıştı (button→a).
+                      ⚠️ Kartın TAMAMINI <a> ile sarma: içinde varyant butonları var → geçersiz
+                      HTML. Yalnız başlık link; kartın kendi onClick'i aynen duruyor.
+                      `stopPropagation` çift gezinmeyi önler. Görünüm birebir aynı. */}
+                  <Link
+                    href={`${base}/${id}/${product.id}`}
+                    onClick={(e) => e.stopPropagation()}
+                    className="font-bold text-xs leading-tight mb-0.5 block"
+                    style={{ color: textPrimary }}
+                  >
+                    {product.name}
+                  </Link>
                   {variantCount > 1 ? (
                     /* Varyantlar TIKLANABİLİR (2026-07-25): aynı adlı modeller tek kartta
                        gruplanıyor (ör. 3 Otomatlı IP44 Kombinasyon) — eskiden varyantlar

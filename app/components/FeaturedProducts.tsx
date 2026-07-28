@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import { motion, useInView } from "framer-motion";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
@@ -275,7 +276,15 @@ export default function FeaturedProducts() {
 
                   {/* Product name */}
                   <h3 className="text-base font-bold leading-tight mb-0.5" style={{ color: textPrimary }}>
-                    {item.prod?.name ?? item.productId}
+                    {/* ⚠️ Başlık GERÇEK LİNK (2026-07-28 denetimi): kartlar `router.push` ile
+                                  çalışıyordu → sayfada ürün/kategoriye giden tek bir <a href> yoktu;
+                                  Google yalnız sitemap'ten buluyordu, çapa metni oluşmuyordu.
+                                  Kartın tamamı <a> yapılamaz (içinde varyant butonları var =
+                                  geçersiz HTML) → yalnız başlık link. stopPropagation çift
+                                  gezinmeyi önler. Görünüm birebir aynı. */}
+                    <Link href={`/products/${item.categoryId}/${item.productId}`} onClick={(e) => e.stopPropagation()} style={{ color: "inherit" }}>
+                      {item.prod?.name ?? item.productId}
+                    </Link>
                   </h3>
                   <p className="text-xs mb-1.5" style={{ color: accentInk(item.accent, d) }}>
                     {item.cat?.name}

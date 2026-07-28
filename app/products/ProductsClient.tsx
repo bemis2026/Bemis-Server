@@ -3,6 +3,7 @@ import { pickText } from "../lib/ui";
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import { useContent, type CategoryMeta } from "../context/ContentContext";
@@ -472,9 +473,20 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
 
                             {/* Info */}
                             <div className="px-3 py-3">
-                              <p className="font-bold text-xs leading-tight mb-0.5" style={{ color: textPrimary }}>
+                              {/* ⚠️ Başlık GERÇEK LİNK (2026-07-28 denetimi): kartlar `router.push` ile
+                                  çalışıyordu → sayfada ürün/kategoriye giden tek bir <a href> yoktu;
+                                  Google yalnız sitemap'ten buluyordu, çapa metni oluşmuyordu.
+                                  Kartın tamamı <a> yapılamaz (içinde varyant butonları var =
+                                  geçersiz HTML) → yalnız başlık link. stopPropagation çift
+                                  gezinmeyi önler. Görünüm birebir aynı. */}
+                              <Link
+                                href={`/products/${cat.id}/${product.id}`}
+                                onClick={(e) => e.stopPropagation()}
+                                className="font-bold text-xs leading-tight mb-0.5 block"
+                                style={{ color: textPrimary }}
+                              >
                                 {product.name}
-                              </p>
+                              </Link>
                               {variantCount > 1 ? (
                                 /* Varyantlar TIKLANABİLİR (2026-07-25) — aynı adlı modeller
                                    tek kartta gruplanıyor; her varyant kendi sayfasına gider

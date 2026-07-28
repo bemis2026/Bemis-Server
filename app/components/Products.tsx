@@ -4,6 +4,7 @@ import { accentInk } from "../lib/accentInk";
 
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   RiChargingPile2Line,
@@ -296,7 +297,14 @@ export default function Products() {
                         className="font-black leading-tight mb-1 truncate"
                         style={{ fontSize: "clamp(1.3rem, 3.5vw, 2.2rem)", color: textPrimary, textShadow: (cat as typeof cat & { sliderImage?: string }).sliderImage ? (d ? "0 1px 12px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.55)" : "0 1px 12px rgba(255,255,255,0.75), 0 1px 3px rgba(255,255,255,0.6)") : undefined }}
                       >
-                        {cat.name}
+                        {/* ⚠️ Başlık GERÇEK LİNK (2026-07-28 denetimi) — kategori kartları `router.push`
+                          ile çalışıyordu; sayfada kategoriye giden <a href> yoktu. comingSoon ise
+                          link YOK (hedef sayfa anlamlı değil). Görünüm birebir aynı. */}
+                        {cat.comingSoon ? cat.name : (
+                          <Link href={`/products/${cat.id}`} onClick={(e) => e.stopPropagation()} style={{ color: "inherit" }}>
+                            {cat.name}
+                          </Link>
+                        )}
                       </h2>
                       <p
                         className="text-sm leading-snug line-clamp-1 mb-4 max-w-md"
@@ -561,7 +569,11 @@ export default function Products() {
                     }}
                   >
                     <p className="font-bold text-base leading-tight" style={{ color: overlayTitleColor }}>
-                      {cat.name}
+                      {cat.comingSoon ? cat.name : (
+                        <Link href={`/products/${cat.id}`} onClick={(e) => e.stopPropagation()} style={{ color: "inherit" }}>
+                          {cat.name}
+                        </Link>
+                      )}
                     </p>
                     <p className="text-xs font-semibold mt-0.5" style={{ color: overlayAccent(cat.accent) }}>
                       {cat.comingSoon ? (pickText(lang, "Yakında", "Soon")) : `${cat.modelCount} ${pickText(lang, "Model", "Models")}`}
