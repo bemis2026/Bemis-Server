@@ -789,6 +789,12 @@
           "IP54"
         ]
       }
+    ],
+    "overlayFeatures": [
+      "IP 65",
+      "Geplantes Laden",
+      "Gemeinsame Nutzung",
+      "Mobile App"
     ]
   },
   "faviconUrl": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075791/products/xt103etp3dcuoxvu7aib.png",
