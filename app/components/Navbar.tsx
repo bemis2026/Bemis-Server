@@ -728,7 +728,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
             <button onClick={onSearchOpen} aria-label={pickText(lang, "Site içinde ara", "Search the site")} className={`p-2 rounded-lg transition-colors ${iconBtnClass}`}>
               <HiSearch size={18} />
             </button>
-            <button onClick={toggle} className={`p-2 rounded-lg transition-colors ${iconBtnClass}`}>
+            <button onClick={toggle} aria-label={isDark ? pickText(lang, "Aydınlık moda geç", "Switch to light mode") : pickText(lang, "Karanlık moda geç", "Switch to dark mode")} className={`p-2 rounded-lg transition-colors ${iconBtnClass}`}>
               {isDark ? <HiSun size={18} /> : <HiMoon size={18} />}
             </button>
             {/* "Bize Ulaşın" lg aralığında kompakt (px-3/13px), ≥xl bugünkü boy (değişmez) —
@@ -790,7 +790,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
               panelBg={langPanelBg} panelBorder={langPanelBorder} panelText={langPanelText}
             />
             <button onClick={onSearchOpen} aria-label={pickText(lang, "Site içinde ara", "Search the site")} className={`p-2 rounded-lg ${mobileIconClass}`}><HiSearch size={17} /></button>
-            <button onClick={toggle} className={`p-2 rounded-lg ${mobileIconClass}`}>{isDark ? <HiSun size={17} /> : <HiMoon size={17} />}</button>
+            <button onClick={toggle} aria-label={isDark ? pickText(lang, "Aydınlık moda geç", "Switch to light mode") : pickText(lang, "Karanlık moda geç", "Switch to dark mode")} className={`p-2 rounded-lg ${mobileIconClass}`}>{isDark ? <HiSun size={17} /> : <HiMoon size={17} />}</button>
             <button onClick={() => setMobileOpen(!mobileOpen)} aria-label={mobileOpen ? pickText(lang, "Menüyü kapat", "Close menu") : pickText(lang, "Menüyü aç", "Open menu")} aria-expanded={mobileOpen} className={`p-2 ${mobileIconClass}`}>
               {mobileOpen ? <HiX size={22} /> : <HiMenuAlt3 size={22} />}
             </button>
