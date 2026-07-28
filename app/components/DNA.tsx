@@ -4,6 +4,8 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
 import { useContent } from "../context/ContentContext";
 import {
   RiBuilding4Line, RiArrowRightLine, RiVolumeUpLine, RiVolumeMuteLine,
@@ -20,6 +22,7 @@ export default function DNA() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
+  const { lang } = useLanguage();
   const router = useRouter();
   const { dna, products: productSection, dealer: dealerSection, sectionBgs } = useContent();
   const d = theme === "dark";
@@ -149,7 +152,10 @@ export default function DNA() {
                 className="flex sm:inline-flex items-center justify-center sm:justify-start gap-1.5 text-sm font-bold transition-opacity hover:opacity-70"
                 style={{ color: d ? "#93C5FD" : BLUE }}
               >
-                Yerli Üretici Hikayemiz <RiArrowRightLine size={15} />
+                {/* ⚠️ Yabancı dillerde TÜRKÇE kalıyordu (2026-07-28). Ayrıca yabancı dilde
+                    "yerli" söylemi KULLANILMAZ (kural: dış dünyaya evrensel çerçeve) →
+                    EN karşılığı "Our Manufacturing Story". */}
+                {pickText(lang, "Yerli Üretici Hikayemiz", "Our Manufacturing Story")} <RiArrowRightLine size={15} />
               </Link>
             </motion.div>
 

@@ -156,8 +156,8 @@ export default function Footer() {
 
   return (
     <footer className="overflow-hidden" style={{ background: bg, borderTop: `1px solid ${borderTop}` }}>
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-8 sm:py-14">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-6 sm:gap-8">
 
           {/* Brand column */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-2">
@@ -199,7 +199,7 @@ export default function Footer() {
             </div>
 
             <p className="text-xs mb-3" style={{ color: textFaint }}><E field="footer.followLabel" tag="span">{footerContent.followLabel}</E></p>
-            <div className="flex items-center gap-2 mb-6">
+            <div className="flex items-center gap-2 mb-4 sm:mb-6">
               {socials.map((s, i) => (
                 s.href ? (
                   <a
@@ -241,8 +241,8 @@ export default function Footer() {
               className="col-span-1"
             >
               {/* h4→h3: W3C başlık sırası (h2'den sonra h4 atlamaydı); görünüm sınıflardan, birebir aynı. */}
-              <h3 className="font-semibold text-sm mb-4" style={{ color: textHead }}>{group.title}</h3>
-              <ul className="space-y-2.5">
+              <h3 className="font-semibold text-sm mb-2.5 sm:mb-4" style={{ color: textHead }}>{group.title}</h3>
+              <ul className="space-y-1.5 sm:space-y-2.5">
                 {group.links.map((link, j) => (
                   <li key={j}>
                     {/* Gerçek <a href> → Google taranabilir iç-link olarak görür
@@ -296,8 +296,8 @@ export default function Footer() {
               )}
               <a href="/b2b" onClick={e => { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); router.push("/b2b"); }} className="transition-colors hover:opacity-70">OEM / B2B</a>
               {/* KVKK sayfaları — kullanıcı metinleri onayladı (2026-07-12); gerçek <a> = taranabilir */}
-              <a href="/gizlilik" onClick={e => { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); router.push("/gizlilik"); }} className="transition-colors hover:opacity-70">Gizlilik / KVKK</a>
-              <a href="/cerez-politikasi" onClick={e => { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); router.push("/cerez-politikasi"); }} className="transition-colors hover:opacity-70">Çerez Politikası</a>
+              <a href="/gizlilik" onClick={e => { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); router.push("/gizlilik"); }} className="transition-colors hover:opacity-70">{byLang({ tr: "Gizlilik / KVKK", en: "Privacy / GDPR" }, lang)}</a>
+              <a href="/cerez-politikasi" onClick={e => { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); router.push("/cerez-politikasi"); }} className="transition-colors hover:opacity-70">{byLang({ tr: "Çerez Politikası", en: "Cookie Policy" }, lang)}</a>
               {/* Bemis Grup — kardeş markalar. Basit tutuldu (kullanıcı kararı 2026-07-13):
                   şemada karmaşık hiyerarşi YOK; Organization.parentOrganization zaten
                   bemis.com.tr + ana şirket Wikidata bağını taşıyor. Bu satır ziyaretçiye

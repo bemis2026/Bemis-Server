@@ -1912,5 +1912,35 @@
     "es": "Guía",
     "ar": "الدليل",
     "ru": "Гид"
+  },
+  "Our Manufacturing Story": {
+    "de": "Unsere Fertigungsgeschichte",
+    "es": "Nuestra historia de fabricación",
+    "ar": "قصة التصنيع لدينا",
+    "ru": "Наша история производства"
+  },
+  "Scheduled Charging": {
+    "de": "Geplantes Laden",
+    "es": "Carga programada",
+    "ar": "شحن مجدول",
+    "ru": "Зарядка по расписанию"
+  },
+  "Shared Access": {
+    "de": "Gemeinsame Nutzung",
+    "es": "Uso compartido",
+    "ar": "استخدام مشترك",
+    "ru": "Общий доступ"
+  },
+  "Privacy / GDPR": {
+    "de": "Datenschutz / DSGVO",
+    "es": "Privacidad / RGPD",
+    "ar": "الخصوصية / اللائحة العامة",
+    "ru": "Конфиденциальность / GDPR"
+  },
+  "Cookie Policy": {
+    "de": "Cookie-Richtlinie",
+    "es": "Política de cookies",
+    "ar": "سياسة ملفات تعريف الارتباط",
+    "ru": "Политика использования файлов cookie"
   }
 }

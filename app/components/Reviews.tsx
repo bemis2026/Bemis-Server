@@ -301,7 +301,11 @@ export default function Reviews() {
                   {latestPosts.map((p) => (
                     <a key={p.slug} href={`/blog/${p.slug}`} className="text-xs inline-flex items-center gap-1.5 transition-opacity hover:opacity-70" style={{ color: textMuted }}>
                       <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: BLUE }} />
-                      <span className="truncate">{p.title}</span>
+                      {/* ⚠️ Yabancı dillerde başlıklar TÜRKÇE görünüyordu (2026-07-28):
+                          indeks yalnız TR başlık taşıyordu, blog çeviri dosyası (1.5 MB)
+                          ise anasayfaya bilerek yüklenmiyor. Artık indekste `titleI18n`
+                          var (yalnız başlıklar, ~11 KB). Çevirisi olmayan yazı TR'ye düşer. */}
+                      <span className="truncate">{p.titleI18n?.[lang] ?? p.title}</span>
                     </a>
                   ))}
                 </div>

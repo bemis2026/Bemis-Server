@@ -1,6 +1,6 @@
 {
   "hero": {
-    "badge": "Domestic Production · Bursa · 1994",
+    "badge": "In-House Production · Bursa · 1994",
     "headline1": "The World’s",
     "headline2": "E-V Charging",
     "headline3": "Manufacturer",
@@ -238,7 +238,7 @@
           "a": "Professional equipment used in charging station installations includes: AC and DC charging sockets (Type 2, CCS2), wired and wireless versions, socket covers, locking mechanisms, optional communication modules and spare parts that can be integrated into the charger. Uses OEM manufacturers and service."
         }
       ],
-      "description": "Fully domestic Bemis DC charging cables specially produced for high-power DC charging units provide easy replacement in case of breakage thanks to their modular body structure.\nPanel socket with lock mechanism used on charging units. With its special branding and unique design, it is perfect for your unit. The DC Socket Holder Bracket, which is produced for the DC cables used in DC charging units to hang idle, stands out as an ideal option with its ball and embedded design. Thanks to its ball structure, the fracture problem is eliminated. With its body structure embedded in the case, it is fully compatible with your unit design.",
+      "description": "Bemis DC charging cables, produced entirely in our own facility, specially produced for high-power DC charging units provide easy replacement in case of breakage thanks to their modular body structure.\nPanel socket with lock mechanism used on charging units. With its special branding and unique design, it is perfect for your unit. The DC Socket Holder Bracket, which is produced for the DC cables used in DC charging units to hang idle, stands out as an ideal option with its ball and embedded design. Thanks to its ball structure, the fracture problem is eliminated. With its body structure embedded in the case, it is fully compatible with your unit design.",
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075761/products/f0fshjhhljmvpkcrxxzu.png"
     },
     "charger-equipment": {
@@ -383,15 +383,15 @@
     "facebook": "https://www.facebook.com/bemisteknik/?locale=tr_TR"
   },
   "dna": {
-    "sectionLabel": "From Software to Production — It's All on Us",
-    "sectionHeading": "With Bemis quality\nDomestic EV charging solutions",
+    "sectionLabel": "About Us",
+    "sectionHeading": "From Software to Production — It's All on Us",
     "brandHeading": "With Bemis quality\nEV charging solutions",
-    "brandPara1": "In our facility in Bursa OIZ, we carry out every stage from electronic card design to software, from cable production to final assembly. The products we export to more than 80 countries prove how domestic engineering can compete in the global arena.",
-    "brandPara2": "Quality is the expression of respect.",
-    "quote": "Bemis E-V Charge Team · Bursa OIZ, Turkey",
-    "quoteAttr": "Explore the World of Bemis",
+    "brandPara1": "Founded in Bursa in 1994, Bemis Teknik Elektrik A.Ş. is one of the leading electrical equipment manufacturers, producing industrial plugs and sockets in its own facilities with more than 30 years of experience. Bemis E-V Charge is our EV charging brand, built on that established foundation and manufactured entirely in-house.",
+    "brandPara2": "In our facility in Bursa OIZ, we carry out every stage ourselves — from electronic board design to software, from cable production to final assembly. The products we export to more than 80 countries show how our own engineering competes in the global arena.",
+    "quote": "Quality is the expression of respect.",
+    "quoteAttr": "Bemis E-V Charge Team · Bursa OIZ, Türkiye",
     "yearLabel": "1994",
-    "yearSub": "30+ Years of Experience",
+    "yearSub": "Bursa · Türkiye · In-House Production",
     "highlights": [
       {
         "title": "Certified Quality",
@@ -412,8 +412,8 @@
     ],
     "features": [
       {
-        "title": "Domestic Production Quality",
-        "desc": "Production in TUV, CE and ISO 9001 European standards in our Bursa OIZ facility. Full native from software to electronics."
+        "title": "In-House Production Quality",
+        "desc": "Production in TUV, CE and ISO 9001 European standards in our Bursa OIZ facility. Fully in-house, from software to electronics."
       },
       {
         "title": "Universal Compatibility",
@@ -430,7 +430,7 @@
     ],
     "factoryImage": "/kurumsal/1775044209322-WhatsApp_Image_2026-04-01_at_09.54.37.jpeg",
     "factoryVideo": "https://www.youtube.com/watch?v=BnoQBR9irTU",
-    "ctaLabel": "Bursa · Turkey · Domestic Production",
+    "ctaLabel": "Explore the World of Bemis",
     "aboutVideo": "https://www.youtube.com/watch?v=JVfchskAXC4&t=53s",
     "groupBrands": [
       {
@@ -668,7 +668,7 @@
     "followLabel": "Follow us:",
     "copyright": "© 2026 Bemis Teknik Elektrik A.Ş.",
     "rightsLabel": "All rights reserved",
-    "tagline": "Domestic Production, Global Quality",
+    "tagline": "In-House Production, Global Quality",
     "b2bText": "For manufacturers and OEM solutions",
     "b2bLinkText": "our professional product page",
     "b2bSuffix": "information."
@@ -725,7 +725,7 @@
         "value": "Type 2 (IEC 62196)"
       },
       {
-        "label": "Domestic Production",
+        "label": "In-House Production",
         "value": "Made in Turkey"
       },
       {

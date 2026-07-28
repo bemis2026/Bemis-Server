@@ -193,6 +193,21 @@ interface NavbarProps {
   onSearchOpen: () => void;
 }
 
+// Döküman listesi oturum boyunca TEK KEZ çekilir (6,8 KB). Modül seviyesinde
+// durduğu için sayfa geçişlerinde Navbar yeniden kurulsa da istek tekrarlanmaz.
+let docsCache: NavDoc[] | null = null;
+let docsPromise: Promise<NavDoc[]> | null = null;
+function fetchDocsOnce(): Promise<NavDoc[]> {
+  if (docsCache) return Promise.resolve(docsCache);
+  if (!docsPromise) {
+    docsPromise = fetch("/api/documents")
+      .then((r) => (r.ok ? r.json() : []))
+      .then((d) => { docsCache = Array.isArray(d) ? d : []; return docsCache; })
+      .catch(() => { docsPromise = null; return []; });
+  }
+  return docsPromise;
+}
+
 export default function Navbar({ onSearchOpen }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -207,7 +222,11 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const hakkimizdaRef = useRef<HTMLDivElement>(null);
   const rehberRef = useRef<HTMLDivElement>(null);
   const dokumanlarRef = useRef<HTMLDivElement>(null);
-  // Dökümanlar dropdown verisi — yalnız ilk açılışta /api/documents'tan çekilir.
+  // Dökümanlar dropdown verisi. ⚠️ 2026-07-28: menü "yükleniyor" diye bekletiyordu.
+  // İki sebep vardı: (a) `cache:"no-store"` her açılışta TAM istek attırıyordu,
+  // (b) Navbar her sayfa geçişinde yeniden kurulduğu için state sıfırlanıyor ve
+  // döküman listesi baştan çekiliyordu. Çözüm: MODÜL seviyesinde oturum önbelleği
+  // (aşağıdaki docsCache/docsPromise) + boşta ön-yükleme → menü anında açılır.
   const [docs, setDocs] = useState<NavDoc[] | null>(null);
   const [openDocCat, setOpenDocCat] = useState<string | null>(null);
   const docsLoadingRef = useRef(false);
@@ -330,17 +349,28 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const loadDocs = () => {
     if (docs !== null || docsLoadingRef.current) return;
     docsLoadingRef.current = true;
-    fetch("/api/documents", { cache: "no-store" })
-      .then((r) => (r.ok ? r.json() : []))
-      .then((d) => {
-        const arr: NavDoc[] = Array.isArray(d) ? d : [];
-        setDocs(arr);
-        // İlk dolu kategoriyi otomatik aç → dropdown açılınca boş görünmesin.
-        const first = DOC_CATEGORIES.find((c) => arr.some((x) => x?.category === c.id));
-        if (first) setOpenDocCat(first.id);
-      })
-      .catch(() => setDocs([]));
+    fetchDocsOnce().then((arr) => {
+      setDocs(arr);
+      // İlk dolu kategoriyi otomatik aç → dropdown açılınca boş görünmesin.
+      const first = DOC_CATEGORIES.find((c) => arr.some((x) => x?.category === c.id));
+      if (first) setOpenDocCat(first.id);
+    });
   };
+
+  // ⚠️ Boşta ÖN-YÜKLEME: kullanıcı menüye gelmeden, tarayıcı boştayken listeyi çek.
+  // Modül önbelleği sayesinde oturumda tek istek olur; menü anında açılır.
+  // (Kritik yükü etkilememesi için requestIdleCallback / 2 sn geri düşüş.)
+  useEffect(() => {
+    let iptal = false;
+    const cek = () => { if (!iptal) fetchDocsOnce(); };
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number };
+    if (typeof w.requestIdleCallback === "function") {
+      const id = w.requestIdleCallback(cek, { timeout: 3000 });
+      return () => { iptal = true; (window as Window & { cancelIdleCallback?: (h: number) => void }).cancelIdleCallback?.(id); };
+    }
+    const t = setTimeout(cek, 2000);
+    return () => { iptal = true; clearTimeout(t); };
+  }, []);
 
   const openDropdown = (which: "kurumsal" | "urunler" | "hakkimizda" | "rehber" | "dokumanlar") => {
     if (closeTimer.current) clearTimeout(closeTimer.current);

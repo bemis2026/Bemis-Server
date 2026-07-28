@@ -18,6 +18,8 @@ import {
 } from "react-icons/ri";
 import Image from "next/image";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
 import { useContent } from "../context/ContentContext";
 
 const SPEC_ICONS = [RiFlashlightFill, RiShieldCheckLine, RiWifiLine, RiLeafLine, RiAwardLine];
@@ -27,6 +29,7 @@ export default function ProductShowcase() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
+  const { lang } = useLanguage();
   const { productShowcase: ps } = useContent();
   const router = useRouter();
   const d = theme === "dark";
@@ -341,9 +344,9 @@ export default function ProductShowcase() {
                   };
                   return [
                     { icon: RiShieldCheckLine,    color: "#10B981", value: v(0, specs[1]?.value ?? "IP 65") },
-                    { icon: RiCalendarCheckLine,  color: ACCENT,    value: v(1, "Planlı Şarj") },
-                    { icon: RiTeamLine,           color: "#818CF8", value: v(2, "Ortak Kullanım") },
-                    { icon: RiSmartphoneLine,     color: "#F59E0B", value: v(3, "Mobil Uygulama") },
+                    { icon: RiCalendarCheckLine,  color: ACCENT,    value: v(1, pickText(lang, "Planlı Şarj", "Scheduled Charging")) },
+                    { icon: RiTeamLine,           color: "#818CF8", value: v(2, pickText(lang, "Ortak Kullanım", "Shared Access")) },
+                    { icon: RiSmartphoneLine,     color: "#F59E0B", value: v(3, pickText(lang, "Mobil Uygulama", "Mobile App")) },
                   ];
                 })().map((b, i) => (
                   <div

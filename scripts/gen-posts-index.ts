@@ -11,10 +11,27 @@
 import { writeFileSync } from "fs";
 import { join } from "path";
 import { allPosts } from "../app/blog/posts";
+// ⚠️ 2026-07-28: anasayfadaki "Rehberler" listesi yabancı dillerde TÜRKÇE başlık
+// gösteriyordu — indeks yalnız TR başlık taşıyordu. Çeviri dosyası (blog.json,
+// 1.5 MB) anasayfaya SOKULAMAZ (bilerek tembel yükleniyor) → buradan yalnız
+// BAŞLIKLAR alınıp indekse gömülür (yazı başına ~5 dil × kısa metin = ucuz).
+import blogI18nRaw from "../data/i18n/blog.json";
+
+const blogI18n = blogI18nRaw as Record<string, Record<string, { title?: string }>>;
+// slug → { en: "...", de: "..." } (yalnız başlık; çevirisi olmayan dil atlanır)
+const basliklar = (slug: string) => {
+  const out: Record<string, string> = {};
+  for (const dil of Object.keys(blogI18n)) {
+    const t = blogI18n[dil]?.[slug]?.title?.trim();
+    if (t) out[dil] = t;
+  }
+  return Object.keys(out).length ? out : undefined;
+};
 
 const slim = allPosts().map((p) => ({
   slug: p.slug,
   title: p.title,
+  titleI18n: basliklar(p.slug),
   category: p.category,
   datePublished: p.datePublished,
   // image alanı bazı yazılarda var; Reviews şu an kullanmıyor ama ucuz, tutarlılık için
@@ -25,7 +42,7 @@ const header = `// ⚠️ OTOMATİK ÜRETİLİR — ELLE DÜZENLEME. Kaynak: app
 // Üretici: scripts/gen-posts-index.ts (build'de \`next build\` öncesi çalışır).
 // Amaç: anasayfa (Reviews) son rehberleri gösterirken 346 KB posts.ts'i client
 // bundle'ına ÇEKMESİN — yalnız hafif alanlar. allPosts() ile AYNI sırada (tarih desc).
-export type PostIndexItem = { slug: string; title: string; category: string; datePublished: string; image?: string };
+export type PostIndexItem = { slug: string; title: string; titleI18n?: Record<string, string>; category: string; datePublished: string; image?: string };
 export const POSTS_INDEX: PostIndexItem[] = ${JSON.stringify(slim, null, 2)};
 `;
 

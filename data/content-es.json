@@ -238,7 +238,7 @@
           "a": "El equipamiento profesional utilizado en instalaciones de estaciones de carga incluye: tomas de carga AC y DC (Type 2, CCS2), versiones con cable e inalámbricas, cubiertas de tomas, mecanismos de bloqueo, módulos de comunicación opcionales y piezas de repuesto que pueden integrarse en el cargador. Recurre a fabricantes y servicio OEM."
         }
       ],
-      "description": "Los cables de carga DC Bemis, totalmente nacionales, producidos especialmente para unidades de carga DC de alta potencia, permiten una sustitución sencilla en caso de rotura gracias a su estructura de cuerpo modular.\nToma de panel con mecanismo de bloqueo utilizada en las unidades de carga. Con su marca especial y su diseño único, es perfecta para tu unidad. El Soporte de Toma DC, producido para colgar los cables DC utilizados en las unidades de carga DC cuando están en reposo, destaca como una opción ideal por su diseño esférico e integrado. Gracias a su estructura de rótula, se elimina el problema de la rotura. Con su estructura de cuerpo integrada en la carcasa, es totalmente compatible con el diseño de tu unidad.",
+      "description": "Los cables de carga DC Bemis, de fabricación totalmente propia, producidos especialmente para unidades de carga DC de alta potencia, permiten una sustitución sencilla en caso de rotura gracias a su estructura de cuerpo modular.\nToma de panel con mecanismo de bloqueo utilizada en las unidades de carga. Con su marca especial y su diseño único, es perfecta para tu unidad. El Soporte de Toma DC, producido para colgar los cables DC utilizados en las unidades de carga DC cuando están en reposo, destaca como una opción ideal por su diseño esférico e integrado. Gracias a su estructura de rótula, se elimina el problema de la rotura. Con su estructura de cuerpo integrada en la carcasa, es totalmente compatible con el diseño de tu unidad.",
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075761/products/f0fshjhhljmvpkcrxxzu.png"
     },
     "charger-equipment": {
@@ -391,14 +391,14 @@
   },
   "dna": {
     "sectionLabel": "Sobre Nosotros",
-    "sectionHeading": "Con la calidad Bemis\nSoluciones nacionales de carga para VE",
+    "sectionHeading": "Del software a la producción: todo de nuestra mano",
     "brandHeading": "Calidad Bemis\nen carga EV para todo el mundo",
     "brandPara1": "Fundada en 1994, Bemis Teknik Elektrik A.Ş. es uno de los principales fabricantes de equipos eléctricos, con más de 30 años de experiencia en tomas y clavijas industriales. Bemis E-V Charge es nuestra marca de carga para vehículos eléctricos, construida sobre esta base consolidada.",
     "brandPara2": "En nuestra planta desarrollamos cada etapa: del diseño de la placa electrónica al software, de la producción del cable al montaje final. Nuestros productos, exportados a más de 80 países, demuestran cómo la ingeniería propia compite en el escenario global.",
-    "quote": "Equipo Bemis E-V Charge · Polígono Industrial de Bursa, Turquía",
-    "quoteAttr": "Descubre el Mundo de Bemis",
+    "quote": "La calidad es la expresión del respeto.",
+    "quoteAttr": "Equipo Bemis E-V Charge · Polígono Industrial de Bursa, Türkiye",
     "yearLabel": "1994",
-    "yearSub": "Más de 30 Años de Experiencia",
+    "yearSub": "Bursa · Türkiye · Fabricación propia",
     "highlights": [
       {
         "title": "Calidad Certificada",
@@ -419,8 +419,8 @@
     ],
     "features": [
       {
-        "title": "Calidad de Producción Nacional",
-        "desc": "Producción según los estándares europeos TÜV, CE e ISO 9001 en nuestras instalaciones del Polígono Industrial de Bursa. Totalmente nacional, desde el software hasta la electrónica."
+        "title": "Calidad de fabricación propia",
+        "desc": "Producción según los estándares europeos TÜV, CE e ISO 9001 en nuestras instalaciones del Polígono Industrial de Bursa. Totalmente de fabricación propia, desde el software hasta la electrónica."
       },
       {
         "title": "Compatibilidad Universal",
@@ -437,7 +437,7 @@
     ],
     "factoryImage": "/kurumsal/1775044209322-WhatsApp_Image_2026-04-01_at_09.54.37.jpeg",
     "factoryVideo": "https://www.youtube.com/watch?v=BnoQBR9irTU",
-    "ctaLabel": "Bursa · Turquía · Producción Nacional",
+    "ctaLabel": "Descubre el Mundo de Bemis",
     "aboutVideo": "https://www.youtube.com/watch?v=JVfchskAXC4&t=53s",
     "groupBrands": [
       {
@@ -732,7 +732,7 @@
         "value": "Type 2 (IEC 62196)"
       },
       {
-        "label": "Producción Nacional",
+        "label": "Fabricación propia",
         "value": "Fabricado en Turquía"
       },
       {

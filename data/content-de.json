@@ -238,7 +238,7 @@
           "a": "Professionelle Ausrüstung, die bei Ladestationsinstallationen verwendet wird, umfasst: AC- und DC-Ladesteckdosen (Type 2, CCS2), kabelgebundene und kabellose Versionen, Steckdosenabdeckungen, Verriegelungsmechanismen, optionale Kommunikationsmodule und Ersatzteile, die in das Ladegerät integriert werden können. Nutzt OEM-Hersteller und -Service."
         }
       ],
-      "description": "Vollständig heimische Bemis-DC-Ladekabel, speziell für Hochleistungs-DC-Ladeeinheiten hergestellt, ermöglichen dank ihrer modularen Gehäusestruktur einen einfachen Austausch im Falle eines Bruchs.\nPaneelsteckdose mit Verriegelungsmechanismus, die an Ladeeinheiten verwendet wird. Mit ihrem speziellen Branding und einzigartigen Design ist sie perfekt für Ihre Einheit. Der DC-Steckdosenhalter, der dafür hergestellt wird, die in DC-Ladeeinheiten verwendeten DC-Kabel im Leerlauf aufzuhängen, überzeugt mit seinem Kugel- und eingelassenen Design als ideale Option. Dank seiner Kugelstruktur wird das Bruchproblem beseitigt. Mit seiner in das Gehäuse eingelassenen Struktur ist er vollständig kompatibel mit Ihrem Einheitendesign.",
+      "description": "Bemis-DC-Ladekabel aus vollständig eigener Fertigung, speziell für Hochleistungs-DC-Ladeeinheiten hergestellt, ermöglichen dank ihrer modularen Gehäusestruktur einen einfachen Austausch im Falle eines Bruchs.\nPaneelsteckdose mit Verriegelungsmechanismus, die an Ladeeinheiten verwendet wird. Mit ihrem speziellen Branding und einzigartigen Design ist sie perfekt für Ihre Einheit. Der DC-Steckdosenhalter, der dafür hergestellt wird, die in DC-Ladeeinheiten verwendeten DC-Kabel im Leerlauf aufzuhängen, überzeugt mit seinem Kugel- und eingelassenen Design als ideale Option. Dank seiner Kugelstruktur wird das Bruchproblem beseitigt. Mit seiner in das Gehäuse eingelassenen Struktur ist er vollständig kompatibel mit Ihrem Einheitendesign.",
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075761/products/f0fshjhhljmvpkcrxxzu.png"
     },
     "charger-equipment": {
@@ -391,14 +391,14 @@
   },
   "dna": {
     "sectionLabel": "Über uns",
-    "sectionHeading": "Mit Bemis-Qualität\nHeimische EV-Ladelösungen",
+    "sectionHeading": "Von der Software bis zur Produktion — alles aus einer Hand",
     "brandHeading": "EV-Ladelösungen\nin Bemis-Qualität",
     "brandPara1": "1994 in Bursa gegründet, zählt Bemis Teknik Elektrik A.Ş. zu den führenden Herstellern elektrischer Ausrüstung mit eigener Fertigung und über 30 Jahren Erfahrung bei Industriesteckverbindern. Bemis E-V Charge ist unsere auf dieser Basis aufgebaute EV-Lademarke.",
     "brandPara2": "In unserem Werk in Bursa realisieren wir jede Stufe selbst — vom Elektronikdesign über die Software bis zur Kabelfertigung und Endmontage. Unsere Produkte gehen in über 80 Länder und beweisen, wie Engineering im globalen Wettbewerb überzeugt.",
-    "quote": "Bemis E-V Charge Team · Industriegebiet Bursa, Türkei",
-    "quoteAttr": "Entdecken Sie die Welt von Bemis",
+    "quote": "Qualität ist Ausdruck von Respekt.",
+    "quoteAttr": "Bemis E-V Charge Team · Industriegebiet Bursa, Türkei",
     "yearLabel": "1994",
-    "yearSub": "30+ Jahre Erfahrung",
+    "yearSub": "Bursa · Türkei · Eigene Fertigung",
     "highlights": [
       {
         "title": "Zertifizierte Qualität",
@@ -419,8 +419,8 @@
     ],
     "features": [
       {
-        "title": "Heimische Produktionsqualität",
-        "desc": "Produktion nach europäischen Standards TÜV, CE und ISO 9001 in unserer Anlage im Industriegebiet Bursa. Vollständig heimisch von der Software bis zur Elektronik."
+        "title": "Qualität aus eigener Fertigung",
+        "desc": "Produktion nach europäischen Standards TÜV, CE und ISO 9001 in unserer Anlage im Industriegebiet Bursa. Vollständig aus eigener Fertigung – von der Software bis zur Elektronik."
       },
       {
         "title": "Universelle Kompatibilität",
@@ -437,7 +437,7 @@
     ],
     "factoryImage": "/kurumsal/1775044209322-WhatsApp_Image_2026-04-01_at_09.54.37.jpeg",
     "factoryVideo": "https://www.youtube.com/watch?v=BnoQBR9irTU",
-    "ctaLabel": "Bursa · Türkei · Heimische Produktion",
+    "ctaLabel": "Entdecken Sie die Welt von Bemis",
     "aboutVideo": "https://www.youtube.com/watch?v=JVfchskAXC4&t=53s",
     "groupBrands": [
       {
@@ -732,7 +732,7 @@
         "value": "Type 2 (IEC 62196)"
       },
       {
-        "label": "Heimische Produktion",
+        "label": "Eigene Fertigung",
         "value": "Hergestellt in der Türkei"
       },
       {
