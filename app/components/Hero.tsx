@@ -9,6 +9,7 @@ import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 import { useEffect, useState, useRef } from "react";
 import E from "./E";
+import { smoothScrollToTarget, NAV_OFFSET } from "../lib/smoothScroll";
 
 // Dönen kelime kutusunun genişliğini ölçmek için tek paylaşılan canvas (DOM'a girmez).
 let _measureCanvas: HTMLCanvasElement | null = null;
@@ -156,50 +157,10 @@ export default function Hero() {
   // mesafede çok hızlanıyor ve sert duruyor. Burada mesafeyle ölçeklenen süre
   // (900–1700 ms) + easeInOutCubic var = "sakin" his. Kullanıcı arada kendi
   // kaydırırsa (tekerlek/dokunma) animasyon BIRAKILIR, kaydırma kaçırılmaz.
-  const NAV_OFFSET = 76; // sabit üst menü yüksekliği — bölüm başlığı altında kalmasın
-
-  // ⚠️ HEDEF HER KAREDE YENİDEN HESAPLANIR (sabit Y değil). Neden: kaydırma
-  // sürerken üstteki bölümlerin yüksekliği değişiyor (whileInView animasyonları,
-  // `content-visibility:auto` bölümlerin açılması, geç yüklenen görseller) →
-  // tıklama anında hesaplanan sabit Y bayatlıyor. Canlı ölçümde bu yüzden hedefi
-  // 71px AŞMIŞTIK (yerelde +21px isabetliyken canlıda -71px). Hareketli hedefi
-  // izleyince varış her koşulda doğru oluyor.
-  const smoothScrollToTarget = (hedefHesapla: () => number) => {
-    const baslangic = window.scrollY;
-    const ilkHedef = hedefHesapla();
-    const fark = ilkHedef - baslangic;
-    const azalt = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-    if (azalt || Math.abs(fark) < 8) { window.scrollTo(0, ilkHedef); return; }
-
-    // Süre mesafeyle ölçeklenir. Ölçüm: hero → #products mesafesi ~3300px;
-    // 0.55/1700ms'te tempo ~3000px/sn (aradaki 3 bölüm hızla akıyordu) →
-    // 0.6/2000ms ile ~2200px/sn = kullanıcının istediği "sakin" his.
-    const sure = Math.min(2000, Math.max(900, Math.abs(fark) * 0.6));
-    const t0 = performance.now();
-    const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
-
-    let iptal = false;
-    const birak = () => { iptal = true; temizle(); };
-    const temizle = () => {
-      window.removeEventListener("wheel", birak);
-      window.removeEventListener("touchstart", birak);
-      window.removeEventListener("keydown", birak);
-    };
-    window.addEventListener("wheel", birak, { passive: true });
-    window.addEventListener("touchstart", birak, { passive: true });
-    window.addEventListener("keydown", birak);
-
-    const adim = (simdi: number) => {
-      if (iptal) return;
-      const p = Math.min(1, (simdi - t0) / sure);
-      const guncelHedef = hedefHesapla(); // hareketli hedefi izle
-      window.scrollTo(0, baslangic + (guncelHedef - baslangic) * ease(p));
-      if (p < 1) requestAnimationFrame(adim);
-      else { window.scrollTo(0, hedefHesapla()); temizle(); }
-    };
-    requestAnimationFrame(adim);
-  };
-
+  // ⚠️ Kaydirma mantigi app/lib/smoothScroll.ts dosyasina TASINDI (2026-07-29).
+  // Sebep: ayni duzeltmeye ust menunun bolum baglantilarinin da ihtiyaci vardi ama
+  // orada yoktu - Hero dogru kaydirirken menu yanlis yere gidiyordu. Tek kaynak
+  // olsun ki bir daha ayrismasin. Davranis birebir ayni (fonksiyon oldugu gibi tasindi).
   const scrollToProducts = () => {
     const hedef = document.getElementById("products");
     if (hedef) {

@@ -245,7 +245,10 @@ export default function DealerNetwork() {
   // "ilk bayili bölgeyi seç" davranışı kaldırıldı. Kullanıcı aşağıdaki
   // "Bölge seçin" dropdown'ından (her zaman görünür) veya haritadan seçer.
   // Dropdown seçenekleri için: en az bir bayisi olan bölgeler.
-  const regionsWithDealers = REGIONS.filter((region) =>
+  // ⚠️ BURSA_HQ ("merkez") listeye DAHİL: 2026-07-29'da Bursa ve Eskişehir bu
+  // bölgeye bağlandı, artık kendi bayileri var → dropdown'da da görünmeli.
+  // Genel müdürlük olduğu için en başta listelenir.
+  const regionsWithDealers = [BURSA_HQ as typeof REGIONS[number], ...REGIONS].filter((region) =>
     Object.keys(dealers).some(
       (cid) => CITY_BY_ID[cid]?.region === region.id && (dealers[cid]?.dealers?.length ?? 0) > 0,
     ),

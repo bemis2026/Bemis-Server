@@ -14,6 +14,7 @@ import { byLang, pickText } from "../lib/ui";
 import { useContactOverlay } from "../context/ContactOverlayContext";
 import E from "./E";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { scrollToSection } from "../lib/smoothScroll";
 
 const navLinks = [
   { label: "Ana Sayfa",   href: "#hero"             },
@@ -330,17 +331,18 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
     } else {
       const target = document.querySelector(href) as HTMLElement | null;
       if (!target) return;
-      // Center the section in the viewport. `scrollIntoView({block:"center"})`
-      // does this correctly for sections shorter than the viewport AND for
-      // taller ones — the section's geometric centre aligns with viewport
-      // centre. Falls back to top-aligned scroll on browsers without support.
-      try {
-        target.scrollIntoView({ behavior: "smooth", block: "center" });
-      } catch {
-        const rect = target.getBoundingClientRect();
-        const top = window.scrollY + rect.top + (rect.height - window.innerHeight) / 2;
-        window.scrollTo({ top, behavior: "smooth" });
-      }
+      // ⚠️⚠️ 2026-07-29 — BURASI `scrollIntoView({block:"center"})` İDİ, İKİ AYRI
+      // KUSURU VARDI (kullanıcı: "Bayi Ağı'na basınca haritaya götürmüyor"):
+      // (1) ÇERÇEVELEME: "center" bölümün geometrik ortasını ekranın ortasına
+      //     hizalar. Bayi Ağı bölümü ölçüldü = 1149px; ortalayınca bölümün 574px
+      //     içine, yani başlığın ve haritanın ALTINDAKİ bayi listesine düşüyordu.
+      // (2) HAREKETLİ HEDEF: tarayıcının smooth kaydırması hedefi tek seferde
+      //     hesaplar; aradaki `content-visibility:auto` bölümler kaydırma sürerken
+      //     gerçek yüksekliklerine açıldığı için o hedef bayatlıyordu. Bu kusur
+      //     Hero'nun CTA'sında zaten teşhis edilip çözülmüştü ama menü tarafına
+      //     hiç uygulanmamıştı.
+      // İkisi de app/lib/smoothScroll.ts içindeki ORTAK yardımcıda çözülüyor.
+      scrollToSection(target);
     }
   };
 

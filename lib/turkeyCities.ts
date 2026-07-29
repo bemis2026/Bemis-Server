@@ -1,3 +1,7 @@
+// ⚠️ "merkez" coğrafi bir bölge DEĞİL — Bursa merkez (genel müdürlük) bölgesi.
+// Haritada kendi kırmızı pin'i var (DealerNetwork BURSA_HQ) ve kendi bölge
+// temsilcisini gösterir. 2026-07-29'da kullanıcı isteğiyle Bursa ve Eskişehir
+// bayileri Marmara / İç Anadolu'dan alınıp bu bölgeye bağlandı.
 export type TurkeyRegionId =
   | "marmara"
   | "ege"
@@ -5,7 +9,8 @@ export type TurkeyRegionId =
   | "ic_anadolu"
   | "karadeniz"
   | "dogu"
-  | "guneydogu";
+  | "guneydogu"
+  | "merkez";
 
 export type TurkeyRegion = { id: TurkeyRegionId; label: string };
 
@@ -19,13 +24,14 @@ export const TURKEY_REGIONS: TurkeyRegion[] = [
   { id: "karadeniz",  label: "Karadeniz"        },
   { id: "dogu",       label: "Doğu Anadolu"     },
   { id: "guneydogu",  label: "Güneydoğu"        },
+  { id: "merkez",     label: "Bursa Merkez"     },
 ];
 
 export const TURKEY_CITIES: TurkeyCity[] = [
   // Marmara (11)
   { id: "balikesir",      label: "Balıkesir",      region: "marmara" },
   { id: "bilecik",        label: "Bilecik",        region: "marmara" },
-  { id: "bursa",          label: "Bursa",          region: "marmara" },
+  { id: "bursa",          label: "Bursa",          region: "merkez" },
   { id: "canakkale",      label: "Çanakkale",      region: "marmara" },
   { id: "edirne",         label: "Edirne",         region: "marmara" },
   { id: "istanbul",       label: "İstanbul",       region: "marmara" },
@@ -56,7 +62,7 @@ export const TURKEY_CITIES: TurkeyCity[] = [
   { id: "aksaray",        label: "Aksaray",        region: "ic_anadolu" },
   { id: "ankara",         label: "Ankara",         region: "ic_anadolu" },
   { id: "cankiri",        label: "Çankırı",        region: "ic_anadolu" },
-  { id: "eskisehir",      label: "Eskişehir",      region: "ic_anadolu" },
+  { id: "eskisehir",      label: "Eskişehir",      region: "merkez" },
   { id: "karaman",        label: "Karaman",        region: "ic_anadolu" },
   { id: "kayseri",        label: "Kayseri",        region: "ic_anadolu" },
   { id: "kirikkale",      label: "Kırıkkale",      region: "ic_anadolu" },
@@ -128,8 +134,9 @@ export function getCityLabel(cityId: string): string {
   return CITY_BY_ID[cityId]?.label ?? cityId;
 }
 
+// Bursa Merkez (genel müdürlük) listelerde en başta gelir.
 export const REGION_ORDER: Record<TurkeyRegionId, number> = {
-  marmara: 0, ege: 1, akdeniz: 2, ic_anadolu: 3, karadeniz: 4, dogu: 5, guneydogu: 6,
+  merkez: 0, marmara: 1, ege: 2, akdeniz: 3, ic_anadolu: 4, karadeniz: 5, dogu: 6, guneydogu: 7,
 };
 
 export function compareCityIds(a: string, b: string): number {
