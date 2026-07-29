@@ -83,6 +83,20 @@ export async function getContentForLang(lang: string): Promise<any | null> {
       ...(en.hero ?? {}),
       heroBg: tr.hero?.heroBg,
       layout: tr.hero?.layout,
+      // KADRAJ/DIZILIM ALANLARI = KIMLIK, dile gore DEGISMEZ.
+      // Neden: 2026-07-27'de heroBgPos TR'de "75% 77%" -> "75% 32%" duzeltildi
+      // ama 5 dilin overlay'inde ESKI deger kaldigi icin yabanci dillerde
+      // hero BASKA kadrajla goruntuleniyordu (kullanici bildirdi 2026-07-29).
+      // Ayni ders urun merge'inde alinmisti: kimlik alanlari DAIMA TR'den.
+      heroBgPos: tr.hero?.heroBgPos,
+      heroBgZoom: tr.hero?.heroBgZoom,
+      heroBgPosMobile: tr.hero?.heroBgPosMobile,
+      heroBgZoomMobile: tr.hero?.heroBgZoomMobile,
+      heroImages: tr.hero?.heroImages,
+      heroImagesPos: tr.hero?.heroImagesPos,
+      heroImagesZoom: tr.hero?.heroImagesZoom,
+      heroImagesPosMobile: tr.hero?.heroImagesPosMobile,
+      heroImagesZoomMobile: tr.hero?.heroImagesZoomMobile,
     },
     dna: (() => {
       const mergeIndex = (trArr: Array<Record<string, unknown>>, enArr: Array<Record<string, unknown>>) =>

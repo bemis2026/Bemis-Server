@@ -22,7 +22,6 @@
         "y": 82
       }
     },
-    "heroBgPos": "75% 32%",
     "headline2Words": [
       "أنظمة",
       "وحدات",
@@ -478,7 +477,7 @@
     "regionReps": [
       {
         "regionId": "marmara",
-        "name": "Berkin Uygun",
+        "name": "BERKİN UYGUN",
         "title": "مركز بورصة (المكتب الرئيسي)",
         "phone": "+90 549 797 10 42",
         "email": "buygun@bemis.com.tr",
@@ -486,7 +485,7 @@
       },
       {
         "regionId": "merkez",
-        "name": "Enise Şengün",
+        "name": "ENİSE ŞENGÜN",
         "title": "ألمانيا",
         "phone": "",
         "email": "satis@bemis.com.tr"
@@ -496,42 +495,48 @@
         "name": "TEMEL BEŞLİ",
         "title": "ممثل منطقة البحر الأسود",
         "phone": "0 533 140 13 64",
-        "email": "tbesli@bemis.com.tr"
+        "email": "tbesli@bemis.com.tr",
+        "whatsapp": "0 533 140 13 64"
       },
       {
         "regionId": "dogu",
         "name": "MUSTAFA KOZANOĞLU",
         "title": "ممثل منطقة شرق الأناضول",
         "phone": "0 549 797 10 45",
-        "email": "guneydogu@bemis.com.tr"
+        "email": "guneydogu@bemis.com.tr",
+        "whatsapp": "0 549 797 10 45"
       },
       {
         "regionId": "guneydogu",
         "name": "MUSTAFA KOZANOĞLU",
         "title": "ممثل منطقة جنوب شرق الأناضول",
         "phone": "0 549 797 10 45",
-        "email": "guneydogu@bemis.com.tr"
+        "email": "guneydogu@bemis.com.tr",
+        "whatsapp": "0 549 797 10 45"
       },
       {
         "regionId": "ic_anadolu",
         "name": "MEHMET ÇANAK",
         "title": "ممثل منطقة وسط الأناضول",
         "phone": "0 549 839 13 36",
-        "email": "mcanak@bemis.com.tr"
+        "email": "mcanak@bemis.com.tr",
+        "whatsapp": "0 549 839 13 36"
       },
       {
         "regionId": "ege",
         "name": "VOLKAN ÜÇÜNCÜ",
         "title": "ممثل إقليمي",
         "phone": "0 549 804 85 99",
-        "email": "vucuncu@bemis.com.tr"
+        "email": "vucuncu@bemis.com.tr",
+        "whatsapp": "0 549 804 85 99"
       },
       {
         "regionId": "akdeniz",
         "name": "ABDULSAMED ÇALIŞKAN",
         "title": "ممثل منطقة البحر المتوسط",
         "phone": "0 530 321 56 57",
-        "email": "tanitim@bemis.com.tr"
+        "email": "tanitim@bemis.com.tr",
+        "whatsapp": "0 530 321 56 57"
       },
       {
         "regionId": "marmara",
@@ -539,7 +544,7 @@
         "title": "ممثل منطقة مرمرة",
         "phone": "0 546 529 97 54",
         "email": "marmara2@bemis.com.tr",
-        "whatsapp": ""
+        "whatsapp": "0 546 529 97 54"
       },
       {
         "regionId": "marmara",
@@ -547,7 +552,7 @@
         "title": "ممثل منطقة مرمرة",
         "phone": "0 549 839 13 34",
         "email": "marmara@bemis.com.tr",
-        "whatsapp": ""
+        "whatsapp": "0 549 839 13 34"
       }
     ],
     "internationalDealers": [

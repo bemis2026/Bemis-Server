@@ -507,15 +507,15 @@
     "regionReps": [
       {
         "regionId": "marmara",
-        "name": "Berkin Uygun",
-        "title": "Marmara Bölge Kıdemli Satış Uzmanı ",
+        "name": "BERKİN UYGUN",
+        "title": "Marmara Bölge Kıdemli Satış Uzmanı",
         "phone": "+90 549 797 10 42",
         "email": "buygun@bemis.com.tr",
         "whatsapp": "+90 549 797 10 42"
       },
       {
         "regionId": "merkez",
-        "name": "Enise Şengün",
+        "name": "ENİSE ŞENGÜN",
         "title": "Bursa Merkez (Genel Merkez)",
         "phone": "",
         "email": "satis@bemis.com.tr"
@@ -525,42 +525,48 @@
         "name": "TEMEL BEŞLİ",
         "title": "Karadeniz Bölge Temsilcisi",
         "phone": "0 533 140 13 64",
-        "email": "tbesli@bemis.com.tr"
+        "email": "tbesli@bemis.com.tr",
+        "whatsapp": "0 533 140 13 64"
       },
       {
         "regionId": "dogu",
         "name": "MUSTAFA KOZANOĞLU",
         "title": "Doğu Anadolu Bölge Temsilcisi",
         "phone": "0 549 797 10 45",
-        "email": "guneydogu@bemis.com.tr"
+        "email": "guneydogu@bemis.com.tr",
+        "whatsapp": "0 549 797 10 45"
       },
       {
         "regionId": "guneydogu",
         "name": "MUSTAFA KOZANOĞLU",
         "title": "Güneydoğu Anadolu Bölge Temsilcisi",
         "phone": "0 549 797 10 45",
-        "email": "guneydogu@bemis.com.tr"
+        "email": "guneydogu@bemis.com.tr",
+        "whatsapp": "0 549 797 10 45"
       },
       {
         "regionId": "ic_anadolu",
         "name": "MEHMET ÇANAK",
         "title": "İç Anadolu Bölge Temsilcisi",
         "phone": "0 549 839 13 36",
-        "email": "mcanak@bemis.com.tr"
+        "email": "mcanak@bemis.com.tr",
+        "whatsapp": "0 549 839 13 36"
       },
       {
         "regionId": "ege",
         "name": "VOLKAN ÜÇÜNCÜ",
         "title": "Ege Bölge Temsilcisi",
         "phone": "0 549 804 85 99",
-        "email": "vucuncu@bemis.com.tr"
+        "email": "vucuncu@bemis.com.tr",
+        "whatsapp": "0 549 804 85 99"
       },
       {
         "regionId": "akdeniz",
         "name": "ABDULSAMED ÇALIŞKAN",
         "title": "Akdeniz Bölge Temsilcisi",
         "phone": "0 530 321 56 57",
-        "email": "tanitim@bemis.com.tr"
+        "email": "tanitim@bemis.com.tr",
+        "whatsapp": "0 530 321 56 57"
       },
       {
         "regionId": "marmara",
@@ -568,7 +574,7 @@
         "title": "Marmara Bölge Temsilcisi",
         "phone": "0 546 529 97 54",
         "email": "marmara2@bemis.com.tr",
-        "whatsapp": ""
+        "whatsapp": "0 546 529 97 54"
       },
       {
         "regionId": "marmara",
@@ -576,7 +582,7 @@
         "title": "Marmara Bölge Temsilcisi",
         "phone": "0 549 839 13 34",
         "email": "marmara@bemis.com.tr",
-        "whatsapp": ""
+        "whatsapp": "0 549 839 13 34"
       }
     ],
     "internationalDealers": [
@@ -895,7 +901,6 @@
             "y": 82
           }
         },
-        "heroBgPos": "75% 32%",
         "headline2Words": [
           "Systems",
           "Units",
@@ -1351,7 +1356,7 @@
         "regionReps": [
           {
             "regionId": "marmara",
-            "name": "Berkin Uygun",
+            "name": "BERKİN UYGUN",
             "title": "Bursa Center (Head Office)",
             "phone": "+90 549 797 10 42",
             "email": "buygun@bemis.com.tr",
@@ -1359,7 +1364,7 @@
           },
           {
             "regionId": "merkez",
-            "name": "Enise Şengün",
+            "name": "ENİSE ŞENGÜN",
             "title": "Germany",
             "phone": "",
             "email": "satis@bemis.com.tr"
@@ -1369,42 +1374,48 @@
             "name": "TEMEL BEŞLİ",
             "title": "Black Sea Regional Representative",
             "phone": "0 533 140 13 64",
-            "email": "tbesli@bemis.com.tr"
+            "email": "tbesli@bemis.com.tr",
+            "whatsapp": "0 533 140 13 64"
           },
           {
             "regionId": "dogu",
             "name": "MUSTAFA KOZANOĞLU",
             "title": "Eastern Anatolia Regional Representative",
             "phone": "0 549 797 10 45",
-            "email": "guneydogu@bemis.com.tr"
+            "email": "guneydogu@bemis.com.tr",
+            "whatsapp": "0 549 797 10 45"
           },
           {
             "regionId": "guneydogu",
             "name": "MUSTAFA KOZANOĞLU",
             "title": "Southeastern Anatolia Regional Representative",
             "phone": "0 549 797 10 45",
-            "email": "guneydogu@bemis.com.tr"
+            "email": "guneydogu@bemis.com.tr",
+            "whatsapp": "0 549 797 10 45"
           },
           {
             "regionId": "ic_anadolu",
             "name": "MEHMET ÇANAK",
             "title": "Central Anatolia Regional Representative",
             "phone": "0 549 839 13 36",
-            "email": "mcanak@bemis.com.tr"
+            "email": "mcanak@bemis.com.tr",
+            "whatsapp": "0 549 839 13 36"
           },
           {
             "regionId": "ege",
             "name": "VOLKAN ÜÇÜNCÜ",
             "title": "regional representative",
             "phone": "0 549 804 85 99",
-            "email": "vucuncu@bemis.com.tr"
+            "email": "vucuncu@bemis.com.tr",
+            "whatsapp": "0 549 804 85 99"
           },
           {
             "regionId": "akdeniz",
             "name": "ABDULSAMED ÇALIŞKAN",
             "title": "Mediterranean Regional Representative",
             "phone": "0 530 321 56 57",
-            "email": "tanitim@bemis.com.tr"
+            "email": "tanitim@bemis.com.tr",
+            "whatsapp": "0 530 321 56 57"
           },
           {
             "regionId": "marmara",
@@ -1412,7 +1423,7 @@
             "title": "Marmara Regional Representative",
             "phone": "0 546 529 97 54",
             "email": "marmara2@bemis.com.tr",
-            "whatsapp": ""
+            "whatsapp": "0 546 529 97 54"
           },
           {
             "regionId": "marmara",
@@ -1420,7 +1431,7 @@
             "title": "Marmara Regional Representative",
             "phone": "0 549 839 13 34",
             "email": "marmara@bemis.com.tr",
-            "whatsapp": ""
+            "whatsapp": "0 549 839 13 34"
           }
         ],
         "internationalDealers": [

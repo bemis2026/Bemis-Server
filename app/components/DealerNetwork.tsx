@@ -97,6 +97,19 @@ const LANG_META: Record<string, { cc: string; label: string }> = {
   az: { cc: "az", label: "Azərbaycan" },
 };
 
+// wa.me ULUSLARARASI format ister: "0 533 140 13 64" gibi yerel yazim
+// wa.me/05331401364 uretir ve BAGLANTI CALISMAZ. Bu yardimci bastaki 0'i
+// ulke koduna cevirir. (2026-07-29: temsilcilerin WhatsApp'i telefonlarindan
+// dolduruldu, telefonlar yerel formatta kayitli.)
+const waNumber = (s: string) => {
+  const d = (s || "").replace(/[^\d+]/g, "").replace(/^\+/, "");
+  if (d.startsWith("90")) return d;
+  if (d.startsWith("0")) return "90" + d.slice(1);
+  // Ulke kodu ve bastaki 0 olmadan girilmis TR cep numarasi (5xx, 10 hane)
+  if (d.length === 10 && d.startsWith("5")) return "90" + d;
+  return d;
+};
+
 export default function DealerNetwork() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -453,7 +466,7 @@ export default function DealerNetwork() {
                   )}
                   {dealerSection.exportContact?.whatsapp && (
                     <a
-                      href={`https://wa.me/${dealerSection.exportContact.whatsapp.replace(/[^\d+]/g, "").replace(/^\+/, "")}`}
+                      href={`https://wa.me/${waNumber(dealerSection.exportContact.whatsapp)}`}
                       target="_blank" rel="noopener noreferrer"
                       className="text-sm flex items-center gap-2 transition-colors hover:underline"
                       style={{ color: d ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.80)" }}
@@ -818,7 +831,7 @@ export default function DealerNetwork() {
                         </a>
                       )}
                       {dealer.whatsapp && (
-                        <a href={`https://wa.me/${phoneDigits(dealer.whatsapp).replace(/^\+/, "")}`} target="_blank" rel="noopener noreferrer" className="text-sm flex items-center gap-1 transition-colors hover:underline" style={{ color: muted }}>
+                        <a href={`https://wa.me/${waNumber(dealer.whatsapp)}`} target="_blank" rel="noopener noreferrer" className="text-sm flex items-center gap-1 transition-colors hover:underline" style={{ color: muted }}>
                           <RiWhatsappLine className="flex-shrink-0" />
                           {dealer.whatsapp}
                         </a>
@@ -956,7 +969,7 @@ export default function DealerNetwork() {
                         </a>
                       )}
                       {selectedIntl.whatsapp && (
-                        <a href={`https://wa.me/${selectedIntl.whatsapp.replace(/[^\d+]/g, "").replace(/^\+/, "")}`} target="_blank" rel="noopener noreferrer" className="text-xs flex items-center gap-1.5 hover:underline" style={{ color: d ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.75)" }}>
+                        <a href={`https://wa.me/${waNumber(selectedIntl.whatsapp)}`} target="_blank" rel="noopener noreferrer" className="text-xs flex items-center gap-1.5 hover:underline" style={{ color: d ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.75)" }}>
                           <RiWhatsappLine className="flex-shrink-0" />{selectedIntl.whatsapp}
                         </a>
                       )}
@@ -1537,7 +1550,7 @@ export default function DealerNetwork() {
                               {rep.email || "—"}
                             </a>
                             <a
-                              href={rep.whatsapp ? `https://wa.me/${rep.whatsapp.replace(/[^\d+]/g, "").replace(/^\+/, "")}` : undefined}
+                              href={rep.whatsapp ? `https://wa.me/${waNumber(rep.whatsapp)}` : undefined}
                               target={rep.whatsapp ? "_blank" : undefined}
                               rel={rep.whatsapp ? "noopener noreferrer" : undefined}
                               className="text-sm flex items-center gap-2 transition-colors hover:underline"
