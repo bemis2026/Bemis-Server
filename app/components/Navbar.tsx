@@ -575,13 +575,21 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                               >
                                 {cat.image ? (
-                                  // eslint-disable-next-line @next/next/no-img-element
-                                  <img
+                                  /* ⚠️ 2026-07-29: burada HAM <img src={cat.image}> vardı → 56x44'lük
+                                     kutuya ORİJİNAL dosya iniyordu. Ölçüm: 8 thumbnail = 16,3 MB
+                                     (tek görsel 3,7 MB / 22 sn; 4000x4000 PNG'ler ana iş parçacığında
+                                     çözülünce menü kasıyordu). next/image ile optimizer w=112 AVIF/WebP
+                                     üretir → ~300x küçülme. ⚠️ quality next.config'deki izinli
+                                     listeden olmalı (75/88/90/95). */
+                                  <Image
                                     src={cat.image}
                                     alt=""
+                                    width={112}
+                                    height={88}
+                                    quality={75}
+                                    loading="lazy"
                                     className="w-14 h-11 rounded-lg object-contain flex-shrink-0 p-1"
                                     style={{ border: `1px solid rgba(0,0,0,0.10)`, background: "#e8eaee" }}
-                                    loading="lazy"
                                   />
                                 ) : (
                                   <span
@@ -713,7 +721,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                                               <>
                                                 {/* Dökümanın kendi kapak görseli (ikon yerine) */}
                                                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                                                <img src={doc.coverUrl} alt="" className="w-8 h-10 rounded-md object-cover object-top flex-shrink-0" style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`, background: isDark ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)" }} loading="lazy" decoding="async" />
+                                                <Image src={doc.coverUrl} alt="" width={64} height={80} quality={75} loading="lazy" className="w-8 h-10 rounded-md object-cover object-top flex-shrink-0" style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`, background: isDark ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)" }} />
                                               </>
                                             ) : (
                                               <span className="w-8 h-10 rounded-md flex items-center justify-center flex-shrink-0" style={{ background: `${cat.accent}14`, border: `1px solid ${cat.accent}30` }}>
@@ -960,7 +968,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                                       {doc.coverUrl ? (
                                         <>
                                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                                          <img src={doc.coverUrl} alt="" className="w-7 h-9 rounded-md object-cover object-top flex-shrink-0" style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}` }} loading="lazy" decoding="async" />
+                                          <Image src={doc.coverUrl} alt="" width={56} height={72} quality={75} loading="lazy" className="w-7 h-9 rounded-md object-cover object-top flex-shrink-0" style={{ border: `1px solid ${isDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}` }} />
                                         </>
                                       ) : (
                                         <span className="w-7 h-9 rounded-md flex items-center justify-center flex-shrink-0" style={{ background: `${cat.accent}14`, border: `1px solid ${cat.accent}30` }}>
