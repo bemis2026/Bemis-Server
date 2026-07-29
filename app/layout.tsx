@@ -36,9 +36,15 @@ export const viewport: Viewport = {
 
 const BASE_URL = "https://www.bemisevcharge.com.tr";
 
+// ⚠️ latin-ext ZORUNLU: Türkçe'nin ğ (U+011F), ı (U+0131), ş (U+015F), İ (U+0130)
+// harfleri temel "latin" alt kümesinde DEĞİL, latin-ext'te. Yalnız "latin" verilince
+// o 83 KB'lık dosya ön-yüklenmiyordu; tarayıcı ancak metni dizerken ihtiyacı fark edip
+// geç indiriyor → "Şarj / Çözüm / İstasyonu" gibi kelimeler önce yedek fontla çizilip
+// sonra yerine oturuyordu (LCP başlığımız da Türkçe harf içerir).
+// EK BAYT MALİYETİ YOK: dosya zaten iniyordu, artık erken başlıyor. (2026-07-29)
 const inter = Inter({
   variable: "--font-inter",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   display: "swap",
 });
 
@@ -331,16 +337,24 @@ export default async function RootLayout({
             isn't on Vercel infra (so local dev stays clean). */}
         <SpeedInsights />
         <Analytics />
-        {/* ⚡ Speculation Rules — Chrome 121+ linke hover edilince hedef sayfayı
-            arka planda ÖN-RENDER eder → tıklamada geçiş anında olur. Diğer
-            tarayıcılar bu script tipini yok sayar (zararsız). /admin ve /api
-            hariç tutulur; "moderate" = yalnız hover/pointerdown niyeti (sunucuyu
-            yormaz). Görünür hiçbir değişiklik yok, sadece gezinme hızlanır. */}
+        {/* ⚡ Speculation Rules — linke hover edilince hedef sayfa ÖNDEN ÇEKİLİR,
+            tıklamada geçiş hızlanır. Diğer tarayıcılar bu script tipini yok sayar.
+            ⚠️⚠️ 2026-07-29: BURASI `prerender` İDİ VE PAHALIYDI. prerender, hedef
+            sayfayı gizli bir işleyicide GERÇEKTEN ÇALIŞTIRIR (JS indirilir + React
+            uygulaması baştan kurulur). Bu sitede paketin açılmış hâli ~2 MB olduğu
+            için, üst menüde gezerken art arda tam sayfa açılışı tetikleniyordu —
+            yani ziyaretçinin CPU'su hover ettiği HER linkte yeni bir React uygulaması
+            kaldırıyordu ("menüde gezerken kasma" şikayetinin ikinci sebebi; birincisi
+            optimize edilmemiş thumbnail'lardı, o ayrıca düzeltildi).
+            `prefetch` yalnız BELGEYİ önden çeker, JS ÇALIŞTIRMAZ → hover'daki CPU
+            yükü kalkar, tıklama sonrası hız büyük ölçüde korunur.
+            📌 prerender'a geri dönme; dönülecekse tüm site değil, yalnız birkaç
+            yüksek-niyetli rota için ve "conservative" (pointerdown) ile yapılmalı. */}
         <script
           type="speculationrules"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              prerender: [
+              prefetch: [
                 {
                   where: {
                     and: [

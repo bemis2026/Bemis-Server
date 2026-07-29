@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { RiBookOpenLine, RiArrowRightLine, RiArrowLeftLine } from "react-icons/ri";
@@ -9,7 +9,7 @@ import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import Footer from "../components/Footer";
 import { TERM_SEE_ALSO, type GlossaryTerm } from "../lib/glossary";
-import { GLOSSARY_I18N } from "../lib/glossaryI18n";
+import { GLOSSARY_I18N, loadGlossaryI18n } from "../lib/glossaryI18n";
 import { useLanguage } from "../context/LanguageContext";
 
 const BLUE = "#3B82F6";
@@ -30,6 +30,16 @@ export default function GlossaryClient(props: Props) {
   const d = theme === "dark";
   const { lang } = useLanguage();
   const [searchOpen, setSearchOpen] = useState(false);
+
+  // glossary.json (253 KB) yalnız yabancı dilde indirilir; indince tick artar ve
+  // terimler çeviriyle yeniden render olur. TR okuyucu bu dosyayı hiç indirmez.
+  const [i18nTick, setI18nTick] = useState(0);
+  useEffect(() => {
+    let iptal = false;
+    void loadGlossaryI18n(lang).then(() => { if (!iptal) setI18nTick((t) => t + 1); });
+    return () => { iptal = true; };
+  }, [lang]);
+  void i18nTick; // yalnız yeniden render tetiklemek için
 
   // Terimi aktif dile çevir; çevirisi olmayan alan/terim TR kaynağa düşer.
   const tx = (t: GlossaryTerm): GlossaryTerm =>

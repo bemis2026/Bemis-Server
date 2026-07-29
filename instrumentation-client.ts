@@ -52,18 +52,24 @@ if (dsn && typeof window !== "undefined") {
         // Reduce sampling on perf traces — 10% on prod, 100% on dev.
         tracesSampleRate: process.env.NODE_ENV === "production" ? 0.1 : 1.0,
 
-        // Session replay — captures the user's last ~50s of UI before the
-        // error. Free tier 500 replays/month; 1% normal, 100% error sessions.
-        replaysSessionSampleRate: 0.01,
-        replaysOnErrorSampleRate: 1.0,
-
-        integrations: [
-          Sentry.replayIntegration({
-            // Privacy-by-default — never capture text input or images.
-            maskAllText: true,
-            blockAllMedia: true,
-          }),
-        ],
+        // ⚠️⚠️ SESSION REPLAY KAPATILDI (2026-07-29) — PERFORMANS KARARI.
+        // Eskiden: replaysSessionSampleRate 0.01 + replaysOnErrorSampleRate 1.0.
+        // Tuzak: onError oranı 0'dan büyük olduğunda Sentry, kaydediciyi TAMPON
+        // modunda TÜM ziyaretçilerde çalıştırır (hata çıkarsa son ~50 sn'yi
+        // gönderebilmek için sürekli DOM kaydı tutar). Bu sitede bunun bedeli iki
+        // katmanlı: (a) rrweb kaydedicisi üretim paketinde ~528 KB'lık chunk,
+        // (b) framer-motion animasyonları her karede satır-içi stil değiştirdiği
+        // için kaydedicinin seri hâle getirmesi gereken mutasyon akışı hiç bitmiyor
+        // → sayfa açıldıktan sonraki kaydırma/gezinme akıcılığı düşüyordu.
+        // (Sentry ~4 sn'de boşta yüklendiği için LCP'yi bozmuyordu; şikayet zaten
+        // "açılış yavaş" değil "gezerken kasıyor" idi — belirti birebir uyuyor.)
+        // ⚠️ next.config'deki bundleSizeOptimizations bunu ÇÖZMEZ: o yalnız
+        // shadow-DOM/iframe/worker alt parçalarını çıkarır, kaydedicinin kendisini
+        // değil (replayIntegration açıkça çağrıldığı için paketten düşmez).
+        // KAYBEDİLEN: hata anında "kullanıcı ne yapmıştı" videosu.
+        // KORUNAN: hata bildirimi, yığın izi, breadcrumb, performans örneklemesi.
+        // Gerekirse replayIntegration + iki oran geri eklenerek aynen dönülür.
+        integrations: [],
 
         // Drop verbose ResizeObserver / hydration noise.
         ignoreErrors: [

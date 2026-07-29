@@ -82,6 +82,17 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["react-icons", "react-icons/ri", "react-icons/hi", "react-icons/hi2", "framer-motion"],
   },
+
+  // ⚡ React Compiler (2026-07-29) — bileşenleri derleme sırasında OTOMATİK memoize
+  // eder (elle useMemo/useCallback yazmadan). Bu sitede 112 bileşenin 87'si
+  // "use client" ve kökte ContentProvider + LanguageProvider var; bir context değeri
+  // tazelendiğinde geniş bir ağaç yeniden render oluyordu. Derleyici, girdisi
+  // değişmeyen alt ağaçları atlayarak bu maliyeti kırpar.
+  // ⚠️ Next 16'da `experimental` ALTINDA DEĞİL, ÜST SEVİYEDE (16'da kararlıya alındı;
+  //    experimental.reactCompiler yazarsan tsc "known properties" hatası verir).
+  // ⚠️ babel-plugin-react-compiler devDependency olarak kurulu olmalı.
+  // Görünüm/davranış DEĞİŞMEZ; sorun çıkarsa bu satırı silmek yeterli.
+  reactCompiler: true,
   images: {
     // next/image optimizer'ın KABUL ETTİĞİ quality değerleri.
     // ⚠️ Listede OLMAYAN değer istenirse optimizer HTTP 400 döner; render anında
