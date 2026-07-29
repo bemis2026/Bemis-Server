@@ -517,8 +517,9 @@
         "regionId": "merkez",
         "name": "ENİSE ŞENGÜN",
         "title": "Bursa Merkez (Genel Merkez)",
-        "phone": "",
-        "email": "satis@bemis.com.tr"
+        "phone": "+90 533 956 25 46",
+        "email": "satis@bemis.com.tr",
+        "whatsapp": "+90 533 956 25 46"
       },
       {
         "regionId": "karadeniz",
@@ -1366,8 +1367,9 @@
             "regionId": "merkez",
             "name": "ENİSE ŞENGÜN",
             "title": "Germany",
-            "phone": "",
-            "email": "satis@bemis.com.tr"
+            "phone": "+90 533 956 25 46",
+            "email": "satis@bemis.com.tr",
+            "whatsapp": "+90 533 956 25 46"
           },
           {
             "regionId": "karadeniz",
