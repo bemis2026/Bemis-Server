@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
@@ -134,15 +135,19 @@ export default function ReferenceProjects() {
                       objectPosition = adminden seçilen odak noktası (imagePos); seçilmezse
                       "center". Operatör admin'den her görselin çerçevede görünen yerini ayarlar.
                       ⚠️ Kullanıcı kararı: bu hale (cover+imagePos) DÖNÜLDÜ, manuel odakla yönetilecek. */}
-                  <img
+                  {/* ⚠️ 2026-07-29: ham <img> idi → 309x226'lık kutuya 1536x2048 orijinal
+                      iniyordu (2,5x fazla, ~207 KB/görsel). next/image optimizer'a alındı.
+                      ⚠️ KADRAJ AYNEN KORUNUR: object-cover + objectPosition (item.imagePos)
+                      kullanıcı tarafından admin'den ayarlanıyor — DEĞİŞTİRME. */}
+                  <Image
                     src={item.image}
                     alt={item.title?.trim() ? item.title : "Bemis E-V Charge elektrikli araç şarj istasyonu referans projesi"}
-                    width={600}
-                    height={400}
+                    width={760}
+                    height={520}
+                    quality={88}
                     className="w-full h-full object-cover pointer-events-none"
                     style={{ objectPosition: item.imagePos || "center" }}
                     loading="lazy"
-                    decoding="async"
                     draggable={false}
                   />
                   {(item.title || item.location) && (
