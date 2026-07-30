@@ -222,6 +222,11 @@ export type SiteContent = {
     layout: HeroLayout;
   };
   stats: StatItem[];
+  /** İstatistik şeridinin ALTINDAKİ ince sertifika bandı (tek satır metin).
+   *  ⚠️ KİMLİK ALANI — dile göre ÇEVRİLMEZ: belge adları (CE, TÜV, TSE, ISO…)
+   *  her dilde aynıdır. contentLang.ts bunu TR'den kilitler; böylece bu alan
+   *  pozisyonel çeviri kayması riskine hiç girmez. Boş bırakılırsa bant gizlenir. */
+  statsCertBand?: string;
   categories: Record<string, CategoryMeta>;
   featured: FeaturedItem[];
   contact: {
@@ -448,13 +453,14 @@ const defaultContent: SiteContent = {
   // bayatti (6000+/60+/IP65) — canli veriyle esitlendi.
   // ⚠️ R2 bin'i BOŞ ise devreye girer — canlı veriyle eşit tutulmalı.
   // ⚠️ Son kartta value:0 = "sayı satırını hiç basma" (Stats.tsx'te koşullu).
+  // ⚠️ R2 bin'i BOŞ ise devreye girer — canlı veriyle eşit tutulmalı.
   stats: [
     { value: 30,    suffix: "+", label: "Yıl Deneyim",            description: "1994'ten bugüne" },
     { value: 16000, suffix: "",  label: "m² Üretim Tesisi",       description: "Bursa OSB'de kendi tesisimiz" },
     { value: 8000,  suffix: "+", label: "Bemis Grup Ürün Çeşidi", description: "Fiş, priz ve şarj ekipmanları" },
     { value: 80,    suffix: "+", label: "Ülke İhracat",           description: "Global pazar erişimi" },
-    { value: 0,     suffix: "",  label: "Sertifikalı Üretim",     description: "CE · TÜV · TSE · ISO 9001 · ISO 14001" },
   ],
+  statsCertBand: "CE · TÜV · TSE · ISO 9001 · ISO 14001",
   categories: {
     "wallbox":           { name: "AC Wallbox",               subtitle: "Duvar Tipi Şarj İstasyonu",                             modelCount: 3, badge: "En Çok Satan", comingSoon: false },
     "portable":          { name: "AC Mobile Chargers",       subtitle: "Taşınabilir Şarj Cihazları",                            modelCount: 2, badge: "Yeni",         comingSoon: false },

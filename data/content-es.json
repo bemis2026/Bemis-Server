@@ -53,12 +53,6 @@
       "suffix": "+",
       "label": "Países Atendidos",
       "description": "Alcance global"
-    },
-    {
-      "value": 0,
-      "suffix": "",
-      "label": "Fabricación Certificada",
-      "description": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
     }
   ],
   "categories": {
@@ -861,5 +855,6 @@
     "description": "Como fabricamos en nuestras propias instalaciones, en pedidos por proyecto y por volumen podemos personalizar la longitud del cable, el color del cable y del conector — incluso el color del dispositivo — según su solicitud. Definamos juntos la mejor solución para su proyecto.",
     "ctaPrimaryLabel": "Contáctenos para un Proyecto a Medida",
     "ctaSecondaryLabel": "Buscar Distribuidor"
-  }
+  },
+  "statsCertBand": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
 }

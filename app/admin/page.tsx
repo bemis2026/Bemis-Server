@@ -119,6 +119,8 @@ type ContentData = {
     layout: { logo: { x: number; y: number }; text: { x: number; y: number }; button: { x: number; y: number } };
   };
   stats: StatItem[];
+  /** İstatistik şeridinin altındaki ince sertifika bandı. Çevrilmez (kimlik alanı). */
+  statsCertBand?: string;
   categories: Record<string, CategoryMeta>;
   featured: FeaturedItem[];
   contact: { phone: string; email: string; address: string; addressSub: string; workingHours: string; workingDays: string; whatsappPhone?: string; whatsappMessage?: string };
@@ -2029,7 +2031,21 @@ export default function AdminPage() {
                 <div className="max-w-2xl space-y-5">
                   <div>
                     <h2 className="text-base font-bold mb-1">İstatistik Kartları</h2>
-                    <p className="text-xs text-white/35">Ana sayfadaki animasyonlu sayı kartları.</p>
+                    <p className="text-xs text-white/35">Ana sayfadaki animasyonlu sayı kartları. Sayı Değeri&apos;ni <b>0</b> yaparsanız o kartta rakam gösterilmez.</p>
+                  </div>
+                  {/* Şeridin ALTINDAKİ ince sertifika bandı. Belge adları her dilde
+                      aynı olduğu için bu alan çevrilmez, 6 dilde de bu metin görünür. */}
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5">
+                    <p className="text-xs font-semibold text-white/50 mb-3">Sertifika Bandı (şeridin altındaki ince satır)</p>
+                    <Field
+                      label="Belgeler — boş bırakırsanız bant gizlenir"
+                      value={content.statsCertBand ?? ""}
+                      onChange={(v) => updateContent(["statsCertBand"], v)}
+                    />
+                    <p className="text-[11px] text-white/30 mt-2">
+                      Ayraç olarak “ · ” kullanın. Örn: CE · TÜV · TSE · ISO 9001 · ISO 14001.
+                      Bu metin tüm dillerde aynı gösterilir (belge adları çevrilmez).
+                    </p>
                   </div>
                   {content.stats.map((stat, i) => (
                     <div key={i} className="bg-white/3 border border-white/7 rounded-2xl p-5">

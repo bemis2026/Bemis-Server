@@ -53,12 +53,6 @@
       "suffix": "+",
       "label": "Länder beliefert",
       "description": "Globale Marktpräsenz"
-    },
-    {
-      "value": 0,
-      "suffix": "",
-      "label": "Zertifizierte Fertigung",
-      "description": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
     }
   ],
   "categories": {
@@ -861,5 +855,6 @@
     "description": "Da wir in unserem eigenen Werk fertigen, können wir bei projektbezogenen Aufträgen und Stückzahlen die Kabellänge, die Kabel- und Steckerfarbe – sogar die Gerätefarbe – nach Ihren Wünschen anpassen. Lassen Sie uns gemeinsam die beste Lösung für Ihr Projekt finden.",
     "ctaPrimaryLabel": "Für ein individuelles Projekt kontaktieren",
     "ctaSecondaryLabel": "Händler finden"
-  }
+  },
+  "statsCertBand": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
 }

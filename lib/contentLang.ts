@@ -231,6 +231,9 @@ export async function getContentForLang(lang: string): Promise<any | null> {
     sectionBgs:   tr.sectionBgs,
     featured:     mergedFeatured,
     stats:        mergedStats,
+    // ⚠️ Sertifika bandı KİMLİK ALANI — belge adları (CE/TÜV/TSE/ISO) her dilde
+    // aynı olduğu için DAİMA TR'den gelir, çeviri katmanına hiç girmez.
+    statsCertBand: tr.statsCertBand,
     contact:      tr.contact,
     company:      tr.company,
     social:       tr.social,

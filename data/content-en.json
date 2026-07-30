@@ -53,12 +53,6 @@
       "suffix": "+",
       "label": "Countries Served",
       "description": "Global market reach"
-    },
-    {
-      "value": 0,
-      "suffix": "",
-      "label": "Certified Manufacturing",
-      "description": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
     }
   ],
   "categories": {
@@ -847,5 +841,6 @@
   "siteVerification": {
     "yandex": "ae9fa7a5c2813c45",
     "bing": "C167616D2A8624840B7BB7B05FF168F3"
-  }
+  },
+  "statsCertBand": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
 }
