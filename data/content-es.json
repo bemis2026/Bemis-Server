@@ -46,7 +46,7 @@
       "value": 8000,
       "suffix": "+",
       "label": "Gama del Grupo",
-      "description": "Grupo Bemis — 30 años fabricando material eléctrico"
+      "description": "Clavijas, bases y equipos de carga"
     },
     {
       "value": 80,
@@ -55,16 +55,10 @@
       "description": "Alcance global"
     },
     {
-      "value": 5,
+      "value": 0,
       "suffix": "",
       "label": "Fabricación Certificada",
       "description": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
-    },
-    {
-      "value": 2,
-      "suffix": "",
-      "label": "Años de Garantía",
-      "description": "Estándar en todos los productos"
     }
   ],
   "categories": {

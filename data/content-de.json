@@ -46,7 +46,7 @@
       "value": 8000,
       "suffix": "+",
       "label": "Produktvielfalt der Gruppe",
-      "description": "Bemis Gruppe — 30 Jahre Elektrofertigung"
+      "description": "Stecker, Steckdosen und Ladetechnik"
     },
     {
       "value": 80,
@@ -55,16 +55,10 @@
       "description": "Globale Marktpräsenz"
     },
     {
-      "value": 5,
+      "value": 0,
       "suffix": "",
       "label": "Zertifizierte Fertigung",
       "description": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
-    },
-    {
-      "value": 2,
-      "suffix": "",
-      "label": "Jahre Herstellergarantie",
-      "description": "Standard bei allen Produkten"
     }
   ],
   "categories": {

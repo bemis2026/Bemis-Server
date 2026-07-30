@@ -46,7 +46,7 @@
       "value": 8000,
       "suffix": "+",
       "label": "تشكيلة منتجات المجموعة",
-      "description": "مجموعة Bemis — 30 عامًا في التصنيع الكهربائي"
+      "description": "قوابس ومقابس ومعدات شحن"
     },
     {
       "value": 80,
@@ -55,16 +55,10 @@
       "description": "وصول عالمي"
     },
     {
-      "value": 5,
+      "value": 0,
       "suffix": "",
       "label": "تصنيع معتمد",
       "description": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
-    },
-    {
-      "value": 2,
-      "suffix": "",
-      "label": "سنتا ضمان المصنّع",
-      "description": "قياسي في جميع المنتجات"
     }
   ],
   "categories": {

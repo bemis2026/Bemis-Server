@@ -98,10 +98,11 @@ export default function Stats() {
             {pickText(lang, "Rakamlarla Bemis", "Bemis by the Numbers")}
           </h2>
         </motion.div>
-        {/* 6 kart: mobilde 2 sütun × 3 satır, masaüstünde 3 sütun × 2 satır.
-            ⚠️ lg:grid-cols-4 İDİ — 6 kartla 4+2 bozuk dizilim veriyordu. */}
+        {/* 5 kart — masaüstünde TEK SATIR (kullanıcı isteği 2026-07-31).
+            Mobilde 5 kart 2 sütuna sığmaz; son kart `col-span-2` ile tam genişlik
+            olur, böylece yarım/öksüz kart görünmez. */}
         <div
-          className="grid grid-cols-2 lg:grid-cols-3 gap-px rounded-2xl overflow-hidden"
+          className="grid grid-cols-2 lg:grid-cols-5 gap-px rounded-2xl overflow-hidden"
           style={{ background: gridGap }}
         >
           {stats.map((stat, i) => (
@@ -110,15 +111,33 @@ export default function Stats() {
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: i * 0.09 }}
-              className="transition-all duration-300 p-6 sm:p-8 lg:p-10 flex flex-col items-center justify-center text-center"
+              className={`transition-all duration-300 p-6 sm:p-7 lg:p-8 flex flex-col items-center justify-center text-center${
+                // Mobilde 5. kart tek başına kalmasın diye iki sütunu kaplar.
+                i === stats.length - 1 && stats.length % 2 === 1 ? " col-span-2 lg:col-span-1" : ""
+              }`}
               style={{ background: cardBgDefault }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.background = cardBgHover; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.background = cardBgDefault; }}
             >
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-black mb-1.5 tabular-nums" style={{ color: statNumColor }}>
-                <CountUp value={stat.value} suffix={stat.suffix} prefix={stat.prefix} active={inView} lang={lang} />
-              </div>
-              <div className="font-semibold text-sm sm:text-base mb-0.5" style={{ color: labelColor }}>
+              {/* ⚠️ value = 0 ve prefix yoksa SAYI SATIRI HİÇ BASILMAZ. "Sertifikalı
+                  Üretim" kartında sayı istenmiyor (kullanıcı: "5 değil, direkt
+                  sertifikalı üretim olsun") — o kart etiket + belge listesiyle
+                  dikeyde ortalanır. Adminde Sayı Değeri'ni 0 yapmak = sayıyı gizle. */}
+              {(stat.value > 0 || stat.prefix) && (
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-black mb-1.5 tabular-nums" style={{ color: statNumColor }}>
+                  <CountUp value={stat.value} suffix={stat.suffix} prefix={stat.prefix} active={inView} lang={lang} />
+                </div>
+              )}
+              {/* Sayısız kartta (sertifikalar) etiket büyür — yoksa yanındaki
+                  iri rakamların yanında görsel olarak zayıf kalıyordu. */}
+              <div
+                className={
+                  stat.value > 0 || stat.prefix
+                    ? "font-semibold text-sm sm:text-base mb-0.5"
+                    : "font-black text-lg sm:text-xl lg:text-2xl mb-1.5"
+                }
+                style={{ color: labelColor }}
+              >
                 <E field={`stats.${i}.label`} tag="span">{stat.label}</E>
               </div>
               <div className="text-xs sm:text-sm" style={{ color: descColor }}>

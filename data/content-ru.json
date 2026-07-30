@@ -46,7 +46,7 @@
       "value": 8000,
       "suffix": "+",
       "label": "Ассортимент группы",
-      "description": "Группа Bemis — 30 лет в электротехнике"
+      "description": "Вилки, розетки и зарядное оборудование"
     },
     {
       "value": 80,
@@ -55,16 +55,10 @@
       "description": "Глобальный охват"
     },
     {
-      "value": 5,
+      "value": 0,
       "suffix": "",
       "label": "Сертифицированное производство",
       "description": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
-    },
-    {
-      "value": 2,
-      "suffix": "",
-      "label": "Года гарантии",
-      "description": "Стандарт для всех изделий"
     }
   ],
   "categories": {

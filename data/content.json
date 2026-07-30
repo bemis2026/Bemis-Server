@@ -47,7 +47,7 @@
       "value": 8000,
       "suffix": "+",
       "label": "Bemis Grup Ürün Çeşidi",
-      "description": "30 yıllık elektrik üretim birikimi"
+      "description": "Fiş, priz ve şarj ekipmanları"
     },
     {
       "value": 80,
@@ -56,16 +56,10 @@
       "description": "Global pazar erişimi"
     },
     {
-      "value": 5,
+      "value": 0,
       "suffix": "",
       "label": "Sertifikalı Üretim",
       "description": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
-    },
-    {
-      "value": 2,
-      "suffix": "",
-      "label": "Yıl Üretici Garantisi",
-      "description": "Tüm ürünlerde standart"
     }
   ],
   "categories": {
@@ -937,7 +931,7 @@
           "value": 8000,
           "suffix": "+",
           "label": "Group Product Range",
-          "description": "Bemis Group — 30 years in electrical manufacturing"
+          "description": "Plugs, sockets and charging equipment"
         },
         {
           "value": 80,
@@ -946,16 +940,10 @@
           "description": "Global market reach"
         },
         {
-          "value": 5,
+          "value": 0,
           "suffix": "",
           "label": "Certified Manufacturing",
           "description": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
-        },
-        {
-          "value": 2,
-          "suffix": "",
-          "label": "Years Warranty",
-          "description": "Standard on all products"
         }
       ],
       "categories": {
