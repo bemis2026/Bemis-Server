@@ -1942,5 +1942,17 @@
     "es": "Política de cookies",
     "ar": "سياسة ملفات تعريف الارتباط",
     "ru": "Политика использования файлов cookie"
+  },
+  "COMPANY": {
+    "de": "UNTERNEHMEN",
+    "es": "EMPRESA",
+    "ar": "الشركة",
+    "ru": "КОМПАНИЯ"
+  },
+  "Bemis by the Numbers": {
+    "de": "Bemis in Zahlen",
+    "es": "Bemis en cifras",
+    "ar": "بيميس بالأرقام",
+    "ru": "Bemis в цифрах"
   }
 }

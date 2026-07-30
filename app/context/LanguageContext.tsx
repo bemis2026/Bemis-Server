@@ -3,7 +3,6 @@
 import { createContext, useCallback, useContext, useState, useEffect, useMemo, ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { type LangCode, isLangCode, isRTL, isEnglishOnlyPath } from "../lib/languages";
-import { loadUiI18n } from "../lib/ui";
 
 // Lang = 6 dil (tr/en/de/es/ar/ru). Mevcut `lang === "en"`/`"tr"` karşılaştırmaları
 // aynen geçerli; nesne-indeksleme (`{tr,en}[lang]`) siteleri byLang() kullanır.
@@ -12,9 +11,6 @@ export type Lang = LangCode;
 type LanguageContextType = {
   lang: Lang;
   setLang: (l: Lang) => void;
-  /** İç kullanım: ui.json tembel yüklenince artar → tüketiciler yeniden render olur.
-   *  (Okumaya gerek yok; yalnız context değerini tazelemek için var.) */
-  _uiTick?: number;
 };
 
 const LanguageContext = createContext<LanguageContextType>({
@@ -52,28 +48,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     document.documentElement.dir = isRTL(effectiveLang) ? "rtl" : "ltr";
   }, [effectiveLang]);
 
-  // ui.json (67 KB arayüz çeviri sözlüğü) yalnız YABANCI dilde indirilir; tr/en'de
-  // hiç istenmez. İndiği anda tick artar → context değeri tazelenir → pickText/byLang
-  // kullanan bileşenler yeniden render olup çeviriyi gösterir. Yüklenene dek İngilizce.
-  const [uiTick, setUiTick] = useState(0);
-  useEffect(() => {
-    let iptal = false;
-    void loadUiI18n(effectiveLang).then(() => { if (!iptal) setUiTick((t) => t + 1); });
-    return () => { iptal = true; };
-  }, [effectiveLang]);
-
   const setLang = useCallback((l: Lang) => {
     setLangState(l);
     setPickedHere(l);
     localStorage.setItem("lang", l);
   }, []);
 
-  // uiTick bilinçli bağımlılık: sözlük indiğinde context değeri değişsin ki
-  // tüketiciler çeviriyle yeniden render olsun.
-  const value = useMemo(
-    () => ({ lang: effectiveLang, setLang, _uiTick: uiTick }),
-    [effectiveLang, setLang, uiTick]
-  );
+  const value = useMemo(() => ({ lang: effectiveLang, setLang }), [effectiveLang, setLang]);
 
   return (
     <LanguageContext.Provider value={value}>

@@ -33,27 +33,38 @@
     {
       "value": 30,
       "suffix": "+",
-      "label": "تنوّع المنتجات",
-      "description": "مجموعة واسعة من المنتجات"
+      "label": "سنة خبرة",
+      "description": "منذ عام 1994"
+    },
+    {
+      "value": 16000,
+      "suffix": "",
+      "label": "م² منشأة إنتاج",
+      "description": "مصنعنا الخاص في بورصة"
     },
     {
       "value": 8000,
       "suffix": "+",
-      "label": "التصدير إلى الدول",
-      "description": "وصول إلى الأسواق العالمية"
+      "label": "تشكيلة منتجات المجموعة",
+      "description": "مجموعة Bemis — 30 عامًا في التصنيع الكهربائي"
     },
     {
       "value": 80,
       "suffix": "+",
-      "label": "الوثائق",
-      "description": "المعايير الدولية"
+      "label": "دولة تصدير",
+      "description": "وصول عالمي"
     },
     {
-      "value": 9001,
-      "prefix": "ISO",
+      "value": 5,
       "suffix": "",
-      "label": "منذ عام 1994",
-      "description": "شواحن AC Wallbox"
+      "label": "تصنيع معتمد",
+      "description": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
+    },
+    {
+      "value": 2,
+      "suffix": "",
+      "label": "سنتا ضمان المصنّع",
+      "description": "قياسي في جميع المنتجات"
     }
   ],
   "categories": {

@@ -33,27 +33,38 @@
     {
       "value": 30,
       "suffix": "+",
-      "label": "Ассортимент продукции",
-      "description": "Широкий выбор товаров"
+      "label": "Лет опыта",
+      "description": "С 1994 года"
+    },
+    {
+      "value": 16000,
+      "suffix": "",
+      "label": "м² производства",
+      "description": "Собственный завод в Бурсе"
     },
     {
       "value": 8000,
       "suffix": "+",
-      "label": "Экспорт в страны",
-      "description": "Доступ к мировому рынку"
+      "label": "Ассортимент группы",
+      "description": "Группа Bemis — 30 лет в электротехнике"
     },
     {
       "value": 80,
       "suffix": "+",
-      "label": "Документов",
-      "description": "Международные стандарты"
+      "label": "Стран экспорта",
+      "description": "Глобальный охват"
     },
     {
-      "value": 9001,
-      "prefix": "ISO",
+      "value": 5,
       "suffix": "",
-      "label": "С 1994 года",
-      "description": "Настенные зарядные устройства AC"
+      "label": "Сертифицированное производство",
+      "description": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
+    },
+    {
+      "value": 2,
+      "suffix": "",
+      "label": "Года гарантии",
+      "description": "Стандарт для всех изделий"
     }
   ],
   "categories": {

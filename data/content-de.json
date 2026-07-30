@@ -33,27 +33,38 @@
     {
       "value": 30,
       "suffix": "+",
-      "label": "Produktvielfalt",
-      "description": "Breites Produktsortiment"
+      "label": "Jahre Erfahrung",
+      "description": "Seit 1994"
+    },
+    {
+      "value": 16000,
+      "suffix": "",
+      "label": "m² Produktionsfläche",
+      "description": "Eigenes Werk in Bursa"
     },
     {
       "value": 8000,
       "suffix": "+",
-      "label": "Länderexport",
-      "description": "Globaler Marktzugang"
+      "label": "Produktvielfalt der Gruppe",
+      "description": "Bemis Gruppe — 30 Jahre Elektrofertigung"
     },
     {
       "value": 80,
       "suffix": "+",
-      "label": "Dokumente",
-      "description": "Internationale Standards"
+      "label": "Länder beliefert",
+      "description": "Globale Marktpräsenz"
     },
     {
-      "value": 9001,
-      "prefix": "ISO",
+      "value": 5,
       "suffix": "",
-      "label": "Seit 1994",
-      "description": "AC-Wallbox-Ladegeräte"
+      "label": "Zertifizierte Fertigung",
+      "description": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
+    },
+    {
+      "value": 2,
+      "suffix": "",
+      "label": "Jahre Herstellergarantie",
+      "description": "Standard bei allen Produkten"
     }
   ],
   "categories": {

@@ -83,16 +83,26 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["react-icons", "react-icons/ri", "react-icons/hi", "react-icons/hi2", "framer-motion"],
   },
 
-  // ⚡ React Compiler (2026-07-29) — bileşenleri derleme sırasında OTOMATİK memoize
-  // eder (elle useMemo/useCallback yazmadan). Bu sitede 112 bileşenin 87'si
-  // "use client" ve kökte ContentProvider + LanguageProvider var; bir context değeri
-  // tazelendiğinde geniş bir ağaç yeniden render oluyordu. Derleyici, girdisi
-  // değişmeyen alt ağaçları atlayarak bu maliyeti kırpar.
-  // ⚠️ Next 16'da `experimental` ALTINDA DEĞİL, ÜST SEVİYEDE (16'da kararlıya alındı;
-  //    experimental.reactCompiler yazarsan tsc "known properties" hatası verir).
-  // ⚠️ babel-plugin-react-compiler devDependency olarak kurulu olmalı.
-  // Görünüm/davranış DEĞİŞMEZ; sorun çıkarsa bu satırı silmek yeterli.
-  reactCompiler: true,
+  // 🔴 REACT COMPILER KAPALI — 2026-07-29'da açıldı, 2026-07-31'de KAPATILDI.
+  //
+  // NEDEN: derleyici bileşen çıktısını izlediği props/state'e göre memoize eder.
+  // Bu sitede ÜÇ ayrı i18n sistemi sözlüğünü MODÜL SEVİYESİNDE mutable bir
+  // değişkende tutuyor ve tembel yükledikten sonra bir "tick" ile yeniden render
+  // tetikliyor:
+  //     · app/lib/blogI18n.ts    (BLOG_I18N   — bu oturumdan ÖNCE vardı)
+  //     · app/lib/glossaryI18n.ts(GLOSSARY_I18N)
+  //     · app/lib/ui.ts          (UI — bu yüzden statiğe geri alındı)
+  // Derleyici bu modül değişkenini BİR GİRDİ OLARAK GÖRMEZ → sözlük indikten
+  // sonra bile yeniden render, önbelleğe alınmış (sözlük boşken hesaplanmış)
+  // çıktıyı servis ediyordu.
+  //
+  // ÖLÇÜLEN ETKİ (Rusça, yerel üretim derlemesi): blog yazısı TR gövdeyle,
+  // /sozluk terimi TR tanımla, arayüz dizeleri İngilizce görünüyordu.
+  // Yani kazanç spekülatif bir memoization iken bedeli 5 dilde bozuk içerikti.
+  //
+  // 📌 TEKRAR AÇILACAKSA ÖNCE bu üç sözlüğü modül değişkeninden çıkarıp React
+  // state'ine (context) taşı — o zaman derleyici için gerçek bir girdi olurlar.
+  // reactCompiler: true,
   images: {
     // next/image optimizer'ın KABUL ETTİĞİ quality değerleri.
     // ⚠️ Listede OLMAYAN değer istenirse optimizer HTTP 400 döner; render anında

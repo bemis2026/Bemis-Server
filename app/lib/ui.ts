@@ -7,31 +7,27 @@
 // (İngilizce dize anahtardır → ayrı anahtar uydurmaya gerek yok; aynı EN metin aynı çeviriyi paylaşır.)
 // EN çevirisi olmayan dize otomatik İngilizce'ye düşer (yarım değil, uluslararası yedek).
 
-// ⚠️⚠️ ui.json (67 KB) artık STATİK import DEĞİL — TEMBEL YÜKLENİR (2026-07-29).
-// Sebep: pickText/byLang bu sözlüğe YALNIZ de/es/ar/ru için bakar; tr ve en satır-içi
-// argümanlardan döner. Yani ziyaretçilerin neredeyse tamamı hiç okumayacağı 67 KB'ı
-// indirip ayrıştırıyordu — üstelik 18 bileşende kullanıldığı için paketleyici dosyayı
-// DÖRT AYRI route paketine kopyalamıştı (toplam ~158 KB).
+// ⚠️⚠️ TEMBEL YÜKLEME DENENDİ VE GERİ ALINDI (2026-07-29 → 2026-07-31).
+// Amaç 67 KB kazanmaktı (pickText/byLang bu sözlüğe YALNIZ de/es/ar/ru için bakar;
+// tr/en satır-içi argümandan döner → ziyaretçilerin çoğu boşuna indiriyordu).
+// Kurulum: modül seviyesinde `let UI = {}` + dinamik import + LanguageProvider'da
+// yükleyip tick ile yeniden render.
 //
-// ⚠️ SSR GÜVENLİĞİ (bu deseni bozacak değişiklik yapma): sunucu ve İLK client render'ı
-// DAİMA tr (ya da /export-/en yollarında en) ile çalışır — LanguageProvider dili
-// localStorage'dan ancak mount sonrası effect'te okur. Dolayısıyla sözlük SSR'da hiç
-// gerekmez ve ilk render sunucuyla birebir aynı kalır → hidrasyon uyuşmazlığı OLMAZ.
-// Sözlük indikten sonra LanguageProvider bir tick artırır ve tüketiciler yeniden
-// render olur (blog.json'daki desenin aynısı). Yüklenene dek yabancı dilde İngilizce
-// görünür — yarım/kırık değil, kabul edilebilir uluslararası yedek.
-let UI: Record<string, Record<string, string>> = {};
-let uiPromise: Promise<void> | null = null;
+// 🔴 NEDEN GERİ ALINDI: canlıda de/es/ar/ru'da TÜM arayüz çevirileri İngilizce'ye
+// düştü — Rusça sayfada "Find a Dealer", "Guides" gibi dizeler İngilizce kaldı.
+// Ölçüldü: ui.json chunk'ı İNİYOR, ama `pickText`in okuduğu modül örneğindeki `UI`
+// boş kalıyor (yükleyen LanguageProvider ile okuyan 18 bileşen farklı modül
+// grafiklerinde). Zorlanan yeniden render bile düzeltmedi → sorun render değil,
+// paylaşılmayan modül durumu.
+//
+// 📌 TEKRAR DENENECEKSE: modül seviyesinde mutable değişken KULLANMA. Doğru tasarım
+// sözlüğü React state'ine koymak (LanguageContext içinde tutup context ile dağıtmak)
+// ve pickText'i o sözlüğü argüman alan bir hook'a çevirmek. 18 çağrı noktası
+// güncellenmeli — ayrı ve dikkatli bir iş.
+// (Aynı desen glossary.json'da ÇALIŞIYOR çünkü orada yükleyen ve okuyan AYNI bileşen.)
+import uiData from "../../data/i18n/ui.json";
 
-/** ui.json'u bir kez dinamik yükler. tr/en'de HİÇ yüklenmez (gerekmiyor). */
-export function loadUiI18n(lang: string): Promise<void> {
-  if (lang === "tr" || lang === "en") return Promise.resolve();
-  if (uiPromise) return uiPromise;
-  uiPromise = import("../../data/i18n/ui.json")
-    .then((m) => { UI = ((m as { default?: unknown }).default ?? m) as Record<string, Record<string, string>>; })
-    .catch(() => { uiPromise = null; }); // hata olursa tekrar denenebilir; İngilizce gösterilir
-  return uiPromise;
-}
+const UI = uiData as Record<string, Record<string, string>>;
 
 export function pickText(lang: string, tr: string, en: string): string {
   if (lang === "tr") return tr;

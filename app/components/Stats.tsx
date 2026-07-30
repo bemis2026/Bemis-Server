@@ -4,9 +4,19 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
 import E from "./E";
 
-function CountUp({ value, suffix, prefix, active }: { value: number; suffix: string; prefix?: string; active: boolean }) {
+// Binlik ayracı dile göre: 16000 → "16.000" (tr/de/es) · "16,000" (en) · "16 000" (ru).
+// ⚠️ Arapça için BİLEREK en-US kullanılıyor: "ar" yerelinde Intl, Arap-Hint
+// rakamları (٨٬٠٠٠) üretir; sitenin geri kalanı Latin rakam kullandığı için
+// tutarsız görünürdü.
+const SAYI_YERELI: Record<string, string> = {
+  tr: "tr-TR", de: "de-DE", es: "es-ES", ru: "ru-RU", en: "en-US", ar: "en-US",
+};
+
+function CountUp({ value, suffix, prefix, active, lang }: { value: number; suffix: string; prefix?: string; active: boolean; lang: string }) {
   const [count, setCount] = useState(0);
   useEffect(() => {
     if (!active) return;
@@ -22,12 +32,14 @@ function CountUp({ value, suffix, prefix, active }: { value: number; suffix: str
     return () => clearInterval(timer);
   }, [active, value]);
 
-  return <span>{prefix ?? ""}{count}{suffix}</span>;
+  const bicimli = count.toLocaleString(SAYI_YERELI[lang] ?? "en-US");
+  return <span>{prefix ?? ""}{bicimli}{suffix}</span>;
 }
 
 export default function Stats() {
   const { stats, sectionBgs } = useContent();
   const { theme } = useTheme();
+  const { lang } = useLanguage();
   const d = theme === "dark";
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
@@ -38,12 +50,19 @@ export default function Stats() {
   const sectionBg     = d
     ? "linear-gradient(155deg, #111318 0%, #0d0e12 50%, #131418 100%)"
     : "linear-gradient(155deg, #1e3a8a 0%, #2563eb 50%, #1d4ed8 100%)";
-  const cardBgDefault  = d ? "linear-gradient(145deg, #111114 0%, #0d0d10 100%)" : "rgba(255,255,255,0.10)";
-  const cardBgHover    = d ? "linear-gradient(145deg, #141418 0%, #101014 100%)" : "rgba(255,255,255,0.20)";
+  // ⚠️ ERİŞİLEBİLİRLİK (2026-07-31): kart zemini aydınlık modda BEYAZ %10 idi;
+  // mavi gradyanı açtığı için beyaz metnin kontrastı düşüyordu — etiket 4,32:1,
+  // açıklama 3,02:1 (AA eşiği 4,5). Zemin SİYAH %20'ye çevrildi: aynı mavi
+  // ailesinde kalır ama koyulaşır → etiket 7,24:1, açıklama 4,5:1 üstü.
+  // Hover artık AÇAR (siyah %10) — "üstüne gelince aydınlanma" hissi korundu.
+  // Karanlık modda açıklama %40 → %55 (3,81:1 → 6,22:1).
+  const cardBgDefault  = d ? "linear-gradient(145deg, #111114 0%, #0d0d10 100%)" : "rgba(0,0,0,0.20)";
+  const cardBgHover    = d ? "linear-gradient(145deg, #141418 0%, #101014 100%)" : "rgba(0,0,0,0.10)";
   const gridGap        = d ? `${BLUE}20` : "rgba(255,255,255,0.18)";
   const statNumColor   = d ? "#93C5FD" : "#ffffff";
   const labelColor     = d ? "#ffffff" : "#ffffff";
-  const descColor      = d ? "rgba(255,255,255,0.40)" : "rgba(255,255,255,0.72)";
+  const descColor      = d ? "rgba(255,255,255,0.55)" : "rgba(255,255,255,0.78)";
+  const eyebrowColor   = d ? "#93C5FD" : "#ffffff";
 
   return (
     <section
@@ -59,8 +78,30 @@ export default function Stats() {
       )}
       <div className="section-divider" style={{ background: d ? undefined : "linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)" }} />
       <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-8 lg:py-10">
+        {/* ⚠️ 2026-07-31 — bölümün HİÇ başlığı yoktu (13 Tem'de "32 yıllık miras"
+            bloğu Hakkımızda ile tekrar ettiği için kaldırılmıştı, geriye çıplak
+            sayı ızgarası kalmıştı). Buraya YALNIZ tek satır başlık konuyor;
+            o uzun miras anlatısı BİLEREK geri getirilmiyor. */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.4 }}
+          className="text-center mb-6 lg:mb-8"
+        >
+          <span
+            className="inline-block text-xs font-bold tracking-[0.18em] mb-2"
+            style={{ color: eyebrowColor, opacity: d ? 1 : 0.85 }}
+          >
+            {pickText(lang, "KURUMSAL", "COMPANY")}
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-black" style={{ color: "#ffffff" }}>
+            {pickText(lang, "Rakamlarla Bemis", "Bemis by the Numbers")}
+          </h2>
+        </motion.div>
+        {/* 6 kart: mobilde 2 sütun × 3 satır, masaüstünde 3 sütun × 2 satır.
+            ⚠️ lg:grid-cols-4 İDİ — 6 kartla 4+2 bozuk dizilim veriyordu. */}
         <div
-          className="grid grid-cols-2 lg:grid-cols-4 gap-px rounded-2xl overflow-hidden"
+          className="grid grid-cols-2 lg:grid-cols-3 gap-px rounded-2xl overflow-hidden"
           style={{ background: gridGap }}
         >
           {stats.map((stat, i) => (
@@ -75,7 +116,7 @@ export default function Stats() {
               onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.background = cardBgDefault; }}
             >
               <div className="text-3xl sm:text-4xl lg:text-5xl font-black mb-1.5 tabular-nums" style={{ color: statNumColor }}>
-                <CountUp value={stat.value} suffix={stat.suffix} prefix={stat.prefix} active={inView} />
+                <CountUp value={stat.value} suffix={stat.suffix} prefix={stat.prefix} active={inView} lang={lang} />
               </div>
               <div className="font-semibold text-sm sm:text-base mb-0.5" style={{ color: labelColor }}>
                 <E field={`stats.${i}.label`} tag="span">{stat.label}</E>

@@ -35,13 +35,19 @@
       "value": 30,
       "suffix": "+",
       "label": "Yıl Deneyim",
-      "description": "1994'ten bu yana"
+      "description": "1994'ten bugüne"
+    },
+    {
+      "value": 16000,
+      "suffix": "",
+      "label": "m² Üretim Tesisi",
+      "description": "Bursa OSB'de kendi tesisimiz"
     },
     {
       "value": 8000,
       "suffix": "+",
-      "label": "Ürün Çeşidi",
-      "description": "Geniş ürün yelpazesi"
+      "label": "Bemis Grup Ürün Çeşidi",
+      "description": "30 yıllık elektrik üretim birikimi"
     },
     {
       "value": 80,
@@ -50,11 +56,16 @@
       "description": "Global pazar erişimi"
     },
     {
-      "value": 9001,
-      "prefix": "ISO",
+      "value": 5,
       "suffix": "",
-      "label": "Belgeler",
-      "description": "Uluslararası standartlar"
+      "label": "Sertifikalı Üretim",
+      "description": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
+    },
+    {
+      "value": 2,
+      "suffix": "",
+      "label": "Yıl Üretici Garantisi",
+      "description": "Tüm ürünlerde standart"
     }
   ],
   "categories": {
@@ -913,27 +924,38 @@
         {
           "value": 30,
           "suffix": "+",
-          "label": "Product Variety",
-          "description": "Wide Range of Products"
+          "label": "Years of Experience",
+          "description": "Since 1994"
+        },
+        {
+          "value": 16000,
+          "suffix": "",
+          "label": "m² Production Facility",
+          "description": "Our own plant in Bursa"
         },
         {
           "value": 8000,
           "suffix": "+",
-          "label": "Country Export",
-          "description": "Global market access"
+          "label": "Group Product Range",
+          "description": "Bemis Group — 30 years in electrical manufacturing"
         },
         {
           "value": 80,
           "suffix": "+",
-          "label": "Documents",
-          "description": "International standards "
+          "label": "Countries Served",
+          "description": "Global market reach"
         },
         {
-          "value": 9001,
-          "prefix": "ISO",
+          "value": 5,
           "suffix": "",
-          "label": "Since 1994",
-          "description": "AC Wallbox Chargers"
+          "label": "Certified Manufacturing",
+          "description": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
+        },
+        {
+          "value": 2,
+          "suffix": "",
+          "label": "Years Warranty",
+          "description": "Standard on all products"
         }
       ],
       "categories": {

@@ -444,11 +444,15 @@ const defaultContent: SiteContent = {
     ctaPrimary: "Ürün Kataloğu", ctaSecondary: "Bayi Bul", heroBg: "", heroBgPos: "75% 50%", heroImages: [], heroImagesPos: [],
     layout: DEFAULT_LAYOUT,
   },
+  // ⚠️ Bu varsayilanlar R2 bin'i BOS ise devreye girer. 2026-07-31'e kadar
+  // bayatti (6000+/60+/IP65) — canli veriyle esitlendi.
   stats: [
-    { value: 30,   suffix: "+", label: "Yıl Deneyim",   description: "1994'ten bu yana"        },
-    { value: 6000, suffix: "+", label: "Ürün Çeşidi",   description: "Geniş ürün yelpazesi"    },
-    { value: 60,   suffix: "+", label: "Ülke İhracat",  description: "Global pazar erişimi"    },
-    { value: 65, prefix: "IP", suffix: "", label: "Koruma Sınıfı", description: "Uluslararası standartlar" },
+    { value: 30,    suffix: "+", label: "Yıl Deneyim",            description: "1994'ten bugüne" },
+    { value: 16000, suffix: "",  label: "m² Üretim Tesisi",       description: "Bursa OSB'de kendi tesisimiz" },
+    { value: 8000,  suffix: "+", label: "Bemis Grup Ürün Çeşidi", description: "30 yıllık elektrik üretim birikimi" },
+    { value: 80,    suffix: "+", label: "Ülke İhracat",           description: "Global pazar erişimi" },
+    { value: 5,     suffix: "",  label: "Sertifikalı Üretim",     description: "CE · TÜV · TSE · ISO 9001 · ISO 14001" },
+    { value: 2,     suffix: "",  label: "Yıl Üretici Garantisi",  description: "Tüm ürünlerde standart" },
   ],
   categories: {
     "wallbox":           { name: "AC Wallbox",               subtitle: "Duvar Tipi Şarj İstasyonu",                             modelCount: 3, badge: "En Çok Satan", comingSoon: false },
