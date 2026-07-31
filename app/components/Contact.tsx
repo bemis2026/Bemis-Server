@@ -10,6 +10,8 @@ import { RiLinkedinFill, RiInstagramLine, RiYoutubeFill, RiFacebookFill } from "
 import { trackEvent, trackGoogleAdsConversion } from "./GoogleAnalytics";
 import { trackMetaPixelEvent } from "./MetaPixel";
 import { useUiStrings, type UiStringKey } from "../../lib/uiStrings";
+import { pickText } from "../lib/ui";
+import { useLanguage } from "../context/LanguageContext";
 
 const topicKeys: { value: string; key: UiStringKey }[] = [
   { value: "product-info",    key: "topic_product" },
@@ -29,6 +31,12 @@ export default function Contact() {
   const { theme } = useTheme();
   const { contact, social, contactSection, sectionBgs, marketing } = useContent();
   const t = useUiStrings();
+  const { lang } = useLanguage();
+  // ⚠️ Çalışma GÜNÜ yabancı dillerde Türkçe kalıyordu ("Pazartesi — Cuma").
+  // `contact` kimlik alanı olduğu için TR'den geliyor; gün adı ise çevrilebilir
+  // bir ifade. TR'de admin'in girdiği değer korunur, yabancı dilde çevrilir.
+  // (Saat "08:30 — 18:00" sayısal → çeviri gerektirmez.)
+  const calismaGunleri = pickText(lang, contact.workingDays, "Monday — Friday");
   const d = theme === "dark";
   const topics = topicKeys.map((tk) => ({ value: tk.value, label: t(tk.key) }));
 
@@ -55,9 +63,9 @@ export default function Contact() {
 
   const contactItems = [
     { icon: HiLocationMarker, label: t("contact_label_address"), value: contact.address,      sub: contact.addressSub },
-    { icon: HiPhone,          label: t("contact_label_phone"),   value: contact.phone,        sub: `${contact.workingDays}, ${contact.workingHours}` },
+    { icon: HiPhone,          label: t("contact_label_phone"),   value: contact.phone,        sub: `${calismaGunleri}, ${contact.workingHours}` },
     { icon: HiMail,           label: t("contact_label_email"),   value: contact.email,        sub: t("contact_email_sub") },
-    { icon: HiClock,          label: t("contact_label_hours"),   value: contact.workingHours, sub: contact.workingDays },
+    { icon: HiClock,          label: t("contact_label_hours"),   value: contact.workingHours, sub: calismaGunleri },
   ];
 
   const socialLinks = [

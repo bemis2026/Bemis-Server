@@ -1960,5 +1960,17 @@
     "es": "BEMIS EN CIFRAS",
     "ar": "بيميس بالأرقام",
     "ru": "BEMIS В ЦИФРАХ"
+  },
+  "Monday — Friday": {
+    "de": "Montag — Freitag",
+    "es": "Lunes — Viernes",
+    "ar": "الاثنين — الجمعة",
+    "ru": "Понедельник — Пятница"
+  },
+  "Fault / Warranty / Service": {
+    "de": "Störung / Garantie / Service",
+    "es": "Avería / Garantía / Servicio",
+    "ar": "عطل / ضمان / خدمة",
+    "ru": "Неисправность / Гарантия / Сервис"
   }
 }
