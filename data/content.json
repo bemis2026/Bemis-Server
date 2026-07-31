@@ -396,7 +396,7 @@
   ],
   "contact": {
     "phone": "+90 (224) 433 02 16",
-    "email": "info@bemisevcharge.com",
+    "email": "satis@bemis.com.tr",
     "address": "Bursa OSB, Yeşil Cad. No:31",
     "addressSub": "16140 Bursa, Türkiye",
     "workingHours": "08:30 — 18:00",
@@ -614,7 +614,9 @@
     ],
     "exportContact": {
       "contactPerson": "Timur Emrul",
-      "whatsapp": " "
+      "whatsapp": "+90 542 773 72 94",
+      "email": "trade@bemis.com.tr",
+      "phone": "+90 542 773 72 94"
     }
   },
   "reviews": {
@@ -1243,16 +1245,6 @@
           "visible": true
         }
       ],
-      "contact": {
-        "phone": "+90 (224) 433 02 16",
-        "email": "info@bemisevcharge.com",
-        "address": "Bursa OSB, Yeşil Cad. No:31",
-        "addressSub": "16140 Bursa, Türkiye",
-        "workingHours": "08:30 — 18:00",
-        "workingDays": "Pazartesi — Cuma",
-        "whatsappPhone": "+90 533 956 25 46",
-        "whatsappMessage": "Merhaba, Bemis E-V Charge ürünleri hakkında bilgi almak istiyorum."
-      },
       "company": {
         "foundedYear": "1994",
         "exportCountries": "80+",
@@ -1756,5 +1748,10 @@
     "ctaSecondaryLabel": "Bayi Bul",
     "ctaSecondaryHref": "/#dealer"
   },
-  "statsCertBand": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
+  "statsCertBand": "CE · TÜV · TSE · ISO 9001 · ISO 14001",
+  "contactExport": {
+    "email": "trade@bemis.com.tr",
+    "phone": "+90 542 773 72 94",
+    "whatsappPhone": "+90 542 773 72 94"
+  }
 }

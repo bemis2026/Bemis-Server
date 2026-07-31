@@ -124,6 +124,8 @@ type ContentData = {
   categories: Record<string, CategoryMeta>;
   featured: FeaturedItem[];
   contact: { phone: string; email: string; address: string; addressSub: string; workingHours: string; workingDays: string; whatsappPhone?: string; whatsappMessage?: string };
+  /** Dış ticaret iletişimi — yabancı dillerde contact'in üstüne biner. */
+  contactExport?: { phone?: string; email?: string; whatsappPhone?: string };
   company: { foundedYear: string; exportCountries: string; productCount: string; facilitySize: string };
   marketing?: { ga4Id?: string; googleAdsId?: string; googleAdsContactLabel?: string; metaPixelId?: string };
   social: {
@@ -3265,6 +3267,25 @@ export default function AdminPage() {
                     </div>
                     <Field label="Adres (Şehir / Bölge)" value={content.contact.address} onChange={(v) => updateContent(["contact", "address"], v)} />
                     <Field label="Adres Alt Satır" value={content.contact.addressSub} onChange={(v) => updateContent(["contact", "addressSub"], v)} />
+                  </div>
+
+                  {/* Dış ticaret hattı — YABANCI DİLLERDE yurt içi bilgilerin
+                      yerine gösterilir (Türkçe sayfada hiç görünmez). */}
+                  <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-4">
+                    <div>
+                      <p className="text-xs font-semibold text-white/50 mb-0.5">Dış Ticaret İletişimi</p>
+                      <p className="text-[11px] text-white/30 leading-relaxed">
+                        Site yabancı bir dilde görüntülendiğinde (EN/DE/ES/AR/RU) iletişim bölümü,
+                        üst çubuk, footer ve WhatsApp bu bilgileri gösterir. Türkçe sayfada yukarıdaki
+                        yurt içi bilgiler görünmeye devam eder. Boş bırakılan alan için yurt içi
+                        bilgisi kullanılır.
+                      </p>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Field label="Telefon" value={content.contactExport?.phone ?? ""} onChange={(v) => updateContent(["contactExport", "phone"], v)} />
+                      <Field label="E-posta" value={content.contactExport?.email ?? ""} onChange={(v) => updateContent(["contactExport", "email"], v)} validate={validateEmail} />
+                    </div>
+                    <Field label="WhatsApp Numarası" value={content.contactExport?.whatsappPhone ?? ""} onChange={(v) => updateContent(["contactExport", "whatsappPhone"], v)} />
                   </div>
 
                   {/* B2B Portal kısayolu */}

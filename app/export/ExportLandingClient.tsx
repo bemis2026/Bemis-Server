@@ -85,10 +85,10 @@ export default function ExportLandingClient() {
       });
       if (!res.ok) {
         const j = await res.json().catch(() => ({}));
-        setErr(j.error ?? "Could not send. Please email info@bemisevcharge.com.");
+        setErr(j.error ?? "Could not send. Please email trade@bemis.com.tr.");
       } else setSubmitted(true);
     } catch {
-      setErr("Network error. Please email info@bemisevcharge.com.");
+      setErr("Network error. Please email trade@bemis.com.tr.");
     } finally { setSending(false); }
   };
 

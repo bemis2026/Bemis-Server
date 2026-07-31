@@ -234,6 +234,16 @@ export type SiteContent = {
     workingHours: string; workingDays: string;
     whatsappPhone?: string; whatsappMessage?: string;
   };
+  /** DIŞ TİCARET iletişimi — YABANCI DİLLERDE `contact`in üstüne biner.
+   *  ⚠️ Anahtarlar `contact` ile AYNI olmalı (email/phone/whatsappPhone), çünkü
+   *  lib/contentLang.ts bunu `{ ...tr.contact, ...tr.contactExport }` şeklinde
+   *  bindiriyor. O birleştirme bloğu YALNIZ yabancı dillerde çalışır (Türkçe
+   *  erken döner) → Türkçe ziyaretçi yurt içi bilgilerini görmeye devam eder.
+   *  ⚠️ Google'a giden yapısal veri (JSON-LD) layout'ta sunucu tarafında ve
+   *  DAİMA Türkçe içerikten üretilir → kanonik ad-adres-telefon bozulmaz. */
+  contactExport?: {
+    phone?: string; email?: string; whatsappPhone?: string;
+  };
   company: {
     foundedYear: string; exportCountries: string; productCount: string; facilitySize: string;
   };
@@ -477,10 +487,15 @@ const defaultContent: SiteContent = {
     { categoryId: "cables",   productId: "dc-cable",     badge: "Profesyonel DC",       highlight: "350 kW · CCS2 · CHAdeMO · Aktif su soğutmalı 500A model.", visible: true },
   ],
   contact: {
-    phone: "+90 (224) 000 00 00", email: "info@bemisevcharge.com",
+    phone: "+90 (224) 000 00 00", email: "satis@bemis.com.tr",
     address: "Bursa Organize Sanayi Bölgesi", addressSub: "Nilüfer / Bursa, Türkiye",
     workingHours: "08:30 — 17:30", workingDays: "Pazartesi — Cuma",
     whatsappPhone: "", whatsappMessage: "Merhaba, Bemis E-V Charge ürünleri hakkında bilgi almak istiyorum.",
+  },
+  contactExport: {
+    email: "trade@bemis.com.tr",
+    phone: "+90 542 773 72 94",
+    whatsappPhone: "+90 542 773 72 94",
   },
   company: {
     foundedYear: "1994", exportCountries: "60+", productCount: "6000+", facilitySize: "11.000 m²",

@@ -234,7 +234,12 @@ export async function getContentForLang(lang: string): Promise<any | null> {
     // ⚠️ Sertifika bandı KİMLİK ALANI — belge adları (CE/TÜV/TSE/ISO) her dilde
     // aynı olduğu için DAİMA TR'den gelir, çeviri katmanına hiç girmez.
     statsCertBand: tr.statsCertBand,
-    contact:      tr.contact,
+    // ⚠️ DIŞ TİCARET İLETİŞİMİ: bu blok YALNIZ yabancı dillerde çalışır
+    // (yukarıda `if (lang === "tr") return tr;` ile Türkçe erken döner).
+    // Dolayısıyla yabancı ziyaretçi e-posta/telefon/WhatsApp olarak dış ticaret
+    // hattını görür; Türkçe tarafta hiçbir şey değişmez.
+    contact:      { ...tr.contact, ...(tr.contactExport ?? {}) },
+    contactExport: tr.contactExport,
     company:      tr.company,
     social:       tr.social,
     sectionOrder: tr.sectionOrder,
