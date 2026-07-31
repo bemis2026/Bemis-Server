@@ -125,7 +125,7 @@ type ContentData = {
   featured: FeaturedItem[];
   contact: { phone: string; email: string; address: string; addressSub: string; workingHours: string; workingDays: string; whatsappPhone?: string; whatsappMessage?: string };
   /** Dış ticaret iletişimi — yabancı dillerde contact'in üstüne biner. */
-  contactExport?: { phone?: string; email?: string; whatsappPhone?: string };
+  contactExport?: { phone?: string; email?: string; whatsappPhone?: string; whatsappMessage?: string };
   company: { foundedYear: string; exportCountries: string; productCount: string; facilitySize: string };
   marketing?: { ga4Id?: string; googleAdsId?: string; googleAdsContactLabel?: string; metaPixelId?: string };
   social: {
@@ -3286,6 +3286,7 @@ export default function AdminPage() {
                       <Field label="E-posta" value={content.contactExport?.email ?? ""} onChange={(v) => updateContent(["contactExport", "email"], v)} validate={validateEmail} />
                     </div>
                     <Field label="WhatsApp Numarası" value={content.contactExport?.whatsappPhone ?? ""} onChange={(v) => updateContent(["contactExport", "whatsappPhone"], v)} />
+                    <Field label="WhatsApp Hazır Mesajı (İngilizce)" value={content.contactExport?.whatsappMessage ?? ""} onChange={(v) => updateContent(["contactExport", "whatsappMessage"], v)} multiline />
                   </div>
 
                   {/* B2B Portal kısayolu */}

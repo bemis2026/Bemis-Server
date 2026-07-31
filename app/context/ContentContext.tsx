@@ -243,6 +243,9 @@ export type SiteContent = {
    *  DAİMA Türkçe içerikten üretilir → kanonik ad-adres-telefon bozulmaz. */
   contactExport?: {
     phone?: string; email?: string; whatsappPhone?: string;
+    /** Yabancı dillerde WhatsApp'a tıklayınca hazır gelen mesaj. Türkçe
+     *  ziyaretçi contact.whatsappMessage'ı görür. */
+    whatsappMessage?: string;
   };
   company: {
     foundedYear: string; exportCountries: string; productCount: string; facilitySize: string;
@@ -287,7 +290,7 @@ export type SiteContent = {
       quoteHeading?: string;  // Mesaj alıntı başlığı — "Bize Gönderdiğiniz Mesaj"
       footerNote?: string;    // Alt not — "Bu mesaj otomatik gönderilmiştir..."
       companyAddress?: string;// "Bursa, Türkiye"
-      contactEmail?: string;  // İletişim mail'i — "info@bemisevcharge.com"
+      contactEmail?: string;  // İletişim mail'i — "satis@bemis.com.tr"
     };
   };
   dna: {
@@ -496,6 +499,7 @@ const defaultContent: SiteContent = {
     email: "trade@bemis.com.tr",
     phone: "+90 542 773 72 94",
     whatsappPhone: "+90 542 773 72 94",
+    whatsappMessage: "Hello, I would like to get information about Bemis E-V Charge products.",
   },
   company: {
     foundedYear: "1994", exportCountries: "60+", productCount: "6000+", facilitySize: "11.000 m²",
@@ -513,7 +517,7 @@ const defaultContent: SiteContent = {
       quoteHeading: "Tarafımıza İlettiğiniz Mesaj",
       footerNote: "Bu otomatik bir bilgilendirme e-postasıdır. Ek bilgi paylaşmak isterseniz {contactEmail} adresine yazabilirsiniz.",
       companyAddress: "Bursa, Türkiye",
-      contactEmail: "info@bemisevcharge.com",
+      contactEmail: "satis@bemis.com.tr",
     },
   },
   dna: {

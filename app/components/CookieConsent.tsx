@@ -90,7 +90,7 @@ export default function CookieConsent() {
                     </p>
                     <p>
                       <span className="text-white/65 font-semibold">Haklarınız:</span> KVKK kapsamında
-                      verilerinize erişme, düzeltme, silme talepleri için <a href="mailto:info@bemisevcharge.com" className="text-blue-300 hover:underline">info@bemisevcharge.com</a> adresine yazabilirsiniz.
+                      verilerinize erişme, düzeltme, silme talepleri için <a href="mailto:satis@bemis.com.tr" className="text-blue-300 hover:underline">satis@bemis.com.tr</a> adresine yazabilirsiniz.
                     </p>
                   </div>
                 </motion.div>

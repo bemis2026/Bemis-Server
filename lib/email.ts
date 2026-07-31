@@ -126,7 +126,7 @@ const DEFAULT_TEMPLATE: Required<AutoReplyTemplate> = {
   quoteHeading: "Tarafımıza İlettiğiniz Mesaj",
   footerNote: "Bu otomatik bir bilgilendirme e-postasıdır. Ek bilgi paylaşmak isterseniz {contactEmail} adresine yazabilirsiniz.",
   companyAddress: "Bursa, Türkiye",
-  contactEmail: "info@bemisevcharge.com",
+  contactEmail: "satis@bemis.com.tr",
 };
 
 function mergeTemplate(t?: AutoReplyTemplate): Required<AutoReplyTemplate> {
@@ -367,7 +367,7 @@ export async function sendAutoReply(opts: {
   // Best practice: noreply@ as sender (so users don't accidentally
   // reply into a black-hole mailbox), info@ as Reply-To so anyone
   // who *does* hit reply lands at a monitored address.
-  const replyTo = process.env.REPLY_TO_EMAIL || "info@bemisevcharge.com";
+  const replyTo = process.env.REPLY_TO_EMAIL || "satis@bemis.com.tr";
   const merged = mergeTemplate(opts.template);
   return sendEmail({
     to: opts.toUser,

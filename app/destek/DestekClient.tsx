@@ -43,7 +43,7 @@ const VIEWPORT = { once: true, margin: "-60px" } as const;
 const PHONE = "+90 (224) 433 02 16";
 const PHONE_HREF = "tel:+902244330216";
 const WA_HREF = "https://wa.me/905339562546?text=" + encodeURIComponent("Merhaba, ürünümle ilgili arıza/garanti desteği almak istiyorum.");
-const MAIL_HREF = "mailto:info@bemisevcharge.com?subject=" + encodeURIComponent("Arıza / Garanti Desteği");
+const MAIL_HREF = "mailto:satis@bemis.com.tr?subject=" + encodeURIComponent("Arıza / Garanti Desteği");
 
 type Kontrol = { icon: React.ReactNode; baslik: string; belirti: string; adimlar: string[] };
 

@@ -54,8 +54,8 @@ export default function ContactPageClient() {
       icon: RiMailLine,
       label: "E-posta",
       value: (
-        <a href="mailto:info@bemisevcharge.com" className="hover:opacity-80" style={{ color: accent }}>
-          info@bemisevcharge.com
+        <a href="mailto:satis@bemis.com.tr" className="hover:opacity-80" style={{ color: accent }}>
+          satis@bemis.com.tr
         </a>
       ),
     },

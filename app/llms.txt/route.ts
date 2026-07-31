@@ -66,7 +66,7 @@ Bemis E-V Charge ürün gamı 8 kategoride ~113 ürün içerir: AC Wallbox şarj
 ## İletişim
 
 - Telefon: +90 224 433 02 16
-- E-posta: info@bemisevcharge.com
+- E-posta: satis@bemis.com.tr
 - WhatsApp: +90 533 956 25 46
 - Web: https://www.bemisevcharge.com.tr
 - LinkedIn: https://www.linkedin.com/company/104588906
