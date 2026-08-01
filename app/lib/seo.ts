@@ -566,6 +566,40 @@ export function categoryListSchema(opts: {
   };
 }
 
+/**
+ * Anasayfa "Öne Çıkanlar" vitrini — kategori sınırı olmayan ItemList.
+ *
+ * ⚠️⚠️ BURAYA TAM `productSchema` BASMA (eskiden öyleydi, geri alma).
+ * 2026-08-01: Search Console **"brand alanı yineleniyor"** kritik uyarısı verdi.
+ * Öne çıkan 4 ürünün TAM Product+Offer şeması kök yerleşimden HER sayfaya
+ * basılıyordu; ürün detay sayfası kendi Product'ını da eklediğinde sayfada 5
+ * Product oluyor, Google "bu sayfanın ürünü hangisi" sorusunu çözemeyip alanları
+ * tek ürüne katlamaya çalışıyor ve `brand` yinelenmiş görünüyordu.
+ * 📌 KURAL: TAM Product+Offer YALNIZ ürünün KENDİ detay sayfasında bulunur;
+ * liste/vitrin sayfaları (anasayfa · kategori · /products) ItemList kullanır.
+ */
+export function featuredListSchema(opts: {
+  name: string;
+  items: { categoryId: string; product: ProductShape }[];
+}): JsonLdObject | null {
+  const { name, items } = opts;
+  if (items.length === 0) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${SITE_URL}#featured`,
+    name,
+    url: `${SITE_URL}/`,
+    numberOfItems: items.length,
+    itemListElement: items.map(({ categoryId, product }, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: product.name,
+      url: `${SITE_URL}/products/${categoryId}/${product.id}`,
+    })),
+  };
+}
+
 export function collectionPageSchema(opts: {
   name: string;
   description?: string;

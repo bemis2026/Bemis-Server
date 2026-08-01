@@ -23,8 +23,8 @@ import ContentErrorToast from "./components/ContentErrorToast";
 import LanguageURLSync from "./components/LanguageURLSync";
 import JsonLd from "./components/JsonLd";
 import NoAppInstall from "./components/NoAppInstall";
-import { organizationSchema, websiteSchema, productSchema, categoryListSchema, categoryH1 } from "./lib/seo";
-import { getServerSiteContent, getServerProducts } from "./lib/server-content";
+import { organizationSchema, websiteSchema } from "./lib/seo";
+import { getServerSiteContent } from "./lib/server-content";
 
 // Mobil tarayıcı çubuğu rengi — renk şemasına göre sayfa zeminiyle uyumlu (theme-color).
 export const viewport: Viewport = {
@@ -224,38 +224,19 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [meta, initialContent, products] = await Promise.all([
+  const [meta, initialContent] = await Promise.all([
     getContentMeta(),
     getServerSiteContent(),
-    getServerProducts(),
   ]);
-  // Ana sayfadaki amiral (featured) ürünler için TAM Product+Offer JSON-LD
-  // (name, image, description, brand, fiyat/availability). Service OfferCatalog'a
-  // EK — onu SİLMEZ. productSchema detay sayfalarıyla aynı (image+offer+sku tam) →
-  // çıplak-Product uyarısı vermez (113 ürünün hepsi fiyatlı + resimli).
-  const featuredCfg = (((initialContent as { featured?: Array<{ categoryId: string; productId: string; visible?: boolean }> } | null)?.featured) ?? []).filter((f) => f && f.visible !== false);
-  const featuredProductSchemas = featuredCfg
-    .map((f) => {
-      const cat = products.find((c) => c.id === f.categoryId);
-      const prod = cat?.products?.find((p) => p.id === f.productId);
-      if (!cat || !prod) return null;
-      return productSchema({ product: prod, categoryName: cat.name, categoryId: cat.id });
-    })
-    .filter((x): x is NonNullable<typeof x> => x !== null);
-  // [SEO] Her kategori HATTI için Product + AggregateOffer (fiyat aralığı) —
-  // hasOfferCatalog'daki Service'e EK (Service KORUNUR, silinmez). name + image +
-  // Kategori HATTI = ItemList (kategori Product DEĞİL — audit). Kategori sayfaları CollectionPage kullanır.
-  const categoryListSchemas = products
-    .map((cat) =>
-      cat.products?.length
-        ? categoryListSchema({
-            categoryId: cat.id,
-            name: categoryH1(cat.id) ?? cat.name,
-            products: cat.products,
-          })
-        : null
-    )
-    .filter((x): x is NonNullable<typeof x> => x !== null);
+  // ⚠️⚠️ BURAYA SAYFAYA-ÖZEL ŞEMA KOYMA — kök yerleşim HER sayfada basılır.
+  // 2026-08-01: Search Console "brand alanı yineleniyor" KRİTİK uyarısı verdi.
+  // Sebep: öne çıkan 4 ürünün TAM Product+Offer şeması ve 8 kategori ItemList'i
+  // burada üretiliyordu → ürün DETAY sayfası kendi Product'ını da eklediğinde
+  // sayfada 5 Product / 5 brand oluyordu ve Google "bu sayfanın ürünü hangisi"
+  // sorusunu çözemiyordu. İkisi de anasayfaya (app/page.tsx) taşındı; orada
+  // sayfanın kendi ürünü olmadığı için çakışma doğmaz.
+  // 📌 KURAL: kök yerleşim yalnız SİTE GENELİ kimlik şeması taşır
+  // (Organization + WebSite). Product/ItemList/FAQ/Breadcrumb = ilgili sayfada.
   const orgLogo = meta.logoDark || meta.logoLight || `${BASE_URL}/logo.png`;
   const sameAs = [meta.social.linkedin, meta.social.instagram, meta.social.twitter, meta.social.youtube, meta.social.facebook].filter(Boolean);
   const jsonLd = [
@@ -276,8 +257,6 @@ export default async function RootLayout({
       // (bkz. reviewsForProduct + productSchema). Ana sayfada görünür kalır.
     }),
     websiteSchema(),
-    ...featuredProductSchemas,
-    ...categoryListSchemas,
   ];
   // ⚠️ `scroll-smooth` sınıfı KALDIRILDI (2026-07-25): Next App Router sayfa
   // geçişinde en üste kaydırırken CSS smooth devredeydi → yeni sayfa ÖNCEKİ
