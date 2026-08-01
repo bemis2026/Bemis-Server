@@ -13,7 +13,8 @@
       "visible": true,
       "linkedProductCategories": [
         "dc-units"
-      ]
+      ],
+      "coverUrl": "/doc-covers/doc-1783940147818.jpg"
     },
     {
       "id": "doc-1783940179286",
@@ -30,7 +31,8 @@
         "dc-units",
         "wallbox",
         "portable"
-      ]
+      ],
+      "coverUrl": "/doc-covers/doc-1783940179286.jpg"
     },
     {
       "id": "doc-1783940197449",
@@ -47,7 +49,8 @@
         "wallbox",
         "portable",
         "dc-units"
-      ]
+      ],
+      "coverUrl": "/doc-covers/doc-1783940197449.jpg"
     },
     {
       "id": "doc-1779264262427",
@@ -59,7 +62,8 @@
       "size": "866 KB",
       "lang": "tr",
       "date": "2026-05-20",
-      "visible": true
+      "visible": true,
+      "coverUrl": "/doc-covers/doc-1779264262427.jpg"
     },
     {
       "id": "doc-1779265324270",
@@ -71,7 +75,8 @@
       "size": "3.1 MB",
       "lang": "tr",
       "date": "2026-05-20",
-      "visible": true
+      "visible": true,
+      "coverUrl": "/doc-covers/doc-1779265324270.jpg"
     },
     {
       "id": "doc-1779265418156",
@@ -83,7 +88,8 @@
       "size": "4.0 MB",
       "lang": "tr",
       "date": "2026-05-20",
-      "visible": true
+      "visible": true,
+      "coverUrl": "/doc-covers/doc-1779265418156.jpg"
     },
     {
       "id": "doc-1779265469359",
@@ -95,7 +101,8 @@
       "size": "1.5 MB",
       "lang": "tr",
       "date": "2026-05-20",
-      "visible": true
+      "visible": true,
+      "coverUrl": "/doc-covers/doc-1779265469359.jpg"
     },
     {
       "id": "doc-1779265535780",
@@ -110,7 +117,8 @@
       "visible": true,
       "linkedProductCategories": [
         "portable"
-      ]
+      ],
+      "coverUrl": "/doc-covers/doc-1779265535780.jpg"
     },
     {
       "id": "doc-1779265573112",
@@ -122,7 +130,8 @@
       "size": "47 KB",
       "lang": "tr",
       "date": "2026-05-20",
-      "visible": true
+      "visible": true,
+      "coverUrl": "/doc-covers/doc-1779265573112.jpg"
     },
     {
       "id": "doc-1779265678991",
@@ -134,7 +143,8 @@
       "size": "1.6 MB",
       "lang": "tr",
       "date": "2026-05-20",
-      "visible": true
+      "visible": true,
+      "coverUrl": "/doc-covers/doc-1779265678991.jpg"
     },
     {
       "id": "doc-1779265754321",
@@ -146,7 +156,8 @@
       "size": "1.3 MB",
       "lang": "tr",
       "date": "2026-05-20",
-      "visible": true
+      "visible": true,
+      "coverUrl": "/doc-covers/doc-1779265754321.jpg"
     },
     {
       "id": "doc-1779265994121",
@@ -158,7 +169,8 @@
       "size": "1.3 MB",
       "lang": "tr",
       "date": "2026-05-20",
-      "visible": true
+      "visible": true,
+      "coverUrl": "/doc-covers/doc-1779265994121.jpg"
     },
     {
       "id": "doc-1779369452055",
@@ -170,7 +182,8 @@
       "size": "5.0 MB",
       "lang": "tr",
       "date": "2026-05-21",
-      "visible": true
+      "visible": true,
+      "coverUrl": "/doc-covers/doc-1779369452055.jpg"
     },
     {
       "id": "doc-1779369707048",
@@ -182,7 +195,8 @@
       "size": "4.8 MB",
       "lang": "tr",
       "date": "2026-05-21",
-      "visible": true
+      "visible": true,
+      "coverUrl": "/doc-covers/doc-1779369707048.jpg"
     }
   ]
 }
