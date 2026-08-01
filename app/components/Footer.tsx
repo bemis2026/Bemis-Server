@@ -8,85 +8,60 @@ import { useRouter } from "next/navigation";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
-import { byLang } from "../lib/ui";
+import { byLang, pickText } from "../lib/ui";
 import E from "./E";
 
 // Footer iç linkleri (SSR — Google taraması için sayılır). Ürünler: 8 kategori;
 // Şirket: Bemis Dünyası/Yerli Üretim/Blog/Bursa EV Şarj; Destek: Dökümanlar/SSS/Rehberler.
-const NAV_GROUPS = {
-  tr: [
-    { title: "Ürünler", links: [
-      { label: "AC Wallbox",                   href: "/products/wallbox",    scroll: false },
-      { label: "AC Mobile Chargers",           href: "/products/portable",   scroll: false },
-      { label: "AC Şarj Kabloları Type 2",     href: "/products/cables",     scroll: false },
-      { label: "V2L / C2L Adaptörler",         href: "/products/v2l-c2l",   scroll: false },
-      { label: "Uzatma & Dönüştürücüler",      href: "/products/converters", scroll: false },
-      { label: "DC Şarj Üniteleri",            href: "/products/dc-units",   scroll: false },
-      { label: "Şarj Ünitesi Ekipmanları",     href: "/products/charger-equipment", scroll: false },
-      { label: "Aksesuarlar",                  href: "/products/accessories",scroll: false },
-    ]},
-    { title: "Şirket", links: [
-      { label: "Hakkımızda",      href: "#dna",      scroll: true  },
-      { label: "Bemis Dünyası",   href: "/kurumsal", scroll: false },
-      { label: "Yerli Üretim",    href: "/uretici",  scroll: false },
-      { label: "Blog & Haberler", href: "/blog",     scroll: false },
-      { label: "Bursa EV Şarj",   href: "/bursa-ev-sarj-istasyonu", scroll: false },
-      { label: "İstatistikler",   href: "#stats",    scroll: true  },
-    ]},
-    { title: "İş Ortaklığı", links: [
-      { label: "Bayi Bul",             href: "#dealer",   scroll: true  },
-      { label: "OEM / Üretici",        href: "/b2b",      scroll: false },
-      { label: "Bayilik Başvurusu",    href: "/bayilik",  scroll: false },
-      { label: "Şarj Ağı Operatörü",  href: "/operator", scroll: false },
-      { label: "İhracat / Export",     href: "#dealer-export", scroll: true  },
-    ]},
-    { title: "Destek", links: [
-      // ⚠️ 2026-07-26: "Destek" sütunu vardı ama arızalı ürünü olan kullanıcı için
-      // hiçbir giriş yoktu (döküman/SSS/hesaplayıcı). En üste eklendi.
-      { label: "Arıza & Garanti",       href: "/destek",         scroll: false },
-      { label: "Dökümanlar",            href: "/documents",      scroll: false },
-      { label: "Kalite & Belgeler",     href: "/documents",      scroll: false },
-      { label: "Sıkça Sorulan Sorular", href: "/blog#sss",       scroll: false },
-      { label: "Rehberler",             href: "/blog#rehberler", scroll: false },
-      { label: "Hesaplayıcı",           href: "#calculator",     scroll: true  },
-    ]},
-  ],
-  en: [
-    { title: "Products", links: [
-      { label: "AC Wallbox",                   href: "/products/wallbox",    scroll: false },
-      { label: "AC Mobile Chargers",           href: "/products/portable",   scroll: false },
-      { label: "AC Charging Cables Type 2",    href: "/products/cables",     scroll: false },
-      { label: "V2L / C2L Adapters",           href: "/products/v2l-c2l",   scroll: false },
-      { label: "Extension & Converters",       href: "/products/converters", scroll: false },
-      { label: "DC Charging Units",            href: "/products/dc-units",   scroll: false },
-      { label: "Charger Equipment",            href: "/products/charger-equipment", scroll: false },
-      { label: "Accessories",                  href: "/products/accessories",scroll: false },
-    ]},
-    { title: "Company", links: [
-      { label: "About Us",            href: "#dna",      scroll: true  },
-      { label: "Bemis World",         href: "/kurumsal", scroll: false },
-      // ⚠️ Yabancı dilde milliyet vurgusu yok (kural): "Domestic Production" → üretim yetkinliği.
-      { label: "In-House Production", href: "/uretici",  scroll: false },
-      { label: "Blog & News",         href: "/blog",     scroll: false },
-      { label: "Bursa EV Charging",   href: "/bursa-ev-sarj-istasyonu", scroll: false },
-      { label: "Statistics",          href: "#stats",    scroll: true  },
-    ]},
-    { title: "Partnership", links: [
-      { label: "Find a Dealer",      href: "#dealer",   scroll: true  },
-      { label: "OEM / Manufacturer", href: "/b2b",      scroll: false },
-      { label: "Dealer Application", href: "/bayilik",  scroll: false },
-      { label: "Network Operators",  href: "/operator", scroll: false },
-      { label: "Export",             href: "#dealer-export", scroll: true  },
-    ]},
-    { title: "Support", links: [
-      { label: "Documents",       href: "/documents",      scroll: false },
-      { label: "Quality & Certs", href: "/documents",      scroll: false },
-      { label: "FAQ",             href: "/blog#sss",       scroll: false },
-      { label: "Guides",          href: "/blog#rehberler", scroll: false },
-      { label: "Calculator",      href: "#calculator",     scroll: true  },
-    ]},
-  ],
-};
+type FooterPair = { tr: string; en: string };
+type FooterLink = { label: FooterPair; href: string; scroll: boolean };
+
+// ⚠️ 2026-08-01 — YAPI DEĞİŞTİ. Eskiden `{ tr: [...], en: [...] }` iki PARALEL
+// diziydi ve `byLang` yabancı dilde EN dizisini OLDUĞU GİBİ döndürüyordu →
+// footer'ın 24 linkinin 24'ü de/es/ar/ru'da İNGİLİZCE kalıyordu.
+// Ayrıca iki dizi zamanla AYRIŞMIŞTI: 26 Tem'de TR'ye eklenen "Arıza & Garanti"
+// linki EN dizisine hiç eklenmemiş → İngilizce footer'da destek girişi YOKTU.
+// Artık TEK dizi; her etiket kendi {tr,en} çiftini taşır → kayma yapısal olarak
+// imkansız. Yabancı diller pickText üzerinden ui.json'dan çevrilir.
+// 📌 Yeni link eklerken tek yere ekle; iki dil de aynı satırda durur.
+const NAV_GROUPS: { title: FooterPair; links: FooterLink[] }[] = [
+  { title: { tr: "Ürünler", en: "Products" }, links: [
+    { label: { tr: "AC Wallbox",                 en: "AC Wallbox" },                 href: "/products/wallbox",           scroll: false },
+    { label: { tr: "AC Mobile Chargers",         en: "AC Mobile Chargers" },         href: "/products/portable",          scroll: false },
+    { label: { tr: "AC Şarj Kabloları Type 2",   en: "AC Charging Cables Type 2" },  href: "/products/cables",            scroll: false },
+    { label: { tr: "V2L / C2L Adaptörler",       en: "V2L / C2L Adapters" },         href: "/products/v2l-c2l",           scroll: false },
+    { label: { tr: "Uzatma & Dönüştürücüler",    en: "Extension & Converters" },     href: "/products/converters",        scroll: false },
+    { label: { tr: "DC Şarj Üniteleri",          en: "DC Charging Units" },          href: "/products/dc-units",          scroll: false },
+    { label: { tr: "Şarj Ünitesi Ekipmanları",   en: "Charger Equipment" },          href: "/products/charger-equipment", scroll: false },
+    { label: { tr: "Aksesuarlar",                en: "Accessories" },                href: "/products/accessories",       scroll: false },
+  ]},
+  { title: { tr: "Şirket", en: "Company" }, links: [
+    { label: { tr: "Hakkımızda",      en: "About Us" },            href: "#dna",                     scroll: true  },
+    { label: { tr: "Bemis Dünyası",   en: "Bemis World" },         href: "/kurumsal",                scroll: false },
+    { label: { tr: "Yerli Üretim",    en: "In-House Production" }, href: "/uretici",                 scroll: false },
+    { label: { tr: "Blog & Haberler", en: "Blog & News" },         href: "/blog",                    scroll: false },
+    { label: { tr: "Bursa EV Şarj",   en: "Bursa EV Charging" },   href: "/bursa-ev-sarj-istasyonu", scroll: false },
+    { label: { tr: "İstatistikler",   en: "Statistics" },          href: "#stats",                   scroll: true  },
+  ]},
+  { title: { tr: "İş Ortaklığı", en: "Partnership" }, links: [
+    { label: { tr: "Bayi Bul",            en: "Find a Dealer" },      href: "#dealer",        scroll: true  },
+    { label: { tr: "OEM / Üretici",       en: "OEM / Manufacturer" }, href: "/b2b",           scroll: false },
+    { label: { tr: "Bayilik Başvurusu",   en: "Dealer Application" }, href: "/bayilik",       scroll: false },
+    { label: { tr: "Şarj Ağı Operatörü",  en: "Network Operators" },  href: "/operator",      scroll: false },
+    { label: { tr: "İhracat / Export",    en: "Export" },             href: "#dealer-export", scroll: true  },
+  ]},
+  { title: { tr: "Destek", en: "Support" }, links: [
+    // ⚠️ 2026-07-26: "Destek" sütunu vardı ama arızalı ürünü olan kullanıcı için
+    // hiçbir giriş yoktu (döküman/SSS/hesaplayıcı). En üste eklendi.
+    // ⚠️ 2026-08-01: bu satırın İngilizcesi EKSİKTİ, eklendi.
+    { label: { tr: "Arıza & Garanti",       en: "Fault & Warranty" }, href: "/destek",         scroll: false },
+    { label: { tr: "Dökümanlar",            en: "Documents" },        href: "/documents",      scroll: false },
+    { label: { tr: "Kalite & Belgeler",     en: "Quality & Certs" },  href: "/documents",      scroll: false },
+    { label: { tr: "Sıkça Sorulan Sorular", en: "FAQ" },              href: "/blog#sss",       scroll: false },
+    { label: { tr: "Rehberler",             en: "Guides" },           href: "/blog#rehberler", scroll: false },
+    { label: { tr: "Hesaplayıcı",           en: "Calculator" },       href: "#calculator",     scroll: true  },
+  ]},
+];
 
 export default function Footer() {
   const router = useRouter();
@@ -94,7 +69,11 @@ export default function Footer() {
   const { theme } = useTheme();
   const { lang } = useLanguage();
   const d = theme === "dark";
-  const navGroups = byLang(NAV_GROUPS, lang);
+  // Etiketler dile göre ÇEVRİLİR (eskiden byLang tüm EN dizisini dönüyordu).
+  const navGroups = NAV_GROUPS.map((g) => ({
+    title: pickText(lang, g.title.tr, g.title.en),
+    links: g.links.map((l) => ({ ...l, label: pickText(lang, l.label.tr, l.label.en) })),
+  }));
 
   const bg          = d ? "linear-gradient(180deg, #202022 0%, #1c1c1e 50%, #1a1a1c 100%)"
                         : "linear-gradient(180deg, #efefef 0%, #e8e8e8 50%, #e4e4e4 100%)";

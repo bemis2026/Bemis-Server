@@ -1972,5 +1972,107 @@
     "es": "Avería / Garantía / Servicio",
     "ar": "عطل / ضمان / خدمة",
     "ru": "Неисправность / Гарантия / Сервис"
+  },
+  "AC Wallbox": {
+    "de": "AC-Wallbox",
+    "es": "Wallbox AC",
+    "ar": "AC Wallbox",
+    "ru": "AC Wallbox"
+  },
+  "AC Mobile Chargers": {
+    "de": "Mobile AC-Ladegeräte",
+    "es": "Cargadores AC portátiles",
+    "ar": "شواحن AC المحمولة",
+    "ru": "Портативные AC-зарядные"
+  },
+  "AC Charging Cables Type 2": {
+    "de": "AC-Ladekabel Typ 2",
+    "es": "Cables de carga AC Type 2",
+    "ar": "كابلات شحن AC نوع 2",
+    "ru": "Зарядные кабели AC Type 2"
+  },
+  "V2L / C2L Adapters": {
+    "de": "V2L / C2L Adapter",
+    "es": "Adaptadores V2L / C2L",
+    "ar": "محولات V2L / C2L",
+    "ru": "Адаптеры V2L / C2L"
+  },
+  "Extension & Converters": {
+    "de": "Verlängerungen & Adapter",
+    "es": "Extensiones y convertidores",
+    "ar": "تمديدات ومحولات",
+    "ru": "Удлинители и переходники"
+  },
+  "DC Charging Units": {
+    "de": "DC-Ladeeinheiten",
+    "es": "Unidades de carga DC",
+    "ar": "وحدات شحن DC",
+    "ru": "DC-зарядные станции"
+  },
+  "Charger Equipment": {
+    "de": "Ladegerät-Zubehör",
+    "es": "Equipos de carga",
+    "ar": "معدات الشحن",
+    "ru": "Оборудование для зарядки"
+  },
+  "Accessories": {
+    "de": "Zubehör",
+    "es": "Accesorios",
+    "ar": "ملحقات",
+    "ru": "Аксессуары"
+  },
+  "About Us": {
+    "de": "Über uns",
+    "es": "Sobre nosotros",
+    "ar": "من نحن",
+    "ru": "О нас"
+  },
+  "In-House Production": {
+    "de": "Eigene Fertigung",
+    "es": "Fabricación propia",
+    "ar": "إنتاجنا الخاص",
+    "ru": "Собственное производство"
+  },
+  "Bursa EV Charging": {
+    "de": "EV-Laden in Bursa",
+    "es": "Carga VE en Bursa",
+    "ar": "شحن السيارات الكهربائية في بورصة",
+    "ru": "Зарядка электромобилей в Бурсе"
+  },
+  "Statistics": {
+    "de": "Zahlen & Fakten",
+    "es": "Cifras",
+    "ar": "أرقام",
+    "ru": "Цифры"
+  },
+  "OEM / Manufacturer": {
+    "de": "OEM / Hersteller",
+    "es": "OEM / Fabricante",
+    "ar": "OEM / الشركة المصنّعة",
+    "ru": "OEM / Производитель"
+  },
+  "Network Operators": {
+    "de": "Netzbetreiber",
+    "es": "Operadores de red",
+    "ar": "مشغلو الشبكات",
+    "ru": "Операторы сетей"
+  },
+  "Support": {
+    "de": "Support",
+    "es": "Soporte",
+    "ar": "الدعم",
+    "ru": "Поддержка"
+  },
+  "Quality & Certs": {
+    "de": "Qualität & Zertifikate",
+    "es": "Calidad y certificados",
+    "ar": "الجودة والشهادات",
+    "ru": "Качество и сертификаты"
+  },
+  "Fault & Warranty": {
+    "de": "Störung & Garantie",
+    "es": "Avería y garantía",
+    "ar": "الأعطال والضمان",
+    "ru": "Неисправности и гарантия"
   }
 }
