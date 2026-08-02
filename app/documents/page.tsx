@@ -325,13 +325,20 @@ function DocGrid({ docs, lang, d, surface, border, textPrimary, textMuted, textF
                 className="relative w-full aspect-[3/4] overflow-hidden flex items-center justify-center"
                 style={{ background: "transparent" }}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                {/* ⚠️ HAM <img> İDİ → next/image (2026-08-02). Kapaklar 480×640
+                    üretiliyor ama kartta ~300 px gösteriliyordu; optimizer devre
+                    dışı olduğu için 14 kapağın tamamı TAM BOYUT + JPEG olarak
+                    iniyordu (496 KB). next/image boyutu küçültür ve AVIF/WebP
+                    servis eder. 📌 Aynı tuzak menü thumbnail'larında 16 MB → 52 KB
+                    kazandırmıştı: küçük gösterilen her görselde next/image kullan,
+                    ham <img> yalnız tam boy (lightbox) veya yerel ikonda meşru. */}
+                <Image
                   src={doc.coverUrl}
                   alt={doc.title}
-                  className="w-full h-full object-contain"
-                  loading="lazy"
-                  decoding="async"
+                  fill
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, (max-width: 1280px) 30vw, (max-width: 1536px) 23vw, 300px"
+                  quality={88}
+                  className="object-contain"
                 />
                 <div className="absolute top-2 left-2 flex items-center gap-1.5">
                   <span className="text-[10px] font-bold px-2 py-0.5 rounded-md"
