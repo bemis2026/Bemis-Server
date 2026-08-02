@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import JsonLd from "../components/JsonLd";
 import { serviceSchema, faqSchema, breadcrumbSchema, localBusinessSchema, ogImage, OG_URL } from "../lib/seo";
 import { getCityPage } from "../lib/cities";
+import { getCityShowcase, getCityDealers } from "../lib/cityShowcase";
 import CityLandingClient from "../components/CityLandingClient";
 
 const SLUG = "bursa-ev-sarj-istasyonu";
@@ -27,7 +28,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BursaCityPage() {
+export default async function BursaCityPage() {
+  // ⚠️ SUNUCUDA çekilir: bayi adres/telefonları ve ₺ fiyatlar HTML'e basılmalı
+  // ki Google görsün. İstemcide çekilseydi sayfaya SEO değeri katmazdı.
+  const [showcase, dealers] = await Promise.all([
+    getCityShowcase(city.showcaseCategories ?? []),
+    city.dealerCityId ? getCityDealers(city.dealerCityId) : Promise.resolve([]),
+  ]);
   const jsonLd = [
     breadcrumbSchema([
       { name: "Ana Sayfa", url: "/" },
@@ -52,7 +59,7 @@ export default function BursaCityPage() {
   return (
     <>
       <JsonLd data={jsonLd} />
-      <CityLandingClient city={city} />
+      <CityLandingClient city={city} showcase={showcase} dealers={dealers} />
     </>
   );
 }

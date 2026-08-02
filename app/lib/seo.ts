@@ -894,6 +894,14 @@ export function categoryH1(categoryId: string): string | undefined {
   return CATEGORY_SEO[categoryId]?.title;
 }
 
+/** Kısa, TÜRKÇE kategori etiketi (rozet/kart üstü gibi dar yerler için).
+ *  ⚠️ Ürün bin'indeki `category.name` bazı kategorilerde İNGİLİZCE'dir
+ *  ("AC Mobile Chargers") — Türkçe sayfada karışık dil görünür. Dar bir
+ *  etikete `categoryH1` de uzun kaçar; bu yüzden CATEGORY_SEO.short. */
+export function categoryShort(categoryId: string): string | undefined {
+  return CATEGORY_SEO[categoryId]?.short;
+}
+
 export function productMetaTitle(product: ProductShape, categoryName?: string): string {
   // Ürün başlığı: ad + ayrıştırıcı alt başlık (örn. "Şarj Seti 20A Monofaze ·
   // 5m Kablolu"). Anahtar kelimeler açıklamada — başlığa marka soneki eklendiği

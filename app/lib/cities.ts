@@ -24,6 +24,24 @@ export type CityPage = {
   // BİRDEN FAZLA sayfa olunca (Bursa: istasyon + kablo) hepsi aynı çapayla
   // linkleniyordu; Google'a yanlış sinyal. Yeni şehir sayfasında MUTLAKA doldur.
   linkLabel?: string;
+
+  // ── Aşağıdaki iki alan sayfaya "o şehirde nereden alırım + ne kadar"
+  //    bölümlerini açar (2026-08-02). Boş bırakılırsa bölümler RENDER EDİLMEZ,
+  //    sayfa eski hâlinde çalışır → yeni şehir eklerken zorunlu değildir.
+  //
+  // 📌 NEDEN EKLENDİ: "bursa şarj cihazı elektrikli araba" aramasında 7-8.
+  //    sayfadaydık. Ölçüldü: sayfa gövdesinde ₺ 0 kez, ürün modeli adı 0 kez,
+  //    şehirdeki bayilerin adı/adresi 0 kez geçiyordu — anahtar kelimeler
+  //    doğruydu ama sayfa "nereden alırım" sorusunu cevaplamıyordu. Otorite
+  //    sorunu DEĞİLDİ (biz DR 13, bizi geçen kendi bayimiz DR 0).
+
+  /** Bayi verisindeki şehir anahtarı (ör. "bursa"). Verilirse o şehrin
+   *  yetkili bayileri ad/adres/telefon/harita ile sayfaya basılır. */
+  dealerCityId?: string;
+  /** Vitrinde gösterilecek ürün kategorileri (sırayla, kategori başına 2 ürün).
+   *  Sayfanın konusuyla eşleşmeli: istasyon sayfasında wallbox/portable,
+   *  kablo sayfasında cables. */
+  showcaseCategories?: string[];
 };
 
 export const CITY_PAGES: CityPage[] = [
@@ -34,6 +52,8 @@ export const CITY_PAGES: CityPage[] = [
     region: "Bursa",
     isHQ: true,
     linkLabel: "Bursa Elektrikli Araba Şarj Cihazı",
+    dealerCityId: "bursa",
+    showcaseCategories: ["wallbox", "portable", "cables"],
     // ⚠️ 2026-07-27: "elektrikli araba şarj cihazı bursa" aramasında 11. sıradaydık ve
     // Google bu sayfa yerine /uretici'yi gösteriyordu. Ölçüm: bu sayfada "elektrikli
     // araba" 0 kez geçiyordu (metin "elektrikli araç" diyordu) → kullanıcının YAZDIĞI
@@ -105,6 +125,8 @@ export const CITY_PAGES: CityPage[] = [
     region: "Bursa",
     isHQ: true,
     linkLabel: "Bursa Şarj Kablosu",
+    dealerCityId: "bursa",
+    showcaseCategories: ["cables"],
     title: "Bursa Şarj Kablosu — Type 2 Elektrikli Araba Şarj Kablosu",
     h1: "Bursa Şarj Kablosu — Yerli Üretim Type 2",
     eyebrow: "Bursa · Kendi Tesisimizde Üretim",

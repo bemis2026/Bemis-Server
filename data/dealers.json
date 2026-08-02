@@ -95,6 +95,16 @@
         "mapUrl": "",
         "website": "https://mc2enerji.com/",
         "email": "satis@mc2enerji.com"
+      },
+      {
+        "name": "EVO CİTY",
+        "address": "Esentepe Mah. Anayurt cad. no:47/3    KARTAL / İSTANBUL",
+        "phone": "",
+        "email": "info@evocity.com.tr",
+        "contactPerson": "HASAN BAŞ",
+        "whatsapp": "0 532 172 62 81",
+        "tier": "standart",
+        "website": "www.evocity.com.tr"
       }
     ]
   },
@@ -158,6 +168,15 @@
         "tier": "standart",
         "mapUrl": "",
         "website": "https://www.merkurenerji.com/"
+      },
+      {
+        "name": "HAVAYLAR OTOMASYON ELEKTRİK SAN.veTİC.LTD.ŞTİ.",
+        "address": "",
+        "phone": "",
+        "contactPerson": "ÖZGÜR HAVAYLA",
+        "whatsapp": "0 532 585 31 07",
+        "website": "https://www.instagram.com/havaylarotomasyon/",
+        "tier": "standart"
       }
     ]
   },
@@ -174,13 +193,15 @@
         "website": "https://4maltinelektrik.com.tr/"
       },
       {
-        "name": "ENES CAN",
+        "name": "ŞARJ GARAJ",
         "address": "KONAK MAHALLESİ, YAVUZ(120) SK. BİRLİK NO: 4 İÇ KAPI NO: 9 NİLÜFER/BURSA",
         "phone": "",
         "email": "enescan0217@gmail.com",
         "contactPerson": "ENES CAN",
         "whatsapp": "05469272804",
-        "tier": "standart"
+        "tier": "standart",
+        "mapUrl": "",
+        "website": "https://www.sarjgaraj.com.tr/"
       },
       {
         "name": "ENERSER ENERJİ ELEKTRİK ELEKT.İNŞ.SAN.TİC.LTD.ŞTİ",

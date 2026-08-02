@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import JsonLd from "../components/JsonLd";
 import { serviceSchema, faqSchema, breadcrumbSchema, localBusinessSchema, ogImage, OG_URL } from "../lib/seo";
 import { getCityPage } from "../lib/cities";
+import { getCityShowcase, getCityDealers } from "../lib/cityShowcase";
 import CityLandingClient from "../components/CityLandingClient";
 
 // "bursa şarj kablosu" iniş sayfası (2026-07-26).
@@ -31,7 +32,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BursaSarjKablosuPage() {
+export default async function BursaSarjKablosuPage() {
+  // ⚠️ SUNUCUDA çekilir: bayi adres/telefonları ve ₺ fiyatlar HTML'e basılmalı
+  // ki Google görsün (bkz. app/lib/cityShowcase.ts).
+  const [showcase, dealers] = await Promise.all([
+    getCityShowcase(city.showcaseCategories ?? []),
+    city.dealerCityId ? getCityDealers(city.dealerCityId) : Promise.resolve([]),
+  ]);
   const jsonLd = [
     breadcrumbSchema([
       { name: "Ana Sayfa", url: "/" },
@@ -57,7 +64,7 @@ export default function BursaSarjKablosuPage() {
   return (
     <>
       <JsonLd data={jsonLd} />
-      <CityLandingClient city={city} />
+      <CityLandingClient city={city} showcase={showcase} dealers={dealers} />
     </>
   );
 }

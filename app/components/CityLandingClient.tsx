@@ -2,17 +2,31 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { HiChevronDown } from "react-icons/hi";
+import { HiChevronDown, HiPhone } from "react-icons/hi";
 import {
   RiCpuLine, RiCustomerService2Line, RiShieldCheckLine, RiMapPin2Line,
   RiToolsLine, RiPriceTag3Line, RiArrowRightLine, RiStore2Line,
+  RiWhatsappLine, RiGlobalLine, RiRoadMapLine, RiSearchEyeLine, RiTruckLine,
 } from "react-icons/ri";
 import { useTheme } from "../context/ThemeContext";
 import Navbar from "./Navbar";
 import SearchOverlay from "./SearchOverlay";
 import ContactBar from "./ContactBar";
 import { CITY_PAGES, type CityPage } from "../lib/cities";
+import type { ShowcaseProduct, CityDealer } from "../lib/cityShowcase";
+
+// wa.me ULUSLARARASI biçim ister; bayi telefonları veride YEREL yazımda
+// ("0546 927 28 04"). Ham kullanılırsa bağlantı sessizce çalışmaz.
+// (DealerNetwork'teki waNumber ile aynı kural.)
+const waNumber = (s: string) => {
+  const d = (s || "").replace(/[^\d+]/g, "").replace(/^\+/, "");
+  if (d.startsWith("90")) return d;
+  if (d.startsWith("0")) return "90" + d.slice(1);
+  if (d.length === 10 && d.startsWith("5")) return "90" + d;
+  return d;
+};
 
 const BLUE = "#3B82F6";
 const VIEWPORT = { once: true, margin: "-60px" } as const;
@@ -25,7 +39,16 @@ const PRODUCTS = [
   { name: "Aksesuarlar",                  href: "/products/accessories", note: "Tutucu, adaptör, ekipman" },
 ];
 
-export default function CityLandingClient({ city }: { city: CityPage }) {
+export default function CityLandingClient({
+  city,
+  showcase = [],
+  dealers = [],
+}: {
+  city: CityPage;
+  /** Sunucudan gelir (app/lib/cityShowcase.ts). Boşsa bölüm render EDİLMEZ. */
+  showcase?: ShowcaseProduct[];
+  dealers?: CityDealer[];
+}) {
   const { theme } = useTheme();
   const d = theme === "dark";
   const [searchOpen, setSearchOpen] = useState(false);
@@ -147,6 +170,99 @@ export default function CityLandingClient({ city }: { city: CityPage }) {
         </div>
       </section>
 
+      {/* ── Ürün vitrini (₺ KDV dahil) ──────────────────────────────────────
+          ⚠️ 2026-08-02 eklendi. Sayfada daha önce ₺ işareti 0 kez, ürün modeli
+          adı 0 kez geçiyordu; "Bursa'da şarj cihazı" arayan ziyaretçi ne ürün
+          ne fiyat görüyordu. Fiyatlar ürün sayfalarında ZATEN yayında —
+          burada göstermek yeni bilgi açığa çıkarmaz, sayfayı satın-alma
+          niyetine cevap verir hâle getirir. ⚠️ SEPET AÇILMAZ: satış yetkili
+          bayi üzerinden yürür, kartlar ürün sayfasına götürür. */}
+      {showcase.length > 0 && (
+        <section className="py-10 px-5 sm:px-6 lg:px-8">
+          <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5 }}
+              className="text-2xl font-black mb-2" style={{ color: textPrimary }}
+            >
+              {city.city}&apos;da öne çıkan modeller ve fiyatları
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5, delay: 0.08 }}
+              className="text-sm mb-3" style={{ color: textMuted }}
+            >
+              Aşağıdaki tutarlar üretici liste fiyatı olup KDV dahildir. Kurulum
+              fiyata dahil değildir; yetkili bayimiz keşif sonrası ayrıca teklif verir.
+            </motion.p>
+            {accentLine}
+            {/* 1280px+ tek satırda 6 kart — 3 sütunda kartlar iri kalıyor ve
+                "nereden alınır" bölümünü ekrandan çok aşağı itiyordu. */}
+            <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
+              {showcase.map((p, i) => (
+                <motion.div
+                  key={`${p.categoryId}-${p.id}`}
+                  initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT}
+                  transition={{ duration: 0.45, delay: 0.08 + i * 0.06 }} whileHover={{ y: -4 }}
+                >
+                  <Link
+                    href={p.href}
+                    className="group rounded-2xl block h-full overflow-hidden"
+                    style={{ background: surface, border: `1px solid ${border}`, transition: "border-color 0.3s, box-shadow 0.3s" }}
+                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = `${BLUE}45`; e.currentTarget.style.boxShadow = `0 12px 30px ${BLUE}1f`; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = border; e.currentTarget.style.boxShadow = "none"; }}
+                  >
+                    {/* Ürün fotoğrafları beyaz zeminli → kart görsel alanı her iki
+                        temada AÇIK kalır (ürün kartlarındaki kuralın aynısı). */}
+                    <div className="relative w-full aspect-square" style={{ background: "#f3f4f6" }}>
+                      {p.image && (
+                        <Image
+                          src={p.image}
+                          alt={`${p.name}${p.subtitle ? " " + p.subtitle : ""} — ${city.city} elektrikli araba şarj cihazı`}
+                          fill sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 200px"
+                          quality={88}
+                          className="object-contain p-2"
+                        />
+                      )}
+                    </div>
+                    <div className="p-4">
+                      <p className="text-[10px] font-bold tracking-[0.14em] uppercase mb-1" style={{ color: BLUE }}>
+                        {p.categoryName}
+                      </p>
+                      <h3 className="text-sm font-bold leading-snug" style={{ color: textPrimary }}>{p.name}</h3>
+                      {p.subtitle && (
+                        <p className="text-xs mt-0.5" style={{ color: textFaint }}>{p.subtitle}</p>
+                      )}
+                      {p.power && (
+                        <span
+                          className="inline-block text-[11px] font-semibold mt-2 px-2 py-0.5 rounded-full"
+                          style={{ background: `${BLUE}15`, border: `1px solid ${BLUE}30`, color: BLUE }}
+                        >
+                          {p.power}
+                        </span>
+                      )}
+                      <p className="text-base font-black mt-2" style={{ color: textPrimary }}>{p.priceTry}</p>
+                      <p className="text-[10px]" style={{ color: textFaint }}>KDV dahil</p>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+            <motion.div
+              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={VIEWPORT} transition={{ duration: 0.5, delay: 0.2 }}
+              className="mt-4"
+            >
+              <Link
+                href="/products"
+                className="group inline-flex items-center gap-2 text-sm font-bold"
+                style={{ color: BLUE }}
+              >
+                Tüm ürünleri ve fiyatları gör
+                <RiArrowRightLine size={15} className="transition-transform duration-200 group-hover:translate-x-1" />
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
       {/* Ürünler */}
       <section className="py-10 px-5 sm:px-6 lg:px-8">
         <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
@@ -188,6 +304,105 @@ export default function CityLandingClient({ city }: { city: CityPage }) {
           </div>
         </div>
       </section>
+
+      {/* ── {city}'da nereden alınır: yetkili bayiler + satın alma yolu ──────
+          ⚠️ 2026-08-02 eklendi. Sayfada daha önce şehirdeki bayilerin adı/adresi
+          HİÇ geçmiyordu — yalnız anasayfadaki haritaya götüren bir düğme vardı.
+          Bu bölüm hem ziyaretçinin "nereden alırım" sorusunu doğrudan cevaplar
+          hem de sayfaya sitede BAŞKA HİÇBİR YERDE olmayan özgün yerel içerik
+          (açık adres + telefon) kazandırır — yerel aramada en değerli sinyal.
+          ⚠️ Adresi olmayan bayi kaydı sunucuda ELENİR (bkz. getCityDealers). */}
+      {dealers.length > 0 && (
+        <section className="py-10 px-5 sm:px-6 lg:px-8">
+          <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5 }}
+              className="text-2xl font-black mb-2" style={{ color: textPrimary }}
+            >
+              {city.city}&apos;da nereden alabilirsiniz?
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5, delay: 0.08 }}
+              className="text-sm mb-3" style={{ color: textMuted }}
+            >
+              Bemis E-V Charge son kullanıcıya doğrudan satış yapmaz; satış ve kurulum
+              {" "}{city.loc} yetkili bayilerimiz üzerinden yürür. Aşağıda {city.city}&apos;daki
+              {" "}{dealers.length} yetkili bayimizin iletişim bilgileri yer alıyor.
+            </motion.p>
+            {accentLine}
+
+            {/* Satın alma yolu — 3 adım. Yalnız GERÇEKTEN sunulan hizmetler yazılır. */}
+            <div className="grid sm:grid-cols-3 gap-4 mb-5">
+              {[
+                { icon: RiSearchEyeLine, t: "1 · Yetkili bayi keşfe gelir", x: `${city.city} içindeki yetkili bayimiz adresinize gelir; elektrik altyapınızı, pano mesafesini ve kablo güzergâhını yerinde değerlendirir.` },
+                { icon: RiStore2Line,    t: "2 · Ürünü tesiste görebilirsiniz", x: `Dilerseniz Bursa Organize Sanayi Bölgesi'ndeki üretim tesisimize gelip cihazları yerinde inceleyebilir, doğrudan teslim alabilirsiniz.` },
+                { icon: RiTruckLine,     t: "3 · Kurulum ve teslim", x: "Cihaz teslim edilir, kurulum yetkili bayi tarafından ürün kurulum şartnamesine uygun şekilde yapılır. Ürünler 2 yıl üretici garantilidir." },
+              ].map((s, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT}
+                  transition={{ duration: 0.45, delay: 0.1 + i * 0.08 }}
+                  className="rounded-2xl p-5"
+                  style={{ background: surface, border: `1px solid ${border}` }}
+                >
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style={{ background: `${BLUE}15`, border: `1px solid ${BLUE}25` }}>
+                    <s.icon size={20} style={{ color: BLUE }} />
+                  </div>
+                  <h3 className="text-sm font-bold mb-1.5" style={{ color: textPrimary }}>{s.t}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: textMuted }}>{s.x}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Yetkili bayiler — ad + AÇIK ADRES + iletişim + harita */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {dealers.map((b, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT}
+                  transition={{ duration: 0.45, delay: 0.1 + i * 0.06 }} whileHover={{ y: -4 }}
+                  className="rounded-2xl p-5 flex flex-col"
+                  style={{ background: surface, border: `1px solid ${border}`, transition: "border-color 0.3s, box-shadow 0.3s" }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = `${BLUE}45`; e.currentTarget.style.boxShadow = `0 12px 30px ${BLUE}1f`; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = border; e.currentTarget.style.boxShadow = "none"; }}
+                >
+                  <h3 className="text-sm font-bold leading-snug mb-2" style={{ color: textPrimary }}>{b.name}</h3>
+                  {b.address && (
+                    <p className="text-xs leading-relaxed mb-3 flex items-start gap-1.5" style={{ color: textMuted }}>
+                      <RiMapPin2Line size={13} className="flex-shrink-0 mt-0.5" style={{ color: BLUE }} />
+                      <span>{b.address}</span>
+                    </p>
+                  )}
+                  <div className="flex flex-col gap-1.5 text-xs mt-auto">
+                    {b.phone && (
+                      <a href={`tel:${b.phone.replace(/[^\d+]/g, "")}`} className="flex items-center gap-1.5 hover:underline" style={{ color: textMuted }}>
+                        <HiPhone size={13} className="flex-shrink-0" style={{ color: BLUE }} />
+                        {b.phone}
+                      </a>
+                    )}
+                    {b.whatsapp && (
+                      <a href={`https://wa.me/${waNumber(b.whatsapp)}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:underline" style={{ color: textMuted }}>
+                        <RiWhatsappLine size={13} className="flex-shrink-0" style={{ color: "#25D366" }} />
+                        WhatsApp
+                      </a>
+                    )}
+                    {b.website && (
+                      <a href={b.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:underline" style={{ color: textMuted }}>
+                        <RiGlobalLine size={13} className="flex-shrink-0" style={{ color: BLUE }} />
+                        Web sitesi
+                      </a>
+                    )}
+                    <a href={b.mapHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:underline" style={{ color: BLUE }}>
+                      <RiRoadMapLine size={13} className="flex-shrink-0" />
+                      Haritada Aç
+                    </a>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* FAQ — basınca açılır akordeon */}
       <section className="py-10 px-5 sm:px-6 lg:px-8">
