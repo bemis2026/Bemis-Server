@@ -4,6 +4,8 @@ import dynamic from "next/dynamic";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { GlobeMethods } from "react-globe.gl";
 import type { InternationalDealer } from "../context/ContentContext";
+import { useLanguage } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
 
 // Globe is canvas + WebGL, must be SSR-disabled.
 const Globe = dynamic(() => import("react-globe.gl"), { ssr: false });
@@ -26,6 +28,13 @@ type Props = {
 };
 
 export default function InternationalGlobe({ dark, countries, selectedId, onSelect }: Props) {
+  // ⚠️ Küre üzerindeki rozet/lejant metinleri 2026-08-02'ye kadar SABİT TÜRKÇEYDİ
+  // ("Ülke · Aktif Ağ", "MERKEZ TR", "Distribütör") → yabancı dillerde de Türkçe
+  // görünüyordu. Bileşenin dil bağlantısı hiç yoktu; DealerNetwork'teki desenle
+  // aynı: L(tr,en) = pickText → tr/en satır-içi, de/es/ar/ru ui.json'dan.
+  // 📌 Küreye yeni metin eklerken L() kullan + ui.json'a EN anahtarını ekle.
+  const { lang } = useLanguage();
+  const L = (tr: string, en: string) => pickText(lang, tr, en);
   const wrapRef = useRef<HTMLDivElement>(null);
   const globeRef = useRef<GlobeMethods | undefined>(undefined);
   const [size, setSize] = useState({ w: 600, h: 480 });
@@ -140,8 +149,11 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
     ],
     [],
   );
-  // Only HQ rides the HTML overlay (red branded badge + MERKEZ caption).
-  const htmlElements = useMemo(() => [{ lat: BURSA.lat, lng: BURSA.lng }], []);
+  // Only HQ rides the HTML overlay (red branded badge + "MERKEZ"/"HQ" caption).
+  // ⚠️ `lang` bağımlılık: react-globe.gl htmlElement'i YALNIZ veri kimliği
+  // değişince yeniden çağırır. Dizi sabit kalırsa dil değiştirildiğinde pin
+  // altındaki yazı eski dilde takılı kalır (boş dep ile öyleydi).
+  const htmlElements = useMemo(() => [{ lat: BURSA.lat, lng: BURSA.lng }], [lang]);
   const arcs = useMemo(
     () => activeCountries.map(c => ({
       startLat: BURSA.lat,
@@ -274,7 +286,7 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
               padding: 1px 4px; border-radius: 3px;
               background: ${dark ? "rgba(8,12,22,0.55)" : "rgba(255,255,255,0.75)"};
               white-space: nowrap;
-            ">MERKEZ</span>
+            ">${L("MERKEZ", "HQ")}</span>
           `;
           return el;
         }}
@@ -316,7 +328,7 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
           className="text-[10px] font-bold tracking-[0.18em] uppercase"
           style={{ color: dark ? "#cfe1ff" : "#1D4ED8" }}
         >
-          {activeCountries.length} Ülke · Aktif Ağ
+          {activeCountries.length} {L("Ülke · Aktif Ağ", "Countries · Active Network")}
         </span>
       </div>
 
@@ -331,14 +343,14 @@ export default function InternationalGlobe({ dark, countries, selectedId, onSele
         <span className="flex items-center gap-1.5">
           <span className="inline-block w-2 h-2 rounded-full" style={{ background: RED, boxShadow: `0 0 6px ${RED}` }} />
           <span className="text-[10px] font-bold tracking-wider uppercase" style={{ color: dark ? "#fecaca" : "#B91C1C" }}>
-            MERKEZ TR
+            {L("MERKEZ TR", "HQ TÜRKİYE")}
           </span>
         </span>
         <span className="w-px h-3" style={{ background: dark ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.18)" }} />
         <span className="flex items-center gap-1.5">
           <span className="inline-block w-2 h-2 rounded-full" style={{ background: BLUE, boxShadow: `0 0 6px ${BLUE}` }} />
           <span className="text-[10px] font-bold tracking-wider uppercase" style={{ color: dark ? "#cfe1ff" : "#1D4ED8" }}>
-            Distribütör
+            {L("Distribütör", "Distributor")}
           </span>
         </span>
       </div>

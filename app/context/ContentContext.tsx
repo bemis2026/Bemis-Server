@@ -87,12 +87,19 @@ export type ReferenceProject = {
 };
 
 
+// ⚠️ Metin alanları İSTEĞE BAĞLI ve varsayılanları BİLEREK BOŞ (2026-08-02).
+// Doldurulmazsa DealerNetwork kendi iki dilli `L(tr, en)` yedeğini kullanır →
+// yabancı dillerde de doğru görünür. Buraya Türkçe varsayılan yazmak, bileşendeki
+// `?? L(...)` yedeğini ETKİSİZLEŞTİRİR ve "Küresel Distribütör Ağı" bölümü 5 dilde
+// Türkçe görünür (bu hata tam olarak böyle oluştu). Admin'den girilen değer ise
+// TRANSLATABLE_PATHS'te kayıtlı olduğu için kayıtta otomatik çevrilir.
+// `languages` dil-nötr VERİ (bayrak listesi) → varsayılanı kalır.
 export type WorldSection = {
-  sectionLabel: string;
-  heading: string;
-  introTitle: string;
-  introDescription: string;
-  languagesNote: string;
+  sectionLabel?: string;
+  heading?: string;
+  introTitle?: string;
+  introDescription?: string;
+  languagesNote?: string;
   languages: string[];
 };
 
@@ -671,13 +678,9 @@ const defaultContent: SiteContent = {
       whatsapp: "",
       hours: "",
     },
+    // ⚠️ Metinler BİLEREK BOŞ — bkz. WorldSection tipindeki not. Türkçe metinler
+    // DealerNetwork'teki `L(tr, en)` yedeğinde yaşar (6 dilde doğru çalışır).
     worldSection: {
-      sectionLabel: "Küresel Distribütör Ağı",
-      heading: "Dünyaya Açılan Bemis",
-      introTitle: "Bursa'dan Dünyaya",
-      introDescription:
-        "Bursa merkezli üretim tesisimizden Avrupa, Balkanlar, Orta Doğu, Türk dünyası, Kuzey Afrika ve Amerika'ya uzanan distribütör ağımızla EV şarj çözümlerini globalde sunuyoruz.",
-      languagesNote: "Kurumsal müşterilerimize yerel dilde satış ve teknik destek sunan çok dilli yetkili personel hizmetimiz mevcuttur.",
       languages: ["tr", "en", "ru", "es", "ar"],
     },
   },

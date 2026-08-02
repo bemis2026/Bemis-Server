@@ -420,7 +420,9 @@ export default function DealerNetwork() {
               </h3>
               <p className="text-sm leading-relaxed mb-4" style={{ color: d ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.55)" }}>
                 {viewMode === "yurtdisi"
-                  ? (dealerSection.worldSection?.introDescription ?? "")
+                  ? (dealerSection.worldSection?.introDescription
+                      ?? L("Bursa merkezli üretim tesisimizden Avrupa, Balkanlar, Orta Doğu, Türk dünyası, Kuzey Afrika ve Amerika'ya uzanan distribütör ağımızla EV şarj çözümlerini globalde sunuyoruz.",
+                           "From our production facility in Bursa we deliver EV charging solutions worldwide, through a distributor network reaching Europe, the Balkans, the Middle East, the Turkic world, North Africa and the Americas."))
                   : <E field="dealer.description" tag="span">{dealerSection.description}</E>}
               </p>
               {viewMode === "yurtdisi" ? (
@@ -439,7 +441,7 @@ export default function DealerNetwork() {
                   <div className="flex items-center gap-2 pb-1.5" style={{ borderBottom: `1px solid ${BLUE}25` }}>
                     <RiCustomerService2Line style={{ color: d ? "#93C5FD" : BLUE, fontSize: 14 }} />
                     <p className="text-[10px] font-bold tracking-[0.16em] uppercase" style={{ color: d ? "#93C5FD" : BLUE }}>
-                      İhracat Departmanı
+                      {L("İhracat Departmanı", "Export Department")}
                     </p>
                   </div>
                   {dealerSection.exportContact?.title && (
@@ -486,7 +488,7 @@ export default function DealerNetwork() {
                   )}
                   {!dealerSection.exportContact?.email && !dealerSection.exportContact?.phone && !dealerSection.exportContact?.whatsapp && (
                     <p className="text-xs italic" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.45)" }}>
-                      İhracat iletişim bilgileri henüz eklenmedi.
+                      {L("İhracat iletişim bilgileri henüz eklenmedi.", "Export contact details have not been added yet.")}
                     </p>
                   )}
 
@@ -499,7 +501,7 @@ export default function DealerNetwork() {
                       style={{ borderTop: `1px solid ${BLUE}25` }}
                     >
                       <p className="text-[10px] font-bold tracking-[0.16em] uppercase mb-1.5" style={{ color: d ? "#93C5FD" : BLUE }}>
-                        Çok Dilli Yetkili Personel
+                        {L("Çok Dilli Yetkili Personel", "Multilingual Support Team")}
                       </p>
                       <div className="flex flex-wrap gap-1.5 mb-2">
                         {(dealerSection.worldSection?.languages ?? []).map((code) => {
@@ -535,11 +537,11 @@ export default function DealerNetwork() {
                           );
                         })}
                       </div>
-                      {dealerSection.worldSection?.languagesNote && (
-                        <p className="text-[11px] leading-relaxed" style={{ color: d ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.58)" }}>
-                          {dealerSection.worldSection.languagesNote}
-                        </p>
-                      )}
+                      <p className="text-[11px] leading-relaxed" style={{ color: d ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.58)" }}>
+                        {dealerSection.worldSection?.languagesNote
+                          ?? L("Kurumsal müşterilerimize yerel dilde satış ve teknik destek sunan çok dilli yetkili personel hizmetimiz mevcuttur.",
+                               "Our multilingual team provides corporate customers with sales and technical support in their own language.")}
+                      </p>
                     </div>
                   )}
                 </div>
@@ -605,7 +607,7 @@ export default function DealerNetwork() {
                 >
                   <span className="flex items-center gap-1.5 text-xs font-bold" style={{ color: d ? "#93C5FD" : BLUE }}>
                     <RiMapPin2Line style={{ fontSize: 14 }} />
-                    Bölgenizi seçin — size en yakın yetkili bayileri görün
+                    {L("Bölgenizi seçin — size en yakın yetkili bayileri görün", "Select your region — see the authorised dealers nearest you")}
                   </span>
 
                   {/* Tetikleyici buton */}
@@ -671,7 +673,7 @@ export default function DealerNetwork() {
                             onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
                           >
                             <span className="flex items-center justify-center w-6 h-6 flex-shrink-0"><HiX style={{ fontSize: 13 }} /></span>
-                            Seçimi temizle (tüm bölgeler)
+                            {L("Seçimi temizle (tüm bölgeler)", "Clear selection (all regions)")}
                           </button>
                         )}
                         {regionsWithDealers.map((r) => {
@@ -889,7 +891,7 @@ export default function DealerNetwork() {
 
                 {sortedIntl.length === 0 ? (
                   <p className="text-xs text-center py-5 px-4" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.50)" }}>
-                    Aktif uluslararası distribütör henüz tanımlanmadı.
+                    {L("Aktif uluslararası distribütör henüz tanımlanmadı.", "No active international distributors have been added yet.")}
                   </p>
                 ) : (
                   <div className="max-h-[260px] overflow-y-auto">
@@ -994,7 +996,7 @@ export default function DealerNetwork() {
                       )}
                       {!selectedIntl.distributorName && !selectedIntl.email && !selectedIntl.phone && (
                         <p className="text-xs italic" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.45)" }}>
-                          Bu ülke için detay henüz eklenmedi.
+                          {L("Bu ülke için detay henüz eklenmedi.", "No details have been added for this country yet.")}
                         </p>
                       )}
                     </div>
@@ -1273,7 +1275,7 @@ export default function DealerNetwork() {
                     style={{ cursor: "pointer" }}
                     tabIndex={0}
                     role="button"
-                    aria-label={`${BURSA_HQ.label} bayilerini göster`}
+                    aria-label={`${regionLabel(BURSA_HQ)} — ${L("bayileri göster", "show dealers")}`}
                     onPointerEnter={(e) => handleCityEnter(BURSA_HQ as typeof REGIONS[number], e)}
                     onPointerLeave={(e) => handleCityLeave(e)}
                     onClick={(e) => handleCityClick(BURSA_HQ as typeof REGIONS[number], e as unknown as React.MouseEvent)}
@@ -1568,7 +1570,7 @@ export default function DealerNetwork() {
                             </a>
                             {!rep.phone && !rep.email && !rep.whatsapp && (
                               <p className="text-xs italic absolute" style={{ color: d ? "rgba(255,255,255,0.40)" : "rgba(0,0,0,0.45)" }}>
-                                İletişim bilgileri için aşağıdaki forma yazabilirsiniz.
+                                {L("İletişim bilgileri için aşağıdaki forma yazabilirsiniz.", "You can use the form below to request contact details.")}
                               </p>
                             )}
                           </div>

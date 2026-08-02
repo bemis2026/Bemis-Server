@@ -2074,5 +2074,95 @@
     "es": "Avería y garantía",
     "ar": "الأعطال والضمان",
     "ru": "Неисправности и гарантия"
+  },
+  "Export Department": {
+    "de": "Exportabteilung",
+    "es": "Departamento de Exportación",
+    "ar": "قسم التصدير",
+    "ru": "Экспортный отдел"
+  },
+  "Export contact details have not been added yet.": {
+    "de": "Export-Kontaktdaten wurden noch nicht hinterlegt.",
+    "es": "Aún no se han añadido los datos de contacto de exportación.",
+    "ar": "لم تتم إضافة بيانات الاتصال الخاصة بالتصدير بعد.",
+    "ru": "Контактные данные экспортного отдела ещё не добавлены."
+  },
+  "Multilingual Support Team": {
+    "de": "Mehrsprachiges Ansprechpartner-Team",
+    "es": "Equipo de atención multilingüe",
+    "ar": "فريق دعم متعدد اللغات",
+    "ru": "Многоязычная команда поддержки"
+  },
+  "Select your region — see the authorised dealers nearest you": {
+    "de": "Wählen Sie Ihre Region — sehen Sie die nächstgelegenen Vertragshändler",
+    "es": "Seleccione su región: vea los distribuidores autorizados más cercanos",
+    "ar": "اختر منطقتك — اطّلع على أقرب الموزّعين المعتمدين إليك",
+    "ru": "Выберите свой регион — посмотрите ближайших официальных дилеров"
+  },
+  "Clear selection (all regions)": {
+    "de": "Auswahl aufheben (alle Regionen)",
+    "es": "Borrar selección (todas las regiones)",
+    "ar": "مسح التحديد (كل المناطق)",
+    "ru": "Сбросить выбор (все регионы)"
+  },
+  "No active international distributors have been added yet.": {
+    "de": "Es wurden noch keine aktiven internationalen Distributoren hinterlegt.",
+    "es": "Todavía no se han añadido distribuidores internacionales activos.",
+    "ar": "لم تتم إضافة موزّعين دوليين نشطين بعد.",
+    "ru": "Активные международные дистрибьюторы ещё не добавлены."
+  },
+  "No details have been added for this country yet.": {
+    "de": "Für dieses Land wurden noch keine Angaben hinterlegt.",
+    "es": "Todavía no se han añadido datos para este país.",
+    "ar": "لم تتم إضافة تفاصيل لهذا البلد بعد.",
+    "ru": "Для этой страны сведения ещё не добавлены."
+  },
+  "show dealers": {
+    "de": "Händler anzeigen",
+    "es": "ver distribuidores",
+    "ar": "عرض الموزّعين",
+    "ru": "показать дилеров"
+  },
+  "You can use the form below to request contact details.": {
+    "de": "Über das untenstehende Formular können Sie die Kontaktdaten anfragen.",
+    "es": "Puede utilizar el formulario de abajo para solicitar los datos de contacto.",
+    "ar": "يمكنك استخدام النموذج أدناه لطلب بيانات الاتصال.",
+    "ru": "Вы можете запросить контактные данные через форму ниже."
+  },
+  "Countries · Active Network": {
+    "de": "Länder · Aktives Netzwerk",
+    "es": "Países · Red activa",
+    "ar": "دولة · شبكة نشطة",
+    "ru": "стран · Активная сеть"
+  },
+  "HQ TÜRKİYE": {
+    "de": "ZENTRALE TÜRKIYE",
+    "es": "SEDE TÜRKIYE",
+    "ar": "المقر الرئيسي تركيا",
+    "ru": "ШТАБ-КВАРТИРА ТУРЦИЯ"
+  },
+  "Distributor": {
+    "de": "Distributor",
+    "es": "Distribuidor",
+    "ar": "موزّع",
+    "ru": "Дистрибьютор"
+  },
+  "HQ": {
+    "de": "ZENTRALE",
+    "es": "SEDE",
+    "ar": "المقر",
+    "ru": "ШТАБ"
+  },
+  "From our production facility in Bursa we deliver EV charging solutions worldwide, through a distributor network reaching Europe, the Balkans, the Middle East, the Turkic world, North Africa and the Americas.": {
+    "de": "Von unserem Produktionswerk in Bursa aus liefern wir EV-Ladelösungen weltweit — über ein Distributorennetz, das Europa, den Balkan, den Nahen Osten, die Turkstaaten, Nordafrika und Amerika erreicht.",
+    "es": "Desde nuestra planta de producción en Bursa ofrecemos soluciones de recarga para vehículos eléctricos en todo el mundo, a través de una red de distribuidores que llega a Europa, los Balcanes, Oriente Medio, el mundo túrquico, el norte de África y América.",
+    "ar": "من مصنعنا في بورصة نقدّم حلول شحن المركبات الكهربائية إلى العالم أجمع، عبر شبكة موزّعين تمتد إلى أوروبا والبلقان والشرق الأوسط والعالم التركي وشمال إفريقيا والأمريكتين.",
+    "ru": "С нашего производственного предприятия в Бурсе мы поставляем решения для зарядки электромобилей по всему миру — через сеть дистрибьюторов в Европе, на Балканах, Ближнем Востоке, в тюркских странах, Северной Африке и Америке."
+  },
+  "Our multilingual team provides corporate customers with sales and technical support in their own language.": {
+    "de": "Unser mehrsprachiges Team bietet Geschäftskunden Vertrieb und technischen Support in ihrer eigenen Sprache.",
+    "es": "Nuestro equipo multilingüe ofrece a los clientes corporativos venta y soporte técnico en su propio idioma.",
+    "ar": "يوفّر فريقنا متعدد اللغات للعملاء من الشركات دعمًا بيعيًا وفنيًا بلغتهم الخاصة.",
+    "ru": "Наша многоязычная команда обеспечивает корпоративным клиентам продажи и техническую поддержку на их родном языке."
   }
 }

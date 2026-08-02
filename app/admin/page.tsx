@@ -5474,12 +5474,12 @@ export default function AdminPage() {
                       return (
                         <>
                           <div className="grid grid-cols-2 gap-2">
-                            <Field label="Üst Etiket" value={ws.sectionLabel} onChange={(v) => updateWS("sectionLabel", v)} placeholder="Küresel Distribütör Ağı" />
-                            <Field label="Başlık" value={ws.heading} onChange={(v) => updateWS("heading", v)} placeholder="Dünyaya Açılan Bemis" />
+                            <Field label="Üst Etiket" value={ws.sectionLabel ?? ""} onChange={(v) => updateWS("sectionLabel", v)} placeholder="Küresel Distribütör Ağı" />
+                            <Field label="Başlık" value={ws.heading ?? ""} onChange={(v) => updateWS("heading", v)} placeholder="Dünyaya Açılan Bemis" />
                           </div>
-                          <Field label="Sol Kart Başlığı" value={ws.introTitle} onChange={(v) => updateWS("introTitle", v)} placeholder="Bursa'dan Dünyaya" />
-                          <Field label="Sol Kart Açıklaması" value={ws.introDescription} onChange={(v) => updateWS("introDescription", v)} placeholder="Bursa merkezli üretim tesisimizden..." />
-                          <Field label="Çok Dilli Personel Notu" value={ws.languagesNote} onChange={(v) => updateWS("languagesNote", v)} placeholder="Kurumsal müşterilerimize yerel dilde..." />
+                          <Field label="Sol Kart Başlığı" value={ws.introTitle ?? ""} onChange={(v) => updateWS("introTitle", v)} placeholder="Bursa'dan Dünyaya" />
+                          <Field label="Sol Kart Açıklaması" value={ws.introDescription ?? ""} onChange={(v) => updateWS("introDescription", v)} placeholder="Bursa merkezli üretim tesisimizden..." />
+                          <Field label="Çok Dilli Personel Notu" value={ws.languagesNote ?? ""} onChange={(v) => updateWS("languagesNote", v)} placeholder="Kurumsal müşterilerimize yerel dilde..." />
                           <div>
                             <Field
                               label="Diller (ISO kodları, virgülle ayır)"
