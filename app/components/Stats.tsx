@@ -49,7 +49,7 @@ export default function Stats() {
 
   const sectionBg     = d
     ? "linear-gradient(155deg, #111318 0%, #0d0e12 50%, #131418 100%)"
-    : "linear-gradient(155deg, #1e3a8a 0%, #2563eb 50%, #1d4ed8 100%)";
+    : "linear-gradient(155deg, #26262c 0%, #131316 50%, #1e1e23 100%)";
   // ⚠️ ERİŞİLEBİLİRLİK (2026-07-31): kart zemini aydınlık modda BEYAZ %10 idi;
   // mavi gradyanı açtığı için beyaz metnin kontrastı düşüyordu — etiket 4,32:1,
   // açıklama 3,02:1 (AA eşiği 4,5). Zemin SİYAH %20'ye çevrildi: aynı mavi
@@ -77,7 +77,7 @@ export default function Stats() {
       {sectionBgUrl && (
         <>
           <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${sectionBgUrl})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }} />
-          <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.70)" : "rgba(30,58,138,0.80)" }} />
+          <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.70)" : "rgba(0,0,0,0.76)" }} />
         </>
       )}
       <div className="section-divider" style={{ background: d ? undefined : "linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)" }} />
