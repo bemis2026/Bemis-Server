@@ -51,14 +51,49 @@ Yeni bir oturum aç, repo olarak **`bemis2026/Bemis-Server`**'ı seç ve şunu y
 
 Bağlam zaten otomatik yüklenir; bu cümle sadece özet çıkarmasını söyler.
 
-### İstersen eklenebilir (şu an kurulu değil)
+---
+
+## Kontrol Odası (GitHub) — yeni işler için ortak kanal
+
+**Issue #20: "📌 Bemis Kontrol Odası"** — cihazdan ve oturumdan tamamen
+bağımsız ortak kanal. Telefon (GitHub uygulaması), herhangi bir PC (tarayıcı)
+ve e-posta bildirimi; üçünden de aynı başlık.
+
+Yoruma tetikleyici kelimeyi (**@** + **claude**, bitişik) yazıp isteği eklersin
+→ `.github/workflows/claude.yml` çalışır, GitHub'ın sunucusunda repo okunur, iş
+yapılır, dal açılır ve aynı başlığa cevap yazılır.
+
+Claude Code oturumlarından farkı: **kalıcı ve aranabilir**. Konteyner ömrü ya da
+oturum listesi önemli değil.
+
+### ⚠️ Bu kanal şu an kullanılamıyor — hesap kademesi
+
+11 Mayıs 2026'da 3 kez denenmiş, **üçü de başarısız**. Sebep ayar hatası değil:
+
+```
+API Error: Request rejected (429)
+This request would exceed your organization's rate limit of
+10,000 input tokens per minute (model: claude-opus-4-7)
+```
+
+Anahtar geçerli, faturalama çalışıyor (denemede 0,19 $ işlendi). Sorun,
+Anthropic API hesabının **dakikalık limit kademesinin düşük** olması — Claude
+Code'un istemi tek istekte 10.000 girdi jetonunu aşıyor, bu yüzden her çağrı
+anında reddediliyor.
+
+- **Repo tarafında yapıldı:** model Opus → **Sonnet**, `--max-turns 10`
+  (`claude.yml`). Hız limitleri model sınıfı başına ayrı tutulur, Sonnet'in payı
+  daha yüksek. Yeterli *olabilir*, garanti değil.
+- **Kalıcı çözüm (hesap tarafı):** console.anthropic.com → Billing → bakiye
+  ekle; kullanım kademesi yükselince dakikalık limit de yükselir.
+
+📌 Bu bir **API hesabı** limiti; Claude uygulamasındaki aboneliğinle ilgisi yok.
+İkisi ayrı faturalanır.
+
+### Henüz kurulu olmayan (istersen eklenir)
 
 - **Günlük uyanan oturum:** sohbet her sabah kendiliğinden uyanıp durum özeti
   bırakır (Routine). Hangi cihazdan bakarsan bak güncel olur.
-- **GitHub'da kalıcı kontrol odası:** bir Issue açılır, her cihazdan
-  `@claude ...` yazarak iş verdirilir; geçmiş kalıcı ve aranabilir.
-
-İkisi de birkaç dakikalık iş — "kur" demen yeterli.
 
 ---
 
