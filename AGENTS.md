@@ -7,20 +7,28 @@ This version has breaking changes — APIs, conventions, and file structure may 
 <!-- BEGIN:project-context-md -->
 # Project context document
 
-A canonical project-context document is kept at:
-`C:\Users\sales\Desktop\Claude Çalışmaları\Bemis Website\md\BEMIS_PROJECT_CONTEXT.md`
+The canonical project-context document is **`BEMIS_OTURUM_BAGLAM.md` in this
+repository** (auto-loaded every session via `CLAUDE.md`). It lives in git on
+purpose: the operator works from a phone, from the web IDE, and from more than
+one computer, so the context has to travel with the repo — not with a machine.
 
-**At session start:** if the user references prior work, bin IDs, env vars,
-sharding, or open issues — read that file first; it has the authoritative
-state (bin IDs, env-var status, sprint backlog, sharding map, etc.).
+⚠️ **Never point session state at a local disk path.** An older version of this
+file pointed at `C:\Users\sales\Desktop\...\BEMIS_PROJECT_CONTEXT.md`, which does
+not exist on phone/web sessions — so the session-start instruction silently
+failed there. That Windows file may still exist as a personal mirror; treat it as
+optional and non-authoritative. If a session needs state, it reads the repo.
 
-**After meaningful changes — update the same file.** Trigger an update
-whenever any of these happen:
-- A new JSONBin bin is created or a bin shard is added
-- A category is added, renamed, or moved between shards
+**At session start:** if the user references prior work, env vars, data bins, or
+open issues — read `BEMIS_OTURUM_BAGLAM.md` first (especially "§0 ŞU AN AÇIK İŞ").
+Pending operator to-dos are in `docs/ACIK_ISLER.md`. How to work across devices:
+`docs/CROSS_DEVICE.md`.
+
+**After meaningful changes — update `BEMIS_OTURUM_BAGLAM.md` and commit it.**
+An uncommitted update is invisible to the next device. Trigger an update when:
+- A data bin (Cloudflare R2 `bins/<name>.json`) is added, or its shape changes
+- A category is added, renamed, or moved
 - An env var is added / removed / changed in Vercel
-- A previously open item ("Resend not set up", "DC kategorisi boş", etc.)
-  becomes done, or a new open item is discovered
+- A previously open item becomes done, or a new open item is discovered
 - A non-obvious decision is made that future-you would forget (e.g. "we
   intentionally kept .com and .com.tr without redirect because…")
 - Repository visibility or domain wiring changes

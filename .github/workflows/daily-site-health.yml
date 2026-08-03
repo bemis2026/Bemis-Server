@@ -1,0 +1,93 @@
+# Günlük site sağlık + veri bütünlüğü bekçisi.
+#
+# NEDEN: Bu kontrol daha önce YALNIZ kullanıcının Windows masaüstünde
+# (Desktop\Bemis_Raporlar\ + yerel zamanlanmış görev) çalışıyordu. O bilgisayar
+# kapalıyken koruma yoktu; telefondan veya başka bir bilgisayardan da
+# görülemiyordu. Artık GitHub'ın sunucusunda çalışır → hiçbir cihazın açık
+# olması gerekmez, sonuç her yerden (GitHub Issues + e-posta) görülür.
+#
+# NE KONTROL EDER: 5 kritik sayfanın 200 döndüğü + katalog sayımları
+# (kategori/ürün/şehir/bayi/döküman/bölüm). Sayımlar `data/site-baseline.json`
+# ile karşılaştırılır; her DÜŞÜŞ 🔴 alarmdır (sessiz veri kaybı = dökümanların
+# 12→3 düşmesi gibi olaylar bu yüzden yakalanamıyordu).
+#
+# Yeşilse sessiz kalır — sadece 🔴/🟡 durumunda bildirim gönderir.
+
+name: Günlük site sağlık
+
+on:
+  schedule:
+    - cron: "0 5 * * *"   # 08:00 Europe/Istanbul
+  workflow_dispatch:
+
+# Aynı anda tek çalışma — taban çizgisi commit'lerinin çakışmasını önler.
+concurrency:
+  group: site-health
+  cancel-in-progress: false
+
+jobs:
+  sentinel:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # taban çizgisi yukarı güncellenince commit'lemek için
+      issues: write     # notify-finding.cjs GitHub Issue açar
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      # npm ci YOK — sentinel harici paket kullanmaz (sadece global fetch).
+
+      - name: Site sağlık kontrolü
+        id: check
+        run: |
+          set +e
+          node scripts/site-sentinel.cjs > /tmp/site.txt 2>&1
+          echo "exit=$?" >> "$GITHUB_OUTPUT"
+          cat /tmp/site.txt
+
+      - name: Bulguyu bildir (yalnız 🔴/🟡 varsa)
+        env:
+          GH_TOKEN:          ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO:           ${{ github.repository }}
+          RESEND_API_KEY:    ${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL }}
+          NOTIFY_EMAIL:      ${{ secrets.NOTIFY_EMAIL }}
+        run: |
+          set -e
+          severity=""
+          grep -q '🔴' /tmp/site.txt && severity=critical || true
+          if [ -z "$severity" ]; then
+            grep -q '🟡' /tmp/site.txt && severity=medium || true
+          fi
+
+          if [ -z "$severity" ]; then
+            echo "Temiz — bildirim gönderilmedi."
+            exit 0
+          fi
+
+          jq -n \
+            --arg title "Site sağlık uyarısı — $(date +%Y-%m-%d)" \
+            --arg sev "$severity" \
+            --rawfile body /tmp/site.txt \
+            --arg src "site-sentinel" \
+            '{title: $title, severity: $sev, body: $body, source: $src}' \
+            | node scripts/notify-finding.cjs
+
+      - name: Taban çizgisini işle (yukarı büyüdüyse)
+        run: |
+          if git diff --quiet -- data/site-baseline.json && \
+             [ -z "$(git status --porcelain -- data/site-baseline.json)" ]; then
+            echo "Taban çizgisi değişmedi."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/site-baseline.json
+          git commit -m "chore: site-baseline guncellendi (otomatik) [skip ci]"
+          # Push başarısız olursa SESSİZ KALMA: taban çizgisi kalıcı olmazsa her
+          # çalışma sıfırdan tohumlar ve düşüş tespiti hiç çalışmaz (sessiz körlük).
+          git push || {
+            echo "::error::Taban çizgisi push edilemedi (dal koruması?). Ratchet çalışmaz — elle çözülmeli."
+            exit 1
+          }
