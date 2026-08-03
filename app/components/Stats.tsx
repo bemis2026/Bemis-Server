@@ -52,20 +52,24 @@ export default function Stats() {
     : "linear-gradient(155deg, #26262c 0%, #131316 50%, #1e1e23 100%)";
   // ⚠️ ERİŞİLEBİLİRLİK (2026-07-31): kart zemini aydınlık modda BEYAZ %10 idi;
   // mavi gradyanı açtığı için beyaz metnin kontrastı düşüyordu — etiket 4,32:1,
-  // açıklama 3,02:1 (AA eşiği 4,5). Zemin SİYAH %20'ye çevrildi: aynı mavi
-  // ailesinde kalır ama koyulaşır → etiket 7,24:1, açıklama 4,5:1 üstü.
+  // açıklama 3,02:1 (AA eşiği 4,5). Zemin SİYAH %20'ye çevrildi → etiket 7,24:1.
+  // ⚠️⚠️ 2026-08-04: bölüm zemini MAVİ DEĞİL SİYAH (kullanıcı isteği) ve ızgara
+  // çizgileri marka mavisi. Kart zemini ESKİDEN yarı saydamdı (siyah %20) —
+  // altındaki mavi içten geçip KARTLARIN TAMAMINI maviye boyadı (ekran
+  // görüntüsüyle yakalandı). Bu yüzden aydınlıkta kart zemini OPAK: mavi yalnız
+  // 1px'lik aralıklarda görünür. 📌 Kart zeminini tekrar saydam YAPMA.
   // Hover artık AÇAR (siyah %10) — "üstüne gelince aydınlanma" hissi korundu.
   // Karanlık modda açıklama %40 → %55 (3,81:1 → 6,22:1).
-  const cardBgDefault  = d ? "linear-gradient(145deg, #111114 0%, #0d0d10 100%)" : "rgba(0,0,0,0.20)";
-  const cardBgHover    = d ? "linear-gradient(145deg, #141418 0%, #101014 100%)" : "rgba(0,0,0,0.10)";
-  const gridGap        = d ? `${BLUE}20` : "rgba(255,255,255,0.18)";
+  const cardBgDefault  = d ? "linear-gradient(145deg, #111114 0%, #0d0d10 100%)" : "#17171b";
+  const cardBgHover    = d ? "linear-gradient(145deg, #141418 0%, #101014 100%)" : "#202027";
+  const gridGap        = d ? `${BLUE}20` : `${BLUE}66`;
   const statNumColor   = d ? "#93C5FD" : "#ffffff";
   const labelColor     = d ? "#ffffff" : "#ffffff";
   const descColor      = d ? "rgba(255,255,255,0.55)" : "rgba(255,255,255,0.78)";
-  const eyebrowColor   = d ? "#93C5FD" : "#ffffff";
+  const eyebrowColor   = "#93C5FD";
   // Sertifika bandı metni 11-12px = KÜÇÜK metin → AA 4,5:1 şart.
-  // Ölçüldü: karanlıkta beyaz %70 = 9,51:1 · aydınlıkta beyaz %85 = 5,72:1
-  // (gradyanın en zor noktası #2563eb üzerinde hesaplandı).
+  // Ölçüldü: karanlıkta beyaz %70 = 9,51:1 · aydınlıkta beyaz %85 = 5,72:1.
+  // ⓘ O ölçüm MAVİ zemine göreydi; zemin siyahlaşınca kontrast DAHA DA arttı.
   const bandColor      = d ? "rgba(255,255,255,0.70)" : "rgba(255,255,255,0.85)";
 
   return (
@@ -80,7 +84,7 @@ export default function Stats() {
           <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.70)" : "rgba(0,0,0,0.76)" }} />
         </>
       )}
-      <div className="section-divider" style={{ background: d ? undefined : "linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)" }} />
+      <div className="section-divider" style={{ background: d ? undefined : `linear-gradient(90deg, transparent, ${BLUE}, transparent)` }} />
       <div ref={ref} className="relative z-[1] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-8 lg:py-10">
         {/* ⚠️ 2026-07-31 — bölümün HİÇ başlığı yoktu (13 Tem'de "32 yıllık miras"
             bloğu Hakkımızda ile tekrar ettiği için kaldırılmıştı, geriye çıplak
