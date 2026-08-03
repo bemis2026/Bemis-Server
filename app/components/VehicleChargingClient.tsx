@@ -112,7 +112,7 @@ export default function VehicleChargingClient() {
             style={{ background: d ? `${BLUE}12` : `${BLUE}0d`, border: `1px solid ${BLUE}28` }}
           >
             <RiInformationLine size={20} className="flex-shrink-0 mt-0.5" style={{ color: BLUE }} />
-            <p className="text-sm leading-relaxed" style={{ color: textMuted }}>
+            <p className="text-sm leading-relaxed max-w-prose" style={{ color: textMuted }}>
               <strong style={{ color: textPrimary }}>Şarj hızını cihaz değil aracınız belirler.</strong>{" "}
               Dahili şarj ünitesi 11 kW olan bir araç, 22 kW&apos;lık bir cihaza bağlansa da 11 kW çeker.
               Bu yüzden &quot;en güçlü cihazı alayım&quot; yaklaşımı çoğu durumda gereksiz maliyettir —
@@ -166,7 +166,7 @@ export default function VehicleChargingClient() {
               </table>
             </div>
           </div>
-          <p className="text-xs mt-3 leading-relaxed" style={{ color: textFaint }}>
+          <p className="text-xs mt-3 leading-relaxed max-w-prose" style={{ color: textFaint }}>
             Değerler EV Database&apos;deki model sayfalarından alınmıştır (Ağustos 2026). Aynı modelin farklı
             donanım paketlerinde ve model yıllarında dahili şarj gücü değişebilir; kesin değer için aracınızın
             kullanım kılavuzuna bakın. Listede olmayan bir aracınız varsa bize yazın, birlikte belirleyelim.

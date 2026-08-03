@@ -461,7 +461,7 @@ export default function KurumsalPage() {
               >
                 {txtTimelineEyebrow}
               </span>
-              <h2 className="text-3xl sm:text-4xl font-black" style={{ color: textPrimary }}>
+              <h2 className="text-2xl sm:text-3xl font-black" style={{ color: textPrimary }}>
                 {txtTimelineHeading}
               </h2>
               <motion.div

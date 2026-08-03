@@ -168,7 +168,7 @@ export default function ExportLandingClient() {
               </Link>
             ))}
           </div>
-          <p className="mt-6 text-sm" style={{ color: textMuted }}>For OEM / distributors: private label &amp; custom branding, bulk &amp; wholesale pricing, CE documentation, technical support and reliable lead times. <Link href="/b2b" className="underline" style={{ color: d ? "#93C5FD" : BLUE }}>OEM / B2B details →</Link></p>
+          <p className="mt-6 text-sm max-w-prose" style={{ color: textMuted }}>For OEM / distributors: private label &amp; custom branding, bulk &amp; wholesale pricing, CE documentation, technical support and reliable lead times. <Link href="/b2b" className="underline" style={{ color: d ? "#93C5FD" : BLUE }}>OEM / B2B details →</Link></p>
         </div>
       </section>
 

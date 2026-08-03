@@ -188,7 +188,7 @@ export default function CityLandingClient({
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5, delay: 0.08 }}
-              className="text-sm mb-3" style={{ color: textMuted }}
+              className="text-sm mb-3 max-w-prose" style={{ color: textMuted }}
             >
               Aşağıdaki tutarlar üretici liste fiyatı olup KDV dahildir. Kurulum
               fiyata dahil değildir; yetkili bayimiz keşif sonrası ayrıca teklif verir.
@@ -323,7 +323,7 @@ export default function CityLandingClient({
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5, delay: 0.08 }}
-              className="text-sm mb-3" style={{ color: textMuted }}
+              className="text-sm mb-3 max-w-prose" style={{ color: textMuted }}
             >
               Bemis E-V Charge son kullanıcıya doğrudan satış yapmaz; satış ve kurulum
               {" "}{city.loc} yetkili bayilerimiz üzerinden yürür. Aşağıda {city.city}&apos;daki

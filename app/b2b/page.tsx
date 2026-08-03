@@ -253,7 +253,7 @@ export default function B2BPage() {
               <p className="text-xs font-bold tracking-[0.18em] uppercase mb-3" style={{ color: accentInk(AMBER, d) }}>
                 Çözüm Ortaklığı
               </p>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black leading-tight mb-4" style={{ color: text }}>
+              <h2 className="text-2xl sm:text-3xl font-black leading-tight mb-4" style={{ color: text }}>
                 OEM Üreticilerine Sunduğumuz Çözümler
               </h2>
               <p className="text-sm sm:text-base leading-relaxed mb-3" style={{ color: muted }}>
@@ -349,7 +349,7 @@ export default function B2BPage() {
             ))}
           </div>
 
-          <h2 className="text-xl sm:text-2xl font-black mb-4" style={{ color: text }}>
+          <h2 className="text-2xl sm:text-3xl font-black mb-4" style={{ color: text }}>
             Kurumsal alım soruları
           </h2>
           <div className="grid md:grid-cols-2 gap-4">

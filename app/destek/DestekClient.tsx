@@ -334,7 +334,7 @@ export default function DestekClient() {
             style={{ background: `${AMBER}14`, border: `1px solid ${AMBER}40` }}
           >
             <RiAlarmWarningLine style={{ color: inkAmber, fontSize: 20, flexShrink: 0, marginTop: 1 }} aria-hidden />
-            <p className="text-sm leading-relaxed" style={{ color: muted }}>
+            <p className="text-sm leading-relaxed max-w-prose" style={{ color: muted }}>
               <strong style={{ color: text }}>Elektrik güvenliği:</strong> Elektrik panosu, sigorta veya kablolama ile ilgili
               hiçbir işlemi kendiniz yapmayın. Kaçak akım rölesi tekrar tekrar atıyorsa cihazı kullanmayı bırakın ve
               yetkili bir elektrikçiye başvurun.
@@ -420,7 +420,7 @@ export default function DestekClient() {
           <Baslik icon={<RiShieldCheckLine />}>Garanti</Baslik>
 
           <Kart className="mb-4">
-            <p className="text-sm leading-relaxed" style={{ color: muted }}>
+            <p className="text-sm leading-relaxed max-w-prose" style={{ color: muted }}>
               Bemis E-V Charge ürünleri <strong style={{ color: text }}>2 yıl üretici garantisi</strong> ile sunulur.
               Garanti, üretim ve malzeme kaynaklı arızaları kapsar. Cihazın kurulumu, ürün kurulum şartnamesine uygun
               şekilde yetkili bir elektrikçi tarafından yapılmalıdır. Garanti talepleri, ürünü satın aldığınız yetkili
@@ -474,7 +474,7 @@ export default function DestekClient() {
                 Ürünler yetkili bayi ağı üzerinden satılır. İade ve değişim talepleriniz, satın alma işlemini
                 gerçekleştirdiğiniz bayi üzerinden, ilgili mevzuat ve bayinin satış koşulları çerçevesinde değerlendirilir.
               </p>
-              <p className="text-sm leading-relaxed" style={{ color: muted }}>
+              <p className="text-sm leading-relaxed max-w-prose" style={{ color: muted }}>
                 Ürün kutusunu ve faturanızı saklamanız, iade veya garanti sürecini kolaylaştırır.
                 Hangi bayiden aldığınızı hatırlamıyorsanız bize yazın, kaydınızı birlikte bulalım.
               </p>
@@ -513,7 +513,7 @@ export default function DestekClient() {
           >
             <div className="max-w-xl">
               <h2 className="text-xl sm:text-2xl font-black mb-2" style={{ color: text }}>Sorun hâlâ çözülmediyse</h2>
-              <p className="text-sm leading-relaxed" style={{ color: muted }}>
+              <p className="text-sm leading-relaxed max-w-prose" style={{ color: muted }}>
                 Ürün kodunuz ve kısa bir arıza tarifiyle bize ulaşın; kaydınızı açıp sizi doğru bayiye veya
                 teknik ekibimize yönlendirelim.
               </p>
