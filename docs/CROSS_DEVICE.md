@@ -14,6 +14,54 @@ sonraki cihaz onu göremez.
 
 ---
 
+## Ortak yönetim sohbeti (telefon + PC aynı sohbet)
+
+**Kural: Bemis işleri için sohbet Claude Code'un BULUT oturumundan açılır.**
+
+| Nereden | Nasıl |
+|---|---|
+| Telefon | Claude uygulaması → **Code** → oturumu seç |
+| PC (tarayıcı) | **claude.ai/code** → aynı oturum listede |
+| PC (masaüstü uygulaması) | Claude uygulaması → **Code** |
+
+Üçü de aynı hesaba bağlı olduğu için **aynı sohbeti** gösterir; telefonda
+bıraktığın yerden PC'de devam edersin.
+
+### ⚠️ Bilgisayardaki terminal sohbeti senkronlanmaz
+
+Windows'ta terminalde `claude` yazarak açılan oturumlar **o makinede kalır**
+(`~/.claude/projects`), hesaba yüklenmez. Eski sohbetlerin cihaza bağlı
+kalmasının sebebi buydu. Ortak yönetilecek işleri terminalden başlatma —
+terminal yalnız o bilgisayara özgü işler için (GA raporu, görsel doğrulama,
+`vercel env pull`).
+
+### Eski sohbetler taşınmaz — hafıza taşınır
+
+Geçmiş konuşmalar aktarılamaz. Aktarılan şey **proje hafızası**:
+`BEMIS_OTURUM_BAGLAM.md` her yeni oturumda otomatik yüklenir. Yani sıfırdan
+açılan bir sohbet bile "nerede kalmıştık"ı bilir. Bu yüzden her oturumu
+commit ile bitirmek şart.
+
+### Yeni cihazda sıfırdan başlarken
+
+Yeni bir oturum aç, repo olarak **`bemis2026/Bemis-Server`**'ı seç ve şunu yaz:
+
+> Bemis sitesi üzerinde çalışıyoruz. `BEMIS_OTURUM_BAGLAM.md` §0'ı ve
+> `docs/ACIK_ISLER.md`'yi oku, nerede kaldığımızı özetle.
+
+Bağlam zaten otomatik yüklenir; bu cümle sadece özet çıkarmasını söyler.
+
+### İstersen eklenebilir (şu an kurulu değil)
+
+- **Günlük uyanan oturum:** sohbet her sabah kendiliğinden uyanıp durum özeti
+  bırakır (Routine). Hangi cihazdan bakarsan bak güncel olur.
+- **GitHub'da kalıcı kontrol odası:** bir Issue açılır, her cihazdan
+  `@claude ...` yazarak iş verdirilir; geçmiş kalıcı ve aranabilir.
+
+İkisi de birkaç dakikalık iş — "kur" demen yeterli.
+
+---
+
 ## Nasıl devam edersin
 
 **Telefondan veya herhangi bir bilgisayardan:** claude.ai/code → `Bemis-Server`
