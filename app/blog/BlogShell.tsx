@@ -328,7 +328,7 @@ function PressArticle({ item, d, surface, border, textPrimary, textMuted, textFa
         <h1 className="text-3xl sm:text-4xl font-black leading-tight mb-6" style={{ color: textPrimary }}>{item.title}</h1>
 
         {item.image && (
-          <div className="relative w-full overflow-hidden rounded-2xl mb-7" style={{ aspectRatio: "16 / 9", background: surface, border: `1px solid ${border}` }}>
+          <div className="relative w-full overflow-hidden rounded-2xl mb-7 media-cap" style={{ aspectRatio: "16 / 9", background: surface, border: `1px solid ${border}` }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
           </div>

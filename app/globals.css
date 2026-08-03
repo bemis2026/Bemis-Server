@@ -869,3 +869,25 @@ html:not([lang="tr"]) h2[class*="text-6xl"] {
   width: 44px; height: 44px;
   transform: translate(-50%, -50%);
 }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   TAM GENİŞLİK MEDYA — YÜKSEKLİK SINIRI (2026-08-04, kullanıcı onaylı %42)
+   SORUN: sabit `aspect-ratio` + akışkan genişlik → yükseklik ekranla büyür.
+   ÖLÇÜLDÜ (/uretici fabrika görseli, oran 16/6): 1080p dizüstünde 576px =
+   ekranın **%64'ü**; /b2b hero'su 504px = %56.
+   ⚠️⚠️ ASIL DEĞİŞKEN GENİŞLİK DEĞİL **YÜKSEKLİK**: konteyner 1536px'ten sonra
+   1600'de sabitlendiği için görsel 576px'te DURUR — ama aynı 576px kısa bir
+   dizüstünde %64, uzun bir monitörde %43 yer kaplar. Yani şikayetin kaynağı
+   ekranın geniş değil ALÇAK olması.
+   📌 BU YÜZDEN EN-BOY ORANIYLA OYNAMAK ÇÖZMEZ, SADECE ÖTELER — 2026-07-13'te
+   aynı görselde 16/7 → 16/6 yapılmıştı ve sorun geri geldi. Doğru çözüm
+   yüksekliği EKRAN YÜKSEKLİĞİNE bağlamak.
+   Fotoğraf `object-cover` ile KIRPILIR; bozulma/sıkışma olmaz.
+   clamp: çok alçak ekranda 220px'in altına inmez, çok uzun ekranda 520px'i geçmez.
+   📌 YENİ tam-genişlik görsel eklerken bu sınıfı da ver (ızgara İÇİNDEKİ kart
+   görsellerine GEREKMEZ — onlar zaten sütun genişliğiyle sınırlı).            */
+/* ⚠️⚠️ `width: 100%` ŞART — KALDIRMA. `aspect-ratio` + `max-height` birlikte
+   verilince tarayıcı oranı korumak için GENİŞLİĞİ de küçültür: ölçüldü, görsel
+   1600px'lik alanda 1008px'e düşüp sağda 592px BOŞLUK bıraktı. Genişlik açıkça
+   sabitlenince yükseklik kırpılır, genişlik tam kalır (istenen davranış). */
+.media-cap { width: 100%; max-height: clamp(220px, 42vh, 520px); }

@@ -220,7 +220,7 @@ export default function B2BPage() {
                 initial={{ opacity: 0, x: -18 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
-                className="relative rounded-3xl overflow-hidden lg:col-span-7"
+                className="relative rounded-3xl overflow-hidden lg:col-span-7 media-cap"
                 // 16/9: görselin GERÇEK oranı (1600×900) → object-cover ile
                 // kırpma OLMADAN çerçeveye tam oturur (sıkışma/bozulma yok).
                 style={{ aspectRatio: "16/9", border: `1px solid ${border}`, boxShadow: shadow }}

@@ -70,6 +70,13 @@ type DropdownItem = {
   sub:   { tr: string; en: string };
   href: string;
   accent: string;
+  /** ⚠️ SADECE TÜRKÇE menüde göster (2026-08-03).
+   *  Bazı sayfalar bilinçli olarak yalnız Türkiye pazarına yazıldı ve içeriği
+   *  Türkçe: araç uyumluluk tablosu (Togg/TR tesisatı), şehir iniş sayfaları.
+   *  Menü etiketi çevrili olduğu için yabancı ziyaretçi İNGİLİZCE bir maddeye
+   *  tıklayıp TÜRKÇE sayfaya düşüyordu. Bu bayrak onu engeller.
+   *  📌 Sayfayı gerçekten çevirirsen bu bayrağı KALDIR. */
+  trOnly?: boolean;
 };
 
 const KURUMSAL_DROPDOWN: DropdownItem[] = [
@@ -122,7 +129,7 @@ const REHBER_DROPDOWN: DropdownItem[] = [
   {
     label: { tr: "Araç Uyumluluğu", en: "Vehicle Compatibility" },
     sub:   { tr: "Aracınıza hangi cihaz ve kablo uyar", en: "Which charger and cable fits your car" },
-    href: "/arac-sarj-uyumlulugu", accent: "#8B5CF6",
+    href: "/arac-sarj-uyumlulugu", accent: "#8B5CF6", trOnly: true,
   },
   {
     label: { tr: "Hesaplayıcı", en: "Calculator" },
@@ -648,7 +655,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                           style={{ width: 300, ...dropdownBase }}
                         >
                           <div className="p-1.5 space-y-0.5">
-                            {REHBER_DROPDOWN.map((item) => (
+                            {REHBER_DROPDOWN.filter(i => !i.trOnly || lang === "tr").map((item) => (
                               <button
                                 key={item.href}
                                 onClick={() => { setActiveDropdown(null); handleNavClick(item.href); }}
@@ -905,7 +912,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                     {/* Mobile Rehber sub-links */}
                     {isR && mobileRehberOpen && (
                       <div className="py-2 space-y-1 pl-2">
-                        {REHBER_DROPDOWN.map(item => (
+                        {REHBER_DROPDOWN.filter(i => !i.trOnly || lang === "tr").map(item => (
                           <button key={item.href} onClick={() => { setMobileOpen(false); handleNavClick(item.href); }}
                             className={`block w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black"}`}>
                             {byLang(item.label, lang)}

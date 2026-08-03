@@ -14,7 +14,14 @@ import E from "./E";
 // Footer iç linkleri (SSR — Google taraması için sayılır). Ürünler: 8 kategori;
 // Şirket: Bemis Dünyası/Yerli Üretim/Blog/Bursa EV Şarj; Destek: Dökümanlar/SSS/Rehberler.
 type FooterPair = { tr: string; en: string };
-type FooterLink = { label: FooterPair; href: string; scroll: boolean };
+type FooterLink = {
+  label: FooterPair; href: string; scroll: boolean;
+  /** ⚠️ SADECE TÜRKÇE footer'da göster (2026-08-03). Şehir iniş sayfaları
+   *  bilinçli olarak yalnız Türkçe yazıldı (yerel SEO hedefi); etiket çevrili
+   *  olduğu için yabancı ziyaretçi İngilizce linkten Türkçe sayfaya düşüyordu.
+   *  📌 Sayfa gerçekten çevrilirse bu bayrağı KALDIR. */
+  trOnly?: boolean;
+};
 
 // ⚠️ 2026-08-01 — YAPI DEĞİŞTİ. Eskiden `{ tr: [...], en: [...] }` iki PARALEL
 // diziydi ve `byLang` yabancı dilde EN dizisini OLDUĞU GİBİ döndürüyordu →
@@ -40,7 +47,9 @@ const NAV_GROUPS: { title: FooterPair; links: FooterLink[] }[] = [
     { label: { tr: "Bemis Dünyası",   en: "Bemis World" },         href: "/kurumsal",                scroll: false },
     { label: { tr: "Yerli Üretim",    en: "In-House Production" }, href: "/uretici",                 scroll: false },
     { label: { tr: "Blog & Haberler", en: "Blog & News" },         href: "/blog",                    scroll: false },
-    { label: { tr: "Bursa EV Şarj",   en: "Bursa EV Charging" },   href: "/bursa-ev-sarj-istasyonu", scroll: false },
+    // ⚠️ trOnly: şehir iniş sayfaları yalnız Türkçe yazıldı (yerel SEO hedefi).
+    // Yabancı dilde İngilizce etiketten Türkçe sayfaya düşülüyordu.
+    { label: { tr: "Bursa EV Şarj",   en: "Bursa EV Charging" },   href: "/bursa-ev-sarj-istasyonu", scroll: false, trOnly: true },
     { label: { tr: "İstatistikler",   en: "Statistics" },          href: "#stats",                   scroll: true  },
   ]},
   { title: { tr: "İş Ortaklığı", en: "Partnership" }, links: [
@@ -72,7 +81,9 @@ export default function Footer() {
   // Etiketler dile göre ÇEVRİLİR (eskiden byLang tüm EN dizisini dönüyordu).
   const navGroups = NAV_GROUPS.map((g) => ({
     title: pickText(lang, g.title.tr, g.title.en),
-    links: g.links.map((l) => ({ ...l, label: pickText(lang, l.label.tr, l.label.en) })),
+    links: g.links
+      .filter((l) => !l.trOnly || lang === "tr")
+      .map((l) => ({ ...l, label: pickText(lang, l.label.tr, l.label.en) })),
   }));
 
   const bg          = d ? "linear-gradient(180deg, #202022 0%, #1c1c1e 50%, #1a1a1c 100%)"

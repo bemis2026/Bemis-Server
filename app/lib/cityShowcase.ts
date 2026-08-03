@@ -43,22 +43,24 @@ export type CityDealer = {
 };
 
 /**
- * TCMB EUR/TRY kuru.
- * ⚠️ Aynı mantık `/api/rate` ve `/meta-catalog.xml` içinde de var (aynı kaynak,
- * aynı 6 saatlik önbellek, aynı 37 yedeği) → üçü DAİMA aynı kuru verir.
- * Merchant feed'i iş açısından kritik olduğu için burada onu refactor ETMEDİM;
- * kur mantığı değişirse ÜÇ yeri birden güncelle.
+ * TCMB EUR/TRY kuru. Aynı kaynak + aynı 6 saatlik önbellek `/api/rate` ve
+ * `/meta-catalog.xml` içinde de var.
+ * ⚠️ FARK (2026-08-04): o ikisi başarısızlıkta SABİT 37'ye düşer; BURASI
+ * `null` döner ve vitrin hiç yayınlanmaz. Gerekçe: 37 yedeği bayat — ölçülen
+ * gerçek kur 54,69, yani bir kesintide fiyatlar %32 DÜŞÜK yayınlanırdı.
+ * 📌 /api/rate ve /meta-catalog.xml'deki 37 yedeği DURUYOR — ticari etkisi
+ *    olduğu için (Merchant fiyat uyuşmazlığı) tek taraflı değiştirilmedi.
  */
-async function tryPerEur(): Promise<number> {
+async function tryPerEur(): Promise<number | null> {
   try {
     const res = await fetch("https://www.tcmb.gov.tr/kurlar/today.xml", { next: { revalidate: 21600 } });
-    if (!res.ok) return 37;
+    if (!res.ok) return null;
     const xml = await res.text();
     const block = xml.match(/<Currency\s+[^>]*CurrencyCode="EUR"[^>]*>([\s\S]*?)<\/Currency>/);
     const rate = Number(block?.[1].match(/<ForexBuying>([\d.]+)<\/ForexBuying>/)?.[1]);
-    return Number.isFinite(rate) && rate > 0 ? rate : 37;
+    return Number.isFinite(rate) && rate > 0 ? rate : null;
   } catch {
-    return 37;
+    return null;
   }
 }
 
@@ -105,6 +107,14 @@ export async function getCityShowcase(
   perCategory = 2,
 ): Promise<ShowcaseProduct[]> {
   const [cats, rate] = await Promise.all([getServerProducts(), tryPerEur()]);
+  // ⚠️⚠️ KUR ÇEKİLEMEDİYSE VİTRİN HİÇ GÖSTERİLMEZ (2026-08-04).
+  // Sitenin geri kalanında yedek kur SABİT 37 — ama gerçek kur ölçüldüğünde
+  // 54,69'du, yani bir TCMB kesintisinde fiyatlar %32 DÜŞÜK yayınlanırdı.
+  // Bu bölüm ₺ tutarı "KDV dahil" ibaresiyle basıyor; yanlış fiyat yayınlamak
+  // fiyat göstermemekten kötüdür (ticari taahhüt + Merchant fiyat uyuşmazlığı).
+  // Boş dönerse CityLandingClient bölümü zaten gizler (showcase.length > 0).
+  // 📌 Aynı 37 yedeği /api/rate ve /meta-catalog.xml'de de var — ORASI AYRI KARAR.
+  if (!rate) return [];
   const bicim = new Intl.NumberFormat("tr-TR", {
     style: "currency", currency: "TRY", maximumFractionDigits: 0,
   });

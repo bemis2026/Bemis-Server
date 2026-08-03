@@ -51,6 +51,7 @@ const BAYILIK_FAQ = [
 
 import { serviceSchema, faqSchema } from "../lib/seo";
 import { useTheme } from "../context/ThemeContext";
+import { accentInk } from "../lib/accentInk";
 import { useLanguage } from "../context/LanguageContext";
 import { useDealerApplyOverlay } from "../context/DealerApplyOverlayContext";
 import {
@@ -155,6 +156,13 @@ export default function BayilikPage() {
   const shadow = d ? "none" : "0 1px 12px rgba(0,0,0,0.06)";
   const GREEN  = "#10B981";
   const BLUE   = "#3B82F6";
+  // ⚠️ METİN için inklenmiş sürümler (2026-08-03). Ölçüldü: aydınlık modda ham
+  // #10B981 beyaz zeminde kontrast 2,33 — WCAG AA eşiği 4,5. accentInk hue'yu
+  // korur, yalnız aydınlıkta karartır; KARANLIK modda parlak accent AYNEN kalır.
+  // 📌 Yalnız `color:` için kullan — rozet dolgusu/kenarlık/buton PARLAK kalmalı
+  //    (accentInk.ts başındaki kural). Site genelinde 10 dosyada aynı desen.
+  const GREEN_INK = accentInk(GREEN, d);
+  const BLUE_INK  = accentInk(BLUE, d);
 
   const trCriteria = (cms.trCriteria?.length ? cms.trCriteria : null) ?? (cms.criteria?.length ? cms.criteria : null) ?? FALLBACK_TR_CRITERIA;
   const intlCriteria = (cms.intlCriteria?.length ? cms.intlCriteria : null) ?? FALLBACK_INTL_CRITERIA;
@@ -207,13 +215,13 @@ export default function BayilikPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
             <div className="flex items-center gap-2.5 mb-4">
               <span className="w-1 h-4 rounded-full" style={{ background: GREEN }} />
-              <span className="text-xs font-bold tracking-[0.20em] uppercase" style={{ color: GREEN }}>
+              <span className="text-xs font-bold tracking-[0.20em] uppercase" style={{ color: GREEN_INK }}>
                 Bemis Yetkili Satış Ağı
               </span>
             </div>
             <h1 className="font-black leading-tight mb-3" style={{ fontSize: "clamp(1.75rem, 4vw, 2.75rem)", color: text }}>
               Bayi &amp; Distribütör <br />
-              <span style={{ color: GREEN }}>Programı</span>
+              <span style={{ color: GREEN_INK }}>Programı</span>
             </h1>
             <motion.div
               initial={{ scaleX: 0, opacity: 0 }}
@@ -241,7 +249,7 @@ export default function BayilikPage() {
       <section style={{ background: bg, borderBottom: `1px solid ${border}`, padding: "52px 0" }}>
         <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-8">
           <div className="mb-7">
-            <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: GREEN }}>
+            <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: GREEN_INK }}>
               Ağımız Hakkında
             </p>
             <h2 className="text-2xl sm:text-3xl font-black leading-tight mb-3" style={{ color: text }}>
@@ -264,7 +272,7 @@ export default function BayilikPage() {
                 className="rounded-2xl px-5 py-5 flex flex-col gap-1"
                 style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}
               >
-                <span className="text-2xl sm:text-3xl font-black tracking-tight" style={{ color: GREEN }}>
+                <span className="text-2xl sm:text-3xl font-black tracking-tight" style={{ color: GREEN_INK }}>
                   {s.value}
                 </span>
                 <span className="text-xs font-semibold leading-snug" style={{ color: muted }}>
@@ -278,7 +286,7 @@ export default function BayilikPage() {
               same Ağımız Hakkında frame so kurumsal sayılar and the
               proof-in-the-field photos read as one story. */}
           <div className="mb-5">
-            <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: GREEN }}>
+            <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: GREEN_INK }}>
               Fuarlar & Marka Tanıtım
             </p>
             <h3 className="text-xl sm:text-2xl font-black leading-tight mb-1" style={{ color: text }}>
@@ -343,7 +351,7 @@ export default function BayilikPage() {
       <section style={{ background: bgSub, padding: "52px 0", borderBottom: `1px solid ${border}` }}>
         <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-8">
           <div className="mb-6">
-            <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: GREEN }}>
+            <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: GREEN_INK }}>
               Başvuru Koşulları
             </p>
             <h2 className="text-2xl sm:text-3xl font-black leading-tight" style={{ color: text }}>
@@ -371,7 +379,7 @@ export default function BayilikPage() {
                   className="flex items-center gap-2 px-4 sm:px-5 py-2 rounded-xl text-sm font-bold transition-all"
                   style={{
                     background: active ? (d ? `${accent}28` : `${accent}18`) : "transparent",
-                    color: active ? (d ? "#ffffff" : accent) : muted,
+                    color: active ? (d ? "#ffffff" : accentInk(accent, d)) : muted,
                     border: active ? `1px solid ${accent}55` : "1px solid transparent",
                   }}
                 >
@@ -439,7 +447,7 @@ export default function BayilikPage() {
           yazılmadı — eklemeden önce kullanıcıya SOR. */}
       <section style={{ padding: "52px 0", borderBottom: `1px solid ${border}` }}>
         <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-8">
-          <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: GREEN }}>
+          <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: GREEN_INK }}>
             Bayi Profili
           </p>
           <h2 className="text-2xl sm:text-3xl font-black leading-tight mb-3" style={{ color: text }}>
@@ -478,7 +486,7 @@ export default function BayilikPage() {
             ].map((m) => (
               <div key={m.t} className="rounded-2xl p-5" style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}>
                 <div className="w-9 h-9 rounded-xl flex items-center justify-center mb-3" style={{ background: `${GREEN}18`, border: `1px solid ${GREEN}30` }}>
-                  <RiCheckLine style={{ fontSize: 16, color: GREEN }} />
+                  <RiCheckLine style={{ fontSize: 16, color: GREEN_INK }} />
                 </div>
                 <h3 className="text-sm font-bold mb-1.5" style={{ color: text }}>{m.t}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: muted }}>{m.x}</p>

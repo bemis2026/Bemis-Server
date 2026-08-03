@@ -175,7 +175,7 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
             <motion.div
               initial={{ opacity: 0, y: 24, scale: 0.985 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={VIEWPORT}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="relative rounded-3xl overflow-hidden mb-4"
+              className="relative rounded-3xl overflow-hidden mb-4 media-cap"
               style={{ border: `1px solid ${border}`, aspectRatio: "16 / 6", boxShadow: d ? "0 20px 60px rgba(0,0,0,0.45)" : "0 16px 48px rgba(0,0,0,0.10)" }}
             >
               <motion.div
