@@ -833,6 +833,28 @@ html:not([lang="tr"]) h2[class*="text-6xl"] {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
+   MASAÜSTÜ BÖLÜM BAŞLIĞI: 60px → 48px (2026-08-03, kullanıcı onaylı)
+   Kullanıcı "büyük ekranlarda gösterim biraz büyük duruyor" dedi; ölçüldü
+   (1728px, anasayfa): bölüm başlıkları 60px × 10 ADET, gövde metni ise
+   12px ve 14px → başlık/gövde oranı ~5 kat (yaygın tasarım sistemlerinde
+   2,5-3 kat). "Başlıklar dev, yazılar minik" hissinin kaynağı buydu.
+   ⚠️ ÇÖZÜM YÖNÜ BİLİNÇLİ: gövde puntosu BÜYÜTÜLMEDİ (kullanıcı istemedi),
+   bunun yerine başlık küçültüldü → oran ~3,4 kata iner.
+   ÖLÇÜLEN YAN FAYDA: ürün vitrini başlığı ("AC Wallbox Smart Charger Pro 2")
+   60px'te İKİ satıra taşıp altındaki spec kartlarını ekran dışına itiyordu;
+   48px'te tek satıra sığıyor ve içerik ~60px yukarı geliyor.
+   ⚠️ KAPSAM: yalnız ≥1024px (masaüstü). Mobil (<640px, yukarıdaki 30px kuralı)
+   ve tablet DEĞİŞMEZ. Hero H1 bu kuralın DIŞINDA (h1) → hiyerarşi korunur:
+   hero > bölüm başlıkları. Yabancı diller zaten kendi clamp'ini kullanıyor.
+   📌 GERİ ALMAK: bu bloğu sil, 60px'e döner.                                */
+@media (min-width: 1024px) {
+  html[lang="tr"] h2[class*="text-6xl"] {
+    font-size: 3rem; /* 48px — Tailwind text-5xl ile aynı kademe */
+    line-height: 1.08;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
    DOKUNMA HEDEFİ GENİŞLETİCİ (2026-07-28 denetimi)
    Navbar ikon düğmeleri (arama / tema / menü) 33-38px'ti; mobil kılavuzu 44px
    önerir. Düğmeyi BÜYÜTMEK navbar'ı kalabalıklaştırırdı (5 öğe yan yana) →

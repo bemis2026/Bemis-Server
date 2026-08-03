@@ -206,7 +206,10 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
               {/* Kırmızı Bemis (ana şirket) logosu */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/brand/bemis-logo.png" alt="Bemis Teknik Elektrik A.Ş." className="h-8 sm:h-9 w-auto flex-shrink-0" loading="lazy" decoding="async" />
-              <p className="text-sm leading-relaxed" style={{ color: textMuted }}>
+              {/* max-w-prose (2026-08-03): 1728px'te tek satırda 142 KARAKTER
+                  oluyordu (ölçüldü). Sınırlanınca iki satıra sarıyor; logo–metin–
+                  buton yatay dizilimi bozulmuyor. */}
+              <p className="text-sm leading-relaxed max-w-prose" style={{ color: textMuted }}>
                 Bemis E-V Charge, <strong style={{ color: textPrimary, fontWeight: 700 }}>1994&apos;ten beri üreten Bemis Teknik Elektrik A.Ş.</strong>&apos;nin elektrikli araç şarj markasıdır — 32 yıllık endüstriyel üretim mirası.
               </p>
             </div>
@@ -266,7 +269,7 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5, delay: 0.08 }}
-            className="text-sm mb-3" style={{ color: textMuted }}
+            className="text-sm mb-3 max-w-prose" style={{ color: textMuted }}
           >
             Eviniz, iş yeriniz ve filolarınız için eksiksiz bir EV şarj ürün ailesi — tasarımdan son teste kadar kendi tesisimizde.
           </motion.p>
@@ -305,7 +308,10 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
             className="rounded-2xl p-5 sm:p-6 mt-4" style={{ background: surface, border: `1px solid ${border}` }}
           >
             <h3 className="text-base font-black mb-2" style={{ color: textPrimary }}>Üretim & Kalite</h3>
-            <p className="text-sm leading-relaxed mb-4 max-w-3xl" style={{ color: textMuted }}>
+            {/* max-w-3xl (768px) 14px metinde ~117 karakter veriyordu — "dar"
+                sanılan bu sınır aslında dar değil. max-w-prose punto ile
+                ölçeklenir (~92 kr). */}
+            <p className="text-sm leading-relaxed mb-4 max-w-prose" style={{ color: textMuted }}>
               PCB tasarımından gömülü yazılıma, mekanik tasarımdan son test ve kalite kontrolüne kadar üretim süreci
               kendi tesisimizde yürütülür. Cihazlarımız uluslararası standartlara uygun olarak üretilir ve test edilir.
             </p>
@@ -388,7 +394,7 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
                           transition={{ duration: 0.22 }}
                           style={{ overflow: "hidden" }}
                         >
-                          <p className="text-sm leading-relaxed px-4 pb-4" style={{ color: textMuted }}>{f.a}</p>
+                          <p className="text-sm leading-relaxed px-4 pb-4 max-w-prose" style={{ color: textMuted }}>{f.a}</p>
                         </motion.div>
                       )}
                     </AnimatePresence>

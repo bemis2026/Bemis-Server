@@ -1033,7 +1033,7 @@ export default function Calculator() {
         </div>{/* end 2-col grid */}
 
         <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center text-xs mt-6" style={{ color: textMuted }}>
+          className="text-center text-xs mt-6 max-w-prose mx-auto" style={{ color: textMuted }}>
           {t("calc_disclaimer")}
         </motion.p>
       </div>

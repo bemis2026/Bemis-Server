@@ -390,7 +390,7 @@ export default function BayilikPage() {
             className="rounded-2xl p-6 sm:p-7"
             style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}
           >
-            <p className="text-sm leading-relaxed mb-5 max-w-3xl" style={{ color: muted }}>
+            <p className="text-sm leading-relaxed mb-5 max-w-prose" style={{ color: muted }}>
               {tab === "tr"
                 ? "Türkiye sınırları içinde belirli bir ilçe, il veya bölgede Bemis E-V Charge ürünlerinin satış ve kurulumunu üstlenecek yetkili bayi başvurularında aranan temel kriterler:"
                 : "Türkiye dışında bir ülke veya bölgede Bemis E-V Charge ürünlerini dağıtacak distribütör başvurularında aranan temel kriterler:"}
@@ -445,7 +445,7 @@ export default function BayilikPage() {
           <h2 className="text-2xl sm:text-3xl font-black leading-tight mb-3" style={{ color: text }}>
             Kimler Bemis bayisi oluyor?
           </h2>
-          <p className="text-sm leading-relaxed mb-6 max-w-3xl" style={{ color: muted }}>
+          <p className="text-sm leading-relaxed mb-6 max-w-prose" style={{ color: muted }}>
             Elektrik işini bilen ve kurulum tarafını yürütebilen firmalarla çalışıyoruz.
             Bayi ağımızdaki iki ana profil şu:
           </p>
