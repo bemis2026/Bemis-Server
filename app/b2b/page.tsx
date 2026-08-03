@@ -19,7 +19,37 @@ import {
   RiArrowRightLine,
 } from "react-icons/ri";
 import JsonLd from "../components/JsonLd";
-import { serviceSchema } from "../lib/seo";
+import { serviceSchema, faqSchema } from "../lib/seo";
+
+// Kurumsal alim SSS'i — hem gorunur icerik hem FAQPage semasi (ayni metin).
+// ⚠️ ADET/SURE/FIYAT TAAHHUDU YOK: kullanici bir sayi vermedi, uydurulmadi.
+// Yeni taahhut eklenecekse ONCE dogrulat.
+const B2B_FAQ = [
+  {
+    q: "Şarj cihazı imalatçısı mısınız, ithalatçı mı?",
+    a: "İmalatçıyız. AC şarj cihazlarını, Type 2 şarj kablolarını ve şarj ünitesi ekipmanlarını Bursa Organize Sanayi Bölgesi'ndeki kendi tesisimizde üretiyoruz; donanım ve gömülü yazılım kendi Ar-Ge ekibimizde geliştiriliyor. Ürünler ithal edilip etiketlenmiyor.",
+  },
+  {
+    q: "Toptan alım yapabilir miyim?",
+    a: "Evet. Elektrik malzemesi toptancıları, pano üreticileri, filo ve enerji firmalarıyla toptan tedarik modelinde çalışıyoruz. Talep ettiğiniz ürün ve adet bilgisiyle bize ulaşırsanız ticari şartları birlikte belirleriz.",
+  },
+  {
+    q: "Kendi markamızla üretim (white-label) yapıyor musunuz?",
+    a: "Evet. Mevcut ürün ailemiz sizin markanızla etiketlenebilir; ambalaj, kullanım kılavuzu ve ürün etiketi kendi marka kimliğinizle hazırlanır. Üretim, kalite kontrol ve sertifikasyon bizde kalır.",
+  },
+  {
+    q: "Fason üretimde neler özelleştirilebiliyor?",
+    a: "Kablo kesiti ve uzunluğu, soket tipi, mahfaza rengi ve etiketleme talebe göre belirlenebiliyor. Ürün geliştirme sürecinin başından sertifikasyona kadar mühendislik ekibimiz devrede olur.",
+  },
+  {
+    q: "Ürünleriniz hangi sertifikalara sahip?",
+    a: "Ürünlerimiz CE sertifikalıdır ve IP65/IP66 koruma sınıfında üretilir; IEC 61851 ve IEC 62196 standartlarına uygundur, OCPP uyumlu modellerimiz mevcuttur. Üretim tesisimiz ISO 9001 kalite yönetim sistemine sahiptir.",
+  },
+  {
+    q: "İhracat yapıyor musunuz?",
+    a: "Evet. 60'tan fazla ülkeye ihracat gerçekleştiriyoruz. Dış ticaret talepleri için trade@bemis.com.tr adresinden bize ulaşabilirsiniz; İngilizce üretici ve teklif sayfamız da yayında.",
+  },
+];
 
 /* ─── Data types ────────────────────────────────────────────────────────── */
 type B2BFeaturedSlot = { categoryId?: string; productId?: string };
@@ -91,12 +121,20 @@ export default function B2BPage() {
 
   return (
     <div style={{ background: bg, minHeight: "100vh" }}>
-      <JsonLd data={serviceSchema({
-        name: "OEM & Üretici Çözümleri",
-        description: "EV şarj ürünleri OEM üretimi, white-label etiketleme, toplu sipariş ve özel mühendislik çözümleri. CE & IP65 sertifikalı, 60+ ülkeye ihracat tecrübesi.",
-        url: "/b2b",
-        offerings: ["OEM Üretim", "White-Label Etiketleme", "Toplu Sipariş", "Özel Mühendislik", "Sertifikalı Üretim"],
-      })} />
+      {/* ⚠️ FAQPage EKLENDİ (2026-08-03): şemadaki "white-label / toplu sipariş /
+          özel mühendislik" ifadeleri sayfanın görünür metninde YOKTU — Google
+          şema içeriğinin sayfada görünür olmasını şart koşar. Artık aşağıdaki
+          "Çalışma Modelleri" + "Kurumsal alım soruları" bölümleri o içeriği
+          görünür kılıyor ve SSS metni B2B_FAQ ile BİREBİR aynı. */}
+      <JsonLd data={[
+        serviceSchema({
+          name: "OEM & Üretici Çözümleri",
+          description: "EV şarj ürünleri OEM üretimi, white-label etiketleme, toplu sipariş ve özel mühendislik çözümleri. CE & IP65 sertifikalı, 60+ ülkeye ihracat tecrübesi.",
+          url: "/b2b",
+          offerings: ["OEM Üretim", "White-Label Etiketleme", "Toplu Sipariş", "Özel Mühendislik", "Sertifikalı Üretim"],
+        }),
+        faqSchema(B2B_FAQ),
+      ]} />
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
@@ -233,7 +271,11 @@ export default function B2BPage() {
               </p>
               <div className="flex flex-wrap gap-2">
                 {[
-                  "11.000 m² Üretim Tesisi",
+                  // ⚠️ 2026-08-03: "11.000 m²" yazıyordu — o değer TARİHÇEDE 2010
+                  // yılına ait (kurumsal timeline'da doğru). Bugünkü tesis sitenin
+                  // 12 ayrı yerinde 16.000 m² olarak geçiyor; bu rozet onu güncel
+                  // gibi gösterip çelişki yaratıyordu.
+                  "16.000 m² Üretim Tesisi",
                   "60+ Ülke İhracat",
                   "CE / TSE / TÜV Sertifikalı",
                   "ISO 9001:2015",
@@ -252,6 +294,75 @@ export default function B2BPage() {
                 ))}
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Çalışma modelleri + SSS ───────────────────────────────────────
+          ⚠️ 2026-08-03 EKLENDİ. İki sebep:
+          (1) ŞEMA↔SAYFA UYUŞMAZLIĞI: serviceSchema'da "white-label etiketleme",
+              "toplu sipariş", "özel mühendislik" YAZIYORDU ama sayfanın görünür
+              metninde HİÇBİRİ geçmiyordu. Google, şemadaki içeriğin sayfada
+              görünür olmasını şart koşar.
+          (2) ARAMA BOŞLUĞU: "imalatçı", "toptan", "fason" kelimeleri sitenin
+              HİÇBİR yerinde geçmiyordu (ölçüldü). "Şarj cihazı imalatçısı" ya da
+              "toptan şarj kablosu" arayan alıcı bize ulaşamıyordu — üstelik bunlar
+              e-ticaretin rekabet etmediği, bayi modeline en uygun aramalar.
+          ⚠️ Adet/süre/fiyat TAAHHÜDÜ YOK — kullanıcı bana bir sayı vermedi,
+          uydurulmadı. Yeni bir taahhüt eklenecekse önce doğrulat. */}
+      <section className="py-14 px-5 sm:px-6 lg:px-8">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
+          <p className="text-xs font-bold tracking-[0.18em] uppercase mb-3" style={{ color: accentInk(AMBER, d) }}>
+            Çalışma Modelleri
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-black leading-tight mb-3" style={{ color: text }}>
+            Fason, white-label ve toptan tedarik
+          </h2>
+          <p className="text-sm sm:text-base leading-relaxed mb-6 max-w-3xl" style={{ color: muted }}>
+            Bemis E-V Charge bir <strong style={{ color: text }}>üretici ve imalatçı</strong>dır; ürünleri
+            ithal edip etiketlemez, Bursa Organize Sanayi Bölgesi&apos;ndeki kendi tesisinde üretir.
+            Bu yüzden kurumsal alıcılarla üç farklı modelde çalışabiliyoruz.
+          </p>
+          <div className="grid sm:grid-cols-3 gap-4 mb-8">
+            {[
+              {
+                t: "Fason / OEM üretim",
+                x: "Ürünü sizin teknik şartnamenize göre üretiriz. Kablo kesiti ve uzunluğu, soket tipi, mahfaza rengi ve etiketleme talebinize göre belirlenir; mühendislik ekibimiz tasarımdan sertifikasyona kadar süreçte yer alır.",
+              },
+              {
+                t: "White-label etiketleme",
+                x: "Mevcut ürün ailemiz sizin markanızla etiketlenir. Ambalaj, kullanım kılavuzu ve ürün etiketi kendi marka kimliğinizle hazırlanır; üretim ve kalite kontrol bizde kalır.",
+              },
+              {
+                t: "Toptan tedarik",
+                x: "Standart katalog ürünlerinin toplu alımı. Elektrik malzemesi toptancıları, panocular, filo ve enerji firmaları için düzenli tedarik; sevkiyat Bursa'daki üretim tesisinden tek noktadan yönetilir.",
+              },
+            ].map((m) => (
+              <div
+                key={m.t}
+                className="rounded-2xl p-5"
+                style={{ background: d ? "rgba(255,255,255,0.04)" : "#ffffff", border: `1px solid ${d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}` }}
+              >
+                <h3 className="text-sm font-bold mb-2" style={{ color: text }}>{m.t}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: muted }}>{m.x}</p>
+              </div>
+            ))}
+          </div>
+
+          <h2 className="text-xl sm:text-2xl font-black mb-4" style={{ color: text }}>
+            Kurumsal alım soruları
+          </h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            {B2B_FAQ.map((f, i) => (
+              <div
+                key={i}
+                className="rounded-2xl p-5"
+                style={{ background: d ? "rgba(255,255,255,0.04)" : "#ffffff", border: `1px solid ${d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}` }}
+              >
+                <h3 className="text-sm font-bold mb-2" style={{ color: text }}>{f.q}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: muted }}>{f.a}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

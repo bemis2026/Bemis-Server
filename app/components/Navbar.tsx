@@ -120,6 +120,11 @@ const REHBER_DROPDOWN: DropdownItem[] = [
     href: "/destek", accent: "#EF4444",
   },
   {
+    label: { tr: "Araç Uyumluluğu", en: "Vehicle Compatibility" },
+    sub:   { tr: "Aracınıza hangi cihaz ve kablo uyar", en: "Which charger and cable fits your car" },
+    href: "/arac-sarj-uyumlulugu", accent: "#8B5CF6",
+  },
+  {
     label: { tr: "Hesaplayıcı", en: "Calculator" },
     sub:   { tr: "Maliyet & şarj süresi hesaplama", en: "Cost & charge-time calculator" },
     href: "#calculator", accent: "#10B981",

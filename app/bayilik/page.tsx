@@ -8,7 +8,43 @@ import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
 import EnergyBackground from "../components/EnergyBackground";
 import JsonLd from "../components/JsonLd";
-import { serviceSchema } from "../lib/seo";
+
+// Bayilik SSS'i — hem gorunur icerik hem FAQPage semasi (AYNI metin).
+// ⚠️⚠️ 2026-08-03: icerik KULLANICI TEYIDIYLE yazildi. Teyit edilenler:
+//   · baslangic stok/siparis sarti VAR  (⚠️ RAKAM VERILMEDI -> yazilmadi)
+//   · teknik egitim + kurulum destegi VERILIYOR
+//   · hedef kitle: elektrik malzemesi bayileri/panocular + muhendislik/taahhut
+// TEYIT EDILMEYENLERI YAZMA: bolge munhasirligi, ciro hedefi, adet, sure,
+// komisyon/iskonto orani. Yeni madde eklemeden ONCE kullaniciya sor.
+const BAYILIK_FAQ = [
+  {
+    q: "Kimler Bemis E-V Charge bayisi olabilir?",
+    a: "Ağırlıkla iki profille çalışıyoruz: elektrik malzemesi satan bayiler ile pano üreticileri, ve site, iş yeri, otel veya filo projelerinde kurulum üstlenen mühendislik ve taahhüt firmaları. Elektrik işleriyle hâlihazırda uğraşan, kurulum tarafını yürütebilecek firmalar bu iş için en uygun profildir.",
+  },
+  {
+    q: "Bayilik için başlangıç stoğu gerekiyor mu?",
+    a: "Evet, bayilik başlangıcında bir açılış siparişi bulunuyor. Kapsamı ve ürün dağılımı, hedeflediğiniz bölgeye ve müşteri profilinize göre ticari görüşmede birlikte belirleniyor; standart tek bir paket dayatmıyoruz.",
+  },
+  {
+    q: "Teknik eğitim ve kurulum desteği veriyor musunuz?",
+    a: "Evet. Bayilerimize ürün eğitimi ve kurulum eğitimi veriyoruz; sahada karşılaşılan teknik sorularda üretim ve Ar-Ge ekibimize doğrudan erişebiliyorlar. Ürünleri kendi tesisimizde ürettiğimiz için teknik cevap aracı bir ithalatçıdan değil, doğrudan üreticiden geliyor.",
+  },
+  {
+    q: "Ürünleri kim üretiyor, ithal mi ediliyor?",
+    a: "Ürünler Bursa Organize Sanayi Bölgesi'ndeki kendi tesisimizde üretiliyor; donanım ve gömülü yazılım kendi Ar-Ge ekibimizde geliştiriliyor. İthal edilip etiketlenmiyor. Bu, bayi açısından yedek parça ve teknik destek erişiminde belirleyici bir farktır.",
+  },
+  {
+    q: "Yedek parça ve satış sonrası nasıl işliyor?",
+    a: "Üretim bizde olduğu için yedek parça doğrudan üretim tesisinden temin ediliyor. Ürünler 2 yıl üretici garantilidir; garanti ve arıza süreçleri bayi üzerinden yürütülür.",
+  },
+  {
+    q: "Başvuru nasıl ilerliyor?",
+    a: "Sayfadaki başvuru formunu doldurmanız yeterli. Ekibimiz firmanızın faaliyet alanını ve hedeflediğiniz bölgeyi değerlendirip sizinle iletişime geçer; ardından ürün gamı, ticari şartlar ve açılış siparişi birlikte konuşulur.",
+  },
+];
+
+
+import { serviceSchema, faqSchema } from "../lib/seo";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 import { useDealerApplyOverlay } from "../context/DealerApplyOverlayContext";
@@ -122,13 +158,20 @@ export default function BayilikPage() {
 
   return (
     <div style={{ background: bg, display: "flex", flexDirection: "column", minHeight: "100vh", position: "relative", overflow: "hidden", isolation: "isolate" }}>
-      <JsonLd data={serviceSchema({
-        name: "Bayi & Distribütör Programı",
-        description: "Türkiye'de bayi, yurt dışında distribütör programı. 80+ ilde yetkili bayi ağı, 60+ ülkede ihracat tecrübesi. Teknik eğitim, pazarlama desteği ve özel bayi fiyatları.",
-        url: "/bayilik",
-        offerings: ["Türkiye Bayilik", "Yurtdışı Distribütörlük", "Teknik Eğitim", "Pazarlama Desteği", "Bayi Özel Fiyatları"],
-        areaServed: "Worldwide",
-      })} />
+      {/* ⚠️ FAQPage eklendi (2026-08-03): sayfa 306 kelimeydi ve SSS'i yoktu;
+          "şarj istasyonu bayiliği" gibi aramalarda cevap verecek içerik yoktu.
+          SSS metni BAYILIK_FAQ ile birebir aynı (Google: şema içeriği sayfada
+          görünür olmalı). */}
+      <JsonLd data={[
+        serviceSchema({
+          name: "Bayi & Distribütör Programı",
+          description: "Türkiye'de bayi, yurt dışında distribütör programı. 80+ ilde yetkili bayi ağı, 60+ ülkede ihracat tecrübesi. Teknik eğitim, pazarlama desteği ve özel bayi fiyatları.",
+          url: "/bayilik",
+          offerings: ["Türkiye Bayilik", "Yurtdışı Distribütörlük", "Teknik Eğitim", "Pazarlama Desteği", "Bayi Özel Fiyatları"],
+          areaServed: "Worldwide",
+        }),
+        faqSchema(BAYILIK_FAQ),
+      ]} />
       <EnergyBackground />
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
@@ -374,6 +417,79 @@ export default function BayilikPage() {
               </button>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ── Kimler bayi oluyor + destekler + SSS ─────────────────────────────
+          ⚠️ 2026-08-03 EKLENDİ. Sayfa 306 kelimeydi, SSS'i yoktu; "şarj
+          istasyonu bayiliği" / "distribütörlük başvurusu" aramalarında cevap
+          verecek içerik bulunmuyordu. E-ticaretin rekabet etmediği, bayi
+          modeline en uygun arama kümesi burası.
+          ⚠️⚠️ İÇERİK KULLANICI TEYİDİYLE: açılış siparişi VAR (rakam verilmedi →
+          yazılmadı), teknik eğitim + kurulum desteği VERİLİYOR, hedef kitle
+          elektrik bayileri/panocular + mühendislik/taahhüt firmaları.
+          TEYİT EDİLMEYEN hiçbir koşul (bölge münhasırlığı, ciro, adet, iskonto)
+          yazılmadı — eklemeden önce kullanıcıya SOR. */}
+      <section style={{ padding: "52px 0", borderBottom: `1px solid ${border}` }}>
+        <div className="max-w-4xl mx-auto px-5 sm:px-8">
+          <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: GREEN }}>
+            Bayi Profili
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-black leading-tight mb-3" style={{ color: text }}>
+            Kimler Bemis bayisi oluyor?
+          </h2>
+          <p className="text-sm leading-relaxed mb-6" style={{ color: muted }}>
+            Elektrik işini bilen ve kurulum tarafını yürütebilen firmalarla çalışıyoruz.
+            Bayi ağımızdaki iki ana profil şu:
+          </p>
+          <div className="grid sm:grid-cols-2 gap-4 mb-8">
+            {[
+              {
+                t: "Elektrik malzemesi bayileri ve pano üreticileri",
+                x: "Ürün yelpazesine elektrikli araç şarj cihazı ve Type 2 kablo eklemek isteyen firmalar. Mevcut müşteri tabanınıza doğrudan üreticiden tedarik edilen, yedek parçası ve teknik desteği garantili bir ürün grubu eklersiniz.",
+              },
+              {
+                t: "Mühendislik ve taahhüt firmaları",
+                x: "Site, iş yeri, otel, AVM ve filo projelerinde çoklu şarj kurulumu üstlenen firmalar. Proje bazlı işlerde kablo boyu, soket tipi ve mahfaza rengi gibi özelleştirmeler için üretim ekibimizle doğrudan çalışabilirsiniz.",
+              },
+            ].map((m) => (
+              <div key={m.t} className="rounded-2xl p-5" style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}>
+                <h3 className="text-sm font-bold mb-2" style={{ color: text }}>{m.t}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: muted }}>{m.x}</p>
+              </div>
+            ))}
+          </div>
+
+          <h2 className="text-xl sm:text-2xl font-black mb-4" style={{ color: text }}>
+            Bayilerimize ne sağlıyoruz?
+          </h2>
+          <div className="grid sm:grid-cols-3 gap-4 mb-8">
+            {[
+              { t: "Ürün ve kurulum eğitimi", x: "Ürün ailesi, doğru model seçimi ve saha kurulumu üzerine eğitim veriyoruz." },
+              { t: "Doğrudan üreticiye erişim", x: "Sahadaki teknik sorularda aracı bir ithalatçı değil, üretim ve Ar-Ge ekibimiz cevap verir." },
+              { t: "Yedek parça ve garanti", x: "Yedek parça doğrudan üretim tesisinden gelir; ürünler 2 yıl üretici garantilidir." },
+            ].map((m) => (
+              <div key={m.t} className="rounded-2xl p-5" style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}>
+                <div className="w-9 h-9 rounded-xl flex items-center justify-center mb-3" style={{ background: `${GREEN}18`, border: `1px solid ${GREEN}30` }}>
+                  <RiCheckLine style={{ fontSize: 16, color: GREEN }} />
+                </div>
+                <h3 className="text-sm font-bold mb-1.5" style={{ color: text }}>{m.t}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: muted }}>{m.x}</p>
+              </div>
+            ))}
+          </div>
+
+          <h2 className="text-xl sm:text-2xl font-black mb-4" style={{ color: text }}>
+            Bayilik hakkında sık sorulanlar
+          </h2>
+          <div className="space-y-3">
+            {BAYILIK_FAQ.map((f, i) => (
+              <div key={i} className="rounded-2xl p-5" style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}>
+                <h3 className="text-sm font-bold mb-2" style={{ color: text }}>{f.q}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: muted }}>{f.a}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -49,6 +49,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/cerez-politikasi`, lastModified: now, changeFrequency: "yearly",  priority: 0.3 },
     // Son kullanıcı destek sayfası — "şarj cihazım çalışmıyor" gibi aramaların hedefi.
     { url: `${BASE}/destek`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    // Araç uyumluluk rehberi — "Togg'a hangi şarj kablosu" gibi model bazlı
+    // aramaların hedefi (2026-08-03). Bkz. app/lib/vehicleCharging.ts
+    { url: `${BASE}/arac-sarj-uyumlulugu`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
   ];
 
   // Şehir bazlı yerel-SEO landing sayfaları (örn. /bursa-ev-sarj-istasyonu).
