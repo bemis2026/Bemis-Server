@@ -578,16 +578,19 @@ export default function ProductCategoryPage({ initialCategory = null, titleOverr
         if (lang === "en") return null;
         const GUIDES: Record<string, { label: string; href: string }[]> = {
           cables: [
+            { label: "Hangi araca hangi şarj cihazı ve kablosu uyar?", href: "/arac-sarj-uyumlulugu" },
             { label: "Şarj kablosu kaç metre, kaç amper olmalı?", href: "/blog/elektrikli-arac-sarj-kablosu-kac-metre-kac-amper" },
             { label: "Şarj kablosu dışarıda/yağmurda kullanılır mı?", href: "/blog/elektrikli-arac-sarj-kablosu-disarida-yagmurda-kullanilir-mi" },
             { label: "EV şarj kablosu seçimi (Type 2)", href: "/blog/ev-sarj-kablosu-secimi-type-2" },
           ],
           wallbox: [
+            { label: "Hangi araca hangi şarj cihazı ve kablosu uyar?", href: "/arac-sarj-uyumlulugu" },
             { label: "Ev şarj ünitesi mi, taşınabilir cihaz mı?", href: "/blog/ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi" },
             { label: "EV için şarj cihazı nasıl seçilir?", href: "/blog/ev-icin-sarj-cihazi-nasil-secilir" },
             { label: "Apartmana / siteye şarj istasyonu kurulumu", href: "/blog/apartmana-sarj-istasyonu-kurulumu" },
           ],
           portable: [
+            { label: "Hangi araca hangi şarj cihazı ve kablosu uyar?", href: "/arac-sarj-uyumlulugu" },
             { label: "Ev şarj ünitesi mi, taşınabilir cihaz mı?", href: "/blog/ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi" },
             { label: "Şarj kablosu kaç metre, kaç amper olmalı?", href: "/blog/elektrikli-arac-sarj-kablosu-kac-metre-kac-amper" },
           ],

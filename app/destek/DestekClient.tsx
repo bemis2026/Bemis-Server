@@ -35,7 +35,6 @@ import {
 // ait TAAHHÜT sadece sitede zaten yazılı olan "2 yıl üretici garantisi" ve satışın
 // yetkili bayi üzerinden yürüdüğü gerçeğidir. Süre/tarih taahhüdü VERİLMEZ.
 // Elektrik işleri için DAİMA yetkili elektrikçiye yönlendirilir.
-const BLUE = "#3B82F6";
 const AMBER = "#F59E0B";
 const GREEN = "#10B981";
 const VIEWPORT = { once: true, margin: "-60px" } as const;
@@ -172,7 +171,16 @@ export default function DestekClient() {
   const text  = d ? "#f0f0f4" : "#1a1a2e";
   const muted = d ? "rgba(240,240,244,0.62)" : "rgba(26,26,46,0.62)";
   const faint = d ? "rgba(240,240,244,0.40)" : "rgba(26,26,46,0.42)";
-  const ink   = accentInk(BLUE, d);
+  // ⚠️⚠️ RENK PİLOTU (2026-08-04, kullanıcı isteği) — BU SAYFAYA ÖZEL.
+  // Mavi accent YERİNE nötr palet: karanlıkta BEYAZ, aydınlıkta SİYAH, dolgular
+  // gri. Amaç: siteyi maviden arındırmayı önce tek sayfada denemek; beğenilirse
+  // genele yayılacak. Sitenin geri kalanı DEĞİŞMEDİ.
+  // 📌 GERİ ALMAK: bu üç sabiti silip `const BLUE = "#3B82F6"` geri koy ve
+  //    `ink`i tekrar accentInk(BLUE, d) yap.
+  const NOTR      = d ? "#ffffff" : "#111111";                              // metin + ikon
+  const NOTR_DOLGU= d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.06)";      // ikon kutusu zemini
+  const NOTR_CIZGI= d ? "rgba(255,255,255,0.28)" : "rgba(0,0,0,0.22)";      // accent çizgi / nabız
+  const ink   = NOTR;
   const inkAmber = accentInk(AMBER, d);
   const inkGreen = accentInk(GREEN, d);
 
@@ -186,10 +194,10 @@ export default function DestekClient() {
     >
       <div className="flex items-center gap-2.5 mb-2">
         <span className="inline-flex items-center justify-center rounded-xl flex-shrink-0"
-          style={{ width: 34, height: 34, background: `${BLUE}16`, color: ink, fontSize: 17 }} aria-hidden>{icon}</span>
+          style={{ width: 34, height: 34, background: NOTR_DOLGU, color: ink, fontSize: 17 }} aria-hidden>{icon}</span>
         <h2 className="text-xl sm:text-2xl font-black" style={{ color: text }}>{children}</h2>
       </div>
-      <div className="h-px w-24 mb-3" style={{ background: `linear-gradient(90deg, ${BLUE} 0%, transparent 100%)` }} />
+      <div className="h-px w-24 mb-3" style={{ background: `linear-gradient(90deg, ${NOTR_CIZGI} 0%, transparent 100%)` }} />
       {alt && <p className="text-sm leading-relaxed max-w-3xl" style={{ color: muted }}>{alt}</p>}
     </motion.div>
   );
@@ -209,7 +217,8 @@ export default function DestekClient() {
     <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
       className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold cursor-pointer transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
       style={primary
-        ? { background: BLUE, color: "#fff", boxShadow: `0 8px 22px ${BLUE}40` }
+        ? { background: NOTR, color: d ? "#111111" : "#ffffff",
+            boxShadow: d ? "0 8px 22px rgba(255,255,255,0.18)" : "0 8px 22px rgba(0,0,0,0.28)" }
         : { color: text, border: `1.5px solid ${line}`, background: d ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.7)" }}>
       {icon}{children}
     </a>
@@ -223,7 +232,7 @@ export default function DestekClient() {
       {/* ── Hero ── */}
       <section className="relative overflow-hidden pt-28 pb-8 px-5 sm:px-6 lg:px-8">
         <div aria-hidden className="pointer-events-none absolute -top-24 right-0 w-[480px] h-[480px] rounded-full"
-          style={{ background: `radial-gradient(circle, ${BLUE}12 0%, transparent 70%)`, filter: "blur(40px)" }} />
+          style={{ background: `radial-gradient(circle, ${d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.05)"} 0%, transparent 70%)`, filter: "blur(40px)" }} />
         <div className={`relative ${WRAP}`}>
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-12 items-start">
             <div>
@@ -234,11 +243,11 @@ export default function DestekClient() {
               >
                 <span aria-hidden className="relative flex h-2 w-2">
                   {!reduce && (
-                    <motion.span className="absolute inline-flex h-full w-full rounded-full" style={{ background: BLUE }}
+                    <motion.span className="absolute inline-flex h-full w-full rounded-full" style={{ background: NOTR_CIZGI }}
                       animate={{ scale: [1, 2.2, 1], opacity: [0.7, 0, 0.7] }}
                       transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} />
                   )}
-                  <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: BLUE }} />
+                  <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: NOTR_CIZGI }} />
                 </span>
                 Destek · Arıza &amp; Garanti
               </motion.p>
@@ -250,7 +259,7 @@ export default function DestekClient() {
               </motion.h1>
               <motion.div
                 initial={{ scaleX: 0, opacity: 0 }} animate={{ scaleX: 1, opacity: 1 }} transition={{ duration: 0.5, delay: 0.18 }}
-                className="h-px w-24 origin-left mb-5" style={{ background: `linear-gradient(90deg, ${BLUE} 0%, transparent 100%)` }}
+                className="h-px w-24 origin-left mb-5" style={{ background: `linear-gradient(90deg, ${NOTR_CIZGI} 0%, transparent 100%)` }}
               />
               <motion.p
                 initial={{ y: 10 }} animate={{ y: 0 }} transition={{ duration: 0.45, delay: 0.22 }}
@@ -313,7 +322,7 @@ export default function DestekClient() {
                 style={{ background: card, border: `1px solid ${line}` }}
               >
                 <span className="inline-flex items-center justify-center rounded-xl mb-3 flex-shrink-0"
-                  style={{ width: 36, height: 36, background: `${BLUE}16`, color: ink, fontSize: 18 }} aria-hidden>{k.icon}</span>
+                  style={{ width: 36, height: 36, background: NOTR_DOLGU, color: ink, fontSize: 18 }} aria-hidden>{k.icon}</span>
                 <h3 className="text-sm font-bold leading-snug mb-1" style={{ color: text }}>{k.baslik}</h3>
                 <p className="text-xs mb-3" style={{ color: faint }}>{k.belirti}</p>
                 {/* ⚠️ `mt-auto` KULLANMA: ızgarada kartlar eşit yükseklikte esner, adım
@@ -354,7 +363,7 @@ export default function DestekClient() {
             {ADIMLAR.map((a, i) => (
               <Kart key={a.n} delay={0.05 + i * 0.07}>
                 <span className="flex items-center justify-center rounded-xl text-base font-black mb-3"
-                  style={{ width: 34, height: 34, background: `${BLUE}16`, color: ink }}>{a.n}</span>
+                  style={{ width: 34, height: 34, background: NOTR_DOLGU, color: ink }}>{a.n}</span>
                 <h3 className="text-sm font-bold mb-1.5" style={{ color: text }}>{a.h}</h3>
                 <p className="text-[13px] leading-relaxed" style={{ color: muted }}>{a.p}</p>
               </Kart>
@@ -401,7 +410,7 @@ export default function DestekClient() {
                       <span aria-hidden className="absolute left-[13px] top-7 bottom-0 w-px" style={{ background: line }} />
                     )}
                     <span className="flex items-center justify-center rounded-full text-[11px] font-black flex-shrink-0 relative z-10"
-                      style={{ width: 27, height: 27, background: `${BLUE}16`, color: ink }}>{i + 1}</span>
+                      style={{ width: 27, height: 27, background: NOTR_DOLGU, color: ink }}>{i + 1}</span>
                     <div>
                       <p className="text-sm font-bold mb-0.5" style={{ color: text }}>{s.h}</p>
                       <p className="text-[13px] leading-relaxed" style={{ color: muted }}>{s.p}</p>
