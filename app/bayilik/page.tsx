@@ -19,11 +19,16 @@ import JsonLd from "../components/JsonLd";
 const BAYILIK_FAQ = [
   {
     q: "Kimler Bemis E-V Charge bayisi olabilir?",
-    a: "Ağırlıkla iki profille çalışıyoruz: elektrik malzemesi satan bayiler ile pano üreticileri, ve site, iş yeri, otel veya filo projelerinde kurulum üstlenen mühendislik ve taahhüt firmaları. Elektrik işleriyle hâlihazırda uğraşan, kurulum tarafını yürütebilecek firmalar bu iş için en uygun profildir.",
+    a: "Ağırlıkla iki profille çalışıyoruz: elektrik malzemesi satan bayiler ile pano üreticileri, ve site, iş yeri, otel veya filo projelerinde kurulum üstlenen mühendislik ve taahhüt firmaları. Elektrik işleriyle hâlihazırda uğraşan, kurulum tarafını yürütebilecek firmalar bu iş için en uygun profildir. Şirket yaşı, teknik personel ve finansal şartlar gibi resmi başvuru kriterleri sayfadaki \"Aranan Kriterler\" bölümünde listelenir.",
   },
   {
+    // ⚠️ 2026-08-03 DÜZELTİLDİ: ilk yazımda "standart tek bir paket dayatmıyoruz"
+    // deniyordu — bu, sayfanın KENDİ kriter listesiyle ÇELİŞİYORDU
+    // (FALLBACK_TR_CRITERIA: "Bemis E-V Charge'ın belirlediği ürün karması
+    // üzerinden stok alımı taahhüdü"). Aynı sayfanın iki yeri birbirini
+    // yalanlamamalı. 📌 Bu SSS'e bir şey eklerken ÖNCE kriter listesini oku.
     q: "Bayilik için başlangıç stoğu gerekiyor mu?",
-    a: "Evet, bayilik başlangıcında bir açılış siparişi bulunuyor. Kapsamı ve ürün dağılımı, hedeflediğiniz bölgeye ve müşteri profilinize göre ticari görüşmede birlikte belirleniyor; standart tek bir paket dayatmıyoruz.",
+    a: "Evet. Açılış siparişinde, Bemis E-V Charge'ın belirlediği ürün karması üzerinden bir stok alımı taahhüdü bulunuyor. Kapsam ve ürün dağılımı, hedeflediğiniz bölgeye ve müşteri profilinize göre ticari görüşmede netleşir. Sayfadaki \"Aranan Kriterler\" bölümünde diğer başvuru şartlarını da bulabilirsiniz.",
   },
   {
     q: "Teknik eğitim ve kurulum desteği veriyor musunuz?",
@@ -234,7 +239,7 @@ export default function BayilikPage() {
           görselleri tek bölümde. Stats üstte, fuar galerisi altta;
           her ikisi de aynı "kurumsal güven" mesajını destekliyor. ── */}
       <section style={{ background: bg, borderBottom: `1px solid ${border}`, padding: "52px 0" }}>
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-8">
           <div className="mb-7">
             <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: GREEN }}>
               Ağımız Hakkında
@@ -336,7 +341,7 @@ export default function BayilikPage() {
 
       {/* ── Aranan Kriterler — tabbed (Türkiye Bayilik / Yurtdışı Distribütörlük) ── */}
       <section style={{ background: bgSub, padding: "52px 0", borderBottom: `1px solid ${border}` }}>
-        <div className="max-w-4xl mx-auto px-5 sm:px-8">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-8">
           <div className="mb-6">
             <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: GREEN }}>
               Başvuru Koşulları
@@ -385,12 +390,14 @@ export default function BayilikPage() {
             className="rounded-2xl p-6 sm:p-7"
             style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}
           >
-            <p className="text-sm leading-relaxed mb-5" style={{ color: muted }}>
+            <p className="text-sm leading-relaxed mb-5 max-w-3xl" style={{ color: muted }}>
               {tab === "tr"
                 ? "Türkiye sınırları içinde belirli bir ilçe, il veya bölgede Bemis E-V Charge ürünlerinin satış ve kurulumunu üstlenecek yetkili bayi başvurularında aranan temel kriterler:"
                 : "Türkiye dışında bir ülke veya bölgede Bemis E-V Charge ürünlerini dağıtacak distribütör başvurularında aranan temel kriterler:"}
             </p>
-            <ul className="space-y-3">
+            {/* ⚠️ Konteyner 896 -> 1600px olunca tek sutunlu liste satirlari
+                asiri uzuyordu; izgara okunabilir satir boyunu korur. */}
+            <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-3">
               {activeCriteria.map((c) => (
                 <li key={c} className="flex items-start gap-3">
                   <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
@@ -431,14 +438,14 @@ export default function BayilikPage() {
           TEYİT EDİLMEYEN hiçbir koşul (bölge münhasırlığı, ciro, adet, iskonto)
           yazılmadı — eklemeden önce kullanıcıya SOR. */}
       <section style={{ padding: "52px 0", borderBottom: `1px solid ${border}` }}>
-        <div className="max-w-4xl mx-auto px-5 sm:px-8">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-8">
           <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: GREEN }}>
             Bayi Profili
           </p>
           <h2 className="text-2xl sm:text-3xl font-black leading-tight mb-3" style={{ color: text }}>
             Kimler Bemis bayisi oluyor?
           </h2>
-          <p className="text-sm leading-relaxed mb-6" style={{ color: muted }}>
+          <p className="text-sm leading-relaxed mb-6 max-w-3xl" style={{ color: muted }}>
             Elektrik işini bilen ve kurulum tarafını yürütebilen firmalarla çalışıyoruz.
             Bayi ağımızdaki iki ana profil şu:
           </p>
@@ -482,7 +489,7 @@ export default function BayilikPage() {
           <h2 className="text-xl sm:text-2xl font-black mb-4" style={{ color: text }}>
             Bayilik hakkında sık sorulanlar
           </h2>
-          <div className="space-y-3">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
             {BAYILIK_FAQ.map((f, i) => (
               <div key={i} className="rounded-2xl p-5" style={{ background: card, border: `1px solid ${border}`, boxShadow: shadow }}>
                 <h3 className="text-sm font-bold mb-2" style={{ color: text }}>{f.q}</h3>
