@@ -21,9 +21,9 @@ const EN_NAMES: Record<string, string> = {
   "Charger Pro 2 GSM MID Sayaçlı": "Charger Pro 2 GSM with MID Meter",
 
   // ── AC Şarj Kabloları (Type 2 şarj setleri) ──
-  "Şarj Seti 20A Monofaze 3,7 kW": "Charging Cable Set 20A Single-Phase 3.7 kW",
+  "Şarj Seti 16A Monofaze 3,7 kW": "Charging Cable Set 16A Single-Phase 3.7 kW",
   "Şarj Seti 32A Monofaze 7,4 kW": "Charging Cable Set 32A Single-Phase 7.4 kW",
-  "Şarj Seti 20A Trifaze 11 kW": "Charging Cable Set 20A Three-Phase 11 kW",
+  "Şarj Seti 16A Trifaze 11 kW": "Charging Cable Set 16A Three-Phase 11 kW",
   "Şarj Seti 32A Trifaze 22 kW": "Charging Cable Set 32A Three-Phase 22 kW",
 
   // ── V2L / C2L Adaptörler ──

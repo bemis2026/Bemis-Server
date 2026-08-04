@@ -1030,7 +1030,7 @@
       {
         "id": "charger-pro-2-gsm-mid-kablolu",
         "name": "Charger Pro 2 GSM MID Sayaçlı",
-        "code": "BEV-3011-1015",
+        "code": "BEV-3011-10S5",
         "subtitle": "5m. Kablolu / GSM Modüllü · Entegre MID Sayaç",
         "badge": "GSM · MID",
         "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir. Bu modelde kasaya entegre, sertifikalı MID enerji sayacı bulunur; OCPP ile ölçüm bazlı faturalandırmaya ve yoğun ticari kullanıma tam uygundur. Yerli üretimdir.",
@@ -1083,7 +1083,7 @@
             "items": [
               {
                 "label": "Liste Fiyatı",
-                "value": "EUR 991,00"
+                "value": "EUR 960,00"
               }
             ]
           },
@@ -1122,7 +1122,7 @@
       {
         "id": "charger-pro-2-gsm-mid-pano",
         "name": "Charger Pro 2 GSM MID Sayaçlı",
-        "code": "BEV-3012-1010",
+        "code": "BEV-3012-10S0",
         "subtitle": "Pano Prizli / GSM Modüllü · Entegre MID Sayaç",
         "badge": "GSM · MID",
         "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir. Bu modelde kasaya entegre, sertifikalı MID enerji sayacı bulunur; OCPP ile ölçüm bazlı faturalandırmaya ve yoğun ticari kullanıma tam uygundur. Yerli üretimdir.",
@@ -1175,7 +1175,7 @@
             "items": [
               {
                 "label": "Liste Fiyatı",
-                "value": "EUR 974,50"
+                "value": "EUR 930,00"
               }
             ]
           },
@@ -1532,11 +1532,11 @@
     "products": [
       {
         "id": "sarj-seti-20a-monofaze-3m",
-        "name": "Şarj Seti 20A Monofaze 3,7 kW",
+        "name": "Şarj Seti 16A Monofaze 3,7 kW",
         "code": "BEV-3020-1203",
         "subtitle": "3m Kablolu",
         "badge": null,
-        "description": "Monofaze 20A — 3,7 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 3×2,5 mm² + 1×0,75 mm² TTR halojensiz kablo yapısı, ev tipi prizden veya AC wallbox'tan araç şarjı için.",
+        "description": "Monofaze 16A — 3,7 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 3×2,5 mm² + 1×0,75 mm² TTR halojensiz kablo yapısı, ev tipi prizden veya AC wallbox'tan araç şarjı için.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -1551,7 +1551,7 @@
               },
               {
                 "label": "Maks. Akım",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -1587,7 +1587,7 @@
           }
         ],
         "generalFeatures": [
-          "Monofaze 20A 3,7 kW güç çıkışı",
+          "Monofaze 16A 3,7 kW güç çıkışı",
           "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
           "Mod 3 sinyal protokolü, mekanik kilitleme",
           "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
@@ -1601,11 +1601,11 @@
       },
       {
         "id": "sarj-seti-20a-monofaze-5m",
-        "name": "Şarj Seti 20A Monofaze 3,7 kW",
+        "name": "Şarj Seti 16A Monofaze 3,7 kW",
         "code": "BEV-3020-1205",
         "subtitle": "5m Kablolu",
         "badge": null,
-        "description": "Monofaze 20A — 3,7 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 3×2,5 mm² + 1×0,75 mm² TTR halojensiz kablo yapısı, ev tipi prizden veya AC wallbox'tan araç şarjı için.",
+        "description": "Monofaze 16A — 3,7 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 3×2,5 mm² + 1×0,75 mm² TTR halojensiz kablo yapısı, ev tipi prizden veya AC wallbox'tan araç şarjı için.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -1620,7 +1620,7 @@
               },
               {
                 "label": "Maks. Akım",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -1656,7 +1656,7 @@
           }
         ],
         "generalFeatures": [
-          "Monofaze 20A 3,7 kW güç çıkışı",
+          "Monofaze 16A 3,7 kW güç çıkışı",
           "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
           "Mod 3 sinyal protokolü, mekanik kilitleme",
           "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
@@ -1670,11 +1670,11 @@
       },
       {
         "id": "sarj-seti-20a-monofaze-7m",
-        "name": "Şarj Seti 20A Monofaze 3,7 kW",
+        "name": "Şarj Seti 16A Monofaze 3,7 kW",
         "code": "BEV-3020-1207",
         "subtitle": "7m Kablolu",
         "badge": null,
-        "description": "Monofaze 20A — 3,7 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 3×2,5 mm² + 1×0,75 mm² TTR halojensiz kablo yapısı, ev tipi prizden veya AC wallbox'tan araç şarjı için.",
+        "description": "Monofaze 16A — 3,7 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 3×2,5 mm² + 1×0,75 mm² TTR halojensiz kablo yapısı, ev tipi prizden veya AC wallbox'tan araç şarjı için.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -1689,7 +1689,7 @@
               },
               {
                 "label": "Maks. Akım",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -1725,7 +1725,7 @@
           }
         ],
         "generalFeatures": [
-          "Monofaze 20A 3,7 kW güç çıkışı",
+          "Monofaze 16A 3,7 kW güç çıkışı",
           "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
           "Mod 3 sinyal protokolü, mekanik kilitleme",
           "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
@@ -1739,11 +1739,11 @@
       },
       {
         "id": "sarj-seti-20a-monofaze-8m",
-        "name": "Şarj Seti 20A Monofaze 3,7 kW",
+        "name": "Şarj Seti 16A Monofaze 3,7 kW",
         "code": "BEV-3020-1208",
         "subtitle": "8m Kablolu",
         "badge": null,
-        "description": "Monofaze 20A — 3,7 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 3×2,5 mm² + 1×0,75 mm² TTR halojensiz kablo yapısı, ev tipi prizden veya AC wallbox'tan araç şarjı için.",
+        "description": "Monofaze 16A — 3,7 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 3×2,5 mm² + 1×0,75 mm² TTR halojensiz kablo yapısı, ev tipi prizden veya AC wallbox'tan araç şarjı için.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -1758,7 +1758,7 @@
               },
               {
                 "label": "Maks. Akım",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -1794,7 +1794,7 @@
           }
         ],
         "generalFeatures": [
-          "Monofaze 20A 3,7 kW güç çıkışı",
+          "Monofaze 16A 3,7 kW güç çıkışı",
           "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
           "Mod 3 sinyal protokolü, mekanik kilitleme",
           "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
@@ -1808,11 +1808,11 @@
       },
       {
         "id": "sarj-seti-20a-monofaze-10m",
-        "name": "Şarj Seti 20A Monofaze 3,7 kW",
+        "name": "Şarj Seti 16A Monofaze 3,7 kW",
         "code": "BEV-3020-1210",
         "subtitle": "10m Kablolu",
         "badge": null,
-        "description": "Monofaze 20A — 3,7 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 3×2,5 mm² + 1×0,75 mm² TTR halojensiz kablo yapısı, ev tipi prizden veya AC wallbox'tan araç şarjı için.",
+        "description": "Monofaze 16A — 3,7 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 3×2,5 mm² + 1×0,75 mm² TTR halojensiz kablo yapısı, ev tipi prizden veya AC wallbox'tan araç şarjı için.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -1827,7 +1827,7 @@
               },
               {
                 "label": "Maks. Akım",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -1863,7 +1863,7 @@
           }
         ],
         "generalFeatures": [
-          "Monofaze 20A 3,7 kW güç çıkışı",
+          "Monofaze 16A 3,7 kW güç çıkışı",
           "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
           "Mod 3 sinyal protokolü, mekanik kilitleme",
           "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
@@ -2222,11 +2222,11 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-3m",
-        "name": "Şarj Seti 20A Trifaze 11 kW",
+        "name": "Şarj Seti 16A Trifaze 11 kW",
         "code": "BEV-5020-1203",
         "subtitle": "3m Kablolu",
         "badge": null,
-        "description": "Trifaze 20A — 11 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 5×2,5 mm² + 1×0,75 mm² halojensiz kablo; ticari ve iş yeri uygulamaları için orta-güç sınıfı.",
+        "description": "Trifaze 16A — 11 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 5×2,5 mm² + 1×0,75 mm² halojensiz kablo; ticari ve iş yeri uygulamaları için orta-güç sınıfı.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -2241,7 +2241,7 @@
               },
               {
                 "label": "Maks. Akım",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -2277,7 +2277,7 @@
           }
         ],
         "generalFeatures": [
-          "Trifaze 20A 11 kW güç çıkışı",
+          "Trifaze 16A 11 kW güç çıkışı",
           "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
           "Mod 3 sinyal protokolü, mekanik kilitleme",
           "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
@@ -2291,11 +2291,11 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-5m",
-        "name": "Şarj Seti 20A Trifaze 11 kW",
+        "name": "Şarj Seti 16A Trifaze 11 kW",
         "code": "BEV-5020-1205",
         "subtitle": "5m Kablolu",
         "badge": null,
-        "description": "Trifaze 20A — 11 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 5×2,5 mm² + 1×0,75 mm² halojensiz kablo; ticari ve iş yeri uygulamaları için orta-güç sınıfı.",
+        "description": "Trifaze 16A — 11 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 5×2,5 mm² + 1×0,75 mm² halojensiz kablo; ticari ve iş yeri uygulamaları için orta-güç sınıfı.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -2310,7 +2310,7 @@
               },
               {
                 "label": "Maks. Akım",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -2346,7 +2346,7 @@
           }
         ],
         "generalFeatures": [
-          "Trifaze 20A 11 kW güç çıkışı",
+          "Trifaze 16A 11 kW güç çıkışı",
           "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
           "Mod 3 sinyal protokolü, mekanik kilitleme",
           "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
@@ -2360,11 +2360,11 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-7m",
-        "name": "Şarj Seti 20A Trifaze 11 kW",
+        "name": "Şarj Seti 16A Trifaze 11 kW",
         "code": "BEV-5020-1207",
         "subtitle": "7m Kablolu",
         "badge": null,
-        "description": "Trifaze 20A — 11 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 5×2,5 mm² + 1×0,75 mm² halojensiz kablo; ticari ve iş yeri uygulamaları için orta-güç sınıfı.",
+        "description": "Trifaze 16A — 11 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 5×2,5 mm² + 1×0,75 mm² halojensiz kablo; ticari ve iş yeri uygulamaları için orta-güç sınıfı.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -2379,7 +2379,7 @@
               },
               {
                 "label": "Maks. Akım",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -2415,7 +2415,7 @@
           }
         ],
         "generalFeatures": [
-          "Trifaze 20A 11 kW güç çıkışı",
+          "Trifaze 16A 11 kW güç çıkışı",
           "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
           "Mod 3 sinyal protokolü, mekanik kilitleme",
           "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
@@ -2429,11 +2429,11 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-8m",
-        "name": "Şarj Seti 20A Trifaze 11 kW",
+        "name": "Şarj Seti 16A Trifaze 11 kW",
         "code": "BEV-5020-1208",
         "subtitle": "8m Kablolu",
         "badge": null,
-        "description": "Trifaze 20A — 11 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 5×2,5 mm² + 1×0,75 mm² halojensiz kablo; ticari ve iş yeri uygulamaları için orta-güç sınıfı.",
+        "description": "Trifaze 16A — 11 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 5×2,5 mm² + 1×0,75 mm² halojensiz kablo; ticari ve iş yeri uygulamaları için orta-güç sınıfı.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -2448,7 +2448,7 @@
               },
               {
                 "label": "Maks. Akım",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -2484,7 +2484,7 @@
           }
         ],
         "generalFeatures": [
-          "Trifaze 20A 11 kW güç çıkışı",
+          "Trifaze 16A 11 kW güç çıkışı",
           "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
           "Mod 3 sinyal protokolü, mekanik kilitleme",
           "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
@@ -2498,11 +2498,11 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-10m",
-        "name": "Şarj Seti 20A Trifaze 11 kW",
+        "name": "Şarj Seti 16A Trifaze 11 kW",
         "code": "BEV-5020-1210",
         "subtitle": "10m Kablolu",
         "badge": null,
-        "description": "Trifaze 20A — 11 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 5×2,5 mm² + 1×0,75 mm² halojensiz kablo; ticari ve iş yeri uygulamaları için orta-güç sınıfı.",
+        "description": "Trifaze 16A — 11 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 5×2,5 mm² + 1×0,75 mm² halojensiz kablo; ticari ve iş yeri uygulamaları için orta-güç sınıfı.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -2517,7 +2517,7 @@
               },
               {
                 "label": "Maks. Akım",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -2553,7 +2553,7 @@
           }
         ],
         "generalFeatures": [
-          "Trifaze 20A 11 kW güç çıkışı",
+          "Trifaze 16A 11 kW güç çıkışı",
           "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
           "Mod 3 sinyal protokolü, mekanik kilitleme",
           "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
@@ -2567,11 +2567,11 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-15m",
-        "name": "Şarj Seti 20A Trifaze 11 kW",
+        "name": "Şarj Seti 16A Trifaze 11 kW",
         "code": "BEV-5020-1215",
         "subtitle": "15m Kablolu",
         "badge": null,
-        "description": "Trifaze 20A — 11 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 5×2,5 mm² + 1×0,75 mm² halojensiz kablo; ticari ve iş yeri uygulamaları için orta-güç sınıfı.",
+        "description": "Trifaze 16A — 11 kW gücünde Type 2 — Type 2 Mod 3 şarj seti. 5×2,5 mm² + 1×0,75 mm² halojensiz kablo; ticari ve iş yeri uygulamaları için orta-güç sınıfı.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -2586,7 +2586,7 @@
               },
               {
                 "label": "Maks. Akım",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -2622,7 +2622,7 @@
           }
         ],
         "generalFeatures": [
-          "Trifaze 20A 11 kW güç çıkışı",
+          "Trifaze 16A 11 kW güç çıkışı",
           "Type 2 (IEC 62196-2) konnektör — tüm Avrupa EV markalarıyla uyumlu",
           "Mod 3 sinyal protokolü, mekanik kilitleme",
           "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
@@ -6409,7 +6409,7 @@
               },
               {
                 "label": "Maks. Akım",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -6441,7 +6441,7 @@
           }
         ],
         "generalFeatures": [
-          "Monofaze 20A 3,7 kW güç çıkışı",
+          "Monofaze 16A 3,7 kW güç çıkışı",
           "Type 2 (IEC 62196-2) konnektör — diğer uç açık, OEM entegrasyonu için",
           "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
           "CE ve TSE uygunluk testi tamamlanmış"
@@ -6472,7 +6472,7 @@
               },
               {
                 "label": "Maks. Akım",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -6504,7 +6504,7 @@
           }
         ],
         "generalFeatures": [
-          "Monofaze 20A 3,7 kW güç çıkışı",
+          "Monofaze 16A 3,7 kW güç çıkışı",
           "Type 2 (IEC 62196-2) konnektör — diğer uç açık, OEM entegrasyonu için",
           "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
           "CE ve TSE uygunluk testi tamamlanmış"
@@ -6661,7 +6661,7 @@
               },
               {
                 "label": "Maks. Akım",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -6693,7 +6693,7 @@
           }
         ],
         "generalFeatures": [
-          "Trifaze 20A 11 kW güç çıkışı",
+          "Trifaze 16A 11 kW güç çıkışı",
           "Type 2 (IEC 62196-2) konnektör — diğer uç açık, OEM entegrasyonu için",
           "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
           "CE ve TSE uygunluk testi tamamlanmış"
@@ -6724,7 +6724,7 @@
               },
               {
                 "label": "Maks. Akım",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -6756,7 +6756,7 @@
           }
         ],
         "generalFeatures": [
-          "Trifaze 20A 11 kW güç çıkışı",
+          "Trifaze 16A 11 kW güç çıkışı",
           "Type 2 (IEC 62196-2) konnektör — diğer uç açık, OEM entegrasyonu için",
           "Esnek bakır iletken, UV ve hava koşullarına dayanıklı dış kılıf",
           "CE ve TSE uygunluk testi tamamlanmış"

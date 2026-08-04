@@ -1263,7 +1263,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Kapasite seçimi kuruluma göre yapılır. Evinizde trifaze hat ve trifaze wallbox varsa 11 kW'lık kurulumlar için 20A trifaze, 22 kW'a kadar kurulumlar için 32A trifaze kablo bu kurulumun hakkını verir. Monofaze hatta ise 32A monofaze set 7,4 kW'a kadar yeterlidir. Aracınızın AC şarjda kabul ettiği azami güç kullanım kılavuzunda yazar; kablo bu değeri taşıyabilecek kapasitede seçilmelidir. Kararsızsanız 32A trifaze set en esnek tercihtir: bugün düşük güçlü kurulumda da sorunsuz çalışır, yarın güç artırdığınızda değiştirmeniz gerekmez."
+        "text": "Kapasite seçimi kuruluma göre yapılır. Evinizde trifaze hat ve trifaze wallbox varsa 11 kW'lık kurulumlar için 16A trifaze, 22 kW'a kadar kurulumlar için 32A trifaze kablo bu kurulumun hakkını verir. Monofaze hatta ise 32A monofaze set 7,4 kW'a kadar yeterlidir. Aracınızın AC şarjda kabul ettiği azami güç kullanım kılavuzunda yazar; kablo bu değeri taşıyabilecek kapasitede seçilmelidir. Kararsızsanız 32A trifaze set en esnek tercihtir: bugün düşük güçlü kurulumda da sorunsuz çalışır, yarın güç artırdığınızda değiştirmeniz gerekmez."
       },
       {
         "type": "h2",
@@ -1360,8 +1360,8 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         "type": "ul",
         "items": [
-          "Monofaze 20A → 3,7 kW · Monofaze 32A → 7,4 kW",
-          "Trifaze 20A → 11 kW · Trifaze 32A → 22 kW",
+          "Monofaze 16A → 3,7 kW · Monofaze 32A → 7,4 kW",
+          "Trifaze 16A → 11 kW · Trifaze 32A → 22 kW",
           "Kablonun kapasitesi ihtiyacın üzerindeyse sorun oluşturmaz; altındaysa şarj hızı kablonun sınırına iner."
         ]
       },
@@ -1383,7 +1383,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "CE işareti ve uygunluk testleri: Kablonun ilgili standartlara göre test edildiğinin temel göstergesidir.",
           "IEC 62196-2 uyumlu Type 2 konnektör: Araç ve istasyon tarafında sorunsuz, standart bağlantı sağlar.",
           "Mod 3 sinyalleşme ve mekanik kilitleme (IEC 61851-1): Şarj sırasında konnektörün yerinden çıkmasını engeller.",
-          "Kablo kesiti: Akım arttıkça iletken kesiti de büyümelidir — örneğin 20A setlerde 2,5 mm², 32A setlerde 6 mm² kesit kullanılır.",
+          "Kablo kesiti: Akım arttıkça iletken kesiti de büyümelidir — örneğin 16A setlerde 2,5 mm², 32A setlerde 6 mm² kesit kullanılır.",
           "Dış kılıf dayanımı: UV ve hava koşullarına dayanıklı, halojensiz kablo yapısı dış mekân kullanımında ömrü uzatır.",
           "IP koruma sınıfı: Kablo sık sık dışarıda kullanılacaksa konnektörlerin koruma sınıfını üretici belgelerinden doğrulayın."
         ]
@@ -1408,8 +1408,8 @@ export const BLOG_POSTS: BlogPost[] = [
         ],
         "rows": [
           [
-            "Şarj Seti 20A Monofaze",
-            "Monofaze / 20A",
+            "Şarj Seti 16A Monofaze",
+            "Monofaze / 16A",
             "3,7 kW",
             "3×2,5 mm² + 1×0,75 mm²",
             "3 / 5 / 7 / 8 / 10 m"
@@ -1422,8 +1422,8 @@ export const BLOG_POSTS: BlogPost[] = [
             "3 / 5 / 7 / 8 / 10 m"
           ],
           [
-            "Şarj Seti 20A Trifaze",
-            "Trifaze / 20A",
+            "Şarj Seti 16A Trifaze",
+            "Trifaze / 16A",
             "11 kW",
             "5×2,5 mm² + 1×0,75 mm²",
             "3 / 5 / 7 / 8 / 10 / 15 m"
@@ -1447,7 +1447,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "faq": [
       {
         "q": "Togg T10X'e hangi şarj kablosu uyar?",
-        "a": "Togg T10X, Türkiye ve Avrupa'daki tüm yeni elektrikli araçlar gibi AC şarjda Type 2 giriş kullanır; Type 2 — Type 2 bir Mod 3 şarj kablosu T10X ile uyumludur. Evinizde trifaze wallbox varsa 11 kW'lık kurulumlar için 20A trifaze, 22 kW'a kadar kurulumlar için 32A trifaze kablo kurulumun hakkını verir; monofaze hatta 32A monofaze set 7,4 kW'a kadar yeterlidir. Aracın AC tarafında kabul ettiği azami güç kullanım kılavuzunda yazar; kablo bu değeri taşıyabilecek kapasitede seçilmelidir. Halka açık AC istasyonlarının çoğunda kendi kablonuzu taktığınız için araçta bir Type 2 kablo bulundurmak Togg sahipleri için pratik bir gerekliliktir."
+        "a": "Togg T10X, Türkiye ve Avrupa'daki tüm yeni elektrikli araçlar gibi AC şarjda Type 2 giriş kullanır; Type 2 — Type 2 bir Mod 3 şarj kablosu T10X ile uyumludur. Evinizde trifaze wallbox varsa 11 kW'lık kurulumlar için 16A trifaze, 22 kW'a kadar kurulumlar için 32A trifaze kablo kurulumun hakkını verir; monofaze hatta 32A monofaze set 7,4 kW'a kadar yeterlidir. Aracın AC tarafında kabul ettiği azami güç kullanım kılavuzunda yazar; kablo bu değeri taşıyabilecek kapasitede seçilmelidir. Halka açık AC istasyonlarının çoğunda kendi kablonuzu taktığınız için araçta bir Type 2 kablo bulundurmak Togg sahipleri için pratik bir gerekliliktir."
       },
       {
         "q": "Tesla Model 3 veya Model Y'ye Type 2 kablo uyumlu mu?",

@@ -903,7 +903,7 @@ export function categoryShort(categoryId: string): string | undefined {
 }
 
 export function productMetaTitle(product: ProductShape, categoryName?: string): string {
-  // Ürün başlığı: ad + ayrıştırıcı alt başlık (örn. "Şarj Seti 20A Monofaze ·
+  // Ürün başlığı: ad + ayrıştırıcı alt başlık (örn. "Şarj Seti 16A Monofaze ·
   // 5m Kablolu"). Anahtar kelimeler açıklamada — başlığa marka soneki eklendiği
   // için kısa tutulur (layout " | Bemis E-V Charge" ekler).
   const core = [product.name, product.subtitle, categoryName].filter(Boolean).join(" · ");

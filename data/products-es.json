@@ -1030,7 +1030,7 @@
       {
         "id": "charger-pro-2-gsm-mid-kablolu",
         "name": "Charger Pro 2 GSM MID Sayaçlı",
-        "code": "BEV-3011-1015",
+        "code": "BEV-3011-10S5",
         "subtitle": "Con cable de 5 m / con módulo GSM · Contador MID integrado",
         "badge": "GSM · MID",
         "description": "La versión Charger Pro 2 GSM integra en campo la supervisión y gestión remota basadas en la nube gracias a su módulo 4G interno. Se conecta a plataformas de operadores externos a través de OCPP 1.6; para instalaciones de campo sin infraestructura de internet por cable. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Este modelo incorpora un contador de energía MID certificado integrado en la carcasa; es totalmente apto para la facturación basada en mediciones a través de OCPP y para un uso comercial exigente. Fabricado en Türkiye.",
@@ -1083,7 +1083,7 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "EUR 991,00"
+                "value": "EUR 960,00"
               }
             ]
           },
@@ -1122,7 +1122,7 @@
       {
         "id": "charger-pro-2-gsm-mid-pano",
         "name": "Charger Pro 2 GSM MID Sayaçlı",
-        "code": "BEV-3012-1010",
+        "code": "BEV-3012-10S0",
         "subtitle": "Con toma para cuadro / con módulo GSM · Contador MID integrado",
         "badge": "GSM · MID",
         "description": "La versión Charger Pro 2 GSM integra en campo la supervisión y gestión remota basadas en la nube gracias a su módulo 4G interno. Se conecta a plataformas de operadores externos a través de OCPP 1.6; para instalaciones de campo sin infraestructura de internet por cable. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Este modelo incorpora un contador de energía MID certificado integrado en la carcasa; es totalmente apto para la facturación basada en mediciones a través de OCPP y para un uso comercial exigente. Fabricado en Türkiye.",
@@ -1175,7 +1175,7 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "EUR 974,50"
+                "value": "EUR 930,00"
               }
             ]
           },
@@ -1532,7 +1532,7 @@
     "products": [
       {
         "id": "sarj-seti-20a-monofaze-3m",
-        "name": "Şarj Seti 20A Monofaze",
+        "name": "Şarj Seti 16A Monofaze",
         "code": "BEV-3020-1203",
         "subtitle": "Con cable de 3 m",
         "badge": null,
@@ -1551,7 +1551,7 @@
               },
               {
                 "label": "Corriente máx.",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -1600,7 +1600,7 @@
       },
       {
         "id": "sarj-seti-20a-monofaze-5m",
-        "name": "Şarj Seti 20A Monofaze",
+        "name": "Şarj Seti 16A Monofaze",
         "code": "BEV-3020-1205",
         "subtitle": "Con cable de 5 m",
         "badge": null,
@@ -1619,7 +1619,7 @@
               },
               {
                 "label": "Corriente máx.",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -1668,7 +1668,7 @@
       },
       {
         "id": "sarj-seti-20a-monofaze-7m",
-        "name": "Şarj Seti 20A Monofaze",
+        "name": "Şarj Seti 16A Monofaze",
         "code": "BEV-3020-1207",
         "subtitle": "Con cable de 7 m",
         "badge": null,
@@ -1687,7 +1687,7 @@
               },
               {
                 "label": "Corriente máx.",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -1736,7 +1736,7 @@
       },
       {
         "id": "sarj-seti-20a-monofaze-8m",
-        "name": "Şarj Seti 20A Monofaze",
+        "name": "Şarj Seti 16A Monofaze",
         "code": "BEV-3020-1208",
         "subtitle": "Con cable de 8 m",
         "badge": null,
@@ -1755,7 +1755,7 @@
               },
               {
                 "label": "Corriente máx.",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -1804,7 +1804,7 @@
       },
       {
         "id": "sarj-seti-20a-monofaze-10m",
-        "name": "Şarj Seti 20A Monofaze",
+        "name": "Şarj Seti 16A Monofaze",
         "code": "BEV-3020-1210",
         "subtitle": "Con cable de 10 m",
         "badge": null,
@@ -1823,7 +1823,7 @@
               },
               {
                 "label": "Corriente máx.",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -2212,7 +2212,7 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-3m",
-        "name": "Şarj Seti 20A Trifaze",
+        "name": "Şarj Seti 16A Trifaze",
         "code": "BEV-5020-1203",
         "subtitle": "Con cable de 3 m",
         "badge": null,
@@ -2231,7 +2231,7 @@
               },
               {
                 "label": "Corriente máx.",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -2280,7 +2280,7 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-5m",
-        "name": "Şarj Seti 20A Trifaze",
+        "name": "Şarj Seti 16A Trifaze",
         "code": "BEV-5020-1205",
         "subtitle": "Con cable de 5 m",
         "badge": null,
@@ -2299,7 +2299,7 @@
               },
               {
                 "label": "Corriente máx.",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -2348,7 +2348,7 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-7m",
-        "name": "Şarj Seti 20A Trifaze",
+        "name": "Şarj Seti 16A Trifaze",
         "code": "BEV-5020-1207",
         "subtitle": "Con cable de 7 m",
         "badge": null,
@@ -2367,7 +2367,7 @@
               },
               {
                 "label": "Corriente máx.",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -2416,7 +2416,7 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-8m",
-        "name": "Şarj Seti 20A Trifaze",
+        "name": "Şarj Seti 16A Trifaze",
         "code": "BEV-5020-1208",
         "subtitle": "Con cable de 8 m",
         "badge": null,
@@ -2435,7 +2435,7 @@
               },
               {
                 "label": "Corriente máx.",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -2484,7 +2484,7 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-10m",
-        "name": "Şarj Seti 20A Trifaze",
+        "name": "Şarj Seti 16A Trifaze",
         "code": "BEV-5020-1210",
         "subtitle": "Con cable de 10 m",
         "badge": null,
@@ -2503,7 +2503,7 @@
               },
               {
                 "label": "Corriente máx.",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -2552,7 +2552,7 @@
       },
       {
         "id": "sarj-seti-20a-trifaze-15m",
-        "name": "Şarj Seti 20A Trifaze",
+        "name": "Şarj Seti 16A Trifaze",
         "code": "BEV-5020-1215",
         "subtitle": "Con cable de 15 m",
         "badge": null,
@@ -2571,7 +2571,7 @@
               },
               {
                 "label": "Corriente máx.",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -6389,7 +6389,7 @@
               },
               {
                 "label": "Corriente máx.",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -6421,7 +6421,7 @@
           }
         ],
         "generalFeatures": [
-          "Salida de potencia monofásica 20A 3,7 kW",
+          "Salida de potencia monofásica 16A 3,7 kW",
           "Conector Type 2 (IEC 62196-2) — otro extremo abierto, para integración OEM",
           "Conductor de cobre flexible, cubierta exterior resistente a los rayos UV y a la intemperie",
           "Ensayos de conformidad CE y TSE completados"
@@ -6452,7 +6452,7 @@
               },
               {
                 "label": "Corriente máx.",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -6484,7 +6484,7 @@
           }
         ],
         "generalFeatures": [
-          "Salida de potencia monofásica 20A 3,7 kW",
+          "Salida de potencia monofásica 16A 3,7 kW",
           "Conector Type 2 (IEC 62196-2) — otro extremo abierto, para integración OEM",
           "Conductor de cobre flexible, cubierta exterior resistente a los rayos UV y a la intemperie",
           "Ensayos de conformidad CE y TSE completados"
@@ -6641,7 +6641,7 @@
               },
               {
                 "label": "Corriente máx.",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -6673,7 +6673,7 @@
           }
         ],
         "generalFeatures": [
-          "Salida de potencia trifásica 20A 11 kW",
+          "Salida de potencia trifásica 16A 11 kW",
           "Conector Type 2 (IEC 62196-2) — otro extremo abierto, para integración OEM",
           "Conductor de cobre flexible, cubierta exterior resistente a los rayos UV y a la intemperie",
           "Ensayos de conformidad CE y TSE completados"
@@ -6704,7 +6704,7 @@
               },
               {
                 "label": "Corriente máx.",
-                "value": "20A"
+                "value": "16A"
               }
             ]
           },
@@ -6736,7 +6736,7 @@
           }
         ],
         "generalFeatures": [
-          "Salida de potencia trifásica 20A 11 kW",
+          "Salida de potencia trifásica 16A 11 kW",
           "Conector Type 2 (IEC 62196-2) — otro extremo abierto, para integración OEM",
           "Conductor de cobre flexible, cubierta exterior resistente a los rayos UV y a la intemperie",
           "Ensayos de conformidad CE y TSE completados"
