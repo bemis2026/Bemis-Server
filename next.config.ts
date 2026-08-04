@@ -154,6 +154,10 @@ const nextConfig: NextConfig = {
       // doğrusuna bağlandı. ⚠️ Ürün verisinden silmek TEK BAŞINA yetmez —
       // yönlendirme olmadan o adres 404 verirdi.
       { source: "/products/dc-units/bevdc-120-2", destination: "/products/dc-units/bevdc-120-1", permanent: true },
+
+      // Fiyat listesi 2026 → 2026-2 ile değiştirildi (eski kayıt kaldırıldı).
+      // Eski doküman sayfası indekslenmiş olabilir; 404 vermesin diye yenisine bağlandı.
+      { source: "/documents/doc-1779265324270", destination: "/documents/doc-fiyat-listesi-2026-2", permanent: true },
     ];
   },
   async rewrites() {
