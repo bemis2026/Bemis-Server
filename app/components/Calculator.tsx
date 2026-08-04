@@ -20,10 +20,21 @@ interface EvModel {
   consumption: number; // avg kWh/100km
 }
 
+// ⚠️ VERİ KURALI: yeni model eklerken değerler EV Database'den TEK TEK doğrulanır;
+// doğrulanamayan model EKLENMEZ. (Aynı kural /arac-sarj-uyumlulugu sayfasında da geçerli.)
+// `maxAcKw` = STANDART dahili şarj ünitesi gücü — opsiyonel 22 kW paketleri
+// varsayılan sayılmaz, aksi hâlde hesap çoğu araçta gerçekten hızlı çıkar.
+// `consumption` = EV Database "combined, mild weather" Wh/km ÷ 10.
 const EV_MODELS: EvModel[] = [
-  // Togg
-  { brand: "Togg", model: "T10X Standart Range",        battery: 52.4,  maxAcKw: 11,  maxDcKw: 150, consumption: 17 },
-  { brand: "Togg", model: "T10X Long Range",             battery: 88.5,  maxAcKw: 22,  maxDcKw: 200, consumption: 18 },
+  // Togg — 2026-08-05'te ev-database.org'dan doğrulandı.
+  // ⚠️ ESKİ VERİ YANLIŞTI: T10X SR 52,4 kWh / 150 kW DC ve T10X LR 88,5 kWh /
+  //    22 kW AC / 200 kW DC yazıyordu. Gerçek: ikisi de 180 kW DC, 50/85 kWh,
+  //    AC standart 11 kW (LR'de 22 kW OPSİYONEL). Site kendi araç uyumluluk
+  //    sayfasında zaten "11 kW (ops. 22)" diyordu — hesaplayıcı onunla çelişiyordu.
+  { brand: "Togg", model: "T10X Standart Range",         battery: 50,    maxAcKw: 11,  maxDcKw: 180, consumption: 17 },
+  { brand: "Togg", model: "T10X Long Range",             battery: 85,    maxAcKw: 11,  maxDcKw: 180, consumption: 17 },
+  { brand: "Togg", model: "T10F Standart Range",         battery: 50,    maxAcKw: 11,  maxDcKw: 180, consumption: 15 },
+  { brand: "Togg", model: "T10F Long Range",             battery: 85,    maxAcKw: 11,  maxDcKw: 180, consumption: 15 },
   // Tesla
   { brand: "Tesla", model: "Model 3 RWD",               battery: 57.5,  maxAcKw: 11,  maxDcKw: 170, consumption: 14 },
   { brand: "Tesla", model: "Model 3 Long Range AWD",    battery: 75,    maxAcKw: 11,  maxDcKw: 250, consumption: 15 },
@@ -79,6 +90,7 @@ const EV_MODELS: EvModel[] = [
   { brand: "Porsche", model: "Taycan 4S (93 kWh)",      battery: 93.4,  maxAcKw: 22,  maxDcKw: 270, consumption: 22 },
   { brand: "Porsche", model: "Taycan Turbo (105 kWh)",  battery: 105,   maxAcKw: 22,  maxDcKw: 320, consumption: 24 },
   // Volvo
+  { brand: "Volvo", model: "EX30 Single Motor ER (65 kWh)",  battery: 65,   maxAcKw: 11, maxDcKw: 158, consumption: 16 },
   { brand: "Volvo", model: "EX40 / XC40 Recharge (82 kWh)", battery: 82, maxAcKw: 11, maxDcKw: 150, consumption: 20 },
   { brand: "Volvo", model: "EC40 / C40 Recharge (82 kWh)",  battery: 82, maxAcKw: 11, maxDcKw: 150, consumption: 19 },
   { brand: "Volvo", model: "EX90 Twin Motor (111 kWh)", battery: 111,   maxAcKw: 11,  maxDcKw: 250, consumption: 22 },
@@ -86,6 +98,7 @@ const EV_MODELS: EvModel[] = [
   { brand: "Polestar", model: "2 Single Motor (78 kWh)", battery: 78,   maxAcKw: 11,  maxDcKw: 130, consumption: 18 },
   { brand: "Polestar", model: "2 Long Range Dual (78 kWh)", battery: 78, maxAcKw: 11, maxDcKw: 200, consumption: 19 },
   // Renault
+  { brand: "Renault", model: "5 E-Tech (52 kWh)",         battery: 52,    maxAcKw: 11,  maxDcKw: 100, consumption: 13 },
   { brand: "Renault", model: "Megane E-Tech (60 kWh)",  battery: 60,    maxAcKw: 22,  maxDcKw: 130, consumption: 15 },
   { brand: "Renault", model: "Zoe (52 kWh)",             battery: 52,   maxAcKw: 22,  maxDcKw: 50,  consumption: 17 },
   // Peugeot
@@ -107,6 +120,7 @@ const EV_MODELS: EvModel[] = [
   { brand: "BYD", model: "Seal Standard (62 kWh)",      battery: 61.4,  maxAcKw: 6.6, maxDcKw: 150, consumption: 16 },
   { brand: "BYD", model: "Seal Long Range (83 kWh)",    battery: 82.6,  maxAcKw: 6.6, maxDcKw: 150, consumption: 17 },
   { brand: "BYD", model: "Han (85 kWh)",                 battery: 85.4,  maxAcKw: 7.4, maxDcKw: 120, consumption: 19 },
+  { brand: "BYD", model: "Sealion 7 RWD (83 kWh)",       battery: 82.5,  maxAcKw: 11,  maxDcKw: 150, consumption: 20 },
   { brand: "BYD", model: "Tang (108 kWh)",               battery: 108.8, maxAcKw: 7.4, maxDcKw: 110, consumption: 26 },
   // MG
   { brand: "MG", model: "4 Electric Standard (51 kWh)", battery: 51,    maxAcKw: 6.6, maxDcKw: 117, consumption: 15 },
@@ -114,6 +128,8 @@ const EV_MODELS: EvModel[] = [
   { brand: "MG", model: "ZS EV (51 kWh)",                battery: 51,   maxAcKw: 7.4, maxDcKw: 76,  consumption: 17 },
   // OMODA
   { brand: "OMODA", model: "E5 (61 kWh)",                battery: 61,   maxAcKw: 11,  maxDcKw: 80,  consumption: 17 },
+  // Leapmotor
+  { brand: "Leapmotor", model: "C10 RWD (82 kWh)",       battery: 81.9,  maxAcKw: 11,  maxDcKw: 180, consumption: 18 },
   // Nissan
   { brand: "Nissan", model: "Leaf (40 kWh)",             battery: 40,   maxAcKw: 6.6, maxDcKw: 50,  consumption: 18 },
   { brand: "Nissan", model: "Leaf e+ (62 kWh)",          battery: 62,   maxAcKw: 6.6, maxDcKw: 50,  consumption: 18 },
