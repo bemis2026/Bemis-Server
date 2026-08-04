@@ -8,17 +8,21 @@ export type Currency = "TRY" | "EUR";
 type CurrencyContextType = {
   /** Derived from active language: TR → TRY, EN → EUR. No user toggle. */
   currency: Currency;
-  /** TRY per 1 EUR (e.g. 36.8). Multiply an EUR amount by this to get TRY. */
-  tryPerEur: number;
+  /**
+   * TRY per 1 EUR (ör. 54,69). EUR tutarı bununla çarpılır.
+   * ⚠️ `null` = kur ÇEKİLEMEDİ → ₺ fiyat GÖSTERİLMEZ (uydurma kura düşülmez).
+   */
+  tryPerEur: number | null;
   /** ISO date string from TCMB feed, for display. */
   rateDate: string | null;
 };
 
-const DEFAULT_RATE = 37; // fallback used until /api/rate responds
+// ⚠️ SABİT YEDEK KUR YOK (2026-08-04): kur gelene kadar da, hiç gelmezse de `null`.
+// Gerekçe ve tarihçe: app/api/rate/route.ts
 
 const CurrencyContext = createContext<CurrencyContextType>({
   currency: "TRY",
-  tryPerEur: DEFAULT_RATE,
+  tryPerEur: null,
   rateDate: null,
 });
 
@@ -28,7 +32,7 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
   const { lang } = useLanguage();
   const currency: Currency = lang === "en" ? "EUR" : "TRY";
 
-  const [tryPerEur, setTryPerEur] = useState<number>(DEFAULT_RATE);
+  const [tryPerEur, setTryPerEur] = useState<number | null>(null);
   const [rateDate, setRateDate] = useState<string | null>(null);
 
   // Pull live TCMB rate via our daily-cached API route. The route does

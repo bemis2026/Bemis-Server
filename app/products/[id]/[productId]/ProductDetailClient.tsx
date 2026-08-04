@@ -931,6 +931,13 @@ export default function ProductDetailPage({
                                   // EUR. Sayı parse edilemiyorsa formatPrice
                                   // raw string'i aynen döndürür → ikincil
                                   // tutar gizlenir, sadece label görünür.
+                                  // ⚠️ KUR ÇEKİLEMEDİYSE (tryPerEur === null) ₺ tutar ÜRETİLMEZ.
+                                  // Eskiden sabit 37 yedeği vardı; gerçek kur 54,69 ölçüldüğü için
+                                  // bir TCMB kesintisinde fiyatlar %32 DÜŞÜK görünüyordu. Artık o
+                                  // durumda görüntü EUR'ya düşer — EUR, listenin ASIL para birimi,
+                                  // yani uydurma değil. Uydurma ₺ göstermektense doğru EUR gösterilir.
+                                  const kurVar = typeof tryPerEur === "number" && tryPerEur > 0;
+                                  const paraBirimi = kurVar ? currency : "EUR";
                                   const tryText = formatPrice(row.value, "TRY", tryPerEur);
                                   const eurText = formatPrice(row.value, "EUR", tryPerEur);
                                   const hasNumeric = /\d/.test(row.value);
@@ -943,13 +950,13 @@ export default function ProductDetailPage({
                                       <span className="text-xs" style={{ color: textMuted }}>{/liste/i.test(row.label) ? (pickText(lang, "Fiyat", "Price")) : row.label}</span>
                                       <span className="text-sm font-bold text-right inline-flex flex-col items-end" style={{ color: accentInk(BRAND_BLUE, d) }}>
                                         <span className="inline-flex items-baseline gap-1.5 flex-wrap justify-end">
-                                          {currency === "TRY" && hasNumeric ? (
+                                          {paraBirimi === "TRY" && hasNumeric ? (
                                             <>
                                               <span>{tryText}</span>
                                               <span className="text-[11px] font-semibold opacity-60">· {eurText}</span>
                                             </>
                                           ) : (
-                                            <span>{currency === "TRY" ? tryText : eurText}</span>
+                                            <span>{eurText}</span>
                                           )}
                                           <span className="text-[10px] font-medium opacity-70">{pickText(lang, "+ KDV", "+ Tax")}</span>
                                         </span>
@@ -961,7 +968,7 @@ export default function ProductDetailPage({
                                         {hasNumeric && (
                                           <span className="text-[10px] font-semibold opacity-70 mt-0.5">
                                             {pickText(lang, "KDV dahil", "Incl. VAT")}:{" "}
-                                            {formatPrice(row.value, currency, tryPerEur, VAT_MULTIPLIER)}
+                                            {formatPrice(row.value, paraBirimi, tryPerEur, VAT_MULTIPLIER)}
                                           </span>
                                         )}
                                       </span>

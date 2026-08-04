@@ -21,8 +21,11 @@ const NUM_RE = /(\d{1,3}(?:[.,]\d{3})+|\d+)([.,]\d+)?/;
  * @param multiplier Tutara uygulanacak çarpan (varsayılan 1). KDV dahil tutar
  *   için `VAT_MULTIPLIER` (lib/vat.ts) geçilir — feed ile aynı kaynağı kullanır.
  */
-export function formatPrice(raw: string | undefined | null, currency: Currency, tryPerEur: number, multiplier = 1): string {
+export function formatPrice(raw: string | undefined | null, currency: Currency, tryPerEur: number | null, multiplier = 1): string {
   if (!raw) return "";
+  // ⚠️ Kur yoksa ₺ tutar ÜRETİLMEZ (sabit yedek kur kaldırıldı) → boş döner,
+  //    çağıran tarafın fiyatı gizlemesi/EUR'ya düşmesi beklenir.
+  if (currency === "TRY" && !(typeof tryPerEur === "number" && tryPerEur > 0)) return "";
   const m = raw.match(NUM_RE);
   if (!m) return raw;
   // Turkish/European number format: thousands separator may be "." or ",".
@@ -36,7 +39,7 @@ export function formatPrice(raw: string | undefined | null, currency: Currency, 
     return new Intl.NumberFormat("tr-TR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 })
       .format(eurAmount);
   }
-  const tryAmount = eurAmount * tryPerEur;
+  const tryAmount = eurAmount * (tryPerEur as number);
   return new Intl.NumberFormat("tr-TR", { style: "currency", currency: "TRY", maximumFractionDigits: 0 })
     .format(tryAmount);
 }

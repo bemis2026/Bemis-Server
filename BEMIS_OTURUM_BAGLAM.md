@@ -13,6 +13,13 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 💱🧹 **SABİT YEDEK KUR KALDIRILDI + BEVDC 120 ÇİFT KAYDI TEMİZLENDİ (2026-08-04, kullanıcı kararı):**
+> **(1) KUR:** TCMB'ye ulaşılamayınca `/api/rate`, `CurrencyContext` ve `/meta-catalog.xml` **sabit 37** kuruna düşüyordu; ölçülen gerçek kur **54,69** → bir kesintide tüm ₺ fiyatlar **%32 DÜŞÜK** yayınlanırdı (ticari taahhüt + Merchant "fiyat uyuşmazlığı" riski). Artık **kur yoksa `null`** ve ₺ tutar HİÇ üretilmez. **Davranış:** `/api/rate` → `503 + no-store` (⚠️ 200 dönseydi route'un 6 saatlik revalidate'i anlık bir kesintiyi **6 saat kalıcı** kılardı) · ürün sayfası → ₺ yerine **EUR gösterir** (EUR listenin ASIL para birimi, uydurma değil; "KDV dahil" satırı da EUR olur) · **`/meta-catalog.xml` → 503**, feed HİÇ yayınlanmaz (Google/Meta çekimi başarısız sayıp **son geçerli kopyayı korur**; fiyatsız/yanlış fiyatlı feed tüm kataloğu askıya aldırabilirdi). `app/lib/cityShowcase.ts` bu ilkeyi zaten uyguluyordu — **artık site geneli tutarlı, kodda `return 37` sıfır.**
+> **(2) ÇİFT KAYIT:** `bevdc-120-1` ve `bevdc-120-2` aynı kod (BEVDCC-4421-0005) · aynı fiyat · aynı görsel, iki ayrı URL idi (Google'da otorite bölünmesi + katalogda mükerrer). Fazlası **12 kaynaktan pozisyonel silindi** (150 → 149) + `next.config.ts`'e **308 yönlendirme** eklendi. ⚠️ **Veriden silmek TEK BAŞINA YETMEZ** — yönlendirme olmadan o adres 404 verirdi. Silme betiği önce "kalan kayıt gerçekten aynı ürün mü" ve "hedef URL var mı" diye doğrular, aksi hâlde iptal eder. store cache **v53-kur-cift**. tsc 0, build 0 (424 sayfa).
+> **📌 KULLANICI KARARI (yapılmadı):** fiyat listesindeki eksik ticari bilgiler (KDV ibaresi · geçerlilik tarihi · kur esası · fiyat-değişebilir kaydı) için **şimdilik bir şey yapılmayacak** — belgeyi hazırlayan tarafın işi.
+> **⏳ SIRADAKİ (kullanıcı seçti, deploy sonrası):** (a) **katalog beslemesi doğrulaması** — 31 yeni ürün feed'e doğru giriyor mu, fiyat KDV dahil ve sayfayla aynı mı, görselsiz 12 ürün beklendiği gibi eleniyor mu; (b) **GEO alıntılanabilir cevap blokları**; (c) **yeni ürünlerin elle küratörlü SEO metinleri** (şu an otomatik üretiliyor).
+
+
 > 🆕💶 **2026-2 LİSTESİNDEN 31 YENİ ÜRÜN EKLENDİ + 2 KOD GÖÇÜ + FİYAT SENKRONU (2026-08-04) — ürün 119 → 150:** Kullanıcı kararları (AskUserQuestion): **görsel yalnız BİREBİR aynı görünen ürüne devredilir** · **"(Yeni Tip)" pano prizleri şimdilik EKLENMEZ** · **adlandırmada sitedeki desene uyulur**.
 >
 > **⚠️ LİSTEDEKİ 36 "YENİ" ÜRÜNÜN 5'İ ASLINDA YENİ DEĞİLDİ — ölçüm bulmasa sitede MÜKERRER duracaktı:**

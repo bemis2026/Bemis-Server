@@ -31,17 +31,23 @@ const BRAND = "Bemis E-V Charge";
 // ham EUR liste fiyatına dönülebilir.
 const FEED_CURRENCY = (process.env.CATALOG_CURRENCY ?? "TRY").toUpperCase() === "EUR" ? "EUR" : "TRY";
 
-/** TCMB EUR/TRY kuru — /api/rate ile AYNI kaynak ve aynı 6 saatlik önbellek. */
-async function tryPerEur(): Promise<number> {
+/**
+ * TCMB EUR/TRY kuru — /api/rate ile AYNI kaynak ve aynı 6 saatlik önbellek.
+ * ⚠️⚠️ SABİT 37 YEDEĞİ KALDIRILDI (2026-08-04, kullanıcı kararı). Ölçülen gerçek
+ * kur 54,69'du; bir TCMB kesintisinde bu feed TÜM fiyatları %32 DÜŞÜK gönderirdi
+ * → Google Merchant "fiyat uyuşmazlığı" + gerçek ticari taahhüt riski.
+ * Artık kur yoksa `null` döner ve FEED HİÇ YAYINLANMAZ (aşağıda 503).
+ */
+async function tryPerEur(): Promise<number | null> {
   try {
     const res = await fetch("https://www.tcmb.gov.tr/kurlar/today.xml", { next: { revalidate: 21600 } });
-    if (!res.ok) return 37;
+    if (!res.ok) return null;
     const xml = await res.text();
     const block = xml.match(/<Currency\s+[^>]*CurrencyCode="EUR"[^>]*>([\s\S]*?)<\/Currency>/);
     const rate = Number(block?.[1].match(/<ForexBuying>([\d.]+)<\/ForexBuying>/)?.[1]);
-    return Number.isFinite(rate) && rate > 0 ? rate : 37;
+    return Number.isFinite(rate) && rate > 0 ? rate : null;
   } catch {
-    return 37; // CurrencyContext ile aynı yedek kur
+    return null;
   }
 }
 
@@ -129,6 +135,17 @@ export async function GET() {
     tryPerEur(),
   ]);
 
+  // ⚠️ Kur yoksa ₺ fiyat üretilemez. Feed'i FİYATSIZ ya da YANLIŞ fiyatla yayınlamak
+  // yerine 503 döndürülür: Google/Meta çekimi başarısız sayar, ELİNDEKİ SON GEÇERLİ
+  // KOPYAYI korur ve sonra yeniden dener. Yanlış fiyatla güncellemek, güncellememekten
+  // kötüdür (tüm katalog "fiyat uyuşmazlığı" ile askıya alınabilir).
+  if (withPrice && FEED_CURRENCY === "TRY" && rate === null) {
+    return new Response("<!-- kur alinamadi (TCMB); feed bilerek yayinlanmadi -->", {
+      status: 503,
+      headers: { "Content-Type": "application/xml; charset=utf-8", "Cache-Control": "no-store", "X-Rate-Missing": "1" },
+    });
+  }
+
   const items: string[] = [];
   let skippedNoPrice = 0;
 
@@ -136,7 +153,7 @@ export async function GET() {
     const catName = catsMeta[cat.id]?.name || cat.name;
     for (const p of cat.products ?? []) {
       const eur = eurOf(p);
-      const price = eur !== null ? formatPrice(eur, rate) : null;
+      const price = eur !== null ? formatPrice(eur, rate as number) : null;
       if (withPrice && !price) { skippedNoPrice++; continue; } // fiyatsız ürün platformca reddedilir
       const img = (p.image || p.images?.[0] || "").trim();
       if (!img) { skippedNoPrice++; continue; }               // görsel de zorunlu
@@ -189,7 +206,7 @@ ${items.join("\n")}
       "X-Item-Count": String(items.length),
       "X-Skipped": String(skippedNoPrice),
       "X-Currency": FEED_CURRENCY,
-      "X-Eur-Try": String(rate), // hangi kurla üretildiği (uyuşmazlık teşhisi için)
+      "X-Eur-Try": String(rate ?? "-"), // hangi kurla üretildiği (uyuşmazlık teşhisi için)
     },
   });
 }

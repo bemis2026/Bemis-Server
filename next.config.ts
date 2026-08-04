@@ -145,6 +145,15 @@ const nextConfig: NextConfig = {
       // hatası veriyordu. Kalıcı (308) yönlendirme ile /contact geçerli sayfaya
       // çözülür; hata kapanır, gelecekteki her /contact referansı da çalışır.
       { source: "/contact", destination: "/iletisim", permanent: true },
+
+      // BEVDC 120 sitede İKİ ayrı kayıttı: `bevdc-120-1` ve `bevdc-120-2` —
+      // aynı kod (BEVDCC-4421-0005), aynı fiyat, aynı görsel, iki farklı URL.
+      // Google için "aynı içerik iki adreste" (otoriteyi böler), katalog
+      // beslemesinde de aynı ürün iki kez görünüyordu. Fazla kayıt silindi;
+      // eski URL'e birikmiş değer ve dış linkler kırılmasın diye 308 ile
+      // doğrusuna bağlandı. ⚠️ Ürün verisinden silmek TEK BAŞINA yetmez —
+      // yönlendirme olmadan o adres 404 verirdi.
+      { source: "/products/dc-units/bevdc-120-2", destination: "/products/dc-units/bevdc-120-1", permanent: true },
     ];
   },
   async rewrites() {
