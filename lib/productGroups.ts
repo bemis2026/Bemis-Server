@@ -45,9 +45,47 @@ function normaliseKey(name: string): string {
 }
 
 /**
- * Group products by `name`. Order is preserved: the first occurrence
- * of a name fixes the group's position in the output, and variants
- * inside a group keep their original relative order.
+ * Varyant sıralama anahtarı — alt başlıktaki SAYILARDAN okunur.
+ *
+ * ⚠️ NEDEN ALT BAŞLIK: spec grup/etiket adları dile göre değişir ("Kablo Uzunluğu"
+ * ↔ "Kabellänge"), alt başlıktaki sayı+birim ise dil-nötrdür (`22 kW`, `80A`, `10m`).
+ * Böylece sıralama 6 dilde de aynı çalışır.
+ *
+ * Sıra: önce güç/akım (küçükten büyüğe), sonra KABLO UZUNLUĞU. Örnekler:
+ *   Mini Mobile      → 5 m · 8 m · 10 m
+ *   DC Şarj Soketi   → 80A/5m · 80A/8m · 150A/5m · 150A/8m …
+ *   Pro Mobile 2     → 11 kW · 22 kW (5 m · 8 m · 10 m)
+ */
+function variantSiraAnahtari(p: ProductLike): [number, number] {
+  // ⚠️ Alt başlık TEK BAŞINA YETMEZ: temel varyantların alt başlığında uzunluk yazmaz
+  //    ("Tek Fazlı · 2,3 - 3,7 kW" ← 5 m modeli). Sadece alt başlığa bakılırsa bunlar
+  //    "uzunluk yok" sayılıp EN SONA düşüyordu. Bulunamazsa spec değerlerine de bak.
+  const metinler = [String(p.subtitle ?? "")];
+  for (const g of (p.specs ?? []) as { items?: { value?: unknown }[] }[])
+    for (const it of g.items ?? []) metinler.push(String(it.value ?? ""));
+
+  const ilkSayi = (re: RegExp) => {
+    for (const t of metinler) {
+      const m = t.match(re);
+      if (m) return Number(m[1].replace(",", "."));
+    }
+    return Number.POSITIVE_INFINITY;
+  };
+  const kw = ilkSayi(/(\d+(?:[.,]\d+)?)\s*kW/i);
+  const amper = ilkSayi(/(\d+)\s*A(?![a-zA-Z])/);
+  // ⚠️ "30 cm" ve "2,5 mm²" / "900 mm" uzunluk SAYILMAZ:
+  //    `\s*m` "cm"yi yakalamaz, `(?!m)` de "mm"yi eler.
+  const metre = ilkSayi(/(\d+(?:[.,]\d+)?)\s*(?:m\b(?!m)|met(?:re|er))/i);
+  return [Number.isFinite(kw) ? kw : amper, metre];
+}
+
+/**
+ * Group products by `name`.
+ *
+ * `primary` DEĞİŞMEDİ: kaynak sırasındaki ilk varyant kart temsilcisidir.
+ * `variants` ise güç/uzunluğa göre sıralanır — müşteri alternatifleri
+ * 5 m · 8 m · 10 m gibi mantıklı bir sırada görsün diye (eskiden veriye
+ * eklenme sırasıydı; yeni uzunluklar sona eklendiği için 5 → 10 → 8 çıkıyordu).
  */
 export function groupVariantsByName<T extends ProductLike>(products: T[]): ProductGroup<T>[] {
   const order: string[] = [];
@@ -61,8 +99,13 @@ export function groupVariantsByName<T extends ProductLike>(products: T[]): Produ
     buckets.get(key)!.push(p);
   }
   return order.map((key) => {
-    const variants = buckets.get(key)!;
-    return { key, primary: variants[0], variants };
+    const kaynak = buckets.get(key)!;
+    const primary = kaynak[0];                       // kart temsilcisi: KAYNAK sırası
+    const variants = kaynak
+      .map((p, i) => ({ p, i, k: variantSiraAnahtari(p) }))
+      .sort((a, b) => a.k[0] - b.k[0] || a.k[1] - b.k[1] || a.i - b.i)   // eşitlikte kaynak sırası
+      .map((x) => x.p);
+    return { key, primary, variants };
   });
 }
 

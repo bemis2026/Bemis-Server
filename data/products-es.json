@@ -11,14 +11,14 @@
         "code": "BEV-1011-0005",
         "subtitle": "Con cable de 5 m",
         "badge": null,
-        "description": "Bemis Charger 2 es una estación de carga AC tipo pared diseñada para uso doméstico y en el lugar de trabajo, con opciones monofásicas de 7,4 kW y trifásicas de 11-22 kW. Con cable Type 2 integrado de 5 metros o versión de toma para cuadro, su carcasa certificada CE e IP65 funciona de forma segura en espacios abiertos y cerrados. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "description": "Bemis Charger 2 es una estación de carga AC tipo pared diseñada para uso doméstico y en el lugar de trabajo, con opciones monofásicas de 7,4 kW y trifásicas de 22 kW. Con cable Type 2 integrado de 5 metros o versión de toma para cuadro, su carcasa certificada CE e IP65 funciona de forma segura en espacios abiertos y cerrados. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
         "specs": [
           {
             "group": "Eléctrico",
             "items": [
               {
                 "label": "Potencia",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               },
               {
                 "label": "Fase",
@@ -26,7 +26,7 @@
               },
               {
                 "label": "Corriente máx.",
-                "value": "16 - 32A"
+                "value": "32A"
               }
             ]
           },
@@ -77,14 +77,14 @@
         "code": "BEV-1011-0105",
         "subtitle": "Con cable de 5 m / con enchufe 5-32A",
         "badge": "Con enchufe",
-        "description": "Bemis Charger 2 es una estación de carga AC tipo pared diseñada para uso doméstico y en el lugar de trabajo, con opciones monofásicas de 7,4 kW y trifásicas de 11-22 kW. Con cable Type 2 integrado de 5 metros o versión de toma para cuadro, su carcasa certificada CE e IP65 funciona de forma segura en espacios abiertos y cerrados. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "description": "Bemis Charger 2 es una estación de carga AC tipo pared diseñada para uso doméstico y en el lugar de trabajo, con opciones monofásicas de 7,4 kW y trifásicas de 22 kW. Con cable Type 2 integrado de 5 metros o versión de toma para cuadro, su carcasa certificada CE e IP65 funciona de forma segura en espacios abiertos y cerrados. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
         "specs": [
           {
             "group": "Eléctrico",
             "items": [
               {
                 "label": "Potencia",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               },
               {
                 "label": "Fase",
@@ -92,7 +92,7 @@
               },
               {
                 "label": "Corriente máx.",
-                "value": "16 - 32A"
+                "value": "32A"
               }
             ]
           },
@@ -1546,7 +1546,7 @@
         "code": "BEV-1311-0005",
         "subtitle": "Con cable de 5 m · 11 kW / 16A",
         "badge": null,
-        "description": "Bemis Charger 2 es una estación de carga AC tipo pared diseñada para uso doméstico y en el lugar de trabajo, con opciones monofásicas de 7,4 kW y trifásicas de 11-22 kW. Con cable Type 2 integrado de 5 metros o versión de toma para cuadro, su carcasa certificada CE e IP65 funciona de forma segura en espacios abiertos y cerrados. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "description": "Bemis Charger 2 es una estación de carga AC tipo pared diseñada para uso doméstico y en el lugar de trabajo, con opciones monofásicas de 7,4 kW y trifásicas de 11 kW. Con cable Type 2 integrado de 5 metros o versión de toma para cuadro, su carcasa certificada CE e IP65 funciona de forma segura en espacios abiertos y cerrados. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
         "specs": [
           {
             "group": "Eléctrico",
@@ -1575,6 +1575,10 @@
               {
                 "label": "Conector",
                 "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Sección del cable",
+                "value": "5 × 2,5 mm² + 1 × 0,75 mm² ttr"
               }
             ]
           },
@@ -1800,16 +1804,16 @@
         "id": "pro-mobile",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0001",
-        "subtitle": "Trifásico · 11 - 22 kW",
+        "subtitle": "Trifásico · 22 kW",
         "badge": null,
-        "description": "Pro Mobile 2 es un cargador AC portátil trifásico de 11-22 kW. Con adaptadores industriales CEE 5/16A y 5/32A ofrece carga de campo de alta potencia; diseñado para uso profesional y de flotas. La corriente de carga es ajustable en 6 niveles (6/10/16/20/25/32A) desde la app móvil o el botón del dispositivo — carga flexible y segura incluso en instalaciones débiles. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "description": "Pro Mobile 2 es un cargador AC portátil trifásico de 22 kW. Con adaptadores industriales CEE 5/16A y 5/32A ofrece carga de campo de alta potencia; diseñado para uso profesional y de flotas. La corriente de carga es ajustable en 6 niveles (6/10/16/20/25/32A) desde la app móvil o el botón del dispositivo — carga flexible y segura incluso en instalaciones débiles. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
         "specs": [
           {
             "group": "Eléctrico",
             "items": [
               {
                 "label": "Potencia",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               },
               {
                 "label": "Fase",
@@ -1916,16 +1920,16 @@
         "id": "pro-mobile-2-10m",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0003",
-        "subtitle": "Trifásico · 11 - 22 kW · 10 m",
+        "subtitle": "Trifásico · 22 kW · 10 m",
         "badge": null,
-        "description": "Pro Mobile 2 es un cargador AC portátil trifásico de 11-22 kW. Con adaptadores industriales CEE 5/16A y 5/32A ofrece carga de campo de alta potencia; diseñado para uso profesional y de flotas. La corriente de carga es ajustable en 6 niveles (6/10/16/20/25/32A) desde la app móvil o el botón del dispositivo — carga flexible y segura incluso en instalaciones débiles. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "description": "Pro Mobile 2 es un cargador AC portátil trifásico de 22 kW. Con adaptadores industriales CEE 5/16A y 5/32A ofrece carga de campo de alta potencia; diseñado para uso profesional y de flotas. La corriente de carga es ajustable en 6 niveles (6/10/16/20/25/32A) desde la app móvil o el botón del dispositivo — carga flexible y segura incluso en instalaciones débiles. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
         "specs": [
           {
             "group": "Eléctrico",
             "items": [
               {
                 "label": "Potencia",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               },
               {
                 "label": "Fase",
@@ -2032,16 +2036,16 @@
         "id": "pro-mobile-2-8m",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0002",
-        "subtitle": "Trifásico · 11 - 22 kW · 8 m",
+        "subtitle": "Trifásico · 22 kW · 8 m",
         "badge": null,
-        "description": "Pro Mobile 2 es un cargador AC portátil trifásico de 11-22 kW. Con adaptadores industriales CEE 5/16A y 5/32A ofrece carga de campo de alta potencia; diseñado para uso profesional y de flotas. La corriente de carga es ajustable en 6 niveles (6/10/16/20/25/32A) desde la app móvil o el botón del dispositivo — carga flexible y segura incluso en instalaciones débiles. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "description": "Pro Mobile 2 es un cargador AC portátil trifásico de 22 kW. Con adaptadores industriales CEE 5/16A y 5/32A ofrece carga de campo de alta potencia; diseñado para uso profesional y de flotas. La corriente de carga es ajustable en 6 niveles (6/10/16/20/25/32A) desde la app móvil o el botón del dispositivo — carga flexible y segura incluso en instalaciones débiles. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
         "specs": [
           {
             "group": "Eléctrico",
             "items": [
               {
                 "label": "Potencia",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               },
               {
                 "label": "Fase",
@@ -2150,7 +2154,7 @@
         "code": "BEV-2441-0001",
         "subtitle": "Trifásico · 11 kW · 5 m",
         "badge": null,
-        "description": "Pro Mobile 2 es un cargador AC portátil trifásico de 11-22 kW. Con adaptadores industriales CEE 5/16A y 5/32A ofrece carga de campo de alta potencia; diseñado para uso profesional y de flotas. La corriente de carga es ajustable en 6 niveles (6/10/16/20/25/32A) desde la app móvil o el botón del dispositivo — carga flexible y segura incluso en instalaciones débiles. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "description": "Pro Mobile 2 es un cargador AC portátil trifásico de 11 kW. Con adaptadores industriales CEE 5/16A y 5/32A ofrece carga de campo de alta potencia; diseñado para uso profesional y de flotas. La corriente de carga es ajustable en 6 niveles (6/10/16/20/25/32A) desde la app móvil o el botón del dispositivo — carga flexible y segura incluso en instalaciones débiles. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
         "specs": [
           {
             "group": "Eléctrico",
@@ -2170,10 +2174,6 @@
               {
                 "label": "Longitud del cable",
                 "value": "5 metros"
-              },
-              {
-                "label": "Ajuste de corriente",
-                "value": "6 niveles mediante la app móvil y el botón del dispositivo"
               }
             ]
           },
@@ -2186,7 +2186,7 @@
               },
               {
                 "label": "Toma",
-                "value": "Toma 5/32A"
+                "value": "Toma 5/16A"
               },
               {
                 "label": "Adaptador",
@@ -2213,6 +2213,10 @@
               {
                 "label": "Tipo de cable",
                 "value": "Type 2"
+              },
+              {
+                "label": "Sección del cable",
+                "value": "5 × 2,5 mm² + 1 × 0,75 mm² ttr"
               }
             ]
           },
@@ -7821,7 +7825,7 @@
       {
         "id": "bevdc-40-direk-tipi",
         "code": "BEVDCC-4222-0005",
-        "name": "BEVDC 40 Direk Tipi",
+        "name": "BEVDC 40",
         "subtitle": "Estación de carga rápida DC de 40 kW · Pedestal",
         "badge": null,
         "description": "Estación de carga rápida DC compacta de 40 kW con una única salida CCS2. Clase de potencia ideal para instalaciones en cafeterías, restaurantes, hoteles y aparcamientos urbanos; compatibilidad con OCPP 1.6J / 2.0.1, autorización de usuario por RFID, uso en exteriores IP54.",
@@ -7937,8 +7941,10 @@
         ],
         "generalFeatures": [],
         "documents": [],
-        "images": [],
-        "image": "",
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075174/products/zcprvbro7tkheffuxtmf.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075174/products/zcprvbro7tkheffuxtmf.png",
         "boxContents": []
       }
     ]
@@ -8577,7 +8583,7 @@
         "id": "pano-prizi-trifaze-11-22-kw-3-noktadan-montaj",
         "name": "Pano Prizi",
         "code": "BEV-5032-4310",
-        "subtitle": "Trifásico 11-22 kW · Montaje de 3 puntos",
+        "subtitle": "Trifásico 22 kW · Montaje de 3 puntos",
         "badge": null,
         "description": "Toma de panel Type 2 para integración en cuadros de carga. Componente estándar para fabricantes de cargadores AC, con variantes monofásicas o trifásicas con motor de bloqueo y montaje de 3 o 4 puntos.",
         "specs": [
@@ -8590,7 +8596,7 @@
               },
               {
                 "label": "Potencia",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -8622,7 +8628,7 @@
           }
         ],
         "generalFeatures": [
-          "Integración en panel trifásica 11 - 22 kW",
+          "Integración en panel trifásica 22 kW",
           "Motor de bloqueo mecánico — bloqueo automático para la seguridad del usuario",
           "Montaje de 3 puntos — instalación rápida",
           "Conforme al estándar Type 2 IEC 62196-2"
@@ -8637,7 +8643,7 @@
         "id": "pano-prizi-trifaze-11-22-kw-4-noktadan-montaj",
         "name": "Pano Prizi",
         "code": "BEV-5032-4320",
-        "subtitle": "Trifásico 11-22 kW · Montaje de 4 puntos",
+        "subtitle": "Trifásico 22 kW · Montaje de 4 puntos",
         "badge": null,
         "description": "Toma de panel Type 2 para integración en cuadros de carga. Componente estándar para fabricantes de cargadores AC, con variantes monofásicas o trifásicas con motor de bloqueo y montaje de 3 o 4 puntos.",
         "specs": [
@@ -8650,7 +8656,7 @@
               },
               {
                 "label": "Potencia",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -8682,7 +8688,7 @@
           }
         ],
         "generalFeatures": [
-          "Integración en panel trifásica 11 - 22 kW",
+          "Integración en panel trifásica 22 kW",
           "Motor de bloqueo mecánico — bloqueo automático para la seguridad del usuario",
           "Montaje de 4 puntos — instalación rápida",
           "Conforme al estándar Type 2 IEC 62196-2"
@@ -8817,7 +8823,7 @@
         "id": "pano-prizi-kilit-motorsuz-trifaze-11-22-kw-3-noktadan-montaj",
         "name": "Pano Prizi (Kilit Motorsuz)",
         "code": "BEV-5032-4310-A",
-        "subtitle": "Trifásico 11-22 kW · Montaje de 3 puntos",
+        "subtitle": "Trifásico 22 kW · Montaje de 3 puntos",
         "badge": null,
         "description": "Toma de panel Type 2 económica sin motor de bloqueo. Para instalaciones de fabricantes que no requieren bloqueo manual o cuyo mecanismo de bloqueo se suministra por separado.",
         "specs": [
@@ -8830,7 +8836,7 @@
               },
               {
                 "label": "Potencia",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -8862,7 +8868,7 @@
           }
         ],
         "generalFeatures": [
-          "Integración en panel trifásica 11 - 22 kW",
+          "Integración en panel trifásica 22 kW",
           "Compatible con bloqueo manual o mecanismo de bloqueo externo",
           "Montaje de 3 puntos — instalación rápida",
           "Conforme al estándar Type 2 IEC 62196-2"
@@ -8877,7 +8883,7 @@
         "id": "pano-prizi-kilit-motorsuz-trifaze-11-22-kw-4-noktadan-montaj",
         "name": "Pano Prizi (Kilit Motorsuz)",
         "code": "BEV-5032-4320-A",
-        "subtitle": "Trifásico 11-22 kW · Montaje de 4 puntos",
+        "subtitle": "Trifásico 22 kW · Montaje de 4 puntos",
         "badge": null,
         "description": "Toma de panel Type 2 económica sin motor de bloqueo. Para instalaciones de fabricantes que no requieren bloqueo manual o cuyo mecanismo de bloqueo se suministra por separado.",
         "specs": [
@@ -8890,7 +8896,7 @@
               },
               {
                 "label": "Potencia",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -8922,7 +8928,7 @@
           }
         ],
         "generalFeatures": [
-          "Integración en panel trifásica 11 - 22 kW",
+          "Integración en panel trifásica 22 kW",
           "Compatible con bloqueo manual o mecanismo de bloqueo externo",
           "Montaje de 4 puntos — instalación rápida",
           "Conforme al estándar Type 2 IEC 62196-2"
@@ -8937,7 +8943,7 @@
         "id": "bir-ucu-acik-enerji-kablosu-532a-trifaze-11-22-kw-5x6-mm",
         "name": "Bir Ucu Açık Enerji Kablosu",
         "code": "BKT-1000-2700",
-        "subtitle": "5/32A · Trifásico 11-22 kW · 5×6 mm²",
+        "subtitle": "5/32A · Trifásico 22 kW · 5×6 mm²",
         "badge": null,
         "description": "Cable de energía de 1,5 m con un extremo abierto para fabricantes de cargadores. Terminación directa en las conexiones internas del dispositivo, permite la integración en la línea de producción.",
         "specs": [
@@ -8950,7 +8956,7 @@
               },
               {
                 "label": "Potencia",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -8986,7 +8992,7 @@
           }
         ],
         "generalFeatures": [
-          "Entrada de energía trifásica 11 - 22 kW",
+          "Entrada de energía trifásica 22 kW",
           "Un extremo con enchufe CEE, otro extremo abierto — terminación directa dentro del cargador",
           "Longitud compacta de 1,5 m — facilidad de instalación dentro del panel",
           "Ensayo de conformidad CE completado"
@@ -9875,7 +9881,7 @@
         "id": "pano-prizi-trifaze-3-nokta-30cm-nyaff",
         "name": "Pano Prizi",
         "code": "BEV-5032-431B",
-        "subtitle": "Trifásico 11-22 kW · Montaje de 3 puntos · 30 cm NYAFF",
+        "subtitle": "Trifásico 22 kW · Montaje de 3 puntos · 30 cm NYAFF",
         "badge": null,
         "description": "Toma de panel Type 2 para integración en cuadros de carga. Componente estándar para fabricantes de cargadores AC, con variantes monofásicas o trifásicas con motor de bloqueo y montaje de 3 o 4 puntos.",
         "specs": [
@@ -9888,7 +9894,7 @@
               },
               {
                 "label": "Potencia",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -9920,7 +9926,7 @@
           }
         ],
         "generalFeatures": [
-          "Integración en panel trifásica 11 - 22 kW",
+          "Integración en panel trifásica 22 kW",
           "Motor de bloqueo mecánico — bloqueo automático para la seguridad del usuario",
           "Montaje de 3 puntos — instalación rápida",
           "Conforme al estándar Type 2 IEC 62196-2"
@@ -9933,7 +9939,7 @@
         "id": "pano-prizi-trifaze-4-nokta-30cm-nyaff",
         "name": "Pano Prizi",
         "code": "BEV-5032-432B",
-        "subtitle": "Trifásico 11-22 kW · Montaje de 4 puntos · 30 cm NYAFF",
+        "subtitle": "Trifásico 22 kW · Montaje de 4 puntos · 30 cm NYAFF",
         "badge": null,
         "description": "Toma de panel Type 2 para integración en cuadros de carga. Componente estándar para fabricantes de cargadores AC, con variantes monofásicas o trifásicas con motor de bloqueo y montaje de 3 o 4 puntos.",
         "specs": [
@@ -9946,7 +9952,7 @@
               },
               {
                 "label": "Potencia",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -9978,7 +9984,7 @@
           }
         ],
         "generalFeatures": [
-          "Integración en panel trifásica 11 - 22 kW",
+          "Integración en panel trifásica 22 kW",
           "Motor de bloqueo mecánico — bloqueo automático para la seguridad del usuario",
           "Montaje de 4 puntos — instalación rápida",
           "Conforme al estándar Type 2 IEC 62196-2"
@@ -10107,7 +10113,7 @@
         "id": "pano-prizi-kilit-motorsuz-trifaze-3-nokta-30cm-nyaff",
         "name": "Pano Prizi (Kilit Motorsuz)",
         "code": "BEV-5032-431B-A",
-        "subtitle": "Trifásico 11-22 kW · Montaje de 3 puntos · 30 cm NYAFF",
+        "subtitle": "Trifásico 22 kW · Montaje de 3 puntos · 30 cm NYAFF",
         "badge": null,
         "description": "Toma de panel Type 2 económica sin motor de bloqueo. Para instalaciones de fabricantes que no requieren bloqueo manual o cuyo mecanismo de bloqueo se suministra por separado.",
         "specs": [
@@ -10120,7 +10126,7 @@
               },
               {
                 "label": "Potencia",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -10152,7 +10158,7 @@
           }
         ],
         "generalFeatures": [
-          "Integración en panel trifásica 11 - 22 kW",
+          "Integración en panel trifásica 22 kW",
           "Compatible con bloqueo manual o mecanismo de bloqueo externo",
           "Montaje de 3 puntos — instalación rápida",
           "Conforme al estándar Type 2 IEC 62196-2"
@@ -10165,7 +10171,7 @@
         "id": "pano-prizi-kilit-motorsuz-trifaze-4-nokta-30cm-nyaff",
         "name": "Pano Prizi (Kilit Motorsuz)",
         "code": "BEV-5032-432B-A",
-        "subtitle": "Trifásico 11-22 kW · Montaje de 4 puntos · 30 cm NYAFF",
+        "subtitle": "Trifásico 22 kW · Montaje de 4 puntos · 30 cm NYAFF",
         "badge": null,
         "description": "Toma de panel Type 2 económica sin motor de bloqueo. Para instalaciones de fabricantes que no requieren bloqueo manual o cuyo mecanismo de bloqueo se suministra por separado.",
         "specs": [
@@ -10178,7 +10184,7 @@
               },
               {
                 "label": "Potencia",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -10210,7 +10216,7 @@
           }
         ],
         "generalFeatures": [
-          "Integración en panel trifásica 11 - 22 kW",
+          "Integración en panel trifásica 22 kW",
           "Compatible con bloqueo manual o mecanismo de bloqueo externo",
           "Montaje de 4 puntos — instalación rápida",
           "Conforme al estándar Type 2 IEC 62196-2"

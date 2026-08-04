@@ -135,7 +135,7 @@ export const BLOG_POSTS: BlogPost[] = [
           ],
           [
             "Pro Mobile 2",
-            "11–22 kW",
+            "11 / 22 kW",
             "Trifaze",
             "CEE 5/16A ve 5/32A adaptörleri, 6 kademe ayarlanabilir amper; profesyonel, filo ve saha kullanımı"
           ]
@@ -146,7 +146,7 @@ export const BLOG_POSTS: BlogPost[] = [
         "items": [
           "Mini Mobile: Evdeki normal prize (schuko) doğrudan takılan en sade seçenek; taşıma çantasıyla gelir.",
           "Mono Mobile: Monofaze tarafında daha yüksek güç; CEE 16/32A endüstriyel priz adaptörleri ve schuko çıkışıyla farklı prizlere uyum sağlar.",
-          "Pro Mobile 2: 11–22 kW trifaze güç, CEE 5/16A ile 5/32A adaptörleri ve 6/10/16/20/25/32A arasında ayarlanabilen amper kademeleriyle profesyonel kullanım için tasarlanmıştır."
+          "Pro Mobile 2: 22 kW trifaze güç (11 kW seçeneği de mevcuttur), CEE 5/16A ile 5/32A adaptörleri ve 6/10/16/20/25/32A arasında ayarlanabilen amper kademeleriyle profesyonel kullanım için tasarlanmıştır."
         ]
       },
       {

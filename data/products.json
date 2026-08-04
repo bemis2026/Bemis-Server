@@ -11,14 +11,14 @@
         "code": "BEV-1011-0005",
         "subtitle": "5m. Kablolu",
         "badge": null,
-        "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 11–22 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
+        "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 22 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
           {
             "group": "Elektriksel",
             "items": [
               {
                 "label": "Güç",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               },
               {
                 "label": "Faz",
@@ -26,7 +26,7 @@
               },
               {
                 "label": "Maks. Akım",
-                "value": "16 - 32A"
+                "value": "32A"
               }
             ]
           },
@@ -77,14 +77,14 @@
         "code": "BEV-1011-0105",
         "subtitle": "5m. Kablolu / 5-32A Fişli",
         "badge": "Fişli",
-        "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 11–22 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
+        "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 22 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
           {
             "group": "Elektriksel",
             "items": [
               {
                 "label": "Güç",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               },
               {
                 "label": "Faz",
@@ -92,7 +92,7 @@
               },
               {
                 "label": "Maks. Akım",
-                "value": "16 - 32A"
+                "value": "32A"
               }
             ]
           },
@@ -1546,7 +1546,7 @@
         "code": "BEV-1311-0005",
         "subtitle": "5m. Kablolu · 11 kW / 16A",
         "badge": null,
-        "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 11–22 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
+        "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 11 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -1575,6 +1575,10 @@
               {
                 "label": "Konnektör",
                 "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "5 × 2,5 mm² + 1 × 0,75 mm² ttr"
               }
             ]
           },
@@ -1800,16 +1804,16 @@
         "id": "pro-mobile",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0001",
-        "subtitle": "Üç Fazlı · 11 - 22 kW",
+        "subtitle": "Üç Fazlı · 22 kW",
         "badge": null,
-        "description": "Pro Mobile 2, 11–22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. Şarj akımı 6 kademede (6/10/16/20/25/32A) mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanabilir — zayıf tesisatlarda bile güvenli, esnek şarj sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
+        "description": "Pro Mobile 2, 22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. Şarj akımı 6 kademede (6/10/16/20/25/32A) mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanabilir — zayıf tesisatlarda bile güvenli, esnek şarj sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
           {
             "group": "Elektriksel",
             "items": [
               {
                 "label": "Güç",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               },
               {
                 "label": "Faz",
@@ -1916,16 +1920,16 @@
         "id": "pro-mobile-2-10m",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0003",
-        "subtitle": "Üç Fazlı · 11 - 22 kW · 10 m",
+        "subtitle": "Üç Fazlı · 22 kW · 10 m",
         "badge": null,
-        "description": "Pro Mobile 2, 11–22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. Şarj akımı 6 kademede (6/10/16/20/25/32A) mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanabilir — zayıf tesisatlarda bile güvenli, esnek şarj sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
+        "description": "Pro Mobile 2, 22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. Şarj akımı 6 kademede (6/10/16/20/25/32A) mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanabilir — zayıf tesisatlarda bile güvenli, esnek şarj sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
           {
             "group": "Elektriksel",
             "items": [
               {
                 "label": "Güç",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               },
               {
                 "label": "Faz",
@@ -2032,16 +2036,16 @@
         "id": "pro-mobile-2-8m",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0002",
-        "subtitle": "Üç Fazlı · 11 - 22 kW · 8 m",
+        "subtitle": "Üç Fazlı · 22 kW · 8 m",
         "badge": null,
-        "description": "Pro Mobile 2, 11–22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. Şarj akımı 6 kademede (6/10/16/20/25/32A) mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanabilir — zayıf tesisatlarda bile güvenli, esnek şarj sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
+        "description": "Pro Mobile 2, 22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. Şarj akımı 6 kademede (6/10/16/20/25/32A) mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanabilir — zayıf tesisatlarda bile güvenli, esnek şarj sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
           {
             "group": "Elektriksel",
             "items": [
               {
                 "label": "Güç",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               },
               {
                 "label": "Faz",
@@ -2150,7 +2154,7 @@
         "code": "BEV-2441-0001",
         "subtitle": "Üç Fazlı · 11 kW · 5 m",
         "badge": null,
-        "description": "Pro Mobile 2, 11–22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. Şarj akımı 6 kademede (6/10/16/20/25/32A) mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanabilir — zayıf tesisatlarda bile güvenli, esnek şarj sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
+        "description": "Pro Mobile 2, 11 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. Şarj akımı 6 kademede (6/10/16/20/25/32A) mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanabilir — zayıf tesisatlarda bile güvenli, esnek şarj sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -2170,10 +2174,6 @@
               {
                 "label": "Kablo Uzunluğu",
                 "value": "5 metre"
-              },
-              {
-                "label": "Amper Ayarı",
-                "value": "Mobil uygulama ve cihaz üzerindeki tuş ile 6 kademe"
               }
             ]
           },
@@ -2186,7 +2186,7 @@
               },
               {
                 "label": "Priz",
-                "value": "5/32A Priz"
+                "value": "5/16A Priz"
               },
               {
                 "label": "Adaptör",
@@ -2213,6 +2213,10 @@
               {
                 "label": "Kablo Tipi",
                 "value": "Tip 2"
+              },
+              {
+                "label": "Kablo Kesiti",
+                "value": "5 × 2,5 mm² + 1 × 0,75 mm² ttr"
               }
             ]
           },
@@ -7841,8 +7845,8 @@
       {
         "id": "bevdc-40-direk-tipi",
         "code": "BEVDCC-4222-0005",
-        "name": "BEVDC 40 Direk Tipi",
-        "subtitle": "40kW DC Hızlı Şarj İstasyonu · Pedestal",
+        "name": "BEVDC 40",
+        "subtitle": "40kW DC Hızlı Şarj İstasyonu · Direk Tipi",
         "badge": null,
         "description": "40 kW tek CCS2 çıkışlı kompakt DC hızlı şarj istasyonu. Kafe, restoran, otel ve şehir içi otopark kurulumları için ideal güç sınıfı; OCPP 1.6J / 2.0.1 desteği, RFID kullanıcı yetkilendirme, IP54 dış mekan kullanımı. Tak-çalıştır kurulum ve uzaktan yönetim ile hızlı devreye alma, güç dengeleme ile araçlar arası akıllı güç paylaşımı ve NFC temassız ödeme desteği sunar.",
         "specs": [
@@ -7957,8 +7961,10 @@
         ],
         "generalFeatures": [],
         "documents": [],
-        "images": [],
-        "image": "",
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075174/products/zcprvbro7tkheffuxtmf.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075174/products/zcprvbro7tkheffuxtmf.png",
         "boxContents": []
       }
     ]
@@ -8597,7 +8603,7 @@
         "id": "pano-prizi-trifaze-11-22-kw-3-noktadan-montaj",
         "name": "Pano Prizi",
         "code": "BEV-5032-4310",
-        "subtitle": "Trifaze 11-22 kW · 3 Noktadan Montaj",
+        "subtitle": "Trifaze 22 kW · 3 Noktadan Montaj",
         "badge": null,
         "description": "Şarj panolarına entegrasyon için Type 2 pano prizi. Kilit motorlu monofaze ya da trifaze, 3 veya 4 noktadan montajlı varyantlarla AC şarj cihazı üreticilerine standart bileşen.",
         "specs": [
@@ -8610,7 +8616,7 @@
               },
               {
                 "label": "Güç",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -8642,7 +8648,7 @@
           }
         ],
         "generalFeatures": [
-          "Trifaze 11 - 22 kW pano içi entegrasyon",
+          "Trifaze 22 kW pano içi entegrasyon",
           "Mekanik kilit motoru — kullanıcı güvenliği için otomatik kilitleme",
           "3 Noktadan Montajlı montaj — hızlı kurulum",
           "IEC 62196-2 Type 2 standardına uygun"
@@ -8657,7 +8663,7 @@
         "id": "pano-prizi-trifaze-11-22-kw-4-noktadan-montaj",
         "name": "Pano Prizi",
         "code": "BEV-5032-4320",
-        "subtitle": "Trifaze 11-22 kW · 4 Noktadan Montaj",
+        "subtitle": "Trifaze 22 kW · 4 Noktadan Montaj",
         "badge": null,
         "description": "Şarj panolarına entegrasyon için Type 2 pano prizi. Kilit motorlu monofaze ya da trifaze, 3 veya 4 noktadan montajlı varyantlarla AC şarj cihazı üreticilerine standart bileşen.",
         "specs": [
@@ -8670,7 +8676,7 @@
               },
               {
                 "label": "Güç",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -8702,7 +8708,7 @@
           }
         ],
         "generalFeatures": [
-          "Trifaze 11 - 22 kW pano içi entegrasyon",
+          "Trifaze 22 kW pano içi entegrasyon",
           "Mekanik kilit motoru — kullanıcı güvenliği için otomatik kilitleme",
           "4 Noktadan Montajlı montaj — hızlı kurulum",
           "IEC 62196-2 Type 2 standardına uygun"
@@ -8837,7 +8843,7 @@
         "id": "pano-prizi-kilit-motorsuz-trifaze-11-22-kw-3-noktadan-montaj",
         "name": "Pano Prizi (Kilit Motorsuz)",
         "code": "BEV-5032-4310-A",
-        "subtitle": "Trifaze 11-22 kW · 3 Noktadan Montaj",
+        "subtitle": "Trifaze 22 kW · 3 Noktadan Montaj",
         "badge": null,
         "description": "Kilit motoru olmayan ekonomik Type 2 pano prizi. Manuel kilitleme gerektirmeyen veya kilit mekanizması ayrı tedarik edilen üretici kurulumları için.",
         "specs": [
@@ -8850,7 +8856,7 @@
               },
               {
                 "label": "Güç",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -8882,7 +8888,7 @@
           }
         ],
         "generalFeatures": [
-          "Trifaze 11 - 22 kW pano içi entegrasyon",
+          "Trifaze 22 kW pano içi entegrasyon",
           "Manuel kilit veya harici kilit mekanizması ile uyumlu",
           "3 Noktadan Montajlı montaj — hızlı kurulum",
           "IEC 62196-2 Type 2 standardına uygun"
@@ -8897,7 +8903,7 @@
         "id": "pano-prizi-kilit-motorsuz-trifaze-11-22-kw-4-noktadan-montaj",
         "name": "Pano Prizi (Kilit Motorsuz)",
         "code": "BEV-5032-4320-A",
-        "subtitle": "Trifaze 11-22 kW · 4 Noktadan Montaj",
+        "subtitle": "Trifaze 22 kW · 4 Noktadan Montaj",
         "badge": null,
         "description": "Kilit motoru olmayan ekonomik Type 2 pano prizi. Manuel kilitleme gerektirmeyen veya kilit mekanizması ayrı tedarik edilen üretici kurulumları için.",
         "specs": [
@@ -8910,7 +8916,7 @@
               },
               {
                 "label": "Güç",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -8942,7 +8948,7 @@
           }
         ],
         "generalFeatures": [
-          "Trifaze 11 - 22 kW pano içi entegrasyon",
+          "Trifaze 22 kW pano içi entegrasyon",
           "Manuel kilit veya harici kilit mekanizması ile uyumlu",
           "4 Noktadan Montajlı montaj — hızlı kurulum",
           "IEC 62196-2 Type 2 standardına uygun"
@@ -8957,7 +8963,7 @@
         "id": "bir-ucu-acik-enerji-kablosu-532a-trifaze-11-22-kw-5x6-mm",
         "name": "Bir Ucu Açık Enerji Kablosu",
         "code": "BKT-1000-2700",
-        "subtitle": "5/32A · Trifaze 11-22 kW · 5×6 mm²",
+        "subtitle": "5/32A · Trifaze 22 kW · 5×6 mm²",
         "badge": null,
         "description": "Şarj cihazı üreticileri için 1,5 m bir ucu açık enerji kablosu. Cihaz iç bağlantılarına doğrudan terminasyon, üretim hattı entegrasyonu sağlar.",
         "specs": [
@@ -8970,7 +8976,7 @@
               },
               {
                 "label": "Güç",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -9006,7 +9012,7 @@
           }
         ],
         "generalFeatures": [
-          "Trifaze 11 - 22 kW enerji girişi",
+          "Trifaze 22 kW enerji girişi",
           "Bir uç CEE fiş, diğer uç açık — şarj cihazı içine doğrudan terminasyon",
           "1,5 m kompakt uzunluk — pano içi kurulum kolaylığı",
           "CE uygunluk testi tamamlanmış"
@@ -9895,7 +9901,7 @@
         "id": "pano-prizi-trifaze-3-nokta-30cm-nyaff",
         "name": "Pano Prizi",
         "code": "BEV-5032-431B",
-        "subtitle": "Trifaze 11-22 kW · 3 Noktadan Montaj · 30 cm NYAFF",
+        "subtitle": "Trifaze 22 kW · 3 Noktadan Montaj · 30 cm NYAFF",
         "badge": null,
         "description": "Şarj panolarına entegrasyon için Type 2 pano prizi. Kilit motorlu monofaze ya da trifaze, 3 veya 4 noktadan montajlı varyantlarla AC şarj cihazı üreticilerine standart bileşen.",
         "specs": [
@@ -9908,7 +9914,7 @@
               },
               {
                 "label": "Güç",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -9940,7 +9946,7 @@
           }
         ],
         "generalFeatures": [
-          "Trifaze 11 - 22 kW pano içi entegrasyon",
+          "Trifaze 22 kW pano içi entegrasyon",
           "Mekanik kilit motoru — kullanıcı güvenliği için otomatik kilitleme",
           "3 Noktadan Montajlı montaj — hızlı kurulum",
           "IEC 62196-2 Type 2 standardına uygun"
@@ -9953,7 +9959,7 @@
         "id": "pano-prizi-trifaze-4-nokta-30cm-nyaff",
         "name": "Pano Prizi",
         "code": "BEV-5032-432B",
-        "subtitle": "Trifaze 11-22 kW · 4 Noktadan Montaj · 30 cm NYAFF",
+        "subtitle": "Trifaze 22 kW · 4 Noktadan Montaj · 30 cm NYAFF",
         "badge": null,
         "description": "Şarj panolarına entegrasyon için Type 2 pano prizi. Kilit motorlu monofaze ya da trifaze, 3 veya 4 noktadan montajlı varyantlarla AC şarj cihazı üreticilerine standart bileşen.",
         "specs": [
@@ -9966,7 +9972,7 @@
               },
               {
                 "label": "Güç",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -9998,7 +10004,7 @@
           }
         ],
         "generalFeatures": [
-          "Trifaze 11 - 22 kW pano içi entegrasyon",
+          "Trifaze 22 kW pano içi entegrasyon",
           "Mekanik kilit motoru — kullanıcı güvenliği için otomatik kilitleme",
           "4 Noktadan Montajlı montaj — hızlı kurulum",
           "IEC 62196-2 Type 2 standardına uygun"
@@ -10127,7 +10133,7 @@
         "id": "pano-prizi-kilit-motorsuz-trifaze-3-nokta-30cm-nyaff",
         "name": "Pano Prizi (Kilit Motorsuz)",
         "code": "BEV-5032-431B-A",
-        "subtitle": "Trifaze 11-22 kW · 3 Noktadan Montaj · 30 cm NYAFF",
+        "subtitle": "Trifaze 22 kW · 3 Noktadan Montaj · 30 cm NYAFF",
         "badge": null,
         "description": "Kilit motoru olmayan ekonomik Type 2 pano prizi. Manuel kilitleme gerektirmeyen veya kilit mekanizması ayrı tedarik edilen üretici kurulumları için.",
         "specs": [
@@ -10140,7 +10146,7 @@
               },
               {
                 "label": "Güç",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -10172,7 +10178,7 @@
           }
         ],
         "generalFeatures": [
-          "Trifaze 11 - 22 kW pano içi entegrasyon",
+          "Trifaze 22 kW pano içi entegrasyon",
           "Manuel kilit veya harici kilit mekanizması ile uyumlu",
           "3 Noktadan Montajlı montaj — hızlı kurulum",
           "IEC 62196-2 Type 2 standardına uygun"
@@ -10185,7 +10191,7 @@
         "id": "pano-prizi-kilit-motorsuz-trifaze-4-nokta-30cm-nyaff",
         "name": "Pano Prizi (Kilit Motorsuz)",
         "code": "BEV-5032-432B-A",
-        "subtitle": "Trifaze 11-22 kW · 4 Noktadan Montaj · 30 cm NYAFF",
+        "subtitle": "Trifaze 22 kW · 4 Noktadan Montaj · 30 cm NYAFF",
         "badge": null,
         "description": "Kilit motoru olmayan ekonomik Type 2 pano prizi. Manuel kilitleme gerektirmeyen veya kilit mekanizması ayrı tedarik edilen üretici kurulumları için.",
         "specs": [
@@ -10198,7 +10204,7 @@
               },
               {
                 "label": "Güç",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -10230,7 +10236,7 @@
           }
         ],
         "generalFeatures": [
-          "Trifaze 11 - 22 kW pano içi entegrasyon",
+          "Trifaze 22 kW pano içi entegrasyon",
           "Manuel kilit veya harici kilit mekanizması ile uyumlu",
           "4 Noktadan Montajlı montaj — hızlı kurulum",
           "IEC 62196-2 Type 2 standardına uygun"

@@ -71,7 +71,6 @@ const EN_NAMES: Record<string, string> = {
   //  eşlemesi olmayan ad aynen döner, İngilizce sayfada da aynı yazılmalı.)
   "Charger Plus 2 MID Sayaçlı": "Charger Plus 2 with MID Meter",
   "Charger Pro 2 MID Sayaçlı": "Charger Pro 2 with MID Meter",
-  "BEVDC 40 Direk Tipi": "BEVDC 40 Pedestal Type",
   "Tek Çıkışlı C2L Adaptör": "Single-Output C2L Adapter",
   "Seyyar Uzatma Kablosu Ceenorm 5×2,5 (5/16A)": "CEE Norm Extension Cable 5×2.5 (5/16A)",
   "Cee Norm Adaptör (30cm Kablolu)": "CEE Norm Adapter (30 cm Cable)",

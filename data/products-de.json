@@ -11,14 +11,14 @@
         "code": "BEV-1011-0005",
         "subtitle": "5 m Kabel",
         "badge": null,
-        "description": "Der Bemis Charger 2 ist eine AC-Wandladestation für den Einsatz zu Hause und im Betrieb, mit den Optionen einphasig 7,4 kW und dreiphasig 11–22 kW. Mit 5 Meter integriertem Type 2-Kabel oder der Schalttafel-Steckdosen-Version arbeitet das CE- & IP65-zertifizierte Gehäuse im Innen- und Außenbereich sicher. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Der Bemis Charger 2 ist eine AC-Wandladestation für den Einsatz zu Hause und im Betrieb, mit den Optionen einphasig 7,4 kW und dreiphasig 22 kW. Mit 5 Meter integriertem Type 2-Kabel oder der Schalttafel-Steckdosen-Version arbeitet das CE- & IP65-zertifizierte Gehäuse im Innen- und Außenbereich sicher. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
         "specs": [
           {
             "group": "Elektrisch",
             "items": [
               {
                 "label": "Leistung",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               },
               {
                 "label": "Phase",
@@ -26,7 +26,7 @@
               },
               {
                 "label": "Max. Strom",
-                "value": "16 - 32A"
+                "value": "32A"
               }
             ]
           },
@@ -77,14 +77,14 @@
         "code": "BEV-1011-0105",
         "subtitle": "5 m Kabel / 5-32A mit Stecker",
         "badge": "Mit Stecker",
-        "description": "Der Bemis Charger 2 ist eine AC-Wandladestation für den Einsatz zu Hause und im Betrieb, mit den Optionen einphasig 7,4 kW und dreiphasig 11–22 kW. Mit 5 Meter integriertem Type 2-Kabel oder der Schalttafel-Steckdosen-Version arbeitet das CE- & IP65-zertifizierte Gehäuse im Innen- und Außenbereich sicher. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Der Bemis Charger 2 ist eine AC-Wandladestation für den Einsatz zu Hause und im Betrieb, mit den Optionen einphasig 7,4 kW und dreiphasig 22 kW. Mit 5 Meter integriertem Type 2-Kabel oder der Schalttafel-Steckdosen-Version arbeitet das CE- & IP65-zertifizierte Gehäuse im Innen- und Außenbereich sicher. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
         "specs": [
           {
             "group": "Elektrisch",
             "items": [
               {
                 "label": "Leistung",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               },
               {
                 "label": "Phase",
@@ -92,7 +92,7 @@
               },
               {
                 "label": "Max. Strom",
-                "value": "16 - 32A"
+                "value": "32A"
               }
             ]
           },
@@ -1546,7 +1546,7 @@
         "code": "BEV-1311-0005",
         "subtitle": "5 m Kabel · 11 kW / 16A",
         "badge": null,
-        "description": "Der Bemis Charger 2 ist eine AC-Wandladestation für den Einsatz zu Hause und im Betrieb, mit den Optionen einphasig 7,4 kW und dreiphasig 11–22 kW. Mit 5 Meter integriertem Type 2-Kabel oder der Schalttafel-Steckdosen-Version arbeitet das CE- & IP65-zertifizierte Gehäuse im Innen- und Außenbereich sicher. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Der Bemis Charger 2 ist eine AC-Wandladestation für den Einsatz zu Hause und im Betrieb, mit den Optionen einphasig 7,4 kW und dreiphasig 11 kW. Mit 5 Meter integriertem Type 2-Kabel oder der Schalttafel-Steckdosen-Version arbeitet das CE- & IP65-zertifizierte Gehäuse im Innen- und Außenbereich sicher. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1575,6 +1575,10 @@
               {
                 "label": "Stecker",
                 "value": "Type 2 (IEC 62196-2)"
+              },
+              {
+                "label": "Kabelquerschnitt",
+                "value": "5 × 2,5 mm² + 1 × 0,75 mm² ttr"
               }
             ]
           },
@@ -1800,16 +1804,16 @@
         "id": "pro-mobile",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0001",
-        "subtitle": "Dreiphasig · 11 - 22 kW",
+        "subtitle": "Dreiphasig · 22 kW",
         "badge": null,
-        "description": "Das Pro Mobile 2 ist ein dreiphasiges tragbares AC-Ladegerät mit 11–22 kW. Mit CEE 5/16A- und 5/32A-Industrieadaptern bietet es Hochleistungs-Laden vor Ort; entwickelt für den professionellen Einsatz und Flotten. Der Ladestrom ist in 6 Stufen (6/10/16/20/25/32A) über die mobile App oder die Taste am Gerät einstellbar — flexibles, sicheres Laden auch bei schwacher Installation. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Das Pro Mobile 2 ist ein dreiphasiges tragbares AC-Ladegerät mit 22 kW. Mit CEE 5/16A- und 5/32A-Industrieadaptern bietet es Hochleistungs-Laden vor Ort; entwickelt für den professionellen Einsatz und Flotten. Der Ladestrom ist in 6 Stufen (6/10/16/20/25/32A) über die mobile App oder die Taste am Gerät einstellbar — flexibles, sicheres Laden auch bei schwacher Installation. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
         "specs": [
           {
             "group": "Elektrisch",
             "items": [
               {
                 "label": "Leistung",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               },
               {
                 "label": "Phase",
@@ -1916,16 +1920,16 @@
         "id": "pro-mobile-2-10m",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0003",
-        "subtitle": "Dreiphasig · 11 - 22 kW · 10 m",
+        "subtitle": "Dreiphasig · 22 kW · 10 m",
         "badge": null,
-        "description": "Das Pro Mobile 2 ist ein dreiphasiges tragbares AC-Ladegerät mit 11–22 kW. Mit CEE 5/16A- und 5/32A-Industrieadaptern bietet es Hochleistungs-Laden vor Ort; entwickelt für den professionellen Einsatz und Flotten. Der Ladestrom ist in 6 Stufen (6/10/16/20/25/32A) über die mobile App oder die Taste am Gerät einstellbar — flexibles, sicheres Laden auch bei schwacher Installation. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Das Pro Mobile 2 ist ein dreiphasiges tragbares AC-Ladegerät mit 22 kW. Mit CEE 5/16A- und 5/32A-Industrieadaptern bietet es Hochleistungs-Laden vor Ort; entwickelt für den professionellen Einsatz und Flotten. Der Ladestrom ist in 6 Stufen (6/10/16/20/25/32A) über die mobile App oder die Taste am Gerät einstellbar — flexibles, sicheres Laden auch bei schwacher Installation. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
         "specs": [
           {
             "group": "Elektrisch",
             "items": [
               {
                 "label": "Leistung",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               },
               {
                 "label": "Phase",
@@ -2032,16 +2036,16 @@
         "id": "pro-mobile-2-8m",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0002",
-        "subtitle": "Dreiphasig · 11 - 22 kW · 8 m",
+        "subtitle": "Dreiphasig · 22 kW · 8 m",
         "badge": null,
-        "description": "Das Pro Mobile 2 ist ein dreiphasiges tragbares AC-Ladegerät mit 11–22 kW. Mit CEE 5/16A- und 5/32A-Industrieadaptern bietet es Hochleistungs-Laden vor Ort; entwickelt für den professionellen Einsatz und Flotten. Der Ladestrom ist in 6 Stufen (6/10/16/20/25/32A) über die mobile App oder die Taste am Gerät einstellbar — flexibles, sicheres Laden auch bei schwacher Installation. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Das Pro Mobile 2 ist ein dreiphasiges tragbares AC-Ladegerät mit 22 kW. Mit CEE 5/16A- und 5/32A-Industrieadaptern bietet es Hochleistungs-Laden vor Ort; entwickelt für den professionellen Einsatz und Flotten. Der Ladestrom ist in 6 Stufen (6/10/16/20/25/32A) über die mobile App oder die Taste am Gerät einstellbar — flexibles, sicheres Laden auch bei schwacher Installation. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
         "specs": [
           {
             "group": "Elektrisch",
             "items": [
               {
                 "label": "Leistung",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               },
               {
                 "label": "Phase",
@@ -2150,7 +2154,7 @@
         "code": "BEV-2441-0001",
         "subtitle": "Dreiphasig · 11 kW · 5 m",
         "badge": null,
-        "description": "Das Pro Mobile 2 ist ein dreiphasiges tragbares AC-Ladegerät mit 11–22 kW. Mit CEE 5/16A- und 5/32A-Industrieadaptern bietet es Hochleistungs-Laden vor Ort; entwickelt für den professionellen Einsatz und Flotten. Der Ladestrom ist in 6 Stufen (6/10/16/20/25/32A) über die mobile App oder die Taste am Gerät einstellbar — flexibles, sicheres Laden auch bei schwacher Installation. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Das Pro Mobile 2 ist ein dreiphasiges tragbares AC-Ladegerät mit 11 kW. Mit CEE 5/16A- und 5/32A-Industrieadaptern bietet es Hochleistungs-Laden vor Ort; entwickelt für den professionellen Einsatz und Flotten. Der Ladestrom ist in 6 Stufen (6/10/16/20/25/32A) über die mobile App oder die Taste am Gerät einstellbar — flexibles, sicheres Laden auch bei schwacher Installation. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -2170,10 +2174,6 @@
               {
                 "label": "Kabellänge",
                 "value": "5 Meter"
-              },
-              {
-                "label": "Stromeinstellung",
-                "value": "6 Stufen über die mobile App und die Taste am Gerät"
               }
             ]
           },
@@ -2186,7 +2186,7 @@
               },
               {
                 "label": "Steckdose",
-                "value": "5/32A Steckdose"
+                "value": "5/16A Steckdose"
               },
               {
                 "label": "Adapter",
@@ -2213,6 +2213,10 @@
               {
                 "label": "Kabeltyp",
                 "value": "Type 2"
+              },
+              {
+                "label": "Kabelquerschnitt",
+                "value": "5 × 2,5 mm² + 1 × 0,75 mm² ttr"
               }
             ]
           },
@@ -7821,7 +7825,7 @@
       {
         "id": "bevdc-40-direk-tipi",
         "code": "BEVDCC-4222-0005",
-        "name": "BEVDC 40 Direk Tipi",
+        "name": "BEVDC 40",
         "subtitle": "40kW DC Fast Charging Station · Pedestal",
         "badge": null,
         "description": "Kompakte DC-Schnellladestation mit 40 kW und einem einzelnen CCS2-Ausgang. Ideale Leistungsklasse für Installationen in Cafés, Restaurants, Hotels und innerstädtischen Parkplätzen; Unterstützung von OCPP 1.6J / 2.0.1, RFID-Benutzerautorisierung, IP54 für den Außeneinsatz.",
@@ -7937,8 +7941,10 @@
         ],
         "generalFeatures": [],
         "documents": [],
-        "images": [],
-        "image": "",
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075174/products/zcprvbro7tkheffuxtmf.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075174/products/zcprvbro7tkheffuxtmf.png",
         "boxContents": []
       }
     ]
@@ -8577,7 +8583,7 @@
         "id": "pano-prizi-trifaze-11-22-kw-3-noktadan-montaj",
         "name": "Pano Prizi",
         "code": "BEV-5032-4310",
-        "subtitle": "Dreiphasig 11-22 kW · 3-Punkt-Montage",
+        "subtitle": "Dreiphasig 22 kW · 3-Punkt-Montage",
         "badge": null,
         "description": "Type 2 Einbausteckdose zur Integration in Ladeschränke. Als einphasige oder dreiphasige Variante mit Verriegelungsmotor, in 3- oder 4-Punkt-Montage — Standardkomponente für Hersteller von AC-Ladegeräten.",
         "specs": [
@@ -8590,7 +8596,7 @@
               },
               {
                 "label": "Leistung",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -8622,7 +8628,7 @@
           }
         ],
         "generalFeatures": [
-          "Dreiphasige 11 - 22 kW Integration im Schrank",
+          "Dreiphasige 22 kW Integration im Schrank",
           "Mechanischer Verriegelungsmotor — automatische Verriegelung für die Benutzersicherheit",
           "3-Punkt-Montage — schnelle Installation",
           "Konform zur Norm IEC 62196-2 Type 2"
@@ -8637,7 +8643,7 @@
         "id": "pano-prizi-trifaze-11-22-kw-4-noktadan-montaj",
         "name": "Pano Prizi",
         "code": "BEV-5032-4320",
-        "subtitle": "Dreiphasig 11-22 kW · 4-Punkt-Montage",
+        "subtitle": "Dreiphasig 22 kW · 4-Punkt-Montage",
         "badge": null,
         "description": "Type 2 Einbausteckdose zur Integration in Ladeschränke. Als einphasige oder dreiphasige Variante mit Verriegelungsmotor, in 3- oder 4-Punkt-Montage — Standardkomponente für Hersteller von AC-Ladegeräten.",
         "specs": [
@@ -8650,7 +8656,7 @@
               },
               {
                 "label": "Leistung",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -8682,7 +8688,7 @@
           }
         ],
         "generalFeatures": [
-          "Dreiphasige 11 - 22 kW Integration im Schrank",
+          "Dreiphasige 22 kW Integration im Schrank",
           "Mechanischer Verriegelungsmotor — automatische Verriegelung für die Benutzersicherheit",
           "4-Punkt-Montage — schnelle Installation",
           "Konform zur Norm IEC 62196-2 Type 2"
@@ -8817,7 +8823,7 @@
         "id": "pano-prizi-kilit-motorsuz-trifaze-11-22-kw-3-noktadan-montaj",
         "name": "Pano Prizi (Kilit Motorsuz)",
         "code": "BEV-5032-4310-A",
-        "subtitle": "Dreiphasig 11-22 kW · 3-Punkt-Montage",
+        "subtitle": "Dreiphasig 22 kW · 3-Punkt-Montage",
         "badge": null,
         "description": "Wirtschaftliche Type 2 Einbausteckdose ohne Verriegelungsmotor. Für Herstelleraufbauten, die keine manuelle Verriegelung benötigen oder bei denen der Verriegelungsmechanismus separat bezogen wird.",
         "specs": [
@@ -8830,7 +8836,7 @@
               },
               {
                 "label": "Leistung",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -8862,7 +8868,7 @@
           }
         ],
         "generalFeatures": [
-          "Dreiphasige 11 - 22 kW Integration im Schrank",
+          "Dreiphasige 22 kW Integration im Schrank",
           "Kompatibel mit manueller Verriegelung oder externem Verriegelungsmechanismus",
           "3-Punkt-Montage — schnelle Installation",
           "Konform zur Norm IEC 62196-2 Type 2"
@@ -8877,7 +8883,7 @@
         "id": "pano-prizi-kilit-motorsuz-trifaze-11-22-kw-4-noktadan-montaj",
         "name": "Pano Prizi (Kilit Motorsuz)",
         "code": "BEV-5032-4320-A",
-        "subtitle": "Dreiphasig 11-22 kW · 4-Punkt-Montage",
+        "subtitle": "Dreiphasig 22 kW · 4-Punkt-Montage",
         "badge": null,
         "description": "Wirtschaftliche Type 2 Einbausteckdose ohne Verriegelungsmotor. Für Herstelleraufbauten, die keine manuelle Verriegelung benötigen oder bei denen der Verriegelungsmechanismus separat bezogen wird.",
         "specs": [
@@ -8890,7 +8896,7 @@
               },
               {
                 "label": "Leistung",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -8922,7 +8928,7 @@
           }
         ],
         "generalFeatures": [
-          "Dreiphasige 11 - 22 kW Integration im Schrank",
+          "Dreiphasige 22 kW Integration im Schrank",
           "Kompatibel mit manueller Verriegelung oder externem Verriegelungsmechanismus",
           "4-Punkt-Montage — schnelle Installation",
           "Konform zur Norm IEC 62196-2 Type 2"
@@ -8937,7 +8943,7 @@
         "id": "bir-ucu-acik-enerji-kablosu-532a-trifaze-11-22-kw-5x6-mm",
         "name": "Bir Ucu Açık Enerji Kablosu",
         "code": "BKT-1000-2700",
-        "subtitle": "5/32A · Dreiphasig 11-22 kW · 5×6 mm²",
+        "subtitle": "5/32A · Dreiphasig 22 kW · 5×6 mm²",
         "badge": null,
         "description": "1,5 m Energiekabel mit einseitig offenem Ende für Ladegerätehersteller. Direkte Konfektionierung an die internen Geräteanschlüsse, ermöglicht die Integration in die Fertigungslinie.",
         "specs": [
@@ -8950,7 +8956,7 @@
               },
               {
                 "label": "Leistung",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -8986,7 +8992,7 @@
           }
         ],
         "generalFeatures": [
-          "Dreiphasige 11 - 22 kW Energieeinspeisung",
+          "Dreiphasige 22 kW Energieeinspeisung",
           "Ein Ende CEE-Stecker, anderes Ende offen — direkte Konfektionierung in das Ladegerät",
           "1,5 m kompakte Länge — einfache Installation im Schrank",
           "CE-Konformitätsprüfung abgeschlossen"
@@ -9875,7 +9881,7 @@
         "id": "pano-prizi-trifaze-3-nokta-30cm-nyaff",
         "name": "Pano Prizi",
         "code": "BEV-5032-431B",
-        "subtitle": "Dreiphasig 11-22 kW · 3-Punkt-Montage · 30 cm NYAFF",
+        "subtitle": "Dreiphasig 22 kW · 3-Punkt-Montage · 30 cm NYAFF",
         "badge": null,
         "description": "Type 2 Einbausteckdose zur Integration in Ladeschränke. Als einphasige oder dreiphasige Variante mit Verriegelungsmotor, in 3- oder 4-Punkt-Montage — Standardkomponente für Hersteller von AC-Ladegeräten.",
         "specs": [
@@ -9888,7 +9894,7 @@
               },
               {
                 "label": "Leistung",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -9920,7 +9926,7 @@
           }
         ],
         "generalFeatures": [
-          "Dreiphasige 11 - 22 kW Integration im Schrank",
+          "Dreiphasige 22 kW Integration im Schrank",
           "Mechanischer Verriegelungsmotor — automatische Verriegelung für die Benutzersicherheit",
           "3-Punkt-Montage — schnelle Installation",
           "Konform zur Norm IEC 62196-2 Type 2"
@@ -9933,7 +9939,7 @@
         "id": "pano-prizi-trifaze-4-nokta-30cm-nyaff",
         "name": "Pano Prizi",
         "code": "BEV-5032-432B",
-        "subtitle": "Dreiphasig 11-22 kW · 4-Punkt-Montage · 30 cm NYAFF",
+        "subtitle": "Dreiphasig 22 kW · 4-Punkt-Montage · 30 cm NYAFF",
         "badge": null,
         "description": "Type 2 Einbausteckdose zur Integration in Ladeschränke. Als einphasige oder dreiphasige Variante mit Verriegelungsmotor, in 3- oder 4-Punkt-Montage — Standardkomponente für Hersteller von AC-Ladegeräten.",
         "specs": [
@@ -9946,7 +9952,7 @@
               },
               {
                 "label": "Leistung",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -9978,7 +9984,7 @@
           }
         ],
         "generalFeatures": [
-          "Dreiphasige 11 - 22 kW Integration im Schrank",
+          "Dreiphasige 22 kW Integration im Schrank",
           "Mechanischer Verriegelungsmotor — automatische Verriegelung für die Benutzersicherheit",
           "4-Punkt-Montage — schnelle Installation",
           "Konform zur Norm IEC 62196-2 Type 2"
@@ -10107,7 +10113,7 @@
         "id": "pano-prizi-kilit-motorsuz-trifaze-3-nokta-30cm-nyaff",
         "name": "Pano Prizi (Kilit Motorsuz)",
         "code": "BEV-5032-431B-A",
-        "subtitle": "Dreiphasig 11-22 kW · 3-Punkt-Montage · 30 cm NYAFF",
+        "subtitle": "Dreiphasig 22 kW · 3-Punkt-Montage · 30 cm NYAFF",
         "badge": null,
         "description": "Wirtschaftliche Type 2 Einbausteckdose ohne Verriegelungsmotor. Für Herstelleraufbauten, die keine manuelle Verriegelung benötigen oder bei denen der Verriegelungsmechanismus separat bezogen wird.",
         "specs": [
@@ -10120,7 +10126,7 @@
               },
               {
                 "label": "Leistung",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -10152,7 +10158,7 @@
           }
         ],
         "generalFeatures": [
-          "Dreiphasige 11 - 22 kW Integration im Schrank",
+          "Dreiphasige 22 kW Integration im Schrank",
           "Kompatibel mit manueller Verriegelung oder externem Verriegelungsmechanismus",
           "3-Punkt-Montage — schnelle Installation",
           "Konform zur Norm IEC 62196-2 Type 2"
@@ -10165,7 +10171,7 @@
         "id": "pano-prizi-kilit-motorsuz-trifaze-4-nokta-30cm-nyaff",
         "name": "Pano Prizi (Kilit Motorsuz)",
         "code": "BEV-5032-432B-A",
-        "subtitle": "Dreiphasig 11-22 kW · 4-Punkt-Montage · 30 cm NYAFF",
+        "subtitle": "Dreiphasig 22 kW · 4-Punkt-Montage · 30 cm NYAFF",
         "badge": null,
         "description": "Wirtschaftliche Type 2 Einbausteckdose ohne Verriegelungsmotor. Für Herstelleraufbauten, die keine manuelle Verriegelung benötigen oder bei denen der Verriegelungsmechanismus separat bezogen wird.",
         "specs": [
@@ -10178,7 +10184,7 @@
               },
               {
                 "label": "Leistung",
-                "value": "11 - 22 kW"
+                "value": "22 kW"
               }
             ]
           },
@@ -10210,7 +10216,7 @@
           }
         ],
         "generalFeatures": [
-          "Dreiphasige 11 - 22 kW Integration im Schrank",
+          "Dreiphasige 22 kW Integration im Schrank",
           "Kompatibel mit manueller Verriegelung oder externem Verriegelungsmechanismus",
           "4-Punkt-Montage — schnelle Installation",
           "Konform zur Norm IEC 62196-2 Type 2"
