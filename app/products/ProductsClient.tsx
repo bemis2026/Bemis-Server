@@ -87,7 +87,18 @@ function BannerSlider({ categories, d }: { categories: CategoryData[]; d: boolea
           {cat.sliderImage && (
             <>
               <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${cat.sliderImage})`, backgroundSize: "cover", backgroundPosition: "center" }} />
-              <div className="absolute inset-0 z-0" style={{ background: d ? "rgba(0,0,0,0.70)" : "rgba(255,255,255,0.75)" }} />
+              {/* ⚠️ AYDINLIK MODDA DÜZ BEYAZ %75 PERDE VARDI → slider görseli neredeyse
+                  hiç görünmüyordu (kullanıcı bildirdi). Perde YATAY GRADYANA çevrildi:
+                  metnin durduğu SOL tarafta güçlü kalır (okunurluk korunur), sağa doğru
+                  açılır ve fotoğraf görünür. Sağ tarafta yalnız dekoratif parıltı +
+                  %10 opaklıkta ikon var — kapatılacak içerik yok.
+                  📌 KURAL (kayıtlı ders): fotoğraf üstü metinde perdeyi TEK BAŞINA
+                  düşürme; metin tarafını güçlü tutup diğer tarafı aç. */}
+              <div className="absolute inset-0 z-0" style={{
+                background: d
+                  ? "rgba(0,0,0,0.70)"
+                  : "linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.92) 46%, rgba(255,255,255,0.35) 74%, rgba(255,255,255,0.06) 100%)",
+              }} />
             </>
           )}
           {/* Left: text */}
@@ -112,7 +123,9 @@ function BannerSlider({ categories, d }: { categories: CategoryData[]; d: boolea
             </h2>
             <p
               className="text-sm leading-snug line-clamp-2 mb-4 max-w-md"
-              style={{ color: d ? "rgba(240,240,244,0.50)" : "rgba(26,26,26,0.50)" }}
+              // ⚠️ Fotoğraf ÜSTÜNDE duruyor → paylaşılan textMuted'tan (%50) daha
+              // koyu. Ölçüldü: %50 ile kontrast 3,42 (AA 4,5 altı); %75 ile geçiyor.
+              style={{ color: d ? "rgba(240,240,244,0.72)" : "rgba(26,26,26,0.75)" }}
             >
               {cat.tagline}
             </p>
