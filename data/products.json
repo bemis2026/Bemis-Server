@@ -1622,7 +1622,7 @@
         "id": "mini-mobile",
         "name": "Mini Mobile",
         "code": "BEV-1111-0001",
-        "subtitle": "Tek Fazlı · 2,3 - 3,7 kW",
+        "subtitle": "Tek Fazlı · 2,3 - 3,7 kW · 5 m",
         "badge": null,
         "description": "Mini Mobile, 2,3–3,7 kW gücünde monofaze taşınabilir AC şarj cihazı. Schuko prize doğrudan takılarak ev tipi prizlerden güvenli şarj sağlar; taşıma çantası ile birlikte gelir, yedek ve seyahat senaryolarında ideal.",
         "specs": [
@@ -1707,7 +1707,7 @@
         "id": "mono-mobile",
         "name": "Mono Mobile",
         "code": "BEV-1221-0001",
-        "subtitle": "Tek Fazlı · 3,7 - 7,4 kW",
+        "subtitle": "Tek Fazlı · 3,7 - 7,4 kW · 5 m",
         "badge": null,
         "description": "Mono Mobile, 3,7–7,4 kW monofaze taşınabilir şarj cihazı. CEE 16/32A endüstriyel priz adaptörleri ve schuko çıkışı dahil; ev, iş yeri ve mobil kullanım arasında esnek geçiş sağlar.",
         "specs": [
@@ -1804,7 +1804,7 @@
         "id": "pro-mobile",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0001",
-        "subtitle": "Üç Fazlı · 22 kW",
+        "subtitle": "Üç Fazlı · 22 kW · 5 m",
         "badge": null,
         "description": "Pro Mobile 2, 22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. Şarj akımı 6 kademede (6/10/16/20/25/32A) mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanabilir — zayıf tesisatlarda bile güvenli, esnek şarj sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
@@ -6308,7 +6308,7 @@
         "code": "BKT-0708-2505",
         "subtitle": "5m",
         "badge": null,
-        "description": "Trifaze + nötr + toprak (5 telli) 32A seyyar uzatma kablosu. 5×6 mm² TTR kablo, profesyonel altyapı projelerinde tam-sistem yükler için uygundur.",
+        "description": "Trifaze + nötr + toprak (5 telli) 16A seyyar uzatma kablosu. 5×2,5 mm² TTR kablo, profesyonel altyapı projelerinde tam-sistem yükler için uygundur.",
         "specs": [
           {
             "group": "Genel",
@@ -6347,8 +6347,8 @@
           }
         ],
         "generalFeatures": [
-          "5 × 6 mm² ttr esnek bakır iletken, dayanıklı dış kılıf",
-          "5/32A Fiş → 5/32A Priz bağlantısı",
+          "5×2,5 mm² ttr esnek bakır iletken, dayanıklı dış kılıf",
+          "5/16A Fiş → 5/16A Priz bağlantısı",
           "UV ve hava koşullarına dayanıklı",
           "Şantiye, atölye ve mobil kullanım için ideal",
           "CE uygunluk testi tamamlanmış"
@@ -6364,7 +6364,7 @@
         "code": "BKT-0708-2510",
         "subtitle": "10m",
         "badge": null,
-        "description": "Trifaze + nötr + toprak (5 telli) 32A seyyar uzatma kablosu. 5×6 mm² TTR kablo, profesyonel altyapı projelerinde tam-sistem yükler için uygundur.",
+        "description": "Trifaze + nötr + toprak (5 telli) 16A seyyar uzatma kablosu. 5×2,5 mm² TTR kablo, profesyonel altyapı projelerinde tam-sistem yükler için uygundur.",
         "specs": [
           {
             "group": "Genel",
@@ -6403,8 +6403,8 @@
           }
         ],
         "generalFeatures": [
-          "5 × 6 mm² ttr esnek bakır iletken, dayanıklı dış kılıf",
-          "5/32A Fiş → 5/32A Priz bağlantısı",
+          "5×2,5 mm² ttr esnek bakır iletken, dayanıklı dış kılıf",
+          "5/16A Fiş → 5/16A Priz bağlantısı",
           "UV ve hava koşullarına dayanıklı",
           "Şantiye, atölye ve mobil kullanım için ideal",
           "CE uygunluk testi tamamlanmış"

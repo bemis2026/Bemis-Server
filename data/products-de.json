@@ -1622,7 +1622,7 @@
         "id": "mini-mobile",
         "name": "Mini Mobile",
         "code": "BEV-1111-0001",
-        "subtitle": "Einphasig · 2,3 - 3,7 kW",
+        "subtitle": "Einphasig · 2,3 - 3,7 kW · 5 m",
         "badge": null,
         "description": "Das Mini Mobile ist ein einphasiges tragbares AC-Ladegerät mit einer Leistung von 2,3–3,7 kW. Direkt in eine Schuko-Steckdose gesteckt ermöglicht es sicheres Laden über haushaltsübliche Steckdosen; wird mit Tragetasche geliefert, ideal für Backup- und Reiseszenarien.",
         "specs": [
@@ -1707,7 +1707,7 @@
         "id": "mono-mobile",
         "name": "Mono Mobile",
         "code": "BEV-1221-0001",
-        "subtitle": "Einphasig · 3,7 - 7,4 kW",
+        "subtitle": "Einphasig · 3,7 - 7,4 kW · 5 m",
         "badge": null,
         "description": "Das Mono Mobile ist ein einphasiges tragbares Ladegerät mit 3,7–7,4 kW. Inklusive CEE 16/32A-Industriesteckdosenadaptern und Schuko-Ausgang; ermöglicht flexiblen Wechsel zwischen Nutzung zu Hause, im Betrieb und mobil.",
         "specs": [
@@ -1804,7 +1804,7 @@
         "id": "pro-mobile",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0001",
-        "subtitle": "Dreiphasig · 22 kW",
+        "subtitle": "Dreiphasig · 22 kW · 5 m",
         "badge": null,
         "description": "Das Pro Mobile 2 ist ein dreiphasiges tragbares AC-Ladegerät mit 22 kW. Mit CEE 5/16A- und 5/32A-Industrieadaptern bietet es Hochleistungs-Laden vor Ort; entwickelt für den professionellen Einsatz und Flotten. Der Ladestrom ist in 6 Stufen (6/10/16/20/25/32A) über die mobile App oder die Taste am Gerät einstellbar — flexibles, sicheres Laden auch bei schwacher Installation. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
         "specs": [
@@ -6288,7 +6288,7 @@
         "code": "BKT-0708-2505",
         "subtitle": "5 m",
         "badge": null,
-        "description": "Dreiphasig + Neutralleiter + Erdung (5-adrig) 32A mobiles Verlängerungskabel. Das 5×6 mm² TTR-Kabel eignet sich für Vollsystem-Lasten in professionellen Infrastrukturprojekten.",
+        "description": "Dreiphasig + Neutralleiter + Erdung (5-adrig) 16A mobiles Verlängerungskabel. Das 5×2,5 mm² TTR-Kabel eignet sich für Vollsystem-Lasten in professionellen Infrastrukturprojekten.",
         "specs": [
           {
             "group": "Allgemein",
@@ -6327,8 +6327,8 @@
           }
         ],
         "generalFeatures": [
-          "5 × 6 mm² TTR flexibler Kupferleiter, widerstandsfähiger Außenmantel",
-          "Anschluss 5/32A Stecker → 5/32A Steckdose",
+          "5×2,5 mm² TTR flexibler Kupferleiter, widerstandsfähiger Außenmantel",
+          "Anschluss 5/16A Stecker → 5/16A Steckdose",
           "UV- und witterungsbeständig",
           "Ideal für Baustelle, Werkstatt und mobilen Einsatz",
           "CE-Konformitätsprüfung abgeschlossen"
@@ -6344,7 +6344,7 @@
         "code": "BKT-0708-2510",
         "subtitle": "10 m",
         "badge": null,
-        "description": "Dreiphasig + Neutralleiter + Erdung (5-adrig) 32A mobiles Verlängerungskabel. Das 5×6 mm² TTR-Kabel eignet sich für Vollsystem-Lasten in professionellen Infrastrukturprojekten.",
+        "description": "Dreiphasig + Neutralleiter + Erdung (5-adrig) 16A mobiles Verlängerungskabel. Das 5×2,5 mm² TTR-Kabel eignet sich für Vollsystem-Lasten in professionellen Infrastrukturprojekten.",
         "specs": [
           {
             "group": "Allgemein",
@@ -6383,8 +6383,8 @@
           }
         ],
         "generalFeatures": [
-          "5 × 6 mm² TTR flexibler Kupferleiter, widerstandsfähiger Außenmantel",
-          "Anschluss 5/32A Stecker → 5/32A Steckdose",
+          "5×2,5 mm² TTR flexibler Kupferleiter, widerstandsfähiger Außenmantel",
+          "Anschluss 5/16A Stecker → 5/16A Steckdose",
           "UV- und witterungsbeständig",
           "Ideal für Baustelle, Werkstatt und mobilen Einsatz",
           "CE-Konformitätsprüfung abgeschlossen"
