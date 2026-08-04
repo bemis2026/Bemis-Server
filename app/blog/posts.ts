@@ -1183,7 +1183,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Seri içinde kademeli bir yol vardır: BEVDC 40 tek CCS2 soketli kompakt giriş modelidir; BEVDC 80 çift soketiyle iki aracı aynı anda şarj eder; BEVDC 120 tek veya çift soket seçeneği sunar; BEVDC 160 çift soketli yapısında dinamik güç paylaşımıyla iki aracı besler; BEVDC 200 ise serinin amiral modelidir. Ürün detayları için sitemizdeki DC Şarj Üniteleri sayfasını inceleyebilir, işletmenize uygun güç ve model seçimi için İletişim sayfamızdan bize ulaşabilirsiniz; keşiften devreye almaya kadar süreci birlikte planlayalım."
+        "text": "Seri içinde kademeli bir yol vardır: BEVDC 40 tek CCS2 soketli kompakt giriş modelidir; BEVDC 80 çift soketiyle iki aracı aynı anda şarj eder; BEVDC 120 tek veya çift soket seçeneği sunar; BEVDC 160 çift soketli yapısında dinamik güç paylaşımıyla iki aracı besler; BEVDC 180 aynı çift soketli yapıyı daha yüksek güçte sunar; BEVDC 200 ise serinin amiral modelidir. 40 kW ayrıca direk tipi gövdeyle de sunulur — kabin için yer ayıramayan otopark ve saha uygulamalarında tercih edilir. Ürün detayları için sitemizdeki DC Şarj Üniteleri sayfasını inceleyebilir, işletmenize uygun güç ve model seçimi için İletişim sayfamızdan bize ulaşabilirsiniz; keşiften devreye almaya kadar süreci birlikte planlayalım."
       },
       {
         "type": "cta",
@@ -1632,6 +1632,14 @@ export const BLOG_POSTS: BlogPost[] = [
           [
             "BEVDC 160",
             "160 kW",
+            "2",
+            "Evet",
+            "CCS2",
+            "1.6J / 2.0.1"
+          ],
+          [
+            "BEVDC 180",
+            "180 kW",
             "2",
             "Evet",
             "CCS2",
@@ -2128,9 +2136,10 @@ export const BLOG_POSTS: BlogPost[] = [
         ["BEVDC 80", "80 kW", "2", "Evet", "CCS2", "1.6J / 2.0.1"],
         ["BEVDC 120", "120 kW", "1 veya 2", "Evet", "CCS2", "1.6J / 2.0.1"],
         ["BEVDC 160", "160 kW", "2", "Evet", "CCS2", "1.6J / 2.0.1"],
+        ["BEVDC 180", "180 kW", "2", "Evet", "CCS2", "1.6J / 2.0.1"],
         ["BEVDC 200", "200 kW", "2", "Evet", "CCS2", "1.6J / 2.0.1"],
       ]},
-      { type: "p", text: "Tek soketli düşük güçlü modeller (BEVDC 40) küçük işletme ve tek-nokta senaryoları için; çift soketli, eş zamanlı şarj yapabilen yüksek güçlü modeller (80 kW ve üzeri) yoğun kullanılan istasyon ve otoyol noktaları için uygundur." },
+      { type: "p", text: "Tek soketli düşük güçlü modeller (BEVDC 40) küçük işletme ve tek-nokta senaryoları için; çift soketli, eş zamanlı şarj yapabilen yüksek güçlü modeller (80 kW ve üzeri) yoğun kullanılan istasyon ve otoyol noktaları için uygundur. BEVDC 40 aynı zamanda direk tipi gövdeyle de üretilir; zemin kabinine yer olmayan otopark ve saha kurulumlarında bu seçenek kullanılır." },
 
       { type: "h2", text: "Taşınabilir şarj cihazı modelleri" },
       { type: "p", text: "Taşınabilir seri, sabit kurulum yapmadan prize takıp kullanabileceğiniz, çantasıyla birlikte gelen esnek çözümlerdir. Güç ihtiyacınıza ve tesisatınıza (monofaze/trifaze) göre üç kademe vardır:" },

@@ -316,7 +316,7 @@
         },
         {
           "q": "¿Cuántos vehículos pueden cargar los modelos BEVDC al mismo tiempo?",
-          "a": "El BEVDC-40 es de una sola toma y suministra 40 kW a un único vehículo. Los BEVDC-80, BEVDC-120, BEVDC-160 y BEVDC-200 son de doble toma; la potencia total puede repartirse entre dos vehículos simultáneamente. Por ejemplo, el BEVDC-200 puede suministrar 100 kW a cada uno de dos vehículos al mismo tiempo, o 200 kW a un solo vehículo (si el vehículo lo admite)."
+          "a": "El BEVDC-40 es de una sola toma y suministra 40 kW a un único vehículo. Los BEVDC-80, BEVDC-120, BEVDC-160, BEVDC-180 y BEVDC-200 son de doble toma; la potencia total puede repartirse entre dos vehículos simultáneamente. Por ejemplo, el BEVDC-200 puede suministrar 100 kW a cada uno de dos vehículos al mismo tiempo, o 200 kW a un solo vehículo (si el vehículo lo admite)."
         },
         {
           "q": "¿Qué se necesita para la instalación de un cargador DC?",
@@ -331,7 +331,7 @@
           "a": "Según la normativa del servicio de carga de la autoridad energética, necesitas una licencia o autorización, un dispositivo compatible con OCPP, integración con el sistema EPVIS y una plataforma de facturación/pago (software CPO de Bemis o una plataforma de terceros). La inversión oscila entre 1 y 3 millones de TL; nuestro equipo B2B ofrece soporte para la preparación de la hoja de ruta."
         }
       ],
-      "description": "Unidades de carga rápida DC de la serie BEVDC: modelos de salida CCS2 simple o doble, de 40 kW a 200 kW. Con soporte OCPP 1.6J / 2.0.1, autenticación RFID, protección IP54 y un amplio rango de temperatura (-25°C / +55°C), adecuadas para despliegue comercial en campo."
+      "description": "Unidades de carga rápida DC de la serie BEVDC: modelos de salida CCS2 simple o doble, de 40 kW a 200 kW. Con soporte OCPP 1.6J / 2.0.1, autenticación RFID, protección IP54 y un amplio rango de temperatura (-25°C / +55°C), adecuadas para despliegue comercial en campo. La gama cubre los modelos de 40, 80, 120, 160, 180 y 200 kW; el de 40 kW también se ofrece con carcasa tipo pedestal."
     }
   },
   "featured": [

@@ -345,7 +345,7 @@
         },
         {
           "q": "BEVDC modelleri kaç araç şarj edebilir aynı anda?",
-          "a": "BEVDC-40 tek soketli, 40 kW gücü tek araca verir. BEVDC-80, BEVDC-120, BEVDC-160 ve BEVDC-200 çift soketlidir; toplam güç iki araç arasında eş zamanlı paylaştırılabilir. Örneğin BEVDC-200 aynı anda iki araca 100 kW verebilir veya tek araca 200 kW (araç destekliyorsa)."
+          "a": "BEVDC-40 tek soketli, 40 kW gücü tek araca verir. BEVDC-80, BEVDC-120, BEVDC-160, BEVDC-180 ve BEVDC-200 çift soketlidir; toplam güç iki araç arasında eş zamanlı paylaştırılabilir. Örneğin BEVDC-200 aynı anda iki araca 100 kW verebilir veya tek araca 200 kW (araç destekliyorsa)."
         },
         {
           "q": "DC şarj cihazı kurulumu için ne gereklidir?",
@@ -360,7 +360,7 @@
           "a": "EPDK'dan şarj hizmeti yönetmeliği kapsamında lisans veya yetki belgesi, OCPP destekli cihaz, EPVIS sistemine entegrasyon, fatura/ödeme altyapısı (Bemis CPO yazılımı veya 3. parti) gereklidir. Yatırım büyüklüğü 1-3 milyon TL arasında değişir; B2B ekibimiz yol haritası hazırlamada destek verir."
         }
       ],
-      "description": "BEVDC serisi DC hızlı şarj istasyonları (üniteleri) — 40 kW'tan 200 kW'a kadar tek veya çift CCS2 çıkışlı modeller. Elektrikli araç ve arabaları dakikalar içinde şarj eder; OCPP 1.6J / 2.0.1 desteği, RFID kimlik doğrulama, IP54 koruma ve geniş sıcaklık aralığı (-25°C / +55°C) ile ticari saha kullanımına uygun. %94 Yerli Malı Belgeli, CE sertifikalı ve garantili yerli üretim."
+      "description": "BEVDC serisi DC hızlı şarj istasyonları (üniteleri) — 40 kW'tan 200 kW'a kadar tek veya çift CCS2 çıkışlı modeller. Elektrikli araç ve arabaları dakikalar içinde şarj eder; OCPP 1.6J / 2.0.1 desteği, RFID kimlik doğrulama, IP54 koruma ve geniş sıcaklık aralığı (-25°C / +55°C) ile ticari saha kullanımına uygun. %94 Yerli Malı Belgeli, CE sertifikalı ve garantili yerli üretim. Seri 40, 80, 120, 160, 180 ve 200 kW modellerini kapsar; 40 kW ayrıca direk tipi gövdeyle de sunulur."
     }
   },
   "featured": [
@@ -1197,7 +1197,7 @@
             },
             {
               "q": "How many vehicles can BEVDC models charge at the same time?",
-              "a": "BEVDC-40 is single-socket and delivers 40 kW to a single vehicle. BEVDC-80, BEVDC-120, BEVDC-160 and BEVDC-200 are dual-socket; total power can be split between two vehicles simultaneously. For example, the BEVDC-200 can deliver 100 kW to each of two vehicles at the same time, or 200 kW to a single vehicle (if the vehicle supports it)."
+              "a": "BEVDC-40 is single-socket and delivers 40 kW to a single vehicle. BEVDC-80, BEVDC-120, BEVDC-160, BEVDC-180 and BEVDC-200 are dual-socket; total power can be split between two vehicles simultaneously. For example, the BEVDC-200 can deliver 100 kW to each of two vehicles at the same time, or 200 kW to a single vehicle (if the vehicle supports it)."
             },
             {
               "q": "What is required for DC charger installation?",
@@ -1212,7 +1212,7 @@
               "a": "Under EMRA's charging service regulation, you need a licence or authorisation, an OCPP-capable device, integration with the EPVIS system, and a billing/payment stack (Bemis CPO software or a 3rd-party platform). Investment size ranges between 1-3 million TL; our B2B team supports roadmap preparation."
             }
           ],
-          "description": "BEVDC series DC fast charging units — single or dual CCS2 output models from 40 kW to 200 kW. With OCPP 1.6J / 2.0.1 support, RFID authentication, IP54 protection and a wide temperature range (-25°C / +55°C), suitable for commercial field deployment."
+          "description": "BEVDC series DC fast charging units — single or dual CCS2 output models from 40 kW to 200 kW. With OCPP 1.6J / 2.0.1 support, RFID authentication, IP54 protection and a wide temperature range (-25°C / +55°C), suitable for commercial field deployment. The range covers 40, 80, 120, 160, 180 and 200 kW models; the 40 kW is also offered in a pedestal enclosure."
         }
       },
       "featured": [

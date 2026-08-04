@@ -316,7 +316,7 @@
         },
         {
           "q": "Wie viele Fahrzeuge können BEVDC-Modelle gleichzeitig laden?",
-          "a": "BEVDC-40 hat eine einzelne Steckdose und liefert 40 kW an ein einzelnes Fahrzeug. BEVDC-80, BEVDC-120, BEVDC-160 und BEVDC-200 haben zwei Steckdosen; die Gesamtleistung kann gleichzeitig zwischen zwei Fahrzeugen aufgeteilt werden. Zum Beispiel kann das BEVDC-200 gleichzeitig jedem von zwei Fahrzeugen 100 kW liefern oder 200 kW an ein einzelnes Fahrzeug (sofern das Fahrzeug dies unterstützt)."
+          "a": "BEVDC-40 hat eine einzelne Steckdose und liefert 40 kW an ein einzelnes Fahrzeug. BEVDC-80, BEVDC-120, BEVDC-160, BEVDC-180 und BEVDC-200 haben zwei Steckdosen; die Gesamtleistung kann gleichzeitig zwischen zwei Fahrzeugen aufgeteilt werden. Zum Beispiel kann das BEVDC-200 gleichzeitig jedem von zwei Fahrzeugen 100 kW liefern oder 200 kW an ein einzelnes Fahrzeug (sofern das Fahrzeug dies unterstützt)."
         },
         {
           "q": "Was ist für die Installation eines DC-Ladegeräts erforderlich?",
@@ -331,7 +331,7 @@
           "a": "Gemäß der Ladeservice-Verordnung der EMRA benötigen Sie eine Lizenz oder Genehmigung, ein OCPP-fähiges Gerät, eine Integration in das EPVIS-System sowie einen Abrechnungs-/Zahlungs-Stack (Bemis-CPO-Software oder eine Drittanbieter-Plattform). Die Investitionsgröße liegt zwischen 1-3 Millionen TL; unser B2B-Team unterstützt bei der Erstellung des Fahrplans."
         }
       ],
-      "description": "DC-Schnellladeeinheiten der BEVDC-Serie – Modelle mit einem oder zwei CCS2-Ausgängen von 40 kW bis 200 kW. Mit Unterstützung für OCPP 1.6J / 2.0.1, RFID-Authentifizierung, IP54-Schutz und einem weiten Temperaturbereich (-25°C / +55°C), geeignet für den kommerziellen Feldeinsatz."
+      "description": "DC-Schnellladeeinheiten der BEVDC-Serie – Modelle mit einem oder zwei CCS2-Ausgängen von 40 kW bis 200 kW. Mit Unterstützung für OCPP 1.6J / 2.0.1, RFID-Authentifizierung, IP54-Schutz und einem weiten Temperaturbereich (-25°C / +55°C), geeignet für den kommerziellen Feldeinsatz. Die Reihe umfasst die Modelle 40, 80, 120, 160, 180 und 200 kW; das 40-kW-Modell ist zusätzlich als Standsäule erhältlich."
     }
   },
   "featured": [
