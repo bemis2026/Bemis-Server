@@ -65,6 +65,18 @@ const EN_NAMES: Record<string, string> = {
   "Otomatlı IP44 Kombinasyon": "IP44 Combination Unit with Circuit Breaker",
   "Otomatlı IP66 Kombinasyon": "IP66 Combination Unit with Circuit Breaker",
   "DC Şarj Soketi CCS2 (Bir Ucu Açık)": "DC Charging Socket CCS2 (Open-Ended)",
+
+  // ── 2026-2 fiyat listesiyle eklenen adlar ──
+  // (BEVDC 180 · Charger 2 · Mini/Mono/Pro Mobile gibi marka-model adları BİLEREK yok:
+  //  eşlemesi olmayan ad aynen döner, İngilizce sayfada da aynı yazılmalı.)
+  "Charger Plus 2 MID Sayaçlı": "Charger Plus 2 with MID Meter",
+  "Charger Pro 2 MID Sayaçlı": "Charger Pro 2 with MID Meter",
+  "BEVDC 40 Direk Tipi": "BEVDC 40 Pedestal Type",
+  "Tek Çıkışlı C2L Adaptör": "Single-Output C2L Adapter",
+  "Seyyar Uzatma Kablosu Ceenorm 5×2,5 (5/16A)": "CEE Norm Extension Cable 5×2.5 (5/16A)",
+  "Cee Norm Adaptör (30cm Kablolu)": "CEE Norm Adapter (30 cm Cable)",
+  "V2L ve C2L Kablo Çantası": "V2L & C2L Cable Bag",
+  "DC Soket Tutucu (4 Bilyalı)": "DC Socket Holder (4 Ball Bearings)",
 };
 
 /** TR ürün adının İngilizcesi; eşleme yoksa adı AYNEN döndürür (güvenli düşüş). */

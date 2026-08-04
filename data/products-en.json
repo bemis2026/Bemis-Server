@@ -1215,6 +1215,396 @@
           "tuv",
           "tse"
         ]
+      },
+      {
+        "id": "charger-pro-2-mid-sayacli-kablolu",
+        "name": "Charger Pro 2 MID Sayaçlı",
+        "code": "BEV-3011-00S5",
+        "subtitle": "5m. Kablolu · MID",
+        "badge": null,
+        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Exit Date",
+                "value": "5m. Wired"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 855,00"
+              }
+            ]
+          },
+          {
+            "group": "Smart & Optional",
+            "items": [
+              {
+                "label": "MID Meter",
+                "value": "Optional (certified energy metering)"
+              },
+              {
+                "label": "Mobile App",
+                "value": "Remote on/off, timer, charging history (connected models)"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074899/products/vtsdnxy0k1gmfwbugdh1.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074899/products/vtsdnxy0k1gmfwbugdh1.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "mid",
+          "montaj"
+        ],
+        "documents": [
+          {
+            "label": "bemis-ev-charge-hizli-kurulum-kilavuzu",
+            "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1778228546/documents/1778228545901-bemis-ev-charge-hizli-kurulum-kilavuzu.pdf"
+          }
+        ]
+      },
+      {
+        "id": "charger-pro-2-mid-sayacli-pano-prizli",
+        "name": "Charger Pro 2 MID Sayaçlı",
+        "code": "BEV-3012-00S0",
+        "subtitle": "Pano Prizli · MID",
+        "badge": null,
+        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Exit Date",
+                "value": "Panel Socket"
+              },
+              {
+                "label": "Internet socket",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 825,00"
+              }
+            ]
+          },
+          {
+            "group": "Smart & Optional",
+            "items": [
+              {
+                "label": "MID Meter",
+                "value": "Optional (certified energy metering)"
+              },
+              {
+                "label": "Mobile App",
+                "value": "Remote on/off, timer, charging history (connected models)"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074903/products/u09cxjqwgszkpw6visgt.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074903/products/u09cxjqwgszkpw6visgt.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-plus-2-mid-sayacli-kablolu",
+        "name": "Charger Plus 2 MID Sayaçlı",
+        "code": "BEV-2011-00S5",
+        "subtitle": "5m. Kablolu · MID",
+        "badge": null,
+        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Exit Date",
+                "value": "5m. Wired"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 725,00"
+              }
+            ]
+          },
+          {
+            "group": "Smart & Optional",
+            "items": [
+              {
+                "label": "Automatic Charging Start",
+                "value": "Yes — automatic restart every 3 min after a power outage"
+              },
+              {
+                "label": "MID Meter",
+                "value": "Optional (certified energy metering)"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-plus-2-mid-sayacli-pano-prizli",
+        "name": "Charger Plus 2 MID Sayaçlı",
+        "code": "BEV-2012-00S0",
+        "subtitle": "Pano Prizli · MID",
+        "badge": null,
+        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Exit Date",
+                "value": "Panel Socket"
+              },
+              {
+                "label": "Internet socket",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 695,00"
+              }
+            ]
+          },
+          {
+            "group": "Smart & Optional",
+            "items": [
+              {
+                "label": "Automatic Charging Start",
+                "value": "Yes — automatic restart every 3 min after a power outage"
+              },
+              {
+                "label": "MID Meter",
+                "value": "Optional (certified energy metering)"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-2-trifaze-kablolu",
+        "name": "Charger 2",
+        "code": "BEV-1311-0005",
+        "subtitle": "5m. Kablolu · 11 kW / 16A",
+        "badge": null,
+        "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 11–22 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "11 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "Max. current",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Exit Date",
+                "value": "5m. Wired"
+              },
+              {
+                "label": "Connector",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 320,00"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074871/products/k8yjbbw07cp1kpbij7pg.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074871/products/k8yjbbw07cp1kpbij7pg.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "montaj"
+        ],
+        "certificates": [
+          "ce",
+          "tuv"
+        ]
       }
     ]
   },
@@ -1520,6 +1910,718 @@
           "autostart",
           "amp6",
           "montaj"
+        ]
+      },
+      {
+        "id": "pro-mobile-2-10m",
+        "name": "Pro Mobile 2",
+        "code": "BEV-2331-0003",
+        "subtitle": "Üç Fazlı · 11 - 22 kW · 10 m",
+        "badge": null,
+        "description": "Pro Mobile 2, 11–22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. The charging current is adjustable in 6 steps (6/10/16/20/25/32A) from the mobile app or the button on the device — flexible, safe charging even on weak installations. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "11 - 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "- Three phase"
+              },
+              {
+                "label": "Current.",
+                "value": "6 / 10 / 16 / 20 / 25 / 32 A (6-step adjustable)"
+              },
+              {
+                "label": "Cable Length",
+                "value": "10 meters"
+              },
+              {
+                "label": "Current Setting",
+                "value": "6 steps via the mobile app and the button on the device"
+              }
+            ]
+          },
+          {
+            "group": "Content",
+            "items": [
+              {
+                "label": "Accessories",
+                "value": "  Satchel"
+              },
+              {
+                "label": "Socket",
+                "value": "5/32A Plug"
+              },
+              {
+                "label": "Adapter",
+                "value": "1/16 Plug Converter"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "€ 450,00"
+              }
+            ]
+          },
+          {
+            "group": "Physical Specifications",
+            "items": [
+              {
+                "label": "Housing Material",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Cable Type",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Environmental",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP65"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "boxContents": [
+          {
+            "name": "Taşıma Çantası",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "5/32A Trifaze Priz - 1/16A Monofaze Fiş Dönüştürücü Adaptör",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075717/products/sunnwmaiwkfwy8szvop4.png"
+          }
+        ],
+        "certificates": [
+          "ce",
+          "tuv"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "autostart",
+          "amp6",
+          "montaj"
+        ]
+      },
+      {
+        "id": "pro-mobile-2-8m",
+        "name": "Pro Mobile 2",
+        "code": "BEV-2331-0002",
+        "subtitle": "Üç Fazlı · 11 - 22 kW · 8 m",
+        "badge": null,
+        "description": "Pro Mobile 2, 11–22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. The charging current is adjustable in 6 steps (6/10/16/20/25/32A) from the mobile app or the button on the device — flexible, safe charging even on weak installations. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "11 - 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "- Three phase"
+              },
+              {
+                "label": "Current.",
+                "value": "6 / 10 / 16 / 20 / 25 / 32 A (6-step adjustable)"
+              },
+              {
+                "label": "Cable Length",
+                "value": "8 meters"
+              },
+              {
+                "label": "Current Setting",
+                "value": "6 steps via the mobile app and the button on the device"
+              }
+            ]
+          },
+          {
+            "group": "Content",
+            "items": [
+              {
+                "label": "Accessories",
+                "value": "  Satchel"
+              },
+              {
+                "label": "Socket",
+                "value": "5/32A Plug"
+              },
+              {
+                "label": "Adapter",
+                "value": "1/16 Plug Converter"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "€ 425,00"
+              }
+            ]
+          },
+          {
+            "group": "Physical Specifications",
+            "items": [
+              {
+                "label": "Housing Material",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Cable Type",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Environmental",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP65"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "boxContents": [
+          {
+            "name": "Taşıma Çantası",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "5/32A Trifaze Priz - 1/16A Monofaze Fiş Dönüştürücü Adaptör",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075717/products/sunnwmaiwkfwy8szvop4.png"
+          }
+        ],
+        "certificates": [
+          "ce",
+          "tuv"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "autostart",
+          "amp6",
+          "montaj"
+        ]
+      },
+      {
+        "id": "pro-mobile-2-11kw-5m",
+        "name": "Pro Mobile 2",
+        "code": "BEV-2441-0001",
+        "subtitle": "Üç Fazlı · 11 - 22 kW · 11 kW",
+        "badge": null,
+        "description": "Pro Mobile 2, 11–22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. The charging current is adjustable in 6 steps (6/10/16/20/25/32A) from the mobile app or the button on the device — flexible, safe charging even on weak installations. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "11 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "- Three phase"
+              },
+              {
+                "label": "Current.",
+                "value": "6A - 16A"
+              },
+              {
+                "label": "Cable Length",
+                "value": "5 meters"
+              },
+              {
+                "label": "Current Setting",
+                "value": "6 steps via the mobile app and the button on the device"
+              }
+            ]
+          },
+          {
+            "group": "Content",
+            "items": [
+              {
+                "label": "Accessories",
+                "value": "  Satchel"
+              },
+              {
+                "label": "Socket",
+                "value": "5/32A Plug"
+              },
+              {
+                "label": "Adapter",
+                "value": "1/16 Plug Converter"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "€ 340,00"
+              }
+            ]
+          },
+          {
+            "group": "Physical Specifications",
+            "items": [
+              {
+                "label": "Housing Material",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Cable Type",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Environmental",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP65"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "boxContents": [
+          {
+            "name": "Taşıma Çantası",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "5/32A Trifaze Priz - 1/16A Monofaze Fiş Dönüştürücü Adaptör",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075717/products/sunnwmaiwkfwy8szvop4.png"
+          }
+        ],
+        "certificates": [
+          "ce",
+          "tuv"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "autostart",
+          "amp6",
+          "montaj"
+        ]
+      },
+      {
+        "id": "mono-mobile-10m",
+        "name": "Mono Mobile",
+        "code": "BEV-1221-0003",
+        "subtitle": "Tek Fazlı · 3,7 - 7,4 kW · 10 m",
+        "badge": null,
+        "description": "Mono Mobile, 3,7–7,4 kW monofaze taşınabilir şarj cihazı. CEE 16/32A endüstriyel priz adaptörleri ve schuko çıkışı dahil; ev, iş yeri ve mobil kullanım arasında esnek geçiş sağlar.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "3,7 - 7,4 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "mono-phase"
+              },
+              {
+                "label": "Current.",
+                "value": "16A - 32A"
+              },
+              {
+                "label": "Cable Length",
+                "value": "10 meters"
+              }
+            ]
+          },
+          {
+            "group": "Content",
+            "items": [
+              {
+                "label": "Accessories",
+                "value": "  Satchel"
+              },
+              {
+                "label": "Socket",
+                "value": "3/32A Plug"
+              },
+              {
+                "label": "Adapter",
+                "value": "1/16A Plug Converter"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "€ 335,00"
+              }
+            ]
+          },
+          {
+            "group": "Physical Specifications",
+            "items": [
+              {
+                "label": "Housing Material",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Cable Type",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Environmental",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP65"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074918/products/bu0hxgwfudgbsunounrm.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074918/products/bu0hxgwfudgbsunounrm.png",
+        "boxContents": [
+          {
+            "name": "Taşıma Çantası",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "3/32A Monofaze Priz - 1/16A Monofaze Fiş Dönüştürücü Adaptör",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075711/products/c00uls4yt73uvpbin8za.png"
+          }
+        ]
+      },
+      {
+        "id": "mono-mobile-8m",
+        "name": "Mono Mobile",
+        "code": "BEV-1221-0002",
+        "subtitle": "Tek Fazlı · 3,7 - 7,4 kW · 8 m",
+        "badge": null,
+        "description": "Mono Mobile, 3,7–7,4 kW monofaze taşınabilir şarj cihazı. CEE 16/32A endüstriyel priz adaptörleri ve schuko çıkışı dahil; ev, iş yeri ve mobil kullanım arasında esnek geçiş sağlar.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "3,7 - 7,4 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "mono-phase"
+              },
+              {
+                "label": "Current.",
+                "value": "16A - 32A"
+              },
+              {
+                "label": "Cable Length",
+                "value": "8 meters"
+              }
+            ]
+          },
+          {
+            "group": "Content",
+            "items": [
+              {
+                "label": "Accessories",
+                "value": "  Satchel"
+              },
+              {
+                "label": "Socket",
+                "value": "3/32A Plug"
+              },
+              {
+                "label": "Adapter",
+                "value": "1/16A Plug Converter"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "€ 320,00"
+              }
+            ]
+          },
+          {
+            "group": "Physical Specifications",
+            "items": [
+              {
+                "label": "Housing Material",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Cable Type",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Environmental",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP65"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074918/products/bu0hxgwfudgbsunounrm.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074918/products/bu0hxgwfudgbsunounrm.png",
+        "boxContents": [
+          {
+            "name": "Taşıma Çantası",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "3/32A Monofaze Priz - 1/16A Monofaze Fiş Dönüştürücü Adaptör",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075711/products/c00uls4yt73uvpbin8za.png"
+          }
+        ]
+      },
+      {
+        "id": "mini-mobile-10m",
+        "name": "Mini Mobile",
+        "code": "BEV-1111-0003",
+        "subtitle": "Tek Fazlı · 2,3 - 3,7 kW · 10 m",
+        "badge": null,
+        "description": "Mini Mobile, 2,3–3,7 kW gücünde monofaze taşınabilir AC şarj cihazı. Schuko prize doğrudan takılarak ev tipi prizlerden güvenli şarj sağlar; taşıma çantası ile birlikte gelir, yedek ve seyahat senaryolarında ideal.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "2,3 - 3,7 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "mono-phase"
+              },
+              {
+                "label": "Current.",
+                "value": "10A - 16A"
+              },
+              {
+                "label": "Cable Length",
+                "value": "10 meters"
+              }
+            ]
+          },
+          {
+            "group": "Content",
+            "items": [
+              {
+                "label": "Accessories",
+                "value": "  Satchel"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "€ 275,00"
+              }
+            ]
+          },
+          {
+            "group": "Physical Specifications",
+            "items": [
+              {
+                "label": "Housing Material",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Cable Type",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Environmental",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP65"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074914/products/ssmfsr68loa4hecvpnya.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074914/products/ssmfsr68loa4hecvpnya.png",
+        "boxContents": [
+          {
+            "name": "Taşıma Çantası",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          }
+        ]
+      },
+      {
+        "id": "mini-mobile-8m",
+        "name": "Mini Mobile",
+        "code": "BEV-1111-0002",
+        "subtitle": "Tek Fazlı · 2,3 - 3,7 kW · 8 m",
+        "badge": null,
+        "description": "Mini Mobile, 2,3–3,7 kW gücünde monofaze taşınabilir AC şarj cihazı. Schuko prize doğrudan takılarak ev tipi prizlerden güvenli şarj sağlar; taşıma çantası ile birlikte gelir, yedek ve seyahat senaryolarında ideal.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "• Power",
+                "value": "2,3 - 3,7 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "mono-phase"
+              },
+              {
+                "label": "Current.",
+                "value": "10A - 16A"
+              },
+              {
+                "label": "Cable Length",
+                "value": "8 meters"
+              }
+            ]
+          },
+          {
+            "group": "Content",
+            "items": [
+              {
+                "label": "Accessories",
+                "value": "  Satchel"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "€ 270,00"
+              }
+            ]
+          },
+          {
+            "group": "Physical Specifications",
+            "items": [
+              {
+                "label": "Housing Material",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Cable Type",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Environmental",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP65"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074914/products/ssmfsr68loa4hecvpnya.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074914/products/ssmfsr68loa4hecvpnya.png",
+        "boxContents": [
+          {
+            "name": "Taşıma Çantası",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          }
         ]
       }
     ]
@@ -4157,6 +5259,70 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074991/products/l8dngeonxbeilb98qemj.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074991/products/l8dngeonxbeilb98qemj.png"
+      },
+      {
+        "id": "tek-cikisli-c2l-adaptor",
+        "name": "Tek Çıkışlı C2L Adaptör",
+        "code": "BKT-2202-2401",
+        "subtitle": "",
+        "badge": null,
+        "description": "The single-output C2L adapter converts power drawn from a Type 2 charging point into a standard socket outlet. It is used to run electrical appliances directly from a charging point in settings such as camping, construction sites and gardens.",
+        "specs": [
+          {
+            "group": "General",
+            "items": [
+              {
+                "label": "Adapter type",
+                "value": "V2L (Vehicle to Load)"
+              },
+              {
+                "label": "Exit Date",
+                "value": "1 (Type 2)"
+              }
+            ]
+          },
+          {
+            "group": "Compatibility",
+            "items": [
+              {
+                "label": "Compatible Vehicle",
+                "value": "Hyundai · Kia · Ssangyong"
+              },
+              {
+                "label": "Socket Type",
+                "value": "Turkey standard (Schuko)"
+              },
+              {
+                "label": "Max. current",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 44,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Aracın V2L çıkışını standart Türk priz tipine çevirir",
+          "Kamp, atölye, saha ve acil durum kullanımları için ideal",
+          "Kompakt taşınabilir gövde tasarımı",
+          "16A güvenli akım sınırı, otomatik kesme",
+          "CE uygunluk testi tamamlanmış"
+        ],
+        "compatibleVehicles": [
+          "Hyundai",
+          "Kia",
+          "Ssangyong"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
       }
     ]
   },
@@ -4611,7 +5777,7 @@
       {
         "id": "seyyar-uzatma-kablosu-monofaze-3-2-5-10m-ip68",
         "name": "Seyyar Uzatma Kablosu Monofaze (3×2,5)",
-        "code": "BKT-0102-8210",
+        "code": "BKT-0102-8110",
         "subtitle": "10m. IP68",
         "badge": null,
         "description": "Monofaze 16A — 3×2,5 mm² TTR halojensiz seyyar uzatma kablosu. Atölye, saha ve geçici kurulumlarda esnek enerji aktarımı için.",
@@ -5111,6 +6277,228 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-ceenorm-5-2-5-516a-5m",
+        "name": "Seyyar Uzatma Kablosu Ceenorm 5×2,5 (5/16A)",
+        "code": "BKT-0708-2505",
+        "subtitle": "5m",
+        "badge": null,
+        "description": "Trifaze + nötr + toprak (5 telli) 32A seyyar uzatma kablosu. 5×6 mm² TTR kablo, profesyonel altyapı projelerinde tam-sistem yükler için uygundur.",
+        "specs": [
+          {
+            "group": "General",
+            "items": [
+              {
+                "label": "Type",
+                "value": "Mobile Extension Cable"
+              },
+              {
+                "label": "Cable",
+                "value": "5 × 2,5 mm² ttr"
+              },
+              {
+                "label": "Length",
+                "value": "5m"
+              }
+            ]
+          },
+          {
+            "group": "Connectivity",
+            "items": [
+              {
+                "label": "Connection Direction",
+                "value": "5/16A Plug → 5/16A Plug"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 45,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "5 × 6 mm² ttr esnek bakır iletken, dayanıklı dış kılıf",
+          "5/32A Fiş → 5/32A Priz bağlantısı",
+          "UV ve hava koşullarına dayanıklı",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-ceenorm-5-2-5-516a-10m",
+        "name": "Seyyar Uzatma Kablosu Ceenorm 5×2,5 (5/16A)",
+        "code": "BKT-0708-2510",
+        "subtitle": "10m",
+        "badge": null,
+        "description": "Trifaze + nötr + toprak (5 telli) 32A seyyar uzatma kablosu. 5×6 mm² TTR kablo, profesyonel altyapı projelerinde tam-sistem yükler için uygundur.",
+        "specs": [
+          {
+            "group": "General",
+            "items": [
+              {
+                "label": "Type",
+                "value": "Mobile Extension Cable"
+              },
+              {
+                "label": "Cable",
+                "value": "5 × 2,5 mm² ttr"
+              },
+              {
+                "label": "Length",
+                "value": "10m"
+              }
+            ]
+          },
+          {
+            "group": "Connectivity",
+            "items": [
+              {
+                "label": "Connection Direction",
+                "value": "5/16A Plug → 5/16A Plug"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 64,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "5 × 6 mm² ttr esnek bakır iletken, dayanıklı dış kılıf",
+          "5/32A Fiş → 5/32A Priz bağlantısı",
+          "UV ve hava koşullarına dayanıklı",
+          "Şantiye, atölye ve mobil kullanım için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+      },
+      {
+        "id": "cee-norm-adaptor-30cm-116a-fis-516a-priz",
+        "name": "Cee Norm Adaptör (30cm Kablolu)",
+        "code": "BKT-0108-2211",
+        "subtitle": "1/16A Fiş → 5/16A Priz",
+        "badge": null,
+        "description": "30 cm kablolu CEE Norm fiş-priz dönüştürücü adaptör. 3×2,5 mm² TTR kablo, monofaze 16A kapasitede saha ve atölye kullanımı için.",
+        "specs": [
+          {
+            "group": "General",
+            "items": [
+              {
+                "label": "Type",
+                "value": "Plug to Plug Converter Adapter"
+              },
+              {
+                "label": "Standard",
+                "value": "CEE Norm"
+              },
+              {
+                "label": "Cable",
+                "value": "30 cm · 3 × 2,5 mm² ttr"
+              }
+            ]
+          },
+          {
+            "group": "Connectivity",
+            "items": [
+              {
+                "label": "Convertor",
+                "value": "1/16A Plug → 5/16A Plug"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 13,30"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "CEE Norm fiş ve priz konfigürasyonu",
+          "30 cm · 3 × 2,5 mm² ttr ttr kablo, esnek ve dayanıklı dış kılıf",
+          "Şantiye, atölye ve saha kullanımı için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074998/products/kuxlacga82z0pbt2tqyt.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074998/products/kuxlacga82z0pbt2tqyt.png"
+      },
+      {
+        "id": "cee-norm-adaptor-30cm-316a-fis-516a-priz",
+        "name": "Cee Norm Adaptör (30cm Kablolu)",
+        "code": "BKT-0508-2211",
+        "subtitle": "3/16A Fiş → 5/16A Priz",
+        "badge": null,
+        "description": "30 cm kablolu CEE Norm fiş-priz dönüştürücü adaptör. 3×2,5 mm² TTR kablo, monofaze 16A kapasitede saha ve atölye kullanımı için.",
+        "specs": [
+          {
+            "group": "General",
+            "items": [
+              {
+                "label": "Type",
+                "value": "Plug to Plug Converter Adapter"
+              },
+              {
+                "label": "Standard",
+                "value": "CEE Norm"
+              },
+              {
+                "label": "Cable",
+                "value": "30 cm · 3 × 2,5 mm² ttr"
+              }
+            ]
+          },
+          {
+            "group": "Connectivity",
+            "items": [
+              {
+                "label": "Convertor",
+                "value": "3/16A Plug → 5/16A Plug"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 15,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "CEE Norm fiş ve priz konfigürasyonu",
+          "30 cm · 3 × 2,5 mm² ttr ttr kablo, esnek ve dayanıklı dış kılıf",
+          "Şantiye, atölye ve saha kullanımı için ideal",
+          "CE uygunluk testi tamamlanmış"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075011/products/ycfbfqyyrktnhcnn9kpi.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075011/products/ycfbfqyyrktnhcnn9kpi.png"
       }
     ]
   },
@@ -5477,6 +6865,76 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075162/products/qzbawyeta2dnuquba3an.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075162/products/qzbawyeta2dnuquba3an.png"
+      },
+      {
+        "id": "v2l-ve-c2l-kablo-cantasi",
+        "name": "V2L ve C2L Kablo Çantası",
+        "code": "BAK-8000-0001",
+        "subtitle": "22×26×12 cm",
+        "badge": null,
+        "description": "V2L ve C2L adaptörleri için kompakt taşıma çantası. Adaptör + uzatma kablosu için tek bölmeli düzenleme, saha ekipmanını korur.",
+        "specs": [
+          {
+            "group": "General",
+            "items": [
+              {
+                "label": "Type",
+                "value": "Accessories"
+              },
+              {
+                "label": "Category",
+                "value": "V2L ve C2L Kablo Çantası"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 25,00"
+              }
+            ]
+          }
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "dc-soket-tutucu",
+        "name": "DC Soket Tutucu (4 Bilyalı)",
+        "code": "BAK-8200-0002",
+        "subtitle": "",
+        "badge": null,
+        "description": "Bemis Charger serisi AC wallbox cihazları için tasarlanmış özel priz tutucu. Cihazın gövde rengiyle uyumlu, hızlı kelepçe ile cihaza monte edilir.",
+        "specs": [
+          {
+            "group": "General",
+            "items": [
+              {
+                "label": "Type",
+                "value": "Accessories"
+              },
+              {
+                "label": "Category",
+                "value": "DC Soket Tutucu (4 Bilyalı)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 12,00"
+              }
+            ]
+          }
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
       }
     ]
   },
@@ -5571,7 +7029,7 @@
             "items": [
               {
                 "label": "List Price",
-                "value": "€7,161.00 (VAT excluded)"
+                "value": "€7,200.00 (VAT excluded)"
               }
             ]
           },
@@ -5708,7 +7166,7 @@
             "items": [
               {
                 "label": "List Price",
-                "value": "€15,820.00 (VAT excluded)"
+                "value": "€15,850.00 (VAT excluded)"
               }
             ]
           },
@@ -5849,7 +7307,7 @@
             "items": [
               {
                 "label": "List Price",
-                "value": "€18,950.00 (VAT excluded)"
+                "value": "€19,350.00 (VAT excluded)"
               }
             ]
           },
@@ -6000,7 +7458,7 @@
             "items": [
               {
                 "label": "List Price",
-                "value": "€19,353.00 (VAT excluded)"
+                "value": "€19,350.00 (VAT excluded)"
               }
             ]
           },
@@ -6151,7 +7609,7 @@
             "items": [
               {
                 "label": "List Price",
-                "value": "€23,731.00 (VAT excluded)"
+                "value": "€23,850.00 (VAT excluded)"
               }
             ]
           },
@@ -6302,7 +7760,7 @@
             "items": [
               {
                 "label": "List Price",
-                "value": "€27,686.00 (VAT excluded)"
+                "value": "€28,000.00 (VAT excluded)"
               }
             ]
           },
@@ -6359,6 +7817,280 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075183/products/awmtxngdhi0ym0ivjgin.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075183/products/awmtxngdhi0ym0ivjgin.png"
+      },
+      {
+        "id": "bevdc-180",
+        "code": "BEVDCC-4621-0005",
+        "name": "BEVDC 180",
+        "subtitle": "180kW DC Fast Charging Station",
+        "badge": null,
+        "description": "160 kW çift CCS2 çıkışlı yüksek-güç DC hızlı şarj istasyonu. Otoyol pit-stop ve yoğun ticari filo şarjı için, dinamik güç paylaşımı ile iki aracı maksimum kapasitede besler.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "Output Power",
+                "value": "180 kW"
+              },
+              {
+                "label": "Introduction",
+                "value": "AC 380-480V, 3 Phase"
+              },
+              {
+                "label": "Output Voltage",
+                "value": "150-1000V DC"
+              }
+            ]
+          },
+          {
+            "group": "Connectivity",
+            "items": [
+              {
+                "label": "Connector",
+                "value": "CCS2"
+              },
+              {
+                "label": "Number of Sockets",
+                "value": "2"
+              },
+              {
+                "label": "Concurrent",
+                "value": "Yes"
+              }
+            ]
+          },
+          {
+            "group": "Management",
+            "items": [
+              {
+                "label": "Protocol",
+                "value": "OCPP 1.6J / 2.0.1"
+              },
+              {
+                "label": "User Authentication",
+                "value": "RFID Card + Mobile App"
+              },
+              {
+                "label": "Connectivity",
+                "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Payment Methods",
+                "value": "RFID / NFC contactless, Credit/Debit Card (CPO), Mobile"
+              }
+            ]
+          },
+          {
+            "group": "Environmental",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP54"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-25°C ~ +55°C"
+              },
+              {
+                "label": "Installation",
+                "value": "Outdoor"
+              },
+              {
+                "label": "Impact Resistance",
+                "value": "IK10"
+              },
+              {
+                "label": "Display",
+                "value": "10\" LCD Capacitive Touch"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "€27,500.00 (VAT excluded)"
+              }
+            ]
+          },
+          {
+            "group": "Physical Specifications",
+            "items": [
+              {
+                "label": "Dimensions (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Safety",
+            "items": [
+              {
+                "label": "Protection Functions",
+                "value": "Short Circuit, Overcurrent, Overtemperature, Emergency Stop, High/Low Output Voltage, DC Ground Leakage Warning"
+              }
+            ]
+          },
+          {
+            "group": "Documents & Warranty",
+            "items": [
+              {
+                "label": "Warranty",
+                "value": "2-year manufacturer (optional +3-year extension for a fee)"
+              },
+              {
+                "label": "Domestic Goods Certificate",
+                "value": "%94"
+              },
+              {
+                "label": "Certification",
+                "value": "CE"
+              }
+            ]
+          }
+        ],
+        "features": [
+          "ocpp",
+          "rfid",
+          "shared",
+          "ccs2",
+          "screen",
+          "load",
+          "plugplay",
+          "safety",
+          "ik10"
+        ],
+        "generalFeatures": [],
+        "documents": [],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075183/products/awmtxngdhi0ym0ivjgin.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075183/products/awmtxngdhi0ym0ivjgin.png"
+      },
+      {
+        "id": "bevdc-40-direk-tipi",
+        "code": "BEVDCC-4222-0005",
+        "name": "BEVDC 40 Direk Tipi",
+        "subtitle": "40kW DC Fast Charging Station · Pedestal",
+        "badge": null,
+        "description": "40 kW tek CCS2 çıkışlı kompakt DC hızlı şarj istasyonu. Kafe, restoran, otel ve şehir içi otopark kurulumları için ideal güç sınıfı; OCPP 1.6J / 2.0.1 desteği, RFID kullanıcı yetkilendirme, IP54 dış mekan kullanımı.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "Output Power",
+                "value": "40 kW"
+              },
+              {
+                "label": "Introduction",
+                "value": "AC 380-480V, 3 Phase"
+              },
+              {
+                "label": "Output Voltage",
+                "value": "150-1000V DC"
+              }
+            ]
+          },
+          {
+            "group": "Connectivity",
+            "items": [
+              {
+                "label": "Connector",
+                "value": "CCS2"
+              },
+              {
+                "label": "Number of Sockets",
+                "value": "1"
+              },
+              {
+                "label": "Concurrent",
+                "value": "No"
+              }
+            ]
+          },
+          {
+            "group": "Management",
+            "items": [
+              {
+                "label": "Protocol",
+                "value": "OCPP 1.6J / 2.0.1"
+              },
+              {
+                "label": "User Authentication",
+                "value": "RFID Card + Mobile App"
+              },
+              {
+                "label": "Connectivity",
+                "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Payment Methods",
+                "value": "RFID / NFC contactless, Credit/Debit Card (CPO), Mobile"
+              }
+            ]
+          },
+          {
+            "group": "Environmental",
+            "items": [
+              {
+                "label": "Protection category",
+                "value": "IP54"
+              },
+              {
+                "label": "Operating temperature:",
+                "value": "-25°C ~ +55°C"
+              },
+              {
+                "label": "Installation",
+                "value": "Outdoor"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "€8,600.00 (VAT excluded)"
+              }
+            ]
+          },
+          {
+            "group": "Documents & Warranty",
+            "items": [
+              {
+                "label": "Warranty",
+                "value": "2-year manufacturer (optional +3-year extension for a fee)"
+              },
+              {
+                "label": "Domestic Goods Certificate",
+                "value": "%94"
+              },
+              {
+                "label": "Certification",
+                "value": "CE"
+              }
+            ]
+          }
+        ],
+        "features": [
+          "ocpp",
+          "rfid",
+          "shared",
+          "ccs2",
+          "screen",
+          "load",
+          "plugplay",
+          "safety"
+        ],
+        "generalFeatures": [],
+        "documents": [],
+        "images": [],
+        "image": "",
+        "boxContents": []
       }
     ]
   },
@@ -8158,6 +9890,590 @@
               {
                 "label": "List Price",
                 "value": "EUR 1.100,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "400A maksimum DC akım kapasitesi",
+          "CCS2 IEC 62196-3 standardına uygun konnektör",
+          "Bir uç CCS2 fiş, diğer uç açık — DC üniteye doğrudan terminasyon",
+          "Soğutma için entegre kanal (yüksek akım kademelerinde)",
+          "CE uygunluk testi tamamlanmış"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075317/products/yuuv51iis8u8d7piyxrx.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075317/products/yuuv51iis8u8d7piyxrx.png"
+      },
+      {
+        "id": "pano-prizi-monofaze-3-nokta-30cm-nyaff",
+        "name": "Pano Prizi",
+        "code": "BEV-3016-431B",
+        "subtitle": "Monofaze 3,7-7,4 kW · 3 Noktadan Montaj · 30 cm NYAFF",
+        "badge": null,
+        "description": "Şarj panolarına entegrasyon için Type 2 pano prizi. Kilit motorlu monofaze ya da trifaze, 3 veya 4 noktadan montajlı varyantlarla AC şarj cihazı üreticilerine standart bileşen.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Monophase"
+              },
+              {
+                "label": "• Power",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanical",
+            "items": [
+              {
+                "label": "Installation",
+                "value": "3 Point Mounted"
+              },
+              {
+                "label": "Lock Motor",
+                "value": "Yes"
+              },
+              {
+                "label": "Type",
+                "value": "Type 2 Panel Socket (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 47,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 3,7 - 7,4 kW pano içi entegrasyon",
+          "Mekanik kilit motoru — kullanıcı güvenliği için otomatik kilitleme",
+          "3 Noktadan Montajlı montaj — hızlı kurulum",
+          "IEC 62196-2 Type 2 standardına uygun"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-monofaze-4-nokta-30cm-nyaff",
+        "name": "Pano Prizi",
+        "code": "BEV-3016-432B",
+        "subtitle": "Monofaze 3,7-7,4 kW · 4 Noktadan Montaj · 30 cm NYAFF",
+        "badge": null,
+        "description": "Şarj panolarına entegrasyon için Type 2 pano prizi. Kilit motorlu monofaze ya da trifaze, 3 veya 4 noktadan montajlı varyantlarla AC şarj cihazı üreticilerine standart bileşen.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Monophase"
+              },
+              {
+                "label": "• Power",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanical",
+            "items": [
+              {
+                "label": "Installation",
+                "value": "4 Point Mounted"
+              },
+              {
+                "label": "Lock Motor",
+                "value": "Yes"
+              },
+              {
+                "label": "Type",
+                "value": "Type 2 Panel Socket (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 47,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 3,7 - 7,4 kW pano içi entegrasyon",
+          "Mekanik kilit motoru — kullanıcı güvenliği için otomatik kilitleme",
+          "4 Noktadan Montajlı montaj — hızlı kurulum",
+          "IEC 62196-2 Type 2 standardına uygun"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-trifaze-3-nokta-30cm-nyaff",
+        "name": "Pano Prizi",
+        "code": "BEV-5032-431B",
+        "subtitle": "Trifaze 11-22 kW · 3 Noktadan Montaj · 30 cm NYAFF",
+        "badge": null,
+        "description": "Şarj panolarına entegrasyon için Type 2 pano prizi. Kilit motorlu monofaze ya da trifaze, 3 veya 4 noktadan montajlı varyantlarla AC şarj cihazı üreticilerine standart bileşen.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "• Power",
+                "value": "11 - 22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanical",
+            "items": [
+              {
+                "label": "Installation",
+                "value": "3 Point Mounted"
+              },
+              {
+                "label": "Lock Motor",
+                "value": "Yes"
+              },
+              {
+                "label": "Type",
+                "value": "Type 2 Panel Socket (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 55,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 11 - 22 kW pano içi entegrasyon",
+          "Mekanik kilit motoru — kullanıcı güvenliği için otomatik kilitleme",
+          "3 Noktadan Montajlı montaj — hızlı kurulum",
+          "IEC 62196-2 Type 2 standardına uygun"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-trifaze-4-nokta-30cm-nyaff",
+        "name": "Pano Prizi",
+        "code": "BEV-5032-432B",
+        "subtitle": "Trifaze 11-22 kW · 4 Noktadan Montaj · 30 cm NYAFF",
+        "badge": null,
+        "description": "Şarj panolarına entegrasyon için Type 2 pano prizi. Kilit motorlu monofaze ya da trifaze, 3 veya 4 noktadan montajlı varyantlarla AC şarj cihazı üreticilerine standart bileşen.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "• Power",
+                "value": "11 - 22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanical",
+            "items": [
+              {
+                "label": "Installation",
+                "value": "4 Point Mounted"
+              },
+              {
+                "label": "Lock Motor",
+                "value": "Yes"
+              },
+              {
+                "label": "Type",
+                "value": "Type 2 Panel Socket (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 55,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 11 - 22 kW pano içi entegrasyon",
+          "Mekanik kilit motoru — kullanıcı güvenliği için otomatik kilitleme",
+          "4 Noktadan Montajlı montaj — hızlı kurulum",
+          "IEC 62196-2 Type 2 standardına uygun"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-kilit-motorsuz-monofaze-3-nokta-30cm-nyaff",
+        "name": "Pano Prizi (Kilit Motorsuz)",
+        "code": "BEV-3016-431B-A",
+        "subtitle": "Monofaze 3,7-7,4 kW · 3 Noktadan Montaj · 30 cm NYAFF",
+        "badge": null,
+        "description": "Kilit motoru olmayan ekonomik Type 2 pano prizi. Manuel kilitleme gerektirmeyen veya kilit mekanizması ayrı tedarik edilen üretici kurulumları için.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Monophase"
+              },
+              {
+                "label": "• Power",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanical",
+            "items": [
+              {
+                "label": "Installation",
+                "value": "3 Point Mounted"
+              },
+              {
+                "label": "Lock Motor",
+                "value": "No"
+              },
+              {
+                "label": "Type",
+                "value": "Type 2 Panel Socket (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 33,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 3,7 - 7,4 kW pano içi entegrasyon",
+          "Manuel kilit veya harici kilit mekanizması ile uyumlu",
+          "3 Noktadan Montajlı montaj — hızlı kurulum",
+          "IEC 62196-2 Type 2 standardına uygun"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-kilit-motorsuz-monofaze-4-nokta-30cm-nyaff",
+        "name": "Pano Prizi (Kilit Motorsuz)",
+        "code": "BEV-3016-432B-A",
+        "subtitle": "Monofaze 3,7-7,4 kW · 4 Noktadan Montaj · 30 cm NYAFF",
+        "badge": null,
+        "description": "Kilit motoru olmayan ekonomik Type 2 pano prizi. Manuel kilitleme gerektirmeyen veya kilit mekanizması ayrı tedarik edilen üretici kurulumları için.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Monophase"
+              },
+              {
+                "label": "• Power",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanical",
+            "items": [
+              {
+                "label": "Installation",
+                "value": "4 Point Mounted"
+              },
+              {
+                "label": "Lock Motor",
+                "value": "No"
+              },
+              {
+                "label": "Type",
+                "value": "Type 2 Panel Socket (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 33,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 3,7 - 7,4 kW pano içi entegrasyon",
+          "Manuel kilit veya harici kilit mekanizması ile uyumlu",
+          "4 Noktadan Montajlı montaj — hızlı kurulum",
+          "IEC 62196-2 Type 2 standardına uygun"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-kilit-motorsuz-trifaze-3-nokta-30cm-nyaff",
+        "name": "Pano Prizi (Kilit Motorsuz)",
+        "code": "BEV-5032-431B-A",
+        "subtitle": "Trifaze 11-22 kW · 3 Noktadan Montaj · 30 cm NYAFF",
+        "badge": null,
+        "description": "Kilit motoru olmayan ekonomik Type 2 pano prizi. Manuel kilitleme gerektirmeyen veya kilit mekanizması ayrı tedarik edilen üretici kurulumları için.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "• Power",
+                "value": "11 - 22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanical",
+            "items": [
+              {
+                "label": "Installation",
+                "value": "3 Point Mounted"
+              },
+              {
+                "label": "Lock Motor",
+                "value": "No"
+              },
+              {
+                "label": "Type",
+                "value": "Type 2 Panel Socket (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 42,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 11 - 22 kW pano içi entegrasyon",
+          "Manuel kilit veya harici kilit mekanizması ile uyumlu",
+          "3 Noktadan Montajlı montaj — hızlı kurulum",
+          "IEC 62196-2 Type 2 standardına uygun"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-kilit-motorsuz-trifaze-4-nokta-30cm-nyaff",
+        "name": "Pano Prizi (Kilit Motorsuz)",
+        "code": "BEV-5032-432B-A",
+        "subtitle": "Trifaze 11-22 kW · 4 Noktadan Montaj · 30 cm NYAFF",
+        "badge": null,
+        "description": "Kilit motoru olmayan ekonomik Type 2 pano prizi. Manuel kilitleme gerektirmeyen veya kilit mekanizması ayrı tedarik edilen üretici kurulumları için.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "• Power",
+                "value": "11 - 22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanical",
+            "items": [
+              {
+                "label": "Installation",
+                "value": "4 Point Mounted"
+              },
+              {
+                "label": "Lock Motor",
+                "value": "No"
+              },
+              {
+                "label": "Type",
+                "value": "Type 2 Panel Socket (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 42,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 11 - 22 kW pano içi entegrasyon",
+          "Manuel kilit veya harici kilit mekanizması ile uyumlu",
+          "4 Noktadan Montajlı montaj — hızlı kurulum",
+          "IEC 62196-2 Type 2 standardına uygun"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-80a-5m",
+        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "code": "BEVDC-4011-0005",
+        "subtitle": "80A · 5m",
+        "badge": null,
+        "description": "DC hızlı şarj cihazı üreticileri için bir ucu açık CCS2 şarj soketi. İstediğiniz uzunluk ve akım kademesinde DC ünitelere doğrudan terminasyon — OEM kablolu çözüm.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "Type",
+                "value": "DC Fast Charging Socket (CCS2)"
+              },
+              {
+                "label": "Max. current",
+                "value": "80A"
+              },
+              {
+                "label": "Standard",
+                "value": "IEC 62196-3 (CCS2)"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "5m"
+              },
+              {
+                "label": "Configuration",
+                "value": "Single End CCS2 — Other End Open (OEM)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 275,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "150A maksimum DC akım kapasitesi",
+          "CCS2 IEC 62196-3 standardına uygun konnektör",
+          "Bir uç CCS2 fiş, diğer uç açık — DC üniteye doğrudan terminasyon",
+          "Soğutma için entegre kanal (yüksek akım kademelerinde)",
+          "CE uygunluk testi tamamlanmış"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075313/products/xakuw6whdv4f69o7vbng.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075313/products/xakuw6whdv4f69o7vbng.png"
+      },
+      {
+        "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-80a-8m",
+        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "code": "BEVDC-4011-0008",
+        "subtitle": "80A · 8m",
+        "badge": null,
+        "description": "DC hızlı şarj cihazı üreticileri için bir ucu açık CCS2 şarj soketi. İstediğiniz uzunluk ve akım kademesinde DC ünitelere doğrudan terminasyon — OEM kablolu çözüm.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "Type",
+                "value": "DC Fast Charging Socket (CCS2)"
+              },
+              {
+                "label": "Max. current",
+                "value": "80A"
+              },
+              {
+                "label": "Standard",
+                "value": "IEC 62196-3 (CCS2)"
+              }
+            ]
+          },
+          {
+            "group": "Wire Link",
+            "items": [
+              {
+                "label": "Cable Length",
+                "value": "8m"
+              },
+              {
+                "label": "Configuration",
+                "value": "Single End CCS2 — Other End Open (OEM)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 345,00"
               }
             ]
           }

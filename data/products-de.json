@@ -1215,6 +1215,396 @@
           "tuv",
           "tse"
         ]
+      },
+      {
+        "id": "charger-pro-2-mid-sayacli-kablolu",
+        "name": "Charger Pro 2 MID Sayaçlı",
+        "code": "BEV-3011-00S5",
+        "subtitle": "5 m Kabel · MID",
+        "badge": null,
+        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Leistung",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Max. Strom",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kabel & Anschluss",
+            "items": [
+              {
+                "label": "Ausgang",
+                "value": "5 m Kabel"
+              },
+              {
+                "label": "Stecker",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 855,00"
+              }
+            ]
+          },
+          {
+            "group": "Intelligent & Optional",
+            "items": [
+              {
+                "label": "MID-Zähler",
+                "value": "Optional (zertifizierte Energiemessung)"
+              },
+              {
+                "label": "Mobile App",
+                "value": "Fernein-/-ausschalten, Timer, Ladeverlauf (vernetzte Modelle)"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074899/products/vtsdnxy0k1gmfwbugdh1.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074899/products/vtsdnxy0k1gmfwbugdh1.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "mid",
+          "montaj"
+        ],
+        "documents": [
+          {
+            "label": "bemis-ev-charge-hizli-kurulum-kilavuzu",
+            "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1778228546/documents/1778228545901-bemis-ev-charge-hizli-kurulum-kilavuzu.pdf"
+          }
+        ]
+      },
+      {
+        "id": "charger-pro-2-mid-sayacli-pano-prizli",
+        "name": "Charger Pro 2 MID Sayaçlı",
+        "code": "BEV-3012-00S0",
+        "subtitle": "Mit Schalttafel-Steckdose · MID",
+        "badge": null,
+        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Leistung",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Max. Strom",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kabel & Anschluss",
+            "items": [
+              {
+                "label": "Ausgang",
+                "value": "Mit Schalttafel-Steckdose"
+              },
+              {
+                "label": "Buchse",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 825,00"
+              }
+            ]
+          },
+          {
+            "group": "Intelligent & Optional",
+            "items": [
+              {
+                "label": "MID-Zähler",
+                "value": "Optional (zertifizierte Energiemessung)"
+              },
+              {
+                "label": "Mobile App",
+                "value": "Fernein-/-ausschalten, Timer, Ladeverlauf (vernetzte Modelle)"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074903/products/u09cxjqwgszkpw6visgt.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074903/products/u09cxjqwgszkpw6visgt.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-plus-2-mid-sayacli-kablolu",
+        "name": "Charger Plus 2 MID Sayaçlı",
+        "code": "BEV-2011-00S5",
+        "subtitle": "5 m Kabel · MID",
+        "badge": null,
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Leistung",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Max. Strom",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kabel & Anschluss",
+            "items": [
+              {
+                "label": "Ausgang",
+                "value": "5 m Kabel"
+              },
+              {
+                "label": "Stecker",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 725,00"
+              }
+            ]
+          },
+          {
+            "group": "Intelligent & Optional",
+            "items": [
+              {
+                "label": "Automatischer Ladestart",
+                "value": "Ja — automatischer Neustart alle 3 Min. nach einem Stromausfall"
+              },
+              {
+                "label": "MID-Zähler",
+                "value": "Optional (zertifizierte Energiemessung)"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-plus-2-mid-sayacli-pano-prizli",
+        "name": "Charger Plus 2 MID Sayaçlı",
+        "code": "BEV-2012-00S0",
+        "subtitle": "Mit Schalttafel-Steckdose · MID",
+        "badge": null,
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Leistung",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Max. Strom",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Kabel & Anschluss",
+            "items": [
+              {
+                "label": "Ausgang",
+                "value": "Mit Schalttafel-Steckdose"
+              },
+              {
+                "label": "Buchse",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 695,00"
+              }
+            ]
+          },
+          {
+            "group": "Intelligent & Optional",
+            "items": [
+              {
+                "label": "Automatischer Ladestart",
+                "value": "Ja — automatischer Neustart alle 3 Min. nach einem Stromausfall"
+              },
+              {
+                "label": "MID-Zähler",
+                "value": "Optional (zertifizierte Energiemessung)"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-2-trifaze-kablolu",
+        "name": "Charger 2",
+        "code": "BEV-1311-0005",
+        "subtitle": "5 m Kabel · 11 kW / 16A",
+        "badge": null,
+        "description": "Der Bemis Charger 2 ist eine AC-Wandladestation für den Einsatz zu Hause und im Betrieb, mit den Optionen einphasig 7,4 kW und dreiphasig 11–22 kW. Mit 5 Meter integriertem Type 2-Kabel oder der Schalttafel-Steckdosen-Version arbeitet das CE- & IP65-zertifizierte Gehäuse im Innen- und Außenbereich sicher. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Leistung",
+                "value": "11 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Max. Strom",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Kabel & Anschluss",
+            "items": [
+              {
+                "label": "Ausgang",
+                "value": "5 m Kabel"
+              },
+              {
+                "label": "Stecker",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 320,00"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074871/products/k8yjbbw07cp1kpbij7pg.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074871/products/k8yjbbw07cp1kpbij7pg.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "montaj"
+        ],
+        "certificates": [
+          "ce",
+          "tuv"
+        ]
       }
     ]
   },
@@ -1520,6 +1910,718 @@
           "autostart",
           "amp6",
           "montaj"
+        ]
+      },
+      {
+        "id": "pro-mobile-2-10m",
+        "name": "Pro Mobile 2",
+        "code": "BEV-2331-0003",
+        "subtitle": "Dreiphasig · 11 - 22 kW · 10 m",
+        "badge": null,
+        "description": "Das Pro Mobile 2 ist ein dreiphasiges tragbares AC-Ladegerät mit 11–22 kW. Mit CEE 5/16A- und 5/32A-Industrieadaptern bietet es Hochleistungs-Laden vor Ort; entwickelt für den professionellen Einsatz und Flotten. Der Ladestrom ist in 6 Stufen (6/10/16/20/25/32A) über die mobile App oder die Taste am Gerät einstellbar — flexibles, sicheres Laden auch bei schwacher Installation. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Leistung",
+                "value": "11 - 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Strom",
+                "value": "6 / 10 / 16 / 20 / 25 / 32 A (6-stufig einstellbar)"
+              },
+              {
+                "label": "Kabellänge",
+                "value": "10 Meter"
+              },
+              {
+                "label": "Stromeinstellung",
+                "value": "6 Stufen über die mobile App und die Taste am Gerät"
+              }
+            ]
+          },
+          {
+            "group": "Inhalt",
+            "items": [
+              {
+                "label": "Zubehör",
+                "value": "Tasche"
+              },
+              {
+                "label": "Steckdose",
+                "value": "5/32A Steckdose"
+              },
+              {
+                "label": "Adapter",
+                "value": "1/16 Steckeradapter"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "€ 450,00"
+              }
+            ]
+          },
+          {
+            "group": "Physikalische Eigenschaften",
+            "items": [
+              {
+                "label": "Gehäusematerial",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Kabeltyp",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Umgebung",
+            "items": [
+              {
+                "label": "Schutzklasse",
+                "value": "IP65"
+              },
+              {
+                "label": "Betriebstemperatur",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "boxContents": [
+          {
+            "name": "Tragetasche",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "5/32A dreiphasige Steckdose - 1/16A einphasiger Steckeradapter",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075717/products/sunnwmaiwkfwy8szvop4.png"
+          }
+        ],
+        "certificates": [
+          "ce",
+          "tuv"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "autostart",
+          "amp6",
+          "montaj"
+        ]
+      },
+      {
+        "id": "pro-mobile-2-8m",
+        "name": "Pro Mobile 2",
+        "code": "BEV-2331-0002",
+        "subtitle": "Dreiphasig · 11 - 22 kW · 8 m",
+        "badge": null,
+        "description": "Das Pro Mobile 2 ist ein dreiphasiges tragbares AC-Ladegerät mit 11–22 kW. Mit CEE 5/16A- und 5/32A-Industrieadaptern bietet es Hochleistungs-Laden vor Ort; entwickelt für den professionellen Einsatz und Flotten. Der Ladestrom ist in 6 Stufen (6/10/16/20/25/32A) über die mobile App oder die Taste am Gerät einstellbar — flexibles, sicheres Laden auch bei schwacher Installation. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Leistung",
+                "value": "11 - 22 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Strom",
+                "value": "6 / 10 / 16 / 20 / 25 / 32 A (6-stufig einstellbar)"
+              },
+              {
+                "label": "Kabellänge",
+                "value": "8 Meter"
+              },
+              {
+                "label": "Stromeinstellung",
+                "value": "6 Stufen über die mobile App und die Taste am Gerät"
+              }
+            ]
+          },
+          {
+            "group": "Inhalt",
+            "items": [
+              {
+                "label": "Zubehör",
+                "value": "Tasche"
+              },
+              {
+                "label": "Steckdose",
+                "value": "5/32A Steckdose"
+              },
+              {
+                "label": "Adapter",
+                "value": "1/16 Steckeradapter"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "€ 425,00"
+              }
+            ]
+          },
+          {
+            "group": "Physikalische Eigenschaften",
+            "items": [
+              {
+                "label": "Gehäusematerial",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Kabeltyp",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Umgebung",
+            "items": [
+              {
+                "label": "Schutzklasse",
+                "value": "IP65"
+              },
+              {
+                "label": "Betriebstemperatur",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "boxContents": [
+          {
+            "name": "Tragetasche",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "5/32A dreiphasige Steckdose - 1/16A einphasiger Steckeradapter",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075717/products/sunnwmaiwkfwy8szvop4.png"
+          }
+        ],
+        "certificates": [
+          "ce",
+          "tuv"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "autostart",
+          "amp6",
+          "montaj"
+        ]
+      },
+      {
+        "id": "pro-mobile-2-11kw-5m",
+        "name": "Pro Mobile 2",
+        "code": "BEV-2441-0001",
+        "subtitle": "Dreiphasig · 11 - 22 kW · 11 kW",
+        "badge": null,
+        "description": "Das Pro Mobile 2 ist ein dreiphasiges tragbares AC-Ladegerät mit 11–22 kW. Mit CEE 5/16A- und 5/32A-Industrieadaptern bietet es Hochleistungs-Laden vor Ort; entwickelt für den professionellen Einsatz und Flotten. Der Ladestrom ist in 6 Stufen (6/10/16/20/25/32A) über die mobile App oder die Taste am Gerät einstellbar — flexibles, sicheres Laden auch bei schwacher Installation. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Leistung",
+                "value": "11 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Strom",
+                "value": "6A - 16A"
+              },
+              {
+                "label": "Kabellänge",
+                "value": "5 Meter"
+              },
+              {
+                "label": "Stromeinstellung",
+                "value": "6 Stufen über die mobile App und die Taste am Gerät"
+              }
+            ]
+          },
+          {
+            "group": "Inhalt",
+            "items": [
+              {
+                "label": "Zubehör",
+                "value": "Tasche"
+              },
+              {
+                "label": "Steckdose",
+                "value": "5/32A Steckdose"
+              },
+              {
+                "label": "Adapter",
+                "value": "1/16 Steckeradapter"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "€ 340,00"
+              }
+            ]
+          },
+          {
+            "group": "Physikalische Eigenschaften",
+            "items": [
+              {
+                "label": "Gehäusematerial",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Kabeltyp",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Umgebung",
+            "items": [
+              {
+                "label": "Schutzklasse",
+                "value": "IP65"
+              },
+              {
+                "label": "Betriebstemperatur",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "boxContents": [
+          {
+            "name": "Tragetasche",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "5/32A dreiphasige Steckdose - 1/16A einphasiger Steckeradapter",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075717/products/sunnwmaiwkfwy8szvop4.png"
+          }
+        ],
+        "certificates": [
+          "ce",
+          "tuv"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "autostart",
+          "amp6",
+          "montaj"
+        ]
+      },
+      {
+        "id": "mono-mobile-10m",
+        "name": "Mono Mobile",
+        "code": "BEV-1221-0003",
+        "subtitle": "Einphasig · 3,7 - 7,4 kW · 10 m",
+        "badge": null,
+        "description": "Das Mono Mobile ist ein einphasiges tragbares Ladegerät mit 3,7–7,4 kW. Inklusive CEE 16/32A-Industriesteckdosenadaptern und Schuko-Ausgang; ermöglicht flexiblen Wechsel zwischen Nutzung zu Hause, im Betrieb und mobil.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Leistung",
+                "value": "3,7 - 7,4 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Einphasig"
+              },
+              {
+                "label": "Strom",
+                "value": "16A - 32A"
+              },
+              {
+                "label": "Kabellänge",
+                "value": "10 Meter"
+              }
+            ]
+          },
+          {
+            "group": "Inhalt",
+            "items": [
+              {
+                "label": "Zubehör",
+                "value": "Tasche"
+              },
+              {
+                "label": "Steckdose",
+                "value": "3/32A Steckdose"
+              },
+              {
+                "label": "Adapter",
+                "value": "1/16A Steckeradapter"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "€ 335,00"
+              }
+            ]
+          },
+          {
+            "group": "Physikalische Eigenschaften",
+            "items": [
+              {
+                "label": "Gehäusematerial",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Kabeltyp",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Umgebung",
+            "items": [
+              {
+                "label": "Schutzklasse",
+                "value": "IP65"
+              },
+              {
+                "label": "Betriebstemperatur",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074918/products/bu0hxgwfudgbsunounrm.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074918/products/bu0hxgwfudgbsunounrm.png",
+        "boxContents": [
+          {
+            "name": "Tragetasche",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "3/32A einphasige Steckdose - 1/16A einphasiger Steckeradapter",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075711/products/c00uls4yt73uvpbin8za.png"
+          }
+        ]
+      },
+      {
+        "id": "mono-mobile-8m",
+        "name": "Mono Mobile",
+        "code": "BEV-1221-0002",
+        "subtitle": "Einphasig · 3,7 - 7,4 kW · 8 m",
+        "badge": null,
+        "description": "Das Mono Mobile ist ein einphasiges tragbares Ladegerät mit 3,7–7,4 kW. Inklusive CEE 16/32A-Industriesteckdosenadaptern und Schuko-Ausgang; ermöglicht flexiblen Wechsel zwischen Nutzung zu Hause, im Betrieb und mobil.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Leistung",
+                "value": "3,7 - 7,4 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Einphasig"
+              },
+              {
+                "label": "Strom",
+                "value": "16A - 32A"
+              },
+              {
+                "label": "Kabellänge",
+                "value": "8 Meter"
+              }
+            ]
+          },
+          {
+            "group": "Inhalt",
+            "items": [
+              {
+                "label": "Zubehör",
+                "value": "Tasche"
+              },
+              {
+                "label": "Steckdose",
+                "value": "3/32A Steckdose"
+              },
+              {
+                "label": "Adapter",
+                "value": "1/16A Steckeradapter"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "€ 320,00"
+              }
+            ]
+          },
+          {
+            "group": "Physikalische Eigenschaften",
+            "items": [
+              {
+                "label": "Gehäusematerial",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Kabeltyp",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Umgebung",
+            "items": [
+              {
+                "label": "Schutzklasse",
+                "value": "IP65"
+              },
+              {
+                "label": "Betriebstemperatur",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074918/products/bu0hxgwfudgbsunounrm.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074918/products/bu0hxgwfudgbsunounrm.png",
+        "boxContents": [
+          {
+            "name": "Tragetasche",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "3/32A einphasige Steckdose - 1/16A einphasiger Steckeradapter",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075711/products/c00uls4yt73uvpbin8za.png"
+          }
+        ]
+      },
+      {
+        "id": "mini-mobile-10m",
+        "name": "Mini Mobile",
+        "code": "BEV-1111-0003",
+        "subtitle": "Einphasig · 2,3 - 3,7 kW · 10 m",
+        "badge": null,
+        "description": "Das Mini Mobile ist ein einphasiges tragbares AC-Ladegerät mit einer Leistung von 2,3–3,7 kW. Direkt in eine Schuko-Steckdose gesteckt ermöglicht es sicheres Laden über haushaltsübliche Steckdosen; wird mit Tragetasche geliefert, ideal für Backup- und Reiseszenarien.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Leistung",
+                "value": "2,3 - 3,7 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Einphasig"
+              },
+              {
+                "label": "Strom",
+                "value": "10A - 16A"
+              },
+              {
+                "label": "Kabellänge",
+                "value": "10 Meter"
+              }
+            ]
+          },
+          {
+            "group": "Inhalt",
+            "items": [
+              {
+                "label": "Zubehör",
+                "value": "Tasche"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "€ 275,00"
+              }
+            ]
+          },
+          {
+            "group": "Physikalische Eigenschaften",
+            "items": [
+              {
+                "label": "Gehäusematerial",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Kabeltyp",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Umgebung",
+            "items": [
+              {
+                "label": "Schutzklasse",
+                "value": "IP65"
+              },
+              {
+                "label": "Betriebstemperatur",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074914/products/ssmfsr68loa4hecvpnya.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074914/products/ssmfsr68loa4hecvpnya.png",
+        "boxContents": [
+          {
+            "name": "Tragetasche",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          }
+        ]
+      },
+      {
+        "id": "mini-mobile-8m",
+        "name": "Mini Mobile",
+        "code": "BEV-1111-0002",
+        "subtitle": "Einphasig · 2,3 - 3,7 kW · 8 m",
+        "badge": null,
+        "description": "Das Mini Mobile ist ein einphasiges tragbares AC-Ladegerät mit einer Leistung von 2,3–3,7 kW. Direkt in eine Schuko-Steckdose gesteckt ermöglicht es sicheres Laden über haushaltsübliche Steckdosen; wird mit Tragetasche geliefert, ideal für Backup- und Reiseszenarien.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Leistung",
+                "value": "2,3 - 3,7 kW"
+              },
+              {
+                "label": "Phase",
+                "value": "Einphasig"
+              },
+              {
+                "label": "Strom",
+                "value": "10A - 16A"
+              },
+              {
+                "label": "Kabellänge",
+                "value": "8 Meter"
+              }
+            ]
+          },
+          {
+            "group": "Inhalt",
+            "items": [
+              {
+                "label": "Zubehör",
+                "value": "Tasche"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "€ 270,00"
+              }
+            ]
+          },
+          {
+            "group": "Physikalische Eigenschaften",
+            "items": [
+              {
+                "label": "Gehäusematerial",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Kabeltyp",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Umgebung",
+            "items": [
+              {
+                "label": "Schutzklasse",
+                "value": "IP65"
+              },
+              {
+                "label": "Betriebstemperatur",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074914/products/ssmfsr68loa4hecvpnya.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074914/products/ssmfsr68loa4hecvpnya.png",
+        "boxContents": [
+          {
+            "name": "Tragetasche",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          }
         ]
       }
     ]
@@ -4157,6 +5259,70 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074991/products/l8dngeonxbeilb98qemj.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074991/products/l8dngeonxbeilb98qemj.png"
+      },
+      {
+        "id": "tek-cikisli-c2l-adaptor",
+        "name": "Tek Çıkışlı C2L Adaptör",
+        "code": "BKT-2202-2401",
+        "subtitle": "",
+        "badge": null,
+        "description": "Der C2L-Adapter mit einem Ausgang wandelt die an einem Type-2-Ladepunkt entnommene Energie in eine Standard-Steckdose um. Er dient dazu, Elektrogeräte direkt am Ladepunkt zu betreiben – etwa beim Camping, auf Baustellen oder im Garten.",
+        "specs": [
+          {
+            "group": "Allgemein",
+            "items": [
+              {
+                "label": "Adaptertyp",
+                "value": "V2L (Vehicle to Load)"
+              },
+              {
+                "label": "Ausgang",
+                "value": "1 (Type 2)"
+              }
+            ]
+          },
+          {
+            "group": "Kompatibilität",
+            "items": [
+              {
+                "label": "Kompatibles Fahrzeug",
+                "value": "Hyundai · Kia · Ssangyong"
+              },
+              {
+                "label": "Steckdosentyp",
+                "value": "Türkischer Standard (Schuko)"
+              },
+              {
+                "label": "Max. Strom",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 44,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Wandelt den V2L-Ausgang des Fahrzeugs in den Standard-Steckdosentyp um",
+          "Ideal für Camping-, Werkstatt-, Feld- und Notfalleinsätze",
+          "Kompaktes, tragbares Gehäusedesign",
+          "Sichere 16A-Strombegrenzung, automatische Abschaltung",
+          "CE-Konformitätsprüfung abgeschlossen"
+        ],
+        "compatibleVehicles": [
+          "Hyundai",
+          "Kia",
+          "Ssangyong"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
       }
     ]
   },
@@ -4611,7 +5777,7 @@
       {
         "id": "seyyar-uzatma-kablosu-monofaze-3-2-5-10m-ip68",
         "name": "Seyyar Uzatma Kablosu Monofaze (3×2,5)",
-        "code": "BKT-0102-8210",
+        "code": "BKT-0102-8110",
         "subtitle": "10 m IP68",
         "badge": null,
         "description": "Einphasig 16A — 3×2,5 mm² TTR halogenfreies mobiles Verlängerungskabel. Für flexible Energieübertragung in Werkstatt, Feld und temporären Installationen.",
@@ -5111,6 +6277,228 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-ceenorm-5-2-5-516a-5m",
+        "name": "Seyyar Uzatma Kablosu Ceenorm 5×2,5 (5/16A)",
+        "code": "BKT-0708-2505",
+        "subtitle": "5 m",
+        "badge": null,
+        "description": "Dreiphasig + Neutralleiter + Erdung (5-adrig) 32A mobiles Verlängerungskabel. Das 5×6 mm² TTR-Kabel eignet sich für Vollsystem-Lasten in professionellen Infrastrukturprojekten.",
+        "specs": [
+          {
+            "group": "Allgemein",
+            "items": [
+              {
+                "label": "Typ",
+                "value": "Mobiles Verlängerungskabel"
+              },
+              {
+                "label": "Kabel",
+                "value": "5 × 2,5 mm² ttr"
+              },
+              {
+                "label": "Länge",
+                "value": "5m"
+              }
+            ]
+          },
+          {
+            "group": "Anschluss",
+            "items": [
+              {
+                "label": "Anschlussrichtung",
+                "value": "5/16A Stecker → 5/16A Steckdose"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 45,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "5 × 6 mm² TTR flexibler Kupferleiter, widerstandsfähiger Außenmantel",
+          "Anschluss 5/32A Stecker → 5/32A Steckdose",
+          "UV- und witterungsbeständig",
+          "Ideal für Baustelle, Werkstatt und mobilen Einsatz",
+          "CE-Konformitätsprüfung abgeschlossen"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-ceenorm-5-2-5-516a-10m",
+        "name": "Seyyar Uzatma Kablosu Ceenorm 5×2,5 (5/16A)",
+        "code": "BKT-0708-2510",
+        "subtitle": "10 m",
+        "badge": null,
+        "description": "Dreiphasig + Neutralleiter + Erdung (5-adrig) 32A mobiles Verlängerungskabel. Das 5×6 mm² TTR-Kabel eignet sich für Vollsystem-Lasten in professionellen Infrastrukturprojekten.",
+        "specs": [
+          {
+            "group": "Allgemein",
+            "items": [
+              {
+                "label": "Typ",
+                "value": "Mobiles Verlängerungskabel"
+              },
+              {
+                "label": "Kabel",
+                "value": "5 × 2,5 mm² ttr"
+              },
+              {
+                "label": "Länge",
+                "value": "10m"
+              }
+            ]
+          },
+          {
+            "group": "Anschluss",
+            "items": [
+              {
+                "label": "Anschlussrichtung",
+                "value": "5/16A Stecker → 5/16A Steckdose"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 64,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "5 × 6 mm² TTR flexibler Kupferleiter, widerstandsfähiger Außenmantel",
+          "Anschluss 5/32A Stecker → 5/32A Steckdose",
+          "UV- und witterungsbeständig",
+          "Ideal für Baustelle, Werkstatt und mobilen Einsatz",
+          "CE-Konformitätsprüfung abgeschlossen"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+      },
+      {
+        "id": "cee-norm-adaptor-30cm-116a-fis-516a-priz",
+        "name": "Cee Norm Adaptör (30cm Kablolu)",
+        "code": "BKT-0108-2211",
+        "subtitle": "1/16A Stecker → 5/16A Steckdose",
+        "badge": null,
+        "description": "CEE-Norm Stecker-Steckdosen-Wandleradapter mit 30 cm Kabel. 3×2,5 mm² TTR-Kabel, für den Feld- und Werkstatteinsatz mit einphasiger 16A-Kapazität.",
+        "specs": [
+          {
+            "group": "Allgemein",
+            "items": [
+              {
+                "label": "Typ",
+                "value": "Stecker-Steckdosen-Wandleradapter"
+              },
+              {
+                "label": "Norm",
+                "value": "CEE Norm"
+              },
+              {
+                "label": "Kabel",
+                "value": "30 cm · 3 × 2,5 mm² ttr"
+              }
+            ]
+          },
+          {
+            "group": "Anschluss",
+            "items": [
+              {
+                "label": "Wandler",
+                "value": "1/16A Stecker → 5/16A Steckdose"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 13,30"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "CEE-Norm Stecker- und Steckdosenkonfiguration",
+          "30 cm · 3 × 2,5 mm² TTR-Kabel, flexibler und widerstandsfähiger Außenmantel",
+          "Ideal für Baustellen-, Werkstatt- und Feldeinsatz",
+          "CE-Konformitätsprüfung abgeschlossen"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074998/products/kuxlacga82z0pbt2tqyt.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074998/products/kuxlacga82z0pbt2tqyt.png"
+      },
+      {
+        "id": "cee-norm-adaptor-30cm-316a-fis-516a-priz",
+        "name": "Cee Norm Adaptör (30cm Kablolu)",
+        "code": "BKT-0508-2211",
+        "subtitle": "3/16A Stecker → 5/16A Steckdose",
+        "badge": null,
+        "description": "CEE-Norm Stecker-Steckdosen-Wandleradapter mit 30 cm Kabel. 3×2,5 mm² TTR-Kabel, für den Feld- und Werkstatteinsatz mit einphasiger 16A-Kapazität.",
+        "specs": [
+          {
+            "group": "Allgemein",
+            "items": [
+              {
+                "label": "Typ",
+                "value": "Stecker-Steckdosen-Wandleradapter"
+              },
+              {
+                "label": "Norm",
+                "value": "CEE Norm"
+              },
+              {
+                "label": "Kabel",
+                "value": "30 cm · 3 × 2,5 mm² ttr"
+              }
+            ]
+          },
+          {
+            "group": "Anschluss",
+            "items": [
+              {
+                "label": "Wandler",
+                "value": "3/16A Stecker → 5/16A Steckdose"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 15,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "CEE-Norm Stecker- und Steckdosenkonfiguration",
+          "30 cm · 3 × 2,5 mm² TTR-Kabel, flexibler und widerstandsfähiger Außenmantel",
+          "Ideal für Baustellen-, Werkstatt- und Feldeinsatz",
+          "CE-Konformitätsprüfung abgeschlossen"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075011/products/ycfbfqyyrktnhcnn9kpi.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075011/products/ycfbfqyyrktnhcnn9kpi.png"
       }
     ]
   },
@@ -5477,6 +6865,76 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075162/products/qzbawyeta2dnuquba3an.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075162/products/qzbawyeta2dnuquba3an.png"
+      },
+      {
+        "id": "v2l-ve-c2l-kablo-cantasi",
+        "name": "V2L ve C2L Kablo Çantası",
+        "code": "BAK-8000-0001",
+        "subtitle": "22×26×12 cm",
+        "badge": null,
+        "description": "Kompakte Tragetasche für V2L- und C2L-Adapter. Einfach-Fach-Organisation für Adapter + Verlängerungskabel, schützt die Feldausrüstung.",
+        "specs": [
+          {
+            "group": "Allgemein",
+            "items": [
+              {
+                "label": "Typ",
+                "value": "Zubehör"
+              },
+              {
+                "label": "Kategorie",
+                "value": "V2L ve C2L Kablo Çantası"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 25,00"
+              }
+            ]
+          }
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "dc-soket-tutucu",
+        "name": "DC Soket Tutucu (4 Bilyalı)",
+        "code": "BAK-8200-0002",
+        "subtitle": "",
+        "badge": null,
+        "description": "Spezieller Steckdosenhalter, entwickelt für die AC-Wallbox-Geräte der Bemis Charger-Serie. Abgestimmt auf die Gehäusefarbe des Geräts, wird mit einer Schnellklemme am Gerät montiert.",
+        "specs": [
+          {
+            "group": "Allgemein",
+            "items": [
+              {
+                "label": "Typ",
+                "value": "Zubehör"
+              },
+              {
+                "label": "Kategorie",
+                "value": "DC Soket Tutucu (4 Bilyalı)"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 12,00"
+              }
+            ]
+          }
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
       }
     ]
   },
@@ -5571,7 +7029,7 @@
             "items": [
               {
                 "label": "Listenpreis",
-                "value": "7.161,00 € (zzgl. MwSt.)"
+                "value": "7.200,00 € (zzgl. MwSt.)"
               }
             ]
           },
@@ -5708,7 +7166,7 @@
             "items": [
               {
                 "label": "Listenpreis",
-                "value": "15.820,00 € (zzgl. MwSt.)"
+                "value": "15.850,00 € (zzgl. MwSt.)"
               }
             ]
           },
@@ -5849,7 +7307,7 @@
             "items": [
               {
                 "label": "Listenpreis",
-                "value": "18.950,00 € (zzgl. MwSt.)"
+                "value": "19.350,00 € (zzgl. MwSt.)"
               }
             ]
           },
@@ -6000,7 +7458,7 @@
             "items": [
               {
                 "label": "Listenpreis",
-                "value": "19.353,00 € (zzgl. MwSt.)"
+                "value": "19.350,00 € (zzgl. MwSt.)"
               }
             ]
           },
@@ -6151,7 +7609,7 @@
             "items": [
               {
                 "label": "Listenpreis",
-                "value": "23.731,00 € (zzgl. MwSt.)"
+                "value": "23.850,00 € (zzgl. MwSt.)"
               }
             ]
           },
@@ -6302,7 +7760,7 @@
             "items": [
               {
                 "label": "Listenpreis",
-                "value": "27.686,00 € (zzgl. MwSt.)"
+                "value": "28.000,00 € (zzgl. MwSt.)"
               }
             ]
           },
@@ -6359,6 +7817,280 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075183/products/awmtxngdhi0ym0ivjgin.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075183/products/awmtxngdhi0ym0ivjgin.png"
+      },
+      {
+        "id": "bevdc-180",
+        "code": "BEVDCC-4621-0005",
+        "name": "BEVDC 180",
+        "subtitle": "180kW DC Fast Charging Station",
+        "badge": null,
+        "description": "Hochleistungs-DC-Schnellladestation mit 160 kW und zwei CCS2-Ausgängen. Für Autobahn-Pit-Stops und intensives gewerbliches Flottenladen; versorgt mit dynamischer Leistungsaufteilung zwei Fahrzeuge mit maximaler Kapazität.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Ausgangsleistung",
+                "value": "180 kW"
+              },
+              {
+                "label": "Eingang",
+                "value": "AC 380-480V, 3 Phasen"
+              },
+              {
+                "label": "Ausgangsspannung",
+                "value": "150-1000V DC"
+              }
+            ]
+          },
+          {
+            "group": "Anschluss",
+            "items": [
+              {
+                "label": "Stecker",
+                "value": "CCS2"
+              },
+              {
+                "label": "Anzahl der Buchsen",
+                "value": "2"
+              },
+              {
+                "label": "Gleichzeitiges Laden",
+                "value": "Ja"
+              }
+            ]
+          },
+          {
+            "group": "Verwaltung",
+            "items": [
+              {
+                "label": "Protokoll",
+                "value": "OCPP 1.6J / 2.0.1"
+              },
+              {
+                "label": "Benutzerauthentifizierung",
+                "value": "RFID-Karte + Mobile App"
+              },
+              {
+                "label": "Anschluss",
+                "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Zahlungsmethoden",
+                "value": "RFID / NFC kontaktlos, Kredit-/Debitkarte (CPO), Mobil"
+              }
+            ]
+          },
+          {
+            "group": "Umgebung",
+            "items": [
+              {
+                "label": "Schutzklasse",
+                "value": "IP54"
+              },
+              {
+                "label": "Betriebstemperatur",
+                "value": "-25°C ~ +55°C"
+              },
+              {
+                "label": "Installation",
+                "value": "Außenbereich"
+              },
+              {
+                "label": "Schlagfestigkeit",
+                "value": "IK10"
+              },
+              {
+                "label": "Display",
+                "value": "10\" LCD kapazitiver Touchscreen"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "27.500,00 € (zzgl. MwSt.)"
+              }
+            ]
+          },
+          {
+            "group": "Physikalische Eigenschaften",
+            "items": [
+              {
+                "label": "Abmessungen (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Sicherheit",
+            "items": [
+              {
+                "label": "Schutzfunktionen",
+                "value": "Kurzschluss, Überstrom, Übertemperatur, Not-Aus, Hohe/Niedrige Ausgangsspannung, DC-Erdschlusswarnung"
+              }
+            ]
+          },
+          {
+            "group": "Dokumente & Garantie",
+            "items": [
+              {
+                "label": "Garantie",
+                "value": "2 Jahre Hersteller (optionale Verlängerung um +3 Jahre gegen Aufpreis)"
+              },
+              {
+                "label": "Zertifikat für einheimische Produktion",
+                "value": "%94"
+              },
+              {
+                "label": "Zertifizierung",
+                "value": "CE"
+              }
+            ]
+          }
+        ],
+        "features": [
+          "ocpp",
+          "rfid",
+          "shared",
+          "ccs2",
+          "screen",
+          "load",
+          "plugplay",
+          "safety",
+          "ik10"
+        ],
+        "generalFeatures": [],
+        "documents": [],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075183/products/awmtxngdhi0ym0ivjgin.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075183/products/awmtxngdhi0ym0ivjgin.png"
+      },
+      {
+        "id": "bevdc-40-direk-tipi",
+        "code": "BEVDCC-4222-0005",
+        "name": "BEVDC 40 Direk Tipi",
+        "subtitle": "40kW DC Fast Charging Station · Pedestal",
+        "badge": null,
+        "description": "Kompakte DC-Schnellladestation mit 40 kW und einem einzelnen CCS2-Ausgang. Ideale Leistungsklasse für Installationen in Cafés, Restaurants, Hotels und innerstädtischen Parkplätzen; Unterstützung von OCPP 1.6J / 2.0.1, RFID-Benutzerautorisierung, IP54 für den Außeneinsatz.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Ausgangsleistung",
+                "value": "40 kW"
+              },
+              {
+                "label": "Eingang",
+                "value": "AC 380-480V, 3 Phasen"
+              },
+              {
+                "label": "Ausgangsspannung",
+                "value": "150-1000V DC"
+              }
+            ]
+          },
+          {
+            "group": "Anschluss",
+            "items": [
+              {
+                "label": "Stecker",
+                "value": "CCS2"
+              },
+              {
+                "label": "Anzahl der Buchsen",
+                "value": "1"
+              },
+              {
+                "label": "Gleichzeitiges Laden",
+                "value": "Nein"
+              }
+            ]
+          },
+          {
+            "group": "Verwaltung",
+            "items": [
+              {
+                "label": "Protokoll",
+                "value": "OCPP 1.6J / 2.0.1"
+              },
+              {
+                "label": "Benutzerauthentifizierung",
+                "value": "RFID-Karte + Mobile App"
+              },
+              {
+                "label": "Anschluss",
+                "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Zahlungsmethoden",
+                "value": "RFID / NFC kontaktlos, Kredit-/Debitkarte (CPO), Mobil"
+              }
+            ]
+          },
+          {
+            "group": "Umgebung",
+            "items": [
+              {
+                "label": "Schutzklasse",
+                "value": "IP54"
+              },
+              {
+                "label": "Betriebstemperatur",
+                "value": "-25°C ~ +55°C"
+              },
+              {
+                "label": "Installation",
+                "value": "Außenbereich"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "8.600,00 € (zzgl. MwSt.)"
+              }
+            ]
+          },
+          {
+            "group": "Dokumente & Garantie",
+            "items": [
+              {
+                "label": "Garantie",
+                "value": "2 Jahre Hersteller (optionale Verlängerung um +3 Jahre gegen Aufpreis)"
+              },
+              {
+                "label": "Zertifikat für einheimische Produktion",
+                "value": "%94"
+              },
+              {
+                "label": "Zertifizierung",
+                "value": "CE"
+              }
+            ]
+          }
+        ],
+        "features": [
+          "ocpp",
+          "rfid",
+          "shared",
+          "ccs2",
+          "screen",
+          "load",
+          "plugplay",
+          "safety"
+        ],
+        "generalFeatures": [],
+        "documents": [],
+        "images": [],
+        "image": "",
+        "boxContents": []
       }
     ]
   },
@@ -8158,6 +9890,590 @@
               {
                 "label": "Listenpreis",
                 "value": "EUR 1.100,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "400A maximale DC-Stromkapazität",
+          "Stecker konform zur Norm CCS2 IEC 62196-3",
+          "Ein Ende CCS2-Stecker, anderes Ende offen — direkte Konfektionierung an die DC-Einheit",
+          "Integrierter Kanal zur Kühlung (bei hohen Stromstufen)",
+          "CE-Konformitätsprüfung abgeschlossen"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075317/products/yuuv51iis8u8d7piyxrx.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075317/products/yuuv51iis8u8d7piyxrx.png"
+      },
+      {
+        "id": "pano-prizi-monofaze-3-nokta-30cm-nyaff",
+        "name": "Pano Prizi",
+        "code": "BEV-3016-431B",
+        "subtitle": "Einphasig 3,7-7,4 kW · 3-Punkt-Montage · 30 cm NYAFF",
+        "badge": null,
+        "description": "Type 2 Einbausteckdose zur Integration in Ladeschränke. Als einphasige oder dreiphasige Variante mit Verriegelungsmotor, in 3- oder 4-Punkt-Montage — Standardkomponente für Hersteller von AC-Ladegeräten.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Einphasig"
+              },
+              {
+                "label": "Leistung",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanisch",
+            "items": [
+              {
+                "label": "Montage",
+                "value": "3-Punkt-Montage"
+              },
+              {
+                "label": "Verriegelungsmotor",
+                "value": "Ja"
+              },
+              {
+                "label": "Typ",
+                "value": "Type 2 Einbausteckdose (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 47,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Einphasige 3,7 - 7,4 kW Integration im Schrank",
+          "Mechanischer Verriegelungsmotor — automatische Verriegelung für die Benutzersicherheit",
+          "3-Punkt-Montage — schnelle Installation",
+          "Konform zur Norm IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-monofaze-4-nokta-30cm-nyaff",
+        "name": "Pano Prizi",
+        "code": "BEV-3016-432B",
+        "subtitle": "Einphasig 3,7-7,4 kW · 4-Punkt-Montage · 30 cm NYAFF",
+        "badge": null,
+        "description": "Type 2 Einbausteckdose zur Integration in Ladeschränke. Als einphasige oder dreiphasige Variante mit Verriegelungsmotor, in 3- oder 4-Punkt-Montage — Standardkomponente für Hersteller von AC-Ladegeräten.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Einphasig"
+              },
+              {
+                "label": "Leistung",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanisch",
+            "items": [
+              {
+                "label": "Montage",
+                "value": "4-Punkt-Montage"
+              },
+              {
+                "label": "Verriegelungsmotor",
+                "value": "Ja"
+              },
+              {
+                "label": "Typ",
+                "value": "Type 2 Einbausteckdose (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 47,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Einphasige 3,7 - 7,4 kW Integration im Schrank",
+          "Mechanischer Verriegelungsmotor — automatische Verriegelung für die Benutzersicherheit",
+          "4-Punkt-Montage — schnelle Installation",
+          "Konform zur Norm IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-trifaze-3-nokta-30cm-nyaff",
+        "name": "Pano Prizi",
+        "code": "BEV-5032-431B",
+        "subtitle": "Dreiphasig 11-22 kW · 3-Punkt-Montage · 30 cm NYAFF",
+        "badge": null,
+        "description": "Type 2 Einbausteckdose zur Integration in Ladeschränke. Als einphasige oder dreiphasige Variante mit Verriegelungsmotor, in 3- oder 4-Punkt-Montage — Standardkomponente für Hersteller von AC-Ladegeräten.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Leistung",
+                "value": "11 - 22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanisch",
+            "items": [
+              {
+                "label": "Montage",
+                "value": "3-Punkt-Montage"
+              },
+              {
+                "label": "Verriegelungsmotor",
+                "value": "Ja"
+              },
+              {
+                "label": "Typ",
+                "value": "Type 2 Einbausteckdose (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 55,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Dreiphasige 11 - 22 kW Integration im Schrank",
+          "Mechanischer Verriegelungsmotor — automatische Verriegelung für die Benutzersicherheit",
+          "3-Punkt-Montage — schnelle Installation",
+          "Konform zur Norm IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-trifaze-4-nokta-30cm-nyaff",
+        "name": "Pano Prizi",
+        "code": "BEV-5032-432B",
+        "subtitle": "Dreiphasig 11-22 kW · 4-Punkt-Montage · 30 cm NYAFF",
+        "badge": null,
+        "description": "Type 2 Einbausteckdose zur Integration in Ladeschränke. Als einphasige oder dreiphasige Variante mit Verriegelungsmotor, in 3- oder 4-Punkt-Montage — Standardkomponente für Hersteller von AC-Ladegeräten.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Leistung",
+                "value": "11 - 22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanisch",
+            "items": [
+              {
+                "label": "Montage",
+                "value": "4-Punkt-Montage"
+              },
+              {
+                "label": "Verriegelungsmotor",
+                "value": "Ja"
+              },
+              {
+                "label": "Typ",
+                "value": "Type 2 Einbausteckdose (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 55,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Dreiphasige 11 - 22 kW Integration im Schrank",
+          "Mechanischer Verriegelungsmotor — automatische Verriegelung für die Benutzersicherheit",
+          "4-Punkt-Montage — schnelle Installation",
+          "Konform zur Norm IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-kilit-motorsuz-monofaze-3-nokta-30cm-nyaff",
+        "name": "Pano Prizi (Kilit Motorsuz)",
+        "code": "BEV-3016-431B-A",
+        "subtitle": "Einphasig 3,7-7,4 kW · 3-Punkt-Montage · 30 cm NYAFF",
+        "badge": null,
+        "description": "Wirtschaftliche Type 2 Einbausteckdose ohne Verriegelungsmotor. Für Herstelleraufbauten, die keine manuelle Verriegelung benötigen oder bei denen der Verriegelungsmechanismus separat bezogen wird.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Einphasig"
+              },
+              {
+                "label": "Leistung",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanisch",
+            "items": [
+              {
+                "label": "Montage",
+                "value": "3-Punkt-Montage"
+              },
+              {
+                "label": "Verriegelungsmotor",
+                "value": "Nein"
+              },
+              {
+                "label": "Typ",
+                "value": "Type 2 Einbausteckdose (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 33,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Einphasige 3,7 - 7,4 kW Integration im Schrank",
+          "Kompatibel mit manueller Verriegelung oder externem Verriegelungsmechanismus",
+          "3-Punkt-Montage — schnelle Installation",
+          "Konform zur Norm IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-kilit-motorsuz-monofaze-4-nokta-30cm-nyaff",
+        "name": "Pano Prizi (Kilit Motorsuz)",
+        "code": "BEV-3016-432B-A",
+        "subtitle": "Einphasig 3,7-7,4 kW · 4-Punkt-Montage · 30 cm NYAFF",
+        "badge": null,
+        "description": "Wirtschaftliche Type 2 Einbausteckdose ohne Verriegelungsmotor. Für Herstelleraufbauten, die keine manuelle Verriegelung benötigen oder bei denen der Verriegelungsmechanismus separat bezogen wird.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Einphasig"
+              },
+              {
+                "label": "Leistung",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanisch",
+            "items": [
+              {
+                "label": "Montage",
+                "value": "4-Punkt-Montage"
+              },
+              {
+                "label": "Verriegelungsmotor",
+                "value": "Nein"
+              },
+              {
+                "label": "Typ",
+                "value": "Type 2 Einbausteckdose (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 33,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Einphasige 3,7 - 7,4 kW Integration im Schrank",
+          "Kompatibel mit manueller Verriegelung oder externem Verriegelungsmechanismus",
+          "4-Punkt-Montage — schnelle Installation",
+          "Konform zur Norm IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-kilit-motorsuz-trifaze-3-nokta-30cm-nyaff",
+        "name": "Pano Prizi (Kilit Motorsuz)",
+        "code": "BEV-5032-431B-A",
+        "subtitle": "Dreiphasig 11-22 kW · 3-Punkt-Montage · 30 cm NYAFF",
+        "badge": null,
+        "description": "Wirtschaftliche Type 2 Einbausteckdose ohne Verriegelungsmotor. Für Herstelleraufbauten, die keine manuelle Verriegelung benötigen oder bei denen der Verriegelungsmechanismus separat bezogen wird.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Leistung",
+                "value": "11 - 22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanisch",
+            "items": [
+              {
+                "label": "Montage",
+                "value": "3-Punkt-Montage"
+              },
+              {
+                "label": "Verriegelungsmotor",
+                "value": "Nein"
+              },
+              {
+                "label": "Typ",
+                "value": "Type 2 Einbausteckdose (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 42,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Dreiphasige 11 - 22 kW Integration im Schrank",
+          "Kompatibel mit manueller Verriegelung oder externem Verriegelungsmechanismus",
+          "3-Punkt-Montage — schnelle Installation",
+          "Konform zur Norm IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-kilit-motorsuz-trifaze-4-nokta-30cm-nyaff",
+        "name": "Pano Prizi (Kilit Motorsuz)",
+        "code": "BEV-5032-432B-A",
+        "subtitle": "Dreiphasig 11-22 kW · 4-Punkt-Montage · 30 cm NYAFF",
+        "badge": null,
+        "description": "Wirtschaftliche Type 2 Einbausteckdose ohne Verriegelungsmotor. Für Herstelleraufbauten, die keine manuelle Verriegelung benötigen oder bei denen der Verriegelungsmechanismus separat bezogen wird.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Leistung",
+                "value": "11 - 22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanisch",
+            "items": [
+              {
+                "label": "Montage",
+                "value": "4-Punkt-Montage"
+              },
+              {
+                "label": "Verriegelungsmotor",
+                "value": "Nein"
+              },
+              {
+                "label": "Typ",
+                "value": "Type 2 Einbausteckdose (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 42,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Dreiphasige 11 - 22 kW Integration im Schrank",
+          "Kompatibel mit manueller Verriegelung oder externem Verriegelungsmechanismus",
+          "4-Punkt-Montage — schnelle Installation",
+          "Konform zur Norm IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-80a-5m",
+        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "code": "BEVDC-4011-0005",
+        "subtitle": "80A · 5 m",
+        "badge": null,
+        "description": "CCS2 Ladebuchse mit einseitig offenem Ende für Hersteller von DC-Schnellladegeräten. Direkte Konfektionierung an DC-Einheiten in der gewünschten Länge und Stromstufe — OEM-Kabellösung.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Typ",
+                "value": "DC-Schnellladebuchse (CCS2)"
+              },
+              {
+                "label": "Max. Strom",
+                "value": "80A"
+              },
+              {
+                "label": "Norm",
+                "value": "IEC 62196-3 (CCS2)"
+              }
+            ]
+          },
+          {
+            "group": "Kabel & Anschluss",
+            "items": [
+              {
+                "label": "Kabellänge",
+                "value": "5m"
+              },
+              {
+                "label": "Konfiguration",
+                "value": "Ein Ende CCS2 — anderes Ende offen (OEM)"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 275,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "150A maximale DC-Stromkapazität",
+          "Stecker konform zur Norm CCS2 IEC 62196-3",
+          "Ein Ende CCS2-Stecker, anderes Ende offen — direkte Konfektionierung an die DC-Einheit",
+          "Integrierter Kanal zur Kühlung (bei hohen Stromstufen)",
+          "CE-Konformitätsprüfung abgeschlossen"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075313/products/xakuw6whdv4f69o7vbng.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075313/products/xakuw6whdv4f69o7vbng.png"
+      },
+      {
+        "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-80a-8m",
+        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "code": "BEVDC-4011-0008",
+        "subtitle": "80A · 8 m",
+        "badge": null,
+        "description": "CCS2 Ladebuchse mit einseitig offenem Ende für Hersteller von DC-Schnellladegeräten. Direkte Konfektionierung an DC-Einheiten in der gewünschten Länge und Stromstufe — OEM-Kabellösung.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Typ",
+                "value": "DC-Schnellladebuchse (CCS2)"
+              },
+              {
+                "label": "Max. Strom",
+                "value": "80A"
+              },
+              {
+                "label": "Norm",
+                "value": "IEC 62196-3 (CCS2)"
+              }
+            ]
+          },
+          {
+            "group": "Kabel & Anschluss",
+            "items": [
+              {
+                "label": "Kabellänge",
+                "value": "8m"
+              },
+              {
+                "label": "Konfiguration",
+                "value": "Ein Ende CCS2 — anderes Ende offen (OEM)"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 345,00"
               }
             ]
           }

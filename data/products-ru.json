@@ -1215,6 +1215,396 @@
           "tuv",
           "tse"
         ]
+      },
+      {
+        "id": "charger-pro-2-mid-sayacli-kablolu",
+        "name": "Charger Pro 2 MID Sayaçlı",
+        "code": "BEV-3011-00S5",
+        "subtitle": "Кабель 5 м · MID",
+        "badge": null,
+        "description": "Charger Pro 2 с регулируемой мощностью 4-7-11-22 кВт, продвинутым управлением нагрузкой (DLM) и функциями авторизации пользователей разработан для профессиональной среды. Открыт для интеграции в зарядную сеть по протоколу OCPP 1.6; идеален для OEM и операторских клиентов. Благодаря обновлённому корпусу и практичной конструкции с внешним подключением монтаж выполняется быстро и без лишних усилий.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Мощность",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Фаза",
+                "value": "Трёхфазная"
+              },
+              {
+                "label": "Макс. ток",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Кабель и подключение",
+            "items": [
+              {
+                "label": "Выход",
+                "value": "Кабель 5 м"
+              },
+              {
+                "label": "Коннектор",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 855,00"
+              }
+            ]
+          },
+          {
+            "group": "Умные и опциональные",
+            "items": [
+              {
+                "label": "Счётчик MID",
+                "value": "Опционально (сертифицированное измерение энергии)"
+              },
+              {
+                "label": "Мобильное приложение",
+                "value": "Дистанционное вкл/выкл, таймер, история зарядки (подключённые модели)"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074899/products/vtsdnxy0k1gmfwbugdh1.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074899/products/vtsdnxy0k1gmfwbugdh1.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "mid",
+          "montaj"
+        ],
+        "documents": [
+          {
+            "label": "bemis-ev-charge-hizli-kurulum-kilavuzu",
+            "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1778228546/documents/1778228545901-bemis-ev-charge-hizli-kurulum-kilavuzu.pdf"
+          }
+        ]
+      },
+      {
+        "id": "charger-pro-2-mid-sayacli-pano-prizli",
+        "name": "Charger Pro 2 MID Sayaçlı",
+        "code": "BEV-3012-00S0",
+        "subtitle": "Со щитовой розеткой · MID",
+        "badge": null,
+        "description": "Charger Pro 2 с регулируемой мощностью 4-7-11-22 кВт, продвинутым управлением нагрузкой (DLM) и функциями авторизации пользователей разработан для профессиональной среды. Открыт для интеграции в зарядную сеть по протоколу OCPP 1.6; идеален для OEM и операторских клиентов. Благодаря обновлённому корпусу и практичной конструкции с внешним подключением монтаж выполняется быстро и без лишних усилий.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Мощность",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Фаза",
+                "value": "Трёхфазная"
+              },
+              {
+                "label": "Макс. ток",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Кабель и подключение",
+            "items": [
+              {
+                "label": "Выход",
+                "value": "Со щитовой розеткой"
+              },
+              {
+                "label": "Разъём",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 825,00"
+              }
+            ]
+          },
+          {
+            "group": "Умные и опциональные",
+            "items": [
+              {
+                "label": "Счётчик MID",
+                "value": "Опционально (сертифицированное измерение энергии)"
+              },
+              {
+                "label": "Мобильное приложение",
+                "value": "Дистанционное вкл/выкл, таймер, история зарядки (подключённые модели)"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074903/products/u09cxjqwgszkpw6visgt.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074903/products/u09cxjqwgszkpw6visgt.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-plus-2-mid-sayacli-kablolu",
+        "name": "Charger Plus 2 MID Sayaçlı",
+        "code": "BEV-2011-00S5",
+        "subtitle": "Кабель 5 м · MID",
+        "badge": null,
+        "description": "Charger Plus 2 адаптируется к различным электрическим сетям благодаря регулируемому уровню мощности от 4-7-11-22 кВт. Интеллектуальный алгоритм зарядки автоматически подстраивается под максимальный ток, принимаемый автомобилем; оптимизирован для дома и малого бизнеса. Благодаря обновлённому корпусу и практичной конструкции с внешним подключением монтаж выполняется быстро и без лишних усилий.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Мощность",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Фаза",
+                "value": "Трёхфазная"
+              },
+              {
+                "label": "Макс. ток",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Кабель и подключение",
+            "items": [
+              {
+                "label": "Выход",
+                "value": "Кабель 5 м"
+              },
+              {
+                "label": "Коннектор",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 725,00"
+              }
+            ]
+          },
+          {
+            "group": "Умные и опциональные",
+            "items": [
+              {
+                "label": "Автоматический запуск зарядки",
+                "value": "Есть — автоматический запуск каждые 3 мин после отключения электроэнергии"
+              },
+              {
+                "label": "Счётчик MID",
+                "value": "Опционально (сертифицированное измерение энергии)"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-plus-2-mid-sayacli-pano-prizli",
+        "name": "Charger Plus 2 MID Sayaçlı",
+        "code": "BEV-2012-00S0",
+        "subtitle": "Со щитовой розеткой · MID",
+        "badge": null,
+        "description": "Charger Plus 2 адаптируется к различным электрическим сетям благодаря регулируемому уровню мощности от 4-7-11-22 кВт. Интеллектуальный алгоритм зарядки автоматически подстраивается под максимальный ток, принимаемый автомобилем; оптимизирован для дома и малого бизнеса. Благодаря обновлённому корпусу и практичной конструкции с внешним подключением монтаж выполняется быстро и без лишних усилий.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Мощность",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Фаза",
+                "value": "Трёхфазная"
+              },
+              {
+                "label": "Макс. ток",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Кабель и подключение",
+            "items": [
+              {
+                "label": "Выход",
+                "value": "Со щитовой розеткой"
+              },
+              {
+                "label": "Разъём",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 695,00"
+              }
+            ]
+          },
+          {
+            "group": "Умные и опциональные",
+            "items": [
+              {
+                "label": "Автоматический запуск зарядки",
+                "value": "Есть — автоматический запуск каждые 3 мин после отключения электроэнергии"
+              },
+              {
+                "label": "Счётчик MID",
+                "value": "Опционально (сертифицированное измерение энергии)"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-2-trifaze-kablolu",
+        "name": "Charger 2",
+        "code": "BEV-1311-0005",
+        "subtitle": "Кабель 5 м · 11 kW / 16A",
+        "badge": null,
+        "description": "Bemis Charger 2 — настенная зарядная станция AC, разработанная для домашнего и коммерческого использования, с вариантами однофазного питания 7,4 кВт и трёхфазного 11–22 кВт. С интегрированным кабелем Type 2 длиной 5 метров или в версии со щитовой розеткой, корпус с сертификатами CE и IP65 безопасно работает как на открытом воздухе, так и в помещении. Благодаря обновлённому корпусу и практичной конструкции с внешним подключением монтаж выполняется быстро и без лишних усилий.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Мощность",
+                "value": "11 kW"
+              },
+              {
+                "label": "Фаза",
+                "value": "Трёхфазная"
+              },
+              {
+                "label": "Макс. ток",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Кабель и подключение",
+            "items": [
+              {
+                "label": "Выход",
+                "value": "Кабель 5 м"
+              },
+              {
+                "label": "Коннектор",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 320,00"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074871/products/k8yjbbw07cp1kpbij7pg.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074871/products/k8yjbbw07cp1kpbij7pg.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "montaj"
+        ],
+        "certificates": [
+          "ce",
+          "tuv"
+        ]
       }
     ]
   },
@@ -1520,6 +1910,718 @@
           "autostart",
           "amp6",
           "montaj"
+        ]
+      },
+      {
+        "id": "pro-mobile-2-10m",
+        "name": "Pro Mobile 2",
+        "code": "BEV-2331-0003",
+        "subtitle": "Трёхфазный · 11 - 22 kW · 10 m",
+        "badge": null,
+        "description": "Pro Mobile 2 — трёхфазное портативное зарядное устройство AC мощностью 11–22 кВт. С промышленными адаптерами CEE 5/16A и 5/32A обеспечивает высокомощную зарядку на объекте; разработан для профессионального и автопаркового использования. Зарядный ток регулируется в 6 ступенях (6/10/16/20/25/32А) через мобильное приложение или кнопку на устройстве — гибкая и безопасная зарядка даже при слабой электросети. Благодаря обновлённому корпусу и практичной конструкции с внешним подключением монтаж выполняется быстро и без лишних усилий.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Мощность",
+                "value": "11 - 22 kW"
+              },
+              {
+                "label": "Фаза",
+                "value": "Трёхфазный"
+              },
+              {
+                "label": "Ток",
+                "value": "6 / 10 / 16 / 20 / 25 / 32 A (6 ступеней регулировки)"
+              },
+              {
+                "label": "Длина кабеля",
+                "value": "10 метров"
+              },
+              {
+                "label": "Настройка тока",
+                "value": "6 ступеней через мобильное приложение и кнопку на устройстве"
+              }
+            ]
+          },
+          {
+            "group": "Комплектация",
+            "items": [
+              {
+                "label": "Аксессуар",
+                "value": "Сумка"
+              },
+              {
+                "label": "Розетка",
+                "value": "5/32A Розетка"
+              },
+              {
+                "label": "Адаптер",
+                "value": "Переходник вилки 1/16"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "€ 450,00"
+              }
+            ]
+          },
+          {
+            "group": "Физические характеристики",
+            "items": [
+              {
+                "label": "Материал корпуса",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Тип кабеля",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Условия эксплуатации",
+            "items": [
+              {
+                "label": "Класс защиты",
+                "value": "IP65"
+              },
+              {
+                "label": "Рабочая температура",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "boxContents": [
+          {
+            "name": "Сумка для переноски",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "Переходник: трёхфазная розетка 5/32A — однофазная вилка 1/16A",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075717/products/sunnwmaiwkfwy8szvop4.png"
+          }
+        ],
+        "certificates": [
+          "ce",
+          "tuv"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "autostart",
+          "amp6",
+          "montaj"
+        ]
+      },
+      {
+        "id": "pro-mobile-2-8m",
+        "name": "Pro Mobile 2",
+        "code": "BEV-2331-0002",
+        "subtitle": "Трёхфазный · 11 - 22 kW · 8 m",
+        "badge": null,
+        "description": "Pro Mobile 2 — трёхфазное портативное зарядное устройство AC мощностью 11–22 кВт. С промышленными адаптерами CEE 5/16A и 5/32A обеспечивает высокомощную зарядку на объекте; разработан для профессионального и автопаркового использования. Зарядный ток регулируется в 6 ступенях (6/10/16/20/25/32А) через мобильное приложение или кнопку на устройстве — гибкая и безопасная зарядка даже при слабой электросети. Благодаря обновлённому корпусу и практичной конструкции с внешним подключением монтаж выполняется быстро и без лишних усилий.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Мощность",
+                "value": "11 - 22 kW"
+              },
+              {
+                "label": "Фаза",
+                "value": "Трёхфазный"
+              },
+              {
+                "label": "Ток",
+                "value": "6 / 10 / 16 / 20 / 25 / 32 A (6 ступеней регулировки)"
+              },
+              {
+                "label": "Длина кабеля",
+                "value": "8 метров"
+              },
+              {
+                "label": "Настройка тока",
+                "value": "6 ступеней через мобильное приложение и кнопку на устройстве"
+              }
+            ]
+          },
+          {
+            "group": "Комплектация",
+            "items": [
+              {
+                "label": "Аксессуар",
+                "value": "Сумка"
+              },
+              {
+                "label": "Розетка",
+                "value": "5/32A Розетка"
+              },
+              {
+                "label": "Адаптер",
+                "value": "Переходник вилки 1/16"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "€ 425,00"
+              }
+            ]
+          },
+          {
+            "group": "Физические характеристики",
+            "items": [
+              {
+                "label": "Материал корпуса",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Тип кабеля",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Условия эксплуатации",
+            "items": [
+              {
+                "label": "Класс защиты",
+                "value": "IP65"
+              },
+              {
+                "label": "Рабочая температура",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "boxContents": [
+          {
+            "name": "Сумка для переноски",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "Переходник: трёхфазная розетка 5/32A — однофазная вилка 1/16A",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075717/products/sunnwmaiwkfwy8szvop4.png"
+          }
+        ],
+        "certificates": [
+          "ce",
+          "tuv"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "autostart",
+          "amp6",
+          "montaj"
+        ]
+      },
+      {
+        "id": "pro-mobile-2-11kw-5m",
+        "name": "Pro Mobile 2",
+        "code": "BEV-2441-0001",
+        "subtitle": "Трёхфазный · 11 - 22 kW · 11 kW",
+        "badge": null,
+        "description": "Pro Mobile 2 — трёхфазное портативное зарядное устройство AC мощностью 11–22 кВт. С промышленными адаптерами CEE 5/16A и 5/32A обеспечивает высокомощную зарядку на объекте; разработан для профессионального и автопаркового использования. Зарядный ток регулируется в 6 ступенях (6/10/16/20/25/32А) через мобильное приложение или кнопку на устройстве — гибкая и безопасная зарядка даже при слабой электросети. Благодаря обновлённому корпусу и практичной конструкции с внешним подключением монтаж выполняется быстро и без лишних усилий.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Мощность",
+                "value": "11 kW"
+              },
+              {
+                "label": "Фаза",
+                "value": "Трёхфазный"
+              },
+              {
+                "label": "Ток",
+                "value": "6A - 16A"
+              },
+              {
+                "label": "Длина кабеля",
+                "value": "5 метров"
+              },
+              {
+                "label": "Настройка тока",
+                "value": "6 ступеней через мобильное приложение и кнопку на устройстве"
+              }
+            ]
+          },
+          {
+            "group": "Комплектация",
+            "items": [
+              {
+                "label": "Аксессуар",
+                "value": "Сумка"
+              },
+              {
+                "label": "Розетка",
+                "value": "5/32A Розетка"
+              },
+              {
+                "label": "Адаптер",
+                "value": "Переходник вилки 1/16"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "€ 340,00"
+              }
+            ]
+          },
+          {
+            "group": "Физические характеристики",
+            "items": [
+              {
+                "label": "Материал корпуса",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Тип кабеля",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Условия эксплуатации",
+            "items": [
+              {
+                "label": "Класс защиты",
+                "value": "IP65"
+              },
+              {
+                "label": "Рабочая температура",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "boxContents": [
+          {
+            "name": "Сумка для переноски",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "Переходник: трёхфазная розетка 5/32A — однофазная вилка 1/16A",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075717/products/sunnwmaiwkfwy8szvop4.png"
+          }
+        ],
+        "certificates": [
+          "ce",
+          "tuv"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "autostart",
+          "amp6",
+          "montaj"
+        ]
+      },
+      {
+        "id": "mono-mobile-10m",
+        "name": "Mono Mobile",
+        "code": "BEV-1221-0003",
+        "subtitle": "Однофазный · 3,7 - 7,4 kW · 10 m",
+        "badge": null,
+        "description": "Mono Mobile — однофазное портативное зарядное устройство мощностью 3,7–7,4 кВт. Включает промышленные адаптеры розеток CEE 16/32A и выход Schuko; обеспечивает гибкий переход между использованием дома, на предприятии и в мобильном режиме.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Мощность",
+                "value": "3,7 - 7,4 kW"
+              },
+              {
+                "label": "Фаза",
+                "value": "Однофазный"
+              },
+              {
+                "label": "Ток",
+                "value": "16A - 32A"
+              },
+              {
+                "label": "Длина кабеля",
+                "value": "10 метров"
+              }
+            ]
+          },
+          {
+            "group": "Комплектация",
+            "items": [
+              {
+                "label": "Аксессуар",
+                "value": "Сумка"
+              },
+              {
+                "label": "Розетка",
+                "value": "3/32A Розетка"
+              },
+              {
+                "label": "Адаптер",
+                "value": "Переходник вилки 1/16A"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "€ 335,00"
+              }
+            ]
+          },
+          {
+            "group": "Физические характеристики",
+            "items": [
+              {
+                "label": "Материал корпуса",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Тип кабеля",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Условия эксплуатации",
+            "items": [
+              {
+                "label": "Класс защиты",
+                "value": "IP65"
+              },
+              {
+                "label": "Рабочая температура",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074918/products/bu0hxgwfudgbsunounrm.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074918/products/bu0hxgwfudgbsunounrm.png",
+        "boxContents": [
+          {
+            "name": "Сумка для переноски",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "Переходник: однофазная розетка 3/32A — однофазная вилка 1/16A",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075711/products/c00uls4yt73uvpbin8za.png"
+          }
+        ]
+      },
+      {
+        "id": "mono-mobile-8m",
+        "name": "Mono Mobile",
+        "code": "BEV-1221-0002",
+        "subtitle": "Однофазный · 3,7 - 7,4 kW · 8 m",
+        "badge": null,
+        "description": "Mono Mobile — однофазное портативное зарядное устройство мощностью 3,7–7,4 кВт. Включает промышленные адаптеры розеток CEE 16/32A и выход Schuko; обеспечивает гибкий переход между использованием дома, на предприятии и в мобильном режиме.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Мощность",
+                "value": "3,7 - 7,4 kW"
+              },
+              {
+                "label": "Фаза",
+                "value": "Однофазный"
+              },
+              {
+                "label": "Ток",
+                "value": "16A - 32A"
+              },
+              {
+                "label": "Длина кабеля",
+                "value": "8 метров"
+              }
+            ]
+          },
+          {
+            "group": "Комплектация",
+            "items": [
+              {
+                "label": "Аксессуар",
+                "value": "Сумка"
+              },
+              {
+                "label": "Розетка",
+                "value": "3/32A Розетка"
+              },
+              {
+                "label": "Адаптер",
+                "value": "Переходник вилки 1/16A"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "€ 320,00"
+              }
+            ]
+          },
+          {
+            "group": "Физические характеристики",
+            "items": [
+              {
+                "label": "Материал корпуса",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Тип кабеля",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Условия эксплуатации",
+            "items": [
+              {
+                "label": "Класс защиты",
+                "value": "IP65"
+              },
+              {
+                "label": "Рабочая температура",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074918/products/bu0hxgwfudgbsunounrm.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074918/products/bu0hxgwfudgbsunounrm.png",
+        "boxContents": [
+          {
+            "name": "Сумка для переноски",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "Переходник: однофазная розетка 3/32A — однофазная вилка 1/16A",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075711/products/c00uls4yt73uvpbin8za.png"
+          }
+        ]
+      },
+      {
+        "id": "mini-mobile-10m",
+        "name": "Mini Mobile",
+        "code": "BEV-1111-0003",
+        "subtitle": "Однофазный · 2,3 - 3,7 kW · 10 m",
+        "badge": null,
+        "description": "Mini Mobile — однофазное портативное зарядное устройство AC мощностью 2,3–3,7 кВт. Подключается напрямую к розетке Schuko и обеспечивает безопасную зарядку от бытовых розеток; поставляется с сумкой для переноски, идеален для резервных и дорожных сценариев.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Мощность",
+                "value": "2,3 - 3,7 kW"
+              },
+              {
+                "label": "Фаза",
+                "value": "Однофазный"
+              },
+              {
+                "label": "Ток",
+                "value": "10A - 16A"
+              },
+              {
+                "label": "Длина кабеля",
+                "value": "10 метров"
+              }
+            ]
+          },
+          {
+            "group": "Комплектация",
+            "items": [
+              {
+                "label": "Аксессуар",
+                "value": "Сумка"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "€ 275,00"
+              }
+            ]
+          },
+          {
+            "group": "Физические характеристики",
+            "items": [
+              {
+                "label": "Материал корпуса",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Тип кабеля",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Условия эксплуатации",
+            "items": [
+              {
+                "label": "Класс защиты",
+                "value": "IP65"
+              },
+              {
+                "label": "Рабочая температура",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074914/products/ssmfsr68loa4hecvpnya.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074914/products/ssmfsr68loa4hecvpnya.png",
+        "boxContents": [
+          {
+            "name": "Сумка для переноски",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          }
+        ]
+      },
+      {
+        "id": "mini-mobile-8m",
+        "name": "Mini Mobile",
+        "code": "BEV-1111-0002",
+        "subtitle": "Однофазный · 2,3 - 3,7 kW · 8 m",
+        "badge": null,
+        "description": "Mini Mobile — однофазное портативное зарядное устройство AC мощностью 2,3–3,7 кВт. Подключается напрямую к розетке Schuko и обеспечивает безопасную зарядку от бытовых розеток; поставляется с сумкой для переноски, идеален для резервных и дорожных сценариев.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Мощность",
+                "value": "2,3 - 3,7 kW"
+              },
+              {
+                "label": "Фаза",
+                "value": "Однофазный"
+              },
+              {
+                "label": "Ток",
+                "value": "10A - 16A"
+              },
+              {
+                "label": "Длина кабеля",
+                "value": "8 метров"
+              }
+            ]
+          },
+          {
+            "group": "Комплектация",
+            "items": [
+              {
+                "label": "Аксессуар",
+                "value": "Сумка"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "€ 270,00"
+              }
+            ]
+          },
+          {
+            "group": "Физические характеристики",
+            "items": [
+              {
+                "label": "Материал корпуса",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Тип кабеля",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Условия эксплуатации",
+            "items": [
+              {
+                "label": "Класс защиты",
+                "value": "IP65"
+              },
+              {
+                "label": "Рабочая температура",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074914/products/ssmfsr68loa4hecvpnya.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074914/products/ssmfsr68loa4hecvpnya.png",
+        "boxContents": [
+          {
+            "name": "Сумка для переноски",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          }
         ]
       }
     ]
@@ -4157,6 +5259,70 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074991/products/l8dngeonxbeilb98qemj.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074991/products/l8dngeonxbeilb98qemj.png"
+      },
+      {
+        "id": "tek-cikisli-c2l-adaptor",
+        "name": "Tek Çıkışlı C2L Adaptör",
+        "code": "BKT-2202-2401",
+        "subtitle": "",
+        "badge": null,
+        "description": "Адаптер C2L с одним выходом преобразует энергию, получаемую от зарядной станции Type 2, в стандартную розетку. Используется для питания электроприборов непосредственно от зарядной точки — в кемпинге, на стройплощадке или в саду.",
+        "specs": [
+          {
+            "group": "Общие",
+            "items": [
+              {
+                "label": "Тип адаптера",
+                "value": "V2L (Vehicle to Load)"
+              },
+              {
+                "label": "Выход",
+                "value": "1 (Type 2)"
+              }
+            ]
+          },
+          {
+            "group": "Совместимость",
+            "items": [
+              {
+                "label": "Совместимый автомобиль",
+                "value": "Hyundai · Kia · Ssangyong"
+              },
+              {
+                "label": "Тип розетки",
+                "value": "Стандарт Турции (Schuko)"
+              },
+              {
+                "label": "Макс. ток",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 44,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Преобразует выход V2L автомобиля в стандартный турецкий тип розетки",
+          "Идеально для кемпинга, мастерской, полевого и аварийного использования",
+          "Компактный переносной корпус",
+          "Безопасное ограничение тока 16A, автоматическое отключение",
+          "Испытание на соответствие CE пройдено"
+        ],
+        "compatibleVehicles": [
+          "Hyundai",
+          "Kia",
+          "Ssangyong"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
       }
     ]
   },
@@ -4611,7 +5777,7 @@
       {
         "id": "seyyar-uzatma-kablosu-monofaze-3-2-5-10m-ip68",
         "name": "Seyyar Uzatma Kablosu Monofaze (3×2,5)",
-        "code": "BKT-0102-8210",
+        "code": "BKT-0102-8110",
         "subtitle": "10 м · IP68",
         "badge": null,
         "description": "Однофазный 16A — переносной удлинительный кабель 3×2,5 мм² TTR, безгалогенный. Для гибкой передачи энергии в мастерской, на объекте и при временном монтаже.",
@@ -5111,6 +6277,228 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-ceenorm-5-2-5-516a-5m",
+        "name": "Seyyar Uzatma Kablosu Ceenorm 5×2,5 (5/16A)",
+        "code": "BKT-0708-2505",
+        "subtitle": "5 м",
+        "badge": null,
+        "description": "Переносной удлинительный кабель 32A трёхфазный + нейтраль + заземление (5-жильный). Кабель 5×6 мм² TTR, подходит для полносистемных нагрузок в профессиональных инфраструктурных проектах.",
+        "specs": [
+          {
+            "group": "Общие",
+            "items": [
+              {
+                "label": "Тип",
+                "value": "Переносной удлинительный кабель"
+              },
+              {
+                "label": "Кабель",
+                "value": "5 × 2,5 mm² ttr"
+              },
+              {
+                "label": "Длина",
+                "value": "5m"
+              }
+            ]
+          },
+          {
+            "group": "Подключение",
+            "items": [
+              {
+                "label": "Направление подключения",
+                "value": "Вилка 5/16A → Розетка 5/16A"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 45,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Гибкий медный проводник 5 × 6 мм² ttr, прочная внешняя оболочка",
+          "Подключение вилка 5/32A → розетка 5/32A",
+          "Стойкость к УФ и атмосферным воздействиям",
+          "Идеально для стройплощадки, мастерской и мобильного использования",
+          "Испытание на соответствие CE пройдено"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-ceenorm-5-2-5-516a-10m",
+        "name": "Seyyar Uzatma Kablosu Ceenorm 5×2,5 (5/16A)",
+        "code": "BKT-0708-2510",
+        "subtitle": "10 м",
+        "badge": null,
+        "description": "Переносной удлинительный кабель 32A трёхфазный + нейтраль + заземление (5-жильный). Кабель 5×6 мм² TTR, подходит для полносистемных нагрузок в профессиональных инфраструктурных проектах.",
+        "specs": [
+          {
+            "group": "Общие",
+            "items": [
+              {
+                "label": "Тип",
+                "value": "Переносной удлинительный кабель"
+              },
+              {
+                "label": "Кабель",
+                "value": "5 × 2,5 mm² ttr"
+              },
+              {
+                "label": "Длина",
+                "value": "10m"
+              }
+            ]
+          },
+          {
+            "group": "Подключение",
+            "items": [
+              {
+                "label": "Направление подключения",
+                "value": "Вилка 5/16A → Розетка 5/16A"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 64,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Гибкий медный проводник 5 × 6 мм² ttr, прочная внешняя оболочка",
+          "Подключение вилка 5/32A → розетка 5/32A",
+          "Стойкость к УФ и атмосферным воздействиям",
+          "Идеально для стройплощадки, мастерской и мобильного использования",
+          "Испытание на соответствие CE пройдено"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+      },
+      {
+        "id": "cee-norm-adaptor-30cm-116a-fis-516a-priz",
+        "name": "Cee Norm Adaptör (30cm Kablolu)",
+        "code": "BKT-0108-2211",
+        "subtitle": "Вилка 1/16A → Розетка 5/16A",
+        "badge": null,
+        "description": "Переходной адаптер CEE Norm вилка-розетка с кабелем 30 см. Кабель 3×2,5 мм² TTR, для использования на объекте и в мастерской при однофазной мощности 16A.",
+        "specs": [
+          {
+            "group": "Общие",
+            "items": [
+              {
+                "label": "Тип",
+                "value": "Переходной адаптер вилка-розетка"
+              },
+              {
+                "label": "Стандарт",
+                "value": "CEE Norm"
+              },
+              {
+                "label": "Кабель",
+                "value": "30 cm · 3 × 2,5 mm² ttr"
+              }
+            ]
+          },
+          {
+            "group": "Подключение",
+            "items": [
+              {
+                "label": "Преобразователь",
+                "value": "Вилка 1/16A → Розетка 5/16A"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 13,30"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Конфигурация вилки и розетки по стандарту CEE Norm",
+          "Кабель 30 см · 3 × 2,5 мм² ttr, гибкая и прочная внешняя оболочка",
+          "Идеально для стройплощадки, мастерской и полевого использования",
+          "Испытание на соответствие CE пройдено"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074998/products/kuxlacga82z0pbt2tqyt.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074998/products/kuxlacga82z0pbt2tqyt.png"
+      },
+      {
+        "id": "cee-norm-adaptor-30cm-316a-fis-516a-priz",
+        "name": "Cee Norm Adaptör (30cm Kablolu)",
+        "code": "BKT-0508-2211",
+        "subtitle": "Вилка 3/16A → Розетка 5/16A",
+        "badge": null,
+        "description": "Переходной адаптер CEE Norm вилка-розетка с кабелем 30 см. Кабель 3×2,5 мм² TTR, для использования на объекте и в мастерской при однофазной мощности 16A.",
+        "specs": [
+          {
+            "group": "Общие",
+            "items": [
+              {
+                "label": "Тип",
+                "value": "Переходной адаптер вилка-розетка"
+              },
+              {
+                "label": "Стандарт",
+                "value": "CEE Norm"
+              },
+              {
+                "label": "Кабель",
+                "value": "30 cm · 3 × 2,5 mm² ttr"
+              }
+            ]
+          },
+          {
+            "group": "Подключение",
+            "items": [
+              {
+                "label": "Преобразователь",
+                "value": "Вилка 3/16A → Розетка 5/16A"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 15,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Конфигурация вилки и розетки по стандарту CEE Norm",
+          "Кабель 30 см · 3 × 2,5 мм² ttr, гибкая и прочная внешняя оболочка",
+          "Идеально для стройплощадки, мастерской и полевого использования",
+          "Испытание на соответствие CE пройдено"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075011/products/ycfbfqyyrktnhcnn9kpi.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075011/products/ycfbfqyyrktnhcnn9kpi.png"
       }
     ]
   },
@@ -5477,6 +6865,76 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075162/products/qzbawyeta2dnuquba3an.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075162/products/qzbawyeta2dnuquba3an.png"
+      },
+      {
+        "id": "v2l-ve-c2l-kablo-cantasi",
+        "name": "V2L ve C2L Kablo Çantası",
+        "code": "BAK-8000-0001",
+        "subtitle": "22×26×12 cm",
+        "badge": null,
+        "description": "Компактная сумка для переноски адаптеров V2L и C2L. Однокамерная организация для адаптера и удлинительного кабеля, защищает полевое оборудование.",
+        "specs": [
+          {
+            "group": "Общие",
+            "items": [
+              {
+                "label": "Тип",
+                "value": "Аксессуар"
+              },
+              {
+                "label": "Категория",
+                "value": "V2L ve C2L Kablo Çantası"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 25,00"
+              }
+            ]
+          }
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "dc-soket-tutucu",
+        "name": "DC Soket Tutucu (4 Bilyalı)",
+        "code": "BAK-8200-0002",
+        "subtitle": "",
+        "badge": null,
+        "description": "Специальный держатель розетки, разработанный для устройств AC wallbox серии Bemis Charger. Сочетается с цветом корпуса устройства, монтируется на устройство с помощью быстрого зажима.",
+        "specs": [
+          {
+            "group": "Общие",
+            "items": [
+              {
+                "label": "Тип",
+                "value": "Аксессуар"
+              },
+              {
+                "label": "Категория",
+                "value": "DC Soket Tutucu (4 Bilyalı)"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 12,00"
+              }
+            ]
+          }
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
       }
     ]
   },
@@ -5571,7 +7029,7 @@
             "items": [
               {
                 "label": "Прайс-лист",
-                "value": "7.161,00 € (без НДС)"
+                "value": "7.200,00 € (без НДС)"
               }
             ]
           },
@@ -5708,7 +7166,7 @@
             "items": [
               {
                 "label": "Прайс-лист",
-                "value": "15.820,00 € (без НДС)"
+                "value": "15.850,00 € (без НДС)"
               }
             ]
           },
@@ -5849,7 +7307,7 @@
             "items": [
               {
                 "label": "Прайс-лист",
-                "value": "18.950,00 € (без НДС)"
+                "value": "19.350,00 € (без НДС)"
               }
             ]
           },
@@ -6000,7 +7458,7 @@
             "items": [
               {
                 "label": "Прайс-лист",
-                "value": "19.353,00 € (без НДС)"
+                "value": "19.350,00 € (без НДС)"
               }
             ]
           },
@@ -6151,7 +7609,7 @@
             "items": [
               {
                 "label": "Прайс-лист",
-                "value": "23.731,00 € (без НДС)"
+                "value": "23.850,00 € (без НДС)"
               }
             ]
           },
@@ -6302,7 +7760,7 @@
             "items": [
               {
                 "label": "Прайс-лист",
-                "value": "27.686,00 € (без НДС)"
+                "value": "28.000,00 € (без НДС)"
               }
             ]
           },
@@ -6359,6 +7817,280 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075183/products/awmtxngdhi0ym0ivjgin.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075183/products/awmtxngdhi0ym0ivjgin.png"
+      },
+      {
+        "id": "bevdc-180",
+        "code": "BEVDCC-4621-0005",
+        "name": "BEVDC 180",
+        "subtitle": "180kW DC Fast Charging Station",
+        "badge": null,
+        "description": "Высокомощная станция быстрой зарядки DC мощностью 160 кВт с двумя выходами CCS2. Для остановок на автомагистралях и интенсивной коммерческой автопарковой зарядки, питает два автомобиля на максимальной мощности с динамическим распределением мощности.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Выходная мощность",
+                "value": "180 kW"
+              },
+              {
+                "label": "Вход",
+                "value": "AC 380-480V, 3 Фазы"
+              },
+              {
+                "label": "Выходное напряжение",
+                "value": "150-1000V DC"
+              }
+            ]
+          },
+          {
+            "group": "Подключение",
+            "items": [
+              {
+                "label": "Коннектор",
+                "value": "CCS2"
+              },
+              {
+                "label": "Количество разъёмов",
+                "value": "2"
+              },
+              {
+                "label": "Одновременная зарядка",
+                "value": "Да"
+              }
+            ]
+          },
+          {
+            "group": "Управление",
+            "items": [
+              {
+                "label": "Протокол",
+                "value": "OCPP 1.6J / 2.0.1"
+              },
+              {
+                "label": "Аутентификация пользователя",
+                "value": "Карта RFID + мобильное приложение"
+              },
+              {
+                "label": "Подключение",
+                "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Способы оплаты",
+                "value": "RFID / NFC бесконтактный, кредитная/дебетовая карта (CPO), мобильный"
+              }
+            ]
+          },
+          {
+            "group": "Условия эксплуатации",
+            "items": [
+              {
+                "label": "Класс защиты",
+                "value": "IP54"
+              },
+              {
+                "label": "Рабочая температура",
+                "value": "-25°C ~ +55°C"
+              },
+              {
+                "label": "Установка",
+                "value": "На открытом воздухе"
+              },
+              {
+                "label": "Ударопрочность",
+                "value": "IK10"
+              },
+              {
+                "label": "Экран",
+                "value": "10\" LCD ёмкостный сенсорный"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "27.500,00 € (без НДС)"
+              }
+            ]
+          },
+          {
+            "group": "Физические характеристики",
+            "items": [
+              {
+                "label": "Размеры (Ш×Г×В)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Безопасность",
+            "items": [
+              {
+                "label": "Функции защиты",
+                "value": "Короткое замыкание, перегрузка по току, перегрев, аварийный останов, высокое/низкое выходное напряжение, предупреждение об утечке на землю DC"
+              }
+            ]
+          },
+          {
+            "group": "Документы и гарантия",
+            "items": [
+              {
+                "label": "Гарантия",
+                "value": "2 года от производителя (возможность продления +3 года за дополнительную плату)"
+              },
+              {
+                "label": "Сертификат отечественного производства",
+                "value": "%94"
+              },
+              {
+                "label": "Сертификат",
+                "value": "CE"
+              }
+            ]
+          }
+        ],
+        "features": [
+          "ocpp",
+          "rfid",
+          "shared",
+          "ccs2",
+          "screen",
+          "load",
+          "plugplay",
+          "safety",
+          "ik10"
+        ],
+        "generalFeatures": [],
+        "documents": [],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075183/products/awmtxngdhi0ym0ivjgin.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075183/products/awmtxngdhi0ym0ivjgin.png"
+      },
+      {
+        "id": "bevdc-40-direk-tipi",
+        "code": "BEVDCC-4222-0005",
+        "name": "BEVDC 40 Direk Tipi",
+        "subtitle": "40kW DC Fast Charging Station · Pedestal",
+        "badge": null,
+        "description": "Компактная станция быстрой зарядки DC мощностью 40 кВт с одним выходом CCS2. Идеальный класс мощности для установки в кафе, ресторанах, отелях и городских парковках; поддержка OCPP 1.6J / 2.0.1, авторизация пользователей по RFID, наружное использование IP54.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Выходная мощность",
+                "value": "40 kW"
+              },
+              {
+                "label": "Вход",
+                "value": "AC 380-480V, 3 Фазы"
+              },
+              {
+                "label": "Выходное напряжение",
+                "value": "150-1000V DC"
+              }
+            ]
+          },
+          {
+            "group": "Подключение",
+            "items": [
+              {
+                "label": "Коннектор",
+                "value": "CCS2"
+              },
+              {
+                "label": "Количество разъёмов",
+                "value": "1"
+              },
+              {
+                "label": "Одновременная зарядка",
+                "value": "Нет"
+              }
+            ]
+          },
+          {
+            "group": "Управление",
+            "items": [
+              {
+                "label": "Протокол",
+                "value": "OCPP 1.6J / 2.0.1"
+              },
+              {
+                "label": "Аутентификация пользователя",
+                "value": "Карта RFID + мобильное приложение"
+              },
+              {
+                "label": "Подключение",
+                "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Способы оплаты",
+                "value": "RFID / NFC бесконтактный, кредитная/дебетовая карта (CPO), мобильный"
+              }
+            ]
+          },
+          {
+            "group": "Условия эксплуатации",
+            "items": [
+              {
+                "label": "Класс защиты",
+                "value": "IP54"
+              },
+              {
+                "label": "Рабочая температура",
+                "value": "-25°C ~ +55°C"
+              },
+              {
+                "label": "Установка",
+                "value": "На открытом воздухе"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "8.600,00 € (без НДС)"
+              }
+            ]
+          },
+          {
+            "group": "Документы и гарантия",
+            "items": [
+              {
+                "label": "Гарантия",
+                "value": "2 года от производителя (возможность продления +3 года за дополнительную плату)"
+              },
+              {
+                "label": "Сертификат отечественного производства",
+                "value": "%94"
+              },
+              {
+                "label": "Сертификат",
+                "value": "CE"
+              }
+            ]
+          }
+        ],
+        "features": [
+          "ocpp",
+          "rfid",
+          "shared",
+          "ccs2",
+          "screen",
+          "load",
+          "plugplay",
+          "safety"
+        ],
+        "generalFeatures": [],
+        "documents": [],
+        "images": [],
+        "image": "",
+        "boxContents": []
       }
     ]
   },
@@ -8158,6 +9890,590 @@
               {
                 "label": "Прайс-лист",
                 "value": "EUR 1.100,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Максимальная токовая способность DC 400A",
+          "Разъём, соответствующий стандарту CCS2 IEC 62196-3",
+          "Один конец — вилка CCS2, другой свободный — прямое подключение к блоку DC",
+          "Встроенный канал для охлаждения (на высоких токовых ступенях)",
+          "Испытания на соответствие CE пройдены"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075317/products/yuuv51iis8u8d7piyxrx.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075317/products/yuuv51iis8u8d7piyxrx.png"
+      },
+      {
+        "id": "pano-prizi-monofaze-3-nokta-30cm-nyaff",
+        "name": "Pano Prizi",
+        "code": "BEV-3016-431B",
+        "subtitle": "Однофазный 3,7–7,4 кВт · Крепление в 3 точках · 30 cm NYAFF",
+        "badge": null,
+        "description": "Панельный разъём Type 2 для интеграции в зарядные щиты. Стандартный компонент для производителей зарядных устройств AC — однофазные или трёхфазные варианты с моторным замком и креплением в 3 или 4 точках.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Фаза",
+                "value": "Однофазный"
+              },
+              {
+                "label": "Мощность",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Механические характеристики",
+            "items": [
+              {
+                "label": "Крепление",
+                "value": "Крепление в 3 точках"
+              },
+              {
+                "label": "Моторный замок",
+                "value": "Есть"
+              },
+              {
+                "label": "Тип",
+                "value": "Панельный разъём Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 47,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Однофазная интеграция в щит 3,7 – 7,4 кВт",
+          "Механический моторный замок — автоматическая блокировка для безопасности пользователя",
+          "Крепление в 3 точках — быстрый монтаж",
+          "Соответствует стандарту IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-monofaze-4-nokta-30cm-nyaff",
+        "name": "Pano Prizi",
+        "code": "BEV-3016-432B",
+        "subtitle": "Однофазный 3,7–7,4 кВт · Крепление в 4 точках · 30 cm NYAFF",
+        "badge": null,
+        "description": "Панельный разъём Type 2 для интеграции в зарядные щиты. Стандартный компонент для производителей зарядных устройств AC — однофазные или трёхфазные варианты с моторным замком и креплением в 3 или 4 точках.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Фаза",
+                "value": "Однофазный"
+              },
+              {
+                "label": "Мощность",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Механические характеристики",
+            "items": [
+              {
+                "label": "Крепление",
+                "value": "Крепление в 4 точках"
+              },
+              {
+                "label": "Моторный замок",
+                "value": "Есть"
+              },
+              {
+                "label": "Тип",
+                "value": "Панельный разъём Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 47,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Однофазная интеграция в щит 3,7 – 7,4 кВт",
+          "Механический моторный замок — автоматическая блокировка для безопасности пользователя",
+          "Крепление в 4 точках — быстрый монтаж",
+          "Соответствует стандарту IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-trifaze-3-nokta-30cm-nyaff",
+        "name": "Pano Prizi",
+        "code": "BEV-5032-431B",
+        "subtitle": "Трёхфазный 11–22 кВт · Крепление в 3 точках · 30 cm NYAFF",
+        "badge": null,
+        "description": "Панельный разъём Type 2 для интеграции в зарядные щиты. Стандартный компонент для производителей зарядных устройств AC — однофазные или трёхфазные варианты с моторным замком и креплением в 3 или 4 точках.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Фаза",
+                "value": "Трёхфазная"
+              },
+              {
+                "label": "Мощность",
+                "value": "11 - 22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Механические характеристики",
+            "items": [
+              {
+                "label": "Крепление",
+                "value": "Крепление в 3 точках"
+              },
+              {
+                "label": "Моторный замок",
+                "value": "Есть"
+              },
+              {
+                "label": "Тип",
+                "value": "Панельный разъём Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 55,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Трёхфазная интеграция в щит 11 – 22 кВт",
+          "Механический моторный замок — автоматическая блокировка для безопасности пользователя",
+          "Крепление в 3 точках — быстрый монтаж",
+          "Соответствует стандарту IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-trifaze-4-nokta-30cm-nyaff",
+        "name": "Pano Prizi",
+        "code": "BEV-5032-432B",
+        "subtitle": "Трёхфазный 11–22 кВт · Крепление в 4 точках · 30 cm NYAFF",
+        "badge": null,
+        "description": "Панельный разъём Type 2 для интеграции в зарядные щиты. Стандартный компонент для производителей зарядных устройств AC — однофазные или трёхфазные варианты с моторным замком и креплением в 3 или 4 точках.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Фаза",
+                "value": "Трёхфазная"
+              },
+              {
+                "label": "Мощность",
+                "value": "11 - 22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Механические характеристики",
+            "items": [
+              {
+                "label": "Крепление",
+                "value": "Крепление в 4 точках"
+              },
+              {
+                "label": "Моторный замок",
+                "value": "Есть"
+              },
+              {
+                "label": "Тип",
+                "value": "Панельный разъём Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 55,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Трёхфазная интеграция в щит 11 – 22 кВт",
+          "Механический моторный замок — автоматическая блокировка для безопасности пользователя",
+          "Крепление в 4 точках — быстрый монтаж",
+          "Соответствует стандарту IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-kilit-motorsuz-monofaze-3-nokta-30cm-nyaff",
+        "name": "Pano Prizi (Kilit Motorsuz)",
+        "code": "BEV-3016-431B-A",
+        "subtitle": "Однофазный 3,7–7,4 кВт · Крепление в 3 точках · 30 cm NYAFF",
+        "badge": null,
+        "description": "Экономичный панельный разъём Type 2 без моторного замка. Для сборок производителей, не требующих ручной блокировки или в которых механизм замка поставляется отдельно.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Фаза",
+                "value": "Однофазный"
+              },
+              {
+                "label": "Мощность",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Механические характеристики",
+            "items": [
+              {
+                "label": "Крепление",
+                "value": "Крепление в 3 точках"
+              },
+              {
+                "label": "Моторный замок",
+                "value": "Нет"
+              },
+              {
+                "label": "Тип",
+                "value": "Панельный разъём Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 33,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Однофазная интеграция в щит 3,7 – 7,4 кВт",
+          "Совместим с ручным замком или внешним механизмом блокировки",
+          "Крепление в 3 точках — быстрый монтаж",
+          "Соответствует стандарту IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-kilit-motorsuz-monofaze-4-nokta-30cm-nyaff",
+        "name": "Pano Prizi (Kilit Motorsuz)",
+        "code": "BEV-3016-432B-A",
+        "subtitle": "Однофазный 3,7–7,4 кВт · Крепление в 4 точках · 30 cm NYAFF",
+        "badge": null,
+        "description": "Экономичный панельный разъём Type 2 без моторного замка. Для сборок производителей, не требующих ручной блокировки или в которых механизм замка поставляется отдельно.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Фаза",
+                "value": "Однофазный"
+              },
+              {
+                "label": "Мощность",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Механические характеристики",
+            "items": [
+              {
+                "label": "Крепление",
+                "value": "Крепление в 4 точках"
+              },
+              {
+                "label": "Моторный замок",
+                "value": "Нет"
+              },
+              {
+                "label": "Тип",
+                "value": "Панельный разъём Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 33,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Однофазная интеграция в щит 3,7 – 7,4 кВт",
+          "Совместим с ручным замком или внешним механизмом блокировки",
+          "Крепление в 4 точках — быстрый монтаж",
+          "Соответствует стандарту IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-kilit-motorsuz-trifaze-3-nokta-30cm-nyaff",
+        "name": "Pano Prizi (Kilit Motorsuz)",
+        "code": "BEV-5032-431B-A",
+        "subtitle": "Трёхфазный 11–22 кВт · Крепление в 3 точках · 30 cm NYAFF",
+        "badge": null,
+        "description": "Экономичный панельный разъём Type 2 без моторного замка. Для сборок производителей, не требующих ручной блокировки или в которых механизм замка поставляется отдельно.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Фаза",
+                "value": "Трёхфазная"
+              },
+              {
+                "label": "Мощность",
+                "value": "11 - 22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Механические характеристики",
+            "items": [
+              {
+                "label": "Крепление",
+                "value": "Крепление в 3 точках"
+              },
+              {
+                "label": "Моторный замок",
+                "value": "Нет"
+              },
+              {
+                "label": "Тип",
+                "value": "Панельный разъём Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 42,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Трёхфазная интеграция в щит 11 – 22 кВт",
+          "Совместим с ручным замком или внешним механизмом блокировки",
+          "Крепление в 3 точках — быстрый монтаж",
+          "Соответствует стандарту IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-kilit-motorsuz-trifaze-4-nokta-30cm-nyaff",
+        "name": "Pano Prizi (Kilit Motorsuz)",
+        "code": "BEV-5032-432B-A",
+        "subtitle": "Трёхфазный 11–22 кВт · Крепление в 4 точках · 30 cm NYAFF",
+        "badge": null,
+        "description": "Экономичный панельный разъём Type 2 без моторного замка. Для сборок производителей, не требующих ручной блокировки или в которых механизм замка поставляется отдельно.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Фаза",
+                "value": "Трёхфазная"
+              },
+              {
+                "label": "Мощность",
+                "value": "11 - 22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Механические характеристики",
+            "items": [
+              {
+                "label": "Крепление",
+                "value": "Крепление в 4 точках"
+              },
+              {
+                "label": "Моторный замок",
+                "value": "Нет"
+              },
+              {
+                "label": "Тип",
+                "value": "Панельный разъём Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 42,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Трёхфазная интеграция в щит 11 – 22 кВт",
+          "Совместим с ручным замком или внешним механизмом блокировки",
+          "Крепление в 4 точках — быстрый монтаж",
+          "Соответствует стандарту IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-80a-5m",
+        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "code": "BEVDC-4011-0005",
+        "subtitle": "80A · 5 м",
+        "badge": null,
+        "description": "Зарядный разъём CCS2 с одним свободным концом для производителей быстрых зарядных устройств DC. Прямое подключение к блокам DC на нужной длине и токовой ступени — кабельное OEM-решение.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Тип",
+                "value": "Разъём быстрой зарядки DC (CCS2)"
+              },
+              {
+                "label": "Макс. ток",
+                "value": "80A"
+              },
+              {
+                "label": "Стандарт",
+                "value": "IEC 62196-3 (CCS2)"
+              }
+            ]
+          },
+          {
+            "group": "Кабель и подключение",
+            "items": [
+              {
+                "label": "Длина кабеля",
+                "value": "5m"
+              },
+              {
+                "label": "Конфигурация",
+                "value": "Один конец CCS2 — другой конец свободный (OEM)"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 275,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Максимальная токовая способность DC 150A",
+          "Разъём, соответствующий стандарту CCS2 IEC 62196-3",
+          "Один конец — вилка CCS2, другой свободный — прямое подключение к блоку DC",
+          "Встроенный канал для охлаждения (на высоких токовых ступенях)",
+          "Испытания на соответствие CE пройдены"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075313/products/xakuw6whdv4f69o7vbng.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075313/products/xakuw6whdv4f69o7vbng.png"
+      },
+      {
+        "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-80a-8m",
+        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "code": "BEVDC-4011-0008",
+        "subtitle": "80A · 8 м",
+        "badge": null,
+        "description": "Зарядный разъём CCS2 с одним свободным концом для производителей быстрых зарядных устройств DC. Прямое подключение к блокам DC на нужной длине и токовой ступени — кабельное OEM-решение.",
+        "specs": [
+          {
+            "group": "Электрические характеристики",
+            "items": [
+              {
+                "label": "Тип",
+                "value": "Разъём быстрой зарядки DC (CCS2)"
+              },
+              {
+                "label": "Макс. ток",
+                "value": "80A"
+              },
+              {
+                "label": "Стандарт",
+                "value": "IEC 62196-3 (CCS2)"
+              }
+            ]
+          },
+          {
+            "group": "Кабель и подключение",
+            "items": [
+              {
+                "label": "Длина кабеля",
+                "value": "8m"
+              },
+              {
+                "label": "Конфигурация",
+                "value": "Один конец CCS2 — другой конец свободный (OEM)"
+              }
+            ]
+          },
+          {
+            "group": "Цена",
+            "items": [
+              {
+                "label": "Прайс-лист",
+                "value": "EUR 345,00"
               }
             ]
           }

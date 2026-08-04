@@ -1215,6 +1215,396 @@
           "tuv",
           "tse"
         ]
+      },
+      {
+        "id": "charger-pro-2-mid-sayacli-kablolu",
+        "name": "Charger Pro 2 MID Sayaçlı",
+        "code": "BEV-3011-00S5",
+        "subtitle": "Con cable de 5 m · MID",
+        "badge": null,
+        "description": "Charger Pro 2, de potencia ajustable de 4-7-11-22 kW, está diseñado para entornos profesionales con gestión avanzada de carga (DLM) y funciones de autorización de usuario. Abierto a la integración en redes de carga mediante el protocolo OCPP 1.6; ideal para clientes OEM y operadores. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Corriente máx.",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Cable y conexión",
+            "items": [
+              {
+                "label": "Salida",
+                "value": "Con cable de 5 m"
+              },
+              {
+                "label": "Conector",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 855,00"
+              }
+            ]
+          },
+          {
+            "group": "Inteligente y opcional",
+            "items": [
+              {
+                "label": "Contador MID",
+                "value": "Opcional (medición de energía certificada)"
+              },
+              {
+                "label": "Aplicación móvil",
+                "value": "Encendido/apagado remoto, temporizador, historial de carga (modelos conectados)"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074899/products/vtsdnxy0k1gmfwbugdh1.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074899/products/vtsdnxy0k1gmfwbugdh1.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "mid",
+          "montaj"
+        ],
+        "documents": [
+          {
+            "label": "bemis-ev-charge-hizli-kurulum-kilavuzu",
+            "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1778228546/documents/1778228545901-bemis-ev-charge-hizli-kurulum-kilavuzu.pdf"
+          }
+        ]
+      },
+      {
+        "id": "charger-pro-2-mid-sayacli-pano-prizli",
+        "name": "Charger Pro 2 MID Sayaçlı",
+        "code": "BEV-3012-00S0",
+        "subtitle": "Con toma para cuadro · MID",
+        "badge": null,
+        "description": "Charger Pro 2, de potencia ajustable de 4-7-11-22 kW, está diseñado para entornos profesionales con gestión avanzada de carga (DLM) y funciones de autorización de usuario. Abierto a la integración en redes de carga mediante el protocolo OCPP 1.6; ideal para clientes OEM y operadores. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Corriente máx.",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Cable y conexión",
+            "items": [
+              {
+                "label": "Salida",
+                "value": "Con toma para cuadro"
+              },
+              {
+                "label": "Zócalo",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 825,00"
+              }
+            ]
+          },
+          {
+            "group": "Inteligente y opcional",
+            "items": [
+              {
+                "label": "Contador MID",
+                "value": "Opcional (medición de energía certificada)"
+              },
+              {
+                "label": "Aplicación móvil",
+                "value": "Encendido/apagado remoto, temporizador, historial de carga (modelos conectados)"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074903/products/u09cxjqwgszkpw6visgt.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074903/products/u09cxjqwgszkpw6visgt.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-plus-2-mid-sayacli-kablolu",
+        "name": "Charger Plus 2 MID Sayaçlı",
+        "code": "BEV-2011-00S5",
+        "subtitle": "Con cable de 5 m · MID",
+        "badge": null,
+        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Corriente máx.",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Cable y conexión",
+            "items": [
+              {
+                "label": "Salida",
+                "value": "Con cable de 5 m"
+              },
+              {
+                "label": "Conector",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 725,00"
+              }
+            ]
+          },
+          {
+            "group": "Inteligente y opcional",
+            "items": [
+              {
+                "label": "Inicio automático de carga",
+                "value": "Sí — reinicio automático cada 3 min tras un corte de energía"
+              },
+              {
+                "label": "Contador MID",
+                "value": "Opcional (medición de energía certificada)"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074890/products/wtlloahzlzvrcukzkhcc.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-plus-2-mid-sayacli-pano-prizli",
+        "name": "Charger Plus 2 MID Sayaçlı",
+        "code": "BEV-2012-00S0",
+        "subtitle": "Con toma para cuadro · MID",
+        "badge": null,
+        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia",
+                "value": "4 / 7 / 11 / 22 kW"
+              },
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Corriente máx.",
+                "value": "6 - 10 - 16 - 32A"
+              }
+            ]
+          },
+          {
+            "group": "Cable y conexión",
+            "items": [
+              {
+                "label": "Salida",
+                "value": "Con toma para cuadro"
+              },
+              {
+                "label": "Zócalo",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 695,00"
+              }
+            ]
+          },
+          {
+            "group": "Inteligente y opcional",
+            "items": [
+              {
+                "label": "Inicio automático de carga",
+                "value": "Sí — reinicio automático cada 3 min tras un corte de energía"
+              },
+              {
+                "label": "Contador MID",
+                "value": "Opcional (medición de energía certificada)"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074895/products/boribicqz24klvhy3hxi.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "ocpp",
+          "shared",
+          "load",
+          "autostart",
+          "mid",
+          "montaj"
+        ]
+      },
+      {
+        "id": "charger-2-trifaze-kablolu",
+        "name": "Charger 2",
+        "code": "BEV-1311-0005",
+        "subtitle": "Con cable de 5 m · 11 kW / 16A",
+        "badge": null,
+        "description": "Bemis Charger 2 es una estación de carga AC tipo pared diseñada para uso doméstico y en el lugar de trabajo, con opciones monofásicas de 7,4 kW y trifásicas de 11-22 kW. Con cable Type 2 integrado de 5 metros o versión de toma para cuadro, su carcasa certificada CE e IP65 funciona de forma segura en espacios abiertos y cerrados. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia",
+                "value": "11 kW"
+              },
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Corriente máx.",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Cable y conexión",
+            "items": [
+              {
+                "label": "Salida",
+                "value": "Con cable de 5 m"
+              },
+              {
+                "label": "Conector",
+                "value": "Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 320,00"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074871/products/k8yjbbw07cp1kpbij7pg.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074871/products/k8yjbbw07cp1kpbij7pg.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "montaj"
+        ],
+        "certificates": [
+          "ce",
+          "tuv"
+        ]
       }
     ]
   },
@@ -1520,6 +1910,718 @@
           "autostart",
           "amp6",
           "montaj"
+        ]
+      },
+      {
+        "id": "pro-mobile-2-10m",
+        "name": "Pro Mobile 2",
+        "code": "BEV-2331-0003",
+        "subtitle": "Trifásico · 11 - 22 kW · 10 m",
+        "badge": null,
+        "description": "Pro Mobile 2 es un cargador AC portátil trifásico de 11-22 kW. Con adaptadores industriales CEE 5/16A y 5/32A ofrece carga de campo de alta potencia; diseñado para uso profesional y de flotas. La corriente de carga es ajustable en 6 niveles (6/10/16/20/25/32A) desde la app móvil o el botón del dispositivo — carga flexible y segura incluso en instalaciones débiles. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia",
+                "value": "11 - 22 kW"
+              },
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Corriente",
+                "value": "6 / 10 / 16 / 20 / 25 / 32 A (ajustable en 6 niveles)"
+              },
+              {
+                "label": "Longitud del cable",
+                "value": "10 metros"
+              },
+              {
+                "label": "Ajuste de corriente",
+                "value": "6 niveles mediante la app móvil y el botón del dispositivo"
+              }
+            ]
+          },
+          {
+            "group": "Contenido",
+            "items": [
+              {
+                "label": "Accesorio",
+                "value": "Bolsa"
+              },
+              {
+                "label": "Toma",
+                "value": "Toma 5/32A"
+              },
+              {
+                "label": "Adaptador",
+                "value": "Convertidor de enchufe 1/16"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "€ 450,00"
+              }
+            ]
+          },
+          {
+            "group": "Características físicas",
+            "items": [
+              {
+                "label": "Material de la carcasa",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Tipo de cable",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Ambiental",
+            "items": [
+              {
+                "label": "Clase de protección",
+                "value": "IP65"
+              },
+              {
+                "label": "Temperatura de funcionamiento",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "boxContents": [
+          {
+            "name": "Bolsa de transporte",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "Adaptador convertidor de toma trifásica 5/32A a enchufe monofásico 1/16A",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075717/products/sunnwmaiwkfwy8szvop4.png"
+          }
+        ],
+        "certificates": [
+          "ce",
+          "tuv"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "autostart",
+          "amp6",
+          "montaj"
+        ]
+      },
+      {
+        "id": "pro-mobile-2-8m",
+        "name": "Pro Mobile 2",
+        "code": "BEV-2331-0002",
+        "subtitle": "Trifásico · 11 - 22 kW · 8 m",
+        "badge": null,
+        "description": "Pro Mobile 2 es un cargador AC portátil trifásico de 11-22 kW. Con adaptadores industriales CEE 5/16A y 5/32A ofrece carga de campo de alta potencia; diseñado para uso profesional y de flotas. La corriente de carga es ajustable en 6 niveles (6/10/16/20/25/32A) desde la app móvil o el botón del dispositivo — carga flexible y segura incluso en instalaciones débiles. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia",
+                "value": "11 - 22 kW"
+              },
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Corriente",
+                "value": "6 / 10 / 16 / 20 / 25 / 32 A (ajustable en 6 niveles)"
+              },
+              {
+                "label": "Longitud del cable",
+                "value": "8 metros"
+              },
+              {
+                "label": "Ajuste de corriente",
+                "value": "6 niveles mediante la app móvil y el botón del dispositivo"
+              }
+            ]
+          },
+          {
+            "group": "Contenido",
+            "items": [
+              {
+                "label": "Accesorio",
+                "value": "Bolsa"
+              },
+              {
+                "label": "Toma",
+                "value": "Toma 5/32A"
+              },
+              {
+                "label": "Adaptador",
+                "value": "Convertidor de enchufe 1/16"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "€ 425,00"
+              }
+            ]
+          },
+          {
+            "group": "Características físicas",
+            "items": [
+              {
+                "label": "Material de la carcasa",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Tipo de cable",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Ambiental",
+            "items": [
+              {
+                "label": "Clase de protección",
+                "value": "IP65"
+              },
+              {
+                "label": "Temperatura de funcionamiento",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "boxContents": [
+          {
+            "name": "Bolsa de transporte",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "Adaptador convertidor de toma trifásica 5/32A a enchufe monofásico 1/16A",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075717/products/sunnwmaiwkfwy8szvop4.png"
+          }
+        ],
+        "certificates": [
+          "ce",
+          "tuv"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "autostart",
+          "amp6",
+          "montaj"
+        ]
+      },
+      {
+        "id": "pro-mobile-2-11kw-5m",
+        "name": "Pro Mobile 2",
+        "code": "BEV-2441-0001",
+        "subtitle": "Trifásico · 11 - 22 kW · 11 kW",
+        "badge": null,
+        "description": "Pro Mobile 2 es un cargador AC portátil trifásico de 11-22 kW. Con adaptadores industriales CEE 5/16A y 5/32A ofrece carga de campo de alta potencia; diseñado para uso profesional y de flotas. La corriente de carga es ajustable en 6 niveles (6/10/16/20/25/32A) desde la app móvil o el botón del dispositivo — carga flexible y segura incluso en instalaciones débiles. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia",
+                "value": "11 kW"
+              },
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Corriente",
+                "value": "6A - 16A"
+              },
+              {
+                "label": "Longitud del cable",
+                "value": "5 metros"
+              },
+              {
+                "label": "Ajuste de corriente",
+                "value": "6 niveles mediante la app móvil y el botón del dispositivo"
+              }
+            ]
+          },
+          {
+            "group": "Contenido",
+            "items": [
+              {
+                "label": "Accesorio",
+                "value": "Bolsa"
+              },
+              {
+                "label": "Toma",
+                "value": "Toma 5/32A"
+              },
+              {
+                "label": "Adaptador",
+                "value": "Convertidor de enchufe 1/16"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "€ 340,00"
+              }
+            ]
+          },
+          {
+            "group": "Características físicas",
+            "items": [
+              {
+                "label": "Material de la carcasa",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Tipo de cable",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Ambiental",
+            "items": [
+              {
+                "label": "Clase de protección",
+                "value": "IP65"
+              },
+              {
+                "label": "Temperatura de funcionamiento",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "boxContents": [
+          {
+            "name": "Bolsa de transporte",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "Adaptador convertidor de toma trifásica 5/32A a enchufe monofásico 1/16A",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075717/products/sunnwmaiwkfwy8szvop4.png"
+          }
+        ],
+        "certificates": [
+          "ce",
+          "tuv"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074924/products/roqjljavs1aadfw26pa9.png",
+        "features": [
+          "ip65",
+          "rfid",
+          "app",
+          "screen",
+          "wifi",
+          "schedule",
+          "autostart",
+          "amp6",
+          "montaj"
+        ]
+      },
+      {
+        "id": "mono-mobile-10m",
+        "name": "Mono Mobile",
+        "code": "BEV-1221-0003",
+        "subtitle": "Monofásico · 3,7 - 7,4 kW · 10 m",
+        "badge": null,
+        "description": "Mono Mobile es un cargador portátil monofásico de 3,7-7,4 kW. Incluye adaptadores de toma industrial CEE 16/32A y salida Schuko; permite una transición flexible entre uso doméstico, en el lugar de trabajo y móvil.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia",
+                "value": "3,7 - 7,4 kW"
+              },
+              {
+                "label": "Fase",
+                "value": "Monofásico"
+              },
+              {
+                "label": "Corriente",
+                "value": "16A - 32A"
+              },
+              {
+                "label": "Longitud del cable",
+                "value": "10 metros"
+              }
+            ]
+          },
+          {
+            "group": "Contenido",
+            "items": [
+              {
+                "label": "Accesorio",
+                "value": "Bolsa"
+              },
+              {
+                "label": "Toma",
+                "value": "Toma 3/32A"
+              },
+              {
+                "label": "Adaptador",
+                "value": "Convertidor de enchufe 1/16A"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "€ 335,00"
+              }
+            ]
+          },
+          {
+            "group": "Características físicas",
+            "items": [
+              {
+                "label": "Material de la carcasa",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Tipo de cable",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Ambiental",
+            "items": [
+              {
+                "label": "Clase de protección",
+                "value": "IP65"
+              },
+              {
+                "label": "Temperatura de funcionamiento",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074918/products/bu0hxgwfudgbsunounrm.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074918/products/bu0hxgwfudgbsunounrm.png",
+        "boxContents": [
+          {
+            "name": "Bolsa de transporte",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "Adaptador convertidor de toma monofásica 3/32A a enchufe monofásico 1/16A",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075711/products/c00uls4yt73uvpbin8za.png"
+          }
+        ]
+      },
+      {
+        "id": "mono-mobile-8m",
+        "name": "Mono Mobile",
+        "code": "BEV-1221-0002",
+        "subtitle": "Monofásico · 3,7 - 7,4 kW · 8 m",
+        "badge": null,
+        "description": "Mono Mobile es un cargador portátil monofásico de 3,7-7,4 kW. Incluye adaptadores de toma industrial CEE 16/32A y salida Schuko; permite una transición flexible entre uso doméstico, en el lugar de trabajo y móvil.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia",
+                "value": "3,7 - 7,4 kW"
+              },
+              {
+                "label": "Fase",
+                "value": "Monofásico"
+              },
+              {
+                "label": "Corriente",
+                "value": "16A - 32A"
+              },
+              {
+                "label": "Longitud del cable",
+                "value": "8 metros"
+              }
+            ]
+          },
+          {
+            "group": "Contenido",
+            "items": [
+              {
+                "label": "Accesorio",
+                "value": "Bolsa"
+              },
+              {
+                "label": "Toma",
+                "value": "Toma 3/32A"
+              },
+              {
+                "label": "Adaptador",
+                "value": "Convertidor de enchufe 1/16A"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "€ 320,00"
+              }
+            ]
+          },
+          {
+            "group": "Características físicas",
+            "items": [
+              {
+                "label": "Material de la carcasa",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Tipo de cable",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Ambiental",
+            "items": [
+              {
+                "label": "Clase de protección",
+                "value": "IP65"
+              },
+              {
+                "label": "Temperatura de funcionamiento",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074918/products/bu0hxgwfudgbsunounrm.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074918/products/bu0hxgwfudgbsunounrm.png",
+        "boxContents": [
+          {
+            "name": "Bolsa de transporte",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          },
+          {
+            "name": "Adaptador convertidor de toma monofásica 3/32A a enchufe monofásico 1/16A",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075711/products/c00uls4yt73uvpbin8za.png"
+          }
+        ]
+      },
+      {
+        "id": "mini-mobile-10m",
+        "name": "Mini Mobile",
+        "code": "BEV-1111-0003",
+        "subtitle": "Monofásico · 2,3 - 3,7 kW · 10 m",
+        "badge": null,
+        "description": "Mini Mobile es un cargador AC portátil monofásico de 2,3-3,7 kW de potencia. Se enchufa directamente a una toma Schuko para una carga segura desde tomas domésticas; viene con bolsa de transporte, ideal para escenarios de respaldo y de viaje.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia",
+                "value": "2,3 - 3,7 kW"
+              },
+              {
+                "label": "Fase",
+                "value": "Monofásico"
+              },
+              {
+                "label": "Corriente",
+                "value": "10A - 16A"
+              },
+              {
+                "label": "Longitud del cable",
+                "value": "10 metros"
+              }
+            ]
+          },
+          {
+            "group": "Contenido",
+            "items": [
+              {
+                "label": "Accesorio",
+                "value": "Bolsa"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "€ 275,00"
+              }
+            ]
+          },
+          {
+            "group": "Características físicas",
+            "items": [
+              {
+                "label": "Material de la carcasa",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Tipo de cable",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Ambiental",
+            "items": [
+              {
+                "label": "Clase de protección",
+                "value": "IP65"
+              },
+              {
+                "label": "Temperatura de funcionamiento",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074914/products/ssmfsr68loa4hecvpnya.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074914/products/ssmfsr68loa4hecvpnya.png",
+        "boxContents": [
+          {
+            "name": "Bolsa de transporte",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          }
+        ]
+      },
+      {
+        "id": "mini-mobile-8m",
+        "name": "Mini Mobile",
+        "code": "BEV-1111-0002",
+        "subtitle": "Monofásico · 2,3 - 3,7 kW · 8 m",
+        "badge": null,
+        "description": "Mini Mobile es un cargador AC portátil monofásico de 2,3-3,7 kW de potencia. Se enchufa directamente a una toma Schuko para una carga segura desde tomas domésticas; viene con bolsa de transporte, ideal para escenarios de respaldo y de viaje.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia",
+                "value": "2,3 - 3,7 kW"
+              },
+              {
+                "label": "Fase",
+                "value": "Monofásico"
+              },
+              {
+                "label": "Corriente",
+                "value": "10A - 16A"
+              },
+              {
+                "label": "Longitud del cable",
+                "value": "8 metros"
+              }
+            ]
+          },
+          {
+            "group": "Contenido",
+            "items": [
+              {
+                "label": "Accesorio",
+                "value": "Bolsa"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "€ 270,00"
+              }
+            ]
+          },
+          {
+            "group": "Características físicas",
+            "items": [
+              {
+                "label": "Material de la carcasa",
+                "value": "PA6 %30GF"
+              },
+              {
+                "label": "Tipo de cable",
+                "value": "Type 2"
+              }
+            ]
+          },
+          {
+            "group": "Ambiental",
+            "items": [
+              {
+                "label": "Clase de protección",
+                "value": "IP65"
+              },
+              {
+                "label": "Temperatura de funcionamiento",
+                "value": "-40°C / +55°C"
+              }
+            ]
+          }
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074914/products/ssmfsr68loa4hecvpnya.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074914/products/ssmfsr68loa4hecvpnya.png",
+        "boxContents": [
+          {
+            "name": "Bolsa de transporte",
+            "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075706/products/hmi3uum5gndglear2fva.png"
+          }
         ]
       }
     ]
@@ -4157,6 +5259,70 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074991/products/l8dngeonxbeilb98qemj.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074991/products/l8dngeonxbeilb98qemj.png"
+      },
+      {
+        "id": "tek-cikisli-c2l-adaptor",
+        "name": "Tek Çıkışlı C2L Adaptör",
+        "code": "BKT-2202-2401",
+        "subtitle": "",
+        "badge": null,
+        "description": "El adaptador C2L de una salida convierte la energía tomada de un punto de carga Type 2 en una toma de corriente estándar. Se utiliza para alimentar aparatos eléctricos directamente desde el punto de carga en camping, obras y jardines.",
+        "specs": [
+          {
+            "group": "General",
+            "items": [
+              {
+                "label": "Tipo de adaptador",
+                "value": "V2L (Vehicle to Load)"
+              },
+              {
+                "label": "Salida",
+                "value": "1 (Type 2)"
+              }
+            ]
+          },
+          {
+            "group": "Compatibilidad",
+            "items": [
+              {
+                "label": "Vehículo compatible",
+                "value": "Hyundai · Kia · Ssangyong"
+              },
+              {
+                "label": "Tipo de toma",
+                "value": "Estándar de Turquía (Schuko)"
+              },
+              {
+                "label": "Corriente máx.",
+                "value": "16A"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 44,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Convierte la salida V2L del vehículo al tipo de toma estándar de Turquía",
+          "Ideal para usos de camping, taller, campo y emergencia",
+          "Diseño de carcasa compacta y portátil",
+          "Límite de corriente seguro de 16A, corte automático",
+          "Prueba de conformidad CE completada"
+        ],
+        "compatibleVehicles": [
+          "Hyundai",
+          "Kia",
+          "Ssangyong"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
       }
     ]
   },
@@ -4611,7 +5777,7 @@
       {
         "id": "seyyar-uzatma-kablosu-monofaze-3-2-5-10m-ip68",
         "name": "Seyyar Uzatma Kablosu Monofaze (3×2,5)",
-        "code": "BKT-0102-8210",
+        "code": "BKT-0102-8110",
         "subtitle": "10m. IP68",
         "badge": null,
         "description": "Cable de extensión portátil libre de halógenos monofásico 16A — TTR de 3×2,5 mm². Para una transferencia de energía flexible en taller, campo e instalaciones temporales.",
@@ -5111,6 +6277,228 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-ceenorm-5-2-5-516a-5m",
+        "name": "Seyyar Uzatma Kablosu Ceenorm 5×2,5 (5/16A)",
+        "code": "BKT-0708-2505",
+        "subtitle": "5m",
+        "badge": null,
+        "description": "Cable de extensión portátil trifásico + neutro + tierra (5 hilos) 32A. Cable TTR de 5×6 mm², adecuado para cargas de sistema completo en proyectos de infraestructura profesional.",
+        "specs": [
+          {
+            "group": "General",
+            "items": [
+              {
+                "label": "Tipo",
+                "value": "Cable de extensión portátil"
+              },
+              {
+                "label": "Cable",
+                "value": "5 × 2,5 mm² ttr"
+              },
+              {
+                "label": "Longitud",
+                "value": "5m"
+              }
+            ]
+          },
+          {
+            "group": "Conexión",
+            "items": [
+              {
+                "label": "Sentido de conexión",
+                "value": "Enchufe 5/16A → Toma 5/16A"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 45,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Conductor de cobre flexible de 5 × 6 mm² ttr, funda exterior resistente",
+          "Conexión enchufe 5/32A → toma 5/32A",
+          "Resistente a los rayos UV y a la intemperie",
+          "Ideal para obra, taller y uso móvil",
+          "Prueba de conformidad CE completada"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+      },
+      {
+        "id": "seyyar-uzatma-kablosu-ceenorm-5-2-5-516a-10m",
+        "name": "Seyyar Uzatma Kablosu Ceenorm 5×2,5 (5/16A)",
+        "code": "BKT-0708-2510",
+        "subtitle": "10m",
+        "badge": null,
+        "description": "Cable de extensión portátil trifásico + neutro + tierra (5 hilos) 32A. Cable TTR de 5×6 mm², adecuado para cargas de sistema completo en proyectos de infraestructura profesional.",
+        "specs": [
+          {
+            "group": "General",
+            "items": [
+              {
+                "label": "Tipo",
+                "value": "Cable de extensión portátil"
+              },
+              {
+                "label": "Cable",
+                "value": "5 × 2,5 mm² ttr"
+              },
+              {
+                "label": "Longitud",
+                "value": "10m"
+              }
+            ]
+          },
+          {
+            "group": "Conexión",
+            "items": [
+              {
+                "label": "Sentido de conexión",
+                "value": "Enchufe 5/16A → Toma 5/16A"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 64,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Conductor de cobre flexible de 5 × 6 mm² ttr, funda exterior resistente",
+          "Conexión enchufe 5/32A → toma 5/32A",
+          "Resistente a los rayos UV y a la intemperie",
+          "Ideal para obra, taller y uso móvil",
+          "Prueba de conformidad CE completada"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075073/products/qf6fhdwl01s58i3vkcif.jpg"
+      },
+      {
+        "id": "cee-norm-adaptor-30cm-116a-fis-516a-priz",
+        "name": "Cee Norm Adaptör (30cm Kablolu)",
+        "code": "BKT-0108-2211",
+        "subtitle": "Enchufe 1/16A → Toma 5/16A",
+        "badge": null,
+        "description": "Adaptador convertidor de enchufe a toma CEE Norm con cable de 30 cm. Cable TTR de 3×2,5 mm², para uso en campo y taller con capacidad monofásica 16A.",
+        "specs": [
+          {
+            "group": "General",
+            "items": [
+              {
+                "label": "Tipo",
+                "value": "Adaptador convertidor de enchufe a toma"
+              },
+              {
+                "label": "Estándar",
+                "value": "CEE Norm"
+              },
+              {
+                "label": "Cable",
+                "value": "30 cm · 3 × 2,5 mm² ttr"
+              }
+            ]
+          },
+          {
+            "group": "Conexión",
+            "items": [
+              {
+                "label": "Convertidor",
+                "value": "Enchufe 1/16A → Toma 5/16A"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 13,30"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Configuración de enchufe y toma CEE Norm",
+          "Cable de 30 cm · 3 × 2,5 mm² ttr ttr, funda exterior flexible y resistente",
+          "Ideal para uso en obra, taller y campo",
+          "Prueba de conformidad CE completada"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074998/products/kuxlacga82z0pbt2tqyt.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074998/products/kuxlacga82z0pbt2tqyt.png"
+      },
+      {
+        "id": "cee-norm-adaptor-30cm-316a-fis-516a-priz",
+        "name": "Cee Norm Adaptör (30cm Kablolu)",
+        "code": "BKT-0508-2211",
+        "subtitle": "Enchufe 3/16A → Toma 5/16A",
+        "badge": null,
+        "description": "Adaptador convertidor de enchufe a toma CEE Norm con cable de 30 cm. Cable TTR de 3×2,5 mm², para uso en campo y taller con capacidad monofásica 16A.",
+        "specs": [
+          {
+            "group": "General",
+            "items": [
+              {
+                "label": "Tipo",
+                "value": "Adaptador convertidor de enchufe a toma"
+              },
+              {
+                "label": "Estándar",
+                "value": "CEE Norm"
+              },
+              {
+                "label": "Cable",
+                "value": "30 cm · 3 × 2,5 mm² ttr"
+              }
+            ]
+          },
+          {
+            "group": "Conexión",
+            "items": [
+              {
+                "label": "Convertidor",
+                "value": "Enchufe 3/16A → Toma 5/16A"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 15,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Configuración de enchufe y toma CEE Norm",
+          "Cable de 30 cm · 3 × 2,5 mm² ttr ttr, funda exterior flexible y resistente",
+          "Ideal para uso en obra, taller y campo",
+          "Prueba de conformidad CE completada"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075011/products/ycfbfqyyrktnhcnn9kpi.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075011/products/ycfbfqyyrktnhcnn9kpi.png"
       }
     ]
   },
@@ -5477,6 +6865,76 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075162/products/qzbawyeta2dnuquba3an.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075162/products/qzbawyeta2dnuquba3an.png"
+      },
+      {
+        "id": "v2l-ve-c2l-kablo-cantasi",
+        "name": "V2L ve C2L Kablo Çantası",
+        "code": "BAK-8000-0001",
+        "subtitle": "22×26×12 cm",
+        "badge": null,
+        "description": "Bolsa de transporte compacta para adaptadores V2L y C2L. Organización de compartimento único para el adaptador + el cable alargador, protege el equipo de campo.",
+        "specs": [
+          {
+            "group": "General",
+            "items": [
+              {
+                "label": "Tipo",
+                "value": "Accesorio"
+              },
+              {
+                "label": "Categoría",
+                "value": "V2L ve C2L Kablo Çantası"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 25,00"
+              }
+            ]
+          }
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "dc-soket-tutucu",
+        "name": "DC Soket Tutucu (4 Bilyalı)",
+        "code": "BAK-8200-0002",
+        "subtitle": "",
+        "badge": null,
+        "description": "Soporte de toma especial diseñado para los dispositivos AC wallbox de la serie Bemis Charger. Combina con el color de la carcasa del dispositivo y se monta sobre él con una abrazadera rápida.",
+        "specs": [
+          {
+            "group": "General",
+            "items": [
+              {
+                "label": "Tipo",
+                "value": "Accesorio"
+              },
+              {
+                "label": "Categoría",
+                "value": "DC Soket Tutucu (4 Bilyalı)"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 12,00"
+              }
+            ]
+          }
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
       }
     ]
   },
@@ -5571,7 +7029,7 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "7.161,00 € (IVA no incluido)"
+                "value": "7.200,00 € (IVA no incluido)"
               }
             ]
           },
@@ -5708,7 +7166,7 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "15.820,00 € (IVA no incluido)"
+                "value": "15.850,00 € (IVA no incluido)"
               }
             ]
           },
@@ -5849,7 +7307,7 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "18.950,00 € (IVA no incluido)"
+                "value": "19.350,00 € (IVA no incluido)"
               }
             ]
           },
@@ -6000,7 +7458,7 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "19.353,00 € (IVA no incluido)"
+                "value": "19.350,00 € (IVA no incluido)"
               }
             ]
           },
@@ -6151,7 +7609,7 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "23.731,00 € (IVA no incluido)"
+                "value": "23.850,00 € (IVA no incluido)"
               }
             ]
           },
@@ -6302,7 +7760,7 @@
             "items": [
               {
                 "label": "Precio de lista",
-                "value": "27.686,00 € (IVA no incluido)"
+                "value": "28.000,00 € (IVA no incluido)"
               }
             ]
           },
@@ -6359,6 +7817,280 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075183/products/awmtxngdhi0ym0ivjgin.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075183/products/awmtxngdhi0ym0ivjgin.png"
+      },
+      {
+        "id": "bevdc-180",
+        "code": "BEVDCC-4621-0005",
+        "name": "BEVDC 180",
+        "subtitle": "Estación de carga rápida DC de 180 kW",
+        "badge": null,
+        "description": "Estación de carga rápida DC de alta potencia de 160 kW con doble salida CCS2. Para paradas técnicas en autopistas y carga intensiva de flotas comerciales, alimenta dos vehículos a máxima capacidad mediante reparto dinámico de potencia.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia de salida",
+                "value": "180 kW"
+              },
+              {
+                "label": "Entrada",
+                "value": "AC 380-480V, 3 fases"
+              },
+              {
+                "label": "Tensión de salida",
+                "value": "150-1000V DC"
+              }
+            ]
+          },
+          {
+            "group": "Conexión",
+            "items": [
+              {
+                "label": "Conector",
+                "value": "CCS2"
+              },
+              {
+                "label": "Número de zócalos",
+                "value": "2"
+              },
+              {
+                "label": "Carga simultánea",
+                "value": "Sí"
+              }
+            ]
+          },
+          {
+            "group": "Gestión",
+            "items": [
+              {
+                "label": "Protocolo",
+                "value": "OCPP 1.6J / 2.0.1"
+              },
+              {
+                "label": "Autenticación de usuario",
+                "value": "Tarjeta RFID + Aplicación móvil"
+              },
+              {
+                "label": "Conexión",
+                "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Métodos de pago",
+                "value": "RFID / NFC sin contacto, tarjeta de crédito/débito (CPO), móvil"
+              }
+            ]
+          },
+          {
+            "group": "Ambiental",
+            "items": [
+              {
+                "label": "Clase de protección",
+                "value": "IP54"
+              },
+              {
+                "label": "Temperatura de funcionamiento",
+                "value": "-25°C ~ +55°C"
+              },
+              {
+                "label": "Instalación",
+                "value": "Exterior"
+              },
+              {
+                "label": "Resistencia a impactos",
+                "value": "IK10"
+              },
+              {
+                "label": "Pantalla",
+                "value": "LCD táctil capacitiva de 10\""
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "27.500,00 € (IVA no incluido)"
+              }
+            ]
+          },
+          {
+            "group": "Características físicas",
+            "items": [
+              {
+                "label": "Dimensiones (G×D×Y)",
+                "value": "800 × 800 × 1900 mm"
+              }
+            ]
+          },
+          {
+            "group": "Seguridad",
+            "items": [
+              {
+                "label": "Funciones de protección",
+                "value": "Cortocircuito, sobrecorriente, sobretemperatura, parada de emergencia, sobretensión/subtensión de salida, aviso de fuga a tierra DC"
+              }
+            ]
+          },
+          {
+            "group": "Documentos y garantía",
+            "items": [
+              {
+                "label": "Garantía",
+                "value": "2 años de fabricante (opción de ampliación de +3 años con coste adicional)"
+              },
+              {
+                "label": "Certificado de producción nacional",
+                "value": "%94"
+              },
+              {
+                "label": "Certificación",
+                "value": "CE"
+              }
+            ]
+          }
+        ],
+        "features": [
+          "ocpp",
+          "rfid",
+          "shared",
+          "ccs2",
+          "screen",
+          "load",
+          "plugplay",
+          "safety",
+          "ik10"
+        ],
+        "generalFeatures": [],
+        "documents": [],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075183/products/awmtxngdhi0ym0ivjgin.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075183/products/awmtxngdhi0ym0ivjgin.png"
+      },
+      {
+        "id": "bevdc-40-direk-tipi",
+        "code": "BEVDCC-4222-0005",
+        "name": "BEVDC 40 Direk Tipi",
+        "subtitle": "Estación de carga rápida DC de 40 kW · Pedestal",
+        "badge": null,
+        "description": "Estación de carga rápida DC compacta de 40 kW con una única salida CCS2. Clase de potencia ideal para instalaciones en cafeterías, restaurantes, hoteles y aparcamientos urbanos; compatibilidad con OCPP 1.6J / 2.0.1, autorización de usuario por RFID, uso en exteriores IP54.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Potencia de salida",
+                "value": "40 kW"
+              },
+              {
+                "label": "Entrada",
+                "value": "AC 380-480V, 3 fases"
+              },
+              {
+                "label": "Tensión de salida",
+                "value": "150-1000V DC"
+              }
+            ]
+          },
+          {
+            "group": "Conexión",
+            "items": [
+              {
+                "label": "Conector",
+                "value": "CCS2"
+              },
+              {
+                "label": "Número de zócalos",
+                "value": "1"
+              },
+              {
+                "label": "Carga simultánea",
+                "value": "No"
+              }
+            ]
+          },
+          {
+            "group": "Gestión",
+            "items": [
+              {
+                "label": "Protocolo",
+                "value": "OCPP 1.6J / 2.0.1"
+              },
+              {
+                "label": "Autenticación de usuario",
+                "value": "Tarjeta RFID + Aplicación móvil"
+              },
+              {
+                "label": "Conexión",
+                "value": "Ethernet / 4G"
+              },
+              {
+                "label": "Métodos de pago",
+                "value": "RFID / NFC sin contacto, tarjeta de crédito/débito (CPO), móvil"
+              }
+            ]
+          },
+          {
+            "group": "Ambiental",
+            "items": [
+              {
+                "label": "Clase de protección",
+                "value": "IP54"
+              },
+              {
+                "label": "Temperatura de funcionamiento",
+                "value": "-25°C ~ +55°C"
+              },
+              {
+                "label": "Instalación",
+                "value": "Exterior"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "8.600,00 € (IVA no incluido)"
+              }
+            ]
+          },
+          {
+            "group": "Documentos y garantía",
+            "items": [
+              {
+                "label": "Garantía",
+                "value": "2 años de fabricante (opción de ampliación de +3 años con coste adicional)"
+              },
+              {
+                "label": "Certificado de producción nacional",
+                "value": "%94"
+              },
+              {
+                "label": "Certificación",
+                "value": "CE"
+              }
+            ]
+          }
+        ],
+        "features": [
+          "ocpp",
+          "rfid",
+          "shared",
+          "ccs2",
+          "screen",
+          "load",
+          "plugplay",
+          "safety"
+        ],
+        "generalFeatures": [],
+        "documents": [],
+        "images": [],
+        "image": "",
+        "boxContents": []
       }
     ]
   },
@@ -8158,6 +9890,590 @@
               {
                 "label": "Precio de lista",
                 "value": "EUR 1.100,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Capacidad máxima de corriente DC de 400A",
+          "Conector conforme al estándar CCS2 IEC 62196-3",
+          "Un extremo con enchufe CCS2, otro extremo abierto — terminación directa en la unidad DC",
+          "Canal integrado para refrigeración (en niveles de corriente elevados)",
+          "Ensayo de conformidad CE completado"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075317/products/yuuv51iis8u8d7piyxrx.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075317/products/yuuv51iis8u8d7piyxrx.png"
+      },
+      {
+        "id": "pano-prizi-monofaze-3-nokta-30cm-nyaff",
+        "name": "Pano Prizi",
+        "code": "BEV-3016-431B",
+        "subtitle": "Monofásico 3,7-7,4 kW · Montaje de 3 puntos · 30 cm NYAFF",
+        "badge": null,
+        "description": "Toma de panel Type 2 para integración en cuadros de carga. Componente estándar para fabricantes de cargadores AC, con variantes monofásicas o trifásicas con motor de bloqueo y montaje de 3 o 4 puntos.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Fase",
+                "value": "Monofásico"
+              },
+              {
+                "label": "Potencia",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mecánico",
+            "items": [
+              {
+                "label": "Montaje",
+                "value": "Montaje de 3 puntos"
+              },
+              {
+                "label": "Motor de bloqueo",
+                "value": "Sí"
+              },
+              {
+                "label": "Tipo",
+                "value": "Toma de panel Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 47,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Integración en panel monofásica 3,7 - 7,4 kW",
+          "Motor de bloqueo mecánico — bloqueo automático para la seguridad del usuario",
+          "Montaje de 3 puntos — instalación rápida",
+          "Conforme al estándar Type 2 IEC 62196-2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-monofaze-4-nokta-30cm-nyaff",
+        "name": "Pano Prizi",
+        "code": "BEV-3016-432B",
+        "subtitle": "Monofásico 3,7-7,4 kW · Montaje de 4 puntos · 30 cm NYAFF",
+        "badge": null,
+        "description": "Toma de panel Type 2 para integración en cuadros de carga. Componente estándar para fabricantes de cargadores AC, con variantes monofásicas o trifásicas con motor de bloqueo y montaje de 3 o 4 puntos.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Fase",
+                "value": "Monofásico"
+              },
+              {
+                "label": "Potencia",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mecánico",
+            "items": [
+              {
+                "label": "Montaje",
+                "value": "Montaje de 4 puntos"
+              },
+              {
+                "label": "Motor de bloqueo",
+                "value": "Sí"
+              },
+              {
+                "label": "Tipo",
+                "value": "Toma de panel Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 47,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Integración en panel monofásica 3,7 - 7,4 kW",
+          "Motor de bloqueo mecánico — bloqueo automático para la seguridad del usuario",
+          "Montaje de 4 puntos — instalación rápida",
+          "Conforme al estándar Type 2 IEC 62196-2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-trifaze-3-nokta-30cm-nyaff",
+        "name": "Pano Prizi",
+        "code": "BEV-5032-431B",
+        "subtitle": "Trifásico 11-22 kW · Montaje de 3 puntos · 30 cm NYAFF",
+        "badge": null,
+        "description": "Toma de panel Type 2 para integración en cuadros de carga. Componente estándar para fabricantes de cargadores AC, con variantes monofásicas o trifásicas con motor de bloqueo y montaje de 3 o 4 puntos.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Potencia",
+                "value": "11 - 22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mecánico",
+            "items": [
+              {
+                "label": "Montaje",
+                "value": "Montaje de 3 puntos"
+              },
+              {
+                "label": "Motor de bloqueo",
+                "value": "Sí"
+              },
+              {
+                "label": "Tipo",
+                "value": "Toma de panel Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 55,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Integración en panel trifásica 11 - 22 kW",
+          "Motor de bloqueo mecánico — bloqueo automático para la seguridad del usuario",
+          "Montaje de 3 puntos — instalación rápida",
+          "Conforme al estándar Type 2 IEC 62196-2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-trifaze-4-nokta-30cm-nyaff",
+        "name": "Pano Prizi",
+        "code": "BEV-5032-432B",
+        "subtitle": "Trifásico 11-22 kW · Montaje de 4 puntos · 30 cm NYAFF",
+        "badge": null,
+        "description": "Toma de panel Type 2 para integración en cuadros de carga. Componente estándar para fabricantes de cargadores AC, con variantes monofásicas o trifásicas con motor de bloqueo y montaje de 3 o 4 puntos.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Potencia",
+                "value": "11 - 22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mecánico",
+            "items": [
+              {
+                "label": "Montaje",
+                "value": "Montaje de 4 puntos"
+              },
+              {
+                "label": "Motor de bloqueo",
+                "value": "Sí"
+              },
+              {
+                "label": "Tipo",
+                "value": "Toma de panel Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 55,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Integración en panel trifásica 11 - 22 kW",
+          "Motor de bloqueo mecánico — bloqueo automático para la seguridad del usuario",
+          "Montaje de 4 puntos — instalación rápida",
+          "Conforme al estándar Type 2 IEC 62196-2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-kilit-motorsuz-monofaze-3-nokta-30cm-nyaff",
+        "name": "Pano Prizi (Kilit Motorsuz)",
+        "code": "BEV-3016-431B-A",
+        "subtitle": "Monofásico 3,7-7,4 kW · Montaje de 3 puntos · 30 cm NYAFF",
+        "badge": null,
+        "description": "Toma de panel Type 2 económica sin motor de bloqueo. Para instalaciones de fabricantes que no requieren bloqueo manual o cuyo mecanismo de bloqueo se suministra por separado.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Fase",
+                "value": "Monofásico"
+              },
+              {
+                "label": "Potencia",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mecánico",
+            "items": [
+              {
+                "label": "Montaje",
+                "value": "Montaje de 3 puntos"
+              },
+              {
+                "label": "Motor de bloqueo",
+                "value": "No"
+              },
+              {
+                "label": "Tipo",
+                "value": "Toma de panel Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 33,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Integración en panel monofásica 3,7 - 7,4 kW",
+          "Compatible con bloqueo manual o mecanismo de bloqueo externo",
+          "Montaje de 3 puntos — instalación rápida",
+          "Conforme al estándar Type 2 IEC 62196-2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-kilit-motorsuz-monofaze-4-nokta-30cm-nyaff",
+        "name": "Pano Prizi (Kilit Motorsuz)",
+        "code": "BEV-3016-432B-A",
+        "subtitle": "Monofásico 3,7-7,4 kW · Montaje de 4 puntos · 30 cm NYAFF",
+        "badge": null,
+        "description": "Toma de panel Type 2 económica sin motor de bloqueo. Para instalaciones de fabricantes que no requieren bloqueo manual o cuyo mecanismo de bloqueo se suministra por separado.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Fase",
+                "value": "Monofásico"
+              },
+              {
+                "label": "Potencia",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mecánico",
+            "items": [
+              {
+                "label": "Montaje",
+                "value": "Montaje de 4 puntos"
+              },
+              {
+                "label": "Motor de bloqueo",
+                "value": "No"
+              },
+              {
+                "label": "Tipo",
+                "value": "Toma de panel Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 33,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Integración en panel monofásica 3,7 - 7,4 kW",
+          "Compatible con bloqueo manual o mecanismo de bloqueo externo",
+          "Montaje de 4 puntos — instalación rápida",
+          "Conforme al estándar Type 2 IEC 62196-2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-kilit-motorsuz-trifaze-3-nokta-30cm-nyaff",
+        "name": "Pano Prizi (Kilit Motorsuz)",
+        "code": "BEV-5032-431B-A",
+        "subtitle": "Trifásico 11-22 kW · Montaje de 3 puntos · 30 cm NYAFF",
+        "badge": null,
+        "description": "Toma de panel Type 2 económica sin motor de bloqueo. Para instalaciones de fabricantes que no requieren bloqueo manual o cuyo mecanismo de bloqueo se suministra por separado.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Potencia",
+                "value": "11 - 22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mecánico",
+            "items": [
+              {
+                "label": "Montaje",
+                "value": "Montaje de 3 puntos"
+              },
+              {
+                "label": "Motor de bloqueo",
+                "value": "No"
+              },
+              {
+                "label": "Tipo",
+                "value": "Toma de panel Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 42,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Integración en panel trifásica 11 - 22 kW",
+          "Compatible con bloqueo manual o mecanismo de bloqueo externo",
+          "Montaje de 3 puntos — instalación rápida",
+          "Conforme al estándar Type 2 IEC 62196-2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-kilit-motorsuz-trifaze-4-nokta-30cm-nyaff",
+        "name": "Pano Prizi (Kilit Motorsuz)",
+        "code": "BEV-5032-432B-A",
+        "subtitle": "Trifásico 11-22 kW · Montaje de 4 puntos · 30 cm NYAFF",
+        "badge": null,
+        "description": "Toma de panel Type 2 económica sin motor de bloqueo. Para instalaciones de fabricantes que no requieren bloqueo manual o cuyo mecanismo de bloqueo se suministra por separado.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Potencia",
+                "value": "11 - 22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mecánico",
+            "items": [
+              {
+                "label": "Montaje",
+                "value": "Montaje de 4 puntos"
+              },
+              {
+                "label": "Motor de bloqueo",
+                "value": "No"
+              },
+              {
+                "label": "Tipo",
+                "value": "Toma de panel Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 42,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Integración en panel trifásica 11 - 22 kW",
+          "Compatible con bloqueo manual o mecanismo de bloqueo externo",
+          "Montaje de 4 puntos — instalación rápida",
+          "Conforme al estándar Type 2 IEC 62196-2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-80a-5m",
+        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "code": "BEVDC-4011-0005",
+        "subtitle": "80A · 5m",
+        "badge": null,
+        "description": "Toma de carga CCS2 con un extremo abierto para fabricantes de cargadores rápidos DC. Terminación directa en unidades DC con la longitud y el nivel de corriente que desee — solución cableada OEM.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Tipo",
+                "value": "Toma de carga rápida DC (CCS2)"
+              },
+              {
+                "label": "Corriente máx.",
+                "value": "80A"
+              },
+              {
+                "label": "Estándar",
+                "value": "IEC 62196-3 (CCS2)"
+              }
+            ]
+          },
+          {
+            "group": "Cable y conexión",
+            "items": [
+              {
+                "label": "Longitud del cable",
+                "value": "5m"
+              },
+              {
+                "label": "Configuración",
+                "value": "Un extremo CCS2 — otro extremo abierto (OEM)"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 275,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Capacidad máxima de corriente DC de 150A",
+          "Conector conforme al estándar CCS2 IEC 62196-3",
+          "Un extremo con enchufe CCS2, otro extremo abierto — terminación directa en la unidad DC",
+          "Canal integrado para refrigeración (en niveles de corriente elevados)",
+          "Ensayo de conformidad CE completado"
+        ],
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075313/products/xakuw6whdv4f69o7vbng.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075313/products/xakuw6whdv4f69o7vbng.png"
+      },
+      {
+        "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-80a-8m",
+        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "code": "BEVDC-4011-0008",
+        "subtitle": "80A · 8m",
+        "badge": null,
+        "description": "Toma de carga CCS2 con un extremo abierto para fabricantes de cargadores rápidos DC. Terminación directa en unidades DC con la longitud y el nivel de corriente que desee — solución cableada OEM.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Tipo",
+                "value": "Toma de carga rápida DC (CCS2)"
+              },
+              {
+                "label": "Corriente máx.",
+                "value": "80A"
+              },
+              {
+                "label": "Estándar",
+                "value": "IEC 62196-3 (CCS2)"
+              }
+            ]
+          },
+          {
+            "group": "Cable y conexión",
+            "items": [
+              {
+                "label": "Longitud del cable",
+                "value": "8m"
+              },
+              {
+                "label": "Configuración",
+                "value": "Un extremo CCS2 — otro extremo abierto (OEM)"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 345,00"
               }
             ]
           }
