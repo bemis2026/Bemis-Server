@@ -16,7 +16,7 @@ Bemis E-V Charge, Türkiye'de yerli olarak elektrikli araç şarj çözümleri �
 
 ## Ürünler
 
-Bemis E-V Charge ürün gamı 8 kategoride ~113 ürün içerir: AC Wallbox şarj istasyonları (7,4–22 kW), AC taşınabilir/mobil şarj cihazları, Type 2 şarj kabloları (Mod 2 ve Mod 3), V2L/C2L adaptörler, uzatma ve dönüştürücüler (CEE), aksesuarlar, DC hızlı şarj üniteleri (ör. 40 kW BEVDC) ve şarj ünitesi ekipmanları (Type 2 priz/soket, holster).
+Bemis E-V Charge ürün gamı 8 kategoride 150'nin üzerinde ürün içerir: AC Wallbox şarj istasyonları (7,4–22 kW), AC taşınabilir/mobil şarj cihazları, Type 2 şarj kabloları (Mod 2 ve Mod 3), V2L/C2L adaptörler, uzatma ve dönüştürücüler (CEE), aksesuarlar, DC hızlı şarj üniteleri (40–200 kW BEVDC serisi) ve şarj ünitesi ekipmanları (Type 2 priz/soket, holster).
 
 ## Önemli Sayfalar
 

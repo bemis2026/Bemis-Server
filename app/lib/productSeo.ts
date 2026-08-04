@@ -1,4 +1,4 @@
-// AUTO-ÜRETİLDİ — ürün bazlı SEO varsayılanları (113 ürün).
+// AUTO-ÜRETİLDİ — ürün bazlı SEO varsayılanları (151 ürün).
 // Üretim: çekişmeli-fact-check workflow (geçici scriptler, repo'da tutulmaz). Bu dosya,
 // ürünün Blob'unda/admin'inde SEO alanı BOŞSA devreye giren varsayılandır; admin'de
 // doldurulan değer DAİMA kazanır (applyProductSeo `pick` ile override eder).

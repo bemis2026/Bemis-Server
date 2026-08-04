@@ -57,7 +57,7 @@ export function enCategoryMeta(id: string, fallbackName: string) {
 }
 
 // ── Ürün meta'sı ─────────────────────────────────────────────────────────────
-// 119 ürün için elle metin yazmak yerine, ürünün KENDİ spec'lerinden türetilir.
+// 150+ ürün için elle metin yazmak yerine, ürünün KENDİ spec'lerinden türetilir.
 // ⚠️ Yalnız veride GERÇEKTEN olan değerler kullanılır (uydurma yok). Spec
 // ETİKETLERİ Türkçe (Güç / Faz / Kablo Uzunluğu…) ama DEĞERLER dil-nötr (22 kW, 5m).
 type SpecItem = { label?: string; value?: string };
