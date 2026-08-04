@@ -10344,6 +10344,122 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075317/products/yuuv51iis8u8d7piyxrx.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075317/products/yuuv51iis8u8d7piyxrx.png"
+      },
+      {
+        "id": "pano-prizi-yeni-tip-monofaze-4-nokta",
+        "name": "Pano Prizi Yeni Tip",
+        "code": "BEV-3016-4320-1",
+        "subtitle": "Einphasig 3,7-7,4 kW · 4-Punkt-Montage",
+        "badge": null,
+        "description": "Die Panel-Steckdose Neuer Typ ist eine Alternative für schmale Gehäuse, in die die Standard-Panel-Steckdose nicht passt. Die elektrischen Daten entsprechen dem Standardmodell; nur die Gehäuseform unterscheidet sich.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Einphasig"
+              },
+              {
+                "label": "Leistung",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanisch",
+            "items": [
+              {
+                "label": "Montage",
+                "value": "4-Punkt-Montage"
+              },
+              {
+                "label": "Verriegelungsmotor",
+                "value": "Ja"
+              },
+              {
+                "label": "Typ",
+                "value": "Type 2 Einbausteckdose (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 45,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Einphasige 3,7 - 7,4 kW Integration im Schrank",
+          "Mechanischer Verriegelungsmotor — automatische Verriegelung für die Benutzersicherheit",
+          "4-Punkt-Montage — schnelle Installation",
+          "Konform zur Norm IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-yeni-tip-trifaze-4-nokta",
+        "name": "Pano Prizi Yeni Tip",
+        "code": "BEV-5032-4320-1",
+        "subtitle": "Dreiphasig 22 kW · 4-Punkt-Montage",
+        "badge": null,
+        "description": "Die Panel-Steckdose Neuer Typ ist eine Alternative für schmale Gehäuse, in die die Standard-Panel-Steckdose nicht passt. Die elektrischen Daten entsprechen dem Standardmodell; nur die Gehäuseform unterscheidet sich.",
+        "specs": [
+          {
+            "group": "Elektrisch",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Dreiphasig"
+              },
+              {
+                "label": "Leistung",
+                "value": "22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanisch",
+            "items": [
+              {
+                "label": "Montage",
+                "value": "4-Punkt-Montage"
+              },
+              {
+                "label": "Verriegelungsmotor",
+                "value": "Ja"
+              },
+              {
+                "label": "Typ",
+                "value": "Type 2 Einbausteckdose (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Preis",
+            "items": [
+              {
+                "label": "Listenpreis",
+                "value": "EUR 50,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Dreiphasige 22 kW Integration im Schrank",
+          "Mechanischer Verriegelungsmotor — automatische Verriegelung für die Benutzersicherheit",
+          "4-Punkt-Montage — schnelle Installation",
+          "Konform zur Norm IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
       }
     ]
   }

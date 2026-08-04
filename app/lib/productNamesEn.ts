@@ -76,6 +76,7 @@ const EN_NAMES: Record<string, string> = {
   "Cee Norm Adaptör (30cm Kablolu)": "CEE Norm Adapter (30 cm Cable)",
   "V2L ve C2L Kablo Çantası": "V2L & C2L Cable Bag",
   "DC Soket Tutucu (4 Bilyalı)": "DC Socket Holder (4 Ball Bearings)",
+  "Pano Prizi Yeni Tip": "Panel Socket New Type",
 };
 
 /** TR ürün adının İngilizcesi; eşleme yoksa adı AYNEN döndürür (güvenli düşüş). */

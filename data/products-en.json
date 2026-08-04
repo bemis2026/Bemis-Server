@@ -10344,6 +10344,122 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075317/products/yuuv51iis8u8d7piyxrx.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075317/products/yuuv51iis8u8d7piyxrx.png"
+      },
+      {
+        "id": "pano-prizi-yeni-tip-monofaze-4-nokta",
+        "name": "Pano Prizi Yeni Tip",
+        "code": "BEV-3016-4320-1",
+        "subtitle": "Monofaze 3,7-7,4 kW · 4 Noktadan Montaj",
+        "badge": null,
+        "description": "The New Type panel socket is an alternative model developed for narrow enclosures where the standard panel socket does not fit. Its electrical specifications match the standard model; only the housing form differs.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Monophase"
+              },
+              {
+                "label": "• Power",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanical",
+            "items": [
+              {
+                "label": "Installation",
+                "value": "4 Point Mounted"
+              },
+              {
+                "label": "Lock Motor",
+                "value": "Yes"
+              },
+              {
+                "label": "Type",
+                "value": "Type 2 Panel Socket (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 45,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 3,7 - 7,4 kW pano içi entegrasyon",
+          "Mekanik kilit motoru — kullanıcı güvenliği için otomatik kilitleme",
+          "4 Noktadan Montajlı montaj — hızlı kurulum",
+          "IEC 62196-2 Type 2 standardına uygun"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-yeni-tip-trifaze-4-nokta",
+        "name": "Pano Prizi Yeni Tip",
+        "code": "BEV-5032-4320-1",
+        "subtitle": "Trifaze 22 kW · 4 Noktadan Montaj",
+        "badge": null,
+        "description": "The New Type panel socket is an alternative model developed for narrow enclosures where the standard panel socket does not fit. Its electrical specifications match the standard model; only the housing form differs.",
+        "specs": [
+          {
+            "group": "Electrical",
+            "items": [
+              {
+                "label": "Phase",
+                "value": "Three-phase"
+              },
+              {
+                "label": "• Power",
+                "value": "22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mechanical",
+            "items": [
+              {
+                "label": "Installation",
+                "value": "4 Point Mounted"
+              },
+              {
+                "label": "Lock Motor",
+                "value": "Yes"
+              },
+              {
+                "label": "Type",
+                "value": "Type 2 Panel Socket (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Price",
+            "items": [
+              {
+                "label": "List Price",
+                "value": "EUR 50,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 22 kW pano içi entegrasyon",
+          "Mekanik kilit motoru — kullanıcı güvenliği için otomatik kilitleme",
+          "4 Noktadan Montajlı montaj — hızlı kurulum",
+          "IEC 62196-2 Type 2 standardına uygun"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
       }
     ]
   }

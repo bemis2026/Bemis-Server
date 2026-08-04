@@ -10344,6 +10344,122 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075317/products/yuuv51iis8u8d7piyxrx.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075317/products/yuuv51iis8u8d7piyxrx.png"
+      },
+      {
+        "id": "pano-prizi-yeni-tip-monofaze-4-nokta",
+        "name": "Pano Prizi Yeni Tip",
+        "code": "BEV-3016-4320-1",
+        "subtitle": "أحادي الطور 3,7-7,4 kW · تركيب من 4 نقاط",
+        "badge": null,
+        "description": "مقبس اللوحة من النوع الجديد طراز بديل طُوِّر للعُلب الضيقة التي لا يتسع فيها المقبس القياسي. مواصفاته الكهربائية مطابقة للطراز القياسي؛ يختلف شكل الهيكل فقط.",
+        "specs": [
+          {
+            "group": "كهربائي",
+            "items": [
+              {
+                "label": "الطور",
+                "value": "أحادي الطور"
+              },
+              {
+                "label": "القدرة",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "ميكانيكي",
+            "items": [
+              {
+                "label": "التركيب",
+                "value": "تركيب من 4 نقاط"
+              },
+              {
+                "label": "محرك القفل",
+                "value": "نعم"
+              },
+              {
+                "label": "النوع",
+                "value": "مقبس لوحة Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "السعر",
+            "items": [
+              {
+                "label": "سعر القائمة",
+                "value": "EUR 45,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "دمج داخل اللوحة 3.7 - 7.4 kW، أحادي الطور",
+          "محرك قفل ميكانيكي — إقفال آلي لسلامة المستخدم",
+          "تركيب من 4 نقاط — تركيب سريع",
+          "مطابق لمعيار IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-yeni-tip-trifaze-4-nokta",
+        "name": "Pano Prizi Yeni Tip",
+        "code": "BEV-5032-4320-1",
+        "subtitle": "ثلاثي الطور 22 kW · تركيب من 4 نقاط",
+        "badge": null,
+        "description": "مقبس اللوحة من النوع الجديد طراز بديل طُوِّر للعُلب الضيقة التي لا يتسع فيها المقبس القياسي. مواصفاته الكهربائية مطابقة للطراز القياسي؛ يختلف شكل الهيكل فقط.",
+        "specs": [
+          {
+            "group": "كهربائي",
+            "items": [
+              {
+                "label": "الطور",
+                "value": "ثلاثي الطور"
+              },
+              {
+                "label": "القدرة",
+                "value": "22 kW"
+              }
+            ]
+          },
+          {
+            "group": "ميكانيكي",
+            "items": [
+              {
+                "label": "التركيب",
+                "value": "تركيب من 4 نقاط"
+              },
+              {
+                "label": "محرك القفل",
+                "value": "نعم"
+              },
+              {
+                "label": "النوع",
+                "value": "مقبس لوحة Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "السعر",
+            "items": [
+              {
+                "label": "سعر القائمة",
+                "value": "EUR 50,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "دمج داخل اللوحة 22 kW، ثلاثي الطور",
+          "محرك قفل ميكانيكي — إقفال آلي لسلامة المستخدم",
+          "تركيب من 4 نقاط — تركيب سريع",
+          "مطابق لمعيار IEC 62196-2 Type 2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
       }
     ]
   }

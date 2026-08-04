@@ -10364,6 +10364,122 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075317/products/yuuv51iis8u8d7piyxrx.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075317/products/yuuv51iis8u8d7piyxrx.png"
+      },
+      {
+        "id": "pano-prizi-yeni-tip-monofaze-4-nokta",
+        "name": "Pano Prizi Yeni Tip",
+        "code": "BEV-3016-4320-1",
+        "subtitle": "Monofaze 3,7-7,4 kW · 4 Noktadan Montaj",
+        "badge": null,
+        "description": "Pano Prizi Yeni Tip, standart pano prizinin sığmadığı dar kasalar için geliştirilen alternatif modeldir. Elektriksel özellikleri standart modelle aynıdır; gövde formu farklıdır.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Faz",
+                "value": "Monofaze"
+              },
+              {
+                "label": "Güç",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mekanik",
+            "items": [
+              {
+                "label": "Montaj",
+                "value": "4 Noktadan Montajlı"
+              },
+              {
+                "label": "Kilit Motoru",
+                "value": "Var"
+              },
+              {
+                "label": "Tip",
+                "value": "Type 2 Pano Prizi (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 45,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Monofaze 3,7 - 7,4 kW pano içi entegrasyon",
+          "Mekanik kilit motoru — kullanıcı güvenliği için otomatik kilitleme",
+          "4 Noktadan Montajlı montaj — hızlı kurulum",
+          "IEC 62196-2 Type 2 standardına uygun"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-yeni-tip-trifaze-4-nokta",
+        "name": "Pano Prizi Yeni Tip",
+        "code": "BEV-5032-4320-1",
+        "subtitle": "Trifaze 22 kW · 4 Noktadan Montaj",
+        "badge": null,
+        "description": "Pano Prizi Yeni Tip, standart pano prizinin sığmadığı dar kasalar için geliştirilen alternatif modeldir. Elektriksel özellikleri standart modelle aynıdır; gövde formu farklıdır.",
+        "specs": [
+          {
+            "group": "Elektriksel",
+            "items": [
+              {
+                "label": "Faz",
+                "value": "Trifaze"
+              },
+              {
+                "label": "Güç",
+                "value": "22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mekanik",
+            "items": [
+              {
+                "label": "Montaj",
+                "value": "4 Noktadan Montajlı"
+              },
+              {
+                "label": "Kilit Motoru",
+                "value": "Var"
+              },
+              {
+                "label": "Tip",
+                "value": "Type 2 Pano Prizi (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Fiyat",
+            "items": [
+              {
+                "label": "Liste Fiyatı",
+                "value": "EUR 50,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Trifaze 22 kW pano içi entegrasyon",
+          "Mekanik kilit motoru — kullanıcı güvenliği için otomatik kilitleme",
+          "4 Noktadan Montajlı montaj — hızlı kurulum",
+          "IEC 62196-2 Type 2 standardına uygun"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
       }
     ]
   }

@@ -10344,6 +10344,122 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075317/products/yuuv51iis8u8d7piyxrx.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075317/products/yuuv51iis8u8d7piyxrx.png"
+      },
+      {
+        "id": "pano-prizi-yeni-tip-monofaze-4-nokta",
+        "name": "Pano Prizi Yeni Tip",
+        "code": "BEV-3016-4320-1",
+        "subtitle": "Monofásico 3,7-7,4 kW · Montaje de 4 puntos",
+        "badge": null,
+        "description": "La toma de panel de Nuevo Tipo es un modelo alternativo desarrollado para cajas estrechas donde no cabe la toma estándar. Sus características eléctricas coinciden con el modelo estándar; solo cambia la forma de la carcasa.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Fase",
+                "value": "Monofásico"
+              },
+              {
+                "label": "Potencia",
+                "value": "3,7 - 7,4 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mecánico",
+            "items": [
+              {
+                "label": "Montaje",
+                "value": "Montaje de 4 puntos"
+              },
+              {
+                "label": "Motor de bloqueo",
+                "value": "Sí"
+              },
+              {
+                "label": "Tipo",
+                "value": "Toma de panel Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 45,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Integración en panel monofásica 3,7 - 7,4 kW",
+          "Motor de bloqueo mecánico — bloqueo automático para la seguridad del usuario",
+          "Montaje de 4 puntos — instalación rápida",
+          "Conforme al estándar Type 2 IEC 62196-2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
+      },
+      {
+        "id": "pano-prizi-yeni-tip-trifaze-4-nokta",
+        "name": "Pano Prizi Yeni Tip",
+        "code": "BEV-5032-4320-1",
+        "subtitle": "Trifásico 22 kW · Montaje de 4 puntos",
+        "badge": null,
+        "description": "La toma de panel de Nuevo Tipo es un modelo alternativo desarrollado para cajas estrechas donde no cabe la toma estándar. Sus características eléctricas coinciden con el modelo estándar; solo cambia la forma de la carcasa.",
+        "specs": [
+          {
+            "group": "Eléctrico",
+            "items": [
+              {
+                "label": "Fase",
+                "value": "Trifásico"
+              },
+              {
+                "label": "Potencia",
+                "value": "22 kW"
+              }
+            ]
+          },
+          {
+            "group": "Mecánico",
+            "items": [
+              {
+                "label": "Montaje",
+                "value": "Montaje de 4 puntos"
+              },
+              {
+                "label": "Motor de bloqueo",
+                "value": "Sí"
+              },
+              {
+                "label": "Tipo",
+                "value": "Toma de panel Type 2 (IEC 62196-2)"
+              }
+            ]
+          },
+          {
+            "group": "Precio",
+            "items": [
+              {
+                "label": "Precio de lista",
+                "value": "EUR 50,00"
+              }
+            ]
+          }
+        ],
+        "generalFeatures": [
+          "Integración en panel trifásica 22 kW",
+          "Motor de bloqueo mecánico — bloqueo automático para la seguridad del usuario",
+          "Montaje de 4 puntos — instalación rápida",
+          "Conforme al estándar Type 2 IEC 62196-2"
+        ],
+        "images": [],
+        "image": "",
+        "boxContents": []
       }
     ]
   }

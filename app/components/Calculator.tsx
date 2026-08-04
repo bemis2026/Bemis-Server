@@ -226,6 +226,59 @@ function getTariffPresets(t: (k: UiStringKey) => string) {
   ];
 }
 
+// ── Seçilen güce karşılık gelen Bemis ürünü ──────────────────────────────────
+//
+// ⚠️ NEDEN: hesaplayıcı ziyaretçiye "11 kW'ta 4 saat" diyordu ama BU GÜCÜ HANGİ
+// BEMİS CİHAZI VERİR söylemiyordu — üretici sitesinde en doğal satış köprüsü
+// burasıydı ve boştu (yerinde dekoratif bir ikon şeridi vardı).
+// ⚠️ Adresler data/products.json'dan DOĞRULANDI; uydurma link yok.
+const AC_URUN: Record<number, { ad: string; href: string }> = {
+  2.3: { ad: "Mini Mobile",        href: "/products/portable/mini-mobile" },
+  3.7: { ad: "Mini Mobile",        href: "/products/portable/mini-mobile" },
+  7.4: { ad: "Mono Mobile",        href: "/products/portable/mono-mobile" },
+  11:  { ad: "Charger 2 · 11 kW",  href: "/products/wallbox/charger-2-trifaze-kablolu" },
+  22:  { ad: "Charger 2 · 22 kW",  href: "/products/wallbox/charger-2-kablolu" },
+};
+const DC_URUN: Record<number, { ad: string; href: string }> = {
+  50:  { ad: "BEVDC 40",  href: "/products/dc-units/bevdc-40-1"  },
+  100: { ad: "BEVDC 80",  href: "/products/dc-units/bevdc-80-2"  },
+  150: { ad: "BEVDC 160", href: "/products/dc-units/bevdc-160-2" },
+  175: { ad: "BEVDC 180", href: "/products/dc-units/bevdc-180"   },
+  250: { ad: "BEVDC 200", href: "/products/dc-units/bevdc-200-2" },
+  350: { ad: "BEVDC 200", href: "/products/dc-units/bevdc-200-2" },
+};
+
+function UrunOnerisi({ d, accent, border, mode, power, t }: {
+  d: boolean; accent: string; border: string;
+  mode: "ac" | "dc"; power: number; t: (k: UiStringKey) => string;
+}) {
+  const urun = (mode === "ac" ? AC_URUN : DC_URUN)[power];
+  if (!urun) return null;
+  return (
+    <a
+      href={urun.href}
+      className="flex items-center gap-3 mt-4 pt-4 group cursor-pointer"
+      style={{ borderTop: `1px solid ${border}` }}
+    >
+      <span className="grid place-items-center rounded-xl shrink-0"
+        style={{ width: 38, height: 38, background: `${accent}1a`, border: `1px solid ${accent}33`, color: accent }}>
+        <RiFlashlightLine style={{ fontSize: 17 }} />
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="block text-[10px] font-bold uppercase tracking-wider"
+          style={{ color: d ? "rgba(255,255,255,0.34)" : "rgba(0,0,0,0.38)" }}>
+          {t("calc_product_hint")}
+        </span>
+        <span className="block text-sm font-black truncate" style={{ color: accentInk(accent, d) }}>{urun.ad}</span>
+      </span>
+      <span className="text-xs font-bold shrink-0 transition-transform group-hover:translate-x-0.5"
+        style={{ color: accentInk(accent, d) }}>
+        {t("calc_product_cta")} →
+      </span>
+    </a>
+  );
+}
+
 // ── Calculator banner sub-component ──────────────────────────────────────────
 
 interface CalcBannerProps {
@@ -586,15 +639,12 @@ export default function Calculator() {
             initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.08 }}
             className="flex items-center justify-center gap-3 mb-2"
           >
-            {/* Animated ibra — left */}
-            <TachometerNeedle d={d} blue={BLUE} />
-
+            {/* ÖNİZLEME: başlığın iki yanındaki animasyonlu gösterge ibreleri kaldırıldı —
+                koyu/premium arayüzde renkli clip-art gibi duruyor ve başlığın ağırlığını
+                bölüyordu. Bileşen (TachometerNeedle) DURUYOR, geri almak tek satır. */}
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black" style={{ color: textPrimary }}>
               {t("calc_heading")}
             </h2>
-
-            {/* Animated ibra — right (mirror) */}
-            <TachometerNeedle d={d} blue={BLUE} mirror />
           </motion.div>
 
           {/* Battery charging animation */}
@@ -766,7 +816,11 @@ export default function Calculator() {
                       </motion.div>
                     </AnimatePresence>
 
-                    <CalcBanner d={d} accent={accentColor} tab="charge" border={border} textMuted={textMuted} logoSrc={calcLogoSrc} t={t} chargeTimeLabel={t("calc_tab_charge")} />
+                    {/* ⚠️ Buradaki dekoratif ikon şeridi ("AC & DC · Şarj Süresi · 50+ Model")
+                        kaldırıldı: yer kaplıyordu, bilgi vermiyordu. Yerine seçilen güce
+                        karşılık gelen ÜRÜN geldi — hesaplayıcıyı satışa bağlar. */}
+                    <UrunOnerisi d={d} accent={accentColor} border={border}
+                      mode={chargeMode} power={chargeMode === "ac" ? chargerPower : dcPower} t={t} />
 
                   </div>
                 </motion.div>
