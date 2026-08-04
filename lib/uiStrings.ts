@@ -184,6 +184,8 @@ const STRINGS = {
   calc_energy:            { tr: "Enerji",                          en: "Energy" },
   calc_range_added:       { tr: "Eklenecek Menzil",                en: "Range Added" },
   calc_efficiency:        { tr: "Verimlilik",                      en: "Efficiency" },
+  // ⚠️ DC süresi tahmindir — genel taper eğrisi kullanılır, gerçek eğri araca göre değişir.
+  calc_dc_note:           { tr: "Tahmini süre. DC şarjda batarya doldukça güç düşer; gerçek süre aracın şarj eğrisine ve batarya sıcaklığına göre değişir.", en: "Estimated time. DC power tapers as the battery fills; the real duration depends on the car's charging curve and battery temperature." },
   calc_elec_cost:         { tr: "Elektrik Maliyeti",               en: "Electricity Cost" },
   calc_elec_tariff:       { tr: "Elektrik Tarifesi",               en: "Electricity Tariff" },
   calc_annual_fuel_save:  { tr: "Yıllık Yakıt Tasarrufu",          en: "Annual Fuel Savings" },

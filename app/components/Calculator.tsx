@@ -438,17 +438,45 @@ export default function Calculator() {
   // ── Charge time calculations ─────────────────────────────────────────────
   const chargeCalc = useMemo(() => {
     const socDelta     = Math.max(targetSoc - currentSoc, 0) / 100;
-    const energyNeeded = batteryCapacity * socDelta;
+    const energyNeeded = batteryCapacity * socDelta;   // AKÜYE giren enerji (kWh)
     const eff          = chargeMode === "ac" ? 0.90 : 0.92;
     const effectivePow = chargeMode === "ac"
       ? (selectedCarData ? Math.min(chargerPower, selectedCarData.maxAcKw) : chargerPower)
       : (selectedCarData ? Math.min(dcPower, selectedCarData.maxDcKw) : dcPower);
-    const timeHours    = energyNeeded / (effectivePow * eff);
+
+    // ⚠️ DC ŞARJDA GÜÇ SABİT DEĞİLDİR (taper): batarya doldukça istasyon gücü düşer.
+    // Sabit güç varsayımı %80 üstünü çok iyimser gösteriyordu — sitenin kendi blog
+    // içeriği de ("DC ile 20-40 dakikada %80") bunun aksini anlatıyor. SoC penceresi
+    // %1'lik adımlarla integre edilir. AC tarafında taper ihmal edilir (güç zaten
+    // aracın dahili şarj ünitesiyle sınırlı ve büyük ölçüde sabittir).
+    // ⚠️ SINIR: `maxDcKw` TEPE güçtür; gerçek eğri araca göre çok değişir (800V mimariler
+    // tepeyi uzun tutar, çoğu araç erken düşer). Tek bir genel eğri bunu birebir veremez
+    // → DC sonucu arayüzde TAHMİN olarak işaretlenir. AC tarafı doğrusaldır ve doğrudur.
+    const taper = (soc: number) => {
+      if (chargeMode === "ac") return 1;
+      if (soc <= 40) return 1;
+      if (soc <= 80) return 1 - (soc - 40) * (0.45 / 40);         // %40→%80 : 1,00 → 0,55
+      return Math.max(0.10, 0.55 - (soc - 80) * (0.45 / 20));     // %80→%100: 0,55 → 0,10
+    };
+    let timeHours = 0;
+    const adim = 1;                                               // %1 SoC
+    for (let soc = currentSoc; soc < targetSoc; soc += adim) {
+      const dilim = Math.min(adim, targetSoc - soc) / 100;
+      const enerji = batteryCapacity * dilim;
+      const guc = effectivePow * taper(soc + dilim * 50) * eff;   // dilimin ortası
+      if (guc > 0) timeHours += enerji / guc;
+    }
+
     const hours        = Math.floor(timeHours);
     const minutes      = Math.round((timeHours - hours) * 60);
-    const addedKm      = Math.round((energyNeeded * eff) / (carConsumption / 100));
-    const chargeCost   = energyNeeded * chargeElecPrice;
-    return { energyNeeded, hours, minutes, addedKm, effectivePow, chargeCost };
+    // ⚠️ MENZİL akünün İÇİNDEKİ enerjiden gelir; verimi burada TEKRAR uygulamak
+    //    kaybı iki kez sayardı (menzili ~%10 düşük gösteriyordu).
+    const addedKm      = Math.round(energyNeeded / (carConsumption / 100));
+    // ⚠️ FATURA ŞEBEKEDEN ÇEKİLEN enerjiye kesilir; sayaç şarj kaybını da sayar.
+    //    Aküye giren enerji üzerinden hesaplamak maliyeti ~%10 DÜŞÜK gösteriyordu.
+    const gridKwh      = energyNeeded / eff;
+    const chargeCost   = gridKwh * chargeElecPrice;
+    return { energyNeeded, gridKwh, hours, minutes, addedKm, effectivePow, chargeCost };
   }, [batteryCapacity, currentSoc, targetSoc, chargerPower, dcPower, chargeMode, selectedCarData, carConsumption, chargeElecPrice]);
 
   // ── Savings calculations ─────────────────────────────────────────────────
@@ -870,6 +898,16 @@ export default function Calculator() {
                     </motion.div>
                   </div>
 
+                  {/* ⚠️ DC süresi TAHMİNDİR: hesap gerçekçi bir güç düşüşü (taper) uygular
+                      ama gerçek eğri araca ve batarya sıcaklığına göre değişir — bazı
+                      araçlar tepe gücü uzun tutar, çoğu erken düşer. AC tarafı doğrusaldır
+                      ve gerçek süreyle örtüşür, o yüzden not YALNIZ DC modunda gösterilir. */}
+                  {chargeMode === "dc" && (
+                    <p className="px-4 pb-2 text-[11px] leading-snug" style={{ color: d ? "rgba(255,255,255,0.34)" : "rgba(0,0,0,0.38)" }}>
+                      {t("calc_dc_note")}
+                    </p>
+                  )}
+
                   {/* Stats row */}
                   <div className="grid grid-cols-3 gap-2 px-4 pb-3">
                     {[
@@ -890,8 +928,11 @@ export default function Calculator() {
                     style={{ background: `${GREEN}12`, border: `1px solid ${GREEN}28` }}>
                     <div>
                       <p className="text-sm font-bold uppercase tracking-wider" style={{ color: GREEN }}>{t("calc_elec_cost")}</p>
+                      {/* ⚠️ Gösterilen çarpım, hesaplanan tutarla AYNI sayıyı kullanmalı:
+                          fatura ŞEBEKEDEN çekilen enerjiye kesilir (şarj kaybı dahil),
+                          aküye giren enerjiye değil. */}
                       <p className="text-xs mt-0.5" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.38)" }}>
-                        {chargeCalc.energyNeeded.toFixed(1)} kWh × {chargeElecPrice.toFixed(2)} ₺/kWh
+                        {chargeCalc.gridKwh.toFixed(1)} kWh × {chargeElecPrice.toFixed(2)} ₺/kWh
                       </p>
                     </div>
                     <p className="text-xl font-black" style={{ color: GREEN }}>{chargeCalc.chargeCost.toFixed(2)} ₺</p>
