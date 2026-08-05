@@ -148,7 +148,7 @@
         "code": "BEV-2011-0005",
         "subtitle": "5 m Kabel",
         "badge": null,
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort; ein optionaler MID-Zähler liefert eine geeichte Energiemessung. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -228,7 +228,7 @@
         "code": "BEV-2012-0000",
         "subtitle": "Mit Schalttafel-Steckdose",
         "badge": "Mit Schalttafel-Steckdose",
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort; ein optionaler MID-Zähler liefert eine geeichte Energiemessung. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -308,7 +308,7 @@
         "code": "BEV-2011-1005",
         "subtitle": "5 m Kabel / GSM-Modul",
         "badge": "GSM",
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort; ein optionaler MID-Zähler liefert eine geeichte Energiemessung. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -401,7 +401,7 @@
         "code": "BEV-2012-1000",
         "subtitle": "Mit Schalttafel-Steckdose / GSM-Modul",
         "badge": "GSM",
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort; ein optionaler MID-Zähler liefert eine geeichte Energiemessung. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -494,7 +494,7 @@
         "code": "BEV-2011-1015",
         "subtitle": "5 m Kabel / GSM-Modul · Integrierter MID-Zähler",
         "badge": "GSM · MID",
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -587,7 +587,7 @@
         "code": "BEV-2012-1010",
         "subtitle": "Mit Schalttafel-Steckdose / GSM-Modul · Integrierter MID-Zähler",
         "badge": "GSM · MID",
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -680,7 +680,7 @@
         "code": "BEV-3011-0005",
         "subtitle": "5 m Kabel",
         "badge": null,
-        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Ein optionaler MID-Zähler liefert eine geeichte Energiemessung; bei vernetzten Modellen kommen über die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf hinzu. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -765,7 +765,7 @@
         "code": "BEV-3012-0000",
         "subtitle": "Mit Schalttafel-Steckdose",
         "badge": "Mit Schalttafel-Steckdose",
-        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Ein optionaler MID-Zähler liefert eine geeichte Energiemessung; bei vernetzten Modellen kommen über die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf hinzu. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -844,7 +844,7 @@
         "code": "BEV-3012-1000",
         "subtitle": "Mit Schalttafel-Steckdose / GSM-Modul",
         "badge": "GSM",
-        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Ein optionaler MID-Zähler liefert eine geeichte Energiemessung; bei vernetzten Modellen kommen über die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf hinzu. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -941,7 +941,7 @@
         "code": "BEV-3011-1005",
         "subtitle": "5 m Kabel / GSM-Modul",
         "badge": "GSM",
-        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Ein optionaler MID-Zähler liefert eine geeichte Energiemessung; bei vernetzten Modellen kommen über die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf hinzu. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1033,7 +1033,7 @@
         "code": "BEV-3011-10S5",
         "subtitle": "5 m Kabel / GSM-Modul · Integrierter MID-Zähler",
         "badge": "GSM · MID",
-        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt.",
+        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Bei vernetzten Modellen bietet die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1125,7 +1125,7 @@
         "code": "BEV-3012-10S0",
         "subtitle": "Mit Schalttafel-Steckdose / GSM-Modul · Integrierter MID-Zähler",
         "badge": "GSM · MID",
-        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt.",
+        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Bei vernetzten Modellen bietet die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1222,7 +1222,7 @@
         "code": "BEV-3011-00S5",
         "subtitle": "5 m Kabel · MID",
         "badge": null,
-        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz.",
+        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Bei vernetzten Modellen bietet die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1307,7 +1307,7 @@
         "code": "BEV-3012-00S0",
         "subtitle": "Mit Schalttafel-Steckdose · MID",
         "badge": null,
-        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz.",
+        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Bei vernetzten Modellen bietet die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1386,7 +1386,7 @@
         "code": "BEV-2011-00S5",
         "subtitle": "5 m Kabel · MID",
         "badge": null,
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1466,7 +1466,7 @@
         "code": "BEV-2012-00S0",
         "subtitle": "Mit Schalttafel-Steckdose · MID",
         "badge": null,
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -6918,11 +6918,11 @@
     "products": [
       {
         "id": "bevdc-40-1",
-        "code": "BEVDC-40-1",
+        "code": "BEVDCC-4223-0005",
         "name": "BEVDC 40",
         "subtitle": "40kW DC Fast Charging Station · Wall-mounted",
         "badge": null,
-        "description": "Kompakte DC-Schnellladestation mit 40 kW und einem einzelnen CCS2-Ausgang. Ideale Leistungsklasse für Installationen in Cafés, Restaurants, Hotels und innerstädtischen Parkplätzen; Unterstützung von OCPP 1.6J / 2.0.1, RFID-Benutzerautorisierung, IP54 für den Außeneinsatz.",
+        "description": "Kompakte DC-Schnellladestation mit 40 kW und einem einzelnen CCS2-Ausgang. Ideale Leistungsklasse für Installationen in Cafés, Restaurants, Hotels und innerstädtischen Parkplätzen; Unterstützung von OCPP 1.6J / 2.0.1, RFID-Benutzerautorisierung, IP54 für den Außeneinsatz. Es bietet eine Plug-and-play-Installation mit Fernverwaltung für eine schnelle Inbetriebnahme, dank Lastausgleich eine intelligente Leistungsverteilung zwischen den Fahrzeugen sowie Unterstützung für kontaktloses Bezahlen per NFC.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -7055,11 +7055,11 @@
       },
       {
         "id": "bevdc-80-2",
-        "code": "BEVDC-80-2",
+        "code": "BEVDCC-4321-0005",
         "name": "BEVDC 80",
         "subtitle": "80kW DC Fast Charging Station",
         "badge": null,
-        "description": "DC-Schnellladestation mit 80 kW und zwei CCS2-Ausgängen. Mittlere Leistungslösung, die zwei Fahrzeuge gleichzeitig lädt; für Einkaufszentrum-Parkplätze, Firmencampus und überregionale Hauptachsen. OCPP, RFID, IP54-Schutz.",
+        "description": "DC-Schnellladestation mit 80 kW und zwei CCS2-Ausgängen. Mittlere Leistungslösung, die zwei Fahrzeuge gleichzeitig lädt; für Einkaufszentrum-Parkplätze, Firmencampus und überregionale Hauptachsen. OCPP, RFID, IP54-Schutz. Es bietet eine Plug-and-play-Installation mit Fernverwaltung für eine schnelle Inbetriebnahme, dank Lastausgleich eine intelligente Leistungsverteilung zwischen den Fahrzeugen sowie Unterstützung für kontaktloses Bezahlen per NFC.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -7188,11 +7188,11 @@
       },
       {
         "id": "bevdc-120-1",
-        "code": "BEVDC-120-1",
+        "code": "BEVDCC-4421-0005",
         "name": "BEVDC 120",
         "subtitle": "120kW DC Fast Charging Station",
         "badge": null,
-        "description": "DC-Schnellladestation mit 120 kW und einem oder zwei CCS2-Ausgängen. Liefert an stark frequentierten Autobahnraststätten und in Flottenzentren innerhalb von 30 Minuten erhebliche Reichweite; OCPP, RFID, IP54-Schutz.",
+        "description": "DC-Schnellladestation mit 120 kW und einem oder zwei CCS2-Ausgängen. Liefert an stark frequentierten Autobahnraststätten und in Flottenzentren innerhalb von 30 Minuten erhebliche Reichweite; OCPP, RFID, IP54-Schutz. Es bietet eine Plug-and-play-Installation mit Fernverwaltung für eine schnelle Inbetriebnahme, dank Lastausgleich eine intelligente Leistungsverteilung zwischen den Fahrzeugen sowie Unterstützung für kontaktloses Bezahlen per NFC.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -7339,11 +7339,11 @@
       },
       {
         "id": "bevdc-160-2",
-        "code": "BEVDC-160-2",
+        "code": "BEVDCC-4521-0005",
         "name": "BEVDC 160",
         "subtitle": "160kW DC Fast Charging Station",
         "badge": null,
-        "description": "Hochleistungs-DC-Schnellladestation mit 160 kW und zwei CCS2-Ausgängen. Für Autobahn-Pit-Stops und intensives gewerbliches Flottenladen; versorgt mit dynamischer Leistungsaufteilung zwei Fahrzeuge mit maximaler Kapazität.",
+        "description": "Hochleistungs-DC-Schnellladestation mit 160 kW und zwei CCS2-Ausgängen. Für Autobahn-Pit-Stops und intensives gewerbliches Flottenladen; versorgt mit dynamischer Leistungsaufteilung zwei Fahrzeuge mit maximaler Kapazität. Es bietet eine Plug-and-play-Installation mit Fernverwaltung für eine schnelle Inbetriebnahme, dank Lastausgleich eine intelligente Leistungsverteilung zwischen den Fahrzeugen sowie Unterstützung für kontaktloses Bezahlen per NFC.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -7490,11 +7490,11 @@
       },
       {
         "id": "bevdc-200-2",
-        "code": "BEVDC-200-2",
+        "code": "BEVDCC-4721-0005",
         "name": "BEVDC 200",
         "subtitle": "200kW DC Fast Charging Station",
         "badge": null,
-        "description": "Flaggschiff-DC-Schnellladestation mit 200 kW und zwei CCS2-Ausgängen. Höchste Leistungsklasse für Installationen an Autobahnkorridoren und stark frequentierten Stationen; fügt in Ultraschnelllade-Szenarien in 15-20 Minuten erhebliche Reichweite hinzu.",
+        "description": "Flaggschiff-DC-Schnellladestation mit 200 kW und zwei CCS2-Ausgängen. Höchste Leistungsklasse für Installationen an Autobahnkorridoren und stark frequentierten Stationen; fügt in Ultraschnelllade-Szenarien in 15-20 Minuten erhebliche Reichweite hinzu. Es bietet eine Plug-and-play-Installation mit Fernverwaltung für eine schnelle Inbetriebnahme, dank Lastausgleich eine intelligente Leistungsverteilung zwischen den Fahrzeugen sowie Unterstützung für kontaktloses Bezahlen per NFC.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -7645,7 +7645,7 @@
         "name": "BEVDC 180",
         "subtitle": "180kW DC Fast Charging Station",
         "badge": null,
-        "description": "Hochleistungs-DC-Schnellladestation mit 160 kW und zwei CCS2-Ausgängen. Für Autobahn-Pit-Stops und intensives gewerbliches Flottenladen; versorgt mit dynamischer Leistungsaufteilung zwei Fahrzeuge mit maximaler Kapazität.",
+        "description": "Hochleistungs-DC-Schnellladestation mit 160 kW und zwei CCS2-Ausgängen. Für Autobahn-Pit-Stops und intensives gewerbliches Flottenladen; versorgt mit dynamischer Leistungsaufteilung zwei Fahrzeuge mit maximaler Kapazität. Es bietet eine Plug-and-play-Installation mit Fernverwaltung für eine schnelle Inbetriebnahme, dank Lastausgleich eine intelligente Leistungsverteilung zwischen den Fahrzeugen sowie Unterstützung für kontaktloses Bezahlen per NFC.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -7796,7 +7796,7 @@
         "name": "BEVDC 40",
         "subtitle": "40kW DC Fast Charging Station · Pedestal",
         "badge": null,
-        "description": "Kompakte DC-Schnellladestation mit 40 kW und einem einzelnen CCS2-Ausgang. Ideale Leistungsklasse für Installationen in Cafés, Restaurants, Hotels und innerstädtischen Parkplätzen; Unterstützung von OCPP 1.6J / 2.0.1, RFID-Benutzerautorisierung, IP54 für den Außeneinsatz.",
+        "description": "Kompakte DC-Schnellladestation mit 40 kW und einem einzelnen CCS2-Ausgang. Ideale Leistungsklasse für Installationen in Cafés, Restaurants, Hotels und innerstädtischen Parkplätzen; Unterstützung von OCPP 1.6J / 2.0.1, RFID-Benutzerautorisierung, IP54 für den Außeneinsatz. Es bietet eine Plug-and-play-Installation mit Fernverwaltung für eine schnelle Inbetriebnahme, dank Lastausgleich eine intelligente Leistungsverteilung zwischen den Fahrzeugen sowie Unterstützung für kontaktloses Bezahlen per NFC.",
         "specs": [
           {
             "group": "Elektrisch",
