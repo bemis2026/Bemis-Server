@@ -9,7 +9,7 @@
         "id": "charger-2-kablolu",
         "name": "Charger 2",
         "code": "BEV-1011-0005",
-        "subtitle": "5m. Kablolu",
+        "subtitle": "5m. Kablolu · 22 kW / 32A",
         "badge": null,
         "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 22 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
         "specs": [
@@ -75,7 +75,7 @@
         "id": "charger-2-fisli",
         "name": "Charger 2",
         "code": "BEV-1011-0105",
-        "subtitle": "5m. Kablolu / 5-32A Fişli",
+        "subtitle": "5m. Kablolu / 5-32A Fişli · 22 kW",
         "badge": "Fişli",
         "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 22 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
         "specs": [

@@ -9,7 +9,7 @@
         "id": "charger-2-kablolu",
         "name": "Charger 2",
         "code": "BEV-1011-0005",
-        "subtitle": "5 m Kabel",
+        "subtitle": "5 m Kabel · 22 kW / 32A",
         "badge": null,
         "description": "Der Bemis Charger 2 ist eine AC-Wandladestation für den Einsatz zu Hause und im Betrieb, mit den Optionen einphasig 7,4 kW und dreiphasig 22 kW. Mit 5 Meter integriertem Type 2-Kabel oder der Schalttafel-Steckdosen-Version arbeitet das CE- & IP65-zertifizierte Gehäuse im Innen- und Außenbereich sicher. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
         "specs": [
@@ -75,7 +75,7 @@
         "id": "charger-2-fisli",
         "name": "Charger 2",
         "code": "BEV-1011-0105",
-        "subtitle": "5 m Kabel / 5-32A mit Stecker",
+        "subtitle": "5 m Kabel / 5-32A mit Stecker · 22 kW",
         "badge": "Mit Stecker",
         "description": "Der Bemis Charger 2 ist eine AC-Wandladestation für den Einsatz zu Hause und im Betrieb, mit den Optionen einphasig 7,4 kW und dreiphasig 22 kW. Mit 5 Meter integriertem Type 2-Kabel oder der Schalttafel-Steckdosen-Version arbeitet das CE- & IP65-zertifizierte Gehäuse im Innen- und Außenbereich sicher. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
         "specs": [
