@@ -27,6 +27,11 @@ export const PRODUCT_FEATURES: ProductFeature[] = [
   // ikon haritalarına da eklendi (RiDashboard3Line / RiHammerLine / RiEqualizerLine yeni).
   { id: "autostart",   label: "Otomatik Şarj Başlatma", icon: "RiFlashlightLine",  accent: "#F97316", desc: "Kablo takılınca şarj kendiliğinden başlar." },
   { id: "mid",         label: "MID Sayaç (Opsiyonel)", icon: "RiDashboard3Line",  accent: "#14B8A6", desc: "Sertifikalı MID enerji sayacı ile doğru ölçüm (opsiyonel)." },
+  // ⚠️ "MID Sayaçlı" modellerde sayaç DAHİLİDİR — o 8 üründe `mid` rozetinin
+  // "(Opsiyonel)" etiketi yanlış okunuyordu: bayi sayfaya bakınca sayacın fiyata
+  // dahil olup olmadığını anlayamıyordu. Sayaçsız kardeş modellerde `mid` AYNEN
+  // kalır (orada gerçekten opsiyonel). İkon zaten ikon haritalarında kayıtlı.
+  { id: "midDahili",   label: "Dahili MID Sayaç",     icon: "RiDashboard3Line",  accent: "#14B8A6", desc: "Kasaya entegre sertifikalı MID enerji sayacı; ölçüm bazlı faturalandırmaya uygun." },
   { id: "plugplay",    label: "Tak-Çalıştır",         icon: "RiPlugLine",         accent: "#22C55E", desc: "Kur-tak-çalıştır; ek ayar gerektirmez." },
   { id: "safety",      label: "Güvenlik Korumaları",  icon: "RiShieldCheckLine",  accent: "#EF4444", desc: "Aşırı akım, kısa devre ve kaçak akıma karşı korumalar." },
   { id: "ik10",        label: "IK10 Darbe Dayanımı",  icon: "RiHammerLine",       accent: "#78716C", desc: "IK10 darbe dayanımlı sağlam gövde." },

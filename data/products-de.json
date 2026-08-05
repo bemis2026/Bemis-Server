@@ -577,7 +577,7 @@
           "shared",
           "load",
           "autostart",
-          "mid",
+          "midDahili",
           "montaj"
         ]
       },
@@ -670,7 +670,7 @@
           "shared",
           "load",
           "autostart",
-          "mid",
+          "midDahili",
           "montaj"
         ]
       },
@@ -1115,7 +1115,7 @@
           "ocpp",
           "shared",
           "load",
-          "mid",
+          "midDahili",
           "montaj"
         ]
       },
@@ -1207,7 +1207,7 @@
           "ocpp",
           "shared",
           "load",
-          "mid",
+          "midDahili",
           "montaj"
         ],
         "certificates": [
@@ -1222,7 +1222,7 @@
         "code": "BEV-3011-00S5",
         "subtitle": "5 m Kabel · MID",
         "badge": null,
-        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1291,7 +1291,7 @@
           "ocpp",
           "shared",
           "load",
-          "mid",
+          "midDahili",
           "montaj"
         ],
         "documents": [
@@ -1307,7 +1307,7 @@
         "code": "BEV-3012-00S0",
         "subtitle": "Mit Schalttafel-Steckdose · MID",
         "badge": null,
-        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1376,7 +1376,7 @@
           "ocpp",
           "shared",
           "load",
-          "mid",
+          "midDahili",
           "montaj"
         ]
       },
@@ -1386,7 +1386,7 @@
         "code": "BEV-2011-00S5",
         "subtitle": "5 m Kabel · MID",
         "badge": null,
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1456,7 +1456,7 @@
           "shared",
           "load",
           "autostart",
-          "mid",
+          "midDahili",
           "montaj"
         ]
       },
@@ -1466,7 +1466,7 @@
         "code": "BEV-2012-00S0",
         "subtitle": "Mit Schalttafel-Steckdose · MID",
         "badge": null,
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1536,7 +1536,7 @@
           "shared",
           "load",
           "autostart",
-          "mid",
+          "midDahili",
           "montaj"
         ]
       },
@@ -6662,7 +6662,7 @@
         "code": "BAK-8200-0001",
         "subtitle": "",
         "badge": null,
-        "description": "Spezieller Steckdosenhalter, entwickelt für die AC-Wallbox-Geräte der Bemis Charger-Serie. Abgestimmt auf die Gehäusefarbe des Geräts, wird mit einer Schnellklemme am Gerät montiert.",
+        "description": "Halter zur Aufbewahrung des Typ-2-Steckers (AC) bei Nichtgebrauch. Die Montage erfolgt mit einer Schnellklemme, sodass das Kabel nicht am Boden schleift und der Stecker vor Stößen und Schmutz geschützt bleibt.",
         "specs": [
           {
             "group": "Allgemein",

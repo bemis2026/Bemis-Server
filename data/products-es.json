@@ -577,7 +577,7 @@
           "shared",
           "load",
           "autostart",
-          "mid",
+          "midDahili",
           "montaj"
         ]
       },
@@ -670,7 +670,7 @@
           "shared",
           "load",
           "autostart",
-          "mid",
+          "midDahili",
           "montaj"
         ]
       },
@@ -1115,7 +1115,7 @@
           "ocpp",
           "shared",
           "load",
-          "mid",
+          "midDahili",
           "montaj"
         ]
       },
@@ -1207,7 +1207,7 @@
           "ocpp",
           "shared",
           "load",
-          "mid",
+          "midDahili",
           "montaj"
         ],
         "certificates": [
@@ -1222,7 +1222,7 @@
         "code": "BEV-3011-00S5",
         "subtitle": "Con cable de 5 m · MID",
         "badge": null,
-        "description": "Charger Pro 2, de potencia ajustable de 4-7-11-22 kW, está diseñado para entornos profesionales con gestión avanzada de carga (DLM) y funciones de autorización de usuario. Abierto a la integración en redes de carga mediante el protocolo OCPP 1.6; ideal para clientes OEM y operadores. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "description": "Charger Pro 2, de potencia ajustable de 4-7-11-22 kW, está diseñado para entornos profesionales con gestión avanzada de carga (DLM) y funciones de autorización de usuario. Abierto a la integración en redes de carga mediante el protocolo OCPP 1.6; ideal para clientes OEM y operadores. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Este modelo incorpora un contador de energía MID certificado integrado en la carcasa; es totalmente apto para la facturación basada en mediciones a través de OCPP y para un uso comercial exigente.",
         "specs": [
           {
             "group": "Eléctrico",
@@ -1291,7 +1291,7 @@
           "ocpp",
           "shared",
           "load",
-          "mid",
+          "midDahili",
           "montaj"
         ],
         "documents": [
@@ -1307,7 +1307,7 @@
         "code": "BEV-3012-00S0",
         "subtitle": "Con toma para cuadro · MID",
         "badge": null,
-        "description": "Charger Pro 2, de potencia ajustable de 4-7-11-22 kW, está diseñado para entornos profesionales con gestión avanzada de carga (DLM) y funciones de autorización de usuario. Abierto a la integración en redes de carga mediante el protocolo OCPP 1.6; ideal para clientes OEM y operadores. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "description": "Charger Pro 2, de potencia ajustable de 4-7-11-22 kW, está diseñado para entornos profesionales con gestión avanzada de carga (DLM) y funciones de autorización de usuario. Abierto a la integración en redes de carga mediante el protocolo OCPP 1.6; ideal para clientes OEM y operadores. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Este modelo incorpora un contador de energía MID certificado integrado en la carcasa; es totalmente apto para la facturación basada en mediciones a través de OCPP y para un uso comercial exigente.",
         "specs": [
           {
             "group": "Eléctrico",
@@ -1376,7 +1376,7 @@
           "ocpp",
           "shared",
           "load",
-          "mid",
+          "midDahili",
           "montaj"
         ]
       },
@@ -1386,7 +1386,7 @@
         "code": "BEV-2011-00S5",
         "subtitle": "Con cable de 5 m · MID",
         "badge": null,
-        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Este modelo incorpora un contador de energía MID certificado integrado en la carcasa; es totalmente apto para la facturación basada en mediciones a través de OCPP y para un uso comercial exigente.",
         "specs": [
           {
             "group": "Eléctrico",
@@ -1456,7 +1456,7 @@
           "shared",
           "load",
           "autostart",
-          "mid",
+          "midDahili",
           "montaj"
         ]
       },
@@ -1466,7 +1466,7 @@
         "code": "BEV-2012-00S0",
         "subtitle": "Con toma para cuadro · MID",
         "badge": null,
-        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Este modelo incorpora un contador de energía MID certificado integrado en la carcasa; es totalmente apto para la facturación basada en mediciones a través de OCPP y para un uso comercial exigente.",
         "specs": [
           {
             "group": "Eléctrico",
@@ -1536,7 +1536,7 @@
           "shared",
           "load",
           "autostart",
-          "mid",
+          "midDahili",
           "montaj"
         ]
       },
@@ -6662,7 +6662,7 @@
         "code": "BAK-8200-0001",
         "subtitle": "",
         "badge": null,
-        "description": "Soporte de toma especial diseñado para los dispositivos AC wallbox de la serie Bemis Charger. Combina con el color de la carcasa del dispositivo y se monta sobre él con una abrazadera rápida.",
+        "description": "Soporte para guardar el conector Tipo 2 (AC) cuando no está en uso. Se monta con una abrazadera rápida, de modo que el cable no se arrastra por el suelo y el conector queda protegido de golpes y suciedad.",
         "specs": [
           {
             "group": "General",

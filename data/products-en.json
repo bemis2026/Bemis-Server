@@ -577,7 +577,7 @@
           "shared",
           "load",
           "autostart",
-          "mid",
+          "midDahili",
           "montaj"
         ]
       },
@@ -670,7 +670,7 @@
           "shared",
           "load",
           "autostart",
-          "mid",
+          "midDahili",
           "montaj"
         ]
       },
@@ -1115,7 +1115,7 @@
           "ocpp",
           "shared",
           "load",
-          "mid",
+          "midDahili",
           "montaj"
         ]
       },
@@ -1207,7 +1207,7 @@
           "ocpp",
           "shared",
           "load",
-          "mid",
+          "midDahili",
           "montaj"
         ],
         "certificates": [
@@ -1222,7 +1222,7 @@
         "code": "BEV-3011-00S5",
         "subtitle": "5m. Kablolu · MID",
         "badge": null,
-        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
+        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use.",
         "specs": [
           {
             "group": "Electrical",
@@ -1291,7 +1291,7 @@
           "ocpp",
           "shared",
           "load",
-          "mid",
+          "midDahili",
           "montaj"
         ],
         "documents": [
@@ -1307,7 +1307,7 @@
         "code": "BEV-3012-00S0",
         "subtitle": "Pano Prizli · MID",
         "badge": null,
-        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
+        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use.",
         "specs": [
           {
             "group": "Electrical",
@@ -1376,7 +1376,7 @@
           "ocpp",
           "shared",
           "load",
-          "mid",
+          "midDahili",
           "montaj"
         ]
       },
@@ -1386,7 +1386,7 @@
         "code": "BEV-2011-00S5",
         "subtitle": "5m. Kablolu · MID",
         "badge": null,
-        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
+        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use.",
         "specs": [
           {
             "group": "Electrical",
@@ -1456,7 +1456,7 @@
           "shared",
           "load",
           "autostart",
-          "mid",
+          "midDahili",
           "montaj"
         ]
       },
@@ -1466,7 +1466,7 @@
         "code": "BEV-2012-00S0",
         "subtitle": "Pano Prizli · MID",
         "badge": null,
-        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
+        "description": "Charger Plus 2, 4-7-11-22 kW arası ayarlanabilir güç seviyesi ile farklı elektrik tesisatlarına uyum sağlar. Akıllı şarj algoritması, aracın kabul ettiği maksimum akıma otomatik adapte olur; ev ve küçük işletmeler için optimize edildi. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use.",
         "specs": [
           {
             "group": "Electrical",
@@ -1536,7 +1536,7 @@
           "shared",
           "load",
           "autostart",
-          "mid",
+          "midDahili",
           "montaj"
         ]
       },
@@ -6662,7 +6662,7 @@
         "code": "BAK-8200-0001",
         "subtitle": "",
         "badge": null,
-        "description": "Bemis Charger serisi AC wallbox cihazları için tasarlanmış özel priz tutucu. Cihazın gövde rengiyle uyumlu, hızlı kelepçe ile cihaza monte edilir.",
+        "description": "A holder that stores the Type 2 (AC) connector when it is not in use. It is fitted with a quick clamp, so the cable does not drag on the ground and the connector stays protected from impact and dirt.",
         "specs": [
           {
             "group": "General",
