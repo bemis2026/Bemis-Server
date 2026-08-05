@@ -6952,7 +6952,7 @@
         "id": "bevdc-40-1",
         "code": "BEVDC-40-1",
         "name": "BEVDC 40",
-        "subtitle": "Estación de carga rápida DC de 40 kW",
+        "subtitle": "Estación de carga rápida DC de 40 kW · Wall-mounted",
         "badge": null,
         "description": "Estación de carga rápida DC compacta de 40 kW con una única salida CCS2. Clase de potencia ideal para instalaciones en cafeterías, restaurantes, hoteles y aparcamientos urbanos; compatibilidad con OCPP 1.6J / 2.0.1, autorización de usuario por RFID, uso en exteriores IP54.",
         "specs": [

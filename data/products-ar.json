@@ -6952,7 +6952,7 @@
         "id": "bevdc-40-1",
         "code": "BEVDC-40-1",
         "name": "BEVDC 40",
-        "subtitle": "40kW DC Fast Charging Station",
+        "subtitle": "40kW DC Fast Charging Station · Wall-mounted",
         "badge": null,
         "description": "محطة شحن DC سريعة مدمجة بقدرة 40 kW ومخرج CCS2 واحد. فئة قدرة مثالية لعمليات التركيب في المقاهي والمطاعم والفنادق والمواقف داخل المدينة؛ دعم OCPP 1.6J / 2.0.1، وتفويض المستخدم عبر RFID، واستخدام خارجي بحماية IP54.",
         "specs": [

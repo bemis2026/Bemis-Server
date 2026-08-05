@@ -6972,7 +6972,7 @@
         "id": "bevdc-40-1",
         "code": "BEVDCC-4223-0005",
         "name": "BEVDC 40",
-        "subtitle": "40kW DC Hızlı Şarj İstasyonu",
+        "subtitle": "40kW DC Hızlı Şarj İstasyonu · Duvar Tipi",
         "badge": null,
         "description": "40 kW tek CCS2 çıkışlı kompakt DC hızlı şarj istasyonu. Kafe, restoran, otel ve şehir içi otopark kurulumları için ideal güç sınıfı; OCPP 1.6J / 2.0.1 desteği, RFID kullanıcı yetkilendirme, IP54 dış mekan kullanımı. Tak-çalıştır kurulum ve uzaktan yönetim ile hızlı devreye alma, güç dengeleme ile araçlar arası akıllı güç paylaşımı ve NFC temassız ödeme desteği sunar.",
         "specs": [
