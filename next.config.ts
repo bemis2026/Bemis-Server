@@ -43,7 +43,13 @@ const csp = [
   // res.cloudinary.com + *.r2.dev are where document PDFs live — the
   // /documents/[id] viewer embeds them in an <iframe> for inline preview.
   // Without these the PDF frame is blank (CSP blocks the load).
-  "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com https://td.doubleclick.net https://www.googletagmanager.com https://res.cloudinary.com https://*.r2.dev",
+  // ⚠️ www.google.com + maps.google.com: /iletisim sayfası konumu
+  // `google.com/maps?...&output=embed` ile <iframe> içinde gösteriyor. Bunlar
+  // listede olmadığı için tarayıcı iframe'i ENGELLİYOR ve harita yerine BOŞ
+  // kutu çıkıyordu (2026-06-28'de teşhis edilmiş, o tur "sadece değerlendir"
+  // denildiği için uygulanmamıştı; 2026-08-05'te kullanıcı bildirince açıldı).
+  // maps.google.com da eklendi: Google bazı bölgelerde oraya yönlendiriyor.
+  "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com https://td.doubleclick.net https://www.googletagmanager.com https://res.cloudinary.com https://*.r2.dev https://www.google.com https://maps.google.com",
   "media-src 'self' blob: https://res.cloudinary.com https:",
   "object-src 'none'",
   "base-uri 'self'",
