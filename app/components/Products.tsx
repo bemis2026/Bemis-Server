@@ -82,8 +82,11 @@ const categories = [
   },
   {
     id: "converters",
-    name: "Uzatma & Kombinasyon",
-    subtitle: "Uzatma Kabloları, Dönüştürücüler & Kombinasyon Kutuları",
+    // ⚠️ "Kombinasyon" ADI KALDIRILDI: bu kategoride kombinasyon YOK (21 ürünün
+    // tamamı adaptör + uzatma kablosu); Otomatlı IP44/IP66 Kombinasyonlar
+    // `charger-equipment` altında. Canlı değer content bin'inden gelir, bu yalnız yedek.
+    name: "Dönüştürücü Adaptörler ve Uzatma Kabloları",
+    subtitle: "Cee Norm ve standart dönüştürücü adaptörler, seyyar uzatma kabloları",
     modelCount: 4,
     icon: RiToolsLine,
     accent: "#06B6D4",

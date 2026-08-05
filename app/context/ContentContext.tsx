@@ -486,7 +486,9 @@ const defaultContent: SiteContent = {
     "portable":          { name: "AC Mobile Chargers",       subtitle: "Taşınabilir Şarj Cihazları",                            modelCount: 2, badge: "Yeni",         comingSoon: false },
     "cables":            { name: "AC Şarj Kabloları",        subtitle: "Type 2 · Mod 2 & Mod 3",                                modelCount: 4, badge: null,           comingSoon: false },
     "v2l-c2l":           { name: "V2L / C2L Adaptörler",     subtitle: "Vehicle-to-Load & Charger-to-Load",                     modelCount: 3, badge: "İnovatif",     comingSoon: false },
-    "converters":        { name: "Uzatma & Kombinasyon",     subtitle: "Uzatma Kabloları, Dönüştürücüler & Kombinasyon Kutuları",modelCount: 4, badge: null,           comingSoon: false },
+    // ⚠️ "Kombinasyon" ADI KALDIRILDI — bu kategoride kombinasyon ürünü YOK
+    // (hepsi adaptör + uzatma kablosu); kombinasyonlar `charger-equipment`'ta.
+    "converters":        { name: "Dönüştürücü Adaptörler ve Uzatma Kabloları", subtitle: "Cee Norm ve standart dönüştürücü adaptörler, seyyar uzatma kabloları", modelCount: 4, badge: null, comingSoon: false },
     "charger-equipment": { name: "Şarj Ünitesi Ekipmanları", subtitle: "Type 2 Soket, Holster & Montaj Ekipmanları",            modelCount: 5, badge: null,           comingSoon: false },
     "accessories":       { name: "Aksesuarlar",              subtitle: "V2L/C2L, Montaj & Diğer",                               modelCount: 4, badge: null,           comingSoon: false },
     "dc-units":          { name: "DC Şarj Üniteleri",        subtitle: "Hızlı DC Şarj İstasyonları",                            modelCount: 0, badge: "Yakında",      comingSoon: true  },
