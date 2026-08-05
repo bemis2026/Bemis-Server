@@ -184,6 +184,7 @@ const STRINGS = {
   calc_energy:            { tr: "Enerji",                          en: "Energy" },
   calc_range_added:       { tr: "Eklenecek Menzil",                en: "Range Added" },
   calc_efficiency:        { tr: "Verimlilik",                      en: "Efficiency" },
+  calc_grid_energy:       { tr: "Şebekeden çekilen",                en: "Drawn from grid" },
   // ⚠️ DC süresi tahmindir — genel taper eğrisi kullanılır, gerçek eğri araca göre değişir.
   calc_product_hint:      { tr: "Bu güç için Bemis",             en: "Bemis for this power" },
   calc_product_cta:       { tr: "İncele",                        en: "View" },

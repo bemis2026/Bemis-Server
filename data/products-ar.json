@@ -6657,42 +6657,10 @@
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075098/products/hjtuhulovozll09t9ijg.png"
       },
       {
-        "id": "priz-tutucu-genel-priz-tutucu",
-        "name": "Priz Tutucu",
-        "code": "BAK-8200-0000",
-        "subtitle": "حامل مقبس عام",
-        "badge": null,
-        "description": "أداة حامل مثبّتة على الجدار أو اللوحة لتعليق مقبس Type 2 وتخزينه عند عدم الاستخدام. تُبقي الكابل بعيدًا عن الأرض وتحافظ على بقاء التركيب منظّمًا وآمنًا.",
-        "specs": [
-          {
-            "group": "عام",
-            "items": [
-              {
-                "label": "النوع",
-                "value": "ملحق"
-              },
-              {
-                "label": "الفئة",
-                "value": "حامل مقبس"
-              }
-            ]
-          },
-          {
-            "group": "السعر",
-            "items": [
-              {
-                "label": "سعر القائمة",
-                "value": "EUR 19,80"
-              }
-            ]
-          }
-        ]
-      },
-      {
         "id": "charger-priz-tutucu-charger-serisi",
-        "name": "Charger Priz Tutucu",
+        "name": "AC Soket Tutucu",
         "code": "BAK-8200-0001",
-        "subtitle": "سلسلة Charger",
+        "subtitle": "",
         "badge": null,
         "description": "حامل مقبس خاص مصمّم لأجهزة AC wallbox من سلسلة Bemis Charger. متوافق مع لون هيكل الجهاز ويُثبَّت على الجهاز بمشبك سريع.",
         "specs": [

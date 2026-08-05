@@ -6677,42 +6677,10 @@
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075098/products/hjtuhulovozll09t9ijg.png"
       },
       {
-        "id": "priz-tutucu-genel-priz-tutucu",
-        "name": "Priz Tutucu",
-        "code": "BAK-8200-0000",
-        "subtitle": "Genel Priz Tutucu",
-        "badge": null,
-        "description": "Kullanılmadığında Type 2 prizin asılarak saklanması için duvar veya pano montajlı tutucu aparat. Kabloyu yerden uzak tutar, kurulumun düzenli ve güvenli kalmasını sağlar.",
-        "specs": [
-          {
-            "group": "Genel",
-            "items": [
-              {
-                "label": "Tip",
-                "value": "Aksesuar"
-              },
-              {
-                "label": "Kategori",
-                "value": "Priz Tutucu"
-              }
-            ]
-          },
-          {
-            "group": "Fiyat",
-            "items": [
-              {
-                "label": "Liste Fiyatı",
-                "value": "EUR 19,80"
-              }
-            ]
-          }
-        ]
-      },
-      {
         "id": "charger-priz-tutucu-charger-serisi",
-        "name": "Charger Priz Tutucu",
+        "name": "AC Soket Tutucu",
         "code": "BAK-8200-0001",
-        "subtitle": "Charger Serisi",
+        "subtitle": "",
         "badge": null,
         "description": "Bemis Charger serisi AC wallbox cihazları için tasarlanmış özel priz tutucu. Cihazın gövde rengiyle uyumlu, hızlı kelepçe ile cihaza monte edilir.",
         "specs": [

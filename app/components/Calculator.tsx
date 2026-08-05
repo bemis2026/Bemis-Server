@@ -48,6 +48,8 @@ const EV_MODELS: EvModel[] = [
   { brand: "Hyundai", model: "Ioniq 5 N (84 kWh)",      battery: 84,    maxAcKw: 11,  maxDcKw: 233, consumption: 20 },
   { brand: "Hyundai", model: "Ioniq 6 Standard (53 kWh)", battery: 53,  maxAcKw: 11,  maxDcKw: 220, consumption: 14 },
   { brand: "Hyundai", model: "Ioniq 6 Long Range (77 kWh)", battery: 77.4, maxAcKw: 11, maxDcKw: 230, consumption: 15 },
+  { brand: "Hyundai", model: "Inster Standard (39 kWh)", battery: 39,   maxAcKw: 11,  maxDcKw: 73,  consumption: 13 },
+  { brand: "Hyundai", model: "Inster Long Range (46 kWh)", battery: 46, maxAcKw: 11,  maxDcKw: 85,  consumption: 13 },
   // Kia
   { brand: "Kia", model: "EV3 Standard (58 kWh)",       battery: 58.3,  maxAcKw: 11,  maxDcKw: 100, consumption: 15 },
   { brand: "Kia", model: "EV3 Long Range (81 kWh)",     battery: 81.4,  maxAcKw: 11,  maxDcKw: 100, consumption: 15 },
@@ -105,6 +107,9 @@ const EV_MODELS: EvModel[] = [
   { brand: "Peugeot", model: "e-208 (51 kWh)",          battery: 51,    maxAcKw: 11,  maxDcKw: 100, consumption: 15 },
   { brand: "Peugeot", model: "e-2008 (51 kWh)",         battery: 51,    maxAcKw: 11,  maxDcKw: 100, consumption: 16 },
   // Citroën
+  // ⚠️ ë-C3'ün STANDART dahili şarj ünitesi 7,4 kW (11 kW opsiyonel) → kural gereği
+  // standart değer yazıldı; 11 kW paketi olan araçta hesap temkinli tarafta kalır.
+  { brand: "Citroën", model: "ë-C3 (44 kWh)",           battery: 43.8,  maxAcKw: 7.4, maxDcKw: 97,  consumption: 15 },
   { brand: "Citroën", model: "ë-C4 (51 kWh)",           battery: 51,    maxAcKw: 11,  maxDcKw: 100, consumption: 16 },
   // Opel
   { brand: "Opel", model: "Astra Electric (54 kWh)",    battery: 54,    maxAcKw: 11,  maxDcKw: 100, consumption: 15 },
@@ -622,15 +627,22 @@ export default function Calculator() {
 
         {/* ── Header ── */}
         <div className="text-center mb-4">
+          {/* Bölüm etiketi — pil animasyonu İÇİNE alındı.
+              ⚠️ Eskiden başlığın çevresinde AYNI şeyi söyleyen ÜÇ etiket üst üste
+              diziliyordu: "HESAPLAYICI" (rozet) · "ŞARJ SİMÜLASYONU" (ayrı satır) ·
+              alt başlık. Ortadaki satır kaldırıldı, pil animasyonu rozete taşındı →
+              iki katman kaldı (rozet + alt başlık), başlık nefes alıyor.
+              `calc_sim_label` metni sözlükte DURUYOR; geri almak isteyen için. */}
           <motion.span
             initial={{ opacity: 0, y: 10 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4 }}
-            className="inline-block text-xs font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-full mb-3"
+            className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-full mb-3"
             style={{
               background: d ? `${BLUE}18` : `${BLUE}10`,
               border: d ? `1px solid ${BLUE}35` : `1px solid ${BLUE}25`,
               color: d ? "#93C5FD" : BLUE,
             }}
           >
+            <BatteryCharging d={d} blue={BLUE} />
             {t("calc_section_label")}
           </motion.span>
 
@@ -645,17 +657,6 @@ export default function Calculator() {
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black" style={{ color: textPrimary }}>
               {t("calc_heading")}
             </h2>
-          </motion.div>
-
-          {/* Battery charging animation */}
-          <motion.div
-            initial={{ opacity: 0, y: 6 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4, delay: 0.14 }}
-            className="flex items-center justify-center gap-2 mb-2"
-          >
-            <BatteryCharging d={d} blue={BLUE} />
-            <span className="text-sm tracking-widest uppercase font-semibold" style={{ color: d ? `${BLUE}80` : `${BLUE}99` }}>
-              {t("calc_sim_label")}
-            </span>
           </motion.div>
 
           <motion.div
@@ -896,7 +897,12 @@ export default function Calculator() {
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ duration: 0.45, type: "spring", stiffness: 180, damping: 18 }}
                     >
-                      <svg viewBox="0 0 200 215" width={174} height={174} style={{ overflow: "visible" }}>
+                      {/* ⚠️ Ölçü artık CSS'ten (sabit width/height DEĞİL): viewBox 200×215
+                          kare bir kutuya (174×174) sığdırılıyordu → preserveAspectRatio
+                          kenarlarda boşluk bırakıp göstergeyi kartın içinde küçük
+                          gösteriyordu. Oran korunarak büyütüldü; en dar kartta bile
+                          (mobil ~335px) taşmaz. */}
+                      <svg viewBox="0 0 200 215" className="w-[196px] h-[211px] sm:w-[224px] sm:h-[241px]" style={{ overflow: "visible" }}>
                         {/* Outer glow ring */}
                         <circle cx={GCX} cy={GCY} r={GR + 11} fill="none"
                           stroke={accentColor} strokeWidth="1" strokeOpacity="0.08" />
@@ -978,12 +984,16 @@ export default function Calculator() {
                     </p>
                   )}
 
-                  {/* Stats row */}
-                  <div className="grid grid-cols-3 gap-2 px-4 pb-3">
+                  {/* Stats row
+                      ⚠️ "Verimlilik" buradan ÇIKARILDI: diğer iki kutu HESABIN SONUCU
+                      (enerji, eklenen menzil) iken verimlilik hesabın GİRDİSİ — sabit
+                      bir varsayım. Sonuç kutusu gibi sunulunca "cihaz %90 verimli
+                      çalıştı" diye okunabiliyordu. Artık aşağıdaki maliyet kutusunda,
+                      tam da açıkladığı yerde duruyor (şebekeden çekilen ≠ aküye giren). */}
+                  <div className="grid grid-cols-2 gap-2 px-4 pb-3">
                     {[
                       { label: t("calc_energy"), value: `${chargeCalc.energyNeeded.toFixed(1)} kWh`, color: accentColor },
                       { label: t("calc_range_added"), value: `${chargeCalc.addedKm.toLocaleString("tr-TR")} km`, color: d ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.70)" },
-                      { label: t("calc_efficiency"), value: chargeMode === "ac" ? "%90" : "%92", color: GREEN },
                     ].map((stat, i) => (
                       <div key={i} className="rounded-xl py-2 px-1.5 text-center"
                         style={{ background: d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)", border: d ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(0,0,0,0.07)" }}>
@@ -1004,15 +1014,31 @@ export default function Calculator() {
                       <p className="text-xs mt-0.5" style={{ color: d ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.38)" }}>
                         {chargeCalc.gridKwh.toFixed(1)} kWh × {chargeElecPrice.toFixed(2)} ₺/kWh
                       </p>
+                      {/* Verimlilik varsayımı ARTIK BURADA — sonuç kutusunda değil.
+                          Yeri anlamlı: üstteki kWh'in neden "Enerji" kutusundaki
+                          değerden büyük olduğunu tam bu satır açıklıyor. */}
+                      <p className="text-[11px] mt-0.5 leading-snug" style={{ color: d ? "rgba(255,255,255,0.26)" : "rgba(0,0,0,0.30)" }}>
+                        {t("calc_grid_energy")} · {t("calc_efficiency")} {chargeMode === "ac" ? "%90" : "%92"}
+                      </p>
                     </div>
                     <p className="text-xl font-black" style={{ color: GREEN }}>{chargeCalc.chargeCost.toFixed(2)} ₺</p>
                   </div>
 
                   {/* Tariff selector */}
                   <div className="mx-4 mb-4">
-                    <p className="text-xs font-bold uppercase tracking-wider mb-1.5" style={{ color: d ? "rgba(255,255,255,0.28)" : "rgba(0,0,0,0.30)" }}>
-                      {t("calc_elec_tariff")}
-                    </p>
+                    {/* ⚠️ Kart ↔ kaydıraç ikiliği: ikisi de AYNI değeri yazar ama seçili
+                        tutar hiçbir yerde GÖRÜNMÜYORDU — kaydıracı oynatınca hangi fiyatta
+                        olduğunuzu ancak maliyet satırındaki çarpımdan çıkarabiliyordunuz.
+                        Başlığın sağına canlı değer eklendi: kartlar = hızlı seçim,
+                        kaydıraç = ince ayar, rozet = o an geçerli olan. */}
+                    <div className="flex items-baseline justify-between mb-1.5">
+                      <p className="text-xs font-bold uppercase tracking-wider" style={{ color: d ? "rgba(255,255,255,0.28)" : "rgba(0,0,0,0.30)" }}>
+                        {t("calc_elec_tariff")}
+                      </p>
+                      <span className="text-xs font-black tabular-nums" style={{ color: GREEN }}>
+                        {chargeElecPrice.toFixed(2)} ₺/kWh
+                      </span>
+                    </div>
                     <div className="grid grid-cols-2 gap-1 mb-2.5">
                       {TARIFF_PRESETS.map((t) => {
                         const isActive = chargeElecPrice === t.value;

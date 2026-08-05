@@ -50,8 +50,7 @@ const EN_NAMES: Record<string, string> = {
   // ── Aksesuarlar ──
   "Şarj Kablosu Çantası": "Charging Cable Bag",
   "Mobile Charger Çantası": "Mobile Charger Bag",
-  "Priz Tutucu": "Socket Holder",
-  "Charger Priz Tutucu": "Charger Socket Holder",
+  "AC Soket Tutucu": "AC Socket Holder",
   "Mobile Charger Duvar Askı Aparatı": "Mobile Charger Wall Bracket",
   "V2L ve C2L Adaptör Çantası": "V2L & C2L Adapter Bag",
   // "Pedestal" — İngilizcede de aynı, eşleme gerekmez.

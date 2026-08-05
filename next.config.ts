@@ -158,6 +158,11 @@ const nextConfig: NextConfig = {
       // Fiyat listesi 2026 → 2026-2 ile değiştirildi (eski kayıt kaldırıldı).
       // Eski doküman sayfası indekslenmiş olabilir; 404 vermesin diye yenisine bağlandı.
       { source: "/documents/doc-1779265324270", destination: "/documents/doc-fiyat-listesi-2026-2", permanent: true },
+
+      // BAK-8200-0000 "Priz Tutucu" üretimden kalktı (2026-2 listesinde yok, kullanıcı teyit etti).
+      // Yerine listedeki "AC Soket Tutucu" (BAK-8200-0001) var — o kaydın adresi eski adından geliyor,
+      // ⚠️ id/URL DEĞİŞTİRİLMEDİ (değişse indekslenmiş adres 404 olurdu; ad kimlik değil, id kimliktir).
+      { source: "/products/accessories/priz-tutucu-genel-priz-tutucu", destination: "/products/accessories/charger-priz-tutucu-charger-serisi", permanent: true },
     ];
   },
   async rewrites() {

@@ -6657,42 +6657,10 @@
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075098/products/hjtuhulovozll09t9ijg.png"
       },
       {
-        "id": "priz-tutucu-genel-priz-tutucu",
-        "name": "Priz Tutucu",
-        "code": "BAK-8200-0000",
-        "subtitle": "Универсальный держатель розетки",
-        "badge": null,
-        "description": "Крепление для настенного или щитового монтажа для хранения розетки Type 2 в подвешенном состоянии, когда она не используется. Держит кабель приподнятым над полом, сохраняя установку аккуратной и безопасной.",
-        "specs": [
-          {
-            "group": "Общие",
-            "items": [
-              {
-                "label": "Тип",
-                "value": "Аксессуар"
-              },
-              {
-                "label": "Категория",
-                "value": "Держатель розетки"
-              }
-            ]
-          },
-          {
-            "group": "Цена",
-            "items": [
-              {
-                "label": "Прайс-лист",
-                "value": "EUR 19,80"
-              }
-            ]
-          }
-        ]
-      },
-      {
         "id": "charger-priz-tutucu-charger-serisi",
-        "name": "Charger Priz Tutucu",
+        "name": "AC Soket Tutucu",
         "code": "BAK-8200-0001",
-        "subtitle": "Серия Charger",
+        "subtitle": "",
         "badge": null,
         "description": "Специальный держатель розетки, разработанный для устройств AC wallbox серии Bemis Charger. Сочетается с цветом корпуса устройства, монтируется на устройство с помощью быстрого зажима.",
         "specs": [

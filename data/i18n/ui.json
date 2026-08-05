@@ -2164,5 +2164,11 @@
     "es": "Nuestro equipo multilingüe ofrece a los clientes corporativos venta y soporte técnico en su propio idioma.",
     "ar": "يوفّر فريقنا متعدد اللغات للعملاء من الشركات دعمًا بيعيًا وفنيًا بلغتهم الخاصة.",
     "ru": "Наша многоязычная команда обеспечивает корпоративным клиентам продажи и техническую поддержку на их родном языке."
+  },
+  "Drawn from grid": {
+    "de": "Aus dem Netz bezogen",
+    "es": "Tomado de la red",
+    "ar": "المسحوب من الشبكة",
+    "ru": "Потребление из сети"
   }
 }

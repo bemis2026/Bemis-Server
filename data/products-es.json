@@ -6657,42 +6657,10 @@
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075098/products/hjtuhulovozll09t9ijg.png"
       },
       {
-        "id": "priz-tutucu-genel-priz-tutucu",
-        "name": "Priz Tutucu",
-        "code": "BAK-8200-0000",
-        "subtitle": "Soporte de toma general",
-        "badge": null,
-        "description": "Accesorio de soporte montado en pared o cuadro para colgar y guardar la toma Type 2 cuando no se usa. Mantiene el cable alejado del suelo y contribuye a que la instalación permanezca ordenada y segura.",
-        "specs": [
-          {
-            "group": "General",
-            "items": [
-              {
-                "label": "Tipo",
-                "value": "Accesorio"
-              },
-              {
-                "label": "Categoría",
-                "value": "Soporte de toma"
-              }
-            ]
-          },
-          {
-            "group": "Precio",
-            "items": [
-              {
-                "label": "Precio de lista",
-                "value": "EUR 19,80"
-              }
-            ]
-          }
-        ]
-      },
-      {
         "id": "charger-priz-tutucu-charger-serisi",
-        "name": "Charger Priz Tutucu",
+        "name": "AC Soket Tutucu",
         "code": "BAK-8200-0001",
-        "subtitle": "Serie Charger",
+        "subtitle": "",
         "badge": null,
         "description": "Soporte de toma especial diseñado para los dispositivos AC wallbox de la serie Bemis Charger. Combina con el color de la carcasa del dispositivo y se monta sobre él con una abrazadera rápida.",
         "specs": [

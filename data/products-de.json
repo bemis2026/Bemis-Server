@@ -6657,42 +6657,10 @@
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075098/products/hjtuhulovozll09t9ijg.png"
       },
       {
-        "id": "priz-tutucu-genel-priz-tutucu",
-        "name": "Priz Tutucu",
-        "code": "BAK-8200-0000",
-        "subtitle": "Universeller Steckdosenhalter",
-        "badge": null,
-        "description": "Wand- oder schalttafelmontierter Halter zum Aufhängen der Type 2-Steckdose bei Nichtgebrauch. Hält das Kabel vom Boden fern und sorgt dafür, dass die Installation ordentlich und sicher bleibt.",
-        "specs": [
-          {
-            "group": "Allgemein",
-            "items": [
-              {
-                "label": "Typ",
-                "value": "Zubehör"
-              },
-              {
-                "label": "Kategorie",
-                "value": "Steckdosenhalter"
-              }
-            ]
-          },
-          {
-            "group": "Preis",
-            "items": [
-              {
-                "label": "Listenpreis",
-                "value": "EUR 19,80"
-              }
-            ]
-          }
-        ]
-      },
-      {
         "id": "charger-priz-tutucu-charger-serisi",
-        "name": "Charger Priz Tutucu",
+        "name": "AC Soket Tutucu",
         "code": "BAK-8200-0001",
-        "subtitle": "Charger-Serie",
+        "subtitle": "",
         "badge": null,
         "description": "Spezieller Steckdosenhalter, entwickelt für die AC-Wallbox-Geräte der Bemis Charger-Serie. Abgestimmt auf die Gehäusefarbe des Geräts, wird mit einer Schnellklemme am Gerät montiert.",
         "specs": [
