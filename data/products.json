@@ -6693,7 +6693,7 @@
               },
               {
                 "label": "Kategori",
-                "value": "Charger Priz Tutucu"
+                "value": "AC Soket Tutucu"
               }
             ]
           },
@@ -6828,7 +6828,7 @@
         "code": "BAK-8800-0000",
         "subtitle": "Standart",
         "badge": null,
-        "description": "V2L ve C2L adaptörleri için kompakt taşıma çantası. Adaptör + uzatma kablosu için tek bölmeli düzenleme, saha ekipmanını korur.",
+        "description": "V2L ve C2L adaptörleri için 11 × 20 × 8 cm ölçülerinde kompakt taşıma çantası. Adaptörü darbeye ve toza karşı korur; torpido gözünde ya da bagaj cebinde yer kaplamadan taşınır.",
         "specs": [
           {
             "group": "Genel",
@@ -6864,7 +6864,7 @@
         "code": "BAK-8000-0001",
         "subtitle": "22×26×12 cm",
         "badge": null,
-        "description": "V2L ve C2L adaptörleri için kompakt taşıma çantası. Adaptör + uzatma kablosu için tek bölmeli düzenleme, saha ekipmanını korur.",
+        "description": "V2L ve C2L kablolarını taşımak için 22 × 26 × 12 cm ölçülerinde çanta. Adaptör çantasına göre daha geniş hacmi, kabloyu sarılı hâlde zorlamadan alır; bagajda ve saha kullanımında düzeni korur.",
         "specs": [
           {
             "group": "Genel",
@@ -6899,7 +6899,7 @@
         "code": "BAK-8200-0002",
         "subtitle": "",
         "badge": null,
-        "description": "Bemis Charger serisi AC wallbox cihazları için tasarlanmış özel priz tutucu. Cihazın gövde rengiyle uyumlu, hızlı kelepçe ile cihaza monte edilir.",
+        "description": "Kullanılmayan DC şarj soketini asarak saklayan tutucu. 4 bilyalı tutma mekanizması soketi yerinde sabitler; kablo yerde sürünmez, konnektör darbe ve kirden korunur.",
         "specs": [
           {
             "group": "Genel",

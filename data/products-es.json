@@ -6673,7 +6673,7 @@
               },
               {
                 "label": "Categoría",
-                "value": "Soporte de toma Charger"
+                "value": "Soporte de toma AC"
               }
             ]
           },
@@ -6808,7 +6808,7 @@
         "code": "BAK-8800-0000",
         "subtitle": "Estándar",
         "badge": null,
-        "description": "Bolsa de transporte compacta para adaptadores V2L y C2L. Organización de compartimento único para el adaptador + el cable alargador, protege el equipo de campo.",
+        "description": "Bolsa de transporte compacta de 11 × 20 × 8 cm para adaptadores V2L y C2L. Protege el adaptador frente a golpes y polvo y cabe en la guantera o en un bolsillo del maletero sin ocupar espacio.",
         "specs": [
           {
             "group": "General",
@@ -6844,7 +6844,7 @@
         "code": "BAK-8000-0001",
         "subtitle": "22×26×12 cm",
         "badge": null,
-        "description": "Bolsa de transporte compacta para adaptadores V2L y C2L. Organización de compartimento único para el adaptador + el cable alargador, protege el equipo de campo.",
+        "description": "Bolsa de 22 × 26 × 12 cm para transportar cables V2L y C2L. Su mayor volumen frente a la bolsa de adaptadores admite el cable enrollado sin forzarlo y mantiene ordenado el maletero y el equipo de campo.",
         "specs": [
           {
             "group": "General",
@@ -6879,7 +6879,7 @@
         "code": "BAK-8200-0002",
         "subtitle": "",
         "badge": null,
-        "description": "Soporte de toma especial diseñado para los dispositivos AC wallbox de la serie Bemis Charger. Combina con el color de la carcasa del dispositivo y se monta sobre él con una abrazadera rápida.",
+        "description": "Soporte para guardar el conector de carga DC cuando no está en uso. El mecanismo de retención de 4 bolas fija el conector en su sitio, de modo que el cable no se arrastra por el suelo y el conector queda protegido de golpes y suciedad.",
         "specs": [
           {
             "group": "General",

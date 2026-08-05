@@ -6673,7 +6673,7 @@
               },
               {
                 "label": "Category",
-                "value": "Charger Plug Holder"
+                "value": "AC Socket Holder"
               }
             ]
           },
@@ -6808,7 +6808,7 @@
         "code": "BAK-8800-0000",
         "subtitle": "Standart",
         "badge": null,
-        "description": "V2L ve C2L adaptörleri için kompakt taşıma çantası. Adaptör + uzatma kablosu için tek bölmeli düzenleme, saha ekipmanını korur.",
+        "description": "A compact 11 × 20 × 8 cm carry bag for V2L and C2L adapters. It protects the adapter against knocks and dust and fits in the glovebox or a boot pocket without taking up space.",
         "specs": [
           {
             "group": "General",
@@ -6844,7 +6844,7 @@
         "code": "BAK-8000-0001",
         "subtitle": "22×26×12 cm",
         "badge": null,
-        "description": "V2L ve C2L adaptörleri için kompakt taşıma çantası. Adaptör + uzatma kablosu için tek bölmeli düzenleme, saha ekipmanını korur.",
+        "description": "A 22 × 26 × 12 cm bag for carrying V2L and C2L cables. Its larger volume compared with the adapter bag takes the coiled cable without forcing it, keeping the boot and the field kit tidy.",
         "specs": [
           {
             "group": "General",
@@ -6879,7 +6879,7 @@
         "code": "BAK-8200-0002",
         "subtitle": "",
         "badge": null,
-        "description": "Bemis Charger serisi AC wallbox cihazları için tasarlanmış özel priz tutucu. Cihazın gövde rengiyle uyumlu, hızlı kelepçe ile cihaza monte edilir.",
+        "description": "A holder that keeps the DC charging connector stored when it is not in use. The 4-ball retention mechanism holds the connector firmly in place, so the cable does not drag on the ground and the connector stays protected from impact and dirt.",
         "specs": [
           {
             "group": "General",

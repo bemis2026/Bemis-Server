@@ -6673,7 +6673,7 @@
               },
               {
                 "label": "Kategorie",
-                "value": "Charger Steckdosenhalter"
+                "value": "AC-Steckdosenhalter"
               }
             ]
           },
@@ -6808,7 +6808,7 @@
         "code": "BAK-8800-0000",
         "subtitle": "Standard",
         "badge": null,
-        "description": "Kompakte Tragetasche für V2L- und C2L-Adapter. Einfach-Fach-Organisation für Adapter + Verlängerungskabel, schützt die Feldausrüstung.",
+        "description": "Kompakte Tragetasche im Format 11 × 20 × 8 cm für V2L- und C2L-Adapter. Sie schützt den Adapter vor Stößen und Staub und findet im Handschuhfach oder in der Kofferraumtasche Platz, ohne aufzutragen.",
         "specs": [
           {
             "group": "Allgemein",
@@ -6844,7 +6844,7 @@
         "code": "BAK-8000-0001",
         "subtitle": "22×26×12 cm",
         "badge": null,
-        "description": "Kompakte Tragetasche für V2L- und C2L-Adapter. Einfach-Fach-Organisation für Adapter + Verlängerungskabel, schützt die Feldausrüstung.",
+        "description": "Tasche im Format 22 × 26 × 12 cm zum Transport von V2L- und C2L-Kabeln. Das im Vergleich zur Adaptertasche größere Volumen nimmt das aufgerollte Kabel mühelos auf und hält Kofferraum und Einsatzausrüstung ordentlich.",
         "specs": [
           {
             "group": "Allgemein",
@@ -6879,7 +6879,7 @@
         "code": "BAK-8200-0002",
         "subtitle": "",
         "badge": null,
-        "description": "Spezieller Steckdosenhalter, entwickelt für die AC-Wallbox-Geräte der Bemis Charger-Serie. Abgestimmt auf die Gehäusefarbe des Geräts, wird mit einer Schnellklemme am Gerät montiert.",
+        "description": "Halter zur Aufbewahrung des DC-Ladesteckers bei Nichtgebrauch. Der Haltemechanismus mit 4 Kugeln fixiert den Stecker sicher an seinem Platz, sodass das Kabel nicht am Boden schleift und der Stecker vor Stößen und Schmutz geschützt bleibt.",
         "specs": [
           {
             "group": "Allgemein",
