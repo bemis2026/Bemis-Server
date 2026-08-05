@@ -8,7 +8,8 @@
     "build": "tsx scripts/gen-posts-index.ts && node scripts/check-no-competitor-brands.cjs && next build",
     "start": "next start",
     "translate": "tsx scripts/translate.ts",
-    "gen:blog-index": "tsx scripts/gen-posts-index.ts"
+    "gen:blog-index": "tsx scripts/gen-posts-index.ts",
+    "check:clones": "node scripts/check-clone-descriptions.cjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.110.0",
