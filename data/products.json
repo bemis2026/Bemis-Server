@@ -5344,8 +5344,10 @@
           "Kia",
           "Ssangyong"
         ],
-        "images": [],
-        "image": "",
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074935/products/ksaotmy4jtffsdokdscl.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074935/products/ksaotmy4jtffsdokdscl.png",
         "boxContents": []
       }
     ]
