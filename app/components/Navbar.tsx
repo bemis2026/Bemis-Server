@@ -187,8 +187,11 @@ const CATEGORY_ACCENTS: Record<string, string> = {
 // (şeffaf PNG). Kategori atmosfer görseli yerine ürün görseli — küçük
 // thumbnail'da daha net okunur. Kullanıcı isteği: "görselleri ürünlerden al".
 const CATEGORY_MENU_IMAGE: Record<string, string> = {
-  "wallbox":           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074871/products/k8yjbbw07cp1kpbij7pg.png",
-  "portable":          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074914/products/ssmfsr68loa4hecvpnya.png",
+  // 2026-08-05: wallbox ESKİ Charger 2 render'ını (hiçbir üründe kullanılmıyordu),
+  // portable ise MINI Mobile'ı gösteriyordu → ikisi de yeni amiral görsellere alındı:
+  // yeni Charger 2 (karbon yüzey) ve Pro Mobile 2 (11-22 kW).
+  "wallbox":           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783076685/products/wk5wmt8r9ke9t8kxznfz.png",
+  "portable":          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783076718/products/enzqsaqqq0g42baprecg.png",
   "cables":            "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074926/products/m4xy2xidais3lsqebpbr.png",
   "v2l-c2l":           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074942/products/un6onm3b6kihvwfgbp3w.png",
   "converters":        "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074998/products/kuxlacga82z0pbt2tqyt.png",

@@ -40,12 +40,22 @@ export async function getContentForLang(lang: string): Promise<any | null> {
   if (!en) en = await loadJsonFile(path.join(process.cwd(), "data", `content-${overlayLang}.json`));
   en = en ?? {};
 
-  // Merge categories per-key so EN can override only name/subtitle while TR
-  // keeps modelCount/badge/comingSoon/image (visual + model-count fields).
+  // Çeviri overlay'i YALNIZ METNİ (name/subtitle) ezebilir; görsel/sayı/düzen
+  // alanları KİMLİKTİR ve DAİMA TR'den gelir.
+  // ⚠️ Bu yorum eskiden de böyle diyordu ama KOD bunu UYGULAMIYORDU: düz
+  // `{...tr, ...en}` overlay'in `image`'ini de geçiriyordu ve 8 kategorinin
+  // 8'inde de overlay'de `image` anahtarı VAR. Değerler o an aynı olduğu için
+  // görünür sapma yoktu — ama TR'de görseli değiştirmek yabancı dillerde ESKİ
+  // görseli bırakırdı. Aynı sınıf hata hero kadrajında bizzat yaşanmıştı
+  // (2026-07-29: heroBgPos TR'de düzeltildi, 5 dilde eski değer kaldı).
+  const KATEGORI_TR_KILIT = ["image", "descriptionImage", "modelCount", "badge", "comingSoon", "heroStyle"];
   const mergedCategories: Record<string, unknown> = { ...(tr.categories ?? {}) };
   if (en.categories && typeof en.categories === "object") {
     for (const key of Object.keys(en.categories)) {
-      mergedCategories[key] = { ...(tr.categories?.[key] ?? {}), ...en.categories[key] };
+      const trCat = (tr.categories?.[key] ?? {}) as Record<string, unknown>;
+      const birlesik = { ...trCat, ...en.categories[key] } as Record<string, unknown>;
+      for (const alan of KATEGORI_TR_KILIT) if (alan in trCat) birlesik[alan] = trCat[alan];
+      mergedCategories[key] = birlesik;
     }
   }
 

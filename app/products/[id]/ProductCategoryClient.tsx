@@ -2,6 +2,7 @@
 import { pickText } from "../../lib/ui";
 import CustomProductionSection from "../../components/CustomProductionSection";
 import { accentInk } from "../../lib/accentInk";
+import { urunPngKategorisi } from "../../../lib/categoryVisual";
 
 import Link from "next/link";
 import { useParams, usePathname, useRouter } from "next/navigation";
@@ -190,9 +191,12 @@ export default function ProductCategoryPage({ initialCategory = null, titleOverr
   // descriptionImage. Kullanıcı isteği: kategori sayfasında da anasayfadaki
   // kategori görseli karşılasın (hero arka planı olarak).
   const descImage = categories?.[id]?.image?.trim() || categories?.[id]?.descriptionImage?.trim() || "";
-  // Ürün-görselli (şeffaf PNG) kategorilerde hero arka planı BEYAZ olsun
-  // (kullanıcı isteği: "ac dc şarj ekipmanları görseli beyaz png").
-  const whiteHero = id === "charger-equipment";
+  // Ürün-görselli (şeffaf PNG) kategoriler → çerçeveli panel + object-contain.
+  // Liste TEK KAYNAKTAN gelir (lib/categoryVisual.ts) — anasayfa kartı da aynı
+  // listeyi okur, ikisi ayrı yazılsaydı biri güncellenip öteki unutulurdu.
+  // 2026-08-05: wallbox + portable de bu gruba girdi (kategori görselleri yeni
+  // Charger 2 / Pro Mobile 2 ürün render'ları oldu).
+  const whiteHero = urunPngKategorisi(id);
   // Kategori görseli tam-genişlik ARKA PLAN hero (sahne fotosu olan kategoriler).
   // whiteHero (charger-equipment, şeffaf ürün PNG'si) bg'ye uymaz → split.
   // VARSAYILAN split (yan-yana) kalan kategoriler:
@@ -329,7 +333,10 @@ export default function ProductCategoryPage({ initialCategory = null, titleOverr
                 style={{
                   // Standart KARE çerçeve — tüm kategorilerde AYNI sabit ölçü.
                   aspectRatio: "1 / 1",
-                  background: whiteHero ? "#ffffff" : d ? "#15151b" : "#f1f3f6",
+                  // ⚠️ Ürün PNG'li kategorilerde zemin HER İKİ temada AÇIK:
+                  // Pro Mobile 2 BEYAZ gövdeli (saf beyazda kaybolur) → nötr gri;
+                  // charger-equipment'ın beyazı kullanıcı isteğiydi, korunuyor.
+                  background: whiteHero ? (id === "charger-equipment" ? "#ffffff" : "#f1f3f6") : d ? "#15151b" : "#f1f3f6",
                   border: `1px solid ${d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`,
                   boxShadow: d ? "0 10px 40px rgba(0,0,0,0.35)" : "0 10px 36px rgba(0,0,0,0.10)",
                 }}

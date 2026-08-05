@@ -1,6 +1,7 @@
 "use client";
 import { pickText } from "../lib/ui";
 import { accentInk } from "../lib/accentInk";
+import { urunPngKategorisi } from "../../lib/categoryVisual";
 
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
@@ -472,8 +473,13 @@ export default function Products() {
                   className="relative overflow-hidden"
                   style={{
                     height: "clamp(160px, 36vw, 290px)",
-                    // charger-equipment ürün görseli (şeffaf PNG) → beyaz zemin.
-                    background: cat.id === "charger-equipment" ? "#ffffff" : d ? cat.darkVisualBg : cat.lightVisualBg,
+                    // Şeffaf ürün PNG'li kategoriler (bkz. lib/categoryVisual.ts):
+                    // zemin HER İKİ temada AÇIK — koyu zeminde koyu Charger 2,
+                    // saf beyazda beyaz Pro Mobile 2 kaybolur. charger-equipment'ın
+                    // beyaz zemini kullanıcı isteğiydi, korunuyor.
+                    background: urunPngKategorisi(cat.id)
+                      ? (cat.id === "charger-equipment" ? "#ffffff" : cat.lightVisualBg)
+                      : d ? cat.darkVisualBg : cat.lightVisualBg,
                   }}
                 >
                   {/* Category image (if set) — object-cover so the kategori
@@ -489,7 +495,7 @@ export default function Products() {
                       alt={cat.name}
                       fill
                       sizes="(max-width: 640px) 95vw, (max-width: 1024px) 48vw, 380px"
-                      className={cat.id === "charger-equipment" ? "object-contain p-5" : "object-cover"}
+                      className={urunPngKategorisi(cat.id) ? "object-contain p-5" : "object-cover"}
                       style={{
                         opacity: isHovered ? 1.0 : 0.9,
                         transition: "opacity 0.35s ease, transform 0.4s ease",
