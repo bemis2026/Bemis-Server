@@ -1,5 +1,5 @@
 # Bemis E-V Charge güvenlik iletişimi (RFC 9116)
-Contact: mailto:info@bemisevcharge.com
+Contact: mailto:satis@bemis.com.tr
 Expires: 2027-07-12T00:00:00.000Z
 Preferred-Languages: tr, en
 Canonical: https://www.bemisevcharge.com.tr/.well-known/security.txt
