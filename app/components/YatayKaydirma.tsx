@@ -29,13 +29,15 @@ export function useKaydirmaDurumu(ref: React.RefObject<HTMLElement | null>) {
   }, [ref]);
 
   // ⚠️ BİLEREK BAĞIMLILIK DİZİSİ YOK — efekt HER render'da yeniden bağlanır.
-  // Neden: `ref.current` render'lar arasında BAŞKA bir DOM düğümü olabilir
-  // (React elemanı yeniden oluşturur). Tek seferlik bağlamada dinleyici ESKİ
-  // düğümde kalıyor, `olc` ise YENİ düğümü okuyor → ilk ölçüm doğru çıkıyor
-  // ama sonraki kaydırmalar HİÇ ölçülmüyor, oklar donuyor.
-  // 🔴 Bu tam olarak canlıda yaşandı (Benzer Ürünler karuseli, 2026-08-05):
-  // başlangıçta sol ok doğru gizliydi, sona gidince sağ ok kaybolmuyordu.
+  // Neden (savunma amaçlı): `ref.current` render'lar arasında BAŞKA bir DOM
+  // düğümü olabilir (React elemanı yeniden oluşturur). Tek seferlik bağlamada
+  // dinleyici ESKİ düğümde kalır, `olc` ise YENİ düğümü okur → ilk ölçüm doğru
+  // çıkar ama sonraki kaydırmalar hiç ölçülmez.
   // Maliyet ihmal edilebilir: render başına bir listener + bir ResizeObserver.
+  // ⓘ NOT: 2026-08-05'te bunu bir HATA DÜZELTMESİ sanmıştım — değildi. Belirti
+  // (ok sonda kaybolmuyor) test panelinden geliyordu: orada `scroll` olayı HİÇ
+  // tetiklenmiyor (ölçüldü: scrollLeft 0→600→0 giderken dinleyici 0 kez çağrıldı,
+  // rAF 0 kare). Tuşla test edilince davranış baştan beri doğruydu.
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
