@@ -79,6 +79,30 @@ export async function readBin(name: string, opts: { fresh?: boolean } = {}): Pro
   return cached();
 }
 
+/**
+ * R2'den HAM dosya oku (bins DIŞI — döküman vekili için).
+ *
+ * ⚠️ NEDEN VAR (2026-08-05): döküman vekili dosyayı GENEL adresten
+ * (`pub-*.r2.dev`) `fetch` ile çekiyordu. Bu, kovanın herkese açık kalmasını
+ * ZORUNLU kılıyordu — ve ölçüldü ki aynı açıklık `bins/dealers.json`'ı da
+ * dışarıya veriyor (29 e-posta, 6'sı kişisel; 33 telefon). Vekil S3 API +
+ * kimlik ile okuyunca genel erişime hiç gerek kalmaz → kovanın public
+ * erişimi kapatılabilir, bins/*.json dışarıdan indirilemez olur.
+ */
+export async function readObject(key: string): Promise<{
+  stream: ReadableStream | null;
+  contentType?: string;
+  contentLength?: number;
+}> {
+  const res = await r2().send(new GetObjectCommand({ Bucket: bucket(), Key: key }));
+  const b = res.Body as unknown as { transformToWebStream?: () => ReadableStream } | undefined;
+  return {
+    stream: b?.transformToWebStream ? b.transformToWebStream() : null,
+    contentType: res.ContentType,
+    contentLength: res.ContentLength,
+  };
+}
+
 export async function writeBin(name: string, body: unknown): Promise<void> {
   if (!BINS.has(name)) throw new Error(`Unknown bin: ${name}`);
   // ⚠️ GÜVENLİK: R2 bucket'ı PUBLIC (r2.dev — dökümanlar için açık). `messages`

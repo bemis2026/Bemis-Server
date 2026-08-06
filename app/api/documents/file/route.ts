@@ -1,6 +1,7 @@
 import { readFileSync } from "fs";
 import path from "path";
 import { readBin } from "../../../../lib/jsonbin";
+import { readObject } from "../../../../lib/store";
 
 // Same-origin PDF/dosya vekili (proxy).
 //
@@ -74,16 +75,41 @@ export async function GET(req: Request) {
   if (!doc || !doc.url) return new Response("Not found", { status: 404 });
   if (!hostAllowed(doc.url)) return new Response("Forbidden host", { status: 403 });
 
-  let upstream: Response;
-  try {
-    upstream = await fetch(doc.url, { redirect: "follow" });
-  } catch {
-    return new Response("Upstream fetch failed", { status: 502 });
-  }
-  const body = upstream.body;
-  if (!upstream.ok || !body) return new Response("Upstream error", { status: 502 });
+  // ⚠️ R2'deki dosyalar artık GENEL adresten (pub-*.r2.dev) DEĞİL, S3 API +
+  // kimlik ile okunur. Neden: genel adresten okumak kovanın herkese açık
+  // kalmasını zorunlu kılıyordu ve aynı açıklık `bins/dealers.json`'ı da
+  // dışarıya veriyordu (ölçüldü: 29 e-posta, 6'sı kişisel; 33 telefon).
+  // Böylece kovanın public erişimi kapatılabilir hale gelir.
+  // Cloudinary vb. diğer host'lar eskisi gibi HTTP ile çekilir.
+  let body: ReadableStream | null = null;
+  let contentType = "application/pdf";
+  let contentLength: string | null = null;
 
-  const contentType = upstream.headers.get("content-type") || "application/pdf";
+  const r2Public = (process.env.R2_PUBLIC_URL || "").replace(/\/$/, "");
+  if (r2Public && doc.url.startsWith(r2Public + "/")) {
+    try {
+      const key = decodeURIComponent(doc.url.slice(r2Public.length + 1));
+      const o = await readObject(key);
+      body = o.stream;
+      if (o.contentType) contentType = o.contentType;
+      if (typeof o.contentLength === "number") contentLength = String(o.contentLength);
+    } catch {
+      return new Response("Upstream error", { status: 502 });
+    }
+    if (!body) return new Response("Upstream error", { status: 502 });
+  } else {
+    let upstream: Response;
+    try {
+      upstream = await fetch(doc.url, { redirect: "follow" });
+    } catch {
+      return new Response("Upstream fetch failed", { status: 502 });
+    }
+    if (!upstream.ok || !upstream.body) return new Response("Upstream error", { status: 502 });
+    body = upstream.body;
+    contentType = upstream.headers.get("content-type") || "application/pdf";
+    contentLength = upstream.headers.get("content-length");
+  }
+
   const rawName = doc.filename || `${doc.title || "dokuman"}.pdf`;
   const disposition =
     `${download ? "attachment" : "inline"}; filename="${asciiName(rawName)}"; ` +
@@ -92,8 +118,7 @@ export async function GET(req: Request) {
   const headers = new Headers();
   headers.set("Content-Type", contentType);
   headers.set("Content-Disposition", disposition);
-  const len = upstream.headers.get("content-length");
-  if (len) headers.set("Content-Length", len);
+  if (contentLength) headers.set("Content-Length", contentLength);
   headers.set("X-Content-Type-Options", "nosniff");
   // CDN'de URL başına (id + dl) önbellekle — tekrar tekrar proxy'lemeyelim.
   headers.set("Cache-Control", "public, max-age=3600, s-maxage=86400");
