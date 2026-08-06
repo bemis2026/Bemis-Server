@@ -1,7 +1,7 @@
 "use client";
 import { pickText } from "../lib/ui";
 import { accentInk } from "../lib/accentInk";
-import { urunPngKategorisi } from "../../lib/categoryVisual";
+import { urunPngKategorisi, urunPngBosluk } from "../../lib/categoryVisual";
 
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
@@ -48,8 +48,15 @@ const categories = [
     accent: "#10B981",
     accentGlow: "rgba(16,185,129,0.20)",
     edgeGlow: false,
-    darkVisualBg: "linear-gradient(155deg, #071a12 0%, #0d0d0d 70%)",
-    lightVisualBg: "linear-gradient(155deg, #d6f5eb 0%, #eefaf4 70%)",
+    // ⚠️ ZEMİN YEŞİLDEN GÜMÜŞE ALINDI (2026-08-05, kullanıcı: "yeşil yakışmamış").
+    // Gerekçe göz kararı değil ÖLÇÜM: Pro Mobile 2 görselinin baskın tonları
+    // #181818 · #484848 · #303030 · #c0c0c0 ve DOYGUNLUĞU SIFIR — gümüş/grafit
+    // bir cihaz. Yeşil zemin ürünün paletiyle hiç ilişkili değildi. Yeni ton
+    // cihazın kendi gümüşünden türetildi; ürün kartlarının nötr gri zeminiyle
+    // (#dbdee3) de aynı aileye girer. ⓘ `accent` (#10B981) DEĞİŞMEDİ —
+    // kategori rozetleri/çipleri site genelinde ona bağlı.
+    darkVisualBg: "linear-gradient(155deg, #14161a 0%, #0d0d0d 70%)",
+    lightVisualBg: "linear-gradient(155deg, #e4e8ed 0%, #f6f8fa 70%)",
     badge: "Yeni",
     comingSoon: false,
   },
@@ -495,7 +502,7 @@ export default function Products() {
                       alt={cat.name}
                       fill
                       sizes="(max-width: 640px) 95vw, (max-width: 1024px) 48vw, 380px"
-                      className={urunPngKategorisi(cat.id) ? "object-contain p-5" : "object-cover"}
+                      className={urunPngKategorisi(cat.id) ? `object-contain ${urunPngBosluk(cat.id)}` : "object-cover"}
                       style={{
                         opacity: isHovered ? 1.0 : 0.9,
                         transition: "opacity 0.35s ease, transform 0.4s ease",
