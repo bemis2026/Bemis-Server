@@ -16,10 +16,7 @@ import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
  */
 
 /** Şeridin solunda/sağında daha içerik var mı? Ok tuşlarını göstermek için. */
-export function useKaydirmaDurumu(
-  ref: React.RefObject<HTMLElement | null>,
-  bagimlilik?: unknown,
-) {
+export function useKaydirmaDurumu(ref: React.RefObject<HTMLElement | null>) {
   const [sol, setSol] = useState(false);
   const [sag, setSag] = useState(false);
 
@@ -31,6 +28,14 @@ export function useKaydirmaDurumu(
     setSag(el.scrollLeft + el.clientWidth < el.scrollWidth - pay);
   }, [ref]);
 
+  // ⚠️ BİLEREK BAĞIMLILIK DİZİSİ YOK — efekt HER render'da yeniden bağlanır.
+  // Neden: `ref.current` render'lar arasında BAŞKA bir DOM düğümü olabilir
+  // (React elemanı yeniden oluşturur). Tek seferlik bağlamada dinleyici ESKİ
+  // düğümde kalıyor, `olc` ise YENİ düğümü okuyor → ilk ölçüm doğru çıkıyor
+  // ama sonraki kaydırmalar HİÇ ölçülmüyor, oklar donuyor.
+  // 🔴 Bu tam olarak canlıda yaşandı (Benzer Ürünler karuseli, 2026-08-05):
+  // başlangıçta sol ok doğru gizliydi, sona gidince sağ ok kaybolmuyordu.
+  // Maliyet ihmal edilebilir: render başına bir listener + bir ResizeObserver.
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -42,7 +47,7 @@ export function useKaydirmaDurumu(
     ro.observe(el);
     for (const c of Array.from(el.children)) ro.observe(c);
     return () => { el.removeEventListener("scroll", olc); ro.disconnect(); };
-  }, [ref, olc, bagimlilik]);
+  });
 
   return { sol, sag, olc };
 }
@@ -108,7 +113,7 @@ export default function YatayKaydirma({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const animRef = useRef(0);
-  const { sol, sag, olc } = useKaydirmaDurumu(ref, children);
+  const { sol, sag, olc } = useKaydirmaDurumu(ref);
   useEffect(() => () => cancelAnimationFrame(animRef.current), []);
 
   const kaydir = (yon: 1 | -1) => {
