@@ -13,6 +13,7 @@ import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
 import EnergyBackground from "../components/EnergyBackground";
+import YatayKaydirma from "../components/YatayKaydirma";
 import { ProductGridSkeleton } from "../components/ProductCardSkeleton";
 import {
   RiChargingPile2Line, RiBatteryChargeLine, RiFlashlightLine, RiPlugLine,
@@ -314,7 +315,15 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
         style={{ background: d ? "rgba(12,12,14,0.92)" : "rgba(248,248,251,0.92)", backdropFilter: "blur(16px)", borderBottom: `1px solid ${surfaceBorder}` }}
       >
         <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
-          <div className="flex gap-2 overflow-x-auto pb-0.5 scrollbar-hide">
+          {/* ⚠️ Şerit `scrollbar-hide` ile kaydırma çubuğunu gizliyor ve fare
+              tekerleği yatay kaydırmaz → FARE kullanan ziyaretçi sağdaki
+              kategorilere ulaşamıyordu (kullanıcı bildirdi). Ok tuşları eklendi. */}
+          <YatayKaydirma
+            d={d}
+            className="flex gap-2 overflow-x-auto pb-0.5 scrollbar-hide"
+            onceki={pickText(lang, "Önceki kategoriler", "Previous categories")}
+            sonraki={pickText(lang, "Sonraki kategoriler", "Next categories")}
+          >
             <FilterChip
               label="Tümü"
               active={activeFilter === "all"}
@@ -335,7 +344,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
                 textMuted={textMuted} textPrimary={textPrimary}
               />
             ))}
-          </div>
+          </YatayKaydirma>
         </div>
       </div>
 
