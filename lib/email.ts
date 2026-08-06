@@ -85,6 +85,24 @@ export async function sendEmail({ to, subject, html, replyTo }: SendArgs): Promi
   return { ok: false, error: "no_provider_configured" };
 }
 
+/**
+ * Form başvurularının düşeceği adres(ler). `CONTACT_TO_EMAIL` VİRGÜLLE
+ * ayrılmış birden çok adres kabul eder.
+ *
+ * ⚠️ NEDEN ÇOKLU (2026-08-05, kullanıcı kararı): site 2026-07-31'den beri
+ * her yerde `satis@bemis.com.tr` yazıyor ama başvurular `info@bemisevcharge.com`
+ * kutusuna düşüyordu — FARKLI SAĞLAYICIDA, FARKLI KUTU. O kutuyu izleyen
+ * olmayınca başvurular sessizce bekliyordu. İkisine birden gönderiliyor ki
+ * hiçbir başvuru kaçmasın.
+ * ⓘ İlk adres BİRİNCİL sayılır (otomatik yanıtın "cevapla" adresi ondan türer).
+ */
+export function alicilar(): string[] {
+  return (process.env.CONTACT_TO_EMAIL ?? "")
+    .split(",")
+    .map((x) => x.trim())
+    .filter(Boolean);
+}
+
 // ── Admin notification — "new form submission" ──────────────────────
 export async function notifyAdmin(opts: {
   subject: string;
@@ -92,8 +110,8 @@ export async function notifyAdmin(opts: {
   /** Reply-to set to the form filler so the ops team can hit Reply. */
   fromUserEmail?: string;
 }): Promise<SendResult> {
-  const to = process.env.CONTACT_TO_EMAIL;
-  if (!to) {
+  const to = alicilar();
+  if (!to.length) {
     console.error("[email] notifyAdmin: CONTACT_TO_EMAIL not set");
     return { ok: false, error: "no_recipient" };
   }
@@ -363,11 +381,12 @@ export async function sendAutoReply(opts: {
    *  Boş/undefined ise lib/email.ts'deki sabit fallback'lere düşer. */
   template?: AutoReplyTemplate;
 }): Promise<SendResult> {
-  // Send from no-reply but route replies to the staffed inbox.
-  // Best practice: noreply@ as sender (so users don't accidentally
-  // reply into a black-hole mailbox), info@ as Reply-To so anyone
-  // who *does* hit reply lands at a monitored address.
-  const replyTo = process.env.REPLY_TO_EMAIL || "satis@bemis.com.tr";
+  // Gönderen noreply@, ama cevaplar İZLENEN kutuya yönlensin.
+  // ⚠️ Sıra önemli: REPLY_TO_EMAIL açıkça verilmişse o kazanır; verilmemişse
+  // başvurunun düştüğü BİRİNCİL adresten türetilir. Böylece "başvuru bir
+  // kutuya, müşterinin cevabı başka kutuya" ayrışması bir daha oluşamaz —
+  // 2026-07-31'de tam bu ayrışma oluşmuş ve fark edilmemişti.
+  const replyTo = process.env.REPLY_TO_EMAIL || alicilar()[0] || "satis@bemis.com.tr";
   const merged = mergeTemplate(opts.template);
   return sendEmail({
     to: opts.toUser,
