@@ -8,6 +8,7 @@ import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../../context/ThemeContext";
 import { accentInk } from "../../../lib/accentInk";
+import { useKaydirmaDurumu, yumusakKaydir } from "../../../components/YatayKaydirma";
 import { useLanguage } from "../../../context/LanguageContext";
 import { useCurrency } from "../../../context/CurrencyContext";
 import { useContent } from "../../../context/ContentContext";
@@ -236,6 +237,12 @@ export default function ProductDetailPage({
   const [featTip, setFeatTip] = useState<{ label: string; desc: string; x: number; y: number } | null>(null);
   // FAQ artık accordion değil — kartlar her zaman cevap görünür halde.
   const carouselRef = useRef<HTMLDivElement | null>(null);
+  // Benzer Ürünler okları: uçlara gelince GİZLENSİN (eskiden hep görünüyordu,
+  // sona gelince bile duruyordu). Mantık /products şeridiyle ORTAK — bkz.
+  // app/components/YatayKaydirma.tsx. Görünüm burada kalır (accent renkli yüzen ok).
+  const karuselAnim = useRef(0);
+  const { sol: karuselSol, sag: karuselSag, olc: karuselOlc } = useKaydirmaDurumu(carouselRef);
+  useEffect(() => () => cancelAnimationFrame(karuselAnim.current), []);
   const isFirstMount = useRef(true);
 
   const categoryId = typeof params.id        === "string" ? params.id        : "";
@@ -1298,7 +1305,10 @@ export default function ProductDetailPage({
           const el = carouselRef.current;
           if (!el) return;
           const delta = Math.max(240, el.clientWidth * 0.7) * (dir === "left" ? -1 : 1);
-          el.scrollBy({ left: delta, behavior: "smooth" });
+          // ⚠️ `scrollBy({behavior:"smooth"})` bırakıldı: kare üretmeyen
+          // ortamlarda sessizce hiç çalışmıyordu (ölçüldü). Ortak yardımcı
+          // elle animasyon + güvenlik ağı + hareket-azaltma desteği verir.
+          yumusakKaydir(el, delta, karuselOlc, karuselAnim);
         };
         return (
           <div className="pb-20">
@@ -1313,10 +1323,12 @@ export default function ProductDetailPage({
                 "Tümünü Gör" button — quicker swipe-by-click on desktop,
                 hidden on small screens where touch-scroll is natural. */}
             <div className="relative">
+              {karuselSol && (
               <button
                 aria-label="Sola kaydır"
                 onClick={() => scrollCarousel("left")}
-                className="hidden sm:flex absolute left-2 lg:left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-105"
+                /* ⚠️ cursor-pointer: Tailwind v4 button'a cursor:default verir */
+                className="hidden sm:flex cursor-pointer absolute left-2 lg:left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-105 active:scale-95"
                 style={{
                   background: theme === "dark" ? "rgba(20,20,22,0.85)" : "rgba(255,255,255,0.95)",
                   border: `1px solid ${theme === "dark" ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`,
@@ -1327,10 +1339,12 @@ export default function ProductDetailPage({
               >
                 <RiArrowLeftLine size={18} />
               </button>
+              )}
+              {karuselSag && (
               <button
                 aria-label="Sağa kaydır"
                 onClick={() => scrollCarousel("right")}
-                className="hidden sm:flex absolute right-2 lg:right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-105"
+                className="hidden sm:flex cursor-pointer absolute right-2 lg:right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-105 active:scale-95"
                 style={{
                   background: theme === "dark" ? "rgba(20,20,22,0.85)" : "rgba(255,255,255,0.95)",
                   border: `1px solid ${theme === "dark" ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"}`,
@@ -1341,6 +1355,7 @@ export default function ProductDetailPage({
               >
                 <RiArrowRightSLine size={18} />
               </button>
+              )}
             <div
               ref={carouselRef}
               tabIndex={0} role="region" aria-label="Benzer ürünler — yatay kaydırılabilir liste" className="flex gap-3 overflow-x-auto snap-x snap-proximity scrollbar-hide pl-5 sm:pl-6 lg:pl-8 pr-5 sm:pr-6 lg:pr-8"
