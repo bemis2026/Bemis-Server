@@ -29,7 +29,7 @@ import {
   RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
   RiShieldCheckLine, RiBarChart2Line, RiCalendarCheckLine, RiTeamLine,
   RiLightbulbLine, RiAddLine, RiMapPin2Line, RiVerifiedBadgeFill,
-  RiStarFill, RiDashboard3Line, RiHammerLine, RiEqualizerLine,
+  RiStarFill, RiDashboard3Line, RiHammerLine, RiEqualizerLine, RiBluetoothLine,
 } from "react-icons/ri";
 import { featureById } from "../../../../lib/productFeatures";
 import { PhoneScreen, WebScreen } from "../../../components/AppMockups";
@@ -47,7 +47,7 @@ const DETAIL_FEATURE_ICONS: Record<string, React.ComponentType<{ size?: number; 
   RiCloudLine, RiSmartphoneLine, RiWifiLine, RiBankCardLine, RiTv2Line,
   RiShieldCheckLine, RiBarChart2Line, RiPlugLine, RiFlashlightLine,
   RiCalendarCheckLine, RiTeamLine, RiLightbulbLine,
-  RiDashboard3Line, RiHammerLine, RiEqualizerLine, RiToolsLine,
+  RiDashboard3Line, RiHammerLine, RiEqualizerLine, RiToolsLine, RiBluetoothLine,
 };
 import { HiDownload } from "react-icons/hi";
 import { trackEvent } from "../../../components/GoogleAnalytics";

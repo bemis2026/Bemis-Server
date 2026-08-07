@@ -16,6 +16,7 @@ export const PRODUCT_FEATURES: ProductFeature[] = [
   { id: "ocpp",        label: "OCPP",                 icon: "RiCloudLine",        accent: "#8B5CF6", mockup: "browser", desc: "Açık OCPP protokolü ile şarj ağı yönetim sistemlerine bağlanır." },
   { id: "app",         label: "Mobil Uygulama",       icon: "RiSmartphoneLine",   accent: "#10B981", mockup: "phone", desc: "Şarjı telefondan başlatın, durdurun ve anlık takip edin." },
   { id: "wifi",        label: "WiFi",                 icon: "RiWifiLine",         accent: "#3B82F6", desc: "Kablosuz ağ üzerinden internete bağlanır." },
+  { id: "bluetooth",   label: "Bluetooth",            icon: "RiBluetoothLine",    accent: "#2563EB", desc: "Telefonla doğrudan Bluetooth bağlantısı; ağ olmadan cihaz ayarlarına erişim." },
   { id: "rfid",        label: "RFID Kart Okuyucu",    icon: "RiBankCardLine",     accent: "#F59E0B", desc: "RFID kart ile yetkili erişim ve tek dokunuşta başlatma." },
   { id: "screen",      label: "LCD Ekran",             icon: "RiTv2Line",          accent: "#EC4899", desc: "Şarj durumunu gösteren aydınlatmalı LCD ekran." },
   { id: "ip65",        label: "IP65 Koruma",          icon: "RiShieldCheckLine",  accent: "#64748B", desc: "Toz ve suya karşı IP65 koruma; dış mekana uygun." },
