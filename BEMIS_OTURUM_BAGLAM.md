@@ -13,6 +13,47 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🖼️🔴➡️✅ **ADMİN GÖRSEL YÜKLEME: 4.5 MB TAVANI + ŞEFFAF PNG'Yİ BOZAN YEDEK YOL (2026-08-07, commit'ler a6cbabc + 0f11437):**
+> Kullanıcı "DC soket tutucuya adminden görsel ekleyemiyorum" dedi. **İKİ AYRI KUSUR ÖLÇÜLDÜ:**
+> **(a) TAVAN:** ürün görseli yükleme düğmesi ham `fetch("/api/admin/upload")` kullanıyordu → dosya bizim sunucu
+> fonksiyonumuzdan geçiyor ve **Vercel'de istek gövdesi ~4.5 MB ile sınırlı** (vekil ayrıca base64'e çevirdiği için
+> pratik tavan daha düşük). Ölçüm: son BAŞARILI yüklemeler **2,78 / 2,78 / 3,66 MB** — yani tam sınırın dibinde;
+> yeni yüksek çözünürlüklü render'lar duvara çarpıyordu. **Üstüne:** `else { showToast("err","Yükleme başarısız.") }`
+> sunucunun döndürdüğü GERÇEK sebebi yutuyordu → kullanıcı nedenini göremiyordu.
+> **(b) 🔴 DAHA SİNSİ — YEDEK SIKIŞTIRMA ŞEFFAFLIĞI YOK EDİYORDU:** `lib/clientImageUpload.ts` 3 MB üstü / 3840px
+> üstü görselleri tuvalden geçiriyordu ama `getContext("2d", { alpha: false })` + `toBlob(..., "image/jpeg")` ile →
+> **şeffaf PNG'nin arkası SİYAHA dönüyordu.** ⚠️ Katalogdaki 150 görselin **115'i PNG** (şeffaf ürün render'ı) →
+> tetiklendiğinde sessiz veri bozulması. Ayrıca bu, "yüklenen görselin kalitesi ASLA düşürülmez" kuralına da aykırıydı.
+> **ÇÖZÜM — DOSYA ARTIK VERCEL'E HİÇ UĞRAMIYOR:** yeni **`app/api/admin/upload/config/route.ts`** (admin-authed) imzasız
+> Cloudinary preset'ini verir; `uploadImage()` önce **tarayıcıdan DOĞRUDAN Cloudinary'e** yükler (orijinal baytlar →
+> boyut sınırı yok, yeniden kodlama yok, şeffaflık korunur). Vekil yalnız yedek; yedekteki sıkıştırma da artık
+> alfa koruyarak PNG'ye kodluyor. `handleProdImgUpload` + `handleCatImgUpload` ortak yardımcıya bağlandı ve
+> **gerçek hata mesajını** gösteriyor. ⚠️ CSP `connect-src` zaten `api.cloudinary.com`'a izin veriyordu (değişiklik gerekmedi).
+> ⓘ **Yan bulgu:** görselsiz ürünlerde `image: ""` kayıtlı → `existing[0] ?? url` boş string'i geçiriyordu (`??` yalnız
+> null/undefined'ı yakalar) → `||` ile düzeltildi. 📌 **KALAN AYNI DESEN:** admin'de ~12 ham `fetch("/api/admin/upload")`
+> çağrısı daha var (bölüm arka planı, mockup, logo, favicon, showcase…). Aynı tavana tabiler; gerektikçe `uploadImage()`'a bağla.
+>
+> ⭐ **ÖNE ÇIKANLAR + ROZET TAMAMLAMA (aynı gün):** **(1)** "En Çok Tercih Edilenler"e **Mono Mobile** eklendi (6 dil,
+> 13 kaynak). ⚠️ **Pro Mobile 2 ZATEN listedeydi** ("Plug & Play") — kullanıcı ikisini istedi, mükerrer eklenmedi.
+> `featured` **pozisyonel** merge edilir (`contentLang.ts:71`) → SONA eklemek hizayı bozmaz ama çeviri yoksa yabancı
+> dilde TÜRKÇE rozet çıkar, o yüzden 6 dile birden yazıldı. **🔴 Betiğin hiza kontrolü ayrı bir kusur yakaladı:**
+> `data/content-en.json`'da **4. kayıt hiç yoktu (3≠4)** → R2 okunamayan bir build'de İngilizce ziyaretçi o kartta
+> Türkçe metin görürdü; R2'deki onaylı EN çevirisinden tamamlandı (yeni metin yazılmadı).
+> **(2)** Mini Mobile + Mono Mobile'a **`ip65`** rozeti (KANIT: kendi spec'lerinde "Koruma Sınıfı: IP65" yazıyordu ama
+> `features` BOŞTU — Pro Mobile 2'de 9 rozet varken bu iki ailede sıfırdı; sertifika denetimindeki mantığın aynısı,
+> betik spec'inde IP65 geçmeyene EKLEMEZ) + Pro Mobile 2 ailesine **`bluetooth`** (yeni render'ın ekranında Bluetooth
+> simgesi var, kullanıcı cihazda bulunduğunu teyit etti). Yeni `bluetooth` rozeti `productFeatures.ts`'e +
+> **`RiBluetoothLine` HER İKİ ikon haritasına** (FeaturedProducts + ProductDetailClient — biri unutulursa o yüzeyde
+> ikonsuz kalır). 10 ürün × 12 kaynak = 120 alan. store cache **v72 → v73-mono-featured → v74-ip65-bluetooth**.
+>
+> ⏳ **KULLANICIDA — 6 YENİ GÖRSEL:** Pro Mobile 2 · Mini Mobile · Mono Mobile (yeni render'lar) · **DC Soket Tutucu**
+> (`BAK-8200-0002`, sitedeki TEK görselsiz ürün) · **AC Soket Tutucu** (`BAK-8200-0001` — kullanıcı kararı: mevcut
+> 2 görsel **TAMAMEN DEĞİŞTİRİLECEK**) · **DC duvar tipi** (kullanıcı kararı: `bevdc-40-1` BEVDCC-4223-0005'in görseli
+> değiştirilecek). ⚠️ **Görseller sohbete YAPIŞTIRILDI = diske erişilemiyor** (vision-only; İndirilenler/Masaüstü/
+> Resimler tarandı, yok). Kullanıcı dosyaları **İndirilenler'e kaydedecek**, sonra Claude 12 kaynağa hizalı yazacak.
+> ⚠️ Pro Mobile 2 / Mini / Mono'nun **5m·8m·10m varyantları var** (portable'da 10 ürün) → görsel devri varyantlara da
+> uygulanmalı. ⚠️ **`image`/`images` KİMLİK alanı** → merge DAİMA TR'den alır, yalnız TR kaynaklarına yazılır.
+
 > 📮🔴 **FORM BAŞVURULARI İZLENMEYEN BİR KUTUYA DÜŞÜYORDU — DÜZELTİLDİ (2026-08-05, kullanıcı Resend'de başvuru görüp sordu):**
 > **TEŞHİS:** site 2026-07-31'den beri her yerde **`satis@bemis.com.tr`** yazıyor (16 yerde değiştirilmişti) ama `CONTACT_TO_EMAIL` hâlâ **`info@bemisevcharge.com`** idi — **farklı sağlayıcıda, farklı kutu** (kurumsaleposta ↔ Google Workspace). Müşteri sitede bir adres görüp form dolduruyor, başvuru başka kutuya düşüyordu. Otomatik yanıtın `Reply-To`'su da aynı izlenmeyen kutuyu gösteriyordu. ⚠️ Bu 2026-07-31'de "açık iş" olarak NOT EDİLMİŞ ama kapatılmamıştı. **Üç form da etkileniyordu: iletişim · BAYİLİK BAŞVURUSU · ihracat teklifi** (hepsi `/api/contact`'a gider).
 > **ⓘ Mail kaybolmuyordu:** MX ölçüldü — `bemisevcharge.com` **kurumsaleposta**'da geçerli MX'e sahip. (`bemisevcharge.com.tr`'nin MX'i YOK — o adrese yazan hiçbir şey ulaşmaz, eski not doğru.)
