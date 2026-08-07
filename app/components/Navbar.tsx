@@ -190,7 +190,11 @@ const CATEGORY_MENU_IMAGE: Record<string, string> = {
   // 2026-08-05: wallbox ESKİ Charger 2 render'ını (hiçbir üründe kullanılmıyordu),
   // portable ise MINI Mobile'ı gösteriyordu → ikisi de yeni amiral görsellere alındı:
   // yeni Charger 2 (karbon yüzey) ve Pro Mobile 2 (11-22 kW).
-  "wallbox":           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783076685/products/wk5wmt8r9ke9t8kxznfz.png",
+    // 2026-08-07: kullanici 3 Charger 2 varyantinin da gorselini adminden
+  // yeniledi (yeni nesil: cihazda "CHARGER 2", tus "Gucunu Sec / Select
+  // Power", logo "bemis E-V CHARGE"). Kategori karti ve bu menu gorseli
+  // ONCEKI nesilde (wk5wmt8 — yalnizca "CHARGER") kalmisti.
+  "wallbox":           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1786123494/products/lsbwdmmqz2uz4hkx4z4n.png",
   // 2026-08-07: Pro Mobile 2'nin YENİ render'ı (cihaz üstünde "PRO MOBILE 2",
   // tuş "Gücünü Seç / Select Power" = 6 kademe amper). Eskisi "PRO MOBILE" +
   // "16A./32A. · 3 sec press" idi, yani önceki cihaz kuşağını gösteriyordu.
