@@ -6912,8 +6912,10 @@
             ]
           }
         ],
-        "images": [],
-        "image": "",
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1786123364/products/agp70o6tg25obvm8snot.jpg"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1786123364/products/agp70o6tg25obvm8snot.jpg",
         "boxContents": []
       },
       {
@@ -10458,8 +10460,10 @@
           "4 Noktadan Montajlı montaj — hızlı kurulum",
           "IEC 62196-2 Type 2 standardına uygun"
         ],
-        "images": [],
-        "image": "",
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1786123216/products/al5dfj14dm3frmf0xwfq.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1786123216/products/al5dfj14dm3frmf0xwfq.png",
         "boxContents": []
       },
       {
@@ -10516,8 +10520,10 @@
           "4 Noktadan Montajlı montaj — hızlı kurulum",
           "IEC 62196-2 Type 2 standardına uygun"
         ],
-        "images": [],
-        "image": "",
+        "images": [
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1786123291/products/ue40mgafnj6cufj96l9h.png"
+        ],
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1786123291/products/ue40mgafnj6cufj96l9h.png",
         "boxContents": []
       }
     ]
