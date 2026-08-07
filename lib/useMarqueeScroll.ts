@@ -17,14 +17,22 @@ import { useEffect, useRef, useState } from "react";
 //   scrollRef       — outer .overflow-x-auto div'e bağlanır
 //   handlers        — outer div'in onMouse*/onTouch* prop'ları
 //   scrollByAmount  — sol/sağ button'lar için programmatic smooth scroll
-export function useMarqueeScroll(opts?: { speed?: number }) {
+// ⚠️ 2026-08-07: anasayfada İKİ marquee ART ARDA duruyor ("En Çok Tercih
+// Edilenler" + "Sahada Bemis E-V Charge"). İkisi de aynı yönde, aynı hızda
+// akınca ekranın yarısı tek parça hâlinde kayıyor gibi görünüyor ve baş
+// döndürüyor. Çözüm: `direction` ile ters yön + hafifçe FARKLI hız
+// (eşit hız ters yönde de "ayna" etkisi yaratır, o da göze batar).
+export function useMarqueeScroll(opts?: { speed?: number; direction?: 1 | -1 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef({ active: false, startX: 0, startScroll: 0 });
   const touchedRef = useRef(false);
   // Button click başlattığında smooth scroll bitene kadar RAF'i durdur —
   // aksi halde her frame'deki +speed smooth scroll'un hedefini ezer.
   const buttonPauseUntil = useRef(0);
-  const speed = opts?.speed ?? 0.5; // px / frame ≈ 30 px / sec @ 60 fps
+  // px / frame. 0.5 ≈ 30 px/sn idi; iki bant birlikte akınca hızlı geliyordu
+  // → sakinleştirildi (0.30 ≈ 18 px/sn).
+  const speed = opts?.speed ?? 0.30;
+  const dir = opts?.direction ?? 1;
 
   // ⚠️ Marquee YALNIZ masaüstünde (fine pointer). Dokunmatik cihazlarda
   // (pointer: coarse = telefon/tablet) otomatik kaydırma parmak-kaydırmasıyla
@@ -66,8 +74,12 @@ export function useMarqueeScroll(opts?: { speed?: number }) {
       if (!dragRef.current.active && !touchedRef.current && !buttonActive && metrics.current.overflow) {
         // scrollLeft'i başta bir kez oku (layout temizken = zorlamasız), önbellekli
         // yarı-genişlikle sar, sonra yaz. Kare içinde scrollWidth OKUNMAZ.
-        let next = el.scrollLeft + speed;
-        if (next >= metrics.current.half) next -= metrics.current.half;
+        // 2× kopya sayesinde `half` noktası başlangıçla AYNI görüntüyü verir →
+        // her iki yönde de sarma görsel olarak kesintisizdir.
+        const half = metrics.current.half;
+        let next = el.scrollLeft + speed * dir;
+        if (next >= half) next -= half;
+        else if (next < 0) next += half;
         el.scrollLeft = next;
       }
       rafId = requestAnimationFrame(tick);
@@ -90,7 +102,7 @@ export function useMarqueeScroll(opts?: { speed?: number }) {
     }
 
     return () => { stop(); io?.disconnect(); ro.disconnect(); };
-  }, [speed]);
+  }, [speed, dir]);
 
   const handlers = {
     onMouseDown: (e: React.MouseEvent<HTMLDivElement>) => {
@@ -134,6 +146,19 @@ export function useMarqueeScroll(opts?: { speed?: number }) {
     // çok yüksekse (yarısına yakın) sıfırla ki sağ scroll loop'a yakın
     // zıplama yapmasın.
     buttonPauseUntil.current = performance.now() + 700;
+    // ⚠️ SONSUZ KAYDIRMA (kullanıcı isteği): şerit uçlarda DURMAZ, başa
+    // dönerek devam eder. 2× kopya olduğu için `half` konumu başlangıçla
+    // aynı görüntüyü verir → hedef aralık dışına taşacaksa ÖNCE anlık olarak
+    // eşdeğer konuma sarılır, sonra yumuşak kaydırma yapılır. Sıçrama
+    // görünmez çünkü sarma noktasındaki içerik birebir aynıdır.
+    // ⓘ `half` yalnız marquee açıkken (masaüstü) doludur; mobilde 0 kalır →
+    //   koşul çalışmaz, öğeler 1× kopya olduğu için sarma zaten yanlış olurdu.
+    const half = metrics.current.half;
+    if (half > 0) {
+      const hedef = el.scrollLeft + delta;
+      if (hedef > half) el.scrollLeft -= half;
+      else if (hedef < 0) el.scrollLeft += half;
+    }
     el.scrollBy({ left: delta, behavior: "smooth" });
   };
 

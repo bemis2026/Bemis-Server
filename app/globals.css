@@ -891,3 +891,16 @@ html:not([lang="tr"]) h2[class*="text-6xl"] {
    1600px'lik alanda 1008px'e düşüp sağda 592px BOŞLUK bıraktı. Genişlik açıkça
    sabitlenince yükseklik kırpılır, genişlik tam kalır (istenen davranış). */
 .media-cap { width: 100%; max-height: clamp(220px, 42vh, 520px); }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   HARİTA BÖLGE PİNİ — ODAK ÇERÇEVESİ (2026-08-07, kullanıcı bildirdi)
+   Bölge pin'i `<g role="button" tabIndex={0}>`. Tarayıcı odak çerçevesini
+   bir SVG GRUBUNUN SINIR KUTUSU etrafına DİKDÖRTGEN olarak çizer → yuvarlak
+   pin'in çevresinde "kare" beliriyordu.
+   ⚠️ Çerçeveyi sadece kaldırmak ERİŞİLEBİLİRLİĞİ BOZAR (klavyeyle gezinen
+   kullanıcı nerede olduğunu göremez) → yerine bileşendeki `.pin-odak`
+   yuvarlak halkası konuyor ve YALNIZ `:focus-visible` ile gösteriliyor:
+   fareyle tıklamada görünmez, Tab ile gezinmede görünür.            */
+.harita-pin { outline: none; }
+.harita-pin .pin-odak { opacity: 0; transition: opacity 0.12s ease; }
+.harita-pin:focus-visible .pin-odak { opacity: 1; }

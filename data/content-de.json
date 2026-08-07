@@ -369,6 +369,34 @@
       "visible": true,
       "badge": "Einphasig 7,4 kW",
       "highlight": "Einphasiges tragbares 7,4-kW-Ladegerät. Zweistufige Leistungswahl (16A/32A); CEE-Adapter und Tragetasche inklusive. IP65."
+    },
+    {
+      "categoryId": "portable",
+      "productId": "mini-mobile",
+      "visible": true,
+      "badge": "Für die Haushaltssteckdose",
+      "highlight": "Einphasiges tragbares 2,3–3,7-kW-Ladegerät. Direkt an die Schuko-Steckdose; zweistufige Leistungswahl (10A/16A) und Tragetasche inklusive."
+    },
+    {
+      "categoryId": "v2l-c2l",
+      "productId": "tekli-priz-uzatma-v2l-adaptor-hyundai",
+      "visible": true,
+      "badge": "V2L · Eine Steckdose",
+      "highlight": "Macht Ihr Fahrzeug zur mobilen Stromquelle. Eine Schuko-Steckdose an 3 m Kabel, 16A. Kompatibel mit Hyundai · Kia · Ssangyong."
+    },
+    {
+      "categoryId": "v2l-c2l",
+      "productId": "3lu-priz-uzatma-v2l-adaptor-hyundai",
+      "visible": true,
+      "badge": "V2L · 3 Steckdosen",
+      "highlight": "Versorgt mehrere Geräte auf der Baustelle, beim Camping oder auf Veranstaltungen. Drei Schuko-Steckdosen an 3 m Kabel, 16A. Kompatibel mit Hyundai · Kia · Ssangyong."
+    },
+    {
+      "categoryId": "v2l-c2l",
+      "productId": "c2l-2li-priz-uzatma-fisli-adaptor",
+      "visible": true,
+      "badge": "C2L · 2 Steckdosen",
+      "highlight": "Verteilt den Ausgang der Ladestation auf zwei getrennte Verbraucher. Typ-2-Eingang, zwei Schuko-Steckdosen an 3 m Kabel, 16A."
     }
   ],
   "company": {

@@ -369,6 +369,34 @@
       "visible": true,
       "badge": "Monofásico 7,4 kW",
       "highlight": "Cargador portátil monofásico de 7,4 kW. Selección de potencia en dos niveles (16A/32A); adaptadores CEE y maletín incluidos. IP65."
+    },
+    {
+      "categoryId": "portable",
+      "productId": "mini-mobile",
+      "visible": true,
+      "badge": "Para Enchufe Doméstico",
+      "highlight": "Cargador portátil monofásico de 2,3–3,7 kW. Se conecta directamente a un enchufe Schuko; selección de potencia en dos niveles (10A/16A) y maletín incluidos."
+    },
+    {
+      "categoryId": "v2l-c2l",
+      "productId": "tekli-priz-uzatma-v2l-adaptor-hyundai",
+      "visible": true,
+      "badge": "V2L · Una Toma",
+      "highlight": "Convierte su coche en una fuente de energía móvil. Una toma Schuko con cable de 3 m, 16A. Compatible con Hyundai · Kia · Ssangyong."
+    },
+    {
+      "categoryId": "v2l-c2l",
+      "productId": "3lu-priz-uzatma-v2l-adaptor-hyundai",
+      "visible": true,
+      "badge": "V2L · 3 Tomas",
+      "highlight": "Alimenta varios equipos en obra, camping o eventos. Tres tomas Schuko con cable de 3 m, 16A. Compatible con Hyundai · Kia · Ssangyong."
+    },
+    {
+      "categoryId": "v2l-c2l",
+      "productId": "c2l-2li-priz-uzatma-fisli-adaptor",
+      "visible": true,
+      "badge": "C2L · 2 Tomas",
+      "highlight": "Reparte la salida de la estación de carga entre dos cargas independientes. Entrada Tipo 2, dos tomas Schuko con cable de 3 m, 16A."
     }
   ],
   "company": {

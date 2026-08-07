@@ -1186,6 +1186,7 @@ export default function DealerNetwork() {
                         initial={{ scale: 0, opacity: 0 }}
                         animate={inView ? { scale: 1, opacity: 1 } : {}}
                         transition={{ duration: 0.3, delay: 0.5 + i * 0.06 }}
+                        className="harita-pin"
                         style={{ cursor: "pointer" }}
                         tabIndex={0}
                         role="button"
@@ -1205,6 +1206,24 @@ export default function DealerNetwork() {
                           r={60}
                           fill="transparent"
                           style={{ pointerEvents: "all" }}
+                        />
+                        {/* ⚠️ YUVARLAK ODAK HALKASI — tarayıcının varsayılanı
+                            yerine. <g> bir SVG GRUBU olduğu için tarayıcı odak
+                            çerçevesini grubun SINIR KUTUSU etrafına DİKDÖRTGEN
+                            çizer; yuvarlak pin'in çevresinde kutu göze batıyordu
+                            (kullanıcı bildirdi). Varsayılan `outline` globals.css'te
+                            kapatıldı, bu halka YALNIZ `:focus-visible` ile (klavye
+                            ile gezinirken) görünür → erişilebilirlik korunur,
+                            fareyle tıklayınca kutu çıkmaz. */}
+                        <circle
+                          className="pin-odak"
+                          cx={region.cx} cy={region.cy}
+                          r={isActive ? 50 : 44}
+                          fill="none"
+                          stroke={BLUE}
+                          strokeWidth="3"
+                          strokeDasharray="5 4"
+                          pointerEvents="none"
                         />
                         {/* One-shot hint ring — re-mounts each time the user
                             clicks "Bayi Bul" so every region briefly pulses,

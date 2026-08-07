@@ -29,7 +29,11 @@ export default function ReferenceProjects() {
   const textMuted   = d ? "rgba(255,255,255,0.42)" : "rgba(0,0,0,0.42)";
 
   const sectionBgUrl = sectionBgs?.["referenceProjects"] ?? "";
-  const { scrollRef, handlers, scrollByAmount, isMarquee } = useMarqueeScroll();
+  // ⚠️ Bu bant anasayfada "En Çok Tercih Edilenler" bandının HEMEN ALTINDA.
+  // İkisi aynı yönde + aynı hızda akınca ekranın yarısı tek parça kayıyor
+  // gibi görünüp baş döndürüyordu (kullanıcı bildirdi). Bu şerit TERS yönde
+  // ve biraz farklı hızda akar → iki bant asla senkron olmaz.
+  const { scrollRef, handlers, scrollByAmount, isMarquee } = useMarqueeScroll({ direction: -1, speed: 0.22 });
   // Marquee (masaüstü) → 2× kopya ile kesintisiz akış; mobil (coarse pointer)
   // → 1× + native scroll (çift kopya + başa-fırlatma yok).
   const repeatedItems = isMarquee ? [...items, ...items] : items;
