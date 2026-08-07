@@ -118,7 +118,7 @@
       "modelCount": 3,
       "badge": "Yeni",
       "comingSoon": false,
-      "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783076718/products/enzqsaqqq0g42baprecg.png",
+      "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1786127169/products/y8rcddosrb8tffo1l9aq.png",
       "faq": [
         {
           "q": "Portatif şarj aleti, seyyar şarj cihazı, taşınabilir şarj — aynı şey mi?",
@@ -1338,26 +1338,26 @@
         ]
       },
       "products": {
-        "heading": "Discover the charging solution that suits your needs",
-        "subheading": "Product Catalog",
-        "sectionLabel": "All Products",
-        "allProductsLabel": "Review",
-        "viewLabel": "Authorized Sales Network",
+        "heading": "EV Charging Solutions",
+        "subheading": "Discover the charging solution that suits your needs",
+        "sectionLabel": "Product Catalog",
+        "allProductsLabel": "All Products",
+        "viewLabel": "View",
         "sliderEnabled": false
       },
       "dealer": {
-        "sectionLabel": "All over Turkey",
-        "heading": "Select or contact our authorized dealers across Turkey from the map.",
+        "sectionLabel": "Authorized Sales Network",
+        "heading": "All Across Türkiye",
         "description": "Bemis does not sell directly to end users. For the right product choice, installation and after-sales support, we direct you to the authorized dealer in your region. Select your region on the map — our dealer supplies the product and service in the most suitable way.",
-        "applyText": " Find a Store                                                                                                                                                                                                                                             ",
+        "applyText": "Would you like to join our dealer network?",
         "statCities": "7",
         "statDealers": "50+",
-        "findDealerTitle": "Contact",
-        "contactBtnLabel": "Dealer in the Territory",
-        "citiesLabel": "Active Dealer",
-        "activeDealersLabel": "Click or hover over an area on the map",
-        "mapHint": "Turkey Authorized Dealer Map",
-        "mapTitle": "Marmara Region Senior Sales Specialist",
+        "findDealerTitle": "Find a Dealer",
+        "contactBtnLabel": "Contact",
+        "citiesLabel": "Dealers in Region",
+        "activeDealersLabel": "Active Dealers",
+        "mapHint": "Click or hover over a region on the map",
+        "mapTitle": "Türkiye Authorized Dealer Map",
         "regionReps": [
           {
             "regionId": "marmara",

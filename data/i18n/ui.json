@@ -2170,5 +2170,11 @@
     "es": "Tomado de la red",
     "ar": "المسحوب من الشبكة",
     "ru": "Потребление из сети"
+  },
+  "Marmara": {
+    "de": "Marmararegion",
+    "es": "Mármara",
+    "ar": "مرمرة",
+    "ru": "Мармара"
   }
 }

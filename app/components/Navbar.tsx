@@ -191,13 +191,20 @@ const CATEGORY_MENU_IMAGE: Record<string, string> = {
   // portable ise MINI Mobile'ı gösteriyordu → ikisi de yeni amiral görsellere alındı:
   // yeni Charger 2 (karbon yüzey) ve Pro Mobile 2 (11-22 kW).
   "wallbox":           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783076685/products/wk5wmt8r9ke9t8kxznfz.png",
-  "portable":          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783076718/products/enzqsaqqq0g42baprecg.png",
+  // 2026-08-07: Pro Mobile 2'nin YENİ render'ı (cihaz üstünde "PRO MOBILE 2",
+  // tuş "Gücünü Seç / Select Power" = 6 kademe amper). Eskisi "PRO MOBILE" +
+  // "16A./32A. · 3 sec press" idi, yani önceki cihaz kuşağını gösteriyordu.
+  "portable":          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1786127169/products/y8rcddosrb8tffo1l9aq.png",
   "cables":            "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074926/products/m4xy2xidais3lsqebpbr.png",
   "v2l-c2l":           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074942/products/un6onm3b6kihvwfgbp3w.png",
   "converters":        "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783074998/products/kuxlacga82z0pbt2tqyt.png",
   "charger-equipment": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075211/products/slovarwtn9dt80fx55zc.png",
   "accessories":       "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075098/products/hjtuhulovozll09t9ijg.png",
-  "dc-units":          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075174/products/zcprvbro7tkheffuxtmf.png",
+  // 2026-08-07: BEVDC 40 duvar tipinin yeni render'ı. Eskisi (zcprvbro…)
+  // hem duvar hem direk tipinin PAYLAŞTIĞI görseldi; direk tipi onu
+  // kullanmaya devam ediyor. ⓘ Görsel çok uzun (1435×3469) ama menü
+  // küçük görseli `object-contain` kullandığı için kırpılmaz.
+  "dc-units":          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1786127189/products/i3qo3mkpseelmdgb7iiu.png",
 };
 
 interface NavbarProps {

@@ -224,6 +224,21 @@ export default function DealerNetwork() {
     return () => window.removeEventListener("hashchange", handleHash);
   }, []);
 
+  // Yabancı dilde ilk görünüm DÜNYA olmalı (kullanıcı isteği, 2026-08-07):
+  // yabancı ziyaretçi için anlamlı yüzey Türkiye bayi listesi değil,
+  // uluslararası distribütör ağı. Türkçe'de yurt içi varsayılan KALIR.
+  //
+  // ⚠️ `useState` başlangıç değeri YETMEZ: dil localStorage'dan okunuyor,
+  //    yani ilk render'da "tr" gelip hidrasyondan sonra gerçek dile
+  //    dönüyor. Bu yüzden `lang` değişimini izleyen bir effect gerekiyor.
+  // ⚠️ Kullanıcı sekmeyi elle değiştirdiyse ezilmez — effect yalnız `lang`
+  //    dizesi DEĞİŞİNCE çalışır. #dealer-export derin bağlantısı da
+  //    korunur (yukarıdaki effect ile çakışmasın).
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash === "#dealer-export") return;
+    setViewMode(lang === "tr" ? "yurtici" : "yurtdisi");
+  }, [lang]);
+
   // International distributors come from the editable content bin. Filter
   // active rows + sort by countryName for a stable, alphabetical side list.
   const internationalDealers = (dealerSection.internationalDealers ?? []).filter(c => c.active);

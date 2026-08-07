@@ -450,26 +450,26 @@
     ]
   },
   "products": {
-    "heading": "Entdecken Sie die Ladelösung, die zu Ihren Bedürfnissen passt",
-    "subheading": "Produktkatalog",
-    "sectionLabel": "Alle Produkte",
-    "allProductsLabel": "Ansehen",
-    "viewLabel": "Autorisiertes Vertriebsnetz",
+    "heading": "Ladelösungen für E-Fahrzeuge",
+    "subheading": "Entdecken Sie die passende Ladelösung für Ihren Bedarf",
+    "sectionLabel": "Produktkatalog",
+    "allProductsLabel": "Alle Produkte",
+    "viewLabel": "Ansehen",
     "sliderEnabled": false
   },
   "dealer": {
-    "sectionLabel": "In der ganzen Türkei",
+    "sectionLabel": "Autorisiertes Vertriebsnetz",
     "heading": "In der ganzen Türkei",
     "description": "Bemis verkauft nicht direkt an Endkunden. Für die richtige Produktauswahl, Installation und den Kundendienst leiten wir Sie an den autorisierten Händler in Ihrer Region weiter. Wählen Sie Ihre Region auf der Karte — unser Händler liefert Produkt und Service optimal.",
-    "applyText": "Händler finden",
+    "applyText": "Möchten Sie unserem Händlernetz beitreten?",
     "statCities": "7",
     "statDealers": "50+",
-    "findDealerTitle": "Kontakt",
-    "contactBtnLabel": "Händler im Gebiet",
-    "citiesLabel": "Aktiver Händler",
+    "findDealerTitle": "Händler finden",
+    "contactBtnLabel": "Kontakt",
+    "citiesLabel": "Händler in der Region",
     "activeDealersLabel": "Aktive Händler",
-    "mapHint": "Karte der autorisierten Händler in der Türkei",
-    "mapTitle": "Leitender Vertriebsspezialist Region Marmara",
+    "mapHint": "Klicken Sie auf eine Region oder fahren Sie darüber",
+    "mapTitle": "Karte autorisierter Händler in der Türkei",
     "regionReps": [
       {
         "regionId": "marmara",
