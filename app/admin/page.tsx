@@ -1565,6 +1565,17 @@ export default function AdminPage() {
 
   const TAB_GROUPS: { label: string; items: { id: Tab; label: string; icon: React.ElementType }[] }[] = [
     {
+      // ⚠️ "Proje Kartı" ANASAYFA BÖLÜMÜ DEĞİL — kategori sayfalarında
+      // (wallbox/cables) ürün listesiyle SSS arasında görünür. Eskiden
+      // "Sayfa Bölümleri" grubunda, Hero'nun HEMEN ALTINDA duruyordu; bu onu
+      // anasayfanın 2. bölümü gibi gösteriyordu (kullanıcı bildirdi 2026-08-05).
+      // Kendi grubuna alındı → nerede göründüğü menüden okunuyor.
+      label: "Kategori Sayfaları",
+      items: [
+        { id: "projectcard", label: "Proje Kartı", icon: HiOutlineCube },
+      ],
+    },
+    {
       label: "Sistem",
       items: [
         { id: "media",      label: "Medya",      icon: HiOutlinePhotograph      },
@@ -1665,13 +1676,9 @@ export default function AdminPage() {
             >
               <HiOutlineHome size={13} className="flex-shrink-0" /> Hero
             </button>
-            {/* Kategori sayfası "Projeye Özel Üretim" kartı — homepage bölümü değil,
-                kategori sayfalarında (kablo/wallbox) görünür → standalone buton. */}
-            <button onClick={() => setTab("projectcard")}
-              className={`w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-xs font-medium text-left transition-all duration-200 ${tab === "projectcard" ? "bg-white/10 text-white" : "text-white/40 hover:text-white/70 hover:bg-white/4"}`}
-            >
-              <HiOutlineCube size={13} className="flex-shrink-0" /> Proje Kartı
-            </button>
+            {/* ⓘ "Proje Kartı" BURADAN TAŞINDI → aşağıdaki "Kategori Sayfaları"
+                grubuna. Burası anasayfa bölümleri listesi; o kart kategori
+                sayfalarında görünüyor, Hero'nun altında durması yanıltıyordu. */}
             {/* Remaining sections: derived from sectionOrder, draggable.
                 Stale bin orders (missing newly-added sections) get the
                 missing SECTION_META keys auto-appended so new tabs are
