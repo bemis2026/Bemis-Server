@@ -350,11 +350,11 @@
       "visible": true
     },
     {
-      "categoryId": "charger-equipment",
-      "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
-      "badge": "Professionelles DC-Ladekabel CCS2",
-      "highlight": "Über uns",
-      "visible": true
+      "categoryId": "v2l-c2l",
+      "productId": "tekli-priz-uzatma-v2l-adaptor-hyundai",
+      "visible": true,
+      "badge": "V2L · Eine Steckdose",
+      "highlight": "Macht Ihr Fahrzeug zur mobilen Stromquelle. Eine Schuko-Steckdose an 3 m Kabel, 16A. Kompatibel mit Hyundai · Kia · Ssangyong."
     },
     {
       "categoryId": "cables",
@@ -371,25 +371,25 @@
       "highlight": "Einphasiges tragbares 7,4-kW-Ladegerät. Zweistufige Leistungswahl (16A/32A); CEE-Adapter und Tragetasche inklusive. IP65."
     },
     {
-      "categoryId": "portable",
-      "productId": "mini-mobile",
-      "visible": true,
-      "badge": "Für die Haushaltssteckdose",
-      "highlight": "Einphasiges tragbares 2,3–3,7-kW-Ladegerät. Direkt an die Schuko-Steckdose; zweistufige Leistungswahl (10A/16A) und Tragetasche inklusive."
-    },
-    {
-      "categoryId": "v2l-c2l",
-      "productId": "tekli-priz-uzatma-v2l-adaptor-hyundai",
-      "visible": true,
-      "badge": "V2L · Eine Steckdose",
-      "highlight": "Macht Ihr Fahrzeug zur mobilen Stromquelle. Eine Schuko-Steckdose an 3 m Kabel, 16A. Kompatibel mit Hyundai · Kia · Ssangyong."
-    },
-    {
       "categoryId": "v2l-c2l",
       "productId": "3lu-priz-uzatma-v2l-adaptor-hyundai",
       "visible": true,
       "badge": "V2L · 3 Steckdosen",
       "highlight": "Versorgt mehrere Geräte auf der Baustelle, beim Camping oder auf Veranstaltungen. Drei Schuko-Steckdosen an 3 m Kabel, 16A. Kompatibel mit Hyundai · Kia · Ssangyong."
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
+      "badge": "Professionelles DC-Ladekabel CCS2",
+      "highlight": "Über uns",
+      "visible": true
+    },
+    {
+      "categoryId": "portable",
+      "productId": "mini-mobile",
+      "visible": true,
+      "badge": "Für die Haushaltssteckdose",
+      "highlight": "Einphasiges tragbares 2,3–3,7-kW-Ladegerät. Direkt an die Schuko-Steckdose; zweistufige Leistungswahl (10A/16A) und Tragetasche inklusive."
     },
     {
       "categoryId": "v2l-c2l",

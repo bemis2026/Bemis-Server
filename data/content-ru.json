@@ -350,11 +350,11 @@
       "visible": true
     },
     {
-      "categoryId": "charger-equipment",
-      "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
-      "badge": "Профессиональный DC-кабель CCS2",
-      "highlight": "О нас",
-      "visible": true
+      "categoryId": "v2l-c2l",
+      "productId": "tekli-priz-uzatma-v2l-adaptor-hyundai",
+      "visible": true,
+      "badge": "V2L · Одна розетка",
+      "highlight": "Превращает автомобиль в мобильный источник питания. Одна розетка Schuko на кабеле 3 м, 16A. Совместим с Hyundai · Kia · Ssangyong."
     },
     {
       "categoryId": "cables",
@@ -371,25 +371,25 @@
       "highlight": "Однофазное портативное зарядное устройство 7,4 кВт. Двухступенчатый выбор мощности (16A/32A); адаптеры CEE и сумка в комплекте. IP65."
     },
     {
-      "categoryId": "portable",
-      "productId": "mini-mobile",
-      "visible": true,
-      "badge": "От бытовой розетки",
-      "highlight": "Однофазное портативное зарядное устройство 2,3–3,7 кВт. Подключается прямо к розетке Schuko; двухступенчатый выбор мощности (10A/16A) и сумка в комплекте."
-    },
-    {
-      "categoryId": "v2l-c2l",
-      "productId": "tekli-priz-uzatma-v2l-adaptor-hyundai",
-      "visible": true,
-      "badge": "V2L · Одна розетка",
-      "highlight": "Превращает автомобиль в мобильный источник питания. Одна розетка Schuko на кабеле 3 м, 16A. Совместим с Hyundai · Kia · Ssangyong."
-    },
-    {
       "categoryId": "v2l-c2l",
       "productId": "3lu-priz-uzatma-v2l-adaptor-hyundai",
       "visible": true,
       "badge": "V2L · 3 розетки",
       "highlight": "Питает несколько устройств на объекте, в кемпинге или на мероприятии. Три розетки Schuko на кабеле 3 м, 16A. Совместим с Hyundai · Kia · Ssangyong."
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
+      "badge": "Профессиональный DC-кабель CCS2",
+      "highlight": "О нас",
+      "visible": true
+    },
+    {
+      "categoryId": "portable",
+      "productId": "mini-mobile",
+      "visible": true,
+      "badge": "От бытовой розетки",
+      "highlight": "Однофазное портативное зарядное устройство 2,3–3,7 кВт. Подключается прямо к розетке Schuko; двухступенчатый выбор мощности (10A/16A) и сумка в комплекте."
     },
     {
       "categoryId": "v2l-c2l",

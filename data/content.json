@@ -379,11 +379,11 @@
       "visible": true
     },
     {
-      "categoryId": "charger-equipment",
-      "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
-      "badge": "Profesyonel DC Şarj Kablosu CCS2",
-      "highlight": "400-500A kapasiteye kadar. CCS2  · model. İstasyon üreticileri için.",
-      "visible": true
+      "categoryId": "v2l-c2l",
+      "productId": "tekli-priz-uzatma-v2l-adaptor-hyundai",
+      "visible": true,
+      "badge": "V2L · Tek Priz",
+      "highlight": "Aracınızı seyyar güç kaynağına çevirir. 3 m kablo üzerinde tek schuko çıkış, 16A. Hyundai · Kia · Ssangyong uyumlu."
     },
     {
       "categoryId": "cables",
@@ -401,25 +401,25 @@
       "highlight": "Monofaze 7,4 kW taşınabilir şarj cihazı. 16A/32A iki kademe güç seçimi; CEE adaptörleri ve taşıma çantası dahil. IP65."
     },
     {
-      "categoryId": "portable",
-      "productId": "mini-mobile",
-      "visible": true,
-      "badge": "Ev Tipi Prize",
-      "highlight": "2,3–3,7 kW monofaze taşınabilir şarj cihazı. Schuko prize doğrudan takılır; 10A/16A iki kademe güç seçimi ve taşıma çantası dahil."
-    },
-    {
-      "categoryId": "v2l-c2l",
-      "productId": "tekli-priz-uzatma-v2l-adaptor-hyundai",
-      "visible": true,
-      "badge": "V2L · Tek Priz",
-      "highlight": "Aracınızı seyyar güç kaynağına çevirir. 3 m kablo üzerinde tek schuko çıkış, 16A. Hyundai · Kia · Ssangyong uyumlu."
-    },
-    {
       "categoryId": "v2l-c2l",
       "productId": "3lu-priz-uzatma-v2l-adaptor-hyundai",
       "visible": true,
       "badge": "V2L · 3 Priz",
       "highlight": "Şantiye, kamp ve etkinlikte çoklu cihaz beslemesi. 3 m kablo üzerinde üç schuko çıkış, 16A. Hyundai · Kia · Ssangyong uyumlu."
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
+      "badge": "Profesyonel DC Şarj Kablosu CCS2",
+      "highlight": "400-500A kapasiteye kadar. CCS2  · model. İstasyon üreticileri için.",
+      "visible": true
+    },
+    {
+      "categoryId": "portable",
+      "productId": "mini-mobile",
+      "visible": true,
+      "badge": "Ev Tipi Prize",
+      "highlight": "2,3–3,7 kW monofaze taşınabilir şarj cihazı. Schuko prize doğrudan takılır; 10A/16A iki kademe güç seçimi ve taşıma çantası dahil."
     },
     {
       "categoryId": "v2l-c2l",
@@ -1266,11 +1266,11 @@
           "visible": true
         },
         {
-          "categoryId": "charger-equipment",
-          "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
-          "badge": "22 kW three-phase smart charging station for individual and common space uses. IP65 · OCPP 1.6 · Dynamic load balancing.",
-          "highlight": "About Us",
-          "visible": true
+          "categoryId": "v2l-c2l",
+          "productId": "tekli-priz-uzatma-v2l-adaptor-hyundai",
+          "visible": true,
+          "badge": "V2L · Single Socket",
+          "highlight": "Turns your car into a mobile power source. One Schuko outlet on a 3 m cable, 16A. Compatible with Hyundai · Kia · Ssangyong."
         },
         {
           "categoryId": "cables",
@@ -1287,25 +1287,25 @@
           "highlight": "Single-phase 7.4 kW portable charger. Two-step power selection (16A/32A); CEE adapters and carry case included. IP65."
         },
         {
-          "categoryId": "portable",
-          "productId": "mini-mobile",
-          "visible": true,
-          "badge": "Plugs Into a Home Socket",
-          "highlight": "2.3–3.7 kW single-phase portable charger. Plugs straight into a Schuko socket; two-step power selection (10A/16A) and carry case included."
-        },
-        {
-          "categoryId": "v2l-c2l",
-          "productId": "tekli-priz-uzatma-v2l-adaptor-hyundai",
-          "visible": true,
-          "badge": "V2L · Single Socket",
-          "highlight": "Turns your car into a mobile power source. One Schuko outlet on a 3 m cable, 16A. Compatible with Hyundai · Kia · Ssangyong."
-        },
-        {
           "categoryId": "v2l-c2l",
           "productId": "3lu-priz-uzatma-v2l-adaptor-hyundai",
           "visible": true,
           "badge": "V2L · 3 Sockets",
           "highlight": "Powers several devices on site, at camp or at events. Three Schuko outlets on a 3 m cable, 16A. Compatible with Hyundai · Kia · Ssangyong."
+        },
+        {
+          "categoryId": "charger-equipment",
+          "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
+          "badge": "22 kW three-phase smart charging station for individual and common space uses. IP65 · OCPP 1.6 · Dynamic load balancing.",
+          "highlight": "About Us",
+          "visible": true
+        },
+        {
+          "categoryId": "portable",
+          "productId": "mini-mobile",
+          "visible": true,
+          "badge": "Plugs Into a Home Socket",
+          "highlight": "2.3–3.7 kW single-phase portable charger. Plugs straight into a Schuko socket; two-step power selection (10A/16A) and carry case included."
         },
         {
           "categoryId": "v2l-c2l",

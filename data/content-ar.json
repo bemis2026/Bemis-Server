@@ -350,11 +350,11 @@
       "visible": true
     },
     {
-      "categoryId": "charger-equipment",
-      "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
-      "badge": "محطة شحن ذكية ثلاثية الطور 22 kW للاستخدامات الفردية والمساحات المشتركة. IP65 · OCPP 1.6 · موازنة حِمل ديناميكية.",
-      "highlight": "من نحن",
-      "visible": true
+      "categoryId": "v2l-c2l",
+      "productId": "tekli-priz-uzatma-v2l-adaptor-hyundai",
+      "visible": true,
+      "badge": "V2L · مقبس واحد",
+      "highlight": "يحوّل سيارتك إلى مصدر طاقة متنقّل. مخرج شوكو واحد على كابل 3 أمتار، 16A. متوافق مع Hyundai · Kia · Ssangyong."
     },
     {
       "categoryId": "cables",
@@ -371,25 +371,25 @@
       "highlight": "شاحن محمول أحادي الطور بقدرة 7,4 كيلوواط. اختيار الطاقة على مستويين (16A/32A)؛ محولات CEE وحقيبة حمل مشمولة. IP65."
     },
     {
-      "categoryId": "portable",
-      "productId": "mini-mobile",
-      "visible": true,
-      "badge": "يعمل من مقبس منزلي",
-      "highlight": "شاحن محمول أحادي الطور بقدرة 2,3–3,7 كيلوواط. يُوصَل مباشرةً بمقبس شوكو؛ اختيار الطاقة على مستويين (10A/16A) وحقيبة حمل مشمولة."
-    },
-    {
-      "categoryId": "v2l-c2l",
-      "productId": "tekli-priz-uzatma-v2l-adaptor-hyundai",
-      "visible": true,
-      "badge": "V2L · مقبس واحد",
-      "highlight": "يحوّل سيارتك إلى مصدر طاقة متنقّل. مخرج شوكو واحد على كابل 3 أمتار، 16A. متوافق مع Hyundai · Kia · Ssangyong."
-    },
-    {
       "categoryId": "v2l-c2l",
       "productId": "3lu-priz-uzatma-v2l-adaptor-hyundai",
       "visible": true,
       "badge": "V2L · 3 مقابس",
       "highlight": "يشغّل عدة أجهزة في الموقع أو التخييم أو الفعاليات. ثلاثة مخارج شوكو على كابل 3 أمتار، 16A. متوافق مع Hyundai · Kia · Ssangyong."
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
+      "badge": "محطة شحن ذكية ثلاثية الطور 22 kW للاستخدامات الفردية والمساحات المشتركة. IP65 · OCPP 1.6 · موازنة حِمل ديناميكية.",
+      "highlight": "من نحن",
+      "visible": true
+    },
+    {
+      "categoryId": "portable",
+      "productId": "mini-mobile",
+      "visible": true,
+      "badge": "يعمل من مقبس منزلي",
+      "highlight": "شاحن محمول أحادي الطور بقدرة 2,3–3,7 كيلوواط. يُوصَل مباشرةً بمقبس شوكو؛ اختيار الطاقة على مستويين (10A/16A) وحقيبة حمل مشمولة."
     },
     {
       "categoryId": "v2l-c2l",

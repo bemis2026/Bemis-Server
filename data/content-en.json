@@ -350,11 +350,11 @@
       "visible": true
     },
     {
-      "categoryId": "charger-equipment",
-      "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
-      "badge": "Professional DC Charging Cable CCS2",
-      "highlight": "About Us",
-      "visible": true
+      "categoryId": "v2l-c2l",
+      "productId": "tekli-priz-uzatma-v2l-adaptor-hyundai",
+      "visible": true,
+      "badge": "V2L · Single Socket",
+      "highlight": "Turns your car into a mobile power source. One Schuko outlet on a 3 m cable, 16A. Compatible with Hyundai · Kia · Ssangyong."
     },
     {
       "categoryId": "cables",
@@ -372,25 +372,25 @@
       "highlight": "Single-phase 7.4 kW portable charger. Two-step power selection (16A/32A); CEE adapters and carry case included. IP65."
     },
     {
-      "categoryId": "portable",
-      "productId": "mini-mobile",
-      "visible": true,
-      "badge": "Plugs Into a Home Socket",
-      "highlight": "2.3–3.7 kW single-phase portable charger. Plugs straight into a Schuko socket; two-step power selection (10A/16A) and carry case included."
-    },
-    {
-      "categoryId": "v2l-c2l",
-      "productId": "tekli-priz-uzatma-v2l-adaptor-hyundai",
-      "visible": true,
-      "badge": "V2L · Single Socket",
-      "highlight": "Turns your car into a mobile power source. One Schuko outlet on a 3 m cable, 16A. Compatible with Hyundai · Kia · Ssangyong."
-    },
-    {
       "categoryId": "v2l-c2l",
       "productId": "3lu-priz-uzatma-v2l-adaptor-hyundai",
       "visible": true,
       "badge": "V2L · 3 Sockets",
       "highlight": "Powers several devices on site, at camp or at events. Three Schuko outlets on a 3 m cable, 16A. Compatible with Hyundai · Kia · Ssangyong."
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
+      "badge": "Professional DC Charging Cable CCS2",
+      "highlight": "About Us",
+      "visible": true
+    },
+    {
+      "categoryId": "portable",
+      "productId": "mini-mobile",
+      "visible": true,
+      "badge": "Plugs Into a Home Socket",
+      "highlight": "2.3–3.7 kW single-phase portable charger. Plugs straight into a Schuko socket; two-step power selection (10A/16A) and carry case included."
     },
     {
       "categoryId": "v2l-c2l",

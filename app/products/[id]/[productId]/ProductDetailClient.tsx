@@ -888,11 +888,17 @@ export default function ProductDetailPage({
                                 const cardBg     = d ? "#1c1c22" : "#ffffff";
                                 const cardBorder = d ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)";
                                 const cardShadow = d ? "none" : "0 1px 2px rgba(0,0,0,0.04)";
-                                // İkonlar NÖTR gri (eskiden marka mavisiydi; kullanıcı
-                                // "sade+şık" → kartlarla birebir aynı nötr palet).
-                                const featIcon   = d ? "#9ca3af" : "#64748b";
-                                const iconBg     = d ? "rgba(255,255,255,0.06)" : "rgba(2,6,23,0.05)";
-                                const iconBorder = d ? "rgba(255,255,255,0.12)" : "rgba(2,6,23,0.10)";
+                                // İkonlar NÖTR — renk YOK (2026-07-16'da gökkuşağı
+                                // paletten çıkarılmıştı, o karar duruyor).
+                                // ⚠️ 2026-08-07: nötr gri o kadar sönüktü ki özellikler
+                                // "yok gibi" duruyordu (kullanıcı bildirdi). 4 seçenek
+                                // önizlendi; kullanıcı "D · Aydınlatılmış nötr"ü seçti:
+                                // renk eklenmez, yalnız PARLAKLIK artar + ikon kutusuna
+                                // hafif hâle gelir. Sadelik korunur, varlık hissi doğar.
+                                const featIcon   = d ? "#e5e7eb" : "#334155";
+                                const iconBg     = d ? "rgba(255,255,255,0.11)" : "rgba(2,6,23,0.07)";
+                                const iconBorder = d ? "rgba(255,255,255,0.20)" : "rgba(2,6,23,0.16)";
+                                const iconGlow   = d ? "0 0 0 3px rgba(255,255,255,0.05)" : "0 0 0 3px rgba(2,6,23,0.035)";
                                 return (
                                   <div
                                     key={f.id}
@@ -906,7 +912,7 @@ export default function ProductDetailPage({
                                   >
                                     <span
                                       className="inline-flex items-center justify-center rounded-lg flex-shrink-0"
-                                      style={{ width: 30, height: 30, background: iconBg, border: `1px solid ${iconBorder}` }}
+                                      style={{ width: 30, height: 30, background: iconBg, border: `1px solid ${iconBorder}`, boxShadow: iconGlow }}
                                     >
                                       {Icon && <Icon size={16} style={{ color: featIcon }} />}
                                     </span>
