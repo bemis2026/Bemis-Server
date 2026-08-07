@@ -37,7 +37,9 @@ const NAV_GROUPS: { title: FooterPair; links: FooterLink[] }[] = [
     { label: { tr: "AC Mobile Chargers",         en: "AC Mobile Chargers" },         href: "/products/portable",          scroll: false },
     { label: { tr: "AC Şarj Kabloları Type 2",   en: "AC Charging Cables Type 2" },  href: "/products/cables",            scroll: false },
     { label: { tr: "V2L / C2L Adaptörler",       en: "V2L / C2L Adapters" },         href: "/products/v2l-c2l",           scroll: false },
-    { label: { tr: "Uzatma & Dönüştürücüler",    en: "Extension & Converters" },     href: "/products/converters",        scroll: false },
+    // ⚠️ Kategori adı 4 yerde yaşıyor (content bin · burası · products bin ·
+    // seo.ts). 2026-08-05'te hepsi tek ada çekildi — biri değişip öteki unutulmasın.
+    { label: { tr: "Dönüştürücü Adaptörler ve Uzatma Kabloları", en: "Converter Adapters & Extension Cables" }, href: "/products/converters", scroll: false },
     { label: { tr: "DC Şarj Üniteleri",          en: "DC Charging Units" },          href: "/products/dc-units",          scroll: false },
     { label: { tr: "Şarj Ünitesi Ekipmanları",   en: "Charger Equipment" },          href: "/products/charger-equipment", scroll: false },
     { label: { tr: "Aksesuarlar",                en: "Accessories" },                href: "/products/accessories",       scroll: false },

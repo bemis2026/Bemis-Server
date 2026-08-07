@@ -862,9 +862,14 @@ const CATEGORY_SEO: Record<string, { title: string; metaTitle?: string; desc: st
     short: "V2L / C2L Adaptör",
   },
   converters: {
-    title: "EV Şarj Uzatma & Dönüştürücü Kablo",
+    // ⚠️ title = GÖRÜNEN H1 · metaTitle = SERP başlığı (bu alan tam bunun için var).
+    // Kullanıcı 2026-08-05'te kategori adını menüde/anasayfada değiştirdi ve H1'in
+    // de aynı olmasını istedi. metaTitle KORUNDU: aranan ifade "elektrikli araç
+    // şarj uzatma kablosu" — görünen adı değiştirmek arama başlığını bozmasın.
+    title: "Dönüştürücü Adaptörler ve Uzatma Kabloları",
+    metaTitle: "EV Şarj Uzatma Kablosu ve Dönüştürücü Adaptör",
     desc: "Bemis yerli üretim elektrikli araç şarj uzatma kablosu ve dönüştürücü adaptör. Type 2 uyumlu. CE, IP65 — üreticisinden.",
-    short: "Şarj Uzatma & Dönüştürücü",
+    short: "Adaptör & Uzatma Kablosu",
   },
   "charger-equipment": {
     title: "Elektrikli Araç Şarj Ünitesi Ekipmanları",
