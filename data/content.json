@@ -392,6 +392,13 @@
       "highlight": "22 kW üç fazlı Type 2 şarj seti. 5 metre halojensiz kablo, taşıma çantası dahil. Ev ve seyahat için pratik.",
       "visible": true,
       "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1784983662/products/puzc4v6kz9ay5pzvtzvs.png"
+    },
+    {
+      "categoryId": "portable",
+      "productId": "mono-mobile",
+      "visible": true,
+      "badge": "Tek Fazlı 7,4 kW",
+      "highlight": "Monofaze 7,4 kW taşınabilir şarj cihazı. 16A/32A iki kademe güç seçimi; CEE adaptörleri ve taşıma çantası dahil. IP65."
     }
   ],
   "contact": {
@@ -1243,6 +1250,13 @@
           "badge": "Most Preferred",
           "highlight": "22 kW three-phase Type 2 charging set. 5-meter halogen-free cable, carry bag included. Practical for home and travel.",
           "visible": true
+        },
+        {
+          "categoryId": "portable",
+          "productId": "mono-mobile",
+          "visible": true,
+          "badge": "Single-Phase 7.4 kW",
+          "highlight": "Single-phase 7.4 kW portable charger. Two-step power selection (16A/32A); CEE adapters and carry case included. IP65."
         }
       ],
       "company": {

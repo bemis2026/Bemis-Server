@@ -355,6 +355,21 @@
       "badge": "Professional DC Charging Cable CCS2",
       "highlight": "About Us",
       "visible": true
+    },
+    {
+      "categoryId": "cables",
+      "productId": "sarj-seti-32a-trifaze-5m",
+      "badge": "Most Preferred",
+      "highlight": "22 kW three-phase Type 2 charging set. 5-meter halogen-free cable, carry bag included. Practical for home and travel.",
+      "visible": true,
+      "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1784983662/products/puzc4v6kz9ay5pzvtzvs.png"
+    },
+    {
+      "categoryId": "portable",
+      "productId": "mono-mobile",
+      "visible": true,
+      "badge": "Single-Phase 7.4 kW",
+      "highlight": "Single-phase 7.4 kW portable charger. Two-step power selection (16A/32A); CEE adapters and carry case included. IP65."
     }
   ],
   "company": {

@@ -746,22 +746,27 @@ export default function AdminPage() {
     const file = e.target.files?.[0];
     if (!file) return;
     setProdImgLoading(true);
-    const fd = new FormData();
-    fd.append("file", file);
-    fd.append("folder", "products");
-    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
-    if (res.ok) {
-      const { url } = await res.json();
+    // ⚠️ Eskiden burada ham `fetch("/api/admin/upload")` vardı: (a) 4.5 MB'lik
+    // Vercel gövde tavanına çarpan yüksek çözünürlüklü ürün render'ları
+    // yüklenemiyordu, (b) sunucunun döndürdüğü GERÇEK sebep yutulup yerine
+    // "Yükleme başarısız." gösteriliyordu. Ortak yardımcı önce doğrudan
+    // Cloudinary'e yükler (boyut sınırı yok, orijinal kalite) ve hata
+    // mesajını taşır.
+    try {
+      const { url } = await uploadImage(file, "products");
       setProducts((prev) => {
         const updated = prev.map((cat) => cat.id !== selCat ? cat : {
           ...cat,
           products: cat.products.map((p) => {
             if (p.id !== selProd) return p;
             const existing = p.images ?? (p.image ? [p.image] : []);
-            return { ...p, images: [...existing, url], image: existing[0] ?? url };
+            // ⚠️ `existing[0]` boş string olabilir (görselsiz ürünlerde
+            // `image: ""` kayıtlı) — `??` boş string'i geçirir, o yüzden
+            // gerçek doluluk kontrolü şart.
+            return { ...p, images: [...existing, url], image: existing[0] || url };
           }),
         });
-        // Auto-save to JSONBin so image persists on refresh
+        // Auto-save so image persists on refresh
         fetch("/api/admin/products", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -770,8 +775,8 @@ export default function AdminPage() {
         return updated;
       });
       showToast("ok", "Görsel yüklendi ve kaydedildi.");
-    } else {
-      showToast("err", "Yükleme başarısız.");
+    } catch (err) {
+      showToast("err", `Yükleme başarısız: ${(err as Error).message}`);
     }
     setProdImgLoading(false);
     if (prodImgRef.current) prodImgRef.current.value = "";
@@ -1046,16 +1051,14 @@ export default function AdminPage() {
     const file = e.target.files?.[0];
     if (!file || !catImgTarget) return;
     setCatImgLoading(catImgTarget);
-    const fd = new FormData();
-    fd.append("file", file);
-    fd.append("folder", "categories");
-    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
-    if (res.ok) {
-      const { url } = await res.json();
+    // Ürün görselleriyle aynı yol: önce doğrudan Cloudinary (boyut sınırı yok,
+    // orijinal kalite/şeffaflık korunur), gerçek hata mesajı gösterilir.
+    try {
+      const { url } = await uploadImage(file, "categories");
       updateCatMeta(catImgTarget, "image", url);
       showToast("ok", "Görsel yüklendi.");
-    } else {
-      showToast("err", "Yükleme başarısız.");
+    } catch (err) {
+      showToast("err", `Yükleme başarısız: ${(err as Error).message}`);
     }
     setCatImgLoading(null);
     setCatImgTarget("");

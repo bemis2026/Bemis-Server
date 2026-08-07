@@ -362,6 +362,13 @@
       "badge": "Am beliebtesten",
       "highlight": "22 kW dreiphasiges Type-2-Ladeset. 5-Meter halogenfreies Kabel, Tragetasche inklusive. Praktisch für Zuhause und unterwegs.",
       "visible": true
+    },
+    {
+      "categoryId": "portable",
+      "productId": "mono-mobile",
+      "visible": true,
+      "badge": "Einphasig 7,4 kW",
+      "highlight": "Einphasiges tragbares 7,4-kW-Ladegerät. Zweistufige Leistungswahl (16A/32A); CEE-Adapter und Tragetasche inklusive. IP65."
     }
   ],
   "company": {

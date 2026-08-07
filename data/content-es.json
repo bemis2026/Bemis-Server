@@ -362,6 +362,13 @@
       "badge": "Los más elegidos",
       "highlight": "Set de carga Type 2 trifásico de 22 kW. Cable de 5 metros libre de halógenos, bolsa de transporte incluida. Práctico para casa y viajes.",
       "visible": true
+    },
+    {
+      "categoryId": "portable",
+      "productId": "mono-mobile",
+      "visible": true,
+      "badge": "Monofásico 7,4 kW",
+      "highlight": "Cargador portátil monofásico de 7,4 kW. Selección de potencia en dos niveles (16A/32A); adaptadores CEE y maletín incluidos. IP65."
     }
   ],
   "company": {
