@@ -39,6 +39,13 @@ Bemis E-V Charge ürün gamı 8 kategoride 150'nin üzerinde ürün içerir: AC 
 - [Hangi Araca Hangi Şarj Cihazı? — Araç Şarj Uyumluluğu](https://www.bemisevcharge.com.tr/arac-sarj-uyumlulugu): "Togg'a / IONIQ 5'e / Tesla'ya hangi şarj cihazı ve kablo uyar?" sorusunun doğrudan cevabı. Türkiye ve Avrupa'da satılan elektrikli otomobillerin tamamına yakını AC şarjda Type 2 (IEC 62196) soket kullanır; Togg T10X 11 kW (opsiyonel 22 kW), Togg T10F 11 kW, Hyundai IONIQ 5 11 kW, Tesla Model Y 11 kW, BYD ATTO 3 11 kW, MG4 6,6 kW (bazı 2026 versiyonlarında 11 kW), Renault Megane E-Tech 22 kW (2022-2025) / 11 kW (2025 sonrası). EN KRİTİK KURAL: şarj hızını cihaz değil aracın dahili AC şarj ünitesi belirler — dahili ünitesi 11 kW olan araç 22 kW'lık cihaza bağlansa da 11 kW çeker. Tek fazlı (monofaze) konutta pratik üst sınır 7,4 kW (32A); üç fazlı (trifaze) tesisatta aracın sınırına kadar çıkılır. Araç değerleri EV Database'den doğrulanmıştır.
 - [EV Charging Manufacturer / Export (EN)](https://www.bemisevcharge.com.tr/export): İhracat alıcıları için İngilizce üretici sayfası — Type 2 / Mode 3 kablolar, AC wallbox, DC şarj, OEM/ODM, 60+ ülke ihracat ve "Request a Quote" teklif formu.
 
+## Videolar
+
+Sitede gömülü iki resmi video var; ikisi de Bemis Teknik Elektrik A.Ş. YouTube kanalından yayınlanır ve ilgili sayfada VideoObject yapısal verisiyle işaretlidir.
+
+- [Bemis E-V Charge Ürün Tanıtımı](https://www.bemisevcharge.com.tr/): 54 saniyelik EV şarj ürün ailesi tanıtımı (AC wallbox, taşınabilir şarj cihazları, Type 2 kablolar). Anasayfanın Hakkımızda bölümünde oynatılır.
+- [Bemis Kurumsal Film - 30 Yılın Hikâyesi](https://www.bemisevcharge.com.tr/kurumsal): 9 dakika 56 saniyelik kurumsal film; 1994'te Bursa'da kurulan şirketin üretim ve ihracat hikâyesi. /kurumsal sayfasında oynatılır.
+
 ## Rehberler
 
 - [Elektrikli Arabamı Evde Nasıl Şarj Ederim? Yeni Başlayanlar İçin Şarj Aleti Rehberi](https://www.bemisevcharge.com.tr/blog/elektrikli-arabami-evde-nasil-sarj-ederim): Acemi/ilk kez alan sürücüye günlük dille ev şarjı rehberi — normal ev prizinden şarj olur mu (olur ama en yavaş/riskli), duvar tipi şarj aleti (wallbox) vs taşınabilir şarj aleti seçimi, arabaya hangi güçte (kW) cihaz uygun, "kendim takabilir miyim" (taşınabilir evet / wallbox montajı yetkili elektrikçi). Charger 2/Plus 2/Pro 2 ve Mini/Pro Mobile 2 gerçek özellikleriyle.

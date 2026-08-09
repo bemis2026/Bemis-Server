@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import HomeClient from "./HomeClient";
 import JsonLd from "./components/JsonLd";
-import { featuredListSchema, categoryListSchema, categoryH1 } from "./lib/seo";
+import { featuredListSchema, categoryListSchema, categoryH1, videoObjectSchema, SITE_VIDEOS, SITE_URL } from "./lib/seo";
 import { getServerSiteContent, getServerProducts } from "./lib/server-content";
 
 // Anasayfa SERVER sarmalayıcı — metadata + anasayfaya ÖZEL JSON-LD taşır; tüm UI
@@ -57,7 +57,18 @@ export default async function Page() {
     )
     .filter((x): x is NonNullable<typeof x> => x !== null);
 
-  const jsonLd = [...(featured ? [featured] : []), ...categoryListSchemas];
+  // VideoObject — anasayfanın Hakkımızda (DNA) bölümünde GERÇEKTEN gömülü olan
+  // marka tanıtım videosu. GEO/multimodal açığının kapatılması için eklendi;
+  // tüm alanları YouTube'dan doğrulandı (bkz. seo.ts BRAND_VIDEO).
+  const video = videoObjectSchema({
+    video: SITE_VIDEOS.evTanitim,
+    pageUrl: `${SITE_URL}/`,
+    description:
+      "Bemis E-V Charge elektrikli araç şarj ürünlerinin tanıtım videosu: AC wallbox şarj istasyonları, taşınabilir şarj cihazları ve Type 2 şarj kabloları dahil ürün ailesi.",
+    aboutTerms: ["wallbox", "type-2"],
+  });
+
+  const jsonLd = [...(featured ? [featured] : []), ...categoryListSchemas, video];
 
   return (
     <>

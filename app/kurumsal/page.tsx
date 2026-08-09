@@ -10,6 +10,8 @@ import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
 import { useBackgroundVideo, useNearViewport } from "../components/useBackgroundVideo";
 import Image from "next/image";
+import JsonLd from "../components/JsonLd";
+import { videoObjectSchema, SITE_VIDEOS, SITE_URL } from "../lib/seo";
 import {
   RiBuilding4Line, RiVolumeUpLine, RiVolumeMuteLine, RiArrowRightLine,
 } from "react-icons/ri";
@@ -95,6 +97,19 @@ export default function KurumsalPage() {
 
   return (
     <div style={{ background: bg, minHeight: "100vh" }}>
+      {/* VideoObject — bu sayfada gömülü olan marka tanıtım videosu.
+          ⓘ Sayfa "use client" ama JsonLd client bileşenlerde zaten kullanılıyor
+          (b2b / bayilik / operator / ürün detay) ve Next client bileşenleri de
+          SSR ettiği için script ilk HTML'e basılır — tarayıcılar/botlar görür. */}
+      <JsonLd data={videoObjectSchema({
+        video: SITE_VIDEOS.kurumsalFilm,
+        pageUrl: `${SITE_URL}/kurumsal`,
+        description:
+          "Bemis Teknik Elektrik A.Ş. kurumsal filmi: 1994'te Bursa'da kurulan şirketin 30 yıllık üretim ve ihracat hikayesi.",
+        // ⚠️ `aboutTerms` YOK: bu bir kurumsal film; Type 2 / wallbox gibi
+        // teknik terimleri konusu diye işaretlemek şemayı içerikle çelişkiye
+        // düşürürdü. Terim bağı yalnız EV ürün tanıtımında kuruluyor.
+      })} />
       <Navbar onSearchOpen={() => setSearchOpen(true)} />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 

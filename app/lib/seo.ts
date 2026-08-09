@@ -754,6 +754,88 @@ export function definedTermSchema(t: { slug: string; abbr: string; definition: s
   };
 }
 
+/**
+ * MARKA TANITIM VİDEOSU — sitede GERÇEKTEN gömülü olan YouTube videosu.
+ *
+ * ⚠️ NEDEN SABİT: Google, şemanın sayfada GÖRÜNÜR içeriği tarif etmesini
+ * şart koşar. Bu video anasayfada (Hakkımızda/DNA bölümü) ve /kurumsal'da
+ * `<iframe>` ile gerçekten oynatılıyor — uydurma bir kayıt değil.
+ *
+ * ⚠️ TÜM ALANLAR YOUTUBE'DAN DOĞRULANDI (2026-08-07) — hiçbiri tahmin değil:
+ *   başlık + kanal      → oEmbed ucu
+ *   uploadDate + süre   → watch sayfası (`itemprop="uploadDate"` ve
+ *                          `lengthSeconds` iki ayrı yerde aynı: 54 sn)
+ *   thumbnail maxres    → HTTP 200, 1280×720 (ölçüldü)
+ * 📌 KURAL: yeni video eklenirken alanlar AYNI ŞEKİLDE doğrulanmalı;
+ *    doğrulanamayan alan HİÇ YAZILMAZ (eksik alan, yanlış alandan iyidir).
+ *    Özellikle `uploadDate` uydurulmamalı — Google tarih tutarsızlığını
+ *    zengin sonuçlarda cezalandırır.
+ */
+// ⚠️ SİTEDE İKİ AYRI VİDEO VAR — karıştırma:
+//   anasayfa DNA bölümü → `dna.factoryVideo`  (54 sn, EV ürün tanıtımı)
+//   /kurumsal           → `dna.aboutVideo`    (9:56, ana şirket kurumsal filmi)
+// İlk denemede ikisi aynı sanılıp /kurumsal'a YANLIŞ video şeması yazılmıştı;
+// CMS alan adları farklı olduğu için yakalandı. Yeni sayfa eklerken hangi
+// alanın okunduğunu ÖNCE doğrula.
+export const SITE_VIDEOS = {
+  evTanitim: {
+    id: "BnoQBR9irTU",
+    name: "Bemis E-V Charge (Elektrikli Araç Şarj Ürünleri) Tanıtım",
+    uploadDate: "2024-08-06T03:52:27-07:00",
+    duration: "PT54S",
+    publisher: SITE_NAME,
+  },
+  kurumsalFilm: {
+    id: "JVfchskAXC4",
+    name: "Bemis Teknik Elektrik A.Ş Kurumsal Film: 30 Yılın Hikayesi",
+    uploadDate: "2024-12-30T04:00:06-08:00",
+    duration: "PT9M56S", // 596 sn
+    // Kurumsal film ANA ŞİRKETİN yapımı — yayıncı EV markası değil.
+    publisher: ORG_LEGAL_NAME,
+  },
+} as const;
+
+type SiteVideo = { id: string; name: string; uploadDate: string; duration: string; publisher: string };
+
+export function videoObjectSchema(opts: {
+  video: SiteVideo;
+  pageUrl: string;
+  description: string;
+  /** Sözlük terimi slug'ları — video konusunu terim grafiğine bağlar.
+   *  ⚠️ Yalnız videonun GERÇEKTEN konusu olan terimler yazılır; kurumsal
+   *  filme teknik terim iliştirmek şemayı içerikle çelişkiye düşürür. */
+  aboutTerms?: string[];
+}): JsonLdObject {
+  const v = opts.video;
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    // Sayfa-başına ayrı @id: aynı video iki sayfada gömülü, her biri kendi
+    // bağlamını tanımlar (tek @id'yi iki sayfada tekrarlamak belirsizlik yaratır).
+    "@id": `${opts.pageUrl}#tanitim-videosu`,
+    name: v.name,
+    description: opts.description,
+    thumbnailUrl: [`https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg`],
+    uploadDate: v.uploadDate,
+    duration: v.duration,
+    // ⚠️ `contentUrl` BİLEREK YOK: o alan doğrudan MEDYA DOSYASI adresi ister.
+    // Video YouTube'da barındığı için elimizde bir .mp4 yok; watch adresini
+    // contentUrl diye yazmak yanlış olurdu. Google en az biri yeterli diyor —
+    // `embedUrl` (oynatıcı) veriliyor, watch adresi de `url` olarak.
+    embedUrl: `https://www.youtube-nocookie.com/embed/${v.id}`,
+    url: `https://www.youtube.com/watch?v=${v.id}`,
+    inLanguage: "tr-TR",
+    isFamilyFriendly: true,
+    publisher: { "@type": "Organization", name: v.publisher, url: SITE_URL },
+    ...(opts.aboutTerms && opts.aboutTerms.length > 0 && {
+      about: opts.aboutTerms.map((slug) => ({
+        "@type": "DefinedTerm",
+        "@id": `${SITE_URL}/sozluk/${slug}#definedterm`,
+      })),
+    }),
+  };
+}
+
 export function howToSchema(opts: {
   name: string;
   description?: string;
