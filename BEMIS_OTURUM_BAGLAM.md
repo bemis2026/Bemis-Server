@@ -13,6 +13,41 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🎬✅ **VIDEOOBJECT ŞEMASI EKLENDİ — GEO multimodal açığı (2026-08-07, commit 4068e01):**
+> **⛔ ÖNCE: HIGGSFIELD İLE VİDEO ÜRETİLEMEDİ.** Kullanıcı "~100 deneme kredisi var, video ~25"
+> diye başlattı; `balance` ölçümü **0 kredi / plan `free`** dedi. `get_cost` ön-kontrolü (iş
+> göndermez) gerçek fiyatı verdi: **8 sn = 52 kredi, 5 sn = 32,5** — tahminin 2 katı. Yani 3
+> videoluk plan ~156 kredi isterdi. **Hiç kredi harcanmadı, tek kare üretilmedi.** Hesap açma /
+> ödeme adımları KULLANICIDA (ajan hesap açamaz). ⚠️ `use_unlim` (deneme kotası) yolu var ama
+> **kendiliğinden kullanılamaz** — kullanıcının açıkça istemesi gerekir.
+> **✅ SIFIR KREDİYLE KAPANAN KISIM:** sitede **ZATEN gömülü iki resmi video** vardı ve
+> hiçbirinde VideoObject yoktu (`grep VideoObject` → 0 sonuç).
+> **⚠️⚠️ EN ÖNEMLİ TUZAK — İKİ SAYFA İKİ FARKLI VİDEO:** anasayfa DNA bölümü
+> **`dna.factoryVideo`** = `BnoQBR9irTU` (54 sn, EV ürün tanıtımı) · `/kurumsal`
+> **`dna.aboutVideo`** = `JVfchskAXC4` (9:56, ana şirket kurumsal filmi). İlk denemede ikisi
+> AYNI sanılıp /kurumsal'a yanlış videoyu tarif eden şema yazılmıştı; CMS alan adları farklı
+> olduğu için kod okunurken yakalandı. 📌 **Yeni sayfaya video şeması eklerken o sayfanın
+> HANGİ ALANI okuduğunu ÖNCE doğrula.**
+> **VERİ DOĞRULAMASI (uydurma YOK):** başlık+kanal → oEmbed ucu · `uploadDate` + süre → watch
+> sayfası (`itemprop="uploadDate"` ve `lengthSeconds` iki ayrı yerde aynı) · maxres kapak →
+> HTTP 200 ölçüldü. 📌 **Yeni video eklenirken aynı şekilde doğrula; doğrulanamayan alanı HİÇ
+> YAZMA** (özellikle `uploadDate` — Google tarih tutarsızlığını cezalandırır).
+> **BİLEREK YAPILMAYANLAR:** (a) **`contentUrl` YOK** — o alan doğrudan MEDYA DOSYASI adresi
+> ister; video YouTube'da barındığı için `.mp4` yok, watch adresini oraya yazmak yanlış olurdu
+> (Google `embedUrl` yeterli diyor → `embedUrl` + `url` verildi). (b) **Kurumsal filme `about`
+> terimi EKLENMEDİ** — o bir şirket filmi; Type 2/wallbox'ı "konusu" diye işaretlemek şemayı
+> içerikle çelişkiye düşürürdü. (c) Kurumsal filmin `publisher`'ı **ANA ŞİRKET**
+> (`ORG_LEGAL_NAME`), EV markası değil — kanal gerçekten Bemis Teknik.
+> **KOD:** `app/lib/seo.ts` → **`SITE_VIDEOS`** (iki video sabiti) + **`videoObjectSchema()`**;
+> anasayfa `app/page.tsx` (server, jsonLd dizisine) + `/kurumsal` (client — ⓘ `JsonLd` zaten
+> b2b/bayilik/operator/ürün-detayda client'tan kullanılıyor, Next SSR ettiği için script ilk
+> HTML'e basar). `llms.txt`'e **"## Videolar"** bölümü.
+> **DOĞRULAMA:** üretim derlemesi + `next start` SSR HTML'i üzerinden **8/8 kontrol geçti**
+> (betik: `scratchpad/_video_dogrula.cjs` — id/name/duration/uploadDate/thumbnail/publisher
+> birebir, `contentUrl` yok, `about` yalnız anasayfada, llms.txt bölümü yerinde).
+> ⏳ **KALAN:** deploy sonrası `claude-seo:seo-geo` ile multimodal skoru yeniden ölç
+> (önceki taban 62). Gerçek ürün videosu üretimi Higgsfield kredisi gelince.
+
 > 🖼️🔴➡️✅ **ADMİN GÖRSEL YÜKLEME: 4.5 MB TAVANI + ŞEFFAF PNG'Yİ BOZAN YEDEK YOL (2026-08-07, commit'ler a6cbabc + 0f11437):**
 > Kullanıcı "DC soket tutucuya adminden görsel ekleyemiyorum" dedi. **İKİ AYRI KUSUR ÖLÇÜLDÜ:**
 > **(a) TAVAN:** ürün görseli yükleme düğmesi ham `fetch("/api/admin/upload")` kullanıyordu → dosya bizim sunucu
