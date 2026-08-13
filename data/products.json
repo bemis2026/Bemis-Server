@@ -10464,7 +10464,11 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1786123216/products/al5dfj14dm3frmf0xwfq.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1786123216/products/al5dfj14dm3frmf0xwfq.png",
-        "boxContents": []
+        "boxContents": [],
+        "certificates": [
+          "ce",
+          "tuv"
+        ]
       },
       {
         "id": "pano-prizi-yeni-tip-trifaze-4-nokta",
@@ -10524,7 +10528,11 @@
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1786123291/products/ue40mgafnj6cufj96l9h.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1786123291/products/ue40mgafnj6cufj96l9h.png",
-        "boxContents": []
+        "boxContents": [],
+        "certificates": [
+          "ce",
+          "tuv"
+        ]
       }
     ]
   }
