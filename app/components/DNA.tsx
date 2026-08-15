@@ -40,6 +40,9 @@ export default function DNA() {
   // video kutusu viewport'a 600px yaklaşınca mount et. Poster (covered)
   // zaten mount'a kadar siyah kalıyor → görsel akış birebir aynı.
   const { boxRef: videoBoxRef, near: videoNear } = useNearViewport<HTMLDivElement>();
+  // Poster icin video kimligi — sunucuda da cozulur (tembel yuklemeye BAGLI DEGIL),
+  // boylece <img> ilk HTML'e basilir ve JS calistirmayan botlar gorur.
+  const ytPosterId = (dna.factoryVideo ?? "").match(/(?:youtube\.com\/(?:[^/?]+\?.*v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/)?.[1] ?? null;
 
   const textPrimary = d ? "#f0f0f4"                 : "#1a1a1a";
   const textMuted   = d ? "rgba(240,240,244,0.52)"  : "rgba(26,26,26,0.52)";
@@ -180,6 +183,27 @@ export default function DNA() {
               }}
             >
               <div className="absolute inset-0" style={{ backgroundImage: d ? "radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)" : "radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
+              {/* ⚠️ AI TARAYICILARI İÇİN SUNUCU-TARAFI VİDEO İZİ (2026-08-14)
+                  Player performans için TEMBEL yükleniyor (`videoNear`) — bu
+                  Temmuz'daki büyük mobil kazancın sebebiydi (3708 → 1225 KB) ve
+                  KORUNUYOR. Ama sonucu şuydu: sunucu HTML'inde HİÇBİR video
+                  ögesi yoktu. GPTBot / PerplexityBot / ClaudeBot JS ÇALIŞTIRMAZ
+                  → VideoObject şeması "burada video var" derken sayfada hiçbir
+                  iz göremiyorlardı (şema ↔ içerik uyuşmazlığı).
+                  Çözüm: poster görseli DAİMA sunucudan basılır. Üstteki siyah
+                  örtü `z-10` olduğu için EKRANDA HİÇBİR ŞEY DEĞİŞMEZ; yalnız
+                  HTML'de gerçek bir <img> + alt metni oluşur.
+                  ⓘ `loading="lazy"` → bölüm ekrana yaklaşmadan indirilmez,
+                    performans etkisi ihmal edilebilir. Botlar HTML'i okur. */}
+              {ytPosterId && (
+                <img
+                  src={`https://i.ytimg.com/vi/${ytPosterId}/maxresdefault.jpg`}
+                  alt="Bemis E-V Charge tanıtım videosundan kare — elektrikli araç şarj ürünleri"
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                />
+              )}
               {/* Black poster stays over the player until it is genuinely
                   PLAYING (driven by the IFrame API), and snaps back whenever
                   the tab is backgrounded — so YouTube's thumbnail / play
