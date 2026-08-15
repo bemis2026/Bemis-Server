@@ -23,6 +23,9 @@ const pathFor = (name: string) => `bins/${name}.json`;
 const BINS = new Set([
   "b2b", "content", "dealers", "products", "productsExtra",
   "productsEn", "productsEnExtra", "documents", "messages", "changelog",
+  // Ürün değişiklik günlüğü (bayi beslemesi). ⚠️ `changelog`DAN AYRI:
+  // o site sürüm notları, bu ürün alanı değişiklikleri.
+  "productChanges",
 ]);
 
 // S3/R2 istemcisi — modül seviyesinde tekil (serverless invocation'lar arası yeniden kullanılır).

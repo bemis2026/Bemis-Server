@@ -6,6 +6,7 @@ import { readBin, writeBin } from "../../../../lib/jsonbin";
 import { translateProducts } from "../../../../lib/productsTranslate";
 import { applyProductSeo } from "../../../lib/productSeo";
 import { verifyAdminSession } from "@/lib/adminAuth";
+import { urunFarki, MAX_KAYIT, type UrunDegisiklik } from "../../../../lib/productChangeLog";
 
 function isAuthed(req: NextRequest) {
   return verifyAdminSession(req.cookies.get("admin_auth")?.value);
@@ -125,6 +126,26 @@ export async function POST(req: NextRequest) {
     // bin _translations) yeniden çevir. Her dil için temel = mevcut çeviri ??
     // premium overlay dosyası; yalnız TR'si değişen alan MyMemory'ye gider.
     after(async () => {
+      // ── DEĞİŞİKLİK GÜNLÜĞÜ ──────────────────────────────────────────────
+      // ⚠️ Bu kutunun üstüne yazılıyor; eski hâl KAYBOLUYOR. Değişiklik
+      //    ancak BURADA, yazma anında yakalanabilir — sonradan üretilemez.
+      // ⚠️ Günlük yazımı ASLA kaydı bozmasın: kendi try/catch'inde ve
+      //    stage 1 (asıl kayıt) çoktan tamamlandı.
+      try {
+        const farklar = urunFarki(prevTr as any[], trArr);
+        if (farklar.length) {
+          let onceki: UrunDegisiklik[] = [];
+          try {
+            const kutu = await readBin("productChanges", { fresh: true }) as any;
+            if (Array.isArray(kutu?.entries)) onceki = kutu.entries;
+          } catch {}
+          // yeniler EN BAŞA (en yeni önce), toplam MAX_KAYIT ile sınırlı
+          await writeBin("productChanges", { entries: [...farklar, ...onceki].slice(0, MAX_KAYIT) });
+        }
+      } catch (e) {
+        console.error("[products] degisiklik gunlugu yazilamadi:", e);
+      }
+
       // EN — mevcut shard akışı korunur.
       try {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
