@@ -24,6 +24,9 @@ import { fiyatMetni, fiyatSayisi } from "../../../lib/productChangeLog";
  */
 export const revalidate = 1800;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Herhangi = any;
+
 const ozet = (s: string) => createHash("sha256").update(s).digest("hex").slice(0, 16);
 
 export async function GET() {
@@ -50,6 +53,16 @@ export async function GET() {
         image: p.image || null,
         price: { raw: fm || null, amount: fiyatSayisi(fm), currency: "EUR", vatIncluded: false },
         certificates: p.certificates ?? [],
+        // ⚠️ 2026-08-15 EKLENDİ: ilk sürüm YALNIZ kimlik+fiyat döndürüyordu.
+        //    B2B tarafı OCPP sürümü / akım / MID gibi CPO'nun en teknik
+        //    sorularını bu uçtan bulamadı — hepsi `specs` içinde yaşıyor.
+        //    Bayi beslemesinin teknik soruları cevaplayamaması onu yarım
+        //    bırakıyordu; ham spec + özellik rozetleri artık dahil.
+        features: p.features ?? [],
+        specs: (p.specs ?? []).map((g: Herhangi) => ({
+          group: g?.group ?? "",
+          items: (g?.items ?? []).map((i: Herhangi) => ({ label: i?.label ?? "", value: i?.value ?? "" })),
+        })),
         hash: ozet(parmak),
       });
     }
