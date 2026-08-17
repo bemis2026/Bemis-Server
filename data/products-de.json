@@ -199,6 +199,10 @@
               {
                 "label": "MID-Zähler",
                 "value": "Optional (zertifizierte Energiemessung)"
+              },
+              {
+                "label": "Protokoll",
+                "value": "OCPP 1.6"
               }
             ]
           }
@@ -279,6 +283,10 @@
               {
                 "label": "MID-Zähler",
                 "value": "Optional (zertifizierte Energiemessung)"
+              },
+              {
+                "label": "Protokoll",
+                "value": "OCPP 1.6"
               }
             ]
           }
@@ -731,6 +739,10 @@
               {
                 "label": "Mobile App",
                 "value": "Fernein-/-ausschalten, Timer, Ladeverlauf (vernetzte Modelle)"
+              },
+              {
+                "label": "Protokoll",
+                "value": "OCPP 1.6"
               }
             ]
           }
@@ -816,6 +828,10 @@
               {
                 "label": "Mobile App",
                 "value": "Fernein-/-ausschalten, Timer, Ladeverlauf (vernetzte Modelle)"
+              },
+              {
+                "label": "Protokoll",
+                "value": "OCPP 1.6"
               }
             ]
           }
@@ -1271,6 +1287,10 @@
               {
                 "label": "Mobile App",
                 "value": "Fernein-/-ausschalten, Timer, Ladeverlauf (vernetzte Modelle)"
+              },
+              {
+                "label": "Protokoll",
+                "value": "OCPP 1.6"
               }
             ]
           }
@@ -1356,6 +1376,10 @@
               {
                 "label": "Mobile App",
                 "value": "Fernein-/-ausschalten, Timer, Ladeverlauf (vernetzte Modelle)"
+              },
+              {
+                "label": "Protokoll",
+                "value": "OCPP 1.6"
               }
             ]
           }
@@ -1435,6 +1459,10 @@
               {
                 "label": "MID-Zähler",
                 "value": "Optional (zertifizierte Energiemessung)"
+              },
+              {
+                "label": "Protokoll",
+                "value": "OCPP 1.6"
               }
             ]
           }
@@ -1515,6 +1543,10 @@
               {
                 "label": "MID-Zähler",
                 "value": "Optional (zertifizierte Energiemessung)"
+              },
+              {
+                "label": "Protokoll",
+                "value": "OCPP 1.6"
               }
             ]
           }
