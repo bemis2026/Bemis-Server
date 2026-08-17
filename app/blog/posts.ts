@@ -1394,7 +1394,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Bemis, Type 2 — Type 2 Mod 3 şarj setlerini dört ana kapasitede üretiyor. Tüm setlerde IEC 62196-2 konnektör, mekanik kilitlemeli Mod 3 sinyalleşme (IEC 61851-1), esnek bakır iletken ve UV ile hava koşullarına dayanıklı halojensiz dış kılıf kullanılıyor; setler CE ve TSE uygunluk testlerinden geçiyor. Yani tablodaki tüm araçlarla — Togg'dan Tesla'ya — uyumludur."
+        "text": "Bemis, Type 2 — Type 2 Mod 3 şarj setlerini dört ana kapasitede üretiyor. Tüm setlerde IEC 62196-2 konnektör, mekanik kilitlemeli Mod 3 sinyalleşme (IEC 61851-1), esnek bakır iletken ve UV ile hava koşullarına dayanıklı halojensiz dış kılıf kullanılıyor; setler CE uygunluk testlerinden geçiyor. Yani tablodaki tüm araçlarla — Togg'dan Tesla'ya — uyumludur."
       },
       {
         "type": "table",
