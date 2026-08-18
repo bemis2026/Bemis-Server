@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LegalPage from "../components/LegalPage";
 
 // KVKK Aydınlatma Metni — sitenin GERÇEK veri akışına göre yazılmış taslak
-// (iletişim/bayilik formu → Resend e-posta; IP rate-limit; consent-mode GA4/
+// (iletişim/bayilik formu → Resend e-posta + R2'de ŞİFRELİ arşiv; IP rate-limit; consent-mode GA4/
 // Meta yalnız onayla; Sentry maskeli hata izleme; Vercel/Cloudflare barındırma).
 // Kullanıcı metinleri onayladı (2026-07-12) → indexlenebilir + footer linkli.
 export const metadata: Metadata = {
@@ -55,11 +55,12 @@ export default function GizlilikPage() {
         {
           h: "5. Aktarım ve Hizmet Sağlayıcılar",
           p: [
-            "Form iletileriniz tarafımıza e-posta olarak iletilir; bu iletim ve sitenin barındırılması için aşağıdaki hizmet sağlayıcılar kullanılır. Bu sağlayıcıların sunucuları yurt dışında bulunabilir:",
+            "Form iletileriniz tarafımıza e-posta olarak iletilir ve yönetim panelimizde şifreli olarak arşivlenir; bu iletim, arşivleme ve sitenin barındırılması için aşağıdaki hizmet sağlayıcılar kullanılır. Bu sağlayıcıların sunucuları yurt dışında bulunabilir:",
           ],
           ul: [
             "Barındırma ve içerik dağıtımı: Vercel Inc., Cloudflare Inc.",
             "Form e-posta iletimi: Resend Inc.",
+            "Form arşivi: Cloudflare R2 — form iletileri yönetim panelimizde görüntülenebilmesi için şifrelenmiş biçimde saklanır.",
             "Hata izleme: Sentry (form içerikleri ve kişisel metinler maskelenir).",
             "Yalnız onayınızla: Google Analytics 4 / Google Ads (Google LLC) ve Meta Pixel (Meta Platforms) — onay vermezseniz bu araçlara veri gönderilmez.",
           ],
@@ -67,7 +68,7 @@ export default function GizlilikPage() {
         {
           h: "6. Saklama Süreleri",
           ul: [
-            "Form iletileri: talebin sonuçlandırılması ve ticari ilişkinin gerektirdiği makul süre boyunca e-posta kayıtlarımızda tutulur.",
+            "Form iletileri: talebin sonuçlandırılması ve ticari ilişkinin gerektirdiği makul süre boyunca e-posta kayıtlarımızda ve yönetim panelindeki şifreli form arşivinde tutulur; talebiniz hâlinde silinir.",
             "Güvenlik amaçlı IP kayıtları: kısa süreli (istek sınırlama penceresi kadar) tutulur.",
             "Onaya bağlı analitik veriler: ilgili aracın saklama ayarları çerçevesinde tutulur.",
           ],
