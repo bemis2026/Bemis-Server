@@ -13,6 +13,26 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🖼️🔩 **ARKA GÖRÜNÜM RENDER'LARI — 19 WALLBOX ÜRÜNÜ (2026-08-19, commit b71e725):** Kullanıcı İndirilenler'e
+> 4 render bıraktı (WhatsApp klasörü). **Eşleştirme kullanıcıya SEÇMELİ doğrulatıldı, sonra uygulandı:**
+> **kablolu küçük gövde → Charger 2 (3 model)** · **kablosuz uzun gövde → Charger Plus 2 + Pro 2 (16 model)**.
+> ⚠️ Eşleştirme kablo/priz varyantına göre DEĞİL **GÖVDEYE** göre: Charger 2 daha küçük ve kompakt, Plus/Pro 2 uzun —
+> render'daki kablonun olup olmaması tesadüfi. Bu yüzden Plus/Pro'nun "5m. Kablolu" 8 modeline de kablosuz render konuldu
+> (kullanıcı onayladı). Her ürüne **2 görsel**: montajlı arka + patlatılmış (klemens · kapak · montaj kulağı) → galeri **1 → 3**.
+> **⚠️⚠️ ZEMİN ŞEFFAFLAŞTIRMADA GÖRSEL KONTROLÜN YAKALADIĞI KUSUR:** kenardan flood-fill (TH=236) tek başına YETMEDİ —
+> **kablo halkasının İÇİ görüntü kenarına bağlı olmadığı için opak beyaz disk kaldı** ve koyu modda göz çıkarıyordu.
+> Betiğe **kapalı-cep taraması** eklendi: kalan açık bileşenlerden **≥2000 px VE ortalama parlaklık ≥243** olanlar da
+> zemin sayılır. 📌 Boyut+ton eşiği ŞART — düz eşikleme gümüş montaj kulağını (≈220) ve turuncu klemensi silerdi.
+> **Doğrulama gözle:** 4 görsel × 2 zemin (galeri koyu-modu `#dbdee3` + sert `#111`) kontak sayfası + gümüş kulak ve
+> kablo halkası kenarına zoom → hale/kırpma yok. 📌 **Ders: zemin kaldırmayı SAYIYLA değil, KOYU zemine bindirip GÖZLE doğrula.**
+> **VERİ:** `image`/`images` **KİMLİK** alanı → yalnız TR kaynakları yazıldı (R2 `bins/products.json` + repo
+> `data/products.json`); çeviri overlay'lerine dokunulmadı. **ANA görsel DEĞİŞMEDİ** → kategori kartları, öne çıkanlar
+> ve `/meta-catalog.xml` etkilenmiyor. Betik idempotent (URL varsa tekrar eklemez) + R2 yedeği alındı.
+> store cache **v80-ocpp-surum → v81-arka-gorsel**. ⓘ Galeri sırası: [ana, arka, patlatılmış, (varsa) teknik çizim] —
+> `TECH_DRAWINGS` kodla EN SONA eklendiği için 7 wallbox'ta çizim yine en sonda kalır.
+
+
+
 > 🔴🔓 **R2 KOVASI HÂLÂ HERKESE AÇIK — ÖNCEKİ "KAPANDI" RAPORUM YANLIŞTI (2026-08-19 ÖLÇÜMÜ):**
 > Önceki turda "R2 genel erişimi kapalı, DNS çözülmüyor" demiştim. **DEĞİL.** Bugün parolasız düz `curl`:
 > `pub-134960785b31499d992cb27aa3b0d652.r2.dev/bins/dealers.json` → **HTTP 200, 9.250 bayt** (29 benzersiz e-posta,
