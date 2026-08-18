@@ -13,6 +13,34 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 📮✅ **BAŞVURULAR ARTIK TEK KUTUYA: `satis@bemis.com.tr` (2026-08-19, commit a36236f):** Kullanıcı isteği:
+> "başvurular için gösterilen maili satis yap ve gönderilen başvuruları da o maile yönlendir."
+> **(1) GÖSTERİLEN ADRES ZATEN DOĞRUYDU** — canlı taramada 10 sayfanın (anasayfa · iletişim · bayilik · b2b · destek ·
+> export · gizlilik · çerez · llms.txt · security.txt) **hiçbirinde `info@bemisevcharge.com` YOK** (2026-07-31 turunda
+> 16 yerde değiştirilmişti); R2 `content` bin'inde de `contact.email = satis@bemis.com.tr`, `autoReply` override YOK,
+> `info@bemisevcharge` geçen alan **0**. Yani görünen taraf temizdi.
+> **(2) TEK GERÇEK KUSUR ENV'DEYDİ:** `CONTACT_TO_EMAIL = "satis@bemis.com.tr,info@bemisevcharge.com"` → erişilemeyen
+> ikinci kutu **ÇIKARILDI**, artık tek alıcı `satis@bemis.com.tr`. `REPLY_TO_EMAIL` zaten aynıydı. Üç form da
+> (**iletişim · bayilik başvurusu · ihracat teklifi**) `/api/contact`'a gider → hepsi etkilendi.
+> ⚠️ Env değişimi **redeploy ister** (`process.env` çalışma anında okunur). Doğru kullanım yine:
+> `vercel env add CONTACT_TO_EMAIL production --value "..." --no-sensitive --yes` (`--no-sensitive` olmadan geri okunamaz).
+> **(3) 🔴🔴 ÖLÇÜLEN KRİTİK AYRIM — `satis@bemis.com.tr` ≠ `sales@bemis.com.tr`:** ikisi FARKLI KUTU.
+> Bağlı Gmail hesabı **sales@** (Kağan GÜNEŞ). Sorgu `to:satis@ -cc:sales@ -to:sales@ in:inbox newer_than:30d` →
+> **0 sonuç**; satis@'a giden yazışmalar bu kutuda yalnız **cc:sales@** olduğu için görünüyor. `satis@` = izlenen
+> **iç satış** kutusu (yazışmalarda "Enise Hanım" diye yanıtlanıyor), `satis2@` = Emirhan. 📌 **Sonuç: başvurular
+> satis@'a düşer, kullanıcının KENDİ kutusuna DÜŞMEZ.** "Başvuru gelmiyor" denirse önce HANGİ kutuya bakıldığını sor.
+> **(4) "GELEN MAİL VAR MI?" — ÖLÇÜM:** sales@ kutusunda site formundan gelen **yalnız 3 kayıt** var ve üçü de gerçek
+> müşteri değil: 2026-05-07 Resend kurulum testi (Claude) · 2026-05-11 "[Bemis Website] Fiyat Teklifi — Hüseyin Asa"
+> (**grafik@bemis.com.tr** = şirket içi) · 2026-08-06 kendi testimin otomatik yanıtı. **2026-08-05'ten beri bildirimler
+> satis@ + info@'ya gittiği için sales@'ta HİÇ görünmüyor.**
+> **⚠️ SİTEDE ARŞİV YOK — ÖLÇÜLDÜ:** R2'de `bins/messages.json` **hiç yok** (`NoSuchKey`); `writeBin` `messages`
+> için erken dönüyor → admin "Mesajlar" ekranı DAİMA boş, **başvurunun tek kopyası e-posta**. R2 public erişimi artık
+> KAPALI olduğu için arşiv güvenle açılabilir (kullanıcı onayı bekliyor).
+> **⚠️ RESEND API ANAHTARI SALT-GÖNDERİM** (`restricted_api_key`) → `GET /emails` ve `/domains` **401**. Gönderilen
+> başvuruların dökümü ancak **resend.com panelinden** görülür; ajan API'den listeleyemez.
+
+
+
 > 🎬✅ **VIDEOOBJECT ŞEMASI EKLENDİ — GEO multimodal açığı (2026-08-07, commit 4068e01):**
 > **⛔ ÖNCE: HIGGSFIELD İLE VİDEO ÜRETİLEMEDİ.** Kullanıcı "~100 deneme kredisi var, video ~25"
 > diye başlattı; `balance` ölçümü **0 kredi / plan `free`** dedi. `get_cost` ön-kontrolü (iş
