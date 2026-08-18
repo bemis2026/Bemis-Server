@@ -169,6 +169,17 @@ export async function writeBin(name: string, body: unknown): Promise<void> {
   // ile şifrelenir. Anahtar yoksa hiç yazılmaz (eski "arşiv kapalı" davranışı).
   let payload: unknown = body;
   if (ENCRYPTED_BINS.has(name)) {
+    // ⚠️ ÜZERİNE YAZMADAN ÖNCE MEVCUDU ÇÖZEBİLDİĞİMİZİ DOĞRULA.
+    // Çağıranlar arşivi `readBin(...).catch(() => null)` ile okuyor; çözülemeyen
+    // bir arşiv onlara BOŞ görünür ve ilk yeni mesaj tüm geçmişi EZERDİ
+    // (anahtar döndürülürse/kaybolursa tam olarak bu olur). Burada durdurulur.
+    try {
+      await readBlobRaw(name);
+    } catch (e) {
+      const yok = (e as { name?: string })?.name === "NoSuchKey";
+      if (!yok) throw new Error(`${name} arşivi çözülemedi — üzerine YAZILMADI (anahtar değişmiş olabilir): ${(e as Error).message}`);
+      // NoSuchKey = arşiv henüz yok → ilk yazım, sorun değil.
+    }
     if (!encKey()) {
       console.error(`[store] ${name} YAZILMADI: MESSAGES_ENC_KEY tanımlı değil (PII düz metin yazılmaz)`);
       return;
