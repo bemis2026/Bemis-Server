@@ -13,6 +13,42 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🔴🔓 **R2 KOVASI HÂLÂ HERKESE AÇIK — ÖNCEKİ "KAPANDI" RAPORUM YANLIŞTI (2026-08-19 ÖLÇÜMÜ):**
+> Önceki turda "R2 genel erişimi kapalı, DNS çözülmüyor" demiştim. **DEĞİL.** Bugün parolasız düz `curl`:
+> `pub-134960785b31499d992cb27aa3b0d652.r2.dev/bins/dealers.json` → **HTTP 200, 9.250 bayt** (29 benzersiz e-posta,
+> **6'sı kişisel** gmail/hotmail; 17 telefon) · `bins/content.json` → **200, 307 KB** · `bins/products.json` → **200, 1,5 MB**.
+> (Yalnız `bins/messages.json` 404'tü — çünkü hiç yazılmamıştı.) 📌 **DNS'in bir kez çözülmemesi "kapandı" KANITI DEĞİL** —
+> kapanışı **içerik indirerek** doğrula, ad çözümlemesiyle değil.
+> **⏳ KULLANICIDA TEK ADIM (hâlâ açık):** Cloudflare → R2 → kova → **Settings → Public access (r2.dev) → Disable**.
+> **KAPATMAK GÜVENLİ — BUGÜN DOĞRULANDI:** 14 dökümanın **6'sı R2'de**; altısı da site vekilinden (`/api/documents/file?id=`)
+> **200 · application/pdf** döndü (2,0 / 2,1 / 2,0 / 4,7 / 5,3 / 5,0 MB) — vekil `readObject` ile **S3 API + kimlik**
+> kullanıyor, genel adrese HİÇ ihtiyaç yok. Kalan 8 döküman Cloudinary'de.
+
+> 🗄️🔐 **MESAJ ARŞİVİ AÇILDI — AMA ŞİFRELİ (2026-08-19, commit'ler dc1b665 + 3de7170; kullanıcı "arşivi aç" dedi):**
+> `writeBin`'deki `if (name === "messages") return;` guard'ı kalktı; yerine **AES-256-GCM** geldi
+> (`lib/store.ts` → `ENCRYPTED_BINS` · `sifrele()` · `coz()` · `encKey()`). Kova açık olduğu için düz metin PII
+> yazmak müşteri ad/telefon/mesajını YAYINLAMAK olurdu; artık kovayı indiren biri yalnız şu zarfı görür:
+> `{"v":1,"alg":"A256GCM","iv":…,"tag":…,"data":…}`.
+> **⚠️ FAIL-CLOSED:** `MESSAGES_ENC_KEY` yoksa **hiç yazılmaz** (eski "arşiv kapalı" davranışı) — sessizce düz metne DÜŞMEZ.
+> **⚠️ ÖNLENEN VERİ-KAYBI TUZAĞI:** çağıranlar (iletişim formu `appendMessage` + admin `loadBin`) arşivi
+> `readBin(...).catch(() => null)` ile okuyor → **çözülemeyen arşiv onlara BOŞ görünür ve ilk yeni mesaj TÜM GEÇMİŞİ EZERDİ**
+> (anahtar döndürülünce tam olarak bu olur). `writeBin` artık şifreli bin'in üzerine yazmadan önce mevcudu çözebildiğini
+> doğrular; **`NoSuchKey` (ilk yazım) hariç** çözemezse YAZMAZ.
+> **⚠️ ANAHTAR:** `MESSAGES_ENC_KEY` (32 bayt, base64) Vercel üretimde **`--no-sensitive`** — bilerek: (a) doğrulanabilsin,
+> (b) kurtarma yolu kalsın. Kovaya erişebilen zaten `R2_ACCESS_KEY_ID/SECRET`'i de okuyabildiği için gizlemek koruma katmıyordu.
+> 📌 **Anahtar kaybolursa arşiv OKUNAMAZ** (e-posta ikinci kopya olduğu için kabul edilen risk).
+> **KVKK:** `app/gizlilik` metni gerçek akışa hizalandı (§5 "Form arşivi: Cloudflare R2 — şifreli", §6 saklama süresi) —
+> 📌 kural: şema/metin ile GERÇEK veri akışı ayrışmamalı.
+
+> 📮🔁 **BAŞVURU ALICISI: satis@ → **sales@bemis.com.tr** (aynı gün, kullanıcı seçmeli kararı):**
+> Kullanıcı önce "satis yap" dedi; **satis@ ≠ sales@ ölçümü paylaşılınca** "sadece kendi kutum" seçti.
+> `CONTACT_TO_EMAIL="sales@bemis.com.tr"` · **`REPLY_TO_EMAIL` SİLİNDİ** → `sendAutoReply` onu **birincil alıcıdan türetir**
+> (`alicilar()[0]`) → "başvuru bir kutuya, müşterinin cevabı başka kutuya" ayrışması artık **yapısal olarak imkânsız**;
+> ileride alıcı değişince cevap adresi kendiliğinden takip eder. 📌 Sitede **GÖRÜNEN** adres `satis@bemis.com.tr` KALDI
+> (kullanıcı isteği) — görünen adres ile teslim adresi bilerek farklı.
+
+
+
 > 📮✅ **BAŞVURULAR ARTIK TEK KUTUYA: `satis@bemis.com.tr` (2026-08-19, commit a36236f):** Kullanıcı isteği:
 > "başvurular için gösterilen maili satis yap ve gönderilen başvuruları da o maile yönlendir."
 > **(1) GÖSTERİLEN ADRES ZATEN DOĞRUYDU** — canlı taramada 10 sayfanın (anasayfa · iletişim · bayilik · b2b · destek ·
