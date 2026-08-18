@@ -89,11 +89,16 @@ export async function sendEmail({ to, subject, html, replyTo }: SendArgs): Promi
  * Form başvurularının düşeceği adres(ler). `CONTACT_TO_EMAIL` VİRGÜLLE
  * ayrılmış birden çok adres kabul eder.
  *
- * ⚠️ NEDEN ÇOKLU (2026-08-05, kullanıcı kararı): site 2026-07-31'den beri
- * her yerde `satis@bemis.com.tr` yazıyor ama başvurular `info@bemisevcharge.com`
- * kutusuna düşüyordu — FARKLI SAĞLAYICIDA, FARKLI KUTU. O kutuyu izleyen
- * olmayınca başvurular sessizce bekliyordu. İkisine birden gönderiliyor ki
- * hiçbir başvuru kaçmasın.
+ * ⚠️ TARİHÇE — NEDEN ÖNCE ÇOKLU, SONRA TEK (bu tuzağa bir daha düşme):
+ * 2026-07-31'de site her yerde `satis@bemis.com.tr` yazmaya başladı ama
+ * `CONTACT_TO_EMAIL` `info@bemisevcharge.com` kaldı — FARKLI SAĞLAYICIDA,
+ * FARKLI KUTU (kurumsaleposta ↔ Google Workspace). O kutuyu izleyen olmayınca
+ * başvurular sessizce bekledi. 2026-08-05'te geçici çözüm: İKİSİNE birden
+ * gönderildi. 2026-08-19 (kullanıcı kararı): erişilemeyen `info@` kutusu
+ * listeden ÇIKARILDI → tek alıcı `satis@bemis.com.tr` (izlenen iç satış kutusu).
+ * ⓘ Çoklu adres yeteneği DURUYOR: env'e virgülle ikinci adres yazmak yeterli.
+ * ⚠️ `satis@bemis.com.tr` ile `sales@bemis.com.tr` AYNI KUTU DEĞİLDİR (ölçüldü) —
+ * "başvuru gelmiyor" denirse önce hangi kutuya bakıldığını sor.
  * ⓘ İlk adres BİRİNCİL sayılır (otomatik yanıtın "cevapla" adresi ondan türer).
  */
 export function alicilar(): string[] {
