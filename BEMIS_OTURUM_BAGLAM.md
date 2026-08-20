@@ -21,7 +21,12 @@
 > 8 çip × sarmalanan uzun alt başlık ("Monofaze 3,7-7,4 kW · 3 Noktadan Montaj"). ⚠️ **Kısaltma (truncate) de OLMAZ:**
 > ayırt edici kısım SONDA ("3 Noktadan" ↔ "4 Noktadan") → kesince varyantlar ayırt edilemez hâle gelir.
 > **ÇÖZÜM: mobilde VARSAYILAN KATLI** — küçük `Versiyon n/N ⌄` düğmesi (`sm:hidden`), dokununca liste açılır
-> (`max-h-[78%] overflow-y-auto` → çok varyantlıda kutuyu taşırmaz). Çipler mobilde 10px + dar padding, **ürün kodu
+> ⚠️⚠️ **İLK DENEMEM YANLIŞTI, ÖLÇÜM YAKALADI:** listeye `max-h-[78%]` verdim → **ETKİSİZ** (açıkken katman kutu
+> yüksekliğinin **%107**'si, hâlâ taşıyordu). Sebep: **yüzde yükseklik `height:auto` olan ebeveyne göre çözülmez**
+> (CSS: auto yükseklikli ebeveynde yüzde max-height `none` sayılır). **DOĞRUSU: sınırı MUTLAK KONUMLU DIŞ katmana koy**
+> (`max-h-[calc(100%-1rem)] sm:max-h-none`) — onun kapsayıcı bloğu galeri kutusu ve yüksekliği KESİN (aspect-ratio 1/1)
+> → yüzde çözülür; iç liste `min-h-0 overflow-y-auto` ile flex içinde kayar. Varyant seçilince katman KAPANIR.
+> Çipler mobilde 10px + dar padding, **ürün kodu
 > satırı mobilde gizli** (`hidden sm:block`). **⚠️ sm+ görünümü ve davranışı BİREBİR korundu** (liste hep açık, 11px, kod görünür).
 > 📌 **Mobilde gizlemek seçenek DEĞİLDİ:** kart-altı varyant seçici daha önce kaldırılmış (satır ~737 yorumu), bu katman TEK seçici.
 > ⚠️ `variantOpen` state'i bileşenin EN ÜSTÜNDE (katman bir IIFE içinde render ediliyor, oraya hook konulamaz).
