@@ -49,7 +49,7 @@ const DETAIL_FEATURE_ICONS: Record<string, React.ComponentType<{ size?: number; 
   RiCalendarCheckLine, RiTeamLine, RiLightbulbLine,
   RiDashboard3Line, RiHammerLine, RiEqualizerLine, RiToolsLine, RiBluetoothLine,
 };
-import { HiDownload } from "react-icons/hi";
+import { HiDownload, HiChevronDown } from "react-icons/hi";
 import { trackEvent } from "../../../components/GoogleAnalytics";
 import Image from "next/image";
 
@@ -231,6 +231,8 @@ export default function ProductDetailPage({
     title?: string; url: string; size?: string; visible?: boolean;
     linkedProductCategories?: string[];
   }>>([]);
+  // Mobilde varyant katmanı VARSAYILAN KAPALI (görseli örtmesin); sm+ hep açık.
+  const [variantOpen, setVariantOpen] = useState(false);
   const [activeTab, setActiveTab]   = useState<"specs" | "general" | "documents">("general");
   // Genel Özellikler kartına hover → portal tooltip (kartla AYNI desen; tab
   // paneli overflow'una takılmasın diye body'ye portal). Kısa açıklama gösterir.
@@ -431,21 +433,36 @@ export default function ProductDetailPage({
                           const variantInfo = findVariantGroup(category.products ?? [], productId);
                           if (!variantInfo || variantInfo.group.variants.length < 2) return null;
                           return (
-                            <div className="absolute top-3 right-3 flex flex-col items-end gap-1.5 max-w-[60%]">
+                            <div className="absolute top-2 right-2 sm:top-3 sm:right-3 flex flex-col items-end gap-1 sm:gap-1.5 max-w-[46%] sm:max-w-[60%] z-10">
+                              {/* Mobil: küçük aç/kapa düğmesi. sm+ : eski "VERSİYON" etiketi. */}
+                              <button
+                                type="button"
+                                onClick={() => setVariantOpen((o) => !o)}
+                                aria-expanded={variantOpen}
+                                className="sm:hidden cursor-pointer flex items-center gap-1 text-[10px] font-bold px-2 py-1 rounded-md leading-none"
+                                style={{ background: "rgba(0,0,0,0.62)", color: "#ffffff", backdropFilter: "blur(8px)" }}
+                              >
+                                {pickText(lang, "Versiyon", "Version")}
+                                <span className="tabular-nums opacity-80">
+                                  {variantInfo.group.variants.findIndex((v) => v.id === productId) + 1}/{variantInfo.group.variants.length}
+                                </span>
+                                <HiChevronDown size={12} style={{ transform: variantOpen ? "rotate(180deg)" : "none", transition: "transform .15s" }} aria-hidden />
+                              </button>
                               <span
-                                className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md"
+                                className="hidden sm:inline-block text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md"
                                 style={{ background: "rgba(0,0,0,0.55)", color: "rgba(255,255,255,0.85)", backdropFilter: "blur(8px)" }}
                               >
                                 {pickText(lang, "Versiyon", "Version")}
                               </span>
-                              <div className="flex flex-col items-end gap-1">
+                              {/* Liste: mobilde yalnız açıkken; çok varyantlı üründe kutuyu taşırmasın diye kaydırılabilir. */}
+                              <div className={`${variantOpen ? "flex" : "hidden"} sm:flex flex-col items-end gap-1 max-h-[78%] sm:max-h-none overflow-y-auto`}>
                                 {variantInfo.group.variants.map((v) => {
                                   const isActive = v.id === productId;
                                   return (
                                     <button
                                       key={v.id}
                                       onClick={() => router.push(`/products/${categoryId}/${v.id}`)}
-                                      className="text-right px-2.5 py-1.5 rounded-lg text-[11px] font-semibold transition-all duration-150 backdrop-blur-sm"
+                                      className="text-right px-1.5 py-1 sm:px-2.5 sm:py-1.5 rounded-lg text-[10px] sm:text-[11px] leading-tight font-semibold transition-all duration-150 backdrop-blur-sm"
                                       style={{
                                         background: isActive ? accent : "rgba(0,0,0,0.55)",
                                         border: `1px solid ${isActive ? accent : "rgba(255,255,255,0.12)"}`,
@@ -465,7 +482,7 @@ export default function ProductDetailPage({
                                         ) : null;
                                       })()}
                                       {v.code && v.subtitle && (
-                                        <span className="block text-[9px] font-mono mt-0.5" style={{ color: "rgba(255,255,255,0.7)" }}>
+                                        <span className="hidden sm:block text-[9px] font-mono mt-0.5" style={{ color: "rgba(255,255,255,0.7)" }}>
                                           {v.code}
                                         </span>
                                       )}
