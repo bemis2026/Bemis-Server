@@ -13,6 +13,33 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 📱🔻 **MOBİLDE VARYANT KATMANI GÖRSELİ ÖRTÜYORDU + YENİ GÖRSELLER ÇERÇEVEYE OTURMUYORDU (2026-08-20, commit 36eccbc):**
+> Kullanıcı bildirdi. İkisi de ÖLÇÜLDÜ, tahminle düzeltilmedi.
+> **(1) VARYANT KATMANI — 375px'te ölçüm:** 8 varyantlı `pano-prizi-monofaze-3-7-7-4-kw-3-noktadan-montaj`
+> sayfasında katman **200×508 px = galeri kutusunun %151'i** (kutudan TAŞIYOR), **görselin %61'ini örtüyor**.
+> ⚠️ **Yalnız tipografi küçültmek YETMEDİ** — canlı DOM'da denendi: %151 → **%128**, örtme %61 → %44. Sebep yapısal:
+> 8 çip × sarmalanan uzun alt başlık ("Monofaze 3,7-7,4 kW · 3 Noktadan Montaj"). ⚠️ **Kısaltma (truncate) de OLMAZ:**
+> ayırt edici kısım SONDA ("3 Noktadan" ↔ "4 Noktadan") → kesince varyantlar ayırt edilemez hâle gelir.
+> **ÇÖZÜM: mobilde VARSAYILAN KATLI** — küçük `Versiyon n/N ⌄` düğmesi (`sm:hidden`), dokununca liste açılır
+> (`max-h-[78%] overflow-y-auto` → çok varyantlıda kutuyu taşırmaz). Çipler mobilde 10px + dar padding, **ürün kodu
+> satırı mobilde gizli** (`hidden sm:block`). **⚠️ sm+ görünümü ve davranışı BİREBİR korundu** (liste hep açık, 11px, kod görünür).
+> 📌 **Mobilde gizlemek seçenek DEĞİLDİ:** kart-altı varyant seçici daha önce kaldırılmış (satır ~737 yorumu), bu katman TEK seçici.
+> ⚠️ `variantOpen` state'i bileşenin EN ÜSTÜNDE (katman bir IIFE içinde render ediliyor, oraya hook konulamaz).
+> **(2) 🔴 KENDİ EKLEDİĞİM GÖRSELLER ÇERÇEVEYE OTURMUYORDU:** zemin şeffaflaştırınca geriye **çok geniş şeffaf kenar
+> boşluğu** kaldı → nesne tuvalin yalnız **%63-65'i**. Galeri kutusu 1:1 + `object-contain` **TUVALİ** sığdırdığı için
+> ürün küçük ve yana kaymış görünüyordu. **Katalog kıyası: mevcut görsellerde bu oran %100.**
+> **ÇÖZÜM:** alfa sınır kutusuna göre kırpma → **%97** (thumbnail `p-1` ile kenara yapışmasın diye uzun kenarın %1,5'i
+> nefes payı). 4 görsel yeniden yüklendi, 19 üründe URL **DEĞİŞTİRİLDİ** (ekleme değil → galeri uzunluğu aynı).
+> **📌 KALICI KURAL: şeffaflaştırdıktan sonra MUTLAKA alfa sınır kutusunu ölç ve kırp** — yoksa `object-contain` boşluğu da
+> sığdırır, ürün küçük görünür. Ölçüm betiği: nesne bbox / tuval uzun kenar oranı.
+> **ⓘ KATALOG TARAMASI (77 benzersiz görsel, next/image w=256 üzerinden):** 4 yenisi dışında **17 görselde daha** kenar
+> boşluğu var (**%79-88**) — V2L/C2L adaptörleri, bazı kablo ve DC soketleri. Eskiden beri böyle, DOKUNULMADI
+> (görünür değişiklik → kullanıcıya soruldu, karar bekliyor).
+> ⚠️ Kaynak render'lar WhatsApp'tan geldiği için **1600 px** — kırpınca nesne ~1000 px kalıyor; masaüstü retinada ~1,4×
+> büyütme oluyor. Daha keskin isteniyorsa **WhatsApp'sız orijinal** dosya gerekir. store cache **v81 → v82-arka-kirp**.
+
+
+
 > 🖼️🔩 **ARKA GÖRÜNÜM RENDER'LARI — 19 WALLBOX ÜRÜNÜ (2026-08-19, commit b71e725):** Kullanıcı İndirilenler'e
 > 4 render bıraktı (WhatsApp klasörü). **Eşleştirme kullanıcıya SEÇMELİ doğrulatıldı, sonra uygulandı:**
 > **kablolu küçük gövde → Charger 2 (3 model)** · **kablosuz uzun gövde → Charger Plus 2 + Pro 2 (16 model)**.

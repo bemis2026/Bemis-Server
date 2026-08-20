@@ -433,7 +433,7 @@ export default function ProductDetailPage({
                           const variantInfo = findVariantGroup(category.products ?? [], productId);
                           if (!variantInfo || variantInfo.group.variants.length < 2) return null;
                           return (
-                            <div className="absolute top-2 right-2 sm:top-3 sm:right-3 flex flex-col items-end gap-1 sm:gap-1.5 max-w-[46%] sm:max-w-[60%] z-10">
+                            <div className="absolute top-2 right-2 sm:top-3 sm:right-3 flex flex-col items-end gap-1 sm:gap-1.5 max-w-[46%] sm:max-w-[60%] max-h-[calc(100%-1rem)] sm:max-h-none z-10">
                               {/* Mobil: küçük aç/kapa düğmesi. sm+ : eski "VERSİYON" etiketi. */}
                               <button
                                 type="button"
@@ -455,13 +455,13 @@ export default function ProductDetailPage({
                                 {pickText(lang, "Versiyon", "Version")}
                               </span>
                               {/* Liste: mobilde yalnız açıkken; çok varyantlı üründe kutuyu taşırmasın diye kaydırılabilir. */}
-                              <div className={`${variantOpen ? "flex" : "hidden"} sm:flex flex-col items-end gap-1 max-h-[78%] sm:max-h-none overflow-y-auto`}>
+                              <div className={`${variantOpen ? "flex" : "hidden"} sm:flex flex-col items-end gap-1 min-h-0 overflow-y-auto`}>
                                 {variantInfo.group.variants.map((v) => {
                                   const isActive = v.id === productId;
                                   return (
                                     <button
                                       key={v.id}
-                                      onClick={() => router.push(`/products/${categoryId}/${v.id}`)}
+                                      onClick={() => { setVariantOpen(false); router.push(`/products/${categoryId}/${v.id}`); }}
                                       className="text-right px-1.5 py-1 sm:px-2.5 sm:py-1.5 rounded-lg text-[10px] sm:text-[11px] leading-tight font-semibold transition-all duration-150 backdrop-blur-sm"
                                       style={{
                                         background: isActive ? accent : "rgba(0,0,0,0.55)",
