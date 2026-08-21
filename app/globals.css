@@ -738,33 +738,6 @@ html[data-theme="light"] .calc-slider::-webkit-slider-thumb { border-color: rgba
   .hero-slide { --hp: var(--hp-m, var(--hp-d, 50% 50%)); --hz: var(--hz-m, var(--hz-d, 1)); }
 }
 
-/* ── ÇOK DİLLİ BAŞLIK TAŞMASI (2026-07-25) ─────────────────────────────────
-   Bölüm başlıkları `text-4xl sm:text-5xl lg:text-6xl` ölçeğiyle yazıldı; bu
-   ölçek TÜRKÇE'ye göre ayarlı. RU/DE/ES/AR çevirileri belirgin şekilde daha
-   uzun olduğu için 60px'te satırlara yığılıp düzeni bozuyordu — canlı ölçüm
-   (RU, 1440px): Hakkımızda 6 satır/389px · OEM 5 satır/375px · Akıllı Şarj
-   4 satır · Ürün Kategorileri 3 satır · Bayi Ağı 3 satır (Türkçe'de 1-2 satır).
-
-   ÇÖZÜM: Türkçe DIŞINDAKİ dillerde bu ölçekteki başlıklar akışkan küçültülür +
-   dengeli sarılır. Türkçe HİÇ etkilenmez (kural html[lang="tr"]'yi dışlar);
-   `lang` attribute'unu LanguageContext kök <html>'e yazar. Tek kural olduğu
-   için TÜM sayfalarda (anasayfa, kategori, /uretici, /b2b …) geçerlidir.
-   `overflow-wrap: anywhere` → uzun tek kelime kutuyu taşırmaz (RU'da görüldü). */
-html:not([lang="tr"]) h2[class*="text-6xl"] {
-  font-size: clamp(1.6rem, 2.9vw, 2.5rem);
-  line-height: 1.14;
-  text-wrap: balance;
-  overflow-wrap: anywhere;
-}
-/* Aynı sorun tablet/mobil kırılımında da var (sm:text-5xl = 48px). */
-@media (max-width: 1023px) {
-  html:not([lang="tr"]) h2[class*="text-5xl"] {
-    font-size: clamp(1.45rem, 5vw, 2.1rem);
-    line-height: 1.15;
-    text-wrap: balance;
-    overflow-wrap: anywhere;
-  }
-}
 
 /* ─────────────────────────────────────────────────────────────────────────
    MOBİL HERO KADRAJI (2026-07-27)
@@ -814,45 +787,7 @@ html:not([lang="tr"]) h2[class*="text-6xl"] {
   }
 }
 
-/* ─────────────────────────────────────────────────────────────────────────
-   MOBİL BAŞLIK ÖLÇEĞİ (2026-07-28)
-   Ölçüm (TR, 390px): hero H1 30px iken sayfadaki 10 bölüm başlığının HEPSİ
-   36px'ti → sayfanın ANA başlığı, alt başlıklarından küçük kalıyordu (ters
-   hiyerarşi). Kullanıcı seçimi: "hero 34 + bölüm başlıkları 30".
-   Bölüm başlıkları `text-4xl sm:text-5xl lg:text-6xl` ölçeğiyle yazılmış;
-   burada YALNIZ <640px (mobil) düşürülür — sm ve üzeri, masaüstü DEĞİŞMEZ.
-   ⚠️ Yalnız TR'ye uygulanır: yabancı dillerde zaten daha küçük bir clamp
-   kuralı var (uzun RU/DE başlıkları taşırmasın diye) — onu ezmemek için
-   `html[lang="tr"]` ile sınırlandı.
-   ⚠️ Hero H1 bu kuralın DIŞINDA (h1) ve 34px → hiyerarşi: hero > bölümler.  */
-@media (max-width: 639px) {
-  html[lang="tr"] h2[class*="text-6xl"] {
-    font-size: 1.875rem; /* 30px */
-    line-height: 1.16;
-  }
-}
 
-/* ─────────────────────────────────────────────────────────────────────────
-   MASAÜSTÜ BÖLÜM BAŞLIĞI: 60px → 48px (2026-08-03, kullanıcı onaylı)
-   Kullanıcı "büyük ekranlarda gösterim biraz büyük duruyor" dedi; ölçüldü
-   (1728px, anasayfa): bölüm başlıkları 60px × 10 ADET, gövde metni ise
-   12px ve 14px → başlık/gövde oranı ~5 kat (yaygın tasarım sistemlerinde
-   2,5-3 kat). "Başlıklar dev, yazılar minik" hissinin kaynağı buydu.
-   ⚠️ ÇÖZÜM YÖNÜ BİLİNÇLİ: gövde puntosu BÜYÜTÜLMEDİ (kullanıcı istemedi),
-   bunun yerine başlık küçültüldü → oran ~3,4 kata iner.
-   ÖLÇÜLEN YAN FAYDA: ürün vitrini başlığı ("AC Wallbox Smart Charger Pro 2")
-   60px'te İKİ satıra taşıp altındaki spec kartlarını ekran dışına itiyordu;
-   48px'te tek satıra sığıyor ve içerik ~60px yukarı geliyor.
-   ⚠️ KAPSAM: yalnız ≥1024px (masaüstü). Mobil (<640px, yukarıdaki 30px kuralı)
-   ve tablet DEĞİŞMEZ. Hero H1 bu kuralın DIŞINDA (h1) → hiyerarşi korunur:
-   hero > bölüm başlıkları. Yabancı diller zaten kendi clamp'ini kullanıyor.
-   📌 GERİ ALMAK: bu bloğu sil, 60px'e döner.                                */
-@media (min-width: 1024px) {
-  html[lang="tr"] h2[class*="text-6xl"] {
-    font-size: 3rem; /* 48px — Tailwind text-5xl ile aynı kademe */
-    line-height: 1.08;
-  }
-}
 
 /* ─────────────────────────────────────────────────────────────────────────
    DOKUNMA HEDEFİ GENİŞLETİCİ (2026-07-28 denetimi)
@@ -904,3 +839,91 @@ html:not([lang="tr"]) h2[class*="text-6xl"] {
 .harita-pin { outline: none; }
 .harita-pin .pin-odak { opacity: 0; transition: opacity 0.12s ease; }
 .harita-pin:focus-visible .pin-odak { opacity: 1; }
+
+/* ═════════════════════════════════════════════════════════════════════════
+   TİPOGRAFİ ÖLÇEĞİ — TEK KAYNAK (2026-08-21, kullanıcı onaylı)
+
+   ⚠️ ÖNCESİ (canlı ölçüm, TR): sayfa ana başlığı sayfadan sayfaya
+   30 / 36 / 48 / 60px; bölüm başlığı anasayfada 48px, diğer TÜM sayfalarda
+   24px (iki kat fark); anasayfada hero H1 36px iken bölüm başlıkları 48px =
+   TERS HİYERARŞİ (mobilde doğruydu, masaüstünde ters). Gövde 14 ↔ 16px.
+
+   ÖLÇEK:            mobil <640    ≥640      ≥1024
+     H1 (sayfa)         32          36        40
+     H2 (bölüm)         24          28        32
+     gövde              15          15        15
+   Oran H1/gövde ≈ 2,7 · H2/gövde ≈ 2,1 (yaygın tasarım sistemleri 2-3 kat).
+
+   ⚠️ NEDEN JSX YERİNE MERKEZİ CSS: başlık ölçek sınıfları 14 dosyada 4 ayrı
+   desende dağılmıştı. Tek yerden bağlamak hem bugün tutarlılık verir hem de
+   ileride tek satır değişiklikle ölçek güncellenir. Bu blok SİLİNİRSE eski
+   Tailwind sınıfları devreye girer (güvenli geri dönüş).
+
+   ⚠️ KAPSAM DIŞI (bilerek): eyebrow/etiket h2'leri (text-xs), kart başlığı
+   h3'leri (text-base/text-sm), footer h3'leri, admin paneli h1'i (text-xl)
+   — seçiciler o sınıfları içermiyor.
+   ═══════════════════════════════════════════════════════════════════════ */
+h1[class*="text-2xl"], h1[class*="text-3xl"], h1[class*="text-4xl"], h1[class*="text-[30px]"] {
+  font-size: 2rem;        /* 32px */
+  line-height: 1.15;
+}
+h2[class*="text-xl"], h2[class*="text-2xl"], h2[class*="text-3xl"], h2[class*="text-4xl"], h2[class*="text-base"] {
+  font-size: 1.5rem;      /* 24px */
+  line-height: 1.2;
+}
+@media (min-width: 640px) {
+  h1[class*="text-2xl"],
+  h1[class*="text-3xl"],
+  h1[class*="text-4xl"],
+  h1[class*="text-[30px]"] {
+    font-size: 2.25rem;   /* 36px */
+  }
+  h2[class*="text-xl"],
+  h2[class*="text-2xl"],
+  h2[class*="text-3xl"],
+  h2[class*="text-4xl"],
+  h2[class*="text-base"] {
+    font-size: 1.75rem;   /* 28px */
+  }
+}
+@media (min-width: 1024px) {
+  h1[class*="text-2xl"],
+  h1[class*="text-3xl"],
+  h1[class*="text-4xl"],
+  h1[class*="text-[30px]"] {
+    font-size: 2.5rem;    /* 40px */
+    line-height: 1.12;
+  }
+  h2[class*="text-xl"],
+  h2[class*="text-2xl"],
+  h2[class*="text-3xl"],
+  h2[class*="text-4xl"],
+  h2[class*="text-base"] {
+    font-size: 2rem;      /* 32px */
+    line-height: 1.16;
+  }
+}
+
+/* Gövde metni tek kademe: 14px ve 16px paragraflar 15px'te birleşir.
+   ⚠️ Yalnız <p>; etiket/rozet/spec satırları (span, div) etkilenmez. */
+p[class*="text-sm"], p[class*="text-base"] {
+  font-size: 0.9375rem;   /* 15px */
+}
+
+/* ⚠️ YABANCI DİLLER: RU/DE/ES/AR çevirileri Türkçeden belirgin uzun; 40/32px
+   sabit ölçekte satırlara yığılıp düzeni bozuyordu (2026-07-25'te ölçülmüştü:
+   RU "Hakkımızda" 6 satır/389px). Bu yüzden akışkan clamp + dengeli sarma
+   uygulanır. Seçici html:not([lang="tr"]) eklediği için yukarıdaki medya
+   kurallarını özgüllükle EZER — sıradan bağımsız çalışır. */
+html:not([lang="tr"]) :is(h1[class*="text-2xl"], h1[class*="text-3xl"], h1[class*="text-4xl"], h1[class*="text-[30px]"]) {
+  font-size: clamp(1.5rem, 3vw, 2.125rem);   /* 24 → 34px */
+  line-height: 1.14;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+html:not([lang="tr"]) :is(h2[class*="text-xl"], h2[class*="text-2xl"], h2[class*="text-3xl"], h2[class*="text-4xl"], h2[class*="text-base"]) {
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem);  /* 20,8 → 28px */
+  line-height: 1.18;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
