@@ -13,6 +13,31 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🔤 **TEK TİPOGRAFİ ÖLÇEĞİ — 3 PARÇALI ESKİ KURAL EMEKLİ (2026-08-21, commit 44fb683, kullanıcı onaylı):**
+> Kullanıcı "harita üstündeki yazılar çok büyük + blog başlığı ile anasayfa başlıkları farklı" dedi.
+> **ÖLÇÜM (canlı, TR, 1440px):** sayfa ana başlığı sayfadan sayfaya **30 / 36 / 48 / 60px** (ürün detay 30 · blog 36 ·
+> /uretici 48 · 404 60) · bölüm başlığı **anasayfada 48px, diğer TÜM sayfalarda 24px (tam iki kat)** ·
+> **anasayfada TERS HİYERARŞİ:** hero H1 36px < bölüm H2 48px (mobilde 34>30 doğruydu, masaüstünde ters) ·
+> gövde **14 ↔ 16px**. Haritanın üstündeki "Türkiye'nin Her Yerinde" = 48px, sayfadaki en büyük yazıydı.
+> **KARAR (seçmeli):** tüm site tek ölçek · H1 masaüstü **40** · H2 masaüstü **32** · gövde **15**.
+> **ÖLÇEK:** H1 32/36/40 · H2 24/28/32 · gövde 15 (mobil<640 / ≥640 / ≥1024). Oran H1/gövde ≈2,7 · H2/gövde ≈2,1.
+> **⚠️ NEDEN JSX DEĞİL MERKEZİ CSS:** başlık ölçek sınıfları **14 dosyada 4 ayrı desende** dağılmıştı
+> (`text-4xl sm:text-5xl lg:text-6xl` · `text-3xl sm:text-4xl lg:text-5xl` · `text-2xl sm:text-3xl lg:text-4xl` ·
+> `text-2xl font-black`) + 3 sayfa inline `clamp()` kullanıyordu. Hepsini tek tek düzenlemek yerine
+> `globals.css`'te öznitelik seçicileriyle (`h1[class*="text-3xl"]` vb.) bağlandı → bugün tutarlılık, ileride tek
+> satırla ölçek değişimi. **Blok silinirse eski Tailwind sınıflarına döner (güvenli geri dönüş).**
+> **SİLİNEN 3 ESKİ BLOK:** 2026-07-25 çok-dilli clamp · 2026-07-28 mobil 30px · 2026-08-03 masaüstü 60→48px.
+> Hepsi `h2[class*="text-6xl"]` üzerine kuruluydu; artık o desen kullanılmıyor (`grep text-6xl globals.css` → 0).
+> **⚠️ KAPSAM DIŞI (bilerek):** eyebrow h2 (`text-xs`, ör. "RAKAMLARLA BEMİS" 12px) · kart başlığı h3
+> (`text-base`/`text-sm`) · footer h3 · admin paneli h1 (`text-xl`) — seçiciler o sınıfları içermiyor.
+> **⚠️ YABANCI DİLLER:** RU/DE/ES/AR çevirileri uzun; sabit 40/32px'te yığılıyordu (2026-07-25 ölçümü: RU
+> "Hakkımızda" 6 satır/389px). `html:not([lang="tr"]) :is(...)` ile akışkan clamp + `text-wrap:balance` korundu;
+> seçici özgüllüğü medya kurallarını ezdiği için **sıra bağımsız** çalışır.
+> **ⓘ Gövde:** yalnız `p[class*="text-sm"]` ve `p[class*="text-base"]` → 15px. span/div etiketleri, spec satırları,
+> rozetler ETKİLENMEZ.
+
+
+
 > 📱🔻 **MOBİLDE VARYANT KATMANI GÖRSELİ ÖRTÜYORDU + YENİ GÖRSELLER ÇERÇEVEYE OTURMUYORDU (2026-08-20, commit 36eccbc):**
 > Kullanıcı bildirdi. İkisi de ÖLÇÜLDÜ, tahminle düzeltilmedi.
 > **(1) VARYANT KATMANI — 375px'te ölçüm:** 8 varyantlı `pano-prizi-monofaze-3-7-7-4-kw-3-noktadan-montaj`
