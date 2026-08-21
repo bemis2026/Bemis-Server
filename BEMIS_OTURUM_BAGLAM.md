@@ -13,6 +13,34 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🖼️📐 **KATALOG GÖRSELLERİ TEK DOLULUK ORANINA GETİRİLDİ — 35 görsel / 76 ürün (2026-08-21, commit ade740a):**
+> Kullanıcı "aksesuar kategorisinde ürünler çok farklı boyutlarda duruyor" dedi.
+> **ÖLÇÜM (kare kart + `object-contain`, kapladığı ALAN):** aksesuarlar **%30 (Pedestal, oran 0,30) ↔ %88
+> (AC Soket Tutucu, oran 0,88) = 2,9 kat**; site geneli **%30 ↔ %95 = 3,2 kat**. wallbox 1,8 · charger-equipment 1,5 ·
+> dc-units 1,4 · v2l/converters 1,2-1,3 · **cables + portable 1,0 (zaten tutarlı)**.
+> 📌 **SEBEP TAHMİN ETTİĞİM DEĞİLDİ:** şeffaf kenar boşluğu ikincil etkendi; baskın etken **tuvalin EN-BOY ORANI** —
+> kare çerçevede 0,30 oranlı uzun bir ürün matematiksel olarak %30'dan fazlasını kaplayamaz.
+> **⚠️⚠️ İLK YÖNTEM ÖLÇÜLDÜ VE ELENDİ:** "kare tuvale doldur" (nesneyi ortala, kenara şeffaf ekle) → 57 dosya için
+> **126 MB** (5183×5183 gibi tuvaller) ve **17 opak JPEG'i hiç çözemedi** (alfa yok → sınır bulunamaz).
+> **UYGULANAN: SINIR KUTUSUNA KIRPMA.** Kırpılmış tuval = nesnenin kendisi → `object-contain` her ürünün UZUN
+> KENARINI çerçeveye eşit oturtur (aranan tutarlılık bu) ve dosyalar KÜÇÜLÜR (91 MB). **Yeniden ölçekleme YOK.**
+> **OPAK JPEG'LER:** zemin **dört köşenin medyanı** ile saptandı; köşe sapması ≤30 **ve** parlaklık ≥230 ise
+> flood-fill ile şeffaflaştırılıp kırpıldı (17 görsel; biri **40 üründe** kullanılıyor). ⚠️ Bu adım ZORUNLUYDU:
+> yalnız kırpınca beyaz dikdörtgen kart zemininde (#f3f4f6) **daha da belirgin** hâle geliyordu — ızgara
+> simülasyonunda görüldü. Köşeleri tutarsız olan (gerçek sahne fotoğrafı) görsellere DOKUNULMADI.
+> **📌 DOĞRULAMA YÖNTEMİ:** kategori ızgarası birebir simüle edildi (kare kart + p-4 + object-contain, önce/sonra
+> kontak sayfası) → karar gözle verildi. Sayıya bakıp "düzeldi" DEME; ızgarayı çiz.
+> **⚠️ ÇEVİRİ OVERLAY'LERİ:** TR tabanı değiştikten sonra overlay'lerde **35 eski URL** kalmıştı (ölçüldü);
+> `_translations.{de,es,ar,ru}` + `productsEn` + 5 repo dosyasında **1205 URL** eşitlendi. Render'da etkisi YOK
+> (`mergeCategories` `image`/`images`i DAİMA TR'den alır) ama bayat kalırsa ileride "hizasız" YANLIŞ ALARM üretir —
+> aynı desen 2026-08-05'te bayat `code` ile yaşanmış ve çeviri betiğini yanıltmıştı.
+> **ⓘ GERİ ALMA:** eski görseller Cloudinary'de duruyor; `scratchpad/_map.json` ters çevrilip `_swap.cjs`
+> tekrar çalıştırılır. R2 yedeği: `_products.R2.norm.bak.json`. store cache **v82 → v83-gorsel-normalize**.
+> **ⓘ KALAN:** sert koyu zeminde bazı şeffaflaştırılmış görsellerde hafif gölge kalıntısı var; ürün yüzeylerinin
+> tamamı AÇIK zemin (#f3f4f6 / #dbdee3) kullandığı için görünmüyor — sorun çıkarsa eşik (parlaklık−11) sıkılaştırılır.
+
+
+
 > 🔤 **TEK TİPOGRAFİ ÖLÇEĞİ — 3 PARÇALI ESKİ KURAL EMEKLİ (2026-08-21, commit 44fb683, kullanıcı onaylı):**
 > Kullanıcı "harita üstündeki yazılar çok büyük + blog başlığı ile anasayfa başlıkları farklı" dedi.
 > **ÖLÇÜM (canlı, TR, 1440px):** sayfa ana başlığı sayfadan sayfaya **30 / 36 / 48 / 60px** (ürün detay 30 · blog 36 ·
