@@ -13,6 +13,34 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🔍🔤 **TİPOGRAFİ — TÜM DİL × TÜM SAYFA × TÜM EKRAN TARAMASI + 2 KUSUR DÜZELTİLDİ (2026-08-22, commit ff6f009):**
+> Kullanıcı "tüm dilleri, tüm arayüzleri, tüm sayfaları kontrol et, düzeni bozmadığından emin ol" dedi.
+> **YÖNTEM — PLAYWRIGHT MCP** (`browser_run_code_unsafe` ile tek çağrıda tam matris). 📌 **Bu, tarayıcı panelinin
+> yapamadığı iki şeyi yapıyor: (a) DİL DEĞİŞTİREBİLİYOR** (`localStorage.lang` + reload; panel bunu yapamıyordu,
+> aylardır yabancı dilleri gözle doğrulayamıyordum), **(b) gerçek Chromium** → medya sorguları, RTL, ölçümler doğru.
+> **⚠️ ÖLÇÜM TUZAKLARI (ikisi de bu turda yakalandı):** (1) `offsetParent !== null` görünürlük testi `position:fixed`/
+> transform atalarda **null** döner → hero H1 "ölçülemedi" sanıldı; `getBoundingClientRect` ile değiştirildi.
+> (2) **Marquee/karusel iç şeritleri kasten viewport'tan geniştir** → ham "sağ kenar > viewport" testi 5 sahte taşma
+> üretti; ata zincirinde `overflow-x` gizli/kaydırmalı kutu varsa TAŞMA SAYILMAZ kuralı eklendi.
+> **✅ TEMİZ ÇIKANLAR:** 6 dilin 6'sında da `html[lang]` doğru · **AR `dir=rtl`** · gerçek yatay taşma **0** ·
+> ölçek tüm sayfalarda birebir aynı (TR 32/24 → 40/32 → 52/40 · yabancı 26/21 → 34/28 → 44/34).
+> **🔴 KUSUR 1 — KENDİ REGRESYONUM:** H2 seçicisine `text-base` eklemiştim (ürün detay SSS başlığı için). Ama aynı
+> sınıf **KART/GRUP başlıklarında ve ADMİN PANELİNDE** de kullanılıyor → ~40 admin başlığı, /products kategori
+> kartları ve /destek kartları 16px yerine **24-40px** oldu. Seçiciden çıkarıldı (10 yer: taban + 4 medya kademesi +
+> yabancı dil kuralları); gerçek bölüm başlığı olan **7 h2** `text-2xl`e taşındı (LegalPage 1 · /destek 3 · ürün detay 3).
+> 📌 **DERS: merkezi CSS seçicisi SINIF ADINA dayanır; aynı sınıf iki farklı amaçla kullanılıyorsa (bölüm başlığı ↔
+> kart başlığı) seçici bunları AYIRAMAZ. Kapsama alacağın sınıfın TÜM kullanımlarını önce gez.**
+> **🔴 KUSUR 2 — inline `clamp()` ölçeği atlıyor:** `/b2b` · `/bayilik` · `/operator` H1'leri
+> `clamp(1.75rem,4vw,2.75rem)` ile yazılmış → büyük ekranda **44px**'te kalıyordu (diğer tüm sayfalar 52px).
+> Inline fontSize kaldırıldı, `text-3xl` eklendi. 📌 **Inline style CSS sınıfını EZER — ölçek kurarken
+> `grep "fontSize: \"clamp`" ile inline yazılmış başlıkları da ara.**
+> **ⓘ BİLEREK DOKUNULMADI:** anasayfa kategori kartı (`Products.tsx:307`) ve /products kategori şeridi
+> (`ProductsClient.tsx:117`) başlıkları inline clamp ile **max 35px** — bunlar KART başlığı, bölüm başlığı değil.
+> Yabancı dilde /products'ta H1 34 ↔ kart 35 teknik bir ters hiyerarşi doğuruyor ama **1px, farklı görsel bölgede**
+> ve gözle fark edilmiyor. Kullanıcıya bildirildi, kararı bekliyor.
+
+
+
 > 🖥️🔤 **TİPOGRAFİ ÖLÇEĞİ BÜYÜK EKRANLARA UZATILDI (2026-08-21, commit 170283b, kullanıcı onaylı):**
 > **⚠️ BİR ÖNCEKİ DÜZELTMEM EKSİK KALMIŞTI:** ölçek **1024px'te DURUYORDU**. Kullanıcı büyük monitöründe
 > "hero'ya kıyasla diğer başlıklar küçük kalmış" dedi. **ÖLÇÜLDÜ: 1440 · 1920 · 2560'ta tipografi BİREBİR AYNI**
