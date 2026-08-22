@@ -13,6 +13,38 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 💸🖼️ **CLOUDINARY KOTASININ %95'İNİ TEK BİR GÖRSEL YİYORDU — ÇÖZÜLDÜ (2026-08-22, commit'ler 3a26aaa + 1ccfb35):**
+> Kullanıcı panel ekran görüntüsü verdi: **Bandwidth 12,56 GB · Storage 605 MB · Transformations 69** → 13,24/25 kredi.
+> Yani tüketim neredeyse tamamen **bant genişliği**.
+> **⚠️⚠️ BU TURDA ÖLÇÜM ARACIM ÜÇ KEZ YANILTTI — üçü de sistemi suçlamama sebep olacaktı:**
+> **(1)** İlk ağ taramasında "39 doğrudan Cloudinary isteği" çıktı → YANLIŞ: `/_next/image?url=...res.cloudinary.com...`
+> adresi sorgu dizesinde o alan adını barındırıyor; `if (/res.cloudinary.com/)` testi ÖNCE geldiği için optimize
+> istekler de "doğrudan" sayıldı. 📌 **Sıra önemli: önce `/_next/image` kontrolü, sonra `^https://res.cloudinary.com/`.**
+> **(2)** DOM taramasında `img.currentSrc` üzerinde aynı hata → "46 ham img" gibi görünen şey aslında optimize edilmişti
+> (dosya çözünürlükleri 240×327, 720×982 — zaten yeniden boyutlandırılmış).
+> **(3)** Düzeltmeyi doğrularken adresi `slice(0,70)` ile KISALTIP öyle `fetch` attım → **HTTP 400** aldım ve
+> "düzeltmem bozuk, görsel kayboldu" diye ilan ettim. Tam adresle **200**. 📌 **Kısaltılmış adresle istek atma.**
+> **GERÇEK TABLO (doğru ölçümle):** 65 optimize istek toplam **1,24 MB** (ort. 19 KB → optimizasyon ZATEN çalışıyor) ·
+> yalnız **5 doğrudan** istek, 1,71 MB — ve bunun **1,65 MB'ı TEK dosya**: `/products` sayfasındaki kategori
+> `sliderImage` (`mkblh61xfa551ewuadj8.png`). 1,65 MB × ~300 görüntüleme × 30 gün ≈ **14 GB** → panel rakamıyla örtüşür.
+> **KÖK NEDEN:** `sliderImage` `backgroundImage: url(...)` ile veriliyordu. **CSS arka planları `next/image`
+> bileşeninden GEÇMEZ** → ham PNG her ziyaretçiye iniyordu. 📌 Bu, "next/image kullanıyoruz, optimizasyon tamam"
+> varsayımının kör noktası: bileşen kullanılmayan her yüzey (CSS bg, motion.img, ham `<img>`) optimizasyon DIŞIDIR.
+> **ÇÖZÜM:** yeni **`lib/optimizedBg.ts`** (`optimizeBg`/`bgUrl`) — adresi `/_next/image?url=...&w=2560&q=90`
+> üzerinden geçirir. Kaynak dosyaya DOKUNULMAZ. İki kullanım: `app/products/ProductsClient.tsx` +
+> `app/components/Products.tsx`. ⚠️ Genişlik/kalite `next.config.ts`'teki `deviceSizes`/`qualities` listelerinde
+> OLMALI, yoksa optimizer 400 döner.
+> **CANLI DOĞRULAMA:** aynı görsel artık **OPTIMIZER · 200 · image/avif · 32 KB** (öncesi 1.647 KB) = **51 kat küçülme**;
+> öge ekranda 1280×300, opaklık 1, ekran görüntüsüyle görsel olarak da tam ve net.
+> **AYRICA — boyut ÇEŞİDİ kısıldı (commit 3a26aaa):** `deviceSizes`/`imageSizes` hiç tanımlı DEĞİLDİ → Next
+> varsayılanı 8+8=**16 çeşit** üretebiliyordu; her yeni çeşit orijinali Cloudinary'den baştan indirir.
+> Koddaki gerçek kullanımlar tarandı (sizes + sabit width: 18/32/56/64/96/112/160/180/380/760) →
+> `deviceSizes: [640,828,1080,1920,2560,3840]` + `imageSizes: [32,64,128,256,384]` = **11 çeşit (%31 azalma)**.
+> ⚠️ **KALİTE DÜŞMEZ:** listede olmayan genişlik istenirse Next **BİR ÜST** değeri servis eder, asla küçültmez.
+> 3840 kasten korundu (4K + retina hero).
+
+
+
 > 🩺 **GENEL SAĞLIK + KOTA DENETİMİ (2026-08-22):** Kullanıcı "çalışmayan bir şey var mı, ücretsiz katmanda risk var mı" dedi.
 > **✅ ÇALIŞMAYAN ŞEY YOK:** 10 sayfa + 12 API ucu 200 (0,25-0,79 sn) · sitemap'ten 25 adres **0 kırık** (391 URL) ·
 > 8 sayfada **JS/konsol hatası 0**, 4xx/5xx yanıt **0** · son **20 dağıtımın 20'si Ready** · veri bekçisi OK
