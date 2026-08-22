@@ -13,6 +13,24 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🖥️🔤 **TİPOGRAFİ ÖLÇEĞİ BÜYÜK EKRANLARA UZATILDI (2026-08-21, commit 170283b, kullanıcı onaylı):**
+> **⚠️ BİR ÖNCEKİ DÜZELTMEM EKSİK KALMIŞTI:** ölçek **1024px'te DURUYORDU**. Kullanıcı büyük monitöründe
+> "hero'ya kıyasla diğer başlıklar küçük kalmış" dedi. **ÖLÇÜLDÜ: 1440 · 1920 · 2560'ta tipografi BİREBİR AYNI**
+> (H1 40 / H2 32 / gövde 15) — oysa kapsayıcı ≥1920'de **1800px**'e kadar genişliyor. Yani içerik alanı 1,8 kat
+> büyürken yazı hiç büyümüyordu. 📌 **Ders: bir ölçek kademesi eklerken en ÜST kırılım noktasını da sor/ölç —
+> "masaüstü" tek bir genişlik değil (1024 ↔ 2560 arası 2,5 kat fark var).**
+> **YENİ ÖLÇEK:** `<640: 32/24/15 · ≥640: 36/28/15 · ≥1024: 40/32/15 · ≥1536: 46/36/16 · ≥1920: 52/40/16`
+> (H1/H2/gövde). H1÷H2 her kademede ~1,3 → hiyerarşi genişlikten bağımsız.
+> **⚠️ YABANCI DİL KURALI clamp()'TEN KADEMELİ YAPIYA ÇEVRİLDİ:** eski `clamp(1.5rem,3vw,2.125rem)` tavanı **34px**
+> olduğu için TR 52px'e çıkarken RU/DE/ES/AR **34'te takılı kalacaktı** (yeni bir tutarsızlık doğardı). Artık her
+> kademede TR'nin **~%85'i**: 26/30/34/39/44 (H1) · 21/24/28/31/34 (H2) + `text-wrap:balance`.
+> ⚠️ Kendi içinde kademeler ARTAN sırada olmalı (aynı özgüllük → kaynak sırası belirler); TR kurallarını ise
+> `html:not([lang="tr"])` özgüllüğüyle ezer, sıradan bağımsızdır.
+> **ⓘ HARİTA SVG ETİKETLERİ (Marmara/Ege…) BİLEREK SABİT:** ekranda ~20px çıkıyor (SVG viewBox 1327 → kapsayıcıya
+> göre 0,78 ölçek). Kullanıcı kararı: dokunma — başlıklar 32→40'a çıkınca aradaki fark kendiliğinden açılıyor.
+
+
+
 > 🖼️📐 **KATALOG GÖRSELLERİ TEK DOLULUK ORANINA GETİRİLDİ — 35 görsel / 76 ürün (2026-08-21, commit ade740a):**
 > Kullanıcı "aksesuar kategorisinde ürünler çok farklı boyutlarda duruyor" dedi.
 > **ÖLÇÜM (kare kart + `object-contain`, kapladığı ALAN):** aksesuarlar **%30 (Pedestal, oran 0,30) ↔ %88
