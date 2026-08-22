@@ -13,6 +13,32 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🩺 **GENEL SAĞLIK + KOTA DENETİMİ (2026-08-22):** Kullanıcı "çalışmayan bir şey var mı, ücretsiz katmanda risk var mı" dedi.
+> **✅ ÇALIŞMAYAN ŞEY YOK:** 10 sayfa + 12 API ucu 200 (0,25-0,79 sn) · sitemap'ten 25 adres **0 kırık** (391 URL) ·
+> 8 sayfada **JS/konsol hatası 0**, 4xx/5xx yanıt **0** · son **20 dağıtımın 20'si Ready** · veri bekçisi OK
+> (8 kategori/150 ürün/33 bayi/14 döküman) · SEO bekçisi gerileme yok (22/22) · SSL 4 Ekim'e kadar geçerli.
+> ⓘ Konsoldaki `ERR_ABORTED` kayıtları GA beacon'ı ve Next prefetch'inin sayfa değişince iptali — hata DEĞİL.
+> **✅ KOTA:** **R2 49,4 MB / 10 GB = %0,5** (dökümanlar 41 MB · ürün 6 MB · bins 2 MB). **Higgsfield plan `free`,
+> 0 kredi → 3 günlük deneme HİÇ başlatılmamış, $49/ay çekim riski YOK** (11 Ağustos hatırlatması geçersizdi).
+> **🔴 BULGU — `daily-monitors` CRON'UNUN SPAM KONTROLÜ KÖR:** GitHub Actions her gün 06:00'da çalışıyor ve
+> "success" diyor, SSL takibi gerçekten işliyor (44 gün kaldığını bildirdi). AMA `checkFormSpam()` mesajları
+> **hâlâ `@vercel/blob`'dan** okuyor; gerçek arşiv 2026-07-02'den beri **R2'de** ve 2026-08-19'dan beri **şifreli**.
+> Yani kaynak ölü → her gün "0 mesaj / 24h" yazıyor, gerçek bir spam dalgasını ASLA yakalayamaz.
+> 📌 **"Cron success" = "cron çalışıyor" DEĞİLDİR** — bu, bekçilerde iki kez yaşanan körlük deseninin üçüncüsü.
+> **✅ ÖLÜ KİMLİK BİLGİLERİ TEMİZLENDİ (kullanıcı kararı):** `BLOB_READ_WRITE_TOKEN` · `BLOB_STORE_ID` ·
+> `BLOB_WEBHOOK_PUBLIC_KEY` Vercel'in 3 ortamından da silindi. ⚠️ ÖNCE doğrulandı: `app/` ve `lib/` içinde
+> Blob kullanımı **0**; workflow token'ı **GitHub secrets**'tan alıyor (Vercel kopyası ölüydü).
+> ⚠️ **`JSONBIN_MASTER_KEY` kullanıcı kararıyla KALDI** — kodda okunmuyor ama git geçmişinde duruyor; iptal
+> edilmediği sürece açık bir anahtar. Tekrar gündeme gelirse jsonbin.io'dan iptal edilmeli.
+> **⚠️ R2 GENEL ERİŞİM DURUMU BELİRSİZ:** 2 gün önce şifresiz `curl` **200** dönüyordu; bugün 3 denemede de
+> **HTTP 000** (TCP/TLS bağlanıyor, HTTP yanıtı gelmiyor; HTTP/1.1 ve olmayan anahtar da aynı). Kapatılsaydı
+> Cloudflare **401** dönerdi → zaman aşımı "kapandı" KANITI DEĞİL. Panelden teyit kullanıcıda.
+> **⚠️ CLOUDINARY ÖLÇÜLEMİYOR:** env'de yalnız cloud adı + upload preset var, yönetim anahtarı yok. Ücretsiz
+> katman ayl. 25 kredi (depolama+bant+dönüşüm ortak). Biriken yetim dosyalar: Temmuz göçünden 62 + normalize
+> turundan eskiyen 35 orijinal. Kullanıcı panelden bakacak.
+
+
+
 > 🔴 **ANASAYFA MASAÜSTÜNDE GÖRÜNÜR H1 YOK — ÖNCEDEN BERİ VAR OLAN KUSUR (2026-08-22 ölçümü, HENÜZ DÜZELTİLMEDİ):**
 > Playwright taramasında "H1 ölçülemedi" 6 dilde birden çıktı; ölçüm hatası sandım, **değilmiş**.
 > **ÖLÇÜM:** anasayfada DOM'da **tek `<h1>`** var ve masaüstünde `getBoundingClientRect` = **0×0**.
