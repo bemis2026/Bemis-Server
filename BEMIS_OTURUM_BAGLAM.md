@@ -13,6 +13,31 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🔴 **ANASAYFA MASAÜSTÜNDE GÖRÜNÜR H1 YOK — ÖNCEDEN BERİ VAR OLAN KUSUR (2026-08-22 ölçümü, HENÜZ DÜZELTİLMEDİ):**
+> Playwright taramasında "H1 ölçülemedi" 6 dilde birden çıktı; ölçüm hatası sandım, **değilmiş**.
+> **ÖLÇÜM:** anasayfada DOM'da **tek `<h1>`** var ve masaüstünde `getBoundingClientRect` = **0×0**.
+> Sebep: `<h1>` **`lg:hidden`** sınıflı kapsayıcının içinde → ≥1024px'te `display:none`.
+> ⚠️ `getComputedStyle(el).display` elemanın KENDİ değerini döndürür ("block") — ATA `display:none` ise eleman
+> 0×0'dır ama display/visibility normal görünür. Bu yüzden ilk bakışta anlaşılmıyor.
+> **Masaüstünde görünen hero başlığı ise `<div class="text-5xl xl:text-6xl 2xl:text-7xl font-black">`** —
+> yani **etiket olarak başlık değil**, düz bir div. Sonuçları: (a) masaüstünde ekran okuyucu için h1 YOK,
+> (b) görünen başlık tipografi ölçeğinin DIŞINDA → 1280'de **60px**, ≥1536'da **72px** (diğer sayfaların H1'i 40/46/52).
+> 📌 **Kullanıcının "hero'ya kıyasla diğerleri küçük" tespitinin kökü tam olarak bu:** hero 60-72px, bölüm başlıkları 32-40px.
+> ⚠️ Mobilde sorun YOK (orada h1 görünür). ⚠️ Google DOM'daki h1'i görür (display:none olsa da) → arama tarafında
+> yıkıcı değil; asıl kayıp a11y + anlamsal doğruluk.
+> **SEÇENEKLER (kullanıcıya soruldu):** (a) masaüstü div → `h1`, mobildeki `h1` → `p` (tek görünür h1, DOM'da tek h1),
+> (b) ikisi de `h1` (DOM'da 2 h1 — modern SEO tolere eder ama seo-sentinel "tam 1 h1" kuralı güncellenmeli), (c) dokunma.
+> ⚠️ Bu kusur BENİM değişikliklerimden ÖNCE de vardı; tipografi ölçeği onu ortaya çıkardı.
+
+> ✅ **TAM TARAMA SONUCU (2026-08-22, Playwright, 192 sayfa yüklemesi):** 16 sayfa × 6 dil @1280 + 16 sayfa × 3 dil ×
+> (375 & 1920). **Gerçek yatay taşma 0 · kırpılan başlık 0 · dil uyuşmazlığı 0 · AR `dir=rtl` doğru · boş sayfa 0.**
+> Ölçek 16 sayfanın hepsinde birebir: **TR 40/32 · yabancı 34/28** (1280). `/b2b` `/bayilik` `/operator` artık
+> ölçekte (önce inline clamp ile 44px'te takılıydı). `text-base` regresyonu kapandı (kart/admin başlıkları 16px).
+> ⓘ Kalan tek teknik aykırılık: `/products` kategori şeridi + anasayfa kategori kartı başlıkları inline clamp
+> (max 35px) → yabancı dilde H1 34 < kart 35. 1px, farklı görsel bölge; kullanıcı kararına bırakıldı.
+
+
+
 > 🔍🔤 **TİPOGRAFİ — TÜM DİL × TÜM SAYFA × TÜM EKRAN TARAMASI + 2 KUSUR DÜZELTİLDİ (2026-08-22, commit ff6f009):**
 > Kullanıcı "tüm dilleri, tüm arayüzleri, tüm sayfaları kontrol et, düzeni bozmadığından emin ol" dedi.
 > **YÖNTEM — PLAYWRIGHT MCP** (`browser_run_code_unsafe` ile tek çağrıda tam matris). 📌 **Bu, tarayıcı panelinin
