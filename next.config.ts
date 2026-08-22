@@ -120,6 +120,15 @@ const nextConfig: NextConfig = {
     // Kademeler: 95 hero/tam-ekran · 90 kullanıcı fotoğrafı (ürün galerisi,
     // fabrika, harita, logo) · 88 katalog packshot · 75 yalnız admin küçük önizleme.
     qualities: [75, 88, 90, 95],
+    // ⚠️ Üretilebilecek boyut ÇEŞİDİ (2026-08-22): varsayılan 8+8=16 idi → 6+5=11.
+    //    Her yeni çeşit, Cloudinary'den orijinalin BAŞTAN indirilmesi demek;
+    //    ortalama 2,2 MB / en büyüğü 9 MB olduğu için bant genişliği oradan gidiyordu.
+    //    Listede olmayan genişlik istenirse Next BİR ÜST değeri verir → görsel
+    //    asla küçülmez, kalite düşmez. Değerler koddaki `sizes` + sabit width
+    //    kullanımları taranarak seçildi (18/32/56/64/96/112/160/180/380/760 px).
+    // ⚠️ 3840 KASTEN duruyor: 4K + retina hero'da kalite kuralı gereği lazım.
+    deviceSizes: [640, 828, 1080, 1920, 2560, 3840],
+    imageSizes: [32, 64, 128, 256, 384],
     // AVIF, AYNI quality'de WebP'den ~%20-30 küçük dosya verir (görsel olarak
     // fark yok — zaten lossy WebP servis ediliyordu). Eski tarayıcılar otomatik
     // WebP'ye düşer. Piksel/kalite kaybı yok; sadece daha verimli kodlama.
