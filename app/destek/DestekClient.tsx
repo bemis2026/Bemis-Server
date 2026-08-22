@@ -285,7 +285,7 @@ export default function DestekClient() {
             >
               <div className="flex items-center gap-2 mb-1">
                 <RiCustomerService2Line style={{ color: ink, fontSize: 18 }} aria-hidden />
-                <h2 className="text-base font-bold" style={{ color: text }}>Doğrudan destek</h2>
+                <h2 className="text-2xl font-bold" style={{ color: text }}>Doğrudan destek</h2>
               </div>
               <p className="text-xs leading-relaxed mb-4" style={{ color: faint }}>
                 Satış sonrası süreç yetkili bayiniz üzerinden yürür. Bayinize ulaşamıyorsanız bu kanallardan bize yazın.
@@ -477,7 +477,7 @@ export default function DestekClient() {
             <Kart>
               <div className="flex items-center gap-2 mb-3">
                 <RiExchangeLine style={{ color: ink, fontSize: 18 }} aria-hidden />
-                <h2 className="text-base font-bold" style={{ color: text }}>İade ve değişim</h2>
+                <h2 className="text-2xl font-bold" style={{ color: text }}>İade ve değişim</h2>
               </div>
               <p className="text-sm leading-relaxed mb-2.5" style={{ color: muted }}>
                 Ürünler yetkili bayi ağı üzerinden satılır. İade ve değişim talepleriniz, satın alma işlemini
@@ -492,7 +492,7 @@ export default function DestekClient() {
             <Kart delay={0.08}>
               <div className="flex items-center gap-2 mb-3">
                 <RiHomeGearLine style={{ color: ink, fontSize: 18 }} aria-hidden />
-                <h2 className="text-base font-bold" style={{ color: text }}>Kurulum desteği</h2>
+                <h2 className="text-2xl font-bold" style={{ color: text }}>Kurulum desteği</h2>
               </div>
               <p className="text-sm leading-relaxed mb-4" style={{ color: muted }}>
                 Cihaz fiyatına kurulum dahil değildir. Yetkili bayimiz keşif yaparak hat çekimi, kablolama ve sigorta

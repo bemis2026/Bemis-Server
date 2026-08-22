@@ -122,7 +122,7 @@ export default function OperatorPage() {
                 Şarj Ağı Operatörleri
               </span>
             </div>
-            <h1 className="font-black leading-tight mb-3" style={{ fontSize: "clamp(1.75rem, 4vw, 2.75rem)", color: text }}>
+            <h1 className="text-3xl font-black leading-tight mb-3" style={{ color: text }}>
               {cms.heading1}<br />
               <span style={{ color: accentInk(PURPLE, d) }}>{cms.heading2}</span>
             </h1>

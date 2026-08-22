@@ -169,7 +169,7 @@ export default function B2BPage() {
                 {b2bData.hero.eyebrow}
               </span>
             </div>
-            <h1 className="font-black leading-tight mb-3" style={{ fontSize: "clamp(1.75rem, 4vw, 2.75rem)", color: text }}>
+            <h1 className="text-3xl font-black leading-tight mb-3" style={{ color: text }}>
               {b2bData.hero.heading1}<br />
               <span style={{ color: accentInk(AMBER, d) }}>{b2bData.hero.heading2}</span>
             </h1>

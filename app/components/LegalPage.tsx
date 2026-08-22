@@ -41,7 +41,7 @@ export default function LegalPage({ title, updated, intro, sections }: {
         <div className="flex flex-col gap-5">
           {sections.map((s, i) => (
             <section key={i} className="rounded-2xl px-5 sm:px-6 py-5" style={{ background: card, border: `1px solid ${line}` }}>
-              <h2 className="text-base font-bold mb-3" style={{ color: text }}>{s.h}</h2>
+              <h2 className="text-2xl font-bold mb-3" style={{ color: text }}>{s.h}</h2>
               {(s.p ?? []).map((t, j) => (
                 <p key={j} className="text-sm leading-relaxed mb-2.5 last:mb-0" style={{ color: muted }}>{t}</p>
               ))}

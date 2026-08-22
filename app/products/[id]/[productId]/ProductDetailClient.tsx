@@ -1196,7 +1196,7 @@ export default function ProductDetailPage({
         return (
           <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8 pb-12">
             <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-              <h2 className="text-base font-bold" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
+              <h2 className="text-2xl font-bold" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
                 {pickText(lang, "Müşteri Yorumları", "Customer Reviews")}
               </h2>
               <span className="inline-flex items-center gap-1.5 text-sm font-black tabular-nums" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
@@ -1266,7 +1266,7 @@ export default function ProductDetailPage({
                 acceptedAnswer: { "@type": "Answer", text: f.a },
               })),
             }]} />
-            <h2 className="text-base font-bold mb-4" style={{ color: sd ? "#f0f0f4" : "#111827" }}>{pickText(lang, "Sıkça Sorulan Sorular", "Frequently Asked Questions")}</h2>
+            <h2 className="text-2xl font-bold mb-4" style={{ color: sd ? "#f0f0f4" : "#111827" }}>{pickText(lang, "Sıkça Sorulan Sorular", "Frequently Asked Questions")}</h2>
             {/* SSS — accordion yok, kartlar her zaman 'açık' state'te:
                 soru + cevap birlikte görünür. Kart yatay olarak tam
                 w-full genişlikte (max-w-7xl parent). Her kart aynı
@@ -1336,7 +1336,7 @@ export default function ProductDetailPage({
         return (
           <div className="pb-20">
             <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto mb-4 px-5 sm:px-6 lg:px-8">
-              <h2 className="text-base font-bold" style={{ color: theme === "dark" ? "#f0f0f4" : "#111827" }}>{pickText(lang, "Benzer Ürünler", "Related Products")}</h2>
+              <h2 className="text-2xl font-bold" style={{ color: theme === "dark" ? "#f0f0f4" : "#111827" }}>{pickText(lang, "Benzer Ürünler", "Related Products")}</h2>
             </div>
             {/* Carousel runs edge-to-edge so it never visually clips at
                 the 7xl rail on wide monitors. snap-proximity (not
