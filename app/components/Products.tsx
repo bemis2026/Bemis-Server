@@ -1,4 +1,5 @@
 "use client";
+import { bgUrl } from "../../lib/optimizedBg";
 import { pickText } from "../lib/ui";
 import { accentInk } from "../lib/accentInk";
 import { urunPngKategorisi, urunPngBosluk } from "../../lib/categoryVisual";
@@ -283,7 +284,7 @@ export default function Products() {
                     {/* Slider arka plan görseli — KARARTMA YOK (kullanıcı isteği):
                         görsel tam canlı gösterilir, metinler text-shadow ile okunur. */}
                     {(cat as typeof cat & { sliderImage?: string }).sliderImage && (
-                      <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${(cat as typeof cat & { sliderImage?: string }).sliderImage})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+                      <div className="absolute inset-0 z-0" style={{ backgroundImage: bgUrl((cat as typeof cat & { sliderImage?: string }).sliderImage), backgroundSize: "cover", backgroundPosition: "center" }} />
                     )}
                     {/* Left: text */}
                     <div className="flex-1 min-w-0 z-10">

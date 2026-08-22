@@ -1,4 +1,5 @@
 "use client";
+import { bgUrl } from "../../lib/optimizedBg";
 import { pickText } from "../lib/ui";
 
 import { useState, useEffect, useRef, useCallback } from "react";
@@ -87,7 +88,7 @@ function BannerSlider({ categories, d }: { categories: CategoryData[]; d: boolea
           {/* Slider background image */}
           {cat.sliderImage && (
             <>
-              <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${cat.sliderImage})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+              <div className="absolute inset-0 z-0" style={{ backgroundImage: bgUrl(cat.sliderImage), backgroundSize: "cover", backgroundPosition: "center" }} />
               {/* ⚠️ AYDINLIK MODDA DÜZ BEYAZ %75 PERDE VARDI → slider görseli neredeyse
                   hiç görünmüyordu (kullanıcı bildirdi). Perde YATAY GRADYANA çevrildi:
                   metnin durduğu SOL tarafta güçlü kalır (okunurluk korunur), sağa doğru
