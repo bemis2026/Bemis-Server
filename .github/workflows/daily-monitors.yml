@@ -33,7 +33,7 @@ jobs:
 
       - name: Form spam + SSL
         env:
-          BLOB_READ_WRITE_TOKEN: ${{ secrets.BLOB_READ_WRITE_TOKEN }}
+          MONITOR_KEY:        ${{ secrets.MONITOR_KEY }}
           GH_TOKEN:           ${{ secrets.GITHUB_TOKEN }}
           GH_REPO:            ${{ github.repository }}
           RESEND_API_KEY:     ${{ secrets.RESEND_API_KEY }}

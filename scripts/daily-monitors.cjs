@@ -23,9 +23,13 @@
 
 const { spawnSync } = require("child_process");
 const tls = require("tls");
-const { get } = require("@vercel/blob");
-
-const BLOB_TOKEN = process.env.BLOB_READ_WRITE_TOKEN;
+// ⚠️ 2026-08-22: Vercel Blob TERK EDİLDİ (2026-07-02'de R2'ye geçildi) ama bu betik
+//    mesajları hâlâ oradan okuyordu → her gün "0 mesaj" yazıyor, gerçek bir spam
+//    dalgasını ASLA yakalayamıyordu. Artık sayıyı sitenin korumalı sayaç ucundan alır.
+//    Böylece R2 kimlikleri ve şifre anahtarı GitHub secret'larına kopyalanmak zorunda
+//    kalmadı; robotun eline yalnız bir SAYI geçiyor (ad/e-posta/telefon çıkmıyor).
+const SITE       = process.env.SITE_URL || "https://www.bemisevcharge.com.tr";
+const MONITOR_KEY = process.env.MONITOR_KEY;
 
 const FORM_SPAM_THRESHOLD = 10;     // mesaj / 24h
 const SSL_DAYS_THRESHOLD  = 14;
@@ -39,27 +43,23 @@ function notify(title, severity, body, source) {
   if (r.status !== 0) console.error("[monitors] notify failed");
 }
 
-// Vercel Blob'dan bin oku (private). store.ts ile aynı yöntem.
-async function readBin(name) {
-  if (!BLOB_TOKEN) throw new Error("BLOB_READ_WRITE_TOKEN missing");
-  const res = await get(`bins/${name}.json`, { access: "private", token: BLOB_TOKEN });
-  if (!res || res.statusCode !== 200 || !res.stream) {
-    throw new Error(`bin ${name}: status ${res && res.statusCode}`);
-  }
-  return await new Response(res.stream).json();
+// Form sayacını oku. ⚠️ Uç 401/503 dönerse SESSİZ GEÇME — körlük tam da bu şekilde
+//    oluşmuştu; hata fırlatılır ve aşağıda raporlanır.
+async function formSayaci() {
+  if (!MONITOR_KEY) throw new Error("MONITOR_KEY tanımlı değil");
+  const r = await fetch(`${SITE}/api/health/form-count`, {
+    headers: { "x-monitor-key": MONITOR_KEY },
+    cache: "no-store",
+  });
+  if (!r.ok) throw new Error(`sayaç ucu HTTP ${r.status}`);
+  return await r.json();
 }
-
 // ── form spam ──
 async function checkFormSpam() {
   try {
-    const data = await readBin("messages");
-    const items = data?.items ?? [];
-    const since = Date.now() - 24 * 60 * 60 * 1000;
-    const recent = items.filter((i) => {
-      const t = Date.parse(i.receivedAt ?? "");
-      return Number.isFinite(t) && t >= since;
-    });
-    console.log(`form spam: ${recent.length} mesaj / 24h`);
+    const sayac = await formSayaci();
+    const recent = { length: sayac.son24Saat };
+    console.log(`form spam: ${sayac.son24Saat} mesaj / 24h (arşiv toplam ${sayac.toplam})`);
     if (recent.length > FORM_SPAM_THRESHOLD) {
       notify(
         `İletişim formu — 24 saatte ${recent.length} mesaj (eşik ${FORM_SPAM_THRESHOLD})`,
@@ -70,14 +70,24 @@ async function checkFormSpam() {
           `Spam olabilir — admin → Mesajlar üzerinden gözden geçir.`,
           `Yoğun bir kampanya/PR çıktığı bir gün ise yok say.`,
           ``,
-          `Son 5 mesajın konuları:`,
-          ...recent.slice(0, 5).map((m) => `  · ${m.topicLabel || m.topic || "—"} (${m.name || "anonim"})`),
+          `Konu dağılımı:`,
+          ...Object.entries(sayac.konular || {}).map(([k, v]) => `  · ${k}: ${v}`),
         ].join("\n"),
         "form-spam"
       );
     }
   } catch (e) {
+    // ⚠️ Eskiden burada yalnız console.error vardı → kontrol yıllarca kör kalabilirdi.
+    //    Artık okunamama DA bildirilir; sessiz başarısızlık yok.
     console.error("form spam check failed:", e.message);
+    notify(
+      "İzleme: form sayacı okunamadı",
+      "medium",
+      [`Günlük robot form sayısını alamadı: ${e.message}`, ``,
+       `Kontrol: MONITOR_KEY hem Vercel env'inde hem GitHub secret'larında tanımlı mı?`,
+       `Uç: ${SITE}/api/health/form-count`].join(String.fromCharCode(10)),
+      "form-count-unreachable"
+    );
   }
 }
 
