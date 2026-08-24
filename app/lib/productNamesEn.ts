@@ -42,6 +42,7 @@ const EN_NAMES: Record<string, string> = {
   "Cee Norm Adaptör (3×6)": "CEE Norm Adapter (3×6)",
   "Standart Adaptör (3×2,5)": "Standard Adapter (3×2.5)",
   "Seyyar Uzatma Kablosu Monofaze (3×2,5)": "Portable Extension Cable Single-Phase (3×2.5)",
+  "Seyyar Uzatma Kablosu Monofaze IP68 (3×2,5)": "Portable Extension Cable Single-Phase IP68 (3×2.5)",
   "Seyyar Uzatma Kablosu Ceenorm 3×2,5 (1/16A → 3/32A)": "Portable Extension Cable CEE Norm 3×2.5 (1/16A → 3/32A)",
   "Seyyar Uzatma Kablosu Ceenorm 3×2,5 (1/16A → 5/32A)": "Portable Extension Cable CEE Norm 3×2.5 (1/16A → 5/32A)",
   "Seyyar Uzatma Kablosu Ceenorm 3×6 (3/32A)": "Portable Extension Cable CEE Norm 3×6 (3/32A)",

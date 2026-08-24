@@ -5852,6 +5852,10 @@
               {
                 "label": "Länge",
                 "value": "10m. IP68"
+              },
+              {
+                "label": "Schutzklasse",
+                "value": "IP68"
               }
             ]
           },

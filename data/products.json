@@ -5892,7 +5892,7 @@
       },
       {
         "id": "seyyar-uzatma-kablosu-monofaze-3-2-5-10m-ip68",
-        "name": "Seyyar Uzatma Kablosu Monofaze (3×2,5)",
+        "name": "Seyyar Uzatma Kablosu Monofaze IP68 (3×2,5)",
         "code": "BKT-0102-8110",
         "subtitle": "10m. IP68",
         "badge": null,
@@ -5912,6 +5912,10 @@
               {
                 "label": "Uzunluk",
                 "value": "10m. IP68"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP68"
               }
             ]
           },
