@@ -152,13 +152,16 @@ const REHBER_DROPDOWN: DropdownItem[] = [
 // "Dökümanlar" dropdown'ında yüklü dökümanlar bu kategoriler altında listelenir.
 type NavDoc = { id: string; title: string; category: string; lang?: string; visible?: boolean; coverUrl?: string };
 const DOC_CATEGORIES: { id: string; label: { tr: string; en: string }; accent: string }[] = [
-  { id: "price-list",   label: { tr: "Fiyat Listesi",    en: "Price List" },         accent: "#F59E0B" },
+  // ⚠️ SIRA KASITLI (2026-08-22, kullanıcı kararı): `loadDocs()` bu dizideki
+  //    İLK DOLU kategoriyi otomatik açar → menü açılınca önce KATALOG görünür.
+  //    Fiyat listesi eskiden birinciydi ve otomatik açılıyordu; müşteri gözüne
+  //    ilk çarpan o oluyordu. Kaldırılmadı, yalnız EN ALTA alındı.
   { id: "catalog",      label: { tr: "Katalog",          en: "Catalog" },            accent: "#3B82F6" },
   { id: "installation", label: { tr: "Kurulum Kılavuzu", en: "Installation Guide" }, accent: "#10B981" },
-  { id: "certificate",  label: { tr: "Sertifikalar",     en: "Certificates" },       accent: "#8B5CF6" },
   { id: "technical",    label: { tr: "Teknik Döküman",   en: "Technical Document" }, accent: "#EF4444" },
+  { id: "certificate",  label: { tr: "Sertifikalar",     en: "Certificates" },       accent: "#8B5CF6" },
   { id: "other",        label: { tr: "Diğer",            en: "Other" },              accent: "#6B7280" },
-];
+  { id: "price-list",   label: { tr: "Fiyat Listesi",    en: "Price List" },         accent: "#F59E0B" },];
 
 const NAV_STRINGS = {
   urunlerHeading: { tr: "Ürün Kategorileri", en: "Product Categories" },
