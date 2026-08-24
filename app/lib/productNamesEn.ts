@@ -16,6 +16,7 @@
 // bunlar ürün kimliğidir, İngilizce sayfada da aynı yazılır.
 
 const EN_NAMES: Record<string, string> = {
+  "Charger 2 Fişli": "Charger 2 with Plug",
   // ── AC Wallbox ── (marka adları aynı; yalnız Türkçe ek çevrilir)
   "Charger Plus 2 GSM MID Sayaçlı": "Charger Plus 2 GSM with MID Meter",
   "Charger Pro 2 GSM MID Sayaçlı": "Charger Pro 2 GSM with MID Meter",

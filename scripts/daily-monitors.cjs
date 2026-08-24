@@ -91,6 +91,58 @@ async function checkFormSpam() {
   }
 }
 
+
+// ── katalog sağlığı ──
+// ⚠️ NEDEN VAR (2026-08-22): kullanıcı "IP68 uzatma kablosunu sitede göremedim"
+//    dedi. Ürün VARDI ama ayırt edici niteliği (IP68) yalnız ALT BAŞLIKTAYDI ve
+//    3 varyant aynı adı paylaştığı için tek kartta gruplanıyordu. Bu sınıf hata
+//    gözle bakmadan fark edilmiyor → artık her sabah otomatik denetleniyor.
+// ⚠️ Buradaki dört sayının HEPSİ normalde 0 olmalı; eşik/temel gerekmez.
+//    Sıfırdan büyük her değer gerçek bir kusurdur.
+async function checkKatalogSagligi() {
+  try {
+    const r = await fetch(`${SITE}/api/products`, { cache: "no-store" });
+    if (!r.ok) throw new Error(`/api/products HTTP ${r.status}`);
+    const j = await r.json();
+    const kats = Array.isArray(j) ? j : j.products;
+    if (!Array.isArray(kats)) throw new Error("ürün yapısı tanınmadı");
+    const hepsi = [];
+    for (const k of kats) for (const p of (k.products || [])) hepsi.push(p);
+    const fiyatVar = (p) => (p.specs || []).some((g) => (g.items || []).some((i) => /fiyat|price/i.test(i.label || "") && String(i.value || "").trim()));
+    const gorselsiz = hepsi.filter((p) => !p.image);
+    const fiyatsiz  = hepsi.filter((p) => !fiyatVar(p));
+    const aciksiz   = hepsi.filter((p) => !String(p.description || "").trim());
+    // Ad + alt başlığı AYNI olan ürünler kartta hiç ayırt edilemez.
+    const anahtar = {};
+    for (const p of hepsi) { const a = `${p.name}||${p.subtitle || ""}`; (anahtar[a] = anahtar[a] || []).push(p.code || p.id); }
+    const ikiz = Object.entries(anahtar).filter(([, v]) => v.length > 1);
+    console.log(`katalog: ${hepsi.length} ürün · görselsiz ${gorselsiz.length} · fiyatsız ${fiyatsiz.length} · açıklamasız ${aciksiz.length} · ayırt edilemeyen ${ikiz.length}`);
+    const sorun = [];
+    if (gorselsiz.length) sorun.push([`Görselsiz ürün: ${gorselsiz.length}`, gorselsiz.slice(0, 8).map((p) => `  · ${p.code || p.id} — ${p.name}`)]);
+    if (fiyatsiz.length)  sorun.push([`Fiyatsız ürün: ${fiyatsiz.length}`,  fiyatsiz.slice(0, 8).map((p) => `  · ${p.code || p.id} — ${p.name}`)]);
+    if (aciksiz.length)   sorun.push([`Açıklamasız ürün: ${aciksiz.length}`, aciksiz.slice(0, 8).map((p) => `  · ${p.code || p.id} — ${p.name}`)]);
+    if (ikiz.length)      sorun.push([`Ayırt edilemeyen varyant: ${ikiz.length} grup`, ikiz.slice(0, 8).map(([a, v]) => `  · ${a.split("||")[0]} — ${v.join(", ")}`)]);
+    if (!sorun.length) return;
+    notify(
+      `Katalog: ${sorun.length} kusur (${hepsi.length} üründe)`,
+      gorselsiz.length || fiyatsiz.length ? "medium" : "low",
+      [
+        `Ürün kataloğunda müşteriye eksik görünecek kayıtlar var:`,
+        ``,
+        ...sorun.flatMap(([b, satirlar]) => [b, ...satirlar, ``]),
+        `Görselsiz ürün Google Merchant / Meta kataloğuna GİREMEZ (image_link zorunlu).`,
+        `Ayırt edilemeyen varyant: adı VE alt başlığı aynı olan ürünler kartta`,
+        `birbirinden ayrılamaz — ayırt edici niteliği ürün ADINA taşı.`,
+      ].join(String.fromCharCode(10)),
+      "katalog-sagligi"
+    );
+  } catch (e) {
+    // ⚠️ Sessiz geçme — körlük tam da böyle oluşuyor.
+    console.error("katalog kontrolü başarısız:", e.message);
+    notify("İzleme: katalog kontrolü çalışmadı", "low",
+      `Günlük robot /api/products okuyamadı: ${e.message}`, "katalog-unreachable");
+  }
+}
 // ── SSL expiry ──
 function checkSsl(host) {
   return new Promise((resolve) => {
@@ -137,4 +189,6 @@ async function checkSslExpiry() {
   await checkFormSpam();
   console.log("");
   await checkSslExpiry();
+  console.log("");
+  await checkKatalogSagligi();
 })();
