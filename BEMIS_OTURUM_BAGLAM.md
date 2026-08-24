@@ -13,6 +13,29 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🔌 **"IP68 UZATMA KABLOSU SİTEDE YOK" → ÜRÜN VARDI, GÖRÜNMÜYORDU (2026-08-22, commit 6d26753):**
+> **ÖLÇÜM:** ürün sitede VARDI — `BKT-0102-8110`, 43,75 €, görselli, sayfası 200. Canlı **2026-2 fiyat listesi
+> indirilip tarandı**: listede IP68 geçen **TEK satır** yine bu ürün → **eksik ürün yok**, sorun GÖRÜNÜRLÜKTÜ.
+> **NEDEN GÖRÜNMÜYORDU:** IP68 yalnız ALT BAŞLIKTA ("10m. IP68") geçiyordu; 3 varyant **aynı adı** paylaştığı için
+> `groupVariantsByName` hepsini TEK KARTA topluyordu ve kart başlığı "Seyyar Uzatma Kablosu Monofaze (3×2,5)" idi.
+> **YAPILAN (kullanıcı kararı):** TR adı → **"Seyyar Uzatma Kablosu Monofaze IP68 (3×2,5)"** + `Genel` grubuna
+> **"Koruma Sınıfı: IP68"** satırı. Ad değişince varyant kendi kartına ayrıldı → ızgarada ayırt ediliyor.
+> **⚠️ ÜÇ TUZAK, ÜÇÜ DE ÖNCEDEN KONTROL EDİLDİ:**
+> (1) `name` KİMLİK alanı → yalnız TR kaynakları yazıldı (merge daima TR'den alır).
+> (2) `specs` diller arası POZİSYONEL → satır **12 kaynağa da AYNI İNDEKSTE** eklendi; etiket UYDURULMADI, her
+> kaynakta o dildeki karşılığı mevcut bir üründen kopyalandı (0 atlandı).
+> (3) **`app/lib/productNamesEn.ts` TR ADINA anahtarlı** → yeni ad için kayıt eklenmeseydi İngilizce sayfada
+> Türkçe ad görünürdü (sessiz bozulma). Kayıt eklendi.
+> **⚠️ `id`/URL DEĞİŞMEDİ** → indekslenmiş adres ve paylaşılan linkler kırılmadı.
+> **CANLI DOĞRULAMA:** ad + "Koruma Sınıfı: IP68" satırı yerinde · kardeş 2 varyantın adı değişmedi ·
+> `/products/converters` sayfasında IP68 geçişi **11 → 16** · ürün sayfası 200. store cache **v84 → v85-ip68**.
+> **⏳ AÇIK — DİĞER 12 UZATMA KABLOSUNUN IP DEĞERİ:** kullanıcı "bazıları IP44 bazıları IP67" dedi.
+> **ARAŞTIRILDI, BULUNAMADI:** 2026-2 fiyat listesinde o 12 satırın hiçbirinde IP değeri YOK (yalnız konnektör
+> yazıyor: "1/16A Fiş - 3/32A Priz"); listedeki IP44/IP66 geçişleri BAŞKA ürünlere ait. bemis.com.tr araması da
+> bu BKT kodlarını döndürmedi (sayfa JS ile geliyor). 📌 **Değerler kullanıcıdan/üretimden gelmeden EKLENMEYECEK.**
+
+
+
 > 📄 **DÖKÜMAN MENÜSÜ: KATALOG ÖNE, FİYAT LİSTESİ ALTA + 2025 BROŞÜRÜ GİZLENDİ (2026-08-22, commit 58e48fa):**
 > Kullanıcı: "üst barda dökümanlarda ilk gösterilen katalog şarj broşürü olsun, fiyat listesi kolay bulunabilir olmasın."
 > **⚠️ KİLİT DAVRANIŞ: `DOC_CATEGORIES` sırası yalnız GÖRÜNÜMÜ değil AÇILIŞI da belirler** — `loadDocs()`
