@@ -13,6 +13,22 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 📄 **DÖKÜMAN MENÜSÜ: KATALOG ÖNE, FİYAT LİSTESİ ALTA + 2025 BROŞÜRÜ GİZLENDİ (2026-08-22, commit 58e48fa):**
+> Kullanıcı: "üst barda dökümanlarda ilk gösterilen katalog şarj broşürü olsun, fiyat listesi kolay bulunabilir olmasın."
+> **⚠️ KİLİT DAVRANIŞ: `DOC_CATEGORIES` sırası yalnız GÖRÜNÜMÜ değil AÇILIŞI da belirler** — `loadDocs()`
+> (Navbar.tsx) bu dizideki **İLK DOLU** kategoriyi otomatik açar. `price-list` birinci sıradaydı → menü açılır
+> açılmaz fiyat listesi AÇIK geliyordu. Yeni sıra: **catalog · installation · technical · certificate · other · price-list**.
+> ⓘ Kullanıcı kararı: fiyat listesi **GİZLENMEDİ**, yalnız en alta alındı ("üst barda da gözüksün ama altta olsun").
+> **2025 BROŞÜRÜ GİZLENDİ:** `doc-1779265678991` → `visible: false` (R2 `bins/documents.json` + repo).
+> ⚠️ `/api/documents` `visible !== false` filtreliyor → hem üst menüden hem `/documents` sayfasından düşer.
+> **Kayıt SİLİNMEDİ** → adresi 404 vermez, daha önce paylaşılmış linkler kırılmaz. store cache **v83 → v84-dokuman-sira**.
+> **CANLI DOĞRULAMA (Playwright + ekran görüntüsü):** görünür döküman 14 → **13**; menü sırası
+> `1. Katalog (AÇIK, 2 döküman: 2026 broşür TR + EN) · 2. Kurulum Kılavuzu (7) · 3. Teknik Döküman (3) ·
+> 4. Fiyat Listesi (1, en altta, kapalı)`. Sertifikalar/Diğer boş olduğu için hiç gösterilmiyor (mevcut filtre).
+> ⓘ Yerel `npm run build` 10 dk sınırını aştı (tsc temizdi) → doğrulama Vercel derlemesinde yapıldı: 2 dk, Ready.
+
+
+
 > 💸🖼️ **CLOUDINARY KOTASININ %95'İNİ TEK BİR GÖRSEL YİYORDU — ÇÖZÜLDÜ (2026-08-22, commit'ler 3a26aaa + 1ccfb35):**
 > Kullanıcı panel ekran görüntüsü verdi: **Bandwidth 12,56 GB · Storage 605 MB · Transformations 69** → 13,24/25 kredi.
 > Yani tüketim neredeyse tamamen **bant genişliği**.
