@@ -13,6 +13,29 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🧾✅ **KATALOG ↔ FİYAT LİSTESİ TAM MUTABAKATI + KALICI DENETİM (2026-08-22, commit fe3e1e3):**
+> Kullanıcı: "başka eksik ürün kalmasın böyle gösterilmeyen."
+> **MUTABAKAT (2026-2 listesi PDF'ten kod çıkarılıp canlı katalogla karşılaştırıldı):** listede **148** kod,
+> sitede **150**. **Listede olup sitede olmayan GERÇEK ürün: 0.** İki kod (`BKT-0102-2105`, `BD2M-2134-1231-X`)
+> **fiyat satırı OLMAYAN** fotoğraf-altı etiketleri — bilinen PDF tuzağı; gerçek karşılıkları (`…-2205`,
+> `BD2M2134-1231-X`) sitede var. Sitede olup listede olmayan 4 kod = **Charger Plus 2 GSM** ailesi (kullanıcı
+> kararıyla bilerek duruyor). 📌 **Kod çıkarırken "satırda fiyat var mı" testi ŞART** — yoksa etiket satırları
+> "eksik ürün" gibi görünür.
+> **SAĞLIK TARAMASI:** 150 ürün → görselsiz **0** · fiyatsız **0** · açıklamasız **0** · ad+altbaşlığı aynı
+> (kartta ayırt edilemeyen) **0**. 41 grup aynı adı paylaşıyor ama hepsinin alt başlığı FARKLI (varyant tasarımı).
+> **🔴 IP68 DESENİ TARAMASI → 1 vaka:** `BEV-1011-0105` "Charger 2" · alt "5m. Kablolu / **5-32A Fişli**".
+> Üç Charger 2 varyantı aynı adı paylaştığı için tek kartta gruplanıyordu → TR adı **"Charger 2 Fişli"** yapıldı.
+> ⚠️ `id`/URL DEĞİŞMEDİ. `productNamesEn.ts` TR adına anahtarlı → **"Charger 2 with Plug"** kaydı eklendi
+> (yoksa /en sayfasında Türkçe ad görünürdü). ⓘ Betik ilk denemede yanlış export adını çapa aldı ve **hiçbir şey
+> yazmadan durdu** — fail-fast doğru çalıştı, çapa düzeltilip uygulandı.
+> **🆕 KALICI DENETİM — `scripts/daily-monitors.cjs` → `checkKatalogSagligi()`:** her sabah `/api/products`
+> okuyup görselsiz/fiyatsız/açıklamasız ürünü ve ad+altbaşlığı aynı olan varyantları sayar; **sıfırdan büyük her
+> değerde mail atar**. Eşik/temel YOK — bu dört sayı normalde DAİMA 0, dolayısıyla her sapma gerçek kusurdur.
+> Okuma başarısız olursa da bildirir (sessiz körlük olmasın — aynı gün düzeltilen spam kontrolünün dersi).
+> Canlıya karşı denendi: `150 ürün · 0 · 0 · 0 · 0`. store cache **v85 → v86-fisli**.
+
+
+
 > 🔌 **"IP68 UZATMA KABLOSU SİTEDE YOK" → ÜRÜN VARDI, GÖRÜNMÜYORDU (2026-08-22, commit 6d26753):**
 > **ÖLÇÜM:** ürün sitede VARDI — `BKT-0102-8110`, 43,75 €, görselli, sayfası 200. Canlı **2026-2 fiyat listesi
 > indirilip tarandı**: listede IP68 geçen **TEK satır** yine bu ürün → **eksik ürün yok**, sorun GÖRÜNÜRLÜKTÜ.
