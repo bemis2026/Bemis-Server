@@ -13,25 +13,32 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
-> 🖼️🔌 **CEE ADAPTÖRDE YANLIŞ GÖRSEL — KULLANICI BİLDİRDİ, DÜZELTİLDİ (2026-08-26, commit sonraki):**
+> 🖼️🔌 **CEE ADAPTÖRDE YANLIŞ GÖRSEL — KULLANICI BİLDİRDİ, DÜZELTİLDİ (2026-08-26, commit 38ee757):**
 > Kullanıcı: "3x16a fiş - 5x16a priz sayfasının görseli yanlış olmuş, BKT-0508-2211".
-> **DOĞRULANDI (görseller indirilip GÖZLE karşılaştırıldı, koda bakarak değil):**
->  ("3/16A Fiş → **5/16A Priz**")  kullanıyordu — o görselde
-> mavi 3'lü CEE + küçük **siyah Schuko priz** var. **KÖK NEDEN: o görsel aslında 'in**
-> ("3/32A Fiş → **1/16A Priz**") ve O ürüne birebir uyuyor; 0508 onu ödünç almış.
-> **KARŞILAŞTIRMA KANITI:** kardeş  ("1/16A Fiş → 5/16A Priz") görselinde **kırmızı 5'li CEE priz +
-> siyah Schuko fiş** var = alt başlığıyla birebir. Yani "5/16A Priz" doğru render'ı KIRMIZI 5'li CEE.
-> **ÇÖZÜM (kullanıcı seçti):**  ("3/32A Fiş → 5/32A Priz") görseli 
-> verildi — **kırmızı 5'li priz + mavi 3'lü fiş**, tam gereken kombinasyon. ⚠️ Render **32A**, ürün 16A;
-> katalogda bu payla��ım ZATEN yerleşik ( 16A ↔  32A aynı görseli paylaşıyor).
-> ⏳ Gerçek 16A render'ı gelirse değiştirilebilir.
-> **🔍 TÜM KATALOG TARANDI (150 ürün):** aynı görseli paylaşan 28 grup incelendi; **PİM SAYISI uyuşmazlığı olan
-> tek vaka buydu.** Betik amper farkını KASTEN yok sayar (16A/32A payla��ımı meşru desen), yalnız  ↔ 
-> gibi konnektör tipi uyuşmazlığını arar. 📌 Yeni ürün eklendikçe bu taramayı tekrarla.
-> **⚠️  KİMLİK alanı** → yalnız TR kaynakları yazıldı (R2  + repo );
-> merge görseli DAİMA TR'den alır.  DEĞİŞMEDİ (doğrulandı). store cache **v86-fisli → v87-cee-gorsel**.
-> ⚠️ Betik ilk denemede scratchpad'ten çalıştırıldı →  bulunamadı ve **hiçbir şey yazmadan
-> durdu** (fail-fast). 📌 R2 betikleri PROJE KÖKÜNDEN çalıştırılmalı (node_modules çözümlensin).
+> **DOĞRULANDI (görseller İNDİRİLİP GÖZLE karşılaştırıldı — alt başlıktan çıkarım yapılmadı):**
+> **BKT-0508-2211** ("3/16A Fiş → **5/16A Priz**") `itgzw5adrvwtsg9al90d.png` kullanıyordu; o görselde
+> mavi 3'lü CEE + küçük **siyah Schuko priz** var. **KÖK NEDEN: o görsel aslında BKT-0802-2211'in**
+> ("3/32A Fiş → **1/16A Priz**") ve O ürüne birebir uyuyor — 0508 onu ödünç almış.
+> **KARŞILAŞTIRMA KANITI:** kardeş **BKT-0108-2211** ("1/16A Fiş → 5/16A Priz") görselinde **kırmızı 5'li CEE
+> priz + siyah Schuko fiş** var = alt başlığıyla birebir → "5/16A Priz"in doğru render'ı KIRMIZI 5'li CEE.
+> **ÇÖZÜM (kullanıcı seçti):** **BKT-8112-1211** ("3/32A Fiş → 5/32A Priz") görseli `l7oortpomjjkeqmosg4g.png`
+> verildi — **kırmızı 5'li priz + mavi 3'lü fiş**, tam gereken kombinasyon. ⚠️ Render **32A**, ürün **16A**;
+> katalogda bu paylaşım ZATEN yerleşik (BKT-0108 16A ↔ BKT-0111 32A aynı görseli paylaşıyor).
+> ⏳ Üretimden gerçek 16A render'ı gelirse değiştirilebilir.
+> **🔍 TÜM KATALOG TARANDI (150 ürün):** aynı görseli paylaşan **28 grup** incelendi; **PİM SAYISI uyuşmazlığı
+> olan TEK vaka buydu.** Betik amper farkını KASTEN yok sayar (16A/32A paylaşımı meşru desen), yalnız
+> `3→1` ↔ `3→5` gibi KONNEKTÖR TİPİ uyuşmazlığını arar. 📌 Yeni ürün eklendikçe bu taramayı tekrarla
+> (alt başlıktaki `<pim>/<amper>A Fiş → <pim>/<amper>A Priz` kalıbından pim sayılarını çıkarıp karşılaştırır).
+> **⚠️ `image` KİMLİK alanı** → yalnız TR kaynakları yazıldı (R2 `bins/products.json` + repo `data/products.json`);
+> merge görseli DAİMA TR'den alır. **BKT-0802-2211 DEĞİŞMEDİ** (yazımdan sonra doğrulandı).
+> store cache **v86-fisli → v87-cee-gorsel** (doğrudan R2 yazımı sonrası ŞART).
+> **⚠️⚠️ BU TURDA İKİ ARAÇ HATASI YAPTIM, İKİSİ DE VERİYİ BOZMADAN YAKALANDI:**
+> **(1)** R2 betiğini scratchpad'ten çalıştırdım → `@aws-sdk/client-s3` çözümlenemedi ve betik **hiçbir şey
+> yazmadan durdu**. 📌 **R2 betikleri PROJE KÖKÜNDEN çalıştırılmalı** (node_modules oradan çözümlenir).
+> **(2)** Bu bloğu ilk yazarken `node -e` kullandım → **kabuk markdown ters tırnaklarını KOMUT olarak çalıştırdı**
+> ve tüm ürün kodlarını sildi (commit 38ee757'de bozuk hâliyle gitti, hemen onarıldı).
+> 📌 **Bu ders zaten kayıtlıydı ve tekrarlandı: çok satırlı/markdown metni ASLA `node -e` ile yazma —
+> betiği DOSYAYA yaz, öyle çalıştır.**
 
 > 🌍🔴➡️✅ **159 İNGİLİZCE SAYFA ARAMA MOTORUNA BOŞ GİDİYORDU — SUNUCUDAN DOLDURULDU (2026-08-26, commit 5929c8f):**
 > Kullanıcı "her şey yolunda mı, SEO/GEO ve genel kontrol" dedi; tam denetimde çıkan TEK gerçek kusur bu.
