@@ -13,6 +13,27 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🇬🇧🔌 **İNGİLİZCE ALT BAŞLIKLARDA "Priz" YANLIŞ ÇEVRİLMİŞ — 8 ADAPTÖR DÜZELTİLDİ (2026-08-26):**
+> CEE görsel işi sırasında ortaya çıktı: 8 dönüştürücü adaptörün İngilizce alt başlığı **iki tarafı da "Plug"**
+> diyordu — ör. `BKT-0508-2211` → "3/16A Plug → 5/16A **Plug**". Türkçesi "Fiş → **Priz**", görselde de priz var;
+> bir adaptörün iki ucu da fiş olamaz. **KATALOG KURALI (mevcut kullanımdan doğrulandı): Priz = Socket**
+> (Panel Socket · AC Socket Holder · `BEVC2L-3306` alt başlığı "3/16A Socket → Type 2…"), **Fiş = Plug**
+> ("Charger 2 with Plug"). Uydurma yok, ev içi kural izlendi.
+> **YAPILAN:** İngilizce alt başlık TR kaynağından TÜRETİLDİ (Fiş→Plug, Priz→Socket) → sayılar/oklar bozulmadı.
+> ⚠️ `subtitle` KİMLİK alanı DEĞİL, dile göre merge edilir → yalnız **EN kaynakları** yazıldı
+> (R2 `bins/productsEn.json` + repo `data/products-en.json`). Türkçe taraf hiç değişmedi.
+> Güvenlik ağı: türetilen metnin RAKAM dizisi mevcut EN ile birebir aynı değilse kayıt ATLANIR (pozisyonel
+> hiza bozuksa yanlış ürüne yazmasın). store cache **v87-cee-gorsel → v88-en-priz**.
+>
+> **🔴🔴 BU İŞTE CANLIYA YARIM ÇEVİRİ GÖNDERDİM — SEBEBİ VE KALICI KURALI:**
+> İlk betikte `/\bFiş\b/g` kullandım. **JavaScript'te `\b` sınırı `[A-Za-z0-9_]` tabanlıdır; "ş" kelime karakteri
+> SAYILMAZ**, dolayısıyla "Fiş"ten sonra sınır oluşmaz ve desen **HİÇ eşleşmez**. "Priz" ise "z" ile bittiği için
+> sorunsuz eşleşti → sonuç **"1/16A Fiş → 5/32A Socket"** (karma metin) oldu ve R2'ye yazıldı.
+> Hemen ikinci turda düz metin değişimiyle (`split().join()`) onarıldı; öncesinde **KURU ÇALIŞTIRMA** yapıldı.
+> 📌 **KALICI KURAL: Türkçe kelimelerde `\b` KULLANMA** (ğ/ı/ş/İ/Ş/Ğ kelime karakteri sayılmaz) — düz metin
+> değişimi yeterli ve güvenli. 📌 **Toplu metin yazımından ÖNCE kuru çalıştırma yap ve çıktıyı OKU** —
+> bu turda ilk yazımda okusaydım karma metin canlıya hiç çıkmazdı.
+
 > 🖼️🔌 **CEE ADAPTÖRDE YANLIŞ GÖRSEL — KULLANICI BİLDİRDİ, DÜZELTİLDİ (2026-08-26, commit 38ee757):**
 > Kullanıcı: "3x16a fiş - 5x16a priz sayfasının görseli yanlış olmuş, BKT-0508-2211".
 > **DOĞRULANDI (görseller İNDİRİLİP GÖZLE karşılaştırıldı — alt başlıktan çıkarım yapılmadı):**

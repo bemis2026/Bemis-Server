@@ -5690,7 +5690,7 @@
         "id": "cee-norm-adaptor-3-2-5-116a-fis-532a-priz",
         "name": "Cee Norm Adaptör (3×2,5)",
         "code": "BKT-0111-2211",
-        "subtitle": "1/16A Plug → 5/32A Plug",
+        "subtitle": "1/16A Plug → 5/32A Socket",
         "badge": null,
         "description": "CEE Norm plug-to-socket converter adapter with 30 cm cable. 3×2.5 mm² TTR cable, single-phase 16a capacity for field and workshop use.",
         "specs": [
@@ -5749,7 +5749,7 @@
         "id": "cee-norm-adaptor-3-2-5-116a-fis-332a-priz",
         "name": "Cee Norm Adaptör (3×2,5)",
         "code": "BKT-0109-2211",
-        "subtitle": "1/16A Plug → 3/32A Plug",
+        "subtitle": "1/16A Plug → 3/32A Socket",
         "badge": null,
         "description": "CEE Norm plug-to-socket converter adapter with 30 cm cable. 3×2.5 mm² TTR cable, single-phase 16a capacity for field and workshop use.",
         "specs": [
@@ -5808,7 +5808,7 @@
         "id": "cee-norm-adaptor-3-2-5-332a-fis-116a-priz",
         "name": "Cee Norm Adaptör (3×2,5)",
         "code": "BKT-0802-2211",
-        "subtitle": "3/32A Plug → 1/16A Plug",
+        "subtitle": "3/32A Plug → 1/16A Socket",
         "badge": null,
         "description": "CEE Norm plug-to-socket converter adapter with 30 cm cable. 3×2.5 mm² TTR cable, single-phase 16a capacity for field and workshop use.",
         "specs": [
@@ -5867,7 +5867,7 @@
         "id": "cee-norm-adaptor-3-6-332a-fis-532a-priz",
         "name": "Cee Norm Adaptör (3×6)",
         "code": "BKT-8112-1211",
-        "subtitle": "3/32A Plug → 5/32A Plug",
+        "subtitle": "3/32A Plug → 5/32A Socket",
         "badge": null,
         "description": "High-current CEE Norm plug-to-socket converter adapter with 30 cm cable. 3×6 mm² TTR cable provides single-phase 32a safe current transmission.",
         "specs": [
@@ -5926,7 +5926,7 @@
         "id": "standart-adaptor-3-2-5-116a-fis-316a-priz",
         "name": "Standart Adaptör (3×2,5)",
         "code": "BKT-0106-2000",
-        "subtitle": "1/16A Plug → 3/16A Plug",
+        "subtitle": "1/16A Plug → 3/16A Socket",
         "badge": null,
         "description": "Compact plug-to-socket converter adapter. Economical solution for 3×2.5 mm² TTR cable, low-current standard socket applications.",
         "specs": [
@@ -5985,7 +5985,7 @@
         "id": "standart-adaptor-3-2-5-316a-fis-116a-priz",
         "name": "Standart Adaptör (3×2,5)",
         "code": "BKT-0502-2000",
-        "subtitle": "3/16A Plug → 1/16A Plug",
+        "subtitle": "3/16A Plug → 1/16A Socket",
         "badge": null,
         "description": "Compact plug-to-socket converter adapter. Economical solution for 3×2.5 mm² TTR cable, low-current standard socket applications.",
         "specs": [
@@ -6828,7 +6828,7 @@
         "id": "cee-norm-adaptor-30cm-116a-fis-516a-priz",
         "name": "Cee Norm Adaptör (30cm Kablolu)",
         "code": "BKT-0108-2211",
-        "subtitle": "1/16A Plug → 5/16A Plug",
+        "subtitle": "1/16A Plug → 5/16A Socket",
         "badge": null,
         "description": "CEE Norm plug-to-socket converter adapter with 30 cm cable. 3×2.5 mm² TTR cable, single-phase 16a capacity for field and workshop use.",
         "specs": [
@@ -6887,7 +6887,7 @@
         "id": "cee-norm-adaptor-30cm-316a-fis-516a-priz",
         "name": "Cee Norm Adaptör (30cm Kablolu)",
         "code": "BKT-0508-2211",
-        "subtitle": "3/16A Plug → 5/16A Plug",
+        "subtitle": "3/16A Plug → 5/16A Socket",
         "badge": null,
         "description": "CEE Norm plug-to-socket converter adapter with 30 cm cable. 3×2.5 mm² TTR cable, single-phase 16a capacity for field and workshop use.",
         "specs": [
