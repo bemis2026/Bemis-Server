@@ -7,11 +7,70 @@
 > Derin teknik bağlam: `Desktop/Claude Çalışmaları/Bemis Website/md/BEMIS_PROJECT_CONTEXT.md`
 > (özellikle §15.16 denetim, §15.17 Blob taşıması).
 >
-> Son güncelleme: **2026-07-03**
+> Son güncelleme: **2026-08-26**
 
 ---
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
+
+> 🌍🔴➡️✅ **159 İNGİLİZCE SAYFA ARAMA MOTORUNA BOŞ GİDİYORDU — SUNUCUDAN DOLDURULDU (2026-08-26, commit 5929c8f):**
+> Kullanıcı "her şey yolunda mı, SEO/GEO ve genel kontrol" dedi; tam denetimde çıkan TEK gerçek kusur bu.
+> **ÖLÇÜM:** sitemap'teki 159 `/en/` sayfası **index+follow + self-canonical** olduğu hâlde arama motoruna
+> neredeyse boş HTML veriyordu — `/products` **1889 kelime ↔ /en/products 52** · `/products/wallbox` 844 ↔ **30** ·
+> Charger 2 detay 804 ↔ **46**. İngilizce sayfaların **HİÇBİRİNDE `<h1>` YOKTU** (TR eşlerinde 1). Üstelik sunucuda
+> basılan tek dolu alan olan **Product şemasının `description`'ı TÜRKÇE'ydi** (25 örnekten 17'si) — çünkü şemaya
+> TR ürün nesnesi veriliyordu. **GA: 28 günde bu 159 sayfanın getirdiği toplam organik oturum = 3.**
+> **KÖK NEDEN:** `/en` rotaları `initialCategory`/`initialProduct`'ı **bilerek** geçmiyordu (kodda yorumu yazılıydı);
+> içerik yalnız istemci `/api/products?lang=en` çektikten SONRA geliyordu. 📌 **Çeviri işi DEĞİLDİ** — İngilizce
+> metinler veri katmanında zaten vardı, sunucu tarafına bağlanmamıştı.
+> **YAPILAN:** **(1)** YENİ **`app/lib/serverProductsLang.ts`** = dile göre birleştirilmiş katalog için **SUNUCU TARAFI
+> TEK KAYNAK**; birleştirme mantığı `/api/products/route.ts`'ten buraya taşındı, route artık yalnız HTTP kabuğu.
+> ⚠️ Kopyalansaydı ikisi zamanla ayrışır, **"API doğru / sayfa yanlış"** sınıfı sessiz hata doğardı.
+> **(2)** 3 istemci bileşenine **`initialLang`** propu (varsayılan `"tr"`). Eskiden başlangıç verisi yalnız
+> `lang === "tr"` iken kullanılıyordu → **/en'de sunucu verisi ASLA kullanılamazdı**. Varsayılan "tr" olduğu için
+> **TR davranışı BİREBİR aynı.** **(3)** 3 EN rotası İngilizce kataloğu sunucudan basıyor; Product şemasına TR değil
+> **EN ürün** veriliyor. **(4)** EN kategori sayfası: açıklama + SSS **içerik (CMS) katmanından sunucuda** okunup prop
+> olarak geçiliyor + TR ile parite için **FAQPage şeması** eklendi.
+> **(5) 🔴 YAN BULGU — `data/products-en.json` YEDEĞİ BAYATTI:** 150 üründen **125'inde hâlâ TÜRKÇE açıklama** vardı
+> (143'ü R2'den farklı). Eskiden yedek devreye girse sayfa zaten boştu; **artık sunucudan render ettiğimiz için yedek
+> devreye girse İngilizce sayfada TÜRKÇE metin çıkardı** → R2 `productsEn` bin'inden senkronlandı (ön kontrol: kategori/
+> ürün sayısı + **id hizası** birebir, aksi hâlde yazma).
+> **ÖLÇÜLEN SONUÇ (yerel, üretim verisiyle):** `/en/products` 52 → **1894** (TR 1889) · `/en/products/wallbox` 30 →
+> **779** (TR 844) · EN ürün detay 46 → **813** (TR 804) · EN sayfalarda **h1 0 → 1** · EN kategoride Türkçe'ye özgü
+> harf **311 → 29** · EN Product şeması description **TÜRKÇE → İngilizce**. **REGRESYON YOK:** TR sayfalar birebir aynı
+> (844→844, 1889→1889), TR şeması Türkçe.
+> **⚠️⚠️ ÖLÇÜM TUZAĞI (bu turda yanılttı, sistemi suçlamadan önce yakalandı):** ilk yerel testte EN şema hâlâ TÜRKÇE
+> çıktı → "düzeltmem çalışmadı" görünümü. **Sebep koddu değil ORTAMDI:** yerelde R2 kimliği yok → `readBin` düşer →
+> bayat `data/products-en.json` kullanılır. **Kesin ayrım testi: yerel SAYFA ile yerel API'yi karşılaştır** — ikisi de
+> aynı (Türkçe) çıktıysa veri kaynağı sorunudur, bağlantı doğrudur; canlı API İngilizce dönüyordu. 📌 Yerelde EN/çeviri
+> davranışı doğrularken ÖNCE veri kaynağının hangisi olduğunu belirle.
+> **⚠️ BİLİNEN SINIR (yeni değil, mimari):** menü/footer etiketleri `/en`'de de SSR'da **Türkçe** basılır — kök layout
+> rotayı bilemediği için içerik katmanı TR hidratlanır (`/export` notunda da yazılı). Tüm diller için geçerli;
+> route-group refactor'u ister. Ürün detaydaki telefon mockup etiketleri de kodda sabit Türkçe (dekoratif).
+> **📌 KALICI KURAL: `/en` (veya yeni bir dil) rotası eklerken içeriği `getProductsForLang(<dil>)` ile SUNUCUDAN geçir
+> ve `initialLang`'i ver — yoksa sayfa arama motoruna boş gider.**
+
+> 🔤 **ARAMA SONUCU METİNLERİ — 1 BAŞLIK + 5 AÇIKLAMA + SÖZLÜK META (2026-08-26, aynı commit; kullanıcı onaylı):**
+> ⚠️ **Yalnız META** — sayfada GÖRÜNEN hiçbir metin değişmedi. `/arac-sarj-uyumlulugu` başlığı **72 → 55** karakter;
+> açıklamalar Google'ın kestiği sınırın altına: b2b 234→158 · arac 220→150 · export 182→147 · uretici 181→150 ·
+> iletisim 167→155.
+> **SÖZLÜK:** meta açıklaması artık `short` yerine **`definition`'dan üretiliyor** (`glossaryMetaDescription`,
+> `app/lib/glossary.ts`): cümle cümle eklenir, 158 karakteri aşmadan durulur; tam cümlelerle 70'in altında kalırsa
+> sonraki cümle **kelime sınırında** kırpılır. **⚠️ NEDEN `short` UZATILMADI: o alan `/sozluk` listesindeki kartlarda
+> GÖRÜNÜYOR** (`GlossaryClient.tsx:93`) — uzatmak görünür tasarımı değiştirirdi. 15 terimin **11'i** 70 karakterin
+> altındaydı (type-2 60, wallbox 56, mod-2-mod-3 58); hepsi artık **71-157** aralığında.
+
+> 🩺 **TAM DENETİM — GERİ KALAN HER ŞEY TEMİZ (2026-08-26):** 198 sayfa taraması **0 kırık** (ort. 1,1 sn) · 6 API ucu
+> 200 (0,19-0,56 sn) · yönlendirmeler http→https→www hepsi **308** · **JSON-LD 0 bozuk** · canonical tam, **noindex
+> kaçağı yok** · güvenlik başlıkları eksiksiz (HSTS preload) · SSL 4 Ekim · **son 10 dağıtımın 10'u Ready** ·
+> **R2 49,4 MB / 10 GB = %0,5** · robots.txt AI tarayıcılarına (GPTBot/ClaudeBot/PerplexityBot/Google-Extended…)
+> **açıkça izinli** · llms.txt + llms-full.txt canlı.
+> **✅ GÜNLÜK İZLEME ROBOTU GERÇEKTEN ÇALIŞIYOR** (körlük kapandı, log doğrulandı): `form spam: 0 mesaj / 24h
+> (arşiv toplam 4)` + `katalog: 150 ürün · görselsiz 0 · fiyatsız 0 · açıklamasız 0 · ayırt edilemeyen 0`.
+> `MONITOR_KEY` GitHub secret'ı tanımlı (2026-08-22).
+> **📈 TRAFİK (GA, son 28g ↔ önceki 28g):** organik arama **312 → 753 (+%141)** · yönlendirme 215 → 360 ·
+> doğrudan 140 → 270 · **yapay zekâ 22 → 36** (ChatGPT 33, **Gemini 3 — önce sıfırdı**). Perplexity/Copilot hâlâ **0**
+> (Bing indeksi; Bing Webmaster erişimi kullanıcıda). En çok getiren: anasayfa 187 · /products 102 · V2L ailesi ~107.
 
 > 🧾✅ **KATALOG ↔ FİYAT LİSTESİ TAM MUTABAKATI + KALICI DENETİM (2026-08-22, commit fe3e1e3):**
 > Kullanıcı: "başka eksik ürün kalmasın böyle gösterilmeyen."
