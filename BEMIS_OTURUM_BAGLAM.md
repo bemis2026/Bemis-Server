@@ -13,6 +13,26 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🖼️🔌 **CEE ADAPTÖRDE YANLIŞ GÖRSEL — KULLANICI BİLDİRDİ, DÜZELTİLDİ (2026-08-26, commit sonraki):**
+> Kullanıcı: "3x16a fiş - 5x16a priz sayfasının görseli yanlış olmuş, BKT-0508-2211".
+> **DOĞRULANDI (görseller indirilip GÖZLE karşılaştırıldı, koda bakarak değil):**
+>  ("3/16A Fiş → **5/16A Priz**")  kullanıyordu — o görselde
+> mavi 3'lü CEE + küçük **siyah Schuko priz** var. **KÖK NEDEN: o görsel aslında 'in**
+> ("3/32A Fiş → **1/16A Priz**") ve O ürüne birebir uyuyor; 0508 onu ödünç almış.
+> **KARŞILAŞTIRMA KANITI:** kardeş  ("1/16A Fiş → 5/16A Priz") görselinde **kırmızı 5'li CEE priz +
+> siyah Schuko fiş** var = alt başlığıyla birebir. Yani "5/16A Priz" doğru render'ı KIRMIZI 5'li CEE.
+> **ÇÖZÜM (kullanıcı seçti):**  ("3/32A Fiş → 5/32A Priz") görseli 
+> verildi — **kırmızı 5'li priz + mavi 3'lü fiş**, tam gereken kombinasyon. ⚠️ Render **32A**, ürün 16A;
+> katalogda bu payla��ım ZATEN yerleşik ( 16A ↔  32A aynı görseli paylaşıyor).
+> ⏳ Gerçek 16A render'ı gelirse değiştirilebilir.
+> **🔍 TÜM KATALOG TARANDI (150 ürün):** aynı görseli paylaşan 28 grup incelendi; **PİM SAYISI uyuşmazlığı olan
+> tek vaka buydu.** Betik amper farkını KASTEN yok sayar (16A/32A payla��ımı meşru desen), yalnız  ↔ 
+> gibi konnektör tipi uyuşmazlığını arar. 📌 Yeni ürün eklendikçe bu taramayı tekrarla.
+> **⚠️  KİMLİK alanı** → yalnız TR kaynakları yazıldı (R2  + repo );
+> merge görseli DAİMA TR'den alır.  DEĞİŞMEDİ (doğrulandı). store cache **v86-fisli → v87-cee-gorsel**.
+> ⚠️ Betik ilk denemede scratchpad'ten çalıştırıldı →  bulunamadı ve **hiçbir şey yazmadan
+> durdu** (fail-fast). 📌 R2 betikleri PROJE KÖKÜNDEN çalıştırılmalı (node_modules çözümlensin).
+
 > 🌍🔴➡️✅ **159 İNGİLİZCE SAYFA ARAMA MOTORUNA BOŞ GİDİYORDU — SUNUCUDAN DOLDURULDU (2026-08-26, commit 5929c8f):**
 > Kullanıcı "her şey yolunda mı, SEO/GEO ve genel kontrol" dedi; tam denetimde çıkan TEK gerçek kusur bu.
 > **ÖLÇÜM:** sitemap'teki 159 `/en/` sayfası **index+follow + self-canonical** olduğu hâlde arama motoruna
