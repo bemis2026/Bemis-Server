@@ -199,7 +199,7 @@ function BannerSlider({ categories, d }: { categories: CategoryData[]; d: boolea
 
 // ── Main Page ─────────────────────────────────────────────────────────────────
 
-export default function AllProductsPage({ initialCategories = [] }: { initialCategories?: CategoryData[] }) {
+export default function AllProductsPage({ initialCategories = [], initialLang = "tr" }: { initialCategories?: CategoryData[]; initialLang?: string }) {
   const { theme } = useTheme();
   const d = theme === "dark";
   const router = useRouter();
@@ -214,7 +214,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
   useEffect(() => {
     // First render with TR + SSR data: skip the refetch (data is already there).
     // Re-merge sliderImage from catMeta in case context hydrated after initial state.
-    if (isFirstMount.current && lang === "tr" && initialCategories.length > 0) {
+    if (isFirstMount.current && lang === initialLang && initialCategories.length > 0) {
       isFirstMount.current = false;
       setCategories(initialCategories.map((c) => ({ ...c, sliderImage: catMeta[c.id]?.sliderImage })));
       return;
@@ -232,7 +232,7 @@ export default function AllProductsPage({ initialCategories = [] }: { initialCat
       })
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, [catMeta, lang, initialCategories]);
+  }, [catMeta, lang, initialCategories, initialLang]);
 
   const bg           = d ? "linear-gradient(180deg, #0c0c0e 0%, #0f0f11 100%)" : "#f8f8fb";
   const surface      = d ? "rgba(255,255,255,0.04)" : "#ffffff";

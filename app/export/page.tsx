@@ -8,7 +8,7 @@ const URL_PATH = "/export";
 export const metadata: Metadata = {
   title: "EV Charging Cable & Charger Manufacturer",
   description:
-    "Bemis E-V Charge — EU-adjacent manufacturer of Type 2 / Mode 3 EV charging cables, AC wallboxes & DC chargers. CE, IP65/IP66, OCPP. OEM/ODM, export to 60+ countries. Request a quote.",
+    "Manufacturer of Type 2 / Mode 3 EV charging cables, AC wallboxes and DC chargers in Türkiye. CE, IP65/IP66, OCPP. OEM/ODM, export to 60+ countries.",
   keywords: [
     "ev charging cable manufacturer", "type 2 charging cable supplier", "mode 3 ev cable",
     "ev charger manufacturer", "wallbox manufacturer", "evse manufacturer turkey",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "EV Charging Cable & Charger Manufacturer",
     description:
-      "Bemis E-V Charge — EU-adjacent manufacturer of Type 2 / Mode 3 EV charging cables, AC wallboxes & DC chargers. CE, IP65/IP66, OCPP. OEM/ODM, export to 60+ countries. Request a quote.",
+      "Manufacturer of Type 2 / Mode 3 EV charging cables, AC wallboxes and DC chargers in Türkiye. CE, IP65/IP66, OCPP. OEM/ODM, export to 60+ countries.",
     images: [OG_URL],
   },
 };

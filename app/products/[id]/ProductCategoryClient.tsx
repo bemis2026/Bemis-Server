@@ -101,7 +101,24 @@ function ExpandableDescription({ text, colorStyle, maxWidthClass, buttonColor }:
   );
 }
 
-export default function ProductCategoryPage({ initialCategory = null, titleOverride }: { initialCategory?: CategoryData | null; titleOverride?: string }) {
+export default function ProductCategoryPage({
+  initialCategory = null,
+  titleOverride,
+  initialLang = "tr",
+  descriptionOverride,
+  faqOverride,
+}: {
+  initialCategory?: CategoryData | null;
+  titleOverride?: string;
+  initialLang?: string;
+  /** ⚠️ /en/* için: içerik (CMS) katmanı kök layout'ta TÜRKÇE hidratlanır (layout
+   *  rotayı bilmez, bilinçli mimari sınır). İngilizce sayfa kategori metnini
+   *  sunucudan prop olarak geçirir → açıklama ve SSS İLK HTML'de İngilizce basılır.
+   *  Yalnız `lang === initialLang` iken uygulanır; ziyaretçi dili değiştirirse
+   *  normal içerik katmanına düşer. TR sayfalar bu propları GEÇMEZ → davranış aynı. */
+  descriptionOverride?: string;
+  faqOverride?: { q: string; a: string }[];
+}) {
   const params = useParams();
   const router = useRouter();
   const { theme } = useTheme();
@@ -121,7 +138,10 @@ export default function ProductCategoryPage({ initialCategory = null, titleOverr
 
   useEffect(() => {
     if (!id) return;
-    if (isFirstMount.current && lang === "tr" && initialCategory) {
+    // ⚠️ initialLang = sunucudan gelen başlangıç verisinin DİLİ (varsayılan "tr").
+    // Ziyaretçinin dili aynıysa yeniden çekmeye gerek yok. Eskiden burada sabit
+    // "tr" yazıyordu → /en sayfalarında sunucu verisi ASLA kullanılmıyordu.
+    if (isFirstMount.current && lang === initialLang && initialCategory) {
       isFirstMount.current = false;
       return;
     }
@@ -132,7 +152,7 @@ export default function ProductCategoryPage({ initialCategory = null, titleOverr
       .then((data: CategoryData[]) => setCategory(data.find(c => c.id === id) ?? null))
       .catch(() => setCategory(null))
       .finally(() => setLoading(false));
-  }, [id, lang, initialCategory]);
+  }, [id, lang, initialCategory, initialLang]);
 
   const bg            = d ? "#131318" : "#f8f8fb";
   // Solid surface in dark mode so the new background streaks behind
@@ -186,7 +206,9 @@ export default function ProductCategoryPage({ initialCategory = null, titleOverr
 
   const Icon = categoryIcons[id] || RiPlugLine;
   const accent = category.accent;
-  const categoryDescription = categories?.[id]?.description?.trim() ?? "";
+  const metinDili = lang === initialLang;
+  const categoryDescription =
+    ((metinDili && descriptionOverride) || categories?.[id]?.description)?.trim() ?? "";
   // Görsel alanı: önce anasayfa kategori görseli (image), yoksa eski
   // descriptionImage. Kullanıcı isteği: kategori sayfasında da anasayfadaki
   // kategori görseli karşılasın (hero arka planı olarak).
@@ -560,7 +582,7 @@ export default function ProductCategoryPage({ initialCategory = null, titleOverr
 
       {/* SSS — kategori bazlı (CMS'ten). FAQPage JSON-LD sunucu sayfasında. */}
       {(() => {
-        const faqList = categories?.[id]?.faq ?? [];
+        const faqList = (metinDili && faqOverride) || categories?.[id]?.faq || [];
         if (faqList.length === 0) return null;
         return (
           <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8 pb-16 w-full">

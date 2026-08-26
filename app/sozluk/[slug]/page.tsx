@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import JsonLd from "../../components/JsonLd";
 import { definedTermSchema, breadcrumbSchema, faqSchema, ogImage, OG_URL, SITE_URL } from "../../lib/seo";
-import { allTerms, getTerm, TERM_SEE_ALSO, GLOSSARY_UPDATED } from "../../lib/glossary";
+import { allTerms, getTerm, TERM_SEE_ALSO, GLOSSARY_UPDATED, glossaryMetaDescription } from "../../lib/glossary";
 import GlossaryClient from "../GlossaryClient";
 
 export const dynamicParams = false;
@@ -21,13 +21,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   // %0, kW/kWh 94, CCS2 59). <title>'a "Nedir?" kalıbı sorgu diliyle birebir
   // eşleşir → SERP başlığı tıklanabilirleşir. SAYFA İÇERİĞİ DEĞİŞMEZ (yalnız meta).
   const metaTitle = /nedir/i.test(t.term) ? t.term : `${t.term} Nedir?`;
+  // ⚠️ `t.short` DEĞİL: o alan 11 terimde 70 karakterin altında (Google yok sayar)
+  // ve /sozluk kartlarında GÖRÜNÜYOR, uzatılamaz. Meta ayrı üretilir — bkz.
+  // glossaryMetaDescription. Yine yalnız META; sayfa içeriği değişmez.
+  const metaDesc = glossaryMetaDescription(t);
   return {
     title: metaTitle,
-    description: t.short,
+    description: metaDesc,
     keywords: t.keywords,
     alternates: { canonical, languages: { tr: canonical, "x-default": canonical } },
-    openGraph: { title: metaTitle, description: t.short, type: "article", url: canonical, modifiedTime: GLOSSARY_UPDATED, images: ogImage(t.term) },
-    twitter: { card: "summary_large_image", title: metaTitle, description: t.short, images: [OG_URL] },
+    openGraph: { title: metaTitle, description: metaDesc, type: "article", url: canonical, modifiedTime: GLOSSARY_UPDATED, images: ogImage(t.term) },
+    twitter: { card: "summary_large_image", title: metaTitle, description: metaDesc, images: [OG_URL] },
   };
 }
 

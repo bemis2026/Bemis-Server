@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
+import type { ComponentProps } from "react";
 import JsonLd from "../../components/JsonLd";
 import { breadcrumbSchema, collectionPageSchema, ogImage, OG_URL } from "../../lib/seo";
-import { getServerProducts } from "../../lib/server-content";
+import { getProductsForLang } from "../../lib/serverProductsLang";
 import ProductsClient from "../../products/ProductsClient";
+
+type ClientCategories = NonNullable<ComponentProps<typeof ProductsClient>["initialCategories"]>;
 
 // İngilizce (indekslenebilir) tüm-ürünler sayfası — /en/products. TR karşılığı
 // /products; hreflang ile karşılıklı bağlı. İçerik LanguageContext ile İngilizce
-// zorlanır (/en/* ). ProductsClient lang="en" ile /api/products?lang=en çeker.
+// zorlanır (/en/* ).
+//
+// ⚠️ İçerik SUNUCUDA basılır (initialCategories + initialLang="en"). Eskiden
+// yalnız istemci /api/products?lang=en çekiyordu → arama motoru bu sayfada 52
+// kelime görüyordu (TR eşi 1889). Bkz. app/lib/serverProductsLang.ts.
 export const revalidate = 86400;
 
 const TITLE = "EV Charging Equipment Manufacturer — All Products";
@@ -37,9 +44,11 @@ export const metadata: Metadata = {
 };
 
 export default async function EnProductsPage() {
-  const categories = await getServerProducts();
+  // İngilizce birleştirilmiş katalog — ürün adları/açıklamaları İngilizce gelir.
+  const categories = (await getProductsForLang("en")) ?? [];
   const items = categories.flatMap((cat) =>
-    (cat.products ?? []).map((p) => ({ id: p.id, name: p.name, categoryId: cat.id }))
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (cat.products ?? []).map((p: any) => ({ id: p.id, name: p.name, categoryId: cat.id }))
   );
   const jsonLd = [
     breadcrumbSchema([
@@ -53,11 +62,13 @@ export default async function EnProductsPage() {
       products: items,
     }),
   ];
-  // initialCategories GEÇİLMEZ → client lang="en" ile İngilizce çeker.
   return (
     <>
       <JsonLd data={jsonLd} />
-      <ProductsClient />
+      <ProductsClient
+        initialCategories={categories as unknown as ClientCategories}
+        initialLang="en"
+      />
     </>
   );
 }

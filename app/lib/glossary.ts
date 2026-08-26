@@ -410,3 +410,39 @@ export const TERM_SEE_ALSO: Record<string, string[]> = {
 
 export const getTerm = (slug: string): GlossaryTerm | undefined =>
   GLOSSARY.find((t) => t.slug === slug);
+
+/**
+ * Sözlük terimi için META açıklaması (arama sonucunda görünen satır).
+ *
+ * ⚠️ NEDEN `short` KULLANILMIYOR (2026-08-26 ölçümü): `short` tek cümlelik özet
+ * ve 15 terimin 11'inde 70 karakterin ALTINDA (type-2 60, wallbox 56, mod-2-mod-3 58…).
+ * Google bu kadar kısa açıklamayı çoğu zaman yok sayıp sayfadan kendi metnini seçer.
+ *
+ * ⚠️ `short` UZATILAMAZDI: o alan /sozluk listesindeki kartlarda GÖRÜNÜYOR
+ * (GlossaryClient.tsx) — uzatmak görünür tasarımı bozardı. Bu yüzden meta ayrı
+ * üretilir: `definition` (40-60 kelimelik doğrudan-cevap bloğu) cümle cümle
+ * eklenir, 158 karakteri aşmadan durulur. SAYFA İÇERİĞİ DEĞİŞMEZ.
+ *
+ * Tam cümlelerle 70'in altında kalınırsa sonraki cümle KELİME SINIRINDA kırpılır
+ * (cümle ortasında kesip anlamı bozmamak için). `definition` yoksa `short`a düşer.
+ */
+export function glossaryMetaDescription(t: GlossaryTerm): string {
+  const kaynak = (t.definition || "").trim();
+  if (!kaynak) return t.short;
+  const MAX = 158;
+  const MIN = 70;
+  const cumleler = (kaynak.match(/[^.!?]+[.!?]+/g) || [kaynak]).map((c) => c.trim());
+  let out = "";
+  let i = 0;
+  for (; i < cumleler.length; i++) {
+    const aday = (out + " " + cumleler[i]).trim();
+    if (aday.length > MAX) break;
+    out = aday;
+  }
+  if (out.length < MIN && i < cumleler.length) {
+    const uzun = (out + " " + cumleler[i]).trim();
+    out = uzun.length <= MAX ? uzun : uzun.slice(0, MAX).replace(/\s+\S*$/, "") + "…";
+  }
+  if (!out) out = kaynak.slice(0, MAX).replace(/\s+\S*$/, "") + "…";
+  return out;
+}

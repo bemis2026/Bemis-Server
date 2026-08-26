@@ -189,11 +189,14 @@ type ProductReview = {
 export default function ProductDetailPage({
   initialCategory = null,
   initialProduct = null,
+  initialLang = "tr",
   initialAllCategories = [],
   productReviews = [],
 }: {
   initialCategory?: CategoryData | null;
   initialProduct?: ProductEntry | null;
+  /** Sunucudan gelen başlangıç verisinin dili — ziyaretçinin dili aynıysa yeniden çekilmez. */
+  initialLang?: string;
   initialAllCategories?: CategoryData[];
   productReviews?: ProductReview[];
 }) {
@@ -265,7 +268,7 @@ export default function ProductDetailPage({
 
   useEffect(() => {
     if (!categoryId || !productId) return;
-    if (isFirstMount.current && lang === "tr" && initialProduct && initialCategory) {
+    if (isFirstMount.current && lang === initialLang && initialProduct && initialCategory) {
       isFirstMount.current = false;
       trackEvent("view_item", { item_id: initialProduct.id, item_name: initialProduct.name, item_category: initialCategory.name });
       return;
@@ -285,7 +288,7 @@ export default function ProductDetailPage({
       })
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, [categoryId, productId, lang, initialCategory, initialProduct]);
+  }, [categoryId, productId, lang, initialCategory, initialProduct, initialLang]);
 
   const bg          = d ? "#131318" : "#f2f3f7";
   const surface     = d ? "#1c1c22" : "#ffffff";

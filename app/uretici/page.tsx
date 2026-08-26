@@ -16,7 +16,7 @@ const FAQ = [
 export const metadata: Metadata = {
   title: "Yerli Elektrikli Araç Şarj Üreticisi",
   description:
-    "Bemis E-V Charge — Bursa'da kendi tesisinde üreten yerli elektrikli araç şarj cihazı ve şarj kablosu üreticisi. AC Wallbox, taşınabilir şarj, V2L/C2L, OEM üretim. CE, IP65/66, OCPP.",
+    "Bursa'da kendi tesisinde üreten yerli elektrikli araç şarj cihazı ve kablosu üreticisi: AC Wallbox, taşınabilir şarj, V2L/C2L, OEM. CE, IP65/66, OCPP.",
   alternates: { canonical: "/uretici", languages: { tr: "/uretici", "x-default": "/uretici" } },
   keywords: [
     "yerli ev şarj üreticisi",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Yerli Elektrikli Araç Şarj Üreticisi",
     description:
-      "Bemis E-V Charge — Bursa'da kendi tesisinde üreten yerli elektrikli araç şarj cihazı ve şarj kablosu üreticisi. AC Wallbox, taşınabilir şarj, V2L/C2L, OEM üretim. CE, IP65/66, OCPP.",
+      "Bursa'da kendi tesisinde üreten yerli elektrikli araç şarj cihazı ve kablosu üreticisi: AC Wallbox, taşınabilir şarj, V2L/C2L, OEM. CE, IP65/66, OCPP.",
     images: [OG_URL],
   },
 };

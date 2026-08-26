@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   // onlarda tam ad kalır.
   title: "İletişim",
   description:
-    "Bemis E-V Charge iletişim: Yeşil Cad. No:31, 16140 Bursa. Telefon +90 224 433 02 16, e-posta satis@bemis.com.tr. Ürün, bayilik ve teklif talepleriniz için bize ulaşın.",
+    "Bemis E-V Charge iletişim: Yeşil Cad. No:31, 16140 Bursa. Tel +90 224 433 02 16, e-posta satis@bemis.com.tr. Ürün, bayilik ve teklif talepleri için ulaşın.",
   keywords: ["bemis iletişim", "bemis bursa", "ev şarj iletişim"],
   alternates: {
     canonical: URL_PATH,

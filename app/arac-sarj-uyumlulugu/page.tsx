@@ -14,9 +14,9 @@ import VehicleChargingClient from "../components/VehicleChargingClient";
 // yeni model eklerken uydurma spec yazma, kaynağı kaydet.
 
 const SLUG = "arac-sarj-uyumlulugu";
-const TITLE = "Hangi Araca Hangi Şarj Cihazı? — Araç Şarj Uyumluluğu";
+const TITLE = "Hangi Araca Hangi Şarj Cihazı Uygun?";
 const DESC =
-  "Togg, Hyundai IONIQ 5, Tesla, BYD, MG ve Renault için AC şarj uyumluluğu: soket tipi, aracın dahili şarj gücü ve evinizin tesisatına göre hangi şarj cihazı ve Type 2 kablo uygun. Bemis E-V Charge — Bursa'da yerli üretim.";
+  "Togg, IONIQ 5, Tesla, BYD, MG ve Renault için AC şarj uyumluluğu: soket tipi, aracın dahili şarj gücü ve tesisatınıza göre hangi cihaz ve kablo uygun.";
 
 export const metadata: Metadata = {
   title: TITLE,
