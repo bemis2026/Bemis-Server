@@ -47,6 +47,14 @@
 > **BİLEREK YAPILMAYANLAR:** JS çalışma maliyeti (masaüstü 579 ms uzun görev) YAPISAL — framer→CSS göçü ölçülüp
 > reddedilmişti, React Compiler 5 dilde içerik kırmıştı; ikisine de dönülmedi. HTML'e gömülü TR içerik (SSR)
 > tasarım gereği — kaldırmak açılışta metin sıçratırdı (görünür etki = kapsam dışı).
+> **✅ CANLI DOĞRULANDI (commit afb2e47):** anasayfa ham HTML **601→373 KB**, ağdan inen **131→62 KB (−%53)**,
+> Kiril/Arapça **0/0**, TR içerik SSR'da duruyor · **regresyon testi:** `/api/content?lang=ru/ar/de` dil içeriği
+> BİREBİR korundu (paylaşılan önbellek bozulmadı) · `/api/products` 2. istek **HIT 0,19 sn** (önce her istek MISS
+> 0,84 sn) · ısıtıcı workflow_dispatch ile CI'da uçtan uca test edildi: **32/32 sayfa · 0 hata · ort 435 ms**.
+> ⓘ Vercel `s-maxage`'i CDN'de tüketip istemciye yalnız `Cache-Control: public` gösterir — HIT görülüyorsa çalışıyor.
+> ⚠️ Push sırasında 1 saatlik ağ kesintisi yaşandı: **TP-Link modem DNS'i "Query refused"** verip github.com yerine
+> kendi sertifikasını (`tplinkmodem.net`) sundu. Sertifika doğrulaması KAPATILMADI; arka plan bekçisi ağ dönünce
+> push etti. 📌 Bu tablo görülürse çare modem yeniden başlatma; sslVerify=false ASLA.
 
 > 🧳📏 **6 ÇANTAYA ÖLÇÜ SATIRI + DC EKSEN KISALTMASI DÜZELTİLDİ (2026-08-26, kullanıcı ölçüleri verdi):**
 > Kullanıcı altı çantanın ölçüsünü verdi; katalogdaki altı çanta ile **birebir eşleşti** (eşleşme belirsizliği yoktu).
