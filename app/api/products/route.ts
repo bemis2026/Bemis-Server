@@ -15,5 +15,14 @@ export async function GET(req: NextRequest) {
   const lang = new URL(req.url).searchParams.get("lang") ?? "tr";
   const data = await getProductsForLang(lang);
   if (!data) return NextResponse.json({ error: "Ürünler yüklenemedi" }, { status: 500 });
-  return NextResponse.json(data);
+  // ⚠️ CDN önbelleği (2026-08-27 ölçümü): bu uç searchParams okuduğu için DİNAMİK
+  // sayılır — yukarıdaki `revalidate` yanıt önbelleğine ETKİ ETMEZ (x-vercel-cache
+  // her istekte MISS ölçüldü, süre 0,6-0,8 sn). Ürün/kategori sayfaları bu ucu
+  // İSTEMCİDEN her ziyarette çektiği için s-maxage ile CDN'e 5 dk önbellek verildi
+  // (SWR 1 saat: süre dolunca eski yanıtı anında verir, arkada tazeler).
+  // Takas (kullanıcı onaylı): admin değişikliği bu API katmanında EN GEÇ 5 dk
+  // gecikebilir — sayfaların kendisi revalidatePath ile yine anında tazelenir.
+  return NextResponse.json(data, {
+    headers: { "Cache-Control": "public, s-maxage=300, stale-while-revalidate=3600" },
+  });
 }

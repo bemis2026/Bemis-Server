@@ -10,13 +10,30 @@ type CategoriesMeta = Record<string, { name?: string; subtitle?: string; descrip
 // Returns raw site content (TR baseline) for SSR hydration of ContentProvider.
 // Falls back to data/content.json on JSONBin failures so production never
 // hard-renders defaultContent placeholder text.
+//
+// ⚠️ `_translations` BİLEREK ATILIYOR (2026-08-27 ölçümü): bu değer her sayfanın
+// RSC yüküne gömülür ve anasayfa HTML'ini 645 KB'a şişiriyordu (23 bin Kiril +
+// 17 bin Arapça karakter TR ziyaretçiye iniyordu). Hiçbir İSTEMCİ kodu
+// initialContent._translations okumaz (yabancı dil /api/content?lang= ile gelir);
+// _translations'ı kullanan her şey SUNUCU tarafında ve bin'i kendisi okur.
+// ⚠️ readBin unstable_cache'li PAYLAŞILAN nesne döndürür → delete ile MUTASYON
+// YASAK (aynı önbelleği /api/content'in dil merge'ü de kullanıyor); bu yüzden
+// yüzeysel kopya (destructure) ile atılır.
+function stripTranslationsShallow(obj: unknown): unknown {
+  if (obj && typeof obj === "object" && !Array.isArray(obj) && "_translations" in (obj as Record<string, unknown>)) {
+    const { _translations: _atilan, ...rest } = obj as Record<string, unknown>;
+    return rest;
+  }
+  return obj;
+}
+
 export async function getServerSiteContent(): Promise<unknown> {
   try {
-    return await readBin("content");
+    return stripTranslationsShallow(await readBin("content"));
   } catch {}
   try {
     const fb = path.join(process.cwd(), "data", "content.json");
-    return JSON.parse(readFileSync(fb, "utf-8"));
+    return stripTranslationsShallow(JSON.parse(readFileSync(fb, "utf-8")));
   } catch {}
   return null;
 }

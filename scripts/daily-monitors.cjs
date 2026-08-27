@@ -144,6 +144,63 @@ async function checkKatalogSagligi() {
   }
 }
 // ── SSL expiry ──
+// ── soğuk sayfa ısıtıcı ──
+// ⚠️ NEDEN VAR (2026-08-27 ölçümü): ISR süresi dolan sayfa ilk ziyaretçiye 2,6 sn'ye
+//    kadar geç açılıyor (blog, MISS); ısınınca 0,3 sn (HIT). Google botu da çoğu
+//    zaman "ilk ziyaretçi"dir → soğuk sayfa tarama verimini düşürür. Bu adım her
+//    sabah ~30 önemli sayfaya TEK GET atar; gün boyu ilk ziyaretçiler ve botlar
+//    sıcak kopya bulur. İstekler 400 ms arayla SIRALI gider (Vercel bot-mitigation
+//    tetiklenmesin — bu betik daha önce hızlı curl döngüsüyle IP engeli yemişti).
+//    Yalnız BAŞARISIZLIKTA bildirir; başarı sessizdir (bildirim spam'i olmasın).
+async function isitici() {
+  const bekle = (ms) => new Promise((r) => setTimeout(r, ms));
+  try {
+    const sm = await fetch(`${SITE}/sitemap.xml`, { cache: "no-store" });
+    if (!sm.ok) throw new Error(`sitemap HTTP ${sm.status}`);
+    const urls = [...(await sm.text()).matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+    const yol = (u) => u.replace(SITE, "") || "/";
+
+    // Öncelik: giriş sayfaları + kategoriler (TR/EN) + rehber/şehir + ilk 5 blog.
+    const sabit = ["/", "/products", "/en/products", "/uretici", "/destek", "/iletisim",
+      "/blog", "/sozluk", "/arac-sarj-uyumlulugu", "/bursa-ev-sarj-istasyonu", "/bursa-sarj-kablosu"];
+    const kategoriler = urls.filter((u) => /\/(en\/)?products\/[^/]+$/.test(yol(u)));
+    const bloglar = urls.filter((u) => /^\/blog\/[^/]+$/.test(yol(u))).slice(0, 5);
+    const hedefler = [...new Set([
+      ...sabit.map((p) => SITE + p),
+      ...kategoriler,
+      ...bloglar,
+    ])].slice(0, 32);
+
+    let ok = 0, soguk = 0, hatali = 0, toplamMs = 0;
+    for (const u of hedefler) {
+      const t0 = Date.now();
+      try {
+        const r = await fetch(u, { redirect: "follow" });
+        toplamMs += Date.now() - t0;
+        if (r.ok) {
+          ok++;
+          const c = (r.headers.get("x-vercel-cache") || "").toUpperCase();
+          if (c === "MISS" || c === "EXPIRED") soguk++;
+        } else hatali++;
+        // Gövdeyi tüket ki bağlantı temiz kapansın (ısıtma zaten tam yanıt ister).
+        await r.arrayBuffer();
+      } catch { hatali++; }
+      await bekle(400);
+    }
+    console.log(`ısıtıcı: ${ok}/${hedefler.length} sayfa ısıtıldı · soğuk bulunan ${soguk} · hata ${hatali} · ort ${Math.round(toplamMs / Math.max(1, ok + hatali))} ms`);
+    if (hatali >= 3) {
+      notify("İzleme: ısıtıcı birden çok sayfada hata gördü", "medium",
+        `${hedefler.length} sayfanın ${hatali} tanesi hata verdi (200 dönmedi ya da erişilemedi). Site genelinde bir sorun olabilir — site-sentinel raporuna da bakın.`,
+        "daily-monitors/isitici");
+    }
+  } catch (e) {
+    // Isıtıcının kendisi çalışamazsa da SESSİZ GEÇME (körlük dersi).
+    notify("İzleme: soğuk sayfa ısıtıcı çalışmadı", "low",
+      `Isıtma adımı hata verdi: ${String(e.message || e).slice(0, 140)}. Sayfalar yine çalışır, yalnız ilk ziyaretçiler soğuk kopyaya denk gelebilir.`,
+      "daily-monitors/isitici");
+  }
+}
+
 function checkSsl(host) {
   return new Promise((resolve) => {
     const socket = tls.connect({ host, port: 443, servername: host, rejectUnauthorized: false }, () => {
@@ -191,4 +248,6 @@ async function checkSslExpiry() {
   await checkSslExpiry();
   console.log("");
   await checkKatalogSagligi();
+  console.log("");
+  await isitici();
 })();

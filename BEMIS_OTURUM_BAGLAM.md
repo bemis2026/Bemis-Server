@@ -13,6 +13,41 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> ⚡🌐 **HIZ DENETİMİ (Fable 5) — SİTE ZATEN HIZLI + 3 GÖRÜNMEZ İYİLEŞTİRME (2026-08-27):**
+> Kullanıcı "görünüme dokunmadan açılış/genel hızı her açıdan kontrol et, SEO/GEO açısından da bak" dedi.
+> **GERÇEK TARAYICI ÖLÇÜMÜ (Playwright, canlı):** masaüstü TTFB 353 ms · FCP=LCP **856 ms** · CLS 0 · uzun görev
+> 579 ms — mobil (390px) LCP **616 ms** (hero IMG) · CLS 0 · **YouTube 0 KB** (kapı çalışıyor) — kategori sayfası
+> LCP 1,0 sn. h2 ✓ · brotli ✓ · 2. istek TTFB 0,23-0,33 sn (HIT) ✓. **Hepsi Google "iyi" eşiğinin altında.**
+> ⚠️ CrUX çekilemedi (PSI anahtarsız kota YİNE dolu) — kesin saha verisi GSC → Önemli Web Verileri'nde.
+> ⚠️ LCP'yi buffered PerformanceObserver ile okurken **`po.observe()` hemen ardından `disconnect()` girdileri
+> DÜŞÜRÜR** (teslimat asenkron) → ilk ölçüm LCP=0 verdi; **doğrusu `po.takeRecords()`** (senkron okur).
+>
+> **🔴 EN BÜYÜK BULGU — HER SAYFANIN HTML'İNE ÇEVİRİLER GÖMÜLÜYORDU (kullanıcı onayıyla temizlendi):**
+> Anasayfa ham HTML **645 KB** ve içinde **23.226 Kiril + 16.722 Arapça karakter** vardı — `getServerSiteContent()`
+> content bin'ini `_translations` DAHİL döndürüyor, layout bunu her sayfanın RSC yüküne gömüyordu (272 KB'lık tek
+> inline parça). **Kodda doğrulandı: `initialContent._translations`'ı HİÇBİR istemci kodu okumuyor** (yabancı dil
+> `/api/content?lang=` ile gelir; `_translations` kullanan her şey sunucu tarafında ve bin'i kendisi okur).
+> **FIX (`app/lib/server-content.ts`):** `stripTranslationsShallow` — yüzeysel destructure kopyası ile atılır.
+> **⚠️⚠️ MUTASYON YASAK:** `readBin` unstable_cache'li PAYLAŞILAN nesne döndürür; `delete` ile atmak `/api/content`
+> dil merge'ünün okuduğu önbelleği bozardı → kopya ŞART. 4 çağıranın (layout · anasayfa · TR/EN ürün detay) yalnız
+> TR alanları okuduğu tek tek doğrulandı. `getServerProducts` zaten temizdi (`record.products` alıyor).
+>
+> **(2) SOĞUK SAYFA ISITICI (`scripts/daily-monitors.cjs` → `isitici()`):** ISR süresi dolunca ilk ziyaretçi
+> 2,6 sn'ye kadar bekliyordu (blog MISS ölçümü; ısınınca 0,3 sn). Her sabah sitemap'ten ~30 önemli sayfaya
+> (anasayfa · /products · TR+EN 8'er kategori · rehber/şehir · ilk 5 blog) **400 ms arayla SIRALI** tek GET.
+> Yalnız başarısızlıkta bildirir (≥3 hata → medium; ısıtıcı hiç çalışamazsa → low). Googlebot da sıcak sayfa bulur.
+> ⚠️ Sıralı+aralıklı ŞART — hızlı curl döngüsü daha önce Vercel IP engeli tetikledi.
+>
+> **(3) `/api/products` CDN ÖNBELLEĞİ:** uç searchParams okuduğu için DİNAMİK — `export const revalidate` yanıt
+> önbelleğine ETKİ ETMİYOR (x-vercel-cache her istekte MISS, 0,6-0,8 sn; ürün sayfaları istemciden her ziyarette
+> çekiyor). Yanıta `Cache-Control: public, s-maxage=300, stale-while-revalidate=3600` verildi → ~0,1 sn.
+> **Takas (kullanıcı onaylı):** admin değişikliği bu API katmanında EN GEÇ 5 dk gecikebilir; sayfalar
+> revalidatePath ile yine anında tazelenir. ⓘ `/api/content` BİLEREK dokunulmadı (no-store = admin anında görsün).
+>
+> **BİLEREK YAPILMAYANLAR:** JS çalışma maliyeti (masaüstü 579 ms uzun görev) YAPISAL — framer→CSS göçü ölçülüp
+> reddedilmişti, React Compiler 5 dilde içerik kırmıştı; ikisine de dönülmedi. HTML'e gömülü TR içerik (SSR)
+> tasarım gereği — kaldırmak açılışta metin sıçratırdı (görünür etki = kapsam dışı).
+
 > 🧳📏 **6 ÇANTAYA ÖLÇÜ SATIRI + DC EKSEN KISALTMASI DÜZELTİLDİ (2026-08-26, kullanıcı ölçüleri verdi):**
 > Kullanıcı altı çantanın ölçüsünü verdi; katalogdaki altı çanta ile **birebir eşleşti** (eşleşme belirsizliği yoktu).
 > **EKLENEN (`Genel` grubuna `Ölçüler` satırı, 6 çanta × 12 kaynak = 72 alan):**
