@@ -6968,6 +6968,10 @@
               {
                 "label": "Category",
                 "value": "Charging Cable Bag"
+              },
+              {
+                "label": "Dimensions",
+                "value": "40 × 40 × 10 cm"
               }
             ]
           },
@@ -7008,6 +7012,10 @@
               {
                 "label": "Category",
                 "value": "Charging Cable Bag"
+              },
+              {
+                "label": "Dimensions",
+                "value": "Ø 36 × 18 cm"
               }
             ]
           },
@@ -7048,6 +7056,10 @@
               {
                 "label": "Category",
                 "value": "Mobile Charger Bag"
+              },
+              {
+                "label": "Dimensions",
+                "value": "41 × 31 × 14 cm"
               }
             ]
           },
@@ -7088,6 +7100,10 @@
               {
                 "label": "Category",
                 "value": "Mobile Charger Bag"
+              },
+              {
+                "label": "Dimensions",
+                "value": "46 × 34 × 14 cm"
               }
             ]
           },
@@ -7289,6 +7305,10 @@
               {
                 "label": "Category",
                 "value": "V2L & C2L Adapter Bag"
+              },
+              {
+                "label": "Dimensions",
+                "value": "11 × 20 × 8 cm"
               }
             ]
           },
@@ -7329,6 +7349,10 @@
               {
                 "label": "Category",
                 "value": "V2L ve C2L Kablo Çantası"
+              },
+              {
+                "label": "Dimensions",
+                "value": "22 × 26 × 12 cm"
               }
             ]
           },
@@ -7494,7 +7518,7 @@
             "group": "Physical Specifications",
             "items": [
               {
-                "label": "Dimensions (G×D×Y)",
+                "label": "Dimensions (W×D×H)",
                 "value": "600 × 320 × 900 mm"
               },
               {
@@ -7640,7 +7664,7 @@
             "group": "Physical Specifications",
             "items": [
               {
-                "label": "Dimensions (G×D×Y)",
+                "label": "Dimensions (W×D×H)",
                 "value": "693 × 603 × 1865 mm"
               }
             ]
@@ -7789,7 +7813,7 @@
             "group": "Physical Specifications",
             "items": [
               {
-                "label": "Dimensions (G×D×Y)",
+                "label": "Dimensions (W×D×H)",
                 "value": "800 × 800 × 1900 mm"
               }
             ]
@@ -7948,7 +7972,7 @@
             "group": "Physical Specifications",
             "items": [
               {
-                "label": "Dimensions (G×D×Y)",
+                "label": "Dimensions (W×D×H)",
                 "value": "800 × 800 × 1900 mm"
               }
             ]
@@ -8107,7 +8131,7 @@
             "group": "Physical Specifications",
             "items": [
               {
-                "label": "Dimensions (G×D×Y)",
+                "label": "Dimensions (W×D×H)",
                 "value": "800 × 800 × 1900 mm"
               }
             ]
@@ -8266,7 +8290,7 @@
             "group": "Physical Specifications",
             "items": [
               {
-                "label": "Dimensions (G×D×Y)",
+                "label": "Dimensions (W×D×H)",
                 "value": "800 × 800 × 1900 mm"
               }
             ]

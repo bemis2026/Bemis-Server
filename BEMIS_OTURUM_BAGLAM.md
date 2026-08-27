@@ -13,6 +13,31 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🧳📏 **6 ÇANTAYA ÖLÇÜ SATIRI + DC EKSEN KISALTMASI DÜZELTİLDİ (2026-08-26, kullanıcı ölçüleri verdi):**
+> Kullanıcı altı çantanın ölçüsünü verdi; katalogdaki altı çanta ile **birebir eşleşti** (eşleşme belirsizliği yoktu).
+> **EKLENEN (`Genel` grubuna `Ölçüler` satırı, 6 çanta × 12 kaynak = 72 alan):**
+> `BAK-8000-0004` Standart **36 cm çap × 18 cm derinlik** (TEK YUVARLAK çanta) · `BAK-8000-0000` Premium 40×40×10 ·
+> `BAK-8000-0002` Mobile Küçük 41×31×14 · `BAK-8000-0003` Mobile Büyük 46×34×14 ·
+> `BAK-8800-0000` V2L/C2L Adaptör 11×20×8 · `BAK-8000-0001` V2L/C2L Kablo 22×26×12.
+> ⓘ Son ikisinde ölçü ZATEN açıklama/alt başlıkta vardı; kullanıcı kararıyla altısı da **aynı yere** taşındı.
+>
+> **⚠️ ETİKET UYDURULMADI:** `Ölçüler` karşılıkları DC ünitelerinin MEVCUT çevirilerinden alındı (parantezli eksen
+> notu çıkarılarak): **Dimensions · Abmessungen · Dimensiones · Размеры · الأبعاد**.
+> **⚠️ YUVARLAK ÇANTA:** "çap" ve "derinlik" kelimeleri katalogda HİÇBİR yabancı dilde geçmiyor → kullanıcı kararıyla
+> yabancı dillerde **`Ø 36 × 18 cm`** (uluslararası çap simgesi) yazıldı; TR'de kullanıcının istediği kelimeli yazım.
+> 📌 **Desen: çeviri karşılığı OLMAYAN bir kelime gerekiyorsa, uydurmak yerine dilden bağımsız simge/sayı kullan.**
+>
+> **🔴 YAN BULGU — DC ÜNİTELERİNDE TÜRKÇE KISALTMA SIZMIŞTI (36 alan, ayrı kusur):**
+> 6 DC ünitesinin ölçü etiketi **İngilizce/Almanca/İspanyolcada `(G×D×Y)`** diyordu — bu Türkçe kısaltma
+> (Genişlik×Derinlik×Yükseklik), o dillerde anlamsız. RU `(Ш×Г×В)` ve AR `(عرض×عمق×ارتفاع)` ZATEN doğruydu.
+> Düzeltildi: **EN `(W×D×H)` · DE `(B×T×H)` · ES `(An×P×Al)`**. TR/RU/AR'a DOKUNULMADI.
+> 📌 Aynı desen aynı gün `Fiş→Priz` çevirisinde de çıktı → **çeviri katmanında Türkçe kalıntı taraması periyodik yapılmalı.**
+>
+> **⚠️ SPEC POZİSYONEL:** satır 12 kaynağa da **AYNI İNDEKSTE** eklendi (`specs[0].items[2]`). Yazmadan önce
+> **kuru inceleme** yapıldı: 12 kaynağın hepsinde 8 kategori, çantalar aynı konumda, `specs[0]` her yerde tam 2 öge,
+> grup adı o dilde çevrili (Genel/General/Allgemein/عام/Общие). Betik ön kontrolden biri düşerse HİÇBİR ŞEY yazmaz
+> ve idempotenttir (etiket zaten varsa atlar). store cache **v88-en-priz → v89-canta-olcu**.
+
 > 🇬🇧🔌 **İNGİLİZCE ALT BAŞLIKLARDA "Priz" YANLIŞ ÇEVRİLMİŞ — 8 ADAPTÖR DÜZELTİLDİ (2026-08-26):**
 > CEE görsel işi sırasında ortaya çıktı: 8 dönüştürücü adaptörün İngilizce alt başlığı **iki tarafı da "Plug"**
 > diyordu — ör. `BKT-0508-2211` → "3/16A Plug → 5/16A **Plug**". Türkçesi "Fiş → **Priz**", görselde de priz var;

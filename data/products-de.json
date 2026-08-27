@@ -6586,6 +6586,10 @@
               {
                 "label": "Kategorie",
                 "value": "Ladekabeltasche"
+              },
+              {
+                "label": "Abmessungen",
+                "value": "40 × 40 × 10 cm"
               }
             ]
           },
@@ -6622,6 +6626,10 @@
               {
                 "label": "Kategorie",
                 "value": "Ladekabeltasche"
+              },
+              {
+                "label": "Abmessungen",
+                "value": "Ø 36 × 18 cm"
               }
             ]
           },
@@ -6658,6 +6666,10 @@
               {
                 "label": "Kategorie",
                 "value": "Mobile Charger-Tasche"
+              },
+              {
+                "label": "Abmessungen",
+                "value": "41 × 31 × 14 cm"
               }
             ]
           },
@@ -6694,6 +6706,10 @@
               {
                 "label": "Kategorie",
                 "value": "Mobile Charger-Tasche"
+              },
+              {
+                "label": "Abmessungen",
+                "value": "46 × 34 × 14 cm"
               }
             ]
           },
@@ -6876,6 +6892,10 @@
               {
                 "label": "Kategorie",
                 "value": "V2L- und C2L-Adaptertasche"
+              },
+              {
+                "label": "Abmessungen",
+                "value": "11 × 20 × 8 cm"
               }
             ]
           },
@@ -6912,6 +6932,10 @@
               {
                 "label": "Kategorie",
                 "value": "V2L ve C2L Kablo Çantası"
+              },
+              {
+                "label": "Abmessungen",
+                "value": "22 × 26 × 12 cm"
               }
             ]
           },
@@ -7065,7 +7089,7 @@
             "group": "Physikalische Eigenschaften",
             "items": [
               {
-                "label": "Abmessungen (G×D×Y)",
+                "label": "Abmessungen (B×T×H)",
                 "value": "600 × 320 × 900 mm"
               },
               {
@@ -7205,7 +7229,7 @@
             "group": "Physikalische Eigenschaften",
             "items": [
               {
-                "label": "Abmessungen (G×D×Y)",
+                "label": "Abmessungen (B×T×H)",
                 "value": "693 × 603 × 1865 mm"
               }
             ]
@@ -7349,7 +7373,7 @@
             "group": "Physikalische Eigenschaften",
             "items": [
               {
-                "label": "Abmessungen (G×D×Y)",
+                "label": "Abmessungen (B×T×H)",
                 "value": "800 × 800 × 1900 mm"
               }
             ]
@@ -7503,7 +7527,7 @@
             "group": "Physikalische Eigenschaften",
             "items": [
               {
-                "label": "Abmessungen (G×D×Y)",
+                "label": "Abmessungen (B×T×H)",
                 "value": "800 × 800 × 1900 mm"
               }
             ]
@@ -7657,7 +7681,7 @@
             "group": "Physikalische Eigenschaften",
             "items": [
               {
-                "label": "Abmessungen (G×D×Y)",
+                "label": "Abmessungen (B×T×H)",
                 "value": "800 × 800 × 1900 mm"
               }
             ]
@@ -7811,7 +7835,7 @@
             "group": "Physikalische Eigenschaften",
             "items": [
               {
-                "label": "Abmessungen (G×D×Y)",
+                "label": "Abmessungen (B×T×H)",
                 "value": "800 × 800 × 1900 mm"
               }
             ]
