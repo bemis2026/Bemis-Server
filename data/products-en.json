@@ -6062,6 +6062,10 @@
               {
                 "label": "Length",
                 "value": "5m. Standard"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP44"
               }
             ]
           },
@@ -6122,6 +6126,10 @@
               {
                 "label": "Length",
                 "value": "10m. Standard"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP44"
               }
             ]
           },
@@ -6246,6 +6254,10 @@
               {
                 "label": "Length",
                 "value": "5m"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP44"
               }
             ]
           },
@@ -6306,6 +6318,10 @@
               {
                 "label": "Length",
                 "value": "10m"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP44"
               }
             ]
           },
@@ -6366,6 +6382,10 @@
               {
                 "label": "Length",
                 "value": "5m"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP44"
               }
             ]
           },
@@ -6426,6 +6446,10 @@
               {
                 "label": "Length",
                 "value": "10m"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP44"
               }
             ]
           },
@@ -6486,6 +6510,10 @@
               {
                 "label": "Length",
                 "value": "5m"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP44"
               }
             ]
           },
@@ -6546,6 +6574,10 @@
               {
                 "label": "Length",
                 "value": "10m"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP44"
               }
             ]
           },
@@ -6606,6 +6638,10 @@
               {
                 "label": "Length",
                 "value": "5m"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP44"
               }
             ]
           },
@@ -6666,6 +6702,10 @@
               {
                 "label": "Length",
                 "value": "10m"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP44"
               }
             ]
           },
@@ -6726,6 +6766,10 @@
               {
                 "label": "Length",
                 "value": "5m"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP44"
               }
             ]
           },
@@ -6786,6 +6830,10 @@
               {
                 "label": "Length",
                 "value": "10m"
+              },
+              {
+                "label": "Protection category",
+                "value": "IP44"
               }
             ]
           },

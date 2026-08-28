@@ -13,6 +13,19 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🔌✅ **12 UZATMA KABLOSUNUN IP DEĞERİ GELDİ — HEPSİ IP44 (2026-08-28, kullanıcı 6 aileyi TEK TEK seçmeli cevapladı):**
+> Aylardır açık olan iş kapandı. Kullanıcı "tek tek seçmeli sor" dedi; 12 ürün = 6 aile (5m/10m çifti aynı tasarım)
+> olarak soruldu, **6/6 cevap IP44** (önceki "bazıları IP67" tahmini doğrulanmadı — IP67'imsi olan zaten IP68 kablosuydu).
+> **EKLENEN:** `Genel` grubuna `Koruma Sınıfı: IP44` satırı — **12 ürün × 12 kaynak = 144 alan**, pozisyonel
+> (spec[0] üç ögeliydi: Tip·Kablo·Uzunluk → 4. öge oldu). Kapsam: BKT-0102-2205/2210 · 0109-2205/2210 ·
+> 0111-2205/2210 · 0809-2125/21210 · 1011-2705/2710 · 0708-2505/2510. **BKT-0102-8110 (IP68) DOKUNULMADI.**
+> **⚠️ ETİKET UYDURULMADI:** 6 dildeki "Koruma Sınıfı" karşılıkları IP68 kablosunun MEVCUT satırından kopyalandı
+> (Schutzklasse · Clase de protección · فئة الحماية · Класс защиты · Protection category). Değer IP44 dil-nötr.
+> Kuru çalıştırma → 144/144 birebir → uygulandı. Betik idempotent + ön kontrollü. store cache **v89 → v90-ip44**.
+> ⓘ Bu turda iki küçük araç dersi: (1) hız turu R2 verisi YAZMADIĞI için cache bump'lamamıştı — bump yalnız
+> doğrudan R2 yazımında gerekir, betik anahtar adını değişkene değil GERÇEK değere göre kontrol etmeli;
+> (2) komuta yanlışlıkla stdin bekleyen başıboş `cat >` satırı girdi → 5 dk askıda kaldı, veri zarar görmedi.
+
 > ⚡🌐 **HIZ DENETİMİ (Fable 5) — SİTE ZATEN HIZLI + 3 GÖRÜNMEZ İYİLEŞTİRME (2026-08-27):**
 > Kullanıcı "görünüme dokunmadan açılış/genel hızı her açıdan kontrol et, SEO/GEO açısından da bak" dedi.
 > **GERÇEK TARAYICI ÖLÇÜMÜ (Playwright, canlı):** masaüstü TTFB 353 ms · FCP=LCP **856 ms** · CLS 0 · uzun görev

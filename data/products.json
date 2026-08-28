@@ -5800,6 +5800,10 @@
               {
                 "label": "Uzunluk",
                 "value": "5m. Standart"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP44"
               }
             ]
           },
@@ -5856,6 +5860,10 @@
               {
                 "label": "Uzunluk",
                 "value": "10m. Standart"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP44"
               }
             ]
           },
@@ -5972,6 +5980,10 @@
               {
                 "label": "Uzunluk",
                 "value": "5m"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP44"
               }
             ]
           },
@@ -6028,6 +6040,10 @@
               {
                 "label": "Uzunluk",
                 "value": "10m"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP44"
               }
             ]
           },
@@ -6084,6 +6100,10 @@
               {
                 "label": "Uzunluk",
                 "value": "5m"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP44"
               }
             ]
           },
@@ -6140,6 +6160,10 @@
               {
                 "label": "Uzunluk",
                 "value": "10m"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP44"
               }
             ]
           },
@@ -6196,6 +6220,10 @@
               {
                 "label": "Uzunluk",
                 "value": "5m"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP44"
               }
             ]
           },
@@ -6252,6 +6280,10 @@
               {
                 "label": "Uzunluk",
                 "value": "10m"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP44"
               }
             ]
           },
@@ -6308,6 +6340,10 @@
               {
                 "label": "Uzunluk",
                 "value": "5m"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP44"
               }
             ]
           },
@@ -6364,6 +6400,10 @@
               {
                 "label": "Uzunluk",
                 "value": "10m"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP44"
               }
             ]
           },
@@ -6420,6 +6460,10 @@
               {
                 "label": "Uzunluk",
                 "value": "5m"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP44"
               }
             ]
           },
@@ -6476,6 +6520,10 @@
               {
                 "label": "Uzunluk",
                 "value": "10m"
+              },
+              {
+                "label": "Koruma Sınıfı",
+                "value": "IP44"
               }
             ]
           },
