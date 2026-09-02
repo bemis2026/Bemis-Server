@@ -91,7 +91,7 @@
         }
       ],
       "descriptionImage": "",
-      "description": "Portable AC chargers that do not require installation — from the standard outlet or CEE socket to the Type 2 vehicle socket. Flexible charging solution for road, camp and backup scenarios with single-phase 2.3 – 7.4 kW and three-phase 11 – 22 kW options.",
+      "description": "Wall-mounted (home type) AC charging stations — for homes, workplaces and car parks. Single- and three-phase models from 7.4 kW to 22 kW; with a Type 2 socket or an integrated cable, they charge your electric vehicle safely and efficiently. An ideal home charger for overnight charging; CE & IP65 certified, compliant with IEC 61851 / IEC 62196, produced in Türkiye with a 94% Domestic Goods Certificate and covered by warranty.",
       "manuals": [
         {
           "id": "manual-1779303159452",
@@ -136,7 +136,7 @@
           "a": "We see that 5 meters of cable is sufficient in most cases: it is ideal if the distance of the car charging socket to the wall does not exceed 3-4 meters when parking. If your garage/parking layout is different, there are 7.5 m or 10 m options. The longer the cable, the heavier and more rigid it is; unnecessarily long selection makes it difficult to carry."
         }
       ],
-      "description": "Mode 2 and Mode 3 charging cables with Type 2 standard. It is designed for long-lasting use in single and three-phase, 16a – 32a current classes with IEC 62196 / IEC 61851 compliant, halogen-free outer sheath and high-current Type 2 connector.",
+      "description": "Portable AC chargers that do not require installation — from the standard outlet or CEE socket to the Type 2 vehicle socket. Flexible charging solution for road, camp and backup scenarios with single-phase 2.3 – 7.4 kW and three-phase 11 – 22 kW options.",
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075745/products/phrdrgmnycwteac03l3c.png"
     },
     "cables": {
@@ -168,7 +168,7 @@
           "a": "V2L allows you to use your vehicle's battery as a portable power source. The adapter plugs into the vehicle socket and outputs a standard 220V output. You can operate refrigerators, projectors, small devices in cases such as camping, outdoor activities, power outages. The energy comes from the vehicle's battery."
         }
       ],
-      "description": "Adapters that convert the vehicle's battery (V2L) or charger (C2L) into an external power supply. Compatible with Type 2 inputs and schuko / Cee outputs and V2L-supported vehicles such as Hyundai, Kia, MG, BYD, Ssangyong and Skywell — for camping, workshop and emergency scenarios.",
+      "description": "Mode 2 and Mode 3 charging cables with Type 2 standard. It is designed for long-lasting use in single and three-phase, 16a – 32a current classes with IEC 62196 / IEC 61851 compliant, halogen-free outer sheath and high-current Type 2 connector.",
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075750/products/yquclaq2d8incbvlonxk.png"
     },
     "v2l-c2l": {
@@ -204,7 +204,7 @@
           "a": "Our Bemis extension cables are manufactured to the same standards (IEC 62196-2, 32a copper conductor) as the original cable. Class IP54 connection sections are protected against water. Third-party low-quality extensions may pose a fire risk; use only certified products."
         }
       ],
-      "description": "Extension cables and Ceenorm converters that carry existing charging equipment to different outlet types and distances. Combination solutions designed for single and three-phase 16a – 32a transitions.",
+      "description": "Adapters that convert the vehicle's battery (V2L) or charger (C2L) into an external power supply. Compatible with Type 2 inputs and schuko / Cee outputs and V2L-supported vehicles such as Hyundai, Kia, MG, BYD, Ssangyong and Skywell — for camping, workshop and emergency scenarios.",
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075755/products/jjaugl6l5h7o20jastmg.png"
     },
     "converters": {
@@ -236,7 +236,7 @@
           "a": "Professional equipment used in charging station installations includes: AC and DC charging sockets (Type 2, CCS2), wired and wireless versions, socket covers, locking mechanisms, optional communication modules and spare parts that can be integrated into the charger. Uses OEM manufacturers and service."
         }
       ],
-      "description": "Bemis DC charging cables, produced entirely in our own facility, specially produced for high-power DC charging units provide easy replacement in case of breakage thanks to their modular body structure.\nPanel socket with lock mechanism used on charging units. With its special branding and unique design, it is perfect for your unit. The DC Socket Holder Bracket, which is produced for the DC cables used in DC charging units to hang idle, stands out as an ideal option with its ball and embedded design. Thanks to its ball structure, the fracture problem is eliminated. With its body structure embedded in the case, it is fully compatible with your unit design.",
+      "description": "Extension cables and Ceenorm converters that carry existing charging equipment to different outlet types and distances. Combination solutions designed for single and three-phase 16a – 32a transitions.",
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075761/products/f0fshjhhljmvpkcrxxzu.png"
     },
     "charger-equipment": {
@@ -246,7 +246,7 @@
       "badge": null,
       "comingSoon": false,
       "image": "/categories/1774998252477-110001360852184.jpg",
-      "description": "RFID cards, carrying cases and mounting accessories — by-products that complement the operational and safety needs of a charging site.",
+      "description": "Bemis DC charging cables, produced entirely in our own facility, specially produced for high-power DC charging units provide easy replacement in case of breakage thanks to their modular body structure.\nPanel socket with lock mechanism used on charging units. With its special branding and unique design, it is perfect for your unit. The DC Socket Holder Bracket, which is produced for the DC cables used in DC charging units to hang idle, stands out as an ideal option with its ball and embedded design. Thanks to its ball structure, the fracture problem is eliminated. With its body structure embedded in the case, it is fully compatible with your unit design.",
       "faq": [
         {
           "q": "What is the difference between a DC charging socket and an AC charging socket?",
@@ -300,7 +300,7 @@
           "a": "In AC charging, electricity flows to the vehicle as alternating current and the internal converter converts it to direct current; therefore, it is limited to 22 kW. In DC charging, the conversion is done inside the station and the direct current flows directly to the battery; it can go up to 50-350 kW. Conclusion: With DC, an EV reaches 80% in 20-40 minutes, while 6-8 hours are required in AC."
         }
       ],
-      "description": "BEVDC series DC fast chargers — single or double CCS2 output models from 40 kW to 200 kW. Suitable for commercial field use with OCPP 1.6J/ 2.0.1 support, RFID authentication, IP54 protection and wide temperature range (-25°C / +55°C)."
+      "description": "RFID cards, carrying cases and mounting accessories — by-products that complement the operational and safety needs of a charging site."
     },
     "dc-units": {
       "name": "DC Charging Units",
@@ -331,7 +331,7 @@
           "a": "Under EMRA's charging service regulation, you need a licence or authorisation, an OCPP-capable device, integration with the EPVIS system, and a billing/payment stack (Bemis CPO software or a 3rd-party platform). Investment size ranges between 1-3 million TL; our B2B team supports roadmap preparation."
         }
       ],
-      "description": "BEVDC series DC fast charging units — single or dual CCS2 output models from 40 kW to 200 kW. With OCPP 1.6J / 2.0.1 support, RFID authentication, IP54 protection and a wide temperature range (-25°C / +55°C), suitable for commercial field deployment. The range covers 40, 80, 120, 160, 180 and 200 kW models; the 40 kW is also offered in a pedestal enclosure."
+      "description": "BEVDC series DC fast chargers — single or double CCS2 output models from 40 kW to 200 kW. Suitable for commercial field use with OCPP 1.6J/ 2.0.1 support, RFID authentication, IP54 protection and wide temperature range (-25°C / +55°C)."
     }
   },
   "featured": [
