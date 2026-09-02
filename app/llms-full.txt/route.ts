@@ -27,6 +27,7 @@ function bodyToText(body: BlogSection[]): string {
 
 // GEO için en değerli rehberler (tam gövde).
 const GUIDE_SLUGS = [
+  "elektrikli-arac-sarj-uzatma-kablosu-nasil-secilir",
   "portatif-seyyar-sarj-cihazi-nedir-ne-kadar",
   "hangi-araclarda-v2l-var-turkiye",
   "elektrikli-arabami-evde-nasil-sarj-ederim",

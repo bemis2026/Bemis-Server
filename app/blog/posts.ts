@@ -34,6 +34,257 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    "slug": "elektrikli-arac-sarj-uzatma-kablosu-nasil-secilir",
+    "title": "Elektrikli Araç Şarj Uzatma Kablosu: Kaç mm², Hangi Konnektör, Kaç Metre?",
+    "metaTitle": "EV Şarj Uzatma Kablosu — Kaç mm², Kaç Metre?",
+    "description": "Araç şarj kablosu uzatma ihtiyacınız mı var? Doğru uzatma kablosunda kesit (mm²), CEE konnektör, IP sınıfı ve uzunluk nasıl seçilir — üreticisinden anlattık.",
+    "excerpt": "Şarj soketi uzakta kaldığında akla ilk gelen çoklu priz oluyor; oysa şarj, saatlerce süren yüksek akım demek. Doğru uzatma kablosunda kesit, konnektör tipi, IP sınıfı ve uzunluk nasıl seçilir?",
+    "category": "Rehber",
+    "datePublished": "2026-08-28",
+    "dateModified": "2026-08-28",
+    "readingMinutes": 8,
+    "keywords": [
+      "araç şarj kablosu uzatma",
+      "şarj uzatma kablosu",
+      "elektrikli araba şarj uzatma kablosu",
+      "araç şarj için uzatma kablosu",
+      "seyyar uzatma kablosu",
+      "cee uzatma kablosu",
+      "elektrikli araç şarj uzatma"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Elektrikli araç şarjında en sık karşılaşılan sorunlardan biri mesafedir: priz garajın bir ucunda, araç öbür ucunda kalır ve şarj kablosu yetişmez. Bu noktada akla gelen ilk çözüm genelde evdeki çoklu priz ya da kablo makarası olur — ama şarj, evdeki diğer cihazlardan farklı bir yük tipidir."
+      },
+      {
+        "type": "p",
+        "text": "Bir su ısıtıcısı yüksek akımı birkaç dakika çeker. Elektrikli araç şarjı ise cihazın izin verdiği akımı saatlerce, neredeyse kesintisiz çeker. Bu süreklilik, uzatma kablosunda kesitin ve konnektör kalitesinin neden kritik olduğunu açıklar."
+      },
+      {
+        "type": "h2",
+        "text": "Ev tipi çoklu priz neden uygun değil?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "İnce kesit: ev tipi uzatmalarda iletken kesiti genelde 1–1,5 mm² civarındadır; sürekli yüksek akım için tasarlanmadığından ısınır.",
+          "Sarılı makara: kablo makaraya sarılı hâldeyken ısı dışarı atılamaz. Makara kullanılacaksa tamamen açılması gerekir.",
+          "Zayıf temas: çoklu prizlerin kontak yüzeyi tekrarlanan yüksek akıma göre boyutlandırılmamıştır; gevşek temas ısınma üretir.",
+          "Koruma sınıfı yok: ev tipi uzatmalar dış mekân için sızdırmazlık sınıfı taşımaz."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Ev şarjının genel güvenlik tarafını (kaçak akım rölesi, ayrı hat, yetkili elektrikçi) ayrı bir rehberde ele aldık; bu yazı doğru ürünün nasıl seçileceğine odaklanıyor."
+      },
+      {
+        "type": "h2",
+        "text": "Doğru uzatma kablosunda bakılacak dört şey"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kesit (mm²) — çekilecek akıma göre belirlenir.",
+          "Konnektör tipi — endüstriyel CEE mi, standart schuko mu.",
+          "IP koruma sınıfı — kablo dış mekânda mı kalacak.",
+          "Uzunluk — gerçekten ne kadar mesafeye ihtiyaç var."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kesit: akıma göre seçilir"
+      },
+      {
+        "type": "p",
+        "text": "Kesit, kablonun taşıyabileceği akımı belirleyen ana değişkendir. Bemis'in seyyar uzatma kablolarında kullanılan kesitler, kablonun tasarlandığı akım sınıfına göre şöyle ayrışır:"
+      },
+      {
+        "type": "table",
+        "caption": "Bemis seyyar uzatma kablolarında kesit — akım eşleşmesi",
+        "headers": [
+          "Akım sınıfı",
+          "Kesit",
+          "Tipik kullanım"
+        ],
+        "rows": [
+          [
+            "16A tek faz",
+            "3 × 2,5 mm²",
+            "Taşınabilir şarj cihazı, schuko/CEE 16A hatlar"
+          ],
+          [
+            "32A tek faz",
+            "3 × 6 mm²",
+            "Yüksek akımlı tek fazlı CEE hatlar"
+          ],
+          [
+            "16A üç faz",
+            "5 × 2,5 mm²",
+            "Üç fazlı 16A CEE bağlantılar"
+          ],
+          [
+            "32A üç faz",
+            "5 × 6 mm²",
+            "Üç fazlı 32A CEE bağlantılar"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Buradaki mantık basittir: akım arttıkça kesit büyür. 32A çekecek bir hattı 2,5 mm² kabloyla uzatmak, kabloyu tasarlandığı sınırın üzerinde çalıştırmak anlamına gelir."
+      },
+      {
+        "type": "h2",
+        "text": "Konnektör: neden CEE?"
+      },
+      {
+        "type": "p",
+        "text": "CEE (endüstriyel tip) fiş ve prizler, standart ev prizinden farklı olarak kilitlemeli ve contalı bir yapı kullanır. Bu, hem temas direncini düşük tutar hem de kablonun kazara çıkmasını zorlaştırır. Bemis uzatma kabloları 16A ve 32A CEE konfigürasyonlarında; ayrıca farklı fiş–priz kombinasyonları arasında geçiş yapan Cee Norm dönüştürücü adaptörler de bulunur."
+      },
+      {
+        "type": "p",
+        "text": "Kablo uçları ürünün adında açıkça belirtilir: örneğin \"1/16A Fiş → 3/32A Priz\" ifadesi, tek fazlı 16A fişten üç fazlı 32A prize geçiş anlamına gelir. Satın almadan önce elinizdeki ekipmanın giriş ve çıkış tipini kontrol etmek gerekir."
+      },
+      {
+        "type": "h2",
+        "text": "IP sınıfı: kablo dışarıda mı kalacak?"
+      },
+      {
+        "type": "p",
+        "text": "Kapalı garajda kalan bir kabloyla, bahçede yağmura maruz kalan bir kablo aynı korumaya ihtiyaç duymaz. Bemis'in seyyar uzatma kablolarının standart serisi IP44 koruma sınıfındadır; su sıçramasına karşı korumalıdır. Dış mekânda daha ağır koşullar için 10 metrelik IP68 model bulunur — IP68, toza tam kapalı olmanın yanında suya dalmaya karşı da korumalı sınıfı ifade eder."
+      },
+      {
+        "type": "p",
+        "text": "Koruma sınıfı yalnızca kablonun kendisi için değil, bağlantı yapılan noktalar için de düşünülmelidir: açıkta kalan bir birleşim yeri, kablonun IP sınıfını pratikte anlamsız kılar."
+      },
+      {
+        "type": "h2",
+        "text": "Kaç metre gerekli?"
+      },
+      {
+        "type": "p",
+        "text": "Uzatma kablosu her zaman ilk çözüm olmak zorunda değil. Şarj kablonuz kısa geliyorsa, doğrudan daha uzun bir şarj kablosu almak çoğu durumda daha temiz bir çözümdür: Bemis Type 2 şarj kabloları 3, 5, 7, 8, 10 ve 15 metre uzunluklarda üretilir. Böylece ek bir bağlantı noktası oluşmaz."
+      },
+      {
+        "type": "p",
+        "text": "Uzatma kablosu ise besleme tarafını taşımak için mantıklıdır — örneğin taşınabilir şarj cihazınızın fişini uzaktaki bir CEE prizine ulaştırmak gibi. Bemis uzatma kabloları 5 ve 10 metre seçenekleriyle sunulur. Uzunluk arttıkça hat üzerindeki gerilim düşümü de artacağı için, ihtiyacınızdan uzun kablo seçmek avantaj sağlamaz."
+      },
+      {
+        "type": "h2",
+        "text": "Bemis seyyar uzatma kabloları"
+      },
+      {
+        "type": "table",
+        "caption": "Uzunluk, kesit ve koruma sınıfı",
+        "headers": [
+          "Bağlantı",
+          "Uzunluk",
+          "Kesit",
+          "Koruma"
+        ],
+        "rows": [
+          [
+            "1/16A Fiş → 1/16A Priz",
+            "5 m / 10 m",
+            "3 × 2,5 mm²",
+            "IP44"
+          ],
+          [
+            "1/16A Fiş → 1/16A Priz",
+            "10 m",
+            "3 × 2,5 mm²",
+            "IP68"
+          ],
+          [
+            "1/16A Fiş → 3/32A Priz",
+            "5 m / 10 m",
+            "3 × 2,5 mm²",
+            "IP44"
+          ],
+          [
+            "1/16A Fiş → 5/32A Priz",
+            "5 m / 10 m",
+            "3 × 2,5 mm²",
+            "IP44"
+          ],
+          [
+            "3/32A Fiş → 3/32A Priz",
+            "5 m / 10 m",
+            "3 × 6 mm²",
+            "IP44"
+          ],
+          [
+            "5/16A Fiş → 5/16A Priz",
+            "5 m / 10 m",
+            "5 × 2,5 mm²",
+            "IP44"
+          ],
+          [
+            "5/32A Fiş → 5/32A Priz",
+            "5 m / 10 m",
+            "5 × 6 mm²",
+            "IP44"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Tüm modeller Bursa'daki kendi tesisimizde üretilir; CE sertifikalı ve %94 Yerli Malı Belgelidir. Bağlantı tipinden emin değilseniz, elinizdeki cihazın fiş tipini ve çekeceği akımı belirtmeniz yeterli — doğru modeli birlikte belirleyebiliriz."
+      },
+      {
+        "type": "cta",
+        "text": "Uzatma kablosu ve dönüştürücü adaptör modellerinin tamamını inceleyin.",
+        "href": "/products/converters",
+        "label": "Uzatma Kabloları ve Adaptörler"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Elektrikli araç şarj kablosunu uzatabilir miyim?",
+        "a": "Şarj kablosunun kendisini ek yaparak uzatmak doğru bir yöntem değildir; her ek nokta yeni bir temas direnci ve yeni bir zayıf halka demektir. İki sağlıklı yol vardır: ihtiyacınıza uyan uzunlukta bir şarj kablosu almak (Bemis Type 2 kabloları 3 ile 15 metre arasında üretilir) veya besleme tarafını uygun kesitte, doğru konnektörlü bir seyyar uzatma kablosuyla taşımak. İkinci yöntemde kablonun kesiti çekilecek akıma uygun olmalı ve bağlantı noktaları dış etkenlere karşı korunmalıdır."
+      },
+      {
+        "q": "Şarj için evdeki çoklu prizi veya kablo makarasını kullanabilir miyim?",
+        "a": "Ev tipi çoklu prizler ve makaralar, saatlerce süren yüksek akım için tasarlanmaz. İletken kesitleri genelde incedir, kontak yüzeyleri sürekli yüke göre boyutlandırılmamıştır ve dış mekân koruma sınıfı taşımazlar. Makaralarda ek bir sorun daha vardır: kablo sarılı hâldeyken oluşan ısı dışarı atılamaz, bu yüzden kullanılacaksa tamamen açılması gerekir. Şarj beslemesini uzatmanız gerekiyorsa, bu iş için üretilmiş uygun kesitli ve koruma sınıflı bir uzatma kablosu kullanmak doğrusudur."
+      },
+      {
+        "q": "Uzatma kablosu kaç mm² olmalı?",
+        "a": "Kesit, kablonun taşıyacağı akıma göre belirlenir. Bemis'in seyyar uzatma kablolarında 16A sınıfı bağlantılarda 2,5 mm², 32A sınıfı bağlantılarda 6 mm² kesit kullanılır; üç fazlı modellerde damar sayısı beşe çıkar (5 × 2,5 mm² veya 5 × 6 mm²). Pratik kural şudur: akım arttıkça kesit büyür. Çekeceğiniz akımı bilmiyorsanız, taşınabilir şarj cihazınızın veya şarj ünitenizin etiketindeki maksimum akım değerine bakabilir, emin olamadığınız durumda bize sorabilirsiniz."
+      },
+      {
+        "q": "Uzatma kablosunu dışarıda, yağmurda kullanabilir miyim?",
+        "a": "Bu tamamen koruma sınıfına bağlıdır. Bemis seyyar uzatma kablolarının standart serisi IP44 sınıfındadır ve su sıçramasına karşı korumalıdır. Daha ağır dış mekân koşulları için toza tam kapalı ve suya dalmaya karşı korumalı IP68 sınıfında 10 metrelik bir model bulunur. Koruma sınıfının yalnızca kabloyu değil, bağlantının yapıldığı noktaları da kapsaması gerektiğini unutmayın: açıkta bırakılan bir birleşim yeri, kablonun kendi koruma sınıfını pratikte geçersiz kılar."
+      },
+      {
+        "q": "Uzatma kablosu şarj hızını düşürür mü?",
+        "a": "Doğru kesitte seçilmiş bir uzatma kablosu, şarj gücünü kendi başına düşürmez; şarj hızını belirleyen ana etkenler aracın dahili şarj ünitesi, besleme hattının kapasitesi ve şarj cihazının ayarlı akımıdır. Ancak kablo uzadıkça hat üzerinde gerilim düşümü artar ve kesit yetersizse bu düşüş belirginleşir. Bu yüzden ihtiyacınızdan uzun kablo seçmek fayda sağlamaz; gereken mesafeyi karşılayan en kısa ve akıma uygun kesitteki modeli tercih etmek en doğrusudur."
+      }
+    ],
+    "related": [
+      {
+        "label": "Uzatma Kabloları ve Dönüştürücü Adaptörler",
+        "href": "/products/converters"
+      },
+      {
+        "label": "Type 2 Şarj Kabloları (3–15 metre)",
+        "href": "/products/cables"
+      },
+      {
+        "label": "Taşınabilir Şarj Cihazları",
+        "href": "/products/portable"
+      },
+      {
+        "label": "Evde Elektrikli Araç Şarjı Güvenli mi?",
+        "href": "/blog/evde-elektrikli-arac-sarji-guvenli-mi"
+      },
+      {
+        "label": "Şarj Kablosu Kaç Metre, Kaç Amper?",
+        "href": "/blog/elektrikli-arac-sarj-kablosu-kac-metre-kac-amper"
+      }
+    ]
+    },
+  {
     "slug": "portatif-seyyar-sarj-cihazi-nedir-ne-kadar",
     "title": "Portatif (Seyyar) Elektrikli Araç Şarj Cihazı: Nedir, Kimlere Uygun, Ne Kadar?",
     "metaTitle": "Portatif (Seyyar) Araç Şarj Cihazı Nedir, Ne Kadar?",
