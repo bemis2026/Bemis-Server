@@ -34,6 +34,206 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    "slug": "elektrikli-arac-sarj-istasyonu-yonetmeligi",
+    "title": "Elektrikli Araç Şarj İstasyonu Yönetmeliği: Apartman, Otopark ve AVM'de Ne Zorunlu?",
+    "metaTitle": "Şarj İstasyonu Yönetmeliği — Apartman ve Otopark",
+    "description": "Apartman, site otoparkı ve AVM'lerde elektrikli araç şarj istasyonu ne zaman zorunlu? Otopark Yönetmeliği oranları, kat maliki onayı ve EPDK lisansı sade dille.",
+    "excerpt": "Şarj istasyonu kurulumunu iki ayrı düzenleme ilgilendiriyor: yapı tarafında Otopark Yönetmeliği, ticari hizmet tarafında EPDK. Yeni binada ne zorunlu, mevcut binada durum ne, ortak alan için kaç oy gerekir?",
+    "category": "Rehber",
+    "datePublished": "2026-08-28",
+    "dateModified": "2026-08-28",
+    "readingMinutes": 9,
+    "keywords": [
+      "elektrikli araç şarj istasyonu yönetmeliği",
+      "apartman şarj istasyonu yönetmeliği",
+      "otopark şarj istasyonu yönetmeliği",
+      "kapalı otopark şarj istasyonu yönetmeliği",
+      "otopark yönetmeliği şarj istasyonu",
+      "şarj istasyonu zorunluluk",
+      "epdk şarj hizmeti yönetmeliği"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Elektrikli araç şarj istasyonu kurulumunu Türkiye'de tek bir düzenleme değil, birbirinden bağımsız iki ayrı çerçeve ilgilendirir. Hangisinin sizi bağladığı, kuracağınız ünitenin nerede ve ne amaçla kullanılacağına göre değişir."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Yapı tarafı — Otopark Yönetmeliği: yeni yapılacak binalarda ne kadar şarj altyapısı bulunması gerektiğini belirler.",
+          "Ticari hizmet tarafı — EPDK Şarj Hizmeti Yönetmeliği: halka açık ve ücretli şarj hizmeti sunmayı düzenler."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Kendi aracınızı kendi otoparkınızda şarj etmek için kurduğunuz bir ünite, ikinci çerçevenin konusu değildir. Ayrım pratikte buradan başlar."
+      },
+      {
+        "type": "h2",
+        "text": "Otopark Yönetmeliği: yeni yapılarda ne zorunlu?"
+      },
+      {
+        "type": "p",
+        "text": "Otopark Yönetmeliği 22 Şubat 2018 tarihli ve 30340 sayılı Resmî Gazete'de yayımlandı; şarj altyapısına ilişkin hükümler 25 Mart 2021 tarihli ve 31434 sayılı Resmî Gazete'de yapılan değişiklikle eklendi. Zorunluluklar yapı tipine göre ayrışır:"
+      },
+      {
+        "type": "table",
+        "caption": "Otopark Yönetmeliği — şarj altyapısı oranları (yeni yapılar)",
+        "headers": [
+          "Yapı tipi",
+          "Şart",
+          "Ek koşul"
+        ],
+        "rows": [
+          [
+            "Zorunlu otopark adedi 20 ve üzeri yeni yapılar",
+            "Otopark alanlarının en az %5'i",
+            "1 adetten az olamaz; şarj ünitesi dâhil düzenlenir"
+          ],
+          [
+            "Yeni bölge ve genel otoparklar",
+            "En az %10",
+            "İlgili standartlara uygun"
+          ],
+          [
+            "AVM otoparkları",
+            "En az %10",
+            "İlgili standartlara uygun"
+          ],
+          [
+            "30.000 m²'den büyük AVM",
+            "En az 1 hızlı şarj ünitesi",
+            "%10 şartına ek"
+          ],
+          [
+            "70.000 m²'den büyük AVM",
+            "En az 2 hızlı şarj ünitesi",
+            "%10 şartına ek"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Dikkat edilmesi gereken nokta şudur: bu şartlar yapı ruhsatı başvurusu sırasında aranır ve yeni yapılacak yapılar için geçerlidir. İdareler ihtiyaca göre elektrikli araç otopark yeri sayısını artırma kararı alabilir."
+      },
+      {
+        "type": "h2",
+        "text": "Mevcut binalarda durum ne?"
+      },
+      {
+        "type": "p",
+        "text": "Hâlihazırda yapılmış binalar için şarj ünitesi kurma yönünde bir zorunluluk bulunmuyor. Buna karşılık kurulum sürecini kolaylaştıran düzenlemeler yapıldı: mevcut site ve apartman otoparklarına kurulacak şarj üniteleri için yapı ruhsatı aranmıyor."
+      },
+      {
+        "type": "p",
+        "text": "Yani mevcut bir apartmanda şarj ünitesi kurmak isteyen kat maliki için mesele hukuki bir engel değil, çoğunlukla karar alma süreci ve elektrik altyapısının uygunluğudur."
+      },
+      {
+        "type": "h2",
+        "text": "Apartman ortak alanına kurulum: kaç oy gerekir?"
+      },
+      {
+        "type": "p",
+        "text": "Ortak alanda yer alan otoparka şarj ünitesi kurulması için önceden kat maliklerinin beşte dördünün (%80) onayı aranıyordu. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın illere gönderdiği genelgeyle şarj üniteleri ortak alanlarda inşaat kapsamından çıkarıldı ve onay eşiği salt çoğunluğa — yani kat maliklerinin yarıdan bir fazlasına — indirildi."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Karar, olağan genel kurulun gündemine eklenerek veya olağanüstü toplantıyla alınabilir.",
+          "Alınan karar tutanağa geçirilmelidir.",
+          "Elektrik bağlantısı için ilgili dağıtım şirketinin görüşü alınır.",
+          "Kendinize ait, bağımsız bölüm niteliğindeki kapalı garajda kurulum bu sürecin dışındadır."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Ticari şarj hizmeti verecekseniz: EPDK lisansı"
+      },
+      {
+        "type": "p",
+        "text": "Enerji Piyasası Düzenleme Kurumu'nun Elektrikli Araçlar İçin Şarj Hizmeti Yönetmeliği 2 Nisan 2022'de yürürlüğe girdi. Ticari amaçla, halka açık şarj hizmeti sunmak isteyenlerin EPDK'dan Şarj Ağı İşletmeci Lisansı alması gerekiyor."
+      },
+      {
+        "type": "p",
+        "text": "Bu, apartman sakinlerinin kendi araçlarını şarj ettiği bir üniteyle aynı şey değildir. Ancak site içindeki üniteyi dışarıya ücretli olarak açmayı düşünüyorsanız, konu doğrudan bu yönetmeliğin kapsamına girer."
+      },
+      {
+        "type": "h2",
+        "text": "Zorunluluk olmasa da altyapıyı doğru kurmak"
+      },
+      {
+        "type": "p",
+        "text": "Yönetmelik bir asgari şart koyar; sağlıklı bir kurulum çoğu zaman bunun ötesini gerektirir. Ortak otoparklarda en sık karşılaşılan üç mesele şunlardır:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Elektrik kapasitesi: binanın mevcut aboneliği birden fazla üniteyi aynı anda kaldırmayabilir. Yük yönetimi (dinamik güç paylaşımı) yapan üniteler bu sorunu kapasite artırmadan çözebilir.",
+          "Kim ne kadar kullandı: ortak alanda tüketimin kişi bazında ayrıştırılması gerekir. RFID kart veya mobil uygulama üzerinden kullanıcı tanıma yapan modeller bunu mümkün kılar; sayaçlı modellerde tüketim cihaz üzerinden okunabilir.",
+          "İleride büyüme: bugün iki araç varsa yarın altı olabilir. Kablo güzergâhı ve pano kapasitesi baştan buna göre planlanırsa sonraki kurulumlar çok daha ucuz olur."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Bemis'in Charger Plus 2 ve Pro 2 modelleri OCPP uyumlu çalışır, yük paylaşımını destekler ve RFID ile kullanıcı tanıma yapar; MID sayaçlı sürümlerde tüketim cihaz üzerinden takip edilebilir. Ortak alan senaryolarında bu üç özellik birlikte değerlendirilmelidir."
+      },
+      {
+        "type": "cta",
+        "text": "Apartman ve site otoparkları için uygun AC şarj istasyonu modellerini inceleyin.",
+        "href": "/products/wallbox",
+        "label": "Wallbox Şarj İstasyonları"
+      },
+      {
+        "type": "h2",
+        "text": "Önemli not"
+      },
+      {
+        "type": "p",
+        "text": "Bu yazı bilgilendirme amaçlıdır ve hukuki görüş niteliği taşımaz. Mevzuat değişebilir; yukarıdaki hükümlerin güncel hâlini Resmî Gazete üzerinden veya ilgili idareden teyit etmenizi, uygulamaya geçmeden önce yetkili bir elektrik proje müellifi ve bina yönetimiyle görüşmenizi öneririz."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apartmana elektrikli araç şarj istasyonu kurmak zorunlu mu?",
+        "a": "Mevcut binalar için şarj ünitesi kurma zorunluluğu bulunmuyor. Zorunluluk yeni yapılacak yapılar için geçerli: Otopark Yönetmeliği'ne göre zorunlu otopark adedi 20 ve üzeri olan yeni yapılarda, yapı ruhsatı başvurusunda otopark alanlarının en az yüzde beşinin ve en az bir adet olmak üzere şarj ünitesi dâhil elektrikli araçlara uygun düzenlenmesi şartı aranıyor. Mevcut bir apartmanda kurulum ise zorunluluk değil, kat maliklerinin kararına ve elektrik altyapısının uygunluğuna bağlı bir tercihtir."
+      },
+      {
+        "q": "Ortak otoparka şarj ünitesi kurmak için kaç kişinin onayı gerekir?",
+        "a": "Önceden kat maliklerinin beşte dördünün onayı aranıyordu. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın genelgesiyle şarj üniteleri ortak alanlarda inşaat kapsamından çıkarıldı ve onay eşiği salt çoğunluğa, yani kat maliklerinin yarıdan bir fazlasına indirildi. Karar olağan genel kurulda veya olağanüstü toplantıda alınabilir ve tutanağa geçirilmelidir. Kendinize ait bağımsız bölüm niteliğindeki kapalı garajda yapacağınız kurulum bu sürecin dışındadır."
+      },
+      {
+        "q": "Şarj istasyonu kurmak için yapı ruhsatı gerekiyor mu?",
+        "a": "Mevcut site ve apartman otoparklarına kurulacak şarj üniteleri için yapı ruhsatı aranmıyor; bu, kurulum sürecini belirgin biçimde kolaylaştıran düzenlemelerden biri. Ancak ruhsat gerekmemesi, elektriksel tarafın serbest olduğu anlamına gelmez: besleme hattının projelendirilmesi, koruma ekipmanlarının seçimi ve bağlantı işlemleri yetkili kişilerce yapılmalı, elektrik bağlantısı için ilgili dağıtım şirketinin görüşü alınmalıdır."
+      },
+      {
+        "q": "AVM ve genel otoparklarda oran farklı mı?",
+        "a": "Evet. Yeni yapılacak bölge otoparkları, genel otoparklar ve AVM otoparklarında en az yüzde on oranında otopark yerinin elektrikli araçlara uygun düzenlenmesi şartı aranıyor. AVM'lerde büyüklüğe bağlı ek bir koşul daha var: otuz bin metrekareden büyük alışveriş merkezlerinde kurulacak şarj ünitelerinden en az birinin, yetmiş bin metrekareden büyük olanlarda ise en az ikisinin hızlı şarj kapasitesine sahip olması gerekiyor."
+      },
+      {
+        "q": "Sitedeki şarj ünitesini dışarıdan gelenlere ücretli açabilir miyim?",
+        "a": "Bu durumda konu Otopark Yönetmeliği'nden çıkıp EPDK'nın Elektrikli Araçlar İçin Şarj Hizmeti Yönetmeliği kapsamına girer. Ticari amaçla ve halka açık şarj hizmeti sunmak, EPDK'dan Şarj Ağı İşletmeci Lisansı alınmasını gerektiriyor. Yalnızca site sakinlerinin kendi araçlarını şarj ettiği, ticari hizmet sunulmayan bir kurulum bu kapsamda değerlendirilmez. Ücretlendirme modelini kurgulamadan önce bu ayrımı netleştirmek gerekir."
+      }
+    ],
+    "related": [
+      {
+        "label": "Apartmana Şarj İstasyonu Kurulumu",
+        "href": "/blog/apartmana-sarj-istasyonu-kurulumu"
+      },
+      {
+        "label": "İş Yerine Şarj İstasyonu Kurulumu",
+        "href": "/blog/is-yerine-sarj-istasyonu-kurulumu"
+      },
+      {
+        "label": "Yük Yönetimi (Dinamik Güç Paylaşımı)",
+        "href": "/blog/elektrikli-arac-sarj-yuk-yonetimi"
+      },
+      {
+        "label": "AC Wallbox Şarj İstasyonları",
+        "href": "/products/wallbox"
+      }
+    ]
+  },
+  {
     "slug": "elektrikli-arac-sarj-uzatma-kablosu-nasil-secilir",
     "title": "Elektrikli Araç Şarj Uzatma Kablosu: Kaç mm², Hangi Konnektör, Kaç Metre?",
     "metaTitle": "EV Şarj Uzatma Kablosu — Kaç mm², Kaç Metre?",
@@ -891,6 +1091,7 @@ export const BLOG_POSTS: BlogPost[] = [
       }
     ],
     "faq": [
+      {"q":"Elektrikli arabayı ev prizinden şarj edebilir miyim?","a":"Evet, elektrikli araçlar ev prizinden şarj edilebilir; bunun için araçla birlikte verilen ya da ayrıca alınan taşınabilir şarj cihazı kullanılır. Ancak bu en yavaş yöntemdir ve prizin bağlı olduğu hattın durumu belirleyicidir: eski veya birden çok cihazı besleyen bir hatta saatlerce süren yüksek akım çekmek doğru değildir. Uygulamada en sağlıklısı, şarj için ayrılmış ve koruma ekipmanı bulunan bir hat üzerinden, akımı ayarlanabilen bir cihazla şarj etmektir. Bemis'in taşınabilir modellerinde akım kademeli olarak düşürülebilir; Pro Mobile 2'de altı kademe bulunur."},
       {
         "q": "Elektrikli arabamı normal ev prizinden şarj edebilir miyim?",
         "a": "Edebilirsiniz ama en yavaş yöntem budur ve normal priz saatlerce yüksek akıma uygun tasarlanmadığı için tesisatı zorlar. Uzatma kablosu veya çoklu priz asla kullanmayın. Sık şarj edecekseniz taşınabilir ya da duvar tipi bir şarj aletine geçmek hem çok daha hızlı hem güvenlidir."
@@ -909,6 +1110,7 @@ export const BLOG_POSTS: BlogPost[] = [
       }
     ],
     "related": [
+      {"label":"Taşınabilir Şarj Cihazları","href":"/products/portable"},
       {
         "label": "Ev Tipi Şarj Ünitesi mi, Taşınabilir Şarj Cihazı mı?",
         "href": "/blog/ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi"
@@ -4302,6 +4504,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "cta", text: "Site ve iş yeri için OCPP uyumlu Bemis çözümlerini inceleyin.", href: "/products/wallbox", label: "Şarj İstasyonlarını Gör" },
     ],
     faq: [
+      { "q": "Apartman ve kapalı otopark şarj istasyonu yönetmeliği ne diyor?", "a": "Yeni yapılacak yapılarda Otopark Yönetmeliği bir asgari oran koyar: zorunlu otopark adedi 20 ve üzeri olan yapılarda, otopark alanlarının en az yüzde beşi ve en az bir adet olmak üzere şarj ünitesi dâhil elektrikli araçlara uygun düzenlenir. Mevcut binalarda ise kurma zorunluluğu yoktur; buna karşılık kurulum kolaylaştırılmıştır — ortak alan için kat maliklerinin salt çoğunluğunun onayı yeterlidir ve yapı ruhsatı aranmaz. Konunun tamamını ayrı bir rehberde ele aldık." },
       { "q": "Apartmana şarj istasyonu kurmak için izin gerekir mi?", "a": "Otopark gibi ortak bir alana şarj istasyonu kuracaksanız önce yönetim ya da kat malikleri kararı almanız gerekir. Türkiye'de mevzuat elektrikli araç şarj altyapısı taleplerini kolaylaştıracak yönde gelişse de, kurulumdan önce site yönetimiyle görüşüp gerekli onayı yazılı olarak almak en doğru yaklaşımdır. Bu adım hem komşularla olası anlaşmazlıkları önler hem de cihazın hangi noktaya konacağının ve hangi hattan besleneceğinin baştan netleşmesini sağlar. Müstakil garajda kurulum kolayken apartman veya site otoparkında bu ek adımlar gerekir. Onay alındıktan sonra elektrik altyapısı, yük yönetimi ve faturalandırma gibi teknik konulara sırayla geçilir." },
       { "q": "Sitede birden çok şarj noktası nasıl yönetilir?", "a": "Bir sitede birden fazla şarj noktası bulunup hepsi aynı anda tam güç çekerse şebeke zorlanır. Bunu önlemek için yük yönetimi (DLM) özellikli cihazlar kullanılır; bu cihazlar mevcut gücü noktalar arasında dengeli biçimde paylaştırarak aşırı yüklenmeyi ve tesisatın zorlanmasını engeller. Kimin ne kadar harcadığını ayırmak içinse RFID kart, mobil uygulama veya OCPP tabanlı bir yönetim sistemi devreye girer. Böylece her kullanıcı yalnızca kendi tükettiği enerjiyi öder ve ortak elektrik faturasından kimin ne kadar kullandığı sorunu tamamen ortadan kalkar. OCPP uyumlu cihazlar bu yönetimi ve faturalandırmayı uzaktan yapmanıza da imkân tanır." },
       { "q": "Apartman şarjı için hangi cihaz uygun?", "a": "Apartman veya site otoparkı için OCPP uyumlu, yük yönetimi (DLM) destekleyen ve IP65/IP66 koruma sınıfına sahip bir AC Wallbox uygundur. OCPP uyumluluğu cihazı uzaktan yönetmenizi ve kullanım başına faturalandırma yapmanızı sağlar; yük yönetimi birden çok nokta olduğunda mevcut gücü dengeli biçimde paylaştırır; IP65/IP66 koruma ise cihazın otopark gibi dış mekân koşullarına, toza ve suya dayanmasını güvence altına alır. Bemis'in OCPP uyumlu modelleri tam olarak bu tür kullanım için tasarlanmıştır. Cihazın mümkünse panodan çekilen ayrı bir hat üzerinden ve mutlaka yetkili bir elektrikçi tarafından kurulması gerekir; bu, hem güvenlik hem de uzun ömür için önemlidir." },
@@ -4309,6 +4512,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { "q": "Otoparka kurulan şarj cihazı hava koşullarına dayanır mı?", "a": "Evet, doğru koruma sınıfındaki bir cihaz seçildiğinde otopark ve dış mekân koşullarına dayanır. Apartman veya site otoparkı gibi açık ya da yarı açık alanlar için IP65/IP66 koruma sınıfına sahip cihazlar tercih edilmelidir; bu sınıf, cihazı toza ve suya karşı korur. Bu sayede şarj istasyonu yağmur, nem ve tozdan etkilenmeden uzun süre güvenle çalışır. Bemis'in IP65/IP66 korumalı modelleri bu tür kullanımlar göz önünde bulundurularak üretilir. Koruma sınıfının yanı sıra cihazın yetkili kurulum ve ayrı hat ile bağlanması da uzun ömür için önemlidir." }
     ],
     related: [
+      { label: "Şarj İstasyonu Yönetmeliği: Ne Zorunlu?", href: "/blog/elektrikli-arac-sarj-istasyonu-yonetmeligi" },
       { label: "AC Wallbox", href: "/products/wallbox" },
       { label: "Şarj Ağı Operatörleri", href: "/operator" },
       { label: "Bayilik / İletişim", href: "/bayilik" },
