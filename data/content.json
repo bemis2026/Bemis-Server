@@ -96,7 +96,7 @@
         }
       ],
       "descriptionImage": "",
-      "description": "Ev tipi (duvar tipi) AC şarj istasyonları — ev, iş yeri ve otopark için. 7,4 kW – 22 kW arası tek ve üç fazlı modeller; Type 2 soket veya entegre kablo seçenekleriyle elektrikli aracınızı (arabanızı) güvenli ve verimli şekilde şarj eder. Evde şarj için ideal; CE & IP65 sertifikalı, IEC 61851 / IEC 62196 standartlarına uygun, %94 Yerli Malı Belgeli ve garantili yerli üretim.",
+      "description": "Ev tipi (duvar tipi) AC şarj istasyonları — ev, iş yeri ve otopark için. 7,4 kW – 22 kW arası tek ve üç fazlı modeller; Type 2 (Tip 2) soket veya entegre kablo seçenekleriyle elektrikli aracınızı (arabanızı) güvenli ve verimli şekilde şarj eder. Evde şarj için ideal bir ev şarj cihazı; CE & IP65 sertifikalı, IEC 61851 / IEC 62196 standartlarına uygun, %94 Yerli Malı Belgeli ve garantili yerli üretim.",
       "manuals": [
         {
           "id": "manual-1779303159452",
@@ -145,7 +145,7 @@
           "a": "Aracınızı her gün aynı yerde park ediyorsanız sabit wallbox daha hızlı, daha güvenli ve uzun vadede daha ekonomiktir. Sık seyahat ediyorsanız veya birden fazla mekan arasında geçiş yapıyorsanız mobile şarj cihazı daha esnek bir çözümdür. İkisini de almak da yaygın bir tercihtir."
         }
       ],
-      "description": "Kurulum gerektirmeyen taşınabilir (seyyar / portatif) AC şarj cihazları — standart prizden veya Cee soketten Type 2 araç soketine kadar. Tek fazlı 2,3 – 7,4 kW ve üç fazlı 11 / 22 kW seçenekleriyle yolda, kampta ve yedek senaryolarda esnek şarj çözümü. Elektrikli arabanız için yanınızda taşıyabileceğiniz, %94 Yerli Malı Belgeli ve CE sertifikalı yerli üretim.",
+      "description": "Kurulum gerektirmeyen taşınabilir (seyyar / portatif) AC şarj cihazları — elektrikli araba şarj aleti olarak da bilinir. Standart ev prizinden veya Cee soketten Type 2 (Tip 2) araç soketine kadar. Tek fazlı 2,3 – 7,4 kW ve üç fazlı 11 / 22 kW seçenekleriyle yolda, kampta ve yedek senaryolarda esnek şarj çözümü. Elektrikli arabanız için yanınızda taşıyabileceğiniz, %94 Yerli Malı Belgeli ve CE sertifikalı yerli üretim.",
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075745/products/phrdrgmnycwteac03l3c.png"
     },
     "cables": {
@@ -197,7 +197,7 @@
           "a": "Ürünlerimiz 2 yıl üretici garantisi kapsamındadır. Kabloyu kendiniz açmayın veya onarmaya çalışmayın; soketi prizden çekip kullanımdan kaldırın. Ürünü aldığınız yetkili bayiyle iletişime geçin ya da sitemizin Rehber menüsündeki \"Arıza & Garanti\" sayfasındaki adımları izleyerek bize ulaşın. Ürün kodu, satın alma belgesi ve sorunu gösteren bir fotoğraf veya video süreci hızlandırır."
         }
       ],
-      "description": "Elektrikli araba şarj kablonuzu doğrudan üreticisinden alın. Bemis E-V Charge, Type 2 (Mod 3) şarj kablolarını Bursa Organize Sanayi Bölgesi'ndeki 16.000 m² kendi tesisinde üreten yerli üreticidir; kablolar ithal edilip etiketlenmez. Tek ve üç fazlı, 16A – 32A akım sınıflarında ve 3 metreden 15 metreye kadar uzunluk seçenekleriyle sunulur. IEC 62196 / IEC 61851 uyumlu, halojensiz dış kılıf ve yüksek akım Type 2 konektörü ile uzun ömürlü kullanım için tasarlandı. %94 Yerli Malı Belgeli ve CE sertifikalı üretim; tedarik, yedek parça ve teknik destek doğrudan üreticiden sağlanır.",
+      "description": "Elektrikli araba şarj kablonuzu doğrudan üreticisinden alın. Bemis E-V Charge, Type 2 (Tip 2 / Mod 3) araç şarj kablolarını Bursa Organize Sanayi Bölgesi'ndeki 16.000 m² kendi tesisinde üreten yerli üreticidir; kablolar ithal edilip etiketlenmez. Tek fazlı (monofaze) ve üç fazlı (trifaze), 16A – 32A akım sınıflarında; 3, 5, 7, 8, 10 ve 15 metre uzunluk seçenekleriyle sunulur. IEC 62196 / IEC 61851 uyumlu, halojensiz dış kılıf ve yüksek akım Type 2 konektörü ile uzun ömürlü kullanım için tasarlandı. %94 Yerli Malı Belgeli ve CE sertifikalı üretim; tedarik, yedek parça ve teknik destek doğrudan üreticiden sağlanır.",
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075750/products/yquclaq2d8incbvlonxk.png"
     },
     "v2l-c2l": {
@@ -265,7 +265,7 @@
           "a": "Ev şarjında Schuko (standart Türk prizi), 16A endüstriyel CEE mavi priz, 32A CEE kırmızı üç fazlı priz yaygındır. Halka açık AC noktalarda Type 2 standarttır. DC hızlı şarjda CCS2 (en yaygın) ve CHAdeMO (Nissan/eski araçlar) görülür."
         }
       ],
-      "description": "Mevcut şarj ekipmanını farklı priz tipleri ve uzaklıklara taşıyan uzatma kabloları ve Ceenorm dönüştürücüler. Tek ve üç fazlı 16A – 32A geçişler için tasarlanmış kombinasyon çözümleri. Elektrikli arabanızın şarj kurulumunu farklı priz ve mesafelere uyarlar. %94 Yerli Malı Belgeli, CE sertifikalı ve garantili yerli üretim.",
+      "description": "Mevcut şarj ekipmanını farklı priz tipleri ve uzaklıklara taşıyan şarj uzatma kabloları ve Ceenorm dönüştürücü adaptörler. Tek fazlı (monofaze) ve üç fazlı (trifaze) 16A – 32A geçişler için tasarlanmış kombinasyon çözümleri. Elektrikli arabanızın şarj kurulumunu farklı priz ve mesafelere uyarlar; araç şarj kablosu uzatma ihtiyacınızı doğrudan üreticisinden karşılar. %94 Yerli Malı Belgeli, CE sertifikalı ve garantili yerli üretim.",
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075761/products/f0fshjhhljmvpkcrxxzu.png"
     },
     "charger-equipment": {
@@ -329,7 +329,7 @@
           "a": "Kart kaybolduğunda admin panelinden veya satış ekibimize bildirerek devre dışı bırakılabilir. Yeni bir kart eşleşmesi 5 dakikada tamamlanır. Kayıp kartla yetkisiz kullanım riski ihmal edilebilir; çünkü her kart cihaz kayıt sistemine bağlıdır."
         }
       ],
-      "description": "RFID kartlar, taşıma çantaları ve montaj aksesuarları — bir şarj sahasının operasyonel ve güvenlik ihtiyaçlarını tamamlayan yan ürünler. Elektrikli araba ve şarj istasyonu kullanımını kolaylaştıran, dayanıklı ve garantili yerli üretim aksesuarlar."
+      "description": "Şarj kablosu taşıma çantaları, AC/DC soket tutucular, duvar askı aparatları ve pedestal (ayaklı montaj) — bir şarj sahasının operasyonel ve güvenlik ihtiyaçlarını tamamlayan yan ürünler. Şarj kablonuzu düzenli ve korumalı saklamanızı sağlayan çözümlerle elektrikli araba ve şarj istasyonu kullanımını kolaylaştıran, dayanıklı ve garantili yerli üretim aksesuarlar."
     },
     "dc-units": {
       "name": "DC Şarj Üniteleri",
