@@ -13,6 +13,30 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🔎🆕 **FABLE 5.1 TAZE-GÖZ DENETİMİ — 3 DÜZELTME CANLI (2026-09-03, commit 928640d):**
+> Kullanıcı "her şey yolunda ama Fable 5.1 ne görür" dedi; bu oturumda ÖLÇÜLMEMİŞ açılara bakıldı.
+> **TEMİZ (iş yok):** Product şeması 30/30 tam (name/image/sku/mpn/brand/offers.price-currency-availability-url-priceValidUntil) ·
+> Article 8/8 · hreflang TR↔EN 8/8 karşılıklı · EN ürün `<title>`/H1'de Türkçe kalıntı 0/30 · alt metin 209 görselde eksik 0 ·
+> 5 dil × 2 ekran yatay taşma 0, AR `dir=rtl` · kısıtlı mobil (yavaş 4G + 4× CPU) anasayfa 4,9 sn / ürün 1,2 sn, CLS 0,005.
+> **🔴 BULGU 1 — 84/150 ÜRÜN SAYFASI HİÇBİR YERDEN `<a href>` ALMIYORDU:** kategori kartı varyant çipleri,
+> ürün detay varyant katmanı ve "Benzer Ürünler" karuseli `router.push` idi (Temmuz kart düzeltmesi başlıkları çevirmiş,
+> bunları atlamıştı). Kablo kategorisi 22 ürünün 4'üne link veriyordu. **Üçü `<Link href>` oldu** (görünüm/tıklama aynı,
+> stopPropagation korundu; `ProductDetailClient`'a `next/link` importu). **Canlı: /products/cables 4→22 href, detayda 0→13.**
+> ⚠️ Tarama yöntemi: sitemap TR sayfalarının gövdesindeki href'ler sayıldı; sayfada `<main>` YOK → tüm sayfa (nav+footer dahil)
+> sayıldı, yani "0" gerçekten hiç link yok demek. `scratchpad/_ic_link.cjs` deseni.
+> **🟠 BULGU 2 — og:image ham Cloudinary PNG (12/12, ort. 2,3 MB, en büyük 4,2 MB):** WhatsApp/LinkedIn her paylaşımda indiriyordu.
+> TR+EN ürün `page.tsx`: `${SITE_URL}/_next/image?url=…&w=1080&q=88` → **canlı 229 KB PNG, 200**. 📌 **w yalnız
+> `deviceSizes`/`imageSizes`'tan olabilir — 1200 listede YOK, 400 dönerdi.** Şemadaki `image` bilerek ham (şema için sorun değil).
+> **🟡 BULGU 3 — "Devamını oku / Daha az" de/ru/ar/es'te İngilizce kalıyordu** (`pickText` → ui.json anahtarı yoktu) → 2 anahtar ×
+> 4 dil eklendi, canlı doğrulandı. 📌 `pickText` anahtarı = İNGİLİZCE metin; yeni UI dizesi eklerken ui.json'a 4 dil de girilmeli.
+> **ⓘ DOKUNULMADI (kullanıcı seçmedi) — HERO DÖNEN KELİME:** dinlenmede hizalı (+1 px) ama geçişte `translateY(0.6em)`=19 px
+> aşağı kayıyor ve ekran görüntülerinin 3/3'ü geçişi yakaladı (TR mobil + RU masaüstü). Görsel karar; istenirse 0,6em→0,15em
+> ya da yalnız solma. Ayrıca yabancı dilde ilk ~2,5 sn sunucudan gelen Türkçe kelime döner (SSR TR + istemci swap; listeler doğru).
+> **⚠️ BU TURDA 3 ARAÇ DERSİ:** (1) kelime-imzalı kayma tarayıcısı TR referansta bile yanıldı → dilden bağımsız sayı/marka
+> parmak izi; (2) tarayıcıyı BİLİNEN vakayla test etmeden sonucuna güvenme (ikinci sürüm bilinen kaymayı kaçırmıştı);
+> (3) JSX yorumu `return (` ile kök öğe arasına KONMAZ → tsc yakaladı, commit tsc'ye kilitli olduğu için bozuk kod push edilmedi.
+> ⏳ Kullanıcı seçimde "başka bir şey" işaretledi ama metin gelmedi — soruldu.
+
 > 🔌✅ **12 UZATMA KABLOSUNUN IP DEĞERİ GELDİ — HEPSİ IP44 (2026-08-28, kullanıcı 6 aileyi TEK TEK seçmeli cevapladı):**
 > Aylardır açık olan iş kapandı. Kullanıcı "tek tek seçmeli sor" dedi; 12 ürün = 6 aile (5m/10m çifti aynı tasarım)
 > olarak soruldu, **6/6 cevap IP44** (önceki "bazıları IP67" tahmini doğrulanmadı — IP67'imsi olan zaten IP68 kablosuydu).
