@@ -65,7 +65,7 @@ function build(): string {
 
   p.push(`## Marka ve Üretici
 
-Bemis E-V Charge, Türkiye'de yerli olarak elektrikli araç (EV) şarj çözümleri üreten bir markadır. 1994 kuruluşlu, Bursa'daki kendi tesisinde üretim yapan Bemis Teknik Elektrik A.Ş. bünyesinde geliştirilir; ürünler doğrudan üreticiden sunulur. Ürün gamı: AC Wallbox şarj istasyonları (7,4–22 kW), AC taşınabilir/mobil şarj cihazları, Type 2 şarj kabloları (Mod 2 ve Mod 3), V2L/C2L adaptörler, CEE uzatma ve dönüştürücüler, aksesuarlar, CCS2 DC hızlı şarj üniteleri (BEVDC 40–120 kW) ve şarj ünitesi ekipmanları. Ürünler CE belgeli, IP65/IP66 koruma sınıfında ve OCPP uyumludur (akıllı modeller OCPP 1.6J / 2.0.1).
+Bemis E-V Charge, Türkiye'de yerli olarak elektrikli araç (EV) şarj çözümleri üreten bir markadır. 1994 kuruluşlu, Bursa'daki kendi tesisinde üretim yapan Bemis Teknik Elektrik A.Ş. bünyesinde geliştirilir; ürünler doğrudan üreticiden sunulur. Ürün gamı: AC Wallbox şarj istasyonları (7,4–22 kW), AC taşınabilir/mobil şarj cihazları, Type 2 şarj kabloları (Mod 2 ve Mod 3), V2L/C2L adaptörler, CEE uzatma ve dönüştürücüler, aksesuarlar, CCS2 DC hızlı şarj üniteleri (BEVDC 40–200 kW) ve şarj ünitesi ekipmanları. Ürünler CE belgeli, IP65/IP66 koruma sınıfında ve OCPP uyumludur (akıllı modeller OCPP 1.6J / 2.0.1).
 
 ## İhracat / Export
 

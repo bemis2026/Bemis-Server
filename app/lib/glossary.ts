@@ -55,7 +55,7 @@ export const GLOSSARY: GlossaryTerm[] = [
     abbr: "CCS2",
     short: "Türkiye ve Avrupa'nın standart DC hızlı şarj soketi (Combo 2).",
     definition:
-      "CCS2 (Combined Charging System / Combo 2), Türkiye ve Avrupa'nın standart DC hızlı şarj soketidir. Type 2 soketinin altına eklenen iki güçlü DC pini ile yüksek güçte doğru akım aktarır; böylece araç, AC şarja kıyasla dakikalar içinde önemli oranda dolar. \"Kombine\" adını buradan alır: aynı konnektör hem AC (üstteki Type 2 kısmı) hem DC şarjı tek soketle destekler, bu yüzden araçta tek bir şarj girişi yeterlidir. DC şarjda akım dönüşümü araç yerine istasyonun içinde yapıldığından güç, aracın bataryasına doğrudan verilir ve onboard charger sınırına takılmaz. Türkiye'deki kamuya açık hızlı şarj ağlarının ve yeni nesil elektrikli araçların ortak standardı CCS2'dir. Bemis'in yerli üretim BEVDC serisi hızlı şarj üniteleri (40–120 kW DC) CCS2 konnektör kullanır. Tipik bir senaryoda, yol üstündeki bir CCS2 istasyonu uzun yolculukta aracı kısa bir molada önemli ölçüde doldururken; aynı soket bir AVM otoparkında alışveriş süresi boyunca hızlı şarj sağlar. Bu yüzden CCS2, evde AC ile gece şarjını tamamlayan, dışarıda hız gereken durumlara uygun bir çözümdür.",
+      "CCS2 (Combined Charging System / Combo 2), Türkiye ve Avrupa'nın standart DC hızlı şarj soketidir. Type 2 soketinin altına eklenen iki güçlü DC pini ile yüksek güçte doğru akım aktarır; böylece araç, AC şarja kıyasla dakikalar içinde önemli oranda dolar. \"Kombine\" adını buradan alır: aynı konnektör hem AC (üstteki Type 2 kısmı) hem DC şarjı tek soketle destekler, bu yüzden araçta tek bir şarj girişi yeterlidir. DC şarjda akım dönüşümü araç yerine istasyonun içinde yapıldığından güç, aracın bataryasına doğrudan verilir ve onboard charger sınırına takılmaz. Türkiye'deki kamuya açık hızlı şarj ağlarının ve yeni nesil elektrikli araçların ortak standardı CCS2'dir. Bemis'in yerli üretim BEVDC serisi hızlı şarj üniteleri (40–200 kW DC) CCS2 konnektör kullanır. Tipik bir senaryoda, yol üstündeki bir CCS2 istasyonu uzun yolculukta aracı kısa bir molada önemli ölçüde doldururken; aynı soket bir AVM otoparkında alışveriş süresi boyunca hızlı şarj sağlar. Bu yüzden CCS2, evde AC ile gece şarjını tamamlayan, dışarıda hız gereken durumlara uygun bir çözümdür.",
     keywords: ["ccs2 nedir", "combo 2 soket", "dc hızlı şarj soketi", "ccs2 type 2"],
     related: [
       { label: "EV Şarj Soketi Tipleri", href: "/blog/ev-sarj-soketi-tipleri-type-2-ccs2-chademo" },
@@ -68,7 +68,7 @@ export const GLOSSARY: GlossaryTerm[] = [
       },
       {
         q: "CCS2 neden AC şarjdan daha hızlıdır?",
-        a: "CCS2'de akım dönüşümü araç yerine istasyonun içinde yapılır, böylece güç bataryaya doğrudan verilir ve aracın onboard charger sınırına takılmaz. Bu sayede araç AC şarja kıyasla dakikalar içinde önemli oranda dolar. Bemis'in BEVDC serisi (40–120 kW DC) CCS2 konnektör kullanır.",
+        a: "CCS2'de akım dönüşümü araç yerine istasyonun içinde yapılır, böylece güç bataryaya doğrudan verilir ve aracın onboard charger sınırına takılmaz. Bu sayede araç AC şarja kıyasla dakikalar içinde önemli oranda dolar. Bemis'in BEVDC serisi (40–200 kW DC) CCS2 konnektör kullanır.",
       },
       {
         q: "CCS2 Türkiye'de standart mıdır?",
@@ -109,7 +109,7 @@ export const GLOSSARY: GlossaryTerm[] = [
     abbr: "AC / DC şarj",
     short: "Akım dönüşümünün araçta (AC) mı istasyonda (DC) mı yapıldığı farkı.",
     definition:
-      "AC ve DC şarj, akım dönüşümünün nerede yapıldığıyla ayrışır. AC şarjda istasyon şebekeden gelen alternatif akımı araca iletir; bataryanın ihtiyaç duyduğu doğru akıma dönüşümü aracın içindeki onboard charger yapar (tipik 7,4–22 kW). DC hızlı şarjda ise dönüşüm istasyonun içindeki güçlü çevirici tarafından yapılır ve doğru akım doğrudan bataryaya verilir; aracın küçük onboard charger'ı devreye girmediği için çok daha yüksek güce (50 kW ve üzeri) çıkılabilir. Bu nedenle AC şarj ev, iş yeri ve gece park gibi saatlerce süren senaryolara, DC hızlı şarj ise yol üstü ve filo gibi dakikalar içinde menzil eklenmesi gereken durumlara uygundur. Bemis hem yerli üretim AC wallbox cihazlarını hem CCS2 standardındaki BEVDC serisi DC hızlı şarj ünitelerini birlikte sunar. Somut karşılaştırmayla, evde 11 kW'lık bir AC wallbox aracı saatler içinde doldururken, BEVDC serisi bir DC ünitesi (40–120 kW) aynı menzili yol üstünde çok daha kısa sürede ekler. Bu yüzden çoğu kullanıcı için pratik kurulum, günlük kullanımda AC ev şarjı + uzun yolda DC hızlı şarj kombinasyonudur.",
+      "AC ve DC şarj, akım dönüşümünün nerede yapıldığıyla ayrışır. AC şarjda istasyon şebekeden gelen alternatif akımı araca iletir; bataryanın ihtiyaç duyduğu doğru akıma dönüşümü aracın içindeki onboard charger yapar (tipik 7,4–22 kW). DC hızlı şarjda ise dönüşüm istasyonun içindeki güçlü çevirici tarafından yapılır ve doğru akım doğrudan bataryaya verilir; aracın küçük onboard charger'ı devreye girmediği için çok daha yüksek güce (50 kW ve üzeri) çıkılabilir. Bu nedenle AC şarj ev, iş yeri ve gece park gibi saatlerce süren senaryolara, DC hızlı şarj ise yol üstü ve filo gibi dakikalar içinde menzil eklenmesi gereken durumlara uygundur. Bemis hem yerli üretim AC wallbox cihazlarını hem CCS2 standardındaki BEVDC serisi DC hızlı şarj ünitelerini birlikte sunar. Somut karşılaştırmayla, evde 11 kW'lık bir AC wallbox aracı saatler içinde doldururken, BEVDC serisi bir DC ünitesi (40–200 kW) aynı menzili yol üstünde çok daha kısa sürede ekler. Bu yüzden çoğu kullanıcı için pratik kurulum, günlük kullanımda AC ev şarjı + uzun yolda DC hızlı şarj kombinasyonudur.",
     keywords: ["ac dc şarj farkı", "ac şarj nedir", "dc hızlı şarj nedir"],
     related: [
       { label: "AC ve DC Şarj Farkı", href: "/blog/ac-dc-sarj-farki" },
@@ -122,7 +122,7 @@ export const GLOSSARY: GlossaryTerm[] = [
       },
       {
         q: "DC hızlı şarj neden daha yüksek güce çıkabiliyor?",
-        a: "DC şarjda dönüşüm istasyonun içindeki güçlü çevirici tarafından yapılır ve aracın küçük onboard charger'ı devreye girmez. Bu nedenle aracın AC sınırına takılmadan 50 kW ve üzeri güce çıkılabilir; Bemis'in BEVDC serisi DC üniteleri 40–120 kW aralığında çalışır.",
+        a: "DC şarjda dönüşüm istasyonun içindeki güçlü çevirici tarafından yapılır ve aracın küçük onboard charger'ı devreye girmez. Bu nedenle aracın AC sınırına takılmadan 50 kW ve üzeri güce çıkılabilir; Bemis'in BEVDC serisi DC üniteleri 40–200 kW aralığında çalışır.",
       },
       {
         q: "Evde AC mi, DC hızlı şarj mı kullanmalıyım?",
@@ -136,7 +136,7 @@ export const GLOSSARY: GlossaryTerm[] = [
     abbr: "kW / kWh",
     short: "kW gücü (hız), kWh ise enerji miktarını (depolanan/aktarılan) gösterir.",
     definition:
-      "kW (kilowatt) gücü, yani şarjın hızını ifade eder; kWh (kilowatt-saat) ise enerji miktarını, yani araca aktarılan veya bataryada depolanan toplam enerjiyi gösterir. Basit benzetmeyle kW musluğun debisi (suyun ne kadar hızlı aktığı), kWh ise dolan su miktarıdır (kovaya toplam ne kadar su girdiği). İkisi süreyle bağlıdır: aktarılan enerji (kWh), güç (kW) ile şarj süresinin (saat) çarpımına yaklaşık eşittir. Örneğin 11 kW güçle 1 saat şarj yaklaşık 11 kWh enerji aktarır; aynı 11 kW ile 22 kWh enerji yüklemek ise kabaca 2 saat sürer. Bu yüzden araç menzilini belirleyen kWh (batarya kapasitesi), ne kadar hızlı dolacağını belirleyen ise kW'tır. Bemis AC cihazları 7,4–22 kW, BEVDC serisi DC üniteleri 40–120 kW güç aralığında çalışır. Pratikte bu fark cihaz seçimini doğrudan etkiler: evde gece 8 saat park eden bir araç için düşük kW'lı bir AC cihaz yeterli enerjiyi sığdırırken, yol üstünde aynı kWh'i kısa sürede yüklemek yüksek kW'lı bir DC ünitesi gerektirir. Yani ihtiyacınız \"ne kadar enerji\" değil, \"ne kadar sürede\" sorusuyla belirlenir.",
+      "kW (kilowatt) gücü, yani şarjın hızını ifade eder; kWh (kilowatt-saat) ise enerji miktarını, yani araca aktarılan veya bataryada depolanan toplam enerjiyi gösterir. Basit benzetmeyle kW musluğun debisi (suyun ne kadar hızlı aktığı), kWh ise dolan su miktarıdır (kovaya toplam ne kadar su girdiği). İkisi süreyle bağlıdır: aktarılan enerji (kWh), güç (kW) ile şarj süresinin (saat) çarpımına yaklaşık eşittir. Örneğin 11 kW güçle 1 saat şarj yaklaşık 11 kWh enerji aktarır; aynı 11 kW ile 22 kWh enerji yüklemek ise kabaca 2 saat sürer. Bu yüzden araç menzilini belirleyen kWh (batarya kapasitesi), ne kadar hızlı dolacağını belirleyen ise kW'tır. Bemis AC cihazları 7,4–22 kW, BEVDC serisi DC üniteleri 40–200 kW güç aralığında çalışır. Pratikte bu fark cihaz seçimini doğrudan etkiler: evde gece 8 saat park eden bir araç için düşük kW'lı bir AC cihaz yeterli enerjiyi sığdırırken, yol üstünde aynı kWh'i kısa sürede yüklemek yüksek kW'lı bir DC ünitesi gerektirir. Yani ihtiyacınız \"ne kadar enerji\" değil, \"ne kadar sürede\" sorusuyla belirlenir.",
     keywords: ["kw kwh farkı", "kw nedir", "kwh nedir", "şarj gücü enerji"],
     related: [
       { label: "Şarj Süresi: Kaç Saatte Dolar", href: "/blog/elektrikli-arac-sarj-suresi-kac-saatte-dolar" },
@@ -388,7 +388,7 @@ export const GLOSSARY: GlossaryTerm[] = [
 export const allTerms = (): GlossaryTerm[] => GLOSSARY;
 // Sözlük içeriğinin son güncellenme tarihi (tazelik sinyali — term sayfası openGraph.modifiedTime).
 // İçerik anlamlı güncellenince GERÇEK tarihle yenile.
-export const GLOSSARY_UPDATED = "2026-06-28T00:00:00+03:00";
+export const GLOSSARY_UPDATED = "2026-09-03T00:00:00+03:00";
 // Terim↔terim ilişki ağı (mesh). seeAlso (DefinedTerm JSON-LD) + görünür "İlgili Terimler".
 export const TERM_SEE_ALSO: Record<string, string[]> = {
   "type-2": ["ccs2", "mod-2-mod-3", "wallbox"],
