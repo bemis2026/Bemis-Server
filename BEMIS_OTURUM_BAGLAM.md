@@ -48,8 +48,13 @@
 > "Bağlantı" → "Connectiviteit" (DE overlay'i de çevirmemiş; de/es/ru için R2 `_translations` işi, açık).
 > **ⓘ BİLEREK DOKUNULMADI:** `AppMockups.tsx` telefon/web mockup metinleri (26 sabit TR: "Şarj Yönetim Paneli", "Aktif
 > Şarj"…) = gerçek uygulama ekranının dekoratif kopyası (bağlamda "dekoratif, kodda sabit" olarak kayıtlı).
-> **⏳ AÇIK:** (1) **AR SSS'leri hâlâ kaymış**; (2) kabuk SSR TR sınırı (her kol); (3) hero dönen kelime nl'de "E-V laad
-> [systemen]" — bileşik kelime boşluğu (tasarım sınırı; ES de aynı); (4) de/es/ru `productShowcase.specs[2].label` R2'de TR.
+> **✅ AR SSS'LERİ DE YENİDEN ÇEVRİLDİ (6e5dad0):** 49 çift TR kaynaktan Arapçaya (`scratchpad/_faq_ar.json`), aynı ön
+> kontroller + Arapça harf kontrolü; R2 `_translations.ar` + `data/content-ar.json`. store cache **v96 → v97-faq-ar**.
+> **Artık 6 yabancı dilin (en/de/es/ar/ru/nl) kategori SSS'leri TR ile birebir hizalı.** ⓘ Parmak izi dersi: sayıyı kelimeyle
+> yazma ("سنتين" ≠ "2") — rakam korunmalı ki hiza kontrolü çalışsın.
+> **⏳ AÇIK:** (1) kabuk SSR TR sınırı (her kol); (2) hero dönen kelime nl'de "E-V laad [systemen]" — bileşik kelime boşluğu
+> (tasarım sınırı; ES de aynı); (3) de/es/ru `productShowcase.specs[2].label` R2'de TR; (4) TR sözlük "40–120 kW" → 40–200
+> güncellemesi (7 dil).
 > ⚠️ Ölçüm dersi: canlı JSON'u `res.on("data", c => d += c)` ile string biriktirmek çok baytlı karakteri parça sınırında
 > böler (`dış`→`d��ş`) → **Buffer.concat** kullan. ⚠️ `vercel ls` döngüsü arka planda/uzun döngüde takılabiliyor — tek
 > `vercel inspect` + Playwright ile doğrula.
