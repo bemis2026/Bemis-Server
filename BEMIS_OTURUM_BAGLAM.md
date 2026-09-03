@@ -13,6 +13,33 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🇳🇱🚀 **FELEMENKÇE (nl) KOLU AÇILDI — blog hariç her şey (2026-09-03, commit'ler e4a70a7 + ad düzeltmesi):**
+> Kullanıcı seçimi: "Felemenkçe koluna başla" (kapsam daha önce onaylandı: blog HARİÇ). Diğer 4 kolun aksine çeviri
+> **elle yazıldı** (ajan yok, MyMemory yok): **ürünler 511 benzersiz metin** (150 üründe 2.924 alan; fiyat/ölçü/kesit/akım
+> gibi 688 evrensel değer TR'den kopya) · **içerik 312 yol** (8 kategori açıklaması + 49 SSS + hero/DNA/bayi/yorum/vitrin/
+> footer/navbar) · **ui.json 365 anahtar** · **b2b 101 yol** · **haber 8**. Kaynaklar `scratchpad/_nl_*.json`, derleyici
+> `_nl_build.cjs` (canlı TR API = R2 sırası; ön kontrol: eksik çeviri 0 · TR harf sızıntısı 0 [`A.Ş.` muaf] · SSS sayısı
+> TR ile eşit · DE anahtar kümesi), kod betiği `_nl_code.cjs` (22 dosya, çapa+sayı kilitli). **Yeni dosyalar:**
+> `data/products-nl.json` · `data/content-nl.json` · `data/b2b-nl.json` (+ ui.json/press.json'a `nl`).
+> **KOD:** LangCode/LANGS/URL_LANGS · TransLang · LanguageSwitcher · overlay listeleri (serverProductsLang, contentLang,
+> api/b2b) · admin HYBRID_LANGS ×3 (admin kaydı nl'yi de MyMemory ile tazeler) · productNamesLocale (45 ad, `NL`) ·
+> localeProductSeo (LOCALE_LANGS/OG/CATEGORY_SEO/UI) · sitemap · 9 sayfada hreflang → **7'li küme** (tr/en/de/es/ru/nl +
+> x-default). `/nl/products` kolu `app/[lang]` üzerinden otomatik (159 sayfa).
+> **✅ CANLI:** /nl liste+kategori+ürün 200 prerender, H1/SSS/açıklama Hollandaca, hreflang 7'li TR·EN·DE·NL'de aynı, sitemap
+> **159 nl girişi + 954 nl alternates**, `/api/content?lang=nl` SSS 49/49, `/api/products?lang=nl` spec'ler Hollandaca,
+> `/api/b2b?lang=nl` Hollandaca, `/nl` `/nl/blog` `/nl/products/olmayan` 404.
+> **🔴 DÜZELTİLEN SESSİZ BOZULMA:** ilk canlıda /nl ÜRÜN sayfalarının H1/başlığı **Türkçe** kaldı — `isLocaleNameLang()`
+> sabit `de|es|ru` karşılaştırmasıydı, kod betiği tipi genişletti ama fonksiyonu değil → `productNameLocale` adı aynen
+> döndürdü. Artık `LOCALE_NAMES` anahtarlarından türer. 📌 **DERS: yeni dil eklerken `grep -rn '"de"' app lib` ile TÜM sabit
+> listeleri tara — tip genişletmek yetmez, çalışma zamanı kapılarını da bul.** (Bu turda 3 sabit liste daha vardı: admin
+> HYBRID_LANGS ×3 — onlar betikte yakalandı.)
+> **⏳ AÇIK:** (1) **Sözlük nl yok** — `data/i18n/glossary.json` 5 dilde (15 terim, ~36k karakter); /sozluk nl'de TR'ye düşer;
+> (2) **AR SSS'leri hâlâ kaymış**; (3) kabuk SSR TR sınırı (her kol); (4) hero dönen kelime nl'de "E-V laad [systemen]" —
+> Hollandaca bileşik kelime kuralına aykırı boşluk (tasarım sınırı; ES de aynı yolu izledi). ⚠️ Ölçüm dersi: canlı JSON'u
+> `res.on("data", c => d += c)` ile string biriktirmek çok baytlı karakteri parça sınırında böler (`dış`→`d��ş`) →
+> **Buffer.concat** kullan (`_nl_build.cjs`'de düzeltildi; eski doğrulama betikleri bu yüzden TR harf sayısını 1-2 fazla
+> göstermiş olabilir).
+
 > 🌍🚀 **/de /es /ru ÜRÜN KOLLARI AÇILDI + SSS 3 DİLE YENİDEN ÇEVRİLDİ (2026-09-03, commit 8df08c3):**
 > Kullanıcı seçimi: "önce SSS'leri çevir, sonra aç". **YAPI:** `app/[lang]/products/{page,[id]/page,[id]/[productId]/page}.tsx`
 > — `app/en/*`'nin dil-parametreli eşi, `dynamicParams=false` (yalnız de/es/ru; `/xx/products` 404). **Yeni sayfa: 3 × 159 = 477.**
