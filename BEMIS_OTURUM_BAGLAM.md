@@ -42,11 +42,17 @@
 > `/<dil>/products` tabanlı → /de/products 60 · /de/products/cables 26 · /es/products/wallbox 28 · /de ürün 14 link kendi
 > kolunda, TR köke **0**; TR sayfalar değişmedi. (Eskiden /de kategori sayfası ürünleri TR adreslere linkliyordu = kol içi
 > link akışı sıfırdı.)
-> **⏳ AÇIK:** (1) **EN ve AR SSS'leri HÂLÂ KAYMIŞ** — EN canlı+indeksli, öncelikli (49 çift; kanıt: EN ürün sayfasında ilk
-> soru "Type 2 vs Type 1", diğer 4 dilde "kaç metre olmalı"); (2) **Felemenkçe** (blog hariç ~660 KB, kullanıcı kapsamı
-> onayladı) — henüz başlanmadı; (3) kabuk (menü/footer) SSR'da TR basılıp istemcide değişir (bilinen mimari sınır, tüm kollar;
-> sayfa başına ~24-31 TR harf). store cache **v94 → v95-faq-dil**. Doğrulama betikleri: `scratchpad/_dogrula_dil.cjs`,
-> `_hl.cjs` (hreflang, büyük/küçük harf duyarsız), `_ru_sizinti.cjs` (TR-harfli parça listesi — hangi metin sızıyor).
+> **✅ EN SSS'LERİ DE YENİDEN ÇEVRİLDİ (672efc6, kullanıcı seçimi):** kanıt EN ürün sayfasında ilk soru "Type 2 vs Type 1"
+> iken diğer 4 dilde "kaç metre olmalı" idi. 49 çift TR kaynaktan İngilizceye (`scratchpad/_faq_en.json`), aynı ön kontrollerle
+> **ÜÇ hedefe** yazıldı: R2 `_translations.en` (servis edilen) + `data/content-en.json` + `data/content.json._translations.en`
+> (repo yedekleri sayıca da eksikti: wallbox 6/7, cables 5/10). Canlı: `/api/content?lang=en` **49/49 indeks parmak izi
+> hizalı**, /en kategori+ürün ilk soruları TR ile aynı. store cache **v95 → v96-faq-en**. 📌 EN SSS artık 3 yerde yaşıyor —
+> değiştirirken üçünü birlikte yaz (`_faq_uygula_en.cjs` deseni: env pull → kuru → uygula → env+betik SİL).
+> **⏳ AÇIK:** (1) **AR SSS'leri hâlâ kaymış** (sayfa yok, yalnız dil seçici; 49 çift, aynı yöntem); (2) **Felemenkçe** (blog hariç
+> ~660 KB, kullanıcı kapsamı onayladı) — henüz başlanmadı; (3) kabuk (menü/footer) SSR'da TR basılıp istemcide değişir (bilinen
+> mimari sınır, tüm kollar; sayfa başına ~15-31 TR harf). Doğrulama betikleri: `scratchpad/_dogrula_dil.cjs`, `_hl.cjs`
+> (hreflang, büyük/küçük harf duyarsız), `_ru_sizinti.cjs` (TR-harfli parça listesi — hangi metin sızıyor), `_en_hiza.cjs`
+> (TR↔dil indeks parmak izi hizası).
 
 > 🔎🆕 **FABLE 5.1 TAZE-GÖZ DENETİMİ — 3 DÜZELTME CANLI (2026-09-03, commit 928640d):**
 > Kullanıcı "her şey yolunda ama Fable 5.1 ne görür" dedi; bu oturumda ÖLÇÜLMEMİŞ açılara bakıldı.
