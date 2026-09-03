@@ -33,12 +33,26 @@
 > döndürdü. Artık `LOCALE_NAMES` anahtarlarından türer. 📌 **DERS: yeni dil eklerken `grep -rn '"de"' app lib` ile TÜM sabit
 > listeleri tara — tip genişletmek yetmez, çalışma zamanı kapılarını da bul.** (Bu turda 3 sabit liste daha vardı: admin
 > HYBRID_LANGS ×3 — onlar betikte yakalandı.)
-> **⏳ AÇIK:** (1) **Sözlük nl yok** — `data/i18n/glossary.json` 5 dilde (15 terim, ~36k karakter); /sozluk nl'de TR'ye düşer;
-> (2) **AR SSS'leri hâlâ kaymış**; (3) kabuk SSR TR sınırı (her kol); (4) hero dönen kelime nl'de "E-V laad [systemen]" —
-> Hollandaca bileşik kelime kuralına aykırı boşluk (tasarım sınırı; ES de aynı yolu izledi). ⚠️ Ölçüm dersi: canlı JSON'u
-> `res.on("data", c => d += c)` ile string biriktirmek çok baytlı karakteri parça sınırında böler (`dış`→`d��ş`) →
-> **Buffer.concat** kullan (`_nl_build.cjs`'de düzeltildi; eski doğrulama betikleri bu yüzden TR harf sayısını 1-2 fazla
-> göstermiş olabilir).
+> **✅ SÖZLÜK DE nl (a9f2b96):** `data/i18n/glossary.json` → 6. dil; 15 terim (tanım+kısa+41 SSS, 38k karakter) elle,
+> `_nl_glossary_apply.cjs` ön kontrollü. Playwright'ta doğrulandı: `<html lang=nl>`, "Wat is Type 2?", tanım+SSS Hollandaca.
+> ⓘ TR sözlük metni DC aralığını "40–120 kW" diyor (ürün gamı 40–200) — TR içerik güncelleme adayı, çeviriler kaynağa sadık.
+> **🔴 CANLI DOĞRULAMANIN BULDUĞU 4 KABUK BOŞLUĞU — HEPSİ TÜM DİLLER İÇİN KAPATILDI (0222a41 + d02446c):**
+> (a) **Ürün özellik rozetleri (`lib/productFeatures.ts`, 18 rozet) EN dahil her yabancı dilde ham TR `label/desc`** basıyordu
+> (FeaturedProducts kartı + ürün detayı "Genel Özellikler" + tooltip) → kataloğa `labelEn/descEn`, render `pickText`,
+> ui.json'a 33 yeni anahtar × 5 dil. 📌 **Yeni rozet eklerken labelEn/descEn + ui.json 5 dil ZORUNLU.**
+> (b) **Sözlük kabuğu** (`GlossaryClient` `UI` haritası yalnız tr/en, eksik dil TR'ye düşüyordu) → nl bloğu + eksik dil EN'e düşer
+> (de/es/ar/ru /sozluk başlıkları TR'den EN'e geçti). (c) **Ürün "Akıllı Yönetim" cümlesi** `lang === "en"` üçlüsüydü →
+> pickText + ui.json. (d) **Vitrin rozetleri** — `ContentContext` varsayılanı `overlayFeatures: ["IP 65","Planlı Şarj",…]`
+> Türkçe olduğu için `v()` pickText yedeğini eziyordu (bu dosyadaki "defaultContent'e Türkçe yazma" dersinin yeni örneği) →
+> TR dışı dilde bu 3 varsayılan yok sayılır, "IP 65" kalır, **TR görünümü değişmedi**. (e) nl `productShowcase.specs[2].label`
+> "Bağlantı" → "Connectiviteit" (DE overlay'i de çevirmemiş; de/es/ru için R2 `_translations` işi, açık).
+> **ⓘ BİLEREK DOKUNULMADI:** `AppMockups.tsx` telefon/web mockup metinleri (26 sabit TR: "Şarj Yönetim Paneli", "Aktif
+> Şarj"…) = gerçek uygulama ekranının dekoratif kopyası (bağlamda "dekoratif, kodda sabit" olarak kayıtlı).
+> **⏳ AÇIK:** (1) **AR SSS'leri hâlâ kaymış**; (2) kabuk SSR TR sınırı (her kol); (3) hero dönen kelime nl'de "E-V laad
+> [systemen]" — bileşik kelime boşluğu (tasarım sınırı; ES de aynı); (4) de/es/ru `productShowcase.specs[2].label` R2'de TR.
+> ⚠️ Ölçüm dersi: canlı JSON'u `res.on("data", c => d += c)` ile string biriktirmek çok baytlı karakteri parça sınırında
+> böler (`dış`→`d��ş`) → **Buffer.concat** kullan. ⚠️ `vercel ls` döngüsü arka planda/uzun döngüde takılabiliyor — tek
+> `vercel inspect` + Playwright ile doğrula.
 
 > 🌍🚀 **/de /es /ru ÜRÜN KOLLARI AÇILDI + SSS 3 DİLE YENİDEN ÇEVRİLDİ (2026-09-03, commit 8df08c3):**
 > Kullanıcı seçimi: "önce SSS'leri çevir, sonra aç". **YAPI:** `app/[lang]/products/{page,[id]/page,[id]/[productId]/page}.tsx`
