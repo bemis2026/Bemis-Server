@@ -7,6 +7,7 @@ import { getProductsForLang } from "../../../../lib/serverProductsLang";
 import { productNameEn } from "../../../../lib/productNamesEn";
 import { enProductMeta } from "../../../../lib/enProductSeo";
 import ProductDetailClient from "../../../../products/[id]/[productId]/ProductDetailClient";
+import { getContentForLang } from "../../../../../lib/contentLang";
 
 // İNGİLİZCE ürün detay sayfası — TR eşinin (/products/[id]/[productId]) aynası.
 // Sunucu tarafı = SEO (İngilizce metadata + JSON-LD + karşılıklı hreflang);
@@ -101,6 +102,11 @@ export default async function EnProductDetailPage({
   // Google yapılandırılmış veri politikası görünmeyen yorumu şemaya koymayı yasaklar).
   const reviewItems = ((site as { reviews?: { items?: ReviewShape[] } })?.reviews?.items) ?? [];
   const productReviews = reviewsForProduct(productId, reviewItems);
+  // Kategori SSS dizisi içerik (CMS) katmanından, o dilde — kategori sayfasıyla aynı kaynak.
+  // İstemci bunu yalnız ziyaretçi dili "en" iken kullanır; verilmeyince TR SSS SSR'a basılıyordu.
+  const enContent = (await getContentForLang("en")) as { categories?: Record<string, { faq?: { q: string; a: string }[] }> } | null;
+  const enFaqRaw = enContent?.categories?.[id]?.faq;
+  const enFaq = Array.isArray(enFaqRaw) && enFaqRaw.length > 0 ? enFaqRaw : undefined;
   const jsonLd = [
     breadcrumbSchema([
       { name: "Home", url: "/" },
@@ -129,6 +135,8 @@ export default async function EnProductDetailPage({
         initialAllCategories={enCats as unknown as NonNullable<DetailProps["initialAllCategories"]>}
         initialLang="en"
         productReviews={productReviews}
+        categoryNameOverride={categoryName}
+        faqOverride={enFaq}
       />
     </>
   );

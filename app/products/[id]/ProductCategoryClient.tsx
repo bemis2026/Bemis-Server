@@ -6,6 +6,7 @@ import { urunPngKategorisi } from "../../../lib/categoryVisual";
 
 import Link from "next/link";
 import { useParams, usePathname, useRouter } from "next/navigation";
+import { forcedLangForPath } from "../../lib/languages";
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { useContent } from "../../context/ContentContext";
@@ -133,7 +134,8 @@ export default function ProductCategoryPage({
   // /en'deyken ürün linkleri de /en kalmalı — yoksa İngilizce ziyaretçi tek
   // tıkta Türkçe ürün sayfasına düşüyordu (dil zinciri kopuyordu).
   const pathname = usePathname();
-  const base = pathname?.startsWith("/en/") ? "/en/products" : "/products";
+  const urlDil = forcedLangForPath(pathname);
+  const base = urlDil ? `/${urlDil}/products` : "/products";
   const isFirstMount = useRef(true);
 
   useEffect(() => {

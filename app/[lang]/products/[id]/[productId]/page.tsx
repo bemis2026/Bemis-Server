@@ -8,6 +8,7 @@ import { getProductsForLang } from "../../../../lib/serverProductsLang";
 import { productNameLocale } from "../../../../lib/productNamesLocale";
 import { LOCALE_LANGS, LOCALE_OG, LOCALE_UI, localeProductMeta, type LocaleLang } from "../../../../lib/localeProductSeo";
 import ProductDetailClient from "../../../../products/[id]/[productId]/ProductDetailClient";
+import { getContentForLang } from "../../../../../lib/contentLang";
 
 // /de|es|ru/products/<kategori>/<ürün> — app/en/products/[id]/[productId]/page.tsx'in
 // dil-parametreli eşi. Gövde sunucuda basılır; Product şeması o dilin birleştirilmiş
@@ -78,6 +79,10 @@ export default async function LocaleProductDetailPage({ params }: { params: Prom
   const locProduct = (locCategory?.products ?? []).find((p: any) => p.id === productId) ?? product;
   const reviewItems = ((site as { reviews?: { items?: ReviewShape[] } })?.reviews?.items) ?? [];
   const productReviews = reviewsForProduct(productId, reviewItems);
+  // Kategori SSS dizisi o dilin içerik katmanından (kategori sayfasıyla aynı kaynak).
+  const locContent = (await getContentForLang(L)) as { categories?: Record<string, { faq?: { q: string; a: string }[] }> } | null;
+  const locFaqRaw = locContent?.categories?.[id]?.faq;
+  const locFaq = Array.isArray(locFaqRaw) && locFaqRaw.length > 0 ? locFaqRaw : undefined;
   const jsonLd = [
     breadcrumbSchema([
       { name: ui.home, url: "/" },
@@ -102,6 +107,8 @@ export default async function LocaleProductDetailPage({ params }: { params: Prom
         initialAllCategories={locCats as unknown as NonNullable<DetailProps["initialAllCategories"]>}
         initialLang={L}
         productReviews={productReviews}
+        categoryNameOverride={categoryName}
+        faqOverride={locFaq}
       />
     </>
   );

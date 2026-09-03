@@ -5,7 +5,8 @@ import { pickText } from "../lib/ui";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { forcedLangForPath } from "../lib/languages";
 import { useTheme } from "../context/ThemeContext";
 import { useContent, type CategoryMeta } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
@@ -43,6 +44,9 @@ const categoryIcons: Record<string, React.ElementType> = {
 
 function BannerSlider({ categories, d }: { categories: CategoryData[]; d: boolean }) {
   const router = useRouter();
+  // /en /de /es /ru altında linkler kendi dil kolunda kalır.
+  const urlDil = forcedLangForPath(usePathname());
+  const base = urlDil ? `/${urlDil}/products` : "/products";
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -83,7 +87,7 @@ function BannerSlider({ categories, d }: { categories: CategoryData[]; d: boolea
               ? `linear-gradient(135deg, ${cat.accent}22 0%, #0f0f12 55%, ${cat.accent}08 100%)`
               : `linear-gradient(135deg, ${cat.accent}18 0%, #f0f0f4 55%, ${cat.accent}06 100%)`,
           }}
-          onClick={() => router.push(`/products/${cat.id}`)}
+          onClick={() => router.push(`${base}/${cat.id}`)}
         >
           {/* Slider background image */}
           {cat.sliderImage && (
@@ -200,6 +204,9 @@ function BannerSlider({ categories, d }: { categories: CategoryData[]; d: boolea
 // ── Main Page ─────────────────────────────────────────────────────────────────
 
 export default function AllProductsPage({ initialCategories = [], initialLang = "tr" }: { initialCategories?: CategoryData[]; initialLang?: string }) {
+  // /en /de /es /ru altında kategori/ürün linkleri kendi dil kolunda kalır.
+  const urlDil = forcedLangForPath(usePathname());
+  const base = urlDil ? `/${urlDil}/products` : "/products";
   const { theme } = useTheme();
   const d = theme === "dark";
   const router = useRouter();
@@ -378,7 +385,7 @@ export default function AllProductsPage({ initialCategories = [], initialLang = 
                           <p className="text-xs" style={{ color: textMuted }}>{cat.tagline}</p>
                         </div>
                         <button
-                          onClick={() => router.push(`/products/${cat.id}`)}
+                          onClick={() => router.push(`${base}/${cat.id}`)}
                           className="hidden sm:flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-lg transition-colors"
                           style={{ background: `${cat.accent}10`, border: `1px solid ${cat.accent}25`, color: cat.accent }}
                         >
@@ -399,7 +406,7 @@ export default function AllProductsPage({ initialCategories = [], initialLang = 
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.4, delay: pi * 0.05 }}
-                            onClick={() => router.push(`/products/${cat.id}/${product.id}`)}
+                            onClick={() => router.push(`${base}/${cat.id}/${product.id}`)}
                             className="group cursor-pointer rounded-2xl overflow-hidden transition-all duration-200"
                             style={{
                               // Frosted glass: kart yarı saydam görünür ama
@@ -503,7 +510,7 @@ export default function AllProductsPage({ initialCategories = [], initialLang = 
                                   geçersiz HTML) → yalnız başlık link. stopPropagation çift
                                   gezinmeyi önler. Görünüm birebir aynı. */}
                               <Link
-                                href={`/products/${cat.id}/${product.id}`}
+                                href={`${base}/${cat.id}/${product.id}`}
                                 onClick={(e) => e.stopPropagation()}
                                 className="font-bold text-xs leading-tight mb-0.5 block"
                                 style={{ color: textPrimary }}
@@ -520,7 +527,7 @@ export default function AllProductsPage({ initialCategories = [], initialLang = 
                                     <span key={v.id}>
                                       <button
                                         type="button"
-                                        onClick={(e) => { e.stopPropagation(); router.push(`/products/${cat.id}/${v.id}`); }}
+                                        onClick={(e) => { e.stopPropagation(); router.push(`${base}/${cat.id}/${v.id}`); }}
                                         className="cursor-pointer underline decoration-dotted underline-offset-2 active:opacity-70"
                                         style={{ color: "inherit" }}
                                         onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = cat.accent; }}
@@ -574,7 +581,7 @@ export default function AllProductsPage({ initialCategories = [], initialLang = 
 
                       {/* Mobile category link */}
                       <button
-                        onClick={() => router.push(`/products/${cat.id}`)}
+                        onClick={() => router.push(`${base}/${cat.id}`)}
                         className="sm:hidden mt-4 flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-lg"
                         style={{ background: `${cat.accent}10`, border: `1px solid ${cat.accent}25`, color: cat.accent }}
                       >

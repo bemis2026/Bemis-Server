@@ -1,7 +1,8 @@
 "use client";
 import { pickText } from "../../../lib/ui";
+import { forcedLangForPath } from "../../../lib/languages";
 
-import { useParams, useRouter } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import type { MouseEvent as RMouseEvent, PointerEvent as RPointerEvent } from "react";
@@ -193,6 +194,8 @@ export default function ProductDetailPage({
   initialLang = "tr",
   initialAllCategories = [],
   productReviews = [],
+  categoryNameOverride,
+  faqOverride,
 }: {
   initialCategory?: CategoryData | null;
   initialProduct?: ProductEntry | null;
@@ -200,11 +203,23 @@ export default function ProductDetailPage({
   initialLang?: string;
   initialAllCategories?: CategoryData[];
   productReviews?: ProductReview[];
+  /** Kategori adı kimlik alanı (merge TR-kilitli) → yabancı dilde sunucudan çevrili ad.
+   *  Yalnız ziyaretçi dili = sunucu dili iken kullanılır (kategori sayfasındaki desen). */
+  categoryNameOverride?: string;
+  /** O dilin kategori SSS dizisi (içerik katmanı, sunucuda okunur). Yoksa / dil değişince
+   *  istemci useContent() üzerinden kendi dilinin SSS dizisini kullanır. */
+  faqOverride?: { q: string; a: string }[];
 }) {
   const params    = useParams();
   const router    = useRouter();
   const { theme } = useTheme();
   const { lang } = useLanguage();
+  // Sunucudan gelen metnin dili ziyaretçinin diliyle aynıysa override değerleri geçerli.
+  const metinDili = lang === initialLang;
+  // /en /de /es /ru altındaki sayfa iç linkleri kendi dil kolunda tutar.
+  const pathname = usePathname();
+  const urlDil = forcedLangForPath(pathname);
+  const base = urlDil ? `/${urlDil}/products` : "/products";
   const { currency, tryPerEur } = useCurrency();
   const { categories: catMeta, smartCharger } = useContent();
   // Warranty / certification copy is fixed company policy — same line for
@@ -332,7 +347,7 @@ export default function ProductDetailPage({
         {!loading && !product && (
           <div className="text-center py-32">
             <p className="text-lg font-bold mb-2" style={{ color: textPrimary }}>{pickText(lang, "Ürün bulunamadı", "Product not found")}</p>
-            <button onClick={() => router.push("/products")} className="text-sm underline" style={{ color: accentInk(accent, d) }}>
+            <button onClick={() => router.push(base)} className="text-sm underline" style={{ color: accentInk(accent, d) }}>
               {pickText(lang, "Tüm ürünlere dön", "Back to all products")}
             </button>
           </div>
@@ -343,12 +358,12 @@ export default function ProductDetailPage({
 
             {/* ── Breadcrumb ── */}
             <nav className="flex items-center gap-1.5 mb-6 text-xs" style={{ color: textFaint }}>
-              <button onClick={() => router.push("/products")} className="hover:underline transition-colors" style={{ color: textFaint }}>
+              <button onClick={() => router.push(base)} className="hover:underline transition-colors" style={{ color: textFaint }}>
                 {pickText(lang, "Ürünler", "Products")}
               </button>
               <RiArrowRightSLine size={13} />
-              <button onClick={() => router.push(`/products/${categoryId}`)} className="hover:underline" style={{ color: textFaint }}>
-                {category.name}
+              <button onClick={() => router.push(`${base}/${categoryId}`)} className="hover:underline" style={{ color: textFaint }}>
+                {(metinDili && categoryNameOverride) || category.name}
               </button>
               <RiArrowRightSLine size={13} />
               <span style={{ color: textMuted }}>{product.name}</span>
@@ -467,7 +482,7 @@ export default function ProductDetailPage({
                                   return (
                                     <Link
                                       key={v.id}
-                                      href={`/products/${categoryId}/${v.id}`}
+                                      href={`${base}/${categoryId}/${v.id}`}
                                       onClick={() => setVariantOpen(false)}
                                       className="block text-right px-1.5 py-1 sm:px-2.5 sm:py-1.5 rounded-lg text-[10px] sm:text-[11px] leading-tight font-semibold transition-all duration-150 backdrop-blur-sm"
                                       style={{
@@ -630,7 +645,7 @@ export default function ProductDetailPage({
                   {/* Category label + product code — no category icon
                       anymore; the title was reading too crowded with it. */}
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-semibold" style={{ color: accentInk(accent, d) }}>{category.name}</span>
+                    <span className="text-xs font-semibold" style={{ color: accentInk(accent, d) }}>{(metinDili && categoryNameOverride) || category.name}</span>
                     {product.code && (
                       <span
                         className="ml-auto text-[10px] font-mono px-2 py-0.5 rounded-lg"
@@ -1257,7 +1272,7 @@ export default function ProductDetailPage({
           bumped to 7xl so the section width matches the rest of the
           page rail instead of looking like a narrower side-strip. ── */}
       {!loading && product && category && (() => {
-        const faq = (catMeta?.[categoryId]?.faq ?? []).filter((f) => f && f.q && f.a);
+        const faq = ((metinDili && faqOverride) || catMeta?.[categoryId]?.faq || []).filter((f) => f && f.q && f.a);
         if (faq.length === 0) return null;
         const sd = theme === "dark";
         return (
@@ -1401,7 +1416,7 @@ export default function ProductDetailPage({
                     initial={{ opacity: 0, y: 14 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: Math.min(i, 6) * 0.05 }}
-                    onClick={() => router.push(`/products/${cat.id}/${prod.id}`)}
+                    onClick={() => router.push(`${base}/${cat.id}/${prod.id}`)}
                     className="snap-start shrink-0 w-44 sm:w-52 rounded-2xl overflow-hidden cursor-pointer group transition-all duration-200"
                     style={{ background: sd ? "#1c1c22" : "#ffffff", border: `1px solid ${sd ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}` }}
                     onMouseEnter={e => {
@@ -1456,7 +1471,7 @@ export default function ProductDetailPage({
                           kalır; ürün adı <a href> olur → "Benzer Ürünler" karuseli Google için
                           taranabilir iç link üretir (eskiden 0 link). Görünüm aynı. */}
                       <p className="text-[11px] font-bold leading-tight mb-0.5 line-clamp-2" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
-                        <Link href={`/products/${cat.id}/${prod.id}`} onClick={(e) => e.stopPropagation()} className="hover:underline">{prod.name}</Link>
+                        <Link href={`${base}/${cat.id}/${prod.id}`} onClick={(e) => e.stopPropagation()} className="hover:underline">{prod.name}</Link>
                       </p>
                       {(() => {
                         // Ürünleri ayrıştıran kısa spec satırı: güç (kW) + alt başlık
