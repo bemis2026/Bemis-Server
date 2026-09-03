@@ -13,6 +13,23 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🌍🚀 **/de /es /ru ÜRÜN KOLLARI AÇILDI + SSS 3 DİLE YENİDEN ÇEVRİLDİ (2026-09-03, commit 8df08c3):**
+> Kullanıcı seçimi: "önce SSS'leri çevir, sonra aç". **YAPI:** `app/[lang]/products/{page,[id]/page,[id]/[productId]/page}.tsx`
+> — `app/en/*`'nin dil-parametreli eşi, `dynamicParams=false` (yalnız de/es/ru; `/xx/products` 404). **Yeni sayfa: 3 × 159 = 477.**
+> **ÜRÜN ADLARI:** merge'de `name` TR-kilitli → `app/lib/productNamesLocale.ts` (aynı 45 anahtar × de/es/ru, elle). 📌 **Yeni ürün
+> eklenince productNamesEn.ts + productNamesLocale.ts BİRLİKTE güncellenmeli.** **SEO:** `app/lib/localeProductSeo.ts`
+> (8 kategori × 3 dil başlık/açıklama + spec-türetimli ürün meta + kabuk dizeleri). **DİL ZORLAMA:** `forcedLangForPath()`
+> (lib/languages.ts) → LanguageContext/URLSync/Switcher; `isEnglishOnlyPath` korundu. **HREFLANG:** TR, EN ve yeni kollarda
+> AYNI 5'li küme (tr/en/de/es/ru + x-default=TR) — sitemap'te de. ⚠️ Küme bir sayfada eksikse Google karşılıklılığı bozar;
+> yeni bir dil kolu eklenirken 6 sayfa dosyası + sitemap + [lang] rotaları birlikte güncellenmeli.
+> **SSS:** 5 yabancı dilde kategori SSS dizileri kaymıştı (ölçüm `scratchpad/_sss_kayma.cjs`: yanlış sıra + komşu kategori
+> soruları + eksik sorular; dc-units hariç). Geri kaydırma güvenilir değildi → **49 soru-cevap TR kaynaktan de/es/ru'ya TAM
+> yeniden çevrildi** (147 çift; `scratchpad/_faq_{de,es,ru}.json`), ön kontrolle uygulandı (sayı eşitliği · TR karakter sızıntısı 0 ·
+> sayısal parmak izi örtüşmesi uyarısı 0) → R2 `_translations.<dil>.categories.*.faq` + repo `data/content-<dil>.json`.
+> **⏳ AÇIK:** (1) **EN ve AR SSS'leri HÂLÂ KAYMIŞ** — EN canlı+indeksli, öncelikli (49 çift); (2) **Felemenkçe** (blog hariç
+> ~660 KB, kullanıcı kapsamı onayladı) — henüz başlanmadı; (3) kabuk (menü/footer) SSR'da TR basılıp istemcide değişir
+> (bilinen mimari sınır, tüm kollar için). store cache **v94 → v95-faq-dil**.
+
 > 🔎🆕 **FABLE 5.1 TAZE-GÖZ DENETİMİ — 3 DÜZELTME CANLI (2026-09-03, commit 928640d):**
 > Kullanıcı "her şey yolunda ama Fable 5.1 ne görür" dedi; bu oturumda ÖLÇÜLMEMİŞ açılara bakıldı.
 > **TEMİZ (iş yok):** Product şeması 30/30 tam (name/image/sku/mpn/brand/offers.price-currency-availability-url-priceValidUntil) ·
