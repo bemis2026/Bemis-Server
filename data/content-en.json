@@ -66,28 +66,32 @@
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075739/products/mkblh61xfa551ewuadj8.png",
       "faq": [
         {
-          "q": "What is the difference between 7 kW and 11 kW and 22 kW?",
-          "a": "Powered by 7 kW single-phase connection and sufficient for overnight charging; fully charges a typical EV in 6-8 hours. Requires 11 kW and 22 kW three-phase connection; same vehicle with 22 kW will fill up in 2-3 hours. If your vehicle's AC charging acceptance power is 11 kW, getting a 22 kW device does not provide additional speed; check your vehicle manual before purchasing."
+          "q": "Are a home charging station, a wall-mounted charger and a wallbox the same thing?",
+          "a": "Yes, all three describe the same product. The AC charger mounted on a wall to charge your electric car at home is called a home charging station, a wall-mounted charger or a wallbox. Bemis's Charger 2, Charger Plus 2 and Charger Pro 2 models belong to this group; installation is carried out by a licensed electrician."
+        },
+        {
+          "q": "How do I use an AC wallbox charger at home?",
+          "a": "Bemis AC wallbox chargers are wall-mounted in both homes and workplaces. In a detached house or villa, a supply line drawn directly from the main circuit breaker is sufficient. In an apartment building you need the building management's approval and an installation plan connected to a shared meter. Our authorised dealer recommends the most suitable option after a site survey."
+        },
+        {
+          "q": "What is the difference between 7 kW, 11 kW and 22 kW?",
+          "a": "7 kW works on a single-phase connection and is enough for overnight charging; it fully charges a typical EV in 6-8 hours. 11 kW and 22 kW require a three-phase connection; with 22 kW the same vehicle is full within 2-3 hours. If your vehicle's AC charging acceptance is 11 kW, buying a 22 kW unit adds no extra speed; check your vehicle manual before purchasing."
         },
         {
           "q": "Is the Type 2 connector compatible with all electric vehicles?",
-          "a": "Yes. All electric vehicles sold in the European market (including Tesla Model 3/Y), Chinese BYD and MG models, Korean and Japanese EVs use the IEC 62196-2 (Type 2) standard on the AC side. Our Bemis Wallbox devices are in this standard; no additional adapters are required."
+          "a": "Yes. All electric vehicles sold in the European market (including Tesla Model 3/Y), Chinese-made BYD and MG models, and Korean and Japanese EVs use the IEC 62196-2 (Type 2) standard on the AC side. Our Bemis wallbox chargers follow this standard; no additional adapter is required."
         },
         {
           "q": "What is dynamic load balancing?",
-          "a": "While other devices connected to the same mains line draw high power (air conditioner, oven, heat pump), the wallbox automatically lowers the charging power and prevents the fuse from blowing. In multiple wallbox installations, it allocates the total available power between the devices in a balanced way. It is a critical feature that reduces both security and infrastructure cost."
+          "a": "When other devices on the same grid line draw high power (air conditioner, oven, heat pump), the wallbox automatically reduces its charging power and prevents the breaker from tripping. In multi-wallbox installations it shares the total available power evenly between the units. It is a critical feature that improves safety and reduces infrastructure cost."
         },
         {
-          "q": "What does IP65 protection class mean?",
-          "a": "IP65 indicates that the device is completely closed to dust (6) and resistant to water jets from all directions (5). Our Bemis Wallboxes are in this class; no additional protective cabin is required for outdoor parking, balconies and outdoor installations."
+          "q": "What does the IP65 protection class mean?",
+          "a": "IP65 indicates that the unit is completely sealed against dust (6) and resistant to water jets from any direction (5). Our Bemis wallboxes are in this class; they do not need an additional protective cabinet in open car parks, balconies or outdoor installations."
         },
         {
-          "q": "Installation included",
-          "a": "The price of the device does not include installation. Our authorized dealer makes an exploration and makes a separate offer for line drawing, cabling and fuse board works. The average installation cost varies between 5,000-15,000 TL; it is determined according to the existing infrastructure."
-        },
-        {
-          "q": "Does the portable charger operate from a normal outlet?",
-          "a": "Yes. Our Bemis Mobile Charger products work with both standard 16a single-phase sockets and 32a industrial type CEE sockets. Pro models offer charging from a three-phase 32a socket to 22 kW; Mini models are suitable for household sockets with 3.6 kW."
+          "q": "Is installation included?",
+          "a": "Installation is not included in the price of the unit. Our authorised dealer carries out a site survey and provides a separate quote tailored to your needs for cable routing, wiring and distribution board work; the installation cost is finalised during the survey according to your existing infrastructure."
         }
       ],
       "descriptionImage": "",
@@ -116,24 +120,28 @@
       "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783076718/products/enzqsaqqq0g42baprecg.png",
       "faq": [
         {
+          "q": "Portable charger, mobile charger, travel charger — are they the same thing?",
+          "a": "Yes, they all describe the same product group. Terms such as portable charger, mobile charger, travel charger or portable charging unit are used interchangeably for these devices. Bemis's Mini Mobile, Mono Mobile and Pro Mobile 2 models belong to this group: you charge your electric car from an existing socket without a fixed installation or any electrical wiring work."
+        },
+        {
+          "q": "Does a portable charger work from a normal socket?",
+          "a": "Yes. Our Bemis Mobile Charger products work with both a standard 16A single-phase socket and 32A industrial CEE sockets. Pro models deliver up to 22 kW from a three-phase 32A socket; Mini models are suited to household sockets at 3.6 kW."
+        },
+        {
           "q": "What is the difference between Mini Mobile and Pro Mobile?",
-          "a": "Mini Mobile: 3.6 kW single phase, compact size, ideal for home/travel. Pro Mobile: adjustable power from 7-22 kW, three-phase support, for professional use. In the Pro model, the current limit (6A-32A) can be set on the screen; the power is constant on the Mini."
+          "a": "Mini Mobile: 3.6 kW single-phase, compact size, ideal for home and travel. Pro Mobile: adjustable power from 7 to 22 kW, three-phase support, for professional use. On the Pro model the current limit (6A-32A) can be set on the display; on the Mini the power is fixed."
         },
         {
-          "q": "What happens if the mobile charger is submerged?",
-          "a": "Protection class IP54 is suitable for use in rain, but the product should not be under water. After the device case is wet, it should be wiped with a dry cloth before plugging in. In case of flooding, do not operate without taking it to the authorized service."
+          "q": "What happens if the mobile charger gets submerged in water?",
+          "a": "The IP54 protection class is suitable for use in the rain, but the product must not be submerged. After the housing gets wet, wipe it with a dry cloth before plugging it in. In case of flooding, do not operate the unit before taking it to an authorised service centre."
         },
         {
-          "q": "Can it be used as a spare on the trip?",
-          "a": "Yes, this is exactly what portable chargers are for. In places such as hotels, camping areas, holiday villages, where there is no DC/AC charging point, charging is done from the existing sockets. It is stored in its bag, weighing an average of 4-6 kg."
+          "q": "Can it be used as a backup while travelling?",
+          "a": "Yes, portable chargers are designed for exactly this purpose. In hotels, campsites, holiday resorts and other places without a DC/AC charging point, you charge from the existing sockets. It is stored in its bag and weighs 4-6 kg on average."
         },
         {
-          "q": "How do I choose between mobile charging and fixed wallbox?",
-          "a": "If you park your car in the same place every day, the fixed wallbox is faster, safer and more economical in the long run. If you travel frequently or switch between multiple venues, a mobile charger is a more flexible solution. It is also a common choice to take both."
-        },
-        {
-          "q": "How many meters should the AC charging cable be?",
-          "a": "We see that 5 meters of cable is sufficient in most cases: it is ideal if the distance of the car charging socket to the wall does not exceed 3-4 meters when parking. If your garage/parking layout is different, there are 7.5 m or 10 m options. The longer the cable, the heavier and more rigid it is; unnecessarily long selection makes it difficult to carry."
+          "q": "How do I choose between a mobile charger and a fixed wallbox?",
+          "a": "If you park your vehicle in the same place every day, a fixed wallbox is faster, safer and more economical in the long run. If you travel frequently or move between several locations, a mobile charger is the more flexible solution. Having both is also a common choice."
         }
       ],
       "description": "Portable AC chargers that do not require installation — from the standard outlet or CEE socket to the Type 2 vehicle socket. Flexible charging solution for road, camp and backup scenarios with single-phase 2.3 – 7.4 kW and three-phase 11 – 22 kW options.",
@@ -148,24 +156,44 @@
       "image": "/categories/1775071211208-Gemini_Generated_Image_9pbk3k9pbk3k9pbk.png",
       "faq": [
         {
+          "q": "How long should an AC charging cable be?",
+          "a": "We find that a 5-metre cable is sufficient in most cases: it is ideal if the distance between the vehicle's charging socket and the wall does not exceed 3-4 metres when parked. If your garage or car park layout is different, 7.5 m and 10 m options are available. The longer the cable, the heavier and stiffer it is; choosing an unnecessarily long cable makes it harder to handle."
+        },
+        {
           "q": "What is the difference between Type 2 and Type 1?",
-          "a": "Type 1 (SAE J1772) is used on North American and older Asian vehicles, supporting single-phase up to 7.4 kW. Type 2 (IEC 62196-2) is the European standard and supports up to 22 kW of three-phase. Almost all new EVs in the Turkish market use Type 2. The older versions of the Tesla Model S/X were the Type 1; the newer Teslas are the Type 2."
+          "a": "Type 1 (SAE J1772) is used in North American and older Asian vehicles and supports single-phase charging up to 7.4 kW. Type 2 (IEC 62196-2) is the European standard and supports three-phase charging up to 22 kW. Almost all new EVs on the Turkish market use Type 2. Older versions of the Tesla Model S/X used Type 1; new Teslas are Type 2."
         },
         {
-          "q": "How do I choose between 16a and 32a cable?",
-          "a": "16a cables withstand up to 3.7 kW in one phase and 11 kW in three phases. 32a cables have a capacity of 7.4 kW in one phase and 22 kW in three phases. The higher current the wallbox or vehicle can draw, choose the cable according to that current; if there is a bottleneck in the cable, the charging speed decreases."
+          "q": "How do I choose between a 16A and a 32A cable?",
+          "a": "16A cables handle up to 3.7 kW single-phase and 11 kW three-phase. 32A cables are rated for 7.4 kW single-phase and 22 kW three-phase. Choose the cable according to the highest current your wallbox or vehicle can draw; if the cable is the bottleneck, charging speed drops."
         },
         {
-          "q": "Does cable selection vary by vehicle brand?",
-          "a": "Since the connector type is standardized (Type 2 in almost all European markets), the choice of cable is brand-independent. The only difference is the AC charging acceptance capacity of each vehicle: if you take a 22 kW cable to a vehicle that accepts 11 kW, it will not flow much power, only safety."
+          "q": "Does cable selection depend on the vehicle brand?",
+          "a": "Because the connector type is standardised (Type 2 across virtually the entire European market), cable selection is brand-independent. The only difference is each vehicle's AC charging acceptance: if you buy a 22 kW cable for a vehicle that accepts 11 kW, no extra power flows — you simply have a safety margin."
         },
         {
-          "q": "Does the three-phase cable work with my vehicle?",
-          "a": "Yes, the three-phase cable also supports single-phase charging. If your vehicle is single-phase, the cable automatically runs in single-phase and is limited to 7.4 kW. The three-phase cable ensures that you do not make unnecessary changes if you buy a three-phase vehicle in the future."
+          "q": "Will a three-phase cable work with my vehicle?",
+          "a": "Yes, a three-phase cable also supports single-phase charging. If your vehicle is single-phase, the cable automatically operates in single-phase mode and is limited to 7.4 kW. A three-phase cable saves you from replacing it if you buy a three-phase vehicle in the future."
         },
         {
-          "q": "What does V2L (Vehicle to Load) do?",
-          "a": "V2L allows you to use your vehicle's battery as a portable power source. The adapter plugs into the vehicle socket and outputs a standard 220V output. You can operate refrigerators, projectors, small devices in cases such as camping, outdoor activities, power outages. The energy comes from the vehicle's battery."
+          "q": "Who is the domestic manufacturer of electric car charging cables?",
+          "a": "Bemis E-V Charge is a domestic manufacturer producing electric car charging cables at its 16,000 m² facility in the Bursa Organised Industrial Zone. It builds on the heritage of Bemis Teknik Elektrik dating back to 1994; its Type 2 (Mode 3) cables carry a 94% Domestic Goods Certificate and are CE certified. The cables are not imported and relabelled — they are made in our own facility."
+        },
+        {
+          "q": "Are the charging cables imported or made in Türkiye?",
+          "a": "Bemis E-V Charge charging cables are manufactured in Türkiye, at our own facility in Bursa. This gives you direct access to the product, spare parts and technical support from the manufacturer; for project-based orders, cable length and socket colour can be customised on request."
+        },
+        {
+          "q": "What is the difference between a charging cable and a charging set?",
+          "a": "A charging cable has a socket at both ends (Type 2 – Type 2); it connects a wall-mounted charging station or a unit in a shared area to your vehicle. A charging set (Mode 2) is a portable solution with a mains plug at one end and a control box in the middle; it lets you charge directly from a socket without a separate charging station. If you have a wall-mounted unit at home, a charging cable is the right choice; if you need a solution on the road or as a backup, a charging set is suitable."
+        },
+        {
+          "q": "Does the cable affect charging speed?",
+          "a": "A cable cannot deliver a speed higher than the current it is rated for; what actually determines charging speed is your vehicle's on-board AC charger. For example, if your vehicle is limited to 7.4 kW, fitting a three-phase 32A cable will not make it faster. Conversely, a low-capacity cable limits the speed: a single-phase 16A cable carries up to 3.7 kW, single-phase 32A up to 7.4 kW and three-phase 32A up to 22 kW. The right choice is the cable that matches the highest value supported by both your vehicle and your charger."
+        },
+        {
+          "q": "What should I do if my charging cable develops a fault?",
+          "a": "Our products are covered by a 2-year manufacturer's warranty. Do not open or attempt to repair the cable yourself; unplug it and stop using it. Contact the authorised dealer you purchased it from, or reach us by following the steps on the Support page under the Guide menu of our website. The product code, proof of purchase and a photo or video showing the problem speed up the process."
         }
       ],
       "description": "Mode 2 and Mode 3 charging cables with Type 2 standard. It is designed for long-lasting use in single and three-phase, 16a – 32a current classes with IEC 62196 / IEC 61851 compliant, halogen-free outer sheath and high-current Type 2 connector.",
@@ -180,28 +208,28 @@
       "image": "/categories/1775068456394-V2L-kamp2.png",
       "faq": [
         {
+          "q": "What does V2L (Vehicle to Load) do?",
+          "a": "V2L lets you use your vehicle's battery as a portable power source. The adapter plugs into the vehicle's charging socket and provides a standard 220V output. During camping, outdoor events or power outages you can run a refrigerator, a projector or small appliances. The energy comes from the vehicle's battery."
+        },
+        {
           "q": "What does C2L (Charger to Load) do?",
-          "a": "The C2L adapter converts electricity drawn from the Type 2 socket of the AC charging station into a standard Schuko (household) or CEE (industrial) socket. Thus, a Type 2 charging point can be used not only for vehicle charging — but also as a 220V/380V output for workshop, event space or temporary installation. The energy comes from the charger, it does not use your vehicle's battery."
+          "a": "A C2L adapter converts the electricity drawn from the Type 2 socket of an AC charging station into a standard Schuko (household) or CEE (industrial) socket. A Type 2 charging point can then be used not only for vehicle charging but also as a 220V/380V outlet for a workshop, an event area or a temporary installation. The energy comes from the charging unit, not from your vehicle's battery."
         },
         {
           "q": "What is the difference between V2L and C2L?",
-          "a": "The only difference is where the energy comes from: V2L takes the energy FROM the vehicle (the vehicle's battery is the source) — your vehicle becomes a mobile power source. C2L receives energy from the CHARGER UNIT (Type 2 charger source) — it converts a charging point into a conventional outlet. The two serve different purposes; with the Combi Set you can get both adapters in one package."
+          "a": "The only difference is where the energy comes from: V2L takes energy FROM THE VEHICLE (the vehicle's battery is the source) — your car becomes a mobile power source. C2L takes energy FROM THE CHARGING UNIT (a Type 2 charger is the source) — it turns a charging point into a conventional socket. They serve different purposes; with the Combi Set you get both adapters in a single package."
         },
         {
           "q": "Which vehicles support V2L?",
-          "a": "Vehicles such as Hyundai Ioniq 5/6, Kia EV6/EV9, Genesis GV60, Ssangyong (KGM) Torres EVX, MG ZS EV / MG4, BYD Atto 3/Seal / Han, Skywell ET5 support ex-factory V2L. Our Bemis V2L adapters are manufactured in the socket pin array of these manufacturers — mark the variant that suits your vehicle when selecting the product (Hyundai/Kia/Ssangyong, MG, BYD/Skywell). Tesla vehicles are not supported as standard."
+          "a": "Vehicles such as the Hyundai Ioniq 5/6, Kia EV6/EV9, Genesis GV60, Ssangyong (KGM) Torres EVX, MG ZS EV / MG4, BYD Atto 3 / Seal / Han and Skywell ET5 support V2L from the factory. Our Bemis V2L adapters are made to match these manufacturers' socket pin layouts — when choosing the product, select the variant that fits your vehicle (Hyundai/Kia/Ssangyong, MG, BYD/Skywell). Tesla vehicles do not support it as standard."
         },
         {
-          "q": "How much power can be drawn from the V2L adapter?",
-          "a": "Depends on the V2L power of the vehicle. Hyundai/Kia up to 3.6 kW (16a) on most models, BYD and MG up to 2.2 kW (10a), some newer models up to 7.2 kW. Our Bemis V2L adapters transmit the output power of the vehicle safely; it does not exceed the limit of your vehicle. Single, double, and triple-socket versions share the same total power."
+          "q": "How much power can be drawn from a V2L adapter?",
+          "a": "It depends on the vehicle's V2L output. Most Hyundai/Kia models deliver 3.6 kW (16A), BYD and MG models 2.2 kW (10A), and some newer models go up to 7.2 kW. Our Bemis V2L adapters transfer the vehicle's output power safely and never exceed your vehicle's limit. Single, double and triple-socket versions share the same total power."
         },
         {
-          "q": "Does the use of V2L damage the battery?",
-          "a": "No. V2L is a mode of use prescribed by the manufacturer; the battery management system (BMS) controls the depth of discharge. Most vehicles turn off automatically when the battery level drops to 20% in V2L mode. Continuous use does not affect battery life."
-        },
-        {
-          "q": "Is the charging cable extension safe?",
-          "a": "Our Bemis extension cables are manufactured to the same standards (IEC 62196-2, 32a copper conductor) as the original cable. Class IP54 connection sections are protected against water. Third-party low-quality extensions may pose a fire risk; use only certified products."
+          "q": "Does using V2L damage the battery?",
+          "a": "No. V2L is a mode of use intended by the manufacturer; the battery management system (BMS) controls the depth of discharge. Most vehicles automatically switch off V2L mode when the battery level drops to 20%. Regular use does not affect battery life."
         }
       ],
       "description": "Adapters that convert the vehicle's battery (V2L) or charger (C2L) into an external power supply. Compatible with Type 2 inputs and schuko / Cee outputs and V2L-supported vehicles such as Hyundai, Kia, MG, BYD, Ssangyong and Skywell — for camping, workshop and emergency scenarios.",
@@ -216,24 +244,24 @@
       "image": "/categories/1775068429165-BKT-0102-2105.jpg",
       "faq": [
         {
-          "q": "In which cases is it necessary to use an extension?",
-          "a": "If the place where the vehicle is parked is far from the wall where the wallbox is located, if the parking entrance area is long, if the load point is far in mobile environments such as camping, extension is used. Additional extension is unnecessary if your standard 5 m cable is sufficient; each port is an additional point of sensitivity."
+          "q": "Is a charging cable extension safe?",
+          "a": "Our Bemis extension cables are manufactured to the same standards as the original cable (IEC 62196-2, 32A copper conductors). IP54-rated connection sections are protected against water. Low-quality third-party extensions can pose a fire risk; use only certified products."
         },
         {
-          "q": "Can different connector types be made compatible with the converter?",
-          "a": "Yes, we have adapters for common conversions such as Type 1 to Type 2, CEE socket to Type 2, Type 2 to Schuko. But there is no conversion between DC and AC; each system operates separately. The transducers receive the power limit relative to the low side."
+          "q": "When do I need to use an extension?",
+          "a": "An extension is used when the vehicle is parked far from the wall where the wallbox is installed, when the car park entrance area is long, or when the load point is far away in mobile settings such as camping. If your standard 5 m cable is sufficient, an additional extension is unnecessary; every connection point is an additional point of vulnerability."
         },
         {
-          "q": "How many meters can the extension cable be?",
-          "a": "The total cable length (original + extension) should not exceed 15 meters for 22 kW in one phase and 25 meters for 11 kW in three phases. At longer distances, power drops and heating increases due to cable resistance. Fixed wiring is recommended for installations requiring long distances."
+          "q": "Can different connector types be made compatible with a converter?",
+          "a": "Yes. We offer adapters for common conversions such as Type 1 to Type 2, CEE socket to Type 2, and Type 2 to Schuko. However, there is no conversion between DC and AC; each system works separately. Converters take the power limit of the lower-rated side."
         },
         {
-          "q": "Which socket types are common in Turkey?",
-          "a": "Schuko (standard Turkish socket), 16a industrial CEE blue socket, 32a CEE red three-phase socket are common in home charging. Type 2 is standard in public AC points. CCS2 (most common) and CHAdeMO (Nissan/old vehicles) appear in DC fast charging."
+          "q": "What is the maximum length of an extension cable?",
+          "a": "The total cable length (original + extension) should not exceed 15 metres for 22 kW single-phase or 25 metres for 11 kW three-phase. Over longer distances, power drops and heating increases due to cable resistance. For installations that require long distances, fixed wiring is recommended."
         },
         {
-          "q": "What is included in the Charging Unit Equipment category?",
-          "a": "Professional equipment used in charging station installations includes: AC and DC charging sockets (Type 2, CCS2), wired and wireless versions, socket covers, locking mechanisms, optional communication modules and spare parts that can be integrated into the charger. Uses OEM manufacturers and service."
+          "q": "Which socket types are common in Türkiye?",
+          "a": "For home charging, the Schuko (standard Turkish socket), the 16A industrial blue CEE socket and the 32A red three-phase CEE socket are common. At public AC points, Type 2 is the standard. In DC fast charging, CCS2 (the most common) and CHAdeMO (Nissan/older vehicles) are found."
         }
       ],
       "description": "Extension cables and Ceenorm converters that carry existing charging equipment to different outlet types and distances. Combination solutions designed for single and three-phase 16a – 32a transitions.",
@@ -249,24 +277,24 @@
       "description": "Bemis DC charging cables, produced entirely in our own facility, specially produced for high-power DC charging units provide easy replacement in case of breakage thanks to their modular body structure.\nPanel socket with lock mechanism used on charging units. With its special branding and unique design, it is perfect for your unit. The DC Socket Holder Bracket, which is produced for the DC cables used in DC charging units to hang idle, stands out as an ideal option with its ball and embedded design. Thanks to its ball structure, the fracture problem is eliminated. With its body structure embedded in the case, it is fully compatible with your unit design.",
       "faq": [
         {
-          "q": "What is the difference between a DC charging socket and an AC charging socket?",
-          "a": "AC sockets (Type 2) conduct a maximum of 22 kW alternating current and are of simple structure. DC sockets (CCS2) deliver 50-350 kW of direct current, including liquid cooling, temperature sensor and thicker conductors. DC sockets are 3-4 times heavier and require special installation."
+          "q": "What does the Charger Equipment category include?",
+          "a": "It includes the professional equipment used in charging station installations: AC and DC charging sockets (Type 2, CCS2), tethered and socketed versions, socket covers, locking mechanisms, optional communication modules and spare parts that can be integrated into a charger. It is used by OEM manufacturers and service providers."
         },
         {
-          "q": "What is required for an operator who wants to install a charging station?",
-          "a": "Transformer connection or sufficient subscription power, OCPP 1.6J/2 .0.1 supported chargers, a CPO software for billing/management, EMRA license or dealer agreement are required. Our Bemis B2B team supports turnkey installation from site survey to hardware supply."
+          "q": "What is the difference between a DC charging socket and an AC charging socket?",
+          "a": "AC sockets (Type 2) carry alternating current up to a maximum of 22 kW and have a simple construction. DC sockets (CCS2) carry 50-350 kW of direct current and contain liquid cooling, temperature sensors and thicker conductors. DC sockets are 3-4 times heavier and require special installation."
+        },
+        {
+          "q": "What does an operator need to set up a charging station?",
+          "a": "A transformer connection or sufficient subscribed power, chargers supporting OCPP 1.6J/2.0.1, CPO software for billing and management, and an EPDK licence or a dealer agreement are required. Our Bemis B2B team provides support for turnkey installation, from the site survey to hardware supply."
         },
         {
           "q": "What is a CCS2 socket?",
-          "a": "Combined Charging System 2 (CCS2) is the DC fast charging standard of the European market. It is a combined design with two additional DC pins attached under the Type 2 AC connector; both AC and DC charging can be done from the same vehicle socket. It supports power from 50-350 kW."
+          "a": "Combined Charging System 2 (CCS2) is the DC fast-charging standard of the European market. It is a combined design that adds two extra DC pins below the Type 2 AC connector, so both AC and DC charging can be done through the same vehicle socket. It supports power between 50 and 350 kW."
         },
         {
-          "q": "Is replacement of spare socket or cable possible?",
-          "a": "Yes. The cables and sockets of our Bemis chargers are of modular design; in case of wear or damage, our authorized service can quickly replace them. We manage inventory for special parts such as CCS2 liquid-cooled cables."
-        },
-        {
-          "q": "Why do I need an RFID card?",
-          "a": "The RFID card provides user authorization at the charging station — someone you don't want can't use the device. It is used to track who charges how much with which vehicle in corporate/workplace installations. You can do the same job with the mobile application in OCPP supported stations."
+          "q": "Can a spare socket or cable be replaced?",
+          "a": "Yes. The cables and sockets of our Bemis chargers are modular in design; in the event of wear or damage, our authorised service can replace them quickly. We keep stock of special parts such as liquid-cooled CCS2 cables."
         }
       ],
       "descriptionImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075765/products/xl61vku2recrvjsag3x8.jpg"
@@ -280,24 +308,24 @@
       "image": "/categories/1775068320447-charger-cable.png",
       "faq": [
         {
-          "q": "Why buy a charging cable case?",
-          "a": "Carrying the mobile charger without a bag in the trunk of the vehicle will batter both the cable and the interior trim of the vehicle. The bag insulates the moisture in the cloth, protects the plugs from crushing and provides practical use during travel. Bags may be standard in our Pro Mobile products and optional in others."
+          "q": "Why is an RFID card needed?",
+          "a": "An RFID card provides user authorisation at the charging station — nobody you have not authorised can use the unit. In corporate/workplace installations it is used to track who charged which vehicle and how much. On OCPP-enabled stations the mobile app can do the same job."
+        },
+        {
+          "q": "Why should I buy a charging cable bag?",
+          "a": "Carrying a mobile charger loose in the boot damages both the cable and the vehicle's interior trim. The bag insulates against moisture, protects the plugs from being crushed and provides practical handling while travelling. The bag is standard with our Pro Mobile products and may be optional with others."
         },
         {
           "q": "Are Bemis accessories compatible with other brands?",
-          "a": "Since connector standards (Type 2, CCS2, RFID Mifare) are universal, our Bemis accessories are compatible with all electric vehicles and charging stations that use standard Type 2 / CCS2 connectors. Brand-specific features (firmware lock, registered card system) are specified in the document, if any."
+          "a": "Because the connector standards (Type 2, CCS2, RFID Mifare) are universal, our Bemis accessories are compatible with all electric vehicles and charging stations that use standard Type 2 / CCS2 connectors. Any brand-specific features (firmware lock, proprietary card system) are stated in the documentation."
         },
         {
-          "q": "How to order spare accessories?",
-          "a": "The request can be sent directly from the contact form with the product code, our sales team guides the dealer. For bulk ordering operators, integrated ordering is possible with API via OEM account. Parts that are not in our stock are supplied within 2-4 weeks."
+          "q": "How do I order spare accessories?",
+          "a": "You can send a request with the product code directly through the contact form, and our sales team will refer you to a dealer. For operators placing bulk orders, integrated ordering via API through an OEM account is possible. Parts not in stock are supplied within 2-4 weeks."
         },
         {
-          "q": "What should I do if the RFID card is lost?",
-          "a": "When the card is lost, it can be deactivated from the admin panel or by notifying our sales team. A new card match is completed in 5 minutes. The risk of unauthorized use with the lost card is negligible because each card is connected to the device recording system."
-        },
-        {
-          "q": "What is the difference between DC charging and AC charging?",
-          "a": "In AC charging, electricity flows to the vehicle as alternating current and the internal converter converts it to direct current; therefore, it is limited to 22 kW. In DC charging, the conversion is done inside the station and the direct current flows directly to the battery; it can go up to 50-350 kW. Conclusion: With DC, an EV reaches 80% in 20-40 minutes, while 6-8 hours are required in AC."
+          "q": "What should I do if my RFID card is lost?",
+          "a": "A lost card can be deactivated from the admin panel or by notifying our sales team. Pairing a new card takes 5 minutes. The risk of unauthorised use with a lost card is negligible, because every card is linked to the unit's registration system."
         }
       ],
       "description": "RFID cards, carrying cases and mounting accessories — by-products that complement the operational and safety needs of a charging site."
@@ -312,23 +340,23 @@
       "faq": [
         {
           "q": "What is the difference between DC charging and AC charging?",
-          "a": "In AC charging, electricity reaches the vehicle as alternating current and the on-board converter rectifies it; this caps the rate at 22 kW. In DC charging, the conversion happens inside the station and direct current flows straight into the battery, reaching up to 50-350 kW. The result: an EV hits 80% in 20-40 minutes on DC, while AC needs 6-8 hours."
+          "a": "In AC charging, electricity goes to the vehicle as alternating current and the on-board converter turns it into direct current; this is why it is limited to 22 kW. In DC charging, the conversion takes place inside the station and direct current flows straight into the battery; it can reach 50-350 kW. The result: with DC an EV reaches 80% in 20-40 minutes, whereas AC takes 6-8 hours."
         },
         {
           "q": "How many vehicles can BEVDC models charge at the same time?",
-          "a": "BEVDC-40 is single-socket and delivers 40 kW to a single vehicle. BEVDC-80, BEVDC-120, BEVDC-160, BEVDC-180 and BEVDC-200 are dual-socket; total power can be split between two vehicles simultaneously. For example, the BEVDC-200 can deliver 100 kW to each of two vehicles at the same time, or 200 kW to a single vehicle (if the vehicle supports it)."
+          "a": "The BEVDC-40 has a single socket and delivers 40 kW to one vehicle. The BEVDC-80, BEVDC-120, BEVDC-160, BEVDC-180 and BEVDC-200 have two sockets; the total power can be shared simultaneously between two vehicles. For example, the BEVDC-200 can deliver 100 kW to two vehicles at once, or 200 kW to a single vehicle (if the vehicle supports it)."
         },
         {
-          "q": "What is required for DC charger installation?",
-          "a": "DC units require a 3-phase 380-480V grid connection, a transformer or high-power subscription (200-400 kVA) for BEVDC-120 and above, a ground-fixing pad, sufficient airflow for cooling, and an Ethernet or 4G line for OCPP communication. The Bemis B2B team manages the whole process from site survey to commissioning."
+          "q": "What is required to install a DC charger?",
+          "a": "DC units require a 3-phase 380-480V grid connection, a transformer or a high-power subscription (200-400 kVA) for the BEVDC-120 and above, a floor-mounting platform, sufficient airflow for cooling, and an Ethernet or 4G line for OCPP communication. The Bemis B2B team manages the entire process from the site survey to commissioning."
         },
         {
-          "q": "Which BEVDC model fits my fleet?",
-          "a": "BEVDC-40 is enough if your fleet vehicles average 50-60 kWh batteries and stay urban. For long-haul commercial fleets or quick-turn taxi/courier operations, BEVDC-120 reaches 80% in 30 minutes. For high-traffic public stations, BEVDC-160/200 is recommended; two vehicles charge quickly at the same time."
+          "q": "Which BEVDC model is suitable for my fleet?",
+          "a": "If your fleet vehicles have 50-60 kWh batteries on average and operate within the city, the BEVDC-40 is sufficient. For commercial fleets on long journeys or taxis/couriers that need a fast turnaround, the BEVDC-120 provides 80% charge in 30 minutes. For public high-traffic stations the BEVDC-160/200 is recommended; two vehicles charge quickly at the same time."
         },
         {
           "q": "What is needed to open a public DC charging point?",
-          "a": "Under EMRA's charging service regulation, you need a licence or authorisation, an OCPP-capable device, integration with the EPVIS system, and a billing/payment stack (Bemis CPO software or a 3rd-party platform). Investment size ranges between 1-3 million TL; our B2B team supports roadmap preparation."
+          "a": "A licence or authorisation certificate from EPDK under the charging service regulation, an OCPP-enabled unit, integration with the EPVIS system, and billing/payment infrastructure (Bemis CPO software or a third party) are required. The investment ranges between 1 and 3 million TL; our B2B team provides support in preparing the roadmap."
         }
       ],
       "description": "BEVDC series DC fast chargers — single or double CCS2 output models from 40 kW to 200 kW. Suitable for commercial field use with OCPP 1.6J/ 2.0.1 support, RFID authentication, IP54 protection and wide temperature range (-25°C / +55°C)."
