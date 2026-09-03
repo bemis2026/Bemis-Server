@@ -80,3 +80,18 @@ export function isEnglishOnlyPath(pathname: string | null | undefined): boolean 
   if (ENGLISH_ONLY_PATHS.includes(pathname)) return true;
   return pathname === "/en" || pathname.startsWith("/en/");
 }
+
+/**
+ * ⚠️ 2026-09-03: Dil kolları genelleştirildi — /de /es /ru altındaki yollar da o dili
+ * zorlar (indekslenebilir Almanca/İspanyolca/Rusça ürün sayfaları: app/[lang]/products).
+ * isEnglishOnlyPath'in dil-bağımsız hâli: zorlanan dil kodunu döner, yoksa null.
+ * LanguageContext / LanguageURLSync / LanguageSwitcher BUNU kullanır. Kural aynı:
+ * görünüm zorlaması, tercih değil (localStorage'a yazılmaz).
+ */
+export const URL_LANGS: readonly LangCode[] = ["en", "de", "es", "ru"];
+export function forcedLangForPath(pathname: string | null | undefined): LangCode | null {
+  if (!pathname) return null;
+  if (isEnglishOnlyPath(pathname)) return "en";
+  for (const l of URL_LANGS) if (pathname === `/${l}` || pathname.startsWith(`/${l}/`)) return l;
+  return null;
+}

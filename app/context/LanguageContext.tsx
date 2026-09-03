@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useState, useEffect, useMemo, ReactNode } from "react";
 import { usePathname } from "next/navigation";
-import { type LangCode, isLangCode, isRTL, isEnglishOnlyPath } from "../lib/languages";
+import { type LangCode, isLangCode, isRTL, forcedLangForPath } from "../lib/languages";
 
 // Lang = 6 dil (tr/en/de/es/ar/ru). Mevcut `lang === "en"`/`"tr"` karşılaştırmaları
 // aynen geçerli; nesne-indeksleme (`{tr,en}[lang]`) siteleri byLang() kullanır.
@@ -39,7 +39,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   // İngilizce kabuk SSR'da basılır, "önce Türkçe sonra İngilizce" sıçraması OLMAZ.
   // ⚠️ localStorage'a YAZILMAZ: bu yalnız o sayfanın görünümü; ziyaretçi ayrılınca
   // kendi dil tercihi aynen döner.
-  const effectiveLang: Lang = isEnglishOnlyPath(pathname) ? (pickedHere ?? "en") : lang;
+  // 2026-09-03: /en → en, /de → de, /es → es, /ru → ru (bkz. forcedLangForPath).
+  const forced = forcedLangForPath(pathname);
+  const effectiveLang: Lang = forced ? (pickedHere ?? forced) : lang;
 
   // Dil değişince kök <html> lang + dir güncellenir (ekran okuyucu + SEO sinyali;
   // Arapça için dir=rtl → sağdan-sola yerleşim).

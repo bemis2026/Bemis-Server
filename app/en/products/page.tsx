@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   alternates: {
     canonical: "/en/products",
-    languages: { en: "/en/products", tr: "/products", "x-default": "/products" },
+    languages: { en: "/en/products", tr: "/products", de: "/de/products", es: "/es/products", ru: "/ru/products", "x-default": "/products" },
   },
   openGraph: {
     title: `${TITLE} | Bemis E-V Charge`,

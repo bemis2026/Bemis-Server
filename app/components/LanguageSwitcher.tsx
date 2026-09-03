@@ -39,10 +39,17 @@ export default function LanguageSwitcher({
     // {0,2} segment: /products · /products/<kategori> · /products/<kategori>/<ürün>
     // (ürün DETAY sayfaları da eşlensin — tek segmentte kalınca detayda dil
     // değiştirmek TR↔EN geçişi yapmıyordu).
+    // 2026-09-03: URL'li dil kolları en/de/es/ru (bkz. app/[lang]/products). Ürün
+    // sayfalarında dil = GERÇEK URL: hedef dilin kolu varsa oraya git (zorlanmış dil,
+    // setLang gerekmez); yoksa TR yola dön + setLang (ar gibi URL kolu olmayan diller).
+    const URL_KOLU = new Set(["en", "de", "es", "ru"]);
     const trSeg = (pathname ?? "").match(/^\/products((?:\/[^/]+){0,2})$/);
-    const enSeg = (pathname ?? "").match(/^\/en\/products((?:\/[^/]+){0,2})$/);
-    if (code === "en" && trSeg) { router.push(`/en/products${trSeg[1] ?? ""}`); return; }
-    if (enSeg && code !== "en") { setLang(code); router.push(`/products${enSeg[1] ?? ""}`); return; }
+    const langSeg = (pathname ?? "").match(/^\/(en|de|es|ru)\/products((?:\/[^/]+){0,2})$/);
+    const segment = trSeg ? (trSeg[1] ?? "") : langSeg ? (langSeg[2] ?? "") : null;
+    if (segment !== null) {
+      if (URL_KOLU.has(code)) { router.push(`/${code}/products${segment}`); return; }
+      if (code === "tr" || langSeg) { setLang(code); router.push(`/products${segment}`); return; }
+    }
     setLang(code);
   }
 

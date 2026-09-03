@@ -60,7 +60,7 @@ export async function generateMetadata({
     alternates: {
       canonical,
       // Karşılıklı hreflang: TR eşi ↔ bu sayfa; x-default TR (ana pazar).
-      languages: { tr: trPath, en: canonical, "x-default": trPath },
+      languages: { tr: trPath, en: canonical, de: `/de${trPath}`, es: `/es${trPath}`, ru: `/ru${trPath}`, "x-default": trPath },
     },
     openGraph: {
       title,

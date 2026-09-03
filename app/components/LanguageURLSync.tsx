@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
-import { isEnglishOnlyPath } from "../lib/languages";
+import { forcedLangForPath } from "../lib/languages";
 
 export default function LanguageURLSync() {
   const { lang, setLang } = useLanguage();
@@ -14,7 +14,8 @@ export default function LanguageURLSync() {
   // tercihi DEĞİLDİR → URL'e yazma. Yazsaydık: ?lang=en eklenir, sayfa yenilenince
   // aşağıdaki mount effect'i onu okuyup setLang("en") çağırır ve Türk ziyaretçinin
   // tercihi localStorage'da kalıcı İngilizce'ye dönerdi.
-  const skip = isEnglishOnlyPath(pathname);
+  // 2026-09-03: /en /de /es /ru kolları da zorlanmış dil → URL'e yazma (aynı gerekçe).
+  const skip = forcedLangForPath(pathname) !== null;
 
   // On mount: read ?lang= from URL
   useEffect(() => {
