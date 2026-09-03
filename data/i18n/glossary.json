@@ -1428,5 +1428,291 @@
         }
       ]
     }
+  },
+  "nl": {
+    "type-2": {
+      "term": "Wat is Type 2?",
+      "abbr": "Type 2",
+      "short": "De standaard AC-laadaansluiting in Europa en Türkiye (IEC 62196-2).",
+      "definition": "Type 2 (IEC 62196-2) is de standaard AC-laadaansluiting in Europa en Türkiye. Deze zevenpolige connector ondersteunt zowel eenfasige als driefasige vermogensoverdracht en maakt AC-laden van 7,4 kW tot 22 kW mogelijk. Naast de vermogenspinnen zorgen de communicatielijnen CP (Control Pilot) en PP (Proximity Pilot) ervoor dat auto en laadstation elkaar herkennen, de stroom veilig wordt ingesteld en wordt gecontroleerd of de kabel goed vergrendeld is. Omdat Type 2 sinds 2014 de feitelijke standaard in Europa is, gebruiken vrijwel alle elektrische auto's en AC-wallboxen die vandaag worden verkocht deze aansluiting; dankzij deze gemeenschappelijke standaard werken auto's en laadstations van verschillende merken probleemloos samen. Ook de in eigen fabriek geproduceerde AC-laders en kabels van Bemis volgen de Type 2-standaard. In de praktijk laadt een particulier zijn auto 's nachts met een wallbox met Type 2-aansluiting thuis, terwijl dezelfde aansluiting op een bedrijfsparkeerplaats met driefasige installatie tot 11 of 22 kW kan leveren. Omdat overal dezelfde standaard wordt gebruikt, kan de bestuurder op verschillende Type 2-stations aansluiten zonder naar een autospecifieke adapter te zoeken.",
+      "faq": [
+        {
+          "q": "Tot hoeveel kW laadt Type 2?",
+          "a": "Een Type 2-aansluiting maakt bij AC-laden vermogensoverdracht van 7,4 kW tot 22 kW mogelijk. De connector ondersteunt zowel een eenfasige als een driefasige aansluiting; op een driefasige installatie kan dezelfde aansluiting tot 11 of 22 kW leveren. De in eigen fabriek geproduceerde AC-laders en kabels van Bemis volgen deze standaard."
+        },
+        {
+          "q": "Met welke auto's is de Type 2-aansluiting compatibel?",
+          "a": "Omdat Type 2 sinds 2014 de feitelijke standaard in Europa is, gebruiken vrijwel alle elektrische auto's en AC-wallboxen die vandaag worden verkocht deze aansluiting. Dankzij de gemeenschappelijke standaard werken auto's en stations van verschillende merken probleemloos samen; de bestuurder kan op verschillende Type 2-stations aansluiten zonder autospecifieke adapter."
+        },
+        {
+          "q": "Waarvoor dienen de CP- en PP-pinnen in de Type 2-aansluiting?",
+          "a": "Type 2 is een zevenpolige connector; naast de vermogenspinnen zijn er de communicatielijnen CP (Control Pilot) en PP (Proximity Pilot). Deze lijnen zorgen ervoor dat auto en station elkaar herkennen, dat de stroom veilig wordt ingesteld en dat wordt gecontroleerd of de kabel goed vergrendeld is."
+        }
+      ]
+    },
+    "ccs2": {
+      "term": "Wat is CCS2?",
+      "abbr": "CCS2",
+      "short": "De standaard DC-snellaadaansluiting in Europa en Türkiye (Combo 2).",
+      "definition": "CCS2 (Combined Charging System / Combo 2) is de standaard DC-snellaadaansluiting in Europa en Türkiye. Met de twee krachtige DC-pinnen onder de Type 2-aansluiting brengt hij gelijkstroom met hoog vermogen over, zodat de auto in vergelijking met AC-laden binnen enkele minuten aanzienlijk wordt bijgeladen. De naam \"gecombineerd\" komt hiervandaan: dezelfde connector ondersteunt met één aansluiting zowel AC (het Type 2-deel bovenaan) als DC-laden, waardoor één laadpoort in de auto volstaat. Omdat bij DC-laden de stroomomzetting in het station plaatsvindt en niet in de auto, gaat het vermogen rechtstreeks naar de accu en wordt het niet beperkt door de ingebouwde lader. CCS2 is de gemeenschappelijke standaard van de openbare snellaadnetwerken en van elektrische auto's van de nieuwe generatie. De in eigen fabriek geproduceerde BEVDC-snelladers van Bemis (40–120 kW DC) gebruiken een CCS2-connector. In een typisch scenario laadt een CCS2-station langs de weg de auto tijdens een korte pauze op een lange reis aanzienlijk bij, terwijl dezelfde aansluiting in de parkeergarage van een winkelcentrum snel laadt tijdens het winkelen. CCS2 is daarom de oplossing voor situaties waarin onderweg snelheid nodig is, als aanvulling op het nachtelijke AC-laden thuis.",
+      "faq": [
+        {
+          "q": "Waarom wordt CCS2 \"gecombineerd\" genoemd?",
+          "a": "CCS2 ondersteunt met de twee krachtige DC-pinnen onder de Type 2-aansluiting in dezelfde connector zowel AC (het Type 2-deel bovenaan) als DC-laden; daar komt de naam vandaan. Zo volstaat één laadpoort in de auto en heeft de bestuurder geen aparte aansluitingen nodig."
+        },
+        {
+          "q": "Waarom is CCS2 sneller dan AC-laden?",
+          "a": "Bij CCS2 vindt de stroomomzetting in het station plaats en niet in de auto, zodat het vermogen rechtstreeks naar de accu gaat en niet wordt beperkt door de ingebouwde lader van de auto. Daardoor wordt de auto in vergelijking met AC-laden binnen enkele minuten aanzienlijk bijgeladen. De BEVDC-serie van Bemis (40–120 kW DC) gebruikt een CCS2-connector."
+        },
+        {
+          "q": "Is CCS2 de standaard in Türkiye?",
+          "a": "Ja, CCS2 is de gemeenschappelijke standaard van de openbare snellaadnetwerken in Türkiye en van elektrische auto's van de nieuwe generatie. Een CCS2-station langs de weg laadt de auto tijdens een korte pauze op een lange reis bij, terwijl dezelfde aansluiting in de parkeergarage van een winkelcentrum snel laadt tijdens het winkelen."
+        }
+      ]
+    },
+    "ocpp": {
+      "term": "Wat is OCPP?",
+      "abbr": "OCPP",
+      "short": "De open communicatiestandaard tussen laadstation en beheersoftware.",
+      "definition": "OCPP (Open Charge Point Protocol) is de open communicatiestandaard tussen laadstations en de centrale beheersoftware (CSMS). Het maakt het mogelijk om, onafhankelijk van het merk van de lader, bewaking op afstand, gebruikersautorisatie, facturatie, software-updates en loadmanagement vanuit één centrale plek uit te voeren. De gangbare versies zijn OCPP 1.6J en 2.0.1. Dat het een open standaard is, betekent dat de exploitant niet vastzit aan het gesloten systeem van één fabrikant: apparaten van verschillende merken kunnen in dezelfde beheersoftware samen worden beheerd en later van software of hardware wisselen wordt eenvoudiger. Daarom is OCPP de feitelijke sectorstandaard voor openbare stations, wagenparken en installaties met meerdere apparaten. De slimme (OCPP-compatibele) modellen van Bemis ondersteunen dit protocol en kunnen op standaard centrale beheersoftware worden aangesloten. Zo kunnen bijvoorbeeld tientallen apparaten in de parkeergarage van een wooncomplex vanaf één beheerscherm worden bewaakt, kan elke sessie aan een gebruiker worden gekoppeld en gefactureerd en kan de software van de apparaten op afstand worden bijgewerkt. In een wagenpark wordt het verbruik per voertuig gerapporteerd en wordt het loadmanagement centraal ingesteld; dat geeft controle zonder ter plaatse te hoeven gaan.",
+      "faq": [
+        {
+          "q": "Waarvoor dient OCPP?",
+          "a": "OCPP is de open communicatiestandaard tussen laadstations en de centrale beheersoftware (CSMS). Het maakt bewaking op afstand, gebruikersautorisatie, facturatie, software-updates en loadmanagement vanuit één centrale plek mogelijk, onafhankelijk van het merk van het apparaat. De gangbare versies zijn OCPP 1.6J en 2.0.1."
+        },
+        {
+          "q": "Welk voordeel biedt OCPP als open standaard?",
+          "a": "Een open standaard betekent dat de exploitant niet vastzit aan het gesloten systeem van één fabrikant. Apparaten van verschillende merken kunnen in dezelfde beheersoftware samen worden beheerd en later van software of hardware wisselen wordt eenvoudiger. Daarom is OCPP de feitelijke sectorstandaard voor openbare stations, wagenparken en installaties met meerdere apparaten."
+        },
+        {
+          "q": "Ondersteunen Bemis-apparaten OCPP?",
+          "a": "De slimme (OCPP-compatibele) modellen van Bemis ondersteunen dit protocol en kunnen op standaard centrale beheersoftware worden aangesloten. Zo kunnen tientallen apparaten in de parkeergarage van een wooncomplex vanaf één scherm worden bewaakt, kan elke sessie aan een gebruiker worden gekoppeld en gefactureerd en kan de apparaatsoftware op afstand worden bijgewerkt."
+        }
+      ]
+    },
+    "ac-dc-sarj": {
+      "term": "Wat is AC- en DC-laden?",
+      "abbr": "AC / DC-laden",
+      "short": "Het verschil of de stroomomzetting in de auto (AC) of in het station (DC) plaatsvindt.",
+      "definition": "AC- en DC-laden verschillen in waar de stroomomzetting plaatsvindt. Bij AC-laden geeft het station de wisselstroom van het net door aan de auto; de omzetting naar de gelijkstroom die de accu nodig heeft, gebeurt door de ingebouwde lader (onboard charger) in de auto (doorgaans 7,4–22 kW). Bij DC-snelladen gebeurt de omzetting door de krachtige omvormer in het station en gaat de gelijkstroom rechtstreeks naar de accu; omdat de kleine ingebouwde lader van de auto niet wordt gebruikt, zijn veel hogere vermogens (50 kW en meer) mogelijk. Daarom past AC-laden bij scenario's die uren duren, zoals thuis, op het werk en 's nachts parkeren, terwijl DC-snelladen past bij situaties waarin binnen minuten actieradius moet worden toegevoegd, zoals langs de weg en bij wagenparken. Bemis biedt zowel in eigen fabriek geproduceerde AC-wallboxen als DC-snelladers uit de BEVDC-serie volgens de CCS2-standaard. Ter vergelijking: een AC-wallbox van 11 kW thuis laadt de auto in enkele uren vol, terwijl een DC-unit uit de BEVDC-serie (40–120 kW) dezelfde actieradius langs de weg in veel kortere tijd toevoegt. Voor de meeste gebruikers is de praktische opstelling daarom de combinatie van AC-laden thuis voor dagelijks gebruik en DC-snelladen op lange ritten.",
+      "faq": [
+        {
+          "q": "Wat is het verschil tussen AC- en DC-laden?",
+          "a": "Het verschil is waar de stroomomzetting plaatsvindt. Bij AC-laden geeft het station de wisselstroom van het net door aan de auto en zet de ingebouwde lader in de auto die om in gelijkstroom (doorgaans 7,4–22 kW). Bij DC-snelladen gebeurt de omzetting in het station en gaat de gelijkstroom rechtstreeks naar de accu, waardoor veel hogere vermogens mogelijk zijn."
+        },
+        {
+          "q": "Waarom kan DC-snelladen een hoger vermogen halen?",
+          "a": "Bij DC-laden gebeurt de omzetting door de krachtige omvormer in het station en wordt de kleine ingebouwde lader van de auto niet gebruikt. Daardoor zijn zonder de AC-beperking van de auto vermogens van 50 kW en meer mogelijk; de DC-units uit de BEVDC-serie van Bemis werken in het bereik van 40–120 kW."
+        },
+        {
+          "q": "Moet ik thuis AC of DC-snelladen gebruiken?",
+          "a": "AC-laden past bij scenario's die uren duren, zoals thuis, op het werk en 's nachts parkeren; DC-snelladen past bij situaties waarin binnen minuten actieradius moet worden toegevoegd, zoals langs de weg en bij wagenparken. Voor de meeste gebruikers is de praktische opstelling AC-laden thuis voor dagelijks gebruik in combinatie met DC-snelladen op lange ritten."
+        }
+      ]
+    },
+    "kw-kwh": {
+      "term": "Wat is het verschil tussen kW en kWh?",
+      "abbr": "kW / kWh",
+      "short": "kW geeft het vermogen (snelheid) aan, kWh de hoeveelheid energie (opgeslagen/overgedragen).",
+      "definition": "kW (kilowatt) staat voor vermogen, dus de snelheid van het laden; kWh (kilowattuur) staat voor de hoeveelheid energie, dus de totale energie die aan de auto wordt overgedragen of in de accu is opgeslagen. Een eenvoudige vergelijking: kW is het debiet van de kraan (hoe snel het water stroomt), kWh de hoeveelheid water die erin is gelopen (hoeveel water er in totaal in de emmer zit). Beide hangen samen via de tijd: de overgedragen energie (kWh) is ongeveer gelijk aan het vermogen (kW) maal de laadtijd (uren). Zo draagt 1 uur laden met 11 kW ongeveer 11 kWh energie over; 22 kWh laden met diezelfde 11 kW duurt grofweg 2 uur. Daarom bepaalt kWh (de accucapaciteit) de actieradius van de auto en bepaalt kW hoe snel hij vol is. De AC-laders van Bemis werken in het bereik van 7,4–22 kW, de DC-units uit de BEVDC-serie in het bereik van 40–120 kW. In de praktijk beïnvloedt dit verschil rechtstreeks de keuze van het apparaat: voor een auto die thuis 8 uur per nacht geparkeerd staat, krijgt een AC-lader met laag vermogen voldoende energie in de accu, terwijl dezelfde kWh langs de weg in korte tijd laden een DC-unit met hoog vermogen vereist. Uw behoefte wordt dus niet bepaald door \"hoeveel energie\", maar door \"in hoeveel tijd\".",
+      "faq": [
+        {
+          "q": "Wat is het verschil tussen kW en kWh?",
+          "a": "kW (kilowatt) staat voor vermogen, dus de snelheid van het laden; kWh (kilowattuur) staat voor de totale hoeveelheid energie die aan de auto wordt overgedragen of in de accu is opgeslagen. Een eenvoudige vergelijking: kW is het debiet van de kraan (hoe snel het water stroomt), kWh de hoeveelheid water die erin is gelopen (hoeveel water er in totaal in de emmer zit)."
+        },
+        {
+          "q": "Hoeveel kWh levert 1 uur laden met 11 kW?",
+          "a": "De overgedragen energie (kWh) is ongeveer gelijk aan het vermogen (kW) maal de laadtijd (uren). Zo draagt 1 uur laden met 11 kW ongeveer 11 kWh energie over; 22 kWh laden met diezelfde 11 kW duurt grofweg 2 uur."
+        },
+        {
+          "q": "Is kW of kWh belangrijk bij het kiezen van een apparaat?",
+          "a": "kWh (de accucapaciteit) bepaalt de actieradius van de auto, kW bepaalt hoe snel hij vol is. Voor een auto die thuis 8 uur per nacht geparkeerd staat, volstaat een AC-lader met laag vermogen, terwijl dezelfde energie langs de weg in korte tijd laden een DC-unit met hoog vermogen vereist. De behoefte wordt bepaald door de vraag \"in hoeveel tijd\", niet \"hoeveel energie\"."
+        }
+      ]
+    },
+    "v2l": {
+      "term": "Wat is V2L?",
+      "abbr": "V2L",
+      "short": "De functie om externe apparaten te voeden vanuit de accu van de auto (Vehicle-to-Load).",
+      "definition": "V2L (Vehicle-to-Load) is de functie waarmee de energie in de accu van een elektrische auto kan worden gebruikt om externe apparaten te voeden. Een V2L-adapter wordt in de laadaansluiting van de auto (Type 2) gestoken en levert een gewone stopcontactuitgang (schuko); zo kunnen apparaten zoals een laptop, verlichting, een koelkast of klein handgereedschap rechtstreeks vanuit de auto werken, zonder net of generator. Omdat de stroomomzetting door de auto wordt gedaan, fungeert de adapter alleen als een veilige brug en maakt hij van de auto een mobiele stroombron; dat is vooral praktisch bij kamperen, buitenevenementen, werk op locatie en noodsituaties zoals stroomuitval. Niet elke elektrische auto ondersteunt V2L; de auto moet deze functie en een geschikte uitgang hebben. Bemis produceert in eigen fabriek V2L-adapters volgens de Type 2-standaard. Op een weekendcamping kan de auto bijvoorbeeld via de V2L-adapter in de Type 2-aansluiting de koelkast, de verlichting en de telefoonlader voeden zonder generator; bij stroomuitval thuis dient hij als kortstondige noodstroombron. Controleer vóór gebruik of uw auto V2L ondersteunt en welk uitgangsvermogen hij levert.",
+      "faq": [
+        {
+          "q": "Hoe werkt V2L?",
+          "a": "V2L gebruikt de energie in de accu van de elektrische auto om externe apparaten te voeden. Een V2L-adapter wordt in de Type 2-aansluiting van de auto gestoken en levert een gewone stopcontactuitgang (schuko); zo kunnen apparaten zoals een laptop, verlichting of een koelkast rechtstreeks vanuit de auto werken, zonder net of generator. Omdat de stroomomzetting door de auto wordt gedaan, fungeert de adapter als een veilige brug."
+        },
+        {
+          "q": "Heeft elke auto V2L?",
+          "a": "Nee, niet elke elektrische auto ondersteunt V2L; de auto moet deze functie en een geschikte uitgang hebben. Controleer vóór gebruik of uw auto V2L ondersteunt en welk uitgangsvermogen hij levert. Bemis produceert in eigen fabriek V2L-adapters volgens de Type 2-standaard."
+        },
+        {
+          "q": "In welke situaties is V2L nuttig?",
+          "a": "Omdat V2L van de auto een mobiele stroombron maakt, is het praktisch bij kamperen, buitenevenementen, werk op locatie en noodsituaties zoals stroomuitval. Op een weekendcamping kan de auto bijvoorbeeld de koelkast, de verlichting en de telefoonlader voeden zonder generator; bij stroomuitval thuis dient hij als kortstondige noodstroombron."
+        }
+      ]
+    },
+    "c2l": {
+      "term": "Wat is C2L?",
+      "abbr": "C2L",
+      "short": "Adapter die de energie van de auto via de lader beschikbaar maakt voor extern gebruik.",
+      "definition": "C2L (Charger-to-Load) is een adapteroplossing die de energie van de auto via de lader beschikbaar maakt voor extern gebruik. Net als bij V2L maakt hij van de auto een mobiele stroombron: hij wordt op de laadaansluiting van de auto (Type 2) aangesloten en biedt een standaard stopcontact of een CEE-uitgang (industrieel), zodat externe apparaten kunnen worden gevoed. Het verschil is dat de oplossing aan de kant van de lader/kabel is opgebouwd; de stroom wordt nog steeds door de auto geregeld en de adapter fungeert als een veilige interface. Hij biedt een draagbare stroomuitgang in scenario's zoals kamperen, werkplaats, bouwplaats en stroomuitval; net als V2L hangt ook deze functie af van de ondersteuning door de auto. Bemis biedt V2L- en C2L-adapters volgens de Type 2-standaard, geproduceerd in eigen fabriek. Op een bouwplaats kunnen bijvoorbeeld dankzij de CEE-uitgang (industrieel) driefasig handgereedschap of apparatuur rechtstreeks vanuit de auto worden gevoed; de standaard stopcontactuitgang biedt in de werkplaats een praktische stroombron voor kleine apparaten. Daarom is C2L, vooral bij professioneel gebruik op locatie waar een CEE-uitgang nodig is, een flexibelere optie dan V2L.",
+      "faq": [
+        {
+          "q": "Wat is het verschil tussen C2L en V2L?",
+          "a": "Beide maken van de auto een mobiele stroombron, maar bij C2L is de oplossing aan de kant van de lader/kabel opgebouwd. C2L wordt op de Type 2-aansluiting van de auto aangesloten en biedt een standaard stopcontact of een CEE-uitgang (industrieel). De stroom wordt nog steeds door de auto geregeld en de adapter fungeert als een veilige interface."
+        },
+        {
+          "q": "Voor welk gebruik is C2L geschikter?",
+          "a": "C2L is vooral bij professioneel gebruik op locatie waar een CEE-uitgang (industrieel) nodig is flexibeler dan V2L. Op een bouwplaats kunnen bijvoorbeeld dankzij de CEE-uitgang driefasig handgereedschap of apparatuur rechtstreeks vanuit de auto worden gevoed; de standaard stopcontactuitgang biedt in de werkplaats een praktische stroombron voor kleine apparaten."
+        },
+        {
+          "q": "Werkt C2L met elke auto?",
+          "a": "Net als V2L hangt ook de C2L-functie af van de ondersteuning door de auto. Hij biedt een draagbare stroomuitgang in scenario's zoals kamperen, werkplaats, bouwplaats en stroomuitval. Bemis biedt V2L- en C2L-adapters volgens de Type 2-standaard, geproduceerd in eigen fabriek."
+        }
+      ]
+    },
+    "yuk-yonetimi-dlm": {
+      "term": "Wat is loadmanagement (DLM)?",
+      "abbr": "Loadmanagement / DLM",
+      "short": "Systeem dat een beperkt vermogen slim verdeelt over meerdere laders.",
+      "definition": "Loadmanagement (DLM — Dynamic Load Management) is het systeem dat het vermogen slim verdeelt over meerdere laders zonder de elektrische capaciteit van een locatie te overschrijden. Het meet het actuele totale verbruik van het gebouw en verhoogt of verlaagt in realtime de stroom naar de laders; zo laden veel auto's tegelijk veilig terwijl de hoofdzekering niet wordt overbelast en een dure verzwaring van de infrastructuur of transformator meestal niet nodig is. Het verschil met statische verdeling is dat de vrije capaciteit dynamisch wordt verdeeld op basis van de actuele behoefte: als weinig auto's zijn aangesloten, krijgt elk meer vermogen; neemt de vraag toe, dan balanceert het systeem automatisch. Bij installaties met meerdere apparaten, zoals parkeergarages van appartementen, bedrijven, winkelcentra en wagenparken, is loadmanagement een praktische noodzaak. De slimme, OCPP-compatibele modellen van Bemis zijn via centrale beheersoftware geschikt voor loadmanagement. In de parkeergarage van een appartementengebouw krijgt bijvoorbeeld één aangesloten auto het volle vermogen, terwijl het systeem 's avonds, als veel auto's tegelijk worden aangesloten, de stroom automatisch verdeelt en ze allemaal blijft laden zonder de hoofdzekering van het gebouw te laten uitvallen. Zo volstaat meestal de bestaande aansluiting en worden de kosten van een transformatorverzwaring vermeden.",
+      "faq": [
+        {
+          "q": "Waarvoor dient loadmanagement (DLM)?",
+          "a": "Loadmanagement is het systeem dat het vermogen slim verdeelt over meerdere laders zonder de elektrische capaciteit van een locatie te overschrijden. Het meet het actuele totale verbruik van het gebouw en regelt in realtime de stroom naar de apparaten; zo laden veel auto's tegelijk veilig terwijl de hoofdzekering niet wordt overbelast en een dure verzwaring van de infrastructuur meestal niet nodig is."
+        },
+        {
+          "q": "Hoe verschilt dynamisch loadmanagement van statische verdeling?",
+          "a": "Het verschil met statische verdeling is dat de vrije capaciteit dynamisch wordt verdeeld op basis van de actuele behoefte. Als weinig auto's zijn aangesloten, krijgt elk meer vermogen; neemt de vraag toe, dan balanceert het systeem automatisch. In de parkeergarage van een appartementengebouw krijgt één aangesloten auto bijvoorbeeld het volle vermogen, terwijl het systeem 's avonds bij veel auto's de stroom automatisch verdeelt."
+        },
+        {
+          "q": "Bespaart loadmanagement de kosten van een transformatorverzwaring?",
+          "a": "Ja, dankzij loadmanagement volstaat meestal de bestaande aansluiting en worden de kosten van een transformatorverzwaring vermeden. Bij installaties met meerdere apparaten, zoals parkeergarages van appartementen, bedrijven, winkelcentra en wagenparken, is het een praktische noodzaak. De slimme, OCPP-compatibele modellen van Bemis zijn via centrale beheersoftware geschikt voor loadmanagement."
+        }
+      ]
+    },
+    "ip65-ip66": {
+      "term": "Wat is IP65 / IP66?",
+      "abbr": "IP65 / IP66",
+      "short": "De beschermingsklasse van een apparaat tegen stof en water (geschiktheid voor buiten).",
+      "definition": "IP65 en IP66 geven de beschermingsklasse van een apparaat tegen stof en water aan (Ingress Protection, IEC 60529). Het eerste cijfer van de code staat voor de bescherming tegen vaste voorwerpen/stof, het tweede voor de bescherming tegen water: in beide klassen is het eerste cijfer 6, wat betekent dat het apparaat volledig stofdicht is (er komt geen stof binnen). Het tweede cijfer maakt het verschil in waterbestendigheid: IP65 beschermt tegen waterstralen met lage druk uit elke richting, IP66 tegen krachtigere waterstralen. Dit niveau betekent dat een lader veilig buiten kan worden gebruikt, in een open parkeergarage of aan een muur, bij regen, stof en wind. Het duidt echter op bestendigheid tegen buitenomstandigheden, niet op onderdompeling in water. De in eigen fabriek geproduceerde laders van Bemis hebben beschermingsklasse IP65/IP66. In de praktijk betekent dit dat een wallbox aan de buitenmuur van een open parkeergarage probleemloos in de regen of in een stoffig industriegebied kan werken; voor een particulier is het veilig om het apparaat aan de tuinmuur of buiten aan de garage te monteren. Dankzij deze beschermingsklasse is een aparte gesloten behuizing of overkapping voor het apparaat meestal niet nodig.",
+      "faq": [
+        {
+          "q": "Wat is het verschil tussen IP65 en IP66?",
+          "a": "In beide klassen is het eerste cijfer 6, wat betekent dat het apparaat volledig stofdicht is (er komt geen stof binnen). Het tweede cijfer maakt het verschil in waterbestendigheid: IP65 beschermt tegen waterstralen met lage druk uit elke richting, IP66 tegen krachtigere waterstralen. Het eerste cijfer van de code staat voor de bescherming tegen vaste voorwerpen/stof, het tweede voor de bescherming tegen water."
+        },
+        {
+          "q": "Kan een IP65/IP66-lader buiten worden gebruikt?",
+          "a": "Ja, deze beschermingsklasse betekent dat een lader veilig buiten kan worden gebruikt, in een open parkeergarage of aan een muur, bij regen, stof en wind. Een wallbox aan de buitenmuur van een open parkeergarage kan probleemloos in de regen of in een stoffig industriegebied werken. De in eigen fabriek geproduceerde modellen van Bemis hebben beschermingsklasse IP65/IP66."
+        },
+        {
+          "q": "Mag een IP65/IP66-apparaat onder water komen?",
+          "a": "Nee, dit niveau duidt op bestendigheid tegen buitenomstandigheden, niet op onderdompeling in water. Dankzij deze bescherming is een aparte gesloten behuizing of overkapping voor het apparaat meestal wel overbodig; een particulier kan het apparaat veilig aan de tuinmuur of buiten aan de garage monteren."
+        }
+      ]
+    },
+    "faz": {
+      "term": "Wat is eenfasig en driefasig?",
+      "abbr": "Fase (een/drie)",
+      "short": "Eenfasige (≤7,4 kW) en driefasige (11/22 kW) elektrische aansluiting.",
+      "definition": "Eenfasig en driefasig geven het type elektrische aansluiting van de installatie aan. Een eenfasige aansluiting heeft één stroomdraad en levert bij AC-laden doorgaans tot 7,4 kW, terwijl een driefasige aansluiting drie elkaar in evenwicht houdende draden heeft en daardoor met dezelfde kabel veel meer vermogen (11 of 22 kW) kan overbrengen. De meeste woningen zijn eenfasig; bedrijven en parkeergarages van wooncomplexen zijn meestal driefasig. Een belangrijk punt: de werkelijke laadsnelheid hangt zowel af van de fase van de installatie als van de capaciteit van de ingebouwde lader van de auto; zelfs bij een driefasige installatie blijft het laden beperkt tot 11 kW als de auto slechts 11 kW accepteert. Voor de juiste keuze van apparaat en vermogen moet u dus zowel de fase van de installatie als de capaciteit van de auto kennen. De AC-laders van Bemis zijn er in modellen voor zowel eenfasige als driefasige installaties. In een eenfasige vrijstaande woning past bijvoorbeeld een apparaat van 7,4 kW bij de installatie, terwijl op een driefasige bedrijfsparkeerplaats een apparaat van 11 of 22 kW met dezelfde kabel sneller laadt; het vooraf controleren of de installatie een- of driefasig is, maakt de juiste vermogenskeuze daarom eenvoudiger.",
+      "faq": [
+        {
+          "q": "Wat is het verschil tussen eenfasig en driefasig?",
+          "a": "Een eenfasige aansluiting heeft één stroomdraad en levert bij AC-laden doorgaans tot 7,4 kW. Een driefasige aansluiting heeft drie elkaar in evenwicht houdende draden en kan daardoor met dezelfde kabel veel meer vermogen (11 of 22 kW) overbrengen. De meeste woningen zijn eenfasig; bedrijven en parkeergarages van wooncomplexen zijn meestal driefasig."
+        },
+        {
+          "q": "Laadt een driefasige installatie altijd met 22 kW?",
+          "a": "Nee, de werkelijke laadsnelheid hangt zowel af van de fase van de installatie als van de capaciteit van de ingebouwde lader van de auto. Zelfs bij een driefasige installatie blijft het laden beperkt tot 11 kW als de auto slechts 11 kW accepteert. Voor de juiste vermogenskeuze moet u dus zowel de fase van de installatie als de capaciteit van de auto kennen."
+        },
+        {
+          "q": "Moet ik voor thuis een eenfasig of driefasig apparaat kopen?",
+          "a": "In een eenfasige vrijstaande woning past een apparaat van 7,4 kW bij de installatie; op een driefasige bedrijfsparkeerplaats laadt een apparaat van 11 of 22 kW met dezelfde kabel sneller. Controleer daarom vóór de aankoop of de installatie een- of driefasig is; dat maakt de juiste vermogenskeuze eenvoudiger. De AC-laders van Bemis zijn er in modellen voor beide installaties."
+        }
+      ]
+    },
+    "onboard-charger": {
+      "term": "Wat is een onboard charger?",
+      "abbr": "Onboard charger",
+      "short": "De laadeenheid in de auto die AC omzet in DC; bepaalt de AC-laadsnelheid.",
+      "definition": "De onboard charger (ingebouwde lader) is de eenheid in de elektrische auto die bij AC-laden de binnenkomende wisselstroom omzet in de gelijkstroom die de accu nodig heeft. De bovengrens van de AC-laadsnelheid wordt meestal niet door het station maar door deze eenheid bepaald: een auto met een onboard charger van 11 kW laadt bijvoorbeeld ook op een station van 22 kW met ongeveer 11 kW, omdat de beperking in de auto zit. Het antwoord op de vraag \"waarom laadt mijn auto niet sneller terwijl mijn station 22 kW is?\" is daarom meestal de capaciteit van de onboard charger. Bij DC-snelladen vindt de omzetting in het station plaats, waardoor de onboard charger buiten spel staat en de AC-limiet van de auto niet geldt; het vermogen gaat rechtstreeks naar de accu. Bij het kiezen van de juiste AC-lader is het belangrijk het vermogen van de onboard charger van de auto te kennen, zodat u geen geld uitgeeft aan een apparaat met onnodig hoog vermogen. De AC-wallboxen van Bemis bieden opties die passen bij de gangbare vermogens van onboard chargers (7,4–22 kW). Een praktisch voorbeeld: voor een gebruiker wiens auto slechts 11 kW accepteert, brengt een apparaat van 22 kW thuis geen extra snelheid; een model van 11 kW dat bij de auto past, is dan zowel voldoende als voordeliger.",
+      "faq": [
+        {
+          "q": "Waarvoor dient de onboard charger?",
+          "a": "De onboard charger (ingebouwde lader) is de eenheid in de elektrische auto die bij AC-laden de binnenkomende wisselstroom omzet in de gelijkstroom die de accu nodig heeft. De bovengrens van de AC-laadsnelheid wordt meestal niet door het station maar door deze eenheid bepaald."
+        },
+        {
+          "q": "Waarom laadt mijn auto niet sneller terwijl mijn station 22 kW is?",
+          "a": "Het antwoord is meestal de capaciteit van de onboard charger van de auto. Een auto met een onboard charger van 11 kW laadt bijvoorbeeld ook op een station van 22 kW met ongeveer 11 kW, omdat de beperking in de auto zit. Bij DC-snelladen vindt de omzetting in het station plaats, waardoor de onboard charger buiten spel staat en de AC-limiet van de auto niet geldt."
+        },
+        {
+          "q": "Waarom is het vermogen van de onboard charger belangrijk bij de apparaatkeuze?",
+          "a": "Bij het kiezen van de juiste AC-lader is het belangrijk het vermogen van de onboard charger te kennen, zodat u geen geld uitgeeft aan een apparaat met onnodig hoog vermogen. Voor een gebruiker wiens auto slechts 11 kW accepteert, brengt een apparaat van 22 kW thuis geen extra snelheid; een model van 11 kW is dan voldoende en voordeliger. De AC-wallboxen van Bemis bieden opties van 7,4–22 kW."
+        }
+      ]
+    },
+    "mod-2-mod-3": {
+      "term": "Wat is Mode 2- en Mode 3-laden?",
+      "abbr": "Mode 2 / Mode 3",
+      "short": "Mobiel AC-laden vanaf een stopcontact (Mode 2) en vanaf een vast station (Mode 3).",
+      "definition": "Mode 2 en Mode 3 beschrijven de AC-laadmethoden (IEC 61851). Mode 2 is mobiel laden tussen de auto en een gewoon of industrieel (CEE) stopcontact, met een in de kabel geïntegreerd beveiligingskastje (IC-CPD); dit kastje biedt aardlek- en temperatuurbeveiliging, maar omdat het vermogen beperkt blijft tot wat het stopcontact toelaat, is Mode 2 relatief langzaam en vooral een oplossing voor nood, incidenteel gebruik of op reis. Mode 3 is permanent AC-laden via een vast laadstation (wallbox), waarbij auto en station voortdurend met elkaar communiceren; omdat de stroom veilig wordt ingesteld, biedt het een hoger vermogen en een veiliger laadproces dat geschikt is voor dagelijks gebruik. De wallboxen thuis, op het werk en in parkeergarages van wooncomplexen werken volgens Mode 3. Bemis produceert zowel mobiele Mode 2-laadoplossingen als vaste Mode 3 AC-wallboxen. In de praktijk biedt een Mode 2-apparaat op een plek zonder vast station reserve-/noodladen via het stopcontact, terwijl een aan de muur gemonteerde Mode 3-wallbox thuis voor dagelijks laden zowel sneller als veiliger is; Mode 2 is daarom meestal de aanvullende oplossing in de kofferbak en Mode 3 de eigenlijke dagelijkse installatie.",
+      "faq": [
+        {
+          "q": "Wat is het verschil tussen Mode 2- en Mode 3-laden?",
+          "a": "Mode 2 is mobiel laden tussen de auto en een gewoon of CEE-stopcontact met een in de kabel geïntegreerd beveiligingskastje (IC-CPD); omdat het vermogen door het stopcontact wordt beperkt, is het relatief langzaam. Mode 3 is permanent AC-laden via een vast station (wallbox), waarbij auto en station voortdurend communiceren — een hoger vermogen en veiliger."
+        },
+        {
+          "q": "Moet ik Mode 2 of Mode 3 kiezen?",
+          "a": "Mode 2 is vooral een aanvullende oplossing in de kofferbak voor nood, incidenteel gebruik en op reis. Voor dagelijks laden is een aan de muur gemonteerde Mode 3-wallbox thuis zowel sneller als veiliger. Bemis produceert zowel mobiele Mode 2-oplossingen als vaste Mode 3 AC-wallboxen."
+        }
+      ]
+    },
+    "rfid": {
+      "term": "Wat is RFID (autorisatie bij het laden)?",
+      "abbr": "RFID",
+      "short": "Technologie om met een contactloze kaart het laden te starten en gebruikers te autoriseren.",
+      "definition": "RFID (Radio Frequency Identification) is de contactloze kaarttechnologie die bij laadstations wordt gebruikt voor gebruikersautorisatie. De gebruiker start het laden door zijn eigen kaart voor het apparaat te houden; zonder kaart wordt geen sessie gestart, zodat alleen bevoegde personen het station kunnen gebruiken. Deze methode voorkomt onbevoegd gebruik in openbare ruimtes, bij bedrijven, in wooncomplexen en in wagenparken, en koppelt bovendien elke laadsessie aan een specifieke kaart (en dus aan een persoon of afdeling). Deze registratie maakt het mogelijk het verbruik per gebruiker te rapporteren en de kosten correct te verdelen; bij OCPP-compatibele systemen kan de autorisatie ook via de centrale beheersoftware worden beheerd. De slimme (OCPP-compatibele) modellen van Bemis ondersteunen autorisatie met RFID. In de parkeergarage van een wooncomplex krijgt bijvoorbeeld elke bewoner een kaart; zo kan een buitenstaander het station niet gebruiken en wordt de door elk huishouden verbruikte energie apart gerapporteerd, zodat de servicekosten of de factuur eerlijk worden verdeeld. In een bedrijfswagenpark worden kaarten aan afdelingen toegewezen, zodat eenvoudig te volgen is welk voertuig hoeveel heeft geladen.",
+      "faq": [
+        {
+          "q": "Waarvoor dient RFID bij het laden?",
+          "a": "RFID zorgt bij laadstations voor gebruikersautorisatie met een contactloze kaart. De gebruiker start het laden door zijn kaart voor het apparaat te houden; zonder kaart wordt geen sessie gestart, zodat alleen bevoegde personen het station gebruiken. Dit voorkomt onbevoegd gebruik in openbare ruimtes, wooncomplexen en wagenparken."
+        },
+        {
+          "q": "Kan het verbruik met RFID per persoon worden gerapporteerd?",
+          "a": "Ja. RFID koppelt elke laadsessie aan een specifieke kaart (persoon of afdeling); deze registratie maakt rapportage van het verbruik per gebruiker en een correcte kostenverdeling mogelijk. Bij OCPP-compatibele systemen wordt de autorisatie via de centrale software beheerd. De slimme modellen van Bemis ondersteunen RFID."
+        }
+      ]
+    },
+    "taper": {
+      "term": "Wat is taper (geleidelijke vertraging)?",
+      "abbr": "Taper",
+      "short": "Het bewust verlagen van de laadsnelheid zodra de accu ~80% bereikt (bescherming).",
+      "definition": "Taper (geleidelijke vertraging) is het bewust verlagen van de laadsnelheid nadat de accu een bepaald niveau (vaak ongeveer 80%) heeft bereikt. Dit is geen storing of apparaatfout, maar normaal gedrag dat de accu beschermt: naarmate de cellen voller raken, kunnen ze een hoge stroom niet meer veilig opnemen en vraagt het accubeheersysteem van de auto minder stroom om opwarming en slijtage te beperken. Daardoor gaan de eerste 80% snel, terwijl de laatste 20% onevenredig lang duren; vooral bij DC-snelladen is dit verschil duidelijk merkbaar. In de praktijk is het het efficiëntst om het snelladen bij ongeveer 80% te stoppen en verder te rijden; volledig tot 100% laden kan onnodig tijdverlies opleveren. Dit gedrag komt in wezen van de auto, niet van het merk van de lader; ook de DC-snelladers van Bemis volgen de stroomcurve die de accu vraagt. Tijdens een pauze op een lange rit is het bijvoorbeeld veel efficiënter de auto bij een DC-station bij 80% los te koppelen en verder te rijden dan extra te wachten op de laatste 20%; bij nachtelijk AC-laden thuis is de tijd sowieso ruim, dus vormt tot 100% laden geen probleem. Kennis van taper maakt de tijdplanning onderweg dus eenvoudiger.",
+      "faq": [
+        {
+          "q": "Waarom wordt het laden na 80% langzamer?",
+          "a": "Dit heet taper (geleidelijke vertraging) en is geen storing, maar normaal gedrag dat de accu beschermt. Naarmate de cellen voller raken, kunnen ze een hoge stroom niet meer veilig opnemen; het accubeheersysteem van de auto vraagt minder stroom om opwarming en slijtage te beperken. Vooral bij DC-snelladen is dit verschil duidelijk merkbaar."
+        },
+        {
+          "q": "Moet ik het snelladen tot 100% afmaken?",
+          "a": "Meestal niet. De eerste 80% gaan snel, de laatste 20% duren onevenredig lang; het efficiëntst is het snelladen bij ongeveer 80% te stoppen en verder te rijden. Dit gedrag komt van de auto, niet van het merk van de lader; ook de DC-units van Bemis volgen de stroomcurve die de accu vraagt. Bij nachtelijk AC-laden thuis is 100% geen probleem."
+        }
+      ]
+    },
+    "wallbox": {
+      "term": "Wat is een wallbox?",
+      "abbr": "Wallbox",
+      "short": "Vast AC-laadstation voor wandmontage (thuis/op het werk, 7,4–22 kW).",
+      "definition": "Een wallbox is een vast AC-laadstation dat aan de muur wordt gemonteerd. Hij wordt gebruikt thuis, op het werk en in parkeergarages van wooncomplexen; doorgaans heeft hij een Type 2-aansluiting, een vermogensbereik van 7,4–22 kW en werkt hij volgens Mode 3. Hij laadt de auto, terwijl die 's nachts of overdag geparkeerd staat, veel sneller en veiliger op dan mobiel laden vanaf een stopcontact; dankzij voortdurende communicatie wordt de stroom veilig ingesteld en is er aardlekbeveiliging. Door de vaste installatie is hij geschikt voor dagelijks gebruik en veroorzaakt hij geen kabelwirwar. Slimme modellen bieden functies zoals OCPP, een mobiele app, loadmanagement (DLM) en autorisatie met RFID, waardoor ze ook geschikt zijn voor installaties met meerdere apparaten en wagenparken. De Charger-serie van Bemis bestaat uit in eigen fabriek geproduceerde AC-wallboxen volgens de Type 2-standaard met IP65/IP66-bescherming. Een particulier laadt bijvoorbeeld zijn auto 's nachts geruisloos met een wallbox aan de garagemuur, terwijl een bedrijf meerdere wallboxen in zijn parkeergarage installeert en met OCPP centrale bewaking, loadmanagement en RFID-autorisatie toevoegt om de bedrijfsauto's vanaf één paneel te beheren. Dankzij de IP65/IP66-bescherming kan het apparaat ook aan een buitenmuur in een open parkeergarage worden gemonteerd.",
+      "faq": [
+        {
+          "q": "Wat is een wallbox en waar wordt hij gebruikt?",
+          "a": "Een wallbox is een vast AC-laadstation dat aan de muur wordt gemonteerd. Hij wordt gebruikt thuis, op het werk en in parkeergarages van wooncomplexen; doorgaans met een Type 2-aansluiting, een vermogensbereik van 7,4–22 kW en werkend volgens Mode 3. Hij is veel sneller en veiliger dan mobiel laden vanaf een stopcontact en veroorzaakt geen kabelwirwar."
+        },
+        {
+          "q": "Welke functies biedt een slimme wallbox?",
+          "a": "Slimme modellen bieden OCPP, een mobiele app, loadmanagement (DLM) en autorisatie met RFID en zijn daarmee geschikt voor installaties met meerdere apparaten en wagenparken. De Charger-serie van Bemis bestaat uit in eigen fabriek geproduceerde AC-wallboxen volgens de Type 2-standaard met IP65/IP66-bescherming; ze kunnen ook aan een buitenmuur in een open parkeergarage worden gemonteerd."
+        }
+      ]
+    }
   }
 }
