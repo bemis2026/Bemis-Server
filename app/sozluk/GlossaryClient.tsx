@@ -18,6 +18,7 @@ const BLUE = "#3B82F6";
 const UI: Record<string, Record<string, string>> = {
   tr: { eyebrow: "EV Şarj Sözlüğü", indexTitle: "Elektrikli Araç Şarj Terimleri Sözlüğü", intro: "Type 2, CCS2, OCPP, AC/DC, kW–kWh, V2L, yük yönetimi (DLM), IP65/IP66 ve daha fazlası — elektrikli araç şarjında en çok merak edilen terimlerin kısa ve net açıklamaları.", back: "Sözlük", faqHeading: "Sıkça Sorulan Sorular", relatedContent: "İlgili içerik", ctaText: "Yerli üretim elektrikli araç şarj çözümleri için ürün gamımızı inceleyin.", ctaBtn: "Ürünleri İncele", relatedTerms: "İlgili Terimler", otherTerms: "Diğer terimler" },
   en: { eyebrow: "EV Charging Glossary", indexTitle: "Electric Vehicle Charging Glossary", intro: "Type 2, CCS2, OCPP, AC/DC, kW–kWh, V2L, load management (DLM), IP65/IP66 and more — short, clear explanations of the most-asked electric-vehicle charging terms.", back: "Glossary", faqHeading: "Frequently Asked Questions", relatedContent: "Related content", ctaText: "Explore our product range for locally produced electric-vehicle charging solutions.", ctaBtn: "Explore Products", relatedTerms: "Related Terms", otherTerms: "Other terms" },
+  nl: { eyebrow: "Woordenlijst EV-laden", indexTitle: "Woordenlijst laden van elektrische voertuigen", intro: "Type 2, CCS2, OCPP, AC/DC, kW–kWh, V2L, loadmanagement (DLM), IP65/IP66 en meer — korte, duidelijke uitleg van de meestgestelde termen rond het laden van elektrische voertuigen.", back: "Woordenlijst", faqHeading: "Veelgestelde vragen", relatedContent: "Gerelateerde inhoud", ctaText: "Ontdek ons productassortiment voor in eigen huis geproduceerde laadoplossingen voor elektrische voertuigen.", ctaBtn: "Bekijk producten", relatedTerms: "Gerelateerde termen", otherTerms: "Andere termen" },
 };
 const VIEWPORT = { once: true, margin: "-60px" } as const;
 
@@ -44,7 +45,8 @@ export default function GlossaryClient(props: Props) {
   // Terimi aktif dile çevir; çevirisi olmayan alan/terim TR kaynağa düşer.
   const tx = (t: GlossaryTerm): GlossaryTerm =>
     lang === "tr" ? t : { ...t, ...(GLOSSARY_I18N[lang]?.[t.slug] ?? {}) };
-  const ui = UI[lang] ?? UI.tr;
+  // Eklenmemiş dil TR'ye değil EN'e düşer (2026-09-03: de/es/ar/ru kabuğu Türkçe çıkıyordu).
+  const ui = UI[lang] ?? UI.en ?? UI.tr;
   const term = props.mode === "term" ? tx(props.term) : null;
 
   const bg = d ? "linear-gradient(180deg,#0c0c0e 0%,#0f0f11 100%)" : "#f8f8fb";

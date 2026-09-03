@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
 import { HiArrowRight, HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { useMarqueeScroll } from "../../lib/useMarqueeScroll";
 import {
@@ -318,10 +319,10 @@ export default function FeaturedProducts() {
                           <span
                             key={fid}
                             className="inline-flex items-center gap-1 rounded-md cursor-default transition-transform duration-200 will-change-transform hover:scale-[1.18] hover:-translate-y-0.5"
-                            aria-label={f.label}
+                            aria-label={pickText(lang, f.label, f.labelEn ?? f.label)}
                             onMouseEnter={(e) => {
                               const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
-                              setFeatTip({ label: f.label, desc: f.desc ?? "", x: r.left + r.width / 2, y: r.top });
+                              setFeatTip({ label: pickText(lang, f.label, f.labelEn ?? f.label), desc: pickText(lang, f.desc ?? "", f.descEn ?? f.desc ?? ""), x: r.left + r.width / 2, y: r.top });
                             }}
                             onMouseLeave={() => setFeatTip(null)}
                             style={{

@@ -2553,5 +2553,236 @@
     "ar": "عرض أقل",
     "ru": "Свернуть",
     "nl": "Minder tonen"
+  },
+  "OCPP": {
+    "de": "OCPP",
+    "es": "OCPP",
+    "ar": "OCPP",
+    "ru": "OCPP",
+    "nl": "OCPP"
+  },
+  "Connects to charging network management systems via the open OCPP protocol.": {
+    "de": "Verbindet sich über das offene OCPP-Protokoll mit Ladenetz-Managementsystemen.",
+    "es": "Se conecta a los sistemas de gestión de redes de carga mediante el protocolo abierto OCPP.",
+    "ar": "يتصل بأنظمة إدارة شبكات الشحن عبر بروتوكول OCPP المفتوح.",
+    "ru": "Подключается к системам управления зарядной сетью по открытому протоколу OCPP.",
+    "nl": "Verbindt via het open OCPP-protocol met beheersystemen voor laadnetwerken."
+  },
+  "Start, stop and monitor charging in real time from your phone.": {
+    "de": "Laden per Smartphone starten, stoppen und in Echtzeit verfolgen.",
+    "es": "Inicie, detenga y supervise la carga en tiempo real desde el teléfono.",
+    "ar": "ابدأ الشحن وأوقفه وتابعه لحظيًا من هاتفك.",
+    "ru": "Запускайте, останавливайте и отслеживайте зарядку с телефона в реальном времени.",
+    "nl": "Start, stop en volg het laden in realtime vanaf uw telefoon."
+  },
+  "WiFi": {
+    "de": "WLAN",
+    "es": "WiFi",
+    "ar": "واي فاي",
+    "ru": "Wi-Fi",
+    "nl": "Wifi"
+  },
+  "Connects to the internet over a wireless network.": {
+    "de": "Verbindet sich über ein WLAN mit dem Internet.",
+    "es": "Se conecta a internet a través de una red inalámbrica.",
+    "ar": "يتصل بالإنترنت عبر شبكة لاسلكية.",
+    "ru": "Подключается к интернету по беспроводной сети.",
+    "nl": "Maakt via een draadloos netwerk verbinding met internet."
+  },
+  "Bluetooth": {
+    "de": "Bluetooth",
+    "es": "Bluetooth",
+    "ar": "بلوتوث",
+    "ru": "Bluetooth",
+    "nl": "Bluetooth"
+  },
+  "Direct Bluetooth connection to your phone; access device settings without a network.": {
+    "de": "Direkte Bluetooth-Verbindung zum Smartphone; Zugriff auf die Geräteeinstellungen ohne Netzwerk.",
+    "es": "Conexión Bluetooth directa con el teléfono; acceso a los ajustes del equipo sin red.",
+    "ar": "اتصال بلوتوث مباشر بالهاتف؛ الوصول إلى إعدادات الجهاز دون شبكة.",
+    "ru": "Прямое Bluetooth-подключение к телефону; доступ к настройкам устройства без сети.",
+    "nl": "Directe Bluetooth-verbinding met uw telefoon; toegang tot de apparaatinstellingen zonder netwerk."
+  },
+  "RFID Card Reader": {
+    "de": "RFID-Kartenleser",
+    "es": "Lector de tarjetas RFID",
+    "ar": "قارئ بطاقات RFID",
+    "ru": "Считыватель RFID-карт",
+    "nl": "RFID-kaartlezer"
+  },
+  "Authorised access and one-touch start with an RFID card.": {
+    "de": "Autorisierter Zugriff und Start per Berührung mit RFID-Karte.",
+    "es": "Acceso autorizado e inicio con un solo toque mediante tarjeta RFID.",
+    "ar": "وصول مُصرَّح به وبدء بلمسة واحدة عبر بطاقة RFID.",
+    "ru": "Авторизованный доступ и запуск одним касанием RFID-карты.",
+    "nl": "Geautoriseerde toegang en starten met één aanraking via RFID-kaart."
+  },
+  "LCD Display": {
+    "de": "LCD-Display",
+    "es": "Pantalla LCD",
+    "ar": "شاشة LCD",
+    "ru": "ЖК-дисплей",
+    "nl": "Lcd-display"
+  },
+  "Backlit LCD display showing the charging status.": {
+    "de": "Beleuchtetes LCD-Display mit Anzeige des Ladestatus.",
+    "es": "Pantalla LCD retroiluminada que muestra el estado de carga.",
+    "ar": "شاشة LCD مضاءة تعرض حالة الشحن.",
+    "ru": "ЖК-дисплей с подсветкой, показывающий состояние зарядки.",
+    "nl": "Verlicht lcd-display dat de laadstatus toont."
+  },
+  "IP65 Protection": {
+    "de": "IP65-Schutz",
+    "es": "Protección IP65",
+    "ar": "حماية IP65",
+    "ru": "Защита IP65",
+    "nl": "IP65-bescherming"
+  },
+  "IP65 protection against dust and water; suitable for outdoor use.": {
+    "de": "IP65-Schutz gegen Staub und Wasser; für den Außenbereich geeignet.",
+    "es": "Protección IP65 contra polvo y agua; apto para exteriores.",
+    "ar": "حماية IP65 من الغبار والماء؛ مناسب للاستخدام الخارجي.",
+    "ru": "Защита IP65 от пыли и воды; подходит для установки на улице.",
+    "nl": "IP65-bescherming tegen stof en water; geschikt voor buiten."
+  },
+  "Dynamic Load Balancing": {
+    "de": "Dynamisches Lastmanagement",
+    "es": "Equilibrio dinámico de carga",
+    "ar": "موازنة الحمل الديناميكية",
+    "ru": "Динамическая балансировка нагрузки",
+    "nl": "Dynamische loadbalancing"
+  },
+  "Balances the load automatically without exceeding the subscribed power.": {
+    "de": "Gleicht die Last automatisch aus, ohne die Anschlussleistung zu überschreiten.",
+    "es": "Equilibra la carga automáticamente sin superar la potencia contratada.",
+    "ar": "يوازن الحمل تلقائيًا دون تجاوز القدرة المتعاقد عليها.",
+    "ru": "Автоматически балансирует нагрузку, не превышая выделенную мощность.",
+    "nl": "Verdeelt de belasting automatisch zonder het gecontracteerde vermogen te overschrijden."
+  },
+  "Schedule charging for off-peak tariff hours.": {
+    "de": "Laden für günstige Tarifzeiten planen.",
+    "es": "Programe la carga en las horas de tarifa reducida.",
+    "ar": "برمِج الشحن في ساعات التعرفة المنخفضة.",
+    "ru": "Планируйте зарядку на часы дешёвого тарифа.",
+    "nl": "Plan het laden in de goedkope tariefuren."
+  },
+  "Multi-user management and reporting in shared areas.": {
+    "de": "Mehrbenutzer-Verwaltung und Reporting in Gemeinschaftsbereichen.",
+    "es": "Gestión multiusuario e informes en zonas comunes.",
+    "ar": "إدارة متعددة المستخدمين وتقارير في المناطق المشتركة.",
+    "ru": "Управление несколькими пользователями и отчётность в общих зонах.",
+    "nl": "Beheer en rapportage voor meerdere gebruikers in gedeelde ruimtes."
+  },
+  "Automatic Charge Start": {
+    "de": "Automatischer Ladestart",
+    "es": "Inicio automático de carga",
+    "ar": "بدء الشحن التلقائي",
+    "ru": "Автоматический запуск зарядки",
+    "nl": "Automatisch laden starten"
+  },
+  "Charging starts automatically when the cable is plugged in.": {
+    "de": "Das Laden startet automatisch, sobald das Kabel eingesteckt ist.",
+    "es": "La carga se inicia automáticamente al conectar el cable.",
+    "ar": "يبدأ الشحن تلقائيًا عند توصيل الكابل.",
+    "ru": "Зарядка начинается автоматически при подключении кабеля.",
+    "nl": "Het laden start vanzelf zodra de kabel wordt aangesloten."
+  },
+  "MID Meter (Optional)": {
+    "de": "MID-Zähler (optional)",
+    "es": "Contador MID (opcional)",
+    "ar": "عداد MID (اختياري)",
+    "ru": "Счётчик MID (опция)",
+    "nl": "MID-meter (optioneel)"
+  },
+  "Accurate measurement with a certified MID energy meter (optional).": {
+    "de": "Genaue Messung mit zertifiziertem MID-Energiezähler (optional).",
+    "es": "Medición precisa con contador de energía MID certificado (opcional).",
+    "ar": "قياس دقيق بعداد طاقة MID معتمد (اختياري).",
+    "ru": "Точный учёт с сертифицированным счётчиком энергии MID (опция).",
+    "nl": "Nauwkeurige meting met een gecertificeerde MID-energiemeter (optioneel)."
+  },
+  "Built-in MID Meter": {
+    "de": "Integrierter MID-Zähler",
+    "es": "Contador MID integrado",
+    "ar": "عداد MID مدمج",
+    "ru": "Встроенный счётчик MID",
+    "nl": "Ingebouwde MID-meter"
+  },
+  "Certified MID energy meter integrated in the housing; suitable for metered billing.": {
+    "de": "Im Gehäuse integrierter, zertifizierter MID-Energiezähler; geeignet für messwertbasierte Abrechnung.",
+    "es": "Contador de energía MID certificado integrado en la carcasa; apto para facturación por medición.",
+    "ar": "عداد طاقة MID معتمد مدمج في الهيكل؛ مناسب للفوترة حسب القياس.",
+    "ru": "Сертифицированный счётчик энергии MID, встроенный в корпус; подходит для биллинга по показаниям.",
+    "nl": "In de behuizing geïntegreerde, gecertificeerde MID-energiemeter; geschikt voor facturatie op basis van meting."
+  },
+  "Plug & Play": {
+    "de": "Plug & Play",
+    "es": "Plug & Play",
+    "ar": "توصيل وتشغيل",
+    "ru": "Plug & Play",
+    "nl": "Plug & play"
+  },
+  "Install, plug in and charge; no extra configuration needed.": {
+    "de": "Installieren, einstecken, laden – keine zusätzliche Konfiguration nötig.",
+    "es": "Instalar, conectar y cargar; sin configuración adicional.",
+    "ar": "ركِّب ووصِّل واشحن؛ لا حاجة لإعدادات إضافية.",
+    "ru": "Установил, подключил, заряжаешь — без дополнительной настройки.",
+    "nl": "Installeren, insteken en laden; geen extra instellingen nodig."
+  },
+  "Safety Protections": {
+    "de": "Schutzfunktionen",
+    "es": "Protecciones de seguridad",
+    "ar": "حمايات السلامة",
+    "ru": "Защитные функции",
+    "nl": "Veiligheidsbeveiligingen"
+  },
+  "Protection against overcurrent, short circuit and residual current.": {
+    "de": "Schutz gegen Überstrom, Kurzschluss und Fehlerstrom.",
+    "es": "Protección contra sobrecorriente, cortocircuito y corriente de fuga.",
+    "ar": "حماية من التيار الزائد والقصر وتيار التسرب.",
+    "ru": "Защита от перегрузки по току, короткого замыкания и токов утечки.",
+    "nl": "Bescherming tegen overstroom, kortsluiting en lekstroom."
+  },
+  "IK10 Impact Resistance": {
+    "de": "IK10-Schlagfestigkeit",
+    "es": "Resistencia a impactos IK10",
+    "ar": "مقاومة الصدمات IK10",
+    "ru": "Ударопрочность IK10",
+    "nl": "IK10-slagvastheid"
+  },
+  "Robust IK10 impact-resistant housing.": {
+    "de": "Robustes, IK10-schlagfestes Gehäuse.",
+    "es": "Carcasa robusta con resistencia a impactos IK10.",
+    "ar": "هيكل متين مقاوم للصدمات بدرجة IK10.",
+    "ru": "Прочный корпус с ударопрочностью IK10.",
+    "nl": "Robuuste, IK10-slagvaste behuizing."
+  },
+  "6-Step Current Setting": {
+    "de": "6-stufige Stromeinstellung",
+    "es": "Ajuste de corriente en 6 niveles",
+    "ar": "ضبط التيار على 6 مستويات",
+    "ru": "6-ступенчатая настройка тока",
+    "nl": "Stroominstelling in 6 stappen"
+  },
+  "Flexible power with a 6-step current setting (6–32A).": {
+    "de": "Flexible Leistung durch 6-stufige Stromeinstellung (6–32 A).",
+    "es": "Potencia flexible con ajuste de corriente en 6 niveles (6–32 A).",
+    "ar": "قدرة مرنة بضبط التيار على 6 مستويات (6–32 أمبير).",
+    "ru": "Гибкая мощность благодаря 6-ступенчатой настройке тока (6–32 А).",
+    "nl": "Flexibel vermogen met stroominstelling in 6 stappen (6–32 A)."
+  },
+  "Easy Installation": {
+    "de": "Einfache Montage",
+    "es": "Instalación sencilla",
+    "ar": "تركيب سهل",
+    "ru": "Простой монтаж",
+    "nl": "Eenvoudige montage"
+  },
+  "Fast installation with the redesigned housing and external connections.": {
+    "de": "Schnelle Montage dank neuem Gehäuse mit Anschlüssen von außen.",
+    "es": "Instalación rápida gracias a la carcasa renovada y las conexiones externas.",
+    "ar": "تركيب سريع بفضل الهيكل المُجدَّد والتوصيلات الخارجية.",
+    "ru": "Быстрый монтаж благодаря обновлённому корпусу с внешними подключениями.",
+    "nl": "Snelle montage dankzij de vernieuwde behuizing met externe aansluitingen."
   }
 }

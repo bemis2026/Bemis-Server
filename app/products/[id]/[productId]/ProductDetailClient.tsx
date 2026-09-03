@@ -944,7 +944,7 @@ export default function ProductDetailPage({
                                     className="flex items-center gap-3 rounded-xl px-3 py-2.5 cursor-default transition-transform duration-200 hover:-translate-y-0.5"
                                     onMouseEnter={(e) => {
                                       const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
-                                      setFeatTip({ label: f.label, desc: f.desc ?? "", x: r.left + r.width / 2, y: r.top });
+                                      setFeatTip({ label: pickText(lang, f.label, f.labelEn ?? f.label), desc: pickText(lang, f.desc ?? "", f.descEn ?? f.desc ?? ""), x: r.left + r.width / 2, y: r.top });
                                     }}
                                     onMouseLeave={() => setFeatTip(null)}
                                     style={{ background: cardBg, border: `1px solid ${cardBorder}`, boxShadow: cardShadow }}
@@ -955,7 +955,7 @@ export default function ProductDetailPage({
                                     >
                                       {Icon && <Icon size={16} style={{ color: featIcon }} />}
                                     </span>
-                                    <span className="text-sm font-semibold" style={{ color: textPrimary }}>{f.label}</span>
+                                    <span className="text-sm font-semibold" style={{ color: textPrimary }}>{pickText(lang, f.label, f.labelEn ?? f.label)}</span>
                                   </div>
                                 );
                               })}
