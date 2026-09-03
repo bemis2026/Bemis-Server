@@ -208,7 +208,9 @@ const NL: Record<string, string> = {
 export const LOCALE_NAMES: Record<LocaleNameLang, Record<string, string>> = { de: DE, es: ES, ru: RU, nl: NL };
 
 export function isLocaleNameLang(v: unknown): v is LocaleNameLang {
-  return v === "de" || v === "es" || v === "ru";
+  // ⚠️ Sabit liste DEĞİL: 2026-09-03'te nl eklenince burası unutuldu ve /nl ürün
+  // sayfalarında ad Türkçe kaldı (sessiz bozulma). Kaynak = LOCALE_NAMES anahtarları.
+  return typeof v === "string" && Object.prototype.hasOwnProperty.call(LOCALE_NAMES, v);
 }
 
 /** TR ürün adını verilen dile çevirir; eşleşme yoksa AYNEN döner (sessiz bozulma yok). */
