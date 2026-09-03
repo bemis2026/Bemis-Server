@@ -16,7 +16,7 @@ const fallbackPath = path.join(process.cwd(), "data", "b2b.json");
 
 // Akıllı hibrit hedef dilleri (bkz. content). Değişen alan MyMemory'ye,
 // değişmeyen premium temele (bin _translations[lang] ?? data/b2b-<lang>.json) kalır.
-const HYBRID_LANGS: TransLang[] = ["en", "de", "es", "ar", "ru"];
+const HYBRID_LANGS: TransLang[] = ["en", "de", "es", "ar", "ru", "nl"];
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function loadOverlayFile(lang: string): any | null {
   try { return JSON.parse(readFileSync(path.join(process.cwd(), "data", `b2b-${lang}.json`), "utf-8")); }

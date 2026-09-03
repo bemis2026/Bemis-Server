@@ -89,6 +89,7 @@ const LANG_META: Record<string, { cc: string; label: string }> = {
   es: { cc: "es", label: "Español" },
   ar: { cc: "sa", label: "العربية" },
   de: { cc: "de", label: "Deutsch" },
+  nl: { cc: "nl", label: "Nederlands" },
   fr: { cc: "fr", label: "Français" },
   it: { cc: "it", label: "Italiano" },
   pt: { cc: "pt", label: "Português" },

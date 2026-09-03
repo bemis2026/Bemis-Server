@@ -17,7 +17,7 @@ const fallbackPath = path.join(process.cwd(), "data", "products.json");
 // Akıllı hibrit: de/es/ar/ru çevirileri products bin'inin _translations'ında
 // tutulur (EN kendi shard bin'lerinde kalır). Değişen alan MyMemory'ye, değişmeyen
 // premium temele (bin _translations[lang] ?? data/products-<lang>.json) kalır.
-const HYBRID_LANGS = ["de", "es", "ar", "ru"] as const;
+const HYBRID_LANGS = ["de", "es", "ar", "ru", "nl"] as const;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function loadOverlayFile(lang: string): any[] | null {
   try {

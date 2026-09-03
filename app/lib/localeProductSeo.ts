@@ -9,8 +9,8 @@
 import { productNameLocale, type LocaleNameLang } from "./productNamesLocale";
 
 export type LocaleLang = LocaleNameLang; // "de" | "es" | "ru"
-export const LOCALE_LANGS: LocaleLang[] = ["de", "es", "ru"];
-export const LOCALE_OG: Record<LocaleLang, string> = { de: "de_DE", es: "es_ES", ru: "ru_RU" };
+export const LOCALE_LANGS: LocaleLang[] = ["de", "es", "ru", "nl"];
+export const LOCALE_OG: Record<LocaleLang, string> = { de: "de_DE", es: "es_ES", ru: "ru_RU", nl: "nl_NL" };
 
 type CatSeo = { name: string; title: string; description: string };
 
@@ -44,6 +44,16 @@ export const LOCALE_CATEGORY_SEO: Record<LocaleLang, Record<string, CatSeo>> = {
     "charger-equipment": { name: "Компоненты зарядных станций", title: "Компоненты EVSE и запчасти для зарядных станций", description: "Компоненты, розетки, разъёмы и запчасти для зарядных станций. OEM-поставки производителям и операторам. Производство в Турции." },
     "accessories": { name: "Аксессуары для зарядки", title: "Производитель и поставщик аксессуаров для зарядки электромобилей", description: "Аксессуары для зарядки: держатели разъёмов, сумки, организация кабеля. CE. Производство в Турции, оптовый экспорт." },
     "dc-units": { name: "Быстрые зарядные станции DC", title: "Производитель быстрых зарядных станций DC (CCS2, OCPP)", description: "Быстрые зарядные станции DC мощностью 40–200 кВт с CCS2, поддержка OCPP. Производство в Турции. OEM/ODM и оптовый экспорт для операторов и дистрибьюторов." },
+  },
+  nl: {
+    "wallbox": { name: "AC-wallbox laadstations", title: "Fabrikant van wallboxen voor elektrische auto's (7,4–22 kW, OCPP)", description: "Type 2 AC-wallboxen van 7,4–22 kW, een- en driefasig, IP65, OCPP-compatibel. Geproduceerd in Türkiye sinds 1994. OEM/ODM, private label en groothandelsexport." },
+    "portable": { name: "Mobiele laders", title: "Fabrikant van mobiele laders (Type 2, 6–32 A instelbaar)", description: "Mobiele Type 2-laders, 6–32 A instelbaar, insteken en laden zonder installatie. CE, IP65. Geproduceerd in Türkiye. OEM en groothandelsexport." },
+    "cables": { name: "Laadkabels voor elektrische auto's", title: "Fabrikant van Type 2-laadkabels (Mode 3, 16–32 A)", description: "Type 2 / Mode 3-laadkabels, 16–32 A, een- en driefasig, 3–15 m, halogeenvrij. CE, IEC 62196. Geproduceerd in Türkiye. OEM en groothandelsexport." },
+    "v2l-c2l": { name: "V2L- / C2L-adapters", title: "Fabrikant van V2L- en C2L-adapters voor elektrische auto's", description: "Vehicle-to-Load (V2L)- en C2L-adapters — apparaten rechtstreeks vanuit de elektrische auto voeden. Merkcompatibel, CE. Geproduceerd in Türkiye, wereldwijde export." },
+    "converters": { name: "Verlengkabels & adapters", title: "Fabrikant van laadverlengkabels en CEE-adapters", description: "Verlengkabels en CEE-adapters/verloopstukken voor laadinfrastructuur, Type 2-compatibel. CE. Geproduceerd in Türkiye, export naar 60+ landen." },
+    "charger-equipment": { name: "Componenten voor laadstations", title: "EVSE-componenten en reserveonderdelen voor laadstations", description: "Componenten, contactdozen, connectoren en reserveonderdelen voor laadstations. OEM-levering aan fabrikanten en operators. Geproduceerd in Türkiye." },
+    "accessories": { name: "Accessoires voor EV-laden", title: "Fabrikant en leverancier van laadaccessoires", description: "Accessoires voor het laden van elektrische auto's — connectorhouders, draagtassen, kabelmanagement. CE. Geproduceerd in Türkiye, groothandelsexport." },
+    "dc-units": { name: "DC-snellaadstations", title: "Fabrikant van DC-snellaadstations (CCS2, OCPP)", description: "DC-snellaadstations van 40–200 kW met CCS2, OCPP-compatibel. Geproduceerd in Türkiye. OEM/ODM en groothandelsexport voor operators en distributeurs." },
   },
 };
 
@@ -81,6 +91,16 @@ export const LOCALE_UI: Record<LocaleLang, {
     contactLine: "Свяжитесь с нами по вопросам цен, оптовых и OEM-заказов.",
     manufacturedBy: "Производитель: Bemis E-V Charge, Бурса, Турция.",
     phase3: "трёхфазный", phase1: "однофазный", cable: "кабель",
+  },
+  nl: {
+    home: "Home", products: "Producten", allProducts: "Alle producten",
+    allProductsTitle: "Fabrikant van laadapparatuur voor elektrische auto's — Alle producten",
+    allProductsDesc: "AC-wallboxen, mobiele laders, DC-snellaadstations, Type 2 / Mode 3-kabels, V2L-adapters en OEM-componenten. Bemis E-V Charge — geproduceerd in Türkiye, CE & IP65, OCPP-compatibel. OEM/ODM en groothandelsexport.",
+    catalogueDesc: "Productcatalogus Bemis E-V Charge — alle laadcategorieën en producten voor elektrische auto's.",
+    notFoundCat: "Categorie niet gevonden", notFoundProduct: "Product niet gevonden",
+    contactLine: "Neem contact met ons op voor prijzen, groothandel en OEM-/private-labelorders.",
+    manufacturedBy: "Geproduceerd door Bemis E-V Charge in Bursa, Türkiye.",
+    phase3: "driefasig", phase1: "eenfasig", cable: "kabel",
   },
 };
 

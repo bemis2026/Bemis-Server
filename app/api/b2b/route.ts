@@ -52,7 +52,7 @@ export async function GET(req: NextRequest) {
   // Çeviri overlay'i (en/de/es/ar/ru): önce bin içi _translations, sonra
   // paketlenmiş data/b2b-<lang>.json; yoksa TR döner. Merge dil-bağımsız —
   // yapısal alanlar (href/id/görsel) TR'den, yalnız metin overlay'den gelir.
-  const overlayLang = ["en", "de", "es", "ar", "ru"].includes(lang) ? lang : null;
+  const overlayLang = ["en", "de", "es", "ar", "ru", "nl"].includes(lang) ? lang : null;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let enFromBin: any = overlayLang ? (bin?._translations?.[overlayLang] ?? null) : null;
   if (!enFromBin && overlayLang) {

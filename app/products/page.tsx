@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "EV Şarj Ekipmanları — Tüm Ürünler",
   description:
     "AC Wallbox, taşınabilir şarj, DC üniteleri, Type 2 kablolar, V2L adaptörleri ve OEM ekipmanları. Bemis E-V Charge yerli üretim, CE & IP65 sertifikalı.",
-  alternates: { canonical: "/products", languages: { tr: "/products", en: "/en/products", de: "/de/products", es: "/es/products", ru: "/ru/products", "x-default": "/products" } },
+  alternates: { canonical: "/products", languages: { tr: "/products", en: "/en/products", de: "/de/products", es: "/es/products", ru: "/ru/products", nl: "/nl/products", "x-default": "/products" } },
   openGraph: {
     title: "EV Şarj Ekipmanları — Tüm Ürünler",
     description:

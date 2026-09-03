@@ -26,7 +26,7 @@ export function generateStaticParams() {
 type ClientCategory = NonNullable<ComponentProps<typeof ProductCategoryClient>["initialCategory"]>;
 
 const HREFLANG = (path: string) => ({
-  tr: path, en: `/en${path}`, de: `/de${path}`, es: `/es${path}`, ru: `/ru${path}`, "x-default": path,
+  tr: path, en: `/en${path}`, de: `/de${path}`, es: `/es${path}`, ru: `/ru${path}`, nl: `/nl${path}`, "x-default": path,
 });
 
 async function localeCategoryName(L: LocaleLang, id: string): Promise<string> {

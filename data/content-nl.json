@@ -1,0 +1,1008 @@
+{
+  "hero": {
+    "badge": "Eigen productie · Bursa · sinds 1994",
+    "headline1": "Fabrikant van",
+    "headline2": "E-V laad",
+    "headline3": "voor de hele wereld",
+    "subtitle": "Van thuis tot op het werk, van parkeeroplossingen tot in het veld — met gecertificeerde AC-laadstations, kabels en accessoires maken we het rijden met een elektrische auto eenvoudiger.",
+    "ctaPrimary": "Ontdek onze EV-laadoplossingen",
+    "ctaSecondary": "Vind een dealer",
+    "heroBg": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075723/products/gdbptkvmtravx8isr209.jpg",
+    "layout": {
+      "logo": {
+        "x": 4,
+        "y": 12
+      },
+      "text": {
+        "x": 4,
+        "y": 36
+      },
+      "button": {
+        "x": 4,
+        "y": 82
+      }
+    },
+    "heroBgPos": "75% 32%",
+    "headline2Words": [
+      "systemen",
+      "stations",
+      "stekkers",
+      "kabels"
+    ],
+    "heroImages": [
+      "https://res.cloudinary.com/dmnttjyzm/image/upload/v1784397900/products/roxpkcvmm2q2url3752h.jpg",
+      "https://res.cloudinary.com/dmnttjyzm/image/upload/v1784418259/products/cfxwaewkc20mkrka9c3q.webp"
+    ],
+    "heroImagesPos": [
+      "50% 50%",
+      "50% 50%"
+    ],
+    "heroImagesPosMobile": [
+      "50% 50%",
+      "64% 50%"
+    ],
+    "heroImagesZoom": [
+      1,
+      1
+    ],
+    "heroImagesZoomMobile": [
+      1,
+      1
+    ],
+    "heroBgZoom": 1,
+    "heroBgPosMobile": "85% 32%",
+    "heroBgZoomMobile": 1
+  },
+  "stats": [
+    {
+      "value": 30,
+      "suffix": "+",
+      "label": "Jaar ervaring",
+      "description": "Van 1994 tot vandaag"
+    },
+    {
+      "value": 16000,
+      "suffix": "",
+      "label": "m² productiefaciliteit",
+      "description": "Eigen fabriek in de industriezone van Bursa"
+    },
+    {
+      "value": 8000,
+      "suffix": "+",
+      "label": "Productvarianten Bemis Groep",
+      "description": "Stekkers, contactdozen en laadapparatuur"
+    },
+    {
+      "value": 80,
+      "suffix": "+",
+      "label": "Exportlanden",
+      "description": "Wereldwijde marktdekking"
+    }
+  ],
+  "categories": {
+    "wallbox": {
+      "name": "AC-wallbox laadstations",
+      "subtitle": "Wandlaadstations 7,4-22 kW",
+      "modelCount": 8,
+      "badge": "Bestseller",
+      "comingSoon": false,
+      "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1786123494/products/lsbwdmmqz2uz4hkx4z4n.png",
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075739/products/mkblh61xfa551ewuadj8.png",
+      "faq": [
+        {
+          "q": "Zijn een thuislaadstation, een wandlader en een wallbox hetzelfde?",
+          "a": "Ja, alle drie beschrijven hetzelfde product. De AC-lader die aan de muur wordt gemonteerd om uw elektrische auto thuis te laden, wordt thuislaadstation, wandlader of wallbox genoemd. De modellen Charger 2, Charger Plus 2 en Charger Pro 2 van Bemis behoren tot deze groep; de installatie wordt uitgevoerd door een erkende elektricien."
+        },
+        {
+          "q": "Hoe gebruik ik een AC-wallbox thuis?",
+          "a": "Bemis AC-wallboxen worden zowel thuis als op het werk aan de wand gemonteerd. In een vrijstaande woning of villa volstaat een voedingskabel rechtstreeks vanaf de hoofdzekering. In een appartementengebouw zijn de goedkeuring van de VvE en een installatieplan op een gedeelde meter nodig. Onze erkende dealer adviseert na een inspectie ter plaatse de meest geschikte optie."
+        },
+        {
+          "q": "Wat is het verschil tussen 7 kW, 11 kW en 22 kW?",
+          "a": "7 kW werkt op een eenfasige aansluiting en volstaat voor nachtelijk laden; een gemiddelde EV is in 6-8 uur volledig opgeladen. 11 kW en 22 kW vereisen een driefasige aansluiting; met 22 kW is dezelfde auto binnen 2-3 uur vol. Accepteert uw auto maximaal 11 kW AC, dan levert een 22 kW-lader geen extra snelheid; raadpleeg vóór aankoop de handleiding van uw auto."
+        },
+        {
+          "q": "Is de Type 2-connector geschikt voor alle elektrische auto's?",
+          "a": "Ja. Alle elektrische auto's die op de Europese markt worden verkocht (inclusief Tesla Model 3/Y), de Chinese BYD- en MG-modellen en Koreaanse en Japanse EV's gebruiken aan de AC-zijde de norm IEC 62196-2 (Type 2). Onze Bemis-wallboxen volgen deze norm; er is geen extra adapter nodig."
+        },
+        {
+          "q": "Wat is dynamische loadbalancing?",
+          "a": "Wanneer andere apparaten op dezelfde netaansluiting veel vermogen vragen (airco, oven, warmtepomp), verlaagt de wallbox automatisch het laadvermogen en voorkomt zo dat de zekering uitvalt. Bij installaties met meerdere wallboxen verdeelt hij het beschikbare totale vermogen evenwichtig over de apparaten. Een essentiële functie die de veiligheid verhoogt en de infrastructuurkosten verlaagt."
+        },
+        {
+          "q": "Wat betekent beschermingsklasse IP65?",
+          "a": "IP65 betekent dat het apparaat volledig stofdicht is (6) en bestand is tegen waterstralen uit elke richting (5). Onze Bemis-wallboxen vallen in deze klasse; in open parkeergarages, op balkons en bij buiteninstallaties is geen extra beschermkast nodig."
+        },
+        {
+          "q": "Is de installatie inbegrepen?",
+          "a": "De installatie is niet bij de prijs van het apparaat inbegrepen. Onze erkende dealer voert een inspectie uit en maakt een aparte offerte op maat voor de kabelaanleg, bedrading en werkzaamheden aan de meterkast; de installatiekosten worden bij de inspectie vastgesteld op basis van uw bestaande infrastructuur."
+        }
+      ],
+      "descriptionImage": "",
+      "description": "AC-laadstations voor thuis (wandmodel) — voor woning, werkplek en parkeergarage. Een- en driefasige modellen van 7,4 kW tot 22 kW; met Type 2-contactdoos of geïntegreerde kabel laadt u uw elektrische auto veilig en efficiënt. De ideale thuislader; CE- en IP65-gecertificeerd, conform IEC 61851 / IEC 62196, met garantie en geproduceerd in eigen fabriek.",
+      "manuals": [
+        {
+          "id": "manual-1779303159452",
+          "name": "AC Wallbox Kullanım Klavuzu",
+          "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779303157/documents/1779303157143-wallbox-kullanim-kilavuzu.pdf",
+          "size": "2.5 MB"
+        },
+        {
+          "id": "manual-1779303206674",
+          "name": "AC Kurulum Klavuzu",
+          "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779303205/documents/1779303205436-bemis-ev-charge-hizli-kurulum-kilavuzu__1_.pdf",
+          "size": "866 KB"
+        }
+      ]
+    },
+    "portable": {
+      "name": "Mobiele laders",
+      "subtitle": "Mobiele laders 3,7-22 kW",
+      "modelCount": 3,
+      "badge": "Nieuw",
+      "comingSoon": false,
+      "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1786127169/products/y8rcddosrb8tffo1l9aq.png",
+      "faq": [
+        {
+          "q": "Mobiele lader, draagbare lader, reislader — is dat hetzelfde?",
+          "a": "Ja, het zijn allemaal benamingen voor dezelfde productgroep. Termen als mobiele lader, draagbare lader, reislader of portable charger worden door elkaar gebruikt. De modellen Mini Mobile, Mono Mobile en Pro Mobile 2 van Bemis behoren tot deze groep: u laadt uw elektrische auto vanaf een bestaand stopcontact, zonder vaste installatie of werkzaamheden aan de elektrische installatie."
+        },
+        {
+          "q": "Werkt een mobiele lader op een gewoon stopcontact?",
+          "a": "Ja. Onze Bemis Mobile Charger-producten werken zowel op een standaard eenfasig 16 A-stopcontact als op industriële CEE-contactdozen van 32 A. Pro-modellen laden tot 22 kW vanaf een driefasige 32 A-contactdoos; Mini-modellen zijn met 3,6 kW geschikt voor huishoudelijke stopcontacten."
+        },
+        {
+          "q": "Wat is het verschil tussen Mini Mobile en Pro Mobile?",
+          "a": "Mini Mobile: 3,6 kW eenfasig, compact formaat, ideaal voor thuis en op reis. Pro Mobile: instelbaar vermogen van 7 tot 22 kW, driefasige ondersteuning, voor professioneel gebruik. Bij het Pro-model is de stroomlimiet (6-32 A) op het display instelbaar; bij de Mini is het vermogen vast."
+        },
+        {
+          "q": "Wat gebeurt er als de mobiele lader onder water komt?",
+          "a": "Beschermingsklasse IP54 is geschikt voor gebruik in de regen, maar het product mag niet onder water komen. Veeg de behuizing na nat worden met een droge doek af voordat u hem aansluit. Gebruik het apparaat na waterschade niet voordat u het naar een erkend servicepunt hebt gebracht."
+        },
+        {
+          "q": "Kan hij als reserve onderweg worden gebruikt?",
+          "a": "Ja, mobiele laders zijn precies daarvoor bedoeld. In hotels, op campings, in vakantieparken en op andere plaatsen zonder DC/AC-laadpunt laadt u vanaf de aanwezige stopcontacten. De lader wordt in zijn tas bewaard en weegt gemiddeld 4-6 kg."
+        },
+        {
+          "q": "Hoe kies ik tussen een mobiele lader en een vaste wallbox?",
+          "a": "Parkeert u uw auto elke dag op dezelfde plek, dan is een vaste wallbox sneller, veiliger en op de lange termijn voordeliger. Reist u veel of wisselt u tussen meerdere locaties, dan is een mobiele lader de flexibelere oplossing. Beide aanschaffen is ook een veelgemaakte keuze."
+        }
+      ],
+      "description": "Mobiele (draagbare) AC-laders zonder installatie — ook bekend als portable charger voor elektrische auto's. Van een standaard huishoudelijk stopcontact of CEE-contactdoos naar de Type 2-aansluiting van de auto. Met eenfasige opties van 2,3 – 7,4 kW en driefasige opties van 11 / 22 kW een flexibele laadoplossing onderweg, op de camping en als reserve. Een lader die u voor uw elektrische auto altijd bij u hebt; CE-gecertificeerd en geproduceerd in eigen fabriek.",
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075745/products/phrdrgmnycwteac03l3c.png"
+    },
+    "cables": {
+      "name": "AC-laadkabels",
+      "subtitle": "Type 2 · Mode 3 ",
+      "modelCount": 22,
+      "badge": null,
+      "comingSoon": false,
+      "image": "/categories/1775071211208-Gemini_Generated_Image_9pbk3k9pbk3k9pbk.png",
+      "faq": [
+        {
+          "q": "Hoe lang moet een AC-laadkabel zijn?",
+          "a": "Een kabel van 5 meter volstaat in de meeste gevallen: ideaal als de afstand tussen de laadaansluiting van de auto en de muur bij het parkeren niet meer dan 3-4 meter bedraagt. Is uw garage of parkeerplaats anders ingedeeld, dan zijn er opties van 7,5 m en 10 m. Hoe langer de kabel, hoe zwaarder en stugger hij is; een onnodig lange kabel is lastiger te hanteren."
+        },
+        {
+          "q": "Wat is het verschil tussen Type 2 en Type 1?",
+          "a": "Type 1 (SAE J1772) wordt gebruikt in Noord-Amerikaanse en oudere Aziatische auto's en ondersteunt eenfasig laden tot 7,4 kW. Type 2 (IEC 62196-2) is de Europese norm en ondersteunt driefasig laden tot 22 kW. Vrijwel alle nieuwe EV's op de Europese markt gebruiken Type 2. Oudere versies van de Tesla Model S/X hadden Type 1; nieuwe Tesla's hebben Type 2."
+        },
+        {
+          "q": "Hoe kies ik tussen een 16 A- en een 32 A-kabel?",
+          "a": "16 A-kabels zijn geschikt tot 3,7 kW eenfasig en 11 kW driefasig. 32 A-kabels hebben een capaciteit van 7,4 kW eenfasig en 22 kW driefasig. Kies de kabel op basis van de hoogste stroom die uw wallbox of auto kan afnemen; vormt de kabel de beperking, dan daalt de laadsnelheid."
+        },
+        {
+          "q": "Hangt de kabelkeuze af van het automerk?",
+          "a": "Omdat het connectortype gestandaardiseerd is (Type 2 op vrijwel de hele Europese markt), is de kabelkeuze merkonafhankelijk. Het enige verschil is het AC-laadvermogen dat elke auto accepteert: koopt u een 22 kW-kabel voor een auto die 11 kW accepteert, dan stroomt er niet meer vermogen — u hebt alleen een veiligheidsmarge."
+        },
+        {
+          "q": "Werkt een driefasige kabel met mijn auto?",
+          "a": "Ja, een driefasige kabel ondersteunt ook eenfasig laden. Is uw auto eenfasig, dan werkt de kabel automatisch eenfasig en is hij beperkt tot 7,4 kW. Met een driefasige kabel hoeft u niets te vervangen als u in de toekomst een driefasige auto koopt."
+        },
+        {
+          "q": "Wie is de fabrikant van deze laadkabels voor elektrische auto's?",
+          "a": "Bemis E-V Charge is een fabrikant die laadkabels voor elektrische auto's produceert in zijn fabriek van 16.000 m² in de industriezone van Bursa. Het bedrijf bouwt voort op de erfenis van Bemis Teknik Elektrik sinds 1994; de Type 2-kabels (Mode 3) zijn CE-gecertificeerd. De kabels worden niet geïmporteerd en van een label voorzien, maar in onze eigen fabriek gemaakt."
+        },
+        {
+          "q": "Worden de laadkabels geïmporteerd of zelf geproduceerd?",
+          "a": "De laadkabels van Bemis E-V Charge worden geproduceerd in onze eigen fabriek in Bursa, Türkiye. Daardoor hebt u rechtstreeks toegang tot het product, reserveonderdelen en technische ondersteuning van de fabrikant; bij projectmatige orders kunnen kabellengte en connectorkleur op verzoek worden aangepast."
+        },
+        {
+          "q": "Wat is het verschil tussen een laadkabel en een laadset?",
+          "a": "Een laadkabel heeft aan beide uiteinden een connector (Type 2 – Type 2); hij verbindt een wandlaadstation of een laadpunt in een gedeelde ruimte met uw auto. Een laadset (Mode 2) is een mobiele oplossing met een stekker aan het ene uiteinde en een regelkastje in het midden; hiermee laadt u rechtstreeks vanaf een stopcontact, zonder apart laadstation. Hebt u thuis een wandlader, dan is een laadkabel de juiste keuze; zoekt u een oplossing onderweg of als reserve, dan is een laadset geschikt."
+        },
+        {
+          "q": "Beïnvloedt de kabel de laadsnelheid?",
+          "a": "Een kabel levert nooit meer snelheid dan de stroom waarvoor hij is ontworpen; de laadsnelheid wordt in de eerste plaats bepaald door de ingebouwde AC-lader van uw auto. Is uw auto bijvoorbeeld beperkt tot 7,4 kW, dan laadt hij niet sneller met een driefasige 32 A-kabel. Omgekeerd beperkt een kabel met te lage capaciteit de snelheid: een eenfasige 16 A-kabel draagt tot 3,7 kW, een eenfasige 32 A-kabel tot 7,4 kW en een driefasige 32 A-kabel tot 22 kW. De juiste keuze is de kabel die past bij de hoogste waarde die zowel uw auto als uw lader ondersteunt."
+        },
+        {
+          "q": "Wat moet ik doen als mijn laadkabel een storing heeft?",
+          "a": "Onze producten vallen onder 2 jaar fabrieksgarantie. Open of repareer de kabel niet zelf; trek de connector uit het stopcontact en gebruik hem niet meer. Neem contact op met de erkende dealer waar u het product hebt gekocht, of bereik ons via de stappen op de pagina Storing & garantie in het menu Gids van onze website. De productcode, het aankoopbewijs en een foto of video van het probleem versnellen de afhandeling."
+        }
+      ],
+      "description": "Koop uw laadkabel voor uw elektrische auto rechtstreeks bij de fabrikant. Bemis E-V Charge produceert Type 2-laadkabels (Mode 3) in zijn eigen fabriek van 16.000 m² in de industriezone van Bursa; de kabels worden niet geïmporteerd en van een label voorzien. Eenfasig en driefasig, in de stroomklassen 16 A – 32 A; verkrijgbaar in lengtes van 3, 5, 7, 8, 10 en 15 meter. Conform IEC 62196 / IEC 61851, met halogeenvrije buitenmantel en Type 2-connector voor hoge stroom, ontworpen voor een lange levensduur. CE-gecertificeerde productie; levering, reserveonderdelen en technische ondersteuning rechtstreeks van de fabrikant.",
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075750/products/yquclaq2d8incbvlonxk.png"
+    },
+    "v2l-c2l": {
+      "name": "V2L- / C2L-adapters",
+      "subtitle": "Vehicle-to-Load & Charger-to-Load — ontladen & accu laden",
+      "modelCount": 17,
+      "badge": "Innovatief",
+      "comingSoon": false,
+      "image": "/categories/1775068456394-V2L-kamp2.png",
+      "faq": [
+        {
+          "q": "Waarvoor dient V2L (Vehicle to Load)?",
+          "a": "Met V2L gebruikt u de accu van uw auto als mobiele stroombron. De adapter wordt in de laadaansluiting van de auto gestoken en levert een standaard 220 V-uitgang. Bij kamperen, buitenevenementen of stroomuitval kunt u een koelkast, een projector of kleine apparaten laten werken. De energie komt uit de accu van de auto."
+        },
+        {
+          "q": "Waarvoor dient C2L (Charger to Load)?",
+          "a": "Een C2L-adapter zet de stroom uit de Type 2-contactdoos van een AC-laadstation om naar een standaard schuko-stopcontact (huishoudelijk) of een CEE-contactdoos (industrieel). Zo kan een Type 2-laadpunt niet alleen voor het laden van de auto worden gebruikt, maar ook als 220 V/380 V-uitgang voor een werkplaats, evenemententerrein of tijdelijke installatie. De energie komt van het laadstation, niet uit de accu van uw auto."
+        },
+        {
+          "q": "Wat is het verschil tussen V2L en C2L?",
+          "a": "Het enige verschil is waar de energie vandaan komt: V2L haalt de energie UIT DE AUTO (de accu van de auto is de bron) — uw auto wordt een mobiele stroombron. C2L haalt de energie UIT HET LAADSTATION (een Type 2-lader is de bron) — een laadpunt wordt een gewoon stopcontact. Ze dienen verschillende doelen; met de Combi Set krijgt u beide adapters in één pakket."
+        },
+        {
+          "q": "Welke auto's ondersteunen V2L?",
+          "a": "Auto's zoals de Hyundai Ioniq 5/6, Kia EV6/EV9, Genesis GV60, Ssangyong (KGM) Torres EVX, MG ZS EV / MG4, BYD Atto 3 / Seal / Han en Skywell ET5 ondersteunen V2L af fabriek. Onze Bemis V2L-adapters worden gemaakt volgens de pinindeling van deze fabrikanten — kies bij het product de variant die bij uw auto past (Hyundai/Kia/Ssangyong, MG, BYD/Skywell). Tesla-auto's ondersteunen dit standaard niet."
+        },
+        {
+          "q": "Hoeveel vermogen kan een V2L-adapter leveren?",
+          "a": "Dat hangt af van het V2L-vermogen van de auto. De meeste Hyundai/Kia-modellen leveren 3,6 kW (16 A), BYD- en MG-modellen 2,2 kW (10 A) en sommige nieuwere modellen tot 7,2 kW. Onze Bemis V2L-adapters dragen het uitgangsvermogen van de auto veilig over en overschrijden de limiet van uw auto niet. Versies met één, twee en drie stopcontacten delen hetzelfde totale vermogen."
+        },
+        {
+          "q": "Is V2L-gebruik schadelijk voor de accu?",
+          "a": "Nee. V2L is een door de fabrikant voorziene gebruiksmodus; het accubeheersysteem (BMS) bewaakt de ontladingsdiepte. De meeste auto's schakelen de V2L-modus automatisch uit zodra het accuniveau tot 20% daalt. Regelmatig gebruik heeft geen invloed op de levensduur van de accu."
+        }
+      ],
+      "description": "Adapters die de accu van de auto (V2L) of de lader (C2L) omzetten in een externe stroombron. Met Type 2-ingang en schuko-/CEE-uitgangen geschikt voor V2L-auto's zoals Hyundai, Kia, MG, BYD, Ssangyong en Skywell — voor kamperen, werkplaats en noodsituaties. Maakt van uw elektrische auto een mobiele stroombron; een praktische oplossing op de camping, op locatie en bij stroomuitval. CE-gecertificeerd, met garantie en geproduceerd in eigen fabriek.",
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075755/products/jjaugl6l5h7o20jastmg.png"
+    },
+    "converters": {
+      "name": "Verloopadapters en verlengkabels",
+      "subtitle": "CEE- en standaard verloopadapters, mobiele verlengkabels",
+      "modelCount": 17,
+      "badge": null,
+      "comingSoon": false,
+      "image": "/categories/1775068429165-BKT-0102-2105.jpg",
+      "faq": [
+        {
+          "q": "Is het verlengen van een laadkabel veilig?",
+          "a": "Onze Bemis-verlengkabels worden volgens dezelfde normen gemaakt als de originele kabel (IEC 62196-2, 32 A koperen geleiders). De IP54-aansluitdelen zijn beschermd tegen water. Goedkope verlengkabels van derden kunnen brandgevaar opleveren; gebruik alleen gecertificeerde producten."
+        },
+        {
+          "q": "Wanneer heb ik een verlengkabel nodig?",
+          "a": "Een verlengkabel gebruikt u als de auto ver van de muur met de wallbox staat, als de toegang tot de parkeerplaats lang is, of als het verbruikspunt in mobiele situaties zoals kamperen ver weg ligt. Volstaat uw standaardkabel van 5 m, dan is een extra verlengkabel overbodig; elk verbindingspunt is een extra kwetsbaar punt."
+        },
+        {
+          "q": "Kunnen verschillende connectortypes met een verloopadapter compatibel worden gemaakt?",
+          "a": "Ja. We bieden adapters voor gangbare overgangen zoals Type 1 naar Type 2, CEE-contactdoos naar Type 2 en Type 2 naar schuko. Tussen DC en AC wordt echter niet omgezet; elk systeem werkt apart. Verloopadapters nemen de vermogenslimiet van de laagst gespecificeerde zijde over."
+        },
+        {
+          "q": "Hoe lang mag een verlengkabel maximaal zijn?",
+          "a": "De totale kabellengte (origineel + verlenging) mag bij 22 kW eenfasig niet meer dan 15 meter en bij 11 kW driefasig niet meer dan 25 meter bedragen. Over grotere afstanden daalt het vermogen en neemt de opwarming toe door de kabelweerstand. Voor installaties met grote afstanden wordt vaste bekabeling aanbevolen."
+        },
+        {
+          "q": "Welke contactdoostypes zijn gangbaar?",
+          "a": "Voor thuisladen zijn schuko (het standaard stopcontact), de industriële blauwe CEE-contactdoos van 16 A en de rode driefasige CEE-contactdoos van 32 A gangbaar. Bij openbare AC-laadpunten is Type 2 de norm. Bij DC-snelladen komen CCS2 (het meest gangbaar) en CHAdeMO (Nissan/oudere auto's) voor."
+        }
+      ],
+      "description": "Verlengkabels en CEE-verloopadapters die bestaande laadapparatuur geschikt maken voor andere contactdoostypes en afstanden. Combinatieoplossingen voor eenfasige en driefasige overgangen van 16 A – 32 A. Past de laadinstallatie van uw elektrische auto aan op andere stopcontacten en afstanden; uw verlengkabel voor het laden van de auto rechtstreeks van de fabrikant. CE-gecertificeerd, met garantie en geproduceerd in eigen fabriek.",
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075761/products/f0fshjhhljmvpkcrxxzu.png"
+    },
+    "charger-equipment": {
+      "name": "Componenten voor AC- & DC-laadstations",
+      "subtitle": "Type 2- en CCS2-connectoren, paneelcontactdozen, houders",
+      "modelCount": 30,
+      "badge": null,
+      "comingSoon": false,
+      "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075211/products/slovarwtn9dt80fx55zc.png",
+      "description": "Volledig in eigen huis geproduceerde Bemis DC-laadkabels, speciaal ontwikkeld voor DC-laadstations met hoog vermogen; dankzij de modulaire opbouw eenvoudig te vervangen bij breuk.\nPaneelcontactdoos met vergrendelmechanisme voor laadstations. Met eigen branding en uniek ontwerp, passend bij uw unit. De DC-connectorhouder, ontwikkeld om de DC-kabels van laadstations vrij te laten hangen, onderscheidt zich door zijn kogelmechanisme en verzonken ontwerp in de behuizing. Dankzij de kogelconstructie behoort breuk tot het verleden. Door de in de behuizing verzonken opbouw sluit hij naadloos aan op het ontwerp van uw unit. Voor fabrikanten van laadstations en OEM-projecten; CE-gecertificeerd, met garantie en geproduceerd in eigen fabriek.",
+      "faq": [
+        {
+          "q": "Wat vindt u in de categorie Componenten voor laadstations?",
+          "a": "Hier vindt u de professionele componenten die bij de bouw van laadstations worden gebruikt: AC- en DC-laadconnectoren (Type 2, CCS2), versies met vaste kabel en met contactdoos, afdekkappen, vergrendelmechanismen, optionele communicatiemodules en reserveonderdelen die in een lader kunnen worden geïntegreerd. Gebruikt door OEM-fabrikanten en servicebedrijven."
+        },
+        {
+          "q": "Wat is het verschil tussen een DC- en een AC-laadconnector?",
+          "a": "AC-connectoren (Type 2) geleiden maximaal 22 kW wisselstroom en zijn eenvoudig opgebouwd. DC-connectoren (CCS2) geleiden 50-350 kW gelijkstroom en bevatten vloeistofkoeling, temperatuursensoren en dikkere geleiders. DC-connectoren zijn 3-4 keer zwaarder en vereisen een speciale installatie."
+        },
+        {
+          "q": "Wat heeft een operator nodig om een laadstation te bouwen?",
+          "a": "Een transformatoraansluiting of voldoende gecontracteerd vermogen, laders met OCPP 1.6J/2.0.1, CPO-software voor facturatie en beheer, en de vereiste vergunning of een dealerovereenkomst. Ons Bemis B2B-team ondersteunt turnkey-installaties, van de locatiestudie tot de levering van de hardware."
+        },
+        {
+          "q": "Wat is een CCS2-connector?",
+          "a": "Combined Charging System 2 (CCS2) is de DC-snellaadnorm van de Europese markt. Het is een gecombineerd ontwerp met twee extra DC-pinnen onder de Type 2 AC-connector; via dezelfde laadaansluiting van de auto kan zowel AC als DC worden geladen. Ondersteunt vermogens van 50 tot 350 kW."
+        },
+        {
+          "q": "Kan een connector of kabel worden vervangen?",
+          "a": "Ja. De kabels en connectoren van onze Bemis-laders zijn modulair opgebouwd; bij slijtage of schade kan ons erkende servicepunt ze snel vervangen. Voor speciale onderdelen zoals vloeistofgekoelde CCS2-kabels houden we voorraad aan."
+        }
+      ],
+      "descriptionImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075765/products/xl61vku2recrvjsag3x8.jpg"
+    },
+    "accessories": {
+      "name": "Accessoires",
+      "subtitle": "Draagtassen, pedestal & overige",
+      "modelCount": 10,
+      "badge": null,
+      "comingSoon": false,
+      "image": "/categories/1775068320447-charger-cable.png",
+      "faq": [
+        {
+          "q": "Waarom is een RFID-kaart nodig?",
+          "a": "Een RFID-kaart zorgt voor gebruikersautorisatie bij het laadstation — niemand kan het apparaat zonder uw toestemming gebruiken. Bij zakelijke installaties wordt hij gebruikt om bij te houden wie met welke auto hoeveel heeft geladen. Bij OCPP-stations kan de mobiele app dezelfde functie vervullen."
+        },
+        {
+          "q": "Waarom zou ik een laadkabeltas kopen?",
+          "a": "Een mobiele lader los in de kofferbak vervoeren beschadigt zowel de kabel als de bekleding van de auto. De tas beschermt tegen vocht, voorkomt dat de stekkers worden platgedrukt en is praktisch in gebruik onderweg. Bij onze Pro Mobile-producten is de tas standaard; bij andere kan hij optioneel zijn."
+        },
+        {
+          "q": "Zijn Bemis-accessoires compatibel met andere merken?",
+          "a": "Omdat de connectornormen (Type 2, CCS2, RFID Mifare) universeel zijn, zijn onze Bemis-accessoires compatibel met alle elektrische auto's en laadstations met standaard Type 2-/CCS2-connectoren. Merkspecifieke functies (firmwarevergrendeling, eigen kaartsysteem) worden in de documentatie vermeld."
+        },
+        {
+          "q": "Hoe bestel ik reserveaccessoires?",
+          "a": "U kunt met de productcode rechtstreeks een aanvraag indienen via het contactformulier; ons verkoopteam verwijst u door naar een dealer. Operators die in bulk bestellen kunnen via een OEM-account geïntegreerd bestellen via API. Onderdelen die niet op voorraad zijn, worden binnen 2-4 weken geleverd."
+        },
+        {
+          "q": "Wat moet ik doen als ik mijn RFID-kaart kwijt ben?",
+          "a": "Een verloren kaart kan via het beheerpaneel of door een melding aan ons verkoopteam worden gedeactiveerd. Het koppelen van een nieuwe kaart duurt 5 minuten. Het risico op onbevoegd gebruik met een verloren kaart is verwaarloosbaar, omdat elke kaart aan het registratiesysteem van het apparaat is gekoppeld."
+        }
+      ],
+      "description": "Draagtassen voor laadkabels, AC/DC-connectorhouders, wandhouders en pedestals (vloermontage) — aanvullende producten voor de operationele en veiligheidsbehoeften van een laadlocatie. Duurzame accessoires met garantie die het gebruik van elektrische auto's en laadstations eenvoudiger maken, met oplossingen om uw laadkabel netjes en beschermd op te bergen."
+    },
+    "dc-units": {
+      "name": "DC-laadstations",
+      "subtitle": "Snellaadstations 40-200 kW",
+      "modelCount": 6,
+      "badge": null,
+      "comingSoon": false,
+      "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075768/products/pfihve1gfgyuchjlylkm.jpg",
+      "faq": [
+        {
+          "q": "Wat is het verschil tussen DC-laden en AC-laden?",
+          "a": "Bij AC-laden gaat de stroom als wisselstroom naar de auto en zet de ingebouwde omvormer hem om in gelijkstroom; daarom is het beperkt tot 22 kW. Bij DC-laden gebeurt de omzetting in het station en stroomt de gelijkstroom rechtstreeks in de accu; dat kan tot 50-350 kW. Resultaat: met DC bereikt een EV in 20-40 minuten 80%, terwijl AC 6-8 uur nodig heeft."
+        },
+        {
+          "q": "Hoeveel auto's kunnen de BEVDC-modellen tegelijk laden?",
+          "a": "De BEVDC-40 heeft één connector en levert 40 kW aan één auto. De BEVDC-80, BEVDC-120, BEVDC-160, BEVDC-180 en BEVDC-200 hebben twee connectoren; het totale vermogen kan gelijktijdig over twee auto's worden verdeeld. De BEVDC-200 kan bijvoorbeeld twee auto's tegelijk 100 kW geven, of één auto 200 kW (als de auto dat ondersteunt)."
+        },
+        {
+          "q": "Wat is nodig voor de installatie van een DC-lader?",
+          "a": "DC-units vereisen een driefasige netaansluiting van 380-480 V, voor de BEVDC-120 en hoger een transformator of een aansluiting met hoog vermogen (200-400 kVA), een montageplatform op de vloer, voldoende luchtstroom voor de koeling en een ethernet- of 4G-verbinding voor OCPP-communicatie. Het Bemis B2B-team begeleidt het hele traject, van de locatiestudie tot de inbedrijfstelling."
+        },
+        {
+          "q": "Welk BEVDC-model past bij mijn wagenpark?",
+          "a": "Rijden uw wagenparkvoertuigen met een gemiddelde accu van 50-60 kWh binnen de stad, dan volstaat de BEVDC-40. Voor commerciële wagenparken op lange ritten of taxi's/koeriers die snel weer op weg moeten, levert de BEVDC-120 in 30 minuten 80% lading. Voor drukbezochte openbare stations wordt de BEVDC-160/200 aanbevolen; twee auto's laden dan tegelijk snel."
+        },
+        {
+          "q": "Wat is nodig om een openbaar DC-laadpunt te openen?",
+          "a": "De vereiste vergunning of erkenning voor het aanbieden van laaddiensten, een OCPP-lader, koppeling met het nationale registratiesysteem en een facturatie-/betaalinfrastructuur (Bemis CPO-software of een derde partij). De investering ligt tussen 1 en 3 miljoen TL; ons B2B-team helpt bij het opstellen van een stappenplan."
+        }
+      ],
+      "description": "DC-snellaadstations uit de BEVDC-serie — modellen met één of twee CCS2-uitgangen van 40 kW tot 200 kW. Laadt elektrische auto's in enkele minuten op; met OCPP 1.6J / 2.0.1, RFID-authenticatie, IP54-bescherming en een breed temperatuurbereik (-25 °C / +55 °C) geschikt voor commercieel gebruik op locatie. CE-gecertificeerd, met garantie en geproduceerd in eigen fabriek. De serie omvat modellen van 40, 80, 120, 160, 180 en 200 kW; de 40 kW is ook als paalmodel verkrijgbaar."
+    }
+  },
+  "featured": [
+    {
+      "categoryId": "wallbox",
+      "productId": "charger-plus-2-kablolu",
+      "badge": "Meest gekozen",
+      "highlight": "Slim driefasig laadstation van 22 kW voor particulier en gedeeld gebruik. IP65 · OCPP 1.6 · dynamische loadbalancing.",
+      "visible": true
+    },
+    {
+      "categoryId": "portable",
+      "productId": "pro-mobile",
+      "badge": "Plug & Play",
+      "highlight": "Geen installatie nodig. Insteken en laden. Met instelbare stroom van 6-32 A ideaal voor thuis en op reis.",
+      "visible": true
+    },
+    {
+      "categoryId": "v2l-c2l",
+      "productId": "tekli-priz-uzatma-v2l-adaptor-hyundai",
+      "visible": true,
+      "badge": "V2L · 1 stopcontact",
+      "highlight": "Maakt van uw auto een mobiele stroombron. Eén schuko-uitgang aan een kabel van 3 m, 16 A. Geschikt voor Hyundai · Kia · Ssangyong."
+    },
+    {
+      "categoryId": "cables",
+      "productId": "sarj-seti-32a-trifaze-5m",
+      "badge": "Meest gekozen",
+      "highlight": "Driefasige Type 2-laadset van 22 kW. Halogeenvrije kabel van 5 meter, inclusief draagtas. Praktisch voor thuis en op reis.",
+      "visible": true,
+      "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1784983662/products/puzc4v6kz9ay5pzvtzvs.png"
+    },
+    {
+      "categoryId": "portable",
+      "productId": "mono-mobile",
+      "visible": true,
+      "badge": "Eenfasig 7,4 kW",
+      "highlight": "Eenfasige mobiele lader van 7,4 kW. Twee vermogensstanden 16 A/32 A; inclusief CEE-adapters en draagtas. IP65."
+    },
+    {
+      "categoryId": "v2l-c2l",
+      "productId": "3lu-priz-uzatma-v2l-adaptor-hyundai",
+      "visible": true,
+      "badge": "V2L · 3 stopcontacten",
+      "highlight": "Voedt meerdere apparaten op de bouwplaats, camping en bij evenementen. Drie schuko-uitgangen aan een kabel van 3 m, 16 A. Geschikt voor Hyundai · Kia · Ssangyong."
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
+      "badge": "Professionele DC-laadkabel CCS2",
+      "highlight": "Capaciteit tot 400-500 A. CCS2-model. Voor fabrikanten van laadstations.",
+      "visible": true
+    },
+    {
+      "categoryId": "portable",
+      "productId": "mini-mobile",
+      "visible": true,
+      "badge": "Voor het stopcontact thuis",
+      "highlight": "Eenfasige mobiele lader van 2,3–3,7 kW. Wordt rechtstreeks in een schuko-stopcontact gestoken; twee vermogensstanden 10 A/16 A en draagtas inbegrepen."
+    },
+    {
+      "categoryId": "v2l-c2l",
+      "productId": "c2l-2li-priz-uzatma-fisli-adaptor",
+      "visible": true,
+      "badge": "C2L · 2 stopcontacten",
+      "highlight": "Verdeelt de uitgang van het laadstation over twee afzonderlijke verbruikers. Type 2-ingang, twee schuko-uitgangen aan een kabel van 3 m, 16 A."
+    }
+  ],
+  "company": {
+    "foundedYear": "1994",
+    "exportCountries": "80+",
+    "productCount": "8000+",
+    "facilitySize": "16.000 m²"
+  },
+  "social": {
+    "linkedin": "https://www.linkedin.com/company/104588906",
+    "instagram": "https://www.instagram.com/bemis.evcharge/",
+    "twitter": "",
+    "youtube": "https://www.youtube.com/@bemisteknikelektrika.s.2025",
+    "facebook": "https://www.facebook.com/bemisteknik/?locale=tr_TR"
+  },
+  "dna": {
+    "sectionLabel": "Over ons",
+    "sectionHeading": "Van software tot productie — alles uit eigen huis",
+    "brandHeading": "EV-laadoplossingen\nmet Bemis-kwaliteit",
+    "brandPara1": "Bemis Teknik Elektrik A.Ş., opgericht in 1994 in Bursa, is met meer dan 30 jaar ervaring en volledig eigen productie van industriële stekkers en contactdozen een van de toonaangevende fabrikanten van elektrotechnisch materiaal in Türkiye. Bemis E-V Charge is ons EV-laadmerk, gebouwd op deze gevestigde basis en volledig in eigen huis geproduceerd.",
+    "brandPara2": "In onze fabriek in de industriezone van Bursa voeren we elke stap zelf uit, van het ontwerp van de elektronica en de software tot de kabelproductie en de eindassemblage. De producten die we naar meer dan 80 landen exporteren, bewijzen dat onze engineering wereldwijd kan meedoen.",
+    "quote": "Kwaliteit is een uiting van respect.",
+    "quoteAttr": "Team Bemis E-V Charge · industriezone Bursa, Türkiye",
+    "yearLabel": "1994",
+    "yearSub": "Bursa · Türkiye · eigen productie",
+    "highlights": [
+      {
+        "title": "30+ jaar ervaring",
+        "desc": "Ononderbroken productie sinds 1994."
+      },
+      {
+        "title": "Gecertificeerde kwaliteit",
+        "desc": "TÜV, CE, IP65 en internationale normen voor EV-laden."
+      },
+      {
+        "title": "Export naar 80+ landen",
+        "desc": "We brengen onze engineering naar de hele wereld."
+      },
+      {
+        "title": "Schone mobiliteit",
+        "desc": "Een bijdrage aan een duurzame toekomst."
+      }
+    ],
+    "features": [
+      {
+        "title": "Slim laadbeheer",
+        "desc": "OCPP 1.6 / 2.0-protocol, dynamische loadbalancing en cloudgebaseerd beheer op afstand."
+      },
+      {
+        "title": "Kwaliteit uit eigen productie",
+        "desc": "Productie in onze fabriek in Bursa volgens de Europese normen TÜV, CE en ISO 9001. Van software tot elektronica volledig in eigen huis."
+      },
+      {
+        "title": "Universele compatibiliteit",
+        "desc": "Type 2, CCS — compatibel met alle EV-merken, gecertificeerd volgens IEC 61851 & IEC 62196."
+      },
+      {
+        "title": "Duurzaam ontwerp",
+        "desc": "Bedrijfstemperatuur -40 °C / +55 °C, levensduur van 100.000+ uur. Lang meegaand, weinig afval."
+      }
+    ],
+    "factoryImage": "/kurumsal/1775044209322-WhatsApp_Image_2026-04-01_at_09.54.37.jpeg",
+    "factoryVideo": "https://www.youtube.com/watch?v=BnoQBR9irTU",
+    "ctaLabel": "Ontdek de wereld van Bemis",
+    "aboutVideo": "https://www.youtube.com/watch?v=JVfchskAXC4&t=53s",
+    "groupBrands": [
+      {
+        "name": "Bemis",
+        "logo": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075770/products/olt39pufnjbk1q2ziubx.png"
+      },
+      {
+        "name": "Bemis E-V Charge",
+        "logo": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075772/products/lzpqyh2z2gjksrqlxmzk.png"
+      },
+      {
+        "name": "BYES",
+        "logo": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075776/products/vpdt79iih2dtee6pt3b9.png"
+      }
+    ]
+  },
+  "products": {
+    "heading": "Laadoplossingen voor elektrische voertuigen",
+    "subheading": "Ontdek de laadoplossing die bij u past",
+    "sectionLabel": "Productcatalogus",
+    "allProductsLabel": "Alle producten",
+    "viewLabel": "Bekijken",
+    "sliderEnabled": false
+  },
+  "dealer": {
+    "sectionLabel": "Erkend verkoopnetwerk",
+    "heading": "Overal in Türkiye",
+    "description": "Bemis verkoopt niet rechtstreeks aan eindgebruikers. Voor de juiste productkeuze, installatie en service na verkoop verwijzen we u naar de erkende dealers in uw regio. Kies uw regio op de kaart; onze erkende dealer verzorgt de levering en service op de best passende manier.",
+    "applyText": "Wilt u deel uitmaken van ons dealernetwerk?",
+    "statCities": "7",
+    "statDealers": "50+",
+    "findDealerTitle": "Vind een dealer",
+    "contactBtnLabel": "Neem contact op",
+    "citiesLabel": "Dealers in de regio",
+    "activeDealersLabel": "Actieve dealers",
+    "mapHint": "Klik op een regio op de kaart of beweeg eroverheen",
+    "mapTitle": "Kaart erkende dealers Türkiye",
+    "regionReps": [
+      {
+        "regionId": "marmara",
+        "name": "BERKİN UYGUN",
+        "title": "Senior verkoopspecialist regio Marmara",
+        "phone": "+90 549 797 10 42",
+        "email": "buygun@bemis.com.tr",
+        "whatsapp": "+90 549 797 10 42"
+      },
+      {
+        "regionId": "merkez",
+        "name": "ENİSE ŞENGÜN",
+        "title": "Bursa Centrum (hoofdkantoor)",
+        "phone": "+90 533 956 25 46",
+        "email": "satis@bemis.com.tr",
+        "whatsapp": "+90 533 956 25 46"
+      },
+      {
+        "regionId": "karadeniz",
+        "name": "TEMEL BEŞLİ",
+        "title": "Regiovertegenwoordiger Zwarte Zee",
+        "phone": "0 533 140 13 64",
+        "email": "tbesli@bemis.com.tr",
+        "whatsapp": "0 533 140 13 64"
+      },
+      {
+        "regionId": "dogu",
+        "name": "MUSTAFA KOZANOĞLU",
+        "title": "Regiovertegenwoordiger Oost-Anatolië",
+        "phone": "0 549 797 10 45",
+        "email": "guneydogu@bemis.com.tr",
+        "whatsapp": "0 549 797 10 45"
+      },
+      {
+        "regionId": "guneydogu",
+        "name": "MUSTAFA KOZANOĞLU",
+        "title": "Regiovertegenwoordiger Zuidoost-Anatolië",
+        "phone": "0 549 797 10 45",
+        "email": "guneydogu@bemis.com.tr",
+        "whatsapp": "0 549 797 10 45"
+      },
+      {
+        "regionId": "ic_anadolu",
+        "name": "MEHMET ÇANAK",
+        "title": "Regiovertegenwoordiger Centraal-Anatolië",
+        "phone": "0 549 839 13 36",
+        "email": "mcanak@bemis.com.tr",
+        "whatsapp": "0 549 839 13 36"
+      },
+      {
+        "regionId": "ege",
+        "name": "VOLKAN ÜÇÜNCÜ",
+        "title": "Regiovertegenwoordiger Egeïsche regio",
+        "phone": "0 549 804 85 99",
+        "email": "vucuncu@bemis.com.tr",
+        "whatsapp": "0 549 804 85 99"
+      },
+      {
+        "regionId": "akdeniz",
+        "name": "ABDULSAMED ÇALIŞKAN",
+        "title": "Regiovertegenwoordiger Middellandse Zeeregio",
+        "phone": "0 530 321 56 57",
+        "email": "tanitim@bemis.com.tr",
+        "whatsapp": "0 530 321 56 57"
+      },
+      {
+        "regionId": "marmara",
+        "name": "YİĞİT BOZKURT",
+        "title": "Regiovertegenwoordiger Marmara",
+        "phone": "0 546 529 97 54",
+        "email": "marmara2@bemis.com.tr",
+        "whatsapp": "0 546 529 97 54"
+      },
+      {
+        "regionId": "marmara",
+        "name": "MEHMET AKKILIÇ",
+        "title": "Regiovertegenwoordiger Marmara",
+        "phone": "0 549 839 13 34",
+        "email": "marmara@bemis.com.tr",
+        "whatsapp": "0 549 839 13 34"
+      }
+    ],
+    "internationalDealers": [
+      {
+        "id": "de",
+        "countryCode": "DE",
+        "countryName": "Duitsland",
+        "lat": 51.2,
+        "lng": 10.4,
+        "active": true,
+        "distributorName": ""
+      },
+      {
+        "id": "cl",
+        "countryCode": "CL",
+        "countryName": "Chili",
+        "lat": -35.7,
+        "lng": -71.5,
+        "active": true
+      },
+      {
+        "id": "pt",
+        "countryCode": "PT",
+        "countryName": "Portugal",
+        "lat": 39.4,
+        "lng": -8.2,
+        "active": true
+      }
+    ],
+    "exportContact": {
+      "contactPerson": "Timur Emrul",
+      "whatsapp": "+90 542 773 72 94",
+      "email": "trade@bemis.com.tr",
+      "phone": "+90 542 773 72 94"
+    }
+  },
+  "reviews": {
+    "sectionLabel": "Beoordelingen & content",
+    "heading": "Beoordelingen en gidsen",
+    "subheading": "Echte klantbeoordelingen en onze gidsen over EV-laden op één plek.",
+    "ratingLabel": "gemiddelde score",
+    "platformsPrefix": "op Trendyol en HepsiBurada",
+    "ratingCountSuffix": "beoordelingen",
+    "rating": "5.0",
+    "ratingCount": "59",
+    "items": [
+      {
+        "platform": "HepsiBurada",
+        "platformColor": "#FF6000",
+        "rating": 5,
+        "author": "M. C.",
+        "date": "november 2025",
+        "product": "Driefasige mobiele laadset 11 kW met tas",
+        "text": "Degelijk en compleet geleverd. Ik had al voor het merk Bemis gekozen omdat ik het ken, de kwaliteit vertrouw en het in eigen huis wordt geproduceerd. Met de tas neemt hij weinig ruimte in en is hij makkelijk te gebruiken."
+      },
+      {
+        "platform": "Trendyol",
+        "platformColor": "#F27A1A",
+        "rating": 5,
+        "author": "Onur D.",
+        "date": "maart 2026",
+        "product": "Pro Mobile 11-22 kW mobiele lader",
+        "text": "Geslaagd. Werkt probleemloos, de verzending was snel en de verpakking goed."
+      },
+      {
+        "platform": "HepsiBurada",
+        "platformColor": "#FF6000",
+        "rating": 5,
+        "author": "İ. T.",
+        "date": "februari 2026",
+        "product": "Driefasige mobiele laadset 11 kW met tas",
+        "text": "Kwam zorgvuldig en snel verzonden in zijn eigen tas aan. De verkoper heeft al mijn vragen beantwoord; ik bedank hem en wens hem veel succes."
+      }
+    ]
+  },
+  "contactSection": {
+    "sectionLabel": "Contact",
+    "heading": "Neem contact met ons op",
+    "subheading": "Neem contact met ons op over onze producten, een dealeraanvraag, zakelijke verkoop, samenwerking of om feedback te geven."
+  },
+  "featuredSection": {
+    "sectionLabel": "Uitgelichte producten",
+    "heading": "Meest gekozen",
+    "subheading": "De producten die onze klanten vertrouwen en het vaakst bestellen",
+    "ctaLabel": "Bekijk product"
+  },
+  "navbar": {
+    "ctaLabel": "Contact",
+    "links": [
+      {
+        "label": "Home",
+        "href": "#hero"
+      },
+      {
+        "label": "Over ons",
+        "href": "#dna"
+      },
+      {
+        "label": "Producten",
+        "href": "#products"
+      },
+      {
+        "label": "Documenten",
+        "href": "/documents"
+      },
+      {
+        "label": "Dealernetwerk",
+        "href": "#dealer"
+      },
+      {
+        "label": "Gids",
+        "href": "#calculator"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact"
+      },
+      {
+        "label": "Bedrijf",
+        "href": "/b2b"
+      }
+    ],
+    "b2bPortalUrl": "https://b2b.bemisevcharge.com.tr"
+  },
+  "footer": {
+    "description": "Ons merk voor EV-laadapparatuur binnen Bemis Teknik Elektrik A.Ş. Sinds 1994 kwalitatief elektrotechnisch materiaal, van Türkiye naar de hele wereld.",
+    "followLabel": "Volg ons:",
+    "copyright": "© 2026 Bemis Teknik Elektrik A.Ş.",
+    "rightsLabel": "Alle rechten voorbehouden.",
+    "tagline": "Eigen productie, wereldwijde kwaliteit",
+    "b2bText": "Voor fabrikanten en OEM-oplossingen",
+    "b2bLinkText": "bezoek onze professionele productpagina",
+    "b2bSuffix": "."
+  },
+  "logos": {
+    "dark": "",
+    "light": ""
+  },
+  "smartCharger": {
+    "sectionLabel": "Slimme laadtechnologie",
+    "heading": "Beheer vanaf elke locatie\nmet de mobiele app",
+    "subheading": "Dankzij het OCPP-protocol kunnen onze laadstations uit de Charger-serie in gedeelde ruimtes zoals wooncomplexen, winkelcentra en parkeergarages vanaf één platform realtime worden bewaakt, op afstand worden bediend en energie-geoptimaliseerd. Naadloze integratie met netwerkoperators. ",
+    "ocppBadge": "Compatibel met OCPP 1.6 / 2.0.1",
+    "ctaLabel": "Bekijk de Charger-serie",
+    "ctaHref": "https://portal.bemis.com.tr/login?ReturnUrl=%2F",
+    "features": [
+      {
+        "title": "Bewaking & bediening op afstand",
+        "desc": "Volg laadstations in realtime, start of stop ze. Ontvang directe statusmeldingen."
+      },
+      {
+        "title": "Optimalisatie van gedeelde ruimtes",
+        "desc": "Volledig beheer met toegang voor meerdere gebruikers, dynamische loadbalancing en integratie van betaalsystemen."
+      },
+      {
+        "title": "Open OCPP-ecosysteem",
+        "desc": "Werkt via het standaard OCPP-protocol samen met alle netwerkoperators en back-endplatformen."
+      }
+    ],
+    "playStoreHref": "https://play.google.com/store/apps/details?id=com.bemis.etechchargehub&pcampaignid=web_share",
+    "mockupPhoneImage": ""
+  },
+  "productShowcase": {
+    "badge": "Vlaggenschipproduct",
+    "name": "AC Wallbox Smart Charger Pro 2",
+    "tagline": "De nieuwe standaard in slim laden",
+    "description": "Slim AC-laadstation van 22 kW met OCPP, ontwikkeld voor woningen en bedrijven. Met integratie van de mobiele app, dynamisch loadmanagement en IP65-bescherming ononderbroken prestaties bij particulier en gedeeld gebruik.",
+    "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075777/products/aapzodkxb904ww8ybo3h.jpg",
+    "specs": [
+      {
+        "label": "Uitgangsvermogen",
+        "value": "22 kW "
+      },
+      {
+        "label": "Beschermingsklasse",
+        "value": "Volledige veiligheid"
+      },
+      {
+        "label": "Bağlantı",
+        "value": "OCPP 1.6 / 2.0.1"
+      },
+      {
+        "label": "Connector",
+        "value": "Type 2 (IEC 62196)"
+      },
+      {
+        "label": "Productie",
+        "value": "Made in Türkiye"
+      },
+      {
+        "label": "Garantie",
+        "value": "2 jaar"
+      }
+    ],
+    "ctaPrimary": "Bekijk product",
+    "ctaHref": "/products/wallbox",
+    "ctaSecondary": "Offerte aanvragen",
+    "ctaSecondaryHref": "/contact",
+    "images": [
+      "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075777/products/aapzodkxb904ww8ybo3h.jpg"
+    ],
+    "products": [
+      {
+        "badge": "Nieuw uitgelicht product",
+        "name": "80 kW DC-snellader",
+        "tagline": "Snellaadoplossing voor wagenparken en commercieel gebruik",
+        "description": "DC-snellaadstation van 80 kW met twee CCS2-uitgangen. Een compacte oplossing die twee auto's tegelijk laadt bij parkeergarages, winkelcentra, hotels en wagenparkcentra. In 30 minuten van 20% → 80% accu. Met OCPP 1.6J / 2.0.1, RFID-authenticatie, IP54-bescherming en een breed temperatuurbereik van -25 °C / +55 °C het hele jaar door klaar voor buitengebruik.",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075789/products/bcmgy8awcmtb9yrpwn92.png",
+        "specs": [
+          {
+            "label": "Uitgangsvermogen",
+            "value": "80 kW (2 × 40 kW)"
+          },
+          {
+            "label": "Aansluiting",
+            "value": "2 × CCS2"
+          },
+          {
+            "label": "Protocol",
+            "value": "OCPP 1.6J / 2.0.1"
+          },
+          {
+            "label": "Beschermingsklasse",
+            "value": "IP54"
+          },
+          {
+            "label": "Temperatuur",
+            "value": "-25°C / +55°C"
+          },
+          {
+            "label": "Productie",
+            "value": "Made in Türkiye"
+          }
+        ],
+        "ctaPrimary": "Bekijk product",
+        "ctaHref": "/products/dc-units/bevdc-80-2",
+        "overlayFeatures": [
+          "80 kW DC",
+          "2 × CCS2",
+          "OCPP 2.0.1",
+          "IP54"
+        ]
+      }
+    ]
+  },
+  "faviconUrl": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075791/products/xt103etp3dcuoxvu7aib.png",
+  "ogImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075793/products/jjkaqljqa9thzeeyntup.jpg",
+  "referenceProjectsSection": {
+    "sectionLabel": "Referentieprojecten",
+    "heading": "Bemis E-V Charge in de praktijk",
+    "subheading": "Beelden van installaties die we in winkelcentra, parkeergarages, hotels en op bedrijfscampussen hebben opgeleverd.",
+    "items": [
+      {
+        "id": "proj-1778223874319",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1785004890/products/xymypo08w9rpij7mz0cz.jpg",
+        "title": "",
+        "location": "",
+        "description": "",
+        "imagePos": "49% 49%"
+      },
+      {
+        "id": "proj-1785004772806",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1785004827/products/tqtfhpjkuaxlytu6lzoa.jpg",
+        "title": "",
+        "location": "",
+        "description": "",
+        "imagePos": "51% 51%"
+      },
+      {
+        "id": "proj-1785004768808",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1785004783/products/xe1mm6po6pnijqv3bpg6.jpg",
+        "title": "",
+        "location": "",
+        "description": "",
+        "imagePos": "49% 42%"
+      },
+      {
+        "id": "proj-1778222222146",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075798/products/d5irceuqxwl8cksh0xvw.jpg",
+        "title": "",
+        "location": "",
+        "description": "",
+        "imagePos": "54% 34%"
+      },
+      {
+        "id": "proj-1785004774349",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1785004860/products/h7i2qgcyv3lt09fzy65t.jpg",
+        "title": "",
+        "location": "",
+        "description": "",
+        "imagePos": "78% 55%"
+      },
+      {
+        "id": "proj-1785005014091",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1785005025/products/o8bso7t20to5aev47iur.jpg",
+        "title": "",
+        "location": "",
+        "description": "",
+        "imagePos": "47% 62%"
+      },
+      {
+        "id": "proj-1785005026496",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1785005114/products/nsclyfw1uyowfelejarx.jpg",
+        "title": "",
+        "location": "",
+        "description": "",
+        "imagePos": "41% 45%"
+      },
+      {
+        "id": "proj-1785005128989",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1785005171/products/gvvrqvlrxw8kgdgciouq.jpg",
+        "title": "",
+        "location": "",
+        "description": "",
+        "imagePos": "65% 76%"
+      },
+      {
+        "id": "proj-1785005207563",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1785005341/products/kfdf85zsoowjrfwu8rko.jpg",
+        "title": "",
+        "location": "",
+        "description": "",
+        "imagePos": "47% 87%"
+      },
+      {
+        "id": "proj-1785005364913",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1785005494/products/ogjikwnrv3jka8q3jzog.jpg",
+        "title": "",
+        "location": "",
+        "description": "",
+        "imagePos": "51% 60%"
+      }
+    ]
+  },
+  "gallerySection": {
+    "sectionLabel": "Galerij",
+    "heading": "Showroom & productie",
+    "subheading": "Beelden uit onze productiefaciliteit en showroom in Bursa.",
+    "items": [
+      {
+        "id": "g-1778223748755",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075810/products/rxpfjpundvynbs0gbwjc.jpg",
+        "caption": "",
+        "aspect": "square"
+      }
+    ]
+  },
+  "siteVerification": {
+    "yandex": "ae9fa7a5c2813c45",
+    "bing": "C167616D2A8624840B7BB7B05FF168F3"
+  },
+  "projectSection": {
+    "enabled": true,
+    "categories": [
+      "wallbox",
+      "cables"
+    ],
+    "eyebrow": "Productie op projectbasis",
+    "title": "Kleur en lengte op maat voor uw project",
+    "description": "Omdat onze producten in onze eigen fabriek worden gemaakt, kunnen we bij projectmatige orders en grotere aantallen de kabellengte, de kleur van kabel en connector en zelfs de kleur van het apparaat naar wens aanpassen. Laten we samen de beste oplossing voor uw zakelijke project bepalen.",
+    "swatches": [
+      "#111111",
+      "#ffffff",
+      "#E31E24",
+      "#2563eb",
+      "#16a34a",
+      "#f59e0b"
+    ],
+    "ctaPrimaryLabel": "Neem contact op voor uw project",
+    "ctaPrimaryHref": "/iletisim",
+    "ctaSecondaryLabel": "Vind een dealer",
+    "ctaSecondaryHref": "/#dealer"
+  },
+  "statsCertBand": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
+}

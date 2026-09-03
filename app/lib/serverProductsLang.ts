@@ -172,7 +172,7 @@ export async function getProductsForLang(lang: string): Promise<any[] | null> {
       const fileEn = loadJsonFile(path.join(process.cwd(), "data", "products-en.json"));
       if (Array.isArray(fileEn)) overlay = fileEn;
     }
-  } else if (["de", "es", "ar", "ru"].includes(lang)) {
+  } else if (["de", "es", "ar", "ru", "nl"].includes(lang)) {
     // Önce admin oto-çevirisi (products bin `_translations[lang]`, akıllı hibrit),
     // sonra paketlenmiş premium overlay dosyası.
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

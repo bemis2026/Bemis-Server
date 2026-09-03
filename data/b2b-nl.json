@@ -1,0 +1,281 @@
+{
+  "hero": {
+    "eyebrow": "Zakelijke & OEM-oplossingen",
+    "heading1": "Voor fabrikanten",
+    "heading2": "Professionele oplossingen",
+    "description": "Technisch productportfolio, speciale prijzen en engineeringondersteuning voor fabrikanten. Van een fabrikant van EV-laadinfrastructuur met eigen productie in Türkiye. OEM-opties.",
+    "sectorTags": []
+  },
+  "featuredProducts": [
+    {
+      "categoryId": "charger-equipment",
+      "productId": "bir-ucu-acik-kablolu-sarj-prizi-5m-trifaze-22-kw-5x6-mm"
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "pano-prizi-trifaze-11-22-kw-4-noktadan-montaj"
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m"
+    },
+    {
+      "categoryId": "charger-equipment",
+      "productId": "bir-ucu-acik-enerji-kablosu-532a-trifaze-11-22-kw-5x6-mm"
+    }
+  ],
+  "applications": [],
+  "cta": {
+    "eyebrow": "OEM & zakelijke verkoop",
+    "heading": "Oplossingen op maat voor fabrikanten, operators en dealers",
+    "description": "Eigen kleuren en branding voor fabrikanten. Speciale oplossingen voor CPO's. Vraag meer informatie over ons op de eindgebruiker gerichte productportfolio en de vele voordelen.",
+    "tags": [
+      "OEM-fabrikant",
+      "Laadnetwerkoperator",
+      "Distributeur / dealer"
+    ],
+    "channels": [
+      {
+        "href": "/b2b",
+        "label": "OEM & fabrikanten",
+        "sub": "Technisch portfolio, speciale prijzen, engineeringondersteuning"
+      },
+      {
+        "href": "/bayilik",
+        "label": "Dealer worden",
+        "sub": "Sluit u aan bij ons dealernetwerk met regiobescherming"
+      },
+      {
+        "href": "/operator",
+        "label": "Laadnetwerkoperators",
+        "sub": "OCPP-compatibele apparatuur, DLM, bewaking op afstand"
+      }
+    ]
+  },
+  "bayilik": {
+    "heading1": "Bemis E-V Charge",
+    "heading2": "Word dealer",
+    "description": "Sluit u aan bij ons groeiende dealernetwerk en profiteer mee van de snelle groei van de markt voor EV-laadinfrastructuur. Concurrerende prijzen, technische ondersteuning en regiobescherming.",
+    "benefits": [
+      {
+        "title": "Concurrerende dealerprijzen",
+        "body": "Staffelkorting op basis van volume; klein beginnen en meegroeien is mogelijk."
+      },
+      {
+        "title": "Voorraad- & leveringszekerheid",
+        "body": "Voorrang in de orderwachtrij en een gegarandeerd leverschema."
+      },
+      {
+        "title": "Technische ondersteuning",
+        "body": "Een directe technische lijn voor installatie, storingen en klantvragen."
+      },
+      {
+        "title": "Regiobescherming",
+        "body": "Mogelijkheid tot regionale exclusiviteit voor contractdealers."
+      },
+      {
+        "title": "Marketingondersteuning",
+        "body": "Productbeelden, catalogi, demoproducten en showroommateriaal."
+      },
+      {
+        "title": "Snelle start",
+        "body": "Begin als dealer met een minimale voorraadverplichting en bouw uit naarmate u groeit."
+      }
+    ],
+    "criteria": [
+      "Actief in de elektro-, energie- of automotivesector",
+      "Capaciteit voor erkende verkoop & service",
+      "Regionale klantenportefeuille of dealernetwerk",
+      "Basiskennis van technische installatie (of een team)"
+    ],
+    "infoTable": [
+      {
+        "label": "Minimale voorraadverplichting",
+        "value": "Flexibel — afhankelijk van uw omvang"
+      },
+      {
+        "label": "Looptijd dealerovereenkomst",
+        "value": "1 jaar (verlengbaar)"
+      },
+      {
+        "label": "Technische training",
+        "value": "Gratis — in Bursa of online"
+      },
+      {
+        "label": "Reactietijd op aanvraag",
+        "value": "Binnen 5 werkdagen"
+      }
+    ],
+    "trCriteria": [
+      "Rechtspersoon van minimaal 3 jaar oud (bv/nv) — bevestigd via het handelsregister",
+      "Automatische-incassolijn (DBS) met een limiet van minimaal 1.000.000 ₺ via een A-bank",
+      "Fysieke winkel / verkooppunt",
+      "Elektrotechnisch ingenieur met SMM-certificaat of MYK-gecertificeerde installateur van EV-laders (minimaal 1 persoon)",
+      "Minimaal 1 servicevoertuig met bedrijfsbranding en regionale installatiecapaciteit",
+      "Positieve balans over de laatste 2 jaar; geen faillissement / surseance / beslaglegging (bevestigd via Findeks)",
+      "Toezegging tot voorraadafname bij de openingsorder volgens de door Bemis E-V Charge bepaalde productmix",
+      "Toezegging van een jaarlijks omzet-/orderdoel in ruil voor een exclusieve regio",
+      "Toezegging van maandelijkse digitale + veldmarketingactiviteiten (social media, B2B-bezoekrapport)",
+      "Het technische + verkoopcertificeringsprogramma van Bemis E-V Charge Academy binnen 6 maanden afronden"
+    ],
+    "intlCriteria": [
+      "Toezegging tot exclusieve distributie voor het land of de regio",
+      "Kennis van de markt voor EV-laden of elektrische infrastructuur",
+      "Importvergunning en infrastructuur voor douaneafhandeling",
+      "Regionale magazijn- en logistieke capaciteit",
+      "Toezegging van een minimaal jaarlijks omzet-/orderdoel",
+      "Infrastructuur voor aftersales-service en klantondersteuning"
+    ],
+    "networkStats": [
+      {
+        "value": "30+",
+        "label": "Yıl Sektör Tecrübesi"
+      },
+      {
+        "value": "80+",
+        "label": "İlde Yetkili Bayi"
+      },
+      {
+        "value": "60+",
+        "label": "Ülke İhracat"
+      },
+      {
+        "value": "24/7",
+        "label": "Teknik Destek"
+      }
+    ]
+  },
+  "operator": {
+    "heading1": "Laat uw laadnetwerk",
+    "heading2": "met ons groeien",
+    "description": "Met OCPP-compatibele AC- en DC-snelladers, slimme laadverdelers en integratieklare besturingskaarten bieden wij laadnetwerkoperators een complete hardwareoplossing.",
+    "capabilities": [
+      {
+        "title": "OCPP 1.6 / 2.0.1",
+        "body": "Ondersteuning van open protocollen, compatibel met alle grote beheerplatformen."
+      },
+      {
+        "title": "Dynamisch vermogensbeheer",
+        "body": "Bewaakt het actuele verbruik en verdeelt de belasting over de laadpunten."
+      },
+      {
+        "title": "Bewaking op afstand & OTA",
+        "body": "Cloudgebaseerde firmware-updates en realtime storingsmeldingen."
+      },
+      {
+        "title": "CE- & IEC-certificering",
+        "body": "Conform de Europese exportnormen; ondersteuning bij certificeringstrajecten."
+      }
+    ],
+    "ocppFeatures": [
+      "Op afstand starten / stoppen",
+      "RFID-authenticatie",
+      "Realtime vermogensmeting",
+      "Integratie van meerdere betaalmethoden",
+      "Sessiehistorie & facturatie",
+      "Firmware-update via OTA",
+      "Rapportage van foutcodes",
+      "Ondersteuning van dynamische tarieven"
+    ],
+    "featuredProducts": [
+      {
+        "categoryId": "wallbox",
+        "productId": "charger-pro-2-pano"
+      },
+      {
+        "categoryId": "wallbox",
+        "productId": "charger-plus-2-pano"
+      },
+      {
+        "categoryId": "charger-equipment",
+        "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m"
+      },
+      {
+        "categoryId": "charger-equipment",
+        "productId": "otomatli-ip66-kombinasyon-bd2m6130-1191-x"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-40-1"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-80-2"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-120-1"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-160-2"
+      },
+      {
+        "categoryId": "dc-units",
+        "productId": "bevdc-200-2"
+      }
+    ]
+  },
+  "solutions": [
+    {
+      "id": "dc-charger",
+      "name": "DC-laadkabels 150-250-400 & 500 A",
+      "subtitle": "Voor commerciële & private stations",
+      "tag": "Leverbaar",
+      "tagColor": "#F97316",
+      "accentColor": "#F97316",
+      "detail": "Volledig in eigen huis geproduceerde Bemis DC-laadkabels, speciaal ontwikkeld voor DC-snelladers met hoog vermogen; dankzij de modulaire opbouw eenvoudig te vervangen bij breuk.",
+      "specs": [
+        "CCS2",
+        "Modulair voorstuk",
+        "IP54-behuizing voor buiten",
+        "CE- en TÜV-gecertificeerd"
+      ]
+    },
+    {
+      "id": "charge-panel",
+      "name": "AC-laadkabels 22-11-7,4-3,7 kW",
+      "subtitle": "AC-unitkabels met één open zijde",
+      "tag": "Leverbaar",
+      "tagColor": "#10B981",
+      "accentColor": "#3B82F6",
+      "detail": "Slimme verdeelkasten die tientallen laadpunten voeden vanuit één hoofdvoeding; met een kostenbesparend loadmanagementalgoritme.",
+      "specs": [
+        "Eenfasig / driefasig",
+        "Type 2",
+        "CE- en TÜV-gecertificeerd",
+        "IP54"
+      ]
+    },
+    {
+      "id": "dc-cable",
+      "name": "Paneelcontactdoos voor AC-laadstations",
+      "subtitle": "Met vergrendelmechanisme",
+      "tag": "Leverbaar",
+      "tagColor": "#10B981",
+      "accentColor": "#10B981",
+      "detail": "Paneelcontactdoos met vergrendelmechanisme voor laadstations. Met eigen branding en uniek ontwerp, passend bij uw unit.",
+      "specs": [
+        "16-32A",
+        "Type 2",
+        "IP54",
+        "CE- en TÜV-gecertificeerd"
+      ]
+    },
+    {
+      "id": "ecu",
+      "name": "DC-connectorhouder",
+      "subtitle": "Ophangbeugel voor DC-laadkabels",
+      "tag": "OEM leverbaar",
+      "tagColor": "#818CF8",
+      "accentColor": "#818CF8",
+      "detail": "De DC-connectorhouder, ontwikkeld om de DC-kabels van laadstations vrij te laten hangen, onderscheidt zich door zijn kogelmechanisme en verzonken ontwerp in de behuizing. Dankzij de kogelconstructie behoort breuk tot het verleden. Door de in de behuizing verzonken opbouw sluit hij naadloos aan op het ontwerp van uw unit.",
+      "specs": [
+        "Met kogelmechanisme",
+        "CCS2",
+        "Inbouw",
+        "CE-gecertificeerd"
+      ]
+    }
+  ]
+}

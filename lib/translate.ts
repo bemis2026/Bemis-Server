@@ -3,7 +3,7 @@
 // Kullanım (akıllı hibrit): yalnız DEĞİŞEN alanlar bu motorla çevrilir; değişmeyen
 // alanlar önceki premium çeviriyi (data/<bin>-<lang>.json) korur (bkz. contentTranslate).
 
-export type TransLang = "tr" | "en" | "de" | "es" | "ar" | "ru";
+export type TransLang = "tr" | "en" | "de" | "es" | "ar" | "ru" | "nl";
 
 const ENDPOINT = "https://api.mymemory.translated.net/get";
 // Bumped 4 → 8 — MyMemory's anonymous tier handles parallel calls fine

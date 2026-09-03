@@ -36,7 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: BASE,                lastModified: now, changeFrequency: "weekly",  priority: 1.0 },
-    { url: `${BASE}/products`,  lastModified: now, changeFrequency: "weekly",  priority: 0.9, alternates: { languages: { tr: `${BASE}/products`, en: `${BASE}/en/products`, de: `${BASE}/de/products`, es: `${BASE}/es/products`, ru: `${BASE}/ru/products` } } },
+    { url: `${BASE}/products`,  lastModified: now, changeFrequency: "weekly",  priority: 0.9, alternates: { languages: { tr: `${BASE}/products`, en: `${BASE}/en/products`, de: `${BASE}/de/products`, es: `${BASE}/es/products`, ru: `${BASE}/ru/products`, nl: `${BASE}/nl/products` } } },
     { url: `${BASE}/uretici`,   lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/kurumsal`,  lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/documents`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
@@ -91,7 +91,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now,
       changeFrequency: "weekly" as const,
       priority: 0.8,
-      alternates: { languages: { tr: `${BASE}/products/${id}`, en: `${BASE}/en/products/${id}`, de: `${BASE}/de/products/${id}`, es: `${BASE}/es/products/${id}`, ru: `${BASE}/ru/products/${id}` } },
+      alternates: { languages: { tr: `${BASE}/products/${id}`, en: `${BASE}/en/products/${id}`, de: `${BASE}/de/products/${id}`, es: `${BASE}/es/products/${id}`, ru: `${BASE}/ru/products/${id}`, nl: `${BASE}/nl/products/${id}` } },
       ...(imgs.length > 0 && { images: imgs }),
     };
   });
@@ -104,7 +104,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now,
       changeFrequency: "weekly" as const,
       priority: 0.85,
-      alternates: { languages: { tr: `${BASE}/products`, en: `${BASE}/en/products`, de: `${BASE}/de/products`, es: `${BASE}/es/products`, ru: `${BASE}/ru/products` } },
+      alternates: { languages: { tr: `${BASE}/products`, en: `${BASE}/en/products`, de: `${BASE}/de/products`, es: `${BASE}/es/products`, ru: `${BASE}/ru/products`, nl: `${BASE}/nl/products` } },
     },
     ...CATEGORY_IDS.map((id) => {
       const cat = productById.get(id);
@@ -121,7 +121,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: now,
         changeFrequency: "weekly" as const,
         priority: 0.8,
-        alternates: { languages: { tr: `${BASE}/products/${id}`, en: `${BASE}/en/products/${id}`, de: `${BASE}/de/products/${id}`, es: `${BASE}/es/products/${id}`, ru: `${BASE}/ru/products/${id}` } },
+        alternates: { languages: { tr: `${BASE}/products/${id}`, en: `${BASE}/en/products/${id}`, de: `${BASE}/de/products/${id}`, es: `${BASE}/es/products/${id}`, ru: `${BASE}/ru/products/${id}`, nl: `${BASE}/nl/products/${id}` } },
         ...(imgs.length > 0 && { images: imgs }),
       };
     }),
@@ -138,7 +138,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: now,
         changeFrequency: "monthly" as const,
         priority: 0.7,
-        alternates: { languages: { tr: `${BASE}/products/${cat.id}/${p.id}`, en: `${BASE}/en/products/${cat.id}/${p.id}`, de: `${BASE}/de/products/${cat.id}/${p.id}`, es: `${BASE}/es/products/${cat.id}/${p.id}`, ru: `${BASE}/ru/products/${cat.id}/${p.id}` } },
+        alternates: { languages: { tr: `${BASE}/products/${cat.id}/${p.id}`, en: `${BASE}/en/products/${cat.id}/${p.id}`, de: `${BASE}/de/products/${cat.id}/${p.id}`, es: `${BASE}/es/products/${cat.id}/${p.id}`, ru: `${BASE}/ru/products/${cat.id}/${p.id}`, nl: `${BASE}/nl/products/${cat.id}/${p.id}` } },
         ...(imgs.length > 0 && { images: imgs }),
       };
     })
@@ -157,7 +157,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: now,
         changeFrequency: "monthly" as const,
         priority: 0.6,
-        alternates: { languages: { tr: `${BASE}/products/${cat.id}/${p.id}`, en: `${BASE}/en/products/${cat.id}/${p.id}`, de: `${BASE}/de/products/${cat.id}/${p.id}`, es: `${BASE}/es/products/${cat.id}/${p.id}`, ru: `${BASE}/ru/products/${cat.id}/${p.id}` } },
+        alternates: { languages: { tr: `${BASE}/products/${cat.id}/${p.id}`, en: `${BASE}/en/products/${cat.id}/${p.id}`, de: `${BASE}/de/products/${cat.id}/${p.id}`, es: `${BASE}/es/products/${cat.id}/${p.id}`, ru: `${BASE}/ru/products/${cat.id}/${p.id}`, nl: `${BASE}/nl/products/${cat.id}/${p.id}` } },
         ...(imgs.length > 0 && { images: imgs }),
       };
     })
@@ -165,9 +165,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // 2026-09-03: Almanca / İspanyolca / Rusça kolları (app/[lang]/products). Liste +
   // 8 kategori + tüm ürün detayları; hreflang kümesi TR/EN girişleriyle AYNI (tr,en,de,es,ru).
-  const LOCALE_LANGS = ["de", "es", "ru"] as const;
+  const LOCALE_LANGS = ["de", "es", "ru", "nl"] as const;
   const altSet = (path: string) => ({
-    tr: `${BASE}${path}`, en: `${BASE}/en${path}`, de: `${BASE}/de${path}`, es: `${BASE}/es${path}`, ru: `${BASE}/ru${path}`,
+    tr: `${BASE}${path}`, en: `${BASE}/en${path}`, de: `${BASE}/de${path}`, es: `${BASE}/es${path}`, ru: `${BASE}/ru${path}`, nl: `${BASE}/nl${path}`,
   });
   const localeRoutes: MetadataRoute.Sitemap = LOCALE_LANGS.flatMap((L) => [
     { url: `${BASE}/${L}/products`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8, alternates: { languages: altSet("/products") } },

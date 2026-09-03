@@ -11,7 +11,7 @@
 
 import type { LangCode } from "./languages";
 
-export type LocaleNameLang = "de" | "es" | "ru";
+export type LocaleNameLang = "de" | "es" | "ru" | "nl";
 
 const DE: Record<string, string> = {
   "Charger 2 Fişli": "Charger 2 mit Stecker",
@@ -157,7 +157,55 @@ const RU: Record<string, string> = {
   "DC Soket Tutucu (4 Bilyalı)": "Держатель разъёма DC (4 подшипника)",
 };
 
-export const LOCALE_NAMES: Record<LocaleNameLang, Record<string, string>> = { de: DE, es: ES, ru: RU };
+const NL: Record<string, string> = {
+  "Charger 2 Fişli": "Charger 2 met stekker",
+  "Charger Plus 2 GSM MID Sayaçlı": "Charger Plus 2 GSM met MID-meter",
+  "Charger Pro 2 GSM MID Sayaçlı": "Charger Pro 2 GSM met MID-meter",
+  "Şarj Seti 16A Monofaze 3,7 kW": "Laadkabelset 16A eenfasig 3,7 kW",
+  "Şarj Seti 32A Monofaze 7,4 kW": "Laadkabelset 32A eenfasig 7,4 kW",
+  "Şarj Seti 16A Trifaze 11 kW": "Laadkabelset 16A driefasig 11 kW",
+  "Şarj Seti 32A Trifaze 22 kW": "Laadkabelset 32A driefasig 22 kW",
+  "Tek Çıkışlı V2L Adaptör": "V2L-adapter met één uitgang",
+  "Tekli Priz Uzatma V2L Adaptör": "V2L-adapter met één stopcontact (verlenging)",
+  "2'li Priz Uzatma V2L Adaptör": "V2L-adapter met 2 stopcontacten (verlenging)",
+  "3'lü Priz Uzatma V2L Adaptör": "V2L-adapter met 3 stopcontacten (verlenging)",
+  "C2L Tekli Priz Uzatma Fişli Adaptör": "C2L-verlengadapter met één stopcontact en stekker",
+  "C2L 2'li Priz Uzatma Fişli Adaptör": "C2L-verlengadapter met 2 stopcontacten en stekker",
+  "C2L 3'lü Priz Uzatma Fişli Adaptör": "C2L-verlengadapter met 3 stopcontacten en stekker",
+  "C2L 5/32A Prizli Uzatma Fişli Adaptör": "C2L-verlengadapter 5/32A-contactdoos met stekker",
+  "C2C Charger to Caravan Adaptör": "C2C Charger-to-Caravan-adapter",
+  "Cee Norm Adaptör (3×2,5)": "CEE-adapter (3×2,5)",
+  "Cee Norm Adaptör (3×6)": "CEE-adapter (3×6)",
+  "Standart Adaptör (3×2,5)": "Standaardadapter (3×2,5)",
+  "Seyyar Uzatma Kablosu Monofaze (3×2,5)": "Mobiele verlengkabel eenfasig (3×2,5)",
+  "Seyyar Uzatma Kablosu Monofaze IP68 (3×2,5)": "Mobiele verlengkabel eenfasig IP68 (3×2,5)",
+  "Seyyar Uzatma Kablosu Ceenorm 3×2,5 (1/16A → 3/32A)": "Mobiele CEE-verlengkabel 3×2,5 (1/16A → 3/32A)",
+  "Seyyar Uzatma Kablosu Ceenorm 3×2,5 (1/16A → 5/32A)": "Mobiele CEE-verlengkabel 3×2,5 (1/16A → 5/32A)",
+  "Seyyar Uzatma Kablosu Ceenorm 3×6 (3/32A)": "Mobiele CEE-verlengkabel 3×6 (3/32A)",
+  "Seyyar Uzatma Kablosu Ceenorm 5×6 (5/32A)": "Mobiele CEE-verlengkabel 5×6 (5/32A)",
+  "Seyyar Uzatma Kablosu Ceenorm 5×2,5 (5/16A)": "Mobiele CEE-verlengkabel 5×2,5 (5/16A)",
+  "Şarj Kablosu Çantası": "Laadkabeltas",
+  "Mobile Charger Çantası": "Tas voor mobiele lader",
+  "AC Soket Tutucu": "AC-connectorhouder",
+  "Mobile Charger Duvar Askı Aparatı": "Wandhouder voor mobiele lader",
+  "V2L ve C2L Adaptör Çantası": "Tas voor V2L- & C2L-adapters",
+  "V2L ve C2L Kablo Çantası": "Tas voor V2L- & C2L-kabels",
+  "Bir Uçu Açık Kablolu Şarj Prizi": "Laadcontactdoos met open kabeleinde",
+  "Pano Prizi": "Paneelcontactdoos",
+  "Pano Prizi (Kilit Motorsuz)": "Paneelcontactdoos (zonder vergrendelmotor)",
+  "Pano Prizi Yeni Tip": "Paneelcontactdoos, nieuw type",
+  "Bir Ucu Açık Enerji Kablosu": "Voedingskabel met open einde",
+  "Otomatlı IP44 Kombinasyon": "IP44-combinatiekast met automaten",
+  "Otomatlı IP66 Kombinasyon": "IP66-combinatiekast met automaten",
+  "DC Şarj Soketi CCS2 (Bir Ucu Açık)": "DC-laadconnector CCS2 (open einde)",
+  "Charger Plus 2 MID Sayaçlı": "Charger Plus 2 met MID-meter",
+  "Charger Pro 2 MID Sayaçlı": "Charger Pro 2 met MID-meter",
+  "Tek Çıkışlı C2L Adaptör": "C2L-adapter met één uitgang",
+  "Cee Norm Adaptör (30cm Kablolu)": "CEE-adapter (30 cm kabel)",
+  "DC Soket Tutucu (4 Bilyalı)": "DC-connectorhouder (4 kogels)",
+};
+
+export const LOCALE_NAMES: Record<LocaleNameLang, Record<string, string>> = { de: DE, es: ES, ru: RU, nl: NL };
 
 export function isLocaleNameLang(v: unknown): v is LocaleNameLang {
   return v === "de" || v === "es" || v === "ru";

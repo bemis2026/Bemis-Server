@@ -34,7 +34,7 @@ export async function getContentForLang(lang: string): Promise<any | null> {
   // paketlenmiş data/content-<lang>.json, yoksa {} (→ tüm alanlar TR'ye düşer).
   // `en` değişken adı geçmişten kalma — aşağıdaki birleştirme dil-bağımsızdır,
   // yalnız overlay kaynağı dile göre seçilir. Bilinmeyen dil → EN'e düşer.
-  const overlayLang = ["en", "de", "es", "ar", "ru"].includes(lang) ? lang : "en";
+  const overlayLang = ["en", "de", "es", "ar", "ru", "nl"].includes(lang) ? lang : "en";
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let en: any = bin?._translations?.[overlayLang] ?? null;
   if (!en) en = await loadJsonFile(path.join(process.cwd(), "data", `content-${overlayLang}.json`));

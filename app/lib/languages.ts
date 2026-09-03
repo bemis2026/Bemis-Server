@@ -5,7 +5,7 @@
 // Yeni dil eklemek = LANGS'a bir kayıt. `dir:"rtl"` olan diller (Arapça) için
 // LanguageContext kök <html dir> attribute'unu ayarlar.
 
-export type LangCode = "tr" | "en" | "de" | "es" | "ar" | "ru";
+export type LangCode = "tr" | "en" | "de" | "es" | "ar" | "ru" | "nl";
 
 export type LangMeta = {
   code: LangCode;
@@ -27,6 +27,7 @@ export const LANGS: LangMeta[] = [
   { code: "es", native: "Español",  english: "Spanish", dir: "ltr", flag: "🇪🇸" },
   { code: "ar", native: "العربية",  english: "Arabic",  dir: "rtl", flag: "🇸🇦" },
   { code: "ru", native: "Русский",  english: "Russian", dir: "ltr", flag: "🇷🇺" },
+  { code: "nl", native: "Nederlands", english: "Dutch", dir: "ltr", flag: "🇳🇱" },
 ];
 
 export const SOURCE_LANG: LangCode = "tr";
@@ -88,7 +89,7 @@ export function isEnglishOnlyPath(pathname: string | null | undefined): boolean 
  * LanguageContext / LanguageURLSync / LanguageSwitcher BUNU kullanır. Kural aynı:
  * görünüm zorlaması, tercih değil (localStorage'a yazılmaz).
  */
-export const URL_LANGS: readonly LangCode[] = ["en", "de", "es", "ru"];
+export const URL_LANGS: readonly LangCode[] = ["en", "de", "es", "ru", "nl"];
 export function forcedLangForPath(pathname: string | null | undefined): LangCode | null {
   if (!pathname) return null;
   if (isEnglishOnlyPath(pathname)) return "en";

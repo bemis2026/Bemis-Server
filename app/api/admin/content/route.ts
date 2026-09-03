@@ -10,7 +10,7 @@ import { verifyAdminSession } from "@/lib/adminAuth";
 // Akıllı hibrit için hedef diller. TR kaydında DEĞİŞEN alanlar MyMemory ile
 // çevrilir; değişmeyenler her dilin premium temelinden (bin _translations[lang]
 // yoksa data/content-<lang>.json) KORUNUR → bedava + otomatik + premium kalite.
-const HYBRID_LANGS: TransLang[] = ["en", "de", "es", "ar", "ru"];
+const HYBRID_LANGS: TransLang[] = ["en", "de", "es", "ar", "ru", "nl"];
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function loadOverlayFile(lang: string): any | null {
