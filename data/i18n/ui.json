@@ -2176,5 +2176,17 @@
     "es": "Mármara",
     "ar": "مرمرة",
     "ru": "Мармара"
+  },
+  "Read more": {
+    "de": "Mehr lesen",
+    "es": "Leer más",
+    "ar": "اقرأ المزيد",
+    "ru": "Читать далее"
+  },
+  "Show less": {
+    "de": "Weniger anzeigen",
+    "es": "Mostrar menos",
+    "ar": "عرض أقل",
+    "ru": "Свернуть"
   }
 }

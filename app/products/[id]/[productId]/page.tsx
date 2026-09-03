@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 import type { Metadata } from "next";
 import JsonLd from "../../../components/JsonLd";
-import { breadcrumbSchema, productSchema, productMetaTitle, productMetaDescription, productKeywords, ogImage, OG_URL, reviewsForProduct, type ReviewShape } from "../../../lib/seo";
+import { breadcrumbSchema, productSchema, productMetaTitle, productMetaDescription, productKeywords, ogImage, OG_URL, SITE_URL, reviewsForProduct, type ReviewShape } from "../../../lib/seo";
 import { getServerProducts, getServerCategoriesMeta, getServerSiteContent } from "../../../lib/server-content";
 import ProductDetailClient from "./ProductDetailClient";
 
@@ -52,6 +52,11 @@ export async function generateMetadata({
   const keywords = productKeywords(product);
   const canonical = `/products/${id}/${productId}`;
   const image = product.image || product.images?.[0];
+  // ⚠️ og:image OPTİMİZE (2026-09-03 denetimi): ham Cloudinary PNG'leri 1–4,2 MB idi
+  // (12/12 üründe, ort. 2,3 MB) → WhatsApp/LinkedIn her paylaşımda bunu indiriyordu.
+  // Aynı görsel Next optimizer'dan geçer (~50 KB); w=1080 next.config deviceSizes'ta
+  // OLMALI (1200 listede yok → 400 dönerdi). Scraper Accept'e göre PNG/WebP alır.
+  const ogImg = image ? `${SITE_URL}/_next/image?url=${encodeURIComponent(image)}&w=1080&q=88` : undefined;
   return {
     title,
     description,
@@ -64,13 +69,13 @@ export async function generateMetadata({
       type: "website",
       url: canonical,
       // Üründe foto varsa onu KORU (override etme); yoksa sitenin OG kartına düş.
-      images: image ? [{ url: image, alt: product.name }] : ogImage(product.name),
+      images: ogImg ? [{ url: ogImg, alt: product.name, width: 1080 }] : ogImage(product.name),
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: image ? [image] : [OG_URL],
+      images: ogImg ? [ogImg] : [OG_URL],
     },
   };
 }

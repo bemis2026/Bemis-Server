@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import JsonLd from "../../../../components/JsonLd";
-import { breadcrumbSchema, productSchema, ogImage, OG_URL, reviewsForProduct, type ReviewShape } from "../../../../lib/seo";
+import { breadcrumbSchema, productSchema, ogImage, OG_URL, SITE_URL, reviewsForProduct, type ReviewShape } from "../../../../lib/seo";
 import type { ComponentProps } from "react";
 import { getServerProducts, getServerCategoriesMeta, getServerSiteContent } from "../../../../lib/server-content";
 import { getProductsForLang } from "../../../../lib/serverProductsLang";
@@ -51,6 +51,8 @@ export async function generateMetadata({
   const canonical = `/en/products/${id}/${productId}`;
   const trPath = `/products/${id}/${productId}`;
   const image = product.image || product.images?.[0];
+  // og:image optimize — TR ürün sayfasıyla aynı gerekçe (ham PNG 1–4 MB → ~50 KB). w=1080 deviceSizes'ta.
+  const ogImg = image ? `${SITE_URL}/_next/image?url=${encodeURIComponent(image)}&w=1080&q=88` : undefined;
   const enName = productNameEn(product.name);
   return {
     title,
@@ -66,9 +68,9 @@ export async function generateMetadata({
       type: "website",
       url: canonical,
       locale: "en_US",
-      images: image ? [{ url: image, alt: enName }] : ogImage(enName),
+      images: ogImg ? [{ url: ogImg, alt: enName, width: 1080 }] : ogImage(enName),
     },
-    twitter: { card: "summary_large_image", title, description, images: image ? [image] : [OG_URL] },
+    twitter: { card: "summary_large_image", title, description, images: ogImg ? [ogImg] : [OG_URL] },
   };
 }
 

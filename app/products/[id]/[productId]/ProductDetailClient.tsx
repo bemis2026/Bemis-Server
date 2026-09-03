@@ -2,6 +2,7 @@
 import { pickText } from "../../../lib/ui";
 
 import { useParams, useRouter } from "next/navigation";
+import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import type { MouseEvent as RMouseEvent, PointerEvent as RPointerEvent } from "react";
 import { createPortal } from "react-dom";
@@ -461,11 +462,14 @@ export default function ProductDetailPage({
                               <div className={`${variantOpen ? "flex" : "hidden"} sm:flex flex-col items-end gap-1 min-h-0 overflow-y-auto`}>
                                 {variantInfo.group.variants.map((v) => {
                                   const isActive = v.id === productId;
+                                  // ⚠️ GERÇEK LİNK (2026-09-03 denetimi): eskiden <button>+router.push →
+                                  // varyant sayfaları hiçbir <a href> almıyordu. Görünüm/davranış aynı.
                                   return (
-                                    <button
+                                    <Link
                                       key={v.id}
-                                      onClick={() => { setVariantOpen(false); router.push(`/products/${categoryId}/${v.id}`); }}
-                                      className="text-right px-1.5 py-1 sm:px-2.5 sm:py-1.5 rounded-lg text-[10px] sm:text-[11px] leading-tight font-semibold transition-all duration-150 backdrop-blur-sm"
+                                      href={`/products/${categoryId}/${v.id}`}
+                                      onClick={() => setVariantOpen(false)}
+                                      className="block text-right px-1.5 py-1 sm:px-2.5 sm:py-1.5 rounded-lg text-[10px] sm:text-[11px] leading-tight font-semibold transition-all duration-150 backdrop-blur-sm"
                                       style={{
                                         background: isActive ? accent : "rgba(0,0,0,0.55)",
                                         border: `1px solid ${isActive ? accent : "rgba(255,255,255,0.12)"}`,
@@ -489,7 +493,7 @@ export default function ProductDetailPage({
                                           {v.code}
                                         </span>
                                       )}
-                                    </button>
+                                    </Link>
                                   );
                                 })}
                               </div>
@@ -1448,7 +1452,12 @@ export default function ProductDetailPage({
                       )}
                     </div>
                     <div className="px-3 py-2.5">
-                      <p className="text-[11px] font-bold leading-tight mb-0.5 line-clamp-2" style={{ color: sd ? "#f0f0f4" : "#111827" }}>{prod.name}</p>
+                      {/* ⚠️ BAŞLIK GERÇEK LİNK (2026-09-03 denetimi): kart tıklaması router.push ile
+                          kalır; ürün adı <a href> olur → "Benzer Ürünler" karuseli Google için
+                          taranabilir iç link üretir (eskiden 0 link). Görünüm aynı. */}
+                      <p className="text-[11px] font-bold leading-tight mb-0.5 line-clamp-2" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
+                        <Link href={`/products/${cat.id}/${prod.id}`} onClick={(e) => e.stopPropagation()} className="hover:underline">{prod.name}</Link>
+                      </p>
                       {(() => {
                         // Ürünleri ayrıştıran kısa spec satırı: güç (kW) + alt başlık
                         // (örn. kablo uzunluğu "5m Kablolu"). Aynı isimli varyantlar

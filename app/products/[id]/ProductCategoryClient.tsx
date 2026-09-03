@@ -485,9 +485,12 @@ export default function ProductCategoryPage({
                     <p className="text-[10px] leading-snug mb-2" style={{ color: textFaint }}>
                       {group.variants.filter(v => v.subtitle).map((v, vi, arr) => (
                         <span key={v.id}>
-                          <button
-                            type="button"
-                            onClick={(e) => { e.stopPropagation(); router.push(`${base}/${id}/${v.id}`); }}
+                          {/* ⚠️ GERÇEK LİNK (2026-09-03 denetimi): eskiden <button>+router.push idi →
+                              varyant sayfaları HİÇBİR yerden <a href> almıyordu (150 ürünün 84'ü yalnız
+                              sitemap'ten bulunuyordu). Görünüm/tıklama AYNI; altında taranabilir href var. */}
+                          <Link
+                            href={`${base}/${id}/${v.id}`}
+                            onClick={(e) => e.stopPropagation()}
                             className="cursor-pointer underline decoration-dotted underline-offset-2 transition-colors hover:opacity-100 active:opacity-70"
                             style={{ color: "inherit" }}
                             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = accentInk(accent, d); }}
@@ -495,7 +498,7 @@ export default function ProductCategoryPage({
                             aria-label={`${product.name} — ${v.subtitle}`}
                           >
                             {v.subtitle}
-                          </button>
+                          </Link>
                           {vi < arr.length - 1 && " · "}
                         </span>
                       ))}
