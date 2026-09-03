@@ -13,6 +13,15 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🩺 **SAĞLIK TARAMASI + BEKÇİ DÜZELTMESİ (2026-09-03 gece):** 20+ dağıtım sonrası tarama TEMİZ — **165 sayfa (7 dil × liste/
+> kategori/ürün + TR statik) 0 sorun**, ort 802 ms; 7 dilde API'ler tutarlı (8 kat / 49 SSS / 150 ürün / b2b 7); katalog
+> beslemesi 150, döküman 13, kur 200. **⚠️ BEKÇİLERİN CANLI KONUMU `C:\Users\sales\.claude\bemis-sentinels\`** (2026-08-15'ten
+> beri; cron görevleri oraya bakar) — `Desktop\Bemis_Raporlar` notu BAYAT, o klasör 3 kez silindi (kutu izleri 08-08/16/17). Bu
+> oturumda önce yanlış yola bakıp "bekçi kayıp" sandım; **gerçek bulgu:** günlük bekçi **25 Ağu → 3 Eyl her gün SITE ALARM**
+> yazmış — `döküman 14→13` (22 Ağu'da gizlenen 2025 broşürü = meşru düşüş) → `--rebaseline` yapıldı (bayi 33→34 büyümesi de
+> alındı), tekrar "SITE OK". Betiklerin sürümlü yedeği artık repoda: `scripts/sentinel/` (README ile). 📌 Meşru bir düşüşte
+> baseline'ı sıfırlamayı UNUTMA, yoksa günlük görev kurt-çoban olur.
+
 > 🇳🇱🚀 **FELEMENKÇE (nl) KOLU AÇILDI — blog hariç her şey (2026-09-03, commit'ler e4a70a7 + ad düzeltmesi):**
 > Kullanıcı seçimi: "Felemenkçe koluna başla" (kapsam daha önce onaylandı: blog HARİÇ). Diğer 4 kolun aksine çeviri
 > **elle yazıldı** (ajan yok, MyMemory yok): **ürünler 511 benzersiz metin** (150 üründe 2.924 alan; fiyat/ölçü/kesit/akım
