@@ -58,6 +58,10 @@
 > bilerek kaldı (örnek metin). (b) **`productShowcase.specs[2].label`** R2 `_translations.{en,de,ru}` "Bağlantı" →
 > Connectivity / Konnektivität / Связь (es zaten "Conexión"→"Conectividad" YAPILMADI, ar "الاتصال" doğruydu) + repo overlay
 > dosyaları + `content.json._translations.en`. store cache **v97 → v98-vitrin-etiket**.
+> **📣 ARAMA MOTORU BİLDİRİMİ:** sitemap **1.029 adres** (tr 234 · en/de/es/ru/nl 159'ar). **IndexNow: 636 yeni dil-kolu
+> adresi gönderildi (200)** — anahtar `public/7c2e1b4d….txt` (iki anahtar dosyası var, ikisi de geçerli). Google için
+> **KULLANICI ADIMI:** `Desktop\Bemis_GSC_Yeni_Dil_Kollari_2026-09.md` (sitemap + 12 kapı adresi URL denetimi + ne
+> beklenir). 3-4 hafta sonra GSC Sayfalar/Ülkeler raporuyla ilk ölçüm.
 > **⏳ AÇIK (yalnız mimari sınırlar):** (1) kabuk (menü/footer) SSR'da TR basılıp istemcide değişir (tüm kollar); (2) hero dönen
 > kelime nl'de "E-V laad [systemen]" — bileşik kelime boşluğu (tasarım sınırı; ES de aynı); (3) `AppMockups` dekoratif ekran
 > metinleri TR (bilerek).
