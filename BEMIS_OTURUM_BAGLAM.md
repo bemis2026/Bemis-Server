@@ -52,9 +52,15 @@
 > kontroller + Arapça harf kontrolü; R2 `_translations.ar` + `data/content-ar.json`. store cache **v96 → v97-faq-ar**.
 > **Artık 6 yabancı dilin (en/de/es/ar/ru/nl) kategori SSS'leri TR ile birebir hizalı.** ⓘ Parmak izi dersi: sayıyı kelimeyle
 > yazma ("سنتين" ≠ "2") — rakam korunmalı ki hiza kontrolü çalışsın.
-> **⏳ AÇIK:** (1) kabuk SSR TR sınırı (her kol); (2) hero dönen kelime nl'de "E-V laad [systemen]" — bileşik kelime boşluğu
-> (tasarım sınırı; ES de aynı); (3) de/es/ru `productShowcase.specs[2].label` R2'de TR; (4) TR sözlük "40–120 kW" → 40–200
-> güncellemesi (7 dil).
+> **✅ SON İKİ KALEM (483cda7):** (a) **DC aralığı "40–120 kW" → "40–200 kW"** — sözlük TR (`glossary.ts` 5) + `glossary.json`
+> 6 dil × 5 + ccs2 **diyagram altyazısı** (`diagrams.ts`, sözlük sayfasında görünür) + `llms-full.txt` marka özeti + blog
+> karşılaştırma tablosunun 2 hücresi; `GLOSSARY_UPDATED` 2026-09-03. ⚠️ `lib/aiTranslate.ts` prompt örneğindeki "40–120 kW"
+> bilerek kaldı (örnek metin). (b) **`productShowcase.specs[2].label`** R2 `_translations.{en,de,ru}` "Bağlantı" →
+> Connectivity / Konnektivität / Связь (es zaten "Conexión"→"Conectividad" YAPILMADI, ar "الاتصال" doğruydu) + repo overlay
+> dosyaları + `content.json._translations.en`. store cache **v97 → v98-vitrin-etiket**.
+> **⏳ AÇIK (yalnız mimari sınırlar):** (1) kabuk (menü/footer) SSR'da TR basılıp istemcide değişir (tüm kollar); (2) hero dönen
+> kelime nl'de "E-V laad [systemen]" — bileşik kelime boşluğu (tasarım sınırı; ES de aynı); (3) `AppMockups` dekoratif ekran
+> metinleri TR (bilerek).
 > ⚠️ Ölçüm dersi: canlı JSON'u `res.on("data", c => d += c)` ile string biriktirmek çok baytlı karakteri parça sınırında
 > böler (`dış`→`d��ş`) → **Buffer.concat** kullan. ⚠️ `vercel ls` döngüsü arka planda/uzun döngüde takılabiliyor — tek
 > `vercel inspect` + Playwright ile doğrula.
