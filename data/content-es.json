@@ -66,28 +66,32 @@
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075739/products/mkblh61xfa551ewuadj8.png",
       "faq": [
         {
+          "q": "¿Estación de carga doméstica, cargador de pared y wallbox son lo mismo?",
+          "a": "Sí, los tres términos describen el mismo producto: una estación de carga AC montada en la pared para cargar su coche eléctrico en casa. Los modelos Charger 2, Charger Plus 2 y Charger Pro 2 de Bemis pertenecen a este grupo; la instalación la realiza un electricista autorizado."
+        },
+        {
+          "q": "¿Cómo uso un wallbox AC en mi casa?",
+          "a": "Los wallbox AC de Bemis se instalan como equipos de pared tanto en viviendas como en lugares de trabajo. En una casa unifamiliar o chalet basta con una línea de alimentación tomada directamente del interruptor general. En un edificio de viviendas se necesita la aprobación de la comunidad y un plan de instalación conectado al contador común. Nuestro distribuidor autorizado recomienda la opción más adecuada tras una visita técnica."
+        },
+        {
           "q": "¿Cuál es la diferencia entre 7 kW, 11 kW y 22 kW?",
-          "a": "Alimentado por conexión monofásica de 7 kW y suficiente para la carga nocturna; carga completamente un VE típico en 6-8 horas. Requiere conexión trifásica de 11 kW y 22 kW; el mismo vehículo con 22 kW se cargará en 2-3 horas. Si la potencia de aceptación de carga AC de tu vehículo es de 11 kW, adquirir un dispositivo de 22 kW no aporta velocidad adicional; consulta el manual de tu vehículo antes de comprar."
+          "a": "7 kW funciona con conexión monofásica y es suficiente para cargar de noche; un coche eléctrico típico se carga por completo en 6–8 horas. 11 kW y 22 kW requieren conexión trifásica; con 22 kW el mismo vehículo se llena en 2–3 horas. Si su vehículo admite un máximo de 11 kW en AC, un equipo de 22 kW no aporta más velocidad; consulte el manual del vehículo antes de comprar."
         },
         {
-          "q": "¿Es el conector Type 2 compatible con todos los vehículos eléctricos?",
-          "a": "Sí. Todos los vehículos eléctricos vendidos en el mercado europeo (incluidos Tesla Model 3/Y), los modelos chinos BYD y MG, y los VE coreanos y japoneses utilizan el estándar IEC 62196-2 (Type 2) en el lado AC. Nuestros dispositivos Bemis Wallbox cumplen este estándar; no se requieren adaptadores adicionales."
+          "q": "¿El conector Type 2 es compatible con todos los coches eléctricos?",
+          "a": "Sí. Todos los coches eléctricos vendidos en el mercado europeo (incluidos Tesla Model 3/Y), los modelos chinos de BYD y MG y los vehículos eléctricos coreanos y japoneses usan en el lado AC el estándar IEC 62196-2 (Type 2). Nuestros wallbox Bemis cumplen este estándar; no se necesita ningún adaptador adicional."
         },
         {
-          "q": "¿Qué es el equilibrado dinámico de carga?",
-          "a": "Mientras otros dispositivos conectados a la misma línea eléctrica consumen mucha potencia (aire acondicionado, horno, bomba de calor), el wallbox reduce automáticamente la potencia de carga y evita que salte el fusible. En instalaciones con varios wallbox, reparte la potencia total disponible entre los dispositivos de forma equilibrada. Es una función crítica que reduce tanto los costes de seguridad como de infraestructura."
+          "q": "¿Qué es el balanceo dinámico de carga?",
+          "a": "Cuando otros equipos conectados a la misma línea consumen mucha potencia (aire acondicionado, horno, bomba de calor), el wallbox reduce automáticamente la potencia de carga y evita que salte el interruptor. En instalaciones con varios wallbox, reparte de forma equilibrada la potencia total disponible entre los equipos. Es una función clave que aumenta la seguridad y reduce el coste de la infraestructura."
         },
         {
-          "q": "¿Qué significa la clase de protección IP65?",
-          "a": "IP65 indica que el dispositivo está totalmente cerrado al polvo (6) y es resistente a chorros de agua desde todas las direcciones (5). Nuestros Bemis Wallbox pertenecen a esta clase; no se requiere ninguna cabina protectora adicional para aparcamientos exteriores, balcones e instalaciones al aire libre."
+          "q": "¿Qué significa el grado de protección IP65?",
+          "a": "IP65 indica que el equipo es totalmente estanco al polvo (6) y resiste chorros de agua desde cualquier dirección (5). Nuestros wallbox Bemis cumplen este grado; en aparcamientos abiertos, balcones y exteriores no requieren armario protector adicional."
         },
         {
           "q": "¿La instalación está incluida?",
-          "a": "El precio del dispositivo no incluye la instalación. Nuestro distribuidor autorizado realiza una inspección y presenta una oferta aparte para el tendido de línea, el cableado y los trabajos del cuadro de fusibles; el coste de instalación se determina durante la inspección según su infraestructura existente."
-        },
-        {
-          "q": "¿El cargador portátil funciona con una toma normal?",
-          "a": "Sí. Nuestros productos Bemis Mobile Charger funcionan tanto con tomas monofásicas estándar de 16a como con tomas industriales tipo CEE de 32a. Los modelos Pro ofrecen carga de hasta 22 kW desde una toma trifásica de 32a; los modelos Mini son adecuados para tomas domésticas con 3,6 kW."
+          "a": "La instalación no está incluida en el precio del equipo. Nuestro distribuidor autorizado realiza una visita técnica y presenta una oferta específica para el tendido de línea, cableado y trabajos en el cuadro eléctrico; el coste de instalación se concreta en la visita según la infraestructura existente."
         }
       ],
       "descriptionImage": "",
@@ -116,24 +120,28 @@
       "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783076718/products/enzqsaqqq0g42baprecg.png",
       "faq": [
         {
+          "q": "¿Cargador portátil, cargador móvil y cargador de viaje son lo mismo?",
+          "a": "Sí, todos describen el mismo grupo de productos: los cargadores portátiles reciben distintos nombres según la región, pero se refieren a lo mismo. Los modelos Mini Mobile, Mono Mobile y Pro Mobile 2 de Bemis pertenecen a este grupo: cargan su coche eléctrico desde una toma existente sin instalación fija ni trabajos eléctricos."
+        },
+        {
+          "q": "¿El cargador portátil funciona en una toma normal?",
+          "a": "Sí. Nuestros productos Bemis Mobile Charger funcionan tanto en una toma monofásica estándar de 16 A como en tomas industriales CEE de 32 A. Los modelos Pro cargan hasta 22 kW desde una toma trifásica de 32 A; los modelos Mini, con 3,6 kW, están pensados para tomas domésticas."
+        },
+        {
           "q": "¿Cuál es la diferencia entre Mini Mobile y Pro Mobile?",
-          "a": "Mini Mobile: 3,6 kW monofásico, tamaño compacto, ideal para casa/viaje. Pro Mobile: potencia ajustable de 7-22 kW, compatibilidad trifásica, para uso profesional. En el modelo Pro, el límite de corriente (6A-32A) se puede configurar en la pantalla; en el Mini la potencia es fija."
+          "a": "Mini Mobile: 3,6 kW monofásico, tamaño compacto, ideal para casa y viajes. Pro Mobile: potencia ajustable de 7 a 22 kW, soporte trifásico, para uso profesional. En el modelo Pro el límite de corriente (6–32 A) se ajusta desde la pantalla; en el Mini la potencia es fija."
         },
         {
-          "q": "¿Qué ocurre si el cargador móvil se sumerge?",
-          "a": "La clase de protección IP54 es adecuada para su uso bajo la lluvia, pero el producto no debe quedar sumergido en agua. Después de que la carcasa del dispositivo se moje, debe secarse con un paño seco antes de enchufarlo. En caso de inundación, no lo pongas en funcionamiento sin llevarlo al servicio autorizado."
+          "q": "¿Qué pasa si el cargador móvil queda sumergido en agua?",
+          "a": "El grado IP54 permite su uso bajo la lluvia, pero el producto no debe quedar sumergido. Si la carcasa se moja, séquela con un paño antes de enchufarla. En caso de inundación, no lo ponga en marcha sin llevarlo al servicio autorizado."
         },
         {
-          "q": "¿Se puede usar como repuesto durante el viaje?",
-          "a": "Sí, exactamente para eso sirven los cargadores portátiles. En lugares como hoteles, zonas de camping o pueblos vacacionales, donde no hay punto de carga DC/AC, la carga se realiza desde las tomas existentes. Se guarda en su bolsa y pesa una media de 4-6 kg."
+          "q": "¿Puede usarse como reserva en viajes?",
+          "a": "Sí, los cargadores portátiles están pensados exactamente para eso. En hoteles, campings, complejos vacacionales y otros lugares sin punto de carga DC/AC, se carga desde las tomas existentes. Se guarda en su bolsa y pesa de media 4–6 kg."
         },
         {
-          "q": "¿Cómo elijo entre carga móvil y wallbox fijo?",
-          "a": "Si aparcas el coche en el mismo lugar todos los días, el wallbox fijo es más rápido, más seguro y más económico a largo plazo. Si viajas con frecuencia o alternas entre varios lugares, un cargador móvil es una solución más flexible. También es una elección habitual llevar ambos."
-        },
-        {
-          "q": "¿Cuántos metros debe tener el cable de carga AC?",
-          "a": "Observamos que 5 metros de cable son suficientes en la mayoría de los casos: es ideal si la distancia de la toma de carga del coche a la pared no supera los 3-4 metros al aparcar. Si la disposición de tu garaje/aparcamiento es distinta, existen opciones de 7,5 m o 10 m. Cuanto más largo es el cable, más pesado y rígido resulta; una elección innecesariamente larga dificulta su transporte."
+          "q": "¿Cómo elijo entre cargador móvil y wallbox fijo?",
+          "a": "Si aparca su vehículo cada día en el mismo lugar, un wallbox fijo es más rápido, más seguro y más económico a largo plazo. Si viaja con frecuencia o alterna entre varios lugares, el cargador móvil es la solución más flexible. Tener ambos también es una opción habitual."
         }
       ],
       "description": "Cargadores AC portátiles que no requieren instalación, desde la toma estándar o la toma CEE hasta la toma Type 2 del vehículo. Solución de carga flexible para escenarios de viaje, camping y respaldo, con opciones monofásicas de 2,3 – 7,4 kW y trifásicas de 11 – 22 kW.",
@@ -148,24 +156,44 @@
       "image": "/categories/1775071211208-Gemini_Generated_Image_9pbk3k9pbk3k9pbk.png",
       "faq": [
         {
+          "q": "¿Cuántos metros debe tener un cable de carga AC?",
+          "a": "En la mayoría de los casos bastan 5 metros: es ideal cuando la distancia entre la toma de carga del vehículo y la pared, al aparcar, no supera 3–4 metros. Si la distribución de su garaje o aparcamiento es distinta, hay opciones de 7,5 m o 10 m. Cuanto más largo es el cable, más pesado y rígido resulta; una longitud innecesaria dificulta el manejo."
+        },
+        {
           "q": "¿Cuál es la diferencia entre Type 2 y Type 1?",
-          "a": "Type 1 (SAE J1772) se utiliza en vehículos norteamericanos y asiáticos más antiguos, admitiendo monofásico hasta 7,4 kW. Type 2 (IEC 62196-2) es el estándar europeo y admite hasta 22 kW trifásicos. Casi todos los VE nuevos del mercado turco utilizan Type 2. Las versiones antiguas del Tesla Model S/X eran Type 1; los Tesla más recientes son Type 2."
+          "a": "Type 1 (SAE J1772) se usa en Norteamérica y en vehículos asiáticos antiguos, y admite hasta 7,4 kW monofásico. Type 2 (IEC 62196-2) es el estándar europeo y admite hasta 22 kW trifásico. Casi todos los coches eléctricos nuevos del mercado europeo usan Type 2. Las versiones antiguas del Tesla Model S/X eran Type 1; los Tesla nuevos son Type 2."
         },
         {
-          "q": "¿Cómo elijo entre un cable de 16a y uno de 32a?",
-          "a": "Los cables de 16a soportan hasta 3,7 kW en monofásico y 11 kW en trifásico. Los cables de 32a tienen una capacidad de 7,4 kW en monofásico y 22 kW en trifásico. Cuanta más corriente pueda consumir el wallbox o el vehículo, elige el cable en función de esa corriente; si hay un cuello de botella en el cable, la velocidad de carga disminuye."
+          "q": "¿Cómo elijo entre cable de 16 A y de 32 A?",
+          "a": "Los cables de 16 A soportan 3,7 kW en monofásico y hasta 11 kW en trifásico. Los de 32 A tienen capacidad de 7,4 kW en monofásico y 22 kW en trifásico. Elija el cable según la corriente máxima que puedan consumir el wallbox o el vehículo; si el cable es el cuello de botella, la velocidad de carga baja."
         },
         {
-          "q": "¿La elección del cable varía según la marca del vehículo?",
-          "a": "Dado que el tipo de conector está estandarizado (Type 2 en casi todos los mercados europeos), la elección del cable es independiente de la marca. La única diferencia es la capacidad de aceptación de carga AC de cada vehículo: si conectas un cable de 22 kW a un vehículo que acepta 11 kW, no fluirá mucha más potencia, solo mayor seguridad."
+          "q": "¿La elección del cable depende de la marca del vehículo?",
+          "a": "Como el tipo de conector está estandarizado (Type 2 en prácticamente todo el mercado europeo), la elección del cable es independiente de la marca. La única diferencia es la potencia AC que admite cada vehículo: un cable de 22 kW en un coche que admite 11 kW no transmite más potencia, solo ofrece margen de seguridad."
         },
         {
-          "q": "¿El cable trifásico funciona con mi vehículo?",
-          "a": "Sí, el cable trifásico también admite la carga monofásica. Si tu vehículo es monofásico, el cable funciona automáticamente en monofásico y se limita a 7,4 kW. El cable trifásico garantiza que no tengas que hacer cambios innecesarios si en el futuro compras un vehículo trifásico."
+          "q": "¿Un cable trifásico funciona con mi vehículo?",
+          "a": "Sí, el cable trifásico también admite la carga monofásica. Si su vehículo es monofásico, el cable funciona automáticamente en monofásico y se limita a 7,4 kW. Con un cable trifásico no tendrá que cambiar nada si en el futuro adquiere un vehículo trifásico."
         },
         {
-          "q": "¿Qué hace el V2L (Vehicle to Load)?",
-          "a": "V2L te permite usar la batería de tu vehículo como fuente de alimentación portátil. El adaptador se enchufa en la toma del vehículo y proporciona una salida estándar de 220 V. Puedes hacer funcionar neveras, proyectores y pequeños dispositivos en situaciones como camping, actividades al aire libre o cortes de luz. La energía proviene de la batería del vehículo."
+          "q": "¿Quién fabrica estos cables de carga para coche eléctrico?",
+          "a": "Bemis E-V Charge fabrica sus cables de carga para coche eléctrico en su propia planta de 16.000 m² en la Zona Industrial Organizada de Bursa. Produce con la herencia de Bemis Teknik Elektrik desde 1994; sus cables Type 2 (Modo 3) cuentan con Certificado de Producto Nacional del 94 % y certificación CE. Los cables no se importan y reetiquetan: se fabrican en nuestra propia planta."
+        },
+        {
+          "q": "¿Los cables de carga son importados o se fabrican en Türkiye?",
+          "a": "Los cables de carga Bemis E-V Charge se fabrican en Türkiye, en nuestra propia planta de Bursa. Así obtiene el producto, los repuestos y el soporte técnico directamente del fabricante; en proyectos, la longitud del cable y el color del conector pueden personalizarse bajo pedido."
+        },
+        {
+          "q": "¿Cuál es la diferencia entre cable de carga y kit de carga?",
+          "a": "Un cable de carga tiene conector en ambos extremos (Type 2 – Type 2); conecta su vehículo a una estación de pared o a una unidad en una zona común. Un kit de carga (Modo 2) es una solución portátil con un enchufe en un extremo y una caja de control en el medio; permite cargar directamente desde la toma sin una estación de carga aparte. Si tiene un equipo de pared en casa, necesita un cable de carga; para viajes o como reserva, un kit de carga."
+        },
+        {
+          "q": "¿El cable influye en la velocidad de carga?",
+          "a": "El cable no genera más velocidad que la corriente que puede transportar; lo que determina la velocidad de carga es el cargador AC integrado del vehículo. Si su vehículo está limitado a 7,4 kW, un cable trifásico de 32 A no aumentará la velocidad. En cambio, un cable de capacidad insuficiente sí la limita: monofásico 16 A transporta hasta 3,7 kW, monofásico 32 A hasta 7,4 kW y trifásico 32 A hasta 22 kW. La elección correcta es el cable que coincide con el valor máximo admitido por su vehículo y su cargador."
+        },
+        {
+          "q": "¿Qué hago si mi cable de carga tiene una avería?",
+          "a": "Nuestros productos tienen 2 años de garantía del fabricante. No abra ni intente reparar el cable; desconecte el conector de la toma y deje de usarlo. Contacte con el distribuidor autorizado donde compró el producto o siga los pasos de la página «Averías y garantía» del menú Guía de nuestra web. El código del producto, el justificante de compra y una foto o vídeo del problema agilizan el proceso."
         }
       ],
       "description": "Cables de carga Mode 2 y Mode 3 con estándar Type 2. Están diseñados para un uso duradero en clases de corriente monofásica y trifásica de 16a – 32a, con conformidad IEC 62196 / IEC 61851, funda exterior libre de halógenos y conector Type 2 de alta corriente.",
@@ -180,28 +208,28 @@
       "image": "/categories/1775068456394-V2L-kamp2.png",
       "faq": [
         {
-          "q": "¿Qué hace el C2L (Charger to Load)?",
-          "a": "El adaptador C2L convierte la electricidad tomada de la toma Type 2 de la estación de carga AC en una toma estándar Schuko (doméstica) o CEE (industrial). Así, un punto de carga Type 2 puede utilizarse no solo para cargar vehículos, sino también como salida de 220V/380V para talleres, espacios de eventos o instalaciones temporales. La energía proviene del cargador, no utiliza la batería de tu vehículo."
+          "q": "¿Para qué sirve el V2L (Vehicle to Load)?",
+          "a": "El V2L permite usar la batería del vehículo como fuente de energía portátil. El adaptador se conecta a la toma del vehículo y proporciona una salida estándar de 220 V. En campings, actividades al aire libre o cortes de luz puede alimentar una nevera, un proyector o pequeños aparatos. La energía procede de la batería del vehículo."
+        },
+        {
+          "q": "¿Para qué sirve el C2L (Charger to Load)?",
+          "a": "El adaptador C2L convierte la electricidad de la toma Type 2 de una estación de carga AC en una toma Schuko estándar (doméstica) o CEE (industrial). Así, un punto de carga Type 2 puede usarse no solo para cargar vehículos, sino también como salida de 220 V/380 V para un taller, un evento o una instalación temporal. La energía procede de la unidad de carga, no de la batería del vehículo."
         },
         {
           "q": "¿Cuál es la diferencia entre V2L y C2L?",
-          "a": "La única diferencia es de dónde proviene la energía: V2L toma la energía DEL vehículo (la batería del vehículo es la fuente), tu vehículo se convierte en una fuente de alimentación móvil. C2L recibe energía de la UNIDAD DE CARGA (la fuente es el cargador Type 2), convierte un punto de carga en una toma convencional. Ambos cumplen propósitos distintos; con el Combi Set puedes obtener los dos adaptadores en un solo paquete."
+          "a": "La única diferencia es el origen de la energía: el V2L la toma del VEHÍCULO (la batería es la fuente) — su coche se convierte en una fuente de energía móvil. El C2L la toma de la ESTACIÓN DE CARGA (el cargador Type 2 es la fuente) — convierte un punto de carga en una toma clásica. Sirven para fines distintos; con el Kit Combinado obtiene ambos adaptadores en un solo paquete."
         },
         {
           "q": "¿Qué vehículos admiten V2L?",
-          "a": "Vehículos como Hyundai Ioniq 5/6, Kia EV6/EV9, Genesis GV60, Ssangyong (KGM) Torres EVX, MG ZS EV / MG4, BYD Atto 3/Seal / Han y Skywell ET5 admiten V2L de fábrica. Nuestros adaptadores Bemis V2L se fabrican según la disposición de pines de las tomas de estos fabricantes; marca la variante que corresponda a tu vehículo al seleccionar el producto (Hyundai/Kia/Ssangyong, MG, BYD/Skywell). Los vehículos Tesla no son compatibles de serie."
+          "a": "Hyundai Ioniq 5/6, Kia EV6/EV9, Genesis GV60, Ssangyong (KGM) Torres EVX, MG ZS EV / MG4, BYD Atto 3 / Seal / Han y Skywell ET5 admiten V2L de fábrica. Nuestros adaptadores V2L de Bemis se fabrican con la distribución de pines de estos fabricantes — al elegir el producto, seleccione la variante de su vehículo (Hyundai/Kia/Ssangyong, MG, BYD/Skywell). Los vehículos Tesla no lo admiten de serie."
         },
         {
-          "q": "¿Cuánta potencia se puede extraer del adaptador V2L?",
-          "a": "Depende de la potencia V2L del vehículo. Hyundai/Kia hasta 3,6 kW (16a) en la mayoría de los modelos, BYD y MG hasta 2,2 kW (10a), y algunos modelos más recientes hasta 7,2 kW. Nuestros adaptadores Bemis V2L transmiten con seguridad la potencia de salida del vehículo; no supera el límite de tu vehículo. Las versiones de una, dos y tres tomas comparten la misma potencia total."
+          "q": "¿Cuánta potencia puede extraerse de un adaptador V2L?",
+          "a": "Depende de la potencia V2L del vehículo. En la mayoría de los modelos Hyundai/Kia son 3,6 kW (16 A), en los modelos BYD y MG 2,2 kW (10 A), y algunos modelos nuevos llegan a 7,2 kW. Nuestros adaptadores V2L de Bemis transmiten de forma segura la potencia de salida del vehículo sin superar su límite. Las versiones de una, dos y tres tomas reparten la misma potencia total."
         },
         {
-          "q": "¿El uso de V2L daña la batería?",
-          "a": "No. V2L es un modo de uso previsto por el fabricante; el sistema de gestión de la batería (BMS) controla la profundidad de descarga. La mayoría de los vehículos se apagan automáticamente cuando el nivel de la batería baja al 20% en modo V2L. El uso continuo no afecta a la vida útil de la batería."
-        },
-        {
-          "q": "¿Es segura la extensión del cable de carga?",
-          "a": "Nuestros cables de extensión Bemis se fabrican según los mismos estándares (IEC 62196-2, conductor de cobre de 32a) que el cable original. Las secciones de conexión de clase IP54 están protegidas contra el agua. Las extensiones de baja calidad de terceros pueden suponer un riesgo de incendio; utiliza únicamente productos certificados."
+          "q": "¿El uso del V2L daña la batería?",
+          "a": "No. El V2L es un modo de uso previsto por el fabricante; el sistema de gestión de la batería (BMS) controla la profundidad de descarga. La mayoría de los vehículos desactivan automáticamente el V2L cuando la batería baja al 20 %. El uso continuado no afecta a la vida útil de la batería."
         }
       ],
       "description": "Adaptadores que convierten la batería del vehículo (V2L) o el cargador (C2L) en una fuente de alimentación externa. Compatibles con entradas Type 2 y salidas schuko / Cee, y con vehículos con soporte V2L como Hyundai, Kia, MG, BYD, Ssangyong y Skywell, para escenarios de camping, taller y emergencia.",
@@ -216,24 +244,24 @@
       "image": "/categories/1775068429165-BKT-0102-2105.jpg",
       "faq": [
         {
-          "q": "¿En qué casos es necesario usar una extensión?",
-          "a": "Si el lugar donde se aparca el vehículo está lejos de la pared donde se encuentra el wallbox, si la zona de entrada del aparcamiento es larga, o si el punto de carga está lejos en entornos móviles como el camping, se utiliza una extensión. La extensión adicional es innecesaria si tu cable estándar de 5 m es suficiente; cada conexión es un punto adicional de sensibilidad."
+          "q": "¿Es seguro usar un alargador para el cable de carga?",
+          "a": "Nuestros cables alargadores Bemis se fabrican con los mismos estándares que el cable original (IEC 62196-2, conductor de cobre de 32 A). Las zonas de conexión están protegidas contra el agua con grado IP54. Los alargadores de terceros de baja calidad pueden suponer riesgo de incendio; use únicamente productos certificados."
         },
         {
-          "q": "¿Se pueden hacer compatibles distintos tipos de conector con el convertidor?",
-          "a": "Sí, disponemos de adaptadores para conversiones habituales como Type 1 a Type 2, toma CEE a Type 2, Type 2 a Schuko. Pero no existe conversión entre DC y AC; cada sistema funciona por separado. Los convertidores adoptan el límite de potencia del lado más bajo."
+          "q": "¿En qué casos hace falta un alargador?",
+          "a": "Se usa cuando el lugar donde aparca el vehículo está lejos de la pared del wallbox, cuando la zona de acceso del aparcamiento es larga o, en entornos móviles como el camping, cuando el punto de carga queda lejos. Si su cable estándar de 5 m es suficiente, el alargador es innecesario; cada punto de conexión es un punto sensible adicional."
         },
         {
-          "q": "¿Cuántos metros puede tener el cable de extensión?",
-          "a": "La longitud total del cable (original + extensión) no debe superar los 15 metros para 22 kW en monofásico y los 25 metros para 11 kW en trifásico. A distancias mayores, la potencia cae y el calentamiento aumenta debido a la resistencia del cable. Para instalaciones que requieren largas distancias se recomienda el cableado fijo."
+          "q": "¿Un convertidor puede hacer compatibles distintos tipos de conector?",
+          "a": "Sí. Tenemos adaptadores para las conversiones habituales: de Type 1 a Type 2, de toma CEE a Type 2, de Type 2 a Schuko. Sin embargo, no se convierte entre DC y AC; cada sistema funciona por separado. Los convertidores adoptan el límite de potencia del lado más bajo."
         },
         {
-          "q": "¿Qué tipos de toma son habituales en Turquía?",
-          "a": "La Schuko (toma turca estándar), la toma industrial CEE azul de 16a y la toma trifásica CEE roja de 32a son habituales en la carga doméstica. Type 2 es el estándar en los puntos AC públicos. CCS2 (la más habitual) y CHAdeMO (Nissan/vehículos antiguos) aparecen en la carga rápida DC."
+          "q": "¿Cuál es la longitud máxima de un alargador?",
+          "a": "La longitud total del cable (original + alargador) no debe superar 15 metros en monofásico para 22 kW ni 25 metros en trifásico para 11 kW. A mayores distancias, la resistencia del cable reduce la potencia y aumenta el calentamiento. Para instalaciones que requieren largas distancias se recomienda cableado fijo."
         },
         {
-          "q": "¿Qué incluye la categoría de Equipamiento de Unidad de Carga?",
-          "a": "El equipamiento profesional utilizado en instalaciones de estaciones de carga incluye: tomas de carga AC y DC (Type 2, CCS2), versiones con cable e inalámbricas, cubiertas de tomas, mecanismos de bloqueo, módulos de comunicación opcionales y piezas de repuesto que pueden integrarse en el cargador. Recurre a fabricantes y servicio OEM."
+          "q": "¿Qué tipos de toma son habituales en Türkiye?",
+          "a": "En la carga doméstica son habituales la Schuko (toma estándar), la toma industrial CEE azul de 16 A y la toma CEE roja trifásica de 32 A. En los puntos AC públicos el estándar es Type 2. En la carga rápida DC se encuentran CCS2 (el más común) y CHAdeMO (Nissan/vehículos antiguos)."
         }
       ],
       "description": "Cables de extensión y convertidores Ceenorm que llevan el equipo de carga existente a distintos tipos de toma y distancias. Soluciones de combinación diseñadas para transiciones monofásicas y trifásicas de 16a – 32a.",
@@ -249,24 +277,24 @@
       "description": "Los cables de carga DC Bemis, de fabricación totalmente propia, producidos especialmente para unidades de carga DC de alta potencia, permiten una sustitución sencilla en caso de rotura gracias a su estructura de cuerpo modular.\nToma de panel con mecanismo de bloqueo utilizada en las unidades de carga. Con su marca especial y su diseño único, es perfecta para tu unidad. El Soporte de Toma DC, producido para colgar los cables DC utilizados en las unidades de carga DC cuando están en reposo, destaca como una opción ideal por su diseño esférico e integrado. Gracias a su estructura de rótula, se elimina el problema de la rotura. Con su estructura de cuerpo integrada en la carcasa, es totalmente compatible con el diseño de tu unidad.",
       "faq": [
         {
-          "q": "¿Cuál es la diferencia entre una toma de carga DC y una toma de carga AC?",
-          "a": "Las tomas AC (Type 2) conducen un máximo de 22 kW de corriente alterna y son de estructura sencilla. Las tomas DC (CCS2) suministran de 50 a 350 kW de corriente continua, e incluyen refrigeración líquida, sensor de temperatura y conductores más gruesos. Las tomas DC son 3-4 veces más pesadas y requieren una instalación especial."
+          "q": "¿Qué incluye la categoría de componentes para cargadores?",
+          "a": "Equipos profesionales utilizados en la instalación de estaciones de carga: tomas de carga AC y DC (Type 2, CCS2), versiones con y sin cable, tapas de toma, mecanismos de bloqueo, módulos de comunicación opcionales y repuestos integrables en el cargador. Los usan fabricantes OEM y servicios técnicos."
         },
         {
-          "q": "¿Qué se necesita para un operador que quiere instalar una estación de carga?",
-          "a": "Se requiere una conexión a transformador o potencia de suscripción suficiente, cargadores compatibles con OCPP 1.6J/2.0.1, un software CPO para facturación/gestión y una licencia de la autoridad energética o un contrato de distribución. Nuestro equipo Bemis B2B ofrece soporte para la instalación llave en mano, desde el estudio del emplazamiento hasta el suministro del hardware."
+          "q": "¿Cuál es la diferencia entre una toma de carga DC y una AC?",
+          "a": "Las tomas AC (Type 2) transmiten un máximo de 22 kW de corriente alterna y tienen una estructura sencilla. Las tomas DC (CCS2) transmiten 50–350 kW de corriente continua e incorporan refrigeración líquida, sensor de temperatura y conductores más gruesos. Las tomas DC pesan 3–4 veces más y requieren una instalación especial."
+        },
+        {
+          "q": "¿Qué necesita un operador para instalar una estación de carga?",
+          "a": "Conexión a transformador o potencia contratada suficiente, cargadores compatibles con OCPP 1.6J/2.0.1, un software CPO para facturación y gestión, y una licencia del organismo regulador o un contrato de distribución. Nuestro equipo B2B de Bemis ofrece soporte llave en mano, desde el estudio del emplazamiento hasta el suministro del hardware."
         },
         {
           "q": "¿Qué es una toma CCS2?",
-          "a": "Combined Charging System 2 (CCS2) es el estándar de carga rápida DC del mercado europeo. Es un diseño combinado con dos pines DC adicionales situados bajo el conector AC Type 2; desde la misma toma del vehículo se puede realizar carga tanto AC como DC. Admite potencias de 50 a 350 kW."
+          "a": "El Combined Charging System 2 (CCS2) es el estándar de carga rápida DC del mercado europeo. Es un diseño combinado que añade dos pines DC adicionales bajo el conector AC Type 2; desde la misma toma del vehículo se puede cargar tanto en AC como en DC. Admite potencias de 50 a 350 kW."
         },
         {
-          "q": "¿Es posible sustituir una toma o un cable de repuesto?",
-          "a": "Sí. Los cables y las tomas de nuestros cargadores Bemis son de diseño modular; en caso de desgaste o daño, nuestro servicio autorizado puede sustituirlos rápidamente. Gestionamos inventario para piezas especiales como los cables CCS2 con refrigeración líquida."
-        },
-        {
-          "q": "¿Por qué necesito una tarjeta RFID?",
-          "a": "La tarjeta RFID proporciona autorización de usuario en la estación de carga: alguien a quien no quieras no puede usar el dispositivo. Se utiliza para llevar un registro de quién carga, cuánto y con qué vehículo en instalaciones corporativas/de empresa. Puedes realizar la misma tarea con la aplicación móvil en las estaciones compatibles con OCPP."
+          "q": "¿Es posible sustituir una toma o un cable?",
+          "a": "Sí. Los cables y tomas de nuestros cargadores Bemis tienen un diseño modular; en caso de desgaste o daño, nuestro servicio autorizado los sustituye con rapidez. Mantenemos stock de piezas especiales como los cables CCS2 refrigerados por líquido."
         }
       ],
       "descriptionImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075765/products/xl61vku2recrvjsag3x8.jpg"
@@ -280,24 +308,24 @@
       "image": "/categories/1775068320447-charger-cable.png",
       "faq": [
         {
-          "q": "¿Por qué comprar un maletín para el cable de carga?",
-          "a": "Transportar el cargador móvil sin bolsa en el maletero del vehículo maltratará tanto el cable como el revestimiento interior del vehículo. La bolsa aísla la humedad en la tela, protege los conectores de golpes y ofrece un uso práctico durante los viajes. Las bolsas pueden venir de serie en nuestros productos Pro Mobile y ser opcionales en otros."
+          "q": "¿Por qué es necesaria una tarjeta RFID?",
+          "a": "La tarjeta RFID permite autorizar a los usuarios en la estación de carga: nadie no autorizado puede usar el equipo. En instalaciones corporativas y de empresa sirve para controlar quién carga, con qué vehículo y cuánto. En estaciones compatibles con OCPP, la aplicación móvil cumple la misma función."
         },
         {
-          "q": "¿Son los accesorios Bemis compatibles con otras marcas?",
-          "a": "Dado que los estándares de conector (Type 2, CCS2, RFID Mifare) son universales, nuestros accesorios Bemis son compatibles con todos los vehículos eléctricos y estaciones de carga que utilizan conectores estándar Type 2 / CCS2. Las funciones específicas de cada marca (bloqueo de firmware, sistema de tarjetas registradas) se especifican en la documentación, si las hubiera."
+          "q": "¿Por qué comprar una bolsa para el cable de carga?",
+          "a": "Transportar el cargador móvil en el maletero sin bolsa maltrata tanto el cable como el interior del vehículo. La bolsa aísla la humedad, protege los conectores de aplastamientos y hace práctico su uso durante los viajes. En nuestros productos Pro Mobile la bolsa es de serie; en otros puede ser opcional."
         },
         {
-          "q": "¿Cómo pedir accesorios de repuesto?",
-          "a": "La solicitud puede enviarse directamente desde el formulario de contacto con el código del producto, y nuestro equipo de ventas orienta al distribuidor. Para operadores que realizan pedidos al por mayor, es posible el pedido integrado mediante API a través de una cuenta OEM. Las piezas que no tenemos en stock se suministran en 2-4 semanas."
+          "q": "¿Los accesorios Bemis son compatibles con otras marcas?",
+          "a": "Como los estándares de conector (Type 2, CCS2, RFID Mifare) son universales, nuestros accesorios Bemis son compatibles con todos los vehículos eléctricos y estaciones de carga que usan conectores estándar Type 2 / CCS2. Si existen características específicas de marca (bloqueo de firmware, sistema de tarjetas propietario), se indican en la documentación."
         },
         {
-          "q": "¿Qué debo hacer si se pierde la tarjeta RFID?",
-          "a": "Cuando se pierde la tarjeta, puede desactivarse desde el panel de administración o notificándolo a nuestro equipo de ventas. La asociación de una nueva tarjeta se completa en 5 minutos. El riesgo de uso no autorizado con la tarjeta perdida es insignificante, ya que cada tarjeta está vinculada al sistema de registro del dispositivo."
+          "q": "¿Cómo se piden accesorios de repuesto?",
+          "a": "La solicitud puede enviarse directamente desde el formulario de contacto indicando el código del producto; nuestro equipo comercial le dirige a un distribuidor. Para operadores con pedidos en volumen es posible el pedido integrado por API a través de la cuenta OEM. Las piezas sin stock se suministran en 2–4 semanas."
         },
         {
-          "q": "¿Cuál es la diferencia entre la carga DC y la carga AC?",
-          "a": "En la carga AC, la electricidad fluye al vehículo como corriente alterna y el convertidor interno la transforma en corriente continua; por eso se limita a 22 kW. En la carga DC, la conversión se realiza dentro de la estación y la corriente continua fluye directamente a la batería; puede llegar hasta 50-350 kW. Conclusión: con DC, un VE alcanza el 80% en 20-40 minutos, mientras que en AC se requieren 6-8 horas."
+          "q": "¿Qué hago si pierdo la tarjeta RFID?",
+          "a": "La tarjeta perdida puede desactivarse desde el panel de administración o notificándolo a nuestro equipo comercial. La vinculación de una nueva tarjeta se completa en 5 minutos. El riesgo de uso no autorizado con la tarjeta perdida es insignificante, ya que cada tarjeta está vinculada al sistema de registro del equipo."
         }
       ],
       "description": "Tarjetas RFID, maletines de transporte y accesorios de montaje: productos complementarios que cubren las necesidades operativas y de seguridad de un emplazamiento de carga."
@@ -311,24 +339,24 @@
       "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075768/products/pfihve1gfgyuchjlylkm.jpg",
       "faq": [
         {
-          "q": "¿Cuál es la diferencia entre la carga DC y la carga AC?",
-          "a": "En la carga AC, la electricidad llega al vehículo como corriente alterna y el convertidor de a bordo la rectifica; esto limita la velocidad a 22 kW. En la carga DC, la conversión ocurre dentro de la estación y la corriente continua fluye directamente a la batería, alcanzando hasta 50-350 kW. El resultado: un VE llega al 80% en 20-40 minutos con DC, mientras que en AC se necesitan 6-8 horas."
+          "q": "¿Cuál es la diferencia entre carga DC y carga AC?",
+          "a": "En la carga AC la electricidad llega al vehículo como corriente alterna y el convertidor interno la transforma en continua; por eso está limitada a 22 kW. En la carga DC la conversión se realiza dentro de la estación y la corriente continua fluye directamente a la batería; puede alcanzar 50–350 kW. Resultado: con DC un coche eléctrico llega al 80 % en 20–40 minutos, mientras que en AC se necesitan 6–8 horas."
         },
         {
-          "q": "¿Cuántos vehículos pueden cargar los modelos BEVDC al mismo tiempo?",
-          "a": "El BEVDC-40 es de una sola toma y suministra 40 kW a un único vehículo. Los BEVDC-80, BEVDC-120, BEVDC-160, BEVDC-180 y BEVDC-200 son de doble toma; la potencia total puede repartirse entre dos vehículos simultáneamente. Por ejemplo, el BEVDC-200 puede suministrar 100 kW a cada uno de dos vehículos al mismo tiempo, o 200 kW a un solo vehículo (si el vehículo lo admite)."
+          "q": "¿Cuántos vehículos puede cargar a la vez un modelo BEVDC?",
+          "a": "El BEVDC-40 tiene una sola toma y entrega 40 kW a un vehículo. BEVDC-80, BEVDC-120, BEVDC-160, BEVDC-180 y BEVDC-200 tienen doble toma; la potencia total puede repartirse simultáneamente entre dos vehículos. Por ejemplo, el BEVDC-200 puede entregar 100 kW a dos vehículos a la vez o 200 kW a uno solo (si el vehículo lo admite)."
         },
         {
-          "q": "¿Qué se necesita para la instalación de un cargador DC?",
-          "a": "Las unidades DC requieren una conexión a red trifásica de 380-480V, un transformador o suscripción de alta potencia (200-400 kVA) para el BEVDC-120 y superiores, una plataforma de fijación al suelo, un flujo de aire suficiente para la refrigeración y una línea Ethernet o 4G para la comunicación OCPP. El equipo Bemis B2B gestiona todo el proceso, desde el estudio del emplazamiento hasta la puesta en marcha."
+          "q": "¿Qué se necesita para instalar un cargador DC?",
+          "a": "Las unidades DC requieren conexión de red trifásica de 380–480 V, para BEVDC-120 y superiores un transformador o una potencia contratada alta (200–400 kVA), una plataforma de fijación al suelo, suficiente circulación de aire para la refrigeración y una línea Ethernet o 4G para la comunicación OCPP. El equipo B2B de Bemis gestiona todo el proceso, desde el estudio del emplazamiento hasta la puesta en marcha."
         },
         {
-          "q": "¿Qué modelo BEVDC se adapta a mi flota?",
-          "a": "El BEVDC-40 es suficiente si los vehículos de tu flota tienen de media baterías de 50-60 kWh y circulan por ciudad. Para flotas comerciales de larga distancia u operaciones de taxi/mensajería de rotación rápida, el BEVDC-120 alcanza el 80% en 30 minutos. Para estaciones públicas de mucho tráfico se recomienda el BEVDC-160/200; dos vehículos cargan rápidamente al mismo tiempo."
+          "q": "¿Qué modelo BEVDC es el adecuado para mi flota?",
+          "a": "Si su flota se mueve por ciudad con baterías medias de 50–60 kWh, el BEVDC-40 es suficiente. Para flotas comerciales de largo recorrido o taxis/mensajería que necesitan rotación rápida, el BEVDC-120 alcanza el 80 % en 30 minutos. En estaciones públicas de alto tráfico se recomiendan BEVDC-160/200; dos vehículos se cargan rápidamente a la vez."
         },
         {
           "q": "¿Qué se necesita para abrir un punto de carga DC público?",
-          "a": "Según la normativa del servicio de carga de la autoridad energética, necesitas una licencia o autorización, un dispositivo compatible con OCPP, integración con el sistema EPVIS y una plataforma de facturación/pago (software CPO de Bemis o una plataforma de terceros). La inversión oscila entre 1 y 3 millones de TL; nuestro equipo B2B ofrece soporte para la preparación de la hoja de ruta."
+          "a": "Una licencia o autorización del organismo regulador de la energía conforme al reglamento de servicio de carga, un equipo compatible con OCPP, la integración con el sistema oficial de puntos de carga (EPVIS) y una infraestructura de facturación y pago (software CPO de Bemis o de terceros). En Türkiye la inversión oscila entre 1 y 3 millones de TL; nuestro equipo B2B ayuda a elaborar la hoja de ruta."
         }
       ],
       "description": "Cargadores rápidos DC de la serie BEVDC: modelos de salida CCS2 simple o doble, de 40 kW a 200 kW. Adecuados para uso comercial en campo, con soporte OCPP 1.6J/2.0.1, autenticación RFID, protección IP54 y amplio rango de temperatura (-25°C / +55°C)."

@@ -66,28 +66,32 @@
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075739/products/mkblh61xfa551ewuadj8.png",
       "faq": [
         {
-          "q": "Was ist der Unterschied zwischen 7 kW, 11 kW und 22 kW?",
-          "a": "Mit 7-kW-Einphasenanschluss betrieben und ausreichend für das Laden über Nacht; lädt ein typisches EV in 6-8 Stunden vollständig auf. Erfordert einen 11-kW- und 22-kW-Dreiphasenanschluss; dasselbe Fahrzeug ist mit 22 kW in 2-3 Stunden voll. Wenn die AC-Ladeannahmeleistung Ihres Fahrzeugs 11 kW beträgt, bringt ein 22-kW-Gerät keine zusätzliche Geschwindigkeit; prüfen Sie vor dem Kauf Ihr Fahrzeughandbuch."
+          "q": "Sind Heimladestation, Wandladegerät und Wallbox dasselbe?",
+          "a": "Ja, alle drei Begriffe bezeichnen dasselbe Produkt: eine an der Wand montierte AC-Ladestation, mit der Sie Ihr Elektroauto zu Hause laden. Die Modelle Charger 2, Charger Plus 2 und Charger Pro 2 von Bemis gehören zu dieser Gruppe; die Installation übernimmt ein zugelassener Elektriker."
         },
         {
-          "q": "Ist der Type-2-Stecker mit allen Elektrofahrzeugen kompatibel?",
-          "a": "Ja. Alle auf dem europäischen Markt verkauften Elektrofahrzeuge (einschließlich Tesla Model 3/Y), chinesische BYD- und MG-Modelle sowie koreanische und japanische EVs verwenden auf der AC-Seite den Standard IEC 62196-2 (Type 2). Unsere Bemis-Wallbox-Geräte entsprechen diesem Standard; es sind keine zusätzlichen Adapter erforderlich."
+          "q": "Wie nutze ich eine AC-Wallbox zu Hause?",
+          "a": "Bemis AC-Wallboxen werden als Wandgeräte sowohl zu Hause als auch am Arbeitsplatz installiert. In einem Einfamilienhaus oder einer Villa genügt eine Zuleitung direkt von der Hauptsicherung. In einem Mehrfamilienhaus sind die Zustimmung der Hausverwaltung und ein Installationsplan mit Anbindung an den Gemeinschaftszähler erforderlich. Unser autorisierter Händler empfiehlt nach einer Besichtigung die passende Lösung."
+        },
+        {
+          "q": "Was ist der Unterschied zwischen 7 kW, 11 kW und 22 kW?",
+          "a": "7 kW arbeitet mit einphasigem Anschluss und reicht für das Laden über Nacht; ein typisches Elektroauto ist in 6–8 Stunden voll. 11 kW und 22 kW benötigen einen dreiphasigen Anschluss; mit 22 kW ist dasselbe Fahrzeug in 2–3 Stunden geladen. Wenn Ihr Fahrzeug maximal 11 kW AC aufnimmt, bringt ein 22-kW-Gerät keinen Geschwindigkeitsvorteil; prüfen Sie vor dem Kauf das Fahrzeughandbuch."
+        },
+        {
+          "q": "Ist der Type-2-Stecker mit allen Elektroautos kompatibel?",
+          "a": "Ja. Alle auf dem europäischen Markt verkauften Elektroautos (einschließlich Tesla Model 3/Y), chinesische Modelle von BYD und MG sowie koreanische und japanische Elektrofahrzeuge nutzen auf der AC-Seite den Standard IEC 62196-2 (Type 2). Unsere Bemis Wallboxen entsprechen diesem Standard; ein zusätzlicher Adapter ist nicht nötig."
         },
         {
           "q": "Was ist dynamisches Lastmanagement?",
-          "a": "Während andere an derselben Netzleitung angeschlossene Geräte hohe Leistung ziehen (Klimaanlage, Backofen, Wärmepumpe), senkt die Wallbox automatisch die Ladeleistung und verhindert, dass die Sicherung auslöst. Bei Installationen mit mehreren Wallboxen verteilt sie die insgesamt verfügbare Leistung ausgewogen zwischen den Geräten. Es ist eine entscheidende Funktion, die sowohl die Sicherheit erhöht als auch die Infrastrukturkosten senkt."
+          "a": "Wenn andere Geräte am selben Netzanschluss viel Leistung ziehen (Klimaanlage, Backofen, Wärmepumpe), reduziert die Wallbox die Ladeleistung automatisch und verhindert das Auslösen der Sicherung. Bei Installationen mit mehreren Wallboxen wird die verfügbare Gesamtleistung ausgewogen auf die Geräte verteilt. Eine entscheidende Funktion, die sowohl die Sicherheit erhöht als auch die Infrastrukturkosten senkt."
         },
         {
-          "q": "Was bedeutet die Schutzklasse IP65?",
-          "a": "IP65 bedeutet, dass das Gerät vollständig staubdicht (6) und beständig gegen Strahlwasser aus allen Richtungen (5) ist. Unsere Bemis-Wallboxen entsprechen dieser Klasse; für Außenparkplätze, Balkone und Außeninstallationen ist keine zusätzliche Schutzkabine erforderlich."
+          "q": "Was bedeutet die Schutzart IP65?",
+          "a": "IP65 bedeutet, dass das Gerät vollständig staubdicht (6) und gegen Strahlwasser aus allen Richtungen geschützt (5) ist. Unsere Bemis Wallboxen erfüllen diese Schutzart; in offenen Parkbereichen, auf Balkonen und im Außenbereich ist kein zusätzliches Schutzgehäuse erforderlich."
         },
         {
-          "q": "Installation inbegriffen",
-          "a": "Der Gerätepreis beinhaltet nicht die Installation. Unser autorisierter Händler führt eine Besichtigung durch und erstellt ein separates Angebot für Leitungsverlegung, Verkabelung und Arbeiten am Sicherungskasten; die Installationskosten werden bei der Besichtigung entsprechend Ihrer vorhandenen Infrastruktur festgelegt."
-        },
-        {
-          "q": "Funktioniert das tragbare Ladegerät an einer normalen Steckdose?",
-          "a": "Ja. Unsere mobilen Bemis-Ladegeräte funktionieren sowohl mit standardmäßigen einphasigen 16A-Steckdosen als auch mit 32A-Industriesteckdosen vom Typ CEE. Pro-Modelle bieten Laden aus einer dreiphasigen 32A-Steckdose bis 22 kW; Mini-Modelle eignen sich mit 3,6 kW für Haushaltssteckdosen."
+          "q": "Ist die Installation im Preis enthalten?",
+          "a": "Die Installation ist im Gerätepreis nicht enthalten. Unser autorisierter Händler erstellt nach einer Besichtigung ein individuelles Angebot für Zuleitung, Verkabelung und Arbeiten am Sicherungskasten; die Installationskosten werden je nach vorhandener Infrastruktur bei der Besichtigung festgelegt."
         }
       ],
       "descriptionImage": "",
@@ -116,24 +120,28 @@
       "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783076718/products/enzqsaqqq0g42baprecg.png",
       "faq": [
         {
+          "q": "Tragbares Ladegerät, mobiles Ladegerät, Notladekabel — ist das dasselbe?",
+          "a": "Ja, alle Bezeichnungen beschreiben dieselbe Produktgruppe: tragbare, mobile Ladegeräte werden je nach Region unterschiedlich genannt, meinen aber dasselbe. Die Modelle Mini Mobile, Mono Mobile und Pro Mobile 2 von Bemis gehören dazu: Sie laden Ihr Elektroauto an einer vorhandenen Steckdose — ohne feste Installation und ohne Elektroarbeiten."
+        },
+        {
+          "q": "Funktioniert ein tragbares Ladegerät an einer normalen Steckdose?",
+          "a": "Ja. Unsere Bemis Mobile-Charger-Produkte arbeiten sowohl an einer einphasigen 16-A-Standardsteckdose als auch an industriellen 32-A-CEE-Steckdosen. Die Pro-Modelle laden an einer dreiphasigen 32-A-Steckdose mit bis zu 22 kW; die Mini-Modelle sind mit 3,6 kW für Haushaltssteckdosen ausgelegt."
+        },
+        {
           "q": "Was ist der Unterschied zwischen Mini Mobile und Pro Mobile?",
-          "a": "Mini Mobile: 3,6 kW einphasig, kompakte Größe, ideal für Zuhause/Reisen. Pro Mobile: einstellbare Leistung von 7-22 kW, Dreiphasen-Unterstützung, für den professionellen Einsatz. Beim Pro-Modell lässt sich die Strombegrenzung (6A-32A) am Display einstellen; beim Mini ist die Leistung konstant."
+          "a": "Mini Mobile: 3,6 kW einphasig, kompakte Bauform, ideal für Zuhause und Reisen. Pro Mobile: einstellbare Leistung von 7 bis 22 kW, dreiphasige Unterstützung, für den professionellen Einsatz. Beim Pro-Modell lässt sich die Strombegrenzung (6–32 A) über das Display einstellen; beim Mini ist die Leistung fest."
         },
         {
-          "q": "Was passiert, wenn das mobile Ladegerät untergetaucht wird?",
-          "a": "Die Schutzklasse IP54 ist für den Einsatz bei Regen geeignet, das Produkt sollte jedoch nicht unter Wasser sein. Nachdem das Gehäuse des Geräts nass geworden ist, sollte es vor dem Einstecken mit einem trockenen Tuch abgewischt werden. Bei Überschwemmung nicht in Betrieb nehmen, ohne es zum autorisierten Service zu bringen."
+          "q": "Was passiert, wenn das mobile Ladegerät unter Wasser gerät?",
+          "a": "Die Schutzart IP54 erlaubt den Einsatz bei Regen, das Gerät darf jedoch nicht unter Wasser geraten. Ein nass gewordenes Gehäuse sollte vor dem Einstecken mit einem trockenen Tuch abgewischt werden. Nach einem Wasserschaden das Gerät nicht in Betrieb nehmen, sondern zum autorisierten Service bringen."
         },
         {
-          "q": "Kann es als Reserve auf der Reise verwendet werden?",
-          "a": "Ja, genau dafür sind tragbare Ladegeräte gedacht. An Orten wie Hotels, Campingplätzen und Feriendörfern, wo es keinen DC/AC-Ladepunkt gibt, wird aus den vorhandenen Steckdosen geladen. Es wird in seiner Tasche verstaut und wiegt durchschnittlich 4-6 kg."
+          "q": "Kann es unterwegs als Reserve genutzt werden?",
+          "a": "Ja, tragbare Ladegeräte sind genau dafür gemacht. In Hotels, auf Campingplätzen, in Ferienanlagen und an anderen Orten ohne DC-/AC-Ladepunkt laden Sie an vorhandenen Steckdosen. Das Gerät wird in seiner Tasche aufbewahrt und wiegt im Durchschnitt 4–6 kg."
         },
         {
-          "q": "Wie wähle ich zwischen mobilem Laden und fester Wallbox?",
-          "a": "Wenn Sie Ihr Auto jeden Tag am selben Ort parken, ist die feste Wallbox auf lange Sicht schneller, sicherer und wirtschaftlicher. Wenn Sie häufig reisen oder zwischen mehreren Standorten wechseln, ist ein mobiles Ladegerät die flexiblere Lösung. Es ist auch eine gängige Wahl, beide mitzunehmen."
-        },
-        {
-          "q": "Wie viele Meter sollte das AC-Ladekabel haben?",
-          "a": "Wir sehen, dass 5 Meter Kabel in den meisten Fällen ausreichen: Es ist ideal, wenn der Abstand der Fahrzeug-Ladesteckdose zur Wand beim Parken 3-4 Meter nicht überschreitet. Wenn Ihre Garagen-/Parkplatzanordnung anders ist, gibt es Optionen mit 7,5 m oder 10 m. Je länger das Kabel, desto schwerer und steifer ist es; eine unnötig lange Wahl erschwert das Tragen."
+          "q": "Mobiles Ladegerät oder feste Wallbox — wie entscheide ich?",
+          "a": "Wenn Sie Ihr Fahrzeug täglich am selben Ort parken, ist eine feste Wallbox schneller, sicherer und langfristig wirtschaftlicher. Wenn Sie viel reisen oder zwischen mehreren Standorten wechseln, ist ein mobiles Ladegerät die flexiblere Lösung. Beides zu besitzen ist ebenfalls eine verbreitete Wahl."
         }
       ],
       "description": "Tragbare AC-Ladegeräte, die keine Installation erfordern – von der Standardsteckdose oder CEE-Steckdose bis zur Type-2-Fahrzeugsteckdose. Flexible Ladelösung für Straßen-, Camping- und Notfallszenarien mit einphasigen Optionen von 2,3 – 7,4 kW und dreiphasigen Optionen von 11 – 22 kW.",
@@ -148,24 +156,44 @@
       "image": "/categories/1775071211208-Gemini_Generated_Image_9pbk3k9pbk3k9pbk.png",
       "faq": [
         {
+          "q": "Wie lang sollte ein AC-Ladekabel sein?",
+          "a": "In den meisten Fällen genügen 5 Meter: ideal, wenn der Abstand zwischen Ladeanschluss des Fahrzeugs und Wand beim Parken 3–4 Meter nicht überschreitet. Bei anderen Garagen- oder Parkplatzsituationen gibt es Varianten mit 7,5 m oder 10 m. Je länger das Kabel, desto schwerer und steifer ist es; unnötig lange Kabel erschweren die Handhabung."
+        },
+        {
           "q": "Was ist der Unterschied zwischen Type 2 und Type 1?",
-          "a": "Type 1 (SAE J1772) wird bei nordamerikanischen und älteren asiatischen Fahrzeugen verwendet und unterstützt einphasig bis 7,4 kW. Type 2 (IEC 62196-2) ist der europäische Standard und unterstützt bis zu 22 kW dreiphasig. Fast alle neuen EVs auf dem türkischen Markt verwenden Type 2. Die älteren Versionen des Tesla Model S/X waren Type 1; die neueren Teslas sind Type 2."
+          "a": "Type 1 (SAE J1772) wird in Nordamerika und bei älteren asiatischen Fahrzeugen verwendet und unterstützt einphasig bis 7,4 kW. Type 2 (IEC 62196-2) ist der europäische Standard und unterstützt dreiphasig bis 22 kW. Nahezu alle neuen Elektroautos auf dem europäischen Markt nutzen Type 2. Ältere Tesla Model S/X hatten Type 1; neue Teslas haben Type 2."
         },
         {
-          "q": "Wie wähle ich zwischen einem 16A- und einem 32A-Kabel?",
-          "a": "16A-Kabel halten bis zu 3,7 kW einphasig und 11 kW dreiphasig stand. 32A-Kabel haben eine Kapazität von 7,4 kW einphasig und 22 kW dreiphasig. Je höher der Strom, den die Wallbox oder das Fahrzeug ziehen kann, wählen Sie das Kabel entsprechend diesem Strom; wenn es beim Kabel einen Engpass gibt, sinkt die Ladegeschwindigkeit."
+          "q": "16 A oder 32 A — welches Kabel soll ich wählen?",
+          "a": "16-A-Kabel sind einphasig für 3,7 kW und dreiphasig für bis zu 11 kW ausgelegt. 32-A-Kabel bieten einphasig 7,4 kW und dreiphasig 22 kW. Wählen Sie das Kabel nach dem höchsten Strom, den Wallbox oder Fahrzeug ziehen können; ist das Kabel der Engpass, sinkt die Ladegeschwindigkeit."
         },
         {
-          "q": "Variiert die Kabelauswahl je nach Fahrzeugmarke?",
-          "a": "Da der Steckertyp standardisiert ist (Type 2 in fast allen europäischen Märkten), ist die Kabelauswahl markenunabhängig. Der einzige Unterschied ist die AC-Ladeannahmekapazität jedes Fahrzeugs: Wenn Sie ein 22-kW-Kabel zu einem Fahrzeug nehmen, das 11 kW annimmt, fließt nicht mehr Leistung, sondern nur mehr Sicherheit."
+          "q": "Hängt die Kabelwahl von der Fahrzeugmarke ab?",
+          "a": "Da der Steckertyp standardisiert ist (Type 2 fast im gesamten europäischen Markt), ist die Kabelwahl markenunabhängig. Der einzige Unterschied ist die AC-Ladeleistung, die das jeweilige Fahrzeug aufnimmt: Ein 22-kW-Kabel an einem Fahrzeug mit 11 kW Aufnahme überträgt nicht mehr Leistung, bietet aber zusätzliche Sicherheitsreserve."
         },
         {
-          "q": "Funktioniert das Dreiphasenkabel mit meinem Fahrzeug?",
-          "a": "Ja, das Dreiphasenkabel unterstützt auch einphasiges Laden. Wenn Ihr Fahrzeug einphasig ist, läuft das Kabel automatisch einphasig und ist auf 7,4 kW begrenzt. Das Dreiphasenkabel stellt sicher, dass Sie keine unnötigen Änderungen vornehmen müssen, falls Sie in Zukunft ein dreiphasiges Fahrzeug kaufen."
+          "q": "Funktioniert ein dreiphasiges Kabel mit meinem Fahrzeug?",
+          "a": "Ja, ein dreiphasiges Kabel unterstützt auch einphasiges Laden. Ist Ihr Fahrzeug einphasig, arbeitet das Kabel automatisch einphasig und wird auf 7,4 kW begrenzt. Mit einem dreiphasigen Kabel müssen Sie beim späteren Wechsel auf ein dreiphasiges Fahrzeug nichts austauschen."
         },
         {
-          "q": "Was macht V2L (Vehicle to Load)?",
-          "a": "V2L ermöglicht es Ihnen, die Batterie Ihres Fahrzeugs als tragbare Stromquelle zu nutzen. Der Adapter wird in die Fahrzeugsteckdose gesteckt und gibt einen standardmäßigen 220V-Ausgang aus. Sie können Kühlschränke, Projektoren und kleine Geräte in Situationen wie Camping, Outdoor-Aktivitäten oder Stromausfällen betreiben. Die Energie kommt aus der Fahrzeugbatterie."
+          "q": "Wer ist der Hersteller dieser Ladekabel für Elektroautos?",
+          "a": "Bemis E-V Charge fertigt seine Ladekabel für Elektroautos im eigenen 16.000-m²-Werk in der Organisierten Industriezone Bursa. Die Produktion baut auf dem Erbe von Bemis Teknik Elektrik seit 1994 auf; die Type-2-(Mode-3-)Kabel tragen das Zertifikat für 94 % Inlandsanteil und sind CE-zertifiziert. Die Kabel werden nicht importiert und umetikettiert, sondern im eigenen Werk hergestellt."
+        },
+        {
+          "q": "Werden die Ladekabel importiert oder in der Türkei hergestellt?",
+          "a": "Bemis E-V Charge Ladekabel werden in der Türkei in unserem eigenen Werk in Bursa hergestellt. So erhalten Sie Produkt, Ersatzteile und technischen Support direkt vom Hersteller; bei Projektaufträgen lassen sich Kabellänge und Steckerfarbe auf Wunsch anpassen."
+        },
+        {
+          "q": "Was ist der Unterschied zwischen Ladekabel und Ladeset?",
+          "a": "Ein Ladekabel hat an beiden Enden einen Stecker (Type 2 – Type 2); es verbindet eine Wandladestation oder eine Ladesäule im Gemeinschaftsbereich mit Ihrem Fahrzeug. Ein Ladeset (Mode 2) ist eine tragbare Lösung mit Steckdosenstecker an einem Ende und einer Steuerbox in der Mitte; damit laden Sie ohne separate Ladestation direkt an der Steckdose. Mit einer Wandladestation zu Hause brauchen Sie ein Ladekabel, unterwegs oder als Reserve ein Ladeset."
+        },
+        {
+          "q": "Beeinflusst das Kabel die Ladegeschwindigkeit?",
+          "a": "Ein Kabel erzeugt keine höhere Geschwindigkeit als der Strom, den es tragen kann; die Ladegeschwindigkeit bestimmt in erster Linie das AC-Ladegerät im Fahrzeug. Ist Ihr Fahrzeug auf 7,4 kW begrenzt, erhöht ein dreiphasiges 32-A-Kabel die Geschwindigkeit nicht. Umgekehrt begrenzt ein Kabel mit zu geringer Kapazität die Geschwindigkeit: einphasig 16 A trägt bis 3,7 kW, einphasig 32 A bis 7,4 kW, dreiphasig 32 A bis 22 kW. Die richtige Wahl ist das Kabel, das zum höchsten von Fahrzeug und Ladegerät unterstützten Wert passt."
+        },
+        {
+          "q": "Was tun bei einem Defekt am Ladekabel?",
+          "a": "Unsere Produkte haben 2 Jahre Herstellergarantie. Öffnen oder reparieren Sie das Kabel nicht selbst; ziehen Sie den Stecker und nehmen Sie das Kabel außer Betrieb. Wenden Sie sich an den autorisierten Händler, bei dem Sie das Produkt gekauft haben, oder folgen Sie den Schritten auf der Seite „Störung & Garantie“ im Ratgeber-Menü unserer Website. Produktcode, Kaufbeleg und ein Foto oder Video des Problems beschleunigen den Vorgang."
         }
       ],
       "description": "Ladekabel für Modus 2 und Modus 3 mit Type-2-Standard. Konzipiert für langlebigen Einsatz in ein- und dreiphasigen Stromklassen von 16A – 32A, konform mit IEC 62196 / IEC 61851, mit halogenfreiem Außenmantel und Hochstrom-Type-2-Stecker.",
@@ -180,28 +208,28 @@
       "image": "/categories/1775068456394-V2L-kamp2.png",
       "faq": [
         {
-          "q": "Was macht C2L (Charger to Load)?",
-          "a": "Der C2L-Adapter wandelt Strom, der aus der Type-2-Steckdose der AC-Ladestation gezogen wird, in eine standardmäßige Schuko- (Haushalt) oder CEE-Steckdose (Industrie) um. So kann ein Type-2-Ladepunkt nicht nur zum Laden von Fahrzeugen genutzt werden – sondern auch als 220V/380V-Ausgang für Werkstatt, Veranstaltungsraum oder temporäre Installation. Die Energie kommt aus dem Ladegerät, es wird nicht die Batterie Ihres Fahrzeugs verwendet."
+          "q": "Wozu dient V2L (Vehicle to Load)?",
+          "a": "V2L ermöglicht es, die Fahrzeugbatterie als tragbare Stromquelle zu nutzen. Der Adapter wird in die Ladebuchse des Fahrzeugs gesteckt und liefert einen Standard-220-V-Ausgang. Beim Camping, bei Outdoor-Veranstaltungen oder bei Stromausfall können Sie Kühlschrank, Projektor oder Kleingeräte betreiben. Die Energie kommt aus der Fahrzeugbatterie."
+        },
+        {
+          "q": "Wozu dient C2L (Charger to Load)?",
+          "a": "Ein C2L-Adapter wandelt den Strom aus der Type-2-Buchse einer AC-Ladestation in eine Standard-Schuko- (Haushalts-) oder CEE- (Industrie-) Steckdose um. So kann ein Type-2-Ladepunkt nicht nur zum Laden von Fahrzeugen, sondern auch als 220-V-/380-V-Ausgang für Werkstatt, Veranstaltungsfläche oder temporäre Installation genutzt werden. Die Energie kommt aus der Ladestation, nicht aus der Fahrzeugbatterie."
         },
         {
           "q": "Was ist der Unterschied zwischen V2L und C2L?",
-          "a": "Der einzige Unterschied ist, woher die Energie kommt: V2L bezieht die Energie AUS dem Fahrzeug (die Fahrzeugbatterie ist die Quelle) – Ihr Fahrzeug wird zu einer mobilen Stromquelle. C2L bezieht Energie aus der LADEEINHEIT (Type-2-Ladegerät als Quelle) – es wandelt einen Ladepunkt in eine herkömmliche Steckdose um. Die beiden dienen unterschiedlichen Zwecken; mit dem Kombi-Set erhalten Sie beide Adapter in einem Paket."
+          "a": "Der einzige Unterschied ist die Energiequelle: V2L bezieht die Energie aus dem FAHRZEUG (die Batterie ist die Quelle) — Ihr Fahrzeug wird zur mobilen Stromquelle. C2L bezieht die Energie aus der LADESTATION (der Type-2-Charger ist die Quelle) — ein Ladepunkt wird zur klassischen Steckdose. Beide dienen unterschiedlichen Zwecken; mit dem Kombi-Set erhalten Sie beide Adapter in einem Paket."
         },
         {
           "q": "Welche Fahrzeuge unterstützen V2L?",
-          "a": "Fahrzeuge wie Hyundai Ioniq 5/6, Kia EV6/EV9, Genesis GV60, Ssangyong (KGM) Torres EVX, MG ZS EV / MG4, BYD Atto 3/Seal / Han und Skywell ET5 unterstützen V2L ab Werk. Unsere Bemis-V2L-Adapter sind in der Steckdosen-Pinbelegung dieser Hersteller gefertigt – markieren Sie bei der Produktauswahl die für Ihr Fahrzeug passende Variante (Hyundai/Kia/Ssangyong, MG, BYD/Skywell). Tesla-Fahrzeuge werden standardmäßig nicht unterstützt."
+          "a": "Hyundai Ioniq 5/6, Kia EV6/EV9, Genesis GV60, Ssangyong (KGM) Torres EVX, MG ZS EV / MG4, BYD Atto 3 / Seal / Han und Skywell ET5 unterstützen V2L ab Werk. Unsere Bemis V2L-Adapter werden in der Pin-Belegung dieser Hersteller gefertigt — wählen Sie beim Produkt die Variante für Ihr Fahrzeug (Hyundai/Kia/Ssangyong, MG, BYD/Skywell). Tesla-Fahrzeuge unterstützen V2L serienmäßig nicht."
         },
         {
-          "q": "Wie viel Leistung kann aus dem V2L-Adapter gezogen werden?",
-          "a": "Hängt von der V2L-Leistung des Fahrzeugs ab. Hyundai/Kia bei den meisten Modellen bis zu 3,6 kW (16A), BYD und MG bis zu 2,2 kW (10A), einige neuere Modelle bis zu 7,2 kW. Unsere Bemis-V2L-Adapter übertragen die Ausgangsleistung des Fahrzeugs sicher; sie überschreitet nicht die Grenze Ihres Fahrzeugs. Versionen mit einer, zwei und drei Steckdosen teilen sich dieselbe Gesamtleistung."
+          "q": "Wie viel Leistung liefert ein V2L-Adapter?",
+          "a": "Das hängt von der V2L-Leistung des Fahrzeugs ab. Bei den meisten Hyundai-/Kia-Modellen sind es 3,6 kW (16 A), bei BYD- und MG-Modellen 2,2 kW (10 A), einige neue Modelle erreichen bis zu 7,2 kW. Unsere Bemis V2L-Adapter übertragen die Ausgangsleistung des Fahrzeugs sicher und überschreiten dessen Limit nicht. Varianten mit einer, zwei oder drei Steckdosen teilen sich dieselbe Gesamtleistung."
         },
         {
-          "q": "Schadet die Nutzung von V2L der Batterie?",
-          "a": "Nein. V2L ist ein vom Hersteller vorgeschriebener Nutzungsmodus; das Batteriemanagementsystem (BMS) steuert die Entladetiefe. Die meisten Fahrzeuge schalten sich im V2L-Modus automatisch ab, wenn der Batteriestand auf 20 % sinkt. Dauerhafte Nutzung beeinträchtigt die Batterielebensdauer nicht."
-        },
-        {
-          "q": "Ist die Verlängerung des Ladekabels sicher?",
-          "a": "Unsere Bemis-Verlängerungskabel werden nach denselben Standards (IEC 62196-2, 32A-Kupferleiter) wie das Originalkabel gefertigt. Verbindungsabschnitte der Klasse IP54 sind gegen Wasser geschützt. Minderwertige Verlängerungen von Drittanbietern können ein Brandrisiko darstellen; verwenden Sie nur zertifizierte Produkte."
+          "q": "Schadet V2L der Batterie?",
+          "a": "Nein. V2L ist ein vom Hersteller vorgesehener Betriebsmodus; das Batteriemanagementsystem (BMS) steuert die Entladetiefe. Die meisten Fahrzeuge schalten V2L automatisch ab, wenn der Batteriestand 20 % erreicht. Regelmäßige Nutzung beeinträchtigt die Batterielebensdauer nicht."
         }
       ],
       "description": "Adapter, die die Fahrzeugbatterie (V2L) oder das Ladegerät (C2L) in eine externe Stromversorgung umwandeln. Kompatibel mit Type-2-Eingängen und Schuko-/CEE-Ausgängen sowie V2L-fähigen Fahrzeugen wie Hyundai, Kia, MG, BYD, Ssangyong und Skywell – für Camping-, Werkstatt- und Notfallszenarien.",
@@ -216,24 +244,24 @@
       "image": "/categories/1775068429165-BKT-0102-2105.jpg",
       "faq": [
         {
-          "q": "In welchen Fällen ist die Verwendung einer Verlängerung notwendig?",
-          "a": "Wenn der Ort, an dem das Fahrzeug geparkt wird, weit von der Wand entfernt ist, an der sich die Wallbox befindet, wenn der Parkeinfahrtsbereich lang ist, wenn der Ladepunkt in mobilen Umgebungen wie Camping weit entfernt ist, wird eine Verlängerung verwendet. Eine zusätzliche Verlängerung ist unnötig, wenn Ihr Standardkabel von 5 m ausreicht; jede Steckverbindung ist ein zusätzlicher empfindlicher Punkt."
+          "q": "Ist eine Ladekabelverlängerung sicher?",
+          "a": "Unsere Bemis Verlängerungskabel werden nach denselben Standards wie das Originalkabel gefertigt (IEC 62196-2, 32-A-Kupferleiter). Die Verbindungsbereiche sind nach IP54 gegen Wasser geschützt. Minderwertige Verlängerungen von Drittanbietern können ein Brandrisiko darstellen; verwenden Sie nur zertifizierte Produkte."
         },
         {
-          "q": "Können verschiedene Steckertypen mit dem Konverter kompatibel gemacht werden?",
-          "a": "Ja, wir haben Adapter für gängige Umwandlungen wie Type 1 zu Type 2, CEE-Steckdose zu Type 2, Type 2 zu Schuko. Aber es gibt keine Umwandlung zwischen DC und AC; jedes System arbeitet separat. Die Konverter übernehmen die Leistungsgrenze der niedrigeren Seite."
+          "q": "Wann braucht man eine Verlängerung?",
+          "a": "Eine Verlängerung wird verwendet, wenn der Stellplatz weit von der Wand mit der Wallbox entfernt ist, der Zufahrtsbereich lang ist oder beim Camping der Ladepunkt weit weg liegt. Reicht Ihr 5-m-Standardkabel, ist eine Verlängerung unnötig; jede zusätzliche Verbindungsstelle ist ein weiterer empfindlicher Punkt."
         },
         {
-          "q": "Wie viele Meter kann das Verlängerungskabel sein?",
-          "a": "Die Gesamtkabellänge (Original + Verlängerung) sollte für 22 kW einphasig 15 Meter und für 11 kW dreiphasig 25 Meter nicht überschreiten. Bei größeren Distanzen sinkt die Leistung und die Erwärmung nimmt aufgrund des Kabelwiderstands zu. Für Installationen, die große Distanzen erfordern, wird eine feste Verkabelung empfohlen."
+          "q": "Lassen sich verschiedene Steckertypen mit einem Adapter kompatibel machen?",
+          "a": "Ja. Für gängige Umwandlungen wie Type 1 auf Type 2, CEE-Steckdose auf Type 2 oder Type 2 auf Schuko haben wir Adapter. Zwischen DC und AC wird jedoch nicht umgewandelt; jedes System arbeitet für sich. Adapter übernehmen die Leistungsgrenze der schwächeren Seite."
         },
         {
-          "q": "Welche Steckdosentypen sind in der Türkei üblich?",
-          "a": "Schuko (türkische Standardsteckdose), blaue 16A-Industrie-CEE-Steckdose und rote 32A-CEE-Dreiphasensteckdose sind beim Laden zu Hause üblich. Type 2 ist Standard an öffentlichen AC-Punkten. CCS2 (am häufigsten) und CHAdeMO (Nissan/ältere Fahrzeuge) treten beim DC-Schnellladen auf."
+          "q": "Wie lang darf ein Verlängerungskabel maximal sein?",
+          "a": "Die Gesamtlänge (Originalkabel + Verlängerung) sollte einphasig bei 22 kW 15 Meter und dreiphasig bei 11 kW 25 Meter nicht überschreiten. Bei größeren Distanzen sinkt die Leistung durch den Leitungswiderstand und die Erwärmung nimmt zu. Für lange Strecken empfiehlt sich eine feste Verkabelung."
         },
         {
-          "q": "Was ist in der Kategorie Ladeeinheiten-Ausrüstung enthalten?",
-          "a": "Professionelle Ausrüstung, die bei Ladestationsinstallationen verwendet wird, umfasst: AC- und DC-Ladesteckdosen (Type 2, CCS2), kabelgebundene und kabellose Versionen, Steckdosenabdeckungen, Verriegelungsmechanismen, optionale Kommunikationsmodule und Ersatzteile, die in das Ladegerät integriert werden können. Nutzt OEM-Hersteller und -Service."
+          "q": "Welche Steckdosentypen sind in der Türkei verbreitet?",
+          "a": "Beim Laden zu Hause sind Schuko (Standardsteckdose), die blaue 16-A-CEE-Industriesteckdose und die rote dreiphasige 32-A-CEE-Steckdose verbreitet. An öffentlichen AC-Ladepunkten ist Type 2 Standard. Beim DC-Schnellladen finden sich CCS2 (am häufigsten) und CHAdeMO (Nissan/ältere Fahrzeuge)."
         }
       ],
       "description": "Verlängerungskabel und CEE-Norm-Konverter, die vorhandene Ladeausrüstung zu verschiedenen Steckdosentypen und Distanzen führen. Kombinationslösungen, konzipiert für ein- und dreiphasige Übergänge von 16A – 32A.",
@@ -249,24 +277,24 @@
       "description": "Bemis-DC-Ladekabel aus vollständig eigener Fertigung, speziell für Hochleistungs-DC-Ladeeinheiten hergestellt, ermöglichen dank ihrer modularen Gehäusestruktur einen einfachen Austausch im Falle eines Bruchs.\nPaneelsteckdose mit Verriegelungsmechanismus, die an Ladeeinheiten verwendet wird. Mit ihrem speziellen Branding und einzigartigen Design ist sie perfekt für Ihre Einheit. Der DC-Steckdosenhalter, der dafür hergestellt wird, die in DC-Ladeeinheiten verwendeten DC-Kabel im Leerlauf aufzuhängen, überzeugt mit seinem Kugel- und eingelassenen Design als ideale Option. Dank seiner Kugelstruktur wird das Bruchproblem beseitigt. Mit seiner in das Gehäuse eingelassenen Struktur ist er vollständig kompatibel mit Ihrem Einheitendesign.",
       "faq": [
         {
-          "q": "Was ist der Unterschied zwischen einer DC-Ladesteckdose und einer AC-Ladesteckdose?",
-          "a": "AC-Steckdosen (Type 2) leiten maximal 22 kW Wechselstrom und sind einfach aufgebaut. DC-Steckdosen (CCS2) liefern 50-350 kW Gleichstrom, einschließlich Flüssigkeitskühlung, Temperatursensor und dickerer Leiter. DC-Steckdosen sind 3-4 Mal schwerer und erfordern eine spezielle Installation."
+          "q": "Was gehört zur Kategorie Komponenten für Ladestationen?",
+          "a": "Professionelle Komponenten für die Installation von Ladestationen: AC- und DC-Ladesteckdosen (Type 2, CCS2), Varianten mit und ohne Kabel, Steckdosenabdeckungen, Verriegelungsmechanismen, optionale Kommunikationsmodule und Ersatzteile, die in Ladegeräte integriert werden können. Genutzt von OEM-Herstellern und Servicebetrieben."
         },
         {
-          "q": "Was ist für einen Betreiber erforderlich, der eine Ladestation installieren möchte?",
-          "a": "Erforderlich sind ein Transformatoranschluss oder ausreichende Anschlussleistung, Ladegeräte mit Unterstützung für OCPP 1.6J/2.0.1, eine CPO-Software für Abrechnung/Verwaltung sowie eine EMRA-Lizenz oder eine Händlervereinbarung. Unser Bemis-B2B-Team unterstützt die schlüsselfertige Installation von der Standortbesichtigung bis zur Hardwarebeschaffung."
+          "q": "Was ist der Unterschied zwischen DC- und AC-Ladesteckdose?",
+          "a": "AC-Steckdosen (Type 2) übertragen maximal 22 kW Wechselstrom und sind einfach aufgebaut. DC-Steckdosen (CCS2) übertragen 50–350 kW Gleichstrom und enthalten Flüssigkeitskühlung, Temperatursensor und dickere Leiter. DC-Steckdosen sind 3–4-mal schwerer und erfordern eine spezielle Installation."
+        },
+        {
+          "q": "Was braucht ein Betreiber, der eine Ladestation errichten will?",
+          "a": "Einen Trafoanschluss oder ausreichende Anschlussleistung, Ladegeräte mit OCPP 1.6J/2.0.1, eine CPO-Software für Abrechnung und Verwaltung sowie eine Lizenz der Regulierungsbehörde oder einen Händlervertrag. Unser Bemis B2B-Team unterstützt schlüsselfertige Projekte von der Standortanalyse bis zur Hardwarelieferung."
         },
         {
           "q": "Was ist eine CCS2-Steckdose?",
-          "a": "Das Combined Charging System 2 (CCS2) ist der DC-Schnellladestandard des europäischen Marktes. Es ist ein kombiniertes Design mit zwei zusätzlichen DC-Pins, die unter dem Type-2-AC-Stecker angebracht sind; sowohl AC- als auch DC-Laden kann aus derselben Fahrzeugsteckdose erfolgen. Es unterstützt Leistungen von 50-350 kW."
+          "a": "Das Combined Charging System 2 (CCS2) ist der DC-Schnellladestandard des europäischen Marktes. Es ist ein kombiniertes Design, bei dem unter dem Type-2-AC-Stecker zwei zusätzliche DC-Pins ergänzt sind; über dieselbe Fahrzeugbuchse ist AC- und DC-Laden möglich. Unterstützt Leistungen von 50 bis 350 kW."
         },
         {
-          "q": "Ist der Austausch einer Ersatzsteckdose oder eines Ersatzkabels möglich?",
-          "a": "Ja. Die Kabel und Steckdosen unserer Bemis-Ladegeräte sind modular aufgebaut; bei Verschleiß oder Beschädigung kann unser autorisierter Service sie schnell austauschen. Für spezielle Teile wie CCS2-flüssigkeitsgekühlte Kabel verwalten wir einen Lagerbestand."
-        },
-        {
-          "q": "Warum benötige ich eine RFID-Karte?",
-          "a": "Die RFID-Karte ermöglicht die Benutzerautorisierung an der Ladestation – jemand, den Sie nicht möchten, kann das Gerät nicht nutzen. Sie wird verwendet, um in Unternehmens-/Arbeitsplatzinstallationen zu verfolgen, wer wie viel mit welchem Fahrzeug lädt. Denselben Zweck erfüllen Sie an OCPP-fähigen Stationen mit der mobilen Anwendung."
+          "q": "Können Steckdosen oder Kabel ausgetauscht werden?",
+          "a": "Ja. Kabel und Steckdosen unserer Bemis Ladegeräte sind modular aufgebaut; bei Verschleiß oder Beschädigung tauscht unser autorisierter Service sie schnell aus. Für Spezialteile wie flüssigkeitsgekühlte CCS2-Kabel führen wir eine Lagerhaltung."
         }
       ],
       "descriptionImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075765/products/xl61vku2recrvjsag3x8.jpg"
@@ -280,24 +308,24 @@
       "image": "/categories/1775068320447-charger-cable.png",
       "faq": [
         {
-          "q": "Warum eine Tasche für das Ladekabel kaufen?",
-          "a": "Das mobile Ladegerät ohne Tasche im Kofferraum des Fahrzeugs zu transportieren, beschädigt sowohl das Kabel als auch die Innenverkleidung des Fahrzeugs. Die Tasche isoliert die Feuchtigkeit im Stoff, schützt die Stecker vor Quetschungen und ermöglicht eine praktische Nutzung auf Reisen. Taschen können bei unseren Pro-Mobile-Produkten Standard und bei anderen optional sein."
+          "q": "Wozu braucht man eine RFID-Karte?",
+          "a": "Die RFID-Karte dient der Benutzerautorisierung an der Ladestation — Unbefugte können das Gerät nicht nutzen. In Unternehmen und am Arbeitsplatz dient sie dazu, nachzuvollziehen, wer mit welchem Fahrzeug wie viel geladen hat. An OCPP-fähigen Stationen erledigt eine mobile App dieselbe Aufgabe."
         },
         {
-          "q": "Sind Bemis-Zubehörteile mit anderen Marken kompatibel?",
-          "a": "Da die Steckerstandards (Type 2, CCS2, RFID Mifare) universell sind, ist unser Bemis-Zubehör mit allen Elektrofahrzeugen und Ladestationen kompatibel, die standardmäßige Type-2-/CCS2-Stecker verwenden. Markenspezifische Merkmale (Firmware-Sperre, registriertes Kartensystem) werden, falls vorhanden, im Dokument angegeben."
+          "q": "Warum lohnt sich eine Ladekabeltasche?",
+          "a": "Ein mobiles Ladegerät ohne Tasche im Kofferraum zu transportieren, beansprucht sowohl das Kabel als auch die Innenausstattung des Fahrzeugs. Die Tasche isoliert Feuchtigkeit, schützt die Stecker vor Quetschungen und macht die Nutzung unterwegs praktisch. Bei unseren Pro-Mobile-Produkten ist die Tasche Standard, bei anderen kann sie optional sein."
         },
         {
-          "q": "Wie bestellt man Ersatzzubehör?",
-          "a": "Die Anfrage kann mit dem Produktcode direkt über das Kontaktformular gesendet werden, unser Vertriebsteam leitet den Händler an. Für Betreiber mit Großbestellungen ist eine integrierte Bestellung per API über ein OEM-Konto möglich. Teile, die nicht in unserem Lager sind, werden innerhalb von 2-4 Wochen geliefert."
+          "q": "Sind Bemis Zubehörteile mit anderen Marken kompatibel?",
+          "a": "Da die Steckerstandards (Type 2, CCS2, RFID Mifare) universell sind, ist unser Bemis Zubehör mit allen Elektroautos und Ladestationen kompatibel, die Standardstecker Type 2 / CCS2 verwenden. Markenspezifische Merkmale (Firmware-Sperren, proprietäre Kartensysteme) sind, falls vorhanden, in der Dokumentation angegeben."
         },
         {
-          "q": "Was soll ich tun, wenn die RFID-Karte verloren geht?",
-          "a": "Wenn die Karte verloren geht, kann sie über das Admin-Panel oder durch Benachrichtigung unseres Vertriebsteams deaktiviert werden. Eine neue Kartenzuordnung ist in 5 Minuten abgeschlossen. Das Risiko einer unbefugten Nutzung mit der verlorenen Karte ist vernachlässigbar, da jede Karte mit dem Geräteregistrierungssystem verbunden ist."
+          "q": "Wie bestelle ich Ersatzzubehör?",
+          "a": "Die Anfrage kann direkt über das Kontaktformular mit dem Produktcode gestellt werden; unser Vertriebsteam vermittelt an einen Händler. Für Betreiber mit Großbestellungen ist eine integrierte Bestellung per API über das OEM-Konto möglich. Nicht vorrätige Teile werden innerhalb von 2–4 Wochen beschafft."
         },
         {
-          "q": "Was ist der Unterschied zwischen DC-Laden und AC-Laden?",
-          "a": "Beim AC-Laden fließt der Strom als Wechselstrom zum Fahrzeug und der interne Wandler wandelt ihn in Gleichstrom um; daher ist er auf 22 kW begrenzt. Beim DC-Laden erfolgt die Umwandlung innerhalb der Station und der Gleichstrom fließt direkt zur Batterie; er kann bis zu 50-350 kW erreichen. Fazit: Mit DC erreicht ein EV in 20-40 Minuten 80 %, während bei AC 6-8 Stunden erforderlich sind."
+          "q": "Was tun, wenn die RFID-Karte verloren geht?",
+          "a": "Eine verlorene Karte kann über das Admin-Panel oder durch Meldung an unser Vertriebsteam deaktiviert werden. Die Zuordnung einer neuen Karte dauert 5 Minuten. Das Risiko einer unbefugten Nutzung mit der verlorenen Karte ist vernachlässigbar, da jede Karte an das Registrierungssystem des Geräts gebunden ist."
         }
       ],
       "description": "RFID-Karten, Tragetaschen und Montagezubehör – Nebenprodukte, die den betrieblichen und sicherheitstechnischen Bedarf eines Ladestandorts ergänzen."
@@ -312,23 +340,23 @@
       "faq": [
         {
           "q": "Was ist der Unterschied zwischen DC-Laden und AC-Laden?",
-          "a": "Beim AC-Laden erreicht der Strom das Fahrzeug als Wechselstrom und der bordeigene Wandler richtet ihn gleich; dies begrenzt die Rate auf 22 kW. Beim DC-Laden erfolgt die Umwandlung innerhalb der Station und der Gleichstrom fließt direkt in die Batterie und erreicht bis zu 50-350 kW. Das Ergebnis: Ein EV erreicht mit DC in 20-40 Minuten 80 %, während AC 6-8 Stunden benötigt."
+          "a": "Beim AC-Laden gelangt der Strom als Wechselstrom ins Fahrzeug und wird dort vom Bordladegerät in Gleichstrom umgewandelt; deshalb ist es auf 22 kW begrenzt. Beim DC-Laden findet die Umwandlung in der Station statt und der Gleichstrom fließt direkt in die Batterie; möglich sind bis zu 50–350 kW. Ergebnis: Mit DC erreicht ein Elektroauto in 20–40 Minuten 80 %, mit AC dauert es 6–8 Stunden."
         },
         {
-          "q": "Wie viele Fahrzeuge können BEVDC-Modelle gleichzeitig laden?",
-          "a": "BEVDC-40 hat eine einzelne Steckdose und liefert 40 kW an ein einzelnes Fahrzeug. BEVDC-80, BEVDC-120, BEVDC-160, BEVDC-180 und BEVDC-200 haben zwei Steckdosen; die Gesamtleistung kann gleichzeitig zwischen zwei Fahrzeugen aufgeteilt werden. Zum Beispiel kann das BEVDC-200 gleichzeitig jedem von zwei Fahrzeugen 100 kW liefern oder 200 kW an ein einzelnes Fahrzeug (sofern das Fahrzeug dies unterstützt)."
+          "q": "Wie viele Fahrzeuge kann ein BEVDC-Modell gleichzeitig laden?",
+          "a": "Der BEVDC-40 hat einen Anschluss und gibt 40 kW an ein Fahrzeug ab. BEVDC-80, BEVDC-120, BEVDC-160, BEVDC-180 und BEVDC-200 haben zwei Anschlüsse; die Gesamtleistung kann gleichzeitig auf zwei Fahrzeuge aufgeteilt werden. Der BEVDC-200 kann zum Beispiel zwei Fahrzeuge gleichzeitig mit je 100 kW oder ein Fahrzeug mit 200 kW laden (sofern das Fahrzeug es unterstützt)."
         },
         {
-          "q": "Was ist für die Installation eines DC-Ladegeräts erforderlich?",
-          "a": "DC-Einheiten erfordern einen dreiphasigen 380-480V-Netzanschluss, einen Transformator oder einen Hochleistungsanschluss (200-400 kVA) für BEVDC-120 und höher, ein Bodenbefestigungspodest, ausreichenden Luftstrom zur Kühlung sowie eine Ethernet- oder 4G-Leitung für die OCPP-Kommunikation. Das Bemis-B2B-Team verwaltet den gesamten Prozess von der Standortbesichtigung bis zur Inbetriebnahme."
+          "q": "Was ist für die Installation einer DC-Ladestation erforderlich?",
+          "a": "DC-Stationen benötigen einen dreiphasigen 380–480-V-Netzanschluss, ab BEVDC-120 einen Transformator oder einen leistungsstarken Anschluss (200–400 kVA), ein Fundament zur Bodenbefestigung, ausreichende Luftzirkulation für die Kühlung sowie Ethernet oder 4G für die OCPP-Kommunikation. Das Bemis B2B-Team steuert den gesamten Prozess von der Standortanalyse bis zur Inbetriebnahme."
         },
         {
-          "q": "Welches BEVDC-Modell passt zu meinem Fuhrpark?",
-          "a": "BEVDC-40 reicht aus, wenn Ihre Flottenfahrzeuge durchschnittlich 50-60 kWh Batterien haben und städtisch bleiben. Für Langstrecken-Nutzfahrzeugflotten oder Taxi-/Kurierbetriebe mit schnellem Umschlag erreicht BEVDC-120 in 30 Minuten 80 %. Für stark frequentierte öffentliche Stationen wird BEVDC-160/200 empfohlen; zwei Fahrzeuge laden gleichzeitig schnell."
+          "q": "Welches BEVDC-Modell passt zu meiner Flotte?",
+          "a": "Für Flottenfahrzeuge mit durchschnittlich 50–60 kWh Batterie im Stadtverkehr reicht der BEVDC-40. Für gewerbliche Flotten mit langen Strecken oder Taxi-/Kurierdienste mit schnellem Umschlag liefert der BEVDC-120 in 30 Minuten 80 % Ladung. Für öffentliche Stationen mit hohem Verkehr empfehlen sich BEVDC-160/200; zwei Fahrzeuge laden gleichzeitig schnell."
         },
         {
-          "q": "Was ist erforderlich, um einen öffentlichen DC-Ladepunkt zu eröffnen?",
-          "a": "Gemäß der Ladeservice-Verordnung der EMRA benötigen Sie eine Lizenz oder Genehmigung, ein OCPP-fähiges Gerät, eine Integration in das EPVIS-System sowie einen Abrechnungs-/Zahlungs-Stack (Bemis-CPO-Software oder eine Drittanbieter-Plattform). Die Investitionsgröße liegt zwischen 1-3 Millionen TL; unser B2B-Team unterstützt bei der Erstellung des Fahrplans."
+          "q": "Was braucht man für einen öffentlichen DC-Ladepunkt?",
+          "a": "Eine Lizenz oder Zulassung der Energieregulierungsbehörde nach der Ladeservice-Verordnung, ein OCPP-fähiges Gerät, die Anbindung an das behördliche Ladepunktsystem (EPVIS) sowie eine Abrechnungs- und Zahlungsinfrastruktur (Bemis CPO-Software oder Drittanbieter). Die Investition liegt in der Türkei zwischen 1 und 3 Millionen TL; unser B2B-Team unterstützt bei der Erstellung des Fahrplans."
         }
       ],
       "description": "DC-Schnellladegeräte der BEVDC-Serie – Modelle mit einem oder zwei CCS2-Ausgängen von 40 kW bis 200 kW. Geeignet für den kommerziellen Feldeinsatz mit Unterstützung für OCPP 1.6J/ 2.0.1, RFID-Authentifizierung, IP54-Schutz und weitem Temperaturbereich (-25°C / +55°C)."
