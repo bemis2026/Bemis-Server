@@ -1138,9 +1138,9 @@ export default function ProductDetailPage({
                     {pickText(lang, "Cihazınızı her yerden yönetin", "Manage your charger from anywhere")}
                   </h2>
                   <p className="text-sm sm:text-base leading-relaxed mb-5 max-w-md" style={{ color: muted }}>
-                    {lang === "en"
-                      ? "Real-time monitoring, scheduled charging, user authorization, RFID and reporting — via the Bemis E-V Charge mobile app and web panel."
-                      : "Mobil uygulama ve web panel ile anlık izleme, planlı şarj, kullanıcı yetkilendirme, RFID ve raporlama — akıllı Bemis E-V Charge cihazlarında."}
+                    {pickText(lang,
+                      "Mobil uygulama ve web panel ile anlık izleme, planlı şarj, kullanıcı yetkilendirme, RFID ve raporlama — akıllı Bemis E-V Charge cihazlarında.",
+                      "Real-time monitoring, scheduled charging, user authorization, RFID and reporting — via the Bemis E-V Charge mobile app and web panel.")}
                   </p>
                   {/* Mağaza + web panel butonları — anasayfa SmartCharger ile AYNI linkler. */}
                   <div className="flex flex-wrap gap-2.5">

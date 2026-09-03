@@ -335,13 +335,19 @@ export default function ProductShowcase() {
                   // slot'lar ps.overlayFeatures global fallback'inden gelir.
                   const slideOv = active?.overlayFeatures ?? [];
                   const globalOv = ps?.overlayFeatures ?? [];
-                  const v = (i: number, fb: string) => {
-                    const s = slideOv[i]?.trim();
-                    if (s) return s;
-                    const g = globalOv[i]?.trim();
-                    if (g) return g;
-                    return fb;
+                  // ⚠️ ContentContext varsayılanı overlayFeatures'a TÜRKÇE metin koyar
+                  // ("Planlı Şarj" …) → yabancı dilde pickText yedeğini eziyordu (2026-09-03
+                  // ölçümü: nl/de/ru anasayfasında rozetler Türkçe). Admin'in gerçekten
+                  // girdiği bir metin değil, varsayılan olduğu için TR dışı dilde yok sayılır;
+                  // "IP 65" dil-nötr, kalır. TR görünümü DEĞİŞMEZ.
+                  const TR_VARSAYILAN = ["Planlı Şarj", "Ortak Kullanım", "Mobil Uygulama"];
+                  const gecerli = (s?: string) => {
+                    const t = s?.trim();
+                    if (!t) return null;
+                    if (lang !== "tr" && TR_VARSAYILAN.includes(t)) return null;
+                    return t;
                   };
+                  const v = (i: number, fb: string) => gecerli(slideOv[i]) ?? gecerli(globalOv[i]) ?? fb;
                   return [
                     { icon: RiShieldCheckLine,    color: "#10B981", value: v(0, specs[1]?.value ?? "IP 65") },
                     { icon: RiCalendarCheckLine,  color: ACCENT,    value: v(1, pickText(lang, "Planlı Şarj", "Scheduled Charging")) },
