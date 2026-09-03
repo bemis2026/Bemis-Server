@@ -26,9 +26,27 @@
 > soruları + eksik sorular; dc-units hariç). Geri kaydırma güvenilir değildi → **49 soru-cevap TR kaynaktan de/es/ru'ya TAM
 > yeniden çevrildi** (147 çift; `scratchpad/_faq_{de,es,ru}.json`), ön kontrolle uygulandı (sayı eşitliği · TR karakter sızıntısı 0 ·
 > sayısal parmak izi örtüşmesi uyarısı 0) → R2 `_translations.<dil>.categories.*.faq` + repo `data/content-<dil>.json`.
-> **⏳ AÇIK:** (1) **EN ve AR SSS'leri HÂLÂ KAYMIŞ** — EN canlı+indeksli, öncelikli (49 çift); (2) **Felemenkçe** (blog hariç
-> ~660 KB, kullanıcı kapsamı onayladı) — henüz başlanmadı; (3) kabuk (menü/footer) SSR'da TR basılıp istemcide değişir
-> (bilinen mimari sınır, tüm kollar için). store cache **v94 → v95-faq-dil**.
+> **✅ CANLI DOĞRULANDI (8df08c3):** /de /es /ru × liste+kategori+ürün **200, prerender**, H1/başlık/ürün adı o dilde,
+> SSS sayısı 8/8 kategoride TR ile eşit ve o dilde, `/xx/products` + `/de/blog` **404**, hreflang **6'lı küme** (tr/en/de/es/ru/
+> x-default) TR·EN·yeni kollarda aynı + self-canonical, sitemap'te dil başına **159** giriş + alternates. ⚠️ Doğrulama tuzağı:
+> Next hreflang'ı **`hrefLang`** (camelCase) basar → regex'i büyük/küçük harfe DUYARSIZ yaz, yoksa "YOK" sanırsın.
+> **🔴 YAN BULGU → DÜZELTİLDİ (3e67d29): ÜRÜN DETAYI 4 YABANCI DİLDE KATEGORİ SSS'SİNİ + KATEGORİ ADINI TÜRKÇE BASIYORDU.**
+> Ölçüm: /en /de /es /ru detay HTML'inde 239 TR harf (TR sayfada 187) — kablolarda 10 soruluk SSS ve "AC Şarj Kabloları" ×10
+> (üst etiket + benzer-ürün kartları). **EN'de baştan beri böyleydi** (kategori sayfasına `faqOverride` verilmiş, detaya
+> verilmemişti); ziyaretçi hidrasyon sonrası doğru dili görüyordu ama Google + FAQPage şeması Türkçe okuyordu. **FIX:**
+> `ProductDetailClient` → `categoryNameOverride` + `faqOverride` (`metinDili = lang === initialLang` kapısı); EN + [lang]
+> detay rotaları `getContentForLang(dil).categories[id].faq` geçer. **Sonuç: 239 → 24 TR harf** (kalan = kabuk), SSS ilk
+> sorusu her dilde kendi dilinde. 📌 **Yeni dil-kolu sayfası eklerken hem kategori hem DETAY istemcisine override geç.**
+> **🔗 İÇ LİNKLER DİL KOLUNDA:** `ProductsClient` (6 sabit `/products/...`), `ProductCategoryClient` (`base` yalnız /en
+> tanıyordu) ve `ProductDetailClient` (ekmek kırıntısı · varyant katmanı · benzer ürünler) artık `forcedLangForPath()` ile
+> `/<dil>/products` tabanlı → /de/products 60 · /de/products/cables 26 · /es/products/wallbox 28 · /de ürün 14 link kendi
+> kolunda, TR köke **0**; TR sayfalar değişmedi. (Eskiden /de kategori sayfası ürünleri TR adreslere linkliyordu = kol içi
+> link akışı sıfırdı.)
+> **⏳ AÇIK:** (1) **EN ve AR SSS'leri HÂLÂ KAYMIŞ** — EN canlı+indeksli, öncelikli (49 çift; kanıt: EN ürün sayfasında ilk
+> soru "Type 2 vs Type 1", diğer 4 dilde "kaç metre olmalı"); (2) **Felemenkçe** (blog hariç ~660 KB, kullanıcı kapsamı
+> onayladı) — henüz başlanmadı; (3) kabuk (menü/footer) SSR'da TR basılıp istemcide değişir (bilinen mimari sınır, tüm kollar;
+> sayfa başına ~24-31 TR harf). store cache **v94 → v95-faq-dil**. Doğrulama betikleri: `scratchpad/_dogrula_dil.cjs`,
+> `_hl.cjs` (hreflang, büyük/küçük harf duyarsız), `_ru_sizinti.cjs` (TR-harfli parça listesi — hangi metin sızıyor).
 
 > 🔎🆕 **FABLE 5.1 TAZE-GÖZ DENETİMİ — 3 DÜZELTME CANLI (2026-09-03, commit 928640d):**
 > Kullanıcı "her şey yolunda ama Fable 5.1 ne görür" dedi; bu oturumda ÖLÇÜLMEMİŞ açılara bakıldı.
