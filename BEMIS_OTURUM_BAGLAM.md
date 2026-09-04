@@ -13,6 +13,14 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🇸🇦✅ **AR SSS'LERİ DE YENİDEN ÇEVRİLDİ — 5 YABANCI DİLİN TAMAMI HİZALI (2026-09-04 gece, commit 04e7da0):** 49 çift TR
+> kaynaktan Arapçaya (`scratchpad/_faq_ar.json`), ön kontrol: sayı TR ile eşit · Arapça harf var · TR karakter 0 · sayısal
+> parmak izi uyarısı 0 (ilk kuru çalıştırmada "2 yıl"ı yazıyla yazmışım → rakamla düzeltildi). R2 `_translations.ar` +
+> `data/content-ar.json`. store cache **v98-vitrin-etiket → v98-faq-ar**. ⚠️ Bağlam sıkıştırması dersi: aynı oturumda daha
+> önce yaptığım `483cda7` (DC aralığı 40–200, 7 dil) ve `a30e2f8` (IndexNow 636 URL + GSC rehberi) commit'leri görüş
+> alanımdan düşmüştü → kullanıcıya "kalan iş" diye yanlış saydım; **"kalan iş" listelemeden önce `git log -8` oku.**
+> Açık kalan yalnız mimari sınırlar (kabuk SSR TR · hero dönen kelime) + kullanıcı tarafı (GSC/Bing/Cloudinary/form testi).
+
 > 🩺 **SAĞLIK TARAMASI + BEKÇİ DÜZELTMESİ (2026-09-03 gece):** 20+ dağıtım sonrası tarama TEMİZ — **165 sayfa (7 dil × liste/
 > kategori/ürün + TR statik) 0 sorun**, ort 802 ms; 7 dilde API'ler tutarlı (8 kat / 49 SSS / 150 ürün / b2b 7); katalog
 > beslemesi 150, döküman 13, kur 200. **⚠️ BEKÇİLERİN CANLI KONUMU `C:\Users\sales\.claude\bemis-sentinels\`** (2026-08-15'ten
