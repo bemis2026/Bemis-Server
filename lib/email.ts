@@ -56,7 +56,7 @@ export async function sendEmail({ to, subject, html, replyTo }: SendArgs): Promi
   }
 
   // ── SMTP fallback (Natro / Yandex / whoever the box is on) ────────
-  const smtpHost = process.env.SMTP_HOST;
+  const smtpHost = process.env.SMTP_HOST?.trim(); // Vercel değerinde baştaki boşluk (" smtp.gmail.com") SMTP yedeğini kırıyordu (2026-09-05)
   const smtpPort = Number(process.env.SMTP_PORT ?? 587);
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
