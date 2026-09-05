@@ -13,6 +13,21 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 📧✅ **E-POSTA: satis@ → sales@bemis.com.tr HER YERDE (2026-09-05, commit c04cdab + 0b4e584):** Kullanıcı "mailler
+> sales@'e düşsün" dedi → ölçüm: Vercel prod `CONTACT_TO_EMAIL` **zaten sales@** idi (form bildirimleri oraya gidiyordu; benim
+> "satis@'e düşer" cümlem `lib/email.ts`'teki 08-19 tarihçe notundan gelen BAYAT bilgiydi — env'i okumadan söyleme). Asıl fark
+> müşteriye GÖRÜNEN adresti: site genelinde satis@ (anasayfa 6 · /iletisim 16 · gizlilik 10 · çerez 8 · destek 10 · JSON-LD ·
+> llms.txt · security.txt · otomatik yanıt varsayılanı · 6 dil içerik dosyası · R2 content bin 12 alan: `contact.email` +
+> `dealer.regionReps.1.email` × TR+5 çeviri). Kullanıcı seçimi "Hepsini sales@ yap" → depo 20 dosya (`scratchpad/_eposta_depo.cjs`,
+> sayı kilitli) + R2 (`_eposta_r2.cjs`, kuru→`--yaz --bekle 12`, yedek `_content.R2.eposta.bak.json`) + store cache
+> **v98-faq-ar → v99-eposta**. `lib/email.ts` tarihçe yorumları KORUNDU (3 satır satis@ kasıtlı), kod varsayılanları
+> (`contactEmail`, replyTo yedeği) sales@. Bayi listesindeki `satis@mc2enerji.com` bayinin kendi adresi — DOKUNULMADI.
+> Canlı doğrulama: 13 sayfa + 3 API satis@bemis **0**, sales@ her yerde; /iletisim 4 mailto; JSON-LD `email` sales@.
+> ⚠️ Ek bulgu: Vercel `SMTP_HOST=" smtp.gmail.com"` (baştaki boşluk) → `lib/email.ts` yedek yol trim etmiyordu (admin test rotası
+> ediyordu → test geçer, gerçek yedek düşerdi) → kodda `?.trim()` (0b4e584). Env değeri düzeltilmedi (kod artık tolere ediyor).
+> Mail yolu: Resend birincil (`RESEND_FROM_EMAIL` noreply@bemisevcharge.com) → SMTP Gmail yedek (`SMTP_USER` sales@).
+> 📌 Kullanıcının adım 3'ü hâlâ açık: admin → İletişim → "Test e-postası gönder" + /iletisim'den gerçek deneme → **sales@** kutusu.
+
 > 🍪✅ **GÖRSEL/KALİTE DENETİMİ TEMİZ + ÇEREZ KUTUSU 6 DİL + KATEGORİ ALT METNİ (2026-09-05, commit 325d65e):** Kullanıcı
 > "görsellerde/genel kalitede düşüş oldu mu" diye sordu → ÖLÇÜLDÜ, gerileme YOK: 4 sayfa (liste/wallbox/dc-units/kablo ürünü)
 > × 6 dil görsel kümesi birebir aynı (adres · width/height/loading/sizes · alt · og:image); bu oturumun kod farkında görsel
