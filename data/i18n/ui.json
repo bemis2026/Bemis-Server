@@ -2791,5 +2791,82 @@
   "ar": "مراقبة لحظية وشحن مجدول وتفويض المستخدمين وRFID وتقارير — عبر تطبيق الجوال ولوحة الويب من Bemis E-V Charge.",
   "ru": "Мониторинг в реальном времени, зарядка по расписанию, авторизация пользователей, RFID и отчётность — через мобильное приложение и веб-панель Bemis E-V Charge.",
   "nl": "Realtime bewaking, gepland laden, gebruikersautorisatie, RFID en rapportage — via de mobiele app en het webpaneel van Bemis E-V Charge."
+ },
+ "About cookies": {
+  "de": "Über Cookies",
+  "es": "Sobre las cookies",
+  "ar": "حول ملفات تعريف الارتباط",
+  "ru": "О файлах cookie",
+  "nl": "Over cookies"
+ },
+ "We use cookies to improve your experience and analyse our traffic. If you choose necessary cookies only, no analytics or statistics tracking takes place — your data protection rights (KVKK/GDPR) are reserved.": {
+  "de": "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern und unseren Traffic zu analysieren. Wenn Sie nur notwendige Cookies wählen, findet kein Analytics- oder Statistik-Tracking statt — Ihre Datenschutzrechte (KVKK/DSGVO) bleiben gewahrt.",
+  "es": "Utilizamos cookies para mejorar su experiencia y analizar el tráfico. Si elige solo las cookies necesarias, no se realiza ningún seguimiento analítico ni estadístico — sus derechos de protección de datos (KVKK/RGPD) quedan reservados.",
+  "ar": "نستخدم ملفات تعريف الارتباط لتحسين تجربتك وتحليل حركة الزيارات. إذا اخترت الملفات الضرورية فقط، فلن يتم أي تتبع تحليلي أو إحصائي — وتبقى حقوقك في حماية البيانات (KVKK/GDPR) محفوظة.",
+  "ru": "Мы используем файлы cookie, чтобы улучшить ваш опыт и анализировать трафик. Если вы выберете только необходимые cookie, аналитика и статистика отслеживаться не будут — ваши права на защиту данных (KVKK/GDPR) сохраняются.",
+  "nl": "Wij gebruiken cookies om uw ervaring te verbeteren en ons verkeer te analyseren. Kiest u alleen noodzakelijke cookies, dan vindt er geen analytics- of statistiektracking plaats — uw gegevensbeschermingsrechten (KVKK/AVG) blijven behouden."
+ },
+ "Hide details": {
+  "de": "Details ausblenden",
+  "es": "Ocultar detalles",
+  "ar": "إخفاء التفاصيل",
+  "ru": "Скрыть подробности",
+  "nl": "Details verbergen"
+ },
+ "Necessary cookies:": {
+  "de": "Notwendige Cookies:",
+  "es": "Cookies necesarias:",
+  "ar": "ملفات تعريف الارتباط الضرورية:",
+  "ru": "Необходимые cookie:",
+  "nl": "Noodzakelijke cookies:"
+ },
+ "session, admin login and language preference — required for the site to work. Used without your consent (legal exemption).": {
+  "de": "Sitzung, Admin-Login und Spracheinstellung — für den Betrieb der Website erforderlich. Werden auch ohne Ihre Einwilligung verwendet (gesetzliche Ausnahme).",
+  "es": "sesión, acceso de administrador y preferencia de idioma — necesarias para el funcionamiento del sitio. Se usan sin su consentimiento (excepción legal).",
+  "ar": "الجلسة وتسجيل دخول المسؤول وتفضيل اللغة — ضرورية لعمل الموقع. تُستخدم دون موافقتك (استثناء قانوني).",
+  "ru": "сессия, вход администратора и языковые настройки — необходимы для работы сайта. Используются без вашего согласия (законное исключение).",
+  "nl": "sessie, beheerderslogin en taalvoorkeur — nodig om de site te laten werken. Worden ook zonder uw toestemming gebruikt (wettelijke uitzondering)."
+ },
+ "Analytics cookies:": {
+  "de": "Analyse-Cookies:",
+  "es": "Cookies analíticas:",
+  "ar": "ملفات تعريف الارتباط التحليلية:",
+  "ru": "Аналитические cookie:",
+  "nl": "Analytische cookies:"
+ },
+ "Google Analytics 4 — collects anonymous visit, page view and traffic source data. Runs only if you accept.": {
+  "de": "Google Analytics 4 — erfasst anonyme Besuchs-, Seitenaufruf- und Traffic-Quellen-Daten. Läuft nur, wenn Sie zustimmen.",
+  "es": "Google Analytics 4 — recopila datos anónimos de visitas, páginas vistas y fuentes de tráfico. Solo funciona si acepta.",
+  "ar": "Google Analytics 4 — يجمع بيانات مجهولة عن الزيارات ومشاهدات الصفحات ومصادر الزيارات. يعمل فقط إذا وافقت.",
+  "ru": "Google Analytics 4 — собирает анонимные данные о посещениях, просмотрах страниц и источниках трафика. Работает только при вашем согласии.",
+  "nl": "Google Analytics 4 — verzamelt anonieme gegevens over bezoeken, paginaweergaven en verkeersbronnen. Werkt alleen als u akkoord gaat."
+ },
+ "Your rights:": {
+  "de": "Ihre Rechte:",
+  "es": "Sus derechos:",
+  "ar": "حقوقك:",
+  "ru": "Ваши права:",
+  "nl": "Uw rechten:"
+ },
+ "To access, correct or delete your personal data (KVKK/GDPR), write to": {
+  "de": "Für Auskunft, Berichtigung oder Löschung Ihrer Daten (KVKK/DSGVO) schreiben Sie an",
+  "es": "Para acceder, corregir o eliminar sus datos (KVKK/RGPD), escriba a",
+  "ar": "للوصول إلى بياناتك أو تصحيحها أو حذفها (KVKK/GDPR)، راسلنا على",
+  "ru": "Чтобы получить доступ к своим данным, исправить или удалить их (KVKK/GDPR), напишите на",
+  "nl": "Om uw gegevens in te zien, te corrigeren of te verwijderen (KVKK/AVG), schrijft u naar"
+ },
+ "Necessary only": {
+  "de": "Nur notwendige",
+  "es": "Solo necesarias",
+  "ar": "الضرورية فقط",
+  "ru": "Только необходимые",
+  "nl": "Alleen noodzakelijke"
+ },
+ "Accept all": {
+  "de": "Alle akzeptieren",
+  "es": "Aceptar todo",
+  "ar": "قبول الكل",
+  "ru": "Принять все",
+  "nl": "Alles accepteren"
  }
 }

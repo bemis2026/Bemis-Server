@@ -269,7 +269,7 @@ export default function ProductCategoryPage({
             {/* Metin DİKEY ALTA hizalı — görselin alt kenarına yakın otursun
                 (kullanıcı: "başlık/açıklamayı hero görselin altına yakın, ortada değil"). */}
             <div className="relative overflow-hidden rounded-3xl min-h-[320px] lg:min-h-[420px] flex items-end">
-              <Image src={descImage} alt={category.name} fill sizes="(max-width: 1024px) 100vw, 1600px" quality={95} className="object-cover" style={{ objectPosition: heroFocus }} priority />
+              <Image src={descImage} alt={titleOverride || category.name} fill sizes="(max-width: 1024px) 100vw, 1600px" quality={95} className="object-cover" style={{ objectPosition: heroFocus }} priority />
               {/* Perde (scrim). ⚠️ Gradyan globals.css'te `.cat-hero-scrim` içinde:
                   MOBİLDE daha şeffaf. Neden: masaüstünde metin geniş alana yayıldığı
                   için soldan sağa koyu perde gerekli; mobilde ise kart darken metin
@@ -368,7 +368,7 @@ export default function ProductCategoryPage({
                 {/* Sahne/foto görseller kareyi TAM doldurur (object-cover).
                     Ürün-görselli (şeffaf PNG, charger-equipment) beyaz zeminde
                     object-contain ile tam görünür (kırpılmaz). Çerçeve her kategoride aynı. */}
-                <Image src={descImage} alt={category.name} fill sizes="(max-width: 1024px) 100vw, 440px" quality={90} className={whiteHero ? "object-contain p-6" : "object-cover"} style={{ objectPosition: "center" }} priority />
+                <Image src={descImage} alt={titleOverride || category.name} fill sizes="(max-width: 1024px) 100vw, 440px" quality={90} className={whiteHero ? "object-contain p-6" : "object-cover"} style={{ objectPosition: "center" }} priority />
               </div>
             </motion.div>
           )}
