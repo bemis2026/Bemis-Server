@@ -13,6 +13,24 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🍪✅ **GÖRSEL/KALİTE DENETİMİ TEMİZ + ÇEREZ KUTUSU 6 DİL + KATEGORİ ALT METNİ (2026-09-05, commit 325d65e):** Kullanıcı
+> "görsellerde/genel kalitede düşüş oldu mu" diye sordu → ÖLÇÜLDÜ, gerileme YOK: 4 sayfa (liste/wallbox/dc-units/kablo ürünü)
+> × 6 dil görsel kümesi birebir aynı (adres · width/height/loading/sizes · alt · og:image); bu oturumun kod farkında görsel
+> çizimine dokunan tek değişiklik og:image optimizasyonu (ürün sayfalarında `/_next/image?…&w=1080&q=88`, canlı 200, ~230 KB);
+> ham 4,6 MB Cloudinary PNG ziyaretçiye AVIF ~240 KB iniyor (q 88/90/95 korunmuş); bekçi `SITE OK`. Kontrol betiği
+> `scratchpad/_gorsel_kiyas.cjs` (+`_gorsel_kiyas2.cjs`). **Eski 3 boşluk bulundu, kullanıcı 2'sini seçti:**
+> (1) **Çerez kutusu her yabancı dilde Türkçeydi** (/en dahil — `CookieConsent.tsx`'te dil desteği hiç yoktu) → `useLanguage`
+> + `pickText`, 11 anahtar × 5 dil ui.json'a ("Details" zaten vardı, yeniden kullanıldı); TR metni birebir eski hali
+> (`" adresine yazabilirsiniz."` / `"."` hilesiyle mailto cümlesi dil-bağımsız). Canlı doğrulandı (tarayıcı): nl "Over cookies /
+> Alles accepteren", de "Über Cookies / Alle akzeptieren", en "About cookies / Accept all", tr değişmedi.
+> (2) **Kategori kapak görseli `alt`** `category.name` (TR kilitli) idi → `titleOverride || category.name` (H1 ile aynı dil;
+> TR sayfası titleOverride geçirmiyor → TR alt aynı). (3) **YAPILMADI (seçilmedi):** varsayılan og:image
+> (`app/opengraph-image.tsx`; anasayfa/liste/kategori) 1,18 MB PNG — bazı paylaşım uygulamaları büyük görseli atlayabilir.
+> Not: anasayfada 1 ham Cloudinary jpg (vitrin, 81 KB, next/image dışında) — önemsiz. ⚠️ **Araç dersleri:** `vercel ls
+> --limit` YOK; `vercel inspect` çıktısı **stderr** → `2>&1` şart (2>/dev/null ile bekleme döngüsü 9 dk kör kaldı);
+> `ui.json` **1 boşluk girinti + CRLF** → `JSON.stringify(x, null, 1)` (2 boşluk yazınca tüm dosya fark gösterdi, `-w` ile
+> ayırt edildi); Bash aracında uzun Node heredoc'u yine kırıldı → betiği **Write** ile yaz, Bash ile çalıştır.
+
 > 🇸🇦✅ **AR SSS'LERİ DE YENİDEN ÇEVRİLDİ — 5 YABANCI DİLİN TAMAMI HİZALI (2026-09-04 gece, commit 04e7da0):** 49 çift TR
 > kaynaktan Arapçaya (`scratchpad/_faq_ar.json`), ön kontrol: sayı TR ile eşit · Arapça harf var · TR karakter 0 · sayısal
 > parmak izi uyarısı 0 (ilk kuru çalıştırmada "2 yıl"ı yazıyla yazmışım → rakamla düzeltildi). R2 `_translations.ar` +
