@@ -88,7 +88,7 @@ export default function CookieConsent() {
                       <span className="text-white/65 font-semibold">{t("Analytics çerezleri:", "Analytics cookies:")}</span> {t("Google Analytics 4 — anonim ziyaret, sayfa görüntüleme, trafik kaynağı verisi toplar. Sadece kabul ederseniz çalışır.", "Google Analytics 4 — collects anonymous visit, page view and traffic source data. Runs only if you accept.")}
                     </p>
                     <p>
-                      <span className="text-white/65 font-semibold">{t("Haklarınız:", "Your rights:")}</span> {t("KVKK kapsamında verilerinize erişme, düzeltme, silme talepleri için", "To access, correct or delete your personal data (KVKK/GDPR), write to")} <a href="mailto:satis@bemis.com.tr" className="text-blue-300 hover:underline">satis@bemis.com.tr</a>{t(" adresine yazabilirsiniz.", ".")}
+                      <span className="text-white/65 font-semibold">{t("Haklarınız:", "Your rights:")}</span> {t("KVKK kapsamında verilerinize erişme, düzeltme, silme talepleri için", "To access, correct or delete your personal data (KVKK/GDPR), write to")} <a href="mailto:sales@bemis.com.tr" className="text-blue-300 hover:underline">sales@bemis.com.tr</a>{t(" adresine yazabilirsiniz.", ".")}
                     </p>
                   </div>
                 </motion.div>

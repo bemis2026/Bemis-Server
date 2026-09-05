@@ -3487,7 +3487,7 @@ export default function AdminPage() {
                       label="İletişim E-postası (alt-bilgi)"
                       value={content.emailTemplates?.autoReply?.contactEmail ?? ""}
                       onChange={(v) => updateContent(["emailTemplates", "autoReply", "contactEmail"], v)}
-                      placeholder="satis@bemis.com.tr"
+                      placeholder="sales@bemis.com.tr"
                     />
                     <Field
                       label="Alt Bilgi Notu"

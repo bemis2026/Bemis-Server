@@ -99,6 +99,8 @@ export async function sendEmail({ to, subject, html, replyTo }: SendArgs): Promi
  * ⓘ Çoklu adres yeteneği DURUYOR: env'e virgülle ikinci adres yazmak yeterli.
  * ⚠️ `satis@bemis.com.tr` ile `sales@bemis.com.tr` AYNI KUTU DEĞİLDİR (ölçüldü) —
  * "başvuru gelmiyor" denirse önce hangi kutuya bakıldığını sor.
+ * 2026-09-05 (kullanıcı kararı): sitede GÖRÜNEN adres + kod varsayılanları da `sales@bemis.com.tr`
+ * oldu (CONTACT_TO_EMAIL zaten sales@ idi; satis@ artık müşteriye hiçbir yerde görünmüyor).
  * ⓘ İlk adres BİRİNCİL sayılır (otomatik yanıtın "cevapla" adresi ondan türer).
  */
 export function alicilar(): string[] {
@@ -149,7 +151,7 @@ const DEFAULT_TEMPLATE: Required<AutoReplyTemplate> = {
   quoteHeading: "Tarafımıza İlettiğiniz Mesaj",
   footerNote: "Bu otomatik bir bilgilendirme e-postasıdır. Ek bilgi paylaşmak isterseniz {contactEmail} adresine yazabilirsiniz.",
   companyAddress: "Bursa, Türkiye",
-  contactEmail: "satis@bemis.com.tr",
+  contactEmail: "sales@bemis.com.tr",
 };
 
 function mergeTemplate(t?: AutoReplyTemplate): Required<AutoReplyTemplate> {
@@ -391,7 +393,7 @@ export async function sendAutoReply(opts: {
   // başvurunun düştüğü BİRİNCİL adresten türetilir. Böylece "başvuru bir
   // kutuya, müşterinin cevabı başka kutuya" ayrışması bir daha oluşamaz —
   // 2026-07-31'de tam bu ayrışma oluşmuş ve fark edilmemişti.
-  const replyTo = process.env.REPLY_TO_EMAIL || alicilar()[0] || "satis@bemis.com.tr";
+  const replyTo = process.env.REPLY_TO_EMAIL || alicilar()[0] || "sales@bemis.com.tr";
   const merged = mergeTemplate(opts.template);
   return sendEmail({
     to: opts.toUser,

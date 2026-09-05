@@ -45,7 +45,7 @@ export default function CerezPolitikasiPage() {
         {
           h: "4. Daha Fazla Bilgi",
           p: [
-            "Kişisel verilerin işlenmesine ilişkin ayrıntılar için Gizlilik ve Kişisel Verilerin Korunması Aydınlatma Metni'ne bakabilirsiniz. Sorularınız için: satis@bemis.com.tr",
+            "Kişisel verilerin işlenmesine ilişkin ayrıntılar için Gizlilik ve Kişisel Verilerin Korunması Aydınlatma Metni'ne bakabilirsiniz. Sorularınız için: sales@bemis.com.tr",
           ],
         },
       ]}

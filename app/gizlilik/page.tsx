@@ -25,7 +25,7 @@ export default function GizlilikPage() {
           p: [
             "Bemis Teknik Elektrik A.Ş. (\"Bemis\")",
             "Adres: Bursa OSB, Yeşil Cad. No:31, 16140 Nilüfer / Bursa",
-            "E-posta: satis@bemis.com.tr · Telefon: +90 224 433 02 16",
+            "E-posta: sales@bemis.com.tr · Telefon: +90 224 433 02 16",
           ],
         },
         {
@@ -77,7 +77,7 @@ export default function GizlilikPage() {
           h: "7. KVKK m.11 Kapsamındaki Haklarınız",
           p: [
             "Kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, amacına uygun kullanılıp kullanılmadığını öğrenme, eksik/yanlış işlenmişse düzeltilmesini isteme, silinmesini veya yok edilmesini isteme, aktarıldığı üçüncü kişileri bilme, otomatik sistemlerle analiz sonucu aleyhinize bir sonucun ortaya çıkmasına itiraz etme ve zarara uğramanız hâlinde giderilmesini talep etme haklarına sahipsiniz.",
-            "Başvurularınızı satis@bemis.com.tr adresine veya yukarıdaki posta adresine iletebilirsiniz. Başvurular en geç 30 gün içinde ücretsiz olarak sonuçlandırılır.",
+            "Başvurularınızı sales@bemis.com.tr adresine veya yukarıdaki posta adresine iletebilirsiniz. Başvurular en geç 30 gün içinde ücretsiz olarak sonuçlandırılır.",
           ],
         },
         {

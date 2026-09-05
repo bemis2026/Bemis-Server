@@ -297,7 +297,7 @@ export type SiteContent = {
       quoteHeading?: string;  // Mesaj alıntı başlığı — "Bize Gönderdiğiniz Mesaj"
       footerNote?: string;    // Alt not — "Bu mesaj otomatik gönderilmiştir..."
       companyAddress?: string;// "Bursa, Türkiye"
-      contactEmail?: string;  // İletişim mail'i — "satis@bemis.com.tr"
+      contactEmail?: string;  // İletişim mail'i — "sales@bemis.com.tr"
     };
   };
   dna: {
@@ -499,7 +499,7 @@ const defaultContent: SiteContent = {
     { categoryId: "cables",   productId: "dc-cable",     badge: "Profesyonel DC",       highlight: "350 kW · CCS2 · CHAdeMO · Aktif su soğutmalı 500A model.", visible: true },
   ],
   contact: {
-    phone: "+90 (224) 000 00 00", email: "satis@bemis.com.tr",
+    phone: "+90 (224) 000 00 00", email: "sales@bemis.com.tr",
     address: "Bursa Organize Sanayi Bölgesi", addressSub: "Nilüfer / Bursa, Türkiye",
     workingHours: "08:30 — 17:30", workingDays: "Pazartesi — Cuma",
     whatsappPhone: "", whatsappMessage: "Merhaba, Bemis E-V Charge ürünleri hakkında bilgi almak istiyorum.",
@@ -526,7 +526,7 @@ const defaultContent: SiteContent = {
       quoteHeading: "Tarafımıza İlettiğiniz Mesaj",
       footerNote: "Bu otomatik bir bilgilendirme e-postasıdır. Ek bilgi paylaşmak isterseniz {contactEmail} adresine yazabilirsiniz.",
       companyAddress: "Bursa, Türkiye",
-      contactEmail: "satis@bemis.com.tr",
+      contactEmail: "sales@bemis.com.tr",
     },
   },
   dna: {

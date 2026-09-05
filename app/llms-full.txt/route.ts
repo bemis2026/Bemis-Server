@@ -71,7 +71,7 @@ Bemis E-V Charge, Türkiye'de yerli olarak elektrikli araç (EV) şarj çözüml
 
 Bemis, ürünlerini 60+ ülkeye ihraç eden, AB'ye komşu (EU-adjacent) bir üreticidir; OEM / ODM / özel etiket (private label) üretim yapar. Type 2 / Mode 3 (IEC 62196) kablolar, AC wallbox, DC hızlı şarj ve adaptörler. İngilizce ihracat sayfası: /export.
 
-İletişim: Yeşil Cad. No:31, 16140 Bursa, Türkiye · Tel +90 224 433 02 16 · satis@bemis.com.tr`);
+İletişim: Yeşil Cad. No:31, 16140 Bursa, Türkiye · Tel +90 224 433 02 16 · sales@bemis.com.tr`);
 
   p.push(`# Sözlük — Elektrikli Araç Şarj Terimleri`);
   for (const t of GLOSSARY) {

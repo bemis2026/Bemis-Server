@@ -108,13 +108,13 @@ export type AggregateReviewInput = {
 // boş gelse bile Organization'da contactPoint + PostalAddress ASLA boş kalmaz
 // (GEO/AEO + yerel SEO entity sinyali — sameAs baseline'ı ile aynı mantık).
 const ORG_PHONE = "+90 224 433 02 16";
-// ⚠️ 2026-07-31: sitede görünen yurt içi iletişim e-postası satis@bemis.com.tr
+// ⚠️ 2026-07-31 satis@ → 2026-09-05 sales@ (kullanıcı kararı): sitede görünen iletişim e-postası sales@bemis.com.tr
 // oldu; yapısal veri (Google'a giden Organization/LocalBusiness şeması) görünen
 // içerikle AYNI olmalı — aksi halde ad-adres-telefon tutarsızlığı sinyali doğar.
 // 📌 Google İşletme Profili'ndeki e-posta da bununla eşitlenmeli (kullanıcı tarafı).
 // Dış ticaret adresi (trade@) BİLEREK şemaya girmez: şema kanonik kurumsal
 // kimliği taşır, dile göre değişmez.
-const ORG_EMAIL = "satis@bemis.com.tr";
+const ORG_EMAIL = "sales@bemis.com.tr";
 const ORG_ADDRESS = { street: "Yeşil Cad. No:31", locality: "Bursa", region: "Bursa", postalCode: "16140", country: "TR" } as const;
 // Gerçek işletme koordinatı (GBP pin — Nilüfer/OSB Bursa, kullanıcı verdi). LocalBusiness geo tek kaynağı.
 export const ORG_GEO = { lat: 40.245558, lng: 28.945849 } as const;

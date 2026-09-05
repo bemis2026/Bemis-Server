@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   // onlarda tam ad kalır.
   title: "İletişim",
   description:
-    "Bemis E-V Charge iletişim: Yeşil Cad. No:31, 16140 Bursa. Tel +90 224 433 02 16, e-posta satis@bemis.com.tr. Ürün, bayilik ve teklif talepleri için ulaşın.",
+    "Bemis E-V Charge iletişim: Yeşil Cad. No:31, 16140 Bursa. Tel +90 224 433 02 16, e-posta sales@bemis.com.tr. Ürün, bayilik ve teklif talepleri için ulaşın.",
   keywords: ["bemis iletişim", "bemis bursa", "ev şarj iletişim"],
   alternates: {
     canonical: URL_PATH,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "İletişim | Bemis E-V Charge",
     description:
-      "Bemis E-V Charge iletişim: Yeşil Cad. No:31, 16140 Bursa · +90 224 433 02 16 · satis@bemis.com.tr.",
+      "Bemis E-V Charge iletişim: Yeşil Cad. No:31, 16140 Bursa · +90 224 433 02 16 · sales@bemis.com.tr.",
     type: "website",
     url: URL_PATH,
     images: ogImage("Bemis E-V Charge iletişim — Bursa"),
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "İletişim | Bemis E-V Charge",
     description:
-      "Bemis E-V Charge iletişim: Yeşil Cad. No:31, 16140 Bursa · +90 224 433 02 16 · satis@bemis.com.tr.",
+      "Bemis E-V Charge iletişim: Yeşil Cad. No:31, 16140 Bursa · +90 224 433 02 16 · sales@bemis.com.tr.",
     images: [OG_URL],
   },
 };
@@ -45,7 +45,7 @@ const localBusiness: JsonLdObject = {
   name: "Bemis E-V Charge",
   url: `${SITE}/iletisim`,
   telephone: "+90 224 433 02 16",
-  email: "satis@bemis.com.tr",
+  email: "sales@bemis.com.tr",
   image: OG_URL,
   address: {
     "@type": "PostalAddress",

@@ -76,7 +76,7 @@ Sitede gömülü iki resmi video var; ikisi de Bemis Teknik Elektrik A.Ş. YouTu
 ## İletişim
 
 - Telefon: +90 224 433 02 16
-- E-posta: satis@bemis.com.tr
+- E-posta: sales@bemis.com.tr
 - WhatsApp: +90 533 956 25 46
 - Web: https://www.bemisevcharge.com.tr
 - LinkedIn: https://www.linkedin.com/company/104588906
