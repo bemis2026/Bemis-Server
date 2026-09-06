@@ -13,6 +13,25 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🖼️💸 **CLOUDINARY BANT GENİŞLİĞİ ÇÖZÜLDÜ — "teslim" ADLI DÖNÜŞÜMÜ (2026-09-06, commit bed6961):** Kotanın %46'sı
+> (son 30 gün 11 GB) Vercel'in her önbellek kaçırmasında **ham 1–4,6 MB PNG** çekmesindendi (depolama 605 MB, dönüşüm 55 —
+> yani sorun tamamen bant genişliğiydi). **Hesapta STRICT TRANSFORMATIONS AÇIK** → anlık dönüşüm 401; çözüm ADLI dönüşüm.
+> ⚠️ Kullanıcı önce anahtarları Vercel'e **Sensitive** olarak ekledi → `vercel env pull` değeri **BOŞ** getirdi (`vercel env ls`
+> ikisini de "Encrypted" gösterir, ayırt edilmez) → sonra anahtarları sohbete yapıştırdı, komut satırında env değişkeni olarak
+> kullanıldı. 📌 **Vercel'de okunması gereken anahtar Sensitive İŞARETLENMEZ.** 📌 Gizli anahtar sohbete girdiyse kullanıcıya
+> **yenileme** öner (site bu anahtarı kullanmıyor, yenilemek hiçbir şeyi bozmaz).
+> **Admin API ile yapıldı** (`scratchpad/_cloudinary_teslim.cjs`, kuru→`--yaz`): `POST /transformations/teslim` +
+> `PUT allowed_for_strict=true` → `info=[{format:webp,quality:auto:best,width:3840,crop:limit}]`. **Ölçüm:** canlı API'lerdeki
+> **109 Cloudinary görselinin tamamı 200** (`_teslim_tam_kontrol.cjs`), **208,6 MB → 35,4 MB (5,9x)**; 11 üründe 27,6 MB → 3,63 MB.
+> **KOD (`_gorsel_bagla.cjs`, 28 dosya):** `app/lib/cloudinary.ts` `TESLIM="t_teslim/"` (SVG/GIF ve zaten dönüşümlü adresler
+> dokunulmaz) · yeni `app/components/Img.tsx` sarmalayıcısı, **22 dosyada `import Image from "next/image"` → `…/components/Img`**
+> (göreli yol `path.relative` ile hesaplandı) · `EImage` (DNA içerik görseli, ham `<img>`) · 3 ürün sayfasında og:image kaynağı ·
+> `seo.ts productSchema` JSON-LD görselleri (Googlebot da ham PNG çekiyordu). ⚠️ **Global `images.loaderFile` KULLANMA**
+> (Next 16 next-server.js: `loader !== 'default'` → `/_next/image` kapanır, yerel görseller optimize edilmez) — sarmalayıcı
+> bu yüzden seçildi. ⚠️ **Ürün galerisi ışık kutusu (tam ekran zoom, `ProductDetailClient` ~167) BİLEREK HAM bırakıldı**
+> (kullanıcının "yüklenen görselin kalitesi düşürülmez" kuralı; kullanıcı tıklayınca yüklenir, hacim düşük).
+> ⚠️ `teslim` dönüşümü Cloudinary'den SİLİNİRSE tüm ürün görselleri 401 olur — görsel sorununda ÖNCE bunu kontrol et.
+
 > 📊🧱 **SEO VERİ OKUMASI + 7 BAŞLIK + WALLBOX PAKETİ + 4 REHBER TAZELEME (2026-09-06, commit'ler da56c3b · 01a472b ·
 > 79ed264 · 7c7b2b8):** Kullanıcı GSC/Bing CSV'lerini `Desktop\SEO data\` klasörüne indirdi → `scratchpad/_seo_analiz.cjs` ile
 > okundu; rapor `Desktop\SEO data\Bemis_SEO_Okuma_2026-09-06.md` + taban çizgisi `SEO_taban_cizgisi_2026-09-06.json` (3 hafta
