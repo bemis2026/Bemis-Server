@@ -53,7 +53,7 @@ const DETAIL_FEATURE_ICONS: Record<string, React.ComponentType<{ size?: number; 
 };
 import { HiDownload, HiChevronDown } from "react-icons/hi";
 import { trackEvent } from "../../../components/GoogleAnalytics";
-import Image from "next/image";
+import Image from "../../../components/Img";
 
 type SpecItem  = { label: string; value: string };
 type SpecGroup = { group: string; items: SpecItem[] };

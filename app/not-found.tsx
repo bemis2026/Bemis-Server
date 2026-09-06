@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import Image from "./components/Img";
 import { HiOutlineArrowRight, HiOutlineHome, HiOutlineCube, HiOutlineMail } from "react-icons/hi";
 
 export default function NotFound() {

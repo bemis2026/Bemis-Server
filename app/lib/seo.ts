@@ -1,3 +1,5 @@
+import { cloudinarySrc } from "./cloudinary";
+
 export const SITE_URL = "https://www.bemisevcharge.com.tr";
 export const SITE_NAME = "Bemis E-V Charge";
 export const ORG_LEGAL_NAME = "Bemis Teknik Elektrik A.Ş.";
@@ -388,7 +390,7 @@ export function productSchema(opts: {
   const { product, categoryName, categoryId } = opts;
   const imgs = [product.image, ...(product.images ?? [])]
     .filter((x): x is string => Boolean(x))
-    .map(u => absolute(u))
+    .map(u => absolute(cloudinarySrc(u)))
     .filter((x): x is string => Boolean(x))
     .filter((v, i, arr) => arr.indexOf(v) === i); // dedupe — aynı URL 2 kez olmasın
   const url = `${SITE_URL}${opts.urlPath ?? `/products/${categoryId}/${product.id}`}`;

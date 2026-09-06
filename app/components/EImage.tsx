@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useEditMode, ElementDescriptor } from "../context/EditModeContext";
+import { cloudinarySrc } from "../lib/cloudinary";
 
 interface EImageProps {
   field: string;
@@ -20,6 +21,8 @@ export default function EImage({
   className, style, imgClassName, imgStyle, children,
 }: EImageProps) {
   const { isEditMode, selectElement } = useEditMode();
+  // Cloudinary kaynakları küçük teslim biçiminde iner (bkz. lib/cloudinary.ts).
+  const kaynak = cloudinarySrc(src);
 
   const descriptor: ElementDescriptor = {
     field,
@@ -35,7 +38,7 @@ export default function EImage({
         {src ? (
           // Ekran-dışı içerik görselleri (hero DEĞİL — o next/image) tarayıcıya
           // geldikçe yüklensin → ilk yük + ağ trafiği düşer, LCP etkilenmez.
-          <img src={src} alt={alt} className={imgClassName} style={imgStyle} loading="lazy" decoding="async" />
+          <img src={kaynak} alt={alt} className={imgClassName} style={imgStyle} loading="lazy" decoding="async" />
         ) : (
           <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 6 }}>
             {children}
@@ -54,7 +57,7 @@ export default function EImage({
       title={`Düzenle: ${field}`}
     >
       {src ? (
-        <img src={src} alt={alt} className={imgClassName} style={{ ...imgStyle, pointerEvents: "none" }} />
+        <img src={kaynak} alt={alt} className={imgClassName} style={{ ...imgStyle, pointerEvents: "none" }} />
       ) : (
         <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 6, pointerEvents: "none" }}>
           {children}

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import Image from "../components/Img";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";

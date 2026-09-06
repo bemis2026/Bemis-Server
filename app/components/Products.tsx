@@ -23,7 +23,7 @@ import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
 import E from "./E";
-import Image from "next/image";
+import Image from "./Img";
 
 const categories = [
   {

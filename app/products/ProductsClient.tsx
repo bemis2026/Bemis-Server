@@ -22,7 +22,7 @@ import {
   RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
 } from "react-icons/ri";
 import { HiArrowLeft, HiArrowRight, HiChevronLeft, HiChevronRight } from "react-icons/hi";
-import Image from "next/image";
+import Image from "../components/Img";
 
 type SpecItem    = { label: string; value: string };
 type SpecGroup   = { group: string; items: SpecItem[] };

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX, HiSearch, HiChevronDown } from "react-icons/hi";
 import { HiSun, HiMoon } from "react-icons/hi2";
 import { RiArrowRightLine, RiFileTextLine } from "react-icons/ri";
-import Image from "next/image";
+import Image from "./Img";
 import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";

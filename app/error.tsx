@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "./components/Img";
 import { HiOutlineRefresh, HiOutlineHome, HiOutlineExclamation } from "react-icons/hi";
 import * as Sentry from "@sentry/nextjs";
 

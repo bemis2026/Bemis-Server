@@ -16,7 +16,7 @@ import {
   RiArrowLeftSLine,
   RiArrowRightSLine,
 } from "react-icons/ri";
-import Image from "next/image";
+import Image from "./Img";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 import { pickText } from "../lib/ui";

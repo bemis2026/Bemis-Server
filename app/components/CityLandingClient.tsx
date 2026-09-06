@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "./Img";
 import { motion } from "framer-motion";
 import { HiChevronDown, HiPhone } from "react-icons/hi";
 import {

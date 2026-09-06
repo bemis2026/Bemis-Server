@@ -9,7 +9,7 @@ import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
 import { useBackgroundVideo, useNearViewport } from "../components/useBackgroundVideo";
-import Image from "next/image";
+import Image from "../components/Img";
 import JsonLd from "../components/JsonLd";
 import { videoObjectSchema, SITE_VIDEOS, SITE_URL } from "../lib/seo";
 import {

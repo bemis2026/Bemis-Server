@@ -1,5 +1,6 @@
 import type { ComponentProps } from "react";
 import type { Metadata } from "next";
+import { cloudinarySrc } from "../../../lib/cloudinary";
 import JsonLd from "../../../components/JsonLd";
 import { breadcrumbSchema, productSchema, productMetaTitle, productMetaDescription, productKeywords, ogImage, OG_URL, SITE_URL, reviewsForProduct, type ReviewShape } from "../../../lib/seo";
 import { getServerProducts, getServerCategoriesMeta, getServerSiteContent } from "../../../lib/server-content";
@@ -56,7 +57,7 @@ export async function generateMetadata({
   // (12/12 üründe, ort. 2,3 MB) → WhatsApp/LinkedIn her paylaşımda bunu indiriyordu.
   // Aynı görsel Next optimizer'dan geçer (~50 KB); w=1080 next.config deviceSizes'ta
   // OLMALI (1200 listede yok → 400 dönerdi). Scraper Accept'e göre PNG/WebP alır.
-  const ogImg = image ? `${SITE_URL}/_next/image?url=${encodeURIComponent(image)}&w=1080&q=88` : undefined;
+  const ogImg = image ? `${SITE_URL}/_next/image?url=${encodeURIComponent(cloudinarySrc(image))}&w=1080&q=88` : undefined;
   return {
     title,
     description,

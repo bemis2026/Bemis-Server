@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { RiLinkedinFill, RiInstagramLine, RiYoutubeFill, RiFacebookFill } from "react-icons/ri";
 import { HiPhone, HiMail } from "react-icons/hi";
-import Image from "next/image";
+import Image from "./Img";
 import { useRouter } from "next/navigation";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";

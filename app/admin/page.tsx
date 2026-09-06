@@ -71,7 +71,7 @@ import {
   HiDotsVertical,
 } from "react-icons/hi";
 import { RiImageAddLine } from "react-icons/ri";
-import Image from "next/image";
+import Image from "../components/Img";
 import DocumentsPanel from "./panels/DocumentsPanel";
 import ChangelogPanel from "./panels/ChangelogPanel";
 import AnalyticsPanel from "./panels/AnalyticsPanel";

@@ -7,7 +7,7 @@ import { useTheme } from "../context/ThemeContext";
 import { accentInk } from "../lib/accentInk";
 import { useContent } from "../context/ContentContext";
 import { useUiStrings, type UiStringKey } from "../../lib/uiStrings";
-import Image from "next/image";
+import Image from "./Img";
 
 // ── EV model database ────────────────────────────────────────────────────────
 

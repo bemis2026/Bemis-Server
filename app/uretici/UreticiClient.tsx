@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "../components/Img";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { HiChevronDown } from "react-icons/hi";
 import { useTheme } from "../context/ThemeContext";

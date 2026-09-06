@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { cloudinarySrc } from "../../../../lib/cloudinary";
 import JsonLd from "../../../../components/JsonLd";
 import { breadcrumbSchema, productSchema, ogImage, OG_URL, SITE_URL, reviewsForProduct, type ReviewShape } from "../../../../lib/seo";
 import type { ComponentProps } from "react";
@@ -53,7 +54,7 @@ export async function generateMetadata({
   const trPath = `/products/${id}/${productId}`;
   const image = product.image || product.images?.[0];
   // og:image optimize — TR ürün sayfasıyla aynı gerekçe (ham PNG 1–4 MB → ~50 KB). w=1080 deviceSizes'ta.
-  const ogImg = image ? `${SITE_URL}/_next/image?url=${encodeURIComponent(image)}&w=1080&q=88` : undefined;
+  const ogImg = image ? `${SITE_URL}/_next/image?url=${encodeURIComponent(cloudinarySrc(image))}&w=1080&q=88` : undefined;
   const enName = productNameEn(product.name);
   return {
     title,

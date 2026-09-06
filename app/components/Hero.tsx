@@ -2,7 +2,7 @@
 import { pickText } from "../lib/ui";
 
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import Image from "next/image";
+import Image from "./Img";
 import { HiArrowRight } from "react-icons/hi";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";

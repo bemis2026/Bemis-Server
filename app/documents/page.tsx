@@ -9,7 +9,7 @@ import { useLanguage, type Lang } from "../context/LanguageContext";
 import Navbar from "../components/Navbar";
 import ContactBar from "../components/ContactBar";
 import SearchOverlay from "../components/SearchOverlay";
-import Image from "next/image";
+import Image from "../components/Img";
 import Link from "next/link";
 import {
   HiArrowLeft, HiEye, HiSearch,

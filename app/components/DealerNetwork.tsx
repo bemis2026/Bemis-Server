@@ -10,7 +10,7 @@ import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 import { pickText } from "../lib/ui";
 import E from "./E";
-import Image from "next/image";
+import Image from "./Img";
 import { CITY_BY_ID } from "../../lib/turkeyCities";
 import { tierColor, tierLabel } from "../../lib/dealerTiers";
 import InternationalGlobe from "./InternationalGlobe";

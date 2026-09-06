@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { cloudinarySrc } from "../../../../lib/cloudinary";
 import type { ComponentProps } from "react";
 import { notFound } from "next/navigation";
 import JsonLd from "../../../../components/JsonLd";
@@ -44,7 +45,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const canonical = `/${L}/products/${id}/${productId}`;
   const image = product.image || product.images?.[0];
   // og:image optimize — TR/EN ürün sayfasıyla aynı (ham PNG 1–4 MB → ~200 KB; w=1080 deviceSizes'ta).
-  const ogImg = image ? `${SITE_URL}/_next/image?url=${encodeURIComponent(image)}&w=1080&q=88` : undefined;
+  const ogImg = image ? `${SITE_URL}/_next/image?url=${encodeURIComponent(cloudinarySrc(image))}&w=1080&q=88` : undefined;
   return {
     title,
     description,

@@ -18,7 +18,7 @@ import {
   RiDashboard3Line, RiHammerLine, RiEqualizerLine, RiToolsLine, RiBluetoothLine,
 } from "react-icons/ri";
 import { featureById } from "../../lib/productFeatures";
-import Image from "next/image";
+import Image from "./Img";
 import E from "./E";
 import { accentInk } from "../lib/accentInk";
 

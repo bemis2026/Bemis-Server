@@ -22,7 +22,7 @@ import {
   RiPlugLine, RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
   RiRulerLine,
 } from "react-icons/ri";
-import Image from "next/image";
+import Image from "../../components/Img";
 import { ProductGridSkeleton } from "../../components/ProductCardSkeleton";
 import { categoryH1 } from "../../lib/seo";
 
