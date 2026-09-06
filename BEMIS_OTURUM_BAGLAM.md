@@ -46,7 +46,7 @@
 > `loader !== 'default'` → /_next/image kapanır, yerel görseller optimize edilmez). Dosyalar depoda **untracked** duruyor
 > (commit edilmedi). Yayın öncesi `t_teslim` HEAD 200 şart, yoksa tüm görseller 401.
 > **Araç dersleri:** `node -e` içinde kesme işareti ("env'de") ve `\b` regex kaçışları kabuğu kırıyor → Write ile dosya;
-> GSC "Sorgular" dışa aktarımı gösterimlerin ~1/3'ünü listeler (gizlilik filtresi) → sayfa/sorgu toplamları eşleşmez.
+> GSC "Sorgular" dışa aktarımı gösterimlerin ~1/3'ünü listeler (gizlilik filtresi) → sayfa/sorgu toplamları eşleşmez. **IndexNow:** 20 değişen adres 3/3 uç noktaya 200 (`_indexnow_gonder.cjs`, ⚠️ Git Bash `/yol` argümanlarını Windows yoluna çevirir → `MSYS_NO_PATHCONV=1`; 422 "not related to your verified domain" bu yüzdendi, Yandex `invalidUrlList` ele verdi).
 
 > 📧✅ **E-POSTA: satis@ → sales@bemis.com.tr HER YERDE (2026-09-05, commit c04cdab + 0b4e584):** Kullanıcı "mailler
 > sales@'e düşsün" dedi → ölçüm: Vercel prod `CONTACT_TO_EMAIL` **zaten sales@** idi (form bildirimleri oraya gidiyordu; benim
