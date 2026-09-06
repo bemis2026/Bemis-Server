@@ -355,7 +355,7 @@ export const POSTS_INDEX: PostIndexItem[] = [
   },
   {
     "slug": "ac-dc-sarj-farki",
-    "title": "AC ve DC Şarj Arasındaki Fark Nedir? Ev ve İstasyon Rehberi",
+    "title": "AC Şarj Nedir, DC Şarj Nedir? Aradaki Fark ve Ev–İstasyon Kullanımı",
     "titleI18n": {
       "en": "What Is the Difference Between AC and DC Charging? A Home and Station Guide",
       "de": "Was ist der Unterschied zwischen AC- und DC-Laden? Ratgeber für Zuhause und Station",

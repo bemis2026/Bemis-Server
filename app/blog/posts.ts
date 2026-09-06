@@ -2819,7 +2819,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Ev, site veya iş yerine elektrikli araç şarj istasyonu nasıl kurulur? Planlamadan izinlere, altyapıdan cihaz seçimine ve devreye almaya kadar tüm adımları tek rehberde topladık.",
     category: "Rehber",
     datePublished: "2026-06-27",
-    dateModified: "2026-06-27",
+    dateModified: "2026-09-06",
     readingMinutes: 10,
     keywords: [
       "elektrikli araç şarj istasyonu kurulumu",
@@ -2889,6 +2889,14 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "figure", ...DIAGRAM_DLM },
       { type: "h2", text: "Kurulum adımları nelerdir?" },
       { type: "p", text: "İzinler ve plan hazır olduğunda fiziki kurulum genellikle kısa sürer. Tipik bir kurulum şu sırayla ilerler: yetkili elektrikçi keşif yapar ve montaj noktasını belirler; panodan cihaza ayrı besleme hattı çekilir; kaçak akım ve aşırı akım koruması panoya eklenir; cihaz duvara veya ayağa sabitlenir ve kablolaması yapılır; topraklama bağlanır. Son olarak cihaz çalıştırılıp test edilir ve gerekiyorsa OCPP/yönetim yazılımına tanımlanır." },
+      { type: "ul", items: [
+        "1. Keşif: yetkili bayi veya elektrikçi panoyu, ana sigortayı, faz durumunu (monofaze/trifaze), cihaz konumunu ve hat mesafesini belirler.",
+        "2. İzin ve sayaç planı: müstakil evde genellikle gerekmez; apartman ve sitede yönetim onayı, kendi sayaç veya ortak sayaç kararı.",
+        "3. Hat çekimi: ana panodan cihaza ayrı hat; 7,4 kW için 1×32A monofaze, 11 kW için 3×16A, 22 kW için 3×32A trifaze sigorta; mesafeye göre kablo kesiti.",
+        "4. Kaçak akım koruması: DC kaçak bileşenini algılayan koruma (cihaz içi 6 mA DC algılama ile Tip A röle ya da Tip B röle) tesisatçı tarafından seçilir.",
+        "5. Montaj: cihaz duvara sabitlenir; IP65 gövde dış mekânda ek kabin istemez; kablolu modelde kablo askısı, soketli modelde soket yönü planlanır.",
+        "6. Devreye alma ve test: faz sırası, topraklama ve kaçak akım testi; Wi-Fi/uygulama eşleştirmesi, RFID kart tanımı; araçla test şarjı ve gücün doğrulanması.",
+      ]},
       { type: "table", caption: "Kurulum yerine göre dikkat edilmesi gerekenler", headers: ["Kurulum yeri", "Dikkat edilmesi gerekenler"], rows: [
         ["Müstakil ev / garaj", "Ayrı hat + RCD; genelde ek izin gerekmez; tek faz ise 7,4 kW tipik."],
         ["Apartman / site otoparkı", "Kat malikleri kararı; ortak hattan tüketim ayrımı (ayrı sayaç / RFID); IP65-66; çok noktada yük yönetimi."],
@@ -2911,6 +2919,8 @@ export const BLOG_POSTS: BlogPost[] = [
       { "q": "Şarj istasyonunu kim kurmalı ve devreye almalıdır?", "a": "Şarj istasyonu kurulumu elektrik tesisatına müdahale gerektiren ve sürekli yüksek akım taşıyan bir iştir; bu nedenle mutlaka yetkili bir elektrikçi veya yetkili servis tarafından yapılmalıdır. Yetkisiz bir montaj yangın, elektrik çarpması ve cihaz arızası riski taşır, garanti kapsamını da etkileyebilir. Yetkili kurulum; kablo kesitinin doğru hesaplanmasından koruma elemanlarının seçimine kadar her ayrıntının standartlara uygun olmasını güvence altına alır. Kurulum bittikten sonra cihaz devreye alınır ve test edilir: koruma elemanlarının çalıştığı, topraklamanın sağlam olduğu ve cihazın belirlenen güçte sorunsuz şarj verdiği kontrol edilir. OCPP uyumlu bir kurulumda cihaz ayrıca yönetim yazılımına tanımlanarak uzaktan izleme için hazırlanır." },
     ],
     related: [
+      { label: "Wallbox nedir? Ev tipi şarj istasyonu rehberi", href: "/blog/wallbox-nedir-ev-tipi-sarj-istasyonu-rehberi" },
+      { label: "11 kW mı 22 kW mı? Güç seçimi ve amper hesabı", href: "/blog/11-kw-mi-22-kw-mi-wallbox-guc-secimi-amper-hesabi" },
       { label: "Apartmana / Siteye Şarj İstasyonu Kurulumu", href: "/blog/apartmana-sarj-istasyonu-kurulumu" },
       { label: "İş Yerine Şarj İstasyonu Kurulumu", href: "/blog/is-yerine-sarj-istasyonu-kurulumu" },
       { label: "EV Şarjında Yük Yönetimi", href: "/blog/elektrikli-arac-sarj-yuk-yonetimi" },
@@ -4086,7 +4096,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Ev şarj istasyonu maliyeti cihazdan kuruluma kadar nelere bağlı? Fiyatı belirleyen faktörleri ve yerli üretimin avantajını sade bir rehberde topladık.",
     category: "Rehber",
     datePublished: "2026-06-14",
-    dateModified: "2026-06-27",
+    dateModified: "2026-09-06",
     readingMinutes: 6,
     keywords: ["ev şarj istasyonu maliyeti", "ev şarj cihazı fiyatı", "elektrikli araç şarj maliyeti", "wallbox fiyatı", "evde şarj elektrik gideri"],
     body: [
@@ -4103,6 +4113,9 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "p", text: "Cihaz fiyatının yanında kurulum kalemini de hesaba katın: panodan cihaza kablo çekimi, kaçak akım rölesi (RCD), sigorta ve gerekiyorsa pano güçlendirmesi. Otoparkın panoya uzaklığı ve mevcut tesisatın durumu, kurulum maliyetini en çok etkileyen unsurdur." },
       { type: "h2", text: "6) Üreticiden mi, aracıdan mı?" },
       { type: "p", text: "Cihazı doğrudan üreticisinden almak, aradaki ithalat ve aracı marjını ortadan kaldırarak maliyeti düşürür; ayrıca servis ve yedek parçada beklemezsiniz. Bemis E-V Charge, Bursa'daki tesisinde donanımdan yazılıma kadar üreten yerli bir markadır — bu da hem fiyat hem destek tarafında avantaj sağlar." },
+      { type: "h2", text: "2026'da ev tipi şarj istasyonu fiyatı neye göre değişir?" },
+      { type: "p", text: "Fiyat tek bir etikete indirgenemez; aynı seride kablolu ve soketli sürüm, sabit ve ayarlanabilir güç, GSM modülü ve MID sayaç gibi seçenekler ayrı kalemlerdir. Bemis ürünleri yetkili bayi ağı üzerinden satılır: bayi, keşifte kurulum kalemlerini (hat mesafesi, kablo kesiti, sigorta ve pano işi) netleştirip cihaz ve kurulumu tek teklifte sunar. Karşılaştırma yaparken cihaz fiyatı ile kurulum dahil toplamı ayrı ayrı isteyin; en büyük fark genellikle kurulum tarafında çıkar." },
+      { type: "cta", text: "Size en yakın yetkili bayiden keşif ve kurulum dahil teklif alın.", href: "/#dealer", label: "Bayi bul" },
       { type: "h2", text: "Peki elektrik gideri ne kadar?" },
       { type: "p", text: "Cihaz tek seferlik bir yatırımdır; asıl tekrar eden gider şarj için harcanan elektriktir. Aracınızın 100 km'de tükettiği kWh ile evdeki birim elektrik fiyatını çarparak yaklaşık km maliyetinizi bulabilirsiniz. Evde gece şarjı, halka açık DC hızlı şarja göre genellikle belirgin biçimde daha ekonomiktir." },
       { type: "cta", text: "Ev ve iş yeri için yerli üretim AC Wallbox modellerini inceleyin, teklif alın.", href: "/products/wallbox", label: "AC Wallbox Modelleri" },
@@ -4115,6 +4128,8 @@ export const BLOG_POSTS: BlogPost[] = [
       { "q": "Akıllı şarj cihazı ile temel cihaz arasındaki fiyat farkı neden kaynaklanır?", "a": "Temel bir cihaz yalnızca şarj eder; akıllı bir cihaz ise uygulamadan kontrol, kullanıcı tanımlama (RFID), uzaktan izleme ve OCPP ile yük yönetimi gibi özellikler sunar. Bu yetenekler cihazın sınıfını ve dolayısıyla fiyatını belirler. Ev kullanıcısı için çoğu zaman temel veya orta seviye bir cihaz yeterli olabilir. Ancak site ve iş yeri kurulumlarında akıllı özellikler neredeyse zorunludur; çünkü kullanıcı bazlı faturalandırma, uzaktan izleme ve mevcut elektrik kapasitesini paylaştıran yük yönetimi bu özelliklerle mümkün olur. İhtiyacı doğru belirlemek, gereksiz özelliğe ödeme yapmayı önler." }
     ],
     related: [
+      { label: "Wallbox nedir? Ev tipi şarj istasyonu rehberi", href: "/blog/wallbox-nedir-ev-tipi-sarj-istasyonu-rehberi" },
+      { label: "11 kW mı 22 kW mı? Güç seçimi ve amper hesabı", href: "/blog/11-kw-mi-22-kw-mi-wallbox-guc-secimi-amper-hesabi" },
       { label: "Şehir Şehir EV Şarj Rehberi", href: "/blog/turkiye-sehir-sehir-ev-sarj-rehberi" },
       { label: "Şarj Cihazı Nasıl Seçilir?", href: "/blog/ev-icin-sarj-cihazi-nasil-secilir" },
       { label: "AC mı DC mi?", href: "/blog/ac-dc-sarj-farki" },
@@ -4193,17 +4208,18 @@ export const BLOG_POSTS: BlogPost[] = [
 
   {
     slug: "ac-dc-sarj-farki",
-    title: "AC ve DC Şarj Arasındaki Fark Nedir? Ev ve İstasyon Rehberi",
+    title: "AC Şarj Nedir, DC Şarj Nedir? Aradaki Fark ve Ev–İstasyon Kullanımı",
     metaTitle: "AC Şarj Nedir, DC Şarj Nedir? Aradaki Fark",
     description: "AC şarj nedir, DC şarj nedir? Dönüşümün nerede yapıldığı, hız farkının nedeni, ev–istasyon kullanımı ve hangi durumda hangisinin doğru seçim olduğu — sade anlatım.",
     excerpt:
       "AC mı DC mi? İkisinin nasıl çalıştığını, hız ve maliyet farkını ve ev/istasyon için hangisinin doğru olduğunu basitçe açıklıyoruz.",
     category: "Rehber",
     datePublished: "2026-06-06",
-    dateModified: "2026-06-27",
+    dateModified: "2026-09-06",
     readingMinutes: 5,
     keywords: ["ac dc şarj farkı", "ac şarj nedir", "dc hızlı şarj", "elektrikli araç şarj türleri"],
     body: [
+      { type: "p", text: "AC şarj, şebekeden gelen alternatif akımın aracın içindeki şarj birimi (onboard charger) tarafından doğru akıma çevrilerek bataryaya verilmesidir; evde ve iş yerinde kullanılan wallbox ve taşınabilir şarj cihazları AC şarj yapar, gücü 3,7–22 kW arasındadır. DC şarj ise dönüşümün istasyonun içinde yapılıp bataryaya doğrudan doğru akım verilmesidir; yol üstü hızlı şarj istasyonları 40–200 kW ve üzeri güçle çalışır. Fark, dönüşümün nerede yapıldığı ve buna bağlı hız ile maliyettir." },
       { type: "p", text: "Elektrikli araç şarjında en sık karışan konu AC ve DC ayrımıdır. İkisi de aynı amaca hizmet eder — bataryayı doldurmak — ama çalışma şekilleri, hızları ve kullanım yerleri tamamen farklıdır. Bu rehber, doğru cihazı seçebilmeniz için ikisini sade bir dille karşılaştırıyor." },
 
       { type: "figure", alt: "AC ve DC şarjda akım dönüşümünün nerede yapıldığını gösteren diyagram: AC şarjda alternatif akımın doğru akıma dönüşümü araç içindeki onboard charger'da, DC hızlı şarjda ise istasyon içindeki çeviricide yapılır.", caption: "AC'de dönüşümü araç (onboard charger), DC'de istasyon yapar — DC bu yüzden çok daha yüksek güce çıkabilir.", svg: "<svg viewBox='0 0 660 212' xmlns='http://www.w3.org/2000/svg' style='width:100%;max-width:660px;height:auto' font-family='inherit'><title>AC ve DC şarjda akım dönüşümünün nerede yapıldığı</title><defs><marker id='acdcAr' markerWidth='9' markerHeight='9' refX='7' refY='3.5' orient='auto'><path d='M0,0 L7,3.5 L0,7 Z' fill='#3B82F6'/></marker></defs><text x='6' y='24' font-size='13' font-weight='700' fill='#3B82F6'>AC ŞARJ</text><g fill='none' stroke='currentColor' stroke-width='1.5'><rect x='6' y='38' width='120' height='44' rx='9'/><rect x='190' y='38' width='120' height='44' rx='9'/><rect x='374' y='38' width='150' height='44' rx='9' stroke='#3B82F6' stroke-width='2'/><rect x='572' y='38' width='82' height='44' rx='9'/></g><g font-size='11' fill='currentColor' text-anchor='middle'><text x='66' y='64'>Şebeke (AC)</text><text x='250' y='64'>Şarj İstasyonu</text><text x='449' y='59' fill='#3B82F6' font-weight='700'>Araç</text><text x='449' y='73' fill='#3B82F6' font-size='9'>onboard charger AC→DC</text><text x='613' y='64'>Batarya</text></g><g stroke='#3B82F6' stroke-width='1.5' marker-end='url(#acdcAr)'><line x1='126' y1='60' x2='186' y2='60'/><line x1='310' y1='60' x2='370' y2='60'/><line x1='524' y1='60' x2='568' y2='60'/></g><g font-size='9' fill='#3B82F6' text-anchor='middle'><text x='156' y='53'>AC</text><text x='340' y='53'>AC</text><text x='546' y='53'>DC</text></g><text x='6' y='130' font-size='13' font-weight='700' fill='#3B82F6'>DC HIZLI ŞARJ</text><g fill='none' stroke='currentColor' stroke-width='1.5'><rect x='6' y='144' width='120' height='44' rx='9'/><rect x='280' y='144' width='170' height='44' rx='9' stroke='#3B82F6' stroke-width='2'/><rect x='572' y='144' width='82' height='44' rx='9'/></g><g font-size='11' fill='currentColor' text-anchor='middle'><text x='66' y='170'>Şebeke (AC)</text><text x='365' y='165' fill='#3B82F6' font-weight='700'>Şarj İstasyonu</text><text x='365' y='179' fill='#3B82F6' font-size='9'>çevirici AC→DC</text><text x='613' y='170'>Batarya</text></g><g stroke='#3B82F6' stroke-width='1.5' marker-end='url(#acdcAr)'><line x1='126' y1='166' x2='276' y2='166'/><line x1='450' y1='166' x2='568' y2='166'/></g><g font-size='9' fill='#3B82F6' text-anchor='middle'><text x='200' y='159'>AC</text><text x='508' y='159'>DC</text></g></svg>" },
@@ -4244,6 +4260,8 @@ export const BLOG_POSTS: BlogPost[] = [
       { "q": "AC ve DC şarj nerelerde kullanılır?", "a": "AC şarj, aracın uzun süre park ettiği yerler için uygundur: ev, iş yeri, otopark ve AVM gibi noktalar. Donanımı görece basit ve uygun maliyetlidir, günlük kullanımda gece boyu şarj için idealdir. DC hızlı şarj ise otoyol dinlenme tesisleri, şehir içi hızlı şarj noktaları ile filo ve ticari işletmeler için tasarlanır; donanımı daha karmaşık ve maliyetlidir. Özetle AC, uzun park sürelerinde ekonomik dolum; DC ise yolda kısa sürede hızlı dolum içindir. Doğru cihazı seçerken aracın nerede ve ne kadar süre park ettiği belirleyicidir." }
     ],
     related: [
+      { label: "Wallbox nedir? Ev tipi şarj istasyonu rehberi", href: "/blog/wallbox-nedir-ev-tipi-sarj-istasyonu-rehberi" },
+      { label: "11 kW mı 22 kW mı? Güç seçimi ve amper hesabı", href: "/blog/11-kw-mi-22-kw-mi-wallbox-guc-secimi-amper-hesabi" },
       { label: "AC Wallbox", href: "/products/wallbox" },
       { label: "DC Şarj Üniteleri", href: "/products/dc-units" },
       { label: "AC Şarj Kabloları", href: "/products/cables" },
@@ -4259,7 +4277,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "Kaç kW? Prizli mi kablolu mu? Akıllı özellikler ve güvenlik neden önemli? Ev tipi şarj cihazı seçimini adım adım anlatıyoruz.",
     category: "Rehber",
     datePublished: "2026-06-06",
-    dateModified: "2026-06-27",
+    dateModified: "2026-09-06",
     readingMinutes: 6,
     keywords: ["ev şarj cihazı seçimi", "ev tipi şarj cihazı", "kaç kw şarj cihazı", "wallbox seçimi", "prizli kablolu şarj"],
     body: [
@@ -4268,6 +4286,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "h2", text: "1) Güç: 7,4 kW mı, 11/22 kW mı?" },
       { type: "p", text: "Güç hem evinizin elektrik altyapısına hem aracınızın dahili şarj kapasitesine bağlıdır. Tek fazlı tesisatta genelde 7,4 kW; üç fazlı tesisatta 11 veya 22 kW mümkündür. Ancak aracınızın dahili şarj ünitesi 11 kW kabul ediyorsa 22 kW cihaz almak ekstra hız getirmez. Çoğu ev kullanıcısı için 7,4–11 kW gece boyu rahat dolum sağlar." },
 
+      { type: "p", text: "Kural: önce aracın AC kabul gücü (çoğu model 11 kW), sonra tesisat (monofaze en fazla 7,4 kW; 11 ve 22 kW trifaze ister). Gece şarjı için 11 kW yeter; tesisatı belirsiz olanlar 4–22 kW ayarlanabilir cihazla başlayıp ileride gücü açabilir. Amper, sigorta ve 60 kWh dolma süreleri için 11 kW mı 22 kW mı rehberine bakın." },
       { type: "h2", text: "2) Prizli (soketli) mi, kablolu mu?" },
       { type: "ul", items: [
         "Kablolu (tethered): kablo cihaza sabittir; gelip fişi takarsınız, en pratiği.",
@@ -4308,6 +4327,8 @@ export const BLOG_POSTS: BlogPost[] = [
       { "q": "Ev şarj cihazı kurulumu için kimi çağırmalıyım?", "a": "Şarj cihazı mutlaka yetkili bir elektrikçi tarafından kurulmalıdır; tercihen ayrı bir hat ve uygun koruma ekipmanıyla bağlanması doğrudur. Doğru kurulum hem güvenli hem verimli çalışma için gereklidir; yanlış kurulum yavaş şarj veya güvenlik riski demektir. Cihazın CE uygunluğuna ve IEC 61851 gibi ilgili standartlara sahip olması, dış mekânda IP65 koruma sınıfı ve dahili kaçak akım koruması bulunması önemlidir. Ayrıca yedek parça, garanti ve teknik destek için yerli ve ulaşılabilir bir üretici seçmek uzun vadede fark yaratır. Bemis, Bursa'daki kendi tesisinde üretim yapan yerli bir üreticidir." }
     ],
     related: [
+      { label: "Wallbox nedir? Ev tipi şarj istasyonu rehberi", href: "/blog/wallbox-nedir-ev-tipi-sarj-istasyonu-rehberi" },
+      { label: "11 kW mı 22 kW mı? Güç seçimi ve amper hesabı", href: "/blog/11-kw-mi-22-kw-mi-wallbox-guc-secimi-amper-hesabi" },
       { label: "AC Wallbox", href: "/products/wallbox" },
       { label: "Taşınabilir Şarj Cihazları", href: "/products/portable" },
       { label: "AC Şarj Kabloları", href: "/products/cables" },
