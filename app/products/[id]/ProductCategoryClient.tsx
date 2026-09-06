@@ -585,6 +585,63 @@ export default function ProductCategoryPage({
         );
       })()}
 
+      {/* Model karşılaştırma — yalnız wallbox (GSC 2026-09: "22 kW wallbox", "11 kW mı 22 kW mı" aramaları; kart alt
+          başlıkları gücü tek bakışta göstermiyordu). Değerler ürün spec'lerinden KONUMSAL okunur (specs[0] Elektriksel:
+          Güç/Faz/Maks. akım · specs[1] Kablo & Bağlantı: Çıkış) — etiketler dile göre çevrildiği için ada değil sıraya
+          bakılır. GSM/MID ürün kimliğinden, OCPP spec metninden. */}
+      {(() => {
+        if (id !== "wallbox" || !category || !Array.isArray(category.products) || category.products.length < 2) return null;
+        // Etiket dile göre çevrildiği için önce çok dilli etiket deseni, bulunamazsa konumsal yedek.
+        const bul = (p: ProductEntry, re: RegExp, g: number, i: number) => {
+          for (const grp of p.specs ?? []) for (const it of grp.items ?? []) if (re.test(it.label)) return it.value;
+          return p.specs?.[g]?.items?.[i]?.value ?? "–";
+        };
+        const RE_GUC = /güç|power|leistung|potencia|мощ|قدرة|vermogen/i, RE_FAZ = /faz|phase|fase|фаз|طور/i;
+        const RE_AKIM = /akım|current|strom|corriente|ток|تيار|stroom/i, RE_CIKIS = /çıkış|output|ausgang|salida|выход|مخرج|uitgang/i;
+        const evet = pickText(lang, "Evet", "Yes");
+        const H = [
+          "Model", pickText(lang, "Güç", "Power"), pickText(lang, "Faz", "Phase"), pickText(lang, "Maks. akım", "Max. current"),
+          pickText(lang, "Çıkış", "Output"), "GSM", pickText(lang, "MID sayaç", "MID meter"), "OCPP",
+        ];
+        const td = { borderBottom: `1px solid ${surfaceBorder}` };
+        return (
+          <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8 pb-12 w-full">
+            <h2 className="text-2xl font-black mb-2" style={{ color: textPrimary }}>{pickText(lang, "Model karşılaştırma", "Model comparison")}</h2>
+            <p className="text-sm mb-4" style={{ color: textMuted }}>
+              {pickText(lang, "Tüm modeller Type 2 (IEC 62196-2) konnektörlü, CE ve IP65 sertifikalıdır; güç ve çıkış tipi tabloda.", "All models use a Type 2 (IEC 62196-2) connector and are CE and IP65 certified; power and output type are listed below.")}
+            </p>
+            <div className="overflow-x-auto rounded-2xl" style={{ background: surface, border: `1px solid ${surfaceBorder}` }}>
+              <table className="w-full text-sm" style={{ color: textPrimary }}>
+                <thead>
+                  <tr>{H.map((h) => <th key={h} className="text-left font-bold px-4 py-3 whitespace-nowrap" style={{ color: textMuted, ...td }}>{h}</th>)}</tr>
+                </thead>
+                <tbody>
+                  {category.products.map((p) => {
+                    const kimlik = `${p.id} ${p.name} ${p.subtitle}`.toLowerCase();
+                    const ocpp = /ocpp/i.test(JSON.stringify(p.specs ?? []) + " " + (p.description ?? ""));
+                    return (
+                      <tr key={p.id}>
+                        <td className="px-4 py-2.5 whitespace-nowrap" style={td}>
+                          <Link href={`${base}/${id}/${p.id}`} className="font-semibold hover:underline">{p.name}</Link>
+                          <span className="block text-xs" style={{ color: textMuted }}>{p.subtitle}</span>
+                        </td>
+                        <td className="px-4 py-2.5 whitespace-nowrap" style={td}>{bul(p, RE_GUC, 0, 0)}</td>
+                        <td className="px-4 py-2.5 whitespace-nowrap" style={td}>{bul(p, RE_FAZ, 0, 1)}</td>
+                        <td className="px-4 py-2.5 whitespace-nowrap" style={td}>{bul(p, RE_AKIM, 0, 2)}</td>
+                        <td className="px-4 py-2.5 whitespace-nowrap" style={td}>{bul(p, RE_CIKIS, 1, 0)}</td>
+                        <td className="px-4 py-2.5" style={td}>{/gsm/.test(kimlik) ? evet : "–"}</td>
+                        <td className="px-4 py-2.5" style={td}>{/\bmid\b/.test(kimlik) ? evet : "–"}</td>
+                        <td className="px-4 py-2.5" style={td}>{ocpp ? evet : "–"}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        );
+      })()}
+
       {/* SSS — kategori bazlı (CMS'ten). FAQPage JSON-LD sunucu sayfasında. */}
       {(() => {
         const faqList = (metinDili && faqOverride) || categories?.[id]?.faq || [];
@@ -622,6 +679,8 @@ export default function ProductCategoryPage({
             { label: "Ev şarj ünitesi mi, taşınabilir cihaz mı?", href: "/blog/ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi" },
             { label: "EV için şarj cihazı nasıl seçilir?", href: "/blog/ev-icin-sarj-cihazi-nasil-secilir" },
             { label: "Apartmana / siteye şarj istasyonu kurulumu", href: "/blog/apartmana-sarj-istasyonu-kurulumu" },
+            { label: "Wallbox nedir? Ev tipi şarj istasyonu rehberi", href: "/blog/wallbox-nedir-ev-tipi-sarj-istasyonu-rehberi" },
+            { label: "11 kW mı 22 kW mı? Güç seçimi ve amper hesabı", href: "/blog/11-kw-mi-22-kw-mi-wallbox-guc-secimi-amper-hesabi" },
           ],
           portable: [
             { label: "Hangi araca hangi şarj cihazı ve kablosu uyar?", href: "/arac-sarj-uyumlulugu" },

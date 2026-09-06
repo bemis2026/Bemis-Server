@@ -116,10 +116,30 @@
         {
           "q": "Is de installatie inbegrepen?",
           "a": "De installatie is niet bij de prijs van het apparaat inbegrepen. Onze erkende dealer voert een inspectie uit en maakt een aparte offerte op maat voor de kabelaanleg, bedrading en werkzaamheden aan de meterkast; de installatiekosten worden bij de inspectie vastgesteld op basis van uw bestaande infrastructuur."
+        },
+        {
+          "q": "Wat is een wallbox en wat is het verschil met een gewoon stopcontact?",
+          "a": "Een wallbox is een aan de wand gemonteerde AC-lader voor elektrische auto's. Een huishoudstopcontact levert hooguit 2,3 kW en is niet gemaakt voor urenlange volle belasting; een wallbox op een eigen groep levert 7,4–22 kW, communiceert met de auto (IEC 61851) en biedt aardlek- en overstroombeveiliging. Resultaat: 3 tot 10 keer sneller en veiliger laden."
+        },
+        {
+          "q": "Waar hangt de prijs van een thuislaadstation van af?",
+          "a": "Van het vermogen (7,4 / 11 / 22 kW), het uitgangstype (kabel van 5 m of stopcontact), de slimme opties (OCPP, GSM-module, MID-meter) en het installatiewerk (kabeltraject, automaat en werk in de meterkast). Installatie is niet inbegrepen in de prijs van het apparaat; een geautoriseerde partner maakt na de opname een offerte."
+        },
+        {
+          "q": "11 kW of 22 kW?",
+          "a": "Controleer eerst het AC-laadvermogen van de auto: de meeste elektrische auto's accepteren 11 kW, sommige zijn beperkt tot 7,4 kW en slechts enkele accepteren 22 kW. Voor één auto die 's nachts stilstaat is 11 kW ruim voldoende; 22 kW is zinvol voor snel bijladen overdag of meerdere auto's na elkaar. Charger Plus 2 en Charger Pro 2 zijn instelbaar tussen 4 en 22 kW, dus bij een andere auto hoeft u geen nieuw apparaat te kopen."
+        },
+        {
+          "q": "Welke automaat en voeding heeft een wallbox van 22 kW nodig?",
+          "a": "22 kW vraagt een driefasige voeding van 3×32 A, 11 kW een driefasige van 3×16 A en 7,4 kW een eenfasige van 32 A; aardlekbeveiliging is altijd verplicht. De kabeldoorsnede hangt af van de afstand tot de meterkast en wordt door een erkende elektricien bepaald."
+        },
+        {
+          "q": "Kan een thuislaadstation in de parkeergarage van een appartementencomplex worden geplaatst?",
+          "a": "Ja. U hebt toestemming van de VvE of het gebouwbeheer nodig en een meetplan (eigen meter of gedeelde voeding). Bij gedeeld gebruik scheiden modellen met MID-meter het verbruik met geijkte meting, en tonen RFID en OCPP wie hoeveel heeft geladen."
         }
       ],
       "descriptionImage": "",
-      "description": "AC-laadstations voor thuis (wandmodel) — voor woning, werkplek en parkeergarage. Een- en driefasige modellen van 7,4 kW tot 22 kW; met Type 2-contactdoos of geïntegreerde kabel laadt u uw elektrische auto veilig en efficiënt. De ideale thuislader; CE- en IP65-gecertificeerd, conform IEC 61851 / IEC 62196, met garantie en geproduceerd in eigen fabriek.",
+      "description": "Thuislaadstation (wandmontage) voor elektrische auto's — AC-wallbox voor woningen, parkeergarages van appartementen, bedrijven en wooncomplexen: eenfasig 7,4 kW en driefasig 11 kW / 22 kW, met Type 2-stopcontact of vaste kabel van 5 m. De series Charger 2, Charger Plus 2 en Charger Pro 2 worden in onze eigen fabriek in Bursa (Turkije) geproduceerd; CE- en IP65-gecertificeerd, conform IEC 61851 / IEC 62196 en met garantie.\n\nWat is een wallbox? Een aan de wand gemonteerde AC-lader die uw elektrische auto veilig vanuit het net laadt. Hij communiceert met de boordlader van de auto (IEC 61851), biedt aardlek- en overstroombeveiliging en regelt de laadstroom. Een huishoudstopcontact levert hooguit 2,3 kW en is niet gemaakt voor urenlange volle belasting; een wallbox op een eigen groep laadt 3 tot 10 keer sneller en veiliger.\n\nWelk vermogen? 7,4 kW op een eenfasige, 11 kW (3×16 A) of 22 kW (3×32 A) op een driefasige installatie. Een typische auto met 60 kWh is bij 7,4 kW in ongeveer 8 uur vol, bij 11 kW in 5–6 uur en bij 22 kW in 2–3 uur; het AC-laadvermogen van de auto is de grens. Charger Plus 2 en Charger Pro 2 zijn instelbaar tussen 4 / 7 / 11 / 22 kW (6–32 A).\n\nKabel of stopcontact? Het kabelmodel heeft een vaste Type 2-kabel van 5 m: insteken en laden. Het stopcontactmodel werkt met uw eigen Type 2-kabel en past bij gedeelde parkeerplaatsen en meerdere auto's.\n\nModellen. Charger 2: vast vermogen, RFID-autorisatie, display, wifi en planning via de app. Charger Plus 2: instelbaar vermogen, slim laadalgoritme, automatisch hervatten na stroomuitval, OCPP 1.6 en optionele MID-meter. Charger Pro 2: daarnaast dynamisch loadmanagement (DLM) en gebruikersautorisatie; GSM-(4G-)versies verbinden waar geen internet is, versies met ingebouwde MID-meter registreren het verbruik geijkt voor gedeelde en wagenparkfacturatie.\n\nDe installatie wordt uitgevoerd door een erkende elektricien of een geautoriseerde Bemis-partner: eigen groep, passende automaat en aardlekbeveiliging; de kabeldoorsnede wordt ter plaatse bepaald. Installatie is niet inbegrepen in de prijs van het apparaat. De prijs hangt af van vermogen, uitgangstype, slimme opties en installatieafstand — vraag een opname en offerte aan.",
       "manuals": [
         {
           "id": "manual-1779303159452",

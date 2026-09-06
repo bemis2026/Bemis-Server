@@ -4627,6 +4627,539 @@ export const BLOG_POSTS: BlogPost[] = [
       { label: "Yerli Üretici", href: "/uretici" },
     ],
   },
+  {
+    "slug": "wallbox-nedir-ev-tipi-sarj-istasyonu-rehberi",
+    "title": "Wallbox Nedir? Ev Tipi Elektrikli Araç Şarj İstasyonu Rehberi (2026)",
+    "metaTitle": "Wallbox Nedir? Ev Tipi Şarj İstasyonu Rehberi (2026)",
+    "description": "Wallbox (ev tipi şarj istasyonu) nedir, prizden farkı ne, 7,4 / 11 / 22 kW hangisi, kablolu mu soketli mi, kurulum ve maliyet neye bağlı? Sade rehber, karşılaştırma tabloları ve SSS.",
+    "excerpt": "Wallbox; evde, apartman otoparkında veya iş yerinde elektrikli aracı güvenle ve hızlı şarj etmek için duvara monte edilen AC şarj cihazıdır. Prizden farkı, güç seçimi, kablolu/soketli kararı ve kurulum adımları bu rehberde.",
+    "category": "Rehber",
+    "datePublished": "2026-09-06",
+    "dateModified": "2026-09-06",
+    "readingMinutes": 9,
+    "keywords": [
+      "wallbox nedir",
+      "ev tipi şarj istasyonu",
+      "duvar tipi şarj cihazı",
+      "wallbox şarj istasyonu",
+      "ac wallbox",
+      "sabit wallbox",
+      "mobil wallbox",
+      "elektrikli araç ev şarj istasyonu",
+      "wallbox kurulumu",
+      "wallbox fiyatı neye göre değişir"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Wallbox, elektrikli aracınızı evde, apartman otoparkında veya iş yerinde şebekeden güvenle şarj etmek için duvara monte edilen AC şarj cihazıdır. Türkiye'de aynı ürün için ev tipi şarj istasyonu, duvar tipi şarj cihazı, sabit şarj ünitesi ve wallbox ifadelerinin hepsi kullanılır; hepsi aynı şeyi anlatır. Normal ev prizinden farkı, kendi hattı ve koruma devreleriyle 7,4–22 kW güç verebilmesi ve aracınızla haberleşerek şarjı yönetmesidir."
+      },
+      {
+        "type": "p",
+        "text": "Bu rehber, wallbox almayı düşünen bir ev kullanıcısının ilk beş sorusunu sırayla yanıtlar: Prizden neden daha iyi? AC mi DC mi? Sabit mi taşınabilir mi? Hangi güç? Kablolu mu soketli mi? Sonunda kurulum adımları, fiyatı belirleyen kalemler ve Bemis ev tipi şarj istasyonu modellerinin karşılaştırması var."
+      },
+      {
+        "type": "h2",
+        "text": "Wallbox nedir, ne işe yarar?"
+      },
+      {
+        "type": "p",
+        "text": "Elektrikli aracın bataryası doğru akımla (DC) dolar; evdeki şebeke ise alternatif akımdır (AC). Bu dönüşümü aracın içindeki şarj birimi (onboard charger) yapar. Wallbox'ın görevi bataryayı doğrudan doldurmak değil, aracın şarj birimine güvenli ve kontrollü AC enerji sağlamaktır. Bu yüzden ev tipi şarj istasyonlarına AC şarj cihazı denir."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Haberleşme: Wallbox, IEC 61851 protokolüyle araca kaç amper çekebileceğini söyler; araç kabul ettiği kadar çeker. Kablo takılı ama araç yoksa uç gerilimsizdir.",
+          "Koruma: Kaçak akım, aşırı akım, aşırı ısınma ve topraklama hatası algılandığında şarjı keser.",
+          "Yönetim: RFID kartla yetkilendirme, gece tarifesine göre zamanlama, uygulamadan uzaktan aç/kapa, tüketim geçmişi.",
+          "Dayanıklılık: IP65 gövde toza tam kapalıdır ve her yönden gelen su jetine dayanır; açık otoparkta ek kabin gerekmez."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Normal prizden farkı: neden wallbox?"
+      },
+      {
+        "type": "p",
+        "text": "Ev prizi 10A ile en fazla 2,3 kW verir ve saatlerce tam yükte çalışmak için tasarlanmamıştır; ısınma ve gevşek temas riski taşır. Taşınabilir şarj cihazı prize takılır, kendi koruma devresi vardır ve 3,7–7,4 kW (trifaze prizde 22 kW) verebilir; sabit kurulum istemeyenler için iyi bir ara çözümdür. Wallbox ise panodan çekilen ayrı bir hatta kalıcı olarak bağlanır ve her gece aynı hızda, gözetimsiz şarj için tasarlanmıştır."
+      },
+      {
+        "type": "table",
+        "caption": "Ev prizi, taşınabilir cihaz ve wallbox — 60 kWh bataryalı tipik bir araç için yaklaşık değerler",
+        "headers": [
+          "",
+          "Ev prizi",
+          "Taşınabilir şarj cihazı",
+          "Wallbox"
+        ],
+        "rows": [
+          [
+            "Güç",
+            "2,3 kW",
+            "3,7 – 7,4 kW (trifaze prizde 22 kW'a kadar)",
+            "7,4 – 22 kW"
+          ],
+          [
+            "Boştan dolma süresi",
+            "~26 saat",
+            "~8 – 16 saat",
+            "~2,7 – 8 saat"
+          ],
+          [
+            "Koruma",
+            "Prizin kendisi",
+            "Cihaz içi kaçak akım / ısı koruması",
+            "Cihaz + ayrı hat, sigorta ve kaçak akım rölesi"
+          ],
+          [
+            "Kullanım",
+            "Acil durum",
+            "Seyahat, kiralık ev, geçici çözüm",
+            "Her gece düzenli şarj, ortak otopark, iş yeri"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "AC mi DC mi? Evde neden AC?"
+      },
+      {
+        "type": "p",
+        "text": "DC hızlı şarj istasyonları (40 kW ve üzeri) dönüşümü cihazın içinde yapar ve bataryayı doğrudan doldurur; ana yollar ve kamuya açık noktalar için tasarlanmıştır, trafo ve yüksek güçlü altyapı ister. Evde aracınız ortalama 10–12 saat park eder; bu sürede 11 kW AC şarj, 60 kWh bataryayı boştan dolu hale getirir. Evde DC şarj cihazına ihtiyaç yoktur; ayrıntı için AC ve DC şarj farkı rehberine bakabilirsiniz."
+      },
+      {
+        "type": "h2",
+        "text": "Sabit wallbox mı, mobil (taşınabilir) wallbox mı?"
+      },
+      {
+        "type": "p",
+        "text": "Sabit wallbox duvara monte edilir ve panodan çekilen kendi hattına bağlanır. Mobil wallbox olarak da anılan taşınabilir şarj cihazı ise CEE (trifaze) veya ev prizine takılır, çantasında taşınır. Karar kullanım şekline bağlıdır:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kendi garajınız veya sabit park yeriniz varsa ve her gece şarj edecekseniz: sabit wallbox. Daha yüksek sürekli güç, daha düşük temas riski, akıllı yönetim.",
+          "Kiracıysanız, park yeriniz değişiyorsa veya yazlık-kışlık iki adres arasında gidip geliyorsanız: taşınabilir cihaz (Bemis Mini, Mono ve Pro Mobile serisi).",
+          "Kararsızsanız: önce taşınabilir cihazla başlayıp kalıcı adres netleşince wallbox kurdurmak yaygın bir yol; iki cihaz da Type 2 standardını kullanır."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Hangi güç: 7,4 / 11 / 22 kW"
+      },
+      {
+        "type": "p",
+        "text": "Güç seçiminde önce araç, sonra tesisat belirleyicidir. Çoğu elektrikli araç AC tarafında 11 kW kabul eder; bazı modeller 7,4 kW ile sınırlıdır, 22 kW kabul eden model azdır. Aracınız 11 kW kabul ediyorsa 22 kW cihaz ek hız vermez. Tesisat tarafında 7,4 kW monofaze (tek faz) hatla, 11 ve 22 kW trifaze (üç faz) hatla çalışır."
+      },
+      {
+        "type": "table",
+        "caption": "Güç, faz, akım ve 60 kWh bataryanın boştan dolma süresi (yaklaşık, %10–20 kayıp dâhil)",
+        "headers": [
+          "Güç",
+          "Faz",
+          "Akım",
+          "Sigorta",
+          "60 kWh dolma süresi"
+        ],
+        "rows": [
+          [
+            "7,4 kW",
+            "Monofaze",
+            "32A",
+            "1×32A",
+            "~8–9 saat"
+          ],
+          [
+            "11 kW",
+            "Trifaze",
+            "3×16A",
+            "3×16A",
+            "~5,5–6,5 saat"
+          ],
+          [
+            "22 kW",
+            "Trifaze",
+            "3×32A",
+            "3×32A",
+            "~2,7–3,3 saat"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Tesisatınız bugün 11 kW'ı kaldırıyor ama ileride 22 kW'a çıkmayı düşünüyorsanız, gücü 4 / 7 / 11 / 22 kW arasında ayarlanabilen bir cihaz (Charger Plus 2, Charger Pro 2) cihazı değiştirmeden büyümenizi sağlar. Ayrıntılı amper ve sigorta hesabı için 11 kW mı 22 kW mı rehberine bakın."
+      },
+      {
+        "type": "h2",
+        "text": "Kablolu mu, soketli (pano prizli) mi?"
+      },
+      {
+        "type": "p",
+        "text": "Kablolu modelde 5 metrelik Type 2 kablo cihaza sabittir: aracı park edersiniz, kabloyu takarsınız, biter. Her gün aynı aracı şarj eden ev kullanıcısı için en pratik seçenek budur. Soketli (pano prizli) modelde cihazda Type 2 soket bulunur ve kendi kablonuzu kullanırsınız; birden fazla araç, misafir şarjı, site ve iş yeri otoparkları için tercih edilir. Güç ve koruma iki tipte de aynıdır; fark yalnızca kullanım alışkanlığıdır."
+      },
+      {
+        "type": "h2",
+        "text": "Akıllı özellikler: hangisine gerçekten ihtiyacınız var?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "RFID kart: Ortak otoparkta cihazı yalnızca yetkili kişilerin kullanmasını sağlar. Kendi garajınızda şart değildir ama ücretsiz bir güvenlik katmanıdır.",
+          "Uygulama ve zamanlama: Şarjı gece tarifesinin başladığı saate kurmak, tüketim geçmişini görmek. Elektrik faturasını doğrudan düşüren özelliktir.",
+          "Dinamik yük dengeleme: Klima, fırın veya ısı pompası devreye girince şarj gücünü otomatik düşürür, sigorta atmasını önler. Ana sigortası sınırlı evlerde pahalı sigorta yükseltmesinin yerine geçer.",
+          "OCPP 1.6: Cihazı bir yönetim sistemine veya operatör platformuna bağlar; site yönetimi, iş yeri ve filo kurulumlarında raporlama ve ücretlendirme için gerekir. Tek araçlı evde gerekmez.",
+          "GSM (4G) modülü: Wi-Fi veya kablolu internet olmayan otoparklarda bağlantı sağlar.",
+          "MID sayaç: Tüketimi yasal ölçüm hassasiyetinde kaydeder; apartman ve site ortak kullanımı, kiracı ve filo faturalandırması için gerekir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kurulum adım adım"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "1. Keşif: Yetkili bayi veya elektrikçi panoyu, ana sigortayı, faz durumunu ve cihazın konumunu inceler; hat mesafesini ölçer.",
+          "2. Hat ve koruma: Ana panodan cihaza ayrı bir hat çekilir; güce uygun sigorta ve kaçak akım koruması takılır. Kablo kesiti mesafeye göre belirlenir.",
+          "3. Montaj: Cihaz duvara sabitlenir; IP65 gövde dış mekânda ek kabin istemez. Kablolu modelde kablo askısı, soketli modelde soket yönü planlanır.",
+          "4. Devreye alma: Faz sırası, topraklama ve kaçak akım testi yapılır; Wi-Fi/uygulama eşleştirmesi ve RFID kartlar tanımlanır.",
+          "5. Test şarjı: Araç bağlanır, gücün beklenen seviyede olduğu ve şarjın kesintisiz sürdüğü doğrulanır."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Apartman ve sitelerde bunlara bina yönetiminin onayı ve sayaç planı eklenir: kendi sayacınızdan mı, ortak sayaçtan mı besleneceği; ortak kullanımda MID sayaçlı model gerekip gerekmediği. Yeni binalarda otopark başına şarj altyapısı zorunluluğu için şarj istasyonu yönetmeliği rehberine bakın."
+      },
+      {
+        "type": "h2",
+        "text": "Wallbox fiyatı neye göre değişir?"
+      },
+      {
+        "type": "p",
+        "text": "Cihaz fiyatını dört kalem belirler: güç (7,4 / 11 / 22 kW), çıkış tipi (kablolu / soketli), akıllı seçenekler (OCPP, GSM, MID sayaç) ve garanti-servis kapsamı. Kurulum ayrı bir kalemdir ve cihaz fiyatına dahil değildir; panodan cihaza mesafe, kablo kesiti, sigorta ve pano işleri keşifte netleşir. Toplam bütçeyi en çok etkileyen genellikle cihaz değil, uzun hat ve pano yenilemesidir; bu yüzden keşif yaptırmadan karar vermeyin."
+      },
+      {
+        "type": "h2",
+        "text": "Bemis ev tipi şarj istasyonu modelleri"
+      },
+      {
+        "type": "table",
+        "caption": "Bemis AC wallbox serileri — hepsi Type 2 (IEC 62196-2), CE & IP65, Bursa'da üretim",
+        "headers": [
+          "Seri",
+          "Güç",
+          "Öne çıkan",
+          "Kime uygun"
+        ],
+        "rows": [
+          [
+            "Charger 2",
+            "7,4 kW mono · 11 / 22 kW trifaze (sabit)",
+            "RFID, ekran, Wi-Fi, uygulamadan zamanlama",
+            "Tek araçlı ev, giriş seviyesi"
+          ],
+          [
+            "Charger Plus 2",
+            "4 / 7 / 11 / 22 kW ayarlanabilir",
+            "Akıllı şarj algoritması, kesintide otomatik sürdürme, OCPP 1.6, opsiyonel MID",
+            "Ev, küçük işletme, ileride güç artışı planlayanlar"
+          ],
+          [
+            "Charger Pro 2",
+            "4 / 7 / 11 / 22 kW ayarlanabilir",
+            "Gelişmiş yük yönetimi (DLM), kullanıcı yetkilendirme, OCPP 1.6, opsiyonel MID",
+            "Site, iş yeri, operatör"
+          ],
+          [
+            "Charger Pro 2 GSM / MID",
+            "4 / 7 / 11 / 22 kW ayarlanabilir",
+            "4G modül, entegre sertifikalı MID sayaç",
+            "İnternetsiz otopark, ortak kullanım faturalandırması, filo"
+          ]
+        ]
+      },
+      {
+        "type": "cta",
+        "text": "19 modelin güç, çıkış tipi, GSM, MID ve OCPP karşılaştırması kategori sayfasında.",
+        "href": "/products/wallbox",
+        "label": "Ev tipi şarj istasyonu modellerini incele"
+      },
+      {
+        "type": "quote",
+        "text": "Kısa karar rehberi: sabit park yeri + her gece şarj = wallbox; aracınız 11 kW kabul ediyorsa 11 kW yeter; tek araç ve kendi garajınız için kablolu, ortak otopark için soketli; keşif yaptırmadan bütçe belirlemeyin."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Wallbox nedir?",
+        "a": "Wallbox, elektrikli aracı evde veya iş yerinde şebekeden güvenle şarj etmek için duvara monte edilen AC şarj cihazıdır. Ev tipi şarj istasyonu ve duvar tipi şarj cihazı aynı ürünü tanımlar. Kendi hattı ve koruma devreleriyle 7,4–22 kW güç verir, aracınızla IEC 61851 protokolüyle haberleşir."
+      },
+      {
+        "q": "Wallbox ile ev prizi arasındaki fark nedir?",
+        "a": "Ev prizi en fazla 2,3 kW verir ve saatlerce tam yükte çalışmak için tasarlanmamıştır. Wallbox ayrı bir hattan 7,4–22 kW verir, kaçak akım ve aşırı akım koruması sağlar ve şarjı aracın kabul ettiği akıma göre yönetir; 3–10 kat daha hızlı ve güvenlidir."
+      },
+      {
+        "q": "Evde AC mi DC mi şarj gerekir?",
+        "a": "AC. Evde araç ortalama 10–12 saat park eder; 11 kW AC şarj bu sürede 60 kWh bataryayı doldurur. DC hızlı şarj cihazları 40 kW ve üzeri güçte, yüksek altyapı isteyen kamuya açık çözümlerdir."
+      },
+      {
+        "q": "Sabit wallbox mı taşınabilir şarj cihazı mı almalıyım?",
+        "a": "Kendi garajınız ve sabit park yeriniz varsa sabit wallbox; kiracıysanız, park yeriniz değişiyorsa veya iki adres arasında gidip geliyorsanız taşınabilir cihaz. İkisi de Type 2 standardını kullanır."
+      },
+      {
+        "q": "Wallbox kurulumu için ne gerekir?",
+        "a": "Yetkili elektrikçi veya bayi keşfi, ana panodan ayrı bir hat, güce uygun sigorta ve kaçak akım koruması, montaj ve devreye alma testi. Apartmanda ek olarak bina yönetimi onayı ve sayaç planı gerekir. Kurulum cihaz fiyatına dahil değildir."
+      },
+      {
+        "q": "Wallbox fiyatı neye göre değişir?",
+        "a": "Güç (7,4 / 11 / 22 kW), çıkış tipi (kablolu / soketli), akıllı seçenekler (OCPP, GSM, MID sayaç) ve kurulum işleri (hat mesafesi, kablo kesiti, pano çalışması). Bütçeyi en çok uzun hat ve pano yenilemesi etkiler; keşifle netleşir."
+      }
+    ],
+    "related": [
+      {
+        "label": "Ev Tipi Şarj İstasyonu (AC Wallbox) modelleri",
+        "href": "/products/wallbox"
+      },
+      {
+        "label": "11 kW mı 22 kW mı? Güç seçimi ve amper hesabı",
+        "href": "/blog/11-kw-mi-22-kw-mi-wallbox-guc-secimi-amper-hesabi"
+      },
+      {
+        "label": "Ev için şarj cihazı nasıl seçilir?",
+        "href": "/blog/ev-icin-sarj-cihazi-nasil-secilir"
+      },
+      {
+        "label": "Şarj istasyonu kurulum rehberi",
+        "href": "/blog/elektrikli-arac-sarj-istasyonu-kurulum-rehberi"
+      },
+      {
+        "label": "Apartmana / siteye şarj istasyonu kurulumu",
+        "href": "/blog/apartmana-sarj-istasyonu-kurulumu"
+      },
+      {
+        "label": "AC ve DC şarj farkı",
+        "href": "/blog/ac-dc-sarj-farki"
+      },
+      {
+        "label": "Şarj istasyonu yönetmeliği",
+        "href": "/blog/elektrikli-arac-sarj-istasyonu-yonetmeligi"
+      }
+    ]
+  },
+  {
+    "slug": "11-kw-mi-22-kw-mi-wallbox-guc-secimi-amper-hesabi",
+    "title": "11 kW mı 22 kW mı? Wallbox Güç Seçimi ve Amper Hesabı",
+    "metaTitle": "11 kW mı 22 kW mı? Wallbox Güç Seçimi, 22 kW Kaç Amper?",
+    "description": "11 kW mı 22 kW mı? Aracın AC kabul gücü, monofaze/trifaze tesisat, 16A/32A sigorta ve kablo kesiti: 22 kW kaç amper, 60 kWh batarya kaç saatte dolar, ayarlanabilir güç ne zaman mantıklı?",
+    "excerpt": "Güç seçiminde ilk soru cihaz değil araç: onboard şarj birimi kaç kW kabul ediyor? Sonra tesisat: monofaze mi trifaze mi, kaç amper? Bu rehber tablolarla 7,4 / 11 / 22 kW kararını netleştirir.",
+    "category": "Rehber",
+    "datePublished": "2026-09-06",
+    "dateModified": "2026-09-06",
+    "readingMinutes": 7,
+    "keywords": [
+      "11 kw mı 22 kw mı",
+      "22 kw kaç amper",
+      "11 kw kaç amper",
+      "32a kaç kw",
+      "16a kaç kw",
+      "wallbox güç seçimi",
+      "trifaze şarj cihazı",
+      "monofaze şarj cihazı",
+      "7.4 kw şarj cihazı",
+      "ayarlanabilir güç wallbox"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Kısa cevap: her gece kendi park yerinde şarj olan tek araç için 11 kW fazlasıyla yeterlidir; 22 kW, aracınız 22 kW AC kabul ediyorsa ve gündüz hızlı dolum ya da art arda birkaç araç şarj ediyorsanız anlamlıdır. Aracınız 11 kW kabul ediyorsa 22 kW cihaz almak hız kazandırmaz; yalnızca ileride araç değişince işe yarar. Bu yüzden karar iki adımdır: önce araç, sonra tesisat."
+      },
+      {
+        "type": "h2",
+        "text": "1. Adım — Önce araç: AC şarj kabul gücü"
+      },
+      {
+        "type": "p",
+        "text": "Wallbox, aracın içindeki şarj birimine (onboard charger) enerji verir; bataryaya ne kadar hızlı gireceğini bu birim belirler. Araç kataloğunda \"AC şarj gücü\" ya da \"onboard charger\" satırına bakın:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "7,4 kW (tek fazlı onboard charger): Trifaze cihaza bağlansanız da araç 7,4 kW çeker.",
+          "11 kW (üç fazlı 16A): Bugün satılan elektrikli araçların büyük çoğunluğu bu sınıftadır.",
+          "22 kW (üç fazlı 32A): Az sayıda model standart veya opsiyon olarak sunar."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Aracın kabul gücü tavandır; cihaz bu tavanın üzerine çıkamaz. Ayarlanabilir güçlü cihazlar (Charger Plus 2, Charger Pro 2) akıllı şarj algoritmasıyla aracın kabul ettiği akıma otomatik uyum sağlar."
+      },
+      {
+        "type": "h2",
+        "text": "2. Adım — Sonra tesisat: monofaze mi, trifaze mi?"
+      },
+      {
+        "type": "p",
+        "text": "Monofaze (tek faz, 230 V) tesisatta en yüksek pratik güç 32A ile 7,4 kW'tır; 11 ve 22 kW için trifaze (üç faz, 400 V) hat şarttır. Türkiye'de müstakil evlerin ve yeni binaların çoğunda trifaze abonelik vardır; eski apartman dairelerinde monofaze olabilir. Panonuzdaki sayaç ve ana sigorta bunu gösterir; emin değilseniz keşifte netleşir."
+      },
+      {
+        "type": "table",
+        "caption": "Güç ↔ faz ↔ akım ↔ sigorta ↔ 60 kWh bataryanın boştan dolma süresi (yaklaşık, %10–20 kayıp dâhil)",
+        "headers": [
+          "Güç",
+          "Faz",
+          "Akım",
+          "Sigorta (tipik)",
+          "60 kWh dolma"
+        ],
+        "rows": [
+          [
+            "3,7 kW",
+            "Monofaze",
+            "16A",
+            "1×16A",
+            "~17–19 saat"
+          ],
+          [
+            "7,4 kW",
+            "Monofaze",
+            "32A",
+            "1×32A",
+            "~8–9 saat"
+          ],
+          [
+            "11 kW",
+            "Trifaze",
+            "3×16A",
+            "3×16A",
+            "~5,5–6,5 saat"
+          ],
+          [
+            "22 kW",
+            "Trifaze",
+            "3×32A",
+            "3×32A",
+            "~2,7–3,3 saat"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "22 kW kaç amper? Formül"
+      },
+      {
+        "type": "p",
+        "text": "Monofazede güç = gerilim × akım: 230 V × 32A ≈ 7,4 kW, 230 V × 16A ≈ 3,7 kW. Trifazede güç = √3 × gerilim × akım: 1,73 × 400 V × 32A ≈ 22 kW, 1,73 × 400 V × 16A ≈ 11 kW. Yani 22 kW kaç amper sorusunun cevabı faz başına 32A, 11 kW için faz başına 16A'dır. Tersten: 32A kaç kW? Monofazede 7,4 kW, trifazede 22 kW; 16A kaç kW? Monofazede 3,7 kW, trifazede 11 kW."
+      },
+      {
+        "type": "h2",
+        "text": "Kablo kesiti ve kaçak akım koruması"
+      },
+      {
+        "type": "p",
+        "text": "Tipik değerler: 3×32A (22 kW) için kısa mesafede 5×6 mm², 3×16A (11 kW) için 5×2,5 mm², monofaze 32A (7,4 kW) için 3×6 mm² bakır kablo. Mesafe uzadıkça gerilim düşümünü sınırlamak için kesit büyür; bu yüzden nihai kesiti panodan cihaza olan mesafeye göre yetkili elektrikçi belirler. Kaçak akım koruması her kurulumda şarttır: DC kaçak bileşenini algılayan bir koruma (cihaz içindeki 6 mA DC algılama ile Tip A röle ya da Tip B röle) tesisatçı tarafından planlanır."
+      },
+      {
+        "type": "h2",
+        "text": "Şarj süresi nasıl hesaplanır?"
+      },
+      {
+        "type": "p",
+        "text": "Süre (saat) ≈ şarj edilecek enerji (kWh) ÷ şarj gücü (kW), üstüne %10–20 kayıp. Günlük 40 km yol yapan bir sürücü yaklaşık 7–9 kWh harcar; bunu 11 kW cihaz 1 saatten kısa sürede, 7,4 kW cihaz 1–1,5 saatte yerine koyar. Gece 8 saat park eden araç için güç yarışı yoktur; fark, gündüz kısa sürede çok enerji gerektiğinde ortaya çıkar."
+      },
+      {
+        "type": "h2",
+        "text": "Ayarlanabilir güç ne zaman mantıklı?"
+      },
+      {
+        "type": "p",
+        "text": "Üç durumda: tesisatınız bugün sınırlıysa (örneğin ana sigorta 3×25A) cihazı 11 kW'a kısıp ileride açmak; aracınız 7,4 kW kabul ediyorsa ve sonraki aracınız 11 kW olacaksa; evdeki diğer yükler nedeniyle dinamik yük dengelemeye ihtiyacınız varsa. Charger Plus 2 ve Charger Pro 2 gücü 4 / 7 / 11 / 22 kW (6–32A) arasında ayarlar; Charger 2 sabit güçlüdür ve tesisatı belli, tek araçlı ev için daha ekonomiktir."
+      },
+      {
+        "type": "h2",
+        "text": "Karar tablosu"
+      },
+      {
+        "type": "table",
+        "caption": "Hangi durumda hangi güç",
+        "headers": [
+          "Durum",
+          "Öneri"
+        ],
+        "rows": [
+          [
+            "Tek araç, her gece kendi park yerinde",
+            "11 kW (araç 7,4 kW kabul ediyorsa 7,4 kW yeter)"
+          ],
+          [
+            "Monofaze tesisat, yükseltme planı yok",
+            "7,4 kW monofaze wallbox"
+          ],
+          [
+            "İki araç veya gündüz sık kısa dolum",
+            "22 kW (araç kabul ediyorsa) veya iki adet 11 kW + yük paylaşımı"
+          ],
+          [
+            "İş yeri, site, filo",
+            "22 kW ayarlanabilir + dinamik yük yönetimi + OCPP"
+          ],
+          [
+            "Tesisat ve gelecek araç belirsiz",
+            "Ayarlanabilir güç (Charger Plus 2 / Pro 2)"
+          ]
+        ]
+      },
+      {
+        "type": "cta",
+        "text": "Bemis ev tipi şarj istasyonları: sabit 7,4 / 11 / 22 kW veya 4–22 kW ayarlanabilir güç, kablolu ya da soketli.",
+        "href": "/products/wallbox",
+        "label": "Modelleri karşılaştır"
+      }
+    ],
+    "faq": [
+      {
+        "q": "22 kW kaç amper?",
+        "a": "Trifaze 400 V hatta faz başına 32A. Formül: 1,73 × 400 V × 32A ≈ 22 kW. 11 kW için faz başına 16A gerekir."
+      },
+      {
+        "q": "11 kW için kaç amper sigorta gerekir?",
+        "a": "3×16A trifaze sigorta ve ayrı hat. 22 kW için 3×32A, 7,4 kW için monofaze 1×32A. Her durumda kaçak akım koruması şarttır; kablo kesiti mesafeye göre belirlenir."
+      },
+      {
+        "q": "Monofaze tesisatta 11 kW wallbox olur mu?",
+        "a": "Hayır. Monofazede pratik üst sınır 32A ile 7,4 kW'tır. 11 ve 22 kW için trifaze abonelik ve hat gerekir."
+      },
+      {
+        "q": "Aracım 11 kW kabul ediyorsa 22 kW cihaz zarar verir mi?",
+        "a": "Hayır. Wallbox aracın istediği akımı verir; araç 11 kW çeker. 22 kW cihaz yalnızca ileride 22 kW kabul eden bir araç alırsanız avantaj sağlar."
+      },
+      {
+        "q": "Dinamik yük dengeleme sigorta yükseltmesini gereksiz kılar mı?",
+        "a": "Çoğu evde evet. Cihaz, evin toplam tüketimi ana sigorta sınırına yaklaşınca şarj gücünü düşürür; klima veya fırın kapanınca tekrar yükseltir. Böylece abonelik gücünü artırmadan güvenli şarj mümkün olur."
+      }
+    ],
+    "related": [
+      {
+        "label": "Ev Tipi Şarj İstasyonu (AC Wallbox) modelleri",
+        "href": "/products/wallbox"
+      },
+      {
+        "label": "Wallbox nedir? Ev tipi şarj istasyonu rehberi",
+        "href": "/blog/wallbox-nedir-ev-tipi-sarj-istasyonu-rehberi"
+      },
+      {
+        "label": "Şarj süresi hesaplama",
+        "href": "/blog/elektrikli-arac-sarj-suresi-kac-saatte-dolar"
+      },
+      {
+        "label": "Şarj kablosu kaç amper, kaç metre?",
+        "href": "/blog/elektrikli-arac-sarj-kablosu-kac-metre-kac-amper"
+      },
+      {
+        "label": "kW ve kWh farkı",
+        "href": "/sozluk/kw-kwh"
+      }
+    ]
+  },
 ];
 
 export function allPosts(): BlogPost[] {

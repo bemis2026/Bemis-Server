@@ -5,6 +5,30 @@
 export type PostIndexItem = { slug: string; title: string; titleI18n?: Record<string, string>; category: string; datePublished: string; image?: string };
 export const POSTS_INDEX: PostIndexItem[] = [
   {
+    "slug": "wallbox-nedir-ev-tipi-sarj-istasyonu-rehberi",
+    "title": "Wallbox Nedir? Ev Tipi Elektrikli Araç Şarj İstasyonu Rehberi (2026)",
+    "category": "Rehber",
+    "datePublished": "2026-09-06"
+  },
+  {
+    "slug": "11-kw-mi-22-kw-mi-wallbox-guc-secimi-amper-hesabi",
+    "title": "11 kW mı 22 kW mı? Wallbox Güç Seçimi ve Amper Hesabı",
+    "category": "Rehber",
+    "datePublished": "2026-09-06"
+  },
+  {
+    "slug": "elektrikli-arac-sarj-istasyonu-yonetmeligi",
+    "title": "Elektrikli Araç Şarj İstasyonu Yönetmeliği: Apartman, Otopark ve AVM'de Ne Zorunlu?",
+    "category": "Rehber",
+    "datePublished": "2026-08-28"
+  },
+  {
+    "slug": "elektrikli-arac-sarj-uzatma-kablosu-nasil-secilir",
+    "title": "Elektrikli Araç Şarj Uzatma Kablosu: Kaç mm², Hangi Konnektör, Kaç Metre?",
+    "category": "Rehber",
+    "datePublished": "2026-08-28"
+  },
+  {
     "slug": "portatif-seyyar-sarj-cihazi-nedir-ne-kadar",
     "title": "Portatif (Seyyar) Elektrikli Araç Şarj Cihazı: Nedir, Kimlere Uygun, Ne Kadar?",
     "titleI18n": {

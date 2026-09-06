@@ -92,10 +92,30 @@
         {
           "q": "Is installation included?",
           "a": "Installation is not included in the price of the unit. Our authorised dealer carries out a site survey and provides a separate quote tailored to your needs for cable routing, wiring and distribution board work; the installation cost is finalised during the survey according to your existing infrastructure."
+        },
+        {
+          "q": "What is a wallbox and how does it differ from a domestic socket?",
+          "a": "A wallbox is a wall-mounted AC charger for electric vehicles. A domestic socket delivers at most 2.3 kW and is not designed for hours at full load; a wallbox on its own circuit delivers 7.4–22 kW, communicates with the car (IEC 61851) and provides residual-current and overcurrent protection. The result is 3–10 times faster, safer charging."
+        },
+        {
+          "q": "What determines the price of a home charging station?",
+          "a": "Power (7.4 / 11 / 22 kW), output type (5 m cable or socket), smart options (OCPP, GSM module, MID meter) and the installation work (cable run, breaker and distribution-board work). Installation is not included in the device price; an authorised partner quotes after a site survey."
+        },
+        {
+          "q": "Should I choose 11 kW or 22 kW?",
+          "a": "Check the car's AC acceptance rate first: most EVs accept 11 kW, some are limited to 7.4 kW and only a few accept 22 kW. For one car parked overnight, 11 kW is more than enough; 22 kW makes sense for fast daytime top-ups or several cars in a row. Charger Plus 2 and Charger Pro 2 are adjustable between 4 and 22 kW, so you will not need a new device when you change car."
+        },
+        {
+          "q": "Which breaker and supply does a 22 kW wallbox need?",
+          "a": "22 kW needs a 3×32 A three-phase supply, 11 kW a 3×16 A three-phase supply and 7.4 kW a 32 A single-phase supply; residual-current protection is required in every case. The cable cross-section depends on the distance from the distribution board and is determined by a qualified electrician."
+        },
+        {
+          "q": "Can a home charging station be installed in an apartment or estate car park?",
+          "a": "Yes. You need the building management's approval and a metering plan (your own meter or a shared supply). For shared use, MID meter models separate consumption with certified metering, and RFID plus OCPP report who charged how much."
         }
       ],
       "descriptionImage": "",
-      "description": "Wall-mounted (home type) AC charging stations — for homes, workplaces and car parks. Single- and three-phase models from 7.4 kW to 22 kW; with a Type 2 socket or an integrated cable, they charge your electric vehicle safely and efficiently. An ideal home charger for overnight charging; CE & IP65 certified, compliant with IEC 61851 / IEC 62196, produced in Türkiye with a 94% Domestic Goods Certificate and covered by warranty.",
+      "description": "Home (wall-mounted) EV charging station — AC wallbox for houses, apartment car parks, workplaces and residential estates: single-phase 7.4 kW and three-phase 11 kW / 22 kW models, with a Type 2 socket or a 5 m integrated cable. The Charger 2, Charger Plus 2 and Charger Pro 2 series are produced in our own factory in Bursa, Türkiye; CE & IP65 certified, compliant with IEC 61851 / IEC 62196 and covered by warranty.\n\nWhat is a wallbox? A wall-mounted AC charger that charges your EV safely from the mains. It communicates with the car's onboard charger (IEC 61851), provides residual-current and overcurrent protection and manages the charging current. A domestic socket delivers at most 2.3 kW and is not designed for hours at full load; a wallbox on its own circuit charges 3–10 times faster and safer.\n\nWhich power? 7.4 kW on single-phase, 11 kW (3×16 A) or 22 kW (3×32 A) on three-phase installations. A typical 60 kWh car fills in about 8 hours at 7.4 kW, 5–6 hours at 11 kW and 2–3 hours at 22 kW; the car's AC acceptance rate is the limit. Charger Plus 2 and Charger Pro 2 are adjustable between 4 / 7 / 11 / 22 kW (6–32 A).\n\nCable or socket? The cabled model has a fixed 5 m Type 2 cable: plug in and charge. The socket model takes your own Type 2 cable and suits shared car parks and multiple vehicles.\n\nModels. Charger 2: fixed power, RFID authorisation, display, Wi-Fi and app scheduling. Charger Plus 2: adjustable power, smart charging algorithm, automatic restart after a power cut, OCPP 1.6 and optional MID meter. Charger Pro 2: additionally dynamic load management (DLM) and user authorisation; GSM (4G) versions connect where there is no internet, integrated MID meter versions record consumption with certified metering for shared and fleet billing.\n\nInstallation is carried out by a qualified electrician or an authorised Bemis partner: a dedicated circuit, a suitable breaker and residual-current protection; cable size is determined on site. Installation is not included in the device price. Price depends on power, output type, smart options and installation distance — request a survey and quote.",
       "manuals": [
         {
           "id": "manual-1779303159452",

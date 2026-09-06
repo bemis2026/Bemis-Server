@@ -58,7 +58,7 @@
   ],
   "categories": {
     "wallbox": {
-      "name": "AC Wallbox Şarj İstasyonu",
+      "name": "Ev Tipi Şarj İstasyonu (AC Wallbox)",
       "subtitle": "22-7,4kW Duvar Tipi Şarj İstasyonu",
       "modelCount": 8,
       "badge": "En Çok Satan",
@@ -93,10 +93,30 @@
         {
           "q": "Kurulum dahil mi?",
           "a": "Cihaz fiyatına kurulum dahil değildir. Yetkili bayimiz keşif yaparak hat çekimi, kablolama ve sigorta panosu çalışmaları için ihtiyacınıza özel ayrı bir teklif verir; kurulum maliyeti mevcut altyapınıza göre keşifte netleştirilir."
+        },
+        {
+          "q": "Wallbox nedir, evdeki normal prizden farkı nedir?",
+          "a": "Wallbox, elektrikli aracı şarj etmek için duvara monte edilen AC şarj cihazıdır. Normal ev prizi 10A ile en fazla 2,3 kW verir ve saatlerce tam yükte çalışmak için tasarlanmamıştır; wallbox ayrı bir hattan 7,4–22 kW güç verir, aracınızla IEC 61851 protokolüyle haberleşir, kaçak akım ve aşırı akım koruması sağlar. Sonuç: 3–10 kat daha hızlı ve güvenli şarj."
+        },
+        {
+          "q": "Ev tipi şarj istasyonu fiyatı neye göre değişir?",
+          "a": "Güç (7,4 / 11 / 22 kW), çıkış tipi (5 m kablolu veya pano prizli), akıllı özellikler (OCPP, GSM modülü, MID sayaç) ve kurulum işleri (hat mesafesi, sigorta ve pano çalışması) fiyatı belirler. Cihaz fiyatına kurulum dahil değildir; yetkili bayi keşif sonrası ihtiyacınıza göre teklif verir."
+        },
+        {
+          "q": "11 kW mı 22 kW mı almalıyım?",
+          "a": "Önce aracınızın AC şarj kabul gücüne bakın: çoğu elektrikli araç 11 kW kabul eder, bazıları 7,4 kW ile sınırlıdır; 22 kW kabul eden model azdır. Gece boyunca park eden tek araç için 11 kW fazlasıyla yeterlidir; 22 kW, gündüz hızlı dolum veya art arda birkaç aracın şarj edildiği yerlerde anlamlıdır. Charger Plus 2 ve Charger Pro 2'de güç 4–22 kW arasında ayarlanabildiği için ileride araç değiştiğinde cihaz değiştirmeniz gerekmez."
+        },
+        {
+          "q": "22 kW wallbox için kaç amper sigorta ve hangi hat gerekir?",
+          "a": "22 kW için 3×32A trifaze hat, 11 kW için 3×16A trifaze hat, 7,4 kW için 32A monofaze hat gerekir; her durumda kaçak akım koruması şarttır. Kablo kesiti, panodan cihaza olan mesafeye ve döşeme şekline göre yetkili elektrikçi tarafından keşifte belirlenir."
+        },
+        {
+          "q": "Apartmana veya site otoparkına ev tipi şarj istasyonu kurulabilir mi?",
+          "a": "Evet. Bina yönetiminin onayı ve sayaç planı (kendi sayacınızdan ya da ortak sayaçtan besleme) gerekir. Ortak kullanımda MID sayaçlı modeller tüketimi sertifikalı ölçümle ayırır; RFID ve OCPP ile kimin ne kadar şarj ettiği raporlanır. Otopark Yönetmeliği'nin yeni binalarda getirdiği altyapı zorunlulukları için yönetmelik rehberimize bakın."
         }
       ],
       "descriptionImage": "",
-      "description": "Ev tipi (duvar tipi) AC şarj istasyonları — ev, iş yeri ve otopark için. 7,4 kW – 22 kW arası tek ve üç fazlı modeller; Type 2 (Tip 2) soket veya entegre kablo seçenekleriyle elektrikli aracınızı (arabanızı) güvenli ve verimli şekilde şarj eder. Evde şarj için ideal bir ev şarj cihazı; CE & IP65 sertifikalı, IEC 61851 / IEC 62196 standartlarına uygun, %94 Yerli Malı Belgeli ve garantili yerli üretim.",
+      "description": "Ev tipi (duvar tipi) elektrikli araç şarj istasyonu — AC Wallbox: ev, apartman otoparkı, iş yeri ve site için monofaze 7,4 kW ile trifaze 11 kW ve 22 kW modeller; Type 2 pano prizli (soketli) veya 5 m entegre kablolu seçenekler. Charger 2, Charger Plus 2 ve Charger Pro 2 serileri Bursa'daki fabrikamızda üretilir; CE & IP65 sertifikalı, IEC 61851 / IEC 62196 standartlarına uygun, %94 Yerli Malı Belgeli ve garantilidir.\n\nWallbox nedir? Wallbox, elektrikli aracınızı evde ya da iş yerinde şebekeden güvenle şarj etmek için duvara monte edilen AC şarj cihazıdır; Türkiye'de ev tipi şarj istasyonu, duvar tipi şarj cihazı ve wallbox aynı ürünü tanımlar. Cihaz aracın içindeki şarj birimiyle (onboard charger) IEC 61851 protokolüne göre haberleşir, kaçak akım ve aşırı akım koruması sağlar, şarjı aracın kabul ettiği akıma göre yönetir. Normal ev prizi 10A ile en fazla 2,3 kW verir ve saatlerce tam yükte çalışmaya uygun değildir; wallbox ayrı bir hattan 7,4–22 kW ile 3–10 kat daha hızlı ve güvenli şarj eder.\n\nHangi güç? 7,4 kW monofaze (32A) tesisatlarda, 11 kW (3×16A) ve 22 kW (3×32A) trifaze tesisatlarda çalışır. 60 kWh bataryalı tipik bir araç 7,4 kW ile yaklaşık 8 saatte, 11 kW ile 5–6 saatte, 22 kW ile 2–3 saatte dolar. Belirleyici olan aracın AC şarj kabul gücüdür: aracınız 11 kW kabul ediyorsa 22 kW cihaz ek hız vermez. Charger Plus 2 ve Charger Pro 2'de güç 4 / 7 / 11 / 22 kW (6–32A) arasında ayarlanabilir; tesisatınıza göre kısar, altyapı büyüyünce açarsınız.\n\nKablolu mu, pano prizli mi? Kablolu modelde 5 m Type 2 kablo cihaza sabittir; takıp şarj edersiniz, günlük kullanımda en pratik seçenektir. Pano prizli (soketli) modelde kendi Type 2 kablonuzu kullanırsınız; birden fazla araç, misafir şarjı ve ortak otopark kurulumlarında tercih edilir. Her iki tipte güç ve koruma aynıdır.\n\nModel farkları. Charger 2: sabit güç (7,4 / 11 / 22 kW), RFID kart ile yetkilendirme, ekran, Wi-Fi ve mobil uygulamadan zamanlama; ev kullanımı için giriş seviyesi. Charger Plus 2: 4–22 kW ayarlanabilir güç, aracın kabul ettiği akıma otomatik uyum sağlayan akıllı şarj algoritması, elektrik kesilip geldiğinde şarjı otomatik sürdürme, OCPP 1.6 ve opsiyonel MID sayaç; ev ve küçük işletme için. Charger Pro 2: bunlara ek olarak gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme; GSM (4G) modüllü sürümler internet altyapısı olmayan otoparklarda mobil şebeke üzerinden bağlanır, entegre MID sayaçlı sürümler tüketimi sertifikalı ölçümle kaydeder (apartman ve site ortak kullanımı, filo ve kiracı faturalandırması).\n\nAkıllı özellikler. Dinamik yük dengeleme, evdeki diğer yükler (klima, fırın, ısı pompası) arttığında şarj gücünü otomatik düşürür ve sigorta atmasını önler; çoklu cihaz kurulumunda toplam gücü cihazlar arasında paylaştırır. RFID kart yetkilendirme, gece tarifesine göre zamanlama, uygulamadan uzaktan aç/kapa ve şarj geçmişi bağlantılı modellerde standarttır. OCPP 1.6 sayesinde Charger Plus 2 ve Charger Pro 2 operatör platformlarına ve şarj ağı yönetim sistemlerine bağlanır.\n\nKurulum. Kurulum yetkili elektrikçi veya Bemis yetkili bayisi tarafından yapılır: ana panodan ayrı bir hat, uygun sigorta ve kaçak akım koruması gerekir; hat kesiti ve mesafe keşifte belirlenir. Müstakil evde doğrudan ana hattan besleme yeterlidir; apartmanda bina yönetimi onayı ve sayaç planı gerekir. Cihaz fiyatına kurulum dahil değildir; bayi keşif sonrası ayrı teklif verir.\n\nNerede kullanılır? Müstakil ev ve villa garajı, apartman ve site otoparkı, iş yeri ve personel otoparkı, filo park alanı, otel ve AVM misafir şarjı. IP65 gövde açık otopark, balkon ve dış duvarda ek koruyucu kabin gerektirmez.\n\nNeden Bemis? Bemis Teknik Elektrik 1994'ten beri Bursa'da elektrik ekipmanı üretiyor ve 60'tan fazla ülkeye ihracat yapıyor. Ev tipi şarj istasyonlarımız kendi fabrikamızda üretilir, %94 Yerli Malı Belgesi'ne sahiptir; Türkiye genelinde yetkili bayi ve servis ağı, yedek parça ve garanti desteği sunar.\n\nFiyatı ne belirler? Ev tipi şarj istasyonu fiyatı güce (7,4 / 11 / 22 kW), çıkış tipine (kablolu / pano prizli), akıllı özelliklere (OCPP, GSM, MID sayaç) ve kurulum mesafesine göre değişir. Size en yakın yetkili bayiden keşif ve teklif alın.",
       "manuals": [
         {
           "id": "manual-1779303159452",

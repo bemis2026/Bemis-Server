@@ -92,10 +92,30 @@
         {
           "q": "Ist die Installation im Preis enthalten?",
           "a": "Die Installation ist im Gerätepreis nicht enthalten. Unser autorisierter Händler erstellt nach einer Besichtigung ein individuelles Angebot für Zuleitung, Verkabelung und Arbeiten am Sicherungskasten; die Installationskosten werden je nach vorhandener Infrastruktur bei der Besichtigung festgelegt."
+        },
+        {
+          "q": "Was ist eine Wallbox und worin unterscheidet sie sich von der Haushaltssteckdose?",
+          "a": "Eine Wallbox ist ein wandmontiertes AC-Ladegerät für Elektroautos. Eine Haushaltssteckdose liefert höchstens 2,3 kW und ist nicht für stundenlange Volllast ausgelegt; eine Wallbox am eigenen Stromkreis liefert 7,4–22 kW, kommuniziert mit dem Fahrzeug (IEC 61851) und bietet Fehlerstrom- und Überstromschutz. Ergebnis: 3- bis 10-mal schnelleres und sichereres Laden."
+        },
+        {
+          "q": "Wovon hängt der Preis einer Ladestation für zu Hause ab?",
+          "a": "Von der Leistung (7,4 / 11 / 22 kW), dem Ausgangstyp (5-m-Kabel oder Steckdose), den Smart-Optionen (OCPP, GSM-Modul, MID-Zähler) und den Installationsarbeiten (Leitungsweg, Absicherung, Verteilerarbeiten). Die Installation ist im Gerätepreis nicht enthalten; ein autorisierter Partner erstellt nach der Besichtigung ein Angebot."
+        },
+        {
+          "q": "11 kW oder 22 kW?",
+          "a": "Prüfen Sie zuerst die AC-Ladeleistung des Fahrzeugs: Die meisten Elektroautos nehmen 11 kW an, einige nur 7,4 kW, nur wenige 22 kW. Für ein Auto, das über Nacht steht, reichen 11 kW völlig; 22 kW lohnt sich für schnelles Nachladen am Tag oder mehrere Fahrzeuge nacheinander. Charger Plus 2 und Charger Pro 2 sind zwischen 4 und 22 kW einstellbar — beim Fahrzeugwechsel brauchen Sie kein neues Gerät."
+        },
+        {
+          "q": "Welche Absicherung und Zuleitung braucht eine 22-kW-Wallbox?",
+          "a": "22 kW benötigen eine dreiphasige Zuleitung mit 3×32 A, 11 kW eine dreiphasige mit 3×16 A und 7,4 kW eine einphasige mit 32 A; ein Fehlerstromschutz ist immer erforderlich. Der Leitungsquerschnitt richtet sich nach der Entfernung zum Verteiler und wird von der Elektrofachkraft festgelegt."
+        },
+        {
+          "q": "Kann eine Ladestation in der Tiefgarage einer Wohnanlage installiert werden?",
+          "a": "Ja. Nötig sind die Zustimmung der Hausverwaltung und ein Zählerkonzept (eigener Zähler oder gemeinsame Einspeisung). Bei gemeinsamer Nutzung trennen Modelle mit MID-Zähler den Verbrauch geeicht, RFID und OCPP zeigen, wer wie viel geladen hat."
         }
       ],
       "descriptionImage": "",
-      "description": "AC-Wandladestationen (Heimtyp) — für Zuhause, Arbeitsplatz und Parkhaus. Ein- und dreiphasige Modelle von 7,4 kW bis 22 kW; mit Type-2-Steckdose oder fest angeschlossenem Kabel laden sie Ihr Elektrofahrzeug sicher und effizient. Ideale Heimladestation für das Laden über Nacht; CE- und IP65-zertifiziert, konform mit IEC 61851 / IEC 62196, Fertigung in der Türkei mit 94 % Inlandsanteil-Zertifikat und Garantie.",
+      "description": "Ladestation für zu Hause (Wandmontage) — AC-Wallbox für Einfamilienhäuser, Tiefgaragen, Betriebe und Wohnanlagen: einphasig 7,4 kW sowie dreiphasig 11 kW / 22 kW, mit Typ-2-Steckdose oder fest angeschlossenem 5-m-Kabel. Die Serien Charger 2, Charger Plus 2 und Charger Pro 2 werden in unserem eigenen Werk in Bursa, Türkei, gefertigt; CE- und IP65-zertifiziert, konform mit IEC 61851 / IEC 62196, mit Garantie.\n\nWas ist eine Wallbox? Ein an der Wand montiertes AC-Ladegerät, das Ihr Elektroauto sicher aus dem Netz lädt. Es kommuniziert mit dem Onboard-Lader des Fahrzeugs (IEC 61851), bietet Fehlerstrom- und Überstromschutz und regelt den Ladestrom. Eine Haushaltssteckdose liefert höchstens 2,3 kW und ist nicht für stundenlange Volllast ausgelegt; eine Wallbox am eigenen Stromkreis lädt 3- bis 10-mal schneller und sicherer.\n\nWelche Leistung? 7,4 kW an einphasigen, 11 kW (3×16 A) oder 22 kW (3×32 A) an dreiphasigen Anschlüssen. Ein typisches Auto mit 60 kWh ist bei 7,4 kW in rund 8 Stunden, bei 11 kW in 5–6 Stunden und bei 22 kW in 2–3 Stunden voll; die AC-Ladeleistung des Fahrzeugs ist die Grenze. Charger Plus 2 und Charger Pro 2 sind zwischen 4 / 7 / 11 / 22 kW (6–32 A) einstellbar.\n\nKabel oder Steckdose? Das Kabelmodell hat ein festes 5-m-Typ-2-Kabel: anstecken und laden. Das Steckdosenmodell nutzt Ihr eigenes Typ-2-Kabel und eignet sich für Gemeinschaftsparkplätze und mehrere Fahrzeuge.\n\nModelle. Charger 2: feste Leistung, RFID-Freigabe, Display, WLAN und App-Zeitplanung. Charger Plus 2: einstellbare Leistung, intelligenter Ladealgorithmus, automatischer Neustart nach Stromausfall, OCPP 1.6 und optionaler MID-Zähler. Charger Pro 2: zusätzlich dynamisches Lastmanagement (DLM) und Benutzerautorisierung; GSM-(4G-)Versionen verbinden sich ohne Internetanschluss, Versionen mit integriertem MID-Zähler erfassen den Verbrauch geeicht für Gemeinschafts- und Flottenabrechnung.\n\nDie Installation übernimmt eine Elektrofachkraft oder ein autorisierter Bemis-Partner: eigener Stromkreis, passender Leitungsschutzschalter und Fehlerstromschutz; der Leitungsquerschnitt wird vor Ort festgelegt. Die Installation ist im Gerätepreis nicht enthalten. Der Preis hängt von Leistung, Ausgangstyp, Smart-Optionen und Installationsweg ab — fordern Sie eine Besichtigung und ein Angebot an.",
       "manuals": [
         {
           "id": "manual-1779303159452",

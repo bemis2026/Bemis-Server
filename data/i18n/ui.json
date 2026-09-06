@@ -2868,5 +2868,54 @@
   "ar": "قبول الكل",
   "ru": "Принять все",
   "nl": "Alles accepteren"
+ },
+ "Model comparison": {
+  "de": "Modellvergleich",
+  "es": "Comparación de modelos",
+  "ar": "مقارنة الطرازات",
+  "ru": "Сравнение моделей",
+  "nl": "Modelvergelijking"
+ },
+ "Phase": {
+  "de": "Phase",
+  "es": "Fase",
+  "ar": "الطور",
+  "ru": "Фаза",
+  "nl": "Fase"
+ },
+ "Max. current": {
+  "de": "Max. Strom",
+  "es": "Corriente máx.",
+  "ar": "أقصى تيار",
+  "ru": "Макс. ток",
+  "nl": "Max. stroom"
+ },
+ "Output": {
+  "de": "Ausgang",
+  "es": "Salida",
+  "ar": "المخرج",
+  "ru": "Выход",
+  "nl": "Uitgang"
+ },
+ "MID meter": {
+  "de": "MID-Zähler",
+  "es": "Contador MID",
+  "ar": "عداد MID",
+  "ru": "Счётчик MID",
+  "nl": "MID-meter"
+ },
+ "Yes": {
+  "de": "Ja",
+  "es": "Sí",
+  "ar": "نعم",
+  "ru": "Да",
+  "nl": "Ja"
+ },
+ "All models use a Type 2 (IEC 62196-2) connector and are CE and IP65 certified; power and output type are listed below.": {
+  "de": "Alle Modelle haben einen Typ-2-Stecker (IEC 62196-2) und sind CE- und IP65-zertifiziert; Leistung und Ausgangstyp stehen in der Tabelle.",
+  "es": "Todos los modelos usan conector Tipo 2 (IEC 62196-2) y cuentan con certificación CE e IP65; potencia y tipo de salida en la tabla.",
+  "ar": "تستخدم جميع الطرازات موصل Type 2 ‏(IEC 62196-2) وهي معتمدة CE وIP65؛ القدرة ونوع المخرج مذكوران في الجدول.",
+  "ru": "Все модели используют разъём Type 2 (IEC 62196-2) и сертифицированы по CE и IP65; мощность и тип выхода указаны в таблице.",
+  "nl": "Alle modellen hebben een Type 2-connector (IEC 62196-2) en zijn CE- en IP65-gecertificeerd; vermogen en uitgangstype staan in de tabel."
  }
 }

@@ -92,10 +92,30 @@
         {
           "q": "¿La instalación está incluida?",
           "a": "La instalación no está incluida en el precio del equipo. Nuestro distribuidor autorizado realiza una visita técnica y presenta una oferta específica para el tendido de línea, cableado y trabajos en el cuadro eléctrico; el coste de instalación se concreta en la visita según la infraestructura existente."
+        },
+        {
+          "q": "¿Qué es un wallbox y en qué se diferencia de un enchufe doméstico?",
+          "a": "Un wallbox es un cargador AC de pared para vehículos eléctricos. Un enchufe doméstico entrega como máximo 2,3 kW y no está diseñado para horas a plena carga; un wallbox en su propio circuito entrega 7,4–22 kW, se comunica con el coche (IEC 61851) y ofrece protección diferencial y contra sobrecorriente. Resultado: una carga entre 3 y 10 veces más rápida y segura."
+        },
+        {
+          "q": "¿De qué depende el precio de una estación de carga doméstica?",
+          "a": "De la potencia (7,4 / 11 / 22 kW), del tipo de salida (cable de 5 m o toma), de las opciones inteligentes (OCPP, módulo GSM, contador MID) y de los trabajos de instalación (tirada de cable, protecciones y cuadro). La instalación no está incluida en el precio del equipo; el distribuidor autorizado presupuesta tras la visita."
+        },
+        {
+          "q": "¿11 kW o 22 kW?",
+          "a": "Compruebe primero la potencia AC que acepta el coche: la mayoría admite 11 kW, algunos solo 7,4 kW y muy pocos 22 kW. Para un coche aparcado toda la noche, 11 kW sobran; 22 kW tiene sentido para recargas rápidas de día o varios coches seguidos. Charger Plus 2 y Charger Pro 2 se ajustan entre 4 y 22 kW, así que no necesitará otro equipo al cambiar de coche."
+        },
+        {
+          "q": "¿Qué protección y acometida necesita un wallbox de 22 kW?",
+          "a": "22 kW requiere una línea trifásica de 3×32 A; 11 kW, trifásica de 3×16 A; y 7,4 kW, monofásica de 32 A; en todos los casos es obligatoria la protección diferencial. La sección del cable depende de la distancia al cuadro y la determina un electricista cualificado."
+        },
+        {
+          "q": "¿Se puede instalar en el garaje de una comunidad de vecinos?",
+          "a": "Sí. Se necesita la aprobación de la comunidad y un plan de medición (contador propio o suministro común). En uso compartido, los modelos con contador MID separan el consumo con medición certificada, y RFID más OCPP informan de quién ha cargado cuánto."
         }
       ],
       "descriptionImage": "",
-      "description": "Estaciones de carga AC de pared (tipo doméstico) — para viviendas, lugares de trabajo y aparcamientos. Modelos monofásicos y trifásicos de 7,4 kW a 22 kW; con toma Type 2 o cable integrado, cargan su vehículo eléctrico de forma segura y eficiente. Cargador doméstico ideal para la carga nocturna; certificado CE e IP65, conforme a IEC 61851 / IEC 62196, fabricación propia en Türkiye con Certificado de Producto Nacional del 94 % y garantía.",
+      "description": "Estación de carga doméstica (de pared) — wallbox AC para viviendas, garajes comunitarios, empresas y urbanizaciones: monofásica de 7,4 kW y trifásica de 11 kW / 22 kW, con toma Tipo 2 o cable integrado de 5 m. Las series Charger 2, Charger Plus 2 y Charger Pro 2 se fabrican en nuestra propia planta de Bursa (Türkiye); certificación CE e IP65, conformes con IEC 61851 / IEC 62196 y con garantía.\n\n¿Qué es un wallbox? Un cargador AC montado en pared que carga su vehículo eléctrico de forma segura desde la red. Se comunica con el cargador de a bordo del coche (IEC 61851), ofrece protección diferencial y contra sobrecorriente y regula la corriente de carga. Un enchufe doméstico entrega como máximo 2,3 kW y no está pensado para horas a plena carga; un wallbox en su propio circuito carga entre 3 y 10 veces más rápido y con más seguridad.\n\n¿Qué potencia? 7,4 kW en instalaciones monofásicas; 11 kW (3×16 A) o 22 kW (3×32 A) en trifásicas. Un coche típico de 60 kWh se llena en unas 8 horas a 7,4 kW, en 5–6 horas a 11 kW y en 2–3 horas a 22 kW; el límite lo marca la potencia AC que acepta el vehículo. Charger Plus 2 y Charger Pro 2 son ajustables entre 4 / 7 / 11 / 22 kW (6–32 A).\n\n¿Con cable o con toma? El modelo con cable lleva un cable Tipo 2 fijo de 5 m: conectar y cargar. El modelo con toma usa su propio cable Tipo 2 y es ideal para garajes compartidos y varios vehículos.\n\nModelos. Charger 2: potencia fija, autorización RFID, pantalla, Wi-Fi y programación desde la app. Charger Plus 2: potencia ajustable, algoritmo de carga inteligente, reinicio automático tras un corte de luz, OCPP 1.6 y contador MID opcional. Charger Pro 2: además, gestión dinámica de carga (DLM) y autorización de usuarios; las versiones GSM (4G) se conectan donde no hay internet y las versiones con contador MID integrado registran el consumo con medición certificada para facturación compartida y de flotas.\n\nLa instalación la realiza un electricista cualificado o un distribuidor autorizado Bemis: circuito dedicado, protección magnetotérmica adecuada y diferencial; la sección del cable se define en la visita. La instalación no está incluida en el precio del equipo. El precio depende de la potencia, el tipo de salida, las opciones inteligentes y la distancia de instalación: solicite una visita y un presupuesto.",
       "manuals": [
         {
           "id": "manual-1779303159452",
