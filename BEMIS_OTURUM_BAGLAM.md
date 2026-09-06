@@ -13,6 +13,41 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 📊🧱 **SEO VERİ OKUMASI + 7 BAŞLIK + WALLBOX PAKETİ + 4 REHBER TAZELEME (2026-09-06, commit'ler da56c3b · 01a472b ·
+> 79ed264 · 7c7b2b8):** Kullanıcı GSC/Bing CSV'lerini `Desktop\SEO data\` klasörüne indirdi → `scratchpad/_seo_analiz.cjs` ile
+> okundu; rapor `Desktop\SEO data\Bemis_SEO_Okuma_2026-09-06.md` + taban çizgisi `SEO_taban_cizgisi_2026-09-06.json` (3 hafta
+> sonra kıyas: 27 Eyl). **Bulgular:** son 4 hafta tıklama +%166 (970 / 16.387 gös.); marka payı %60; V2L kümesi motor (sıra
+> 4,8); **wallbox kümesi 168 sorgu · 1.355 gös. · sıra 20,6** (2. sayfa); "görülen-tıklanmayan" sayfalar (şarj süresi yazısı
+> 2.679 gös. %0,3 TO); yurt dışı taban: ABD 425 / DE 231 / UK 228 / NL 193 gös., ~0 tıklama; /en 3 günde 411 gös. 11 tık.
+> Bing 3 ayda 21 tık. Kullanıcı seçimi (AskUserQuestion): Cloudinary düzeltmesi + 6 sayfa başlık + wallbox planı; plan
+> kararları: kategori H1/anchor değişsin EVET · fiyat sayfası YOK · rehberler DOĞRUDAN yayın.
+> **(1) 7 sayfa yalnız <title>+meta (da56c3b):** 4 rehber (metaTitle/description), /kurumsal (layout ×3 kopya), sözlük
+> kW-kWh + IP65 → `GlossaryTerm.metaTitle/metaDescription` (opsiyonel alan; H1=term korunur). Canlı doğrulandı.
+> **(2) Wallbox paketi (01a472b):** `CATEGORY_SEO.wallbox` H1 "Ev Tipi Elektrikli Araç Şarj İstasyonu (AC Wallbox) 7,4–22 kW",
+> metaTitle 51 kr (⚠️ `categoryMetaTitle` → `clampTitle(…, 56)`: uzun metaTitle "7,4…" diye kesildi → 7c7b2b8 ile kısaltıldı);
+> kategori `name` TR "Ev Tipi Şarj İstasyonu (AC Wallbox)" (R2 + content.json; çeviri adları aynı kaldı); açıklama 403 →
+> 4.160 kr (10 paragraf, `\n\n`; bileşen whitespace-pre-line + line-clamp-2 "Devamını oku"); SSS 7 → **12** (TR + en/de/es/ar/ru
+> R2 `_translations` + nl repo dosyası — hepsi elle çevrildi, "dünya" çerçevesi: yerli malı yalnız TR); **karşılaştırma tablosu**
+> ProductCategoryClient'ta yalnız `id==="wallbox"` (etiket çok dilli regex + konumsal yedek; GSM/MID ürün id'sinden, OCPP spec
+> metninden; başlıklar pickText → ui.json +7); GUIDES.wallbox +2; store cache **v99-eposta → v100-wallbox**. **2 yeni rehber**
+> `posts.ts` sonuna JSON olarak: `wallbox-nedir-ev-tipi-sarj-istasyonu-rehberi` (9 dk, 6 SSS) ·
+> `11-kw-mi-22-kw-mi-wallbox-guc-secimi-amper-hesabi` (7 dk, 5 SSS); `npm run gen:blog-index` → 37 yazı; rakip-marka guard temiz.
+> Ürün gerçekleri canlı spec'ten doğrulandı: Charger 2 sabit 7,4/11/22 kW (RFID, ekran, Wi-Fi, uygulama; OCPP YOK) · Plus 2 ve
+> Pro 2 4/7/11/22 kW (6–32A) + OCPP 1.6 + opsiyonel MID · Pro 2 GSM 4G + entegre MID; DLM Pro 2'de.
+> **(3) 4 rehber tazeleme (79ed264):** ac-dc (doğrudan tanım paragrafı + başlık "AC Şarj Nedir, DC Şarj Nedir?…"), kurulum
+> (6 adım `ul`), nasıl-seçilir (güç kuralı paragrafı), maliyet (2026 bölümü rakamsız + CTA `/#dealer` — ⚠️ `/bayilik` = bayilik
+> BAŞVURUSU, bayi bulucu anasayfa `#dealer`); hepsine related +2 rehber, dateModified 2026-09-06.
+> **Cloudinary (AÇIK, kullanıcı tarafı):** son 30 gün 11 GB bant genişliği = kredinin %46'sı (depolama 605 MB, dönüşüm 55) →
+> Vercel her önbellek kaçırmasında 1–4,6 MB ham PNG çekiyor. Hesapta **STRICT TRANSFORMATIONS AÇIK** (w_100 bile 401 "not
+> allowed"; `t_media_lib_thumb` 200) ve Vercel env'de API key/secret YOK → anlık dönüşüm imkânsız. Kullanıcı seçimi: **adlı
+> dönüşüm "teslim"** (f_webp,q_auto:best,c_limit,w_3840, strict için izinli) oluşturacak → "hazır" deyince
+> `app/lib/cloudinary.ts` TESLIM = "t_teslim/" + `app/components/Img.tsx` sarmalayıcı (22 dosyada `import Image from "next/image"`
+> → `…/components/Img`) + 3 ürün sayfasında og:image kaynağı; ⚠️ global `images.loaderFile` KULLANMA (Next 16 next-server.js:
+> `loader !== 'default'` → /_next/image kapanır, yerel görseller optimize edilmez). Dosyalar depoda **untracked** duruyor
+> (commit edilmedi). Yayın öncesi `t_teslim` HEAD 200 şart, yoksa tüm görseller 401.
+> **Araç dersleri:** `node -e` içinde kesme işareti ("env'de") ve `\b` regex kaçışları kabuğu kırıyor → Write ile dosya;
+> GSC "Sorgular" dışa aktarımı gösterimlerin ~1/3'ünü listeler (gizlilik filtresi) → sayfa/sorgu toplamları eşleşmez.
+
 > 📧✅ **E-POSTA: satis@ → sales@bemis.com.tr HER YERDE (2026-09-05, commit c04cdab + 0b4e584):** Kullanıcı "mailler
 > sales@'e düşsün" dedi → ölçüm: Vercel prod `CONTACT_TO_EMAIL` **zaten sales@** idi (form bildirimleri oraya gidiyordu; benim
 > "satis@'e düşer" cümlem `lib/email.ts`'teki 08-19 tarihçe notundan gelen BAYAT bilgiydi — env'i okumadan söyleme). Asıl fark
