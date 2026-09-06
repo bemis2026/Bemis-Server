@@ -910,7 +910,7 @@ const CATEGORY_SEO: Record<string, { title: string; metaTitle?: string; desc: st
     // araba şarj cihazı" en yaygın günlük aramalardan. metaTitle SERP'i hedefler;
     // H1 (title) DEĞİŞMEDİ.
     title: "Ev Tipi Elektrikli Araç Şarj İstasyonu (AC Wallbox) 7,4–22 kW",
-    metaTitle: "Ev Tipi Elektrikli Araç Şarj İstasyonu (AC Wallbox) 7,4–22 kW",
+    metaTitle: "Ev Tipi Elektrikli Araç Şarj İstasyonu (AC Wallbox)", // 51 kr ≤ clampTitle 56; kW aralığı H1 + açıklamada
     desc: "Ev tipi (duvar tipi) elektrikli araç şarj istasyonu: 7,4 kW monofaze, 11 ve 22 kW trifaze AC wallbox; Type 2, ayarlanabilir güç, OCPP 1.6, GSM ve MID sayaç seçenekleri. Bursa'da üretim, CE & IP65, %94 yerli malı.",
     short: "Ev Tipi AC Wallbox Şarj İstasyonu",
   },
