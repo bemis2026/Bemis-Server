@@ -10,6 +10,7 @@ import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
 import { useBackgroundVideo, useNearViewport } from "../components/useBackgroundVideo";
 import Image from "../components/Img";
+import { cloudinarySrc } from "../lib/cloudinary";
 import JsonLd from "../components/JsonLd";
 import { videoObjectSchema, SITE_VIDEOS, SITE_URL } from "../lib/seo";
 import {
@@ -374,7 +375,7 @@ export default function KurumsalPage() {
                     const renderLogo = (b: { name: string; logo?: string }, size: number, maxW: number) => (
                       b.logo ? (
                         // eslint-disable-next-line @next/next/no-img-element
-                        <img src={b.logo} alt={b.name} style={{ height: size, width: "auto", maxWidth: maxW, objectFit: "contain" }} loading="lazy" decoding="async" />
+                        <img src={cloudinarySrc(b.logo)} alt={b.name} style={{ height: size, width: "auto", maxWidth: maxW, objectFit: "contain" }} loading="lazy" decoding="async" />
                       ) : (
                         <span
                           className="inline-flex items-center justify-center rounded-lg font-black"
@@ -398,7 +399,7 @@ export default function KurumsalPage() {
                             <>
                               {/* eslint-disable-next-line @next/next/no-img-element */}
                               <img
-                                src={parent.logo}
+                                src={cloudinarySrc(parent.logo)}
                                 alt={parent.name}
                                 style={{ height: 76, width: "auto", maxWidth: 320, objectFit: "contain" }}
                                 loading="lazy"

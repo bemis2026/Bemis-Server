@@ -19,6 +19,7 @@ import {
 import Image from "./Img";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
+import { cloudinarySrc } from "../lib/cloudinary";
 import { pickText } from "../lib/ui";
 import { useContent } from "../context/ContentContext";
 
@@ -188,7 +189,7 @@ export default function ProductShowcase() {
                     <AnimatePresence custom={direction} initial={false} mode="popLayout">
                       <motion.img
                         key={`${index}-${galleryImages[index]}`}
-                        src={galleryImages[index]}
+                        src={cloudinarySrc(galleryImages[index])}
                         alt={nameText}
                         className="absolute inset-0 w-full h-full object-cover"
                         loading="lazy"
