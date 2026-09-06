@@ -20,11 +20,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   // sorgularında gösterim alıp tıklanmadığını gösterdi (IP65/IP66 133 gösterim
   // %0, kW/kWh 94, CCS2 59). <title>'a "Nedir?" kalıbı sorgu diliyle birebir
   // eşleşir → SERP başlığı tıklanabilirleşir. SAYFA İÇERİĞİ DEĞİŞMEZ (yalnız meta).
-  const metaTitle = /nedir/i.test(t.term) ? t.term : `${t.term} Nedir?`;
+  const metaTitle = t.metaTitle ?? (/nedir/i.test(t.term) ? t.term : `${t.term} Nedir?`);
   // ⚠️ `t.short` DEĞİL: o alan 11 terimde 70 karakterin altında (Google yok sayar)
   // ve /sozluk kartlarında GÖRÜNÜYOR, uzatılamaz. Meta ayrı üretilir — bkz.
   // glossaryMetaDescription. Yine yalnız META; sayfa içeriği değişmez.
-  const metaDesc = glossaryMetaDescription(t);
+  const metaDesc = t.metaDescription ?? glossaryMetaDescription(t);
   return {
     title: metaTitle,
     description: metaDesc,

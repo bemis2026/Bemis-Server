@@ -1128,8 +1128,8 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "gunes-enerjisi-solar-ile-elektrikli-arac-sarji",
     "title": "Güneş Enerjisi (Solar) ile Elektrikli Araç Şarjı: Evde Güneş Panelinden Araç Şarj Etmek",
-    "metaTitle": "Güneş Enerjisi (Solar) ile Elektrikli Araç Şarjı",
-    "description": "Evde güneş panelinden araç şarjı mümkün mü? On-grid sistem mantığı, kaç panel gerektiği (örnek hesap) ve ayarlanabilir akımlı Bemis wallbox seçimi rehberde.",
+    "metaTitle": "Güneş Enerjili Araç Şarj İstasyonu: Kaç Panel Gerekir, Nasıl Çalışır?",
+    "description": "Evde güneş panelinden araç şarjı: günde 40 km için ~7-9 kWh gerekir, 1 kWp panel günde 3,5-4,5 kWh üretir. On-grid sistem, panel sayısı hesabı ve ayarlanabilir akımlı wallbox seçimi.",
     "excerpt": "Çatınızdaki güneş panellerinden aracınızı şarj edebilirsiniz: on-grid sistemde paneller evin panosunu, pano da şarj cihazını besler. Kaç panel gerektiğini örnek hesapla, güneşe en uygun ayarlanabilir akımlı şarj cihazı özelliklerini bu rehberde bulun.",
     "category": "Rehber",
     "datePublished": "2026-07-18",
@@ -2175,8 +2175,8 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "evde-elektrikli-arac-sarj-maliyeti-km-basina",
     "title": "Evde Elektrikli Araç Şarj Maliyeti: Km Başına Kaç TL?",
-    "metaTitle": "Evde Elektrikli Araç Şarj Maliyeti (Km Başına)",
-    "description": "Evde elektrikli araç şarj maliyeti km başına kaç TL? Tüketim, elektrik birim fiyatı ve gece tarifesiyle basit hesap formülü ve örnek karşılaştırma.",
+    "metaTitle": "Elektrikli Araç Şarj Maliyeti: 100 km Kaç TL? Evde Şarj Hesabı",
+    "description": "100 km maliyeti = tüketim (kWh/100 km) × elektrik birim fiyatı (TL/kWh). Ortalama araç 15-22 kWh harcar; gece tarifesiyle örnek hesap ve istasyon şarjıyla karşılaştırma.",
     "excerpt": "Evde EV şarj maliyetini km başına nasıl hesaplarsınız? kWh tüketimi, birim elektrik fiyatı, %10 şarj kaybı ve gece tarifesiyle adım adım örnek.",
     "category": "Rehber",
     "datePublished": "2026-07-05",
@@ -2749,8 +2749,8 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "elektrikli-arac-sarj-kablosu-kac-metre-kac-amper",
     title: "Elektrikli Araç Şarj Kablosu Kaç Metre ve Kaç Amper Olmalı?",
-    metaTitle: "Şarj Kablosu Kaç Metre, Kaç Amper Olmalı?",
-    description: "16A mı 32A mı, 5 m mi 8 m mi? Aracınızın kabul gücüne ve park düzeninize göre doğru şarj kablosu seçimi — monofaze/trifaze farkı ve pratik önerilerle.",
+    metaTitle: "Şarj Kablosu Kaç Amper, Kaç Metre Olmalı? 16A/32A Seçim Rehberi",
+    description: "Monofaze 16A ≈ 3,7 kW, 32A ≈ 7,4 kW; trifaze 16A ≈ 11 kW, 32A ≈ 22 kW. Aracın kabul gücü ve park düzenine göre doğru kablo: amper, uzunluk (5 m / 8 m) ve uzatma uyarıları.",
     excerpt:
       "Şarj kablosu alırken en çok sorulan iki soru: kaç amper, kaç metre? Aracınızın gücüne ve park mesafenize göre doğru kabloyu seçmenin pratik rehberi.",
     category: "Rehber",
@@ -3806,8 +3806,8 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "elektrikli-arac-sarj-suresi-kac-saatte-dolar",
     title: "Elektrikli Araç Şarj Süresi: Kaç Saatte Dolar? (AC ve DC)",
-    metaTitle: "Elektrikli Araç Kaç Saatte Şarj Olur? (7,4/22 kW ve DC)",
-    description: "Elektrikli araç kaç saatte şarj olur? Basit formülle kendi sürenizi hesaplayın: 7,4 kW ve 22 kW AC örnekleri, DC hızlı şarj, aracın kabul gücü ve taper etkisi.",
+    metaTitle: "Elektrikli Araç Şarj Süresi Hesaplama: 7,4 / 11 / 22 kW ve DC",
+    description: "Kaç saatte dolar? Formül: şarj edilecek kWh ÷ şarj gücü (kW), üstüne %10-20 kayıp. 7,4 kW monofaze, 11/22 kW trifaze ve DC hızlı şarj örnekleriyle kendi sürenizi hesaplayın.",
     excerpt:
       "Elektrikli araç şarj süresi temelde batarya kapasitesine ve şarj gücüne bağlıdır. Basit formülle AC ve DC için süreyi nasıl hesaplayacağınızı, aracın kabul gücü sınırının neden belirleyici olduğunu örnek hesaplarla açıklıyoruz.",
     category: "Rehber",

@@ -11,6 +11,8 @@ export type GlossaryTerm = {
   slug: string;
   diagram?: Diagram;   // sözlük sayfasında server-render edilen teknik SVG diyagram (figure+caption)
   term: string;        // başlık (H1) — "Type 2 nedir?"
+  metaTitle?: string;       // yalnız <title> (GSC: sorgu diline göre; H1 değişmez)
+  metaDescription?: string; // yalnız meta description (glossaryMetaDescription yerine)
   abbr: string;        // kısa etiket (kart + liste)
   short: string;       // tek cümlelik özet (index kartı + meta description çekirdeği)
   definition: string;  // 40-60 kelime doğrudan-cevap bloğu
@@ -133,6 +135,8 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     slug: "kw-kwh",
     term: "kW ve kWh Farkı Nedir?",
+    metaTitle: "kW ve kWh Nedir, Farkı Ne? Şarj Gücü ile Batarya Kapasitesi",
+    metaDescription: "kW şarj hızını (güç), kWh enerjiyi (batarya kapasitesi) gösterir: 11 kW ile 1 saat şarj ≈ 11 kWh. Musluk-kova benzetmesi, örnekler ve cihaz seçerken hangisine bakılır?",
     abbr: "kW / kWh",
     short: "kW gücü (hız), kWh ise enerji miktarını (depolanan/aktarılan) gösterir.",
     definition:
@@ -240,6 +244,8 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     slug: "ip65-ip66",
     term: "IP65 / IP66 Nedir?",
+    metaTitle: "IP65 ve IP66 Nedir? Koruma Sınıfı Farkı ve Dış Mekân Kullanımı",
+    metaDescription: "İlk rakam 6 = toz geçirmez; ikinci rakam su dayanımı: IP65 her yönden su jeti, IP66 güçlü su jeti (IEC 60529). Şarj cihazı yağmurda, açık otoparkta güvenle kullanılır mı?",
     abbr: "IP65 / IP66",
     short: "Cihazın toza ve suya karşı koruma sınıfı (dış mekân dayanımı).",
     definition:
