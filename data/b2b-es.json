@@ -125,6 +125,24 @@
       "Capacidad regional de almacenamiento y logística",
       "Compromiso de objetivo mínimo anual de ingresos / pedidos",
       "Infraestructura de servicio posventa y soporte al cliente"
+    ],
+    "networkStats": [
+      {
+        "value": "30+",
+        "label": "Años de experiencia en el sector"
+      },
+      {
+        "value": "80+",
+        "label": "Provincias en la red del Grupo Bemis"
+      },
+      {
+        "value": "60+",
+        "label": "Países de exportación"
+      },
+      {
+        "value": "24/7",
+        "label": "Soporte técnico"
+      }
     ]
   },
   "operator": {

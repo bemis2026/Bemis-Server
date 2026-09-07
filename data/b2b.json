@@ -133,7 +133,7 @@
       },
       {
         "value": "80+",
-        "label": "İlde Yetkili Bayi"
+        "label": "İlde Bemis Grup Bayi Ağı"
       },
       {
         "value": "60+",
@@ -406,6 +406,24 @@
           "Regional warehousing and logistics capacity",
           "Minimum annual revenue / order target commitment",
           "After-sales service and customer support infrastructure"
+        ],
+        "networkStats": [
+          {
+            "value": "30+",
+            "label": "Years of Industry Experience"
+          },
+          {
+            "value": "80+",
+            "label": "Provinces in the Bemis Group Network"
+          },
+          {
+            "value": "60+",
+            "label": "Countries Exported To"
+          },
+          {
+            "value": "24/7",
+            "label": "Technical Support"
+          }
         ]
       },
       "operator": {
