@@ -13,6 +13,32 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🤝📣 **BAYİ KAZANIM KAMPANYASI + "80+ İL" ÇELİŞKİSİ DÜZELTİLDİ (2026-09-07, commit'ler 80e9da9 · 43287df):**
+> Kullanıcı "Şarj Ekipmanları Bemis E-V Charge Bayisi olmak ister misiniz?" temalı tanıtım istedi (kriterler + mail).
+> **ÖLÇÜM:** `/api/dealers` → **14 il · 34 bayi**, **67 il boş** (İstanbul 10 · Ankara/İzmir/Bursa 4'er · Konya/Samsun 2'şer
+> · Antalya/Gaziantep/Trabzon/Diyarbakır/Sakarya/Elazığ/Eskişehir/Aydın 1'er). Öncelikli boş 15 il: Kayseri · Adana · Mersin ·
+> Kocaeli · Denizli · Balıkesir · Manisa · Muğla · Tekirdağ · Hatay · Şanlıurfa · Malatya · Erzurum · Van · Ordu.
+> **🔴 BULGU 1 — SİTE KENDİYLE ÇELİŞİYORDU:** `/bayilik` "80+ İlde Yetkili Bayi" diyordu, aynı sitedeki bayi haritası 14 il.
+> Kullanıcı kararı: **"Bemis Grup bayi ağı" diye ayrıştır** (rakam ana şirketin endüstriyel ağından geliyor). Düzeltildi:
+> `data/b2b.json` networkStats etiketi + **sayfa kodunda 3 sabit yer daha** (`app/bayilik/page.tsx`: `FALLBACK_NETWORK_STATS`
+> = SSR'da basılan/Google'ın okuduğu · `serviceSchema` açıklaması · görünür paragraf). 📌 CMS alanını değiştirmek YETMEZ —
+> bu sayfa istemci `fetch('/api/b2b')` yapana kadar **koddaki fallback**'i basar; grep ile 3 kopyanın hepsini bul.
+> **🔴 BULGU 2 — 4 ağ rakamı 6 dilde de TÜRKÇE basılıyordu** (`b2b-{de,es,ar,ru}.json`'da networkStats anahtarı YOK →
+> `{...trB, ...enB}` merge'ünde TR geçiyordu; nl'de vardı ama çevrilmemişti; EN'in tek kaynağı `data/b2b.json._translations.en`).
+> 6 dile çevrildi (`scratchpad/_bayi_stat.cjs`). ⚠️ **R2'de `bins/b2b.json` YOK** → canlı b2b repo dosyasından gelir AMA
+> `readBin` fallback'i de `unstable_cache`'te tutulur → **cache bump ŞART**: v100-wallbox → **v101-bayi**.
+> **KRİTER KARARI (kullanıcı):** **iki katman** — *Satış Noktası* (hafif giriş: şirket + faaliyet alanı + fiziksel nokta +
+> teknik personel + açılış siparişi) → *Yetkili Bayi* (sitedeki mevcut 10 madde + bölge koruması). ⚠️ **Site DEĞİŞMEDİ**
+> (kullanıcı "şimdilik aynı kalsın" dedi) → kademeli giriş **yalnız telefonda** anlatılır, mailde yazılı vaat edilmez ve
+> **mailde /bayilik'e link verilmez** (aday oradaki 1.000.000 ₺ DBS şartını görüp vazgeçer).
+> **TESLİM (Masaüstü, 3 dosya):** `Bemis_Bayi_Kazanim_Kampanyasi_2026-09.md` (ana plan: il listesi, akış, ölçüm, teyit
+> bekleyenler, yasal not) · `Bemis_Bayi_Kriterleri_2026-09.md` (iki katman + 6 eleme sorusu) · `Bemis_Bayi_Mail_Metinleri_2026-09.md`
+> (**4 segment** × mail + hatırlatma + detay maili; segmentler: elektrik malzemesi bayisi · pano imalatçısı · elektrik taahhüt/
+> mühendislik · oto elektrik/GES). ⚠️ **Hiçbir mailde rakamlı iskonto, ciro hedefi, açılış siparişi tutarı, bölge münhasırlığı
+> garantisi veya süre taahhüdü YOK** — bayilik sözleşmesindeki nakliye ve %8 kesintili geri alım maddeleri de "güncel mi?"
+> diye teyit listesine yazıldı, metne girmedi. ⚠️ Yasal: tacir/esnafa onaysız ticari e-posta mümkün görünüyor ama **ret hakkı +
+> İYS kaydı** kullanıcı tarafında teyit edilmeli.
+
 > 🖼️💸 **CLOUDINARY BANT GENİŞLİĞİ ÇÖZÜLDÜ — "teslim" ADLI DÖNÜŞÜMÜ (2026-09-06, commit bed6961):** Kotanın %46'sı
 > (son 30 gün 11 GB) Vercel'in her önbellek kaçırmasında **ham 1–4,6 MB PNG** çekmesindendi (depolama 605 MB, dönüşüm 55 —
 > yani sorun tamamen bant genişliğiydi). **Hesapta STRICT TRANSFORMATIONS AÇIK** → anlık dönüşüm 401; çözüm ADLI dönüşüm.
