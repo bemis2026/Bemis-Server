@@ -104,7 +104,7 @@ const DEFAULT: BayilikContent = {
 // panel the CMS values take over.
 const FALLBACK_NETWORK_STATS: NetworkStat[] = [
   { value: "30+", label: "Yıl Sektör Tecrübesi" },
-  { value: "80+", label: "İlde Yetkili Bayi" },
+  { value: "80+", label: "İlde Bemis Grup Bayi Ağı" },
   { value: "60+", label: "Ülke İhracat" },
   { value: "24/7", label: "Teknik Destek" },
 ];
@@ -178,7 +178,7 @@ export default function BayilikPage() {
       <JsonLd data={[
         serviceSchema({
           name: "Bayi & Distribütör Programı",
-          description: "Türkiye'de bayi, yurt dışında distribütör programı. 80+ ilde yetkili bayi ağı, 60+ ülkede ihracat tecrübesi. Teknik eğitim, pazarlama desteği ve özel bayi fiyatları.",
+          description: "Türkiye'de bayi, yurt dışında distribütör programı. 80+ ilde Bemis Grup bayi ağı, 60+ ülkede ihracat tecrübesi. Teknik eğitim, pazarlama desteği ve özel bayi fiyatları.",
           url: "/bayilik",
           offerings: ["Türkiye Bayilik", "Yurtdışı Distribütörlük", "Teknik Eğitim", "Pazarlama Desteği", "Bayi Özel Fiyatları"],
           areaServed: "Worldwide",
@@ -256,8 +256,8 @@ export default function BayilikPage() {
               Türkiye ve dünyada kurumsal bir satış ağı
             </h2>
             <p className="text-sm sm:text-base leading-relaxed max-w-3xl" style={{ color: muted }}>
-              Bemis E-V Charge, üretici garantili ürünleri yetkili kanaldan satışa sunar. Bayi
-              ağımız 80+ ilde, distribütör ağımız ise 60+ ülkede aktiftir. Kurulum, satış sonrası
+              Bemis E-V Charge, üretici garantili ürünleri yetkili kanaldan satışa sunar.
+              Bemis Grup bayi ağı 80+ ilde, distribütör ağımız ise 60+ ülkede aktiftir. Kurulum, satış sonrası
               destek ve yedek parça tedariki yetkili noktalar üzerinden tek-zincir takip edilir.
             </p>
           </div>
