@@ -50,7 +50,7 @@
             ],
             [
               "Charger Plus 2",
-              "4 / 7 / 11 / 22 kW (adjustable)",
+              "3,7 – 22 kW (adjustable)",
               "Three-phase",
               "6 – 32A",
               "Type 2",
@@ -58,7 +58,7 @@
             ],
             [
               "Charger Pro 2",
-              "4 / 7 / 11 / 22 kW (adjustable)",
+              "3,7 – 22 kW (adjustable)",
               "Three-phase",
               "6 – 32A",
               "Type 2",
@@ -66,7 +66,7 @@
             ],
             [
               "Charger Pro 2 GSM",
-              "4 / 7 / 11 / 22 kW (adjustable)",
+              "3,7 – 22 kW (adjustable)",
               "Three-phase",
               "6 – 32A",
               "Type 2",
@@ -75,7 +75,7 @@
           ]
         },
         {
-          "text": "Charger 2 is the entry level, with a fixed 11/22 kW. Charger Plus 2 and Charger Pro 2 let you adjust the power between 4/7/11/22 kW (you can dial it down to your installation's limit). Charger Pro 2 GSM, with its GSM module and OCPP 1.6 protocol, is built for workplace and fleet scenarios that need remote management, user authorisation and reporting."
+          "text": "Charger 2 is the entry level; its power is adjustable between 3.7 – 22 kW (you can dial it down to your installation's limit). Charger Plus 2 and Charger Pro 2 add OCPP 1.6 and an optional MID meter to the same power range. Charger Pro 2 GSM, with its GSM module and OCPP 1.6 protocol, is built for workplace and fleet scenarios that need remote management, user authorisation and reporting."
         },
         {
           "text": "DC fast charging models compared"
@@ -209,7 +209,7 @@
       "faq": [
         {
           "q": "How many kW of charger is enough for a home?",
-          "a": "For most home users, an AC wallbox in the 7–11 kW range is more than enough. While your car sits parked overnight for 8–10 hours, even 7.4 kW fully charges most batteries. Higher power (22 kW) only makes sense if you have a three-phase installation and your car's onboard charger accepts that power; otherwise the car itself is the limit. Because Bemis Charger Plus and Pro models let you adjust the power between 4/7/11/22 kW, you can pick the value that suits your installation and use it with confidence. When deciding, weigh up both your fuse/line capacity and your car's acceptance power together."
+          "a": "For most home users, an AC wallbox in the 7–11 kW range is more than enough. While your car sits parked overnight for 8–10 hours, even 7.4 kW fully charges most batteries. Higher power (22 kW) only makes sense if you have a three-phase installation and your car's onboard charger accepts that power; otherwise the car itself is the limit. Because Bemis Charger Plus and Pro models let you adjust the power between 3,7 – 22 kW, you can pick the value that suits your installation and use it with confidence. When deciding, weigh up both your fuse/line capacity and your car's acceptance power together."
         },
         {
           "q": "Should I buy a cable model or a panel-socket model?",
@@ -3146,7 +3146,7 @@
             ],
             [
               "Charger Plus 2",
-              "4 / 7 / 11 / 22 kW (einstellbar)",
+              "3,7 – 22 kW (einstellbar)",
               "Dreiphasig",
               "6 – 32A",
               "Type 2",
@@ -3154,7 +3154,7 @@
             ],
             [
               "Charger Pro 2",
-              "4 / 7 / 11 / 22 kW (einstellbar)",
+              "3,7 – 22 kW (einstellbar)",
               "Dreiphasig",
               "6 – 32A",
               "Type 2",
@@ -3162,7 +3162,7 @@
             ],
             [
               "Charger Pro 2 GSM",
-              "4 / 7 / 11 / 22 kW (einstellbar)",
+              "3,7 – 22 kW (einstellbar)",
               "Dreiphasig",
               "6 – 32A",
               "Type 2",
@@ -3171,7 +3171,7 @@
           ]
         },
         {
-          "text": "Der Charger 2 ist mit festen 11/22 kW das Einstiegsmodell. Der Charger Plus 2 und der Charger Pro 2 ermöglichen es, die Leistung zwischen 4/7/11/22 kW einzustellen (Sie können sie an Ihre Installationsgrenze anpassen). Der Charger Pro 2 GSM ist mit GSM-Modul und dem Protokoll OCPP 1.6 für Betriebs-/Flottenszenarien gedacht, die Fernverwaltung, Nutzerautorisierung und Reporting erfordern."
+          "text": "Der Charger 2 ist das Einstiegsmodell; seine Leistung ist zwischen 3,7 – 22 kW einstellbar (Sie können sie an Ihre Installationsgrenze anpassen). Der Charger Plus 2 und der Charger Pro 2 ergänzen denselben Leistungsbereich um OCPP 1.6 und einen optionalen MID-Zähler. Der Charger Pro 2 GSM ist mit GSM-Modul und dem Protokoll OCPP 1.6 für Betriebs-/Flottenszenarien gedacht, die Fernverwaltung, Nutzerautorisierung und Reporting erfordern."
         },
         {
           "text": "DC-Schnelllademodelle im Vergleich"
@@ -3305,7 +3305,7 @@
       "faq": [
         {
           "q": "Wie viel kW Ladegerät reichen für Zuhause?",
-          "a": "Für die meisten Privatnutzer reicht eine AC-Wallbox mit 7–11 kW mehr als aus. Während Ihr Fahrzeug nachts geparkt ist, füllen selbst 7,4 kW in 8–10 Stunden die meisten Batterien vollständig. Eine höhere Leistung (22 kW) ergibt nur dann Sinn, wenn Sie eine dreiphasige Installation haben und das Onboard-Ladegerät Ihres Fahrzeugs diese Leistung akzeptiert; andernfalls setzt die Fahrzeugleistung ohnehin die Grenze. Da Sie bei den Bemis Charger Plus und Pro Modellen die Leistung zwischen 4/7/11/22 kW einstellen können, wählen Sie den zu Ihrer Installation passenden Wert und nutzen ihn sicher. Berücksichtigen Sie bei der Entscheidung sowohl Ihre Sicherungs-/Leitungskapazität als auch die Aufnahmeleistung Ihres Fahrzeugs."
+          "a": "Für die meisten Privatnutzer reicht eine AC-Wallbox mit 7–11 kW mehr als aus. Während Ihr Fahrzeug nachts geparkt ist, füllen selbst 7,4 kW in 8–10 Stunden die meisten Batterien vollständig. Eine höhere Leistung (22 kW) ergibt nur dann Sinn, wenn Sie eine dreiphasige Installation haben und das Onboard-Ladegerät Ihres Fahrzeugs diese Leistung akzeptiert; andernfalls setzt die Fahrzeugleistung ohnehin die Grenze. Da Sie bei den Bemis Charger Plus und Pro Modellen die Leistung zwischen 3,7 – 22 kW einstellen können, wählen Sie den zu Ihrer Installation passenden Wert und nutzen ihn sicher. Berücksichtigen Sie bei der Entscheidung sowohl Ihre Sicherungs-/Leitungskapazität als auch die Aufnahmeleistung Ihres Fahrzeugs."
         },
         {
           "q": "Sollte ich ein Modell mit Kabel oder mit Buchse (Steckdose) kaufen?",
@@ -6242,7 +6242,7 @@
             ],
             [
               "Charger Plus 2",
-              "4 / 7 / 11 / 22 kW (ajustable)",
+              "3,7 – 22 kW (ajustable)",
               "Trifásico",
               "6 – 32A",
               "Type 2",
@@ -6250,7 +6250,7 @@
             ],
             [
               "Charger Pro 2",
-              "4 / 7 / 11 / 22 kW (ajustable)",
+              "3,7 – 22 kW (ajustable)",
               "Trifásico",
               "6 – 32A",
               "Type 2",
@@ -6258,7 +6258,7 @@
             ],
             [
               "Charger Pro 2 GSM",
-              "4 / 7 / 11 / 22 kW (ajustable)",
+              "3,7 – 22 kW (ajustable)",
               "Trifásico",
               "6 – 32A",
               "Type 2",
@@ -6267,7 +6267,7 @@
           ]
         },
         {
-          "text": "El Charger 2 es el nivel de acceso, con 11/22 kW fijos. El Charger Plus 2 y el Charger Pro 2 permiten ajustar la potencia entre 4/7/11/22 kW (puedes reducirla según el límite de tu instalación). El Charger Pro 2 GSM, con módulo GSM y protocolo OCPP 1.6, está pensado para escenarios de trabajo o flota que requieren gestión remota, autorización de usuarios y generación de informes."
+          "text": "El Charger 2 es el nivel de acceso; su potencia se ajusta entre 3,7 – 22 kW (puedes reducirla según el límite de tu instalación). El Charger Plus 2 y el Charger Pro 2 añaden OCPP 1.6 y un contador MID opcional al mismo rango de potencia. El Charger Pro 2 GSM, con módulo GSM y protocolo OCPP 1.6, está pensado para escenarios de trabajo o flota que requieren gestión remota, autorización de usuarios y generación de informes."
         },
         {
           "text": "Comparativa de modelos de carga rápida DC"
@@ -6401,7 +6401,7 @@
       "faq": [
         {
           "q": "¿Cuántos kW de cargador son suficientes para el hogar?",
-          "a": "Para la mayoría de usuarios domésticos, un wallbox AC de entre 7 y 11 kW es más que suficiente. Con el coche aparcado por la noche, incluso 7,4 kW cargan por completo la mayoría de baterías en 8–10 horas. Una potencia superior (22 kW) solo cobra sentido si dispones de instalación trifásica y si el cargador de a bordo de tu vehículo admite esa potencia; de lo contrario, la potencia del coche ya lo limita. Como en los modelos Charger Plus y Pro de Bemis puedes ajustar la potencia entre 4/7/11/22 kW, puedes elegir el valor adecuado a tu instalación y usarlo con total seguridad. Al decidir, valora en conjunto tanto la capacidad de tu fusible/línea como la potencia que admite tu vehículo."
+          "a": "Para la mayoría de usuarios domésticos, un wallbox AC de entre 7 y 11 kW es más que suficiente. Con el coche aparcado por la noche, incluso 7,4 kW cargan por completo la mayoría de baterías en 8–10 horas. Una potencia superior (22 kW) solo cobra sentido si dispones de instalación trifásica y si el cargador de a bordo de tu vehículo admite esa potencia; de lo contrario, la potencia del coche ya lo limita. Como en los modelos Charger Plus y Pro de Bemis puedes ajustar la potencia entre 3,7 – 22 kW, puedes elegir el valor adecuado a tu instalación y usarlo con total seguridad. Al decidir, valora en conjunto tanto la capacidad de tu fusible/línea como la potencia que admite tu vehículo."
         },
         {
           "q": "¿Debería comprar un modelo con cable o con toma en el panel (socket)?",
@@ -9338,7 +9338,7 @@
             ],
             [
               "Charger Plus 2",
-              "4 / 7 / 11 / 22 kW (قابلة للضبط)",
+              "3,7 – 22 kW (قابلة للضبط)",
               "ثلاثي الطور",
               "6 – 32A",
               "Type 2",
@@ -9346,7 +9346,7 @@
             ],
             [
               "Charger Pro 2",
-              "4 / 7 / 11 / 22 kW (قابلة للضبط)",
+              "3,7 – 22 kW (قابلة للضبط)",
               "ثلاثي الطور",
               "6 – 32A",
               "Type 2",
@@ -9354,7 +9354,7 @@
             ],
             [
               "Charger Pro 2 GSM",
-              "4 / 7 / 11 / 22 kW (قابلة للضبط)",
+              "3,7 – 22 kW (قابلة للضبط)",
               "ثلاثي الطور",
               "6 – 32A",
               "Type 2",
@@ -9363,7 +9363,7 @@
           ]
         },
         {
-          "text": "Charger 2 هو المستوى الأساسي بقدرة ثابتة 11/22 kW. أمّا Charger Plus 2 وCharger Pro 2 فيتيحان لك ضبط القدرة بين 4/7/11/22 kW (يمكنك خفضها بحسب حدود تركيبتك الكهربائية). في حين أن Charger Pro 2 GSM، بوحدة GSM وبروتوكول OCPP 1.6، مخصّص لسيناريوهات مكان العمل والأسطول التي تتطلب الإدارة عن بُعد وتفويض المستخدمين وإعداد التقارير."
+          "text": "Charger 2 هو المستوى الأساسي، وتُضبط قدرته بين 3,7 – 22 kW (يمكنك خفضها بحسب حدود تركيبتك الكهربائية). أمّا Charger Plus 2 وCharger Pro 2 فيضيفان إلى نطاق القدرة نفسه بروتوكول OCPP 1.6 وعدّاد MID اختياري. في حين أن Charger Pro 2 GSM، بوحدة GSM وبروتوكول OCPP 1.6، مخصّص لسيناريوهات مكان العمل والأسطول التي تتطلب الإدارة عن بُعد وتفويض المستخدمين وإعداد التقارير."
         },
         {
           "text": "مقارنة موديلات الشحن السريع DC"
@@ -9497,7 +9497,7 @@
       "faq": [
         {
           "q": "كم kW من قدرة جهاز الشحن تكفي للمنزل؟",
-          "a": "بالنسبة لمعظم مستخدمي المنازل، يكفي شاحن حائط AC بقدرة تتراوح بين 7 و11 kW بوفرة. فحتى قدرة 7.4 kW تملأ معظم البطاريات بالكامل خلال 8–10 ساعات بينما تكون سيارتك متوقفة ليلاً. ولا تكتسب القدرة الأعلى (22 kW) معناها إلا إذا كانت لديك تركيبة ثلاثية الطور وكان شاحن سيارتك الداخلي يقبل هذه القدرة؛ وإلا فإن قدرة السيارة تفرض الحدّ أصلاً. وبما أن موديلات Bemis Charger Plus وPro تتيح لك ضبط القدرة بين 4/7/11/22 kW، يمكنك اختيار القيمة المناسبة لتركيبتك واستخدامها بأمان. عند اتخاذ القرار، قيّم معاً سعة القاطع/الخط لديك وقدرة القبول لدى سيارتك."
+          "a": "بالنسبة لمعظم مستخدمي المنازل، يكفي شاحن حائط AC بقدرة تتراوح بين 7 و11 kW بوفرة. فحتى قدرة 7.4 kW تملأ معظم البطاريات بالكامل خلال 8–10 ساعات بينما تكون سيارتك متوقفة ليلاً. ولا تكتسب القدرة الأعلى (22 kW) معناها إلا إذا كانت لديك تركيبة ثلاثية الطور وكان شاحن سيارتك الداخلي يقبل هذه القدرة؛ وإلا فإن قدرة السيارة تفرض الحدّ أصلاً. وبما أن موديلات Bemis Charger Plus وPro تتيح لك ضبط القدرة بين 3,7 – 22 kW، يمكنك اختيار القيمة المناسبة لتركيبتك واستخدامها بأمان. عند اتخاذ القرار، قيّم معاً سعة القاطع/الخط لديك وقدرة القبول لدى سيارتك."
         },
         {
           "q": "هل أشتري موديلاً بكابل أم موديلاً بمقبس على اللوحة (سوكيت)؟",
@@ -12459,7 +12459,7 @@
           ]
         },
         {
-          "text": "Charger 2 с фиксированными 11/22 кВт — это базовый уровень. Charger Plus 2 и Charger Pro 2 позволяют регулировать мощность в пределах 4/7/11/22 кВт (можно ограничить в соответствии с пределом вашей проводки). А Charger Pro 2 GSM — с GSM-модулем и протоколом OCPP 1.6 — предназначен для сценариев офиса/автопарка, где требуются удалённое управление, авторизация пользователей и отчётность."
+          "text": "Charger 2 — базовый уровень; его мощность регулируется в пределах 3,7 – 22 кВт (можно ограничить в соответствии с пределом вашей проводки). Charger Plus 2 и Charger Pro 2 добавляют к тому же диапазону мощности OCPP 1.6 и опциональный счётчик MID. А Charger Pro 2 GSM — с GSM-модулем и протоколом OCPP 1.6 — предназначен для сценариев офиса/автопарка, где требуются удалённое управление, авторизация пользователей и отчётность."
         },
         {
           "text": "Сравнение моделей DC-быстрой зарядки"
@@ -12593,7 +12593,7 @@
       "faq": [
         {
           "q": "Сколько кВт зарядного устройства достаточно для дома?",
-          "a": "Для большинства домашних пользователей AC-wallbox мощностью 7–11 кВт более чем достаточно. Пока автомобиль стоит на парковке ночью, даже 7,4 кВт за 8–10 часов полностью заряжают большинство батарей. Более высокая мощность (22 кВт) имеет смысл только при наличии трёхфазной проводки и если бортовое зарядное устройство вашего автомобиля принимает эту мощность; в противном случае мощность автомобиля всё равно её ограничивает. Поскольку в моделях Bemis Charger Plus и Pro мощность можно регулировать в пределах 4/7/11/22 кВт, вы можете выбрать значение, подходящее вашей проводке, и уверенно им пользоваться. Принимая решение, оценивайте вместе и ёмкость предохранителя/линии, и допустимую мощность вашего автомобиля."
+          "a": "Для большинства домашних пользователей AC-wallbox мощностью 7–11 кВт более чем достаточно. Пока автомобиль стоит на парковке ночью, даже 7,4 кВт за 8–10 часов полностью заряжают большинство батарей. Более высокая мощность (22 кВт) имеет смысл только при наличии трёхфазной проводки и если бортовое зарядное устройство вашего автомобиля принимает эту мощность; в противном случае мощность автомобиля всё равно её ограничивает. Поскольку в моделях Bemis Charger Plus и Pro мощность можно регулировать в пределах 3,7 – 22 кВт, вы можете выбрать значение, подходящее вашей проводке, и уверенно им пользоваться. Принимая решение, оценивайте вместе и ёмкость предохранителя/линии, и допустимую мощность вашего автомобиля."
         },
         {
           "q": "Взять модель с кабелем или с розеткой (гнездовую) на панели?",

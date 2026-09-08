@@ -1365,7 +1365,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Bemis wallbox ailesi bu yaklaşımı cihaz tarafında tamamlar: Charger Plus 2 ve Charger Pro 2 modellerinde güç 4/7/11/22 kW arasında ayarlanabilir ve akıllı şarj algoritması aracın kabul ettiği maksimum akıma otomatik uyum sağlar. Charger Plus 2'deki Otomatik Şarj Başlatma özelliği, elektrik kesintisi sonrasında şarjı kendiliğinden sürdürür; RFID kart yetkilendirmesi cihazı yalnızca sizin başlatmanıza imkân verir. CE belgeli ve IP65 korumalı gövde sayesinde wallbox açık otoparka veya bahçeye de kurulabilir; dış mekân ve yağmur konusunu ayrı bir rehberde detaylı ele aldık. Monofaze mi trifaze mi sorusu ise güvenlikten çok tesisat kapasitesiyle ilgili ayrı bir karardır — onun için de karar rehberimize bakabilirsiniz."
+        "text": "Bemis wallbox ailesi bu yaklaşımı cihaz tarafında tamamlar: Charger Plus 2 ve Charger Pro 2 modellerinde güç 3,7 – 22 kW arasında ayarlanabilir ve akıllı şarj algoritması aracın kabul ettiği maksimum akıma otomatik uyum sağlar. Charger Plus 2'deki Otomatik Şarj Başlatma özelliği, elektrik kesintisi sonrasında şarjı kendiliğinden sürdürür; RFID kart yetkilendirmesi cihazı yalnızca sizin başlatmanıza imkân verir. CE belgeli ve IP65 korumalı gövde sayesinde wallbox açık otoparka veya bahçeye de kurulabilir; dış mekân ve yağmur konusunu ayrı bir rehberde detaylı ele aldık. Monofaze mi trifaze mi sorusu ise güvenlikten çok tesisat kapasitesiyle ilgili ayrı bir karardır — onun için de karar rehberimize bakabilirsiniz."
       },
       {
         "type": "h2",
@@ -2487,14 +2487,14 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "İyi haber şu: doğru cihaz seçilirse, faz kararınızı cihaz esnek biçimde karşılayabilir. Bemis wallbox ailesindeki Charger Plus 2 ve Charger Pro 2 modellerinin gücü 4 / 7 / 11 / 22 kW arasında ayarlanabilir. Bu sayede aynı cihaz, tesisatınıza göre hem monofaze hem de trifaze kurulumlara uyum sağlar; kurulum sırasında gücü mevcut altyapınıza göre ayarlarsınız. Giriş modeli olan Charger 2 ise 11/22 kW trifaze bir cihazdır ve 3 fazlı altyapıya sahip kullanıcılar için uygundur. Modellerin tamamı Type 2 konnektörlüdür."
+        "text": "İyi haber şu: doğru cihaz seçilirse, faz kararınızı cihaz esnek biçimde karşılayabilir. Bemis wallbox ailesinin tamamında güç 3,7 – 22 kW arasında ayarlanabilir. Bu sayede aynı cihaz, tesisatınıza göre hem monofaze hem de trifaze kurulumlara uyum sağlar; kurulum sırasında gücü mevcut altyapınıza göre ayarlarsınız. Giriş modeli Charger 2 de aynı aralıkta ayarlanır; farkı, üst modellerdeki OCPP ve sayaç seçeneklerini sunmamasıdır. Modellerin tamamı Type 2 konnektörlüdür."
       },
       {
         "type": "ul",
         "items": [
-          "Charger Plus 2: Gücü 4 / 7 / 11 / 22 kW arasında ayarlanabilir; hem monofaze hem trifaze tesisata uyar, Type 2 konnektör.",
-          "Charger Pro 2: Gücü 4 / 7 / 11 / 22 kW arasında ayarlanabilir; hem monofaze hem trifaze tesisata uyar, Type 2 konnektör.",
-          "Charger 2: 11/22 kW trifaze giriş modeli; 3 fazlı altyapı için, Type 2 konnektör."
+          "Charger Plus 2: Gücü 3,7 – 22 kW arasında ayarlanabilir; hem monofaze hem trifaze tesisata uyar, Type 2 konnektör.",
+          "Charger Pro 2: Gücü 3,7 – 22 kW arasında ayarlanabilir; hem monofaze hem trifaze tesisata uyar, Type 2 konnektör.",
+          "Charger 2: Gücü 3,7 – 22 kW arasında ayarlanabilen giriş modeli; Type 2 konnektör."
         ]
       },
       {
@@ -2527,7 +2527,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         "q": "Bemis şarj cihazı hem monofaze hem trifaze çalışır mı?",
-        "a": "Charger Plus 2 ve Charger Pro 2 modellerinin gücü 4 / 7 / 11 / 22 kW arasında ayarlanabildiği için hem monofaze hem trifaze tesisata uyum sağlar; kurulumda güç, mevcut altyapınıza göre ayarlanır. Giriş modeli Charger 2 ise 11/22 kW trifaze bir cihazdır ve 3 fazlı altyapı için uygundur. Modellerin tamamı Type 2 konnektörlüdür. Hangi modelin ve hangi güç ayarının size uyduğunu tesisatınızı gören elektrikçiyle birlikte belirlemeniz en doğru yaklaşımdır."
+        "a": "Charger Plus 2 ve Charger Pro 2 modellerinin gücü 3,7 – 22 kW arasında ayarlanabildiği için hem monofaze hem trifaze tesisata uyum sağlar; kurulumda güç, mevcut altyapınıza göre ayarlanır. Giriş modeli Charger 2 de aynı aralıkta ayarlanır; farkı, üst modellerdeki OCPP ve sayaç seçeneklerini sunmamasıdır. Modellerin tamamı Type 2 konnektörlüdür. Hangi modelin ve hangi güç ayarının size uyduğunu tesisatınızı gören elektrikçiyle birlikte belirlemeniz en doğru yaklaşımdır."
       }
     ],
     "related": [
@@ -2575,12 +2575,12 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "h2", text: "AC Wallbox modelleri karşılaştırma" },
       { type: "p", text: "Bemis AC wallbox serisi tamamen Type 2 (IEC 62196-2) konnektörlü ve trifaze altyapıya kadar 22 kW'a çıkar. Seri giriş modelden akıllı/bağlantılı modele doğru genişler; ayrıca her modelde 5 metre kablolu veya pano prizli (soketli) çıkış seçeneği vardır." },
       { type: "table", caption: "Bemis AC Wallbox modelleri — teknik karşılaştırma", headers: ["Model", "Güç", "Faz", "Maks. Akım", "Konnektör", "Akıllı / OCPP"], rows: [
-        ["Charger 2", "11 – 22 kW", "Trifaze", "16 – 32A", "Type 2", "–"],
-        ["Charger Plus 2", "4 / 7 / 11 / 22 kW (ayarlanabilir)", "Trifaze", "6 – 32A", "Type 2", "–"],
-        ["Charger Pro 2", "4 / 7 / 11 / 22 kW (ayarlanabilir)", "Trifaze", "6 – 32A", "Type 2", "–"],
-        ["Charger Pro 2 GSM", "4 / 7 / 11 / 22 kW (ayarlanabilir)", "Trifaze", "6 – 32A", "Type 2", "GSM + OCPP 1.6"],
+        ["Charger 2", "3,7 – 22 kW (ayarlanabilir)", "Trifaze", "16 – 32A", "Type 2", "–"],
+        ["Charger Plus 2", "3,7 – 22 kW (ayarlanabilir)", "Trifaze", "6 – 32A", "Type 2", "–"],
+        ["Charger Pro 2", "3,7 – 22 kW (ayarlanabilir)", "Trifaze", "6 – 32A", "Type 2", "–"],
+        ["Charger Pro 2 GSM", "3,7 – 22 kW (ayarlanabilir)", "Trifaze", "6 – 32A", "Type 2", "GSM + OCPP 1.6"],
       ]},
-      { type: "p", text: "Charger 2 sabit 11/22 kW ile giriş seviyesidir. Charger Plus 2 ve Charger Pro 2 gücü 4/7/11/22 kW arasında ayarlayabilmenizi sağlar (tesisat sınırınıza göre kısabilirsiniz). Charger Pro 2 GSM ise GSM modülü ve OCPP 1.6 protokolüyle uzaktan yönetim, kullanıcı yetkilendirme ve raporlama gerektiren iş yeri/filo senaryoları içindir." },
+      { type: "p", text: "Charger 2 giriş seviyesidir; gücü 3,7 – 22 kW arasında ayarlanır (tesisat sınırınıza göre kısabilirsiniz). Charger Plus 2 ve Charger Pro 2 aynı güç aralığına OCPP 1.6 ve opsiyonel MID sayaç ekler. Charger Pro 2 GSM ise GSM modülü ve OCPP 1.6 protokolüyle uzaktan yönetim, kullanıcı yetkilendirme ve raporlama gerektiren iş yeri/filo senaryoları içindir." },
 
       { type: "h2", text: "DC hızlı şarj modelleri karşılaştırma" },
       { type: "p", text: "Bemis DC serisi (BEVDC) kamuya açık ve filo kullanımı içindir; hepsi AC 380–480V 3 faz giriş, 150–1000V DC çıkış ve CCS2 konnektör kullanır, OCPP 1.6J / 2.0.1 uyumludur. Güç ve soket sayısı ihtiyaca göre seçilir:" },
@@ -2619,7 +2619,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: "p", text: "Hangi modeli seçerseniz seçin, Bemis E-V Charge ürünleri Bursa'daki entegre tesislerde yerli olarak üretilir; yazılım ve PCB kart tasarımı Bemis'e aittir. Doğru model seçimi için aracınızın onboard şarj gücünü ve elektrik tesisatınızın kapasitesini de dikkate almayı unutmayın — emin değilseniz teklif aşamasında birlikte netleştirebiliriz." },
     ],
     faq: [
-      { q: "Ev için kaç kW şarj cihazı yeterli?", a: "Çoğu ev kullanıcısı için 7–11 kW arası bir AC wallbox fazlasıyla yeterlidir. Aracınız gece park halindeyken 8–10 saatte 7,4 kW bile çoğu bataryayı tam doldurur. Daha yüksek güç (22 kW) ancak trifaze tesisatınız varsa ve aracınızın onboard şarj cihazı bu gücü kabul ediyorsa anlam kazanır; aksi halde araç gücü zaten sınırlar. Bemis Charger Plus ve Pro modellerinde gücü 4/7/11/22 kW arasında ayarlayabildiğiniz için, tesisatınıza uygun değeri seçip güvenle kullanabilirsiniz. Kararı verirken hem sigorta/hat kapasitenizi hem de aracınızın kabul gücünü birlikte değerlendirin." },
+      { q: "Ev için kaç kW şarj cihazı yeterli?", a: "Çoğu ev kullanıcısı için 7–11 kW arası bir AC wallbox fazlasıyla yeterlidir. Aracınız gece park halindeyken 8–10 saatte 7,4 kW bile çoğu bataryayı tam doldurur. Daha yüksek güç (22 kW) ancak trifaze tesisatınız varsa ve aracınızın onboard şarj cihazı bu gücü kabul ediyorsa anlam kazanır; aksi halde araç gücü zaten sınırlar. Bemis Charger Plus ve Pro modellerinde gücü 3,7 – 22 kW arasında ayarlayabildiğiniz için, tesisatınıza uygun değeri seçip güvenle kullanabilirsiniz. Kararı verirken hem sigorta/hat kapasitenizi hem de aracınızın kabul gücünü birlikte değerlendirin." },
       { q: "Kablolu model mi yoksa pano prizli (soketli) model mi almalıyım?", a: "İkisi de aynı gücü verir; fark kullanım alışkanlığındadır. Kablolu modelde 5 metrelik Type 2 kablo cihaza sabittir — eve gelip takıp şarj edersiniz, en pratik yöntemdir ve tek araçlı ev kullanımının çoğu için idealdir. Pano prizli (soketli) modelde cihazda bir Type 2 priz bulunur ve kendi kablonuzu takarsınız; birden fazla araç kullanan, kabloyu bagajda taşımak isteyen veya kabloyu ayrı saklamak isteyen kullanıcılar için uygundur. İş yerlerinde farklı kullanıcıların kendi kablosuyla gelmesi durumunda da soketli model tercih edilebilir." },
       { q: "DC hızlı şarj cihazı eve kurulabilir mi?", a: "Pratikte hayır. DC hızlı şarj cihazları (BEVDC serisi) 40 kW ve üzeri güçte çalışır, AC 380–480V trifaze yüksek güçlü bir giriş altyapısı ister ve kamuya açık noktalar, otoyol, AVM ve filo depoları için tasarlanmıştır. Bir evin standart elektrik altyapısı bu gücü karşılamaz ve bu ölçekte bir yatırım ev kullanımı için gereksizdir. Ev şarjı için doğru çözüm AC wallbox'tır — 7–11 kW gücüyle aracınızı gece boyunca sessizce ve güvenle doldurur. DC hızlı şarj, uzun yolda kısa molada hızlı doldurma ihtiyacını karşılamak için kamusal istasyonlarda konumlanır." },
       { q: "Akıllı şarj (OCPP) ne zaman gereklidir?", a: "OCPP (Open Charge Point Protocol), şarj cihazını bir yönetim sistemine bağlayan açık bir standarttır ve genellikle iş yeri, site ve filo senaryolarında gerekir. Kullanıcıları yetkilendirmek (RFID/uygulama), her kullanıcının tükettiği enerjiyi raporlamak, ücretlendirme yapmak veya birden çok cihazı merkezi izlemek istiyorsanız OCPP uyumlu bir model şarttır. Bemis Charger Pro 2 GSM modeli GSM modülü ve OCPP 1.6 protokolüyle bu ihtiyaçları karşılar. Tek araçlı ev kullanımında ise OCPP zorunlu değildir; basit bir wallbox yeterlidir. İhtiyacınız ileride büyüyecekse baştan OCPP uyumlu bir model seçmek dönüşümü kolaylaştırır." },
@@ -4808,7 +4808,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Tesisatınız bugün 11 kW'ı kaldırıyor ama ileride 22 kW'a çıkmayı düşünüyorsanız, gücü 4 / 7 / 11 / 22 kW arasında ayarlanabilen bir cihaz (Charger Plus 2, Charger Pro 2) cihazı değiştirmeden büyümenizi sağlar. Ayrıntılı amper ve sigorta hesabı için 11 kW mı 22 kW mı rehberine bakın."
+        "text": "Tesisatınız bugün 11 kW'ı kaldırıyor ama ileride 22 kW'a çıkmayı düşünüyorsanız, gücü 3,7 – 22 kW arasında ayarlanabilen bir cihaz (Charger Plus 2, Charger Pro 2) cihazı değiştirmeden büyümenizi sağlar. Ayrıntılı amper ve sigorta hesabı için 11 kW mı 22 kW mı rehberine bakın."
       },
       {
         "type": "h2",
@@ -4881,19 +4881,19 @@ export const BLOG_POSTS: BlogPost[] = [
           ],
           [
             "Charger Plus 2",
-            "4 / 7 / 11 / 22 kW ayarlanabilir",
+            "3,7 – 22 kW ayarlanabilir",
             "Akıllı şarj algoritması, kesintide otomatik sürdürme, OCPP 1.6, opsiyonel MID",
             "Ev, küçük işletme, ileride güç artışı planlayanlar"
           ],
           [
             "Charger Pro 2",
-            "4 / 7 / 11 / 22 kW ayarlanabilir",
+            "3,7 – 22 kW ayarlanabilir",
             "Gelişmiş yük yönetimi (DLM), kullanıcı yetkilendirme, OCPP 1.6, opsiyonel MID",
             "Site, iş yeri, operatör"
           ],
           [
             "Charger Pro 2 GSM / MID",
-            "4 / 7 / 11 / 22 kW ayarlanabilir",
+            "3,7 – 22 kW ayarlanabilir",
             "4G modül, entegre sertifikalı MID sayaç",
             "İnternetsiz otopark, ortak kullanım faturalandırması, filo"
           ]
@@ -5093,7 +5093,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Üç durumda: tesisatınız bugün sınırlıysa (örneğin ana sigorta 3×25A) cihazı 11 kW'a kısıp ileride açmak; aracınız 7,4 kW kabul ediyorsa ve sonraki aracınız 11 kW olacaksa; evdeki diğer yükler nedeniyle dinamik yük dengelemeye ihtiyacınız varsa. Charger Plus 2 ve Charger Pro 2 gücü 4 / 7 / 11 / 22 kW (6–32A) arasında ayarlar; Charger 2 sabit güçlüdür ve tesisatı belli, tek araçlı ev için daha ekonomiktir."
+        "text": "Üç durumda: tesisatınız bugün sınırlıysa (örneğin ana sigorta 3×25A) cihazı 11 kW'a kısıp ileride açmak; aracınız 7,4 kW kabul ediyorsa ve sonraki aracınız 11 kW olacaksa; evdeki diğer yükler nedeniyle dinamik yük dengelemeye ihtiyacınız varsa. İkinci nesil Bemis cihazlarının tamamı 3,7 – 22 kW (6–32A) arasında ayarlanır; Charger 2 giriş seviyesidir, Charger Plus 2 ve Charger Pro 2 ayrıca OCPP 1.6 ve sayaç seçenekleri sunar."
       },
       {
         "type": "h2",
@@ -5131,7 +5131,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         "type": "cta",
-        "text": "Bemis ev tipi şarj istasyonları: sabit 7,4 / 11 / 22 kW veya 4–22 kW ayarlanabilir güç, kablolu ya da soketli.",
+        "text": "Bemis ev tipi şarj istasyonları: 3,7 – 22 kW ayarlanabilir güç, kablolu ya da soketli.",
         "href": "/products/wallbox",
         "label": "Modelleri karşılaştır"
       }
