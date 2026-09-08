@@ -82,7 +82,7 @@
   "categories": {
     "wallbox": {
       "name": "AC-wallbox laadstations",
-      "subtitle": "Wandlaadstations 7,4-22 kW",
+      "subtitle": "Wandlaadstations 3,7 - 22 kW",
       "modelCount": 8,
       "badge": "Bestseller",
       "comingSoon": false,
@@ -157,7 +157,7 @@
     },
     "portable": {
       "name": "Mobiele laders",
-      "subtitle": "Mobiele laders 3,7-22 kW",
+      "subtitle": "Mobiele laders 2,3 - 22 kW",
       "modelCount": 3,
       "badge": "Nieuw",
       "comingSoon": false,

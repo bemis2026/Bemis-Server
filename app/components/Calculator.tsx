@@ -241,8 +241,11 @@ const AC_URUN: Record<number, { ad: string; href: string }> = {
   2.3: { ad: "Mini Mobile",        href: "/products/portable/mini-mobile" },
   3.7: { ad: "Mini Mobile",        href: "/products/portable/mini-mobile" },
   7.4: { ad: "Mono Mobile",        href: "/products/portable/mono-mobile" },
-  11:  { ad: "Charger 2 · 11 kW",  href: "/products/wallbox/charger-2-trifaze-kablolu" },
-  22:  { ad: "Charger 2 · 22 kW",  href: "/products/wallbox/charger-2-kablolu" },
+  // ⚠️ 2. nesil cihazların hepsi 3,7-22 kW ayarlanabilir (kullanıcı bilgisi
+  // 2026-09-08). Ayıran şey cihaz değil KABLO: 16A kablo 11 kW'a, 32A kablo
+  // 22 kW'a kadar taşır. Etiketler bunu yansıtır; "11 kW'lık özel cihaz" yok.
+  11:  { ad: "Charger 2 · 3,7-11 kW", href: "/products/wallbox/charger-2-trifaze-kablolu" },
+  22:  { ad: "Charger 2 · 3,7-22 kW", href: "/products/wallbox/charger-2-kablolu" },
 };
 const DC_URUN: Record<number, { ad: string; href: string }> = {
   50:  { ad: "BEVDC 40",  href: "/products/dc-units/bevdc-40-1"  },

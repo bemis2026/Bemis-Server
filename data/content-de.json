@@ -58,7 +58,7 @@
   "categories": {
     "wallbox": {
       "name": "AC-Wallbox-Ladegeräte",
-      "subtitle": "22-7,4 kW wandmontierte Ladestation",
+      "subtitle": "3,7 - 22 kW wandmontierte Ladestation",
       "modelCount": 3,
       "badge": "Neu",
       "comingSoon": false,
@@ -133,7 +133,7 @@
     },
     "portable": {
       "name": "Mobile AC-Ladegeräte",
-      "subtitle": "22-3,7 kW tragbare Ladegeräte",
+      "subtitle": "2,3 - 22 kW tragbare Ladegeräte",
       "modelCount": 2,
       "badge": "Innovativ",
       "comingSoon": false,

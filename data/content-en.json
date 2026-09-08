@@ -58,7 +58,7 @@
   "categories": {
     "wallbox": {
       "name": "AC Wallbox Chargers",
-      "subtitle": "22-7.4kW Wall-Mounted Charging Station",
+      "subtitle": "3.7 - 22 kW Wall-Mounted Charging Station",
       "modelCount": 3,
       "badge": "New",
       "comingSoon": false,
@@ -133,7 +133,7 @@
     },
     "portable": {
       "name": "AC Mobile Chargers",
-      "subtitle": "22-3.7kW Portable Chargers",
+      "subtitle": "2.3 - 22 kW Portable Chargers",
       "modelCount": 2,
       "badge": "Innovative",
       "comingSoon": false,

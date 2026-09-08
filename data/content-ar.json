@@ -58,7 +58,7 @@
   "categories": {
     "wallbox": {
       "name": "شواحن AC Wallbox",
-      "subtitle": "محطة شحن مثبتة على الجدار 22-7.4kW",
+      "subtitle": "محطة شحن مثبتة على الجدار 3.7 - 22 kW",
       "modelCount": 3,
       "badge": "جديد",
       "comingSoon": false,
@@ -133,7 +133,7 @@
     },
     "portable": {
       "name": "شواحن AC محمولة",
-      "subtitle": "شواحن محمولة 22-3.7kW",
+      "subtitle": "شواحن محمولة 2.3 - 22 kW",
       "modelCount": 2,
       "badge": "مبتكر",
       "comingSoon": false,

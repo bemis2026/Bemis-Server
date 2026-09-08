@@ -58,7 +58,7 @@
   "categories": {
     "wallbox": {
       "name": "Cargadores Wallbox AC",
-      "subtitle": "Estación de Carga de Pared 22-7,4 kW",
+      "subtitle": "Estación de Carga de Pared 3,7 - 22 kW",
       "modelCount": 3,
       "badge": "Nuevo",
       "comingSoon": false,
@@ -133,7 +133,7 @@
     },
     "portable": {
       "name": "Cargadores Móviles AC",
-      "subtitle": "Cargadores Portátiles 22-3,7 kW",
+      "subtitle": "Cargadores Portátiles 2,3 - 22 kW",
       "modelCount": 2,
       "badge": "Innovador",
       "comingSoon": false,

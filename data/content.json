@@ -59,7 +59,7 @@
   "categories": {
     "wallbox": {
       "name": "Ev Tipi Şarj İstasyonu (AC Wallbox)",
-      "subtitle": "22-7,4kW Duvar Tipi Şarj İstasyonu",
+      "subtitle": "3,7 - 22 kW Duvar Tipi Şarj İstasyonu",
       "modelCount": 8,
       "badge": "En Çok Satan",
       "comingSoon": false,
@@ -134,7 +134,7 @@
     },
     "portable": {
       "name": "Taşınabilir Şarj Cihazı",
-      "subtitle": "22-3,7kW Taşınabilir Şarj Cihazları",
+      "subtitle": "2,3 - 22 kW Taşınabilir Şarj Cihazları",
       "modelCount": 3,
       "badge": "Yeni",
       "comingSoon": false,
@@ -994,7 +994,7 @@
       "categories": {
         "wallbox": {
           "name": "AC Wallbox Chargers",
-          "subtitle": "22-7.4kW Wall-Mounted Charging Station",
+          "subtitle": "3.7 - 22 kW Wall-Mounted Charging Station",
           "modelCount": 3,
           "badge": "New",
           "comingSoon": false,
@@ -1049,7 +1049,7 @@
         },
         "portable": {
           "name": "AC Mobile Chargers",
-          "subtitle": "22-3.7kW Portable Chargers",
+          "subtitle": "2.3 - 22 kW Portable Chargers",
           "modelCount": 2,
           "badge": "Innovative",
           "comingSoon": false,

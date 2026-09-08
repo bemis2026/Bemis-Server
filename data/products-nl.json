@@ -9,7 +9,7 @@
         "id": "charger-2-kablolu",
         "name": "Charger 2",
         "code": "BEV-1011-0005",
-        "subtitle": "Met 5 m kabel · 22 kW / 32 A",
+        "subtitle": "Met 5 m kabel · 3,7 - 22 kW / 32 A",
         "badge": null,
         "description": "Bemis Charger 2 is een AC-wandlaadstation voor thuis en op het werk, verkrijgbaar als eenfasig 7,4 kW en driefasig 22 kW. Met een geïntegreerde Type 2-kabel van 5 meter of als versie met paneelcontactdoos; de CE- en IP65-gecertificeerde behuizing werkt veilig binnen en buiten. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos.",
         "specs": [
@@ -18,7 +18,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -77,7 +77,7 @@
         "id": "charger-2-fisli",
         "name": "Charger 2 Fişli",
         "code": "BEV-1011-0105",
-        "subtitle": "Met 5 m kabel / 5-32A-stekker · 22 kW",
+        "subtitle": "Met 5 m kabel / 5-32A-stekker · 3,7 - 22 kW",
         "badge": "Met stekker",
         "description": "Bemis Charger 2 is een AC-wandlaadstation voor thuis en op het werk, verkrijgbaar als eenfasig 7,4 kW en driefasig 22 kW. Met een geïntegreerde Type 2-kabel van 5 meter of als versie met paneelcontactdoos; de CE- en IP65-gecertificeerde behuizing werkt veilig binnen en buiten. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos.",
         "specs": [
@@ -86,7 +86,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -159,7 +159,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -245,7 +245,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -331,7 +331,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -426,7 +426,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -521,7 +521,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -616,7 +616,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -711,7 +711,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -796,7 +796,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -881,7 +881,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -979,7 +979,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -1073,7 +1073,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -1167,7 +1167,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -1265,7 +1265,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -1350,7 +1350,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -1435,7 +1435,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -1521,7 +1521,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -1598,7 +1598,7 @@
         "id": "charger-2-trifaze-kablolu",
         "name": "Charger 2",
         "code": "BEV-1311-0005",
-        "subtitle": "Met 5 m kabel · 11 kW / 16 A",
+        "subtitle": "Met 5 m kabel · 3,7 - 11 kW / 16 A",
         "badge": null,
         "description": "Bemis Charger 2 is een AC-wandlaadstation voor thuis en op het werk, verkrijgbaar als eenfasig 7,4 kW en driefasig 11 kW. Met een geïntegreerde Type 2-kabel van 5 meter of als versie met paneelcontactdoos; de CE- en IP65-gecertificeerde behuizing werkt veilig binnen en buiten. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos.",
         "specs": [
@@ -1607,7 +1607,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "11 kW"
+                "value": "3,7 - 11 kW"
               },
               {
                 "label": "Fase",
@@ -1866,7 +1866,7 @@
         "id": "pro-mobile",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0001",
-        "subtitle": "Driefasig · 22 kW · 5 m",
+        "subtitle": "Driefasig · 3,7 - 22 kW · 5 m",
         "badge": null,
         "description": "Pro Mobile 2 is een driefasige mobiele AC-lader van 22 kW. Met CEE 5/16 A- en 5/32 A-industriële adapters biedt hij krachtig laden op locatie; ontworpen voor professioneel en wagenparkgebruik. De laadstroom is in 6 stappen (6/10/16/20/25/32 A) instelbaar via de mobiele app of de knop op het apparaat — veilig en flexibel laden, ook op zwakke installaties. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos.",
         "specs": [
@@ -1875,7 +1875,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -1983,7 +1983,7 @@
         "id": "pro-mobile-2-10m",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0003",
-        "subtitle": "Driefasig · 22 kW · 10 m",
+        "subtitle": "Driefasig · 3,7 - 22 kW · 10 m",
         "badge": null,
         "description": "Pro Mobile 2 is een driefasige mobiele AC-lader van 22 kW. Met CEE 5/16 A- en 5/32 A-industriële adapters biedt hij krachtig laden op locatie; ontworpen voor professioneel en wagenparkgebruik. De laadstroom is in 6 stappen (6/10/16/20/25/32 A) instelbaar via de mobiele app of de knop op het apparaat — veilig en flexibel laden, ook op zwakke installaties. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos.",
         "specs": [
@@ -1992,7 +1992,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -2100,7 +2100,7 @@
         "id": "pro-mobile-2-8m",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0002",
-        "subtitle": "Driefasig · 22 kW · 8 m",
+        "subtitle": "Driefasig · 3,7 - 22 kW · 8 m",
         "badge": null,
         "description": "Pro Mobile 2 is een driefasige mobiele AC-lader van 22 kW. Met CEE 5/16 A- en 5/32 A-industriële adapters biedt hij krachtig laden op locatie; ontworpen voor professioneel en wagenparkgebruik. De laadstroom is in 6 stappen (6/10/16/20/25/32 A) instelbaar via de mobiele app of de knop op het apparaat — veilig en flexibel laden, ook op zwakke installaties. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos.",
         "specs": [
@@ -2109,7 +2109,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -2217,7 +2217,7 @@
         "id": "pro-mobile-2-11kw-5m",
         "name": "Pro Mobile 2",
         "code": "BEV-2441-0001",
-        "subtitle": "Driefasig · 11 kW · 5 m",
+        "subtitle": "Driefasig · 3,7 - 11 kW · 5 m",
         "badge": null,
         "description": "Pro Mobile 2 is een driefasige mobiele AC-lader van 11 kW. Met CEE 5/16 A- en 5/32 A-industriële adapters biedt hij krachtig laden op locatie; ontworpen voor professioneel en wagenparkgebruik. De laadstroom is in 6 stappen (6/10/16/20/25/32 A) instelbaar via de mobiele app of de knop op het apparaat — veilig en flexibel laden, ook op zwakke installaties. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos.",
         "specs": [
@@ -2226,7 +2226,7 @@
             "items": [
               {
                 "label": "Vermogen",
-                "value": "11 kW"
+                "value": "3,7 - 11 kW"
               },
               {
                 "label": "Fase",

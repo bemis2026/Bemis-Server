@@ -527,7 +527,7 @@ const CATEGORY_TERM: Record<string, string> = {
 // gerçek pazaryeri yorumu olan ürünler buraya girer.
 const PRODUCT_REVIEW_KEY: Record<string, string> = {
   "sarj-seti-20a-trifaze-5m": "Trifaze 11 kW Çantalı Taşınabilir Şarj Seti",
-  "pro-mobile": "Pro Mobile 11-22 kW Taşınabilir Şarj Cihazı",
+  "pro-mobile": "Pro Mobile 2 · 3,7-22 kW Taşınabilir Şarj Cihazı",
 };
 
 export function reviewsForProduct(productId: string, allReviews: ReviewShape[]): ReviewShape[] {

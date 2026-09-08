@@ -9,7 +9,7 @@
         "id": "charger-2-kablolu",
         "name": "Charger 2",
         "code": "BEV-1011-0005",
-        "subtitle": "5m. Wired · 22 kW / 32A",
+        "subtitle": "5m. Wired · 3,7 - 22 kW / 32A",
         "badge": null,
         "description": "Bemis Charger 2 is an AC wall type charging station designed for home and workplace use with single-phase 7.4 kW and three-phase 22 kW options. With its 5-meter integrated Type 2 cable or panel-socket version, its CE & IP65 certified body works safely in open and closed areas. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
         "specs": [
@@ -18,7 +18,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -79,7 +79,7 @@
         "id": "charger-2-fisli",
         "name": "Charger 2",
         "code": "BEV-1011-0105",
-        "subtitle": "5m. Wired /5-32A Plug · 22 kW",
+        "subtitle": "5m. Wired /5-32A Plug · 3,7 - 22 kW",
         "badge": "Plugged",
         "description": "Bemis Charger 2 is an AC wall type charging station designed for home and workplace use with single-phase 7.4 kW and three-phase 22 kW options. With its 5-meter integrated Type 2 cable or panel-socket version, its CE & IP65 certified body works safely in open and closed areas. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
         "specs": [
@@ -88,7 +88,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -163,7 +163,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -251,7 +251,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -339,7 +339,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -436,7 +436,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -533,7 +533,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -630,7 +630,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -727,7 +727,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -820,7 +820,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -907,7 +907,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -1007,7 +1007,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -1103,7 +1103,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -1199,7 +1199,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -1299,7 +1299,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -1392,7 +1392,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -1479,7 +1479,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -1567,7 +1567,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -1646,7 +1646,7 @@
         "id": "charger-2-trifaze-kablolu",
         "name": "Charger 2",
         "code": "BEV-1311-0005",
-        "subtitle": "5m. Wired · 11 kW / 16A",
+        "subtitle": "5m. Wired · 3,7 - 11 kW / 16A",
         "badge": null,
         "description": "Bemis Charger 2 is an AC wall type charging station designed for home and workplace use with single-phase 7.4 kW and three-phase 11 kW options. With its 5-meter integrated Type 2 cable or panel-socket version, its CE & IP65 certified body works safely in open and closed areas. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
         "specs": [
@@ -1655,7 +1655,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "11 kW"
+                "value": "3,7 - 11 kW"
               },
               {
                 "label": "Phase",
@@ -1924,7 +1924,7 @@
         "id": "pro-mobile",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0001",
-        "subtitle": "Three Phase · 22 kW · 5 m",
+        "subtitle": "Three Phase · 3,7 - 22 kW · 5 m",
         "badge": null,
         "description": "Pro Mobile 2, 22 kW three-phase portable AC charger. It offers high-power field charging with CEE 5/16A and 5/32A industrial adapters; designed for professional and fleet use. The charging current is adjustable in 6 steps (6/10/16/20/25/32A) from the mobile app or the button on the device — flexible, safe charging even on weak installations. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
         "specs": [
@@ -1933,7 +1933,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -2045,7 +2045,7 @@
         "id": "pro-mobile-2-10m",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0003",
-        "subtitle": "Three Phase · 22 kW · 10 m",
+        "subtitle": "Three Phase · 3,7 - 22 kW · 10 m",
         "badge": null,
         "description": "Pro Mobile 2, 22 kW three-phase portable AC charger. It offers high-power field charging with CEE 5/16A and 5/32A industrial adapters; designed for professional and fleet use. The charging current is adjustable in 6 steps (6/10/16/20/25/32A) from the mobile app or the button on the device — flexible, safe charging even on weak installations. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
         "specs": [
@@ -2054,7 +2054,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -2166,7 +2166,7 @@
         "id": "pro-mobile-2-8m",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0002",
-        "subtitle": "Three Phase · 22 kW · 8 m",
+        "subtitle": "Three Phase · 3,7 - 22 kW · 8 m",
         "badge": null,
         "description": "Pro Mobile 2, 22 kW three-phase portable AC charger. It offers high-power field charging with CEE 5/16A and 5/32A industrial adapters; designed for professional and fleet use. The charging current is adjustable in 6 steps (6/10/16/20/25/32A) from the mobile app or the button on the device — flexible, safe charging even on weak installations. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
         "specs": [
@@ -2175,7 +2175,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Phase",
@@ -2287,7 +2287,7 @@
         "id": "pro-mobile-2-11kw-5m",
         "name": "Pro Mobile 2",
         "code": "BEV-2441-0001",
-        "subtitle": "Three Phase · 11 kW · 5 m",
+        "subtitle": "Three Phase · 3,7 - 11 kW · 5 m",
         "badge": null,
         "description": "Pro Mobile 2, 11 kW three-phase portable AC charger. It offers high-power field charging with CEE 5/16A and 5/32A industrial adapters; designed for professional and fleet use. The charging current is adjustable in 6 steps (6/10/16/20/25/32A) from the mobile app or the button on the device — flexible, safe charging even on weak installations. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
         "specs": [
@@ -2296,7 +2296,7 @@
             "items": [
               {
                 "label": "• Power",
-                "value": "11 kW"
+                "value": "3,7 - 11 kW"
               },
               {
                 "label": "Phase",

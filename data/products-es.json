@@ -9,7 +9,7 @@
         "id": "charger-2-kablolu",
         "name": "Charger 2",
         "code": "BEV-1011-0005",
-        "subtitle": "Con cable de 5 m · 22 kW / 32A",
+        "subtitle": "Con cable de 5 m · 3,7 - 22 kW / 32A",
         "badge": null,
         "description": "Bemis Charger 2 es una estación de carga AC tipo pared diseñada para uso doméstico y en el lugar de trabajo, con opciones monofásicas de 7,4 kW y trifásicas de 22 kW. Con cable Type 2 integrado de 5 metros o versión de toma para cuadro, su carcasa certificada CE e IP65 funciona de forma segura en espacios abiertos y cerrados. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
         "specs": [
@@ -18,7 +18,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -75,7 +75,7 @@
         "id": "charger-2-fisli",
         "name": "Charger 2",
         "code": "BEV-1011-0105",
-        "subtitle": "Con cable de 5 m / con enchufe 5-32A · 22 kW",
+        "subtitle": "Con cable de 5 m / con enchufe 5-32A · 3,7 - 22 kW",
         "badge": "Con enchufe",
         "description": "Bemis Charger 2 es una estación de carga AC tipo pared diseñada para uso doméstico y en el lugar de trabajo, con opciones monofásicas de 7,4 kW y trifásicas de 22 kW. Con cable Type 2 integrado de 5 metros o versión de toma para cuadro, su carcasa certificada CE e IP65 funciona de forma segura en espacios abiertos y cerrados. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
         "specs": [
@@ -84,7 +84,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -155,7 +155,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -239,7 +239,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -323,7 +323,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -416,7 +416,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -509,7 +509,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -602,7 +602,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -695,7 +695,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -784,7 +784,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -867,7 +867,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -963,7 +963,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -1055,7 +1055,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -1147,7 +1147,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -1243,7 +1243,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -1332,7 +1332,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -1415,7 +1415,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -1499,7 +1499,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -1574,7 +1574,7 @@
         "id": "charger-2-trifaze-kablolu",
         "name": "Charger 2",
         "code": "BEV-1311-0005",
-        "subtitle": "Con cable de 5 m · 11 kW / 16A",
+        "subtitle": "Con cable de 5 m · 3,7 - 11 kW / 16A",
         "badge": null,
         "description": "Bemis Charger 2 es una estación de carga AC tipo pared diseñada para uso doméstico y en el lugar de trabajo, con opciones monofásicas de 7,4 kW y trifásicas de 11 kW. Con cable Type 2 integrado de 5 metros o versión de toma para cuadro, su carcasa certificada CE e IP65 funciona de forma segura en espacios abiertos y cerrados. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
         "specs": [
@@ -1583,7 +1583,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "11 kW"
+                "value": "3,7 - 11 kW"
               },
               {
                 "label": "Fase",
@@ -1840,7 +1840,7 @@
         "id": "pro-mobile",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0001",
-        "subtitle": "Trifásico · 22 kW · 5 m",
+        "subtitle": "Trifásico · 3,7 - 22 kW · 5 m",
         "badge": null,
         "description": "Pro Mobile 2 es un cargador AC portátil trifásico de 22 kW. Con adaptadores industriales CEE 5/16A y 5/32A ofrece carga de campo de alta potencia; diseñado para uso profesional y de flotas. La corriente de carga es ajustable en 6 niveles (6/10/16/20/25/32A) desde la app móvil o el botón del dispositivo — carga flexible y segura incluso en instalaciones débiles. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
         "specs": [
@@ -1849,7 +1849,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -1957,7 +1957,7 @@
         "id": "pro-mobile-2-10m",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0003",
-        "subtitle": "Trifásico · 22 kW · 10 m",
+        "subtitle": "Trifásico · 3,7 - 22 kW · 10 m",
         "badge": null,
         "description": "Pro Mobile 2 es un cargador AC portátil trifásico de 22 kW. Con adaptadores industriales CEE 5/16A y 5/32A ofrece carga de campo de alta potencia; diseñado para uso profesional y de flotas. La corriente de carga es ajustable en 6 niveles (6/10/16/20/25/32A) desde la app móvil o el botón del dispositivo — carga flexible y segura incluso en instalaciones débiles. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
         "specs": [
@@ -1966,7 +1966,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -2074,7 +2074,7 @@
         "id": "pro-mobile-2-8m",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0002",
-        "subtitle": "Trifásico · 22 kW · 8 m",
+        "subtitle": "Trifásico · 3,7 - 22 kW · 8 m",
         "badge": null,
         "description": "Pro Mobile 2 es un cargador AC portátil trifásico de 22 kW. Con adaptadores industriales CEE 5/16A y 5/32A ofrece carga de campo de alta potencia; diseñado para uso profesional y de flotas. La corriente de carga es ajustable en 6 niveles (6/10/16/20/25/32A) desde la app móvil o el botón del dispositivo — carga flexible y segura incluso en instalaciones débiles. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
         "specs": [
@@ -2083,7 +2083,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Fase",
@@ -2191,7 +2191,7 @@
         "id": "pro-mobile-2-11kw-5m",
         "name": "Pro Mobile 2",
         "code": "BEV-2441-0001",
-        "subtitle": "Trifásico · 11 kW · 5 m",
+        "subtitle": "Trifásico · 3,7 - 11 kW · 5 m",
         "badge": null,
         "description": "Pro Mobile 2 es un cargador AC portátil trifásico de 11 kW. Con adaptadores industriales CEE 5/16A y 5/32A ofrece carga de campo de alta potencia; diseñado para uso profesional y de flotas. La corriente de carga es ajustable en 6 niveles (6/10/16/20/25/32A) desde la app móvil o el botón del dispositivo — carga flexible y segura incluso en instalaciones débiles. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
         "specs": [
@@ -2200,7 +2200,7 @@
             "items": [
               {
                 "label": "Potencia",
-                "value": "11 kW"
+                "value": "3,7 - 11 kW"
               },
               {
                 "label": "Fase",

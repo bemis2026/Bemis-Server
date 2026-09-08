@@ -9,7 +9,7 @@
         "id": "charger-2-kablolu",
         "name": "Charger 2",
         "code": "BEV-1011-0005",
-        "subtitle": "5m. Kablolu · 22 kW / 32A",
+        "subtitle": "5m. Kablolu · 3,7 - 22 kW / 32A",
         "badge": null,
         "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 22 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
@@ -18,7 +18,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -77,7 +77,7 @@
         "id": "charger-2-fisli",
         "name": "Charger 2 Fişli",
         "code": "BEV-1011-0105",
-        "subtitle": "5m. Kablolu / 5-32A Fişli · 22 kW",
+        "subtitle": "5m. Kablolu / 5-32A Fişli · 3,7 - 22 kW",
         "badge": "Fişli",
         "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 22 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
@@ -86,7 +86,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -159,7 +159,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -245,7 +245,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -331,7 +331,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -426,7 +426,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -521,7 +521,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -616,7 +616,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -711,7 +711,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -802,7 +802,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -887,7 +887,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -985,7 +985,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -1079,7 +1079,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -1173,7 +1173,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -1271,7 +1271,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -1362,7 +1362,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -1447,7 +1447,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -1533,7 +1533,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "4 / 7 / 11 / 22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -1610,7 +1610,7 @@
         "id": "charger-2-trifaze-kablolu",
         "name": "Charger 2",
         "code": "BEV-1311-0005",
-        "subtitle": "5m. Kablolu · 11 kW / 16A",
+        "subtitle": "5m. Kablolu · 3,7 - 11 kW / 16A",
         "badge": null,
         "description": "Bemis Charger 2, monofaze 7,4 kW ve trifaze 11 kW seçenekleriyle ev ve iş yeri kullanımı için tasarlanmış AC duvar tipi şarj istasyonu. 5 metrelik entegre Type 2 kablo veya pano-priz versiyonuyla, CE & IP65 sertifikalı gövdesi açık ve kapalı alanda güvenli çalışır. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
@@ -1619,7 +1619,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "11 kW"
+                "value": "3,7 - 11 kW"
               },
               {
                 "label": "Faz",
@@ -1878,7 +1878,7 @@
         "id": "pro-mobile",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0001",
-        "subtitle": "Üç Fazlı · 22 kW · 5 m",
+        "subtitle": "Üç Fazlı · 3,7 - 22 kW · 5 m",
         "badge": null,
         "description": "Pro Mobile 2, 22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. Şarj akımı 6 kademede (6/10/16/20/25/32A) mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanabilir — zayıf tesisatlarda bile güvenli, esnek şarj sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
@@ -1887,7 +1887,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -1995,7 +1995,7 @@
         "id": "pro-mobile-2-10m",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0003",
-        "subtitle": "Üç Fazlı · 22 kW · 10 m",
+        "subtitle": "Üç Fazlı · 3,7 - 22 kW · 10 m",
         "badge": null,
         "description": "Pro Mobile 2, 22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. Şarj akımı 6 kademede (6/10/16/20/25/32A) mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanabilir — zayıf tesisatlarda bile güvenli, esnek şarj sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
@@ -2004,7 +2004,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -2112,7 +2112,7 @@
         "id": "pro-mobile-2-8m",
         "name": "Pro Mobile 2",
         "code": "BEV-2331-0002",
-        "subtitle": "Üç Fazlı · 22 kW · 8 m",
+        "subtitle": "Üç Fazlı · 3,7 - 22 kW · 8 m",
         "badge": null,
         "description": "Pro Mobile 2, 22 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. Şarj akımı 6 kademede (6/10/16/20/25/32A) mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanabilir — zayıf tesisatlarda bile güvenli, esnek şarj sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
@@ -2121,7 +2121,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "22 kW"
+                "value": "3,7 - 22 kW"
               },
               {
                 "label": "Faz",
@@ -2229,7 +2229,7 @@
         "id": "pro-mobile-2-11kw-5m",
         "name": "Pro Mobile 2",
         "code": "BEV-2441-0001",
-        "subtitle": "Üç Fazlı · 11 kW · 5 m",
+        "subtitle": "Üç Fazlı · 3,7 - 11 kW · 5 m",
         "badge": null,
         "description": "Pro Mobile 2, 11 kW trifaze taşınabilir AC şarj cihazı. CEE 5/16A ve 5/32A endüstriyel adaptörleriyle yüksek güçte saha şarjı sunar; profesyonel ve filo kullanımı için tasarlandı. Şarj akımı 6 kademede (6/10/16/20/25/32A) mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanabilir — zayıf tesisatlarda bile güvenli, esnek şarj sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
         "specs": [
@@ -2238,7 +2238,7 @@
             "items": [
               {
                 "label": "Güç",
-                "value": "11 kW"
+                "value": "3,7 - 11 kW"
               },
               {
                 "label": "Faz",
