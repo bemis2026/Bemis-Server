@@ -13,6 +13,51 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 📸🧮 **INSTAGRAM PAYLAŞIM DUVARI (CANLI, commit f714e1c) + HESAPLAYICI VERİ TURU (SÜRÜYOR) (2026-09-08):**
+> Kullanıcı iki iş verdi: (1) kullanıcı videolarını/Instagram içeriklerini sitede göster, (2) şarj süresi
+> hesaplayıcısının verisini güncelle + hatalı modelleri düzelt + kapsamı genişlet.
+> **KULLANICI SEÇİMLERİ (AskUserQuestion):** "Yalnız Instagram gömme" (dosya barındırma YOK) · "Ürün sayfalarına
+> da bağlansın" (anasayfa bandı + ayrı sayfa + ürün sayfası) · "Sadece admin panelinden biz" (ziyaretçi formu yok).
+> **(1) YAPILAN — YENİ BÖLÜM `socialWallSection`:** `app/components/SocialWall.tsx` (bant + ızgara + ışık kutusu)
+> · `SocialWallPageClient.tsx` + `app/musteri-videolari/page.tsx` (yeni sayfa, sitemap'te) · ProductDetailClient'ta
+> `productId` VEYA `categoryId` eşleşen paylaşımlar · admin'e **"Sosyal Paylaşımlar"** sekmesi (adres doğrulama +
+> kapak yükleme + ürün datalist'i + sıralama) · anasayfa bandından tam listeye köprü.
+> **🔴 CEPHE (facade) DESENİ ZORUNLU:** Instagram gömmesi kart başına ~0,5 MB indirir + Meta çerezi kurar; 8 kartlık
+> bant = 4 MB. Kart yalnız KAPAK görselini gösterir, iframe **tıklamada tek örnek** mount edilir. (Aynı ders
+> `useBackgroundVideo.ts`'te alınmıştı: mobilde 2,2 MB sessiz YouTube yüklemesi.) **Doğrudan iframe basma.**
+> **🔴 ÇEREZ KAPISI:** `localStorage["bemis-cookie-consent"] === "accepted"` değilse gömme BASILMAZ → kart
+> "Instagram'da aç" bağlantısı gösterir (üçüncü-taraf çerez kurulmaz, içerik yine erişilebilir).
+> **⚠️ TİP ÇAKIŞMASI:** ContentContext'te ZATEN `SocialPost` var (Yorumlar bloğunun `social.recentPosts` alanı —
+> ⓘ o alan HİÇBİR YERDE render edilmiyor, ölü). Yeni tip **`SocialWallPost`** adıyla eklendi.
+> **⚠️ BAŞLIKLAR VARSAYILANDA BOŞ:** bileşende 6 dilli `pickText` yedeği var; `defaultContent`'e Türkçe yazmak o
+> yedeği etkisizleştirir (bu dosyadaki dealer.worldSection dersi). Operatör admin'den metin girerse her dilde görünür.
+> **⚠️ `lib/contentLang.ts`:** birleştirme her bölümü TEK TEK ele alır — yeni bölüm için kural YAZILMAZSA overlay
+> yok sayılır. `socialWallSection` bloğu eklendi; `url`/`cover`/`productId`/`imagePos` KİMLİK, daima TR'den.
+> **⚠️ `DEFAULT_SECTION_ORDER` + `migrateSectionOrder` known listesine `socialwall`** eklendi (known'a yazılmazsa
+> kayıtlı CMS sırasında süzülür ve anasayfada HİÇ görünmez). Kayıtlı sırada olmadığı için R2'deki mevcut düzende
+> **en sona** eklenir — operatör admin'den yukarı taşıyabilir. Bölüm, paylaşım eklenene kadar HİÇ render edilmez.
+> **⏳ KULLANICIDA:** admin → Sosyal Paylaşımlar → Instagram adresi + kapak görseli (dikey 9:16) ekle.
+> **(2) HESAPLAYICI — VERİ TURU YARIM KALDI, DEVAM ET:** kaynak **ev-database.org**; `app/components/Calculator.tsx`
+> `EV_MODELS` (87 satır) + `app/lib/vehicleCharging.ts`. **DOĞRULANMIŞ TEK HATA: BYD Atto 3 AC gücü 7,4 → 11 kW**
+> (araç sayfasından tek tek okundu; DC tepe de 88 → 110, MY25). **YÖNTEM (scratchpad/evdb/):** `batarya.html` +
+> `verim.json` = 2 özet sayfası isteğiyle **656 aracın TAMAMININ** batarya + verim (Wh/km) değeri; AC/DC gücü ise
+> YALNIZ araç sayfasından okunur (özet sayfası yok) → `_cek4.cjs` (kaldığı yerden devam eder, ilerlemeyi
+> `dogrulanmis.json`'a anında yazar). Hedef set `hedef2.json` (200 satır · 35 marka · Türkiye'de satılan modeller,
+> model başına en fazla 2 batarya). **⚠️ SİTE HIZ SINIRI KOYDU** (ilk turda 200 ms aralıkla 656 istek → 179'dan
+> sonra kalıcı 429; `/car/` yolu saatlerce engelli kalabiliyor). **Yeniden denerken 10+ sn aralık kullan.**
+> **⚠️⚠️ BULANIK EŞLEŞTİRME ÇÖPE ATILDI — TEKRAR DENEME:** marka+model+batarya yakınlığıyla otomatik eşleştirme
+> "Mercedes EQC → C 400", "Tesla Model 3 → Model Y", "Ioniq 6 Standard → IONIQ 3", "Q8 e-tron → e-tron GT" gibi
+> **yanlış eşleşmeler** üretti (`_kiyas.cjs`). Sebep: EVDB güncel katalogda; tablodaki EQC/EQA/Honda e/Leaf 40/
+> Ioniq 5 58 kWh gibi **üretimden kalkmış modeller orada YOK** → eşleştirici en yakın yanlış adaya düşüyor.
+> 📌 **KARAR: tabloyu satır satır yamamak yerine, doğrulanmış güncel katalogdan YENİDEN KUR** (çekim bitince);
+> EVDB'de karşılığı olmayan eski modeller ya düşer ya "üretimden kalktı" notuyla kalır — **uydurma değer YAZMA**
+> (dosyanın kendi kuralı: doğrulanamayan model EKLENMEZ).
+> **ⓘ VERİM ALANI:** mevcut `consumption` değerleri EVDB'nin **"Efficiency" (Wh/km ÷ 10)** başlık değeriyle uyuşuyor,
+> dosyadaki "combined mild weather" yorumu YANLIŞ — yeniden kurarken Efficiency kullan ve yorumu düzelt.
+> **ⓘ GELİŞTİRME FIRSATI:** EVDB araç sayfasında **"Charge Power (10-80%)" ortalama DC gücü** de var (`dcOrt`
+> alanına çekiliyor) → hesaplayıcının genel `taper` eğrisi yerine araca özel ortalama kullanılabilir, DC süresi
+> belirgin biçimde gerçekçileşir.
+
 > 🤝📣 **BAYİ KAZANIM KAMPANYASI + "80+ İL" ÇELİŞKİSİ DÜZELTİLDİ (2026-09-07, commit'ler 80e9da9 · 43287df):**
 > Kullanıcı "Şarj Ekipmanları Bemis E-V Charge Bayisi olmak ister misiniz?" temalı tanıtım istedi (kriterler + mail).
 > **ÖLÇÜM:** `/api/dealers` → **14 il · 34 bayi**, **67 il boş** (İstanbul 10 · Ankara/İzmir/Bursa 4'er · Konya/Samsun 2'şer
