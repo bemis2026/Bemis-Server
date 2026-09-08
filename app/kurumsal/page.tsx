@@ -46,7 +46,7 @@ function fallbackTarihce(t: (tr: string, en: string) => string) {
     { year: "2000", title: t("İhracat", "Export"),         desc: t("Ürünler ilk kez uluslararası pazarlara çıktı.", "Products reached international markets for the first time.") },
     { year: "2010", title: t("Büyüme", "Growth"),          desc: t("Bursa OSB'de 11.000 m² modern tesis açıldı.", "An 11,000 m² modern facility opened in the Bursa Organised Industrial Zone.") },
     { year: "2020", title: t("EV Dönüşümü", "EV Transition"), desc: t("Bemis E-V Charge markasıyla EV şarj pazarına girildi.", "Entered the EV charging market with the Bemis E-V Charge brand.") },
-    { year: buYil,  title: t("Bugün", "Today"),            desc: t("60+ ülkeye ihracat, 8000+ ürün çeşidi.", "Exports to 60+ countries, 8000+ product variants.") },
+    { year: buYil,  title: t("Bugün", "Today"),            desc: t("80+ ülkeye ihracat, 8000+ ürün çeşidi.", "Exports to 80+ countries, 8000+ product variants.") },
   ];
 }
 

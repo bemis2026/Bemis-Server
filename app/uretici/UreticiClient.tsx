@@ -25,7 +25,7 @@ const BENEFITS = [
   { icon: RiCpuLine,            title: "Yerli mühendislik & yazılım", text: "Donanım ve gömülü yazılım kendi Ar-Ge ekibimizde geliştirilir; %94 Yerli Malı Belgesi ile belgeli, ithal değil yerli üretim." },
   { icon: RiCustomerService2Line, title: "Hızlı destek & yedek parça", text: "Üretici doğrudan yanınızda; servis ve yedek parça için aracı/ithalatçı beklemezsiniz." },
   { icon: RiShieldCheckLine,    title: "Sertifikalı kalite",          text: "CE, IP65/IP66, IEC 61851 ve OCPP uyumu — uluslararası standartlarda güvenli cihazlar." },
-  { icon: RiGlobalLine,         title: "İhracat tecrübesi",           text: "60+ ülkeye ihracat yapan bir üretim altyapısının güvenilirliği." },
+  { icon: RiGlobalLine,         title: "İhracat tecrübesi",           text: "80+ ülkeye ihracat yapan bir üretim altyapısının güvenilirliği." },
   { icon: RiPriceTag3Line,      title: "Uygun maliyet",               text: "Üreticiden doğrudan tedarik; aradaki ithalat marjı olmadan rekabetçi fiyat." },
   { icon: RiToolsLine,          title: "OEM & özel üretim",           text: "White-label, özel etiket ve toplu siparişlerde esnek üretim kapasitesi." },
 ];

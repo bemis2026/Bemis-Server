@@ -535,7 +535,7 @@ const defaultContent: SiteContent = {
     whatsappMessage: "Hello, I would like to get information about Bemis E-V Charge products.",
   },
   company: {
-    foundedYear: "1994", exportCountries: "60+", productCount: "6000+", facilitySize: "11.000 m²",
+    foundedYear: "1994", exportCountries: "80+", productCount: "6000+", facilitySize: "11.000 m²",
   },
   marketing: { ga4Id: "", googleAdsId: "", googleAdsContactLabel: "", metaPixelId: "" },
   social: { linkedin: "", instagram: "", twitter: "", youtube: "", facebook: "", recentPosts: [] },
@@ -567,7 +567,7 @@ const defaultContent: SiteContent = {
     highlights: [
       { title: "30+ Yıl Deneyim",    desc: "1994'ten bu yana kesintisiz üretim kalitesi."      },
       { title: "Sertifikalı Kalite",  desc: "CE, IP65 ve uluslararası EV şarj standartları."    },
-      { title: "60+ Ülke İhracatı",   desc: "Türk mühendisliğini dünyaya taşıyoruz."            },
+      { title: "80+ Ülke İhracatı",   desc: "Türk mühendisliğini dünyaya taşıyoruz."            },
       { title: "Temiz Mobilite",      desc: "Sürdürülebilir geleceğe katkı, her şarjda."        },
     ],
     features: [

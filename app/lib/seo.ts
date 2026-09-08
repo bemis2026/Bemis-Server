@@ -22,9 +22,9 @@ const ORG_SAME_AS = [
 ];
 const ORG_DESCRIPTION =
   "Bemis E-V Charge, 1994'ten beri üreten Bemis Teknik Elektrik A.Ş.'nin yerli elektrikli araç (EV) şarj markasıdır. " +
-  "Bursa Organize Sanayi Bölgesi'ndeki üretim tesisinden AC Wallbox şarj istasyonları (7,4–22 kW), taşınabilir AC şarj " +
+  "Bursa Organize Sanayi Bölgesi'ndeki üretim tesisinden AC Wallbox şarj istasyonları (3,7–22 kW), taşınabilir AC şarj " +
   "cihazları, Type 2 şarj kabloları (Mod 2 & Mod 3), V2L/C2L adaptörler, CEE uzatma & dönüştürücüler, DC hızlı şarj " +
-  "üniteleri ve şarj ünitesi ekipmanları sunar. Ürünler CE ve IP65/IP66 korumalı, OCPP uyumludur; 60+ ülkeye ihraç edilir.";
+  "üniteleri ve şarj ünitesi ekipmanları sunar. Ürünler CE ve IP65/IP66 korumalı, OCPP uyumludur; 80+ ülkeye ihraç edilir.";
 const ORG_SLOGAN = "Yerli üretim elektrikli araç şarj çözümleri — doğrudan üreticiden.";
 const ORG_KNOWS_ABOUT = [
   "Elektrikli araç şarj istasyonu üretimi",
@@ -910,10 +910,11 @@ const CATEGORY_SEO: Record<string, { title: string; metaTitle?: string; desc: st
     // ⚠️ EŞ ANLAMLI BOŞLUĞU (2026-07-13): "ev tipi", "araba", "evde şarj",
     // "garantili" sitede SIFIRDI — oysa "ev tipi şarj istasyonu" ve "elektrikli
     // araba şarj cihazı" en yaygın günlük aramalardan. metaTitle SERP'i hedefler;
-    // H1 (title) DEĞİŞMEDİ.
-    title: "Ev Tipi Elektrikli Araç Şarj İstasyonu (AC Wallbox) 7,4–22 kW",
+    // ⚠️ 2026-09-08: H1'deki aralık 7,4–22 → 3,7–22 (kullanıcı kararı). 2. nesil
+    // cihazların hepsi 3,7 kW'a kadar kısılabiliyor; ürün verisiyle birebir aynı olsun.
+    title: "Ev Tipi Elektrikli Araç Şarj İstasyonu (AC Wallbox) 3,7–22 kW",
     metaTitle: "Ev Tipi Elektrikli Araç Şarj İstasyonu (AC Wallbox)", // 51 kr ≤ clampTitle 56; kW aralığı H1 + açıklamada
-    desc: "Ev tipi (duvar tipi) elektrikli araç şarj istasyonu: 7,4 kW monofaze, 11 ve 22 kW trifaze AC wallbox; Type 2, ayarlanabilir güç, OCPP 1.6, GSM ve MID sayaç seçenekleri. Bursa'da üretim, CE & IP65, %94 yerli malı.",
+    desc: "Ev tipi (duvar tipi) elektrikli araç şarj istasyonu: 3,7–22 kW ayarlanabilir güç (monofazede 7,4 kW'a kadar), Type 2, OCPP 1.6, GSM ve MID sayaç seçenekleri. Bursa'da üretim, CE & IP65, %94 yerli malı.",
     short: "Ev Tipi AC Wallbox Şarj İstasyonu",
   },
   portable: {

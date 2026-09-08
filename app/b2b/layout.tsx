@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   // (yerli üretim + ihracat + sertifika güven sinyalleriyle).
   title: "OEM & Beyaz Etiket EV Şarj Cihazı Üretimi",
   description:
-    "Kendi markanızla (beyaz etiket) EV şarj cihazı üretimi: AC Wallbox, taşınabilir şarj, Type 2 kablo, V2L adaptör. Bursa'da üretim, 60+ ülkeye ihracat, CE/IP65.",
+    "Kendi markanızla (beyaz etiket) EV şarj cihazı üretimi: AC Wallbox, taşınabilir şarj, Type 2 kablo, V2L adaptör. Bursa'da üretim, 80+ ülkeye ihracat, CE/IP65.",
   keywords: [
     "ev şarj cihazı oem üretici", "oem şarj cihazı üretimi", "beyaz etiket wallbox",
     "white label ev şarj cihazı", "kendi markanızla şarj cihazı", "özel üretim şarj cihazı",

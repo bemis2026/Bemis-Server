@@ -20,7 +20,7 @@ const highlights = [
   },
   {
     icon: RiGlobalLine,
-    title: "60+ Ülke İhracatı",
+    title: "80+ Ülke İhracatı",
     desc: "Türk mühendisliğini dünyaya taşıyoruz.",
     accent: "#F59E0B",
   },

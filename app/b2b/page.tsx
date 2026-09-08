@@ -47,7 +47,7 @@ const B2B_FAQ = [
   },
   {
     q: "İhracat yapıyor musunuz?",
-    a: "Evet. 60'tan fazla ülkeye ihracat gerçekleştiriyoruz. Dış ticaret talepleri için trade@bemis.com.tr adresinden bize ulaşabilirsiniz; İngilizce üretici ve teklif sayfamız da yayında.",
+    a: "Evet. 80'den fazla ülkeye ihracat gerçekleştiriyoruz. Dış ticaret talepleri için trade@bemis.com.tr adresinden bize ulaşabilirsiniz; İngilizce üretici ve teklif sayfamız da yayında.",
   },
 ];
 
@@ -129,7 +129,7 @@ export default function B2BPage() {
       <JsonLd data={[
         serviceSchema({
           name: "OEM & Üretici Çözümleri",
-          description: "EV şarj ürünleri OEM üretimi, white-label etiketleme, toplu sipariş ve özel mühendislik çözümleri. CE & IP65 sertifikalı, 60+ ülkeye ihracat tecrübesi.",
+          description: "EV şarj ürünleri OEM üretimi, white-label etiketleme, toplu sipariş ve özel mühendislik çözümleri. CE & IP65 sertifikalı, 80+ ülkeye ihracat tecrübesi.",
           url: "/b2b",
           offerings: ["OEM Üretim", "White-Label Etiketleme", "Toplu Sipariş", "Özel Mühendislik", "Sertifikalı Üretim"],
         }),
@@ -258,7 +258,7 @@ export default function B2BPage() {
               </h2>
               <p className="text-sm sm:text-base leading-relaxed mb-3" style={{ color: muted }}>
                 Bemis Teknik Elektrik, 1994&apos;ten bu yana endüstriyel elektrik
-                ekipmanı üretimi yapan, 60+ ülkeye ihracat gerçekleştiren bir
+                ekipmanı üretimi yapan, 80+ ülkeye ihracat gerçekleştiren bir
                 Türkiye üreticisidir. EV şarj cihazı üreten OEM firmalarına
                 bileşen ve mühendislik desteği sunuyoruz.
               </p>
@@ -276,7 +276,7 @@ export default function B2BPage() {
                   // 12 ayrı yerinde 16.000 m² olarak geçiyor; bu rozet onu güncel
                   // gibi gösterip çelişki yaratıyordu.
                   "16.000 m² Üretim Tesisi",
-                  "60+ Ülke İhracat",
+                  "80+ Ülke İhracat",
                   "CE / TSE / TÜV Sertifikalı",
                   "ISO 9001:2015",
                 ].map((chip) => (

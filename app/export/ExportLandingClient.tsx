@@ -20,7 +20,7 @@ const TRUST = [
   "CE · IP65 / IP66",
   "Type 2 · Mode 3 (IEC 62196)",
   "OCPP-ready",
-  "Export to 60+ countries",
+  "Export to 80+ countries",
   "OEM / ODM / Private Label",
 ];
 
@@ -44,7 +44,7 @@ const FAQ = [
   { q: "Are you a manufacturer or a trader?", a: "A manufacturer. Bemis E-V Charge is the EV-charging brand of Bemis Teknik Elektrik A.Ş., producing in its own facility in Bursa, Türkiye since 1994." },
   { q: "Do you offer OEM / ODM / private label?", a: "Yes. We produce under your brand with custom branding, packaging and configurations for distributors, importers and EV-charging operators." },
   { q: "Which standards and certifications do you have?", a: "Our products are CE marked, rated IP65/IP66, built to Type 2 / Mode 3 (IEC 62196) and are OCPP-ready. Documentation is provided for import." },
-  { q: "Do you ship to Europe and my country?", a: "We export to 60+ countries. Send us your country in the quote form and we will confirm shipping, lead time and terms." },
+  { q: "Do you ship to Europe and my country?", a: "We export to 80+ countries. Send us your country in the quote form and we will confirm shipping, lead time and terms." },
   { q: "What is the minimum order quantity?", a: "It depends on the product and configuration. Contact us with your requirement and we will share wholesale / bulk terms." },
   { q: "How fast is delivery to Europe?", a: "As an EU-adjacent manufacturer in Türkiye, lead times to Europe are typically shorter than from China. Exact timing depends on the order; we confirm in the quote." },
 ];
@@ -117,7 +117,7 @@ export default function ExportLandingClient() {
           </motion.h1>
           <motion.div initial={{ scaleX: 0, opacity: 0 }} animate={{ scaleX: 1, opacity: 1 }} transition={{ duration: 0.5, delay: 0.18 }} className="h-px w-24 origin-left mb-5" style={{ background: `linear-gradient(90deg, ${BLUE} 0%, transparent 100%)` }} />
           <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.22 }} className="text-base sm:text-lg leading-relaxed max-w-3xl mb-7" style={{ color: textMuted }}>
-            Bemis E-V Charge is a <strong style={{ color: textPrimary }}>real EU-adjacent manufacturer</strong> (since 1994). Type 2 / Mode 3 charging cables, AC wallboxes, DC fast chargers and adapters — CE, IP65/IP66, OCPP-ready. <strong style={{ color: textPrimary }}>OEM / ODM / private label</strong>, export to 60+ countries.
+            Bemis E-V Charge is a <strong style={{ color: textPrimary }}>real EU-adjacent manufacturer</strong> (since 1994). Type 2 / Mode 3 charging cables, AC wallboxes, DC fast chargers and adapters — CE, IP65/IP66, OCPP-ready. <strong style={{ color: textPrimary }}>OEM / ODM / private label</strong>, export to 80+ countries.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.3 }} className="flex flex-wrap gap-3">
             <a href="#quote" className="group inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02] hover:brightness-110 active:scale-95" style={{ background: BLUE, boxShadow: `0 6px 22px ${BLUE}45` }}>
