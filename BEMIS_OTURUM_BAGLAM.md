@@ -13,6 +13,17 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🌍🔢 **İHRACAT ÜLKE SAYISI 60+ → 80+ (82 YER) + WALLBOX H1 3,7–22 kW (2026-09-08, commit 88e98ec):**
+> Site kendiyle çelişiyordu: anasayfa istatistiği **"80+ Ülke İhracat"**, geri kalan HER ŞEY (kurumsal tanım,
+> llms.txt, /uretici, /b2b, /bayilik rozeti, 9 blog pasajı, kurumsal tarihçe, ui.json) **"60+ ülke"**.
+> **Kullanıcı kararı: 80+ doğru** → 82 yer güncellendi (12 kod dosyası + repo içerik/b2b/blog/ui/sözlük + R2 content).
+> ⚠️ Yalnız **ülke bağlamındaki** 60 değişti (regex ülke sözcüğüne bağlı); dakika/derece/fiyat gibi 60'lara dokunulmadı.
+> ⚠️⚠️ **TÜRKÇE ÜNLÜ UYUMU:** "60'tan fazla" → **"80'DEN fazla"** (altmış → -tan, seksen → -den). Rakamı değiştirip
+> eki bırakmak dilbilgisi hatası olurdu; betik eki ayrıca çeviriyor. 📌 Sayı değiştiren her toplu işlemde eki kontrol et.
+> **Wallbox H1:** "… (AC Wallbox) 7,4–22 kW" → **"3,7–22 kW"** (kullanıcı kararı; ürün verisiyle birebir aynı aralık).
+> metaTitle'da kW GEÇMİYOR → 56 karakterlik `clampTitle` sınırı etkilenmedi; meta açıklamada "monofazede 7,4 kW'a kadar"
+> ifadesi korundu. `ORG_DESCRIPTION` aralığı da hizalandı. store cache **v102-guc → v103-ulke**.
+
 > ⚡🔧 **2. NESİL CİHAZLAR 3,7–22 kW AYARLANABİLİR — SABİT GÜÇ İDDİASI SİTEDEN KALDIRILDI (2026-09-08, commit'ler a378644 · 3974be8):**
 > **KULLANICI BİLGİSİ (üreticiden, yetkili kaynak):** "Yeni tüm 2. nesil şarj cihazlarımız 3,7 kW ile 22 kW arasında
 > ayarlanabiliyor. Sadece 11 kW özel cihaz olmuyor." **KULLANICI KARARLARI (AskUserQuestion):** 11 kW'lık SKU'lar
