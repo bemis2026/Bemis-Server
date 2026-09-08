@@ -13,6 +13,51 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🗺️🕌 **SIRADA (KULLANICI İSTEDİ, HENÜZ BAŞLANMADI): ORTA DOĞU / KÖRFEZ (GCC) SEO + GEO ODAĞI (2026-09-08):**
+> Kullanıcı: "Ortadoğu GCC bölgesine odaklanacağız SEO ve GEO'da; Dubai ve çevresinde bir numara olmalıyız,
+> Mısır'dan Ürdün'e, Ürdün'den Irak'a." **Bu iş SIRAYA ALINDI — üstünde ayrı ve odaklı bir turda çalışılacak.**
+> **Başlarken bakılacaklar (bu oturumda ölçüm YAPILMADI, varsayma):** (a) Arapça kol (`/ar` ürün rotası) YOK —
+> AR yalnız dil seçicide var, `app/[lang]` yalnız de/es/ru/nl kapsıyor (bkz. çok-dilli bloklar); GCC işi büyük
+> ihtimalle **AR ürün/kategori rotalarını açmayı** gerektirir (dil-kolu deseni + hreflang kümesi + `isLocaleNameLang`
+> gibi SABİT dil listelerini tara — bu tuzağa nl'de düşülmüştü). (b) hreflang kümesine **ar** ve gerekirse
+> `ar-AE`/`ar-SA` bölgesel varyantları. (c) GSC/Bing'de bölge bazlı taban çizgisi (şu an ABD/DE/UK/NL var,
+> Körfez ölçülmedi). (d) GEO tarafı: Arapça alıntılanabilir SSS + llms.txt'e AR bölüm. (e) Yerel sinyaller:
+> Körfez'de distribütör/bayi var mı — `internationalDealers` verisine bak; varsa NAP + Arapça sayfa.
+> (f) ⚠️ İçerik çerçevesi: yabancı dillerde "Türkiye'nin/yerli" söylemi KULLANILMAZ (kayıtlı kural) — GCC'de
+> "global üretici + 60+ ülke ihracat" çerçevesi. **Öncelik sırası kullanıcıyla netleşecek.**
+
+> 🛠️🌍 **KULLANICININ BİLDİRDİĞİ 4 SORUN DÜZELTİLDİ + 1 YAN BULGU (2026-09-08, commit 67c71ca):**
+> **🔴 (1) INSTAGRAM GÖMMESİ HİÇ ÇALIŞMIYORDU — CSP:** `next.config.ts` `frame-src` listesinde **instagram.com
+> YOKTU** → tarayıcı çerçeveyi engelliyor, ışık kutusunda BOŞ gri kutu çıkıyordu. Çerez onayı verilse bile
+> gömme basılmayacaktı. ⚠️ **AYNI SINIF HATA 2026-06-28'DE GOOGLE HARİTALAR'DA YAŞANMIŞTI, AYNI SATIRDA** —
+> yeni bir üçüncü-taraf iframe eklerken `frame-src`'i güncellemeyi UNUTMA. Playwright ile doğrulandı: gerçek
+> Bemis gönderisi (profil başlığı + karusel + beğeni + açıklama) artık tam render oluyor.
+> **🔴 (2) ADRES AYRIŞTIRICISI HESAP ADI ÖNEKİNİ TANIMIYORDU:** Instagram web arayüzündeki "bağlantıyı kopyala"
+> **`/bemis.evcharge/p/<kod>/`** biçimini verir; regex yalnız `/p/<kod>/` biçimini kabul ediyordu → operatörün
+> yapıştıracağı adres SESSİZCE kart üretmezdi. Regex hesap adı önekini opsiyonel olarak kabul ediyor (4 biçim test edildi).
+> **(3) ÜRÜNLER AÇILIR MENÜSÜ (aydınlık modda "karışık" görünüyordu):** 520px genişlikte **8 kategoriden 3'ünün ADI,
+> 6'sının alt açıklaması kırpılıyordu** ("Ev Tipi Şarj İstasyonu (A…", "Dönüştürücü Adaptörler …"). Menü **620px**,
+> `truncate` → `line-clamp-2` (ad) / `line-clamp-1` (alt), küçük görsel 56×44 → **64×48**. Ölçüldü: kırpılan ad **3 → 0**.
+> **(4) /kurumsal TARİHÇE ("Bemis Yolculuğu") 6 YABANCI DİLDE TÜRKÇEYDİ + YIL 2024'TE DONMUŞTU:**
+> ⚠️ **İKİ AYRI KAYNAK vardı ve ikincisi birincisini EZİYORDU:** `app/kurumsal/page.tsx` `FALLBACK_TIMELINE` +
+> `ContentContext.tsx` `defaultContent.dna.timeline`. CMS'te tarihçe boş olduğu için varsayılan kazanıyordu.
+> Sayfa artık `fallbackTarihce(t)` ile dile göre üretiyor, son yıl **`new Date().getFullYear()`** (bir daha bayatlamaz);
+> `timeline`/`timelineEyebrow`/`timelineHeading` varsayılanları **BOŞALTILDI**. 📌 Bu, bu dosyada kayıtlı kuralın
+> yeni örneği: **defaultContent'e Türkçe yazmak bileşendeki çok dilli yedeği ETKİSİZLEŞTİRİR** (dealer.worldSection, 2026-08-02).
+> `data/i18n/ui.json` +13 anahtar × 5 dil (elle yazıldı). Almanca doğrulandı: "GESCHICHTE / Der Weg von Bemis /
+> Gründung · Export · Wachstum · EV-Wende · **Heute 2026**".
+> **(5) /kurumsal GRUP MARKALARI — Bemis E-V Charge LOGOSU AYDINLIK MODDA KAYBOLUYORDU:** logo **tamamen beyaz**
+> (sharp ile ölçüldü: ortalama parlaklık **255/255**), beyaz kartın üstünde görünmez. Sitenin 6+ yerinde kullanılan
+> `filter: brightness(0)` çözümü uygulandı (`AYDINLIKTA_TERS_LOGO` kümesi). ⚠️ Bemis (ort. 111) ve BYES (166)
+> RENKLİ → kapsam dışı, yoksa kurumsal renkleri siyaha dönerdi. Yeni beyaz logo yüklenirse kümeye adı eklenmeli.
+> **⏳ KULLANICIYA SORULDU (karar bekliyor):** (a) **ÜLKE SAYISI ÇELİŞKİSİ** — anasayfa istatistik bloğu **"80+ Ülke
+> İhracat"** diyor, sitenin geri kalanı (seo.ts, llms.txt, /uretici, bloglar, tarihçe) **"60+ ülke"**. Hangisi doğru?
+> (b) **Kategori alt açıklamasında ters aralık**: "22-7,4kW Duvar Tipi…" ve "22-3,7kW Taşınabilir…" — okunuşu ters,
+> alışılmış yazım "7,4–22 kW". CMS verisi olduğu ve kategori kartlarında da göründüğü için TEK TARAFLI DEĞİŞTİRİLMEDİ.
+> **ⓘ ÖNİZLEME:** `~/.claude/launch.json`'a **bemis-sosyal (port 3951)** eklendi (diğer sohbetin 3942'sini bozmaz).
+> `data/content.json`'a 4 örnek Instagram paylaşımı **COMMIT EDİLMEDEN** eklendi (yerelde bakmak için) —
+> bakış bitince `git checkout data/content.json` ile geri al. Yerelde R2 kimliği olmadığı için site bu dosyayı okur.
+
 > 📸🧮 **INSTAGRAM PAYLAŞIM DUVARI (CANLI, commit f714e1c) + HESAPLAYICI VERİ TURU (SÜRÜYOR) (2026-09-08):**
 > Kullanıcı iki iş verdi: (1) kullanıcı videolarını/Instagram içeriklerini sitede göster, (2) şarj süresi
 > hesaplayıcısının verisini güncelle + hatalı modelleri düzelt + kapsamı genişlet.
