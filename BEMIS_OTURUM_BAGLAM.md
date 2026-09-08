@@ -13,6 +13,41 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> ⚡🔧 **2. NESİL CİHAZLAR 3,7–22 kW AYARLANABİLİR — SABİT GÜÇ İDDİASI SİTEDEN KALDIRILDI (2026-09-08, commit'ler a378644 · 3974be8):**
+> **KULLANICI BİLGİSİ (üreticiden, yetkili kaynak):** "Yeni tüm 2. nesil şarj cihazlarımız 3,7 kW ile 22 kW arasında
+> ayarlanabiliyor. Sadece 11 kW özel cihaz olmuyor." **KULLANICI KARARLARI (AskUserQuestion):** 11 kW'lık SKU'lar
+> **KALIR**, kablo sınırı olarak açıklanır · **Charger 2 de ayarlanabilir** (yalnız Plus/Pro değil) · yazım **aralık**
+> biçiminde ("3,7 - 22 kW").
+> **📌 AYIRAN ŞEY CİHAZ DEĞİL KABLO:** 16A kablo 11 kW'a, 32A kablo 22 kW'a kadar taşır. Bu yüzden 16A'lık iki varyantın
+> gücü **"3,7 - 11 kW"**, diğerleri **"3,7 - 22 kW"**. Kart alt başlıklarında 16A/32A işareti KORUNDU — yoksa iki varyant
+> kartta ayırt edilemez hâle gelirdi (günlük bekçinin izlediği kusur sınıfı).
+> **⚠️ KAPSAM — KABLO ve PRİZLER HARİÇ:** "Şarj Seti 16A Trifaze 11 kW", "Bir Ucu Açık Kablolu Şarj Prizi 11 kW" gibi
+> PASİF ürünlerde 11 kW **iletken kesitinden** gelir, ayardan değil. Bunlara DOKUNULMADI.
+> **VERİ (commit a378644):** 23 cihaz × (7 repo ürün dosyası + R2 products TR + 4 çeviri + productsEn) = **güç 138 +
+> ürün alt başlığı 42**; kategori alt başlıkları **12** (R2) + 16 (repo). store cache **v101-bayi → v102-guc**.
+> **METİN (commit 3974be8):** wallbox kategori açıklaması 2 cümle × 7 dil × (repo+R2) · blog `posts.ts` 10 yer
+> (kademe listeleri, karşılaştırma tablosu satırı, "11/22 kW trifaze cihaz" tanımı, 3 düzyazı cümlesi) · `blog.json`
+> 20 sayısal + 5 dilde birer düzyazı cümlesi. `postsIndex` yeniden üretildi (37 yazı).
+> **⚠️⚠️ R2'DE İKİ FARKLI ŞEKİL (kuru çalıştırma yakaladı):** `bins/products.json` **TR tabanı `{ products: [...] }`**,
+> **çeviri katmanları ise kategori dizisinin SAYISAL ANAHTARLI hâli**. Yalnız sayısal-anahtar tanıyan okuyucu TR tabanında
+> **sessizce 0 değişiklik** yaptı. 📌 Ürün verisi yazan her betikte `kats()` İKİSİNİ de tanımalı.
+> **📌 BETİK DERSİ:** çapaları toplayıp SONA biriktiren `rep()` deseni, sonraki çapa önceki değişimin sonucunu görmek
+> zorunda olduğunda tutmaz — **sırayla uygula**. Fail-fast sayesinde hiçbir şey yazılmadan yakalandı.
+> **ⓘ BİLEREK DOKUNULMADI:** (a) şarj süresi rehberindeki "7,4 kW monofaze, 11/22 kW trifaze" = genel güç örneği,
+> Bemis iddiası değil. (b) `CATEGORY_SEO.wallbox` H1'i **"… 7,4–22 kW"** diyor (arama hedefli, 51 karakterlik metaTitle'a
+> ayarlı); ürün verisi artık 3,7'den başlıyor → **kullanıcıya soruldu, karar bekliyor.**
+> **⏳ HÂLÂ AÇIK (kullanıcı kararı):** **ÜLKE SAYISI ÇELİŞKİSİ** — anasayfa istatistiği **"80+ Ülke İhracat"**, sitenin
+> geri kalanı (seo.ts, llms.txt, /uretici, bloglar, tarihçe) **"60+ ülke"**. İki tur soruldu, cevap gelmedi.
+
+> 🚧 **HESAPLAYICI ARAÇ VERİSİ — DIŞ KAYNAK ENGELİ (2026-09-08, DEVAM EDİYOR):** ev-database.org, ilk turdaki hızlı
+> tarama (200 ms aralık, 656 istek) yüzünden **`/car/` yolunda kalıcı 429** veriyor; 15 dk sessizlik + 12 sn aralık +
+> 10 dk geri çekilme denendi, **saatler sonra bile açılmadı**. Elde olan: **656 aracın batarya + verim değeri**
+> (2 özet sayfası isteğiyle) ve **179 aracın tam verisi** (ilk turdan) — ama bunlar batarya sırasına göre çekildiği
+> için ağırlıklı premium markalar; Tesla/Togg/Hyundai/Kia/VW gibi Türkiye'nin ana modelleri EKSİK.
+> 📌 **SONRAKİ TUR:** `scratchpad/evdb/_cek4.cjs` kaldığı yerden devam eder (`dogrulanmis.json`). Yeniden denerken
+> **saatlerce beklet, 10+ sn aralık kullan**. Alternatif: farklı ağ/IP, ya da kullanıcıya EV Database üyeliği sorulabilir.
+> ⚠️ **BULANIK EŞLEŞTİRME ÇÖPE ATILDI, TEKRAR DENEME** (gerekçe bir önceki blokta).
+
 > 🗺️🕌 **SIRADA (KULLANICI İSTEDİ, HENÜZ BAŞLANMADI): ORTA DOĞU / KÖRFEZ (GCC) SEO + GEO ODAĞI (2026-09-08):**
 > Kullanıcı: "Ortadoğu GCC bölgesine odaklanacağız SEO ve GEO'da; Dubai ve çevresinde bir numara olmalıyız,
 > Mısır'dan Ürdün'e, Ürdün'den Irak'a." **Bu iş SIRAYA ALINDI — üstünde ayrı ve odaklı bir turda çalışılacak.**
