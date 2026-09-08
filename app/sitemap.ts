@@ -52,6 +52,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Araç uyumluluk rehberi — "Togg'a hangi şarj kablosu" gibi model bazlı
     // aramaların hedefi (2026-08-03). Bkz. app/lib/vehicleCharging.ts
     { url: `${BASE}/arac-sarj-uyumlulugu`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    // Kullanıcı paylaşımları (Instagram gömme) — içerik CMS'ten gelir.
+    { url: `${BASE}/musteri-videolari`, lastModified: now, changeFrequency: "weekly", priority: 0.6 },
   ];
 
   // Şehir bazlı yerel-SEO landing sayfaları (örn. /bursa-ev-sarj-istasyonu).

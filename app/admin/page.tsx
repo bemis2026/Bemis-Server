@@ -203,6 +203,10 @@ type ContentData = {
     sectionLabel: string; heading: string; subheading: string;
     items: { id: string; image: string; title?: string; location?: string; description?: string; imagePos?: string }[];
   };
+  socialWallSection?: {
+    sectionLabel: string; heading: string; subheading: string;
+    items: { id: string; url: string; cover?: string; caption?: string; productId?: string; imagePos?: string }[];
+  };
   calculator?: { sectionLabel: string; heading: string; subheading: string; tabCharge: string; tabSavings: string; chargeSimLabel: string };
   smartCharger?: { sectionLabel: string; heading: string; subheading: string; ocppBadge: string; ctaLabel: string; ctaHref: string; appStoreHref: string; playStoreHref: string; features: { title: string; desc: string }[]; mockupPhoneImage?: string; mockupWebImage?: string };
   projectSection?: { enabled: boolean; categories: string[]; eyebrow: string; title: string; description: string; swatches: string[]; ctaPrimaryLabel: string; ctaPrimaryHref: string; ctaSecondaryLabel: string; ctaSecondaryHref: string };
@@ -243,7 +247,7 @@ type ShowcaseProductItem = {
 };
 type HeroLayoutKey = "logo" | "text" | "button";
 
-type Tab = "hero" | "dna" | "stats" | "products-section" | "smartcharger" | "productshowcase" | "featured" | "refprojects" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b" | "messages" | "projectcard";
+type Tab = "hero" | "dna" | "stats" | "products-section" | "smartcharger" | "productshowcase" | "featured" | "refprojects" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b" | "messages" | "projectcard" | "socialwall";
 
 const ADMIN_DEFAULT_SECTION_ORDER = [
   "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "referenceprojects", "reviews", "dealer", "b2bcta", "calculator"
@@ -257,6 +261,7 @@ const SECTION_META: Record<string, { tab: Tab; label: string; icon: React.Elemen
   "products":       { tab: "products",         label: "Ürünler",        icon: HiOutlineCube           },
   "featured":       { tab: "featured",        label: "Öne Çıkanlar",   icon: HiOutlineStar           },
   "referenceprojects": { tab: "refprojects",   label: "Referans Projeler", icon: HiOutlinePhotograph  },
+  "socialwall":     { tab: "socialwall",      label: "Sosyal Paylaşımlar", icon: HiOutlinePhotograph  },
   "reviews":        { tab: "reviews",         label: "Yorumlar & Blog", icon: HiOutlineStar          },
   "dealer":         { tab: "dealers",         label: "Bayi Haritası",  icon: HiOutlineLocationMarker },
   "b2bcta":         { tab: "b2b",             label: "OEM & Kurumsal", icon: HiOutlineOfficeBuilding },
@@ -3785,6 +3790,152 @@ export default function AdminPage() {
                   </div>
                 </div>
               )}
+
+              {/* ── SOSYAL PAYLAŞIMLAR (Instagram) ── */}
+              {tab === "socialwall" && (() => {
+                const sw = content.socialWallSection ?? { sectionLabel: "", heading: "", subheading: "", items: [] };
+                const yaz = (mutate: (bolum: NonNullable<ContentData["socialWallSection"]>) => void) => {
+                  setContent((prev) => {
+                    if (!prev) return prev;
+                    const next = JSON.parse(JSON.stringify(prev)) as ContentData;
+                    const b = next.socialWallSection ?? { sectionLabel: "", heading: "", subheading: "", items: [] };
+                    b.items = Array.isArray(b.items) ? b.items : [];
+                    mutate(b);
+                    next.socialWallSection = b;
+                    return next;
+                  });
+                };
+                const alanYaz = (field: "sectionLabel" | "heading" | "subheading", value: string) => yaz((b) => { b[field] = value; });
+                const ogeYaz = (idx: number, field: "url" | "cover" | "caption" | "productId", value: string) => yaz((b) => { b.items[idx] = { ...b.items[idx], [field]: value }; });
+                const ogeEkle = () => yaz((b) => { b.items.push({ id: `sw-${Date.now()}`, url: "", cover: "", caption: "", productId: "" }); });
+                const ogeSil = (idx: number) => yaz((b) => { b.items.splice(idx, 1); });
+                const ogeTasi = (idx: number, yon: number) => yaz((b) => {
+                  const hedef = idx + yon;
+                  if (hedef < 0 || hedef >= b.items.length) return;
+                  const [tasinan] = b.items.splice(idx, 1);
+                  b.items.splice(hedef, 0, tasinan);
+                });
+                // Adres geçerli mi (bileşendeki ayrıştırıcının aynısı) — operatör
+                // yanlış link yapıştırırsa kart canlıda BASILMAZ, burada uyaralım.
+                const kodCoz = (u: string) => /instagram\.com\/(p|reel|reels|tv)\/([A-Za-z0-9_-]+)/i.exec(u || "");
+                return (
+                  <div className="max-w-2xl space-y-5">
+                    <div>
+                      <h2 className="text-base font-bold mb-1">Sosyal Paylaşımlar</h2>
+                      <p className="text-xs text-white/35">Instagram gönderi/reel adresleri. Kartlar anasayfada, /musteri-videolari sayfasında ve (ürün seçilirse) o ürünün sayfasında görünür. Video dosyası yüklenmez — içerik Instagram&apos;da kalır.</p>
+                    </div>
+                    <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Bölüm Başlıkları</p>
+                      <p className="text-[10px] text-white/30 -mt-1">Boş bırakırsanız her dilde otomatik çevrilmiş başlık kullanılır. Doldurursanız yazdığınız metin tüm dillerde görünür.</p>
+                      <Field label="Bölüm Etiketi" value={sw.sectionLabel} onChange={(v) => alanYaz("sectionLabel", v)} placeholder="Sosyal Medya" />
+                      <Field label="Başlık"        value={sw.heading}      onChange={(v) => alanYaz("heading", v)}      placeholder="Kullanıcılarımızın Paylaşımları" />
+                      <Field label="Alt Başlık"    value={sw.subheading}   onChange={(v) => alanYaz("subheading", v)}   multiline />
+                    </div>
+                    <div className="bg-white/3 border border-white/7 rounded-2xl p-5 space-y-3">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider mb-1">Paylaşımlar</p>
+                          <p className="text-[10px] text-white/30">Sıra önemli — bantta soldan sağa bu sırayla görünür.</p>
+                        </div>
+                        <button
+                          onClick={ogeEkle}
+                          className="flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg transition-all"
+                          style={{ background: "rgba(225,48,108,0.18)", border: "1px solid rgba(225,48,108,0.45)", color: "#F9A8D4" }}
+                        >
+                          <HiOutlinePlus size={13} /> Paylaşım Ekle
+                        </button>
+                      </div>
+                      {(sw.items ?? []).length === 0 ? (
+                        <p className="text-xs text-white/35 px-1 py-3">Henüz paylaşım yok. Yukarıdan ekleyin.</p>
+                      ) : (
+                        <div className="space-y-2">
+                          {(sw.items ?? []).map((item, idx) => {
+                            const kod = kodCoz(item.url);
+                            return (
+                              <div key={item.id} className="rounded-xl border border-white/7 p-3 space-y-2" style={{ background: "rgba(255,255,255,0.02)" }}>
+                                <div className="flex items-center gap-3">
+                                  {item.cover ? (
+                                    // eslint-disable-next-line @next/next/no-img-element
+                                    <img src={item.cover} alt="" className="w-12 h-16 object-cover rounded-lg flex-shrink-0" style={{ border: "1px solid rgba(255,255,255,0.08)" }} />
+                                  ) : (
+                                    <div className="w-12 h-16 rounded-lg flex-shrink-0 flex items-center justify-center" style={{ background: "rgba(255,255,255,0.04)", border: "1px dashed rgba(255,255,255,0.12)" }}>
+                                      <HiOutlinePhotograph size={16} className="text-white/30" />
+                                    </div>
+                                  )}
+                                  <div className="flex-1 min-w-0">
+                                    <p className="text-sm font-semibold text-white/85 truncate">{item.caption || `Paylaşım ${idx + 1}`}</p>
+                                    <p className="text-[11px] truncate" style={{ color: kod ? "rgba(255,255,255,0.40)" : "#FCA5A5" }}>
+                                      {item.url ? (kod ? `${kod[1]} · ${kod[2]}` : "Geçersiz Instagram adresi — kart gösterilmez") : "Adres girilmedi"}
+                                    </p>
+                                  </div>
+                                  <div className="flex items-center gap-1 flex-shrink-0">
+                                    <button onClick={() => ogeTasi(idx, -1)} disabled={idx === 0} className="text-white/40 hover:text-white text-xs px-1.5 py-1 rounded disabled:opacity-30" title="Yukarı">▲</button>
+                                    <button onClick={() => ogeTasi(idx, 1)} disabled={idx === (sw.items ?? []).length - 1} className="text-white/40 hover:text-white text-xs px-1.5 py-1 rounded disabled:opacity-30" title="Aşağı">▼</button>
+                                    <button onClick={() => ogeSil(idx)} className="text-red-300 hover:text-red-200 text-xs px-1.5 py-1 rounded" title="Sil"><HiOutlineTrash size={13} /></button>
+                                  </div>
+                                </div>
+                                <Field label="Instagram Adresi" value={item.url ?? ""} onChange={(v) => ogeYaz(idx, "url", v)} placeholder="https://www.instagram.com/reel/XXXXXXXXXXX/" />
+                                <Field label="Açıklama (tek satır)" value={item.caption ?? ""} onChange={(v) => ogeYaz(idx, "caption", v)} placeholder="Ahmet Bey — Bursa, Charger 2 kurulumu" />
+                                <div>
+                                  <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">İlgili Ürün (isteğe bağlı)</label>
+                                  <input
+                                    list="sosyal-urun-listesi"
+                                    value={item.productId ?? ""}
+                                    onChange={(e) => ogeYaz(idx, "productId", e.target.value)}
+                                    placeholder="Ürün veya kategori kimliği — boş bırakılabilir"
+                                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white/90 outline-none focus:border-blue-400/50"
+                                  />
+                                  <p className="text-[10px] text-white/30 mt-1">Seçilirse bu paylaşım o ürünün sayfasında da görünür. Kategori kimliği yazarsanız o kategorideki tüm ürünlerde görünür.</p>
+                                </div>
+                                <div>
+                                  <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Kapak Görseli</label>
+                                  <div className="flex items-stretch gap-2">
+                                    <label className="flex-1 flex items-center justify-center gap-2 rounded-lg cursor-pointer text-xs font-semibold transition-colors" style={{ background: "rgba(59,130,246,0.12)", border: "1px dashed rgba(59,130,246,0.40)", color: "#93C5FD", padding: "10px 12px" }}>
+                                      <RiImageAddLine size={14} />
+                                      {item.cover ? "Kapağı Değiştir" : "Kapak Yükle"}
+                                      <input
+                                        type="file"
+                                        accept="image/*"
+                                        className="hidden"
+                                        onChange={async (e) => {
+                                          const file = e.target.files?.[0];
+                                          if (!file) return;
+                                          try {
+                                            const { url } = await uploadImage(file, "sosyal-paylasim");
+                                            ogeYaz(idx, "cover", url);
+                                            showToast("ok", "Kapak yüklendi.");
+                                          } catch (err) {
+                                            showToast("err", `Yükleme başarısız: ${(err as Error).message}`);
+                                          }
+                                          e.target.value = "";
+                                        }}
+                                      />
+                                    </label>
+                                    {item.cover && (
+                                      <button onClick={() => ogeYaz(idx, "cover", "")} className="text-xs font-semibold px-3 rounded-lg" style={{ background: "rgba(239,68,68,0.10)", border: "1px solid rgba(239,68,68,0.30)", color: "#FCA5A5" }} title="Kapağı kaldır">
+                                        <HiOutlineTrash size={13} />
+                                      </button>
+                                    )}
+                                  </div>
+                                  <p className="text-[10px] text-white/30 mt-1">Dikey (9:16) bir kare önerilir. Kapak yoksa kart markalı bir yer tutucu gösterir.</p>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                      <datalist id="sosyal-urun-listesi">
+                        {products.map((c) => (
+                          <option key={c.id} value={c.id}>{c.name} (kategori)</option>
+                        ))}
+                        {products.flatMap((c) => (c.products ?? []).map((p) => (
+                          <option key={`${c.id}-${p.id}`} value={p.id}>{p.name}</option>
+                        )))}
+                      </datalist>
+                    </div>
+                  </div>
+                );
+              })()}
 
               {/* ── REFERANS PROJELER ── */}
               {tab === "refprojects" && (() => {

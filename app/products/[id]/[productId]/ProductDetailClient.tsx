@@ -23,6 +23,7 @@ import Navbar from "../../../components/Navbar";
 import ContactBar from "../../../components/ContactBar";
 import SearchOverlay from "../../../components/SearchOverlay";
 import DealerPickerModal from "../../../components/DealerPickerModal";
+import { SocialGrid, gecerliPaylasimlar } from "../../../components/SocialWall";
 import {
   RiChargingPile2Line, RiBatteryChargeLine, RiFlashlightLine,
   RiPlugLine, RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
@@ -221,7 +222,7 @@ export default function ProductDetailPage({
   const urlDil = forcedLangForPath(pathname);
   const base = urlDil ? `/${urlDil}/products` : "/products";
   const { currency, tryPerEur } = useCurrency();
-  const { categories: catMeta, smartCharger } = useContent();
+  const { categories: catMeta, smartCharger, socialWallSection } = useContent();
   // Warranty / certification copy is fixed company policy — same line for
   // every product, no admin knob.
   const WARRANTY_DURATION = pickText(lang, "2 Yıl Üretici Garantisi", "2-Year Manufacturer Warranty");
@@ -1264,6 +1265,29 @@ export default function ProductDetailPage({
             <p className="text-[11px] mt-2.5" style={{ color: sd ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.35)" }}>
               {pickText(lang, "Yorumlar, ürünün pazaryeri sayfalarındaki gerçek müşteri değerlendirmelerinden alınmıştır.", "Reviews are taken from real customer evaluations on the product's marketplace listings.")}
             </p>
+          </div>
+        );
+      })()}
+
+      {/* ── Bu ürünle ilgili Instagram paylaşımları ──
+          Admin bir paylaşımı ürün id'sine VEYA kategori id'sine bağlayabilir
+          (kategoriye bağlı olan, o kategorideki tüm ürünlerde görünür).
+          Eşleşme yoksa bölüm hiç basılmaz — boş başlık bırakmaz. */}
+      {!loading && product && (() => {
+        const eslesen = gecerliPaylasimlar(socialWallSection?.items).filter(
+          (p) => p.productId === productId || p.productId === categoryId
+        );
+        if (eslesen.length === 0) return null;
+        const sd = theme === "dark";
+        return (
+          <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8 pb-12">
+            <h2 className="text-2xl font-bold mb-1" style={{ color: sd ? "#f0f0f4" : "#111827" }}>
+              {pickText(lang, "Kullanıcılarımızdan", "From our users")}
+            </h2>
+            <p className="text-sm mb-4" style={{ color: sd ? "rgba(255,255,255,0.42)" : "rgba(0,0,0,0.45)" }}>
+              {pickText(lang, "Bu ürünle ilgili Instagram paylaşımları.", "Instagram posts about this product.")}
+            </p>
+            <SocialGrid items={eslesen} />
           </div>
         );
       })()}

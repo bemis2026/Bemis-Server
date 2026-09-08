@@ -77,6 +77,22 @@ export type ExportContact = {
 // flag pills next to the export contact card.
 // Reference / case-study project — image-led card shown on the homepage
 // "Referans Projeler" marquee. Title + location render as a caption overlay.
+// Müşterilerin Instagram paylaşımları. ⚠️ Video DOSYASI barındırmıyoruz —
+// kart yalnız kapak görselini gösterir, gömme tıklanınca yüklenir
+// (bkz. app/components/SocialWall.tsx başındaki karar notu).
+export type SocialWallPost = {
+  id: string;
+  /** Instagram gönderi/reel adresi: https://www.instagram.com/{p|reel}/<kod>/ */
+  url: string;
+  /** Kapak görseli (Cloudinary). Boşsa kart markalı yer tutucu gösterir. */
+  cover?: string;
+  /** Tek satır açıklama — müşteri adı / şehir / ne yaptığı. */
+  caption?: string;
+  /** İlgili ürün id'si (data/products.json) → o ürünün sayfasında da görünür. */
+  productId?: string;
+  imagePos?: string;
+};
+
 export type ReferenceProject = {
   id: string;
   image: string;
@@ -360,6 +376,12 @@ export type SiteContent = {
     subheading: string;
     items: ReferenceProject[];
   };
+  socialWallSection: {
+    sectionLabel: string;
+    heading: string;
+    subheading: string;
+    items: SocialWallPost[];
+  };
   navbar: { ctaLabel: string; links: { label: string; href: string }[]; b2bPortalUrl?: string };
   footer: {
     description: string; followLabel: string; copyright: string;
@@ -443,13 +465,15 @@ const DEFAULT_LAYOUT: HeroLayout = {
 };
 
 export const DEFAULT_SECTION_ORDER = [
-  "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "referenceprojects", "reviews", "dealer", "b2bcta", "calculator"
+  "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "referenceprojects", "socialwall", "reviews", "dealer", "b2bcta", "calculator"
 ];
 
 function migrateSectionOrder(order: string[]): string[] {
   // Drop legacy "gallery" entry from any saved bin order — the section
   // was retired and shouldn't surface on stale CMS data.
-  const known = ["dna","stats","productshowcase","smartcharger","products","featured","referenceprojects","reviews","dealer","calculator","b2bcta"];
+  // ⚠️ Yeni bölüm eklerken buraya da yaz — yoksa kayıtlı CMS sırasında süzülüp
+  // anasayfada HİÇ görünmez. Kayıtlı sırada olmayan bilinen bölümler sona eklenir.
+  const known = ["dna","stats","productshowcase","smartcharger","products","featured","referenceprojects","socialwall","reviews","dealer","calculator","b2bcta"];
   const filtered = order.filter(s => known.includes(s));
   const missing = known.filter(s => !filtered.includes(s));
   return [...filtered, ...missing];
@@ -721,6 +745,16 @@ const defaultContent: SiteContent = {
     subheading: "AVM, otopark, otel ve kurumsal kampüslerde devreye aldığımız uygulamalardan kareler.",
     items: [],
   },
+  // ⚠️ BAŞLIKLAR BİLEREK BOŞ. Bileşende `pickText` ile 6 dilli yedek var;
+  // buraya Türkçe yazmak o yedeği ETKİSİZLEŞTİRİR ve yabancı dilde Türkçe
+  // başlık basar (bu dosyada kayıtlı ders: dealer.worldSection, 2026-08-02).
+  // Operatör admin'den kendi metnini girerse o metin her dilde görünür.
+  socialWallSection: {
+    sectionLabel: "",
+    heading: "",
+    subheading: "",
+    items: [],
+  },
   navbar: {
     ctaLabel: "Bize Ulaşın",
     b2bPortalUrl: "",
@@ -849,6 +883,13 @@ export function mergeContent(data: any, lang: Lang = "tr"): SiteContent {
       items: Array.isArray(safe.referenceProjectsSection?.items)
         ? safe.referenceProjectsSection.items
         : defaultContent.referenceProjectsSection.items,
+    },
+    socialWallSection: {
+      ...defaultContent.socialWallSection,
+      ...(safe.socialWallSection ?? {}),
+      items: Array.isArray(safe.socialWallSection?.items)
+        ? safe.socialWallSection.items
+        : defaultContent.socialWallSection.items,
     },
     calculator: { ...defaultContent.calculator, ...safe.calculator },
     navbar: (() => {

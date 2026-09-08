@@ -203,6 +203,25 @@ export async function getContentForLang(lang: string): Promise<any | null> {
       }));
       return { ...trRP, ...enRP, items };
     })(),
+    // Instagram paylaşım duvarı: overlay YALNIZ bölüm başlıklarını ve kart
+    // açıklamasını çevirir. url / cover / productId / imagePos KİMLİKTİR —
+    // dile göre değişmez, daima TR'den gelir (referans projelerdeki ders).
+    socialWallSection: (() => {
+      const trSW = tr.socialWallSection ?? {};
+      const enSW = en.socialWallSection ?? {};
+      const trItems = Array.isArray(trSW.items) ? trSW.items : [];
+      const enItems = Array.isArray(enSW.items) ? enSW.items : [];
+      const items = trItems.map((it: Record<string, unknown>, i: number) => ({
+        ...it,
+        ...(enItems[i] ?? {}),
+        id: it.id,
+        url: it.url,
+        cover: it.cover,
+        productId: it.productId,
+        imagePos: it.imagePos,
+      }));
+      return { ...trSW, ...enSW, items };
+    })(),
     smartCharger: en.smartCharger
       ? {
           ...tr.smartCharger,
