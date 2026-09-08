@@ -576,13 +576,12 @@ const defaultContent: SiteContent = {
       { title: "Evrensel Uyumluluk",      desc: "Type 2, CCS, CHAdeMO — tüm EV markalarıyla uyumlu, IEC 61851 & IEC 62196 sertifikalı."                            },
       { title: "Sürdürülebilir Tasarım",  desc: "-40°C / +55°C çalışma aralığı, 100.000+ saat ömür. Uzun ömürlü, az atık."                                        },
     ],
-    timeline: [
-      { year: "1994", title: "Kuruluş",       desc: "Bursa'da Bemis Teknik Elektrik A.Ş. kuruldu." },
-      { year: "2000", title: "İhracat",       desc: "Ürünler ilk kez uluslararası pazarlara çıktı." },
-      { year: "2010", title: "Büyüme",        desc: "Bursa OSB'de 11.000 m² modern tesis açıldı." },
-      { year: "2020", title: "EV Dönüşümü",   desc: "Bemis E-V Charge markasıyla EV şarj pazarına girildi." },
-      { year: "2024", title: "Bugün",         desc: "60+ ülkeye ihracat, 6000+ ürün çeşidi." },
-    ],
+    // ⚠️ BİLEREK BOŞ. Buradaki Türkçe tarihçe, /kurumsal sayfasındaki DİLE GÖRE
+    // üretilen yedeği (fallbackTarihce) etkisiz kılıyordu → 6 yabancı dilde de
+    // Türkçe basıyor, üstelik son satır "2024"te donuyordu. Boş bırakılınca
+    // sayfa kendi çok dilli yedeğini kullanır; operatör admin'den kendi
+    // tarihçesini girerse o kazanır. (Aynı ders: dealer.worldSection, 2026-08-02.)
+    timeline: [],
     aboutVideo: "",
     certifications: [
       { label: "CE",        sub: "Avrupa Uygunluk"        },
@@ -612,8 +611,9 @@ const defaultContent: SiteContent = {
       productionEyebrow: "Üretim Süreci",
       productionHeading: "Tasarımdan Son Ürüne",
       productionMadeIn: "🇹🇷 Yerli Üretim",
-      timelineEyebrow: "Tarihçe",
-      timelineHeading: "Bemis Yolculuğu",
+      // ⚠️ Aynı sebeple boş: sayfa bu iki başlığı 6 dilde kendisi üretir.
+      timelineEyebrow: "",
+      timelineHeading: "",
       valuesEyebrow: "Değerlerimiz, Teknoloji & Sertifikalar",
     },
   },

@@ -2917,5 +2917,96 @@
   "ar": "تستخدم جميع الطرازات موصل Type 2 ‏(IEC 62196-2) وهي معتمدة CE وIP65؛ القدرة ونوع المخرج مذكوران في الجدول.",
   "ru": "Все модели используют разъём Type 2 (IEC 62196-2) и сертифицированы по CE и IP65; мощность и тип выхода указаны в таблице.",
   "nl": "Alle modellen hebben een Type 2-connector (IEC 62196-2) en zijn CE- en IP65-gecertificeerd; vermogen en uitgangstype staan in de tabel."
+ },
+ "Founded": {
+  "de": "Gründung",
+  "es": "Fundación",
+  "ar": "التأسيس",
+  "ru": "Основание",
+  "nl": "Oprichting"
+ },
+ "Growth": {
+  "de": "Wachstum",
+  "es": "Crecimiento",
+  "ar": "النمو",
+  "ru": "Рост",
+  "nl": "Groei"
+ },
+ "EV Transition": {
+  "de": "EV-Wende",
+  "es": "Transición EV",
+  "ar": "التحول إلى المركبات الكهربائية",
+  "ru": "Переход на электромобили",
+  "nl": "EV-transitie"
+ },
+ "Today": {
+  "de": "Heute",
+  "es": "Hoy",
+  "ar": "اليوم",
+  "ru": "Сегодня",
+  "nl": "Vandaag"
+ },
+ "Bemis Teknik Elektrik A.Ş. was founded in Bursa.": {
+  "de": "Bemis Teknik Elektrik A.Ş. wurde in Bursa gegründet.",
+  "es": "Bemis Teknik Elektrik A.Ş. fue fundada en Bursa.",
+  "ar": "تأسست شركة Bemis Teknik Elektrik A.Ş. في بورصة.",
+  "ru": "В Бурсе основана компания Bemis Teknik Elektrik A.Ş.",
+  "nl": "Bemis Teknik Elektrik A.Ş. werd opgericht in Bursa."
+ },
+ "Products reached international markets for the first time.": {
+  "de": "Die Produkte erreichten erstmals internationale Märkte.",
+  "es": "Los productos llegaron por primera vez a los mercados internacionales.",
+  "ar": "وصلت المنتجات إلى الأسواق الدولية لأول مرة.",
+  "ru": "Продукция впервые вышла на международные рынки.",
+  "nl": "De producten bereikten voor het eerst internationale markten."
+ },
+ "An 11,000 m² modern facility opened in the Bursa Organised Industrial Zone.": {
+  "de": "Im Industriegebiet Bursa (OSB) wurde eine moderne Anlage mit 11.000 m² eröffnet.",
+  "es": "Se inauguró una planta moderna de 11.000 m² en la zona industrial organizada de Bursa.",
+  "ar": "افتُتحت منشأة حديثة بمساحة 11,000 م² في المنطقة الصناعية المنظمة ببورصة.",
+  "ru": "В организованной промышленной зоне Бурсы открыт современный завод площадью 11 000 м².",
+  "nl": "In het industriegebied van Bursa (OSB) opende een moderne fabriek van 11.000 m²."
+ },
+ "Entered the EV charging market with the Bemis E-V Charge brand.": {
+  "de": "Einstieg in den Markt für EV-Ladelösungen mit der Marke Bemis E-V Charge.",
+  "es": "Entrada en el mercado de carga de vehículos eléctricos con la marca Bemis E-V Charge.",
+  "ar": "الدخول إلى سوق شحن المركبات الكهربائية بعلامة Bemis E-V Charge.",
+  "ru": "Выход на рынок зарядных устройств для электромобилей под маркой Bemis E-V Charge.",
+  "nl": "Betreding van de EV-laadmarkt met het merk Bemis E-V Charge."
+ },
+ "Exports to 60+ countries, 8000+ product variants.": {
+  "de": "Export in über 60 Länder, über 8.000 Produktvarianten.",
+  "es": "Exportación a más de 60 países, más de 8.000 variantes de producto.",
+  "ar": "التصدير إلى أكثر من 60 دولة، وأكثر من 8000 صنف من المنتجات.",
+  "ru": "Экспорт более чем в 60 стран, свыше 8000 наименований продукции.",
+  "nl": "Export naar meer dan 60 landen, meer dan 8.000 productvarianten."
+ },
+ "History": {
+  "de": "Geschichte",
+  "es": "Historia",
+  "ar": "تاريخنا",
+  "ru": "История",
+  "nl": "Geschiedenis"
+ },
+ "The Bemis Journey": {
+  "de": "Der Weg von Bemis",
+  "es": "La trayectoria de Bemis",
+  "ar": "مسيرة Bemis",
+  "ru": "Путь Bemis",
+  "nl": "De reis van Bemis"
+ },
+ "Mute video": {
+  "de": "Video stummschalten",
+  "es": "Silenciar vídeo",
+  "ar": "كتم صوت الفيديو",
+  "ru": "Выключить звук видео",
+  "nl": "Video dempen"
+ },
+ "Unmute video": {
+  "de": "Ton einschalten",
+  "es": "Activar sonido del vídeo",
+  "ar": "تشغيل صوت الفيديو",
+  "ru": "Включить звук видео",
+  "nl": "Geluid inschakelen"
  }
 }

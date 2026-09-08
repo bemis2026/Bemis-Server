@@ -581,7 +581,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                           onMouseEnter={() => openDropdown("urunler")}
                           onMouseLeave={scheduleClose}
                           className="absolute left-1/2 -translate-x-1/2 top-full mt-2 rounded-2xl overflow-hidden"
-                          style={{ width: 520, ...dropdownBase }}
+                          style={{ width: 620, ...dropdownBase }}
                         >
                           {/* Header */}
                           <div className="px-4 pt-3.5 pb-2.5" style={{ borderBottom: `1px solid ${isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"}` }}>
@@ -610,11 +610,11 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                                   <Image
                                     src={cat.image}
                                     alt=""
-                                    width={112}
-                                    height={88}
+                                    width={128}
+                                    height={96}
                                     quality={75}
                                     loading="lazy"
-                                    className="w-14 h-11 rounded-lg object-contain flex-shrink-0 p-1"
+                                    className="w-16 h-12 rounded-lg object-contain shrink-0 p-1"
                                     style={{ border: `1px solid rgba(0,0,0,0.10)`, background: "#e8eaee" }}
                                   />
                                 ) : (
@@ -627,8 +627,12 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                                   </span>
                                 )}
                                 <div className="min-w-0">
-                                  <p className="text-xs font-semibold leading-tight truncate" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{cat.name}</p>
-                                  {cat.subtitle && <p className="text-[10px] leading-tight truncate mt-0.5" style={{ color: isDark ? "rgba(255,255,255,0.38)" : "rgba(0,0,0,0.42)" }}>{cat.subtitle}</p>}
+                                  {/* ⚠️ truncate DEĞİL line-clamp: 520px'lik menüde 8 kategorinin
+                                      3'ünün ADI, 6'sının alt açıklaması kesiliyordu ("Ev Tipi Şarj
+                                      İstasyonu (A…", "Dönüştürücü Adaptörler …") — kullanıcı bildirdi
+                                      2026-09-08. Menü 620px'e genişledi, ad 2 satıra sarabiliyor. */}
+                                  <p className="text-xs font-semibold leading-snug line-clamp-2" style={{ color: isDark ? "#f0f0f4" : "#1a1a1a" }}>{cat.name}</p>
+                                  {cat.subtitle && <p className="text-[10px] leading-snug line-clamp-1 mt-0.5" style={{ color: isDark ? "rgba(255,255,255,0.38)" : "rgba(0,0,0,0.42)" }}>{cat.subtitle}</p>}
                                 </div>
                               </button>
                             ))}

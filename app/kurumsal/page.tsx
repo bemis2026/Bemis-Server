@@ -5,6 +5,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
+import { useLanguage } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
@@ -32,13 +34,29 @@ function extractYouTubeId(url: string): string | null {
   return null;
 }
 
-const FALLBACK_TIMELINE = [
-  { year: "1994", title: "Kuruluş",     desc: "Bursa'da Bemis Teknik Elektrik A.Ş. kuruldu." },
-  { year: "2000", title: "İhracat",     desc: "Ürünler ilk kez uluslararası pazarlara çıktı." },
-  { year: "2010", title: "Büyüme",      desc: "Bursa OSB'de 11.000 m² modern tesis açıldı." },
-  { year: "2020", title: "EV Dönüşümü", desc: "Bemis E-V Charge markasıyla EV şarj pazarına girildi." },
-  { year: "2024", title: "Bugün",       desc: "60+ ülkeye ihracat, 6000+ ürün çeşidi." },
-];
+// ⚠️ CMS'te (dna.timeline) tarihçe BOŞ olduğu için sayfada GÖRÜNEN tarihçe
+// budur. Eskiden modül seviyesinde sabit Türkçeydi → 6 yabancı dilde de
+// Türkçe basıyordu (kullanıcı bildirdi 2026-09-08). Artık dile göre üretilir.
+// ⚠️ Son satırın yılı SABİT DEĞİL: "bugün" satırı geçerli yılı gösterir,
+// yoksa her yıl başında bayatlar (2026'da hâlâ "2024" yazıyordu).
+function fallbackTarihce(t: (tr: string, en: string) => string) {
+  const buYil = String(new Date().getFullYear());
+  return [
+    { year: "1994", title: t("Kuruluş", "Founded"),        desc: t("Bursa'da Bemis Teknik Elektrik A.Ş. kuruldu.", "Bemis Teknik Elektrik A.Ş. was founded in Bursa.") },
+    { year: "2000", title: t("İhracat", "Export"),         desc: t("Ürünler ilk kez uluslararası pazarlara çıktı.", "Products reached international markets for the first time.") },
+    { year: "2010", title: t("Büyüme", "Growth"),          desc: t("Bursa OSB'de 11.000 m² modern tesis açıldı.", "An 11,000 m² modern facility opened in the Bursa Organised Industrial Zone.") },
+    { year: "2020", title: t("EV Dönüşümü", "EV Transition"), desc: t("Bemis E-V Charge markasıyla EV şarj pazarına girildi.", "Entered the EV charging market with the Bemis E-V Charge brand.") },
+    { year: buYil,  title: t("Bugün", "Today"),            desc: t("60+ ülkeye ihracat, 8000+ ürün çeşidi.", "Exports to 60+ countries, 8000+ product variants.") },
+  ];
+}
+
+// Aydınlık modda kaybolan logolar. Bemis E-V Charge logosu TAMAMEN BEYAZ
+// (ölçüldü: ortalama parlaklık 255/255) → beyaz kartın üstünde görünmez.
+// Sitenin başka yerlerinde de kullanılan çözüm: aydınlık modda brightness(0).
+// ⚠️ Bemis (ort. 111) ve BYES (ort. 166) logoları RENKLİ — onlara uygulanmaz,
+// yoksa kurumsal renkleri siyaha döner. Yeni bir beyaz logo yüklenirse adı
+// buraya eklenmeli.
+const AYDINLIKTA_TERS_LOGO = new Set(["Bemis E-V Charge"]);
 
 // Grup markaları logoları → ilgili kurumsal sitelere link (groupBrands CMS
 // verisinde url alanı yok, isimden eşliyoruz). "Bemis E-V Charge" bu sitedir → linksiz.
@@ -70,6 +88,8 @@ export default function KurumsalPage() {
   const { theme } = useTheme();
   const d = theme === "dark";
   const { dna } = useContent();
+  const { lang } = useLanguage();
+  const t = (tr: string, en: string) => pickText(lang, tr, en);
   const [searchOpen, setSearchOpen] = useState(false);
   // Background video controller: keeps the YouTube player chrome hidden
   // until the clip is genuinely playing (and re-covers on tab switch), and
@@ -90,11 +110,11 @@ export default function KurumsalPage() {
   const textFaint  = d ? "rgba(240,240,244,0.28)" : "rgba(26,26,26,0.28)";
   const BLUE       = "#3B82F6";
 
-  const timeline   = (dna.timeline && dna.timeline.length > 0) ? dna.timeline : FALLBACK_TIMELINE;
+  const timeline   = (dna.timeline && dna.timeline.length > 0) ? dna.timeline : fallbackTarihce(t);
   const aboutVideoId = extractYouTubeId(dna.aboutVideo ?? "");
   const kLabels = dna.kurumsalLabels ?? {};
-  const txtTimelineEyebrow   = kLabels.timelineEyebrow   || "Tarihçe";
-  const txtTimelineHeading   = kLabels.timelineHeading   || "Bemis Yolculuğu";
+  const txtTimelineEyebrow   = kLabels.timelineEyebrow   || t("Tarihçe", "History");
+  const txtTimelineHeading   = kLabels.timelineHeading   || t("Bemis Yolculuğu", "The Bemis Journey");
 
   return (
     <div style={{ background: bg, minHeight: "100vh" }}>
@@ -200,7 +220,7 @@ export default function KurumsalPage() {
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-bold text-white transition-all duration-200 hover:gap-3"
                     style={{ background: BLUE, boxShadow: `0 8px 24px ${BLUE}40` }}
                   >
-                    Yerli Üretici Hikayemiz <RiArrowRightLine size={16} />
+                    {t("Yerli Üretici Hikayemiz", "Our Manufacturing Story")} <RiArrowRightLine size={16} />
                   </Link>
                 </motion.div>
               </div>
@@ -317,7 +337,7 @@ export default function KurumsalPage() {
                   <button
                     type="button"
                     onClick={toggleSound}
-                    aria-label={soundOn ? "Video sesini kapat" : "Video sesini aç"}
+                    aria-label={soundOn ? t("Video sesini kapat", "Mute video") : t("Video sesini aç", "Unmute video")}
                     aria-pressed={soundOn}
                     className="absolute bottom-4 right-4 flex items-center justify-center rounded-full transition-colors"
                     style={{
@@ -375,7 +395,7 @@ export default function KurumsalPage() {
                     const renderLogo = (b: { name: string; logo?: string }, size: number, maxW: number) => (
                       b.logo ? (
                         // eslint-disable-next-line @next/next/no-img-element
-                        <img src={cloudinarySrc(b.logo)} alt={b.name} style={{ height: size, width: "auto", maxWidth: maxW, objectFit: "contain" }} loading="lazy" decoding="async" />
+                        <img src={cloudinarySrc(b.logo)} alt={b.name} style={{ height: size, width: "auto", maxWidth: maxW, objectFit: "contain", filter: !d && AYDINLIKTA_TERS_LOGO.has(b.name) ? "brightness(0)" : undefined }} loading="lazy" decoding="async" />
                       ) : (
                         <span
                           className="inline-flex items-center justify-center rounded-lg font-black"

@@ -34,10 +34,13 @@ const CONSENT_KEY = "bemis-cookie-consent";
 
 /** Instagram adresinden gönderi kodunu ve türünü çıkarır.
  *  Kabul edilen biçimler: /p/<kod>/ · /reel/<kod>/ · /reels/<kod>/ · /tv/<kod>/
+ *  ⚠️ HESAP ADI ÖNEKLİ biçim de kabul edilir: /bemis.evcharge/p/<kod>/ — Instagram
+ *  web arayüzündeki "bağlantıyı kopyala" TAM BU biçimi verir; desteklenmezse
+ *  operatörün yapıştırdığı adres sessizce kart üretmez.
  *  ⚠️ Kod çıkmazsa kart RENDER EDİLMEZ — bozuk gömme basmaktansa hiç basmamak iyi. */
 export function instagramKodu(url: string): { kod: string; tur: string } | null {
   if (!url) return null;
-  const m = /instagram\.com\/(p|reel|reels|tv)\/([A-Za-z0-9_-]+)/i.exec(url);
+  const m = /instagram\.com\/(?:[A-Za-z0-9._]+\/)?(p|reel|reels|tv)\/([A-Za-z0-9_-]+)/i.exec(url);
   if (!m) return null;
   // Gömme yolunda "reels" çalışmaz, "reel" çalışır.
   const tur = m[1].toLowerCase() === "reels" ? "reel" : m[1].toLowerCase();

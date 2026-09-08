@@ -4,14 +4,33 @@
     {
       "name": "web",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "port": 3000
     },
     {
       "name": "bemis-prod",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["next", "start", "-p", "3943"],
+      "runtimeArgs": [
+        "next",
+        "start",
+        "-p",
+        "3943"
+      ],
       "port": 3943
+    },
+    {
+      "name": "sosyal-onizleme",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "next",
+        "dev",
+        "-p",
+        "3951"
+      ],
+      "port": 3951
     }
   ]
 }

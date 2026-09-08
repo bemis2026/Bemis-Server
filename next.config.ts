@@ -49,7 +49,7 @@ const csp = [
   // kutu çıkıyordu (2026-06-28'de teşhis edilmiş, o tur "sadece değerlendir"
   // denildiği için uygulanmamıştı; 2026-08-05'te kullanıcı bildirince açıldı).
   // maps.google.com da eklendi: Google bazı bölgelerde oraya yönlendiriyor.
-  "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com https://td.doubleclick.net https://www.googletagmanager.com https://res.cloudinary.com https://*.r2.dev https://www.google.com https://maps.google.com",
+  "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com https://td.doubleclick.net https://www.googletagmanager.com https://res.cloudinary.com https://*.r2.dev https://www.google.com https://maps.google.com https://www.instagram.com https://instagram.com",
   "media-src 'self' blob: https://res.cloudinary.com https:",
   "object-src 'none'",
   "base-uri 'self'",
