@@ -44,8 +44,35 @@
 > self-canonical + og:locale ar_AE · **7 dilde `<title>` marka eki TEK** · tarayıcıda `dir=rtl` + `lang=ar` +
 > H1 yönü rtl + **yatay taşma yok** + 47 iç link kendi kolunda, **TR köke sızma 0** · sitemap **1.029 → 1.191
 > adres** (159 ar girişi + 1.113 ar alternate). `.next` yerel derlemede ar 159 HTML = nl ile aynı.
-> **⏳ GCC'DE KALAN (bu turda YAPILMADI):** bölgesel hreflang varyantları (ar-AE / ar-SA) · llms.txt'e AR bölüm ·
-> Arapça alıntılanabilir SSS · GSC/Bing Körfez taban çizgisi · Körfez distribütör/yerel sinyaller (`internationalDealers`).
+> **➡️ GCC 2. TURU — AYNI GÜN (commit b38ae47):** kuyruktaki 5 maddenin durumu ÖLÇÜLDÜ, ikisi zaten kapanmıştı.
+> **(a) ✅ llms.txt'e "## Diller" bölümü:** 7 dil kolunun adresleri + **Arapça özet paragraf** (marka, üretim,
+> kategoriler, ihracat/OEM iletişimi) → YZ tarayıcıları Arapça soruda doğrudan alıntılayabilir. İletişim olarak
+> yurt içi değil **dış ticaret hattı** yazıldı (trade@bemis.com.tr / +90 542 773 72 94); "Türkiye'nin/yerli"
+> söylemi YOK (kayıtlı kural). Canlı: llms.txt 200, Arapça 367 karakter.
+> **(b) ✅ ARAPÇA SSS ZATEN CANLIYDI — ayrı iş değilmiş:** /ar kategori sayfası **FAQPage şemasını Arapça
+> basıyor** (wallbox'ta 12 soru; 2026-09-04'te çevrilen 49 SSS artık kendi ADRESİNE kavuştu). Ölçülmeden
+> "yapılacak" diye listelemiştim — /ar kolu bunu kendiliğinden kapatmış.
+> **(c) ✅ KÖRFEZ TABAN ÇİZGİSİ ALINDI → `scripts/seo-baselines/korfez-2026-09-09.json`** (GA, 90 gün, /ar
+> YAYINDAN ÖNCE): **BAE 7 oturum · Irak 1 · Suudi/Katar/Kuveyt/Bahreyn/Umman/Mısır/Ürdün/Lübnan 0** (TR 3.339).
+> ⚠️ **DEPOYA kondu** çünkü 6 Eylül taban çizgisi `Desktop\SEO data\` klasörüyle birlikte SİLİNMİŞ (masaüstü
+> temizliği) → masaüstü kalıcı depo değil. Sonraki ölçüm ~2026-10-10, aynı GA sorgusu (dosyada yazılı).
+> **(d) ✅ INDEXNOW: 159 /ar adresi bildirildi** — api.indexnow.org 200 · bing 200 · yandex 202 success.
+> Google IndexNow'a katılmıyor, sitemap'ten okur (1.191 adres canlı). ⚠️ Adresler CLI argümanı olarak
+> GEÇİRİLMEDİ (Git Bash /yol → Windows yolu çevirisi 422 üretiyor, kayıtlı ders); betik içinde üretildi.
+> **(e) ⛔ ar-AE / ar-SA BÖLGESEL HREFLANG — BİLEREK YAPILMADI (kendi kuyruk maddemi eledim).** hreflang bir
+> BÖLGE SIRALAMA SİNYALİ DEĞİL; aynı dilin alternatifleri arasında hangi ADRESİN gösterileceğini seçer. Elimizde
+> **tek bir Arapça sayfa kümesi** var (BAE'ye özel fiyat/kargo/metin YOK) ve çıplak `ar` o dilin TÜM bölgelerini
+> zaten kapsıyor → `ar-AE`/`ar-SA` aynı adrese işaret eden **kopya girişler** olurdu (1.191 adres × 2 fazla
+> alternate). Bölgeye özel İÇERİK üretilirse (Körfez fiyatlandırması, yerel distribütör sayfası) o zaman anlamlı olur.
+> **(f) ⛔ KÖRFEZ YEREL SİNYALLERİ — KURULAMIYOR:** `internationalDealers` verisinde **yalnız 3 ülke aktif
+> (Almanya · Şili · Portekiz)**; Körfez'de distribütör YOK → NAP / yerel sayfa uydurulamaz. **Ticari karar,
+> kod işi değil.**
+> **⏳ KALAN:** (1) **GSC Körfez taban çizgisi** — Ahrefs'in GSC uçları "Insufficient plan" (tekrar denendi,
+> kapalı) → kullanıcı Search Console'dan **Ülkeler + Sayfalar** dışa aktarımı indirmeli; GA trafiği ölçer,
+> SIRALAMAYI ölçmez. (2) **Arapça kapsam ürün DIŞINA çıkmıyor** — /ar yalnız ürün rotalarını kapsıyor; blog,
+> sözlük, /uretici, /export Arapça adreste YOK. Körfez ziyaretçisi /ar/products'a düşünce Arapça bir "üretici
+> kimdir" sayfası bulamıyor. Bu, GCC'nin sıradaki EN BÜYÜK içerik kaldıracı ama yeni rota kümesi = ayrı ve
+> planlı bir tur (kullanıcı onayı ile).
 
 > 🌍🔢 **İHRACAT ÜLKE SAYISI 60+ → 80+ (82 YER) + WALLBOX H1 3,7–22 kW (2026-09-08, commit 88e98ec):**
 > Site kendiyle çelişiyordu: anasayfa istatistiği **"80+ Ülke İhracat"**, geri kalan HER ŞEY (kurumsal tanım,
