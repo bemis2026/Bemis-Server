@@ -13,6 +13,67 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 📸🎯 **SOSYAL DUVAR 3 KUSUR + INSTAGRAM REKLAM GÖRSELLERİ (2026-09-09, commit 857c374):**
+> Kullanıcı 4 iş verdi; hepsi tamamlandı ve canlı doğrulandı.
+> **(1) ✅ KAPAK GÖRSELİ ARTIK OTOMATİK — yeni `app/api/social-cover/route.ts`:** canlıdaki **3 paylaşımın
+> HİÇBİRİNDE kapak yoktu** → üçü de markasız yer tutucu gösteriyordu. Artık operatör kapak yüklemediyse
+> gönderinin **kendi Instagram kapağı** aynı-köken vekilden gelir.
+> ⚠️⚠️ **GÖMME SAYFASINI KAZIMA DENENDİ, ÇALIŞMIYOR:** `instagram.com/p/<kod>/embed/captioned/` artık tamamen
+> istemcide çiziliyor — dönen **631 KB HTML'de tek bir CDN adresi yok** (EmbeddedMediaImage / og:image /
+> display_url / thumbnail_src hepsi YOK; ölçüldü). **Çalışan tek uç: `/p/<kod>/media/?size=l` → 302 → JPEG.**
+> ⚠️ **NEDEN VEKİL, neden CDN adresini veriye yazmıyoruz:** Instagram kapak adresi **imzalı + süreli**
+> (`_nc_ohc`, `oe=`) → veriye yazılan adres haftalar içinde kırık görsele döner. Vekil her seferinde taze
+> adresi çözer; yanıt **s-maxage=604800** ile CDN'de tutulur (Instagram'a ziyaretçi başına gidilmez).
+> ⚠️ **SSRF:** giden istek SABİT www.instagram.com'a yapılır (kullanıcı adresinden yalnız KOD alınır) ve
+> yönlendirme sonundaki host `cdninstagram.com|fbcdn.net` beyaz listesine karşı doğrulanır. Hata → **404** →
+> kart yer tutucuya döner (`onError`); başarısızlık KISA önbelleklenir (geçici kesinti bir hafta yapışmasın).
+> ⚠️ `unoptimized` bilerek: /_next/image'a sokmak vekilin 8 sn'lik dış isteğini optimizer zaman aşımına
+> sokabilir; görseller zaten ~40 KB. **CANLI DOĞRULANDI: Vercel'den 200 · image/jpeg · 40.324 bayt** —
+> Instagram veri merkezi IP'sini engellemedi (asıl riskti).
+> **(2) ✅ "AYNI VİDEO İKİ KEZ" — marquee 2× kopyası kaldırıldı:** bant kesintisiz akış için listeyi
+> `[...items, ...items]` basıyordu → 3 gönderiyle aynı video ekranda **iki kez** görünüyordu. Otomatik kayma
+> yerine **ok tuşları + doğal kaydırma** (`useKaydirmaDurumu`/`yumusakKaydir`, "Benzer Ürünler" deseni);
+> oklar yalnız kaydırılacak içerik varken görünür, az kart varsa şerit **ortalanır**.
+> 📌 Ortalama `min-width:max-content` + `justify-center` ile yapıldı — `width:max-content` + `mx-auto`
+> kaydırma kapsayıcısında SOL tarafı ulaşılamaz yapar (klasik tuzak).
+> Ayrıca `gecerliPaylasimlar` artık **gönderi KODUNA göre tekilleştiriyor** → aynı gönderi farklı yazımla
+> (/p/, /reel/, hesap adı önekli, ?igsh'li) iki kez eklenirse yine bir kez çıkar; filtre ortak olduğu için
+> anasayfa + /musteri-videolari + ürün sayfası aynı kuralı paylaşır.
+> ⓘ **YANLIŞ ALARM:** canlı DOM'da `#socialwall` 2 kez görünüyor — sayfada **iki `<main>`** var, ikincisi
+> Next streaming'in **0 yükseklikli gizli kabı** (tüm bölümler için geçerli, sunucu HTML'inde tek kopya).
+> Bu ÇOĞALTMA DEĞİL; "bölüm iki kez basılıyor" diye düzeltmeye kalkma.
+> **(3) ✅ ADMİN "İLGİLİ ÜRÜN" GERÇEK SEÇİM LİSTESİ + 🔴 SESSİZ VERİ HATASI ORTAYA ÇIKTI:** alan serbest
+> metindi (datalist) → operatör ürün **ADI** yazıyordu. **Canlı veride `productId` değerleri "V2L Adaptör" ve
+> "C2L Adaptör"** — oysa eşleştirme `ProductDetailClient`'ta `p.productId === productId || p.productId ===
+> categoryId` ile **kimlik** üzerinden yapılıyor → **3 paylaşımın hiçbiri hiçbir ürün sayfasında görünmüyordu.**
+> Artık kategoriler + ürünler optgroup'lu `<select>` (ürün etiketi `ad · KOD` — aynı adlı 3 varyant vardı).
+> ⚠️ **Mevcut yanlış değerler DEĞİŞTİRİLMEDİ** (operatör içeriği + hangi ürün kastedildiği belirsiz: doğru
+> karşılık kategori `v2l-c2l` olabilir, tek bir ürün de) → admin'de **kırmızı "⚠ Tanınmayan değer" uyarısıyla**
+> gösteriliyor, seçim listesi onları sessizce boşa düşürmüyor. **KULLANICI 3 paylaşımda ürünü listeden seçmeli.**
+> **(4) ✅ GÖRÜŞLER & REHBERLER TİPOGRAFİSİ:** bölüm sitenin **15px gövde standardına** göre küçüktü.
+> Okunacak içerik büyüdü: **yorum metni 12 → 15px**, yazar + rehber başlıkları 12 → 14px, sol sütun başlığı
+> 14 → **16px** (sağ sütunla eşitlendi); rozet/tarih satırları 10-11 → 11-12px. ⚠️ Bölüm **eyebrow'una
+> DOKUNULMADI** (site geneli standart, 2026-06-08'de hizalanmıştı). Canlı: yorum 15px · iki h3 de 16px ·
+> rehber linki 14px · yatay taşma yok.
+> ⓘ **KOMŞU BULGU (yapılmadı, kapsam dışıydı):** `FeaturedProducts` ürün açıklaması, `BrandStory`,
+> `Technology`, `/documents` kartları hâlâ `text-xs` (12px) `<p>` kullanıyor — genel CSS kuralı yalnız
+> `text-sm`/`text-base` `<p>`leri 15px'e çıkarıyor. İstenirse ayrı tur.
+>
+> 🖼️ **INSTAGRAM REKLAM GÖRSELLERİ (Masaüstü'nde, depoya girmedi):**
+> `Bemis_Instagram_Post_1080x1080.png` + `Bemis_Instagram_Hikaye_1080x1920.png` — üretici `sharp` +
+> SVG metin (`scratchpad/_reklam_uret.cjs`, varlık indirici `_reklam_varlik.cjs`).
+> **İçerik:** gerçek site görselleri (hero fotoğrafı + Cloudinary ürün PNG'leri) · "TÜRKİYE'NİN ELEKTRİKLİ ARAÇ
+> ŞARJ EKİPMANLARI ÜRETİCİSİ" · çipler "1994'TEN BERİ ÜRETİM / CE · IP65 / 80+ ÜLKEYE İHRACAT" · alt kırmızı
+> bant "BAYİLİK İÇİN BAŞVURABİLİRSİNİZ · sales@bemis.com.tr · bemisevcharge.com.tr".
+> ⚠️ **UYDURMA TİCARİ ŞART YOK** (iskonto/ciro/açılış siparişi/bölge münhasırlığı/süre taahhüdü yazılmadı —
+> bayilik mail metinlerindeki kayıtlı kural); yalnız davet cümlesi. Rakip marka yok.
+> ⚠️ **KABLO ÜRÜN GÖRSELİ BİLEREK KULLANILMADI:** o PNG'nin üstünde **"ÇANTA HEDİYELİ" altın rozeti gömülü**
+> (2026-07-24'te kataloğa eklenen kampanya görseli) — teyit edilmemiş ticari vaat, reklama giremez.
+> ⚠️ Hikayede üst ~250 px / alt ~250 px Instagram arayüzüne bırakıldı; ilk turda ürünler metinlerin üstüne
+> biniyordu → düzen sütunlara ayrıldı (sol metin x≤610, ürünler x≥636).
+> 📌 **Araç dersi:** sharp SVG metni Windows'ta **Segoe UI** ile Türkçe karakterleri (ğ/ı/ş/İ/Ç/Ö/Ü) sorunsuz
+> çiziyor — önce boş bir tuvale test basıp std sapmayla + GÖZLE doğrula, sonra tasarıma geç.
+
 > 🕌🚀 **ARAPÇA (/ar) ÜRÜN KOLU AÇILDI — GCC İŞİNİN İLK TESLİMİ (2026-09-09, commit f690945):**
 > Kullanıcı kapsamı seçmeli belirledi: **"Arapça adres kolu (/ar)"** + ürün adlarında **"Hepsi Arapça"**.
 > ⚠️ **İKİNCİ SEÇİM BENİM ÖNERİMİN TERSİYDİ** — marka-model adlarını çevirmenin marka tanınırlığını
