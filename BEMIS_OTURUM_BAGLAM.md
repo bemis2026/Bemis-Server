@@ -7,11 +7,45 @@
 > Derin teknik bağlam: `Desktop/Claude Çalışmaları/Bemis Website/md/BEMIS_PROJECT_CONTEXT.md`
 > (özellikle §15.16 denetim, §15.17 Blob taşıması).
 >
-> Son güncelleme: **2026-08-26**
+> Son güncelleme: **2026-09-09**
 
 ---
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
+
+> 🕌🚀 **ARAPÇA (/ar) ÜRÜN KOLU AÇILDI — GCC İŞİNİN İLK TESLİMİ (2026-09-09, commit f690945):**
+> Kullanıcı kapsamı seçmeli belirledi: **"Arapça adres kolu (/ar)"** + ürün adlarında **"Hepsi Arapça"**.
+> ⚠️ **İKİNCİ SEÇİM BENİM ÖNERİMİN TERSİYDİ** — marka-model adlarını çevirmenin marka tanınırlığını
+> zayıflattığını ve de/es/ru/nl'den ayrıştığını söyledim, kullanıcı yine de "hepsi Arapça" dedi → uygulandı.
+> **YAPI:** `app/[lang]/products/*` rotaları `LOCALE_LANGS`'ten türediği için **159 sayfa** (liste + 8 kategori
+> + 150 ürün) otomatik prerender oldu; ayrı rota dosyası yazılmadı.
+> **BAĞLANANLAR:** `URL_LANGS` · `LanguageSwitcher` (küme + regex) · `sitemap` (LOCALE_LANGS + altSet + **6 SABİT
+> hreflang kümesi**) · 9 sayfa dosyasında hreflang **7'li + x-default** · `productNamesLocale` **AR 60/60 ad**
+> (katalogla birebir doğrulandı, yetim anahtar 0; **BEVDC model kodu KORUNDU** — o kimlik, ad değil) ·
+> `localeProductSeo` (8 kategori SEO + arayüz + **og:locale ar_AE**, Dubai odaklı karar).
+> **⚠️⚠️ SİTEMAP'TE İLK DENEMEM SESSİZCE HİÇBİR ŞEY YAPMADI:** `languages: \{[^}]*nl:` deseni, template
+> literal içindeki **${BASE}'in kapanış süslü parantezinde** kırılıyor → hem değiştirme hem "eksik kalan"
+> kontrolü 0 döndü ve bana **yanlış güvence** verdi. Doğru desenle (nl değerini doğrudan yakala) **6 sabit
+> hreflang kümesi** daha bulundu (satır 39/96/109/126/143/162). 📌 **Süslü parantez tabanlı çapa, içinde
+> ${...} geçen template literal'de KULLANILMAZ.**
+> **⚠️ RTL — SSR'DA ÇÖZÜLDÜ:** kök yerleşim sunucuda rotayı bilemediği için `<html lang="tr">` basıyor,
+> `LanguageProvider` bunu hidrasyondan SONRA düzeltiyordu → /ar sayfaları önce soldan-sağa çizilip sonra ters
+> dönüyordu (Latin dillerde yalnız öznitelik, Arapça'da GÖRÜNÜR sıçrama). Çözüm: `app/layout.tsx` →
+> **`DIL_KOLU_SCRIPT`**, `<body>`'nin **İLK çocuğu** olarak satır-içi betik; `location.pathname`'den dil kolunu
+> okuyup `lang` + (ar ise) `dir="rtl"` ayarlar. CSP'de `script-src 'unsafe-inline'` zaten var.
+> 📌 **Dil listesi `lib/languages.ts` URL_LANGS ile AYNI olmalı** — yeni dil eklenince ikisi birlikte güncellenir.
+> **🔴 YAN BULGU — /ar'A ÖZGÜ DEĞİL, AYLARDIR CANLIYDI: `<title>` MARKA EKİNİ İKİ KEZ BASIYORDU.**
+> EN + de/es/ru/nl sayfalarında "… **| Bemis E-V Charge | Bemis E-V Charge**" (795 sayfa). Sebep: sayfa
+> metadata'sı eki ELLE ekliyor (`enProductSeo`/`localeProductSeo` + 4 sayfa dosyası), kök yerleşimdeki
+> `title.template` ikinciyi ekliyordu. **TR temizdi** (elle ek yok) → bu yüzden hiç fark edilmemişti.
+> **FIX:** 6 metadata bloğunda `title` → **`{ absolute: … }`** (şablonu atlar). ⚠️ `openGraph`/`twitter`
+> başlıklarına DOKUNULMADI — onlar şablondan geçmiyor, zaten tekildi (og:title öncesi/sonrası birebir aynı).
+> **✅ CANLI DOĞRULANDI:** /ar liste+kategori+ürün **200**, başlık/H1/ürün adı Arapça · hreflang **8'li** +
+> self-canonical + og:locale ar_AE · **7 dilde `<title>` marka eki TEK** · tarayıcıda `dir=rtl` + `lang=ar` +
+> H1 yönü rtl + **yatay taşma yok** + 47 iç link kendi kolunda, **TR köke sızma 0** · sitemap **1.029 → 1.191
+> adres** (159 ar girişi + 1.113 ar alternate). `.next` yerel derlemede ar 159 HTML = nl ile aynı.
+> **⏳ GCC'DE KALAN (bu turda YAPILMADI):** bölgesel hreflang varyantları (ar-AE / ar-SA) · llms.txt'e AR bölüm ·
+> Arapça alıntılanabilir SSS · GSC/Bing Körfez taban çizgisi · Körfez distribütör/yerel sinyaller (`internationalDealers`).
 
 > 🌍🔢 **İHRACAT ÜLKE SAYISI 60+ → 80+ (82 YER) + WALLBOX H1 3,7–22 kW (2026-09-08, commit 88e98ec):**
 > Site kendiyle çelişiyordu: anasayfa istatistiği **"80+ Ülke İhracat"**, geri kalan HER ŞEY (kurumsal tanım,
@@ -66,7 +100,8 @@
 > **saatlerce beklet, 10+ sn aralık kullan**. Alternatif: farklı ağ/IP, ya da kullanıcıya EV Database üyeliği sorulabilir.
 > ⚠️ **BULANIK EŞLEŞTİRME ÇÖPE ATILDI, TEKRAR DENEME** (gerekçe bir önceki blokta).
 
-> 🗺️🕌 **SIRADA (KULLANICI İSTEDİ, HENÜZ BAŞLANMADI): ORTA DOĞU / KÖRFEZ (GCC) SEO + GEO ODAĞI (2026-09-08):**
+> 🗺️🕌 **ORTA DOĞU / KÖRFEZ (GCC) SEO + GEO ODAĞI (2026-09-08 alındı) — ⚠️ /ar KOLU 2026-09-09'DA AÇILDI,
+> BU BLOK ARTIK YALNIZ KALAN MADDELER İÇİN GEÇERLİ (en üstteki 🕌🚀 bloğuna bak):**
 > Kullanıcı: "Ortadoğu GCC bölgesine odaklanacağız SEO ve GEO'da; Dubai ve çevresinde bir numara olmalıyız,
 > Mısır'dan Ürdün'e, Ürdün'den Irak'a." **Bu iş SIRAYA ALINDI — üstünde ayrı ve odaklı bir turda çalışılacak.**
 > **Başlarken bakılacaklar (bu oturumda ölçüm YAPILMADI, varsayma):** (a) Arapça kol (`/ar` ürün rotası) YOK —
