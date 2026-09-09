@@ -634,6 +634,16 @@
           "text": "Once the permits and plan are ready, the physical installation usually takes little time. A typical installation proceeds in this order: a qualified electrician surveys the site and determines the mounting point; a separate supply line is run from the panel to the device; residual current and overcurrent protection is added to the panel; the device is fixed to the wall or a stand and wired; earthing is connected. Finally the device is powered up and tested, and if required registered with the OCPP/management software."
         },
         {
+          "items": [
+            "1. Site survey: the authorised dealer or electrician determines the distribution board, the main breaker, the phase configuration (single-phase/three-phase), the position of the device and the length of the cable run.",
+            "2. Permits and metering plan: usually not required in a detached house; in an apartment building or gated community you need the management's approval and a decision on a dedicated or a shared meter.",
+            "3. Cable run: a dedicated line from the main board to the device; a 1×32 A single-phase breaker for 7.4 kW, 3×16 A for 11 kW and a 3×32 A three-phase breaker for 22 kW; cable cross-section according to distance.",
+            "4. Residual current protection: the electrician selects protection that detects the DC residual component (a Type A RCD combined with 6 mA DC detection inside the device, or a Type B RCD).",
+            "5. Installation: the device is fixed to the wall; an IP65 enclosure needs no additional cabinet outdoors; on the tethered model the cable holder is planned, on the socket model the orientation of the socket.",
+            "6. Commissioning and testing: phase sequence, earthing and residual current tests; Wi-Fi/app pairing and RFID card registration; a test charge with the vehicle and verification of the power."
+          ]
+        },
+        {
           "caption": "Points to consider by installation location",
           "headers": [
             "Installation location",
@@ -698,6 +708,12 @@
         }
       ],
       "related": [
+        {
+          "label": "What is a wallbox? Home charging station guide"
+        },
+        {
+          "label": "11 kW or 22 kW? Power selection and amperage calculation"
+        },
         {
           "label": "Charging Station Installation for Apartments / Buildings"
         },
@@ -1559,6 +1575,16 @@
           "text": "Buying a device directly from its manufacturer lowers the cost by eliminating the import and reseller margins in between; you also avoid waiting for service and spare parts. Bemis E-V Charge is a domestic brand that produces everything from hardware to software at its facility in Bursa — which provides an advantage on both price and support."
         },
         {
+          "text": "What determines the price of a home charging station in 2026?"
+        },
+        {
+          "text": "The price cannot be reduced to a single figure; within the same series the tethered and the socket version, fixed and adjustable power, the GSM module and the MID meter are separate line items. Bemis products are sold through the authorised dealer network: during the site survey the dealer clarifies the installation items (cable run length, cable cross-section, breaker and distribution board work) and then presents the device and the installation in a single quotation. When comparing offers, ask for the device price and the installation-inclusive total separately; the biggest difference usually appears on the installation side."
+        },
+        {
+          "text": "Get a quotation including the site survey and the installation from your nearest authorised dealer.",
+          "label": "Find a dealer"
+        },
+        {
           "text": "So how much is the electricity expense?"
         },
         {
@@ -1592,6 +1618,12 @@
         }
       ],
       "related": [
+        {
+          "label": "What is a wallbox? Home charging station guide"
+        },
+        {
+          "label": "11 kW or 22 kW? Power selection and amperage calculation"
+        },
         {
           "label": "City-by-City EV Charging Guide"
         },
@@ -1728,6 +1760,9 @@
       "category": "Guide",
       "body": [
         {
+          "text": "AC charging means the alternating current from the grid is converted into direct current by the charger built into the vehicle (the onboard charger) and then fed to the battery; the wallboxes and portable chargers used at home and at work charge with AC, at 3.7–22 kW. DC charging means the conversion happens inside the station and direct current is fed straight to the battery; roadside fast-charging stations operate at 40–200 kW and above. The difference is where the conversion takes place, and the speed and cost that follow from it."
+        },
+        {
           "text": "The most commonly confused topic in EV charging is the distinction between AC and DC. Both serve the same purpose — filling the battery — but they work in completely different ways, at different speeds, and in different places. This guide compares the two in plain language so you can choose the right equipment."
         },
         {
@@ -1844,6 +1879,12 @@
       ],
       "related": [
         {
+          "label": "What is a wallbox? Home charging station guide"
+        },
+        {
+          "label": "11 kW or 22 kW? Power selection and amperage calculation"
+        },
+        {
           "label": "AC Wallbox"
         },
         {
@@ -1868,6 +1909,9 @@
         },
         {
           "text": "Power depends on both your home's electrical infrastructure and your vehicle's on-board charging capacity. A single-phase installation generally allows 7.4 kW; a three-phase installation allows 11 or 22 kW. But if your vehicle's on-board charger accepts 11 kW, buying a 22 kW unit brings no extra speed. For most home users, 7.4–11 kW provides a comfortable overnight charge."
+        },
+        {
+          "text": "The rule: first look at the vehicle's AC acceptance rate (most models 11 kW), then at the electrical installation (single-phase tops out at 7.4 kW; 11 and 22 kW require three-phase). For overnight charging 11 kW is enough; if your installation is unclear, start with a device adjustable between 4 and 22 kW and raise the power later. For amperage, breaker ratings and charging times for a 60 kWh battery, see the guide \"11 kW or 22 kW?\"."
         },
         {
           "text": "2) Socketed or tethered?"
@@ -1986,6 +2030,12 @@
         }
       ],
       "related": [
+        {
+          "label": "What is a wallbox? Home charging station guide"
+        },
+        {
+          "label": "11 kW or 22 kW? Power selection and amperage calculation"
+        },
         {
           "label": "AC Wallbox"
         },
@@ -2287,6 +2337,10 @@
       ],
       "faq": [
         {
+          "q": "What does the regulation say about charging stations in apartment buildings and enclosed car parks?",
+          "a": "For newly constructed buildings the Parking Regulation sets a minimum ratio: in buildings with 20 or more mandatory parking spaces, at least five percent of the parking area — and at least one space — is arranged for electric vehicles, including a charging unit. For existing buildings there is no obligation to install; installation has instead been made easier — the approval of an absolute majority of the flat owners is sufficient for the common area, and no building permit is required. We cover the whole subject in a separate guide."
+        },
+        {
           "q": "Do you need permission to install a charging station in an apartment building?",
           "a": "If you're going to install a charging station in a shared area such as the car park, you first need to obtain a decision from the management or owners' association. Although regulations in Türkiye are evolving to make EV charging infrastructure requests easier, the best approach is to consult the housing management and obtain the required approval in writing before installation. This step both prevents possible disputes with neighbours and ensures it is clear from the outset where the device will be placed and which line will feed it. While installation is easy in a private garage, these extra steps are required in an apartment or complex car park. Once approval is obtained, you move on in sequence to technical matters such as the electrical infrastructure, load management and billing."
         },
@@ -2308,6 +2362,9 @@
         }
       ],
       "related": [
+        {
+          "label": "Charging Station Regulation: What Is Mandatory?"
+        },
         {
           "label": "AC Wallbox"
         },
@@ -3730,6 +3787,16 @@
           "text": "Wenn Genehmigungen und Planung stehen, ist die physische Installation meist rasch erledigt. Eine typische Installation läuft in dieser Reihenfolge ab: Die Elektrofachkraft nimmt eine Begehung vor und legt den Montagepunkt fest; vom Verteiler wird ein separater Versorgungsstromkreis zum Gerät gezogen; Fehlerstrom- und Überstromschutz werden in den Verteiler eingebaut; das Gerät wird an der Wand oder auf einem Standfuß befestigt und verkabelt; die Erdung wird angeschlossen. Zum Schluss wird das Gerät in Betrieb genommen und geprüft und bei Bedarf in der OCPP-/Managementsoftware angelegt."
         },
         {
+          "items": [
+            "1. Vor-Ort-Prüfung: Der autorisierte Händler oder Elektriker ermittelt Verteilerkasten, Hauptsicherung, Phasenanschluss (einphasig/dreiphasig), Position des Geräts und Leitungslänge.",
+            "2. Genehmigung und Zählerplanung: Im Einfamilienhaus in der Regel nicht erforderlich; in Wohnanlagen sind die Zustimmung der Verwaltung sowie eine Entscheidung über eigenen oder gemeinsamen Zähler nötig.",
+            "3. Leitungsverlegung: eigene Leitung vom Hauptverteiler zum Gerät; 1×32 A einphasig für 7,4 kW, 3×16 A für 11 kW und 3×32 A dreiphasig für 22 kW; Kabelquerschnitt je nach Entfernung.",
+            "4. Fehlerstromschutz: Der Elektroinstallateur wählt einen Schutz, der den DC-Fehlerstromanteil erkennt (Typ-A-RCD zusammen mit 6-mA-DC-Erkennung im Gerät oder Typ-B-RCD).",
+            "5. Montage: Das Gerät wird an der Wand befestigt; ein IP65-Gehäuse benötigt im Außenbereich keinen zusätzlichen Schrank; beim Modell mit festem Kabel wird die Kabelhalterung, beim Modell mit Steckdose die Ausrichtung der Steckdose eingeplant.",
+            "6. Inbetriebnahme und Prüfung: Phasenfolge, Erdung und Fehlerstromprüfung; WLAN-/App-Kopplung und Anlernen der RFID-Karte; Testladung mit dem Fahrzeug und Überprüfung der Leistung."
+          ]
+        },
+        {
           "caption": "Zu beachten je nach Installationsort",
           "headers": [
             "Installationsort",
@@ -3794,6 +3861,12 @@
         }
       ],
       "related": [
+        {
+          "label": "Was ist eine Wallbox? Ratgeber zur Heimladestation"
+        },
+        {
+          "label": "11 kW oder 22 kW? Leistungswahl und Ampere-Berechnung"
+        },
         {
           "label": "Installation einer Ladestation in Wohnanlagen / Mehrfamilienhäusern"
         },
@@ -4655,6 +4728,16 @@
           "text": "Das Gerät direkt vom Hersteller zu beziehen, senkt die Kosten, indem die dazwischenliegende Import- und Zwischenhändlermarge entfällt; außerdem müssen Sie bei Service und Ersatzteilen nicht warten. Bemis E-V Charge ist eine einheimische Marke, die in ihrem Werk in Bursa von der Hardware bis zur Software produziert – das verschafft sowohl beim Preis als auch beim Support einen Vorteil."
         },
         {
+          "text": "Wovon hängt der Preis einer Heimladestation im Jahr 2026 ab?"
+        },
+        {
+          "text": "Der Preis lässt sich nicht auf eine einzige Zahl reduzieren; innerhalb derselben Baureihe sind die Ausführung mit festem Kabel und die mit Steckdose, feste und einstellbare Leistung, das GSM-Modul und der MID-Zähler jeweils eigene Positionen. Bemis-Produkte werden über das autorisierte Händlernetz verkauft: Der Händler klärt bei der Vor-Ort-Prüfung die Installationspositionen (Leitungslänge, Kabelquerschnitt, Sicherung und Arbeiten am Verteiler) und legt Gerät und Montage in einem einzigen Angebot vor. Fragen Sie beim Vergleich den Gerätepreis und die Gesamtsumme inklusive Montage getrennt ab; der größte Unterschied entsteht meist auf der Montageseite."
+        },
+        {
+          "text": "Holen Sie beim nächstgelegenen autorisierten Händler ein Angebot inklusive Vor-Ort-Prüfung und Montage ein.",
+          "label": "Händler finden"
+        },
+        {
           "text": "Und wie hoch sind die Stromkosten?"
         },
         {
@@ -4688,6 +4771,12 @@
         }
       ],
       "related": [
+        {
+          "label": "Was ist eine Wallbox? Ratgeber zur Heimladestation"
+        },
+        {
+          "label": "11 kW oder 22 kW? Leistungswahl und Ampere-Berechnung"
+        },
         {
           "label": "EV-Laden Stadt für Stadt – Ratgeber"
         },
@@ -4824,6 +4913,9 @@
       "category": "Ratgeber",
       "body": [
         {
+          "text": "AC-Laden bedeutet, dass der Wechselstrom aus dem Netz vom Ladegerät im Fahrzeug (dem Onboard-Charger) in Gleichstrom umgewandelt und dann an die Batterie abgegeben wird; die zu Hause und am Arbeitsplatz eingesetzten Wallboxen und tragbaren Ladegeräte laden mit AC, mit 3,7–22 kW. Beim DC-Laden erfolgt die Umwandlung in der Station selbst und der Gleichstrom fließt direkt in die Batterie; Schnellladestationen an der Straße arbeiten mit 40–200 kW und mehr. Der Unterschied liegt darin, wo die Umwandlung stattfindet – und damit in Geschwindigkeit und Kosten."
+        },
+        {
           "text": "Der am häufigsten verwechselte Punkt beim Laden von Elektrofahrzeugen ist die Unterscheidung zwischen AC und DC. Beide dienen demselben Zweck – die Batterie zu laden –, doch ihre Funktionsweise, Geschwindigkeit und Einsatzorte unterscheiden sich grundlegend. Dieser Ratgeber vergleicht beide in klarer Sprache, damit Sie das richtige Gerät auswählen können."
         },
         {
@@ -4940,6 +5032,12 @@
       ],
       "related": [
         {
+          "label": "Was ist eine Wallbox? Ratgeber zur Heimladestation"
+        },
+        {
+          "label": "11 kW oder 22 kW? Leistungswahl und Ampere-Berechnung"
+        },
+        {
           "label": "AC-Wallbox"
         },
         {
@@ -4964,6 +5062,9 @@
         },
         {
           "text": "Die Leistung hängt sowohl von der Elektroinstallation Ihres Hauses als auch von der internen Ladekapazität Ihres Fahrzeugs ab. Bei einer einphasigen Installation sind in der Regel 7,4 kW möglich; bei einer dreiphasigen 11 oder 22 kW. Nimmt das interne Ladegerät Ihres Fahrzeugs jedoch 11 kW auf, bringt ein 22-kW-Gerät keine zusätzliche Geschwindigkeit. Für die meisten Heimanwender sorgen 7,4–11 kW über Nacht für ein bequemes Vollladen."
+        },
+        {
+          "text": "Die Regel: zuerst die AC-Ladeleistung des Fahrzeugs (bei den meisten Modellen 11 kW), dann die Elektroinstallation (einphasig maximal 7,4 kW; 11 und 22 kW erfordern Dreiphasenstrom). Für das Laden über Nacht genügen 11 kW; wer seine Installation nicht genau kennt, beginnt mit einem zwischen 4 und 22 kW einstellbaren Gerät und erhöht die Leistung später. Ampere, Sicherung und Ladezeiten für eine 60-kWh-Batterie finden Sie im Ratgeber „11 kW oder 22 kW?\"."
         },
         {
           "text": "2) Buchse (Steckdose) oder Kabel?"
@@ -5082,6 +5183,12 @@
         }
       ],
       "related": [
+        {
+          "label": "Was ist eine Wallbox? Ratgeber zur Heimladestation"
+        },
+        {
+          "label": "11 kW oder 22 kW? Leistungswahl und Ampere-Berechnung"
+        },
         {
           "label": "AC-Wallbox"
         },
@@ -5383,6 +5490,10 @@
       ],
       "faq": [
         {
+          "q": "Was sagt die Verordnung zu Ladestationen in Wohnanlagen und Tiefgaragen?",
+          "a": "Für Neubauten legt die Parkplatzverordnung einen Mindestanteil fest: In Gebäuden mit 20 oder mehr vorgeschriebenen Stellplätzen werden mindestens fünf Prozent der Stellplatzfläche – und mindestens ein Stellplatz – einschließlich Ladeeinheit für Elektrofahrzeuge eingerichtet. Für Bestandsgebäude besteht keine Einbaupflicht; die Installation wurde stattdessen erleichtert – für die Gemeinschaftsfläche genügt die Zustimmung der absoluten Mehrheit der Wohnungseigentümer, und eine Baugenehmigung ist nicht erforderlich. Das gesamte Thema behandeln wir in einem eigenen Ratgeber."
+        },
+        {
           "q": "Ist für die Installation einer Ladestation im Mehrfamilienhaus eine Genehmigung erforderlich?",
           "a": "Wenn Sie eine Ladestation in einem Gemeinschaftsbereich wie dem Parkplatz installieren möchten, müssen Sie zunächst einen Beschluss der Verwaltung oder der Wohnungseigentümer einholen. Auch wenn sich die Gesetzgebung in der Türkei in eine Richtung entwickelt, die Anträge auf Ladeinfrastruktur für Elektrofahrzeuge erleichtert, ist es der beste Ansatz, vor der Installation mit der Verwaltung der Wohnanlage zu sprechen und die erforderliche Zustimmung schriftlich einzuholen. Dieser Schritt beugt möglichen Streitigkeiten mit den Nachbarn vor und sorgt dafür, dass von Anfang an geklärt ist, an welcher Stelle das Gerät installiert und über welche Leitung es versorgt wird. Während die Installation in einer eigenen Garage unkompliziert ist, sind auf dem Parkplatz eines Mehrfamilienhauses oder einer Wohnanlage diese zusätzlichen Schritte nötig. Nach Erteilung der Zustimmung geht man der Reihe nach zu technischen Themen wie Elektroinfrastruktur, Lastmanagement und Abrechnung über."
         },
@@ -5404,6 +5515,9 @@
         }
       ],
       "related": [
+        {
+          "label": "Ladestationsverordnung: Was ist Pflicht?"
+        },
         {
           "label": "AC-Wallbox"
         },
@@ -6826,6 +6940,16 @@
           "text": "Cuando los permisos y la planificación están listos, la instalación física suele ser rápida. Una instalación típica avanza en este orden: el electricista cualificado realiza una inspección y determina el punto de montaje; se tiende una línea de alimentación independiente desde el cuadro hasta el equipo; se añaden al cuadro las protecciones diferencial y contra sobreintensidad; se fija el equipo a la pared o a un poste y se realiza su cableado; se conecta la toma de tierra. Por último, el equipo se pone en marcha y se prueba y, si es necesario, se da de alta en el software de gestión/OCPP."
         },
         {
+          "items": [
+            "1. Visita técnica: el distribuidor autorizado o el electricista determina el cuadro eléctrico, el interruptor general, la configuración de fases (monofásica/trifásica), la ubicación del equipo y la longitud del recorrido.",
+            "2. Permisos y plan de contador: en una vivienda unifamiliar no suele ser necesario; en una comunidad de vecinos hacen falta la aprobación de la administración y la decisión sobre contador propio o compartido.",
+            "3. Tendido de la línea: una línea independiente desde el cuadro general hasta el equipo; magnetotérmico de 1×32 A monofásico para 7,4 kW, 3×16 A para 11 kW y 3×32 A trifásico para 22 kW; sección del cable según la distancia.",
+            "4. Protección diferencial: el instalador elige una protección capaz de detectar la componente de fuga en continua (diferencial de tipo A junto con detección de 6 mA DC dentro del equipo, o diferencial de tipo B).",
+            "5. Montaje: el equipo se fija a la pared; una carcasa IP65 no necesita armario adicional en el exterior; en el modelo con cable fijo se planifica el soporte del cable y en el modelo con toma, la orientación de la toma.",
+            "6. Puesta en marcha y pruebas: secuencia de fases, puesta a tierra y prueba de corriente de fuga; emparejamiento Wi-Fi/aplicación y registro de la tarjeta RFID; carga de prueba con el vehículo y verificación de la potencia."
+          ]
+        },
+        {
           "caption": "Aspectos a tener en cuenta según el lugar de instalación",
           "headers": [
             "Lugar de instalación",
@@ -6890,6 +7014,12 @@
         }
       ],
       "related": [
+        {
+          "label": "¿Qué es un wallbox? Guía de la estación de carga doméstica"
+        },
+        {
+          "label": "¿11 kW o 22 kW? Elección de potencia y cálculo de amperaje"
+        },
         {
           "label": "Instalación de una estación de carga en comunidades y edificios"
         },
@@ -7751,6 +7881,16 @@
           "text": "Adquirir el equipo directamente de su fabricante reduce el coste al eliminar el margen intermedio de importación e intermediarios; además, no espera por el servicio ni por los repuestos. Bemis E-V Charge es una marca nacional que fabrica en sus instalaciones de Bursa, desde el hardware hasta el software, lo que aporta una ventaja tanto en el precio como en el soporte."
         },
         {
+          "text": "¿De qué depende el precio de una estación de carga doméstica en 2026?"
+        },
+        {
+          "text": "El precio no puede reducirse a una sola cifra; dentro de la misma serie, la versión con cable fijo y la de toma, la potencia fija y la ajustable, el módulo GSM y el contador MID son partidas independientes. Los productos de Bemis se venden a través de la red de distribuidores autorizados: en la visita técnica el distribuidor concreta las partidas de instalación (longitud del recorrido, sección del cable, magnetotérmico y trabajos en el cuadro) y presenta el equipo y la instalación en un único presupuesto. Al comparar, pida por separado el precio del equipo y el total con la instalación incluida; la mayor diferencia suele estar en la parte de instalación."
+        },
+        {
+          "text": "Solicite a su distribuidor autorizado más cercano un presupuesto que incluya la visita técnica y la instalación.",
+          "label": "Buscar distribuidor"
+        },
+        {
           "text": "¿Y cuánto cuesta el gasto eléctrico?"
         },
         {
@@ -7784,6 +7924,12 @@
         }
       ],
       "related": [
+        {
+          "label": "¿Qué es un wallbox? Guía de la estación de carga doméstica"
+        },
+        {
+          "label": "¿11 kW o 22 kW? Elección de potencia y cálculo de amperaje"
+        },
         {
           "label": "Guía de carga de vehículos eléctricos ciudad por ciudad"
         },
@@ -7920,6 +8066,9 @@
       "category": "Guía",
       "body": [
         {
+          "text": "La carga en AC consiste en que la corriente alterna de la red la convierte en corriente continua el cargador integrado en el vehículo (el cargador de a bordo) y así llega a la batería; los wallbox y los cargadores portátiles que se usan en casa y en el trabajo cargan en AC, con una potencia de 3,7–22 kW. En la carga en DC la conversión se realiza dentro de la estación y la corriente continua llega directamente a la batería; las estaciones de carga rápida en carretera funcionan con 40–200 kW o más. La diferencia está en dónde se hace la conversión y, en consecuencia, en la velocidad y el coste."
+        },
+        {
           "text": "En la carga de vehículos eléctricos, la distinción entre AC y DC es lo que más suele confundir. Ambas sirven al mismo propósito —llenar la batería—, pero su forma de funcionar, su velocidad y sus lugares de uso son completamente diferentes. Esta guía compara ambas en un lenguaje sencillo para que puedas elegir el equipo adecuado."
         },
         {
@@ -8036,6 +8185,12 @@
       ],
       "related": [
         {
+          "label": "¿Qué es un wallbox? Guía de la estación de carga doméstica"
+        },
+        {
+          "label": "¿11 kW o 22 kW? Elección de potencia y cálculo de amperaje"
+        },
+        {
           "label": "Wallbox AC"
         },
         {
@@ -8060,6 +8215,9 @@
         },
         {
           "text": "La potencia depende tanto de la instalación eléctrica de tu casa como de la capacidad de carga interna de tu vehículo. En una instalación monofásica suele ser posible 7,4 kW; en una trifásica, 11 o 22 kW. Sin embargo, si la unidad de carga interna de tu vehículo acepta 11 kW, comprar un cargador de 22 kW no aportará velocidad extra. Para la mayoría de los usuarios domésticos, 7,4–11 kW proporcionan una recarga nocturna holgada."
+        },
+        {
+          "text": "La regla: primero, la potencia de carga AC que acepta el vehículo (en la mayoría de los modelos, 11 kW); después, la instalación eléctrica (monofásica, como máximo 7,4 kW; 11 y 22 kW requieren trifásica). Para cargar por la noche bastan 11 kW; quien no tenga clara su instalación puede empezar con un equipo ajustable entre 4 y 22 kW y subir la potencia más adelante. Para el amperaje, el magnetotérmico y los tiempos de carga de una batería de 60 kWh, consulte la guía «¿11 kW o 22 kW?»."
         },
         {
           "text": "2) ¿De toma (con enchufe) o con cable?"
@@ -8178,6 +8336,12 @@
         }
       ],
       "related": [
+        {
+          "label": "¿Qué es un wallbox? Guía de la estación de carga doméstica"
+        },
+        {
+          "label": "¿11 kW o 22 kW? Elección de potencia y cálculo de amperaje"
+        },
         {
           "label": "Wallbox AC"
         },
@@ -8479,6 +8643,10 @@
       ],
       "faq": [
         {
+          "q": "¿Qué dice la normativa sobre las estaciones de carga en comunidades de vecinos y aparcamientos cerrados?",
+          "a": "Para los edificios de nueva construcción, el Reglamento de Aparcamientos fija una proporción mínima: en los edificios con 20 o más plazas de aparcamiento obligatorias, al menos el cinco por ciento de la superficie de aparcamiento —y como mínimo una plaza— se acondiciona para vehículos eléctricos, unidad de carga incluida. En los edificios existentes no hay obligación de instalar; en cambio, la instalación se ha facilitado: para la zona común basta con la aprobación de la mayoría absoluta de los propietarios y no se exige licencia de obra. Tratamos el tema completo en una guía aparte."
+        },
+        {
           "q": "¿Se necesita permiso para instalar una estación de carga en un edificio?",
           "a": "Si vas a instalar una estación de carga en una zona común, como el aparcamiento, primero debes obtener el acuerdo de la administración o de la junta de propietarios. Aunque en Turquía la normativa evoluciona en la dirección de facilitar las solicitudes de infraestructura de carga para vehículos eléctricos, lo más correcto es reunirse con la administración de la comunidad antes de la instalación y obtener por escrito la aprobación necesaria. Este paso evita posibles desacuerdos con los vecinos y permite dejar claro desde el principio en qué punto se colocará el equipo y desde qué línea se alimentará. Mientras que en un garaje unifamiliar la instalación es sencilla, en el aparcamiento de un edificio o comunidad hacen falta estos pasos adicionales. Una vez obtenida la aprobación, se pasa por orden a los asuntos técnicos como la infraestructura eléctrica, la gestión de carga y la facturación."
         },
@@ -8500,6 +8668,9 @@
         }
       ],
       "related": [
+        {
+          "label": "Reglamento de estaciones de carga: ¿qué es obligatorio?"
+        },
         {
           "label": "AC Wallbox"
         },
@@ -13075,6 +13246,16 @@
           "text": "Когда разрешения и план готовы, физический монтаж обычно занимает немного времени. Типовая установка проходит в такой последовательности: квалифицированный электрик выполняет осмотр и определяет точку монтажа; от щита к устройству прокладывается отдельная питающая линия; в щит добавляется защита от тока утечки и от сверхтока; устройство крепится на стену или стойку и подключается кабелем; подключается заземление. В завершение устройство запускается и тестируется, а при необходимости регистрируется в программном обеспечении OCPP/управления."
         },
         {
+          "items": [
+            "1. Обследование: авторизованный дилер или электрик определяет щит, главный автомат, схему фаз (одна/три), место установки устройства и длину трассы.",
+            "2. Разрешение и план учёта: в частном доме обычно не требуется; в многоквартирном доме и жилом комплексе нужны согласие управляющей организации и решение о собственном или общем счётчике.",
+            "3. Прокладка линии: отдельная линия от главного щита к устройству; автомат 1×32 A однофазный для 7,4 кВт, 3×16 A для 11 кВт и 3×32 A трёхфазный для 22 кВт; сечение кабеля — по длине трассы.",
+            "4. Защита от тока утечки: электромонтажник выбирает защиту, распознающую постоянную составляющую утечки (УЗО типа A вместе с детекцией 6 mA DC внутри устройства либо УЗО типа B).",
+            "5. Монтаж: устройство крепится к стене; корпус IP65 не требует дополнительного шкафа на улице; в модели с кабелем предусматривается держатель кабеля, в модели с розеткой — её ориентация.",
+            "6. Ввод в эксплуатацию и испытания: чередование фаз, заземление и проверка тока утечки; сопряжение Wi-Fi/приложения и регистрация RFID-карты; тестовая зарядка автомобилем и подтверждение мощности."
+          ]
+        },
+        {
           "caption": "На что обратить внимание в зависимости от места установки",
           "headers": [
             "Место установки",
@@ -13139,6 +13320,12 @@
         }
       ],
       "related": [
+        {
+          "label": "Что такое wallbox? Руководство по домашней зарядной станции"
+        },
+        {
+          "label": "11 кВт или 22 кВт? Выбор мощности и расчёт силы тока"
+        },
         {
           "label": "Установка зарядной станции в многоквартирном доме / жилом комплексе"
         },
@@ -14000,6 +14187,16 @@
           "text": "Приобретение устройства напрямую у производителя снижает стоимость, устраняя промежуточную импортную и посредническую наценку; кроме того, вы не ждёте сервиса и запчастей. Bemis E-V Charge — отечественный бренд, производящий на своём заводе в Бурсе от аппаратной части до программного обеспечения, что даёт преимущество как в цене, так и в поддержке."
         },
         {
+          "text": "От чего зависит цена домашней зарядной станции в 2026 году?"
+        },
+        {
+          "text": "Цену нельзя свести к одной цифре: в одной и той же серии версия с кабелем и версия с розеткой, фиксированная и регулируемая мощность, модуль GSM и счётчик MID — это отдельные позиции. Продукция Bemis продаётся через сеть авторизованных дилеров: при обследовании дилер уточняет позиции монтажа (длина трассы, сечение кабеля, автомат защиты и работы в щите) и представляет устройство и монтаж в одном предложении. При сравнении запрашивайте отдельно цену устройства и итог с монтажом; наибольшая разница обычно возникает именно на стороне монтажа."
+        },
+        {
+          "text": "Получите у ближайшего авторизованного дилера предложение с учётом обследования и монтажа.",
+          "label": "Найти дилера"
+        },
+        {
           "text": "А сколько же стоит электроэнергия?"
         },
         {
@@ -14033,6 +14230,12 @@
         }
       ],
       "related": [
+        {
+          "label": "Что такое wallbox? Руководство по домашней зарядной станции"
+        },
+        {
+          "label": "11 кВт или 22 кВт? Выбор мощности и расчёт силы тока"
+        },
         {
           "label": "Руководство по зарядке электромобилей по городам"
         },
@@ -14169,6 +14372,9 @@
       "category": "Руководство",
       "body": [
         {
+          "text": "Зарядка переменным током (AC) — это когда переменный ток из сети преобразуется в постоянный бортовым зарядным устройством автомобиля (onboard charger) и подаётся в аккумулятор; настенные станции (wallbox) и портативные зарядные устройства, применяемые дома и на работе, заряжают именно так, мощностью 3,7–22 кВт. Зарядка постоянным током (DC) — это когда преобразование выполняется внутри станции и постоянный ток подаётся прямо в аккумулятор; придорожные станции быстрой зарядки работают на мощности 40–200 кВт и выше. Разница в том, где происходит преобразование, а отсюда — в скорости и стоимости."
+        },
+        {
           "text": "Самая частая путаница при зарядке электромобиля — это разница между AC и DC. Обе служат одной цели — зарядить аккумулятор, — но принцип работы, скорость и место применения у них совершенно разные. Это руководство просто и понятно сравнивает их, чтобы вы смогли выбрать подходящее устройство."
         },
         {
@@ -14285,6 +14491,12 @@
       ],
       "related": [
         {
+          "label": "Что такое wallbox? Руководство по домашней зарядной станции"
+        },
+        {
+          "label": "11 кВт или 22 кВт? Выбор мощности и расчёт силы тока"
+        },
+        {
           "label": "Настенные станции AC"
         },
         {
@@ -14309,6 +14521,9 @@
         },
         {
           "text": "Мощность зависит и от электрической инфраструктуры вашего дома, и от мощности бортового зарядного устройства автомобиля. При однофазной проводке обычно доступно 7,4 кВт; при трёхфазной возможны 11 или 22 кВт. Однако если бортовое зарядное устройство вашего автомобиля принимает 11 кВт, покупка устройства на 22 кВт не даст прироста в скорости. Для большинства домашних пользователей 7,4–11 кВт обеспечивают комфортную зарядку в течение ночи."
+        },
+        {
+          "text": "Правило: сначала смотрите на мощность зарядки AC, которую принимает автомобиль (у большинства моделей — 11 кВт), затем на электропроводку (однофазная — максимум 7,4 кВт; 11 и 22 кВт требуют трёхфазной). Для ночной зарядки достаточно 11 кВт; если состояние проводки неясно, начните с устройства, регулируемого в диапазоне 4–22 кВт, и повысьте мощность позже. Сила тока, автомат защиты и время зарядки аккумулятора на 60 кВт·ч — в руководстве «11 кВт или 22 кВт?»."
         },
         {
           "text": "2) С розеткой (сокетом) или с кабелем?"
@@ -14427,6 +14642,12 @@
         }
       ],
       "related": [
+        {
+          "label": "Что такое wallbox? Руководство по домашней зарядной станции"
+        },
+        {
+          "label": "11 кВт или 22 кВт? Выбор мощности и расчёт силы тока"
+        },
         {
           "label": "Настенные станции AC"
         },
@@ -14728,6 +14949,10 @@
       ],
       "faq": [
         {
+          "q": "Что говорит регламент о зарядных станциях в многоквартирных домах и закрытых паркингах?",
+          "a": "Для вновь возводимых зданий Регламент о парковках устанавливает минимальную долю: в зданиях с 20 и более обязательными машино-местами не менее пяти процентов площади парковки — и не менее одного места — оборудуется для электромобилей, включая зарядное устройство. Для существующих зданий обязанности устанавливать нет; напротив, монтаж упрощён — для общего имущества достаточно согласия абсолютного большинства собственников квартир, а разрешение на строительство не требуется. Полностью тему мы разобрали в отдельном руководстве."
+        },
+        {
           "q": "Нужно ли разрешение для установки зарядной станции в жилом доме?",
           "a": "Если вы устанавливаете зарядную станцию в общей зоне, например на парковке, сначала необходимо получить решение управляющей организации или собственников жилья. Хотя в Турции законодательство развивается в сторону упрощения запросов на зарядную инфраструктуру для электромобилей, перед установкой правильнее всего согласовать вопрос с управлением комплекса и получить необходимое согласие в письменном виде. Этот шаг и предотвращает возможные разногласия с соседями, и с самого начала проясняет, в какой точке будет размещено устройство и от какой линии оно будет питаться. Если в отдельном гараже установка проста, то на парковке жилого дома или комплекса требуются эти дополнительные шаги. После получения согласия последовательно переходят к техническим вопросам: электрической инфраструктуре, управлению нагрузкой и тарификации."
         },
@@ -14749,6 +14974,9 @@
         }
       ],
       "related": [
+        {
+          "label": "Регламент по зарядным станциям: что обязательно?"
+        },
         {
           "label": "AC Wallbox"
         },
