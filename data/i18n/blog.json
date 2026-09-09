@@ -3497,7 +3497,212 @@
       "title": "DC Fast Charging Investment for Businesses: A Decision Guide"
     },
     "hangi-sarj-kablosu-aracima-uyumlu-type-2": {
-      "title": "Charging Cable Compatibility for Every Electric Car: The Type 2 Guide"
+      "title": "Charging Cable Compatibility for Togg, Tesla and All Electric Cars: The Type 2 Guide",
+      "metaTitle": "Which Charging Cable Fits a Togg or a Tesla? (Type 2)",
+      "description": "Which charging cable fits a Togg, a Tesla and all European electric cars? Type 2 compatibility, Mode 3, single-/three-phase and amperage selection in one practical guide.",
+      "excerpt": "All new electric cars sold in Türkiye and Europe use a Type 2 inlet for AC charging — the right Type 2 cable is compatible with all of them, from Togg to Tesla. Settle the phase, amperage and length choice for your car with this guide.",
+      "category": "Guide",
+      "body": [
+        {
+          "text": "Short answer: all new electric cars sold in Türkiye and Europe — Togg, Tesla, Hyundai, Kia, Renault, BMW, Mercedes, Volvo, BYD and the rest — use the same standard inlet for AC charging: Type 2 (IEC 62196-2). That is why a Type 2 — Type 2 charging cable is compatible with all of these cars. The worry \"will this cable fit my car?\" largely disappears thanks to this single standard, whatever the brand."
+        },
+        {
+          "text": "Even so, the question is always asked by brand: \"which cable for a Togg?\", \"does Type 2 fit a Tesla?\", \"which cable should I buy for the car I have just bought?\" This guide is not a technical encyclopedia of connector types; it is a practical checklist that settles the owner's compatibility worry. Answers specific to Togg and Tesla, a brand-by-brand summary table, the Mode 2 / Mode 3 distinction, amperage and phase selection and the marks to look for before buying — all on one page."
+        },
+        {
+          "text": "Which charging cable fits a Togg?"
+        },
+        {
+          "text": "The AC charging inlet of the Togg T10X is Type 2. The cable you will use when charging from a wallbox at home or from a public AC station is a Type 2 — Type 2 Mode 3 charging set. One important practical detail: at most public AC stations the cable is not included with the station and the driver plugs in their own. That is why keeping a Type 2 cable in the boot of your Togg is not just a convenience but effectively a necessity."
+        },
+        {
+          "text": "The capacity is chosen according to the installation. If you have a three-phase line and a three-phase wallbox at home, a 16 A three-phase cable does justice to 11 kW installations and a 32 A three-phase cable to installations up to 22 kW. On a single-phase line, a 32 A single-phase set is enough for up to 7.4 kW. The maximum power your car accepts on AC charging is stated in the owner's handbook; the cable should be chosen with the capacity to carry that value. If you are undecided, a 32 A three-phase set is the most flexible choice: it works without any problem on a lower-power installation today, and you will not have to replace it when you increase the power tomorrow."
+        },
+        {
+          "text": "Which charging cable fits a Tesla?"
+        },
+        {
+          "text": "The answer to \"is a Tesla compatible with a Type 2 cable?\" is clear: yes. Teslas built for the European market and sold in Türkiye — including the Model 3 and the Model Y — use the standard Type 2 inlet for AC charging. You do not need to look for a separate \"Tesla cable\"; a CE marked, IEC 62196-2 compliant Type 2 — Type 2 cable works without any problem with a Tesla on a home wallbox and at public AC stations."
+        },
+        {
+          "text": "Two notes. First: the different connection standard used in the US market (NACS) does not apply to the Teslas sold in Türkiye; the cars here come with European equipment. Second: in DC fast charging — including Superchargers — the cable is always fixed to the station and you do not use your own. Your portable Type 2 cable is only for AC charging. You can find our detailed guide on charging a Tesla in Türkiye among the related articles."
+        },
+        {
+          "text": "AC charging inlet brand by brand: all Type 2"
+        },
+        {
+          "text": "The table below summarises the AC charging inlet of the most frequently asked-about brands. The rule is deliberately simple: on new electric cars offered for sale in the Turkish and European markets, the AC inlet standard is Type 2. The same rule applies to brands you do not see in the table."
+        },
+        {
+          "caption": "The Turkish/European market — AC charging inlet by brand",
+          "headers": [
+            "Brand (example models)",
+            "AC charging inlet",
+            "Type 2 cable compatibility"
+          ],
+          "rows": [
+            [
+              "Togg (T10X)",
+              "Type 2",
+              "Compatible"
+            ],
+            [
+              "Tesla (Model 3, Model Y)",
+              "Type 2",
+              "Compatible"
+            ],
+            [
+              "Hyundai / Kia (Ioniq 5, EV6...)",
+              "Type 2",
+              "Compatible"
+            ],
+            [
+              "Renault / Fiat / Peugeot / Opel",
+              "Type 2",
+              "Compatible"
+            ],
+            [
+              "BMW / Mercedes / Audi / Volkswagen",
+              "Type 2",
+              "Compatible"
+            ],
+            [
+              "Volvo / MG / BYD",
+              "Type 2",
+              "Compatible"
+            ]
+          ]
+        },
+        {
+          "text": "The only exception belongs to the past: some models sold in the early 2010s used a different AC inlet called Type 1. You will not come across this on a new car; if you are buying an older second-hand vehicle, it is enough to open the charging flap and look — the 7-pin round Type 2 inlet is easy to recognise. We have a separate guide covering all connector types in detail (including CCS2 and CHAdeMO on the DC side); the focus of this article is AC cable compatibility."
+        },
+        {
+          "text": "Mode 2 or Mode 3? From a socket or from a wallbox?"
+        },
+        {
+          "text": "The second concept you meet when looking for a cable is the \"Mode\", and the answer depends on where you will charge:"
+        },
+        {
+          "items": [
+            "Mode 3 — the wallbox and AC station cable: this is the Type 2 — Type 2 cable used between the charging station and the car. The signalling is handled by the station and the connector is mechanically locked throughout charging. The charging cables that are the subject of this guide are in the Mode 3 class (IEC 61851-1).",
+            "Mode 2 — not a cable but a portable device: to charge from a household socket a portable charger with a protection and control box on it is used; that box provides safety between the plugged-in side and the car."
+          ]
+        },
+        {
+          "text": "In practice: if your wallbox is the socketed (untethered) type you will also need to buy a Mode 3 Type 2 cable; if it is the tethered type the cable is already on the device. We compared the question of a wallbox or a portable charger at home in detail in a separate guide."
+        },
+        {
+          "text": "How many amps, how many phases? The simple rule that sets charging speed"
+        },
+        {
+          "text": "Type 2 compatibility guarantees the physical connection; the charging speed, however, is set by the lowest of three values: your car's AC acceptance rate, the station's power and the cable's carrying capacity. Cables are referred to by their phase and current values; the equivalents can be summarised as follows:"
+        },
+        {
+          "items": [
+            "Single-phase 16 A → 3.7 kW · Single-phase 32 A → 7.4 kW",
+            "Three-phase 16 A → 11 kW · Three-phase 32 A → 22 kW",
+            "If the cable's capacity is above what you need it causes no problem; if it is below, the charging speed drops to the cable's limit."
+          ]
+        },
+        {
+          "text": "The question of how many metres is a similar balance: a short cable restricts your parking position, while an unnecessarily long one adds the burden of carrying and coiling it. You can find all the details of choosing length and amperage — with home wiring, use scenarios and examples — in our guide \"How Many Metres and How Many Amps Should a Charging Cable Be?\"."
+        },
+        {
+          "text": "What to look out for when buying a charging cable"
+        },
+        {
+          "text": "Once compatibility is confirmed, it is the turn of the quality and safety marks. We recommend checking the following points before buying:"
+        },
+        {
+          "items": [
+            "CE marking and conformity testing: the basic indication that the cable has been tested to the relevant standards.",
+            "An IEC 62196-2 compliant Type 2 connector: provides a standard connection with no trouble on the car and station side.",
+            "Mode 3 signalling and mechanical locking (IEC 61851-1): prevents the connector coming out of place during charging.",
+            "Cable cross-section: as the current rises, the conductor cross-section must grow too — for example, 2.5 mm² is used in 16 A sets and 6 mm² in 32 A sets.",
+            "Outer sheath durability: a halogen-free cable structure resistant to UV and weather extends the life in outdoor use.",
+            "IP protection rating: if the cable will often be used outdoors, confirm the protection rating of the connectors from the manufacturer's documents."
+          ]
+        },
+        {
+          "text": "The Bemis Type 2 charging cable families"
+        },
+        {
+          "text": "Bemis produces Type 2 — Type 2 Mode 3 charging sets in four main capacities. All the sets use an IEC 62196-2 connector, mechanically locking Mode 3 signalling (IEC 61851-1), a flexible copper conductor and a halogen-free outer sheath resistant to UV and weather; the sets pass CE conformity testing. In other words, they are compatible with all the cars in the table — from Togg to Tesla."
+        },
+        {
+          "caption": "Bemis Type 2 charging set families (Mode 3, IEC 62196-2)",
+          "headers": [
+            "Set",
+            "Phase / Current",
+            "Power",
+            "Cable cross-section",
+            "Length options"
+          ],
+          "rows": [
+            [
+              "Charging Set 16 A Single-phase",
+              "Single-phase / 16 A",
+              "3.7 kW",
+              "3×2.5 mm² + 1×0.75 mm²",
+              "3 / 5 / 7 / 8 / 10 m"
+            ],
+            [
+              "Charging Set 32 A Single-phase",
+              "Single-phase / 32 A",
+              "7.4 kW",
+              "3×6 mm² + 1×0.75 mm²",
+              "3 / 5 / 7 / 8 / 10 m"
+            ],
+            [
+              "Charging Set 16 A Three-phase",
+              "Three-phase / 16 A",
+              "11 kW",
+              "5×2.5 mm² + 1×0.75 mm²",
+              "3 / 5 / 7 / 8 / 10 / 15 m"
+            ],
+            [
+              "Charging Set 32 A Three-phase",
+              "Three-phase / 32 A",
+              "22 kW",
+              "5×6 mm² + 1×0.75 mm²",
+              "3 / 5 / 7 / 8 / 10 / 15 m"
+            ]
+          ]
+        },
+        {
+          "text": "To compare the length and capacity that suit your car, take a look at our product page.",
+          "label": "See the Type 2 Charging Cables"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Which charging cable fits a Togg T10X?",
+          "a": "The Togg T10X, like all new electric cars in Türkiye and Europe, uses a Type 2 inlet for AC charging; a Type 2 — Type 2 Mode 3 charging cable is compatible with the T10X. If you have a three-phase wallbox at home, a 16 A three-phase cable does justice to 11 kW installations and a 32 A three-phase cable to installations up to 22 kW; on a single-phase line a 32 A single-phase set is enough for up to 7.4 kW. The maximum power the car accepts on the AC side is stated in the owner's handbook; the cable should be chosen with the capacity to carry that value. Since you plug in your own cable at most public AC stations, keeping a Type 2 cable in the car is a practical necessity for Togg owners."
+        },
+        {
+          "q": "Is a Type 2 cable compatible with a Tesla Model 3 or Model Y?",
+          "a": "Yes. Teslas built for the European market and sold in Türkiye — including the Model 3 and the Model Y — use the standard Type 2 inlet for AC charging. A Type 2 — Type 2 Mode 3 charging cable therefore works without any problem with a Tesla on a home wallbox and at public AC stations; you do not need to look for a separate \"Tesla cable\". The different connection standard in the US market (NACS) does not apply to the cars sold in Türkiye. In DC fast charging — including Superchargers — the cable is fixed to the station; you do not use your own. A good-quality CE marked, IEC 62196-2 compliant Type 2 cable is all your Tesla needs."
+        },
+        {
+          "q": "How do I tell whether a charging cable fits my car?",
+          "a": "Three checks are enough. First the connector: the AC inlet of all new electric cars sold in Türkiye and Europe is Type 2; if the car side of your cable is Type 2, the physical fit is settled. Second the power: the maximum value your car accepts on AC charging is stated in the owner's handbook, and the cable's phase and current capacity should be able to carry that value. If it cannot, no danger arises; charging simply takes place at the cable's limit. Third the documents: CE marking together with IEC 62196-2 and IEC 61851-1 conformity is the sign of safe manufacturing. The only exception is some older models with a Type 1 inlet from the early 2010s; if you are buying an older second-hand car, open the charging flap and confirm the 7-pin round Type 2 inlet by eye."
+        },
+        {
+          "q": "My car accepts 11 kW; will there be a problem if I buy a cable rated at 22 kW?",
+          "a": "No, there will not be a problem — on the contrary, it gives you flexibility. The charging power is always set by the weakest link in the chain: if your car accepts 11 kW, charging takes place at 11 kW even with a 32 A three-phase cable that can carry 22 kW. The cable does not \"push extra power\" into the car; it only defines the upper limit it can carry. The advantage of a higher-capacity cable is being ready for the future: if your next car or your new wallbox supports 22 kW AC, you carry on using the same cable. The case to watch is the reverse: if the cable's capacity is below that of the car and the station, the charging speed drops to the cable's limit. The most sensible approach is to choose the cable not for today's installation but for your needs over the next few years."
+        }
+      ],
+      "related": [
+        {
+          "label": "How Many Metres and How Many Amps Should an EV Charging Cable Be?"
+        },
+        {
+          "label": "EV Charging Connector Types: The Difference Between Type 2, CCS2 and CHAdeMO"
+        },
+        {
+          "label": "Tesla Charging in Türkiye: How to Charge a Tesla with Type 2?"
+        }
+      ]
     },
     "40-kw-dc-sarj-istasyonu": {
       "title": "What Is a 40 kW DC Charging Station, Who Is It For and How Fast Is It?",
@@ -3703,7 +3908,172 @@
       ]
     },
     "evde-elektrikli-arac-sarj-maliyeti-km-basina": {
-      "title": "Home EV Charging Cost: How Much per Kilometre?"
+      "title": "The Cost of Charging an Electric Car at Home: How Much per Kilometre?",
+      "metaTitle": "EV Charging Cost: How Much for 100 km? Home Charging Calculation",
+      "description": "Cost per 100 km = consumption (kWh/100 km) × unit electricity price (TL/kWh). An average car uses 15-22 kWh; a worked example with the night tariff and a comparison with public charging.",
+      "excerpt": "How do you work out the cost of charging an EV at home per kilometre? A step-by-step example with kWh consumption, the unit electricity price, 10% charging losses and the night tariff.",
+      "category": "Guide",
+      "body": [
+        {
+          "text": "The first question everyone asks before buying an electric car is this: \"If I charge at home, what will it really cost me?\" The good news is that this calculation is far simpler than people think. In this guide we show you step by step how to work out the cost of charging an electric car at home per kilometre, and explain how to compare it with a petrol car. All the numerical examples are hypothetical; you will find your own exact figure by substituting the current unit price from your own bill."
+        },
+        {
+          "text": "The basic formula for charging cost"
+        },
+        {
+          "text": "The cost of charging at home comes down to a single multiplication: you multiply the energy you use (kWh) by the unit price of electricity (TL/kWh). For example, if 40 kWh went into the battery and the unit price is X TL/kWh, the cost of that charge is 40 × X TL. To find the cost per kilometre, all you need to know is how many kWh the car uses per 100 km."
+        },
+        {
+          "items": [
+            "The cost of one charge = Energy used (kWh) × Unit electricity price (TL/kWh)",
+            "Cost per kilometre = (The car's consumption in kWh/100 km ÷ 100) × Unit electricity price (TL/kWh)",
+            "Cost for 100 km = Consumption (kWh/100 km) × Unit electricity price (TL/kWh)"
+          ]
+        },
+        {
+          "text": "How many kWh does your car use per 100 km?"
+        },
+        {
+          "text": "The average energy consumption of electric cars is generally between 15 and 22 kWh per 100 km. Compact, efficient models sit near the lower end, while large SUVs and high-speed motorway driving run near the upper end. You can read the exact value from the average consumption display on your car's screen, shown as \"kWh/100 km\". In winter, consumption rises somewhat because of cabin heating and the battery's need to warm up; it is worth allowing for that margin in your calculation."
+        },
+        {
+          "text": "Do not forget the charging losses (~10%)"
+        },
+        {
+          "text": "The energy you draw from the socket is slightly more than the energy that goes into your battery. The difference is lost as heat in the cable, the converter and the battery management. In home AC charging this loss is around 10%. So, after calculating the energy the car uses, multiplying the result by roughly 1.1 (or adding 10%) gives a more accurate cost, reflecting the real consumption that shows up on the bill. It may look like a small difference, but for a driver covering thousands of kilometres a year it adds up noticeably."
+        },
+        {
+          "text": "The multi-rate tariff in Türkiye: why is night charging cheap?"
+        },
+        {
+          "text": "In Türkiye, residential customers can choose a multi-rate (three-rate) tariff instead of a single-rate one. In this tariff the day is divided into three periods: daytime, evening peak (the period of heaviest consumption, with the highest unit price) and night. The night period is markedly the cheapest. For an electric car owner this is a real opportunity: when you plug the car in on arriving home in the evening and let the charge fall into the night period, you buy the same energy at a much lower unit price."
+        },
+        {
+          "items": [
+            "Daytime period: a mid-level unit price, for use during the day.",
+            "Peak (evening) period: the highest unit price; avoid timing your charge for these hours where possible.",
+            "Night period: the lowest unit price; the ideal window for car charging.",
+            "The hours of the periods may vary by distribution company; confirm the current times from your bill or your distribution company."
+          ]
+        },
+        {
+          "text": "You do not have to keep track of the car by hand every evening. Bemis's smart models (for example the Charger Pro 2 with a GSM connection and devices with OCPP 1.6 support) help you schedule the charge and manage scenarios that run it in the night period, so you do not miss the cheapest hours."
+        },
+        {
+          "text": "A step-by-step worked example (hypothetical)"
+        },
+        {
+          "text": "In the example below we label the unit electricity price as A TL/kWh, entirely as a hypothetical value. When you put the current unit price from your own bill (preferably the night-period price) in place of A, you will see your real cost. Let us assume our car uses 18 kWh per 100 km."
+        },
+        {
+          "items": [
+            "Step 1 — The car's consumption: 18 kWh/100 km (hypothetical, example car).",
+            "Step 2 — Add the charging losses: 18 × 1.1 ≈ 19.8 kWh (the real energy drawn from the socket).",
+            "Step 3 — Multiply by the unit price: 19.8 kWh × A TL = the cost for 100 km.",
+            "Step 4 — Per kilometre: (19.8 × A) ÷ 100 = the cost per kilometre in TL/km."
+          ]
+        },
+        {
+          "text": "As you can see, the only unknown is A, that is, your unit price. The moment you substitute A, both the cost for 100 km and the cost per kilometre become clear. With the low A value of the night tariff, this figure comes down markedly compared with the daytime."
+        },
+        {
+          "caption": "A hypothetical example: cost per kilometre at different consumption values (A = unit electricity price, TL/kWh)",
+          "headers": [
+            "Car consumption (kWh/100 km)",
+            "Including charging losses (kWh/100 km)",
+            "Cost for 100 km",
+            "Cost per kilometre"
+          ],
+          "rows": [
+            [
+              "15",
+              "16.5",
+              "16.5 × A TL",
+              "0.165 × A TL/km"
+            ],
+            [
+              "18",
+              "19.8",
+              "19.8 × A TL",
+              "0.198 × A TL/km"
+            ],
+            [
+              "22",
+              "24.2",
+              "24.2 × A TL",
+              "0.242 × A TL/km"
+            ]
+          ]
+        },
+        {
+          "text": "How do you compare with a petrol car?"
+        },
+        {
+          "text": "To compare like with like, apply the same logic to the petrol car. The cost of a petrol car is also a single multiplication: you multiply the litres burned per 100 km by the price per litre. Say the petrol car burns 7 litres per 100 km and the price per litre is B TL (again hypothetical). Then the cost for 100 km is 7 × B TL, and the cost per kilometre is (7 × B) ÷ 100 = 0.07 × B TL/km."
+        },
+        {
+          "items": [
+            "Petrol cost for 100 km = Fuel consumption (L/100 km) × Price per litre (B TL/L)",
+            "Petrol cost per kilometre = (L/100 km ÷ 100) × B TL/L",
+            "Comparison: put the electric cost per kilometre (0.198 × A) and the petrol cost per kilometre (0.07 × B) side by side with your own current A and B values."
+          ]
+        },
+        {
+          "text": "When you substitute the unit electricity price from your own bill (A) and the current fuel price at the pump (B), you will see that the fuel cost per kilometre of an electric car charged at home on the night tariff generally comes out substantially lower than that of a petrol car. Since the numbers change over time, keeping the formula to hand lets you make the up-to-date comparison yourself in every period."
+        },
+        {
+          "text": "Practical ways to lower the cost of charging at home"
+        },
+        {
+          "items": [
+            "Switch to a multi-rate tariff and schedule charging for the night period.",
+            "Track your car's real kWh/100 km consumption and avoid exaggerated estimates.",
+            "Keep your budget realistic by allowing for the charging losses (~10%).",
+            "Catch the cheapest hours automatically with a home charger that can be scheduled.",
+            "Charge safely and efficiently by choosing a wallbox of a power suited to your home's distribution board."
+          ]
+        },
+        {
+          "text": "Looking for a schedulable charging solution of the right power for your home? See the Bemis home wallbox models.",
+          "label": "See the wallbox models"
+        }
+      ],
+      "faq": [
+        {
+          "q": "How much does charging an electric car at home cost per kilometre?",
+          "a": "The cost per kilometre depends on two things: how many kWh your car uses per 100 km and the unit price of electricity. The formula is: (consumption in kWh/100 km ÷ 100) × unit price. For example, on a car that uses 18 kWh per 100 km, you add the 10% charging losses and calculate on 19.8 kWh. To see the result you need to substitute the current unit price from your bill. We do not give a firm figure in TL because electricity prices change over time; but the formula is always the same and lets you find your own figure in seconds."
+        },
+        {
+          "q": "How much does charging on the night tariff save?",
+          "a": "In Türkiye's multi-rate tariff the day is divided into three periods, and the night period is markedly the cheapest. When you plug the car in during the evening and let the charge fall into the night hours, you buy the same energy at a lower unit price than in the daytime or peak period. The exact scale of the saving depends on the current price difference between the periods; you can see that difference on your bill. A schedulable charger helps you capture this advantage regularly by planning the charge into the night period automatically, without you having to keep track of the car by hand."
+        },
+        {
+          "q": "What are charging losses and how do they affect the cost?",
+          "a": "The energy you draw from the socket is somewhat more than the energy that goes into your battery. The difference is lost as heat in the cable, the converter and the battery management. In home AC charging this loss is around 10%. So the real consumption that shows up on the bill is a little higher than the net energy the car uses. To calculate the cost correctly, multiply the car's kWh consumption by roughly 1.1 or add 10% to it. It looks small in a single session, but over a year of high mileage the total difference becomes noticeable, so it is worth allowing for it in your budget planning."
+        },
+        {
+          "q": "Is an electric car really cheaper than a petrol one?",
+          "a": "To make the comparison correctly, calculate both cars with the same formula. For the electric one, the cost per kilometre is consumption multiplied by the unit electricity price; for the petrol one, it is litre consumption multiplied by the price per litre. When you substitute your own current electricity and fuel prices, you will see that the fuel cost per kilometre of an electric car — especially one charged at home on the night tariff — generally comes out substantially lower than that of a petrol car. The exact ratio varies with prices; that is why the soundest approach is to use the formula and make the comparison yourself with current figures."
+        },
+        {
+          "q": "How do I find out how many kWh my car uses per 100 km?",
+          "a": "The most accurate value is on your car's own screen. On most electric cars the average consumption appears on the instrument panel as \"kWh/100 km\" and reflects your real driving habits. To give a general range, electric cars typically use between 15 and 22 kWh per 100 km; compact models sit near the lower end, while large vehicles and high-speed motorway driving are near the upper end. In winter, consumption rises because of heating. Using the real average shown by the car rather than an estimate gives the most accurate figure per kilometre in your cost calculation."
+        }
+      ],
+      "related": [
+        {
+          "label": "Home wallbox chargers"
+        },
+        {
+          "label": "The cost of installing an EV charging station"
+        },
+        {
+          "label": "The difference between AC and DC charging"
+        },
+        {
+          "label": "How many hours does it take to charge an electric car?"
+        }
+      ]
     },
     "monofaze-mi-trifaze-mi-ev-sarj": {
       "title": "Single-Phase or Three-Phase? Which Charger Suits Your Home?",
@@ -8142,7 +8512,212 @@
       "title": "DC-Schnellladeinvestition für Unternehmen: ein Entscheidungsleitfaden"
     },
     "hangi-sarj-kablosu-aracima-uyumlu-type-2": {
-      "title": "Ladekabel-Kompatibilität für jedes Elektroauto: der Typ-2-Leitfaden"
+      "title": "Ladekabel-Kompatibilität für Togg, Tesla und alle Elektroautos: der Type-2-Ratgeber",
+      "metaTitle": "Welches Ladekabel passt zu Togg und Tesla? (Type 2)",
+      "description": "Welches Ladekabel passt zu Togg, Tesla und allen europäischen Elektroautos? Type-2-Kompatibilität, Modus 3, ein- oder dreiphasig und Ampere-Wahl in einem praktischen Ratgeber.",
+      "excerpt": "Alle in der Türkei und in Europa verkauften neuen Elektroautos nutzen beim AC-Laden einen Type-2-Anschluss – das richtige Type-2-Kabel passt zu allen, von Togg bis Tesla. Klären Sie mit diesem Ratgeber die Wahl von Phase, Ampere und Länge für Ihr Auto.",
+      "category": "Ratgeber",
+      "body": [
+        {
+          "text": "Kurze Antwort: Alle in der Türkei und in Europa verkauften neuen Elektroautos – Togg, Tesla, Hyundai, Kia, Renault, BMW, Mercedes, Volvo, BYD und die übrigen – nutzen beim AC-Laden denselben Standardanschluss: Type 2 (IEC 62196-2). Deshalb ist ein Type 2 — Type 2-Ladekabel mit all diesen Fahrzeugen kompatibel. Die Sorge „Passt dieses Kabel zu meinem Auto?“ verschwindet dank dieses einen Standards weitgehend, unabhängig von der Marke."
+        },
+        {
+          "text": "Dennoch wird die Frage stets markenbezogen gestellt: „Welches Kabel für einen Togg?“, „Passt Type 2 zu einem Tesla?“, „Welches Kabel soll ich für mein neues Auto kaufen?“ Dieser Ratgeber ist keine technische Enzyklopädie der Steckertypen, sondern eine praktische Checkliste, die die Kompatibilitätssorge des Fahrzeughalters löst. Antworten speziell für Togg und Tesla, eine Übersichtstabelle Marke für Marke, die Unterscheidung Modus 2 / Modus 3, die Wahl von Ampere und Phase sowie die Kennzeichen, auf die man vor dem Kauf achtet – alles auf einer Seite."
+        },
+        {
+          "text": "Welches Ladekabel passt zu einem Togg?"
+        },
+        {
+          "text": "Der AC-Ladeanschluss des Togg T10X ist Type 2. Das Kabel, das Sie beim Laden an der Wallbox zu Hause oder an einer öffentlichen AC-Station nutzen, ist ein Type 2 — Type 2-Ladeset nach Modus 3. Ein wichtiges praktisches Detail: An den meisten öffentlichen AC-Stationen ist kein Kabel enthalten, der Fahrer steckt sein eigenes an. Deshalb ist ein Type-2-Kabel im Kofferraum Ihres Togg nicht nur bequem, sondern faktisch notwendig."
+        },
+        {
+          "text": "Die Kapazität wird nach der Installation gewählt. Haben Sie zu Hause eine dreiphasige Leitung und eine dreiphasige Wallbox, wird ein dreiphasiges 16-A-Kabel Installationen mit 11 kW gerecht und ein dreiphasiges 32-A-Kabel Installationen bis 22 kW. An einer einphasigen Leitung genügt ein einphasiges 32-A-Set für bis zu 7,4 kW. Die maximale Leistung, die Ihr Auto beim AC-Laden annimmt, steht in der Betriebsanleitung; das Kabel sollte mit einer Kapazität gewählt werden, die diesen Wert tragen kann. Sind Sie unentschlossen, ist ein dreiphasiges 32-A-Set die flexibelste Wahl: Es arbeitet heute auch an einer Installation mit geringerer Leistung problemlos, und Sie müssen es nicht tauschen, wenn Sie morgen die Leistung erhöhen."
+        },
+        {
+          "text": "Welches Ladekabel passt zu einem Tesla?"
+        },
+        {
+          "text": "Die Antwort auf die Frage „Ist ein Tesla mit einem Type-2-Kabel kompatibel?“ ist eindeutig: ja. Für den europäischen Markt gebaute und in der Türkei verkaufte Teslas – darunter Model 3 und Model Y – nutzen beim AC-Laden den Standardanschluss Type 2. Sie müssen kein eigenes „Tesla-Kabel“ suchen; ein CE-gekennzeichnetes, nach IEC 62196-2 konformes Type 2 — Type 2-Kabel arbeitet an der Wallbox zu Hause und an öffentlichen AC-Stationen problemlos mit einem Tesla."
+        },
+        {
+          "text": "Zwei Anmerkungen. Erstens: Der im US-Markt genutzte abweichende Anschlussstandard (NACS) gilt nicht für die in der Türkei verkauften Teslas; die Fahrzeuge hier kommen mit europäischer Ausstattung. Zweitens: Beim DC-Schnellladen – auch am Supercharger – ist das Kabel stets fest an der Station, Sie nutzen nicht Ihr eigenes. Ihr tragbares Type-2-Kabel ist nur für das AC-Laden. Unseren ausführlichen Ratgeber zum Laden eines Tesla in der Türkei finden Sie unter den verwandten Beiträgen."
+        },
+        {
+          "text": "AC-Ladeanschluss Marke für Marke: alle Type 2"
+        },
+        {
+          "text": "Die folgende Tabelle fasst den AC-Ladeanschluss der am häufigsten nachgefragten Marken zusammen. Die Regel ist bewusst einfach: Bei neuen Elektroautos, die im türkischen und europäischen Markt angeboten werden, ist der AC-Anschlussstandard Type 2. Für Marken, die Sie in der Tabelle nicht sehen, gilt dieselbe Regel."
+        },
+        {
+          "caption": "Türkischer/europäischer Markt – AC-Ladeanschluss nach Marke",
+          "headers": [
+            "Marke (Beispielmodelle)",
+            "AC-Ladeanschluss",
+            "Type-2-Kabelkompatibilität"
+          ],
+          "rows": [
+            [
+              "Togg (T10X)",
+              "Type 2",
+              "Kompatibel"
+            ],
+            [
+              "Tesla (Model 3, Model Y)",
+              "Type 2",
+              "Kompatibel"
+            ],
+            [
+              "Hyundai / Kia (Ioniq 5, EV6...)",
+              "Type 2",
+              "Kompatibel"
+            ],
+            [
+              "Renault / Fiat / Peugeot / Opel",
+              "Type 2",
+              "Kompatibel"
+            ],
+            [
+              "BMW / Mercedes / Audi / Volkswagen",
+              "Type 2",
+              "Kompatibel"
+            ],
+            [
+              "Volvo / MG / BYD",
+              "Type 2",
+              "Kompatibel"
+            ]
+          ]
+        },
+        {
+          "text": "Die einzige Ausnahme gehört der Vergangenheit an: Einige Anfang der 2010er-Jahre verkaufte Modelle nutzten einen anderen AC-Anschluss namens Type 1. Bei Neuwagen begegnet Ihnen das nicht; kaufen Sie einen älteren Gebrauchtwagen, genügt es, die Ladeklappe zu öffnen und nachzusehen – der runde Type-2-Anschluss mit 7 Kontakten ist leicht zu erkennen. Zu sämtlichen Steckertypen (einschließlich CCS2 und CHAdeMO auf der DC-Seite) haben wir einen eigenen ausführlichen Ratgeber; der Schwerpunkt dieses Beitrags ist die AC-Kabelkompatibilität."
+        },
+        {
+          "text": "Modus 2 oder Modus 3? Von der Steckdose oder von der Wallbox?"
+        },
+        {
+          "text": "Der zweite Begriff, der Ihnen bei der Kabelsuche begegnet, ist der „Modus“, und die Antwort hängt davon ab, wo Sie laden:"
+        },
+        {
+          "items": [
+            "Modus 3 – das Kabel für Wallbox und AC-Station: Es ist das Type 2 — Type 2-Kabel, das zwischen Ladestation und Fahrzeug verwendet wird. Die Signalisierung übernimmt die Station, der Stecker ist während des Ladens mechanisch verriegelt. Die Ladekabel, um die es in diesem Ratgeber geht, gehören zur Klasse Modus 3 (IEC 61851-1).",
+            "Modus 2 – kein Kabel, sondern ein tragbares Gerät: Zum Laden an der Haushaltssteckdose wird ein tragbares Ladegerät mit einer Schutz- und Steuerbox verwendet; diese Box sorgt für die Sicherheit zwischen der eingesteckten Seite und dem Fahrzeug."
+          ]
+        },
+        {
+          "text": "Praktisch zusammengefasst: Ist Ihre Wallbox die Ausführung mit Steckdose (ohne festes Kabel), müssen Sie zusätzlich ein Type-2-Kabel nach Modus 3 kaufen; bei der Ausführung mit festem Kabel ist es bereits am Gerät. Die Frage Wallbox oder tragbares Ladegerät zu Hause haben wir in einem eigenen Ratgeber ausführlich verglichen."
+        },
+        {
+          "text": "Wie viel Ampere, wie viele Phasen? Die einfache Regel für die Ladegeschwindigkeit"
+        },
+        {
+          "text": "Die Type-2-Kompatibilität garantiert die physische Verbindung; die Ladegeschwindigkeit bestimmt dagegen der niedrigste von drei Werten: die AC-Annahmeleistung Ihres Autos, die Leistung der Station und die Tragfähigkeit des Kabels. Kabel werden mit ihren Phasen- und Stromwerten bezeichnet; die Entsprechungen lassen sich so zusammenfassen:"
+        },
+        {
+          "items": [
+            "Einphasig 16 A → 3,7 kW · Einphasig 32 A → 7,4 kW",
+            "Dreiphasig 16 A → 11 kW · Dreiphasig 32 A → 22 kW",
+            "Liegt die Kapazität des Kabels über dem Bedarf, entsteht kein Problem; liegt sie darunter, sinkt die Ladegeschwindigkeit auf die Grenze des Kabels."
+          ]
+        },
+        {
+          "text": "Auch die Frage nach den Metern ist eine Abwägung: Ein kurzes Kabel schränkt Ihre Parkposition ein, ein unnötig langes bringt Aufwand beim Tragen und Aufwickeln. Alle Einzelheiten zur Wahl von Länge und Ampere – mit Hausinstallation, Nutzungsszenarien und Beispielen – finden Sie in unserem Ratgeber „Wie viele Meter und wie viel Ampere sollte ein Ladekabel haben?“."
+        },
+        {
+          "text": "Worauf beim Kauf eines Ladekabels achten?"
+        },
+        {
+          "text": "Ist die Kompatibilität bestätigt, kommen die Qualitäts- und Sicherheitskennzeichen an die Reihe. Wir empfehlen, vor dem Kauf folgende Punkte zu prüfen:"
+        },
+        {
+          "items": [
+            "CE-Kennzeichnung und Konformitätsprüfungen: der grundlegende Nachweis, dass das Kabel nach den einschlägigen Normen geprüft wurde.",
+            "Ein nach IEC 62196-2 konformer Type-2-Stecker: sorgt fahrzeug- und stationsseitig für eine reibungslose, normgerechte Verbindung.",
+            "Modus-3-Signalisierung und mechanische Verriegelung (IEC 61851-1): verhindert, dass sich der Stecker während des Ladens löst.",
+            "Kabelquerschnitt: Mit steigendem Strom muss auch der Leiterquerschnitt wachsen – bei 16-A-Sets werden zum Beispiel 2,5 mm² und bei 32-A-Sets 6 mm² verwendet.",
+            "Widerstandsfähigkeit des Außenmantels: Eine halogenfreie Kabelkonstruktion, die UV und Witterung standhält, verlängert die Lebensdauer im Außeneinsatz.",
+            "IP-Schutzart: Soll das Kabel häufig im Freien genutzt werden, prüfen Sie die Schutzart der Stecker anhand der Herstellerunterlagen."
+          ]
+        },
+        {
+          "text": "Die Bemis Type-2-Ladekabelfamilien"
+        },
+        {
+          "text": "Bemis fertigt Type 2 — Type 2-Ladesets nach Modus 3 in vier Hauptkapazitäten. Alle Sets verwenden einen Stecker nach IEC 62196-2, mechanisch verriegelnde Modus-3-Signalisierung (IEC 61851-1), einen flexiblen Kupferleiter und einen halogenfreien Außenmantel, der UV und Witterung standhält; die Sets bestehen die CE-Konformitätsprüfungen. Sie sind damit mit allen Fahrzeugen der Tabelle kompatibel – von Togg bis Tesla."
+        },
+        {
+          "caption": "Bemis Type-2-Ladeset-Familien (Modus 3, IEC 62196-2)",
+          "headers": [
+            "Set",
+            "Phase / Strom",
+            "Leistung",
+            "Kabelquerschnitt",
+            "Längenoptionen"
+          ],
+          "rows": [
+            [
+              "Ladeset 16 A einphasig",
+              "Einphasig / 16 A",
+              "3,7 kW",
+              "3×2,5 mm² + 1×0,75 mm²",
+              "3 / 5 / 7 / 8 / 10 m"
+            ],
+            [
+              "Ladeset 32 A einphasig",
+              "Einphasig / 32 A",
+              "7,4 kW",
+              "3×6 mm² + 1×0,75 mm²",
+              "3 / 5 / 7 / 8 / 10 m"
+            ],
+            [
+              "Ladeset 16 A dreiphasig",
+              "Dreiphasig / 16 A",
+              "11 kW",
+              "5×2,5 mm² + 1×0,75 mm²",
+              "3 / 5 / 7 / 8 / 10 / 15 m"
+            ],
+            [
+              "Ladeset 32 A dreiphasig",
+              "Dreiphasig / 32 A",
+              "22 kW",
+              "5×6 mm² + 1×0,75 mm²",
+              "3 / 5 / 7 / 8 / 10 / 15 m"
+            ]
+          ]
+        },
+        {
+          "text": "Um die zu Ihrem Auto passende Länge und Kapazität zu vergleichen, werfen Sie einen Blick auf unsere Produktseite.",
+          "label": "Type-2-Ladekabel ansehen"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Welches Ladekabel passt zum Togg T10X?",
+          "a": "Der Togg T10X nutzt wie alle neuen Elektroautos in der Türkei und in Europa beim AC-Laden einen Type-2-Anschluss; ein Type 2 — Type 2-Ladekabel nach Modus 3 ist mit dem T10X kompatibel. Haben Sie zu Hause eine dreiphasige Wallbox, wird ein dreiphasiges 16-A-Kabel Installationen mit 11 kW gerecht und ein dreiphasiges 32-A-Kabel Installationen bis 22 kW; an einer einphasigen Leitung genügt ein einphasiges 32-A-Set für bis zu 7,4 kW. Die maximale Leistung, die das Auto auf der AC-Seite annimmt, steht in der Betriebsanleitung; das Kabel sollte mit einer Kapazität gewählt werden, die diesen Wert tragen kann. Da Sie an den meisten öffentlichen AC-Stationen Ihr eigenes Kabel anstecken, ist ein Type-2-Kabel im Auto für Togg-Besitzer eine praktische Notwendigkeit."
+        },
+        {
+          "q": "Ist ein Type-2-Kabel mit einem Tesla Model 3 oder Model Y kompatibel?",
+          "a": "Ja. Für den europäischen Markt gebaute und in der Türkei verkaufte Teslas – darunter Model 3 und Model Y – nutzen beim AC-Laden den Standardanschluss Type 2. Ein Type 2 — Type 2-Ladekabel nach Modus 3 arbeitet daher an der Wallbox zu Hause und an öffentlichen AC-Stationen problemlos mit einem Tesla; Sie müssen kein eigenes „Tesla-Kabel“ suchen. Der abweichende Anschlussstandard im US-Markt (NACS) gilt nicht für die in der Türkei verkauften Fahrzeuge. Beim DC-Schnellladen – auch am Supercharger – ist das Kabel fest an der Station; Sie nutzen nicht Ihr eigenes. Ein hochwertiges, CE-gekennzeichnetes und nach IEC 62196-2 konformes Type-2-Kabel genügt für Ihren Tesla."
+        },
+        {
+          "q": "Wie erkenne ich, ob ein Ladekabel zu meinem Auto passt?",
+          "a": "Drei Prüfungen genügen. Erstens der Stecker: Der AC-Anschluss aller in der Türkei und in Europa verkauften neuen Elektroautos ist Type 2; ist die Fahrzeugseite Ihres Kabels Type 2, ist die physische Passung geklärt. Zweitens die Leistung: Der maximale Wert, den Ihr Auto beim AC-Laden annimmt, steht in der Betriebsanleitung; die Phasen- und Stromkapazität des Kabels sollte diesen Wert tragen können. Kann sie es nicht, entsteht keine Gefahr, das Laden findet lediglich an der Grenze des Kabels statt. Drittens die Unterlagen: CE-Kennzeichnung sowie Konformität nach IEC 62196-2 und IEC 61851-1 sind Zeichen sicherer Fertigung. Die einzige Ausnahme sind einige ältere Modelle mit Type-1-Anschluss aus den frühen 2010er-Jahren; kaufen Sie einen älteren Gebrauchtwagen, öffnen Sie die Ladeklappe und bestätigen Sie den runden Type-2-Anschluss mit 7 Kontakten mit dem Auge."
+        },
+        {
+          "q": "Mein Auto nimmt 11 kW an; gibt es ein Problem, wenn ich ein Kabel mit 22 kW kaufe?",
+          "a": "Nein, es gibt kein Problem – im Gegenteil, es verschafft Flexibilität. Die Ladeleistung bestimmt immer das schwächste Glied der Kette: Nimmt Ihr Auto 11 kW an, findet das Laden auch mit einem dreiphasigen 32-A-Kabel, das 22 kW tragen kann, mit 11 kW statt. Das Kabel „drückt“ dem Auto keine zusätzliche Leistung auf; es definiert nur die Obergrenze, die es tragen kann. Der Vorteil eines Kabels mit höherer Kapazität ist die Vorbereitung auf die Zukunft: Unterstützt Ihr nächstes Auto oder Ihre neue Wallbox 22 kW AC, nutzen Sie dasselbe Kabel weiter. Aufpassen muss man im umgekehrten Fall: Liegt die Kapazität des Kabels unter der des Autos und der Station, sinkt die Ladegeschwindigkeit auf die Grenze des Kabels. Am sinnvollsten ist es, das Kabel nicht nach der heutigen Installation, sondern nach dem Bedarf der nächsten Jahre zu wählen."
+        }
+      ],
+      "related": [
+        {
+          "label": "Wie viele Meter und wie viel Ampere sollte ein Ladekabel haben?"
+        },
+        {
+          "label": "Steckertypen beim Laden: der Unterschied zwischen Type 2, CCS2 und CHAdeMO"
+        },
+        {
+          "label": "Tesla laden in der Türkei: Wie lädt man einen Tesla mit Type 2?"
+        }
+      ]
     },
     "40-kw-dc-sarj-istasyonu": {
       "title": "Was ist eine 40-kW-DC-Ladestation, für wen ist sie und wie schnell lädt sie?",
@@ -8348,7 +8923,172 @@
       ]
     },
     "evde-elektrikli-arac-sarj-maliyeti-km-basina": {
-      "title": "Kosten für das Laden zu Hause: Wie viel pro Kilometer?"
+      "title": "Kosten des Ladens eines Elektroautos zu Hause: Wie viel pro Kilometer?",
+      "metaTitle": "Ladekosten für E-Autos: Wie viel für 100 km? Rechnung fürs Laden zu Hause",
+      "description": "Kosten je 100 km = Verbrauch (kWh/100 km) × Strompreis je Einheit (TL/kWh). Ein durchschnittliches Auto verbraucht 15-22 kWh; eine Beispielrechnung mit dem Nachttarif und ein Vergleich mit dem öffentlichen Laden.",
+      "excerpt": "Wie berechnen Sie die Ladekosten eines E-Autos zu Hause je Kilometer? Ein Schritt-für-Schritt-Beispiel mit kWh-Verbrauch, Strompreis je Einheit, 10 % Ladeverlust und Nachttarif.",
+      "category": "Ratgeber",
+      "body": [
+        {
+          "text": "Die erste Frage, die sich jeder vor dem Kauf eines Elektroautos stellt, lautet: „Was kostet es mich wirklich, wenn ich zu Hause lade?“ Die gute Nachricht: Diese Rechnung ist viel einfacher, als man denkt. In diesem Ratgeber zeigen wir Ihnen Schritt für Schritt, wie Sie die Kosten des Ladens eines Elektroautos zu Hause je Kilometer berechnen, und erklären, wie der Vergleich mit einem Benziner gelingt. Alle Zahlenbeispiele sind angenommen; Ihren genauen Betrag finden Sie, indem Sie den aktuellen Preis je Einheit aus Ihrer eigenen Rechnung einsetzen."
+        },
+        {
+          "text": "Die Grundformel der Ladekosten"
+        },
+        {
+          "text": "Die Kosten des Ladens zu Hause bestehen aus einer einzigen Multiplikation: Sie multiplizieren die verbrauchte Energie (kWh) mit dem Strompreis je Einheit (TL/kWh). Wenn zum Beispiel 40 kWh in die Batterie geflossen sind und der Preis je Einheit X TL/kWh beträgt, kostet dieser Ladevorgang 40 × X TL. Um die Kosten je Kilometer zu finden, müssen Sie nur wissen, wie viele kWh das Auto auf 100 km verbraucht."
+        },
+        {
+          "items": [
+            "Kosten eines Ladevorgangs = verbrauchte Energie (kWh) × Strompreis je Einheit (TL/kWh)",
+            "Kosten je Kilometer = (Verbrauch des Autos in kWh/100 km ÷ 100) × Strompreis je Einheit (TL/kWh)",
+            "Kosten für 100 km = Verbrauch (kWh/100 km) × Strompreis je Einheit (TL/kWh)"
+          ]
+        },
+        {
+          "text": "Wie viele kWh verbraucht Ihr Auto auf 100 km?"
+        },
+        {
+          "text": "Der durchschnittliche Energieverbrauch von Elektroautos liegt meist zwischen 15 und 22 kWh je 100 km. Kompakte, effiziente Modelle liegen nahe der unteren Grenze, große SUV und schnelle Autobahnfahrten nahe der oberen. Den genauen Wert lesen Sie an der Durchschnittsverbrauchsanzeige im Display Ihres Autos ab, angegeben als „kWh/100 km“. In den Wintermonaten steigt der Verbrauch wegen der Innenraumheizung und des Wärmebedarfs der Batterie etwas an; es lohnt sich, dafür in der Rechnung einen Puffer einzuplanen."
+        },
+        {
+          "text": "Vergessen Sie die Ladeverluste nicht (~10 %)"
+        },
+        {
+          "text": "Die Energie, die Sie aus der Steckdose ziehen, ist etwas größer als die Energie, die in Ihre Batterie gelangt. Der Unterschied geht als Wärme in Kabel, Wandler und Batteriemanagement verloren. Beim AC-Laden zu Hause liegt dieser Verlust bei etwa 10 %. Nachdem Sie die vom Auto genutzte Energie berechnet haben, ergibt eine Multiplikation des Ergebnisses mit grob 1,1 (oder ein Aufschlag von 10 %) also genauere Kosten, die dem tatsächlichen, auf der Rechnung erscheinenden Verbrauch entsprechen. Das wirkt wie ein kleiner Unterschied, summiert sich bei tausenden Kilometern im Jahr aber spürbar."
+        },
+        {
+          "text": "Der Mehrzeittarif in der Türkei: Warum ist Laden in der Nacht günstig?"
+        },
+        {
+          "text": "In der Türkei können Haushaltskunden statt eines Eintarifs einen Mehrzeittarif (Dreizeittarif) wählen. In diesem Tarif ist der Tag in drei Zeiträume geteilt: Tag, Abendspitze (der Zeitraum mit dem stärksten Verbrauch und dem höchsten Preis je Einheit) und Nacht. Der Nachtzeitraum ist deutlich der günstigste. Für Besitzer eines Elektroautos ist das eine echte Gelegenheit: Wenn Sie das Auto abends nach der Heimkehr einstecken und den Ladevorgang in den Nachtzeitraum fallen lassen, beziehen Sie dieselbe Energie zu einem viel niedrigeren Preis je Einheit."
+        },
+        {
+          "items": [
+            "Tagzeitraum: mittlerer Preis je Einheit, für die Nutzung tagsüber.",
+            "Spitzenzeitraum (Abend): der höchste Preis je Einheit; legen Sie den Ladevorgang möglichst nicht in diese Stunden.",
+            "Nachtzeitraum: der niedrigste Preis je Einheit; das ideale Fenster für das Laden des Autos.",
+            "Die Zeitfenster können je nach Verteilnetzbetreiber abweichen; bestätigen Sie die aktuellen Zeiten anhand Ihrer Rechnung oder bei Ihrem Verteilnetzbetreiber."
+          ]
+        },
+        {
+          "text": "Sie müssen das Auto nicht jeden Abend von Hand im Blick behalten. Die smarten Modelle von Bemis (zum Beispiel der Charger Pro 2 mit GSM-Anbindung und Geräte mit OCPP 1.6-Unterstützung) helfen Ihnen, den Ladevorgang zu planen und Szenarien für den Betrieb im Nachtzeitraum zu steuern, damit Sie die günstigsten Stunden nicht verpassen."
+        },
+        {
+          "text": "Beispielrechnung Schritt für Schritt (angenommen)"
+        },
+        {
+          "text": "Im folgenden Beispiel bezeichnen wir den Strompreis je Einheit als A TL/kWh, ganz als angenommenen Wert. Wenn Sie anstelle von A den aktuellen Preis je Einheit aus Ihrer eigenen Rechnung einsetzen (vorzugsweise den Preis des Nachtzeitraums), sehen Sie Ihre tatsächlichen Kosten. Nehmen wir an, unser Auto verbraucht auf 100 km 18 kWh."
+        },
+        {
+          "items": [
+            "Schritt 1 – Verbrauch des Autos: 18 kWh/100 km (angenommen, Beispielfahrzeug).",
+            "Schritt 2 – Ladeverluste addieren: 18 × 1,1 ≈ 19,8 kWh (die tatsächlich aus der Steckdose gezogene Energie).",
+            "Schritt 3 – Mit dem Preis je Einheit multiplizieren: 19,8 kWh × A TL = Kosten für 100 km.",
+            "Schritt 4 – Je Kilometer: (19,8 × A) ÷ 100 = Kosten je Kilometer in TL/km."
+          ]
+        },
+        {
+          "text": "Wie man sieht, ist die einzige Unbekannte A, also Ihr Preis je Einheit. Sobald Sie A einsetzen, werden sowohl die Kosten für 100 km als auch die Kosten je Kilometer klar. Mit dem niedrigen A-Wert des Nachttarifs sinkt diese Zahl gegenüber dem Tag deutlich."
+        },
+        {
+          "caption": "Angenommenes Beispiel: Kosten je Kilometer bei verschiedenen Verbrauchswerten (A = Strompreis je Einheit, TL/kWh)",
+          "headers": [
+            "Verbrauch des Autos (kWh/100 km)",
+            "Inklusive Ladeverlust (kWh/100 km)",
+            "Kosten für 100 km",
+            "Kosten je Kilometer"
+          ],
+          "rows": [
+            [
+              "15",
+              "16,5",
+              "16,5 × A TL",
+              "0,165 × A TL/km"
+            ],
+            [
+              "18",
+              "19,8",
+              "19,8 × A TL",
+              "0,198 × A TL/km"
+            ],
+            [
+              "22",
+              "24,2",
+              "24,2 × A TL",
+              "0,242 × A TL/km"
+            ]
+          ]
+        },
+        {
+          "text": "Wie vergleicht man mit einem Benziner?"
+        },
+        {
+          "text": "Um Äpfel mit Äpfeln zu vergleichen, wenden Sie dieselbe Logik auf den Benziner an. Auch dessen Kosten sind eine einzige Multiplikation: Sie multiplizieren die auf 100 km verbrannten Liter mit dem Literpreis. Nehmen wir an, der Benziner verbraucht auf 100 km 7 Liter und der Literpreis beträgt B TL (wieder angenommen). Dann betragen die Kosten für 100 km 7 × B TL und die Kosten je Kilometer (7 × B) ÷ 100 = 0,07 × B TL/km."
+        },
+        {
+          "items": [
+            "Benzinkosten für 100 km = Kraftstoffverbrauch (l/100 km) × Literpreis (B TL/l)",
+            "Benzinkosten je Kilometer = (l/100 km ÷ 100) × B TL/l",
+            "Vergleich: Stellen Sie die elektrischen Kosten je Kilometer (0,198 × A) und die Benzinkosten je Kilometer (0,07 × B) mit Ihren eigenen aktuellen A- und B-Werten nebeneinander."
+          ]
+        },
+        {
+          "text": "Wenn Sie den Strompreis je Einheit aus Ihrer eigenen Rechnung (A) und den aktuellen Kraftstoffpreis an der Zapfsäule (B) einsetzen, sehen Sie, dass die Energiekosten je Kilometer eines zu Hause im Nachttarif geladenen Elektroautos in der Regel deutlich niedriger ausfallen als die eines Benziners. Da sich die Zahlen mit der Zeit ändern, können Sie den aktuellen Vergleich in jeder Periode selbst anstellen, wenn Sie die Formel parat haben."
+        },
+        {
+          "text": "Praktische Wege, die Ladekosten zu Hause zu senken"
+        },
+        {
+          "items": [
+            "Wechseln Sie zu einem Mehrzeittarif und planen Sie den Ladevorgang in den Nachtzeitraum.",
+            "Verfolgen Sie den tatsächlichen Verbrauch Ihres Autos in kWh/100 km und vermeiden Sie übertriebene Schätzungen.",
+            "Halten Sie Ihr Budget realistisch, indem Sie die Ladeverluste (~10 %) berücksichtigen.",
+            "Erwischen Sie die günstigsten Stunden automatisch mit einem zeitlich planbaren Heimladegerät.",
+            "Laden Sie sicher und effizient, indem Sie eine Wallbox mit einer zum Verteiler Ihres Hauses passenden Leistung wählen."
+          ]
+        },
+        {
+          "text": "Suchen Sie eine zeitlich planbare Ladelösung mit der richtigen Leistung für Ihr Zuhause? Sehen Sie sich die Bemis Wallbox-Modelle für zu Hause an.",
+          "label": "Wallbox-Modelle ansehen"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Wie viel kostet das Laden eines Elektroautos zu Hause je Kilometer?",
+          "a": "Die Kosten je Kilometer hängen von zwei Dingen ab: davon, wie viele kWh Ihr Auto auf 100 km verbraucht, und vom Strompreis je Einheit. Die Formel lautet: (Verbrauch in kWh/100 km ÷ 100) × Preis je Einheit. Bei einem Auto, das auf 100 km 18 kWh verbraucht, addieren Sie beispielsweise die 10 % Ladeverluste und rechnen mit 19,8 kWh. Um das Ergebnis zu sehen, müssen Sie den aktuellen Preis je Einheit aus Ihrer Rechnung einsetzen. Wir nennen keine feste Zahl in TL, weil sich Strompreise mit der Zeit ändern; die Formel bleibt jedoch immer gleich und lässt Sie Ihre eigene Zahl in Sekunden finden."
+        },
+        {
+          "q": "Wie viel spart das Laden im Nachttarif?",
+          "a": "Im türkischen Mehrzeittarif ist der Tag in drei Zeiträume geteilt, und der Nachtzeitraum ist deutlich der günstigste. Wenn Sie das Auto abends einstecken und den Ladevorgang in die Nachtstunden fallen lassen, beziehen Sie dieselbe Energie zu einem niedrigeren Preis je Einheit als am Tag oder in der Spitzenzeit. Wie hoch die Ersparnis genau ausfällt, hängt vom aktuellen Preisunterschied zwischen den Zeiträumen ab; diesen Unterschied sehen Sie auf Ihrer Rechnung. Ein zeitlich planbares Ladegerät hilft Ihnen, diesen Vorteil regelmäßig zu nutzen, indem es den Ladevorgang automatisch in den Nachtzeitraum legt, ohne dass Sie das Auto von Hand beobachten müssen."
+        },
+        {
+          "q": "Was sind Ladeverluste und wie wirken sie auf die Kosten?",
+          "a": "Die Energie, die Sie aus der Steckdose ziehen, ist etwas größer als die Energie, die in Ihre Batterie gelangt. Der Unterschied geht als Wärme in Kabel, Wandler und Batteriemanagement verloren. Beim AC-Laden zu Hause liegt dieser Verlust bei etwa 10 %. Der tatsächliche, auf der Rechnung erscheinende Verbrauch ist also etwas höher als die vom Auto genutzte Nettoenergie. Um die Kosten richtig zu berechnen, multiplizieren Sie den kWh-Verbrauch des Autos grob mit 1,1 oder schlagen 10 % auf. Einzeln wirkt das klein, bei hoher Jahreskilometerleistung wird der Gesamtunterschied jedoch spürbar, weshalb man ihn in der Budgetplanung berücksichtigen sollte."
+        },
+        {
+          "q": "Ist ein Elektroauto wirklich günstiger als ein Benziner?",
+          "a": "Um den Vergleich richtig anzustellen, berechnen Sie beide Fahrzeuge mit derselben Formel. Beim Elektroauto sind die Kosten je Kilometer das Produkt aus Verbrauch und Strompreis je Einheit; beim Benziner das Produkt aus Literverbrauch und Literpreis. Wenn Sie Ihre eigenen aktuellen Strom- und Kraftstoffpreise einsetzen, sehen Sie, dass die Energiekosten je Kilometer eines Elektroautos – besonders eines zu Hause im Nachttarif geladenen – in der Regel deutlich niedriger ausfallen als beim Benziner. Das genaue Verhältnis hängt von den Preisen ab; am sinnvollsten ist es daher, die Formel zu nutzen und den Vergleich mit aktuellen Zahlen selbst anzustellen."
+        },
+        {
+          "q": "Wie erfahre ich, wie viele kWh mein Auto auf 100 km verbraucht?",
+          "a": "Der genaueste Wert steht im Display Ihres Autos. Bei den meisten Elektroautos erscheint der Durchschnittsverbrauch im Kombiinstrument als „kWh/100 km“ und spiegelt Ihre tatsächlichen Fahrgewohnheiten wider. Als allgemeine Spanne: Elektroautos verbrauchen typischerweise zwischen 15 und 22 kWh auf 100 km; kompakte Modelle liegen nahe der unteren Grenze, große Fahrzeuge und schnelle Autobahnfahrten nahe der oberen. Im Winter steigt der Verbrauch wegen der Heizung. In Ihrer Kostenrechnung den tatsächlichen, vom Auto angezeigten Durchschnitt statt einer Schätzung zu verwenden, liefert die treffendste Zahl je Kilometer."
+        }
+      ],
+      "related": [
+        {
+          "label": "Wallbox-Ladegeräte für zu Hause"
+        },
+        {
+          "label": "Kosten der Installation einer EV-Ladestation"
+        },
+        {
+          "label": "Der Unterschied zwischen AC- und DC-Laden"
+        },
+        {
+          "label": "In wie vielen Stunden ist ein Elektroauto geladen?"
+        }
+      ]
     },
     "monofaze-mi-trifaze-mi-ev-sarj": {
       "title": "Einphasig oder dreiphasig (3 Phasen)? Welches Ladegerät passt zu Ihrem Zuhause?",
@@ -12787,7 +13527,212 @@
       "title": "Inversión en carga rápida DC para empresas: guía de decisión"
     },
     "hangi-sarj-kablosu-aracima-uyumlu-type-2": {
-      "title": "Compatibilidad del cable de carga para cada coche eléctrico: guía Type 2"
+      "title": "Compatibilidad del cable de carga para Togg, Tesla y todos los coches eléctricos: guía Type 2",
+      "metaTitle": "¿Qué cable de carga vale para un Togg o un Tesla? (Type 2)",
+      "description": "¿Qué cable de carga vale para un Togg, un Tesla y todos los coches eléctricos europeos? Compatibilidad Type 2, Modo 3, monofásico/trifásico y elección de amperaje en una guía práctica.",
+      "excerpt": "Todos los coches eléctricos nuevos que se venden en Türkiye y Europa usan una toma Type 2 para la carga AC: el cable Type 2 adecuado es compatible con todos ellos, desde Togg hasta Tesla. Aclare con esta guía la elección de fase, amperaje y longitud para su coche.",
+      "category": "Guía",
+      "body": [
+        {
+          "text": "Respuesta corta: todos los coches eléctricos nuevos que se venden en Türkiye y Europa —Togg, Tesla, Hyundai, Kia, Renault, BMW, Mercedes, Volvo, BYD y los demás— usan la misma toma estándar para la carga AC: Type 2 (IEC 62196-2). Por eso un cable de carga Type 2 — Type 2 es compatible con todos esos coches. La preocupación de «¿valdrá este cable para mi coche?» desaparece en gran medida gracias a ese único estándar, sea cual sea la marca."
+        },
+        {
+          "text": "Aun así, la pregunta se hace siempre por marcas: «¿qué cable para un Togg?», «¿vale Type 2 para un Tesla?», «¿qué cable compro para el coche que acabo de adquirir?». Esta guía no es una enciclopedia técnica de tipos de conector; es una lista de comprobación práctica que resuelve la duda de compatibilidad del propietario. Respuestas específicas para Togg y Tesla, una tabla resumen marca por marca, la distinción entre Modo 2 y Modo 3, la elección de amperaje y fase y las marcas que hay que mirar antes de comprar: todo en una página."
+        },
+        {
+          "text": "¿Qué cable de carga vale para un Togg?"
+        },
+        {
+          "text": "La toma de carga AC del Togg T10X es Type 2. El cable que usará al cargar desde el wallbox de casa o desde una estación AC pública es un conjunto de carga Type 2 — Type 2 de Modo 3. Un detalle práctico importante: en la mayoría de las estaciones AC públicas el cable no viene con la estación y el conductor enchufa el suyo. Por eso llevar un cable Type 2 en el maletero de su Togg no es solo comodidad, sino prácticamente una necesidad."
+        },
+        {
+          "text": "La capacidad se elige según la instalación. Si en su casa hay línea trifásica y wallbox trifásico, un cable trifásico de 16 A hace justicia a las instalaciones de 11 kW y uno trifásico de 32 A a las instalaciones de hasta 22 kW. En una línea monofásica, un conjunto monofásico de 32 A basta para hasta 7,4 kW. La potencia máxima que acepta su coche en carga AC figura en el manual de usuario; el cable debe elegirse con capacidad para transportar ese valor. Si duda, un conjunto trifásico de 32 A es la opción más flexible: hoy funciona sin problema en una instalación de menor potencia y mañana, al aumentar la potencia, no tendrá que cambiarlo."
+        },
+        {
+          "text": "¿Qué cable de carga vale para un Tesla?"
+        },
+        {
+          "text": "La respuesta a «¿es un Tesla compatible con un cable Type 2?» es clara: sí. Los Tesla fabricados para el mercado europeo y vendidos en Türkiye —incluidos el Model 3 y el Model Y— usan la toma estándar Type 2 para la carga AC. No necesita buscar un «cable Tesla» aparte; un cable Type 2 — Type 2 con marcado CE y conforme a IEC 62196-2 funciona sin problemas con un Tesla en el wallbox de casa y en las estaciones AC públicas."
+        },
+        {
+          "text": "Dos apuntes. El primero: el estándar de conexión distinto que se usa en el mercado estadounidense (NACS) no se aplica a los Tesla vendidos en Türkiye; los coches de aquí vienen con equipamiento europeo. El segundo: en la carga rápida DC —incluidos los Supercharger— el cable siempre está fijo en la estación y no se usa el propio. Su cable Type 2 portátil es solo para la carga AC. Puede encontrar nuestra guía detallada sobre cómo cargar un Tesla en Türkiye entre los artículos relacionados."
+        },
+        {
+          "text": "Toma de carga AC marca por marca: todas Type 2"
+        },
+        {
+          "text": "La tabla siguiente resume la toma de carga AC de las marcas por las que más se pregunta. La regla es deliberadamente sencilla: en los coches eléctricos nuevos que se ofrecen en el mercado turco y europeo, el estándar de toma AC es Type 2. La misma regla vale para las marcas que no aparecen en la tabla."
+        },
+        {
+          "caption": "Mercado turco/europeo: toma de carga AC por marca",
+          "headers": [
+            "Marca (modelos de ejemplo)",
+            "Toma de carga AC",
+            "Compatibilidad con cable Type 2"
+          ],
+          "rows": [
+            [
+              "Togg (T10X)",
+              "Type 2",
+              "Compatible"
+            ],
+            [
+              "Tesla (Model 3, Model Y)",
+              "Type 2",
+              "Compatible"
+            ],
+            [
+              "Hyundai / Kia (Ioniq 5, EV6...)",
+              "Type 2",
+              "Compatible"
+            ],
+            [
+              "Renault / Fiat / Peugeot / Opel",
+              "Type 2",
+              "Compatible"
+            ],
+            [
+              "BMW / Mercedes / Audi / Volkswagen",
+              "Type 2",
+              "Compatible"
+            ],
+            [
+              "Volvo / MG / BYD",
+              "Type 2",
+              "Compatible"
+            ]
+          ]
+        },
+        {
+          "text": "La única excepción quedó en el pasado: algunos modelos vendidos a principios de la década de 2010 usaban una toma AC distinta llamada Type 1. En coches nuevos no se encontrará con esta situación; si compra un vehículo de segunda mano antiguo, basta con abrir la tapa de carga y mirar: la toma Type 2 redonda de 7 contactos se reconoce con facilidad. Tenemos una guía aparte que explica en detalle todos los tipos de conector (incluidos CCS2 y CHAdeMO en el lado DC); el foco de este artículo es la compatibilidad del cable AC."
+        },
+        {
+          "text": "¿Modo 2 o Modo 3? ¿Desde el enchufe o desde el wallbox?"
+        },
+        {
+          "text": "El segundo concepto con el que se topará al buscar cable es el «Modo», y la respuesta depende de dónde vaya a cargar:"
+        },
+        {
+          "items": [
+            "Modo 3, el cable de wallbox y estación AC: es el cable Type 2 — Type 2 que se usa entre la estación de carga y el coche. La señalización la lleva la estación y el conector queda bloqueado mecánicamente durante toda la carga. Los cables de carga de los que trata esta guía pertenecen a la clase Modo 3 (IEC 61851-1).",
+            "Modo 2, no un cable sino un equipo portátil: para cargar desde un enchufe doméstico se usa un cargador portátil con una caja de protección y control; esa caja aporta la seguridad entre el lado enchufado y el coche."
+          ]
+        },
+        {
+          "text": "Resumen práctico: si su wallbox es del tipo con toma (sin cable), tendrá que comprar además un cable Type 2 de Modo 3; si es del tipo con cable fijo, el cable ya viene en el equipo. La pregunta de wallbox o cargador portátil en casa la comparamos en detalle en otra guía."
+        },
+        {
+          "text": "¿Cuántos amperios, cuántas fases? La regla sencilla que fija la velocidad de carga"
+        },
+        {
+          "text": "La compatibilidad Type 2 garantiza la conexión física; la velocidad de carga, en cambio, la fija el menor de tres valores: la potencia de carga AC que acepta su coche, la potencia de la estación y la capacidad de transporte del cable. Los cables se identifican por sus valores de fase y corriente; las equivalencias se resumen así:"
+        },
+        {
+          "items": [
+            "Monofásico 16 A → 3,7 kW · Monofásico 32 A → 7,4 kW",
+            "Trifásico 16 A → 11 kW · Trifásico 32 A → 22 kW",
+            "Si la capacidad del cable está por encima de lo necesario no supone problema; si está por debajo, la velocidad de carga baja al límite del cable."
+          ]
+        },
+        {
+          "text": "La cuestión de cuántos metros es un equilibrio parecido: un cable corto limita su posición de aparcamiento y uno innecesariamente largo añade la carga de transportarlo y recogerlo. Puede encontrar todos los detalles de la elección de longitud y amperaje —con la instalación doméstica, escenarios de uso y ejemplos— en nuestra guía «¿Cuántos metros y cuántos amperios debe tener el cable de carga?»."
+        },
+        {
+          "text": "¿En qué fijarse al comprar un cable de carga?"
+        },
+        {
+          "text": "Una vez confirmada la compatibilidad, llega el turno de las marcas de calidad y seguridad. Le recomendamos comprobar los siguientes puntos antes de comprar:"
+        },
+        {
+          "items": [
+            "Marcado CE y ensayos de conformidad: el indicio básico de que el cable se ha ensayado conforme a las normas aplicables.",
+            "Conector Type 2 conforme a IEC 62196-2: proporciona una conexión estándar y sin problemas del lado del coche y de la estación.",
+            "Señalización de Modo 3 y bloqueo mecánico (IEC 61851-1): impide que el conector se salga durante la carga.",
+            "Sección del cable: a mayor corriente, mayor debe ser la sección del conductor; por ejemplo, en los conjuntos de 16 A se usa 2,5 mm² y en los de 32 A, 6 mm².",
+            "Resistencia de la cubierta exterior: una construcción de cable libre de halógenos y resistente a los rayos UV y a la intemperie alarga la vida en uso exterior.",
+            "Grado de protección IP: si el cable va a usarse a menudo en el exterior, confirme el grado de protección de los conectores en la documentación del fabricante."
+          ]
+        },
+        {
+          "text": "Las familias de cables de carga Type 2 de Bemis"
+        },
+        {
+          "text": "Bemis fabrica conjuntos de carga Type 2 — Type 2 de Modo 3 en cuatro capacidades principales. Todos los conjuntos emplean conector conforme a IEC 62196-2, señalización de Modo 3 con bloqueo mecánico (IEC 61851-1), conductor de cobre flexible y cubierta exterior libre de halógenos resistente a los rayos UV y a la intemperie; los conjuntos superan los ensayos de conformidad CE. Es decir, son compatibles con todos los coches de la tabla, desde Togg hasta Tesla."
+        },
+        {
+          "caption": "Familias de conjuntos de carga Type 2 de Bemis (Modo 3, IEC 62196-2)",
+          "headers": [
+            "Conjunto",
+            "Fase / Corriente",
+            "Potencia",
+            "Sección del cable",
+            "Opciones de longitud"
+          ],
+          "rows": [
+            [
+              "Conjunto de carga 16 A monofásico",
+              "Monofásico / 16 A",
+              "3,7 kW",
+              "3×2,5 mm² + 1×0,75 mm²",
+              "3 / 5 / 7 / 8 / 10 m"
+            ],
+            [
+              "Conjunto de carga 32 A monofásico",
+              "Monofásico / 32 A",
+              "7,4 kW",
+              "3×6 mm² + 1×0,75 mm²",
+              "3 / 5 / 7 / 8 / 10 m"
+            ],
+            [
+              "Conjunto de carga 16 A trifásico",
+              "Trifásico / 16 A",
+              "11 kW",
+              "5×2,5 mm² + 1×0,75 mm²",
+              "3 / 5 / 7 / 8 / 10 / 15 m"
+            ],
+            [
+              "Conjunto de carga 32 A trifásico",
+              "Trifásico / 32 A",
+              "22 kW",
+              "5×6 mm² + 1×0,75 mm²",
+              "3 / 5 / 7 / 8 / 10 / 15 m"
+            ]
+          ]
+        },
+        {
+          "text": "Para comparar la longitud y la capacidad adecuadas a su coche, eche un vistazo a nuestra página de producto.",
+          "label": "Ver los cables de carga Type 2"
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Qué cable de carga vale para un Togg T10X?",
+          "a": "El Togg T10X, como todos los coches eléctricos nuevos de Türkiye y Europa, usa una toma Type 2 para la carga AC; un cable de carga Type 2 — Type 2 de Modo 3 es compatible con el T10X. Si en su casa hay wallbox trifásico, un cable trifásico de 16 A hace justicia a las instalaciones de 11 kW y uno trifásico de 32 A a las de hasta 22 kW; en una línea monofásica, un conjunto monofásico de 32 A basta para hasta 7,4 kW. La potencia máxima que acepta el coche en el lado AC figura en el manual de usuario; el cable debe elegirse con capacidad para transportar ese valor. Como en la mayoría de las estaciones AC públicas se enchufa el cable propio, llevar un cable Type 2 en el coche es una necesidad práctica para los propietarios de Togg."
+        },
+        {
+          "q": "¿Es compatible un cable Type 2 con un Tesla Model 3 o Model Y?",
+          "a": "Sí. Los Tesla fabricados para el mercado europeo y vendidos en Türkiye —incluidos el Model 3 y el Model Y— usan la toma estándar Type 2 para la carga AC. Por eso un cable de carga Type 2 — Type 2 de Modo 3 funciona sin problemas con un Tesla en el wallbox de casa y en las estaciones AC públicas; no necesita buscar un «cable Tesla» aparte. El estándar de conexión distinto del mercado estadounidense (NACS) no se aplica a los coches vendidos en Türkiye. En la carga rápida DC —incluidos los Supercharger— el cable está fijo en la estación; no se usa el propio. Un cable Type 2 de calidad, con marcado CE y conforme a IEC 62196-2, es suficiente para su Tesla."
+        },
+        {
+          "q": "¿Cómo sé si un cable de carga vale para mi coche?",
+          "a": "Bastan tres comprobaciones. La primera, el conector: la toma AC de todos los coches eléctricos nuevos vendidos en Türkiye y Europa es Type 2; si el lado del coche de su cable es Type 2, el encaje físico está resuelto. La segunda, la potencia: el valor máximo que acepta su coche en carga AC figura en el manual de usuario, y la capacidad de fase y corriente del cable debe poder transportar ese valor. Si no puede, no surge ningún peligro: la carga simplemente se produce en el límite del cable. La tercera, los documentos: el marcado CE junto con la conformidad a IEC 62196-2 e IEC 61851-1 es señal de una fabricación segura. La única excepción son algunos modelos antiguos con toma Type 1 de principios de la década de 2010; si compra un coche de segunda mano antiguo, abra la tapa de carga y confirme a simple vista la toma Type 2 redonda de 7 contactos."
+        },
+        {
+          "q": "Mi coche acepta 11 kW; ¿habrá algún problema si compro un cable de 22 kW de capacidad?",
+          "a": "No, no habrá problema; al contrario, aporta flexibilidad. La potencia de carga la fija siempre el eslabón más débil de la cadena: si su coche acepta 11 kW, la carga se producirá a 11 kW incluso con un cable trifásico de 32 A capaz de transportar 22 kW. El cable no «mete potencia de más» al coche; solo define el límite superior que puede transportar. La ventaja de un cable de mayor capacidad es la preparación para el futuro: si su próximo coche o su nuevo wallbox admiten 22 kW en AC, seguirá usando el mismo cable. La situación a vigilar es la contraria: si la capacidad del cable queda por debajo de la del coche y la de la estación, la velocidad de carga baja al límite del cable. Lo más sensato es elegir el cable no según su instalación de hoy, sino según su necesidad de los próximos años."
+        }
+      ],
+      "related": [
+        {
+          "label": "¿Cuántos metros y cuántos amperios debe tener el cable de carga de un VE?"
+        },
+        {
+          "label": "Tipos de conector de carga para VE: la diferencia entre Type 2, CCS2 y CHAdeMO"
+        },
+        {
+          "label": "Cargar un Tesla en Türkiye: ¿cómo se carga con Type 2?"
+        }
+      ]
     },
     "40-kw-dc-sarj-istasyonu": {
       "title": "¿Qué es una estación de carga DC de 40 kW, para quién es y cuán rápida resulta?",
@@ -12993,7 +13938,172 @@
       ]
     },
     "evde-elektrikli-arac-sarj-maliyeti-km-basina": {
-      "title": "Coste de carga en casa: ¿cuánto por kilómetro?"
+      "title": "Coste de cargar el coche eléctrico en casa: ¿cuánto por kilómetro?",
+      "metaTitle": "Coste de carga del VE: ¿cuánto por 100 km? Cálculo de la carga en casa",
+      "description": "Coste por 100 km = consumo (kWh/100 km) × precio unitario de la electricidad (TL/kWh). Un coche medio consume 15-22 kWh; ejemplo de cálculo con la tarifa nocturna y comparación con la carga pública.",
+      "excerpt": "¿Cómo se calcula por kilómetro el coste de cargar un VE en casa? Ejemplo paso a paso con el consumo en kWh, el precio unitario de la electricidad, un 10 % de pérdidas de carga y la tarifa nocturna.",
+      "category": "Guía",
+      "body": [
+        {
+          "text": "La primera pregunta que todo el mundo se hace antes de comprar un coche eléctrico es esta: «Si cargo en casa, ¿cuánto me costará realmente?». La buena noticia es que este cálculo es mucho más sencillo de lo que se cree. En esta guía le mostramos paso a paso cómo calcular por kilómetro el coste de cargar un coche eléctrico en casa y explicamos cómo hacer la comparación con un coche de gasolina. Todos los ejemplos numéricos son hipotéticos; encontrará su cifra exacta sustituyendo el precio unitario actual de su propia factura."
+        },
+        {
+          "text": "La fórmula básica del coste de carga"
+        },
+        {
+          "text": "El coste de cargar en casa se reduce a una sola multiplicación: multiplica la energía consumida (kWh) por el precio unitario de la electricidad (TL/kWh). Por ejemplo, si han entrado 40 kWh en la batería y el precio unitario es X TL/kWh, esa carga cuesta 40 × X TL. Y para hallar el coste por kilómetro basta con saber cuántos kWh consume el coche cada 100 km."
+        },
+        {
+          "items": [
+            "Coste de una carga = energía consumida (kWh) × precio unitario de la electricidad (TL/kWh)",
+            "Coste por kilómetro = (consumo del coche en kWh/100 km ÷ 100) × precio unitario de la electricidad (TL/kWh)",
+            "Coste de 100 km = consumo (kWh/100 km) × precio unitario de la electricidad (TL/kWh)"
+          ]
+        },
+        {
+          "text": "¿Cuántos kWh consume su coche cada 100 km?"
+        },
+        {
+          "text": "El consumo medio de energía de los coches eléctricos suele situarse entre 15 y 22 kWh cada 100 km. Los modelos compactos y eficientes se acercan al límite inferior, mientras que los SUV grandes y la conducción por autopista a alta velocidad se acercan al superior. Puede leer el valor exacto en el indicador de consumo medio de la pantalla de su coche, expresado como «kWh/100 km». En los meses de invierno el consumo sube algo por la calefacción del habitáculo y la necesidad de calentar la batería; conviene dejar margen para ello en su cálculo."
+        },
+        {
+          "text": "No olvide las pérdidas de carga (~10 %)"
+        },
+        {
+          "text": "La energía que toma del enchufe es algo mayor que la que entra en su batería. La diferencia se pierde en forma de calor en el cable, el convertidor y la gestión de la batería. En la carga AC doméstica esa pérdida ronda el 10 %. Es decir, después de calcular la energía que usa el coche, multiplicar el resultado por aproximadamente 1,1 (o añadirle un 10 %) da un coste más ajustado al consumo real que aparece en la factura. Puede parecer una diferencia pequeña, pero en un conductor que hace miles de km al año se nota en el total."
+        },
+        {
+          "text": "La tarifa multihoraria en Türkiye: ¿por qué es barata la carga nocturna?"
+        },
+        {
+          "text": "En Türkiye los clientes domésticos pueden elegir una tarifa multihoraria (de tres periodos) en lugar de una de periodo único. En esa tarifa el día se divide en tres franjas: día, punta de la tarde (la franja de mayor consumo, con el precio unitario más alto) y noche. La franja nocturna es claramente la más barata. Para el propietario de un coche eléctrico eso es una auténtica oportunidad: al enchufar el coche al llegar a casa por la tarde y hacer que la carga caiga en la franja nocturna, compra la misma energía a un precio unitario mucho más bajo."
+        },
+        {
+          "items": [
+            "Franja diurna: precio unitario intermedio, para el uso a lo largo del día.",
+            "Franja punta (tarde): el precio unitario más alto; en lo posible, no haga coincidir la carga con estas horas.",
+            "Franja nocturna: el precio unitario más bajo; el intervalo ideal para cargar el coche.",
+            "Los horarios de las franjas pueden variar según la empresa distribuidora; confirme las horas actuales en su factura o con su distribuidora."
+          ]
+        },
+        {
+          "text": "No tiene que estar pendiente del coche a mano cada tarde. Los modelos inteligentes de Bemis (por ejemplo el Charger Pro 2 con conexión GSM y los equipos con soporte OCPP 1.6) le ayudan a programar la carga y a gestionar escenarios que la ejecuten en la franja nocturna, de modo que no se pierda las horas más baratas."
+        },
+        {
+          "text": "Ejemplo de cálculo paso a paso (hipotético)"
+        },
+        {
+          "text": "En el ejemplo siguiente etiquetamos el precio unitario de la electricidad como A TL/kWh, como un valor totalmente hipotético. Cuando ponga en lugar de A el precio unitario actual de su propia factura (preferiblemente el de la franja nocturna), verá su coste real. Supongamos que nuestro coche consume 18 kWh cada 100 km."
+        },
+        {
+          "items": [
+            "Paso 1: consumo del coche: 18 kWh/100 km (hipotético, coche de ejemplo).",
+            "Paso 2: añada las pérdidas de carga: 18 × 1,1 ≈ 19,8 kWh (la energía real tomada del enchufe).",
+            "Paso 3: multiplique por el precio unitario: 19,8 kWh × A TL = coste de 100 km.",
+            "Paso 4: por kilómetro: (19,8 × A) ÷ 100 = coste por kilómetro en TL/km."
+          ]
+        },
+        {
+          "text": "Como se ve, la única incógnita es A, es decir, su precio unitario. En cuanto sustituye A, quedan claros tanto el coste de 100 km como el coste por kilómetro. Con el valor bajo de A de la tarifa nocturna, esa cifra baja notablemente respecto al día."
+        },
+        {
+          "caption": "Ejemplo hipotético: coste por kilómetro con distintos valores de consumo (A = precio unitario de la electricidad, TL/kWh)",
+          "headers": [
+            "Consumo del coche (kWh/100 km)",
+            "Con pérdidas de carga incluidas (kWh/100 km)",
+            "Coste de 100 km",
+            "Coste por kilómetro"
+          ],
+          "rows": [
+            [
+              "15",
+              "16,5",
+              "16,5 × A TL",
+              "0,165 × A TL/km"
+            ],
+            [
+              "18",
+              "19,8",
+              "19,8 × A TL",
+              "0,198 × A TL/km"
+            ],
+            [
+              "22",
+              "24,2",
+              "24,2 × A TL",
+              "0,242 × A TL/km"
+            ]
+          ]
+        },
+        {
+          "text": "¿Cómo se compara con un coche de gasolina?"
+        },
+        {
+          "text": "Para comparar peras con peras, aplique la misma lógica al coche de gasolina. Su coste también es una sola multiplicación: multiplique los litros quemados cada 100 km por el precio del litro. Supongamos que el coche de gasolina consume 7 litros cada 100 km y el precio del litro es B TL (también hipotético). Entonces el coste de 100 km es 7 × B TL y el coste por kilómetro es (7 × B) ÷ 100 = 0,07 × B TL/km."
+        },
+        {
+          "items": [
+            "Coste de 100 km en gasolina = consumo de combustible (L/100 km) × precio del litro (B TL/L)",
+            "Coste por kilómetro en gasolina = (L/100 km ÷ 100) × B TL/L",
+            "Comparación: ponga uno junto a otro el coste eléctrico por kilómetro (0,198 × A) y el coste de gasolina por kilómetro (0,07 × B) con sus propios valores actuales de A y B."
+          ]
+        },
+        {
+          "text": "Cuando sustituya el precio unitario de la electricidad de su factura (A) y el precio actual del combustible en el surtidor (B), verá que el gasto energético por kilómetro de un coche eléctrico cargado en casa con la tarifa nocturna suele salir bastante más bajo que el de un coche de gasolina. Como las cifras cambian con el tiempo, tener la fórmula a mano le permite hacer usted mismo la comparación actualizada en cada periodo."
+        },
+        {
+          "text": "Formas prácticas de reducir el coste de cargar en casa"
+        },
+        {
+          "items": [
+            "Pase a una tarifa multihoraria y programe la carga en la franja nocturna.",
+            "Siga el consumo real de su coche en kWh/100 km y evite estimaciones exageradas.",
+            "Mantenga un presupuesto realista teniendo en cuenta las pérdidas de carga (~10 %).",
+            "Aproveche automáticamente las horas más baratas con un cargador doméstico programable.",
+            "Cargue de forma segura y eficiente eligiendo un wallbox de la potencia adecuada al cuadro de su vivienda."
+          ]
+        },
+        {
+          "text": "¿Busca una solución de carga programable y de la potencia adecuada para su casa? Consulte los modelos de wallbox doméstico de Bemis.",
+          "label": "Ver los modelos de wallbox"
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Cuánto cuesta por kilómetro cargar un coche eléctrico en casa?",
+          "a": "El coste por kilómetro depende de dos cosas: de cuántos kWh consume su coche cada 100 km y del precio unitario de la electricidad. La fórmula es: (consumo en kWh/100 km ÷ 100) × precio unitario. Por ejemplo, en un coche que consume 18 kWh cada 100 km, añade el 10 % de pérdidas de carga y calcula sobre 19,8 kWh. Para ver el resultado tiene que sustituir el precio unitario actual de su factura. No damos una cifra fija en TL porque los precios de la electricidad cambian con el tiempo; pero la fórmula es siempre la misma y le permite hallar su propia cifra en segundos."
+        },
+        {
+          "q": "¿Cuánto se ahorra cargando con la tarifa nocturna?",
+          "a": "En la tarifa multihoraria de Türkiye el día se divide en tres franjas, y la nocturna es claramente la más barata. Al enchufar el coche por la tarde y hacer que la carga caiga en las horas de noche, compra la misma energía a un precio unitario más bajo que en la franja diurna o de punta. La magnitud exacta del ahorro depende de la diferencia de precio actual entre las franjas; puede ver esa diferencia en su factura. Un cargador programable le ayuda a aprovechar esta ventaja de forma regular al planificar la carga automáticamente en la franja nocturna, sin que tenga que estar pendiente del coche a mano."
+        },
+        {
+          "q": "¿Qué son las pérdidas de carga y cómo afectan al coste?",
+          "a": "La energía que toma del enchufe es algo mayor que la que entra en su batería. La diferencia se pierde como calor en el cable, el convertidor y la gestión de la batería. En la carga AC doméstica esa pérdida ronda el 10 %. Es decir, el consumo real que aparece en la factura es algo mayor que la energía neta que usa el coche. Para calcular bien el coste, multiplique el consumo en kWh del coche por aproximadamente 1,1 o añádale un 10 %. En una sola sesión parece poco, pero con muchos kilómetros anuales la diferencia total se nota, así que conviene tenerla en cuenta en la planificación del presupuesto."
+        },
+        {
+          "q": "¿De verdad es más barato un coche eléctrico que uno de gasolina?",
+          "a": "Para hacer bien la comparación, calcule ambos coches con la misma fórmula. Para el eléctrico, el coste por kilómetro es el producto del consumo por el precio unitario de la electricidad; para el de gasolina, el del consumo en litros por el precio del litro. Cuando sustituya sus propios precios actuales de electricidad y combustible, verá que el gasto energético por kilómetro de un coche eléctrico —sobre todo cargado en casa con la tarifa nocturna— suele salir bastante más bajo que el de uno de gasolina. La proporción exacta varía con los precios; por eso lo más sensato es usar la fórmula y hacer usted mismo la comparación con cifras actuales."
+        },
+        {
+          "q": "¿Cómo sé cuántos kWh consume mi coche cada 100 km?",
+          "a": "El valor más exacto está en la propia pantalla de su coche. En la mayoría de los coches eléctricos el consumo medio aparece en el cuadro de instrumentos como «kWh/100 km» y refleja sus hábitos reales de conducción. Como rango general, los coches eléctricos consumen típicamente entre 15 y 22 kWh cada 100 km; los modelos compactos se acercan al límite inferior y los vehículos grandes y la conducción rápida por autopista, al superior. En invierno el consumo sube por la calefacción. Usar en el cálculo de coste la media real que muestra el coche, en lugar de una estimación, da la cifra más acertada por kilómetro."
+        }
+      ],
+      "related": [
+        {
+          "label": "Cargadores wallbox domésticos"
+        },
+        {
+          "label": "Coste de instalación de una estación de carga para VE"
+        },
+        {
+          "label": "La diferencia entre la carga AC y la DC"
+        },
+        {
+          "label": "¿En cuántas horas se carga un coche eléctrico?"
+        }
+      ]
     },
     "monofaze-mi-trifaze-mi-ev-sarj": {
       "title": "¿Monofásico o trifásico (3 fases)? ¿Qué cargador conviene a su casa?",
@@ -17432,7 +18542,212 @@
       "title": "الاستثمار في الشحن السريع DC للشركات: دليل اتخاذ القرار"
     },
     "hangi-sarj-kablosu-aracima-uyumlu-type-2": {
-      "title": "توافق كابل الشحن مع كل سيارة كهربائية: دليل Type 2"
+      "title": "توافق كابل الشحن مع Togg وTesla وجميع السيارات الكهربائية: دليل Type 2",
+      "metaTitle": "أي كابل شحن يناسب Togg وTesla؟ ‏(Type 2)",
+      "description": "أي كابل شحن يناسب Togg وTesla وجميع السيارات الكهربائية الأوروبية؟ توافق Type 2، والوضع 3، وأحادي/ثلاثي الطور، واختيار الأمبير في دليل عملي واحد.",
+      "excerpt": "تستخدم جميع السيارات الكهربائية الجديدة المباعة في تركيا وأوروبا مدخل Type 2 للشحن AC — وكابل Type 2 الصحيح متوافق معها جميعاً من Togg إلى Tesla. حدّد بهذا الدليل اختيار الطور والأمبير والطول لسيارتك.",
+      "category": "دليل",
+      "body": [
+        {
+          "text": "الجواب المختصر: جميع السيارات الكهربائية الجديدة المباعة في تركيا وأوروبا — Togg وTesla وHyundai وKia وRenault وBMW وMercedes وVolvo وBYD وغيرها — تستخدم في الشحن AC المدخل القياسي نفسه: Type 2 ‏(IEC 62196-2). ولذلك فإن كابل شحن Type 2 — Type 2 متوافق مع هذه السيارات كلها. وبفضل هذا المعيار الواحد يزول إلى حد بعيد القلق من سؤال «هل يناسب هذا الكابل سيارتي؟» أياً كانت العلامة."
+        },
+        {
+          "text": "ومع ذلك يُطرح السؤال دائماً بحسب العلامة: «أي كابل لـTogg؟»، «هل يناسب Type 2 سيارة Tesla؟»، «أي كابل أشتري لسيارتي الجديدة؟» وهذا الدليل ليس موسوعة تقنية لأنواع الموصّلات؛ بل قائمة تحقّق عملية تحلّ قلق المالك بشأن التوافق. أجوبة خاصة بـTogg وTesla، وجدول موجز علامةً بعلامة، والتمييز بين الوضع 2 والوضع 3، واختيار الأمبير والطور، والعلامات التي يُنظر إليها قبل الشراء — كل ذلك في صفحة واحدة."
+        },
+        {
+          "text": "أي كابل شحن يناسب Togg؟"
+        },
+        {
+          "text": "مدخل الشحن AC في Togg T10X هو Type 2. والكابل الذي ستستخدمه عند الشحن من wallbox في المنزل أو من محطة AC عامة هو طقم شحن Type 2 — Type 2 من الوضع 3. وثمة تفصيل عملي مهم: ففي معظم محطات AC العامة لا يكون الكابل مرفقاً بالمحطة، بل يوصّل السائق كابله الخاص. ولذلك فإن إبقاء كابل Type 2 في صندوق سيارتك Togg ليس رفاهية بل ضرورة فعلية."
+        },
+        {
+          "text": "ويُختار الاستيعاب بحسب التركيب. فإن كان في منزلك خط ثلاثي الطور وwallbox ثلاثي الطور، فإن كابلاً ثلاثي الطور بتيار 16A يفي بالتركيبات بقدرة 11 kW، وكابلاً ثلاثي الطور بتيار 32A يفي بالتركيبات حتى 22 kW. أما على الخط أحادي الطور فيكفي طقم أحادي الطور بتيار 32A حتى 7,4 kW. والقدرة القصوى التي تقبلها سيارتك في الشحن AC مذكورة في دليل الاستخدام؛ وينبغي اختيار الكابل باستيعاب قادر على حمل هذه القيمة. وإن كنت متردداً فإن الطقم ثلاثي الطور بتيار 32A هو الخيار الأكثر مرونة: فهو يعمل اليوم دون مشكلة على تركيب بقدرة أقل، ولن تحتاج إلى تغييره غداً عند رفع القدرة."
+        },
+        {
+          "text": "أي كابل شحن يناسب Tesla؟"
+        },
+        {
+          "text": "الجواب عن سؤال «هل Tesla متوافقة مع كابل Type 2؟» واضح: نعم. فسيارات Tesla المصنوعة للسوق الأوروبية والمباعة في تركيا — بما فيها Model 3 وModel Y — تستخدم في الشحن AC مدخل Type 2 القياسي. ولا تحتاج إلى البحث عن «كابل Tesla» منفصل؛ فكابل Type 2 — Type 2 يحمل علامة CE ومطابق لـIEC 62196-2 يعمل دون مشكلة مع Tesla على wallbox المنزل وفي محطات AC العامة."
+        },
+        {
+          "text": "ولنسجّل ملاحظتين. الأولى: معيار التوصيل المختلف المستخدَم في السوق الأمريكية ‏(NACS) لا يسري على سيارات Tesla المباعة في تركيا؛ فالسيارات هنا تأتي بتجهيز أوروبي. والثانية: في الشحن السريع DC — بما في ذلك Supercharger — يكون الكابل مثبَّتاً دائماً على المحطة، ولا تستخدم كابلك الخاص. فكابل Type 2 المحمول لديك مخصّص للشحن AC فقط. وتجد دليلنا المفصّل عن شحن Tesla في تركيا ضمن المقالات ذات الصلة."
+        },
+        {
+          "text": "مدخل الشحن AC علامةً بعلامة: جميعها Type 2"
+        },
+        {
+          "text": "يلخّص الجدول أدناه مدخل الشحن AC لأكثر العلامات التي يُسأل عنها. والقاعدة بسيطة عن قصد: ففي السيارات الكهربائية الجديدة المعروضة للبيع في السوقين التركية والأوروبية يكون معيار مدخل AC هو Type 2. وتسري القاعدة نفسها على العلامات التي لا تراها في الجدول."
+        },
+        {
+          "caption": "السوق التركية/الأوروبية — مدخل الشحن AC بحسب العلامة",
+          "headers": [
+            "العلامة (طُرز مثال)",
+            "مدخل الشحن AC",
+            "توافق كابل Type 2"
+          ],
+          "rows": [
+            [
+              "Togg ‏(T10X)",
+              "Type 2",
+              "متوافق"
+            ],
+            [
+              "Tesla ‏(Model 3، Model Y)",
+              "Type 2",
+              "متوافق"
+            ],
+            [
+              "Hyundai / Kia ‏(Ioniq 5، EV6...)",
+              "Type 2",
+              "متوافق"
+            ],
+            [
+              "Renault / Fiat / Peugeot / Opel",
+              "Type 2",
+              "متوافق"
+            ],
+            [
+              "BMW / Mercedes / Audi / Volkswagen",
+              "Type 2",
+              "متوافق"
+            ],
+            [
+              "Volvo / MG / BYD",
+              "Type 2",
+              "متوافق"
+            ]
+          ]
+        },
+        {
+          "text": "والاستثناء الوحيد بقي في الماضي: فبعض الطُرز المباعة في مطلع عام 2010 وما بعده استخدمت مدخل AC مختلفاً يُسمّى Type 1. ولن تصادف هذه الحالة في السيارات الجديدة؛ وإن كنت تشتري سيارة مستعملة قديمة فيكفي أن تفتح غطاء الشحن وتنظر — إذ يسهل تمييز مدخل Type 2 الدائري ذي 7 أطراف. ولدينا دليل منفصل يشرح بالتفصيل أنواع الموصّلات كلها (بما في ذلك CCS2 وCHAdeMO في جانب DC)؛ أما محور هذه المقالة فهو توافق كابل AC."
+        },
+        {
+          "text": "الوضع 2 أم الوضع 3؟ من المأخذ أم من الـwallbox؟"
+        },
+        {
+          "text": "المفهوم الثاني الذي يصادفك عند البحث عن كابل هو «الوضع»، وجوابه يتوقف على المكان الذي ستشحن منه:"
+        },
+        {
+          "items": [
+            "الوضع 3 — كابل الـwallbox ومحطة AC: وهو كابل Type 2 — Type 2 المستخدَم بين محطة الشحن والسيارة. وتتولّى المحطة تبادل الإشارات، ويُقفل الموصّل ميكانيكياً طوال الشحن. وكابلات الشحن موضوع هذا الدليل تنتمي إلى صنف الوضع 3 ‏(IEC 61851-1).",
+            "الوضع 2 — ليس كابلاً بل جهازاً محمولاً: فللشحن من المأخذ المنزلي يُستخدَم جهاز شحن محمول عليه صندوق حماية وتحكّم؛ وهذا الصندوق يوفّر السلامة بين الطرف الموصول بالمأخذ والسيارة."
+          ]
+        },
+        {
+          "text": "والخلاصة العملية: إن كان الـwallbox لديك من النوع ذي المأخذ (بلا كابل) فستحتاج إلى شراء كابل Type 2 من الوضع 3 إضافةً إليه؛ وإن كان من النوع ذي الكابل الثابت فالكابل جاهز على الجهاز. وقد قارنّا بالتفصيل في دليل منفصل بين الـwallbox وجهاز الشحن المحمول في المنزل."
+        },
+        {
+          "text": "كم أمبيراً وكم طوراً؟ القاعدة البسيطة التي تحدّد سرعة الشحن"
+        },
+        {
+          "text": "توافق Type 2 يضمن التوصيل المادي؛ أما سرعة الشحن فيحدّدها أدنى ثلاث قيم: قدرة القبول AC في سيارتك، وقدرة المحطة، واستيعاب الكابل. وتُعرَف الكابلات بقيم الطور والتيار؛ ويمكن تلخيص المقابلات هكذا:"
+        },
+        {
+          "items": [
+            "أحادي الطور 16A ← 3,7 kW · أحادي الطور 32A ← 7,4 kW",
+            "ثلاثي الطور 16A ← 11 kW · ثلاثي الطور 32A ← 22 kW",
+            "وإن كان استيعاب الكابل أعلى من الحاجة فلا مشكلة؛ أما إن كان أقل فتنزل سرعة الشحن إلى حدّ الكابل."
+          ]
+        },
+        {
+          "text": "وسؤال عدد الأمتار موازنة مشابهة: فالكابل القصير يقيّد موضع ركنك، والكابل الطويل بلا داعٍ يضيف عبء الحمل واللفّ. وتجد كل تفاصيل اختيار الطول والأمبير — مع تمديدات المنزل وسيناريوهات الاستخدام والأمثلة — في دليلنا «كم متراً وكم أمبيراً يجب أن يكون كابل الشحن؟»."
+        },
+        {
+          "text": "ما الذي ينبغي الانتباه إليه عند شراء كابل شحن؟"
+        },
+        {
+          "text": "بعد التحقق من التوافق يأتي دور علامات الجودة والسلامة. وننصح بمراجعة البنود الآتية قبل الشراء:"
+        },
+        {
+          "items": [
+            "علامة CE واختبارات المطابقة: المؤشّر الأساسي على أن الكابل اختُبر وفق المعايير ذات الصلة.",
+            "موصّل Type 2 مطابق لـIEC 62196-2: يوفّر توصيلاً قياسياً دون مشكلات في جانب السيارة والمحطة.",
+            "إشارات الوضع 3 والقفل الميكانيكي ‏(IEC 61851-1): يمنع خروج الموصّل من مكانه أثناء الشحن.",
+            "مقطع الكابل: كلما زاد التيار وجب أن يكبر مقطع الموصّل — فمثلاً يُستخدَم 2,5 mm² في أطقم 16A و6 mm² في أطقم 32A.",
+            "متانة الغلاف الخارجي: بنية كابل خالية من الهالوجين ومقاومة للأشعة فوق البنفسجية والعوامل الجوية تُطيل العمر في الاستخدام الخارجي.",
+            "فئة الحماية IP: إن كان الكابل سيُستخدَم كثيراً في الخارج فتحقّق من فئة حماية الموصّلات في وثائق الشركة المصنّعة."
+          ]
+        },
+        {
+          "text": "عائلات كابلات الشحن Type 2 من Bemis"
+        },
+        {
+          "text": "تنتج Bemis أطقم شحن Type 2 — Type 2 من الوضع 3 بأربع سعات أساسية. وتستخدم جميع الأطقم موصّل IEC 62196-2، وإشارات الوضع 3 بقفل ميكانيكي ‏(IEC 61851-1)، وموصّلاً نحاسياً مرناً، وغلافاً خارجياً خالياً من الهالوجين مقاوماً للأشعة فوق البنفسجية والعوامل الجوية؛ وتجتاز الأطقم اختبارات المطابقة CE. أي أنها متوافقة مع جميع السيارات الواردة في الجدول — من Togg إلى Tesla."
+        },
+        {
+          "caption": "عائلات أطقم الشحن Type 2 من Bemis ‏(الوضع 3، IEC 62196-2)",
+          "headers": [
+            "الطقم",
+            "الطور / التيار",
+            "القدرة",
+            "مقطع الكابل",
+            "خيارات الطول"
+          ],
+          "rows": [
+            [
+              "طقم شحن 16A أحادي الطور",
+              "أحادي الطور / 16A",
+              "3,7 kW",
+              "3×2,5 mm² + 1×0,75 mm²",
+              "3 / 5 / 7 / 8 / 10 م"
+            ],
+            [
+              "طقم شحن 32A أحادي الطور",
+              "أحادي الطور / 32A",
+              "7,4 kW",
+              "3×6 mm² + 1×0,75 mm²",
+              "3 / 5 / 7 / 8 / 10 م"
+            ],
+            [
+              "طقم شحن 16A ثلاثي الطور",
+              "ثلاثي الطور / 16A",
+              "11 kW",
+              "5×2,5 mm² + 1×0,75 mm²",
+              "3 / 5 / 7 / 8 / 10 / 15 م"
+            ],
+            [
+              "طقم شحن 32A ثلاثي الطور",
+              "ثلاثي الطور / 32A",
+              "22 kW",
+              "5×6 mm² + 1×0,75 mm²",
+              "3 / 5 / 7 / 8 / 10 / 15 م"
+            ]
+          ]
+        },
+        {
+          "text": "ولمقارنة الطول والاستيعاب المناسبين لسيارتك ألقِ نظرة على صفحة منتجاتنا.",
+          "label": "استعرض كابلات الشحن Type 2"
+        }
+      ],
+      "faq": [
+        {
+          "q": "أي كابل شحن يناسب Togg T10X؟",
+          "a": "يستخدم Togg T10X، كسائر السيارات الكهربائية الجديدة في تركيا وأوروبا، مدخل Type 2 في الشحن AC؛ وكابل شحن Type 2 — Type 2 من الوضع 3 متوافق مع T10X. فإن كان في منزلك wallbox ثلاثي الطور فإن كابلاً ثلاثي الطور بتيار 16A يفي بالتركيبات بقدرة 11 kW، وكابلاً ثلاثي الطور بتيار 32A يفي بالتركيبات حتى 22 kW؛ وعلى الخط أحادي الطور يكفي طقم أحادي الطور بتيار 32A حتى 7,4 kW. والقدرة القصوى التي تقبلها السيارة في جانب AC مذكورة في دليل الاستخدام؛ وينبغي اختيار الكابل باستيعاب قادر على حمل هذه القيمة. ولأنك توصّل كابلك الخاص في معظم محطات AC العامة فإن إبقاء كابل Type 2 في السيارة ضرورة عملية لأصحاب Togg."
+        },
+        {
+          "q": "هل كابل Type 2 متوافق مع Tesla Model 3 أو Model Y؟",
+          "a": "نعم. فسيارات Tesla المصنوعة للسوق الأوروبية والمباعة في تركيا — بما فيها Model 3 وModel Y — تستخدم في الشحن AC مدخل Type 2 القياسي. ولذلك يعمل كابل شحن Type 2 — Type 2 من الوضع 3 دون مشكلة مع Tesla على wallbox المنزل وفي محطات AC العامة؛ ولا حاجة للبحث عن «كابل Tesla» منفصل. ومعيار التوصيل المختلف في السوق الأمريكية ‏(NACS) لا يسري على السيارات المباعة في تركيا. وفي الشحن السريع DC — بما في ذلك Supercharger — يكون الكابل مثبَّتاً على المحطة؛ ولا تستخدم كابلك الخاص. ويكفي لسيارتك Tesla كابل Type 2 جيد يحمل علامة CE ومطابق لـIEC 62196-2."
+        },
+        {
+          "q": "كيف أعرف إن كان كابل الشحن يناسب سيارتي؟",
+          "a": "تكفي ثلاث عمليات تحقّق. الأولى الموصّل: فمدخل AC في جميع السيارات الكهربائية الجديدة المباعة في تركيا وأوروبا هو Type 2؛ فإن كان جانب السيارة في كابلك Type 2 فقد اكتمل التوافق المادي. والثانية القدرة: فالقيمة القصوى التي تقبلها سيارتك في الشحن AC مذكورة في دليل الاستخدام، ويجب أن يكون استيعاب الكابل من حيث الطور والتيار قادراً على حمل هذه القيمة. وإن لم يكن قادراً فلا ينشأ خطر، وإنما يجري الشحن عند حدّ الكابل فحسب. والثالثة الوثائق: فعلامة CE مع المطابقة لـIEC 62196-2 وIEC 61851-1 دليل على تصنيع آمن. والاستثناء الوحيد بعض الطُرز القديمة ذات مدخل Type 1 من مطلع عام 2010 وما بعده؛ فإن كنت تشتري سيارة مستعملة قديمة فافتح غطاء الشحن وتحقّق بالعين من مدخل Type 2 الدائري ذي 7 أطراف."
+        },
+        {
+          "q": "سيارتي تقبل 11 kW؛ فهل تحدث مشكلة إن اشتريت كابلاً باستيعاب 22 kW؟",
+          "a": "لا، لا تحدث مشكلة — بل على العكس يمنحك ذلك مرونة. فقدرة الشحن تحدّدها دائماً أضعف حلقة في السلسلة: فإن كانت سيارتك تقبل 11 kW فسيجري الشحن عند 11 kW حتى مع كابل ثلاثي الطور بتيار 32A قادر على حمل 22 kW. والكابل لا «يحمّل السيارة قدرة زائدة»؛ وإنما يحدّد الحد الأعلى الذي يستطيع حمله. وميزة الكابل الأعلى استيعاباً هي الاستعداد للمستقبل: فإن كانت سيارتك التالية أو الـwallbox الجديد لديك يدعم 22 kW في AC واصلت استخدام الكابل نفسه. أما ما ينبغي الانتباه إليه فهو العكس: إذا كان استيعاب الكابل دون قدرة السيارة والمحطة نزلت سرعة الشحن إلى حدّ الكابل. والأصوب اختيار الكابل لا وفق تركيبك اليوم بل وفق حاجتك في السنوات القليلة المقبلة."
+        }
+      ],
+      "related": [
+        {
+          "label": "كم متراً وكم أمبيراً يجب أن يكون كابل شحن السيارة الكهربائية؟"
+        },
+        {
+          "label": "أنواع موصّلات شحن السيارات الكهربائية: الفرق بين Type 2 وCCS2 وCHAdeMO"
+        },
+        {
+          "label": "شحن Tesla في تركيا: كيف تُشحن Tesla عبر Type 2؟"
+        }
+      ]
     },
     "40-kw-dc-sarj-istasyonu": {
       "title": "ما هي محطة الشحن DC بقدرة 40 kW، ولمن تناسب، وما مدى سرعتها؟",
@@ -17638,7 +18953,172 @@
       ]
     },
     "evde-elektrikli-arac-sarj-maliyeti-km-basina": {
-      "title": "تكلفة الشحن المنزلي: كم لكل كيلومتر؟"
+      "title": "تكلفة شحن السيارة الكهربائية في المنزل: كم للكيلومتر؟",
+      "metaTitle": "تكلفة شحن السيارة الكهربائية: كم لـ100 كم؟ حساب الشحن المنزلي",
+      "description": "تكلفة 100 كم = الاستهلاك (kWh/100 كم) × سعر وحدة الكهرباء (TL/kWh). تستهلك السيارة المتوسطة 15-22 kWh؛ مثال حسابي بالتعرفة الليلية ومقارنة مع الشحن العام.",
+      "excerpt": "كيف تحسب تكلفة شحن السيارة الكهربائية في المنزل لكل كيلومتر؟ مثال خطوة بخطوة يشمل استهلاك kWh وسعر وحدة الكهرباء وفقد الشحن 10 % والتعرفة الليلية.",
+      "category": "دليل",
+      "body": [
+        {
+          "text": "أول سؤال يطرحه الجميع قبل شراء سيارة كهربائية هو: «إن شحنتُ في المنزل فكم ستكلّفني فعلاً؟» والخبر السار أن هذا الحساب أبسط بكثير مما يُظنّ. في هذا الدليل نبيّن لك خطوة بخطوة كيف تحسب تكلفة شحن السيارة الكهربائية في المنزل لكل كيلومتر، ونشرح كيف تُجرى المقارنة مع سيارة بنزين. وجميع الأمثلة الرقمية افتراضية؛ وستجد رقمك الصافي بوضع سعر الوحدة الحالي من فاتورتك مكانها."
+        },
+        {
+          "text": "المعادلة الأساسية لتكلفة الشحن"
+        },
+        {
+          "text": "تتلخّص تكلفة الشحن في المنزل في عملية ضرب واحدة: تضرب الطاقة المستهلَكة (kWh) في سعر وحدة الكهرباء (TL/kWh). فمثلاً إذا دخلت البطارية 40 kWh وكان سعر الوحدة X TL/kWh فإن تكلفة ذلك الشحن تساوي 40 × X TL. أما لإيجاد التكلفة لكل كيلومتر فيكفي أن تعرف كم kWh تستهلك السيارة لكل 100 كم."
+        },
+        {
+          "items": [
+            "تكلفة الشحنة الواحدة = الطاقة المستهلَكة (kWh) × سعر وحدة الكهرباء (TL/kWh)",
+            "التكلفة لكل كيلومتر = (استهلاك السيارة kWh/100 كم ÷ 100) × سعر وحدة الكهرباء (TL/kWh)",
+            "تكلفة 100 كم = الاستهلاك (kWh/100 كم) × سعر وحدة الكهرباء (TL/kWh)"
+          ]
+        },
+        {
+          "text": "كم kWh تستهلك سيارتك لكل 100 كم؟"
+        },
+        {
+          "text": "يتراوح متوسط استهلاك الطاقة في السيارات الكهربائية عادةً بين 15 و22 kWh لكل 100 كم. وتقترب الطُرز المدمجة والموفّرة من الحد الأدنى، بينما تقترب سيارات الدفع الرباعي الكبيرة والقيادة على الطرق السريعة بسرعات عالية من الحد الأعلى. ويمكنك قراءة القيمة الدقيقة من مؤشّر متوسط الاستهلاك على شاشة سيارتك المعروض بصيغة «kWh/100 كم». وفي أشهر الشتاء يرتفع الاستهلاك قليلاً بسبب تدفئة المقصورة وحاجة البطارية إلى التسخين؛ ومن المفيد ترك هامش لذلك في حسابك."
+        },
+        {
+          "text": "لا تنسَ فقد الشحن (~10 %)"
+        },
+        {
+          "text": "الطاقة التي تسحبها من المأخذ أكبر قليلاً من الطاقة التي تدخل بطاريتك. ويضيع الفرق حرارةً في الكابل والمحوّل وإدارة البطارية. وفي الشحن المنزلي AC يبلغ هذا الفقد نحو 10 %. أي أنك بعد حساب الطاقة التي تستخدمها السيارة تحصل على تكلفة أدقّ إذا ضربت الناتج تقريباً في 1,1 (أو أضفت 10 %)، بما يعكس الاستهلاك الحقيقي الظاهر في الفاتورة. وقد يبدو فرقاً صغيراً، لكنه يصبح ملموساً في المجموع لدى سائق يقطع آلاف الكيلومترات سنوياً."
+        },
+        {
+          "text": "التعرفة متعددة الأوقات في تركيا: لماذا الشحن الليلي رخيص؟"
+        },
+        {
+          "text": "في تركيا يمكن للمشتركين السكنيين اختيار التعرفة متعددة الأوقات (ثلاثية الأوقات) بدل التعرفة أحادية الوقت. وفي هذه التعرفة يُقسَّم اليوم إلى ثلاث فترات: النهار، وذروة المساء (فترة الاستهلاك الأكثف وسعر الوحدة الأعلى)، والليل. وفترة الليل هي الأرخص بوضوح. وهذه فرصة حقيقية لمالك السيارة الكهربائية: فحين تصل الجهاز بالسيارة مساءً عند عودتك إلى المنزل وتجعل الشحن يقع في الفترة الليلية تحصل على الطاقة نفسها بسعر وحدة أقل بكثير."
+        },
+        {
+          "items": [
+            "الفترة النهارية: سعر وحدة متوسط، للاستخدام خلال النهار.",
+            "فترة الذروة (المساء): سعر الوحدة الأعلى؛ وتجنّب قدر الإمكان أن يقع الشحن في هذه الساعات.",
+            "الفترة الليلية: سعر الوحدة الأدنى؛ وهي المجال المثالي لشحن السيارة.",
+            "وقد تختلف حدود الفترات بحسب شركة التوزيع؛ فتحقّق من الأوقات الحالية من فاتورتك أو من شركة التوزيع لديك."
+          ]
+        },
+        {
+          "text": "ولستَ مضطراً لمتابعة السيارة يدوياً كل مساء. فالطُرز الذكية من Bemis (مثل Charger Pro 2 المزوّد باتصال GSM والأجهزة الداعمة لـOCPP 1.6) تساعدك على جدولة الشحن وإدارة سيناريوهات تشغيله في الفترة الليلية، فلا تفوّت الساعات الأرخص."
+        },
+        {
+          "text": "مثال حسابي خطوة بخطوة (افتراضي)"
+        },
+        {
+          "text": "في المثال أدناه نرمز إلى سعر وحدة الكهرباء بـA TL/kWh بوصفه قيمة افتراضية تماماً. وحين تضع مكان A سعر الوحدة الحالي من فاتورتك (ويُفضَّل سعر الفترة الليلية) ترى تكلفتك الحقيقية. ولنفترض أن سيارتنا تستهلك 18 kWh لكل 100 كم."
+        },
+        {
+          "items": [
+            "الخطوة 1 — استهلاك السيارة: 18 kWh/100 كم (افتراضي، سيارة مثال).",
+            "الخطوة 2 — أضف فقد الشحن: 18 × 1,1 ≈ 19,8 kWh (الطاقة الحقيقية المسحوبة من المأخذ).",
+            "الخطوة 3 — اضرب في سعر الوحدة: 19,8 kWh × A TL = تكلفة 100 كم.",
+            "الخطوة 4 — لكل كيلومتر: (19,8 × A) ÷ 100 = تكلفة الكيلومتر بـTL/كم."
+          ]
+        },
+        {
+          "text": "وكما ترى فالمجهول الوحيد هو A، أي سعر الوحدة لديك. وبمجرد وضع A تتضح تكلفة 100 كم وتكلفة الكيلومتر معاً. ومع قيمة A المنخفضة في التعرفة الليلية ينزل هذا الرقم بوضوح مقارنةً بالنهار."
+        },
+        {
+          "caption": "مثال افتراضي: تكلفة الكيلومتر عند قيم استهلاك مختلفة ‏(A = سعر وحدة الكهرباء، TL/kWh)",
+          "headers": [
+            "استهلاك السيارة (kWh/100 كم)",
+            "شامل فقد الشحن (kWh/100 كم)",
+            "تكلفة 100 كم",
+            "تكلفة الكيلومتر"
+          ],
+          "rows": [
+            [
+              "15",
+              "16,5",
+              "16,5 × A TL",
+              "0,165 × A TL/كم"
+            ],
+            [
+              "18",
+              "19,8",
+              "19,8 × A TL",
+              "0,198 × A TL/كم"
+            ],
+            [
+              "22",
+              "24,2",
+              "24,2 × A TL",
+              "0,242 × A TL/كم"
+            ]
+          ]
+        },
+        {
+          "text": "كيف تُجرى المقارنة مع سيارة بنزين؟"
+        },
+        {
+          "text": "لمقارنة المثل بالمثل طبّق المنطق نفسه على سيارة البنزين. فتكلفتها أيضاً عملية ضرب واحدة: تضرب اللترات المستهلَكة لكل 100 كم في سعر اللتر. ولنفترض أن سيارة البنزين تستهلك 7 لترات لكل 100 كم وأن سعر اللتر B TL (افتراضي أيضاً). عندئذٍ تكون تكلفة 100 كم 7 × B TL، وتكلفة الكيلومتر (7 × B) ÷ 100 = 0,07 × B TL/كم."
+        },
+        {
+          "items": [
+            "تكلفة 100 كم بالبنزين = استهلاك الوقود (لتر/100 كم) × سعر اللتر (B TL/لتر)",
+            "تكلفة الكيلومتر بالبنزين = (لتر/100 كم ÷ 100) × B TL/لتر",
+            "المقارنة: ضع جنباً إلى جنب تكلفة الكيلومتر بالكهرباء ‏(0,198 × A) وتكلفة الكيلومتر بالبنزين ‏(0,07 × B) بقيمتَي A وB الحاليتين لديك."
+          ]
+        },
+        {
+          "text": "وحين تضع سعر وحدة الكهرباء من فاتورتك (A) وسعر الوقود الحالي في المحطة (B) سترى أن نفقة الطاقة لكل كيلومتر في سيارة كهربائية تُشحن في المنزل بالتعرفة الليلية تكون عادةً أقل بكثير مقارنةً بسيارة بنزين. ولأن الأرقام تتغيّر مع الوقت فإن إبقاء المعادلة في متناول يدك يتيح لك إجراء المقارنة المحدَّثة بنفسك في كل فترة."
+        },
+        {
+          "text": "طرق عملية لخفض تكلفة الشحن المنزلي"
+        },
+        {
+          "items": [
+            "انتقل إلى تعرفة متعددة الأوقات وخطّط الشحن في الفترة الليلية.",
+            "تابع الاستهلاك الحقيقي لسيارتك بصيغة kWh/100 كم وتجنّب التقديرات المبالغ فيها.",
+            "أبقِ ميزانيتك واقعية بأخذ فقد الشحن ‏(~10 %) في الحسبان.",
+            "التقط الساعات الأرخص تلقائياً بجهاز شحن منزلي قابل للجدولة.",
+            "اشحن بأمان وكفاءة باختيار wallbox بقدرة مناسبة للوحة منزلك."
+          ]
+        },
+        {
+          "text": "هل تبحث عن حل شحن قابل للجدولة وبقدرة مناسبة لمنزلك؟ اطّلع على طُرز wallbox المنزلية من Bemis.",
+          "label": "استعرض طُرز Wallbox"
+        }
+      ],
+      "faq": [
+        {
+          "q": "كم تبلغ تكلفة شحن السيارة الكهربائية في المنزل لكل كيلومتر؟",
+          "a": "تتوقف تكلفة الكيلومتر على أمرين: كم kWh تستهلك سيارتك لكل 100 كم، وسعر وحدة الكهرباء. والمعادلة هي: (الاستهلاك kWh/100 كم ÷ 100) × سعر الوحدة. فمثلاً في سيارة تستهلك 18 kWh لكل 100 كم تضيف فقد الشحن البالغ 10 % وتحسب على أساس 19,8 kWh. ولرؤية النتيجة عليك وضع سعر الوحدة الحالي من فاتورتك. ولا نعطي رقماً قاطعاً بالـTL لأن أسعار الكهرباء تتغيّر مع الوقت؛ لكن المعادلة تبقى واحدة دائماً وتتيح لك إيجاد رقمك في ثوانٍ."
+        },
+        {
+          "q": "كم يوفّر الشحن بالتعرفة الليلية؟",
+          "a": "في التعرفة متعددة الأوقات في تركيا يُقسَّم اليوم إلى ثلاث فترات، والفترة الليلية هي الأرخص بوضوح. وحين تصل السيارة مساءً وتجعل الشحن يقع في ساعات الليل تحصل على الطاقة نفسها بسعر وحدة أقل مقارنةً بالفترة النهارية أو فترة الذروة. أما مقدار التوفير الدقيق فيتوقف على فارق السعر الحالي بين الفترات؛ ويمكنك رؤية هذا الفارق في فاتورتك. وجهاز الشحن القابل للجدولة يساعدك على اقتناص هذه الميزة بانتظام بجدولة الشحن تلقائياً في الفترة الليلية دون حاجة إلى متابعة السيارة يدوياً."
+        },
+        {
+          "q": "ما هو فقد الشحن وكيف يؤثر في التكلفة؟",
+          "a": "الطاقة التي تسحبها من المأخذ أكبر بقليل من الطاقة التي تدخل بطاريتك. ويضيع الفرق حرارةً في الكابل والمحوّل وإدارة البطارية. وفي الشحن المنزلي AC يبلغ هذا الفقد نحو 10 %. أي أن الاستهلاك الحقيقي الظاهر في الفاتورة أعلى قليلاً من صافي الطاقة التي تستخدمها السيارة. ولحساب التكلفة بدقة اضرب استهلاك السيارة بالـkWh تقريباً في 1,1 أو أضف إليه 10 %. وقد يبدو ذلك صغيراً في المرة الواحدة، لكن الفارق الإجمالي يصبح ملموساً عند قطع مسافات سنوية كبيرة، ولذلك ينبغي أخذه في الحسبان عند تخطيط الميزانية."
+        },
+        {
+          "q": "هل السيارة الكهربائية أرخص فعلاً من البنزينية؟",
+          "a": "لإجراء المقارنة بشكل صحيح احسب السيارتين بالمعادلة نفسها. ففي الكهربائية تكون تكلفة الكيلومتر حاصل ضرب الاستهلاك في سعر وحدة الكهرباء؛ وفي البنزينية حاصل ضرب استهلاك اللترات في سعر اللتر. وحين تضع أسعار الكهرباء والوقود الحالية لديك سترى أن نفقة الطاقة لكل كيلومتر في سيارة كهربائية — خصوصاً تلك التي تُشحن في المنزل بالتعرفة الليلية — تكون عادةً أقل بكثير مقارنةً بالبنزينية. والنسبة الدقيقة تتغيّر بحسب الأسعار؛ ولذلك فالأسلم أن تستخدم المعادلة وتُجري المقارنة بالأرقام الحالية بنفسك."
+        },
+        {
+          "q": "كيف أعرف كم kWh تستهلك سيارتي لكل 100 كم؟",
+          "a": "أدقّ قيمة موجودة على شاشة سيارتك نفسها. ففي معظم السيارات الكهربائية يظهر متوسط الاستهلاك في لوحة العدّادات بصيغة «kWh/100 كم» ويعكس عادات قيادتك الحقيقية. وإن أردنا مدىً عاماً فإن السيارات الكهربائية تستهلك عادةً بين 15 و22 kWh لكل 100 كم؛ وتقترب الطُرز المدمجة من الحد الأدنى، والسيارات الكبيرة والقيادة السريعة على الطرق السريعة من الحد الأعلى. وفي الشتاء يرتفع الاستهلاك بسبب التدفئة. واستخدام المتوسط الحقيقي الذي تعرضه السيارة بدل التخمين في حساب التكلفة يعطي أدقّ رقم لكل كيلومتر."
+        }
+      ],
+      "related": [
+        {
+          "label": "أجهزة شحن wallbox المنزلية"
+        },
+        {
+          "label": "تكلفة تركيب محطة شحن للسيارات الكهربائية"
+        },
+        {
+          "label": "الفرق بين الشحن AC وDC"
+        },
+        {
+          "label": "في كم ساعة تُشحن السيارة الكهربائية؟"
+        }
+      ]
     },
     "monofaze-mi-trifaze-mi-ev-sarj": {
       "title": "أحادي الطور أم ثلاثي الطور (3 أطوار)؟ أي جهاز شحن يناسب منزلك؟",
@@ -22077,7 +23557,212 @@
       "title": "Инвестиции в быструю DC-зарядку для бизнеса: руководство по выбору"
     },
     "hangi-sarj-kablosu-aracima-uyumlu-type-2": {
-      "title": "Совместимость зарядного кабеля для любого электромобиля: руководство по Type 2"
+      "title": "Совместимость зарядного кабеля для Togg, Tesla и всех электромобилей: руководство по Type 2",
+      "metaTitle": "Какой зарядный кабель подходит Togg и Tesla? (Type 2)",
+      "description": "Какой зарядный кабель подходит Togg, Tesla и всем европейским электромобилям? Совместимость Type 2, режим 3, одна или три фазы и выбор силы тока в одном практичном руководстве.",
+      "excerpt": "Все новые электромобили, продаваемые в Турции и Европе, используют для зарядки AC разъём Type 2 — правильный кабель Type 2 совместим со всеми ними, от Togg до Tesla. Определитесь с фазой, силой тока и длиной для своей машины с помощью этого руководства.",
+      "category": "Руководство",
+      "body": [
+        {
+          "text": "Короткий ответ: все новые электромобили, продаваемые в Турции и Европе — Togg, Tesla, Hyundai, Kia, Renault, BMW, Mercedes, Volvo, BYD и прочие, — используют для зарядки AC один и тот же стандартный разъём: Type 2 (IEC 62196-2). Поэтому зарядный кабель Type 2 — Type 2 совместим со всеми этими автомобилями. Беспокойство «подойдёт ли этот кабель моей машине?» благодаря этому единому стандарту в основном исчезает, независимо от марки."
+        },
+        {
+          "text": "И всё же вопрос неизменно задают по маркам: «какой кабель для Togg?», «подходит ли Type 2 для Tesla?», «какой кабель купить к только что приобретённой машине?» Это руководство — не техническая энциклопедия типов разъёмов, а практический контрольный список, снимающий тревогу владельца о совместимости. Ответы конкретно по Togg и Tesla, сводная таблица по маркам, различие между режимом 2 и режимом 3, выбор силы тока и фазности, а также знаки, на которые смотрят перед покупкой, — всё на одной странице."
+        },
+        {
+          "text": "Какой зарядный кабель подходит Togg?"
+        },
+        {
+          "text": "Разъём зарядки AC у Togg T10X — Type 2. Кабель, который вы будете использовать при зарядке от домашнего wallbox или от публичной станции AC, — это зарядный комплект Type 2 — Type 2 режима 3. Важная практическая деталь: на большинстве публичных станций AC кабель к станции не прилагается, водитель подключает собственный. Поэтому держать кабель Type 2 в багажнике вашего Togg — не просто удобство, а фактически необходимость."
+        },
+        {
+          "text": "Ёмкость выбирается по проводке. Если дома есть трёхфазная линия и трёхфазный wallbox, трёхфазный кабель на 16 A раскрывает установки на 11 кВт, а трёхфазный на 32 A — установки до 22 кВт. На однофазной линии однофазного комплекта на 32 A достаточно до 7,4 кВт. Максимальная мощность, которую ваш автомобиль принимает при зарядке AC, указана в руководстве по эксплуатации; кабель следует выбирать с ёмкостью, способной нести это значение. Если вы не определились, трёхфазный комплект на 32 A — самый гибкий выбор: сегодня он без проблем работает и на установке меньшей мощности, а завтра, увеличив мощность, вам не придётся его менять."
+        },
+        {
+          "text": "Какой зарядный кабель подходит Tesla?"
+        },
+        {
+          "text": "Ответ на вопрос «совместима ли Tesla с кабелем Type 2?» однозначен: да. Автомобили Tesla, выпущенные для европейского рынка и продаваемые в Турции, — включая Model 3 и Model Y — используют для зарядки AC стандартный разъём Type 2. Искать отдельный «кабель для Tesla» не нужно; кабель Type 2 — Type 2 с маркировкой CE и соответствием IEC 62196-2 без проблем работает с Tesla на домашнем wallbox и на публичных станциях AC."
+        },
+        {
+          "text": "Две оговорки. Первая: иной стандарт подключения, применяемый на рынке США (NACS), не относится к автомобилям Tesla, продаваемым в Турции; машины здесь поставляются в европейском исполнении. Вторая: при быстрой зарядке DC — в том числе на Supercharger — кабель всегда закреплён на станции, собственный кабель не используется. Ваш переносной кабель Type 2 предназначен только для зарядки AC. Наше подробное руководство о зарядке Tesla в Турции вы найдёте среди связанных материалов."
+        },
+        {
+          "text": "Разъём зарядки AC по маркам: у всех Type 2"
+        },
+        {
+          "text": "Таблица ниже обобщает разъём зарядки AC у марок, о которых спрашивают чаще всего. Правило намеренно простое: у новых электромобилей, предлагаемых на турецком и европейском рынке, стандарт разъёма AC — Type 2. То же правило действует и для марок, которых вы не видите в таблице."
+        },
+        {
+          "caption": "Турецкий/европейский рынок — разъём зарядки AC по маркам",
+          "headers": [
+            "Марка (примеры моделей)",
+            "Разъём зарядки AC",
+            "Совместимость с кабелем Type 2"
+          ],
+          "rows": [
+            [
+              "Togg (T10X)",
+              "Type 2",
+              "Совместим"
+            ],
+            [
+              "Tesla (Model 3, Model Y)",
+              "Type 2",
+              "Совместим"
+            ],
+            [
+              "Hyundai / Kia (Ioniq 5, EV6...)",
+              "Type 2",
+              "Совместим"
+            ],
+            [
+              "Renault / Fiat / Peugeot / Opel",
+              "Type 2",
+              "Совместим"
+            ],
+            [
+              "BMW / Mercedes / Audi / Volkswagen",
+              "Type 2",
+              "Совместим"
+            ],
+            [
+              "Volvo / MG / BYD",
+              "Type 2",
+              "Совместим"
+            ]
+          ]
+        },
+        {
+          "text": "Единственное исключение осталось в прошлом: некоторые модели, продававшиеся в начале 2010-х годов, использовали иной разъём AC под названием Type 1. На новых машинах вы с этим не столкнётесь; если вы покупаете старый подержанный автомобиль, достаточно открыть лючок зарядки и посмотреть — круглый разъём Type 2 с 7 контактами узнаётся легко. У нас есть отдельное руководство, подробно разбирающее все типы разъёмов (включая CCS2 и CHAdeMO со стороны DC); фокус этой статьи — совместимость кабеля AC."
+        },
+        {
+          "text": "Режим 2 или режим 3? От розетки или от wallbox?"
+        },
+        {
+          "text": "Второе понятие, с которым вы столкнётесь при поиске кабеля, — это «режим», и ответ зависит от того, откуда вы будете заряжаться:"
+        },
+        {
+          "items": [
+            "Режим 3 — кабель для wallbox и станции AC: это кабель Type 2 — Type 2, используемый между зарядной станцией и автомобилем. Обмен сигналами ведёт станция, а разъём механически заблокирован на протяжении всей зарядки. Зарядные кабели, которым посвящено это руководство, относятся к классу режима 3 (IEC 61851-1).",
+            "Режим 2 — не кабель, а переносное устройство: для зарядки от бытовой розетки используется портативное зарядное устройство с блоком защиты и управления; именно этот блок обеспечивает безопасность между подключённой к розетке стороной и автомобилем."
+          ]
+        },
+        {
+          "text": "Практический итог: если ваш wallbox с розеткой (без кабеля), вам понадобится дополнительно купить кабель Type 2 режима 3; если он с закреплённым кабелем, кабель уже есть на устройстве. Вопрос «wallbox или портативное устройство дома» мы подробно сравнили в отдельном руководстве."
+        },
+        {
+          "text": "Сколько ампер, сколько фаз? Простое правило, задающее скорость зарядки"
+        },
+        {
+          "text": "Совместимость по Type 2 гарантирует физическое соединение; скорость же зарядки задаёт наименьшее из трёх значений: принимаемая автомобилем мощность AC, мощность станции и пропускная способность кабеля. Кабели обозначают по значениям фазности и тока; соответствия можно обобщить так:"
+        },
+        {
+          "items": [
+            "Одна фаза 16 A → 3,7 кВт · Одна фаза 32 A → 7,4 кВт",
+            "Три фазы 16 A → 11 кВт · Три фазы 32 A → 22 кВт",
+            "Если ёмкость кабеля выше потребности, проблемы не возникает; если ниже, скорость зарядки опускается до предела кабеля."
+          ]
+        },
+        {
+          "text": "Вопрос о метраже — такой же баланс: короткий кабель ограничивает положение при парковке, а излишне длинный добавляет хлопот с переноской и сматыванием. Все подробности выбора длины и силы тока — с домашней проводкой, сценариями использования и примерами — вы найдёте в нашем руководстве «Сколько метров и сколько ампер должен быть зарядный кабель?»."
+        },
+        {
+          "text": "На что обращать внимание при покупке зарядного кабеля?"
+        },
+        {
+          "text": "После подтверждения совместимости очередь за знаками качества и безопасности. Перед покупкой рекомендуем проверить следующие пункты:"
+        },
+        {
+          "items": [
+            "Маркировка CE и испытания на соответствие: базовое свидетельство того, что кабель испытан по применимым стандартам.",
+            "Разъём Type 2, соответствующий IEC 62196-2: обеспечивает стандартное соединение без проблем со стороны автомобиля и станции.",
+            "Сигнализация режима 3 и механическая блокировка (IEC 61851-1): не даёт разъёму выйти из гнезда во время зарядки.",
+            "Сечение кабеля: с ростом тока должно расти и сечение жилы — например, в комплектах на 16 A применяется 2,5 мм², а в комплектах на 32 A — 6 мм².",
+            "Стойкость внешней оболочки: безгалогенная конструкция кабеля, устойчивая к ультрафиолету и погоде, продлевает срок службы при наружном использовании.",
+            "Степень защиты IP: если кабель будет часто использоваться на улице, уточните степень защиты разъёмов по документам производителя."
+          ]
+        },
+        {
+          "text": "Семейства зарядных кабелей Type 2 от Bemis"
+        },
+        {
+          "text": "Bemis выпускает зарядные комплекты Type 2 — Type 2 режима 3 в четырёх основных исполнениях по ёмкости. Во всех комплектах применяются разъём по IEC 62196-2, сигнализация режима 3 с механической блокировкой (IEC 61851-1), гибкая медная жила и безгалогенная внешняя оболочка, стойкая к ультрафиолету и погоде; комплекты проходят испытания на соответствие CE. То есть они совместимы со всеми автомобилями из таблицы — от Togg до Tesla."
+        },
+        {
+          "caption": "Семейства зарядных комплектов Type 2 от Bemis (режим 3, IEC 62196-2)",
+          "headers": [
+            "Комплект",
+            "Фаза / Ток",
+            "Мощность",
+            "Сечение кабеля",
+            "Варианты длины"
+          ],
+          "rows": [
+            [
+              "Зарядный комплект 16 A, одна фаза",
+              "Одна фаза / 16 A",
+              "3,7 кВт",
+              "3×2,5 мм² + 1×0,75 мм²",
+              "3 / 5 / 7 / 8 / 10 м"
+            ],
+            [
+              "Зарядный комплект 32 A, одна фаза",
+              "Одна фаза / 32 A",
+              "7,4 кВт",
+              "3×6 мм² + 1×0,75 мм²",
+              "3 / 5 / 7 / 8 / 10 м"
+            ],
+            [
+              "Зарядный комплект 16 A, три фазы",
+              "Три фазы / 16 A",
+              "11 кВт",
+              "5×2,5 мм² + 1×0,75 мм²",
+              "3 / 5 / 7 / 8 / 10 / 15 м"
+            ],
+            [
+              "Зарядный комплект 32 A, три фазы",
+              "Три фазы / 32 A",
+              "22 кВт",
+              "5×6 мм² + 1×0,75 мм²",
+              "3 / 5 / 7 / 8 / 10 / 15 м"
+            ]
+          ]
+        },
+        {
+          "text": "Чтобы сравнить подходящие вашей машине длину и ёмкость, загляните на нашу страницу продукции.",
+          "label": "Посмотреть зарядные кабели Type 2"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Какой зарядный кабель подходит Togg T10X?",
+          "a": "Togg T10X, как и все новые электромобили в Турции и Европе, использует для зарядки AC разъём Type 2; зарядный кабель Type 2 — Type 2 режима 3 совместим с T10X. Если дома есть трёхфазный wallbox, трёхфазный кабель на 16 A раскрывает установки на 11 кВт, а трёхфазный на 32 A — установки до 22 кВт; на однофазной линии однофазного комплекта на 32 A достаточно до 7,4 кВт. Максимальная мощность, принимаемая автомобилем со стороны AC, указана в руководстве по эксплуатации; кабель следует выбирать с ёмкостью, способной нести это значение. Поскольку на большинстве публичных станций AC вы подключаете собственный кабель, держать кабель Type 2 в машине — практическая необходимость для владельцев Togg."
+        },
+        {
+          "q": "Совместим ли кабель Type 2 с Tesla Model 3 или Model Y?",
+          "a": "Да. Автомобили Tesla, выпущенные для европейского рынка и продаваемые в Турции, — включая Model 3 и Model Y — используют для зарядки AC стандартный разъём Type 2. Поэтому зарядный кабель Type 2 — Type 2 режима 3 без проблем работает с Tesla на домашнем wallbox и на публичных станциях AC; искать отдельный «кабель для Tesla» не нужно. Иной стандарт подключения на рынке США (NACS) к продаваемым в Турции машинам не относится. При быстрой зарядке DC — в том числе на Supercharger — кабель закреплён на станции; собственный не используется. Качественного кабеля Type 2 с маркировкой CE и соответствием IEC 62196-2 для вашей Tesla достаточно."
+        },
+        {
+          "q": "Как понять, подходит ли зарядный кабель моей машине?",
+          "a": "Достаточно трёх проверок. Первая — разъём: разъём AC у всех новых электромобилей, продаваемых в Турции и Европе, — Type 2; если сторона вашего кабеля, обращённая к машине, Type 2, физическая совместимость решена. Вторая — мощность: максимальное значение, принимаемое машиной при зарядке AC, указано в руководстве по эксплуатации, и ёмкость кабеля по фазности и току должна нести это значение. Если не несёт, опасности не возникает: зарядка просто идёт на пределе кабеля. Третья — документы: маркировка CE вместе с соответствием IEC 62196-2 и IEC 61851-1 говорит о безопасном производстве. Единственное исключение — некоторые старые модели с разъёмом Type 1 начала 2010-х годов; если вы покупаете старый подержанный автомобиль, откройте лючок зарядки и убедитесь глазами в круглом разъёме Type 2 с 7 контактами."
+        },
+        {
+          "q": "Моя машина принимает 11 кВт; будет ли проблема, если я куплю кабель на 22 кВт?",
+          "a": "Нет, проблемы не будет — напротив, это даёт гибкость. Мощность зарядки всегда задаёт самое слабое звено цепи: если ваш автомобиль принимает 11 кВт, зарядка пойдёт на 11 кВт и с трёхфазным кабелем на 32 A, способным нести 22 кВт. Кабель не «подаёт машине лишнюю мощность»; он лишь определяет верхний предел, который способен нести. Преимущество кабеля с большей ёмкостью — готовность к будущему: если ваш следующий автомобиль или новый wallbox поддерживает 22 кВт AC, вы продолжите пользоваться тем же кабелем. Внимания требует обратный случай: если ёмкость кабеля ниже возможностей машины и станции, скорость зарядки опускается до предела кабеля. Разумнее всего выбирать кабель не под сегодняшнюю установку, а под потребности ближайших нескольких лет."
+        }
+      ],
+      "related": [
+        {
+          "label": "Сколько метров и сколько ампер должен быть зарядный кабель?"
+        },
+        {
+          "label": "Типы зарядных разъёмов: разница между Type 2, CCS2 и CHAdeMO"
+        },
+        {
+          "label": "Зарядка Tesla в Турции: как зарядить Tesla через Type 2?"
+        }
+      ]
     },
     "40-kw-dc-sarj-istasyonu": {
       "title": "Что такое зарядная станция DC на 40 кВт, кому она подходит и насколько она быстрая?",
@@ -22283,7 +23968,172 @@
       ]
     },
     "evde-elektrikli-arac-sarj-maliyeti-km-basina": {
-      "title": "Стоимость домашней зарядки: сколько за километр?"
+      "title": "Стоимость домашней зарядки электромобиля: сколько на километр?",
+      "metaTitle": "Стоимость зарядки: сколько за 100 км? Расчёт домашней зарядки",
+      "description": "Стоимость 100 км = расход (кВт·ч/100 км) × цена единицы электроэнергии (TL/кВт·ч). Средний автомобиль расходует 15-22 кВт·ч; пример расчёта по ночному тарифу и сравнение с публичной зарядкой.",
+      "excerpt": "Как рассчитать стоимость домашней зарядки электромобиля на километр? Пошаговый пример с расходом в кВт·ч, ценой единицы электроэнергии, потерями 10 % и ночным тарифом.",
+      "category": "Руководство",
+      "body": [
+        {
+          "text": "Первый вопрос, который задаёт каждый перед покупкой электромобиля, звучит так: «Во сколько мне на самом деле обойдётся зарядка дома?» Хорошая новость в том, что этот расчёт гораздо проще, чем принято думать. В этом руководстве мы шаг за шагом показываем, как рассчитать стоимость домашней зарядки электромобиля на километр, и объясняем, как сравнить её с бензиновым автомобилем. Все числовые примеры условны; свою точную цифру вы получите, подставив актуальную цену единицы из собственного счёта."
+        },
+        {
+          "text": "Базовая формула стоимости зарядки"
+        },
+        {
+          "text": "Стоимость зарядки дома сводится к одному умножению: вы умножаете израсходованную энергию (кВт·ч) на цену единицы электроэнергии (TL/кВт·ч). Например, если в аккумулятор поступило 40 кВт·ч, а цена единицы составляет X TL/кВт·ч, то стоимость этой зарядки равна 40 × X TL. А чтобы найти стоимость на километр, достаточно знать, сколько кВт·ч автомобиль расходует на 100 км."
+        },
+        {
+          "items": [
+            "Стоимость одной зарядки = израсходованная энергия (кВт·ч) × цена единицы электроэнергии (TL/кВт·ч)",
+            "Стоимость на километр = (расход автомобиля в кВт·ч/100 км ÷ 100) × цена единицы электроэнергии (TL/кВт·ч)",
+            "Стоимость 100 км = расход (кВт·ч/100 км) × цена единицы электроэнергии (TL/кВт·ч)"
+          ]
+        },
+        {
+          "text": "Сколько кВт·ч ваш автомобиль расходует на 100 км?"
+        },
+        {
+          "text": "Средний расход энергии электромобилей обычно составляет от 15 до 22 кВт·ч на 100 км. Компактные и экономичные модели держатся у нижней границы, а крупные внедорожники и езда по трассе на высокой скорости — у верхней. Точное значение можно прочитать на дисплее автомобиля в показателе среднего расхода, обозначенном как «кВт·ч/100 км». Зимой расход несколько растёт из-за обогрева салона и потребности батареи в прогреве; это стоит учесть, оставив запас в расчёте."
+        },
+        {
+          "text": "Не забывайте о потерях при зарядке (~10 %)"
+        },
+        {
+          "text": "Энергия, которую вы берёте из розетки, немного больше энергии, поступающей в аккумулятор. Разница теряется в виде тепла в кабеле, преобразователе и системе управления батареей. При домашней зарядке AC эти потери составляют около 10 %. То есть, рассчитав энергию, использованную автомобилем, умножьте результат примерно на 1,1 (или прибавьте 10 %) — так вы получите более точную стоимость, отражающую реальный расход в счёте. Разница кажется небольшой, но у водителя, проезжающего тысячи километров в год, она заметна в сумме."
+        },
+        {
+          "text": "Многотарифный учёт в Турции: почему ночная зарядка дешевле?"
+        },
+        {
+          "text": "В Турции бытовые абоненты могут выбрать вместо однотарифного многотарифный (трёхтарифный) учёт. В нём сутки делятся на три периода: дневной, вечерний пиковый (период наибольшего потребления с самой высокой ценой единицы) и ночной. Ночной период заметно самый дешёвый. Для владельца электромобиля это настоящая возможность: если поставить машину на зарядку вечером по возвращении домой и подгадать зарядку под ночной период, вы получите ту же энергию по значительно более низкой цене единицы."
+        },
+        {
+          "items": [
+            "Дневной период: средняя цена единицы, использование в течение дня.",
+            "Пиковый (вечерний) период: самая высокая цена единицы; по возможности не подгадывайте зарядку под эти часы.",
+            "Ночной период: самая низкая цена единицы; идеальный интервал для зарядки автомобиля.",
+            "Границы периодов могут различаться в зависимости от распределительной компании; уточните актуальные часы по счёту или в своей распределительной компании."
+          ]
+        },
+        {
+          "text": "Следить за машиной вручную каждый вечер не обязательно. Умные модели Bemis (например, Charger Pro 2 с GSM-связью и устройства с поддержкой OCPP 1.6) помогают запланировать зарядку и управлять сценариями её запуска в ночной период, чтобы вы не упускали самые дешёвые часы."
+        },
+        {
+          "text": "Пошаговый пример расчёта (условный)"
+        },
+        {
+          "text": "В приведённом ниже примере мы обозначаем цену единицы электроэнергии как A TL/кВт·ч — исключительно как условную величину. Подставив вместо A актуальную цену единицы из собственного счёта (предпочтительно цену ночного периода), вы увидите свою реальную стоимость. Допустим, наш автомобиль расходует 18 кВт·ч на 100 км."
+        },
+        {
+          "items": [
+            "Шаг 1 — расход автомобиля: 18 кВт·ч/100 км (условно, пример автомобиля).",
+            "Шаг 2 — прибавьте потери при зарядке: 18 × 1,1 ≈ 19,8 кВт·ч (реальная энергия, взятая из розетки).",
+            "Шаг 3 — умножьте на цену единицы: 19,8 кВт·ч × A TL = стоимость 100 км.",
+            "Шаг 4 — на километр: (19,8 × A) ÷ 100 = стоимость километра в TL/км."
+          ]
+        },
+        {
+          "text": "Как видно, единственная неизвестная — это A, то есть ваша цена единицы. Как только вы подставите A, станут ясны и стоимость 100 км, и стоимость километра. При низком значении A по ночному тарифу эта цифра заметно снижается по сравнению с дневным."
+        },
+        {
+          "caption": "Условный пример: стоимость километра при разных значениях расхода (A = цена единицы электроэнергии, TL/кВт·ч)",
+          "headers": [
+            "Расход автомобиля (кВт·ч/100 км)",
+            "С учётом потерь при зарядке (кВт·ч/100 км)",
+            "Стоимость 100 км",
+            "Стоимость километра"
+          ],
+          "rows": [
+            [
+              "15",
+              "16,5",
+              "16,5 × A TL",
+              "0,165 × A TL/км"
+            ],
+            [
+              "18",
+              "19,8",
+              "19,8 × A TL",
+              "0,198 × A TL/км"
+            ],
+            [
+              "22",
+              "24,2",
+              "24,2 × A TL",
+              "0,242 × A TL/км"
+            ]
+          ]
+        },
+        {
+          "text": "Как сравнить с бензиновым автомобилем?"
+        },
+        {
+          "text": "Чтобы сравнивать сопоставимое, примените ту же логику к бензиновому автомобилю. Его стоимость тоже сводится к одному умножению: вы умножаете сожжённые на 100 км литры на цену литра. Допустим, бензиновый автомобиль расходует 7 литров на 100 км, а цена литра составляет B TL (снова условно). Тогда стоимость 100 км равна 7 × B TL, а стоимость километра — (7 × B) ÷ 100 = 0,07 × B TL/км."
+        },
+        {
+          "items": [
+            "Стоимость 100 км на бензине = расход топлива (л/100 км) × цена литра (B TL/л)",
+            "Стоимость километра на бензине = (л/100 км ÷ 100) × B TL/л",
+            "Сравнение: поставьте рядом стоимость километра на электричестве (0,198 × A) и стоимость километра на бензине (0,07 × B) со своими актуальными значениями A и B."
+          ]
+        },
+        {
+          "text": "Подставив цену единицы электроэнергии из собственного счёта (A) и актуальную цену топлива на заправке (B), вы увидите, что расходы на энергию на километр у электромобиля, заряжаемого дома по ночному тарифу, как правило, оказываются существенно ниже, чем у бензинового. Поскольку цифры со временем меняются, держа формулу под рукой, вы сможете сами делать актуальное сравнение в любой период."
+        },
+        {
+          "text": "Практические способы снизить стоимость домашней зарядки"
+        },
+        {
+          "items": [
+            "Перейдите на многотарифный учёт и планируйте зарядку на ночной период.",
+            "Следите за реальным расходом автомобиля в кВт·ч/100 км и избегайте завышенных оценок.",
+            "Держите бюджет реалистичным, учитывая потери при зарядке (~10 %).",
+            "Ловите самые дешёвые часы автоматически с помощью домашнего зарядного устройства с таймером.",
+            "Заряжайте безопасно и эффективно, выбрав wallbox мощности, подходящей щиту вашего дома."
+          ]
+        },
+        {
+          "text": "Ищете зарядное решение с таймером и подходящей вашему дому мощностью? Ознакомьтесь с домашними моделями wallbox от Bemis.",
+          "label": "Посмотреть модели wallbox"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Сколько стоит домашняя зарядка электромобиля на километр?",
+          "a": "Стоимость километра зависит от двух вещей: от того, сколько кВт·ч ваш автомобиль расходует на 100 км, и от цены единицы электроэнергии. Формула такова: (расход в кВт·ч/100 км ÷ 100) × цена единицы. Например, для автомобиля с расходом 18 кВт·ч на 100 км вы прибавляете 10 % потерь при зарядке и считаете по 19,8 кВт·ч. Чтобы увидеть результат, нужно подставить актуальную цену единицы из вашего счёта. Мы не называем твёрдую цифру в TL, потому что цены на электроэнергию меняются со временем; но формула всегда одна и та же и позволяет за секунды найти собственную цифру."
+        },
+        {
+          "q": "Сколько экономит зарядка по ночному тарифу?",
+          "a": "В многотарифном учёте в Турции сутки делятся на три периода, и ночной заметно самый дешёвый. Поставив машину вечером и подгадав зарядку под ночные часы, вы покупаете ту же энергию по более низкой цене единицы, чем в дневной или пиковый период. Точный размер экономии зависит от текущей разницы цен между периодами; эту разницу видно в счёте. Зарядное устройство с таймером помогает регулярно пользоваться этим преимуществом, автоматически планируя зарядку на ночной период, так что следить за машиной вручную не нужно."
+        },
+        {
+          "q": "Что такое потери при зарядке и как они влияют на стоимость?",
+          "a": "Энергия, которую вы берёте из розетки, несколько больше энергии, поступающей в аккумулятор. Разница теряется в виде тепла в кабеле, преобразователе и системе управления батареей. При домашней зарядке AC эти потери составляют около 10 %. То есть реальный расход, отражающийся в счёте, немного выше чистой энергии, использованной автомобилем. Чтобы рассчитать стоимость правильно, умножьте расход автомобиля в кВт·ч примерно на 1,1 или прибавьте к нему 10 %. За один сеанс это кажется мелочью, но при большом годовом пробеге суммарная разница становится заметной, поэтому её стоит учитывать при планировании бюджета."
+        },
+        {
+          "q": "Электромобиль действительно дешевле бензинового?",
+          "a": "Чтобы сравнить правильно, рассчитайте оба автомобиля по одной формуле. Для электромобиля стоимость километра — это произведение расхода на цену единицы электроэнергии; для бензинового — произведение расхода в литрах на цену литра. Подставив собственные актуальные цены на электроэнергию и топливо, вы увидите, что расходы на энергию на километр у электромобиля — особенно заряжаемого дома по ночному тарифу — как правило, существенно ниже, чем у бензинового. Точное соотношение зависит от цен; поэтому надёжнее всего воспользоваться формулой и сделать сравнение с актуальными цифрами самостоятельно."
+        },
+        {
+          "q": "Как узнать, сколько кВт·ч мой автомобиль расходует на 100 км?",
+          "a": "Самое точное значение — на дисплее самого автомобиля. У большинства электромобилей средний расход выводится на приборной панели как «кВт·ч/100 км» и отражает ваши реальные привычки вождения. Если говорить об общем диапазоне, электромобили обычно расходуют от 15 до 22 кВт·ч на 100 км; компактные модели ближе к нижней границе, крупные автомобили и быстрая езда по трассе — к верхней. Зимой расход растёт из-за отопления. Использование в расчёте стоимости реального среднего значения, показанного автомобилем, а не оценки, даёт самую точную цифру на километр."
+        }
+      ],
+      "related": [
+        {
+          "label": "Домашние зарядные устройства wallbox"
+        },
+        {
+          "label": "Стоимость установки зарядной станции"
+        },
+        {
+          "label": "Разница между зарядкой AC и DC"
+        },
+        {
+          "label": "За сколько часов заряжается электромобиль?"
+        }
+      ]
     },
     "monofaze-mi-trifaze-mi-ev-sarj": {
       "title": "Одна фаза или три фазы? Какое зарядное устройство подойдёт вашему дому?",
