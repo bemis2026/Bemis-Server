@@ -293,7 +293,7 @@ export default function FeaturedProducts() {
 
                   {/* Highlight — clamped to 2 lines to keep card height tight */}
                   <p
-                    className="text-xs leading-relaxed mb-2"
+                    className="text-sm leading-relaxed mb-2"
                     style={{
                       color: textMuted,
                       display: "-webkit-box",

@@ -11,6 +11,7 @@ import { trackEvent, trackGoogleAdsConversion } from "./GoogleAnalytics";
 import { trackMetaPixelEvent } from "./MetaPixel";
 import { useUiStrings, type UiStringKey } from "../../lib/uiStrings";
 import { pickText } from "../lib/ui";
+import { ORG_DIRECTIONS_URL } from "../lib/seo";
 import { useLanguage } from "../context/LanguageContext";
 
 const topicKeys: { value: string; key: UiStringKey }[] = [
@@ -62,7 +63,8 @@ export default function Contact() {
   const shadow    = d ? "none" : "0 2px 20px rgba(0,0,0,0.06)";
 
   const contactItems = [
-    { icon: HiLocationMarker, label: t("contact_label_address"), value: contact.address,      sub: contact.addressSub },
+    // Adres kartına yol tarifi bağlantısı — anahtarsız Maps URLs API (üçüncü-taraf betik/çerez YOK).
+    { icon: HiLocationMarker, label: t("contact_label_address"), value: contact.address,      sub: contact.addressSub, href: ORG_DIRECTIONS_URL },
     { icon: HiPhone,          label: t("contact_label_phone"),   value: contact.phone,        sub: `${calismaGunleri}, ${contact.workingHours}` },
     { icon: HiMail,           label: t("contact_label_email"),   value: contact.email,        sub: t("contact_email_sub") },
     { icon: HiClock,          label: t("contact_label_hours"),   value: contact.workingHours, sub: calismaGunleri },
@@ -162,6 +164,17 @@ export default function Contact() {
                   <p className="text-xs mb-0.5" style={{ color: textFaint }}>{item.label}</p>
                   <p className="font-semibold text-sm" style={{ color: textPrimary }}>{item.value}</p>
                   <p className="text-xs mt-0.5" style={{ color: textFaint }}>{item.sub}</p>
+                  {"href" in item && item.href && (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-bold mt-2 transition-transform hover:translate-x-0.5"
+                      style={{ color: d ? "#93C5FD" : BLUE }}
+                    >
+                      {pickText(lang, "Yol tarifi al", "Get directions")} →
+                    </a>
+                  )}
                 </motion.div>
               ))}
             </div>

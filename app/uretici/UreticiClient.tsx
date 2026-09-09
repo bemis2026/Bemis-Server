@@ -13,6 +13,7 @@ import ContactBar from "../components/ContactBar";
 import CustomProductionSection from "../components/CustomProductionSection";
 import { allPress } from "../blog/press";
 import { CITY_PAGES } from "../lib/cities";
+import { ORG_DIRECTIONS_URL } from "../lib/seo";
 import {
   RiShieldCheckLine, RiToolsLine, RiGlobalLine, RiCpuLine,
   RiPriceTag3Line, RiCustomerService2Line, RiArrowRightLine, RiCheckboxCircleLine, RiExternalLinkLine,
@@ -194,6 +195,16 @@ export default function UreticiClient({ faq }: { faq: { q: string; a: string }[]
                 >
                   Bursa OSB · 16.000 m² üretim tesisi · 1994&apos;ten beri
                 </motion.p>
+                {/* ⚠️ Kapsayıcı pointer-events-none → bağlantıya AÇIKÇA geri veriliyor. */}
+                <a
+                  href={ORG_DIRECTIONS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pointer-events-auto inline-flex items-center gap-1.5 mt-2 px-3 py-1.5 rounded-lg text-xs font-bold transition-transform hover:-translate-y-0.5"
+                  style={{ background: "rgba(255,255,255,0.14)", border: "1px solid rgba(255,255,255,0.30)", color: "#fff", backdropFilter: "blur(4px)" }}
+                >
+                  <RiMapPin2Line size={13} /> Fabrikaya yol tarifi
+                </a>
               </div>
             </motion.div>
           )}

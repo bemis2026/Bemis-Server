@@ -8,14 +8,16 @@ import {
 } from "react-icons/ri";
 import { useTheme } from "../context/ThemeContext";
 import { accentInk } from "../lib/accentInk";
+import { ORG_DIRECTIONS_URL } from "../lib/seo";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import Footer from "../components/Footer";
 
 const BLUE = "#3B82F6";
 
-const DIRECTIONS_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=Ye%C5%9Fil%20Cad.%20No%3A31%2C%2016140%20Bursa";
+// ⚠️ Adres METNİ yerine place_id (bkz. lib/seo.ts ORG_DIRECTIONS_URL) — Google artık
+// adresi yeniden coğrafi-kodlamıyor, doğrudan Bemis işletme kartını açıyor.
+const DIRECTIONS_URL = ORG_DIRECTIONS_URL;
 const MAP_EMBED_SRC =
   "https://www.google.com/maps?q=Ye%C5%9Fil%20Cad.%20No%3A31%2C%2016140%20Bursa&output=embed";
 

@@ -386,7 +386,7 @@ function DocGrid({ docs, lang, d, surface, border, textPrimary, textMuted, textF
                 {doc.title}
               </h3>
               {doc.description && (
-                <p className="text-xs leading-relaxed line-clamp-2 mb-3" style={{ color: textMuted }}>
+                <p className="text-sm leading-relaxed line-clamp-2 mb-3" style={{ color: textMuted }}>
                   {doc.description}
                 </p>
               )}

@@ -3008,5 +3008,12 @@
   "ar": "تشغيل صوت الفيديو",
   "ru": "Включить звук видео",
   "nl": "Geluid inschakelen"
+ },
+ "Get directions": {
+  "de": "Route planen",
+  "es": "Cómo llegar",
+  "ar": "احصل على الاتجاهات",
+  "ru": "Построить маршрут",
+  "nl": "Route plannen"
  }
 }
