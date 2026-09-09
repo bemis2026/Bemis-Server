@@ -466,7 +466,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
           </button>
 
           {/* Desktop Nav — gap lg aralığında sıkı (2.5), ≥xl bugünkü 6 (değişmez) */}
-          <div className="hidden lg:flex items-center gap-2 xl:gap-6">
+          <div className="hidden lg:flex items-center gap-1.5 xl:gap-6">
             {activeNavLinks.map((link, idx) => {
               const isK = isKurumsal(link);
               const isU = isUrunler(link);

@@ -13,6 +13,35 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🌐📐 **ÇOK DİLLİ DÜZEN DENETİMİ — 7 DİL × 10 SAYFA × 2 EKRAN (2026-09-09, commit d6bb990):**
+> Kullanıcı: "yeni eklenen tüm diller, anadil olan Türkçedeki düzen gibi olmalı; dile geçince satır
+> kaymaları gibi hatalar olmamalı." Playwright ile **119 kombinasyon** ölçüldü (gerçek tarayıcı,
+> canlı site). ⚠️ Ölçüm kuralı: ata zincirinde `overflow-x` gizli/kaydırmalı kutu varsa TAŞMA SAYILMAZ
+> (marquee/karusel şeritleri kasten geniş — 2026-08-22 dersi), `line-clamp`/`truncate` de KIRPILMA sayılmaz.
+> **✅ TEMİZ ÇIKANLAR:** ürün kolu (liste + kategori + detay) 7 dil × 2 ekran → **yatay taşma 0,
+> kırpılan metin 0** · 7 iç sayfa (/blog /sozluk /uretici /b2b /iletisim /destek /bayilik) × 7 dil ×
+> 2 ekran = **98 kombinasyon, 0 sorun** · anasayfa 7 dilde **H2 sayısı 11 = birebir aynı** (bölüm
+> kayması yok) · tipografi ölçeği tutarlı (TR 32/24 px · yabancı 28/21 px — `html:not([lang="tr"])`
+> kuralı gereği ~%85, kasıtlı) · Arapça `dir=rtl` doğru, RTL'de H1 yönü ve hizası doğru.
+> ⓘ Yabancı dilde bazı bölüm başlıkları mobilde 2 yerine **3 satır** oluyor (çeviri daha uzun) —
+> taşma/kırpma DEĞİL, ızgara `items-stretch` olduğu için hizasızlık da doğurmuyor.
+> **🔴 TEK GERÇEK KUSUR — DAR MASAÜSTÜ MENÜSÜ (1024–1279 px):** Almanca'da menü satırı **1079 px**'e
+> çıkıyor, viewport 1014 px → **B2B rozeti TAMAMEN ekran dışında, dil seçici yarım kesik** (ekran
+> görüntüsüyle doğrulandı). TR/ES/RU'da taşma yoktu ama etiketler **iki satıra sarılıyordu**
+> ("Ana Sayfa", "Bayi Ağı", "Sobre Nosotros", "Дилерская сеть"). ≥1280 px ve mobilde hiçbir dilde sorun yok.
+> **⚠️ KUSUR DİL KOLLARINDAN ÖNCE DE VARDI** — 2026-07-18'deki dar-masaüstü düzeltmesi yalnız TÜRKÇE ile
+> doğrulanmıştı; Almanca onu görünür taşmaya çevirdi. 📌 **Ders: kırılım noktası ayarını EN UZUN ÇEVİRİLİ
+> dille test et, Türkçeyle değil.**
+> **FIX (kullanıcı seçmeli kararı: "Sıkıştır — menü kalsın"), YALNIZ lg↔xl aralığında:** menü etiketi
+> `whitespace-nowrap` + **13 px** (≥xl `text-sm` AYNEN) · menü satırı `gap-2.5 → gap-1.5` (≥xl `gap-6`
+> aynen) · B2B rozeti `hidden xl:inline-flex` (≥1280'de aynen görünür). **≥1280 px ve mobil görünüm
+> HİÇ DEĞİŞMEDİ** (tüm değişiklikler lg-only sınıflarla sınırlı).
+> **CANLI DOĞRULAMA (7 dil × 4 genişlik = 28 ölçüm):** taşma 65 px → **0**, menü etiketlerinde sarılma
+> **0**, ≥1280'de B2B + 14 px etiket aynen. ⓘ Ölçümde "sarılan" görünen tek öge CTA butonu — padding
+> yüzünden yükseklik eşiğini aşıyor, gerçek sarılma değil.
+> **📊 GA ekran verisi (60 gün):** ziyaretçi ekranlarının neredeyse tamamı ≥1280 (1920×1080 509 · 1536×864
+> 206 · 1440×900 190 · 1366×768 83) ya da mobil; 1024–1279 bandı marjinal — yine de bant artık temiz.
+
 > 🕌🔧 **ARAPÇA ÜRÜN KOLUNDAKİ TÜRKÇE BLOKLAR KAPATILDI (2026-09-09, commit 827ecd7):**
 > Kullanıcı seçmeli kararıyla ("Ürün sayfalarındaki Türkçe bloklar") — Körfez ziyaretçisinin EN ÇOK
 > gördüğü yüzey. **ÖLÇÜM (canlı, gövde HTML'i): /ar/products 15 · /ar/products/wallbox 14 ·
