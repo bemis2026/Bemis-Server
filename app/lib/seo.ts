@@ -124,7 +124,12 @@ const ORG_PHONE = "+90 224 433 02 16";
 // Dış ticaret adresi (trade@) BİLEREK şemaya girmez: şema kanonik kurumsal
 // kimliği taşır, dile göre değişmez.
 const ORG_EMAIL = "sales@bemis.com.tr";
-const ORG_ADDRESS = { street: "Yeşil Cad. No:31", locality: "Bursa", region: "Bursa", postalCode: "16140", country: "TR" } as const;
+// ⚠️ Google İşletme Profili + OpenStreetMap ters coğrafi kodlama ile doğrulandı (2026-09-09):
+// Minareliçavuş Mah. · Bursa OSB · Yeşil Cad. No:31 · 16220 · Nilüfer/Bursa.
+// Eski kayıt 16140 ve ilçesizdi; Google sitedeki adresi doğrulanmış profille karşılaştırdığı
+// için uyuşmazlık yerel sinyali zayıflatıyordu. Değiştirirken /iletisim, /gizlilik,
+// llms-full.txt ve CMS iletişim bloğu BİRLİKTE güncellenmeli (hepsi bu turda yapıldı).
+const ORG_ADDRESS = { street: "Minareliçavuş Mah., Bursa OSB, Yeşil Cad. No:31", locality: "Nilüfer", region: "Bursa", postalCode: "16220", country: "TR" } as const;
 // Gerçek işletme koordinatı (GBP pin — Nilüfer/OSB Bursa, kullanıcı verdi). LocalBusiness geo tek kaynağı.
 export const ORG_GEO = { lat: 40.245558, lng: 28.945849 } as const;
 

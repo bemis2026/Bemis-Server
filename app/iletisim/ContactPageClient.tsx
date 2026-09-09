@@ -19,7 +19,7 @@ const BLUE = "#3B82F6";
 // adresi yeniden coğrafi-kodlamıyor, doğrudan Bemis işletme kartını açıyor.
 const DIRECTIONS_URL = ORG_DIRECTIONS_URL;
 const MAP_EMBED_SRC =
-  "https://www.google.com/maps?q=Ye%C5%9Fil%20Cad.%20No%3A31%2C%2016140%20Bursa&output=embed";
+  "https://www.google.com/maps?q=Ye%C5%9Fil%20Cad.%20No%3A31%2C%2016220%20Nil%C3%BCfer%20Bursa&output=embed";
 
 export default function ContactPageClient() {
   const { theme } = useTheme();
@@ -39,7 +39,7 @@ export default function ContactPageClient() {
       label: "Adres",
       value: (
         <span>
-          Yeşil Cad. No:31, 16140 Bursa, Türkiye
+          Minareliçavuş Mah., Bursa OSB, Yeşil Cad. No:31, 16220 Nilüfer/Bursa
         </span>
       ),
     },

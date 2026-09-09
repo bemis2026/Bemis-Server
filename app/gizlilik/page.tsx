@@ -24,7 +24,7 @@ export default function GizlilikPage() {
           h: "1. Veri Sorumlusu",
           p: [
             "Bemis Teknik Elektrik A.Ş. (\"Bemis\")",
-            "Adres: Bursa OSB, Yeşil Cad. No:31, 16140 Nilüfer / Bursa",
+            "Adres: Minareliçavuş Mah., Bursa OSB, Yeşil Cad. No:31, 16220 Nilüfer / Bursa",
             "E-posta: sales@bemis.com.tr · Telefon: +90 224 433 02 16",
           ],
         },

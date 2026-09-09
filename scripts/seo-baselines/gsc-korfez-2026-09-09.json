@@ -1,0 +1,52 @@
+{
+  "_aciklama": "SEARCH CONSOLE Körfez/Orta Doğu TABAN ÇİZGİSİ — /ar Arapça kolu YAYINA GİRMEDEN ÖNCEKİ son 3 ay. Analytics tabanı (korfez-2026-09-09.json) TRAFİĞİ ölçer; bu dosya SIRALAMA ve GÖSTERİMİ ölçer. İkisi birlikte okunmalı.",
+  "_neden_depoda": "Masaüstü kalıcı depo değil — 6 Eylül 2026 taban çizgisi bir masaüstü temizliğinde silinmişti.",
+  "olcum_tarihi": "2026-09-09",
+  "kaynak": "Google Search Console — mülk https://www.bemisevcharge.com.tr/ · Performans > Arama sonuçları · Arama türü: Web · Dışa aktarım: CSV (Ülkeler.csv, Sayfa sayısı.csv, Grafik.csv)",
+  "donem": { "baslangic": "2026-06-07", "bitis": "2026-09-06", "gun": 92 },
+  "olay": "/ar ürün kolu 2026-09-09'da, /ar giriş sayfası aynı gün yayına alındı — yani ÖLÇÜM PENCERESİNİN TAMAMEN DIŞINDA. Bu satırlar temiz bir 'önce' fotoğrafıdır.",
+
+  "toplam": { "tiklama": 1838, "gosterim": 34493, "ulke_sayisi": 102 },
+  "turkiye": { "tiklama": 1810, "gosterim": 32589, "to": "5.55%", "ortalama_sira": 7.23 },
+  "_turkiye_payi": "Tıklamaların %98,5'i, gösterimlerin %94,5'i Türkiye. Yurt dışı hâlâ neredeyse sıfırdan başlıyor.",
+
+  "korfez_orta_dogu": {
+    "Birlesik Arap Emirlikleri": { "tiklama": 1, "gosterim": 23, "to": "4.35%", "ortalama_sira": 5.96 },
+    "Suudi Arabistan":           { "tiklama": 0, "gosterim": 12, "to": "0%",    "ortalama_sira": 9.92 },
+    "Misir":                     { "tiklama": 0, "gosterim": 7,  "to": "0%",    "ortalama_sira": 4.86 },
+    "Irak":                      { "tiklama": 1, "gosterim": 6,  "to": "16.67%","ortalama_sira": 6.5 },
+    "Katar":                     { "tiklama": 0, "gosterim": 3,  "to": "0%",    "ortalama_sira": 8.33 },
+    "Urdun":                     { "tiklama": 0, "gosterim": 2,  "to": "0%",    "ortalama_sira": 36.5 },
+    "Lubnan":                    { "tiklama": 0, "gosterim": 1,  "to": "0%",    "ortalama_sira": 4 },
+    "Kuveyt":                    { "tiklama": 0, "gosterim": 0, "_not": "Ülke listesinde HİÇ görünmüyor" },
+    "Bahreyn":                   { "tiklama": 0, "gosterim": 0, "_not": "Ülke listesinde HİÇ görünmüyor" },
+    "Umman":                     { "tiklama": 0, "gosterim": 0, "_not": "Ülke listesinde HİÇ görünmüyor" }
+  },
+  "korfez_toplam": { "tiklama": 2, "gosterim": 54 },
+
+  "_okuma_notu": "Gösterim olan ülkelerde ORTALAMA SIRA aslında iyi (BAE 5,96 · Mısır 4,86 · Lübnan 4 · Irak 6,5). Bu, 'sıralayamıyoruz' değil 'o dilde/pazarda görünecek SAYFA yoktu' demek — 92 günde toplam 54 gösterim. Yüksek sıra + çok düşük hacim tipik olarak marka ve markaya yakın sorgulardan gelir. Ürdün'ün 36,5'i tek istisna (2 gösterim, istatistiksel gürültü).",
+
+  "dil_kollari": {
+    "_not": "Gösterim alan dil-kolu sayfası sayısı: 29. /ar HİÇ YOK (o gün yayına girdi) — sonraki ölçümde asıl bakılacak satır bu.",
+    "ornekler": [
+      { "sayfa": "/en/products", "tiklama": 4, "gosterim": 167, "sira": 2.23 },
+      { "sayfa": "/en/products/cables", "tiklama": 2, "gosterim": 74, "sira": 33.76 },
+      { "sayfa": "/en/products/v2l-c2l", "tiklama": 2, "gosterim": 29, "sira": 22.52 },
+      { "sayfa": "/en/products/wallbox", "tiklama": 1, "gosterim": 70, "sira": 32.76 },
+      { "sayfa": "/de/products/wallbox", "tiklama": 0, "gosterim": 6, "sira": 4.33 }
+    ]
+  },
+
+  "sonraki_olcum": {
+    "ne_zaman": "~2026-10-10 (yayından ~1 ay sonra; Google'ın yeni kolu taraması 3-4 hafta sürebilir)",
+    "nasil": "Search Console > Performans > Arama sonuçları > Son 3 ay > Dışa aktar > CSV. Tek indirme yeter (ZIP içinde Ülkeler + Sayfa sayısı birlikte gelir).",
+    "ayrica": "Bu kez SAYFA FİLTRESİ de anlamlı olacak: + Yeni > Sayfa > 'Şunları içerir' > /ar/ — bu turda uygulanmadı çünkü /ar ölçüm penceresinden sonra yayına girdi, filtrelense boş çıkardı.",
+    "neye_bakilacak": [
+      "Körfez ülkelerinin GÖSTERİM sayısı (54'ten yukarı mı) — tıklamadan önce gösterim büyür",
+      "/ar sayfalarının indekslenip gösterim almaya başlaması",
+      "Kuveyt / Bahreyn / Umman'ın listeye hiç girip girmediği"
+    ]
+  },
+
+  "_engel_notu": "Körfez'de kayıtlı distribütör YOK (internationalDealers'ta yalnız DE, CL, PT ve üçü de boş kabuk) → yerel sinyal (NAP, yerel sayfa) üretilemiyor. Ticari karar, kod işi değil."
+}
