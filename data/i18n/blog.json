@@ -3247,7 +3247,147 @@
       ]
     },
     "gunes-enerjisi-solar-ile-elektrikli-arac-sarji": {
-      "title": "Charging an Electric Car with Solar Power: Home Solar EV Charging"
+      "title": "Charging an Electric Car with Solar Energy: Charging from Solar Panels at Home",
+      "metaTitle": "Solar-Powered EV Charging: How Many Panels, How Does It Work?",
+      "description": "Charging a car from solar panels at home: about 7-9 kWh a day is needed for 40 km, and 1 kWp of panels produces 3.5-4.5 kWh a day. On-grid systems, a panel count calculation and choosing a wallbox with adjustable current.",
+      "excerpt": "You can charge your car from the solar panels on your roof: in an on-grid system the panels feed the home's distribution board, and the board feeds the charger. Find a worked example of how many panels you need, and the adjustable-current charger features that suit solar best, in this guide.",
+      "category": "Guide",
+      "body": [
+        {
+          "text": "Yes — you can charge your car with the electricity produced by the solar panels on your roof. In a grid-connected (on-grid) solar system the panels feed the home's electrical installation; and since your home charger is connected to the same installation, a significant part of a charging session started while the sun is producing is covered directly by solar. In this guide we explain in plain language how the system works, how many panels are needed with a worked example, and which charger features work most efficiently with solar."
+        },
+        {
+          "text": "The idea of charging a car with solar energy brings two investments — the rooftop solar system and the home charging station — together for the same goal: lowering the energy cost per kilometre and running the car on electricity you produce yourself. Let us start with an important clarification: Bemis is a manufacturer of electric vehicle chargers; solar panels and inverters are a separate group of equipment and are engineered by your solar company. The good news is that any properly configured home charging station works smoothly alongside a solar system."
+        },
+        {
+          "text": "How does charging an electric car from solar panels work?"
+        },
+        {
+          "text": "The great majority of home solar systems are grid-connected, that is, on-grid. The panels produce direct current (DC) electricity from the sun; the inverter converts this into the alternating current (AC) used in the home and feeds it into the main distribution board. From that point on, the energy produced feeds whatever appliance is running at the time — the fridge, the air conditioner and, of course, the electric car charger. If production is less than consumption, the difference is topped up from the grid; if it is more, the surplus is exported to the grid. The whole flow is automatic: when you start charging you do not have to think about which source is being used in the background."
+        },
+        {
+          "text": "In this architecture the charger's role is clear: the wall-mounted charging station (wallbox) is connected to the home's board and safely transfers the energy coming from the board to the car. Whether the energy comes from the panel or the grid at that moment does not change how the charger operates — which is why you do not need to look for a \"solar-specific charger\". The hybrid inverter used in systems with battery storage does not change this logic either: the hybrid inverter manages the panels and the battery and feeds the home's board; the home charger still works connected to the board. What really raises the share covered by solar is timing the charge for the hours when production is high and being able to adjust the charging current to match production."
+        },
+        {
+          "items": [
+            "The panels produce DC → the inverter converts it to AC → the main board feeds both the home and the charger.",
+            "If there is enough sun, charging comes mainly from the panels; if not, the shortfall is topped up from the grid — charging is never interrupted.",
+            "A wallbox works independently of the panel and inverter brand; no special \"solar version\" of the charger is needed.",
+            "The board connection and the installation must in every case be carried out by a qualified electrical contractor."
+          ]
+        },
+        {
+          "text": "How many panels, how many kW are needed? A hypothetical worked example"
+        },
+        {
+          "text": "The answer depends on your car's consumption and how many kilometres you drive each day. Let us start with a common assumption: an electric car uses roughly 15-20 kWh per 100 kilometres. On that assumption, a driver covering an average of 40 km a day has a daily energy need of around 6-8 kWh; adding the roughly 10% losses during charging, production of about 7-9 kWh a day covers this use."
+        },
+        {
+          "text": "On the panel side let us also use a hypothetical average: assume that 1 kWp of installed capacity produces an average of 3.5-4.5 kWh a day under Turkish conditions (this varies markedly with the region, the season, the orientation of the roof and shading — these figures are only meant to give an idea). Combining these two assumptions gives the following picture:"
+        },
+        {
+          "caption": "A hypothetical worked example — the panel figures are indicative; the real sizing is settled by a site survey",
+          "headers": [
+            "Daily driving",
+            "Approximate energy need",
+            "Hypothetical panel capacity",
+            "Number of panels (assuming 450 Wp)"
+          ],
+          "rows": [
+            [
+              "20 km",
+              "3-4 kWh",
+              "~1 kWp",
+              "2-3 panels"
+            ],
+            [
+              "40 km",
+              "6-8 kWh",
+              "~1.5-2 kWp",
+              "4-5 panels"
+            ],
+            [
+              "100 km",
+              "15-20 kWh",
+              "~4-5 kWp",
+              "9-12 panels"
+            ]
+          ]
+        },
+        {
+          "text": "Two notes matter. First, this calculation shows only the car's share; capacity for the home's own consumption (white goods, lighting, air conditioning) is planned separately. Second, production is seasonal — a system that exceeds the daily target in summer may fall below it in winter. The real sizing is settled by the site survey your solar company will carry out, looking at the roof area, orientation, pitch and consumption profile. Use the values here as a first idea and base the investment decision on the survey."
+        },
+        {
+          "text": "Which charger is suitable for solar energy?"
+        },
+        {
+          "text": "Technically, any AC home charging station with a Type 2 connector works in a home with solar. The feature that makes a difference in efficiency, however, is this: being able to adjust the charging current — and therefore the power. Solar production changes constantly through the day; it peaks around midday and falls in the morning and evening. When you can lower the charging power to a smaller step, the power drawn by the device comes closer to production and a greater share of the charge is covered by the panels rather than the grid. In the hours when production is plentiful, you raise the step and transfer the sun to the car faster."
+        },
+        {
+          "text": "The Bemis Charger Plus 2 and Charger Pro 2 offer exactly this flexibility: the power level is adjustable between 4-7-11-22 kW (6-10-16-32 A). The smart charging algorithm of the Plus 2 adapts automatically to the maximum current the car accepts; the Automatic Charging Start feature resumes charging by itself when the power comes back after a cut. The Pro 2 adds advanced load management (DLM), OCPP 1.6 support and user authorisation; on the connected models, remote on/off, a timer and charging history are handled through the mobile app. Both models can be installed outdoors thanks to their IP65 rated enclosure."
+        },
+        {
+          "text": "Why is dynamic load balancing an advantage in a solar home?"
+        },
+        {
+          "text": "Load balancing (DLM) monitors the home's total consumption and automatically adjusts the charging power to the safe limit of the installation. In a solar home the practical effect is this: at midday, when production is high and no large appliance is running, charging proceeds at high power; when loads such as the oven or the air conditioner come on, charging is automatically turned down, and when the load falls it rises again. This both protects the main breaker and makes the most efficient use of the hours when production is plentiful, without straining the installation. Using the timer to schedule charging for the midday window when production peaks is another simple and effective way to increase the share covered by solar."
+        },
+        {
+          "text": "For those who do not want a fixed installation, or who have a second location such as a solar-powered country house or summer home, the Bemis Pro Mobile 2 is a practical alternative: on this portable three-phase charger, which offers 11-22 kW, the current is set across 6 steps (6/10/16/20/25/32 A) from the mobile app or the button on the device. The lower steps make it easier to cover a significant part of the charge from solar even on small systems with limited production. Its IP65 protection rating and -40°C / +55°C operating range make the device usable outdoors all year round; a carrying case and a single-phase plug adapter come in the box."
+        },
+        {
+          "text": "Choose your solar-compatible charger with adjustable current — let us decide together on the model that suits your use.",
+          "label": "See the AC Wallbox Charging Stations"
+        },
+        {
+          "text": "How does charging continue at night and on cloudy days?"
+        },
+        {
+          "text": "The greatest comfort of an on-grid system is that it never stops: when there is not enough sun, the shortfall is topped up from the grid without you doing anything. In night-time charging the energy comes entirely from the grid; on cloudy days production falls but does not go to zero — the panels keep making a reduced contribution and the grid covers the rest. Car charging is never left half-finished in any scenario. If your electricity tariff is cheaper at night, you can also manage the cost of the sunless hours by scheduling charging for the night with the timer on the charger."
+        },
+        {
+          "text": "Systems with battery storage (with a hybrid inverter) store the surplus energy produced during the day and make it available in the evening; that energy primarily eases the home's own consumption. Because a car's battery is far larger than domestic storage batteries, covering a full night-time car charge entirely from a home battery is not realistic in most installations — storage should be thought of as support, not as a full car charge. In short, the most efficient set-up is: schedule charging for sunny hours where possible, adjust the current to production, and top up the remaining need from the grid on the night tariff."
+        },
+        {
+          "text": "Bemis produces AC charging stations for homes and businesses, with the heritage of Bemis Teknik, which has been manufacturing in Bursa since 1994. Once you have had the panel and inverter side of your solar system engineered by your solar company, you can complete the charging side with the adjustable-current Charger Plus 2, Charger Pro 2 or the portable Pro Mobile 2. To decide which model suits your use, you can reach us from our Contact page."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can an electric car be charged directly from a solar panel?",
+          "a": "The direct current (DC) electricity produced by the panel is not fed to the car directly; it is first converted by the inverter into the alternating current (AC) used in the home and passed to the main distribution board. Since your home charger works connected to that board, a significant part of the charging you do while the sun is producing is covered by the panels; the remainder is automatically topped up from the grid. So \"charging from the panel\" in practice means charging from the home installation fed by a grid-connected (on-grid) solar system. In this set-up the charger needs no special hardware; any AC wallbox with a Type 2 connector works with the system."
+        },
+        {
+          "q": "How many solar panels are needed to charge an electric car?",
+          "a": "Let us explain with a hypothetical example: electric cars use roughly 15-20 kWh per 100 km; a driver covering 40 km a day has a daily need of 6-8 kWh. If we assume that 1 kWp of installed capacity produces on average about 3.5-4.5 kWh a day in Türkiye, then 1.5-2 kWp — that is, 4-5 panels of 450 Wp — is enough for this use. For 100 km a day the need rises to 4-5 kWp (9-12 panels). These figures are only meant to give an idea; the real number of panels is determined by the solar company's site survey, taking into account the orientation and pitch of your roof, your region, the season and the home's own consumption."
+        },
+        {
+          "q": "Does solar charging require a special charger?",
+          "a": "No. In a home with a grid-connected solar system, a standard Type 2 AC charging station works without any problem, because the device draws energy not from the panels but from the home's distribution board. The feature that improves efficiency is current adjustment: on the Bemis Charger Plus 2 and Charger Pro 2 the power is adjustable between 4-7-11-22 kW; on the portable Pro Mobile 2 the current is selected across 6 steps (6-32 A) from the mobile app or the button on the device. The lower steps bring the power drawn closer to solar production, while the higher steps speed up charging in the hours when production is plentiful. The same device is therefore used efficiently both in sunny and in sunless hours."
+        },
+        {
+          "q": "Do a hybrid inverter and a home charger work together?",
+          "a": "Yes. A hybrid inverter is the equipment that manages the solar panels and, where present, the battery storage, and feeds the home's main board. The home charger is a separate device connected to that board. The two are not wired directly to each other; they work together over the same installation — which is why the inverter brand and the charger brand do not have to match. Bemis wallbox models can be installed in any home with an on-grid or hybrid system, independently of the panel and inverter infrastructure. It is enough for the connection to be made over the board, with suitable protective devices and by a qualified electrical contractor. Confirming the suitability of the installation with a survey before the work keeps both the solar and the charging investment on a sound footing."
+        },
+        {
+          "q": "What happens to car charging at night or in cloudy weather?",
+          "a": "In grid-connected (on-grid) systems charging is never interrupted: when solar production is not enough, the shortfall is automatically topped up from the grid. Night charging is supplied entirely from the grid; on cloudy days the panels keep making a reduced contribution and the difference again comes from the grid. If your electricity tariff is cheaper at night, you can also manage the cost of the sunless hours by scheduling charging for the night with the timer on the charger. Systems with battery storage carry the daytime surplus into the evening; however, since a car battery is far larger than a domestic one, storage should be thought of as support rather than as a full car charge."
+        }
+      ],
+      "related": [
+        {
+          "label": "The Cost of Charging an EV at Home: How Much per Kilometre?"
+        },
+        {
+          "label": "Single-Phase or Three-Phase (3 Phases)? Which Charger Suits Your Home?"
+        },
+        {
+          "label": "What Is Load Management in EV Charging?"
+        },
+        {
+          "label": "AC Wallbox Charging Stations"
+        }
+      ]
     },
     "evde-elektrikli-arac-sarji-guvenli-mi": {
       "title": "Is Charging an Electric Car at Home Safe? A Guide to Sockets, Breakers and Residual Current",
@@ -3360,7 +3500,207 @@
       "title": "Charging Cable Compatibility for Every Electric Car: The Type 2 Guide"
     },
     "40-kw-dc-sarj-istasyonu": {
-      "title": "What Is a 40 kW DC Charging Station, Who Is It For and How Fast Is It?"
+      "title": "What Is a 40 kW DC Charging Station, Who Is It For and How Fast Is It?",
+      "metaTitle": "40 kW DC Charging Station: Speed, Use, Selection",
+      "description": "What is a 40 kW DC charging station, why is it faster than AC, and which business does it suit? How DC fast charging works, a worked time example and the Bemis BEVDC series.",
+      "excerpt": "A cost-effective entry point into DC for shopping centres, hotels, supermarkets and small fleets: how 40 kW DC charging works, how fast it is and where it sits in the Bemis BEVDC series.",
+      "category": "Guide",
+      "body": [
+        {
+          "text": "Someone searching for a \"40 kW DC charging station\" usually wants to know two things: how quickly does this station fill a car, and is it right for my business (a shopping centre, hotel, supermarket, office building or small vehicle fleet)? In this guide we explain in plain language why DC fast charging is faster than AC, what 40 kW really means with a worked example, which locations it suits and where the 40 kW option sits in the Bemis BEVDC series. Instead of promising exact minutes and prices, we focus on the real technical facts that will put your decision on the right footing."
+        },
+        {
+          "text": "What is DC fast charging and why is it faster than AC?"
+        },
+        {
+          "text": "The easiest way to understand the difference is to look at \"where the electricity is converted\". The electricity coming from the grid is alternating current (AC), while the battery is filled with direct current (DC). In AC charging this AC→DC conversion is done by the converter inside the vehicle (the onboard charger), and that unit is usually limited to 7.4-22 kW — so however powerful the station is, the car's own unit sets the ceiling. In DC charging the conversion is done INSIDE the station and DC is fed straight to the battery. The limit of the onboard unit is thus taken out of the equation; charging at much higher power, and much faster, becomes possible. That is exactly why \"fast charging\" is possible."
+        },
+        {
+          "items": [
+            "AC charging: the conversion is done in the vehicle; the speed is limited by the converter inside the car (mostly 7.4-22 kW).",
+            "DC charging: the conversion is done inside the station; DC is fed straight to the battery and the ceiling of the onboard unit is bypassed.",
+            "The result: a DC station transfers far more energy in the same time — which is why it is called \"fast charging\".",
+            "In Türkiye the standard connector for public DC charging is CCS2."
+          ]
+        },
+        {
+          "text": "How fast is a 40 kW DC charging station?"
+        },
+        {
+          "text": "For a rough estimate there is a simple formula: time ≈ energy to be added to the battery (kWh) ÷ charging power (kW). An example (hypothetical): suppose you want to add 40 kWh to your battery. On a car that accepts the full 40 kW this theoretically takes about 1 hour (40 ÷ 40 = 1). Taking the same 40 kWh at 22 kW AC comes to about 2 hours; and since the converter inside many cars accepts 11 rather than 22 kW, the time on AC can stretch even further. The real time depends on the power the car accepts at that moment and on the battery deliberately slowing down (especially past 80%), that is, on taper. That is why a firm promise of \"full in X minutes\" is not realistic — the formula only gives you the right order of magnitude."
+        },
+        {
+          "text": "Who is 40 kW DC for? Where is it used?"
+        },
+        {
+          "text": "40 kW is a cost-effective entry point into the DC world: distinctly faster than AC, but at a more suitable scale than the very high-power units found on motorways. It is tailor-made for medium-intensity locations where a customer or an employee parks the car and gets a worthwhile amount of charge while going about something else (shopping, a meal, a meeting, an overnight stay)."
+        },
+        {
+          "items": [
+            "Shopping centres and supermarkets: the car charges while the customer shops.",
+            "Hotels, office buildings and restaurants: the length of a stay or a visit allows enough time for charging.",
+            "Business and office car parks: a practical speed for staff and visitor vehicles.",
+            "Small vehicle fleets: top-ups during the day keep the vehicle out in the field."
+          ]
+        },
+        {
+          "text": "By contrast, at motorway service areas, at locations with very high vehicle turnover or where the expectation is \"fill it in the shortest possible time without a break\", 40 kW may fall short; at such places higher-power DC units in the 80-200 kW range are preferred. The right power is chosen less by the brand of the device than by the traffic of the location and the waiting time that is acceptable there."
+        },
+        {
+          "text": "AC 22 kW, DC 40 kW or DC 80-120 kW? A decision table"
+        },
+        {
+          "caption": "Choosing power by location",
+          "headers": [
+            "Option",
+            "Typical speed",
+            "Where it suits",
+            "Who it suits"
+          ],
+          "rows": [
+            [
+              "AC 22 kW (wallbox)",
+              "The slowest; limited by the onboard unit",
+              "Home, workplace, places where cars are parked for a long time",
+              "End users who park overnight or all day"
+            ],
+            [
+              "DC 40 kW",
+              "Medium-fast; distinctly faster than AC",
+              "Shopping centre, hotel, supermarket, office building, restaurant, office",
+              "Businesses that want cost-effective DC"
+            ],
+            [
+              "DC 80-120 kW",
+              "High; a serious top-up during a short break",
+              "Motorways, busy public locations",
+              "Investors who want fast turnover and high circulation"
+            ]
+          ]
+        },
+        {
+          "text": "The key question when reading the table is this: how long does the person parking the car stay there? If the stay is long and the aim is \"let it fill overnight\", AC 22 kW is enough. If the stay is a few hours (shopping, a meal, an overnight stay) and you want to offer the customer a concrete amount of charge, 40 kW DC fills exactly that gap. If the stay is very short and the aim is \"back on the road as fast as possible\", 80 kW and above is needed. That is why many businesses prefer to start with 40 kW DC before enlarging the investment and to scale up as they see real demand."
+        },
+        {
+          "text": "The Bemis BEVDC series: 40, 80, 120, 160 and 200 kW"
+        },
+        {
+          "text": "Bemis's DC fast-charging family is the BEVDC series, offering options from 40 kW up to 200 kW. The whole series has CCS2 connectors, is compatible with the OCPP 1.6J / 2.0.1 protocols (remote management, user authorisation and reporting), takes an AC 380-480 V three-phase input, delivers a 150-1000 V DC output and has an enclosure protected for outdoor use. The BEVDC 40, the 40 kW entry point, has a single socket; that is, it charges one car at a time and is ideal for single-point scenarios."
+        },
+        {
+          "caption": "The Bemis BEVDC series — an overview",
+          "headers": [
+            "Model",
+            "Output power",
+            "Sockets",
+            "Simultaneous charging",
+            "Connector",
+            "OCPP"
+          ],
+          "rows": [
+            [
+              "BEVDC 40",
+              "40 kW",
+              "1",
+              "No",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 80",
+              "80 kW",
+              "2",
+              "Yes",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 120",
+              "120 kW",
+              "1 or 2",
+              "Yes",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 160",
+              "160 kW",
+              "2",
+              "Yes",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 180",
+              "180 kW",
+              "2",
+              "Yes",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 200",
+              "200 kW",
+              "2",
+              "Yes",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ]
+          ]
+        },
+        {
+          "text": "The single-socket BEVDC 40 is the way to move up to DC speed with a low entry cost, for small businesses and single-point installations. As the need grows — more cars, higher circulation — the dual-socket models of 80 kW and above, capable of simultaneous charging, come into play. This makes it possible to start with 40 kW today and plan towards higher power tomorrow."
+        },
+        {
+          "text": "OCPP compatibility also matters from the operator's point of view: thanks to remote monitoring, user authorisation and reporting, the station can be connected to a management platform, usage can be tracked and different pricing scenarios can be set up. In public or fleet use, this feature turns the station from just a device into a manageable service point — and makes the operational side of the investment easier too."
+        },
+        {
+          "text": "What is needed to install a 40 kW DC station?"
+        },
+        {
+          "text": "DC fast charging requires a stronger electrical infrastructure than an AC wallbox. The general requirement is a three-phase supply of sufficient power (the BEVDC series takes an AC 380-480 V three-phase input) and installation by a qualified team. The exact electrical values — your facility's existing connection capacity, the board and cable cross-sections, the protective equipment needed and any requirement to increase capacity — must always be assessed on site by an expert. Correct sizing is essential both for safety and for the station to run without trouble."
+        },
+        {
+          "text": "Looking for the right DC power for your business? See the Bemis BEVDC fast-charging units, from 40 kW up to 200 kW.",
+          "label": "See the DC fast-charging units"
+        }
+      ],
+      "faq": [
+        {
+          "q": "How long does a 40 kW DC charging station take to fill a car?",
+          "a": "It would not be right to give an exact number of minutes, because the time depends on your car. The formula for a rough estimate is: time ≈ energy to be added (kWh) ÷ charging power (kW). For example, on a car that accepts the full 40 kW, 40 kWh is added in about 1 hour. However, not every car accepts 40 kW, and once the battery passes 80% the charging speed slows deliberately (taper). The real time therefore varies with the car's acceptance rate and its state of charge; the formula only gives the right order of magnitude, not a firm promise."
+        },
+        {
+          "q": "Why is 40 kW DC charging faster than AC at 22 kW?",
+          "a": "Because the place where the energy is converted differs between AC and DC charging. In AC charging the converter that turns the grid's alternating current into the battery's direct current is inside the vehicle and is usually limited to 7.4-22 kW; even a more powerful station cannot exceed that ceiling. In DC charging the conversion happens inside the station and DC is fed straight to the battery, so the limit of the onboard unit is taken out of the equation. As a result a 40 kW DC station transfers distinctly more energy in the same time than 22 kW AC and fills the car in less time."
+        },
+        {
+          "q": "Which businesses is a 40 kW DC charging station suitable for?",
+          "a": "40 kW is a cost-effective DC option for medium-intensity locations. It is ideal for shopping centres and supermarkets, hotels, office buildings and restaurants, office and business car parks and small vehicle fleets, because the customer or member of staff parks the car and gets a worthwhile amount of charge while going about their business. At motorway service areas, at locations with very high vehicle turnover or where charging in the shortest possible time is expected, higher-power DC units in the 80-200 kW range are more suitable. The right power is chosen according to the traffic of the location."
+        },
+        {
+          "q": "How many sockets does the Bemis BEVDC 40 have and which cars does it work with?",
+          "a": "The BEVDC 40 has an output of 40 kW and a single socket; that is, it charges one car at a time and is designed for single-point scenarios. It uses the CCS2 connector, which is the standard connector for public DC charging in Türkiye. It is compatible with the OCPP 1.6J / 2.0.1 protocols (remote management, authorisation and reporting), takes an AC 380-480 V three-phase input, delivers a 150-1000 V DC output and has an enclosure protected for outdoor use. When more cars or higher power are needed, the dual-socket BEVDC models of 80 kW and above are the choice."
+        },
+        {
+          "q": "What kind of infrastructure is needed to install a 40 kW DC charging station?",
+          "a": "DC fast charging requires a stronger electrical infrastructure than an AC wallbox. In general a three-phase supply of sufficient power is needed; the Bemis BEVDC series runs on an AC 380-480 V three-phase input. The installation must always be carried out by a qualified team. Exact electrical values — your existing connection capacity, the board and cable cross-sections, the protective equipment and, if necessary, an increase in capacity — must be assessed on site by an expert. Correct sizing is critical both for safety and for the station to run without interruption."
+        }
+      ],
+      "related": [
+        {
+          "label": "DC fast-charging units (BEVDC)"
+        },
+        {
+          "label": "EV charger model comparison"
+        },
+        {
+          "label": "The difference between AC and DC charging"
+        },
+        {
+          "label": "How does an EV charging station work?"
+        }
+      ]
     },
     "evde-elektrikli-arac-sarj-maliyeti-km-basina": {
       "title": "Home EV Charging Cost: How Much per Kilometre?"
@@ -7552,7 +7892,147 @@
       ]
     },
     "gunes-enerjisi-solar-ile-elektrikli-arac-sarji": {
-      "title": "Elektroauto mit Solarstrom laden: EV-Laden mit der eigenen PV-Anlage"
+      "title": "Elektroauto mit Solarstrom laden: Zu Hause mit Photovoltaik das Auto laden",
+      "metaTitle": "Solarbetriebenes Laden: Wie viele Module, wie funktioniert es?",
+      "description": "Zu Hause das Auto aus Solarmodulen laden: Für 40 km braucht es etwa 7-9 kWh am Tag, 1 kWp Modulleistung erzeugt 3,5-4,5 kWh am Tag. On-Grid-Anlage, Modulzahl-Berechnung und Auswahl einer Wallbox mit einstellbarem Strom.",
+      "excerpt": "Sie können Ihr Auto mit den Solarmodulen auf Ihrem Dach laden: In einer On-Grid-Anlage speisen die Module den Hausverteiler, und der Verteiler versorgt das Ladegerät. Eine Beispielrechnung zur Modulzahl und die für Solar am besten geeigneten Ladegeräte-Eigenschaften finden Sie in diesem Ratgeber.",
+      "category": "Ratgeber",
+      "body": [
+        {
+          "text": "Ja – Sie können Ihr Auto mit dem Strom laden, den Sie auf dem Dach Ihres Hauses mit Solarmodulen erzeugen. In einer netzgekoppelten (On-Grid-)Solaranlage speisen die Module die Elektroinstallation des Hauses; und weil Ihr Heimladegerät an dieselbe Installation angeschlossen ist, wird ein erheblicher Teil eines Ladevorgangs, den Sie bei laufender Solarproduktion starten, direkt aus der Sonne gedeckt. In diesem Ratgeber erklären wir in einfacher Sprache, wie die Anlage funktioniert, wie viele Module mit einer Beispielrechnung nötig sind und welche Ladegeräte-Eigenschaften mit Solar am effizientesten arbeiten."
+        },
+        {
+          "text": "Die Idee, ein Auto mit Solarstrom zu laden, führt zwei Investitionen – die Photovoltaikanlage auf dem Dach und die Ladestation zu Hause – zum selben Ziel zusammen: die Energiekosten je Kilometer zu senken und das Auto mit selbst erzeugtem Strom zu versorgen. Beginnen wir mit einer wichtigen Klarstellung: Bemis ist Hersteller von Ladegeräten für Elektrofahrzeuge; Solarmodule und Wechselrichter sind eine eigene Gerätegruppe und werden von Ihrem Solarunternehmen geplant. Die gute Nachricht: Jede richtig ausgelegte Heimladestation arbeitet reibungslos mit einer Solaranlage zusammen."
+        },
+        {
+          "text": "Wie funktioniert das Laden eines Elektroautos aus Solarmodulen?"
+        },
+        {
+          "text": "Die große Mehrheit der Solaranlagen im Eigenheim ist netzgekoppelt, also On-Grid. Die Module erzeugen aus der Sonne Gleichstrom (DC); der Wechselrichter wandelt diesen in den im Haus genutzten Wechselstrom (AC) um und speist ihn in den Hauptverteiler ein. Von diesem Moment an versorgt die erzeugte Energie das Gerät, das gerade läuft – Kühlschrank, Klimaanlage und natürlich das Ladegerät für das Elektroauto. Ist die Erzeugung geringer als der Verbrauch, wird die Differenz aus dem Netz ergänzt; ist sie höher, wird der Überschuss ins Netz eingespeist. Der gesamte Ablauf ist automatisch: Wenn Sie den Ladevorgang starten, müssen Sie nicht darüber nachdenken, welche Quelle im Hintergrund genutzt wird."
+        },
+        {
+          "text": "In dieser Architektur ist die Rolle des Ladegeräts klar: Die an der Wand montierte Ladestation (Wallbox) wird an den Hausverteiler angeschlossen und überträgt die aus dem Verteiler kommende Energie sicher an das Auto. Ob die Energie in diesem Moment vom Modul oder aus dem Netz stammt, ändert nichts an der Arbeitsweise des Ladegeräts – deshalb müssen Sie nicht nach einem „speziellen Solar-Ladegerät“ suchen. Auch der in Systemen mit Batteriespeicher eingesetzte Hybrid-Wechselrichter ändert diese Logik nicht: Er steuert Module und Batterie und speist den Hausverteiler; das Heimladegerät arbeitet weiterhin am Verteiler. Was den solar gedeckten Anteil wirklich erhöht, ist, den Ladevorgang in die Stunden hoher Erzeugung zu legen und den Ladestrom an die Erzeugung anpassen zu können."
+        },
+        {
+          "items": [
+            "Die Module erzeugen DC → der Wechselrichter wandelt in AC → der Hauptverteiler versorgt Haus und Ladegerät.",
+            "Reicht die Sonne, kommt der Ladestrom überwiegend aus den Modulen; reicht sie nicht, wird die Lücke aus dem Netz ergänzt – der Ladevorgang bricht nie ab.",
+            "Eine Wallbox arbeitet unabhängig von der Marke der Module und des Wechselrichters; eine spezielle „Solar-Version“ des Ladegeräts ist nicht nötig.",
+            "Der Anschluss am Verteiler und die Montage müssen in jedem Fall von einer qualifizierten Elektrofachkraft ausgeführt werden."
+          ]
+        },
+        {
+          "text": "Wie viele Module, wie viel kW sind nötig? Eine angenommene Beispielrechnung"
+        },
+        {
+          "text": "Die Antwort hängt vom Verbrauch Ihres Autos und davon ab, wie viele Kilometer Sie täglich fahren. Beginnen wir mit einer gängigen Annahme: Ein Elektroauto verbraucht auf 100 Kilometern etwa 15-20 kWh. Unter dieser Annahme liegt der tägliche Energiebedarf eines Fahrers, der im Schnitt 40 km am Tag zurücklegt, bei rund 6-8 kWh; rechnet man die etwa 10 % Verluste beim Laden hinzu, deckt eine Erzeugung von grob 7-9 kWh pro Tag diesen Bedarf."
+        },
+        {
+          "text": "Auch auf der Modulseite nehmen wir einen angenommenen Mittelwert: Gehen wir davon aus, dass 1 kWp installierte Leistung unter türkischen Bedingungen im Schnitt 3,5-4,5 kWh pro Tag erzeugt (das schwankt je nach Region, Jahreszeit, Dachausrichtung und Verschattung deutlich – diese Werte dienen nur der Orientierung). Kombiniert man beide Annahmen, ergibt sich folgendes Bild:"
+        },
+        {
+          "caption": "Angenommene Beispielrechnung – die Modulwerte sind Richtwerte; die tatsächliche Auslegung ergibt sich aus der Vor-Ort-Prüfung",
+          "headers": [
+            "Tägliche Fahrleistung",
+            "Ungefährer Energiebedarf",
+            "Angenommene Modulleistung",
+            "Modulzahl (Annahme 450 Wp)"
+          ],
+          "rows": [
+            [
+              "20 km",
+              "3-4 kWh",
+              "~1 kWp",
+              "2-3 Module"
+            ],
+            [
+              "40 km",
+              "6-8 kWh",
+              "~1,5-2 kWp",
+              "4-5 Module"
+            ],
+            [
+              "100 km",
+              "15-20 kWh",
+              "~4-5 kWp",
+              "9-12 Module"
+            ]
+          ]
+        },
+        {
+          "text": "Zwei Hinweise sind wichtig. Erstens zeigt diese Rechnung nur den Anteil des Autos; für den Eigenverbrauch des Hauses (Haushaltsgeräte, Beleuchtung, Klimaanlage) wird zusätzliche Kapazität geplant. Zweitens ist die Erzeugung saisonal – eine Anlage, die im Sommer über dem Tagesziel liegt, kann im Winter darunter bleiben. Die tatsächliche Auslegung ergibt sich aus der Vor-Ort-Prüfung Ihres Solarunternehmens unter Betrachtung von Dachfläche, Ausrichtung, Neigung und Verbrauchsprofil. Nutzen Sie die Werte hier als erste Orientierung und stützen Sie die Investitionsentscheidung auf die Prüfung."
+        },
+        {
+          "text": "Welches Ladegerät passt zu Solarstrom?"
+        },
+        {
+          "text": "Technisch arbeitet jede AC-Heimladestation mit Type-2-Stecker in einem Haus mit Solaranlage. Die Eigenschaft, die bei der Effizienz den Unterschied macht, ist jedoch diese: dass der Ladestrom – und damit die Leistung – einstellbar ist. Die Solarerzeugung schwankt im Tagesverlauf ständig; sie erreicht ihren Höhepunkt um die Mittagszeit und fällt morgens und abends ab. Wenn Sie die Ladeleistung auf eine niedrigere Stufe senken können, nähert sich die vom Gerät bezogene Leistung der Erzeugung an, und ein größerer Teil des Ladevorgangs wird von den Modulen statt aus dem Netz gedeckt. In den Stunden reichlicher Erzeugung erhöhen Sie die Stufe und bringen die Sonne schneller ins Auto."
+        },
+        {
+          "text": "Bemis Charger Plus 2 und Charger Pro 2 bieten genau diese Flexibilität: Die Leistungsstufe ist zwischen 4-7-11-22 kW (6-10-16-32 A) einstellbar. Der intelligente Ladealgorithmus des Plus 2 passt sich automatisch dem maximalen Strom an, den das Auto annimmt; die Funktion Automatischer Ladestart setzt den Ladevorgang von selbst fort, wenn der Strom nach einem Ausfall zurückkehrt. Der Pro 2 ergänzt dies um erweitertes Lastmanagement (DLM), OCPP 1.6-Unterstützung und Nutzerfreigabe; bei den vernetzten Modellen erfolgen Ein- und Ausschalten aus der Ferne, Zeitschaltung und die Verfolgung der Ladehistorie über die Mobil-App. Beide Modelle lassen sich dank ihres Gehäuses in Schutzart IP65 im Freien installieren."
+        },
+        {
+          "text": "Warum ist dynamische Lastverteilung im Solarhaushalt ein Vorteil?"
+        },
+        {
+          "text": "Die Lastverteilung (DLM) überwacht den Gesamtverbrauch des Hauses und passt die Ladeleistung automatisch an die sichere Grenze der Installation an. In einem Haus mit Solaranlage bedeutet das praktisch: Mittags, wenn die Erzeugung hoch ist und kein großer Verbraucher läuft, läuft der Ladevorgang mit hoher Leistung; schalten sich Lasten wie Backofen oder Klimaanlage zu, wird der Ladevorgang automatisch gedrosselt, und sinkt die Last, steigt er wieder. So wird zugleich die Hauptsicherung geschützt und werden die Stunden reichlicher Erzeugung möglichst effizient genutzt, ohne die Installation zu belasten. Auch das Planen des Ladevorgangs mit der Zeitschaltung in das Mittagsfenster der Spitzenerzeugung ist eine einfache und wirksame Methode, den solar gedeckten Anteil zu erhöhen."
+        },
+        {
+          "text": "Für alle, die keine feste Installation wünschen, oder die einen zweiten Standort wie ein solarversorgtes Landhaus oder Ferienhaus haben, ist der Bemis Pro Mobile 2 eine praktische Alternative: Bei diesem tragbaren dreiphasigen Ladegerät mit 11-22 kW wird der Strom über die Mobil-App oder die Taste am Gerät in 6 Stufen (6/10/16/20/25/32 A) eingestellt. Die niedrigen Stufen erleichtern es, selbst bei kleinen Anlagen mit begrenzter Erzeugung einen erheblichen Teil des Ladevorgangs solar zu decken. Die Schutzart IP65 und der Betriebsbereich von -40 °C / +55 °C machen das Gerät ganzjährig im Freien nutzbar; Tragetasche und einphasiger Steckeradapter liegen bei."
+        },
+        {
+          "text": "Wählen Sie Ihr solartaugliches Ladegerät mit einstellbarem Strom – entscheiden wir gemeinsam über das zu Ihrer Nutzung passende Modell.",
+          "label": "AC-Wallbox-Ladestationen ansehen"
+        },
+        {
+          "text": "Wie geht das Laden nachts und an bewölkten Tagen weiter?"
+        },
+        {
+          "text": "Der größte Komfort einer On-Grid-Anlage ist die Unterbrechungsfreiheit: Reicht die Sonne nicht, wird der fehlende Teil aus dem Netz ergänzt, ohne dass Sie etwas tun. Beim Laden in der Nacht kommt die Energie vollständig aus dem Netz; an bewölkten Tagen sinkt die Erzeugung, fällt aber nicht auf null – die Module liefern weiterhin einen verringerten Beitrag, den Rest übernimmt das Netz. Das Laden des Autos bleibt in keinem Szenario auf halber Strecke stehen. Ist Ihr Stromtarif nachts günstiger, können Sie mit der Zeitschaltung am Ladegerät den Ladevorgang in die Nacht legen und so auch die Kosten der sonnenlosen Stunden steuern."
+        },
+        {
+          "text": "Anlagen mit Batteriespeicher (mit Hybrid-Wechselrichter) speichern die tagsüber erzeugte Überschussenergie und stellen sie abends bereit; diese Energie entlastet vorrangig den Eigenverbrauch des Hauses. Da die Batterie eines Autos weit größer ist als Heimspeicherbatterien, ist es in den meisten Anlagen nicht realistisch, eine nächtliche Autoladung vollständig aus dem Hausspeicher zu decken – der Speicher sollte als Unterstützung und nicht als vollständige Autoladung gedacht werden. Kurz gesagt lautet die effizienteste Auslegung: den Ladevorgang möglichst in die sonnigen Stunden legen, den Strom an die Erzeugung anpassen und den verbleibenden Bedarf im Nachttarif aus dem Netz ergänzen."
+        },
+        {
+          "text": "Bemis fertigt AC-Ladestationen für Zuhause und Betrieb – mit dem Erbe von Bemis Teknik, das seit 1994 in Bursa produziert. Nachdem Sie die Modul- und Wechselrichterseite Ihrer Solaranlage mit Ihrem Solarunternehmen geplant haben, können Sie die Ladeseite mit dem Charger Plus 2, dem Charger Pro 2 mit einstellbarem Strom oder dem tragbaren Pro Mobile 2 vervollständigen. Um zu entscheiden, welches Modell zu Ihrer Nutzung passt, erreichen Sie uns über unsere Kontaktseite."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Kann ein Elektroauto direkt aus einem Solarmodul geladen werden?",
+          "a": "Der vom Modul erzeugte Gleichstrom (DC) wird dem Auto nicht direkt zugeführt; er wird zuerst vom Wechselrichter in den im Haus genutzten Wechselstrom (AC) umgewandelt und in den Hauptverteiler eingespeist. Da Ihr Heimladegerät an diesem Verteiler arbeitet, wird ein erheblicher Teil des Ladens während laufender Solarerzeugung von den Modulen gedeckt; der fehlende Teil wird automatisch aus dem Netz ergänzt. „Aus dem Modul laden“ bedeutet in der Praxis also, aus der Hausinstallation zu laden, die von einer netzgekoppelten (On-Grid-)Solaranlage gespeist wird. In dieser Auslegung braucht das Ladegerät keine besondere Ausstattung; jede AC-Wallbox mit Type-2-Stecker arbeitet mit der Anlage zusammen."
+        },
+        {
+          "q": "Wie viele Solarmodule sind zum Laden eines Elektroautos nötig?",
+          "a": "Erklären wir es an einem angenommenen Beispiel: Elektroautos verbrauchen auf 100 km etwa 15-20 kWh; ein Fahrer, der täglich 40 km fährt, hat einen Tagesbedarf von 6-8 kWh. Nimmt man an, dass 1 kWp installierte Leistung im türkischen Mittel etwa 3,5-4,5 kWh pro Tag erzeugt, genügen für diese Nutzung 1,5-2 kWp – also 4-5 Module mit 450 Wp. Für 100 km am Tag steigt der Bedarf auf 4-5 kWp (9-12 Module). Diese Werte dienen nur der Orientierung; die tatsächliche Modulzahl bestimmt die Vor-Ort-Prüfung des Solarunternehmens unter Berücksichtigung von Ausrichtung und Neigung Ihres Dachs, Ihrer Region, der Jahreszeit und des Eigenverbrauchs des Hauses."
+        },
+        {
+          "q": "Braucht man für das Laden mit Solarstrom ein besonderes Ladegerät?",
+          "a": "Nein. In einem Haus mit netzgekoppelter Solaranlage arbeitet eine gewöhnliche AC-Ladestation mit Type-2-Stecker problemlos, denn das Gerät bezieht die Energie nicht aus den Modulen, sondern aus dem Hausverteiler. Die Eigenschaft, die die Effizienz erhöht, ist die Stromeinstellung: Beim Bemis Charger Plus 2 und Charger Pro 2 ist die Leistung zwischen 4-7-11-22 kW einstellbar; beim tragbaren Pro Mobile 2 wird der Strom über die Mobil-App oder die Taste am Gerät in 6 Stufen (6-32 A) gewählt. Die niedrigen Stufen nähern die bezogene Leistung der Solarerzeugung an, die hohen Stufen beschleunigen das Laden in den Stunden reichlicher Erzeugung. So wird dasselbe Gerät sowohl in sonnigen als auch in sonnenlosen Stunden effizient genutzt."
+        },
+        {
+          "q": "Arbeiten Hybrid-Wechselrichter und Heimladegerät zusammen?",
+          "a": "Ja. Der Hybrid-Wechselrichter ist das Gerät, das die Solarmodule und – falls vorhanden – den Batteriespeicher steuert und den Hauptverteiler des Hauses speist. Das Heimladegerät ist ein separates Gerät, das an diesen Verteiler angeschlossen wird. Beide werden nicht direkt miteinander verbunden, sondern arbeiten über dieselbe Installation zusammen – deshalb müssen die Marke des Wechselrichters und die des Ladegeräts nicht übereinstimmen. Bemis-Wallbox-Modelle lassen sich unabhängig von der Modul- und Wechselrichterinfrastruktur in jedem Haus mit On-Grid- oder Hybridanlage installieren. Es genügt, dass der Anschluss über den Verteiler, mit geeigneten Schutzeinrichtungen und durch eine qualifizierte Elektrofachkraft erfolgt. Die Eignung der Installation vor der Montage mit einer Prüfung zu bestätigen, sorgt dafür, dass sowohl die Solar- als auch die Ladeinvestition solide vorangeht."
+        },
+        {
+          "q": "Wie läuft das Laden des Autos nachts oder bei bewölktem Wetter?",
+          "a": "In netzgekoppelten (On-Grid-)Anlagen bricht der Ladevorgang nie ab: Reicht die Solarerzeugung nicht, wird der fehlende Teil automatisch aus dem Netz ergänzt. Das Laden in der Nacht wird vollständig aus dem Netz gespeist; an bewölkten Tagen liefern die Module weiterhin einen verringerten Beitrag, und die Differenz kommt wieder aus dem Netz. Ist Ihr Stromtarif nachts günstiger, können Sie mit der Zeitschaltung am Ladegerät den Ladevorgang in die Nachtstunden legen und so auch die Kosten der sonnenlosen Stunden steuern. Anlagen mit Batteriespeicher tragen den Tagesüberschuss in den Abend; da die Autobatterie jedoch weit größer ist als ein Heimspeicher, sollte der Speicher als Unterstützung und nicht als vollständige Autoladung gedacht werden."
+        }
+      ],
+      "related": [
+        {
+          "label": "Kosten des Ladens zu Hause: Wie viel pro Kilometer?"
+        },
+        {
+          "label": "Einphasig oder dreiphasig (3 Phasen)? Welches Ladegerät passt zu Ihrem Zuhause?"
+        },
+        {
+          "label": "Was ist Lastmanagement beim Laden von Elektroautos?"
+        },
+        {
+          "label": "AC-Wallbox-Ladestationen"
+        }
+      ]
     },
     "evde-elektrikli-arac-sarji-guvenli-mi": {
       "title": "Ist das Laden eines Elektroautos zu Hause sicher? Ratgeber zu Steckdose, Sicherung und Fehlerstrom",
@@ -7665,7 +8145,207 @@
       "title": "Ladekabel-Kompatibilität für jedes Elektroauto: der Typ-2-Leitfaden"
     },
     "40-kw-dc-sarj-istasyonu": {
-      "title": "Was ist eine 40-kW-DC-Ladestation, für wen eignet sie sich und wie schnell ist sie?"
+      "title": "Was ist eine 40-kW-DC-Ladestation, für wen ist sie und wie schnell lädt sie?",
+      "metaTitle": "40-kW-DC-Ladestation: Geschwindigkeit, Einsatz, Auswahl",
+      "description": "Was ist eine 40-kW-DC-Ladestation, warum ist sie schneller als AC und zu welchem Betrieb passt sie? Wie DC-Schnellladen funktioniert, eine Beispielrechnung zur Dauer und die Bemis-BEVDC-Serie.",
+      "excerpt": "Ein kosteneffizienter Einstieg in die DC-Welt für Einkaufszentren, Hotels, Supermärkte und kleine Flotten: Wie 40-kW-DC-Laden funktioniert, wie schnell es ist und welchen Platz es in der Bemis-BEVDC-Serie einnimmt.",
+      "category": "Ratgeber",
+      "body": [
+        {
+          "text": "Wer nach einer „40-kW-DC-Ladestation“ sucht, will meist zwei Dinge wissen: Wie schnell füllt diese Station ein Auto, und passt sie zu meinem Betrieb (Einkaufszentrum, Hotel, Supermarkt, Bürogebäude oder kleine Fahrzeugflotte)? In diesem Ratgeber erklären wir in einfacher Sprache, warum DC-Schnellladen schneller ist als AC, was 40 kW tatsächlich bedeuten – mit einer Beispielrechnung –, zu welchen Standorten es passt und welchen Platz die 40-kW-Option in der Bemis-BEVDC-Serie einnimmt. Statt exakte Minuten und Preise zu versprechen, konzentrieren wir uns auf die echten technischen Fakten, die Ihre Entscheidung auf ein solides Fundament stellen."
+        },
+        {
+          "text": "Was ist DC-Schnellladen und warum ist es schneller als AC?"
+        },
+        {
+          "text": "Am leichtesten versteht man den Unterschied, wenn man betrachtet, „wo der Strom umgewandelt wird“. Der Strom aus dem Netz ist Wechselstrom (AC), die Batterie wird dagegen mit Gleichstrom (DC) gefüllt. Beim AC-Laden nimmt diese Umwandlung von AC nach DC der Wandler im Fahrzeug vor (der Onboard-Charger), und dieses Gerät ist meist auf 7,4-22 kW begrenzt – so leistungsfähig die Station auch sein mag, die Obergrenze setzt das Gerät im Auto. Beim DC-Laden erfolgt die Umwandlung IM Inneren der Station, und der Batterie wird direkt Gleichstrom zugeführt. Damit entfällt die Grenze des Onboard-Geräts; Laden mit weit höherer Leistung und deutlich schneller wird möglich. Genau deshalb ist „Schnellladen“ überhaupt möglich."
+        },
+        {
+          "items": [
+            "AC-Laden: Die Umwandlung erfolgt im Fahrzeug; die Geschwindigkeit begrenzt der Wandler im Auto (meist 7,4-22 kW).",
+            "DC-Laden: Die Umwandlung erfolgt in der Station; der Batterie wird direkt Gleichstrom zugeführt, die Obergrenze des Onboard-Geräts entfällt.",
+            "Ergebnis: Eine DC-Station überträgt in derselben Zeit weit mehr Energie – deshalb spricht man von „Schnellladen“.",
+            "In der Türkei ist der Standardstecker beim öffentlichen DC-Laden CCS2."
+          ]
+        },
+        {
+          "text": "Wie schnell ist eine 40-kW-DC-Ladestation?"
+        },
+        {
+          "text": "Für eine grobe Schätzung gibt es eine einfache Formel: Dauer ≈ in die Batterie zu ladende Energie (kWh) ÷ Ladeleistung (kW). Ein Beispiel (angenommen): Sie möchten Ihrer Batterie 40 kWh hinzufügen. Bei einem Auto, das die vollen 40 kW annimmt, dauert das theoretisch rund 1 Stunde (40 ÷ 40 = 1). Dieselben 40 kWh mit 22 kW AC zu laden, dauert etwa 2 Stunden; und weil der Wandler in vielen Autos nicht 22, sondern 11 kW annimmt, kann sich die Dauer bei AC noch weiter strecken. Die tatsächliche Dauer hängt von der Leistung ab, die das Auto in dem Moment annimmt, und davon, dass die Batterie (besonders jenseits von 80 %) bewusst langsamer lädt, also vom Taper. Deshalb ist ein festes Versprechen „in X Minuten voll“ nicht realistisch – die Formel liefert Ihnen nur die richtige Größenordnung."
+        },
+        {
+          "text": "Für wen ist 40 kW DC? Wo wird es eingesetzt?"
+        },
+        {
+          "text": "40 kW sind ein kosteneffizienter Einstieg in die DC-Welt: deutlich schneller als AC, aber im Maßstab passender als die sehr leistungsstarken Einheiten an Autobahnen. Für Standorte mittlerer Auslastung, an denen Kundschaft oder Beschäftigte ihr Auto abstellen und währenddessen etwas erledigen (Einkauf, Essen, Besprechung, Übernachtung), ist es wie geschaffen."
+        },
+        {
+          "items": [
+            "Einkaufszentren und Supermärkte: Das Auto lädt, während die Kundschaft einkauft.",
+            "Hotels, Bürogebäude und Restaurants: Die Dauer eines Aufenthalts oder Besuchs lässt genug Zeit zum Laden.",
+            "Betriebs- und Büroparkplätze: eine praktische Geschwindigkeit für Fahrzeuge von Beschäftigten und Besuchern.",
+            "Kleine Fahrzeugflotten: Zwischenladungen im Tagesverlauf halten das Fahrzeug im Einsatz."
+          ]
+        },
+        {
+          "text": "An Autobahnraststätten dagegen, an Standorten mit sehr hohem Fahrzeugdurchsatz oder dort, wo die Erwartung lautet „ohne Pause in kürzester Zeit voll“, können 40 kW zu wenig sein; an solchen Orten werden leistungsstärkere DC-Einheiten im Bereich 80-200 kW bevorzugt. Die richtige Leistung ergibt sich weniger aus der Marke des Geräts als aus dem Verkehr am Einsatzort und der dort akzeptablen Wartezeit."
+        },
+        {
+          "text": "AC 22 kW, DC 40 kW oder DC 80-120 kW? Eine Entscheidungstabelle"
+        },
+        {
+          "caption": "Leistungswahl nach Einsatzort",
+          "headers": [
+            "Option",
+            "Typische Geschwindigkeit",
+            "Wohin es passt",
+            "Für wen es passt"
+          ],
+          "rows": [
+            [
+              "AC 22 kW (Wallbox)",
+              "Am langsamsten; begrenzt durch das Onboard-Gerät",
+              "Zuhause, Betrieb, Orte mit langer Parkdauer",
+              "Endnutzer, die nachts oder tagsüber lange parken"
+            ],
+            [
+              "DC 40 kW",
+              "Mittelschnell; deutlich schneller als AC",
+              "Einkaufszentrum, Hotel, Supermarkt, Bürogebäude, Restaurant, Büro",
+              "Betriebe, die kosteneffizientes DC wollen"
+            ],
+            [
+              "DC 80-120 kW",
+              "Hoch; kräftige Nachladung in einer kurzen Pause",
+              "Autobahn, stark frequentierter öffentlicher Standort",
+              "Investoren, die schnellen Durchsatz und hohe Frequenz wollen"
+            ]
+          ]
+        },
+        {
+          "text": "Die Schlüsselfrage beim Lesen der Tabelle lautet: Wie lange bleibt die Person, die das Auto abstellt, dort? Ist der Aufenthalt lang und lautet das Ziel „über Nacht voll“, genügen AC 22 kW. Dauert der Aufenthalt einige Stunden (Einkauf, Essen, Übernachtung) und wollen Sie der Kundschaft eine spürbare Nachladung bieten, füllen 40 kW DC genau diese Lücke. Ist der Aufenthalt sehr kurz und lautet das Ziel „schnellstmöglich weiter“, sind 80 kW und mehr nötig. Deshalb ziehen es viele Betriebe vor, mit 40 kW DC zu beginnen und erst mit sichtbarer Nachfrage zu skalieren, bevor sie die Investition vergrößern."
+        },
+        {
+          "text": "Die Bemis-BEVDC-Serie: 40, 80, 120, 160 und 200 kW"
+        },
+        {
+          "text": "Die DC-Schnellladefamilie von Bemis ist die BEVDC-Serie mit Optionen von 40 kW bis 200 kW. Die gesamte Serie hat CCS2-Stecker, ist mit den Protokollen OCPP 1.6J / 2.0.1 kompatibel (Fernverwaltung, Nutzerfreigabe und Reporting), nimmt einen dreiphasigen AC-Eingang von 380-480 V, liefert einen DC-Ausgang von 150-1000 V und hat ein für den Außenbereich geschütztes Gehäuse. Der BEVDC 40 als Einstieg mit 40 kW hat eine einzelne Buchse; er lädt also jeweils ein Fahrzeug und ist ideal für Einzelstandort-Szenarien."
+        },
+        {
+          "caption": "Die Bemis-BEVDC-Serie – Überblick",
+          "headers": [
+            "Modell",
+            "Ausgangsleistung",
+            "Buchsen",
+            "Gleichzeitiges Laden",
+            "Stecker",
+            "OCPP"
+          ],
+          "rows": [
+            [
+              "BEVDC 40",
+              "40 kW",
+              "1",
+              "Nein",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 80",
+              "80 kW",
+              "2",
+              "Ja",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 120",
+              "120 kW",
+              "1 oder 2",
+              "Ja",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 160",
+              "160 kW",
+              "2",
+              "Ja",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 180",
+              "180 kW",
+              "2",
+              "Ja",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 200",
+              "200 kW",
+              "2",
+              "Ja",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ]
+          ]
+        },
+        {
+          "text": "Der BEVDC 40 mit einer Buchse ist für kleine Betriebe und Einzelstandort-Installationen der Weg, mit geringen Einstiegskosten auf DC-Geschwindigkeit umzusteigen. Wächst der Bedarf – mehr Fahrzeuge, höhere Frequenz –, kommen die Modelle mit zwei Buchsen ab 80 kW ins Spiel, die gleichzeitig laden können. So lässt sich heute mit 40 kW beginnen und für morgen in Richtung höherer Leistung planen."
+        },
+        {
+          "text": "Die OCPP-Kompatibilität ist auch aus Betreibersicht wichtig: Dank Fernüberwachung, Nutzerfreigabe und Reporting lässt sich die Station an eine Managementsoftware anbinden, die Nutzung nachverfolgen und verschiedene Abrechnungsszenarien einrichten. Im öffentlichen oder Flottenbetrieb macht diese Eigenschaft aus der Station mehr als ein Gerät: einen steuerbaren Servicepunkt – und erleichtert auch die betriebliche Seite der Investition."
+        },
+        {
+          "text": "Was wird für die Installation einer 40-kW-DC-Station benötigt?"
+        },
+        {
+          "text": "DC-Schnellladen verlangt eine leistungsfähigere Elektroinfrastruktur als eine AC-Wallbox. Grundsätzlich sind eine dreiphasige Versorgung mit ausreichender Leistung (die BEVDC-Serie nimmt einen dreiphasigen AC-Eingang von 380-480 V) und eine Installation durch ein qualifiziertes Team erforderlich. Die genauen elektrischen Werte – die vorhandene Anschlussleistung Ihres Standorts, Verteiler- und Kabelquerschnitte, die nötigen Schutzeinrichtungen und ein möglicher Bedarf an Leistungserhöhung – müssen unbedingt von einer Fachkraft vor Ort beurteilt werden. Die richtige Auslegung ist sowohl für die Sicherheit als auch für den störungsfreien Betrieb der Station unerlässlich."
+        },
+        {
+          "text": "Suchen Sie die richtige DC-Leistung für Ihren Betrieb? Sehen Sie sich die Bemis-BEVDC-Schnellladeeinheiten von 40 kW bis 200 kW an.",
+          "label": "DC-Schnellladeeinheiten ansehen"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Wie lange braucht eine 40-kW-DC-Ladestation, um ein Auto zu füllen?",
+          "a": "Eine genaue Minutenangabe wäre nicht seriös, denn die Dauer hängt von Ihrem Auto ab. Die Formel für eine grobe Schätzung lautet: Dauer ≈ hinzuzufügende Energie (kWh) ÷ Ladeleistung (kW). Bei einem Auto, das die vollen 40 kW annimmt, werden 40 kWh beispielsweise in rund 1 Stunde nachgeladen. Allerdings nimmt nicht jedes Auto 40 kW an, und sobald die Batterie 80 % überschreitet, verlangsamt sich das Laden bewusst (Taper). Die tatsächliche Dauer richtet sich daher nach der Annahmeleistung des Autos und dem Ladestand; die Formel gibt nur die richtige Größenordnung, kein festes Versprechen."
+        },
+        {
+          "q": "Warum lädt 40 kW DC schneller als AC mit 22 kW?",
+          "a": "Weil sich der Ort unterscheidet, an dem die Energie umgewandelt wird. Beim AC-Laden sitzt der Wandler, der den Wechselstrom des Netzes in den Gleichstrom der Batterie überführt, im Fahrzeug und ist meist auf 7,4-22 kW begrenzt; auch eine leistungsstärkere Station kann diese Obergrenze nicht überschreiten. Beim DC-Laden erfolgt die Umwandlung in der Station und der Batterie wird direkt Gleichstrom zugeführt, sodass die Grenze des Onboard-Geräts entfällt. Dadurch überträgt eine 40-kW-DC-Station in derselben Zeit deutlich mehr Energie als 22 kW AC und füllt das Auto in kürzerer Zeit."
+        },
+        {
+          "q": "Für welche Betriebe eignet sich eine 40-kW-DC-Ladestation?",
+          "a": "40 kW sind eine kosteneffiziente DC-Option für Standorte mittlerer Auslastung. Ideal sind Einkaufszentren und Supermärkte, Hotels, Bürogebäude und Restaurants, Büro- und Betriebsparkplätze sowie kleine Fahrzeugflotten, denn Kundschaft oder Personal stellt das Auto ab und erhält währenddessen eine spürbare Nachladung. An Autobahnraststätten, an Standorten mit sehr hohem Fahrzeugdurchsatz oder dort, wo das Laden in kürzester Zeit erwartet wird, eignen sich leistungsstärkere DC-Einheiten im Bereich 80-200 kW besser. Die richtige Leistung richtet sich nach dem Verkehr am Einsatzort."
+        },
+        {
+          "q": "Wie viele Buchsen hat der Bemis BEVDC 40 und mit welchen Fahrzeugen arbeitet er?",
+          "a": "Der BEVDC 40 hat eine Leistung von 40 kW und eine einzelne Buchse; er lädt also jeweils ein Fahrzeug und ist für Einzelstandort-Szenarien ausgelegt. Er verwendet den CCS2-Stecker, den Standardstecker für öffentliches DC-Laden in der Türkei. Er ist mit den Protokollen OCPP 1.6J / 2.0.1 kompatibel (Fernverwaltung, Freigabe und Reporting), nimmt einen dreiphasigen AC-Eingang von 380-480 V, liefert einen DC-Ausgang von 150-1000 V und hat ein für den Außenbereich geschütztes Gehäuse. Werden mehr Fahrzeuge oder höhere Leistung benötigt, sind die BEVDC-Modelle mit zwei Buchsen ab 80 kW die Wahl."
+        },
+        {
+          "q": "Welche Infrastruktur wird für die Installation einer 40-kW-DC-Ladestation benötigt?",
+          "a": "DC-Schnellladen verlangt eine leistungsfähigere Elektroinfrastruktur als eine AC-Wallbox. Grundsätzlich ist eine dreiphasige Versorgung mit ausreichender Leistung nötig; die Bemis-BEVDC-Serie arbeitet mit einem dreiphasigen AC-Eingang von 380-480 V. Die Installation muss unbedingt von einem qualifizierten Team ausgeführt werden. Genaue elektrische Werte – Ihre vorhandene Anschlussleistung, Verteiler- und Kabelquerschnitte, Schutzeinrichtungen und gegebenenfalls eine Leistungserhöhung – müssen von einer Fachkraft vor Ort beurteilt werden. Die richtige Auslegung ist für die Sicherheit ebenso entscheidend wie für den unterbrechungsfreien Betrieb der Station."
+        }
+      ],
+      "related": [
+        {
+          "label": "DC-Schnellladeeinheiten (BEVDC)"
+        },
+        {
+          "label": "Vergleich der EV-Ladegerätemodelle"
+        },
+        {
+          "label": "Der Unterschied zwischen AC- und DC-Laden"
+        },
+        {
+          "label": "Wie funktioniert eine EV-Ladestation?"
+        }
+      ]
     },
     "evde-elektrikli-arac-sarj-maliyeti-km-basina": {
       "title": "Kosten für das Laden zu Hause: Wie viel pro Kilometer?"
@@ -11857,7 +12537,147 @@
       ]
     },
     "gunes-enerjisi-solar-ile-elektrikli-arac-sarji": {
-      "title": "Cargar el coche eléctrico con energía solar: carga con paneles en casa"
+      "title": "Carga del coche eléctrico con energía solar: cargar en casa desde placas solares",
+      "metaTitle": "Carga solar del vehículo eléctrico: ¿cuántas placas, cómo funciona?",
+      "description": "Cargar el coche en casa desde placas solares: para 40 km hacen falta unos 7-9 kWh al día, y 1 kWp de placas produce 3,5-4,5 kWh diarios. Sistema on-grid, cálculo del número de placas y elección de un wallbox con corriente ajustable.",
+      "excerpt": "Puede cargar su coche con las placas solares del tejado: en un sistema on-grid las placas alimentan el cuadro de la vivienda y el cuadro alimenta el cargador. En esta guía encontrará un ejemplo de cuántas placas hacen falta y las funciones de cargador con corriente ajustable que mejor se adaptan a la energía solar.",
+      "category": "Guía",
+      "body": [
+        {
+          "text": "Sí: puede cargar su coche con la electricidad que producen las placas solares del tejado de su casa. En un sistema solar conectado a la red (on-grid), las placas alimentan la instalación eléctrica de la vivienda; y, como su cargador doméstico está conectado a esa misma instalación, una parte importante de la carga que inicia mientras hay producción solar se cubre directamente con el sol. En esta guía explicamos en lenguaje sencillo cómo funciona el sistema, cuántas placas hacen falta mediante un ejemplo de cálculo y qué funciones del cargador trabajan de forma más eficiente con energía solar."
+        },
+        {
+          "text": "La idea de cargar el coche con energía solar une dos inversiones —el sistema solar sobre el tejado y la estación de carga doméstica— en un mismo objetivo: reducir el coste energético por kilómetro y alimentar el coche con electricidad que usted mismo produce. Empecemos por una aclaración importante: Bemis es fabricante de cargadores para vehículos eléctricos; las placas solares y el inversor son un grupo de equipos aparte y los proyecta su empresa de energía solar. La buena noticia es que cualquier estación de carga doméstica bien configurada funciona sin problemas junto a un sistema solar."
+        },
+        {
+          "text": "¿Cómo funciona la carga de un coche eléctrico desde placas solares?"
+        },
+        {
+          "text": "La gran mayoría de los sistemas solares domésticos está conectada a la red, es decir, funciona en on-grid. Las placas producen electricidad en corriente continua (DC) a partir del sol; el inversor la convierte en la corriente alterna (AC) que se usa en la vivienda y la entrega al cuadro eléctrico principal. A partir de ese momento, la energía producida alimenta el aparato que esté funcionando en ese instante: el frigorífico, el aire acondicionado y, por supuesto, el cargador del coche eléctrico. Si la producción es menor que el consumo, la diferencia se completa desde la red; si es mayor, el excedente se vierte a la red. Todo ese flujo es automático: al iniciar la carga no tiene que pensar qué fuente se está usando de fondo."
+        },
+        {
+          "text": "En esta arquitectura el papel del cargador está claro: la estación de carga de pared (wallbox) se conecta al cuadro de la vivienda y transfiere con seguridad al coche la energía que llega del cuadro. Que la energía venga en ese momento de la placa o de la red no cambia el funcionamiento del cargador; por eso no hace falta buscar un «cargador específico para solar». El inversor híbrido que se usa en sistemas con baterías tampoco cambia esta lógica: el inversor híbrido gestiona las placas y la batería y alimenta el cuadro de la vivienda; el cargador doméstico sigue funcionando conectado al cuadro. Lo que realmente aumenta la parte cubierta por el sol es hacer coincidir la carga con las horas de mayor producción y poder ajustar la corriente de carga a esa producción."
+        },
+        {
+          "items": [
+            "Las placas producen DC → el inversor lo convierte en AC → el cuadro principal alimenta tanto la vivienda como el cargador.",
+            "Si hay sol suficiente, la carga viene principalmente de las placas; si no, lo que falta se completa desde la red y la carga nunca se interrumpe.",
+            "El wallbox funciona con independencia de la marca de las placas y del inversor; no hace falta una «versión solar» especial del cargador.",
+            "La conexión al cuadro y el montaje debe realizarlos en todos los casos un instalador eléctrico autorizado."
+          ]
+        },
+        {
+          "text": "¿Cuántas placas, cuántos kW hacen falta? Ejemplo de cálculo hipotético"
+        },
+        {
+          "text": "La respuesta depende del consumo de su coche y de cuántos kilómetros recorre al día. Empecemos con una suposición habitual: un coche eléctrico consume unos 15-20 kWh cada 100 kilómetros. Con esa suposición, un conductor que recorre de media 40 km al día tiene una necesidad energética diaria de en torno a 6-8 kWh; añadiendo las pérdidas de aproximadamente el 10 % durante la carga, una producción de unos 7-9 kWh al día cubre ese uso."
+        },
+        {
+          "text": "En el lado de las placas usemos también una media hipotética: supongamos que 1 kWp de potencia instalada produce en las condiciones de Türkiye una media de 3,5-4,5 kWh al día (varía notablemente según la región, la estación, la orientación del tejado y las sombras; estas cifras solo pretenden dar una idea). Combinando ambas suposiciones sale el siguiente cuadro:"
+        },
+        {
+          "caption": "Ejemplo de cálculo hipotético: las cifras de las placas son orientativas; el dimensionado real se concreta con la visita técnica",
+          "headers": [
+            "Conducción diaria",
+            "Necesidad energética aproximada",
+            "Potencia hipotética de placas",
+            "Número de placas (suponiendo 450 Wp)"
+          ],
+          "rows": [
+            [
+              "20 km",
+              "3-4 kWh",
+              "~1 kWp",
+              "2-3 placas"
+            ],
+            [
+              "40 km",
+              "6-8 kWh",
+              "~1,5-2 kWp",
+              "4-5 placas"
+            ],
+            [
+              "100 km",
+              "15-20 kWh",
+              "~4-5 kWp",
+              "9-12 placas"
+            ]
+          ]
+        },
+        {
+          "text": "Dos apuntes importan. El primero, este cálculo muestra solo la parte del coche; para el consumo propio de la vivienda (electrodomésticos, iluminación, aire acondicionado) se planifica capacidad aparte. El segundo, la producción es estacional: un sistema que en verano supera el objetivo diario puede quedarse por debajo en invierno. El dimensionado real se concreta con la visita técnica que realizará su empresa solar, atendiendo a la superficie del tejado, la orientación, la inclinación y el perfil de consumo. Use los valores de aquí como primera idea y base la decisión de inversión en la visita."
+        },
+        {
+          "text": "¿Qué cargador es adecuado para la energía solar?"
+        },
+        {
+          "text": "Técnicamente, cualquier estación de carga AC doméstica con conector Type 2 funciona en una vivienda con energía solar. La función que marca la diferencia en eficiencia es, en cambio, esta: poder ajustar la corriente de carga y, por tanto, la potencia. La producción solar cambia continuamente a lo largo del día; alcanza su máximo al mediodía y baja por la mañana y por la tarde. Cuando puede reducir la potencia de carga a un escalón menor, la potencia que consume el equipo se acerca a la producción y una mayor parte de la carga se cubre con las placas en lugar de con la red. En las horas de producción abundante, sube el escalón y transfiere el sol al coche más rápido."
+        },
+        {
+          "text": "Los Bemis Charger Plus 2 y Charger Pro 2 ofrecen justamente esa flexibilidad: el nivel de potencia se ajusta entre 4-7-11-22 kW (6-10-16-32 A). El algoritmo de carga inteligente del Plus 2 se adapta automáticamente a la corriente máxima que acepta el coche; la función de inicio automático de carga reanuda la carga por sí sola cuando vuelve la luz tras un corte. El Pro 2 añade gestión avanzada de carga (DLM), soporte OCPP 1.6 y autorización de usuarios; en los modelos conectados, el encendido y apagado remotos, el temporizador y el seguimiento del historial de carga se hacen desde la aplicación móvil. Ambos modelos pueden instalarse al aire libre gracias a su carcasa con protección IP65."
+        },
+        {
+          "text": "¿Por qué el equilibrado dinámico de carga es una ventaja en una casa con solar?"
+        },
+        {
+          "text": "El equilibrado de carga (DLM) vigila el consumo total de la vivienda y ajusta automáticamente la potencia de carga al límite seguro de la instalación. En una casa con energía solar, el efecto práctico es este: al mediodía, cuando la producción es alta y no hay ningún gran consumidor en marcha, la carga avanza a alta potencia; cuando entran cargas como el horno o el aire acondicionado, la carga se reduce automáticamente y, al bajar la carga, vuelve a subir. Así se protege el interruptor general y, al mismo tiempo, se aprovechan de la forma más eficiente las horas de producción abundante sin forzar la instalación. Programar la carga con el temporizador para la franja del mediodía en la que la producción alcanza su máximo es otro método sencillo y eficaz para aumentar la parte cubierta por el sol."
+        },
+        {
+          "text": "Para quienes no quieren una instalación fija o tienen una segunda ubicación, como una casa de campo o de veraneo con energía solar, el Bemis Pro Mobile 2 es una alternativa práctica: en este cargador trifásico portátil, que ofrece 11-22 kW, la corriente se ajusta en 6 escalones (6/10/16/20/25/32 A) desde la aplicación móvil o desde el botón del equipo. Los escalones bajos facilitan cubrir con el sol una parte importante de la carga incluso en sistemas solares pequeños de producción limitada. Su grado de protección IP65 y su rango de funcionamiento de -40 °C / +55 °C permiten usar el equipo al aire libre en las cuatro estaciones; en la caja vienen una bolsa de transporte y un adaptador de clavija monofásica."
+        },
+        {
+          "text": "Elija su cargador compatible con la energía solar y con corriente ajustable: decidamos juntos el modelo adecuado para su uso.",
+          "label": "Ver las estaciones de carga wallbox AC"
+        },
+        {
+          "text": "¿Cómo continúa la carga de noche y en días nublados?"
+        },
+        {
+          "text": "La mayor comodidad de un sistema on-grid es que no se interrumpe: cuando el sol no basta, la parte que falta se completa desde la red sin que usted haga nada. En la carga nocturna la energía viene por completo de la red; en días nublados la producción baja pero no se anula: las placas siguen aportando algo menos y la red asume el resto. La carga del coche no se queda a medias en ningún escenario. Si su tarifa eléctrica es más barata de noche, puede además gestionar el coste de las horas sin sol programando la carga para la noche con el temporizador del cargador."
+        },
+        {
+          "text": "Los sistemas con baterías (con inversor híbrido) almacenan la energía sobrante producida durante el día y la ponen a disposición por la tarde; esa energía alivia sobre todo el consumo propio de la vivienda. Como la batería de un coche es mucho mayor que las baterías domésticas de almacenamiento, cubrir por completo una carga nocturna del coche con la batería de casa no es realista en la mayoría de las instalaciones: conviene pensar el almacenamiento como apoyo, no como carga completa del coche. En resumen, la configuración más eficiente es: programar la carga en las horas de sol siempre que sea posible, ajustar la corriente a la producción y completar la necesidad restante desde la red en la tarifa nocturna."
+        },
+        {
+          "text": "Bemis fabrica estaciones de carga AC para el hogar y la empresa, con la herencia de Bemis Teknik, que produce en Bursa desde 1994. Una vez proyectada con su empresa solar la parte de placas e inversor de su sistema, puede completar la parte de carga con el Charger Plus 2 y el Charger Pro 2 de corriente ajustable o con el portátil Pro Mobile 2. Para decidir qué modelo se ajusta a su uso, puede escribirnos desde nuestra página de Contacto."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Se puede cargar un coche eléctrico directamente desde una placa solar?",
+          "a": "La electricidad en corriente continua (DC) que produce la placa no se entrega directamente al coche; primero el inversor la convierte en la corriente alterna (AC) que se usa en la vivienda y la traslada al cuadro eléctrico principal. Como su cargador doméstico funciona conectado a ese cuadro, una parte importante de la carga que realiza mientras hay producción solar se cubre con las placas; lo que falte se completa automáticamente desde la red. Es decir, «cargar desde la placa» significa en la práctica cargar desde la instalación de la vivienda alimentada por un sistema solar conectado a la red (on-grid). En esta configuración el cargador no necesita ningún equipamiento especial; cualquier wallbox AC con conector Type 2 funciona con el sistema."
+        },
+        {
+          "q": "¿Cuántas placas solares hacen falta para cargar un coche eléctrico?",
+          "a": "Expliquémoslo con un ejemplo hipotético: los coches eléctricos consumen unos 15-20 kWh cada 100 km; un conductor que recorre 40 km al día tiene una necesidad diaria de 6-8 kWh. Si se supone que 1 kWp de potencia instalada produce de media en Türkiye unos 3,5-4,5 kWh al día, para ese uso bastan 1,5-2 kWp, es decir, 4-5 placas de 450 Wp. Para 100 km al día la necesidad sube a 4-5 kWp (9-12 placas). Estas cifras solo pretenden dar una idea; el número real de placas lo determina la visita técnica de la empresa solar, teniendo en cuenta la orientación y la inclinación de su tejado, su región, la estación y el consumo propio de la vivienda."
+        },
+        {
+          "q": "¿Hace falta un cargador especial para cargar con energía solar?",
+          "a": "No. En una vivienda con sistema solar conectado a la red, una estación de carga AC estándar con conector Type 2 funciona sin problemas, porque el equipo toma la energía no de las placas sino del cuadro de la vivienda. La función que mejora la eficiencia es el ajuste de corriente: en los Bemis Charger Plus 2 y Charger Pro 2 la potencia se ajusta entre 4-7-11-22 kW; en el portátil Pro Mobile 2 la corriente se selecciona en 6 escalones (6-32 A) desde la aplicación móvil o desde el botón del equipo. Los escalones bajos acercan la potencia consumida a la producción solar y los altos aceleran la carga en las horas de producción abundante. Así, el mismo equipo se usa de forma eficiente tanto en las horas de sol como sin él."
+        },
+        {
+          "q": "¿Funcionan juntos un inversor híbrido y un cargador doméstico?",
+          "a": "Sí. El inversor híbrido es el equipo que gestiona las placas solares y, si la hay, la batería de almacenamiento, y alimenta el cuadro principal de la vivienda. El cargador doméstico es un equipo aparte conectado a ese cuadro. Ambos no se conectan directamente entre sí, sino que trabajan juntos a través de la misma instalación; por eso no hace falta que la marca del inversor coincida con la del cargador. Los modelos de wallbox de Bemis pueden instalarse en cualquier vivienda con sistema on-grid o híbrido, con independencia de la infraestructura de placas e inversor. Basta con que la conexión se haga a través del cuadro, con los elementos de protección adecuados y por un instalador eléctrico autorizado. Confirmar con una visita técnica la idoneidad de la instalación antes del montaje hace que tanto la inversión solar como la de carga avancen con solidez."
+        },
+        {
+          "q": "¿Cómo se carga el coche de noche o con tiempo nublado?",
+          "a": "En los sistemas conectados a la red (on-grid) la carga no se interrumpe nunca: cuando la producción solar no basta, la parte que falta se completa automáticamente desde la red. La carga nocturna se alimenta por completo de la red; en días nublados las placas siguen aportando algo menos y la diferencia vuelve a cubrirse con la red. Si su tarifa eléctrica es más barata de noche, puede gestionar también el coste de las horas sin sol programando la carga para la noche con el temporizador del cargador. Los sistemas con baterías trasladan el excedente del día a la tarde; sin embargo, como la batería del coche es mucho mayor que una doméstica, conviene pensar el almacenamiento como apoyo y no como carga completa del coche."
+        }
+      ],
+      "related": [
+        {
+          "label": "Coste de cargar un VE en casa: ¿cuánto por kilómetro?"
+        },
+        {
+          "label": "¿Monofásico o trifásico (3 fases)? ¿Qué cargador conviene a su casa?"
+        },
+        {
+          "label": "¿Qué es la gestión de carga en la carga de vehículos eléctricos?"
+        },
+        {
+          "label": "Estaciones de carga wallbox AC"
+        }
+      ]
     },
     "evde-elektrikli-arac-sarji-guvenli-mi": {
       "title": "¿Es seguro cargar el coche eléctrico en casa? Guía de enchufes, magnetotérmicos y corriente de fuga",
@@ -11970,7 +12790,207 @@
       "title": "Compatibilidad del cable de carga para cada coche eléctrico: guía Type 2"
     },
     "40-kw-dc-sarj-istasyonu": {
-      "title": "¿Qué es una estación de carga DC de 40 kW, para quién es y qué tan rápida es?"
+      "title": "¿Qué es una estación de carga DC de 40 kW, para quién es y cuán rápida resulta?",
+      "metaTitle": "Estación de carga DC de 40 kW: velocidad, uso, elección",
+      "description": "¿Qué es una estación de carga DC de 40 kW, por qué es más rápida que la AC y a qué negocio conviene? Cómo funciona la carga rápida DC, un ejemplo de cálculo del tiempo y la serie Bemis BEVDC.",
+      "excerpt": "Un punto de entrada rentable al mundo DC para centros comerciales, hoteles, supermercados y flotas pequeñas: cómo funciona la carga DC de 40 kW, cuán rápida es y qué lugar ocupa en la serie Bemis BEVDC.",
+      "category": "Guía",
+      "body": [
+        {
+          "text": "Quien busca una «estación de carga DC de 40 kW» suele querer saber dos cosas: cuán rápido llena esta estación un coche y si conviene a su negocio (centro comercial, hotel, supermercado, edificio de oficinas o flota pequeña de vehículos). En esta guía explicamos en lenguaje sencillo por qué la carga rápida DC es más veloz que la AC, qué significan realmente 40 kW mediante un ejemplo de cálculo, a qué ubicaciones se adapta y qué lugar ocupa la opción de 40 kW en la serie Bemis BEVDC. En lugar de prometer minutos y precios exactos, nos centramos en los datos técnicos reales que asentarán su decisión sobre bases sólidas."
+        },
+        {
+          "text": "¿Qué es la carga rápida DC y por qué es más rápida que la AC?"
+        },
+        {
+          "text": "La forma más fácil de entender la diferencia es fijarse en «dónde se convierte la electricidad». La electricidad que llega de la red es corriente alterna (AC), mientras que la batería se llena con corriente continua (DC). En la carga AC, esa conversión de AC a DC la realiza el convertidor que hay dentro del vehículo (el cargador de a bordo), y esa unidad suele estar limitada a 7,4-22 kW; es decir, por potente que sea la estación, la unidad del propio coche fija el techo. En la carga DC, en cambio, la conversión se hace DENTRO de la estación y a la batería se le entrega directamente corriente continua. Así queda fuera de juego el límite de la unidad de a bordo y se hace posible cargar con mucha más potencia y mucho más rápido. Precisamente por eso existe la «carga rápida»."
+        },
+        {
+          "items": [
+            "Carga AC: la conversión se hace en el vehículo; la velocidad la limita el convertidor del coche (casi siempre 7,4-22 kW).",
+            "Carga DC: la conversión se hace dentro de la estación; a la batería se le entrega DC directamente y se supera el techo de la unidad de a bordo.",
+            "Resultado: una estación DC transfiere mucha más energía en el mismo tiempo; por eso se la llama «carga rápida».",
+            "En Türkiye el conector estándar de la carga DC pública es CCS2."
+          ]
+        },
+        {
+          "text": "¿Cuán rápida es una estación de carga DC de 40 kW?"
+        },
+        {
+          "text": "Para una estimación aproximada existe una fórmula sencilla: tiempo ≈ energía a añadir a la batería (kWh) ÷ potencia de carga (kW). Un ejemplo (hipotético): suponga que quiere añadir 40 kWh a su batería. En un coche que acepta los 40 kW completos, eso lleva teóricamente alrededor de 1 hora (40 ÷ 40 = 1). Tomar esos mismos 40 kWh a 22 kW en AC ronda las 2 horas; y como el convertidor de muchos coches acepta 11 y no 22 kW, en AC el tiempo puede alargarse todavía más. El tiempo real depende de la potencia que acepta el coche en ese momento y de que la batería se ralentice de forma deliberada (sobre todo pasado el 80 %), es decir, del taper. Por eso una promesa firme de «lleno en X minutos» no es realista: la fórmula solo le da el orden de magnitud correcto."
+        },
+        {
+          "text": "¿Para quién es la DC de 40 kW? ¿Dónde se usa?"
+        },
+        {
+          "text": "40 kW son un punto de entrada rentable al mundo DC: claramente más rápido que la AC, pero de una escala más adecuada que las unidades de muy alta potencia de las autopistas. Resulta perfecto para ubicaciones de intensidad media en las que el cliente o el empleado aparca el coche y recibe una recarga apreciable mientras hace otra cosa (compras, comida, reunión, alojamiento)."
+        },
+        {
+          "items": [
+            "Centros comerciales y supermercados: el coche carga mientras el cliente compra.",
+            "Hoteles, edificios de oficinas y restaurantes: la duración del alojamiento o de la visita deja tiempo suficiente para cargar.",
+            "Aparcamientos de empresas y oficinas: una velocidad práctica para los vehículos del personal y de las visitas.",
+            "Flotas pequeñas de vehículos: las recargas intermedias durante el día mantienen el vehículo operativo."
+          ]
+        },
+        {
+          "text": "En cambio, en áreas de servicio de autopista, en ubicaciones con muchísima rotación de vehículos o donde se espera «llenar en el menor tiempo posible sin pausa», 40 kW pueden quedarse cortos; en esos lugares se prefieren unidades DC de mayor potencia, en la franja de 80-200 kW. La potencia correcta se elige no tanto por la marca del equipo como por el tráfico del emplazamiento y el tiempo de espera aceptable."
+        },
+        {
+          "text": "¿AC de 22 kW, DC de 40 kW o DC de 80-120 kW? Tabla de decisión"
+        },
+        {
+          "caption": "Elección de potencia según el emplazamiento",
+          "headers": [
+            "Opción",
+            "Velocidad típica",
+            "Dónde encaja",
+            "A quién conviene"
+          ],
+          "rows": [
+            [
+              "AC 22 kW (wallbox)",
+              "La más lenta; la limita la unidad de a bordo",
+              "Hogar, empresa, lugares con estacionamiento prolongado",
+              "Usuario final que aparca de noche o todo el día"
+            ],
+            [
+              "DC 40 kW",
+              "Media-rápida; claramente más rápida que la AC",
+              "Centro comercial, hotel, supermercado, edificio de oficinas, restaurante, oficina",
+              "Empresas que quieren DC rentable"
+            ],
+            [
+              "DC 80-120 kW",
+              "Alta; recarga seria en una pausa corta",
+              "Autopista, punto público con mucho tráfico",
+              "Inversores que buscan rotación rápida y alta afluencia"
+            ]
+          ]
+        },
+        {
+          "text": "La pregunta clave al leer la tabla es esta: ¿cuánto tiempo se queda allí la persona que aparca el coche? Si la estancia es larga y el objetivo es «que se llene durante la noche», la AC de 22 kW basta. Si la estancia es de unas horas (compras, comida, alojamiento) y quiere ofrecer al cliente una recarga concreta, los 40 kW DC llenan justamente ese hueco. Si la estancia es muy corta y el objetivo es «seguir camino cuanto antes», hacen falta 80 kW o más. Por eso muchas empresas prefieren empezar con 40 kW DC antes de ampliar la inversión y escalar a medida que ven la demanda real."
+        },
+        {
+          "text": "La serie Bemis BEVDC: 40, 80, 120, 160 y 200 kW"
+        },
+        {
+          "text": "La familia de carga rápida DC de Bemis es la serie BEVDC, con opciones desde 40 kW hasta 200 kW. Toda la serie lleva conector CCS2, es compatible con los protocolos OCPP 1.6J / 2.0.1 (gestión remota, autorización de usuarios e informes), admite entrada trifásica AC de 380-480 V, entrega salida DC de 150-1000 V y cuenta con una carcasa protegida para uso en exterior. El BEVDC 40, la entrada de 40 kW, es de una sola toma; es decir, carga un coche a la vez y resulta ideal para escenarios de punto único."
+        },
+        {
+          "caption": "La serie Bemis BEVDC: visión general",
+          "headers": [
+            "Modelo",
+            "Potencia de salida",
+            "Tomas",
+            "Carga simultánea",
+            "Conector",
+            "OCPP"
+          ],
+          "rows": [
+            [
+              "BEVDC 40",
+              "40 kW",
+              "1",
+              "No",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 80",
+              "80 kW",
+              "2",
+              "Sí",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 120",
+              "120 kW",
+              "1 o 2",
+              "Sí",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 160",
+              "160 kW",
+              "2",
+              "Sí",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 180",
+              "180 kW",
+              "2",
+              "Sí",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 200",
+              "200 kW",
+              "2",
+              "Sí",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ]
+          ]
+        },
+        {
+          "text": "El BEVDC 40 de una sola toma es la vía para dar el salto a la velocidad DC con un coste de entrada bajo, pensada para pequeños negocios e instalaciones de punto único. A medida que crece la necesidad —más coches, mayor afluencia— entran en juego los modelos de dos tomas de 80 kW en adelante, capaces de cargar de forma simultánea. Así es posible empezar hoy con 40 kW y planificar mañana hacia potencias mayores."
+        },
+        {
+          "text": "La compatibilidad OCPP también importa desde el punto de vista del operador: gracias a la supervisión remota, la autorización de usuarios y los informes, la estación puede conectarse a un software de gestión, el uso puede seguirse y pueden montarse distintos escenarios de tarificación. En uso público o de flota, esta característica convierte la estación de un simple equipo en un punto de servicio gestionable, y facilita también la parte operativa de la inversión."
+        },
+        {
+          "text": "¿Qué hace falta para instalar una estación DC de 40 kW?"
+        },
+        {
+          "text": "La carga rápida DC exige una infraestructura eléctrica más potente que un wallbox AC. El requisito general es una alimentación trifásica de potencia suficiente (la serie BEVDC admite entrada trifásica AC de 380-480 V) y una instalación realizada por un equipo autorizado. Los valores eléctricos exactos —la potencia contratada actual de sus instalaciones, las secciones del cuadro y de los cables, los equipos de protección necesarios y una posible ampliación de potencia— deben ser evaluados sin falta por un experto en el emplazamiento. Un dimensionado correcto es imprescindible tanto para la seguridad como para que la estación funcione sin problemas."
+        },
+        {
+          "text": "¿Busca la potencia DC adecuada para su negocio? Consulte las unidades de carga rápida Bemis BEVDC, desde 40 kW hasta 200 kW.",
+          "label": "Ver las unidades de carga rápida DC"
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Cuánto tarda una estación de carga DC de 40 kW en llenar un coche?",
+          "a": "No sería correcto dar un número exacto de minutos, porque el tiempo depende de su coche. La fórmula para una estimación aproximada es: tiempo ≈ energía a añadir (kWh) ÷ potencia de carga (kW). Por ejemplo, en un coche que acepta los 40 kW completos, 40 kWh se añaden en aproximadamente 1 hora. Sin embargo, no todos los coches aceptan 40 kW y, una vez superado el 80 % de batería, la velocidad de carga se reduce de forma deliberada (taper). El tiempo real varía por tanto según la potencia que acepta el coche y su nivel de carga; la fórmula solo da el orden de magnitud correcto, no una promesa firme."
+        },
+        {
+          "q": "¿Por qué la carga DC de 40 kW es más rápida que la AC de 22 kW?",
+          "a": "Porque el lugar donde se convierte la energía es distinto en la carga AC y en la DC. En la carga AC, el convertidor que transforma la corriente alterna de la red en la corriente continua de la batería está dentro del vehículo y suele estar limitado a 7,4-22 kW; ni siquiera una estación más potente puede superar ese techo. En la carga DC la conversión se realiza dentro de la estación y a la batería se le entrega DC directamente, con lo que el límite de la unidad de a bordo queda fuera de juego. Gracias a ello, una estación DC de 40 kW transfiere en el mismo tiempo bastante más energía que una AC de 22 kW y llena el coche en menos tiempo."
+        },
+        {
+          "q": "¿Para qué negocios es adecuada una estación de carga DC de 40 kW?",
+          "a": "40 kW son una opción DC rentable para ubicaciones de intensidad media. Resulta ideal para centros comerciales y supermercados, hoteles, edificios de oficinas y restaurantes, aparcamientos de oficinas y empresas y flotas pequeñas de vehículos, porque el cliente o el personal aparca el coche y recibe una recarga apreciable mientras hace sus cosas. En áreas de servicio de autopista, ubicaciones con muchísima rotación de vehículos o donde se espera cargar en el menor tiempo posible, son más adecuadas las unidades DC de mayor potencia, en la franja de 80-200 kW. La potencia correcta se elige según el tráfico del emplazamiento."
+        },
+        {
+          "q": "¿Cuántas tomas tiene el Bemis BEVDC 40 y con qué coches funciona?",
+          "a": "El BEVDC 40 tiene una potencia de 40 kW y una sola toma; es decir, carga un coche a la vez y está diseñado para escenarios de punto único. Usa conector CCS2, que es el conector estándar de la carga DC pública en Türkiye. Es compatible con los protocolos OCPP 1.6J / 2.0.1 (gestión remota, autorización e informes), admite entrada trifásica AC de 380-480 V, entrega salida DC de 150-1000 V y cuenta con una carcasa protegida para uso en exterior. Cuando hacen falta más coches o mayor potencia, se recurre a los modelos BEVDC de dos tomas de 80 kW en adelante."
+        },
+        {
+          "q": "¿Qué tipo de infraestructura hace falta para instalar una estación de carga DC de 40 kW?",
+          "a": "La carga rápida DC exige una infraestructura eléctrica más potente que un wallbox AC. En general se necesita una alimentación trifásica de potencia suficiente; la serie Bemis BEVDC funciona con entrada trifásica AC de 380-480 V. La instalación debe realizarla sin falta un equipo autorizado. Los valores eléctricos exactos —su potencia contratada actual, las secciones del cuadro y de los cables, los equipos de protección y, si hiciera falta, una ampliación de potencia— deben ser evaluados por un experto en el emplazamiento. Un dimensionado correcto es crítico tanto para la seguridad como para que la estación funcione sin interrupciones."
+        }
+      ],
+      "related": [
+        {
+          "label": "Unidades de carga rápida DC (BEVDC)"
+        },
+        {
+          "label": "Comparativa de modelos de cargador para VE"
+        },
+        {
+          "label": "La diferencia entre la carga AC y la DC"
+        },
+        {
+          "label": "¿Cómo funciona una estación de carga para VE?"
+        }
+      ]
     },
     "evde-elektrikli-arac-sarj-maliyeti-km-basina": {
       "title": "Coste de carga en casa: ¿cuánto por kilómetro?"
@@ -16162,7 +17182,147 @@
       ]
     },
     "gunes-enerjisi-solar-ile-elektrikli-arac-sarji": {
-      "title": "شحن السيارة الكهربائية بالطاقة الشمسية: الشحن المنزلي بالألواح الشمسية"
+      "title": "شحن السيارة الكهربائية بالطاقة الشمسية: الشحن في المنزل من الألواح الشمسية",
+      "metaTitle": "الشحن بالطاقة الشمسية: كم لوحاً يلزم وكيف يعمل؟",
+      "description": "شحن السيارة في المنزل من الألواح الشمسية: تلزم نحو 7-9 kWh يومياً لمسافة 40 كم، ويُنتج 1 kWp من الألواح 3,5-4,5 kWh في اليوم. النظام المربوط بالشبكة، وحساب عدد الألواح، واختيار wallbox بتيار قابل للضبط.",
+      "excerpt": "يمكنك شحن سيارتك من الألواح الشمسية على سطح منزلك: ففي النظام المربوط بالشبكة تُغذّي الألواح لوحة المنزل، وتُغذّي اللوحة جهاز الشحن. ستجد في هذا الدليل مثالاً لحساب عدد الألواح وخصائص جهاز الشحن ذي التيار القابل للضبط الأنسب للطاقة الشمسية.",
+      "category": "دليل",
+      "body": [
+        {
+          "text": "نعم — يمكنك شحن سيارتك بالكهرباء التي تنتجها الألواح الشمسية على سطح منزلك. ففي نظام شمسي مربوط بالشبكة (on-grid) تُغذّي الألواح التمديدات الكهربائية للمنزل؛ ولأن جهاز الشحن المنزلي موصول بالتمديدات نفسها، فإن جزءاً كبيراً من عملية شحن تبدأها أثناء استمرار الإنتاج الشمسي يُغطّى من الشمس مباشرة. في هذا الدليل نشرح بلغة بسيطة كيف يعمل النظام، وكم لوحاً يلزم عبر مثال حسابي، وأي خصائص جهاز الشحن تعمل مع الطاقة الشمسية بأعلى كفاءة."
+        },
+        {
+          "text": "تجمع فكرة شحن السيارة بالطاقة الشمسية استثمارين — النظام الشمسي على السطح ومحطة الشحن المنزلية — في هدف واحد: خفض تكلفة الطاقة لكل كيلومتر وتغذية السيارة بكهرباء تنتجها بنفسك. ولنبدأ بتوضيح مهم: Bemis شركة مصنّعة لأجهزة شحن السيارات الكهربائية؛ أما الألواح الشمسية والعاكس فمجموعة معدّات منفصلة تصمّمها شركة الطاقة الشمسية التي تتعامل معها. والخبر السار أن أي محطة شحن منزلية مُعدّة بشكل صحيح تعمل بسلاسة مع النظام الشمسي."
+        },
+        {
+          "text": "كيف يعمل شحن السيارة الكهربائية من الألواح الشمسية؟"
+        },
+        {
+          "text": "الغالبية العظمى من الأنظمة الشمسية المنزلية مربوطة بالشبكة، أي تعمل بنمط on-grid. فالألواح تنتج من الشمس تياراً مستمراً (DC)؛ ويحوّل العاكس هذا التيار إلى التيار المتردد (AC) المستخدَم في المنزل ويعطيه للوحة الكهرباء الرئيسية. ومن تلك اللحظة تغذّي الطاقة المنتَجة أي جهاز يعمل في تلك اللحظة — الثلاجة والمكيّف وبالطبع جهاز شحن السيارة الكهربائية. وإن كان الإنتاج أقل من الاستهلاك اكتُمل الفرق من الشبكة؛ وإن كان أكثر صُدِّر الفائض إليها. وهذا التدفق كله تلقائي: فعند بدء الشحن لا تحتاج إلى التفكير في مصدر الطاقة المستخدَم في الخلفية."
+        },
+        {
+          "text": "ودور جهاز الشحن في هذه البنية واضح: تُوصَل محطة الشحن الجدارية (wallbox) بلوحة المنزل وتنقل الطاقة القادمة من اللوحة إلى السيارة بأمان. وسواء أتت الطاقة في تلك اللحظة من اللوح أم من الشبكة فإن ذلك لا يغيّر عمل جهاز الشحن — ولهذا لا حاجة للبحث عن «جهاز شحن خاص بالطاقة الشمسية». كما أن العاكس الهجين المستخدَم في الأنظمة ذات التخزين البطاري لا يغيّر هذا المنطق: فهو يدير الألواح والبطارية ويغذّي لوحة المنزل؛ ويظل جهاز الشحن المنزلي يعمل موصولاً باللوحة. أما ما يرفع فعلاً الحصة المغطّاة من الشمس فهو مواءمة الشحن مع ساعات الإنتاج المرتفع والقدرة على ضبط تيار الشحن وفق الإنتاج."
+        },
+        {
+          "items": [
+            "الألواح تنتج DC ← والعاكس يحوّله إلى AC ← واللوحة الرئيسية تغذّي المنزل وجهاز الشحن معاً.",
+            "إن كانت الشمس كافية جاء الشحن أساساً من الألواح؛ وإن لم تكن اكتمل النقص من الشبكة — ولا ينقطع الشحن أبداً.",
+            "يعمل الـwallbox باستقلال عن علامة الألواح والعاكس؛ ولا يلزم «إصدار شمسي» خاص من جهاز الشحن.",
+            "ويجب في كل الأحوال أن يقوم فنّي تمديدات كهربائية معتمد بتوصيل اللوحة وبالتركيب."
+          ]
+        },
+        {
+          "text": "كم لوحاً وكم kW يلزم؟ مثال حسابي افتراضي"
+        },
+        {
+          "text": "الجواب يتوقف على استهلاك سيارتك وعلى عدد الكيلومترات التي تقطعها يومياً. ولنبدأ بافتراض شائع: تستهلك السيارة الكهربائية نحو 15-20 kWh لكل 100 كيلومتر. وبهذا الافتراض تبلغ الحاجة اليومية للسائق الذي يقطع في المتوسط 40 كم يومياً نحو 6-8 kWh؛ وبإضافة الفقد البالغ نحو 10 % أثناء الشحن يغطّي هذا الاستخدامَ إنتاجٌ يقارب 7-9 kWh في اليوم."
+        },
+        {
+          "text": "ولنستخدم في جانب الألواح متوسطاً افتراضياً أيضاً: لنفترض أن 1 kWp من القدرة المركّبة ينتج في ظروف تركيا نحو 3,5-4,5 kWh في اليوم (وهذا يتغيّر بوضوح بحسب المنطقة والموسم واتجاه السطح والتظليل — وهذه القيم للاسترشاد فقط). وبجمع الافتراضين تظهر الصورة الآتية:"
+        },
+        {
+          "caption": "مثال حسابي افتراضي — قيم الألواح استرشادية؛ ويتضح التحجيم الحقيقي بالكشف",
+          "headers": [
+            "القيادة اليومية",
+            "الحاجة التقريبية للطاقة",
+            "قدرة الألواح الافتراضية",
+            "عدد الألواح (بافتراض 450 Wp)"
+          ],
+          "rows": [
+            [
+              "20 كم",
+              "3-4 kWh",
+              "~1 kWp",
+              "2-3 ألواح"
+            ],
+            [
+              "40 كم",
+              "6-8 kWh",
+              "~1,5-2 kWp",
+              "4-5 ألواح"
+            ],
+            [
+              "100 كم",
+              "15-20 kWh",
+              "~4-5 kWp",
+              "9-12 لوحاً"
+            ]
+          ]
+        },
+        {
+          "text": "وثمة ملاحظتان مهمتان. الأولى أن هذا الحساب يبيّن حصة السيارة فقط؛ أما استهلاك المنزل نفسه (الأجهزة والإنارة والتكييف) فيُخطَّط له بقدرة إضافية. والثانية أن الإنتاج موسمي — فالنظام الذي يتجاوز الهدف اليومي صيفاً قد يقلّ عنه شتاءً. ويتضح التحجيم الحقيقي بالكشف الذي ستجريه شركة الطاقة الشمسية بالنظر إلى مساحة السطح والاتجاه والميل ونمط الاستهلاك. فاستخدم القيم هنا كفكرة أولية واستند في قرار الاستثمار إلى الكشف."
+        },
+        {
+          "text": "أي جهاز شحن يناسب الطاقة الشمسية؟"
+        },
+        {
+          "text": "من الناحية التقنية تعمل أي محطة شحن AC منزلية بموصّل Type 2 في منزل يعمل بالطاقة الشمسية. أما الخاصية التي تصنع الفارق في الكفاءة فهي: إمكان ضبط تيار الشحن — وبالتالي القدرة. فالإنتاج الشمسي يتغيّر باستمرار خلال النهار؛ إذ يبلغ ذروته وقت الظهيرة وينخفض صباحاً ومساءً. وحين تستطيع خفض قدرة الشحن إلى مرحلة أدنى تقترب القدرة التي يسحبها الجهاز من الإنتاج ويُغطّى جزء أكبر من الشحن بالألواح بدل الشبكة. وفي ساعات الإنتاج الوفير ترفع المرحلة فتنقل الشمس إلى السيارة أسرع."
+        },
+        {
+          "text": "ويقدّم Bemis Charger Plus 2 وCharger Pro 2 هذه المرونة تحديداً: إذ تُضبط مرحلة القدرة بين 4-7-11-22 kW ‏(6-10-16-32A). وتتكيّف خوارزمية الشحن الذكي في Plus 2 تلقائياً مع أقصى تيار تقبله السيارة؛ وخاصية بدء الشحن التلقائي تستأنف الشحن من تلقاء نفسها عند عودة الكهرباء بعد الانقطاع. ويضيف Pro 2 إلى ذلك إدارة حمل متقدمة (DLM) ودعم OCPP 1.6 وتفويض المستخدمين؛ وفي الطُرز المتصلة يجري التشغيل والإطفاء عن بُعد وضبط المؤقّت ومتابعة سجل الشحن عبر تطبيق الهاتف. ويمكن تركيب الطرازين في الهواء الطلق بفضل هيكلهما بحماية IP65."
+        },
+        {
+          "text": "لماذا تُعدّ موازنة الحمل الديناميكية ميزة في منزل يعمل بالطاقة الشمسية؟"
+        },
+        {
+          "text": "تراقب موازنة الحمل (DLM) استهلاك المنزل الإجمالي وتضبط قدرة الشحن تلقائياً وفق الحد الآمن للتمديدات. وفي منزل يعمل بالطاقة الشمسية يكون المقابل العملي لذلك: عند الظهيرة حين يكون الإنتاج مرتفعاً ولا يعمل مستهلك كبير في المنزل يمضي الشحن بقدرة عالية؛ وعند تشغيل أحمال كالفرن أو المكيّف يُخفَّض الشحن تلقائياً، ثم يعود ليرتفع عند انخفاض الحمل. وبذلك يُحمى القاطع الرئيسي وتُستثمر ساعات الإنتاج الوفير بأعلى كفاءة دون إجهاد التمديدات. كما أن جدولة الشحن بالمؤقّت في فترة الظهيرة التي يبلغ فيها الإنتاج ذروته وسيلة بسيطة وفعّالة أخرى لزيادة الحصة المغطّاة من الشمس."
+        },
+        {
+          "text": "ولمن لا يريد تركيباً ثابتاً أو لديه موقع ثانٍ كبيت ريفي أو صيفي يعمل بالطاقة الشمسية، يمثّل Bemis Pro Mobile 2 بديلاً عملياً: ففي جهاز الشحن المحمول ثلاثي الطور هذا الذي يقدّم 11-22 kW يُضبط التيار على 6 مراحل ‏(6/10/16/20/25/32A) من تطبيق الهاتف أو من الزر الموجود على الجهاز. والمراحل المنخفضة تسهّل تغطية جزء كبير من الشحن من الشمس حتى في الأنظمة الشمسية الصغيرة محدودة الإنتاج. وفئة الحماية IP65 ومدى التشغيل -40°C / +55°C يجعلان الجهاز صالحاً للاستخدام الخارجي في الفصول الأربعة؛ وتخرج من علبته حقيبة حمل ومحوّل قابس أحادي الطور."
+        },
+        {
+          "text": "اختر جهاز الشحن المتوافق مع الطاقة الشمسية وذا التيار القابل للضبط — ولنقرّر معاً الطراز المناسب لاستخدامك.",
+          "label": "استعرض محطات الشحن AC Wallbox"
+        },
+        {
+          "text": "كيف يستمر الشحن ليلاً وفي الأيام الغائمة؟"
+        },
+        {
+          "text": "أكبر ما يريح في النظام المربوط بالشبكة هو عدم الانقطاع: فحين لا تكفي الشمس يكتمل الجزء الناقص من الشبكة دون أن تفعل شيئاً. وفي الشحن الليلي تأتي الطاقة كلها من الشبكة؛ وفي الأيام الغائمة ينخفض الإنتاج لكنه لا يتلاشى — إذ تواصل الألواح إسهاماً أقل وتتكفّل الشبكة بالباقي. ولا يتوقف شحن السيارة في منتصفه في أي سيناريو. وإن كانت تعرفة الكهرباء لديك أنسب في ساعات الليل فيمكنك أيضاً إدارة تكلفة الساعات الخالية من الشمس بجدولة الشحن ليلاً عبر مؤقّت جهاز الشحن."
+        },
+        {
+          "text": "أما الأنظمة ذات التخزين البطاري (بعاكس هجين) فتخزّن الطاقة الفائضة المنتَجة نهاراً وتتيحها مساءً؛ وهذه الطاقة تخفّف أولاً استهلاك المنزل نفسه. ولأن بطارية السيارة أكبر بكثير من بطاريات التخزين المنزلية، فإن تغطية شحن السيارة ليلاً بالكامل من بطارية المنزل غير واقعية في معظم التركيبات — وينبغي التفكير في التخزين بوصفه دعماً لا شحناً كاملاً للسيارة. وباختصار فإن أكفأ ترتيب هو: جدولة الشحن في الساعات المشمسة قدر الإمكان، وضبط التيار وفق الإنتاج، واستكمال ما تبقّى من الشبكة على التعرفة الليلية."
+        },
+        {
+          "text": "تنتج Bemis محطات شحن AC للمنازل وأماكن العمل بإرث Bemis Teknik التي تصنّع في بورصة منذ عام 1994. وبعد أن تصمّم مع شركة الطاقة الشمسية جانب الألواح والعاكس في نظامك، يمكنك استكمال جانب الشحن بـCharger Plus 2 أو Charger Pro 2 ذوي التيار القابل للضبط أو بـPro Mobile 2 المحمول. ولتحديد الطراز المناسب لاستخدامك يمكنك التواصل معنا من صفحة الاتصال."
+        }
+      ],
+      "faq": [
+        {
+          "q": "هل يمكن شحن السيارة الكهربائية مباشرةً من اللوح الشمسي؟",
+          "a": "التيار المستمر (DC) الذي ينتجه اللوح لا يُعطى للسيارة مباشرة؛ بل يحوّله العاكس أولاً إلى التيار المتردد (AC) المستخدَم في المنزل وينقله إلى لوحة الكهرباء الرئيسية. ولأن جهاز الشحن المنزلي يعمل موصولاً بهذه اللوحة، فإن جزءاً كبيراً من الشحن الذي تجريه أثناء استمرار الإنتاج الشمسي يُغطّى من الألواح؛ ويكتمل الناقص تلقائياً من الشبكة. أي أن «الشحن من اللوح» يعني عملياً الشحن من تمديدات المنزل التي يغذّيها نظام شمسي مربوط بالشبكة (on-grid). وفي هذا الترتيب لا يحتاج جهاز الشحن إلى عتاد خاص؛ فأي wallbox من نوع AC بموصّل Type 2 يعمل مع النظام."
+        },
+        {
+          "q": "كم لوحاً شمسياً يلزم لشحن سيارة كهربائية؟",
+          "a": "لنشرح بمثال افتراضي: تستهلك السيارات الكهربائية نحو 15-20 kWh لكل 100 كم؛ والسائق الذي يقطع 40 كم يومياً تبلغ حاجته اليومية 6-8 kWh. وإذا افترضنا أن 1 kWp من القدرة المركّبة ينتج في متوسط تركيا نحو 3,5-4,5 kWh في اليوم، فإن 1,5-2 kWp — أي 4-5 ألواح بقدرة 450 Wp — تكفي لهذا الاستخدام. أما لمسافة 100 كم يومياً فترتفع الحاجة إلى 4-5 kWp ‏(9-12 لوحاً). وهذه القيم للاسترشاد فقط؛ إذ يُحدَّد عدد الألواح الحقيقي بكشف شركة الطاقة الشمسية مع مراعاة اتجاه سطحك وميله ومنطقتك والموسم واستهلاك المنزل نفسه."
+        },
+        {
+          "q": "هل يلزم جهاز شحن خاص للشحن بالطاقة الشمسية؟",
+          "a": "لا. ففي منزل فيه نظام شمسي مربوط بالشبكة تعمل محطة شحن AC قياسية بموصّل Type 2 دون مشكلة، لأن الجهاز يأخذ الطاقة لا من الألواح بل من لوحة المنزل. أما الخاصية التي ترفع الكفاءة فهي ضبط التيار: ففي Bemis Charger Plus 2 وCharger Pro 2 تُضبط القدرة بين 4-7-11-22 kW؛ وفي Pro Mobile 2 المحمول يُختار التيار على 6 مراحل ‏(6-32A) من تطبيق الهاتف أو من الزر الموجود على الجهاز. والمراحل المنخفضة تقرّب القدرة المسحوبة من الإنتاج الشمسي، والمراحل المرتفعة تسرّع الشحن في ساعات الإنتاج الوفير. وبذلك يُستخدَم الجهاز نفسه بكفاءة في الساعات المشمسة وغير المشمسة معاً."
+        },
+        {
+          "q": "هل يعمل العاكس الهجين مع جهاز الشحن المنزلي معاً؟",
+          "a": "نعم. فالعاكس الهجين معدّة تدير الألواح الشمسية والتخزين البطاري إن وُجد وتغذّي لوحة المنزل الرئيسية. أما جهاز الشحن المنزلي فجهاز منفصل يُوصَل بهذه اللوحة. ولا يُوصَل الاثنان ببعضهما مباشرة بل يعملان معاً عبر التمديدات نفسها — ولذلك لا يلزم تطابق علامة العاكس مع علامة جهاز الشحن. ويمكن تركيب طُرز wallbox من Bemis في أي منزل بنظام مربوط بالشبكة أو هجين بصرف النظر عن بنية الألواح والعاكس. ويكفي أن يتم التوصيل عبر اللوحة وبعناصر حماية مناسبة وعلى يد فنّي تمديدات كهربائية معتمد. والتحقق من ملاءمة التمديدات بالكشف قبل التركيب يجعل استثمار الطاقة الشمسية واستثمار الشحن يمضيان معاً على أساس سليم."
+        },
+        {
+          "q": "كيف يجري شحن السيارة ليلاً أو في الجو الغائم؟",
+          "a": "في الأنظمة المربوطة بالشبكة (on-grid) لا ينقطع الشحن أبداً: فحين لا يكفي الإنتاج الشمسي يكتمل الجزء الناقص تلقائياً من الشبكة. والشحن الليلي يُغذّى بالكامل من الشبكة؛ وفي الأيام الغائمة تواصل الألواح إسهاماً أقل ويُغطّى الفرق من الشبكة مجدداً. وإن كانت تعرفة الكهرباء لديك أنسب ليلاً فيمكنك إدارة تكلفة الساعات الخالية من الشمس أيضاً بجدولة الشحن في ساعات الليل عبر مؤقّت جهاز الشحن. أما الأنظمة ذات التخزين البطاري فتنقل فائض النهار إلى المساء؛ غير أنه لمّا كانت بطارية السيارة أكبر بكثير من البطارية المنزلية فينبغي اعتبار التخزين دعماً لا شحناً كاملاً للسيارة."
+        }
+      ],
+      "related": [
+        {
+          "label": "تكلفة شحن السيارة الكهربائية في المنزل: كم للكيلومتر؟"
+        },
+        {
+          "label": "أحادي الطور أم ثلاثي الطور (3 أطوار)؟ أي جهاز شحن يناسب منزلك؟"
+        },
+        {
+          "label": "ما هي إدارة الأحمال في شحن السيارات الكهربائية؟"
+        },
+        {
+          "label": "محطات شحن AC Wallbox"
+        }
+      ]
     },
     "evde-elektrikli-arac-sarji-guvenli-mi": {
       "title": "هل شحن السيارة الكهربائية في المنزل آمن؟ دليل المأخذ والقاطع والتيار المتسرب",
@@ -16275,7 +17435,207 @@
       "title": "توافق كابل الشحن مع كل سيارة كهربائية: دليل Type 2"
     },
     "40-kw-dc-sarj-istasyonu": {
-      "title": "ما محطة الشحن DC بقدرة 40 كيلوواط، ولمن تناسب، وما سرعتها؟"
+      "title": "ما هي محطة الشحن DC بقدرة 40 kW، ولمن تناسب، وما مدى سرعتها؟",
+      "metaTitle": "محطة شحن DC بقدرة 40 kW: السرعة والاستخدام والاختيار",
+      "description": "ما هي محطة الشحن DC بقدرة 40 kW، ولماذا هي أسرع من AC، ولأي منشأة تناسب؟ كيف يعمل الشحن السريع DC، ومثال لحساب الزمن، وسلسلة Bemis BEVDC.",
+      "excerpt": "نقطة دخول اقتصادية إلى عالم DC للمراكز التجارية والفنادق والأسواق والأساطيل الصغيرة: كيف يعمل الشحن DC بقدرة 40 kW، وما مدى سرعته، وأين موقعه في سلسلة Bemis BEVDC.",
+      "category": "دليل",
+      "body": [
+        {
+          "text": "من يبحث عن «محطة شحن DC بقدرة 40 kW» يريد عادةً معرفة أمرين: ما مدى سرعة هذه المحطة في ملء السيارة، وهل تناسب منشأتي (مركز تجاري أو فندق أو سوق أو مبنى مكاتب أو أسطول مركبات صغير)؟ في هذا الدليل نشرح بلغة بسيطة لماذا يكون الشحن السريع DC أسرع من AC، وما تعنيه 40 kW فعلياً عبر مثال حسابي، وأي المواقع تناسبها، وأين موقع خيار 40 kW في سلسلة Bemis BEVDC. وبدل الوعد بدقائق وأسعار قاطعة، نركّز على المعلومات التقنية الحقيقية التي تضع قرارك على أساس صحيح."
+        },
+        {
+          "text": "ما هو الشحن السريع DC ولماذا هو أسرع من AC؟"
+        },
+        {
+          "text": "أسهل طريقة لفهم الفرق هي النظر إلى «أين يُحوَّل التيار». فالكهرباء القادمة من الشبكة تيار متردد (AC)، بينما تُملأ البطارية بالتيار المستمر (DC). وفي الشحن AC يقوم بهذا التحويل من AC إلى DC المحوّلُ الموجود داخل السيارة (وحدة الشحن المدمجة)، وهذه الوحدة محدودة عادةً بين 7,4-22 kW — أي مهما بلغت قوة المحطة فإن وحدة السيارة نفسها تحدّد السقف. أما في الشحن DC فيجري التحويل داخل المحطة ويُغذَّى التيار المستمر إلى البطارية مباشرة. وبذلك يخرج حدّ الوحدة الداخلية من المعادلة؛ ويصبح الشحن بقدرة أعلى بكثير وأسرع بكثير ممكناً. ولهذا السبب بالضبط أمكن وجود «الشحن السريع»."
+        },
+        {
+          "items": [
+            "الشحن AC: يجري التحويل في السيارة؛ ويحدّ السرعةَ المحوّلُ الموجود داخلها (غالباً 7,4-22 kW).",
+            "الشحن DC: يجري التحويل داخل المحطة؛ ويُغذَّى التيار المستمر إلى البطارية مباشرة ويُتجاوز سقف الوحدة الداخلية.",
+            "النتيجة: تنقل محطة DC طاقة أكبر بكثير في المدة نفسها — ولذلك يُسمّى «شحناً سريعاً».",
+            "وفي تركيا يكون الموصّل القياسي للشحن DC العام هو CCS2."
+          ]
+        },
+        {
+          "text": "ما مدى سرعة محطة الشحن DC بقدرة 40 kW؟"
+        },
+        {
+          "text": "للتقدير التقريبي توجد معادلة بسيطة: الزمن ≈ الطاقة المراد إضافتها إلى البطارية (kWh) ÷ قدرة الشحن (kW). مثال (افتراضي): افترض أنك تريد إضافة 40 kWh إلى بطاريتك. ففي سيارة تقبل 40 kW كاملة يستغرق ذلك نظرياً نحو 1 ساعة ‏(40 ÷ 40 = 1). أما أخذ 40 kWh نفسها بقدرة 22 kW على AC فيبلغ نحو 2 ساعة؛ وبما أن المحوّل داخل كثير من السيارات يقبل 11 لا 22 kW فقد يطول الزمن على AC أكثر. والزمن الحقيقي يتوقف على القدرة التي تقبلها السيارة في تلك اللحظة وعلى تباطؤ البطارية المقصود (خصوصاً بعد 80 %)، أي على الـtaper. ولذلك فإن وعداً قاطعاً بـ«يمتلئ في X دقيقة» ليس واقعياً — فالمعادلة تمنحك رتبة المقدار الصحيحة فقط."
+        },
+        {
+          "text": "لمن تناسب 40 kW DC؟ وأين تُستخدم؟"
+        },
+        {
+          "text": "تمثّل 40 kW نقطة دخول اقتصادية إلى عالم DC: أسرع بوضوح من AC، لكن بمقياس أنسب من الوحدات عالية القدرة الخاصة بالطرق السريعة. وهي مثالية للمواقع متوسطة الكثافة التي يركن فيها العميل أو الموظف سيارته ويحصل على شحن معتبر بينما ينجز شيئاً آخر (تسوّق، طعام، اجتماع، إقامة)."
+        },
+        {
+          "items": [
+            "المراكز التجارية والأسواق: تُشحن السيارة بينما يتسوّق العميل.",
+            "الفنادق ومباني المكاتب والمطاعم: مدة الإقامة أو الزيارة تتيح وقتاً كافياً للشحن.",
+            "مواقف المنشآت والمكاتب: سرعة عملية لسيارات الموظفين والزوار.",
+            "الأساطيل الصغيرة: عمليات الشحن البينية خلال اليوم تُبقي المركبة في الميدان."
+          ]
+        },
+        {
+          "text": "في المقابل قد لا تكفي 40 kW في استراحات الطرق السريعة أو في المواقع ذات حركة المركبات العالية جداً أو حيث يكون التوقع «املأها في أقصر وقت دون انتظار»؛ ففي مثل هذه الأماكن تُفضَّل وحدات DC أعلى قدرة ضمن نطاق 80-200 kW. والقدرة الصحيحة تُختار لا بحسب علامة الجهاز بل بحسب حركة المكان وزمن الانتظار المقبول فيه."
+        },
+        {
+          "text": "AC بقدرة 22 kW أم DC بقدرة 40 kW أم DC بقدرة 80-120 kW؟ جدول القرار"
+        },
+        {
+          "caption": "اختيار القدرة بحسب مكان الاستخدام",
+          "headers": [
+            "الخيار",
+            "السرعة النموذجية",
+            "أين يناسب",
+            "لمن يناسب"
+          ],
+          "rows": [
+            [
+              "AC 22 kW ‏(wallbox)",
+              "الأبطأ؛ تحدّه الوحدة الداخلية في السيارة",
+              "المنزل ومكان العمل والمواقع ذات الركن الطويل",
+              "المستخدم النهائي الذي يركن ليلاً أو طوال اليوم"
+            ],
+            [
+              "DC 40 kW",
+              "متوسطة السرعة؛ أسرع بوضوح من AC",
+              "مركز تجاري، فندق، سوق، مبنى مكاتب، مطعم، مكتب",
+              "المنشأة التي تريد DC اقتصادياً"
+            ],
+            [
+              "DC 80-120 kW",
+              "عالية؛ شحن جادّ في استراحة قصيرة",
+              "الطرق السريعة والنقاط العامة كثيفة الحركة",
+              "المستثمر الذي يريد دوراناً سريعاً وحركة عالية"
+            ]
+          ]
+        },
+        {
+          "text": "والسؤال المفتاح عند قراءة الجدول هو: كم يبقى الشخص الذي يركن سيارته هناك؟ فإن كانت الإقامة طويلة والهدف «أن تمتلئ طوال الليل» فإن AC بقدرة 22 kW تكفي. وإن كانت الإقامة بضع ساعات (تسوّق أو طعام أو مبيت) وأردت تقديم شحن ملموس للعميل فإن 40 kW DC تسدّ هذه الفجوة تحديداً. وإن كانت الإقامة قصيرة جداً والهدف «مواصلة الطريق بأسرع وقت» فتلزم 80 kW فما فوق. ولهذا تفضّل منشآت كثيرة أن تبدأ بـ40 kW DC قبل تكبير الاستثمار وأن توسّع تدريجياً مع ظهور الطلب الحقيقي."
+        },
+        {
+          "text": "سلسلة Bemis BEVDC: 40 و80 و120 و160 و200 kW"
+        },
+        {
+          "text": "عائلة الشحن السريع DC لدى Bemis هي سلسلة BEVDC، وتقدّم خيارات من 40 kW حتى 200 kW. والسلسلة كلها بموصّل CCS2، ومتوافقة مع بروتوكولَي OCPP 1.6J / 2.0.1 (الإدارة عن بُعد وتفويض المستخدمين والتقارير)، وتستقبل دخلاً ثلاثي الطور AC 380-480V، وتعطي خرجاً DC 150-1000V، ولها هيكل محمي للاستخدام الخارجي. أما BEVDC 40 التي تمثّل مدخل 40 kW فذات مأخذ واحد؛ أي تشحن سيارة واحدة في الوقت نفسه وهي مثالية لسيناريوهات النقطة الواحدة."
+        },
+        {
+          "caption": "سلسلة Bemis BEVDC — نظرة عامة",
+          "headers": [
+            "الطراز",
+            "قدرة الخرج",
+            "المآخذ",
+            "شحن متزامن",
+            "الموصّل",
+            "OCPP"
+          ],
+          "rows": [
+            [
+              "BEVDC 40",
+              "40 kW",
+              "1",
+              "لا",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 80",
+              "80 kW",
+              "2",
+              "نعم",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 120",
+              "120 kW",
+              "1 أو 2",
+              "نعم",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 160",
+              "160 kW",
+              "2",
+              "نعم",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 180",
+              "180 kW",
+              "2",
+              "نعم",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 200",
+              "200 kW",
+              "2",
+              "نعم",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ]
+          ]
+        },
+        {
+          "text": "وBEVDC 40 ذات المأخذ الواحد هي سبيل الانتقال إلى سرعة DC بتكلفة دخول منخفضة للمنشآت الصغيرة وتركيبات النقطة الواحدة. وكلما كبرت الحاجة — سيارات أكثر وحركة أعلى — دخلت الطُرز ذات المأخذين بقدرة 80 kW فما فوق القادرة على الشحن المتزامن. وهكذا يمكن البدء اليوم بـ40 kW والتخطيط غداً نحو قدرة أعلى."
+        },
+        {
+          "text": "والتوافق مع OCPP مهم أيضاً من منظور المشغّل: فبفضل المراقبة عن بُعد وتفويض المستخدمين والتقارير يمكن ربط المحطة ببرنامج إدارة ومتابعة الاستخدام وبناء سيناريوهات تسعير مختلفة. وفي الاستخدام العام أو ضمن الأساطيل تحوّل هذه الخاصية المحطةَ من مجرد جهاز إلى نقطة خدمة قابلة للإدارة — وتُيسّر الجانب التشغيلي من الاستثمار كذلك."
+        },
+        {
+          "text": "ما الذي يلزم لتركيب محطة DC بقدرة 40 kW؟"
+        },
+        {
+          "text": "يتطلب الشحن السريع DC بنية كهربائية أقوى مقارنةً بـwallbox من نوع AC. والمتطلب العام هو تغذية ثلاثية الطور بقدرة كافية (سلسلة BEVDC تستقبل دخلاً ثلاثي الطور AC 380-480V) وتركيب على يد فريق معتمد. أما القيم الكهربائية القاطعة — قدرة الاشتراك الحالية لمنشأتك، ومقاطع اللوحة والكابلات، ومعدات الحماية اللازمة، والحاجة المحتملة إلى زيادة القدرة — فيجب بالضرورة أن يقيّمها خبير في الموقع. والتحجيم الصحيح شرط للسلامة ولتشغيل المحطة دون مشكلات معاً."
+        },
+        {
+          "text": "هل تبحث عن قدرة DC المناسبة لمنشأتك؟ اطّلع على وحدات الشحن السريع Bemis BEVDC من 40 kW حتى 200 kW.",
+          "label": "استعرض وحدات الشحن السريع DC"
+        }
+      ],
+      "faq": [
+        {
+          "q": "في كم تملأ محطة الشحن DC بقدرة 40 kW سيارةً؟",
+          "a": "لا يصحّ إعطاء عدد دقائق قاطع، لأن الزمن يتوقف على سيارتك. والمعادلة للتقدير التقريبي هي: الزمن ≈ الطاقة المراد إضافتها (kWh) ÷ قدرة الشحن (kW). فمثلاً في سيارة تقبل 40 kW كاملة تُضاف 40 kWh في نحو 1 ساعة. غير أن ليست كل سيارة تقبل 40 kW، وبعد تجاوز البطارية 80 % تتباطأ سرعة الشحن عن قصد (taper). ولذلك يتغيّر الزمن الحقيقي بحسب قدرة قبول السيارة ومستوى الامتلاء؛ والمعادلة تعطي رتبة المقدار الصحيحة فقط لا وعداً قاطعاً."
+        },
+        {
+          "q": "لماذا يكون الشحن DC بقدرة 40 kW أسرع من AC بقدرة 22 kW؟",
+          "a": "لأن مكان تحويل الطاقة يختلف بين الشحن AC والشحن DC. ففي الشحن AC يوجد المحوّل الذي يحوّل التيار المتردد للشبكة إلى تيار مستمر للبطارية داخل السيارة وهو محدود عادةً بين 7,4-22 kW؛ ولا يمكن تجاوز هذا السقف حتى لو كانت المحطة أقوى. أما في الشحن DC فيجري التحويل داخل المحطة ويُغذَّى التيار المستمر إلى البطارية مباشرة، فيخرج حدّ الوحدة الداخلية من المعادلة. وبذلك تنقل محطة DC بقدرة 40 kW في المدة نفسها طاقة أكبر بوضوح من AC بقدرة 22 kW وتملأ السيارة في وقت أقصر."
+        },
+        {
+          "q": "لأي المنشآت تناسب محطة الشحن DC بقدرة 40 kW؟",
+          "a": "تمثّل 40 kW خياراً اقتصادياً من DC للمواقع متوسطة الكثافة. وهي مثالية للمراكز التجارية والأسواق والفنادق ومباني المكاتب والمطاعم ومواقف المكاتب والمنشآت والأساطيل الصغيرة، لأن العميل أو الموظف يركن سيارته ويحصل على شحن معتبر بينما ينجز أعماله. أما في استراحات الطرق السريعة والمواقع ذات حركة المركبات العالية جداً أو حيث يُنتظر الشحن في أقصر وقت فتكون وحدات DC الأعلى قدرة ضمن نطاق 80-200 kW أنسب. والقدرة الصحيحة تُختار بحسب حركة مكان الاستخدام."
+        },
+        {
+          "q": "كم مأخذاً في Bemis BEVDC 40 ومع أي سيارات تعمل؟",
+          "a": "تبلغ قدرة BEVDC 40 مقدار 40 kW ولها مأخذ واحد؛ أي تشحن سيارة واحدة في الوقت نفسه وهي مصمَّمة لسيناريوهات النقطة الواحدة. وتستخدم موصّل CCS2 وهو الموصّل القياسي للشحن DC العام في تركيا. وهي متوافقة مع بروتوكولَي OCPP 1.6J / 2.0.1 (الإدارة عن بُعد والتفويض والتقارير)، وتستقبل دخلاً ثلاثي الطور AC 380-480V، وتعطي خرجاً DC 150-1000V، ولها هيكل محمي للاستخدام الخارجي. وعند الحاجة إلى سيارات أكثر أو قدرة أعلى تُفضَّل طُرز BEVDC ذات المأخذين بقدرة 80 kW فما فوق."
+        },
+        {
+          "q": "أي بنية تحتية تلزم لتركيب محطة شحن DC بقدرة 40 kW؟",
+          "a": "يتطلب الشحن السريع DC بنية كهربائية أقوى مقارنةً بـwallbox من نوع AC. وبوجه عام تلزم تغذية ثلاثية الطور بقدرة كافية؛ وسلسلة Bemis BEVDC تعمل على دخل ثلاثي الطور AC 380-480V. ويجب أن يقوم بالتركيب فريق معتمد بالضرورة. أما القيم الكهربائية القاطعة — قدرة اشتراكك الحالية، ومقاطع اللوحة والكابلات، ومعدات الحماية، وزيادة القدرة إن لزمت — فيجب أن يقيّمها خبير في الموقع. والتحجيم الصحيح بالغ الأهمية للسلامة ولتشغيل المحطة دون انقطاع معاً."
+        }
+      ],
+      "related": [
+        {
+          "label": "وحدات الشحن السريع DC ‏(BEVDC)"
+        },
+        {
+          "label": "مقارنة طُرز أجهزة شحن السيارات الكهربائية"
+        },
+        {
+          "label": "الفرق بين الشحن AC وDC"
+        },
+        {
+          "label": "كيف تعمل محطة شحن السيارات الكهربائية؟"
+        }
+      ]
     },
     "evde-elektrikli-arac-sarj-maliyeti-km-basina": {
       "title": "تكلفة الشحن المنزلي: كم لكل كيلومتر؟"
@@ -20467,7 +21827,147 @@
       ]
     },
     "gunes-enerjisi-solar-ile-elektrikli-arac-sarji": {
-      "title": "Зарядка электромобиля от солнечной энергии: домашние солнечные панели"
+      "title": "Зарядка электромобиля солнечной энергией: зарядка дома от солнечных панелей",
+      "metaTitle": "Зарядка от солнца: сколько панелей нужно и как это работает?",
+      "description": "Зарядка машины дома от солнечных панелей: на 40 км в день нужно примерно 7-9 кВт·ч, а 1 кВт·п панелей даёт 3,5-4,5 кВт·ч в сутки. Система on-grid, расчёт числа панелей и выбор wallbox с регулируемым током.",
+      "excerpt": "Вы можете заряжать автомобиль от солнечных панелей на крыше: в системе on-grid панели питают щит дома, а щит — зарядное устройство. В этом руководстве вы найдёте пример расчёта числа панелей и характеристики зарядного устройства с регулируемым током, которые лучше всего подходят для солнечной энергии.",
+      "category": "Руководство",
+      "body": [
+        {
+          "text": "Да — вы можете заряжать автомобиль электричеством, которое вырабатывают солнечные панели на крыше вашего дома. В подключённой к сети (on-grid) солнечной системе панели питают электропроводку дома; а поскольку домашнее зарядное устройство подключено к той же проводке, значительная часть зарядки, начатой при работающей солнечной выработке, покрывается напрямую солнцем. В этом руководстве мы простым языком объясняем, как работает система, сколько панелей нужно на примере расчёта и какие характеристики зарядного устройства работают с солнцем наиболее эффективно."
+        },
+        {
+          "text": "Идея заряжать автомобиль солнечной энергией объединяет две инвестиции — солнечную систему на крыше и домашнюю зарядную станцию — вокруг одной цели: снизить стоимость энергии на километр и питать машину электричеством собственной выработки. Начнём с важного уточнения: Bemis — производитель зарядных устройств для электромобилей; солнечные панели и инвертор относятся к отдельной группе оборудования и проектируются вашей солнечной компанией. Хорошая новость в том, что любая правильно организованная домашняя зарядная станция без проблем работает вместе с солнечной системой."
+        },
+        {
+          "text": "Как работает зарядка электромобиля от солнечных панелей?"
+        },
+        {
+          "text": "Подавляющее большинство домашних солнечных систем подключено к сети, то есть работает в режиме on-grid. Панели вырабатывают из солнца постоянный ток (DC); инвертор преобразует его в переменный ток (AC), используемый в доме, и подаёт в главный электрощит. С этого момента выработанная энергия питает тот прибор, который работает в данный момент, — холодильник, кондиционер и, конечно, зарядное устройство электромобиля. Если выработка меньше потребления, разница дополняется из сети; если больше, излишек отдаётся в сеть. Весь этот процесс автоматический: начиная зарядку, вам не нужно думать, какой источник используется в фоне."
+        },
+        {
+          "text": "В такой архитектуре роль зарядного устройства ясна: настенная зарядная станция (wallbox) подключается к щиту дома и безопасно передаёт автомобилю энергию, поступающую из щита. Идёт ли энергия в этот момент от панели или из сети, на работу зарядного устройства не влияет — поэтому искать «специальное зарядное устройство для солнца» не нужно. Гибридный инвертор, используемый в системах с накопителем, тоже не меняет эту логику: он управляет панелями и батареей и питает щит дома; домашнее зарядное устройство по-прежнему работает от щита. По-настоящему повышает солнечную долю то, что зарядку подгадывают под часы высокой выработки и что зарядный ток можно настроить под выработку."
+        },
+        {
+          "items": [
+            "Панели вырабатывают DC → инвертор преобразует в AC → главный щит питает и дом, и зарядное устройство.",
+            "Если солнца достаточно, зарядка идёт в основном от панелей; если нет, недостающее дополняется из сети — зарядка никогда не прерывается.",
+            "Wallbox работает независимо от марки панелей и инвертора; особая «солнечная версия» зарядного устройства не нужна.",
+            "Подключение к щиту и монтаж в любом случае должен выполнять квалифицированный электромонтажник."
+          ]
+        },
+        {
+          "text": "Сколько панелей и сколько кВт нужно? Условный пример расчёта"
+        },
+        {
+          "text": "Ответ зависит от расхода вашего автомобиля и от того, сколько километров вы проезжаете в день. Начнём с распространённого допущения: электромобиль расходует на 100 километрах примерно 15-20 кВт·ч. При таком допущении суточная потребность водителя, проезжающего в среднем 40 км в день, составляет около 6-8 кВт·ч; с учётом примерно 10 % потерь при зарядке выработка порядка 7-9 кВт·ч в сутки покрывает такое использование."
+        },
+        {
+          "text": "На стороне панелей возьмём тоже условное среднее: допустим, что 1 кВт·п установленной мощности в условиях Турции вырабатывает в среднем 3,5-4,5 кВт·ч в сутки (это заметно меняется в зависимости от региона, сезона, ориентации крыши и затенения — эти значения приведены лишь для ориентира). Соединив оба допущения, получаем такую картину:"
+        },
+        {
+          "caption": "Условный пример расчёта — значения по панелям ориентировочные; реальный расчёт уточняется при обследовании",
+          "headers": [
+            "Суточный пробег",
+            "Примерная потребность в энергии",
+            "Условная мощность панелей",
+            "Число панелей (при 450 Вт·п)"
+          ],
+          "rows": [
+            [
+              "20 км",
+              "3-4 кВт·ч",
+              "~1 кВт·п",
+              "2-3 панели"
+            ],
+            [
+              "40 км",
+              "6-8 кВт·ч",
+              "~1,5-2 кВт·п",
+              "4-5 панелей"
+            ],
+            [
+              "100 км",
+              "15-20 кВт·ч",
+              "~4-5 кВт·п",
+              "9-12 панелей"
+            ]
+          ]
+        },
+        {
+          "text": "Важны две оговорки. Во-первых, этот расчёт показывает только долю автомобиля; мощность для собственного потребления дома (бытовая техника, освещение, кондиционер) планируется отдельно. Во-вторых, выработка сезонна — система, летом превышающая суточную цель, зимой может оказаться ниже неё. Реальный расчёт уточняется при обследовании, которое проведёт ваша солнечная компания, исходя из площади крыши, ориентации, уклона и профиля потребления. Пользуйтесь приведёнными здесь величинами как первым ориентиром, а решение об инвестициях основывайте на обследовании."
+        },
+        {
+          "text": "Какое зарядное устройство подходит для солнечной энергии?"
+        },
+        {
+          "text": "Технически любая домашняя зарядная станция AC с разъёмом Type 2 работает в доме с солнечной системой. Однако свойство, которое даёт разницу в эффективности, таково: возможность регулировать зарядный ток, а значит и мощность. Солнечная выработка постоянно меняется в течение дня; она достигает пика около полудня и снижается утром и вечером. Когда вы можете снизить мощность зарядки на ступень ниже, потребляемая устройством мощность приближается к выработке и большая часть зарядки покрывается панелями, а не сетью. В часы обильной выработки вы повышаете ступень и быстрее переносите солнце в автомобиль."
+        },
+        {
+          "text": "Bemis Charger Plus 2 и Charger Pro 2 дают именно такую гибкость: уровень мощности регулируется в диапазоне 4-7-11-22 кВт (6-10-16-32 A). Алгоритм умной зарядки Plus 2 автоматически подстраивается под максимальный ток, принимаемый автомобилем; функция автоматического запуска зарядки сама продолжает зарядку, когда после отключения возвращается электричество. Pro 2 добавляет расширенное управление нагрузкой (DLM), поддержку OCPP 1.6 и авторизацию пользователей; в подключаемых моделях удалённое включение и выключение, таймер и просмотр истории зарядки выполняются через мобильное приложение. Обе модели можно устанавливать на открытом воздухе благодаря корпусу с защитой IP65."
+        },
+        {
+          "text": "Почему динамическая балансировка нагрузки выгодна в доме с солнцем?"
+        },
+        {
+          "text": "Балансировка нагрузки (DLM) следит за общим потреблением дома и автоматически подстраивает мощность зарядки под безопасный предел проводки. В доме с солнечной системой практический смысл таков: в полдень, когда выработка высока и крупные потребители не работают, зарядка идёт на высокой мощности; когда включаются такие нагрузки, как духовка или кондиционер, зарядка автоматически снижается, а при уменьшении нагрузки снова растёт. Так и главный автомат защищён, и часы обильной выработки используются максимально эффективно без перегрузки проводки. Планирование зарядки таймером на полуденный промежуток пиковой выработки — ещё один простой и действенный способ повысить солнечную долю."
+        },
+        {
+          "text": "Для тех, кто не хочет стационарного монтажа, или у кого есть вторая площадка — например, загородный или летний дом с солнечной системой, — практичной альтернативой становится Bemis Pro Mobile 2: в этом портативном трёхфазном зарядном устройстве мощностью 11-22 кВт ток настраивается в 6 ступеней (6/10/16/20/25/32 A) из мобильного приложения или кнопкой на устройстве. Низкие ступени облегчают покрытие значительной части зарядки солнцем даже в небольших системах с ограниченной выработкой. Класс защиты IP65 и диапазон работы -40 °C / +55 °C делают устройство пригодным для наружного применения круглый год; в комплекте идут сумка для переноски и переходник на однофазную вилку."
+        },
+        {
+          "text": "Выберите совместимое с солнечной энергией зарядное устройство с регулируемым током — определим подходящую вашей задаче модель вместе.",
+          "label": "Посмотреть зарядные станции AC wallbox"
+        },
+        {
+          "text": "Как продолжается зарядка ночью и в облачные дни?"
+        },
+        {
+          "text": "Главное удобство системы on-grid — непрерывность: когда солнца не хватает, недостающая часть дополняется из сети без каких-либо действий с вашей стороны. При ночной зарядке энергия полностью поступает из сети; в облачные дни выработка падает, но не обнуляется — панели продолжают давать уменьшенный вклад, остальное берёт на себя сеть. Зарядка автомобиля ни в одном сценарии не остаётся незавершённой. Если ваш тариф на электроэнергию ночью выгоднее, вы можете управлять и стоимостью бессолнечных часов, запланировав зарядку на ночь таймером зарядного устройства."
+        },
+        {
+          "text": "Системы с накопителем (с гибридным инвертором) сохраняют избыток энергии, выработанный днём, и отдают его вечером; эта энергия прежде всего облегчает собственное потребление дома. Поскольку батарея автомобиля намного больше домашних накопительных батарей, покрывать ночную зарядку машины целиком из домашней батареи в большинстве установок нереалистично — накопитель стоит рассматривать как поддержку, а не как полную зарядку автомобиля. Коротко говоря, самая эффективная схема такова: по возможности планировать зарядку на солнечные часы, настраивать ток под выработку и добирать оставшееся из сети по ночному тарифу."
+        },
+        {
+          "text": "Bemis выпускает зарядные станции AC для дома и предприятий, опираясь на наследие Bemis Teknik, которая производит в Бурсе с 1994 года. После того как панельную и инверторную часть вашей солнечной системы спроектирует ваша солнечная компания, зарядную часть можно дополнить моделями с регулируемым током Charger Plus 2 и Charger Pro 2 либо портативной Pro Mobile 2. Чтобы решить, какая модель подходит именно вам, свяжитесь с нами через страницу «Контакты»."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Можно ли заряжать электромобиль напрямую от солнечной панели?",
+          "a": "Постоянный ток (DC), вырабатываемый панелью, не подаётся в автомобиль напрямую; сначала инвертор преобразует его в используемый в доме переменный ток (AC) и передаёт в главный электрощит. Поскольку ваше домашнее зарядное устройство работает от этого щита, значительная часть зарядки, выполняемой при работающей солнечной выработке, покрывается панелями; недостающее автоматически дополняется из сети. То есть «зарядка от панели» на практике означает зарядку от домашней проводки, питаемой подключённой к сети (on-grid) солнечной системой. В такой схеме зарядному устройству не нужно особое оснащение; любой wallbox AC с разъёмом Type 2 совместим с системой."
+        },
+        {
+          "q": "Сколько солнечных панелей нужно для зарядки электромобиля?",
+          "a": "Объясним на условном примере: электромобили расходуют на 100 км примерно 15-20 кВт·ч; водителю, проезжающему 40 км в день, требуется 6-8 кВт·ч в сутки. Если принять, что 1 кВт·п установленной мощности в среднем по Турции даёт около 3,5-4,5 кВт·ч в сутки, для такого использования достаточно 1,5-2 кВт·п — то есть 4-5 панелей по 450 Вт·п. Для 100 км в день потребность возрастает до 4-5 кВт·п (9-12 панелей). Эти величины приведены лишь для ориентира; реальное число панелей определяется обследованием солнечной компании с учётом ориентации и уклона вашей крыши, региона, сезона и собственного потребления дома."
+        },
+        {
+          "q": "Нужно ли особое зарядное устройство для зарядки от солнца?",
+          "a": "Нет. В доме с подключённой к сети солнечной системой обычная зарядная станция AC с разъёмом Type 2 работает без проблем, потому что устройство берёт энергию не от панелей, а из щита дома. Свойство, повышающее эффективность, — регулировка тока: у Bemis Charger Plus 2 и Charger Pro 2 мощность регулируется в диапазоне 4-7-11-22 кВт; у портативной Pro Mobile 2 ток выбирается в 6 ступеней (6-32 A) из мобильного приложения или кнопкой на устройстве. Низкие ступени приближают потребляемую мощность к солнечной выработке, высокие — ускоряют зарядку в часы обильной выработки. Так одно и то же устройство эффективно используется и в солнечные, и в бессолнечные часы."
+        },
+        {
+          "q": "Работают ли вместе гибридный инвертор и домашнее зарядное устройство?",
+          "a": "Да. Гибридный инвертор — это оборудование, которое управляет солнечными панелями и, при наличии, накопительной батареей и питает главный щит дома. Домашнее зарядное устройство — отдельный прибор, подключённый к этому щиту. Напрямую друг с другом они не соединяются, а работают вместе через одну и ту же проводку — поэтому марки инвертора и зарядного устройства совпадать не обязаны. Модели wallbox от Bemis можно устанавливать в любом доме с системой on-grid или гибридной, независимо от инфраструктуры панелей и инвертора. Достаточно, чтобы подключение выполнялось через щит, с подходящими защитными аппаратами и квалифицированным электромонтажником. Подтверждение пригодности проводки обследованием до монтажа обеспечивает надёжное продвижение и солнечной, и зарядной инвестиции."
+        },
+        {
+          "q": "Как проходит зарядка автомобиля ночью или в облачную погоду?",
+          "a": "В подключённых к сети (on-grid) системах зарядка никогда не прерывается: когда солнечной выработки не хватает, недостающая часть автоматически дополняется из сети. Ночная зарядка полностью питается от сети; в облачные дни панели продолжают давать уменьшенный вклад, а разницу вновь берёт на себя сеть. Если ночью тариф выгоднее, вы можете управлять и стоимостью бессолнечных часов, запланировав зарядку на ночные часы таймером зарядного устройства. Системы с накопителем переносят дневной избыток на вечер; однако, поскольку батарея автомобиля намного больше домашней, накопитель стоит считать поддержкой, а не полной зарядкой машины."
+        }
+      ],
+      "related": [
+        {
+          "label": "Стоимость домашней зарядки электромобиля: сколько на километр?"
+        },
+        {
+          "label": "Одна фаза или три фазы (3 фазы)? Какое зарядное устройство подойдёт вашему дому?"
+        },
+        {
+          "label": "Что такое управление нагрузкой при зарядке электромобилей?"
+        },
+        {
+          "label": "Зарядные станции AC wallbox"
+        }
+      ]
     },
     "evde-elektrikli-arac-sarji-guvenli-mi": {
       "title": "Безопасно ли заряжать электромобиль дома? Руководство по розетке, автомату и току утечки",
@@ -20580,7 +22080,207 @@
       "title": "Совместимость зарядного кабеля для любого электромобиля: руководство по Type 2"
     },
     "40-kw-dc-sarj-istasyonu": {
-      "title": "Что такое DC-станция 40 кВт, кому она подходит и насколько быстра?"
+      "title": "Что такое зарядная станция DC на 40 кВт, кому она подходит и насколько она быстрая?",
+      "metaTitle": "Зарядная станция DC на 40 кВт: скорость, применение, выбор",
+      "description": "Что такое зарядная станция DC на 40 кВт, почему она быстрее AC и какому бизнесу подходит? Как работает быстрая зарядка DC, пример расчёта времени и серия Bemis BEVDC.",
+      "excerpt": "Экономичная точка входа в мир DC для торговых центров, отелей, супермаркетов и небольших автопарков: как работает зарядка DC мощностью 40 кВт, насколько она быстра и какое место занимает в серии Bemis BEVDC.",
+      "category": "Руководство",
+      "body": [
+        {
+          "text": "Тот, кто ищет «зарядную станцию DC на 40 кВт», обычно хочет узнать две вещи: насколько быстро эта станция наполняет автомобиль и подходит ли она моему бизнесу (торговому центру, отелю, супермаркету, бизнес-центру или небольшому автопарку). В этом руководстве мы простым языком объясняем, почему быстрая зарядка DC быстрее AC, что на самом деле означают 40 кВт — на примере расчёта, каким объектам она подходит и какое место занимает вариант на 40 кВт в серии Bemis BEVDC. Вместо обещаний точных минут и цен мы сосредоточимся на реальных технических фактах, которые поставят ваше решение на верную основу."
+        },
+        {
+          "text": "Что такое быстрая зарядка DC и почему она быстрее AC?"
+        },
+        {
+          "text": "Проще всего понять разницу, посмотрев, «где преобразуется электричество». Электричество из сети — это переменный ток (AC), а батарея заполняется постоянным током (DC). При зарядке AC это преобразование AC→DC выполняет преобразователь внутри автомобиля (бортовое зарядное устройство), и этот блок обычно ограничен 7,4-22 кВт — то есть какой бы мощной ни была станция, потолок задаёт блок самой машины. При зарядке DC преобразование выполняется ВНУТРИ станции, и в батарею подаётся постоянный ток напрямую. Тем самым ограничение бортового блока снимается; становится возможной зарядка гораздо большей мощности и гораздо быстрее. Именно поэтому «быстрая зарядка» вообще возможна."
+        },
+        {
+          "items": [
+            "Зарядка AC: преобразование выполняется в автомобиле; скорость ограничивает преобразователь внутри машины (чаще всего 7,4-22 кВт).",
+            "Зарядка DC: преобразование выполняется внутри станции; в батарею подаётся постоянный ток напрямую, и потолок бортового блока преодолевается.",
+            "Итог: станция DC передаёт за то же время намного больше энергии — поэтому её и называют «быстрой зарядкой».",
+            "В Турции стандартным разъёмом публичной зарядки DC является CCS2."
+          ]
+        },
+        {
+          "text": "Насколько быстрая зарядная станция DC на 40 кВт?"
+        },
+        {
+          "text": "Для грубой оценки есть простая формула: время ≈ энергия, которую нужно добавить в батарею (кВт·ч) ÷ мощность зарядки (кВт). Пример (условный): допустим, вы хотите добавить в батарею 40 кВт·ч. На автомобиле, принимающем все 40 кВт, это теоретически займёт около 1 часа (40 ÷ 40 = 1). Взять те же 40 кВт·ч при 22 кВт на AC — это примерно 2 часа; а поскольку преобразователь во многих машинах принимает не 22, а 11 кВт, на AC время может растянуться ещё сильнее. Реальное время зависит от мощности, которую автомобиль принимает в данный момент, и от того, что батарея (особенно после 80 %) намеренно замедляется, то есть от taper. Поэтому чёткое обещание «полный за X минут» нереалистично — формула даёт лишь верный порядок величины."
+        },
+        {
+          "text": "Кому подходит DC на 40 кВт? Где её применяют?"
+        },
+        {
+          "text": "40 кВт — экономичная точка входа в мир DC: заметно быстрее AC, но по масштабу уместнее очень мощных станций автомагистрального типа. Она словно создана для объектов средней интенсивности, где клиент или сотрудник ставит машину и получает ощутимую дозарядку, пока занимается своими делами (покупки, обед, встреча, ночёвка)."
+        },
+        {
+          "items": [
+            "Торговые центры и супермаркеты: машина заряжается, пока клиент делает покупки.",
+            "Отели, бизнес-центры и рестораны: продолжительность проживания или визита даёт достаточно времени для зарядки.",
+            "Паркинги предприятий и офисов: практичная скорость для машин сотрудников и посетителей.",
+            "Небольшие автопарки: промежуточные дозарядки в течение дня удерживают машину в работе."
+          ]
+        },
+        {
+          "text": "Напротив, на придорожных комплексах, на объектах с очень высокой оборачиваемостью машин или там, где ожидают «наполнить как можно быстрее и без пауз», 40 кВт может не хватить; в таких местах предпочитают более мощные станции DC в диапазоне 80-200 кВт. Правильная мощность выбирается не столько по марке устройства, сколько по трафику места установки и приемлемому времени ожидания."
+        },
+        {
+          "text": "AC 22 кВт, DC 40 кВт или DC 80-120 кВт? Таблица решения"
+        },
+        {
+          "caption": "Выбор мощности по месту установки",
+          "headers": [
+            "Вариант",
+            "Типичная скорость",
+            "Куда подходит",
+            "Кому подходит"
+          ],
+          "rows": [
+            [
+              "AC 22 кВт (wallbox)",
+              "Самая медленная; ограничивает бортовой блок",
+              "Дом, предприятие, места с долгой стоянкой",
+              "Конечный пользователь, паркующийся на ночь или на весь день"
+            ],
+            [
+              "DC 40 кВт",
+              "Средняя скорость; заметно быстрее AC",
+              "Торговый центр, отель, супермаркет, бизнес-центр, ресторан, офис",
+              "Бизнес, которому нужен экономичный DC"
+            ],
+            [
+              "DC 80-120 кВт",
+              "Высокая; серьёзная дозарядка за короткую паузу",
+              "Автомагистраль, оживлённая публичная точка",
+              "Инвестор, которому нужны быстрый оборот и высокая проходимость"
+            ]
+          ]
+        },
+        {
+          "text": "Ключевой вопрос при чтении таблицы таков: сколько времени человек, поставивший машину, там находится? Если стоянка долгая и цель — «пусть наполнится за ночь», достаточно AC 22 кВт. Если стоянка длится несколько часов (покупки, обед, ночёвка) и вы хотите дать клиенту ощутимую дозарядку, 40 кВт DC закрывают именно этот пробел. Если стоянка очень короткая и цель — «как можно скорее в путь», нужны 80 кВт и выше. Поэтому многие компании предпочитают начать с 40 кВт DC, прежде чем увеличивать вложения, и масштабироваться по мере появления реального спроса."
+        },
+        {
+          "text": "Серия Bemis BEVDC: 40, 80, 120, 160 и 200 кВт"
+        },
+        {
+          "text": "Семейство быстрой зарядки DC от Bemis — это серия BEVDC, предлагающая варианты от 40 кВт до 200 кВт. Вся серия оснащена разъёмами CCS2, совместима с протоколами OCPP 1.6J / 2.0.1 (удалённое управление, авторизация пользователей и отчётность), принимает трёхфазный вход AC 380-480 V, отдаёт выход DC 150-1000 V и имеет корпус, защищённый для наружного применения. Модель начального уровня BEVDC 40 мощностью 40 кВт имеет один разъём; то есть заряжает одну машину за раз и идеальна для сценариев с одной точкой."
+        },
+        {
+          "caption": "Серия Bemis BEVDC — обзор",
+          "headers": [
+            "Модель",
+            "Выходная мощность",
+            "Разъёмы",
+            "Одновременная зарядка",
+            "Разъём",
+            "OCPP"
+          ],
+          "rows": [
+            [
+              "BEVDC 40",
+              "40 кВт",
+              "1",
+              "Нет",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 80",
+              "80 кВт",
+              "2",
+              "Да",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 120",
+              "120 кВт",
+              "1 или 2",
+              "Да",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 160",
+              "160 кВт",
+              "2",
+              "Да",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 180",
+              "180 кВт",
+              "2",
+              "Да",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ],
+            [
+              "BEVDC 200",
+              "200 кВт",
+              "2",
+              "Да",
+              "CCS2",
+              "1.6J / 2.0.1"
+            ]
+          ]
+        },
+        {
+          "text": "Односокетная BEVDC 40 — это способ перейти на скорость DC с низкой стоимостью входа для малого бизнеса и установок с одной точкой. По мере роста потребности — больше машин, выше проходимость — в дело вступают двухсокетные модели мощностью 80 кВт и выше, способные заряжать одновременно. Так можно начать сегодня с 40 кВт и планировать завтрашний переход к большей мощности."
+        },
+        {
+          "text": "Совместимость с OCPP важна и с точки зрения оператора: благодаря удалённому мониторингу, авторизации пользователей и отчётности станцию можно подключить к системе управления, отслеживать использование и выстраивать различные сценарии тарификации. При публичном или парковом использовании эта возможность превращает станцию из просто устройства в управляемую точку обслуживания — и облегчает эксплуатационную сторону инвестиций."
+        },
+        {
+          "text": "Что нужно для установки станции DC на 40 кВт?"
+        },
+        {
+          "text": "Быстрая зарядка DC требует более мощной электрической инфраструктуры, чем AC wallbox. Общее требование — трёхфазное питание достаточной мощности (серия BEVDC принимает трёхфазный вход AC 380-480 V) и монтаж силами квалифицированной бригады. Точные электрические величины — имеющаяся выделенная мощность объекта, сечения в щите и кабелях, необходимое защитное оборудование и возможная потребность в увеличении мощности — обязательно должны быть оценены специалистом на месте. Правильный расчёт необходим и для безопасности, и для бесперебойной работы станции."
+        },
+        {
+          "text": "Ищете подходящую мощность DC для своего бизнеса? Ознакомьтесь с быстрыми зарядными станциями Bemis BEVDC — от 40 кВт до 200 кВт.",
+          "label": "Посмотреть быстрые станции DC"
+        }
+      ],
+      "faq": [
+        {
+          "q": "За сколько зарядная станция DC на 40 кВт наполняет автомобиль?",
+          "a": "Называть точное число минут было бы неверно, потому что время зависит от вашего автомобиля. Формула для грубой оценки такова: время ≈ добавляемая энергия (кВт·ч) ÷ мощность зарядки (кВт). Например, на автомобиле, принимающем все 40 кВт, 40 кВт·ч добавляются примерно за 1 час. Однако не всякая машина принимает 40 кВт, и после 80 % заряда скорость намеренно снижается (taper). Поэтому реальное время меняется в зависимости от принимаемой мощности и уровня заряда; формула даёт лишь верный порядок величины, а не твёрдое обещание."
+        },
+        {
+          "q": "Почему зарядка DC на 40 кВт быстрее, чем AC на 22 кВт?",
+          "a": "Потому что при зарядке AC и DC различается место преобразования энергии. При зарядке AC преобразователь, превращающий переменный ток сети в постоянный ток батареи, находится внутри автомобиля и обычно ограничен 7,4-22 кВт; даже более мощная станция этот потолок не преодолеет. При зарядке DC преобразование происходит внутри станции, и в батарею подаётся постоянный ток напрямую, поэтому ограничение бортового блока снимается. Благодаря этому станция DC на 40 кВт за то же время передаёт заметно больше энергии, чем AC на 22 кВт, и наполняет автомобиль быстрее."
+        },
+        {
+          "q": "Каким предприятиям подходит зарядная станция DC на 40 кВт?",
+          "a": "40 кВт — экономичный вариант DC для объектов средней интенсивности. Она идеальна для торговых центров и супермаркетов, отелей, бизнес-центров и ресторанов, офисных и корпоративных паркингов и небольших автопарков, потому что клиент или сотрудник ставит машину и получает ощутимую дозарядку, пока занят своими делами. А на придорожных комплексах, объектах с очень высокой оборачиваемостью машин или там, где ждут зарядки в кратчайшее время, уместнее более мощные станции DC в диапазоне 80-200 кВт. Правильная мощность выбирается по трафику места установки."
+        },
+        {
+          "q": "Сколько разъёмов у Bemis BEVDC 40 и с какими автомобилями она работает?",
+          "a": "BEVDC 40 имеет мощность 40 кВт и один разъём; то есть заряжает одну машину за раз и рассчитана на сценарии с одной точкой. Она использует разъём CCS2 — стандартный разъём публичной зарядки DC в Турции. Совместима с протоколами OCPP 1.6J / 2.0.1 (удалённое управление, авторизация и отчётность), принимает трёхфазный вход AC 380-480 V, отдаёт выход DC 150-1000 V и имеет корпус, защищённый для наружного применения. Когда нужно больше машин или большая мощность, выбирают двухсокетные модели BEVDC мощностью 80 кВт и выше."
+        },
+        {
+          "q": "Какая инфраструктура нужна для установки зарядной станции DC на 40 кВт?",
+          "a": "Быстрая зарядка DC требует более мощной электрической инфраструктуры, чем AC wallbox. В общем случае нужно трёхфазное питание достаточной мощности; серия Bemis BEVDC работает от трёхфазного входа AC 380-480 V. Монтаж обязательно должна выполнять квалифицированная бригада. Точные электрические величины — имеющаяся выделенная мощность, сечения в щите и кабелях, защитное оборудование и, при необходимости, увеличение мощности — должен оценить специалист на месте. Правильный расчёт критически важен и для безопасности, и для бесперебойной работы станции."
+        }
+      ],
+      "related": [
+        {
+          "label": "Быстрые зарядные станции DC (BEVDC)"
+        },
+        {
+          "label": "Сравнение моделей зарядных устройств для электромобилей"
+        },
+        {
+          "label": "Разница между зарядкой AC и DC"
+        },
+        {
+          "label": "Как работает зарядная станция для электромобилей?"
+        }
+      ]
     },
     "evde-elektrikli-arac-sarj-maliyeti-km-basina": {
       "title": "Стоимость домашней зарядки: сколько за километр?"
