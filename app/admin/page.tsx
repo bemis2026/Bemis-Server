@@ -507,6 +507,17 @@ export default function AdminPage() {
     }
   }, [authed, tab, selCat]);
 
+  // Sosyal Paylaşımlar sekmesindeki "İlgili Ürün" seçim listesi de ürün kataloğunu okur.
+  // ⚠️ Yukarıdaki efekt YALNIZ "products" sekmesinde çekiyor → burada da çekilmezse liste BOŞ görünür.
+  // Zaten yüklüyse dokunma (operatörün ürün sekmesindeki düzenlemelerini ezmesin).
+  useEffect(() => {
+    if (!authed || tab !== "socialwall" || products.length > 0) return;
+    fetch("/api/admin/products")
+      .then((r) => r.json())
+      .then((d: CategoryData[]) => { productsCleanRef.current = d; setProducts(d); })
+      .catch(() => {});
+  }, [authed, tab, products.length]);
+
   useEffect(() => {
     if (authed && tab === "dealers") {
       fetch("/api/admin/dealers")
@@ -3914,6 +3925,9 @@ export default function AdminPage() {
                                     <p className="text-[10px] mt-1" style={{ color: "#FCA5A5" }}>
                                       Bu değer katalogda yok — paylaşım hiçbir ürün sayfasında görünmez. Listeden seçin.
                                     </p>
+                                  )}
+                                  {products.length === 0 && (
+                                    <p className="text-[10px] mt-1 text-white/35">Ürün listesi yükleniyor…</p>
                                   )}
                                   <p className="text-[10px] text-white/30 mt-1">Seçilirse bu paylaşım o ürünün sayfasında da görünür. Kategori seçerseniz o kategorideki tüm ürünlerde görünür.</p>
                                 </div>
