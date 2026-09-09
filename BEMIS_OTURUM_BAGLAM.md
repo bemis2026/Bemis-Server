@@ -13,6 +13,45 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🗺️ **YOL TARİFİ TUŞU — place_id TABANLI (2026-09-09, commit 8c3b588):** Kullanıcı Google'ın
+> **Locator Plus (Quick Builder)** HTML'ini paylaşıp "SEO açısından işe yararsa bir tuş ekleyelim" dedi.
+> **⛔ O BİLEŞEN KULLANILMADI, gerekçe:** (a) **ücretli Maps JavaScript API anahtarı** ister (paylaşılan
+> dosyada `YOUR_API_KEY_HERE`), (b) sayfaya **üçüncü-taraf betik + çerez** getirir → CSP + KVKK çerez kapısı
+> işi, (c) mağaza bulucu **ÇOK KONUMLU** işletmeler içindir; Bemis'in tek adresi var. Tek adres için doğru
+> araç **anahtarsız Maps URLs API bağlantısı**.
+> **⚠️ SEO ÇERÇEVESİ (kullanıcıya dürüst söylendi):** yol tarifi bağlantısı **SIRALAMA FAKTÖRÜ DEĞİL**.
+> Kazanç (a) yerel ziyaretçi için dönüşüm, (b) yer kimliğinin sitede de kanonik olması. Şemadaki `hasMap` +
+> adres + koordinat ZATEN vardı (2026-07-13); bu onların görünür karşılığı.
+> **🔑 ASIL KAZANIM — paylaşılan config'ten çıkan `place_id`:** `ChIJJ3J3vXkTyhQRWXIiyY3drxA`.
+> `lib/seo.ts` → **`ORG_PLACE_ID` + `ORG_DIRECTIONS_URL`** (tek kaynak).
+> **/iletisim'de tuş ZATEN VARDI ama adres METNİ ile çalışıyordu** → place_id'ye geçirildi.
+> 📌 **Fark önemli:** metinle Google adresi **yeniden coğrafi-kodlar** ve komşu bir noktaya düşebilir;
+> place_id doğrudan **Bemis işletme kartını** açar (mobilde Google Haritalar uygulaması). Doğrulandı:
+> `dir/?api=1&destination_place_id=…` yanıtında "Bemis" geçiyor.
+> **YENİ TUŞ 2 YERDE:** anasayfa iletişim kartları (adres kartının altında, `pickText` + ui.json 5 dil
+> "Get directions") · **/uretici** fabrika fotoğrafının alt yazısında ("Fabrikaya yol tarifi").
+> ⚠️ /uretici'deki kapsayıcı `pointer-events-none` → bağlantıya `pointer-events-auto` AÇIKÇA verildi.
+> ⚠️ **Şehir sayfalarına EKLENMEDİ:** oradaki satın alma yolu bilerek **bayi odaklı** (2026-08-02 kararı);
+> fabrika tarifi "nereden alırım" niyetini bulandırır.
+> **⚠️ GÖMÜLÜ HARİTA (iframe) DEĞİŞTİRİLMEDİ:** `?q=place_id:…&output=embed` denendi → **tarayıcıda BOŞ
+> geliyor** (301 sonrası gövde 1,4 KB, canvas/img 0). Mevcut adres tabanlı gömme çalışıyor, dokunulmadı.
+> 📌 Ölçüm notu: bu panelde Google gömmesi ADRES biçiminde de boş render ediyor → gömme karşılaştırması
+> panelde YAPILAMAZ; canlı sayfada doğrula.
+>
+> **🔴🔴 NAP UYUŞMAZLIĞI — KULLANICI KARARI BEKLİYOR (yerel SEO için önemli):**
+> Paylaşılan Google kaydı adresi **"Minareliçavuş, Yeşil Cd. Organize San. Böl No:31, **16220 Nilüfer**/Bursa"**
+> diyor; SİTE ve tüm şemalar **"Yeşil Cad. No:31, **16140** Bursa"** diyor (`ORG_ADDRESS`, seo.ts).
+> Posta kodu **16140 ↔ 16220** ve ilçe **Bursa ↔ Nilüfer** ayrışıyor. Google, GBP ile sitedeki NAP'ı
+> karşılaştırır; uyuşmazlık yerel sinyali zayıflatır. ⚠️ 2026-06-27'de kullanıcı 16140'ı KANONİK diye teyit
+> etmişti → **tek taraflı değiştirilmedi.** Doğrusu netleşince tek yer: `ORG_ADDRESS` (seo.ts) + /iletisim
+> metni + `page.tsx` meta açıklamaları + R2 content `contact.address`.
+> ⓘ Koordinat farkı önemsiz: site `ORG_GEO` (40.245558, 28.945849) ↔ GBP (40.245476, 28.945726) ≈ 14 m.
+>
+> **📐 KALAN TİPOGRAFİ TAMAMLANDI:** önceki turda "istenirse ayrı tur" diye işaretlenen komşu bulgu kapatıldı —
+> **Öne Çıkanlar** kart açıklaması ve **/documents** kart açıklaması 12 → **15px** (`p.text-sm` genel kuraldan
+> 15px alır). ⓘ **Teknoloji bölümü ATLANDI: `Technology.tsx` ÖLÜ bileşen** — `SECTION_COMPONENTS`'te yok,
+> hiçbir sayfada render edilmiyor (2026-06-13'te footer temizliğinde de aynı tespit yapılmıştı).
+
 > 📸🎯 **SOSYAL DUVAR 3 KUSUR + INSTAGRAM REKLAM GÖRSELLERİ (2026-09-09, commit 857c374):**
 > Kullanıcı 4 iş verdi; hepsi tamamlandı ve canlı doğrulandı.
 > **(1) ✅ KAPAK GÖRSELİ ARTIK OTOMATİK — yeni `app/api/social-cover/route.ts`:** canlıdaki **3 paylaşımın
