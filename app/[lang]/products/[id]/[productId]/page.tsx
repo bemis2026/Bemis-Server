@@ -6,7 +6,6 @@ import JsonLd from "../../../../components/JsonLd";
 import { breadcrumbSchema, productSchema, ogImage, OG_URL, SITE_URL, reviewsForProduct, type ReviewShape } from "../../../../lib/seo";
 import { getServerProducts, getServerCategoriesMeta, getServerSiteContent } from "../../../../lib/server-content";
 import { getProductsForLang } from "../../../../lib/serverProductsLang";
-import { productNameLocale } from "../../../../lib/productNamesLocale";
 import { LOCALE_LANGS, LOCALE_OG, LOCALE_UI, localeProductMeta, type LocaleLang } from "../../../../lib/localeProductSeo";
 import ProductDetailClient from "../../../../products/[id]/[productId]/ProductDetailClient";
 import { getContentForLang } from "../../../../../lib/contentLang";
@@ -68,13 +67,10 @@ export default async function LocaleProductDetailPage({ params }: { params: Prom
   if (!category || !product) notFound();
   const meta = catsMeta[id] ?? {};
   const { name, categoryName } = localeProductMeta(product, L, id, meta.name || category.name);
-  // O dilin birleştirilmiş kataloğu + elle küratörlü adlar (merge adı TR-kilitli).
+  // O dilin birleştirilmiş kataloğu — kategori + ürün adları `getProductsForLang`
+  // içinde elle küratörlü haritalarla yerelleştirilir (TEK KAYNAK, 2026-09-09).
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const locCats = ((locCategories ?? []) as any[]).map((cat) => ({
-    ...cat,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    products: (cat.products ?? []).map((p: any) => (p && typeof p.name === "string" ? { ...p, name: productNameLocale(L, p.name) } : p)),
-  }));
+  const locCats = (locCategories ?? []) as any[];
   const locCategory = locCats.find((c) => c.id === id) ?? category;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const locProduct = (locCategory?.products ?? []).find((p: any) => p.id === productId) ?? product;

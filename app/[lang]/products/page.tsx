@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import JsonLd from "../../components/JsonLd";
 import { breadcrumbSchema, collectionPageSchema, ogImage, OG_URL } from "../../lib/seo";
 import { getProductsForLang } from "../../lib/serverProductsLang";
-import { productNameLocale } from "../../lib/productNamesLocale";
 import { LOCALE_LANGS, LOCALE_OG, LOCALE_UI, type LocaleLang } from "../../lib/localeProductSeo";
 import ProductsClient from "../../products/ProductsClient";
 
@@ -48,15 +47,10 @@ export default async function LocaleProductsPage({ params }: { params: Promise<{
   if (!LOCALE_LANGS.includes(lang as LocaleLang)) notFound();
   const L = lang as LocaleLang;
   const ui = LOCALE_UI[L];
-  // O dilin birleştirilmiş kataloğu — açıklama/spec çevrili. ⚠️ Ürün ADI merge'de
-  // TR-kilitli → elle küratörlü harita (productNamesLocale) BURADA uygulanır.
-  const raw = (await getProductsForLang(L)) ?? [];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const categories = raw.map((cat: any) => ({
-    ...cat,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    products: (cat.products ?? []).map((p: any) => (p && typeof p.name === "string" ? { ...p, name: productNameLocale(L, p.name) } : p)),
-  }));
+  // O dilin birleştirilmiş kataloğu — açıklama/spec çevrili. ⚠️ Kategori + ürün ADI
+  // merge'de TR-kilitli; elle küratörlü haritalar artık `getProductsForLang` içinde
+  // uygulanır (TEK KAYNAK — API ile sayfa ayrışmasın, 2026-09-09).
+  const categories = (await getProductsForLang(L)) ?? [];
   const items = categories.flatMap((cat) =>
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (cat.products ?? []).map((p: any) => ({ id: p.id, name: p.name, categoryId: cat.id }))

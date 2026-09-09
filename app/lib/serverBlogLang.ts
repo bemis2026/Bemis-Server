@@ -87,3 +87,24 @@ export function arLinkleriDuzelt(post: BlogPost): BlogPost {
 
   return { ...post, body, related: related.length > 0 ? related : undefined };
 }
+
+/**
+ * Kategori sayfasındaki "İlgili Rehberler" çiplerinin ARAPÇA kol karşılığı.
+ *
+ * ⚠️ Kural: yalnız Arapçası TAM olan blog yazısı kalır — başlığı Arapça, adresi
+ * `/ar/blog/<slug>`. Arapça karşılığı olmayan rehber (çevirisi eksik yazı ya da
+ * `/arac-sarj-uyumlulugu` gibi Arapça adresi hiç olmayan TR sayfa) LİSTEDEN DÜŞER.
+ * `arAdresi`'nin genel yedeği burada KULLANILMAZ: "hangi araca hangi kablo uyar"
+ * etiketli bir çipi Arapça giriş sayfasına bağlamak okuyucuyu yanıltırdı.
+ */
+export function arRehberleri(rehberler: { label: string; href: string }[]): { label: string; href: string }[] {
+  const cikti: { label: string; href: string }[] = [];
+  for (const r of rehberler) {
+    const m = /^\/blog\/([^/#?]+)$/.exec(r.href);
+    if (!m) continue;
+    const p = yaziBulDilde(m[1], "ar");
+    if (!p) continue;
+    cikti.push({ label: p.title, href: `/ar/blog/${m[1]}` });
+  }
+  return cikti;
+}

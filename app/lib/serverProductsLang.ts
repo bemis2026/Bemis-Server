@@ -4,6 +4,9 @@ import { readFileSync } from "fs";
 import path from "path";
 import { applyProductSeo } from "./productSeo";
 import { productNameEn } from "./productNamesEn";
+import { EN_CATEGORY_SEO } from "./enProductSeo";
+import { productNameLocale, isLocaleNameLang } from "./productNamesLocale";
+import { LOCALE_CATEGORY_SEO } from "./localeProductSeo";
 
 /**
  * DİLE GÖRE BİRLEŞTİRİLMİŞ KATALOG — SUNUCU TARAFI TEK KAYNAK.
@@ -187,17 +190,37 @@ export async function getProductsForLang(lang: string): Promise<any[] | null> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const merged = mergeCategories(trSeo, overlay as any[] | null);
 
-  // ⚠️ Ürün ADI birleştirmede TR-kilitli (kimlik alanı; eski çeviri geçişlerinden
-  // gelen productsEn adlarına güvenilmiyor). İngilizce sayfalarda adın Türkçe
-  // kalmaması için elle küratörlü harita (app/lib/productNamesEn.ts) BURADA
-  // uygulanır. Eşlemesi olmayan ad AYNEN kalır → sessiz bozulma yok.
-  if (lang === "en") {
+  // ⚠️ KATEGORİ ve ÜRÜN ADI birleştirmede TR-kilitli (kimlik alanı; eski çeviri
+  // turlarından kalan overlay adlarına güvenilmiyor). Yabancı dil sayfalarında adın
+  // Türkçe kalmaması için ELLE KÜRATÖRLÜ haritalar BURADA uygulanır:
+  //   ürün adı → productNamesEn.ts / productNamesLocale.ts
+  //   kategori adı → enProductSeo.ts / localeProductSeo.ts  (H1 + <title> ile AYNI kaynak)
+  // Eşlemesi olmayan ad AYNEN kalır → sessiz bozulma yok.
+  //
+  // ⚠️ NEDEN BURADA (2026-09-09 ölçümü): ürün adı haritası yalnız SAYFA dosyalarında
+  // uygulanıyordu → `/api/products?lang=<dil>` 72 ürün adını TÜRKÇE döndürüyordu
+  // (istemci yeniden çekiminde ad Türkçeye düşerdi). Kategori adı ise HİÇBİR yerde
+  // uygulanmıyordu → 6 yabancı dilin hepsinde 4 kategori adı Türkçe basılıyordu
+  // ("AC Şarj Kabloları", "DC Şarj Üniteleri"…). Tek kaynak = bu fonksiyon.
+  const urunAdi: ((ad: string) => string) | null =
+    lang === "en" ? productNameEn
+    : isLocaleNameLang(lang) ? (ad: string) => productNameLocale(lang, ad)
+    : null;
+  const katAdlari: Record<string, { name: string }> | null =
+    lang === "en" ? EN_CATEGORY_SEO
+    : isLocaleNameLang(lang) ? LOCALE_CATEGORY_SEO[lang]
+    : null;
+
+  if (urunAdi || katAdlari) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     for (const cat of merged as any[]) {
-      if (!Array.isArray(cat?.products)) continue;
+      if (!cat) continue;
+      const yerelKatAdi = katAdlari?.[cat.id]?.name;
+      if (yerelKatAdi) cat.name = yerelKatAdi;
+      if (!urunAdi || !Array.isArray(cat.products)) continue;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       cat.products = cat.products.map((p: any) =>
-        p && typeof p.name === "string" ? { ...p, name: productNameEn(p.name) } : p,
+        p && typeof p.name === "string" ? { ...p, name: urunAdi(p.name) } : p,
       );
     }
   }

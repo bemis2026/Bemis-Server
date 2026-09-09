@@ -4,9 +4,10 @@ import { notFound } from "next/navigation";
 import JsonLd from "../../../components/JsonLd";
 import { breadcrumbSchema, collectionPageSchema, faqSchema, ogImage, OG_URL } from "../../../lib/seo";
 import { getProductsForLang } from "../../../lib/serverProductsLang";
-import { productNameLocale } from "../../../lib/productNamesLocale";
 import { LOCALE_LANGS, LOCALE_OG, LOCALE_UI, localeCategoryMeta, type LocaleLang } from "../../../lib/localeProductSeo";
 import { getContentForLang } from "../../../../lib/contentLang";
+import { CATEGORY_GUIDES } from "../../../lib/categoryGuides";
+import { arRehberleri } from "../../../lib/serverBlogLang";
 import ProductCategoryClient from "../../../products/[id]/ProductCategoryClient";
 
 // /de|es|ru/products/<kategori> — app/en/products/[id]/page.tsx'in dil-parametreli eşi.
@@ -58,19 +59,29 @@ export default async function LocaleProductCategoryPage({ params }: { params: Pr
   const L = lang as LocaleLang;
   const ui = LOCALE_UI[L];
   const raw = (await getProductsForLang(L)) ?? [];
+  // ⚠️ Kategori + ürün adları `getProductsForLang` içinde yerelleştirilir (TEK KAYNAK).
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const category0 = raw.find((c: any) => c.id === id);
-  const category = category0
-    ? { ...category0, products: (category0.products ?? []).map((p: { name?: string }) => (p && typeof p.name === "string" ? { ...p, name: productNameLocale(L, p.name) } : p)) }
-    : null;
+  const category = raw.find((c: any) => c.id === id) ?? null;
   let aciklama: string | undefined;
   let faq: { q: string; a: string }[] | undefined;
+  // "Projeye Özel Üretim" kartının metinleri de içerik katmanından, O DİLDE.
+  // ⚠️ Prop olarak geçilmezse kart İLK HTML'de TÜRKÇE basılır (kök layout içeriği
+  // TR hidratlar) → ziyaretçi çeviriyi hidrasyondan sonra görür, Google Türkçe okur.
+  let projeKarti: { eyebrow?: string; title?: string; description?: string; ctaPrimaryLabel?: string; ctaSecondaryLabel?: string } | null = null;
   try {
-    const c = (await getContentForLang(L)) as { categories?: Record<string, { description?: string; faq?: { q: string; a: string }[] }> } | null;
+    const c = (await getContentForLang(L)) as {
+      categories?: Record<string, { description?: string; faq?: { q: string; a: string }[] }>;
+      projectSection?: { eyebrow?: string; title?: string; description?: string; ctaPrimaryLabel?: string; ctaSecondaryLabel?: string };
+    } | null;
     const cm = c?.categories?.[id];
     aciklama = cm?.description?.trim() || undefined;
     faq = Array.isArray(cm?.faq) && cm.faq.length > 0 ? cm.faq : undefined;
+    const ps = c?.projectSection;
+    if (ps) projeKarti = { eyebrow: ps.eyebrow, title: ps.title, description: ps.description, ctaPrimaryLabel: ps.ctaPrimaryLabel, ctaSecondaryLabel: ps.ctaSecondaryLabel };
   } catch {}
+  // "İlgili Rehberler" — YALNIZ Arapça kolda (blog rotası olan tek dil kolu).
+  // Arapçası tam olmayan rehber listeden düşer; liste boşsa blok hiç basılmaz.
+  const rehberler = L === "ar" ? arRehberleri(CATEGORY_GUIDES[id] ?? []) : [];
   const m = localeCategoryMeta(L, id, category?.name || id);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const products = (category?.products ?? []).map((p: any) => ({ id: p.id, name: p.name, categoryId: id }));
@@ -92,6 +103,9 @@ export default async function LocaleProductCategoryPage({ params }: { params: Pr
         titleOverride={m.name}
         descriptionOverride={aciklama}
         faqOverride={faq}
+        projectSectionOverride={projeKarti}
+        guidesOverride={rehberler}
+        guidesTitle={L === "ar" ? "أدلة ذات صلة" : undefined}
       />
     </>
   );

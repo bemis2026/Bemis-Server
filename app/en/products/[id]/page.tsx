@@ -78,13 +78,19 @@ export default async function EnProductCategoryPage({ params }: { params: Promis
   // rotayı bilmediği için bilinen mimari sınır, tüm diller için geçerli.)
   let enAciklama: string | undefined;
   let enFaq: { q: string; a: string }[] | undefined;
+  // "Projeye Özel Üretim" kartı da içerik katmanından, İngilizce olarak geçilir —
+  // yoksa ilk HTML'de (kök layout TR hidratlar) Türkçe basılır.
+  let enProjeKarti: { eyebrow?: string; title?: string; description?: string; ctaPrimaryLabel?: string; ctaSecondaryLabel?: string } | null = null;
   try {
     const enContent = (await getContentForLang("en")) as {
       categories?: Record<string, { description?: string; faq?: { q: string; a: string }[] }>;
+      projectSection?: { eyebrow?: string; title?: string; description?: string; ctaPrimaryLabel?: string; ctaSecondaryLabel?: string };
     } | null;
     const cm = enContent?.categories?.[id];
     enAciklama = cm?.description?.trim() || undefined;
     enFaq = Array.isArray(cm?.faq) && cm.faq.length > 0 ? cm.faq : undefined;
+    const ps = enContent?.projectSection;
+    if (ps) enProjeKarti = { eyebrow: ps.eyebrow, title: ps.title, description: ps.description, ctaPrimaryLabel: ps.ctaPrimaryLabel, ctaSecondaryLabel: ps.ctaSecondaryLabel };
   } catch {}
   const category = categories.find((c) => c.id === id);
   const m = enMeta(id, category?.name || id);
@@ -121,6 +127,7 @@ export default async function EnProductCategoryPage({ params }: { params: Promis
         titleOverride={m.name}
         descriptionOverride={enAciklama}
         faqOverride={enFaq}
+        projectSectionOverride={enProjeKarti}
       />
     </>
   );

@@ -2,6 +2,7 @@
 import { pickText } from "../../lib/ui";
 import CustomProductionSection from "../../components/CustomProductionSection";
 import { accentInk } from "../../lib/accentInk";
+import { CATEGORY_GUIDES, type Rehber } from "../../lib/categoryGuides";
 import { urunPngKategorisi } from "../../../lib/categoryVisual";
 
 import Link from "next/link";
@@ -108,6 +109,9 @@ export default function ProductCategoryPage({
   initialLang = "tr",
   descriptionOverride,
   faqOverride,
+  projectSectionOverride,
+  guidesOverride,
+  guidesTitle,
 }: {
   initialCategory?: CategoryData | null;
   titleOverride?: string;
@@ -119,6 +123,16 @@ export default function ProductCategoryPage({
    *  normal içerik katmanına düşer. TR sayfalar bu propları GEÇMEZ → davranış aynı. */
   descriptionOverride?: string;
   faqOverride?: { q: string; a: string }[];
+  /** ⚠️ Dil kolu (/ar, /de…) için: "Projeye Özel Üretim" kartının metinleri içerik
+   *  (CMS) katmanından gelir ve kök layout TÜRKÇE hidratladığı için İLK HTML'de
+   *  Türkçe basılıyordu (ziyaretçi hidrasyondan sonra çeviriyi görüyor, Google
+   *  Türkçe okuyor). Sayfa o dilin metnini sunucudan prop olarak geçirir. */
+  projectSectionOverride?: { eyebrow?: string; title?: string; description?: string; ctaPrimaryLabel?: string; ctaSecondaryLabel?: string } | null;
+  /** ⚠️ "İlgili Rehberler" çipleri TR koda gömülüdür. Dil kollarında bu liste
+   *  SUNUCUDAN gelir (Arapça kol: Arapça başlık + /ar/blog adresi); prop yoksa
+   *  blok GİZLENİR — yabancı dil sayfasından Türkçe rehbere link verilmez. */
+  guidesOverride?: Rehber[];
+  guidesTitle?: string;
 }) {
   const params = useParams();
   const router = useRouter();
@@ -569,16 +583,19 @@ export default function ProductCategoryPage({
       {(() => {
         const ps = projectSection;
         if (!ps?.enabled || !Array.isArray(ps.categories) || !ps.categories.includes(id)) return null;
+        // Dil kolunda metinler sunucudan (o dilde) gelir; ziyaretçi dili değiştirirse
+        // normal içerik katmanına düşer (faqOverride/descriptionOverride ile aynı kural).
+        const yerel = lang === initialLang ? projectSectionOverride : null;
         return (
           <CustomProductionSection
-            eyebrow={ps.eyebrow}
-            title={ps.title}
-            description={ps.description}
+            eyebrow={yerel?.eyebrow ?? ps.eyebrow}
+            title={yerel?.title ?? ps.title}
+            description={yerel?.description ?? ps.description}
             swatches={ps.swatches}
             accent={accent}
-            ctaPrimaryLabel={ps.ctaPrimaryLabel}
+            ctaPrimaryLabel={yerel?.ctaPrimaryLabel ?? ps.ctaPrimaryLabel}
             ctaPrimaryHref={ps.ctaPrimaryHref || "/iletisim"}
-            ctaSecondaryLabel={ps.ctaSecondaryLabel}
+            ctaSecondaryLabel={yerel?.ctaSecondaryLabel ?? ps.ctaSecondaryLabel}
             ctaSecondaryHref={ps.ctaSecondaryHref || "/#dealer"}
             outerClassName="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8 pb-14 w-full"
           />
@@ -663,49 +680,25 @@ export default function ProductCategoryPage({
         );
       })()}
 
-      {/* İlgili Rehberler — kategori→blog çapraz-link (topikal otorite +
-          AI Bakışı/GEO kaynak-seçilme sinyali). Yalnız TR; eşleşen kategoride. */}
+      {/* İlgili Rehberler — kategori-blog çapraz-link (topikal otorite +
+          AI Bakışı/GEO kaynak-seçilme sinyali).
+          TR haritası app/lib/categoryGuides.ts dosyasında (sunucu da aynı listeyi okur).
+          Dil kollarında liste SUNUCUDAN gelir: Arapça kolda Arapça başlık ve /ar/blog
+          adresi, Arapçası olmayan rehber DÜŞER. Prop gelmediyse blok gizlenir —
+          eskiden yalnız İngilizce gizleniyordu, de/es/ru/nl/ar TÜRKÇE basıyordu. */}
       {(() => {
-        if (lang === "en") return null;
-        const GUIDES: Record<string, { label: string; href: string }[]> = {
-          cables: [
-            { label: "Hangi araca hangi şarj cihazı ve kablosu uyar?", href: "/arac-sarj-uyumlulugu" },
-            { label: "Şarj kablosu kaç metre, kaç amper olmalı?", href: "/blog/elektrikli-arac-sarj-kablosu-kac-metre-kac-amper" },
-            { label: "Şarj kablosu dışarıda/yağmurda kullanılır mı?", href: "/blog/elektrikli-arac-sarj-kablosu-disarida-yagmurda-kullanilir-mi" },
-            { label: "EV şarj kablosu seçimi (Type 2)", href: "/blog/ev-sarj-kablosu-secimi-type-2" },
-          ],
-          wallbox: [
-            { label: "Hangi araca hangi şarj cihazı ve kablosu uyar?", href: "/arac-sarj-uyumlulugu" },
-            { label: "Ev şarj ünitesi mi, taşınabilir cihaz mı?", href: "/blog/ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi" },
-            { label: "EV için şarj cihazı nasıl seçilir?", href: "/blog/ev-icin-sarj-cihazi-nasil-secilir" },
-            { label: "Apartmana / siteye şarj istasyonu kurulumu", href: "/blog/apartmana-sarj-istasyonu-kurulumu" },
-            { label: "Wallbox nedir? Ev tipi şarj istasyonu rehberi", href: "/blog/wallbox-nedir-ev-tipi-sarj-istasyonu-rehberi" },
-            { label: "11 kW mı 22 kW mı? Güç seçimi ve amper hesabı", href: "/blog/11-kw-mi-22-kw-mi-wallbox-guc-secimi-amper-hesabi" },
-          ],
-          portable: [
-            { label: "Hangi araca hangi şarj cihazı ve kablosu uyar?", href: "/arac-sarj-uyumlulugu" },
-            { label: "Ev şarj ünitesi mi, taşınabilir cihaz mı?", href: "/blog/ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi" },
-            { label: "Şarj kablosu kaç metre, kaç amper olmalı?", href: "/blog/elektrikli-arac-sarj-kablosu-kac-metre-kac-amper" },
-          ],
-          "dc-units": [
-            { label: "AC ve DC şarj farkı nedir?", href: "/blog/ac-dc-sarj-farki" },
-            { label: "Şarj istasyonu nasıl çalışır?", href: "/blog/elektrikli-arac-sarj-istasyonu-nasil-calisir" },
-          ],
-          "v2l-c2l": [
-            { label: "IONIQ 5 V2L nasıl kullanılır?", href: "/blog/ioniq-5-v2l-nasil-kullanilir" },
-            { label: "Togg V2L: araçtan elektrik", href: "/blog/togg-v2l-aractan-elektrik" },
-          ],
-        };
-        const guides = GUIDES[id];
+        const guides = lang === "tr" ? CATEGORY_GUIDES[id] : guidesOverride;
         if (!guides || guides.length === 0) return null;
         return (
           <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8 pb-16 w-full">
-            <h2 className="text-2xl font-black mb-5" style={{ color: textPrimary }}>İlgili Rehberler</h2>
+            <h2 className="text-2xl font-black mb-5" style={{ color: textPrimary }}>{guidesTitle ?? "İlgili Rehberler"}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 items-stretch">
               {guides.map((g) => (
                 <a key={g.href} href={g.href} className="rounded-2xl p-4 flex items-center gap-3 transition-transform hover:-translate-y-0.5" style={{ background: surface, border: `1px solid ${surfaceBorder}` }}>
                   <span className="text-sm font-semibold leading-snug" style={{ color: textPrimary }}>{g.label}</span>
-                  <span className="ml-auto text-lg flex-shrink-0" style={{ color: accentInk(accent, d) }}>→</span>
+                  {/* ⚠️ RTL: mantıksal `ms-auto` (fiziksel ml-auto Arapça'da yanlış tarafa iter);
+                      "ileri" oku RTL'de SOLA bakar. */}
+                  <span className="ms-auto text-lg shrink-0" style={{ color: accentInk(accent, d) }}>{lang === "ar" ? "←" : "→"}</span>
                 </a>
               ))}
             </div>
