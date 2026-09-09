@@ -215,6 +215,28 @@ export default function ArLandingClient({ kategoriler }: { kategoriler: Kategori
         </div>
       </section>
 
+      {/* ── Bölge sayfası köprüsü ──────────────────────────────────────
+          /ar/middle-east (Körfez + Mısır) sayfasına taranabilir iç link. */}
+      <section className="pt-2 pb-8">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8">
+          <Link href="/ar/middle-east"
+                className="block rounded-2xl p-5 sm:p-6 cursor-pointer transition-transform hover:-translate-y-0.5"
+                style={cardStyle}>
+            <h2 className="text-base sm:text-lg font-semibold mb-1.5" style={{ color: textPrimary }}>
+              هل أنتم في الخليج أو مصر؟
+            </h2>
+            <p className="text-sm leading-relaxed" style={{ color: textMuted }}>
+              صفحة مخصّصة للإمارات والسعودية وقطر والكويت والبحرين وعُمان ومصر: الحلول بحسب نوع
+              المشروع، شراكات التوزيع، والأجهزة العاملة على 50/60 هرتز.
+            </p>
+            <span className="inline-flex items-center gap-1.5 text-xs font-semibold mt-3"
+                  style={{ color: d ? "#93C5FD" : BLUE }}>
+              الخليج والشرق الأوسط <RiArrowLeftLine size={13} />
+            </span>
+          </Link>
+        </div>
+      </section>
+
       {/* ── SSS ────────────────────────────────────────────────────────── */}
       <section className="py-12">
         <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8">

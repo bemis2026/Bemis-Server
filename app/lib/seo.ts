@@ -657,8 +657,8 @@ export function serviceSchema(opts: {
   url: string;
   /** Tags shown as the provider's offerings (e.g. ["OEM Manufacturing", "White Label", "Bulk Orders"]). */
   offerings?: string[];
-  /** Service area — defaults to TR. */
-  areaServed?: string;
+  /** Service area — defaults to TR. Dizi verilebilir (çok ülkeli bölge sayfaları). */
+  areaServed?: string | string[];
 }): JsonLdObject {
   const { name, description, url, offerings, areaServed = "TR" } = opts;
   return {

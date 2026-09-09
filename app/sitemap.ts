@@ -50,6 +50,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/operator`,  lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/export`,    lastModified: now, changeFrequency: "monthly", priority: 0.85, alternates: { languages: GIRIS_ALT } },
     { url: `${BASE}/ar`,        lastModified: now, changeFrequency: "monthly", priority: 0.85, alternates: { languages: GIRIS_ALT } },
+    // Körfez + Mısır iniş sayfası — TR/EN karşılığı YOK, bu yüzden alternates verilmez
+    // (karşılığı olmayan hreflang Google'da karşılıklılık hatası üretir).
+    { url: `${BASE}/ar/middle-east`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/iletisim`,  lastModified: now, changeFrequency: "yearly",  priority: 0.7 },
     { url: `${BASE}/gizlilik`,        lastModified: now, changeFrequency: "yearly",  priority: 0.3 },
     { url: `${BASE}/cerez-politikasi`, lastModified: now, changeFrequency: "yearly",  priority: 0.3 },

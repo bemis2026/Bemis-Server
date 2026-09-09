@@ -105,6 +105,9 @@ Type 2 (Mode 2 و Mode 3)، محوّلات V2L و C2L، كابلات تمديد 
 - المنتجات والفئات: https://www.bemisevcharge.com.tr/ar/products
 - قاموس مصطلحات شحن السيارات الكهربائية: https://www.bemisevcharge.com.tr/ar/sozluk
 - الأدلة والمقالات التقنية: https://www.bemisevcharge.com.tr/ar/blog
+- الخليج والشرق الأوسط (الإمارات، السعودية، قطر، الكويت، البحرين، عُمان، مصر — توريد وتوزيع): https://www.bemisevcharge.com.tr/ar/middle-east
+
+الأجهزة تعمل على 50/60 هرتز، لذلك تناسب شبكات الخليج كافة بما فيها السعودية (60 هرتز).
 
 للتصدير والجملة و OEM: trade@bemis.com.tr · +90 542 773 72 94
 
