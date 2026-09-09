@@ -3128,13 +3128,230 @@
       "title": "Which Electric Cars Have V2L? (Updated 2026 List)"
     },
     "elektrikli-arabami-evde-nasil-sarj-ederim": {
-      "title": "How Do I Charge My Electric Car at Home? A Beginner's Guide"
+      "title": "How Do I Charge My Electric Car at Home? A Beginner's Guide to Chargers",
+      "metaTitle": "How Do I Charge My Electric Car at Home?",
+      "description": "You have bought an electric car, or are about to: how do I charge my car at home? Can I charge from an ordinary socket, which charger suits me, can I fit it myself — all in plain language.",
+      "excerpt": "There are three ways to charge your electric car at home: an ordinary household socket (the slowest), a portable charger and a wall-mounted charger (a wallbox). In this guide we answer the most common questions — \"how do I charge my car\", \"can I use an ordinary socket\", \"can I fit it myself\" — in everyday language.",
+      "category": "Guide",
+      "body": [
+        {
+          "text": "You have bought an electric car, or are about to, and the first question on your mind is most likely this: \"How am I going to charge my car at home?\" The good news is that the answer is far simpler than you think. Just as you drop by a petrol station once a week with a petrol car, with an electric car most people charge at home while they sleep — when you get up in the morning the car is full. In this guide we explain the ways to charge your car at home in everyday language, with no technical knowledge required."
+        },
+        {
+          "text": "There are three ways to charge an electric car at home, and the only real difference between them is speed and safety: (1) an ordinary household socket, (2) a portable charger, (3) a charger fixed to the wall — that is, a wallbox. Let us now take them one by one, through the questions people ask most."
+        },
+        {
+          "text": "Can an electric car be charged from an ordinary household socket?"
+        },
+        {
+          "text": "Short answer: it can, but this is the slowest and least recommended method. You can plug into the ordinary socket at home (Schuko, the three-pin type) with the cable that came with your car and charge. The problem is that an ordinary household socket is not designed to draw high current continuously; when it runs at full load for hours, the socket and the wiring can overheat. That is why charging from an ordinary socket should be considered only in an emergency, or at very low power (usually 1.8-2.3 kW)."
+        },
+        {
+          "text": "Let us make it concrete with an example: filling a car with a 60 kWh battery from an ordinary socket can take more than 20 hours. So on its own it is not enough for someone who wants to plug in during the evening and set off in the morning. A home charger, by contrast, fills the same car in far less time. Think of the ordinary socket as a stopgap; the real solution is one of the two methods below."
+        },
+        {
+          "items": [
+            "Ordinary household socket = the slowest, takes a long time, strains the wiring — only for emergencies or occasional use.",
+            "Never charge through an extension cable or a power strip.",
+            "If you will charge often, having your electrician run a dedicated line and moving to a portable or wall-mounted charger is both faster and far safer."
+          ]
+        },
+        {
+          "text": "What is a wall-mounted charger (wallbox), and who is it for?"
+        },
+        {
+          "text": "The most popular solution at home is a charger fixed to the wall; in the industry it is also called a \"wallbox\". Supplied by a dedicated line from your distribution board and mounted next to the door or in the garage, this device charges your car many times faster and far more safely than an ordinary socket. If you have your own home, a private garage or a fixed space in an enclosed car park, this is the most sensible choice."
+        },
+        {
+          "text": "Home chargers fall into two groups by power: single-phase models generally charge up to 7.4 kW, while three-phase models charge up to 11-22 kW. If you have three-phase electricity at home, faster charging is possible; if not, a single-phase model is more than enough for daily use. The Bemis Charger 2, Charger Plus 2 and Charger Pro 2 models are such wall-mounted chargers; all have a Type 2 socket (the standard socket in Türkiye and Europe), are CE certified and IP65 rated — that is, they stand up to being outdoors and to rain."
+        },
+        {
+          "items": [
+            "If you have your own home / garage / fixed parking space: a wall-mounted charger (wallbox) is the best choice.",
+            "Up to 7.4 kW for a single-phase home; models up to 11-22 kW for a three-phase home.",
+            "Models with adjustable current (for example the Charger Plus 2) let you turn the charging power down so as not to strain the home's main breaker."
+          ]
+        },
+        {
+          "text": "Who is a portable charger sensible for?"
+        },
+        {
+          "text": "If you cannot have a fixed device mounted on the wall — for example if you rent, if you have no fixed space in the car park, or if you want to use it both at home and on the road — a portable charger is a good middle ground. These are devices that fit in a case and that you can plug in and use. The Bemis Mini Mobile and Pro Mobile 2 models belong to this group. The Pro Mobile 2 in particular can be used safely on different sockets, since the charging current can be set across 6 steps (6-32 amps) with the button on the device or the mobile app."
+        },
+        {
+          "text": "The advantage of a portable device is flexibility: it lives in the boot, and wherever you go you can charge if there is a suitable socket. The disadvantage is that it is not a permanent solution and, at higher power, is not as convenient as a fixed wallbox. When deciding, ask yourself: will I always charge the car in the same place (then a wallbox), or does the place change from time to time (then portable)?"
+        },
+        {
+          "text": "Which charger suits my car? (How many kW should I choose?)"
+        },
+        {
+          "text": "This is one of the most frequently asked questions, and the answer depends on two things: your home's electrical infrastructure and the power your car accepts. Think of it this way — however powerful the charger, your car will not take more than its own limit. Most electric cars accept up to 7.4 kW or 11 kW on AC charging; so buying a 22 kW device for the home brings no extra speed if your car takes 11 kW. The right approach is to find out the power your car accepts and choose a model to match."
+        },
+        {
+          "items": [
+            "First find out how many kW your car's \"AC charging power\" is (it is stated in the vehicle handbook).",
+            "If your home is single-phase, a model up to 7.4 kW; if three-phase, an 11 or 22 kW model is suitable.",
+            "If you are not sure, buy a model with adjustable current — it will suit both your current car and the one you buy later.",
+            "Make sure the socket type is Type 2; that is the standard in Türkiye and Europe (most cars, including Togg and Tesla, use Type 2)."
+          ]
+        },
+        {
+          "text": "Can I fit the charger myself?"
+        },
+        {
+          "text": "The honest answer: you can plug in and use a portable device yourself, but never make the electrical connection of a wall-mounted charger yourself. A wallbox must be supplied from the board over a dedicated line with a suitable breaker; this connection must always be made by a qualified electrical contractor. That is both a legal requirement and a matter of safety — a high-current line connected incorrectly carries a fire risk. You choose the device, an expert installs it."
+        },
+        {
+          "text": "If you live in an apartment building there is one more step: having a charger fitted in a shared car park generally requires the approval of the management or the flat owners and an arrangement for metering. We covered this subject in a separate guide; you can reach it from the links below."
+        },
+        {
+          "text": "Let us choose the right charger for your home together — whether wall-mounted (wallbox) or portable, find the right model for your car and your home's infrastructure. All produced in our own facility, CE certified and IP65 rated.",
+          "label": "See the Chargers"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I charge an electric car from a household socket?",
+          "a": "Yes, electric vehicles can be charged from a household socket; for this you use the portable charger supplied with the car or bought separately. However, this is the slowest method, and the condition of the circuit the socket is on is decisive: drawing high current for hours on an old circuit, or one that feeds several appliances, is not right. In practice the soundest approach is to charge over a circuit dedicated to charging and fitted with protective equipment, using a device whose current can be adjusted. On the Bemis portable models the current can be stepped down; the Pro Mobile 2 has six steps."
+        },
+        {
+          "q": "Can I charge my electric car from an ordinary household socket?",
+          "a": "You can, but this is the slowest method, and because an ordinary socket is not designed for high current lasting hours it strains the wiring. Never use an extension cable or a power strip. If you will charge often, moving to a portable or wall-mounted charger is both far faster and safer."
+        },
+        {
+          "q": "How long does it take to charge my electric car at home?",
+          "a": "It depends on the size of the car's battery and the power of the charger. From an ordinary socket (roughly 2 kW) a car with 60 kWh can take more than 20 hours, whereas an 11 kW home charger fills the same car comfortably overnight. Most users plug in during the evening and find a full car in the morning."
+        },
+        {
+          "q": "What power charger should I buy for my car?",
+          "a": "A device that exceeds the AC charging power your car accepts brings no extra speed. First find out how many kW your car accepts, then look at whether your home is single-phase or three-phase. If you are not sure, a model with adjustable current is the most flexible choice."
+        },
+        {
+          "q": "Can I install the charger myself?",
+          "a": "You can plug in and use a portable device yourself. However, the electrical connection of a wall-mounted wallbox must always be made by a qualified electrical contractor, over a dedicated line from the board and with a suitable breaker. That is both a legal obligation and a safety requirement."
+        }
+      ],
+      "related": [
+        {
+          "label": "Portable Chargers"
+        },
+        {
+          "label": "Home Charging Unit or Portable Charger?"
+        },
+        {
+          "label": "EV Charging Station Installation for Apartment Buildings"
+        },
+        {
+          "label": "EV Charging Time: How Many Hours to Full?"
+        }
+      ]
     },
     "gunes-enerjisi-solar-ile-elektrikli-arac-sarji": {
       "title": "Charging an Electric Car with Solar Power: Home Solar EV Charging"
     },
     "evde-elektrikli-arac-sarji-guvenli-mi": {
-      "title": "Is Home EV Charging Safe? Sockets, Fuses and RCD Guide"
+      "title": "Is Charging an Electric Car at Home Safe? A Guide to Sockets, Breakers and Residual Current",
+      "metaTitle": "Is Charging an Electric Car at Home Safe? Safety Guide",
+      "description": "Is it safe to charge an electric car at home? The limits of charging from an ordinary socket, the risk of extension cables, the residual current device, a dedicated line and wallbox safety, all in one place.",
+      "excerpt": "Charging at home is safe with the right equipment and a sound installation. The limits of charging from an ordinary socket, the risks of extension cables, the residual current device and why a wallbox is the safest route are all in this guide.",
+      "category": "Guide",
+      "body": [
+        {
+          "text": "Everyone who is thinking of buying an electric car, or has just bought one, has the same question in mind: is charging at home really safe? The short, clear answer is yes — with the right equipment and a sound electrical installation, charging at home is one of the most practical and safest routines of electric car ownership. Charging equipment is designed for this job from the outset; the device communicates continuously with the car and supplies no current when conditions are not right. The risks come mostly not from the equipment itself but from what surrounds it: worn sockets, extension cables and neglected wiring. In this guide we set out point by point what is safe and what is risky."
+        },
+        {
+          "text": "Is it safe to charge from an ordinary household socket?"
+        },
+        {
+          "text": "Charging from the standard earthed (Schuko) socket at home is possible with a portable charger and is safe under the right conditions. There is a critical distinction here: what connects the car to the socket is not a simple cable but a charging device with a control unit inside it. This unit communicates with the car, limits the current to a set level and does not start charging if the connection is not sound. The real question is on the socket side: standard household sockets are designed for short daily use, whereas car charging is an uninterrupted load lasting hours. On an old, loose or worn socket, that load can lead to overheating."
+        },
+        {
+          "items": [
+            "Do not use extension cables or power strips: the most common source of overheating under a prolonged high load is extension cables, reels and multi-way sockets; the charger must always be plugged directly into the wall socket.",
+            "Have the condition of the socket checked: the socket used for charging must be sound and earthed; a socket that is loose, discoloured or occasionally sparks should first be shown to an electrician.",
+            "Choose the current according to the installation: when charging from a socket, keeping the device's current level low is the most practical way to charge safely without straining the line."
+          ]
+        },
+        {
+          "text": "Bemis portable chargers are designed for exactly this scenario: the Mini Mobile charges from a standard Schuko socket at 2.3–3.7 kW; with its IP65 rated enclosure and wide operating temperature range it stands up to daily use. On the Pro Mobile 2 the charging current can be set in 6 steps (6–32 A) from the mobile app or the button on the device — which lets you lower the current and charge without straining the line where you are unsure or the wiring is weak. If you are going to use a portable device every day, your electrician can also install a protected socket point for your charging spot, such as a CEE (industrial) socket on a dedicated line or one of the Bemis combination units with built-in breakers; that means sizing the socket side for the charging load from the very start."
+        },
+        {
+          "text": "Why is a wallbox the safest way to charge at home?"
+        },
+        {
+          "text": "A charging station fixed to the wall (a wallbox) is the safest and most comfortable form of home charging, because it is connected not to a socket but to a dedicated line run for it from the distribution board. That line is sized by a qualified electrician according to the charging load and runs under its own breaker and residual current protection in the board. In this way charging does not share a line with the other appliances in the house; the load passes through infrastructure that was planned correctly from the start."
+        },
+        {
+          "text": "The Bemis wallbox family completes this approach on the device side: on the Charger Plus 2 and Charger Pro 2 models the power is adjustable between 3.7 and 22 kW and the smart charging algorithm adapts automatically to the maximum current the car accepts. The Automatic Charging Start feature on the Charger Plus 2 resumes charging by itself after a power cut; RFID card authorisation means only you can start the device. Thanks to the CE certified, IP65 rated enclosure the wallbox can also be installed in an open car park or a garden; we covered outdoor use and rain in detail in a separate guide. The question of single-phase or three-phase, meanwhile, is a separate decision that has more to do with the capacity of your installation than with safety — for that you can look at our decision guide."
+        },
+        {
+          "text": "The installation side: what should be checked before the work?"
+        },
+        {
+          "text": "In home charging, what really determines safety is the installation rather than the device. The headings below are typical matters your qualified electrician will assess during the site survey; the exact values and the choice of materials are determined by the expert according to each home's own wiring:"
+        },
+        {
+          "items": [
+            "Residual current protection: the charging line must have a residual current device of a suitable type; which type and rating is right is decided by the electrician who sees the installation.",
+            "A dedicated line: supplying the charger from the board over its own fused line relieves both the sockets and the other circuits in the house.",
+            "Earthing: sound earthing is a precondition for safe charging; in older buildings in particular it must be measured.",
+            "Cable cross-section and line length: the cross-section is chosen according to the current to be carried and the distance; thin or spliced and extended lines carry a risk of overheating under a prolonged load.",
+            "Board and breakers: the general condition of the board, a free breaker slot and the capacity of the main breaker are assessed together during the survey."
+          ]
+        },
+        {
+          "text": "None of the steps in this list is work you should do yourself; the aim is that you know what is being done and why when you talk to your electrician. The assessment of the installation and the installation work itself must in every case be carried out by a qualified electrician."
+        },
+        {
+          "text": "Fire rumours and the facts"
+        },
+        {
+          "text": "The rumour that circulates on social media from time to time, that \"an electric car catches fire while charging\", is the part people wonder about most. The real picture is this: charging is a controlled process built on continuous communication. Current only flows once the connection between the car and the device has been verified and only at the permitted level; when the connection is broken or a problem is detected, charging stops. Certified equipment that complies with the standards is not in itself a source of risk."
+        },
+        {
+          "text": "What the cases with problems in home charging have in common usually lies outside the equipment: cheap non-standard adapters, extension cables, worn sockets, and wiring that is neglected or has been altered without proper knowledge. Three simple rules manage the risk: use CE certified equipment compliant with the Type 2 (IEC 62196-2) standard; plug the charger directly into the socket, or preferably have a wallbox installed on a dedicated line; and have your wiring checked by a qualified electrician. When these three rules are followed, charging at home is an ordinary and safe part of daily life. Occasionally checking the plug and the device by eye while charging — for overheating, damage or looseness — is a good habit, as with any electrical appliance."
+        },
+        {
+          "text": "See the CE certified, IP65 rated Bemis charging solutions suited to your home — whether a fixed wallbox or a portable device, safe charging starts with the right equipment.",
+          "label": "See the Wallbox Models"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is it safe to charge an electric car at home?",
+          "a": "Yes. With the right equipment and a sound electrical installation, charging at home is safe. Charging equipment is designed for this job; the device communicates continuously with the car and supplies current only when conditions are right and only at the permitted level. The risks come mostly not from the equipment but from what surrounds it: worn sockets, extension cables, non-standard adapters and neglected wiring. The safest arrangement is to have a wallbox installed that is supplied by a dedicated line from the board and has residual current protection; if you use a portable device, plug it directly into a sound, earthed socket. Always have the wiring checked and the installation carried out by a qualified electrician."
+        },
+        {
+          "q": "Can an electric car be charged from an ordinary household socket?",
+          "a": "It can; charging from a standard earthed (Schuko) socket is possible with a portable charger and is safe under the right conditions. The control unit inside the device limits the current and does not start charging if the connection is not sound. The things to watch are on the socket side: the socket must be sound and earthed, the line must be suitable for a load lasting hours, and extension cables and power strips must never be used. Charging from a socket is practical especially for unhurried charging overnight; if you charge every day, a wallbox on a dedicated line is both faster and more comfortable in the medium term. If you are unsure, have the socket and the line checked by your electrician."
+        },
+        {
+          "q": "Can a car be charged with an extension cable or a power strip?",
+          "a": "No, it is not recommended. Car charging is an uninterrupted, high load lasting hours; extension cables, reels and multi-way sockets are not designed for loads of this kind. Intermediate contact points and thin conductors can overheat under a prolonged load, and on a coiled reel the heat builds up even more. This is the most common source of the problems experienced in home charging, and that is why the charger must always be plugged directly into the wall socket. If the socket is not in the right place, the solution is not an extension cable but having your electrician install a new socket or charging outlet on a dedicated line, suited to where your car is parked."
+        },
+        {
+          "q": "Does a home charger need its own breaker or residual current device?",
+          "a": "In a fixed wallbox installation, the generally accepted approach is that the device is supplied from the board over its own fused line and that this line has a residual current device of a suitable type. This arrangement separates the charging load from the other circuits in the house and disconnects the circuit quickly in the event of a fault current. When charging from a socket with a portable device, it is equally important that the line feeding the socket is protected. Which breaker rating, which type of residual current device and which cable cross-section are suitable depends on the home's wiring, the length of the line and the charging power chosen; these choices should be made only by a qualified electrician who inspects the site."
+        },
+        {
+          "q": "Does charging an electric car carry a fire risk?",
+          "a": "With certified equipment and a correct installation, charging at home is a controlled, safe process; current flows only once the connection between the car and the device has been verified and only at the permitted level, and charging stops if a problem is detected. What the incidents that do occur have in common usually lies outside the equipment: non-standard adapters, extension cables, worn sockets and neglected wiring. Reducing the risk takes three steps: use CE certified equipment compliant with the Type 2 (IEC 62196-2) standard; plug the device directly into the socket or have a wallbox installed on a dedicated line; and have the wiring checked by a qualified electrician. This is not a matter of fear but of simple care."
+        }
+      ],
+      "related": [
+        {
+          "label": "Can an EV Charging Cable Be Used Outdoors and in the Rain?"
+        },
+        {
+          "label": "Single-Phase or Three-Phase (3 Phases)? Which Charger Suits Your Home?"
+        },
+        {
+          "label": "Home Charging Unit or Portable Charger?"
+        },
+        {
+          "label": "Portable Chargers"
+        }
+      ]
     },
     "isletmeler-icin-dc-hizli-sarj-istasyonu-yatirimi": {
       "title": "DC Fast Charging Investment for Businesses: A Decision Guide"
@@ -3149,7 +3366,137 @@
       "title": "Home EV Charging Cost: How Much per Kilometre?"
     },
     "monofaze-mi-trifaze-mi-ev-sarj": {
-      "title": "Single-Phase or Three-Phase? Choosing the Right Home Charger"
+      "title": "Single-Phase or Three-Phase? Which Charger Suits Your Home?",
+      "metaTitle": "Single-Phase or Three-Phase? Which Charger for My Home?",
+      "description": "Should you choose single-phase or three-phase when buying an EV charger? We explain the difference between 7.4 kW and 22 kW for a home wallbox, the charging time and the right decision, simply.",
+      "excerpt": "The most critical question when buying a wallbox for your home: single-phase or three-phase? We compare the power and charging time of both options and explain which user each one suits, in a decision-focused guide.",
+      "category": "Technical",
+      "body": [
+        {
+          "text": "The question that most often causes confusion when buying an EV charger for your home is usually this: should I buy single-phase or three-phase (3 phases)? This is really a decision about your electrical installation, one that comes before any choice of brand or model. The right answer depends on your home's electrical infrastructure and your daily habits. In this guide we compare the two options with their real technical values and explain clearly which user each one suits."
+        },
+        {
+          "text": "What is the difference between single-phase and three-phase?"
+        },
+        {
+          "text": "The difference lies in how many phases the electricity reaching your home is carried on. Single-phase means one phase and carries roughly 230 volts. In Türkiye most homes have a single-phase connection; that is, your home most likely has single-phase electricity. Three-phase means three phases and can carry more power at the same time at roughly 400 volts. Because it can transfer more energy in the same period, three-phase speeds up charging, but it requires a 3-phase connection and an installation to match."
+        },
+        {
+          "items": [
+            "Single-phase (1 phase, ~230 V): on a home wallbox the practical upper limit is around 7.4 kW (32 A). Most residential connections are of this type.",
+            "Three-phase (3 phases, ~400 V): on a wallbox it can go up to 22 kW (32 A). It charges faster, but requires a 3-phase connection and installation."
+          ]
+        },
+        {
+          "text": "7.4 kW or 22 kW? How much does the charging time change?"
+        },
+        {
+          "text": "To make the two options concrete, imagine you plug your car in for the night. A single-phase wallbox at 7.4 kW loads roughly 59 kWh into your car in about 8 hours. That more than covers most drivers' daily needs, that is a range of a few hundred kilometres. A three-phase wallbox at 22 kW transfers about 3 times as much energy in the same period. So for users who cover very high mileage each day, charge at the workplace or supply more than one car at a single point, three-phase offers a meaningful advantage."
+        },
+        {
+          "caption": "Single-phase and three-phase wallbox comparison (home use)",
+          "headers": [
+            "Feature",
+            "Single-phase",
+            "Three-phase (3 phases)"
+          ],
+          "rows": [
+            [
+              "Number of phases",
+              "1 phase (~230 V)",
+              "3 phases (~400 V)"
+            ],
+            [
+              "Wallbox power limit",
+              "~7.4 kW (32 A)",
+              "Up to 22 kW (32 A)"
+            ],
+            [
+              "Energy loaded in ~8 hours",
+              "~59 kWh",
+              "~3 times more"
+            ],
+            [
+              "Connection required",
+              "Usually already in place",
+              "3-phase connection/installation"
+            ],
+            [
+              "Best suited to",
+              "Home, daily urban use",
+              "Workplace, high mileage, several cars"
+            ]
+          ]
+        },
+        {
+          "text": "In short: single-phase / 7.4 kW is enough for most users who charge at home overnight and whose daily range does not exceed a few hundred kilometres. Three-phase / 22 kW makes sense for drivers who want to shorten the charging time, cover long distances each day or use it in intensive scenarios such as a workplace."
+        },
+        {
+          "text": "How do I find out the phase of my home?"
+        },
+        {
+          "text": "There are a few clues you can turn to in order to find out whether your home is single-phase or three-phase. Your electricity bill or your connection type may include phase information. Looking at your distribution board (fuse box), the appearance can be a clue typical of a three-phase installation. But these are only for forming an idea; for a definite answer you must consult a qualified electrician. Only an expert can properly assess the phase configuration, the carrying capacity of the existing line and, if necessary, the possibility of switching to three-phase."
+        },
+        {
+          "text": "Safety is the most important heading here. Installing a charger is electrical work that runs at high power; the cable cross-section, the protective equipment and the earthing must be chosen correctly. Having the installation carried out by a qualified electrician and ensuring appropriate protective measures (a residual current device, for example) is necessary both for your safety and for the healthy operation of the device. This article offers general guidance; leave the definite installation decisions to an expert who inspects the site."
+        },
+        {
+          "text": "Which phase do Bemis chargers work with?"
+        },
+        {
+          "text": "The good news is this: if you choose the right device, it can accommodate your phase decision flexibly. Across the whole Bemis wallbox family the power is adjustable between 3.7 and 22 kW. That way the same device adapts to both single-phase and three-phase installations according to your wiring; during installation you set the power according to your existing infrastructure. The entry model Charger 2 is adjustable across the same range; the difference is that it does not offer the OCPP and metering options of the higher models. All models have a Type 2 connector."
+        },
+        {
+          "items": [
+            "Charger Plus 2: power adjustable between 3.7 and 22 kW; suits both single-phase and three-phase installations, Type 2 connector.",
+            "Charger Pro 2: power adjustable between 3.7 and 22 kW; suits both single-phase and three-phase installations, Type 2 connector.",
+            "Charger 2: the entry model, adjustable between 3.7 and 22 kW; Type 2 connector."
+          ]
+        },
+        {
+          "text": "So if you are undecided about the phase, or if you are thinking of moving to three-phase later, a model with adjustable power gives you flexibility: today it runs at lower power on your single-phase installation, and when your circumstances change it can be set to a higher power. The soundest route is to determine the right power and installation settings together with the electrician who sees your wiring."
+        },
+        {
+          "text": "See the Type 2 wallbox models whose power can be adjusted to your installation and choose the solution best suited to your home.",
+          "label": "See the Wallbox Models"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Should I buy a single-phase or three-phase charger for my home?",
+          "a": "That depends on your electrical infrastructure and your usage. In Türkiye most homes have a single-phase connection, and a single-phase wallbox at around 7.4 kW comfortably covers most daily needs over a night. If you cover very high mileage each day, will charge at the workplace or will supply more than one car at a single point, three-phase, which can go up to 22 kW, makes sense. For a definite answer we recommend having the phase configuration of your home checked by a qualified electrician."
+        },
+        {
+          "q": "Is a single-phase charger enough?",
+          "a": "For most home users, yes. The practical upper limit of a single-phase wallbox in a home is around 7.4 kW (32 A), and at that power roughly 59 kWh is loaded in about 8 hours. That means a daily range of a few hundred kilometres and is more than enough for normal urban use. If you generally charge your car at home overnight, single-phase is a practical and economical solution. If a shorter charging time is your priority, you can consider three-phase."
+        },
+        {
+          "q": "Is three-phase charging really faster?",
+          "a": "Yes. Three-phase runs at roughly 400 volts and, because it can carry more power at once, a wallbox can go up to 22 kW. In the same period it transfers roughly 3 times more energy than single-phase at 7.4 kW. However, this speed requires a 3-phase connection and a suitable installation. It also matters that your car's own onboard charger supports this power; so before investing you should check both your wiring and your car's capacity."
+        },
+        {
+          "q": "How do I find out whether my home is single-phase or three-phase?",
+          "a": "Your electricity bill or connection type may contain phase information, and the appearance of your distribution board can also give you an idea. But these are only preliminary clues. Only a qualified electrician who inspects the site can determine with certainty the phase configuration, the capacity of the existing line and, if necessary, the possibility of switching to three-phase. As this is a high-power installation, always have this assessment and the installation itself carried out by an expert."
+        },
+        {
+          "q": "Does a Bemis charger work on both single-phase and three-phase?",
+          "a": "Because the power of the Charger Plus 2 and Charger Pro 2 models can be adjusted between 3.7 and 22 kW, they adapt to both single-phase and three-phase installations; during installation the power is set according to your existing infrastructure. The entry model Charger 2 is adjustable across the same range; the difference is that it does not offer the OCPP and metering options of the higher models. All models have a Type 2 connector. The most accurate approach is to determine which model and which power setting suits you together with the electrician who sees your wiring."
+        }
+      ],
+      "related": [
+        {
+          "label": "How to Choose a Charger for an EV?"
+        },
+        {
+          "label": "EV Charging Cable: How Many Metres, How Many Amps?"
+        },
+        {
+          "label": "Charging Station Installation for Apartment Buildings"
+        },
+        {
+          "label": "Wallbox Models"
+        }
+      ]
     },
     "11-kw-mi-22-kw-mi-wallbox-guc-secimi-amper-hesabi": {
       "title": "11 kW or 22 kW? Wallbox Power Selection and Amperage Calculation",
@@ -7086,13 +7433,230 @@
       "title": "Welche Elektroautos haben V2L? (Aktuelle Liste 2026)"
     },
     "elektrikli-arabami-evde-nasil-sarj-ederim": {
-      "title": "Wie lade ich mein Elektroauto zu Hause? Ein Leitfaden für Einsteiger"
+      "title": "Wie lade ich mein Elektroauto zu Hause? Ratgeber für Einsteiger",
+      "metaTitle": "Wie lade ich mein Elektroauto zu Hause?",
+      "description": "Sie haben ein Elektroauto gekauft oder werden es kaufen: Wie lade ich mein Auto zu Hause? Geht es an der normalen Steckdose, welches Ladegerät passt, kann ich es selbst anschließen – alles in einfacher Sprache.",
+      "excerpt": "Es gibt drei Wege, Ihr Elektroauto zu Hause zu laden: die normale Haushaltssteckdose (am langsamsten), ein tragbares Ladegerät und ein an der Wand montiertes Ladegerät (die Wallbox). In diesem Ratgeber beantworten wir die häufigsten Fragen – „Wie lade ich mein Auto“, „Geht das an der normalen Steckdose“, „Kann ich es selbst anschließen“ – in Alltagssprache.",
+      "category": "Ratgeber",
+      "body": [
+        {
+          "text": "Sie haben ein Elektroauto gekauft oder stehen kurz davor, und die erste Frage in Ihrem Kopf lautet höchstwahrscheinlich: „Wie lade ich mein Auto zu Hause?“ Die gute Nachricht: Die Antwort ist viel einfacher, als Sie denken. So wie Sie mit einem Benziner einmal in der Woche an die Tankstelle fahren, laden die meisten Menschen ihr Elektroauto zu Hause, während sie schlafen – wenn Sie morgens aufstehen, ist das Auto voll. In diesem Ratgeber erklären wir ohne jedes Fachwissen und in Alltagssprache, wie Sie Ihr Auto zu Hause laden."
+        },
+        {
+          "text": "Es gibt drei Wege, ein Elektroauto zu Hause zu laden, und der einzige grundlegende Unterschied zwischen ihnen liegt in Geschwindigkeit und Sicherheit: (1) die normale Haushaltssteckdose, (2) ein tragbares Ladegerät, (3) ein an der Wand befestigtes Ladegerät – also die Wallbox. Sehen wir sie uns nun einzeln anhand der meistgestellten Fragen an."
+        },
+        {
+          "text": "Lädt ein Elektroauto an der normalen Haushaltssteckdose?"
+        },
+        {
+          "text": "Kurze Antwort: Ja, aber das ist die langsamste und am wenigsten empfohlene Methode. Mit dem Kabel, das Ihrem Auto beiliegt, können Sie an der normalen Steckdose zu Hause (Schuko) laden. Das Problem ist, dass eine normale Haushaltssteckdose nicht dafür ausgelegt ist, dauerhaft hohen Strom zu ziehen; läuft sie stundenlang unter Volllast, können Steckdose und Installation heiß werden. Deshalb sollte das Laden an der normalen Steckdose nur im Notfall oder mit sehr geringer Leistung (meist 1,8-2,3 kW) in Betracht gezogen werden."
+        },
+        {
+          "text": "Machen wir es an einem Beispiel greifbar: Ein Auto mit einer 60-kWh-Batterie an der normalen Steckdose zu füllen, kann über 20 Stunden dauern. Für jemanden, der abends einsteckt und morgens losfahren will, reicht das allein also nicht. Ein Heimladegerät füllt dasselbe Auto dagegen in weit kürzerer Zeit. Sehen Sie die normale Steckdose als Notlösung; die eigentliche Lösung sind die beiden folgenden Methoden."
+        },
+        {
+          "items": [
+            "Normale Haushaltssteckdose = am langsamsten, dauert lange, belastet die Installation – nur für Notfälle oder gelegentlich.",
+            "Laden Sie auf keinen Fall über ein Verlängerungskabel oder eine Steckdosenleiste.",
+            "Wenn Sie häufig laden, ist es schneller und viel sicherer, von Ihrer Elektrofachkraft eine eigene Leitung legen zu lassen und auf ein tragbares oder ein Wandladegerät umzusteigen."
+          ]
+        },
+        {
+          "text": "Was ist ein Wandladegerät (Wallbox) und für wen ist es gedacht?"
+        },
+        {
+          "text": "Die zu Hause beliebteste Lösung ist ein an der Wand befestigtes Ladegerät; in der Branche wird es auch „Wallbox“ genannt. Über eine eigene Leitung aus Ihrem Verteiler versorgt und neben der Tür oder in der Garage montiert, lädt dieses Gerät Ihr Auto um ein Vielfaches schneller und weit sicherer als die normale Steckdose. Wenn Sie ein eigenes Haus, eine eigene Garage oder einen festen Platz in einer Tiefgarage haben, ist das die sinnvollste Wahl."
+        },
+        {
+          "text": "Heimladegeräte teilen sich nach Leistung in zwei Gruppen: einphasige Modelle laden in der Regel bis 7,4 kW, dreiphasige Modelle bis 11-22 kW. Haben Sie zu Hause Dreiphasenstrom, ist schnelleres Laden möglich; wenn nicht, reicht ein einphasiges Modell für den täglichen Gebrauch mehr als aus. Die Modelle Bemis Charger 2, Charger Plus 2 und Charger Pro 2 sind solche Wandladegeräte; alle haben eine Type-2-Buchse (die in der Türkei und in Europa übliche Buchse), sind CE-zertifiziert und nach IP65 geschützt – halten also dem Außenbereich und Regen stand."
+        },
+        {
+          "items": [
+            "Wenn Sie ein eigenes Haus / eine eigene Garage / einen festen Stellplatz haben: Ein Wandladegerät (Wallbox) ist die beste Wahl.",
+            "Für ein einphasiges Zuhause bis 7,4 kW; für ein dreiphasiges Zuhause Modelle bis 11-22 kW.",
+            "Modelle mit einstellbarem Strom (z. B. der Charger Plus 2) erlauben es, die Ladeleistung zu drosseln, um die Hauptsicherung des Hauses nicht zu belasten."
+          ]
+        },
+        {
+          "text": "Für wen ist ein tragbares Ladegerät sinnvoll?"
+        },
+        {
+          "text": "Wenn Sie kein festes Gerät an der Wand anbringen lassen können – zum Beispiel weil Sie zur Miete wohnen, keinen festen Platz in der Garage haben oder es sowohl zu Hause als auch unterwegs nutzen möchten –, ist ein tragbares Ladegerät ein guter Mittelweg. Das sind Geräte, die in eine Tasche passen und die Sie einstecken und benutzen können. Die Modelle Bemis Mini Mobile und Pro Mobile 2 gehören zu dieser Gruppe. Besonders das Pro Mobile 2 lässt sich an unterschiedlichen Steckdosen sicher einsetzen, da der Ladestrom über die Taste am Gerät oder die Mobil-App in 6 Stufen (6-32 Ampere) eingestellt werden kann."
+        },
+        {
+          "text": "Der Vorteil eines tragbaren Geräts ist die Flexibilität: Es liegt im Kofferraum, und wo immer Sie hinfahren, können Sie laden, wenn eine passende Steckdose vorhanden ist. Der Nachteil ist, dass es keine dauerhafte Lösung ist und bei höherer Leistung nicht so praktisch wie eine feste Wallbox. Fragen Sie sich bei der Entscheidung: Lade ich das Auto immer am selben Ort (dann Wallbox) oder wechselt der Ort von Zeit zu Zeit (dann tragbar)?"
+        },
+        {
+          "text": "Welches Ladegerät passt zu meinem Auto? (Wie viel kW soll ich wählen?)"
+        },
+        {
+          "text": "Das ist eine der häufigsten Fragen, und die Antwort hängt von zwei Dingen ab: der Elektroinfrastruktur Ihres Hauses und der Leistung, die Ihr Auto annimmt. Denken Sie so: Wie stark das Ladegerät auch ist, Ihr Auto nimmt nicht mehr als seine eigene Grenze. Die meisten Elektroautos nehmen beim AC-Laden bis 7,4 kW oder 11 kW an; ein 22-kW-Gerät für zu Hause bringt also keinen Geschwindigkeitsgewinn, wenn Ihr Auto 11 kW nimmt. Der richtige Weg ist, die von Ihrem Auto angenommene Leistung zu ermitteln und ein dazu passendes Modell zu wählen."
+        },
+        {
+          "items": [
+            "Ermitteln Sie zuerst, wie viel kW die „AC-Ladeleistung“ Ihres Autos beträgt (sie steht in der Betriebsanleitung).",
+            "Ist Ihr Zuhause einphasig, passt ein Modell bis 7,4 kW; ist es dreiphasig, ein Modell mit 11 oder 22 kW.",
+            "Sind Sie unsicher, nehmen Sie ein Modell mit einstellbarem Strom – es passt sowohl zum heutigen als auch zu Ihrem künftigen Auto.",
+            "Achten Sie darauf, dass der Steckertyp Type 2 ist; das ist der Standard in der Türkei und in Europa (die meisten Fahrzeuge, auch Togg und Tesla, nutzen Type 2)."
+          ]
+        },
+        {
+          "text": "Kann ich das Ladegerät selbst anschließen?"
+        },
+        {
+          "text": "Die ehrliche Antwort: Ein tragbares Gerät können Sie selbst einstecken und benutzen, aber den elektrischen Anschluss eines an der Wand befestigten Ladegeräts sollten Sie auf keinen Fall selbst vornehmen. Eine Wallbox muss vom Verteiler über eine eigene Leitung mit passender Sicherung versorgt werden; dieser Anschluss muss unbedingt von einem qualifizierten Elektroinstallateur ausgeführt werden. Das ist sowohl eine gesetzliche Anforderung als auch eine Frage der Sicherheit – eine falsch angeschlossene Leitung mit hohem Strom birgt Brandgefahr. Sie wählen das Gerät aus, die Montage übernimmt die Fachkraft."
+        },
+        {
+          "text": "Wohnen Sie in einem Mehrfamilienhaus, kommt ein Schritt hinzu: Für den Einbau eines Ladegeräts in einer Gemeinschaftsgarage sind in der Regel die Zustimmung der Verwaltung oder der Wohnungseigentümer und eine Regelung zum Zähler erforderlich. Dieses Thema haben wir in einem eigenen Ratgeber behandelt; über die folgenden Links gelangen Sie dorthin."
+        },
+        {
+          "text": "Wählen wir gemeinsam das passende Ladegerät für Ihr Zuhause – ob Wandgerät (Wallbox) oder tragbar, finden Sie das richtige Modell für Ihr Auto und die Infrastruktur Ihres Hauses. Alle in unserem eigenen Werk gefertigt, CE-zertifiziert und nach IP65 geschützt.",
+          "label": "Ladegeräte ansehen"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Kann ich ein Elektroauto an einer Haushaltssteckdose laden?",
+          "a": "Ja, Elektrofahrzeuge lassen sich an einer Haushaltssteckdose laden; dazu dient das mit dem Auto gelieferte oder separat gekaufte tragbare Ladegerät. Das ist jedoch die langsamste Methode, und der Zustand des Stromkreises, an dem die Steckdose hängt, ist entscheidend: Auf einem alten oder mehrere Geräte versorgenden Stromkreis stundenlang hohen Strom zu ziehen, ist nicht richtig. In der Praxis ist es am sinnvollsten, über einen fürs Laden vorgesehenen und mit Schutzeinrichtungen versehenen Stromkreis mit einem Gerät zu laden, dessen Strom einstellbar ist. Bei den tragbaren Modellen von Bemis lässt sich der Strom stufenweise senken; das Pro Mobile 2 hat sechs Stufen."
+        },
+        {
+          "q": "Kann ich mein Elektroauto an der normalen Haushaltssteckdose laden?",
+          "a": "Sie können, aber das ist die langsamste Methode, und weil eine normale Steckdose nicht für stundenlang hohen Strom ausgelegt ist, belastet sie die Installation. Verwenden Sie niemals ein Verlängerungskabel oder eine Steckdosenleiste. Wenn Sie häufig laden, ist der Umstieg auf ein tragbares oder ein Wandladegerät sowohl deutlich schneller als auch sicherer."
+        },
+        {
+          "q": "Wie lange dauert es, mein Elektroauto zu Hause zu laden?",
+          "a": "Das hängt von der Größe der Fahrzeugbatterie und der Leistung des Ladegeräts ab. An der normalen Steckdose (rund 2 kW) kann ein Auto mit 60 kWh über 20 Stunden brauchen, während ein Heimladegerät mit 11 kW dasselbe Auto über Nacht bequem füllt. Die meisten Nutzer stecken abends ein und finden morgens ein volles Auto vor."
+        },
+        {
+          "q": "Welche Ladeleistung soll ich für mein Auto kaufen?",
+          "a": "Ein Gerät, das die von Ihrem Auto angenommene AC-Ladeleistung übersteigt, bringt keinen zusätzlichen Geschwindigkeitsgewinn. Ermitteln Sie zuerst, wie viel kW Ihr Fahrzeug annimmt, und sehen Sie dann, ob Ihr Zuhause einphasig oder dreiphasig ist. Sind Sie unsicher, ist ein Modell mit einstellbarem Strom die flexibelste Wahl."
+        },
+        {
+          "q": "Kann ich die Montage des Ladegeräts selbst vornehmen?",
+          "a": "Ein tragbares Gerät können Sie selbst einstecken und benutzen. Der elektrische Anschluss einer an der Wand befestigten Wallbox muss jedoch unbedingt von einem qualifizierten Elektroinstallateur über eine eigene Leitung vom Verteiler und mit passender Sicherung ausgeführt werden. Das ist sowohl gesetzlich vorgeschrieben als auch eine Sicherheitsanforderung."
+        }
+      ],
+      "related": [
+        {
+          "label": "Tragbare Ladegeräte"
+        },
+        {
+          "label": "Heimladestation oder tragbares Ladegerät?"
+        },
+        {
+          "label": "Installation einer Ladestation im Mehrfamilienhaus"
+        },
+        {
+          "label": "Ladedauer beim Elektroauto: In wie vielen Stunden ist es voll?"
+        }
+      ]
     },
     "gunes-enerjisi-solar-ile-elektrikli-arac-sarji": {
       "title": "Elektroauto mit Solarstrom laden: EV-Laden mit der eigenen PV-Anlage"
     },
     "evde-elektrikli-arac-sarji-guvenli-mi": {
-      "title": "Ist das Laden zu Hause sicher? Steckdosen, Sicherungen und FI-Schutzschalter"
+      "title": "Ist das Laden eines Elektroautos zu Hause sicher? Ratgeber zu Steckdose, Sicherung und Fehlerstrom",
+      "metaTitle": "Ist das Laden zu Hause sicher? Sicherheitsratgeber",
+      "description": "Ist es sicher, ein Elektroauto zu Hause zu laden? Die Grenzen des Ladens an der normalen Steckdose, das Risiko von Verlängerungskabeln, der Fehlerstromschutzschalter, eine eigene Leitung und die Sicherheit der Wallbox – alles auf einen Blick.",
+      "excerpt": "Das Laden zu Hause ist mit der richtigen Ausrüstung und einer intakten Installation sicher. Die Grenzen des Ladens an der normalen Steckdose, die Risiken von Verlängerungskabeln, der Fehlerstromschutzschalter und warum die Wallbox der sicherste Weg ist – all das in diesem Ratgeber.",
+      "category": "Ratgeber",
+      "body": [
+        {
+          "text": "Wer über den Kauf eines Elektroautos nachdenkt oder gerade eines gekauft hat, stellt sich dieselbe Frage: Ist das Laden zu Hause wirklich sicher? Die kurze, klare Antwort lautet ja – mit der richtigen Ausrüstung und einer intakten Elektroinstallation ist das Laden zu Hause eine der praktischsten und sichersten Routinen des Elektroautobesitzes. Ladeausrüstung wird von Anfang an für diese Aufgabe entwickelt; das Gerät kommuniziert ständig mit dem Fahrzeug und gibt keinen Strom ab, wenn die Bedingungen nicht stimmen. Die Risiken kommen meist nicht von der Ausrüstung selbst, sondern von ihrem Umfeld: abgenutzte Steckdosen, Verlängerungskabel und vernachlässigte Installationen. In diesem Ratgeber halten wir Punkt für Punkt fest, was sicher und was riskant ist."
+        },
+        {
+          "text": "Ist das Laden an der normalen Haushaltssteckdose sicher?"
+        },
+        {
+          "text": "Das Laden an der geerdeten Standardsteckdose (Schuko) zu Hause ist mit einem tragbaren Ladegerät möglich und unter den richtigen Bedingungen sicher. Hier gibt es eine entscheidende Unterscheidung: Was das Auto mit der Steckdose verbindet, ist kein einfaches Kabel, sondern ein Ladegerät mit einer Steuereinheit im Inneren. Diese Einheit kommuniziert mit dem Fahrzeug, begrenzt den Strom auf ein eingestelltes Niveau und startet den Ladevorgang nicht, wenn die Verbindung nicht in Ordnung ist. Die eigentliche Frage liegt auf der Steckdosenseite: Standard-Haushaltssteckdosen sind auf kurze tägliche Nutzung ausgelegt, das Laden eines Autos ist dagegen eine stundenlang ununterbrochene Last. An einer alten, lockeren oder abgenutzten Steckdose kann diese Last zu Erwärmung führen."
+        },
+        {
+          "items": [
+            "Verwenden Sie keine Verlängerungskabel und Steckdosenleisten: Die häufigste Quelle von Erwärmung bei langer hoher Last sind Verlängerungskabel, Trommeln und Mehrfachsteckdosen; das Ladegerät muss immer direkt in die Wandsteckdose gesteckt werden.",
+            "Lassen Sie den Zustand der Steckdose prüfen: Die zum Laden genutzte Steckdose muss intakt und geerdet sein; eine lockere, verfärbte oder gelegentlich funkende Steckdose sollte zuerst einer Elektrofachkraft gezeigt werden.",
+            "Wählen Sie den Strom nach der Installation: Beim Laden an der Steckdose ist es der praktischste Weg zu sicherem Laden, den eingestellten Strom des Geräts niedrig zu halten und die Leitung nicht zu überfordern."
+          ]
+        },
+        {
+          "text": "Die tragbaren Ladegeräte von Bemis sind genau für dieses Szenario ausgelegt: Das Mini Mobile lädt an der Standard-Schuko-Steckdose mit 2,3–3,7 kW; mit seinem Gehäuse in Schutzart IP65 und einem weiten Betriebstemperaturbereich hält es dem täglichen Einsatz stand. Beim Pro Mobile 2 lässt sich der Ladestrom in 6 Stufen (6–32 A) über die Mobil-App oder die Taste am Gerät einstellen – so können Sie den Strom senken und dort laden, wo Sie unsicher sind oder die Installation schwach ist, ohne die Leitung zu überfordern. Wenn Sie ein tragbares Gerät täglich nutzen, kann Ihre Elektrofachkraft für Ihren Ladepunkt auch eine geschützte Steckdose einrichten, etwa eine CEE-(Industrie-)Steckdose auf eigener Leitung oder eine der Bemis-Kombinationseinheiten mit eingebauten Automaten; das heißt, die Steckdosenseite von Anfang an auf die Ladelast auszulegen."
+        },
+        {
+          "text": "Warum ist die Wallbox zu Hause der sicherste Weg?"
+        },
+        {
+          "text": "Die an der Wand befestigte Ladestation (Wallbox) ist die sicherste und komfortabelste Form des Ladens zu Hause, denn sie wird nicht an eine Steckdose angeschlossen, sondern an eine eigens für sie vom Verteiler gezogene Leitung. Diese Leitung wird von einer qualifizierten Elektrofachkraft nach der Ladelast ausgelegt und arbeitet im Verteiler unter eigener Sicherung und eigenem Fehlerstromschutz. So teilt sich der Ladevorgang keine Leitung mit den übrigen Geräten des Hauses; die Last läuft über eine von Anfang an richtig geplante Infrastruktur."
+        },
+        {
+          "text": "Die Bemis-Wallbox-Familie ergänzt diesen Ansatz auf der Geräteseite: Bei den Modellen Charger Plus 2 und Charger Pro 2 ist die Leistung zwischen 3,7 und 22 kW einstellbar, und der intelligente Ladealgorithmus passt sich automatisch dem vom Fahrzeug angenommenen Maximalstrom an. Die Funktion Automatischer Ladestart beim Charger Plus 2 setzt das Laden nach einem Stromausfall von selbst fort; die Freigabe per RFID-Karte sorgt dafür, dass nur Sie das Gerät starten. Dank des CE-zertifizierten Gehäuses in Schutzart IP65 lässt sich die Wallbox auch in einer offenen Garage oder im Garten installieren; den Außenbereich und Regen haben wir in einem eigenen Ratgeber ausführlich behandelt. Die Frage einphasig oder dreiphasig ist dagegen eine eigene Entscheidung, die weniger mit Sicherheit als mit der Kapazität Ihrer Installation zu tun hat – dafür können Sie unseren Entscheidungsratgeber ansehen."
+        },
+        {
+          "text": "Die Installationsseite: Worauf ist vor der Montage zu achten?"
+        },
+        {
+          "text": "Beim Laden zu Hause entscheidet weniger das Gerät als die Installation über die Sicherheit. Die folgenden Punkte sind typische Themen, die Ihre Elektrofachkraft bei der Vor-Ort-Prüfung bewertet; die genauen Werte und die Materialauswahl bestimmt die Fachkraft nach der jeweiligen Installation des Hauses:"
+        },
+        {
+          "items": [
+            "Fehlerstromschutz: In der Ladeleitung muss ein Fehlerstromschutzschalter des geeigneten Typs vorhanden sein; welcher Typ und welcher Wert richtig ist, entscheidet die Elektrofachkraft, die die Installation sieht.",
+            "Eigene (dedizierte) Leitung: Wird das Ladegerät vom Verteiler über eine eigene abgesicherte Leitung versorgt, entlastet das sowohl die Steckdosen als auch die übrigen Stromkreise des Hauses.",
+            "Erdung: Eine intakte Erdung ist Voraussetzung für sicheres Laden; besonders in älteren Gebäuden muss sie unbedingt gemessen werden.",
+            "Kabelquerschnitt und Leitungslänge: Der Querschnitt wird nach dem zu führenden Strom und der Entfernung gewählt; Leitungen mit geringem Querschnitt oder mit Verbindungsstellen und Verlängerungen bergen bei langer Last ein Erwärmungsrisiko.",
+            "Verteiler und Sicherungen: Der allgemeine Zustand des Verteilers, ein freier Sicherungsplatz und die Kapazität der Hauptsicherung werden bei der Prüfung gemeinsam bewertet."
+          ]
+        },
+        {
+          "text": "Kein Schritt dieser Liste ist eine Arbeit, die Sie selbst ausführen sollten; das Ziel ist, dass Sie im Gespräch mit Ihrer Elektrofachkraft wissen, was warum getan wird. Die Bewertung der Installation und die Montage müssen in jedem Fall von einer qualifizierten Elektrofachkraft durchgeführt werden."
+        },
+        {
+          "text": "Brandgerüchte und Fakten"
+        },
+        {
+          "text": "Das Gerücht, das in sozialen Medien gelegentlich kursiert – „Ein Elektroauto fängt beim Laden Feuer“ –, beschäftigt die Menschen am meisten. Das tatsächliche Bild sieht so aus: Laden ist ein kontrollierter Vorgang, der auf ständiger Kommunikation beruht. Strom fließt erst, wenn die Verbindung zwischen Fahrzeug und Gerät bestätigt ist, und nur auf dem erlaubten Niveau; bricht die Verbindung ab oder wird ein Problem erkannt, stoppt der Ladevorgang. Zertifizierte, normkonforme Ausrüstung ist für sich genommen keine Risikoquelle."
+        },
+        {
+          "text": "Was die Fälle mit Problemen beim Laden zu Hause gemeinsam haben, liegt meist außerhalb der Ausrüstung: billige, nicht normkonforme Adapter, Verlängerungskabel, abgenutzte Steckdosen sowie vernachlässigte oder unsachgemäß veränderte Installationen. Drei einfache Regeln beherrschen das Risiko: Verwenden Sie CE-zertifizierte Ausrüstung nach der Norm Type 2 (IEC 62196-2); stecken Sie das Ladegerät direkt in die Steckdose oder lassen Sie besser eine Wallbox auf eigener Leitung installieren; und lassen Sie Ihre Installation von einer qualifizierten Elektrofachkraft prüfen. Werden diese drei Regeln beachtet, ist das Laden zu Hause ein gewöhnlicher und sicherer Teil des Alltags. Während des Ladens gelegentlich Stecker und Gerät mit dem Auge zu prüfen – auf Überhitzung, Beschädigung, Lockerung – ist wie bei jedem Elektrogerät eine gute Gewohnheit."
+        },
+        {
+          "text": "Sehen Sie sich die zu Ihrem Zuhause passenden, CE-zertifizierten und nach IP65 geschützten Bemis-Ladelösungen an – ob feste Wallbox oder tragbares Gerät, sicheres Laden beginnt mit der richtigen Ausrüstung.",
+          "label": "Wallbox-Modelle ansehen"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Ist das Laden eines Elektroautos zu Hause sicher?",
+          "a": "Ja. Mit der richtigen Ausrüstung und einer intakten Elektroinstallation ist das Laden zu Hause sicher. Ladeausrüstung wird für diese Aufgabe entwickelt; das Gerät kommuniziert ständig mit dem Fahrzeug und gibt Strom nur ab, wenn die Bedingungen stimmen, und nur auf dem erlaubten Niveau. Die Risiken kommen meist nicht von der Ausrüstung, sondern von ihrem Umfeld: abgenutzte Steckdosen, Verlängerungskabel, nicht normkonforme Adapter und vernachlässigte Installationen. Die sicherste Lösung ist eine Wallbox, die über eine eigene Leitung vom Verteiler versorgt wird und einen Fehlerstromschutz hat; nutzen Sie ein tragbares Gerät, stecken Sie es direkt in eine intakte, geerdete Steckdose. Lassen Sie die Prüfung der Installation und die Montage unbedingt von einer qualifizierten Elektrofachkraft ausführen."
+        },
+        {
+          "q": "Kann ein Elektroauto an der normalen Haushaltssteckdose geladen werden?",
+          "a": "Ja; mit einem tragbaren Ladegerät ist das Laden an der geerdeten Standardsteckdose (Schuko) möglich und unter den richtigen Bedingungen sicher. Die Steuereinheit im Gerät begrenzt den Strom und startet den Ladevorgang nicht, wenn die Verbindung nicht in Ordnung ist. Zu beachten ist die Steckdosenseite: Die Steckdose muss intakt und geerdet sein, die Leitung muss für eine stundenlange Last geeignet sein, und Verlängerungskabel sowie Steckdosenleisten dürfen niemals verwendet werden. Das Laden an der Steckdose ist besonders für entspanntes Laden über Nacht praktisch; wenn Sie täglich laden, ist eine Wallbox auf eigener Leitung mittelfristig schneller und bequemer. Sind Sie unsicher, lassen Sie Steckdose und Leitung von Ihrer Elektrofachkraft prüfen."
+        },
+        {
+          "q": "Kann man ein Auto mit einem Verlängerungskabel oder einer Steckdosenleiste laden?",
+          "a": "Nein, das ist nicht zu empfehlen. Das Laden eines Autos ist eine stundenlange, ununterbrochene und hohe Last; Verlängerungskabel, Trommeln und Mehrfachsteckdosen sind für solche Lasten nicht ausgelegt. Zwischenliegende Kontaktstellen und Leiter mit geringem Querschnitt können sich bei langer Last erwärmen; bei aufgewickeltem Kabel staut sich die Wärme zusätzlich. Das ist die häufigste Ursache der Probleme beim Laden zu Hause, und deshalb muss das Ladegerät immer direkt in die Wandsteckdose gesteckt werden. Reicht die Lage der Steckdose nicht aus, ist die Lösung kein Verlängerungskabel, sondern von Ihrer Elektrofachkraft eine neue Steckdose oder einen Ladeausgang auf eigener Leitung am Stellplatz Ihres Autos einrichten zu lassen."
+        },
+        {
+          "q": "Braucht ein Heimladegerät eine eigene Sicherung oder einen Fehlerstromschutzschalter?",
+          "a": "Bei einer festen Wallbox-Installation gilt allgemein der Ansatz, dass das Gerät vom Verteiler über eine eigene abgesicherte Leitung versorgt wird und diese Leitung einen Fehlerstromschutzschalter des geeigneten Typs hat. Diese Anordnung trennt die Ladelast von den übrigen Stromkreisen des Hauses und schaltet den Stromkreis bei einem Fehlerstrom schnell ab. Auch beim Laden an der Steckdose mit einem tragbaren Gerät ist es ebenso wichtig, dass die versorgende Leitung geschützt ist. Welcher Sicherungswert, welcher Typ von Fehlerstromschutzschalter und welcher Kabelquerschnitt geeignet sind, hängt von der Installation des Hauses, der Leitungslänge und der gewählten Ladeleistung ab; diese Entscheidungen sollte nur eine qualifizierte Elektrofachkraft nach einer Prüfung vor Ort treffen."
+        },
+        {
+          "q": "Birgt das Laden eines Elektroautos Brandgefahr?",
+          "a": "Mit zertifizierter Ausrüstung und korrekter Installation ist das Laden zu Hause ein kontrollierter, sicherer Vorgang; Strom fließt erst, wenn die Verbindung zwischen Fahrzeug und Gerät bestätigt ist, und nur auf dem erlaubten Niveau, und der Ladevorgang stoppt, wenn ein Problem erkannt wird. Was die tatsächlich vorgekommenen Fälle gemeinsam haben, liegt meist außerhalb der Ausrüstung: nicht normkonforme Adapter, Verlängerungskabel, abgenutzte Steckdosen und vernachlässigte Installationen. Das Risiko zu verringern gelingt in drei Schritten: CE-zertifizierte Ausrüstung nach der Norm Type 2 (IEC 62196-2) verwenden; das Gerät direkt in die Steckdose stecken oder eine Wallbox auf eigener Leitung installieren lassen; und die Installation von einer qualifizierten Elektrofachkraft prüfen lassen. Das ist keine Frage der Angst, sondern schlichter Sorgfalt."
+        }
+      ],
+      "related": [
+        {
+          "label": "Darf ein Ladekabel im Freien und bei Regen benutzt werden?"
+        },
+        {
+          "label": "Einphasig oder dreiphasig (3 Phasen)? Welches Ladegerät passt zu Ihrem Zuhause?"
+        },
+        {
+          "label": "Heimladestation oder tragbares Ladegerät?"
+        },
+        {
+          "label": "Tragbare Ladegeräte"
+        }
+      ]
     },
     "isletmeler-icin-dc-hizli-sarj-istasyonu-yatirimi": {
       "title": "DC-Schnellladeinvestition für Unternehmen: ein Entscheidungsleitfaden"
@@ -7107,7 +7671,137 @@
       "title": "Kosten für das Laden zu Hause: Wie viel pro Kilometer?"
     },
     "monofaze-mi-trifaze-mi-ev-sarj": {
-      "title": "Einphasig oder dreiphasig? Die richtige Wallbox für Ihr Zuhause"
+      "title": "Einphasig oder dreiphasig (3 Phasen)? Welches Ladegerät passt zu Ihrem Zuhause?",
+      "metaTitle": "Einphasig oder dreiphasig? Welches Ladegerät für zu Hause?",
+      "description": "Sollten Sie beim Kauf eines E-Auto-Ladegeräts einphasig oder dreiphasig wählen? Wir erklären einfach den Unterschied zwischen 7,4 kW und 22 kW bei der Heim-Wallbox, die Ladedauer und die richtige Entscheidung.",
+      "excerpt": "Die entscheidende Frage beim Kauf einer Wallbox für zu Hause: einphasig oder 3-phasig? Wir vergleichen Leistung und Ladedauer beider Optionen und erklären in einem entscheidungsorientierten Ratgeber, welche zu welchem Nutzer passt.",
+      "category": "Technik",
+      "body": [
+        {
+          "text": "Die Frage, die beim Kauf eines E-Auto-Ladegeräts für zu Hause am meisten Verwirrung stiftet, lautet meist: Soll ich einphasig oder dreiphasig (3 Phasen) kaufen? Das ist eigentlich eine Entscheidung über Ihre Elektroinstallation, die noch vor jeder Marken- oder Modellwahl steht. Die richtige Antwort hängt von der Elektroinfrastruktur Ihres Hauses und von Ihren täglichen Gewohnheiten ab. In diesem Ratgeber vergleichen wir beide Optionen mit ihren tatsächlichen technischen Werten und erklären klar, welche zu welchem Nutzer passt."
+        },
+        {
+          "text": "Was ist der Unterschied zwischen einphasig und dreiphasig?"
+        },
+        {
+          "text": "Der Unterschied liegt darin, über wie viele Phasen der Strom in Ihr Haus geführt wird. Einphasig bedeutet eine Phase und führt rund 230 Volt. In der Türkei haben die meisten Wohnungen einen einphasigen Anschluss; das heißt, bei Ihnen zu Hause liegt sehr wahrscheinlich einphasiger Strom an. Dreiphasig bedeutet drei Phasen und kann bei rund 400 Volt gleichzeitig mehr Leistung führen. Weil dreiphasig in derselben Zeit mehr Energie übertragen kann, beschleunigt es das Laden, erfordert aber einen 3-phasigen Anschluss und eine dazu passende Installation."
+        },
+        {
+          "items": [
+            "Einphasig (1 Phase, ~230 V): An einer Heim-Wallbox liegt die praktische Obergrenze bei etwa 7,4 kW (32 A). Die meisten Wohnungsanschlüsse sind so aufgebaut.",
+            "Dreiphasig (3 Phasen, ~400 V): An der Wallbox sind bis zu 22 kW (32 A) möglich. Das lädt schneller, verlangt aber einen 3-phasigen Anschluss und eine passende Installation."
+          ]
+        },
+        {
+          "text": "7,4 kW oder 22 kW? Wie stark ändert sich die Ladedauer?"
+        },
+        {
+          "text": "Um beide Optionen greifbar zu machen, stellen Sie sich vor, Sie hängen Ihr Auto über Nacht an. Eine einphasige Wallbox lädt mit 7,4 kW in etwa 8 Stunden grob 59 kWh in Ihr Auto. Das deckt den täglichen Bedarf der meisten Fahrer, also eine Reichweite von einigen hundert Kilometern, mehr als ab. Eine dreiphasige Wallbox überträgt mit 22 kW in derselben Zeit etwa 3 mal so viel Energie. Für Nutzer, die täglich sehr hohe Kilometerleistungen fahren, am Arbeitsplatz laden oder an einem Punkt mehrere Fahrzeuge versorgen, bietet dreiphasig also einen echten Vorteil."
+        },
+        {
+          "caption": "Vergleich von einphasiger und dreiphasiger Wallbox (Heimbereich)",
+          "headers": [
+            "Merkmal",
+            "Einphasig",
+            "Dreiphasig (3 Phasen)"
+          ],
+          "rows": [
+            [
+              "Zahl der Phasen",
+              "1 Phase (~230 V)",
+              "3 Phasen (~400 V)"
+            ],
+            [
+              "Leistungsobergrenze der Wallbox",
+              "~7,4 kW (32 A)",
+              "Bis zu 22 kW (32 A)"
+            ],
+            [
+              "In ~8 Stunden geladene Energie",
+              "~59 kWh",
+              "~3 mal mehr"
+            ],
+            [
+              "Erforderlicher Anschluss",
+              "Meist bereits vorhanden",
+              "3-phasiger Anschluss/Installation"
+            ],
+            [
+              "Am besten geeignet für",
+              "Zuhause, täglicher Stadtverkehr",
+              "Betrieb, hohe Kilometerleistung, mehrere Fahrzeuge"
+            ]
+          ]
+        },
+        {
+          "text": "Kurz gesagt: Einphasig / 7,4 kW genügt für die meisten Nutzer, die zu Hause nachts laden und deren tägliche Reichweite einige hundert Kilometer nicht übersteigt. Dreiphasig / 22 kW ist sinnvoll für Fahrer, die die Ladedauer verkürzen wollen, täglich lange Strecken fahren oder die Wallbox in intensiven Szenarien wie am Arbeitsplatz einsetzen."
+        },
+        {
+          "text": "Wie erkenne ich die Phase meines Hauses?"
+        },
+        {
+          "text": "Es gibt einige Hinweise, mit denen Sie herausfinden können, ob Ihr Haus einphasig oder dreiphasig ist. Ihre Stromrechnung oder Ihr Anschlusstyp kann eine Angabe zur Phase enthalten. Ein Blick in den Verteilerkasten (Sicherungskasten) kann ein für eine dreiphasige Installation typisches Bild zeigen. Doch das dient nur der ersten Einschätzung; für eine sichere Antwort müssen Sie unbedingt einen qualifizierten Elektriker hinzuziehen. Nur eine Fachkraft kann die Phasenstruktur, die Belastbarkeit der vorhandenen Leitung und gegebenenfalls die Möglichkeit eines Wechsels auf Dreiphasenstrom richtig beurteilen."
+        },
+        {
+          "text": "Sicherheit ist hier das wichtigste Thema. Die Installation eines Ladegeräts ist eine Elektroarbeit mit hoher Leistung; Kabelquerschnitt, Schutzeinrichtungen und Erdung müssen richtig gewählt werden. Dass die Installation von einer qualifizierten Elektrofachkraft ausgeführt wird und geeignete Schutzmaßnahmen (zum Beispiel ein Fehlerstromschutzschalter) vorhanden sind, ist sowohl für Ihre Sicherheit als auch für den einwandfreien Betrieb des Geräts notwendig. Dieser Beitrag bietet eine allgemeine Orientierung; überlassen Sie die endgültigen Installationsentscheidungen der Fachkraft, die vor Ort prüft."
+        },
+        {
+          "text": "Zu welcher Phase passen Bemis-Ladegeräte?"
+        },
+        {
+          "text": "Die gute Nachricht: Bei der Wahl des richtigen Geräts kann dieses Ihre Phasenentscheidung flexibel abbilden. In der gesamten Bemis-Wallbox-Familie ist die Leistung zwischen 3,7 und 22 kW einstellbar. So passt sich dasselbe Gerät je nach Installation sowohl einphasigen als auch dreiphasigen Anlagen an; bei der Montage stellen Sie die Leistung nach Ihrer vorhandenen Infrastruktur ein. Das Einstiegsmodell Charger 2 lässt sich im selben Bereich einstellen; der Unterschied ist, dass es die OCPP- und Zähleroptionen der höheren Modelle nicht bietet. Alle Modelle haben einen Type-2-Stecker."
+        },
+        {
+          "items": [
+            "Charger Plus 2: Leistung zwischen 3,7 und 22 kW einstellbar; passt sowohl zu einphasigen als auch zu dreiphasigen Installationen, Type-2-Stecker.",
+            "Charger Pro 2: Leistung zwischen 3,7 und 22 kW einstellbar; passt sowohl zu einphasigen als auch zu dreiphasigen Installationen, Type-2-Stecker.",
+            "Charger 2: das Einstiegsmodell, zwischen 3,7 und 22 kW einstellbar; Type-2-Stecker."
+          ]
+        },
+        {
+          "text": "Wenn Sie sich also bei der Phase unsicher sind oder später auf Dreiphasenstrom wechseln möchten, gibt Ihnen ein Modell mit einstellbarer Leistung Spielraum: Heute arbeitet es an Ihrer einphasigen Installation mit geringerer Leistung, und wenn sich Ihre Bedingungen ändern, lässt es sich auf eine höhere Leistung einstellen. Am sichersten ist es, die richtige Leistung und Installationseinstellung gemeinsam mit der Elektrofachkraft festzulegen, die Ihre Anlage sieht."
+        },
+        {
+          "text": "Sehen Sie sich die Type-2-Wallbox-Modelle an, deren Leistung sich an Ihre Installation anpassen lässt, und wählen Sie die für Ihr Zuhause passende Lösung.",
+          "label": "Wallbox-Modelle ansehen"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Soll ich für zu Hause ein einphasiges oder dreiphasiges Ladegerät kaufen?",
+          "a": "Das hängt von Ihrer Elektroinfrastruktur und Ihrer Nutzung ab. In der Türkei haben die meisten Wohnungen einen einphasigen Anschluss, und eine einphasige Wallbox mit rund 7,4 kW deckt über eine Nacht die meisten täglichen Bedürfnisse bequem ab. Wenn Sie täglich sehr viele Kilometer fahren, am Arbeitsplatz laden oder an einem Punkt mehrere Fahrzeuge versorgen wollen, ist dreiphasig mit bis zu 22 kW sinnvoll. Für eine sichere Entscheidung empfehlen wir, die Phasenstruktur Ihres Hauses von einer qualifizierten Elektrofachkraft prüfen zu lassen."
+        },
+        {
+          "q": "Reicht ein einphasiges Ladegerät aus?",
+          "a": "Für die meisten Privatnutzer ja. Die praktische Obergrenze einer einphasigen Wallbox im Haushalt liegt bei etwa 7,4 kW (32 A), und mit dieser Leistung werden in rund 8 Stunden grob 59 kWh geladen. Das bedeutet eine tägliche Reichweite von einigen hundert Kilometern und reicht im normalen Stadtverkehr mehr als aus. Wenn Sie Ihr Auto meist nachts zu Hause laden, ist einphasig eine praktische und wirtschaftliche Lösung. Steht eine kürzere Ladedauer im Vordergrund, können Sie dreiphasig prüfen."
+        },
+        {
+          "q": "Lädt dreiphasig wirklich schneller?",
+          "a": "Ja. Dreiphasig arbeitet mit rund 400 Volt und kann, weil es gleichzeitig mehr Leistung führt, an der Wallbox bis zu 22 kW erreichen. In derselben Zeit überträgt es grob 3 mal mehr Energie als einphasig mit 7,4 kW. Für dieses Tempo sind jedoch ein 3-phasiger Anschluss und eine passende Installation nötig. Wichtig ist auch, dass der Onboard-Charger Ihres Fahrzeugs diese Leistung unterstützt; deshalb sollten Sie vor der Investition sowohl Ihre Installation als auch die Kapazität Ihres Autos prüfen."
+        },
+        {
+          "q": "Wie erkenne ich, ob mein Haus einphasig oder dreiphasig ist?",
+          "a": "Ihre Stromrechnung oder Ihr Anschlusstyp kann eine Angabe zur Phase enthalten; auch das Aussehen Ihres Verteilerkastens kann einen Hinweis geben. Das sind jedoch nur erste Anhaltspunkte. Die Phasenstruktur, die Kapazität der vorhandenen Leitung und gegebenenfalls die Möglichkeit eines Wechsels auf Dreiphasenstrom kann nur eine qualifizierte Elektrofachkraft nach einer Prüfung vor Ort sicher bestimmen. Da es sich um eine Installation mit hoher Leistung handelt, lassen Sie diese Beurteilung und die Montage unbedingt von einer Fachkraft ausführen."
+        },
+        {
+          "q": "Funktioniert ein Bemis-Ladegerät sowohl einphasig als auch dreiphasig?",
+          "a": "Da sich die Leistung der Modelle Charger Plus 2 und Charger Pro 2 zwischen 3,7 und 22 kW einstellen lässt, passen sie sowohl zu einphasigen als auch zu dreiphasigen Installationen; bei der Montage wird die Leistung nach Ihrer vorhandenen Infrastruktur eingestellt. Das Einstiegsmodell Charger 2 lässt sich im selben Bereich einstellen; der Unterschied ist, dass es die OCPP- und Zähleroptionen der höheren Modelle nicht bietet. Alle Modelle haben einen Type-2-Stecker. Am genauesten ist es, gemeinsam mit der Elektrofachkraft, die Ihre Anlage sieht, festzulegen, welches Modell und welche Leistungseinstellung zu Ihnen passt."
+        }
+      ],
+      "related": [
+        {
+          "label": "Wie wählt man ein Ladegerät für ein E-Auto?"
+        },
+        {
+          "label": "Ladekabel fürs E-Auto: wie viele Meter, wie viel Ampere?"
+        },
+        {
+          "label": "Installation einer Ladestation im Mehrfamilienhaus"
+        },
+        {
+          "label": "Wallbox-Modelle"
+        }
+      ]
     },
     "11-kw-mi-22-kw-mi-wallbox-guc-secimi-amper-hesabi": {
       "title": "11 kW oder 22 kW? Wallbox-Leistungswahl und Ampere-Berechnung",
@@ -11044,13 +11738,230 @@
       "title": "¿Qué coches eléctricos tienen V2L? (Lista actualizada 2026)"
     },
     "elektrikli-arabami-evde-nasil-sarj-ederim": {
-      "title": "¿Cómo cargo mi coche eléctrico en casa? Guía para principiantes"
+      "title": "¿Cómo cargo mi coche eléctrico en casa? Guía para principiantes",
+      "metaTitle": "¿Cómo cargo mi coche eléctrico en casa?",
+      "description": "Ha comprado un coche eléctrico o va a comprarlo: ¿cómo cargo mi coche en casa? ¿Se puede desde un enchufe normal, qué cargador me conviene, puedo instalarlo yo mismo? Todo en lenguaje sencillo.",
+      "excerpt": "Hay tres formas de cargar su coche eléctrico en casa: el enchufe doméstico normal (la más lenta), un cargador portátil y un cargador fijado a la pared (wallbox). En esta guía respondemos en lenguaje cotidiano a las preguntas más frecuentes: «cómo cargo mi coche», «se puede desde un enchufe normal», «puedo instalarlo yo».",
+      "category": "Guía",
+      "body": [
+        {
+          "text": "Ha comprado un coche eléctrico o está a punto de hacerlo, y la primera pregunta que le viene a la cabeza es, con toda probabilidad, esta: «¿Cómo voy a cargar mi coche en casa?». La buena noticia es que la respuesta es mucho más sencilla de lo que piensa. Igual que con un coche de gasolina pasa una vez por semana por la gasolinera, con un coche eléctrico la mayoría de la gente carga en casa mientras duerme: cuando se levanta por la mañana, el coche está lleno. En esta guía explicamos, sin necesidad de conocimientos técnicos y en lenguaje cotidiano, las formas de cargar su coche en casa."
+        },
+        {
+          "text": "Hay tres formas de cargar un coche eléctrico en casa, y la única diferencia de fondo entre ellas es la velocidad y la seguridad: (1) el enchufe doméstico normal, (2) un cargador portátil, (3) un cargador fijado a la pared, es decir, un wallbox. Veámoslas ahora una a una, con las preguntas que más se hacen."
+        },
+        {
+          "text": "¿Se puede cargar un coche eléctrico desde un enchufe doméstico normal?"
+        },
+        {
+          "text": "Respuesta corta: sí, pero es el método más lento y menos recomendable. Con el cable que viene con su coche puede enchufar en la toma normal de casa (schuko, la de tres contactos) y cargar. El problema es que un enchufe doméstico normal no está diseñado para consumir corriente alta de forma continua; al trabajar a plena carga durante horas, el enchufe y la instalación pueden calentarse. Por eso, cargar desde un enchufe normal solo debería plantearse en caso de emergencia o con muy poca potencia (normalmente 1,8-2,3 kW)."
+        },
+        {
+          "text": "Pongamos un ejemplo concreto: llenar un coche con batería de 60 kWh desde un enchufe normal puede llevar más de 20 horas. Así que, por sí solo, no basta para quien quiere enchufar por la tarde y salir por la mañana. Un cargador doméstico, en cambio, llena el mismo coche en mucho menos tiempo. Vea el enchufe normal como un apaño; la solución real son los dos métodos siguientes."
+        },
+        {
+          "items": [
+            "Enchufe doméstico normal = el más lento, tarda mucho, fuerza la instalación; solo para emergencias o uso ocasional.",
+            "No cargue nunca a través de un alargador ni de una regleta.",
+            "Si va a cargar con frecuencia, pedir a su electricista que tienda una línea independiente y pasar a un cargador portátil o de pared es más rápido y mucho más seguro."
+          ]
+        },
+        {
+          "text": "¿Qué es un cargador de pared (wallbox) y para quién es?"
+        },
+        {
+          "text": "La solución más elegida en casa es un cargador fijado a la pared; en el sector se le llama también «wallbox». Alimentado por una línea independiente desde su cuadro eléctrico y montado junto a la puerta o en el garaje, este equipo carga su coche muchas veces más rápido y de forma mucho más segura que un enchufe normal. Si tiene casa propia, un garaje particular o una plaza fija en un aparcamiento cerrado, esta es la opción más lógica."
+        },
+        {
+          "text": "Los cargadores domésticos se dividen en dos grupos según la potencia: los modelos monofásicos cargan por lo general hasta 7,4 kW y los trifásicos hasta 11-22 kW. Si en su casa hay electricidad trifásica es posible cargar más rápido; si no, un modelo monofásico es más que suficiente para el uso diario. Los modelos Bemis Charger 2, Charger Plus 2 y Charger Pro 2 son cargadores de pared de este tipo; todos llevan toma Type 2 (la toma estándar en Türkiye y Europa), tienen certificación CE y protección IP65, es decir, resisten el exterior y la lluvia."
+        },
+        {
+          "items": [
+            "Si tiene casa propia / garaje / plaza fija de aparcamiento: un cargador de pared (wallbox) es la mejor opción.",
+            "Hasta 7,4 kW para una vivienda monofásica; modelos de hasta 11-22 kW para una vivienda trifásica.",
+            "Los modelos con corriente ajustable (por ejemplo el Charger Plus 2) permiten bajar la potencia de carga para no forzar el interruptor general de la vivienda."
+          ]
+        },
+        {
+          "text": "¿Para quién tiene sentido un cargador portátil?"
+        },
+        {
+          "text": "Si no puede instalar un equipo fijo en la pared —por ejemplo si vive de alquiler, si no tiene plaza fija en el aparcamiento o si quiere usarlo tanto en casa como fuera—, un cargador portátil es un buen término medio. Son equipos que caben en un maletín y que puede enchufar y usar. Los modelos Bemis Mini Mobile y Pro Mobile 2 pertenecen a este grupo. En particular, el Pro Mobile 2 puede usarse con seguridad en distintas tomas, ya que la corriente de carga se ajusta en 6 escalones (6-32 amperios) con el botón del equipo o con la aplicación móvil."
+        },
+        {
+          "text": "La ventaja de un equipo portátil es la flexibilidad: va en el maletero y, allí donde vaya, puede cargar si hay una toma adecuada. La desventaja es que no es una solución permanente y que, a potencias altas, no resulta tan práctico como un wallbox fijo. Al decidir, pregúntese: ¿voy a cargar el coche siempre en el mismo sitio (entonces wallbox) o el sitio cambia de vez en cuando (entonces portátil)?"
+        },
+        {
+          "text": "¿Qué cargador conviene a mi coche? (¿Cuántos kW debo elegir?)"
+        },
+        {
+          "text": "Esta es una de las preguntas más frecuentes, y la respuesta depende de dos cosas: la infraestructura eléctrica de su vivienda y la potencia que acepta su coche. Piénselo así: por potente que sea el cargador, su coche no tomará más que su propio límite. La mayoría de los coches eléctricos acepta en carga AC hasta 7,4 kW u 11 kW; así que comprar un equipo de 22 kW para casa no aporta velocidad si su coche toma 11 kW. Lo correcto es averiguar la potencia que acepta su coche y elegir el modelo acorde."
+        },
+        {
+          "items": [
+            "Averigüe primero cuántos kW es la «potencia de carga AC» de su coche (viene en el manual del vehículo).",
+            "Si su vivienda es monofásica, un modelo de hasta 7,4 kW; si es trifásica, un modelo de 11 o 22 kW es lo adecuado.",
+            "Si no está seguro, compre un modelo con corriente ajustable: se adaptará tanto a su coche actual como al que compre más adelante.",
+            "Que el tipo de toma sea Type 2; es el estándar en Türkiye y Europa (la mayoría de los coches, incluidos Togg y Tesla, usa Type 2)."
+          ]
+        },
+        {
+          "text": "¿Puedo instalar el cargador yo mismo?"
+        },
+        {
+          "text": "La respuesta honesta: puede enchufar y usar usted mismo un equipo portátil, pero no haga nunca por su cuenta la conexión eléctrica de un cargador fijado a la pared. Un wallbox debe alimentarse desde el cuadro con una línea independiente y un magnetotérmico adecuado; esa conexión debe hacerla siempre un instalador eléctrico autorizado. Es a la vez un requisito legal y una cuestión de seguridad: una línea de alta corriente mal conectada entraña riesgo de incendio. Usted elige el equipo, el experto lo instala."
+        },
+        {
+          "text": "Si vive en un edificio de viviendas hay un paso más: instalar un cargador en el aparcamiento comunitario suele requerir la aprobación de la administración o de los propietarios y un acuerdo sobre el contador. Tratamos este tema en otra guía; puede acceder desde los enlaces de abajo."
+        },
+        {
+          "text": "Elijamos juntos el cargador adecuado para su casa: ya sea de pared (wallbox) o portátil, encuentre el modelo correcto para su coche y la infraestructura de su vivienda. Todos fabricados en nuestras propias instalaciones, con certificación CE y protección IP65.",
+          "label": "Ver los cargadores"
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Puedo cargar un coche eléctrico desde un enchufe doméstico?",
+          "a": "Sí, los vehículos eléctricos pueden cargarse desde un enchufe doméstico; para ello se utiliza el cargador portátil suministrado con el coche o comprado aparte. Sin embargo, es el método más lento, y el estado del circuito al que está conectada la toma resulta determinante: consumir corriente alta durante horas en un circuito antiguo o que alimenta varios aparatos no es correcto. En la práctica, lo más sensato es cargar por un circuito reservado para la carga y provisto de equipos de protección, con un equipo cuya corriente pueda ajustarse. En los modelos portátiles de Bemis la corriente puede reducirse por escalones; el Pro Mobile 2 tiene seis escalones."
+        },
+        {
+          "q": "¿Puedo cargar mi coche eléctrico desde un enchufe doméstico normal?",
+          "a": "Puede, pero es el método más lento y, como un enchufe normal no está diseñado para corriente alta durante horas, fuerza la instalación. No use nunca alargadores ni regletas. Si va a cargar con frecuencia, pasar a un cargador portátil o de pared es mucho más rápido y más seguro."
+        },
+        {
+          "q": "¿Cuánto tarda en cargarse mi coche eléctrico en casa?",
+          "a": "Depende del tamaño de la batería del coche y de la potencia del cargador. Desde un enchufe normal (unos 2 kW), un coche de 60 kWh puede tardar más de 20 horas, mientras que un cargador doméstico de 11 kW llena el mismo coche cómodamente durante la noche. La mayoría de los usuarios enchufa por la tarde y encuentra el coche lleno por la mañana."
+        },
+        {
+          "q": "¿Qué potencia de cargador debo comprar para mi coche?",
+          "a": "Un equipo que supere la potencia de carga AC que acepta su coche no aporta velocidad adicional. Averigüe primero cuántos kW acepta su vehículo y mire después si su vivienda es monofásica o trifásica. Si no está seguro, un modelo con corriente ajustable es la opción más flexible."
+        },
+        {
+          "q": "¿Puedo hacer yo mismo el montaje del cargador?",
+          "a": "Puede enchufar y usar usted mismo un equipo portátil. Sin embargo, la conexión eléctrica de un wallbox fijado a la pared debe realizarla siempre un instalador eléctrico autorizado, con una línea independiente desde el cuadro y un magnetotérmico adecuado. Es a la vez una obligación legal y un requisito de seguridad."
+        }
+      ],
+      "related": [
+        {
+          "label": "Cargadores portátiles"
+        },
+        {
+          "label": "¿Unidad de carga doméstica o cargador portátil?"
+        },
+        {
+          "label": "Instalación de una estación de carga para VE en comunidades de vecinos"
+        },
+        {
+          "label": "Tiempo de carga de un VE: ¿en cuántas horas se llena?"
+        }
+      ]
     },
     "gunes-enerjisi-solar-ile-elektrikli-arac-sarji": {
       "title": "Cargar el coche eléctrico con energía solar: carga con paneles en casa"
     },
     "evde-elektrikli-arac-sarji-guvenli-mi": {
-      "title": "¿Es segura la carga en casa? Guía de tomas, fusibles y diferencial"
+      "title": "¿Es seguro cargar el coche eléctrico en casa? Guía de enchufes, magnetotérmicos y corriente de fuga",
+      "metaTitle": "¿Es seguro cargar en casa? Guía de seguridad",
+      "description": "¿Es seguro cargar un coche eléctrico en casa? Los límites de cargar desde un enchufe normal, el riesgo de los alargadores, el diferencial, la línea independiente y la seguridad del wallbox, todo junto.",
+      "excerpt": "Cargar en casa es seguro con el equipo adecuado y una instalación en buen estado. Los límites de cargar desde un enchufe normal, los riesgos de los alargadores, el diferencial y por qué el wallbox es la vía más segura, en esta guía.",
+      "category": "Guía",
+      "body": [
+        {
+          "text": "Todo el que se plantea comprar un coche eléctrico, o acaba de comprarlo, tiene la misma pregunta en mente: ¿cargar en casa es realmente seguro? La respuesta corta y clara es sí: con el equipo adecuado y una instalación eléctrica en buen estado, cargar en casa es una de las rutinas más prácticas y seguras de tener un coche eléctrico. Los equipos de carga se diseñan desde el principio para esta tarea; el equipo se comunica de forma continua con el coche y no entrega corriente cuando las condiciones no son adecuadas. Los riesgos vienen la mayoría de las veces no del equipo en sí, sino de su entorno: enchufes desgastados, alargadores e instalaciones descuidadas. En esta guía aclaramos punto por punto qué es seguro y qué es arriesgado."
+        },
+        {
+          "text": "¿Es seguro cargar desde un enchufe doméstico normal?"
+        },
+        {
+          "text": "Cargar desde la toma con puesta a tierra estándar (schuko) de casa es posible con un cargador portátil y es seguro en las condiciones adecuadas. Aquí hay una distinción crítica: lo que conecta el coche al enchufe no es un simple cable, sino un equipo de carga con una unidad de control en su interior. Esa unidad se comunica con el coche, limita la corriente a un nivel ajustado y no inicia la carga si la conexión no está en buen estado. La verdadera cuestión está del lado del enchufe: las tomas domésticas estándar están pensadas para un uso corto y diario, mientras que cargar un coche es una carga ininterrumpida de horas. En una toma vieja, floja o desgastada, esa carga puede provocar calentamiento."
+        },
+        {
+          "items": [
+            "No use alargadores ni regletas: la fuente más habitual de calentamiento con una carga alta y prolongada son los alargadores, los enrollacables y las regletas; el cargador debe enchufarse siempre directamente a la toma de pared.",
+            "Haga revisar el estado de la toma: la toma que se use para cargar debe estar en buen estado y con puesta a tierra; una toma floja, oscurecida o que chispea de vez en cuando debe mostrarse antes a un electricista.",
+            "Elija la corriente según la instalación: al cargar desde un enchufe, mantener bajo el nivel de corriente del equipo es la forma más práctica de cargar con seguridad sin forzar la línea."
+          ]
+        },
+        {
+          "text": "Los cargadores portátiles de Bemis están pensados exactamente para este escenario: el Mini Mobile carga desde una toma schuko estándar a 2,3–3,7 kW; con su carcasa con protección IP65 y un amplio rango de temperatura de funcionamiento, aguanta el uso diario. En el Pro Mobile 2 la corriente de carga puede ajustarse en 6 escalones (6–32 A) desde la aplicación móvil o desde el botón del equipo, lo que le permite bajar la corriente y cargar sin forzar la línea allí donde no esté seguro o la instalación sea débil. Si va a usar un equipo portátil a diario, su electricista también puede instalar un punto de toma protegido para su lugar de carga, como una toma CEE (industrial) en línea independiente o una de las unidades de combinación Bemis con magnetotérmicos incorporados; eso significa dimensionar el lado del enchufe para la carga desde el primer momento."
+        },
+        {
+          "text": "¿Por qué el wallbox es la forma más segura de cargar en casa?"
+        },
+        {
+          "text": "La estación de carga fijada a la pared (wallbox) es la forma más segura y cómoda de cargar en casa, porque no se conecta a un enchufe, sino a una línea independiente tendida para ella desde el cuadro eléctrico. Esa línea la dimensiona un electricista autorizado según la carga y funciona en el cuadro bajo su propio magnetotérmico y su propia protección diferencial. Así, la carga no comparte línea con el resto de los aparatos de la casa; el consumo pasa por una infraestructura planificada correctamente desde el principio."
+        },
+        {
+          "text": "La familia de wallbox de Bemis completa este enfoque por el lado del equipo: en los modelos Charger Plus 2 y Charger Pro 2 la potencia es ajustable entre 3,7 y 22 kW y el algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el coche. La función de inicio automático de carga del Charger Plus 2 reanuda la carga por sí sola tras un corte de luz; la autorización por tarjeta RFID hace que solo usted pueda poner el equipo en marcha. Gracias a la carcasa con certificación CE y protección IP65, el wallbox también puede instalarse en un aparcamiento abierto o en el jardín; el uso en exterior y bajo la lluvia lo tratamos en detalle en otra guía. La cuestión de monofásico o trifásico, en cambio, es una decisión aparte que tiene más que ver con la capacidad de su instalación que con la seguridad: para eso puede consultar nuestra guía de decisión."
+        },
+        {
+          "text": "El lado de la instalación: ¿qué hay que mirar antes del montaje?"
+        },
+        {
+          "text": "En la carga doméstica, lo que realmente determina la seguridad es la instalación más que el equipo. Los apartados siguientes son cuestiones típicas que su electricista autorizado valorará durante la visita técnica; los valores exactos y la elección de materiales los determina el experto según la instalación propia de cada vivienda:"
+        },
+        {
+          "items": [
+            "Protección diferencial: la línea de carga debe contar con un diferencial del tipo adecuado; qué tipo y qué valor son los correctos lo decide el electricista que ve la instalación.",
+            "Línea independiente (dedicada): alimentar el cargador desde el cuadro con una línea propia protegida alivia tanto las tomas como el resto de los circuitos de la vivienda.",
+            "Puesta a tierra: una buena puesta a tierra es requisito previo de una carga segura; sobre todo en edificios antiguos debe medirse sin falta.",
+            "Sección del cable y longitud de la línea: la sección se elige según la corriente a transportar y la distancia; las líneas de sección fina o con empalmes y alargues corren riesgo de calentamiento con una carga prolongada.",
+            "Cuadro y magnetotérmicos: el estado general del cuadro, un hueco libre para magnetotérmico y la capacidad del interruptor general se valoran conjuntamente en la visita."
+          ]
+        },
+        {
+          "text": "Ninguno de los pasos de esta lista es un trabajo que deba hacer usted mismo; el objetivo es que sepa qué se hace y por qué cuando hable con su electricista. La evaluación de la instalación y el montaje deben ser realizados en todos los casos por un electricista autorizado."
+        },
+        {
+          "text": "Rumores de incendio y realidad"
+        },
+        {
+          "text": "El rumor que circula de vez en cuando por las redes sociales, «un coche eléctrico se incendia al cargar», es la parte que más curiosidad despierta. El panorama real es este: la carga es un proceso controlado basado en comunicación continua. La corriente solo circula cuando se ha verificado la conexión entre el coche y el equipo, y solo al nivel permitido; si la conexión se corta o se detecta un problema, la carga se detiene. Un equipo certificado y conforme a las normas no es en sí mismo una fuente de riesgo."
+        },
+        {
+          "text": "Lo que tienen en común los casos con problemas en la carga doméstica está casi siempre fuera del equipo: adaptadores baratos no normalizados, alargadores, tomas desgastadas e instalaciones descuidadas o modificadas sin conocimiento. Tres reglas sencillas gestionan el riesgo: use equipos con certificación CE conformes a la norma Type 2 (IEC 62196-2); enchufe el cargador directamente a la toma o, mejor, instale un wallbox en línea independiente; y haga revisar su instalación por un electricista autorizado. Cumpliendo estas tres reglas, cargar en casa es una parte corriente y segura de la vida diaria. Revisar de vez en cuando a simple vista la clavija y el equipo durante la carga —si hay sobrecalentamiento, daños o holgura— es un buen hábito, como con cualquier aparato eléctrico."
+        },
+        {
+          "text": "Consulte las soluciones de carga Bemis con certificación CE y protección IP65 adecuadas para su casa: ya sea un wallbox fijo o un equipo portátil, la carga segura empieza con el equipo adecuado.",
+          "label": "Ver los modelos de wallbox"
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Es seguro cargar un coche eléctrico en casa?",
+          "a": "Sí. Con el equipo adecuado y una instalación eléctrica en buen estado, cargar en casa es seguro. Los equipos de carga se diseñan para esta tarea; el equipo se comunica de forma continua con el coche y entrega corriente solo cuando las condiciones son adecuadas y solo al nivel permitido. Los riesgos vienen casi siempre no del equipo sino de su entorno: tomas desgastadas, alargadores, adaptadores no normalizados e instalaciones descuidadas. La configuración más segura es instalar un wallbox alimentado por una línea independiente desde el cuadro y con protección diferencial; si usa un equipo portátil, enchúfelo directamente a una toma en buen estado y con puesta a tierra. Encargue siempre la revisión de la instalación y el montaje a un electricista autorizado."
+        },
+        {
+          "q": "¿Se puede cargar un coche eléctrico desde un enchufe doméstico normal?",
+          "a": "Sí; con un cargador portátil es posible cargar desde una toma con puesta a tierra estándar (schuko) y es seguro en las condiciones adecuadas. La unidad de control del interior del equipo limita la corriente y no inicia la carga si la conexión no está en buen estado. Lo que hay que vigilar está del lado de la toma: debe estar en buen estado y con puesta a tierra, la línea debe ser apta para una carga de horas y no deben usarse nunca alargadores ni regletas. Cargar desde un enchufe resulta práctico sobre todo para cargas sin prisa durante la noche; si carga a diario, a medio plazo un wallbox en línea independiente es más rápido y más cómodo. Si no está seguro, haga revisar la toma y la línea por su electricista."
+        },
+        {
+          "q": "¿Se puede cargar el coche con un alargador o una regleta?",
+          "a": "No, no es recomendable. La carga del coche es un consumo alto e ininterrumpido de horas; los alargadores, los enrollacables y las regletas no están diseñados para este tipo de cargas. Los puntos de contacto intermedios y los conductores de sección fina pueden calentarse con una carga prolongada, y en un cable enrollado el calor se acumula aún más. Esta es la fuente más habitual de los problemas que se dan en la carga doméstica, y por eso el cargador debe enchufarse siempre directamente a la toma de pared. Si la ubicación de la toma no basta, la solución no es un alargador, sino pedir a su electricista que instale una nueva toma o salida de carga en línea independiente, adecuada al lugar donde aparca el coche."
+        },
+        {
+          "q": "¿Un cargador doméstico necesita magnetotérmico o diferencial propios?",
+          "a": "En una instalación de wallbox fijo, el enfoque generalmente aceptado es que el equipo se alimente desde el cuadro con una línea propia protegida y que esa línea cuente con un diferencial del tipo adecuado. Esta disposición separa la carga del resto de los circuitos de la vivienda y corta el circuito con rapidez ante una posible fuga. Al cargar desde un enchufe con un equipo portátil, es igual de importante que la línea que alimenta la toma esté protegida. Qué valor de magnetotérmico, qué tipo de diferencial y qué sección de cable son adecuados depende de la instalación de la vivienda, de la longitud de la línea y de la potencia de carga elegida; estas elecciones debe hacerlas solo un electricista autorizado que revise el sitio."
+        },
+        {
+          "q": "¿Cargar un coche eléctrico entraña riesgo de incendio?",
+          "a": "Con equipos certificados y una instalación correcta, cargar en casa es un proceso controlado y seguro; la corriente solo circula cuando se ha verificado la conexión entre el coche y el equipo, y solo al nivel permitido, y la carga se detiene si se detecta un problema. Lo que tienen en común los incidentes ocurridos está casi siempre fuera del equipo: adaptadores no normalizados, alargadores, tomas desgastadas e instalaciones descuidadas. Reducir el riesgo pasa por tres pasos: usar equipos con certificación CE conformes a la norma Type 2 (IEC 62196-2); enchufar el equipo directamente a la toma o instalar un wallbox en línea independiente; y hacer revisar la instalación por un electricista autorizado. No es una cuestión de miedo, sino de simple cuidado."
+        }
+      ],
+      "related": [
+        {
+          "label": "¿Se puede usar el cable de carga en el exterior y bajo la lluvia?"
+        },
+        {
+          "label": "¿Monofásico o trifásico (3 fases)? ¿Qué cargador conviene a su casa?"
+        },
+        {
+          "label": "¿Unidad de carga doméstica o cargador portátil?"
+        },
+        {
+          "label": "Cargadores portátiles"
+        }
+      ]
     },
     "isletmeler-icin-dc-hizli-sarj-istasyonu-yatirimi": {
       "title": "Inversión en carga rápida DC para empresas: guía de decisión"
@@ -11065,7 +11976,137 @@
       "title": "Coste de carga en casa: ¿cuánto por kilómetro?"
     },
     "monofaze-mi-trifaze-mi-ev-sarj": {
-      "title": "¿Monofásico o trifásico? Cómo elegir el cargador adecuado para casa"
+      "title": "¿Monofásico o trifásico (3 fases)? ¿Qué cargador conviene a su casa?",
+      "metaTitle": "¿Monofásico o trifásico? ¿Qué cargador para mi casa?",
+      "description": "¿Debe elegir monofásico o trifásico al comprar un cargador para su coche eléctrico? Explicamos de forma sencilla la diferencia entre 7,4 kW y 22 kW en un wallbox doméstico, el tiempo de carga y la decisión correcta.",
+      "excerpt": "La pregunta más crítica al comprar un wallbox para casa: ¿monofásico o trifásico? Comparamos la potencia y el tiempo de carga de ambas opciones y explicamos a qué usuario se adapta cada una, en una guía orientada a la decisión.",
+      "category": "Técnico",
+      "body": [
+        {
+          "text": "La pregunta que más confusión genera al comprar un cargador para el coche eléctrico en casa suele ser esta: ¿monofásico o trifásico (3 fases)? En realidad es una decisión sobre su instalación eléctrica, previa a cualquier elección de marca o modelo. La respuesta correcta depende de la infraestructura eléctrica de su vivienda y de sus hábitos diarios. En esta guía comparamos las dos opciones con sus valores técnicos reales y explicamos con claridad a qué usuario se adapta cada una."
+        },
+        {
+          "text": "¿Cuál es la diferencia entre monofásico y trifásico?"
+        },
+        {
+          "text": "La diferencia está en cuántas fases transportan la electricidad que llega a su casa. Monofásico significa una fase y transporta unos 230 voltios. En Türkiye la mayoría de las viviendas tiene suministro monofásico; es decir, en su casa lo más probable es que haya electricidad monofásica. Trifásico significa tres fases y puede transportar más potencia a la vez con unos 400 voltios. Como puede transferir más energía en el mismo tiempo, el trifásico acelera la carga, pero exige un suministro de 3 fases y una instalación acorde."
+        },
+        {
+          "items": [
+            "Monofásico (1 fase, ~230 V): en un wallbox doméstico el límite práctico es de unos 7,4 kW (32 A). La mayoría de los suministros residenciales son así.",
+            "Trifásico (3 fases, ~400 V): en el wallbox puede llegar hasta 22 kW (32 A). Carga más rápido, pero exige suministro e instalación de 3 fases."
+          ]
+        },
+        {
+          "text": "¿7,4 kW o 22 kW? ¿Cuánto cambia el tiempo de carga?"
+        },
+        {
+          "text": "Para concretar las dos opciones, imagine que deja el coche cargando toda la noche. Un wallbox monofásico a 7,4 kW carga en su coche unos 59 kWh en aproximadamente 8 horas. Eso cubre de sobra la necesidad diaria de la mayoría de los conductores, es decir, unos cientos de kilómetros de autonomía. Un wallbox trifásico a 22 kW transfiere en el mismo tiempo unas 3 veces más energía. Así que para quien recorre muchísimos kilómetros al día, carga en el trabajo o alimenta varios coches en un mismo punto, el trifásico ofrece una ventaja real."
+        },
+        {
+          "caption": "Comparativa de wallbox monofásico y trifásico (uso doméstico)",
+          "headers": [
+            "Característica",
+            "Monofásico",
+            "Trifásico (3 fases)"
+          ],
+          "rows": [
+            [
+              "Número de fases",
+              "1 fase (~230 V)",
+              "3 fases (~400 V)"
+            ],
+            [
+              "Límite de potencia del wallbox",
+              "~7,4 kW (32 A)",
+              "Hasta 22 kW (32 A)"
+            ],
+            [
+              "Energía cargada en ~8 horas",
+              "~59 kWh",
+              "~3 veces más"
+            ],
+            [
+              "Suministro necesario",
+              "Normalmente ya disponible",
+              "Suministro/instalación de 3 fases"
+            ],
+            [
+              "Uso más adecuado",
+              "Hogar, uso urbano diario",
+              "Empresa, muchos kilómetros, varios coches"
+            ]
+          ]
+        },
+        {
+          "text": "En resumen: monofásico / 7,4 kW basta para la mayoría de los usuarios que cargan en casa por la noche y cuya autonomía diaria no supera unos cientos de kilómetros. Trifásico / 22 kW tiene sentido para conductores que quieren acortar el tiempo de carga, recorren largas distancias a diario o lo usarán en escenarios intensivos como una empresa."
+        },
+        {
+          "text": "¿Cómo sé qué fase tiene mi casa?"
+        },
+        {
+          "text": "Hay algunas pistas a las que puede recurrir para saber si su casa es monofásica o trifásica. Su factura eléctrica o su tipo de suministro puede incluir información sobre las fases. Al mirar su cuadro de distribución (caja de fusibles), el aspecto puede ser una pista propia de una instalación trifásica. Pero eso solo sirve para hacerse una idea; para una respuesta definitiva debe consultar sin falta a un electricista autorizado. Solo un experto puede evaluar correctamente la configuración de fases, la capacidad de la línea existente y, si hiciera falta, la posibilidad de pasar a trifásico."
+        },
+        {
+          "text": "La seguridad es aquí el punto más importante. Instalar un cargador es un trabajo eléctrico que funciona con alta potencia; la sección del cable, los equipos de protección y la puesta a tierra deben elegirse correctamente. Que la instalación la realice un electricista autorizado y que se garanticen las medidas de protección adecuadas (por ejemplo, un diferencial) es necesario tanto para su seguridad como para el buen funcionamiento del equipo. Este artículo ofrece una orientación general; deje las decisiones definitivas de instalación al experto que revisa el sitio."
+        },
+        {
+          "text": "¿A qué fase se adaptan los cargadores Bemis?"
+        },
+        {
+          "text": "La buena noticia es esta: si elige el equipo adecuado, este puede acomodar su decisión de fase con flexibilidad. En toda la familia de wallbox de Bemis la potencia es ajustable entre 3,7 y 22 kW. Así, el mismo equipo se adapta tanto a instalaciones monofásicas como trifásicas según su cableado; durante el montaje se ajusta la potencia a su infraestructura existente. El modelo de entrada Charger 2 se ajusta en el mismo rango; la diferencia es que no ofrece las opciones OCPP y de contador de los modelos superiores. Todos los modelos llevan conector Type 2."
+        },
+        {
+          "items": [
+            "Charger Plus 2: potencia ajustable entre 3,7 y 22 kW; se adapta a instalaciones monofásicas y trifásicas, conector Type 2.",
+            "Charger Pro 2: potencia ajustable entre 3,7 y 22 kW; se adapta a instalaciones monofásicas y trifásicas, conector Type 2.",
+            "Charger 2: el modelo de entrada, ajustable entre 3,7 y 22 kW; conector Type 2."
+          ]
+        },
+        {
+          "text": "Así que, si duda sobre la fase o si piensa pasar a trifásico más adelante, un modelo con potencia ajustable le da flexibilidad: hoy funciona a menor potencia en su instalación monofásica y, cuando cambien sus circunstancias, puede ajustarse a una potencia mayor. Lo más seguro es determinar la potencia y la configuración de instalación correctas junto con el electricista que ve su instalación."
+        },
+        {
+          "text": "Consulte los modelos de wallbox Type 2 cuya potencia puede ajustarse a su instalación y elija la solución más adecuada para su casa.",
+          "label": "Ver los modelos de wallbox"
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Debo comprar un cargador monofásico o trifásico para mi casa?",
+          "a": "Depende de su infraestructura eléctrica y de su uso. En Türkiye la mayoría de las viviendas tiene suministro monofásico, y un wallbox monofásico de unos 7,4 kW cubre con holgura la mayoría de las necesidades diarias durante una noche. Si recorre muchísimos kilómetros al día, va a cargar en el trabajo o va a alimentar varios coches en un mismo punto, el trifásico, que puede llegar hasta 22 kW, resulta lógico. Para una decisión firme le recomendamos que un electricista autorizado compruebe la configuración de fases de su vivienda."
+        },
+        {
+          "q": "¿Es suficiente un cargador monofásico?",
+          "a": "Para la mayoría de los usuarios domésticos, sí. El límite práctico de un wallbox monofásico en una vivienda es de unos 7,4 kW (32 A), y con esa potencia se cargan unos 59 kWh en aproximadamente 8 horas. Eso equivale a unos cientos de kilómetros de autonomía diaria y resulta más que suficiente para el uso urbano normal. Si suele cargar el coche en casa por la noche, el monofásico es una solución práctica y económica. Si su prioridad es un tiempo de carga más corto, puede valorar el trifásico."
+        },
+        {
+          "q": "¿La carga trifásica es realmente más rápida?",
+          "a": "Sí. El trifásico funciona con unos 400 voltios y, al poder transportar más potencia a la vez, en el wallbox puede llegar hasta 22 kW. En el mismo tiempo transfiere aproximadamente 3 veces más energía que el monofásico a 7,4 kW. Ahora bien, esa velocidad exige un suministro de 3 fases y una instalación adecuada. También importa que el cargador de a bordo de su coche admita esa potencia; por eso, antes de invertir conviene comprobar tanto su instalación como la capacidad de su vehículo."
+        },
+        {
+          "q": "¿Cómo sé si mi casa es monofásica o trifásica?",
+          "a": "Su factura eléctrica o su tipo de suministro puede contener información sobre las fases, y el aspecto de su cuadro de distribución también puede darle una idea. Pero son solo pistas preliminares. La configuración de fases, la capacidad de la línea existente y, si hiciera falta, la posibilidad de pasar a trifásico solo puede determinarlas con certeza un electricista autorizado que revise el sitio. Al tratarse de una instalación de alta potencia, encargue siempre esta evaluación y el montaje a un experto."
+        },
+        {
+          "q": "¿Un cargador Bemis funciona tanto en monofásico como en trifásico?",
+          "a": "Como la potencia de los modelos Charger Plus 2 y Charger Pro 2 puede ajustarse entre 3,7 y 22 kW, se adaptan a instalaciones monofásicas y trifásicas; en el montaje la potencia se ajusta a su infraestructura existente. El modelo de entrada Charger 2 se ajusta en el mismo rango; la diferencia es que no ofrece las opciones OCPP y de contador de los modelos superiores. Todos los modelos llevan conector Type 2. Lo más acertado es determinar qué modelo y qué ajuste de potencia le convienen junto con el electricista que ve su instalación."
+        }
+      ],
+      "related": [
+        {
+          "label": "¿Cómo elegir un cargador para un vehículo eléctrico?"
+        },
+        {
+          "label": "Cable de carga para VE: ¿cuántos metros, cuántos amperios?"
+        },
+        {
+          "label": "Instalación de una estación de carga en comunidades de vecinos"
+        },
+        {
+          "label": "Modelos de wallbox"
+        }
+      ]
     },
     "11-kw-mi-22-kw-mi-wallbox-guc-secimi-amper-hesabi": {
       "title": "¿11 kW o 22 kW? Elección de potencia del wallbox y cálculo de amperaje",
@@ -15002,13 +16043,230 @@
       "title": "ما السيارات الكهربائية المزوّدة بخاصية V2L؟ (قائمة محدّثة 2026)"
     },
     "elektrikli-arabami-evde-nasil-sarj-ederim": {
-      "title": "كيف أشحن سيارتي الكهربائية في المنزل؟ دليل للمبتدئين"
+      "title": "كيف أشحن سيارتي الكهربائية في المنزل؟ دليل المبتدئين لأجهزة الشحن",
+      "metaTitle": "كيف أشحن سيارتي الكهربائية في المنزل؟",
+      "description": "اشتريت سيارة كهربائية أو ستشتريها؛ فكيف أشحن سيارتي في المنزل؟ هل يمكن الشحن من المأخذ العادي، وأي جهاز شحن يناسبني، وهل أستطيع تركيبه بنفسي — كل ذلك بلغة بسيطة.",
+      "excerpt": "هناك ثلاث طرق لشحن سيارتك الكهربائية في المنزل: المأخذ المنزلي العادي (الأبطأ)، وجهاز الشحن المحمول، وجهاز الشحن المثبَّت على الجدار (wallbox). في هذا الدليل نجيب بلغة يومية عن أكثر الأسئلة شيوعاً: «كيف أشحن سيارتي»، «هل يمكن من المأخذ العادي»، «هل أستطيع تركيبه بنفسي».",
+      "category": "دليل",
+      "body": [
+        {
+          "text": "اشتريت سيارة كهربائية أو أوشكت على شرائها، وأول سؤال يدور في ذهنك على الأرجح هو: «كيف سأشحن سيارتي في المنزل؟» والخبر السار أن الجواب أبسط بكثير مما تظن. فكما تمرّ بالسيارة البنزينية على محطة الوقود مرة في الأسبوع، يشحن معظم الناس سيارتهم الكهربائية في المنزل أثناء نومهم — وحين تستيقظ صباحاً تجد السيارة ممتلئة. في هذا الدليل نشرح بلغة يومية ودون أي معرفة تقنية طرق شحن سيارتك في المنزل."
+        },
+        {
+          "text": "هناك ثلاث طرق لشحن السيارة الكهربائية في المنزل، والفارق الجوهري الوحيد بينها هو السرعة والسلامة: (1) المأخذ المنزلي العادي، (2) جهاز الشحن المحمول، (3) جهاز الشحن المثبَّت على الجدار — أي الـ wallbox. ولنتناولها الآن واحدة واحدة عبر أكثر الأسئلة تكراراً."
+        },
+        {
+          "text": "هل تُشحن السيارة الكهربائية من المأخذ المنزلي العادي؟"
+        },
+        {
+          "text": "الجواب المختصر: نعم، لكن هذه أبطأ الطرق وأقلّها استحساناً. فبالكابل الذي يأتي مع سيارتك يمكنك الوصل بالمأخذ العادي في المنزل (schuko) والشحن. والمشكلة أن المأخذ المنزلي العادي غير مصمَّم لسحب تيار عالٍ باستمرار؛ فعند العمل بحمل كامل لساعات قد يسخن المأخذ والتمديدات. ولذلك ينبغي ألا يُفكَّر في الشحن من المأخذ العادي إلا في الحالات الطارئة أو بقدرة منخفضة جداً (عادةً 1,8-2,3 kW)."
+        },
+        {
+          "text": "ولنجعل الأمر ملموساً بمثال: قد يستغرق ملء سيارة ببطارية 60 kWh من المأخذ العادي أكثر من 20 ساعة. أي أنه وحده لا يكفي لمن يريد الوصل مساءً والانطلاق صباحاً. أما جهاز الشحن المنزلي فيملأ السيارة نفسها في وقت أقصر بكثير. فانظر إلى المأخذ العادي بوصفه حلاً مؤقتاً؛ أما الحل الحقيقي فهو الطريقتان أدناه."
+        },
+        {
+          "items": [
+            "المأخذ المنزلي العادي = الأبطأ، ويستغرق وقتاً طويلاً، ويُجهد التمديدات — للحالات الطارئة أو الاستخدام المتفرّق فقط.",
+            "لا تشحن أبداً عبر كابل تمديد أو مشترك كهرباء.",
+            "وإن كنت ستشحن كثيراً، فإن سحب خط مستقل عبر كهربائيك والانتقال إلى جهاز شحن محمول أو جداري أسرع وأكثر أماناً بكثير."
+          ]
+        },
+        {
+          "text": "ما هو جهاز الشحن الجداري (wallbox) ولمن هو؟"
+        },
+        {
+          "text": "الحل الأكثر تفضيلاً في المنزل هو جهاز الشحن المثبَّت على الجدار؛ ويُسمّى في القطاع أيضاً «wallbox». وهذا الجهاز، الذي يُغذّى بخط مستقل من لوحة الكهرباء ويُركَّب بجوار الباب أو في المرآب، يشحن سيارتك أسرع بأضعاف وأكثر أماناً بكثير مقارنةً بالمأخذ العادي. وإذا كان لديك منزلك الخاص أو مرآب مستقل أو موقف ثابت في موقف مغلق فهذا هو الخيار الأنسب."
+        },
+        {
+          "text": "وتنقسم أجهزة الشحن المنزلية بحسب القدرة إلى مجموعتين: الطُرز أحادية الطور تشحن عادةً حتى 7,4 kW، والطُرز ثلاثية الطور حتى 11-22 kW. فإن كان في منزلك تيار ثلاثي الطور أمكن الشحن أسرع؛ وإن لم يكن فإن الطراز أحادي الطور يكفي بوفرة للاستخدام اليومي. وطُرز Bemis Charger 2 وCharger Plus 2 وCharger Pro 2 هي من أجهزة الشحن الجدارية هذه؛ وجميعها بمقبس Type 2 (المقبس القياسي في تركيا وأوروبا)، وحاصلة على شهادة CE وبحماية IP65 — أي أنها تتحمّل الخارج والمطر."
+        },
+        {
+          "items": [
+            "إن كان لديك منزلك / مرآبك / موقفك الثابت: جهاز الشحن الجداري (wallbox) هو الخيار الأفضل.",
+            "للمنزل أحادي الطور حتى 7,4 kW؛ وللمنزل ثلاثي الطور طُرز حتى 11-22 kW.",
+            "والطُرز ذات التيار القابل للضبط (مثل Charger Plus 2) تتيح لك خفض قدرة الشحن كي لا تُجهد قاطع المنزل الرئيسي."
+          ]
+        },
+        {
+          "text": "لمن يكون جهاز الشحن المحمول منطقياً؟"
+        },
+        {
+          "text": "إذا لم تستطع تركيب جهاز ثابت على الجدار — مثلاً لأنك مستأجر أو ليس لديك موقف ثابت أو تريد استخدامه في المنزل وفي الطريق معاً — فإن جهاز الشحن المحمول حلّ وسط جيد. وهي أجهزة تتّسع لها حقيبة ويمكنك وصلها بالمأخذ واستخدامها. وطرازا Bemis Mini Mobile وPro Mobile 2 من هذه المجموعة. وعلى وجه الخصوص يمكن استخدام Pro Mobile 2 بأمان مع مآخذ مختلفة، لأن تيار الشحن يُضبط على 6 مراحل ‏(6-32 أمبير) بالزر الموجود على الجهاز أو عبر تطبيق الهاتف."
+        },
+        {
+          "text": "ميزة الجهاز المحمول هي المرونة: يبقى في الصندوق، وحيثما ذهبت يمكنك الشحن إن وُجد مأخذ مناسب. وعيبه أنه ليس حلاً دائماً وأنه عند القدرات العالية ليس عملياً بقدر الـ wallbox الثابت. وعند اتخاذ القرار اسأل نفسك: هل سأشحن السيارة دائماً في المكان نفسه (فيكون wallbox) أم أن المكان يتغيّر من حين لآخر (فيكون المحمول)؟"
+        },
+        {
+          "text": "أي جهاز شحن يناسب سيارتي؟ (كم kW أختار؟)"
+        },
+        {
+          "text": "هذا من أكثر الأسئلة تكراراً، وجوابه يتوقف على أمرين: البنية الكهربائية لمنزلك والقدرة التي تقبلها سيارتك. فكّر هكذا — مهما بلغت قوة جهاز الشحن فإن سيارتك لن تأخذ أكثر من حدّها الخاص. فمعظم السيارات الكهربائية تقبل في الشحن AC حتى 7,4 kW أو 11 kW؛ أي أن شراء جهاز بقدرة 22 kW للمنزل لا يمنحك سرعة إن كانت سيارتك تأخذ 11 kW. والنهج الصحيح أن تعرف القدرة التي تقبلها سيارتك وتختار الطراز المناسب لها."
+        },
+        {
+          "items": [
+            "اعرف أولاً كم kW تبلغ «قدرة الشحن AC» في سيارتك (وهي مذكورة في دليل استخدام المركبة).",
+            "إن كان منزلك أحادي الطور فطراز حتى 7,4 kW؛ وإن كان ثلاثي الطور فطراز 11 أو 22 kW هو المناسب.",
+            "وإن لم تكن متأكداً فاشترِ طرازاً بتيار قابل للضبط — فهو يتلاءم مع سيارتك الحالية ومع التي ستشتريها لاحقاً.",
+            "وليكن نوع المقبس Type 2؛ فهو القياسي في تركيا وأوروبا (ومعظم السيارات، ومنها Togg وTesla، تستخدم Type 2)."
+          ]
+        },
+        {
+          "text": "هل أستطيع تركيب جهاز الشحن بنفسي؟"
+        },
+        {
+          "text": "الجواب الصريح: يمكنك وصل الجهاز المحمول بالمأخذ واستخدامه بنفسك، أما التوصيل الكهربائي لجهاز الشحن المثبَّت على الجدار فلا تقم به بنفسك أبداً. فالـ wallbox يجب أن يُغذّى من اللوحة بخط مستقل وبقاطع مناسب؛ وهذا التوصيل يجب أن يقوم به بالضرورة فنّي تمديدات كهربائية معتمد. وهذا مطلب قانوني ومسألة سلامة في آن — فالخط عالي التيار الموصول بشكل خاطئ ينطوي على خطر حريق. أنت تختار الجهاز، والخبير ينفّذ التركيب."
+        },
+        {
+          "text": "وإن كنت تسكن في عمارة فهناك خطوة إضافية: فتركيب جهاز شحن في الموقف المشترك يتطلب عادةً موافقة الإدارة أو ملّاك الشقق وترتيباً بشأن العدّاد. وقد تناولنا هذا الموضوع في دليل منفصل؛ ويمكنك الوصول إليه من الروابط أدناه."
+        },
+        {
+          "text": "لنختر معاً جهاز الشحن المناسب لمنزلك — سواء أكان جدارياً (wallbox) أم محمولاً، اعثر على الطراز الصحيح لسيارتك ولبنية منزلك. وجميعها تُصنَّع في منشأتنا الخاصة وحاصلة على شهادة CE وبحماية IP65.",
+          "label": "استعرض أجهزة الشحن"
+        }
+      ],
+      "faq": [
+        {
+          "q": "هل يمكنني شحن السيارة الكهربائية من مأخذ منزلي؟",
+          "a": "نعم، يمكن شحن السيارات الكهربائية من المأخذ المنزلي؛ ويُستخدَم لذلك جهاز الشحن المحمول المرفق مع السيارة أو الذي يُشترى منفصلاً. غير أن هذه أبطأ الطرق، وحالة الخط الذي يتصل به المأخذ هي الفيصل: فسحب تيار عالٍ لساعات على خط قديم أو خط يغذّي أكثر من جهاز أمر غير صحيح. وعملياً الأسلم هو الشحن عبر خط مخصّص للشحن ومزوّد بمعدات حماية، وبجهاز يمكن ضبط تياره. وفي الطُرز المحمولة من Bemis يمكن خفض التيار على مراحل؛ وفي Pro Mobile 2 توجد ست مراحل."
+        },
+        {
+          "q": "هل يمكنني شحن سيارتي الكهربائية من المأخذ المنزلي العادي؟",
+          "a": "يمكنك ذلك، لكنها أبطأ الطرق، ولأن المأخذ العادي غير مصمَّم لتيار عالٍ يستمر ساعات فإنه يُجهد التمديدات. ولا تستخدم أبداً كابل تمديد أو مشترك كهرباء. وإن كنت ستشحن كثيراً فالانتقال إلى جهاز شحن محمول أو جداري أسرع بكثير وأكثر أماناً."
+        },
+        {
+          "q": "كم يستغرق شحن سيارتي الكهربائية في المنزل؟",
+          "a": "يتوقف ذلك على حجم بطارية السيارة وقدرة جهاز الشحن. فمن المأخذ العادي (نحو 2 kW) قد تستغرق سيارة ببطارية 60 kWh أكثر من 20 ساعة، بينما يملأ جهاز شحن منزلي بقدرة 11 kW السيارة نفسها بارتياح طوال الليل. ومعظم المستخدمين يصلون السيارة مساءً ويجدونها ممتلئة صباحاً."
+        },
+        {
+          "q": "أي قدرة لجهاز الشحن أشتري لسيارتي؟",
+          "a": "الجهاز الذي يتجاوز قدرة الشحن AC التي تقبلها سيارتك لا يمنحك سرعة إضافية. فاعرف أولاً كم kW تقبل مركبتك، ثم انظر إن كان منزلك أحادي الطور أم ثلاثي الطور. وإن لم تكن متأكداً فإن طرازاً بتيار قابل للضبط هو الخيار الأكثر مرونة."
+        },
+        {
+          "q": "هل أستطيع تنفيذ تركيب جهاز الشحن بنفسي؟",
+          "a": "يمكنك وصل الجهاز المحمول بالمأخذ واستخدامه بنفسك. أما التوصيل الكهربائي للـ wallbox المثبَّت على الجدار فيجب بالضرورة أن ينفّذه فنّي تمديدات كهربائية معتمد، بخط مستقل من اللوحة وبقاطع مناسب. وهذا التزام قانوني ومقتضى سلامة في آن."
+        }
+      ],
+      "related": [
+        {
+          "label": "أجهزة الشحن المحمولة"
+        },
+        {
+          "label": "وحدة شحن منزلية أم جهاز شحن محمول؟"
+        },
+        {
+          "label": "تركيب محطة شحن للسيارات الكهربائية في العمارة"
+        },
+        {
+          "label": "زمن شحن السيارة الكهربائية: في كم ساعة تمتلئ؟"
+        }
+      ]
     },
     "gunes-enerjisi-solar-ile-elektrikli-arac-sarji": {
       "title": "شحن السيارة الكهربائية بالطاقة الشمسية: الشحن المنزلي بالألواح الشمسية"
     },
     "evde-elektrikli-arac-sarji-guvenli-mi": {
-      "title": "هل شحن السيارة الكهربائية في المنزل آمن؟ دليل المقابس والمصهرات وقاطع التسرّب"
+      "title": "هل شحن السيارة الكهربائية في المنزل آمن؟ دليل المأخذ والقاطع والتيار المتسرب",
+      "metaTitle": "هل الشحن المنزلي آمن؟ دليل السلامة",
+      "description": "هل شحن السيارة الكهربائية في المنزل آمن؟ حدود الشحن من المأخذ العادي، وخطر كابلات التمديد، ومرحّل التيار المتسرب، والخط المستقل، وسلامة الـ wallbox في مكان واحد.",
+      "excerpt": "الشحن المنزلي آمن مع المعدّات الصحيحة والتمديدات السليمة. حدود الشحن من المأخذ العادي، ومخاطر كابلات التمديد، ومرحّل التيار المتسرب، ولماذا يُعدّ الـ wallbox الطريق الأكثر أماناً — كل ذلك في هذا الدليل.",
+      "category": "دليل",
+      "body": [
+        {
+          "text": "السؤال نفسه يدور في ذهن كل من يفكّر في شراء سيارة كهربائية أو اشتراها حديثاً: هل الشحن في المنزل آمن حقاً؟ الجواب المختصر والواضح: نعم — فمع المعدّات الصحيحة والتمديدات الكهربائية السليمة يُعدّ الشحن المنزلي من أكثر ممارسات امتلاك السيارة الكهربائية عمليةً وأماناً. فمعدّات الشحن مصمَّمة لهذه المهمة من الأساس؛ إذ يتواصل الجهاز باستمرار مع السيارة ولا يعطي تياراً إن لم تكن الظروف مناسبة. أما المخاطر فتأتي في الغالب لا من المعدّات نفسها بل من محيطها: مآخذ بالية، وكابلات تمديد، وتمديدات مهملة. وفي هذا الدليل نوضّح بنداً بنداً ما هو آمن وما هو محفوف بالمخاطر."
+        },
+        {
+          "text": "هل الشحن من المأخذ المنزلي العادي آمن؟"
+        },
+        {
+          "text": "الشحن من المأخذ المؤرَّض القياسي (schuko) في المنزل ممكن بجهاز شحن محمول وآمن في الظروف الصحيحة. وهنا تمييز جوهري: فما يربط السيارة بالمأخذ ليس كابلاً بسيطاً بل جهاز شحن يحتوي في داخله وحدة تحكّم. وهذه الوحدة تتواصل مع السيارة وتحدّ التيار عند مستوى مضبوط ولا تبدأ الشحن إن لم يكن التوصيل سليماً. أما السؤال الحقيقي فهو في جانب المأخذ: فالمآخذ المنزلية القياسية مصمَّمة للاستخدام اليومي القصير، بينما شحن السيارة حمل متواصل يستمر ساعات. وفي مأخذ قديم أو مرتخٍ أو بالٍ قد يؤدي هذا الحمل إلى سخونة."
+        },
+        {
+          "items": [
+            "لا تستخدم كابلات التمديد ومشتركات الكهرباء: أكثر مصادر السخونة شيوعاً عند الحمل العالي الطويل هي كابلات التمديد والبكرات ومشتركات المآخذ؛ ويجب دائماً وصل جهاز الشحن مباشرةً بمأخذ الجدار.",
+            "افحص حالة المأخذ: يجب أن يكون المأخذ المستخدَم في الشحن سليماً ومؤرَّضاً؛ وأي مأخذ مرتخٍ أو متفحّم أو يُصدر شرراً أحياناً ينبغي عرضه أولاً على الكهربائي.",
+            "اختر التيار بحسب التمديدات: عند الشحن من المأخذ يكون إبقاء مستوى تيار الجهاز منخفضاً أعملى طريقة للشحن الآمن دون إجهاد الخط."
+          ]
+        },
+        {
+          "text": "أجهزة الشحن المحمولة من Bemis مصمَّمة لهذا السيناريو تحديداً: فـMini Mobile يشحن من مأخذ schuko القياسي بقدرة 2,3–3,7 kW؛ وبفضل هيكله بحماية IP65 ومدى حرارة التشغيل الواسع يتحمّل الاستخدام اليومي. أما في Pro Mobile 2 فيُضبط تيار الشحن على 6 مراحل ‏(6–32A) من تطبيق الهاتف أو من الزر الموجود على الجهاز — وهو ما يتيح لك خفض التيار والشحن دون إجهاد الخط حيث لا تكون متأكداً أو حيث تكون التمديدات ضعيفة. وإذا كنت ستستخدم الجهاز المحمول يومياً فيمكن لكهربائيك أيضاً أن يركّب لنقطة الشحن مأخذاً محمياً، مثل مأخذ CEE (صناعي) على خط مستقل أو إحدى وحدات Bemis التجميعية ذات القواطع المدمجة؛ ومعنى ذلك تحجيم جانب المأخذ وفق حمل الشحن منذ البداية."
+        },
+        {
+          "text": "لماذا يُعدّ الـ wallbox أكثر طرق الشحن المنزلي أماناً؟"
+        },
+        {
+          "text": "محطة الشحن المثبَّتة على الجدار (wallbox) هي الشكل الأكثر أماناً وراحةً للشحن المنزلي؛ لأنها لا تُوصَل بمأخذ بل بخط مستقل يُسحب لها من لوحة الكهرباء. ويحدّد الكهربائي المعتمد مقاس هذا الخط بحسب حمل الشحن، ويعمل الخط في اللوحة تحت قاطعه الخاص وحمايته الخاصة من التيار المتسرب. وبذلك لا يتقاسم الشحن الخط مع بقية أجهزة المنزل؛ إذ يمرّ الحمل عبر بنية خُطِّط لها بشكل صحيح من البداية."
+        },
+        {
+          "text": "وتكمل عائلة wallbox من Bemis هذا النهج من جانب الجهاز: ففي طرازَي Charger Plus 2 وCharger Pro 2 تُضبط القدرة بين 3,7 و22 kW، وتتكيّف خوارزمية الشحن الذكي تلقائياً مع أقصى تيار تقبله السيارة. وخاصية بدء الشحن التلقائي في Charger Plus 2 تستأنف الشحن من تلقاء نفسها بعد انقطاع الكهرباء؛ كما أن التفويض ببطاقة RFID يتيح لك وحدك تشغيل الجهاز. وبفضل الهيكل الحاصل على شهادة CE وبحماية IP65 يمكن تركيب الـ wallbox أيضاً في موقف مكشوف أو في الحديقة؛ وقد تناولنا موضوع الخارج والمطر بالتفصيل في دليل منفصل. أما مسألة أحادي الطور أم ثلاثي الطور فقرار منفصل يتعلق بسعة التمديدات أكثر مما يتعلق بالسلامة — ويمكنك الرجوع لأجله إلى دليل القرار لدينا."
+        },
+        {
+          "text": "جانب التمديدات: ما الذي يُنظر إليه قبل التركيب؟"
+        },
+        {
+          "text": "في الشحن المنزلي يحدّد السلامةَ جانبُ التمديدات أكثر من الجهاز. والعناوين أدناه مسائل نموذجية سيقيّمها كهربائيك المعتمد أثناء الكشف؛ أما القيم القاطعة واختيار المواد فيحدّدها الخبير بحسب تمديدات كل منزل:"
+        },
+        {
+          "items": [
+            "الحماية من التيار المتسرب: يجب أن يوجد في خط الشحن مرحّل تيار متسرب من النوع المناسب؛ ويقرّر الكهربائي الذي يعاين التمديدات أي نوع وأي قيمة هي الصحيحة.",
+            "خط مستقل (مخصّص): تغذية جهاز الشحن من اللوحة بخط خاص به مزوّد بقاطع تريح المآخذ وبقية دوائر المنزل معاً.",
+            "التأريض: التأريض السليم شرط مسبق للشحن الآمن؛ ويجب قياسه بالضرورة خصوصاً في المباني القديمة.",
+            "مقطع الكابل وطول الخط: يُختار المقطع بحسب التيار المنقول والمسافة؛ والخطوط ذات المقاطع الرفيعة أو الموصولة بوصلات وتمديدات تنطوي على خطر السخونة عند الحمل الطويل.",
+            "اللوحة والقواطع: تُقيَّم في الكشف معاً الحالة العامة للوحة ووجود مكان شاغر للقاطع وسعة القاطع الرئيسي."
+          ]
+        },
+        {
+          "text": "ولا يوجد في هذه القائمة خطوة واحدة تقوم بها بنفسك؛ فالهدف أن تعرف أثناء حديثك مع الكهربائي ما الذي يُنجَز ولماذا. أما تقييم التمديدات والتركيب فيجب في كل الأحوال أن يقوم بهما كهربائي معتمد."
+        },
+        {
+          "text": "شائعات الحرائق والحقائق"
+        },
+        {
+          "text": "الشائعة التي تنتشر أحياناً على وسائل التواصل — «السيارة الكهربائية تشتعل أثناء الشحن» — هي أكثر ما يثير فضول الناس. والصورة الحقيقية هي: الشحن عملية مضبوطة قائمة على تواصل مستمر. فالتيار لا يسري إلا بعد التحقق من التوصيل بين السيارة والجهاز، وبالمستوى المسموح به فقط؛ وعند انقطاع التوصيل أو رصد خلل يتوقف الشحن. والمعدّات المعتمدة المطابقة للمعايير ليست بذاتها مصدر خطر."
+        },
+        {
+          "text": "أما القاسم المشترك بين الحالات التي حدثت فيها مشكلات في الشحن المنزلي فيقع في الغالب خارج المعدّات: محوّلات رخيصة غير مطابقة، وكابلات تمديد، ومآخذ بالية، وتمديدات مهملة أو مُعدَّلة دون دراية. وثلاث قواعد بسيطة تضبط المخاطر: استخدم معدّات حاصلة على شهادة CE ومطابقة لمعيار Type 2 ‏(IEC 62196-2)؛ وأوصل جهاز الشحن مباشرةً بالمأخذ أو — والأفضل — ركّب wallbox على خط مستقل؛ وافحص تمديداتك لدى كهربائي معتمد. وعند الالتزام بهذه القواعد الثلاث يصبح الشحن المنزلي جزءاً عادياً وآمناً من الحياة اليومية. كما أن فحص القابس والجهاز بالعين من حين لآخر أثناء الشحن — هل هناك سخونة مفرطة أو تلف أو ارتخاء — عادة جيدة كما في أي جهاز كهربائي."
+        },
+        {
+          "text": "اطّلع على حلول الشحن من Bemis الحاصلة على شهادة CE وبحماية IP65 والمناسبة لمنزلك — سواء أكانت wallbox ثابتاً أم جهازاً محمولاً، فالشحن الآمن يبدأ بالمعدّات الصحيحة.",
+          "label": "استعرض طُرز Wallbox"
+        }
+      ],
+      "faq": [
+        {
+          "q": "هل شحن السيارة الكهربائية في المنزل آمن؟",
+          "a": "نعم. مع المعدّات الصحيحة والتمديدات الكهربائية السليمة يكون الشحن المنزلي آمناً. فمعدّات الشحن مصمَّمة لهذه المهمة؛ إذ يتواصل الجهاز باستمرار مع السيارة ولا يعطي تياراً إلا عند ملاءمة الظروف وبالمستوى المسموح به. والمخاطر تأتي في الغالب لا من المعدّات بل من محيطها: مآخذ بالية، وكابلات تمديد، ومحوّلات غير مطابقة، وتمديدات مهملة. وأكثر الترتيبات أماناً هو تركيب wallbox يُغذّى بخط مستقل من اللوحة وله حماية من التيار المتسرب؛ وإن كنت تستخدم جهازاً محمولاً فأوصله مباشرةً بمأخذ سليم ومؤرَّض. واجعل فحص التمديدات والتركيب على يد كهربائي معتمد دائماً."
+        },
+        {
+          "q": "هل تُشحن السيارة الكهربائية من المأخذ المنزلي العادي؟",
+          "a": "نعم؛ فالشحن من المأخذ المؤرَّض القياسي (schuko) ممكن بجهاز شحن محمول وآمن في الظروف الصحيحة. فوحدة التحكّم داخل الجهاز تحدّ التيار ولا تبدأ الشحن إن لم يكن التوصيل سليماً. وما ينبغي الانتباه إليه هو جانب المأخذ: يجب أن يكون المأخذ سليماً ومؤرَّضاً، وأن يكون الخط ملائماً لحمل يستمر ساعات، وألا تُستخدم كابلات التمديد ومشتركات الكهرباء أبداً. والشحن من المأخذ عملي خصوصاً للشحن الليلي غير المستعجل؛ أما إن كنت تشحن يومياً فإن wallbox على خط مستقل أسرع وأريح على المدى المتوسط. وإن لم تكن متأكداً فافحص المأخذ والخط لدى كهربائيك."
+        },
+        {
+          "q": "هل تُشحن السيارة بكابل تمديد أو بمشترك كهرباء؟",
+          "a": "لا، وهذا غير مستحسن. فشحن السيارة حمل عالٍ ومتواصل يستمر ساعات؛ وكابلات التمديد والبكرات ومشتركات المآخذ ليست مصمَّمة لمثل هذه الأحمال. فنقاط التماس الوسيطة والموصّلات ذات المقاطع الرفيعة قد تسخن عند الحمل الطويل، وفي الكابل الملفوف على بكرة تتراكم الحرارة أكثر. وهذا أشيع مصدر للمشكلات في الشحن المنزلي، ولذلك يجب دائماً وصل جهاز الشحن مباشرةً بمأخذ الجدار. وإذا لم يكن موضع المأخذ كافياً فالحل ليس كابل تمديد، بل أن يركّب لك كهربائيك مأخذاً جديداً أو مخرج شحن على خط مستقل مناسباً لموقف سيارتك."
+        },
+        {
+          "q": "هل يحتاج جهاز الشحن المنزلي إلى قاطع أو مرحّل تيار متسرب خاص به؟",
+          "a": "في تركيب wallbox ثابت، النهج المتعارف عليه هو أن يُغذّى الجهاز من اللوحة بخط خاص به مزوّد بقاطع، وأن يوجد على هذا الخط مرحّل تيار متسرب من النوع المناسب. وهذا الترتيب يفصل حمل الشحن عن بقية دوائر المنزل ويقطع الدائرة بسرعة عند حدوث تسرب محتمل. وعند الشحن من المأخذ بجهاز محمول يكون من المهم بالقدر نفسه أن يكون الخط المغذّي للمأخذ محمياً. أما تحديد قيمة القاطع ونوع مرحّل التيار المتسرب ومقطع الكابل المناسب فيتوقف على تمديدات المنزل وطول الخط وقدرة الشحن المختارة؛ ولا ينبغي أن يقوم بهذه الاختيارات إلا كهربائي معتمد يعاين الموقع."
+        },
+        {
+          "q": "هل ينطوي شحن السيارة الكهربائية على خطر حريق؟",
+          "a": "مع المعدّات المعتمدة والتركيب الصحيح يكون الشحن المنزلي عملية مضبوطة وآمنة؛ فالتيار لا يسري إلا بعد التحقق من التوصيل بين السيارة والجهاز وبالمستوى المسموح به، ويتوقف الشحن عند رصد خلل. والقاسم المشترك بين الحوادث التي وقعت يقع في الغالب خارج المعدّات: محوّلات غير مطابقة، وكابلات تمديد، ومآخذ بالية، وتمديدات مهملة. وتقليل المخاطر يمرّ بثلاث خطوات: استخدام معدّات حاصلة على شهادة CE ومطابقة لمعيار Type 2 ‏(IEC 62196-2)؛ ووصل الجهاز مباشرةً بالمأخذ أو تركيب wallbox على خط مستقل؛ وفحص التمديدات لدى كهربائي معتمد. فالمسألة ليست مسألة خوف بل مسألة عناية بسيطة."
+        }
+      ],
+      "related": [
+        {
+          "label": "هل يُستخدَم كابل شحن السيارة الكهربائية في الخارج وتحت المطر؟"
+        },
+        {
+          "label": "أحادي الطور أم ثلاثي الطور (3 أطوار)؟ أي جهاز شحن يناسب منزلك؟"
+        },
+        {
+          "label": "وحدة شحن منزلية أم جهاز شحن محمول؟"
+        },
+        {
+          "label": "أجهزة الشحن المحمولة"
+        }
+      ]
     },
     "isletmeler-icin-dc-hizli-sarj-istasyonu-yatirimi": {
       "title": "الاستثمار في الشحن السريع DC للشركات: دليل اتخاذ القرار"
@@ -15023,7 +16281,137 @@
       "title": "تكلفة الشحن المنزلي: كم لكل كيلومتر؟"
     },
     "monofaze-mi-trifaze-mi-ev-sarj": {
-      "title": "أحادي الطور أم ثلاثي الأطوار؟ اختيار الشاحن المنزلي المناسب"
+      "title": "أحادي الطور أم ثلاثي الطور (3 أطوار)؟ أي جهاز شحن يناسب منزلك؟",
+      "metaTitle": "أحادي الطور أم ثلاثي؟ أي جهاز شحن لمنزلي؟",
+      "description": "هل تختار أحادي الطور أم ثلاثي الطور عند شراء جهاز شحن للسيارة الكهربائية؟ نشرح ببساطة الفرق بين 7,4 kW و22 kW في الـ wallbox المنزلي، وزمن الشحن، والقرار الصحيح.",
+      "excerpt": "أهم سؤال عند شراء wallbox لمنزلك: أحادي الطور أم 3 أطوار؟ نقارن قدرة الخيارين وزمن الشحن ونوضّح أيّهما يناسب أي مستخدم، في دليل يركّز على القرار.",
+      "category": "تقني",
+      "body": [
+        {
+          "text": "السؤال الذي يثير الحيرة أكثر من غيره عند شراء جهاز شحن للسيارة الكهربائية للمنزل هو عادةً: هل أشتري أحادي الطور أم ثلاثي الطور (3 أطوار)؟ وهو في الحقيقة قرار يتعلق بتمديداتك الكهربائية ويسبق اختيار العلامة أو الطراز. والجواب الصحيح يتغيّر بحسب البنية الكهربائية لمنزلك وعادات استخدامك اليومية. في هذا الدليل نقارن الخيارين بقيمهما التقنية الحقيقية ونوضّح بجلاء أيّهما يناسب أي مستخدم."
+        },
+        {
+          "text": "ما الفرق بين أحادي الطور وثلاثي الطور؟"
+        },
+        {
+          "text": "يتعلق الفرق بعدد الأطوار التي تُنقل عبرها الكهرباء إلى منزلك. فأحادي الطور يعني طوراً واحداً ويحمل جهداً يقارب 230 فولت. وفي تركيا يكون اشتراك معظم المساكن أحادي الطور؛ أي أن الكهرباء في منزلك على الأرجح أحادية الطور. أما ثلاثي الطور فيعني ثلاثة أطوار ويستطيع بجهد يقارب 400 فولت حمل قدرة أكبر في الوقت نفسه. ولأنه ينقل طاقة أكثر في المدة نفسها فإن ثلاثي الطور يسرّع الشحن، لكنه يتطلب اشتراكاً بـ3 أطوار وتمديدات مناسبة له."
+        },
+        {
+          "items": [
+            "أحادي الطور (1 طور، ~230V): في الـ wallbox المنزلي يبلغ الحد الأعلى العملي نحو 7,4 kW ‏(32A). ومعظم اشتراكات المساكن على هذا النحو.",
+            "ثلاثي الطور (3 أطوار، ~400V): في الـ wallbox يمكن أن يصل إلى 22 kW ‏(32A). يوفّر شحناً أسرع لكنه يتطلب اشتراكاً وتمديدات بـ3 أطوار."
+          ]
+        },
+        {
+          "text": "7,4 kW أم 22 kW؟ كم يتغيّر زمن الشحن؟"
+        },
+        {
+          "text": "لتجسيد الخيارين، تخيّل أنك تضع سيارتك على الشحن طوال الليل. فالـ wallbox أحادي الطور بقدرة 7,4 kW يشحن في سيارتك نحو 59 kWh خلال نحو 8 ساعات. وهذا يغطّي بوفرة الحاجة اليومية لمعظم السائقين، أي مدى يبلغ بضع مئات من الكيلومترات. أما الـ wallbox ثلاثي الطور بقدرة 22 kW فينقل في المدة نفسها نحو 3 أضعاف الطاقة. أي أن ثلاثي الطور يقدّم ميزة حقيقية لمن يقطع مسافات كبيرة يومياً أو يشحن في مكان العمل أو يغذّي أكثر من سيارة في نقطة واحدة."
+        },
+        {
+          "caption": "مقارنة بين wallbox أحادي الطور وثلاثي الطور (للاستخدام المنزلي)",
+          "headers": [
+            "الخاصية",
+            "أحادي الطور",
+            "ثلاثي الطور (3 أطوار)"
+          ],
+          "rows": [
+            [
+              "عدد الأطوار",
+              "1 طور ‏(~230V)",
+              "3 أطوار ‏(~400V)"
+            ],
+            [
+              "الحد الأعلى لقدرة الـ wallbox",
+              "~7,4 kW ‏(32A)",
+              "حتى 22 kW ‏(32A)"
+            ],
+            [
+              "الطاقة المشحونة في ~8 ساعات",
+              "~59 kWh",
+              "~3 أضعاف أكثر"
+            ],
+            [
+              "الاشتراك المطلوب",
+              "متوفر في الغالب",
+              "اشتراك/تمديدات بـ3 أطوار"
+            ],
+            [
+              "الاستخدام الأنسب",
+              "المنزل والاستخدام اليومي داخل المدينة",
+              "مكان العمل، مسافات كبيرة، سيارات متعددة"
+            ]
+          ]
+        },
+        {
+          "text": "باختصار: أحادي الطور / 7,4 kW يكفي معظم المستخدمين الذين يشحنون في المنزل ليلاً ولا يتجاوز مداهم اليومي بضع مئات من الكيلومترات. أما ثلاثي الطور / 22 kW فمنطقي لمن يريد تقصير زمن الشحن أو يقطع مسافات طويلة يومياً أو سيستخدمه في سيناريوهات مكثّفة مثل مكان العمل."
+        },
+        {
+          "text": "كيف أعرف طور منزلي؟"
+        },
+        {
+          "text": "هناك بضع دلائل يمكنك الرجوع إليها لمعرفة ما إذا كان منزلك أحادي الطور أم ثلاثي الطور. فقد ترد معلومة الطور في فاتورة الكهرباء أو في نوع اشتراكك. وعند النظر إلى لوحة التوزيع (لوحة القواطع) قد يعطيك المظهر إشارة خاصة بالتركيب ثلاثي الطور. غير أن هذه الدلائل لتكوين فكرة فحسب؛ وللقرار القاطع لا بدّ أن تستشير كهربائياً معتمداً. فالخبير وحده يستطيع أن يقيّم على نحو صحيح بنية الأطوار وقدرة الخط الحالي على الحمل، وإمكانية الانتقال إلى ثلاثي الطور عند الحاجة."
+        },
+        {
+          "text": "والسلامة هي العنوان الأهم هنا. فتركيب جهاز الشحن عمل كهربائي يجري بقدرة عالية؛ ويجب اختيار مقطع الكابل ومعدات الحماية والتأريض على نحو صحيح. وإجراء التركيب على يد كهربائي معتمد وتوفير تدابير الحماية المناسبة (مرحّل التيار المتسرب مثلاً) أمر لازم لسلامتك ولعمل الجهاز السليم معاً. وتقدّم هذه المقالة توجيهاً عاماً؛ أما قرارات التمديدات القاطعة فاتركها للخبير الذي يعاين الموقع."
+        },
+        {
+          "text": "أي طور تناسبه أجهزة شحن Bemis؟"
+        },
+        {
+          "text": "الخبر السار هو: إذا اخترت الجهاز الصحيح فبإمكانه استيعاب قرارك بشأن الطور بمرونة. ففي عائلة wallbox من Bemis كلها تُضبط القدرة بين 3,7 و22 kW. وبذلك يتلاءم الجهاز نفسه مع التركيبات أحادية الطور وثلاثية الطور بحسب تمديداتك؛ وتضبط القدرة أثناء التركيب وفق بنيتك القائمة. كما يُضبط الطراز الأساسي Charger 2 في المدى نفسه؛ والفارق أنه لا يقدّم خيارات OCPP والعدّاد الموجودة في الطُرز الأعلى. وجميع الطُرز بموصّل Type 2."
+        },
+        {
+          "items": [
+            "Charger Plus 2: تُضبط قدرته بين 3,7 و22 kW؛ يتلاءم مع التمديدات أحادية الطور وثلاثية الطور، وبموصّل Type 2.",
+            "Charger Pro 2: تُضبط قدرته بين 3,7 و22 kW؛ يتلاءم مع التمديدات أحادية الطور وثلاثية الطور، وبموصّل Type 2.",
+            "Charger 2: الطراز الأساسي الذي تُضبط قدرته بين 3,7 و22 kW؛ وبموصّل Type 2."
+          ]
+        },
+        {
+          "text": "أي أنك إن كنت متردداً في مسألة الطور أو تفكّر في الانتقال لاحقاً إلى ثلاثي الطور، فإن طرازاً قابل القدرة للضبط يمنحك مرونة: يعمل اليوم بقدرة أقل على تمديداتك أحادية الطور، ويمكن ضبطه على قدرة أعلى حين تتغيّر ظروفك. وأسلم طريق هو أن تحدّد القدرة وإعداد التركيب الصحيحين مع الكهربائي الذي يعاين تمديداتك."
+        },
+        {
+          "text": "اطّلع على طُرز wallbox بموصّل Type 2 التي تُضبط قدرتها وفق تمديداتك، واختر الحل الأنسب لمنزلك.",
+          "label": "استعرض طُرز Wallbox"
+        }
+      ],
+      "faq": [
+        {
+          "q": "هل أشتري لمنزلي جهاز شحن أحادي الطور أم ثلاثي الطور؟",
+          "a": "يتوقف ذلك على بنيتك الكهربائية وطريقة استخدامك. ففي تركيا يكون الاشتراك في معظم المساكن أحادي الطور، والـ wallbox أحادي الطور بقدرة نحو 7,4 kW يغطّي بارتياح معظم الاحتياجات اليومية طوال الليل. أما إذا كنت تقطع مسافات كبيرة جداً يومياً أو ستشحن في مكان العمل أو ستغذّي أكثر من سيارة في نقطة واحدة، فإن ثلاثي الطور الذي يمكن أن يصل إلى 22 kW يكون منطقياً. وللقرار القاطع ننصحك بأن تفحص بنية الأطوار في منزلك على يد كهربائي معتمد."
+        },
+        {
+          "q": "هل يكفي جهاز الشحن أحادي الطور؟",
+          "a": "بالنسبة لمعظم المستخدمين المنزليين نعم. فالحد الأعلى العملي للـ wallbox أحادي الطور في المنزل يبلغ نحو 7,4 kW ‏(32A)، وبهذه القدرة تُشحن نحو 59 kWh خلال نحو 8 ساعات. وهذا يعني مدى يومياً يبلغ بضع مئات من الكيلومترات، وهو أكثر من كافٍ في الاستخدام العادي داخل المدينة. وإذا كنت تشحن سيارتك عادةً في المنزل ليلاً فإن أحادي الطور حل عملي واقتصادي. أما إذا كان تقصير زمن الشحن أولوية فيمكنك النظر في ثلاثي الطور."
+        },
+        {
+          "q": "هل الشحن ثلاثي الطور أسرع فعلاً؟",
+          "a": "نعم. فثلاثي الطور يعمل بجهد يقارب 400 فولت، ولأنه يستطيع حمل قدرة أكبر في الوقت نفسه يمكن أن يصل في الـ wallbox إلى 22 kW. وفي المدة نفسها ينقل نحو 3 أضعاف الطاقة مقارنةً بأحادي الطور بقدرة 7,4 kW. غير أن هذه السرعة تتطلب اشتراكاً بـ3 أطوار وتمديدات مناسبة. ومن المهم كذلك أن تدعم وحدة الشحن الداخلية في سيارتك هذه القدرة؛ ولذلك ينبغي قبل الاستثمار فحص تمديداتك وقدرة سيارتك معاً."
+        },
+        {
+          "q": "كيف أعرف إن كان منزلي أحادي الطور أم ثلاثي الطور؟",
+          "a": "قد تتضمّن فاتورة الكهرباء أو نوع اشتراكك معلومة الطور؛ كما أن مظهر لوحة التوزيع قد يعطيك فكرة. لكن هذه دلائل أولية فقط. فبنية الأطوار وسعة الخط الحالي وإمكانية الانتقال إلى ثلاثي الطور عند الحاجة لا يستطيع تحديدها على وجه اليقين إلا كهربائي معتمد يعاين الموقع. ولأن الأمر يتعلق بتركيب عالي القدرة، فاجعل هذا التقييم والتركيب على يد خبير دائماً."
+        },
+        {
+          "q": "هل يعمل جهاز شحن Bemis على أحادي الطور وثلاثي الطور معاً؟",
+          "a": "لأن قدرة طرازَي Charger Plus 2 وCharger Pro 2 تُضبط بين 3,7 و22 kW فإنهما يتلاءمان مع التمديدات أحادية الطور وثلاثية الطور؛ وتُضبط القدرة عند التركيب وفق بنيتك القائمة. كما يُضبط الطراز الأساسي Charger 2 في المدى نفسه؛ والفارق أنه لا يقدّم خيارات OCPP والعدّاد الموجودة في الطُرز الأعلى. وجميع الطُرز بموصّل Type 2. وأصحّ نهج هو أن تحدّد الطراز وإعداد القدرة المناسبين لك مع الكهربائي الذي يعاين تمديداتك."
+        }
+      ],
+      "related": [
+        {
+          "label": "كيف تختار جهاز شحن للسيارة الكهربائية؟"
+        },
+        {
+          "label": "كابل شحن السيارة الكهربائية: كم متراً وكم أمبير؟"
+        },
+        {
+          "label": "تركيب محطة شحن في العمارة"
+        },
+        {
+          "label": "طُرز Wallbox"
+        }
+      ]
     },
     "11-kw-mi-22-kw-mi-wallbox-guc-secimi-amper-hesabi": {
       "title": "11 kW أم 22 kW؟ اختيار قدرة الـ wallbox وحساب الأمبير",
@@ -18960,13 +20348,230 @@
       "title": "В каких электромобилях есть V2L? (актуальный список 2026)"
     },
     "elektrikli-arabami-evde-nasil-sarj-ederim": {
-      "title": "Как зарядить электромобиль дома? Руководство для начинающих"
+      "title": "Как заряжать электромобиль дома? Руководство для начинающих",
+      "metaTitle": "Как заряжать мой электромобиль дома?",
+      "description": "Вы купили электромобиль или собираетесь: как заряжать машину дома? Можно ли от обычной розетки, какое зарядное устройство подойдёт, могу ли я установить его сам — всё простым языком.",
+      "excerpt": "Есть три способа зарядить электромобиль дома: обычная бытовая розетка (самый медленный), портативное зарядное устройство и настенное зарядное устройство (wallbox). В этом руководстве мы отвечаем обычным языком на самые частые вопросы: «как заряжать машину», «можно ли от обычной розетки», «могу ли я установить сам».",
+      "category": "Руководство",
+      "body": [
+        {
+          "text": "Вы купили электромобиль или вот-вот купите, и первый вопрос у вас в голове, скорее всего, такой: «Как я буду заряжать машину дома?» Хорошая новость: ответ гораздо проще, чем кажется. Как с бензиновой машиной вы раз в неделю заезжаете на заправку, так с электромобилем большинство людей заряжается дома, пока спит, — и утром машина полная. В этом руководстве мы объясняем простым, повседневным языком и без всяких технических знаний, как заряжать автомобиль дома."
+        },
+        {
+          "text": "Зарядить электромобиль дома можно тремя способами, и единственное принципиальное различие между ними — скорость и безопасность: (1) обычная бытовая розетка, (2) портативное зарядное устройство, (3) закреплённое на стене зарядное устройство, то есть wallbox. Разберём их по очереди через самые популярные вопросы."
+        },
+        {
+          "text": "Заряжается ли электромобиль от обычной бытовой розетки?"
+        },
+        {
+          "text": "Короткий ответ: заряжается, но это самый медленный и наименее рекомендуемый способ. Кабелем, идущим в комплекте с машиной, можно подключиться к обычной домашней розетке (schuko) и заряжаться. Проблема в том, что обычная бытовая розетка не рассчитана на постоянное потребление высокого тока; при работе под полной нагрузкой часами розетка и проводка могут нагреваться. Поэтому зарядку от обычной розетки стоит рассматривать только на крайний случай или на очень малой мощности (обычно 1,8-2,3 кВт)."
+        },
+        {
+          "text": "Приведём конкретный пример: наполнить машину с батареей 60 кВт·ч от обычной розетки может занять более 20 часов. То есть сама по себе она не подходит тому, кто хочет поставить машину вечером и уехать утром. Домашнее зарядное устройство, напротив, наполняет ту же машину гораздо быстрее. Считайте обычную розетку временным выходом; настоящее решение — два способа ниже."
+        },
+        {
+          "items": [
+            "Обычная бытовая розетка = самая медленная, занимает много времени, нагружает проводку — только на крайний случай или изредка.",
+            "Ни в коем случае не заряжайте через удлинитель или колодку.",
+            "Если вы будете заряжаться часто, попросить электрика проложить отдельную линию и перейти на портативное или настенное устройство и быстрее, и намного безопаснее."
+          ]
+        },
+        {
+          "text": "Что такое настенное зарядное устройство (wallbox) и кому оно подходит?"
+        },
+        {
+          "text": "Самое популярное домашнее решение — зарядное устройство, закреплённое на стене; в отрасли его называют также wallbox. Питаясь по отдельной линии от вашего электрощита и устанавливаясь рядом с дверью или в гараже, это устройство заряжает автомобиль в разы быстрее и намного безопаснее обычной розетки. Если у вас собственный дом, отдельный гараж или постоянное место в закрытом паркинге, это самый разумный выбор."
+        },
+        {
+          "text": "Домашние зарядные устройства делятся по мощности на две группы: однофазные модели обычно заряжают до 7,4 кВт, а трёхфазные — до 11-22 кВт. Если у вас дома трёхфазное электричество, возможна более быстрая зарядка; если нет, однофазной модели для повседневного использования более чем достаточно. Модели Bemis Charger 2, Charger Plus 2 и Charger Pro 2 — это как раз настенные зарядные устройства; все они с разъёмом Type 2 (стандартный разъём в Турции и Европе), сертифицированы по CE и имеют защиту IP65 — то есть выдерживают улицу и дождь."
+        },
+        {
+          "items": [
+            "Если у вас собственный дом / гараж / постоянное парковочное место: настенное зарядное устройство (wallbox) — лучший выбор.",
+            "Для однофазного дома — до 7,4 кВт; для трёхфазного — модели до 11-22 кВт.",
+            "Модели с регулируемым током (например, Charger Plus 2) позволяют снизить мощность зарядки, чтобы не нагружать главный автомат дома."
+          ]
+        },
+        {
+          "text": "Кому имеет смысл портативное зарядное устройство?"
+        },
+        {
+          "text": "Если вы не можете установить стационарное устройство на стену — например, снимаете жильё, у вас нет постоянного места на парковке или вы хотите пользоваться им и дома, и в дороге, — портативное зарядное устройство станет хорошим компромиссом. Это устройства, помещающиеся в кейс, которые можно включить в розетку и пользоваться. К этой группе относятся модели Bemis Mini Mobile и Pro Mobile 2. В частности, Pro Mobile 2 можно безопасно использовать с разными розетками, поскольку зарядный ток настраивается в 6 ступеней (6-32 ампера) кнопкой на устройстве или через мобильное приложение."
+        },
+        {
+          "text": "Преимущество портативного устройства — гибкость: оно лежит в багажнике, и там, куда вы приедете, можно зарядиться при наличии подходящей розетки. Недостаток в том, что это не постоянное решение и при высокой мощности оно не так удобно, как стационарный wallbox. Принимая решение, спросите себя: буду ли я всегда заряжать машину в одном и том же месте (тогда wallbox) или место время от времени меняется (тогда портативное)?"
+        },
+        {
+          "text": "Какое зарядное устройство подойдёт моей машине? (Сколько кВт выбрать?)"
+        },
+        {
+          "text": "Это один из самых частых вопросов, и ответ зависит от двух вещей: от электрической инфраструктуры вашего дома и от мощности, которую принимает автомобиль. Думайте так: каким бы мощным ни было зарядное устройство, автомобиль не возьмёт больше своего предела. Большинство электромобилей при зарядке AC принимает до 7,4 кВт или 11 кВт; значит, покупать домой устройство на 22 кВт бессмысленно с точки зрения скорости, если машина берёт 11 кВт. Правильный подход — узнать принимаемую машиной мощность и выбрать подходящую модель."
+        },
+        {
+          "items": [
+            "Сначала узнайте, сколько кВт составляет «мощность зарядки AC» вашего автомобиля (она указана в руководстве по эксплуатации).",
+            "Если дом однофазный, подойдёт модель до 7,4 кВт; если трёхфазный — модель на 11 или 22 кВт.",
+            "Если вы не уверены, возьмите модель с регулируемым током — она подойдёт и нынешней машине, и той, которую вы купите позже.",
+            "Тип разъёма пусть будет Type 2; это стандарт в Турции и Европе (большинство машин, включая Togg и Tesla, использует Type 2)."
+          ]
+        },
+        {
+          "text": "Могу ли я установить зарядное устройство сам?"
+        },
+        {
+          "text": "Честный ответ: портативное устройство вы можете включить в розетку и пользоваться им сами, но электрическое подключение настенного зарядного устройства ни в коем случае не делайте самостоятельно. Wallbox должен питаться от щита по отдельной линии с подходящим автоматом; это подключение обязательно должен выполнять квалифицированный электромонтажник. Это и требование закона, и вопрос безопасности — неправильно подключённая линия с высоким током несёт риск пожара. Устройство выбираете вы, монтаж выполняет специалист."
+        },
+        {
+          "text": "Если вы живёте в многоквартирном доме, есть ещё один шаг: чтобы установить зарядное устройство в общем паркинге, обычно требуются согласие управляющей организации или собственников квартир и решение вопроса с учётом. Эту тему мы разобрали в отдельном руководстве; перейти к нему можно по ссылкам ниже."
+        },
+        {
+          "text": "Давайте вместе подберём зарядное устройство для вашего дома — настенное (wallbox) или портативное: найдите модель, подходящую вашей машине и инфраструктуре дома. Всё производится на нашем собственном предприятии, сертифицировано по CE и имеет защиту IP65.",
+          "label": "Посмотреть зарядные устройства"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Можно ли заряжать электромобиль от бытовой розетки?",
+          "a": "Да, электромобили можно заряжать от бытовой розетки; для этого используется портативное зарядное устройство, поставляемое с машиной или купленное отдельно. Однако это самый медленный способ, и состояние линии, к которой подключена розетка, имеет решающее значение: брать высокий ток часами на старой линии или на линии, питающей несколько приборов, неправильно. На практике надёжнее всего заряжаться по линии, выделенной под зарядку и снабжённой защитным оборудованием, устройством с регулируемым током. В портативных моделях Bemis ток можно снижать ступенями; у Pro Mobile 2 предусмотрено шесть ступеней."
+        },
+        {
+          "q": "Можно ли заряжать электромобиль от обычной бытовой розетки?",
+          "a": "Можно, но это самый медленный способ, и, поскольку обычная розетка не рассчитана на высокий ток в течение часов, она нагружает проводку. Никогда не используйте удлинитель или колодку. Если вы будете заряжаться часто, переход на портативное или настенное зарядное устройство и намного быстрее, и безопаснее."
+        },
+        {
+          "q": "Сколько времени занимает зарядка электромобиля дома?",
+          "a": "Это зависит от ёмкости батареи автомобиля и мощности зарядного устройства. От обычной розетки (примерно 2 кВт) машина с батареей 60 кВт·ч может заряжаться более 20 часов, тогда как домашнее устройство на 11 кВт спокойно наполняет ту же машину за ночь. Большинство пользователей ставит машину вечером и получает полную утром."
+        },
+        {
+          "q": "Какой мощности зарядное устройство купить для машины?",
+          "a": "Устройство, превышающее принимаемую вашим автомобилем мощность зарядки AC, дополнительной скорости не даст. Сначала узнайте, сколько кВт принимает ваш автомобиль, затем посмотрите, однофазный у вас дом или трёхфазный. Если вы не уверены, модель с регулируемым током — самый гибкий выбор."
+        },
+        {
+          "q": "Могу ли я выполнить монтаж зарядного устройства сам?",
+          "a": "Портативное устройство вы можете включить в розетку и пользоваться им сами. Однако электрическое подключение настенного wallbox обязательно должен выполнить квалифицированный электромонтажник — по отдельной линии от щита и с подходящим автоматом. Это и требование закона, и требование безопасности."
+        }
+      ],
+      "related": [
+        {
+          "label": "Портативные зарядные устройства"
+        },
+        {
+          "label": "Домашняя зарядная станция или портативное устройство?"
+        },
+        {
+          "label": "Установка зарядной станции в многоквартирном доме"
+        },
+        {
+          "label": "Время зарядки электромобиля: за сколько часов он заполнится?"
+        }
+      ]
     },
     "gunes-enerjisi-solar-ile-elektrikli-arac-sarji": {
       "title": "Зарядка электромобиля от солнечной энергии: домашние солнечные панели"
     },
     "evde-elektrikli-arac-sarji-guvenli-mi": {
-      "title": "Безопасна ли домашняя зарядка электромобиля? Розетки, автоматы и УЗО"
+      "title": "Безопасно ли заряжать электромобиль дома? Руководство по розетке, автомату и току утечки",
+      "metaTitle": "Безопасно ли заряжать дома? Руководство по безопасности",
+      "description": "Безопасно ли заряжать электромобиль дома? Пределы зарядки от обычной розетки, риск удлинителей, устройство защитного отключения, отдельная линия и безопасность wallbox — всё вместе.",
+      "excerpt": "Зарядка дома безопасна при правильном оборудовании и исправной проводке. Пределы зарядки от обычной розетки, риски удлинителей, устройство защитного отключения и почему wallbox — самый безопасный путь: обо всём в этом руководстве.",
+      "category": "Руководство",
+      "body": [
+        {
+          "text": "У всех, кто раздумывает о покупке электромобиля или только что его купил, один и тот же вопрос: действительно ли безопасно заряжать дома? Короткий и ясный ответ — да: при правильном оборудовании и исправной электропроводке домашняя зарядка является одной из самых удобных и безопасных привычек владельца электромобиля. Зарядное оборудование изначально проектируется именно для этой задачи; устройство постоянно обменивается данными с автомобилем и не подаёт ток, когда условия не соответствуют. Риски же чаще исходят не от самого оборудования, а от его окружения: изношенные розетки, удлинители и запущенная проводка. В этом руководстве мы по пунктам поясняем, что безопасно, а что рискованно."
+        },
+        {
+          "text": "Безопасно ли заряжать от обычной бытовой розетки?"
+        },
+        {
+          "text": "Зарядка от стандартной розетки с заземлением (schuko) дома возможна с портативным зарядным устройством и при правильных условиях безопасна. Здесь есть важное различие: автомобиль соединяет с розеткой не простой кабель, а зарядное устройство с блоком управления внутри. Этот блок обменивается данными с машиной, ограничивает ток заданным уровнем и не начинает зарядку, если соединение ненадёжно. Главный вопрос — со стороны розетки: обычные бытовые розетки рассчитаны на кратковременное повседневное использование, тогда как зарядка автомобиля — это непрерывная нагрузка длиной в часы. В старой, разболтанной или изношенной розетке такая нагрузка может привести к нагреву."
+        },
+        {
+          "items": [
+            "Не используйте удлинители и колодки: самый частый источник нагрева при длительной высокой нагрузке — удлинители, катушки и групповые розетки; зарядное устройство всегда должно включаться прямо в настенную розетку.",
+            "Проверьте состояние розетки: розетка для зарядки должна быть исправной и заземлённой; разболтанную, потемневшую или иногда искрящую розетку сначала нужно показать электрику.",
+            "Выбирайте ток по проводке: при зарядке от розетки удержание тока устройства на низком уровне — самый практичный способ заряжать безопасно, не перегружая линию."
+          ]
+        },
+        {
+          "text": "Портативные зарядные устройства Bemis рассчитаны именно на этот сценарий: Mini Mobile заряжает от стандартной розетки schuko мощностью 2,3–3,7 кВт; благодаря корпусу с защитой IP65 и широкому диапазону рабочих температур он выдерживает повседневную эксплуатацию. В Pro Mobile 2 зарядный ток настраивается в 6 ступеней (6–32 A) из мобильного приложения или кнопкой на устройстве — это позволяет снизить ток и заряжать без перегрузки линии там, где вы не уверены или проводка слабая. Если вы будете пользоваться портативным устройством каждый день, электрик может также оборудовать для вашей точки зарядки защищённую розетку — например, розетку CEE (промышленную) на отдельной линии или один из комбинированных блоков Bemis со встроенными автоматами; это значит с самого начала рассчитать сторону розетки под зарядную нагрузку."
+        },
+        {
+          "text": "Почему wallbox — самый безопасный способ зарядки дома?"
+        },
+        {
+          "text": "Закреплённая на стене зарядная станция (wallbox) — самая безопасная и удобная форма домашней зарядки, потому что подключается не к розетке, а к отдельной линии, проложенной для неё от электрощита. Эту линию квалифицированный электрик рассчитывает под зарядную нагрузку, и она работает в щите под собственным автоматом и собственной защитой от тока утечки. Так зарядка не делит линию с остальными приборами дома; нагрузка идёт по инфраструктуре, спланированной правильно с самого начала."
+        },
+        {
+          "text": "Семейство wallbox от Bemis дополняет этот подход со стороны устройства: в моделях Charger Plus 2 и Charger Pro 2 мощность регулируется в диапазоне от 3,7 до 22 кВт, а алгоритм умной зарядки автоматически подстраивается под максимальный ток, который принимает автомобиль. Функция автоматического запуска зарядки в Charger Plus 2 сама продолжает зарядку после отключения электроэнергии; авторизация картой RFID позволяет запускать устройство только вам. Благодаря сертифицированному по CE корпусу с защитой IP65 wallbox можно установить и на открытом паркинге, и в саду; тему улицы и дождя мы подробно разобрали в отдельном руководстве. А вопрос «одна фаза или три» — это отдельное решение, связанное не столько с безопасностью, сколько с пропускной способностью проводки; для него посмотрите наше руководство по выбору."
+        },
+        {
+          "text": "Сторона проводки: на что смотреть до монтажа?"
+        },
+        {
+          "text": "В домашней зарядке безопасность определяет не столько устройство, сколько проводка. Приведённые ниже пункты — типовые вопросы, которые ваш квалифицированный электрик оценит при обследовании; точные значения и выбор материалов специалист определяет по проводке конкретного дома:"
+        },
+        {
+          "items": [
+            "Защита от тока утечки: на зарядной линии должно быть устройство защитного отключения подходящего типа; какой тип и номинал правильны, решает электрик, который видит проводку.",
+            "Отдельная (выделенная) линия: питание зарядного устройства от щита по собственной линии с автоматом разгружает и розетки, и остальные цепи дома.",
+            "Заземление: исправное заземление — обязательное условие безопасной зарядки; особенно в старых зданиях его нужно обязательно измерить.",
+            "Сечение кабеля и длина трассы: сечение выбирается по переносимому току и расстоянию; линии малого сечения либо со вставками и удлинениями рискуют перегреваться при длительной нагрузке.",
+            "Щит и автоматы: общее состояние щита, свободное место под автомат и мощность главного автомата оцениваются при обследовании вместе."
+          ]
+        },
+        {
+          "text": "Ни один шаг из этого списка не является работой, которую вам следует выполнять самостоятельно; цель в том, чтобы в разговоре с электриком вы понимали, что и зачем делается. Оценку проводки и монтаж в любом случае должен выполнять квалифицированный электрик."
+        },
+        {
+          "text": "Слухи о пожарах и факты"
+        },
+        {
+          "text": "Слух, который время от времени гуляет в социальных сетях, — «электромобиль загорается при зарядке» — вызывает наибольший интерес. Реальная картина такова: зарядка представляет собой контролируемый процесс, построенный на постоянном обмене данными. Ток течёт только после подтверждения связи между автомобилем и устройством и только на разрешённом уровне; при разрыве связи или обнаружении неисправности зарядка останавливается. Сертифицированное оборудование, отвечающее стандартам, само по себе источником риска не является."
+        },
+        {
+          "text": "Общее у случаев, когда при домашней зарядке возникали проблемы, чаще всего лежит за пределами оборудования: дешёвые нестандартные переходники, удлинители, изношенные розетки, запущенная или переделанная без понимания проводка. Управлять риском помогают три простых правила: используйте сертифицированное по CE оборудование, соответствующее стандарту Type 2 (IEC 62196-2); включайте зарядное устройство прямо в розетку или, что лучше, установите wallbox на отдельной линии; проверьте проводку у квалифицированного электрика. При соблюдении этих трёх правил домашняя зарядка — обычная и безопасная часть повседневной жизни. Время от времени осматривать вилку и устройство во время зарядки — нет ли перегрева, повреждений, ослабления — хорошая привычка, как и с любым электроприбором."
+        },
+        {
+          "text": "Ознакомьтесь с решениями Bemis для зарядки, сертифицированными по CE и с защитой IP65, которые подойдут вашему дому: будь то стационарный wallbox или портативное устройство, безопасная зарядка начинается с правильного оборудования.",
+          "label": "Посмотреть модели wallbox"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Безопасно ли заряжать электромобиль дома?",
+          "a": "Да. При правильном оборудовании и исправной электропроводке домашняя зарядка безопасна. Зарядное оборудование создаётся именно для этой задачи; устройство постоянно обменивается данными с автомобилем и подаёт ток только при подходящих условиях и только на разрешённом уровне. Риски чаще исходят не от оборудования, а от его окружения: изношенные розетки, удлинители, нестандартные переходники и запущенная проводка. Самый безопасный вариант — установить wallbox, питающийся по отдельной линии от щита и имеющий защиту от тока утечки; если вы пользуетесь портативным устройством, включайте его прямо в исправную заземлённую розетку. Проверку проводки и монтаж обязательно поручайте квалифицированному электрику."
+        },
+        {
+          "q": "Можно ли заряжать электромобиль от обычной бытовой розетки?",
+          "a": "Можно; с портативным зарядным устройством зарядка от стандартной заземлённой розетки (schuko) возможна и при правильных условиях безопасна. Блок управления внутри устройства ограничивает ток и не начинает зарядку, если соединение ненадёжно. Внимание нужно уделить стороне розетки: розетка должна быть исправной и заземлённой, линия — рассчитанной на многочасовую нагрузку, а удлинители и колодки использовать нельзя. Зарядка от розетки удобна прежде всего для неспешной ночной зарядки; если вы заряжаетесь каждый день, в среднесрочной перспективе wallbox на отдельной линии и быстрее, и удобнее. Если вы не уверены, поручите проверку розетки и линии своему электрику."
+        },
+        {
+          "q": "Можно ли заряжать автомобиль удлинителем или колодкой?",
+          "a": "Нет, это не рекомендуется. Зарядка автомобиля — это непрерывная и высокая нагрузка длиной в часы; удлинители, катушки и групповые розетки для таких нагрузок не рассчитаны. Промежуточные контакты и жилы малого сечения при длительной нагрузке могут нагреваться, а на смотанной катушке тепло накапливается ещё сильнее. Это самый частый источник проблем при домашней зарядке, и поэтому зарядное устройство всегда должно включаться прямо в настенную розетку. Если расположение розетки не подходит, решение не в удлинителе, а в том, чтобы электрик оборудовал новую розетку или зарядный выход на отдельной линии рядом с местом парковки автомобиля."
+        },
+        {
+          "q": "Нужны ли домашнему зарядному устройству отдельный автомат или УЗО?",
+          "a": "При монтаже стационарного wallbox общепринятый подход таков: устройство питается от щита по собственной линии с автоматом, а на этой линии установлено устройство защитного отключения подходящего типа. Такая схема отделяет зарядную нагрузку от остальных цепей дома и быстро отключает цепь при возможной утечке. При зарядке от розетки портативным устройством не менее важно, чтобы питающая розетку линия была защищена. Какой номинал автомата, какой тип УЗО и какое сечение кабеля подойдут, зависит от проводки дома, длины линии и выбранной мощности зарядки; эти решения должен принимать только квалифицированный электрик после осмотра на месте."
+        },
+        {
+          "q": "Несёт ли зарядка электромобиля риск пожара?",
+          "a": "При сертифицированном оборудовании и правильном монтаже домашняя зарядка — контролируемый и безопасный процесс; ток течёт только после подтверждения связи между автомобилем и устройством и только на разрешённом уровне, а при обнаружении неисправности зарядка останавливается. Общее у произошедших случаев чаще всего лежит вне оборудования: нестандартные переходники, удлинители, изношенные розетки и запущенная проводка. Снизить риск помогают три шага: использовать сертифицированное по CE оборудование, соответствующее стандарту Type 2 (IEC 62196-2); включать устройство прямо в розетку либо установить wallbox на отдельной линии; проверить проводку у квалифицированного электрика. Это вопрос не страха, а простой аккуратности."
+        }
+      ],
+      "related": [
+        {
+          "label": "Можно ли использовать зарядный кабель на улице и под дождём?"
+        },
+        {
+          "label": "Одна фаза или три фазы (3 фазы)? Какое зарядное устройство подойдёт вашему дому?"
+        },
+        {
+          "label": "Домашняя зарядная станция или портативное устройство?"
+        },
+        {
+          "label": "Портативные зарядные устройства"
+        }
+      ]
     },
     "isletmeler-icin-dc-hizli-sarj-istasyonu-yatirimi": {
       "title": "Инвестиции в быструю DC-зарядку для бизнеса: руководство по выбору"
@@ -18981,7 +20586,137 @@
       "title": "Стоимость домашней зарядки: сколько за километр?"
     },
     "monofaze-mi-trifaze-mi-ev-sarj": {
-      "title": "Однофазная или трёхфазная? Как выбрать домашнюю зарядную станцию"
+      "title": "Одна фаза или три фазы? Какое зарядное устройство подойдёт вашему дому?",
+      "metaTitle": "Одна фаза или три? Какое зарядное устройство для дома?",
+      "description": "Что выбрать при покупке зарядного устройства для электромобиля — однофазное или трёхфазное? Просто объясняем разницу между 7,4 кВт и 22 кВт для домашнего wallbox, время зарядки и правильное решение.",
+      "excerpt": "Самый важный вопрос при покупке wallbox для дома: одна фаза или три? Сравниваем мощность и время зарядки обоих вариантов и объясняем, какому пользователю какой подходит, в руководстве, ориентированном на решение.",
+      "category": "Технический",
+      "body": [
+        {
+          "text": "Вопрос, который чаще всего вызывает затруднение при покупке зарядного устройства для электромобиля домой, обычно таков: брать однофазное или трёхфазное (3 фазы)? На самом деле это решение о вашей электропроводке, и оно предшествует выбору марки или модели. Правильный ответ зависит от электрической инфраструктуры вашего дома и от ваших повседневных привычек. В этом руководстве мы сравниваем оба варианта по их реальным техническим значениям и ясно объясняем, какому пользователю какой подходит."
+        },
+        {
+          "text": "В чём разница между одной фазой и тремя фазами?"
+        },
+        {
+          "text": "Разница в том, по скольким фазам подводится электричество к вашему дому. Однофазная сеть означает одну фазу и несёт напряжение около 230 вольт. В Турции у большинства жилых объектов подключение однофазное; то есть у вас дома, скорее всего, однофазное электричество. Трёхфазная сеть означает три фазы и при напряжении около 400 вольт способна нести больше мощности одновременно. Поскольку за то же время передаётся больше энергии, три фазы ускоряют зарядку, но требуют 3-фазного подключения и соответствующей проводки."
+        },
+        {
+          "items": [
+            "Одна фаза (1 фаза, ~230 V): у домашнего wallbox практический предел составляет около 7,4 кВт (32 A). Большинство жилых подключений устроено именно так.",
+            "Три фазы (3 фазы, ~400 V): на wallbox возможны до 22 кВт (32 A). Зарядка быстрее, но нужны 3-фазное подключение и проводка."
+          ]
+        },
+        {
+          "text": "7,4 кВт или 22 кВт? Насколько меняется время зарядки?"
+        },
+        {
+          "text": "Чтобы представить оба варианта наглядно, вообразите, что вы ставите автомобиль на зарядку на ночь. Однофазный wallbox мощностью 7,4 кВт примерно за 8 часов передаёт в автомобиль порядка 59 кВт·ч. Это с запасом покрывает ежедневную потребность большинства водителей, то есть запас хода в несколько сотен километров. Трёхфазный wallbox мощностью 22 кВт за то же время передаёт примерно в 3 раза больше энергии. Значит, для тех, кто ежедневно проезжает очень много, заряжается на работе или питает несколько машин в одной точке, три фазы дают ощутимое преимущество."
+        },
+        {
+          "caption": "Сравнение однофазного и трёхфазного wallbox (для дома)",
+          "headers": [
+            "Характеристика",
+            "Одна фаза",
+            "Три фазы (3 фазы)"
+          ],
+          "rows": [
+            [
+              "Число фаз",
+              "1 фаза (~230 V)",
+              "3 фазы (~400 V)"
+            ],
+            [
+              "Предел мощности wallbox",
+              "~7,4 кВт (32 A)",
+              "До 22 кВт (32 A)"
+            ],
+            [
+              "Энергия за ~8 часов",
+              "~59 кВт·ч",
+              "~в 3 раза больше"
+            ],
+            [
+              "Необходимое подключение",
+              "Как правило, уже есть",
+              "3-фазное подключение/проводка"
+            ],
+            [
+              "Оптимальное применение",
+              "Дом, ежедневные городские поездки",
+              "Предприятие, большие пробеги, несколько машин"
+            ]
+          ]
+        },
+        {
+          "text": "Коротко: одна фаза / 7,4 кВт достаточно для большинства пользователей, которые заряжаются дома ночью и чей суточный пробег не превышает нескольких сотен километров. Три фазы / 22 кВт разумны для водителей, которые хотят сократить время зарядки, ежедневно проезжают большие расстояния или используют устройство в интенсивных сценариях, например на предприятии."
+        },
+        {
+          "text": "Как узнать, сколько фаз у меня дома?"
+        },
+        {
+          "text": "Есть несколько подсказок, по которым можно понять, однофазный у вас дом или трёхфазный. В счёте за электроэнергию или в типе подключения может быть указана информация о фазах. Заглянув в распределительный щит, вы можете увидеть характерную для трёхфазной установки картину. Но всё это годится лишь для предварительного представления; для точного ответа обязательно обратитесь к квалифицированному электрику. Только специалист может правильно оценить схему фаз, пропускную способность имеющейся линии и, при необходимости, возможность перехода на три фазы."
+        },
+        {
+          "text": "Безопасность здесь — важнейшая тема. Установка зарядного устройства — это электромонтажная работа с высокой мощностью; сечение кабеля, защитное оборудование и заземление должны быть выбраны правильно. Выполнение монтажа квалифицированным электриком и наличие надлежащих мер защиты (например, устройства защитного отключения) необходимы и для вашей безопасности, и для исправной работы устройства. Эта статья даёт общие ориентиры; окончательные решения по проводке оставьте специалисту, который осмотрит объект."
+        },
+        {
+          "text": "К какой фазе подходят зарядные устройства Bemis?"
+        },
+        {
+          "text": "Хорошая новость такова: при выборе правильного устройства оно гибко учтёт ваше решение по фазам. Во всём семействе wallbox от Bemis мощность регулируется в диапазоне от 3,7 до 22 кВт. Благодаря этому одно и то же устройство подходит и к однофазной, и к трёхфазной проводке; при монтаже вы настраиваете мощность под имеющуюся инфраструктуру. Начальная модель Charger 2 регулируется в том же диапазоне; отличие в том, что она не предлагает опции OCPP и счётчика, доступные в старших моделях. Все модели оснащены разъёмом Type 2."
+        },
+        {
+          "items": [
+            "Charger Plus 2: мощность регулируется в диапазоне 3,7 – 22 кВт; подходит и к однофазной, и к трёхфазной проводке, разъём Type 2.",
+            "Charger Pro 2: мощность регулируется в диапазоне 3,7 – 22 кВт; подходит и к однофазной, и к трёхфазной проводке, разъём Type 2.",
+            "Charger 2: начальная модель с регулировкой в диапазоне 3,7 – 22 кВт; разъём Type 2."
+          ]
+        },
+        {
+          "text": "Поэтому если вы не определились с фазами или планируете позже перейти на три фазы, модель с регулируемой мощностью даст гибкость: сегодня она работает на пониженной мощности в вашей однофазной сети, а при изменении условий её можно настроить на большую мощность. Надёжнее всего определить правильную мощность и настройки монтажа вместе с электриком, который видит вашу проводку."
+        },
+        {
+          "text": "Посмотрите модели wallbox с разъёмом Type 2, мощность которых настраивается под вашу проводку, и выберите решение, подходящее вашему дому.",
+          "label": "Посмотреть модели wallbox"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Какое зарядное устройство купить для дома — однофазное или трёхфазное?",
+          "a": "Это зависит от вашей электрической инфраструктуры и характера использования. В Турции у большинства жилых объектов однофазное подключение, и однофазный wallbox мощностью около 7,4 кВт за ночь спокойно покрывает большинство повседневных потребностей. Если вы ежедневно проезжаете очень много, будете заряжаться на работе или питать несколько машин в одной точке, разумны три фазы с мощностью до 22 кВт. Для окончательного решения рекомендуем поручить проверку схемы фаз вашего дома квалифицированному электрику."
+        },
+        {
+          "q": "Достаточно ли однофазного зарядного устройства?",
+          "a": "Для большинства домашних пользователей — да. Практический предел однофазного wallbox в доме составляет около 7,4 кВт (32 A), и при такой мощности примерно за 8 часов передаётся порядка 59 кВт·ч. Это несколько сотен километров суточного запаса хода, чего с избытком хватает при обычной городской эксплуатации. Если вы обычно заряжаете автомобиль дома ночью, одна фаза — практичное и экономичное решение. Если приоритетом является более короткое время зарядки, стоит рассмотреть три фазы."
+        },
+        {
+          "q": "Действительно ли трёхфазная зарядка быстрее?",
+          "a": "Да. Трёхфазная сеть работает при напряжении около 400 вольт и, поскольку способна нести больше мощности одновременно, на wallbox можно получить до 22 кВт. За то же время она передаёт примерно в 3 раза больше энергии, чем однофазная при 7,4 кВт. Однако для такой скорости нужны 3-фазное подключение и подходящая проводка. Важно и то, чтобы бортовое зарядное устройство автомобиля поддерживало эту мощность; поэтому перед вложениями следует проверить и проводку, и возможности машины."
+        },
+        {
+          "q": "Как узнать, однофазный у меня дом или трёхфазный?",
+          "a": "В счёте за электроэнергию или в типе подключения может содержаться информация о фазах; вид распределительного щита тоже может подсказать. Но это лишь предварительные признаки. Схему фаз, пропускную способность имеющейся линии и, при необходимости, возможность перехода на три фазы точно может определить только квалифицированный электрик после осмотра на месте. Поскольку речь идёт о монтаже большой мощности, обязательно поручите и оценку, и сам монтаж специалисту."
+        },
+        {
+          "q": "Работает ли зарядное устройство Bemis и от одной, и от трёх фаз?",
+          "a": "Поскольку мощность моделей Charger Plus 2 и Charger Pro 2 регулируется в диапазоне от 3,7 до 22 кВт, они подходят и к однофазной, и к трёхфазной проводке; при монтаже мощность настраивается под имеющуюся инфраструктуру. Начальная модель Charger 2 регулируется в том же диапазоне; отличие в том, что она не предлагает опции OCPP и счётчика, доступные в старших моделях. Все модели оснащены разъёмом Type 2. Правильнее всего определить подходящую модель и настройку мощности вместе с электриком, который видит вашу проводку."
+        }
+      ],
+      "related": [
+        {
+          "label": "Как выбрать зарядное устройство для электромобиля?"
+        },
+        {
+          "label": "Зарядный кабель для электромобиля: сколько метров, сколько ампер?"
+        },
+        {
+          "label": "Установка зарядной станции в многоквартирном доме"
+        },
+        {
+          "label": "Модели wallbox"
+        }
+      ]
     },
     "11-kw-mi-22-kw-mi-wallbox-guc-secimi-amper-hesabi": {
       "title": "11 кВт или 22 кВт? Выбор мощности wallbox и расчёт силы тока",
