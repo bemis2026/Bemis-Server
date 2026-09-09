@@ -67,12 +67,40 @@
 > **(f) ⛔ KÖRFEZ YEREL SİNYALLERİ — KURULAMIYOR:** `internationalDealers` verisinde **yalnız 3 ülke aktif
 > (Almanya · Şili · Portekiz)**; Körfez'de distribütör YOK → NAP / yerel sayfa uydurulamaz. **Ticari karar,
 > kod işi değil.**
+> **➡️ GCC 3. TURU — /ar GİRİŞ SAYFASI AÇILDI (2026-09-09, aynı gün):** Kullanıcı seçmeli karar verdi:
+> **"/ar giriş sayfası"** (tek yeni sayfa: üretici hikayesi + ürün kategorileri + ihracat/OEM iletişimi + SSS +
+> teklif formu = **/export'un Arapça muadili**). Aynı zamanda **/ar adresinin 404'ünü kapattı** — Arapça kol
+> ilk kez ürün rotalarının DIŞINA çıktı.
+> **⚠️⚠️ ROTA KARARI — `app/ar/page.tsx` YAZILMADI (bilerek):** statik bir `ar` segmenti, aynı seviyedeki
+> dinamik `app/[lang]/products` kolunu **gölgeler** ve /ar/products altındaki **159 sayfayı kırardı**. Bunun
+> yerine **`app/[lang]/page.tsx`** + `generateStaticParams → [{lang:"ar"}]` + `dynamicParams = false`
+> (yani /de /es /ru /nl kökleri eskisi gibi 404). 📌 **Bu dizine `layout.tsx` EKLEME** — segment ayarları
+> çocuklara iner ve ürün kolunu etkiler.
+> **DOSYALAR:** `app/[lang]/arIcerik.ts` (**`AR_SSS` = 6 Arapça SSS, TEK KAYNAK** → hem görünen SSS hem
+> FAQPage JSON-LD aynı diziden; iki yerde yazılsa zamanla ayrışır ve "şemadaki içerik sayfada görünür olmalı"
+> kuralı sessizce ihlal edilirdi) · `app/[lang]/ArLandingClient.tsx` (hero + güven çipleri + 4 "neden biz"
+> kartı + kategori ızgarası + SSS + ihracat iletişimi + teklif formu) · `app/[lang]/page.tsx` (metadata +
+> JSON-LD + kategori verisi).
+> **⚠️ RTL YAZIM KURALI:** sayfa `dir="rtl"` altında çalıştığı için yön-BAĞIMLI Tailwind sınıfı
+> (`text-left`, `ml-*`, `pl-*`) KULLANILMAZ → mantıksal karşılıkları (`text-start`, `ms-*`, `ps-*`).
+> "İleri" oku RTL'de SOLA bakar → `RiArrowLeftLine`.
+> **⚠️ İÇERİK:** uydurma ticari şart YOK (fiyat / asgari sipariş / teslim süresi / bölge münhasırlığı yazılmadı);
+> yalnız sitede zaten yazılı olgular (1994, Bursa 16.000 m², CE, IP65/IP66, Type 2 · IEC 62196, CCS2, OCPP,
+> AC 3,7–22 kW, DC 40–200 kW, 2 yıl garanti, 80+ ülke). "Türkiye'nin/yerli" milliyetçi çerçeve YOK (kayıtlı kural).
+> Form `/api/contact`'a `topic:"export"` ile gider + honeypot(`website`) + `elapsed` spam kapıları dolu.
+> **KATEGORİ IZGARASI CANLI KATALOĞDAN:** adlar/özetler `localeCategoryMeta("ar", …)`'dan, sıra ve hangi
+> kategorilerin var olduğu `getProductsForLang("ar")`'dan → kategori eklenir/kaldırılırsa sayfa kendiliğinden uyar
+> (katalog okunamazsa `LOCALE_CATEGORY_SEO.ar` anahtarlarına düşer).
+> **⚠️ HREFLANG KARŞILIKLI YAPILDI (yoksa Google karşılıklılığı bozar):** /ar, anasayfa kümesinin Arapça sürümü
+> sayıldı → **TR anasayfa · EN /export · AR /ar** üçlüsü + x-default, **ÜÇ dosyada birden**: `app/page.tsx`,
+> `app/export/page.tsx`, `app/[lang]/page.tsx` + sitemap'te `GIRIS_ALT` ile aynı küme. ⓘ /export'taki
+> "anasayfa use client olduğu için karşılıklı etiket veremiyor" notu **BAYATTI** (anasayfa 2026-08-01'de server
+> sarmalayıcıya geçmişti) → düzeltildi.
 > **⏳ KALAN:** (1) **GSC Körfez taban çizgisi** — Ahrefs'in GSC uçları "Insufficient plan" (tekrar denendi,
 > kapalı) → kullanıcı Search Console'dan **Ülkeler + Sayfalar** dışa aktarımı indirmeli; GA trafiği ölçer,
-> SIRALAMAYI ölçmez. (2) **Arapça kapsam ürün DIŞINA çıkmıyor** — /ar yalnız ürün rotalarını kapsıyor; blog,
-> sözlük, /uretici, /export Arapça adreste YOK. Körfez ziyaretçisi /ar/products'a düşünce Arapça bir "üretici
-> kimdir" sayfası bulamıyor. Bu, GCC'nin sıradaki EN BÜYÜK içerik kaldıracı ama yeni rota kümesi = ayrı ve
-> planlı bir tur (kullanıcı onayı ile).
+> SIRALAMAYI ölçmez. (2) **Arapça kapsam hâlâ ürün + giriş sayfasıyla sınırlı** — blog, sözlük, /uretici,
+> /export Arapça adreste YOK. Giriş sayfası "üretici kimdir" boşluğunu kapattı; kalan derin içerik (Arapça blog/
+> sözlük) ayrı ve planlı bir tur.
 
 > 🌍🔢 **İHRACAT ÜLKE SAYISI 60+ → 80+ (82 YER) + WALLBOX H1 3,7–22 kW (2026-09-08, commit 88e98ec):**
 > Site kendiyle çelişiyordu: anasayfa istatistiği **"80+ Ülke İhracat"**, geri kalan HER ŞEY (kurumsal tanım,

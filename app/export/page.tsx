@@ -17,11 +17,10 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: URL_PATH,
-    // EN sayfası: tr→anasayfa (TR sürüm), en→kendisi, x-default→TR anasayfa (varsayılan).
-    // NOT: Anasayfa "use client" olduğu için karşılıklı en→/export etiketini şu an
-    // veremiyor (root'a eklemek 8 sayfayı kirletir); tam resiprokal küme anasayfa
-    // server-wrapper refactor'u ister. Bu taraf yine de doğru + güvenli.
-    languages: { tr: "/", en: URL_PATH, "x-default": "/" },
+    // Giriş sayfası kümesi: tr→anasayfa · en→bu sayfa · ar→/ar · x-default→TR anasayfa.
+    // ⚠️ 2026-09-09: anasayfa server sarmalayıcıya geçtiği için küme artık KARŞILIKLI
+    // (app/page.tsx ve app/[lang]/page.tsx aynı üçlüyü basıyor) — eski "veremiyor" notu geçersizdi.
+    languages: { tr: "/", en: URL_PATH, ar: "/ar", "x-default": "/" },
   },
   openGraph: {
     title: "EV Charging Cable & Charger Manufacturer — Bemis E-V Charge (Türkiye)",

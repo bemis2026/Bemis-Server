@@ -34,8 +34,12 @@ const CATEGORY_IDS = [
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
+  // TR anasayfa / EN /export / AR /ar aynı "giriş sayfası" kümesinin dil sürümleri.
+  const GIRIS_ALT = { tr: BASE, en: `${BASE}/export`, ar: `${BASE}/ar` };
+
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: BASE,                lastModified: now, changeFrequency: "weekly",  priority: 1.0 },
+    // Giriş sayfası kümesi (TR anasayfa · EN /export · AR /ar) — üçü de aynı hreflang'i verir.
+    { url: BASE,                lastModified: now, changeFrequency: "weekly",  priority: 1.0, alternates: { languages: GIRIS_ALT } },
     { url: `${BASE}/products`,  lastModified: now, changeFrequency: "weekly",  priority: 0.9, alternates: { languages: { tr: `${BASE}/products`, en: `${BASE}/en/products`, de: `${BASE}/de/products`, es: `${BASE}/es/products`, ru: `${BASE}/ru/products`, nl: `${BASE}/nl/products`, ar: `${BASE}/ar/products` } } },
     { url: `${BASE}/uretici`,   lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/kurumsal`,  lastModified: now, changeFrequency: "monthly", priority: 0.7 },
@@ -43,7 +47,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/b2b`,       lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/bayilik`,   lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/operator`,  lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE}/export`,    lastModified: now, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${BASE}/export`,    lastModified: now, changeFrequency: "monthly", priority: 0.85, alternates: { languages: GIRIS_ALT } },
+    { url: `${BASE}/ar`,        lastModified: now, changeFrequency: "monthly", priority: 0.85, alternates: { languages: GIRIS_ALT } },
     { url: `${BASE}/iletisim`,  lastModified: now, changeFrequency: "yearly",  priority: 0.7 },
     { url: `${BASE}/gizlilik`,        lastModified: now, changeFrequency: "yearly",  priority: 0.3 },
     { url: `${BASE}/cerez-politikasi`, lastModified: now, changeFrequency: "yearly",  priority: 0.3 },

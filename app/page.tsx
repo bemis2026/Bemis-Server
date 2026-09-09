@@ -12,7 +12,8 @@ import { getServerSiteContent, getServerProducts } from "./lib/server-content";
 export const metadata: Metadata = {
   alternates: {
     canonical: "/",
-    languages: { tr: "/", en: "/export", "x-default": "/" },
+    // ⚠️ Küme KARŞILIKLI: /export ve /ar da aynı üçlüyü verir (app/[lang]/page.tsx).
+    languages: { tr: "/", en: "/export", ar: "/ar", "x-default": "/" },
   },
 };
 
