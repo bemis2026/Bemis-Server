@@ -29,7 +29,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: metaTitle,
     description: metaDesc,
     keywords: t.keywords,
-    alternates: { canonical, languages: { tr: canonical, "x-default": canonical } },
+    // ⚠️ 15 terimin 15'inin de Arapçası var → her terimde ar girişi güvenli.
+    alternates: { canonical, languages: { tr: canonical, ar: `/ar/sozluk/${t.slug}`, "x-default": canonical } },
     openGraph: { title: metaTitle, description: metaDesc, type: "article", url: canonical, modifiedTime: GLOSSARY_UPDATED, images: ogImage(t.term) },
     twitter: { card: "summary_large_image", title: metaTitle, description: metaDesc, images: [OG_URL] },
   };

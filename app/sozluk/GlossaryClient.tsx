@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { RiBookOpenLine, RiArrowRightLine, RiArrowLeftLine } from "react-icons/ri";
 import { useTheme } from "../context/ThemeContext";
@@ -11,6 +12,7 @@ import Footer from "../components/Footer";
 import { TERM_SEE_ALSO, type GlossaryTerm } from "../lib/glossary";
 import { GLOSSARY_I18N, loadGlossaryI18n } from "../lib/glossaryI18n";
 import { useLanguage } from "../context/LanguageContext";
+import { forcedLangForPath } from "../lib/languages";
 
 const BLUE = "#3B82F6";
 
@@ -19,6 +21,9 @@ const UI: Record<string, Record<string, string>> = {
   tr: { eyebrow: "EV Şarj Sözlüğü", indexTitle: "Elektrikli Araç Şarj Terimleri Sözlüğü", intro: "Type 2, CCS2, OCPP, AC/DC, kW–kWh, V2L, yük yönetimi (DLM), IP65/IP66 ve daha fazlası — elektrikli araç şarjında en çok merak edilen terimlerin kısa ve net açıklamaları.", back: "Sözlük", faqHeading: "Sıkça Sorulan Sorular", relatedContent: "İlgili içerik", ctaText: "Yerli üretim elektrikli araç şarj çözümleri için ürün gamımızı inceleyin.", ctaBtn: "Ürünleri İncele", relatedTerms: "İlgili Terimler", otherTerms: "Diğer terimler" },
   en: { eyebrow: "EV Charging Glossary", indexTitle: "Electric Vehicle Charging Glossary", intro: "Type 2, CCS2, OCPP, AC/DC, kW–kWh, V2L, load management (DLM), IP65/IP66 and more — short, clear explanations of the most-asked electric-vehicle charging terms.", back: "Glossary", faqHeading: "Frequently Asked Questions", relatedContent: "Related content", ctaText: "Explore our product range for locally produced electric-vehicle charging solutions.", ctaBtn: "Explore Products", relatedTerms: "Related Terms", otherTerms: "Other terms" },
   nl: { eyebrow: "Woordenlijst EV-laden", indexTitle: "Woordenlijst laden van elektrische voertuigen", intro: "Type 2, CCS2, OCPP, AC/DC, kW–kWh, V2L, loadmanagement (DLM), IP65/IP66 en meer — korte, duidelijke uitleg van de meestgestelde termen rond het laden van elektrische voertuigen.", back: "Woordenlijst", faqHeading: "Veelgestelde vragen", relatedContent: "Gerelateerde inhoud", ctaText: "Ontdek ons productassortiment voor in eigen huis geproduceerde laadoplossingen voor elektrische voertuigen.", ctaBtn: "Bekijk producten", relatedTerms: "Gerelateerde termen", otherTerms: "Andere termen" },
+  // ⚠️ Arapça bloğu olmadan /ar/sozluk kabuğu İNGİLİZCE'ye düşüyordu (eksik dil → en).
+  // ⚠️ CTA metninde "yerli üretim" çerçevesi YOK (yabancı dil kuralı) → "üreticiden doğrudan".
+  ar: { eyebrow: "قاموس شحن السيارات الكهربائية", indexTitle: "قاموس مصطلحات شحن السيارات الكهربائية", intro: "‏Type 2 و CCS2 و OCPP و AC/DC و kW–kWh و V2L وإدارة الأحمال (DLM) و IP65/IP66 وغيرها — شرح مختصر وواضح لأكثر مصطلحات شحن السيارات الكهربائية تداولاً.", back: "المصطلحات", faqHeading: "الأسئلة الشائعة", relatedContent: "محتوى ذو صلة", ctaText: "استعرض مجموعة منتجاتنا لحلول شحن السيارات الكهربائية من المصنّع مباشرة.", ctaBtn: "استعرض المنتجات", relatedTerms: "مصطلحات ذات صلة", otherTerms: "مصطلحات أخرى" },
 };
 const VIEWPORT = { once: true, margin: "-60px" } as const;
 
@@ -31,6 +36,11 @@ export default function GlossaryClient(props: Props) {
   const d = theme === "dark";
   const { lang } = useLanguage();
   const [searchOpen, setSearchOpen] = useState(false);
+
+  // ⚠️ İç linkler KENDİ dil kolunda kalmalı — /ar/sozluk'tan TR köke sızmasın
+  // (aynı kusur 2026-09-03'te /de /es /ru ürün kolunda yaşandı).
+  // Sözlük rotası YALNIZ tr + ar'da var → başka dil kolunda önek YOK.
+  const taban = forcedLangForPath(usePathname()) === "ar" ? "/ar" : "";
 
   // glossary.json (253 KB) yalnız yabancı dilde indirilir; indince tick artar ve
   // terimler çeviriyle yeniden render olur. TR okuyucu bu dosyayı hiç indirmez.
@@ -90,7 +100,7 @@ export default function GlossaryClient(props: Props) {
             <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
               {props.terms.map((t, i) => (
                 <motion.div key={t.slug} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.4, delay: (i % 3) * 0.05 }}>
-                  <Link href={`/sozluk/${t.slug}`} className="block rounded-2xl p-5 h-full transition-transform hover:scale-[1.02]" style={{ background: surface, border: `1px solid ${border}` }}>
+                  <Link href={`${taban}/sozluk/${t.slug}`} className="block rounded-2xl p-5 h-full transition-transform hover:scale-[1.02]" style={{ background: surface, border: `1px solid ${border}` }}>
                     <h2 className="font-black text-lg mb-1.5" style={{ color: accent }}>{tx(t).abbr}</h2>
                     <p className="text-sm leading-relaxed" style={{ color: textMuted }}>{tx(t).short}</p>
                   </Link>
@@ -102,7 +112,7 @@ export default function GlossaryClient(props: Props) {
       ) : (
         <article className="pt-28 pb-12 px-5 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <Link href="/sozluk" className="inline-flex items-center gap-1.5 text-sm font-semibold mb-6 hover:opacity-80" style={{ color: accent }}>
+            <Link href={`${taban}/sozluk`} className="inline-flex items-center gap-1.5 text-sm font-semibold mb-6 hover:opacity-80" style={{ color: accent }}>
               <RiArrowLeftLine size={15} /> {ui.back}
             </Link>
             {eyebrow}
@@ -139,7 +149,7 @@ export default function GlossaryClient(props: Props) {
                 <h2 className="text-sm font-bold uppercase tracking-wider mb-3" style={{ color: textMuted }}>{ui.relatedContent}</h2>
                 <div className="flex flex-wrap gap-2.5">
                   {term!.related.map((r) => (
-                    <Link key={r.href} href={r.href} className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-transform hover:scale-[1.03]" style={{ background: surface, border: `1px solid ${border}`, color: textPrimary }}>
+                    <Link key={r.href} href={r.href.startsWith("/products") ? `${taban}${r.href}` : r.href} className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-transform hover:scale-[1.03]" style={{ background: surface, border: `1px solid ${border}`, color: textPrimary }}>
                       {r.label} <RiArrowRightLine size={14} style={{ color: accent }} />
                     </Link>
                   ))}
@@ -149,7 +159,7 @@ export default function GlossaryClient(props: Props) {
 
             <div className="rounded-2xl px-5 py-4 mb-10" style={{ background: d ? "rgba(59,130,246,0.08)" : "rgba(59,130,246,0.05)", border: `1px solid ${BLUE}26` }}>
               <p className="text-sm sm:text-base font-semibold mb-3" style={{ color: textPrimary }}>{ui.ctaText}</p>
-              <Link href="/products" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white" style={{ background: BLUE }}>
+              <Link href={`${taban}/products`} className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white" style={{ background: BLUE }}>
                 {ui.ctaBtn} <RiArrowRightLine size={15} />
               </Link>
             </div>
@@ -163,7 +173,7 @@ export default function GlossaryClient(props: Props) {
                   <h2 className="text-sm font-bold uppercase tracking-wider mb-3" style={{ color: textMuted }}>{ui.relatedTerms}</h2>
                   <div className="flex flex-wrap gap-2.5">
                     {seeAlso.map((t) => (
-                      <Link key={t.slug} href={`/sozluk/${t.slug}`} className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-transform hover:scale-[1.03]" style={{ background: surface, border: `1px solid ${border}`, color: textPrimary }}>
+                      <Link key={t.slug} href={`${taban}/sozluk/${t.slug}`} className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-transform hover:scale-[1.03]" style={{ background: surface, border: `1px solid ${border}`, color: textPrimary }}>
                         {tx(t).abbr} <RiArrowRightLine size={14} style={{ color: accent }} />
                       </Link>
                     ))}
@@ -175,7 +185,7 @@ export default function GlossaryClient(props: Props) {
             <h2 className="text-sm font-bold uppercase tracking-wider mb-3" style={{ color: textMuted }}>{ui.otherTerms}</h2>
             <div className="flex flex-wrap gap-2">
               {props.terms.filter((t) => t.slug !== term!.slug).map((t) => (
-                <Link key={t.slug} href={`/sozluk/${t.slug}`} className="px-3 py-1.5 rounded-full text-xs font-semibold transition-transform hover:scale-[1.04]" style={{ background: surface, border: `1px solid ${border}`, color: textMuted }}>
+                <Link key={t.slug} href={`${taban}/sozluk/${t.slug}`} className="px-3 py-1.5 rounded-full text-xs font-semibold transition-transform hover:scale-[1.04]" style={{ background: surface, border: `1px solid ${border}`, color: textMuted }}>
                   {tx(t).abbr}
                 </Link>
               ))}

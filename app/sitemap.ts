@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getServerProducts } from "./lib/server-content";
 import { allPosts } from "./blog/posts";
+import { yazilarDilde } from "./lib/serverBlogLang";
 import { allPress } from "./blog/press";
 import { CITY_PAGES } from "./lib/cities";
 import { allTerms } from "./lib/glossary";
@@ -190,13 +191,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ),
   ]);
 
+  // Blog — TR + Arapça kol. ⚠️ ar alternate YALNIZ Arapçası tam olan yazıda
+  // (arSlug kümesi) verilir; çift yönlü olsun diye TR girişine de aynı küme yazılır.
+  const arSlug = new Set(yazilarDilde("ar").map((p) => p.slug));
+  const blogAlt = (yol: string) => ({ tr: `${BASE}${yol}`, ar: `${BASE}/ar${yol}` });
   const blogRoutes: MetadataRoute.Sitemap = [
-    { url: `${BASE}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${BASE}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7, alternates: { languages: blogAlt("/blog") } },
     ...allPosts().map((p) => ({
       url: `${BASE}/blog/${p.slug}`,
       lastModified: new Date(p.dateModified ?? p.datePublished),
       changeFrequency: "monthly" as const,
       priority: 0.6,
+      ...(arSlug.has(p.slug) ? { alternates: { languages: blogAlt(`/blog/${p.slug}`) } } : {}),
+    })),
+    { url: `${BASE}/ar/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.65, alternates: { languages: blogAlt("/blog") } },
+    ...allPosts().filter((p) => arSlug.has(p.slug)).map((p) => ({
+      url: `${BASE}/ar/blog/${p.slug}`,
+      lastModified: new Date(p.dateModified ?? p.datePublished),
+      changeFrequency: "monthly" as const,
+      priority: 0.55,
+      alternates: { languages: blogAlt(`/blog/${p.slug}`) },
     })),
     ...allPress().map((p) => ({
       url: `${BASE}/blog/haber/${p.id}`,
@@ -206,13 +220,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   ];
 
+  // Sözlük — TR + Arapça kol. ⚠️ Çift yönlü alternates: karşılıklılık bozulmasın.
+  const sozlukAlt = (yol: string) => ({ tr: `${BASE}${yol}`, ar: `${BASE}/ar${yol}` });
   const glossaryRoutes: MetadataRoute.Sitemap = [
-    { url: `${BASE}/sozluk`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/sozluk`, lastModified: now, changeFrequency: "monthly", priority: 0.7, alternates: { languages: sozlukAlt("/sozluk") } },
     ...allTerms().map((t) => ({
       url: `${BASE}/sozluk/${t.slug}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.6,
+      alternates: { languages: sozlukAlt(`/sozluk/${t.slug}`) },
+    })),
+    { url: `${BASE}/ar/sozluk`, lastModified: now, changeFrequency: "monthly", priority: 0.65, alternates: { languages: sozlukAlt("/sozluk") } },
+    ...allTerms().map((t) => ({
+      url: `${BASE}/ar/sozluk/${t.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.55,
+      alternates: { languages: sozlukAlt(`/sozluk/${t.slug}`) },
     })),
   ];
 

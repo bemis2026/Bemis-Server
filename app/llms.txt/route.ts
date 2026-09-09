@@ -86,8 +86,8 @@ kendi dilinde başlık, açıklama ve SSS içerir (hreflang ile karşılıklı b
 - Nederlands: https://www.bemisevcharge.com.tr/nl/products
 - العربية (Arapça, sağdan-sola): https://www.bemisevcharge.com.tr/ar/products
 
-Arapça bölüm Orta Doğu ve Körfez pazarına yöneliktir; ürün adları, kategori açıklamaları ve
-sık sorulan sorular Arapça olarak yayımlanır.
+Arapça bölüm Orta Doğu ve Körfez pazarına yöneliktir: ürün ve kategori sayfaları, giriş sayfası,
+şarj terimleri sözlüğü ve teknik rehberler Arapça adreslerde yayımlanır.
 
 ### نبذة بالعربية
 
@@ -99,6 +99,12 @@ Bemis Teknik Elektrik A.Ş. التي تأسست عام 1994 وتنتج في من
 تشمل الفئات: محطات شحن جدارية AC بقدرة قابلة للضبط من 3,7 إلى 22 kW، شواحن متنقلة، كابلات
 Type 2 (Mode 2 و Mode 3)، محوّلات V2L و C2L، كابلات تمديد ومحوّلات CEE، إكسسوارات، محطات شحن
 سريع DC من 40 إلى 200 kW (سلسلة BEVDC)، ومكوّنات محطات الشحن.
+
+الصفحات بالعربية:
+- الصفحة التعريفية (المصنّع، الفئات، الأسئلة الشائعة، نموذج طلب عرض سعر): https://www.bemisevcharge.com.tr/ar
+- المنتجات والفئات: https://www.bemisevcharge.com.tr/ar/products
+- قاموس مصطلحات شحن السيارات الكهربائية: https://www.bemisevcharge.com.tr/ar/sozluk
+- الأدلة والمقالات التقنية: https://www.bemisevcharge.com.tr/ar/blog
 
 للتصدير والجملة و OEM: trade@bemis.com.tr · +90 542 773 72 94
 

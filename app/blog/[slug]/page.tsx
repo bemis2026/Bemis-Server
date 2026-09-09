@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import JsonLd from "../../components/JsonLd";
 import { articleSchema, faqSchema, breadcrumbSchema, howToSchema, ogImage, OG_URL } from "../../lib/seo";
 import { allPosts, getPost, type BlogPost } from "../posts";
+import { tamCevrildi } from "../../lib/serverBlogLang";
 import BlogShell from "../BlogShell";
 
 export const dynamicParams = false;
@@ -27,11 +28,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getPost(slug);
   if (!post) return { title: "Yazı bulunamadı" };
   const canonical = `/blog/${post.slug}`;
+  // ⚠️ ar girişi YALNIZ Arapçası TAM olan yazıda verilir: çevirisi eksik yazının
+  // /ar/blog/<slug> adresi YOK (rota o slug'ı üretmez) → karşılıksız hreflang olmaz.
+  const arapcaVar = tamCevrildi(post, "ar");
   return {
     title: post.metaTitle || post.title,
     description: post.description,
     keywords: post.keywords,
-    alternates: { canonical, languages: { tr: canonical, "x-default": canonical } },
+    alternates: {
+      canonical,
+      languages: arapcaVar
+        ? { tr: canonical, ar: `/ar${canonical}`, "x-default": canonical }
+        : { tr: canonical, "x-default": canonical },
+    },
     openGraph: {
       title: post.title,
       description: post.description,

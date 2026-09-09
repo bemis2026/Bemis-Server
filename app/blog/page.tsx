@@ -8,7 +8,8 @@ export const metadata: Metadata = {
   title: "EV Şarj Rehberleri & Teknik Yazılar",
   description:
     "Elektrikli araç şarjı, V2L, kablo ve adaptör seçimi, kurulum ve yerli üretim üzerine pratik rehberler. Bemis E-V Charge blog.",
-  alternates: { canonical: "/blog", languages: { tr: "/blog", "x-default": "/blog" } },
+  // ⚠️ Küme KARŞILIKLI: /ar/blog de aynı üçlüyü verir (app/[lang]/blog).
+  alternates: { canonical: "/blog", languages: { tr: "/blog", ar: "/ar/blog", "x-default": "/blog" } },
   openGraph: {
     title: "Bemis E-V Charge Blog",
     description: "EV şarj rehberleri ve teknik yazılar.",

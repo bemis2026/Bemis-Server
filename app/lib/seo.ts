@@ -734,36 +734,54 @@ export function faqSchema(items: { q: string; a: string }[]): JsonLdObject {
 
 // Sözlük (GEO/AEO) — DefinedTermSet + DefinedTerm. "X nedir" sorgularını
 // alıntılanabilir tanımlarla karşılar. name = kısa terim etiketi (abbr).
-const GLOSSARY_SET_ID = `${SITE_URL}/sozluk#definedtermset`;
 const GLOSSARY_SET_NAME = "Elektrikli Araç Şarj Terimleri Sözlüğü";
 
-export function definedTermSetSchema(terms: { slug: string; abbr: string; definition: string }[]): JsonLdObject {
+/** Sözlük şeması seçenekleri — dil kolları (/ar/sozluk) için.
+ *  ⚠️ Varsayılanlar TR davranışını BİREBİR korur; TR sayfalarında hiçbir şey değişmez. */
+export type SozlukSemaSecenek = { taban?: string; dil?: string; setAdi?: string };
+const sozlukTaban = (o?: SozlukSemaSecenek) => o?.taban ?? "/sozluk";
+const sozlukDil = (o?: SozlukSemaSecenek) => o?.dil ?? "tr-TR";
+const sozlukSetAdi = (o?: SozlukSemaSecenek) => o?.setAdi ?? GLOSSARY_SET_NAME;
+// ⚠️ @id tabana bağlı: Arapça sayfa TR ile aynı @id'yi kullansaydı iki ayrı sayfa
+// aynı varlığı iddia ederdi.
+const sozlukSetId = (o?: SozlukSemaSecenek) => `${SITE_URL}${sozlukTaban(o)}#definedtermset`;
+
+export function definedTermSetSchema(
+  terms: { slug: string; abbr: string; definition: string }[],
+  opts?: SozlukSemaSecenek,
+): JsonLdObject {
+  const taban = sozlukTaban(opts);
   return {
     "@context": "https://schema.org",
     "@type": "DefinedTermSet",
-    "@id": GLOSSARY_SET_ID,
-    name: GLOSSARY_SET_NAME,
-    url: `${SITE_URL}/sozluk`,
-    inLanguage: "tr-TR",
+    "@id": sozlukSetId(opts),
+    name: sozlukSetAdi(opts),
+    url: `${SITE_URL}${taban}`,
+    inLanguage: sozlukDil(opts),
     hasDefinedTerm: terms.map((t) => ({
       "@type": "DefinedTerm",
       name: t.abbr,
       description: t.definition,
-      url: `${SITE_URL}/sozluk/${t.slug}`,
+      url: `${SITE_URL}${taban}/${t.slug}`,
     })),
   };
 }
 
-export function definedTermSchema(t: { slug: string; abbr: string; definition: string }, seeAlso?: string[]): JsonLdObject {
+export function definedTermSchema(
+  t: { slug: string; abbr: string; definition: string },
+  seeAlso?: string[],
+  opts?: SozlukSemaSecenek,
+): JsonLdObject {
+  const taban = sozlukTaban(opts);
   return {
     "@context": "https://schema.org",
     "@type": "DefinedTerm",
-    "@id": `${SITE_URL}/sozluk/${t.slug}#definedterm`,
+    "@id": `${SITE_URL}${taban}/${t.slug}#definedterm`,
     name: t.abbr,
     description: t.definition,
-    url: `${SITE_URL}/sozluk/${t.slug}`,
-    inLanguage: "tr-TR",
-    inDefinedTermSet: { "@type": "DefinedTermSet", "@id": GLOSSARY_SET_ID, name: GLOSSARY_SET_NAME, url: `${SITE_URL}/sozluk` },
+    url: `${SITE_URL}${taban}/${t.slug}`,
+    inLanguage: sozlukDil(opts),
+    inDefinedTermSet: { "@type": "DefinedTermSet", "@id": sozlukSetId(opts), name: sozlukSetAdi(opts), url: `${SITE_URL}${taban}` },
     ...(seeAlso && seeAlso.length > 0 && { seeAlso }), // terim↔terim mesh (TERM_SEE_ALSO)
   };
 }

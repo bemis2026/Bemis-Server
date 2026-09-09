@@ -17,6 +17,14 @@ import type { BlogPost, BlogSection } from "./posts";
 import { allPress, type PressItem } from "./press";
 import { trPress, trPressList } from "../lib/pressI18n";
 import { trBlogPost, loadBlogI18n } from "../lib/blogI18n";
+import { forcedLangForPath } from "../lib/languages";
+import { usePathname } from "next/navigation";
+
+// ⚠️ İç linkler KENDİ dil kolunda kalmalı — /ar/blog'dan TR köke sızmasın.
+// Blog rotası YALNIZ tr + ar'da var (de/es/ru/nl/en'de blog adresi YOK) → yalnız "ar" öneklenir.
+function useTaban() {
+  return forcedLangForPath(usePathname()) === "ar" ? "/ar" : "";
+}
 
 const BLUE = "#3B82F6";
 
@@ -32,7 +40,7 @@ const pressLabel = (type: PressItem["type"], lang: string) =>
     : type === "social" ? (pickText(lang, "Sosyal", "Social"))
       : (pickText(lang, "Haber", "News"));
 
-export default function BlogShell({ post, posts, pressItem }: { post?: BlogPost; posts?: BlogPost[]; pressItem?: PressItem }) {
+export default function BlogShell({ post, posts, pressItem, sadeceRehber }: { post?: BlogPost; posts?: BlogPost[]; pressItem?: PressItem; sadeceRehber?: boolean }) {
   const { theme } = useTheme();
   const d = theme === "dark";
   const { lang } = useLanguage();
@@ -68,7 +76,7 @@ export default function BlogShell({ post, posts, pressItem }: { post?: BlogPost;
       ) : pressItem ? (
         <PressArticle item={trPress(pressItem, lang)} d={d} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} fmtDate={fmtDate} />
       ) : (
-        <Listing posts={(posts ?? []).map((p) => trBlogPost(p, lang))} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} fmtDate={fmtDate} />
+        <Listing posts={(posts ?? []).map((p) => trBlogPost(p, lang))} surface={surface} border={border} textPrimary={textPrimary} textMuted={textMuted} textFaint={textFaint} fmtDate={fmtDate} sadeceRehber={sadeceRehber} />
       )}
 
       <ContactBar />
@@ -77,10 +85,14 @@ export default function BlogShell({ post, posts, pressItem }: { post?: BlogPost;
 }
 
 // ── Liste görünümü ──────────────────────────────────────────────────────────
-function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fmtDate }: {
+function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fmtDate, sadeceRehber }: {
   posts: BlogPost[]; surface: string; border: string; textPrimary: string; textMuted: string; textFaint: string; fmtDate: (s: string) => string;
+  /** Arapça kol: yalnız rehberler. Haberler (basın) ve SSS sekmeleri Arapça ADRESE
+   *  sahip olmadığı için gizlenir — aksi hâlde Arapça sayfadan TR rotalara sızardı. */
+  sadeceRehber?: boolean;
 }) {
   const { lang } = useLanguage();
+  const taban = useTaban();
   const { theme } = useTheme();
   const d = theme === "dark";
   const press = trPressList(allPress(), lang);
@@ -92,12 +104,13 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
   const faqCount = faqGroups.reduce((n, g) => n + g.faq.length, 0);
 
   // Varsayılan: Haberler. #rehberler / #sss hash'i ile ilgili sekme açılır.
-  const [tab, setTab] = useState<"rehberler" | "haberler" | "sss">("haberler");
+  const [tab, setTab] = useState<"rehberler" | "haberler" | "sss">(sadeceRehber ? "rehberler" : "haberler");
   // Hash'i reaktif izle: /blog'dayken Rehber menüsünden #sss/#rehberler'e
   // gecince (remount yok) sekme yine de degissin.
   useEffect(() => {
     if (typeof window === "undefined") return;
     const apply = () => {
+      if (sadeceRehber) return; // Arapça kolda tek sekme var
       const h = window.location.hash;
       setTab(h === "#rehberler" ? "rehberler" : h === "#sss" ? "sss" : "haberler");
     };
@@ -106,11 +119,13 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
     return () => window.removeEventListener("hashchange", apply);
   }, []);
 
-  const tabs: { k: "rehberler" | "haberler" | "sss"; label: string; count: number }[] = [
-    { k: "haberler", label: pickText(lang, "Haberler & Fuarlar", "News & Fairs"), count: press.length },
-    { k: "rehberler", label: pickText(lang, "Rehberler", "Guides"), count: posts.length },
-    { k: "sss", label: pickText(lang, "SSS", "FAQ"), count: faqCount },
-  ];
+  const tabs: { k: "rehberler" | "haberler" | "sss"; label: string; count: number }[] = sadeceRehber
+    ? [{ k: "rehberler", label: pickText(lang, "Rehberler", "Guides"), count: posts.length }]
+    : [
+      { k: "haberler", label: pickText(lang, "Haberler & Fuarlar", "News & Fairs"), count: press.length },
+      { k: "rehberler", label: pickText(lang, "Rehberler", "Guides"), count: posts.length },
+      { k: "sss", label: pickText(lang, "SSS", "FAQ"), count: faqCount },
+    ];
 
   return (
     <div className="pt-28 pb-20 px-5 sm:px-6 lg:px-8">
@@ -157,7 +172,7 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
         </div>
           {/* Şarj Sözlüğü — sekmelerle aynı stil (pasif sekme görünümü) */}
           <Link
-            href="/sozluk"
+            href={`${taban}/sozluk`}
             className="px-4 py-2 rounded-xl text-sm font-bold transition-all hover:opacity-80"
             style={{ background: surface, color: textMuted, border: `1px solid ${border}` }}
           >
@@ -169,7 +184,7 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
             {posts.map((p, i) => (
               <motion.div key={p.slug} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.06 }}>
-                <Link href={`/blog/${p.slug}`} className="block rounded-2xl overflow-hidden h-full transition-transform hover:-translate-y-0.5"
+                <Link href={`${taban}/blog/${p.slug}`} className="block rounded-2xl overflow-hidden h-full transition-transform hover:-translate-y-0.5"
                   style={{ background: surface, border: `1px solid ${border}` }}>
                   <div className="p-5 flex flex-col h-full">
                     <span className="self-start text-[10px] font-bold px-2 py-0.5 rounded-md mb-3" style={{ background: `${BLUE}18`, color: accentInk(BLUE, d) }}>{p.category}</span>
@@ -251,10 +266,11 @@ function Article({ post, d, surface, border, textPrimary, textMuted, textFaint, 
   post: BlogPost; d: boolean; surface: string; border: string; textPrimary: string; textMuted: string; textFaint: string; fmtDate: (s: string) => string;
 }) {
   const { lang } = useLanguage();
+  const taban = useTaban();
   return (
     <article className="pt-28 pb-20 px-5 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        <Link href="/blog" className="inline-flex items-center gap-2 mb-6 text-sm font-medium group" style={{ color: textMuted }}>
+        <Link href={`${taban}/blog`} className="inline-flex items-center gap-2 mb-6 text-sm font-medium group" style={{ color: textMuted }}>
           <HiArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Blog
         </Link>
 

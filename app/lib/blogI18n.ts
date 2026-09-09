@@ -73,11 +73,13 @@ function mergeSection(src: BlogSection, t: SectionT | undefined): BlogSection {
   }
 }
 
-/** Bir blog yazısını aktif dile çevir (TR yapının üstüne bindirir, yoksa TR döner). */
-export function trBlogPost(post: BlogPost, lang: string): BlogPost {
-  if (lang === "tr") return post;
-  // Henüz yüklenmemişse (veya bu yazının çevirisi yoksa) TR döner — güvenli düşüş.
-  const t = BLOG_I18N?.[lang]?.[post.slug];
+/**
+ * Çeviri nesnesini TR yapının ÜSTÜNE bindirir — SAF fonksiyon (dil/yükleme bilmez).
+ * ⚠️ Sunucu tarafı dil kolu (app/lib/serverBlogLang.ts) da BUNU kullanır: birleştirme
+ * mantığı kopyalansaydı zamanla ayrışır ve "istemci doğru / sunucu yanlış" sınıfı
+ * sessiz hata doğardı (2026-08-26 /en dersi).
+ */
+export function mergeBlogPost(post: BlogPost, t: BlogTranslation | undefined): BlogPost {
   if (!t) return post;
 
   const body =
@@ -104,4 +106,11 @@ export function trBlogPost(post: BlogPost, lang: string): BlogPost {
     related,
     faq,
   };
+}
+
+/** Bir blog yazısını aktif dile çevir (TR yapının üstüne bindirir, yoksa TR döner). */
+export function trBlogPost(post: BlogPost, lang: string): BlogPost {
+  if (lang === "tr") return post;
+  // Henüz yüklenmemişse (veya bu yazının çevirisi yoksa) TR döner — güvenli düşüş.
+  return mergeBlogPost(post, BLOG_I18N?.[lang]?.[post.slug]);
 }

@@ -50,6 +50,25 @@ export default function LanguageSwitcher({
       if (URL_KOLU.has(code)) { router.push(`/${code}/products${segment}`); return; }
       if (code === "tr" || langSeg) { setLang(code); router.push(`/products${segment}`); return; }
     }
+
+    // 2026-09-09: Sözlük ve blog kollarında da dil = GERÇEK URL.
+    // ⚠️ Bu iki bölümün YALNIZ Arapça kolu var (de/es/ru/nl/en'de /sozluk ve /blog
+    // rotası YOK) → yalnız "ar" için adrese gidilir, diğer diller eskisi gibi
+    // istemci tarafında çevrilir.
+    const sozluk = (pathname ?? "").match(/^(?:\/ar)?(\/sozluk(?:\/[^/]+)?)$/);
+    const blogListe = (pathname ?? "").match(/^(?:\/ar)?(\/blog)$/);
+    const arKolYol = sozluk?.[1] ?? blogListe?.[1] ?? null;
+    if (arKolYol) {
+      if (code === "ar") { router.push(`/ar${arKolYol}`); return; }
+      if ((pathname ?? "").startsWith("/ar/")) { setLang(code); router.push(arKolYol); return; }
+    }
+
+    // ⚠️ Blog YAZI sayfasında yalnız AR → TR yönü yapılır: her yazının Arapçası YOK
+    // (rota yalnız tam çevrilmiş yazıları üretir) → TR'den /ar/blog/<slug>'a gitmek
+    // 404 riski taşır. TR karşılığı ise daima vardır.
+    const arBlogYazi = (pathname ?? "").match(/^\/ar(\/blog\/[^/]+)$/);
+    if (arBlogYazi && code !== "ar") { setLang(code); router.push(arBlogYazi[1]); return; }
+
     setLang(code);
   }
 

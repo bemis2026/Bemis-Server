@@ -4,11 +4,12 @@ import { motion } from "framer-motion";
 import { RiLinkedinFill, RiInstagramLine, RiYoutubeFill, RiFacebookFill } from "react-icons/ri";
 import { HiPhone, HiMail } from "react-icons/hi";
 import Image from "./Img";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 import { byLang, pickText } from "../lib/ui";
+import { forcedLangForPath } from "../lib/languages";
 import E from "./E";
 
 // Footer iç linkleri (SSR — Google taraması için sayılır). Ürünler: 8 kategori;
@@ -76,6 +77,19 @@ const NAV_GROUPS: { title: FooterPair; links: FooterLink[] }[] = [
 
 export default function Footer() {
   const router = useRouter();
+  const pathname = usePathname();
+  // ⚠️ Arapça kolda footer'ın 8 kategori linki TR köke gidiyordu (/ar sayfalarında
+  // ölçüldü: 9 sızıntı). Arapça ADRESİ OLAN bölümler (ürünler · blog · sözlük)
+  // dil koluna taşınır; Arapçası olmayan sayfalar (kurumsal/uretici/destek/
+  // documents/b2b/bayilik/operator/şehir) bilerek TR adresinde kalır.
+  const arKol = forcedLangForPath(pathname) === "ar";
+  const arYol = (href: string) => {
+    if (!arKol) return href;
+    if (href.startsWith("/products") || href.startsWith("/sozluk")) return `/ar${href}`;
+    // Arapça blogda yalnız "Rehberler" sekmesi var → #sss / #rehberler çapaları düşer.
+    if (href === "/blog" || href.startsWith("/blog#")) return "/ar/blog";
+    return href;
+  };
   const { social, footer: footerContent, logos, contact } = useContent();
   const { theme } = useTheme();
   const { lang } = useLanguage();
@@ -242,13 +256,13 @@ export default function Footer() {
                         (sitelink adayı + iç-link gücü). onClick SPA/yumuşak-kaydırma
                         davranışını korur; hash hedefleri "/#..." ile ana sayfaya çözülür. */}
                     <a
-                      href={link.scroll ? `/${link.href}` : link.href}
+                      href={link.scroll ? `/${link.href}` : arYol(link.href)}
                       onClick={e => {
                         // Sol-tık (modifiersiz) → SPA/kaydırma davranışı; ctrl/cmd/shift-tık
                         // → href sayesinde tarayıcı yeni sekmede açar (engelleme).
                         if (e.metaKey || e.ctrlKey || e.shiftKey) return;
                         e.preventDefault();
-                        handleClick(link.href, link.scroll ?? true);
+                        handleClick(link.scroll ? link.href : arYol(link.href), link.scroll ?? true);
                       }}
                       className="text-sm transition-colors duration-200 text-left inline-block"
                       style={{ color: textMuted }}

@@ -12,7 +12,8 @@ export const metadata: Metadata = {
     "ev şarj terimleri", "elektrikli araç şarj sözlüğü", "type 2 nedir", "ccs2 nedir",
     "ocpp nedir", "v2l nedir", "kw kwh farkı", "yük yönetimi nedir", "ip65 ip66 nedir",
   ],
-  alternates: { canonical: "/sozluk", languages: { tr: "/sozluk", "x-default": "/sozluk" } },
+  // ⚠️ Küme KARŞILIKLI olmalı: /ar/sozluk de aynı üçlüyü verir (app/[lang]/sozluk).
+  alternates: { canonical: "/sozluk", languages: { tr: "/sozluk", ar: "/ar/sozluk", "x-default": "/sozluk" } },
   openGraph: {
     title: "Elektrikli Araç Şarj Terimleri Sözlüğü — Bemis E-V Charge",
     description: "EV şarjında en çok merak edilen terimlerin (Type 2, CCS2, OCPP, V2L, kW/kWh…) kısa ve net açıklamaları.",
