@@ -231,7 +231,7 @@ export default async function Image() {
             flexWrap: "wrap",
           }}
         >
-          {["30+ Yıl Deneyim", "60+ Ülkeye İhracat", "Bursa OSB Üretim", "TSE / CE Onaylı"].map((t) => (
+          {["30+ Yıl Deneyim", "80+ Ülkeye İhracat", "Bursa OSB Üretim", "TSE / CE Onaylı"].map((t) => (
             <span
               key={t}
               style={{

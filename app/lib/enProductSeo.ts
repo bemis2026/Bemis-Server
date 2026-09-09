@@ -29,7 +29,7 @@ export const EN_CATEGORY_SEO: Record<string, { name: string; title: string; desc
   "converters": {
     name: "EV Charging Extensions & Adapters",
     title: "EV Charging Extension Cables & Adapters Manufacturer",
-    description: "EV charging extension cables and adapters / converters, Type 2 compatible. CE. Manufactured in Türkiye. OEM & wholesale export to 60+ countries.",
+    description: "EV charging extension cables and adapters / converters, Type 2 compatible. CE. Manufactured in Türkiye. OEM & wholesale export to 80+ countries.",
   },
   "charger-equipment": {
     name: "EV Charger Components",

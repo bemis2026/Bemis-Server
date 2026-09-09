@@ -92,7 +92,7 @@ export const CITY_PAGES: CityPage[] = [
       },
       {
         q: "Bursa dışına satış ve sevkiyat yapıyor musunuz?",
-        a: "Evet. Türkiye geneli bayi ağımız ve 60+ ülkeye ihracatımız var; Bursa merkezli üretimden tüm Türkiye'ye sevkiyat yapıyoruz.",
+        a: "Evet. Türkiye geneli bayi ağımız ve 80+ ülkeye ihracatımız var; Bursa merkezli üretimden tüm Türkiye'ye sevkiyat yapıyoruz.",
       },
       {
         q: "İş yeri ve filo için toplu şarj çözümünüz var mı?",
@@ -167,7 +167,7 @@ export const CITY_PAGES: CityPage[] = [
       },
       {
         q: "Bursa dışına gönderim yapıyor musunuz?",
-        a: "Evet. Bursa merkezli üretimimizden Türkiye geneline sevkiyat yapıyor, 60+ ülkeye ihracat gerçekleştiriyoruz.",
+        a: "Evet. Bursa merkezli üretimimizden Türkiye geneline sevkiyat yapıyor, 80+ ülkeye ihracat gerçekleştiriyoruz.",
       },
     ],
   },

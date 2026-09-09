@@ -156,7 +156,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     // ~158 karakter, hedef: "yerli EV şarj üreticisi" + "AC/DC şarj istasyonu".
     description:
-      "Bemis E-V Charge — yerli EV şarj üreticisi. AC/DC şarj istasyonu, Type 2 Wallbox, taşınabilir şarj cihazı ve kablolar. CE & IP65, 60+ ülkeye ihracat.",
+      "Bemis E-V Charge — yerli EV şarj üreticisi. AC/DC şarj istasyonu, Type 2 Wallbox, taşınabilir şarj cihazı ve kablolar. CE & IP65, 80+ ülkeye ihracat.",
     keywords: [
       "EV şarj istasyonu", "elektrikli araç şarj", "AC wallbox", "DC şarj kablosu",
       "Type 2 şarj kablosu", "V2L adaptör", "yerli üretim EV şarj", "Bemis",
@@ -200,7 +200,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: "Bemis E-V Charge | Yerli EV Şarj Ekipmanı Üreticisi",
       description:
-        "30+ yıllık Bemis kalitesiyle üretilen yerli EV şarj çözümleri. CE & IP65 sertifikalı ürünler, 60+ ülkeye ihracat.",
+        "30+ yıllık Bemis kalitesiyle üretilen yerli EV şarj çözümleri. CE & IP65 sertifikalı ürünler, 80+ ülkeye ihracat.",
       url: BASE_URL,
       siteName: "Bemis E-V Charge",
       locale: "tr_TR",
@@ -209,7 +209,7 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: "Bemis E-V Charge | Yerli EV Şarj Ekipmanı",
-      description: "Türkiye'nin lider EV şarj ekipmanı üreticisi — CE & IP65 sertifikalı, 60+ ülkeye ihracat.",
+      description: "Türkiye'nin lider EV şarj ekipmanı üreticisi — CE & IP65 sertifikalı, 80+ ülkeye ihracat.",
     },
     verification: {
       ...(verifyMeta.verification.google && { google: verifyMeta.verification.google }),
