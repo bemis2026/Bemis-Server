@@ -13,6 +13,56 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🕌📚 **ARAPÇA DERİN İÇERİK: /ar/sozluk + /ar/blog AÇILDI (2026-09-09, commit 0466652):**
+> Kullanıcının seçmeli kararıyla ("Arapça derin içerik turu sırada") Arapça kol ilk kez ürün +
+> giriş sayfasının DIŞINA çıktı. **YENİ 40 ADRES:** `/ar/sozluk` + 15 terim · `/ar/blog` + 23 rehber.
+> Sitemap **1.192 → 1.232**; statik sayfa **1.271**. Canlı doğrulandı: 4 Arapça adres 200, başlıklar
+> Arapça, hreflang 3'lü (tr/ar/x-default) her iki yönde, **TR köke sızan iç link 0**.
+> IndexNow 40 adres: api.indexnow.org 200 · bing 200 · yandex success.
+> **📌 ÇEVİRİ ZATEN VARDI, EKSİK OLAN ROTAYDI** — `data/i18n/glossary.json` + `blog.json` aylardır
+> Arapça taşıyordu; ziyaretçi dili değiştirince metin Arapçaydı ama Google yalnız TR adresi görüyordu.
+> **⚠️⚠️ EN ÖNEMLİ BULGU — BLOG ÇEVİRİLERİ SANDIĞIMIZ KADAR TAM DEĞİL (ölçüldü, 37 yazı):**
+> `mergeBlogPost` dizi uzunlukları tutmazsa **SESSİZCE TR gövdeye düşer**. Gerçek tablo:
+> **ar 23 tam · 10 YALNIZ BAŞLIK · 4 hiç yok** — **en/de/es/ru ise 18 tam · 10 yalnız-başlık ·
+> 5 BAYAT · 4 yok** (yani o 4 dilde 37 yazının **19'u hâlâ Türkçe gövdeyle görünüyor**, canlıda).
+> "Yalnız başlık" olanlar 2026-07-28'de anasayfa rehber başlıkları için eklenmiş, gövdeleri hiç çevrilmemiş.
+> **BU TURDA 5 BAYAT ÇEVİRİ YALNIZ ARAPÇA İÇİN ONARILDI** (2026-09-06 tazeleme turunda TR gövde
+> büyümüştü: ac-dc +1 paragraf, kurulum-rehberi +6 maddelik ul, nasil-secilir +1 paragraf,
+> maliyet +3 bölüm, apartmana +1 SSS; hepsine related +2) → Arapça tam yazı **18 → 23**.
+> ⏳ **KALAN İŞ: aynı 5 yazı + 10 yalnız-başlık yazısı en/de/es/ru için de çevrilmeli** (istemci
+> tarafında görünür, adres açmaz — ama o diller şu an TR gövde gösteriyor).
+> **🔒 KALICI KAPI — `tamCevrildi()` (`app/lib/serverBlogLang.ts`):** gövde/faq/related hizası
+> tutmayan yazı **Arapça ADRES ALMAZ** (404). Yeni yazı eklendiğinde de kendiliğinden korur:
+> çevirisi gelmemiş yazı için Arapça sayfa açılmaz. **Arapça adreste Türkçe gövde yayınlamaktansa 404.**
+> **📌 MERGE TEK KAYNAK:** `blogI18n.ts` → yeni `mergeBlogPost(post, t)` SAF fonksiyonu; `trBlogPost`
+> (istemci, tembel yükleme) ve `serverBlogLang` (sunucu, statik import) İKİSİ de onu çağırır.
+> Kopyalansaydı "istemci doğru / sunucu yanlış" sınıfı sessiz hata doğardı (2026-08-26 /en dersi).
+> **🔴 YAN BULGU — FOOTER SIZINTISI, /ar GİRİŞ SAYFASINDA DA VARDI:** `Footer`'ın 8 kategori linki
+> Arapça sayfalarda TR köke gidiyordu (ölçüm: `/ar` 9 sızıntı). Footer artık `forcedLangForPath` ile
+> **Arapça ADRESİ OLAN** bölümleri (ürünler · blog · sözlük) dil koluna taşıyor; Arapçası olmayan
+> sayfalar (kurumsal/uretici/destek/documents/b2b/bayilik/operator/şehir) **bilerek TR'de kalıyor**.
+> ⓘ Blog sayfaları temizdi çünkü `Footer` yerine `ContactBar` kullanıyorlar.
+> **İÇ LİNK EŞLEME (`arAdresi`, serverBlogLang):** `/products*`→`/ar/products*` · `/sozluk*`→`/ar/sozluk*` ·
+> `/blog/<slug>`→ Arapçası TAMSA `/ar/blog/<slug>`, **değilse link DÜŞER** (Arapça sayfadan Türkçe
+> gövdeye link verilmez) · `/uretici` `/b2b` `/bayilik` `/operator` `/#dealer` şehir sayfaları → **`/ar`**
+> (Arapça giriş sayfası üretici anlatısı + ihracat/OEM + teklif formunu zaten taşıyor). Aynı hedefe
+> düşen çipler tekilleştirilir (React key çakışması). Sözlük terim sayfası da bu eşleyiciyi kullanır.
+> **⚠️ ARAPÇA SAYFADA BİLEREK EMİT EDİLMEYENLER:** `keywords` (TR kaynakta kalır → Arapça sayfaya
+> Türkçe kelime basardı; Google zaten yok sayıyor) · **HowTo şeması** (adımlar çeviri kümesinde YOK →
+> Türkçe adım basardı) · blog `metaTitle`/`metaDescription` çeviride varsa kullanılır, sözlükte YOK
+> (o yüzden `t.term` + `glossaryMetaDescription`).
+> **⚠️ `sadeceRehber` PROPU:** `/ar/blog` listesinde **Haberler (basın) + SSS sekmeleri GİZLİ** —
+> basın sayfalarının (`/blog/haber/<id>`) ve kategori SSS'lerinin Arapça ADRESİ yok, gösterilse
+> oradan TR rotalara sızardı. TR listesi BİREBİR aynı (varsayılan sekme hâlâ Haberler).
+> **DİL SEÇİCİ:** `/sozluk` ve `/blog` LİSTELERİNDE dil = gerçek URL. ⚠️ Blog YAZI sayfasında yalnız
+> **AR → TR** yönü yapılır: her yazının Arapçası yok, TR→AR gitmek 404 riski taşır.
+> **ŞEMA:** `definedTermSetSchema`/`definedTermSchema` artık `{taban, dil, setAdi}` alıyor (TR
+> varsayılanları BİREBİR korunur). ⚠️ `@id` de tabana bağlandı — aksi hâlde TR ve AR sayfaları
+> **aynı varlığı** iddia ederdi.
+> **ⓘ KALAN ARAPÇA BOŞLUK:** `/uretici`, `/destek`, `/documents`, `/iletisim`, şehir sayfaları ve
+> basın haberleri Arapça adreste YOK. Giriş sayfası (/ar) üretici + iletişim boşluğunu kapatıyor.
+
+
 > 🗺️ **YOL TARİFİ TUŞU — place_id TABANLI (2026-09-09, commit 8c3b588):** Kullanıcı Google'ın
 > **Locator Plus (Quick Builder)** HTML'ini paylaşıp "SEO açısından işe yararsa bir tuş ekleyelim" dedi.
 > **⛔ O BİLEŞEN KULLANILMADI, gerekçe:** (a) **ücretli Maps JavaScript API anahtarı** ister (paylaşılan
