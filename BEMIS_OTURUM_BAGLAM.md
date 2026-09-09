@@ -13,6 +13,82 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🕌🔧 **ARAPÇA ÜRÜN KOLUNDAKİ TÜRKÇE BLOKLAR KAPATILDI (2026-09-09, commit 827ecd7):**
+> Kullanıcı seçmeli kararıyla ("Ürün sayfalarındaki Türkçe bloklar") — Körfez ziyaretçisinin EN ÇOK
+> gördüğü yüzey. **ÖLÇÜM (canlı, gövde HTML'i): /ar/products 15 · /ar/products/wallbox 14 ·
+> /ar/products/cables 12 Türkçe parça → hepsi 5'e indi** (kalan: menüdeki 3 CMS etiketi = bilinen
+> SSR sınırı + adres/resmî unvan = kanonik NAP). **5 ayrı kaynak vardı, ÜÇÜ 6 yabancı dilin
+> HEPSİNİ etkiliyordu:**
+> **(1) 🔴 KATEGORİ ADLARI 6 DİLDE DE TÜRKÇEYDİ** — `mergeCategories` `name`'i TR-kilitler (doğru:
+> overlay adlarına güvenilmiyor) ama yerelleştirilmiş ad HİÇBİR yerde uygulanmıyordu.
+> `/api/products?lang=` **en/de/nl/ar hepsinde aynı 4 ad Türkçe** ("AC Şarj Kabloları", "Dönüştürücü
+> Adaptörler…", "DC Şarj Üniteleri", "Şarj Ünitesi Ekipmanları" — ayrıca özel harf taşımadığı için
+> filtreye takılmayan "V2L / C2L Adaptörler" ve "Aksesuarlar"). Oysa küratörlü ad zaten vardı:
+> `enProductSeo.EN_CATEGORY_SEO` / `localeProductSeo.LOCALE_CATEGORY_SEO` (H1 + `<title>` bunları
+> kullanıyordu) → **kategori kartı ile sayfa başlığı aynı kategoriye iki farklı ad veriyordu.**
+> **(2) 72 ÜRÜN ADI API'de Türkçe** — `productNameLocale` YALNIZ sayfa dosyalarında uygulanıyordu;
+> istemci `/api/products?lang=ar` ile yeniden çekerse ad Türkçeye düşerdi.
+> **📌 İKİSİ DE ARTIK `getProductsForLang` İÇİNDE (TEK KAYNAK)** — `productNameEn` zaten oradaydı,
+> deseni genişletildi; 3 `[lang]` sayfasındaki kopya eşleme SİLİNDİ. Eşlemesi olmayan ad AYNEN kalır.
+> **📌 KURAL: dil kolunda görünen bir ad "merge'de TR-kilitli" ise, yerel karşılığı SAYFADA değil
+> `getProductsForLang` içinde uygulanmalı** — yoksa API ile sayfa ayrışır (bu turda tam olarak oldu).
+> **(3) "PROJEYE ÖZEL ÜRETİM" KARTI İLK HTML'DE TÜRKÇE** — çeviri `/api/content?lang=ar`'da ZATEN
+> vardı (2026-07-25'te eklenmişti); kart kök yerleşim içeriği TR hidratladığı için SSR'da Türkçe
+> basılıyordu → **ziyaretçi Arapça görüyor, Google Türkçe okuyor.** `descriptionOverride`/`faqOverride`
+> ile aynı desen: yeni **`projectSectionOverride`** propu; `/ar` + `/de/es/ru/nl` + `/en` sayfaları
+> o dilin metnini sunucudan geçiriyor.
+> **(4) "İLGİLİ REHBERLER" BLOĞU 5 DİLDE TÜRKÇE** — blok yalnız `lang === "en"` iken gizleniyordu →
+> de/es/ru/nl/**ar** hepsinde TÜRKÇE başlık + **TR blog adresi** basıyordu (Arapça sayfadan TR köke
+> sızıntı). TR haritası **`app/lib/categoryGuides.ts`**'e çıkarıldı (sunucu da okusun; blog.json
+> istemci paketine GİRMESİN — 2026-07-22 dersi). Arapça kolda liste **sunucudan** gelir:
+> `arRehberleri()` (serverBlogLang) yalnız Arapçası TAM olan yazıyı Arapça başlık + `/ar/blog/<slug>`
+> ile döndürür, **Arapçası olmayan rehber DÜŞER** (wallbox 6→3, cables 4→3, portable 3→2).
+> ⚠️ `arAdresi`'nin `/ar` yedeği burada BİLEREK kullanılmadı: "hangi araca hangi kablo uyar" etiketli
+> çipi giriş sayfasına bağlamak okuyucuyu yanıltırdı. Diğer dillerde blok gizli. RTL: `ms-auto` + ok yönü.
+> **(5) 2 AKSESUARDA Arapça `الفئة` spec DEĞERİ Türkçe kalmıştı** (V2L ve C2L Kablo Çantası ·
+> DC Soket Tutucu) → R2 `products._translations.ar` + `data/products-ar.json`. Karşılıklar
+> `productNamesLocale` AR haritasından ALINDI (uydurma yok). store cache **v104-adres → v105-ar-spec**.
+> **⚠️ ÖLÇÜM DERSİ:** ilk taramada "V2L ve C2L Kablo Çantası" ürün ADI sanıldı; HTML bağlamına
+> bakılınca `specs[0].items` çipi (spec DEĞERİ) olduğu görüldü. **Sızan metni gördüğünde hangi ALANDAN
+> geldiğini HTML bağlamıyla doğrula** — ad haritası "60/60 tam" diyorsa sorun başka alandadır.
+
+> 🕌🌍 **YENİ SAYFA: /ar/middle-east — KÖRFEZ + MISIR (2026-09-09, commit 8f67e30):**
+> Kullanıcı seçmeli kararı: hedef pazar **BAE · Suudi · Katar · Kuveyt · Bahreyn · Umman + MISIR**;
+> dönüşüm hedefi **hem distribütör daveti hem proje/toplu satış**.
+> **⚡ EN KRİTİK TEKNİK AYRIM — 50/60 Hz:** Suudi şebekesi **60 Hz**, diğer hedef ülkeler 50 Hz.
+> Sayfayı yazmadan önce soruldu; **kullanıcı üretimden teyitli olarak "50/60 Hz uyumlu" dedi** →
+> hero + SSS + llms.txt'te yazılı, "tek stok tüm bölgeyi kapsar" argümanı buna dayanıyor.
+> ⚠️ **Teyit geri alınırsa bu ibare sayfadan ÇIKARILMALI** (not `ortadoguIcerik.ts` başlığında).
+> ⓘ Bu bilgi sitenin GERİ KALANINDA yok (ürün spec'lerinde frekans satırı yok) — istenirse ayrı tur.
+> **⚠️ NEDEN TEK BÖLGESEL SAYFA, ÜLKE BAŞINA AYRI SAYFA DEĞİL:** Körfez'de distribütörümüz yok
+> (`internationalDealers`: yalnız Almanya · Şili · Portekiz) ve ülkeye ÖZEL doğrulanmış olgu
+> (yerel fiyat, stok, referans, adres) da yok → 7 ayrı sayfa birbirinin kopyası olurdu (ince/kopya
+> içerik). Ülkeler bu sayfada kendi kartlarıyla geçiyor; ülkeye özel GERÇEK içerik doğduğunda ayrı
+> sayfa (ve o zaman `ar-AE`/`ar-SA` hreflang) anlamlı olur.
+> **DOSYALAR:** `app/[lang]/middle-east/ortadoguIcerik.ts` (7 pazar + 4 proje çözümü + **7 SSS = TEK
+> KAYNAK**, hem görünen metin hem FAQPage JSON-LD) · `OrtadoguClient.tsx` · `page.tsx`.
+> ⚠️ SSS soruları `/ar` sayfasındaki `AR_SSS`'ten **KASITLI FARKLI** — aynı soruları iki Arapça
+> sayfada tekrarlamak kopya sinyali üretir ve iki sayfa aynı sorguda birbirini yer.
+> **İÇERİK SINIRI (kayıtlı kurallar uygulandı):** uydurma ticari şart YOK (fiyat / asgari sipariş /
+> teslim süresi / iskonto / bölge münhasırlığı / süre taahhüdü yazılmadı — yalnız davet + değerlendirme
+> kriterleri) · **o ülkelerde varlık/proje/bayi iddiası YOK** (ülke kartları TEKLİF dili, geçmiş iddia
+> değil) · "Türkiye'nin/yerli" milliyetçi çerçeve YOK · rakip marka YOK · teknik iddialar yalnız sitede
+> zaten yazılı olgulardan (1994, Bursa 16.000 m², CE, IP65/IP66, Type 2 · IEC 62196, CCS2, OCPP,
+> AC 3,7–22 kW, DC 40–200 kW, 2 yıl garanti, 80+ ülke) + teyitli 50/60 Hz.
+> **ŞEMA:** Breadcrumb + **Service** (`areaServed = ["AE","SA","QA","KW","BH","OM","EG"]` — `seo.ts`
+> `serviceSchema.areaServed` artık dizi de kabul ediyor, TR varsayılanı aynı) + FAQPage (7 soru).
+> **⚠️ HREFLANG YOK — BİLEREK:** sayfanın TR/EN karşılığı yok; karşılığı olmayan dil etiketi Google'da
+> karşılıklılık hatası üretir. Yalnız self-canonical.
+> **BAĞLANANLAR:** sitemap (prio 0.8) · llms.txt Arapça bölümü (+50/60 Hz cümlesi) · **`/ar` giriş
+> sayfasından taranabilir iç link bandı** ("هل أنتم في الخليج أو مصر؟"). Form `/api/contact`'a
+> `topic:"export"` + honeypot(`website`) + `elapsed` ile gider; **ülke ve talep tipi (distribütör /
+> proje / OEM) mesaja yazılır** → gelen kutusunda ayrıştırılabilir.
+> **ⓘ KALAN ARAPÇA KABUK SIZINTISI (mimari, yeni değil):** `/ar` ve `/ar/middle-east`'te menü
+> etiketleri (Hakkımızda · Bayi Ağı · Bize Ulaşın) ve **footer açıklaması + telif satırı** SSR'da
+> TÜRKÇE basılır (kök yerleşim rotayı bilemez → içerik TR hidratlanır; ziyaretçi hidrasyondan sonra
+> Arapça görür). Çözümü route-group refactor'u. Ürün/kategori sayfalarında footer yerine ContactBar
+> kullanıldığı için orada yalnız 3 menü etiketi kalıyor.
+
 > 🕌📚 **ARAPÇA DERİN İÇERİK: /ar/sozluk + /ar/blog AÇILDI (2026-09-09, commit 0466652):**
 > Kullanıcının seçmeli kararıyla ("Arapça derin içerik turu sırada") Arapça kol ilk kez ürün +
 > giriş sayfasının DIŞINA çıktı. **YENİ 40 ADRES:** `/ar/sozluk` + 15 terim · `/ar/blog` + 23 rehber.
