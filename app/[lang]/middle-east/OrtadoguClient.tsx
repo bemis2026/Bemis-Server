@@ -348,8 +348,12 @@ export default function OrtadoguClient() {
                   </select>
                   <textarea name="message" rows={4} placeholder="المنتجات والكميات التي تهمّكم"
                             className={`${inputCls} sm:col-span-2`} style={inputStyle} />
-                  {/* Bal küpü — görünmez, dolduran = bot (bkz. /api/contact) */}
-                  <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", opacity: 0 }}>
+                  {/* Bal küpü — görünmez, dolduran = bot (bkz. /api/contact).
+                      ⚠️ RTL'de `left:-9999px` KULLANMA: LTR'de sol taşma kırpılır ama RTL'de
+                      "bitiş" tarafına düşer ve sayfada 9999 px'lik GERÇEK yatay kaydırma açar
+                      (2026-09-09'da /ar ve /ar/middle-east'te ölçüldü). Kırpma tabanlı gizleme
+                      taşma üretmez; alan DOM'da ve doldurulabilir kalır (bot yakalama bozulmaz). */}
+                  <div aria-hidden="true" style={{ position: "absolute", width: 1, height: 1, padding: 0, margin: -1, overflow: "hidden", clipPath: "inset(50%)", whiteSpace: "nowrap", border: 0, opacity: 0 }}>
                     <label>Website (leave empty)
                       <input ref={hpRef} type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
                     </label>
