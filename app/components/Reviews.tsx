@@ -33,7 +33,7 @@ function NewsThumb({ src, alt, source, color }: { src?: string; alt: string; sou
     <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 p-2 text-center"
       style={{ background: `linear-gradient(135deg, ${color}2a 0%, ${color}0a 100%)` }}>
       <RiNewspaperLine size={20} style={{ color, opacity: 0.85 }} aria-hidden />
-      <span className="text-[10px] font-bold uppercase tracking-wider leading-tight" style={{ color, opacity: 0.9 }}>{source}</span>
+      <span className="text-[11px] font-bold uppercase tracking-wider leading-tight" style={{ color, opacity: 0.9 }}>{source}</span>
     </div>
   );
 }
@@ -178,14 +178,14 @@ export default function Reviews() {
               yapıp mobilde sağdan taşmasını/kırpılmasını engeller. */}
           <div className="lg:col-span-2 min-w-0 flex flex-col gap-3">
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-black" style={{ color: textPrimary }}>
+              <h3 className="text-base font-black" style={{ color: textPrimary }}>
                 {pickText(lang, "Müşteri Yorumları", "Customer Reviews")}
               </h3>
               {/* Kompakt puan rozeti */}
               <div className="inline-flex items-center gap-1.5">
                 <HiStar className="text-[#F59E0B] text-sm" />
                 <span className="text-sm font-black tabular-nums" style={{ color: textPrimary }}>{reviews.rating}</span>
-                <span className="text-xs" style={{ color: textMuted }}>· {reviews.ratingCount}</span>
+                <span className="text-sm" style={{ color: textMuted }}>· {reviews.ratingCount}</span>
               </div>
             </div>
 
@@ -198,19 +198,19 @@ export default function Reviews() {
               >
                 <div className="flex items-center justify-between">
                   <Stars count={review.rating} />
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded" style={{ background: `${review.platformColor}14`, color: accentInk(review.platformColor, d), border: `1px solid ${review.platformColor}28` }}>
+                  <span className="text-[11px] font-bold px-2 py-0.5 rounded" style={{ background: `${review.platformColor}14`, color: accentInk(review.platformColor, d), border: `1px solid ${review.platformColor}28` }}>
                     {review.platform}
                   </span>
                 </div>
-                <p className="text-xs leading-relaxed" style={{ color: textBody, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+                <p className="text-sm leading-relaxed" style={{ color: textBody, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
                   &ldquo;{review.text}&rdquo;
                 </p>
                 <div className="flex items-center gap-2 mt-auto pt-1">
                   <div className="w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold flex-shrink-0" style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.06)", color: textMuted }}>
                     {review.author[0]}
                   </div>
-                  <span className="text-xs font-semibold truncate" style={{ color: textPrimary }}>{review.author}</span>
-                  <span className="text-[11px] ml-auto flex-shrink-0" style={{ color: textMuted }}>{review.date}</span>
+                  <span className="text-sm font-semibold truncate" style={{ color: textPrimary }}>{review.author}</span>
+                  <span className="text-xs ml-auto flex-shrink-0" style={{ color: textMuted }}>{review.date}</span>
                 </div>
               </motion.div>
             ))}
@@ -224,7 +224,7 @@ export default function Reviews() {
                     href={c.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-all hover:-translate-y-0.5"
+                    className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-[13px] font-semibold transition-all hover:-translate-y-0.5"
                     style={{ background: `${c.brand}14`, color: c.brand, border: `1px solid ${c.brand}33` }}
                   >
                     <c.Icon style={{ fontSize: 14 }} /> {c.label}
@@ -240,7 +240,7 @@ export default function Reviews() {
               <h3 className="text-base font-black" style={{ color: textPrimary }}>
                 {pickText(lang, "Haberler & Basında", "News & Press")}
               </h3>
-              <a href="/blog#haberler" className="text-xs font-semibold inline-flex items-center gap-1 transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : accentInk(BLUE, false)}}>
+              <a href="/blog#haberler" className="text-sm font-semibold inline-flex items-center gap-1 transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : accentInk(BLUE, false)}}>
                 {pickText(lang, "Tüm haberler", "All news")} →
               </a>
             </div>
@@ -267,20 +267,20 @@ export default function Reviews() {
                     {/* Metin */}
                     <div className="flex-1 min-w-0 p-3 flex flex-col">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded" style={{ background: `${c}1f`, color: accentInk(c, d), border: `1px solid ${c}45` }}>
+                        <span className="text-[11px] font-bold px-1.5 py-0.5 rounded" style={{ background: `${c}1f`, color: accentInk(c, d), border: `1px solid ${c}45` }}>
                           {isFair ? fairLabel : newsLabel}
                         </span>
-                        <span className="text-[11px] font-semibold truncate" style={{ color: textMuted }}>{n.source}</span>
-                        {n.date && <span className="text-[11px] ml-auto flex-shrink-0" style={{ color: textMuted }}>{n.date}</span>}
+                        <span className="text-xs font-semibold truncate" style={{ color: textMuted }}>{n.source}</span>
+                        {n.date && <span className="text-xs ml-auto flex-shrink-0" style={{ color: textMuted }}>{n.date}</span>}
                       </div>
                       <p className="text-[15px] font-bold leading-snug mb-1.5 flex-1" style={{ color: textPrimary, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
                         {n.title}
                       </p>
                       <div className="flex items-center gap-3">
-                        <a href={n.url} target="_blank" rel="noopener noreferrer" className="text-[11px] font-bold inline-flex items-center gap-1 transition-opacity hover:opacity-70" style={{ color: accentInk(c, d) }}>
+                        <a href={n.url} target="_blank" rel="noopener noreferrer" className="text-xs font-bold inline-flex items-center gap-1 transition-opacity hover:opacity-70" style={{ color: accentInk(c, d) }}>
                           {pickText(lang, "Haberi Oku", "Read")} <RiExternalLinkLine size={10} />
                         </a>
-                        <a href={`/blog/haber/${n.id}`} className="text-[11px] font-bold inline-flex items-center gap-1 ml-auto transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : accentInk(BLUE, false)}}>
+                        <a href={`/blog/haber/${n.id}`} className="text-xs font-bold inline-flex items-center gap-1 ml-auto transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : accentInk(BLUE, false)}}>
                           {pickText(lang, "Özet İncele", "Summary")} →
                         </a>
                       </div>
@@ -295,11 +295,11 @@ export default function Reviews() {
               <div className="mt-3 pt-3" style={{ borderTop: `1px solid ${border}` }}>
                 <div className="flex items-center justify-between mb-1.5">
                   <span className="text-xs font-bold uppercase tracking-wider" style={{ color: textMuted }}>{pickText(lang, "Rehberler", "Guides")}</span>
-                  <a href="/blog#rehberler" className="text-[11px] font-semibold transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : accentInk(BLUE, false)}}>{pickText(lang, "Tümü", "All")} →</a>
+                  <a href="/blog#rehberler" className="text-xs font-semibold transition-opacity hover:opacity-70" style={{ color: d ? "#93C5FD" : accentInk(BLUE, false)}}>{pickText(lang, "Tümü", "All")} →</a>
                 </div>
                 <div className="flex flex-col gap-1">
                   {latestPosts.map((p) => (
-                    <a key={p.slug} href={`/blog/${p.slug}`} className="text-xs inline-flex items-center gap-1.5 transition-opacity hover:opacity-70" style={{ color: textMuted }}>
+                    <a key={p.slug} href={`/blog/${p.slug}`} className="text-sm inline-flex items-center gap-1.5 transition-opacity hover:opacity-70" style={{ color: textMuted }}>
                       <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: BLUE }} />
                       {/* ⚠️ Yabancı dillerde başlıklar TÜRKÇE görünüyordu (2026-07-28):
                           indeks yalnız TR başlık taşıyordu, blog çeviri dosyası (1.5 MB)

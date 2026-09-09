@@ -3818,6 +3818,12 @@ export default function AdminPage() {
                 // Adres geçerli mi (bileşendeki ayrıştırıcının aynısı) — operatör
                 // yanlış link yapıştırırsa kart canlıda BASILMAZ, burada uyaralım.
                 const kodCoz = (u: string) => /instagram\.com\/(p|reel|reels|tv)\/([A-Za-z0-9_-]+)/i.exec(u || "");
+                // Seçim listesinde gerçekten var olan kimlikler (kategori + ürün).
+                // Eşleşme ProductDetailClient'ta bu kimlikler üzerinden yapılır.
+                const urunKimlikleri = new Set<string>([
+                  ...products.map((c) => c.id),
+                  ...products.flatMap((c) => (c.products ?? []).map((p) => p.id)),
+                ]);
                 return (
                   <div className="max-w-2xl space-y-5">
                     <div>
@@ -3878,14 +3884,38 @@ export default function AdminPage() {
                                 <Field label="Açıklama (tek satır)" value={item.caption ?? ""} onChange={(v) => ogeYaz(idx, "caption", v)} placeholder="Ahmet Bey — Bursa, Charger 2 kurulumu" />
                                 <div>
                                   <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">İlgili Ürün (isteğe bağlı)</label>
-                                  <input
-                                    list="sosyal-urun-listesi"
+                                  <select
                                     value={item.productId ?? ""}
                                     onChange={(e) => ogeYaz(idx, "productId", e.target.value)}
-                                    placeholder="Ürün veya kategori kimliği — boş bırakılabilir"
                                     className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white/90 outline-none focus:border-blue-400/50"
-                                  />
-                                  <p className="text-[10px] text-white/30 mt-1">Seçilirse bu paylaşım o ürünün sayfasında da görünür. Kategori kimliği yazarsanız o kategorideki tüm ürünlerde görünür.</p>
+                                  >
+                                    <option value="">— Seçilmedi —</option>
+                                    {/* ⚠️ Eski serbest-metin değeri tanınmıyorsa seçim listesi onu SESSİZCE
+                                        boşa düşürmesin: görünür kalsın ki operatör yanlışı fark edip düzeltsin. */}
+                                    {item.productId && !urunKimlikleri.has(item.productId) && (
+                                      <option value={item.productId}>⚠ Tanınmayan değer: {item.productId}</option>
+                                    )}
+                                    <optgroup label="Kategoriler (tüm ürünlerinde görünür)">
+                                      {products.map((c) => (
+                                        <option key={c.id} value={c.id}>{c.name}</option>
+                                      ))}
+                                    </optgroup>
+                                    {products.map((c) => (
+                                      <optgroup key={c.id} label={c.name}>
+                                        {(c.products ?? []).map((p) => (
+                                          <option key={`${c.id}-${p.id}`} value={p.id}>
+                                            {p.code ? `${p.name} · ${p.code}` : p.name}
+                                          </option>
+                                        ))}
+                                      </optgroup>
+                                    ))}
+                                  </select>
+                                  {item.productId && !urunKimlikleri.has(item.productId) && (
+                                    <p className="text-[10px] mt-1" style={{ color: "#FCA5A5" }}>
+                                      Bu değer katalogda yok — paylaşım hiçbir ürün sayfasında görünmez. Listeden seçin.
+                                    </p>
+                                  )}
+                                  <p className="text-[10px] text-white/30 mt-1">Seçilirse bu paylaşım o ürünün sayfasında da görünür. Kategori seçerseniz o kategorideki tüm ürünlerde görünür.</p>
                                 </div>
                                 <div>
                                   <label className="block text-[11px] font-semibold text-white/40 mb-1.5 uppercase tracking-wider">Kapak Görseli</label>
@@ -3924,14 +3954,6 @@ export default function AdminPage() {
                           })}
                         </div>
                       )}
-                      <datalist id="sosyal-urun-listesi">
-                        {products.map((c) => (
-                          <option key={c.id} value={c.id}>{c.name} (kategori)</option>
-                        ))}
-                        {products.flatMap((c) => (c.products ?? []).map((p) => (
-                          <option key={`${c.id}-${p.id}`} value={p.id}>{p.name}</option>
-                        )))}
-                      </datalist>
                     </div>
                   </div>
                 );

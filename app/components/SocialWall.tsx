@@ -26,7 +26,7 @@ import { useTheme } from "../context/ThemeContext";
 import { useContent, type SocialWallPost } from "../context/ContentContext";
 import { useLanguage } from "../context/LanguageContext";
 import { pickText } from "../lib/ui";
-import { useMarqueeScroll } from "../../lib/useMarqueeScroll";
+import { useKaydirmaDurumu, yumusakKaydir } from "./YatayKaydirma";
 import Image from "./Img";
 import E from "./E";
 
@@ -50,6 +50,17 @@ export function instagramKodu(url: string): { kod: string; tur: string } | null 
 /** Gömme adresi. `captioned` açıklamayı da gösterir (metin = alıntılanabilir içerik). */
 function gommeAdresi(p: { kod: string; tur: string }) {
   return `https://www.instagram.com/${p.tur}/${p.kod}/embed/captioned/`;
+}
+
+/** Kartın kapak görseli.
+ *  Operatör admin'den kapak yüklediyse O kullanılır; yüklemediyse gönderinin
+ *  KENDİ Instagram kapağı aynı-köken vekilden gelir (app/api/social-cover).
+ *  ⚠️ Instagram'ın ham CDN adresi imzalı + süreli olduğu için veriye YAZILMAZ;
+ *  vekil her seferinde taze adresi çözüp görseli akıtır ve CDN'de önbelleklenir. */
+export function kapakAdresi(post: SocialWallPost): string | null {
+  const elle = post.cover?.trim();
+  if (elle) return elle;
+  return instagramKodu(post.url) ? `/api/social-cover?u=${encodeURIComponent(post.url)}` : null;
 }
 
 function pazarlamaOnayi(): boolean {
@@ -157,7 +168,9 @@ function Kart({ post, onOpen, d, surface, border, textPrimary, textMuted }: {
 }) {
   const { lang } = useLanguage();
   const t = (tr: string, en: string) => pickText(lang, tr, en);
-  const kapak = post.cover?.trim();
+  // Vekil kapak alınamazsa (Instagram kesintisi / gönderi kaldırılmış) yer tutucuya düş.
+  const [kapakHatasi, setKapakHatasi] = useState(false);
+  const kapak = kapakHatasi ? null : kapakAdresi(post);
 
   return (
     <button
@@ -182,6 +195,8 @@ function Kart({ post, onOpen, d, surface, border, textPrimary, textMuted }: {
             height={889}
             className="w-full h-full object-cover"
             style={{ objectPosition: post.imagePos || "center" }}
+            onError={() => setKapakHatasi(true)}
+            unoptimized={kapak.startsWith("/api/social-cover")}
           />
         ) : (
           <div className="w-full h-full grid place-items-center">
@@ -236,11 +251,16 @@ function Liste({ items, bant }: { items: SocialWallPost[]; bant: boolean }) {
   const textPrimary = d ? "#ffffff" : "#111111";
   const textMuted = d ? "rgba(255,255,255,0.42)" : "rgba(0,0,0,0.42)";
 
-  const { scrollRef, handlers, scrollByAmount, isMarquee } = useMarqueeScroll({ direction: 1, speed: 0.18 });
-  const gosterilen = bant && isMarquee ? [...items, ...items] : items;
+  // ⚠️ ÇOĞALTMA YOK: eski marquee deseni kesintisiz akış için listeyi 2× basıyordu →
+  // az sayıda gönderiyle AYNI VİDEO ekranda iki kez görünüyordu (kullanıcı bildirdi,
+  // 2026-09-09). Otomatik kayma yerine oklar + doğal kaydırma; her gönderi TEK kez.
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const { sol, sag, olc } = useKaydirmaDurumu(scrollRef);
+  const animRef = useRef(0);
+  const kaydir = (mesafe: number) => yumusakKaydir(scrollRef.current, mesafe, olc, animRef);
   const kapat = useCallback(() => setAcik(null), []);
 
-  const kartlar = gosterilen.map((item, i) => (
+  const kartlar = items.map((item, i) => (
     <Kart
       key={`${item.id}-${i}`}
       post={item}
@@ -265,15 +285,15 @@ function Liste({ items, bant }: { items: SocialWallPost[]; bant: boolean }) {
   return (
     <div className="relative">
       <button
-        type="button" onClick={() => scrollByAmount(-320)} aria-label="Önceki paylaşımlar"
-        className="hidden sm:flex absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-110 active:scale-95 cursor-pointer"
+        type="button" onClick={() => kaydir(-320)} aria-label="Önceki paylaşımlar"
+        className={`${sol ? "hidden sm:flex" : "hidden"} absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-110 active:scale-95 cursor-pointer`}
         style={{ background: d ? "rgba(20,20,24,0.88)" : "rgba(255,255,255,0.92)", border: `1px solid ${border}`, boxShadow: d ? "0 4px 16px rgba(0,0,0,0.4)" : "0 2px 12px rgba(0,0,0,0.12)", backdropFilter: "blur(8px)" }}
       >
         <HiChevronLeft size={20} style={{ color: textPrimary }} />
       </button>
       <button
-        type="button" onClick={() => scrollByAmount(320)} aria-label="Sonraki paylaşımlar"
-        className="hidden sm:flex absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-110 active:scale-95 cursor-pointer"
+        type="button" onClick={() => kaydir(320)} aria-label="Sonraki paylaşımlar"
+        className={`${sag ? "hidden sm:flex" : "hidden"} absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-110 active:scale-95 cursor-pointer`}
         style={{ background: d ? "rgba(20,20,24,0.88)" : "rgba(255,255,255,0.92)", border: `1px solid ${border}`, boxShadow: d ? "0 4px 16px rgba(0,0,0,0.4)" : "0 2px 12px rgba(0,0,0,0.12)", backdropFilter: "blur(8px)" }}
       >
         <HiChevronRight size={20} style={{ color: textPrimary }} />
@@ -281,15 +301,14 @@ function Liste({ items, bant }: { items: SocialWallPost[]; bant: boolean }) {
 
       <div
         ref={scrollRef}
-        {...handlers}
         tabIndex={0} role="region" aria-label="Müşteri paylaşımları — yatay kaydırılabilir liste"
-        className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none focus:outline-none"
+        className="overflow-x-auto scrollbar-hide focus:outline-none"
         style={{
           maskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
           WebkitMaskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
         }}
       >
-        <div className="flex gap-4 px-4 sm:px-6" style={{ width: "max-content" }}>{kartlar}</div>
+        <div className="flex gap-4 px-4 sm:px-6 justify-center" style={{ minWidth: "max-content" }}>{kartlar}</div>
       </div>
 
       {acik && <IsikKutusu post={acik} onClose={kapat} />}
@@ -297,9 +316,21 @@ function Liste({ items, bant }: { items: SocialWallPost[]; bant: boolean }) {
   );
 }
 
-/** Geçerli (kodu çözülebilen) gönderiler. Bozuk adres kart üretmez. */
+/** Geçerli (kodu çözülebilen) gönderiler. Bozuk adres kart üretmez.
+ *  ⚠️ TEKİLLEŞTİRİR: aynı gönderi kodu birden çok kez eklendiyse (farklı yazımla —
+ *  /p/, /reel/, hesap adı önekli, sondaki ?igsh parametresi) YALNIZ İLKİ gösterilir.
+ *  Filtre burada olduğu için anasayfa bandı, /musteri-videolari ve ürün sayfası
+ *  aynı kuralı paylaşır. */
 export function gecerliPaylasimlar(items: SocialWallPost[] | undefined): SocialWallPost[] {
-  return (items ?? []).filter((p) => p?.url && instagramKodu(p.url));
+  const gorulen = new Set<string>();
+  const cikti: SocialWallPost[] = [];
+  for (const p of items ?? []) {
+    const ig = p?.url ? instagramKodu(p.url) : null;
+    if (!ig || gorulen.has(ig.kod)) continue;
+    gorulen.add(ig.kod);
+    cikti.push(p);
+  }
+  return cikti;
 }
 
 // ── Anasayfa bandı ───────────────────────────────────────────────────────────
