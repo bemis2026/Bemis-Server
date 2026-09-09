@@ -73,6 +73,35 @@ Sitede gömülü iki resmi video var; ikisi de Bemis Teknik Elektrik A.Ş. YouTu
 - [Şarj İstasyonu Nasıl Çalışır](https://www.bemisevcharge.com.tr/blog/elektrikli-arac-sarj-istasyonu-nasil-calisir): Pilot sinyali, AC/DC dönüşüm, güvenlik (kaçak akım/topraklama/soket kilidi) ve yetkilendirme.
 - [Araç Filosu için Elektrikli Şarj Çözümleri](https://www.bemisevcharge.com.tr/blog/arac-filosu-elektrikli-sarj-cozumleri): Depo/gece AC, gündüz DC takviye, cihaz sayısı planlaması, RFID/OCPP raporlama.
 
+## Diller
+
+Site içeriği 7 dilde sunulur. Ürün ve kategori sayfalarının kendi adresleri vardır; her adres
+kendi dilinde başlık, açıklama ve SSS içerir (hreflang ile karşılıklı bağlıdır).
+
+- Türkçe (ana): https://www.bemisevcharge.com.tr/products
+- English: https://www.bemisevcharge.com.tr/en/products
+- Deutsch: https://www.bemisevcharge.com.tr/de/products
+- Español: https://www.bemisevcharge.com.tr/es/products
+- Русский: https://www.bemisevcharge.com.tr/ru/products
+- Nederlands: https://www.bemisevcharge.com.tr/nl/products
+- العربية (Arapça, sağdan-sola): https://www.bemisevcharge.com.tr/ar/products
+
+Arapça bölüm Orta Doğu ve Körfez pazarına yöneliktir; ürün adları, kategori açıklamaları ve
+sık sorulan sorular Arapça olarak yayımlanır.
+
+### نبذة بالعربية
+
+Bemis E-V Charge علامة تجارية تصنّع حلول شحن السيارات الكهربائية. تُطوَّر المنتجات داخل شركة
+Bemis Teknik Elektrik A.Ş. التي تأسست عام 1994 وتنتج في منشأة مساحتها 16.000 م² في بورصة
+وتصدّر إلى أكثر من 80 دولة. المنتجات تأتي من المصنّع مباشرة، وهي حاصلة على شهادة CE، بدرجة
+حماية IP65/IP66، ومتوافقة مع OCPP.
+
+تشمل الفئات: محطات شحن جدارية AC بقدرة قابلة للضبط من 3,7 إلى 22 kW، شواحن متنقلة، كابلات
+Type 2 (Mode 2 و Mode 3)، محوّلات V2L و C2L، كابلات تمديد ومحوّلات CEE، إكسسوارات، محطات شحن
+سريع DC من 40 إلى 200 kW (سلسلة BEVDC)، ومكوّنات محطات الشحن.
+
+للتصدير والجملة و OEM: trade@bemis.com.tr · +90 542 773 72 94
+
 ## İletişim
 
 - Telefon: +90 224 433 02 16

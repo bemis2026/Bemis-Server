@@ -1,0 +1,24 @@
+{
+  "_aciklama": "KÖRFEZ / ORTA DOĞU TABAN ÇİZGİSİ — /ar dil kolu YAYINA ALINMADAN hemen önceki durum. Sonraki ölçüm bununla kıyaslanır; aksi hâlde /ar kolunun bir etkisi olup olmadığı SÖYLENEMEZ.",
+  "_neden_depoda": "Önceki taban çizgisi (Desktop/SEO data/SEO_taban_cizgisi_2026-09-06.json) masaüstü temizliğinde SİLİNDİ. Bu dosya sürüm kontrolünde tutulur.",
+  "olcum_tarihi": "2026-09-09",
+  "kaynak": "Google Analytics 4 — property 532762412 (Bemis E-V Charge Website)",
+  "donem": "son 90 gün (90daysAgo → yesterday)",
+  "olay": "/ar ürün kolu 2026-09-09'da yayına alındı (commit f690945). Bu satırlar YAYIN ÖNCESİ.",
+  "ulkeler": {
+    "Turkiye": { "oturum": 3339, "kullanici": 1718, "goruntuleme": 12755 },
+    "United Arab Emirates": { "oturum": 7, "kullanici": 4, "goruntuleme": 29 },
+    "Iraq": { "oturum": 1, "kullanici": 1, "goruntuleme": 1 }
+  },
+  "sifir_olan_ulkeler": [
+    "Saudi Arabia", "Qatar", "Kuwait", "Bahrain", "Oman", "Egypt", "Jordan", "Lebanon"
+  ],
+  "ozet": "Körfez + Orta Doğu pratikte SIFIR: 90 günde toplam 8 oturum (BAE 7, Irak 1); hedeflenen 8 ülkede hiç oturum yok.",
+  "sonraki_olcum": {
+    "ne_zaman": "2026-10-10 civarı (yayından ~1 ay sonra; indeksleme 3-4 hafta sürebilir)",
+    "nasil": "Aynı GA raporu: dimensions=[country], metrics=[sessions,activeUsers,screenPageViews], dimension_filter=in_list_filter aynı ülke listesi, date_ranges=90daysAgo→yesterday.",
+    "ayrica": "GA'da landingPage boyutuyla /ar/ ile başlayan sayfaları da ayrıca say; Search Console'da Ülkeler + Sayfalar raporunda /ar filtresi.",
+    "uyari": "GA ülke verisi trafiği ölçer, SIRALAMAYI değil. Sıralama için Search Console gerekir; Körfez için GSC'de henüz taban çizgisi YOK (kullanıcı tarafında dışa aktarım gerekiyor)."
+  },
+  "not": "internationalDealers verisinde Körfez'de distribütör YOK (yalnız DE, CL, PT aktif) → yerel sinyal (NAP, yerel sayfa) kurulamıyor; bu ticari bir karar, kod işi değil."
+}
