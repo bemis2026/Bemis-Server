@@ -7,11 +7,54 @@
 > Derin teknik bağlam: `Desktop/Claude Çalışmaları/Bemis Website/md/BEMIS_PROJECT_CONTEXT.md`
 > (özellikle §15.16 denetim, §15.17 Blob taşıması).
 >
-> Son güncelleme: **2026-09-09**
+> Son güncelleme: **2026-09-10**
 
 ---
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
+
+> 📚✅✅ **BLOG ÇEVİRİSİ KAPANDI — 37 YAZI × 5 DİL TAM (2026-09-10, commit'ler 44ff21e → ff432c1):**
+> 2026-09-09'da ölçülen kusur ("en/de/es/ru dillerinde 37 yazının 19'u hâlâ TÜRKÇE gövdeyle görünüyor")
+> **tamamen giderildi.** Son tablo: **en/de/es/ru/ar → 37 tam · 0 yalnız-başlık · 0 bayat · 0 yok.**
+> **Arapça blog adresi 23 → 37** (`tamCevrildi()` kapısı açıldı, `yazilarDilde("ar")` ile doğrulandı).
+> **KÖK NEDEN (hatırlatma):** `mergeBlogPost` alan bazında ve **dizi UZUNLUĞUNA bağlı** birleştirir —
+> `t.body.length !== post.body.length` ise gövde SESSİZCE Türkçeye düşer (faq/related da ayrı ayrı).
+> 2026-09-06 TR tazeleme turunda 5 yazının gövdesi büyümüş, çeviriler eski uzunlukta kalmıştı; 14 yazı
+> ise 2026-07-28'de yalnız BAŞLIK olarak eklenmişti (anasayfa rehber başlıkları için) → gövdeleri hiç
+> çevrilmemişti. İki grup da bu turda kapatıldı (5 bayat = eksik blokların TR indeksine eklenmesi;
+> 14 yazı = sıfırdan tam çeviri).
+> **🧰 KALICI ARAÇ — `scratchpad/_blog_tam_yama.mts` (YENİ YAZI EKLERKEN BUNU KULLAN):**
+> `scratchpad/blogceviri/<slug>.json` (anahtarlar en/de/es/ru/ar) → `data/i18n/blog.json`.
+> Kuru çalıştırma varsayılan, `--yaz` ile uygular; **7 ön kontrolden biri düşerse HİÇBİR ŞEY yazılmaz:**
+> (1) blog.json round-trip birebir (biçim korunur) · (2) body/faq/related uzunluğu TR ile TAM eşit ·
+> (3) blok ŞEKLİ TR tipine uygun (p/h2/h3/quote→text · ul→items · table→caption/headers/rows ·
+> cta→text+label · figure→alt/caption) · (4) ul/headers/rows boyutları birebir · (5) TR'ye özgü harf
+> (ğışİŞĞ) sızıntısı YOK · (6) alfabe (ru→Kiril, ar→Arapça ZORUNLU; en/de/es→Kiril/Arapça YASAK) ·
+> (7) **SAYISAL PARMAK İZİ**: her blok, her ul maddesi, her tablo BAŞLIĞI ve her tablo HÜCRESİ, her
+> faq q/a ve her related etiketi için `\d+` dizisi TR ile birebir.
+> **📌 PARMAK İZİ DERSİ:** karşılaştırma YALNIZ çevirinin taşıdığı alanlar üzerinden yapılır — kaynaktaki
+> YAPISAL alanlar (`type:"h2"`, `href`, `svg`) kendi rakamlarını taşır ve parmak izini kirletir (ilk
+> sürümde `type:"h2"`nin "2"si yanlış alarm üretti). ⚠️ Ayrıca **sayıyı kelimeyle yazma** ("yirmi" ≠ "20")
+> ve TR'de digit taşıyan ifadeleri düşürme ("1 saatten kısa", "(3 faz)", "V2L" ×4) — parmak izi yakalar.
+> **📌 KURAL — YENİ BLOG YAZISI EKLERKEN:** `posts.ts`'e ekledikten sonra `blog.json`'a 5 dilde TAM
+> çeviri de gir (aynı dizi uzunlukları). Çeviri gelmezse: yabancı dilde ziyaretçi TÜRKÇE gövde görür ve
+> **Arapça adres HİÇ açılmaz** (404 — `tamCevrildi()` bilerek böyle). Ayrıca `npm run gen:blog-index`
+> (yalnız slug/başlık/kategori/tarih) + llms.txt Rehberler + `llms-full.txt` GUIDE_SLUGS elle güncellenir.
+> **⚠️ YABANCI DİLDE ÇERÇEVE:** "yerli üretim / %94 Yerli Malı" gibi milliyetçi çerçeve KULLANILMADI;
+> olgusal karşılıklarına çevrildi ("kendi tesisimizde üretilir", "Yerli Malı Belgesi %94 yerlilik oranıyla")
+> → hem kayıtlı kural korundu hem sayısal parmak izi tuttu.
+> **🔴 KAPSAM DIŞI KALAN GERÇEK KUSUR (düzeltilmedi, ayrı iş):** 3 yazının gömülü SVG diyagramlarındaki
+> `<text>` etiketleri **kodda sabit TÜRKÇE** ve `svg` alanı tasarım gereği DAİMA TR'den geldiği için
+> **5 yabancı dilde de Türkçe görünüyor**: `elektrikli-arac-sarj-istasyonu-kurulum-rehberi` body[21]
+> (Mod 2 / Mod 3) + body[26] (DLM) · `ev-sarj-soketi-tipleri-type-2-ccs2-chademo` body[8] (Type 2 ↔ CCS2
+> pin) · `ac-dc-sarj-farki` body[2] (AC/DC dönüşüm). Çözüm `app/lib/diagrams.ts`'i dile duyarlı yapmayı
+> ister (aynı diyagramlar SÖZLÜK sayfalarında da kullanılıyor → tek kaynak, iki tüketici).
+> **YAN KAZANIM — Arapça ürün sayfalarındaki "İlgili Rehberler" çipleri:** `arRehberleri()` yalnız Arapçası
+> TAM olan yazıyı gösterdiği için wallbox'ta **3 → 5** oldu (cables 3, portable 2, dc-units 2, v2l-c2l 2
+> zaten tamdı). Kalan TEK düşen bağlantı `/arac-sarj-uyumlulugu` — o bir blog yazısı değil, **Arapçası
+> olmayan bağımsız sayfa**; düşmesi DOĞRU davranış (Arapça sayfadan TR gövdeye link verilmez).
+> ⓘ Ölçüm betikleri: `scratchpad/_blog_dil_durum.mts` (dil başına tam/yalnız-başlık/bayat/yok) ·
+> `_ar_say.mts` (Arapça blog adres sayısı) · `_ar_rehber_eksik.mts` (hangi rehber çipi neden düşüyor).
 
 > 🌐📐 **ÇOK DİLLİ DÜZEN DENETİMİ — 7 DİL × 10 SAYFA × 2 EKRAN (2026-09-09, commit d6bb990):**
 > Kullanıcı: "yeni eklenen tüm diller, anadil olan Türkçedeki düzen gibi olmalı; dile geçince satır
@@ -146,8 +189,8 @@
 > **BU TURDA 5 BAYAT ÇEVİRİ YALNIZ ARAPÇA İÇİN ONARILDI** (2026-09-06 tazeleme turunda TR gövde
 > büyümüştü: ac-dc +1 paragraf, kurulum-rehberi +6 maddelik ul, nasil-secilir +1 paragraf,
 > maliyet +3 bölüm, apartmana +1 SSS; hepsine related +2) → Arapça tam yazı **18 → 23**.
-> ⏳ **KALAN İŞ: aynı 5 yazı + 10 yalnız-başlık yazısı en/de/es/ru için de çevrilmeli** (istemci
-> tarafında görünür, adres açmaz — ama o diller şu an TR gövde gösteriyor).
+> ✅ **BU KALEM 2026-09-10'DA KAPANDI** (en üstteki 📚 bloğuna bak): 5 bayat + 14 yalnız-başlık yazının
+> hepsi 5 dilde tam çevrildi → 37/37 × 5 dil, Arapça blog adresi 23 → 37.
 > **🔒 KALICI KAPI — `tamCevrildi()` (`app/lib/serverBlogLang.ts`):** gövde/faq/related hizası
 > tutmayan yazı **Arapça ADRES ALMAZ** (404). Yeni yazı eklendiğinde de kendiliğinden korur:
 > çevirisi gelmemiş yazı için Arapça sayfa açılmaz. **Arapça adreste Türkçe gövde yayınlamaktansa 404.**
