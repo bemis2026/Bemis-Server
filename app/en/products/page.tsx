@@ -21,11 +21,11 @@ const DESCRIPTION =
   "AC wallboxes, portable chargers, DC fast chargers, Type 2 / Mode 3 cables, V2L adapters and OEM equipment. Bemis E-V Charge — manufactured in Türkiye, CE & IP65, OCPP-ready. OEM/ODM & wholesale export.";
 
 export const metadata: Metadata = {
-  title: `${TITLE} | Bemis E-V Charge`,
+  title: { absolute: `${TITLE} | Bemis E-V Charge` },
   description: DESCRIPTION,
   alternates: {
     canonical: "/en/products",
-    languages: { en: "/en/products", tr: "/products", de: "/de/products", es: "/es/products", ru: "/ru/products", nl: "/nl/products", "x-default": "/products" },
+    languages: { en: "/en/products", tr: "/products", de: "/de/products", es: "/es/products", ru: "/ru/products", nl: "/nl/products", ar: "/ar/products", "x-default": "/products" },
   },
   openGraph: {
     title: `${TITLE} | Bemis E-V Charge`,

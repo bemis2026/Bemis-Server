@@ -89,7 +89,7 @@ export function isEnglishOnlyPath(pathname: string | null | undefined): boolean 
  * LanguageContext / LanguageURLSync / LanguageSwitcher BUNU kullanır. Kural aynı:
  * görünüm zorlaması, tercih değil (localStorage'a yazılmaz).
  */
-export const URL_LANGS: readonly LangCode[] = ["en", "de", "es", "ru", "nl"];
+export const URL_LANGS: readonly LangCode[] = ["en", "de", "es", "ru", "nl", "ar"];
 export function forcedLangForPath(pathname: string | null | undefined): LangCode | null {
   if (!pathname) return null;
   if (isEnglishOnlyPath(pathname)) return "en";

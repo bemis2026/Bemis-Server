@@ -11,7 +11,7 @@
 
 import type { LangCode } from "./languages";
 
-export type LocaleNameLang = "de" | "es" | "ru" | "nl";
+export type LocaleNameLang = "de" | "es" | "ru" | "nl" | "ar";
 
 const DE: Record<string, string> = {
   "Charger 2 Fişli": "Charger 2 mit Stecker",
@@ -205,7 +205,75 @@ const NL: Record<string, string> = {
   "DC Soket Tutucu (4 Bilyalı)": "DC-connectorhouder (4 kogels)",
 };
 
-export const LOCALE_NAMES: Record<LocaleNameLang, Record<string, string>> = { de: DE, es: ES, ru: RU, nl: NL };
+
+// ⚠️ ARAPÇA — kullanıcı kararı (2026-09-09): marka-model adları da Arapça yazılır.
+// Bu, de/es/ru/nl'den AYRILAN tek dil: onlarda marka-model adları BİLEREK haritasız
+// (Latin kalır). Geri almak isterseniz AR bloğundaki ilk 20 satırı silmek yeter.
+// ⚠️ BEVDC model kodu korunur — o kimlik, ad değil.
+const AR: Record<string, string> = {
+  "Charger 2": "تشارجر 2",
+  "Charger 2 Fişli": "تشارجر 2 بقابس",
+  "Charger Plus 2": "تشارجر بلس 2",
+  "Charger Plus 2 GSM": "تشارجر بلس 2 GSM",
+  "Charger Plus 2 GSM MID Sayaçlı": "تشارجر بلس 2 GSM بعدّاد MID",
+  "Charger Plus 2 MID Sayaçlı": "تشارجر بلس 2 بعدّاد MID",
+  "Charger Pro 2": "تشارجر برو 2",
+  "Charger Pro 2 GSM": "تشارجر برو 2 GSM",
+  "Charger Pro 2 GSM MID Sayaçlı": "تشارجر برو 2 GSM بعدّاد MID",
+  "Charger Pro 2 MID Sayaçlı": "تشارجر برو 2 بعدّاد MID",
+  "Mini Mobile": "ميني موبايل",
+  "Mono Mobile": "مونو موبايل",
+  "Pro Mobile 2": "برو موبايل 2",
+  "Pedestal": "قاعدة تثبيت (بيدستال)",
+  "BEVDC 40": "شاحن سريع BEVDC 40",
+  "BEVDC 80": "شاحن سريع BEVDC 80",
+  "BEVDC 120": "شاحن سريع BEVDC 120",
+  "BEVDC 160": "شاحن سريع BEVDC 160",
+  "BEVDC 180": "شاحن سريع BEVDC 180",
+  "BEVDC 200": "شاحن سريع BEVDC 200",
+  "Şarj Seti 16A Monofaze 3,7 kW": "طقم شحن 16A أحادي الطور 3,7 kW",
+  "Şarj Seti 32A Monofaze 7,4 kW": "طقم شحن 32A أحادي الطور 7,4 kW",
+  "Şarj Seti 16A Trifaze 11 kW": "طقم شحن 16A ثلاثي الأطوار 11 kW",
+  "Şarj Seti 32A Trifaze 22 kW": "طقم شحن 32A ثلاثي الأطوار 22 kW",
+  "Tek Çıkışlı V2L Adaptör": "محوّل V2L بمخرج واحد",
+  "Tekli Priz Uzatma V2L Adaptör": "محوّل تمديد V2L بمقبس واحد",
+  "2'li Priz Uzatma V2L Adaptör": "محوّل تمديد V2L بمقبسين",
+  "3'lü Priz Uzatma V2L Adaptör": "محوّل تمديد V2L بثلاثة مقابس",
+  "Tek Çıkışlı C2L Adaptör": "محوّل C2L بمخرج واحد",
+  "C2L Tekli Priz Uzatma Fişli Adaptör": "محوّل تمديد C2L بمقبس واحد وقابس",
+  "C2L 2'li Priz Uzatma Fişli Adaptör": "محوّل تمديد C2L بمقبسين وقابس",
+  "C2L 3'lü Priz Uzatma Fişli Adaptör": "محوّل تمديد C2L بثلاثة مقابس وقابس",
+  "C2L 5/32A Prizli Uzatma Fişli Adaptör": "محوّل تمديد C2L بمقبس 5/32A وقابس",
+  "C2C Charger to Caravan Adaptör": "محوّل C2C من الشاحن إلى الكارافان",
+  "Cee Norm Adaptör (3×2,5)": "محوّل CEE (3×2,5)",
+  "Cee Norm Adaptör (3×6)": "محوّل CEE (3×6)",
+  "Cee Norm Adaptör (30cm Kablolu)": "محوّل CEE (بكابل 30 سم)",
+  "Standart Adaptör (3×2,5)": "محوّل قياسي (3×2,5)",
+  "Seyyar Uzatma Kablosu Monofaze (3×2,5)": "كابل تمديد متنقل أحادي الطور (3×2,5)",
+  "Seyyar Uzatma Kablosu Monofaze IP68 (3×2,5)": "كابل تمديد متنقل أحادي الطور IP68 (3×2,5)",
+  "Seyyar Uzatma Kablosu Ceenorm 3×2,5 (1/16A → 3/32A)": "كابل تمديد متنقل CEE 3×2,5 ‏(1/16A ← 3/32A)",
+  "Seyyar Uzatma Kablosu Ceenorm 3×2,5 (1/16A → 5/32A)": "كابل تمديد متنقل CEE 3×2,5 ‏(1/16A ← 5/32A)",
+  "Seyyar Uzatma Kablosu Ceenorm 3×6 (3/32A)": "كابل تمديد متنقل CEE 3×6 (3/32A)",
+  "Seyyar Uzatma Kablosu Ceenorm 5×6 (5/32A)": "كابل تمديد متنقل CEE 5×6 (5/32A)",
+  "Seyyar Uzatma Kablosu Ceenorm 5×2,5 (5/16A)": "كابل تمديد متنقل CEE 5×2,5 (5/16A)",
+  "Şarj Kablosu Çantası": "حقيبة كابل الشحن",
+  "Mobile Charger Çantası": "حقيبة الشاحن المتنقل",
+  "AC Soket Tutucu": "حامل مقبس AC",
+  "DC Soket Tutucu (4 Bilyalı)": "حامل مقبس DC (بأربع كرات)",
+  "Mobile Charger Duvar Askı Aparatı": "حامل جداري للشاحن المتنقل",
+  "V2L ve C2L Adaptör Çantası": "حقيبة محوّلات V2L و C2L",
+  "V2L ve C2L Kablo Çantası": "حقيبة كابلات V2L و C2L",
+  "Bir Uçu Açık Kablolu Şarj Prizi": "مقبس شحن بكابل مفتوح الطرف",
+  "Bir Ucu Açık Enerji Kablosu": "كابل طاقة مفتوح الطرف",
+  "Pano Prizi": "مقبس لوحة",
+  "Pano Prizi (Kilit Motorsuz)": "مقبس لوحة (بدون محرك قفل)",
+  "Pano Prizi Yeni Tip": "مقبس لوحة — الطراز الجديد",
+  "Otomatlı IP44 Kombinasyon": "صندوق توزيع IP44 بقواطع",
+  "Otomatlı IP66 Kombinasyon": "صندوق توزيع IP66 بقواطع",
+  "DC Şarj Soketi CCS2 (Bir Ucu Açık)": "مقبس شحن DC بمعيار CCS2 (مفتوح الطرف)",
+};
+
+export const LOCALE_NAMES: Record<LocaleNameLang, Record<string, string>> = { de: DE, es: ES, ru: RU, nl: NL, ar: AR };
 
 export function isLocaleNameLang(v: unknown): v is LocaleNameLang {
   // ⚠️ Sabit liste DEĞİL: 2026-09-03'te nl eklenince burası unutuldu ve /nl ürün

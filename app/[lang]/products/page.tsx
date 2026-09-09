@@ -24,7 +24,7 @@ export function generateStaticParams() {
 }
 
 const HREFLANG = (path: string) => ({
-  tr: path, en: `/en${path}`, de: `/de${path}`, es: `/es${path}`, ru: `/ru${path}`, nl: `/nl${path}`, "x-default": path,
+  tr: path, en: `/en${path}`, de: `/de${path}`, es: `/es${path}`, ru: `/ru${path}`, nl: `/nl${path}`, ar: `/ar${path}`, "x-default": path,
 });
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const title = `${ui.allProductsTitle} | Bemis E-V Charge`;
   const canonical = `/${L}/products`;
   return {
-    title,
+    title: { absolute: title },
     description: ui.allProductsDesc,
     alternates: { canonical, languages: HREFLANG("/products") },
     openGraph: { title, description: ui.allProductsDesc, type: "website", url: canonical, locale: LOCALE_OG[L], images: ogImage(title) },

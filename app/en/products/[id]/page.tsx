@@ -53,11 +53,11 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const trCanonical = `/products/${id}`;
   const title = `${m.title} | Bemis E-V Charge`;
   return {
-    title,
+    title: { absolute: title },
     description: m.description,
     alternates: {
       canonical,
-      languages: { en: canonical, tr: trCanonical, de: `/de${trCanonical}`, es: `/es${trCanonical}`, ru: `/ru${trCanonical}`, nl: `/nl${trCanonical}`, "x-default": trCanonical },
+      languages: { en: canonical, tr: trCanonical, de: `/de${trCanonical}`, es: `/es${trCanonical}`, ru: `/ru${trCanonical}`, nl: `/nl${trCanonical}`, ar: `/ar${trCanonical}`, "x-default": trCanonical },
     },
     openGraph: {
       title, description: m.description, type: "website", url: canonical,

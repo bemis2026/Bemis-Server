@@ -29,7 +29,7 @@ export async function generateStaticParams() {
 }
 
 const HREFLANG = (path: string) => ({
-  tr: path, en: `/en${path}`, de: `/de${path}`, es: `/es${path}`, ru: `/ru${path}`, nl: `/nl${path}`, "x-default": path,
+  tr: path, en: `/en${path}`, de: `/de${path}`, es: `/es${path}`, ru: `/ru${path}`, nl: `/nl${path}`, ar: `/ar${path}`, "x-default": path,
 });
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string; id: string; productId: string }> }): Promise<Metadata> {
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   // og:image optimize — TR/EN ürün sayfasıyla aynı (ham PNG 1–4 MB → ~200 KB; w=1080 deviceSizes'ta).
   const ogImg = image ? `${SITE_URL}/_next/image?url=${encodeURIComponent(cloudinarySrc(image))}&w=1080&q=88` : undefined;
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: { canonical, languages: HREFLANG(`/products/${id}/${productId}`) },
     openGraph: { title, description, type: "website", url: canonical, locale: LOCALE_OG[L], images: ogImg ? [{ url: ogImg, alt: name, width: 1080 }] : ogImage(name) },

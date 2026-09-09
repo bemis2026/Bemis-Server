@@ -57,12 +57,12 @@ export async function generateMetadata({
   const ogImg = image ? `${SITE_URL}/_next/image?url=${encodeURIComponent(cloudinarySrc(image))}&w=1080&q=88` : undefined;
   const enName = productNameEn(product.name);
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: {
       canonical,
       // Karşılıklı hreflang: TR eşi ↔ bu sayfa; x-default TR (ana pazar).
-      languages: { tr: trPath, en: canonical, de: `/de${trPath}`, es: `/es${trPath}`, ru: `/ru${trPath}`, nl: `/nl${trPath}`, "x-default": trPath },
+      languages: { tr: trPath, en: canonical, de: `/de${trPath}`, es: `/es${trPath}`, ru: `/ru${trPath}`, nl: `/nl${trPath}`, ar: `/ar${trPath}`, "x-default": trPath },
     },
     openGraph: {
       title,

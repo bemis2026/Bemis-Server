@@ -9,8 +9,9 @@
 import { productNameLocale, type LocaleNameLang } from "./productNamesLocale";
 
 export type LocaleLang = LocaleNameLang; // "de" | "es" | "ru"
-export const LOCALE_LANGS: LocaleLang[] = ["de", "es", "ru", "nl"];
-export const LOCALE_OG: Record<LocaleLang, string> = { de: "de_DE", es: "es_ES", ru: "ru_RU", nl: "nl_NL" };
+export const LOCALE_LANGS: LocaleLang[] = ["de", "es", "ru", "nl", "ar"];
+// ⚠️ ar_AE: hedef pazar Körfez (BAE merkezli). ar_SA/ar_EG değil — Dubai odaklı karar.
+export const LOCALE_OG: Record<LocaleLang, string> = { de: "de_DE", es: "es_ES", ru: "ru_RU", nl: "nl_NL", ar: "ar_AE" };
 
 type CatSeo = { name: string; title: string; description: string };
 
@@ -54,6 +55,16 @@ export const LOCALE_CATEGORY_SEO: Record<LocaleLang, Record<string, CatSeo>> = {
     "charger-equipment": { name: "Componenten voor laadstations", title: "EVSE-componenten en reserveonderdelen voor laadstations", description: "Componenten, contactdozen, connectoren en reserveonderdelen voor laadstations. OEM-levering aan fabrikanten en operators. Geproduceerd in Türkiye." },
     "accessories": { name: "Accessoires voor EV-laden", title: "Fabrikant en leverancier van laadaccessoires", description: "Accessoires voor het laden van elektrische auto's — connectorhouders, draagtassen, kabelmanagement. CE. Geproduceerd in Türkiye, groothandelsexport." },
     "dc-units": { name: "DC-snellaadstations", title: "Fabrikant van DC-snellaadstations (CCS2, OCPP)", description: "DC-snellaadstations van 40–200 kW met CCS2, OCPP-compatibel. Geproduceerd in Türkiye. OEM/ODM en groothandelsexport voor operators en distributeurs." },
+  },
+  ar: {
+    "wallbox": { name: "محطات شحن جدارية AC", title: "مصنّع محطات الشحن الجدارية للسيارات الكهربائية (3,7–22 kW، OCPP)", description: "محطات شحن جدارية AC بموصّل Type 2 من 3,7 إلى 22 kW، أحادية وثلاثية الطور، IP65، متوافقة مع OCPP. تصنيع في تركيا منذ 1994. OEM/ODM وعلامة خاصة وتصدير بالجملة." },
+    "portable": { name: "شواحن متنقلة", title: "مصنّع الشواحن المتنقلة (Type 2، تيار 6–32 A قابل للضبط)", description: "شواحن متنقلة Type 2 بضبط تيار 6–32 A، تعمل بالتوصيل المباشر دون تركيب. CE، IP65. تصنيع في تركيا. OEM وتصدير بالجملة." },
+    "cables": { name: "كابلات شحن السيارات الكهربائية", title: "مصنّع كابلات الشحن Type 2 (Mode 3، 16–32 A)", description: "كابلات شحن Type 2 / Mode 3 بتيار 16–32 A، أحادية وثلاثية الطور، بأطوال 3–15 م، خالية من الهالوجين. CE، IEC 62196. تصنيع في تركيا. OEM وتصدير بالجملة." },
+    "v2l-c2l": { name: "محوّلات V2L / C2L", title: "مصنّع محوّلات V2L و C2L للسيارات الكهربائية", description: "محوّلات Vehicle-to-Load (V2L) و C2L — شغّل أجهزتك مباشرة من السيارة الكهربائية. متوافقة بحسب العلامة، CE. تصنيع في تركيا وتصدير عالمي." },
+    "converters": { name: "كابلات التمديد والمحوّلات", title: "مصنّع كابلات تمديد الشحن ومحوّلات CEE", description: "كابلات تمديد ومحوّلات CEE لبنية الشحن، متوافقة مع Type 2. CE. تصنيع في تركيا وتصدير إلى أكثر من 80 دولة." },
+    "charger-equipment": { name: "مكوّنات محطات الشحن", title: "مكوّنات EVSE وقطع غيار محطات الشحن", description: "مكوّنات ومقابس وموصّلات وقطع غيار لمحطات الشحن. توريد OEM للمصنّعين والمشغّلين. تصنيع في تركيا." },
+    "accessories": { name: "إكسسوارات الشحن", title: "مصنّع ومورّد إكسسوارات شحن السيارات الكهربائية", description: "إكسسوارات شحن السيارات الكهربائية — حوامل الموصّلات، حقائب الحمل، تنظيم الكابلات. CE. تصنيع في تركيا وتصدير بالجملة." },
+    "dc-units": { name: "محطات الشحن السريع DC", title: "مصنّع محطات الشحن السريع DC (CCS2، OCPP)", description: "محطات شحن سريع DC من 40 إلى 200 kW بموصّل CCS2، متوافقة مع OCPP. تصنيع في تركيا. OEM/ODM وتصدير بالجملة للمشغّلين والموزّعين." },
   },
 };
 
@@ -101,6 +112,16 @@ export const LOCALE_UI: Record<LocaleLang, {
     contactLine: "Neem contact met ons op voor prijzen, groothandel en OEM-/private-labelorders.",
     manufacturedBy: "Geproduceerd door Bemis E-V Charge in Bursa, Türkiye.",
     phase3: "driefasig", phase1: "eenfasig", cable: "kabel",
+  },
+  ar: {
+    home: "الرئيسية", products: "المنتجات", allProducts: "جميع المنتجات",
+    allProductsTitle: "مصنّع معدات شحن السيارات الكهربائية — جميع المنتجات",
+    allProductsDesc: "محطات شحن جدارية AC، شواحن متنقلة، محطات شحن سريع DC، كابلات Type 2 / Mode 3، محوّلات V2L ومكوّنات OEM. Bemis E-V Charge — تصنيع في تركيا، CE و IP65، متوافق مع OCPP. OEM/ODM وتصدير بالجملة.",
+    catalogueDesc: "كتالوج منتجات Bemis E-V Charge — جميع فئات ومنتجات شحن السيارات الكهربائية.",
+    notFoundCat: "الفئة غير موجودة", notFoundProduct: "المنتج غير موجود",
+    contactLine: "تواصل معنا للأسعار وطلبات الجملة وطلبات OEM / العلامة الخاصة.",
+    manufacturedBy: "تصنيع Bemis E-V Charge في بورصة، تركيا.",
+    phase3: "ثلاثي الأطوار", phase1: "أحادي الطور", cable: "كابل",
   },
 };
 

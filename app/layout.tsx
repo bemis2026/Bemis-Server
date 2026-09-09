@@ -219,6 +219,12 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+// Dil kolu (/en /de /es /ru /nl /ar) rotalarında <html lang> + dir'i ilk boyamadan
+// önce ayarlar. ⚠️ Dil listesi lib/languages.ts URL_LANGS ile AYNI olmalı.
+// Arapça olmadan da faydalı (lang özniteliği SSR'da doğru olur) ama ASIL sebep
+// RTL: /ar sayfaları hidrasyona kadar soldan-sağa çizilip sonra ters dönüyordu.
+const DIL_KOLU_SCRIPT = "(function(){try{var m=/^\\/(en|de|es|ru|nl|ar)(?:\\/|$)/.exec(location.pathname);if(!m)return;var e=document.documentElement;e.lang=m[1];if(m[1]===\"ar\")e.dir=\"rtl\";}catch(_){}})();";
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -268,6 +274,8 @@ export default async function RootLayout({
   return (
     <html lang="tr" className={inter.variable} suppressHydrationWarning>
       <body className="min-h-full antialiased bg-[#141414] text-white">
+        {/* ⚠️ <body>'nin İLK çocuğu olmalı — sonrası boyanmadan çalışsın. */}
+        <script dangerouslySetInnerHTML={{ __html: DIL_KOLU_SCRIPT }} />
         {/* Üçüncü-taraf bağlantıyı erken aç (DNS + TLS el sıkışması) — GA/GTM ve
             Meta Pixel afterInteractive yüklenirken ilk byte daha hızlı gelir.
             (next/font zaten fonts.gstatic preconnect'i ekliyor; Next bu link'leri
