@@ -21,6 +21,13 @@
 > ⚠️⚠️ **TÜRKÇE ÜNLÜ UYUMU:** "60'tan fazla" → **"80'DEN fazla"** (altmış → -tan, seksen → -den). Rakamı değiştirip
 > eki bırakmak dilbilgisi hatası olurdu; betik eki ayrıca çeviriyor. 📌 Sayı değiştiren her toplu işlemde eki kontrol et.
 > **Wallbox H1:** "… (AC Wallbox) 7,4–22 kW" → **"3,7–22 kW"** (kullanıcı kararı; ürün verisiyle birebir aynı aralık).
+> **⚠️⚠️ İLK TUR EKSİK KALDI — 8 DOSYA ATLANMIŞTI (commit b3ef116):** betikte dosya listesi ELLE yazılmıştı; kök
+> `layout.tsx` (site geneli meta + og), `/kurumsal/layout.tsx`, `/export`, `/uretici`, `opengraph-image.tsx`,
+> `lib/cities.ts` (şehir SSS'leri), `enProductSeo.ts`, `localeProductSeo.ts` (de/es/ru/nl ürün metası) dışarıda kaldı.
+> **Canlı doğrulamada yakalandı** (anasayfa 6, /uretici 3, /b2b 4 adet "60+ ülkeye"). İkinci turda `app/ + lib/ +
+> scripts/` ağacı baştan sona tarandı → 21 yer daha; depoda kalan **0**. 📌 **Toplu metin değişiminde dosya listesi
+> ELLE YAZILMAZ, ağaç taranır.** 📌 Ayrıca `ui.json` ANAHTARI da güncellenmeli: kod "Exports to 80+ countries…"
+> ile ararken anahtar "60+" kalmıştı → 5 dilde çeviri bulunamayıp İngilizce'ye düşecekti (yerinde yeniden adlandırıldı).
 > metaTitle'da kW GEÇMİYOR → 56 karakterlik `clampTitle` sınırı etkilenmedi; meta açıklamada "monofazede 7,4 kW'a kadar"
 > ifadesi korundu. `ORG_DESCRIPTION` aralığı da hizalandı. store cache **v102-guc → v103-ulke**.
 
