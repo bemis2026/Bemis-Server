@@ -88,6 +88,18 @@
 > TÜRKÇE basılır (kök yerleşim rotayı bilemez → içerik TR hidratlanır; ziyaretçi hidrasyondan sonra
 > Arapça görür). Çözümü route-group refactor'u. Ürün/kategori sayfalarında footer yerine ContactBar
 > kullanıldığı için orada yalnız 3 menü etiketi kalıyor.
+> **🔴 YAN BULGU — RTL'DE `left:-9999px` GERÇEK YATAY KAYDIRMA AÇIYOR (commit 6122e3e):**
+> Playwright ölçümü (canlı, 1440 ve 390 px): `/ar` ve `/ar/middle-east`'te
+> `scrollWidth - clientWidth = 9999`. Kaynak: iletişim formundaki görünmez **honeypot**
+> kabı `position:absolute; left:-9999px` ile gizleniyordu. **LTR'de sol taşma kırpılır**
+> (`/export` ölçümü: taşma 0) **ama RTL'de sol taraf "bitiş" yönü olduğu için kaydırılabilir
+> alan açılır** → aynı kod Türkçe/İngilizce sayfada sorunsuz, Arapça sayfada bozuk.
+> **FIX: kırpma tabanlı gizleme** (`width/height:1px` + `overflow:hidden` + `clip-path:inset(50%)`)
+> — alan DOM'da ve doldurulabilir kalır, bot yakalama bozulmaz, taşma üretmez. Canlı doğrulandı:
+> iki sayfa × iki ekran genişliği **taşma 0**. `/export` (LTR) DEĞİŞTİRİLMEDİ.
+> **📌 KURAL: RTL sayfada yön BAĞIMLI mutlak konum (`left`/`right`) ile gizleme YAPMA** —
+> ekran-okuyucu-dostu kırpma desenini kullan. Kusur /ar'da (aynı gün yayına giren sayfa)
+> zaten vardı; yeni sayfa deseni kopyaladığı için ikisi birlikte düzeltildi.
 
 > 🕌📚 **ARAPÇA DERİN İÇERİK: /ar/sozluk + /ar/blog AÇILDI (2026-09-09, commit 0466652):**
 > Kullanıcının seçmeli kararıyla ("Arapça derin içerik turu sırada") Arapça kol ilk kez ürün +
