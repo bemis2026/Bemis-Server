@@ -466,7 +466,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
           </button>
 
           {/* Desktop Nav — gap lg aralığında sıkı (2.5), ≥xl bugünkü 6 (değişmez) */}
-          <div className="hidden lg:flex items-center gap-2.5 xl:gap-6">
+          <div className="hidden lg:flex items-center gap-2 xl:gap-6">
             {activeNavLinks.map((link, idx) => {
               const isK = isKurumsal(link);
               const isU = isUrunler(link);
@@ -486,7 +486,11 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                 >
                   <button
                     onClick={() => handleNavClick(isK ? "#b2bcta" : isR ? "/blog#rehberler" : link.href)}
-                    className={`flex items-center gap-1 text-sm font-semibold transition-colors duration-200 relative group ${navWordClass}`}
+                    /* ⚠️ 1024–1279 px (lg↔xl): etiket TEK SATIRDA kalmalı ve 13 px olmalı.
+                       Ölçüm (2026-09-09, Playwright): bu bantta "Ana Sayfa"/"Bayi Ağı" iki
+                       satıra sarılıyordu; Almanca'da satır 1079 px'e çıkıp B2B rozetini ve
+                       dil seçicisini ekran DIŞINA itiyordu. ≥xl görünüm DEĞİŞMEZ (text-sm). */
+                    className={`flex items-center gap-1 whitespace-nowrap text-[13px] xl:text-sm font-semibold transition-colors duration-200 relative group ${navWordClass}`}
                   >
                     <E field={`navbar.links.${idx}.label`} tag="span">{link.label}</E>
                     {hasDropdown && <HiChevronDown size={13} className={`transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />}
@@ -831,7 +835,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                 rel="noopener noreferrer"
                 aria-label="B2B Portal"
                 title="B2B Portal"
-                className="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold tracking-[0.10em] uppercase transition-colors leading-none"
+                className="ml-1.5 hidden xl:inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold tracking-[0.10em] uppercase transition-colors leading-none"
                 style={{
                   color: b2bColor,
                   border: `1px solid ${b2bBorderColor}`,
