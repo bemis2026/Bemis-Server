@@ -17,6 +17,7 @@ type SectionT = {
   headers?: string[];
   rows?: string[][];
   alt?: string;
+  svg?: string;   // yalnız figure: dile göre ÇEVRİLMİŞ SVG (diyagram etiketleri)
 };
 export type BlogTranslation = {
   title?: string;
@@ -67,7 +68,15 @@ function mergeSection(src: BlogSection, t: SectionT | undefined): BlogSection {
         rows: Array.isArray(t.rows) && t.rows.length === src.rows.length ? t.rows : src.rows,
       };
     case "figure":
-      return { ...src, alt: t.alt ?? src.alt, caption: t.caption ?? src.caption }; // svg TR'den
+      // ⚠️ svg NORMALDE TR'den gelir (yapısal alan). TEK İSTİSNA: çeviri kendi SVG'sini
+      //    taşıyorsa (diyagram etiketleri çevrilmiştir — scripts/gen-diagram-i18n.mts üretir)
+      //    o kullanılır; yoksa yine TR SVG basılır (güvenli düşüş).
+      return {
+        ...src,
+        alt: t.alt ?? src.alt,
+        caption: t.caption ?? src.caption,
+        svg: typeof t.svg === "string" && t.svg.startsWith("<svg") ? t.svg : src.svg,
+      };
     default:
       return src;
   }
