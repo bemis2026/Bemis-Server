@@ -5753,7 +5753,7 @@
             "items": [
               {
                 "label": "Adapter type",
-                "value": "V2L (Vehicle to Load)"
+                "value": "C2L (Charger to Load)"
               },
               {
                 "label": "Exit Date",
@@ -5764,10 +5764,6 @@
           {
             "group": "Compatibility",
             "items": [
-              {
-                "label": "Compatible Vehicle",
-                "value": "Hyundai · Kia · Ssangyong"
-              },
               {
                 "label": "Socket Type",
                 "value": "Turkey standard (Schuko)"

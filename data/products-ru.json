@@ -5461,7 +5461,7 @@
             "items": [
               {
                 "label": "Тип адаптера",
-                "value": "V2L (Vehicle to Load)"
+                "value": "C2L (Charger to Load)"
               },
               {
                 "label": "Выход",
@@ -5472,10 +5472,6 @@
           {
             "group": "Совместимость",
             "items": [
-              {
-                "label": "Совместимый автомобиль",
-                "value": "Hyundai · Kia · Ssangyong"
-              },
               {
                 "label": "Тип розетки",
                 "value": "Стандарт Турции (Schuko)"

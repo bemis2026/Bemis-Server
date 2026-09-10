@@ -5461,7 +5461,7 @@
             "items": [
               {
                 "label": "نوع المحوّل",
-                "value": "V2L (Vehicle to Load)"
+                "value": "C2L (Charger to Load)"
               },
               {
                 "label": "المخرج",
@@ -5472,10 +5472,6 @@
           {
             "group": "التوافق",
             "items": [
-              {
-                "label": "المركبة المتوافقة",
-                "value": "Hyundai · Kia · Ssangyong"
-              },
               {
                 "label": "نوع المقبس",
                 "value": "المعيار التركي (Schuko)"

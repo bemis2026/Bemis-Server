@@ -5519,7 +5519,7 @@
             "items": [
               {
                 "label": "Adaptör Tipi",
-                "value": "V2L (Vehicle to Load)"
+                "value": "C2L (Charger to Load)"
               },
               {
                 "label": "Çıkış",
@@ -5530,10 +5530,6 @@
           {
             "group": "Uyumluluk",
             "items": [
-              {
-                "label": "Uyumlu Araç",
-                "value": "Hyundai · Kia · Ssangyong"
-              },
               {
                 "label": "Priz Tipi",
                 "value": "Türkiye standartı (Schuko)"
