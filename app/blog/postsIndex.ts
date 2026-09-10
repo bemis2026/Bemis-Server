@@ -5,6 +5,19 @@
 export type PostIndexItem = { slug: string; title: string; titleI18n?: Record<string, string>; category: string; datePublished: string; image?: string };
 export const POSTS_INDEX: PostIndexItem[] = [
   {
+    "slug": "v2l-adaptoru-nasil-secilir",
+    "title": "V2L Adaptörü Nasıl Seçilir? Marka, Priz Sayısı ve Kablo Rehberi",
+    "titleI18n": {
+      "en": "How to Choose a V2L Adapter: Brand, Socket Count and Cable Guide",
+      "de": "V2L-Adapter richtig wählen: Marke, Steckdosenzahl und Kabel",
+      "es": "Cómo elegir un adaptador V2L: marca, número de enchufes y cable",
+      "ar": "كيف تختار محوّل V2L؟ دليل العلامة وعدد المقابس والكابل",
+      "ru": "Как выбрать адаптер V2L: марка, число розеток и кабель"
+    },
+    "category": "Rehber",
+    "datePublished": "2026-09-11"
+  },
+  {
     "slug": "ortak-alan-sarj-yonetim-paneli-apartman-site",
     "title": "Ortak Alan Şarj Yönetim Paneli: Apartman ve Sitede Kişi Bazlı Takip",
     "titleI18n": {

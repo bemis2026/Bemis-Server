@@ -5703,6 +5703,161 @@
           "label": "What is OCPP?"
         }
       ]
+    },
+    "v2l-adaptoru-nasil-secilir": {
+      "title": "How to Choose a V2L Adapter: Brand, Socket Count and Cable Guide",
+      "metaTitle": "How to Choose a V2L Adapter — Brand and Sockets",
+      "description": "Your car has V2L, but which adapter? The connector on the vehicle side changes by brand. A buying guide that settles the socket, cable and current decision in three steps.",
+      "excerpt": "Three things decide a V2L adapter: your car's brand (the vehicle-side connector follows it), how many sockets you want, and whether you will use it with a cable. Settling them in order prevents buying the wrong product.",
+      "category": "Guide",
+      "body": [
+        {
+          "text": "You have found out your car supports V2L; now comes the adapter. This is where most people get stuck: a V2L adapter is not a single product. Several versions do the same job but differ in the connector on the vehicle side, the number of sockets and the cable. Buying the wrong one is usually not a cheap mistake, because a connector that does not fit simply will not go in. This guide reduces the decision to three steps."
+        },
+        {
+          "text": "Step zero: does your car really have V2L?"
+        },
+        {
+          "text": "An adapter does not add a feature the car does not have; it only makes the output the car already offers usable. If you are not sure your car supports V2L, confirm that first; we listed the models one by one in a separate guide. Skip this step and the other three decisions lose their meaning."
+        },
+        {
+          "text": "First decision: the connector on the vehicle side, meaning your brand"
+        },
+        {
+          "text": "The end of the V2L adapter that plugs into the car is not the same on every brand. That is why the catalogue carries separate codes for the same product by brand group. Until you pick your own group, none of the other decisions matter:"
+        },
+        {
+          "items": [
+            "Hyundai · Kia · Ssangyong group",
+            "MG group",
+            "BYD · Skywell group"
+          ]
+        },
+        {
+          "text": "When ordering, just look at the brand label next to the product name. If your car is not on the list, ask before buying; a connector that does not fit will not physically go in and you will end up dealing with a return."
+        },
+        {
+          "text": "Second decision: how many sockets, with or without a cable?"
+        },
+        {
+          "text": "The second distinction is entirely about your use case. There are four basic forms:"
+        },
+        {
+          "items": [
+            "Single-outlet adapter: plugs straight into the car socket and carries one socket on it. The most compact option; it takes no room in the boot and is enough for anyone feeding a single device.",
+            "Single-socket extension: one socket at the end of a 3 m cable. Useful when you want to carry the device away from the car.",
+            "2-socket extension: 3 m cable, two sockets. For running two devices at the same time.",
+            "3-socket extension: 3 m cable, three sockets. The form most preferred for camping, workshop and field use."
+          ]
+        },
+        {
+          "text": "A practical rule: if you will run a single device next to the car, the single-outlet version is enough. If you will carry power to a tent, a bench or a table, buy a version with a cable — adding an extension lead afterwards is both untidy and an unnecessary loss."
+        },
+        {
+          "text": "Third decision: current and what you can actually run"
+        },
+        {
+          "text": "The output of Bemis V2L adapters is the Türkiye-standard Schuko socket and carries a maximum of 16A. In practice, though, the power you can draw is set not by the adapter but by your car: whatever the car's V2L output delivers is the ceiling. That is why the same adapter can run an appliance comfortably on one car and struggle on another. Confirm your car's V2L power from the owner's manual and plan the total load accordingly."
+        },
+        {
+          "caption": "V2L adapter forms — which one suits which scenario",
+          "headers": [
+            "Form",
+            "Cable",
+            "Sockets",
+            "Typical use"
+          ],
+          "rows": [
+            [
+              "Single-outlet",
+              "none",
+              "1",
+              "Single device next to the car"
+            ],
+            [
+              "Single-socket extension",
+              "3 m",
+              "1",
+              "Carrying the device away from the car"
+            ],
+            [
+              "2-socket extension",
+              "3 m",
+              "2",
+              "Two devices at once"
+            ],
+            [
+              "3-socket extension",
+              "3 m",
+              "3",
+              "Camping · workshop · field"
+            ]
+          ]
+        },
+        {
+          "text": "Not V2L but C2L: let the power come from the charger, not the car"
+        },
+        {
+          "text": "There is also a route that never touches the car's battery. The C2L adapter takes power from the Type 2 output of an AC charging station and converts it to a standard socket. So the source is not the car but the charger on the wall. If your car has no V2L but you do have a charger, you get the same convenience with C2L. On the C2L side there are single, 2-socket and 3-socket options as well as a version with an industrial socket."
+        },
+        {
+          "text": "For caravan users there is one more form: the C2C adapter adapts the charger output to the connection the caravan is fed from. This is the part people look for when they want to power a caravan from a charging point at a campsite."
+        },
+        {
+          "text": "Three common mistakes"
+        },
+        {
+          "items": [
+            "Ordering without confirming the brand group. The most common and most easily avoided mistake; looking at the brand label next to the product name is enough.",
+            "Expecting the power to come from the adapter. It carries 16A, but the ceiling is set by your car's V2L output; plan power-hungry appliances accordingly.",
+            "Buying the cable-free version and adding an extension lead later. If you will carry power to a tent or a bench, choosing the version with a cable from the start is tidier."
+          ]
+        },
+        {
+          "text": "Explore the V2L and C2L adapters that match your car's brand.",
+          "label": "V2L / C2L adapters"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is the V2L adapter the same for every car, or does it change by brand?",
+          "a": "The connector on the vehicle side changes by brand, which is why the same product carries separate codes by brand group. The Bemis catalogue has three groups: Hyundai with Kia and Ssangyong in one, MG in its own, and BYD with Skywell in another. When ordering, just look at the brand label next to the product name. A connector that does not fit will not physically go in, so there is no room for trial and error here; confirming the brand up front saves you a return."
+        },
+        {
+          "q": "What is the difference between the single-outlet adapter and the extension versions?",
+          "a": "The single-outlet adapter plugs straight into the car socket and carries one socket on it; it is the most compact option and takes no room in the boot. The extension versions have one, two or three sockets at the end of a three-metre cable. Your usage decides: if you will run the appliance right next to the car, the single-outlet version is enough; if you will carry power to a tent or a bench, choose a version with a cable."
+        },
+        {
+          "q": "How many amps and how many kW can I draw from a V2L adapter?",
+          "a": "The output of Bemis V2L adapters is the Türkiye-standard Schuko socket and carries a maximum of 16A. The real ceiling, however, is set by the car rather than the adapter: whatever the car's V2L output delivers is the limit. That is why an appliance that runs comfortably on one car with the same adapter may struggle on another car with lower V2L power. Confirm your car's V2L power from the owner's manual and plan the total load of everything you run at once accordingly."
+        },
+        {
+          "q": "My car has no V2L — can I still take power from a socket?",
+          "a": "Yes, that is what the C2L adapter is for. C2L takes power not from the car's battery but from the Type 2 output of an AC charging station and converts it to a standard socket. So your source becomes the charger on the wall rather than the car. Even if your car has no V2L, you get the same convenience as long as you have a charger. On the C2L side there are single, two-socket and three-socket options as well as a version with an industrial socket."
+        },
+        {
+          "q": "Which adapter do I need to power a caravan from a charging point?",
+          "a": "The C2C adapter is used for this. C2C adapts the Type 2 output of the charger to the connection the caravan is fed from, so you can power your caravan from a charging point at a campsite. It should not be confused with V2L and C2L: V2L takes power from the car, while C2L and C2C take it from the charger. Finding out in advance which connection the campsite offers helps you take the right adapter with you."
+        },
+        {
+          "q": "What is the most common mistake when choosing a V2L adapter?",
+          "a": "Ordering without confirming the brand group. Because the connector on the vehicle side changes by brand, an adapter that does not match simply will not go in and you have to deal with a return. Second comes expecting the power to come from the adapter; it carries 16A, but the ceiling is set by the car's V2L output. Third is buying the cable-free version and adding an extension lead later: if you will carry power away from the car, choosing the version with a cable from the start is tidier."
+        }
+      ],
+      "related": [
+        {
+          "label": "V2L / C2L adapters"
+        },
+        {
+          "label": "Which cars have V2L in Türkiye?"
+        },
+        {
+          "label": "How to use V2L with the Ioniq 5"
+        },
+        {
+          "label": "V2L with Togg: power from the car"
+        }
+      ]
     }
   },
   "de": {
@@ -11407,6 +11562,161 @@
         },
         {
           "label": "Was ist OCPP?"
+        }
+      ]
+    },
+    "v2l-adaptoru-nasil-secilir": {
+      "title": "V2L-Adapter richtig wählen: Marke, Steckdosenzahl und Kabel",
+      "metaTitle": "V2L-Adapter wählen — Marke und Steckdosen",
+      "description": "Ihr Auto hat V2L, aber welcher Adapter? Der fahrzeugseitige Stecker richtet sich nach der Marke. Ein Kaufratgeber, der Steckdosen, Kabel und Strom in drei Schritten klärt.",
+      "excerpt": "Drei Dinge entscheiden über den V2L-Adapter: die Marke Ihres Autos (danach richtet sich der fahrzeugseitige Stecker), wie viele Steckdosen Sie möchten und ob Sie ihn mit Kabel nutzen. Der Reihe nach geklärt, kaufen Sie nichts Falsches.",
+      "category": "Ratgeber",
+      "body": [
+        {
+          "text": "Sie wissen nun, dass Ihr Auto V2L unterstützt; jetzt kommt der Adapter. Hier hängen die meisten fest: Ein V2L-Adapter ist kein einzelnes Produkt. Mehrere Ausführungen leisten dasselbe, unterscheiden sich aber im fahrzeugseitigen Stecker, in der Zahl der Steckdosen und im Kabel. Das Falsche zu kaufen ist meist kein günstiger Fehler, denn ein nicht passender Stecker lässt sich schlicht nicht einstecken. Dieser Ratgeber reduziert die Entscheidung auf drei Schritte."
+        },
+        {
+          "text": "Schritt null: Hat Ihr Auto wirklich V2L?"
+        },
+        {
+          "text": "Ein Adapter fügt keine Funktion hinzu, die das Auto nicht hat; er macht nur den ohnehin vorhandenen Ausgang nutzbar. Sind Sie nicht sicher, ob Ihr Auto V2L unterstützt, klären Sie das zuerst; in einem eigenen Ratgeber haben wir die Modelle einzeln aufgelistet. Wird dieser Schritt übersprungen, verlieren die anderen drei Entscheidungen ihren Sinn."
+        },
+        {
+          "text": "Erste Entscheidung: der fahrzeugseitige Stecker, also Ihre Marke"
+        },
+        {
+          "text": "Das Ende des V2L-Adapters, das ins Auto gesteckt wird, ist nicht bei jeder Marke gleich. Deshalb führt der Katalog für dasselbe Produkt getrennte Codes nach Markengruppe. Solange Sie Ihre Gruppe nicht gewählt haben, hilft keine der übrigen Entscheidungen:"
+        },
+        {
+          "items": [
+            "Gruppe Hyundai · Kia · Ssangyong",
+            "Gruppe MG",
+            "Gruppe BYD · Skywell"
+          ]
+        },
+        {
+          "text": "Beim Bestellen genügt ein Blick auf das Markenetikett neben dem Produktnamen. Steht Ihr Auto nicht auf der Liste, fragen Sie vor dem Kauf nach; ein nicht passender Stecker geht physisch nicht hinein und Sie müssen sich mit einer Rücksendung befassen."
+        },
+        {
+          "text": "Zweite Entscheidung: wie viele Steckdosen, mit oder ohne Kabel?"
+        },
+        {
+          "text": "Die zweite Unterscheidung hängt ganz von Ihrem Einsatz ab. Es gibt vier Grundformen:"
+        },
+        {
+          "items": [
+            "Adapter mit einem Ausgang: wird direkt in die Fahrzeugbuchse gesteckt und trägt eine Steckdose. Die kompakteste Variante; sie nimmt im Kofferraum keinen Platz weg und reicht, wenn nur ein Gerät versorgt wird.",
+            "Verlängerung mit einer Steckdose: eine Steckdose am Ende eines 3 m langen Kabels. Nützlich, wenn Sie das Gerät weiter vom Auto weg betreiben wollen.",
+            "Verlängerung mit 2 Steckdosen: 3 m Kabel, zwei Steckdosen. Für den gleichzeitigen Betrieb von zwei Geräten.",
+            "Verlängerung mit 3 Steckdosen: 3 m Kabel, drei Steckdosen. Die beliebteste Form für Camping, Werkstatt und Außeneinsatz."
+          ]
+        },
+        {
+          "text": "Praktische Regel: Wenn Sie direkt am Auto ein einzelnes Gerät betreiben, reicht die Ausführung mit einem Ausgang. Wollen Sie Strom zum Zelt, zur Werkbank oder zum Tisch bringen, kaufen Sie eine Ausführung mit Kabel — später ein Verlängerungskabel anzustückeln ist unordentlich und unnötig."
+        },
+        {
+          "text": "Dritte Entscheidung: Strom und was Sie wirklich betreiben können"
+        },
+        {
+          "text": "Der Ausgang der Bemis V2L-Adapter ist eine Schuko-Steckdose nach türkischem Standard und führt maximal 16A. In der Praxis bestimmt jedoch nicht der Adapter die entnehmbare Leistung, sondern Ihr Auto: Was der V2L-Ausgang des Fahrzeugs liefert, ist die Obergrenze. Deshalb läuft ein Gerät mit demselben Adapter an einem Auto problemlos und an einem anderen nur mühsam. Prüfen Sie die V2L-Leistung Ihres Autos in der Betriebsanleitung und planen Sie die Gesamtlast danach."
+        },
+        {
+          "caption": "V2L-Adapterformen — welche passt zu welchem Einsatz",
+          "headers": [
+            "Form",
+            "Kabel",
+            "Steckdosen",
+            "Typischer Einsatz"
+          ],
+          "rows": [
+            [
+              "Ein Ausgang",
+              "keins",
+              "1",
+              "Einzelnes Gerät am Auto"
+            ],
+            [
+              "Verlängerung, eine Steckdose",
+              "3 m",
+              "1",
+              "Gerät weiter vom Auto weg"
+            ],
+            [
+              "Verlängerung, 2 Steckdosen",
+              "3 m",
+              "2",
+              "Zwei Geräte gleichzeitig"
+            ],
+            [
+              "Verlängerung, 3 Steckdosen",
+              "3 m",
+              "3",
+              "Camping · Werkstatt · Außeneinsatz"
+            ]
+          ]
+        },
+        {
+          "text": "Nicht V2L, sondern C2L: Der Strom kommt vom Ladegerät, nicht vom Auto"
+        },
+        {
+          "text": "Es gibt auch einen Weg, der die Fahrzeugbatterie gar nicht berührt. Der C2L-Adapter entnimmt den Strom dem Type 2-Ausgang einer AC-Ladestation und wandelt ihn in eine normale Steckdose um. Die Quelle ist also nicht das Auto, sondern das Ladegerät an der Wand. Hat Ihr Auto kein V2L, aber Sie besitzen ein Ladegerät, erreichen Sie dieselbe Bequemlichkeit mit C2L. Auf der C2L-Seite gibt es Varianten mit einer, mit 2 und mit 3 Steckdosen sowie eine Ausführung mit Industriesteckdose."
+        },
+        {
+          "text": "Für Wohnwagennutzer gibt es eine weitere Form: Der C2C-Adapter passt den Ausgang des Ladegeräts an den Anschluss an, über den der Wohnwagen versorgt wird. Genau dieses Teil suchen alle, die ihren Wohnwagen an einem Ladepunkt auf dem Campingplatz versorgen wollen."
+        },
+        {
+          "text": "Drei häufige Fehler"
+        },
+        {
+          "items": [
+            "Bestellen, ohne die Markengruppe zu prüfen. Der häufigste und am leichtesten vermeidbare Fehler; ein Blick auf das Markenetikett neben dem Produktnamen genügt.",
+            "Die Leistung vom Adapter erwarten. Er führt 16A, doch die Obergrenze bestimmt der V2L-Ausgang Ihres Autos; planen Sie leistungshungrige Geräte danach.",
+            "Die Ausführung ohne Kabel kaufen und später eine Verlängerung anstückeln. Wollen Sie Strom zum Zelt oder zur Werkbank bringen, ist die Variante mit Kabel von Anfang an ordentlicher."
+          ]
+        },
+        {
+          "text": "Entdecken Sie die V2L- und C2L-Adapter, die zur Marke Ihres Autos passen.",
+          "label": "V2L / C2L Adapter"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Ist der V2L-Adapter bei jedem Auto gleich oder ändert er sich je nach Marke?",
+          "a": "Der fahrzeugseitige Stecker ändert sich je nach Marke, deshalb führt dasselbe Produkt getrennte Codes nach Markengruppe. Der Bemis-Katalog kennt drei Gruppen: Hyundai zusammen mit Kia und Ssangyong, MG als eigene Gruppe sowie BYD zusammen mit Skywell. Beim Bestellen genügt ein Blick auf das Markenetikett neben dem Produktnamen. Ein nicht passender Stecker geht physisch nicht hinein, Ausprobieren bringt hier also nichts; die Marke vorab zu prüfen erspart die Rücksendung."
+        },
+        {
+          "q": "Was unterscheidet den Adapter mit einem Ausgang von den Verlängerungsvarianten?",
+          "a": "Der Adapter mit einem Ausgang wird direkt in die Fahrzeugbuchse gesteckt und trägt eine Steckdose; er ist die kompakteste Variante und nimmt im Kofferraum keinen Platz weg. Bei den Verlängerungsvarianten sitzen am Ende eines drei Meter langen Kabels eine, zwei oder drei Steckdosen. Entscheidend ist der Einsatzort: Betreiben Sie das Gerät direkt am Auto, reicht die Variante mit einem Ausgang; bringen Sie Strom zum Zelt oder zur Werkbank, wählen Sie eine Ausführung mit Kabel."
+        },
+        {
+          "q": "Wie viel Ampere und wie viel kW kann ich aus einem V2L-Adapter entnehmen?",
+          "a": "Der Ausgang der Bemis V2L-Adapter ist eine Schuko-Steckdose nach türkischem Standard und führt maximal 16A. Die tatsächliche Obergrenze bestimmt jedoch das Auto und nicht der Adapter: Was der V2L-Ausgang des Fahrzeugs liefert, ist die Grenze. Deshalb kann ein Gerät, das an einem Auto mit demselben Adapter problemlos läuft, an einem Auto mit geringerer V2L-Leistung an seine Grenzen stoßen. Prüfen Sie die V2L-Leistung Ihres Autos in der Betriebsanleitung und planen Sie die Gesamtlast entsprechend."
+        },
+        {
+          "q": "Mein Auto hat kein V2L — kann ich trotzdem Strom aus einer Steckdose entnehmen?",
+          "a": "Ja, dafür gibt es den C2L-Adapter. C2L entnimmt den Strom nicht der Fahrzeugbatterie, sondern dem Type 2-Ausgang einer AC-Ladestation und wandelt ihn in eine normale Steckdose um. Ihre Quelle ist damit das Ladegerät an der Wand statt des Autos. Selbst wenn Ihr Auto kein V2L hat, erreichen Sie dieselbe Bequemlichkeit, solange Sie ein Ladegerät besitzen. Auf der C2L-Seite gibt es Varianten mit einer, mit zwei und mit drei Steckdosen sowie eine Ausführung mit Industriesteckdose."
+        },
+        {
+          "q": "Welchen Adapter brauche ich, um einen Wohnwagen an einem Ladepunkt zu versorgen?",
+          "a": "Dafür wird der C2C-Adapter verwendet. C2C passt den Type 2-Ausgang des Ladegeräts an den Anschluss an, über den der Wohnwagen versorgt wird, sodass Sie Ihren Wohnwagen an einem Ladepunkt auf dem Campingplatz betreiben können. Er sollte nicht mit V2L und C2L verwechselt werden: V2L entnimmt den Strom dem Auto, C2L und C2C dem Ladegerät. Wer vorab klärt, welcher Anschluss auf dem Platz vorhanden ist, nimmt den richtigen Adapter mit."
+        },
+        {
+          "q": "Was ist der häufigste Fehler bei der Wahl eines V2L-Adapters?",
+          "a": "Zu bestellen, ohne die Markengruppe zu prüfen. Da sich der fahrzeugseitige Stecker je nach Marke ändert, passt ein falscher Adapter schlicht nicht und es folgt eine Rücksendung. An zweiter Stelle steht, die Leistung vom Adapter zu erwarten; er führt 16A, doch die Obergrenze bestimmt der V2L-Ausgang des Autos. Drittens: die Ausführung ohne Kabel kaufen und später eine Verlängerung anstückeln — wer Strom vom Auto weg bringt, fährt mit der Kabelvariante von Anfang an besser."
+        }
+      ],
+      "related": [
+        {
+          "label": "V2L- / C2L-Adapter"
+        },
+        {
+          "label": "Welche Autos haben in der Türkei V2L?"
+        },
+        {
+          "label": "V2L mit dem Ioniq 5 nutzen"
+        },
+        {
+          "label": "V2L mit Togg: Strom aus dem Auto"
         }
       ]
     }
@@ -17115,6 +17425,161 @@
           "label": "¿Qué es OCPP?"
         }
       ]
+    },
+    "v2l-adaptoru-nasil-secilir": {
+      "title": "Cómo elegir un adaptador V2L: marca, número de enchufes y cable",
+      "metaTitle": "Cómo elegir un adaptador V2L — marca y enchufes",
+      "description": "Su coche tiene V2L, ¿pero qué adaptador? El conector del lado del vehículo cambia según la marca. Una guía de compra que resuelve enchufes, cable y corriente en tres pasos.",
+      "excerpt": "Tres cosas deciden el adaptador V2L: la marca de su coche (de ella depende el conector del lado del vehículo), cuántos enchufes quiere y si lo usará con cable. Resolverlas en orden evita comprar el producto equivocado.",
+      "category": "Guía",
+      "body": [
+        {
+          "text": "Ya sabe que su coche admite V2L; ahora toca el adaptador. Aquí es donde se atasca la mayoría: un adaptador V2L no es un único producto. Varias versiones hacen el mismo trabajo pero se diferencian en el conector del lado del vehículo, en el número de enchufes y en el cable. Comprar el equivocado no suele ser un error barato, porque un conector que no encaja sencillamente no entra. Esta guía reduce la decisión a tres pasos."
+        },
+        {
+          "text": "Paso cero: ¿su coche tiene realmente V2L?"
+        },
+        {
+          "text": "Un adaptador no añade una función que el coche no tenga; solo hace utilizable la salida que el coche ya ofrece. Si no está seguro de que su coche admita V2L, confírmelo primero; en otra guía enumeramos los modelos uno por uno. Si se salta este paso, las otras tres decisiones pierden sentido."
+        },
+        {
+          "text": "Primera decisión: el conector del lado del vehículo, es decir, su marca"
+        },
+        {
+          "text": "El extremo del adaptador V2L que se enchufa al coche no es igual en todas las marcas. Por eso el catálogo tiene códigos distintos para el mismo producto según el grupo de marca. Hasta que elija su grupo, ninguna de las demás decisiones sirve:"
+        },
+        {
+          "items": [
+            "Grupo Hyundai · Kia · Ssangyong",
+            "Grupo MG",
+            "Grupo BYD · Skywell"
+          ]
+        },
+        {
+          "text": "Al pedirlo basta con mirar la etiqueta de marca junto al nombre del producto. Si su coche no está en la lista, pregunte antes de comprar; un conector que no encaja no entra físicamente y tendrá que lidiar con una devolución."
+        },
+        {
+          "text": "Segunda decisión: cuántos enchufes, ¿con o sin cable?"
+        },
+        {
+          "text": "La segunda distinción depende por completo de su caso de uso. Hay cuatro formatos básicos:"
+        },
+        {
+          "items": [
+            "Adaptador de una salida: se enchufa directamente a la toma del coche y lleva un enchufe. La opción más compacta; no ocupa sitio en el maletero y basta para alimentar un solo aparato.",
+            "Extensión de un enchufe: un enchufe al final de un cable de 3 m. Útil cuando quiere llevar el aparato lejos del coche.",
+            "Extensión de 2 enchufes: cable de 3 m, dos enchufes. Para usar dos aparatos a la vez.",
+            "Extensión de 3 enchufes: cable de 3 m, tres enchufes. El formato preferido para camping, taller y uso en campo."
+          ]
+        },
+        {
+          "text": "Regla práctica: si va a usar un solo aparato junto al coche, la versión de una salida basta. Si va a llevar electricidad a la tienda, al banco de trabajo o a la mesa, compre una versión con cable — añadir después un alargador es desordenado y una pérdida innecesaria."
+        },
+        {
+          "text": "Tercera decisión: corriente y qué puede usar realmente"
+        },
+        {
+          "text": "La salida de los adaptadores V2L de Bemis es un enchufe Schuko según el estándar de Türkiye y admite un máximo de 16A. Sin embargo, la potencia que puede extraer no la fija el adaptador sino su coche: el techo es lo que entregue la salida V2L del vehículo. Por eso un aparato que funciona sin problema en un coche con el mismo adaptador puede quedarse corto en otro. Confirme la potencia V2L de su coche en el manual y planifique la carga total en consecuencia."
+        },
+        {
+          "caption": "Formatos de adaptador V2L — cuál encaja en cada escenario",
+          "headers": [
+            "Formato",
+            "Cable",
+            "Enchufes",
+            "Uso típico"
+          ],
+          "rows": [
+            [
+              "Una salida",
+              "ninguno",
+              "1",
+              "Un aparato junto al coche"
+            ],
+            [
+              "Extensión de un enchufe",
+              "3 m",
+              "1",
+              "Llevar el aparato lejos del coche"
+            ],
+            [
+              "Extensión de 2 enchufes",
+              "3 m",
+              "2",
+              "Dos aparatos a la vez"
+            ],
+            [
+              "Extensión de 3 enchufes",
+              "3 m",
+              "3",
+              "Camping · taller · campo"
+            ]
+          ]
+        },
+        {
+          "text": "No V2L sino C2L: que la electricidad venga del cargador y no del coche"
+        },
+        {
+          "text": "Existe además una vía que no toca la batería del coche. El adaptador C2L toma la electricidad de la salida Type 2 de una estación de carga AC y la convierte en un enchufe estándar. La fuente, por tanto, no es el coche sino el cargador de la pared. Si su coche no tiene V2L pero sí dispone de un cargador, consigue la misma comodidad con C2L. En el lado C2L hay opciones de uno, de 2 y de 3 enchufes, además de una versión con enchufe industrial."
+        },
+        {
+          "text": "Para quienes usan caravana hay un formato más: el adaptador C2C adapta la salida del cargador a la conexión por la que se alimenta la caravana. Esta es la pieza que buscan quienes quieren alimentar su caravana desde un punto de carga del camping."
+        },
+        {
+          "text": "Tres errores frecuentes"
+        },
+        {
+          "items": [
+            "Pedir sin confirmar el grupo de marca. El error más común y más fácil de evitar; basta con mirar la etiqueta de marca junto al nombre del producto.",
+            "Esperar la potencia del adaptador. Admite 16A, pero el techo lo fija la salida V2L de su coche; planifique así los aparatos exigentes.",
+            "Comprar la versión sin cable y añadir después un alargador. Si va a llevar electricidad a la tienda o al banco de trabajo, elegir desde el principio la versión con cable resulta más ordenado."
+          ]
+        },
+        {
+          "text": "Descubra los adaptadores V2L y C2L que encajan con la marca de su coche.",
+          "label": "Adaptadores V2L / C2L"
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿El adaptador V2L es igual para todos los coches o cambia según la marca?",
+          "a": "El conector del lado del vehículo cambia según la marca, por eso el mismo producto lleva códigos distintos por grupo de marca. El catálogo de Bemis tiene tres grupos: Hyundai junto con Kia y Ssangyong, MG en su propio grupo, y BYD junto con Skywell. Al pedirlo basta con mirar la etiqueta de marca junto al nombre del producto. Un conector que no encaja no entra físicamente, así que aquí no hay margen para probar; confirmar la marca de antemano le ahorra una devolución."
+        },
+        {
+          "q": "¿Qué diferencia hay entre el adaptador de una salida y las versiones con extensión?",
+          "a": "El adaptador de una salida se enchufa directamente a la toma del coche y lleva un enchufe; es la opción más compacta y no ocupa sitio en el maletero. En las versiones con extensión hay uno, dos o tres enchufes al final de un cable de tres metros. Decide el lugar de uso: si va a usar el aparato junto al coche, basta la versión de una salida; si va a llevar electricidad a la tienda o al banco de trabajo, elija una versión con cable."
+        },
+        {
+          "q": "¿Cuántos amperios y cuántos kW puedo extraer de un adaptador V2L?",
+          "a": "La salida de los adaptadores V2L de Bemis es un enchufe Schuko según el estándar de Türkiye y admite un máximo de 16A. El techo real, sin embargo, lo fija el coche y no el adaptador: el límite es lo que entregue la salida V2L del vehículo. Por eso un aparato que funciona con holgura en un coche con el mismo adaptador puede quedarse corto en otro con menor potencia V2L. Confirme la potencia V2L de su coche en el manual y planifique en consecuencia la carga total de lo que use a la vez."
+        },
+        {
+          "q": "Mi coche no tiene V2L, ¿puedo aun así obtener electricidad de un enchufe?",
+          "a": "Sí, para eso está el adaptador C2L. C2L no toma la electricidad de la batería del coche sino de la salida Type 2 de una estación de carga AC y la convierte en un enchufe estándar. Su fuente pasa a ser el cargador de la pared en lugar del coche. Aunque su coche no tenga V2L, obtiene la misma comodidad siempre que disponga de un cargador. En el lado C2L hay opciones de uno, de dos y de tres enchufes, además de una versión con enchufe industrial."
+        },
+        {
+          "q": "¿Qué adaptador necesito para alimentar una caravana desde un punto de carga?",
+          "a": "Para eso se usa el adaptador C2C. C2C adapta la salida Type 2 del cargador a la conexión por la que se alimenta la caravana, de modo que pueda alimentar su caravana desde un punto de carga del camping. No debe confundirse con V2L y C2L: V2L toma la electricidad del coche, mientras que C2L y C2C la toman del cargador. Averiguar de antemano qué conexión ofrece el camping le permite llevar el adaptador correcto."
+        },
+        {
+          "q": "¿Cuál es el error más frecuente al elegir un adaptador V2L?",
+          "a": "Pedir sin confirmar el grupo de marca. Como el conector del lado del vehículo cambia según la marca, un adaptador que no corresponde sencillamente no entra y hay que gestionar una devolución. En segundo lugar está esperar la potencia del adaptador; admite 16A, pero el techo lo fija la salida V2L del coche. El tercero es comprar la versión sin cable y añadir después un alargador: si va a llevar electricidad lejos del coche, elegir desde el principio la versión con cable resulta más ordenado."
+        }
+      ],
+      "related": [
+        {
+          "label": "Adaptadores V2L / C2L"
+        },
+        {
+          "label": "¿Qué coches tienen V2L en Türkiye?"
+        },
+        {
+          "label": "Cómo usar V2L con el Ioniq 5"
+        },
+        {
+          "label": "V2L con Togg: electricidad desde el coche"
+        }
+      ]
     }
   },
   "ar": {
@@ -22821,6 +23286,161 @@
           "label": "ما هو OCPP؟"
         }
       ]
+    },
+    "v2l-adaptoru-nasil-secilir": {
+      "title": "كيف تختار محوّل V2L؟ دليل العلامة وعدد المقابس والكابل",
+      "metaTitle": "كيف تختار محوّل V2L — العلامة والمقابس",
+      "description": "سيارتك تدعم V2L، لكن أي محوّل؟ القابس في جهة السيارة يتغيّر بحسب العلامة. دليل شراء يحسم المقابس والكابل والتيار في ثلاث خطوات.",
+      "excerpt": "ثلاثة أمور تحدّد محوّل V2L: علامة سيارتك (القابس في جهة السيارة تابع لها)، وكم مقبسًا تريد، وهل ستستخدمه بكابل. حسمها بالترتيب يمنع شراء المنتج الخطأ.",
+      "category": "دليل",
+      "body": [
+        {
+          "text": "عرفت أن سيارتك تدعم V2L؛ والآن يأتي دور المحوّل. هنا يتوقّف معظم الناس: محوّل V2L ليس منتجًا واحدًا. هناك عدة إصدارات تؤدي العمل نفسه لكنها تختلف في القابس من جهة السيارة، وفي عدد المقابس، وفي الكابل. وشراء الخطأ منها ليس خطأً رخيصًا عادةً، لأن القابس غير المطابق لا يدخل أصلًا. هذا الدليل يختصر القرار إلى ثلاث خطوات."
+        },
+        {
+          "text": "الخطوة صفر: هل سيارتك تدعم V2L فعلًا؟"
+        },
+        {
+          "text": "المحوّل لا يضيف خاصية لا تملكها السيارة؛ بل يجعل المخرج الموجود أصلًا قابلًا للاستخدام. وإن لم تكن واثقًا من دعم سيارتك لـ V2L فتحقّق من ذلك أولًا؛ وقد أوردنا الطرازات واحدًا واحدًا في دليل منفصل. وتخطّي هذه الخطوة يُفقد القرارات الثلاثة الأخرى معناها."
+        },
+        {
+          "text": "القرار الأول: القابس في جهة السيارة، أي علامتك"
+        },
+        {
+          "text": "طرف محوّل V2L الذي يدخل في السيارة ليس واحدًا في كل العلامات. لذلك يحمل الكاتالوج أكوادًا منفصلة للمنتج نفسه بحسب مجموعة العلامة. وما لم تختر مجموعتك، لا تنفع بقية القرارات:"
+        },
+        {
+          "items": [
+            "مجموعة Hyundai · Kia · Ssangyong",
+            "مجموعة MG",
+            "مجموعة BYD · Skywell"
+          ]
+        },
+        {
+          "text": "عند الطلب يكفي النظر إلى بطاقة العلامة بجوار اسم المنتج. وإن لم تكن سيارتك في القائمة فاسأل قبل الشراء؛ فالقابس غير المطابق لا يدخل ماديًا وستضطر إلى إجراءات الإرجاع."
+        },
+        {
+          "text": "القرار الثاني: كم مقبسًا، وبكابل أم بدونه؟"
+        },
+        {
+          "text": "التمييز الثاني يتعلق كليًا بحالة استخدامك. هناك أربعة أشكال أساسية:"
+        },
+        {
+          "items": [
+            "محوّل بمخرج واحد: يُركَّب مباشرة في مقبس السيارة ويحمل مقبسًا واحدًا. الخيار الأصغر حجمًا؛ لا يشغل مكانًا في الصندوق ويكفي من يشغّل جهازًا واحدًا.",
+            "تمديد بمقبس واحد: مقبس واحد في نهاية كابل بطول 3 m. مفيد حين تريد نقل الجهاز بعيدًا عن السيارة.",
+            "تمديد 2 مقبس: كابل 3 m ومقبسان. لتشغيل جهازين في وقت واحد.",
+            "تمديد 3 مقابس: كابل 3 m وثلاثة مقابس. الشكل الأكثر تفضيلًا للتخييم والورشة والعمل الميداني."
+          ]
+        },
+        {
+          "text": "قاعدة عملية: إن كنت ستشغّل جهازًا واحدًا بجوار السيارة فالإصدار بمخرج واحد يكفي. وإن كنت ستنقل الكهرباء إلى الخيمة أو طاولة العمل فاشترِ إصدارًا بكابل — فإضافة وصلة تمديد لاحقًا فوضوية وخسارة لا داعي لها."
+        },
+        {
+          "text": "القرار الثالث: التيار وما تستطيع تشغيله فعلًا"
+        },
+        {
+          "text": "مخرج محوّلات Bemis V2L هو مقبس Schuko بالمواصفة التركية ويتحمّل 16A كحدّ أقصى. غير أن القدرة التي تسحبها عمليًا لا يحدّدها المحوّل بل سيارتك: السقف هو ما يمنحه مخرج V2L في السيارة. لذلك قد يعمل الجهاز نفسه بالمحوّل نفسه بارتياح في سيارة ويتعثّر في أخرى. تحقّق من قدرة V2L لسيارتك من دليل الاستخدام وخطّط الحمل الإجمالي وفقًا لذلك."
+        },
+        {
+          "caption": "أشكال محوّل V2L — أيها يناسب أي سيناريو",
+          "headers": [
+            "الشكل",
+            "الكابل",
+            "المقابس",
+            "الاستخدام النموذجي"
+          ],
+          "rows": [
+            [
+              "مخرج واحد",
+              "بلا",
+              "1",
+              "جهاز واحد بجوار السيارة"
+            ],
+            [
+              "تمديد بمقبس واحد",
+              "3 m",
+              "1",
+              "نقل الجهاز بعيدًا عن السيارة"
+            ],
+            [
+              "تمديد 2 مقبس",
+              "3 m",
+              "2",
+              "جهازان في وقت واحد"
+            ],
+            [
+              "تمديد 3 مقابس",
+              "3 m",
+              "3",
+              "تخييم · ورشة · ميدان"
+            ]
+          ]
+        },
+        {
+          "text": "ليس V2L بل C2L: لتأتِ الكهرباء من جهاز الشحن لا من السيارة"
+        },
+        {
+          "text": "هناك أيضًا مسار لا يمسّ بطارية السيارة إطلاقًا. محوّل C2L يأخذ الكهرباء من مخرج Type 2 في محطة شحن AC ويحوّلها إلى مقبس عادي. أي أن المصدر ليس السيارة بل جهاز الشحن على الجدار. وإن لم تكن سيارتك تدعم V2L لكن لديك جهاز شحن، فستحصل على العملية نفسها عبر C2L. وفي جانب C2L أيضًا خيارات بمقبس واحد وبـ 2 مقبس وبـ 3 مقابس، إضافة إلى إصدار بمقبس صناعي."
+        },
+        {
+          "text": "ولمستخدمي الكرافان شكل آخر: محوّل C2C يوائم مخرج جهاز الشحن مع الوصلة التي يُغذّى منها الكرافان. وهذه هي القطعة التي يبحث عنها من يريد تغذية كرافانه من نقطة شحن في مخيّم."
+        },
+        {
+          "text": "ثلاثة أخطاء شائعة"
+        },
+        {
+          "items": [
+            "الطلب دون التحقّق من مجموعة العلامة. أكثر الأخطاء شيوعًا وأسهلها تفاديًا؛ ويكفي النظر إلى بطاقة العلامة بجوار اسم المنتج.",
+            "توقّع القدرة من المحوّل. هو يتحمّل 16A، لكن السقف يحدّده مخرج V2L في سيارتك؛ فخطّط الأجهزة عالية الاستهلاك على هذا الأساس.",
+            "شراء الإصدار بلا كابل ثم إضافة وصلة لاحقًا. إن كنت ستنقل الكهرباء إلى الخيمة أو طاولة العمل فاختيار الإصدار بكابل من البداية أكثر ترتيبًا."
+          ]
+        },
+        {
+          "text": "تصفّح محوّلات V2L و C2L المناسبة لعلامة سيارتك.",
+          "label": "محوّلات V2L / C2L"
+        }
+      ],
+      "faq": [
+        {
+          "q": "هل محوّل V2L واحد لكل السيارات أم يتغيّر بحسب العلامة؟",
+          "a": "القابس في جهة السيارة يتغيّر بحسب العلامة، ولهذا يحمل المنتج نفسه أكوادًا منفصلة بحسب مجموعة العلامة. في كاتالوج Bemis ثلاث مجموعات: Hyundai مع Kia و Ssangyong في مجموعة، و MG في مجموعة خاصة، و BYD مع Skywell في مجموعة أخرى. وعند الطلب يكفي النظر إلى بطاقة العلامة بجوار اسم المنتج. والقابس غير المطابق لا يدخل ماديًا، فلا مجال هنا للتجربة؛ والتحقّق من العلامة مسبقًا يوفّر عليك الإرجاع."
+        },
+        {
+          "q": "ما الفرق بين المحوّل بمخرج واحد وإصدارات التمديد؟",
+          "a": "المحوّل بمخرج واحد يُركَّب مباشرة في مقبس السيارة ويحمل مقبسًا واحدًا؛ وهو الخيار الأصغر حجمًا ولا يشغل مكانًا في الصندوق. أما إصدارات التمديد ففيها مقبس واحد أو اثنان أو ثلاثة في نهاية كابل بطول ثلاثة أمتار. ويحسم الأمر مكان الاستخدام: إن كنت ستشغّل الجهاز بجوار السيارة فالإصدار بمخرج واحد يكفي، وإن كنت ستنقل الكهرباء إلى الخيمة أو طاولة العمل فاختر إصدارًا بكابل."
+        },
+        {
+          "q": "كم أمبيرًا وكم kW يمكنني سحبه من محوّل V2L؟",
+          "a": "مخرج محوّلات Bemis V2L هو مقبس Schuko بالمواصفة التركية ويتحمّل 16A كحدّ أقصى. غير أن السقف الحقيقي تحدّده السيارة لا المحوّل: الحدّ هو ما يمنحه مخرج V2L في السيارة. لذلك قد يعمل جهاز بارتياح في سيارة بالمحوّل نفسه ويتعثّر في سيارة أخرى ذات قدرة V2L أقل. تحقّق من قدرة V2L لسيارتك من دليل الاستخدام وخطّط الحمل الإجمالي لما ستشغّله في وقت واحد على هذا الأساس."
+        },
+        {
+          "q": "سيارتي لا تدعم V2L — هل يمكنني مع ذلك أخذ كهرباء من مقبس؟",
+          "a": "نعم، ولهذا يوجد محوّل C2L. يأخذ C2L الكهرباء لا من بطارية السيارة بل من مخرج Type 2 في محطة شحن AC ويحوّلها إلى مقبس عادي. وبذلك يصبح مصدرك جهاز الشحن على الجدار بدل السيارة. وحتى لو لم تدعم سيارتك V2L فستحصل على العملية نفسها ما دام لديك جهاز شحن. وفي جانب C2L خيارات بمقبس واحد وبمقبسين وبثلاثة مقابس، إضافة إلى إصدار بمقبس صناعي."
+        },
+        {
+          "q": "أي محوّل ألزم لتغذية كرافان من نقطة شحن؟",
+          "a": "يُستخدم لذلك محوّل C2C. يوائم C2C مخرج Type 2 في جهاز الشحن مع الوصلة التي يُغذّى منها الكرافان، فتستطيع تغذية كرافانك من نقطة شحن في المخيّم. ولا ينبغي الخلط بينه وبين V2L و C2L: فـ V2L يأخذ الكهرباء من السيارة، بينما يأخذها C2L و C2C من جهاز الشحن. ومعرفة الوصلة المتاحة في المخيّم مسبقًا تجعلك تصطحب المحوّل الصحيح."
+        },
+        {
+          "q": "ما أكثر خطأ شائع عند اختيار محوّل V2L؟",
+          "a": "الطلب دون التحقّق من مجموعة العلامة. فلأن القابس في جهة السيارة يتغيّر بحسب العلامة، لا يدخل المحوّل غير المطابق أصلًا وتضطر إلى إجراءات الإرجاع. ويأتي ثانيًا توقّع القدرة من المحوّل؛ فهو يتحمّل 16A لكن السقف يحدّده مخرج V2L في السيارة. وثالثًا شراء الإصدار بلا كابل ثم إضافة وصلة لاحقًا: فإن كنت ستنقل الكهرباء بعيدًا عن السيارة فاختيار الإصدار بكابل من البداية أكثر ترتيبًا."
+        }
+      ],
+      "related": [
+        {
+          "label": "محوّلات V2L / C2L"
+        },
+        {
+          "label": "أي السيارات تدعم V2L في تركيا؟"
+        },
+        {
+          "label": "كيف تستخدم V2L مع Ioniq 5"
+        },
+        {
+          "label": "V2L مع Togg: كهرباء من السيارة"
+        }
+      ]
     }
   },
   "ru": {
@@ -28525,6 +29145,161 @@
         },
         {
           "label": "Что такое OCPP?"
+        }
+      ]
+    },
+    "v2l-adaptoru-nasil-secilir": {
+      "title": "Как выбрать адаптер V2L: марка, число розеток и кабель",
+      "metaTitle": "Как выбрать адаптер V2L — марка и розетки",
+      "description": "В машине есть V2L, но какой адаптер? Разъём со стороны автомобиля зависит от марки. Руководство по покупке, решающее вопрос розеток, кабеля и тока за три шага.",
+      "excerpt": "Выбор адаптера V2L определяют три вещи: марка автомобиля (от неё зависит разъём со стороны машины), сколько розеток нужно и будете ли вы использовать кабель. Решив их по порядку, вы не купите не тот товар.",
+      "category": "Руководство",
+      "body": [
+        {
+          "text": "Вы выяснили, что автомобиль поддерживает V2L; теперь дело за адаптером. Именно здесь застревает большинство: адаптер V2L — не один товар. Несколько исполнений делают одно и то же, но различаются разъёмом со стороны автомобиля, числом розеток и кабелем. Купить не тот обычно не дешёвая ошибка, потому что неподходящий разъём просто не вставится. Это руководство сводит решение к трём шагам."
+        },
+        {
+          "text": "Нулевой шаг: действительно ли в вашем автомобиле есть V2L?"
+        },
+        {
+          "text": "Адаптер не добавляет функцию, которой в автомобиле нет; он лишь делает пригодным для использования уже имеющийся выход. Если вы не уверены, что автомобиль поддерживает V2L, сначала уточните это; модели мы перечислили по отдельности в другом руководстве. Если пропустить этот шаг, остальные три решения теряют смысл."
+        },
+        {
+          "text": "Первое решение: разъём со стороны автомобиля, то есть ваша марка"
+        },
+        {
+          "text": "Тот конец адаптера V2L, который вставляется в автомобиль, у разных марок не одинаков. Поэтому в каталоге для одного и того же товара есть отдельные коды по группам марок. Пока вы не выбрали свою группу, остальные решения бесполезны:"
+        },
+        {
+          "items": [
+            "Группа Hyundai · Kia · Ssangyong",
+            "Группа MG",
+            "Группа BYD · Skywell"
+          ]
+        },
+        {
+          "text": "При заказе достаточно посмотреть на отметку марки рядом с названием товара. Если вашего автомобиля нет в списке, спросите до покупки; неподходящий разъём физически не войдёт, и придётся оформлять возврат."
+        },
+        {
+          "text": "Второе решение: сколько розеток, с кабелем или без?"
+        },
+        {
+          "text": "Второе различие полностью зависит от сценария использования. Есть четыре основных исполнения:"
+        },
+        {
+          "items": [
+            "Адаптер с одним выходом: вставляется прямо в разъём автомобиля и несёт одну розетку. Самый компактный вариант; не занимает места в багажнике и подходит тем, кто питает одно устройство.",
+            "Удлинитель с одной розеткой: одна розетка на конце кабеля длиной 3 m. Полезен, когда устройство нужно унести дальше от автомобиля.",
+            "Удлинитель с 2 розетками: кабель 3 m, две розетки. Для одновременной работы двух устройств.",
+            "Удлинитель с 3 розетками: кабель 3 m, три розетки. Самое востребованное исполнение для кемпинга, мастерской и работ на выезде."
+          ]
+        },
+        {
+          "text": "Практическое правило: если устройство работает рядом с автомобилем, достаточно исполнения с одним выходом. Если электричество нужно донести до палатки, верстака или стола, берите исполнение с кабелем — доставлять удлинитель потом и неаккуратно, и лишние траты."
+        },
+        {
+          "text": "Третье решение: ток и что вы действительно сможете запитать"
+        },
+        {
+          "text": "Выход адаптеров Bemis V2L — розетка Schuko турецкого стандарта, рассчитанная максимум на 16A. Однако на практике отбираемую мощность задаёт не адаптер, а автомобиль: потолок — это то, что выдаёт выход V2L машины. Поэтому одно и то же устройство с тем же адаптером на одной машине работает свободно, а на другой еле тянет. Уточните мощность V2L своего автомобиля в руководстве по эксплуатации и планируйте суммарную нагрузку соответственно."
+        },
+        {
+          "caption": "Исполнения адаптера V2L — какое для какого сценария",
+          "headers": [
+            "Исполнение",
+            "Кабель",
+            "Розетки",
+            "Типичное применение"
+          ],
+          "rows": [
+            [
+              "Один выход",
+              "нет",
+              "1",
+              "Одно устройство рядом с машиной"
+            ],
+            [
+              "Удлинитель, одна розетка",
+              "3 m",
+              "1",
+              "Унести устройство дальше от машины"
+            ],
+            [
+              "Удлинитель, 2 розетки",
+              "3 m",
+              "2",
+              "Два устройства одновременно"
+            ],
+            [
+              "Удлинитель, 3 розетки",
+              "3 m",
+              "3",
+              "Кемпинг · мастерская · выезд"
+            ]
+          ]
+        },
+        {
+          "text": "Не V2L, а C2L: пусть электричество идёт от зарядного устройства, а не от машины"
+        },
+        {
+          "text": "Есть и путь, вовсе не затрагивающий батарею автомобиля. Адаптер C2L берёт электричество с выхода Type 2 зарядной станции AC и превращает его в обычную розетку. То есть источник — не автомобиль, а зарядное устройство на стене. Если в машине нет V2L, но есть зарядное устройство, ту же практичность даёт C2L. На стороне C2L тоже есть варианты с одной, с 2 и с 3 розетками, а также исполнение с промышленной розеткой."
+        },
+        {
+          "text": "Для владельцев автодомов есть ещё одно исполнение: адаптер C2C приводит выход зарядного устройства к тому разъёму, через который питается автодом. Именно эту деталь ищут те, кто хочет запитать автодом от зарядной точки на кемпинге."
+        },
+        {
+          "text": "Три частые ошибки"
+        },
+        {
+          "items": [
+            "Заказывать, не уточнив группу марки. Самая частая и легче всего предотвратимая ошибка; достаточно посмотреть на отметку марки рядом с названием товара.",
+            "Ждать мощности от адаптера. Он рассчитан на 16A, но потолок задаёт выход V2L вашего автомобиля; планируйте энергоёмкие приборы с учётом этого.",
+            "Купить исполнение без кабеля и потом доставлять удлинитель. Если электричество нужно донести до палатки или верстака, вариант с кабелем с самого начала аккуратнее."
+          ]
+        },
+        {
+          "text": "Посмотрите адаптеры V2L и C2L, подходящие к марке вашего автомобиля.",
+          "label": "Адаптеры V2L / C2L"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Адаптер V2L одинаков для всех автомобилей или зависит от марки?",
+          "a": "Разъём со стороны автомобиля зависит от марки, поэтому у одного и того же товара есть отдельные коды по группам марок. В каталоге Bemis три группы: Hyundai вместе с Kia и Ssangyong, MG отдельной группой и BYD вместе со Skywell. При заказе достаточно посмотреть на отметку марки рядом с названием товара. Неподходящий разъём физически не войдёт, так что пробовать здесь не на чем; уточнение марки заранее избавляет от возврата."
+        },
+        {
+          "q": "Чем адаптер с одним выходом отличается от исполнений с удлинителем?",
+          "a": "Адаптер с одним выходом вставляется прямо в разъём автомобиля и несёт одну розетку; это самый компактный вариант, он не занимает места в багажнике. В исполнениях с удлинителем на конце кабеля длиной три метра расположены одна, две или три розетки. Решает место использования: если прибор работает рядом с машиной, достаточно варианта с одним выходом; если электричество нужно донести до палатки или верстака, выбирайте исполнение с кабелем."
+        },
+        {
+          "q": "Сколько ампер и сколько kW можно снять с адаптера V2L?",
+          "a": "Выход адаптеров Bemis V2L — розетка Schuko турецкого стандарта, рассчитанная максимум на 16A. Но реальный потолок задаёт автомобиль, а не адаптер: пределом служит то, что выдаёт выход V2L машины. Поэтому прибор, свободно работающий на одной машине с тем же адаптером, на другой машине с меньшей мощностью V2L может не потянуть. Уточните мощность V2L своего автомобиля в руководстве и планируйте суммарную нагрузку одновременно работающих приборов соответственно."
+        },
+        {
+          "q": "В моей машине нет V2L — смогу ли я всё же получить электричество из розетки?",
+          "a": "Да, для этого есть адаптер C2L. C2L берёт электричество не из батареи автомобиля, а с выхода Type 2 зарядной станции AC и превращает его в обычную розетку. Источником становится зарядное устройство на стене, а не машина. Даже если в автомобиле нет V2L, вы получаете ту же практичность, пока у вас есть зарядное устройство. На стороне C2L есть варианты с одной, двумя и тремя розетками, а также исполнение с промышленной розеткой."
+        },
+        {
+          "q": "Какой адаптер нужен, чтобы запитать автодом от зарядной точки?",
+          "a": "Для этого используется адаптер C2C. C2C приводит выход Type 2 зарядного устройства к разъёму, через который питается автодом, так что вы можете запитать его от зарядной точки на кемпинге. Его не следует путать с V2L и C2L: V2L берёт электричество от автомобиля, а C2L и C2C — от зарядного устройства. Если заранее выяснить, какой разъём есть на площадке, вы возьмёте с собой правильный адаптер."
+        },
+        {
+          "q": "Какая самая частая ошибка при выборе адаптера V2L?",
+          "a": "Заказ без уточнения группы марки. Поскольку разъём со стороны автомобиля зависит от марки, неподходящий адаптер просто не войдёт и придётся оформлять возврат. На втором месте — ожидание мощности от адаптера; он рассчитан на 16A, но потолок задаёт выход V2L автомобиля. Третья ошибка — купить исполнение без кабеля и потом доставлять удлинитель: если электричество нужно унести от машины, вариант с кабелем с самого начала аккуратнее."
+        }
+      ],
+      "related": [
+        {
+          "label": "Адаптеры V2L / C2L"
+        },
+        {
+          "label": "В каких автомобилях в Турции есть V2L?"
+        },
+        {
+          "label": "Как пользоваться V2L на Ioniq 5"
+        },
+        {
+          "label": "V2L с Togg: электричество от автомобиля"
         }
       ]
     }

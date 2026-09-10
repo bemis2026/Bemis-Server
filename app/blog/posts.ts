@@ -34,6 +34,200 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    "slug": "v2l-adaptoru-nasil-secilir",
+    "title": "V2L Adaptörü Nasıl Seçilir? Marka, Priz Sayısı ve Kablo Rehberi",
+    "metaTitle": "V2L Adaptörü Nasıl Seçilir — Marka ve Priz",
+    "description": "Aracınızda V2L var, peki hangi adaptör? Araç tarafındaki uç markaya göre değişir. Priz sayısı, kablo ve akım kararını üç adımda netleştiren satın alma rehberi.",
+    "excerpt": "V2L adaptörü seçerken üç şey belirleyici: aracınızın markası (araç tarafındaki uç ona göre değişir), kaç priz istediğiniz ve kablolu mu kablosuz mu kullanacağınız. Üçünü sırayla netleştirmek yanlış ürün almanın önüne geçer.",
+    "category": "Rehber",
+    "datePublished": "2026-09-11",
+    "readingMinutes": 8,
+    "keywords": [
+      "v2l adaptörü nasıl seçilir",
+      "v2l adaptör",
+      "v2l adaptör hangi marka",
+      "priz uzatma v2l adaptör",
+      "c2l adaptör",
+      "hyundai v2l adaptör",
+      "mg v2l adaptör",
+      "byd v2l adaptör",
+      "karavan elektrik adaptörü"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Aracınızda V2L olduğunu öğrendiniz; sıra adaptörde. Burada çoğu kişinin takıldığı yer şu: V2L adaptörü tek bir ürün değil. Aynı işi gören ama araç tarafındaki ucu, priz sayısı ve kablosu farklı birkaç çeşidi var. Yanlış olanı almak genelde ucuz bir hata değildir, çünkü uymayan uç hiçbir şekilde takılmaz. Bu rehber kararı üç adıma indiriyor."
+      },
+      {
+        "type": "h2",
+        "text": "Sıfırıncı adım: aracınızda gerçekten V2L var mı?"
+      },
+      {
+        "type": "p",
+        "text": "Adaptör, olmayan bir özelliği eklemez; yalnızca aracın zaten sunduğu çıkışı kullanılabilir hâle getirir. Aracınızın V2L desteklediğinden emin değilseniz önce onu doğrulayın; hangi modellerde bulunduğunu ayrı bir rehberde model model listeledik. Bu adım atlanırsa geri kalan üç karar anlamsızlaşır."
+      },
+      {
+        "type": "h2",
+        "text": "Birinci karar: araç tarafındaki uç, yani markanız"
+      },
+      {
+        "type": "p",
+        "text": "V2L adaptörünün araca takılan ucu her markada aynı değildir. Bu yüzden katalogda aynı ürünün marka gruplarına göre ayrı kodları bulunur. Kendi aracınızın grubunu seçmeden diğer kararların hiçbiri işe yaramaz:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hyundai · Kia · Ssangyong grubu",
+          "MG grubu",
+          "BYD · Skywell grubu"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Alırken ürün adının yanındaki marka etiketine bakmanız yeterli. Aracınız listede yoksa satın almadan önce sorun; uymayan uç fiziksel olarak takılmaz ve iade süreciyle uğraşmak zorunda kalırsınız."
+      },
+      {
+        "type": "h2",
+        "text": "İkinci karar: kaç priz, kablolu mu kablosuz mu?"
+      },
+      {
+        "type": "p",
+        "text": "İkinci ayrım tamamen kullanım senaryonuzla ilgili. Dört temel biçim var:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Tek çıkışlı adaptör: doğrudan araç soketine takılır, üzerinde tek priz vardır. En kompakt seçenek; bagajda yer kaplamaz, tek cihaz besleyeceklere yeter.",
+          "Tekli priz uzatma: 3 m kablonun ucunda tek priz. Cihazı araçtan uzağa taşımak istediğinizde işe yarar.",
+          "2'li priz uzatma: 3 m kablo, iki priz. Aynı anda iki cihaz çalıştıracaklar için.",
+          "3'lü priz uzatma: 3 m kablo, üç priz. Kamp, atölye ve saha kullanımında en çok tercih edilen biçim."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Pratik kural: aracın yanında tek cihaz çalıştıracaksanız tek çıkışlı yeter. Çadırın, tezgâhın ya da masanın yanına elektrik taşıyacaksanız kablolu bir uzatma alın — sonradan uzatma kablosu eklemek hem dağınık hem gereksiz bir kayıp yaratır."
+      },
+      {
+        "type": "h2",
+        "text": "Üçüncü karar: akım ve ne çalıştırabileceğiniz"
+      },
+      {
+        "type": "p",
+        "text": "Bemis V2L adaptörlerinin çıkışı Türkiye standardı Schuko prizdir ve maksimum 16A taşır. Ancak gerçekte çekebileceğiniz gücü adaptör değil aracınız belirler: aracın V2L çıkışı kaç kW veriyorsa tavan odur. Bu yüzden aynı adaptörle bir araçta su ısıtıcısı çalışırken başka bir araçta zorlanabilirsiniz. Aracınızın V2L gücünü kullanma kılavuzundan doğrulayın ve toplam yükü ona göre planlayın."
+      },
+      {
+        "type": "table",
+        "caption": "V2L adaptör biçimleri — hangisi hangi senaryoya uygun",
+        "headers": [
+          "Biçim",
+          "Kablo",
+          "Priz",
+          "Tipik kullanım"
+        ],
+        "rows": [
+          [
+            "Tek çıkışlı",
+            "yok",
+            "1",
+            "Araç yanında tek cihaz"
+          ],
+          [
+            "Tekli priz uzatma",
+            "3 m",
+            "1",
+            "Cihazı araçtan uzağa taşıma"
+          ],
+          [
+            "2'li priz uzatma",
+            "3 m",
+            "2",
+            "Aynı anda iki cihaz"
+          ],
+          [
+            "3'lü priz uzatma",
+            "3 m",
+            "3",
+            "Kamp · atölye · saha"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "V2L değil C2L: enerji araçtan değil şarj cihazından gelsin"
+      },
+      {
+        "type": "p",
+        "text": "Bir de aracın bataryasına hiç dokunmayan bir yol var. C2L adaptörü enerjiyi AC şarj istasyonunun Type 2 çıkışından alır ve standart prize dönüştürür. Yani kaynak araç değil, duvardaki şarj cihazıdır. Aracınızda V2L yoksa ama bir şarj cihazınız varsa, aynı pratikliği C2L ile elde edersiniz. C2L tarafında da tekli, 2'li ve 3'lü priz seçenekleri ile endüstriyel prizli bir sürüm bulunur."
+      },
+      {
+        "type": "p",
+        "text": "Karavan kullananlar için ayrı bir biçim daha var: C2C adaptörü şarj cihazının çıkışını karavanın beslendiği bağlantıya uyarlar. Kamp alanındaki bir şarj noktasından karavanı beslemek isteyenlerin aradığı parça budur."
+      },
+      {
+        "type": "h2",
+        "text": "Sık yapılan üç hata"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Marka grubunu doğrulamadan sipariş vermek. En sık yaşanan ve en kolay önlenen hata; ürün adının yanındaki marka etiketine bakmak yeterli.",
+          "Gücü adaptörden beklemek. Adaptör 16A taşır ama tavanı aracınızın V2L çıkışı belirler; yüksek güç isteyen cihazları buna göre planlayın.",
+          "Kablosuz alıp sonra uzatma eklemek. Çadıra ya da tezgâha elektrik taşıyacaksanız baştan kablolu uzatmalı biçimi seçmek daha derli toplu olur."
+        ]
+      },
+      {
+        "type": "cta",
+        "text": "Aracınızın markasına uygun V2L ve C2L adaptörlerini inceleyin.",
+        "href": "/products/v2l-c2l",
+        "label": "V2L / C2L Adaptörler"
+      }
+    ],
+    "faq": [
+      {
+        "q": "V2L adaptörü her araçta aynı mı, markaya göre değişir mi?",
+        "a": "Araç tarafındaki uç markaya göre değişir; bu yüzden aynı ürünün marka gruplarına ayrı kodları vardır. Bemis katalogunda üç grup bulunur: Hyundai ile Kia ve Ssangyong bir grup, MG ayrı bir grup, BYD ile Skywell ayrı bir grup. Sipariş verirken ürün adının yanındaki marka etiketine bakmanız yeterli. Uymayan bir uç fiziksel olarak takılmadığı için burada denemeye yer yoktur; markayı baştan doğrulamak iade sürecinden kurtarır."
+      },
+      {
+        "q": "Tek çıkışlı adaptörle priz uzatmalı arasındaki fark nedir?",
+        "a": "Tek çıkışlı adaptör doğrudan araç soketine takılır ve üzerinde tek priz taşır; en kompakt seçenektir, bagajda yer kaplamaz. Priz uzatmalı biçimlerde ise üç metrelik bir kablonun ucunda bir, iki ya da üç priz bulunur. Kararı kullanım yeriniz verir: cihazı aracın hemen yanında çalıştıracaksanız tek çıkışlı yeter, elektriği çadırın veya tezgâhın yanına taşıyacaksanız kablolu uzatmalı biçimi seçin."
+      },
+      {
+        "q": "V2L adaptöründen kaç amper ve kaç kW çekebilirim?",
+        "a": "Bemis V2L adaptörlerinin çıkışı Türkiye standardı Schuko prizdir ve maksimum 16A taşır. Ancak gerçek tavanı adaptör değil aracınız belirler: aracın V2L çıkışı ne kadar güç veriyorsa sınır odur. Bu yüzden aynı adaptörle bir araçta rahatça çalışan bir cihaz, düşük V2L gücü olan başka bir araçta zorlanabilir. Aracınızın V2L gücünü kullanma kılavuzundan doğrulayın ve aynı anda çalıştıracağınız cihazların toplam yükünü ona göre planlayın."
+      },
+      {
+        "q": "Aracımda V2L yok, yine de prizden elektrik alabilir miyim?",
+        "a": "Evet, bunun için C2L adaptörü vardır. C2L enerjiyi aracın bataryasından değil, AC şarj istasyonunun Type 2 çıkışından alır ve standart prize dönüştürür. Yani kaynağınız araç değil duvardaki şarj cihazı olur. Aracınızda V2L bulunmasa bile bir şarj cihazınız varsa aynı pratikliği elde edersiniz. C2L tarafında da tekli, iki ve üç prizli seçenekler ile endüstriyel prizli bir sürüm mevcuttur."
+      },
+      {
+        "q": "Karavanı şarj noktasından beslemek için hangi adaptör gerekir?",
+        "a": "Bunun için C2C adaptörü kullanılır. C2C, şarj cihazının Type 2 çıkışını karavanın beslendiği bağlantıya uyarlar; böylece kamp alanındaki bir şarj noktasından karavanınızı besleyebilirsiniz. V2L ve C2L ile karıştırılmamalıdır: V2L enerjiyi araçtan, C2L ve C2C ise şarj cihazından alır. Kamp alanında hangi bağlantının bulunduğunu önceden öğrenmek, yanınıza doğru adaptörü almanızı sağlar."
+      },
+      {
+        "q": "V2L adaptörü seçerken en sık yapılan hata ne?",
+        "a": "Marka grubunu doğrulamadan sipariş vermek. Araç tarafındaki uç markaya göre değiştiği için uymayan bir adaptör hiçbir şekilde takılmaz ve iade süreciyle uğraşmak gerekir. İkinci sırada gücü adaptörden beklemek gelir; adaptör 16A taşısa da tavanı aracın V2L çıkışı belirler. Üçüncüsü kablosuz alıp sonradan uzatma eklemektir: elektriği araçtan uzağa taşıyacaksanız baştan kablolu uzatmalı biçimi seçmek daha derli topludur."
+      }
+    ],
+    "related": [
+      {
+        "label": "V2L / C2L Adaptörler",
+        "href": "/products/v2l-c2l"
+      },
+      {
+        "label": "Türkiye'de Hangi Araçlarda V2L Var?",
+        "href": "/blog/hangi-araclarda-v2l-var-turkiye"
+      },
+      {
+        "label": "Ioniq 5 ile V2L Nasıl Kullanılır?",
+        "href": "/blog/ioniq-5-v2l-nasil-kullanilir"
+      },
+      {
+        "label": "Togg ile V2L: Araçtan Elektrik",
+        "href": "/blog/togg-v2l-aractan-elektrik"
+      }
+    ]
+  },
+  {
     "slug": "ortak-alan-sarj-yonetim-paneli-apartman-site",
     "title": "Ortak Alan Şarj Yönetim Paneli: Apartman ve Sitede Kişi Bazlı Takip",
     "metaTitle": "Ortak Alan Şarj Yönetim Paneli — Kişi Bazlı Takip",
