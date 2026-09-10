@@ -57,6 +57,18 @@ export default function SmartCharger() {
   const textMuted = d ? "rgba(240,240,244,0.52)" : "rgba(26,26,26,0.50)";
 
   const headingLines = smartCharger.heading.split("\n");
+
+  // OCPP rozeti hangi özellik kartının altında çizilecek?
+  // ⚠️ 2026-09-10: koşul TÜRKÇE bir regex'ti (/ortak|yönet/.test(f.title)). Başlıklar
+  // çevrildiği için ("Common Area Optimization", "Optimierung von Gemeinschaftsflächen",
+  // "تحسين المساحات المشتركة"…) 6 yabancı dilin HİÇBİRİNDE eşleşmiyordu → rozet yalnız
+  // Türkçe çiziliyordu; oysa OCPP uyumu ihracat müşterisi için satın alma sinyali.
+  // features dizisi diller arası POZİSYONEL hizalı → TR'de eşleşen indeksi bul, eşleşme
+  // yoksa (yabancı dil) TR'deki konuma düş. 📌 Görünürlüğü dile bağlı metne bağlama.
+  const rozetIndeksi = (() => {
+    const i = (smartCharger.features ?? []).findIndex((f) => /ortak|yönet/i.test(f.title));
+    return i >= 0 ? i : 1;
+  })();
   const [mockupIndex, setMockupIndex] = useState(0);
   const [direction, setDirection] = useState(1);
 
@@ -402,6 +414,13 @@ export default function SmartCharger() {
             </motion.div>
 
             {/* Features */}
+            {/* ⚠️ 2026-09-10: OCPP rozetinin koşulu TÜRKÇE bir regex'ti (/ortak|yönet/).
+                Başlıklar çevrildiği için ("Common Area Optimization", "Optimierung von
+                Gemeinschaftsflächen", "تحسين المساحات المشتركة"…) 6 yabancı dilin
+                HİÇBİRİNDE eşleşmiyor → rozet yalnız Türkçe çiziliyordu; oysa OCPP
+                uyumu ihracat müşterisi için satın alma sinyali. features dizisi diller
+                arası POZİSYONEL hizalı → TR'de eşleşen indeksi bul, eşleşme yoksa
+                (yabancı dil) TR'deki konuma düş. 📌 Dile bağlı metin eşlemesi yapma. */}
             <div className="space-y-3 mb-8">
               {(smartCharger.features ?? []).map((f, i) => {
                 const Icon = FEATURE_ICONS[i % FEATURE_ICONS.length];
@@ -422,7 +441,7 @@ export default function SmartCharger() {
                     <div>
                       <p className="text-base font-semibold mb-0.5" style={{ color: textPrimary }}>{f.title}</p>
                       <p className="text-sm leading-relaxed" style={{ color: textMuted }}>{f.desc}</p>
-                      {/ortak|yönet/i.test(f.title) && smartCharger.ocppBadge && (
+                      {i === rozetIndeksi && smartCharger.ocppBadge && (
                         <div className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1 rounded-lg"
                           style={{ background: `${ACCENT2}12`, border: `1px solid ${ACCENT2}25` }}>
                           <RiCodeSSlashLine size={11} style={{ color: ACCENT2 }} />

@@ -4310,7 +4310,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
       { type: "h2", text: "Bemis ürün gamı: hangi çözüm nerede kullanılır?" },
       { type: "table", caption: "Bemis E-V Charge çözümleri — ihtiyaca göre seçim (yalnızca kendi ürün gamı)", headers: ["Çözüm", "Güç / Akım", "Soket", "Koruma", "OCPP", "Kullanım yeri"], rows: [
-        ["AC Wallbox (Charger · Plus · Pro)", "7,4–22 kW", "Type 2", "IP65 / IP66", "1.6J / 2.0.1", "Ev · iş yeri · site"],
+        ["AC Wallbox (Charger · Plus · Pro)", "7,4–22 kW", "Type 2", "IP65 / IP66", "1.6", "Ev · iş yeri · site"],
         ["Taşınabilir (Mini · Mono · Pro Mobile)", "Monofaze & trifaze", "Type 2 / Schuko", "—", "—", "Seyyar · yedek · yolda"],
         ["DC Hızlı Şarj (BEVDC 40–200)", "40–200 kW", "CCS2", "—", "1.6J / 2.0.1", "Filo · ortak alan · hızlı takviye"],
         ["Type 2 Şarj Kablosu", "Monofaze/trifaze · 16–32A", "Type 2 ↔ Type 2", "—", "—", "Araç–istasyon bağlantısı"],

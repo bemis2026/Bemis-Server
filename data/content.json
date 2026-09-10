@@ -780,7 +780,7 @@
     "sectionLabel": "Akıllı Şarj Teknolojisi",
     "heading": "Mobil Uygulama ile\nHer Yerden Yönetin",
     "subheading": "Charger serisi şarj ünitelerimiz OCPP protokolü sayesinde site, AVM ve otopark gibi ortak kullanım alanlarında gerçek zamanlı izleme, uzaktan kontrol ve enerji optimizasyonu tek platformdan yönetilebilir. Ağ operatörlerine sorunsuz entegre olur. ",
-    "ocppBadge": "OCPP 1.6 / 2.0.1 Uyumlu",
+    "ocppBadge": "OCPP 1.6 Uyumlu",
     "ctaLabel": "Charger Serisini İncele",
     "ctaHref": "https://portal.bemis.com.tr/login?ReturnUrl=%2F",
     "features": [
@@ -790,7 +790,7 @@
       },
       {
         "title": "Ortak Alan Optimizasyonu",
-        "desc": "Çok kullanıcılı erişim, dinamik yük dengeleme ve ödeme sistemi entegrasyonu ile tam yönetim."
+        "desc": "Çok kullanıcılı erişim, dinamik yük dengeleme ve ödeme sistemi entegrasyonu ile tam yönetim. Ortak kullanım yönetim yazılımı ücretsizdir."
       },
       {
         "title": "Açık OCPP Ekosistemi",
@@ -817,7 +817,7 @@
       },
       {
         "label": "Bağlantı",
-        "value": "OCPP 1.6 / 2.0.1"
+        "value": "OCPP 1.6"
       },
       {
         "label": "Konnektör",
@@ -1682,7 +1682,7 @@
         "sectionLabel": "Smart Charging Technology",
         "heading": "With Mobile App\nManage Anywhere",
         "subheading": "Thanks to the OCPP protocol, our Charger series charging units can manage real-time monitoring, remote control and energy optimization from a single platform in common areas such as site, shopping mall and parking lot. Integrates seamlessly with network operators.",
-        "ocppBadge": "OCPP 1.6 / 2.0.1 Compliant",
+        "ocppBadge": "OCPP 1.6 Compliant",
         "ctaLabel": "Review Charger Series",
         "ctaHref": "https://portal.bemis.com.tr/login?ReturnUrl=%2F",
         "features": [
@@ -1692,7 +1692,7 @@
           },
           {
             "title": "Common Area Optimization",
-            "desc": "Full management with multi-user access, dynamic load balancing and payment system integration."
+            "desc": "Full management with multi-user access, dynamic load balancing and payment system integration. The shared-use management software is free of charge."
           },
           {
             "title": "Open OCPP Ecosystem",
@@ -1719,7 +1719,7 @@
           },
           {
             "label": "Connectivity",
-            "value": "OCPP 1.6 / 2.0.1"
+            "value": "OCPP 1.6"
           },
           {
             "label": "Connector",

@@ -766,7 +766,7 @@
     "sectionLabel": "Tecnología de Carga Inteligente",
     "heading": "Con la App Móvil\nGestiona desde Cualquier Lugar",
     "subheading": "Gracias al protocolo OCPP, las unidades de carga de nuestra serie Charger permiten gestionar la monitorización en tiempo real, el control remoto y la optimización energética desde una única plataforma en zonas comunes como urbanizaciones, centros comerciales y aparcamientos. Se integra a la perfección con los operadores de red.",
-    "ocppBadge": "Compatible con OCPP 1.6 / 2.0.1",
+    "ocppBadge": "Compatible con OCPP 1.6",
     "ctaLabel": "Ver la Serie Charger",
     "ctaHref": "https://portal.bemis.com.tr/login?ReturnUrl=%2F",
     "features": [
@@ -776,7 +776,7 @@
       },
       {
         "title": "Optimización de Zonas Comunes",
-        "desc": "Gestión completa con acceso multiusuario, equilibrado dinámico de carga e integración con el sistema de pago."
+        "desc": "Gestión completa con acceso multiusuario, equilibrado dinámico de carga e integración con el sistema de pago. El software de gestión de uso compartido es gratuito."
       },
       {
         "title": "Ecosistema OCPP Abierto",
@@ -803,7 +803,7 @@
       },
       {
         "label": "Conexión",
-        "value": "OCPP 1.6 / 2.0.1"
+        "value": "OCPP 1.6"
       },
       {
         "label": "Conector",

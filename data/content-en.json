@@ -767,7 +767,7 @@
     "sectionLabel": "Smart Charging Technology",
     "heading": "With Mobile App\nManage Anywhere",
     "subheading": "Thanks to the OCPP protocol, our Charger series charging units can manage real-time monitoring, remote control and energy optimization from a single platform in common areas such as site, shopping mall and parking lot. Integrates seamlessly with network operators.",
-    "ocppBadge": "OCPP 1.6 / 2.0.1 Compliant",
+    "ocppBadge": "OCPP 1.6 Compliant",
     "ctaLabel": "Review Charger Series",
     "ctaHref": "https://portal.bemis.com.tr/login?ReturnUrl=%2F",
     "features": [
@@ -777,7 +777,7 @@
       },
       {
         "title": "Common Area Optimization",
-        "desc": "Full management with multi-user access, dynamic load balancing and payment system integration."
+        "desc": "Full management with multi-user access, dynamic load balancing and payment system integration. The shared-use management software is free of charge."
       },
       {
         "title": "Open OCPP Ecosystem",
@@ -804,7 +804,7 @@
       },
       {
         "label": "Connectivity",
-        "value": "OCPP 1.6 / 2.0.1"
+        "value": "OCPP 1.6"
       },
       {
         "label": "Connector",

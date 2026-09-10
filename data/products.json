@@ -736,7 +736,7 @@
         "code": "BEV-3011-0005",
         "subtitle": "5m. Kablolu",
         "badge": null,
-        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
+        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir. Ortak alanlarda kişi bazlı takip sağlayan ortak kullanım yönetim yazılımı ücretsiz sunulur.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -831,7 +831,7 @@
         "code": "BEV-3012-0000",
         "subtitle": "Pano Prizli",
         "badge": "Pano Prizli",
-        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
+        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir. Ortak alanlarda kişi bazlı takip sağlayan ortak kullanım yönetim yazılımı ücretsiz sunulur.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -920,7 +920,7 @@
         "code": "BEV-3012-1000",
         "subtitle": "Pano Prizli / GSM Modüllü",
         "badge": "GSM",
-        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
+        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir. Ortak alanlarda kişi bazlı takip sağlayan ortak kullanım yönetim yazılımı ücretsiz sunulur.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -1022,7 +1022,7 @@
         "code": "BEV-3011-1005",
         "subtitle": "5m. Kablolu / GSM Modüllü",
         "badge": "GSM",
-        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir.",
+        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Opsiyonel MID sayaç ile sertifikalı enerji ölçümü; bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir. Ortak alanlarda kişi bazlı takip sağlayan ortak kullanım yönetim yazılımı ücretsiz sunulur.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -1120,7 +1120,7 @@
         "code": "BEV-3011-10S5",
         "subtitle": "5m. Kablolu / GSM Modüllü · Entegre MID Sayaç",
         "badge": "GSM · MID",
-        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir. Bu modelde kasaya entegre, sertifikalı MID enerji sayacı bulunur; OCPP ile ölçüm bazlı faturalandırmaya ve yoğun ticari kullanıma tam uygundur. Yerli üretimdir.",
+        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir. Bu modelde kasaya entegre, sertifikalı MID enerji sayacı bulunur; OCPP ile ölçüm bazlı faturalandırmaya ve yoğun ticari kullanıma tam uygundur. Yerli üretimdir. Ortak alanlarda kişi bazlı takip sağlayan ortak kullanım yönetim yazılımı ücretsiz sunulur.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -1218,7 +1218,7 @@
         "code": "BEV-3012-10S0",
         "subtitle": "Pano Prizli / GSM Modüllü · Entegre MID Sayaç",
         "badge": "GSM · MID",
-        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir. Bu modelde kasaya entegre, sertifikalı MID enerji sayacı bulunur; OCPP ile ölçüm bazlı faturalandırmaya ve yoğun ticari kullanıma tam uygundur. Yerli üretimdir.",
+        "description": "Charger Pro 2 GSM versiyonu, dahili 4G modülü ile bulut tabanlı uzaktan izleme ve yönetimi sahaya entegre eder. OCPP 1.6 üzerinden harici operatör platformlarına bağlanır; kablolu internet altyapısı olmayan saha kurulumları için. Bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir. Bu modelde kasaya entegre, sertifikalı MID enerji sayacı bulunur; OCPP ile ölçüm bazlı faturalandırmaya ve yoğun ticari kullanıma tam uygundur. Yerli üretimdir. Ortak alanlarda kişi bazlı takip sağlayan ortak kullanım yönetim yazılımı ücretsiz sunulur.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -1320,7 +1320,7 @@
         "code": "BEV-3011-00S5",
         "subtitle": "5m. Kablolu · MID",
         "badge": null,
-        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir. Bu modelde kasaya entegre, sertifikalı MID enerji sayacı bulunur; OCPP ile ölçüm bazlı faturalandırmaya ve yoğun ticari kullanıma tam uygundur.",
+        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir. Bu modelde kasaya entegre, sertifikalı MID enerji sayacı bulunur; OCPP ile ölçüm bazlı faturalandırmaya ve yoğun ticari kullanıma tam uygundur. Ortak alanlarda kişi bazlı takip sağlayan ortak kullanım yönetim yazılımı ücretsiz sunulur.",
         "specs": [
           {
             "group": "Elektriksel",
@@ -1415,7 +1415,7 @@
         "code": "BEV-3012-00S0",
         "subtitle": "Pano Prizli · MID",
         "badge": null,
-        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir. Bu modelde kasaya entegre, sertifikalı MID enerji sayacı bulunur; OCPP ile ölçüm bazlı faturalandırmaya ve yoğun ticari kullanıma tam uygundur.",
+        "description": "Charger Pro 2, 4-7-11-22 kW ayarlanabilir güçte, gelişmiş yük yönetimi (DLM) ve kullanıcı yetkilendirme özellikleriyle profesyonel ortamlar için tasarlandı. OCPP 1.6 protokolü ile şarj ağı entegrasyonuna açık; OEM ve operatör müşteriler için ideal. Bağlantılı modellerde mobil uygulama üzerinden uzaktan aç/kapa, zaman ayarlayıcı ve şarj geçmişi takibi sağlar. Yenilenen dış kasası ve dıştan bağlantılı pratik montaj tasarımı sayesinde kurulum hızlı ve zahmetsizdir. Bu modelde kasaya entegre, sertifikalı MID enerji sayacı bulunur; OCPP ile ölçüm bazlı faturalandırmaya ve yoğun ticari kullanıma tam uygundur. Ortak alanlarda kişi bazlı takip sağlayan ortak kullanım yönetim yazılımı ücretsiz sunulur.",
         "specs": [
           {
             "group": "Elektriksel",

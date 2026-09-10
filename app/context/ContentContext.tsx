@@ -801,14 +801,14 @@ const defaultContent: SiteContent = {
     sectionLabel: "Akıllı Şarj Teknolojisi",
     heading: "Mobil Uygulama ile\nHer Yerden Yönetin",
     subheading: "Charger serisi şarj ünitelerimiz OCPP protokolü sayesinde site, AVM ve otopark gibi ortak kullanım alanlarında ağ operatörlerine sorunsuz entegre olur. Gerçek zamanlı izleme, uzaktan kontrol ve enerji optimizasyonu tek platformda.",
-    ocppBadge: "OCPP 1.6 / 2.0.1 Uyumlu",
+    ocppBadge: "OCPP 1.6 Uyumlu",
     ctaLabel: "Web Bemis Charge Hub İncele",
     ctaHref: "/products/charger-equipment",
     appStoreHref: "",
     playStoreHref: "",
     features: [
       { title: "Uzaktan İzleme & Kontrol", desc: "Şarj ünitelerini gerçek zamanlı takip edin, başlatın veya durdurun. Anlık durum bildirimleri alın." },
-      { title: "Ortak Alan Optimizasyonu", desc: "Çok kullanıcılı erişim, dinamik yük dengeleme ve ödeme sistemi entegrasyonu ile tam yönetim. Standart OCPP protokolü ile tüm ağ operatörleri ve back-end platformlarıyla uyumlu çalışır." },
+      { title: "Ortak Alan Optimizasyonu", desc: "Çok kullanıcılı erişim, dinamik yük dengeleme ve ödeme sistemi entegrasyonu ile tam yönetim. Ortak kullanım yönetim yazılımı ücretsizdir. Standart OCPP protokolü ile tüm ağ operatörleri ve back-end platformlarıyla uyumlu çalışır." },
     ],
   },
   projectSection: {

@@ -736,7 +736,7 @@
         "code": "BEV-3011-0005",
         "subtitle": "Met 5 m kabel",
         "badge": null,
-        "description": "Charger Pro 2, met instelbaar vermogen van 4-7-11-22 kW, geavanceerd loadmanagement (DLM) en gebruikersautorisatie, is ontworpen voor professionele omgevingen. Via het OCPP 1.6-protocol klaar voor integratie in laadnetwerken; ideaal voor OEM- en operatorklanten. Optionele MID-meter voor gecertificeerde energiemeting; verbonden modellen bieden via de mobiele app op afstand in-/uitschakelen, een timer en inzicht in de laadhistorie. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos.",
+        "description": "Charger Pro 2, met instelbaar vermogen van 4-7-11-22 kW, geavanceerd loadmanagement (DLM) en gebruikersautorisatie, is ontworpen voor professionele omgevingen. Via het OCPP 1.6-protocol klaar voor integratie in laadnetwerken; ideaal voor OEM- en operatorklanten. Optionele MID-meter voor gecertificeerde energiemeting; verbonden modellen bieden via de mobiele app op afstand in-/uitschakelen, een timer en inzicht in de laadhistorie. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. De beheersoftware voor gedeeld gebruik, die gebruikersgebonden registratie in gedeelde ruimtes mogelijk maakt, wordt gratis aangeboden.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -825,7 +825,7 @@
         "code": "BEV-3012-0000",
         "subtitle": "Met paneelcontactdoos",
         "badge": "Met paneelcontactdoos",
-        "description": "Charger Pro 2, met instelbaar vermogen van 4-7-11-22 kW, geavanceerd loadmanagement (DLM) en gebruikersautorisatie, is ontworpen voor professionele omgevingen. Via het OCPP 1.6-protocol klaar voor integratie in laadnetwerken; ideaal voor OEM- en operatorklanten. Optionele MID-meter voor gecertificeerde energiemeting; verbonden modellen bieden via de mobiele app op afstand in-/uitschakelen, een timer en inzicht in de laadhistorie. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos.",
+        "description": "Charger Pro 2, met instelbaar vermogen van 4-7-11-22 kW, geavanceerd loadmanagement (DLM) en gebruikersautorisatie, is ontworpen voor professionele omgevingen. Via het OCPP 1.6-protocol klaar voor integratie in laadnetwerken; ideaal voor OEM- en operatorklanten. Optionele MID-meter voor gecertificeerde energiemeting; verbonden modellen bieden via de mobiele app op afstand in-/uitschakelen, een timer en inzicht in de laadhistorie. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. De beheersoftware voor gedeeld gebruik, die gebruikersgebonden registratie in gedeelde ruimtes mogelijk maakt, wordt gratis aangeboden.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -914,7 +914,7 @@
         "code": "BEV-3012-1000",
         "subtitle": "Met paneelcontactdoos / GSM-module",
         "badge": "GSM",
-        "description": "De GSM-versie van Charger Pro 2 brengt met de ingebouwde 4G-module cloudgebaseerde bewaking en beheer naar de locatie. Verbindt via OCPP 1.6 met externe operatorplatformen; voor installaties zonder bekabeld internet. Optionele MID-meter voor gecertificeerde energiemeting; verbonden modellen bieden via de mobiele app op afstand in-/uitschakelen, een timer en inzicht in de laadhistorie. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos.",
+        "description": "De GSM-versie van Charger Pro 2 brengt met de ingebouwde 4G-module cloudgebaseerde bewaking en beheer naar de locatie. Verbindt via OCPP 1.6 met externe operatorplatformen; voor installaties zonder bekabeld internet. Optionele MID-meter voor gecertificeerde energiemeting; verbonden modellen bieden via de mobiele app op afstand in-/uitschakelen, een timer en inzicht in de laadhistorie. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. De beheersoftware voor gedeeld gebruik, die gebruikersgebonden registratie in gedeelde ruimtes mogelijk maakt, wordt gratis aangeboden.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1016,7 +1016,7 @@
         "code": "BEV-3011-1005",
         "subtitle": "Met 5 m kabel / GSM-module",
         "badge": "GSM",
-        "description": "De GSM-versie van Charger Pro 2 brengt met de ingebouwde 4G-module cloudgebaseerde bewaking en beheer naar de locatie. Verbindt via OCPP 1.6 met externe operatorplatformen; voor installaties zonder bekabeld internet. Optionele MID-meter voor gecertificeerde energiemeting; verbonden modellen bieden via de mobiele app op afstand in-/uitschakelen, een timer en inzicht in de laadhistorie. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos.",
+        "description": "De GSM-versie van Charger Pro 2 brengt met de ingebouwde 4G-module cloudgebaseerde bewaking en beheer naar de locatie. Verbindt via OCPP 1.6 met externe operatorplatformen; voor installaties zonder bekabeld internet. Optionele MID-meter voor gecertificeerde energiemeting; verbonden modellen bieden via de mobiele app op afstand in-/uitschakelen, een timer en inzicht in de laadhistorie. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. De beheersoftware voor gedeeld gebruik, die gebruikersgebonden registratie in gedeelde ruimtes mogelijk maakt, wordt gratis aangeboden.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1114,7 +1114,7 @@
         "code": "BEV-3011-10S5",
         "subtitle": "Met 5 m kabel / GSM-module · geïntegreerde MID-meter",
         "badge": "GSM · MID",
-        "description": "De GSM-versie van Charger Pro 2 brengt met de ingebouwde 4G-module cloudgebaseerde bewaking en beheer naar de locatie. Verbindt via OCPP 1.6 met externe operatorplatformen; voor installaties zonder bekabeld internet. Verbonden modellen bieden via de mobiele app op afstand in-/uitschakelen, een timer en inzicht in de laadhistorie. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dit model heeft een in de behuizing geïntegreerde, gecertificeerde MID-energiemeter en is volledig geschikt voor facturatie op basis van meting via OCPP en intensief commercieel gebruik. Geproduceerd in eigen fabriek.",
+        "description": "De GSM-versie van Charger Pro 2 brengt met de ingebouwde 4G-module cloudgebaseerde bewaking en beheer naar de locatie. Verbindt via OCPP 1.6 met externe operatorplatformen; voor installaties zonder bekabeld internet. Verbonden modellen bieden via de mobiele app op afstand in-/uitschakelen, een timer en inzicht in de laadhistorie. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dit model heeft een in de behuizing geïntegreerde, gecertificeerde MID-energiemeter en is volledig geschikt voor facturatie op basis van meting via OCPP en intensief commercieel gebruik. Geproduceerd in eigen fabriek. De beheersoftware voor gedeeld gebruik, die gebruikersgebonden registratie in gedeelde ruimtes mogelijk maakt, wordt gratis aangeboden.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1212,7 +1212,7 @@
         "code": "BEV-3012-10S0",
         "subtitle": "Met paneelcontactdoos / GSM-module · geïntegreerde MID-meter",
         "badge": "GSM · MID",
-        "description": "De GSM-versie van Charger Pro 2 brengt met de ingebouwde 4G-module cloudgebaseerde bewaking en beheer naar de locatie. Verbindt via OCPP 1.6 met externe operatorplatformen; voor installaties zonder bekabeld internet. Verbonden modellen bieden via de mobiele app op afstand in-/uitschakelen, een timer en inzicht in de laadhistorie. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dit model heeft een in de behuizing geïntegreerde, gecertificeerde MID-energiemeter en is volledig geschikt voor facturatie op basis van meting via OCPP en intensief commercieel gebruik. Geproduceerd in eigen fabriek.",
+        "description": "De GSM-versie van Charger Pro 2 brengt met de ingebouwde 4G-module cloudgebaseerde bewaking en beheer naar de locatie. Verbindt via OCPP 1.6 met externe operatorplatformen; voor installaties zonder bekabeld internet. Verbonden modellen bieden via de mobiele app op afstand in-/uitschakelen, een timer en inzicht in de laadhistorie. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dit model heeft een in de behuizing geïntegreerde, gecertificeerde MID-energiemeter en is volledig geschikt voor facturatie op basis van meting via OCPP en intensief commercieel gebruik. Geproduceerd in eigen fabriek. De beheersoftware voor gedeeld gebruik, die gebruikersgebonden registratie in gedeelde ruimtes mogelijk maakt, wordt gratis aangeboden.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1314,7 +1314,7 @@
         "code": "BEV-3011-00S5",
         "subtitle": "Met 5 m kabel · MID",
         "badge": null,
-        "description": "Charger Pro 2, met instelbaar vermogen van 4-7-11-22 kW, geavanceerd loadmanagement (DLM) en gebruikersautorisatie, is ontworpen voor professionele omgevingen. Via het OCPP 1.6-protocol klaar voor integratie in laadnetwerken; ideaal voor OEM- en operatorklanten. Verbonden modellen bieden via de mobiele app op afstand in-/uitschakelen, een timer en inzicht in de laadhistorie. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dit model heeft een in de behuizing geïntegreerde, gecertificeerde MID-energiemeter en is volledig geschikt voor facturatie op basis van meting via OCPP en intensief commercieel gebruik.",
+        "description": "Charger Pro 2, met instelbaar vermogen van 4-7-11-22 kW, geavanceerd loadmanagement (DLM) en gebruikersautorisatie, is ontworpen voor professionele omgevingen. Via het OCPP 1.6-protocol klaar voor integratie in laadnetwerken; ideaal voor OEM- en operatorklanten. Verbonden modellen bieden via de mobiele app op afstand in-/uitschakelen, een timer en inzicht in de laadhistorie. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dit model heeft een in de behuizing geïntegreerde, gecertificeerde MID-energiemeter en is volledig geschikt voor facturatie op basis van meting via OCPP en intensief commercieel gebruik. De beheersoftware voor gedeeld gebruik, die gebruikersgebonden registratie in gedeelde ruimtes mogelijk maakt, wordt gratis aangeboden.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1403,7 +1403,7 @@
         "code": "BEV-3012-00S0",
         "subtitle": "Met paneelcontactdoos · MID",
         "badge": null,
-        "description": "Charger Pro 2, met instelbaar vermogen van 4-7-11-22 kW, geavanceerd loadmanagement (DLM) en gebruikersautorisatie, is ontworpen voor professionele omgevingen. Via het OCPP 1.6-protocol klaar voor integratie in laadnetwerken; ideaal voor OEM- en operatorklanten. Verbonden modellen bieden via de mobiele app op afstand in-/uitschakelen, een timer en inzicht in de laadhistorie. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dit model heeft een in de behuizing geïntegreerde, gecertificeerde MID-energiemeter en is volledig geschikt voor facturatie op basis van meting via OCPP en intensief commercieel gebruik.",
+        "description": "Charger Pro 2, met instelbaar vermogen van 4-7-11-22 kW, geavanceerd loadmanagement (DLM) en gebruikersautorisatie, is ontworpen voor professionele omgevingen. Via het OCPP 1.6-protocol klaar voor integratie in laadnetwerken; ideaal voor OEM- en operatorklanten. Verbonden modellen bieden via de mobiele app op afstand in-/uitschakelen, een timer en inzicht in de laadhistorie. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dit model heeft een in de behuizing geïntegreerde, gecertificeerde MID-energiemeter en is volledig geschikt voor facturatie op basis van meting via OCPP en intensief commercieel gebruik. De beheersoftware voor gedeeld gebruik, die gebruikersgebonden registratie in gedeelde ruimtes mogelijk maakt, wordt gratis aangeboden.",
         "specs": [
           {
             "group": "Elektrisch",

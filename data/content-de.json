@@ -766,7 +766,7 @@
     "sectionLabel": "Intelligente Ladetechnologie",
     "heading": "Mit mobiler App\nüberall verwalten",
     "subheading": "Dank des OCPP-Protokolls können die Ladeeinheiten unserer Charger-Serie Echtzeit-Überwachung, Fernsteuerung und Energieoptimierung von einer einzigen Plattform aus in Gemeinschaftsflächen wie Wohnanlagen, Einkaufszentren und Parkplätzen verwalten. Integriert sich nahtlos mit Netzbetreibern.",
-    "ocppBadge": "OCPP 1.6 / 2.0.1 konform",
+    "ocppBadge": "OCPP 1.6 konform",
     "ctaLabel": "Charger-Serie ansehen",
     "ctaHref": "https://portal.bemis.com.tr/login?ReturnUrl=%2F",
     "features": [
@@ -776,7 +776,7 @@
       },
       {
         "title": "Optimierung von Gemeinschaftsflächen",
-        "desc": "Vollständige Verwaltung mit Mehrbenutzerzugriff, dynamischem Lastmanagement und Integration des Zahlungssystems."
+        "desc": "Vollständige Verwaltung mit Mehrbenutzerzugriff, dynamischem Lastmanagement und Integration des Zahlungssystems. Die Verwaltungssoftware für die gemeinsame Nutzung ist kostenlos."
       },
       {
         "title": "Offenes OCPP-Ökosystem",
@@ -803,7 +803,7 @@
       },
       {
         "label": "Konnektivität",
-        "value": "OCPP 1.6 / 2.0.1"
+        "value": "OCPP 1.6"
       },
       {
         "label": "Anschluss",

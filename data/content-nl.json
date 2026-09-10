@@ -793,7 +793,7 @@
     "sectionLabel": "Slimme laadtechnologie",
     "heading": "Beheer vanaf elke locatie\nmet de mobiele app",
     "subheading": "Dankzij het OCPP-protocol kunnen onze laadstations uit de Charger-serie in gedeelde ruimtes zoals wooncomplexen, winkelcentra en parkeergarages vanaf één platform realtime worden bewaakt, op afstand worden bediend en energie-geoptimaliseerd. Naadloze integratie met netwerkoperators. ",
-    "ocppBadge": "Compatibel met OCPP 1.6 / 2.0.1",
+    "ocppBadge": "Compatibel met OCPP 1.6",
     "ctaLabel": "Bekijk de Charger-serie",
     "ctaHref": "https://portal.bemis.com.tr/login?ReturnUrl=%2F",
     "features": [
@@ -803,7 +803,7 @@
       },
       {
         "title": "Optimalisatie van gedeelde ruimtes",
-        "desc": "Volledig beheer met toegang voor meerdere gebruikers, dynamische loadbalancing en integratie van betaalsystemen."
+        "desc": "Volledig beheer met toegang voor meerdere gebruikers, dynamische loadbalancing en integratie van betaalsystemen. De beheersoftware voor gedeeld gebruik is gratis."
       },
       {
         "title": "Open OCPP-ecosysteem",
@@ -830,7 +830,7 @@
       },
       {
         "label": "Connectiviteit",
-        "value": "OCPP 1.6 / 2.0.1"
+        "value": "OCPP 1.6"
       },
       {
         "label": "Connector",

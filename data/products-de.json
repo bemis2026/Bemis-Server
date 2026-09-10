@@ -720,7 +720,7 @@
         "code": "BEV-3011-0005",
         "subtitle": "5 m Kabel",
         "badge": null,
-        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Ein optionaler MID-Zähler liefert eine geeichte Energiemessung; bei vernetzten Modellen kommen über die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf hinzu. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Ein optionaler MID-Zähler liefert eine geeichte Energiemessung; bei vernetzten Modellen kommen über die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf hinzu. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Die Verwaltungssoftware für die gemeinsame Nutzung, die in Gemeinschaftsbereichen eine nutzerbezogene Erfassung ermöglicht, wird kostenlos bereitgestellt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -813,7 +813,7 @@
         "code": "BEV-3012-0000",
         "subtitle": "Mit Schalttafel-Steckdose",
         "badge": "Mit Schalttafel-Steckdose",
-        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Ein optionaler MID-Zähler liefert eine geeichte Energiemessung; bei vernetzten Modellen kommen über die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf hinzu. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Ein optionaler MID-Zähler liefert eine geeichte Energiemessung; bei vernetzten Modellen kommen über die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf hinzu. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Die Verwaltungssoftware für die gemeinsame Nutzung, die in Gemeinschaftsbereichen eine nutzerbezogene Erfassung ermöglicht, wird kostenlos bereitgestellt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -900,7 +900,7 @@
         "code": "BEV-3012-1000",
         "subtitle": "Mit Schalttafel-Steckdose / GSM-Modul",
         "badge": "GSM",
-        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Ein optionaler MID-Zähler liefert eine geeichte Energiemessung; bei vernetzten Modellen kommen über die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf hinzu. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Ein optionaler MID-Zähler liefert eine geeichte Energiemessung; bei vernetzten Modellen kommen über die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf hinzu. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Die Verwaltungssoftware für die gemeinsame Nutzung, die in Gemeinschaftsbereichen eine nutzerbezogene Erfassung ermöglicht, wird kostenlos bereitgestellt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1000,7 +1000,7 @@
         "code": "BEV-3011-1005",
         "subtitle": "5 m Kabel / GSM-Modul",
         "badge": "GSM",
-        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Ein optionaler MID-Zähler liefert eine geeichte Energiemessung; bei vernetzten Modellen kommen über die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf hinzu. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Ein optionaler MID-Zähler liefert eine geeichte Energiemessung; bei vernetzten Modellen kommen über die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf hinzu. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Die Verwaltungssoftware für die gemeinsame Nutzung, die in Gemeinschaftsbereichen eine nutzerbezogene Erfassung ermöglicht, wird kostenlos bereitgestellt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1096,7 +1096,7 @@
         "code": "BEV-3011-10S5",
         "subtitle": "5 m Kabel / GSM-Modul · Integrierter MID-Zähler",
         "badge": "GSM · MID",
-        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Bei vernetzten Modellen bietet die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt.",
+        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Bei vernetzten Modellen bietet die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt. Die Verwaltungssoftware für die gemeinsame Nutzung, die in Gemeinschaftsbereichen eine nutzerbezogene Erfassung ermöglicht, wird kostenlos bereitgestellt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1192,7 +1192,7 @@
         "code": "BEV-3012-10S0",
         "subtitle": "Mit Schalttafel-Steckdose / GSM-Modul · Integrierter MID-Zähler",
         "badge": "GSM · MID",
-        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Bei vernetzten Modellen bietet die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt.",
+        "description": "Die Charger Pro 2 GSM-Version integriert mit ihrem eingebauten 4G-Modul cloudbasierte Fernüberwachung und -verwaltung direkt vor Ort. Sie verbindet sich über OCPP 1.6 mit externen Betreiberplattformen; für Feldinstallationen ohne kabelgebundene Internet-Infrastruktur. Bei vernetzten Modellen bietet die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt. Die Verwaltungssoftware für die gemeinsame Nutzung, die in Gemeinschaftsbereichen eine nutzerbezogene Erfassung ermöglicht, wird kostenlos bereitgestellt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1292,7 +1292,7 @@
         "code": "BEV-3011-00S5",
         "subtitle": "5 m Kabel · MID",
         "badge": null,
-        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Bei vernetzten Modellen bietet die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz.",
+        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Bei vernetzten Modellen bietet die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. Die Verwaltungssoftware für die gemeinsame Nutzung, die in Gemeinschaftsbereichen eine nutzerbezogene Erfassung ermöglicht, wird kostenlos bereitgestellt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1385,7 +1385,7 @@
         "code": "BEV-3012-00S0",
         "subtitle": "Mit Schalttafel-Steckdose · MID",
         "badge": null,
-        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Bei vernetzten Modellen bietet die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz.",
+        "description": "Der Charger Pro 2 wurde mit einstellbarer Leistung von 4-7-11-22 kW, fortschrittlichem Lastmanagement (DLM) und Benutzerautorisierungsfunktionen für professionelle Umgebungen entwickelt. Über das OCPP 1.6-Protokoll offen für die Integration in Ladenetzwerke; ideal für OEM- und Betreiberkunden. Bei vernetzten Modellen bietet die mobile App Ein-/Ausschalten aus der Ferne, Zeitschaltung und Ladeverlauf. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. Die Verwaltungssoftware für die gemeinsame Nutzung, die in Gemeinschaftsbereichen eine nutzerbezogene Erfassung ermöglicht, wird kostenlos bereitgestellt.",
         "specs": [
           {
             "group": "Elektrisch",
