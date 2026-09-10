@@ -3015,5 +3015,145 @@
   "ar": "احصل على الاتجاهات",
   "ru": "Построить маршрут",
   "nl": "Route plannen"
+ },
+ "Converter Adapters & Extension Cables": {
+  "de": "Konverter-Adapter & Verlängerungskabel",
+  "es": "Adaptadores convertidores y cables de extensión",
+  "ar": "محوّلات وكابلات تمديد",
+  "ru": "Переходники и удлинительные кабели",
+  "nl": "Verloopadapters & verlengkabels"
+ },
+ "Support & Warranty": {
+  "de": "Support & Garantie",
+  "es": "Soporte y garantía",
+  "ar": "الدعم والضمان",
+  "ru": "Поддержка и гарантия",
+  "nl": "Support & garantie"
+ },
+ "Start here if your product isn't working": {
+  "de": "Starten Sie hier, wenn Ihr Produkt nicht funktioniert",
+  "es": "Empiece aquí si su producto no funciona",
+  "ar": "ابدأ من هنا إذا كان منتجك لا يعمل",
+  "ru": "Начните отсюда, если продукт не работает",
+  "nl": "Begin hier als uw product niet werkt"
+ },
+ "In Your Color": {
+  "de": "In Ihrer Wunschfarbe",
+  "es": "En el color que quiera",
+  "ar": "باللون الذي تختاره",
+  "ru": "В вашем цвете",
+  "nl": "In uw eigen kleur"
+ },
+ "Cable & connector color": {
+  "de": "Kabel- & Steckerfarbe",
+  "es": "Color de cable y conector",
+  "ar": "لون الكابل والقابس",
+  "ru": "Цвет кабеля и разъёма",
+  "nl": "Kabel- & connectorkleur"
+ },
+ "Custom cable length": {
+  "de": "Gewünschte Kabellänge",
+  "es": "Longitud de cable a medida",
+  "ar": "طول الكابل المطلوب",
+  "ru": "Нужная длина кабеля",
+  "nl": "Gewenste kabellengte"
+ },
+ "Device color & labeling": {
+  "de": "Gerätefarbe & Beschriftung",
+  "es": "Color del equipo y etiquetado",
+  "ar": "لون الجهاز والعلامة",
+  "ru": "Цвет корпуса и маркировка",
+  "nl": "Apparaatkleur & labeling"
+ },
+ "Search the site": {
+  "de": "Website durchsuchen",
+  "es": "Buscar en el sitio",
+  "ar": "ابحث في الموقع",
+  "ru": "Поиск по сайту",
+  "nl": "Zoek op de site"
+ },
+ "Switch to light mode": {
+  "de": "Zum hellen Modus wechseln",
+  "es": "Cambiar al modo claro",
+  "ar": "التبديل إلى الوضع الفاتح",
+  "ru": "Переключить на светлую тему",
+  "nl": "Naar lichte modus"
+ },
+ "Switch to dark mode": {
+  "de": "Zum dunklen Modus wechseln",
+  "es": "Cambiar al modo oscuro",
+  "ar": "التبديل إلى الوضع الداكن",
+  "ru": "Переключить на тёмную тему",
+  "nl": "Naar donkere modus"
+ },
+ "Close menu": {
+  "de": "Menü schließen",
+  "es": "Cerrar menú",
+  "ar": "إغلاق القائمة",
+  "ru": "Закрыть меню",
+  "nl": "Menu sluiten"
+ },
+ "Open menu": {
+  "de": "Menü öffnen",
+  "es": "Abrir menú",
+  "ar": "فتح القائمة",
+  "ru": "Открыть меню",
+  "nl": "Menu openen"
+ },
+ "Previous categories": {
+  "de": "Vorherige Kategorien",
+  "es": "Categorías anteriores",
+  "ar": "الفئات السابقة",
+  "ru": "Предыдущие категории",
+  "nl": "Vorige categorieën"
+ },
+ "Next categories": {
+  "de": "Nächste Kategorien",
+  "es": "Categorías siguientes",
+  "ar": "الفئات التالية",
+  "ru": "Следующие категории",
+  "nl": "Volgende categorieën"
+ },
+ "Warranty and support information": {
+  "de": "Garantie- und Supportinformationen",
+  "es": "Información de garantía y soporte",
+  "ar": "معلومات الضمان والدعم",
+  "ru": "Информация о гарантии и поддержке",
+  "nl": "Garantie- en supportinformatie"
+ },
+ "Incl. VAT": {
+  "de": "inkl. MwSt.",
+  "es": "IVA incluido",
+  "ar": "شامل ضريبة القيمة المضافة",
+  "ru": "с НДС",
+  "nl": "incl. btw"
+ },
+ "reviews": {
+  "de": "Bewertungen",
+  "es": "reseñas",
+  "ar": "تقييم",
+  "ru": "отзывов",
+  "nl": "beoordelingen"
+ },
+ "From our users": {
+  "de": "Von unseren Nutzern",
+  "es": "De nuestros usuarios",
+  "ar": "من مستخدمينا",
+  "ru": "От наших пользователей",
+  "nl": "Van onze gebruikers"
+ },
+ "Instagram posts about this product.": {
+  "de": "Instagram-Beiträge zu diesem Produkt.",
+  "es": "Publicaciones de Instagram sobre este producto.",
+  "ar": "منشورات إنستغرام عن هذا المنتج.",
+  "ru": "Публикации в Instagram об этом продукте.",
+  "nl": "Instagram-posts over dit product."
+ },
+ "Reviews are taken from real customer evaluations on the product's marketplace listings.": {
+  "de": "Die Bewertungen stammen aus echten Kundenbewertungen auf den Marktplatz-Seiten des Produkts.",
+  "es": "Las reseñas proceden de valoraciones reales de clientes en las páginas del producto en los marketplaces.",
+  "ar": "التقييمات مأخوذة من تقييمات عملاء حقيقيين على صفحات المنتج في المتاجر الإلكترونية.",
+  "ru": "Отзывы взяты из реальных оценок покупателей на страницах товара в маркетплейсах.",
+  "nl": "De beoordelingen komen uit echte klantbeoordelingen op de marktplaatspagina's van het product."
  }
 }
