@@ -13,6 +13,39 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> ↩️ **DC CİHAZLARINI GİZLEME İSTENDİ, YAPILDI, SONRA GERİ ALINDI — SİTE ESKİ HÂLİNDE (2026-09-10):**
+> Kullanıcı önce *"dc ürünleri gösterimi gizle şimdilik, dc cihazların satışını durdurduk"* dedi;
+> uygulandı ve canlı doğrulandı, ardından **aynı oturumda vazgeçti**: *"vazgeçtim kaldırma geri al,
+> her şey aynı kalsın."* **ŞU AN: `dc-units` kategorisi ve 7 BEVDC cihazı sitede AÇIK, vitrindeki
+> "80 kW DC" slaydı yerinde. Yapılacak bir şey YOK — tekrar gizlemeye kalkma.**
+>
+> ⚠️ **git log'da hem gizleme hem geri alma commit'leri görünür, kafan karışmasın:**
+> `49b6074` + `d615eb2` + `fe02890` (gizleme) → `1de591d` + `be39432` + `52ee00e` (revert) →
+> `6e0e4aa` (R2 geri yükleme + cache bump). Geçmiş yeniden yazılmadı, `git revert` kullanıldı.
+>
+> **📌 TEKRAR İSTENİRSE — YÖNTEM HAZIR (git'ten geri alınabilir, sıfırdan yazma):** commit `49b6074`
+> tek kaynak dosyası **`app/lib/gizliKategoriler.ts`** + iki katalog girişine (`getServerProducts`,
+> `getProductsForLang`) filtre + 8 gezinme yüzeyi + `next.config.ts`'e **307 (geçici)** yönlendirme
+> içeriyordu; `fe02890` ise doğrulamanın yakaladığı **elle yazılı kategori listelerini** kapatıyordu.
+> **📌 O TURDA ÖĞRENİLEN ÜÇ ŞEY (gizleme yeniden yapılırsa hâlâ geçerli):**
+> **(1) Filtre MERGE SONRASINDA uygulanmalı** — çeviri birleştirmesi POZİSYONEL, `dc-units` dizide
+> 7. sırada; erken elemek `charger-equipment`'in çevirisini kaydırır.
+> **(2) ELLE YAZILI kategori listeleri katalog filtresine TAKILMAZ** → `app/sitemap.ts` ·
+> `app/[lang]/products/[id]` · `app/en/products/[id]` · `app/components/Products.tsx` ayrı yamalanır.
+> Bunu ancak CANLI doğrulama yakaladı (sitemap'te 7 dilde kategori adresi + 49 hreflang kalmıştı).
+> **(3) Kapsam:** gizlenecek olan YALNIZ `dc-units` (7 BEVDC cihazı). `charger-equipment` içindeki
+> **8 DC CCS2 soketi** ve `accessories` içindeki **DC Soket Tutucu** SATIŞTA — onlara dokunulmaz.
+> ⚠️ Beslemede "BEVDC" araması YANLIŞ ALARM verir: o soketlerin açıklaması BEVDC uyumluluğundan
+> söz eder → kimliğe (`<g:id>`) bak.
+>
+> **⚠️ R2 GİT DIŞINDA:** vitrin ürünü R2 `content` bin'inden de silinmişti, yedekten geri yüklendi.
+> İki yönlü yedek `scratchpad/` altında: **`_vitrin_R2_content.bak.json`** (gizleme ÖNCESİ = şu anki
+> doğru hâl) ve **`_vitrin_R2_content.gizli.bak.json`** (gizlenmiş hâl). store cache
+> **v107 → v108-dc-gizle → v109-dc-geri** (v108'e DÖNÜLMEZ, gizli hâli taşır).
+>
+> **✅ BU GERİ ALMADAN ETKİLENMEYEN İŞLER (duruyor):** OCPP çelişkisi düzeltmesi (AC = 1.6, DC serisi
+> 1.6J/2.0.1) · "ortak kullanım yönetim yazılımı ücretsizdir" metni · 20 arayüz çevirisi.
+
 > ⚡✅ **OCPP ÇELİŞKİSİ KAPANDI (AC = YALNIZ 1.6) + "ÜCRETSİZ YAZILIM" SİTEYE EKLENDİ (2026-09-10,
 > commit b028d52):** Kullanıcı iki kararı da çoktan seçmeli verdi.
 >
