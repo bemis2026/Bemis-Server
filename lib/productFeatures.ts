@@ -33,7 +33,7 @@ export const PRODUCT_FEATURES: ProductFeature[] = [
   // Renk, Akıllı Şarj bölümündeki "(Ücretsiz)" rozetiyle AYNI amber tonu.
   // ⚠️ KAPSAM: yalnız `shared` taşıyan Charger Plus 2 + Pro 2 (16 model).
   // Charger 2'de `shared` YOK → bu rozet de verilmez (karşılanamayan vaat olmasın).
-  { id: "ucretsizPanel", label: "Ücretsiz Yönetim Paneli", icon: "RiGiftLine",    accent: "#F59E0B", desc: "Ortak alan yönetim paneli ücretsizdir: daire/kullanıcı tanımlama, RFID kart eşleştirme ve kişi bazlı raporlama.", labelEn: "Free Management Panel", descEn: "The shared-area management panel is free: define units/users, pair RFID cards and report per user." },
+  { id: "ucretsizPanel", label: "Ücretsiz Yönetim Paneli", icon: "RiGiftLine",    accent: "#F59E0B", desc: "Ortak alan yönetim paneli ücretsizdir: kWh birim fiyatı tanımlama, RFID karta ön ödemeli bakiye yükleme ve kişi bazlı raporlama.", labelEn: "Free Management Panel", descEn: "The shared-area management panel is free: set the kWh unit price, load prepaid balance onto RFID cards and report per user." },
   // Broşür-2026 highlight rozetleri (2026-07-13). Admin bunları PRODUCT_FEATURES'tan
   // otomatik checkbox olarak listeler (senkron). İkonlar Detail + FeaturedProducts
   // ikon haritalarına da eklendi (RiDashboard3Line / RiHammerLine / RiEqualizerLine yeni).

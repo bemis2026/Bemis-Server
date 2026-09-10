@@ -3169,5 +3169,12 @@
   "ar": "لوحة إدارة المناطق المشتركة مجانية: تعريف الوحدات/المستخدمين، وربط بطاقات RFID، وإعداد تقارير لكل مستخدم.",
   "ru": "Панель управления общими зонами бесплатна: создание квартир/пользователей, привязка RFID-карт и отчёты по каждому пользователю.",
   "nl": "Het beheerpaneel voor gedeelde ruimtes is gratis: eenheden/gebruikers aanmaken, RFID-kaarten koppelen en per gebruiker rapporteren."
+ },
+ "The shared-area management panel is free: set the kWh unit price, load prepaid balance onto RFID cards and report per user.": {
+  "de": "Das Verwaltungspanel für Gemeinschaftsbereiche ist kostenlos: kWh-Preis festlegen, Guthaben vorab auf RFID-Karten laden und pro Nutzer auswerten.",
+  "es": "El panel de gestión de zonas comunes es gratuito: fije el precio por kWh, cargue saldo prepago en las tarjetas RFID e informe por usuario.",
+  "ar": "لوحة إدارة المناطق المشتركة مجانية: تحديد سعر kWh، وشحن رصيد مسبق على بطاقات RFID، وإعداد تقارير لكل مستخدم.",
+  "ru": "Панель управления общими зонами бесплатна: задайте цену за kWh, зачисляйте предоплаченный баланс на карты RFID и получайте отчёты по пользователям.",
+  "nl": "Het beheerpaneel voor gedeelde ruimtes is gratis: stel de kWh-prijs in, laad vooraf saldo op RFID-kaarten en rapporteer per gebruiker."
  }
 }

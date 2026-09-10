@@ -5582,8 +5582,8 @@
     "ortak-alan-sarj-yonetim-paneli-apartman-site": {
       "title": "Shared-Area Charging Management Panel: Per-User Tracking in Apartments and Complexes",
       "metaTitle": "Shared-Area Charging Panel — Per-User Tracking",
-      "description": "Who used the electricity in an apartment, complex or hotel car park, and who pays? A shared-area charging management panel tracks usage per user. At Bemis the panel is free.",
-      "excerpt": "In a shared car park the technical part is easy; management is the real issue. Which user drew how much energy, who is authorised, what happens when two cars charge at once? That is solved not by the device but by the management panel behind it.",
+      "description": "Who used the electricity in an apartment or complex? The shared-area management panel tracks per user and a prepaid balance is loaded onto the RFID card. At Bemis the panel is free.",
+      "excerpt": "In a shared car park the technical part is easy; the real issue is collection. Who spent how much, who is authorised, who will collect the money? A prepaid balance solves this from the start: the user charges only up to the balance loaded onto their card.",
       "category": "Guide",
       "body": [
         {
@@ -5618,11 +5618,13 @@
             "RFID card pairing: a card is assigned to each user; anyone without a registered card cannot start the unit.",
             "Per-user reporting: how much energy each user has drawn is shown separately.",
             "Remote monitoring and control: the charging session is followed in real time and can be started or stopped remotely.",
-            "Dynamic load balancing: when several units run at once the available power is shared automatically so the subscribed limit is not exceeded."
+            "Dynamic load balancing: when several units run at once the available power is shared automatically so the subscribed limit is not exceeded.",
+            "kWh unit price: the administrator sets the energy unit price from the panel.",
+            "Prepaid balance on the RFID card: the administrator loads a balance onto the card in advance; the user can only charge up to that balance and the card stops working once it runs out."
           ]
         },
         {
-          "text": "The critical distinction is this: the panel reports consumption per user. How the cost is shared is the management's decision; the panel puts in front of you the breakdown needed to make that decision. In other words the panel does not do the accounting, it produces the data the accounting rests on."
+          "text": "These last two items change the real problem in shared areas — collection — at its root. In the classic arrangement energy is spent first, then it is worked out who owes what and the money is chased. A prepaid balance reverses the order: the administrator sets the kWh unit price, loads a balance onto the user's card, and the user charges only up to that balance. When the balance runs out the unit no longer works with that card. No receivable to chase is ever created, and the management still sees exactly what was spent through the per-user report."
         },
         {
           "text": "Why does charging management software become a separate cost item?"
@@ -5657,7 +5659,7 @@
       "faq": [
         {
           "q": "Who pays for the electricity in a charger installed in an apartment car park?",
-          "a": "If the unit is fed from the communal supply, consumption first goes onto the shared costs, which means neighbours who never use it also share the expense. The way to bring this down to individual users is the management panel. An RFID card is assigned to each user, the unit only starts with a registered card, and the energy drawn is reported per user. The management then sets the split on the basis of that breakdown. Which method is used is the building's own decision; what the panel provides is a split based on measurement rather than guesswork."
+          "a": "If the unit is fed from the communal supply, consumption first goes onto the shared costs, which means neighbours who never use it also share the expense. The management panel solves this in two steps: an RFID card is assigned to each user and the energy drawn is reported per user; in addition the administrator can set the kWh unit price and load a balance onto the card in advance. Because the user charges only up to the balance they loaded, the amount falling on the shared costs is covered upfront and no receivable is left to collect later."
         },
         {
           "q": "Do I have to pay a monthly fee for charging management software?",
@@ -5678,6 +5680,10 @@
         {
           "q": "Which Bemis units support shared-area management?",
           "a": "The Charger Plus 2 and Charger Pro 2 families are designed for shared use. Both carry OCPP 1.6 support, RFID card authorisation and dynamic load balancing; the power can be adjusted between 3,7 - 22 kW, so it can be limited to the building's installation capacity. In these two families the shared-area management panel is free and the units are marked on the product pages with the Free Management Panel badge. The entry-level Charger 2 is designed for a single-user home scenario and is outside the scope of shared-area management."
+        },
+        {
+          "q": "What happens when the RFID card's balance runs out?",
+          "a": "A card with no balance cannot start a charge; the unit will not work with it. The user asks the management to top the card up and carries on where they left off. Loading is done by the administrator from the panel, so the user needs no separate payment infrastructure. This works particularly well in apartment buildings and complexes: the management collects first and use follows; nobody has to be called about a debt and no surprise amount lands on the shared costs."
         }
       ],
       "related": [
@@ -11282,8 +11288,8 @@
     "ortak-alan-sarj-yonetim-paneli-apartman-site": {
       "title": "Verwaltungspanel für das Laden in Gemeinschaftsbereichen: nutzerbezogene Erfassung in Wohnanlagen",
       "metaTitle": "Ladepanel für Gemeinschaftsbereiche — pro Nutzer",
-      "description": "Wer hat den Strom in der Tiefgarage einer Wohnanlage oder eines Hotels verbraucht, und wer zahlt? Ein Verwaltungspanel erfasst den Verbrauch pro Nutzer. Bei Bemis ist das Panel kostenlos.",
-      "excerpt": "In einer gemeinsamen Tiefgarage ist der technische Teil einfach; das eigentliche Thema ist die Verwaltung. Welcher Nutzer hat wie viel Energie bezogen, wer ist berechtigt, was passiert bei zwei Fahrzeugen gleichzeitig? Das löst nicht das Gerät, sondern das Panel dahinter.",
+      "description": "Wer hat den Strom in einer Wohnanlage verbraucht? Das Verwaltungspanel erfasst pro Nutzer, und auf die RFID-Karte wird ein Guthaben vorab geladen. Bei Bemis ist das Panel kostenlos.",
+      "excerpt": "In einer gemeinsamen Tiefgarage ist der technische Teil einfach; das eigentliche Thema ist das Inkasso. Wer hat wie viel verbraucht, wer ist berechtigt, wer holt das Geld? Ein Vorabguthaben löst das von Anfang an: Es wird nur so viel geladen, wie auf der Karte gutgeschrieben ist.",
       "category": "Ratgeber",
       "body": [
         {
@@ -11318,11 +11324,13 @@
             "RFID-Kartenzuordnung: Jedem Nutzer wird eine Karte zugewiesen; ohne registrierte Karte lässt sich das Gerät nicht starten.",
             "Nutzerbezogene Auswertung: Wie viel Energie jeder Nutzer bezogen hat, wird getrennt ausgewiesen.",
             "Fernüberwachung und -steuerung: Der Ladevorgang wird in Echtzeit verfolgt und lässt sich aus der Ferne starten oder stoppen.",
-            "Dynamisches Lastmanagement: Laufen mehrere Geräte gleichzeitig, wird die verfügbare Leistung automatisch verteilt, ohne die Anschlussgrenze zu überschreiten."
+            "Dynamisches Lastmanagement: Laufen mehrere Geräte gleichzeitig, wird die verfügbare Leistung automatisch verteilt, ohne die Anschlussgrenze zu überschreiten.",
+            "kWh-Preis festlegen: Der Verwalter bestimmt den Energiepreis im Panel.",
+            "Vorabguthaben auf der RFID-Karte: Der Verwalter lädt im Voraus ein Guthaben auf die Karte; der Nutzer kann nur bis zu diesem Guthaben laden, danach funktioniert die Karte nicht mehr."
           ]
         },
         {
-          "text": "Der entscheidende Unterschied ist: Das Panel weist den Verbrauch pro Nutzer aus. Wie die Kosten aufgeteilt werden, entscheidet die Verwaltung; das Panel liefert die Aufstellung, die für diese Entscheidung nötig ist. Es führt also nicht die Abrechnung, sondern erzeugt die Daten, auf denen die Abrechnung beruht."
+          "text": "Diese beiden letzten Punkte verändern das eigentliche Problem im Gemeinschaftsbereich — das Inkasso — von Grund auf. Klassisch wird zuerst Energie verbraucht, danach ermittelt man, wer was schuldet, und läuft dem Geld hinterher. Mit Vorabguthaben kehrt sich die Reihenfolge um: Der Verwalter legt den kWh-Preis fest, lädt Guthaben auf die Karte des Nutzers, und der Nutzer lädt nur bis zu diesem Guthaben. Ist das Guthaben aufgebraucht, funktioniert das Gerät mit dieser Karte nicht mehr. So entsteht gar keine offene Forderung, und die Verwaltung sieht über die nutzerbezogene Auswertung jederzeit, was verbraucht wurde."
         },
         {
           "text": "Warum wird Ladeverwaltungssoftware zu einem eigenen Kostenpunkt?"
@@ -11357,7 +11365,7 @@
       "faq": [
         {
           "q": "Wer zahlt den Strom bei einem Ladegerät in der Tiefgarage einer Wohnanlage?",
-          "a": "Wird das Gerät aus dem Allgemeinstrom gespeist, landet der Verbrauch zunächst in den Gemeinschaftskosten — auch Nachbarn, die nie laden, tragen dann mit. Der Weg zur nutzerbezogenen Zuordnung ist das Verwaltungspanel. Jedem Nutzer wird eine RFID-Karte zugewiesen, das Gerät startet nur mit registrierter Karte, und die bezogene Energie wird pro Nutzer ausgewiesen. Auf dieser Aufstellung legt die Verwaltung die Aufteilung fest. Welche Methode gewählt wird, entscheidet die Gemeinschaft selbst; das Panel sorgt dafür, dass die Aufteilung auf Messung statt auf Schätzung beruht."
+          "a": "Wird das Gerät aus dem Allgemeinstrom gespeist, landet der Verbrauch zunächst in den Gemeinschaftskosten — auch Nachbarn, die nie laden, tragen dann mit. Das Verwaltungspanel löst das in zwei Schritten: Jedem Nutzer wird eine RFID-Karte zugewiesen und die bezogene Energie pro Nutzer ausgewiesen; zusätzlich kann der Verwalter den kWh-Preis festlegen und vorab Guthaben auf die Karte laden. Da der Nutzer nur bis zu seinem Guthaben lädt, ist der auf die Gemeinschaftskosten entfallende Betrag im Voraus gedeckt und es bleibt nichts nachträglich einzuziehen."
         },
         {
           "q": "Muss ich für Ladeverwaltungssoftware eine monatliche Gebühr zahlen?",
@@ -11378,6 +11386,10 @@
         {
           "q": "Welche Bemis-Geräte unterstützen die Verwaltung von Gemeinschaftsbereichen?",
           "a": "Die Baureihen Charger Plus 2 und Charger Pro 2 sind für die gemeinsame Nutzung ausgelegt. Beide bieten OCPP 1.6, Autorisierung per RFID-Karte und dynamisches Lastmanagement; die Leistung ist zwischen 3,7 - 22 kW einstellbar und lässt sich damit an die Installation des Gebäudes anpassen. In diesen beiden Baureihen ist das Verwaltungspanel kostenlos und die Geräte sind auf den Produktseiten mit dem Abzeichen Kostenloses Verwaltungspanel gekennzeichnet. Das Einstiegsmodell Charger 2 ist für den Haushalt mit einem Nutzer gedacht und fällt nicht darunter."
+        },
+        {
+          "q": "Was passiert, wenn das Guthaben der RFID-Karte aufgebraucht ist?",
+          "a": "Eine Karte ohne Guthaben kann keinen Ladevorgang starten; das Gerät funktioniert damit nicht. Der Nutzer lässt die Karte von der Verwaltung aufladen und macht dort weiter, wo er aufgehört hat. Das Aufladen erfolgt durch den Verwalter im Panel, der Nutzer braucht also keine eigene Zahlungsinfrastruktur. Gerade in Mehrfamilienhäusern und Wohnanlagen bewährt sich das: Die Verwaltung kassiert zuerst, die Nutzung folgt; niemand muss wegen einer Schuld angerufen werden und es landet kein überraschender Betrag in den Gemeinschaftskosten."
         }
       ],
       "related": [
@@ -16982,8 +16994,8 @@
     "ortak-alan-sarj-yonetim-paneli-apartman-site": {
       "title": "Panel de gestión de carga en zonas comunes: seguimiento por usuario en comunidades",
       "metaTitle": "Panel de carga en zonas comunes — por usuario",
-      "description": "En el garaje de una comunidad u hotel, ¿quién ha gastado la electricidad y quién paga? El panel de gestión de zonas comunes registra el consumo por usuario. En Bemis el panel es gratuito.",
-      "excerpt": "En un garaje comunitario la parte técnica es sencilla; el verdadero asunto es la gestión. Qué usuario ha consumido cuánta energía, quién está autorizado, qué ocurre si cargan dos coches a la vez. Eso no lo resuelve el equipo, sino el panel que hay detrás.",
+      "description": "¿Quién ha gastado la electricidad en una comunidad? El panel de gestión registra por usuario y en la tarjeta RFID se carga un saldo por adelantado. En Bemis el panel es gratuito.",
+      "excerpt": "En un garaje comunitario la parte técnica es sencilla; el verdadero asunto es el cobro. Quién ha gastado cuánto, quién está autorizado, quién recaudará el dinero. El saldo prepago lo resuelve desde el principio: solo se carga hasta el saldo puesto en la tarjeta.",
       "category": "Guía",
       "body": [
         {
@@ -17018,11 +17030,13 @@
             "Vinculación de tarjeta RFID: se asigna una tarjeta a cada usuario; quien no tenga tarjeta registrada no puede iniciar el equipo.",
             "Informes por usuario: se muestra por separado cuánta energía ha consumido cada usuario.",
             "Supervisión y control remotos: la sesión de carga se sigue en tiempo real y puede iniciarse o detenerse a distancia.",
-            "Equilibrado dinámico de carga: cuando varios equipos funcionan a la vez, la potencia disponible se reparte automáticamente sin superar el límite contratado."
+            "Equilibrado dinámico de carga: cuando varios equipos funcionan a la vez, la potencia disponible se reparte automáticamente sin superar el límite contratado.",
+            "Precio por kWh: el administrador fija el precio de la energía desde el panel.",
+            "Saldo prepago en la tarjeta RFID: el administrador carga un saldo por adelantado; el usuario solo puede cargar hasta ese saldo y la tarjeta deja de funcionar cuando se agota."
           ]
         },
         {
-          "text": "La distinción clave es esta: el panel informa del consumo por usuario. Cómo se reparte el gasto es decisión de la comunidad; el panel pone delante el desglose necesario para tomar esa decisión. Es decir, el panel no hace la contabilidad, produce los datos en los que la contabilidad se apoya."
+          "text": "Estos dos últimos puntos cambian de raíz el verdadero problema de las zonas comunes: el cobro. En el esquema clásico primero se gasta la energía, después se calcula quién debe qué y se persigue el dinero. Con saldo prepago el orden se invierte: el administrador fija el precio por kWh, carga saldo en la tarjeta del usuario y el usuario solo carga hasta ese saldo. Cuando el saldo se agota, el equipo deja de funcionar con esa tarjeta. Así no llega a existir ningún importe pendiente, y la comunidad sigue viendo con el informe por usuario exactamente lo que se ha consumido."
         },
         {
           "text": "¿Por qué el software de gestión de carga acaba siendo una partida aparte?"
@@ -17057,7 +17071,7 @@
       "faq": [
         {
           "q": "¿Quién paga la electricidad de un cargador instalado en el garaje de una comunidad?",
-          "a": "Si el equipo se alimenta del suministro comunitario, el consumo va primero a los gastos comunes, lo que significa que también lo comparten vecinos que nunca lo usan. La forma de bajarlo al nivel de cada usuario es el panel de gestión. Se asigna una tarjeta RFID a cada usuario, el equipo solo arranca con tarjeta registrada y la energía consumida se informa por usuario. La comunidad fija después el reparto a partir de ese desglose. Qué método se emplea es decisión del edificio; lo que aporta el panel es un reparto basado en medición y no en estimación."
+          "a": "Si el equipo se alimenta del suministro comunitario, el consumo va primero a los gastos comunes, lo que significa que también lo comparten vecinos que nunca lo usan. El panel de gestión lo resuelve en dos pasos: se asigna una tarjeta RFID a cada usuario y la energía consumida se informa por usuario; además el administrador puede fijar el precio por kWh y cargar saldo en la tarjeta por adelantado. Como el usuario solo carga hasta el saldo que ha puesto, el importe que recae en los gastos comunes queda cubierto de antemano y no queda nada por cobrar después."
         },
         {
           "q": "¿Tengo que pagar una cuota mensual por el software de gestión de carga?",
@@ -17078,6 +17092,10 @@
         {
           "q": "¿Qué equipos Bemis admiten la gestión de zonas comunes?",
           "a": "Las familias Charger Plus 2 y Charger Pro 2 están diseñadas para uso compartido. Ambas incorporan compatibilidad con OCPP 1.6, autorización por tarjeta RFID y equilibrado dinámico de carga; la potencia se ajusta entre 3,7 - 22 kW, de modo que puede limitarse a la capacidad de la instalación del edificio. En estas dos familias el panel de gestión de zonas comunes es gratuito y los equipos aparecen en las páginas de producto con el distintivo Panel de gestión gratuito. El modelo de entrada Charger 2 está pensado para un escenario doméstico de un solo usuario y queda fuera."
+        },
+        {
+          "q": "¿Qué ocurre cuando se agota el saldo de la tarjeta RFID?",
+          "a": "Una tarjeta sin saldo no puede iniciar una carga; el equipo no funciona con ella. El usuario pide a la comunidad que le recargue la tarjeta y continúa donde lo dejó. La recarga la hace el administrador desde el panel, así que el usuario no necesita ninguna infraestructura de pago propia. Esto funciona especialmente bien en edificios y urbanizaciones: la comunidad cobra primero y el uso viene después; no hay que llamar a nadie por una deuda ni aparece un importe sorpresa en los gastos comunes."
         }
       ],
       "related": [
@@ -22682,8 +22700,8 @@
     "ortak-alan-sarj-yonetim-paneli-apartman-site": {
       "title": "لوحة إدارة الشحن في المناطق المشتركة: تتبّع لكل مستخدم في المجمّعات السكنية",
       "metaTitle": "لوحة شحن المناطق المشتركة — تتبّع لكل مستخدم",
-      "description": "من استهلك الكهرباء في مواقف المجمّع السكني أو الفندق ومن يدفع؟ لوحة إدارة المناطق المشتركة تتتبّع الاستهلاك لكل مستخدم. لدى Bemis اللوحة مجانية.",
-      "excerpt": "في المواقف المشتركة الجانب التقني سهل؛ المسألة الحقيقية هي الإدارة. أي مستخدم استهلك كم من الطاقة، ومن المخوّل، وماذا يحدث عند شحن سيارتين معًا؟ هذا لا يحلّه الجهاز بل لوحة الإدارة خلفه.",
+      "description": "من استهلك الكهرباء في المجمّع السكني؟ لوحة الإدارة تتتبّع لكل مستخدم، ويُشحن رصيد مسبق على بطاقة RFID. لدى Bemis اللوحة مجانية.",
+      "excerpt": "في المواقف المشتركة الجانب التقني سهل؛ المسألة الحقيقية هي التحصيل. من استهلك كم، ومن المخوّل، ومن يجمع المال؟ الرصيد المسبق يحسم ذلك من البداية: لا يشحن المستخدم إلا بقدر الرصيد المحمّل على بطاقته.",
       "category": "دليل",
       "body": [
         {
@@ -22718,11 +22736,13 @@
             "ربط بطاقة RFID: تُخصَّص بطاقة لكل مستخدم؛ ومن لا يملك بطاقة مسجّلة لا يستطيع تشغيل الجهاز.",
             "تقارير لكل مستخدم: يظهر بشكل منفصل مقدار الطاقة التي استهلكها كل مستخدم.",
             "المراقبة والتحكم عن بُعد: تُتابَع جلسة الشحن لحظيًا ويمكن بدؤها أو إيقافها عن بُعد.",
-            "موازنة الأحمال الديناميكية: عند تشغيل عدة أجهزة معًا تُوزَّع القدرة المتاحة تلقائيًا دون تجاوز الحد المتعاقد عليه."
+            "موازنة الأحمال الديناميكية: عند تشغيل عدة أجهزة معًا تُوزَّع القدرة المتاحة تلقائيًا دون تجاوز الحد المتعاقد عليه.",
+            "تحديد سعر kWh: يحدّد المسؤول سعر وحدة الطاقة من اللوحة.",
+            "شحن رصيد مسبق على بطاقة RFID: يحمّل المسؤول رصيدًا على البطاقة سلفًا؛ ولا يستطيع المستخدم الشحن إلا بقدر ذلك الرصيد، وعند نفاده تتوقف البطاقة عن العمل."
           ]
         },
         {
-          "text": "الفارق الجوهري هو التالي: اللوحة تُبلّغ عن الاستهلاك لكل مستخدم. أما كيفية توزيع المصاريف فقرار الإدارة؛ واللوحة تضع أمامك الكشف اللازم لاتخاذ ذلك القرار. أي أن اللوحة لا تُجري المحاسبة، بل تنتج البيانات التي تستند إليها المحاسبة."
+          "text": "هذان البندان الأخيران يغيّران من جذوره المشكلة الحقيقية في المناطق المشتركة، أي التحصيل. في الترتيب التقليدي تُستهلك الطاقة أولًا، ثم يُحسب من عليه ماذا ويُلاحَق المبلغ. ومع الرصيد المسبق ينقلب الترتيب: يحدّد المسؤول سعر kWh، ويحمّل رصيدًا على بطاقة المستخدم، ولا يشحن المستخدم إلا بقدر ذلك الرصيد. وعند نفاد الرصيد لا يعمل الجهاز بتلك البطاقة. وهكذا لا ينشأ أصلًا أي مبلغ مستحق يُلاحَق، وتبقى الإدارة ترى عبر تقرير كل مستخدم ما استُهلك في أي وقت."
         },
         {
           "text": "لماذا يتحوّل برنامج إدارة الشحن إلى بند تكلفة منفصل؟"
@@ -22757,7 +22777,7 @@
       "faq": [
         {
           "q": "من يدفع ثمن الكهرباء في شاحن مركّب بمواقف مبنى سكني؟",
-          "a": "إذا كان الجهاز يُغذّى من الكهرباء المشتركة فإن الاستهلاك يُقيَّد أولًا على المصاريف المشتركة، ما يعني أن الجيران الذين لا يستخدمونه يشاركون في الكلفة أيضًا. والسبيل إلى ردّ ذلك إلى كل مستخدم هو لوحة الإدارة. تُخصَّص بطاقة RFID لكل مستخدم، ولا يعمل الجهاز إلا ببطاقة مسجّلة، وتُعرَض الطاقة المستهلكة لكل مستخدم على حدة. ثم تحدّد الإدارة التوزيع استنادًا إلى ذلك الكشف. أما الطريقة المتّبعة فقرار المبنى نفسه؛ وما توفّره اللوحة هو توزيع قائم على القياس لا على التخمين."
+          "a": "إذا كان الجهاز يُغذّى من الكهرباء المشتركة فإن الاستهلاك يُقيَّد أولًا على المصاريف المشتركة، ما يعني أن الجيران الذين لا يستخدمونه يشاركون في الكلفة أيضًا. وتحلّ لوحة الإدارة ذلك بخطوتين: تُخصَّص بطاقة RFID لكل مستخدم وتُعرَض الطاقة المستهلكة لكل مستخدم؛ كما يستطيع المسؤول تحديد سعر kWh وشحن رصيد على البطاقة سلفًا. ولأن المستخدم لا يشحن إلا بقدر رصيده، يكون المبلغ الواقع على المصاريف المشتركة مغطّى مسبقًا ولا يبقى شيء يُحصَّل لاحقًا."
         },
         {
           "q": "هل يجب أن أدفع رسمًا شهريًا لبرنامج إدارة الشحن؟",
@@ -22778,6 +22798,10 @@
         {
           "q": "أي أجهزة Bemis تدعم إدارة المناطق المشتركة؟",
           "a": "عائلتا Charger Plus 2 و Charger Pro 2 مصمّمتان للاستخدام المشترك. وتحمل كلتاهما دعم OCPP 1.6 والصلاحية ببطاقة RFID وموازنة الأحمال الديناميكية؛ ويمكن ضبط القدرة بين 3,7 - 22 kW بحيث تُحدَّد وفق سعة تمديدات المبنى. وفي هاتين العائلتين تكون لوحة إدارة المناطق المشتركة مجانية، والأجهزة مميّزة في صفحات المنتجات بشارة «لوحة إدارة مجانية». أما الطراز الأساسي Charger 2 فمصمّم لسيناريو منزلي بمستخدم واحد وهو خارج هذا النطاق."
+        },
+        {
+          "q": "ماذا يحدث عند نفاد رصيد بطاقة RFID؟",
+          "a": "البطاقة التي نفد رصيدها لا تستطيع بدء الشحن؛ ولا يعمل الجهاز بها. يراجع المستخدم الإدارة ليُشحن رصيده ثم يواصل من حيث توقّف. ويتم الشحن من اللوحة بواسطة المسؤول، فلا يحتاج المستخدم إلى بنية دفع منفصلة. ويفيد هذا الترتيب خصوصًا في المباني والمجمّعات السكنية: تحصّل الإدارة أولًا ثم يأتي الاستخدام؛ فلا يضطر أحد إلى مطالبة بدَين ولا يظهر مبلغ مفاجئ في المصاريف المشتركة."
         }
       ],
       "related": [
@@ -28382,8 +28406,8 @@
     "ortak-alan-sarj-yonetim-paneli-apartman-site": {
       "title": "Панель управления зарядкой в общих зонах: учёт по каждому пользователю в жилых комплексах",
       "metaTitle": "Панель зарядки общих зон — учёт по пользователю",
-      "description": "Кто израсходовал электроэнергию на парковке жилого комплекса или отеля и кто платит? Панель управления общими зонами ведёт учёт по каждому пользователю. В Bemis панель бесплатна.",
-      "excerpt": "На общей парковке техническая часть проста; главный вопрос — управление. Кто и сколько энергии израсходовал, у кого есть доступ, что будет, если заряжаются два автомобиля сразу? Это решает не устройство, а панель управления за ним.",
+      "description": "Кто израсходовал электроэнергию в жилом комплексе? Панель управления ведёт учёт по пользователю, а на карту RFID заранее зачисляется баланс. В Bemis панель бесплатна.",
+      "excerpt": "На общей парковке техническая часть проста; главный вопрос — сбор оплаты. Кто сколько израсходовал, у кого доступ, кто соберёт деньги? Предоплаченный баланс решает это сразу: пользователь заряжает только на сумму, зачисленную на его карту.",
       "category": "Руководство",
       "body": [
         {
@@ -28418,11 +28442,13 @@
             "Привязка карты RFID: каждому пользователю назначается карта; без зарегистрированной карты устройство не запустить.",
             "Отчётность по пользователям: видно отдельно, сколько энергии израсходовал каждый пользователь.",
             "Удалённый мониторинг и управление: сессия зарядки отслеживается в реальном времени, её можно запустить или остановить удалённо.",
-            "Динамическое распределение нагрузки: при одновременной работе нескольких устройств доступная мощность распределяется автоматически, без превышения выделенного лимита."
+            "Динамическое распределение нагрузки: при одновременной работе нескольких устройств доступная мощность распределяется автоматически, без превышения выделенного лимита.",
+            "Цена за kWh: администратор задаёт стоимость энергии в панели.",
+            "Предоплаченный баланс на карте RFID: администратор заранее зачисляет баланс на карту; пользователь может заряжать только в пределах этого баланса, а после его исчерпания карта не работает."
           ]
         },
         {
-          "text": "Ключевое различие в следующем: панель показывает потребление по каждому пользователю. Как распределить расходы — решение управляющей стороны; панель даёт ту выкладку, которая нужна для этого решения. То есть панель не ведёт бухгалтерию, а формирует данные, на которые бухгалтерия опирается."
+          "text": "Эти два последних пункта в корне меняют главную проблему общих зон — сбор оплаты. При обычной схеме сначала расходуется энергия, затем считают, кто сколько должен, и добиваются оплаты. С предоплаченным балансом порядок меняется на обратный: администратор задаёт цену за kWh, зачисляет баланс на карту пользователя, и пользователь заряжает только в пределах этого баланса. Когда баланс исчерпан, устройство с этой картой не работает. Задолженности, которую нужно взыскивать, попросту не возникает, а управляющая сторона в любой момент видит по отчёту, сколько израсходовано."
         },
         {
           "text": "Почему программа управления зарядкой становится отдельной статьёй расходов?"
@@ -28457,7 +28483,7 @@
       "faq": [
         {
           "q": "Кто платит за электроэнергию зарядного устройства на парковке жилого дома?",
-          "a": "Если устройство питается от общедомовой сети, потребление сначала попадает в общие расходы — то есть в них участвуют и соседи, которые им не пользуются. Свести это к конкретным пользователям позволяет панель управления. Каждому пользователю назначается карта RFID, устройство запускается только с зарегистрированной картой, а израсходованная энергия отражается по каждому пользователю. На основе этой выкладки управляющая сторона определяет распределение. Какой метод выбрать — решение самого дома; панель обеспечивает распределение по измерению, а не по догадке."
+          "a": "Если устройство питается от общедомовой сети, потребление сначала попадает в общие расходы — то есть в них участвуют и соседи, которые им не пользуются. Панель управления решает это в два шага: каждому пользователю назначается карта RFID и израсходованная энергия отражается по пользователям; кроме того, администратор может задать цену за kWh и заранее зачислить баланс на карту. Поскольку пользователь заряжает только в пределах зачисленного баланса, сумма, попадающая в общие расходы, покрыта заранее и взыскивать потом нечего."
         },
         {
           "q": "Обязательно ли платить ежемесячно за программу управления зарядкой?",
@@ -28478,6 +28504,10 @@
         {
           "q": "Какие устройства Bemis поддерживают управление общими зонами?",
           "a": "Линейки Charger Plus 2 и Charger Pro 2 рассчитаны на совместное использование. Обе поддерживают OCPP 1.6, авторизацию по карте RFID и динамическое распределение нагрузки; мощность настраивается в диапазоне 3,7 - 22 kW, поэтому её можно ограничить возможностями проводки здания. В этих двух линейках панель управления общими зонами бесплатна, а устройства отмечены на страницах товаров значком «Бесплатная панель управления». Начальная модель Charger 2 предназначена для домашнего сценария с одним пользователем и в этот круг не входит."
+        },
+        {
+          "q": "Что происходит, когда баланс карты RFID заканчивается?",
+          "a": "Карта без баланса не может начать зарядку; устройство с ней не работает. Пользователь обращается к управляющей стороне, баланс пополняют, и он продолжает с того же места. Пополнение выполняет администратор из панели, поэтому пользователю не нужна отдельная платёжная инфраструктура. Особенно хорошо это работает в жилых домах и комплексах: сначала собираются деньги, потом идёт потребление; никому не приходится напоминать о долге, и в общих расходах не появляется неожиданная сумма."
         }
       ],
       "related": [

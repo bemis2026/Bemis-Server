@@ -776,7 +776,7 @@
       },
       {
         "title": "Panel de gestión de zonas comunes (Gratis)",
-        "desc": "Gestión completa con acceso multiusuario, equilibrado dinámico de carga e integración con el sistema de pago. El software de gestión de uso compartido es gratuito."
+        "desc": "Gestión completa con acceso multiusuario, equilibrado dinámico de carga e integración con el sistema de pago. El software de gestión de uso compartido es gratuito. Se carga saldo prepago en la tarjeta RFID y el precio por kWh se fija desde el panel."
       },
       {
         "title": "Ecosistema OCPP Abierto",

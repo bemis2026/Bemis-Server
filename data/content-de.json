@@ -776,7 +776,7 @@
       },
       {
         "title": "Verwaltungspanel für Gemeinschaftsbereiche (Kostenlos)",
-        "desc": "Vollständige Verwaltung mit Mehrbenutzerzugriff, dynamischem Lastmanagement und Integration des Zahlungssystems. Die Verwaltungssoftware für die gemeinsame Nutzung ist kostenlos."
+        "desc": "Vollständige Verwaltung mit Mehrbenutzerzugriff, dynamischem Lastmanagement und Integration des Zahlungssystems. Die Verwaltungssoftware für die gemeinsame Nutzung ist kostenlos. Auf die RFID-Karte wird Guthaben vorab geladen, der kWh-Preis wird im Panel festgelegt."
       },
       {
         "title": "Offenes OCPP-Ökosystem",

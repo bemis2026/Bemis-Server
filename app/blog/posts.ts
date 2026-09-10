@@ -37,11 +37,11 @@ export const BLOG_POSTS: BlogPost[] = [
     "slug": "ortak-alan-sarj-yonetim-paneli-apartman-site",
     "title": "Ortak Alan Şarj Yönetim Paneli: Apartman ve Sitede Kişi Bazlı Takip",
     "metaTitle": "Ortak Alan Şarj Yönetim Paneli — Kişi Bazlı Takip",
-    "description": "Apartman, site ve otel otoparkında elektriği kim harcadı, kim ödeyecek? Ortak alan şarj yönetim paneli kullanıcı bazında takip eder. Bemis'te panel ücretsizdir.",
-    "excerpt": "Ortak otoparkta şarj cihazının teknik kısmı kolay; asıl mesele yönetim. Hangi kullanıcı ne kadar enerji çekti, kim yetkili, iki araç aynı anda şarja girerse ne olur? Bunu cihaz değil, arkasındaki yönetim paneli çözer.",
+    "description": "Apartman ve sitede elektriği kim harcadı? Ortak alan yönetim paneli kişi bazlı takip eder, RFID karta ön ödemeli bakiye yüklenir. Bemis'te panel ücretsizdir.",
+    "excerpt": "Ortak otoparkta şarj cihazının teknik kısmı kolay; asıl mesele tahsilat. Kim ne kadar harcadı, kim yetkili, parayı kim toplayacak? Ön ödemeli bakiye bu sorunu baştan çözer: kullanıcı yalnız kartına yüklenen bakiye kadar şarj yapar.",
     "category": "Rehber",
     "datePublished": "2026-09-11",
-    "readingMinutes": 9,
+    "readingMinutes": 10,
     "keywords": [
       "ortak alan şarj yönetim paneli",
       "apartman şarj yönetimi",
@@ -50,7 +50,9 @@ export const BLOG_POSTS: BlogPost[] = [
       "kişi bazlı şarj takibi",
       "rfid kart ile şarj",
       "ortak kullanım şarj istasyonu",
-      "apartman elektrikli araç şarj cihazı"
+      "apartman elektrikli araç şarj cihazı",
+      "ön ödemeli şarj bakiyesi",
+      "rfid kart bakiye yükleme"
     ],
     "body": [
       {
@@ -93,12 +95,14 @@ export const BLOG_POSTS: BlogPost[] = [
           "RFID kart eşleştirme: her kullanıcıya kart tanımlanır; tanımlı kartı olmayan cihazı başlatamaz.",
           "Kişi bazlı raporlama: hangi kullanıcının ne kadar enerji çektiği ayrı ayrı görünür.",
           "Uzaktan izleme ve kontrol: şarj oturumu gerçek zamanlı takip edilir, uzaktan başlatılıp durdurulabilir.",
-          "Dinamik yük dengeleme: birden çok cihaz aynı anda çalışırken mevcut güç, abonelik sınırı aşılmayacak şekilde otomatik paylaştırılır."
+          "Dinamik yük dengeleme: birden çok cihaz aynı anda çalışırken mevcut güç, abonelik sınırı aşılmayacak şekilde otomatik paylaştırılır.",
+          "kWh birim fiyatı tanımlama: yönetici enerji birim fiyatını panelden belirler.",
+          "RFID karta ön ödemeli bakiye yükleme: yönetici karta önden bakiye tanımlar; kullanıcı yalnız yüklü bakiyesi kadar şarj yapabilir, bakiye bitince kart çalışmaz."
         ]
       },
       {
         "type": "p",
-        "text": "Buradaki kritik ayrım şudur: panel, tüketimi kullanıcı bazında raporlar. Gider paylaşımının hangi yöntemle yapılacağı yönetimin kararıdır; panel o kararı verebilmek için gereken dökümü önünüze koyar. Yani panel muhasebe yapmaz, muhasebenin dayanacağı veriyi üretir."
+        "text": "Bu son iki madde ortak alandaki asıl sorunu, yani tahsilatı kökten değiştirir. Klasik düzende önce enerji harcanır, sonra kimden ne alınacağı hesaplanır ve peşine düşülür. Ön ödemeli bakiye ile sıra tersine döner: yönetici kWh birim fiyatını tanımlar, kullanıcının kartına bakiye yükler, kullanıcı yalnız o bakiye kadar şarj yapar. Bakiye bittiğinde cihaz o kartla çalışmaz. Böylece takip edilecek bir alacak hiç oluşmaz; yönetim de kullanıcı bazlı raporla ne harcandığını her an görür."
       },
       {
         "type": "h2",
@@ -142,7 +146,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "faq": [
       {
         "q": "Apartman otoparkına konulan şarj cihazında elektriği kim öder?",
-        "a": "Cihaz ortak elektrikten besleniyorsa tüketim önce ortak gidere yazılır; bu da kullanmayan komşuların da masrafa ortak olması anlamına gelir. Bunu kullanıcı bazına indirmenin yolu yönetim panelidir. Panelde her kullanıcıya bir RFID kart tanımlanır, cihaz yalnızca tanımlı kartla başlatılır ve çekilen enerji kullanıcı bazında raporlanır. Yönetim bu dökümü esas alarak paylaşımı belirler. Paylaşımın hangi yöntemle yapılacağı binanın kendi kararıdır; panelin sağladığı şey, o kararı tahmine değil ölçüme dayandırmaktır."
+        "a": "Cihaz ortak elektrikten besleniyorsa tüketim önce ortak gidere yazılır; bu da kullanmayan komşuların masrafa ortak olması demektir. Yönetim paneli bunu iki adımda çözer: her kullanıcıya RFID kart tanımlanır ve çekilen enerji kullanıcı bazında raporlanır; ayrıca yönetici kWh birim fiyatını belirleyip karta önden bakiye yükleyebilir. Kullanıcı yalnız yüklediği bakiye kadar şarj yaptığı için ortak gidere binen tutar peşinen karşılanmış olur ve sonradan tahsil edilecek bir alacak kalmaz."
       },
       {
         "q": "Şarj yönetim yazılımı için aylık ücret ödemek zorunda mıyım?",
@@ -163,6 +167,10 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         "q": "Hangi Bemis cihazları ortak alan yönetimini destekler?",
         "a": "Charger Plus 2 ve Charger Pro 2 aileleri ortak kullanım için tasarlanmıştır. İkisi de OCPP 1.6 desteği, RFID kart ile yetkilendirme ve dinamik yük dengeleme taşır; güç 3,7 - 22 kW aralığında ayarlanabilir, böylece binanın tesisat sınırına göre kısılabilir. Bu iki ailede ortak alan yönetim paneli ücretsizdir ve ürün sayfalarında Ücretsiz Yönetim Paneli rozetiyle işaretlenmiştir. Giriş seviyesi Charger 2 ise tek kullanıcılı ev senaryosu için tasarlanmıştır, ortak alan yönetimi kapsamında değildir."
+      },
+      {
+        "q": "RFID kartın bakiyesi bitince ne olur?",
+        "a": "Bakiyesi biten kart şarjı başlatamaz; cihaz o kartla çalışmaz. Kullanıcı yönetime başvurup bakiye yükletir ve kaldığı yerden devam eder. Yükleme panelden yönetici tarafından yapılır, kullanıcının ayrı bir ödeme altyapısına ihtiyacı yoktur. Bu yapı özellikle apartman ve sitelerde işe yarar: yönetim önce parayı alır, sonra kullanım gerçekleşir; kimseyi arayıp borç hatırlatmak gerekmez ve ortak gidere sürpriz bir tutar binmez."
       }
     ],
     "related": [

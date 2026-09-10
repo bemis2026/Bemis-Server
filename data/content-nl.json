@@ -803,7 +803,7 @@
       },
       {
         "title": "Beheerpaneel voor gedeelde ruimtes (Gratis)",
-        "desc": "Volledig beheer met toegang voor meerdere gebruikers, dynamische loadbalancing en integratie van betaalsystemen. De beheersoftware voor gedeeld gebruik is gratis."
+        "desc": "Volledig beheer met toegang voor meerdere gebruikers, dynamische loadbalancing en integratie van betaalsystemen. De beheersoftware voor gedeeld gebruik is gratis. Op de RFID-kaart wordt vooraf saldo geladen en de kWh-prijs wordt in het paneel ingesteld."
       },
       {
         "title": "Open OCPP-ecosysteem",
