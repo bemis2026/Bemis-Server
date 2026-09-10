@@ -68,6 +68,7 @@ Sitede gömülü iki resmi video var; ikisi de Bemis Teknik Elektrik A.Ş. YouTu
 - [EV Şarj Soketi Tipleri (Type 2 / CCS2 / CHAdeMO)](https://www.bemisevcharge.com.tr/blog/ev-sarj-soketi-tipleri-type-2-ccs2-chademo): Türkiye/Avrupa soket standartları ve hangi araçta hangisi.
 - [Elektrikli Araç Şarj Süresi: Kaç Saatte Dolar](https://www.bemisevcharge.com.tr/blog/elektrikli-arac-sarj-suresi-kac-saatte-dolar): Şarj süresi hesabı; AC/DC örnek senaryolar, kabul gücü ve taper.
 - [Elektrikli Araç Şarjında Yük Yönetimi (Load Management)](https://www.bemisevcharge.com.tr/blog/elektrikli-arac-sarj-yuk-yonetimi): Statik/dinamik yük dengeleme, faz dengeleme ve OCPP ile çok cihazlı kurulum.
+- [Ortak Alan Şarj Yönetim Paneli](https://www.bemisevcharge.com.tr/blog/ortak-alan-sarj-yonetim-paneli-apartman-site): Apartman ve sitede kişi bazlı şarj takibi; RFID yetkilendirme, kullanıcı bazlı raporlama, dinamik yük dengeleme. Yönetim paneli Charger Plus 2 ve Pro 2 ailelerinde ücretsizdir.
 - [Apartmana / Siteye Şarj İstasyonu Kurulumu](https://www.bemisevcharge.com.tr/blog/apartmana-sarj-istasyonu-kurulumu): Kat malikleri kararı, elektrik altyapısı, yük yönetimi ve faturalandırma.
 - [İş Yerine Şarj İstasyonu Kurulumu](https://www.bemisevcharge.com.tr/blog/is-yerine-sarj-istasyonu-kurulumu): İş yeri/ofis otoparkı için şarj altyapısı, güç planlaması ve yetkilendirme.
 - [Şarj İstasyonu Nasıl Çalışır](https://www.bemisevcharge.com.tr/blog/elektrikli-arac-sarj-istasyonu-nasil-calisir): Pilot sinyali, AC/DC dönüşüm, güvenlik (kaçak akım/topraklama/soket kilidi) ve yetkilendirme.

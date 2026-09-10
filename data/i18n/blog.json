@@ -5578,6 +5578,125 @@
           "label": "Charging Cable: How Many Metres, How Many Amps?"
         }
       ]
+    },
+    "ortak-alan-sarj-yonetim-paneli-apartman-site": {
+      "title": "Shared-Area Charging Management Panel: Per-User Tracking in Apartments and Complexes",
+      "metaTitle": "Shared-Area Charging Panel — Per-User Tracking",
+      "description": "Who used the electricity in an apartment, complex or hotel car park, and who pays? A shared-area charging management panel tracks usage per user. At Bemis the panel is free.",
+      "excerpt": "In a shared car park the technical part is easy; management is the real issue. Which user drew how much energy, who is authorised, what happens when two cars charge at once? That is solved not by the device but by the management panel behind it.",
+      "category": "Guide",
+      "body": [
+        {
+          "text": "Charging an electric car in a shared car park is technically less difficult than people assume: a suitable line is run, the unit is mounted on the wall, the car charges. The hard part starts afterwards. Who used the electricity? How will it be reflected in the shared costs? What if someone who does not live in the building turns up and uses it? The answer is not in the device itself but in the management panel behind it. In shared areas the decision is usually determined not by the power of the unit but by whether this management layer exists."
+        },
+        {
+          "text": "Why is charging in a shared area a separate problem?"
+        },
+        {
+          "text": "A charger in your own garage serves a single user; the meter is already yours and consumption goes straight onto your own bill. In a shared area the unit is usually fed from the communal supply and used by several people. Unless four things are settled on the management side, the unit soon becomes a source of dispute:"
+        },
+        {
+          "items": [
+            "Authorisation: who may use the unit, are guest vehicles included?",
+            "Measurement: which user drew how much energy?",
+            "Capacity: if two cars start charging at the same time, is the building's subscribed power exceeded?",
+            "Responsibility: who will follow up faults and handle the cost split?"
+          ]
+        },
+        {
+          "text": "These four headings point to a single need: a record of who used the shared charger, how much and with what authorisation. Without a record the cost split comes down to guesswork, and guesswork is the fastest way to create disagreement in a building."
+        },
+        {
+          "text": "What exactly does the management panel do?"
+        },
+        {
+          "text": "The management panel is the software that manages the charging unit remotely over the OCPP protocol. At Bemis the panel is used both from a web browser and from the mobile app; the unit connects to the internet over Wi-Fi, or over the mobile network on models with a GSM module. In a shared area the panel covers the following:"
+        },
+        {
+          "items": [
+            "User setup: the administrator creates users from the panel and withdraws authorisation when needed.",
+            "RFID card pairing: a card is assigned to each user; anyone without a registered card cannot start the unit.",
+            "Per-user reporting: how much energy each user has drawn is shown separately.",
+            "Remote monitoring and control: the charging session is followed in real time and can be started or stopped remotely.",
+            "Dynamic load balancing: when several units run at once the available power is shared automatically so the subscribed limit is not exceeded."
+          ]
+        },
+        {
+          "text": "The critical distinction is this: the panel reports consumption per user. How the cost is shared is the management's decision; the panel puts in front of you the breakdown needed to make that decision. In other words the panel does not do the accounting, it produces the data the accounting rests on."
+        },
+        {
+          "text": "Why does charging management software become a separate cost item?"
+        },
+        {
+          "text": "A charging unit is bought once; management software, however, is usually set up in this sector as a recurring cost — a monthly subscription or an annual licence per unit. Small as it looks on a single unit, this item becomes noticeable within operating costs as the number of units grows, and it makes the decision harder in shared areas. Managements often compare the price of the device and leave out the subscription burden that follows it."
+        },
+        {
+          "text": "At Bemis the shared-area management panel is free. When you buy the unit the panel comes with it; you pay no separate subscription or licence fee. For a management weighing up a shared-area investment this is the difference between a one-off cost and a recurring one, and it directly affects the total cost of ownership."
+        },
+        {
+          "text": "Which units include it free?"
+        },
+        {
+          "text": "The free management panel applies to the Charger Plus 2 and Charger Pro 2 families, designed for shared use. Both series support the OCPP 1.6 protocol, authorise via RFID card and can be adjusted between 3,7 - 22 kW. On the product pages these units are marked with the Free Management Panel badge; the entry-level Charger 2 is not designed for shared-area management."
+        },
+        {
+          "text": "Three things to settle before installation"
+        },
+        {
+          "items": [
+            "Management decision: installing a unit in a shared area requires a decision by the property owners. Put in writing from the start which users will be authorised and how the cost will be shared.",
+            "Electrical infrastructure: will the unit be fed from the communal meter or will a separate line be run? A qualified electrician should assess the existing distribution board and the subscribed power.",
+            "Capacity plan: one car today can be three tomorrow. A unit that supports dynamic load balancing saves you the cost of upgrading the line later."
+          ]
+        },
+        {
+          "text": "Explore the AC charging stations built for shared areas, with the management panel included free.",
+          "label": "AC Wallbox models"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Who pays for the electricity in a charger installed in an apartment car park?",
+          "a": "If the unit is fed from the communal supply, consumption first goes onto the shared costs, which means neighbours who never use it also share the expense. The way to bring this down to individual users is the management panel. An RFID card is assigned to each user, the unit only starts with a registered card, and the energy drawn is reported per user. The management then sets the split on the basis of that breakdown. Which method is used is the building's own decision; what the panel provides is a split based on measurement rather than guesswork."
+        },
+        {
+          "q": "Do I have to pay a monthly fee for charging management software?",
+          "a": "In this sector charging management software is usually offered as a monthly subscription or an annual licence per unit. Small as that amount looks on a single unit, it becomes a permanent item within operating costs as the number of units grows and stretches the payback of a shared-area investment. The Bemis shared-area management panel is free: it comes with Charger Plus 2 and Charger Pro 2 units and there is no separate subscription or licence fee. When comparing units, look not only at the hardware price but also at the software cost that follows it."
+        },
+        {
+          "q": "Can someone who does not live in the building use the charger?",
+          "a": "Authorisation is done with an RFID card; anyone without a card registered in the panel cannot start the unit. The administrator can add a new user at any time from the panel or remove an existing user's authorisation. Whether guest use is allowed, and who is authorised in which period, therefore stays entirely under the management's control. The moment a departing resident's authorisation is removed from the panel they can no longer use the unit; no physical step such as collecting cards or changing locks is needed."
+        },
+        {
+          "q": "If more than one car charges at the same time, is the building's electricity enough?",
+          "a": "Dynamic load balancing exists exactly for this: when units run at the same time they share the available power between them and prevent the building's subscribed power from being exceeded. That way, when two cars start charging together the fuse does not trip; each car simply takes a little longer to fill. How many cars will charge simultaneously, the building's subscribed power and the existing installation should be assessed together with a qualified electrician. Choosing a unit that supports load balancing also postpones the cost of upgrading the line as the number of cars grows."
+        },
+        {
+          "q": "Can I use the management panel from my phone?",
+          "a": "Yes. The panel can be used both from a web browser and from the mobile app; the administrator can look at reports on a computer while handling day-to-day tasks from a phone. The unit connects to the internet over Wi-Fi, and on models with a GSM module it can also connect over the mobile network. That second option is particularly useful in underground car parks, because a building's wireless network often does not reach the basement. The connection method is chosen during installation and remote monitoring depends on it."
+        },
+        {
+          "q": "Which Bemis units support shared-area management?",
+          "a": "The Charger Plus 2 and Charger Pro 2 families are designed for shared use. Both carry OCPP 1.6 support, RFID card authorisation and dynamic load balancing; the power can be adjusted between 3,7 - 22 kW, so it can be limited to the building's installation capacity. In these two families the shared-area management panel is free and the units are marked on the product pages with the Free Management Panel badge. The entry-level Charger 2 is designed for a single-user home scenario and is outside the scope of shared-area management."
+        }
+      ],
+      "related": [
+        {
+          "label": "AC wallbox charging stations"
+        },
+        {
+          "label": "Installing a charging station in an apartment building"
+        },
+        {
+          "label": "Charging station regulations"
+        },
+        {
+          "label": "What is load management (DLM)?"
+        },
+        {
+          "label": "What is OCPP?"
+        }
+      ]
     }
   },
   "de": {
@@ -11157,6 +11276,125 @@
         },
         {
           "label": "Ladekabel: wie viele Meter, wie viel Ampere?"
+        }
+      ]
+    },
+    "ortak-alan-sarj-yonetim-paneli-apartman-site": {
+      "title": "Verwaltungspanel für das Laden in Gemeinschaftsbereichen: nutzerbezogene Erfassung in Wohnanlagen",
+      "metaTitle": "Ladepanel für Gemeinschaftsbereiche — pro Nutzer",
+      "description": "Wer hat den Strom in der Tiefgarage einer Wohnanlage oder eines Hotels verbraucht, und wer zahlt? Ein Verwaltungspanel erfasst den Verbrauch pro Nutzer. Bei Bemis ist das Panel kostenlos.",
+      "excerpt": "In einer gemeinsamen Tiefgarage ist der technische Teil einfach; das eigentliche Thema ist die Verwaltung. Welcher Nutzer hat wie viel Energie bezogen, wer ist berechtigt, was passiert bei zwei Fahrzeugen gleichzeitig? Das löst nicht das Gerät, sondern das Panel dahinter.",
+      "category": "Ratgeber",
+      "body": [
+        {
+          "text": "Das Laden eines Elektroautos in einer gemeinsamen Tiefgarage ist technisch weniger schwierig als angenommen: eine geeignete Leitung wird verlegt, das Gerät an der Wand montiert, das Fahrzeug lädt. Der schwierige Teil beginnt danach. Wer hat den Strom verbraucht? Wie wird er auf die Gemeinschaftskosten umgelegt? Was, wenn jemand kommt, der nicht im Haus wohnt? Die Antwort liegt nicht im Gerät selbst, sondern im Verwaltungspanel dahinter. In Gemeinschaftsbereichen entscheidet meist nicht die Leistung des Geräts, sondern ob diese Verwaltungsebene vorhanden ist."
+        },
+        {
+          "text": "Warum ist das Laden im Gemeinschaftsbereich ein eigenes Problem?"
+        },
+        {
+          "text": "Ein Ladegerät in der eigenen Garage bedient einen einzigen Nutzer; der Zähler gehört Ihnen und der Verbrauch landet direkt auf Ihrer Rechnung. Im Gemeinschaftsbereich wird das Gerät meist aus dem Allgemeinstrom gespeist und von mehreren Personen genutzt. Werden auf der Verwaltungsseite vier Punkte nicht geklärt, wird das Gerät schnell zum Streitfall:"
+        },
+        {
+          "items": [
+            "Berechtigung: Wer darf das Gerät nutzen, sind Gastfahrzeuge eingeschlossen?",
+            "Messung: Welcher Nutzer hat wie viel Energie bezogen?",
+            "Kapazität: Wird die Anschlussleistung überschritten, wenn zwei Fahrzeuge gleichzeitig laden?",
+            "Verantwortung: Wer verfolgt Störungen und regelt die Kostenaufteilung?"
+          ]
+        },
+        {
+          "text": "Diese vier Punkte verweisen auf einen einzigen Bedarf: eine Aufzeichnung darüber, wer den gemeinsamen Lader wie stark und mit welcher Berechtigung genutzt hat. Ohne Aufzeichnung bleibt die Kostenaufteilung Schätzung, und Schätzung erzeugt in einer Hausgemeinschaft am schnellsten Streit."
+        },
+        {
+          "text": "Was genau leistet das Verwaltungspanel?"
+        },
+        {
+          "text": "Das Verwaltungspanel ist die Software, die das Ladegerät über das OCPP-Protokoll aus der Ferne verwaltet. Bei Bemis wird das Panel sowohl im Webbrowser als auch in der mobilen App genutzt; das Gerät verbindet sich per Wi-Fi mit dem Internet, bei Modellen mit GSM-Modul auch über das Mobilfunknetz. Im Gemeinschaftsbereich deckt das Panel Folgendes ab:"
+        },
+        {
+          "items": [
+            "Nutzeranlage: Der Verwalter legt im Panel Nutzer an und entzieht die Berechtigung bei Bedarf.",
+            "RFID-Kartenzuordnung: Jedem Nutzer wird eine Karte zugewiesen; ohne registrierte Karte lässt sich das Gerät nicht starten.",
+            "Nutzerbezogene Auswertung: Wie viel Energie jeder Nutzer bezogen hat, wird getrennt ausgewiesen.",
+            "Fernüberwachung und -steuerung: Der Ladevorgang wird in Echtzeit verfolgt und lässt sich aus der Ferne starten oder stoppen.",
+            "Dynamisches Lastmanagement: Laufen mehrere Geräte gleichzeitig, wird die verfügbare Leistung automatisch verteilt, ohne die Anschlussgrenze zu überschreiten."
+          ]
+        },
+        {
+          "text": "Der entscheidende Unterschied ist: Das Panel weist den Verbrauch pro Nutzer aus. Wie die Kosten aufgeteilt werden, entscheidet die Verwaltung; das Panel liefert die Aufstellung, die für diese Entscheidung nötig ist. Es führt also nicht die Abrechnung, sondern erzeugt die Daten, auf denen die Abrechnung beruht."
+        },
+        {
+          "text": "Warum wird Ladeverwaltungssoftware zu einem eigenen Kostenpunkt?"
+        },
+        {
+          "text": "Ein Ladegerät wird einmal gekauft; Verwaltungssoftware dagegen ist in der Branche meist als laufende Kosten angelegt — als monatliches Abonnement oder Jahreslizenz je Gerät. Bei einem einzelnen Gerät klein, wird dieser Posten mit wachsender Gerätezahl in den Betriebskosten spürbar und erschwert die Entscheidung im Gemeinschaftsbereich. Verwaltungen vergleichen häufig den Gerätepreis und lassen die nachgelagerte Abolast außer Acht."
+        },
+        {
+          "text": "Bei Bemis ist das Verwaltungspanel für Gemeinschaftsbereiche kostenlos. Mit dem Gerät kommt das Panel; ein gesondertes Abonnement oder eine Lizenzgebühr fällt nicht an. Für eine Verwaltung, die eine Investition im Gemeinschaftsbereich prüft, ist das der Unterschied zwischen einmaligen und laufenden Kosten und wirkt sich unmittelbar auf die Gesamtkosten aus."
+        },
+        {
+          "text": "Bei welchen Geräten ist es kostenlos?"
+        },
+        {
+          "text": "Das kostenlose Verwaltungspanel gilt für die für die gemeinsame Nutzung ausgelegten Baureihen Charger Plus 2 und Charger Pro 2. Beide Serien unterstützen das Protokoll OCPP 1.6, autorisieren per RFID-Karte und lassen sich zwischen 3,7 - 22 kW einstellen. Auf den Produktseiten sind diese Geräte mit dem Abzeichen Kostenloses Verwaltungspanel gekennzeichnet; das Einstiegsmodell Charger 2 ist nicht für die Verwaltung von Gemeinschaftsbereichen ausgelegt."
+        },
+        {
+          "text": "Drei Punkte, die vor der Installation geklärt sein müssen"
+        },
+        {
+          "items": [
+            "Beschluss der Gemeinschaft: Die Installation im Gemeinschaftsbereich erfordert einen Eigentümerbeschluss. Halten Sie von Anfang an schriftlich fest, wer berechtigt wird und wie die Kosten aufgeteilt werden.",
+            "Elektrische Infrastruktur: Wird das Gerät aus dem Allgemeinzähler gespeist oder eine eigene Leitung verlegt? Eine Fachkraft sollte den vorhandenen Verteiler und die Anschlussleistung bewerten.",
+            "Kapazitätsplanung: Aus einem Fahrzeug heute können morgen drei werden. Ein Gerät mit dynamischem Lastmanagement erspart später den Umbau der Leitung."
+          ]
+        },
+        {
+          "text": "Entdecken Sie die AC-Ladestationen für Gemeinschaftsbereiche — das Verwaltungspanel ist inklusive.",
+          "label": "AC-Wallbox-Modelle"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Wer zahlt den Strom bei einem Ladegerät in der Tiefgarage einer Wohnanlage?",
+          "a": "Wird das Gerät aus dem Allgemeinstrom gespeist, landet der Verbrauch zunächst in den Gemeinschaftskosten — auch Nachbarn, die nie laden, tragen dann mit. Der Weg zur nutzerbezogenen Zuordnung ist das Verwaltungspanel. Jedem Nutzer wird eine RFID-Karte zugewiesen, das Gerät startet nur mit registrierter Karte, und die bezogene Energie wird pro Nutzer ausgewiesen. Auf dieser Aufstellung legt die Verwaltung die Aufteilung fest. Welche Methode gewählt wird, entscheidet die Gemeinschaft selbst; das Panel sorgt dafür, dass die Aufteilung auf Messung statt auf Schätzung beruht."
+        },
+        {
+          "q": "Muss ich für Ladeverwaltungssoftware eine monatliche Gebühr zahlen?",
+          "a": "In der Branche wird Ladeverwaltungssoftware meist als monatliches Abonnement oder Jahreslizenz je Gerät angeboten. Bei einem einzelnen Gerät wirkt der Betrag klein, wird mit wachsender Gerätezahl aber zu einem dauerhaften Posten in den Betriebskosten und verlängert die Amortisation einer Investition im Gemeinschaftsbereich. Das Bemis-Verwaltungspanel für Gemeinschaftsbereiche ist kostenlos: Es kommt mit den Geräten Charger Plus 2 und Charger Pro 2, eine gesonderte Abo- oder Lizenzgebühr gibt es nicht. Beim Vergleich sollten Sie nicht nur den Hardwarepreis, sondern auch die nachgelagerten Softwarekosten betrachten."
+        },
+        {
+          "q": "Kann jemand, der nicht im Haus wohnt, das Ladegerät nutzen?",
+          "a": "Die Autorisierung erfolgt über eine RFID-Karte; wer keine im Panel registrierte Karte hat, kann das Gerät nicht starten. Der Verwalter kann jederzeit im Panel einen neuen Nutzer anlegen oder einem bestehenden Nutzer die Berechtigung entziehen. Ob Gastnutzung erlaubt ist und wer in welchem Zeitraum berechtigt ist, bleibt damit vollständig in der Hand der Verwaltung. Sobald die Berechtigung eines ausziehenden Bewohners entfernt wird, kann er das Gerät nicht mehr nutzen; ein physischer Schritt wie das Einsammeln von Karten entfällt."
+        },
+        {
+          "q": "Reicht der Hausanschluss, wenn mehrere Fahrzeuge gleichzeitig laden?",
+          "a": "Genau dafür gibt es dynamisches Lastmanagement: Laufen Geräte gleichzeitig, teilen sie die verfügbare Leistung untereinander auf und verhindern, dass die Anschlussleistung überschritten wird. So löst die Sicherung nicht aus, wenn zwei Fahrzeuge zusammen laden; jedes Fahrzeug braucht lediglich etwas länger. Wie viele Fahrzeuge gleichzeitig laden, die Anschlussleistung des Gebäudes und die vorhandene Installation sollten gemeinsam mit einer Elektrofachkraft bewertet werden. Ein Gerät mit Lastmanagement verschiebt zudem den späteren Leitungsausbau."
+        },
+        {
+          "q": "Kann ich das Verwaltungspanel auch am Telefon nutzen?",
+          "a": "Ja. Das Panel lässt sich sowohl im Webbrowser als auch in der mobilen App nutzen; der Verwalter kann Auswertungen am Rechner ansehen und den Alltag über das Telefon erledigen. Das Gerät verbindet sich per Wi-Fi mit dem Internet, bei Modellen mit GSM-Modul zusätzlich über das Mobilfunknetz. Diese zweite Option hilft besonders in Tiefgaragen, weil das WLAN des Gebäudes das Untergeschoss oft nicht erreicht. Die Verbindungsart wird bei der Installation gewählt und davon hängt die Fernüberwachung ab."
+        },
+        {
+          "q": "Welche Bemis-Geräte unterstützen die Verwaltung von Gemeinschaftsbereichen?",
+          "a": "Die Baureihen Charger Plus 2 und Charger Pro 2 sind für die gemeinsame Nutzung ausgelegt. Beide bieten OCPP 1.6, Autorisierung per RFID-Karte und dynamisches Lastmanagement; die Leistung ist zwischen 3,7 - 22 kW einstellbar und lässt sich damit an die Installation des Gebäudes anpassen. In diesen beiden Baureihen ist das Verwaltungspanel kostenlos und die Geräte sind auf den Produktseiten mit dem Abzeichen Kostenloses Verwaltungspanel gekennzeichnet. Das Einstiegsmodell Charger 2 ist für den Haushalt mit einem Nutzer gedacht und fällt nicht darunter."
+        }
+      ],
+      "related": [
+        {
+          "label": "AC-Wallbox-Ladestationen"
+        },
+        {
+          "label": "Ladestation im Mehrfamilienhaus installieren"
+        },
+        {
+          "label": "Vorschriften für Ladestationen"
+        },
+        {
+          "label": "Was ist Lastmanagement (DLM)?"
+        },
+        {
+          "label": "Was ist OCPP?"
         }
       ]
     }
@@ -16740,6 +16978,125 @@
           "label": "Cable de carga: ¿cuántos metros, cuántos amperios?"
         }
       ]
+    },
+    "ortak-alan-sarj-yonetim-paneli-apartman-site": {
+      "title": "Panel de gestión de carga en zonas comunes: seguimiento por usuario en comunidades",
+      "metaTitle": "Panel de carga en zonas comunes — por usuario",
+      "description": "En el garaje de una comunidad u hotel, ¿quién ha gastado la electricidad y quién paga? El panel de gestión de zonas comunes registra el consumo por usuario. En Bemis el panel es gratuito.",
+      "excerpt": "En un garaje comunitario la parte técnica es sencilla; el verdadero asunto es la gestión. Qué usuario ha consumido cuánta energía, quién está autorizado, qué ocurre si cargan dos coches a la vez. Eso no lo resuelve el equipo, sino el panel que hay detrás.",
+      "category": "Guía",
+      "body": [
+        {
+          "text": "Cargar un coche eléctrico en un garaje comunitario es técnicamente menos difícil de lo que se supone: se tira una línea adecuada, se monta el equipo en la pared y el coche carga. La parte difícil empieza después. ¿Quién ha gastado la electricidad? ¿Cómo se reflejará en los gastos comunes? ¿Y si aparece alguien que no vive en el edificio? La respuesta no está en el equipo, sino en el panel de gestión que hay detrás. En zonas comunes la decisión suele depender no de la potencia del equipo, sino de si existe esa capa de gestión."
+        },
+        {
+          "text": "¿Por qué cargar en una zona común es un problema aparte?"
+        },
+        {
+          "text": "Un cargador en su propio garaje atiende a un solo usuario; el contador ya es suyo y el consumo va directamente a su factura. En una zona común el equipo suele alimentarse del suministro comunitario y lo usan varias personas. Si no se aclaran cuatro cuestiones por el lado de la gestión, el equipo se convierte pronto en motivo de disputa:"
+        },
+        {
+          "items": [
+            "Autorización: quién puede usar el equipo, ¿se incluyen vehículos de visita?",
+            "Medición: ¿qué usuario ha consumido cuánta energía?",
+            "Capacidad: si dos coches empiezan a cargar a la vez, ¿se supera la potencia contratada del edificio?",
+            "Responsabilidad: ¿quién hará el seguimiento de las averías y el reparto del gasto?"
+          ]
+        },
+        {
+          "text": "Estos cuatro puntos apuntan a una sola necesidad: dejar constancia de quién ha usado el cargador común, cuánto y con qué autorización. Sin registro, el reparto queda en estimación, y la estimación es lo que más rápido genera desacuerdos en una comunidad."
+        },
+        {
+          "text": "¿Qué hace exactamente el panel de gestión?"
+        },
+        {
+          "text": "El panel de gestión es el software que administra el equipo de carga a distancia mediante el protocolo OCPP. En Bemis el panel se usa tanto desde el navegador web como desde la aplicación móvil; el equipo se conecta a internet por Wi-Fi o, en los modelos con módulo GSM, por la red móvil. En una zona común el panel cubre lo siguiente:"
+        },
+        {
+          "items": [
+            "Alta de usuarios: el administrador crea usuarios desde el panel y retira la autorización cuando hace falta.",
+            "Vinculación de tarjeta RFID: se asigna una tarjeta a cada usuario; quien no tenga tarjeta registrada no puede iniciar el equipo.",
+            "Informes por usuario: se muestra por separado cuánta energía ha consumido cada usuario.",
+            "Supervisión y control remotos: la sesión de carga se sigue en tiempo real y puede iniciarse o detenerse a distancia.",
+            "Equilibrado dinámico de carga: cuando varios equipos funcionan a la vez, la potencia disponible se reparte automáticamente sin superar el límite contratado."
+          ]
+        },
+        {
+          "text": "La distinción clave es esta: el panel informa del consumo por usuario. Cómo se reparte el gasto es decisión de la comunidad; el panel pone delante el desglose necesario para tomar esa decisión. Es decir, el panel no hace la contabilidad, produce los datos en los que la contabilidad se apoya."
+        },
+        {
+          "text": "¿Por qué el software de gestión de carga acaba siendo una partida aparte?"
+        },
+        {
+          "text": "El equipo de carga se compra una vez; el software de gestión, en cambio, suele plantearse en el sector como un gasto recurrente: una suscripción mensual o una licencia anual por equipo. Pequeña en un solo equipo, esa partida se vuelve perceptible dentro de los gastos de explotación a medida que crece el número de equipos y dificulta la decisión en zonas comunes. Las comunidades suelen comparar el precio del aparato y dejar fuera la carga de suscripción que viene después."
+        },
+        {
+          "text": "En Bemis el panel de gestión de zonas comunes es gratuito. Al comprar el equipo, el panel viene con él; no se paga suscripción ni licencia aparte. Para una comunidad que valora una inversión en zona común, esa es la diferencia entre un coste puntual y uno recurrente, y afecta directamente al coste total de propiedad."
+        },
+        {
+          "text": "¿En qué equipos es gratuito?"
+        },
+        {
+          "text": "El panel de gestión gratuito se aplica a las familias Charger Plus 2 y Charger Pro 2, diseñadas para uso compartido. Ambas series admiten el protocolo OCPP 1.6, autorizan mediante tarjeta RFID y se pueden ajustar entre 3,7 - 22 kW. En las páginas de producto estos equipos llevan el distintivo Panel de gestión gratuito; el modelo de entrada Charger 2 no está diseñado para la gestión de zonas comunes."
+        },
+        {
+          "text": "Tres cosas que aclarar antes de la instalación"
+        },
+        {
+          "items": [
+            "Acuerdo de la comunidad: instalar un equipo en zona común requiere acuerdo de los propietarios. Deje por escrito desde el principio qué usuarios se autorizarán y cómo se repartirá el gasto.",
+            "Infraestructura eléctrica: ¿el equipo se alimentará del contador comunitario o se tirará una línea propia? Un electricista cualificado debe evaluar el cuadro existente y la potencia contratada.",
+            "Plan de capacidad: un coche hoy pueden ser tres mañana. Un equipo con equilibrado dinámico de carga evita tener que renovar la línea más adelante."
+          ]
+        },
+        {
+          "text": "Descubra las estaciones de carga AC pensadas para zonas comunes, con el panel de gestión incluido.",
+          "label": "Modelos AC Wallbox"
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Quién paga la electricidad de un cargador instalado en el garaje de una comunidad?",
+          "a": "Si el equipo se alimenta del suministro comunitario, el consumo va primero a los gastos comunes, lo que significa que también lo comparten vecinos que nunca lo usan. La forma de bajarlo al nivel de cada usuario es el panel de gestión. Se asigna una tarjeta RFID a cada usuario, el equipo solo arranca con tarjeta registrada y la energía consumida se informa por usuario. La comunidad fija después el reparto a partir de ese desglose. Qué método se emplea es decisión del edificio; lo que aporta el panel es un reparto basado en medición y no en estimación."
+        },
+        {
+          "q": "¿Tengo que pagar una cuota mensual por el software de gestión de carga?",
+          "a": "En el sector, el software de gestión de carga suele ofrecerse como suscripción mensual o licencia anual por equipo. Pequeño en un solo equipo, ese importe se convierte en una partida permanente de los gastos de explotación a medida que crece el número de equipos y alarga la amortización de una inversión en zona común. El panel de gestión de zonas comunes de Bemis es gratuito: viene con los equipos Charger Plus 2 y Charger Pro 2 y no hay suscripción ni licencia aparte. Al comparar equipos conviene mirar no solo el precio del hardware, sino también el coste de software que viene detrás."
+        },
+        {
+          "q": "¿Puede usar el cargador alguien que no vive en el edificio?",
+          "a": "La autorización se hace con tarjeta RFID; quien no tenga una tarjeta registrada en el panel no puede iniciar el equipo. El administrador puede añadir un usuario nuevo en cualquier momento desde el panel o retirar la autorización de uno existente. Así, permitir o no el uso por visitantes, y quién está autorizado en cada periodo, queda por completo bajo control de la comunidad. En cuanto se retira la autorización de un residente que se muda, deja de poder usar el equipo; no hace falta ningún paso físico como recoger tarjetas o cambiar cerraduras."
+        },
+        {
+          "q": "Si cargan varios coches a la vez, ¿la electricidad del edificio es suficiente?",
+          "a": "El equilibrado dinámico de carga existe justo para eso: cuando los equipos funcionan a la vez reparten entre ellos la potencia disponible y evitan que se supere la potencia contratada del edificio. Así, cuando dos coches empiezan a cargar juntos no salta el diferencial; cada coche simplemente tarda algo más en llenarse. Cuántos coches cargarán a la vez, la potencia contratada y la instalación existente deben evaluarse junto con un electricista cualificado. Elegir un equipo con equilibrado de carga también aplaza el coste de renovar la línea cuando aumenten los coches."
+        },
+        {
+          "q": "¿Puedo usar el panel de gestión desde el móvil?",
+          "a": "Sí. El panel se puede usar tanto desde el navegador web como desde la aplicación móvil; el administrador puede consultar informes en el ordenador y resolver el día a día desde el teléfono. El equipo se conecta a internet por Wi-Fi y, en los modelos con módulo GSM, también por la red móvil. Esta segunda opción resulta especialmente útil en garajes subterráneos, porque la red inalámbrica del edificio a menudo no llega al sótano. El método de conexión se elige durante la instalación y de él depende la supervisión remota."
+        },
+        {
+          "q": "¿Qué equipos Bemis admiten la gestión de zonas comunes?",
+          "a": "Las familias Charger Plus 2 y Charger Pro 2 están diseñadas para uso compartido. Ambas incorporan compatibilidad con OCPP 1.6, autorización por tarjeta RFID y equilibrado dinámico de carga; la potencia se ajusta entre 3,7 - 22 kW, de modo que puede limitarse a la capacidad de la instalación del edificio. En estas dos familias el panel de gestión de zonas comunes es gratuito y los equipos aparecen en las páginas de producto con el distintivo Panel de gestión gratuito. El modelo de entrada Charger 2 está pensado para un escenario doméstico de un solo usuario y queda fuera."
+        }
+      ],
+      "related": [
+        {
+          "label": "Estaciones de carga AC wallbox"
+        },
+        {
+          "label": "Instalar una estación de carga en un edificio de viviendas"
+        },
+        {
+          "label": "Normativa de estaciones de carga"
+        },
+        {
+          "label": "¿Qué es la gestión de carga (DLM)?"
+        },
+        {
+          "label": "¿Qué es OCPP?"
+        }
+      ]
     }
   },
   "ar": {
@@ -22321,6 +22678,125 @@
           "label": "كابل الشحن: كم متراً وكم أمبير؟"
         }
       ]
+    },
+    "ortak-alan-sarj-yonetim-paneli-apartman-site": {
+      "title": "لوحة إدارة الشحن في المناطق المشتركة: تتبّع لكل مستخدم في المجمّعات السكنية",
+      "metaTitle": "لوحة شحن المناطق المشتركة — تتبّع لكل مستخدم",
+      "description": "من استهلك الكهرباء في مواقف المجمّع السكني أو الفندق ومن يدفع؟ لوحة إدارة المناطق المشتركة تتتبّع الاستهلاك لكل مستخدم. لدى Bemis اللوحة مجانية.",
+      "excerpt": "في المواقف المشتركة الجانب التقني سهل؛ المسألة الحقيقية هي الإدارة. أي مستخدم استهلك كم من الطاقة، ومن المخوّل، وماذا يحدث عند شحن سيارتين معًا؟ هذا لا يحلّه الجهاز بل لوحة الإدارة خلفه.",
+      "category": "دليل",
+      "body": [
+        {
+          "text": "شحن السيارة الكهربائية في موقف مشترك أقل صعوبة تقنيًا مما يُظن: يُمدّ خط مناسب، ويُثبَّت الجهاز على الجدار، وتشحن السيارة. الجزء الصعب يبدأ بعد ذلك. من استهلك الكهرباء؟ وكيف سينعكس ذلك على المصاريف المشتركة؟ وماذا لو جاء شخص لا يسكن في المبنى واستخدمه؟ الإجابة ليست في الجهاز نفسه بل في لوحة الإدارة خلفه. في المناطق المشتركة لا تحدّد قدرة الجهاز القرار عادةً، بل وجود طبقة الإدارة هذه."
+        },
+        {
+          "text": "لماذا يُعدّ الشحن في المناطق المشتركة مشكلة منفصلة؟"
+        },
+        {
+          "text": "الجهاز في مرآبك الخاص يخدم مستخدمًا واحدًا؛ العدّاد لك أصلًا والاستهلاك يُقيَّد مباشرة على فاتورتك. أما في المنطقة المشتركة فيُغذّى الجهاز غالبًا من الكهرباء المشتركة ويستخدمه أكثر من شخص. وإذا لم تُحسم أربع مسائل من جهة الإدارة يتحوّل الجهاز سريعًا إلى مصدر خلاف:"
+        },
+        {
+          "items": [
+            "الصلاحية: من يحقّ له استخدام الجهاز، وهل تشمل سيارات الزوار؟",
+            "القياس: أي مستخدم استهلك كم من الطاقة؟",
+            "السعة: إذا بدأت سيارتان الشحن في الوقت نفسه، هل تُتجاوز القدرة المتعاقد عليها للمبنى؟",
+            "المسؤولية: من سيتابع الأعطال ويدير توزيع المصاريف؟"
+          ]
+        },
+        {
+          "text": "هذه المسائل الأربع تشير إلى حاجة واحدة: تسجيل من استخدم الشاحن المشترك، وبأي قدر، وبأي صلاحية. من دون تسجيل يبقى توزيع المصاريف تخمينًا، والتخمين أسرع ما يولّد الخلاف داخل المبنى."
+        },
+        {
+          "text": "ماذا تفعل لوحة الإدارة بالضبط؟"
+        },
+        {
+          "text": "لوحة الإدارة هي البرنامج الذي يدير جهاز الشحن عن بُعد عبر بروتوكول OCPP. لدى Bemis تُستخدم اللوحة من متصفح الويب ومن تطبيق الهاتف معًا؛ ويتصل الجهاز بالإنترنت عبر Wi-Fi، أو عبر شبكة الهاتف المحمول في الطرازات المزوّدة بوحدة GSM. وتغطي اللوحة في المنطقة المشتركة ما يلي:"
+        },
+        {
+          "items": [
+            "تعريف المستخدمين: ينشئ المسؤول المستخدمين من اللوحة ويسحب الصلاحية عند الحاجة.",
+            "ربط بطاقة RFID: تُخصَّص بطاقة لكل مستخدم؛ ومن لا يملك بطاقة مسجّلة لا يستطيع تشغيل الجهاز.",
+            "تقارير لكل مستخدم: يظهر بشكل منفصل مقدار الطاقة التي استهلكها كل مستخدم.",
+            "المراقبة والتحكم عن بُعد: تُتابَع جلسة الشحن لحظيًا ويمكن بدؤها أو إيقافها عن بُعد.",
+            "موازنة الأحمال الديناميكية: عند تشغيل عدة أجهزة معًا تُوزَّع القدرة المتاحة تلقائيًا دون تجاوز الحد المتعاقد عليه."
+          ]
+        },
+        {
+          "text": "الفارق الجوهري هو التالي: اللوحة تُبلّغ عن الاستهلاك لكل مستخدم. أما كيفية توزيع المصاريف فقرار الإدارة؛ واللوحة تضع أمامك الكشف اللازم لاتخاذ ذلك القرار. أي أن اللوحة لا تُجري المحاسبة، بل تنتج البيانات التي تستند إليها المحاسبة."
+        },
+        {
+          "text": "لماذا يتحوّل برنامج إدارة الشحن إلى بند تكلفة منفصل؟"
+        },
+        {
+          "text": "يُشترى جهاز الشحن مرة واحدة؛ أما برنامج الإدارة فيُصاغ في القطاع عادةً كمصروف متكرر — اشتراك شهري أو ترخيص سنوي لكل جهاز. يبدو البند صغيرًا مع جهاز واحد، لكنه يصبح ملموسًا ضمن مصاريف التشغيل كلما زاد عدد الأجهزة، ويجعل القرار أصعب في المناطق المشتركة. وكثيرًا ما تقارن الإدارات سعر الجهاز وتغفل عبء الاشتراك الذي يليه."
+        },
+        {
+          "text": "لدى Bemis لوحة إدارة المناطق المشتركة مجانية. عند شراء الجهاز تأتي اللوحة معه؛ ولا تدفع اشتراكًا أو رسم ترخيص منفصلًا. وبالنسبة لإدارة تدرس استثمارًا في منطقة مشتركة، هذا هو الفرق بين تكلفة لمرة واحدة وتكلفة مستمرة، وهو يؤثر مباشرة في إجمالي كلفة التملّك."
+        },
+        {
+          "text": "في أي الأجهزة تكون مجانية؟"
+        },
+        {
+          "text": "تسري لوحة الإدارة المجانية على عائلتَي Charger Plus 2 و Charger Pro 2 المصمّمتين للاستخدام المشترك. وتدعم السلسلتان بروتوكول OCPP 1.6، وتمنحان الصلاحية ببطاقة RFID، ويمكن ضبط القدرة بين 3,7 - 22 kW. وتُميَّز هذه الأجهزة في صفحات المنتجات بشارة «لوحة إدارة مجانية»؛ أما الطراز الأساسي Charger 2 فغير مصمّم لإدارة المناطق المشتركة."
+        },
+        {
+          "text": "ثلاثة أمور يجب حسمها قبل التركيب"
+        },
+        {
+          "items": [
+            "قرار الإدارة: يتطلب تركيب جهاز في المنطقة المشتركة قرارًا من ملّاك العقار. دوّنوا منذ البداية من ستُمنح له الصلاحية وكيف ستُوزَّع المصاريف.",
+            "البنية الكهربائية: هل يُغذّى الجهاز من العدّاد المشترك أم يُمدّ خط مستقل؟ ينبغي أن يقيّم كهربائي مؤهل اللوحة القائمة والقدرة المتعاقد عليها.",
+            "خطة السعة: سيارة واحدة اليوم قد تصبح ثلاثًا غدًا. اختيار جهاز يدعم موازنة الأحمال الديناميكية يوفّر عليك كلفة تجديد الخط لاحقًا."
+          ]
+        },
+        {
+          "text": "تصفّح محطات الشحن AC المصمّمة للمناطق المشتركة، ولوحة الإدارة مشمولة مجانًا.",
+          "label": "طرازات AC Wallbox"
+        }
+      ],
+      "faq": [
+        {
+          "q": "من يدفع ثمن الكهرباء في شاحن مركّب بمواقف مبنى سكني؟",
+          "a": "إذا كان الجهاز يُغذّى من الكهرباء المشتركة فإن الاستهلاك يُقيَّد أولًا على المصاريف المشتركة، ما يعني أن الجيران الذين لا يستخدمونه يشاركون في الكلفة أيضًا. والسبيل إلى ردّ ذلك إلى كل مستخدم هو لوحة الإدارة. تُخصَّص بطاقة RFID لكل مستخدم، ولا يعمل الجهاز إلا ببطاقة مسجّلة، وتُعرَض الطاقة المستهلكة لكل مستخدم على حدة. ثم تحدّد الإدارة التوزيع استنادًا إلى ذلك الكشف. أما الطريقة المتّبعة فقرار المبنى نفسه؛ وما توفّره اللوحة هو توزيع قائم على القياس لا على التخمين."
+        },
+        {
+          "q": "هل يجب أن أدفع رسمًا شهريًا لبرنامج إدارة الشحن؟",
+          "a": "تُقدَّم برامج إدارة الشحن في القطاع عادةً باشتراك شهري أو ترخيص سنوي لكل جهاز. يبدو المبلغ صغيرًا مع جهاز واحد، لكنه يتحوّل إلى بند دائم ضمن مصاريف التشغيل كلما زاد عدد الأجهزة، ويطيل فترة استرداد الاستثمار في المنطقة المشتركة. لوحة إدارة المناطق المشتركة من Bemis مجانية: تأتي مع جهازَي Charger Plus 2 و Charger Pro 2 ولا يوجد اشتراك أو ترخيص منفصل. وعند المقارنة بين الأجهزة انظر لا إلى سعر العتاد وحده بل إلى كلفة البرنامج التي تليه."
+        },
+        {
+          "q": "هل يمكن لشخص لا يسكن في المبنى استخدام الشاحن؟",
+          "a": "تُمنح الصلاحية ببطاقة RFID؛ ومن لا يملك بطاقة مسجّلة في اللوحة لا يستطيع تشغيل الجهاز. ويستطيع المسؤول في أي وقت إضافة مستخدم جديد من اللوحة أو سحب صلاحية مستخدم قائم. وبذلك يبقى السماح باستخدام الزوار من عدمه، ومن يملك الصلاحية في كل فترة، تحت سيطرة الإدارة بالكامل. وبمجرد سحب صلاحية ساكن غادر المبنى لا يعود قادرًا على استخدام الجهاز؛ ولا حاجة إلى إجراء مادي مثل جمع البطاقات أو تغيير الأقفال."
+        },
+        {
+          "q": "إذا شُحنت أكثر من سيارة في الوقت نفسه، هل تكفي كهرباء المبنى؟",
+          "a": "موازنة الأحمال الديناميكية موجودة لهذا الغرض تحديدًا: عند تشغيل الأجهزة معًا تتقاسم فيما بينها القدرة المتاحة وتمنع تجاوز القدرة المتعاقد عليها للمبنى. وهكذا لا يفصل القاطع عندما تبدأ سيارتان الشحن معًا؛ بل تحتاج كل سيارة وقتًا أطول قليلًا للامتلاء. أما عدد السيارات التي ستشحن في وقت واحد والقدرة المتعاقد عليها والتمديدات القائمة فينبغي تقييمها مع كهربائي مؤهل. كما أن اختيار جهاز يدعم موازنة الأحمال يؤجّل كلفة تجديد الخط مع ازدياد عدد السيارات."
+        },
+        {
+          "q": "هل يمكنني استخدام لوحة الإدارة من الهاتف؟",
+          "a": "نعم. يمكن استخدام اللوحة من متصفح الويب ومن تطبيق الهاتف معًا؛ فيطّلع المسؤول على التقارير من الحاسوب بينما يدير الأعمال اليومية من الهاتف. ويتصل الجهاز بالإنترنت عبر Wi-Fi، كما يمكنه الاتصال عبر شبكة الهاتف المحمول في الطرازات المزوّدة بوحدة GSM. ويفيد هذا الخيار الثاني خصوصًا في المواقف تحت الأرض، لأن شبكة المبنى اللاسلكية لا تصل غالبًا إلى الطابق السفلي. وتُختار طريقة الاتصال أثناء التركيب وعليها تتوقف المراقبة عن بُعد."
+        },
+        {
+          "q": "أي أجهزة Bemis تدعم إدارة المناطق المشتركة؟",
+          "a": "عائلتا Charger Plus 2 و Charger Pro 2 مصمّمتان للاستخدام المشترك. وتحمل كلتاهما دعم OCPP 1.6 والصلاحية ببطاقة RFID وموازنة الأحمال الديناميكية؛ ويمكن ضبط القدرة بين 3,7 - 22 kW بحيث تُحدَّد وفق سعة تمديدات المبنى. وفي هاتين العائلتين تكون لوحة إدارة المناطق المشتركة مجانية، والأجهزة مميّزة في صفحات المنتجات بشارة «لوحة إدارة مجانية». أما الطراز الأساسي Charger 2 فمصمّم لسيناريو منزلي بمستخدم واحد وهو خارج هذا النطاق."
+        }
+      ],
+      "related": [
+        {
+          "label": "محطات شحن AC wallbox"
+        },
+        {
+          "label": "تركيب محطة شحن في مبنى سكني"
+        },
+        {
+          "label": "لوائح محطات الشحن"
+        },
+        {
+          "label": "ما هي إدارة الأحمال (DLM)؟"
+        },
+        {
+          "label": "ما هو OCPP؟"
+        }
+      ]
     }
   },
   "ru": {
@@ -27900,6 +28376,125 @@
         },
         {
           "label": "Зарядный кабель: сколько метров, сколько ампер?"
+        }
+      ]
+    },
+    "ortak-alan-sarj-yonetim-paneli-apartman-site": {
+      "title": "Панель управления зарядкой в общих зонах: учёт по каждому пользователю в жилых комплексах",
+      "metaTitle": "Панель зарядки общих зон — учёт по пользователю",
+      "description": "Кто израсходовал электроэнергию на парковке жилого комплекса или отеля и кто платит? Панель управления общими зонами ведёт учёт по каждому пользователю. В Bemis панель бесплатна.",
+      "excerpt": "На общей парковке техническая часть проста; главный вопрос — управление. Кто и сколько энергии израсходовал, у кого есть доступ, что будет, если заряжаются два автомобиля сразу? Это решает не устройство, а панель управления за ним.",
+      "category": "Руководство",
+      "body": [
+        {
+          "text": "Зарядка электромобиля на общей парковке технически проще, чем принято думать: прокладывается подходящая линия, устройство крепится на стену, автомобиль заряжается. Трудная часть начинается потом. Кто израсходовал электроэнергию? Как это отразится на общих расходах? Что делать, если придёт человек, не живущий в доме? Ответ не в самом устройстве, а в панели управления за ним. В общих зонах решение обычно определяется не мощностью устройства, а наличием этого управленческого слоя."
+        },
+        {
+          "text": "Почему зарядка в общей зоне — отдельная задача?"
+        },
+        {
+          "text": "Зарядное устройство в собственном гараже обслуживает одного пользователя; счётчик уже ваш, и потребление сразу попадает в вашу квитанцию. В общей зоне устройство обычно питается от общедомовой сети и им пользуются несколько человек. Если со стороны управления не прояснить четыре вопроса, устройство быстро становится поводом для споров:"
+        },
+        {
+          "items": [
+            "Доступ: кто может пользоваться устройством, входят ли гостевые автомобили?",
+            "Измерение: какой пользователь и сколько энергии израсходовал?",
+            "Мощность: превышается ли выделенная мощность здания, если два автомобиля заряжаются одновременно?",
+            "Ответственность: кто будет отслеживать неисправности и распределять расходы?"
+          ]
+        },
+        {
+          "text": "Эти четыре пункта указывают на одну потребность: фиксировать, кто пользовался общей зарядкой, в каком объёме и с каким доступом. Без записи распределение расходов остаётся догадкой, а догадка быстрее всего рождает разногласия в доме."
+        },
+        {
+          "text": "Что именно делает панель управления?"
+        },
+        {
+          "text": "Панель управления — это программа, которая удалённо управляет зарядным устройством по протоколу OCPP. В Bemis панель используется и через веб-браузер, и через мобильное приложение; устройство подключается к интернету по Wi-Fi, а в моделях с модулем GSM — через мобильную сеть. В общей зоне панель закрывает следующее:"
+        },
+        {
+          "items": [
+            "Создание пользователей: администратор заводит пользователей в панели и при необходимости отзывает доступ.",
+            "Привязка карты RFID: каждому пользователю назначается карта; без зарегистрированной карты устройство не запустить.",
+            "Отчётность по пользователям: видно отдельно, сколько энергии израсходовал каждый пользователь.",
+            "Удалённый мониторинг и управление: сессия зарядки отслеживается в реальном времени, её можно запустить или остановить удалённо.",
+            "Динамическое распределение нагрузки: при одновременной работе нескольких устройств доступная мощность распределяется автоматически, без превышения выделенного лимита."
+          ]
+        },
+        {
+          "text": "Ключевое различие в следующем: панель показывает потребление по каждому пользователю. Как распределить расходы — решение управляющей стороны; панель даёт ту выкладку, которая нужна для этого решения. То есть панель не ведёт бухгалтерию, а формирует данные, на которые бухгалтерия опирается."
+        },
+        {
+          "text": "Почему программа управления зарядкой становится отдельной статьёй расходов?"
+        },
+        {
+          "text": "Зарядное устройство покупают один раз; программа управления в отрасли обычно устроена как постоянный расход — ежемесячная подписка или годовая лицензия на устройство. Незаметная на одном устройстве, эта статья становится ощутимой в операционных расходах по мере роста числа устройств и усложняет решение в общих зонах. Управляющие часто сравнивают цену оборудования и упускают идущую следом нагрузку подписки."
+        },
+        {
+          "text": "В Bemis панель управления общими зонами бесплатна. Покупая устройство, вы получаете и панель; отдельной подписки или лицензионной платы нет. Для управляющей стороны, оценивающей вложение в общую зону, это разница между разовым и постоянным расходом, и она напрямую влияет на совокупную стоимость владения."
+        },
+        {
+          "text": "В каких устройствах это бесплатно?"
+        },
+        {
+          "text": "Бесплатная панель управления действует для линеек Charger Plus 2 и Charger Pro 2, рассчитанных на совместное использование. Обе серии поддерживают протокол OCPP 1.6, авторизуют по карте RFID и настраиваются в диапазоне 3,7 - 22 kW. На страницах товаров эти устройства отмечены значком «Бесплатная панель управления»; начальная модель Charger 2 для управления общими зонами не предназначена."
+        },
+        {
+          "text": "Три вопроса, которые нужно решить до монтажа"
+        },
+        {
+          "items": [
+            "Решение собственников: установка устройства в общей зоне требует решения собственников. Заранее письменно закрепите, кто получит доступ и как будут распределяться расходы.",
+            "Электрическая инфраструктура: устройство запитывается от общедомового счётчика или прокладывается отдельная линия? Существующий щит и выделенную мощность должен оценить квалифицированный электрик.",
+            "План по мощности: сегодня один автомобиль, завтра их может быть три. Устройство с динамическим распределением нагрузки избавит от переделки линии в будущем."
+          ]
+        },
+        {
+          "text": "Посмотрите зарядные станции AC для общих зон — панель управления входит в комплект.",
+          "label": "Модели AC Wallbox"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Кто платит за электроэнергию зарядного устройства на парковке жилого дома?",
+          "a": "Если устройство питается от общедомовой сети, потребление сначала попадает в общие расходы — то есть в них участвуют и соседи, которые им не пользуются. Свести это к конкретным пользователям позволяет панель управления. Каждому пользователю назначается карта RFID, устройство запускается только с зарегистрированной картой, а израсходованная энергия отражается по каждому пользователю. На основе этой выкладки управляющая сторона определяет распределение. Какой метод выбрать — решение самого дома; панель обеспечивает распределение по измерению, а не по догадке."
+        },
+        {
+          "q": "Обязательно ли платить ежемесячно за программу управления зарядкой?",
+          "a": "В отрасли программы управления зарядкой обычно предлагаются по ежемесячной подписке или годовой лицензии на устройство. На одном устройстве сумма кажется небольшой, но по мере роста их числа она превращается в постоянную статью операционных расходов и растягивает окупаемость вложения в общую зону. Панель управления общими зонами Bemis бесплатна: она поставляется с устройствами Charger Plus 2 и Charger Pro 2, отдельной подписки или лицензии нет. Сравнивая устройства, смотрите не только на цену оборудования, но и на идущие следом расходы на программу."
+        },
+        {
+          "q": "Может ли пользоваться зарядкой человек, не живущий в доме?",
+          "a": "Авторизация выполняется по карте RFID; без карты, зарегистрированной в панели, запустить устройство нельзя. Администратор в любой момент может добавить нового пользователя или снять доступ у существующего. Поэтому решение о гостевом использовании и о том, кто и в какой период имеет доступ, полностью остаётся за управляющей стороной. Как только доступ выехавшего жильца снимается в панели, он больше не может пользоваться устройством; собирать карты или менять замки не требуется."
+        },
+        {
+          "q": "Хватит ли мощности дома, если заряжаются несколько автомобилей сразу?",
+          "a": "Динамическое распределение нагрузки существует именно для этого: при одновременной работе устройства делят доступную мощность между собой и не дают превысить выделенную мощность здания. Поэтому, когда два автомобиля начинают заряжаться вместе, автомат не выбивает; каждый автомобиль просто заряжается немного дольше. Сколько автомобилей будет заряжаться одновременно, выделенную мощность и существующую проводку следует оценивать вместе с квалифицированным электриком. Устройство с распределением нагрузки к тому же отодвигает расходы на переделку линии при росте числа машин."
+        },
+        {
+          "q": "Можно ли пользоваться панелью управления с телефона?",
+          "a": "Да. Панель доступна и через веб-браузер, и через мобильное приложение; администратор может смотреть отчёты на компьютере, а текущие задачи решать с телефона. Устройство подключается к интернету по Wi-Fi, а в моделях с модулем GSM — ещё и через мобильную сеть. Второй вариант особенно полезен в подземных парковках, потому что беспроводная сеть здания часто не достаёт до цокольного этажа. Способ подключения выбирается при монтаже, и от него зависит удалённый мониторинг."
+        },
+        {
+          "q": "Какие устройства Bemis поддерживают управление общими зонами?",
+          "a": "Линейки Charger Plus 2 и Charger Pro 2 рассчитаны на совместное использование. Обе поддерживают OCPP 1.6, авторизацию по карте RFID и динамическое распределение нагрузки; мощность настраивается в диапазоне 3,7 - 22 kW, поэтому её можно ограничить возможностями проводки здания. В этих двух линейках панель управления общими зонами бесплатна, а устройства отмечены на страницах товаров значком «Бесплатная панель управления». Начальная модель Charger 2 предназначена для домашнего сценария с одним пользователем и в этот круг не входит."
+        }
+      ],
+      "related": [
+        {
+          "label": "Зарядные станции AC wallbox"
+        },
+        {
+          "label": "Установка зарядной станции в многоквартирном доме"
+        },
+        {
+          "label": "Нормативные требования к зарядным станциям"
+        },
+        {
+          "label": "Что такое управление нагрузкой (DLM)?"
+        },
+        {
+          "label": "Что такое OCPP?"
         }
       ]
     }

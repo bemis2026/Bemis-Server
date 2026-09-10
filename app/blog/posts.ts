@@ -34,6 +34,161 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    "slug": "ortak-alan-sarj-yonetim-paneli-apartman-site",
+    "title": "Ortak Alan Şarj Yönetim Paneli: Apartman ve Sitede Kişi Bazlı Takip",
+    "metaTitle": "Ortak Alan Şarj Yönetim Paneli — Kişi Bazlı Takip",
+    "description": "Apartman, site ve otel otoparkında elektriği kim harcadı, kim ödeyecek? Ortak alan şarj yönetim paneli kullanıcı bazında takip eder. Bemis'te panel ücretsizdir.",
+    "excerpt": "Ortak otoparkta şarj cihazının teknik kısmı kolay; asıl mesele yönetim. Hangi kullanıcı ne kadar enerji çekti, kim yetkili, iki araç aynı anda şarja girerse ne olur? Bunu cihaz değil, arkasındaki yönetim paneli çözer.",
+    "category": "Rehber",
+    "datePublished": "2026-09-11",
+    "readingMinutes": 9,
+    "keywords": [
+      "ortak alan şarj yönetim paneli",
+      "apartman şarj yönetimi",
+      "site otopark şarj cihazı",
+      "ücretsiz şarj yönetim yazılımı",
+      "kişi bazlı şarj takibi",
+      "rfid kart ile şarj",
+      "ortak kullanım şarj istasyonu",
+      "apartman elektrikli araç şarj cihazı"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Ortak otoparkta elektrikli araç şarjının teknik kısmı sanıldığı kadar zor değildir: uygun bir hat çekilir, cihaz duvara monte edilir, araç şarj olur. Zor olan kısım bundan sonra başlar. Elektriği kim harcadı? Gidere nasıl yansıyacak? Binada oturmayan biri gelip kullanırsa ne olacak? Bu soruların cevabı cihazın kendisinde değil, arkasındaki yönetim panelindedir. Ortak alanda alınan kararı çoğu zaman cihazın gücü değil, bu yönetim katmanının olup olmaması belirler."
+      },
+      {
+        "type": "h2",
+        "text": "Ortak alanda şarj neden ayrı bir problem?"
+      },
+      {
+        "type": "p",
+        "text": "Kendi garajınızdaki bir şarj cihazı tek kullanıcıya hizmet eder; sayaç zaten sizindir, tüketim doğrudan sizin faturanıza yazılır. Ortak alanda ise cihaz çoğunlukla ortak elektrikten beslenir ve birden fazla kişi kullanır. Yönetim tarafında dört şey netleşmezse cihaz kısa sürede tartışma konusu olur:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Yetki: cihazı kim kullanabilir, misafir araçlar dahil mi?",
+          "Ölçüm: hangi kullanıcı ne kadar enerji çekti?",
+          "Kapasite: iki araç aynı anda şarja girerse binanın abonelik gücü aşılır mı?",
+          "Sorumluluk: arıza takibi ve gider paylaşımını kim yürütecek?"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Bu dört başlık aslında tek bir ihtiyaca işaret eder: ortak alandaki bir şarj cihazının kim tarafından, ne kadar ve hangi yetkiyle kullanıldığının kayda geçmesi. Kayıt yoksa gider paylaşımı tahmine kalır ve tahmin, apartman yönetiminde en hızlı anlaşmazlık üreten şeydir."
+      },
+      {
+        "type": "h2",
+        "text": "Yönetim paneli tam olarak ne yapar?"
+      },
+      {
+        "type": "p",
+        "text": "Yönetim paneli, şarj cihazını OCPP protokolü üzerinden uzaktan yöneten yazılımdır. Bemis'te panel hem web tarayıcıdan hem mobil uygulamadan kullanılır; cihaz internete Wi-Fi ile, GSM modüllü modellerde ise mobil şebeke üzerinden bağlanır. Panelin ortak alanda karşıladığı işlevler şunlardır:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kullanıcı tanımlama: yönetici panelden kullanıcı oluşturur, gerektiğinde yetkiyi geri alır.",
+          "RFID kart eşleştirme: her kullanıcıya kart tanımlanır; tanımlı kartı olmayan cihazı başlatamaz.",
+          "Kişi bazlı raporlama: hangi kullanıcının ne kadar enerji çektiği ayrı ayrı görünür.",
+          "Uzaktan izleme ve kontrol: şarj oturumu gerçek zamanlı takip edilir, uzaktan başlatılıp durdurulabilir.",
+          "Dinamik yük dengeleme: birden çok cihaz aynı anda çalışırken mevcut güç, abonelik sınırı aşılmayacak şekilde otomatik paylaştırılır."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Buradaki kritik ayrım şudur: panel, tüketimi kullanıcı bazında raporlar. Gider paylaşımının hangi yöntemle yapılacağı yönetimin kararıdır; panel o kararı verebilmek için gereken dökümü önünüze koyar. Yani panel muhasebe yapmaz, muhasebenin dayanacağı veriyi üretir."
+      },
+      {
+        "type": "h2",
+        "text": "Şarj yönetim yazılımı neden ayrı bir maliyet kalemi olur?"
+      },
+      {
+        "type": "p",
+        "text": "Şarj cihazı bir kez alınır; yönetim yazılımı ise sektörde genellikle sürekli bir gider olarak kurgulanır — cihaz başına aylık abonelik ya da yıllık lisans şeklinde. Tek cihazda küçük görünen bu kalem, cihaz sayısı arttıkça işletme giderleri içinde hissedilir hâle gelir ve ortak alanda kararı zorlaştırır. Yönetimler çoğu zaman cihaz fiyatını karşılaştırır, arkasından gelen abonelik yükünü hesaba katmaz."
+      },
+      {
+        "type": "p",
+        "text": "Bemis'te ortak alan yönetim paneli ücretsizdir. Cihazı aldığınızda panel de gelir; ayrıca abonelik ya da lisans bedeli ödemezsiniz. Ortak alan yatırımını değerlendiren bir yönetim için bu, tek seferlik maliyet ile süreklilik arz eden maliyet arasındaki farktır ve toplam sahip olma maliyetini doğrudan etkiler."
+      },
+      {
+        "type": "h2",
+        "text": "Hangi cihazlarda ücretsiz?"
+      },
+      {
+        "type": "p",
+        "text": "Ücretsiz yönetim paneli, ortak kullanım için tasarlanmış Charger Plus 2 ve Charger Pro 2 ailelerinde geçerlidir. Her iki seri de OCPP 1.6 protokolünü destekler, RFID kart ile yetkilendirme yapar ve gücü 3,7 - 22 kW aralığında ayarlanabilir. Ürün sayfalarında bu cihazlar Ücretsiz Yönetim Paneli rozetiyle işaretlidir; giriş seviyesi Charger 2 ise ortak kullanım yönetimi için tasarlanmamıştır."
+      },
+      {
+        "type": "h2",
+        "text": "Kurulumdan önce netleşmesi gereken üç şey"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Yönetim kararı: ortak alana cihaz kurulumu kat malikleri kararı gerektirir. Hangi kullanıcıların yetkileneceği ve giderin nasıl paylaşılacağı baştan yazılı olsun.",
+          "Elektrik altyapısı: cihaz ortak sayaçtan mı beslenecek, ayrı hat mı çekilecek? Mevcut panoyu ve abonelik gücünü yetkili bir elektrikçi değerlendirmeli.",
+          "Kapasite planı: bugün bir araç varsa yarın üç olabilir. Dinamik yük dengeleme desteği olan bir cihaz, ileride hat yenileme masrafından kurtarır."
+        ]
+      },
+      {
+        "type": "cta",
+        "text": "Ortak alan için üretilmiş, yönetim paneli ücretsiz gelen AC şarj istasyonlarını inceleyin.",
+        "href": "/products/wallbox",
+        "label": "AC Wallbox Modelleri"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apartman otoparkına konulan şarj cihazında elektriği kim öder?",
+        "a": "Cihaz ortak elektrikten besleniyorsa tüketim önce ortak gidere yazılır; bu da kullanmayan komşuların da masrafa ortak olması anlamına gelir. Bunu kullanıcı bazına indirmenin yolu yönetim panelidir. Panelde her kullanıcıya bir RFID kart tanımlanır, cihaz yalnızca tanımlı kartla başlatılır ve çekilen enerji kullanıcı bazında raporlanır. Yönetim bu dökümü esas alarak paylaşımı belirler. Paylaşımın hangi yöntemle yapılacağı binanın kendi kararıdır; panelin sağladığı şey, o kararı tahmine değil ölçüme dayandırmaktır."
+      },
+      {
+        "q": "Şarj yönetim yazılımı için aylık ücret ödemek zorunda mıyım?",
+        "a": "Sektörde şarj yönetim yazılımları genellikle cihaz başına aylık abonelik ya da yıllık lisansla sunulur. Tek cihazda küçük görünen bu tutar, cihaz sayısı arttıkça işletme gideri içinde kalıcı bir kalem hâline gelir ve ortak alan yatırımının geri dönüşünü uzatır. Bemis'in ortak alan yönetim paneli ücretsizdir: Charger Plus 2 ve Charger Pro 2 cihazlarıyla birlikte gelir, ayrıca abonelik veya lisans bedeli yoktur. Cihaz karşılaştırması yaparken yalnız donanım fiyatına değil, arkasından gelen yazılım giderine de bakmak gerekir."
+      },
+      {
+        "q": "Binada oturmayan biri şarj cihazını kullanabilir mi?",
+        "a": "Yetkilendirme RFID kart ile yapılır; panelde tanımlı kartı olmayan kişi cihazı başlatamaz. Yönetici panelden istediği zaman yeni kullanıcı ekleyebilir ya da mevcut bir kullanıcının yetkisini kaldırabilir. Böylece misafir kullanımına izin verilip verilmeyeceği, kimin hangi dönem yetkili olacağı tamamen yönetimin kontrolünde kalır. Taşınan bir daire sakininin yetkisi panelden kaldırıldığı anda cihazı kullanamaz hâle gelir; kart toplama, kilit değiştirme gibi fiziksel bir işleme gerek kalmaz."
+      },
+      {
+        "q": "Aynı anda birden fazla araç şarj olursa binanın elektriği yeter mi?",
+        "a": "Dinamik yük dengeleme tam olarak bunun içindir: cihazlar aynı anda çalıştığında mevcut gücü kendi aralarında paylaşır ve binanın abonelik gücünün aşılmasını önler. Bu sayede iki araç aynı anda şarja girdiğinde sigorta atmaz, her araç biraz daha uzun sürede dolar. Kaç aracın aynı anda şarj olacağı, binanın abonelik gücü ve mevcut tesisat yetkili bir elektrikçiyle birlikte değerlendirilmelidir. Yük dengeleme desteği olan bir cihaz seçmek, ileride araç sayısı arttığında hat yenileme masrafını da erteler."
+      },
+      {
+        "q": "Yönetim panelini telefondan kullanabilir miyim?",
+        "a": "Evet. Panel hem web tarayıcıdan hem mobil uygulamadan kullanılabilir; yönetici bilgisayardan raporlara bakarken günlük işleri telefondan yürütebilir. Cihaz internete Wi-Fi ile bağlanır; GSM modüllü modellerde mobil şebeke üzerinden de bağlanabilir. Bu ikinci seçenek özellikle kapalı otoparklarda işe yarar, çünkü binanın kablosuz ağı bodrum katına çoğu zaman ulaşmaz. Bağlantı yöntemi kurulum aşamasında seçilir ve cihazın uzaktan izlenebilmesi buna bağlıdır."
+      },
+      {
+        "q": "Hangi Bemis cihazları ortak alan yönetimini destekler?",
+        "a": "Charger Plus 2 ve Charger Pro 2 aileleri ortak kullanım için tasarlanmıştır. İkisi de OCPP 1.6 desteği, RFID kart ile yetkilendirme ve dinamik yük dengeleme taşır; güç 3,7 - 22 kW aralığında ayarlanabilir, böylece binanın tesisat sınırına göre kısılabilir. Bu iki ailede ortak alan yönetim paneli ücretsizdir ve ürün sayfalarında Ücretsiz Yönetim Paneli rozetiyle işaretlenmiştir. Giriş seviyesi Charger 2 ise tek kullanıcılı ev senaryosu için tasarlanmıştır, ortak alan yönetimi kapsamında değildir."
+      }
+    ],
+    "related": [
+      {
+        "label": "AC Wallbox Şarj İstasyonları",
+        "href": "/products/wallbox"
+      },
+      {
+        "label": "Apartmana Şarj İstasyonu Kurulumu",
+        "href": "/blog/apartmana-sarj-istasyonu-kurulumu"
+      },
+      {
+        "label": "Şarj İstasyonu Yönetmeliği",
+        "href": "/blog/elektrikli-arac-sarj-istasyonu-yonetmeligi"
+      },
+      {
+        "label": "Yük Yönetimi (DLM) Nedir?",
+        "href": "/blog/elektrikli-arac-sarj-yuk-yonetimi"
+      },
+      {
+        "label": "OCPP Nedir?",
+        "href": "/blog/ocpp-nedir"
+      }
+    ]
+  },
+  {
     "slug": "elektrikli-arac-sarj-istasyonu-yonetmeligi",
     "title": "Elektrikli Araç Şarj İstasyonu Yönetmeliği: Apartman, Otopark ve AVM'de Ne Zorunlu?",
     "metaTitle": "Şarj İstasyonu Yönetmeliği — Apartman ve Otopark",
