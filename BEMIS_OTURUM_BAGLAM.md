@@ -13,6 +13,60 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🚫⚡ **DC ŞARJ CİHAZLARI SİTEDE GİZLENDİ — SATIŞ DURDURULDU (2026-09-10, commit 49b6074):**
+> Kullanıcı: *"dc ürünleri gösterimi gizle şimdilik… dc cihazların satışını durdurduk… dc kablolar ve
+> priz tutucu satıyoruz, diğer cihazlar kapalı."*
+>
+> **KAPSAM ÖLÇÜLDÜ (tahmin edilmedi):** **GİZLENEN = `dc-units` kategorisi, 7 cihaz** (BEVDC 40 · 80 ·
+> 120 · 160 · 180 · 200 + BEVDC 40 Direk Tipi). **DOKUNULMAYAN =** `charger-equipment` içindeki **8 adet
+> "DC Şarj Soketi CCS2"** (80/150/250/400A × 5m/8m) ve `accessories` içindeki **"DC Soket Tutucu"** —
+> ayrı kategorilerde oldukları için etkilenmiyorlar. Canlı ölçüm: **8 → 7 kategori, 150 → 143 ürün**,
+> DC CCS2 soketi 8/8 ve Soket Tutucu yerinde.
+>
+> **📌 TEK KAYNAK: `app/lib/gizliKategoriler.ts`** — `GIZLI_KATEGORILER` kümesi + `kategoriGizli()` +
+> `gizliKategorileriEle()`. **GERİ AÇMA = kümeden `"dc-units"` satırını sil + `next.config.ts`'teki 6
+> yönlendirme kuralını kaldır.** ⚠️ **VERİ SİLİNMEDİ** — ürünler `data/products*.json` ve R2'de AYNEN
+> duruyor (7 dil çeviri, spec, görsel, fiyat); yeniden girilmeyecek.
+>
+> **UYGULANAN 10 YÜZEY (yeni yüzey eklersen bu listeye bak):** (1) `server-content.ts` →
+> `getServerProducts()` = sitemap + `meta-catalog.xml` (**Merchant/Meta beslemesi**) + `/api/catalog`
+> kendiliğinden temizlenir · (2) `serverProductsLang.ts` → `getProductsForLang()` = `/api/products` +
+> TR/EN/dil kolu sayfaları · (3) Navbar Ürünler menüsü (**menü adı ÜRÜN verisinden değil İÇERİK
+> katmanından gelir → katalog filtresi oraya ULAŞMAZ**, ayrıca elendi) · (4) anasayfa kategori ızgarası
+> (`Products.tsx`; eleme merge SONRASINDA → hem koddaki tasarım listesi hem CMS süzülür, banner sayacı
+> doğru kalır) · (5) Footer · (6) `/export` İngilizce kart · (7) sözlük bağlantısı → satıştaki DC
+> soketlerine yönlendirildi · (8) `Calculator` DC ürün önerisi boşaltıldı (**DC şarj SÜRESİ simülasyonu
+> çalışıyor** — o bilgi amaçlı, satış vaadi değil) · (9) `app/en/products/[id]` prerender listesi ·
+> (10) `next.config.ts` 6 geçici yönlendirme.
+>
+> **⚠️⚠️ FİLTRE MERGE SONRASINDA UYGULANIR:** çeviri birleştirmesi **POZİSYONEL** ve `dc-units` dizide
+> **7. sırada** — erken elemek `charger-equipment`'in çevirisini kaydırırdı. İki dönüş noktası da
+> (`lang==="tr"` ve `merged`) merge bittikten sonra filtrelenir.
+>
+> **⚠️ YÖNLENDİRME 307 (GEÇİCİ), 301/308 DEĞİL — BİLEREK:** satış yeniden açılacak; kalıcı yönlendirme
+> arama motorunun adresi düşürmesine ve sıralamanın geri gelmemesine yol açar. **9 blog bağlantısı** +
+> Google'dan gelen ziyaretçi artık `/products`'a iner, 404 görmez. ⓘ Eski `bevdc-120-2 → bevdc-120-1`
+> kuralı duruyor → o adres 2 atlamayla `/products`'a gider (zararsız).
+>
+> **VİTRİN:** anasayfa `productShowcase.products[]` boşaltıldı (**"80 kW DC Hızlı Şarj Cihazı"** slaydı)
+> — 8 repo hedefi (`content.json` TR + `_translations.en` + 6 dil dosyası) + **R2 `content` bin'inin 7
+> kolu**. ⚠️ **Amiral gemisi slaydı ETKİLENMEZ:** `ProductShowcase` `mainSlide`'ı ayrı kurar, `products`
+> boş olsa da çizer (kodda yorumu var: eskiden products dolunca ana ürün gizleniyordu, düzeltilmişti).
+> Biçim korundu — JSON yeniden serileştirilmedi, dizi ham metinde **köşeli parantez eşlemesiyle** bulunup
+> `[]` yapıldı ve kaldırılan ürünün adı yazmadan ÖNCE doğrulandı.
+>
+> **✅ ADMİN PANELİ ETKİLENMEDİ:** `/api/admin/products` `readBin`'i **doğrudan** okur (getServerProducts
+> değil) → operatör DC ürünlerini görmeye ve düzenlemeye devam eder; gizleme yalnız halka açık sitede.
+> store cache **v107-ocpp-ucretsiz → v108-dc-gizle**.
+>
+> **⏳ BU KARARIN AÇTIĞI İKİ SORU (kullanıcıya soruldu, cevap bekliyor):**
+> **(a) BLOG İÇERİĞİ:** DC cihazlarını anlatan **2 tam yazı** (`40-kw-dc-sarj-istasyonu`,
+> `isletmeler-icin-dc-hizli-sarj-istasyonu-yatirimi`) + birkaç karşılaştırma tablosu hâlâ yayında ve
+> BEVDC modellerini model model tarif ediyor. Şu an satılmayan cihazı öven içerik. **Silmek SEO açısından
+> pahalı** (organik trafik getiriyorlar) → önerim: yayında kalsın, satış açılınca zaten doğru olur.
+> **(b) MERCHANT/META:** besleme 7 DC cihazını artık göndermiyor → platformlar o ürünleri düşürecek.
+> Reklam kampanyasında DC hedefleyen bir küme varsa **kullanıcı tarafında durdurulmalı**.
+
 > ⚡✅ **OCPP ÇELİŞKİSİ KAPANDI (AC = YALNIZ 1.6) + "ÜCRETSİZ YAZILIM" SİTEYE EKLENDİ (2026-09-10,
 > commit b028d52):** Kullanıcı iki kararı da çoktan seçmeli verdi.
 >
