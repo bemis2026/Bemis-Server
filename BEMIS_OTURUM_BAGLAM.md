@@ -7,11 +7,74 @@
 > Derin teknik bağlam: `Desktop/Claude Çalışmaları/Bemis Website/md/BEMIS_PROJECT_CONTEXT.md`
 > (özellikle §15.16 denetim, §15.17 Blob taşıması).
 >
-> Son güncelleme: **2026-09-10**
+> Son güncelleme: **2026-09-11**
 
 ---
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
+
+> 🔌📚 **V2L/C2L İÇERİK KÜMESİ AÇILDI — 2 YENİ REHBER + 2 GERÇEK VERİ KUSURU (2026-09-11,
+> commit'ler 9a4ed5d · 8feeec4 · 9ffaced):** Kullanıcı *"v2l c2l içerik kümesine başla"* dedi.
+> **ÖLÇÜM ÖNCE:** 38 yazının 5'i V2L'e değiniyordu (hub `hangi-araclarda-v2l-var-turkiye` = hangi
+> araçlarda var), sözlükte `v2l` + `c2l` terimleri, `/products/v2l-c2l` 18 ürün + 428 karakterlik
+> açıklama + 6 SSS. **Hiçbiri "hangi adaptörü alacağım" sorusunu cevaplamıyordu** → gerçek boşluk
+> SATIN ALMA KARARIYDI. İkinci ölçüm: **"C2C" sitede HİÇ geçmiyordu**, "C2L" 9 yazıda geçiyordu ama
+> hiçbirinde ana konu değildi.
+>
+> **(1) `/blog/v2l-adaptoru-nasil-secilir`** (914 kelime · 20 blok · 6 SSS). Karar üç adıma indirildi:
+> araç tarafındaki uç = MARKA (katalog üç gruba ayrılıyor: **Hyundai·Kia·Ssangyong / MG / BYD·Skywell**),
+> kaç priz + kablolu mu (tek çıkışlı / tekli / 2'li / 3'lü priz uzatma, **3 m** kablo), akım
+> (çıkış **Schuko**, maks **16A** — ama **gerçek tavanı adaptör değil aracın V2L çıkışı belirler**).
+> ⚠️ **Hub'ın araç listesi TEKRARLANMADI** (kanibalizasyon) — yazı hub'a LİNK veriyor.
+> **(2) `/blog/c2l-nedir-v2l-den-farki`** (999 kelime · 21 blok · 6 SSS, ort. 80 kelime). Fark tek
+> cümleye indirildi (V2L = aracın bataryasından, C2L = şarj cihazından) + üç pratik sonucu + 4 C2L
+> biçimi tablosu (1/2/3 priz + **5/32A endüstriyel**) + C2C karavan. **Blog 38 → 40.**
+> ⚠️ İkisinde de FİYAT YAZILMADI (7 dilde para birimi sorunu + uydurma ticari şart yasağı).
+>
+> **🔴 (3) BKT-2202-2401 "Tek Çıkışlı C2L Adaptör" — KLON KALINTISI (kullanıcı onayıyla düzeltildi):**
+> ürünün ADI ve AÇIKLAMASI C2L diyordu ama spec kardeşi `BKT-2102-2001` "Tek Çıkışlı V2L Adaptör"dan
+> klonlanırken uyarlanmamıştı: **Adaptör Tipi = "V2L (Vehicle to Load)"** + **Uyumlu Araç = Hyundai ·
+> Kia · Ssangyong**. C2L enerjiyi araçtan almadığı için araç uyumluluğu bu üründe ANLAMSIZ; müşteri
+> "aracım listede yok" diye vazgeçebilir ya da V2L sanıp yanlış ürün alabilirdi. Tip → **C2L (Charger
+> to Load)**, araç satırı **SİLİNDİ** (Priz Tipi + Maks. Akım kaldı), 12 kaynak.
+> ⚠️ **Yazı "C2L'de marka belirleyici değildir" cümlesini ancak bu düzeltmeden SONRA taşıyabildi** —
+> önce veri, sonra iddia (yoksa site kendisiyle çelişirdi, OCPP turundaki kusur sınıfının aynısı).
+>
+> **🔴 (4) BEVC2L-3306-3603 C2C — AÇIKLAMA KENDİ İÇİNDE ÇELİŞİYORDU:** 1. cümle "3/16A CEE **girişini**
+> Type 2 fişe dönüştüren" (CEE→Type 2), 2. cümle "Karavan … **şarj istasyonlarından enerji almasını**
+> sağlar" (Type 2→CEE). Ürün ADI ("Charger to Caravan") + spec ("Giriş = Type 2") 2. cümleyle aynı yönü
+> söylüyordu. **Ayrıca pasif bir CEE→Type 2 adaptörü aracı ŞARJ EDEMEZ** (Type 2 AC şarjı cihazdan pilot
+> sinyali ister) → ters yön fiziksel olarak da imkânsız. **Kullanıcı teyidi: şarj cihazı → karavan.**
+> Yalnız 1. cümle 6 dilde yeniden yazıldı, 2. cümle AYNEN korundu. Ad/id/URL/spec DEĞİŞMEDİ.
+> ⚠️ **Alt başlıktaki ok ("3/16A Priz → Type 2 Monofaze 16A") de ters okunuyor ama DOKUNULMADI** —
+> kullanıcı yalnız açıklamayı onayladı; istenirse tek satırlık düzeltme.
+> **📌 DERS: çelişen iki kaynağı kullanıcıya sorarken HER İKİSİNİN TAM METNİNİ göster.** İlk turda
+> açıklamanın yalnız 1. cümlesini gösterdiğim için kullanıcı ters yönü seçmişti; 2. cümle + fizik
+> gösterilince kararını güncelledi.
+>
+> **📌 BETİK DERSLERİ (üçü de veriyi bozmadan yakalandı):**
+> **(a)** Araç satırını **ETİKETE göre** ararken DE ("Kompatibles Fahrzeug") ve AR ("المركبة المتوافقة")
+> KAÇTI → 6 dilden 4'ü düzelir, ikisi eski kalırdı. Hedefleme **DİL-NÖTR DEĞERE** (marka dizisi)
+> çevrildi. Kayıtlı *"bir ögenin davranışını dile bağlı metne bağlama"* kuralının yeni örneği.
+> **(b)** Karşılaştırma sabitini de normalleştirmeyi unutunca (`"hyundai·kia·ssangyong"` ↔ normalize
+> edilmiş değer) eşleşme sessizce 0 döndü — kuru çalıştırma çıktısını OKUMAK yakaladı.
+> **(c) 🔴 GİRİNTİ TESPİTİ:** `data/products*.json` **KÖK DİZİ** olduğu için özellik satırları 4
+> boşlukludur → `/\n {2}"/` deseni **EŞLEŞMEZ**; "eşleşmezse 1" yazınca 6 ürün dosyası 2 boşluktan
+> 1 boşluğa yeniden biçimlendi (**21 bin satırlık sahte fark**). Commit push edilmeden `--amend` ile
+> geri alındı (ürün dosyaları 2'şer satıra indi). **Girintiyi desenle tahmin etme — ilk girintili
+> satırdan ÖLÇ** (`ham.match(/\n( +)[^\s]/)`).
+> **(d)** Arapça çeviride sayıyı KELİMEYLE yazmak (ör. "بمقبسين اثنين" = 2'li ama rakam yok) sayısal
+> parmak izini düşürüyor → iki yazıda da yakalandı, hiçbir şey yazılmadan durdu.
+>
+> **ARAÇLAR:** `scratchpad/_yazi_parmakizi.mts <slug>` (blok tipi + sayısal parmak izi haritası —
+> çeviri yazmadan ÖNCE çalıştır) · `_c2l_spec_yama.mts` · `_c2c_aciklama_yama.mts` (12 kaynak,
+> kuru→`--yaz`, fail-fast, idempotent) · `_v2l_canli_dogrula.cjs` / `_c2l_canli_dogrula.cjs`.
+> ⚠️ **Arapça sayfada KABUL EDİLEN TR kalıntısı:** 3 CMS menü etiketi (Hakkımızda / Bayi Ağı / Bize
+> Ulaşın) = bilinen SSR kabuk sınırı + adres/resmî unvan = kanonik NAP. Doğrulama betikleri bunları
+> **çıkararak** ölçmeli, yoksa yanlış alarm verir.
+>
+> store cache **v112-bakiye → v113-c2l-spec → v114-c2c-yon**.
+
 
 > 🔗✅ **/blog HUB'UNDAN 38 REHBERE TARANABİLİR LİNK — KOŞULLU MOUNT KALDIRILDI (2026-09-11,
 > commit 94170bf):** Yeni rehber yazısını doğrularken çıktı. **ÖLÇÜM (canlı /blog gövdesi):**
