@@ -34,6 +34,203 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    "slug": "c2l-nedir-v2l-den-farki",
+    "title": "C2L Nedir? V2L'den Farkı ve Şarj Cihazından Elektrik Almak",
+    "metaTitle": "C2L Nedir, V2L'den Farkı Ne?",
+    "description": "C2L adaptörü enerjiyi aracın bataryasından değil şarj cihazından alır. Aracınızda V2L olmasa bile prizden elektrik almanın yolu, kullanım alanları ve sınırları.",
+    "excerpt": "V2L enerjiyi aracınızın bataryasından alır, C2L ise duvardaki şarj cihazından. Tek cümlelik fark bu; ama sonuçları çok farklı: C2L aracınızın menzilini hiç azaltmaz ve aracınızda V2L olmasa bile çalışır.",
+    "category": "Teknik",
+    "datePublished": "2026-09-11",
+    "readingMinutes": 7,
+    "keywords": [
+      "c2l nedir",
+      "c2l adaptör",
+      "v2l c2l farkı",
+      "şarj cihazından elektrik almak",
+      "type 2 priz adaptörü",
+      "c2c karavan adaptörü",
+      "şantiye elektrik adaptörü",
+      "kamp elektrik adaptörü"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "V2L adaptörünü araştıranların çoğu bir noktada C2L ile karşılaşıyor ve ikisini karıştırıyor. Adları benzediği için aynı şeyin iki çeşidi sanılıyor; oysa temel farkları enerjinin NEREDEN geldiğinde. Bu fark, hangisinin işinizi göreceğini de belirliyor."
+      },
+      {
+        "type": "h2",
+        "text": "Tek cümlelik fark"
+      },
+      {
+        "type": "p",
+        "text": "V2L (Vehicle to Load) enerjiyi aracın bataryasından alır. C2L (Charger to Load) ise enerjiyi AC şarj istasyonunun Type 2 çıkışından alır; yani kaynak araç değil, duvardaki şarj cihazı ve arkasındaki şebekedir. İkisi de sonuçta size standart bir priz verir, ama biri aracınızın menzilinden yer, diğeri yemez."
+      },
+      {
+        "type": "h2",
+        "text": "Bu farkın pratikte üç sonucu var"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Aracınızda V2L olması gerekmez. C2L şarj cihazına bağlandığı için aracın bu özelliği desteklemesi gerekmiyor; hatta ortada araç olmasına bile gerek yok.",
+          "Menzil azalmaz. Enerji şebekeden geldiği için bataryadan harcama olmaz; sabah aracınızı doldurulmuş bulursunuz.",
+          "Süre bataryayla sınırlı değildir. V2L'de tavan aracın kalan şarjıdır; C2L'de kaynak şebeke olduğu için süre kısıtı bu anlamda ortadan kalkar."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Buna karşılık C2L'in kendi koşulu var: bir AC şarj cihazının bulunması. Araç ne kadar uzağa giderse gitsin V2L yanınızda taşınabilir; C2L ise şarj noktasının olduğu yerde çalışır."
+      },
+      {
+        "type": "h2",
+        "text": "Nerede işe yarar?"
+      },
+      {
+        "type": "p",
+        "text": "C2L'i en çok, elektriğin zaten şarj noktası biçiminde var olduğu ama normal prizin bulunmadığı yerlerde görüyoruz:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Otopark ve saha kurulumları: şarj ünitesi var ama duvarda priz yok; aydınlatma, el aleti veya ölçüm cihazı beslemek gerekiyor.",
+          "Atölye ve şantiye: şarj noktası mevcut, geçici bir çalışma alanına elektrik taşınacak.",
+          "Etkinlik ve fuar alanları: geçici stant, aydınlatma ve küçük ekipman için tek bağlantı noktasından çoklu besleme.",
+          "Kamp ve bahçe: şarj noktasından cihaz beslemek; karavan tarafında ise C2C adaptörü devreye girer."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "C2L adaptörünün biçimleri"
+      },
+      {
+        "type": "p",
+        "text": "Bemis C2L adaptörlerinin girişi Type 2 (şarj cihazı çıkışı), maksimum akımı 16A'dir. Çıkış tarafında dört seçenek var:"
+      },
+      {
+        "type": "table",
+        "caption": "C2L adaptör seçenekleri",
+        "headers": [
+          "Model",
+          "Çıkış",
+          "Kablo",
+          "Tipik kullanım"
+        ],
+        "rows": [
+          [
+            "Tekli priz uzatma",
+            "1 priz",
+            "3 m",
+            "Tek cihaz"
+          ],
+          [
+            "2'li priz uzatma",
+            "2 priz",
+            "3 m",
+            "İki cihaz aynı anda"
+          ],
+          [
+            "3'lü priz uzatma",
+            "3 priz",
+            "3 m",
+            "Saha · etkinlik · atölye"
+          ],
+          [
+            "Endüstriyel prizli",
+            "5/32A CEE",
+            "3 m",
+            "Şantiye ve sanayi ekipmanı"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Ayrıca kablosuz, doğrudan takılan tek çıkışlı bir sürüm de bulunur. Priz sayısı arttıkça toplam yük aynı 16A tavanı paylaşır; iki prize iki ısıtıcı takıp toplamda bu sınırı aşmayı beklemeyin."
+      },
+      {
+        "type": "h2",
+        "text": "C2C: karavan tarafındaki karşılığı"
+      },
+      {
+        "type": "p",
+        "text": "Karavan kullananların aradığı parça C2C (Charger to Caravan) adaptörüdür. Şarj cihazının Type 2 çıkışını, karavanın beslendiği 3/16A endüstriyel bağlantıya uyarlar; böylece kamp alanındaki bir şarj noktasından karavanı beslemek mümkün olur. Kamp alanında hangi bağlantının bulunduğunu önceden öğrenmek, yanınıza doğru adaptörü almanızı sağlar."
+      },
+      {
+        "type": "h2",
+        "text": "Hangisini almalısınız?"
+      },
+      {
+        "type": "p",
+        "text": "Karar aslında tek soruya iniyor: enerjiyi nereden alacaksınız? Aracınızın bataryasından alacaksanız V2L, bir şarj cihazından alacaksanız C2L, karavan besleyecekseniz C2C. Aracınızda V2L varsa ve sık sık şarj noktası olmayan yerlere gidiyorsanız V2L; sabit bir şarj noktanız varsa ve aracınızın menzilini korumak istiyorsanız C2L daha doğru."
+      },
+      {
+        "type": "p",
+        "text": "İkisini birlikte kullanmak da yaygın: evde ya da iş yerinde C2L, yolda V2L. V2L tarafında marka grubuna göre ayrılan uç seçimini ayrı bir rehberde adım adım anlattık."
+      },
+      {
+        "type": "h2",
+        "text": "Dikkat edilecek üç nokta"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "16A tavanını aşmayın. Adaptör bu akımı taşır; bağlayacağınız cihazların toplam yükünü buna göre planlayın.",
+          "Şarj cihazının kendisi de bir sınır koyar. Ünitenin ayarlanabilir akımı daha düşükse geçerli olan o değerdir.",
+          "V2L ile karıştırmayın. C2L'in araç tarafında bir ucu yoktur; marka uyumluluğu C2L için belirleyici değildir, çünkü enerji araçtan gelmez."
+        ]
+      },
+      {
+        "type": "cta",
+        "text": "V2L, C2L ve C2C adaptörlerinin tamamını inceleyin.",
+        "href": "/products/v2l-c2l",
+        "label": "V2L / C2L Adaptörler"
+      }
+    ],
+    "faq": [
+      {
+        "q": "C2L nedir, ne işe yarar?",
+        "a": "C2L (Charger to Load), AC şarj istasyonunun Type 2 çıkışından aldığı enerjiyi standart prize dönüştüren adaptördür. Şarj noktası bulunan ama normal priz bulunmayan yerlerde elektrikli cihaz beslemek için kullanılır: otopark ve saha kurulumları, atölye ve şantiye, etkinlik ve fuar alanları, kamp ve bahçe. Enerji araçtan değil şebekeden geldiği için ortada bir elektrikli araç olması bile gerekmez; adaptör doğrudan şarj ünitesine bağlanır. Bemis C2L adaptörlerinin girişi Type 2, maksimum akımı 16A'dir. Çıkış tarafında 3 metre kablo üzerinde tekli, iki ve üç prizli seçenekler ile endüstriyel 5/32A prizli bir sürüm, ayrıca kablosuz doğrudan takılan tek çıkışlı bir sürüm bulunur."
+      },
+      {
+        "q": "C2L ile V2L arasındaki fark nedir?",
+        "a": "Fark enerjinin nereden geldiğidir. V2L (Vehicle to Load) enerjiyi aracın bataryasından alır; C2L (Charger to Load) ise AC şarj istasyonunun Type 2 çıkışından, yani şebekeden alır. İkisi de sonuçta size standart bir priz verir ama sonuçları farklıdır. C2L için aracınızın V2L desteklemesi gerekmez, aracınızın menzili azalmaz ve kullanım süresi aracın kalan şarjıyla sınırlı kalmaz. Buna karşılık C2L bir şarj cihazının bulunduğu yerde çalışır; V2L ise aracınız nereye giderse yanınızda taşınır. Bu yüzden ikisi rakip değil, birbirini tamamlayan çözümlerdir: sabit noktada C2L, yolda V2L."
+      },
+      {
+        "q": "Aracımda V2L yoksa C2L ile elektrik alabilir miyim?",
+        "a": "Evet. C2L enerjiyi araçtan değil şarj cihazından aldığı için aracınızın V2L özelliğini desteklemesi gerekmez. Hatta bağlantı sırasında ortada araç olması bile gerekmez; adaptör doğrudan şarj ünitesinin Type 2 çıkışına bağlanır ve size standart prizi verir. Bu yüzden V2L desteklemeyen araç sahipleri için C2L, aynı pratikliğe ulaşmanın en doğrudan yoludur. Tek koşulu bir AC şarj cihazının bulunması; ev, iş yeri veya otopark gibi sabit bir şarj noktanız varsa bu koşul zaten sağlanmış demektir. Ayrıca enerji şebekeden geldiği için aracınızın menzilinden hiçbir şey eksilmez."
+      },
+      {
+        "q": "C2L adaptöründen kaç amper çekebilirim?",
+        "a": "Bemis C2L adaptörleri maksimum 16A taşır. Ancak gerçekte geçerli olan sınır, bu değerle şarj cihazınızın akım ayarından hangisi düşükse odur: ünitenin akımı daha düşük ayarlanmışsa çekebileceğiniz güç de o kadar olur. Çok prizli sürümlerde priz sayısı toplam kapasiteyi artırmaz; iki ya da üç prize bağladığınız tüm cihazlar aynı 16A tavanını paylaşır. Bu yüzden yüksek güç isteyen cihazları aynı anda çalıştırmayı planlarken toplam yükü baştan hesaplayın; ısıtıcı, kaynak makinesi gibi yüksek çekişli ekipmanlarda tek cihazla kalmak en güvenli yaklaşımdır."
+      },
+      {
+        "q": "Karavanı şarj noktasından beslemek için hangi adaptör gerekir?",
+        "a": "Bunun için C2C (Charger to Caravan) adaptörü kullanılır. Şarj cihazının Type 2 monofaze 16A çıkışını, 3 metre kablo üzerinden karavanın beslendiği 3/16A CEE bağlantısına uyarlar; böylece kamp alanındaki bir şarj noktasından karavanınızı besleyebilirsiniz. C2L ile aynı aileden gelir ve enerjiyi yine araçtan değil şarj cihazından alır. V2L ile karıştırılmamalıdır: V2L'de kaynak aracın bataryasıdır, C2C'de ise şebekedir. Kamp alanında hangi bağlantının bulunduğunu önceden öğrenmek, yanınıza doğru adaptörü almanızı ve yerinde çözüm aramak zorunda kalmamanızı sağlar."
+      },
+      {
+        "q": "C2L adaptörü seçerken araç markası önemli mi?",
+        "a": "Hayır. C2L'in araç tarafında bir ucu yoktur; enerji şarj cihazından geldiği için araç markası C2L seçiminde belirleyici değildir. Marka ayrımı yalnızca V2L tarafında geçerlidir, çünkü orada adaptörün araca takılan ucu markaya göre değişir ve uymayan bir uç fiziksel olarak takılmaz. C2L seçerken bakılacak şeyler farklıdır: kaç priz istediğiniz, endüstriyel 5/32A prize ihtiyacınız olup olmadığı, cihazı şarj noktasından uzağa taşıyıp taşımayacağınız ve toplam yükünüzün 16A tavanının altında kalıp kalmadığı."
+      }
+    ],
+    "related": [
+      {
+        "label": "V2L / C2L Adaptörler",
+        "href": "/products/v2l-c2l"
+      },
+      {
+        "label": "V2L Adaptörü Nasıl Seçilir?",
+        "href": "/blog/v2l-adaptoru-nasil-secilir"
+      },
+      {
+        "label": "Türkiye'de Hangi Araçlarda V2L Var?",
+        "href": "/blog/hangi-araclarda-v2l-var-turkiye"
+      },
+      {
+        "label": "Ioniq 5 ile V2L Nasıl Kullanılır?",
+        "href": "/blog/ioniq-5-v2l-nasil-kullanilir"
+      }
+    ]
+  },
+  {
     "slug": "v2l-adaptoru-nasil-secilir",
     "title": "V2L Adaptörü Nasıl Seçilir? Marka, Priz Sayısı ve Kablo Rehberi",
     "metaTitle": "V2L Adaptörü Nasıl Seçilir — Marka ve Priz",

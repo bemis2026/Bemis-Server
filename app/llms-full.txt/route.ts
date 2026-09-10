@@ -31,6 +31,7 @@ const GUIDE_SLUGS = [
   "elektrikli-arac-sarj-istasyonu-yonetmeligi",
   "elektrikli-arac-sarj-uzatma-kablosu-nasil-secilir",
   "portatif-seyyar-sarj-cihazi-nedir-ne-kadar",
+  "c2l-nedir-v2l-den-farki",
   "v2l-adaptoru-nasil-secilir",
   "hangi-araclarda-v2l-var-turkiye",
   "elektrikli-arabami-evde-nasil-sarj-ederim",

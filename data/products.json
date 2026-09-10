@@ -5448,7 +5448,7 @@
         "code": "BEVC2L-3306-3603",
         "subtitle": "3m. Kablolu · 3/16A Priz → Type 2 Monofaze 16A",
         "badge": null,
-        "description": "3 metre kablo üzerinden 3/16A CEE girişini Type 2 monofaze 16A fişe dönüştüren C2C adaptörü. Karavan ve mobil ünitelerin standart şarj istasyonlarından enerji almasını sağlar.",
+        "description": "Şarj cihazının Type 2 monofaze 16A çıkışını, 3 metre kablo üzerinden karavanın beslendiği 3/16A CEE bağlantısına uyarlayan C2C adaptörü. Karavan ve mobil ünitelerin standart şarj istasyonlarından enerji almasını sağlar.",
         "specs": [
           {
             "group": "Genel",

@@ -5678,7 +5678,7 @@
         "code": "BEVC2L-3306-3603",
         "subtitle": "3m. Wired · 3/16A Socket → Type 2 Monophase 16a",
         "badge": null,
-        "description": "C2C adapter that converts 3/16A CEE input to Type 2 single-phase 16a plug via 3 meter cable. It allows caravan and mobile units to receive energy from standard charging stations.",
+        "description": "C2C adapter that adapts the Type 2 single-phase 16A output of the charger, via a 3 metre cable, to the 3/16A CEE connection the caravan is fed from. It allows caravan and mobile units to receive energy from standard charging stations.",
         "specs": [
           {
             "group": "General",

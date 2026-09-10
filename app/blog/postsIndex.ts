@@ -5,6 +5,19 @@
 export type PostIndexItem = { slug: string; title: string; titleI18n?: Record<string, string>; category: string; datePublished: string; image?: string };
 export const POSTS_INDEX: PostIndexItem[] = [
   {
+    "slug": "c2l-nedir-v2l-den-farki",
+    "title": "C2L Nedir? V2L'den Farkı ve Şarj Cihazından Elektrik Almak",
+    "titleI18n": {
+      "en": "What Is C2L? The Difference from V2L and Taking Power from the Charger",
+      "de": "Was ist C2L? Der Unterschied zu V2L und Strom aus dem Ladegerät",
+      "es": "¿Qué es C2L? La diferencia con V2L y tomar electricidad del cargador",
+      "ar": "ما هو C2L؟ الفرق عن V2L وأخذ الكهرباء من جهاز الشحن",
+      "ru": "Что такое C2L? Отличие от V2L и электричество от зарядного устройства"
+    },
+    "category": "Teknik",
+    "datePublished": "2026-09-11"
+  },
+  {
     "slug": "v2l-adaptoru-nasil-secilir",
     "title": "V2L Adaptörü Nasıl Seçilir? Marka, Priz Sayısı ve Kablo Rehberi",
     "titleI18n": {

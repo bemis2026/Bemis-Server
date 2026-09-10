@@ -5858,6 +5858,164 @@
           "label": "V2L with Togg: power from the car"
         }
       ]
+    },
+    "c2l-nedir-v2l-den-farki": {
+      "title": "What Is C2L? The Difference from V2L and Taking Power from the Charger",
+      "metaTitle": "What Is C2L, How Does It Differ from V2L?",
+      "description": "A C2L adapter takes power from the charger, not from the car's battery. How to get mains power from a socket even when your car has no V2L, where it is used and what its limits are.",
+      "excerpt": "V2L takes power from your car's battery, C2L from the charger on the wall. That is the whole difference in one sentence, but the consequences are very different: C2L never reduces your range and it works even when your car has no V2L.",
+      "category": "Technical",
+      "body": [
+        {
+          "text": "Most people researching a V2L adapter come across C2L at some point and confuse the two. The names look alike, so they are taken for two versions of the same thing; yet their basic difference is WHERE the power comes from. That difference is also what decides which one will do the job for you."
+        },
+        {
+          "text": "The difference in one sentence"
+        },
+        {
+          "text": "V2L (Vehicle to Load) takes power from the car's battery. C2L (Charger to Load) takes it from the Type 2 output of an AC charging station; so the source is not the car but the charger on the wall and the grid behind it. Both end up giving you a standard socket, but one eats into your car's range and the other does not."
+        },
+        {
+          "text": "This difference has three practical consequences"
+        },
+        {
+          "items": [
+            "Your car does not need to have V2L. Because C2L connects to the charger, the car does not have to support the feature; in fact there does not even have to be a car present.",
+            "Range is not reduced. Since the power comes from the grid, nothing is drawn from the battery; you find your car charged in the morning.",
+            "Run time is not capped by the battery. With V2L the ceiling is the car's remaining charge; with C2L the source is the grid, so that particular limit disappears."
+          ]
+        },
+        {
+          "text": "In return C2L has a condition of its own: an AC charger has to be there. However far the car travels, V2L can be carried with you; C2L works where the charging point is."
+        },
+        {
+          "text": "Where is it useful?"
+        },
+        {
+          "text": "We see C2L used most where electricity already exists in the form of a charging point but there is no ordinary socket:"
+        },
+        {
+          "items": [
+            "Car parks and site installations: there is a charging unit but no socket on the wall, and lighting, a hand tool or a measuring device needs feeding.",
+            "Workshops and construction sites: a charging point exists and power has to be carried to a temporary work area.",
+            "Events and trade fairs: multiple feeds from a single connection point for a temporary stand, lighting and small equipment.",
+            "Camping and the garden: running devices from the charging point; on the caravan side the C2C adapter takes over."
+          ]
+        },
+        {
+          "text": "The forms of the C2L adapter"
+        },
+        {
+          "text": "The input of Bemis C2L adapters is Type 2 (the charger output) and their maximum current is 16A. On the output side there are four options:"
+        },
+        {
+          "caption": "C2L adapter options",
+          "headers": [
+            "Form",
+            "Output",
+            "Cable",
+            "Typical use"
+          ],
+          "rows": [
+            [
+              "Single-socket extension",
+              "1 socket",
+              "3 m",
+              "One device"
+            ],
+            [
+              "2-socket extension",
+              "2 sockets",
+              "3 m",
+              "Two devices at once"
+            ],
+            [
+              "3-socket extension",
+              "3 sockets",
+              "3 m",
+              "Site · event · workshop"
+            ],
+            [
+              "With industrial socket",
+              "5/32A CEE",
+              "3 m",
+              "Construction and industrial equipment"
+            ]
+          ]
+        },
+        {
+          "text": "There is also a cable-free version that plugs in directly and carries one outlet. Adding sockets does not add capacity: the total load shares the same 16A ceiling, so do not expect to plug two heaters into two sockets and exceed that limit overall."
+        },
+        {
+          "text": "C2C: the counterpart on the caravan side"
+        },
+        {
+          "text": "What caravan users are looking for is the C2C (Charger to Caravan) adapter. It adapts the Type 2 output of the charger to the 3/16A industrial connection the caravan is fed from, which makes it possible to power a caravan from a charging point at a campsite. Finding out in advance which connection the campsite offers means you take the right adapter with you."
+        },
+        {
+          "text": "Which one should you buy?"
+        },
+        {
+          "text": "The decision really comes down to one question: where will the power come from? From your car's battery, V2L; from a charger, C2L; to feed a caravan, C2C. If your car has V2L and you often go where there is no charging point, choose V2L; if you have a fixed charging point and want to preserve your car's range, C2L is the better fit."
+        },
+        {
+          "text": "Using both is common too: C2L at home or at work, V2L on the road. On the V2L side we explained the connector choice, which is split by brand group, step by step in a separate guide."
+        },
+        {
+          "text": "Three things to watch"
+        },
+        {
+          "items": [
+            "Do not exceed the 16A ceiling. The adapter carries that current; plan the total load of the devices you connect accordingly.",
+            "The charger itself also sets a limit. If the unit's adjustable current is lower, that is the value which applies.",
+            "Do not confuse it with V2L. C2L has no end on the vehicle side; brand compatibility is not decisive for C2L, because the power does not come from the car."
+          ]
+        },
+        {
+          "text": "Explore the full range of V2L, C2L and C2C adapters.",
+          "label": "V2L / C2L adapters"
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is C2L and what is it for?",
+          "a": "C2L (Charger to Load) is an adapter that converts the power it takes from the Type 2 output of an AC charging station into a standard socket. It is used to run electrical devices where a charging point exists but an ordinary socket does not: car parks and site installations, workshops and construction sites, events and trade fairs, camping and the garden. Because the power comes from the grid rather than the car, there does not even have to be an electric vehicle present; the adapter connects straight to the charging unit. The input of Bemis C2L adapters is Type 2 and their maximum current is 16A. On the output side there are single, two- and three-socket options on a 3 metre cable plus a version with an industrial 5/32A socket, and also a cable-free version that plugs in directly and carries one outlet."
+        },
+        {
+          "q": "What is the difference between C2L and V2L?",
+          "a": "The difference is where the power comes from. V2L (Vehicle to Load) takes it from the car's battery; C2L (Charger to Load) takes it from the Type 2 output of an AC charging station, that is, from the grid. Both end up giving you a standard socket, but the consequences differ. With C2L your car does not need to support V2L, your range is not reduced and run time is not capped by the car's remaining charge. In return, C2L works where a charger is present; V2L travels with you wherever your car goes. So the two are not rivals but complements: C2L at a fixed point, V2L on the road."
+        },
+        {
+          "q": "My car has no V2L — can I still take power with C2L?",
+          "a": "Yes. Because C2L takes power from the charger rather than the car, your car does not need to support V2L. In fact there does not even have to be a car present during the connection; the adapter plugs straight into the Type 2 output of the charging unit and gives you a standard socket. That is why C2L is the most direct way for owners of cars without V2L to get the same convenience. Its only condition is that an AC charger is available; if you have a fixed charging point at home, at work or in a car park, that condition is already met. And since the power comes from the grid, nothing at all is taken from your car's range."
+        },
+        {
+          "q": "How many amps can I draw from a C2L adapter?",
+          "a": "Bemis C2L adapters carry a maximum of 16A. The limit that actually applies, however, is whichever is lower: that figure or your charger's current setting. If the unit's current is set lower, the power you can draw is lower too. On multi-socket versions the number of sockets does not increase total capacity; every device you connect to two or three sockets shares the same 16A ceiling. So plan the total load up front when you intend to run power-hungry devices at the same time; with heaters, welders and similar high-draw equipment, sticking to one device is the safest approach."
+        },
+        {
+          "q": "Which adapter do I need to power a caravan from a charging point?",
+          "a": "The C2C (Charger to Caravan) adapter is used for this. It adapts the Type 2 single-phase 16A output of the charger, over a 3 metre cable, to the 3/16A CEE connection the caravan is fed from, so you can power your caravan from a charging point at a campsite. It comes from the same family as C2L and likewise takes its power from the charger, not from the car. It should not be confused with V2L: with V2L the source is the car's battery, while with C2C it is the grid. Finding out in advance which connection the campsite offers means you take the right adapter with you and are not left improvising on the spot."
+        },
+        {
+          "q": "Does the car brand matter when choosing a C2L adapter?",
+          "a": "No. C2L has no end on the vehicle side; because the power comes from the charger, the car brand is not decisive when choosing C2L. The brand distinction applies only on the V2L side, where the end that plugs into the car changes by brand and a connector that does not fit will not go in physically. What you look at when choosing C2L is different: how many sockets you want, whether you need an industrial 5/32A socket, whether you will carry the device away from the charging point, and whether your total load stays under the 16A ceiling."
+        }
+      ],
+      "related": [
+        {
+          "label": "V2L / C2L adapters"
+        },
+        {
+          "label": "How to Choose a V2L Adapter"
+        },
+        {
+          "label": "Which cars have V2L in Türkiye?"
+        },
+        {
+          "label": "How to use V2L with the Ioniq 5"
+        }
+      ]
     }
   },
   "de": {
@@ -11717,6 +11875,164 @@
         },
         {
           "label": "V2L mit Togg: Strom aus dem Auto"
+        }
+      ]
+    },
+    "c2l-nedir-v2l-den-farki": {
+      "title": "Was ist C2L? Der Unterschied zu V2L und Strom aus dem Ladegerät",
+      "metaTitle": "Was ist C2L, worin liegt der Unterschied zu V2L?",
+      "description": "Ein C2L-Adapter bezieht den Strom nicht aus der Fahrzeugbatterie, sondern aus dem Ladegerät. Wie Sie auch ohne V2L im Auto eine Steckdose bekommen, wo das genutzt wird und wo die Grenzen liegen.",
+      "excerpt": "V2L nimmt den Strom aus der Batterie Ihres Autos, C2L aus dem Ladegerät an der Wand. Das ist der ganze Unterschied in einem Satz, doch die Folgen sind sehr verschieden: C2L verringert die Reichweite nie und funktioniert auch ohne V2L im Auto.",
+      "category": "Technik",
+      "body": [
+        {
+          "text": "Wer sich mit einem V2L-Adapter beschäftigt, stößt irgendwann auf C2L und verwechselt beides. Die Namen ähneln sich, also hält man sie für zwei Varianten derselben Sache; ihr grundlegender Unterschied liegt jedoch darin, WOHER der Strom kommt. Dieser Unterschied entscheidet auch darüber, welche Lösung Ihre Aufgabe erledigt."
+        },
+        {
+          "text": "Der Unterschied in einem Satz"
+        },
+        {
+          "text": "V2L (Vehicle to Load) bezieht den Strom aus der Fahrzeugbatterie. C2L (Charger to Load) bezieht ihn aus dem Type 2-Ausgang einer AC-Ladestation; die Quelle ist also nicht das Auto, sondern das Ladegerät an der Wand und das Netz dahinter. Beide geben Ihnen am Ende eine normale Steckdose, aber das eine geht auf die Reichweite Ihres Autos, das andere nicht."
+        },
+        {
+          "text": "Dieser Unterschied hat drei praktische Folgen"
+        },
+        {
+          "items": [
+            "Ihr Auto muss kein V2L haben. Da C2L am Ladegerät hängt, muss das Fahrzeug die Funktion nicht unterstützen; es muss nicht einmal ein Auto anwesend sein.",
+            "Die Reichweite sinkt nicht. Weil der Strom aus dem Netz kommt, wird der Batterie nichts entnommen; morgens finden Sie Ihr Auto geladen vor.",
+            "Die Laufzeit ist nicht durch die Batterie begrenzt. Bei V2L ist die Obergrenze der Restladung des Autos; bei C2L ist die Quelle das Netz, diese Grenze entfällt also."
+          ]
+        },
+        {
+          "text": "Dafür hat C2L eine eigene Bedingung: Es muss ein AC-Ladegerät vorhanden sein. Wie weit das Auto auch fährt, V2L lässt sich mitnehmen; C2L arbeitet dort, wo der Ladepunkt ist."
+        },
+        {
+          "text": "Wo ist es nützlich?"
+        },
+        {
+          "text": "Am häufigsten sehen wir C2L dort, wo Strom bereits als Ladepunkt vorhanden ist, aber keine gewöhnliche Steckdose:"
+        },
+        {
+          "items": [
+            "Parkhäuser und Feldinstallationen: Eine Ladeeinheit ist da, aber keine Steckdose an der Wand, und Beleuchtung, ein Handwerkzeug oder ein Messgerät braucht Strom.",
+            "Werkstatt und Baustelle: Ein Ladepunkt ist vorhanden, der Strom muss zu einem provisorischen Arbeitsbereich gebracht werden.",
+            "Veranstaltungen und Messen: mehrere Verbraucher aus einem einzigen Anschlusspunkt für Stand, Beleuchtung und kleine Geräte.",
+            "Camping und Garten: Geräte am Ladepunkt betreiben; auf der Wohnwagenseite übernimmt der C2C-Adapter."
+          ]
+        },
+        {
+          "text": "Die Bauformen des C2L-Adapters"
+        },
+        {
+          "text": "Der Eingang der Bemis C2L-Adapter ist Type 2 (der Ladegeräteausgang), ihr maximaler Strom beträgt 16A. Auf der Ausgangsseite gibt es vier Varianten:"
+        },
+        {
+          "caption": "C2L-Adapter im Überblick",
+          "headers": [
+            "Bauform",
+            "Ausgang",
+            "Kabel",
+            "Typischer Einsatz"
+          ],
+          "rows": [
+            [
+              "Verlängerung, eine Steckdose",
+              "1 Steckdose",
+              "3 m",
+              "Ein Gerät"
+            ],
+            [
+              "Verlängerung, 2 Steckdosen",
+              "2 Steckdosen",
+              "3 m",
+              "Zwei Geräte gleichzeitig"
+            ],
+            [
+              "Verlängerung, 3 Steckdosen",
+              "3 Steckdosen",
+              "3 m",
+              "Außeneinsatz · Event · Werkstatt"
+            ],
+            [
+              "Mit Industriesteckdose",
+              "5/32A CEE",
+              "3 m",
+              "Bau- und Industrieausrüstung"
+            ]
+          ]
+        },
+        {
+          "text": "Es gibt außerdem eine kabellose Ausführung, die direkt eingesteckt wird und eine Steckdose trägt. Mehr Steckdosen bedeuten nicht mehr Kapazität: Die Gesamtlast teilt sich dieselbe 16A-Obergrenze, erwarten Sie also nicht, mit zwei Heizgeräten an zwei Steckdosen diese Grenze insgesamt zu überschreiten."
+        },
+        {
+          "text": "C2C: das Gegenstück auf der Wohnwagenseite"
+        },
+        {
+          "text": "Wohnwagennutzer suchen den C2C-Adapter (Charger to Caravan). Er passt den Type 2-Ausgang des Ladegeräts an den 3/16A-Industrieanschluss an, über den der Wohnwagen versorgt wird, sodass sich ein Wohnwagen an einem Ladepunkt auf dem Campingplatz betreiben lässt. Wer vorab klärt, welchen Anschluss der Platz bietet, nimmt den richtigen Adapter mit."
+        },
+        {
+          "text": "Welchen sollten Sie kaufen?"
+        },
+        {
+          "text": "Die Entscheidung läuft eigentlich auf eine Frage hinaus: Woher soll der Strom kommen? Aus der Batterie Ihres Autos: V2L; aus einem Ladegerät: C2L; zur Versorgung eines Wohnwagens: C2C. Hat Ihr Auto V2L und fahren Sie oft dorthin, wo es keinen Ladepunkt gibt, dann V2L; haben Sie einen festen Ladepunkt und wollen die Reichweite Ihres Autos schonen, passt C2L besser."
+        },
+        {
+          "text": "Beides zusammen ist ebenfalls üblich: zu Hause oder im Betrieb C2L, unterwegs V2L. Auf der V2L-Seite haben wir die nach Markengruppe getrennte Steckerwahl in einem eigenen Ratgeber Schritt für Schritt erklärt."
+        },
+        {
+          "text": "Drei Punkte, auf die Sie achten sollten"
+        },
+        {
+          "items": [
+            "Überschreiten Sie die 16A-Grenze nicht. Der Adapter führt diesen Strom; planen Sie die Gesamtlast der angeschlossenen Geräte danach.",
+            "Auch das Ladegerät selbst setzt eine Grenze. Ist der einstellbare Strom der Einheit niedriger, gilt dieser Wert.",
+            "Verwechseln Sie es nicht mit V2L. C2L hat kein Ende auf der Fahrzeugseite; die Markenkompatibilität ist für C2L nicht entscheidend, denn der Strom kommt nicht aus dem Auto."
+          ]
+        },
+        {
+          "text": "Entdecken Sie das gesamte Programm an V2L-, C2L- und C2C-Adaptern.",
+          "label": "V2L- / C2L-Adapter"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Was ist C2L und wofür ist es gut?",
+          "a": "C2L (Charger to Load) ist ein Adapter, der die aus dem Type 2-Ausgang einer AC-Ladestation entnommene Energie in eine normale Steckdose umwandelt. Er wird dort eingesetzt, wo ein Ladepunkt vorhanden ist, aber keine gewöhnliche Steckdose: Parkhäuser und Feldinstallationen, Werkstatt und Baustelle, Veranstaltungen und Messen, Camping und Garten. Weil der Strom aus dem Netz und nicht aus dem Auto kommt, muss nicht einmal ein Elektrofahrzeug anwesend sein; der Adapter wird direkt an die Ladeeinheit angeschlossen. Der Eingang der Bemis C2L-Adapter ist Type 2, ihr maximaler Strom beträgt 16A. Auf der Ausgangsseite gibt es Varianten mit einer, mit zwei und mit drei Steckdosen an einem 3 Meter langen Kabel sowie eine Ausführung mit Industriesteckdose 5/32A und eine kabellose Variante mit einer Steckdose."
+        },
+        {
+          "q": "Worin unterscheiden sich C2L und V2L?",
+          "a": "Der Unterschied liegt darin, woher der Strom kommt. V2L (Vehicle to Load) entnimmt ihn der Fahrzeugbatterie; C2L (Charger to Load) entnimmt ihn dem Type 2-Ausgang einer AC-Ladestation, also dem Netz. Beide geben Ihnen am Ende eine normale Steckdose, doch die Folgen unterscheiden sich. Bei C2L muss Ihr Auto kein V2L unterstützen, die Reichweite sinkt nicht und die Laufzeit ist nicht durch die Restladung begrenzt. Dafür arbeitet C2L dort, wo ein Ladegerät steht; V2L reist mit, wohin Ihr Auto auch fährt. Beide sind daher keine Konkurrenten, sondern ergänzen sich: am festen Punkt C2L, unterwegs V2L."
+        },
+        {
+          "q": "Mein Auto hat kein V2L — kann ich trotzdem mit C2L Strom entnehmen?",
+          "a": "Ja. Da C2L den Strom nicht dem Auto, sondern dem Ladegerät entnimmt, muss Ihr Fahrzeug kein V2L unterstützen. Beim Anschluss muss sogar gar kein Auto anwesend sein; der Adapter wird direkt in den Type 2-Ausgang der Ladeeinheit gesteckt und gibt Ihnen eine normale Steckdose. Deshalb ist C2L für Besitzer von Fahrzeugen ohne V2L der direkteste Weg zu derselben Bequemlichkeit. Die einzige Bedingung ist ein vorhandenes AC-Ladegerät; wer zu Hause, im Betrieb oder im Parkhaus einen festen Ladepunkt hat, erfüllt sie bereits. Und weil der Strom aus dem Netz kommt, geht der Reichweite Ihres Autos überhaupt nichts verloren."
+        },
+        {
+          "q": "Wie viel Ampere kann ich einem C2L-Adapter entnehmen?",
+          "a": "Bemis C2L-Adapter führen maximal 16A. Die tatsächlich geltende Grenze ist jedoch der jeweils niedrigere Wert: diese Zahl oder die Stromeinstellung Ihres Ladegeräts. Ist der Strom der Einheit niedriger eingestellt, fällt auch die entnehmbare Leistung geringer aus. Bei mehrfach ausgeführten Varianten erhöht die Zahl der Steckdosen die Gesamtkapazität nicht; alle Geräte an zwei oder drei Steckdosen teilen sich dieselbe 16A-Obergrenze. Planen Sie die Gesamtlast daher von Anfang an, wenn Sie leistungshungrige Geräte gleichzeitig betreiben wollen; bei Heizgeräten, Schweißgeräten und ähnlicher Ausrüstung mit hoher Aufnahme ist es am sichersten, bei einem Gerät zu bleiben."
+        },
+        {
+          "q": "Welchen Adapter brauche ich, um einen Wohnwagen an einem Ladepunkt zu versorgen?",
+          "a": "Dafür wird der C2C-Adapter (Charger to Caravan) verwendet. Er passt den einphasigen Type 2-Ausgang mit 16A des Ladegeräts über ein 3 Meter langes Kabel an den 3/16A CEE-Anschluss an, über den der Wohnwagen versorgt wird, sodass Sie Ihren Wohnwagen an einem Ladepunkt auf dem Campingplatz betreiben können. Er stammt aus derselben Familie wie C2L und bezieht seinen Strom ebenfalls vom Ladegerät, nicht vom Auto. Er sollte nicht mit V2L verwechselt werden: Bei V2L ist die Quelle die Fahrzeugbatterie, bei C2C das Netz. Wer vorab klärt, welchen Anschluss der Platz bietet, nimmt den richtigen Adapter mit und muss vor Ort nicht improvisieren."
+        },
+        {
+          "q": "Spielt die Fahrzeugmarke bei der Wahl eines C2L-Adapters eine Rolle?",
+          "a": "Nein. C2L hat kein Ende auf der Fahrzeugseite; da der Strom vom Ladegerät kommt, ist die Fahrzeugmarke bei der Wahl von C2L nicht entscheidend. Die Markenunterscheidung gilt nur auf der V2L-Seite, wo sich das Ende, das ins Auto gesteckt wird, je nach Marke ändert und ein nicht passender Stecker physisch nicht hineingeht. Bei der Wahl von C2L achten Sie auf anderes: wie viele Steckdosen Sie möchten, ob Sie eine Industriesteckdose 5/32A brauchen, ob Sie das Gerät vom Ladepunkt wegtragen und ob Ihre Gesamtlast unter der 16A-Grenze bleibt."
+        }
+      ],
+      "related": [
+        {
+          "label": "V2L- / C2L-Adapter"
+        },
+        {
+          "label": "V2L-Adapter richtig wählen"
+        },
+        {
+          "label": "Welche Autos haben in der Türkei V2L?"
+        },
+        {
+          "label": "V2L mit dem Ioniq 5 nutzen"
         }
       ]
     }
@@ -17580,6 +17896,164 @@
           "label": "V2L con Togg: electricidad desde el coche"
         }
       ]
+    },
+    "c2l-nedir-v2l-den-farki": {
+      "title": "¿Qué es C2L? La diferencia con V2L y tomar electricidad del cargador",
+      "metaTitle": "¿Qué es C2L y en qué se diferencia de V2L?",
+      "description": "El adaptador C2L toma la electricidad del cargador, no de la batería del coche. Cómo obtener un enchufe aunque su coche no tenga V2L, dónde se usa y cuáles son sus límites.",
+      "excerpt": "V2L toma la electricidad de la batería de su coche; C2L, del cargador de la pared. Esa es toda la diferencia en una frase, pero sus consecuencias son muy distintas: C2L nunca reduce la autonomía y funciona aunque su coche no tenga V2L.",
+      "category": "Técnico",
+      "body": [
+        {
+          "text": "Casi todo el que investiga un adaptador V2L acaba encontrándose con C2L y confunde ambos. Los nombres se parecen, así que se toman por dos versiones de lo mismo; sin embargo su diferencia básica está en DE DÓNDE viene la electricidad. Esa diferencia es también la que decide cuál le va a resolver el problema."
+        },
+        {
+          "text": "La diferencia en una frase"
+        },
+        {
+          "text": "V2L (Vehicle to Load) toma la electricidad de la batería del coche. C2L (Charger to Load) la toma de la salida Type 2 de una estación de carga AC; la fuente, por tanto, no es el coche sino el cargador de la pared y la red que hay detrás. Ambos acaban dándole un enchufe estándar, pero uno se come autonomía de su coche y el otro no."
+        },
+        {
+          "text": "Esta diferencia tiene tres consecuencias prácticas"
+        },
+        {
+          "items": [
+            "Su coche no necesita tener V2L. Como C2L se conecta al cargador, el vehículo no tiene que admitir esa función; de hecho ni siquiera hace falta que haya un coche.",
+            "La autonomía no baja. Como la electricidad viene de la red, no se consume nada de la batería; por la mañana encuentra su coche cargado.",
+            "El tiempo de uso no lo limita la batería. En V2L el techo es la carga restante del coche; en C2L la fuente es la red, así que ese límite desaparece."
+          ]
+        },
+        {
+          "text": "A cambio, C2L tiene su propia condición: tiene que haber un cargador AC. Por lejos que vaya el coche, V2L se lleva consigo; C2L funciona allí donde está el punto de carga."
+        },
+        {
+          "text": "¿Dónde resulta útil?"
+        },
+        {
+          "text": "Vemos usar C2L sobre todo donde la electricidad ya existe en forma de punto de carga pero no hay un enchufe corriente:"
+        },
+        {
+          "items": [
+            "Aparcamientos e instalaciones en campo: hay una unidad de carga pero no un enchufe en la pared, y hay que alimentar iluminación, una herramienta de mano o un equipo de medición.",
+            "Taller y obra: existe un punto de carga y hay que llevar electricidad a una zona de trabajo temporal.",
+            "Eventos y ferias: varias tomas desde un único punto de conexión para un estand temporal, iluminación y equipos pequeños.",
+            "Camping y jardín: alimentar aparatos desde el punto de carga; en el lado de la caravana entra en juego el adaptador C2C."
+          ]
+        },
+        {
+          "text": "Los formatos del adaptador C2L"
+        },
+        {
+          "text": "La entrada de los adaptadores C2L de Bemis es Type 2 (la salida del cargador) y su corriente máxima es de 16A. En el lado de la salida hay cuatro opciones:"
+        },
+        {
+          "caption": "Opciones de adaptador C2L",
+          "headers": [
+            "Formato",
+            "Salida",
+            "Cable",
+            "Uso típico"
+          ],
+          "rows": [
+            [
+              "Extensión de un enchufe",
+              "1 enchufe",
+              "3 m",
+              "Un aparato"
+            ],
+            [
+              "Extensión de 2 enchufes",
+              "2 enchufes",
+              "3 m",
+              "Dos aparatos a la vez"
+            ],
+            [
+              "Extensión de 3 enchufes",
+              "3 enchufes",
+              "3 m",
+              "Campo · evento · taller"
+            ],
+            [
+              "Con enchufe industrial",
+              "5/32A CEE",
+              "3 m",
+              "Equipos de obra e industria"
+            ]
+          ]
+        },
+        {
+          "text": "También existe una versión sin cable que se enchufa directamente y lleva una toma. Más enchufes no significan más capacidad: la carga total comparte el mismo techo de 16A, así que no espere superar ese límite en conjunto enchufando dos calefactores en dos tomas."
+        },
+        {
+          "text": "C2C: el equivalente en el lado de la caravana"
+        },
+        {
+          "text": "Lo que buscan quienes usan caravana es el adaptador C2C (Charger to Caravan). Adapta la salida Type 2 del cargador a la conexión industrial 3/16A por la que se alimenta la caravana, de modo que sea posible alimentarla desde un punto de carga del camping. Averiguar de antemano qué conexión ofrece el camping le permite llevar el adaptador correcto."
+        },
+        {
+          "text": "¿Cuál debería comprar?"
+        },
+        {
+          "text": "La decisión se reduce en realidad a una pregunta: ¿de dónde va a salir la electricidad? De la batería de su coche, V2L; de un cargador, C2L; para alimentar una caravana, C2C. Si su coche tiene V2L y va a menudo donde no hay punto de carga, elija V2L; si dispone de un punto de carga fijo y quiere preservar la autonomía de su coche, C2L encaja mejor."
+        },
+        {
+          "text": "Usar ambos también es habitual: en casa o en el trabajo C2L, en carretera V2L. En el lado V2L explicamos paso a paso, en una guía aparte, la elección del conector, que se separa por grupo de marca."
+        },
+        {
+          "text": "Tres cosas que vigilar"
+        },
+        {
+          "items": [
+            "No supere el techo de 16A. El adaptador admite esa corriente; planifique en consecuencia la carga total de los aparatos que conecte.",
+            "El propio cargador también pone un límite. Si la corriente ajustable de la unidad es menor, el valor que rige es ese.",
+            "No lo confunda con V2L. C2L no tiene extremo en el lado del vehículo; la compatibilidad de marca no es decisiva para C2L, porque la electricidad no viene del coche."
+          ]
+        },
+        {
+          "text": "Descubra toda la gama de adaptadores V2L, C2L y C2C.",
+          "label": "Adaptadores V2L / C2L"
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Qué es C2L y para qué sirve?",
+          "a": "C2L (Charger to Load) es un adaptador que convierte en un enchufe estándar la electricidad que toma de la salida Type 2 de una estación de carga AC. Se usa para alimentar aparatos eléctricos allí donde hay un punto de carga pero no un enchufe corriente: aparcamientos e instalaciones en campo, taller y obra, eventos y ferias, camping y jardín. Como la electricidad viene de la red y no del coche, ni siquiera hace falta que haya un vehículo eléctrico presente; el adaptador se conecta directamente a la unidad de carga. La entrada de los adaptadores C2L de Bemis es Type 2 y su corriente máxima es de 16A. En el lado de la salida hay opciones de uno, dos y tres enchufes sobre un cable de 3 metros, más una versión con enchufe industrial 5/32A y otra sin cable que se enchufa directamente."
+        },
+        {
+          "q": "¿Cuál es la diferencia entre C2L y V2L?",
+          "a": "La diferencia está en de dónde viene la electricidad. V2L (Vehicle to Load) la toma de la batería del coche; C2L (Charger to Load) la toma de la salida Type 2 de una estación de carga AC, es decir, de la red. Ambos acaban dándole un enchufe estándar, pero las consecuencias difieren. Con C2L su coche no necesita admitir V2L, la autonomía no baja y el tiempo de uso no lo limita la carga restante del coche. A cambio, C2L funciona donde hay un cargador; V2L viaja con usted allá donde vaya su coche. Por eso no son rivales sino complementos: en un punto fijo C2L, en carretera V2L."
+        },
+        {
+          "q": "Mi coche no tiene V2L, ¿puedo aun así obtener electricidad con C2L?",
+          "a": "Sí. Como C2L toma la electricidad del cargador y no del coche, su vehículo no necesita admitir V2L. De hecho, durante la conexión ni siquiera hace falta que haya un coche; el adaptador se enchufa directamente a la salida Type 2 de la unidad de carga y le da un enchufe estándar. Por eso C2L es la vía más directa para que los propietarios de coches sin V2L consigan la misma comodidad. Su única condición es disponer de un cargador AC; si tiene un punto de carga fijo en casa, en el trabajo o en el aparcamiento, esa condición ya está cumplida. Y como la electricidad viene de la red, la autonomía de su coche no pierde absolutamente nada."
+        },
+        {
+          "q": "¿Cuántos amperios puedo extraer de un adaptador C2L?",
+          "a": "Los adaptadores C2L de Bemis admiten un máximo de 16A. El límite que rige de verdad, sin embargo, es el menor de dos: esa cifra o el ajuste de corriente de su cargador. Si la corriente de la unidad está ajustada más baja, la potencia que puede extraer también lo estará. En las versiones de varias tomas, el número de enchufes no aumenta la capacidad total; todos los aparatos que conecte a dos o tres tomas comparten el mismo techo de 16A. Por eso planifique la carga total desde el principio si piensa usar a la vez aparatos exigentes; con calefactores, soldadoras y equipos de consumo alto similares, quedarse en un solo aparato es lo más seguro."
+        },
+        {
+          "q": "¿Qué adaptador necesito para alimentar una caravana desde un punto de carga?",
+          "a": "Para eso se usa el adaptador C2C (Charger to Caravan). Adapta la salida Type 2 monofásica de 16A del cargador, a través de un cable de 3 metros, a la conexión CEE 3/16A por la que se alimenta la caravana, de modo que pueda alimentarla desde un punto de carga del camping. Viene de la misma familia que C2L y toma la electricidad igualmente del cargador, no del coche. No debe confundirse con V2L: en V2L la fuente es la batería del coche, mientras que en C2C es la red. Averiguar de antemano qué conexión ofrece el camping le permite llevar el adaptador correcto y no tener que improvisar allí."
+        },
+        {
+          "q": "¿Importa la marca del coche al elegir un adaptador C2L?",
+          "a": "No. C2L no tiene extremo en el lado del vehículo; como la electricidad viene del cargador, la marca del coche no es decisiva al elegir C2L. La distinción por marca solo se aplica en el lado V2L, donde el extremo que se enchufa al coche cambia según la marca y un conector que no encaja no entra físicamente. Al elegir C2L se mira otra cosa: cuántos enchufes quiere, si necesita un enchufe industrial 5/32A, si va a llevar el aparato lejos del punto de carga y si su carga total se mantiene por debajo del techo de 16A."
+        }
+      ],
+      "related": [
+        {
+          "label": "Adaptadores V2L / C2L"
+        },
+        {
+          "label": "Cómo elegir un adaptador V2L"
+        },
+        {
+          "label": "¿Qué coches tienen V2L en Türkiye?"
+        },
+        {
+          "label": "Cómo usar V2L con el Ioniq 5"
+        }
+      ]
     }
   },
   "ar": {
@@ -23441,6 +23915,164 @@
           "label": "V2L مع Togg: كهرباء من السيارة"
         }
       ]
+    },
+    "c2l-nedir-v2l-den-farki": {
+      "title": "ما هو C2L؟ الفرق عن V2L وأخذ الكهرباء من جهاز الشحن",
+      "metaTitle": "ما هو C2L وما الفرق بينه وبين V2L؟",
+      "description": "محوّل C2L يأخذ الكهرباء من جهاز الشحن لا من بطارية السيارة. كيف تحصل على مقبس حتى لو لم تدعم سيارتك V2L، وأين يُستخدم وما حدوده.",
+      "excerpt": "V2L يأخذ الكهرباء من بطارية سيارتك، أما C2L فمن جهاز الشحن على الجدار. هذا هو الفرق كله في جملة واحدة، لكن النتائج مختلفة تمامًا: C2L لا ينقص المدى أبدًا ويعمل حتى لو لم تدعم سيارتك V2L.",
+      "category": "تقني",
+      "body": [
+        {
+          "text": "معظم من يبحث عن محوّل V2L يصادف عند نقطة ما محوّل C2L فيخلط بينهما. الاسمان متشابهان فيُظنّ أنهما نسختان من شيء واحد؛ غير أن فرقهما الجوهري في مصدر الكهرباء: من أين تأتي. وهذا الفرق هو نفسه ما يحدّد أيّهما سيؤدي لك الغرض."
+        },
+        {
+          "text": "الفرق في جملة واحدة"
+        },
+        {
+          "text": "V2L (Vehicle to Load) يأخذ الكهرباء من بطارية السيارة. أما C2L (Charger to Load) فيأخذها من مخرج Type 2 في محطة شحن AC؛ أي أن المصدر ليس السيارة بل جهاز الشحن على الجدار والشبكة خلفه. وكلاهما يمنحك في النهاية مقبسًا عاديًا، لكن أحدهما يقتطع من مدى سيارتك والآخر لا."
+        },
+        {
+          "text": "لهذا الفرق ثلاث نتائج عملية"
+        },
+        {
+          "items": [
+            "لا يلزم أن تدعم سيارتك V2L. فلأن C2L يتصل بجهاز الشحن، لا حاجة لأن تدعم السيارة هذه الخاصية؛ بل لا يلزم وجود سيارة أصلًا.",
+            "المدى لا ينقص. فالكهرباء تأتي من الشبكة، فلا يُستهلك شيء من البطارية؛ وتجد سيارتك مشحونة في الصباح.",
+            "مدة التشغيل ليست محدودة بالبطارية. ففي V2L يكون السقف هو الشحن المتبقي في السيارة؛ أما في C2L فالمصدر هو الشبكة، فيسقط هذا القيد."
+          ]
+        },
+        {
+          "text": "في المقابل لـ C2L شرطه الخاص: وجود جهاز شحن AC. فمهما ابتعدت السيارة يمكن حمل V2L معك؛ أما C2L فيعمل حيث توجد نقطة الشحن."
+        },
+        {
+          "text": "أين يفيد؟"
+        },
+        {
+          "text": "نرى C2L مستخدمًا أكثر ما يكون حيث تتوفر الكهرباء أصلًا على هيئة نقطة شحن ولا يوجد مقبس عادي:"
+        },
+        {
+          "items": [
+            "المواقف والتركيبات الميدانية: توجد وحدة شحن لكن لا مقبس في الجدار، ويلزم تغذية إنارة أو عدّة يدوية أو جهاز قياس.",
+            "الورشة وموقع البناء: نقطة الشحن موجودة ويلزم نقل الكهرباء إلى منطقة عمل مؤقتة.",
+            "الفعاليات والمعارض: تغذية متعددة من نقطة توصيل واحدة لجناح مؤقت وإنارة ومعدات صغيرة.",
+            "التخييم والحديقة: تشغيل الأجهزة من نقطة الشحن؛ أما في جانب الكرافان فيتولّى المهمة محوّل C2C."
+          ]
+        },
+        {
+          "text": "أشكال محوّل C2L"
+        },
+        {
+          "text": "مدخل محوّلات Bemis C2L هو Type 2 (مخرج جهاز الشحن)، وأقصى تيار له 16A. وفي جانب المخرج أربعة خيارات:"
+        },
+        {
+          "caption": "خيارات محوّل C2L",
+          "headers": [
+            "الشكل",
+            "المخرج",
+            "الكابل",
+            "الاستخدام النموذجي"
+          ],
+          "rows": [
+            [
+              "تمديد بمقبس واحد",
+              "1 مقبس",
+              "3 m",
+              "جهاز واحد"
+            ],
+            [
+              "تمديد 2 مقبس",
+              "2 مقبس",
+              "3 m",
+              "جهازان في وقت واحد"
+            ],
+            [
+              "تمديد 3 مقابس",
+              "3 مقابس",
+              "3 m",
+              "ميدان · فعالية · ورشة"
+            ],
+            [
+              "بمقبس صناعي",
+              "5/32A CEE",
+              "3 m",
+              "معدات البناء والصناعة"
+            ]
+          ]
+        },
+        {
+          "text": "كما يوجد إصدار بلا كابل يُركَّب مباشرة ويحمل مخرجًا واحدًا. وزيادة المقابس لا تزيد السعة: فالحمل الإجمالي يتقاسم السقف نفسه 16A، فلا تتوقّع أن تتجاوز هذا الحدّ إجمالًا بتوصيل مدفأتين في مقبسين."
+        },
+        {
+          "text": "C2C: المقابل في جانب الكرافان"
+        },
+        {
+          "text": "ما يبحث عنه مستخدمو الكرافان هو محوّل C2C (Charger to Caravan). فهو يوائم مخرج Type 2 في جهاز الشحن مع الوصلة الصناعية 3/16A التي يُغذّى منها الكرافان، فيصبح ممكنًا تغذية الكرافان من نقطة شحن في المخيّم. ومعرفة الوصلة المتاحة في المخيّم مسبقًا تجعلك تصطحب المحوّل الصحيح."
+        },
+        {
+          "text": "أيّهما ينبغي أن تشتري؟"
+        },
+        {
+          "text": "القرار يعود في الحقيقة إلى سؤال واحد: من أين ستأتي الكهرباء؟ من بطارية سيارتك فـ V2L؛ من جهاز شحن فـ C2L؛ ولتغذية كرافان فـ C2C. فإن كانت سيارتك تدعم V2L وكنت تقصد كثيرًا أماكن بلا نقطة شحن فاختر V2L؛ وإن كانت لديك نقطة شحن ثابتة وأردت الحفاظ على مدى سيارتك فـ C2L أنسب."
+        },
+        {
+          "text": "واستخدام الاثنين معًا شائع أيضًا: في البيت أو العمل C2L، وفي الطريق V2L. أما في جانب V2L فقد شرحنا في دليل منفصل خطوة بخطوة اختيار الطرف الذي ينقسم بحسب مجموعة العلامة."
+        },
+        {
+          "text": "ثلاث نقاط تستحق الانتباه"
+        },
+        {
+          "items": [
+            "لا تتجاوز سقف 16A. المحوّل يتحمّل هذا التيار؛ فخطّط الحمل الإجمالي للأجهزة التي ستوصّلها على هذا الأساس.",
+            "جهاز الشحن نفسه يضع حدًّا أيضًا. فإن كان التيار القابل للضبط في الوحدة أقل، فالقيمة السارية هي تلك.",
+            "لا تخلط بينه وبين V2L. فـ C2L ليس له طرف في جهة السيارة؛ وتوافق العلامة ليس حاسمًا في C2L لأن الكهرباء لا تأتي من السيارة."
+          ]
+        },
+        {
+          "text": "تصفّح مجموعة محوّلات V2L و C2L و C2C كاملةً.",
+          "label": "محوّلات V2L / C2L"
+        }
+      ],
+      "faq": [
+        {
+          "q": "ما هو C2L وما فائدته؟",
+          "a": "C2L (Charger to Load) محوّل يحوّل الكهرباء التي يأخذها من مخرج Type 2 في محطة شحن AC إلى مقبس عادي. يُستخدم لتشغيل الأجهزة الكهربائية حيث توجد نقطة شحن ولا يوجد مقبس عادي: المواقف والتركيبات الميدانية، والورشة وموقع البناء، والفعاليات والمعارض، والتخييم والحديقة. ولأن الكهرباء تأتي من الشبكة لا من السيارة فلا يلزم حتى وجود سيارة كهربائية؛ إذ يتصل المحوّل مباشرة بوحدة الشحن. ومدخل محوّلات Bemis C2L هو Type 2 وأقصى تيار له 16A. وفي جانب المخرج خيارات بمقبس واحد وبمقبسين وبثلاثة مقابس على كابل بطول 3 أمتار، إضافة إلى إصدار بمقبس صناعي 5/32A وآخر بلا كابل يُركَّب مباشرة."
+        },
+        {
+          "q": "ما الفرق بين C2L و V2L؟",
+          "a": "الفرق في مصدر الكهرباء. فـ V2L (Vehicle to Load) يأخذها من بطارية السيارة؛ أما C2L (Charger to Load) فيأخذها من مخرج Type 2 في محطة شحن AC، أي من الشبكة. وكلاهما يمنحك في النهاية مقبسًا عاديًا لكن النتائج تختلف. فمع C2L لا يلزم أن تدعم سيارتك V2L، ولا ينقص المدى، ولا تكون مدة التشغيل محدودة بالشحن المتبقي في السيارة. في المقابل يعمل C2L حيث يوجد جهاز شحن؛ بينما يسافر V2L معك أينما ذهبت سيارتك. لذلك فهما ليسا متنافسين بل متكاملان: عند النقطة الثابتة C2L، وفي الطريق V2L."
+        },
+        {
+          "q": "سيارتي لا تدعم V2L — هل يمكنني مع ذلك أخذ الكهرباء عبر C2L؟",
+          "a": "نعم. فلأن C2L يأخذ الكهرباء من جهاز الشحن لا من السيارة، لا يلزم أن تدعم سيارتك V2L. بل لا يلزم وجود سيارة أصلًا أثناء التوصيل؛ إذ يُركَّب المحوّل مباشرة في مخرج Type 2 لوحدة الشحن ويمنحك مقبسًا عاديًا. ولهذا فإن C2L هو أقصر طريق لأصحاب السيارات التي لا تدعم V2L للحصول على العملية نفسها. وشرطه الوحيد توفّر جهاز شحن AC؛ فإن كانت لديك نقطة شحن ثابتة في البيت أو العمل أو الموقف فالشرط متحقّق أصلًا. ولأن الكهرباء تأتي من الشبكة فلا يفقد مدى سيارتك شيئًا على الإطلاق."
+        },
+        {
+          "q": "كم أمبيرًا يمكنني سحبه من محوّل C2L؟",
+          "a": "محوّلات Bemis C2L تتحمّل 16A كحدّ أقصى. غير أن الحدّ الساري فعليًا هو الأدنى من اثنين: هذه القيمة أو ضبط التيار في جهاز الشحن لديك. فإن كان تيار الوحدة مضبوطًا على قيمة أقل فستكون القدرة المسحوبة أقل كذلك. وفي الإصدارات متعددة المقابس لا يزيد عدد المقابس السعة الإجمالية؛ فكل الأجهزة الموصولة بمقبسين أو ثلاثة تتقاسم السقف نفسه 16A. لذلك خطّط الحمل الإجمالي من البداية إن كنت تنوي تشغيل أجهزة عالية الاستهلاك في وقت واحد؛ ومع المدافئ وآلات اللحام وما شابهها من معدات عالية السحب يبقى الاكتفاء بجهاز واحد أكثر أمانًا."
+        },
+        {
+          "q": "أي محوّل ألزم لتغذية كرافان من نقطة شحن؟",
+          "a": "يُستخدم لذلك محوّل C2C (Charger to Caravan). فهو يوائم مخرج Type 2 أحادي الطور بتيار 16A في جهاز الشحن، عبر كابل بطول 3 أمتار، مع وصلة CEE 3/16A التي يُغذّى منها الكرافان، فتستطيع تغذية كرافانك من نقطة شحن في المخيّم. وهو من عائلة C2L نفسها ويأخذ الكهرباء كذلك من جهاز الشحن لا من السيارة. ولا ينبغي الخلط بينه وبين V2L: ففي V2L يكون المصدر بطارية السيارة، أما في C2C فالشبكة. ومعرفة الوصلة المتاحة في المخيّم مسبقًا تجعلك تصطحب المحوّل الصحيح ولا تضطر إلى ارتجال حلّ في الموقع."
+        },
+        {
+          "q": "هل تهمّ علامة السيارة عند اختيار محوّل C2L؟",
+          "a": "لا. فـ C2L ليس له طرف في جهة السيارة؛ ولأن الكهرباء تأتي من جهاز الشحن فإن علامة السيارة ليست حاسمة عند اختيار C2L. والتمييز بحسب العلامة يسري في جانب V2L وحده، حيث يتغيّر الطرف الذي يدخل في السيارة بحسب العلامة والقابس غير المطابق لا يدخل ماديًا. أما عند اختيار C2L فيُنظر إلى غير ذلك: كم مقبسًا تريد، وهل تحتاج مقبسًا صناعيًا 5/32A، وهل ستنقل الجهاز بعيدًا عن نقطة الشحن، وهل يبقى حملك الإجمالي دون سقف 16A."
+        }
+      ],
+      "related": [
+        {
+          "label": "محوّلات V2L / C2L"
+        },
+        {
+          "label": "كيف تختار محوّل V2L"
+        },
+        {
+          "label": "أي السيارات تدعم V2L في تركيا؟"
+        },
+        {
+          "label": "كيف تستخدم V2L مع Ioniq 5"
+        }
+      ]
     }
   },
   "ru": {
@@ -29300,6 +29932,164 @@
         },
         {
           "label": "V2L с Togg: электричество от автомобиля"
+        }
+      ]
+    },
+    "c2l-nedir-v2l-den-farki": {
+      "title": "Что такое C2L? Отличие от V2L и электричество от зарядного устройства",
+      "metaTitle": "Что такое C2L и чем он отличается от V2L?",
+      "description": "Адаптер C2L берёт электричество не из батареи автомобиля, а от зарядного устройства. Как получить розетку, даже если в машине нет V2L, где это применяется и каковы ограничения.",
+      "excerpt": "V2L берёт электричество из батареи вашего автомобиля, C2L — от зарядного устройства на стене. В одном предложении это всё отличие, но последствия совсем разные: C2L никогда не уменьшает запас хода и работает даже без V2L в машине.",
+      "category": "Техника",
+      "body": [
+        {
+          "text": "Почти каждый, кто присматривается к адаптеру V2L, рано или поздно натыкается на C2L и путает эти два понятия. Названия похожи, поэтому их принимают за две версии одного и того же; между тем главное различие в том, ОТКУДА берётся электричество. Именно оно и решает, что справится с вашей задачей."
+        },
+        {
+          "text": "Отличие в одном предложении"
+        },
+        {
+          "text": "V2L (Vehicle to Load) берёт электричество из батареи автомобиля. C2L (Charger to Load) берёт его с выхода Type 2 зарядной станции AC; то есть источник — не машина, а зарядное устройство на стене и сеть за ним. Оба в итоге дают вам обычную розетку, но одно расходует запас хода вашей машины, а другое нет."
+        },
+        {
+          "text": "У этого различия три практических следствия"
+        },
+        {
+          "items": [
+            "Вашему автомобилю не обязательно иметь V2L. Поскольку C2L подключается к зарядному устройству, машине не нужно поддерживать эту функцию; более того, автомобиля рядом может вообще не быть.",
+            "Запас хода не уменьшается. Электричество приходит из сети, поэтому из батареи ничего не расходуется; утром вы находите машину заряженной.",
+            "Время работы не ограничено батареей. В случае V2L потолок — остаток заряда автомобиля; в случае C2L источником служит сеть, и это ограничение исчезает."
+          ]
+        },
+        {
+          "text": "Взамен у C2L есть собственное условие: должно быть зарядное устройство AC. Как бы далеко ни уехала машина, V2L можно возить с собой; C2L работает там, где есть зарядная точка."
+        },
+        {
+          "text": "Где это пригодится?"
+        },
+        {
+          "text": "Чаще всего C2L используют там, где электричество уже есть в виде зарядной точки, но обычной розетки нет:"
+        },
+        {
+          "items": [
+            "Парковки и выездные монтажи: зарядная стойка есть, а розетки на стене нет, при этом нужно запитать освещение, ручной инструмент или измерительный прибор.",
+            "Мастерская и стройка: зарядная точка имеется, электричество нужно донести до временной рабочей зоны.",
+            "Мероприятия и выставки: несколько потребителей от одной точки подключения — стенд, освещение и мелкое оборудование.",
+            "Кемпинг и сад: питание приборов от зарядной точки; на стороне автодома в дело вступает адаптер C2C."
+          ]
+        },
+        {
+          "text": "Исполнения адаптера C2L"
+        },
+        {
+          "text": "Вход адаптеров Bemis C2L — Type 2 (выход зарядного устройства), максимальный ток 16A. На стороне выхода есть четыре варианта:"
+        },
+        {
+          "caption": "Варианты адаптера C2L",
+          "headers": [
+            "Исполнение",
+            "Выход",
+            "Кабель",
+            "Типичное применение"
+          ],
+          "rows": [
+            [
+              "Удлинитель, одна розетка",
+              "1 розетка",
+              "3 m",
+              "Одно устройство"
+            ],
+            [
+              "Удлинитель, 2 розетки",
+              "2 розетки",
+              "3 m",
+              "Два устройства одновременно"
+            ],
+            [
+              "Удлинитель, 3 розетки",
+              "3 розетки",
+              "3 m",
+              "Выезд · мероприятие · мастерская"
+            ],
+            [
+              "С промышленной розеткой",
+              "5/32A CEE",
+              "3 m",
+              "Строительное и промышленное оборудование"
+            ]
+          ]
+        },
+        {
+          "text": "Есть также исполнение без кабеля, которое вставляется напрямую и несёт одну розетку. Больше розеток не значит больше мощности: суммарная нагрузка делит один и тот же потолок 16A, так что не ждите, что, включив два обогревателя в две розетки, вы превысите этот предел в сумме."
+        },
+        {
+          "text": "C2C: соответствие на стороне автодома"
+        },
+        {
+          "text": "Владельцы автодомов ищут адаптер C2C (Charger to Caravan). Он приводит выход Type 2 зарядного устройства к промышленному разъёму 3/16A, через который питается автодом, благодаря чему автодом можно запитать от зарядной точки на кемпинге. Если заранее выяснить, какой разъём есть на площадке, вы возьмёте с собой правильный адаптер."
+        },
+        {
+          "text": "Что же выбрать?"
+        },
+        {
+          "text": "Решение на самом деле сводится к одному вопросу: откуда пойдёт электричество? Из батареи вашего автомобиля — V2L; от зарядного устройства — C2L; для питания автодома — C2C. Если в машине есть V2L и вы часто бываете там, где нет зарядной точки, берите V2L; если у вас есть стационарная зарядная точка и вы хотите сберечь запас хода, лучше подходит C2L."
+        },
+        {
+          "text": "Использовать оба тоже обычное дело: дома или на работе C2L, в дороге V2L. Что до стороны V2L, выбор разъёма, разделённый по группам марок, мы разобрали по шагам в отдельном руководстве."
+        },
+        {
+          "text": "Три момента, за которыми стоит следить"
+        },
+        {
+          "items": [
+            "Не превышайте потолок 16A. Адаптер рассчитан на этот ток; планируйте суммарную нагрузку подключаемых устройств соответственно.",
+            "Само зарядное устройство тоже ставит предел. Если регулируемый ток станции ниже, действует именно это значение.",
+            "Не путайте с V2L. У C2L нет конца со стороны автомобиля; совместимость с маркой для C2L не решает ничего, ведь электричество приходит не от машины."
+          ]
+        },
+        {
+          "text": "Посмотрите весь ассортимент адаптеров V2L, C2L и C2C.",
+          "label": "Адаптеры V2L / C2L"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Что такое C2L и для чего он нужен?",
+          "a": "C2L (Charger to Load) — это адаптер, который превращает электричество, взятое с выхода Type 2 зарядной станции AC, в обычную розетку. Его применяют там, где зарядная точка есть, а обычной розетки нет: парковки и выездные монтажи, мастерская и стройка, мероприятия и выставки, кемпинг и сад. Поскольку электричество идёт из сети, а не от машины, электромобиля рядом может вообще не быть; адаптер подключается прямо к зарядной стойке. Вход адаптеров Bemis C2L — Type 2, максимальный ток 16A. На стороне выхода есть варианты с одной, двумя и тремя розетками на кабеле длиной 3 метра, а также исполнение с промышленной розеткой 5/32A и вариант без кабеля с одной розеткой."
+        },
+        {
+          "q": "Чем отличаются C2L и V2L?",
+          "a": "Отличие в том, откуда берётся электричество. V2L (Vehicle to Load) берёт его из батареи автомобиля; C2L (Charger to Load) берёт его с выхода Type 2 зарядной станции AC, то есть из сети. Оба в итоге дают вам обычную розетку, но последствия разные. С C2L вашему автомобилю не нужно поддерживать V2L, запас хода не уменьшается, а время работы не ограничено остатком заряда машины. Взамен C2L работает там, где стоит зарядное устройство; V2L едет с вами всюду, куда едет ваш автомобиль. Поэтому они не соперники, а дополняют друг друга: на стационарной точке C2L, в дороге V2L."
+        },
+        {
+          "q": "В моей машине нет V2L — смогу ли я всё же получить электричество через C2L?",
+          "a": "Да. Поскольку C2L берёт электричество не от машины, а от зарядного устройства, вашему автомобилю не нужно поддерживать V2L. Более того, во время подключения автомобиля может вообще не быть рядом; адаптер вставляется прямо в выход Type 2 зарядной стойки и даёт вам обычную розетку. Именно поэтому для владельцев машин без V2L C2L — самый прямой путь к той же практичности. Единственное условие — наличие зарядного устройства AC; если у вас есть стационарная зарядная точка дома, на работе или на парковке, условие уже выполнено. А так как электричество приходит из сети, запас хода вашей машины не теряет ровным счётом ничего."
+        },
+        {
+          "q": "Сколько ампер можно снять с адаптера C2L?",
+          "a": "Адаптеры Bemis C2L рассчитаны максимум на 16A. Однако реально действует меньшее из двух: это значение или настройка тока вашего зарядного устройства. Если ток станции выставлен ниже, ниже окажется и снимаемая мощность. В многорозеточных исполнениях число розеток не увеличивает общую ёмкость; все устройства, включённые в две или три розетки, делят один и тот же потолок 16A. Поэтому планируйте суммарную нагрузку заранее, если собираетесь одновременно включать энергоёмкие приборы; с обогревателями, сварочными аппаратами и подобным оборудованием большого потребления безопаснее всего ограничиться одним устройством."
+        },
+        {
+          "q": "Какой адаптер нужен, чтобы запитать автодом от зарядной точки?",
+          "a": "Для этого используется адаптер C2C (Charger to Caravan). Он приводит однофазный выход Type 2 на 16A зарядного устройства по кабелю длиной 3 метра к разъёму CEE 3/16A, через который питается автодом, так что вы можете запитать автодом от зарядной точки на кемпинге. Он из того же семейства, что и C2L, и точно так же берёт электричество от зарядного устройства, а не от машины. Его не следует путать с V2L: у V2L источником служит батарея автомобиля, а у C2C — сеть. Если заранее выяснить, какой разъём есть на площадке, вы возьмёте с собой правильный адаптер и не будете искать решение на месте."
+        },
+        {
+          "q": "Важна ли марка автомобиля при выборе адаптера C2L?",
+          "a": "Нет. У C2L нет конца со стороны автомобиля; поскольку электричество приходит от зарядного устройства, марка машины при выборе C2L ничего не решает. Разделение по маркам действует только на стороне V2L, где конец, вставляемый в автомобиль, зависит от марки, а неподходящий разъём физически не войдёт. При выборе C2L смотрят на другое: сколько розеток вам нужно, требуется ли промышленная розетка 5/32A, будете ли вы уносить прибор от зарядной точки и остаётся ли суммарная нагрузка ниже потолка 16A."
+        }
+      ],
+      "related": [
+        {
+          "label": "Адаптеры V2L / C2L"
+        },
+        {
+          "label": "Как выбрать адаптер V2L"
+        },
+        {
+          "label": "В каких автомобилях в Турции есть V2L?"
+        },
+        {
+          "label": "Как пользоваться V2L на Ioniq 5"
         }
       ]
     }
