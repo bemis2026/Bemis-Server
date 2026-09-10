@@ -13,6 +13,72 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🧹✅ **KUYRUK TEMİZLİĞİ — 4 GERÇEK KUSUR KAPANDI + 3 BAYAT MADDE ELENDİ (2026-09-10,
+> commit'ler 25ffe6d · 4bae836 · 37c75a5 · 8716bb0):** Kullanıcı "sıradan devam et, kalanları
+> da tamamla" dedi. **ÖNCE ÖLÇÜLDÜ, sonra yapıldı** — kuyruktaki maddelerin bir kısmı bayatmış.
+>
+> **(1) 🔴 SVG DİYAGRAMLARDAKİ TÜRKÇE — KAPANDI (25ffe6d).** 3 blog yazısı + 4 sözlük teriminin
+> gömülü SVG'lerindeki `<title>/<desc>/<text>` kodda sabit Türkçeydi; `svg` yapısal alan sayıldığı
+> için **5 yabancı dilde de Türkçe** görünüyordu. Yeni yapı: **`app/lib/diagramLabels.ts`** (etiket
+> sözlüğü, tr + en/de/es/ru/ar/nl) + `diagrams.ts` şablon + **`diyagram(id, lang)`**.
+> ⚠️ **TR çıktısı eski sabitlerle BAYT BAYT karşılaştırıldı → birebir** (regresyon imkânsız).
+> `posts.ts`'teki satır içi AC/DC figürü de tek kaynağa bağlandı (+ `figure.id`).
+> **📌 DAĞITIM YOLU:** `diagrams.ts` SUNUCU tarafındadır (posts.ts/glossary.ts üzerinden) — istemci
+> dil değiştirdiğinde çevrili SVG'yi **`data/i18n/{blog,glossary}.json`** içinden alır. Oraya
+> **`npm run gen:diagram-i18n`** (`scripts/gen-diagram-i18n.ts`) yazar: 20 figure bloğu + 24 terim
+> diyagramı. ⚠️ **Etiketi değiştirirsen bu betiği TEKRAR ÇALIŞTIR**, yoksa JSON'lar bayat kalır.
+> `blogI18n.mergeSection` figure dalı artık çevirinin kendi `svg`'sini kabul ediyor (yoksa TR'ye düşer).
+> ⚠️ SVG `<text>` SARMAZ → uzun çeviri viewBox dışında KIRPILIR; taşma taraması + 4 diyagramın
+> de/ru/ar render'ı gözle doğrulandı.
+>
+> **(2) ⚡ ÜRÜN SPEC'LERİNE FREKANS SATIRI: 50/60 Hz (4bae836).** `/ar/middle-east` "cihazlarımız
+> 50/60 Hz" diyordu (üretimden teyitli; **Suudi şebekesi 60 Hz** = Körfez argümanının en kritik
+> teknik ayrımı) ama katalogda frekans satırı **HİÇ yoktu** → iddia ürün sayfasında doğrulanamıyordu.
+> **36 aktif cihaza** (wallbox 19 + portable 10 + dc-units 7) `Elektriksel` grubunun sonuna eklendi;
+> **kablo/adaptör/priz gibi PASİF ürünlere DOKUNULMADI** (onlarda frekans spec'i olmaz).
+> **13 kaynağa pozisyonel** yazıldı: 7 repo dosyası + R2 `products` (TR) + 4 çeviri katmanı + `productsEn`.
+> Etiket katalogda hiç geçmiyordu → 7 dilde standart teknik karşılığı; değer dil-nötr "50/60 Hz".
+> store cache **v105-ar-spec → v106-frekans**. Betik: `scratchpad/_frekans_yama.mts` (kuru → `--yaz`).
+> ⚠️ `lib/store.ts` "server-only" import ettiği için betikten yüklenemez → betik **doğrudan S3/R2
+> istemcisi** kurar (`bins/<ad>.json`). Kimlik `vercel env pull .env.sentinel` ile alındı, iş bitince SİLİNDİ.
+>
+> **(3) 🔤 ARAPÇA SAYFALARDA TÜRKÇE `keywords` + BLOG DİL GEÇİŞİ (37c75a5).**
+> **(a)** `/ar/blog`, `/ar/blog/<slug>`, `/ar/sozluk`, `/ar/sozluk/<slug>` canlıda **TÜRKÇE**
+> `<meta name="keywords">` basıyordu. **Kök neden yorumun tersiydi:** rotalar "keywords BİLEREK yok"
+> diyordu — ama **Next'te vermemek = KÖK YERLEŞİMDEN MİRAS ALMAK** ve kökteki liste Türkçe.
+> Artık `arIcerik.ts` → **`AR_ANAHTAR_KELIMELER`** açıkça veriliyor (detay sayfalarında + sayfanın
+> kendi başlığı). ⓘ Google keywords meta'sını yok sayar → **sıralamaya etkisi yok**; kazanç tutarlılık
+> + Arapça sayfayı okuyan YZ tarayıcıları. **📌 KURAL: Arapça rotada bir meta alanını "vermeyerek"
+> gizleyemezsin — kök yerleşimden Türkçesi miras kalır; AÇIKÇA Arapçasını ver.**
+> **(b)** Blog YAZI sayfasında dil seçici **TR → AR yönü KAPALIYDI** (gerekçe: her yazının Arapçası
+> yok, 404 riski). 37/37 tam çevrildiği için AÇILDI. ⚠️ Slug listesi GÖMÜLMEDİ: sayfanın **kendi
+> `hreflang="ar"` alternatifi** okunuyor, o da `tamCevrildi()` kapısından geçiyor → Arapçası olmayan
+> yeni yazıda link hiç basılmaz, **404 imkânsız, elle bakım yok**.
+>
+> **(4) 🔴 `/b2b` "solutions" BLOĞU 5 DİLDE TÜRKÇE KALIYORDU (8716bb0).** Canlı ölçüm:
+> `/api/b2b?lang=ar` → **18 alan Türkçe** (4 çözümün name/subtitle/detail/specs'i). Çevirileri
+> `data/b2b-<dil>.json` içinde **ZATEN VARDI ama hiç okunmuyordu**: route bölüm-bölüm merge yapıyor
+> (`hero`/`cta`/`bayilik`/`operator`) ve **`solutions` o listede YOKTU** → `...tr` ile Türkçe geçiyordu.
+> Aynı kusur de/es/ru/nl/en'de de vardı. Yapısal alanlar (id/tagColor/accentColor) TR'den; specs dizisi
+> hizasızsa TR kalır. **📌 KURAL: `app/api/b2b/route.ts`'e yeni üst-seviye bölüm eklenirse MERGE
+> LİSTESİNE de ekle** — yoksa çeviri dosyada durur, sayfaya hiç ulaşmaz. ⚠️ Aynı sınıf hata
+> `contentLang.ts`'te de kayıtlı (yeni bölüm için kural yazılmazsa overlay yok sayılır).
+>
+> **🗑️ KUYRUKTAN ELENEN BAYAT MADDELER (ölçüldü, zaten yapılmış):** "8 basın haberi Arapça yok" →
+> `data/i18n/press.json` **8 haber × 6 dil (ar dahil)** başlık+özet taşıyor (gövde bilerek TR) ·
+> "14 sözlük rehberi çevrilmemiş" → sözlük **15 terim × 6 dil tam**, rehberler de 37/37 ·
+> "`/b2b` solutions Arapça 18 alan" → alanlar VARDI, sorun route'un merge listesiydi (madde 4).
+>
+> **⏳ KARAR BEKLEYEN — `/uretici` `/destek` `/documents` `/iletisim` ARAPÇA SAYFALARI:**
+> mekanik olarak açılabilir ama **tavsiye etmiyorum, gerekçesi kayıtlı:** `/ar` giriş sayfası
+> **üretici anlatısını + ihracat/OEM iletişimini + teklif formunu KASITLI olarak zaten taşıyor**
+> (2026-09-09 kararı). `/ar/uretici` ve `/ar/iletisim` açmak Arapça kol içinde **kendi kendini
+> yiyen (kanibalizasyon) ikinci bir sayfa** üretir. `/ar/destek` gerçek değer taşır AMA **Arapça
+> destek hattı fiilen yoksa** karşılanamayan bir vaat olur (destek TR telefon/WhatsApp).
+> `/ar/documents` ise TR/EN PDF'lerin etrafında Arapça bir kabuktur — düşük getiri.
+> **Öneri:** bu 4 sayfa yerine Körfez'de gerçek içerik/varlık doğduğunda (distribütör, ülkeye özel
+> olgu, Arapça doküman) açılsın. Kullanıcı yine de isterse sırayla yapılır.
+
 > 📸⚡ **CHARGER PRO 2 INSTAGRAM REKLAMI — ORTAK ALAN + ÜCRETSİZ YAZILIM + YÖNETİM PANELİ (2026-09-10):**
 > Kullanıcı isteği: "ortak alan kullanımına uygun, ücretsiz ortak kullanım yazılımı, sitelerde/otelde/tüm
 > ortak alanlarda **kişisel takip edilebilen admin yönetim paneli**" vurgusuyla **Charger Pro 2** reklamı.
