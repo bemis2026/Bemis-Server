@@ -13,6 +13,61 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> ⚡✅ **OCPP ÇELİŞKİSİ KAPANDI (AC = YALNIZ 1.6) + "ÜCRETSİZ YAZILIM" SİTEYE EKLENDİ (2026-09-10,
+> commit b028d52):** Kullanıcı iki kararı da çoktan seçmeli verdi.
+>
+> **(1) 🔴 SİTE ÜÇ YERDE KENDİYLE ÇELİŞİYORDU.** Ürün spec'i **16 AC wallbox'ta "OCPP 1.6"** derken
+> **(a)** anasayfa Akıllı Şarj rozeti (`smartCharger.ocppBadge`), **(b)** anasayfa **ürün vitrini**
+> (`productShowcase.specs[2]` — üst nesnenin adı **"AC Wallbox Smart Charger Pro 2"**, yani AC cihaz),
+> **(c)** `ev-icin-sarj-cihazi-nasil-secilir` yazısındaki çözüm tablosunun **AC Wallbox satırı**
+> "2.0.1" iddia ediyordu. **(b) İLK TURDA GÖZDEN KAÇTI** — rozeti düzelttikten sonra kalan `2.0.1`
+> geçişleri taranınca bulundu. 📌 **Ders: bir iddiayı düzeltirken o iddianın TÜM geçişlerini tara;
+> "rozeti düzelttim" ≠ "site tutarlı".**
+> **⚠️ DC SERİSİ KORUNDU:** BEVDC gerçekten **OCPP 1.6J / 2.0.1** destekliyor. Yamalar DC satır/ürünlerine
+> DOKUNMAZ ve bunu **yazmadan önce doğrular** (DC hücresi beklenen değeri taşımıyorsa DURUR), yazdıktan
+> sonra da **DC iddiasının hâlâ yerinde olduğunu** kontrol eder. Blog tablosunda 5 dilin satır adları
+> farklı yazıldığı için ("AC-Wallbox", "Wallbox AC", "Настенная станция AC") metne göre eşleme 3 dili
+> kaçırdı → **konuma göre** (body.13 · satır 0 · sütun 4) + başlık/değer doğrulamasıyla hedeflendi.
+>
+> **(2) 💚 "ORTAK KULLANIM YÖNETİM YAZILIMI ÜCRETSİZ" ARTIK SİTEDE.** İbare hiçbir yerde geçmiyordu ama
+> Instagram reklamında kullanılmıştı → reklamı gören siteye girince doğrulayamıyordu. Eklendi:
+> **Akıllı Şarj bölümü** "Ortak Alan Optimizasyonu" kartı (7 dil) + **Charger Pro 2 ailesi** (8 varyant)
+> ürün açıklaması (**13 kaynak**: 7 repo + R2 `products` TR + 4 çeviri katmanı + `productsEn`).
+> ⚠️ Başka hiçbir ticari şart UYDURULMADI (süre/limit/lisans yazılmadı). Güvenlik: TR kaynağında
+> **`shared` özelliği olmayan** ürüne iddia yazılmaz.
+>
+> **(3) 🔴 YAN BULGU — OCPP ROZETİ 6 YABANCI DİLDE HİÇ ÇİZİLMİYORDU.** `SmartCharger.tsx` koşulu
+> **Türkçe bir regex**'ti: `/ortak|yönet/i.test(f.title)`. Başlıklar çevrildiği için ("Common Area
+> Optimization", "Optimierung von Gemeinschaftsflächen", "تحسين المساحات المشتركة"…) 6 dilin hiçbirinde
+> eşleşmiyordu → rozet **yalnız Türkçe** görünüyordu; oysa OCPP uyumu ihracat müşterisi için satın alma
+> sinyali. `features` dizisi diller arası **pozisyonel hizalı** → TR'de eşleşen indeksi bul, eşleşme yoksa
+> TR'deki konuma düş. **📌 KURAL: bir ögenin görünürlüğünü DİLE BAĞLI METNE bağlama.**
+>
+> **📌 CANLI KAYNAK R2:** `lib/contentLang.ts` önce `readBin("content")` okur, repo `data/content.json`
+> yalnız YEDEK → hem repo hem R2 yamalandı. store cache **v106-frekans → v107-ocpp-ucretsiz**.
+> ⚠️ `data/content.json` standart girintiyle yuvarlanmıyor → JSON yeniden serileştirmek yerine ham metinde
+> **cerrahi değiştirme** (biçim bozulmaz). ⚠️ Aynı dize TR ve `_translations.en` kolunda birebir aynı
+> olabiliyor (vitrin spec'i) → "benzersiz olmalı" kuralı gevşetildi, yerine **sonuç doğrulaması** kondu.
+> Betikler: `scratchpad/_ocpp_blog_yama.cjs` · `_icerik_yama.mts` · `_ucretsiz_urun_yama.mts`
+> (kuru çalıştırma varsayılan, `--yaz` ile uygular, idempotent).
+>
+> **✅ KULLANICI KARARI — 4 ARAPÇA SAYFA AÇILMAYACAK** (`/ar/uretici` `/ar/iletisim` `/ar/destek`
+> `/ar/documents`): kullanıcı "hiçbirini açma" seçti. Gerekçe kayıtlı (kanibalizasyon + karşılanamayan
+> Arapça destek vaadi). **Bu madde KAPANDI — tekrar gündeme getirme**, Körfez'de gerçek varlık
+> (distribütör, ülkeye özel olgu, Arapça doküman) doğarsa yeniden değerlendirilir.
+>
+> **⏭️ KULLANICININ SEÇTİĞİ SIRADAKİ İÇERİK PROGRAMI (3 madde, henüz BAŞLANMADI):**
+> **(a) V2L/C2L içerik kümesi** — ölçüldü: 37 yazının **yalnız 3'ü** V2L'e özel
+> (`hangi-araclarda-v2l-var-turkiye` hub · `ioniq-5-v2l-nasil-kullanilir` · `togg-v2l-aractan-elektrik`)
+> + sözlükte `v2l` ve `c2l` terimleri var. Analitikte **en güçlü damar** (V2L adaptörü 28 günde 7→29 oturum).
+> En açık ticari boşluk: **"V2L adaptörü nasıl seçilir"** (tek/çift çıkış, amper, araca uygunluk →
+> `/products/v2l-c2l` kategorisine doğrudan bağlanır) ve **"C2L nedir, V2L'den farkı"**.
+> ⚠️ Yeni yazı = `posts.ts` + **`data/i18n/blog.json`'a 5 dilde TAM çeviri** (dizi uzunlukları birebir;
+> yoksa yabancı dilde TÜRKÇE gövde görünür ve **Arapça adres HİÇ açılmaz**) + `npm run gen:blog-index`
+> + llms.txt Rehberler + `llms-full.txt` GUIDE_SLUGS. Araç `scratchpad/_blog_tam_yama.mts`.
+> **(b) GEO alıntılanabilir cevap blokları** — kategori sayfalarına dokunur → CMS (R2 content) + 6 dil.
+> **(c) Yeni ürünlerin elle küratörlü SEO metinleri** — 31 yeni ürünün açıklaması şu an otomatik üretiliyor.
+
 > 🌍✅ **ARAYÜZ ÇEVİRİ BOŞLUĞU: 20 DİZE 5 DİLDE SESSİZCE İNGİLİZCE KALIYORDU (2026-09-10, commit
 > c7f03d3).** Kullanıcı "kalan işler varsa tamamla" dedi → önce ESKİ kuyruk maddeleri ÖLÇÜLDÜ.
 > **Bayat çıkanlar (zaten yapılmış):** (a) "footer yabancı dillerde 24/24 İngilizce" → yapı
