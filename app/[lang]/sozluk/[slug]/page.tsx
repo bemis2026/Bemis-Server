@@ -7,6 +7,7 @@ import { glossarySluglariDilde, terimBulDilde, terimlerDilde } from "../../../li
 import { arAdresi } from "../../../lib/serverBlogLang";
 
 import GlossaryClient from "../../../sozluk/GlossaryClient";
+import { AR_ANAHTAR_KELIMELER } from "../../arIcerik";
 
 // Arapça terim sayfası — /ar/sozluk/<slug>. 15 terimin Arapçası hazırdı, adresi yoktu.
 //
@@ -39,8 +40,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   return {
     title: { absolute: `${baslik} | Bemis E-V Charge` },
     description: aciklama,
-    // ⓘ `keywords` BİLEREK yok: o alan TR kaynaktan gelir (çeviri kümesinde karşılığı
-    //    yok) → Arapça sayfaya Türkçe kelimeler basardı. Google zaten yok sayıyor.
+    // ⚠️ keywords AÇIKÇA verilir: verilmezse Next KÖK YERLEŞİMİN TÜRKÇE listesini
+    //    miras alır (ölçüldü). Terimin kendi keywords'ü TR kaynakta kalır → Arapça taban + terim.
+    keywords: [baslik, ...AR_ANAHTAR_KELIMELER],
     alternates: {
       canonical,
       // ⚠️ Karşılıklı: TR terim sayfası da ar girişini verir.

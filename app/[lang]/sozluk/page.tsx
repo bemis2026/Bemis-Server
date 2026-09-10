@@ -4,6 +4,7 @@ import JsonLd from "../../components/JsonLd";
 import { breadcrumbSchema, definedTermSetSchema, ogImage, OG_URL } from "../../lib/seo";
 import { terimlerDilde } from "../../lib/serverGlossaryLang";
 import GlossaryClient from "../../sozluk/GlossaryClient";
+import { AR_ANAHTAR_KELIMELER } from "../arIcerik";
 
 // Arapça sözlük listesi — /ar/sozluk.
 //
@@ -37,6 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   return {
     title: { absolute: BASLIK },
     description: ACIKLAMA,
+    keywords: AR_ANAHTAR_KELIMELER,
     alternates: { canonical: "/ar/sozluk", languages: HREFLANG },
     openGraph: {
       title: BASLIK, description: ACIKLAMA, type: "website",

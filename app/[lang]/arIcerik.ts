@@ -36,3 +36,19 @@ export const AR_SSS: ArSss[] = [
     a: "تُقيَّم طلبات التوزيع لكل بلد على حدة. يُرجى مراسلة قسم التصدير مع ذكر بلدكم ومجال نشاطكم وحجم الأعمال المتوقّع؛ سيتواصل معكم الفريق المسؤول.",
   },
 ];
+
+/**
+ * Arapça sayfaların `<meta name="keywords">` tabanı.
+ * ⚠️ NEDEN GEREKLİ: Next'te alt rota `keywords` vermezse KÖK YERLEŞİMDEN MİRAS ALIR —
+ *    kök yerleşimin listesi TÜRKÇE. Yani "keywords vermeyerek Türkçe basmamış oluruz"
+ *    varsayımı YANLIŞ; ölçüldü, /ar/blog ve /ar/sozluk canlıda Türkçe kelime basıyordu.
+ *    (Google keywords meta'sını yok sayar → sıralamaya etkisi yok; sorun tutarlılık ve
+ *     Arapça sayfayı okuyan YZ tarayıcıları.) Arapça rotalar bunu AÇIKÇA vermeli.
+ */
+export const AR_ANAHTAR_KELIMELER = [
+  "شواحن السيارات الكهربائية",
+  "محطات شحن جدارية",
+  "شاحن سريع DC",
+  "كابل شحن Type 2",
+  "مصنّع شواحن السيارات الكهربائية",
+];

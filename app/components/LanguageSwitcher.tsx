@@ -63,11 +63,23 @@ export default function LanguageSwitcher({
       if ((pathname ?? "").startsWith("/ar/")) { setLang(code); router.push(arKolYol); return; }
     }
 
-    // ⚠️ Blog YAZI sayfasında yalnız AR → TR yönü yapılır: her yazının Arapçası YOK
-    // (rota yalnız tam çevrilmiş yazıları üretir) → TR'den /ar/blog/<slug>'a gitmek
-    // 404 riski taşır. TR karşılığı ise daima vardır.
+    // Blog YAZI sayfası — AR ↔ TR.
+    // AR → TR: TR karşılığı DAİMA vardır (kaynak dil), doğrudan gidilir.
     const arBlogYazi = (pathname ?? "").match(/^\/ar(\/blog\/[^/]+)$/);
     if (arBlogYazi && code !== "ar") { setLang(code); router.push(arBlogYazi[1]); return; }
+
+    // TR → AR: 2026-09-10'a kadar KAPALIYDI (her yazının Arapçası yoktu → 404 riski).
+    // Artık 37/37 yazı tam çevrili; yine de slug listesi GÖMÜLMEZ — sayfanın KENDİ
+    // `hreflang="ar"` alternatifi okunur. O alternate `tamCevrildi()` kapısından geçer
+    // (app/blog/[slug]/page.tsx), yani Arapçası olmayan yazıda link HİÇ basılmaz →
+    // yeni yazı eklendiğinde de 404 imkânsız, elle bakım gerekmez.
+    const trBlogYazi = (pathname ?? "").match(/^\/blog\/[^/]+$/);
+    if (trBlogYazi && code === "ar") {
+      const alt = document.querySelector('link[rel="alternate"][hreflang="ar"]')?.getAttribute("href") ?? "";
+      const yol = alt.startsWith("http") ? new URL(alt).pathname : alt;
+      if (yol.startsWith("/ar/blog/")) { router.push(yol); return; }
+      // Arapçası yoksa eski davranış: istemci tarafında çevir (tam değilse gövde TR kalır).
+    }
 
     setLang(code);
   }

@@ -5,6 +5,7 @@ import { articleSchema, faqSchema, breadcrumbSchema, ogImage, OG_URL } from "../
 import type { BlogPost } from "../../../blog/posts";
 import { arLinkleriDuzelt, yaziBulDilde, yazilarDilde } from "../../../lib/serverBlogLang";
 import BlogShell from "../../../blog/BlogShell";
+import { AR_ANAHTAR_KELIMELER } from "../../arIcerik";
 
 // Arapça rehber sayfası — /ar/blog/<slug>.
 //
@@ -41,8 +42,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   return {
     title: { absolute: `${baslik} | Bemis E-V Charge` },
     description: post.description,
-    // ⓘ `keywords` BİLEREK yok: o alan TR kaynaktan gelir (çeviri kümesinde karşılığı
-    //    yok) → Arapça sayfaya Türkçe kelimeler basardı. Google zaten yok sayıyor.
+    // ⚠️ keywords AÇIKÇA verilir: verilmezse Next KÖK YERLEŞİMİN TÜRKÇE listesini
+    //    miras alır (ölçüldü). Yazının kendi keywords'ü TR kaynakta kalır → Arapça taban + başlık.
+    keywords: [post.title, ...AR_ANAHTAR_KELIMELER],
     alternates: {
       canonical,
       // ⚠️ Karşılıklı: TR yazı sayfası da (yalnız çevirisi tamsa) ar girişini verir.
