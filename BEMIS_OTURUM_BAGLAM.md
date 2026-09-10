@@ -13,6 +13,49 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 💚⚡ **ÜCRETSİZ ORTAK ALAN YÖNETİM PANELİ — AYRIŞTIRICI ÖZELLİK OLARAK ÖNE ÇIKARILDI (2026-09-11,
+> commit'ler b1ac78f · fff5a55 · 41230a8):** Kullanıcı: *"ortak alan optimizasyonu değil ortak alan
+> yönetim paneli yaz başlığa, parantez içinde ücretsiz göster, vurgulansın, ayrıştırıcı bir özellik…
+> diğer alanlarda da bariz gösterilsin… bunu anlatan bir rehber yazı da olsun."*
+>
+> **KULLANICI KARARLARI (çoktan seçmeli):** kapsam **Charger Plus 2 + Pro 2 (16 model)** · iddia dili
+> **"güçlü ama ispatlanabilir"** · panel özellikleri = doğrulanmış liste **+ kullanıcı/daire tanımlama
+> + web & mobil birlikte** (⚠️ **faturalandırma/borçlandırma çıktısı SEÇİLMEDİ → hiçbir yerde iddia
+> EDİLMEDİ**; yazı açıkça "panel muhasebe yapmaz, muhasebenin dayanacağı veriyi üretir" diyor).
+>
+> **(1) ANASAYFA — Akıllı Şarj kartı (b1ac78f):** başlık **"Ortak Alan Optimizasyonu" → "Ortak Alan
+> Yönetim Paneli (Ücretsiz)"**, 7 dilde (8 repo hedefi + R2 content'in 7 kolu). **Parantezli ek DÜZ
+> METİN DEĞİL:** `SmartCharger.tsx` onu ayrı bir **amber rozet** olarak çizer (`UCRETSIZ_RENK #F59E0B`,
+> `accentInk` ile aydınlıkta koyulaşır; OCPP rozeti yeşil olduğu için ayrı ton). 📌 Parantez İÇERİKTE
+> durur → admin'den düzenlenebilir, her çeviri kendi parantezini taşır; parantez yoksa başlık aynen
+> basılır (güvenli geri dönüş). Yama yazmadan önce **her kolda parantezli ek olduğunu doğrular**.
+> ⚠️ `rozetIndeksi` koşulu (`/ortak|yönet/`) yeni başlıkta hâlâ eşleşiyor → OCPP rozeti doğru kartta.
+>
+> **(2) ÜRÜN TARAFI — yeni rozet `ucretsizPanel` (fff5a55):** etiket **"Ücretsiz Yönetim Paneli"**,
+> ikon `RiGiftLine`, amber. **NEDEN AYRI ROZET:** çip yalnız LABEL'ı gösterir (desc tooltip'te kalır) →
+> "ücretsiz" ancak etiketin KENDİSİNDE geçerse görünür. Mevcut `shared` rozeti kalır (o "ortak kullanım
+> var" der, bu "panel ÜCRETSİZ" der). **⚠️ GÜVENLİK KAPISI: rozet yalnız `shared` taşıyan ürüne verilir**
+> — Charger 2'de `shared` YOK, rozet almadı; betik "TR'de rozetli 16 ve shared'siz rozet 0" olmazsa DURUR.
+> "…ücretsiz sunulur." cümlesi **Plus 2'nin 8 varyantına** da eklendi (Pro 2'de zaten vardı). 13 kaynak.
+> ⚠️ İkon **iki haritaya da** (ProductDetailClient + FeaturedProducts) kaydedildi; **import listesi ayrı
+> adım** — ilk turda yalnız haritaya girdi, `tsc` yakaladı. ui.json'a 2 EN dizesi × 5 dil.
+>
+> **(3) YENİ REHBER YAZI (41230a8):** `/blog/ortak-alan-sarj-yonetim-paneli-apartman-site` — 1026 kelime ·
+> 17 blok · 6 SSS (ort. 68 kelime) · 5 iç link. **Blog 37 → 38.** Hedef aramalar: *ortak alan şarj yönetim
+> paneli · apartman şarj yönetimi · site otopark şarj cihazı · ücretsiz şarj yönetim yazılımı · kişi bazlı
+> şarj takibi · rfid kart ile şarj.*
+> **⚠️⚠️ İDDİA DİLİ — "TEK BİZ" YAZILMADI, BİLEREK:** rakip marka adı geçmiyor ve *"Türkiye'de tek"*
+> denmiyor; bunlar **Ticari Reklam Yönetmeliği'nde ispat yükü doğuran üstünlük iddialarıdır** ve şikâyet
+> hâlinde belge istenir. Yerine **sektör normuna atıf + kendi olgumuz**: *"şarj yönetim yazılımları
+> sektörde genellikle cihaz başına aylık abonelik ya da yıllık lisansla sunulur; Bemis'te ortak alan
+> yönetim paneli ücretsizdir."* Fark net kuruluyor, iddia savunulabilir kalıyor.
+> **📌 Yeni yazı eklerken ön kontrol betiği: `scratchpad/_yazi_ekle.cjs`** — slug benzersiz · iç linkler
+> GERÇEK yazılara · rakip marka 0 · para birimi/fiyat 0 · ispatlanamaz üstünlük iddiası 0 · blok tipleri
+> geçerli · `&amp;` kaçağı yok. Biri düşerse hiçbir şey yazılmaz.
+> **ÇEVİRİ:** 5 dil TAM (`_blog_tam_yama.mts` 7 ön kontrolü geçti). ⚠️ `npm run gen:blog-index`
+> **çeviriden SONRA tekrar** çalıştırıldı — indeks yabancı dil başlıklarını `blog.json`'dan gömüyor,
+> önce çalıştırılırsa başlıklar TR kalır. llms.txt Rehberler + `llms-full.txt` GUIDE_SLUGS elle eklendi.
+
 > ✅✅ **2026-09-11 KULLANICI TEYİDİ — DC SATIŞI DURDURULMADI, TAM GAZ DEVAM:** kullanıcı sorulunca
 > *"hayır satışı durdurmaktan vazgeçtik, her şey tam gaz devam etmeli"* dedi. **Yani "DC satışı durdu"
 > bilgisi ARTIK GEÇERSİZ.** Site, sitemap, katalog beslemesi (Merchant/Meta) ve reklam yüzeyi DC
