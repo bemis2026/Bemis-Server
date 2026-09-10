@@ -13,6 +13,38 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 📸⚡ **CHARGER PRO 2 INSTAGRAM REKLAMI — ORTAK ALAN + ÜCRETSİZ YAZILIM + YÖNETİM PANELİ (2026-09-10):**
+> Kullanıcı isteği: "ortak alan kullanımına uygun, ücretsiz ortak kullanım yazılımı, sitelerde/otelde/tüm
+> ortak alanlarda **kişisel takip edilebilen admin yönetim paneli**" vurgusuyla **Charger Pro 2** reklamı.
+> **ÇIKTI (Masaüstü, depoya GİRMEDİ):** `Bemis_Pro2_Instagram_Post_1080x1080.png` +
+> `Bemis_Pro2_Instagram_Hikaye_1080x1920.png`. Üretici: **`scratchpad/_reklam2_uret.cjs`** (sharp + SVG),
+> varlık indirici `_reklam2_varlik.cjs` → `scratchpad/reklam2/`.
+> **GÖRSELLER GERÇEK:** arka plan = sitedeki **referans proje fotoğrafı** (`content.referenceProjectsSection`
+> 3. görsel — duvara monteli Charger Pro, gece, araçlı; ortak otopark hissi) · ön plan = katalogdaki
+> **Charger Pro 2 render'ı** (`charger-pro-2-kablolu` image) · logo `public/logo-white.png`.
+> **METİN TAMAMEN SİTEDEKİ OLGULARDAN** (uydurma yok): "Ortak Kullanım = ortak alanlarda çok kullanıcılı
+> yönetim ve raporlama" + "RFID kart ile yetkili erişim" + "Dinamik Yük Dengeleme" (`lib/productFeatures.ts`),
+> "3,7 - 22 kW" (ürün spec'i), `smartCharger.subheading` ("site, AVM ve otopark gibi ortak kullanım alanları").
+> **🎨 YENİ ÖGE — "ŞARJ YÖNETİM PANELİ" KARTI:** SVG ile çizilen dashboard görseli (başlık + CANLI rozeti +
+> 3 KPI + daire/oda · RFID kart · kWh satırları). Sitedeki `AppMockups.tsx` WebScreen deseninin sade
+> karşılığı; **değerler ÖRNEK (mockup) veridir**. ⏳ Gerçek panelden ekran görüntüsü gelirse yerine konmalı.
+> **⚠️⚠️ İKİ GERÇEK BULGU — İKİSİ DE AÇIK:**
+> **(1) "ÜCRETSİZ" İBARESİ SİTEDE HİÇBİR YERDE GEÇMİYOR** (arandı: content/products/lib → 0). Kullanıcı
+> sözlü olarak verdiği için reklamda kullanıldı, ama **reklam sitenin desteklemediği bir ticari iddia
+> taşıyor** → ilgilenen kişi siteye girince göremiyor. En güçlü satış argümanı olduğu için siteye de
+> (Akıllı Şarj bölümü + Charger Pro 2 açıklaması) eklenmeli. **Kullanıcıya bildirildi, karar bekliyor.**
+> **(2) 🔴 SİTE KENDİYLE ÇELİŞİYOR — OCPP SÜRÜMÜ:** Charger Pro 2 **ÜRÜN sayfası spec'i "OCPP 1.6"** diyor,
+> **anasayfa rozeti (`smartCharger.ocppBadge`) Charger serisi için "OCPP 1.6 / 2.0.1 Uyumlu"** diyor.
+> Reklamda ÜRÜN sayfasına sadık kalındı → çip **"OCPP 1.6 UYUMLU"**. Doğrusu 2.0.1'i de kapsıyorsa hem
+> ürün spec'i hem reklam güncellenmeli (DC serisi zaten "OCPP 1.6J / 2.0.1" taşıyor). **Karar bekliyor.**
+> **📌 TASARIM DERSLERİ (bu turda ölçümle yakalandı):** (a) logo `logo-white.png` 1980×1399 → genişlik 212'de
+> yüksekliği **150 px**; eyebrow'u logonun altına koyarken bunu hesapla, yoksa "E-V CHARGE" satırıyla ÇAKIŞIR
+> (ilk turda çakıştı). (b) Hikayede H1 "CHARGER PRO 2" 74 px ≈ **570 px** genişlik → ürün kesimi x=646'da
+> iken "2" cihazın üstüne biniyordu; kesim x=740'a alındı. **Her turda ilk render'ı GÖZLE kontrol et.**
+> (c) Segoe UI Türkçe karakterleri (ğ/ı/ş/İ/Ş/Ğ/ü/ö/ç) sorunsuz çiziyor — önce boş tuvale test bas.
+> ⚠️ Rakip marka YOK · uydurma fiyat/iskonto/teslim süresi YOK · "ÇANTA HEDİYELİ" rozetli kablo görseli
+> (teyit edilmemiş kampanya) KULLANILMADI — 2026-09-09 turundaki kurallar aynen geçerli.
+
 > 📚✅✅ **BLOG ÇEVİRİSİ KAPANDI — 37 YAZI × 5 DİL TAM (2026-09-10, commit'ler 44ff21e → ff432c1):**
 > 2026-09-09'da ölçülen kusur ("en/de/es/ru dillerinde 37 yazının 19'u hâlâ TÜRKÇE gövdeyle görünüyor")
 > **tamamen giderildi.** Son tablo: **en/de/es/ru/ar → 37 tam · 0 yalnız-başlık · 0 bayat · 0 yok.**
