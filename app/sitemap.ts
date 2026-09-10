@@ -1,4 +1,3 @@
-import { kategoriGizli } from "./lib/gizliKategoriler";
 import type { MetadataRoute } from "next";
 import { getServerProducts } from "./lib/server-content";
 import { allPosts } from "./blog/posts";
@@ -11,12 +10,6 @@ const BASE = "https://www.bemisevcharge.com.tr";
 
 // Static categories — order + slugs are stable so this list doubles
 // as the source of truth for the canonical kategori URL set.
-// ⚠️ Bu liste ELLE yazılıdır — katalog filtresi (getServerProducts) buraya
-// ULAŞMAZ. Satışı durdurulan kategori yalnız ürün adreslerinden düşer, KATEGORİ
-// adresi sitemap'te kalırdı (2026-09-10'da tam olarak bu oldu: dc-units'in 7
-// dildeki kategori adresi + 49 hreflang alternatifi sitemap'te duruyordu, oysa
-// adres 307 ile /products'a gidiyor → "yönlendirilen adres sitemap'te" uyarısı).
-// 📌 Yeni kategori eklerken buraya da ekle; gizlerken gizliKategoriler.ts yeter.
 const CATEGORY_IDS = [
   "wallbox",
   "portable",
@@ -26,7 +19,7 @@ const CATEGORY_IDS = [
   "charger-equipment",
   "accessories",
   "dc-units",
-].filter((id) => !kategoriGizli(id));
+];
 
 // Next.js's MetadataRoute.Sitemap accepts an `images` field on every
 // entry; when present it emits the standard image sitemap extension

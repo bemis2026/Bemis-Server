@@ -1,4 +1,3 @@
-import { kategoriGizli } from "../../../lib/gizliKategoriler";
 import type { Metadata } from "next";
 import type { ComponentProps } from "react";
 import { notFound } from "next/navigation";
@@ -19,11 +18,7 @@ import ProductCategoryClient from "../../../products/[id]/ProductCategoryClient"
 export const dynamicParams = false;
 export const revalidate = 86400;
 
-// ⚠️ ELLE yazılı liste — katalog filtresi buraya ulaşmaz. Satışı durdurulan
-// kategori prerender EDİLMEZ (app/lib/gizliKategoriler.ts); zaten next.config
-// onu 307 ile /<dil>/products'a yönlendiriyor.
-const CATEGORY_IDS = ["wallbox", "portable", "cables", "v2l-c2l", "converters", "charger-equipment", "accessories", "dc-units"]
-  .filter((id) => !kategoriGizli(id));
+const CATEGORY_IDS = ["wallbox", "portable", "cables", "v2l-c2l", "converters", "charger-equipment", "accessories", "dc-units"];
 
 export function generateStaticParams() {
   return LOCALE_LANGS.flatMap((lang) => CATEGORY_IDS.map((id) => ({ lang, id })));
