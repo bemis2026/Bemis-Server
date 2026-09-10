@@ -103,6 +103,25 @@ export async function GET(req: NextRequest) {
       const capabilities = trCap.map((c, i) => ({ ...c, ...(enCap[i] ?? {}) }));
       return { ...trO, ...enO, capabilities };
     })(),
+    // ⚠️ 2026-09-10: `solutions` bu listede YOKTU → `...tr` ile TÜRKÇE geçiyordu.
+    //    Ölçüm: canlı /api/b2b?lang=ar'da 18 alan Türkçe (4 çözümün name/subtitle/
+    //    detail/specs'i) — oysa data/b2b-<dil>.json'da çevirileri VARDI, hiç okunmuyordu.
+    //    Yapısal alanlar (id, tagColor, accentColor) TR'den; metin overlay'den. Pozisyonel.
+    solutions: (() => {
+      const trS = Array.isArray(tr.solutions) ? (tr.solutions as Rec[]) : [];
+      const enS = Array.isArray(enFromBin.solutions) ? (enFromBin.solutions as Rec[]) : [];
+      return trS.map((s, i) => {
+        const o = (enS[i] ?? {}) as Rec;
+        const trSpecs = Array.isArray(s.specs) ? (s.specs as unknown[]) : [];
+        const enSpecs = Array.isArray(o.specs) ? (o.specs as unknown[]) : [];
+        return {
+          ...s,
+          ...o,
+          id: s.id, tagColor: s.tagColor, accentColor: s.accentColor,   // kimlik/tasarım TR'den
+          specs: enSpecs.length === trSpecs.length ? enSpecs : trSpecs,  // hizasızsa TR kalır
+        };
+      });
+    })(),
   };
 
   return NextResponse.json(merged);
