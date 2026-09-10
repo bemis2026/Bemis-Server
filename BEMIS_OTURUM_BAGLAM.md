@@ -13,6 +13,29 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🌍✅ **ARAYÜZ ÇEVİRİ BOŞLUĞU: 20 DİZE 5 DİLDE SESSİZCE İNGİLİZCE KALIYORDU (2026-09-10, commit
+> c7f03d3).** Kullanıcı "kalan işler varsa tamamla" dedi → önce ESKİ kuyruk maddeleri ÖLÇÜLDÜ.
+> **Bayat çıkanlar (zaten yapılmış):** (a) "footer yabancı dillerde 24/24 İngilizce" → yapı
+> 2026-08-01'de tek diziye çevrilmiş, `pickText` ile çevriliyor; (b) "14 dökümanda `coverUrl` yok"
+> → **14/14 kapaklı**; (c) "13 ürünün fotoğrafı yok" → canlı katalog **150 ürün, görselsiz 0**,
+> Meta beslemesi 150/150 görselli · benzersiz id 150 · 50 karakteri aşan id 0 · TRY · KDV %20 dahil.
+>
+> **AMA GERÇEK KUSUR BAŞKA YERDEYDİ — VERİ TARAFI.** `pickText(lang, tr, en)` sözlüğe **EN dizesiyle**
+> bakar (`UI[en]?.[lang] ?? en`). Anahtar `data/i18n/ui.json`'da YOKSA yabancı ziyaretçi **İngilizce**
+> görür — hata yok, uyarı yok, sessiz. Tüm `app/` tarandı (175 dosya · 166 benzersiz çevrilebilir
+> dize) → **20'sinin ui.json'da HİÇ karşılığı yoktu**. Hepsi 5 dile (de/es/ar/ru/nl) eklendi.
+> **En kritiği ÜRÜN DETAY sayfası:** `/ar/products/...` **indekslenebilir Arapça** bir sayfa ve
+> içinde `Incl. VAT` · `reviews` · `From our users` · `Warranty and support information` ·
+> `Instagram posts about this product.` İngilizce duruyordu → Körfez çalışmasını doğrudan zedeliyordu.
+> Diğerleri: footer "Converter Adapters & Extension Cables" · navbar "Support & Warranty" +
+> "Start here if your product isn't working" + menü/tema/arama aria etiketleri · özel üretim 4 dizesi ·
+> ürün listesi kategori okları. **TR ve EN metinlere DOKUNULMADI** (onlar satır içi argümandan gelir).
+> Biçim korundu: `JSON.stringify(j, null, 1)`, **sonda newline YOK**; yama önce gidiş-dönüş bayt
+> eşitliğini doğrular, sonra yazar. Ölçüm: footer 29/29 · navbar 31/31 · app geneli **166/166**.
+> **📌 KURAL: `pickText`/`byLang` ile yeni bir `{tr,en}` çifti eklersen EN dizesini `ui.json`'a da
+> ekle** — yoksa 5 dilde sessizce İngilizce kalır. Tarama betiği: `scratchpad/_ui_kapsam_tarama.cjs`
+> (yeniden çalıştır: `node scratchpad/_ui_kapsam_tarama.cjs` → "5 dilde TAM olmayan: 0" beklenir).
+
 > 🧹✅ **KUYRUK TEMİZLİĞİ — 4 GERÇEK KUSUR KAPANDI + 3 BAYAT MADDE ELENDİ (2026-09-10,
 > commit'ler 25ffe6d · 4bae836 · 37c75a5 · 8716bb0):** Kullanıcı "sıradan devam et, kalanları
 > da tamamla" dedi. **ÖNCE ÖLÇÜLDÜ, sonra yapıldı** — kuyruktaki maddelerin bir kısmı bayatmış.
