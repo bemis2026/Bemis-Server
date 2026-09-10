@@ -22,6 +22,10 @@ const FEATURE_ICONS = [RiWifiLine, RiBuilding4Line, RiCodeSSlashLine];
 const FEATURE_ACCENTS = ["#3B82F6", "#10B981", "#818CF8"];
 const ACCENT = "#3B82F6";
 const ACCENT2 = "#10B981";
+// "Ücretsiz" rozetinin rengi. OCPP rozeti ACCENT2 (yeşil) kullandığı için ondan
+// AYRI bir ton seçildi — iki rozet aynı kartta yan yana durunca ayırt edilsin.
+// accentInk() ile aydınlık modda otomatik koyulaşır (kontrast kuralı).
+const UCRETSIZ_RENK = "#F59E0B";
 
 function AppleIcon({ size = 16 }: { size?: number }) {
   return (
@@ -439,7 +443,26 @@ export default function SmartCharger() {
                       <Icon size={18} style={{ color: accent }} />
                     </div>
                     <div>
-                      <p className="text-base font-semibold mb-0.5" style={{ color: textPrimary }}>{f.title}</p>
+                      {/* Başlıktaki parantezli ek ("… (Ücretsiz)") DÜZ METİN DEĞİL, vurgulu
+                          yeşil rozet olarak çizilir — ücretsiz yönetim paneli ayrıştırıcı bir
+                          özellik, göze çarpması isteniyor (kullanıcı, 2026-09-11).
+                          ⚠️ Parantez İÇERİKTE (7 dilde) durur → admin'den düzenlenebilir ve
+                          çeviriler de kendi parantezini taşır. Parantez yoksa başlık aynen basılır. */}
+                      <p className="text-base font-semibold mb-0.5 flex flex-wrap items-center gap-x-2 gap-y-1" style={{ color: textPrimary }}>
+                        {(() => {
+                          const m = /^(.*?)\s*\(([^()]+)\)\s*$/.exec(f.title ?? "");
+                          if (!m) return f.title;
+                          return (
+                            <>
+                              <span>{m[1]}</span>
+                              <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold uppercase tracking-wide"
+                                style={{ background: `${UCRETSIZ_RENK}1f`, border: `1px solid ${UCRETSIZ_RENK}45`, color: accentInk(UCRETSIZ_RENK, d) }}>
+                                {m[2]}
+                              </span>
+                            </>
+                          );
+                        })()}
+                      </p>
                       <p className="text-sm leading-relaxed" style={{ color: textMuted }}>{f.desc}</p>
                       {i === rozetIndeksi && smartCharger.ocppBadge && (
                         <div className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1 rounded-lg"

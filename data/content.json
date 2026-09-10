@@ -789,7 +789,7 @@
         "desc": "Şarj ünitelerini gerçek zamanlı takip edin, başlatın veya durdurun. Anlık durum bildirimleri alın."
       },
       {
-        "title": "Ortak Alan Optimizasyonu",
+        "title": "Ortak Alan Yönetim Paneli (Ücretsiz)",
         "desc": "Çok kullanıcılı erişim, dinamik yük dengeleme ve ödeme sistemi entegrasyonu ile tam yönetim. Ortak kullanım yönetim yazılımı ücretsizdir."
       },
       {
@@ -1691,7 +1691,7 @@
             "desc": "Track, start or stop the chargers in real time. Get instant status notifications."
           },
           {
-            "title": "Common Area Optimization",
+            "title": "Shared Area Management Panel (Free)",
             "desc": "Full management with multi-user access, dynamic load balancing and payment system integration. The shared-use management software is free of charge."
           },
           {
