@@ -1,4 +1,3 @@
-import { gizliKategorileriEle } from "./gizliKategoriler";
 import "server-only";
 import { readBin } from "../../lib/jsonbin";
 import { readFileSync } from "fs";
@@ -60,14 +59,11 @@ export async function getServerProducts(): Promise<CategoryShape[]> {
   try { main = await readBin("products"); } catch {}
   try { extra = await readBin("productsExtra"); } catch {}
   const merged = [...unwrapTr(main), ...unwrapTr(extra)];
-  // ⚠️ Satışı durdurulan kategoriler burada elenir → sitemap, meta-catalog.xml
-  // (Merchant/Meta beslemesi) ve /api/catalog kendiliğinden temizlenir.
-  // Tek kaynak: app/lib/gizliKategoriler.ts (2026-09-10: dc-units).
-  if (merged.length > 0) return gizliKategorileriEle(applyProductSeo(merged));
+  if (merged.length > 0) return applyProductSeo(merged);
   try {
     const fb = path.join(process.cwd(), "data", "products.json");
     const parsed = JSON.parse(readFileSync(fb, "utf-8"));
-    return gizliKategorileriEle(applyProductSeo(unwrapTr(parsed)));
+    return applyProductSeo(unwrapTr(parsed));
   } catch {}
   return [];
 }

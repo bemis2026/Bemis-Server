@@ -826,7 +826,49 @@
     "images": [
       "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075777/products/aapzodkxb904ww8ybo3h.jpg"
     ],
-    "products": [],
+    "products": [
+      {
+        "badge": "New Flagship Product",
+        "name": "80 kW DC Fast Charger",
+        "tagline": "Fast charging for fleet and commercial use",
+        "description": "Dual CCS2 80 kW DC fast charging station. A compact solution charging two vehicles simultaneously at parking entrances, shopping malls, hotels and fleet centers. 20% → 80% battery in 30 minutes. Ready for year-round outdoor deployment with OCPP 1.6J / 2.0.1 support, RFID authentication, IP54 protection and a wide -25°C / +55°C temperature range.",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075789/products/bcmgy8awcmtb9yrpwn92.png",
+        "specs": [
+          {
+            "label": "Power Output",
+            "value": "80 kW (2 × 40 kW)"
+          },
+          {
+            "label": "Connectors",
+            "value": "2 × CCS2"
+          },
+          {
+            "label": "Protocol",
+            "value": "OCPP 1.6J / 2.0.1"
+          },
+          {
+            "label": "Protection",
+            "value": "IP54"
+          },
+          {
+            "label": "Temperature",
+            "value": "-25°C / +55°C"
+          },
+          {
+            "label": "Manufacturing",
+            "value": "Made in Türkiye"
+          }
+        ],
+        "ctaPrimary": "View Product",
+        "ctaHref": "/products",
+        "overlayFeatures": [
+          "80 kW DC",
+          "2 × CCS2",
+          "OCPP 2.0.1",
+          "IP54"
+        ]
+      }
+    ],
     "overlayFeatures": [
       "IP 65",
       "Scheduled Charging",

@@ -41,9 +41,7 @@ const NAV_GROUPS: { title: FooterPair; links: FooterLink[] }[] = [
     // ⚠️ Kategori adı 4 yerde yaşıyor (content bin · burası · products bin ·
     // seo.ts). 2026-08-05'te hepsi tek ada çekildi — biri değişip öteki unutulmasın.
     { label: { tr: "Dönüştürücü Adaptörler ve Uzatma Kabloları", en: "Converter Adapters & Extension Cables" }, href: "/products/converters", scroll: false },
-    // ⚠️ 2026-09-10: DC şarj CİHAZLARININ satışı durduruldu → footer linki kaldırıldı.
-    //    (DC CCS2 soketleri ve DC Soket Tutucu SATIŞTA; onlar başka kategorilerde.)
-    //    Geri açmak için: app/lib/gizliKategoriler.ts + bu satırı geri ekle.
+    { label: { tr: "DC Şarj Üniteleri",          en: "DC Charging Units" },          href: "/products/dc-units",          scroll: false },
     { label: { tr: "Şarj Ünitesi Ekipmanları",   en: "Charger Equipment" },          href: "/products/charger-equipment", scroll: false },
     { label: { tr: "Aksesuarlar",                en: "Accessories" },                href: "/products/accessories",       scroll: false },
   ]},

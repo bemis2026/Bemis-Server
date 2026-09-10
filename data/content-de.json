@@ -825,7 +825,49 @@
     "images": [
       "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075777/products/aapzodkxb904ww8ybo3h.jpg"
     ],
-    "products": [],
+    "products": [
+      {
+        "badge": "Neues Flaggschiff-Produkt",
+        "name": "80 kW DC-Schnellladegerät",
+        "tagline": "Schnellladen für Flotten- und kommerziellen Einsatz",
+        "description": "Dual-CCS2-80-kW-DC-Schnellladestation. Eine kompakte Lösung, die zwei Fahrzeuge gleichzeitig an Parkeinfahrten, Einkaufszentren, Hotels und Flottenzentren lädt. 20 % → 80 % Batterie in 30 Minuten. Bereit für den ganzjährigen Außeneinsatz mit Unterstützung für OCPP 1.6J / 2.0.1, RFID-Authentifizierung, IP54-Schutz und einem weiten Temperaturbereich von -25°C / +55°C.",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075789/products/bcmgy8awcmtb9yrpwn92.png",
+        "specs": [
+          {
+            "label": "Leistungsausgang",
+            "value": "80 kW (2 × 40 kW)"
+          },
+          {
+            "label": "Anschlüsse",
+            "value": "2 × CCS2"
+          },
+          {
+            "label": "Protokoll",
+            "value": "OCPP 1.6J / 2.0.1"
+          },
+          {
+            "label": "Schutz",
+            "value": "IP54"
+          },
+          {
+            "label": "Temperatur",
+            "value": "-25°C / +55°C"
+          },
+          {
+            "label": "Herstellung",
+            "value": "Hergestellt in Türkiye"
+          }
+        ],
+        "ctaPrimary": "Produkt ansehen",
+        "ctaHref": "/products",
+        "overlayFeatures": [
+          "80 kW DC",
+          "2 × CCS2",
+          "OCPP 2.0.1",
+          "IP54"
+        ]
+      }
+    ],
     "overlayFeatures": [
       "IP 65",
       "Geplantes Laden",

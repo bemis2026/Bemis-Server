@@ -852,7 +852,49 @@
     "images": [
       "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075777/products/aapzodkxb904ww8ybo3h.jpg"
     ],
-    "products": []
+    "products": [
+      {
+        "badge": "Nieuw uitgelicht product",
+        "name": "80 kW DC-snellader",
+        "tagline": "Snellaadoplossing voor wagenparken en commercieel gebruik",
+        "description": "DC-snellaadstation van 80 kW met twee CCS2-uitgangen. Een compacte oplossing die twee auto's tegelijk laadt bij parkeergarages, winkelcentra, hotels en wagenparkcentra. In 30 minuten van 20% → 80% accu. Met OCPP 1.6J / 2.0.1, RFID-authenticatie, IP54-bescherming en een breed temperatuurbereik van -25 °C / +55 °C het hele jaar door klaar voor buitengebruik.",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075789/products/bcmgy8awcmtb9yrpwn92.png",
+        "specs": [
+          {
+            "label": "Uitgangsvermogen",
+            "value": "80 kW (2 × 40 kW)"
+          },
+          {
+            "label": "Aansluiting",
+            "value": "2 × CCS2"
+          },
+          {
+            "label": "Protocol",
+            "value": "OCPP 1.6J / 2.0.1"
+          },
+          {
+            "label": "Beschermingsklasse",
+            "value": "IP54"
+          },
+          {
+            "label": "Temperatuur",
+            "value": "-25°C / +55°C"
+          },
+          {
+            "label": "Productie",
+            "value": "Made in Türkiye"
+          }
+        ],
+        "ctaPrimary": "Bekijk product",
+        "ctaHref": "/products/dc-units/bevdc-80-2",
+        "overlayFeatures": [
+          "80 kW DC",
+          "2 × CCS2",
+          "OCPP 2.0.1",
+          "IP54"
+        ]
+      }
+    ]
   },
   "faviconUrl": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075791/products/xt103etp3dcuoxvu7aib.png",
   "ogImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075793/products/jjkaqljqa9thzeeyntup.jpg",

@@ -1,4 +1,3 @@
-import { gizliKategorileriEle } from "./gizliKategoriler";
 import "server-only";
 import { readBin } from "../../lib/jsonbin";
 import { readFileSync } from "fs";
@@ -164,10 +163,7 @@ export async function getProductsForLang(lang: string): Promise<any[] | null> {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const trSeo = applyProductSeo(tr as any[]);
-  // ⚠️ Gizli kategoriler (satışı durdurulanlar) MERGE SONRASINDA elenir —
-  // çeviri birleştirmesi POZİSYONEL olduğu için erken elemek sonraki
-  // kategorinin çevirisini kaydırır. Tek kaynak: app/lib/gizliKategoriler.ts
-  if (lang === "tr") return gizliKategorileriEle(trSeo);
+  if (lang === "tr") return trSeo;
 
   let overlay: unknown[] | null = null;
   if (lang === "en") {
@@ -228,5 +224,5 @@ export async function getProductsForLang(lang: string): Promise<any[] | null> {
       );
     }
   }
-  return gizliKategorileriEle(merged);
+  return merged;
 }

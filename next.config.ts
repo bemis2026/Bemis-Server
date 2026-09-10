@@ -178,22 +178,6 @@ const nextConfig: NextConfig = {
       // Yerine listedeki "AC Soket Tutucu" (BAK-8200-0001) var — o kaydın adresi eski adından geliyor,
       // ⚠️ id/URL DEĞİŞTİRİLMEDİ (değişse indekslenmiş adres 404 olurdu; ad kimlik değil, id kimliktir).
       { source: "/products/accessories/priz-tutucu-genel-priz-tutucu", destination: "/products/accessories/charger-priz-tutucu-charger-serisi", permanent: true },
-
-      // ⚠️ 2026-09-10 — DC ŞARJ CİHAZLARININ SATIŞI DURDURULDU (kullanıcı kararı).
-      // `dc-units` kategorisi her yerden gizlendi (app/lib/gizliKategoriler.ts) →
-      // kategori ve ürün sayfaları artık ÜRETİLMİYOR. Yönlendirme olmasa bu adresler
-      // 404 verirdi: 9 blog bağlantısı + Google'da indeksli sayfalar oraya gidiyor.
-      // 📌 `permanent: false` (307 = GEÇİCİ) BİLEREK: satış yeniden açılacak.
-      //    301/308 kalıcı sayılır, arama motoru adresi düşürür ve sıralama geri gelmez.
-      // 📌 GERİ AÇMA: gizliKategoriler.ts'ten "dc-units"i çıkar + bu 6 kuralı sil.
-      // ⓘ DC CCS2 soketleri (charger-equipment) ve DC Soket Tutucu (accessories)
-      //   SATIŞTA — onlar başka kategoride, bu kurallardan ETKİLENMEZ.
-      { source: "/products/dc-units", destination: "/products", permanent: false },
-      { source: "/products/dc-units/:urun", destination: "/products", permanent: false },
-      { source: "/en/products/dc-units", destination: "/en/products", permanent: false },
-      { source: "/en/products/dc-units/:urun", destination: "/en/products", permanent: false },
-      { source: "/:dil(de|es|ru|nl|ar)/products/dc-units", destination: "/:dil/products", permanent: false },
-      { source: "/:dil(de|es|ru|nl|ar)/products/dc-units/:urun", destination: "/:dil/products", permanent: false },
     ];
   },
   async rewrites() {

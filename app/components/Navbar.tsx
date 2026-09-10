@@ -1,6 +1,5 @@
 "use client";
 
-import { kategoriGizli } from "../lib/gizliKategoriler";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX, HiSearch, HiChevronDown } from "react-icons/hi";
@@ -300,13 +299,8 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
   const b2bHoverColor  = isDark ? "#ffffff" : lightTop ? "#ffffff" : "#3B82F6";
   const b2bHoverBorder = isDark ? "rgba(96,165,250,0.55)" : lightTop ? "rgba(255,255,255,0.65)" : "rgba(59,130,246,0.55)";
 
-  // ⚠️ Satışı durdurulan kategoriler menüde GÖSTERİLMEZ (app/lib/gizliKategoriler.ts).
-  // Menü adı ÜRÜN verisinden değil İÇERİK katmanından geldiği için katalog
-  // filtresi buraya ulaşmaz — eleme burada AYRICA yapılmalı.
   const categoryList = categories
-    ? Object.entries(categories as Record<string, { name: string; subtitle?: string; image?: string }>)
-        .filter(([key]) => !kategoriGizli(key))
-        .map(([key, val]) => ({
+    ? Object.entries(categories as Record<string, { name: string; subtitle?: string; image?: string }>).map(([key, val]) => ({
         key,
         name: val.name,
         subtitle: val.subtitle ?? "",

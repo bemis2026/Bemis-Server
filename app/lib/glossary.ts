@@ -61,7 +61,7 @@ export const GLOSSARY: GlossaryTerm[] = [
     keywords: ["ccs2 nedir", "combo 2 soket", "dc hızlı şarj soketi", "ccs2 type 2"],
     related: [
       { label: "EV Şarj Soketi Tipleri", href: "/blog/ev-sarj-soketi-tipleri-type-2-ccs2-chademo" },
-      { label: "DC Şarj Soketleri (CCS2)", href: "/products/charger-equipment" },
+      { label: "DC Hızlı Şarj Üniteleri", href: "/products/dc-units" },
     ],
     faq: [
       {

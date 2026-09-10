@@ -1,5 +1,4 @@
 "use client";
-import { kategoriGizli } from "../lib/gizliKategoriler";
 import { bgUrl } from "../../lib/optimizedBg";
 import { pickText } from "../lib/ui";
 import { accentInk } from "../lib/accentInk";
@@ -165,16 +164,11 @@ export default function Products() {
   const bannerIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Merge hardcoded visual design with CMS editable fields
-  // ⚠️ Satışı durdurulan kategoriler ELENİR (app/lib/gizliKategoriler.ts). Eleme
-  // merge SONRASINDA yapılır ki hem koddaki görsel tasarım listesi hem CMS
-  // tarafı tek noktadan süzülsün; banner sayacı da (totalBanner) doğru kalır.
-  const mergedCategories = categories
-    .filter((cat) => !kategoriGizli(cat.id))
-    .map((cat) => {
-      const meta = catMeta[cat.id];
-      if (!meta) return { ...cat, image: undefined };
-      return { ...cat, name: meta.name, subtitle: meta.subtitle, modelCount: meta.modelCount, badge: meta.badge, comingSoon: meta.comingSoon, image: meta.image, sliderImage: meta.sliderImage };
-    });
+  const mergedCategories = categories.map((cat) => {
+    const meta = catMeta[cat.id];
+    if (!meta) return { ...cat, image: undefined };
+    return { ...cat, name: meta.name, subtitle: meta.subtitle, modelCount: meta.modelCount, badge: meta.badge, comingSoon: meta.comingSoon, image: meta.image, sliderImage: meta.sliderImage };
+  });
 
   const hasAnySlider = mergedCategories.some((c) => !!(c as typeof c & { sliderImage?: string }).sliderImage);
   const sliderVisible = productSection.sliderEnabled !== false;
