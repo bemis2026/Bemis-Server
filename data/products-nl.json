@@ -27,6 +27,10 @@
               {
                 "label": "Max. stroom",
                 "value": "32A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -95,6 +99,10 @@
               {
                 "label": "Max. stroom",
                 "value": "32A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -168,6 +176,10 @@
               {
                 "label": "Max. stroom",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -254,6 +266,10 @@
               {
                 "label": "Max. stroom",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -340,6 +356,10 @@
               {
                 "label": "Max. stroom",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -435,6 +455,10 @@
               {
                 "label": "Max. stroom",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -530,6 +554,10 @@
               {
                 "label": "Max. stroom",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -625,6 +653,10 @@
               {
                 "label": "Max. stroom",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -720,6 +752,10 @@
               {
                 "label": "Max. stroom",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -805,6 +841,10 @@
               {
                 "label": "Max. stroom",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -890,6 +930,10 @@
               {
                 "label": "Max. stroom",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -988,6 +1032,10 @@
               {
                 "label": "Max. stroom",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1082,6 +1130,10 @@
               {
                 "label": "Max. stroom",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1176,6 +1228,10 @@
               {
                 "label": "Max. stroom",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1274,6 +1330,10 @@
               {
                 "label": "Max. stroom",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1359,6 +1419,10 @@
               {
                 "label": "Max. stroom",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1444,6 +1508,10 @@
               {
                 "label": "Max. stroom",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1530,6 +1598,10 @@
               {
                 "label": "Max. stroom",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1616,6 +1688,10 @@
               {
                 "label": "Max. stroom",
                 "value": "16A"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1700,6 +1776,10 @@
               {
                 "label": "Kabellengte",
                 "value": "5 meter"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1788,6 +1868,10 @@
               {
                 "label": "Kabellengte",
                 "value": "5 meter"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1892,6 +1976,10 @@
               {
                 "label": "Stroominstelling",
                 "value": "6 stappen via de mobiele app en de knop op het apparaat"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2009,6 +2097,10 @@
               {
                 "label": "Stroominstelling",
                 "value": "6 stappen via de mobiele app en de knop op het apparaat"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2126,6 +2218,10 @@
               {
                 "label": "Stroominstelling",
                 "value": "6 stappen via de mobiele app en de knop op het apparaat"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2239,6 +2335,10 @@
               {
                 "label": "Kabellengte",
                 "value": "5 meter"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2356,6 +2456,10 @@
               {
                 "label": "Kabellengte",
                 "value": "10 meter"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2456,6 +2560,10 @@
               {
                 "label": "Kabellengte",
                 "value": "8 meter"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2556,6 +2664,10 @@
               {
                 "label": "Kabellengte",
                 "value": "10 meter"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2644,6 +2756,10 @@
               {
                 "label": "Kabellengte",
                 "value": "8 meter"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -7064,6 +7180,10 @@
               {
                 "label": "Uitgangsspanning",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -7205,6 +7325,10 @@
               {
                 "label": "Uitgangsspanning",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -7341,6 +7465,10 @@
               {
                 "label": "Uitgangsspanning",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -7495,6 +7623,10 @@
               {
                 "label": "Uitgangsspanning",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -7649,6 +7781,10 @@
               {
                 "label": "Uitgangsspanning",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -7803,6 +7939,10 @@
               {
                 "label": "Uitgangsspanning",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -7957,6 +8097,10 @@
               {
                 "label": "Uitgangsspanning",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frequentie",
+                "value": "50/60 Hz"
               }
             ]
           },

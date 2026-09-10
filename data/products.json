@@ -27,6 +27,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "32A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -95,6 +99,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "32A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -168,6 +176,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -254,6 +266,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -340,6 +356,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -435,6 +455,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -530,6 +554,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -625,6 +653,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -720,6 +752,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -811,6 +847,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -896,6 +936,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -994,6 +1038,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1088,6 +1136,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1182,6 +1234,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1280,6 +1336,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1371,6 +1431,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1456,6 +1520,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1542,6 +1610,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1628,6 +1700,10 @@
               {
                 "label": "Maks. Akım",
                 "value": "16A"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1712,6 +1788,10 @@
               {
                 "label": "Kablo Uzunluğu",
                 "value": "5 metre"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1800,6 +1880,10 @@
               {
                 "label": "Kablo Uzunluğu",
                 "value": "5 metre"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1904,6 +1988,10 @@
               {
                 "label": "Amper Ayarı",
                 "value": "Mobil uygulama ve cihaz üzerindeki tuş ile 6 kademe"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2021,6 +2109,10 @@
               {
                 "label": "Amper Ayarı",
                 "value": "Mobil uygulama ve cihaz üzerindeki tuş ile 6 kademe"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2138,6 +2230,10 @@
               {
                 "label": "Amper Ayarı",
                 "value": "Mobil uygulama ve cihaz üzerindeki tuş ile 6 kademe"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2251,6 +2347,10 @@
               {
                 "label": "Kablo Uzunluğu",
                 "value": "5 metre"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2368,6 +2468,10 @@
               {
                 "label": "Kablo Uzunluğu",
                 "value": "10 metre"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2468,6 +2572,10 @@
               {
                 "label": "Kablo Uzunluğu",
                 "value": "8 metre"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2568,6 +2676,10 @@
               {
                 "label": "Kablo Uzunluğu",
                 "value": "10 metre"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2656,6 +2768,10 @@
               {
                 "label": "Kablo Uzunluğu",
                 "value": "8 metre"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -7129,6 +7245,10 @@
               {
                 "label": "Çıkış Gerilimi",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -7270,6 +7390,10 @@
               {
                 "label": "Çıkış Gerilimi",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -7406,6 +7530,10 @@
               {
                 "label": "Çıkış Gerilimi",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -7560,6 +7688,10 @@
               {
                 "label": "Çıkış Gerilimi",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -7714,6 +7846,10 @@
               {
                 "label": "Çıkış Gerilimi",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -7868,6 +8004,10 @@
               {
                 "label": "Çıkış Gerilimi",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -8022,6 +8162,10 @@
               {
                 "label": "Çıkış Gerilimi",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frekans",
+                "value": "50/60 Hz"
               }
             ]
           },

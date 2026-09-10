@@ -27,6 +27,10 @@
               {
                 "label": "Max. current",
                 "value": "32A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -97,6 +101,10 @@
               {
                 "label": "Max. current",
                 "value": "32A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -172,6 +180,10 @@
               {
                 "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -260,6 +272,10 @@
               {
                 "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -348,6 +364,10 @@
               {
                 "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -445,6 +465,10 @@
               {
                 "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -542,6 +566,10 @@
               {
                 "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -639,6 +667,10 @@
               {
                 "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -736,6 +768,10 @@
               {
                 "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -829,6 +865,10 @@
               {
                 "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -916,6 +956,10 @@
               {
                 "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1016,6 +1060,10 @@
               {
                 "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1112,6 +1160,10 @@
               {
                 "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1208,6 +1260,10 @@
               {
                 "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1308,6 +1364,10 @@
               {
                 "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1401,6 +1461,10 @@
               {
                 "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1488,6 +1552,10 @@
               {
                 "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1576,6 +1644,10 @@
               {
                 "label": "Max. current",
                 "value": "6 - 10 - 16 - 32A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1664,6 +1736,10 @@
               {
                 "label": "Max. current",
                 "value": "16A"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1750,6 +1826,10 @@
               {
                 "label": "Cable Length",
                 "value": "5 meters"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1842,6 +1922,10 @@
               {
                 "label": "Cable Length",
                 "value": "5 meters"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -1950,6 +2034,10 @@
               {
                 "label": "Current Setting",
                 "value": "6 steps via the mobile app and the button on the device"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2071,6 +2159,10 @@
               {
                 "label": "Current Setting",
                 "value": "6 steps via the mobile app and the button on the device"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2192,6 +2284,10 @@
               {
                 "label": "Current Setting",
                 "value": "6 steps via the mobile app and the button on the device"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2309,6 +2405,10 @@
               {
                 "label": "Cable Length",
                 "value": "5 meters"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2430,6 +2530,10 @@
               {
                 "label": "Cable Length",
                 "value": "10 meters"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2534,6 +2638,10 @@
               {
                 "label": "Cable Length",
                 "value": "8 meters"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2638,6 +2746,10 @@
               {
                 "label": "Cable Length",
                 "value": "10 meters"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -2730,6 +2842,10 @@
               {
                 "label": "Cable Length",
                 "value": "8 meters"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -7495,6 +7611,10 @@
               {
                 "label": "Output Voltage",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -7641,6 +7761,10 @@
               {
                 "label": "Output Voltage",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -7782,6 +7906,10 @@
               {
                 "label": "Output Voltage",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -7941,6 +8069,10 @@
               {
                 "label": "Output Voltage",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -8100,6 +8232,10 @@
               {
                 "label": "Output Voltage",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -8259,6 +8395,10 @@
               {
                 "label": "Output Voltage",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
@@ -8418,6 +8558,10 @@
               {
                 "label": "Output Voltage",
                 "value": "150-1000V DC"
+              },
+              {
+                "label": "Frequency",
+                "value": "50/60 Hz"
               }
             ]
           },
