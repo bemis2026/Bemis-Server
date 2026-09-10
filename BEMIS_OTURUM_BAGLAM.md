@@ -13,6 +13,14 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> ✅✅ **2026-09-11 KULLANICI TEYİDİ — DC SATIŞI DURDURULMADI, TAM GAZ DEVAM:** kullanıcı sorulunca
+> *"hayır satışı durdurmaktan vazgeçtik, her şey tam gaz devam etmeli"* dedi. **Yani "DC satışı durdu"
+> bilgisi ARTIK GEÇERSİZ.** Site, sitemap, katalog beslemesi (Merchant/Meta) ve reklam yüzeyi DC
+> cihazlarını normal şekilde taşıyor; hiçbir yerde kısıtlama YOK. Beslemeden çıkarma seçeneği de
+> sunuldu, **reddedildi**. 📌 Bu konuyu tekrar açma, gizleme/kısıtlama önerme.
+> ✅ **"Ortak kullanım yönetim yazılımı ücretsizdir" metni TEYİT EDİLDİ (2026-09-11):** kullanıcı
+> *"aynen doğru, kalsın"* dedi → yazılım **koşulsuz ücretsiz**, süre/limit/lisans şartı YOK.
+> Metin canlı: Akıllı Şarj bölümü + Charger Pro 2 ailesi (8 varyant), 7 dilde. 📌 Şart EKLEME.
 > ↩️ **DC CİHAZLARINI GİZLEME İSTENDİ, YAPILDI, SONRA GERİ ALINDI — SİTE ESKİ HÂLİNDE (2026-09-10):**
 > Kullanıcı önce *"dc ürünleri gösterimi gizle şimdilik, dc cihazların satışını durdurduk"* dedi;
 > uygulandı ve canlı doğrulandı, ardından **aynı oturumda vazgeçti**: *"vazgeçtim kaldırma geri al,
