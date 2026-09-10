@@ -164,7 +164,7 @@
         "code": "BEV-2011-0005",
         "subtitle": "5m. Wired",
         "badge": null,
-        "description": "Charger Plus 2 adapts to different electrical installations with adjustable power level between 4-7-11-22 kW. The intelligent charging algorithm automatically adapts to the maximum current accepted by the vehicle; optimized for home and small businesses. With the Automatic Charge Start innovation it resumes charging by itself once the power returns after an outage; an optional MID meter provides certified energy measurement. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
+        "description": "Charger Plus 2 adapts to different electrical installations with adjustable power level between 4-7-11-22 kW. The intelligent charging algorithm automatically adapts to the maximum current accepted by the vehicle; optimized for home and small businesses. With the Automatic Charge Start innovation it resumes charging by itself once the power returns after an outage; an optional MID meter provides certified energy measurement. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. The shared-use management software, which provides per-user tracking in shared areas, is provided free of charge.",
         "specs": [
           {
             "group": "Electrical",
@@ -247,7 +247,8 @@
           "load",
           "autostart",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -256,7 +257,7 @@
         "code": "BEV-2012-0000",
         "subtitle": "Panel Socket",
         "badge": "Panel Socket",
-        "description": "Charger Plus 2 adapts to different electrical installations with adjustable power level between 4-7-11-22 kW. The intelligent charging algorithm automatically adapts to the maximum current accepted by the vehicle; optimized for home and small businesses. With the Automatic Charge Start innovation it resumes charging by itself once the power returns after an outage; an optional MID meter provides certified energy measurement. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless.",
+        "description": "Charger Plus 2 adapts to different electrical installations with adjustable power level between 4-7-11-22 kW. The intelligent charging algorithm automatically adapts to the maximum current accepted by the vehicle; optimized for home and small businesses. With the Automatic Charge Start innovation it resumes charging by itself once the power returns after an outage; an optional MID meter provides certified energy measurement. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. The shared-use management software, which provides per-user tracking in shared areas, is provided free of charge.",
         "specs": [
           {
             "group": "Electrical",
@@ -339,7 +340,8 @@
           "load",
           "autostart",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -348,7 +350,7 @@
         "code": "BEV-2011-1005",
         "subtitle": "5m. Wired / GSM Module",
         "badge": "GSM",
-        "description": "Charger Plus 2 adapts to different electrical installations with adjustable power level between 4-7-11-22 kW. The intelligent charging algorithm automatically adapts to the maximum current accepted by the vehicle; optimized for home and small businesses. With the Automatic Charge Start innovation it resumes charging by itself once the power returns after an outage; an optional MID meter provides certified energy measurement. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. Thanks to its built-in GSM/4G module, it provides cloud-based remote monitoring and management over OCPP 1.6 even at sites without wired internet infrastructure.",
+        "description": "Charger Plus 2 adapts to different electrical installations with adjustable power level between 4-7-11-22 kW. The intelligent charging algorithm automatically adapts to the maximum current accepted by the vehicle; optimized for home and small businesses. With the Automatic Charge Start innovation it resumes charging by itself once the power returns after an outage; an optional MID meter provides certified energy measurement. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. Thanks to its built-in GSM/4G module, it provides cloud-based remote monitoring and management over OCPP 1.6 even at sites without wired internet infrastructure. The shared-use management software, which provides per-user tracking in shared areas, is provided free of charge.",
         "specs": [
           {
             "group": "Electrical",
@@ -440,7 +442,8 @@
           "load",
           "autostart",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -449,7 +452,7 @@
         "code": "BEV-2012-1000",
         "subtitle": "Panel Socket / GSM Module",
         "badge": "GSM",
-        "description": "Charger Plus 2 adapts to different electrical installations with adjustable power level between 4-7-11-22 kW. The intelligent charging algorithm automatically adapts to the maximum current accepted by the vehicle; optimized for home and small businesses. With the Automatic Charge Start innovation it resumes charging by itself once the power returns after an outage; an optional MID meter provides certified energy measurement. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. Thanks to its built-in GSM/4G module, it provides cloud-based remote monitoring and management over OCPP 1.6 even at sites without wired internet infrastructure.",
+        "description": "Charger Plus 2 adapts to different electrical installations with adjustable power level between 4-7-11-22 kW. The intelligent charging algorithm automatically adapts to the maximum current accepted by the vehicle; optimized for home and small businesses. With the Automatic Charge Start innovation it resumes charging by itself once the power returns after an outage; an optional MID meter provides certified energy measurement. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. Thanks to its built-in GSM/4G module, it provides cloud-based remote monitoring and management over OCPP 1.6 even at sites without wired internet infrastructure. The shared-use management software, which provides per-user tracking in shared areas, is provided free of charge.",
         "specs": [
           {
             "group": "Electrical",
@@ -541,7 +544,8 @@
           "load",
           "autostart",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -550,7 +554,7 @@
         "code": "BEV-2011-1015",
         "subtitle": "5m. Wired / GSM Module · Integrated MID Meter",
         "badge": "GSM · MID",
-        "description": "Charger Plus 2 adapts to different electrical installations with adjustable power level between 4-7-11-22 kW. The intelligent charging algorithm automatically adapts to the maximum current accepted by the vehicle; optimized for home and small businesses. With the Automatic Charge Start innovation it resumes charging by itself once the power returns after an outage. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. Thanks to its built-in GSM/4G module, it provides cloud-based remote monitoring and management over OCPP 1.6 even at sites without wired internet infrastructure. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use. Made in Türkiye.",
+        "description": "Charger Plus 2 adapts to different electrical installations with adjustable power level between 4-7-11-22 kW. The intelligent charging algorithm automatically adapts to the maximum current accepted by the vehicle; optimized for home and small businesses. With the Automatic Charge Start innovation it resumes charging by itself once the power returns after an outage. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. Thanks to its built-in GSM/4G module, it provides cloud-based remote monitoring and management over OCPP 1.6 even at sites without wired internet infrastructure. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use. Made in Türkiye. The shared-use management software, which provides per-user tracking in shared areas, is provided free of charge.",
         "specs": [
           {
             "group": "Electrical",
@@ -642,7 +646,8 @@
           "load",
           "autostart",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -651,7 +656,7 @@
         "code": "BEV-2012-1010",
         "subtitle": "Panel Socket / GSM Module · Integrated MID Meter",
         "badge": "GSM · MID",
-        "description": "Charger Plus 2 adapts to different electrical installations with adjustable power level between 4-7-11-22 kW. The intelligent charging algorithm automatically adapts to the maximum current accepted by the vehicle; optimized for home and small businesses. With the Automatic Charge Start innovation it resumes charging by itself once the power returns after an outage. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. Thanks to its built-in GSM/4G module, it provides cloud-based remote monitoring and management over OCPP 1.6 even at sites without wired internet infrastructure. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use. Made in Türkiye.",
+        "description": "Charger Plus 2 adapts to different electrical installations with adjustable power level between 4-7-11-22 kW. The intelligent charging algorithm automatically adapts to the maximum current accepted by the vehicle; optimized for home and small businesses. With the Automatic Charge Start innovation it resumes charging by itself once the power returns after an outage. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. Thanks to its built-in GSM/4G module, it provides cloud-based remote monitoring and management over OCPP 1.6 even at sites without wired internet infrastructure. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use. Made in Türkiye. The shared-use management software, which provides per-user tracking in shared areas, is provided free of charge.",
         "specs": [
           {
             "group": "Electrical",
@@ -743,7 +748,8 @@
           "load",
           "autostart",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -830,7 +836,8 @@
           "shared",
           "load",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ],
         "documents": [
           {
@@ -931,7 +938,8 @@
           "shared",
           "load",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -1027,7 +1035,8 @@
           "shared",
           "load",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ],
         "certificates": [
           "ce",
@@ -1135,7 +1144,8 @@
           "shared",
           "load",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -1235,7 +1245,8 @@
           "shared",
           "load",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -1331,7 +1342,8 @@
           "shared",
           "load",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ],
         "certificates": [
           "ce",
@@ -1426,7 +1438,8 @@
           "shared",
           "load",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ],
         "documents": [
           {
@@ -1523,7 +1536,8 @@
           "shared",
           "load",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ],
         "metaTitle": "MID Sayaçlı OCPP Wallbox — Pro 2 Pano Prizli",
         "metaDescription": "MID sayaçlı AC wallbox Charger Pro 2 pano prizli: entegre MID sayaç, OCPP 1.6 uzaktan yönetim ve yük paylaşımı · yerli üretim · CE · IP65. Teklif alın.",
@@ -1536,7 +1550,7 @@
         "code": "BEV-2011-00S5",
         "subtitle": "5m. Wired · MID",
         "badge": null,
-        "description": "Charger Plus 2 adapts to different electrical installations with adjustable power level between 4-7-11-22 kW. The intelligent charging algorithm automatically adapts to the maximum current accepted by the vehicle; optimized for home and small businesses. With the Automatic Charge Start innovation it resumes charging by itself once the power returns after an outage. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use.",
+        "description": "Charger Plus 2 adapts to different electrical installations with adjustable power level between 4-7-11-22 kW. The intelligent charging algorithm automatically adapts to the maximum current accepted by the vehicle; optimized for home and small businesses. With the Automatic Charge Start innovation it resumes charging by itself once the power returns after an outage. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use. The shared-use management software, which provides per-user tracking in shared areas, is provided free of charge.",
         "specs": [
           {
             "group": "Electrical",
@@ -1615,7 +1629,8 @@
           "load",
           "autostart",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ],
         "metaTitle": "MID Sayaçlı Wallbox — Charger Plus 2 Kablolu",
         "metaDescription": "MID sayaçlı AC wallbox şarj istasyonu Charger Plus 2: entegre MID sayaç ile doğrulanabilir enerji ölçümü, 4–22 kW ayarlanabilir güç, 5m Type 2 kablo · CE · IP65.",
@@ -1628,7 +1643,7 @@
         "code": "BEV-2012-00S0",
         "subtitle": "Panel Socket · MID",
         "badge": null,
-        "description": "Charger Plus 2 adapts to different electrical installations with adjustable power level between 4-7-11-22 kW. The intelligent charging algorithm automatically adapts to the maximum current accepted by the vehicle; optimized for home and small businesses. With the Automatic Charge Start innovation it resumes charging by itself once the power returns after an outage. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use.",
+        "description": "Charger Plus 2 adapts to different electrical installations with adjustable power level between 4-7-11-22 kW. The intelligent charging algorithm automatically adapts to the maximum current accepted by the vehicle; optimized for home and small businesses. With the Automatic Charge Start innovation it resumes charging by itself once the power returns after an outage. Its renewed enclosure and practical, externally wired mounting design make installation fast and effortless. This model has a certified MID energy meter integrated into the enclosure; it is fully suited to measurement-based billing over OCPP and demanding commercial use. The shared-use management software, which provides per-user tracking in shared areas, is provided free of charge.",
         "specs": [
           {
             "group": "Electrical",
@@ -1707,7 +1722,8 @@
           "load",
           "autostart",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ],
         "metaTitle": "MID Sayaçlı Wallbox — Charger Plus 2 Pano Prizli",
         "metaDescription": "MID sayaçlı AC wallbox şarj istasyonu Charger Plus 2 pano prizli: entegre MID sayaç, 4–22 kW ayarlanabilir güç · yerli üretim · CE · IP65. Teklif alın.",

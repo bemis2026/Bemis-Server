@@ -3155,5 +3155,19 @@
   "ar": "التقييمات مأخوذة من تقييمات عملاء حقيقيين على صفحات المنتج في المتاجر الإلكترونية.",
   "ru": "Отзывы взяты из реальных оценок покупателей на страницах товара в маркетплейсах.",
   "nl": "De beoordelingen komen uit echte klantbeoordelingen op de marktplaatspagina's van het product."
+ },
+ "Free Management Panel": {
+  "de": "Kostenloses Verwaltungspanel",
+  "es": "Panel de gestión gratuito",
+  "ar": "لوحة إدارة مجانية",
+  "ru": "Бесплатная панель управления",
+  "nl": "Gratis beheerpaneel"
+ },
+ "The shared-area management panel is free: define units/users, pair RFID cards and report per user.": {
+  "de": "Das Verwaltungspanel für Gemeinschaftsbereiche ist kostenlos: Wohneinheiten/Nutzer anlegen, RFID-Karten zuordnen und pro Nutzer auswerten.",
+  "es": "El panel de gestión de zonas comunes es gratuito: defina viviendas/usuarios, vincule tarjetas RFID e informe por usuario.",
+  "ar": "لوحة إدارة المناطق المشتركة مجانية: تعريف الوحدات/المستخدمين، وربط بطاقات RFID، وإعداد تقارير لكل مستخدم.",
+  "ru": "Панель управления общими зонами бесплатна: создание квартир/пользователей, привязка RFID-карт и отчёты по каждому пользователю.",
+  "nl": "Het beheerpaneel voor gedeelde ruimtes is gratis: eenheden/gebruikers aanmaken, RFID-kaarten koppelen en per gebruiker rapporteren."
  }
 }

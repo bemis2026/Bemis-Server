@@ -156,7 +156,7 @@
         "code": "BEV-2011-0005",
         "subtitle": "5 m Kabel",
         "badge": null,
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort; ein optionaler MID-Zähler liefert eine geeichte Energiemessung. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort; ein optionaler MID-Zähler liefert eine geeichte Energiemessung. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Die Verwaltungssoftware für die gemeinsame Nutzung, die in Gemeinschaftsbereichen eine nutzerbezogene Erfassung ermöglicht, wird kostenlos bereitgestellt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -235,7 +235,8 @@
           "load",
           "autostart",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -244,7 +245,7 @@
         "code": "BEV-2012-0000",
         "subtitle": "Mit Schalttafel-Steckdose",
         "badge": "Mit Schalttafel-Steckdose",
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort; ein optionaler MID-Zähler liefert eine geeichte Energiemessung. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort; ein optionaler MID-Zähler liefert eine geeichte Energiemessung. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Die Verwaltungssoftware für die gemeinsame Nutzung, die in Gemeinschaftsbereichen eine nutzerbezogene Erfassung ermöglicht, wird kostenlos bereitgestellt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -323,7 +324,8 @@
           "load",
           "autostart",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -332,7 +334,7 @@
         "code": "BEV-2011-1005",
         "subtitle": "5 m Kabel / GSM-Modul",
         "badge": "GSM",
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort; ein optionaler MID-Zähler liefert eine geeichte Energiemessung. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort; ein optionaler MID-Zähler liefert eine geeichte Energiemessung. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung. Die Verwaltungssoftware für die gemeinsame Nutzung, die in Gemeinschaftsbereichen eine nutzerbezogene Erfassung ermöglicht, wird kostenlos bereitgestellt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -420,7 +422,8 @@
           "load",
           "autostart",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -429,7 +432,7 @@
         "code": "BEV-2012-1000",
         "subtitle": "Mit Schalttafel-Steckdose / GSM-Modul",
         "badge": "GSM",
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort; ein optionaler MID-Zähler liefert eine geeichte Energiemessung. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort; ein optionaler MID-Zähler liefert eine geeichte Energiemessung. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung. Die Verwaltungssoftware für die gemeinsame Nutzung, die in Gemeinschaftsbereichen eine nutzerbezogene Erfassung ermöglicht, wird kostenlos bereitgestellt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -517,7 +520,8 @@
           "load",
           "autostart",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -526,7 +530,7 @@
         "code": "BEV-2011-1015",
         "subtitle": "5 m Kabel / GSM-Modul · Integrierter MID-Zähler",
         "badge": "GSM · MID",
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt. Die Verwaltungssoftware für die gemeinsame Nutzung, die in Gemeinschaftsbereichen eine nutzerbezogene Erfassung ermöglicht, wird kostenlos bereitgestellt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -614,7 +618,8 @@
           "load",
           "autostart",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -623,7 +628,7 @@
         "code": "BEV-2012-1010",
         "subtitle": "Mit Schalttafel-Steckdose / GSM-Modul · Integrierter MID-Zähler",
         "badge": "GSM · MID",
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dank des integrierten GSM/4G-Moduls ermöglicht es cloudbasierte Fernüberwachung und -verwaltung über OCPP 1.6 – selbst an Standorten ohne kabelgebundene Internetanbindung. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. In der Türkei gefertigt. Die Verwaltungssoftware für die gemeinsame Nutzung, die in Gemeinschaftsbereichen eine nutzerbezogene Erfassung ermöglicht, wird kostenlos bereitgestellt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -711,7 +716,8 @@
           "load",
           "autostart",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -798,7 +804,8 @@
           "shared",
           "load",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ],
         "documents": [
           {
@@ -891,7 +898,8 @@
           "shared",
           "load",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -987,7 +995,8 @@
           "shared",
           "load",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ],
         "certificates": [
           "ce",
@@ -1087,7 +1096,8 @@
           "shared",
           "load",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -1183,7 +1193,8 @@
           "shared",
           "load",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -1279,7 +1290,8 @@
           "shared",
           "load",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ],
         "certificates": [
           "ce",
@@ -1370,7 +1382,8 @@
           "shared",
           "load",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ],
         "documents": [
           {
@@ -1463,7 +1476,8 @@
           "shared",
           "load",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -1472,7 +1486,7 @@
         "code": "BEV-2011-00S5",
         "subtitle": "5 m Kabel · MID",
         "badge": null,
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. Die Verwaltungssoftware für die gemeinsame Nutzung, die in Gemeinschaftsbereichen eine nutzerbezogene Erfassung ermöglicht, wird kostenlos bereitgestellt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1551,7 +1565,8 @@
           "load",
           "autostart",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -1560,7 +1575,7 @@
         "code": "BEV-2012-00S0",
         "subtitle": "Mit Schalttafel-Steckdose · MID",
         "badge": null,
-        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz.",
+        "description": "Der Charger Plus 2 passt sich mit einer einstellbaren Leistungsstufe zwischen 4-7-11-22 kW an verschiedene Elektroinstallationen an. Der intelligente Ladealgorithmus passt sich automatisch an den vom Fahrzeug akzeptierten maximalen Strom an; optimiert für Zuhause und kleine Betriebe. Dank der Innovation „Automatischer Ladestart“ setzt das Gerät den Ladevorgang nach einem Stromausfall selbsttätig fort. Dank des erneuerten Gehäuses und des praktischen, außen angeschlossenen Montagedesigns gelingt die Installation schnell und mühelos. Dieses Modell verfügt über einen ins Gehäuse integrierten, zertifizierten MID-Energiezähler; es eignet sich vollständig für die messwertbasierte Abrechnung über OCPP und den anspruchsvollen gewerblichen Einsatz. Die Verwaltungssoftware für die gemeinsame Nutzung, die in Gemeinschaftsbereichen eine nutzerbezogene Erfassung ermöglicht, wird kostenlos bereitgestellt.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1639,7 +1654,8 @@
           "load",
           "autostart",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {

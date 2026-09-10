@@ -156,7 +156,7 @@
         "code": "BEV-2011-0005",
         "subtitle": "Con cable de 5 m",
         "badge": null,
-        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a la innovación de Inicio Automático de Carga, reanuda la carga por sí solo cuando vuelve la corriente tras un corte; un contador MID opcional ofrece una medición de energía certificada. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a la innovación de Inicio Automático de Carga, reanuda la carga por sí solo cuando vuelve la corriente tras un corte; un contador MID opcional ofrece una medición de energía certificada. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. El software de gestión de uso compartido, que permite el seguimiento por usuario en zonas comunes, se ofrece de forma gratuita.",
         "specs": [
           {
             "group": "Eléctrico",
@@ -235,7 +235,8 @@
           "load",
           "autostart",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -244,7 +245,7 @@
         "code": "BEV-2012-0000",
         "subtitle": "Con toma para cuadro",
         "badge": "Con toma para cuadro",
-        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a la innovación de Inicio Automático de Carga, reanuda la carga por sí solo cuando vuelve la corriente tras un corte; un contador MID opcional ofrece una medición de energía certificada. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla.",
+        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a la innovación de Inicio Automático de Carga, reanuda la carga por sí solo cuando vuelve la corriente tras un corte; un contador MID opcional ofrece una medición de energía certificada. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. El software de gestión de uso compartido, que permite el seguimiento por usuario en zonas comunes, se ofrece de forma gratuita.",
         "specs": [
           {
             "group": "Eléctrico",
@@ -323,7 +324,8 @@
           "load",
           "autostart",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -332,7 +334,7 @@
         "code": "BEV-2011-1005",
         "subtitle": "Con cable de 5 m / Módulo GSM",
         "badge": "GSM",
-        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a la innovación de Inicio Automático de Carga, reanuda la carga por sí solo cuando vuelve la corriente tras un corte; un contador MID opcional ofrece una medición de energía certificada. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Gracias a su módulo GSM/4G integrado, ofrece supervisión y gestión remotas basadas en la nube a través de OCPP 1.6, incluso en instalaciones sin infraestructura de internet por cable.",
+        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a la innovación de Inicio Automático de Carga, reanuda la carga por sí solo cuando vuelve la corriente tras un corte; un contador MID opcional ofrece una medición de energía certificada. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Gracias a su módulo GSM/4G integrado, ofrece supervisión y gestión remotas basadas en la nube a través de OCPP 1.6, incluso en instalaciones sin infraestructura de internet por cable. El software de gestión de uso compartido, que permite el seguimiento por usuario en zonas comunes, se ofrece de forma gratuita.",
         "specs": [
           {
             "group": "Eléctrico",
@@ -420,7 +422,8 @@
           "load",
           "autostart",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -429,7 +432,7 @@
         "code": "BEV-2012-1000",
         "subtitle": "Con toma para cuadro / Módulo GSM",
         "badge": "GSM",
-        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a la innovación de Inicio Automático de Carga, reanuda la carga por sí solo cuando vuelve la corriente tras un corte; un contador MID opcional ofrece una medición de energía certificada. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Gracias a su módulo GSM/4G integrado, ofrece supervisión y gestión remotas basadas en la nube a través de OCPP 1.6, incluso en instalaciones sin infraestructura de internet por cable.",
+        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a la innovación de Inicio Automático de Carga, reanuda la carga por sí solo cuando vuelve la corriente tras un corte; un contador MID opcional ofrece una medición de energía certificada. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Gracias a su módulo GSM/4G integrado, ofrece supervisión y gestión remotas basadas en la nube a través de OCPP 1.6, incluso en instalaciones sin infraestructura de internet por cable. El software de gestión de uso compartido, que permite el seguimiento por usuario en zonas comunes, se ofrece de forma gratuita.",
         "specs": [
           {
             "group": "Eléctrico",
@@ -517,7 +520,8 @@
           "load",
           "autostart",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -526,7 +530,7 @@
         "code": "BEV-2011-1015",
         "subtitle": "Con cable de 5 m / Módulo GSM · Contador MID integrado",
         "badge": "GSM · MID",
-        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a la innovación de Inicio Automático de Carga, reanuda la carga por sí solo cuando vuelve la corriente tras un corte. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Gracias a su módulo GSM/4G integrado, ofrece supervisión y gestión remotas basadas en la nube a través de OCPP 1.6, incluso en instalaciones sin infraestructura de internet por cable. Este modelo incorpora un contador de energía MID certificado integrado en la carcasa; es totalmente apto para la facturación basada en mediciones a través de OCPP y para un uso comercial exigente. Fabricado en Türkiye.",
+        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a la innovación de Inicio Automático de Carga, reanuda la carga por sí solo cuando vuelve la corriente tras un corte. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Gracias a su módulo GSM/4G integrado, ofrece supervisión y gestión remotas basadas en la nube a través de OCPP 1.6, incluso en instalaciones sin infraestructura de internet por cable. Este modelo incorpora un contador de energía MID certificado integrado en la carcasa; es totalmente apto para la facturación basada en mediciones a través de OCPP y para un uso comercial exigente. Fabricado en Türkiye. El software de gestión de uso compartido, que permite el seguimiento por usuario en zonas comunes, se ofrece de forma gratuita.",
         "specs": [
           {
             "group": "Eléctrico",
@@ -614,7 +618,8 @@
           "load",
           "autostart",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -623,7 +628,7 @@
         "code": "BEV-2012-1010",
         "subtitle": "Con toma para cuadro / Módulo GSM · Contador MID integrado",
         "badge": "GSM · MID",
-        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a la innovación de Inicio Automático de Carga, reanuda la carga por sí solo cuando vuelve la corriente tras un corte. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Gracias a su módulo GSM/4G integrado, ofrece supervisión y gestión remotas basadas en la nube a través de OCPP 1.6, incluso en instalaciones sin infraestructura de internet por cable. Este modelo incorpora un contador de energía MID certificado integrado en la carcasa; es totalmente apto para la facturación basada en mediciones a través de OCPP y para un uso comercial exigente. Fabricado en Türkiye.",
+        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a la innovación de Inicio Automático de Carga, reanuda la carga por sí solo cuando vuelve la corriente tras un corte. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Gracias a su módulo GSM/4G integrado, ofrece supervisión y gestión remotas basadas en la nube a través de OCPP 1.6, incluso en instalaciones sin infraestructura de internet por cable. Este modelo incorpora un contador de energía MID certificado integrado en la carcasa; es totalmente apto para la facturación basada en mediciones a través de OCPP y para un uso comercial exigente. Fabricado en Türkiye. El software de gestión de uso compartido, que permite el seguimiento por usuario en zonas comunes, se ofrece de forma gratuita.",
         "specs": [
           {
             "group": "Eléctrico",
@@ -711,7 +716,8 @@
           "load",
           "autostart",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -798,7 +804,8 @@
           "shared",
           "load",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ],
         "documents": [
           {
@@ -891,7 +898,8 @@
           "shared",
           "load",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -987,7 +995,8 @@
           "shared",
           "load",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ],
         "certificates": [
           "ce",
@@ -1087,7 +1096,8 @@
           "shared",
           "load",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -1183,7 +1193,8 @@
           "shared",
           "load",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -1279,7 +1290,8 @@
           "shared",
           "load",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ],
         "certificates": [
           "ce",
@@ -1370,7 +1382,8 @@
           "shared",
           "load",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ],
         "documents": [
           {
@@ -1463,7 +1476,8 @@
           "shared",
           "load",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -1472,7 +1486,7 @@
         "code": "BEV-2011-00S5",
         "subtitle": "Con cable de 5 m · MID",
         "badge": null,
-        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a la innovación de Inicio Automático de Carga, reanuda la carga por sí solo cuando vuelve la corriente tras un corte. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Este modelo incorpora un contador de energía MID certificado integrado en la carcasa; es totalmente apto para la facturación basada en mediciones a través de OCPP y para un uso comercial exigente.",
+        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a la innovación de Inicio Automático de Carga, reanuda la carga por sí solo cuando vuelve la corriente tras un corte. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Este modelo incorpora un contador de energía MID certificado integrado en la carcasa; es totalmente apto para la facturación basada en mediciones a través de OCPP y para un uso comercial exigente. El software de gestión de uso compartido, que permite el seguimiento por usuario en zonas comunes, se ofrece de forma gratuita.",
         "specs": [
           {
             "group": "Eléctrico",
@@ -1551,7 +1565,8 @@
           "load",
           "autostart",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -1560,7 +1575,7 @@
         "code": "BEV-2012-00S0",
         "subtitle": "Con toma para cuadro · MID",
         "badge": null,
-        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a la innovación de Inicio Automático de Carga, reanuda la carga por sí solo cuando vuelve la corriente tras un corte. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Este modelo incorpora un contador de energía MID certificado integrado en la carcasa; es totalmente apto para la facturación basada en mediciones a través de OCPP y para un uso comercial exigente.",
+        "description": "Charger Plus 2 se adapta a distintas instalaciones eléctricas con un nivel de potencia ajustable de 4-7-11-22 kW. Su algoritmo de carga inteligente se adapta automáticamente a la corriente máxima que acepta el vehículo; optimizado para hogares y pequeñas empresas. Gracias a la innovación de Inicio Automático de Carga, reanuda la carga por sí solo cuando vuelve la corriente tras un corte. Gracias a su carcasa renovada y a un práctico diseño de montaje con conexión exterior, la instalación es rápida y sencilla. Este modelo incorpora un contador de energía MID certificado integrado en la carcasa; es totalmente apto para la facturación basada en mediciones a través de OCPP y para un uso comercial exigente. El software de gestión de uso compartido, que permite el seguimiento por usuario en zonas comunes, se ofrece de forma gratuita.",
         "specs": [
           {
             "group": "Eléctrico",
@@ -1639,7 +1654,8 @@
           "load",
           "autostart",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {

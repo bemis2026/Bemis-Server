@@ -160,7 +160,7 @@
         "code": "BEV-2011-0005",
         "subtitle": "Met 5 m kabel",
         "badge": null,
-        "description": "Charger Plus 2 past zich met een instelbaar vermogen van 4-7-11-22 kW aan verschillende elektrische installaties aan. Het slimme laadalgoritme stemt zich automatisch af op de maximale stroom die de auto accepteert; geoptimaliseerd voor woningen en kleine bedrijven. Met de innovatie Automatisch Laden Hervatten gaat het laden na een stroomonderbreking vanzelf verder; een optionele MID-meter biedt gecertificeerde energiemeting. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos.",
+        "description": "Charger Plus 2 past zich met een instelbaar vermogen van 4-7-11-22 kW aan verschillende elektrische installaties aan. Het slimme laadalgoritme stemt zich automatisch af op de maximale stroom die de auto accepteert; geoptimaliseerd voor woningen en kleine bedrijven. Met de innovatie Automatisch Laden Hervatten gaat het laden na een stroomonderbreking vanzelf verder; een optionele MID-meter biedt gecertificeerde energiemeting. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. De beheersoftware voor gedeeld gebruik, die gebruikersgebonden registratie in gedeelde ruimtes mogelijk maakt, wordt gratis aangeboden.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -241,7 +241,8 @@
           "load",
           "autostart",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -250,7 +251,7 @@
         "code": "BEV-2012-0000",
         "subtitle": "Met paneelcontactdoos",
         "badge": "Met paneelcontactdoos",
-        "description": "Charger Plus 2 past zich met een instelbaar vermogen van 4-7-11-22 kW aan verschillende elektrische installaties aan. Het slimme laadalgoritme stemt zich automatisch af op de maximale stroom die de auto accepteert; geoptimaliseerd voor woningen en kleine bedrijven. Met de innovatie Automatisch Laden Hervatten gaat het laden na een stroomonderbreking vanzelf verder; een optionele MID-meter biedt gecertificeerde energiemeting. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos.",
+        "description": "Charger Plus 2 past zich met een instelbaar vermogen van 4-7-11-22 kW aan verschillende elektrische installaties aan. Het slimme laadalgoritme stemt zich automatisch af op de maximale stroom die de auto accepteert; geoptimaliseerd voor woningen en kleine bedrijven. Met de innovatie Automatisch Laden Hervatten gaat het laden na een stroomonderbreking vanzelf verder; een optionele MID-meter biedt gecertificeerde energiemeting. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. De beheersoftware voor gedeeld gebruik, die gebruikersgebonden registratie in gedeelde ruimtes mogelijk maakt, wordt gratis aangeboden.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -331,7 +332,8 @@
           "load",
           "autostart",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -340,7 +342,7 @@
         "code": "BEV-2011-1005",
         "subtitle": "Met 5 m kabel / GSM-module",
         "badge": "GSM",
-        "description": "Charger Plus 2 past zich met een instelbaar vermogen van 4-7-11-22 kW aan verschillende elektrische installaties aan. Het slimme laadalgoritme stemt zich automatisch af op de maximale stroom die de auto accepteert; geoptimaliseerd voor woningen en kleine bedrijven. Met de innovatie Automatisch Laden Hervatten gaat het laden na een stroomonderbreking vanzelf verder; een optionele MID-meter biedt gecertificeerde energiemeting. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dankzij de ingebouwde GSM/4G-module is cloudgebaseerde bewaking en beheer via OCPP 1.6 mogelijk, zelfs op locaties zonder bekabeld internet.",
+        "description": "Charger Plus 2 past zich met een instelbaar vermogen van 4-7-11-22 kW aan verschillende elektrische installaties aan. Het slimme laadalgoritme stemt zich automatisch af op de maximale stroom die de auto accepteert; geoptimaliseerd voor woningen en kleine bedrijven. Met de innovatie Automatisch Laden Hervatten gaat het laden na een stroomonderbreking vanzelf verder; een optionele MID-meter biedt gecertificeerde energiemeting. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dankzij de ingebouwde GSM/4G-module is cloudgebaseerde bewaking en beheer via OCPP 1.6 mogelijk, zelfs op locaties zonder bekabeld internet. De beheersoftware voor gedeeld gebruik, die gebruikersgebonden registratie in gedeelde ruimtes mogelijk maakt, wordt gratis aangeboden.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -430,7 +432,8 @@
           "load",
           "autostart",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -439,7 +442,7 @@
         "code": "BEV-2012-1000",
         "subtitle": "Met paneelcontactdoos / GSM-module",
         "badge": "GSM",
-        "description": "Charger Plus 2 past zich met een instelbaar vermogen van 4-7-11-22 kW aan verschillende elektrische installaties aan. Het slimme laadalgoritme stemt zich automatisch af op de maximale stroom die de auto accepteert; geoptimaliseerd voor woningen en kleine bedrijven. Met de innovatie Automatisch Laden Hervatten gaat het laden na een stroomonderbreking vanzelf verder; een optionele MID-meter biedt gecertificeerde energiemeting. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dankzij de ingebouwde GSM/4G-module is cloudgebaseerde bewaking en beheer via OCPP 1.6 mogelijk, zelfs op locaties zonder bekabeld internet.",
+        "description": "Charger Plus 2 past zich met een instelbaar vermogen van 4-7-11-22 kW aan verschillende elektrische installaties aan. Het slimme laadalgoritme stemt zich automatisch af op de maximale stroom die de auto accepteert; geoptimaliseerd voor woningen en kleine bedrijven. Met de innovatie Automatisch Laden Hervatten gaat het laden na een stroomonderbreking vanzelf verder; een optionele MID-meter biedt gecertificeerde energiemeting. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dankzij de ingebouwde GSM/4G-module is cloudgebaseerde bewaking en beheer via OCPP 1.6 mogelijk, zelfs op locaties zonder bekabeld internet. De beheersoftware voor gedeeld gebruik, die gebruikersgebonden registratie in gedeelde ruimtes mogelijk maakt, wordt gratis aangeboden.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -529,7 +532,8 @@
           "load",
           "autostart",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -538,7 +542,7 @@
         "code": "BEV-2011-1015",
         "subtitle": "Met 5 m kabel / GSM-module · geïntegreerde MID-meter",
         "badge": "GSM · MID",
-        "description": "Charger Plus 2 past zich met een instelbaar vermogen van 4-7-11-22 kW aan verschillende elektrische installaties aan. Het slimme laadalgoritme stemt zich automatisch af op de maximale stroom die de auto accepteert; geoptimaliseerd voor woningen en kleine bedrijven. Met de innovatie Automatisch Laden Hervatten gaat het laden na een stroomonderbreking vanzelf verder. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dankzij de ingebouwde GSM/4G-module is cloudgebaseerde bewaking en beheer via OCPP 1.6 mogelijk, zelfs op locaties zonder bekabeld internet. Dit model heeft een in de behuizing geïntegreerde, gecertificeerde MID-energiemeter en is volledig geschikt voor facturatie op basis van meting via OCPP en intensief commercieel gebruik. Geproduceerd in eigen fabriek.",
+        "description": "Charger Plus 2 past zich met een instelbaar vermogen van 4-7-11-22 kW aan verschillende elektrische installaties aan. Het slimme laadalgoritme stemt zich automatisch af op de maximale stroom die de auto accepteert; geoptimaliseerd voor woningen en kleine bedrijven. Met de innovatie Automatisch Laden Hervatten gaat het laden na een stroomonderbreking vanzelf verder. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dankzij de ingebouwde GSM/4G-module is cloudgebaseerde bewaking en beheer via OCPP 1.6 mogelijk, zelfs op locaties zonder bekabeld internet. Dit model heeft een in de behuizing geïntegreerde, gecertificeerde MID-energiemeter en is volledig geschikt voor facturatie op basis van meting via OCPP en intensief commercieel gebruik. Geproduceerd in eigen fabriek. De beheersoftware voor gedeeld gebruik, die gebruikersgebonden registratie in gedeelde ruimtes mogelijk maakt, wordt gratis aangeboden.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -628,7 +632,8 @@
           "load",
           "autostart",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -637,7 +642,7 @@
         "code": "BEV-2012-1010",
         "subtitle": "Met paneelcontactdoos / GSM-module · geïntegreerde MID-meter",
         "badge": "GSM · MID",
-        "description": "Charger Plus 2 past zich met een instelbaar vermogen van 4-7-11-22 kW aan verschillende elektrische installaties aan. Het slimme laadalgoritme stemt zich automatisch af op de maximale stroom die de auto accepteert; geoptimaliseerd voor woningen en kleine bedrijven. Met de innovatie Automatisch Laden Hervatten gaat het laden na een stroomonderbreking vanzelf verder. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dankzij de ingebouwde GSM/4G-module is cloudgebaseerde bewaking en beheer via OCPP 1.6 mogelijk, zelfs op locaties zonder bekabeld internet. Dit model heeft een in de behuizing geïntegreerde, gecertificeerde MID-energiemeter en is volledig geschikt voor facturatie op basis van meting via OCPP en intensief commercieel gebruik. Geproduceerd in eigen fabriek.",
+        "description": "Charger Plus 2 past zich met een instelbaar vermogen van 4-7-11-22 kW aan verschillende elektrische installaties aan. Het slimme laadalgoritme stemt zich automatisch af op de maximale stroom die de auto accepteert; geoptimaliseerd voor woningen en kleine bedrijven. Met de innovatie Automatisch Laden Hervatten gaat het laden na een stroomonderbreking vanzelf verder. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dankzij de ingebouwde GSM/4G-module is cloudgebaseerde bewaking en beheer via OCPP 1.6 mogelijk, zelfs op locaties zonder bekabeld internet. Dit model heeft een in de behuizing geïntegreerde, gecertificeerde MID-energiemeter en is volledig geschikt voor facturatie op basis van meting via OCPP en intensief commercieel gebruik. Geproduceerd in eigen fabriek. De beheersoftware voor gedeeld gebruik, die gebruikersgebonden registratie in gedeelde ruimtes mogelijk maakt, wordt gratis aangeboden.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -727,7 +732,8 @@
           "load",
           "autostart",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -816,7 +822,8 @@
           "shared",
           "load",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -905,7 +912,8 @@
           "shared",
           "load",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -1003,7 +1011,8 @@
           "shared",
           "load",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ],
         "certificates": [
           "ce",
@@ -1105,7 +1114,8 @@
           "shared",
           "load",
           "mid",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -1203,7 +1213,8 @@
           "shared",
           "load",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -1301,7 +1312,8 @@
           "shared",
           "load",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ],
         "certificates": [
           "ce",
@@ -1394,7 +1406,8 @@
           "shared",
           "load",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -1483,7 +1496,8 @@
           "shared",
           "load",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -1492,7 +1506,7 @@
         "code": "BEV-2011-00S5",
         "subtitle": "Met 5 m kabel · MID",
         "badge": null,
-        "description": "Charger Plus 2 past zich met een instelbaar vermogen van 4-7-11-22 kW aan verschillende elektrische installaties aan. Het slimme laadalgoritme stemt zich automatisch af op de maximale stroom die de auto accepteert; geoptimaliseerd voor woningen en kleine bedrijven. Met de innovatie Automatisch Laden Hervatten gaat het laden na een stroomonderbreking vanzelf verder. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dit model heeft een in de behuizing geïntegreerde, gecertificeerde MID-energiemeter en is volledig geschikt voor facturatie op basis van meting via OCPP en intensief commercieel gebruik.",
+        "description": "Charger Plus 2 past zich met een instelbaar vermogen van 4-7-11-22 kW aan verschillende elektrische installaties aan. Het slimme laadalgoritme stemt zich automatisch af op de maximale stroom die de auto accepteert; geoptimaliseerd voor woningen en kleine bedrijven. Met de innovatie Automatisch Laden Hervatten gaat het laden na een stroomonderbreking vanzelf verder. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dit model heeft een in de behuizing geïntegreerde, gecertificeerde MID-energiemeter en is volledig geschikt voor facturatie op basis van meting via OCPP en intensief commercieel gebruik. De beheersoftware voor gedeeld gebruik, die gebruikersgebonden registratie in gedeelde ruimtes mogelijk maakt, wordt gratis aangeboden.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1573,7 +1587,8 @@
           "load",
           "autostart",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {
@@ -1582,7 +1597,7 @@
         "code": "BEV-2012-00S0",
         "subtitle": "Met paneelcontactdoos · MID",
         "badge": null,
-        "description": "Charger Plus 2 past zich met een instelbaar vermogen van 4-7-11-22 kW aan verschillende elektrische installaties aan. Het slimme laadalgoritme stemt zich automatisch af op de maximale stroom die de auto accepteert; geoptimaliseerd voor woningen en kleine bedrijven. Met de innovatie Automatisch Laden Hervatten gaat het laden na een stroomonderbreking vanzelf verder. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dit model heeft een in de behuizing geïntegreerde, gecertificeerde MID-energiemeter en is volledig geschikt voor facturatie op basis van meting via OCPP en intensief commercieel gebruik.",
+        "description": "Charger Plus 2 past zich met een instelbaar vermogen van 4-7-11-22 kW aan verschillende elektrische installaties aan. Het slimme laadalgoritme stemt zich automatisch af op de maximale stroom die de auto accepteert; geoptimaliseerd voor woningen en kleine bedrijven. Met de innovatie Automatisch Laden Hervatten gaat het laden na een stroomonderbreking vanzelf verder. Dankzij de vernieuwde behuizing en het praktische montageontwerp met externe aansluiting verloopt de installatie snel en moeiteloos. Dit model heeft een in de behuizing geïntegreerde, gecertificeerde MID-energiemeter en is volledig geschikt voor facturatie op basis van meting via OCPP en intensief commercieel gebruik. De beheersoftware voor gedeeld gebruik, die gebruikersgebonden registratie in gedeelde ruimtes mogelijk maakt, wordt gratis aangeboden.",
         "specs": [
           {
             "group": "Elektrisch",
@@ -1663,7 +1678,8 @@
           "load",
           "autostart",
           "midDahili",
-          "montaj"
+          "montaj",
+          "ucretsizPanel"
         ]
       },
       {

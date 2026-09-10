@@ -33,6 +33,7 @@ import {
   RiShieldCheckLine, RiBarChart2Line, RiCalendarCheckLine, RiTeamLine,
   RiLightbulbLine, RiAddLine, RiMapPin2Line, RiVerifiedBadgeFill,
   RiStarFill, RiDashboard3Line, RiHammerLine, RiEqualizerLine, RiBluetoothLine,
+  RiGiftLine,
 } from "react-icons/ri";
 import { featureById } from "../../../../lib/productFeatures";
 import { PhoneScreen, WebScreen } from "../../../components/AppMockups";
@@ -51,6 +52,7 @@ const DETAIL_FEATURE_ICONS: Record<string, React.ComponentType<{ size?: number; 
   RiShieldCheckLine, RiBarChart2Line, RiPlugLine, RiFlashlightLine,
   RiCalendarCheckLine, RiTeamLine, RiLightbulbLine,
   RiDashboard3Line, RiHammerLine, RiEqualizerLine, RiToolsLine, RiBluetoothLine,
+  RiGiftLine,
 };
 import { HiDownload, HiChevronDown } from "react-icons/hi";
 import { trackEvent } from "../../../components/GoogleAnalytics";

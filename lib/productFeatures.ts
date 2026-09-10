@@ -26,6 +26,14 @@ export const PRODUCT_FEATURES: ProductFeature[] = [
   { id: "load",        label: "Dinamik Yük Dengeleme", icon: "RiBarChart2Line",    accent: "#06B6D4", desc: "Abonelik gücünü aşmadan yükü otomatik dengeler.", labelEn: "Dynamic Load Balancing", descEn: "Balances the load automatically without exceeding the subscribed power." },
   { id: "schedule",    label: "Planlı Şarj",          icon: "RiCalendarCheckLine",accent: "#EAB308", desc: "Ucuz tarife saatlerine planlı şarj programlayın.", labelEn: "Scheduled Charging", descEn: "Schedule charging for off-peak tariff hours." },
   { id: "shared",      label: "Ortak Kullanım",       icon: "RiTeamLine",         accent: "#818CF8", desc: "Ortak alanlarda çok kullanıcılı yönetim ve raporlama.", labelEn: "Shared Access", descEn: "Multi-user management and reporting in shared areas." },
+  // ⚠️ 2026-09-11 — AYRIŞTIRICI ÖZELLİK (kullanıcı isteği: "bariz gösterilsin").
+  // `shared` ile birlikte kullanılır: o "ortak kullanım var" der, bu "yönetim
+  // paneli ÜCRETSİZ" der. Etiketin kendisinde "Ücretsiz" geçer, çünkü çip
+  // yalnız LABEL'ı gösterir (desc tooltip'te kalır) — fark ancak böyle görünür.
+  // Renk, Akıllı Şarj bölümündeki "(Ücretsiz)" rozetiyle AYNI amber tonu.
+  // ⚠️ KAPSAM: yalnız `shared` taşıyan Charger Plus 2 + Pro 2 (16 model).
+  // Charger 2'de `shared` YOK → bu rozet de verilmez (karşılanamayan vaat olmasın).
+  { id: "ucretsizPanel", label: "Ücretsiz Yönetim Paneli", icon: "RiGiftLine",    accent: "#F59E0B", desc: "Ortak alan yönetim paneli ücretsizdir: daire/kullanıcı tanımlama, RFID kart eşleştirme ve kişi bazlı raporlama.", labelEn: "Free Management Panel", descEn: "The shared-area management panel is free: define units/users, pair RFID cards and report per user." },
   // Broşür-2026 highlight rozetleri (2026-07-13). Admin bunları PRODUCT_FEATURES'tan
   // otomatik checkbox olarak listeler (senkron). İkonlar Detail + FeaturedProducts
   // ikon haritalarına da eklendi (RiDashboard3Line / RiHammerLine / RiEqualizerLine yeni).
