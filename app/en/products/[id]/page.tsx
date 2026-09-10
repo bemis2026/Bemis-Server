@@ -24,7 +24,7 @@ export const revalidate = 86400;
 
 const CATEGORY_IDS = [
   "wallbox", "portable", "cables", "v2l-c2l",
-  "converters", "charger-equipment", "accessories", "dc-units",
+  "converters", "charger-equipment", "accessories",   // dc-units: satış durduruldu → app/lib/gizliKategoriler.ts
 ];
 
 export function generateStaticParams() {

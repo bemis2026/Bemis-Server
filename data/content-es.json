@@ -825,49 +825,7 @@
     "images": [
       "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075777/products/aapzodkxb904ww8ybo3h.jpg"
     ],
-    "products": [
-      {
-        "badge": "Nuevo Producto Insignia",
-        "name": "Cargador Rápido DC de 80 kW",
-        "tagline": "Carga rápida para uso comercial y de flotas",
-        "description": "Estación de carga rápida DC de 80 kW con doble CCS2. Una solución compacta que carga dos vehículos simultáneamente en entradas de aparcamiento, centros comerciales, hoteles y centros de flotas. Batería del 20% → 80% en 30 minutos. Lista para despliegue en exterior durante todo el año, con soporte OCPP 1.6J / 2.0.1, autenticación RFID, protección IP54 y un amplio rango de temperatura de -25°C / +55°C.",
-        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075789/products/bcmgy8awcmtb9yrpwn92.png",
-        "specs": [
-          {
-            "label": "Potencia de Salida",
-            "value": "80 kW (2 × 40 kW)"
-          },
-          {
-            "label": "Conectores",
-            "value": "2 × CCS2"
-          },
-          {
-            "label": "Protocolo",
-            "value": "OCPP 1.6J / 2.0.1"
-          },
-          {
-            "label": "Protección",
-            "value": "IP54"
-          },
-          {
-            "label": "Temperatura",
-            "value": "-25°C / +55°C"
-          },
-          {
-            "label": "Fabricación",
-            "value": "Fabricado en Türkiye"
-          }
-        ],
-        "ctaPrimary": "Ver Producto",
-        "ctaHref": "/products",
-        "overlayFeatures": [
-          "80 kW DC",
-          "2 × CCS2",
-          "OCPP 2.0.1",
-          "IP54"
-        ]
-      }
-    ],
+    "products": [],
     "overlayFeatures": [
       "IP 65",
       "Carga programada",

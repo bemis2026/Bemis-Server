@@ -247,14 +247,11 @@ const AC_URUN: Record<number, { ad: string; href: string }> = {
   11:  { ad: "Charger 2 · 3,7-11 kW", href: "/products/wallbox/charger-2-trifaze-kablolu" },
   22:  { ad: "Charger 2 · 3,7-22 kW", href: "/products/wallbox/charger-2-kablolu" },
 };
-const DC_URUN: Record<number, { ad: string; href: string }> = {
-  50:  { ad: "BEVDC 40",  href: "/products/dc-units/bevdc-40-1"  },
-  100: { ad: "BEVDC 80",  href: "/products/dc-units/bevdc-80-2"  },
-  150: { ad: "BEVDC 160", href: "/products/dc-units/bevdc-160-2" },
-  175: { ad: "BEVDC 180", href: "/products/dc-units/bevdc-180"   },
-  250: { ad: "BEVDC 200", href: "/products/dc-units/bevdc-200-2" },
-  350: { ad: "BEVDC 200", href: "/products/dc-units/bevdc-200-2" },
-};
+// ⚠️ 2026-09-10: DC şarj CİHAZI satışı durduruldu → DC güç seçildiğinde ürün
+// önerisi GÖSTERİLMEZ (UrunOnerisi kayıt bulamazsa null döner, blok hiç çizilmez).
+// Hesaplayıcının DC şarj SÜRESİ simülasyonu aynen çalışır — o bilgi amaçlıdır,
+// satış vaadi değil. Satış açılınca eski BEVDC kayıtları geri konur (git geçmişi).
+const DC_URUN: Record<number, { ad: string; href: string }> = {};
 
 function UrunOnerisi({ d, accent, border, mode, power, t }: {
   d: boolean; accent: string; border: string;

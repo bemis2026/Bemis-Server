@@ -825,49 +825,7 @@
     "images": [
       "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075777/products/aapzodkxb904ww8ybo3h.jpg"
     ],
-    "products": [
-      {
-        "badge": "منتج رائد جديد",
-        "name": "شاحن DC سريع 80 kW",
-        "tagline": "شحن سريع للأساطيل والاستخدام التجاري",
-        "description": "محطة شحن DC سريع 80 kW بمخرج CCS2 مزدوج. حل مدمج يشحن سيارتين في آنٍ واحد عند مداخل مواقف السيارات ومراكز التسوق والفنادق ومراكز الأساطيل. البطارية من 20% ← 80% خلال 30 دقيقة. جاهز للنشر الخارجي على مدار العام مع دعم OCPP 1.6J / 2.0.1، ومصادقة RFID، وحماية IP54، ونطاق حرارة واسع -25°C / +55°C.",
-        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075789/products/bcmgy8awcmtb9yrpwn92.png",
-        "specs": [
-          {
-            "label": "خرج القدرة",
-            "value": "80 kW (2 × 40 kW)"
-          },
-          {
-            "label": "الموصلات",
-            "value": "2 × CCS2"
-          },
-          {
-            "label": "البروتوكول",
-            "value": "OCPP 1.6J / 2.0.1"
-          },
-          {
-            "label": "الحماية",
-            "value": "IP54"
-          },
-          {
-            "label": "درجة الحرارة",
-            "value": "-25°C / +55°C"
-          },
-          {
-            "label": "التصنيع",
-            "value": "صُنع في تركيا"
-          }
-        ],
-        "ctaPrimary": "عرض المنتج",
-        "ctaHref": "/products",
-        "overlayFeatures": [
-          "80 kW DC",
-          "2 × CCS2",
-          "OCPP 2.0.1",
-          "IP54"
-        ]
-      }
-    ],
+    "products": [],
     "overlayFeatures": [
       "IP 65",
       "شحن مجدول",

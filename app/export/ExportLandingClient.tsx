@@ -35,7 +35,8 @@ const PRODUCTS = [
   { t: "AC Wallbox", d: "7.4–22 kW, Type 2, OCPP-ready.", href: "/products/wallbox" },
   { t: "Type 2 Charging Cables", d: "Mode 2 & Mode 3, 16A/32A, 1- & 3-phase.", href: "/products/cables" },
   { t: "Portable Chargers", d: "Plug-and-charge, adjustable current.", href: "/products/portable" },
-  { t: "DC Fast Charging", d: "CCS2 units (e.g. 40 kW BEVDC).", href: "/products/dc-units" },
+  // DC fast-charging UNITS are temporarily not offered (sales paused 2026-09-10).
+  // DC CCS2 cables + socket holder are still sold (other categories).
   { t: "V2L / C2L Adapters", d: "Vehicle-to-load power solutions.", href: "/products/v2l-c2l" },
   { t: "Charging Equipment", d: "Type 2 sockets, holsters, accessories.", href: "/products/charger-equipment" },
 ];
