@@ -13,6 +13,29 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🔗✅ **/blog HUB'UNDAN 38 REHBERE TARANABİLİR LİNK — KOŞULLU MOUNT KALDIRILDI (2026-09-11,
+> commit 94170bf):** Yeni rehber yazısını doğrularken çıktı. **ÖLÇÜM (canlı /blog gövdesi):**
+> 8 haber linki + 1 sözlük linki, **rehber linki 0**. Varsayılan sekme "Haberler" ve rehber listesi
+> ancak sekmeye basınca mount ediliyordu → **38 rehber kendi hub sayfasına HİÇ girmiyordu**; Google
+> onları yalnız sitemap'ten görüyordu, hub'dan gelen iç link akışı sıfırdı.
+>
+> **⚠️ AYNI SINIF KUSUR BU SİTEDE İKİ KEZ DAHA ÇIKTI:** footer'da `button` → gerçek `<a href>`
+> (cbc8742) ve şehir sayfasında kapalı akordeon içeriğinin HTML'e hiç basılmaması (ba9aeb6).
+> **📌 DESEN: koşullu mount → içerik DOM'a girmez → taranamaz. Sekme / akordeon / karusel gördüğünde
+> içeriğin HAM HTML'de olup olmadığını ÖLÇ** (görünür gövde ile RSC yükünü ayır).
+>
+> **FIX:** üç panel de DAİMA basılır, pasif olan yalnız GÖRSEL gizlenir (`role="tabpanel"` + Tailwind
+> `hidden`). Görünüm ve tıklama davranışı AYNI; tek fark sekme değişince kartların giriş animasyonunun
+> tekrar oynamaması (içerik hazır görünür, daha hızlı).
+> ⚠️ **`hidden` SINIFI kullanıldı, `hidden` ÖZNİTELİĞİ değil** — iç ızgaranın `display:grid` sınıfı
+> UA'nın `[hidden]` kuralını özgüllükle ezerdi.
+> ⚠️ **ARAPÇA KOL KORUNDU:** `sadeceRehber` iken Haberler ve SSS panelleri HİÇ render edilmez (basın
+> sayfalarının ve kategori SSS'lerinin Arapça adresi yok → Arapça sayfadan TR rotalara link sızardı).
+>
+> **📌 BETİK DERSİ:** çapa `"        ) : ("` iki kez eşleşti — 8 boşluklu dize, 10 boşluklu iç ternary
+> satırının **ALT DİZESİ**. Çapaları **satır sonlarıyla sabitle**. Ayrıca SSS panelinin içeriği artık
+> JSX çocuğu olduğu için süslü parantez gerekti (`tsc` TS1382 ile yakaladı).
+
 > 💚⚡ **ÜCRETSİZ ORTAK ALAN YÖNETİM PANELİ — AYRIŞTIRICI ÖZELLİK OLARAK ÖNE ÇIKARILDI (2026-09-11,
 > commit'ler b1ac78f · fff5a55 · 41230a8):** Kullanıcı: *"ortak alan optimizasyonu değil ortak alan
 > yönetim paneli yaz başlığa, parantez içinde ücretsiz göster, vurgulansın, ayrıştırıcı bir özellik…
