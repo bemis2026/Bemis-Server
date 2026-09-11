@@ -34,6 +34,482 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    "slug": "tasinabilir-sarj-cihazinda-amper-ayari",
+    "title": "Taşınabilir Şarj Cihazında Amper Ayarı: Altı Kademe Ne İşe Yarar?",
+    "metaTitle": "Taşınabilir Şarj Cihazında Amper Ayarı",
+    "description": "Taşınabilir şarj cihazında amper ayarı ne işe yarar? 6 A'dan 32 A'e altı kademenin kaç kW ettiği, zayıf tesisatta hangi kademe seçilir, Pro Mobile 2 örneğiyle.",
+    "excerpt": "Taşınabilir şarj cihazının en çok işe yarayan ama en az bilinen özelliği akım ayarı. Cihazın çekeceği akımı kademeli olarak siz belirlersiniz; böylece aynı cihaz zayıf bir ev prizinde de, üç fazlı endüstriyel prizde de çalışır.",
+    "category": "Teknik",
+    "datePublished": "2026-09-12",
+    "readingMinutes": 7,
+    "keywords": [
+      "amper ayarı şarj cihazı",
+      "şarj akımı ayarlama",
+      "taşınabilir şarj cihazı kaç amper",
+      "pro mobile 2 amper ayarı",
+      "zayıf tesisatta elektrikli araç şarjı",
+      "6a 32a şarj akımı",
+      "şarj cihazı sigorta uyumu",
+      "ayarlanabilir akım taşınabilir şarj"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Taşınabilir şarj cihazı seçerken en çok güce bakılır: kaç kW? Oysa günlük kullanımda asıl işi gören özellik çoğu zaman başka bir yerde duruyor — cihazın çekeceği akımı kademeli olarak ayarlayabilmek. Bu özellik sayesinde aynı cihaz, hem sigortası zayıf bir ev prizinde hem de üç fazlı endüstriyel prizde çalışır. Aşağıda kademelerin ne anlama geldiğini, hangisinin kaç kW ettiğini ve hangi durumda hangisine inmek gerektiğini topladık."
+      },
+      {
+        "type": "h2",
+        "text": "Amper ayarı ne demek?"
+      },
+      {
+        "type": "p",
+        "text": "AC şarjda aracın ne kadar akım çekeceğine araç değil, şarj cihazı karar verir. Cihaz araca sürekli bir sinyal göndererek \"bu hattan en fazla şu kadar amper çekebilirsin\" der; araç bu tavana uyar. Amper ayarı işte bu tavanı değiştirmenizi sağlar. Gücü düşürmek şarjı bozmaz, yalnızca yavaşlatır — ve çoğu durumda doğru olan da budur."
+      },
+      {
+        "type": "h2",
+        "text": "Altı kademe kaç kW eder?"
+      },
+      {
+        "type": "p",
+        "text": "Pro Mobile 2'de şarj akımı 6, 10, 16, 20, 25 ve 32 amper olmak üzere altı kademede ayarlanır. Üç fazlı bir prizde her kademenin karşılığı yaklaşık olarak şöyledir (şebeke gerilimine göre birkaç yüz watt oynayabilir):"
+      },
+      {
+        "type": "table",
+        "caption": "Pro Mobile 2 kademeleri ve üç fazlı prizde yaklaşık güç",
+        "headers": [
+          "Kademe",
+          "Üç fazlı güç",
+          "Tipik kullanım"
+        ],
+        "rows": [
+          [
+            "6 A",
+            "yaklaşık 4,2 kW",
+            "Çok zayıf hat, uzun uzatma, paylaşımlı priz"
+          ],
+          [
+            "10 A",
+            "yaklaşık 6,9 kW",
+            "Eski tesisat, gece yavaş şarj"
+          ],
+          [
+            "16 A",
+            "yaklaşık 11,1 kW",
+            "5/16A endüstriyel priz"
+          ],
+          [
+            "20 A",
+            "yaklaşık 13,9 kW",
+            "Ara kademe, ısınan hatlarda güvenli tavan"
+          ],
+          [
+            "25 A",
+            "yaklaşık 17,3 kW",
+            "32A hatta yük paylaşımı varken"
+          ],
+          [
+            "32 A",
+            "yaklaşık 22,2 kW",
+            "5/32A endüstriyel priz, tam güç"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Tek fazlı bir hatta aynı akım yaklaşık üçte bir güç verir: 16 amper tek fazda 3,7 kW, 32 amper tek fazda 7,4 kW eder. Mini Mobile bu yüzden 10A/16A iki kademeyle 2,3 – 3,7 kW, Mono Mobile ise 16A/32A iki kademeyle 3,7 – 7,4 kW aralığında çalışır."
+      },
+      {
+        "type": "h2",
+        "text": "Neden kademe düşürürsünüz?"
+      },
+      {
+        "type": "p",
+        "text": "Kademe düşürmek bir eksiklik değil, bir araçtır. En sık şu durumlarda kullanılır:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Tesisat zayıf veya eski: hattın kesiti ve sigortası yüksek akımı sürekli taşıyacak kapasitede değildir.",
+          "Hat uzun: uzatma kablosu devreye girdiğinde direnç artar, gerilim düşer ve kablo ısınır.",
+          "Priz paylaşımlı: aynı hatta ısıtıcı, fırın veya atölye ekipmanı varsa toplam yük sigortayı attırabilir.",
+          "Otel, kamp alanı, tatil sitesi: yabancı bir tesisatın kapasitesini bilmiyorsanız düşük kademeyle başlamak en güvenli yaklaşımdır.",
+          "Güneş enerjisiyle şarj: üretime göre akımı kısarak şebekeden çekimi azaltabilirsiniz.",
+          "Fiş ısınıyorsa: elle hissedilir ısınma, o hattın o akımı sürekli taşıyamadığının en açık işaretidir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Neden kademe yükseltirsiniz?"
+      },
+      {
+        "type": "p",
+        "text": "Yukarı çıkmanın tek nedeni süredir. Uygun bir endüstriyel prize bağlandığınızda tam kademeye çıkmak şarjı belirgin biçimde kısaltır; saha, filo ve servis kullanımında aynı cihazın sabahtan akşama birden fazla araca yetişmesini sağlayan şey budur. Ancak tavan yalnız cihazda değil: gerçek sınırı hattın kapasitesi ile aracın kendi AC şarj ünitesinden hangisi düşükse o belirler. Aracının dahili şarj ünitesi 11 kW olan bir otomobil, 32 amperlik bir prizde bile 11 kW alır."
+      },
+      {
+        "type": "h2",
+        "text": "Doğru kademeyi nasıl seçersiniz?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Prizin beslendiği hattın sigorta değerini öğrenin; kademe bu değerin altında kalmalıdır.",
+          "Aynı hatta başka yüklerin olup olmadığına bakın; varsa bir kademe daha aşağı inin.",
+          "İlk şarjı düşük kademede başlatın, yarım saat sonra fişi ve kabloyu elle kontrol edin.",
+          "Isınma yoksa bir kademe yukarı çıkıp aynı kontrolü tekrarlayın.",
+          "Kalıcı çözüm gerekiyorsa hattı yenilemek yerine sabit bir ünite düşünün; ayrı hat en güvenli yoldur."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Sigorta ile kademe arasındaki ilişki"
+      },
+      {
+        "type": "p",
+        "text": "Şarj, ev tesisatındaki diğer yüklerden bir noktada ayrılır: birkaç dakika değil, saatlerce sürer ve bu süre boyunca akım neredeyse sabit kalır. Bu yüzden sigortanın üzerinde yazan değer, sürekli çekilebilecek akım değildir; ona yaklaşan bir kademe seçmek sigortanın zamanla atmasına yol açar. Pratik kural, hattın sigorta değerinin bir kademe altında kalmaktır — 16 amperlik bir hatta 16 değil 10 amper kademesi tercih edilir."
+      },
+      {
+        "type": "h2",
+        "text": "Hangi Bemis modelinde kaç kademe var?"
+      },
+      {
+        "type": "table",
+        "caption": "Taşınabilir ailelerde akım kademeleri",
+        "headers": [
+          "Model",
+          "Kademe",
+          "Nasıl ayarlanır"
+        ],
+        "rows": [
+          [
+            "Mini Mobile",
+            "10A / 16A",
+            "İki kademe"
+          ],
+          [
+            "Mono Mobile",
+            "16A / 32A",
+            "İki kademe"
+          ],
+          [
+            "Pro Mobile 2",
+            "6 / 10 / 16 / 20 / 25 / 32 A",
+            "Mobil uygulama veya cihaz üzerindeki tuş"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Pro Mobile 2'yi taşınabilir gamın amiral ürünü yapan fark burada: altı kademe, hattın kapasitesine göre ince ayar yapmayı mümkün kılar ve ayar telefondan da yapılabildiği için cihazın yanına gitmeniz gerekmez. Bu yüzden aynı cihaz hafta içi evdeki zayıf prizde 10 amperle, hafta sonu şantiyedeki endüstriyel prizde 32 amperle çalışabilir."
+      },
+      {
+        "type": "h2",
+        "text": "Kademe düşürmek şarjı ne kadar uzatır?"
+      },
+      {
+        "type": "p",
+        "text": "60 kWh'lik bir bataryayı yüzde 20'den yüzde 80'e çıkarmak yaklaşık 36 kWh enerji ister. Üç fazlı bir hatta bu iş 32 amperde yaklaşık 1 saat 40 dakika, 16 amperde yaklaşık 3 saat 15 dakika, 10 amperde yaklaşık 5 saat 15 dakika sürer; kayıplar hesaba katıldığında bu süreler bir miktar uzar. Aracı gece boyunca park ediyorsanız düşük kademenin pratikte bir maliyeti yoktur — sabah araç yine dolu olur."
+      },
+      {
+        "type": "h2",
+        "text": "Özetle"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Amper ayarı, cihazın araca bildirdiği akım tavanını değiştirir; şarjı bozmaz, yavaşlatır.",
+          "Zayıf hat, uzun uzatma, paylaşımlı priz ve bilinmeyen tesisatta kademe düşürülür.",
+          "Kademe, hattın sigorta değerinin bir basamak altında kalmalıdır.",
+          "Gerçek tavanı cihaz değil, hattın kapasitesi ile aracın AC şarj ünitesinden düşük olanı belirler.",
+          "Pro Mobile 2 altı kademe sunar ve ayar uygulamadan da yapılabilir; Mini Mobile ve Mono Mobile ikişer kademelidir."
+        ]
+      },
+      {
+        "type": "cta",
+        "text": "Hattınızın sigorta değerini ve prizinizin tipini yazın; hangi modelin ve hangi kademenin uygun olduğunu üreticisinden söyleyelim.",
+        "href": "/contact",
+        "label": "Teklif Alın"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Şarj cihazında amper ayarı ne işe yarar?",
+        "a": "AC şarjda akım tavanını araç değil şarj cihazı belirler; cihaz araca sürekli bir sinyalle en fazla kaç amper çekebileceğini bildirir ve araç bu tavana uyar. Amper ayarı bu tavanı değiştirmenizi sağlar. Böylece aynı cihaz hem sigortası zayıf bir ev prizinde hem de üç fazlı endüstriyel prizde çalışır. Akımı düşürmek şarjı bozmaz, yalnızca yavaşlatır; zayıf veya uzun bir hatta doğru olan da budur."
+      },
+      {
+        "q": "Pro Mobile 2'de kaç kademe var ve nasıl ayarlanır?",
+        "a": "Pro Mobile 2'de şarj akımı 6, 10, 16, 20, 25 ve 32 amper olmak üzere altı kademede ayarlanır. Ayar iki yerden yapılabilir: mobil uygulamadan veya cihaz üzerindeki tuştan. Karşılaştırma için Mini Mobile 10A/16A, Mono Mobile ise 16A/32A olmak üzere ikişer kademe sunar. Altı kademe, hattın kapasitesine göre ince ayar yapmayı mümkün kıldığı için Pro Mobile 2 aynı cihazla hem evde hem sahada kullanılabilir."
+      },
+      {
+        "q": "32 amper kaç kW eder?",
+        "a": "Üç fazlı bir hatta 32 amper yaklaşık 22,2 kW eder; şebeke gerilimine göre birkaç yüz watt oynayabilir. Aynı hatta 25 amper yaklaşık 17,3 kW, 20 amper yaklaşık 13,9 kW, 16 amper yaklaşık 11,1 kW, 10 amper yaklaşık 6,9 kW ve 6 amper yaklaşık 4,2 kW verir. Tek fazlı bir hatta aynı akım yaklaşık üçte bir güç demektir: 16 amper 3,7 kW, 32 amper ise 7,4 kW eder."
+      },
+      {
+        "q": "Zayıf tesisatta elektrikli araç şarj edilir mi?",
+        "a": "Edilir, ama akım kademesi hattın kapasitesine göre seçilmelidir. Şarj birkaç dakikalık değil saatlerce süren sabit bir yüktür; bu yüzden sigortanın üzerindeki değer sürekli çekilebilecek akım sayılmaz. Pratik kural, hattın sigorta değerinin bir kademe altında kalmaktır: 16 amperlik bir hatta 10 amper kademesi tercih edilir. İlk şarjı düşük kademede başlatıp yarım saat sonra fişi ve kabloyu elle kontrol etmek en pratik doğrulama yöntemidir."
+      },
+      {
+        "q": "Akımı düşürünce şarj ne kadar uzar?",
+        "a": "60 kWh'lik bir bataryayı yüzde 20'den yüzde 80'e çıkarmak yaklaşık 36 kWh ister. Üç fazlı bir hatta bu iş 32 amperde yaklaşık 1 saat 40 dakika, 16 amperde yaklaşık 3 saat 15 dakika, 10 amperde ise yaklaşık 5 saat 15 dakika sürer; kayıplar eklendiğinde süreler bir miktar uzar. Aracı gece boyunca park eden bir kullanıcı için düşük kademenin pratik bir maliyeti yoktur, çünkü sabah araç yine dolu olur."
+      },
+      {
+        "q": "En yüksek kademeyi seçersem araç her zaman o güçte mi şarj olur?",
+        "a": "Hayır. Cihazdaki kademe yalnızca üst sınırı belirler; gerçekte geçerli olan, hattın kapasitesi ile aracın kendi AC şarj ünitesinin kapasitesinden hangisi düşükse odur. Dahili şarj ünitesi 11 kW olan bir otomobil, 32 amperlik üç fazlı bir prizde bile 11 kW alır. Aynı şekilde tek fazlı bir hatta bağlandığınızda üç fazlı güç değerlerine ulaşılmaz. Bu yüzden kademeyi yükseltmeden önce aracınızın AC şarj gücüne bakmak gerekir."
+      }
+    ],
+    "related": [
+      {
+        "label": "Taşınabilir Şarj Cihazları",
+        "href": "/products/portable"
+      },
+      {
+        "label": "Evden Kablo Uzatarak Elektrikli Araba Şarj Etme",
+        "href": "/blog/evden-kablo-uzatarak-elektrikli-araba-sarj-etme"
+      },
+      {
+        "label": "Monofaze mi, Trifaze mi? Evinize Hangisi Uygun?",
+        "href": "/blog/monofaze-mi-trifaze-mi-ev-sarj"
+      },
+      {
+        "label": "Portatif (Seyyar) Şarj Cihazı: Nedir, Ne Kadar?",
+        "href": "/blog/portatif-seyyar-sarj-cihazi-nedir-ne-kadar"
+      }
+    ]
+  },
+  {
+    "slug": "evden-kablo-uzatarak-elektrikli-araba-sarj-etme",
+    "title": "Evden Kablo Uzatarak Elektrikli Araba Şarj Etme: Priz Arabadan Uzaksa Ne Yapmalı?",
+    "metaTitle": "Evden Kablo Uzatarak Elektrikli Araba Şarjı",
+    "description": "Priz arabanızdan uzakta mı? Evden kablo uzatarak elektrikli araba şarj etmenin doğru yolu: kaç metre kablo, ne zaman CEE uzatma, akımı ne zaman düşürmeli.",
+    "excerpt": "Evde elektrik var, priz de var — ama prizin yeri ile arabanın park ettiği yer aynı değil. Bu sorunun çözümü çoğu zaman kabloyu uzatmak değil, baştan doğru uzunlukta cihaz seçmektir.",
+    "category": "Rehber",
+    "datePublished": "2026-09-12",
+    "readingMinutes": 7,
+    "keywords": [
+      "evden kablo uzatarak şarj",
+      "elektrikli araba prizden şarj",
+      "şarj cihazı kaç metre kablo",
+      "taşınabilir şarj cihazı kablo uzunluğu",
+      "garajda priz yok araba uzakta",
+      "uzatma kablosu ile elektrikli araç şarjı",
+      "10 metre taşınabilir şarj cihazı",
+      "evde priz ile araba arası mesafe"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Elektrikli araç alan sürücülerin evdeki ilk keşfi genelde şu oluyor: elektrik var, priz de var — ama prizin bulunduğu yer ile arabanın park ettiği yer aynı değil. Garajın dip duvarındaki priz, bahçedeki aydınlatma hattı, apartman girişindeki kolon… Soru hep aynı biçimde geliyor: evden kablo uzatarak arabayı şarj edebilir miyim? Kısa cevap evet, ama nasıl uzattığınıza bağlı. Üstelik bu kararın büyük kısmı kablo satın alınırken değil, cihaz seçilirken veriliyor."
+      },
+      {
+        "type": "h2",
+        "text": "Önce ölçün: gerçek mesafe kuş uçuşu değildir"
+      },
+      {
+        "type": "p",
+        "text": "İşin ilk adımı bir metre. Prizle araç arasındaki düz çizgi değil, kablonun gerçekten izleyeceği yol ölçülür: duvar boyunca, kapı kasasının etrafından, aracın yanından dolanarak. İki nokta da sabit değildir — aracın şarj soketi modele göre ön çamurlukta, arka çamurlukta veya ön panelde bulunabilir ve araç her gün aynı yöne park etmeyebilir."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Prizden araç soketine, kablonun izleyeceği yol boyunca ölçün; kuş uçuşu mesafe yanıltır.",
+          "Aracın şarj soketinin hangi tarafta olduğuna bakın; sağdaki bir sokete soldan uzanmak birkaç metre ekler.",
+          "Aracı ters yöne park ettiğiniz günü de hesaba katın; en uzun durum belirleyicidir.",
+          "Kablonun gergin durmasını değil, rahat bir kavis bırakmasını isteyin; gergin kablo hem konnektöre hem prize yük bindirir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Doğru çözüm kabloyu uzatmak değil, doğru uzunlukta cihaz seçmek"
+      },
+      {
+        "type": "p",
+        "text": "Taşınabilir şarj cihazında kablo, fişten araç konnektörüne kadar tek parçadır; ortasında ek yeri yoktur ve kontrol kutusu bu hattın üzerinde durur. Bu yüzden mesafe sorununun en temiz çözümü kabloyu sonradan uzatmak değil, baştan yeterli uzunlukta cihaz almaktır. Bemis'in üç taşınabilir ailesi de farklı kablo boylarıyla üretilir:"
+      },
+      {
+        "type": "table",
+        "caption": "Bemis taşınabilir şarj cihazlarında kablo uzunluğu seçenekleri",
+        "headers": [
+          "Model",
+          "Faz ve güç",
+          "Kablo uzunluğu"
+        ],
+        "rows": [
+          [
+            "Mini Mobile",
+            "Tek fazlı · 2,3 – 3,7 kW",
+            "5 m · 8 m · 10 m"
+          ],
+          [
+            "Mono Mobile",
+            "Tek fazlı · 3,7 – 7,4 kW",
+            "5 m · 8 m · 10 m"
+          ],
+          [
+            "Pro Mobile 2",
+            "Üç fazlı · 3,7 – 22 kW",
+            "5 m · 8 m · 10 m"
+          ],
+          [
+            "Pro Mobile 2 (11 kW)",
+            "Üç fazlı · 3,7 – 11 kW",
+            "5 m"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Ölçtüğünüz mesafenin bir üst kademesini seçmek pratikte doğru karardır: 6 metre ölçtüyseniz 8 metrelik sürümü alın. Kablonun fazlası toplanır, eksiği çözülmez."
+      },
+      {
+        "type": "h2",
+        "text": "Ev tipi uzatma kablosu veya makara neden çözüm değil?"
+      },
+      {
+        "type": "p",
+        "text": "Akla ilk gelen yol cihazı evdeki uzatma kablosuna takmaktır. Ancak ev tipi çoklu priz ve kablo makaraları, saatlerce süren sabit ve yüksek akımlı bir yük için tasarlanmamıştır: fiş ile priz arasındaki temas noktası ısınır, makaraya sarılı kablo ise ürettiği ısıyı atamaz. Bu konuyu ayrıntısıyla şarj uzatma kablosu rehberimizde anlattık; buradaki kısa cevap net: ev tipi uzatma ürünleri bu iş için uygun değildir."
+      },
+      {
+        "type": "h2",
+        "text": "Gerçekten uzatmak gerekiyorsa: endüstriyel CEE uzatma"
+      },
+      {
+        "type": "p",
+        "text": "Bazı durumlarda cihazın en uzun sürümü bile yetmez; priz evin içinde, araç ise bahçenin öbür ucundadır. Bu durumda uzatma araç tarafındaki kabloya değil, priz tarafına yapılır: prizle cihazın fişi arasına, çekeceğiniz akıma göre kesiti seçilmiş endüstriyel bir CEE uzatma kablosu girer. Kesit, konnektör tipi ve IP sınıfı seçimini ayrı bir rehberde topladık — özellikle uzun hatlarda kesit, kablonun ısınıp ısınmayacağını belirleyen asıl değişkendir."
+      },
+      {
+        "type": "h2",
+        "text": "Mesafe uzadıkça akımı düşürmek gerekir mi?"
+      },
+      {
+        "type": "p",
+        "text": "Uzayan her metre hattın direncini artırır; direnç arttıkça gerilim düşer ve kablo ısınır. Pratik sonucu ikidir: aynı akımda daha az güç alırsınız ve hat daha çok ısınır. Doğru cevap akımı hattın kaldırabileceği seviyeye çekmektir. Pro Mobile 2'de şarj akımı 6/10/16/20/25/32 A olmak üzere altı kademede, mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanır; Mini Mobile 10A/16A, Mono Mobile ise 16A/32A olmak üzere iki kademe sunar. Uzun bir hatta bir kademe aşağı inmek, hattı zorlamaktan da şarjı hiç yapmamaktan da iyidir."
+      },
+      {
+        "type": "h2",
+        "text": "Hangi prize takacaksınız? Cihazı asıl bu belirler"
+      },
+      {
+        "type": "p",
+        "text": "Mesafeden sonraki ikinci soru prizin kendisidir. Evdeki prizin tipi, alabileceğiniz gücün de alacağınız cihazın da sınırını çizer:"
+      },
+      {
+        "type": "table",
+        "caption": "Priz tipine göre taşınabilir cihaz seçimi",
+        "headers": [
+          "Evdeki priz",
+          "Uygun model",
+          "Beklenen güç"
+        ],
+        "rows": [
+          [
+            "Standart ev prizi (Schuko)",
+            "Mini Mobile",
+            "2,3 – 3,7 kW"
+          ],
+          [
+            "Tek fazlı endüstriyel priz (3/32A)",
+            "Mono Mobile",
+            "3,7 – 7,4 kW"
+          ],
+          [
+            "Üç fazlı endüstriyel priz (5/16A)",
+            "Pro Mobile 2 · 11 kW",
+            "3,7 – 11 kW"
+          ],
+          [
+            "Üç fazlı endüstriyel priz (5/32A)",
+            "Pro Mobile 2 · 22 kW",
+            "3,7 – 22 kW"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Mono Mobile ve Pro Mobile 2 kutusundan fiş dönüştürücü de çıkar; yani evdeki prizle gittiğiniz yerdeki priz farklıysa cihazı değiştirmeniz gerekmez. Üç ailede de taşıma çantası standarttır."
+      },
+      {
+        "type": "h2",
+        "text": "Kablo dışarıda kalacaksa"
+      },
+      {
+        "type": "p",
+        "text": "Bahçede veya açık otoparkta kalan bir hatta üç şey önemlidir. Bemis taşınabilir cihazlarının gövde koruma sınıfı IP65, çalışma aralığı -40°C ile +55°C arasındadır; yani yağmur ve soğuk tek başına engel değildir. Asıl dikkat edilecek yer bağlantı noktalarıdır:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Fiş ile priz birleşimini yerden yükseltin; su temas noktasında birikmemeli.",
+          "Kabloyu makaraya sarılı halde çalıştırmayın; sarılı kablo ısısını atamaz.",
+          "Araç geçen bir yerden geçecekse kablo köprüsü kullanın, tekerlek altından geçirmeyin.",
+          "Şarj bittikten sonra konnektörü yerde bırakmayın; su ve toz doğrudan kontaklara gider."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Özetle"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Mesafeyi kablonun izleyeceği yol boyunca ölçün ve bir üst kademe uzunluğu seçin.",
+          "Ev tipi uzatma kablosu ile makara bu iş için uygun değildir.",
+          "Uzatma gerekiyorsa araç tarafına değil, priz tarafına endüstriyel CEE uzatma yapılır.",
+          "Hat uzunsa akımı bir kademe düşürün; Pro Mobile 2'de altı kademe bulunur.",
+          "Prizin tipi cihazı belirler: ev prizi Mini Mobile, tek fazlı endüstriyel priz Mono Mobile, üç fazlı endüstriyel priz Pro Mobile 2 demektir."
+        ]
+      },
+      {
+        "type": "cta",
+        "text": "Prizinizin tipini ve ölçtüğünüz mesafeyi yazın, hangi model ve hangi kablo boyunun uygun olduğunu üreticisinden söyleyelim.",
+        "href": "/contact",
+        "label": "Teklif Alın"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Elektrikli arabayı evden kablo uzatarak şarj edebilir miyim?",
+        "a": "Evet, ama uzatmanın nerede yapıldığı belirleyicidir. Taşınabilir şarj cihazının kablosu fişten araç konnektörüne kadar tek parçadır ve ortasından uzatılmaz. Doğru yol, ölçtüğünüz mesafeye yetecek uzunlukta cihaz seçmektir: Bemis'in Mini Mobile, Mono Mobile ve Pro Mobile 2 aileleri 5, 8 ve 10 metre kablo seçenekleriyle üretilir. Cihazın en uzun sürümü bile yetmiyorsa uzatma priz tarafına yapılır; prizle cihazın fişi arasına akıma göre kesiti seçilmiş endüstriyel bir CEE uzatma kablosu girer."
+      },
+      {
+        "q": "Taşınabilir şarj cihazında kaç metre kablo almalıyım?",
+        "a": "Prizden aracın şarj soketine, kablonun gerçekten izleyeceği yol boyunca ölçün; duvar kenarı, kapı kasası ve aracın etrafından dolanma dahil. Bu ölçünün bir üst kademesini seçin: 6 metre çıktıysa 8 metrelik sürümü alın. Aracı bazı günler ters yöne park ediyorsanız en uzun durumu esas alın, çünkü kablonun fazlası toplanır ama eksiği çözülmez. Bemis taşınabilir cihazlarında 5, 8 ve 10 metre seçenekleri bulunur; 11 kW sürümü 5 metre olarak üretilir."
+      },
+      {
+        "q": "Ev tipi uzatma kablosu veya kablo makarası ile araba şarj edilir mi?",
+        "a": "Uygun değildir. Ev tipi çoklu priz ve kablo makaraları, saatler süren sabit ve yüksek akımlı bir yük için tasarlanmamıştır; fiş ile priz arasındaki temas noktası ısınır ve makaraya sarılı kablo ürettiği ısıyı atamaz. Araç şarjı bu ürünlerin alıştığı kısa süreli kullanımdan farklıdır. Uzatma gerçekten gerekiyorsa endüstriyel CEE konnektörlü, akıma göre kesiti seçilmiş ve dışarıda kalacaksa IP sınıfı uygun bir uzatma kablosu kullanılır."
+      },
+      {
+        "q": "Uzun kabloda şarj gücü düşer mi?",
+        "a": "Hat uzadıkça direnç artar, gerilim düşer ve kablo ısınır; sonuçta aynı akımda daha az güç alırsınız. Çözüm akımı hattın kaldırabileceği seviyeye çekmektir. Pro Mobile 2'de şarj akımı 6/10/16/20/25/32 A olmak üzere altı kademede, mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanır; Mini Mobile 10A/16A, Mono Mobile ise 16A/32A olmak üzere iki kademe sunar. Uzun bir hatta bir kademe aşağı inmek şarj süresini uzatır ama hattı zorlamaz."
+      },
+      {
+        "q": "Evimde sadece normal priz var, hangi taşınabilir cihaz uygun?",
+        "a": "Standart ev prizi (Schuko) için Mini Mobile uygundur: tek fazlı, 2,3 – 3,7 kW, prize doğrudan takılır. Evinizde tek fazlı endüstriyel priz varsa Mono Mobile 3,7 – 7,4 kW verir. Üç fazlı endüstriyel priz varsa Pro Mobile 2 devreye girer; 5/16A prizde 11 kW, 5/32A prizde 22 kW'a kadar çıkar. Üç ailede de gövde koruma sınıfı IP65'tir ve taşıma çantası kutudan çıkar."
+      },
+      {
+        "q": "Şarj cihazı ve kablosu yağmurda dışarıda kalabilir mi?",
+        "a": "Bemis taşınabilir şarj cihazlarının gövde koruma sınıfı IP65, çalışma sıcaklığı aralığı -40°C ile +55°C arasındadır; yağmur ve soğuk tek başına engel değildir. Asıl dikkat edilecek yer bağlantı noktalarıdır: fiş ile prizin birleştiği yeri yerden yükseltin, su bu noktada birikmesin. Kabloyu makaraya sarılı halde çalıştırmayın, araç geçen yerlerde kablo köprüsü kullanın ve şarj bittiğinde konnektörü yerde bırakmayın."
+      }
+    ],
+    "related": [
+      {
+        "label": "Taşınabilir Şarj Cihazları",
+        "href": "/products/portable"
+      },
+      {
+        "label": "Taşınabilir Şarj Cihazında Amper Ayarı",
+        "href": "/blog/tasinabilir-sarj-cihazinda-amper-ayari"
+      },
+      {
+        "label": "EV Şarj Uzatma Kablosu: Kaç mm², Kaç Metre?",
+        "href": "/blog/elektrikli-arac-sarj-uzatma-kablosu-nasil-secilir"
+      },
+      {
+        "label": "Evde Elektrikli Araç Şarjı Güvenli mi?",
+        "href": "/blog/evde-elektrikli-arac-sarji-guvenli-mi"
+      }
+    ]
+  },
+  {
     "slug": "c2l-nedir-v2l-den-farki",
     "title": "C2L Nedir? V2L'den Farkı ve Şarj Cihazından Elektrik Almak",
     "metaTitle": "C2L Nedir, V2L'den Farkı Ne?",

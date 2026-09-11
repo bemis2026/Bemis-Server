@@ -6016,6 +6016,398 @@
           "label": "How to use V2L with the Ioniq 5"
         }
       ]
+    },
+    "evden-kablo-uzatarak-elektrikli-araba-sarj-etme": {
+      "title": "Charging an Electric Car with a Cable from the House: What If the Socket Is Far from the Car?",
+      "metaTitle": "Charging an EV with a Cable from the House",
+      "description": "Is the socket far from your car? The right way to charge an electric car with a cable from the house: how many metres of cable, when a CEE extension, when to lower the current.",
+      "excerpt": "There is power at home and there is a socket — but the socket is not where the car parks. The answer is usually not extending the cable, but choosing a unit with the right cable length from the start.",
+      "category": "Guide",
+      "body": [
+        {
+          "text": "The first discovery most new EV drivers make at home is this: there is electricity and there is a socket, but the place where the socket sits is not the place where the car parks. The socket at the back wall of the garage, the garden lighting circuit, the riser at the entrance of the building… The question always arrives in the same shape: can I charge the car with a cable run from the house? The short answer is yes, but it depends on where you extend. And most of that decision is made not when you buy the cable, but when you choose the unit."
+        },
+        {
+          "text": "Measure first: the real distance is not a straight line"
+        },
+        {
+          "text": "The first step of this job is a tape measure. What you measure is not the straight line between the socket and the car, but the path the cable will actually follow: along the wall, around the door frame, around the side of the car. Neither end is fixed either — depending on the model the charging inlet sits on the front wing, the rear wing or the front panel, and the car may not park facing the same way every day."
+        },
+        {
+          "items": [
+            "Measure from the socket to the car's inlet along the path the cable will follow; a straight-line distance is misleading.",
+            "Check which side the car's charging inlet is on; reaching a socket on the right from the left adds several metres.",
+            "Allow for the days you park the other way round; the longest case is the one that decides.",
+            "You want the cable to hang with an easy curve, not under tension; a taut cable loads both the connector and the socket."
+          ]
+        },
+        {
+          "text": "The right answer is not extending the cable but choosing the right length"
+        },
+        {
+          "text": "On a portable charger the cable is a single piece from the plug to the car connector; there is no joint in the middle and the control box sits on that same run. That is why the cleanest answer to a distance problem is not to extend the cable afterwards but to buy a long enough unit in the first place. All three Bemis portable families are produced with different cable lengths:"
+        },
+        {
+          "caption": "Cable length options on Bemis portable chargers",
+          "headers": [
+            "Model",
+            "Phase and power",
+            "Cable length"
+          ],
+          "rows": [
+            [
+              "Mini Mobile",
+              "Single-phase · 2.3 – 3.7 kW",
+              "5 m · 8 m · 10 m"
+            ],
+            [
+              "Mono Mobile",
+              "Single-phase · 3.7 – 7.4 kW",
+              "5 m · 8 m · 10 m"
+            ],
+            [
+              "Pro Mobile 2",
+              "Three-phase · 3.7 – 22 kW",
+              "5 m · 8 m · 10 m"
+            ],
+            [
+              "Pro Mobile 2 (11 kW)",
+              "Three-phase · 3.7 – 11 kW",
+              "5 m"
+            ]
+          ]
+        },
+        {
+          "text": "Choosing one step above the distance you measured is the right call in practice: if you measured 6 metres, take the 8-metre version. Spare cable can be coiled up, missing cable cannot be fixed."
+        },
+        {
+          "text": "Why is a household extension lead or cable reel not the answer?"
+        },
+        {
+          "text": "The first idea that comes to mind is to plug the unit into the extension lead you already have at home. But household multi-way adapters and cable reels are not designed for a steady, high-current load that lasts for hours: the contact point between plug and socket heats up, and a cable still wound on its reel cannot shed the heat it produces. We covered this in detail in our charging extension cable guide; the short answer here is clear: household extension products are not suitable for this job."
+        },
+        {
+          "text": "If you genuinely have to extend: an industrial CEE extension"
+        },
+        {
+          "text": "In some cases even the longest version of the unit is not enough; the socket is inside the house and the car is at the far end of the garden. In that case the extension is made on the socket side, not on the cable that goes to the car: an industrial CEE extension cable, with a cross-section chosen for the current you will draw, goes between the socket and the plug of the unit. We collected the choice of cross-section, connector type and IP class in a separate guide — on long runs the cross-section is the variable that decides whether the cable will heat up."
+        },
+        {
+          "text": "Does the current have to come down as the distance grows?"
+        },
+        {
+          "text": "Every added metre raises the resistance of the run; as resistance rises the voltage drops and the cable heats up. There are two practical consequences: you take less power at the same current, and the run gets hotter. The right answer is to bring the current down to what the run can carry. On the Pro Mobile 2 the charging current is set in six steps — 6/10/16/20/25/32 A — from the mobile app or the button on the unit; Mini Mobile offers two steps at 10A/16A and Mono Mobile two steps at 16A/32A. On a long run, dropping one step is better than straining the run and better than not charging at all."
+        },
+        {
+          "text": "Which socket will you plug into? That is what really decides the unit"
+        },
+        {
+          "text": "After distance the second question is the socket itself. The type of socket at home draws the limit both of the power you can take and of the unit you can buy:"
+        },
+        {
+          "caption": "Choosing a portable unit by socket type",
+          "headers": [
+            "Socket at home",
+            "Suitable model",
+            "Expected power"
+          ],
+          "rows": [
+            [
+              "Standard household socket (Schuko)",
+              "Mini Mobile",
+              "2.3 – 3.7 kW"
+            ],
+            [
+              "Single-phase industrial socket (3/32A)",
+              "Mono Mobile",
+              "3.7 – 7.4 kW"
+            ],
+            [
+              "Three-phase industrial socket (5/16A)",
+              "Pro Mobile 2 · 11 kW",
+              "3.7 – 11 kW"
+            ],
+            [
+              "Three-phase industrial socket (5/32A)",
+              "Pro Mobile 2 · 22 kW",
+              "3.7 – 22 kW"
+            ]
+          ]
+        },
+        {
+          "text": "A plug converter also comes in the box of the Mono Mobile and the Pro Mobile 2, so you do not have to change the unit when the socket at home differs from the socket where you are going. A carrying bag is standard in all three families."
+        },
+        {
+          "text": "If the cable is going to stay outdoors"
+        },
+        {
+          "text": "On a run that stays in the garden or in an open car park, three things matter. The housing protection class of Bemis portable units is IP65 and the operating range is -40°C to +55°C, so rain and cold are not an obstacle on their own. The place that really needs attention is the connection points:"
+        },
+        {
+          "items": [
+            "Raise the plug-and-socket joint off the ground; water must not collect at the contact point.",
+            "Do not run the cable while it is still wound on a reel; a coiled cable cannot shed its heat.",
+            "If it crosses a route used by vehicles, use a cable ramp instead of running it under the wheels.",
+            "Do not leave the connector on the ground when charging is over; water and dust go straight into the contacts."
+          ]
+        },
+        {
+          "text": "In short"
+        },
+        {
+          "items": [
+            "Measure the distance along the path the cable will follow and choose one step longer.",
+            "Household extension leads and cable reels are not suitable for this job.",
+            "If an extension is needed, the industrial CEE extension goes on the socket side, not on the car side.",
+            "If the run is long, drop the current one step; the Pro Mobile 2 has six steps.",
+            "The socket type decides the unit: a household socket means Mini Mobile, a single-phase industrial socket means Mono Mobile, a three-phase industrial socket means Pro Mobile 2."
+          ]
+        },
+        {
+          "text": "Tell us your socket type and the distance you measured, and we will say which model and which cable length fits — straight from the manufacturer.",
+          "label": "Request a Quote"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can I charge an electric car with a cable run from the house?",
+          "a": "Yes, but where the extension is made decides everything. The cable of a portable charger is a single piece from the plug to the car connector and is not extended in the middle. The right way is to choose a unit long enough for the distance you measured: the Bemis Mini Mobile, Mono Mobile and Pro Mobile 2 families are produced with 5, 8 and 10 metre cable options. If even the longest version is not enough, the extension is made on the socket side; an industrial CEE extension cable with a cross-section chosen for the current goes between the socket and the plug of the unit."
+        },
+        {
+          "q": "How many metres of cable should I choose on a portable charger?",
+          "a": "Measure from the socket to the car's charging inlet along the path the cable will really follow, including the wall edge, the door frame and going around the car. Then choose one step above that figure: if it comes out at 6 metres, take the 8-metre version. If you park the other way round on some days, take the longest case as your basis, because spare cable can be coiled but missing cable cannot be fixed. Bemis portable units offer 5, 8 and 10 metre options; the 11 kW version is produced at 5 metres."
+        },
+        {
+          "q": "Can a car be charged through a household extension lead or cable reel?",
+          "a": "It is not suitable. Household multi-way adapters and cable reels are not designed for a steady, high-current load lasting hours; the contact point between plug and socket heats up and a cable still wound on its reel cannot shed the heat it produces. Charging a car is different from the short bursts these products are used to. If an extension is genuinely needed, use one with industrial CEE connectors, a cross-section chosen for the current, and an IP class suited to staying outdoors."
+        },
+        {
+          "q": "Does charging power drop on a long cable?",
+          "a": "As the run gets longer the resistance rises, the voltage drops and the cable heats up; in the end you take less power at the same current. The answer is to bring the current down to what the run can carry. On the Pro Mobile 2 the charging current is set in six steps — 6/10/16/20/25/32 A — from the mobile app or the button on the unit; Mini Mobile offers two steps at 10A/16A and Mono Mobile two steps at 16A/32A. On a long run, dropping one step lengthens the charge but does not strain the run."
+        },
+        {
+          "q": "I only have a normal socket at home, which portable unit suits me?",
+          "a": "A standard household socket (Schuko) suits the Mini Mobile: single-phase, 2.3 – 3.7 kW, plugged straight in. If you have a single-phase industrial socket at home, the Mono Mobile gives 3.7 – 7.4 kW. With a three-phase industrial socket the Pro Mobile 2 comes in; it reaches 11 kW on a 5/16A socket and up to 22 kW on a 5/32A socket. The housing protection class is IP65 in all three families and a carrying bag comes in the box."
+        },
+        {
+          "q": "Can the charger and its cable stay outdoors in the rain?",
+          "a": "The housing protection class of Bemis portable chargers is IP65 and the operating temperature range is -40°C to +55°C, so rain and cold are not an obstacle on their own. The place that really needs attention is the connection points: raise the joint where plug meets socket off the ground so water does not collect there. Do not run the cable while it is wound on its reel, use a cable ramp where vehicles pass, and do not leave the connector on the ground when charging is over."
+        }
+      ],
+      "related": [
+        {
+          "label": "Portable Chargers"
+        },
+        {
+          "label": "Current Setting on a Portable Charger"
+        },
+        {
+          "label": "EV Charging Extension Cable: What mm², How Many Metres?"
+        },
+        {
+          "label": "Is Home EV Charging Safe?"
+        }
+      ]
+    },
+    "tasinabilir-sarj-cihazinda-amper-ayari": {
+      "title": "Current Setting on a Portable Charger: What Are the Six Steps For?",
+      "metaTitle": "Current Setting on a Portable Charger",
+      "description": "What is the current setting on a portable charger for? How many kW each of the six steps from 6 A to 32 A gives, which step to pick on weak wiring — with the Pro Mobile 2 as the example.",
+      "excerpt": "The most useful and least known feature of a portable charger is the current setting. You decide, step by step, how much current the unit draws — which is why the same unit works on a weak household socket and on a three-phase industrial socket alike.",
+      "category": "Technical",
+      "body": [
+        {
+          "text": "When people choose a portable charger they mostly look at power: how many kW? Yet in daily use the feature that really does the work usually sits somewhere else — being able to set, step by step, the current the unit will draw. Thanks to it the same unit works both on a household socket with a weak fuse and on a three-phase industrial socket. Below we have gathered what the steps mean, how many kW each one gives, and when you should step down."
+        },
+        {
+          "text": "What does current setting mean?"
+        },
+        {
+          "text": "In AC charging it is not the car but the charger that decides how much current will be drawn. The unit keeps sending the car a signal saying \"you may draw at most this many amps from this run\", and the car obeys that ceiling. The current setting lets you change that ceiling. Lowering the power does not break charging, it only slows it down — and in most situations that is exactly the right thing to do."
+        },
+        {
+          "text": "How many kW do the six steps give?"
+        },
+        {
+          "text": "On the Pro Mobile 2 the charging current is set in six steps: 6, 10, 16, 20, 25 and 32 amps. On a three-phase socket each step corresponds roughly to the following (it can move by a few hundred watts with the grid voltage):"
+        },
+        {
+          "caption": "Pro Mobile 2 steps and approximate power on a three-phase socket",
+          "headers": [
+            "Step",
+            "Three-phase power",
+            "Typical use"
+          ],
+          "rows": [
+            [
+              "6 A",
+              "about 4.2 kW",
+              "Very weak run, long extension, shared socket"
+            ],
+            [
+              "10 A",
+              "about 6.9 kW",
+              "Older wiring, slow overnight charging"
+            ],
+            [
+              "16 A",
+              "about 11.1 kW",
+              "5/16A industrial socket"
+            ],
+            [
+              "20 A",
+              "about 13.9 kW",
+              "Middle step, a safe ceiling on runs that warm up"
+            ],
+            [
+              "25 A",
+              "about 17.3 kW",
+              "When a 32A run is shared with other loads"
+            ],
+            [
+              "32 A",
+              "about 22.2 kW",
+              "5/32A industrial socket, full power"
+            ]
+          ]
+        },
+        {
+          "text": "On a single-phase run the same current gives roughly one third of the power: 16 amps on a single phase makes 3.7 kW and 32 amps makes 7.4 kW. That is why Mini Mobile works between 2.3 – 3.7 kW with its two steps of 10A/16A, and Mono Mobile between 3.7 – 7.4 kW with its two steps of 16A/32A."
+        },
+        {
+          "text": "Why would you step down?"
+        },
+        {
+          "text": "Stepping down is not a shortcoming, it is a tool. It is used most often in these situations:"
+        },
+        {
+          "items": [
+            "The wiring is weak or old: the cross-section and the fuse of the run cannot carry a high current continuously.",
+            "The run is long: once an extension cable comes in, resistance rises, voltage drops and the cable heats up.",
+            "The socket is shared: if a heater, an oven or workshop equipment sits on the same run, the total load can trip the fuse.",
+            "Hotels, campsites, holiday resorts: when you do not know the capacity of someone else's installation, starting on a low step is the safest approach.",
+            "Charging from solar: by limiting the current to match production you can reduce what you draw from the grid.",
+            "The plug is getting warm: heat you can feel by hand is the clearest sign that the run cannot carry that current continuously."
+          ]
+        },
+        {
+          "text": "Why would you step up?"
+        },
+        {
+          "text": "The only reason to go up is time. Once you are on a suitable industrial socket, moving to the full step shortens charging noticeably; that is what lets one unit serve several vehicles from morning to evening in site, fleet and service use. But the ceiling is not only in the unit: the real limit is whichever is lower, the capacity of the run or the car's own AC charger. A car whose onboard charger is 11 kW takes 11 kW even on a 32 amp socket."
+        },
+        {
+          "text": "How do you choose the right step?"
+        },
+        {
+          "items": [
+            "Find out the fuse rating of the run that feeds the socket; the step must stay below that value.",
+            "Check whether other loads sit on the same run; if they do, go one step further down.",
+            "Start the first charge on a low step and check the plug and the cable by hand after half an hour.",
+            "If there is no heating, move up one step and repeat the same check.",
+            "If you need a permanent answer, think of a fixed unit rather than patching the run; a dedicated circuit is the safest route."
+          ]
+        },
+        {
+          "text": "The relationship between the fuse and the step"
+        },
+        {
+          "text": "Charging differs from the other loads in a house at one point: it lasts hours rather than minutes, and the current stays almost constant throughout. That is why the number written on the fuse is not the current that can be drawn continuously; choosing a step close to it makes the fuse trip over time. The practical rule is to stay one step below the fuse rating of the run — on a 16 amp run you pick the 10 amp step rather than 16."
+        },
+        {
+          "text": "How many steps does each Bemis model have?"
+        },
+        {
+          "caption": "Current steps across the portable families",
+          "headers": [
+            "Model",
+            "Steps",
+            "How it is set"
+          ],
+          "rows": [
+            [
+              "Mini Mobile",
+              "10A / 16A",
+              "Two steps"
+            ],
+            [
+              "Mono Mobile",
+              "16A / 32A",
+              "Two steps"
+            ],
+            [
+              "Pro Mobile 2",
+              "6 / 10 / 16 / 20 / 25 / 32 A",
+              "Mobile app or the button on the unit"
+            ]
+          ]
+        },
+        {
+          "text": "This is what makes the Pro Mobile 2 the flagship of the portable range: six steps make fine adjustment to the capacity of the run possible, and because the setting can also be made from the phone you do not have to walk over to the unit. So the same unit can run at 10 amps on a weak socket at home during the week and at 32 amps on an industrial socket on site at the weekend."
+        },
+        {
+          "text": "How much longer does charging take on a lower step?"
+        },
+        {
+          "text": "Taking a 60 kWh battery from 20% to 80% needs roughly 36 kWh of energy. On a three-phase run that job takes about 1 hour 40 minutes at 32 amps, about 3 hours 15 minutes at 16 amps and about 5 hours 15 minutes at 10 amps; once losses are counted in, these times stretch somewhat. If you park the car overnight, a lower step costs you nothing in practice — the car is full again in the morning."
+        },
+        {
+          "text": "In short"
+        },
+        {
+          "items": [
+            "The current setting changes the current ceiling the unit reports to the car; it does not break charging, it slows it.",
+            "You step down on weak runs, long extensions, shared sockets and unknown installations.",
+            "The step should stay one notch below the fuse rating of the run.",
+            "The real ceiling is set not by the unit but by whichever is lower, the capacity of the run or the car's AC charger.",
+            "The Pro Mobile 2 offers six steps and can also be set from the app; Mini Mobile and Mono Mobile have two steps each."
+          ]
+        },
+        {
+          "text": "Tell us the fuse rating of your run and the type of your socket; we will say which model and which step fit — straight from the manufacturer.",
+          "label": "Request a Quote"
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is the current setting on a charger for?",
+          "a": "In AC charging the current ceiling is set by the charger, not by the car; the unit keeps telling the car through a signal how many amps it may draw at most, and the car obeys that ceiling. The current setting lets you change it. That is how the same unit works both on a household socket with a weak fuse and on a three-phase industrial socket. Lowering the current does not break charging, it only slows it down — and on a weak or long run that is the right thing to do."
+        },
+        {
+          "q": "How many steps does the Pro Mobile 2 have and how are they set?",
+          "a": "On the Pro Mobile 2 the charging current is set in six steps: 6, 10, 16, 20, 25 and 32 amps. The setting can be made in two places: from the mobile app or from the button on the unit. For comparison, Mini Mobile offers two steps at 10A/16A and Mono Mobile two steps at 16A/32A. Because six steps make fine adjustment to the capacity of the run possible, the Pro Mobile 2 can be used at home and on site with the same unit."
+        },
+        {
+          "q": "How many kW is 32 amps?",
+          "a": "On a three-phase run 32 amps makes about 22.2 kW; it can move by a few hundred watts with the grid voltage. On the same run 25 amps gives about 17.3 kW, 20 amps about 13.9 kW, 16 amps about 11.1 kW, 10 amps about 6.9 kW and 6 amps about 4.2 kW. On a single-phase run the same current means roughly one third of the power: 16 amps makes 3.7 kW and 32 amps makes 7.4 kW."
+        },
+        {
+          "q": "Can an electric car be charged on weak wiring?",
+          "a": "It can, but the current step has to be chosen for the capacity of the run. Charging is not a matter of minutes but a steady load lasting hours; that is why the number on the fuse is not taken as the current that can be drawn continuously. The practical rule is to stay one step below the fuse rating of the run: on a 16 amp run you pick the 10 amp step. Starting the first charge on a low step and checking the plug and cable by hand after half an hour is the most practical way to confirm it."
+        },
+        {
+          "q": "How much longer does charging take when you lower the current?",
+          "a": "Taking a 60 kWh battery from 20% to 80% needs roughly 36 kWh. On a three-phase run that job takes about 1 hour 40 minutes at 32 amps, about 3 hours 15 minutes at 16 amps and about 5 hours 15 minutes at 10 amps; once losses are added the times stretch somewhat. For someone who parks the car overnight a lower step has no practical cost, because the car is full again in the morning."
+        },
+        {
+          "q": "If I pick the highest step, will the car always charge at that power?",
+          "a": "No. The step on the unit only sets the upper limit; what actually applies is whichever is lower, the capacity of the run or the capacity of the car's own AC charger. A car whose onboard charger is 11 kW takes 11 kW even on a three-phase 32 amp socket. In the same way, connecting to a single-phase run never reaches three-phase power figures. That is why you should look at your car's AC charging power before raising the step."
+        }
+      ],
+      "related": [
+        {
+          "label": "Portable Chargers"
+        },
+        {
+          "label": "Charging an Electric Car with a Cable from the House"
+        },
+        {
+          "label": "Single-Phase or Three-Phase? Which Suits Your Home?"
+        },
+        {
+          "label": "Portable Charger: What Is It, What Does It Cost?"
+        }
+      ]
     }
   },
   "de": {
@@ -12033,6 +12425,398 @@
         },
         {
           "label": "V2L mit dem Ioniq 5 nutzen"
+        }
+      ]
+    },
+    "evden-kablo-uzatarak-elektrikli-araba-sarj-etme": {
+      "title": "Elektroauto mit einem Kabel aus dem Haus laden: Was tun, wenn die Steckdose weit weg ist?",
+      "metaTitle": "Elektroauto mit Kabel aus dem Haus laden",
+      "description": "Ist die Steckdose weit vom Auto entfernt? Der richtige Weg, ein Elektroauto mit einem Kabel aus dem Haus zu laden: wie viele Meter Kabel, wann eine CEE-Verlängerung, wann weniger Strom.",
+      "excerpt": "Strom ist da und eine Steckdose auch — nur sitzt die Steckdose nicht dort, wo das Auto parkt. Die Lösung ist meist nicht, das Kabel zu verlängern, sondern von Anfang an die richtige Kabellänge zu wählen.",
+      "category": "Ratgeber",
+      "body": [
+        {
+          "text": "Die erste Entdeckung, die neue Elektroautofahrer zu Hause machen, ist meist diese: Strom ist vorhanden und eine Steckdose auch — aber der Ort der Steckdose ist nicht der Ort, an dem das Auto parkt. Die Steckdose an der hinteren Garagenwand, der Stromkreis der Gartenbeleuchtung, der Steigstrang im Hauseingang… Die Frage kommt immer in derselben Form: Kann ich das Auto mit einem Kabel aus dem Haus laden? Die kurze Antwort lautet ja, aber es hängt davon ab, wo verlängert wird. Und der größte Teil dieser Entscheidung fällt nicht beim Kabelkauf, sondern bei der Wahl des Geräts."
+        },
+        {
+          "text": "Zuerst messen: die wirkliche Entfernung ist keine Luftlinie"
+        },
+        {
+          "text": "Der erste Schritt ist ein Maßband. Gemessen wird nicht die gerade Linie zwischen Steckdose und Auto, sondern der Weg, den das Kabel tatsächlich nimmt: an der Wand entlang, um den Türrahmen herum, seitlich am Fahrzeug vorbei. Auch die beiden Enden sind nicht fest — je nach Modell sitzt der Ladeanschluss am vorderen Kotflügel, am hinteren Kotflügel oder in der Front, und das Auto parkt nicht jeden Tag in derselben Richtung."
+        },
+        {
+          "items": [
+            "Messen Sie von der Steckdose bis zum Ladeanschluss entlang des Wegs, den das Kabel nimmt; die Luftlinie täuscht.",
+            "Prüfen Sie, auf welcher Seite der Ladeanschluss liegt; von links zu einer Steckdose rechts zu reichen kostet mehrere Meter.",
+            "Rechnen Sie die Tage mit ein, an denen Sie andersherum parken; der längste Fall entscheidet.",
+            "Das Kabel soll in einem lockeren Bogen hängen, nicht gespannt; ein straffes Kabel belastet Stecker und Steckdose."
+          ]
+        },
+        {
+          "text": "Die richtige Lösung ist nicht verlängern, sondern die passende Länge wählen"
+        },
+        {
+          "text": "Beim tragbaren Ladegerät ist das Kabel ein einziges Stück vom Stecker bis zum Fahrzeugstecker; es gibt keine Verbindungsstelle in der Mitte, und die Steuerbox sitzt auf derselben Leitung. Deshalb ist die sauberste Lösung eines Entfernungsproblems nicht, hinterher zu verlängern, sondern von vornherein ein ausreichend langes Gerät zu kaufen. Alle drei tragbaren Bemis-Familien werden in verschiedenen Kabellängen gefertigt:"
+        },
+        {
+          "caption": "Kabellängen bei tragbaren Bemis-Ladegeräten",
+          "headers": [
+            "Modell",
+            "Phase und Leistung",
+            "Kabellänge"
+          ],
+          "rows": [
+            [
+              "Mini Mobile",
+              "Einphasig · 2,3 – 3,7 kW",
+              "5 m · 8 m · 10 m"
+            ],
+            [
+              "Mono Mobile",
+              "Einphasig · 3,7 – 7,4 kW",
+              "5 m · 8 m · 10 m"
+            ],
+            [
+              "Pro Mobile 2",
+              "Dreiphasig · 3,7 – 22 kW",
+              "5 m · 8 m · 10 m"
+            ],
+            [
+              "Pro Mobile 2 (11 kW)",
+              "Dreiphasig · 3,7 – 11 kW",
+              "5 m"
+            ]
+          ]
+        },
+        {
+          "text": "Eine Stufe über der gemessenen Entfernung zu wählen ist in der Praxis richtig: Haben Sie 6 Meter gemessen, nehmen Sie die 8-Meter-Ausführung. Überschüssiges Kabel lässt sich aufrollen, fehlendes nicht ergänzen."
+        },
+        {
+          "text": "Warum sind Haushaltsverlängerung und Kabeltrommel keine Lösung?"
+        },
+        {
+          "text": "Der erste Gedanke ist, das Gerät an die vorhandene Verlängerung im Haus zu stecken. Haushaltssteckdosenleisten und Kabeltrommeln sind jedoch nicht für eine stundenlange, gleichbleibend hohe Strombelastung ausgelegt: Die Kontaktstelle zwischen Stecker und Steckdose erwärmt sich, und ein noch aufgerolltes Kabel kann seine Wärme nicht abgeben. Wir haben das im Ratgeber zum Ladeverlängerungskabel ausführlich behandelt; die kurze Antwort hier ist eindeutig: Verlängerungsprodukte für den Haushalt sind dafür nicht geeignet."
+        },
+        {
+          "text": "Wenn wirklich verlängert werden muss: eine industrielle CEE-Verlängerung"
+        },
+        {
+          "text": "Manchmal reicht selbst die längste Ausführung des Geräts nicht; die Steckdose ist im Haus, das Auto am anderen Ende des Gartens. Dann wird auf der Steckdosenseite verlängert, nicht am Kabel zum Fahrzeug: Zwischen Steckdose und Gerätestecker kommt ein industrielles CEE-Verlängerungskabel, dessen Querschnitt zum gezogenen Strom passt. Querschnitt, Steckertyp und Schutzart haben wir in einem eigenen Ratgeber zusammengefasst — auf langen Strecken entscheidet der Querschnitt darüber, ob das Kabel warm wird."
+        },
+        {
+          "text": "Muss der Strom mit wachsender Entfernung reduziert werden?"
+        },
+        {
+          "text": "Jeder zusätzliche Meter erhöht den Widerstand der Leitung; steigt der Widerstand, fällt die Spannung und das Kabel erwärmt sich. Praktisch hat das zwei Folgen: Sie erhalten bei gleichem Strom weniger Leistung, und die Leitung wird wärmer. Die richtige Antwort ist, den Strom auf das zu senken, was die Leitung trägt. Beim Pro Mobile 2 wird der Ladestrom in sechs Stufen – 6/10/16/20/25/32 A – über die mobile App oder die Taste am Gerät eingestellt; Mini Mobile bietet zwei Stufen mit 10A/16A, Mono Mobile zwei Stufen mit 16A/32A. Auf einer langen Leitung ist eine Stufe tiefer besser, als die Leitung zu strapazieren oder gar nicht zu laden."
+        },
+        {
+          "text": "An welche Steckdose stecken Sie an? Das entscheidet über das Gerät"
+        },
+        {
+          "text": "Nach der Entfernung ist die zweite Frage die Steckdose selbst. Ihr Typ zieht die Grenze sowohl für die mögliche Leistung als auch für das passende Gerät:"
+        },
+        {
+          "caption": "Gerätewahl nach Steckdosentyp",
+          "headers": [
+            "Steckdose zu Hause",
+            "Passendes Modell",
+            "Erwartete Leistung"
+          ],
+          "rows": [
+            [
+              "Haushaltssteckdose (Schuko)",
+              "Mini Mobile",
+              "2,3 – 3,7 kW"
+            ],
+            [
+              "Einphasige Industriesteckdose (3/32A)",
+              "Mono Mobile",
+              "3,7 – 7,4 kW"
+            ],
+            [
+              "Dreiphasige Industriesteckdose (5/16A)",
+              "Pro Mobile 2 · 11 kW",
+              "3,7 – 11 kW"
+            ],
+            [
+              "Dreiphasige Industriesteckdose (5/32A)",
+              "Pro Mobile 2 · 22 kW",
+              "3,7 – 22 kW"
+            ]
+          ]
+        },
+        {
+          "text": "Bei Mono Mobile und Pro Mobile 2 liegt außerdem ein Steckeradapter bei, sodass Sie das Gerät nicht wechseln müssen, wenn die Steckdose zu Hause und die am Zielort unterschiedlich sind. Eine Tragetasche gehört bei allen drei Familien zum Lieferumfang."
+        },
+        {
+          "text": "Wenn das Kabel im Freien bleibt"
+        },
+        {
+          "text": "Bei einer Leitung, die im Garten oder auf einem offenen Parkplatz bleibt, zählen drei Dinge. Die Schutzart des Gehäuses der tragbaren Bemis-Geräte ist IP65, der Arbeitsbereich liegt zwischen -40°C und +55°C; Regen und Kälte sind also für sich genommen kein Hindernis. Aufmerksamkeit verdienen vor allem die Verbindungsstellen:"
+        },
+        {
+          "items": [
+            "Heben Sie die Verbindung von Stecker und Steckdose vom Boden ab; an der Kontaktstelle darf sich kein Wasser sammeln.",
+            "Betreiben Sie das Kabel nicht aufgerollt auf der Trommel; ein aufgewickeltes Kabel kann seine Wärme nicht abgeben.",
+            "Führt die Leitung über einen Fahrweg, nutzen Sie eine Kabelbrücke, statt sie unter die Räder zu legen.",
+            "Lassen Sie den Stecker nach dem Laden nicht auf dem Boden liegen; Wasser und Staub gelangen direkt in die Kontakte."
+          ]
+        },
+        {
+          "text": "Kurz gefasst"
+        },
+        {
+          "items": [
+            "Messen Sie die Entfernung entlang des Kabelwegs und wählen Sie eine Stufe mehr.",
+            "Haushaltsverlängerungen und Kabeltrommeln sind dafür nicht geeignet.",
+            "Ist eine Verlängerung nötig, kommt die industrielle CEE-Verlängerung auf die Steckdosenseite, nicht auf die Fahrzeugseite.",
+            "Ist die Leitung lang, senken Sie den Strom um eine Stufe; das Pro Mobile 2 hat sechs Stufen.",
+            "Der Steckdosentyp bestimmt das Gerät: Haushaltssteckdose bedeutet Mini Mobile, einphasige Industriesteckdose Mono Mobile, dreiphasige Industriesteckdose Pro Mobile 2."
+          ]
+        },
+        {
+          "text": "Schreiben Sie uns Ihren Steckdosentyp und die gemessene Entfernung — wir sagen Ihnen direkt vom Hersteller, welches Modell und welche Kabellänge passt.",
+          "label": "Angebot anfordern"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Kann ich ein Elektroauto mit einem Kabel aus dem Haus laden?",
+          "a": "Ja, entscheidend ist aber, wo verlängert wird. Das Kabel eines tragbaren Ladegeräts ist ein einziges Stück vom Stecker bis zum Fahrzeugstecker und wird nicht in der Mitte verlängert. Richtig ist, ein Gerät zu wählen, das für die gemessene Entfernung lang genug ist: Die Familien Bemis Mini Mobile, Mono Mobile und Pro Mobile 2 werden mit 5, 8 und 10 Metern Kabel gefertigt. Reicht selbst die längste Ausführung nicht, wird auf der Steckdosenseite verlängert; zwischen Steckdose und Gerätestecker kommt ein industrielles CEE-Verlängerungskabel mit passendem Querschnitt."
+        },
+        {
+          "q": "Wie viele Meter Kabel sollte ich beim tragbaren Ladegerät wählen?",
+          "a": "Messen Sie von der Steckdose bis zum Ladeanschluss entlang des Wegs, den das Kabel wirklich nimmt, samt Wandkante, Türrahmen und dem Bogen um das Fahrzeug. Wählen Sie dann eine Stufe darüber: Kommen 6 Meter heraus, nehmen Sie die 8-Meter-Ausführung. Parken Sie an manchen Tagen andersherum, legen Sie den längsten Fall zugrunde, denn überschüssiges Kabel lässt sich aufrollen, fehlendes nicht ergänzen. Tragbare Bemis-Geräte gibt es mit 5, 8 und 10 Metern; die 11-kW-Ausführung wird mit 5 Metern gefertigt."
+        },
+        {
+          "q": "Kann ein Auto über eine Haushaltsverlängerung oder Kabeltrommel geladen werden?",
+          "a": "Das ist nicht geeignet. Haushaltssteckdosenleisten und Kabeltrommeln sind nicht für eine stundenlange, gleichbleibend hohe Strombelastung ausgelegt; die Kontaktstelle zwischen Stecker und Steckdose erwärmt sich, und ein aufgerolltes Kabel kann seine Wärme nicht abgeben. Das Laden eines Autos unterscheidet sich von den kurzen Einsätzen, die diese Produkte gewohnt sind. Ist eine Verlängerung wirklich nötig, nehmen Sie eine mit industriellen CEE-Steckern, passendem Querschnitt und einer Schutzart, die für den Außenbereich geeignet ist."
+        },
+        {
+          "q": "Sinkt die Ladeleistung bei langem Kabel?",
+          "a": "Je länger die Leitung, desto höher der Widerstand, desto niedriger die Spannung und desto wärmer das Kabel; am Ende erhalten Sie bei gleichem Strom weniger Leistung. Die Antwort ist, den Strom auf das zu senken, was die Leitung trägt. Beim Pro Mobile 2 wird der Ladestrom in sechs Stufen – 6/10/16/20/25/32 A – über die mobile App oder die Taste am Gerät eingestellt; Mini Mobile bietet zwei Stufen mit 10A/16A, Mono Mobile zwei Stufen mit 16A/32A. Auf langer Leitung verlängert eine Stufe tiefer den Ladevorgang, strapaziert die Leitung aber nicht."
+        },
+        {
+          "q": "Ich habe zu Hause nur eine normale Steckdose, welches Gerät passt?",
+          "a": "Zur Haushaltssteckdose (Schuko) passt das Mini Mobile: einphasig, 2,3 – 3,7 kW, direkt eingesteckt. Haben Sie eine einphasige Industriesteckdose, liefert das Mono Mobile 3,7 – 7,4 kW. Bei einer dreiphasigen Industriesteckdose kommt das Pro Mobile 2 ins Spiel; an einer 5/16A-Dose erreicht es 11 kW, an einer 5/32A-Dose bis zu 22 kW. Die Schutzart des Gehäuses ist bei allen drei Familien IP65, eine Tragetasche liegt bei."
+        },
+        {
+          "q": "Dürfen Ladegerät und Kabel im Regen draußen bleiben?",
+          "a": "Die Schutzart des Gehäuses tragbarer Bemis-Ladegeräte ist IP65, der Betriebstemperaturbereich reicht von -40°C bis +55°C; Regen und Kälte sind also für sich genommen kein Hindernis. Aufmerksamkeit verdienen die Verbindungsstellen: Heben Sie die Verbindung von Stecker und Steckdose vom Boden ab, damit sich dort kein Wasser sammelt. Betreiben Sie das Kabel nicht aufgerollt, nutzen Sie an Fahrwegen eine Kabelbrücke und lassen Sie den Stecker nach dem Laden nicht auf dem Boden liegen."
+        }
+      ],
+      "related": [
+        {
+          "label": "Tragbare Ladegeräte"
+        },
+        {
+          "label": "Stromeinstellung am tragbaren Ladegerät"
+        },
+        {
+          "label": "Ladeverlängerungskabel: welcher Querschnitt, wie viele Meter?"
+        },
+        {
+          "label": "Ist Laden zu Hause sicher?"
+        }
+      ]
+    },
+    "tasinabilir-sarj-cihazinda-amper-ayari": {
+      "title": "Stromeinstellung am tragbaren Ladegerät: Wozu dienen die sechs Stufen?",
+      "metaTitle": "Stromeinstellung am tragbaren Ladegerät",
+      "description": "Wozu dient die Stromeinstellung am tragbaren Ladegerät? Wie viel kW jede der sechs Stufen von 6 A bis 32 A ergibt und welche Stufe bei schwacher Installation passt — am Beispiel Pro Mobile 2.",
+      "excerpt": "Die nützlichste und zugleich am wenigsten bekannte Funktion eines tragbaren Ladegeräts ist die Stromeinstellung. Sie bestimmen stufenweise, wie viel Strom das Gerät zieht — deshalb arbeitet dasselbe Gerät an einer schwachen Haushaltssteckdose ebenso wie an einer dreiphasigen Industriesteckdose.",
+      "category": "Technik",
+      "body": [
+        {
+          "text": "Bei der Wahl eines tragbaren Ladegeräts wird meist auf die Leistung geschaut: wie viel kW? Dabei sitzt die Funktion, die im Alltag wirklich arbeitet, oft an anderer Stelle — nämlich darin, den Strom, den das Gerät zieht, stufenweise einstellen zu können. Dadurch arbeitet dasselbe Gerät sowohl an einer Haushaltssteckdose mit schwacher Sicherung als auch an einer dreiphasigen Industriesteckdose. Im Folgenden haben wir zusammengetragen, was die Stufen bedeuten, wie viel kW jede ergibt und wann man herunterschalten sollte."
+        },
+        {
+          "text": "Was bedeutet Stromeinstellung?"
+        },
+        {
+          "text": "Beim Wechselstromladen entscheidet nicht das Fahrzeug, sondern das Ladegerät, wie viel Strom gezogen wird. Das Gerät sendet dem Fahrzeug fortlaufend ein Signal: \"Aus dieser Leitung darfst du höchstens so viel Ampere ziehen\" — und das Fahrzeug hält sich an diese Obergrenze. Die Stromeinstellung erlaubt es Ihnen, genau diese Obergrenze zu verändern. Die Leistung zu senken zerstört den Ladevorgang nicht, es verlangsamt ihn nur — und in den meisten Fällen ist genau das richtig."
+        },
+        {
+          "text": "Wie viel kW ergeben die sechs Stufen?"
+        },
+        {
+          "text": "Beim Pro Mobile 2 wird der Ladestrom in sechs Stufen eingestellt: 6, 10, 16, 20, 25 und 32 Ampere. An einer dreiphasigen Steckdose entspricht jede Stufe ungefähr dem Folgenden (je nach Netzspannung kann es um einige hundert Watt schwanken):"
+        },
+        {
+          "caption": "Stufen des Pro Mobile 2 und ungefähre Leistung an dreiphasiger Steckdose",
+          "headers": [
+            "Stufe",
+            "Dreiphasige Leistung",
+            "Typischer Einsatz"
+          ],
+          "rows": [
+            [
+              "6 A",
+              "etwa 4,2 kW",
+              "Sehr schwache Leitung, lange Verlängerung, geteilte Steckdose"
+            ],
+            [
+              "10 A",
+              "etwa 6,9 kW",
+              "Alte Installation, langsames Laden über Nacht"
+            ],
+            [
+              "16 A",
+              "etwa 11,1 kW",
+              "5/16A-Industriesteckdose"
+            ],
+            [
+              "20 A",
+              "etwa 13,9 kW",
+              "Mittlere Stufe, sichere Obergrenze bei warm werdenden Leitungen"
+            ],
+            [
+              "25 A",
+              "etwa 17,3 kW",
+              "Wenn eine 32A-Leitung mit anderen Verbrauchern geteilt wird"
+            ],
+            [
+              "32 A",
+              "etwa 22,2 kW",
+              "5/32A-Industriesteckdose, volle Leistung"
+            ]
+          ]
+        },
+        {
+          "text": "An einer einphasigen Leitung ergibt derselbe Strom etwa ein Drittel der Leistung: 16 Ampere einphasig sind 3,7 kW, 32 Ampere sind 7,4 kW. Deshalb arbeitet Mini Mobile mit seinen zwei Stufen 10A/16A zwischen 2,3 – 3,7 kW und Mono Mobile mit seinen zwei Stufen 16A/32A zwischen 3,7 – 7,4 kW."
+        },
+        {
+          "text": "Warum schaltet man herunter?"
+        },
+        {
+          "text": "Herunterschalten ist kein Mangel, sondern ein Werkzeug. Am häufigsten wird es in diesen Fällen genutzt:"
+        },
+        {
+          "items": [
+            "Die Installation ist schwach oder alt: Querschnitt und Sicherung der Leitung tragen einen hohen Strom nicht dauerhaft.",
+            "Die Leitung ist lang: Kommt ein Verlängerungskabel dazu, steigt der Widerstand, fällt die Spannung und das Kabel erwärmt sich.",
+            "Die Steckdose ist geteilt: Hängen Heizgerät, Backofen oder Werkstattgeräte an derselben Leitung, kann die Summe die Sicherung auslösen.",
+            "Hotel, Campingplatz, Ferienanlage: Kennen Sie die Kapazität einer fremden Installation nicht, ist der Start auf niedriger Stufe am sichersten.",
+            "Laden mit Solarstrom: Indem Sie den Strom an die Erzeugung anpassen, verringern Sie den Bezug aus dem Netz.",
+            "Der Stecker wird warm: Mit der Hand spürbare Wärme ist das deutlichste Zeichen, dass die Leitung diesen Strom nicht dauerhaft trägt."
+          ]
+        },
+        {
+          "text": "Warum schaltet man hoch?"
+        },
+        {
+          "text": "Der einzige Grund hochzuschalten ist die Zeit. An einer passenden Industriesteckdose verkürzt die volle Stufe den Ladevorgang deutlich; im Baustellen-, Flotten- und Serviceeinsatz schafft es dasselbe Gerät dadurch von morgens bis abends mehrere Fahrzeuge. Die Obergrenze liegt aber nicht nur im Gerät: Die wirkliche Grenze ist das Kleinere von beidem — die Kapazität der Leitung oder das eigene Wechselstrom-Ladegerät des Fahrzeugs. Ein Auto mit einem Bordladegerät von 11 kW nimmt auch an einer 32 Ampere starken Steckdose nur 11 kW."
+        },
+        {
+          "text": "Wie wählen Sie die richtige Stufe?"
+        },
+        {
+          "items": [
+            "Ermitteln Sie den Sicherungswert der Leitung, die die Steckdose versorgt; die Stufe muss darunter bleiben.",
+            "Prüfen Sie, ob weitere Verbraucher an derselben Leitung hängen; wenn ja, gehen Sie eine Stufe tiefer.",
+            "Starten Sie den ersten Ladevorgang auf niedriger Stufe und prüfen Sie Stecker und Kabel nach einer halben Stunde mit der Hand.",
+            "Bleibt alles kühl, gehen Sie eine Stufe höher und wiederholen dieselbe Prüfung.",
+            "Brauchen Sie eine dauerhafte Lösung, denken Sie eher an ein festes Gerät als an das Flicken der Leitung; ein eigener Stromkreis ist der sicherste Weg."
+          ]
+        },
+        {
+          "text": "Der Zusammenhang von Sicherung und Stufe"
+        },
+        {
+          "text": "Laden unterscheidet sich an einem Punkt von den übrigen Verbrauchern im Haus: Es dauert nicht Minuten, sondern Stunden, und der Strom bleibt dabei nahezu konstant. Deshalb ist der auf der Sicherung stehende Wert nicht der dauerhaft entnehmbare Strom; eine Stufe nahe daran lässt die Sicherung mit der Zeit auslösen. Die praktische Regel lautet, eine Stufe unter dem Sicherungswert der Leitung zu bleiben — an einer 16 Ampere Leitung wählt man nicht 16, sondern die Stufe 10 Ampere."
+        },
+        {
+          "text": "Wie viele Stufen hat welches Bemis-Modell?"
+        },
+        {
+          "caption": "Stromstufen der tragbaren Familien",
+          "headers": [
+            "Modell",
+            "Stufen",
+            "Wie eingestellt wird"
+          ],
+          "rows": [
+            [
+              "Mini Mobile",
+              "10A / 16A",
+              "Zwei Stufen"
+            ],
+            [
+              "Mono Mobile",
+              "16A / 32A",
+              "Zwei Stufen"
+            ],
+            [
+              "Pro Mobile 2",
+              "6 / 10 / 16 / 20 / 25 / 32 A",
+              "Mobile App oder Taste am Gerät"
+            ]
+          ]
+        },
+        {
+          "text": "Genau das macht das Pro Mobile 2 zum Flaggschiff der tragbaren Reihe: sechs Stufen ermöglichen die Feinabstimmung auf die Kapazität der Leitung, und weil sich die Einstellung auch vom Telefon aus vornehmen lässt, müssen Sie nicht zum Gerät gehen. So kann dasselbe Gerät unter der Woche zu Hause an der schwachen Steckdose mit 10 Ampere und am Wochenende auf der Baustelle an der Industriesteckdose mit 32 Ampere arbeiten."
+        },
+        {
+          "text": "Wie viel länger dauert das Laden auf niedrigerer Stufe?"
+        },
+        {
+          "text": "Eine Batterie von 60 kWh von 20% auf 80% zu bringen erfordert etwa 36 kWh Energie. An einer dreiphasigen Leitung dauert das bei 32 Ampere etwa 1 Stunde 40 Minuten, bei 16 Ampere etwa 3 Stunden 15 Minuten und bei 10 Ampere etwa 5 Stunden 15 Minuten; rechnet man die Verluste mit, verlängern sich diese Zeiten etwas. Wer das Auto über Nacht parkt, zahlt für die niedrigere Stufe praktisch nichts — morgens ist das Fahrzeug wieder voll."
+        },
+        {
+          "text": "Kurz gefasst"
+        },
+        {
+          "items": [
+            "Die Stromeinstellung ändert die Stromobergrenze, die das Gerät dem Fahrzeug meldet; sie zerstört den Ladevorgang nicht, sie verlangsamt ihn.",
+            "Heruntergeschaltet wird bei schwacher Leitung, langer Verlängerung, geteilter Steckdose und unbekannter Installation.",
+            "Die Stufe sollte eine Stufe unter dem Sicherungswert der Leitung bleiben.",
+            "Die wirkliche Obergrenze setzt nicht das Gerät, sondern das Kleinere von Leitungskapazität und Wechselstrom-Ladegerät des Fahrzeugs.",
+            "Das Pro Mobile 2 bietet sechs Stufen und lässt sich auch per App einstellen; Mini Mobile und Mono Mobile haben je zwei Stufen."
+          ]
+        },
+        {
+          "text": "Schreiben Sie uns den Sicherungswert Ihrer Leitung und den Typ Ihrer Steckdose; wir sagen Ihnen direkt vom Hersteller, welches Modell und welche Stufe passen.",
+          "label": "Angebot anfordern"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Wozu dient die Stromeinstellung am Ladegerät?",
+          "a": "Beim Wechselstromladen setzt das Ladegerät die Stromobergrenze, nicht das Fahrzeug; das Gerät teilt dem Auto über ein Signal fortlaufend mit, wie viel Ampere es höchstens ziehen darf, und das Auto hält sich daran. Die Stromeinstellung erlaubt es, diese Grenze zu verändern. So arbeitet dasselbe Gerät an einer Haushaltssteckdose mit schwacher Sicherung ebenso wie an einer dreiphasigen Industriesteckdose. Den Strom zu senken zerstört den Ladevorgang nicht, es verlangsamt ihn nur — und auf schwacher oder langer Leitung ist genau das richtig."
+        },
+        {
+          "q": "Wie viele Stufen hat das Pro Mobile 2 und wie werden sie eingestellt?",
+          "a": "Beim Pro Mobile 2 wird der Ladestrom in sechs Stufen eingestellt: 6, 10, 16, 20, 25 und 32 Ampere. Die Einstellung ist an zwei Stellen möglich: über die mobile App oder über die Taste am Gerät. Zum Vergleich bietet Mini Mobile zwei Stufen mit 10A/16A und Mono Mobile zwei Stufen mit 16A/32A. Weil sechs Stufen die Feinabstimmung auf die Kapazität der Leitung ermöglichen, lässt sich das Pro Mobile 2 mit demselben Gerät zu Hause und im Einsatz nutzen."
+        },
+        {
+          "q": "Wie viel kW sind 32 Ampere?",
+          "a": "An einer dreiphasigen Leitung ergeben 32 Ampere etwa 22,2 kW; je nach Netzspannung kann das um einige hundert Watt schwanken. An derselben Leitung liefern 25 Ampere etwa 17,3 kW, 20 Ampere etwa 13,9 kW, 16 Ampere etwa 11,1 kW, 10 Ampere etwa 6,9 kW und 6 Ampere etwa 4,2 kW. An einer einphasigen Leitung bedeutet derselbe Strom etwa ein Drittel der Leistung: 16 Ampere sind 3,7 kW und 32 Ampere sind 7,4 kW."
+        },
+        {
+          "q": "Kann man ein Elektroauto an schwacher Installation laden?",
+          "a": "Ja, aber die Stromstufe muss zur Kapazität der Leitung passen. Laden ist keine Sache von Minuten, sondern eine stundenlange gleichbleibende Last; deshalb gilt der Wert auf der Sicherung nicht als dauerhaft entnehmbarer Strom. Die praktische Regel lautet, eine Stufe unter dem Sicherungswert der Leitung zu bleiben: An einer 16 Ampere Leitung wählt man die Stufe 10 Ampere. Den ersten Ladevorgang auf niedriger Stufe zu starten und Stecker und Kabel nach einer halben Stunde mit der Hand zu prüfen ist die praktischste Bestätigung."
+        },
+        {
+          "q": "Wie viel länger dauert das Laden mit gesenktem Strom?",
+          "a": "Eine Batterie von 60 kWh von 20% auf 80% zu bringen erfordert etwa 36 kWh. An einer dreiphasigen Leitung dauert das bei 32 Ampere etwa 1 Stunde 40 Minuten, bei 16 Ampere etwa 3 Stunden 15 Minuten und bei 10 Ampere etwa 5 Stunden 15 Minuten; mit den Verlusten verlängern sich die Zeiten etwas. Für jemanden, der das Auto über Nacht parkt, hat die niedrigere Stufe praktisch keinen Preis, denn morgens ist das Fahrzeug wieder voll."
+        },
+        {
+          "q": "Lädt das Auto immer mit voller Leistung, wenn ich die höchste Stufe wähle?",
+          "a": "Nein. Die Stufe am Gerät setzt nur die Obergrenze; tatsächlich gilt das Kleinere von beidem — die Kapazität der Leitung oder die Kapazität des fahrzeugeigenen Wechselstrom-Ladegeräts. Ein Auto mit einem Bordladegerät von 11 kW nimmt auch an einer dreiphasigen Steckdose mit 32 Ampere nur 11 kW. Ebenso werden an einer einphasigen Leitung die dreiphasigen Leistungswerte nie erreicht. Deshalb sollten Sie vor dem Hochschalten auf die Wechselstrom-Ladeleistung Ihres Fahrzeugs schauen."
+        }
+      ],
+      "related": [
+        {
+          "label": "Tragbare Ladegeräte"
+        },
+        {
+          "label": "Elektroauto mit einem Kabel aus dem Haus laden"
+        },
+        {
+          "label": "Einphasig oder dreiphasig? Was passt zu Ihrem Zuhause?"
+        },
+        {
+          "label": "Tragbares Ladegerät: was ist das, was kostet es?"
         }
       ]
     }
@@ -18054,6 +18838,398 @@
           "label": "Cómo usar V2L con el Ioniq 5"
         }
       ]
+    },
+    "evden-kablo-uzatarak-elektrikli-araba-sarj-etme": {
+      "title": "Cargar un coche eléctrico con un cable desde casa: ¿qué hacer si la toma está lejos?",
+      "metaTitle": "Cargar el coche con un cable desde casa",
+      "description": "¿La toma está lejos del coche? La forma correcta de cargar un coche eléctrico con un cable desde casa: cuántos metros, cuándo una alargadera CEE y cuándo bajar la corriente.",
+      "excerpt": "Hay electricidad y hay toma, pero la toma no está donde aparca el coche. La solución no suele ser alargar el cable, sino elegir desde el principio un equipo con la longitud adecuada.",
+      "category": "Guía",
+      "body": [
+        {
+          "text": "El primer descubrimiento que hacen en casa quienes compran un coche eléctrico suele ser este: hay electricidad y hay una toma, pero el lugar de la toma no es el lugar donde aparca el coche. La toma del fondo del garaje, el circuito de iluminación del jardín, la columna de la entrada del edificio… La pregunta llega siempre con la misma forma: ¿puedo cargar el coche con un cable desde casa? La respuesta corta es sí, pero depende de dónde se alargue. Y la mayor parte de esa decisión se toma al elegir el equipo, no al comprar el cable."
+        },
+        {
+          "text": "Mida primero: la distancia real no es en línea recta"
+        },
+        {
+          "text": "El primer paso es una cinta métrica. No se mide la línea recta entre la toma y el coche, sino el recorrido que hará realmente el cable: pegado a la pared, rodeando el marco de la puerta, bordeando el lateral del vehículo. Tampoco los extremos son fijos: según el modelo, la boca de carga está en la aleta delantera, en la trasera o en el frontal, y el coche no aparca cada día mirando al mismo lado."
+        },
+        {
+          "items": [
+            "Mida desde la toma hasta la boca de carga siguiendo el recorrido del cable; la línea recta engaña.",
+            "Compruebe de qué lado está la boca de carga; llegar desde la izquierda a una toma situada a la derecha añade varios metros.",
+            "Tenga en cuenta los días en que aparca al revés; manda el caso más largo.",
+            "El cable debe colgar con una curva holgada, no en tensión; un cable tirante carga el conector y la toma."
+          ]
+        },
+        {
+          "text": "La solución no es alargar el cable sino elegir la longitud correcta"
+        },
+        {
+          "text": "En un cargador portátil el cable es una sola pieza desde la clavija hasta el conector del coche; no hay empalme en el centro y la caja de control va sobre ese mismo tramo. Por eso la solución más limpia a un problema de distancia no es alargar después, sino comprar de entrada un equipo suficientemente largo. Las tres familias portátiles de Bemis se fabrican con distintas longitudes de cable:"
+        },
+        {
+          "caption": "Longitudes de cable en los cargadores portátiles Bemis",
+          "headers": [
+            "Modelo",
+            "Fase y potencia",
+            "Longitud de cable"
+          ],
+          "rows": [
+            [
+              "Mini Mobile",
+              "Monofásico · 2,3 – 3,7 kW",
+              "5 m · 8 m · 10 m"
+            ],
+            [
+              "Mono Mobile",
+              "Monofásico · 3,7 – 7,4 kW",
+              "5 m · 8 m · 10 m"
+            ],
+            [
+              "Pro Mobile 2",
+              "Trifásico · 3,7 – 22 kW",
+              "5 m · 8 m · 10 m"
+            ],
+            [
+              "Pro Mobile 2 (11 kW)",
+              "Trifásico · 3,7 – 11 kW",
+              "5 m"
+            ]
+          ]
+        },
+        {
+          "text": "Elegir un escalón por encima de la distancia medida es lo correcto en la práctica: si midió 6 metros, lleve la versión de 8 metros. El cable sobrante se recoge; el que falta no se soluciona."
+        },
+        {
+          "text": "¿Por qué una alargadera doméstica o un enrollacables no sirven?"
+        },
+        {
+          "text": "Lo primero que se piensa es enchufar el equipo a la alargadera que ya hay en casa. Pero las regletas domésticas y los enrollacables no están diseñados para una carga constante y de corriente alta que dura horas: el punto de contacto entre clavija y toma se calienta, y un cable todavía enrollado en su tambor no puede disipar el calor que genera. Lo explicamos en detalle en nuestra guía de alargaderas de carga; la respuesta corta aquí es clara: los productos de alargue domésticos no sirven para esto."
+        },
+        {
+          "text": "Si realmente hay que alargar: alargadera industrial CEE"
+        },
+        {
+          "text": "A veces ni la versión más larga del equipo basta; la toma está dentro de casa y el coche al otro extremo del jardín. En ese caso el alargue se hace del lado de la toma, no en el cable que va al coche: entre la toma y la clavija del equipo se coloca una alargadera industrial CEE con la sección elegida según la corriente que vaya a circular. La elección de sección, tipo de conector y grado IP la reunimos en otra guía: en tramos largos, la sección es la variable que decide si el cable se calienta."
+        },
+        {
+          "text": "¿Hay que bajar la corriente cuando aumenta la distancia?"
+        },
+        {
+          "text": "Cada metro añadido aumenta la resistencia del tramo; al subir la resistencia cae la tensión y el cable se calienta. Las consecuencias prácticas son dos: con la misma corriente obtiene menos potencia y el tramo se calienta más. La respuesta correcta es bajar la corriente a lo que el tramo puede llevar. En el Pro Mobile 2 la corriente de carga se ajusta en seis niveles —6/10/16/20/25/32 A— desde la aplicación móvil o el botón del equipo; Mini Mobile ofrece dos niveles, 10A/16A, y Mono Mobile dos niveles, 16A/32A. En un tramo largo, bajar un nivel es mejor que forzarlo y mejor que no cargar."
+        },
+        {
+          "text": "¿A qué toma va a enchufar? Eso es lo que decide el equipo"
+        },
+        {
+          "text": "Después de la distancia, la segunda pregunta es la toma en sí. Su tipo marca el límite tanto de la potencia que puede obtener como del equipo que puede comprar:"
+        },
+        {
+          "caption": "Elección del equipo portátil según el tipo de toma",
+          "headers": [
+            "Toma en casa",
+            "Modelo adecuado",
+            "Potencia esperada"
+          ],
+          "rows": [
+            [
+              "Toma doméstica estándar (Schuko)",
+              "Mini Mobile",
+              "2,3 – 3,7 kW"
+            ],
+            [
+              "Toma industrial monofásica (3/32A)",
+              "Mono Mobile",
+              "3,7 – 7,4 kW"
+            ],
+            [
+              "Toma industrial trifásica (5/16A)",
+              "Pro Mobile 2 · 11 kW",
+              "3,7 – 11 kW"
+            ],
+            [
+              "Toma industrial trifásica (5/32A)",
+              "Pro Mobile 2 · 22 kW",
+              "3,7 – 22 kW"
+            ]
+          ]
+        },
+        {
+          "text": "Mono Mobile y Pro Mobile 2 incluyen además un adaptador de clavija, así que no hace falta cambiar de equipo cuando la toma de casa y la del destino son distintas. La bolsa de transporte es estándar en las tres familias."
+        },
+        {
+          "text": "Si el cable va a quedarse a la intemperie"
+        },
+        {
+          "text": "En un tramo que queda en el jardín o en un aparcamiento al aire libre importan tres cosas. El grado de protección de la carcasa de los equipos portátiles Bemis es IP65 y el rango de trabajo va de -40°C a +55°C, así que la lluvia y el frío no son por sí solos un impedimento. Lo que de verdad exige atención son los puntos de conexión:"
+        },
+        {
+          "items": [
+            "Levante del suelo la unión entre clavija y toma; el agua no debe acumularse en el punto de contacto.",
+            "No haga funcionar el cable enrollado en el tambor; un cable enrollado no disipa su calor.",
+            "Si cruza una zona de paso de vehículos, use un pasacables en vez de dejarlo bajo las ruedas.",
+            "No deje el conector en el suelo al terminar la carga; el agua y el polvo van directos a los contactos."
+          ]
+        },
+        {
+          "text": "En resumen"
+        },
+        {
+          "items": [
+            "Mida la distancia siguiendo el recorrido del cable y elija un escalón más.",
+            "Las alargaderas domésticas y los enrollacables no sirven para esto.",
+            "Si hace falta alargar, la alargadera industrial CEE va del lado de la toma, no del lado del coche.",
+            "Si el tramo es largo, baje un nivel de corriente; el Pro Mobile 2 tiene seis niveles.",
+            "El tipo de toma decide el equipo: toma doméstica significa Mini Mobile, toma industrial monofásica Mono Mobile y toma industrial trifásica Pro Mobile 2."
+          ]
+        },
+        {
+          "text": "Díganos el tipo de su toma y la distancia que ha medido y le indicamos, de fábrica, qué modelo y qué longitud de cable le encajan.",
+          "label": "Solicitar presupuesto"
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Puedo cargar un coche eléctrico con un cable desde casa?",
+          "a": "Sí, pero lo decisivo es dónde se alarga. El cable de un cargador portátil es una sola pieza desde la clavija hasta el conector del coche y no se alarga por el medio. Lo correcto es elegir un equipo lo bastante largo para la distancia medida: las familias Bemis Mini Mobile, Mono Mobile y Pro Mobile 2 se fabrican con cables de 5, 8 y 10 metros. Si ni la versión más larga basta, el alargue se hace del lado de la toma; entre la toma y la clavija del equipo se coloca una alargadera industrial CEE con la sección adecuada."
+        },
+        {
+          "q": "¿Cuántos metros de cable debo elegir en un cargador portátil?",
+          "a": "Mida desde la toma hasta la boca de carga siguiendo el recorrido real del cable, incluyendo el borde de la pared, el marco de la puerta y el rodeo al vehículo. Elija después un escalón por encima: si salen 6 metros, lleve la versión de 8 metros. Si algunos días aparca al revés, tome como base el caso más largo, porque el cable sobrante se recoge y el que falta no se soluciona. Los equipos portátiles Bemis ofrecen 5, 8 y 10 metros; la versión de 11 kW se fabrica con 5 metros."
+        },
+        {
+          "q": "¿Se puede cargar el coche con una alargadera doméstica o un enrollacables?",
+          "a": "No es adecuado. Las regletas domésticas y los enrollacables no están diseñados para una carga constante y de corriente alta durante horas; el punto de contacto entre clavija y toma se calienta y un cable enrollado en su tambor no disipa el calor que genera. Cargar un coche no se parece a los usos cortos a los que están acostumbrados esos productos. Si de verdad hace falta alargar, use una alargadera con conectores industriales CEE, sección elegida según la corriente y grado IP apto para quedar a la intemperie."
+        },
+        {
+          "q": "¿Baja la potencia de carga con un cable largo?",
+          "a": "Cuanto más largo es el tramo, mayor es la resistencia, más cae la tensión y más se calienta el cable; al final obtiene menos potencia con la misma corriente. La respuesta es bajar la corriente a lo que el tramo puede llevar. En el Pro Mobile 2 la corriente de carga se ajusta en seis niveles —6/10/16/20/25/32 A— desde la aplicación móvil o el botón del equipo; Mini Mobile ofrece dos niveles, 10A/16A, y Mono Mobile dos niveles, 16A/32A. En un tramo largo, bajar un nivel alarga la carga pero no fuerza la instalación."
+        },
+        {
+          "q": "En casa solo tengo una toma normal, ¿qué equipo portátil me sirve?",
+          "a": "Para una toma doméstica estándar (Schuko) sirve el Mini Mobile: monofásico, 2,3 – 3,7 kW, enchufado directamente. Si tiene una toma industrial monofásica, el Mono Mobile da 3,7 – 7,4 kW. Con una toma industrial trifásica entra el Pro Mobile 2: alcanza 11 kW en una toma 5/16A y hasta 22 kW en una 5/32A. El grado de protección de la carcasa es IP65 en las tres familias y la bolsa de transporte viene en la caja."
+        },
+        {
+          "q": "¿Pueden quedarse el cargador y su cable a la intemperie bajo la lluvia?",
+          "a": "El grado de protección de la carcasa de los cargadores portátiles Bemis es IP65 y el rango de temperatura de trabajo va de -40°C a +55°C, así que la lluvia y el frío no son por sí solos un impedimento. Lo que exige atención son los puntos de conexión: levante del suelo la unión entre clavija y toma para que no se acumule agua. No haga funcionar el cable enrollado, use un pasacables donde circulen vehículos y no deje el conector en el suelo al acabar la carga."
+        }
+      ],
+      "related": [
+        {
+          "label": "Cargadores portátiles"
+        },
+        {
+          "label": "Ajuste de corriente en el cargador portátil"
+        },
+        {
+          "label": "Alargadera de carga: qué sección y cuántos metros"
+        },
+        {
+          "label": "¿Es segura la carga en casa?"
+        }
+      ]
+    },
+    "tasinabilir-sarj-cihazinda-amper-ayari": {
+      "title": "Ajuste de corriente en el cargador portátil: ¿para qué sirven los seis niveles?",
+      "metaTitle": "Ajuste de corriente en el cargador portátil",
+      "description": "¿Para qué sirve el ajuste de corriente en un cargador portátil? Cuántos kW da cada uno de los seis niveles de 6 A a 32 A y qué nivel elegir con una instalación débil, con el Pro Mobile 2 de ejemplo.",
+      "excerpt": "La función más útil y menos conocida de un cargador portátil es el ajuste de corriente. Usted decide, por niveles, cuánta corriente toma el equipo; por eso el mismo equipo funciona en una toma doméstica débil y en una toma industrial trifásica.",
+      "category": "Técnico",
+      "body": [
+        {
+          "text": "Al elegir un cargador portátil casi siempre se mira la potencia: ¿cuántos kW? Sin embargo, en el uso diario la función que de verdad trabaja suele estar en otro sitio: poder ajustar por niveles la corriente que tomará el equipo. Gracias a ello el mismo equipo funciona tanto en una toma doméstica con fusible débil como en una toma industrial trifásica. Abajo reunimos qué significan los niveles, cuántos kW da cada uno y en qué casos conviene bajar."
+        },
+        {
+          "text": "¿Qué significa el ajuste de corriente?"
+        },
+        {
+          "text": "En la carga en corriente alterna quien decide cuánta corriente se toma no es el coche sino el cargador. El equipo envía al vehículo una señal continua que dice \"de esta línea puedes tomar como máximo tantos amperios\", y el coche respeta ese techo. El ajuste de corriente le permite cambiarlo. Bajar la potencia no estropea la carga, solo la hace más lenta — y en la mayoría de los casos eso es justo lo correcto."
+        },
+        {
+          "text": "¿Cuántos kW dan los seis niveles?"
+        },
+        {
+          "text": "En el Pro Mobile 2 la corriente de carga se ajusta en seis niveles: 6, 10, 16, 20, 25 y 32 amperios. En una toma trifásica cada nivel equivale aproximadamente a lo siguiente (puede variar unos cientos de vatios según la tensión de red):"
+        },
+        {
+          "caption": "Niveles del Pro Mobile 2 y potencia aproximada en toma trifásica",
+          "headers": [
+            "Nivel",
+            "Potencia trifásica",
+            "Uso típico"
+          ],
+          "rows": [
+            [
+              "6 A",
+              "unos 4,2 kW",
+              "Línea muy débil, alargadera larga, toma compartida"
+            ],
+            [
+              "10 A",
+              "unos 6,9 kW",
+              "Instalación antigua, carga lenta nocturna"
+            ],
+            [
+              "16 A",
+              "unos 11,1 kW",
+              "Toma industrial 5/16A"
+            ],
+            [
+              "20 A",
+              "unos 13,9 kW",
+              "Nivel intermedio, techo seguro en líneas que se calientan"
+            ],
+            [
+              "25 A",
+              "unos 17,3 kW",
+              "Cuando una línea de 32A se comparte con otras cargas"
+            ],
+            [
+              "32 A",
+              "unos 22,2 kW",
+              "Toma industrial 5/32A, potencia plena"
+            ]
+          ]
+        },
+        {
+          "text": "En una línea monofásica la misma corriente da aproximadamente un tercio de la potencia: 16 amperios en monofásico son 3,7 kW y 32 amperios son 7,4 kW. Por eso el Mini Mobile trabaja entre 2,3 – 3,7 kW con sus dos niveles de 10A/16A, y el Mono Mobile entre 3,7 – 7,4 kW con sus dos niveles de 16A/32A."
+        },
+        {
+          "text": "¿Por qué se baja de nivel?"
+        },
+        {
+          "text": "Bajar de nivel no es una carencia sino una herramienta. Se usa sobre todo en estas situaciones:"
+        },
+        {
+          "items": [
+            "La instalación es débil o antigua: la sección y el fusible de la línea no soportan una corriente alta de forma continua.",
+            "La línea es larga: al entrar una alargadera sube la resistencia, cae la tensión y el cable se calienta.",
+            "La toma está compartida: si en la misma línea hay un calefactor, un horno o equipos de taller, la suma puede hacer saltar el fusible.",
+            "Hotel, camping, complejo vacacional: si no conoce la capacidad de una instalación ajena, empezar en un nivel bajo es lo más seguro.",
+            "Carga con energía solar: ajustando la corriente a la producción reduce lo que toma de la red.",
+            "La clavija se calienta: un calentamiento perceptible con la mano es la señal más clara de que la línea no soporta esa corriente de forma continua."
+          ]
+        },
+        {
+          "text": "¿Por qué se sube de nivel?"
+        },
+        {
+          "text": "La única razón para subir es el tiempo. En una toma industrial adecuada, pasar al nivel pleno acorta la carga de forma notable; eso es lo que permite que un mismo equipo atienda a varios vehículos de la mañana a la noche en obra, flota y servicio técnico. Pero el techo no está solo en el equipo: el límite real lo marca el menor de dos valores, la capacidad de la línea o el cargador de a bordo del propio vehículo. Un coche cuyo cargador interno es de 11 kW toma 11 kW incluso en una toma de 32 amperios."
+        },
+        {
+          "text": "¿Cómo se elige el nivel correcto?"
+        },
+        {
+          "items": [
+            "Averigüe el valor del fusible de la línea que alimenta la toma; el nivel debe quedar por debajo.",
+            "Compruebe si hay otras cargas en la misma línea; si las hay, baje un nivel más.",
+            "Empiece la primera carga en un nivel bajo y compruebe la clavija y el cable con la mano al cabo de media hora.",
+            "Si no hay calentamiento, suba un nivel y repita la misma comprobación.",
+            "Si necesita una solución permanente, piense en un equipo fijo en vez de parchear la línea; un circuito propio es el camino más seguro."
+          ]
+        },
+        {
+          "text": "La relación entre el fusible y el nivel"
+        },
+        {
+          "text": "La carga se separa en un punto del resto de consumos de una casa: no dura minutos sino horas, y durante todo ese tiempo la corriente se mantiene casi constante. Por eso el valor escrito en el fusible no es la corriente que puede tomarse de forma continua; elegir un nivel cercano hace que el fusible acabe saltando con el tiempo. La regla práctica es quedarse un nivel por debajo del valor del fusible de la línea: en una línea de 16 amperios se elige el nivel de 10 amperios, no el de 16."
+        },
+        {
+          "text": "¿Cuántos niveles tiene cada modelo Bemis?"
+        },
+        {
+          "caption": "Niveles de corriente en las familias portátiles",
+          "headers": [
+            "Modelo",
+            "Niveles",
+            "Cómo se ajusta"
+          ],
+          "rows": [
+            [
+              "Mini Mobile",
+              "10A / 16A",
+              "Dos niveles"
+            ],
+            [
+              "Mono Mobile",
+              "16A / 32A",
+              "Dos niveles"
+            ],
+            [
+              "Pro Mobile 2",
+              "6 / 10 / 16 / 20 / 25 / 32 A",
+              "Aplicación móvil o botón del equipo"
+            ]
+          ]
+        },
+        {
+          "text": "Esto es lo que convierte al Pro Mobile 2 en el producto insignia de la gama portátil: seis niveles permiten afinar según la capacidad de la línea y, como el ajuste también se hace desde el teléfono, no hace falta acercarse al equipo. Así, el mismo equipo puede trabajar entre semana en casa a 10 amperios sobre una toma débil y el fin de semana en obra a 32 amperios sobre una toma industrial."
+        },
+        {
+          "text": "¿Cuánto se alarga la carga al bajar de nivel?"
+        },
+        {
+          "text": "Llevar una batería de 60 kWh del 20% al 80% pide en torno a 36 kWh de energía. En una línea trifásica ese trabajo lleva unas 1 hora 40 minutos a 32 amperios, unas 3 horas 15 minutos a 16 amperios y unas 5 horas 15 minutos a 10 amperios; contando las pérdidas, esos tiempos se alargan algo. Si aparca el coche toda la noche, el nivel bajo no tiene coste práctico: por la mañana el coche vuelve a estar lleno."
+        },
+        {
+          "text": "En resumen"
+        },
+        {
+          "items": [
+            "El ajuste de corriente cambia el techo de corriente que el equipo comunica al coche; no estropea la carga, la ralentiza.",
+            "Se baja de nivel con líneas débiles, alargaderas largas, tomas compartidas e instalaciones desconocidas.",
+            "El nivel debe quedar un escalón por debajo del valor del fusible de la línea.",
+            "El techo real no lo fija el equipo sino el menor entre la capacidad de la línea y el cargador de a bordo del coche.",
+            "El Pro Mobile 2 ofrece seis niveles y también se ajusta desde la app; Mini Mobile y Mono Mobile tienen dos niveles cada uno."
+          ]
+        },
+        {
+          "text": "Díganos el valor del fusible de su línea y el tipo de su toma; le indicamos, de fábrica, qué modelo y qué nivel le encajan.",
+          "label": "Solicitar presupuesto"
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Para qué sirve el ajuste de corriente en un cargador?",
+          "a": "En la carga en corriente alterna el techo de corriente lo fija el cargador, no el coche; el equipo comunica al vehículo mediante una señal continua cuántos amperios puede tomar como máximo, y el coche respeta ese techo. El ajuste de corriente permite cambiarlo. Así el mismo equipo funciona tanto en una toma doméstica con fusible débil como en una toma industrial trifásica. Bajar la corriente no estropea la carga, solo la ralentiza — y en una línea débil o larga eso es lo correcto."
+        },
+        {
+          "q": "¿Cuántos niveles tiene el Pro Mobile 2 y cómo se ajustan?",
+          "a": "En el Pro Mobile 2 la corriente de carga se ajusta en seis niveles: 6, 10, 16, 20, 25 y 32 amperios. El ajuste puede hacerse en dos sitios: desde la aplicación móvil o desde el botón del equipo. Como comparación, Mini Mobile ofrece dos niveles de 10A/16A y Mono Mobile dos niveles de 16A/32A. Como seis niveles permiten afinar según la capacidad de la línea, el Pro Mobile 2 sirve en casa y en obra con el mismo equipo."
+        },
+        {
+          "q": "¿Cuántos kW son 32 amperios?",
+          "a": "En una línea trifásica 32 amperios equivalen a unos 22,2 kW; puede variar unos cientos de vatios según la tensión de red. En la misma línea, 25 amperios dan unos 17,3 kW, 20 amperios unos 13,9 kW, 16 amperios unos 11,1 kW, 10 amperios unos 6,9 kW y 6 amperios unos 4,2 kW. En una línea monofásica la misma corriente significa aproximadamente un tercio de la potencia: 16 amperios son 3,7 kW y 32 amperios son 7,4 kW."
+        },
+        {
+          "q": "¿Se puede cargar un coche eléctrico con una instalación débil?",
+          "a": "Se puede, pero el nivel de corriente debe elegirse según la capacidad de la línea. La carga no es cosa de minutos sino una carga constante que dura horas; por eso el valor escrito en el fusible no se toma como la corriente que puede circular de forma continua. La regla práctica es quedarse un nivel por debajo del valor del fusible: en una línea de 16 amperios se elige el nivel de 10 amperios. Empezar la primera carga en un nivel bajo y comprobar clavija y cable con la mano al cabo de media hora es la verificación más práctica."
+        },
+        {
+          "q": "¿Cuánto se alarga la carga al bajar la corriente?",
+          "a": "Llevar una batería de 60 kWh del 20% al 80% pide en torno a 36 kWh. En una línea trifásica ese trabajo lleva unas 1 hora 40 minutos a 32 amperios, unas 3 horas 15 minutos a 16 amperios y unas 5 horas 15 minutos a 10 amperios; al añadir las pérdidas los tiempos se alargan algo. Para quien aparca el coche toda la noche, el nivel bajo no tiene coste práctico, porque por la mañana el coche vuelve a estar lleno."
+        },
+        {
+          "q": "Si elijo el nivel más alto, ¿el coche cargará siempre a esa potencia?",
+          "a": "No. El nivel del equipo solo fija el límite superior; lo que realmente rige es el menor entre la capacidad de la línea y la capacidad del cargador de a bordo del coche. Un coche cuyo cargador interno es de 11 kW toma 11 kW incluso en una toma trifásica de 32 amperios. Del mismo modo, conectado a una línea monofásica nunca se alcanzan las cifras de potencia trifásica. Por eso conviene mirar la potencia de carga en corriente alterna de su coche antes de subir de nivel."
+        }
+      ],
+      "related": [
+        {
+          "label": "Cargadores portátiles"
+        },
+        {
+          "label": "Cargar un coche eléctrico con un cable desde casa"
+        },
+        {
+          "label": "¿Monofásico o trifásico? ¿Cuál encaja en su casa?"
+        },
+        {
+          "label": "Cargador portátil: qué es y cuánto cuesta"
+        }
+      ]
     }
   },
   "ar": {
@@ -24073,6 +25249,398 @@
           "label": "كيف تستخدم V2L مع Ioniq 5"
         }
       ]
+    },
+    "evden-kablo-uzatarak-elektrikli-araba-sarj-etme": {
+      "title": "شحن السيارة الكهربائية بكابل ممدود من المنزل: ماذا تفعل إذا كان المقبس بعيدًا؟",
+      "metaTitle": "شحن السيارة الكهربائية بكابل من المنزل",
+      "description": "هل المقبس بعيد عن سيارتك؟ الطريقة الصحيحة لشحن سيارة كهربائية بكابل من المنزل: كم مترًا من الكابل، ومتى تُستخدم وصلة CEE، ومتى يُخفَّض التيار.",
+      "excerpt": "الكهرباء موجودة والمقبس موجود، لكن مكان المقبس ليس المكان الذي تقف فيه السيارة. الحل عادةً ليس تمديد الكابل بل اختيار جهاز بطول الكابل المناسب من البداية.",
+      "category": "دليل",
+      "body": [
+        {
+          "text": "أول اكتشاف يواجهه سائقو السيارات الكهربائية في المنزل غالبًا ما يكون هذا: الكهرباء موجودة والمقبس موجود، لكن مكان المقبس ليس المكان الذي تقف فيه السيارة. المقبس في آخر جدار المرآب، خط إنارة الحديقة، عمود التغذية عند مدخل المبنى… ويأتي السؤال دائمًا بالصيغة نفسها: هل أستطيع شحن السيارة بكابل ممدود من المنزل؟ الإجابة القصيرة نعم، لكنها تعتمد على مكان التمديد. والجزء الأكبر من هذا القرار يُتخذ عند اختيار الجهاز لا عند شراء الكابل."
+        },
+        {
+          "text": "قِس أولًا: المسافة الحقيقية ليست بخط مستقيم"
+        },
+        {
+          "text": "أول خطوة في هذا العمل شريط قياس. ما يُقاس ليس الخط المستقيم بين المقبس والسيارة، بل المسار الذي سيسلكه الكابل فعليًا: بمحاذاة الجدار، حول إطار الباب، والالتفاف من جانب السيارة. وليس أيٌّ من الطرفين ثابتًا؛ فحسب الطراز يوجد منفذ الشحن في الرفرف الأمامي أو الخلفي أو في الواجهة الأمامية، وقد لا تقف السيارة كل يوم بالاتجاه نفسه."
+        },
+        {
+          "items": [
+            "قِس من المقبس إلى منفذ الشحن على امتداد المسار الذي سيسلكه الكابل؛ المسافة بخط مستقيم مضلِّلة.",
+            "انظر في أي جانب يقع منفذ الشحن؛ الوصول من اليسار إلى مقبس على اليمين يضيف عدة أمتار.",
+            "احسب أيضًا الأيام التي تقف فيها بالاتجاه المعاكس؛ الحالة الأطول هي الحاسمة.",
+            "يجب أن يتدلى الكابل بانحناءة مريحة لا مشدودًا؛ فالكابل المشدود يُحمِّل القابس والمقبس معًا."
+          ]
+        },
+        {
+          "text": "الحل الصحيح ليس تمديد الكابل بل اختيار الطول المناسب"
+        },
+        {
+          "text": "في الشاحن المحمول يكون الكابل قطعة واحدة من القابس حتى موصّل السيارة؛ لا وصلة في منتصفه وصندوق التحكم يقع على المسار نفسه. لذلك فإن أنظف حل لمشكلة المسافة ليس التمديد لاحقًا بل شراء جهاز بطول كافٍ من البداية. وتُنتج عائلات Bemis المحمولة الثلاث جميعها بأطوال كابلات مختلفة:"
+        },
+        {
+          "caption": "خيارات طول الكابل في شواحن Bemis المحمولة",
+          "headers": [
+            "الطراز",
+            "الطور والقدرة",
+            "طول الكابل"
+          ],
+          "rows": [
+            [
+              "Mini Mobile",
+              "أحادي الطور · 2.3 – 3.7 كيلوواط",
+              "5 م · 8 م · 10 م"
+            ],
+            [
+              "Mono Mobile",
+              "أحادي الطور · 3.7 – 7.4 كيلوواط",
+              "5 م · 8 م · 10 م"
+            ],
+            [
+              "Pro Mobile 2",
+              "ثلاثي الطور · 3.7 – 22 كيلوواط",
+              "5 م · 8 م · 10 م"
+            ],
+            [
+              "Pro Mobile 2 (11 كيلوواط)",
+              "ثلاثي الطور · 3.7 – 11 كيلوواط",
+              "5 م"
+            ]
+          ]
+        },
+        {
+          "text": "اختيار درجة أعلى من المسافة التي قِستها هو القرار الصحيح عمليًا: إذا قِست 6 أمتار فخذ نسخة 8 أمتار. الكابل الزائد يُلَف، أما الناقص فلا يُعالَج."
+        },
+        {
+          "text": "لماذا لا تصلح وصلة المنزل أو بكرة الكابل؟"
+        },
+        {
+          "text": "أول ما يخطر بالبال هو توصيل الجهاز بوصلة الكهرباء الموجودة في المنزل. لكن مشتركات المنزل وبكرات الكابلات ليست مصممة لحِمل ثابت بتيار عالٍ يستمر ساعات: نقطة التماس بين القابس والمقبس تسخن، والكابل الملفوف على بكرته لا يستطيع تصريف الحرارة التي يولّدها. شرحنا ذلك بالتفصيل في دليل كابل تمديد الشحن؛ والإجابة القصيرة هنا واضحة: منتجات التمديد المنزلية لا تصلح لهذا العمل."
+        },
+        {
+          "text": "إذا كان التمديد ضروريًا فعلًا: وصلة CEE صناعية"
+        },
+        {
+          "text": "في بعض الحالات لا تكفي حتى أطول نسخة من الجهاز؛ المقبس داخل المنزل والسيارة في الطرف الآخر من الحديقة. عندئذٍ يكون التمديد في جهة المقبس لا في الكابل الذاهب إلى السيارة: توضع بين المقبس وقابس الجهاز وصلة CEE صناعية اختير مقطعها حسب التيار المسحوب. وقد جمعنا اختيار المقطع ونوع الموصّل وفئة الحماية في دليل منفصل — ففي الخطوط الطويلة المقطع هو المتغيّر الذي يحدد ما إذا كان الكابل سيسخن."
+        },
+        {
+          "text": "هل يلزم خفض التيار كلما زادت المسافة؟"
+        },
+        {
+          "text": "كل متر إضافي يرفع مقاومة الخط؛ وكلما زادت المقاومة انخفض الجهد وسخن الكابل. والنتيجة العملية اثنتان: تحصل على قدرة أقل عند التيار نفسه، ويسخن الخط أكثر. الإجابة الصحيحة هي خفض التيار إلى ما يحتمله الخط. في Pro Mobile 2 يُضبط تيار الشحن على ست درجات هي 6/10/16/20/25/32 أمبير من التطبيق على الهاتف أو من الزر الموجود على الجهاز؛ ويقدّم Mini Mobile درجتين 10A/16A، وMono Mobile درجتين 16A/32A. وعلى خط طويل يكون النزول درجة واحدة أفضل من إجهاد الخط ومن عدم الشحن إطلاقًا."
+        },
+        {
+          "text": "بأي مقبس ستوصّل؟ هذا ما يحدد الجهاز فعليًا"
+        },
+        {
+          "text": "بعد المسافة يأتي السؤال الثاني وهو المقبس نفسه. فنوع المقبس في المنزل يرسم حدّ القدرة التي ستحصل عليها وحدّ الجهاز الذي يمكنك شراؤه:"
+        },
+        {
+          "caption": "اختيار الجهاز المحمول حسب نوع المقبس",
+          "headers": [
+            "المقبس في المنزل",
+            "الطراز المناسب",
+            "القدرة المتوقعة"
+          ],
+          "rows": [
+            [
+              "مقبس منزلي قياسي (Schuko)",
+              "Mini Mobile",
+              "2.3 – 3.7 كيلوواط"
+            ],
+            [
+              "مقبس صناعي أحادي الطور (3/32A)",
+              "Mono Mobile",
+              "3.7 – 7.4 كيلوواط"
+            ],
+            [
+              "مقبس صناعي ثلاثي الطور (5/16A)",
+              "Pro Mobile 2 · 11 كيلوواط",
+              "3.7 – 11 كيلوواط"
+            ],
+            [
+              "مقبس صناعي ثلاثي الطور (5/32A)",
+              "Pro Mobile 2 · 22 كيلوواط",
+              "3.7 – 22 كيلوواط"
+            ]
+          ]
+        },
+        {
+          "text": "يأتي مع Mono Mobile وPro Mobile 2 محوّل قابس أيضًا، فلا تحتاج إلى تغيير الجهاز إذا اختلف المقبس في المنزل عن المقبس في المكان الذي تقصده. وحقيبة الحمل قياسية في العائلات الثلاث جميعها."
+        },
+        {
+          "text": "إذا كان الكابل سيبقى في الخارج"
+        },
+        {
+          "text": "في خط يبقى في الحديقة أو في موقف مكشوف تهمّ ثلاثة أمور. فئة حماية هيكل أجهزة Bemis المحمولة هي IP65 ونطاق التشغيل بين -40°C و +55°C؛ أي أن المطر والبرد ليسا وحدهما عائقًا. أما ما يستحق الانتباه فعلًا فهو نقاط التوصيل:"
+        },
+        {
+          "items": [
+            "ارفع موضع التقاء القابس بالمقبس عن الأرض؛ يجب ألا يتجمع الماء عند نقطة التماس.",
+            "لا تشغّل الكابل وهو ملفوف على البكرة؛ فالكابل الملفوف لا يصرّف حرارته.",
+            "إذا عبر ممرًا تمرّ منه المركبات فاستخدم جسر كابلات بدل تركه تحت العجلات.",
+            "لا تترك الموصّل على الأرض بعد انتهاء الشحن؛ فالماء والغبار يصلان مباشرةً إلى الملامسات."
+          ]
+        },
+        {
+          "text": "باختصار"
+        },
+        {
+          "items": [
+            "قِس المسافة على امتداد مسار الكابل واختر درجة أطول.",
+            "وصلات المنزل وبكرات الكابلات لا تصلح لهذا العمل.",
+            "إذا لزم التمديد فتوضع وصلة CEE الصناعية في جهة المقبس لا في جهة السيارة.",
+            "إذا كان الخط طويلًا فاخفض التيار درجة واحدة؛ في Pro Mobile 2 ست درجات.",
+            "نوع المقبس يحدد الجهاز: المقبس المنزلي يعني Mini Mobile، والمقبس الصناعي أحادي الطور يعني Mono Mobile، والمقبس الصناعي ثلاثي الطور يعني Pro Mobile 2."
+          ]
+        },
+        {
+          "text": "اكتب لنا نوع مقبسك والمسافة التي قِستها، ونخبرك من المصنّع مباشرةً أي طراز وأي طول كابل يناسبك.",
+          "label": "اطلب عرض سعر"
+        }
+      ],
+      "faq": [
+        {
+          "q": "هل أستطيع شحن سيارة كهربائية بكابل ممدود من المنزل؟",
+          "a": "نعم، لكن الحاسم هو مكان التمديد. كابل الشاحن المحمول قطعة واحدة من القابس حتى موصّل السيارة ولا يُمدَّد من المنتصف. الطريق الصحيح هو اختيار جهاز يكفي طوله للمسافة التي قِستها: تُنتج عائلات Bemis Mini Mobile وMono Mobile وPro Mobile 2 بخيارات كابل 5 و8 و10 أمتار. وإذا لم تكفِ حتى أطول نسخة فيكون التمديد في جهة المقبس؛ توضع بين المقبس وقابس الجهاز وصلة CEE صناعية بمقطع مختار حسب التيار."
+        },
+        {
+          "q": "كم مترًا من الكابل أختار في الشاحن المحمول؟",
+          "a": "قِس من المقبس إلى منفذ الشحن على امتداد المسار الذي سيسلكه الكابل فعلًا، بما في ذلك حافة الجدار وإطار الباب والالتفاف حول السيارة. ثم اختر درجة أعلى من هذا الرقم: إذا خرجت النتيجة 6 أمتار فخذ نسخة 8 أمتار. وإذا كنت تقف في بعض الأيام بالاتجاه المعاكس فاجعل الحالة الأطول أساسًا، لأن الكابل الزائد يُلَف والناقص لا يُعالَج. تتوفر أجهزة Bemis المحمولة بخيارات 5 و8 و10 أمتار؛ أما نسخة 11 كيلوواط فتُنتج بطول 5 أمتار."
+        },
+        {
+          "q": "هل تُشحن السيارة عبر وصلة منزلية أو بكرة كابل؟",
+          "a": "غير مناسب. مشتركات المنزل وبكرات الكابلات ليست مصممة لحِمل ثابت بتيار عالٍ يستمر ساعات؛ فنقطة التماس بين القابس والمقبس تسخن، والكابل الملفوف على بكرته لا يصرّف الحرارة التي يولّدها. وشحن السيارة يختلف عن الاستخدامات القصيرة التي اعتادتها هذه المنتجات. وإذا لزم التمديد فعلًا فاستخدم وصلة بموصّلات CEE صناعية ومقطع مختار حسب التيار وفئة حماية تناسب البقاء في الخارج."
+        },
+        {
+          "q": "هل تنخفض قدرة الشحن مع الكابل الطويل؟",
+          "a": "كلما طال الخط ارتفعت المقاومة وانخفض الجهد وسخن الكابل؛ وفي النهاية تحصل على قدرة أقل عند التيار نفسه. والإجابة هي خفض التيار إلى ما يحتمله الخط. في Pro Mobile 2 يُضبط تيار الشحن على ست درجات هي 6/10/16/20/25/32 أمبير من التطبيق على الهاتف أو من الزر الموجود على الجهاز؛ ويقدّم Mini Mobile درجتين 10A/16A، وMono Mobile درجتين 16A/32A. وعلى خط طويل يطيل النزول درجةً زمنَ الشحن لكنه لا يُجهد الخط."
+        },
+        {
+          "q": "لا يوجد في منزلي سوى مقبس عادي، أي جهاز محمول يناسبني؟",
+          "a": "المقبس المنزلي القياسي (Schuko) يناسبه Mini Mobile: أحادي الطور، 2.3 – 3.7 كيلوواط، ويُوصَل مباشرةً. وإذا كان لديك مقبس صناعي أحادي الطور فإن Mono Mobile يعطي 3.7 – 7.4 كيلوواط. ومع مقبس صناعي ثلاثي الطور يدخل Pro Mobile 2؛ فيبلغ 11 كيلوواط على مقبس 5/16A ويصل إلى 22 كيلوواط على مقبس 5/32A. وفئة حماية الهيكل هي IP65 في العائلات الثلاث، وحقيبة الحمل تأتي في الصندوق."
+        },
+        {
+          "q": "هل يمكن أن يبقى الشاحن وكابله في الخارج تحت المطر؟",
+          "a": "فئة حماية هيكل شواحن Bemis المحمولة هي IP65 ونطاق درجة حرارة التشغيل بين -40°C و +55°C؛ أي أن المطر والبرد ليسا وحدهما عائقًا. وما يستحق الانتباه هو نقاط التوصيل: ارفع موضع التقاء القابس بالمقبس عن الأرض كي لا يتجمع الماء هناك. ولا تشغّل الكابل وهو ملفوف على بكرته، واستخدم جسر كابلات حيث تمرّ المركبات، ولا تترك الموصّل على الأرض بعد انتهاء الشحن."
+        }
+      ],
+      "related": [
+        {
+          "label": "الشواحن المحمولة"
+        },
+        {
+          "label": "ضبط التيار في الشاحن المحمول"
+        },
+        {
+          "label": "كابل تمديد الشحن: أي مقطع وكم مترًا"
+        },
+        {
+          "label": "هل الشحن المنزلي آمن؟"
+        }
+      ]
+    },
+    "tasinabilir-sarj-cihazinda-amper-ayari": {
+      "title": "ضبط التيار في الشاحن المحمول: ما فائدة الدرجات الست؟",
+      "metaTitle": "ضبط التيار في الشاحن المحمول",
+      "description": "ما فائدة ضبط التيار في الشاحن المحمول؟ كم كيلوواط تعطي كل درجة من الدرجات الست بين 6 و32 أمبير، وأي درجة تُختار مع تمديدات ضعيفة، مع Pro Mobile 2 مثالًا.",
+      "excerpt": "أكثر ميزات الشاحن المحمول نفعًا وأقلها شهرةً هي ضبط التيار. أنت من يحدد بالدرجات مقدار التيار الذي يسحبه الجهاز؛ لذلك يعمل الجهاز نفسه على مقبس منزلي ضعيف وعلى مقبس صناعي ثلاثي الطور على حدٍّ سواء.",
+      "category": "تقني",
+      "body": [
+        {
+          "text": "عند اختيار شاحن محمول يُنظر غالبًا إلى القدرة: كم كيلوواط؟ غير أن الميزة التي تؤدي العمل فعليًا في الاستخدام اليومي تكون في مكان آخر عادةً — القدرة على ضبط التيار الذي سيسحبه الجهاز على درجات. وبفضلها يعمل الجهاز نفسه على مقبس منزلي ذي قاطع ضعيف وعلى مقبس صناعي ثلاثي الطور. وفيما يلي جمعنا معنى الدرجات، وكم كيلوواط تعطي كل واحدة منها، ومتى ينبغي النزول درجة."
+        },
+        {
+          "text": "ما معنى ضبط التيار؟"
+        },
+        {
+          "text": "في الشحن بالتيار المتردد ليست السيارة هي التي تقرر مقدار التيار المسحوب بل الشاحن. يرسل الجهاز إلى السيارة إشارة مستمرة مفادها: «من هذا الخط يمكنك سحب هذا القدر من الأمبيرات على الأكثر»، والسيارة تلتزم بهذا السقف. وضبط التيار يتيح لك تغيير هذا السقف بالذات. وخفض القدرة لا يُفسد الشحن بل يبطئه فقط — وهو في معظم الحالات الصواب."
+        },
+        {
+          "text": "كم كيلوواط تعطي الدرجات الست؟"
+        },
+        {
+          "text": "في Pro Mobile 2 يُضبط تيار الشحن على ست درجات: 6 و10 و16 و20 و25 و32 أمبير. وعلى مقبس ثلاثي الطور تقابل كل درجة تقريبًا ما يلي (وقد يتغير بمئات الواطات حسب جهد الشبكة):"
+        },
+        {
+          "caption": "درجات Pro Mobile 2 والقدرة التقريبية على مقبس ثلاثي الطور",
+          "headers": [
+            "الدرجة",
+            "قدرة ثلاثية الطور",
+            "الاستخدام النموذجي"
+          ],
+          "rows": [
+            [
+              "6 أمبير",
+              "نحو 4.2 كيلوواط",
+              "خط ضعيف جدًا، وصلة طويلة، مقبس مشترك"
+            ],
+            [
+              "10 أمبير",
+              "نحو 6.9 كيلوواط",
+              "تمديدات قديمة، شحن بطيء ليلًا"
+            ],
+            [
+              "16 أمبير",
+              "نحو 11.1 كيلوواط",
+              "مقبس صناعي 5/16A"
+            ],
+            [
+              "20 أمبير",
+              "نحو 13.9 كيلوواط",
+              "درجة وسطى، سقف آمن في الخطوط التي تسخن"
+            ],
+            [
+              "25 أمبير",
+              "نحو 17.3 كيلوواط",
+              "عندما يُشارَك خط 32A مع أحمال أخرى"
+            ],
+            [
+              "32 أمبير",
+              "نحو 22.2 كيلوواط",
+              "مقبس صناعي 5/32A، القدرة الكاملة"
+            ]
+          ]
+        },
+        {
+          "text": "وعلى خط أحادي الطور يعطي التيار نفسه نحو ثلث القدرة: 16 أمبير على الطور الواحد تساوي 3.7 كيلوواط، و32 أمبير تساوي 7.4 كيلوواط. لهذا يعمل Mini Mobile بين 2.3 – 3.7 كيلوواط بدرجتيه 10A/16A، ويعمل Mono Mobile بين 3.7 – 7.4 كيلوواط بدرجتيه 16A/32A."
+        },
+        {
+          "text": "لماذا تنزل درجة؟"
+        },
+        {
+          "text": "النزول درجةً ليس نقصًا بل أداة. ويُستخدم غالبًا في هذه الحالات:"
+        },
+        {
+          "items": [
+            "التمديدات ضعيفة أو قديمة: مقطع الخط وقاطعه لا يحتملان تيارًا عاليًا بصورة مستمرة.",
+            "الخط طويل: ما إن تدخل وصلة حتى ترتفع المقاومة وينخفض الجهد ويسخن الكابل.",
+            "المقبس مشترك: إذا كان على الخط نفسه مدفأة أو فرن أو معدات ورشة فقد يُسقِط مجموع الحمل القاطع.",
+            "الفنادق والمخيمات والقرى السياحية: إذا كنت لا تعرف سعة تمديدات غيرك فالبدء بدرجة منخفضة هو الأسلم.",
+            "الشحن من الطاقة الشمسية: بتقليل التيار بما يوافق الإنتاج تقلّل ما تسحبه من الشبكة.",
+            "القابس يسخن: السخونة المحسوسة باليد أوضح دليل على أن الخط لا يحتمل ذلك التيار باستمرار."
+          ]
+        },
+        {
+          "text": "لماذا ترفع درجة؟"
+        },
+        {
+          "text": "السبب الوحيد للصعود هو الوقت. فعند الاتصال بمقبس صناعي مناسب يختصر الانتقال إلى الدرجة الكاملة زمن الشحن بوضوح؛ وهذا ما يجعل الجهاز الواحد يكفي عدة مركبات من الصباح إلى المساء في المواقع والأساطيل ومراكز الخدمة. لكن السقف ليس في الجهاز وحده: الحد الحقيقي هو الأدنى بين سعة الخط وشاحن السيارة الداخلي للتيار المتردد. فالسيارة التي يبلغ شاحنها الداخلي 11 كيلوواط تأخذ 11 كيلوواط حتى على مقبس 32 أمبير."
+        },
+        {
+          "text": "كيف تختار الدرجة الصحيحة؟"
+        },
+        {
+          "items": [
+            "اعرف قيمة قاطع الخط الذي يغذّي المقبس؛ يجب أن تبقى الدرجة دون هذه القيمة.",
+            "انظر هل توجد أحمال أخرى على الخط نفسه؛ فإن وُجدت فانزل درجة إضافية.",
+            "ابدأ الشحنة الأولى بدرجة منخفضة وافحص القابس والكابل باليد بعد نصف ساعة.",
+            "إن لم تجد سخونة فارفع درجة واحدة وكرّر الفحص نفسه.",
+            "إن احتجت حلًّا دائمًا ففكّر في جهاز ثابت بدل ترقيع الخط؛ فالخط المستقل هو الطريق الأسلم."
+          ]
+        },
+        {
+          "text": "العلاقة بين القاطع والدرجة"
+        },
+        {
+          "text": "يفترق الشحن عن بقية الأحمال في المنزل عند نقطة واحدة: فهو يستمر ساعات لا دقائق، ويبقى التيار خلالها شبه ثابت. لذلك فالقيمة المكتوبة على القاطع ليست التيار الذي يمكن سحبه باستمرار؛ واختيار درجة قريبة منها يجعل القاطع يفصل مع الوقت. والقاعدة العملية هي البقاء درجة واحدة تحت قيمة قاطع الخط — فعلى خط 16 أمبير تُختار درجة 10 أمبير لا 16."
+        },
+        {
+          "text": "كم درجة في كل طراز من Bemis؟"
+        },
+        {
+          "caption": "درجات التيار في العائلات المحمولة",
+          "headers": [
+            "الطراز",
+            "الدرجات",
+            "طريقة الضبط"
+          ],
+          "rows": [
+            [
+              "Mini Mobile",
+              "10A / 16A",
+              "درجتان"
+            ],
+            [
+              "Mono Mobile",
+              "16A / 32A",
+              "درجتان"
+            ],
+            [
+              "Pro Mobile 2",
+              "6 / 10 / 16 / 20 / 25 / 32 أمبير",
+              "تطبيق الهاتف أو الزر الموجود على الجهاز"
+            ]
+          ]
+        },
+        {
+          "text": "وهنا يكمن ما يجعل Pro Mobile 2 المنتج الرائد في المجموعة المحمولة: ست درجات تتيح ضبطًا دقيقًا وفق سعة الخط، ولأن الضبط يمكن أن يتم من الهاتف أيضًا فلا حاجة للذهاب إلى الجهاز. وهكذا يمكن للجهاز نفسه أن يعمل في أيام الأسبوع في المنزل على مقبس ضعيف بـ 10 أمبير، وفي عطلة الأسبوع في الموقع على مقبس صناعي بـ 32 أمبير."
+        },
+        {
+          "text": "كم يطيل خفض الدرجة زمن الشحن؟"
+        },
+        {
+          "text": "رفع بطارية سعتها 60 كيلوواط-ساعة من 20% إلى 80% يتطلب نحو 36 كيلوواط-ساعة من الطاقة. وعلى خط ثلاثي الطور يستغرق ذلك نحو 1 ساعة و40 دقيقة عند 32 أمبير، ونحو 3 ساعات و15 دقيقة عند 16 أمبير، ونحو 5 ساعات و15 دقيقة عند 10 أمبير؛ ومع احتساب الفواقد تطول هذه الأزمنة قليلًا. ومن يوقف سيارته طوال الليل لا تكلّفه الدرجة المنخفضة شيئًا عمليًا — فالسيارة تكون ممتلئة في الصباح."
+        },
+        {
+          "text": "باختصار"
+        },
+        {
+          "items": [
+            "ضبط التيار يغيّر سقف التيار الذي يبلّغه الجهاز إلى السيارة؛ وهو لا يُفسد الشحن بل يبطئه.",
+            "يُنزَل بالدرجة عند الخط الضعيف والوصلة الطويلة والمقبس المشترك والتمديدات المجهولة.",
+            "ينبغي أن تبقى الدرجة خطوة واحدة تحت قيمة قاطع الخط.",
+            "السقف الحقيقي لا يحدده الجهاز بل الأدنى بين سعة الخط وشاحن السيارة للتيار المتردد.",
+            "يقدّم Pro Mobile 2 ست درجات ويمكن ضبطه من التطبيق أيضًا؛ أما Mini Mobile وMono Mobile فلكل منهما درجتان."
+          ]
+        },
+        {
+          "text": "اكتب لنا قيمة قاطع خطك ونوع مقبسك، ونخبرك من المصنّع مباشرةً أي طراز وأي درجة تناسبك.",
+          "label": "اطلب عرض سعر"
+        }
+      ],
+      "faq": [
+        {
+          "q": "ما فائدة ضبط التيار في الشاحن؟",
+          "a": "في الشحن بالتيار المتردد يحدد الشاحن سقف التيار لا السيارة؛ فالجهاز يبلّغ السيارة بإشارة مستمرة كم أمبيرًا يمكنها سحبه على الأكثر، والسيارة تلتزم بهذا السقف. وضبط التيار يتيح تغييره. وبذلك يعمل الجهاز نفسه على مقبس منزلي ذي قاطع ضعيف وعلى مقبس صناعي ثلاثي الطور. وخفض التيار لا يُفسد الشحن بل يبطئه فقط — وعلى خط ضعيف أو طويل يكون هذا هو الصواب."
+        },
+        {
+          "q": "كم درجة في Pro Mobile 2 وكيف تُضبط؟",
+          "a": "في Pro Mobile 2 يُضبط تيار الشحن على ست درجات: 6 و10 و16 و20 و25 و32 أمبير. ويمكن الضبط من موضعين: من تطبيق الهاتف أو من الزر الموجود على الجهاز. وللمقارنة يقدّم Mini Mobile درجتين 10A/16A، ويقدّم Mono Mobile درجتين 16A/32A. ولأن الدرجات الست تتيح ضبطًا دقيقًا وفق سعة الخط فإن Pro Mobile 2 يُستخدم في المنزل وفي الموقع بالجهاز نفسه."
+        },
+        {
+          "q": "كم كيلوواط تساوي 32 أمبير؟",
+          "a": "على خط ثلاثي الطور تساوي 32 أمبير نحو 22.2 كيلوواط؛ وقد يتغير ذلك بمئات الواطات حسب جهد الشبكة. وعلى الخط نفسه تعطي 25 أمبير نحو 17.3 كيلوواط، و20 أمبير نحو 13.9 كيلوواط، و16 أمبير نحو 11.1 كيلوواط، و10 أمبير نحو 6.9 كيلوواط، و6 أمبير نحو 4.2 كيلوواط. وعلى خط أحادي الطور يعني التيار نفسه نحو ثلث القدرة: 16 أمبير تساوي 3.7 كيلوواط، و32 أمبير تساوي 7.4 كيلوواط."
+        },
+        {
+          "q": "هل تُشحن السيارة الكهربائية على تمديدات ضعيفة؟",
+          "a": "تُشحن، لكن يجب اختيار درجة التيار وفق سعة الخط. فالشحن ليس مسألة دقائق بل حمل ثابت يستمر ساعات؛ لذلك لا تُعد القيمة المكتوبة على القاطع تيارًا يمكن سحبه باستمرار. والقاعدة العملية هي البقاء درجة واحدة تحت قيمة قاطع الخط: فعلى خط 16 أمبير تُختار درجة 10 أمبير. وبدء الشحنة الأولى بدرجة منخفضة وفحص القابس والكابل باليد بعد نصف ساعة هو أعملُ طرق التحقق."
+        },
+        {
+          "q": "كم يطول الشحن عند خفض التيار؟",
+          "a": "رفع بطارية سعتها 60 كيلوواط-ساعة من 20% إلى 80% يتطلب نحو 36 كيلوواط-ساعة. وعلى خط ثلاثي الطور يستغرق ذلك نحو 1 ساعة و40 دقيقة عند 32 أمبير، ونحو 3 ساعات و15 دقيقة عند 16 أمبير، ونحو 5 ساعات و15 دقيقة عند 10 أمبير؛ ومع إضافة الفواقد تطول الأزمنة قليلًا. ومن يوقف سيارته طوال الليل لا تكلّفه الدرجة المنخفضة شيئًا عمليًا، لأن السيارة تكون ممتلئة في الصباح."
+        },
+        {
+          "q": "إذا اخترت أعلى درجة فهل تُشحن السيارة دائمًا بتلك القدرة؟",
+          "a": "لا. الدرجة في الجهاز تحدد الحد الأعلى فقط؛ أما ما يسري فعلًا فهو الأدنى بين سعة الخط وسعة شاحن السيارة الداخلي للتيار المتردد. فالسيارة التي يبلغ شاحنها الداخلي 11 كيلوواط تأخذ 11 كيلوواط حتى على مقبس ثلاثي الطور بـ 32 أمبير. وبالمثل لا تُبلَغ قيم القدرة ثلاثية الطور عند الاتصال بخط أحادي الطور. لذلك ينبغي النظر إلى قدرة الشحن بالتيار المتردد في سيارتك قبل رفع الدرجة."
+        }
+      ],
+      "related": [
+        {
+          "label": "الشواحن المحمولة"
+        },
+        {
+          "label": "شحن السيارة الكهربائية بكابل من المنزل"
+        },
+        {
+          "label": "أحادي الطور أم ثلاثي الطور؟ أيهما يناسب منزلك؟"
+        },
+        {
+          "label": "الشاحن المحمول: ما هو وكم يكلّف؟"
+        }
+      ]
     }
   },
   "ru": {
@@ -30090,6 +31658,398 @@
         },
         {
           "label": "Как пользоваться V2L на Ioniq 5"
+        }
+      ]
+    },
+    "evden-kablo-uzatarak-elektrikli-araba-sarj-etme": {
+      "title": "Зарядка электромобиля кабелем из дома: что делать, если розетка далеко от машины?",
+      "metaTitle": "Зарядка электромобиля кабелем из дома",
+      "description": "Розетка далеко от машины? Правильный способ зарядить электромобиль кабелем из дома: сколько метров кабеля, когда нужен удлинитель CEE и когда снижать ток.",
+      "excerpt": "Электричество есть и розетка есть — но розетка не там, где стоит машина. Решение обычно не в том, чтобы удлинить кабель, а в том, чтобы сразу выбрать устройство с нужной длиной кабеля.",
+      "category": "Руководство",
+      "body": [
+        {
+          "text": "Первое открытие, которое делают дома владельцы электромобилей, обычно такое: электричество есть и розетка есть, но место розетки — не то место, где паркуется машина. Розетка у дальней стены гаража, линия садового освещения, стояк у входа в дом… Вопрос всегда приходит в одной и той же форме: можно ли зарядить машину кабелем из дома? Короткий ответ — да, но всё зависит от того, где именно удлиняют. И большая часть этого решения принимается не при покупке кабеля, а при выборе устройства."
+        },
+        {
+          "text": "Сначала измерьте: реальное расстояние — не по прямой"
+        },
+        {
+          "text": "Первый шаг этой задачи — рулетка. Измеряют не прямую линию между розеткой и машиной, а путь, по которому кабель пойдёт на самом деле: вдоль стены, вокруг дверного проёма, в обход борта автомобиля. Оба конца тоже не закреплены: в зависимости от модели зарядный порт находится на переднем крыле, на заднем крыле или в передней панели, и машина не каждый день паркуется одной и той же стороной."
+        },
+        {
+          "items": [
+            "Измеряйте от розетки до зарядного порта по тому пути, которым пойдёт кабель; расстояние по прямой вводит в заблуждение.",
+            "Посмотрите, с какой стороны находится зарядный порт; дотянуться слева до розетки справа — это лишние метры.",
+            "Учтите дни, когда вы паркуетесь в обратную сторону; решает самый длинный вариант.",
+            "Кабель должен висеть свободной дугой, а не в натяг; натянутый кабель нагружает и разъём, и розетку."
+          ]
+        },
+        {
+          "text": "Правильное решение — не удлинять кабель, а выбрать нужную длину"
+        },
+        {
+          "text": "У переносного зарядного устройства кабель цельный — от вилки до разъёма автомобиля; в середине нет соединения, а блок управления расположен на этой же линии. Поэтому самое чистое решение задачи с расстоянием — не удлинять потом, а сразу купить устройство достаточной длины. Все три переносные линейки Bemis выпускаются с разной длиной кабеля:"
+        },
+        {
+          "caption": "Варианты длины кабеля переносных зарядных устройств Bemis",
+          "headers": [
+            "Модель",
+            "Фаза и мощность",
+            "Длина кабеля"
+          ],
+          "rows": [
+            [
+              "Mini Mobile",
+              "Однофазный · 2,3 – 3,7 кВт",
+              "5 м · 8 м · 10 м"
+            ],
+            [
+              "Mono Mobile",
+              "Однофазный · 3,7 – 7,4 кВт",
+              "5 м · 8 м · 10 м"
+            ],
+            [
+              "Pro Mobile 2",
+              "Трёхфазный · 3,7 – 22 кВт",
+              "5 м · 8 м · 10 м"
+            ],
+            [
+              "Pro Mobile 2 (11 кВт)",
+              "Трёхфазный · 3,7 – 11 кВт",
+              "5 м"
+            ]
+          ]
+        },
+        {
+          "text": "На практике правильно выбрать на ступень больше измеренного: получилось 6 метров — берите исполнение на 8 метров. Лишний кабель сматывается, недостающий ничем не исправить."
+        },
+        {
+          "text": "Почему бытовой удлинитель или катушка не решают задачу?"
+        },
+        {
+          "text": "Первое, что приходит в голову, — включить устройство в бытовой удлинитель, который уже есть дома. Но бытовые колодки и кабельные катушки не рассчитаны на постоянную нагрузку большим током в течение многих часов: место контакта вилки и розетки нагревается, а кабель, оставшийся намотанным на катушку, не может отдать выделяемое тепло. Подробно мы разобрали это в руководстве по зарядным удлинителям; короткий ответ здесь однозначен: бытовые удлинители для этой задачи не подходят."
+        },
+        {
+          "text": "Если удлинять действительно нужно: промышленный удлинитель CEE"
+        },
+        {
+          "text": "Иногда не хватает даже самого длинного исполнения устройства: розетка в доме, а машина на другом конце участка. Тогда удлиняют со стороны розетки, а не кабель, идущий к автомобилю: между розеткой и вилкой устройства ставится промышленный удлинитель CEE, сечение которого подобрано под рабочий ток. Выбор сечения, типа разъёма и класса защиты мы собрали в отдельном руководстве — на длинных линиях именно сечение решает, нагреется кабель или нет."
+        },
+        {
+          "text": "Нужно ли снижать ток с ростом расстояния?"
+        },
+        {
+          "text": "Каждый добавленный метр увеличивает сопротивление линии; чем выше сопротивление, тем сильнее падает напряжение и тем больше греется кабель. Практических последствий два: при том же токе вы получаете меньше мощности, а линия греется сильнее. Правильный ответ — снизить ток до того, что линия способна нести. В Pro Mobile 2 зарядный ток задаётся шестью ступенями — 6/10/16/20/25/32 А — из мобильного приложения или кнопкой на корпусе; Mini Mobile предлагает две ступени, 10A/16A, а Mono Mobile — две ступени, 16A/32A. На длинной линии спуститься на ступень лучше, чем перегружать линию или не заряжать вовсе."
+        },
+        {
+          "text": "В какую розетку вы включитесь? Именно это определяет устройство"
+        },
+        {
+          "text": "После расстояния второй вопрос — сама розетка. Её тип очерчивает границу и для мощности, которую вы получите, и для устройства, которое сможете купить:"
+        },
+        {
+          "caption": "Выбор переносного устройства по типу розетки",
+          "headers": [
+            "Розетка дома",
+            "Подходящая модель",
+            "Ожидаемая мощность"
+          ],
+          "rows": [
+            [
+              "Обычная бытовая розетка (Schuko)",
+              "Mini Mobile",
+              "2,3 – 3,7 кВт"
+            ],
+            [
+              "Однофазная промышленная розетка (3/32A)",
+              "Mono Mobile",
+              "3,7 – 7,4 кВт"
+            ],
+            [
+              "Трёхфазная промышленная розетка (5/16A)",
+              "Pro Mobile 2 · 11 кВт",
+              "3,7 – 11 кВт"
+            ],
+            [
+              "Трёхфазная промышленная розетка (5/32A)",
+              "Pro Mobile 2 · 22 кВт",
+              "3,7 – 22 кВт"
+            ]
+          ]
+        },
+        {
+          "text": "В комплекте Mono Mobile и Pro Mobile 2 идёт ещё и переходник для вилки, поэтому менять устройство не нужно, если розетка дома и розетка в месте назначения различаются. Сумка для переноски входит в комплект всех трёх линеек."
+        },
+        {
+          "text": "Если кабель останется на улице"
+        },
+        {
+          "text": "Для линии, остающейся в саду или на открытой парковке, важны три вещи. Степень защиты корпуса переносных устройств Bemis — IP65, рабочий диапазон от -40°C до +55°C, то есть дождь и холод сами по себе не помеха. Настоящего внимания требуют места соединений:"
+        },
+        {
+          "items": [
+            "Поднимите соединение вилки и розетки над землёй; вода не должна скапливаться в точке контакта.",
+            "Не работайте с кабелем, намотанным на катушку; смотанный кабель не отдаёт тепло.",
+            "Если линия пересекает проезд, используйте кабельный мостик, а не пускайте её под колёса.",
+            "Не оставляйте разъём на земле после зарядки; вода и пыль попадают прямо на контакты."
+          ]
+        },
+        {
+          "text": "Коротко"
+        },
+        {
+          "items": [
+            "Измеряйте расстояние по пути кабеля и выбирайте на ступень длиннее.",
+            "Бытовые удлинители и кабельные катушки для этой задачи не подходят.",
+            "Если удлинение нужно, промышленный удлинитель CEE ставится со стороны розетки, а не со стороны автомобиля.",
+            "Если линия длинная, снизьте ток на ступень; у Pro Mobile 2 шесть ступеней.",
+            "Тип розетки определяет устройство: бытовая розетка — это Mini Mobile, однофазная промышленная — Mono Mobile, трёхфазная промышленная — Pro Mobile 2."
+          ]
+        },
+        {
+          "text": "Напишите тип вашей розетки и измеренное расстояние — мы подскажем прямо от производителя, какая модель и какая длина кабеля вам подходят.",
+          "label": "Запросить предложение"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Можно ли зарядить электромобиль кабелем, протянутым из дома?",
+          "a": "Да, но решает то, где именно делается удлинение. Кабель переносного зарядного устройства цельный — от вилки до разъёма автомобиля — и посередине не удлиняется. Правильный путь: выбрать устройство, длины которого хватает на измеренное расстояние. Линейки Bemis Mini Mobile, Mono Mobile и Pro Mobile 2 выпускаются с кабелем 5, 8 и 10 метров. Если не хватает даже самого длинного исполнения, удлиняют со стороны розетки: между розеткой и вилкой устройства ставится промышленный удлинитель CEE с подобранным по току сечением."
+        },
+        {
+          "q": "Сколько метров кабеля выбрать у переносного зарядного устройства?",
+          "a": "Измерьте от розетки до зарядного порта по тому пути, которым кабель пойдёт на самом деле, включая край стены, дверной проём и обход автомобиля. Затем возьмите на ступень больше: получилось 6 метров — берите исполнение на 8 метров. Если в некоторые дни вы паркуетесь наоборот, берите за основу самый длинный вариант, ведь лишний кабель сматывается, а недостающий ничем не исправить. У переносных устройств Bemis есть варианты 5, 8 и 10 метров; исполнение на 11 кВт выпускается с 5 метрами."
+        },
+        {
+          "q": "Можно ли заряжать машину через бытовой удлинитель или кабельную катушку?",
+          "a": "Это не подходит. Бытовые колодки и кабельные катушки не рассчитаны на постоянную нагрузку большим током в течение многих часов; место контакта вилки и розетки нагревается, а намотанный на катушку кабель не отдаёт выделяемое тепло. Зарядка автомобиля отличается от коротких включений, к которым привыкли такие изделия. Если удлинение действительно необходимо, возьмите удлинитель с промышленными разъёмами CEE, сечением под рабочий ток и классом защиты, пригодным для улицы."
+        },
+        {
+          "q": "Падает ли мощность зарядки на длинном кабеле?",
+          "a": "Чем длиннее линия, тем выше сопротивление, ниже напряжение и сильнее нагрев кабеля; в итоге при том же токе вы получаете меньше мощности. Ответ — снизить ток до того, что линия способна нести. В Pro Mobile 2 зарядный ток задаётся шестью ступенями — 6/10/16/20/25/32 А — из мобильного приложения или кнопкой на корпусе; Mini Mobile предлагает две ступени, 10A/16A, а Mono Mobile — две ступени, 16A/32A. На длинной линии спуск на ступень удлиняет зарядку, но не перегружает линию."
+        },
+        {
+          "q": "Дома есть только обычная розетка — какое переносное устройство подойдёт?",
+          "a": "Для обычной бытовой розетки (Schuko) подходит Mini Mobile: однофазный, 2,3 – 3,7 кВт, включается напрямую. Если дома есть однофазная промышленная розетка, Mono Mobile даёт 3,7 – 7,4 кВт. При трёхфазной промышленной розетке в дело вступает Pro Mobile 2: на розетке 5/16A он выходит на 11 кВт, а на 5/32A — до 22 кВт. Степень защиты корпуса во всех трёх линейках IP65, сумка для переноски идёт в коробке."
+        },
+        {
+          "q": "Могут ли зарядное устройство и кабель оставаться на улице под дождём?",
+          "a": "Степень защиты корпуса переносных зарядных устройств Bemis — IP65, рабочий диапазон температур от -40°C до +55°C, так что дождь и холод сами по себе не помеха. Внимания требуют места соединений: поднимите стык вилки и розетки над землёй, чтобы там не скапливалась вода. Не работайте с кабелем, намотанным на катушку, используйте кабельный мостик там, где проезжают машины, и не оставляйте разъём на земле после окончания зарядки."
+        }
+      ],
+      "related": [
+        {
+          "label": "Переносные зарядные устройства"
+        },
+        {
+          "label": "Настройка тока на переносном зарядном устройстве"
+        },
+        {
+          "label": "Зарядный удлинитель: какое сечение и сколько метров"
+        },
+        {
+          "label": "Безопасна ли зарядка дома?"
+        }
+      ]
+    },
+    "tasinabilir-sarj-cihazinda-amper-ayari": {
+      "title": "Настройка тока на переносном зарядном устройстве: для чего нужны шесть ступеней?",
+      "metaTitle": "Настройка тока на переносном зарядном устройстве",
+      "description": "Для чего нужна настройка тока на переносном зарядном устройстве? Сколько кВт даёт каждая из шести ступеней от 6 А до 32 А и какую выбрать при слабой проводке — на примере Pro Mobile 2.",
+      "excerpt": "Самая полезная и при этом наименее известная функция переносного зарядного устройства — настройка тока. Вы сами задаёте ступенями, сколько тока берёт устройство; именно поэтому одно и то же устройство работает и от слабой бытовой розетки, и от трёхфазной промышленной.",
+      "category": "Техника",
+      "body": [
+        {
+          "text": "При выборе переносного зарядного устройства чаще всего смотрят на мощность: сколько кВт? Между тем в повседневной жизни настоящую работу выполняет обычно другая возможность — задавать ступенями ток, который возьмёт устройство. Благодаря ей одно и то же устройство работает и от бытовой розетки со слабым автоматом, и от трёхфазной промышленной розетки. Ниже мы собрали, что означают ступени, сколько кВт даёт каждая и в каком случае нужно спуститься ниже."
+        },
+        {
+          "text": "Что значит настройка тока?"
+        },
+        {
+          "text": "При зарядке переменным током решает не автомобиль, а зарядное устройство. Устройство постоянно посылает машине сигнал: «с этой линии ты можешь взять не больше стольких ампер», и автомобиль соблюдает этот предел. Настройка тока позволяет менять именно этот предел. Снижение мощности не ломает зарядку, а лишь замедляет её — и в большинстве случаев именно это и правильно."
+        },
+        {
+          "text": "Сколько кВт дают шесть ступеней?"
+        },
+        {
+          "text": "В Pro Mobile 2 зарядный ток задаётся шестью ступенями: 6, 10, 16, 20, 25 и 32 ампера. На трёхфазной розетке каждая ступень соответствует примерно следующему (в зависимости от напряжения сети возможен разброс в несколько сотен ватт):"
+        },
+        {
+          "caption": "Ступени Pro Mobile 2 и примерная мощность на трёхфазной розетке",
+          "headers": [
+            "Ступень",
+            "Трёхфазная мощность",
+            "Типичное применение"
+          ],
+          "rows": [
+            [
+              "6 А",
+              "около 4,2 кВт",
+              "Очень слабая линия, длинный удлинитель, общая розетка"
+            ],
+            [
+              "10 А",
+              "около 6,9 кВт",
+              "Старая проводка, медленная ночная зарядка"
+            ],
+            [
+              "16 А",
+              "около 11,1 кВт",
+              "Промышленная розетка 5/16A"
+            ],
+            [
+              "20 А",
+              "около 13,9 кВт",
+              "Средняя ступень, безопасный предел на греющихся линиях"
+            ],
+            [
+              "25 А",
+              "около 17,3 кВт",
+              "Когда линия 32A делится с другими нагрузками"
+            ],
+            [
+              "32 А",
+              "около 22,2 кВт",
+              "Промышленная розетка 5/32A, полная мощность"
+            ]
+          ]
+        },
+        {
+          "text": "На однофазной линии тот же ток даёт примерно треть мощности: 16 ампер в однофазном режиме — это 3,7 кВт, а 32 ампера — 7,4 кВт. Именно поэтому Mini Mobile работает в диапазоне 2,3 – 3,7 кВт со своими двумя ступенями 10A/16A, а Mono Mobile — в диапазоне 3,7 – 7,4 кВт со своими двумя ступенями 16A/32A."
+        },
+        {
+          "text": "Зачем спускаться на ступень ниже?"
+        },
+        {
+          "text": "Спуск на ступень — не недостаток, а инструмент. Чаще всего он нужен в таких случаях:"
+        },
+        {
+          "items": [
+            "Проводка слабая или старая: сечение и автомат линии не рассчитаны нести большой ток постоянно.",
+            "Линия длинная: как только появляется удлинитель, растёт сопротивление, падает напряжение и кабель греется.",
+            "Розетка общая: если на той же линии есть обогреватель, духовка или мастерское оборудование, суммарная нагрузка может выбить автомат.",
+            "Отель, кемпинг, курортный комплекс: если вы не знаете возможностей чужой проводки, начать с низкой ступени — самый безопасный путь.",
+            "Зарядка от солнечной энергии: ограничивая ток по выработке, вы уменьшаете потребление из сети.",
+            "Вилка нагревается: ощутимый рукой нагрев — самый ясный признак того, что линия не несёт этот ток постоянно."
+          ]
+        },
+        {
+          "text": "Зачем подниматься на ступень выше?"
+        },
+        {
+          "text": "Единственная причина подниматься — время. На подходящей промышленной розетке переход на полную ступень заметно сокращает зарядку; именно это позволяет одному устройству обслуживать несколько машин с утра до вечера на объекте, в автопарке и в сервисе. Но предел лежит не только в устройстве: реальная граница — это меньшее из двух, возможности линии или собственного зарядного устройства автомобиля. Машина, у которой бортовое зарядное устройство рассчитано на 11 кВт, возьмёт 11 кВт даже от розетки на 32 ампера."
+        },
+        {
+          "text": "Как выбрать правильную ступень?"
+        },
+        {
+          "items": [
+            "Узнайте номинал автомата линии, питающей розетку; ступень должна оставаться ниже этого значения.",
+            "Посмотрите, есть ли на той же линии другие нагрузки; если есть, спуститесь ещё на ступень.",
+            "Начните первую зарядку на низкой ступени и через полчаса проверьте вилку и кабель рукой.",
+            "Если нагрева нет, поднимитесь на ступень и повторите ту же проверку.",
+            "Если нужно постоянное решение, подумайте о стационарном устройстве, а не о латании линии; отдельная линия — самый безопасный путь."
+          ]
+        },
+        {
+          "text": "Связь между автоматом и ступенью"
+        },
+        {
+          "text": "Зарядка отличается от остальных нагрузок в доме одним: она длится не минуты, а часы, и всё это время ток остаётся почти постоянным. Поэтому написанное на автомате значение — это не тот ток, который можно брать непрерывно; выбор ступени близко к нему со временем приводит к срабатыванию автомата. Практическое правило — оставаться на ступень ниже номинала автомата линии: на линии 16 ампер выбирают не 16, а ступень 10 ампер."
+        },
+        {
+          "text": "Сколько ступеней у какой модели Bemis?"
+        },
+        {
+          "caption": "Ступени тока в переносных линейках",
+          "headers": [
+            "Модель",
+            "Ступени",
+            "Как задаётся"
+          ],
+          "rows": [
+            [
+              "Mini Mobile",
+              "10A / 16A",
+              "Две ступени"
+            ],
+            [
+              "Mono Mobile",
+              "16A / 32A",
+              "Две ступени"
+            ],
+            [
+              "Pro Mobile 2",
+              "6 / 10 / 16 / 20 / 25 / 32 А",
+              "Мобильное приложение или кнопка на корпусе"
+            ]
+          ]
+        },
+        {
+          "text": "Именно это делает Pro Mobile 2 флагманом переносной линейки: шесть ступеней позволяют точно подстроиться под возможности линии, а поскольку настройка делается и с телефона, подходить к устройству не нужно. Так одно и то же устройство может в будни работать дома от слабой розетки на 10 амперах, а в выходные на объекте от промышленной розетки — на 32 амперах."
+        },
+        {
+          "text": "Насколько дольше идёт зарядка на низкой ступени?"
+        },
+        {
+          "text": "Чтобы поднять батарею на 60 кВтч с 20% до 80%, нужно примерно 36 кВтч энергии. На трёхфазной линии это занимает около 1 часа 40 минут при 32 амперах, около 3 часов 15 минут при 16 амперах и около 5 часов 15 минут при 10 амперах; с учётом потерь эти сроки несколько растягиваются. Если машина стоит всю ночь, низкая ступень практически ничего не стоит — утром автомобиль всё равно полон."
+        },
+        {
+          "text": "Коротко"
+        },
+        {
+          "items": [
+            "Настройка тока меняет предел тока, который устройство сообщает автомобилю; она не ломает зарядку, а замедляет её.",
+            "Ступень снижают при слабой линии, длинном удлинителе, общей розетке и незнакомой проводке.",
+            "Ступень должна оставаться на шаг ниже номинала автомата линии.",
+            "Реальный предел задаёт не устройство, а меньшее из возможностей линии и зарядного устройства автомобиля.",
+            "Pro Mobile 2 предлагает шесть ступеней и настраивается в том числе из приложения; у Mini Mobile и Mono Mobile по две ступени."
+          ]
+        },
+        {
+          "text": "Напишите номинал автомата вашей линии и тип розетки — мы подскажем прямо от производителя, какая модель и какая ступень вам подходят.",
+          "label": "Запросить предложение"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Для чего нужна настройка тока на зарядном устройстве?",
+          "a": "При зарядке переменным током предел тока задаёт зарядное устройство, а не автомобиль; устройство постоянным сигналом сообщает машине, сколько ампер она может взять максимум, и машина соблюдает этот предел. Настройка тока позволяет его менять. Благодаря этому одно и то же устройство работает и от бытовой розетки со слабым автоматом, и от трёхфазной промышленной розетки. Снижение тока не ломает зарядку, а лишь замедляет её — и на слабой или длинной линии именно это и правильно."
+        },
+        {
+          "q": "Сколько ступеней у Pro Mobile 2 и как они задаются?",
+          "a": "В Pro Mobile 2 зарядный ток задаётся шестью ступенями: 6, 10, 16, 20, 25 и 32 ампера. Настройка возможна в двух местах: из мобильного приложения или кнопкой на корпусе устройства. Для сравнения, Mini Mobile предлагает две ступени 10A/16A, а Mono Mobile — две ступени 16A/32A. Поскольку шесть ступеней позволяют точно подстроиться под возможности линии, Pro Mobile 2 одним и тем же устройством используется и дома, и на объекте."
+        },
+        {
+          "q": "Сколько кВт составляют 32 ампера?",
+          "a": "На трёхфазной линии 32 ампера дают около 22,2 кВт; в зависимости от напряжения сети возможен разброс в несколько сотен ватт. На той же линии 25 ампер дают около 17,3 кВт, 20 ампер — около 13,9 кВт, 16 ампер — около 11,1 кВт, 10 ампер — около 6,9 кВт, а 6 ампер — около 4,2 кВт. На однофазной линии тот же ток означает примерно треть мощности: 16 ампер — это 3,7 кВт, а 32 ампера — 7,4 кВт."
+        },
+        {
+          "q": "Можно ли заряжать электромобиль при слабой проводке?",
+          "a": "Можно, но ступень тока нужно выбирать по возможностям линии. Зарядка — это не дело минут, а постоянная нагрузка в течение многих часов; поэтому написанное на автомате значение не считается током, который можно брать непрерывно. Практическое правило — оставаться на ступень ниже номинала автомата линии: на линии 16 ампер выбирают ступень 10 ампер. Начать первую зарядку на низкой ступени и через полчаса проверить вилку и кабель рукой — самый практичный способ убедиться."
+        },
+        {
+          "q": "Насколько дольше идёт зарядка при сниженном токе?",
+          "a": "Чтобы поднять батарею на 60 кВтч с 20% до 80%, нужно примерно 36 кВтч. На трёхфазной линии это занимает около 1 часа 40 минут при 32 амперах, около 3 часов 15 минут при 16 амперах и около 5 часов 15 минут при 10 амперах; с учётом потерь сроки несколько растягиваются. Для того, кто оставляет машину на ночь, низкая ступень не имеет практической цены, ведь утром автомобиль снова полон."
+        },
+        {
+          "q": "Если выбрать максимальную ступень, машина всегда будет заряжаться на этой мощности?",
+          "a": "Нет. Ступень на устройстве задаёт лишь верхний предел; в действительности работает меньшее из двух — возможности линии или возможности собственного зарядного устройства автомобиля. Машина с бортовым зарядным устройством на 11 кВт возьмёт 11 кВт даже от трёхфазной розетки на 32 ампера. Точно так же при подключении к однофазной линии трёхфазные значения мощности недостижимы. Поэтому перед подъёмом ступени стоит посмотреть мощность зарядки переменным током вашего автомобиля."
+        }
+      ],
+      "related": [
+        {
+          "label": "Переносные зарядные устройства"
+        },
+        {
+          "label": "Зарядка электромобиля кабелем из дома"
+        },
+        {
+          "label": "Однофазный или трёхфазный? Что подходит вашему дому?"
+        },
+        {
+          "label": "Переносное зарядное устройство: что это и сколько стоит"
         }
       ]
     }

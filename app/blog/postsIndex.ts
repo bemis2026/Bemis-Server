@@ -5,6 +5,32 @@
 export type PostIndexItem = { slug: string; title: string; titleI18n?: Record<string, string>; category: string; datePublished: string; image?: string };
 export const POSTS_INDEX: PostIndexItem[] = [
   {
+    "slug": "tasinabilir-sarj-cihazinda-amper-ayari",
+    "title": "Taşınabilir Şarj Cihazında Amper Ayarı: Altı Kademe Ne İşe Yarar?",
+    "titleI18n": {
+      "en": "Current Setting on a Portable Charger: What Are the Six Steps For?",
+      "de": "Stromeinstellung am tragbaren Ladegerät: Wozu dienen die sechs Stufen?",
+      "es": "Ajuste de corriente en el cargador portátil: ¿para qué sirven los seis niveles?",
+      "ar": "ضبط التيار في الشاحن المحمول: ما فائدة الدرجات الست؟",
+      "ru": "Настройка тока на переносном зарядном устройстве: для чего нужны шесть ступеней?"
+    },
+    "category": "Teknik",
+    "datePublished": "2026-09-12"
+  },
+  {
+    "slug": "evden-kablo-uzatarak-elektrikli-araba-sarj-etme",
+    "title": "Evden Kablo Uzatarak Elektrikli Araba Şarj Etme: Priz Arabadan Uzaksa Ne Yapmalı?",
+    "titleI18n": {
+      "en": "Charging an Electric Car with a Cable from the House: What If the Socket Is Far from the Car?",
+      "de": "Elektroauto mit einem Kabel aus dem Haus laden: Was tun, wenn die Steckdose weit weg ist?",
+      "es": "Cargar un coche eléctrico con un cable desde casa: ¿qué hacer si la toma está lejos?",
+      "ar": "شحن السيارة الكهربائية بكابل ممدود من المنزل: ماذا تفعل إذا كان المقبس بعيدًا؟",
+      "ru": "Зарядка электромобиля кабелем из дома: что делать, если розетка далеко от машины?"
+    },
+    "category": "Rehber",
+    "datePublished": "2026-09-12"
+  },
+  {
     "slug": "c2l-nedir-v2l-den-farki",
     "title": "C2L Nedir? V2L'den Farkı ve Şarj Cihazından Elektrik Almak",
     "titleI18n": {
