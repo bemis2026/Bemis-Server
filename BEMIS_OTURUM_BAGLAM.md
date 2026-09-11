@@ -12,6 +12,96 @@
 ---
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
+> 🌐🔴 **DİL DEĞİŞTİRME — 3 KUSUR (2026-09-12, commit a178ae9):** Kullanıcı
+> *"arapça ve netherland dillerine geçince diller değişmedi … hero bölümünde sağdan başlama ortadan
+> bölüyordu … bazı yerlerde çeviri de yapılmamıştı"* dedi. Üçü de **tarayıcıda canlı olarak yeniden
+> üretildi**, tahmin yok. Çoktan seçmeli kararlar: **anasayfa + ürün sayfaları kapsamı** ·
+> **rozetler çevrilsin** · **CMS alanlarının hepsi 6 dile**.
+>
+> **🔴 (1) "DİL DEĞİŞMEDİ" = 2 SANİYEYE KADAR GECİKME.** İçerik ASLINDA geliyordu
+> (`/api/content?lang=ar` → 200, Arapça) ama `ContentContext`
+> `requestIdleCallback(…, {timeout: 2000})` ile BEKLETİYORDU. Yön (`dir=rtl`/`lang=ar`) ANINDA
+> değiştiği için ziyaretçi **RTL yönlü, TÜRKÇE metinli** bir sayfa görüyor ve dil hiç değişmemiş
+> sanıyordu. Erteleme açılış için doğruydu (LCP) → artık **YALNIZ İLK çekimde**; dil değişimi ve
+> elle yenileme ANINDA gider (`ilkIcerikCekimi` ref'i). Açılış performansı birebir korundu.
+>
+> **🔴 (2) HERO'DA DÖNEN KELİME DİLDE DONUYORDU.** Arapça başlığın ORTASINDA Türkçe "Kabloları"
+> kalıyor ve hiç dönmüyordu (3 sn arayla ölçüldü: t0 = t3 = t6). **Veri doğruydu** — API
+> `["أنظمة","وحدات","مقابس","كابلات"]` döndürüyor. Sebep: **`AnimatePresence mode="wait"` +
+> `key={words[i]}`** — dil değişince dizi komple değişiyor, çıkış animasyonu tamamlanamıyor, yeni
+> çocuk HİÇ mount edilmiyor.
+> **📌 TEŞHİSTE BELİRLEYİCİ İPUCU:** sarmalayıcı (AnimatePresence DIŞINDA) `min-width`'i YENİ dile
+> göre ölçüyordu (77px) ama metin eski dilde kalıyordu → `words` Arapça, render Türkçe. Bu ikilik
+> olmasa "veri gelmiyor" sanılırdı.
+> Çözüm: kelime listesi değişince **bileşen REMOUNT** (`key={cleanWords.join("|")}`) + `text-left`
+> (FİZİKSEL) → **`text-start`** (MANTIKSAL; Arapçada kelime ters kenara yaslanıp min-width kadar
+> boşluk bırakıyordu = "ortadan bölünmüş" görünüm).
+> **⚠️ AYNI KUSUR SINIFI 4 YERDE DAHA:** `ProductShowcase`'te 6 `AnimatePresence mode="wait"` —
+> tagline/başlık/açıklama dil değişince Türkçe kalıyordu (canlıda "Akıllı şarjın yeni standardı"
+> görüldü). `Products` + `ProductDetailClient` dâhil **`key={lang}`** eklendi.
+> **📌 KURAL: `AnimatePresence mode="wait"` + çocuğun `key`'i ÇEVRİLEBİLİR METNE bağlıysa,
+> AnimatePresence'a `key={lang}` ver.** (Çocuğun key'i dil-nötr ise — ör. `key={cat.id}` —
+> gerekmez; `ProductsClient`'taki o örneğe dokunulmadı.)
+>
+> **🔴 (3) ÇEVİRİ BOŞLUKLARI.** Canlı Arapça sayfa baştan sona tarandı → **21 Türkçe metin**; 10'u
+> yukarıdaki iki düzeltmeyle gitti. Kalanlar:
+> **KOD:** `AppMockups.tsx` **HİÇ çeviri taşımıyordu (0 pickText)** → anasayfadaki VE tüm ürün
+> sayfalarındaki uygulama/panel ekranı her dilde TAMAMEN TÜRKÇE'ydi (14 dizgi bağlandı) ·
+> **`InternationalMap2D.tsx` = `InternationalGlobe`'un 2D İKİZİ; küre 2026-08-02'de çevrilmiş ama
+> ikizi ATLANMIŞ** ("Ülke · Aktif Ağ" / "MERKEZ TR" / "Distribütör") — 📌 bu iki dosya AYNI
+> metinleri taşır, birlikte güncelle · `DNA` "Bursa · Türkiye" · `DealerNetwork` "Türkiye" sekmesi
+> (ikizi "Dünya" zaten `L()` içindeydi). `ui.json` **455 → 468** anahtar.
+> **CMS (7 dil + R2, 106 alan):**
+> **🔴 `categories.*.badge` KAYMIŞTI — `featured` kaymasıyla AYNI SINIF:** wallbox "En Çok Satan"
+> yerine "Yeni"nin çevirisini, portable "Yeni" yerine "İnovatif"in çevirisini taşıyordu; **Arapçada
+> `v2l-c2l` rozeti düpedüz bir SSS SORUSU olmuştu**. **`nl` kolu yine DOĞRUYDU → referans alındı.**
+> Rozet ayrıca **`KATEGORI_TR_KILIT`'ten ÇIKARILDI** (kullanıcı kararı): rozet METİNDİR,
+> görsel/sayı kimliği değil. 📌 O listeye alan eklerken sor: **kimlik mi, metin mi?**
+> · `contact.workingDays` hiçbir çeviri kolunda YOKTU · `gallerySection.*` repo'da 5 dil doğruydu
+> ama **R2'de HİÇ yoktu** → canlıda 7 dilde de Türkçe (📌 repo doğru diye canlı doğru sanma, R2'yi
+> ölç) · `wallbox.manuals[].name` 7 dilde Türkçe + TR yazım hatası ("Klavuzu" → **"Kılavuzu"**) ·
+> `contactExport.whatsappMessage` 6 dile çevrildi.
+>
+> **📌 ÖLÇÜM DERSİ — statik tarama ŞİŞİRİR.** "Kodda 503 sabit Türkçe dizgi" ilk sayımı yanlıştı:
+> bileşenler `pickText`i **yerel takma adla** çağırıyor (`const L = (tr,en) => pickText(lang,tr,en)`),
+> tarayıcı bunları çevrilmemiş sayıyordu. Takma adlar maskelenince 302'ye düştü; **canlı sayfa
+> taraması ise gerçek sayının 21 olduğunu gösterdi.** Kalanların çoğu hiç render edilmeyen
+> varsayılan/yedek değerler. 📌 Çeviri boşluğunu KODDAN değil, **tam yüklenmiş canlı sayfadan** ölç.
+>
+> store cache **v117-portable-sss → v118-dil-duzeltme**. tsc 0, marka guard temiz.
+> **DOKUNULMADI:** socialWall'daki 3 Türkçe alıntı (gerçek Instagram gönderi metinleri) ·
+> `contactExport.whatsappMessage`in TR kolu İngilizce (ihracat masası varsayılanı olabilir) ·
+> **`TechnicalSpecs.tsx` (157 sabit TR dizgi) HİÇBİR YERDEN IMPORT EDİLMİYOR = ölü kod.**
+> **ARAÇLAR:** `scratchpad/_dil_denetim{,2}.mts` (API karşılaştırması) · `_sabit_tr_tara{,2,3}.mts` ·
+> `_cms_eksik_olcum.mts` · `_dil_bosluk_duzeltme.json` + `_dil_bosluk_yama.mts` · `_ui_yeni.json` +
+> `_ui_ekle.mts` (biçim doğrulamalı).
+>
+> **🔴🔴 CANLI DOĞRULAMADA ÇIKAN ASIL TEŞHİS (commit a267b3b) — `key={lang}` YETMİYOR:**
+> Hero düzeldi ama `productShowcase` rozeti + tagline'ı Arapça sayfada HÂLÂ Türkçe kaldı.
+> **Kusur DİL DEĞİŞİMİNE değil, İÇERİĞİN SONRADAN GELMESİNE bağlı:** sayfa **Türkçe statik SSR**
+> ediliyor, çeviri içeriği client fetch ile geliyor. Sayfa zaten `ar` ile açıldığında **`lang` HİÇ
+> değişmiyor** — değişen İÇERİK. Bu yüzden `key={lang}` o durumu yakalamaz.
+> **KANIT:** Arapça rozet DOM'da VARDI (ikinci render noktası) ama Türkçe olan da duruyordu;
+> tagline ise yalnız Türkçe mevcuttu.
+> **ÇÖZÜM:** `icerikAnahtari = \`${lang}|${ps?.name}|${ps?.tagline}|${ps?.badge}\`` → 6
+> AnimatePresence bu imzayla key'lenir. ⚠️ **İmzaya `index` KOYMA** — koyarsan her slayt geçişinde
+> remount olur ve karusel geçiş animasyonu kaybolur (`ps` slayttan bağımsızdır).
+> **📌 GENEL KURAL (düzeltilmiş): `AnimatePresence mode="wait"` + çocuğun key'i ÇEVRİLEBİLİR METNE
+> bağlıysa, AnimatePresence'ı `lang`'e DEĞİL, o metnin İÇERİK İMZASINA key'le.**
+>
+> **📌 İKİ YANLIŞ ALARM — ölçüm betiği dersleri:**
+> **(a)** `İç Anadolu` · `Doğu Anadolu` · `TAHMİNİ SÜRE` "görünür Türkçe" sanıldı; oysa SVG `<text>`
+> içinde ve **KAPALI SEKMEDE** (`checkVisibility()` = false, 0×0). Tarama betiği görünürlüğü
+> `offsetParent !== null` ile ölçüyordu — **SVG elemanlarında `offsetParent` `undefined`'dır**, bu
+> yüzden hepsi "görünür" sayıldı. 📌 DOM taramasında `el.checkVisibility({checkVisibilityCSS:true})`
+> + `getBoundingClientRect()` kullan.
+> **(b)** "Dönen kelime dönmüyor" sanıldı; Browser paneli GİZLİ olduğu için `setInterval`
+> **kısılmıştı**. 📌 Tarayıcıda zamanlayıcı ölçerken sekmeyi öne al, yoksa sahte donma görürsün.
+>
+> **📌 KABUK DERSİ:** `git commit -m "... \`index\` ..."` — **ters tırnak bash'te komut çalıştırır**,
+> kelime mesajdan SİLİNDİ. Kayıtlı kural bir kez daha doğrulandı: commit mesajını **`-F dosya`** ile ver.
+
+
 > 🔋⚡ **TAŞINABİLİR ŞARJ (CHARGER) KÜMESİ — 2 YENİ REHBER + 2 CANLI KUSUR SINIFI (2026-09-12,
 > commit'ler 421df07 · 965d5b8):** Kullanıcı *"websitemiz ciddi anlamda v2l'de güçlü … taşınabilir
 > şarj cihazı noktasında amiral ürün Pro Mobile 2 öne çıkmalı, aynen v2l gibi"* dedi. Üç çoktan

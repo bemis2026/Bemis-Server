@@ -19,6 +19,15 @@ const TRANSLATABLE_PATHS: string[] = [
   // GEO alintilanabilir cevap blogu — operator TR metnini duzenlerse 6 dil
   // otomatik tazelensin (yoksa ceviriler bayat kalir).
   "categories.*.geoAnswer.q", "categories.*.geoAnswer.a",
+  // ⚠️ 2026-09-12: aşağıdaki 6 yol LİSTEDE HİÇ YOKTU — kök neden buydu. Alanlar
+  // yıllardır hiç çevrilmedi ve yabancı dil sayfalarında Türkçe göründü:
+  // kılavuz adları · çalışma günleri · Galeri bölümü başlıkları · ihracat WhatsApp
+  // ön mesajı. Değerler elle dolduruldu; yol burada olmadan operatör TR'yi
+  // düzenlediğinde boşluk YENİDEN AÇILIRDI.
+  "categories.*.manuals[].name",
+  "contact.workingDays",
+  "gallerySection.sectionLabel", "gallerySection.heading", "gallerySection.subheading",
+  "contactExport.whatsappMessage",
 
   "featured[].badge", "featured[].highlight",
 
