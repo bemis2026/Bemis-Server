@@ -13,6 +13,53 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> ⭐🔢 **GOOGLE İŞLETME PUANI ROZETİ — ALTYAPI CANLI, DEĞER KULLANICIDA (2026-09-11, commit d340978):**
+> Kullanıcı *"google'da işletme puanımızı da yükleyebilir miyiz uygun bir yere?"* dedi. Çoktan seçmeli
+> kararlar: **Bemis E-V Charge kartı** · **Yorumlar bölümü + /iletisim** · **yalnız puan + profile link**
+> (Google yorum METİNLERİ alınmayacak).
+>
+> **⏳ TEK EKSİK: PUANIN KENDİSİ.** `content.reviews.google.rating` **BOŞ** → rozet **hiçbir yerde
+> render EDİLMİYOR**, yani bu commit canlıda görünür bir değişiklik yapmadı. Kullanıcı GBP panelinden
+> **ortalama puan** + **değerlendirme sayısı (yalnız rakam)** verecek; admin → İçerik → Yorumlar →
+> **Google İşletme Puanı** alanından da girilebilir. **📌 Kullanıcı sayıyı verince: 7 dil + R2 yaz,
+> cache bump, canlı doğrula.**
+> **⚠️ PUAN OTOMATİK OKUNAMIYOR — İKİ YOL DA KAPALI (denendi, ölçüldü):** Google Haritalar **JS kabuğu**
+> döndürüyor (206 KB HTML'de puan/yorum sayısı YOK, `title` = "Google Haritalar"); env'de **Places/Maps
+> anahtarı YOK**. Kayıtlı kural gereği puan arama parçacığından/tahminle ALINMAZ. **Tekrar denemeye
+> kalkma** — çözüm ya kullanıcı ya ücretli Places API.
+>
+> **✅ HANGİ KART SORUSU ÇÖZÜLDÜ (eski "iki kart" belirsizliği kapandı):** sitede kayıtlı kısa link
+> `maps.app.goo.gl/xXSxhLffa5WDA81V7` takip edildi → **302 → `/maps/place/Bemis+E-V+Charge/...`**.
+> Yani mevcut **`ORG_PLACE_ID` (ChIJJ3J3vXkTyhQRWXIiyY3drxA) ANA ŞİRKET Bemis Teknik kartına DEĞİL,
+> EV markasının KENDİ doğrulanmış kartına ait.** `seo.ts`'te **`ORG_GOOGLE_PROFILE_URL`** olarak dışa
+> açıldı. 📌 Eski notlardaki "Teknik kartını EV için kullan" tavsiyesi BAYAT — EV'nin kendi kartı var.
+>
+> **⚠️⚠️ İKİ SINIR — BİLEREK UYGULANMADI, DEĞİŞTİRME:**
+> **(1) ŞEMAYA YAZILMADI.** Google, işletmenin KENDİ hakkındaki puanını `Organization`/`LocalBusiness`
+> şemasında **"self-serving"** sayıp yok sayar; ayrıca başka bir kaynaktan (burada Google'ın kendisinden)
+> devşirilen puanı kendi `aggregateRating`'in gibi işaretlemek yapısal veri politikasına aykırıdır.
+> Yalnız **görünür rozet + profile link** var. (Anasayfada `aggregateRating` olmadığı canlı doğrulandı —
+> 2026-07'de "self-serving" diye zaten kaldırılmıştı.)
+> **(2) MEVCUT `5.0 / 59` PAZARYERİ ROZETİYLE BİRLEŞTİRİLMEDİ.** Farklı platformların puanı ORTALANMAZ,
+> yorum sayıları TOPLANMAZ (kayıtlı kural). Google **ayrı** rozet olarak durur.
+>
+> **YAPI:** `content.reviews.google = { rating, count, url }` (CMS alanı; `url` boşsa
+> `ORG_GOOGLE_PROFILE_URL`). Render: `Reviews.tsx` (pazaryeri rozetinin altında, yıldız + puan + sayı +
+> etiket + dış-link ikonu) ve `iletisim/ContactPageClient.tsx` ("Yol Tarifi Al" ile AYNI satır — adres +
+> harita + yol tarifi ile aynı yerel bağlam; sayfa artık `useContent()` okuyor).
+> Admin: "Google İşletme Puanı" alan grubu + *"boş bırakılırsa rozet görünmez"* notu.
+> ⚠️ **Sayı alanına YALNIZ RAKAM** girilir ("25"); **"değerlendirme" soneki `pickText` ile çevrilir** —
+> yoksa Rusça/Arapça sayfada Türkçe kelime çıkardı. `ui.json`'a `"Google business rating"` × 5 dil
+> (454 → 455). ⚠️ ui.json biçimi (**girinti 1 + sonda newline YOK**) yazmadan önce gidiş-dönüş bayt
+> eşitliğiyle doğrulandı.
+>
+> **🟡 KOMŞU BULGU — DOKUNULMADI (ayrı iş):** `app/context/ContentContext.tsx` `defaultContent.reviews`
+> hâlâ 2026-07'de kaldırılan **UYDURMA yorumları** taşıyor (Mehmet K. / Ayşe T. / Serkan D., **4.9 /
+> "500+"**). Gerçek veri R2 + repo `data/content.json`'da (5.0/59, 3 gerçek yorum) olduğu için canlıya
+> çıkmıyor, **ama içerik katmanı tamamen okunamazsa yedek olarak devreye girer** → o build'de sitede
+> uydurma yorum görünür. Temizlenmesi önerilir.
+
+
 > 🤖📄 **GEO ALINTILANABİLİR CEVAP BLOKLARI — 8 KATEGORİ × 7 DİL (2026-09-11, commit 444b7df):**
 > Kullanıcı *"geo cevap bloklarına başla"* dedi; yerleşim/kapsam/düzeltme üç çoktan seçmeli soruyla
 > netleşti: **hero'dan sonra ayrı vurgulu kart** · **kategori başına TEK güçlü cevap** · **iki açıklama
