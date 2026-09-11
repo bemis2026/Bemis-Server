@@ -48,7 +48,13 @@ export async function getContentForLang(lang: string): Promise<any | null> {
   // görünür sapma yoktu — ama TR'de görseli değiştirmek yabancı dillerde ESKİ
   // görseli bırakırdı. Aynı sınıf hata hero kadrajında bizzat yaşanmıştı
   // (2026-07-29: heroBgPos TR'de düzeltildi, 5 dilde eski değer kaldı).
-  const KATEGORI_TR_KILIT = ["image", "descriptionImage", "modelCount", "badge", "comingSoon", "heroStyle"];
+  // ⚠️ 2026-09-12: `badge` bu listeden ÇIKARILDI (kullanıcı kararı). Rozet METİNDİR
+  // ("En Çok Satan" · "Yeni" · "İnovatif"), görsel/sayı/düzen kimliği değil; kilitli
+  // kaldığı sürece Arapça/Felemenkçe ürün kartlarında TÜRKÇE görünüyordu. Listenin
+  // amacı görsel/sayısal alanları korumaktı, rozet metni buraya yanlışlıkla düşmüştü.
+  // 📌 Bu listeye yeni alan eklerken sor: bu bir KİMLİK mi (görsel/sayı/düzen) yoksa
+  //    METİN mi? Metinse kilitleme — yabancı dilde Türkçe sızar.
+  const KATEGORI_TR_KILIT = ["image", "descriptionImage", "modelCount", "comingSoon", "heroStyle"];
   const mergedCategories: Record<string, unknown> = { ...(tr.categories ?? {}) };
   if (en.categories && typeof en.categories === "object") {
     for (const key of Object.keys(en.categories)) {

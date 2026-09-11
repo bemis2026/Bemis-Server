@@ -268,7 +268,7 @@ export default function DNA() {
                 </div>
                 <div>
                   <div className="text-[9px] font-bold tracking-wider" style={{ color: d ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.40)" }}>EST.</div>
-                  <div className="text-[9px] font-medium" style={{ color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.30)" }}>Bursa · Türkiye</div>
+                  <div className="text-[9px] font-medium" style={{ color: d ? "rgba(255,255,255,0.30)" : "rgba(0,0,0,0.30)" }}>{pickText(lang, "Bursa · Türkiye", "Bursa · Türkiye")}</div>
                 </div>
               </div>
               {dna.factoryVideo && (

@@ -283,7 +283,7 @@ export default function ProductShowcase() {
               )}
 
               {/* Product name overlay — sağ üst köşede (re-mounts on slide change to animate) */}
-              <AnimatePresence mode="wait">
+              <AnimatePresence mode="wait" key={lang}>
                 <motion.div
                   key={`overlay-${index}-${nameText}`}
                   initial={{ opacity: 0, y: -8 }}
@@ -392,7 +392,7 @@ export default function ProductShowcase() {
               style={{ background: d ? `${ACCENT}18` : `${ACCENT}10`, border: d ? `1px solid ${ACCENT}35` : `1px solid ${ACCENT}25` }}
             >
               <RiAwardLine size={12} style={{ color: d ? "#93C5FD" : ACCENT }} />
-              <AnimatePresence mode="wait">
+              <AnimatePresence mode="wait" key={lang}>
                 <motion.span
                   key={`badge-${index}-${badgeText}`}
                   initial={{ opacity: 0, y: 4 }}
@@ -408,7 +408,7 @@ export default function ProductShowcase() {
             </motion.div>
 
             {/* Product name */}
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" key={lang}>
               <motion.h2
                 key={`name-${index}-${nameText}`}
                 initial={{ opacity: 0, y: 18 }}
@@ -433,7 +433,7 @@ export default function ProductShowcase() {
 
             {/* Tagline */}
             {taglineText && (
-              <AnimatePresence mode="wait">
+              <AnimatePresence mode="wait" key={lang}>
                 <motion.p
                   key={`tagline-${index}-${taglineText}`}
                   initial={{ opacity: 0, y: 12 }}
@@ -449,7 +449,7 @@ export default function ProductShowcase() {
             )}
 
             {/* Description */}
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" key={lang}>
               <motion.p
                 key={`desc-${index}`}
                 initial={{ opacity: 0, y: 14 }}
@@ -465,7 +465,7 @@ export default function ProductShowcase() {
 
             {/* Specs grid */}
             {specs.length > 0 && (
-              <AnimatePresence mode="wait">
+              <AnimatePresence mode="wait" key={lang}>
                 <motion.div
                   key={`specs-${index}`}
                   initial={{ opacity: 0, y: 14 }}

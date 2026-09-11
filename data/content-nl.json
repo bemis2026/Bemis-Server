@@ -143,13 +143,13 @@
       "manuals": [
         {
           "id": "manual-1779303159452",
-          "name": "AC Wallbox Kullanım Klavuzu",
+          "name": "AC Wallbox-gebruikershandleiding",
           "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779303157/documents/1779303157143-wallbox-kullanim-kilavuzu.pdf",
           "size": "2.5 MB"
         },
         {
           "id": "manual-1779303206674",
-          "name": "AC Kurulum Klavuzu",
+          "name": "AC-installatiehandleiding",
           "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779303205/documents/1779303205436-bemis-ev-charge-hizli-kurulum-kilavuzu__1_.pdf",
           "size": "866 KB"
         }
@@ -1056,5 +1056,11 @@
     "ctaSecondaryLabel": "Vind een dealer",
     "ctaSecondaryHref": "/#dealer"
   },
-  "statsCertBand": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
+  "statsCertBand": "CE · TÜV · TSE · ISO 9001 · ISO 14001",
+  "contact": {
+    "workingDays": "Maandag — vrijdag"
+  },
+  "contactExport": {
+    "whatsappMessage": "Hallo, ik wil graag informatie over de producten van Bemis E-V Charge."
+  }
 }

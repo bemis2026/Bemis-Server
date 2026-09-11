@@ -60,7 +60,7 @@
       "name": "AC-Wallbox-Ladegeräte",
       "subtitle": "3,7 - 22 kW wandmontierte Ladestation",
       "modelCount": 3,
-      "badge": "Neu",
+      "badge": "Bestseller",
       "comingSoon": false,
       "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783076685/products/wk5wmt8r9ke9t8kxznfz.png",
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075739/products/mkblh61xfa551ewuadj8.png",
@@ -119,13 +119,13 @@
       "manuals": [
         {
           "id": "manual-1779303159452",
-          "name": "AC Wallbox Kullanım Klavuzu",
+          "name": "AC-Wallbox-Bedienungsanleitung",
           "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779303157/documents/1779303157143-wallbox-kullanim-kilavuzu.pdf",
           "size": "2.5 MB"
         },
         {
           "id": "manual-1779303206674",
-          "name": "AC Kurulum Klavuzu",
+          "name": "AC-Installationsanleitung",
           "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779303205/documents/1779303205436-bemis-ev-charge-hizli-kurulum-kilavuzu__1_.pdf",
           "size": "866 KB"
         }
@@ -139,7 +139,7 @@
       "name": "Mobile AC-Ladegeräte",
       "subtitle": "2,3 - 22 kW tragbare Ladegeräte",
       "modelCount": 2,
-      "badge": "Innovativ",
+      "badge": "Neu",
       "comingSoon": false,
       "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783076718/products/enzqsaqqq0g42baprecg.png",
       "faq": [
@@ -961,5 +961,11 @@
     "ctaPrimaryLabel": "Für ein individuelles Projekt kontaktieren",
     "ctaSecondaryLabel": "Händler finden"
   },
-  "statsCertBand": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
+  "statsCertBand": "CE · TÜV · TSE · ISO 9001 · ISO 14001",
+  "contact": {
+    "workingDays": "Montag — Freitag"
+  },
+  "contactExport": {
+    "whatsappMessage": "Hallo, ich möchte Informationen zu den Produkten von Bemis E-V Charge erhalten."
+  }
 }

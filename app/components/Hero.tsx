@@ -19,6 +19,17 @@ const ACCENT = "#3B82F6";
 // Cycles through `words` every 2.5s with a fade-up swap. Falls back to a
 // single static word when only one is supplied — keeps the layout stable
 // for editors who clear the rotating list.
+//
+// ⚠️⚠️ ÇAĞIRIRKEN `key={cleanWords.join("|")}` VER — KALDIRMA.
+// 2026-09-12 kullanıcı bildirimi: dil değiştirilince hero'daki dönen kelime
+// TÜRKÇE'DE DONUYORDU (Arapça sayfada başlığın ortasında "Kabloları" kalıyor ve
+// hiç dönmüyordu). Sebep: `AnimatePresence mode="wait"` + `key={words[i]}` —
+// dil değişiminde dizi komple değişince çıkış animasyonu tamamlanamıyor ve yeni
+// çocuk hiç mount edilmiyor; sarmalayıcı (AnimatePresence DIŞINDA) güncelleniyor,
+// bu yüzden min-width yeni dile göre ölçülüyor ama METİN eski dilde kalıyordu —
+// teşhiste bu ikilik belirleyici oldu. Kelime listesi değişince bileşenin
+// tamamını REMOUNT etmek tek garantili çözüm. (Veri doğruydu: /api/content?lang=ar
+// `["أنظمة","وحدات","مقابس","كابلات"]` döndürüyordu.)
 function RotatingWord({ words }: { words: string[] }) {
   const [i, setI] = useState(0);
   const [minW, setMinW] = useState<number | undefined>(undefined);
@@ -59,7 +70,10 @@ function RotatingWord({ words }: { words: string[] }) {
   return (
     <span
       ref={ref}
-      className="relative inline-block align-baseline text-left"
+      // ⚠️ `text-start` (MANTIKSAL) — eskiden `text-left` (FİZİKSEL) idi. Arapçada
+      // kutu sağdan başlaması gerekirken kelime sol kenara yaslanıyor, min-width
+      // kadar boşluk sağda kalıyor ve başlık ORTADAN BÖLÜNMÜŞ görünüyordu.
+      className="relative inline-block align-baseline text-start"
       style={{ minWidth: minW ? `${minW}px` : undefined, whiteSpace: "nowrap" }}
     >
       <AnimatePresence mode="wait" initial={false}>
@@ -298,7 +312,7 @@ export default function Hero() {
             <h1 className={`text-[30px] xs:text-[34px] sm:text-4xl font-black tracking-tight leading-[1.18] ${headlineClass}`} style={{ textShadow }}>
               <E field="hero.headline1">{hero.headline1}</E>{" "}<br />
               <E field="hero.headline2">{hero.headline2}</E>
-              {cleanWords.length > 0 && <> <RotatingWord words={cleanWords} /></>}{" "}
+              {cleanWords.length > 0 && <> <RotatingWord key={cleanWords.join("|")} words={cleanWords} /></>}{" "}
               <br />
               <span
                 style={{
@@ -379,7 +393,7 @@ export default function Hero() {
           >
             <E field="hero.headline1">{hero.headline1}</E><br />
             <E field="hero.headline2">{hero.headline2}</E>
-            {cleanWords.length > 0 && <> <RotatingWord words={cleanWords} /></>}
+            {cleanWords.length > 0 && <> <RotatingWord key={cleanWords.join("|")} words={cleanWords} /></>}
             <br />
             <span
               style={{

@@ -2,6 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { InternationalDealer } from "../context/ContentContext";
+// ⚠️ 2026-09-12: bu dosya InternationalGlobe'un 2D İKİZİ. Küre 2026-08-02'de
+// çevrilmişti ama ikizi ATLANMIŞTI → 2D harita her dilde "Ülke · Aktif Ağ",
+// "MERKEZ TR", "Distribütör" yazmaya devam ediyordu (kullanıcı bildirimi).
+// 📌 Bu iki dosya AYNI metinleri taşır: birine metin eklerken ötekini de güncelle.
+import { useLanguage } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
 
 // 2D world map using a real atlas (Wikipedia world-map.svg, Robinson
 // projection, 950×620 viewBox). We render the SVG as an inline <image>
@@ -56,6 +62,8 @@ type Props = {
 };
 
 export default function InternationalMap2D({ dark, countries, selectedId, onSelect }: Props) {
+  const { lang } = useLanguage();
+  const L = (tr: string, en: string) => pickText(lang, tr, en);
   const wrapRef = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState<InternationalDealer | null>(null);
   const [size, setSize] = useState({ w: 800, h: 522 });
@@ -282,7 +290,7 @@ export default function InternationalMap2D({ dark, countries, selectedId, onSele
           className="text-[10px] font-bold tracking-[0.18em] uppercase"
           style={{ color: dark ? "#cfe1ff" : "#1D4ED8" }}
         >
-          {activeCountries.length} Ülke · Aktif Ağ
+          {activeCountries.length} {L("Ülke · Aktif Ağ", "Countries · Active Network")}
         </span>
       </div>
 
@@ -297,14 +305,14 @@ export default function InternationalMap2D({ dark, countries, selectedId, onSele
         <span className="flex items-center gap-1.5">
           <span className="inline-block w-2 h-2 rounded-full" style={{ background: RED, boxShadow: `0 0 6px ${RED}` }} />
           <span className="text-[10px] font-bold tracking-wider uppercase" style={{ color: dark ? "#fecaca" : "#B91C1C" }}>
-            MERKEZ TR
+            {L("MERKEZ TR", "HQ TÜRKİYE")}
           </span>
         </span>
         <span className="w-px h-3" style={{ background: dark ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.18)" }} />
         <span className="flex items-center gap-1.5">
           <span className="inline-block w-2 h-2 rounded-full" style={{ background: BLUE, boxShadow: `0 0 6px ${BLUE}` }} />
           <span className="text-[10px] font-bold tracking-wider uppercase" style={{ color: dark ? "#cfe1ff" : "#1D4ED8" }}>
-            Distribütör
+            {L("Distribütör", "Distributor")}
           </span>
         </span>
       </div>

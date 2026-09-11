@@ -1039,7 +1039,7 @@ export default function DealerNetwork() {
             >
               {(["yurtici", "yurtdisi"] as const).map((m) => {
                 const active = viewMode === m;
-                const label = m === "yurtici" ? "Türkiye" : L("Dünya", "World");
+                const label = m === "yurtici" ? L("Türkiye", "Türkiye") : L("Dünya", "World");
                 return (
                   <button
                     key={m}

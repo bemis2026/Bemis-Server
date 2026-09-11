@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, ReactNode, useCallback, useMemo } from "react";
+import { createContext, useContext, useEffect, useState, ReactNode, useCallback, useMemo, useRef } from "react";
 import { useLanguage, type Lang } from "./LanguageContext";
 
 export type StatItem = {
@@ -1141,6 +1141,9 @@ export function ContentProvider({ children, initialContent }: { children: ReactN
     return () => window.removeEventListener("message", handler);
   }, [lang]);
 
+  // Erteleme YALNIZ ilk içerik çekiminde uygulanır (bkz. aşağıdaki not).
+  const ilkIcerikCekimi = useRef(true);
+
   useEffect(() => {
     const controller = new AbortController();
 
@@ -1187,10 +1190,23 @@ export function ContentProvider({ children, initialContent }: { children: ReactN
         .finally(() => setContentLoading(false));
     };
 
+    // ⚠️⚠️ 2026-09-12 — DİL DEĞİŞİMİ BEKLETİLMEZ (kullanıcı bildirimi: "arapça ve
+    // netherland dillerine geçince diller değişmedi").
+    // Yukarıdaki boşta-çalışma ertelemesi AÇILIŞ için doğru (LCP), ama dil
+    // değiştirildiğinde YANLIŞTI: yön (dir=rtl / lang=ar) ANINDA değişiyor, metin
+    // ise 2 saniyeye kadar Türkçe kalıyordu → ziyaretçi "RTL yönlü, Türkçe metinli"
+    // bir sayfa görüyor ve dil hiç değişmemiş sanıyor. Yavaş bağlantıda daha uzun.
+    // Çözüm: erteleme YALNIZ İLK çalıştırmada; dil değişimi / elle yenilemede
+    // istek ANINDA gider. Açılış performansı birebir korunur.
     const ric = (window as { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number }).requestIdleCallback;
     let zaman: number | undefined;
-    if (typeof ric === "function") ric(calistir, { timeout: 2000 });
-    else zaman = window.setTimeout(calistir, 1200); // eski Safari
+    if (ilkIcerikCekimi.current) {
+      ilkIcerikCekimi.current = false;
+      if (typeof ric === "function") ric(calistir, { timeout: 2000 });
+      else zaman = window.setTimeout(calistir, 1200); // eski Safari
+    } else {
+      calistir();
+    }
 
     return () => {
       iptal = true;

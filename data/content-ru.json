@@ -60,7 +60,7 @@
       "name": "Настенные зарядные устройства AC",
       "subtitle": "Настенная зарядная станция 3,7 - 22 кВт",
       "modelCount": 3,
-      "badge": "Новинка",
+      "badge": "Хит продаж",
       "comingSoon": false,
       "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783076685/products/wk5wmt8r9ke9t8kxznfz.png",
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075739/products/mkblh61xfa551ewuadj8.png",
@@ -119,13 +119,13 @@
       "manuals": [
         {
           "id": "manual-1779303159452",
-          "name": "AC Wallbox Kullanım Klavuzu",
+          "name": "Руководство пользователя AC Wallbox",
           "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779303157/documents/1779303157143-wallbox-kullanim-kilavuzu.pdf",
           "size": "2.5 MB"
         },
         {
           "id": "manual-1779303206674",
-          "name": "AC Kurulum Klavuzu",
+          "name": "Руководство по установке AC",
           "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779303205/documents/1779303205436-bemis-ev-charge-hizli-kurulum-kilavuzu__1_.pdf",
           "size": "866 KB"
         }
@@ -139,7 +139,7 @@
       "name": "Портативные зарядные устройства AC",
       "subtitle": "Портативные зарядные устройства 2,3 - 22 кВт",
       "modelCount": 2,
-      "badge": "Инновация",
+      "badge": "Новинка",
       "comingSoon": false,
       "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783076718/products/enzqsaqqq0g42baprecg.png",
       "faq": [
@@ -235,7 +235,7 @@
       "name": "Переходники V2L / C2L",
       "subtitle": "Vehicle-to-Load и Charger-to-Load — разрядка и зарядка аккумулятора",
       "modelCount": 3,
-      "badge": "Инновации",
+      "badge": "Инновационный",
       "comingSoon": false,
       "image": "/categories/1775068456394-V2L-kamp2.png",
       "faq": [
@@ -961,5 +961,11 @@
     "ctaPrimaryLabel": "Связаться для индивидуального проекта",
     "ctaSecondaryLabel": "Найти дилера"
   },
-  "statsCertBand": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
+  "statsCertBand": "CE · TÜV · TSE · ISO 9001 · ISO 14001",
+  "contact": {
+    "workingDays": "Понедельник — Пятница"
+  },
+  "contactExport": {
+    "whatsappMessage": "Здравствуйте, я хотел бы получить информацию о продукции Bemis E-V Charge."
+  }
 }

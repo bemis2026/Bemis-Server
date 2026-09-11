@@ -362,7 +362,7 @@ export default function AllProductsPage({ initialCategories = [], initialLang = 
           {loading ? (
             <ProductGridSkeleton count={15} />
           ) : (
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" key={lang}>
               <motion.div
                 key={activeFilter}
                 initial={{ opacity: 0, y: 12 }}

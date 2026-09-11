@@ -60,7 +60,7 @@
       "name": "AC Wallbox Chargers",
       "subtitle": "3.7 - 22 kW Wall-Mounted Charging Station",
       "modelCount": 3,
-      "badge": "New",
+      "badge": "Best Seller",
       "comingSoon": false,
       "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783076685/products/wk5wmt8r9ke9t8kxznfz.png",
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075739/products/mkblh61xfa551ewuadj8.png",
@@ -119,13 +119,13 @@
       "manuals": [
         {
           "id": "manual-1779303159452",
-          "name": "AC Wallbox Kullanım Klavuzu",
+          "name": "AC Wallbox User Manual",
           "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779303157/documents/1779303157143-wallbox-kullanim-kilavuzu.pdf",
           "size": "2.5 MB"
         },
         {
           "id": "manual-1779303206674",
-          "name": "AC Kurulum Klavuzu",
+          "name": "AC Installation Manual",
           "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779303205/documents/1779303205436-bemis-ev-charge-hizli-kurulum-kilavuzu__1_.pdf",
           "size": "866 KB"
         }
@@ -139,7 +139,7 @@
       "name": "AC Mobile Chargers",
       "subtitle": "2.3 - 22 kW Portable Chargers",
       "modelCount": 2,
-      "badge": "Innovative",
+      "badge": "New",
       "comingSoon": false,
       "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783076718/products/enzqsaqqq0g42baprecg.png",
       "faq": [
@@ -939,9 +939,9 @@
     ]
   },
   "gallerySection": {
-    "sectionLabel": "Galeri",
-    "heading": "Showroom & Üretim",
-    "subheading": "Bursa'daki üretim tesisimizden ve showroom'umuzdan kareler.",
+    "sectionLabel": "Gallery",
+    "heading": "Showroom & Production",
+    "subheading": "Shots from our production facility and showroom in Bursa.",
     "items": [
       {
         "id": "g-1778223748755",
@@ -955,5 +955,11 @@
     "yandex": "ae9fa7a5c2813c45",
     "bing": "C167616D2A8624840B7BB7B05FF168F3"
   },
-  "statsCertBand": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
+  "statsCertBand": "CE · TÜV · TSE · ISO 9001 · ISO 14001",
+  "contact": {
+    "workingDays": "Monday — Friday"
+  },
+  "contactExport": {
+    "whatsappMessage": "Hello, I would like to get information about Bemis E-V Charge products."
+  }
 }

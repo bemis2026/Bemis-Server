@@ -256,7 +256,7 @@ export default function Products() {
             onMouseEnter={() => setBannerPaused(true)}
             onMouseLeave={() => setBannerPaused(false)}
           >
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" key={lang}>
               {(() => {
                 const cat = mergedCategories[activeBanner] ?? mergedCategories[0];
                 const catIcons: Record<string, React.ElementType> = {

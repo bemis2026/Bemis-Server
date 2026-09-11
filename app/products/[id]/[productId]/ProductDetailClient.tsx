@@ -411,7 +411,7 @@ export default function ProductDetailPage({
                         }}
                       >
                         {imgs.length > 0 ? (
-                          <AnimatePresence mode="wait">
+                          <AnimatePresence mode="wait" key={lang}>
                             <motion.div
                               key={clamped}
                               className="absolute inset-0"

@@ -14,6 +14,10 @@ import {
   RiFlashlightFill, RiWifiFill, RiSignalTowerFill, RiBattery2ChargeFill,
   RiMore2Fill, RiArrowRightUpLine,
 } from "react-icons/ri";
+// ⚠️ 2026-09-12: bu dosyada HİÇ çeviri yoktu → Arapça/Felemenkçe ÜRÜN sayfalarında
+// ve anasayfada uygulama ekranı tamamen TÜRKÇE görünüyordu (kullanıcı bildirimi).
+import { useLanguage } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
 
 export const RED = "#E31E24";
 export const RED_DEEP = "#DC0E1A";
@@ -53,6 +57,8 @@ function BemisMark({ size = 26 }: { size?: number }) {
 const PHONE_BASE_W = 220, PHONE_BASE_H = 455;
 
 export function PhoneScreen({ w = 220 }: { w?: number }) {
+  const { lang } = useLanguage();
+  const T = (tr: string, en: string) => pickText(lang, tr, en);
   return (
     <ScreenBox w={w} baseW={PHONE_BASE_W} baseH={PHONE_BASE_H}>
       <div style={{ width: PHONE_BASE_W, height: PHONE_BASE_H, background: "linear-gradient(180deg,#15161c 0%,#0b0c11 100%)", color: "#fff", padding: "12px 14px", display: "flex", flexDirection: "column", fontFamily: "system-ui, sans-serif" }}>
@@ -69,10 +75,10 @@ export function PhoneScreen({ w = 220 }: { w?: number }) {
           <BemisMark size={26} />
           <div style={{ lineHeight: 1.15, flex: 1 }}>
             <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: "-0.01em" }}>Bemis E-V Charge</div>
-            <div style={{ fontSize: 8, color: "rgba(255,255,255,0.45)", fontWeight: 600 }}>Akıllı Şarj Yönetimi</div>
+            <div style={{ fontSize: 8, color: "rgba(255,255,255,0.45)", fontWeight: 600 }}>{T("Akıllı Şarj Yönetimi", "Smart Charging Management")}</div>
           </div>
           <span style={{ display: "inline-flex", alignItems: "center", gap: 3, fontSize: 8, fontWeight: 700, color: "#34D399", background: "rgba(52,211,153,0.12)", borderRadius: 999, padding: "3px 7px" }}>
-            <span style={{ width: 4, height: 4, borderRadius: 999, background: "#34D399" }} />Bağlı
+            <span style={{ width: 4, height: 4, borderRadius: 999, background: "#34D399" }} />{T("Bağlı", "Connected")}
           </span>
         </div>
 
@@ -86,14 +92,14 @@ export function PhoneScreen({ w = 220 }: { w?: number }) {
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", lineHeight: 1 }}>
               <RiFlashlightFill size={16} style={{ color: RED }} />
               <span style={{ fontSize: 26, fontWeight: 900, marginTop: 2 }}>68%</span>
-              <span style={{ fontSize: 8, color: "rgba(255,255,255,0.45)", marginTop: 2 }}>Şarj oluyor</span>
+              <span style={{ fontSize: 8, color: "rgba(255,255,255,0.45)", marginTop: 2 }}>{T("Şarj oluyor", "Charging")}</span>
             </div>
           </div>
         </div>
 
         {/* oturum istatistikleri */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 6 }}>
-          {[["Güç", "11 kW"], ["Süre", "01:22"], ["Tutar", "₺84,20"]].map(([l, v]) => (
+          {[[T("Güç", "Power"), "11 kW"], [T("Süre", "Duration"), "01:22"], [T("Tutar", "Amount"), "₺84,20"]].map(([l, v]) => (
             <div key={l} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 10, padding: "7px 4px", textAlign: "center" }}>
               <div style={{ fontSize: 8, color: "rgba(255,255,255,0.4)", fontWeight: 600 }}>{l}</div>
               <div style={{ fontSize: 11, fontWeight: 800, marginTop: 2 }}>{v}</div>
@@ -103,8 +109,8 @@ export function PhoneScreen({ w = 220 }: { w?: number }) {
 
         {/* ünite listesi */}
         <div style={{ marginTop: 11, display: "flex", flexDirection: "column", gap: 5 }}>
-          <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.28)" }}>İstasyonlarım</div>
-          {[["Ünite #1", "Şarjda", RED], ["Ünite #2", "Müsait", "rgba(255,255,255,0.3)"]].map(([n, st, c]) => (
+          <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.28)" }}>{T("İstasyonlarım", "My Stations")}</div>
+          {[[T("Ünite #1", "Unit #1"), T("Şarjda", "Charging"), RED], [T("Ünite #2", "Unit #2"), T("Müsait", "Available"), "rgba(255,255,255,0.3)"]].map(([n, st, c]) => (
             <div key={n} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 10, padding: "7px 9px" }}>
               <span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}>
                 <span style={{ width: 6, height: 6, borderRadius: 999, background: c as string }} />
@@ -118,7 +124,7 @@ export function PhoneScreen({ w = 220 }: { w?: number }) {
         {/* durdur butonu */}
         <div style={{ marginTop: "auto", paddingTop: 10 }}>
           <div style={{ height: 30, borderRadius: 11, background: `linear-gradient(135deg,${RED} 0%,${RED_DEEP} 100%)`, boxShadow: `0 6px 16px ${RED}45`, display: "flex", alignItems: "center", justifyContent: "center", gap: 5 }}>
-            <span style={{ fontSize: 10, fontWeight: 800, color: "#fff" }}>Şarjı Durdur</span>
+            <span style={{ fontSize: 10, fontWeight: 800, color: "#fff" }}>{T("Şarjı Durdur", "Stop Charging")}</span>
           </div>
         </div>
       </div>
@@ -132,6 +138,8 @@ export function PhoneScreen({ w = 220 }: { w?: number }) {
 const WEB_BASE_W = 300, WEB_BASE_H = 200;
 
 export function WebScreen({ w = 300 }: { w?: number }) {
+  const { lang } = useLanguage();
+  const T = (tr: string, en: string) => pickText(lang, tr, en);
   const bars = [46, 62, 52, 78, 58, 88, 70];
   return (
     <ScreenBox w={w} baseW={WEB_BASE_W} baseH={WEB_BASE_H}>
@@ -140,7 +148,7 @@ export function WebScreen({ w = 300 }: { w?: number }) {
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <BemisMark size={22} />
           <div style={{ flex: 1, lineHeight: 1.1 }}>
-            <div style={{ fontSize: 11, fontWeight: 800 }}>Şarj Yönetim Paneli</div>
+            <div style={{ fontSize: 11, fontWeight: 800 }}>{T("Şarj Yönetim Paneli", "Charging Management Panel")}</div>
             <div style={{ fontSize: 7.5, color: "rgba(255,255,255,0.4)", fontWeight: 600 }}>Bemis E-V Charge · CSMS</div>
           </div>
           <span style={{ display: "inline-flex", alignItems: "center", gap: 3, fontSize: 8, fontWeight: 700, color: "#34D399", background: "rgba(52,211,153,0.12)", borderRadius: 999, padding: "3px 8px" }}>
@@ -151,9 +159,9 @@ export function WebScreen({ w = 300 }: { w?: number }) {
         {/* KPI kartları */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 7 }}>
           {[
-            { v: "12", l: "Aktif Şarj", accent: true },
-            { v: "4", l: "Müsait", accent: false },
-            { v: "₺2.480", l: "Bugünkü Gelir", accent: false },
+            { v: "12", l: T("Aktif Şarj", "Active Sessions"), accent: true },
+            { v: "4", l: T("Müsait", "Available"), accent: false },
+            { v: "₺2.480", l: T("Bugünkü Gelir", "Today's Revenue"), accent: false },
           ].map((k) => (
             <div key={k.l} style={{ background: k.accent ? `${RED}14` : "rgba(255,255,255,0.04)", border: `1px solid ${k.accent ? RED + "44" : "rgba(255,255,255,0.07)"}`, borderRadius: 10, padding: "9px 8px" }}>
               <div style={{ fontSize: 15, fontWeight: 900, color: k.accent ? RED : "#fff", lineHeight: 1 }}>{k.v}</div>
@@ -165,7 +173,7 @@ export function WebScreen({ w = 300 }: { w?: number }) {
         {/* enerji grafiği */}
         <div style={{ flex: 1, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 10, padding: 9, display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
-            <span style={{ fontSize: 8, fontWeight: 700, color: "rgba(255,255,255,0.55)" }}>Son 7 Gün · Enerji (kWh)</span>
+            <span style={{ fontSize: 8, fontWeight: 700, color: "rgba(255,255,255,0.55)" }}>{T("Son 7 Gün · Enerji (kWh)", "Last 7 Days · Energy (kWh)")}</span>
             <span style={{ display: "inline-flex", alignItems: "center", gap: 2, fontSize: 8, fontWeight: 700, color: RED }}>+18% <RiArrowRightUpLine size={9} /></span>
           </div>
           <div style={{ flex: 1, display: "flex", alignItems: "flex-end", gap: 5 }}>
@@ -179,9 +187,9 @@ export function WebScreen({ w = 300 }: { w?: number }) {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 9, padding: "6px 9px" }}>
           <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
             <span style={{ width: 5, height: 5, borderRadius: 999, background: RED }} />
-            <span style={{ fontSize: 8.5, fontWeight: 600 }}>Ünite #1 · Bursa OSB</span>
+            <span style={{ fontSize: 8.5, fontWeight: 600 }}>{T("Ünite #1 · Bursa OSB", "Unit #1 · Bursa OSB")}</span>
           </span>
-          <span style={{ fontSize: 8.5, fontWeight: 700, color: RED }}>11 kW · Şarjda</span>
+          <span style={{ fontSize: 8.5, fontWeight: 700, color: RED }}>11 kW · {T("Şarjda", "Charging")}</span>
           <RiMore2Fill size={11} style={{ color: "rgba(255,255,255,0.3)" }} />
         </div>
       </div>

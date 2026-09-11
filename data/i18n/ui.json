@@ -3183,5 +3183,96 @@
   "ar": "تقييم النشاط التجاري على Google",
   "ru": "Рейтинг компании в Google",
   "nl": "Google-bedrijfsbeoordeling"
+ },
+ "Smart Charging Management": {
+  "de": "Intelligentes Lademanagement",
+  "es": "Gestión de carga inteligente",
+  "ar": "إدارة الشحن الذكي",
+  "ru": "Умное управление зарядкой",
+  "nl": "Slim laadbeheer"
+ },
+ "Duration": {
+  "de": "Dauer",
+  "es": "Duración",
+  "ar": "المدة",
+  "ru": "Время",
+  "nl": "Duur"
+ },
+ "Amount": {
+  "de": "Betrag",
+  "es": "Importe",
+  "ar": "المبلغ",
+  "ru": "Сумма",
+  "nl": "Bedrag"
+ },
+ "My Stations": {
+  "de": "Meine Stationen",
+  "es": "Mis estaciones",
+  "ar": "محطاتي",
+  "ru": "Мои станции",
+  "nl": "Mijn laadpunten"
+ },
+ "Unit #1": {
+  "de": "Einheit #1",
+  "es": "Unidad #1",
+  "ar": "الوحدة #1",
+  "ru": "Устройство №1",
+  "nl": "Unit #1"
+ },
+ "Unit #2": {
+  "de": "Einheit #2",
+  "es": "Unidad #2",
+  "ar": "الوحدة #2",
+  "ru": "Устройство №2",
+  "nl": "Unit #2"
+ },
+ "Stop Charging": {
+  "de": "Laden beenden",
+  "es": "Detener la carga",
+  "ar": "إيقاف الشحن",
+  "ru": "Остановить зарядку",
+  "nl": "Laden stoppen"
+ },
+ "Active Sessions": {
+  "de": "Aktive Ladevorgänge",
+  "es": "Sesiones activas",
+  "ar": "جلسات نشطة",
+  "ru": "Активные сессии",
+  "nl": "Actieve sessies"
+ },
+ "Today's Revenue": {
+  "de": "Umsatz heute",
+  "es": "Ingresos de hoy",
+  "ar": "إيرادات اليوم",
+  "ru": "Выручка за сегодня",
+  "nl": "Omzet vandaag"
+ },
+ "Last 7 Days · Energy (kWh)": {
+  "de": "Letzte 7 Tage · Energie (kWh)",
+  "es": "Últimos 7 días · Energía (kWh)",
+  "ar": "آخر 7 أيام · الطاقة (kWh)",
+  "ru": "Последние 7 дней · Энергия (кВтч)",
+  "nl": "Laatste 7 dagen · Energie (kWh)"
+ },
+ "Unit #1 · Bursa OSB": {
+  "de": "Einheit #1 · Bursa OSB",
+  "es": "Unidad #1 · Bursa OSB",
+  "ar": "الوحدة #1 · بورصة OSB",
+  "ru": "Устройство №1 · Бурса OSB",
+  "nl": "Unit #1 · Bursa OSB"
+ },
+ "Bursa · Türkiye": {
+  "de": "Bursa · Türkiye",
+  "es": "Bursa · Türkiye",
+  "ar": "بورصة · تركيا",
+  "ru": "Бурса · Турция",
+  "nl": "Bursa · Türkiye"
+ },
+ "Türkiye": {
+  "de": "Türkiye",
+  "es": "Türkiye",
+  "ar": "تركيا",
+  "ru": "Турция",
+  "nl": "Türkiye"
  }
 }

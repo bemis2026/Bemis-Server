@@ -60,7 +60,7 @@
       "name": "شواحن AC Wallbox",
       "subtitle": "محطة شحن مثبتة على الجدار 3.7 - 22 kW",
       "modelCount": 3,
-      "badge": "جديد",
+      "badge": "الأكثر مبيعًا",
       "comingSoon": false,
       "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783076685/products/wk5wmt8r9ke9t8kxznfz.png",
       "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075739/products/mkblh61xfa551ewuadj8.png",
@@ -119,13 +119,13 @@
       "manuals": [
         {
           "id": "manual-1779303159452",
-          "name": "AC Wallbox Kullanım Klavuzu",
+          "name": "دليل استخدام AC Wallbox",
           "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779303157/documents/1779303157143-wallbox-kullanim-kilavuzu.pdf",
           "size": "2.5 MB"
         },
         {
           "id": "manual-1779303206674",
-          "name": "AC Kurulum Klavuzu",
+          "name": "دليل تركيب AC",
           "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779303205/documents/1779303205436-bemis-ev-charge-hizli-kurulum-kilavuzu__1_.pdf",
           "size": "866 KB"
         }
@@ -139,7 +139,7 @@
       "name": "شواحن AC محمولة",
       "subtitle": "شواحن محمولة 2.3 - 22 kW",
       "modelCount": 2,
-      "badge": "مبتكر",
+      "badge": "جديد",
       "comingSoon": false,
       "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783076718/products/enzqsaqqq0g42baprecg.png",
       "faq": [
@@ -235,7 +235,7 @@
       "name": "محولات V2L / C2L",
       "subtitle": "Vehicle-to-Load و Charger-to-Load للتفريغ وشحن البطارية",
       "modelCount": 3,
-      "badge": "كيف أستخدم شاحن AC Wallbox في منزلي؟",
+      "badge": "مبتكر",
       "comingSoon": false,
       "image": "/categories/1775068456394-V2L-kamp2.png",
       "faq": [
@@ -961,5 +961,11 @@
     "ctaPrimaryLabel": "تواصل معنا لمشروع خاص",
     "ctaSecondaryLabel": "ابحث عن موزّع"
   },
-  "statsCertBand": "CE · TÜV · TSE · ISO 9001 · ISO 14001"
+  "statsCertBand": "CE · TÜV · TSE · ISO 9001 · ISO 14001",
+  "contact": {
+    "workingDays": "الاثنين — الجمعة"
+  },
+  "contactExport": {
+    "whatsappMessage": "مرحبًا، أود الحصول على معلومات عن منتجات Bemis E-V Charge."
+  }
 }
