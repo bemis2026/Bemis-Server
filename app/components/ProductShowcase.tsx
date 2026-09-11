@@ -97,6 +97,18 @@ export default function ProductShowcase() {
   const pick = (a?: string, b?: string, fb = "") => (a?.trim() ? a : (b?.trim() ? b : fb));
   const badgeText       = pick(active?.badge,       ps?.badge,       "Amiral Gemisi Ürün");
   const nameText        = pick(active?.name,        ps?.name,        "AC Wallbox Smart Charger Pro 2");
+  // ⚠️⚠️ 2026-09-12 — AnimatePresence "TAKILI ESKİ ÇOCUK" KORUMASI. DEĞİŞTİRME.
+  // Kusur: sayfa TÜRKÇE statik SSR ediliyor, çeviri içeriği SONRADAN (fetch ile)
+  // geliyor. `AnimatePresence mode="wait"` + çocuğun key'i ÇEVRİLEBİLİR METNE bağlı
+  // olunca, içerik değişiminde çıkış animasyonu tamamlanamıyor ve YENİ çocuk hiç
+  // mount edilmiyor → Arapça sayfada rozet/tagline TÜRKÇE kalıyordu (canlı ölçüldü:
+  // Arapça rozet DOM'da vardı ama Türkçe olan da duruyordu, tagline ise yalnız
+  // Türkçe). Hero'daki dönen kelimeyle AYNI kusur sınıfı.
+  // ⚠️ `key={lang}` YETMEZ: sayfa zaten ar ile açıldığında lang HİÇ değişmiyor,
+  //    değişen İÇERİK. Bu yüzden imza METİNDEN türetilir.
+  // ⚠️ İmzaya `index` KOYMA — koyarsan her slayt geçişinde remount olur ve
+  //    karusel geçiş animasyonu kaybolur. `ps` slayttan bağımsızdır.
+  const icerikAnahtari = `${lang}|${ps?.name ?? ""}|${ps?.tagline ?? ""}|${ps?.badge ?? ""}`;
   const taglineText     = pick(active?.tagline,     ps?.tagline);
   const descriptionText = pick(active?.description, ps?.description);
   // Specs — slide-spesifik; yoksa ps.specs fallback. "Yerli Üretim" spec'i
@@ -283,7 +295,7 @@ export default function ProductShowcase() {
               )}
 
               {/* Product name overlay — sağ üst köşede (re-mounts on slide change to animate) */}
-              <AnimatePresence mode="wait" key={lang}>
+              <AnimatePresence mode="wait" key={icerikAnahtari}>
                 <motion.div
                   key={`overlay-${index}-${nameText}`}
                   initial={{ opacity: 0, y: -8 }}
@@ -392,7 +404,7 @@ export default function ProductShowcase() {
               style={{ background: d ? `${ACCENT}18` : `${ACCENT}10`, border: d ? `1px solid ${ACCENT}35` : `1px solid ${ACCENT}25` }}
             >
               <RiAwardLine size={12} style={{ color: d ? "#93C5FD" : ACCENT }} />
-              <AnimatePresence mode="wait" key={lang}>
+              <AnimatePresence mode="wait" key={icerikAnahtari}>
                 <motion.span
                   key={`badge-${index}-${badgeText}`}
                   initial={{ opacity: 0, y: 4 }}
@@ -408,7 +420,7 @@ export default function ProductShowcase() {
             </motion.div>
 
             {/* Product name */}
-            <AnimatePresence mode="wait" key={lang}>
+            <AnimatePresence mode="wait" key={icerikAnahtari}>
               <motion.h2
                 key={`name-${index}-${nameText}`}
                 initial={{ opacity: 0, y: 18 }}
@@ -433,7 +445,7 @@ export default function ProductShowcase() {
 
             {/* Tagline */}
             {taglineText && (
-              <AnimatePresence mode="wait" key={lang}>
+              <AnimatePresence mode="wait" key={icerikAnahtari}>
                 <motion.p
                   key={`tagline-${index}-${taglineText}`}
                   initial={{ opacity: 0, y: 12 }}
@@ -449,7 +461,7 @@ export default function ProductShowcase() {
             )}
 
             {/* Description */}
-            <AnimatePresence mode="wait" key={lang}>
+            <AnimatePresence mode="wait" key={icerikAnahtari}>
               <motion.p
                 key={`desc-${index}`}
                 initial={{ opacity: 0, y: 14 }}
@@ -465,7 +477,7 @@ export default function ProductShowcase() {
 
             {/* Specs grid */}
             {specs.length > 0 && (
-              <AnimatePresence mode="wait" key={lang}>
+              <AnimatePresence mode="wait" key={icerikAnahtari}>
                 <motion.div
                   key={`specs-${index}`}
                   initial={{ opacity: 0, y: 14 }}
