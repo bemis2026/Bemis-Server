@@ -12,6 +12,34 @@
 ---
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
+
+> 🧩🔴 **DİL BİRLEŞTİRMESİ BİR İZİN LİSTESİ — LİSTEDE OLMAYAN BÖLÜM HİÇ ÇEVRİLMEZ
+> (2026-09-12, commit 784092e):** Oturum sonu tam kontrolü yakaladı: `contact.workingDays` ve
+> `gallerySection` başlıklarını **7 dile yazmıştım ama canlıda hâlâ Türkçe görünüyordu.** Sorun veri
+> değil, **birleştirme katmanıydı.**
+>
+> `lib/contentLang.ts` içindeki `merged` nesnesi **bölüm bazlı bir izin listesidir**: listede olmayan
+> üst-seviye bölüm sessizce `...tr`'den gelir ve **çeviri dosyasındaki değeri HİÇ okunmaz.**
+> Ölçüldü: 26 bölümün 4'ü listede yoktu — **`gallerySection`** (METİN → kusur) +
+> `faviconUrl` / `ogImage` / `siteVerification` (kimlik → doğru).
+>
+> **(1) `gallerySection` eklendi.** Başlık/alt başlık çevrilir; `items[]` içindeki görsel/id/aspect
+> TR'den gelir, yalnız `caption` çevrilir (`dna`'daki `mergeIndex` deseniyle aynı).
+> **(2) `contact` bloğu çeviri katmanını HİÇ okumuyordu:** `{ ...tr.contact, ...tr.contactExport }`.
+> Kanal bilgilerinin (e-posta/telefon/WhatsApp no) TR-kanonik kalması **KASITLI** ve korundu —
+> yabancı ziyaretçi dış ticaret hattını görür. Yalnız METİN alanları çeviriden alınacak şekilde
+> daraltıldı: **`workingDays`** ve **`whatsappMessage`**. Adres kanonik NAP → TR.
+>
+> **📌 KURAL: `content.json`'a yeni üst-seviye METİN bölümü eklenince `contentLang.ts` merge
+> listesine DE ekle.** Yoksa bölüm sessizce hiç çevrilmez ve çeviri dosyasına yazılan değerler boşa
+> gider. (Bu, `TRANSLATABLE_PATHS` eksikliğinden AYRI bir kapı — ikisi de tutmazsa alan çevrilmez.)
+>
+> **✅ OTURUM SONU TAM KONTROL: 21/21 TEMİZ** (`scratchpad/_oturum_tam_kontrol.cjs`) —
+> taşınabilir şarj turu (SSS + 2 rehber + llms.txt) · 6 dilin içerik kolu (rozet · çalışma günü ·
+> galeri · featured · kılavuz · menü etiketi sızıntısı yok) · bayi dizini (30/30 bağlantı,
+> nofollow 0, kişisel veri sızıntısı 0, 424 KB). 📌 Bu betiği sonraki turlarda yeniden çalıştır.
+
+
 > 🔗🏪 **TARANABİLİR BAYİ DİZİNİ — GİZLİ BAĞLANTI TALEBİ REDDEDİLDİ, ASIL KUSUR BULUNDU
 > (2026-09-12, commit 5b19d6a):** Bir bayi (FUTURE Teknik) metin bağlantısı istedi; kullanıcı
 > *"kimsenin görmeyeceği şekilde koysak diğer bayilere ayıp olmasın, işe yarar mı?"* diye sordu.
