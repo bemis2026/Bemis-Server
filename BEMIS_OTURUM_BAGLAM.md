@@ -13,6 +13,66 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🤖📄 **GEO ALINTILANABİLİR CEVAP BLOKLARI — 8 KATEGORİ × 7 DİL (2026-09-11, commit 444b7df):**
+> Kullanıcı *"geo cevap bloklarına başla"* dedi; yerleşim/kapsam/düzeltme üç çoktan seçmeli soruyla
+> netleşti: **hero'dan sonra ayrı vurgulu kart** · **kategori başına TEK güçlü cevap** · **iki açıklama
+> kusuru da düzeltilsin**.
+>
+> **📌 ÖNCE ÖLÇÜLDÜ — kategori sayfasının ilk anlamlı metni `description`:** wallbox zaten güçlü tanımla
+> başlıyordu; portable/v2l-c2l/converters/dc-units/accessories bilgi veriyor ama **tam cümle değil**
+> (tire'li isim öbeği → tek başına alıntılanamaz). **🔴 `cables`: "Elektrikli araba şarj kablonuzu
+> doğrudan üreticisinden alın." = SIFIR bilgi, saf CTA** (üstelik hedef anahtar kelime kümesi).
+> **🔴 `charger-equipment`: açılış DC ŞARJ KABLOLARINI anlatıyordu**, oysa kategoride 16 pano prizi +
+> 8 kablolu şarj prizi + 6 kombinasyon + 8 CCS2 soketi var → ilk cümle kategorinin küçük bir dilimini
+> tarif ediyordu.
+>
+> **YENİ ALAN: `content.categories[id].geoAnswer = { q, a }`** — 8 kategori × 7 dil = **56 soru-cevap,
+> 120 alan**. Kaynaklar: R2 `bins/content.json` (TR + `_translations`×6) + **7 repo dosyası**
+> (`data/content.json` TR + gömülü `_translations.en` + `content-<dil>.json`×6).
+> ⚠️ **Repo dosyaları R2 okunamayan build'de FALLBACK** → yazılmazsa blok o build'de kaybolur.
+> ⚠️ **7 DİL VAR, 6 DEĞİL:** `nl` (Felemenkçe) kolu da içerik katmanında — ilk planda unutulmuştu,
+> R2 ölçümü yakaladı. Yeni içerik alanı eklerken dil listesini **R2'den oku**, hafızadan sayma.
+>
+> **İÇERİK KURALI:** her cevap **51-63 kelime** ve **KENDİ BAŞINA ayakta duruyor** — öznesi yazılı,
+> "bu ürünler" gibi bağlama bağımlı ifade YOK. Alıntının sorusuz da anlamlı olması GEO'nun temel şartı.
+> Tüm sayısal olgular `data/products.json`'dan doğrulandı (ölçüm betiği `scratchpad/_geo_olgu.mts`).
+> **FİYAT ve uydurma ticari şart YOK.**
+>
+> **RENDER (`ProductCategoryClient`):** hero'dan SONRA, ürün ızgarasından ÖNCE accent kenarlı kart;
+> **soru bir `<h2>`, cevap altında tam cümle** (çıkarım için en güçlü desen).
+> ⚠️ **DAİMA DOM'da — akordeon/sekme ARDINA KOYMA.** Bu sitede aynı kusur üç kez çıktı (footer button ·
+> şehir akordeonu · /blog sekmesi): koşullu mount → içerik HTML'e hiç girmez → taranamaz.
+> ⚠️ **RTL:** kenar vurgusu `borderInlineStart` (mantıksal); fiziksel `borderLeft` Arapça'da yanlış
+> tarafa düşerdi.
+> ⚠️ Dil kolları için **`geoAnswerOverride` propu** (descriptionOverride ile AYNI kural) → `/en` ve
+> `/[lang]` rotaları SSR'da o dilde basar; geçilmezse ilk HTML **Türkçe** olurdu.
+>
+> **ŞEMA:** aynı soru-cevap **FAQPage'in İLK maddesi** olarak basılıyor (3 rota da). Google kuralı:
+> şemadaki içerik sayfada GÖRÜNÜR olmalı — ikisi de aynı CMS alanından geldiği için ayrışamaz.
+>
+> **AÇIKLAMA DÜZELTMESİ:** mevcut hiçbir cümle **SİLİNMEDİ**, başa bilgi veren açılış **EKLENDİ** (19).
+> `cables` yalnız **tr + nl** (diğer 5 dilin açılışı zaten bilgi veriyordu: "Mode 2 ve Mode 3, Type 2" —
+> repo/R2 ayrışmış, ölçümle görüldü); `charger-equipment` **7 dilde de**.
+>
+> **llms.txt:** yeni **"## Kategori Cevapları"** bölümü **elle kopyalanmadı** → `data/content.json`'dan
+> türer (tek kaynak, metin değişince kendiliğinden güncellenir).
+>
+> **📌 BAĞLANANLAR (atlanırsa sessiz bozulma):** `CategoryMeta` tipi **İKİ yerde** (`ContentContext.tsx`
+> + `admin/page.tsx`) — ikisine de eklendi. `lib/contentTranslate.ts` `TRANSLATABLE_PATHS`'e
+> **`categories.*.geoAnswer.{q,a}`** eklendi: operatör TR metnini düzenlerse 6 dil otomatik tazelensin.
+>
+> **📌 İKİ BETİK DERSİ:**
+> **(a)** `data/content*.json` dosyaları **CRLF**; `JSON.stringify` LF üretir. **Ölçüldü: CRLF korununca
+> 7/7 dosya BİREBİR yuvarlanıyor** → eski *"content.json yuvarlanmıyor, cerrahi değiştir"* notu aslında
+> satır sonu farkıymış; CRLF'e geri çevirerek güvenle yeniden serileştirilebilir.
+> **(b)** Kabuk heredoc'u içindeki `\n` kaçışları yine yutuldu ve llms.txt route'unda template literal
+> kırıldı (tsc yakaladı) → o düzenleme **Edit aracıyla** yapıldı. Kayıtlı kural bir kez daha doğrulandı.
+>
+> store cache **v115-c2c-altbaslik → v116-geo-cevap**. tsc 0, marka guard temiz.
+> Araçlar: `scratchpad/_geo_olgu.mts` (kategori olguları) · `_geo_cevaplar.json` + `_geo_acilis.json`
+> (metinler) · `_geo_yama.mts` (kuru→`--yaz`, fail-fast) · `_geo_canli_dogrula.cjs`.
+
+
 > 🔌📚 **V2L/C2L İÇERİK KÜMESİ AÇILDI — 2 YENİ REHBER + 2 GERÇEK VERİ KUSURU (2026-09-11,
 > commit'ler 9a4ed5d · 8feeec4 · 9ffaced):** Kullanıcı *"v2l c2l içerik kümesine başla"* dedi.
 > **ÖLÇÜM ÖNCE:** 38 yazının 5'i V2L'e değiniyordu (hub `hangi-araclarda-v2l-var-turkiye` = hangi
