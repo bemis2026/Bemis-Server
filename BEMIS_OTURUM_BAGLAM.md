@@ -100,6 +100,23 @@
 >
 > **📌 KABUK DERSİ:** `git commit -m "... \`index\` ..."` — **ters tırnak bash'te komut çalıştırır**,
 > kelime mesajdan SİLİNDİ. Kayıtlı kural bir kez daha doğrulandı: commit mesajını **`-F dosya`** ile ver.
+>
+> **✅ CANLI DOĞRULANDI (tarayıcıda, üç dilde):**
+> · **Gecikme:** dil tıklandıktan **187 ms** sonra `/api/content?lang=de` isteği BAŞLIYOR, 315 ms'de
+>   bitiyor (eskiden isteğin BAŞLAMASI 2000 ms'e kadar bekliyordu).
+> · **Hero:** `ar` → `نصنع أنظمة` · `nl` → "systemen" · `de` → "Systeme" (hepsi kendi dilinde,
+>   Türkçe kelime yok, satır bölünmesi yok).
+> · **Anasayfa görünür Türkçe: 21 → 5.** Kalan 5'in hepsi BİLEREK: "BEMİS" filigranı (marka) ·
+>   3 socialWall alıntısı (gerçek Instagram gönderi metni) · "© 2026 Bemis Teknik Elektrik A.Ş."
+>   (resmî unvan). Almancada da aynı 5.
+> · **`/ar/products/portable/pro-mobile`: görünür Türkçe 2** — ikisi de kanonik NAP
+>   (adres + resmî unvan). Uygulama/panel ekranı (AppMockups) tamamen Arapça.
+>
+> **📌 KÖK NEDEN (commit 9405269):** elle doldurulan alanların neden yıllardır Türkçe kaldığı
+> anlaşıldı — **`lib/contentTranslate.ts` `TRANSLATABLE_PATHS`'te 6 yol HİÇ YOKTU**
+> (`categories.*.manuals[].name` · `contact.workingDays` · `gallerySection.{sectionLabel,heading,
+> subheading}` · `contactExport.whatsappMessage`). Eklendi; yoksa operatör TR'yi düzenlediği an
+> boşluk YENİDEN AÇILIRDI. 📌 Yeni bir CMS metin alanı eklerken bu listeye de ekle.
 
 
 > 🔋⚡ **TAŞINABİLİR ŞARJ (CHARGER) KÜMESİ — 2 YENİ REHBER + 2 CANLI KUSUR SINIFI (2026-09-12,
