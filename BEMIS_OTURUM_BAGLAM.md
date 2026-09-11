@@ -46,8 +46,22 @@
 > söylüyordu. **Ayrıca pasif bir CEE→Type 2 adaptörü aracı ŞARJ EDEMEZ** (Type 2 AC şarjı cihazdan pilot
 > sinyali ister) → ters yön fiziksel olarak da imkânsız. **Kullanıcı teyidi: şarj cihazı → karavan.**
 > Yalnız 1. cümle 6 dilde yeniden yazıldı, 2. cümle AYNEN korundu. Ad/id/URL/spec DEĞİŞMEDİ.
-> ⚠️ **Alt başlıktaki ok ("3/16A Priz → Type 2 Monofaze 16A") de ters okunuyor ama DOKUNULMADI** —
-> kullanıcı yalnız açıklamayı onayladı; istenirse tek satırlık düzeltme.
+> ✅ **ALT BAŞLIK DA DÜZELTİLDİ (kullanıcı isteği, commit c09ea4d):** `3/16A Priz → Type 2 Monofaze 16A`
+> → **`Type 2 Monofaze 16A → 3/16A Priz`**, 6 dil × 12 kaynak. ⚠️ `subtitle` KİMLİK alanı DEĞİL,
+> dile göre merge edilir → yalnız TR yazmak yetmezdi. ⚠️ **Arapçada ok `←` AYNEN korundu** (RTL'de
+> sola bakan ok "ileri" demektir); yalnız okun iki yanı yer değiştirdi.
+> **🔴 TARAMANIN BULDUĞU EK KUSUR — AYNI TERS YÖN SEO METASINDAYDI:** `app/lib/productSeo.ts` satır 64
+> `metaDescription` "3/16A CEE girişini Type 2 … fişe çevirir; karavanların şarj istasyonundan enerji
+> almasını sağlar" diyordu = **Google sonucunda görünen metin kendi içinde çelişiyordu.** Düzeltildi.
+> **⚠️⚠️ KAYITLI TUZAK DOĞRULANDI — R2 `meta*` KOD HARİTASINI EZİYOR:** bu üründe R2'nin **6 kolunda da**
+> meta* DOLUYDU ve hepsi eski/ters metni taşıyordu (üstelik altısında da metin **TÜRKÇEYDİ**, Rusça ve
+> Arapça sayfada bile) → `productSeo.ts` düzeltmesi **tek başına canlıya HİÇ çıkmayacaktı**. R2'de meta*
+> anahtarları **SİLİNDİ** (24 alan) → tek kaynak koda döndü. ⚠️ `""` YAZILMADI, anahtar **`delete`** edildi
+> (boş string merge'de TR'nin değerini ezip alanı yok eder — bu hata daha önce 5 dilde metaTitle'ı silmişti).
+> Repo yedeği **`data/products-en.json`** de aynı bayat metayı taşıyordu (R2 okunamayan build'de devreye
+> girer) → oradaki 4 alan da silindi. **📌 KURAL: `productSeo.ts` düzenledikten sonra o ürünün R2 + repo
+> meta* alanlarının BOŞ olduğunu doğrula, yoksa değişiklik sessizce yutulur.**
+> store cache **v114-c2c-yon → v115-c2c-altbaslik**.
 > **📌 DERS: çelişen iki kaynağı kullanıcıya sorarken HER İKİSİNİN TAM METNİNİ göster.** İlk turda
 > açıklamanın yalnız 1. cümlesini gösterdiğim için kullanıcı ters yönü seçmişti; 2. cümle + fizik
 > gösterilince kararını güncelledi.
