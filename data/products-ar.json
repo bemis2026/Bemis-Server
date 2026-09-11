@@ -5388,7 +5388,7 @@
         "id": "c2c-charger-to-caravan-adaptor",
         "name": "C2C Charger to Caravan Adaptör",
         "code": "BEVC2L-3306-3603",
-        "subtitle": "بكابل 3 م · مقبس 3/16A ← Type 2 أحادي الطور 16A",
+        "subtitle": "بكابل 3 م · Type 2 أحادي الطور 16A ← مقبس 3/16A",
         "badge": null,
         "description": "محوّل C2C يوائم مخرج Type 2 أحادي الطور 16A في جهاز الشحن، عبر كابل بطول 3 أمتار، مع وصلة CEE 3/16A التي يُغذّى منها الكرفان. يتيح للكرفانات والوحدات المتنقلة الحصول على الطاقة من محطات الشحن القياسية.",
         "specs": [

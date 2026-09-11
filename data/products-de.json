@@ -5388,7 +5388,7 @@
         "id": "c2c-charger-to-caravan-adaptor",
         "name": "C2C Charger to Caravan Adaptör",
         "code": "BEVC2L-3306-3603",
-        "subtitle": "3 m Kabel · 3/16A Steckdose → Type 2 einphasig 16A",
+        "subtitle": "3 m Kabel · Type 2 einphasig 16A → 3/16A Steckdose",
         "badge": null,
         "description": "C2C-Adapter, der den Type 2 einphasigen 16A-Ausgang des Ladegeräts über ein 3 Meter langes Kabel an den 3/16A CEE-Anschluss anpasst, über den der Wohnwagen versorgt wird. Ermöglicht Wohnwagen und mobilen Einheiten die Energieversorgung über Standard-Ladestationen.",
         "specs": [

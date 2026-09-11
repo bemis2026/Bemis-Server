@@ -5388,7 +5388,7 @@
         "id": "c2c-charger-to-caravan-adaptor",
         "name": "C2C Charger to Caravan Adaptör",
         "code": "BEVC2L-3306-3603",
-        "subtitle": "3m. Con cable · Toma 3/16A → Type 2 monofásico 16A",
+        "subtitle": "3m. Con cable · Type 2 monofásico 16A → Toma 3/16A",
         "badge": null,
         "description": "Adaptador C2C que adapta la salida Type 2 monofásica 16A del cargador, a través de un cable de 3 metros, a la conexión CEE 3/16A por la que se alimenta la caravana. Permite que las caravanas y unidades móviles reciban energía de las estaciones de carga estándar.",
         "specs": [

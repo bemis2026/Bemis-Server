@@ -5676,7 +5676,7 @@
         "id": "c2c-charger-to-caravan-adaptor",
         "name": "C2C Charger to Caravan Adaptör",
         "code": "BEVC2L-3306-3603",
-        "subtitle": "3m. Wired · 3/16A Socket → Type 2 Monophase 16a",
+        "subtitle": "3m. Wired · Type 2 Monophase 16a → 3/16A Socket",
         "badge": null,
         "description": "C2C adapter that adapts the Type 2 single-phase 16A output of the charger, via a 3 metre cable, to the 3/16A CEE connection the caravan is fed from. It allows caravan and mobile units to receive energy from standard charging stations.",
         "specs": [
@@ -5734,11 +5734,7 @@
         "images": [
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1787315004/products/nmfeip21j0jiz5eicy1d.png"
         ],
-        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1787315004/products/nmfeip21j0jiz5eicy1d.png",
-        "metaTitle": "C2C Charger to Caravan Adaptör — 3/16A Type 2",
-        "metaDescription": "C2C adaptör: 3 metre kabloyla 3/16A CEE girişini Type 2 monofaze 16A fişe çevirir; karavanların şarj istasyonundan enerji almasını sağlar. Yerli üretim · CE · IP65. Üreticisinden",
-        "focusKeyword": "c2c karavan adaptör",
-        "keywords": "c2c adaptör, charger to caravan adaptör, karavan şarj adaptör, type 2 16a fiş, cee priz adaptör, mobil ünite enerji, yerli, bemis"
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1787315004/products/nmfeip21j0jiz5eicy1d.png"
       },
       {
         "id": "tek-cikisli-c2l-adaptor",
