@@ -7,11 +7,112 @@
 > Derin teknik bağlam: `Desktop/Claude Çalışmaları/Bemis Website/md/BEMIS_PROJECT_CONTEXT.md`
 > (özellikle §15.16 denetim, §15.17 Blob taşıması).
 >
-> Son güncelleme: **2026-09-11**
+> Son güncelleme: **2026-09-12**
 
 ---
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
+> 🔋⚡ **TAŞINABİLİR ŞARJ (CHARGER) KÜMESİ — 2 YENİ REHBER + 2 CANLI KUSUR SINIFI (2026-09-12,
+> commit'ler 421df07 · 965d5b8):** Kullanıcı *"websitemiz ciddi anlamda v2l'de güçlü … taşınabilir
+> şarj cihazı noktasında amiral ürün Pro Mobile 2 öne çıkmalı, aynen v2l gibi"* dedi. Üç çoktan
+> seçmeli karar: **2 yeni rehber + kusur düzeltme** · **anasayfa amiral vitrinine DOKUNMA, yalnız
+> rozeti güçlendir** · **doğrulanamayan iki SSS maddesini kaldır**.
+>
+> **📌 ÖLÇÜM ÖNCE — V2L'den FARKLI çıktı: alan BOŞ DEĞİL, DAĞINIK.** 8 yazı konuya değiyordu
+> (859/855/741/645/614/562/**358**/**287** kelime — son ikisi ince). Ama V2L turundaki desenin
+> aynısı: **"Pro Mobile 2" blogda 19 kez geçiyor, hiçbir yazının KONUSU değil.** Üstelik onu ayıran
+> tek özellik — **6 kademe amper ayarı (6/10/16/20/25/32 A, mobil uygulama veya cihaz tuşu)** —
+> sitede hiçbir yerde ANLATILMIYORDU; oysa kullanıcının tarif ettiği "evden kablo uzatıp şarj"
+> senaryosunun tam cevabı bu.
+>
+> **🔴 KUSUR 1 — `/products/portable` SSS'İ KENDİ ÜRÜN ÖZELLİKLERİYLE ÇELİŞİYORDU** (60 alan,
+> 15 katman × 4 madde). `data/products.json` spec'lerine karşı ölçüldü:
+> **"IP54"** → gerçek **IP65** (10 üründe de; kendi GEO cevabımız da IP65 diyordu → site kendi
+> içinde çelişiyor ve ürünü OLDUĞUNDAN ZAYIF gösteriyordu) · **"Mini 3.6 kW"** → **2,3-3,7 kW** ·
+> **"Pro Mobile 7-22 kW"** → **3,7-22 kW** · **"Pro'da EKRAN üzerinden akım ayarı"** → cihazda ekran
+> YOK, spec **"mobil uygulama ve cihaz üzerindeki tuş"** diyor (en güçlü özellik atlanmıştı).
+> Doğrulanamayan iki iddia **SİLİNDİ**: *"Mini'de güç sabittir"* (spec'te Mini akımı 10A-16A yazıyor,
+> çelişiyor) ve *"ortalama 4-6 kg"* (ağırlık hiçbir üründe kayıtlı değil).
+>
+> **🔴🔴 KUSUR 2 — ANASAYFA `featured` ÇEVİRİLERİ KAYMIŞTI (en/de/es/ar/ru).** Amiral rozeti işine
+> giderken çıktı; **rozet+vurgu metinleri ürün kimliğinden KOPMUŞ**:
+> `[0]` wallbox Charger Plus 2 → `[1]`'in metnini taşıyordu ·
+> **`[1]` PRO MOBILE 2 → `[6]`'nın metnini taşıyordu: *"Professional DC Charging Cable CCS2 / Up to
+> 400-500A capacity. For station manufacturers."*** — yani öne çıkarılmak istenen amiral ürün, 5
+> yabancı dilde **kendini DC şarj kablosu olarak tanıtıyordu** ·
+> `[6]` CCS2 → rozet alanına `[0]`'ın vurgusu, vurgu alanına **"Hakkımızda" MENÜ ETİKETİ**
+> ("About Us" / "Über uns" / "О нас" / "من نحن").
+> **`tr` ve `nl` DOĞRU** (nl sonradan çevrilmiş) → doğru metin için **nl referans alındı**.
+> R2 kolu repo ile AYNI kaymayı taşıyordu. Hedefleme **dil-nötr**: indeks + `(categoryId, productId)`
+> kimliği doğrulanmadan yazılmıyor — metin zaten bozuk olduğu için metne bakarak hedeflemek imkânsızdı.
+> **📌 YENİ KURAL: diziye dayalı çeviri alanlarında (`featured` gibi) hizayı METİNLE değil KİMLİKLE
+> doğrula; TR'de bir madde eklenip çeviri tazelenmezse tüm dizi kayar ve sessiz kalır.**
+>
+> **✅ AMİRAL ROZETİ (kullanıcı kararı):** `featured[1]` 7 dilde yenilendi — rozet
+> *"Plug & Play"* → **"Amiral Ürün · 22 kW"**, vurgu artık ayırıcı özelliği öne alıyor. Anasayfanın
+> **"Amiral Gemisi Ürün" vitrini (AC Wallbox Smart Charger Pro 2) DEĞİŞMEDİ** — kullanıcı kararı.
+> ⚠️ `highlight` **2 satıra clamp'li** (`FeaturedProducts.tsx`) → uzun metin görünmez, mevcut
+> kartlarla aynı uzunlukta tutuldu.
+>
+> **📝 İKİ YENİ REHBER (blog 40 → 42), TR + 5 dil:**
+> **(1) `/blog/evden-kablo-uzatarak-elektrikli-araba-sarj-etme`** (702 kelime + 6 SSS · 24 blok ·
+> 2 tablo). Priz ile aracın park yeri arasındaki MESAFE sorunu. Çekirdek iddia: taşınabilir cihazda
+> kablo fişten araç konnektörüne **TEK PARÇA** → çözüm kabloyu uzatmak değil, baştan doğru uzunlukta
+> cihaz almak (5/8/10 m; 11 kW sürümü 5 m). Uzatma şartsa **araç tarafına değil PRİZ tarafına**.
+> Priz tipi → model tablosu (Schuko / 3-32A / 5-16A / 5-32A).
+> **(2) `/blog/tasinabilir-sarj-cihazinda-amper-ayari`** (716 kelime + 6 SSS · 24 blok · 2 tablo).
+> Amiral ürünün kendi hikâyesi. Altı kademenin üç fazlı karşılıkları
+> (4,2 / 6,9 / 11,1 / 13,9 / 17,3 / 22,2 kW) **P = √3 × U × I** ile türetildi ve **katalogtan ÜÇ
+> BAĞIMSIZ NOKTADA doğrulandı**: 32A üç faz = 22 kW (Pro Mobile 2 tavanı) · 16A tek faz = 3,7 kW
+> (Mini tavanı) · 32A tek faz = 7,4 kW (Mono tavanı). Hepsi "yaklaşık" + şebeke gerilimi kaydıyla.
+> ⚠️ **KANİBALİZASYON ÖNLENDİ:** mevcut uzatma-kablosu yazısının konusu (kesit mm², konnektör, IP)
+> TEKRARLANMADI — tek cümle + link; "ev tipi makara neden olmaz" da tek paragrafa indirildi.
+>
+> **📌 ÇEVİRİ: 2 × 5 dil, 7 ön kontrolün hepsi İLK DENEMEDE geçti.** Bilerek kaçınılan tuzaklar:
+> "üç fazlı" hiçbir dilde **"3-phase/3-fazlı" yazılmadı** (fazladan `3` üretir) · "üçte bir"
+> kelimeyle · **Arapçada sayılar RAKAMLA** (kayıtlı ders) · "1 saat 40 dakika"daki `1` korundu ·
+> "Pro Mobile 2"deki `2` her blokta sayıldı.
+> ⚠️ **BLOG KATMANI TR + 5 DİL** (`data/i18n/blog.json`: en/de/es/ar/ru). **`nl` blogda YOK** —
+> içerik katmanında var. Ayrıca `/[lang]/blog` yalnız **`ar`** üretiyor → canlı blog adresleri
+> **TR + /en + /ar**; de/es/ru çevirileri ileride açılmak üzere duruyor. (Mevcut durum, bu turda
+> değişmedi.)
+>
+> **BAĞLANANLAR:** `postsIndex.ts` yeniden üretildi (42 yazı) · `llms.txt` Rehberler'e iki tam girdi
+> (kademe tablosu + priz→model eşlemesi dahil) · iki yazı birbirine + `/products/portable`'a link
+> veriyor, küme ayrıca uzatma-kablosu / evde-güvenli-mi / monofaze-trifaze / portatif-nedir
+> yazılarına bağlı · `datePublished` = 2026-09-12.
+>
+> store cache **v116-geo-cevap → v117-portable-sss**. tsc 0, marka guard temiz. FİYAT YAZILMADI.
+> **ARAÇLAR:** `scratchpad/_mobil_olcum{,2,3}.mts` (boşluk ölçümü) · `_portable_sss_olcum.mts` +
+> `_portable_sss_duzeltme.json` + `_portable_sss_yama.mts` · `_featured_olcum.mts` +
+> `_featured_r2_olcum.mts` + `_featured_duzeltme.json` + `_featured_yama.mts` ·
+> **`_yazi_ekle.mts`** (JSON yazıyı `posts.ts`'e ekler — yeniden kullanılabilir) ·
+> `_yazi_tarih.mts` · `_mobil_ceviri_dogrula.mts` · `_mobil_canli_dogrula.cjs` · `_indexnow_mobil.cjs`.
+> ⚠️ **`posts.ts`'te İKİ yazım biçimi var:** `slug: "x"` (elle) ve `"slug": "x"` (JSON üretimi) —
+> tarama deseni ikisini de kapsamalı, yoksa 42 yazının yarısı görünmez (ilk ölçümde öyle oldu).
+>
+> **✅ CANLI DOĞRULANDI:** portable SSS'in 4 kusuru gitti + yenisi geldi · anasayfada
+> **"Amiral Ürün · 22 kW"** · `/blog` hub'ında iki yazı · `/ar/blog/...` ikisi de 200 · `llms.txt`
+> iki girdi. **`featured` kayması 6 dilde `/api/content?lang=` üzerinden tek tek doğrulandı**
+> (EN "Flagship · 22 kW" · DE "Flaggschiff" · ES "Insignia" · RU "Флагман" · AR "المنتج الرائد" ·
+> NL "Vlaggenschip"; `[6]` artık "About Us/Über uns/О нас" DEĞİL). IndexNow 13 adres → Bing 200,
+> Yandex `success:true`.
+>
+> **📌 DOĞRULAMA DERSLERİ (ikisi de YANLIŞ ALARM üretti, kaydedildi):**
+> **(a) `/en` ve `/en/blog` YOK — 404 normaldir.** `app/en/` altında **yalnız `products`** var;
+> İngilizce anasayfa ve blog ayrı URL DEĞİL, istemci tarafı dil değiştirmeyle geliyor. Blog kolu
+> canlıda **yalnız `/blog` (TR) + `/ar/blog`** adresi üretir (`app/[lang]/blog` `generateStaticParams`
+> = `["ar"]`). **IndexNow'a 404 adres bildirme.**
+> **(b) Kategori sayfasında ham metin arama YANILTIR:** sayfaya **TÜM içerik nesnesi serileşiyor**,
+> yani `/products/portable` HTML'i `v2l-c2l` · `converters` · `dc-units` · `productShowcase`
+> metinlerini de taşır. "IP54 var mı?" diye aramak **başka kategorilerin meşru IP54'ünü** yakalayıp
+> sahte alarm verdi → **tam CÜMLE ara.**
+> **(c) Çeviri kolları ilk HTML'de DEĞİL** → yabancı dil içeriğini `/api/content?lang=<dil>` ile
+> doğrula, sayfa HTML'inde arama.
+> **(d) `vercel ls` çıktısı STDERR'e gider** → `2>/dev/null` ile bekleme döngüsü kurma, `2>&1` kullan
+> (bu turda döngü üç kez boşa döndü).
+
+
 
 > ⭐🔢 **GOOGLE İŞLETME PUANI ROZETİ — ALTYAPI CANLI, DEĞER KULLANICIDA (2026-09-11, commit d340978):**
 > Kullanıcı *"google'da işletme puanımızı da yükleyebilir miyiz uygun bir yere?"* dedi. Çoktan seçmeli
