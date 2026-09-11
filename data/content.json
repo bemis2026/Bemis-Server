@@ -150,19 +150,19 @@
         },
         {
           "q": "Taşınabilir şarj cihazı normal prizden çalışır mı?",
-          "a": "Evet. Bemis Mobile Charger ürünlerimiz hem standart 16A tek fazlı priz hem de 32A endüstriyel tip CEE prizlerle çalışır. Pro modeller üç fazlı 32A prizden 22 kW'a kadar şarj sunar; Mini modeller ise 3.6 kW ile ev tipi prizlere uygundur."
+          "a": "Evet. Bemis Mobile Charger ürünlerimiz hem standart 16A tek fazlı priz hem de 32A endüstriyel tip CEE prizlerle çalışır. Pro modeller üç fazlı 32A prizden 22 kW'a kadar şarj sunar; Mini modeller ise 2,3–3,7 kW ile ev tipi prizlere uygundur."
         },
         {
-          "q": "Mini Mobile ile Pro Mobile arasındaki fark nedir?",
-          "a": "Mini Mobile: 3.6 kW tek faz, kompakt boyut, ev/seyahat için ideal. Pro Mobile: 7-22 kW arası ayarlanabilir güç, üç fazlı destek, profesyonel kullanım için. Pro modelinde ekran üzerinden akım sınırı (6A-32A) ayarlanabilir; Mini'de güç sabittir."
+          "q": "Mini Mobile ile Pro Mobile 2 arasındaki fark nedir?",
+          "a": "Mini Mobile: 2,3–3,7 kW tek faz, kompakt boyut, ev ve seyahat için ideal. Pro Mobile 2: 3,7–22 kW üç fazlı, profesyonel ve filo kullanımı için. Pro Mobile 2'de şarj akımı 6/10/16/20/25/32 A olmak üzere altı kademede, mobil uygulamadan veya cihaz üzerindeki tuştan ayarlanır; böylece zayıf tesisatta akım düşürülerek şarj sürdürülebilir."
         },
         {
           "q": "Mobile şarj cihazı su altında kalırsa ne olur?",
-          "a": "IP54 koruma sınıfı yağmurda kullanıma uygundur ancak ürün su altında kalmamalıdır. Cihaz kasası ıslandıktan sonra fişe takılmadan önce kuru bir bezle silinmelidir. Su basması durumunda yetkili servise götürmeden çalıştırmayın."
+          "a": "IP65 koruma sınıfı yağmurda kullanıma uygundur ancak ürün su altında kalmamalıdır. Cihaz kasası ıslandıktan sonra fişe takılmadan önce kuru bir bezle silinmelidir. Su basması durumunda yetkili servise götürmeden çalıştırmayın."
         },
         {
           "q": "Yolculukta yedek olarak kullanılabilir mi?",
-          "a": "Evet, taşınabilir şarj cihazları tam olarak bu amaca yöneliktir. Otel, kamp alanı, tatil köyü gibi DC/AC şarj noktası bulunmayan yerlerde mevcut prizlerden şarj yapılır. Çantasında saklanır, ortalama 4-6 kg ağırlığındadır."
+          "a": "Evet, taşınabilir şarj cihazları tam olarak bu amaca yöneliktir. Otel, kamp alanı, tatil köyü gibi DC/AC şarj noktası bulunmayan yerlerde mevcut prizlerden şarj yapılır. Taşıma çantasıyla birlikte gelir, çantasında saklanır ve taşınır."
         },
         {
           "q": "Mobile şarj ile sabit wallbox arasında nasıl seçim yaparım?",
@@ -426,8 +426,8 @@
     {
       "categoryId": "portable",
       "productId": "pro-mobile",
-      "badge": "Plug & Play",
-      "highlight": "Kurulum gerektirmez. Prize tak, şarj et. 6A–32A ayarlanabilir akım ile hem ev hem seyahat için ideal.",
+      "badge": "Amiral Ürün · 22 kW",
+      "highlight": "Taşınabilirin amiral ürünü: üç fazlı 22 kW. Şarj akımı 6–32 A arası altı kademede, uygulamadan veya cihazdaki tuştan ayarlanır.",
       "visible": true
     },
     {
@@ -1097,19 +1097,19 @@
             },
             {
               "q": "Does a portable charger work from a normal socket?",
-              "a": "Yes. Our Bemis Mobile Charger products work with both a standard 16A single-phase socket and 32A industrial CEE sockets. Pro models deliver up to 22 kW from a three-phase 32A socket; Mini models are suited to household sockets at 3.6 kW."
+              "a": "Yes. Our Bemis Mobile Charger products work with both a standard 16A single-phase socket and 32A industrial CEE sockets. Pro models deliver up to 22 kW from a three-phase 32A socket; Mini models are suited to household sockets at 2.3-3.7 kW."
             },
             {
-              "q": "What is the difference between Mini Mobile and Pro Mobile?",
-              "a": "Mini Mobile: 3.6 kW single-phase, compact size, ideal for home and travel. Pro Mobile: adjustable power from 7 to 22 kW, three-phase support, for professional use. On the Pro model the current limit (6A-32A) can be set on the display; on the Mini the power is fixed."
+              "q": "What is the difference between Mini Mobile and Pro Mobile 2?",
+              "a": "Mini Mobile: 2.3-3.7 kW single-phase, compact size, ideal for home and travel. Pro Mobile 2: 3.7-22 kW three-phase, for professional and fleet use. On the Pro Mobile 2 the charging current is set in six steps — 6/10/16/20/25/32 A — from the mobile app or the button on the unit, so charging can continue at a lower current on weak installations."
             },
             {
               "q": "What happens if the mobile charger gets submerged in water?",
-              "a": "The IP54 protection class is suitable for use in the rain, but the product must not be submerged. After the housing gets wet, wipe it with a dry cloth before plugging it in. In case of flooding, do not operate the unit before taking it to an authorised service centre."
+              "a": "The IP65 protection class is suitable for use in the rain, but the product must not be submerged. After the housing gets wet, wipe it with a dry cloth before plugging it in. In case of flooding, do not operate the unit before taking it to an authorised service centre."
             },
             {
               "q": "Can it be used as a backup while travelling?",
-              "a": "Yes, portable chargers are designed for exactly this purpose. In hotels, campsites, holiday resorts and other places without a DC/AC charging point, you charge from the existing sockets. It is stored in its bag and weighs 4-6 kg on average."
+              "a": "Yes, portable chargers are designed for exactly this purpose. In hotels, campsites, holiday resorts and other places without a DC/AC charging point, you charge from the existing sockets. It comes with a carrying bag and is stored and transported in it."
             },
             {
               "q": "How do I choose between a mobile charger and a fixed wallbox?",
@@ -1366,15 +1366,15 @@
         {
           "categoryId": "wallbox",
           "productId": "charger-plus-2-kablolu",
-          "badge": "Plug & Play",
-          "highlight": "No installation required. Plug in, charge. Ideal for both home and travel with 6A-32A adjustable current.",
+          "badge": "Most Preferred",
+          "highlight": "22 kW three-phase smart charging station for individual and common space uses. IP65 · OCPP 1.6 · Dynamic load balancing.",
           "visible": true
         },
         {
           "categoryId": "portable",
           "productId": "pro-mobile",
-          "badge": "Professional DC Charging Cable CCS2",
-          "highlight": "Up to 400-500A capacity. CCS2  · model. For station manufacturers.",
+          "badge": "Flagship · 22 kW",
+          "highlight": "The flagship portable charger: three-phase 22 kW. Charging current is set in six steps from 6 to 32 A, from the app or the unit.",
           "visible": true
         },
         {
@@ -1408,8 +1408,8 @@
         {
           "categoryId": "charger-equipment",
           "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
-          "badge": "22 kW three-phase smart charging station for individual and common space uses. IP65 · OCPP 1.6 · Dynamic load balancing.",
-          "highlight": "About Us",
+          "badge": "Professional DC Charging Cable CCS2",
+          "highlight": "Capacity up to 400-500 A. CCS2 model. For station manufacturers.",
           "visible": true
         },
         {

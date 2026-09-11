@@ -149,19 +149,19 @@
         },
         {
           "q": "¿El cargador portátil funciona en una toma normal?",
-          "a": "Sí. Nuestros productos Bemis Mobile Charger funcionan tanto en una toma monofásica estándar de 16 A como en tomas industriales CEE de 32 A. Los modelos Pro cargan hasta 22 kW desde una toma trifásica de 32 A; los modelos Mini, con 3,6 kW, están pensados para tomas domésticas."
+          "a": "Sí. Nuestros productos Bemis Mobile Charger funcionan tanto en una toma monofásica estándar de 16 A como en tomas industriales CEE de 32 A. Los modelos Pro cargan hasta 22 kW desde una toma trifásica de 32 A; los modelos Mini, con 2,3–3,7 kW, están pensados para tomas domésticas."
         },
         {
-          "q": "¿Cuál es la diferencia entre Mini Mobile y Pro Mobile?",
-          "a": "Mini Mobile: 3,6 kW monofásico, tamaño compacto, ideal para casa y viajes. Pro Mobile: potencia ajustable de 7 a 22 kW, soporte trifásico, para uso profesional. En el modelo Pro el límite de corriente (6–32 A) se ajusta desde la pantalla; en el Mini la potencia es fija."
+          "q": "¿Cuál es la diferencia entre Mini Mobile y Pro Mobile 2?",
+          "a": "Mini Mobile: 2,3–3,7 kW monofásico, tamaño compacto, ideal para casa y viajes. Pro Mobile 2: 3,7–22 kW trifásico, para uso profesional y de flotas. En el Pro Mobile 2 la corriente de carga se ajusta en seis niveles —6/10/16/20/25/32 A— desde la aplicación móvil o el botón del equipo, de modo que en instalaciones débiles se puede seguir cargando con menos corriente."
         },
         {
           "q": "¿Qué pasa si el cargador móvil queda sumergido en agua?",
-          "a": "El grado IP54 permite su uso bajo la lluvia, pero el producto no debe quedar sumergido. Si la carcasa se moja, séquela con un paño antes de enchufarla. En caso de inundación, no lo ponga en marcha sin llevarlo al servicio autorizado."
+          "a": "El grado IP65 permite su uso bajo la lluvia, pero el producto no debe quedar sumergido. Si la carcasa se moja, séquela con un paño antes de enchufarla. En caso de inundación, no lo ponga en marcha sin llevarlo al servicio autorizado."
         },
         {
           "q": "¿Puede usarse como reserva en viajes?",
-          "a": "Sí, los cargadores portátiles están pensados exactamente para eso. En hoteles, campings, complejos vacacionales y otros lugares sin punto de carga DC/AC, se carga desde las tomas existentes. Se guarda en su bolsa y pesa de media 4–6 kg."
+          "a": "Sí, los cargadores portátiles están pensados exactamente para eso. En hoteles, campings, complejos vacacionales y otros lugares sin punto de carga DC/AC, se carga desde las tomas existentes. Se entrega con una bolsa de transporte y se guarda y traslada en ella."
         },
         {
           "q": "¿Cómo elijo entre cargador móvil y wallbox fijo?",
@@ -418,15 +418,15 @@
     {
       "categoryId": "wallbox",
       "productId": "charger-plus-2-kablolu",
-      "badge": "Plug & Play",
-      "highlight": "No requiere instalación. Enchufa y carga. Ideal tanto para casa como para viajar, con corriente ajustable de 6A-32A.",
+      "badge": "Los más elegidos",
+      "highlight": "Estación de carga inteligente trifásica de 22 kW para uso individual y en zonas comunes. IP65 · OCPP 1.6 · balanceo dinámico de carga.",
       "visible": true
     },
     {
       "categoryId": "portable",
       "productId": "pro-mobile",
-      "badge": "Cable de Carga DC Profesional CCS2",
-      "highlight": "Capacidad de hasta 400-500A. Modelo CCS2 ·. Para fabricantes de estaciones.",
+      "badge": "Insignia · 22 kW",
+      "highlight": "El portátil insignia: trifásico, 22 kW. La corriente de carga se ajusta en seis niveles de 6 a 32 A, desde la app o el propio equipo.",
       "visible": true
     },
     {
@@ -461,7 +461,7 @@
       "categoryId": "charger-equipment",
       "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
       "badge": "Cable de carga DC profesional CCS2",
-      "highlight": "Sobre Nosotros",
+      "highlight": "Capacidad de hasta 400-500 A. Modelo CCS2. Para fabricantes de estaciones.",
       "visible": true
     },
     {

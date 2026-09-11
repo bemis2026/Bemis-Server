@@ -173,19 +173,19 @@
         },
         {
           "q": "Werkt een mobiele lader op een gewoon stopcontact?",
-          "a": "Ja. Onze Bemis Mobile Charger-producten werken zowel op een standaard eenfasig 16 A-stopcontact als op industriële CEE-contactdozen van 32 A. Pro-modellen laden tot 22 kW vanaf een driefasige 32 A-contactdoos; Mini-modellen zijn met 3,6 kW geschikt voor huishoudelijke stopcontacten."
+          "a": "Ja. Onze Bemis Mobile Charger-producten werken zowel op een standaard eenfasig 16 A-stopcontact als op industriële CEE-contactdozen van 32 A. Pro-modellen laden tot 22 kW vanaf een driefasige 32 A-contactdoos; Mini-modellen zijn met 2,3-3,7 kW geschikt voor huishoudelijke stopcontacten."
         },
         {
-          "q": "Wat is het verschil tussen Mini Mobile en Pro Mobile?",
-          "a": "Mini Mobile: 3,6 kW eenfasig, compact formaat, ideaal voor thuis en op reis. Pro Mobile: instelbaar vermogen van 7 tot 22 kW, driefasige ondersteuning, voor professioneel gebruik. Bij het Pro-model is de stroomlimiet (6-32 A) op het display instelbaar; bij de Mini is het vermogen vast."
+          "q": "Wat is het verschil tussen Mini Mobile en Pro Mobile 2?",
+          "a": "Mini Mobile: 2,3-3,7 kW eenfasig, compact formaat, ideaal voor thuis en op reis. Pro Mobile 2: 3,7-22 kW driefasig, voor professioneel en wagenparkgebruik. Bij de Pro Mobile 2 wordt de laadstroom in zes stappen ingesteld — 6/10/16/20/25/32 A — via de mobiele app of de knop op het apparaat, zodat bij een zwakke installatie met een lagere stroom verder kan worden geladen."
         },
         {
           "q": "Wat gebeurt er als de mobiele lader onder water komt?",
-          "a": "Beschermingsklasse IP54 is geschikt voor gebruik in de regen, maar het product mag niet onder water komen. Veeg de behuizing na nat worden met een droge doek af voordat u hem aansluit. Gebruik het apparaat na waterschade niet voordat u het naar een erkend servicepunt hebt gebracht."
+          "a": "Beschermingsklasse IP65 is geschikt voor gebruik in de regen, maar het product mag niet onder water komen. Veeg de behuizing na nat worden met een droge doek af voordat u hem aansluit. Gebruik het apparaat na waterschade niet voordat u het naar een erkend servicepunt hebt gebracht."
         },
         {
           "q": "Kan hij als reserve onderweg worden gebruikt?",
-          "a": "Ja, mobiele laders zijn precies daarvoor bedoeld. In hotels, op campings, in vakantieparken en op andere plaatsen zonder DC/AC-laadpunt laadt u vanaf de aanwezige stopcontacten. De lader wordt in zijn tas bewaard en weegt gemiddeld 4-6 kg."
+          "a": "Ja, mobiele laders zijn precies daarvoor bedoeld. In hotels, op campings, in vakantieparken en op andere plaatsen zonder DC/AC-laadpunt laadt u vanaf de aanwezige stopcontacten. De lader wordt met een draagtas geleverd en wordt daarin bewaard en vervoerd."
         },
         {
           "q": "Hoe kies ik tussen een mobiele lader en een vaste wallbox?",
@@ -449,8 +449,8 @@
     {
       "categoryId": "portable",
       "productId": "pro-mobile",
-      "badge": "Plug & Play",
-      "highlight": "Geen installatie nodig. Insteken en laden. Met instelbare stroom van 6-32 A ideaal voor thuis en op reis.",
+      "badge": "Vlaggenschip · 22 kW",
+      "highlight": "Het vlaggenschip van de mobiele laders: driefasig, 22 kW. De laadstroom is in zes stappen van 6 tot 32 A in te stellen, via de app of de knop.",
       "visible": true
     },
     {

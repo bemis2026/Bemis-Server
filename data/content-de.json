@@ -149,19 +149,19 @@
         },
         {
           "q": "Funktioniert ein tragbares Ladegerät an einer normalen Steckdose?",
-          "a": "Ja. Unsere Bemis Mobile-Charger-Produkte arbeiten sowohl an einer einphasigen 16-A-Standardsteckdose als auch an industriellen 32-A-CEE-Steckdosen. Die Pro-Modelle laden an einer dreiphasigen 32-A-Steckdose mit bis zu 22 kW; die Mini-Modelle sind mit 3,6 kW für Haushaltssteckdosen ausgelegt."
+          "a": "Ja. Unsere Bemis Mobile-Charger-Produkte arbeiten sowohl an einer einphasigen 16-A-Standardsteckdose als auch an industriellen 32-A-CEE-Steckdosen. Die Pro-Modelle laden an einer dreiphasigen 32-A-Steckdose mit bis zu 22 kW; die Mini-Modelle sind mit 2,3–3,7 kW für Haushaltssteckdosen ausgelegt."
         },
         {
-          "q": "Was ist der Unterschied zwischen Mini Mobile und Pro Mobile?",
-          "a": "Mini Mobile: 3,6 kW einphasig, kompakte Bauform, ideal für Zuhause und Reisen. Pro Mobile: einstellbare Leistung von 7 bis 22 kW, dreiphasige Unterstützung, für den professionellen Einsatz. Beim Pro-Modell lässt sich die Strombegrenzung (6–32 A) über das Display einstellen; beim Mini ist die Leistung fest."
+          "q": "Was ist der Unterschied zwischen Mini Mobile und Pro Mobile 2?",
+          "a": "Mini Mobile: 2,3–3,7 kW einphasig, kompakte Bauform, ideal für Zuhause und Reisen. Pro Mobile 2: 3,7–22 kW dreiphasig, für den professionellen und den Flotteneinsatz. Beim Pro Mobile 2 wird der Ladestrom in sechs Stufen – 6/10/16/20/25/32 A – über die mobile App oder die Taste am Gerät eingestellt; so lässt sich das Laden an schwachen Installationen mit reduziertem Strom fortsetzen."
         },
         {
           "q": "Was passiert, wenn das mobile Ladegerät unter Wasser gerät?",
-          "a": "Die Schutzart IP54 erlaubt den Einsatz bei Regen, das Gerät darf jedoch nicht unter Wasser geraten. Ein nass gewordenes Gehäuse sollte vor dem Einstecken mit einem trockenen Tuch abgewischt werden. Nach einem Wasserschaden das Gerät nicht in Betrieb nehmen, sondern zum autorisierten Service bringen."
+          "a": "Die Schutzart IP65 erlaubt den Einsatz bei Regen, das Gerät darf jedoch nicht unter Wasser geraten. Ein nass gewordenes Gehäuse sollte vor dem Einstecken mit einem trockenen Tuch abgewischt werden. Nach einem Wasserschaden das Gerät nicht in Betrieb nehmen, sondern zum autorisierten Service bringen."
         },
         {
           "q": "Kann es unterwegs als Reserve genutzt werden?",
-          "a": "Ja, tragbare Ladegeräte sind genau dafür gemacht. In Hotels, auf Campingplätzen, in Ferienanlagen und an anderen Orten ohne DC-/AC-Ladepunkt laden Sie an vorhandenen Steckdosen. Das Gerät wird in seiner Tasche aufbewahrt und wiegt im Durchschnitt 4–6 kg."
+          "a": "Ja, tragbare Ladegeräte sind genau dafür gemacht. In Hotels, auf Campingplätzen, in Ferienanlagen und an anderen Orten ohne DC-/AC-Ladepunkt laden Sie an vorhandenen Steckdosen. Das Gerät wird mit einer Tragetasche geliefert und darin aufbewahrt und transportiert."
         },
         {
           "q": "Mobiles Ladegerät oder feste Wallbox — wie entscheide ich?",
@@ -418,15 +418,15 @@
     {
       "categoryId": "wallbox",
       "productId": "charger-plus-2-kablolu",
-      "badge": "Plug & Play",
-      "highlight": "Keine Installation erforderlich. Einstecken, laden. Ideal für Zuhause und Reisen mit einstellbarem Strom von 6A-32A.",
+      "badge": "Am beliebtesten",
+      "highlight": "Intelligente dreiphasige 22-kW-Ladestation für den privaten und gemeinschaftlichen Einsatz. IP65 · OCPP 1.6 · dynamisches Lastmanagement.",
       "visible": true
     },
     {
       "categoryId": "portable",
       "productId": "pro-mobile",
-      "badge": "Professionelles DC-Ladekabel CCS2",
-      "highlight": "Bis zu 400-500A Kapazität. CCS2 · Modell. Für Stationshersteller.",
+      "badge": "Flaggschiff · 22 kW",
+      "highlight": "Das Flaggschiff der tragbaren Ladegeräte: dreiphasig, 22 kW. Ladestrom in sechs Stufen von 6 bis 32 A – per App oder Taste am Gerät.",
       "visible": true
     },
     {
@@ -461,7 +461,7 @@
       "categoryId": "charger-equipment",
       "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
       "badge": "Professionelles DC-Ladekabel CCS2",
-      "highlight": "Über uns",
+      "highlight": "Kapazität bis 400-500 A. CCS2-Modell. Für Stationshersteller.",
       "visible": true
     },
     {

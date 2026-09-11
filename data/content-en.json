@@ -149,19 +149,19 @@
         },
         {
           "q": "Does a portable charger work from a normal socket?",
-          "a": "Yes. Our Bemis Mobile Charger products work with both a standard 16A single-phase socket and 32A industrial CEE sockets. Pro models deliver up to 22 kW from a three-phase 32A socket; Mini models are suited to household sockets at 3.6 kW."
+          "a": "Yes. Our Bemis Mobile Charger products work with both a standard 16A single-phase socket and 32A industrial CEE sockets. Pro models deliver up to 22 kW from a three-phase 32A socket; Mini models are suited to household sockets at 2.3-3.7 kW."
         },
         {
-          "q": "What is the difference between Mini Mobile and Pro Mobile?",
-          "a": "Mini Mobile: 3.6 kW single-phase, compact size, ideal for home and travel. Pro Mobile: adjustable power from 7 to 22 kW, three-phase support, for professional use. On the Pro model the current limit (6A-32A) can be set on the display; on the Mini the power is fixed."
+          "q": "What is the difference between Mini Mobile and Pro Mobile 2?",
+          "a": "Mini Mobile: 2.3-3.7 kW single-phase, compact size, ideal for home and travel. Pro Mobile 2: 3.7-22 kW three-phase, for professional and fleet use. On the Pro Mobile 2 the charging current is set in six steps — 6/10/16/20/25/32 A — from the mobile app or the button on the unit, so charging can continue at a lower current on weak installations."
         },
         {
           "q": "What happens if the mobile charger gets submerged in water?",
-          "a": "The IP54 protection class is suitable for use in the rain, but the product must not be submerged. After the housing gets wet, wipe it with a dry cloth before plugging it in. In case of flooding, do not operate the unit before taking it to an authorised service centre."
+          "a": "The IP65 protection class is suitable for use in the rain, but the product must not be submerged. After the housing gets wet, wipe it with a dry cloth before plugging it in. In case of flooding, do not operate the unit before taking it to an authorised service centre."
         },
         {
           "q": "Can it be used as a backup while travelling?",
-          "a": "Yes, portable chargers are designed for exactly this purpose. In hotels, campsites, holiday resorts and other places without a DC/AC charging point, you charge from the existing sockets. It is stored in its bag and weighs 4-6 kg on average."
+          "a": "Yes, portable chargers are designed for exactly this purpose. In hotels, campsites, holiday resorts and other places without a DC/AC charging point, you charge from the existing sockets. It comes with a carrying bag and is stored and transported in it."
         },
         {
           "q": "How do I choose between a mobile charger and a fixed wallbox?",
@@ -418,15 +418,15 @@
     {
       "categoryId": "wallbox",
       "productId": "charger-plus-2-kablolu",
-      "badge": "Plug & Play",
-      "highlight": "No installation required. Plug in, charge. Ideal for both home and travel with 6A-32A adjustable current.",
+      "badge": "Most Preferred",
+      "highlight": "22 kW three-phase smart charging station for individual and common space uses. IP65 · OCPP 1.6 · Dynamic load balancing.",
       "visible": true
     },
     {
       "categoryId": "portable",
       "productId": "pro-mobile",
-      "badge": "Professional DC Charging Cable CCS2",
-      "highlight": "Up to 400-500A capacity. CCS2 · model. For station manufacturers.",
+      "badge": "Flagship · 22 kW",
+      "highlight": "The flagship portable charger: three-phase 22 kW. Charging current is set in six steps from 6 to 32 A, from the app or the unit.",
       "visible": true
     },
     {
@@ -462,7 +462,7 @@
       "categoryId": "charger-equipment",
       "productId": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
       "badge": "Professional DC Charging Cable CCS2",
-      "highlight": "About Us",
+      "highlight": "Capacity up to 400-500 A. CCS2 model. For station manufacturers.",
       "visible": true
     },
     {
