@@ -195,6 +195,7 @@ type ContentData = {
   reviews: {
     heading: string; subheading: string; rating: string; ratingCount: string;
     sectionLabel?: string; ratingLabel?: string; platformsPrefix?: string; ratingCountSuffix?: string;
+    google?: { rating?: string; count?: string; url?: string };
     items: ReviewItem[];
   };
   contactSection: { sectionLabel: string; heading: string; subheading: string };
@@ -5411,6 +5412,23 @@ export default function AdminPage() {
                       <Field label="Değerlendirme Sayı Soneki (örn: değerlendirme)" value={content.reviews.ratingCountSuffix ?? ""} onChange={(v) => updateContent(["reviews","ratingCountSuffix"], v)} />
                     </div>
                     <Field label="Platform Ön Eki (örn: Trendyol ve HepsiBurada'da)" value={content.reviews.platformsPrefix ?? ""} onChange={(v) => updateContent(["reviews","platformsPrefix"], v)} />
+
+                    {/* Google işletme puanı — AYRI rozet (anasayfa Yorumlar + /iletisim).
+                        ⚠️ Üstteki pazaryeri puanıyla BİRLEŞTİRİLMEZ: farklı platformların
+                           puanı ortalanmaz, yorum sayıları toplanmaz.
+                        ⚠️ Puan BOŞSA rozet hiçbir yerde ÇIKMAZ (uydurma değer yayınlanamaz).
+                        ⚠️ Sayı alanına YALNIZ RAKAM yaz ("25"); "değerlendirme" soneki
+                           sitede 7 dile otomatik çevrilir. */}
+                    <div className="mt-3 pt-3 border-t border-white/10">
+                      <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider mb-2">
+                        Google İşletme Puanı (boş bırakılırsa rozet görünmez)
+                      </p>
+                      <div className="grid grid-cols-2 gap-3">
+                        <Field label="Google Puanı (örn: 4,8)" value={content.reviews.google?.rating ?? ""} onChange={(v) => updateContent(["reviews","google","rating"], v)} />
+                        <Field label="Değerlendirme Sayısı (yalnız rakam, örn: 25)" value={content.reviews.google?.count ?? ""} onChange={(v) => updateContent(["reviews","google","count"], v)} />
+                      </div>
+                      <Field label="Google profil adresi (boşsa site kaydındaki kart kullanılır)" value={content.reviews.google?.url ?? ""} onChange={(v) => updateContent(["reviews","google","url"], v)} />
+                    </div>
                     <div className="flex items-center justify-between mt-2">
                       <p className="text-[11px] font-semibold text-white/40 uppercase tracking-wider">Yorumlar ({content.reviews.items.length})</p>
                       <button onClick={addReviewItem} className="flex items-center gap-1 text-xs text-white/35 hover:text-white px-2.5 py-1 rounded-lg border border-white/10 hover:border-white/20 transition-colors">

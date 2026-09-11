@@ -13,6 +13,7 @@ import { useLanguage } from "../context/LanguageContext";
 // Anasayfa Reviews yalnız son 3 rehberin slug+başlığını gösterir; tam blog verisini
 // client bundle'ına çekmek anasayfada 93 KB brotli israftı (ölçüldü). postsIndex build'de
 // posts.ts'ten otomatik üretilir (scripts/gen-posts-index.ts).
+import { ORG_GOOGLE_PROFILE_URL } from "../lib/seo";
 import { POSTS_INDEX } from "../blog/postsIndex";
 import { allPress } from "../blog/press";
 import { trPressList } from "../lib/pressI18n";
@@ -188,6 +189,46 @@ export default function Reviews() {
                 <span className="text-sm" style={{ color: textMuted }}>· {reviews.ratingCount}</span>
               </div>
             </div>
+
+            {/* Google işletme puanı — AYRI rozet.
+                ⚠️ Üstteki pazaryeri rozetiyle BİRLEŞTİRİLMEZ: farklı platformların
+                   puanı ortalanmaz, yorum sayıları toplanmaz (kayıtlı kural).
+                ⚠️ ŞEMAYA YAZILMAZ: Google, işletmenin kendi hakkındaki puanını
+                   Organization/LocalBusiness şemasında "self-serving" sayıp yok sayar;
+                   ayrıca başka bir kaynaktan devşirilen puanı kendi aggregateRating'in
+                   gibi işaretlemek yapısal veri politikasına aykırıdır. Burada yalnız
+                   GÖRÜNÜR rozet + profile link var.
+                ⚠️ Değer CMS'ten (reviews.google) gelir; BOŞSA blok HİÇ render edilmez
+                   → uydurma puan yayınlanamaz. */}
+            {(() => {
+              const g = reviews.google;
+              const puan = (g?.rating ?? "").trim();
+              const adet = (g?.count ?? "").trim();
+              if (!puan) return null;
+              return (
+                <a
+                  href={(g?.url ?? "").trim() || ORG_GOOGLE_PROFILE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 self-start rounded-xl px-3 py-2 transition-transform hover:-translate-y-0.5 cursor-pointer"
+                  style={{ background: surface, border: `1px solid ${border}` }}
+                >
+                  <HiStar className="text-[#F59E0B] text-sm" />
+                  <span className="text-sm font-black tabular-nums" style={{ color: textPrimary }}>{puan}</span>
+                  {/* ⚠️ Operatör SADECE SAYI girer ("25"); "değerlendirme" soneki
+                      pickText ile çevrilir — yoksa Rusça sayfada Türkçe kelime çıkar. */}
+                  {adet && (
+                    <span className="text-sm tabular-nums" style={{ color: textMuted }}>
+                      · {adet} {pickText(lang, "değerlendirme", "reviews")}
+                    </span>
+                  )}
+                  <span className="text-xs font-semibold" style={{ color: textBody }}>
+                    {pickText(lang, "Google işletme puanı", "Google business rating")}
+                  </span>
+                  <RiExternalLinkLine className="text-xs" style={{ color: textMuted }} />
+                </a>
+              );
+            })()}
 
             {items.slice(0, 2).map((review, i) => (
               <motion.div

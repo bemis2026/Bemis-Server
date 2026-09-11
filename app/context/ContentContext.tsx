@@ -372,6 +372,12 @@ export type SiteContent = {
     heading: string; subheading: string; rating: string; ratingCount: string;
     items: ReviewItem[];
     sectionLabel: string; ratingLabel: string; platformsPrefix: string; ratingCountSuffix: string;
+    /** ⚠️ Google isletme puani — AYRI rozet, pazaryeri puaniyla BIRLESTIRILMEZ
+     *  (farkli platformlarin puani ortalanmaz, yorum sayilari toplanmaz).
+     *  ⚠️ SEMAYA YAZILMAZ: Google, isletmenin kendi hakkindaki puanini
+     *  Organization/LocalBusiness semasinda self-serving sayip yok sayar.
+     *  Deger BOSSA rozet HIC render edilmez. url bossa ORG_GOOGLE_PROFILE_URL. */
+    google?: { rating?: string; count?: string; url?: string };
   };
   contactSection: { sectionLabel: string; heading: string; subheading: string };
   featuredSection: { sectionLabel: string; heading: string; subheading: string; ctaLabel: string };
@@ -722,6 +728,9 @@ const defaultContent: SiteContent = {
     ratingLabel: "ortalama puan",
     platformsPrefix: "Trendyol ve HepsiBurada'da",
     ratingCountSuffix: "değerlendirme",
+    // ⚠️ Google puani BILEREK BOS: gercek deger GBP kartindan okunup admin/veri
+    //    katmanindan girilir. Uydurma puan yazilmaz; bos oldugunda rozet cikmaz.
+    google: { rating: "", count: "", url: "" },
     rating: "4.9",
     ratingCount: "500+",
     items: [

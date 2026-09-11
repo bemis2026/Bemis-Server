@@ -11,7 +11,12 @@ export const ORG_LEGAL_NAME = "Bemis Teknik Elektrik A.Ş.";
 // GBP harita linki — İKİ yerde kullanılır: sameAs (entity bağı) + LocalBusiness.hasMap
 // (2026-07-13). hasMap, adres+koordinat zaten varken "yol tarifi"ni doğrudan haritaya
 // bağlayan son parça; AI aramaları (ChatGPT/Perplexity/AI Overviews) konum sorularında bunu okur.
-const ORG_MAP_URL = "https://maps.app.goo.gl/xXSxhLffa5WDA81V7";
+/** Google Business Profile (GBP) kart adresi. Cozuldu (2026-09-11): bu kisa link
+ *  "Bemis E-V Charge" kartina gidiyor (ana sirket Bemis Teknik kartina DEGIL) —
+ *  yani EV markasinin kendi dogrulanmis karti. Google isletme puani rozeti de
+ *  buraya baglanir. */
+export const ORG_GOOGLE_PROFILE_URL = "https://maps.app.goo.gl/xXSxhLffa5WDA81V7";
+const ORG_MAP_URL = ORG_GOOGLE_PROFILE_URL;
 // Google'ın işletme kimliği (GBP kaydından). Yol tarifi bağlantısında adres METNİ yerine
 // bunu kullanmak şart: metinle Google adresi yeniden coğrafi-kodlar ve komşu bir noktaya
 // düşebilir; place_id doğrudan Bemis kartını açar (mobilde Google Haritalar uygulamasında).

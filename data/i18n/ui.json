@@ -3176,5 +3176,12 @@
   "ar": "لوحة إدارة المناطق المشتركة مجانية: تحديد سعر kWh، وشحن رصيد مسبق على بطاقات RFID، وإعداد تقارير لكل مستخدم.",
   "ru": "Панель управления общими зонами бесплатна: задайте цену за kWh, зачисляйте предоплаченный баланс на карты RFID и получайте отчёты по пользователям.",
   "nl": "Het beheerpaneel voor gedeelde ruimtes is gratis: stel de kWh-prijs in, laad vooraf saldo op RFID-kaarten en rapporteer per gebruiker."
+ },
+ "Google business rating": {
+  "de": "Google Unternehmensbewertung",
+  "es": "Valoración de la empresa en Google",
+  "ar": "تقييم النشاط التجاري على Google",
+  "ru": "Рейтинг компании в Google",
+  "nl": "Google-bedrijfsbeoordeling"
  }
 }

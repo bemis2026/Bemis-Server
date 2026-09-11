@@ -4,11 +4,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   RiMapPin2Line, RiPhoneLine, RiMailLine, RiWhatsappLine,
-  RiTimeLine, RiArrowRightLine,
+  RiTimeLine, RiArrowRightLine, RiStarFill,
 } from "react-icons/ri";
 import { useTheme } from "../context/ThemeContext";
 import { accentInk } from "../lib/accentInk";
-import { ORG_DIRECTIONS_URL } from "../lib/seo";
+import { ORG_DIRECTIONS_URL, ORG_GOOGLE_PROFILE_URL } from "../lib/seo";
+import { useContent } from "../context/ContentContext";
 import Navbar from "../components/Navbar";
 import SearchOverlay from "../components/SearchOverlay";
 import Footer from "../components/Footer";
@@ -24,6 +25,7 @@ const MAP_EMBED_SRC =
 export default function ContactPageClient() {
   const { theme } = useTheme();
   const d = theme === "dark";
+  const { reviews } = useContent();
   const [searchOpen, setSearchOpen] = useState(false);
 
   const bg = d ? "linear-gradient(180deg,#0c0c0e 0%,#0f0f11 100%)" : "#f8f8fb";
@@ -180,7 +182,7 @@ export default function ContactPageClient() {
               </div>
             </div>
 
-            <div className="mt-8">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
                 href={DIRECTIONS_URL}
                 target="_blank"
@@ -190,6 +192,35 @@ export default function ContactPageClient() {
               >
                 Yol Tarifi Al <RiArrowRightLine size={16} />
               </a>
+
+              {/* Google işletme puanı — yerel bağlamın en doğal yeri (adres + harita
+                  + yol tarifi ile aynı satır).
+                  ⚠️ ŞEMAYA YAZILMAZ (self-serving; bkz. Reviews.tsx'teki açıklama):
+                     burada yalnız GÖRÜNÜR rozet + profile link var.
+                  ⚠️ Değer CMS'ten (reviews.google) gelir; BOŞSA rozet HİÇ çıkmaz →
+                     uydurma puan yayınlanamaz.
+                  ⚠️ Link `ORG_GOOGLE_PROFILE_URL` — çözüldü (2026-09-11): bu kısa link
+                     "Bemis E-V Charge" kartına gidiyor, ana şirket kartına DEĞİL. */}
+              {(() => {
+                const g = reviews?.google;
+                const puan = (g?.rating ?? "").trim();
+                const adet = (g?.count ?? "").trim();
+                if (!puan) return null;
+                return (
+                  <a
+                    href={(g?.url ?? "").trim() || ORG_GOOGLE_PROFILE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-3 rounded-xl transition-transform hover:scale-[1.03] cursor-pointer"
+                    style={{ background: surface, border: `1px solid ${border}` }}
+                  >
+                    <RiStarFill size={15} style={{ color: "#F59E0B" }} />
+                    <span className="text-sm font-black tabular-nums" style={{ color: textPrimary }}>{puan}</span>
+                    {adet && <span className="text-sm tabular-nums" style={{ color: textMuted }}>· {adet}</span>}
+                    <span className="text-xs font-semibold" style={{ color: textMuted }}>Google işletme puanı</span>
+                  </a>
+                );
+              })()}
             </div>
           </motion.div>
 
