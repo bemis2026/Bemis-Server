@@ -273,8 +273,38 @@ export async function getContentForLang(lang: string): Promise<any | null> {
     // (yukarıda `if (lang === "tr") return tr;` ile Türkçe erken döner).
     // Dolayısıyla yabancı ziyaretçi e-posta/telefon/WhatsApp olarak dış ticaret
     // hattını görür; Türkçe tarafta hiçbir şey değişmez.
-    contact:      { ...tr.contact, ...(tr.contactExport ?? {}) },
-    contactExport: tr.contactExport,
+    // ⚠️ 2026-09-12: `workingDays` ("Pazartesi — Cuma") 7 DİLDE DE TÜRKÇE görünüyordu.
+    // Sebep: bu blok çeviri katmanını HİÇ okumuyordu — değerleri çeviri dosyalarına
+    // yazmak BOŞA gidiyordu (yazdım, canlıda değişmedi; tam kontrol yakaladı).
+    // Kanal bilgileri (e-posta/telefon/WhatsApp numarası) KASITLI olarak TR-kanonik
+    // kalır; yalnız METİN alanları çeviriden alınır. Adres de kanonik NAP → TR.
+    contact: {
+      ...tr.contact,
+      ...(en.contact?.workingDays ? { workingDays: en.contact.workingDays } : {}),
+      ...(tr.contactExport ?? {}),
+      // whatsappMessage METİNDİR (önceden hazır mesaj) → çevirisi varsa kazanır.
+      ...(en.contactExport?.whatsappMessage ? { whatsappMessage: en.contactExport.whatsappMessage } : {}),
+    },
+    contactExport: {
+      ...tr.contactExport,
+      ...(en.contactExport?.whatsappMessage ? { whatsappMessage: en.contactExport.whatsappMessage } : {}),
+    },
+    // ⚠️ 2026-09-12: `gallerySection` merge listesinde HİÇ YOKTU → "Galeri" /
+    // "Showroom & Üretim" / alt başlık 7 dilde de Türkçe basılıyordu, üstelik
+    // çeviri dosyalarında DOĞRU karşılıkları yıllardır duruyordu (boşa).
+    // 📌 DERS: content.json'a yeni üst-seviye METİN bölümü eklenince BURAYA da ekle;
+    //    listede olmayan bölüm sessizce `...tr`'den gelir ve hiç çevrilmez.
+    gallerySection: en.gallerySection
+      ? {
+          ...tr.gallerySection,
+          ...en.gallerySection,
+          // görsel/kimlik alanları TR'den; yalnız caption çevrilir
+          items: (tr.gallerySection?.items ?? []).map((it: Record<string, unknown>, i: number) => ({
+            ...it,
+            ...(en.gallerySection?.items?.[i]?.caption ? { caption: en.gallerySection.items[i].caption } : {}),
+          })),
+        }
+      : tr.gallerySection,
     company:      tr.company,
     social:       tr.social,
     sectionOrder: tr.sectionOrder,
