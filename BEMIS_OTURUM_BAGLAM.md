@@ -12,6 +12,47 @@
 ---
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
+> 🔗🏪 **TARANABİLİR BAYİ DİZİNİ — GİZLİ BAĞLANTI TALEBİ REDDEDİLDİ, ASIL KUSUR BULUNDU
+> (2026-09-12, commit 5b19d6a):** Bir bayi (FUTURE Teknik) metin bağlantısı istedi; kullanıcı
+> *"kimsenin görmeyeceği şekilde koysak diğer bayilere ayıp olmasın, işe yarar mı?"* diye sordu.
+>
+> **🚫 GİZLİ BAĞLANTI YAPILMADI.** Google'ın **gizli bağlantı / bağlantı şeması** tanımına birebir
+> girer: değer aktarmaz, tespit edilirse **bemisevcharge.com.tr** manuel işlem yer. Bayiye faydası
+> yok, siteye riski var. 📌 Bu talep tekrar gelirse aynı cevap — ve aşağıdaki meşru çözümü göster.
+>
+> **📌 ÖLÇÜM ASIL SORUNU ORTAYA ÇIKARDI:** FUTURE Teknik'in bağlantısı **zaten sitedeydi**
+> (`data/dealers.json` → `istanbul`, resmî unvan + `www.futureteknik.com.tr`, 33 bayinin 30'u gibi,
+> gerçek `<a href>`, **`nofollow` yok**). **AMA Googlebot user-agent'ıyla alınan anasayfa (409 KB) ve
+> `/bayilik` (143 KB) HTML'inde tek bir bayi adı, adresi veya web adresi YOKTU.** Sebep:
+> `DealerNetwork` veriyi `useEffect` ile `/api/dealers`'tan çekiyor **ve kartları yalnız kullanıcı
+> bölge/şehir SEÇİNCE** basıyor → koşullu mount, içerik HTML'e hiç girmiyor.
+> **Bu sitede aynı kusur sınıfının DÖRDÜNCÜ örneği** (footer düğmesi · şehir akordeonu · /blog
+> sekmesi · şimdi bayi ağı). 📌 Yeni bir liste/sekme yaparken ilk soru: *ilk HTML'de var mı?*
+>
+> **ÇÖZÜM — herkese eşit:** `app/components/DealerDirectory.tsx` (yeni, `"use client"`) şehir bazlı
+> **görünür** bayi dizini; veri `app/page.tsx`'te sunucudan okunup `HomeClient`'a prop olarak
+> geçiyor → Next istemci bileşenini SSR ettiği için liste **ilk HTML'de**. `Footer`'dan hemen önce.
+> **30 bayi bağlantısı birden taranabilir oldu** (yerel SSR ölçümü: 30/30, `nofollow` 0).
+> Başlıklar `pickText` ile 7 dilde — yeni SSR bloğu yabancı dilde Türkçe kalmasın diye (bu oturumda
+> düzeltilen kusur sınıfının tekrarı önlendi).
+>
+> **⚠️⚠️ İKİ SINIR — BİLEREK, DEĞİŞTİRME:**
+> **(1) GİZLEME YOK.** Liste gerçekten görünür; `display:none` / 0px / ekran-okuyucu hilesi YOK.
+> **(2) AYRICALIK YOK.** Dizin TÜM bayileri aynı biçimde listeler; tek bayiye özel yerleşim
+> istenirse reddet — kullanıcının *"diğer bayilere ayıp olmasın"* kaygısının doğru çözümü budur.
+>
+> **🔴 KVKK — PROP DARALTILDI (ilk sürümde kusurluydu):** tüm bayi nesnesini prop geçmek
+> `dealers.json`'daki **e-posta · telefon · WhatsApp · yetkili kişi adı · adres** alanlarını
+> anasayfa HTML'ine (RSC payload) serileştiriyordu. Yalnız `{ name, website }` geçirilecek şekilde
+> daraltıldı. **Doğrulandı: email 0/29 · phone 0/29 · whatsapp 0/10 · contactPerson 0/9 ·
+> address 0/32 sızıntı.** 📌 Bu prop'a alan eklemeden önce sor: *bu bilgi anasayfa kaynağında
+> görünse sorun olur mu?*
+> Adres satırı görsel olarak da çıkarıldı: etkileşimli bölüm zaten tam adresi gösteriyor ve adresli
+> sürümde dizin **4724 px**'e çıkıyordu (ölçüldü) — anasayfanın altına ikinci bir sayfa gibi biniyordu.
+>
+> HTML 409 → 445 KB. tsc 0, marka guard temiz.
+
+
 > 🌐🔴 **DİL DEĞİŞTİRME — 3 KUSUR (2026-09-12, commit a178ae9):** Kullanıcı
 > *"arapça ve netherland dillerine geçince diller değişmedi … hero bölümünde sağdan başlama ortadan
 > bölüyordu … bazı yerlerde çeviri de yapılmamıştı"* dedi. Üçü de **tarayıcıda canlı olarak yeniden
