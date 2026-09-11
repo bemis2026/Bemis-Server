@@ -87,6 +87,13 @@ export default async function ProductCategoryPage({
   // faq, getServerCategoriesMeta'nın dar tipinde yok ama çalışma zamanında
   // CMS verisinde mevcut (data.categories tam obje) — cast ile alıyoruz.
   const catFaq = (meta as unknown as { faq?: { q: string; a: string }[] }).faq ?? [];
+  // GEO cevap bloğu — sayfada GÖRÜNÜR (hero'dan sonraki ilk içerik bloğu) ve
+  // FAQPage şemasının İLK maddesi olarak basılır. ⚠️ Google kuralı: şemadaki
+  // soru-cevap sayfada görünür olmalı; ikisi de aynı CMS alanından geldiği için
+  // ayrışamaz. Şemada BAŞTA durması, motorun "bu sayfanın ana cevabı" sinyalini
+  // güçlendirir.
+  const catGeo = (meta as unknown as { geoAnswer?: { q: string; a: string } }).geoAnswer;
+  const faqAll = catGeo?.q?.trim() && catGeo?.a?.trim() ? [catGeo, ...catFaq] : catFaq;
   const jsonLd = [
     breadcrumbSchema([
       { name: "Ana Sayfa", url: "/" },
@@ -99,7 +106,7 @@ export default async function ProductCategoryPage({
       url: `/products/${id}`,
       products: (category.products ?? []).map(p => ({ id: p.id, name: p.name, categoryId: id })),
     }),
-    ...(catFaq.length > 0 ? [faqSchema(catFaq)] : []),
+    ...(faqAll.length > 0 ? [faqSchema(faqAll)] : []),
   ];
   return (
     <>

@@ -129,7 +129,11 @@
           "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779303205/documents/1779303205436-bemis-ev-charge-hizli-kurulum-kilavuzu__1_.pdf",
           "size": "866 KB"
         }
-      ]
+      ],
+      "geoAnswer": {
+        "q": "What is a home charging station (wallbox) and which power should I choose?",
+        "a": "A wallbox is a wall-mounted home or workplace charging station that charges an electric vehicle from the AC grid. The Bemis Charger range is adjustable between 3.7 kW and 22 kW; the real power is set not by the device but by your building's phase and the car's AC limit. On a single-phase installation the ceiling is 7.4 kW, on three-phase it is 22 kW. The connection is Type 2 (IEC 62196-2), available with a 5 metre integrated cable or as a panel socket."
+      }
     },
     "portable": {
       "name": "AC Mobile Chargers",
@@ -165,7 +169,11 @@
         }
       ],
       "description": "Portable AC chargers that do not require installation — from the standard outlet or CEE socket to the Type 2 vehicle socket. Flexible charging solution for road, camp and backup scenarios with single-phase 2.3 – 7.4 kW and three-phase 11 – 22 kW options.",
-      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075745/products/phrdrgmnycwteac03l3c.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075745/products/phrdrgmnycwteac03l3c.png",
+      "geoAnswer": {
+        "q": "What is a portable charger and is it enough instead of a wallbox?",
+        "a": "A portable charger is an AC device that charges an electric vehicle by plugging into an existing socket, with no wall installation required. The Bemis Mini Mobile, Mono Mobile and Pro Mobile 2 families operate between 2.3 kW and 22 kW, carry IP65 protection and come with a 5, 8 or 10 metre cable. On the Pro Mobile 2 the current is adjustable on the device across six steps from 6A to 32A, which is the most practical way to keep charging on a weak installation."
+      }
     },
     "cables": {
       "name": "AC Charging Cables",
@@ -217,7 +225,11 @@
         }
       ],
       "description": "Mode 2 and Mode 3 charging cables with Type 2 standard. It is designed for long-lasting use in single and three-phase, 16a – 32a current classes with IEC 62196 / IEC 61851 compliant, halogen-free outer sheath and high-current Type 2 connector.",
-      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075750/products/yquclaq2d8incbvlonxk.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075750/products/yquclaq2d8incbvlonxk.png",
+      "geoAnswer": {
+        "q": "How do I choose an EV charging cable?",
+        "a": "Choosing a charging cable comes down to three values: current, phase and length. Bemis Type 2 cables are made in 16A and 32A versions; they carry 3.7-7.4 kW single-phase and 11-22 kW three-phase. The conductor cross-section is 2.5 mm² on 16A models and 6 mm² on 32A models, and the length is chosen between 3 and 15 metres. A cable does not increase your car's charging speed; the ceiling is set by the car's own AC limit."
+      }
     },
     "v2l-c2l": {
       "name": "V2L / C2L Adapters",
@@ -253,7 +265,11 @@
         }
       ],
       "description": "Adapters that convert the vehicle's battery (V2L) or charger (C2L) into an external power supply. Compatible with Type 2 inputs and schuko / Cee outputs and V2L-supported vehicles such as Hyundai, Kia, MG, BYD, Ssangyong and Skywell — for camping, workshop and emergency scenarios.",
-      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075755/products/jjaugl6l5h7o20jastmg.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075755/products/jjaugl6l5h7o20jastmg.png",
+      "geoAnswer": {
+        "q": "What is the difference between a V2L and a C2L adapter?",
+        "a": "The difference lies in where the power comes from. A V2L adapter takes electricity from the car's battery and converts it to a standard socket; this requires the car to support V2L, and the end that plugs into the vehicle changes by brand. A C2L adapter takes electricity from the Type 2 output of an AC charger instead, so the car does not need to support V2L and no range is lost. The output of Bemis adapters is a Schuko socket with a maximum current of 16A."
+      }
     },
     "converters": {
       "name": "Converter Adapters & Extension Cables",
@@ -285,7 +301,11 @@
         }
       ],
       "description": "Extension cables and Ceenorm converters that carry existing charging equipment to different outlet types and distances. Combination solutions designed for single and three-phase 16a – 32a transitions.",
-      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075761/products/f0fshjhhljmvpkcrxxzu.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075761/products/f0fshjhhljmvpkcrxxzu.png",
+      "geoAnswer": {
+        "q": "What is used to extend a charging supply or convert the plug type?",
+        "a": "Two product families cover this. Converter adapters connect different CEE plug and socket types to each other (for example a 1/16A plug to a 5/32A socket) and come with a 30 cm cable. Portable extension cables instead move the supply point 5 or 10 metres away. The cross-section is chosen by current: 2.5 mm² for 16A and 6 mm² for 32A. Protection is IP44, and IP68 on one model."
+      }
     },
     "charger-equipment": {
       "name": "AC & DC Charging Unit Equipment",
@@ -294,7 +314,7 @@
       "badge": null,
       "comingSoon": false,
       "image": "/categories/1774998252477-110001360852184.jpg",
-      "description": "Bemis DC charging cables, produced entirely in our own facility, specially produced for high-power DC charging units provide easy replacement in case of breakage thanks to their modular body structure.\nPanel socket with lock mechanism used on charging units. With its special branding and unique design, it is perfect for your unit. The DC Socket Holder Bracket, which is produced for the DC cables used in DC charging units to hang idle, stands out as an ideal option with its ball and embedded design. Thanks to its ball structure, the fracture problem is eliminated. With its body structure embedded in the case, it is fully compatible with your unit design.",
+      "description": "Charging unit equipment covers the parts that go inside a charger or into its installation site: Type 2 panel sockets, charging sockets with one open-ended cable, combination boxes with breakers, and CCS2 charging sockets for DC units. Bemis DC charging cables, produced entirely in our own facility, specially produced for high-power DC charging units provide easy replacement in case of breakage thanks to their modular body structure.\nPanel socket with lock mechanism used on charging units. With its special branding and unique design, it is perfect for your unit. The DC Socket Holder Bracket, which is produced for the DC cables used in DC charging units to hang idle, stands out as an ideal option with its ball and embedded design. Thanks to its ball structure, the fracture problem is eliminated. With its body structure embedded in the case, it is fully compatible with your unit design.",
       "faq": [
         {
           "q": "What does the Charger Equipment category include?",
@@ -317,7 +337,11 @@
           "a": "Yes. The cables and sockets of our Bemis chargers are modular in design; in the event of wear or damage, our authorised service can replace them quickly. We keep stock of special parts such as liquid-cooled CCS2 cables."
         }
       ],
-      "descriptionImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075765/products/xl61vku2recrvjsag3x8.jpg"
+      "descriptionImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075765/products/xl61vku2recrvjsag3x8.jpg",
+      "geoAnswer": {
+        "q": "What is charging unit equipment?",
+        "a": "This group covers the parts that go inside a charging unit or into its installation site: Type 2 panel sockets (IEC 62196-2), charging sockets with one open-ended cable, combination boxes with breakers in IP44 and IP66, and CCS2 charging sockets for DC units (IEC 62196-3). Current options run 16A and 32A on the AC side and from 80A to 400A on the DC side. The range is designed for companies that build chargers and install charging sites."
+      }
     },
     "accessories": {
       "name": "Accessories",
@@ -348,7 +372,11 @@
           "a": "A lost card can be deactivated from the admin panel or by notifying our sales team. Pairing a new card takes 5 minutes. The risk of unauthorised use with a lost card is negligible, because every card is linked to the unit's registration system."
         }
       ],
-      "description": "RFID cards, carrying cases and mounting accessories — by-products that complement the operational and safety needs of a charging site."
+      "description": "RFID cards, carrying cases and mounting accessories — by-products that complement the operational and safety needs of a charging site.",
+      "geoAnswer": {
+        "q": "Which accessories are used in a charging installation?",
+        "a": "Accessories complete not the device itself but the way it is used and kept safe. The Bemis accessory family consists of carrying bags for charging cables and adapters, AC and DC socket holders, a wall bracket for portable chargers, and a pedestal mounting post for places where wall mounting is not possible. A socket holder keeps an unused connector off the ground, reducing contamination and mechanical damage."
+      }
     },
     "dc-units": {
       "name": "DC Charging Units",
@@ -379,7 +407,11 @@
           "a": "A licence or authorisation certificate from EPDK under the charging service regulation, an OCPP-enabled unit, integration with the EPVIS system, and billing/payment infrastructure (Bemis CPO software or a third party) are required. The investment ranges between 1 and 3 million TL; our B2B team provides support in preparing the roadmap."
         }
       ],
-      "description": "BEVDC series DC fast chargers — single or double CCS2 output models from 40 kW to 200 kW. Suitable for commercial field use with OCPP 1.6J/ 2.0.1 support, RFID authentication, IP54 protection and wide temperature range (-25°C / +55°C)."
+      "description": "BEVDC series DC fast chargers — single or double CCS2 output models from 40 kW to 200 kW. Suitable for commercial field use with OCPP 1.6J/ 2.0.1 support, RFID authentication, IP54 protection and wide temperature range (-25°C / +55°C).",
+      "geoAnswer": {
+        "q": "What is a DC fast charging station and how does it differ from AC charging?",
+        "a": "In DC fast charging the AC-to-DC conversion happens inside the station rather than inside the car, so the limit of the vehicle's own converter does not apply and charging finishes far faster. The Bemis BEVDC range consists of 40, 80, 120, 160, 180 and 200 kW models, has CCS2 outputs and is built with one or two sockets. The input is AC 380-480V three-phase, the output 150-1000V DC, and the protection rating is IP54."
+      }
     }
   },
   "featured": [

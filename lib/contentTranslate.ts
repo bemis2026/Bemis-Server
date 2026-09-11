@@ -16,6 +16,9 @@ const TRANSLATABLE_PATHS: string[] = [
 
   "categories.*.name", "categories.*.subtitle", "categories.*.description", "categories.*.badge",
   "categories.*.faq[].q", "categories.*.faq[].a",
+  // GEO alintilanabilir cevap blogu — operator TR metnini duzenlerse 6 dil
+  // otomatik tazelensin (yoksa ceviriler bayat kalir).
+  "categories.*.geoAnswer.q", "categories.*.geoAnswer.a",
 
   "featured[].badge", "featured[].highlight",
 

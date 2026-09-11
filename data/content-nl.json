@@ -153,7 +153,11 @@
           "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779303205/documents/1779303205436-bemis-ev-charge-hizli-kurulum-kilavuzu__1_.pdf",
           "size": "866 KB"
         }
-      ]
+      ],
+      "geoAnswer": {
+        "q": "Wat is een laadstation voor thuis (wallbox) en welk vermogen moet ik kiezen?",
+        "a": "Een wallbox is een aan de muur bevestigd laadstation voor thuis of op het werk dat een elektrische auto vanaf het AC-net laadt. De Bemis Charger-serie is instelbaar tussen 3,7 kW en 22 kW; het werkelijke vermogen wordt niet door het apparaat bepaald maar door de fase van uw installatie en de AC-limiet van de auto. Bij een eenfase-installatie ligt het plafond op 7,4 kW, bij driefasen op 22 kW. De aansluiting is Type 2 (IEC 62196-2), met een vast aangesloten kabel van 5 meter of als paneelcontactdoos."
+      }
     },
     "portable": {
       "name": "Mobiele laders",
@@ -189,7 +193,11 @@
         }
       ],
       "description": "Mobiele (draagbare) AC-laders zonder installatie — ook bekend als portable charger voor elektrische auto's. Van een standaard huishoudelijk stopcontact of CEE-contactdoos naar de Type 2-aansluiting van de auto. Met eenfasige opties van 2,3 – 7,4 kW en driefasige opties van 11 / 22 kW een flexibele laadoplossing onderweg, op de camping en als reserve. Een lader die u voor uw elektrische auto altijd bij u hebt; CE-gecertificeerd en geproduceerd in eigen fabriek.",
-      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075745/products/phrdrgmnycwteac03l3c.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075745/products/phrdrgmnycwteac03l3c.png",
+      "geoAnswer": {
+        "q": "Wat is een mobiele lader en is die genoeg in plaats van een wallbox?",
+        "a": "Een mobiele lader is een AC-apparaat dat een elektrische auto laadt via een bestaand stopcontact, zonder wandmontage. De Bemis-families Mini Mobile, Mono Mobile en Pro Mobile 2 werken tussen 2,3 kW en 22 kW, hebben beschermingsgraad IP65 en worden geleverd met een kabel van 5, 8 of 10 meter. Bij de Pro Mobile 2 is de stroom op het apparaat zelf in zes stappen van 6A tot 32A instelbaar; dat is de praktischste manier om door te laden op een zwakke installatie."
+      }
     },
     "cables": {
       "name": "AC-laadkabels",
@@ -240,8 +248,12 @@
           "a": "Onze producten vallen onder 2 jaar fabrieksgarantie. Open of repareer de kabel niet zelf; trek de connector uit het stopcontact en gebruik hem niet meer. Neem contact op met de erkende dealer waar u het product hebt gekocht, of bereik ons via de stappen op de pagina Storing & garantie in het menu Gids van onze website. De productcode, het aankoopbewijs en een foto of video van het probleem versnellen de afhandeling."
         }
       ],
-      "description": "Koop uw laadkabel voor uw elektrische auto rechtstreeks bij de fabrikant. Bemis E-V Charge produceert Type 2-laadkabels (Mode 3) in zijn eigen fabriek van 16.000 m² in de industriezone van Bursa; de kabels worden niet geïmporteerd en van een label voorzien. Eenfasig en driefasig, in de stroomklassen 16 A – 32 A; verkrijgbaar in lengtes van 3, 5, 7, 8, 10 en 15 meter. Conform IEC 62196 / IEC 61851, met halogeenvrije buitenmantel en Type 2-connector voor hoge stroom, ontworpen voor een lange levensduur. CE-gecertificeerde productie; levering, reserveonderdelen en technische ondersteuning rechtstreeks van de fabrikant.",
-      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075750/products/yquclaq2d8incbvlonxk.png"
+      "description": "Een laadkabel voor elektrische auto's is een kabel volgens de Type 2-standaard die het voertuig met een laadpunt verbindt; de stroom (16A of 32A), de fase en de lengte worden gekozen op basis van de toepassing. Koop uw laadkabel voor uw elektrische auto rechtstreeks bij de fabrikant. Bemis E-V Charge produceert Type 2-laadkabels (Mode 3) in zijn eigen fabriek van 16.000 m² in de industriezone van Bursa; de kabels worden niet geïmporteerd en van een label voorzien. Eenfasig en driefasig, in de stroomklassen 16 A – 32 A; verkrijgbaar in lengtes van 3, 5, 7, 8, 10 en 15 meter. Conform IEC 62196 / IEC 61851, met halogeenvrije buitenmantel en Type 2-connector voor hoge stroom, ontworpen voor een lange levensduur. CE-gecertificeerde productie; levering, reserveonderdelen en technische ondersteuning rechtstreeks van de fabrikant.",
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075750/products/yquclaq2d8incbvlonxk.png",
+      "geoAnswer": {
+        "q": "Hoe kies je een laadkabel voor een elektrische auto?",
+        "a": "De keuze van een laadkabel komt neer op drie waarden: stroom, fase en lengte. Bemis Type 2-kabels worden gemaakt in 16A en 32A; eenfasig dragen ze 3,7-7,4 kW en driefasig 11-22 kW. De aderdoorsnede is 2,5 mm² bij 16A-modellen en 6 mm² bij 32A-modellen, en de lengte wordt gekozen tussen 3 en 15 meter. Een kabel verhoogt de laadsnelheid van de auto niet; het plafond wordt bepaald door de AC-limiet van de auto zelf."
+      }
     },
     "v2l-c2l": {
       "name": "V2L- / C2L-adapters",
@@ -277,7 +289,11 @@
         }
       ],
       "description": "Adapters die de accu van de auto (V2L) of de lader (C2L) omzetten in een externe stroombron. Met Type 2-ingang en schuko-/CEE-uitgangen geschikt voor V2L-auto's zoals Hyundai, Kia, MG, BYD, Ssangyong en Skywell — voor kamperen, werkplaats en noodsituaties. Maakt van uw elektrische auto een mobiele stroombron; een praktische oplossing op de camping, op locatie en bij stroomuitval. CE-gecertificeerd, met garantie en geproduceerd in eigen fabriek.",
-      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075755/products/jjaugl6l5h7o20jastmg.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075755/products/jjaugl6l5h7o20jastmg.png",
+      "geoAnswer": {
+        "q": "Wat is het verschil tussen een V2L- en een C2L-adapter?",
+        "a": "Het verschil zit in de bron van de stroom. Een V2L-adapter haalt de stroom uit de accu van de auto en zet die om naar een standaard stopcontact; daarvoor moet de auto V2L ondersteunen en het uiteinde dat in het voertuig gaat verschilt per merk. Een C2L-adapter haalt de stroom juist uit de Type 2-uitgang van een AC-lader, zodat de auto geen V2L hoeft te ondersteunen en er geen actieradius verloren gaat. De uitgang van Bemis-adapters is een Schuko-contactdoos met maximaal 16A."
+      }
     },
     "converters": {
       "name": "Verloopadapters en verlengkabels",
@@ -309,7 +325,11 @@
         }
       ],
       "description": "Verlengkabels en CEE-verloopadapters die bestaande laadapparatuur geschikt maken voor andere contactdoostypes en afstanden. Combinatieoplossingen voor eenfasige en driefasige overgangen van 16 A – 32 A. Past de laadinstallatie van uw elektrische auto aan op andere stopcontacten en afstanden; uw verlengkabel voor het laden van de auto rechtstreeks van de fabrikant. CE-gecertificeerd, met garantie en geproduceerd in eigen fabriek.",
-      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075761/products/f0fshjhhljmvpkcrxxzu.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075761/products/f0fshjhhljmvpkcrxxzu.png",
+      "geoAnswer": {
+        "q": "Waarmee verleng je een laadvoeding of zet je het stekkertype om?",
+        "a": "Hiervoor zijn er twee productfamilies. Omvormadapters verbinden verschillende CEE-stekker- en contactdoostypen met elkaar (bijvoorbeeld een 1/16A-stekker met een 5/32A-contactdoos) en worden geleverd met een kabel van 30 cm. Mobiele verlengkabels brengen het voedingspunt juist 5 of 10 meter verderop. De doorsnede wordt gekozen op stroom: 2,5 mm² voor 16A en 6 mm² voor 32A. De beschermingsgraad is IP44 en bij één model IP68."
+      }
     },
     "charger-equipment": {
       "name": "Componenten voor AC- & DC-laadstations",
@@ -318,7 +338,7 @@
       "badge": null,
       "comingSoon": false,
       "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075211/products/slovarwtn9dt80fx55zc.png",
-      "description": "Volledig in eigen huis geproduceerde Bemis DC-laadkabels, speciaal ontwikkeld voor DC-laadstations met hoog vermogen; dankzij de modulaire opbouw eenvoudig te vervangen bij breuk.\nPaneelcontactdoos met vergrendelmechanisme voor laadstations. Met eigen branding en uniek ontwerp, passend bij uw unit. De DC-connectorhouder, ontwikkeld om de DC-kabels van laadstations vrij te laten hangen, onderscheidt zich door zijn kogelmechanisme en verzonken ontwerp in de behuizing. Dankzij de kogelconstructie behoort breuk tot het verleden. Door de in de behuizing verzonken opbouw sluit hij naadloos aan op het ontwerp van uw unit. Voor fabrikanten van laadstations en OEM-projecten; CE-gecertificeerd, met garantie en geproduceerd in eigen fabriek.",
+      "description": "Apparatuur voor laadstations omvat de onderdelen die in een lader of op de installatielocatie komen: Type 2-paneelcontactdozen, laadcontactdozen met een kabel met open uiteinde, combinatiekasten met automaten en CCS2-laadcontactdozen voor DC-units. Volledig in eigen huis geproduceerde Bemis DC-laadkabels, speciaal ontwikkeld voor DC-laadstations met hoog vermogen; dankzij de modulaire opbouw eenvoudig te vervangen bij breuk.\nPaneelcontactdoos met vergrendelmechanisme voor laadstations. Met eigen branding en uniek ontwerp, passend bij uw unit. De DC-connectorhouder, ontwikkeld om de DC-kabels van laadstations vrij te laten hangen, onderscheidt zich door zijn kogelmechanisme en verzonken ontwerp in de behuizing. Dankzij de kogelconstructie behoort breuk tot het verleden. Door de in de behuizing verzonken opbouw sluit hij naadloos aan op het ontwerp van uw unit. Voor fabrikanten van laadstations en OEM-projecten; CE-gecertificeerd, met garantie en geproduceerd in eigen fabriek.",
       "faq": [
         {
           "q": "Wat vindt u in de categorie Componenten voor laadstations?",
@@ -341,7 +361,11 @@
           "a": "Ja. De kabels en connectoren van onze Bemis-laders zijn modulair opgebouwd; bij slijtage of schade kan ons erkende servicepunt ze snel vervangen. Voor speciale onderdelen zoals vloeistofgekoelde CCS2-kabels houden we voorraad aan."
         }
       ],
-      "descriptionImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075765/products/xl61vku2recrvjsag3x8.jpg"
+      "descriptionImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075765/products/xl61vku2recrvjsag3x8.jpg",
+      "geoAnswer": {
+        "q": "Wat is apparatuur voor laadstations?",
+        "a": "Deze groep omvat de onderdelen die in een laadunit of op de installatielocatie komen: Type 2-paneelcontactdozen (IEC 62196-2), laadcontactdozen met een kabel met open uiteinde, combinatiekasten met automaten in IP44 en IP66 en CCS2-laadcontactdozen voor DC-units (IEC 62196-3). Aan de AC-zijde zijn 16A en 32A beschikbaar en aan de DC-zijde van 80A tot 400A. Het programma is bedoeld voor bedrijven die laders bouwen en laadlocaties aanleggen."
+      }
     },
     "accessories": {
       "name": "Accessoires",
@@ -372,7 +396,11 @@
           "a": "Een verloren kaart kan via het beheerpaneel of door een melding aan ons verkoopteam worden gedeactiveerd. Het koppelen van een nieuwe kaart duurt 5 minuten. Het risico op onbevoegd gebruik met een verloren kaart is verwaarloosbaar, omdat elke kaart aan het registratiesysteem van het apparaat is gekoppeld."
         }
       ],
-      "description": "Draagtassen voor laadkabels, AC/DC-connectorhouders, wandhouders en pedestals (vloermontage) — aanvullende producten voor de operationele en veiligheidsbehoeften van een laadlocatie. Duurzame accessoires met garantie die het gebruik van elektrische auto's en laadstations eenvoudiger maken, met oplossingen om uw laadkabel netjes en beschermd op te bergen."
+      "description": "Draagtassen voor laadkabels, AC/DC-connectorhouders, wandhouders en pedestals (vloermontage) — aanvullende producten voor de operationele en veiligheidsbehoeften van een laadlocatie. Duurzame accessoires met garantie die het gebruik van elektrische auto's en laadstations eenvoudiger maken, met oplossingen om uw laadkabel netjes en beschermd op te bergen.",
+      "geoAnswer": {
+        "q": "Welke accessoires worden gebruikt bij een laadinstallatie?",
+        "a": "Accessoires vullen niet het apparaat zelf aan, maar het gebruik en de veiligheid ervan. De Bemis-accessoirefamilie bestaat uit draagtassen voor laadkabels en adapters, contactdooshouders voor AC en DC, een wandbeugel voor mobiele laders en een pedestal-montagepaal voor plaatsen waar wandmontage niet mogelijk is. Een contactdooshouder houdt de ongebruikte connector van de grond, wat vervuiling en mechanische schade vermindert."
+      }
     },
     "dc-units": {
       "name": "DC-laadstations",
@@ -403,7 +431,11 @@
           "a": "De vereiste vergunning of erkenning voor het aanbieden van laaddiensten, een OCPP-lader, koppeling met het nationale registratiesysteem en een facturatie-/betaalinfrastructuur (Bemis CPO-software of een derde partij). De investering ligt tussen 1 en 3 miljoen TL; ons B2B-team helpt bij het opstellen van een stappenplan."
         }
       ],
-      "description": "DC-snellaadstations uit de BEVDC-serie — modellen met één of twee CCS2-uitgangen van 40 kW tot 200 kW. Laadt elektrische auto's in enkele minuten op; met OCPP 1.6J / 2.0.1, RFID-authenticatie, IP54-bescherming en een breed temperatuurbereik (-25 °C / +55 °C) geschikt voor commercieel gebruik op locatie. CE-gecertificeerd, met garantie en geproduceerd in eigen fabriek. De serie omvat modellen van 40, 80, 120, 160, 180 en 200 kW; de 40 kW is ook als paalmodel verkrijgbaar."
+      "description": "DC-snellaadstations uit de BEVDC-serie — modellen met één of twee CCS2-uitgangen van 40 kW tot 200 kW. Laadt elektrische auto's in enkele minuten op; met OCPP 1.6J / 2.0.1, RFID-authenticatie, IP54-bescherming en een breed temperatuurbereik (-25 °C / +55 °C) geschikt voor commercieel gebruik op locatie. CE-gecertificeerd, met garantie en geproduceerd in eigen fabriek. De serie omvat modellen van 40, 80, 120, 160, 180 en 200 kW; de 40 kW is ook als paalmodel verkrijgbaar.",
+      "geoAnswer": {
+        "q": "Wat is een DC-snellaadstation en hoe verschilt het van AC-laden?",
+        "a": "Bij DC-snelladen vindt de omzetting van AC naar DC plaats in het station in plaats van in de auto, waardoor de limiet van de eigen omvormer van het voertuig niet geldt en het laden veel sneller klaar is. De Bemis BEVDC-serie bestaat uit modellen van 40, 80, 120, 160, 180 en 200 kW, heeft CCS2-uitgangen en wordt gebouwd met één of twee contactdozen. De ingang is AC 380-480V driefasig, de uitgang 150-1000V DC en de beschermingsgraad IP54."
+      }
     }
   },
   "featured": [

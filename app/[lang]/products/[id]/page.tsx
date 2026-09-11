@@ -64,18 +64,22 @@ export default async function LocaleProductCategoryPage({ params }: { params: Pr
   const category = raw.find((c: any) => c.id === id) ?? null;
   let aciklama: string | undefined;
   let faq: { q: string; a: string }[] | undefined;
+  // GEO cevap blogu — dil kolunda SSR'da O DILDE basilmasi icin sunucudan gecirilir.
+  let geoCevap: { q: string; a: string } | null = null;
   // "Projeye Özel Üretim" kartının metinleri de içerik katmanından, O DİLDE.
   // ⚠️ Prop olarak geçilmezse kart İLK HTML'de TÜRKÇE basılır (kök layout içeriği
   // TR hidratlar) → ziyaretçi çeviriyi hidrasyondan sonra görür, Google Türkçe okur.
   let projeKarti: { eyebrow?: string; title?: string; description?: string; ctaPrimaryLabel?: string; ctaSecondaryLabel?: string } | null = null;
   try {
     const c = (await getContentForLang(L)) as {
-      categories?: Record<string, { description?: string; faq?: { q: string; a: string }[] }>;
+      categories?: Record<string, { description?: string; faq?: { q: string; a: string }[]; geoAnswer?: { q: string; a: string } }>;
       projectSection?: { eyebrow?: string; title?: string; description?: string; ctaPrimaryLabel?: string; ctaSecondaryLabel?: string };
     } | null;
     const cm = c?.categories?.[id];
     aciklama = cm?.description?.trim() || undefined;
     faq = Array.isArray(cm?.faq) && cm.faq.length > 0 ? cm.faq : undefined;
+    const g = cm?.geoAnswer;
+    if (g?.q?.trim() && g?.a?.trim()) geoCevap = { q: g.q, a: g.a };
     const ps = c?.projectSection;
     if (ps) projeKarti = { eyebrow: ps.eyebrow, title: ps.title, description: ps.description, ctaPrimaryLabel: ps.ctaPrimaryLabel, ctaSecondaryLabel: ps.ctaSecondaryLabel };
   } catch {}
@@ -92,7 +96,11 @@ export default async function LocaleProductCategoryPage({ params }: { params: Pr
       { name: m.name, url: `/${L}/products/${id}` },
     ]),
     collectionPageSchema({ name: m.name, description: m.description, url: `/${L}/products/${id}`, products }),
-    ...(faq && faq.length > 0 ? [faqSchema(faq)] : []),
+    // ⚠️ GEO cevabi FAQPage'in ILK maddesi (sayfada da ilk icerik blogu → sema
+    //    ile gorunen icerik ayrismaz).
+    ...(((geoCevap ? [geoCevap] : []).concat(faq ?? [])).length > 0
+      ? [faqSchema((geoCevap ? [geoCevap] : []).concat(faq ?? []))]
+      : []),
   ];
   return (
     <>
@@ -103,6 +111,7 @@ export default async function LocaleProductCategoryPage({ params }: { params: Pr
         titleOverride={m.name}
         descriptionOverride={aciklama}
         faqOverride={faq}
+        geoAnswerOverride={geoCevap}
         projectSectionOverride={projeKarti}
         guidesOverride={rehberler}
         guidesTitle={L === "ar" ? "أدلة ذات صلة" : undefined}

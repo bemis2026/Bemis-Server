@@ -4,6 +4,34 @@
 // Sabit metin → statik servis edilir (Blob/işlem maliyeti yok).
 export const dynamic = "force-static";
 
+// ⚠️ Kategori GEO cevaplari ELLE KOPYALANMAZ — repo icerik dosyasindan turer.
+// Tek kaynak: data/content.json (CMS'in repo yedegi). Boylece cevap metni
+// degisince llms.txt kendiliginden guncellenir, iki yerde ayrisamaz.
+import trContent from "../../data/content.json";
+
+const KATEGORI_SIRA = [
+  "wallbox", "portable", "cables", "v2l-c2l",
+  "converters", "charger-equipment", "accessories", "dc-units",
+] as const;
+
+function kategoriCevaplari(): string {
+  const kats = (trContent as { categories?: Record<string, { geoAnswer?: { q?: string; a?: string } }> }).categories ?? {};
+  const bloklar: string[] = [];
+  for (const id of KATEGORI_SIRA) {
+    const g = kats[id]?.geoAnswer;
+    if (!g?.q?.trim() || !g?.a?.trim()) continue;
+    bloklar.push(`### ${g.q}
+${g.a}
+Kaynak: https://www.bemisevcharge.com.tr/products/${id}`);
+  }
+  if (!bloklar.length) return "";
+  // ⚠️ Ayıraç template literal ile kuruluyor: bu dosyayı kabuk heredoc'u ile
+  // düzenlerken "\n" kaçışları yutuluyor (kayıtlı tuzak) — gerçek satır sonu güvenli.
+  const bosSatir = `
+`;
+  return `${bosSatir}## Kategori Cevapları${bosSatir}${bosSatir}${bloklar.join(`${bosSatir}${bosSatir}`)}${bosSatir}`;
+}
+
 const LLMS_TXT = `# Bemis E-V Charge
 
 > Bemis E-V Charge, 1994'ten beri endüstriyel fiş-priz üreten Bemis Teknik Elektrik A.Ş.'nin yerli elektrikli araç (EV) şarj markası; Bursa'da üretilen AC/DC şarj istasyonları, Type 2 kablolar ve V2L adaptörlerini doğrudan üreticiden sunar.
@@ -124,7 +152,8 @@ Type 2 (Mode 2 و Mode 3)، محوّلات V2L و C2L، كابلات تمديد 
 - Instagram: https://www.instagram.com/bemis.evcharge/
 - YouTube: https://www.youtube.com/@bemisteknikelektrika.s.2025
 - Facebook: https://www.facebook.com/bemisteknik/?locale=tr_TR
-`;
+`
++ kategoriCevaplari();
 
 export async function GET() {
   return new Response(LLMS_TXT, {

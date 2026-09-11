@@ -100,7 +100,7 @@ type CategoryData = { id: string; name: string; tagline: string; accent: string;
 
 type StatItem = { value: number; suffix: string; prefix?: string; label: string; description: string };
 type FaqItem = { q: string; a: string };
-type CategoryMeta = { name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string; sliderImage?: string; description?: string; descriptionImage?: string; faq?: FaqItem[]; manuals?: { id: string; name: string; url: string; size?: string }[] };
+type CategoryMeta = { name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string; sliderImage?: string; description?: string; descriptionImage?: string; faq?: FaqItem[]; geoAnswer?: { q: string; a: string }; manuals?: { id: string; name: string; url: string; size?: string }[] };
 type FeaturedItem = { categoryId: string; productId: string; badge: string; highlight: string; visible: boolean; image?: string };
 type ContentData = {
   hero: {

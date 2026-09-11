@@ -129,7 +129,11 @@
           "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779303205/documents/1779303205436-bemis-ev-charge-hizli-kurulum-kilavuzu__1_.pdf",
           "size": "866 KB"
         }
-      ]
+      ],
+      "geoAnswer": {
+        "q": "¿Qué es una estación de carga doméstica (wallbox) y qué potencia debo elegir?",
+        "a": "Un wallbox es una estación de carga doméstica o de empresa, fijada a la pared, que carga el vehículo eléctrico desde la red AC. La gama Bemis Charger es ajustable entre 3,7 kW y 22 kW; la potencia real no la fija el equipo sino la fase de su instalación y el límite AC del coche. En instalación monofásica el techo es de 7,4 kW y en trifásica de 22 kW. La conexión es Type 2 (IEC 62196-2), con cable integrado de 5 metros o como toma de panel."
+      }
     },
     "portable": {
       "name": "Cargadores Móviles AC",
@@ -165,7 +169,11 @@
         }
       ],
       "description": "Cargadores AC portátiles que no requieren instalación, desde la toma estándar o la toma CEE hasta la toma Type 2 del vehículo. Solución de carga flexible para escenarios de viaje, camping y respaldo, con opciones monofásicas de 2,3 – 7,4 kW y trifásicas de 11 – 22 kW.",
-      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075745/products/phrdrgmnycwteac03l3c.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075745/products/phrdrgmnycwteac03l3c.png",
+      "geoAnswer": {
+        "q": "¿Qué es un cargador portátil y basta en lugar de un wallbox?",
+        "a": "Un cargador portátil es un equipo AC que carga el vehículo eléctrico enchufándose a una toma existente, sin necesidad de instalación en pared. Las familias Bemis Mini Mobile, Mono Mobile y Pro Mobile 2 funcionan entre 2,3 kW y 22 kW, tienen protección IP65 y se ofrecen con cable de 5, 8 o 10 metros. En el Pro Mobile 2 la corriente se ajusta en el propio equipo en seis niveles de 6A a 32A, la forma más práctica de seguir cargando en instalaciones débiles."
+      }
     },
     "cables": {
       "name": "Cables de Carga AC",
@@ -217,7 +225,11 @@
         }
       ],
       "description": "Cables de carga Mode 2 y Mode 3 con estándar Type 2. Están diseñados para un uso duradero en clases de corriente monofásica y trifásica de 16a – 32a, con conformidad IEC 62196 / IEC 61851, funda exterior libre de halógenos y conector Type 2 de alta corriente.",
-      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075750/products/yquclaq2d8incbvlonxk.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075750/products/yquclaq2d8incbvlonxk.png",
+      "geoAnswer": {
+        "q": "¿Cómo se elige un cable de carga para coche eléctrico?",
+        "a": "Elegir un cable de carga se reduce a tres valores: corriente, fase y longitud. Los cables Type 2 de Bemis se fabrican en 16A y 32A; transportan 3,7-7,4 kW en monofásico y 11-22 kW en trifásico. La sección del conductor es de 2,5 mm² en los modelos de 16A y de 6 mm² en los de 32A, y la longitud se elige entre 3 y 15 metros. El cable no aumenta la velocidad de carga del coche; el techo lo fija el límite AC del propio vehículo."
+      }
     },
     "v2l-c2l": {
       "name": "Adaptadores V2L / C2L",
@@ -253,7 +265,11 @@
         }
       ],
       "description": "Adaptadores que convierten la batería del vehículo (V2L) o el cargador (C2L) en una fuente de alimentación externa. Compatibles con entradas Type 2 y salidas schuko / Cee, y con vehículos con soporte V2L como Hyundai, Kia, MG, BYD, Ssangyong y Skywell, para escenarios de camping, taller y emergencia.",
-      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075755/products/jjaugl6l5h7o20jastmg.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075755/products/jjaugl6l5h7o20jastmg.png",
+      "geoAnswer": {
+        "q": "¿Cuál es la diferencia entre un adaptador V2L y uno C2L?",
+        "a": "La diferencia está en el origen de la electricidad. Un adaptador V2L toma la electricidad de la batería del coche y la convierte en un enchufe estándar; para ello el coche debe admitir V2L y el extremo que se conecta al vehículo cambia según la marca. Un adaptador C2L, en cambio, la toma de la salida Type 2 de un cargador AC, de modo que el coche no necesita admitir V2L y no se pierde autonomía. La salida de los adaptadores Bemis es un enchufe Schuko con 16A máximo."
+      }
     },
     "converters": {
       "name": "Adaptadores y Cables de Extensión",
@@ -285,7 +301,11 @@
         }
       ],
       "description": "Cables de extensión y convertidores Ceenorm que llevan el equipo de carga existente a distintos tipos de toma y distancias. Soluciones de combinación diseñadas para transiciones monofásicas y trifásicas de 16a – 32a.",
-      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075761/products/f0fshjhhljmvpkcrxxzu.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075761/products/f0fshjhhljmvpkcrxxzu.png",
+      "geoAnswer": {
+        "q": "¿Qué se usa para prolongar la alimentación de carga o convertir el tipo de enchufe?",
+        "a": "Hay dos familias de producto para esto. Los adaptadores convertidores conectan entre sí distintos tipos de clavija y toma CEE (por ejemplo una clavija 1/16A con una toma 5/32A) y se suministran con cable de 30 cm. Los cables de extensión portátiles, en cambio, llevan el punto de alimentación 5 o 10 metros más lejos. La sección se elige según la corriente: 2,5 mm² para 16A y 6 mm² para 32A. La protección es IP44 y, en un modelo, IP68."
+      }
     },
     "charger-equipment": {
       "name": "Equipamiento de Unidad de Carga AC y DC",
@@ -294,7 +314,7 @@
       "badge": null,
       "comingSoon": false,
       "image": "/categories/1774998252477-110001360852184.jpg",
-      "description": "Los cables de carga DC Bemis, de fabricación totalmente propia, producidos especialmente para unidades de carga DC de alta potencia, permiten una sustitución sencilla en caso de rotura gracias a su estructura de cuerpo modular.\nToma de panel con mecanismo de bloqueo utilizada en las unidades de carga. Con su marca especial y su diseño único, es perfecta para tu unidad. El Soporte de Toma DC, producido para colgar los cables DC utilizados en las unidades de carga DC cuando están en reposo, destaca como una opción ideal por su diseño esférico e integrado. Gracias a su estructura de rótula, se elimina el problema de la rotura. Con su estructura de cuerpo integrada en la carcasa, es totalmente compatible con el diseño de tu unidad.",
+      "description": "Los equipos para unidades de carga son las piezas que van dentro de un cargador o en su emplazamiento: tomas de panel Type 2, tomas de carga con cable de un extremo abierto, cajas de combinación con automáticos y tomas de carga CCS2 para unidades DC. Los cables de carga DC Bemis, de fabricación totalmente propia, producidos especialmente para unidades de carga DC de alta potencia, permiten una sustitución sencilla en caso de rotura gracias a su estructura de cuerpo modular.\nToma de panel con mecanismo de bloqueo utilizada en las unidades de carga. Con su marca especial y su diseño único, es perfecta para tu unidad. El Soporte de Toma DC, producido para colgar los cables DC utilizados en las unidades de carga DC cuando están en reposo, destaca como una opción ideal por su diseño esférico e integrado. Gracias a su estructura de rótula, se elimina el problema de la rotura. Con su estructura de cuerpo integrada en la carcasa, es totalmente compatible con el diseño de tu unidad.",
       "faq": [
         {
           "q": "¿Qué incluye la categoría de componentes para cargadores?",
@@ -317,7 +337,11 @@
           "a": "Sí. Los cables y tomas de nuestros cargadores Bemis tienen un diseño modular; en caso de desgaste o daño, nuestro servicio autorizado los sustituye con rapidez. Mantenemos stock de piezas especiales como los cables CCS2 refrigerados por líquido."
         }
       ],
-      "descriptionImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075765/products/xl61vku2recrvjsag3x8.jpg"
+      "descriptionImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075765/products/xl61vku2recrvjsag3x8.jpg",
+      "geoAnswer": {
+        "q": "¿Qué son los equipos para unidades de carga?",
+        "a": "Este grupo reúne las piezas que van dentro de una unidad de carga o en su emplazamiento: tomas de panel Type 2 (IEC 62196-2), tomas de carga con cable de un extremo abierto, cajas de combinación con automáticos en IP44 e IP66 y tomas de carga CCS2 para unidades DC (IEC 62196-3). Las opciones de corriente son 16A y 32A en el lado AC y de 80A a 400A en el lado DC. La gama está pensada para empresas que fabrican cargadores e instalan puntos de carga."
+      }
     },
     "accessories": {
       "name": "Accesorios",
@@ -348,7 +372,11 @@
           "a": "La tarjeta perdida puede desactivarse desde el panel de administración o notificándolo a nuestro equipo comercial. La vinculación de una nueva tarjeta se completa en 5 minutos. El riesgo de uso no autorizado con la tarjeta perdida es insignificante, ya que cada tarjeta está vinculada al sistema de registro del equipo."
         }
       ],
-      "description": "Tarjetas RFID, maletines de transporte y accesorios de montaje: productos complementarios que cubren las necesidades operativas y de seguridad de un emplazamiento de carga."
+      "description": "Tarjetas RFID, maletines de transporte y accesorios de montaje: productos complementarios que cubren las necesidades operativas y de seguridad de un emplazamiento de carga.",
+      "geoAnswer": {
+        "q": "¿Qué accesorios se usan en una instalación de carga?",
+        "a": "Los accesorios no completan el equipo en sí, sino su uso y su seguridad. La familia de accesorios Bemis está formada por bolsas de transporte para cables y adaptadores, soportes de toma AC y DC, un soporte de pared para cargadores portátiles y un poste de montaje tipo pedestal para lugares donde no es posible el montaje en pared. El soporte de toma evita que el conector sin usar toque el suelo, reduciendo la suciedad y los daños mecánicos."
+      }
     },
     "dc-units": {
       "name": "Unidades de Carga DC",
@@ -379,7 +407,11 @@
           "a": "Una licencia o autorización del organismo regulador de la energía conforme al reglamento de servicio de carga, un equipo compatible con OCPP, la integración con el sistema oficial de puntos de carga (EPVIS) y una infraestructura de facturación y pago (software CPO de Bemis o de terceros). En Türkiye la inversión oscila entre 1 y 3 millones de TL; nuestro equipo B2B ayuda a elaborar la hoja de ruta."
         }
       ],
-      "description": "Cargadores rápidos DC de la serie BEVDC: modelos de salida CCS2 simple o doble, de 40 kW a 200 kW. Adecuados para uso comercial en campo, con soporte OCPP 1.6J/2.0.1, autenticación RFID, protección IP54 y amplio rango de temperatura (-25°C / +55°C)."
+      "description": "Cargadores rápidos DC de la serie BEVDC: modelos de salida CCS2 simple o doble, de 40 kW a 200 kW. Adecuados para uso comercial en campo, con soporte OCPP 1.6J/2.0.1, autenticación RFID, protección IP54 y amplio rango de temperatura (-25°C / +55°C).",
+      "geoAnswer": {
+        "q": "¿Qué es una estación de carga rápida DC y en qué se diferencia de la carga AC?",
+        "a": "En la carga rápida DC la conversión de AC a DC se realiza dentro de la estación y no dentro del coche, de modo que no se aplica el límite del convertidor del propio vehículo y la carga termina mucho antes. La gama Bemis BEVDC está formada por modelos de 40, 80, 120, 160, 180 y 200 kW, tiene salidas CCS2 y se fabrica con una o dos tomas. La entrada es AC 380-480V trifásica, la salida 150-1000V DC y la protección IP54."
+      }
     }
   },
   "featured": [

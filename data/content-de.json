@@ -129,7 +129,11 @@
           "url": "https://res.cloudinary.com/dmnttjyzm/raw/upload/v1779303205/documents/1779303205436-bemis-ev-charge-hizli-kurulum-kilavuzu__1_.pdf",
           "size": "866 KB"
         }
-      ]
+      ],
+      "geoAnswer": {
+        "q": "Was ist eine Wallbox und welche Leistung sollte ich wählen?",
+        "a": "Eine Wallbox ist eine wandmontierte Ladestation für Zuhause oder Betrieb, die ein Elektrofahrzeug aus dem AC-Netz lädt. Die Bemis Charger-Reihe ist zwischen 3,7 kW und 22 kW einstellbar; die tatsächliche Leistung bestimmt nicht das Gerät, sondern die Phase Ihres Hauses und das AC-Limit des Fahrzeugs. Einphasig liegt die Obergrenze bei 7,4 kW, dreiphasig bei 22 kW. Der Anschluss ist Type 2 (IEC 62196-2), wahlweise mit 5 Meter fest angeschlagenem Kabel oder als Einbausteckdose."
+      }
     },
     "portable": {
       "name": "Mobile AC-Ladegeräte",
@@ -165,7 +169,11 @@
         }
       ],
       "description": "Tragbare AC-Ladegeräte, die keine Installation erfordern – von der Standardsteckdose oder CEE-Steckdose bis zur Type-2-Fahrzeugsteckdose. Flexible Ladelösung für Straßen-, Camping- und Notfallszenarien mit einphasigen Optionen von 2,3 – 7,4 kW und dreiphasigen Optionen von 11 – 22 kW.",
-      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075745/products/phrdrgmnycwteac03l3c.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075745/products/phrdrgmnycwteac03l3c.png",
+      "geoAnswer": {
+        "q": "Was ist ein mobiles Ladegerät und reicht es anstelle einer Wallbox?",
+        "a": "Ein mobiles Ladegerät ist ein AC-Gerät, das ein Elektrofahrzeug über eine vorhandene Steckdose lädt, ohne Wandmontage. Die Bemis-Familien Mini Mobile, Mono Mobile und Pro Mobile 2 arbeiten zwischen 2,3 kW und 22 kW, sind nach IP65 geschützt und werden mit 5, 8 oder 10 Meter Kabel geliefert. Beim Pro Mobile 2 lässt sich der Strom am Gerät in sechs Stufen von 6A bis 32A einstellen — der praktischste Weg, an einer schwachen Installation weiterzuladen."
+      }
     },
     "cables": {
       "name": "AC-Ladekabel",
@@ -217,7 +225,11 @@
         }
       ],
       "description": "Ladekabel für Modus 2 und Modus 3 mit Type-2-Standard. Konzipiert für langlebigen Einsatz in ein- und dreiphasigen Stromklassen von 16A – 32A, konform mit IEC 62196 / IEC 61851, mit halogenfreiem Außenmantel und Hochstrom-Type-2-Stecker.",
-      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075750/products/yquclaq2d8incbvlonxk.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075750/products/yquclaq2d8incbvlonxk.png",
+      "geoAnswer": {
+        "q": "Wie wähle ich ein Ladekabel für das Elektroauto?",
+        "a": "Die Wahl des Ladekabels läuft auf drei Werte hinaus: Strom, Phase und Länge. Bemis Type 2-Kabel werden in 16A und 32A gefertigt; einphasig übertragen sie 3,7-7,4 kW, dreiphasig 11-22 kW. Der Leiterquerschnitt beträgt bei 16A-Modellen 2,5 mm² und bei 32A-Modellen 6 mm², die Länge wird zwischen 3 und 15 Metern gewählt. Ein Kabel erhöht die Ladegeschwindigkeit des Fahrzeugs nicht; die Obergrenze setzt das AC-Limit des Autos."
+      }
     },
     "v2l-c2l": {
       "name": "V2L / C2L Adapter",
@@ -253,7 +265,11 @@
         }
       ],
       "description": "Adapter, die die Fahrzeugbatterie (V2L) oder das Ladegerät (C2L) in eine externe Stromversorgung umwandeln. Kompatibel mit Type-2-Eingängen und Schuko-/CEE-Ausgängen sowie V2L-fähigen Fahrzeugen wie Hyundai, Kia, MG, BYD, Ssangyong und Skywell – für Camping-, Werkstatt- und Notfallszenarien.",
-      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075755/products/jjaugl6l5h7o20jastmg.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075755/products/jjaugl6l5h7o20jastmg.png",
+      "geoAnswer": {
+        "q": "Was ist der Unterschied zwischen einem V2L- und einem C2L-Adapter?",
+        "a": "Der Unterschied liegt in der Energiequelle. Ein V2L-Adapter entnimmt den Strom der Fahrzeugbatterie und wandelt ihn in eine normale Steckdose um; dafür muss das Auto V2L unterstützen, und das fahrzeugseitige Ende ändert sich je nach Marke. Ein C2L-Adapter entnimmt den Strom dagegen dem Type 2-Ausgang eines AC-Ladegeräts, sodass das Auto kein V2L unterstützen muss und keine Reichweite verloren geht. Der Ausgang der Bemis-Adapter ist eine Schuko-Steckdose mit maximal 16A."
+      }
     },
     "converters": {
       "name": "Adapter & Verlängerungskabel",
@@ -285,7 +301,11 @@
         }
       ],
       "description": "Verlängerungskabel und CEE-Norm-Konverter, die vorhandene Ladeausrüstung zu verschiedenen Steckdosentypen und Distanzen führen. Kombinationslösungen, konzipiert für ein- und dreiphasige Übergänge von 16A – 32A.",
-      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075761/products/f0fshjhhljmvpkcrxxzu.png"
+      "sliderImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075761/products/f0fshjhhljmvpkcrxxzu.png",
+      "geoAnswer": {
+        "q": "Womit verlängert man eine Ladeversorgung oder wandelt den Steckertyp um?",
+        "a": "Dafür gibt es zwei Produktfamilien. Umwandleradapter verbinden unterschiedliche CEE-Stecker- und Steckdosentypen miteinander (zum Beispiel einen 1/16A-Stecker mit einer 5/32A-Steckdose) und werden mit 30 cm Kabel geliefert. Mobile Verlängerungskabel verlegen den Versorgungspunkt dagegen 5 oder 10 Meter weiter. Der Querschnitt richtet sich nach dem Strom: 2,5 mm² für 16A und 6 mm² für 32A. Die Schutzart ist IP44, bei einem Modell IP68."
+      }
     },
     "charger-equipment": {
       "name": "AC- & DC-Ladeeinheiten-Ausrüstung",
@@ -294,7 +314,7 @@
       "badge": null,
       "comingSoon": false,
       "image": "/categories/1774998252477-110001360852184.jpg",
-      "description": "Bemis-DC-Ladekabel aus vollständig eigener Fertigung, speziell für Hochleistungs-DC-Ladeeinheiten hergestellt, ermöglichen dank ihrer modularen Gehäusestruktur einen einfachen Austausch im Falle eines Bruchs.\nPaneelsteckdose mit Verriegelungsmechanismus, die an Ladeeinheiten verwendet wird. Mit ihrem speziellen Branding und einzigartigen Design ist sie perfekt für Ihre Einheit. Der DC-Steckdosenhalter, der dafür hergestellt wird, die in DC-Ladeeinheiten verwendeten DC-Kabel im Leerlauf aufzuhängen, überzeugt mit seinem Kugel- und eingelassenen Design als ideale Option. Dank seiner Kugelstruktur wird das Bruchproblem beseitigt. Mit seiner in das Gehäuse eingelassenen Struktur ist er vollständig kompatibel mit Ihrem Einheitendesign.",
+      "description": "Zur Ladeeinheiten-Ausrüstung gehören die Teile, die in ein Ladegerät oder an seinen Aufstellort kommen: Type 2-Einbausteckdosen, Ladesteckdosen mit einseitig offenem Kabel, Kombinationen mit Automaten und CCS2-Ladedosen für DC-Einheiten. Bemis-DC-Ladekabel aus vollständig eigener Fertigung, speziell für Hochleistungs-DC-Ladeeinheiten hergestellt, ermöglichen dank ihrer modularen Gehäusestruktur einen einfachen Austausch im Falle eines Bruchs.\nPaneelsteckdose mit Verriegelungsmechanismus, die an Ladeeinheiten verwendet wird. Mit ihrem speziellen Branding und einzigartigen Design ist sie perfekt für Ihre Einheit. Der DC-Steckdosenhalter, der dafür hergestellt wird, die in DC-Ladeeinheiten verwendeten DC-Kabel im Leerlauf aufzuhängen, überzeugt mit seinem Kugel- und eingelassenen Design als ideale Option. Dank seiner Kugelstruktur wird das Bruchproblem beseitigt. Mit seiner in das Gehäuse eingelassenen Struktur ist er vollständig kompatibel mit Ihrem Einheitendesign.",
       "faq": [
         {
           "q": "Was gehört zur Kategorie Komponenten für Ladestationen?",
@@ -317,7 +337,11 @@
           "a": "Ja. Kabel und Steckdosen unserer Bemis Ladegeräte sind modular aufgebaut; bei Verschleiß oder Beschädigung tauscht unser autorisierter Service sie schnell aus. Für Spezialteile wie flüssigkeitsgekühlte CCS2-Kabel führen wir eine Lagerhaltung."
         }
       ],
-      "descriptionImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075765/products/xl61vku2recrvjsag3x8.jpg"
+      "descriptionImage": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075765/products/xl61vku2recrvjsag3x8.jpg",
+      "geoAnswer": {
+        "q": "Was gehört zur Ladeeinheiten-Ausrüstung?",
+        "a": "Diese Gruppe umfasst die Teile, die in eine Ladeeinheit oder an ihren Aufstellort kommen: Type 2-Einbausteckdosen (IEC 62196-2), Ladesteckdosen mit einseitig offenem Kabel, Kombinationen mit Automaten in IP44 und IP66 sowie CCS2-Ladedosen für DC-Einheiten (IEC 62196-3). Auf der AC-Seite stehen 16A und 32A zur Verfügung, auf der DC-Seite 80A bis 400A. Das Programm richtet sich an Unternehmen, die Ladegeräte bauen und Ladestandorte errichten."
+      }
     },
     "accessories": {
       "name": "Zubehör",
@@ -348,7 +372,11 @@
           "a": "Eine verlorene Karte kann über das Admin-Panel oder durch Meldung an unser Vertriebsteam deaktiviert werden. Die Zuordnung einer neuen Karte dauert 5 Minuten. Das Risiko einer unbefugten Nutzung mit der verlorenen Karte ist vernachlässigbar, da jede Karte an das Registrierungssystem des Geräts gebunden ist."
         }
       ],
-      "description": "RFID-Karten, Tragetaschen und Montagezubehör – Nebenprodukte, die den betrieblichen und sicherheitstechnischen Bedarf eines Ladestandorts ergänzen."
+      "description": "RFID-Karten, Tragetaschen und Montagezubehör – Nebenprodukte, die den betrieblichen und sicherheitstechnischen Bedarf eines Ladestandorts ergänzen.",
+      "geoAnswer": {
+        "q": "Welches Zubehör wird bei einer Ladeinstallation eingesetzt?",
+        "a": "Zubehör ergänzt nicht das Gerät selbst, sondern seine Nutzung und Sicherheit. Die Bemis-Zubehörfamilie umfasst Tragetaschen für Ladekabel und Adapter, AC- und DC-Steckdosenhalter, eine Wandhalterung für mobile Ladegeräte sowie einen Pedestal-Montagemast für Orte, an denen eine Wandmontage nicht möglich ist. Ein Steckdosenhalter hält den unbenutzten Stecker vom Boden fern und verringert Verschmutzung und mechanische Schäden."
+      }
     },
     "dc-units": {
       "name": "DC-Ladeeinheiten",
@@ -379,7 +407,11 @@
           "a": "Eine Lizenz oder Zulassung der Energieregulierungsbehörde nach der Ladeservice-Verordnung, ein OCPP-fähiges Gerät, die Anbindung an das behördliche Ladepunktsystem (EPVIS) sowie eine Abrechnungs- und Zahlungsinfrastruktur (Bemis CPO-Software oder Drittanbieter). Die Investition liegt in der Türkei zwischen 1 und 3 Millionen TL; unser B2B-Team unterstützt bei der Erstellung des Fahrplans."
         }
       ],
-      "description": "DC-Schnellladegeräte der BEVDC-Serie – Modelle mit einem oder zwei CCS2-Ausgängen von 40 kW bis 200 kW. Geeignet für den kommerziellen Feldeinsatz mit Unterstützung für OCPP 1.6J/ 2.0.1, RFID-Authentifizierung, IP54-Schutz und weitem Temperaturbereich (-25°C / +55°C)."
+      "description": "DC-Schnellladegeräte der BEVDC-Serie – Modelle mit einem oder zwei CCS2-Ausgängen von 40 kW bis 200 kW. Geeignet für den kommerziellen Feldeinsatz mit Unterstützung für OCPP 1.6J/ 2.0.1, RFID-Authentifizierung, IP54-Schutz und weitem Temperaturbereich (-25°C / +55°C).",
+      "geoAnswer": {
+        "q": "Was ist eine DC-Schnellladestation und worin unterscheidet sie sich vom AC-Laden?",
+        "a": "Beim DC-Schnellladen erfolgt die AC-DC-Wandlung nicht im Fahrzeug, sondern in der Station; dadurch greift die Grenze des fahrzeugeigenen Wandlers nicht und der Ladevorgang ist deutlich schneller abgeschlossen. Die Bemis BEVDC-Reihe umfasst Modelle mit 40, 80, 120, 160, 180 und 200 kW, hat CCS2-Ausgänge und wird mit einer oder zwei Ladedosen gebaut. Der Eingang ist AC 380-480V dreiphasig, der Ausgang 150-1000V DC, die Schutzart IP54."
+      }
     }
   },
   "featured": [

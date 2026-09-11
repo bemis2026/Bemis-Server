@@ -12,6 +12,11 @@ export type FaqItem = { q: string; a: string };
 export type CategoryMeta = {
   name: string; subtitle: string; modelCount: number; badge: string | null; comingSoon: boolean; image?: string; sliderImage?: string;
   description?: string;
+  // ⚠️ GEO alıntılanabilir cevap bloğu — kategori sayfasının ilk içerik bloğu
+  // (hero'dan sonra, ürün ızgarasından önce). Soru bir <h2>, cevap tam cümle;
+  // yapay zekâ motorlarının alıntı olarak kaldırabildiği desen. Aynı soru-cevap
+  // FAQPage şemasının İLK maddesi olarak da basılır. 7 dil (içerik katmanı).
+  geoAnswer?: { q: string; a: string };
   // Optional category-hero background image. Rendered full-bleed behind
   // the title + `description` on the category page so it greets the
   // visitor on entry. Wide aspect (16:9) and ≥1600px read best.

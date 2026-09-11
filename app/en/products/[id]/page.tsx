@@ -77,6 +77,8 @@ export default async function EnProductCategoryPage({ params }: { params: Promis
   // prop olarak geçiriyoruz. (Menü/footer etiketleri hâlâ TR SSR — kök layout
   // rotayı bilmediği için bilinen mimari sınır, tüm diller için geçerli.)
   let enAciklama: string | undefined;
+  // GEO cevap blogu — /en SSR'da Ingilizce basilsin diye sunucudan gecirilir.
+  let enGeo: { q: string; a: string } | null = null;
   let enFaq: { q: string; a: string }[] | undefined;
   // "Projeye Özel Üretim" kartı da içerik katmanından, İngilizce olarak geçilir —
   // yoksa ilk HTML'de (kök layout TR hidratlar) Türkçe basılır.
@@ -89,6 +91,8 @@ export default async function EnProductCategoryPage({ params }: { params: Promis
     const cm = enContent?.categories?.[id];
     enAciklama = cm?.description?.trim() || undefined;
     enFaq = Array.isArray(cm?.faq) && cm.faq.length > 0 ? cm.faq : undefined;
+    const g = (cm as { geoAnswer?: { q: string; a: string } } | undefined)?.geoAnswer;
+    if (g?.q?.trim() && g?.a?.trim()) enGeo = { q: g.q, a: g.a };
     const ps = enContent?.projectSection;
     if (ps) enProjeKarti = { eyebrow: ps.eyebrow, title: ps.title, description: ps.description, ctaPrimaryLabel: ps.ctaPrimaryLabel, ctaSecondaryLabel: ps.ctaSecondaryLabel };
   } catch {}
@@ -114,7 +118,10 @@ export default async function EnProductCategoryPage({ params }: { params: Promis
     // TR kategori sayfasıyla parite: SSS varsa FAQPage şeması da basılır.
     // (Google kuralı: şemadaki soru-cevap sayfada GÖRÜNÜR olmalı — enFaq aynı
     // anda hem şemaya hem gövdeye gidiyor.)
-    ...(enFaq && enFaq.length > 0 ? [faqSchema(enFaq)] : []),
+    // ⚠️ GEO cevabi FAQPage'in ILK maddesi (sayfada da ilk icerik blogu).
+    ...(((enGeo ? [enGeo] : []).concat(enFaq ?? [])).length > 0
+      ? [faqSchema((enGeo ? [enGeo] : []).concat(enFaq ?? []))]
+      : []),
   ];
   return (
     <>
@@ -127,6 +134,7 @@ export default async function EnProductCategoryPage({ params }: { params: Promis
         titleOverride={m.name}
         descriptionOverride={enAciklama}
         faqOverride={enFaq}
+        geoAnswerOverride={enGeo}
         projectSectionOverride={enProjeKarti}
       />
     </>
