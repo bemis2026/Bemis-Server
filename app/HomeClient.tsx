@@ -7,6 +7,7 @@ import Hero from "./components/Hero";
 import { useEditMode } from "./context/EditModeContext";
 import { useContent } from "./context/ContentContext";
 import Footer from "./components/Footer";
+import DealerDirectory, { type DizinVeri } from "./components/DealerDirectory";
 import SectionWrapper from "./components/SectionWrapper";
 
 const EditBar = dynamic(() => import("./components/EditBar"), { ssr: false });
@@ -41,7 +42,7 @@ const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   b2bcta: B2BCta,
 };
 
-export default function Home() {
+export default function Home({ dealerDirectory }: { dealerDirectory?: DizinVeri }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const { isEditMode } = useEditMode();
   const { sectionOrder } = useContent();
@@ -86,6 +87,12 @@ export default function Home() {
           </SectionWrapper>
         );
       })}
+
+      {/* ⚠️ TARANABİLİR bayi dizini — sunucudan gelen veriyle ilk HTML'e basılır.
+          Etkileşimli DealerNetwork bölümü veriyi useEffect ile çekip kartları
+          yalnız bölge seçilince bastığı için bayi bağlantıları Googlebot'a HİÇ
+          görünmüyordu (ölçüldü). Bu liste o boşluğu kapatır; GİZLİ DEĞİLDİR. */}
+      {dealerDirectory && <DealerDirectory data={dealerDirectory} />}
 
       <Footer />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
