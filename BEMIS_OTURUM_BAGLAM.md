@@ -13,6 +13,58 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 📐🖼️ **KATEGORİ SAYFASI: GEO CEVAP BLOĞU ÜRÜNLERİN ALTINA ALINDI + GÖRSEL ÜRETİM LİSTESİ
+> (2026-09-12, commit ad4d633):** Kullanıcı *"ürün kategorilerinde heronun altında ek bir açıklama
+> alanı gelmiş, onu alta al, ürünlerin altında yazsın. genel tüm ürün kategorilerinde böyle yap.
+> ayrıca görsel gereken alanlar için de liste hazırla"* dedi.
+>
+> **Taşınan blok = GEO alıntılanabilir cevap kartı** (2026-09-11'de eklenmişti; soru `<h2>`, cevap
+> altında tam cümle). **Yeni sıra:** hero → **ürün ızgarası** → GEO cevabı → proje kartı → model
+> karşılaştırma (wallbox) → SSS → ilgili rehberler.
+> ⚠️ **BLOK SİLİNMEDİ, TAŞINDI.** Korunanlar: **DAİMA DOM'da** (akordeon/sekme ardına konmadı →
+> taranabilir) · `<h2>` + tam cümle · **FAQPage şemasının İLK maddesiyle eşleşmesi** (sunucu
+> sayfasında, dokunulmadı) · `geoAnswerOverride` propu (dil kollarında SSR'da doğru dil) ·
+> `borderInlineStart` (RTL'de doğru taraf). Koddaki konum yorumu gerekçesiyle güncellendi.
+> ⚠️ **DÜRÜST TAKAS (kullanıcıya söylendi):** blok artık sayfanın ilk içerik bloğu değil; AI alıntı
+> çıkarımında konumun bir miktar önemi var. İçerik DOM'da ve şemada aynen durduğu için kayıp sınırlı.
+> 📌 Tek dosya (`ProductCategoryClient.tsx`) 8 kategoride ortak → "tüm kategorilerde" kapsamı sağlandı.
+>
+> **✅ CANLI DOĞRULANDI — 8 kategori × 5 kontrol = 40/40:** her kategoride ürün kartı bağlantısının
+> HTML indeksi GEO sorusundan ÖNCE; blok HTML'de duruyor. DOM ölçümü (`/products/portable`):
+> H1 **142** → ilk ürün kartı **524** → GEO `<h2>` **2001** → SSS **3821**. Kartın kendisi de sağlam:
+> 1206×159 px, görünür, 3px accent `borderInlineStart`, **önceki kardeşi ürün ızgarası**.
+>
+> **⚠️ İKİ ÖLÇÜM DERSİ (ikisi de bu turda yaşandı):**
+> **(a) `tsc` YANLIŞ ALARM VERDİ — üretilmiş dosya.** Dev sunucusunu çalıştırıp durdurunca
+> `.next/types/validator.ts` yarım kaldı ve `tsc` **exit 2** döndü (`Type 'Route' does not satisfy
+> the constraint '"/"'`). **Kaynak temizdi:** `rm -rf .next/types` sonrası exit 0. 📌 Kayıtlı tuzağın
+> aynısı — **tsc/build hatası kodda görünmüyorsa önce `.next` altındaki ÜRETİLMİŞ dosyalardan şüphelen.**
+> **(b) Yerel dev sunucusu kategori rotasında 404/zaman aşımı** (anasayfa 200). Yerelde `.env.local`'de
+> **R2 değişkeni 0** → katalog yedekten geliyor; `dynamicParams=false` + `generateStaticParams` ile
+> kategori rotaları yerelde güvenilmez. 📌 **Kategori/ürün rotası doğrulaması CANLIDA yapılır.**
+> ⚠️ Tarayıcı paneli bu sayfada **ekran görüntüsünü boyamıyor** (boş koyu kare) — DOM ölçümü
+> (`getBoundingClientRect` + `checkVisibility` + kardeş düğüm) kullanıldı, kayıtlı sınırın aynısı.
+>
+> **🖼️ GÖRSEL ÜRETİM LİSTESİ → `Desktop\Bemis_Gorsel_Uretim_Listesi.md`** (canlı API'ler tarandı):
+> **🔴 1. Blog kapakları — 42 yazının 42'sinde `cover` BOŞ.** Alan `openGraph.images`, `twitter.images`
+> ve `articleSchema.image`'i besliyor → şu an hepsi **aynı otomatik markalı karta** düşüyor. 1200×630.
+> İlk turda **10 yazı** yeter (öncelik listesi belgede). Google Discover için en büyük kaldıraç.
+> **🔴 2. Uygulama + web paneli ekran görüntüsü (2 adet)** — şu an **CSS ile çizilmiş taklit arayüz**
+> (`AppMockups.tsx`). Ücretsiz yönetim paneli ayrıştırıcı özellik olarak konumlandırıldığı hâlde
+> gerçek ekran yok. ⚠️ Demo hesabı: gerçek müşteri adı/daire/plaka görünmesin.
+> **🟡 3. Aynı fotoğrafı paylaşan ürünler — 28 grubun 14'ü farklı adlı.** Ayrıştırılması GEREKENLER:
+> **V2L Hyundai/MG/BYD + C2L (4 ürün 1 foto — araç tarafı ucu FARKLI, en öncelikli)** · Cee Norm
+> adaptör çiftleri (kablolu ↔ kablosuz) · Pano Prizi ↔ Kilit Motorsuz. **MEŞRU olanlar (görsel
+> gerekmez): BEVDC 120/160/180/200 aynı kabin** · aynı ürünün 5/8/10 m varyantları.
+> **🟡 4. Sosyal paylaşım kapağı (4)** — şu an gönderinin kendi Instagram kapağı vekilden geliyor.
+> **⚪ Gerekmeyenler:** ürün görselsiz **0/150** ✅ · döküman kapağı **13/13** ✅ · referans proje
+> **10/10** ✅ · bölüm arka planları (11) opsiyonel.
+> **⚠️ KENDİ YANLIŞ ALARMIMI DÜZELTTİM:** ilk taramam *"7 kategoride hero arka planı eksik"* dedi;
+> hero `categories[id].image || descriptionImage` okuyor ve **8 kategoride de `image` DOLU** →
+> `descriptionImage` yalnız opsiyonel override. Kullanıcıyı 7 gereksiz görsel üretmeye yollayacaktım.
+> 📌 "Alan boş" demeden önce o alanı KİMİN, hangi yedekle okuduğunu doğrula.
+
+
 > ⭐✅ **KULLANICIDA BEKLEYEN 6 MADDE ÇOKTAN SEÇMELİ SORULDU — 2'Sİ KAPANDI, 4'Ü METNE DÖNDÜ
 > (2026-09-12, commit 20bfbbb):** Kullanıcı *"bende bekleyenleri sırayla seçmeli sor"* dedi.
 >
