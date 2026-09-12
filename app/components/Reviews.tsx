@@ -182,12 +182,22 @@ export default function Reviews() {
               <h3 className="text-base font-black" style={{ color: textPrimary }}>
                 {pickText(lang, "Müşteri Yorumları", "Customer Reviews")}
               </h3>
-              {/* Kompakt puan rozeti */}
-              <div className="inline-flex items-center gap-1.5">
-                <HiStar className="text-[#F59E0B] text-sm" />
-                <span className="text-sm font-black tabular-nums" style={{ color: textPrimary }}>{reviews.rating}</span>
-                <span className="text-sm" style={{ color: textMuted }}>· {reviews.ratingCount}</span>
-              </div>
+              {/* Kompakt pazaryeri puan rozeti.
+                  ⚠️ Değer BOŞSA rozet HİÇ render edilmez — Google rozetiyle aynı kapı.
+                     Eskiden koşulsuz basıyordu: puan boş kalırsa (operatör alanı
+                     temizlerse ya da içerik katmanı okunamazsa) ekranda yalnız
+                     "★ ·" çıkıyordu. Ayrıca `defaultContent.reviews` artık BOŞ
+                     (2026-09-12'de 6 uydurma yorum + "4.9/500+" kaldırıldı) →
+                     bu kapı olmadan yedek devreye girdiğinde boş rozet görünürdü. */}
+              {(reviews.rating ?? "").trim() && (
+                <div className="inline-flex items-center gap-1.5">
+                  <HiStar className="text-[#F59E0B] text-sm" />
+                  <span className="text-sm font-black tabular-nums" style={{ color: textPrimary }}>{reviews.rating}</span>
+                  {(reviews.ratingCount ?? "").trim() && (
+                    <span className="text-sm" style={{ color: textMuted }}>· {reviews.ratingCount}</span>
+                  )}
+                </div>
+              )}
             </div>
 
             {/* Google işletme puanı — AYRI rozet.

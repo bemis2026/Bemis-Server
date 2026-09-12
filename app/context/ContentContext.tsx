@@ -731,15 +731,19 @@ const defaultContent: SiteContent = {
     // ⚠️ Google puani BILEREK BOS: gercek deger GBP kartindan okunup admin/veri
     //    katmanindan girilir. Uydurma puan yazilmaz; bos oldugunda rozet cikmaz.
     google: { rating: "", count: "", url: "" },
-    rating: "4.9",
-    ratingCount: "500+",
+    // ⚠️⚠️ PAZARYERI PUANI + YORUMLAR BILEREK BOS (2026-09-12).
+    //    Burada eskiden "4.9 / 500+" ve 6 UYDURMA yorum (Mehmet K. / Ayse T. /
+    //    Serkan D. / Emre Y. / Ozlem B. / Can M.) duruyordu. Gercek veri
+    //    (5.0 / 59 + 3 DOGRULANMIS Trendyol-HepsiBurada yorumu) R2 `content`
+    //    bin'inde ve repo `data/content.json` yedeginde.
+    //    🔴 RISK KAPANDI: icerik katmaninin IKISI de okunamazsa bu varsayilan
+    //    devreye girer; dolu birakildigi surece o build'de sitede UYDURMA
+    //    musteri yorumu ve uydurma puan yayinlanirdi. Bos oldugunda ise
+    //    `Reviews.tsx` rozeti ve kartlari HIC render etmez (ikisi de kapili).
+    //    📌 Buraya ornek/doldurma verisi YAZMA — ayni riski geri acar.
+    rating: "",
+    ratingCount: "",
     items: [
-      { platform: "Trendyol",    platformColor: "#F27A1A", rating: 5, author: "Mehmet K.", date: "Mart 2025",    product: "AC Wallbox 7kW",            text: "3 aydır kullanıyorum, montajı çok kolay oldu. Günlük kullanımda sıfır sorun. Türk malı kalitesini hissediyorsunuz, yapım kalitesi çok iyi. Kesinlikle tavsiye ederim." },
-      { platform: "HepsiBurada", platformColor: "#FF6000", rating: 5, author: "Ayşe T.",   date: "Şubat 2025",  product: "Type 2 AC Şarj Kablosu 7m", text: "Kablo kalitesi gerçekten mükemmel. Type 2 konnektör araçla mükemmel uyum sağladı, fişleme ve çıkarma çok akıcı. 7 metrelik uzunluk garaj kullanımında ideal." },
-      { platform: "Trendyol",    platformColor: "#F27A1A", rating: 5, author: "Serkan D.", date: "Ocak 2025",   product: "Taşınabilir Şarj Cihazı",   text: "Tatil seyahatlerinde büyük kolaylık. Standart prize takıp şarj başlıyor. Seyahatte yanımdan hiç ayırmıyorum, acil durumlarda da kullanıyorum. Çok pratik!" },
-      { platform: "HepsiBurada", platformColor: "#FF6000", rating: 5, author: "Emre Y.",   date: "Ocak 2025",   product: "AC Wallbox 22kW",            text: "İş yerimizin açık otoparkında kullanıyoruz. IP65 koruma yağmurda bile mükemmel çalışıyor. Bir kış geçirdik hiçbir sorun yaşamadık. Yerli üretim güven veriyor." },
-      { platform: "Trendyol",    platformColor: "#F27A1A", rating: 5, author: "Özlem B.",  date: "Aralık 2024", product: "V2L Adaptör",                text: "Kamp seyahatinde araçtan güç almak müthiş. Adaptör kaliteli ve güvenli çalışıyor. Laptop, ışıklar, hatta küçük ısıtıcıyı çalıştırabildim. Çok markalı uyumluluk harika." },
-      { platform: "HepsiBurada", platformColor: "#FF6000", rating: 5, author: "Can M.",    date: "Kasım 2024",  product: "DC Hızlı Şarj Kablosu",     text: "CCS bağlantısı mükemmel çalışıyor. Kablo esnek, kıvırma ve açmada zorlanmıyor. Bağlantı kalitesi üstün, yüksek akımda da ısınma yok. Piyasadaki en iyi seçenek." },
     ],
   },
   contactSection: {
