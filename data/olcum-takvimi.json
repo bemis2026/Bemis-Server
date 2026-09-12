@@ -87,7 +87,7 @@
       "is": "Arayüz çeviri bekçisi + socialWallSection çeviri yolu (2026-09-12)",
       "olcum": "npm run check:i18n temiz mi? Ve operatör admin'den sosyal bölüm başlığı girdiyse 5 dilde çevrildi mi?",
       "hedef": "Bekçi 0 sorun; socialWallSection.heading admin'de doluysa /api/content?lang=de o alanı ALMANCA döndürüyor (Türkçe DEĞİL)",
-      "nasil": "npm run check:i18n · ardından /api/content?lang=de|ar içinde socialWallSection.heading alanını oku (alan boşsa kodun t(tr,en) yedeği devrede = sorun yok, not düş)",
+      "nasil": "npm run check:i18n · ardından /api/content?lang=de|ar içinde socialWallSection.heading alanını oku (alan boşsa kodun t(tr,en) yedeği devrede = sorun yok, not düş) ⚠️ 2026-09-12: bekçinin 4. sınıfı ters mantığa çevrildi (dil tahmini yerine muafiyet listesi).",
       "durum": "bekliyor"
     },
     {
@@ -106,6 +106,14 @@
       "hedef": "Rozet anasayfa Yorumlar bölümünde ve /iletisim'de görünür; sayı GBP ile aynı; 'değerlendirme' soneki her dilde kendi dilinde",
       "nasil": "Anasayfa + /iletisim'i de/ar dillerinde aç; GBP panelinden güncel puan/sayıyı oku. ⚠️ Değer değişince content.reviews.google TR tabanına yazılır (overlay'e DEĞİL) + store cache bump.",
       "durum": "bekliyor"
+    },
+    {
+      "tarih": "2026-10-10",
+      "is": "check:i18n bekçisi ters mantığa çevrildi — 28 gerekçesiz öznitelik literali bağlandı (2026-09-12)",
+      "olcum": "Bekçi hâlâ temiz mi + yeni eklenen arayüz dizeleri muafiyetsiz literal bırakmış mı",
+      "hedef": "npm run check:i18n = temiz; muafiyet listeleri büyüdüyse her yeni satırda GEREKÇE yazılı",
+      "nasil": "npm run check:i18n + python scratchpad/_bekci_testi2.py (öz-test 6/6 beklenir). ⚠️ Bekçi 'temiz' derse öz-testi de çalıştır — eski sürüm de temiz diyordu ama 71 literalin 12'sini görüp 28 kusuru kaçırıyordu.",
+      "durum": "acik"
     }
   ]
 }

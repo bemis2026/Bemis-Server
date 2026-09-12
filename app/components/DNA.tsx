@@ -275,7 +275,7 @@ export default function DNA() {
                 <button
                   type="button"
                   onClick={toggleSound}
-                  aria-label={soundOn ? "Video sesini kapat" : "Video sesini aç"}
+                  aria-label={soundOn ? pickText(lang, "Video sesini kapat", "Mute video") : pickText(lang, "Video sesini aç", "Unmute video")}
                   aria-pressed={soundOn}
                   className="absolute bottom-3 right-3 flex items-center justify-center rounded-full transition-colors"
                   style={{

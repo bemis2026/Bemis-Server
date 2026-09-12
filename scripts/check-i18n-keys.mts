@@ -51,6 +51,7 @@ const DOSYA_MUAF = new Map<string, string>([
   ["export/ExportLandingClient.tsx", "sayfanın tamamı İngilizce (ENGLISH_ONLY_PATHS)"],
   ["components/PropertiesPanel.tsx", "admin düzenleme paneli — ziyaretçiye render edilmez"],
   ["components/Technology.tsx", "ölü bileşen — SECTION_COMPONENTS'te yok, sıfır import"],
+  ["components/CityLandingClient.tsx", "TR-only şehir sayfaları (hreflang alternatifi yok)"],
   ["destek/DestekClient.tsx", "TR-only içerik sayfası (gövde Türkçe)"],
   ["uretici/UreticiClient.tsx", "TR-only içerik sayfası (gövde Türkçe)"],
   ["iletisim/ContactPageClient.tsx", "TR-only içerik sayfası (gövde Türkçe)"],
@@ -122,6 +123,16 @@ const SABLON = [
 ];
 const OZNITELIK = /(aria-label|aria-description|alt|title|placeholder)\s*=\s*"([^"]*)"/g;
 
+// (4d) İFADEYE SAKLANMIŞ LİTERAL — `attr={cond ? "..." : "..."}` biçimi.
+//      Literal bir JSX ifadesinin içine girdiği anda yukarıdaki desen onu
+//      GÖREMEZ; Almanca sayfada kalan son iki Türkçe öznitelik böyleydi.
+const OZNITELIK_IFADE = /(aria-label|aria-description|alt|title|placeholder)=\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}/g;
+// ⚠️ Takma adlı çağrılar da çeviridir: `tt(` ve `L(` kullanılıyor. `\bt\(`
+//    "tt(" ile EŞLEŞMEZ (ikinci t'den önce sözcük sınırı yok) → [tTL]{1,2}.
+const CEVIRI_CAGRISI = /pickText|fillText|byLang|useUiStrings|\b[tTL]{1,2}\(/;
+// URL/protokol parçaları metin değildir (ör. `.replace("https://www.", "")`).
+const URL_PARCASI = /^(https?:|\/\/|#|mailto:|tel:)/i;
+
 type Bulgu = { en: string; tr: string; dosya: string; satir: number; ek?: string };
 const eksik: Bulgu[] = [];
 const yarim: Bulgu[] = [];
@@ -170,6 +181,18 @@ for (const f of dosyalar) {
         if (MARKA_METIN.has(t)) continue;
         if (OZNITELIK_MUAF.has(`${kisa}|${t}`)) continue;
         sabit.push({ en: m[1], tr: t, dosya: f, satir: satirNo(s, m.index!) });
+      }
+      // (4d) ifadeye saklanmış literal
+      for (const m of s.matchAll(OZNITELIK_IFADE)) {
+        if (CEVIRI_CAGRISI.test(m[2])) continue;
+        for (const lm of m[2].matchAll(/"([^"]{2,})"/g)) {
+          const t = lm[1].trim();
+          if (!/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(t)) continue;
+          if (URL_PARCASI.test(t)) continue;
+          if (MARKA_METIN.has(t)) continue;
+          if (OZNITELIK_MUAF.has(`${kisa}|${t}`)) continue;
+          sabit.push({ en: `${m[1]}{…}`, tr: t, dosya: f, satir: satirNo(s, m.index!) });
+        }
       }
     }
   }

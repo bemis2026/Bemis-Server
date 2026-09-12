@@ -79,6 +79,25 @@
 > eklenmedi. 📌 İstenirse ayrı tur.
 > **ⓘ `app/components/Technology.tsx` ÖLÜ**: `SECTION_COMPONENTS`'te yok, **sıfır import** (bu turda
 > yeniden doğrulandı). Şimdilik muafiyetle geçildi; silme kullanıcı kararı.
+> **🔴 CANLI DOĞRULAMA SON KÖR NOKTAYI BULDU — (4d) İFADEYE SAKLANMIŞ LİTERAL:** ters çevirme
+> sonrası Almanca anasayfada HÂLÂ 2 Türkçe öznitelik kaldı:
+> `aria-label={soundOn ? "Video sesini kapat" : "Video sesini aç"}` (DNA fabrika videosu) ve
+> `alt={item.title?.trim() ? item.title : "… referans projesi"}` (referans projeler yedek alt'ı, 20 kart).
+> Sebep: tarama yalnız **`attr="..."`** biçimini görüyordu; literal bir **JSX İFADESİNİN** içine
+> girdiği anda görünmez oluyordu. Bekçiye **`attr={...}`** taraması eklendi: ifade bir çeviri çağrısı
+> (pickText/fillText/`t(`/`tt(`/`L(`/byLang) İÇERMİYORSA ve içinde harf taşıyan dize varsa → bulgu.
+> ⚠️ **Takma ad tuzağı:** `\bt\(` deseni **`tt(` ile EŞLEŞMEZ** (ikinci t'den önce sözcük sınırı yok)
+> → `[tTL]{1,2}\(` kullanıldı; yoksa SearchOverlay'in zaten çevrili 2 dizesi yanlış alarm verirdi.
+> URL parçaları (`"https://www."` → `.replace()` argümanı) elendi. Ölçüm: 8 aday → **3 gerçek kusur**
+> (DNA · ReferenceProjects · /bayilik etkinlik alt'ı) düzeltildi, kalan 5'i yanlış alarm/muafiyet.
+> 📌 **İKİZ DERSİ YİNE ÇIKTI:** `/kurumsal`'daki AYNI ses düğmesi ZATEN `t(tr,en)` ile çevriliydi —
+> DNA ikizi atlanmıştı (InternationalGlobe ↔ InternationalMap2D kusurunun aynısı).
+> **✅ ÖZ-TEST 8/8** (ifadeye saklanmış TR literal YAKALANIR · ifadedeki çeviri çağrısı yanlış alarm VERMEZ).
+> **✅ CANLI (Almanca):** vitrin okları "Vorheriges/Nächstes Produkt im Schaufenster" · nokta tuşları
+> **"Bild 1/2"** (fillText) · öne çıkanlar "Vorherige/Nächste Produkte" · rozet "Hergestellt in Türkiye" ·
+> **ışık kutusu** "Schließen/Zurück/Weiter" + görünür metin **"Zum Vergrößern auf das Bild tippen"**.
+> ⓘ Kalan Türkçe öznitelikler CMS/gerçek içerik: 3 Instagram gönderi metni (bilerek) + dil seçicide
+> "Türkçe" (kendi dilinde, doğru).
 > **ARAÇLAR:** `scratchpad/_aria_bagla2.mts` (32 çapa, fail-fast) · `_bekci_ters.py` (bekçi dönüşümü) ·
 > `_bekci_testi2.py` (öz-test) · `_ui_yeni.json` + `_ui_ekle.mts`. R2'ye YAZILMADI → **cache bump YOK**.
 

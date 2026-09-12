@@ -53,6 +53,7 @@ import { serviceSchema, faqSchema } from "../lib/seo";
 import { useTheme } from "../context/ThemeContext";
 import { accentInk } from "../lib/accentInk";
 import { useLanguage } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
 import { useDealerApplyOverlay } from "../context/DealerApplyOverlayContext";
 import {
   RiCheckLine, RiBuilding4Line, RiGlobalLine, RiArrowRightLine,
@@ -312,7 +313,7 @@ export default function BayilikPage() {
                     /* eslint-disable-next-line @next/next/no-img-element */
                     <img
                       src={ev.image}
-                      alt={ev.title ?? "Bemis etkinlik"}
+                      alt={ev.title ?? pickText(lang, "Bemis etkinlik", "Bemis event")}
                       className="w-full object-cover"
                       style={{ height: "clamp(180px, 22vw, 230px)" }}
                       loading="lazy"

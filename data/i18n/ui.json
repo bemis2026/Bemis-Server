@@ -3722,5 +3722,19 @@
   "ar": "انقر على الصورة للتكبير",
   "ru": "Нажмите на изображение, чтобы увеличить",
   "nl": "Tik op de afbeelding om in te zoomen"
+ },
+ "Bemis E-V Charge EV charging station reference project": {
+  "de": "Bemis E-V Charge Ladestation-Referenzprojekt",
+  "es": "Proyecto de referencia de estación de carga Bemis E-V Charge",
+  "ar": "مشروع مرجعي لمحطة شحن Bemis E-V Charge",
+  "ru": "Референсный проект зарядной станции Bemis E-V Charge",
+  "nl": "Bemis E-V Charge laadstation referentieproject"
+ },
+ "Bemis event": {
+  "de": "Bemis Veranstaltung",
+  "es": "Evento de Bemis",
+  "ar": "فعالية Bemis",
+  "ru": "Мероприятие Bemis",
+  "nl": "Bemis evenement"
  }
 }

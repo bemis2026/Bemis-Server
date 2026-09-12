@@ -148,7 +148,7 @@ export default function ReferenceProjects() {
                       kullanıcı tarafından admin'den ayarlanıyor — DEĞİŞTİRME. */}
                   <Image
                     src={item.image}
-                    alt={item.title?.trim() ? item.title : "Bemis E-V Charge elektrikli araç şarj istasyonu referans projesi"}
+                    alt={item.title?.trim() ? item.title : pickText(lang, "Bemis E-V Charge elektrikli araç şarj istasyonu referans projesi", "Bemis E-V Charge EV charging station reference project")}
                     width={760}
                     height={520}
                     quality={88}
