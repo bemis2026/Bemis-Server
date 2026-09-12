@@ -89,7 +89,7 @@ export default function ReferenceProjects() {
           <button
             type="button"
             onClick={() => scrollByAmount(-360)}
-            aria-label="Önceki projeler"
+            aria-label={pickText(lang, "Önceki projeler", "Previous projects")}
             className="hidden sm:flex absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-110 active:scale-95"
             style={{
               background: d ? "rgba(20,20,24,0.88)" : "rgba(255,255,255,0.92)",
@@ -104,7 +104,7 @@ export default function ReferenceProjects() {
           <button
             type="button"
             onClick={() => scrollByAmount(360)}
-            aria-label="Sonraki projeler"
+            aria-label={pickText(lang, "Sonraki projeler", "Next projects")}
             className="hidden sm:flex absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-110 active:scale-95"
             style={{
               background: d ? "rgba(20,20,24,0.88)" : "rgba(255,255,255,0.92)",

@@ -777,7 +777,7 @@ export default function DealerNetwork() {
                       setHoveredCity(null);
                       setCityFilter(null);
                     }}
-                    aria-label="Listeyi kapat"
+                    aria-label={pickText(lang, "Listeyi kapat", "Close list")}
                     className="flex items-center justify-center rounded-md transition-colors"
                     style={{
                       width: 24,

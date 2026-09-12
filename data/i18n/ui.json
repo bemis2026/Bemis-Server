@@ -3589,5 +3589,138 @@
   "ar": "زمن تقديري. في الشحن بالتيار المستمر تنخفض القدرة كلما امتلأت البطارية؛ والمدة الفعلية تعتمد على منحنى شحن السيارة ودرجة حرارة البطارية.",
   "ru": "Примерное время. При зарядке постоянным током мощность снижается по мере заполнения батареи; фактическая длительность зависит от зарядной кривой автомобиля и температуры батареи.",
   "nl": "Geschatte tijd. Bij DC-laden neemt het vermogen af naarmate de batterij vol raakt; de werkelijke duur hangt af van de laadcurve van de auto en de batterijtemperatuur."
+ },
+ "Bemis manufacturing facility": {
+  "de": "Bemis Produktionsstätte",
+  "es": "Planta de producción de Bemis",
+  "ar": "منشأة إنتاج Bemis",
+  "ru": "Производственный объект Bemis",
+  "nl": "Bemis productiefaciliteit"
+ },
+ "Select vehicle model": {
+  "de": "Fahrzeugmodell auswählen",
+  "es": "Seleccione el modelo de vehículo",
+  "ar": "اختر طراز المركبة",
+  "ru": "Выберите модель автомобиля",
+  "nl": "Selecteer voertuigmodel"
+ },
+ "Bemis factory video": {
+  "de": "Bemis Fabrikvideo",
+  "es": "Vídeo de la fábrica de Bemis",
+  "ar": "فيديو مصنع Bemis",
+  "ru": "Видео о заводе Bemis",
+  "nl": "Bemis fabrieksvideo"
+ },
+ "Bemis factory": {
+  "de": "Bemis Fabrik",
+  "es": "Fábrica de Bemis",
+  "ar": "مصنع Bemis",
+  "ru": "Завод Bemis",
+  "nl": "Bemis fabriek"
+ },
+ "Close list": {
+  "de": "Liste schließen",
+  "es": "Cerrar lista",
+  "ar": "إغلاق القائمة",
+  "ru": "Закрыть список",
+  "nl": "Lijst sluiten"
+ },
+ "Previous products": {
+  "de": "Vorherige Produkte",
+  "es": "Productos anteriores",
+  "ar": "المنتجات السابقة",
+  "ru": "Предыдущие товары",
+  "nl": "Vorige producten"
+ },
+ "Next products": {
+  "de": "Nächste Produkte",
+  "es": "Productos siguientes",
+  "ar": "المنتجات التالية",
+  "ru": "Следующие товары",
+  "nl": "Volgende producten"
+ },
+ "Made in Türkiye": {
+  "de": "Hergestellt in Türkiye",
+  "es": "Fabricado en Türkiye",
+  "ar": "صُنع في تركيا",
+  "ru": "Произведено в Турции",
+  "nl": "Gemaakt in Türkiye"
+ },
+ "Previous showcase product": {
+  "de": "Vorheriges Produkt im Schaufenster",
+  "es": "Producto anterior del escaparate",
+  "ar": "منتج العرض السابق",
+  "ru": "Предыдущий товар витрины",
+  "nl": "Vorig etalageproduct"
+ },
+ "Next showcase product": {
+  "de": "Nächstes Produkt im Schaufenster",
+  "es": "Producto siguiente del escaparate",
+  "ar": "منتج العرض التالي",
+  "ru": "Следующий товар витрины",
+  "nl": "Volgend etalageproduct"
+ },
+ "Image {n}": {
+  "de": "Bild {n}",
+  "es": "Imagen {n}",
+  "ar": "صورة {n}",
+  "ru": "Изображение {n}",
+  "nl": "Afbeelding {n}"
+ },
+ "Previous projects": {
+  "de": "Vorherige Projekte",
+  "es": "Proyectos anteriores",
+  "ar": "المشاريع السابقة",
+  "ru": "Предыдущие проекты",
+  "nl": "Vorige projecten"
+ },
+ "Next projects": {
+  "de": "Nächste Projekte",
+  "es": "Proyectos siguientes",
+  "ar": "المشاريع التالية",
+  "ru": "Следующие проекты",
+  "nl": "Volgende projecten"
+ },
+ "Previous": {
+  "de": "Zurück",
+  "es": "Anterior",
+  "ar": "السابق",
+  "ru": "Назад",
+  "nl": "Vorige"
+ },
+ "Next": {
+  "de": "Weiter",
+  "es": "Siguiente",
+  "ar": "التالي",
+  "ru": "Вперёд",
+  "nl": "Volgende"
+ },
+ "Bemis E-V Charge mobile app": {
+  "de": "Bemis E-V Charge Mobil-App",
+  "es": "Aplicación móvil Bemis E-V Charge",
+  "ar": "تطبيق Bemis E-V Charge للهاتف",
+  "ru": "Мобильное приложение Bemis E-V Charge",
+  "nl": "Bemis E-V Charge mobiele app"
+ },
+ "Bemis E-V Charge web panel": {
+  "de": "Bemis E-V Charge Web-Panel",
+  "es": "Panel web de Bemis E-V Charge",
+  "ar": "لوحة الويب Bemis E-V Charge",
+  "ru": "Веб-панель Bemis E-V Charge",
+  "nl": "Bemis E-V Charge webpaneel"
+ },
+ "Drag to pan · tap the image to zoom out": {
+  "de": "Zum Verschieben ziehen · zum Herauszoomen auf das Bild tippen",
+  "es": "Arrastra para desplazar · toca la imagen para alejar",
+  "ar": "اسحب للتنقل · انقر على الصورة للتصغير",
+  "ru": "Перетащите для перемещения · нажмите на изображение, чтобы отдалить",
+  "nl": "Sleep om te verschuiven · tik op de afbeelding om uit te zoomen"
+ },
+ "Tap the image to zoom in": {
+  "de": "Zum Vergrößern auf das Bild tippen",
+  "es": "Toca la imagen para ampliar",
+  "ar": "انقر على الصورة للتكبير",
+  "ru": "Нажмите на изображение, чтобы увеличить",
+  "nl": "Tik op de afbeelding om in te zoomen"
  }
 }

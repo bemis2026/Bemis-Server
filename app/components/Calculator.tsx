@@ -745,7 +745,7 @@ export default function Calculator() {
                         <select
                           value={selectedCar}
                           onChange={(e) => handleCarSelect(e.target.value)}
-                          aria-label="Araç modeli seçin"
+                          aria-label={t("calc_vehicle_select")}
                           className="w-full rounded-xl px-3 py-2 text-sm appearance-none cursor-pointer focus:outline-none transition-colors pr-8"
                           style={{ background: inputBg, border: `1px solid ${inputBorder}`, color: selectedCar ? textPrimary : textMuted }}
                         >

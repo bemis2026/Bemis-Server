@@ -114,6 +114,7 @@ const TECH_DRAWINGS: Record<string, string> = {
 function ImageLightbox({ images, index, setIndex, onClose, productName }: {
   images: string[]; index: number; setIndex: (i: number) => void; onClose: () => void; productName: string;
 }) {
+  const { lang } = useLanguage();
   const [scale, setScale] = useState(1);
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const drag = useRef<{ sx: number; sy: number; bx: number; by: number } | null>(null);
@@ -163,7 +164,7 @@ function ImageLightbox({ images, index, setIndex, onClose, productName }: {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
       className="fixed inset-0 z-[200] flex items-center justify-center overflow-hidden"
       style={{ background: "rgba(0,0,0,0.95)" }} onClick={onClose}>
-      <button onClick={onClose} aria-label="Kapat" className={`${ctrl} top-4 right-4 w-10 h-10 text-lg`} style={ctrlBg}>✕</button>
+      <button onClick={onClose} aria-label={pickText(lang, "Kapat", "Close")} className={`${ctrl} top-4 right-4 w-10 h-10 text-lg`} style={ctrlBg}>✕</button>
       {images.length > 1 && (
         <div className="absolute top-5 left-1/2 -translate-x-1/2 z-10 text-white/75 text-sm font-medium tabular-nums">{index + 1} / {images.length}</div>
       )}
@@ -174,11 +175,13 @@ function ImageLightbox({ images, index, setIndex, onClose, productName }: {
         className="max-w-[92vw] max-h-[86vh] object-contain select-none touch-none"
         style={{ transform: `translate(${pos.x}px, ${pos.y}px) scale(${scale})`, cursor: scale > 1 ? "grab" : "zoom-in", transition: drag.current ? "none" : "transform 0.22s ease", willChange: "transform" }} />
       {images.length > 1 && (<>
-        <button onClick={(e) => { e.stopPropagation(); go(-1); }} aria-label="Önceki" className={`${ctrl} left-3 top-1/2 -translate-y-1/2 w-11 h-11 text-2xl`} style={ctrlBg}>‹</button>
-        <button onClick={(e) => { e.stopPropagation(); go(1); }} aria-label="Sonraki" className={`${ctrl} right-3 top-1/2 -translate-y-1/2 w-11 h-11 text-2xl`} style={ctrlBg}>›</button>
+        <button onClick={(e) => { e.stopPropagation(); go(-1); }} aria-label={pickText(lang, "Önceki", "Previous")} className={`${ctrl} left-3 top-1/2 -translate-y-1/2 w-11 h-11 text-2xl`} style={ctrlBg}>‹</button>
+        <button onClick={(e) => { e.stopPropagation(); go(1); }} aria-label={pickText(lang, "Sonraki", "Next")} className={`${ctrl} right-3 top-1/2 -translate-y-1/2 w-11 h-11 text-2xl`} style={ctrlBg}>›</button>
       </>)}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-white/55 text-xs text-center px-4">
-        {scale > 1 ? "Sürükleyerek gezin · görsele tıkla: uzaklaş" : "Yakınlaştırmak için görsele tıkla"}
+        {scale > 1
+          ? pickText(lang, "Sürükleyerek gezin · görsele tıkla: uzaklaş", "Drag to pan · tap the image to zoom out")
+          : pickText(lang, "Yakınlaştırmak için görsele tıkla", "Tap the image to zoom in")}
       </div>
     </motion.div>,
     document.body
@@ -1220,7 +1223,7 @@ export default function ProductDetailPage({
                     {smartCharger?.mockupWebImage ? (
                       <div style={{ aspectRatio: "3 / 2" }}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={smartCharger.mockupWebImage} alt="Bemis E-V Charge web paneli" className="w-full h-full object-cover" loading="lazy" decoding="async" />
+                        <img src={smartCharger.mockupWebImage} alt={pickText(lang, "Bemis E-V Charge web paneli", "Bemis E-V Charge web panel")} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                       </div>
                     ) : (
                       <WebScreen w={224} />
@@ -1233,7 +1236,7 @@ export default function ProductDetailPage({
                         {smartCharger?.mockupPhoneImage ? (
                           <div style={{ aspectRatio: "220 / 455" }}>
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={smartCharger.mockupPhoneImage} alt="Bemis E-V Charge mobil uygulama" className="w-full h-full object-cover" loading="lazy" decoding="async" />
+                            <img src={smartCharger.mockupPhoneImage} alt={pickText(lang, "Bemis E-V Charge mobil uygulama", "Bemis E-V Charge mobile app")} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                           </div>
                         ) : (
                           <PhoneScreen w={96} />

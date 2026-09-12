@@ -20,7 +20,7 @@ import Image from "./Img";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 import { cloudinarySrc } from "../lib/cloudinary";
-import { pickText } from "../lib/ui";
+import { pickText, fillText } from "../lib/ui";
 import { useContent } from "../context/ContentContext";
 
 const SPEC_ICONS = [RiFlashlightFill, RiShieldCheckLine, RiWifiLine, RiLeafLine, RiAwardLine];
@@ -251,7 +251,7 @@ export default function ProductShowcase() {
                       <button
                         type="button"
                         onClick={(e) => { e.stopPropagation(); goPrev(); }}
-                        aria-label="Önceki vitrin ürünü"
+                        aria-label={pickText(lang, "Önceki vitrin ürünü", "Previous showcase product")}
                         className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95 z-10"
                         style={{ background: "rgba(8,12,24,0.85)", color: "#fff", border: "1px solid rgba(255,255,255,0.18)", backdropFilter: "blur(10px)", boxShadow: "0 4px 14px rgba(0,0,0,0.35)" }}
                       >
@@ -260,7 +260,7 @@ export default function ProductShowcase() {
                       <button
                         type="button"
                         onClick={(e) => { e.stopPropagation(); goNext(); }}
-                        aria-label="Sonraki vitrin ürünü"
+                        aria-label={pickText(lang, "Sonraki vitrin ürünü", "Next showcase product")}
                         className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95 z-10"
                         style={{ background: "rgba(8,12,24,0.85)", color: "#fff", border: "1px solid rgba(255,255,255,0.18)", backdropFilter: "blur(10px)", boxShadow: "0 4px 14px rgba(0,0,0,0.35)" }}
                       >
@@ -281,7 +281,7 @@ export default function ProductShowcase() {
                             key={i}
                             type="button"
                             onClick={(e) => { e.stopPropagation(); goTo(i); }}
-                            aria-label={`Görsel ${i + 1}`}
+                            aria-label={fillText(lang, "Görsel {n}", "Image {n}", { n: i + 1 })}
                             className="rounded-full transition-all"
                             style={{
                               width: i === index ? 18 : 6,

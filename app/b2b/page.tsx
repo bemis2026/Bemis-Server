@@ -9,6 +9,7 @@ import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
 import { useTheme } from "../context/ThemeContext";
 import { accentInk } from "../lib/accentInk";
+import { pickText } from "../lib/ui";
 import { useLanguage } from "../context/LanguageContext";
 import { useContent } from "../context/ContentContext";
 import { useUiStrings } from "../../lib/uiStrings";
@@ -228,7 +229,7 @@ export default function B2BPage() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={dna.factoryImage}
-                  alt="Bemis üretim tesisi"
+                  alt={pickText(lang, "Bemis üretim tesisi", "Bemis manufacturing facility")}
                   className="w-full h-full object-cover"
                   loading="lazy"
                   decoding="async"

@@ -155,7 +155,7 @@ export default function SmartCharger() {
                           // eslint-disable-next-line @next/next/no-img-element
                           <img
                             src={smartCharger.mockupPhoneImage}
-                            alt="Bemis Charge mobil uygulama"
+                            alt={pickText(lang, "Bemis Charge mobil uygulama", "Bemis E-V Charge mobile app")}
                             className="absolute inset-0 w-full h-full object-cover"
                             style={{ background: "#0d1a2e" }}
                             loading="lazy"
@@ -224,7 +224,7 @@ export default function SmartCharger() {
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                               src={smartCharger.mockupWebImage}
-                              alt="Bemis Charge web paneli"
+                              alt={pickText(lang, "Bemis Charge web paneli", "Bemis E-V Charge web panel")}
                               className="w-full h-full object-cover"
                               loading="lazy"
                               decoding="async"
@@ -254,7 +254,7 @@ export default function SmartCharger() {
                 disabled={mockupIndex === 0}
                 className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 disabled:opacity-25"
                 style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.07)", border: `1px solid ${d ? "rgba(255,255,255,0.11)" : "rgba(0,0,0,0.10)"}` }}
-                aria-label="Önceki"
+                aria-label={pickText(lang, "Önceki", "Previous")}
               >
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path d="M7.5 2L4 6l3.5 4" stroke={d ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.6)"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -295,7 +295,7 @@ export default function SmartCharger() {
                 disabled={mockupIndex === 1}
                 className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 disabled:opacity-25"
                 style={{ background: d ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.07)", border: `1px solid ${d ? "rgba(255,255,255,0.11)" : "rgba(0,0,0,0.10)"}` }}
-                aria-label="Sonraki"
+                aria-label={pickText(lang, "Sonraki", "Next")}
               >
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path d="M4.5 2L8 6l-3.5 4" stroke={d ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.6)"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

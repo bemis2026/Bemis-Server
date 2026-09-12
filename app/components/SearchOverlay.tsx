@@ -177,7 +177,7 @@ export default function SearchOverlay({ isOpen, onClose }: Props) {
               <button
                 onClick={onClose}
                 className="text-white/30 hover:text-white/70 transition-colors p-1 rounded-md"
-                aria-label="Kapat"
+                aria-label={pickText(lang, "Kapat", "Close")}
               >
                 <HiX size={18} />
               </button>

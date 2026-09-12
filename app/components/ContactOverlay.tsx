@@ -72,7 +72,7 @@ export default function ContactOverlay() {
             {/* Close button — floats over the contact section's own header. */}
             <button
               onClick={closeContact}
-              aria-label="Kapat"
+              aria-label={pickText(lang, "Kapat", "Close")}
               className="absolute top-3 right-3 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-105"
               style={{
                 background: d ? "rgba(20,22,28,0.85)" : "rgba(255,255,255,0.95)",

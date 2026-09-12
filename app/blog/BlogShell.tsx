@@ -192,7 +192,7 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
             Eskiden koşullu mount vardı: varsayılan sekme Haberler olduğu için
             38 rehber /blog gövdesine HİÇ girmiyordu → hub'dan taranabilir iç
             link 0. Görünüm ve tıklama davranışı AYNI. */}
-        <div role="tabpanel" aria-label="Rehberler" className={tab === "rehberler" ? undefined : "hidden"}>
+        <div role="tabpanel" aria-label={pickText(lang, "Rehberler", "Guides")} className={tab === "rehberler" ? undefined : "hidden"}>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
             {posts.map((p, i) => (
               <motion.div key={p.slug} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.06 }}>
@@ -217,7 +217,7 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
         {/* Arapça kolda (sadeceRehber) SSS paneli HİÇ basılmaz — kategori
             SSS'lerinin Arapça adresi yok, TR rotalara sızıntı olurdu. */}
         {!sadeceRehber && (
-        <div role="tabpanel" aria-label="SSS" className={tab === "sss" ? undefined : "hidden"}>
+        <div role="tabpanel" aria-label={pickText(lang, "SSS", "FAQ")} className={tab === "sss" ? undefined : "hidden"}>
           {faqGroups.length > 0 ? (
             <div className="space-y-8">
               {faqGroups.map((g) => (
@@ -242,7 +242,7 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
 
         {/* Arapça kolda basın haberleri de basılmaz (aynı gerekçe). */}
         {!sadeceRehber && (
-        <div role="tabpanel" aria-label="Haberler" className={tab === "haberler" ? undefined : "hidden"}>
+        <div role="tabpanel" aria-label={pickText(lang, "Haberler", "News")} className={tab === "haberler" ? undefined : "hidden"}>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
             {press.map((it) => {
               const meta = PRESS_META[it.type];

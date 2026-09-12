@@ -19,9 +19,13 @@
  *    `t(key)` döner, içeride `pickText(lang, p.tr, p.en)` çağırır. Çağrı biçimi
  *    farklı olduğu için (1) numaralı tarama bu 222 girdinin HİÇBİRİNİ görmez.
  *
- * 4) SABİT TÜRKÇE ÖZNİTELİK — `aria-label="Öne çıkan ürünler …"` gibi hiç çağrı
- *    İÇERMEYEN dizeler. (1) 0 dönerken bu metinler 6 dilde TÜRKÇE kalır; Arapça
- *    sayfa doğrulanırken 3 bölümde bizzat görüldü (toplam 17 düzeltildi).
+ * 4) GEREKÇESİZ ÖZNİTELİK LİTERALİ — `aria-label="Öne çıkan ürünler …"` gibi
+ *    hiç çağrı İÇERMEYEN dizeler. (1) 0 dönerken bu metinler 6 dilde TÜRKÇE kalır.
+ *    ⚠️ 2026-09-12'de MANTIK TERSİNE ÇEVRİLDİ. Önce Türkçe KARAKTERİ aranıyordu
+ *    (`[ğışİŞĞ]`); o desen ö/ü/ç'li Türkçeyi kaçırıyor, saf ASCII Türkçeyi
+ *    ("Kapat", "Sonraki") HİÇ göremiyordu → 71 literalin 12'si görülüyor,
+ *    28 gerçek kusur "temiz" raporunun arkasında saklanıyordu. Artık dil TAHMİN
+ *    EDİLMEZ: her literal bulgudur, meşru olan üç muafiyet kapısından geçer.
  *
  * ⚠️ BUILD ZİNCİRİNE BİLEREK EKLENMEDİ (check:clones ile aynı gerekçe): bu bir
  *    UYARI denetimi. Eksik anahtar sayfayı kırmaz, İngilizce'ye düşer — dağıtımı
@@ -32,33 +36,49 @@
 import fs from "node:fs";
 
 const DILLER = ["de", "es", "ar", "ru", "nl"];
-const TR = /[ğışİŞĞ]/; // ⚠️ ö/ü/ç ile tarama Almanca/Fransızca dizelerde YANLIŞ ALARM verir
+// ⚠️ TÜRKÇE KARAKTER TARAMASI EMEKLİ EDİLDİ (2026-09-12) — bkz. 4. sınıf notu.
+//    Dil tespiti yerine muafiyet listesi kullanılıyor.
+
+// (4a) MARKA / KANONİK KİMLİK — metnin TAMAMI bunlardan biriyse çevrilmez.
+//      Logo alt'ı her yeni sayfada tekrar ettiği için dosya dosya muafiyet
+//      yazmak yerine tek kural: marka adı marka adıdır.
+const MARKA_METIN = new Set([
+  "Bemis", "Bemis E-V Charge", "Bemis Teknik Elektrik A.Ş.", "B2B Portal", "TSE", "Türkiye",
+]);
+
+// (4b) DOSYANIN TAMAMI MUAF — gerekçesiz dosya EKLEME.
+const DOSYA_MUAF = new Map<string, string>([
+  ["export/ExportLandingClient.tsx", "sayfanın tamamı İngilizce (ENGLISH_ONLY_PATHS)"],
+  ["components/PropertiesPanel.tsx", "admin düzenleme paneli — ziyaretçiye render edilmez"],
+  ["components/Technology.tsx", "ölü bileşen — SECTION_COMPONENTS'te yok, sıfır import"],
+  ["destek/DestekClient.tsx", "TR-only içerik sayfası (gövde Türkçe)"],
+  ["uretici/UreticiClient.tsx", "TR-only içerik sayfası (gövde Türkçe)"],
+  ["iletisim/ContactPageClient.tsx", "TR-only içerik sayfası (gövde Türkçe)"],
+  ["cerez-politikasi/page.tsx", "KVKK/hukuk metni TR kanonik"],
+  ["gizlilik/page.tsx", "KVKK/hukuk metni TR kanonik"],
+  ["opengraph-image.tsx", "site-geneli tek OG görseli"],
+]);
 
 // ── (1) BİLEREK sözlükte olmayan anahtarlar ──────────────────────────────────
 // "." → CookieConsent'te mailto cümlesini kurmak için dil hilesi: TR
 //   " adresine yazabilirsiniz." ↔ EN "." (İngilizcede cümle e-postayla biter).
 const ANAHTAR_MUAF = new Set(["."]);
 
-// ── (4) BİLEREK Türkçe kalan öznitelikler ───────────────────────────────────
+// ── (4c) TEKİL ÖZNİTELİK MUAFİYETİ ──────────────────────────────────────────
 // Anahtar: "<dosya>|<metin>". Gerekçesiz muafiyet EKLEME.
 const OZNITELIK_MUAF = new Map<string, string>([
   // ADMIN DÜZENLEME MODU — ziyaretçiye hiç render edilmez, arayüzü Türkçe.
   ["components/SectionWrapper.tsx|Yukarı Taşı", "admin düzenleme modu"],
   ["components/SectionWrapper.tsx|Aşağı Taşı", "admin düzenleme modu"],
   ["components/EditBar.tsx|İleri Al (Ctrl+Y)", "admin düzenleme modu"],
-  ["components/PropertiesPanel.tsx|varsayılan", "admin düzenleme modu"],
+  ["components/EditBar.tsx|Geri Al (Ctrl+Z)", "admin düzenleme modu"],
+  // DİL SEÇİCİ — etiket BİLEREK İngilizce: sitenin dilini anlamayan ziyaretçi
+  // dil düğmesini ancak evrensel etiketle bulabilir.
+  ["components/LanguageSwitcher.tsx|Language", "dil seçici — evrensel İngilizce etiket"],
   // TR-ONLY İÇERİK SAYFALARI — gövde metni Türkçe; alt/title'ı çevirmek
   // Türkçe gövdeyle çelişen karma dil üretir (yabancı adresleri de yok).
-  ["destek/DestekClient.tsx|Şarj sorunlarının çoğu cihaz arızası değildir — tesisat, araç ayarı veya bağlantı kaynaklıdır. Belirtinizi bulun, adımları sırayla deneyin.", "/destek TR-only içerik"],
-  ["destek/DestekClient.tsx|Hızlı kontroller sorunu çözmediyse kaydınızı şu sırayla açın.", "/destek TR-only içerik"],
-  ["uretici/UreticiClient.tsx|Kendi Markanızla, Kendi Renginizde Üretim", "/uretici TR-only içerik"],
-  ["iletisim/ContactPageClient.tsx|Bemis E-V Charge konum haritası", "/iletisim TR-only içerik"],
   // HUKUK METNİ BAŞLIKLARI — KVKK/çerez metinleri Türk mevzuatı, TR kanonik.
-  ["cerez-politikasi/page.tsx|Çerez Politikası", "KVKK/hukuk metni TR kanonik"],
-  ["gizlilik/page.tsx|Gizlilik ve Kişisel Verilerin Korunması Aydınlatma Metni", "KVKK/hukuk metni TR kanonik"],
   // KANONİK KİMLİK — resmî unvan ve site-geneli tek OG görseli çevrilmez.
-  ["uretici/UreticiClient.tsx|Bemis Teknik Elektrik A.Ş.", "resmî unvan (kanonik NAP)"],
-  ["opengraph-image.tsx|Bemis E-V Charge — Yerli EV Şarj Ekipmanı Üreticisi", "site-geneli tek OG görseli"],
 ]);
 
 const ui = JSON.parse(fs.readFileSync("data/i18n/ui.json", "utf8")) as Record<string, Record<string, string>>;
@@ -139,13 +159,18 @@ for (const f of dosyalar) {
     }
   }
 
-  // (4) sabit Türkçe öznitelik — admin paneli BİLEREK yalnız Türkçe
+  // (4) gerekçesiz öznitelik literali — admin paneli BİLEREK yalnız Türkçe
   if (!f.includes("/admin/") && f.endsWith(".tsx")) {
-    for (const m of s.matchAll(OZNITELIK)) {
-      if (!TR.test(m[2])) continue;
-      const kisa = f.replace(/^app\//, "");
-      if (OZNITELIK_MUAF.has(`${kisa}|${m[2]}`)) continue;
-      sabit.push({ en: m[1], tr: m[2], dosya: f, satir: satirNo(s, m.index!) });
+    const kisa = f.replace(/^app\//, "");
+    if (!DOSYA_MUAF.has(kisa)) {
+      for (const m of s.matchAll(OZNITELIK)) {
+        const t = m[2].trim();
+        if (!t) continue;                                  // alt="" → dekoratif, DOĞRU
+        if (!/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(t)) continue;     // saf sayı/renk/simge
+        if (MARKA_METIN.has(t)) continue;
+        if (OZNITELIK_MUAF.has(`${kisa}|${t}`)) continue;
+        sabit.push({ en: m[1], tr: t, dosya: f, satir: satirNo(s, m.index!) });
+      }
     }
   }
 }
@@ -183,7 +208,7 @@ const yaz = (baslik: string, l: Bulgu[], bicim: (b: Bulgu) => string) => {
 yaz("🔴 (1) ui.json'da HİÇ OLMAYAN anahtar  → 5 dil İNGİLİZCE görür", eksik, (b) => `"${b.en}"   ←  "${b.tr}"`);
 yaz("🟡 (1) VAR ama bazı diller eksik", yarim, (b) => `"${b.en}"  eksik: ${b.ek}`);
 yaz("🔴 (2) ŞABLON DEĞİŞKENLİ anahtar  → 5 dil KALICI İngilizce; fillText kullan", dinamik, (b) => `tr: ${b.tr}  ·  en: ${b.en}`);
-yaz("🔴 (4) SABİT TÜRKÇE öznitelik  → 6 dilde TÜRKÇE kalır; pickText'e bağla", sabit, (b) => `${b.en}="${b.tr}"`);
+yaz("🔴 (4) GEREKÇESİZ öznitelik literali  → çevrilmez, 6 dilde aynı kalır; pickText'e bağla", sabit, (b) => `${b.en}="${b.tr}"`);
 if (usEksik.length) {
   console.log(`\n🔴 (3) uiStrings girdisi ui.json'da eksik: ${usEksik.length}`);
   for (const g of usEksik) console.log(`   ${g.anahtar}  "${g.en}"   ←  "${g.tr}"`);
@@ -192,7 +217,7 @@ if (usEksik.length) {
 const toplam = eksik.length + yarim.length + dinamik.length + sabit.length + usEksik.length;
 console.log(
   toplam
-    ? `\n🔴 ${toplam} sorun — ui.json'a ekle / fillText'e çevir / pickText'e bağla.\n   (Bilerek Türkçe kalan bir öznitelik varsa OZNITELIK_MUAF'a GEREKÇESİYLE ekle.)`
-    : `\n✅ Arayüz çeviri bekçisi: temiz (4 sınıf · ${OZNITELIK_MUAF.size} gerekçeli muafiyet).`,
+    ? `\n🔴 ${toplam} sorun — ui.json'a ekle / fillText'e çevir / pickText'e bağla.\n   (Bilerek çevrilmeyen bir öznitelik varsa MARKA_METIN / DOSYA_MUAF / OZNITELIK_MUAF'a GEREKÇESİYLE ekle.)`
+    : `\n✅ Arayüz çeviri bekçisi: temiz (4 sınıf · muafiyet: ${MARKA_METIN.size} marka · ${DOSYA_MUAF.size} dosya · ${OZNITELIK_MUAF.size} tekil).`,
 );
 process.exit(toplam ? 1 : 0);

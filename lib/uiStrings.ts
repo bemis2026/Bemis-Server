@@ -159,6 +159,7 @@ const STRINGS = {
 
   // ── Calculator: form labels ──
   calc_vehicle_label:     { tr: "Araç Modeli (isteğe bağlı)",   en: "Vehicle Model (optional)" },
+  calc_vehicle_select:    { tr: "Araç modeli seçin",            en: "Select vehicle model" },
   calc_manual_entry:      { tr: "— Manuel gir —",                en: "— Manual entry —" },
   calc_battery:           { tr: "Batarya:",                       en: "Battery:" },
   calc_ac_max:            { tr: "AC maks:",                       en: "AC max:" },

@@ -231,7 +231,7 @@ export default function DNA() {
                     <iframe
                       ref={soundRef}
                       src={`https://www.youtube-nocookie.com/embed/${yt[1]}?autoplay=1&mute=1&playsinline=1&loop=1&playlist=${yt[1]}&controls=0&disablekb=1&modestbranding=1&rel=0&iv_load_policy=3&fs=0&enablejsapi=1`}
-                      title="Bemis fabrika videosu"
+                      title={pickText(lang, "Bemis fabrika videosu", "Bemis factory video")}
                       allow="autoplay; encrypted-media; picture-in-picture"
                       onLoad={onIframeLoad}
                       style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none", pointerEvents: "none" }}
@@ -251,7 +251,7 @@ export default function DNA() {
                 <EImage
                   field="dna.factoryImage"
                   src={dna.factoryImage ?? ""}
-                  alt="Bemis Fabrika"
+                  alt={pickText(lang, "Bemis Fabrika", "Bemis factory")}
                   label="Fabrika Görseli"
                   uploadFolder="uploads"
                   style={{ position: "absolute", inset: 0 }}

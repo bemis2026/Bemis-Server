@@ -197,7 +197,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-5 flex-wrap">
               <img
                 src="/badges/yerli-uretim.jpg"
-                alt="Yerli Üretim"
+                alt={pickText(lang, "Yerli Üretim", "Made in Türkiye")}
                 className="h-8 w-auto object-contain"
                 style={{ filter: d ? "invert(1) brightness(0.85)" : "none", opacity: d ? 0.7 : 0.6 }}
                 loading="lazy"
