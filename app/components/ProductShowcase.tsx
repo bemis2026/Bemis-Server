@@ -106,8 +106,17 @@ export default function ProductShowcase() {
   // Türkçe). Hero'daki dönen kelimeyle AYNI kusur sınıfı.
   // ⚠️ `key={lang}` YETMEZ: sayfa zaten ar ile açıldığında lang HİÇ değişmiyor,
   //    değişen İÇERİK. Bu yüzden imza METİNDEN türetilir.
-  // ⚠️ İmzaya `index` KOYMA — koyarsan her slayt geçişinde remount olur ve
-  //    karusel geçiş animasyonu kaybolur. `ps` slayttan bağımsızdır.
+  // ⚠️ İmzaya `index` KOYMA — `ps` slayttan bağımsızdır; imza yalnız İÇERİK
+  //    değişimini temsil eder. (Slayt değişimi ÇOCUK key'indeki `index` ile
+  //    zaten swap ediliyor, karusel animasyonu oradan gelir.)
+  // 🔴 2026-09-12 DÜZELTMESİ — İMZA `<AnimatePresence>`'A DEĞİL ÇOCUĞA KONUR.
+  //    Önce imza AnimatePresence'ın KENDİ key'ine konmuştu; dil değişince React
+  //    AnimatePresence'ı unmount edip yenisini mount ediyordu ve `mode="wait"`
+  //    ile çıkışı süren ESKİ ÇOCUK DOM'da ÖKSÜZ kalıyordu (çıkış hiç tamamlanmaz,
+  //    opacity 1'de donar) → Almanca anasayfada başlık İKİ KEZ görünüyordu
+  //    (canlı ölçüm: 2 görünür <h2>, y=1720 ve y=1765; TR'de 1). Rozet de çiftti.
+  //    ⚠️ `nameText` MARKA adıdır, dile göre DEĞİŞMEZ → çocuk key'i tek başına
+  //       yenilenmiyordu; imzanın çocuğa eklenmesi şart.
   const icerikAnahtari = `${lang}|${ps?.name ?? ""}|${ps?.tagline ?? ""}|${ps?.badge ?? ""}`;
   const taglineText     = pick(active?.tagline,     ps?.tagline);
   const descriptionText = pick(active?.description, ps?.description);
@@ -295,9 +304,9 @@ export default function ProductShowcase() {
               )}
 
               {/* Product name overlay — sağ üst köşede (re-mounts on slide change to animate) */}
-              <AnimatePresence mode="wait" key={icerikAnahtari}>
+              <AnimatePresence mode="wait">
                 <motion.div
-                  key={`overlay-${index}-${nameText}`}
+                  key={`overlay-${index}-${icerikAnahtari}`}
                   initial={{ opacity: 0, y: -8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
@@ -404,9 +413,9 @@ export default function ProductShowcase() {
               style={{ background: d ? `${ACCENT}18` : `${ACCENT}10`, border: d ? `1px solid ${ACCENT}35` : `1px solid ${ACCENT}25` }}
             >
               <RiAwardLine size={12} style={{ color: d ? "#93C5FD" : ACCENT }} />
-              <AnimatePresence mode="wait" key={icerikAnahtari}>
+              <AnimatePresence mode="wait">
                 <motion.span
-                  key={`badge-${index}-${badgeText}`}
+                  key={`badge-${index}-${icerikAnahtari}`}
                   initial={{ opacity: 0, y: 4 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -4 }}
@@ -420,9 +429,9 @@ export default function ProductShowcase() {
             </motion.div>
 
             {/* Product name */}
-            <AnimatePresence mode="wait" key={icerikAnahtari}>
+            <AnimatePresence mode="wait">
               <motion.h2
-                key={`name-${index}-${nameText}`}
+                key={`name-${index}-${icerikAnahtari}`}
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
@@ -445,9 +454,9 @@ export default function ProductShowcase() {
 
             {/* Tagline */}
             {taglineText && (
-              <AnimatePresence mode="wait" key={icerikAnahtari}>
+              <AnimatePresence mode="wait">
                 <motion.p
-                  key={`tagline-${index}-${taglineText}`}
+                  key={`tagline-${index}-${icerikAnahtari}`}
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
@@ -461,9 +470,9 @@ export default function ProductShowcase() {
             )}
 
             {/* Description */}
-            <AnimatePresence mode="wait" key={icerikAnahtari}>
+            <AnimatePresence mode="wait">
               <motion.p
-                key={`desc-${index}`}
+                key={`desc-${index}-${icerikAnahtari}`}
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
@@ -477,9 +486,9 @@ export default function ProductShowcase() {
 
             {/* Specs grid */}
             {specs.length > 0 && (
-              <AnimatePresence mode="wait" key={icerikAnahtari}>
+              <AnimatePresence mode="wait">
                 <motion.div
-                  key={`specs-${index}`}
+                  key={`specs-${index}-${icerikAnahtari}`}
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
