@@ -13,6 +13,77 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🇩🇪✅ **ALMANCADA AMİRAL GEMİSİ BAŞLIĞI İKİ KEZ ÇIKIYORDU — KAPANDI (2026-09-12, commit cea1cbe):**
+> Kullanıcı *"almancada amiral gemisi ürün olduğu yerde başlık 2 kere yazılmış"* dedi. Canlıda üretildi:
+> Almanca anasayfada **2 görünür `<h2>`** ("AC Wallbox Smart Charger Pro 2", y=1720 ve y=1765, ikisi de
+> `opacity 1`); Türkçe'de 1. `/api/content?lang=de` **temizdi** → kusur veride değil RENDER'daydı.
+>
+> **🔴 KÖK NEDEN:** `key` **`<AnimatePresence>`'IN KENDİSİNDEydi**. Dil değişince key değişiyor → React
+> AnimatePresence'ı **unmount** edip yenisini mount ediyor; `mode="wait"` ile çıkışı süren **eski çocuk
+> DOM'da ÖKSÜZ kalıyor** (çıkış hiç tamamlanmaz, opacity 1'de donar) ve yeni örnek kendi çocuğunu da
+> basıyor → ÇİFT. Üstelik `nameText` **MARKA adıdır, dile göre DEĞİŞMEZ** → çocuk key'i tek başına
+> yenilenmiyordu; imza bu yüzden yanlış katmana (AnimatePresence'a) konmuştu.
+> **✅ ÇÖZÜM:** 6 AnimatePresence'tan `key` KALDIRILDI, içerik imzası **ÇOCUK key'ine** eklendi
+> (`key={\`name-${index}-${icerikAnahtari}\`}`). Böylece **slayt değişimi `index` ile**, **dil/içerik
+> değişimi imzayla** swap eder — iki davranış da korunur.
+> **✅ CANLI DOĞRULANDI (Almanca):** görünür `<h2>` **2 → 1**; karusel ileri tuşu çalışıyor
+> ("AC Wallbox Smart Charger Pro 2" → "80 kW DC-Schnellladegerät") ve geçişten sonra da **tek** `<h2>`
+> (öksüz artık yok).
+> **📌 ÖNCEKİ İFADEMİ DÜZELTİYORUM — ROZET ÇİFT DEĞİLDİ:** "Flaggschiff-Produkt" ekranda 2 kez görünüyor
+> ama **iki AYRI render noktası** (kod: satır 334 görsel üstü overlay rozeti + satır 426 metin sütunu
+> rozeti, ikisi de `badgeText`). Tasarım gereği; sayarken render noktasını ayırmamıştım.
+> **📌 AYNI DESEN TARANDI, BAŞKA KUSUR YOK:** `key={lang}`'li 3 AnimatePresence (`Products.tsx:259`,
+> `ProductsClient.tsx:365`, `ProductDetailClient.tsx:415`) canlıda ölçüldü → Almanca `/products`'ta
+> "çift başlık" sanılan şey **dönen kategori bandının alttaki bölüm başlığıyla çakışması** (beklenen
+> davranış), ürün detay galerisinde **çift görünür başlık 0**. Üçüne de dokunulmadı.
+
+
+> 🔤🔁 **`check:i18n` BEKÇİSİ TERS MANTIĞA ÇEVRİLDİ — "TEMİZ" DERKEN 28 KUSUR SAKLIYORDU
+> (2026-09-12, commit f9f646f):** Yukarıdaki Almanca doğrulaması sırasında vitrin karusel oklarının
+> `aria-label`'ı 6 dilde **Türkçe** göründü ("Önceki vitrin ürünü") — ama `npm run check:i18n` **temiz**
+> diyordu.
+>
+> **🔴 KÖK NEDEN:** 4. sınıf Türkçeyi **karakterle** arıyordu: `TR = /[ğışİŞĞ]/`. Bu desen
+> **(a)** yalnız ö/ü/ç taşıyan Türkçeyi KAÇIRIR ("Önceki ürünler", "Görsel 1"),
+> **(b)** saf **ASCII** Türkçeyi HİÇ göremez ("Kapat", "Sonraki", "Sonraki projeler").
+> Ölçüldü: `app/` altında **71** sabit öznitelik literali var, bekçi bunların **12'sini** görüyordu →
+> **28 gerçek kusur** "✅ temiz" raporunun arkasında saklanıyordu. (ö/ü'yü dışlama gerekçesi
+> *"Almanca Zubehör/Garantie'de yanlış alarm"* idi — o ders **çeviri VERİSİNİ** tararken doğru,
+> **kaynak kodu** tararken yanlıştı: koddaki Almanca sabit zaten başlı başına kusurdur.)
+>
+> **✅ ÇÖZÜM — SORU TERSİNE ÇEVRİLDİ:** *"bu metin Türkçe mi?"* (dil tahmini, kırılgan) yerine
+> *"bu literal GEREKÇELİ mi?"* (muafiyet listesi, kesin). Artık **her boş-olmayan öznitelik literali
+> bulgudur**; meşru olan üç kapıdan geçer: **MARKA_METIN** (6: marka/kurum adı) · **DOSYA_MUAF**
+> (9: admin UI · TR-only sayfa · İngilizce-only /export · ölü `Technology.tsx`) · **OZNITELIK_MUAF**
+> (5 tekil, gerekçesiyle). 📌 **Muafiyet eklerken gerekçe ZORUNLU.**
+>
+> **BAĞLANAN 28 KUSUR (15 dosya):** vitrin · öne çıkanlar · referans projeler · mockup galerisi ok
+> tuşları · **ışık kutusu** (Kapat/Önceki/Sonraki + **GÖRÜNÜR iki metin**) · blog sekmeleri · bayi
+> listesi kapatma · fabrika videosu/görseli · mockup alt metinleri · hesaplayıcı araç seçimi ·
+> "Yerli Üretim" rozeti (yabancı dilde **olgusal menşe** ifadesi: "Made in Türkiye").
+> ⚠️ **IŞIK KUTUSU NEDEN YILLARDIR GÖRÜLMEDİ:** içeriği ancak kullanıcı görsele tıklayınca DOM'a
+> girer → **canlı sayfa taramaları onu hiç görmedi**. 📌 Görünür-Türkçe ölçümü yalnız ilk ekrandan
+> yapılırsa açılır/modal yüzeyler kör noktada kalır.
+> **`Görsel ${i+1}`** şablon anahtarı **fillText**'e çevrildi (sözlükte asla eşleşemezdi — 2. sınıf).
+> `ui.json` **513 → 532** (19 yeni anahtar, 5 dilde tam). ⚠️ Mevcut **Close/Guides/FAQ/News**
+> anahtarları yeniden kullanıldı, aynı metin için ikinci anahtar üretilmedi.
+>
+> **✅ ÖZ-TEST 6/6 (`scratchpad/_bekci_testi2.py`):** saf ASCII TR · yalnız ö/ü/ç · güçlü TR harfi ·
+> **İngilizce sabit** → dördü de YAKALANDI; dekoratif `alt=""` ve marka adı → yanlış alarm YOK; test
+> dosyası **birebir** geri alındı. 📌 *"Temiz" raporuna ancak bekçi bilinen kusuru yakalıyorsa güven* —
+> bu tur o dersin bizzat kanıtı oldu.
+>
+> **⚪ ÖLÇÜLDÜ AMA YAPILMADI (bilerek):** **görünür JSX metin** taraması (5. sınıf) — `app/` altında
+> **146 aday**, çoğunluğu TR-only sayfalar (/destek 37 · /uretici 17 · /bayilik 11 · /operator 8).
+> Dosya-seviyesi izin listesi tasarımı + 146 kalemlik ayıklama ister; gürültü riski ölçülmeden bekçiye
+> eklenmedi. 📌 İstenirse ayrı tur.
+> **ⓘ `app/components/Technology.tsx` ÖLÜ**: `SECTION_COMPONENTS`'te yok, **sıfır import** (bu turda
+> yeniden doğrulandı). Şimdilik muafiyetle geçildi; silme kullanıcı kararı.
+> **ARAÇLAR:** `scratchpad/_aria_bagla2.mts` (32 çapa, fail-fast) · `_bekci_ters.py` (bekçi dönüşümü) ·
+> `_bekci_testi2.py` (öz-test) · `_ui_yeni.json` + `_ui_ekle.mts`. R2'ye YAZILMADI → **cache bump YOK**.
+
+
+
 > 🎠🔬 **HERO SLIDER "BİRDEN HIZLANIYOR" — ZAMANLAYICIDA HATA YOK, İKİ GERÇEK SEBEP BULUNDU
 > (2026-09-12, commit 52497de):** Kullanıcı *"hero bölümünde dönen görsel bir anda hızlanıyor, DC
 > görselinde kontrol et"* dedi. Seçmeli soruldu: **çapraz geçişi uzat** + **"ilk açılışta oluyor"**.
