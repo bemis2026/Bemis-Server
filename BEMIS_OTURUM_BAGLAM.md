@@ -13,6 +13,63 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 📊🔧 **DIŞ SEO ÇALIŞMASINDAN FİKİR + 2 KARAR UYGULANDI (2026-09-12, commit 90719e9):**
+> Kullanıcı bir bayinin kendi sitesi için yaptığı SEO/GEO çalışmasının dokümanını verdi
+> (`Downloads/TeknikPart-SEO-Ornek-Calisma.md`) ve *"bizim yapmadığımız ne var"* diye sordu.
+>
+> **📌 ÖNCE ÖLÇÜLDÜ — bir kısmı ZATEN BİZDE VARDI, önerilmedi:** `llms.txt` + **`llms-full.txt`** ·
+> sözlük için `DefinedTermSet`/`DefinedTerm` · `HowTo` + `FAQPage` · günlük+haftalık bekçi (6 cron) ·
+> **Wikidata `Q140262626` (marka) + `Q140267525` (ana şirket)** · GBP hizalaması · IndexNow ·
+> çapa çeşitliliği (maks 5×, onların hedefi 2×). 📌 Öneri vermeden önce kendi envanterini çıkar.
+>
+> **🔴 UYGULANAN (1) VARYANT ÇİFT İÇERİĞİ — en büyük on-page sorunumuzdu.**
+> **ÖLÇÜM: 150 ürün / 150 AYRI URL. 41 grup aynı adı paylaşıyor, bu gruplardaki 131 ürünün 133'ü
+> BİREBİR AYNI açıklamayı taşıyor.** Canlıdan doğrulandı: `sarj-seti-32a-trifaze-5m` ile `-10m`
+> → aynı H1, aynı 852 kelime, **her biri KENDİNE canonical.** Kullanıcı kararı: **"orta yol"**
+> (sayfa silinmeden şema + türetilmiş metin).
+> **(a)** `productSchema`'ya `variantGroup` → **`isVariantOf` + `ProductGroup`** (`productGroupID`,
+> `variesBy`, `hasVariant` @id referansları). 3 rotada da bağlı. `hasVariant` yalnız @id taşır.
+> **(b)** Ürün sayfasına **"Bu sürüm: …"** satırı. ⚠️ **Şablon cümle DEĞİL** — değerler grupta
+> DEĞİŞEN spec alanlarından, ürünün kendi değerleriyle gelir. ⚠️ **Veriye YAZILMADI, RENDER ANINDA
+> TÜRETİLİR:** spec etiket/değerleri zaten her dilde çevrili → **131 ürün × 7 dil yazma ve çeviri
+> ayrışma riski hiç doğmadı.** (İlk plan veri yazmaktı; bu daha güvenli.)
+> ✅ Canlı: 4 varyant sayfası → 4 FARKLI satır, şema hepsinde (6/6/4/8 üye).
+> **⚠️⚠️ KENDİ HATAM — KAYITLI TUZAĞA DÜŞTÜM:** ilk sürümde `app/lib/variants.ts` KENDİ gruplama
+> kuralını yazıyordu. Oysa **`lib/productGroups.ts` bunu ZATEN yapıyor** ve kendi kuralları var
+> (addaki `IP44`/`IP66` gruplama anahtarından ÇIKARILIR → aynı aile; sıralama alt başlık
+> sayılarından, dil-nötr). İki kural zamanla ayrışır ve şema **sayfadaki varyant seçicisiyle
+> ÇELİŞİRDİ** — aynı "ayrışan ikiz" kusuru bu oturumda `InternationalGlobe`/`InternationalMap2D`
+> ve `featured` çevirilerinde bizzat çıktı. `variants.ts` artık **`findVariantGroup`'u KULLANIYOR**;
+> kendine yalnız `variesBy` tespiti + çakışmasız etiket üretimini bırakıyor.
+> 📌 **KURAL: gruplama/eşleme mantığı yazmadan önce `lib/` altında ZATEN VAR MI diye bak.**
+>
+> **🔴 UYGULANAN (2) SITEMAP `lastmod` SAHTEYDİ.** 35 girdinin **32'si `now`** = her build'de
+> "bugün değişti". Google sahte lastmod'u yok sayar → gerçekten güncellenen sayfa da öne çıkamaz.
+> **`scripts/gen-lastmod.ts` → `app/lib/lastmod.json`**: her rotanın kaynak dosyasının SON COMMIT
+> tarihi. ⚠️ **Vercel sığ klon yaptığı için build'de git GÜVENİLMEZ** → tarihler YERELDE hesaplanır,
+> JSON **commit'lenir** (`gen-posts-index` ile aynı desen; `npm run gen:lastmod`).
+> CMS sayfaları için `lib/store.ts`'e **`binLastModified()`** (R2 `HeadObject`) — admin düzenlemesi
+> commit üretmez ama SAYFAYI değiştirir; okuma başarısızsa commit yedeği.
+> ✅ Canlı: **1257 URL · kalan `now` 0 · 1 tarih yerine 24 FARKLI tarih · bugün tarihli yalnız 7.**
+>
+> **📌 KULLANICI KARARIYLA SIRADA BEKLEYEN (bu turda YAPILMADI):**
+> **(a) ARIZA/SORUN GİDERME İÇERİK KÜMESİ** — "şarj olmuyor" · "kablo çıkmıyor/kilitli kaldı" ·
+> "şarj çok yavaş" · "wallbox hata kodları" · "kaçak akım rölesi atıyor". Desen: tanıma → fiziksel
+> neden → adım adım çözüm → **ayırıcı tanı tablosu** (aynı zamanda iç link ağı kurar) → SSS.
+> **Bizde bu alanda 42 yazının 0'ı var.** Referans çalışmada AI görünürlüğünün %41'i makalelerden
+> gelmiş.
+> **(b) BLOG YAZAR KİMLİĞİ** — 42 yazıda `author` şeması YOK. ⚠️ **GERÇEK kişi adı kullanıcıdan
+> bekleniyor** (uydurma yazar kimliği ters teper). **(c) ÖLÇÜM TAKVİMİ** — her iş için "ne zaman,
+> neyi ölçeceğiz" notu.
+> **📌 ÖLÇÜLEN AMA KARARA GİRMEYEN BOŞLUKLAR:** 150 ürünün **120'sinin açıklaması 40 kelime altı**;
+> 8 kategoriden 5'i 120 kelime altı (portable 66 · v2l-c2l 65 · converters 58 · accessories 46 ·
+> dc-units 78) · hesaplayıcının kendi URL'i ve `WebApplication` şeması yok.
+>
+> **ARAÇLAR:** `scratchpad/_seo_bosluk_olcum.mts` (boşluk ölçümü) · `_varyant_test.mts` ·
+> `_varyant_canli.cjs` · `_seo_yeni_dogrula.cjs` · **`_oturum_tam_kontrol.cjs` (21/21 — her turda çalıştır)**.
+
+
+
 > 🧩🔴 **DİL BİRLEŞTİRMESİ BİR İZİN LİSTESİ — LİSTEDE OLMAYAN BÖLÜM HİÇ ÇEVRİLMEZ
 > (2026-09-12, commit 784092e):** Oturum sonu tam kontrolü yakaladı: `contact.workingDays` ve
 > `gallerySection` başlıklarını **7 dile yazmıştım ama canlıda hâlâ Türkçe görünüyordu.** Sorun veri
