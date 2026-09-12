@@ -7,6 +7,7 @@ import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
 import Footer from "../components/Footer";
 import { useTheme } from "../context/ThemeContext";
+import { SORUNLAR, AYIRICI_TANI } from "./sorunlar";
 import { accentInk } from "../lib/accentInk";
 import {
   RiToolsLine, RiShieldCheckLine, RiFileList3Line, RiMapPinLine,
@@ -44,72 +45,21 @@ const PHONE_HREF = "tel:+902244330216";
 const WA_HREF = "https://wa.me/905339562546?text=" + encodeURIComponent("Merhaba, ürünümle ilgili arıza/garanti desteği almak istiyorum.");
 const MAIL_HREF = "mailto:sales@bemis.com.tr?subject=" + encodeURIComponent("Arıza / Garanti Desteği");
 
-type Kontrol = { icon: React.ReactNode; baslik: string; belirti: string; adimlar: string[] };
+// ⚠️ ARIZA VERİSİ `./sorunlar.ts`'TEN GELİR — burada TUTULMUYOR.
+// Sebep: `page.tsx` şemayı (HowTo + FAQPage) aynı kaynaktan üretiyor; iki kopya
+// zamanla ayrışır ve Google'ın "şemadaki içerik sayfada görünür olmalı" kuralı
+// sessizce bozulur. İkon JSX olduğu için şema tarafına sızmasın diye BURADA,
+// `id` üzerinden eşlenir.
+const IKON: Record<string, React.ReactNode> = {
+  "calismiyor": <RiFlashlightLine />,
+  "baslamiyor": <RiPlugLine />,
+  "yavas": <RiTimerLine />,
+  "kablo-cikmiyor": <RiToolsLine />,
+  "kendiliginden-duruyor": <RiExchangeLine />,
+  "uygulama-gormuyor": <RiSmartphoneLine />,
+};
 
-const HIZLI_KONTROL: Kontrol[] = [
-  {
-    icon: <RiFlashlightLine />,
-    baslik: "Cihaz hiç çalışmıyor, ışık yanmıyor",
-    belirti: "Ekran/LED tamamen sönük.",
-    adimlar: [
-      "Elektrik panonuzdaki cihaza ait sigortanın açık olduğunu kontrol edin.",
-      "Kaçak akım rölesi (RCD) atmışsa, tekrar atıyorsa cihazı kullanmayın — yetkili elektrikçi çağırın.",
-      "Taşınabilir cihazlarda prizde elektrik olduğunu başka bir cihazla doğrulayın.",
-    ],
-  },
-  {
-    icon: <RiPlugLine />,
-    baslik: "Cihaz çalışıyor ama şarj başlamıyor",
-    belirti: "Işık yanıyor, araç şarja geçmiyor.",
-    adimlar: [
-      "Soketi araca tam oturana kadar itin; klik sesini duymalısınız.",
-      "Aracın şarj zamanlayıcısı/gecikmeli şarj ayarı açık olabilir — araç ekranından kontrol edin.",
-      "Aracı kilitleyip tekrar açmayı ve kabloyu yeniden takmayı deneyin.",
-    ],
-  },
-  {
-    icon: <RiTimerLine />,
-    baslik: "Şarj beklediğimden yavaş",
-    belirti: "22 kW cihazda düşük güçle şarj oluyor.",
-    adimlar: [
-      "Şarj hızını cihaz DEĞİL, aracınızın dahili AC şarj ünitesi belirler; aracınız 7,4 kW ile sınırlıysa 22 kW cihazda da 7,4 kW alır.",
-      "Tesisatınız tek fazlıysa üç fazlı cihaz da tek faz güç verir.",
-      "Çok soğuk havada ve batarya doluluk oranı yüksekken araç şarj hızını kendisi düşürür.",
-    ],
-  },
-  {
-    icon: <RiToolsLine />,
-    baslik: "Kablo araçtan çıkmıyor",
-    belirti: "Soket araca kilitli kaldı.",
-    adimlar: [
-      "Şarjı önce araç ekranından veya uygulamadan sonlandırın.",
-      "Aracın kapılarının kilidini açın — çoğu araç kilitliyken soketi bırakmaz.",
-      "Aracınızın el kitabındaki acil kablo kurtarma kolunu kullanın.",
-    ],
-  },
-  {
-    icon: <RiExchangeLine />,
-    baslik: "Şarj sırasında kendiliğinden duruyor",
-    belirti: "Şarj başlıyor ama bir süre sonra kesiliyor.",
-    adimlar: [
-      "Aracın şarj limiti (ör. %80) dolmuş olabilir — araç ekranından kontrol edin.",
-      "Soketin araca tam oturduğundan ve kablonun gergin durmadığından emin olun.",
-      "Kaçak akım rölesi atıyorsa sorun tesisat tarafında olabilir; yetkili elektrikçiye başvurun.",
-      "Çok sıcak ortamlarda araç ve cihaz koruma amacıyla gücü düşürebilir veya şarjı duraklatabilir.",
-    ],
-  },
-  {
-    icon: <RiSmartphoneLine />,
-    baslik: "Uygulama cihazı göremiyor",
-    belirti: "Uygulama destekli modellerde cihaz çevrimdışı görünüyor.",
-    adimlar: [
-      "Cihazın bağlandığı WiFi ağının kapsama alanında olduğundan emin olun; modemi yeniden başlatmayı deneyin.",
-      "Uygulamadan çıkıp tekrar giriş yapın ve cihazı yeniden ekleyin.",
-      "GSM'li modellerde bulunduğunuz noktada operatör sinyalinin zayıf olması bağlantıyı etkiler.",
-      "Cihaz şarj işlevini uygulamadan bağımsız sürdürür; şarj devam ediyorsa acil bir arıza yoktur.",
-    ],
-  },
-];
+const HIZLI_KONTROL = SORUNLAR.map((k) => ({ ...k, icon: IKON[k.id] ?? <RiToolsLine /> }));
 
 const ADIMLAR = [
   {
@@ -349,6 +299,57 @@ export default function DestekClient() {
               yetkili bir elektrikçiye başvurun.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ── AYIRICI TANI — "hangi belirtiyle karışır" ──
+          ⚠️ NEDEN: kullanıcı yanlış satıra bakıp yanlış adımı uyguluyor; en sık
+          hata araç kaynaklı güç sınırını "cihaz arızası" sanıp servis çağırmak.
+          Tablo aynı zamanda İÇ LİNK AĞI kurar (her satır ilgili derin sayfaya).
+          📌 DAİMA DOM'da — akordeon/sekme ARDINA KOYMA (bu sitede koşullu mount
+             yüzünden içerik HTML'e girmeme kusuru dört kez çıktı). */}
+      <section className="w-full py-10 sm:py-14">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto w-full px-5 sm:px-6 lg:px-8">
+          <h2 className="text-lg sm:text-xl font-black mb-1" style={{ color: ink }}>
+            Hangi belirtiyle karışır?
+          </h2>
+          <p className="text-sm mb-6" style={{ color: faint }}>
+            Aynı şikâyet birden fazla nedenden gelebilir. Aşağıdaki ayırt etme kuralı,
+            servis çağırmadan önce doğru satıra geçmenizi sağlar.
+          </p>
+          <div className="overflow-x-auto rounded-2xl" style={{ border: `1px solid ${line}` }}>
+            <table className="w-full text-sm" style={{ borderCollapse: "collapse", minWidth: 720 }}>
+              <thead>
+                <tr style={{ background: d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)" }}>
+                  <th className="text-start p-3 text-xs font-bold uppercase tracking-wider" style={{ color: faint }}>Belirti</th>
+                  <th className="text-start p-3 text-xs font-bold uppercase tracking-wider" style={{ color: faint }}>Karışabildiği durum</th>
+                  <th className="text-start p-3 text-xs font-bold uppercase tracking-wider" style={{ color: faint }}>Nasıl ayırt edilir</th>
+                </tr>
+              </thead>
+              <tbody>
+                {AYIRICI_TANI.map((t, i) => {
+                  const kaynak = SORUNLAR.find((x) => x.id === t.id);
+                  return (
+                    <tr key={i} style={{ borderTop: `1px solid ${line}` }}>
+                      <td className="p-3 align-top font-semibold" style={{ color: ink, minWidth: 170 }}>{kaynak?.baslik ?? t.id}</td>
+                      <td className="p-3 align-top" style={{ color: ink, minWidth: 180 }}>{t.karisir}</td>
+                      <td className="p-3 align-top" style={{ color: faint }}>
+                        {t.ayirt}
+                        {t.link && (
+                          <>
+                            {" "}
+                            <a href={t.link.href} className="font-semibold hover:underline" style={{ color: NOTR, textDecorationColor: NOTR_CIZGI }}>
+                              {t.link.label} →
+                            </a>
+                          </>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import JsonLd from "../components/JsonLd";
 import { breadcrumbSchema, faqSchema, ogImage, OG_URL } from "../lib/seo";
 import DestekClient from "./DestekClient";
+import { SORUNLAR } from "./sorunlar";
+import { SITE_URL } from "../lib/seo";
 
 // SON KULLANICI DESTEK SAYFASI — /destek
 // Denetimde (2026-07-26) çıkan boşluk: elinde arızalı ürün olan kullanıcının
@@ -71,6 +73,28 @@ export default function DestekPage() {
       { name: "Destek", url: "/destek" },
     ]),
     faqSchema(FAQ),
+    // ⚠️⚠️ HowTo — her arıza için ADIM ADIM çözüm (2026-09-12).
+    // Sayfada zaten numaralı adımlar vardı ama şemada YOKTU; Google/AI için
+    // "adım adım çözüm" sinyali FAQPage'ten AYRI bir tiptir ve arıza
+    // sorgularında ("şarj cihazım çalışmıyor ne yapmalıyım") doğrudan okunur.
+    // 📌 ADIMLAR `./sorunlar.ts`TEN gelir — sayfadaki metinle BİREBİR aynı
+    //    (Google kuralı: şemadaki içerik sayfada görünür olmalı). İkinci bir
+    //    kopya yazmak o kuralı sessizce bozar; FAQ'ta bu risk hâlâ mevcut.
+    ...SORUNLAR.map((k) => ({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "@id": `${SITE_URL}/destek#howto-${k.id}`,
+      name: k.baslik,
+      description: k.belirti,
+      totalTime: "PT5M",
+      step: k.adimlar.map((adim, i) => ({
+        "@type": "HowToStep",
+        position: i + 1,
+        name: adim.length > 70 ? `${adim.slice(0, 67)}…` : adim,
+        text: adim,
+        url: `${SITE_URL}/destek#howto-${k.id}`,
+      })),
+    })),
   ];
   return (
     <>
