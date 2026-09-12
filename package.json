@@ -7,6 +7,7 @@
     "check:brands": "node scripts/check-no-competitor-brands.cjs",
     "build": "tsx scripts/gen-posts-index.ts && node scripts/check-no-competitor-brands.cjs && next build",
     "gen:lastmod": "tsx scripts/gen-lastmod.ts",
+    "olcum": "tsx scripts/olcum-takvimi.mts",
     "start": "next start",
     "translate": "tsx scripts/translate.ts",
     "gen:blog-index": "tsx scripts/gen-posts-index.ts",

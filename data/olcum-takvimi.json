@@ -1,0 +1,70 @@
+{
+  "_not": "ÖLÇÜM TAKVİMİ — her iş için 'ne zaman, neyi ölçeceğiz'. `npm run olcum` ile vadesi gelenler listelenir. Yapılan ölçüm `sonuc` alanına yazılır ve `durum` 'kapandı' olur; silinmez (tarihçe).",
+  "_kural": "Yeni bir iş bitirdiğinde BURAYA bir kontrol noktası ekle. Tarihsiz iş, ölçülmeyen iştir.",
+  "kontroller": [
+    {
+      "tarih": "2026-09-19",
+      "is": "Taşınabilir şarj kümesi — 2 yeni rehber (2026-09-12)",
+      "olcum": "İki yazı Google'da indekslendi mi? (GSC URL denetimi veya site: sorgusu)",
+      "hedef": "İkisi de 'İndekslendi'; /ar sürümleri de dahil",
+      "nasil": "GSC → URL denetimi: /blog/evden-kablo-uzatarak-elektrikli-araba-sarj-etme ve /blog/tasinabilir-sarj-cihazinda-amper-ayari",
+      "durum": "bekliyor"
+    },
+    {
+      "tarih": "2026-09-26",
+      "is": "Sitemap lastmod gerçek tarihe çevrildi (2026-09-12)",
+      "olcum": "GSC'de sayfaların 'son tarama' tarihleri dağıldı mı; güncellenen sayfalar önce mi taranıyor",
+      "hedef": "Taranma tarihleri tek güne yığılmıyor; 2026-09-12'de değişen 7 sayfa öne geçmiş",
+      "nasil": "GSC → Sayfalar → son tarama tarihi dağılımı",
+      "durum": "bekliyor"
+    },
+    {
+      "tarih": "2026-09-26",
+      "is": "/destek 6 HowTo şeması + ayırıcı tanı tablosu (2026-09-12)",
+      "olcum": "Arıza sorgu ailesinde gösterim artışı",
+      "hedef": "'şarj cihazı çalışmıyor / yavaş şarj / kablo çıkmıyor' ailesinde gösterim > önceki 14 gün",
+      "nasil": "GSC → Sorgular, sayfa filtresi /destek; ayrıca Zengin Sonuç Testi'nde HowTo geçerli mi",
+      "durum": "bekliyor"
+    },
+    {
+      "tarih": "2026-10-10",
+      "is": "Varyant çift içeriği — ProductGroup + 'Bu sürüm' satırı (2026-09-12)",
+      "olcum": "GSC'de yinelenen/canonical uyarısı taşıyan ürün sayfası sayısı",
+      "hedef": "'Yinelenen, Google farklı bir canonical seçti' ve benzeri uyarılarda düşüş; 131 varyant sayfasından şikâyetli olan azalmalı",
+      "nasil": "GSC → Sayfalar → 'İndekslenmedi' nedenleri; ayrıca Zengin Sonuç Testi'nde bir varyant sayfasında ProductGroup görünüyor mu",
+      "durum": "bekliyor"
+    },
+    {
+      "tarih": "2026-10-10",
+      "is": "Taşınabilir şarj kümesi — 2 rehberin performansı (2026-09-12)",
+      "olcum": "Pozisyon + gösterim + tık",
+      "hedef": "Her iki yazı için gösterim > 0 ve ortalama pozisyon < 30 (ilk ölçüm; sonraki hedef ilk 20)",
+      "nasil": "GSC → Sayfalar, 28 günlük pencere",
+      "durum": "bekliyor"
+    },
+    {
+      "tarih": "2026-10-10",
+      "is": "Taranabilir bayi dizini — 30 bayi bağlantısı (2026-09-12)",
+      "olcum": "Bayi sitelerinden GERİ bağlantı geldi mi + dizin sayfası taranıyor mu",
+      "hedef": "GSC Bağlantılar'da en az 1 yeni harici bağlantı; dizin bölümü tarandı",
+      "nasil": "GSC → Bağlantılar → Harici bağlantılar; ayrıca bayilere gönderilen istek takibi",
+      "durum": "bekliyor"
+    },
+    {
+      "tarih": "2026-10-10",
+      "is": "GEO alıntılanabilir cevap blokları — 8 kategori (2026-09-11)",
+      "olcum": "Kategori sorgularında AI/özet görünürlüğü ve kategori sayfası gösterimi",
+      "hedef": "Kategori sayfalarının gösteriminde artış; cevap bloğu metni bir AI yanıtında alıntılanıyor",
+      "nasil": "GSC → Sayfalar (/products/*); elle ChatGPT/Perplexity kontrolü",
+      "durum": "bekliyor"
+    },
+    {
+      "tarih": "2026-10-12",
+      "is": "Dil değiştirme düzeltmeleri — gecikme + hero + 106 CMS alanı (2026-09-12)",
+      "olcum": "Yabancı dil sayfalarında hemen çıkma oranı / oturum süresi",
+      "hedef": "de/es/ru/nl/ar oturumlarında hemen çıkma oranı düşüşü",
+      "nasil": "GA4 → dil kırılımı, 2026-09-12 öncesi/sonrası",
+      "durum": "bekliyor"
+    }
+  ]
+}

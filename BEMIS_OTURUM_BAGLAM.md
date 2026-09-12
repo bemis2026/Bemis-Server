@@ -13,6 +13,38 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🩺📅 **/destek GÜÇLENDİRİLDİ + ÖLÇÜM TAKVİMİ KURULDU (2026-09-12, commit 2c4d90a):**
+>
+> **📌 ÖNCEKİ İFADEM DÜZELTİLDİ:** *"arıza alanında sıfır içerik var"* demiştim — **blogda sıfır,
+> ama `/destek` sayfası ZATEN 6 arıza senaryosunu adım adım kapsıyordu** (1008 kelime, FAQPage,
+> indekslenebilir, RCD/sigorta dahil). Bu yüzden rakip blog yazıları yazmak **kanibalizasyon**
+> olurdu; doğru iş mevcut sayfayı derinleştirmekti. 📌 "Bizde yok" demeden önce ilgili SAYFAYI aç.
+>
+> **EKSİK OLANLAR (referans dokümandaki desen):**
+> **(1) `HowTo` şeması YOKTU** — sayfada numaralı adımlar vardı ama şemada değil. Artık
+> **6 `HowTo` / 20 `HowToStep`**. Arıza sorgularında FAQPage'ten AYRI ve daha güçlü sinyal.
+> **(2) AYIRICI TANI TABLOSU yoktu** ("hangi belirtiyle karışır") — **9 satır** eklendi. En sık
+> hata: **araç kaynaklı güç sınırını "cihaz arızası" sanıp servis çağırmak.** Tablo aynı zamanda
+> **İÇ LİNK AĞI** kuruyor → 4 derin sayfaya bağlıyor (monofaze-trifaze · amper ayarı · evden kablo
+> uzatma · evde güvenli mi). 📌 DAİMA DOM'da, akordeon ARDINDA DEĞİL.
+> ✅ Canlı: HowTo 6 · adım 20 · FAQPage 1 · tablo 9 satır · 4 iç link · **kelime 1008 → 1310**.
+>
+> **⚠️ TEK KAYNAK: `app/destek/sorunlar.ts`.** Arıza verisi eskiden `DestekClient` içindeydi ve
+> `page.tsx`'teki şema AYRI yazılmış metinlerden besleniyordu (dosyadaki *"Cevaplar sayfadaki
+> metinle AYNI olmalı"* uyarısı bunun iziydi). Artık görünür bölüm + `HowTo` şeması AYNI diziden.
+> İkon JSX olduğu için sunucu şema tarafına sızmasın diye `id` üzerinden eşlenir.
+> ⚠️ Sayfanın **nötr renk pilotu** korundu — tabloda mavi accent kullanılmadı.
+>
+> **🔴 HATA KODU SAYFASI YAPILAMADI:** kodda/veride **cihaz hata kodu YOK** (arandı). Kılavuz
+> PDF'lerinde olabilir → **kullanıcıdan tablo isteniyor.** Uydurulmadı.
+>
+> **📅 ÖLÇÜM TAKVİMİ (yeni):** `data/olcum-takvimi.json` + **`npm run olcum`** → vadesi gelen
+> kontrol noktalarını öne çıkarır. 8 kontrol kayıtlı (7–30 gün). 📌 **Yeni iş bitince BURAYA
+> kontrol noktası ekle; ölçüm yapılınca `durum`u "kapandı" yap ve `sonuc` yaz — SİLME.**
+> 📌 Oturum başında `npm run olcum` çalıştır.
+
+
+
 > 📊🔧 **DIŞ SEO ÇALIŞMASINDAN FİKİR + 2 KARAR UYGULANDI (2026-09-12, commit 90719e9):**
 > Kullanıcı bir bayinin kendi sitesi için yaptığı SEO/GEO çalışmasının dokümanını verdi
 > (`Downloads/TeknikPart-SEO-Ornek-Calisma.md`) ve *"bizim yapmadığımız ne var"* diye sordu.
