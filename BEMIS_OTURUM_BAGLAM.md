@@ -13,6 +13,51 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🎠🔬 **HERO SLIDER "BİRDEN HIZLANIYOR" — ZAMANLAYICIDA HATA YOK, İKİ GERÇEK SEBEP BULUNDU
+> (2026-09-12, commit 52497de):** Kullanıcı *"hero bölümünde dönen görsel bir anda hızlanıyor, DC
+> görselinde kontrol et"* dedi. Seçmeli soruldu: **çapraz geçişi uzat** + **"ilk açılışta oluyor"**.
+>
+> **📏 ÖNCE ÖLÇÜLDÜ — ZAMANLAYICI KUSURSUZ.** Gerçek Chromium'da (Playwright) **`aria-hidden`
+> mutasyonuna** bağlanıp ölçüldü. 5 senaryo, 30+ geçiş:
+> · 92 sn kesintisiz / 18 geçiş → **4970-5028 ms** · dil değiştirdikten sonra → 4990-5004 ms
+> · mobil 390×844 → 4992-5025 ms · sapan **0**. Kodda tek `setInterval` (5000 ms, temizlikli);
+> 3 slaytta çift-tampon hiç unmount etmiyor.
+> **⚠️ ÖLÇÜM DERSİ 1 — opacity ile ölçme:** geçiş ortasında iki slayt da ~0.5 olduğu için "aktif"
+> tespiti **±900 ms** sapıyor (1,8 sn fade'in yarısı). `aria-hidden` React durumu değiştiği AN
+> değişir → kesin ölçüm onunla yapılır.
+> **⚠️ ÖLÇÜM DERSİ 2 — ilk aralık DAİMA kısmi:** gözlem döngünün ortasında başladığı için ilk değer
+> hep kısa çıkar. İlk turda gördüğüm **675 ms**'yi "yakaladım" sanmıştım, **yanlış alarmdı**.
+> **⚠️ ÖLÇÜM DERSİ 3 — Claude tarayıcı paneli bu ölçüm için KULLANILAMAZ:** panel gizliyken
+> `document.hidden = true` → tarayıcı `setInterval`'ı kısıyor; ayrıca `.hero-slide` **6** görünüyor
+> (3 gerçek + 3 gizli SSR kopyası). Playwright'ta 3. 📌 Zamanlayıcı ölçümü Playwright'ta yapılır.
+>
+> **🔴 SEBEP 1 — PARLAKLIK SIÇRAMASI (algısal).** Üç slaytın ortalama parlaklığı ölçüldü:
+> hero **114** → DC **71** → Togg **135**. DC'den sonraki geçiş sayfadaki **en büyük sıçrama**
+> (71→135, neredeyse iki kat); göz bunu fade bitmeden yakalayıp geçişi "ani/hızlanmış" algılıyor.
+> → **çapraz geçiş 1,8 → 2,6 sn** (kullanıcı kararı).
+>
+> **🔴 SEBEP 2 — SOĞUK AÇILIŞTA TEMBEL YÜKLEME (asıl kusur).** `priority` **yalnız slayt 0**'daydı,
+> komşular `loading="lazy"`. Çift-tampon onları DOM'a basıyor **ama indirmeyi tembel bırakıyordu** →
+> soğuk açılışta bir sonraki görsel inmemişken 5. saniyede geçiş başlıyor, fade **boşa akıyor**,
+> görsel hazır olunca tam opaklıkta **"pat" diye oturuyor**. Kullanıcının *"ilk açılışta"* demesi
+> bunu doğruluyor; sıcak önbellekte üretilemiyor (ölçümlerimin hepsi sıcaktı).
+> → komşu slaytlara **`loading="eager"`**.
+> ⚠️ **`priority` DEĞİL `eager`:** priority hepsine verilirse 3 tam-ekran görsel LCP ile yarışır.
+> Slayt 0 preload+high ile önde kalır; diğerleri 36 ve 73 KB AVIF, sırada ama beklemeden iner.
+>
+> **⚠️ ÇÜRÜTÜLEN HİPOTEZ (kayda geçsin):** *"DC görseli en ağır, geç çözülüyor"* demiştim —
+> **ölçtüm, DC servis edilirken ÜÇÜNÜN EN HAFİFİ**: 36 KB AVIF (hero 116, Togg 73). Düz koyu
+> stüdyo zemini çok iyi sıkışıyor. 📌 "Ağır görsel" iddiasını KAYNAK boyutuyla değil **servis edilen**
+> boyutla ölç.
+>
+> **ⓘ YOL ÜSTÜNDE İKİ BULGU (düzeltilmedi, bilerek):**
+> **(a) `data/content.json`'da `heroImages` YOK**, yalnız `heroBg`. İçerik R2'den gelirse **3 slayt**,
+> repo yedeğinden gelirse **1 slayt** → `heroSlides.length <= 1` olduğu için slider **hiç dönmez**.
+> Bugün canlıda sorun yok (R2 okunuyor) ama yedeğin devreye girdiği bir build'de hero sabit kalır.
+> **(b) 3. slayt yalnız 1600×686, oran 2.33** → masaüstünde ~1.3×, **mobilde ~3×** büyütülüyor
+> (diğer ikisi 2528×1684 ve 3840×2143). Görsel üretim listesine **Öncelik 2b** olarak eklendi.
+
+
 > 📐🖼️ **KATEGORİ SAYFASI: GEO CEVAP BLOĞU ÜRÜNLERİN ALTINA ALINDI + GÖRSEL ÜRETİM LİSTESİ
 > (2026-09-12, commit ad4d633):** Kullanıcı *"ürün kategorilerinde heronun altında ek bir açıklama
 > alanı gelmiş, onu alta al, ürünlerin altında yazsın. genel tüm ürün kategorilerinde böyle yap.
