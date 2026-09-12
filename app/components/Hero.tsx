@@ -253,7 +253,13 @@ export default function Hero() {
               className="absolute inset-0 hero-slide"
               style={{
                 opacity: i === activeHeroIdx ? 1 : 0,
-                transition: "opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1)",
+                // ⚠️ 1,8s → 2,6s (2026-09-12, kullanıcı kararı). Sebep ÖLÇÜLDÜ:
+                // slaytların ortalama parlaklığı 114 (hero) → 71 (DC) → 135 (Togg).
+                // DC'den sonraki geçiş sayfadaki EN BÜYÜK parlaklık sıçraması
+                // (71→135, neredeyse iki kat); göz bunu fade bitmeden yakalayıp
+                // geçişi "ani/hızlanmış" algılıyordu. Zamanlayıcıda hata YOK —
+                // 5 senaryoda 30+ geçiş ölçüldü, hepsi 4970-5028 ms.
+                transition: "opacity 2.6s cubic-bezier(0.4, 0, 0.2, 1)",
                 // ⚠️ Yalnız -d / -m çiftleri inline verilir; --hp/--hz'yi globals.css
                 // medya sorgusu seçer. (Inline stil, stylesheet'i EZER → --hp'yi burada
                 // set edersek mobil geçersiz kalırdı.)
@@ -269,6 +275,17 @@ export default function Hero() {
                 alt={pickText(lang, "Bemis E-V Charge elektrikli araç şarj istasyonu", "Bemis E-V Charge electric vehicle charging station")}
                 fill
                 priority={i === 0}
+                // ⚠️ KOMŞU SLAYTLAR DA HEMEN İNDİRİLİR (2026-09-12).
+                // Eskiden yalnız slayt 0 `priority` alıyordu, diğerleri `lazy`ydi.
+                // Çift-tampon onları DOM'a zaten basıyor AMA indirmeyi tembel
+                // bırakıyordu → SOĞUK açılışta bir sonraki görsel henüz inmemişken
+                // 5. saniyede geçiş başlıyor, 2,6 sn'lik fade BOŞA akıyor ve görsel
+                // hazır olunca tam opaklıkta "pat" diye oturuyor. Kullanıcı bunu
+                // "bir anda hızlanıyor" diye bildirdi (DC slaytında).
+                // ⚠️ `priority` DEĞİL `loading="eager"`: priority hepsine verilirse
+                //    3 tam-ekran görsel LCP ile yarışır. Slayt 0 preload+high ile
+                //    önde kalır; diğerleri sırada ama BEKLEMEDEN iner (36-73 KB AVIF).
+                loading={i === 0 ? undefined : "eager"}
                 // Hero = markanın ilk izlenimi + tam ekran → en yüksek kademe (95).
                 // ⚠️ Değeri değiştirirken next.config `qualities` listesinde OLMALI.
                 quality={95}
