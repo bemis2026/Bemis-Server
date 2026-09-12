@@ -73,6 +73,14 @@
       "hedef": "İndekslendi; gösterim > 0; WebApplication şeması Zengin Sonuç Testi'nde geçerli",
       "nasil": "GSC → URL denetimi + Sorgular (sayfa filtresi /sarj-suresi-hesaplama)",
       "durum": "bekliyor"
+    },
+    {
+      "tarih": "2026-09-19",
+      "is": "Adres No:31 → No:19 değişikliği (2026-09-12)",
+      "olcum": "Google İşletme Profili kartındaki adres No:19 mu? Site ile birebir aynı mı?",
+      "hedef": "GBP · site · bemis.com.tr · kılavuz PDF — dördü de 'Yeşil Cad. No:19'",
+      "nasil": "GBP panelinden adresi oku (programatik okunamıyor: Haritalar JS kabuğu döndürüyor). Uyuşmuyorsa ya GBP ya site düzeltilir — NAP tutarsızlığı yerel SEO'yu zayıflatır.",
+      "durum": "bekliyor"
     }
   ]
 }

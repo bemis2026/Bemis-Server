@@ -13,6 +13,38 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 📍🔴 **ADRES BİNA NUMARASI No:31 → No:19 (2026-09-12, commit e574b89) + KADEME ÇELİŞKİSİ KAPANDI:**
+> Kılavuz okumasında çıkan iki çelişki çoktan seçmeli soruldu.
+>
+> **(1) KADEME — katalog doğru, kılavuz bayat.** Mobil kılavuz Pro Mobile'ı 2 kademe (11/22 kW)
+> diye anlatıyor; katalog aynı ürün koduyla (BEV-2331-0001) **6 kademe** diyor. **Kullanıcı kararı:
+> 6 kademe DOĞRU**, kılavuz önceki nesil için. → **Sitede değişiklik YOK** (blog, /destek, katalog
+> zaten 6 diyor). ⚠️ **Siteye yüklü kılavuz PDF'i bayat bilgi taşıyor** — güncellenmesi kullanıcı
+> tarafında. 📌 "Kılavuzda 2 kademe yazıyor" itirazı gelirse cevap bu.
+>
+> **(2) 🔴 ADRES — No:19 doğru, SİTE YANLIŞTI.** Ana şirket sitesi (`bemis.com.tr`) ve ürün kullanma
+> kılavuzlarının iletişim sayfası **"Yeşil Cad. No:19"** yazıyor; sitemiz **No:31** yazıyordu.
+> Kullanıcı No:19'un doğru olduğunu bildirdi → üç yüzey hizalandı.
+> **17 yer değişti:** kod 9 (`app/lib/seo.ts` `ORG_ADDRESS` = şemanın kaynağı · `/iletisim` metadata
+> + description + twitter + `PostalAddress` · `ContactPageClient` · `gizlilik` KVKK aydınlatma metni
+> · `llms-full.txt`) + veri 8 (`data/content.json` + R2 TR ve **6 çeviri kolu** — adres **kanonik
+> NAP**'tır, çevrilmez, her kolda AYNI yazılır).
+> ✅ Canlı: `/iletisim` 12× No:19 · `/gizlilik` 6× · `llms-full` 1× · anasayfa 3× · **No:31 hiçbir
+> yerde 0** · şema `streetAddress` No:19 · AR içerik kolu No:19.
+> ⚠️ Desen **DAR** tutuldu (yalnız `No:31`/`No: 31`) → posta kodu 16220, telefon ve diğer sayılar
+> DEĞİŞMEDİ; kuru çalıştırmada her alanın tam metni gösterildi.
+>
+> **⚠️⚠️ AÇIK RİSK — KULLANICI TEYİDİ BEKLENİYOR (ölçüm takvimine 2026-09-19 olarak eklendi):**
+> NAP tutarlılığı yerel SEO'nun temeli ve **Google site adresini GBP kartıyla karşılaştırır.**
+> **GBP'de No:31 yazıyorsa bu değişiklik YENİ bir tutarsızlık üretir.** GBP kartının da No:19
+> olduğu teyit edilmeli. 📌 Adres **programatik doğrulanamıyor** — Google Haritalar JS kabuğu
+> döndürüyor (bu oturumda ölçüldü, **tekrar denemeye kalkma**). Gerekçe notu `seo.ts`'te
+> `ORG_ADDRESS`ın üstünde duruyor.
+>
+> store cache **v118-dil-duzeltme → v119-adres-no19**.
+
+
+
 > 📖🩺 **KILAVUZLARDAN LED + DC EKRAN MESAJLARI · BLOG KÜNYESİ · TARİH 7 DİL
 > (2026-09-12, commit 20f6d8b):** Kullanıcı kararları: **kurumsal yazar** ·
 > *"hata kodları kullanma klavuzunda var bak"*.
