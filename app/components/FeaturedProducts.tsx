@@ -181,7 +181,7 @@ export default function FeaturedProducts() {
           <div
             ref={scrollRef}
             {...handlers}
-            tabIndex={0} role="region" aria-label="Öne çıkan ürünler — yatay kaydırılabilir liste" className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none focus:outline-none"
+            tabIndex={0} role="region" aria-label={pickText(lang, "Öne çıkan ürünler — yatay kaydırılabilir liste", "Featured products — horizontally scrollable list")} className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none focus:outline-none"
             style={{
               maskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
               WebkitMaskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",

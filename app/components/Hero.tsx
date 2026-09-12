@@ -266,7 +266,7 @@ export default function Hero() {
             >
               <Image
                 src={slide.src}
-                alt="Bemis E-V Charge elektrikli araç şarj istasyonu"
+                alt={pickText(lang, "Bemis E-V Charge elektrikli araç şarj istasyonu", "Bemis E-V Charge electric vehicle charging station")}
                 fill
                 priority={i === 0}
                 // Hero = markanın ilk izlenimi + tam ekran → en yüksek kademe (95).

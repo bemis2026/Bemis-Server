@@ -198,7 +198,7 @@ export default function DNA() {
               {ytPosterId && (
                 <img
                   src={`https://i.ytimg.com/vi/${ytPosterId}/maxresdefault.jpg`}
-                  alt="Bemis E-V Charge tanıtım videosundan kare — elektrikli araç şarj ürünleri"
+                  alt={pickText(lang, "Bemis E-V Charge tanıtım videosundan kare — elektrikli araç şarj ürünleri", "Still from the Bemis E-V Charge introduction video — electric vehicle charging products")}
                   loading="lazy"
                   decoding="async"
                   className="absolute inset-0 w-full h-full object-cover pointer-events-none"

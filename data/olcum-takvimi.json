@@ -75,6 +75,14 @@
       "durum": "bekliyor"
     },
     {
+      "tarih": "2026-09-26",
+      "is": "Arayüz çeviri bekçisi + socialWallSection çeviri yolu (2026-09-12)",
+      "olcum": "npm run check:i18n temiz mi? Ve operatör admin'den sosyal bölüm başlığı girdiyse 5 dilde çevrildi mi?",
+      "hedef": "Bekçi 0 sorun; socialWallSection.heading admin'de doluysa /api/content?lang=de o alanı ALMANCA döndürüyor (Türkçe DEĞİL)",
+      "nasil": "npm run check:i18n · ardından /api/content?lang=de|ar içinde socialWallSection.heading alanını oku (alan boşsa kodun t(tr,en) yedeği devrede = sorun yok, not düş)",
+      "durum": "bekliyor"
+    },
+    {
       "tarih": "2026-09-19",
       "is": "Adres No:31 → No:19 değişikliği (2026-09-12)",
       "olcum": "Google İşletme Profili kartındaki adres No:19 mu? Site ile birebir aynı mı?",

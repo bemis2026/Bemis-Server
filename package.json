@@ -12,7 +12,8 @@
     "translate": "tsx scripts/translate.ts",
     "gen:blog-index": "tsx scripts/gen-posts-index.ts",
     "gen:diagram-i18n": "tsx scripts/gen-diagram-i18n.ts",
-    "check:clones": "node scripts/check-clone-descriptions.cjs"
+    "check:clones": "node scripts/check-clone-descriptions.cjs",
+    "check:i18n": "tsx scripts/check-i18n-keys.mts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.110.0",

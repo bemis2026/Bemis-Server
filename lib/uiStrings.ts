@@ -187,6 +187,7 @@ const STRINGS = {
   calc_grid_energy:       { tr: "Şebekeden çekilen",                en: "Drawn from grid" },
   // ⚠️ DC süresi tahmindir — genel taper eğrisi kullanılır, gerçek eğri araca göre değişir.
   calc_product_hint:      { tr: "Bu güç için Bemis",             en: "Bemis for this power" },
+  calc_elec_price_aria:   { tr: "Elektrik birim fiyatı (TL/kWh)", en: "Electricity unit price (TRY/kWh)" },
   calc_product_cta:       { tr: "İncele",                        en: "View" },
   calc_dc_note:           { tr: "Tahmini süre. DC şarjda batarya doldukça güç düşer; gerçek süre aracın şarj eğrisine ve batarya sıcaklığına göre değişir.", en: "Estimated time. DC power tapers as the battery fills; the real duration depends on the car's charging curve and battery temperature." },
   calc_elec_cost:         { tr: "Elektrik Maliyeti",               en: "Electricity Cost" },

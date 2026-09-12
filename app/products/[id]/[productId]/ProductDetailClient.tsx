@@ -1433,7 +1433,7 @@ export default function ProductDetailPage({
             <div className="relative">
               {karuselSol && (
               <button
-                aria-label="Sola kaydır"
+                aria-label={pickText(lang, "Sola kaydır", "Scroll left")}
                 onClick={() => scrollCarousel("left")}
                 /* ⚠️ cursor-pointer: Tailwind v4 button'a cursor:default verir */
                 className="hidden sm:flex cursor-pointer absolute left-2 lg:left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-105 active:scale-95"
@@ -1450,7 +1450,7 @@ export default function ProductDetailPage({
               )}
               {karuselSag && (
               <button
-                aria-label="Sağa kaydır"
+                aria-label={pickText(lang, "Sağa kaydır", "Scroll right")}
                 onClick={() => scrollCarousel("right")}
                 className="hidden sm:flex cursor-pointer absolute right-2 lg:right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-105 active:scale-95"
                 style={{
@@ -1466,7 +1466,7 @@ export default function ProductDetailPage({
               )}
             <div
               ref={carouselRef}
-              tabIndex={0} role="region" aria-label="Benzer ürünler — yatay kaydırılabilir liste" className="flex gap-3 overflow-x-auto snap-x snap-proximity scrollbar-hide pl-5 sm:pl-6 lg:pl-8 pr-5 sm:pr-6 lg:pr-8"
+              tabIndex={0} role="region" aria-label={pickText(lang, "Benzer ürünler — yatay kaydırılabilir liste", "Similar products — horizontally scrollable list")} className="flex gap-3 overflow-x-auto snap-x snap-proximity scrollbar-hide pl-5 sm:pl-6 lg:pl-8 pr-5 sm:pr-6 lg:pr-8"
               style={{ scrollPaddingLeft: "1.25rem", scrollPaddingRight: "1.25rem", WebkitOverflowScrolling: "touch" }}
             >
               {carousel.map(({ cat, prod }, i) => {

@@ -2,12 +2,16 @@
 
 import { useContent } from "../context/ContentContext";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
 import { HiLocationMarker, HiPhone, HiMail } from "react-icons/hi";
 import { RiLinkedinFill, RiInstagramLine, RiYoutubeFill, RiFacebookFill } from "react-icons/ri";
 
 export default function ContactBar() {
   const { contact, social, logos } = useContent();
   const { theme } = useTheme();
+  const { lang } = useLanguage();
+  const t = (tr: string, en: string) => pickText(lang, tr, en);
   const d = theme === "dark";
 
   const bg         = d ? "#1a1a1c" : "#f0f0f0";
@@ -73,7 +77,7 @@ export default function ContactBar() {
           {/* Social + copyright */}
           <div className="flex items-center gap-4 flex-shrink-0">
             {social?.linkedin && (
-              <a href={social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Bemis LinkedIn sayfası"
+              <a href={social.linkedin} target="_blank" rel="noopener noreferrer" aria-label={t("Bemis LinkedIn sayfası", "Bemis on LinkedIn")}
                 style={{ color: socialColor }}
                 onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = hoverColor)}
                 onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = socialColor)}
@@ -82,7 +86,7 @@ export default function ContactBar() {
               </a>
             )}
             {social?.instagram && (
-              <a href={social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Bemis Instagram sayfası"
+              <a href={social.instagram} target="_blank" rel="noopener noreferrer" aria-label={t("Bemis Instagram sayfası", "Bemis on Instagram")}
                 style={{ color: socialColor }}
                 onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = hoverColor)}
                 onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = socialColor)}
@@ -91,7 +95,7 @@ export default function ContactBar() {
               </a>
             )}
             {social?.youtube && (
-              <a href={social.youtube} target="_blank" rel="noopener noreferrer" aria-label="Bemis YouTube kanalı"
+              <a href={social.youtube} target="_blank" rel="noopener noreferrer" aria-label={t("Bemis YouTube kanalı", "Bemis on YouTube")}
                 style={{ color: socialColor }}
                 onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = hoverColor)}
                 onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = socialColor)}
@@ -100,7 +104,7 @@ export default function ContactBar() {
               </a>
             )}
             {social?.facebook && (
-              <a href={social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Bemis Facebook sayfası"
+              <a href={social.facebook} target="_blank" rel="noopener noreferrer" aria-label={t("Bemis Facebook sayfası", "Bemis on Facebook")}
                 style={{ color: socialColor }}
                 onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = hoverColor)}
                 onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = socialColor)}

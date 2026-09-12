@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiSearch, HiX } from "react-icons/hi";
 import { useLanguage } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
 import { groupVariantsByName } from "../../lib/productGroups";
 import { useFocusTrap } from "@/lib/useFocusTrap";
 
@@ -50,6 +51,7 @@ function normalize(s: string): string {
 export default function SearchOverlay({ isOpen, onClose }: Props) {
   const router = useRouter();
   const { lang } = useLanguage();
+  const tt = (tr: string, en: string) => pickText(lang, tr, en);
   const [query, setQuery] = useState("");
   const [categories, setCategories] = useState<Category[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -155,7 +157,7 @@ export default function SearchOverlay({ isOpen, onClose }: Props) {
             ref={panelRef}
             role="dialog"
             aria-modal="true"
-            aria-label="Site araması"
+            aria-label={tt("Site araması", "Search the site")}
             initial={{ opacity: 0, y: -24, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -16, scale: 0.97 }}
@@ -169,7 +171,7 @@ export default function SearchOverlay({ isOpen, onClose }: Props) {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Ürün adı, kodu veya bölüm ara..."
+                placeholder={tt("Ürün adı, kodu veya bölüm ara...", "Search product name, code or section...")}
                 className="flex-1 bg-transparent text-white placeholder-white/30 text-base outline-none"
               />
               <button

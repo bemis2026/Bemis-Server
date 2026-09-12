@@ -3,9 +3,12 @@
 import { motion } from "framer-motion";
 import { RiWhatsappFill } from "react-icons/ri";
 import { useContent } from "../context/ContentContext";
+import { useLanguage } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
 
 export default function AIChatButton() {
   const { contact } = useContent();
+  const { lang } = useLanguage();
 
   // Prefer whatsappPhone if explicitly set; otherwise reuse contact.phone.
   const rawNumber = (contact.whatsappPhone?.trim() || contact.phone || "").trim();
@@ -34,7 +37,7 @@ export default function AIChatButton() {
         color: "#ffffff",
         boxShadow: "0 6px 24px rgba(37,211,102,0.35)",
       }}
-      aria-label="WhatsApp ile iletişime geç"
+      aria-label={pickText(lang, "WhatsApp ile iletişime geç", "Contact us on WhatsApp")}
       title={`WhatsApp · ${rawNumber}`}
     >
       <RiWhatsappFill size={26} />

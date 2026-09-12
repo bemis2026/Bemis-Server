@@ -16,6 +16,8 @@ import { useTheme } from "../context/ThemeContext";
 import { accentInk } from "../lib/accentInk";
 import { useContent } from "../context/ContentContext";
 import { useUiStrings } from "../../lib/uiStrings";
+import { useLanguage } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
 import { PhoneScreen, WebScreen } from "./AppMockups";
 
 const FEATURE_ICONS = [RiWifiLine, RiBuilding4Line, RiCodeSSlashLine];
@@ -50,6 +52,7 @@ export default function SmartCharger() {
   const { smartCharger } = useContent();
   const router = useRouter();
   const t = useUiStrings();
+  const { lang } = useLanguage();
   const d = theme === "dark";
 
   const bg = d
@@ -110,7 +113,7 @@ export default function SmartCharger() {
               }}
               whileTap={{ cursor: "grabbing" }}
               role="region"
-              aria-label="Mockup galerisi — kaydırarak telefon ve web görünümleri arasında geçiş yapın"
+              aria-label={pickText(lang, "Mockup galerisi — kaydırarak telefon ve web görünümleri arasında geçiş yapın", "Mockup gallery — swipe to switch between phone and web views")}
             >
               <AnimatePresence initial={false} mode="wait">
                 {mockupIndex === 0 ? (

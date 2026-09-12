@@ -6,6 +6,8 @@ import { HiX } from "react-icons/hi";
 import dynamic from "next/dynamic";
 import { useContactOverlay } from "../context/ContactOverlayContext";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
 import { useFocusTrap } from "@/lib/useFocusTrap";
 
 // Contact is dynamically loaded — the form has its own state machine
@@ -16,6 +18,7 @@ const Contact = dynamic(() => import("./Contact"), { ssr: false });
 export default function ContactOverlay() {
   const { open, closeContact } = useContactOverlay();
   const { theme } = useTheme();
+  const { lang } = useLanguage();
   const d = theme === "dark";
   const panelRef = useFocusTrap<HTMLDivElement>(open);
 
@@ -52,7 +55,7 @@ export default function ContactOverlay() {
             ref={panelRef}
             role="dialog"
             aria-modal="true"
-            aria-label="İletişim"
+            aria-label={pickText(lang, "İletişim", "Contact Us")}
             initial={{ opacity: 0, y: 24, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 24, scale: 0.98 }}

@@ -5,6 +5,8 @@ import Image from "./Img";
 import { motion, useInView } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
+import { useLanguage } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
 import { HiLocationMarker, HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { useMarqueeScroll } from "../../lib/useMarqueeScroll";
 import E from "./E";
@@ -13,6 +15,7 @@ export default function ReferenceProjects() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
+  const { lang } = useLanguage();
   const { referenceProjectsSection: section, sectionBgs } = useContent();
   const d = theme === "dark";
 
@@ -116,7 +119,7 @@ export default function ReferenceProjects() {
           <div
             ref={scrollRef}
             {...handlers}
-            tabIndex={0} role="region" aria-label="Referans projeler — yatay kaydırılabilir liste" className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none focus:outline-none"
+            tabIndex={0} role="region" aria-label={pickText(lang, "Referans projeler — yatay kaydırılabilir liste", "Reference projects — horizontally scrollable list")} className="overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing select-none focus:outline-none"
             style={{
               maskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
               WebkitMaskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",

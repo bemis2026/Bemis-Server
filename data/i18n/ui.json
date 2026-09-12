@@ -3470,5 +3470,124 @@
   "ar": "منشور مستخدم لـ Bemis E-V Charge",
   "ru": "Публикация пользователя Bemis E-V Charge",
   "nl": "Gebruikersbericht over Bemis E-V Charge"
+ },
+ "Bemis on LinkedIn": {
+  "de": "Bemis auf LinkedIn",
+  "es": "Bemis en LinkedIn",
+  "ar": "Bemis على لينكدإن",
+  "ru": "Bemis в LinkedIn",
+  "nl": "Bemis op LinkedIn"
+ },
+ "Bemis on Instagram": {
+  "de": "Bemis auf Instagram",
+  "es": "Bemis en Instagram",
+  "ar": "Bemis على إنستغرام",
+  "ru": "Bemis в Instagram",
+  "nl": "Bemis op Instagram"
+ },
+ "Bemis on YouTube": {
+  "de": "Bemis auf YouTube",
+  "es": "Bemis en YouTube",
+  "ar": "Bemis على يوتيوب",
+  "ru": "Bemis на YouTube",
+  "nl": "Bemis op YouTube"
+ },
+ "Bemis on Facebook": {
+  "de": "Bemis auf Facebook",
+  "es": "Bemis en Facebook",
+  "ar": "Bemis على فيسبوك",
+  "ru": "Bemis в Facebook",
+  "nl": "Bemis op Facebook"
+ },
+ "Search product name, code or section...": {
+  "de": "Produktname, Artikelnummer oder Bereich suchen …",
+  "es": "Busca por nombre de producto, código o sección…",
+  "ar": "ابحث باسم المنتج أو رمزه أو القسم…",
+  "ru": "Поиск по названию, коду товара или разделу…",
+  "nl": "Zoek op productnaam, code of onderdeel…"
+ },
+ "Contact us on WhatsApp": {
+  "de": "Kontaktieren Sie uns über WhatsApp",
+  "es": "Contáctanos por WhatsApp",
+  "ar": "تواصل معنا عبر واتساب",
+  "ru": "Связаться с нами в WhatsApp",
+  "nl": "Neem contact met ons op via WhatsApp"
+ },
+ "Featured products — horizontally scrollable list": {
+  "de": "Ausgewählte Produkte — horizontal scrollbare Liste",
+  "es": "Productos destacados: lista desplazable horizontalmente",
+  "ar": "المنتجات المميزة — قائمة قابلة للتمرير أفقيًا",
+  "ru": "Популярные товары — список с горизонтальной прокруткой",
+  "nl": "Uitgelichte producten — horizontaal schuifbare lijst"
+ },
+ "Reference projects — horizontally scrollable list": {
+  "de": "Referenzprojekte — horizontal scrollbare Liste",
+  "es": "Proyectos de referencia: lista desplazable horizontalmente",
+  "ar": "المشاريع المرجعية — قائمة قابلة للتمرير أفقيًا",
+  "ru": "Реализованные проекты — список с горизонтальной прокруткой",
+  "nl": "Referentieprojecten — horizontaal schuifbare lijst"
+ },
+ "Similar products — horizontally scrollable list": {
+  "de": "Ähnliche Produkte — horizontal scrollbare Liste",
+  "es": "Productos similares: lista desplazable horizontalmente",
+  "ar": "منتجات مشابهة — قائمة قابلة للتمرير أفقيًا",
+  "ru": "Похожие товары — список с горизонтальной прокруткой",
+  "nl": "Vergelijkbare producten — horizontaal schuifbare lijst"
+ },
+ "Scroll left": {
+  "de": "Nach links scrollen",
+  "es": "Desplazar a la izquierda",
+  "ar": "تمرير إلى اليسار",
+  "ru": "Прокрутить влево",
+  "nl": "Naar links schuiven"
+ },
+ "Scroll right": {
+  "de": "Nach rechts scrollen",
+  "es": "Desplazar a la derecha",
+  "ar": "تمرير إلى اليمين",
+  "ru": "Прокрутить вправо",
+  "nl": "Naar rechts schuiven"
+ },
+ "Mockup gallery — swipe to switch between phone and web views": {
+  "de": "Mockup-Galerie — wischen, um zwischen Handy- und Web-Ansicht zu wechseln",
+  "es": "Galería de maquetas: desliza para alternar entre la vista de móvil y la de web",
+  "ar": "معرض النماذج — اسحب للتبديل بين عرض الهاتف وعرض الويب",
+  "ru": "Галерея макетов — смахните, чтобы переключиться между мобильным и веб-видом",
+  "nl": "Mockupgalerij — swipe om te wisselen tussen telefoon- en webweergave"
+ },
+ "Still from the Bemis E-V Charge introduction video — electric vehicle charging products": {
+  "de": "Standbild aus dem Bemis E-V Charge Vorstellungsvideo — Ladeprodukte für Elektrofahrzeuge",
+  "es": "Fotograma del vídeo de presentación de Bemis E-V Charge: productos de carga para vehículos eléctricos",
+  "ar": "لقطة من فيديو التعريف بـ Bemis E-V Charge — منتجات شحن السيارات الكهربائية",
+  "ru": "Кадр из презентационного видео Bemis E-V Charge — продукция для зарядки электромобилей",
+  "nl": "Beeld uit de introductievideo van Bemis E-V Charge — laadproducten voor elektrische voertuigen"
+ },
+ "Bemis E-V Charge electric vehicle charging station": {
+  "de": "Bemis E-V Charge Ladestation für Elektrofahrzeuge",
+  "es": "Estación de carga para vehículos eléctricos Bemis E-V Charge",
+  "ar": "محطة شحن السيارات الكهربائية Bemis E-V Charge",
+  "ru": "Зарядная станция для электромобилей Bemis E-V Charge",
+  "nl": "Bemis E-V Charge laadstation voor elektrische voertuigen"
+ },
+ "Electricity unit price (TRY/kWh)": {
+  "de": "Strompreis pro Einheit (TRY/kWh)",
+  "es": "Precio unitario de la electricidad (TRY/kWh)",
+  "ar": "سعر وحدة الكهرباء (TRY/kWh)",
+  "ru": "Цена электроэнергии за единицу (TRY/кВт·ч)",
+  "nl": "Eenheidsprijs elektriciteit (TRY/kWh)"
+ },
+ "Bemis for this power": {
+  "de": "Bemis für diese Leistung",
+  "es": "Bemis para esta potencia",
+  "ar": "منتجات Bemis لهذه القدرة",
+  "ru": "Bemis для этой мощности",
+  "nl": "Bemis voor dit vermogen"
+ },
+ "Estimated time. DC power tapers as the battery fills; the real duration depends on the car's charging curve and battery temperature.": {
+  "de": "Geschätzte Dauer. Beim DC-Laden sinkt die Leistung, je voller die Batterie wird; die tatsächliche Dauer hängt von der Ladekurve des Fahrzeugs und der Batterietemperatur ab.",
+  "es": "Tiempo estimado. En carga en corriente continua la potencia baja a medida que se llena la batería; la duración real depende de la curva de carga del coche y de la temperatura de la batería.",
+  "ar": "زمن تقديري. في الشحن بالتيار المستمر تنخفض القدرة كلما امتلأت البطارية؛ والمدة الفعلية تعتمد على منحنى شحن السيارة ودرجة حرارة البطارية.",
+  "ru": "Примерное время. При зарядке постоянным током мощность снижается по мере заполнения батареи; фактическая длительность зависит от зарядной кривой автомобиля и температуры батареи.",
+  "nl": "Geschatte tijd. Bij DC-laden neemt het vermogen af naarmate de batterij vol raakt; de werkelijke duur hangt af van de laadcurve van de auto en de batterijtemperatuur."
  }
 }

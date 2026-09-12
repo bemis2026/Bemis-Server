@@ -1083,7 +1083,7 @@ export default function Calculator() {
                     </div>
                     <input type="range" min={1} max={20} step={0.1} value={chargeElecPrice}
                       onChange={(e) => setChargeElecPrice(Number(e.target.value))}
-                      aria-label="Elektrik birim fiyatı (TL/kWh)"
+                      aria-label={t("calc_elec_price_aria")}
                       className="calc-slider w-full" style={sliderStyle(chargeElecPrice, 1, 20, GREEN)} />
                     <div className="flex justify-between mt-1">
                       <span className="text-xs" style={{ color: d ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.28)" }}>1 ₺/kWh</span>
