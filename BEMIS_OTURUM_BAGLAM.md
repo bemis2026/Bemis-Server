@@ -13,6 +13,52 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 📖🩺 **KILAVUZLARDAN LED + DC EKRAN MESAJLARI · BLOG KÜNYESİ · TARİH 7 DİL
+> (2026-09-12, commit 20f6d8b):** Kullanıcı kararları: **kurumsal yazar** ·
+> *"hata kodları kullanma klavuzunda var bak"*.
+>
+> **⚠️ KILAVUZ İNDİRME YOLU:** genel R2 adresi (`pub-*.r2.dev`) **KAPALI** →
+> **`/api/documents/file?id=<doc-id>`** vekili üzerinden indirilir. 3 PDF okundu.
+> **AC kılavuzu (20 s.): hata kodu YOK** (kurulum/teknik). **Mobil kılavuzu: "IŞIK
+> FONKSİYONLARI" tablosu VAR** (Mini/Mono/Pro Mobile'da AYNI). **DC el kitabı (24 s.)
+> bölüm 8: 5 EKRAN MESAJI + kullanıcı aksiyonu.**
+> **🔴 SAYISAL HATA KODU (E01/F02) BU CİHAZLARDA YOK** — kılavuz durum mesajı gösteriyor.
+> **Kod UYDURULMADI.** 📌 "Hata kodu tablosu yap" isteği gelirse cevap bu.
+>
+> `/destek`'e eklendi: **LED tablosu** (POWER beyaz = enerji · CHARGING yeşil yanıp söner ·
+> **CHARGER STATUS kırmızı = YALNIZ arıza**) + **DC ekran mesajları tablosu** + kılavuzdaki
+> **"Servis çağırmadan önce"** kontrol listesi. ⚠️ DC mesajları **ayrı başlık altında ve "DC
+> istasyon" olduğu yazılarak** verildi — ev tipi AC/taşınabilir cihazda bu ekranlar YOK; yoksa ev
+> kullanıcısı kendi cihazında arayıp bulamaz. 📌 Veri `app/destek/sorunlar.ts`, **kaynak doküman
+> ID'leri yorumda yazılı.**
+> **/destek: HowTo 6 → 11 · adım 20 → 25 · tablo 1 → 3 · kelime 1310 → 1518.**
+>
+> **📌 ÖNCEKİ ÖLÇÜMÜM YANLIŞTI:** *"blog şemasında author YOK"* demiştim. **`articleSchema` ZATEN
+> `author: Organization (Bemis E-V Charge)` basıyor** — sayfa dosyasında grep etmiştim, `seo.ts`'te
+> tanımlı. Yani kullanıcının seçtiği **kurumsal yazar zaten yerindeydi.** 📌 Şema ararken `seo.ts`'e
+> bak, sayfa dosyasına değil.
+> Eksik olan **GÖRÜNÜR KÜNYE**ydi: şema "Bemis E-V Charge yazdı" diyor ama sayfada yazar hiç
+> görünmüyordu (Google kuralı: şemada iddia edilen sayfada görünür olmalı). **"Yazan: Bemis E-V
+> Charge"** + yayın tarihi (+ farklıysa güncelleme) eklendi; `ui.json` 469 → 471.
+> 📌 Gövde/SSS/related **DİZİLERİNE dokunulmadı** → çeviri parmak izi bozulmadı.
+>
+> **🔴 YOL ÜSTÜNDE BULUNAN KUSUR — blog tarihi 7 dilde değildi.** `fmtDate` YALNIZ `tr`/`en`
+> biliyordu → de/es/ru/nl/ar sayfalarında tarih **TÜRKÇE** basılıyordu ("12 Eylül 2026" Arapça
+> yazının ortasında). Bu oturumda düzeltilen kusur sınıfının aynısı: **dil listesi hafızadan
+> sayılmış.** 7 dile açıldı (`TARIH_YERELI`). ✅ Canlı: tr "12 Eylül 2026" · ar "١٢ سبتمبر ٢٠٢٦".
+>
+> **⚠️⚠️ KULLANICIYA SORULAN ÇELİŞKİ — KADEME SAYISI:** mobil kılavuz **Pro Mobile**'ı **2 KADEME**
+> diye anlatıyor (11 kW/16A 1., 22 kW/32A 2.) ve *"her şarj DÜŞÜK GÜÇTE başlar, ⚡'e 3 sn basılı
+> tutarak 2. kademeye geçilir"* diyor. Katalog (`products.json`) **AYNI ÜRÜN KODUYLA
+> (BEV-2331-0001) 6 KADEME** diyor (6/10/16/20/25/32 A, mobil uygulama + tuş). Kılavuz önceki
+> nesil olabilir. **Hangisi doğru netleşmeden kademe sayısı içeren YENİ içerik yazılmadı**; mevcut
+> blog yazısı katalogu (6 kademe) esas alıyor. 📌 Kullanıcı cevabı gelince blog + kılavuz + katalog
+> ÜÇÜ birden hizalanmalı.
+> **ⓘ Kılavuzun iletişim sayfası da "Yeşil Cad. No:19"** — `bemis.com.tr` ile aynı bayat adres.
+> Site No:31 diyor. **Üçüncü yüzey de tutarsız.**
+
+
+
 > 🧮🚫 **HESAPLAYICI KENDİ SAYFASINDA + "İNCE İÇERİK" İŞİ ÖLÇÜMLE İPTAL (2026-09-12, commit 0bfbf78):**
 >
 > **✅ `/sarj-suresi-hesaplama`** — hesaplayıcı YALNIZCA anasayfanın `#calculator` bölümüydü: kendi
