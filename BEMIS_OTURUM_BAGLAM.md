@@ -36,14 +36,25 @@
 > (71→135, neredeyse iki kat); göz bunu fade bitmeden yakalayıp geçişi "ani/hızlanmış" algılıyor.
 > → **çapraz geçiş 1,8 → 2,6 sn** (kullanıcı kararı).
 >
-> **🔴 SEBEP 2 — SOĞUK AÇILIŞTA TEMBEL YÜKLEME (asıl kusur).** `priority` **yalnız slayt 0**'daydı,
-> komşular `loading="lazy"`. Çift-tampon onları DOM'a basıyor **ama indirmeyi tembel bırakıyordu** →
-> soğuk açılışta bir sonraki görsel inmemişken 5. saniyede geçiş başlıyor, fade **boşa akıyor**,
-> görsel hazır olunca tam opaklıkta **"pat" diye oturuyor**. Kullanıcının *"ilk açılışta"* demesi
-> bunu doğruluyor; sıcak önbellekte üretilemiyor (ölçümlerimin hepsi sıcaktı).
-> → komşu slaytlara **`loading="eager"`**.
-> ⚠️ **`priority` DEĞİL `eager`:** priority hepsine verilirse 3 tam-ekran görsel LCP ile yarışır.
-> Slayt 0 preload+high ile önde kalır; diğerleri 36 ve 73 KB AVIF, sırada ama beklemeden iner.
+> **❌ SEBEP 2 DENENDİ VE ÇÜRÜTÜLDÜ — `loading="eager"` GERİ ALINDI (commit a09137d).**
+> Hipotez: *"soğuk açılışta DC görseli 5. saniyede henüz inmemiş oluyor, fade boşa akıyor,
+> görsel pat diye oturuyor."* `priority` yalnız slayt 0'daydı, komşular `lazy`ydi → komşulara
+> `eager` verdim. **Sonra ölçtüm ve gerekçe çöktü:**
+> **SOĞUK İNDİRME** (`fetch(cache:"reload")`, CDN, 1920w q95 AVIF):
+> slayt0 **99 KB / 921 ms** · **DC 37 KB / 144 ms** · slayt2 **72 KB / 89 ms**.
+> DC **üçünün EN HAFİFİ** (düz koyu stüdyo zemini çok iyi sıkışıyor); 10 kat yavaş bağlantıda
+> bile ~1,5 sn → 5 sn'lik pencereye rahat sığıyor. **Erken indirmenin kazancı ~YOK.**
+> **MALİYETİ İSE GERÇEK VE ÖLÇÜLDÜ:** Next 16 **`loading="eager"` için de**
+> `<link rel="preload" as="image">` basıyor (yalnız `priority` için değil — bu varsayımım
+> yanlıştı). Canlıda: hero slaytı preload **1 → 3**, kritik yola **~178 KB** fazladan.
+> → değişiklik geri alındı; gerekçe + ölçüm **koda yorum olarak** yazıldı ki tekrar denenmesin.
+> **📌 İKİ DERS:** (a) "ağır görsel" iddiasını **kaynak** boyutuyla değil **servis edilen**
+> boyutla ölç; (b) `eager`ın preload yapmadığını **varsayma**, HTML'den doğrula.
+> **📌 DOĞRULAMA BETİĞİMDEKİ YANLIŞ KONTROL:** `fetchpriority="high"` arıyordu — Next 16 bunu
+> **basmıyor**; `priority` kendini `loading` özniteliğinin **OLMAMASI** + preload link ile
+> gösterir. Düzeltildi.
+> **✅ KALAN DÜZELTME: yalnız çapraz geçiş 1,8 → 2,6 sn** (ölçülmüş parlaklık sıçraması,
+> kullanıcı kararı). Kod tarafında başka değişiklik YOK.
 >
 > **⚠️ ÇÜRÜTÜLEN HİPOTEZ (kayda geçsin):** *"DC görseli en ağır, geç çözülüyor"* demiştim —
 > **ölçtüm, DC servis edilirken ÜÇÜNÜN EN HAFİFİ**: 36 KB AVIF (hero 116, Togg 73). Düz koyu
