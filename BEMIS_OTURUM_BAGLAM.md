@@ -13,6 +13,47 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> ⛔🏪 **ANASAYFADAKİ BAYİ DİZİNİ KALDIRILDI — KULLANICI KARARI (2026-09-13):**
+> Kullanıcı: *"anasayfada gösterilen yetkili bayilerimiz yeni eklenen alandan haberim yoktu,
+> orayı gizle, öyle bir şey istemiyorum."* → 12 Eylül'de eklenen **`DealerDirectory`** bölümü
+> (Footer'dan hemen önceki şehir bazlı görünür bayi listesi) anasayfadan **çıkarıldı**.
+> **📌 BU BİR KUSUR DEĞİL, TERCİH KARARI — tekrar önerme, istenmeden geri takma.**
+>
+> **DOKUNULMAYAN:** etkileşimli **`#dealer` (DealerNetwork)** bölümü — harita + bölge/şehir
+> seçici + bayi kartları AYNEN duruyor. Kullanıcının bildiği/istediği bölüm o; kaldırılan
+> yalnız 12 Eylül'de eklenen İKİNCİ liste.
+>
+> **ZİNCİRİN TAMAMI SÖKÜLDÜ (3 dosya):** `HomeClient.tsx` import+prop+render ·
+> `page.tsx` **`bayiDizini()` sunucu okuması + prop geçişi + `readBin`/`fs`/`path` importları**.
+> ⚠️ Sunucu okumasını da kaldırmak ŞART'tı: kalsaydı her anasayfa render'ında boşuna R2
+> okunacak ve 30 bayi adı/web adresi hâlâ **RSC yüküne serileşecekti** (görünmese bile sayfa
+> kaynağında dururdu). `components/DealerDirectory.tsx` **SİLİNMEDİ, PARK EDİLDİ** — dosyanın
+> başına "hiçbir yerden render edilmiyor" başlığı kondu; geri istenirse desen **commit 5b19d6a**.
+>
+> **⚠️ DÜRÜST BEDEL (kullanıcıya söylendi):** o bölüm **SEO için** eklenmişti — `DealerNetwork`
+> veriyi `useEffect` ile çekip kartları **yalnız bölge seçilince** bastığı için, Googlebot'un
+> aldığı anasayfa HTML'inde bayi adı/web adresi **HİÇ YOKTU** (ölçülmüştü). Dizin o boşluğu
+> kapatıyordu: **30/30 bağlantı ilk HTML'de, nofollow yok.** Kaldırılınca **eski duruma dönüldü**
+> → bayi bağlantıları yine taranamıyor. ⓘ Karşılıklı bağlantı yine istenirse iki meşru yol var:
+> (a) dizini geri açmak, (b) `#dealer` kartlarını **sunucu tarafında** bastırmak — (b) **görünür
+> bir değişikliktir** (bölüm açılışta dolu gelir) → **yapmadan ÖNCE SOR**.
+> **🚫 GİZLİ BAĞLANTI YİNE GÜNDEME GELMEZ** (Google'ın bağlantı şeması tanımı; 12 Eylül'de
+> gerekçesiyle reddedilmişti).
+>
+> **📄 MASAÜSTÜ BELGESİ DÜZELTİLDİ — YANLIŞ İDDİA GÖNDERİLMESİN:**
+> `Desktop\Bemis_Bayi_Backlink_Mesaji.md` bayilere *"firmanız anasayfamızda listede"* diyordu ve
+> `#dealer-directory` çapasına link veriyordu; **o cümle artık YANLIŞ**. Belge yeniden yazıldı:
+> en üste ⛔ uyarı bloğu + mesajdan karşılıklılık iddiası çıkarıldı, yerine dürüst tek yönlü
+> *"yetkili bayiliğinizi sitenizde belirtir misiniz"* ricası kondu. 📌 **Belge henüz
+> gönderilmemişti** — eski sürüm gönderilseydi bayi siteye bakıp listeyi bulamayacaktı.
+>
+> ⚠️ **AYNI SINIF İÇİN KURAL:** SEO gerekçesiyle **görünür** yeni bir bölüm eklerken, o bölüm
+> kullanıcının anasayfa tasarımına giriyorsa **eklemeden önce sor** — 12 Eylül'de dizin
+> "gizli bağlantı" talebine meşru alternatif olarak eklenmişti ama anasayfa yerleşimi
+> kullanıcıya sorulmamıştı; kullanıcı bir gün sonra "haberim yoktu" dedi.
+
+
+
 > 🇩🇪✅ **ALMANCADA AMİRAL GEMİSİ BAŞLIĞI İKİ KEZ ÇIKIYORDU — KAPANDI (2026-09-12, commit cea1cbe):**
 > Kullanıcı *"almancada amiral gemisi ürün olduğu yerde başlık 2 kere yazılmış"* dedi. Canlıda üretildi:
 > Almanca anasayfada **2 görünür `<h2>`** ("AC Wallbox Smart Charger Pro 2", y=1720 ve y=1765, ikisi de

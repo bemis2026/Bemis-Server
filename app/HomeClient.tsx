@@ -7,7 +7,6 @@ import Hero from "./components/Hero";
 import { useEditMode } from "./context/EditModeContext";
 import { useContent } from "./context/ContentContext";
 import Footer from "./components/Footer";
-import DealerDirectory, { type DizinVeri } from "./components/DealerDirectory";
 import SectionWrapper from "./components/SectionWrapper";
 
 const EditBar = dynamic(() => import("./components/EditBar"), { ssr: false });
@@ -42,7 +41,7 @@ const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   b2bcta: B2BCta,
 };
 
-export default function Home({ dealerDirectory }: { dealerDirectory?: DizinVeri }) {
+export default function Home() {
   const [searchOpen, setSearchOpen] = useState(false);
   const { isEditMode } = useEditMode();
   const { sectionOrder } = useContent();
@@ -88,11 +87,14 @@ export default function Home({ dealerDirectory }: { dealerDirectory?: DizinVeri 
         );
       })}
 
-      {/* ⚠️ TARANABİLİR bayi dizini — sunucudan gelen veriyle ilk HTML'e basılır.
-          Etkileşimli DealerNetwork bölümü veriyi useEffect ile çekip kartları
-          yalnız bölge seçilince bastığı için bayi bağlantıları Googlebot'a HİÇ
-          görünmüyordu (ölçüldü). Bu liste o boşluğu kapatır; GİZLİ DEĞİLDİR. */}
-      {dealerDirectory && <DealerDirectory data={dealerDirectory} />}
+      {/* ⛔ BAYİ DİZİNİ KALDIRILDI — KULLANICI KARARI (2026-09-13):
+          "anasayfada gösterilen yetkili bayilerimiz yeni eklenen alandan haberim
+          yoktu, orayı gizle, öyle bir şey istemiyorum."
+          Bileşen `components/DealerDirectory.tsx`'te PARK EDİLDİ (silinmedi).
+          ⚠️ Geri açılması İSTENMEDEN yeniden eklenmez — önce SOR.
+          ⚠️ Bedeli ölçüldü: 30 bayi bağlantısı artık ilk HTML'de YOK; etkileşimli
+             `#dealer` bölümü kartları yalnız bölge seçilince bastığı için bayi
+             adları/web adresleri Googlebot'a görünmüyor (eski durum). */}
 
       <Footer />
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />

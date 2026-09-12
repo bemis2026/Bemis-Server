@@ -1,5 +1,12 @@
 "use client";
 
+/* ⛔⛔ PARK EDİLDİ — HİÇBİR YERDEN RENDER EDİLMİYOR (2026-09-13).
+ * Kullanıcı kararı: "anasayfada gösterilen yetkili bayilerimiz yeni eklenen
+ * alandan haberim yoktu, orayı gizle, öyle bir şey istemiyorum."
+ * Dosya SİLİNMEDİ: geri istenirse app/page.tsx'e `bayiDizini()` + HomeClient
+ * prop'u geri konur (desen: commit 5b19d6a). ⚠️ İSTENMEDEN geri takma.
+ */
+
 /*
  * TARANABİLİR BAYİ DİZİNİ — anasayfanın İLK HTML'ine giren bayi listesi.
  *

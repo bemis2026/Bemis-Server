@@ -3,13 +3,6 @@ import HomeClient from "./HomeClient";
 import JsonLd from "./components/JsonLd";
 import { featuredListSchema, categoryListSchema, categoryH1, videoObjectSchema, SITE_VIDEOS, SITE_URL } from "./lib/seo";
 import { getServerSiteContent, getServerProducts } from "./lib/server-content";
-// ⚠️ Bayi dizini SUNUCUDA okunur ve HomeClient'a prop ile verilir → liste İLK
-// HTML'de olur. Etkileşimli DealerNetwork veriyi useEffect ile çektiği ve
-// kartları yalnız bölge seçilince bastığı için bayi bağlantıları taranamıyordu
-// (Googlebot ile ölçüldü: 409 KB HTML'de tek bayi adı bile yoktu).
-import { readBin } from "../lib/jsonbin";
-import { readFileSync } from "fs";
-import path from "path";
 
 // Anasayfa SERVER sarmalayıcı — metadata + anasayfaya ÖZEL JSON-LD taşır; tüm UI
 // "use client" HomeClient'ta. ⚠️ Anasayfa "use client" olduğu için SAYFA-ÖZEL
@@ -24,34 +17,10 @@ export const metadata: Metadata = {
   },
 };
 
-type HamBayiler = Record<string, { dealers?: Record<string, unknown>[] }>;
-
-/**
- * Taranabilir bayi dizini için SUNUCU verisi.
- *
- * ⚠️⚠️ YALNIZ `name` + `website` GEÇİLİR — tüm bayi nesnesini prop olarak vermek
- * `data/dealers.json` içindeki E-POSTA · TELEFON · WHATSAPP · YETKİLİ KİŞİ ADI
- * alanlarını anasayfa HTML'ine (RSC payload) serileştirir ve herkese açar.
- * Bu dosya KVKK kapsamında kişisel veri içeriyor (kayıtlı güvenlik notu: R2
- * kovasından indirilebildiği için ayrıca ele alınmıştı). Alan eklemeden önce
- * "bu bilgi anasayfa kaynağında görünse sorun olur mu?" diye sor.
- */
-async function bayiDizini(): Promise<Record<string, { dealers?: { name?: string; website?: string }[] }>> {
-  let ham: HamBayiler = {};
-  // /api/dealers ile AYNI kaynak sırası: R2 → repo yedeği → boş.
-  try { ham = (await readBin("dealers")) as HamBayiler; } catch {
-    try { ham = JSON.parse(readFileSync(path.join(process.cwd(), "data", "dealers.json"), "utf-8")); } catch { return {}; }
-  }
-  const out: Record<string, { dealers?: { name?: string; website?: string }[] }> = {};
-  for (const [sehir, v] of Object.entries(ham ?? {})) {
-    const liste = (v?.dealers ?? [])
-      .map((b) => ({ name: typeof b?.name === "string" ? b.name : "", website: typeof b?.website === "string" ? b.website : "" }))
-      .filter((b) => b.name.trim());
-    if (liste.length) out[sehir] = { dealers: liste };
-  }
-  return out;
-}
-
+// ⛔ `bayiDizini()` sunucu okuması KALDIRILDI (2026-09-13, kullanıcı kararı):
+//    anasayfadaki bayi dizini bölümü istenmedi. Okuma da kaldırıldı ki her
+//    render'da boşuna R2 okunmasın ve 30 bayi adı/web adresi RSC yüküne
+//    serileşmesin. Geri istenirse commit 5b19d6a'daki desen kullanılır.
 export default async function Page() {
   // ⚠️ Aşağıdaki şemalar 2026-08-01'e kadar KÖK YERLEŞİMDEYDİ (app/layout.tsx)
   // → HER sayfada basılıyordu. Öne çıkan 4 ürün TAM Product+Offer olarak
@@ -109,7 +78,7 @@ export default async function Page() {
   return (
     <>
       {jsonLd.length > 0 && <JsonLd data={jsonLd} />}
-      <HomeClient dealerDirectory={await bayiDizini()} />
+      <HomeClient />
     </>
   );
 }
