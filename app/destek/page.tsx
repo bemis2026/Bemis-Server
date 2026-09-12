@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import JsonLd from "../components/JsonLd";
 import { breadcrumbSchema, faqSchema, ogImage, OG_URL } from "../lib/seo";
 import DestekClient from "./DestekClient";
-import { SORUNLAR } from "./sorunlar";
+import { SORUNLAR, DC_EKRAN_MESAJLARI } from "./sorunlar";
 import { SITE_URL } from "../lib/seo";
 
 // SON KULLANICI DESTEK SAYFASI — /destek
@@ -94,6 +94,18 @@ export default function DestekPage() {
         text: adim,
         url: `${SITE_URL}/destek#howto-${k.id}`,
       })),
+    })),
+    // ⚠️ DC istasyon ekran mesajları da HowTo — her biri "şu yazıyı görürsen şunu yap"
+    // yapısında. KAYNAK: DC kullanıcı el kitabı bölüm 8 (sayfada da GÖRÜNÜR).
+    // 📌 Adı DC olduğunu söylüyor; ev tipi cihaz arayan kullanıcı yanlış prosedüre
+    //    düşmesin (kılavuzda bu ekranlar yalnız DC istasyonda var).
+    ...DC_EKRAN_MESAJLARI.map((m, i) => ({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "@id": `${SITE_URL}/destek#dc-${i + 1}`,
+      name: `DC şarj istasyonunda "${m.mesaj}" mesajı`,
+      description: m.anlam,
+      step: [{ "@type": "HowToStep", position: 1, name: m.mesaj, text: m.neYapmali, url: `${SITE_URL}/destek#dc-${i + 1}` }],
     })),
   ];
   return (

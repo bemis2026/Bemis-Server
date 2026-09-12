@@ -7,7 +7,7 @@ import SearchOverlay from "../components/SearchOverlay";
 import ContactBar from "../components/ContactBar";
 import Footer from "../components/Footer";
 import { useTheme } from "../context/ThemeContext";
-import { SORUNLAR, AYIRICI_TANI } from "./sorunlar";
+import { SORUNLAR, AYIRICI_TANI, ISIK_DURUMLARI, DC_EKRAN_MESAJLARI, SERVIS_ONCESI } from "./sorunlar";
 import { accentInk } from "../lib/accentInk";
 import {
   RiToolsLine, RiShieldCheckLine, RiFileList3Line, RiMapPinLine,
@@ -350,6 +350,88 @@ export default function DestekClient() {
               </tbody>
             </table>
           </div>
+        </div>
+      </section>
+
+      {/* ── IŞIK DURUMLARI (taşınabilir cihaz) ──
+          ⚠️ KAYNAK: mobil şarj cihazları kullanım kılavuzu (site dökümanı), "IŞIK
+          FONKSİYONLARI". Mini/Mono/Pro Mobile'da şema AYNI. Kılavuzdan alındı. */}
+      <section className="w-full py-10 sm:py-14" style={{ borderTop: `1px solid ${line}` }}>
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto w-full px-5 sm:px-6 lg:px-8">
+          <h2 className="text-lg sm:text-xl font-black mb-1" style={{ color: ink }}>
+            Taşınabilir cihazdaki ışıklar ne anlama geliyor?
+          </h2>
+          <p className="text-sm mb-6" style={{ color: faint }}>
+            Mini Mobile, Mono Mobile ve Pro Mobile 2'de ışık şeması aynıdır. Kırmızı ışık
+            yalnızca arıza durumunda yanar — yeşilin yanıp sönmesi normaldir.
+          </p>
+          <div className="overflow-x-auto rounded-2xl" style={{ border: `1px solid ${line}` }}>
+            <table className="w-full text-sm" style={{ borderCollapse: "collapse", minWidth: 620 }}>
+              <thead>
+                <tr style={{ background: d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)" }}>
+                  <th className="text-start p-3 text-xs font-bold uppercase tracking-wider" style={{ color: faint }}>Işık</th>
+                  <th className="text-start p-3 text-xs font-bold uppercase tracking-wider" style={{ color: faint }}>Renk</th>
+                  <th className="text-start p-3 text-xs font-bold uppercase tracking-wider" style={{ color: faint }}>Ne anlama gelir</th>
+                </tr>
+              </thead>
+              <tbody>
+                {ISIK_DURUMLARI.map((x, i) => (
+                  <tr key={i} style={{ borderTop: `1px solid ${line}` }}>
+                    <td className="p-3 align-top font-semibold whitespace-nowrap" style={{ color: ink }}>{x.isik}</td>
+                    <td className="p-3 align-top whitespace-nowrap" style={{ color: ink }}>{x.renk}</td>
+                    <td className="p-3 align-top" style={{ color: faint }}>{x.anlam}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* ── DC İSTASYON EKRAN MESAJLARI ──
+          ⚠️ KAYNAK: DC şarj cihazı kullanıcı el kitabı, bölüm 8. Mesaj metinleri
+          ekran yazısıyla birebir.
+          ⚠️ BUNLAR DC İSTASYON MESAJI — ev tipi AC wallbox/taşınabilir cihazda bu
+             ekranlar YOK. Başlıkta DC olduğu açıkça yazılır, yoksa ev kullanıcısı
+             kendi cihazında arayıp bulamaz.
+          📌 SAYISAL HATA KODU (E01/F02) bu cihazlarda YOK — kod uydurulmadı. */}
+      <section className="w-full py-10 sm:py-14" style={{ borderTop: `1px solid ${line}` }}>
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto w-full px-5 sm:px-6 lg:px-8">
+          <h2 className="text-lg sm:text-xl font-black mb-1" style={{ color: ink }}>
+            DC hızlı şarj istasyonunda ekran mesajları
+          </h2>
+          <p className="text-sm mb-6" style={{ color: faint }}>
+            Aşağıdakiler <strong>DC hızlı şarj istasyonu</strong> ekranında çıkan durum
+            mesajlarıdır. Ev tipi AC şarj cihazlarında ve taşınabilir cihazlarda bu ekranlar
+            bulunmaz; onlar için yukarıdaki ışık tablosuna bakın.
+          </p>
+          <div className="overflow-x-auto rounded-2xl" style={{ border: `1px solid ${line}` }}>
+            <table className="w-full text-sm" style={{ borderCollapse: "collapse", minWidth: 760 }}>
+              <thead>
+                <tr style={{ background: d ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.03)" }}>
+                  <th className="text-start p-3 text-xs font-bold uppercase tracking-wider" style={{ color: faint }}>Ekran mesajı</th>
+                  <th className="text-start p-3 text-xs font-bold uppercase tracking-wider" style={{ color: faint }}>Ne demek</th>
+                  <th className="text-start p-3 text-xs font-bold uppercase tracking-wider" style={{ color: faint }}>Ne yapmalı</th>
+                </tr>
+              </thead>
+              <tbody>
+                {DC_EKRAN_MESAJLARI.map((x, i) => (
+                  <tr key={i} style={{ borderTop: `1px solid ${line}` }}>
+                    <td className="p-3 align-top font-semibold" style={{ color: ink, minWidth: 190 }}>{x.mesaj}</td>
+                    <td className="p-3 align-top" style={{ color: ink, minWidth: 210 }}>{x.anlam}</td>
+                    <td className="p-3 align-top" style={{ color: faint }}>{x.neYapmali}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <h3 className="text-base font-black mt-8 mb-2" style={{ color: ink }}>Servis çağırmadan önce</h3>
+          <ol className="text-sm space-y-1.5" style={{ color: faint, listStyle: "decimal", paddingInlineStart: "1.25rem" }}>
+            {SERVIS_ONCESI.map((x, i) => (
+              <li key={i}>{x}</li>
+            ))}
+          </ol>
         </div>
       </section>
 

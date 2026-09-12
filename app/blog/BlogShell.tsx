@@ -11,7 +11,7 @@ import { useContent } from "../context/ContentContext";
 import Navbar from "../components/Navbar";
 import ContactBar from "../components/ContactBar";
 import SearchOverlay from "../components/SearchOverlay";
-import { HiArrowLeft, HiArrowRight, HiClock, HiCalendar } from "react-icons/hi";
+import { HiArrowLeft, HiArrowRight, HiClock, HiCalendar, HiOfficeBuilding } from "react-icons/hi";
 import { RiExternalLinkLine } from "react-icons/ri";
 import type { BlogPost, BlogSection } from "./posts";
 import { allPress, type PressItem } from "./press";
@@ -63,8 +63,16 @@ export default function BlogShell({ post, posts, pressItem, sadeceRehber }: { po
   const textMuted   = d ? "rgba(240,240,244,0.62)" : "rgba(26,26,26,0.62)";
   const textFaint   = d ? "rgba(240,240,244,0.40)" : "rgba(26,26,26,0.45)";
 
+  // ⚠️⚠️ 2026-09-12: eskiden YALNIZ tr/en vardı → de/es/ru/nl/ar sayfalarında tarih
+  // TÜRKÇE basılıyordu ("12 Eylül 2026" Arapça yazının içinde). Bu oturumda
+  // düzeltilen kusur sınıfının aynısı: dil listesi hafızadan sayılmış, 7 dil
+  // olduğu gözden kaçmış. Artık her dil kendi yerel biçimini alır.
+  // 📌 Yeni dil eklenirse BURAYA da ekle; eşleşmeyen dil tr-TR'ye düşer.
+  const TARIH_YERELI: Record<string, string> = {
+    tr: "tr-TR", en: "en-GB", de: "de-DE", es: "es-ES", ru: "ru-RU", nl: "nl-NL", ar: "ar-EG",
+  };
   const fmtDate = (iso: string) =>
-    new Date(iso).toLocaleDateString(lang === "en" ? "en-GB" : "tr-TR", { year: "numeric", month: "long", day: "numeric" });
+    new Date(iso).toLocaleDateString(TARIH_YERELI[lang] ?? "tr-TR", { year: "numeric", month: "long", day: "numeric" });
 
   return (
     <div style={{ background: bg, minHeight: "100vh" }}>
@@ -291,8 +299,28 @@ function Article({ post, d, surface, border, textPrimary, textMuted, textFaint, 
 
         <span className="inline-block text-[10px] font-bold px-2 py-0.5 rounded-md mb-3" style={{ background: `${BLUE}18`, color: accentInk(BLUE, d) }}>{post.category}</span>
         <h1 className="text-3xl sm:text-4xl font-black leading-tight mb-4" style={{ color: textPrimary }}>{post.title}</h1>
-        <div className="flex items-center gap-4 text-xs mb-8 pb-6" style={{ color: textFaint, borderBottom: `1px solid ${border}` }}>
+        {/* ⚠️⚠️ GÖRÜNÜR KÜNYE (2026-09-12) — `articleSchema` ZATEN
+            `author: { "@type": "Organization", name: "Bemis E-V Charge" }` basıyor,
+            ama sayfada yazar hiç GÖRÜNMÜYORDU. Google kuralı: şemada iddia edilen
+            sayfada görünür olmalı; E-E-A-T'de "kim yazdı" sorusunun karşılığı budur.
+            Kullanıcı kararı (2026-09-12): KURUMSAL yazar — gerçek kişi adı verilmedi,
+            uydurma kimlik konmaz.
+            📌 Gövde/SSS/related DİZİLERİNE dokunulmadı → çeviri parmak izi bozulmaz
+               (`tamCevrildi` kapısı yazıyı 5 dilde TR'ye düşürürdü).
+            📌 Güncelleme tarihi YALNIZ yayından farklıysa gösterilir — aynıysa
+               "güncellendi" demek yanıltıcı olur. */}
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs mb-8 pb-6" style={{ color: textFaint, borderBottom: `1px solid ${border}` }}>
+          <span className="flex items-center gap-1.5">
+            <HiOfficeBuilding size={13} />
+            <span style={{ color: textMuted }}>{pickText(lang, "Yazan", "By")}:</span>
+            <strong style={{ color: textMuted, fontWeight: 600 }}>Bemis E-V Charge</strong>
+          </span>
           <span className="flex items-center gap-1.5"><HiCalendar size={13} />{fmtDate(post.datePublished)}</span>
+          {post.dateModified && post.dateModified !== post.datePublished && (
+            <span className="flex items-center gap-1.5">
+              {pickText(lang, "Güncelleme", "Updated")}: {fmtDate(post.dateModified)}
+            </span>
+          )}
           <span className="flex items-center gap-1.5"><HiClock size={13} />{post.readingMinutes} {pickText(lang, "dakika okuma", "min read")}</span>
         </div>
 

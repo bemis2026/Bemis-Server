@@ -3281,5 +3281,19 @@
   "ar": "افتح الصفحة الكاملة",
   "ru": "Открыть на отдельной странице",
   "nl": "Volledige pagina openen"
+ },
+ "By": {
+  "de": "Von",
+  "es": "Por",
+  "ar": "بقلم",
+  "ru": "Автор",
+  "nl": "Door"
+ },
+ "Updated": {
+  "de": "Aktualisiert",
+  "es": "Actualizado",
+  "ar": "تحديث",
+  "ru": "Обновлено",
+  "nl": "Bijgewerkt"
  }
 }
