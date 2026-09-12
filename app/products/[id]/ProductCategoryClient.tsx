@@ -395,43 +395,6 @@ export default function ProductCategoryPage({
         )}
       </div>
 
-      {/* GEO alıntılanabilir cevap bloğu — hero'dan hemen SONRA, ürün ızgarasından
-          ÖNCE: sayfanın ilk içerik bloğu. Soru bir <h2>, cevap onun altındaki TAM
-          CÜMLE; yapay zekâ motorlarının (AI Overviews / ChatGPT / Perplexity) alıntı
-          olarak kaldırabildiği en güçlü desen. Cevap KENDİ BAŞINA ayakta durur —
-          öznesi yazılıdır, "bu ürünler" gibi bağlama bağımlı ifade YOK.
-          ⚠️ DAİMA DOM'da: akordeon/sekme ARDINA KOYMA. Bu sitede aynı kusur üç kez
-             çıktı (footer button, şehir akordeonu, /blog sekmesi): koşullu mount →
-             içerik HTML'e hiç girmez → taranamaz.
-          ⚠️ Aynı soru-cevap sunucu sayfasında FAQPage şemasının İLK maddesi olarak
-             da basılır (Google kuralı: şemadaki içerik sayfada GÖRÜNÜR olmalı).
-          ⚠️ Metin içerik katmanından (CMS) gelir → admin düzenleyebilir, 7 dil.
-             Dil kollarında SSR'da doğru dil için `geoAnswerOverride` propu şart;
-             yoksa ilk HTML Türkçe basılır (descriptionOverride ile aynı kural).
-          ⚠️ RTL: kenar vurgusu `borderInlineStart` (mantıksal) — fiziksel borderLeft
-             Arapça'da yanlış tarafa düşer. */}
-      {(() => {
-        const ga = (metinDili && geoAnswerOverride) || categories?.[id]?.geoAnswer;
-        if (!ga?.q?.trim() || !ga?.a?.trim()) return null;
-        const geoText = d ? "rgba(240,240,244,0.72)" : "rgba(26,26,46,0.72)";
-        return (
-          <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto w-full px-5 sm:px-6 lg:px-8 pb-10">
-            <div
-              className="rounded-2xl p-5 sm:p-6"
-              style={{
-                background: surface,
-                border: `1px solid ${surfaceBorder}`,
-                borderInlineStartWidth: 3,
-                borderInlineStartColor: accent,
-              }}
-            >
-              <h2 className="text-base sm:text-lg font-black mb-2" style={{ color: textPrimary }}>{ga.q}</h2>
-              <p className="text-sm sm:text-[15px] leading-relaxed" style={{ color: geoText }}>{ga.a}</p>
-            </div>
-          </div>
-        );
-      })()}
-
       {/* Product grid — uniform 5-col density across every category so
           a smaller catalog (AC Mobile Chargers, dc-units) renders the
           same compact tile size as a dense category (cables, v2l).
@@ -618,6 +581,47 @@ export default function ProductCategoryPage({
           })}
         </div>
       </div>
+
+      {/* GEO alıntılanabilir cevap bloğu — ÜRÜN IZGARASININ ALTINDA.
+          ⚠️ KONUM KULLANICI KARARI (2026-09-12): eskiden hero'dan hemen sonra,
+             ürün ızgarasından ÖNCE duruyordu; kullanıcı ziyaretçinin önce ÜRÜNLERİ
+             görmesini istedi. Blok TAŞINDI, silinmedi — DOM'daki varlığı, <h2>
+             yapısı ve FAQPage şemasıyla eşleşmesi aynen korunuyor.
+          Soru bir <h2>, cevap onun altındaki TAM
+          CÜMLE; yapay zekâ motorlarının (AI Overviews / ChatGPT / Perplexity) alıntı
+          olarak kaldırabildiği en güçlü desen. Cevap KENDİ BAŞINA ayakta durur —
+          öznesi yazılıdır, "bu ürünler" gibi bağlama bağımlı ifade YOK.
+          ⚠️ DAİMA DOM'da: akordeon/sekme ARDINA KOYMA. Bu sitede aynı kusur üç kez
+             çıktı (footer button, şehir akordeonu, /blog sekmesi): koşullu mount →
+             içerik HTML'e hiç girmez → taranamaz.
+          ⚠️ Aynı soru-cevap sunucu sayfasında FAQPage şemasının İLK maddesi olarak
+             da basılır (Google kuralı: şemadaki içerik sayfada GÖRÜNÜR olmalı).
+          ⚠️ Metin içerik katmanından (CMS) gelir → admin düzenleyebilir, 7 dil.
+             Dil kollarında SSR'da doğru dil için `geoAnswerOverride` propu şart;
+             yoksa ilk HTML Türkçe basılır (descriptionOverride ile aynı kural).
+          ⚠️ RTL: kenar vurgusu `borderInlineStart` (mantıksal) — fiziksel borderLeft
+             Arapça'da yanlış tarafa düşer. */}
+      {(() => {
+        const ga = (metinDili && geoAnswerOverride) || categories?.[id]?.geoAnswer;
+        if (!ga?.q?.trim() || !ga?.a?.trim()) return null;
+        const geoText = d ? "rgba(240,240,244,0.72)" : "rgba(26,26,46,0.72)";
+        return (
+          <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto w-full px-5 sm:px-6 lg:px-8 pb-10">
+            <div
+              className="rounded-2xl p-5 sm:p-6"
+              style={{
+                background: surface,
+                border: `1px solid ${surfaceBorder}`,
+                borderInlineStartWidth: 3,
+                borderInlineStartColor: accent,
+              }}
+            >
+              <h2 className="text-base sm:text-lg font-black mb-2" style={{ color: textPrimary }}>{ga.q}</h2>
+              <p className="text-sm sm:text-[15px] leading-relaxed" style={{ color: geoText }}>{ga.a}</p>
+            </div>
+          </div>
+        );
+      })()}
 
       {/* Projeye özel üretim tanıtım kartı — yalnız seçili kategorilerde (admin:
           content.projectSection.categories, varsayılan wallbox + cables). Ürünler↔SSS arası.
