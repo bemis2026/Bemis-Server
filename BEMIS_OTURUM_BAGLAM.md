@@ -13,6 +13,88 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🌐🔴 **SOSYAL PAYLAŞIMLAR + 4 SESSİZ ÇEVİRİ KUSUR SINIFI KAPANDI — `npm run check:i18n`
+> (2026-09-12, commit'ler b889540 · 20706a3):** Kullanıcı *"sosyal paylaşımlar kısmı yabancı dillerde
+> ingilizce kalmış kontrol et"* dedi. Tek bölümün arkasında **4 AYRI sessiz kusur sınıfı** çıktı; hepsi
+> düzeltildi ve **kalıcı bekçiye** bağlandı. `ui.json` **471 → 513** anahtar (42 yeni, hepsi 5 dilde TAM).
+>
+> **🔴 (1) EKSİK ANAHTAR — 20 adet.** `socialWallSection` CMS alanları **7 dilde de BOŞ** → bileşen
+> kodun `t(tr,en)` yedeğine düşüyor; `pickText` ise **İngilizce anahtar ui.json'da YOKSA sessizce
+> İNGİLİZCE döner** (`UI[en]?.[lang] ?? en` — hata yok, uyarı yok). SocialWall'in 9 anahtarından **8'i
+> eksikti**. Site geneli tarama: SocialWall 10 · SocialWallPageClient 5 · HesapClient 2 ·
+> DealerDirectory 1 · ProductDetailClient 1 (+ SocialWall'un 4 çevrilmemiş aria-label/alt'i).
+> ⚠️ `CookieConsent`'in **`"."`** anahtarı BİLEREK bırakıldı: TR *" adresine yazabilirsiniz."* ↔ EN
+> *"."* — mailto cümlesini kuran dil hilesi, kusur DEĞİL.
+>
+> **🔴 (2) ŞABLON DEĞİŞKENLİ ANAHTAR — en sinsi sınıf.**
+> `pickText(lang, \`${n} sürümden biri\`, \`one of ${n} versions\`)` biçiminde **anahtar her değerde
+> DEĞİŞİR** → sözlükte **HİÇBİR ZAMAN eşleşemez** → 5 dil **KALICI** İngilizce görür. Eksik-anahtar
+> taraması bunu **yakalayamaz**: anahtar "eksik" değil, **var olamaz**.
+> **ÇÖZÜM `app/lib/ui.ts` → `fillText(lang, tr, en, { n })`**: anahtar STATİK + yer tutuculu
+> (`"one of {n} versions"`), sayılar **çeviriden SONRA** konur. Düz metin değiştirme (`split/join`) —
+> Türkçe kelimelerde `\b` sınırı çalışmaz (ğ/ı/ş kelime karakteri sayılmaz), regex'e hiç girilmiyor.
+> İki çağrı dönüştürüldü: bayi dizini alt başlığı + ürün sayfası "Bu sürüm" satırı.
+> **📌 KURAL: çeviri anahtarına sayı/değer GÖMME — `fillText` kullan.**
+>
+> **🔴 (3) `lib/uiStrings.ts` BOŞLUĞU.** `useUiStrings()` **TEK argümanlı `t(key)`** döner ve içeride
+> `pickText(lang, p.tr, p.en)` çağırır → çağrı biçimi farklı olduğu için tarayıcı bu **222 girdinin
+> HİÇBİRİNİ görmüyordu**. Ölçüldü: **2 gerçek boşluk** (hesaplayıcıda *"Bu güç için Bemis"* + DC süresi
+> notu) · 8 girdi TR=EN (marka/ölçü, çeviri gerekmez). İkisi de çevrildi.
+>
+> **🔴 (4) SABİT TÜRKÇE ÖZNİTELİK — 17 adet.** Hiç `pickText` **ÇAĞRISI İÇERMEYEN** dizeler:
+> `aria-label="Öne çıkan ürünler — yatay kaydırılabilir liste"` gibi. (1) numaralı tarama **0 dönerken**
+> bu metinler 6 dilde **TÜRKÇE** kalır. **Arapça anasayfa doğrulanırken bizzat görüldü** (3 bölüm).
+> Düzeltilenler: ContactBar 4 sosyal ikon · SearchOverlay aria + **GÖRÜNÜR placeholder** ·
+> AIChatButton WhatsApp · ContactOverlay · FeaturedProducts · ReferenceProjects · SmartCharger ·
+> DNA video `alt` · **Hero `alt`** (LCP görselinin alt metni → Google Görseller'e de gider) ·
+> ProductDetailClient 3 (Sola/Sağa kaydır + benzer ürünler şeridi) · Calculator elektrik fiyatı.
+> ⚠️ Mevcut **`"Search the site"`** ve **`"Contact Us"`** anahtarları YENİDEN KULLANILDI (aynı metin
+> için ikinci anahtar üretilmedi).
+> **⚪ BİLEREK TÜRKÇE KALAN 12 ÖZNİTELİK** (bekçide GEREKÇESİYLE muaf listesinde — değiştirmeye kalkma):
+> admin düzenleme modu 4 (`SectionWrapper` · `EditBar` · `PropertiesPanel`) · **TR-only içerik sayfaları**
+> 4 (`/destek` 2 · `/uretici` 1 · `/iletisim` 1 — gövde Türkçe, `alt`ı çevirmek karma dil üretir ve
+> yabancı adresleri de yok) · KVKK/çerez hukuk metni başlığı 2 · kanonik kimlik 2 (resmî unvan +
+> site-geneli tek OG görseli).
+>
+> **🧰 YENİ KALICI BEKÇİ — `npm run check:i18n`** (`scripts/check-i18n-keys.mts`): dört sınıfı birden
+> tarar. ⚠️ **BUILD ZİNCİRİNE BİLEREK EKLENMEDİ** (`check:clones` ile aynı gerekçe): bu bir **UYARI**
+> denetimi — eksik anahtar sayfayı kırmaz, İngilizce'ye düşer; dağıtımı durdurmak yeni bir dize
+> eklerken işi tıkar. **Rakip-marka guard'ı ise hard stop olmalı** (manuel işlem riski) → o build'e
+> zincirli KALIYOR. 📌 Yeni arayüz dizesi / aria-label ekledikten sonra ÇALIŞTIR.
+> **✅ BEKÇİ BİLİNEN VAKALARLA TEST EDİLDİ: 4/4 yakaladı**, temiz ağaçta yanlış alarm vermiyor, test
+> dosyaları birebir geri alındı (`scratchpad/_bekci_testi.py`). ⚠️ İlk test sürümüm YANLIŞTI:
+> `pickText("tr", …)` yazıyordu, bekçi dil argümanını **DEĞİŞKEN** bekler (gerçek kod daima `lang`
+> geçer) → "kaçırdı" sanıldı. **Test vakası gerçek kodun biçimiyle AYNI olmalı.**
+>
+> **🔴 YOL ÜSTÜNDE BULUNAN KUSUR — `socialWallSection` `TRANSLATABLE_PATHS`'te YOKTU.**
+> `contentLang.ts` MERGE listesinde VARDI ama `contentTranslate.ts`'te yoktu. Alanlar şu an boş olduğu
+> için sorun görünmüyor; **operatör admin'den TR başlıkları doldurduğu AN** 5 dilde Türkçe metin
+> çıkardı — `gallerySection`'da bizzat yaşanan kusurun aynısı. 4 yol eklendi
+> (`sectionLabel`/`heading`/`subheading`/`items[].caption`); `url`/`cover`/`productId`/`imagePos`
+> **KİMLİK** olduğu için listeye ALINMADI. 📌 **İki kapı da (merge + çevrilebilir yol) tutmazsa alan
+> çevrilmez.**
+>
+> **📌 DOĞRULAMA DERSİ — bu metinler `/api/content` ile ÖLÇÜLEMEZ.** CMS'ten değil koddan gelirler →
+> HTML'de değil **JS CHUNK'ında**. Ayrıca tarayıcı eski chunk'ı önbellekten servis edebilir → doğrulama
+> **artefakt seviyesinde**: sayfanın HTML'inden chunk adresleri okunup DOĞRUDAN indirilir
+> (`scratchpad/_ceviri_canli_dogrula.cjs`).
+> **📌 "TÜRKÇE KOPYA İKİ KEZ" YANLIŞ ALARMI (yine çıktı, yine yanlış):** Almanca sayfada DOM'da hem
+> `"Vorherige Beiträge"` hem `"Önceki paylaşımlar"` göründü. Ölçüldü: sayfada **2 `<main>`** var;
+> Almanca dizeler `main[0]`'da (yükseklik **17375**), Türkçe dizeler `main[1]`'de (yükseklik **0** =
+> Next streaming'in gizli kabı). **Çoğaltma DEĞİL** — ziyaretçi yalnız Almanca görür.
+> 📌 Ölçüm yöntemi: `el.closest("main")` ile hangi `<main>`e ait olduğunu bul (yalnız
+> `checkVisibility()` yetmez — `content-visibility:auto` yüzünden ekran dışındaki bölüm ikisinde de
+> `false` döner).
+>
+> **ARAÇLAR:** `scripts/check-i18n-keys.mts` (kalıcı, 4 sınıf) · `scratchpad/_eksik_ui_anahtar.mts` ·
+> `_dinamik_anahtar.mts` · `_sabit_aria.mts` · `_uistrings_kapsam.mts` · `_ui_yeni.json` +
+> `_ui_ekle.mts` (biçim doğrulamalı) · `_ui_hiza.mts` (eski anahtar kayıp/değişim kontrolü) ·
+> `_ceviri_canli_dogrula.cjs` · `_bekci_testi.py` (bekçinin öz-testi).
+> Ölçüm takvimine **2026-09-26** kontrol noktası eklendi (bekçi temiz mi + operatör sosyal başlık
+> girdiyse 5 dile çevrildi mi). **R2'ye YAZILMADI → cache anahtarı bump GEREKMEDİ** (`v119-adres-no19`
+> aynen).
+
+
 > 📍🔴 **ADRES BİNA NUMARASI No:31 → No:19 (2026-09-12, commit e574b89) + KADEME ÇELİŞKİSİ KAPANDI:**
 > Kılavuz okumasında çıkan iki çelişki çoktan seçmeli soruldu.
 >
