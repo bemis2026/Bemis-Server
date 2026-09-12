@@ -84,6 +84,16 @@ const TRANSLATABLE_PATHS: string[] = [
   "referenceProjectsSection.items[].location",
   "referenceProjectsSection.items[].description",
 
+  // ⚠️ 2026-09-12: sosyal paylaşım bölümü `contentLang.ts` MERGE listesinde VARDI
+  // ama burada YOKTU → alanlar şu an boş olduğu için kodun `t(tr,en)` yedeği
+  // devreye giriyor ve sorun görünmüyor. Operatör admin'den TR başlıkları
+  // doldurduğu AN boşluk açılır: 5 dilde Türkçe metin görünür. İki kapı da
+  // (merge + çevrilebilir yol) tutmazsa alan çevrilmez.
+  // ⚠️ url / cover / productId / imagePos KİMLİKTİR → listeye EKLEME.
+  "socialWallSection.sectionLabel", "socialWallSection.heading",
+  "socialWallSection.subheading",
+  "socialWallSection.items[].caption",
+
   "smartCharger.sectionLabel", "smartCharger.heading", "smartCharger.subheading",
   "smartCharger.ocppBadge", "smartCharger.ctaLabel",
   "smartCharger.features[].title", "smartCharger.features[].desc",

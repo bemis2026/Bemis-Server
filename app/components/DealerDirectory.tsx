@@ -26,7 +26,7 @@
 
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
-import { pickText } from "../lib/ui";
+import { pickText, fillText } from "../lib/ui";
 import { getCityLabel } from "../../lib/turkeyCities";
 
 export type DizinBayi = {
@@ -63,9 +63,13 @@ export default function DealerDirectory({ data }: { data: DizinVeri }) {
           {T("Yetkili Bayilerimiz", "Our Authorised Dealers")}
         </h2>
         <p className="text-sm mb-7" style={{ color: soluk }}>
-          {T(
-            `Türkiye genelinde ${toplam} yetkili bayi, ${sehirler.length} şehirde.`,
-            `${toplam} authorised dealers across ${sehirler.length} cities in Türkiye.`,
+          {/* ⚠️ SAYI YER TUTUCUYLA: anahtar statik kalmalı, yoksa ui.json'da
+              hiçbir zaman eşleşmez ve 5 dil kalıcı olarak İngilizce görür. */}
+          {fillText(
+            lang,
+            "Türkiye genelinde {n} yetkili bayi, {c} şehirde.",
+            "{n} authorised dealers across {c} cities in Türkiye.",
+            { n: toplam, c: sehirler.length },
           )}
         </p>
 

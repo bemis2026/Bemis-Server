@@ -35,6 +35,26 @@ export function pickText(lang: string, tr: string, en: string): string {
   return UI[en]?.[lang] ?? en;
 }
 
+// 🔴 SAYI İÇEREN METİN — ANAHTAR STATİK KALMALI.
+// `pickText(lang, `${n} sürümden biri`, `one of ${n} versions`)` gibi bir çağrıda
+// anahtar (İngilizce dize) her sayıda DEĞİŞİR → ui.json'da hiçbir zaman eşleşmez
+// ve de/es/ar/ru/nl KALICI olarak İngilizce'ye düşer. Hata da vermez, sessizdir.
+// Çözüm: anahtarda yer tutucu (`one of {n} versions`), sayı ÇEVİRİDEN SONRA konur.
+// ⚠️ Düz metin değiştirme (split/join) kullanılır — Türkçe kelimelerde `\b` sınırı
+// çalışmaz (ğ/ı/ş kelime karakteri sayılmaz), regex'e hiç girilmiyor.
+export function fillText(
+  lang: string,
+  tr: string,
+  en: string,
+  degerler: Record<string, string | number>,
+): string {
+  let s = pickText(lang, tr, en);
+  for (const [ad, deger] of Object.entries(degerler)) {
+    s = s.split(`{${ad}}`).join(String(deger));
+  }
+  return s;
+}
+
 // `{ tr, en }[lang]` biçimindeki nesne-indeksleme desenini 6 dile güvenli açar.
 // Dilin anahtarı varsa onu döner; yoksa STRING değerlerde ui.json çevirisini
 // dener (çeviriler tek yerde toplansın), en son İngilizce'ye (sonra TR'ye) düşer.

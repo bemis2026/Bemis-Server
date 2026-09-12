@@ -1,5 +1,5 @@
 "use client";
-import { pickText } from "../../../lib/ui";
+import { pickText, fillText } from "../../../lib/ui";
 import { forcedLangForPath } from "../../../lib/languages";
 
 import { useParams, usePathname, useRouter } from "next/navigation";
@@ -706,7 +706,10 @@ export default function ProductDetailPage({
                         {bu.label}
                         {vg.members.length > 1 && (
                           <span style={{ color: textFaint }}>
-                            {" "}· {pickText(lang, `${vg.members.length} sürümden biri`, `one of ${vg.members.length} versions`)}
+                            {/* ⚠️ Sayı YER TUTUCUYLA geçer — şablon içine gömülen
+                                sayı anahtarı her üründe değiştirir ve ui.json'da
+                                asla eşleşmez (5 dil kalıcı İngilizce kalırdı). */}
+                            {" "}· {fillText(lang, "{n} sürümden biri", "one of {n} versions", { n: vg.members.length })}
                           </span>
                         )}
                       </p>

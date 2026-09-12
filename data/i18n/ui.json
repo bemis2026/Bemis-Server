@@ -3295,5 +3295,180 @@
   "ar": "تحديث",
   "ru": "Обновлено",
   "nl": "Bijgewerkt"
+ },
+ "Instagram post": {
+  "de": "Instagram-Beitrag",
+  "es": "Publicación de Instagram",
+  "ar": "منشور إنستغرام",
+  "ru": "Публикация в Instagram",
+  "nl": "Instagram-bericht"
+ },
+ "This content is hosted on Instagram": {
+  "de": "Dieser Inhalt wird von Instagram gehostet",
+  "es": "Este contenido está alojado en Instagram",
+  "ar": "هذا المحتوى مستضاف على إنستغرام",
+  "ru": "Этот контент размещён в Instagram",
+  "nl": "Deze content wordt gehost op Instagram"
+ },
+ "Showing the post here would run Instagram cookies. Since you did not allow marketing cookies, we do not embed it.": {
+  "de": "Den Beitrag hier anzuzeigen würde Instagram-Cookies ausführen. Da Sie Marketing-Cookies nicht erlaubt haben, binden wir ihn nicht ein.",
+  "es": "Mostrar la publicación aquí ejecutaría cookies de Instagram. Como no has permitido las cookies de marketing, no la incrustamos.",
+  "ar": "عرض المنشور هنا يُشغّل ملفات تعريف الارتباط الخاصة بإنستغرام. وبما أنك لم تسمح بملفات تعريف الارتباط التسويقية، فإننا لا نضمّنه.",
+  "ru": "Показ публикации здесь запустит файлы cookie Instagram. Так как вы не разрешили маркетинговые cookie, мы её не встраиваем.",
+  "nl": "De post hier tonen zou Instagram-cookies activeren. Omdat u marketingcookies niet heeft toegestaan, sluiten we hem niet in."
+ },
+ "Open on Instagram": {
+  "de": "Auf Instagram öffnen",
+  "es": "Abrir en Instagram",
+  "ar": "افتح على إنستغرام",
+  "ru": "Открыть в Instagram",
+  "nl": "Openen op Instagram"
+ },
+ "Customer post": {
+  "de": "Kundenbeitrag",
+  "es": "Publicación de un cliente",
+  "ar": "منشور عميل",
+  "ru": "Публикация клиента",
+  "nl": "Bericht van een klant"
+ },
+ "Watch on Instagram": {
+  "de": "Auf Instagram ansehen",
+  "es": "Ver en Instagram",
+  "ar": "شاهده على إنستغرام",
+  "ru": "Смотреть в Instagram",
+  "nl": "Bekijken op Instagram"
+ },
+ "Social media": {
+  "de": "Social Media",
+  "es": "Redes sociales",
+  "ar": "وسائل التواصل الاجتماعي",
+  "ru": "Социальные сети",
+  "nl": "Social media"
+ },
+ "Posts from our users": {
+  "de": "Beiträge unserer Nutzer",
+  "es": "Publicaciones de nuestros usuarios",
+  "ar": "منشورات مستخدمينا",
+  "ru": "Публикации наших пользователей",
+  "nl": "Berichten van onze gebruikers"
+ },
+ "Installation and everyday-use moments shared on Instagram by Bemis E-V Charge drivers and dealers.": {
+  "de": "Montage- und Alltagsmomente, die Fahrer und Händler von Bemis E-V Charge auf Instagram teilen.",
+  "es": "Momentos de instalación y de uso diario compartidos en Instagram por conductores y distribuidores de Bemis E-V Charge.",
+  "ar": "لحظات التركيب والاستخدام اليومي التي يشاركها سائقو وموزّعو Bemis E-V Charge على إنستغرام.",
+  "ru": "Моменты установки и повседневного использования, которыми делятся водители и дилеры Bemis E-V Charge в Instagram.",
+  "nl": "Installatie- en dagelijkse gebruiksmomenten die bestuurders en dealers van Bemis E-V Charge op Instagram delen."
+ },
+ "See all posts": {
+  "de": "Alle Beiträge ansehen",
+  "es": "Ver todas las publicaciones",
+  "ar": "عرض كل المنشورات",
+  "ru": "Смотреть все публикации",
+  "nl": "Alle berichten bekijken"
+ },
+ "The content is hosted on Instagram; clicking a card opens the post on this page.": {
+  "de": "Die Inhalte werden von Instagram gehostet; ein Klick auf eine Karte öffnet den Beitrag auf dieser Seite.",
+  "es": "El contenido está alojado en Instagram; al hacer clic en una tarjeta, la publicación se abre en esta página.",
+  "ar": "المحتوى مستضاف على إنستغرام؛ وعند النقر على بطاقة يُفتح المنشور في هذه الصفحة.",
+  "ru": "Контент размещён в Instagram; при нажатии на карточку публикация открывается на этой странице.",
+  "nl": "De content wordt gehost op Instagram; als u op een kaart klikt, opent de post op deze pagina."
+ },
+ "No posts added yet": {
+  "de": "Noch keine Beiträge hinzugefügt",
+  "es": "Aún no se han añadido publicaciones",
+  "ar": "لم تُضَف منشورات بعد",
+  "ru": "Публикации пока не добавлены",
+  "nl": "Nog geen berichten toegevoegd"
+ },
+ "You can see the latest content on our Instagram account.": {
+  "de": "Die aktuellsten Inhalte finden Sie auf unserem Instagram-Konto.",
+  "es": "Puedes ver el contenido más reciente en nuestra cuenta de Instagram.",
+  "ar": "يمكنك مشاهدة أحدث المحتوى على حسابنا في إنستغرام.",
+  "ru": "Актуальный контент вы можете увидеть в нашем аккаунте Instagram.",
+  "nl": "Het meest recente materiaal vindt u op ons Instagram-account."
+ },
+ "Follow us on Instagram": {
+  "de": "Folgen Sie uns auf Instagram",
+  "es": "Síguenos en Instagram",
+  "ar": "تابعنا على إنستغرام",
+  "ru": "Подписывайтесь на нас в Instagram",
+  "nl": "Volg ons op Instagram"
+ },
+ "Browse products": {
+  "de": "Produkte ansehen",
+  "es": "Ver productos",
+  "ar": "استعرض المنتجات",
+  "ru": "Смотреть продукцию",
+  "nl": "Producten bekijken"
+ },
+ "Our Authorised Dealers": {
+  "de": "Unsere Vertragshändler",
+  "es": "Nuestros distribuidores autorizados",
+  "ar": "موزّعونا المعتمدون",
+  "ru": "Наши официальные дилеры",
+  "nl": "Onze erkende dealers"
+ },
+ "{n} authorised dealers across {c} cities in Türkiye.": {
+  "de": "{n} Vertragshändler in {c} Städten in Türkiye.",
+  "es": "{n} distribuidores autorizados en {c} ciudades de Türkiye.",
+  "ar": "{n} موزّعًا معتمدًا في {c} مدينة في تركيا.",
+  "ru": "{n} официальных дилеров в {c} городах Türkiye.",
+  "nl": "{n} erkende dealers in {c} steden in Türkiye."
+ },
+ "This version": {
+  "de": "Diese Ausführung",
+  "es": "Esta versión",
+  "ar": "هذه النسخة",
+  "ru": "Эта версия",
+  "nl": "Deze uitvoering"
+ },
+ "one of {n} versions": {
+  "de": "eine von {n} Ausführungen",
+  "es": "una de {n} versiones",
+  "ar": "واحدة من {n} نسخة",
+  "ru": "одна из {n} версий",
+  "nl": "een van {n} uitvoeringen"
+ },
+ "EV Charging Time Calculator": {
+  "de": "Ladezeit-Rechner für Elektroautos",
+  "es": "Calculadora de tiempo de carga para coches eléctricos",
+  "ar": "حاسبة زمن شحن السيارة الكهربائية",
+  "ru": "Калькулятор времени зарядки электромобиля",
+  "nl": "Laadtijdcalculator voor elektrische auto's"
+ },
+ "Pick your car and your charger; work out the estimated charging time and the cost per kilometre from the battery capacity, the car's onboard AC charging power and the current step you select. Charging speed is set not by the unit but by whichever is lower — the car's onboard charger or your installation — and the calculator accounts for that limit.": {
+  "de": "Wählen Sie Ihr Fahrzeug und Ihr Ladegerät; berechnen Sie aus Batteriekapazität, der internen AC-Ladeleistung des Fahrzeugs und der gewählten Stromstufe die geschätzte Ladezeit und die Kosten pro Kilometer. Die Ladegeschwindigkeit bestimmt nicht das Gerät, sondern das Kleinere von beidem — das Bordladegerät des Fahrzeugs oder Ihre Installation — und der Rechner berücksichtigt diese Grenze.",
+  "es": "Elige tu coche y tu cargador; calcula el tiempo de carga estimado y el coste por kilómetro a partir de la capacidad de la batería, la potencia de carga en corriente alterna del vehículo y el nivel de corriente que selecciones. La velocidad de carga no la fija el equipo, sino el menor entre el cargador de a bordo del coche y tu instalación, y la calculadora tiene en cuenta ese límite.",
+  "ar": "اختر سيارتك وجهاز الشحن؛ واحسب زمن الشحن التقديري والتكلفة لكل كيلومتر من سعة البطارية وقدرة الشحن بالتيار المتردد داخل السيارة ودرجة التيار التي تختارها. سرعة الشحن لا يحددها الجهاز بل الأدنى بين شاحن السيارة الداخلي وتمديداتك الكهربائية، والحاسبة تأخذ هذا الحد في الاعتبار.",
+  "ru": "Выберите автомобиль и зарядное устройство; рассчитайте примерное время зарядки и стоимость на километр по ёмкости батареи, мощности бортового зарядного устройства и выбранной ступени тока. Скорость зарядки задаёт не устройство, а меньшее из двух — бортовое зарядное устройство автомобиля или ваша проводка, и калькулятор учитывает этот предел.",
+  "nl": "Kies uw auto en uw lader; bereken de geschatte laadtijd en de kosten per kilometer op basis van de batterijcapaciteit, het AC-laadvermogen van de auto en de gekozen stroomstand. De laadsnelheid wordt niet bepaald door het apparaat maar door het kleinste van beide — de boordlader van de auto of uw installatie — en de calculator houdt rekening met die grens."
+ },
+ "Previous posts": {
+  "de": "Vorherige Beiträge",
+  "es": "Publicaciones anteriores",
+  "ar": "المنشورات السابقة",
+  "ru": "Предыдущие публикации",
+  "nl": "Vorige berichten"
+ },
+ "Next posts": {
+  "de": "Nächste Beiträge",
+  "es": "Publicaciones siguientes",
+  "ar": "المنشورات التالية",
+  "ru": "Следующие публикации",
+  "nl": "Volgende berichten"
+ },
+ "Customer posts — horizontally scrollable list": {
+  "de": "Kundenbeiträge — horizontal scrollbare Liste",
+  "es": "Publicaciones de clientes: lista desplazable horizontalmente",
+  "ar": "منشورات العملاء — قائمة قابلة للتمرير أفقيًا",
+  "ru": "Публикации клиентов — список с горизонтальной прокруткой",
+  "nl": "Berichten van klanten — horizontaal schuifbare lijst"
+ },
+ "Bemis E-V Charge user post": {
+  "de": "Nutzerbeitrag zu Bemis E-V Charge",
+  "es": "Publicación de un usuario de Bemis E-V Charge",
+  "ar": "منشور مستخدم لـ Bemis E-V Charge",
+  "ru": "Публикация пользователя Bemis E-V Charge",
+  "nl": "Gebruikersbericht over Bemis E-V Charge"
  }
 }

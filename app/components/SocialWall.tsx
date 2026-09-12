@@ -190,7 +190,7 @@ function Kart({ post, onOpen, d, surface, border, textPrimary, textMuted }: {
         {kapak ? (
           <Image
             src={kapak}
-            alt={post.caption?.trim() || "Bemis E-V Charge kullanıcı paylaşımı"}
+            alt={post.caption?.trim() || t("Bemis E-V Charge kullanıcı paylaşımı", "Bemis E-V Charge user post")}
             width={500}
             height={889}
             className="w-full h-full object-cover"
@@ -244,6 +244,8 @@ function Kart({ post, onOpen, d, surface, border, textPrimary, textMuted }: {
 
 function Liste({ items, bant }: { items: SocialWallPost[]; bant: boolean }) {
   const { theme } = useTheme();
+  const { lang } = useLanguage();
+  const t = (tr: string, en: string) => pickText(lang, tr, en);
   const d = theme === "dark";
   const [acik, setAcik] = useState<SocialWallPost | null>(null);
   const surface = d ? "#1a1a1c" : "#ffffff";
@@ -285,14 +287,14 @@ function Liste({ items, bant }: { items: SocialWallPost[]; bant: boolean }) {
   return (
     <div className="relative">
       <button
-        type="button" onClick={() => kaydir(-320)} aria-label="Önceki paylaşımlar"
+        type="button" onClick={() => kaydir(-320)} aria-label={t("Önceki paylaşımlar", "Previous posts")}
         className={`${sol ? "hidden sm:flex" : "hidden"} absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-110 active:scale-95 cursor-pointer`}
         style={{ background: d ? "rgba(20,20,24,0.88)" : "rgba(255,255,255,0.92)", border: `1px solid ${border}`, boxShadow: d ? "0 4px 16px rgba(0,0,0,0.4)" : "0 2px 12px rgba(0,0,0,0.12)", backdropFilter: "blur(8px)" }}
       >
         <HiChevronLeft size={20} style={{ color: textPrimary }} />
       </button>
       <button
-        type="button" onClick={() => kaydir(320)} aria-label="Sonraki paylaşımlar"
+        type="button" onClick={() => kaydir(320)} aria-label={t("Sonraki paylaşımlar", "Next posts")}
         className={`${sag ? "hidden sm:flex" : "hidden"} absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full items-center justify-center transition-all hover:scale-110 active:scale-95 cursor-pointer`}
         style={{ background: d ? "rgba(20,20,24,0.88)" : "rgba(255,255,255,0.92)", border: `1px solid ${border}`, boxShadow: d ? "0 4px 16px rgba(0,0,0,0.4)" : "0 2px 12px rgba(0,0,0,0.12)", backdropFilter: "blur(8px)" }}
       >
@@ -301,7 +303,8 @@ function Liste({ items, bant }: { items: SocialWallPost[]; bant: boolean }) {
 
       <div
         ref={scrollRef}
-        tabIndex={0} role="region" aria-label="Müşteri paylaşımları — yatay kaydırılabilir liste"
+        tabIndex={0} role="region"
+        aria-label={t("Müşteri paylaşımları — yatay kaydırılabilir liste", "Customer posts — horizontally scrollable list")}
         className="overflow-x-auto scrollbar-hide focus:outline-none"
         style={{
           maskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
