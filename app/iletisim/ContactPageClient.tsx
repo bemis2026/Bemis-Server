@@ -41,7 +41,7 @@ export default function ContactPageClient() {
       label: "Adres",
       value: (
         <span>
-          Minareliçavuş Mah., Bursa OSB, Yeşil Cad. No:31, 16220 Nilüfer/Bursa
+          Minareliçavuş Mah., Bursa OSB, Yeşil Cad. No:19, 16220 Nilüfer/Bursa
         </span>
       ),
     },

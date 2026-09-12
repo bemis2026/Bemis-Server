@@ -130,11 +130,20 @@ const ORG_PHONE = "+90 224 433 02 16";
 // kimliği taşır, dile göre değişmez.
 const ORG_EMAIL = "sales@bemis.com.tr";
 // ⚠️ Google İşletme Profili + OpenStreetMap ters coğrafi kodlama ile doğrulandı (2026-09-09):
-// Minareliçavuş Mah. · Bursa OSB · Yeşil Cad. No:31 · 16220 · Nilüfer/Bursa.
+// Minareliçavuş Mah. · Bursa OSB · Yeşil Cad. No:19 · 16220 · Nilüfer/Bursa.
 // Eski kayıt 16140 ve ilçesizdi; Google sitedeki adresi doğrulanmış profille karşılaştırdığı
 // için uyuşmazlık yerel sinyali zayıflatıyordu. Değiştirirken /iletisim, /gizlilik,
 // llms-full.txt ve CMS iletişim bloğu BİRLİKTE güncellenmeli (hepsi bu turda yapıldı).
-const ORG_ADDRESS = { street: "Minareliçavuş Mah., Bursa OSB, Yeşil Cad. No:31", locality: "Nilüfer", region: "Bursa", postalCode: "16220", country: "TR" } as const;
+// ⚠️⚠️ 2026-09-12: bina numarası No:31 → No:19 olarak DÜZELTİLDİ (kullanıcı kararı).
+// Sebep: ana şirket sitesi (bemis.com.tr) ve ürün kullanma kılavuzlarının iletişim
+// sayfası "Yeşil Cad. No:19" yazıyor; sitede No:31 yazıyordu. Kullanıcı No:19'un
+// doğru olduğunu bildirdi → üç yüzey hizalandı (site + bemis.com.tr + kılavuz).
+// ⚠️ NAP (ad-adres-telefon) tutarlılığı yerel SEO'nun temeli: Google site adresini
+//    GOOGLE İŞLETME PROFİLİ kartıyla karşılaştırır. GBP'de No:31 yazıyorsa bu
+//    değişiklik YENİ bir tutarsızlık üretir → GBP kartının da No:19 olduğu
+//    KULLANICI TARAFINDAN TEYİT EDİLMELİ. (Ölçüm notu: Google Haritalar JS kabuğu
+//    döndürdüğü için adres programatik olarak okunamıyor.)
+const ORG_ADDRESS = { street: "Minareliçavuş Mah., Bursa OSB, Yeşil Cad. No:19", locality: "Nilüfer", region: "Bursa", postalCode: "16220", country: "TR" } as const;
 // Gerçek işletme koordinatı (GBP pin — Nilüfer/OSB Bursa, kullanıcı verdi). LocalBusiness geo tek kaynağı.
 export const ORG_GEO = { lat: 40.245558, lng: 28.945849 } as const;
 
