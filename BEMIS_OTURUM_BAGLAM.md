@@ -13,6 +13,83 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> ⭐✅ **KULLANICIDA BEKLEYEN 6 MADDE ÇOKTAN SEÇMELİ SORULDU — 2'Sİ KAPANDI, 4'Ü METNE DÖNDÜ
+> (2026-09-12, commit 20bfbbb):** Kullanıcı *"bende bekleyenleri sırayla seçmeli sor"* dedi.
+>
+> **✅ (1) GBP ADRESİ TEYİT EDİLDİ — No:19, KUSUR YOK.** Kullanıcı GBP kartını okudu: **"No:19"**,
+> site ile **birebir aynı**. 12 Eylül'deki `No:31 → No:19` değişikliği **DOĞRUYDU**, geri alma
+> gerekmiyor. NAP dört yüzeyde tutarlı (GBP · site · bemis.com.tr · kılavuz). Ölçüm takviminde
+> **"kapandı"** işaretlendi, sonucu yazıldı. 📌 Bu madde KAPANDI, tekrar açma.
+>
+> **✅ (2) GOOGLE İŞLETME PUANI GELDİ VE CANLIYA ALINDI: 5.0 / 27.** Aylardır bekleyen tek eksik
+> buydu; altyapı 2026-09-11'de kurulmuştu ama değer boş olduğu için rozet **hiçbir yerde render
+> edilmiyordu**. ✅ Canlı doğrulandı: **anasayfa + `/iletisim`**'de "5.0 · 27 değerlendirme ·
+> Google işletme puanı".
+> ⚠️ **YALNIZ TR TABANINA YAZILDI.** Ölçüldü: `reviews.google` anahtarı R2'nin **7 kolunda da**,
+> repo'nun **7 dosyasında da YOKTU**. `contentLang.ts` merge'ü `{ ...tr.reviews, ...(en.reviews ?? {}) }`
+> → overlay'de anahtar OLMADIĞI için **TR değeri 7 dilde de korunur**. Overlay'e BOŞ yazmak TR'yi
+> ezip rozeti gizlerdi (kayıtlı tuzak); yama betiği overlay'de `google` anahtarı oluşursa
+> **fail-fast** duruyor. 📌 Değer güncellenirken yine **yalnız TR tabanı** + cache bump.
+> ⚠️ `count` **SADECE RAKAM** ("27") — "değerlendirme" soneki `pickText` ile çevrilir.
+> ⚠️ **ŞEMAYA YAZILMADI** (self-serving) · **pazaryeri rozetiyle (5.0 / 59) BİRLEŞTİRİLMEDİ**
+> (farklı platformların puanı ortalanmaz, sayıları toplanmaz) · `url` boş → `ORG_GOOGLE_PROFILE_URL`.
+> store cache **v120-meta-temiz → v121-google-puan**.
+>
+> **📄 (3-6) DÖRT BELGE MASAÜSTÜNE YAZILDI (kullanıcı iletecek):**
+> · **`Bemis_Ajans_bemis_com_tr_2_Madde.md`** — ⚠️ **ÖLÇÜM ÖNCE YAPILDI, KUYRUK MADDESİ BAYATTI:**
+>   301'ler **uygulanmış** (`/sarj-cihazlari` → `/products` **301** ✓, `/e-v-charge` → anasayfa
+>   **301** ✓). Kalan iki gerçek madde: **`http→https` 302** (301 olmalı; `https://bemis.com.tr →
+>   www` zaten 301, ona dokunulmayacak) ve **eski EV fiyat listesi PDF'i hâlâ 200** (3.282.098 bayt)
+>   → güncel listeye 301 ya da kaldırma. Metinde `curl` doğrulama komutları da var.
+>   ⓘ `/ev-charge` 200 dönüyor ama `<title>` "Bemis Endüstriyel Fiş Priz" = eski sitenin
+>   **soft-404** davranışı, EV içeriği DEĞİL → madde yapılmadı.
+> · **`Bemis_Bayi_Backlink_Mesaji.md`** — FUTURE Teknik'e (ve şablon olarak diğer bayilere)
+>   karşılıklı bağlantı talebi. Çapa `#dealer-directory` ve `futureteknik.com.tr` bağlantısı
+>   canlıda doğrulandı. ⚠️ Metin **gizli bağlantı istemiyor** ve **bağlantı karşılığı iskonto/ödeme
+>   teklif etmiyor** (ikisi de bağlantı şeması = manuel işlem riski).
+> · **`Bemis_Kilavuz_Duzeltme_Mobil_Sarj.md`** — bkz. aşağıdaki 📖 blok.
+> · **`Bemis_GSC_Indirme_Talimati.md`** — 6 adım + yanlış mülk tuzağı + `Desktop\GSC\2026-09\`
+>   klasör düzeni + beklenti notu (7 günlük veri ince olur; "Sorgular" dışa aktarımı gösterimlerin
+>   ~1/3'ünü listeler, sayfa toplamlarıyla eşleşmemesi NORMAL). Kalıcı çözüm (servis hesabı + GSC
+>   API) seçenek olarak yazıldı.
+
+> 📖🔴 **KILAVUZ DÜZELTMESİ — PDF'İN KENDİSİ OKUNDU, ÇELİŞKİ SANDIĞIMDAN DAR ÇIKTI (2026-09-12):**
+> Kullanıcı: *"kullanma kılavuzu YENİ ama içerikte hata var, o kısmı yazı olarak ver, grafik
+> bölümüne atayım."* Özete güvenmeyip **PDF'i indirip `pdftotext` ile okudum**
+> (`/api/documents/file?id=doc-1779265535780`, belge tarihi **2026-05-20**).
+>
+> **📌 ÖNCEKİ NOTUM FAZLA GENİŞTİ:** "kılavuz mobil seriyi 2 kademe anlatıyor" demiştim. Gerçek:
+> **Mini Mobile ve Mono Mobile katalogla UYUMLU** (Mini 10A-16A ✓ · Mono 16A-32A ✓ — o iki cihazda
+> 2 kademe DOĞRU, dokunulmayacak). Çelişen **yalnız Pro Mobile bölümü**.
+>
+> **Pro Mobile (kılavuz `BEV-2331-0001` ↔ katalog AYNI KOD):**
+> | Alan | Kılavuz | Katalog/site (doğru) |
+> |---|---|---|
+> | Ad | Pro Mobile | **Pro Mobile 2** |
+> | Güç | 11 / 22 kW | **3,7 - 22 kW** |
+> | Çıkış amper | 11kW/16A - 22kW/32A (**2. Kademe**) | **6/10/16/20/25/32 A (6 kademe)** |
+> | Kademe değişimi | ⚡'e 3 sn basılı tutma | **mobil uygulama + cihaz tuşu** |
+>
+> ⚠️ **Mobil uygulama kılavuzda HİÇ geçmiyor** (arandı: uygulama/app/Bluetooth → 0). Pro Mobile'ın
+> ayırt edici özelliği bu.
+> ⚠️⚠️ **GÜVENLİK UYARISI YENİDEN YAZILMALI ama CÜMLEYİ BEN YAZMADIM:** kılavuzdaki *"BKT-0111-2211
+> adaptör yalnızca 11kW modunda (1. kademe) çalıştırılmalıdır"* notu **2 kademe şemasına bağlı**;
+> 6 kademede hangi amper sınırının güvenli olduğunu **üretim/teknik ekip belirlemeli**. Metinde
+> doldurulacak kalıp bırakıldı. 📌 **Güvenlik sınırı uydurulmaz.**
+>
+> **🟡 KARAR BEKLEYEN — ÜÇ KAYNAK ÇELİŞİYOR (kılavuz "yanlış" denmedi, karar üretimde):**
+> **Koruma sınıfı** → kılavuz (20 May 2026) **IP66**-IK10 · broşür **IP65** · katalog/site **IP65**.
+> **Çalışma sıcaklığı** → kılavuz **-30 °C**, broşür kararı **-40 °C**. Site 2026-07-13'te broşür
+> esas alınıp IP65'e çekilmişti; şimdi daha YENİ tarihli kılavuz IP66 diyor. Doğru değer netleşince
+> **kılavuz + site + broşür aynı anda** hizalanmalı. ⚠️ Üçü de dış ortam **taahhüdü** — tek taraflı
+> değiştirilmedi.
+>
+> **ⓘ Kapsam notu:** kılavuz yalnız **5 m** gösteriyor; katalogda 5/8/10 m sürümleri
+> (`BEV-2331-0002` 8 m · `-0003` 10 m) ve **11 kW sürümü `BEV-2441-0001`** var, kılavuzda yok.
+> ⚠️ **Adres düzeltmesi GEREKMİYOR:** bu kılavuzda adres geçmiyor (arama "Yeşil" → hepsi *"Şarj ışığı
+> (Yeşil)"*). Eski nottaki "kılavuz No:19 diyor" başka bir belgeye aitti; GBP teyidiyle zaten kapandı.
+
+
 > 🏷️🔴 **ÜRÜN SEO: VERİ KATMANI KOD HARİTASINI YUTUYORDU — 12 ürün + `npm run check:seo`
 > (2026-09-12, commit 6e2bec7):** Kuyruktaki *"31 yeni ürünün SEO metinleri"* maddesi **BAYAT** çıktı —
 > ölçtüm, 2026-08-04'te yapılmış: **150 ürün / 150 `PRODUCT_SEO` kaydı**, eksik 0, yetim 0, 62 kr aşan 0,
