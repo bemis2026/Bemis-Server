@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { cloudinarySrc } from "../../../lib/cloudinary";
 import JsonLd from "../../../components/JsonLd";
 import { breadcrumbSchema, productSchema, productMetaTitle, productMetaDescription, productKeywords, ogImage, OG_URL, SITE_URL, reviewsForProduct, type ReviewShape } from "../../../lib/seo";
+import { varyantSema } from "../../../lib/variants";
 import { getServerProducts, getServerCategoriesMeta, getServerSiteContent } from "../../../lib/server-content";
 import ProductDetailClient from "./ProductDetailClient";
 
@@ -103,6 +104,9 @@ export default async function ProductDetailPage({
   // Bu ürüne ait gerçek müşteri yorumları (curated eşleşme) → Product'a yıldız.
   const reviewItems = ((site as { reviews?: { items?: ReviewShape[] } })?.reviews?.items) ?? [];
   const productReviews = reviewsForProduct(productId, reviewItems);
+  // ⚠️ VARYANT GRUBU (2026-09-12): aynı adı paylaşan kardeş ürünler. Şemaya
+  // `isVariantOf` olarak girer → Google 131 yinelenen sayfa yerine ürün ailesi görür.
+  const vg = varyantSema(category.products ?? [], productId, id);
   const jsonLd = [
     breadcrumbSchema([
       { name: "Ana Sayfa", url: "/" },
@@ -110,7 +114,7 @@ export default async function ProductDetailPage({
       { name: categoryName, url: `/products/${id}` },
       { name: product.name, url: `/products/${id}/${productId}` },
     ]),
-    productSchema({ product, categoryName, categoryId: id, reviews: productReviews }),
+    productSchema({ product, categoryName, categoryId: id, reviews: productReviews, variantGroup: vg }),
   ];
   return (
     <>

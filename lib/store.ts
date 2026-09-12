@@ -1,6 +1,6 @@
 import "server-only";
 import { revalidateTag, unstable_cache } from "next/cache";
-import { S3Client, GetObjectCommand, PutObjectCommand } from "@aws-sdk/client-s3";
+import { S3Client, GetObjectCommand, PutObjectCommand, HeadObjectCommand } from "@aws-sdk/client-s3";
 import { createCipheriv, createDecipheriv, randomBytes, createHash } from "node:crypto";
 
 // Kalıcı veri deposu — Cloudflare R2 (S3 uyumlu, private).
@@ -148,6 +148,25 @@ export async function readBin(name: string, opts: { fresh?: boolean } = {}): Pro
  * kimlik ile okuyunca genel erişime hiç gerek kalmaz → kovanın public
  * erişimi kapatılabilir, bins/*.json dışarıdan indirilemez olur.
  */
+/**
+ * Bir bin'in R2'deki SON YAZILMA tarihi (sitemap `lastmod` için).
+ *
+ * ⚠️ NEDEN: kategori/ürün sayfalarının içeriği CMS'ten (R2) geliyor. Admin bir
+ * açıklamayı düzenleyince commit oluşmaz → repo tarihi değişmez, ama SAYFA
+ * değişir. Sitemap'te "now" yazmak yerine (Google sahte lastmod'u yok sayar)
+ * objenin kendi LastModified'ını kullanırız.
+ * Okuma başarısızsa `null` döner; çağıran commit tabanlı yedeğe düşer.
+ */
+export async function binLastModified(name: string): Promise<Date | null> {
+  if (!BINS.has(name)) return null;
+  try {
+    const res = await r2().send(new HeadObjectCommand({ Bucket: bucket(), Key: pathFor(name) }));
+    return res.LastModified ?? null;
+  } catch {
+    return null;
+  }
+}
+
 export async function readObject(key: string): Promise<{
   stream: ReadableStream | null;
   contentType?: string;

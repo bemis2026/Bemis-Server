@@ -403,6 +403,22 @@ export function productSchema(opts: {
   /** Şemadaki canonical URL yolu — /en ürün sayfaları kendi URL'ini vermeli
    *  (varsayılan TR yolu: /products/<kategori>/<ürün>). */
   urlPath?: string;
+  /**
+   * VARYANT GRUBU — aynı ürünün farklı sürümleri (kablo boyu, akım, montaj tipi…).
+   *
+   * ⚠️⚠️ NEDEN (2026-09-12, ÖLÇÜLDÜ): katalogda 41 grup aynı adı paylaşıyor ve
+   * bu gruplardaki 131 ürünün açıklaması BİREBİR AYNI; her biri kendine canonical
+   * veriyordu → Google için 131 yinelenen sayfa. `isVariantOf` + `ProductGroup`
+   * ile grup ilişkisi bildirilir: Google varyantları TEK ürün ailesi sayar,
+   * sayfalar birbirini yemez. (Sayfa silinmedi — kullanıcı kararı "orta yol".)
+   * 📌 `hasVariant` yalnız @id referansı taşır; her varyant sayfasında tüm
+   *    kardeşlerin TAM şemasını basmak payload'ı gereksiz şişirirdi.
+   */
+  variantGroup?: {
+    groupId: string;
+    variesBy: string[];
+    members: { id: string; label: string }[];
+  };
 }): JsonLdObject {
   const { product, categoryName, categoryId } = opts;
   const imgs = [product.image, ...(product.images ?? [])]
@@ -488,6 +504,22 @@ export function productSchema(opts: {
     ...(kw && { keywords: kw }),
     ...(addProps.length > 0 && { additionalProperty: addProps }),
     ...reviewBlock,
+    ...(opts.variantGroup && opts.variantGroup.members.length > 1 && {
+      isVariantOf: {
+        "@type": "ProductGroup",
+        "@id": `${SITE_URL}/products/${categoryId}#group-${opts.variantGroup.groupId}`,
+        name: product.name,
+        productGroupID: opts.variantGroup.groupId,
+        ...(opts.variantGroup.variesBy.length > 0 && { variesBy: opts.variantGroup.variesBy }),
+        url: `${SITE_URL}/products/${categoryId}`,
+        hasVariant: opts.variantGroup.members.map((m) => ({
+          "@type": "Product",
+          "@id": `${SITE_URL}${opts.urlPath ? opts.urlPath.replace(/[^/]+$/, m.id) : `/products/${categoryId}/${m.id}`}#product`,
+          name: `${product.name} — ${m.label}`,
+          url: `${SITE_URL}${opts.urlPath ? opts.urlPath.replace(/[^/]+$/, m.id) : `/products/${categoryId}/${m.id}`}`,
+        })),
+      },
+    }),
     url,
     ...(offer && {
       offers: {

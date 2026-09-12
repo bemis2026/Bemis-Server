@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { cloudinarySrc } from "../../../../lib/cloudinary";
 import JsonLd from "../../../../components/JsonLd";
 import { breadcrumbSchema, productSchema, ogImage, OG_URL, SITE_URL, reviewsForProduct, type ReviewShape } from "../../../../lib/seo";
+import { varyantSema } from "../../../../lib/variants";
 import type { ComponentProps } from "react";
 import { getServerProducts, getServerCategoriesMeta, getServerSiteContent } from "../../../../lib/server-content";
 import { getProductsForLang } from "../../../../lib/serverProductsLang";
@@ -108,6 +109,9 @@ export default async function EnProductDetailPage({
   const enContent = (await getContentForLang("en")) as { categories?: Record<string, { faq?: { q: string; a: string }[] }> } | null;
   const enFaqRaw = enContent?.categories?.[id]?.faq;
   const enFaq = Array.isArray(enFaqRaw) && enFaqRaw.length > 0 ? enFaqRaw : undefined;
+  // ⚠️ VARYANT GRUBU (2026-09-12) — TR katalogdan hesaplanır (kimlik/spec dil-nötr),
+  // etiketler spec DEĞERLERİNDEN gelir. Şemadaki URL'ler /en yoluna oturur (urlPath).
+  const vg = varyantSema((enCategory?.products ?? []) as never, productId, id);
   const jsonLd = [
     breadcrumbSchema([
       { name: "Home", url: "/" },
@@ -125,6 +129,7 @@ export default async function EnProductDetailPage({
       categoryId: id,
       reviews: productReviews,
       urlPath: `/en/products/${id}/${productId}`,
+      variantGroup: vg,
     }),
   ];
   return (

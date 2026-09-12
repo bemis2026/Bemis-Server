@@ -12,6 +12,7 @@ import { useTheme } from "../../../context/ThemeContext";
 import { accentInk } from "../../../lib/accentInk";
 import { useKaydirmaDurumu, yumusakKaydir } from "../../../components/YatayKaydirma";
 import { useLanguage } from "../../../context/LanguageContext";
+import { varyantSema } from "../../../lib/variants";
 import { useCurrency } from "../../../context/CurrencyContext";
 import { useContent } from "../../../context/ContentContext";
 import { formatPrice } from "../../../../lib/formatPrice";
@@ -678,6 +679,39 @@ export default function ProductDetailPage({
                       <span className="text-sm" style={{ color: textMuted }}>{product.subtitle}</span>
                     )}
                   </div>
+
+                  {/* ⚠️⚠️ "BU SÜRÜM" SATIRI (2026-09-12) — VARYANT ÇİFT İÇERİĞİNİ KIRAR.
+                      ÖLÇÜM: 41 grup aynı adı paylaşıyor ve bu gruplardaki 131 ürünün
+                      133'ü BİREBİR AYNI açıklamayı taşıyor; canlıda doğrulandı ki
+                      `sarj-seti-32a-trifaze-5m` ile `-10m` aynı H1 + aynı 852 kelime
+                      ve her biri KENDİNE canonical veriyor → Google için yinelenen sayfa.
+                      Bu satır, grupta DEĞİŞEN spec alanlarını o varyantın değerleriyle
+                      basar; böylece her sayfa kendi ayırt edici verisiyle farklılaşır.
+                      📌 ŞABLON CÜMLE DEĞİL: değerler ürünün KENDİ spec'lerinden gelir.
+                      📌 VERİYE YAZILMADI, RENDER ANINDA TÜRETİLİR: spec etiket/değerleri
+                         zaten her dilde çevrili geliyor → 131 ürün × 7 dil yazma
+                         (ve çeviri ayrışma) riski hiç doğmuyor.
+                      📌 Gruplama `lib/productGroups` ile AYNI kaynaktan (sayfadaki
+                         varyant seçicisiyle çelişmesin). */}
+                  {(() => {
+                    const vg = varyantSema((category.products ?? []) as never, product.id, categoryId);
+                    if (!vg || !vg.variesBy.length) return null;
+                    const bu = vg.members.find((m) => m.id === product.id);
+                    if (!bu?.label) return null;
+                    return (
+                      <p className="text-sm mb-3" style={{ color: textMuted }}>
+                        <span className="font-semibold" style={{ color: accentInk(accent, d) }}>
+                          {pickText(lang, "Bu sürüm", "This version")}:
+                        </span>{" "}
+                        {bu.label}
+                        {vg.members.length > 1 && (
+                          <span style={{ color: textFaint }}>
+                            {" "}· {pickText(lang, `${vg.members.length} sürümden biri`, `one of ${vg.members.length} versions`)}
+                          </span>
+                        )}
+                      </p>
+                    );
+                  })()}
 
                   {/* Compatible vehicles — V2L variants where the
                       product is built around a specific car brand pin

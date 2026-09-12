@@ -4,6 +4,7 @@ import type { ComponentProps } from "react";
 import { notFound } from "next/navigation";
 import JsonLd from "../../../../components/JsonLd";
 import { breadcrumbSchema, productSchema, ogImage, OG_URL, SITE_URL, reviewsForProduct, type ReviewShape } from "../../../../lib/seo";
+import { varyantSema } from "../../../../lib/variants";
 import { getServerProducts, getServerCategoriesMeta, getServerSiteContent } from "../../../../lib/server-content";
 import { getProductsForLang } from "../../../../lib/serverProductsLang";
 import { LOCALE_LANGS, LOCALE_OG, LOCALE_UI, localeProductMeta, type LocaleLang } from "../../../../lib/localeProductSeo";
@@ -80,6 +81,9 @@ export default async function LocaleProductDetailPage({ params }: { params: Prom
   const locContent = (await getContentForLang(L)) as { categories?: Record<string, { faq?: { q: string; a: string }[] }> } | null;
   const locFaqRaw = locContent?.categories?.[id]?.faq;
   const locFaq = Array.isArray(locFaqRaw) && locFaqRaw.length > 0 ? locFaqRaw : undefined;
+  // ⚠️ VARYANT GRUBU (2026-09-12) — TR katalogdan (kimlik/spec dil-nötr);
+  // şema URL'leri urlPath sayesinde /<dil> yoluna oturur.
+  const vg = varyantSema((category?.products ?? []) as never, productId, id);
   const jsonLd = [
     breadcrumbSchema([
       { name: ui.home, url: "/" },
@@ -93,6 +97,7 @@ export default async function LocaleProductDetailPage({ params }: { params: Prom
       categoryId: id,
       reviews: productReviews,
       urlPath: `/${L}/products/${id}/${productId}`,
+      variantGroup: vg,
     }),
   ];
   return (
