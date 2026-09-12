@@ -275,17 +275,21 @@ export default function Hero() {
                 alt={pickText(lang, "Bemis E-V Charge elektrikli araç şarj istasyonu", "Bemis E-V Charge electric vehicle charging station")}
                 fill
                 priority={i === 0}
-                // ⚠️ KOMŞU SLAYTLAR DA HEMEN İNDİRİLİR (2026-09-12).
-                // Eskiden yalnız slayt 0 `priority` alıyordu, diğerleri `lazy`ydi.
-                // Çift-tampon onları DOM'a zaten basıyor AMA indirmeyi tembel
-                // bırakıyordu → SOĞUK açılışta bir sonraki görsel henüz inmemişken
-                // 5. saniyede geçiş başlıyor, 2,6 sn'lik fade BOŞA akıyor ve görsel
-                // hazır olunca tam opaklıkta "pat" diye oturuyor. Kullanıcı bunu
-                // "bir anda hızlanıyor" diye bildirdi (DC slaytında).
-                // ⚠️ `priority` DEĞİL `loading="eager"`: priority hepsine verilirse
-                //    3 tam-ekran görsel LCP ile yarışır. Slayt 0 preload+high ile
-                //    önde kalır; diğerleri sırada ama BEKLEMEDEN iner (36-73 KB AVIF).
-                loading={i === 0 ? undefined : "eager"}
+                // ⚠️⚠️ KOMŞU SLAYTLARA `loading="eager"` DENENDİ ve GERİ ALINDI
+                //    (2026-09-12). Gerekçe ölçümle ÇÜRÜDÜ, tekrar deneme:
+                //    · Hipotez: "soğuk açılışta DC görseli 5. saniyede henüz
+                //      inmemiş oluyor, fade boşa akıyor, görsel pat diye oturuyor."
+                //    · ÖLÇÜM (fetch cache:'reload' ile soğuk indirme):
+                //      slayt0 99 KB/921 ms · DC 37 KB/**144 ms** · slayt2 72 KB/89 ms.
+                //      DC üçünün EN HAFİFİ (düz koyu stüdyo zemini çok iyi sıkışıyor);
+                //      10 kat yavaş bağlantıda bile ~1,5 sn → 5 sn'lik pencereye
+                //      rahat sığıyor. Yani erken indirmenin kazancı ~YOK.
+                //    · MALİYETİ İSE GERÇEK: Next 16 `loading="eager"` için de
+                //      `<link rel="preload" as="image">` basıyor (yalnız `priority`
+                //      için değil) → 3 tam-ekran görsel kritik yola preload ediliyor,
+                //      ölçüldü: image preload 1 → 3, ~178 KB fazladan.
+                //    📌 Ders: "ağır görsel" iddiasını KAYNAK boyutuyla değil SERVİS
+                //       EDİLEN boyutla ölç; `eager`ın preload yapmadığını varsayma.
                 // Hero = markanın ilk izlenimi + tam ekran → en yüksek kademe (95).
                 // ⚠️ Değeri değiştirirken next.config `qualities` listesinde OLMALI.
                 quality={95}
