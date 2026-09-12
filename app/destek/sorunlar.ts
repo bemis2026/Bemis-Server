@@ -137,6 +137,12 @@ export const AYIRICI_TANI: AyiriciTani[] = [
     link: { label: "Evden kablo uzatarak şarj etme", href: "/blog/evden-kablo-uzatarak-elektrikli-araba-sarj-etme" },
   },
   {
+    id: "yavas",
+    karisir: "Beklentinin kendisi yanlış olabilir",
+    ayirt: "Aracınızın batarya kapasitesi ve dahili AC şarj gücüyle sürenin ne kadar olması GEREKTİĞİNİ hesaplayın. Gerçek süre hesapla uyuyorsa arıza yoktur.",
+    link: { label: "Şarj süresi hesaplama", href: "/sarj-suresi-hesaplama" },
+  },
+  {
     id: "kendiliginden-duruyor",
     karisir: "Şarj beklediğimden yavaş",
     ayirt: "Güç SÜREKLİ düşükse \"yavaş şarj\" satırına bakın. Şarj başlayıp KESİLİYORSA bu ayrı bir durumdur: araç limiti, soket teması veya RCD.",

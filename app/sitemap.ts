@@ -78,6 +78,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Araç uyumluluk rehberi — "Togg'a hangi şarj kablosu" gibi model bazlı
     // aramaların hedefi (2026-08-03). Bkz. app/lib/vehicleCharging.ts
     { url: `${BASE}/arac-sarj-uyumlulugu`, lastModified: gt("/arac-sarj-uyumlulugu"), changeFrequency: "monthly", priority: 0.8 },
+    // Şarj süresi hesaplama — "kaç saatte şarj olur" gibi ARAÇ ARAYAN sorguların hedefi (2026-09-12).
+    { url: `${BASE}/sarj-suresi-hesaplama`, lastModified: gt("/sarj-suresi-hesaplama"), changeFrequency: "monthly", priority: 0.8 },
     // Kullanıcı paylaşımları (Instagram gömme) — içerik CMS'ten gelir.
     { url: `${BASE}/musteri-videolari`, lastModified: icerikT, changeFrequency: "weekly", priority: 0.6 },
   ];

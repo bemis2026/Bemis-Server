@@ -37,6 +37,7 @@ const HARITA: Record<string, string[]> = {
   "/cerez-politikasi": ["app/cerez-politikasi/page.tsx"],
   "/destek": ["app/destek/page.tsx"],
   "/arac-sarj-uyumlulugu": ["app/arac-sarj-uyumlulugu/page.tsx"],
+  "/sarj-suresi-hesaplama": ["app/sarj-suresi-hesaplama/page.tsx", "app/components/Calculator.tsx"],
   "/musteri-videolari": ["app/musteri-videolari/page.tsx"],
   "/blog": ["app/blog/posts.ts"],
   "/sozluk": ["app/lib/glossary.ts"],

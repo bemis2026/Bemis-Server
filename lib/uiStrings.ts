@@ -303,6 +303,8 @@ const STRINGS = {
   b2b_form_company_ph:    { tr: "ABC Teknoloji A.Ş.",                     en: "ABC Technology Inc." },
   b2b_form_email_ph:      { tr: "ali@sirket.com",                         en: "john@company.com" },
   b2b_form_phone_ph:      { tr: "+90 5XX XXX XX XX",                      en: "+90 5XX XXX XX XX" },
+  // Hesaplayıcı — anasayfa bölümünden tam sayfaya (/sarj-suresi-hesaplama) bağlantı
+  calc_full_page:     { tr: "Tam sayfada aç",                    en: "Open full page" },
 } satisfies Record<string, Pair>;
 
 export type UiStringKey = keyof typeof STRINGS;

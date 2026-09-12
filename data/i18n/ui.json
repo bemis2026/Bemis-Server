@@ -3274,5 +3274,12 @@
   "ar": "تركيا",
   "ru": "Турция",
   "nl": "Türkiye"
+ },
+ "Open full page": {
+  "de": "Ganze Seite öffnen",
+  "es": "Abrir en página completa",
+  "ar": "افتح الصفحة الكاملة",
+  "ru": "Открыть на отдельной странице",
+  "nl": "Volledige pagina openen"
  }
 }

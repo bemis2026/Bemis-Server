@@ -1,4 +1,5 @@
 "use client";
+import { usePathname } from "next/navigation";
 
 import { useState, useMemo, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
@@ -448,6 +449,9 @@ function BatteryCharging({ d, blue }: { d: boolean; blue: string }) {
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function Calculator() {
+  // ⚠️ usePathname: tam sayfada (/sarj-suresi-hesaplama) bölüm KENDİNE link vermesin.
+  //    `window.location` ile bakmak SSR/hidrasyon uyuşmazlığı üretirdi.
+  const yol = usePathname();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const { theme } = useTheme();
@@ -661,6 +665,24 @@ export default function Calculator() {
               {t("calc_heading")}
             </h2>
           </motion.div>
+
+          {/* ⚠️ TAM SAYFA BAĞLANTISI (2026-09-12) — /sarj-suresi-hesaplama YETİM KALMASIN.
+              Hesaplayıcı artık kendi URL'inde de yayınlanıyor (kendi H1'i, meta'sı ve
+              WebApplication şemasıyla); bu satır anasayfadan oraya iç link verir.
+              Anasayfa bölümü KALDIRILMADI — burası ankraj, orası bağımsız sayfa.
+              📌 Bölüm anasayfa dışında (tam sayfada) render edilirken bu bağlantı
+                 kendine işaret etmesin diye GİZLENİR. */}
+          {yol !== "/sarj-suresi-hesaplama" && (
+            <div className="text-center mb-2">
+              <a
+                href="/sarj-suresi-hesaplama"
+                className="text-xs font-semibold hover:underline"
+                style={{ color: BLUE }}
+              >
+                {t("calc_full_page")} →
+              </a>
+            </div>
+          )}
 
           <motion.div
             initial={{ scaleX: 0, opacity: 0 }} animate={inView ? { scaleX: 1, opacity: 1 } : {}} transition={{ duration: 0.5, delay: 0.2 }}
