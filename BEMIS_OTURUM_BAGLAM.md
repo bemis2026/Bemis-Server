@@ -13,6 +13,81 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🏷️🔴 **ÜRÜN SEO: VERİ KATMANI KOD HARİTASINI YUTUYORDU — 12 ürün + `npm run check:seo`
+> (2026-09-12, commit 6e2bec7):** Kuyruktaki *"31 yeni ürünün SEO metinleri"* maddesi **BAYAT** çıktı —
+> ölçtüm, 2026-08-04'te yapılmış: **150 ürün / 150 `PRODUCT_SEO` kaydı**, eksik 0, yetim 0, 62 kr aşan 0,
+> **kod haritasında kopya başlık 0**. 📌 *"Şu iş kaldı" demeden önce envanteri çıkar* kuralı yine işe yaradı.
+> **Ama aynı ölçüm GERÇEK bir kusur buldu.**
+>
+> **🔴 KÖK NEDEN:** `applyProductSeo` → **`pick(veri, kod)`**. Veri katmanındaki (`R2 products` /
+> `productsEn` / repo `data/products*.json`) `meta*` değeri **DOLUYSA `app/lib/productSeo.ts` haritasını
+> EZER.** Bu **tasarım gereğidir** (operatör admin'den özelleştirebilsin) **AMA veri katmanı 150 ürünün
+> hepsinde ESKİ kopyaları tutuyor** → kod haritasına yapılan her düzeltme **SESSİZCE YUTULUYOR**.
+> Ölçüm: **12 üründe canlı değer koddan FARKLI** (32 alan).
+>
+> **(a) 6 WALLBOX VARYANTI** — GSM / MID Sayaçlı ayrımı kaybolmuş; canlıda **4 grupta 10 ürün AYNI
+> `metaTitle`'ı** paylaşıyordu (Google "bunlar aynı sayfa" sayıp birini bastırır). **Kod haritası
+> DOĞRUYDU** ("… GSM — 4G Kablolu", "MID Sayaçlı Wallbox — …"); yalnız veri yutuyordu.
+> **(b) `pro-mobile`** — adı **"Pro Mobile 2"** olmuştu, meta hâlâ *"Pro Mobile 22 kW"* diyordu ve
+> **6 kademe amper ayarı (6-32A)** cümlesi yoktu.
+> **(c) 🔴 5 DC ÜNİTESİ — meta "IP65" diyordu, GERÇEK SPEC "IP54".** 7 DC ünitesinin **spec tablosundan
+> tek tek doğrulandı** (hepsi IP54) ve kod haritasında 7'sinin de IP54 olduğu teyit edildi. Yani
+> Ağustos'taki *"DC meta IP65 → IP54"* düzeltmesi veri katmanı tarafından yutulmuş ve **CANLIYA HİÇ
+> ÇIKMAMIŞ**: aylarca Google sonucunda **fazla koruma iddiası** servis edildi ve ürünün **kendi spec
+> tablosuyla çelişti.**
+>
+> **ÇÖZÜM:** 12 ürünün bayat `meta*` anahtarları **12 kaynaktan SİLİNDİ (336 alan)** — repo
+> `data/products-en.json` (48) + R2 `products` TR tabanı + 4 çeviri kolu + R2 `productsEn` (288).
+> Artık o 12 üründe tek kaynak kod haritası.
+> ⚠️ **`""` YAZILMADI, anahtar `delete` edildi** — boş string overlay'de TR'nin değerini ezip alanı yok
+> eder (bu hata daha önce 5 dilde metaTitle'ı silmişti).
+> ⚠️ **`productsEn` bin'in şekli `{en:[...]}`** (`.products` DEĞİL) — ilk kuru çalıştırmada o kol
+> **0/12** döndü ve **FAIL-FAST yazımı DURDURDU** (doğru davranış), `kats()` düzeltildi. 📌 Ürün verisi
+> yazan her betikte `kats()` **ÜÇ şekli** tanımalı: TR tabanı `{products:[…]}` · çeviri kolu **sayısal
+> anahtarlı obje** · `productsEn` **`{en:[…]}`**.
+> ⚠️ Girinti/satır sonu **ÖLÇÜLDÜ** (tahmin edilmedi): 6 repo dosyasının hepsi **kök DİZİ(8), girinti 2,
+> LF, round-trip birebir**. Yazımdan sonra doğrulandı: **150 ürün yerinde, tam 48 alan silindi, kalan tüm
+> alanların değeri birebir, beklenmeyen ekleme/silme 0.**
+> ⚠️ store cache **v119-adres-no19 → v120-meta-temiz** (doğrudan R2 yazımı).
+>
+> **🧰 YENİ KALICI BEKÇİ — `npm run check:seo`** (`scripts/check-product-seo.mts`, canlı API okur,
+> yazmaz). 6 sınıf: **veri katmanı kod haritasını eziyor mu** · kopya `metaTitle` · 62 kr aşan başlık ·
+> `PRODUCT_SEO` kaydı olmayan ürün · yetim kayıt · canlıda `metaTitle` boş.
+> ✅ **Deploy ÖNCESİ 36 sorun bildirdi** (bilinen bozuk durum) = bekçi gerçekten ölçüyor.
+> Build zincirine **EKLENMEDİ** (`check:clones` · `check:i18n` ile aynı gerekçe: uyarı denetimi).
+> 📌 **`productSeo.ts` düzenledikten SONRA çalıştır** — düzeltmen canlıya çıkacak mı, yoksa veri katmanı
+> yutacak mı, tek komutla görünür. Bilerek özelleştirilmiş meta varsa bekçideki `BILEREK_FARKLI`
+> listesine **gerekçesiyle** ekle.
+>
+> **⏳ KARARA BIRAKILAN (yapılmadı):** kalan **138 üründe** canlı değer koddan AYNI, yani görünür kusur
+> YOK — ama kopyalar orada durduğu sürece kod haritası o ürünler için fiilen ölü. Hepsini temizlemek
+> 138 ürün × 6 kol'luk bir veri işlemi; getirisi yok, riski var → **yapılmadı**. Bekçi ayrışmayı
+> yakaladığı için güvenlik ağı kurulu.
+>
+> **ARAÇLAR:** `scripts/check-product-seo.mts` (kalıcı) · `scratchpad/_seo_envanter.mts` ·
+> `_meta_ezme_olcum.mts` · `_meta_fark_detay.mts` · `_ip_iddia.mts` · `_bicim_olc.mts` ·
+> `_meta_temizle.mts` (kuru→`--yaz`, fail-fast) · `_meta_dogrula.mts`.
+> Yedekler: `scratchpad/_products.R2.metatemiz.bak.json` + `_productsEn.R2.metatemiz.bak.json`.
+
+> 🧹⚠️ **UYDURMA YORUM YEDEĞİ KALDIRILDI + 2 ÖLÜ DOSYA SİLİNDİ (2026-09-12, commit 58cdba8):**
+> **(1)** `ContentContext.tsx` `defaultContent.reviews` **aylardır işaretli ama düzeltilmemişti**:
+> **"4.9 / 500+"** puanı ve **6 UYDURMA müşteri yorumu** (Mehmet K. · Ayşe T. · Serkan D. · Emre Y. ·
+> Özlem B. · Can M.) duruyordu. Gerçek veri (**5.0 / 59** + 3 doğrulanmış yorum: M.C. · Onur D. · İ.T.)
+> R2 `content` bin'inde ve repo `data/content.json` yedeğinde → canlıya çıkmıyordu. **AMA içerik
+> katmanının İKİSİ de okunamazsa bu varsayılan devreye girer ve o build'de sitede uydurma müşteri
+> yorumu + uydurma puan YAYINLANIR.** Alanlar boşaltıldı, gerekçe koda yazıldı. 📌 **Buraya
+> örnek/doldurma verisi YAZMA** — aynı riski geri açar.
+> **(2) 🔴 YOL ÜSTÜNDE BULUNAN KUSUR — pazaryeri puan rozeti KOŞULSUZ basıyordu.** `Reviews.tsx`
+> `rating`/`ratingCount`'u kapısız render ediyordu; varsayılan boşaltılınca (ya da operatör alanı
+> admin'den temizleyince) ekranda yalnız **"★ ·"** çıkacaktı. **Google rozetindeki AYNI kapı** eklendi
+> (değer boşsa blok hiç render edilmez). Canlı veri dolu olduğu için **görünür sitede değişiklik YOK**.
+> **(3) İKİ ÖLÜ DOSYA SİLİNDİ** (sıfır referans doğrulandı, tsc temiz):
+> **`app/components/TechnicalSpecs.tsx`** — 157 sabit Türkçe dize, hiçbir yerden import edilmiyordu;
+> çevrilmemiş olduğu için biri ileride import etse 157 dize birden yabancı dillerde Türkçe görünürdü.
+> **`app/data/products.ts`** — 446 satır, hiçbir yerden import edilmiyordu (katalog R2 `products`
+> bin'inden + `data/products.json` yedeğinden gelir).
+
+
 > 🌐🔴 **SOSYAL PAYLAŞIMLAR + 4 SESSİZ ÇEVİRİ KUSUR SINIFI KAPANDI — `npm run check:i18n`
 > (2026-09-12, commit'ler b889540 · 20706a3):** Kullanıcı *"sosyal paylaşımlar kısmı yabancı dillerde
 > ingilizce kalmış kontrol et"* dedi. Tek bölümün arkasında **4 AYRI sessiz kusur sınıfı** çıktı; hepsi

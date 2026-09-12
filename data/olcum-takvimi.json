@@ -75,6 +75,14 @@
       "durum": "bekliyor"
     },
     {
+      "tarih": "2026-10-10",
+      "is": "Ürün SEO — 12 üründe bayat meta* silindi, kod haritası tek kaynak (2026-09-12)",
+      "olcum": "Kopya metaTitle taşıyan 10 ürün Google'da ayrı ayrı görünüyor mu + 5 DC ünitesinin snippet'inde IP54 mü yazıyor (IP65 DEĞİL)",
+      "hedef": "npm run check:seo temiz; GSM/MID varyantları kendi başlığıyla indeksli; DC snippet'lerinde IP65 iddiası 0",
+      "nasil": "npm run check:seo · GSC → Sayfalar (o 10 ürün URL'i ayrı gösterim alıyor mu) · site:bemisevcharge.com.tr sorgusuyla DC ünitesi snippet'ini gözle oku",
+      "durum": "bekliyor"
+    },
+    {
       "tarih": "2026-09-26",
       "is": "Arayüz çeviri bekçisi + socialWallSection çeviri yolu (2026-09-12)",
       "olcum": "npm run check:i18n temiz mi? Ve operatör admin'den sosyal bölüm başlığı girdiyse 5 dilde çevrildi mi?",
