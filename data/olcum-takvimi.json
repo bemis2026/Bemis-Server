@@ -96,6 +96,15 @@
       "olcum": "Google İşletme Profili kartındaki adres No:19 mu? Site ile birebir aynı mı?",
       "hedef": "GBP · site · bemis.com.tr · kılavuz PDF — dördü de 'Yeşil Cad. No:19'",
       "nasil": "GBP panelinden adresi oku (programatik okunamıyor: Haritalar JS kabuğu döndürüyor). Uyuşmuyorsa ya GBP ya site düzeltilir — NAP tutarsızlığı yerel SEO'yu zayıflatır.",
+      "durum": "kapandı",
+      "sonuc": "2026-09-12 — KULLANICI TEYİDİ: GBP kartı 'No:19' yazıyor, site ile BİREBİR AYNI. NAP tutarlı (GBP · site · bemis.com.tr · kılavuz dördü de No:19). 12 Eylül'deki No:31→No:19 değişikliği DOĞRUYDU, geri alma gerekmiyor. ⚠️ Kılavuz PDF'leri ayrı bir maddede (Pro Mobile kademe sayısı bayat), adresle ilgisi yok."
+    },
+    {
+      "tarih": "2026-10-10",
+      "is": "Google işletme puanı rozeti canlıya alındı — 5.0 / 27 (2026-09-12)",
+      "olcum": "Rozet 7 dilde görünüyor mu + GBP'deki puan/sayı hâlâ aynı mı (değişmişse güncellenmeli)",
+      "hedef": "Rozet anasayfa Yorumlar bölümünde ve /iletisim'de görünür; sayı GBP ile aynı; 'değerlendirme' soneki her dilde kendi dilinde",
+      "nasil": "Anasayfa + /iletisim'i de/ar dillerinde aç; GBP panelinden güncel puan/sayıyı oku. ⚠️ Değer değişince content.reviews.google TR tabanına yazılır (overlay'e DEĞİL) + store cache bump.",
       "durum": "bekliyor"
     }
   ]

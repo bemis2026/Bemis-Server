@@ -743,7 +743,12 @@
         "product": "Trifaze 11 kW Çantalı Taşınabilir Şarj Seti",
         "text": "Kendi çantasında, özenli ve hızlı bir şekilde kargolanmış olarak geldi. Satıcı her soruma cevap vermiştir; kendisine teşekkür ediyorum, hayırlı işler diliyorum."
       }
-    ]
+    ],
+    "google": {
+      "rating": "5.0",
+      "count": "27",
+      "url": ""
+    }
   },
   "contactSection": {
     "sectionLabel": "İletişim",
