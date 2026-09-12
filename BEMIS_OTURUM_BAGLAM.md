@@ -13,6 +13,37 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🧮🚫 **HESAPLAYICI KENDİ SAYFASINDA + "İNCE İÇERİK" İŞİ ÖLÇÜMLE İPTAL (2026-09-12, commit 0bfbf78):**
+>
+> **✅ `/sarj-suresi-hesaplama`** — hesaplayıcı YALNIZCA anasayfanın `#calculator` bölümüydü: kendi
+> URL'i, `<h1>`i, meta açıklaması ve `WebApplication` şeması YOKTU → *"şarj süresi hesaplama"*,
+> *"kaç saatte şarj olur"* gibi **araç arayan** sorgularda yarışacağı hedef yoktu.
+> `WebApplication` (4 `featureList`, `isAccessibleForFree`, `offers` price 0 — araç gerçekten
+> ücretsiz) + `BreadcrumbList`. Kendi `<h1>`i var, bileşenin başlığı `<h2>` KALDI (doğru hiyerarşi);
+> **bileşene dokunulmadı**, anasayfa görünümü değişmedi. Sayfa **TR-ONLY** (karşılığı olmayan
+> hreflang Google'da karşılıklılık hatası üretir).
+> **⚠️ YETİM BIRAKILMADI — iki iç link:** anasayfadaki bölümden *"Tam sayfada aç"*
+> (`t("calc_full_page")`, ui.json 468 → 469) + `/destek` ayırıcı tanı tablosuna yeni satır.
+> ⚠️ **Blog `related` dizisine DOKUNULMADI:** uzunluğunu değiştirmek çeviri parmak izini bozar ve
+> yazı 5 dilde TR'ye düşerdi (`tamCevrildi` kapısı). İç link vermek için çeviri kısıtı OLMAYAN
+> yüzeyleri seç.
+> ⚠️ `usePathname` ile tam sayfada bölüm KENDİNE link vermiyor — `window.location` SSR/hidrasyon
+> uyuşmazlığı üretirdi.
+> ✅ Canlı: `WebApplication` ✓ 4 özellik · h1 ✓ · canonical ✓ · anasayfa + /destek + sitemap linkleri ✓
+>
+> **🚫 "İNCE İÇERİK" İŞİ YAPILMADI — ÖLÇÜM GEREKSİZ OLDUĞUNU GÖSTERDİ.**
+> *"120 ürünün açıklaması 40 kelime altı"* demiştim; doğru ama YANILTICI: açıklama **ALANI** kısa,
+> **SAYFA** ince değil. **En kısa açıklamalı ürünler (16–19 kelime) bile 439–460 KELİME gövdeye
+> sahip**; referans çalışmanın eşiği 350 kelime. Kategori sayfaları 449–2285 kelime.
+> → **120 ürün × 7 dil metin yazmak ölçülebilir kazanç getirmezdi.** Referans dokümanın kendi dersi:
+> *"bir eşiğe dayanan tespit, iş emrine dönüşmeden önce eşiğin kendisi doğrulanır."*
+> ⚠️ Ölçüm sırasında iki test adresini **SLUG TAHMİN EDEREK** yazdım ve 404 aldım — kayıtlı kuralı
+> kendim ihlal ettim. Gerçek slug'lar veriden alınıp yeniden ölçüldü. 📌 Test adresi bile uydurma.
+>
+> **Ölçüm takvimi 9 kontrole çıktı** (`npm run olcum`). **Oturum sonu tam kontrol: 21/21 temiz.**
+
+
+
 > 🩺📅 **/destek GÜÇLENDİRİLDİ + ÖLÇÜM TAKVİMİ KURULDU (2026-09-12, commit 2c4d90a):**
 >
 > **📌 ÖNCEKİ İFADEM DÜZELTİLDİ:** *"arıza alanında sıfır içerik var"* demiştim — **blogda sıfır,

@@ -65,6 +65,14 @@
       "hedef": "de/es/ru/nl/ar oturumlarında hemen çıkma oranı düşüşü",
       "nasil": "GA4 → dil kırılımı, 2026-09-12 öncesi/sonrası",
       "durum": "bekliyor"
+    },
+    {
+      "tarih": "2026-10-10",
+      "is": "Şarj süresi hesaplayıcı kendi sayfasında (2026-09-12)",
+      "olcum": "/sarj-suresi-hesaplama indekslendi mi + 'şarj süresi hesaplama' ailesinde gösterim",
+      "hedef": "İndekslendi; gösterim > 0; WebApplication şeması Zengin Sonuç Testi'nde geçerli",
+      "nasil": "GSC → URL denetimi + Sorgular (sayfa filtresi /sarj-suresi-hesaplama)",
+      "durum": "bekliyor"
     }
   ]
 }
