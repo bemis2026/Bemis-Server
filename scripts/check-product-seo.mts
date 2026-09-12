@@ -117,4 +117,11 @@ console.log(
     ? `\n🔴 ${toplam} sorun.`
     : `\n✅ Ürün SEO bekçisi: temiz (${urunler.length} ürün · ezilen alan 0 · kopya başlık 0 · uzun başlık 0 · kayıtsız 0 · yetim 0).`,
 );
-process.exit(toplam ? 1 : 0);
+
+// ⚠️ `process.exit()` KULLANMA — bu betik `fetch` yapıyor ve Windows'ta canlı
+//    keep-alive soketi açıkken process.exit() çağırmak Node'u teardown'da
+//    `Assertion failed: !(handle->flags & UV_HANDLE_CLOSING)` ile düşürüyor →
+//    çıkış kodu 127 oluyor ve bekçi TEMİZKEN DE "başarısız" görünüyor
+//    (2026-09-12'de ölçüldü). `process.exitCode` ile kodu bildir, süreç
+//    kendiliğinden kapansın.
+process.exitCode = toplam ? 1 : 0;
