@@ -174,7 +174,9 @@ export default function ContactPageClient() {
                   <p className="text-xs font-bold uppercase tracking-wider mb-1" style={{ color: textMuted }}>
                     Çalışma Saatleri
                   </p>
-                  {/* TODO: gerçek çalışma saatleri kullanıcıdan teyit edilecek */}
+                  {/* ⚠️ TEYİTLİ MESAİ — lib/seo.ts openingHoursSpecification ile AYNI
+                      değer (Pzt-Cuma 08:30-18:00). İkisi birlikte değiştirilir;
+                      biri değişip öteki kalırsa NAP/şema tutarsızlığı doğar. */}
                   <p className="text-base sm:text-lg font-semibold" style={{ color: textPrimary }}>
                     Hafta içi 08:30–18:00
                   </p>

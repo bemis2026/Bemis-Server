@@ -69,11 +69,21 @@
 > · KVKK/çerez · **`/bayilik`** (bayilik programı **Türkiye pazarına özel** — DBS/teminat şartları;
 > 5 dile çevirmek karşılanamayacak bir programa başvuru davetiyesi olurdu).
 > **(b) Admin/düzenleme arayüzü:** EditBar · EImage · PropertiesPanel · SectionWrapper.
-> **(c) Marka/kanonik · ölü kod · sağlayıcısız sayfa:** OG görseli · **`BrandStory.tsx` ve
-> `Technology.tsx` ÖLÜ** (sıfır import — `SECTION_COMPONENTS`'te yok) · **`global-error.tsx`**
+> **(c) Marka/kanonik · sağlayıcısız sayfa:** OG görseli · **`global-error.tsx`**
 > (kök yerleşimin YERİNE geçer → `LanguageProvider` YOK, `useLanguage` orada çalışmaz) ·
 > `VehicleChargingClient` (TR varsayılan dal; dil kolları `icerik` propuyla kendi metnini geçer) ·
 > honeypot etiketleri (görsel olarak gizli bot tuzağı).
+> **🗑️ ÖLÜ BİLEŞENLER SİLİNDİ (2026-09-13, kullanıcı kararı):** `Technology.tsx` (133 satır) ve
+> `BrandStory.tsx` (183 satır) — silmeden ÖNCE ölçüldü, kod referansı **0** (kalan tek geçiş
+> bekçinin muafiyet listesiydi). Bekçideki **3 muafiyet girdisi de kaldırıldı**: olmayan dosya
+> için muafiyet tutmak listeyi çürütür. Muafiyet sayacı 10+24 → **9+22**. tsc 0, build 0.
+> ⓘ Git geçmişinde duruyorlar; gerekirse geri alınır.
+>
+> **🕗 `/iletisim` BAYAT TODO KALDIRILDI (2026-09-13, kullanıcı kararı):** kodda *"gerçek çalışma
+> saatleri kullanıcıdan teyit edilecek"* yazıyordu, oysa **Pzt–Cuma 08:30–18:00** zaten
+> `lib/seo.ts` `openingHoursSpecification`'da **"gerçek mesai"** olarak YAYINDA. ⚠️ TODO'nun
+> kalkması saatin **TEYİTLİ** sayılması demektir. Yerine iki kaynağı birbirine bağlayan uyarı
+> kondu: biri değişip öteki kalırsa NAP/şema tutarsızlığı doğar → **ikisi birlikte** değiştirilir.
 >
 > **✅ `/b2b` KAPANDI (2026-09-13, commit c1a5a4b):** o gün "tek açık kalan" buydu — ticari dil
 > kararı kullanıcıdan geldi (*"b2b'yi de yap"*) ve statik çerçeve 6 dile açıldı (31 anahtar).

@@ -69,7 +69,6 @@ const MARKA_METIN = new Set([
 const DOSYA_MUAF = new Map<string, string>([
   ["export/ExportLandingClient.tsx", "sayfanın tamamı İngilizce (ENGLISH_ONLY_PATHS)"],
   ["components/PropertiesPanel.tsx", "admin düzenleme paneli — ziyaretçiye render edilmez"],
-  ["components/Technology.tsx", "ölü bileşen — SECTION_COMPONENTS'te yok, sıfır import"],
   ["components/CityLandingClient.tsx", "TR-only şehir sayfaları (hreflang alternatifi yok)"],
   ["destek/DestekClient.tsx", "TR-only içerik sayfası (gövde Türkçe)"],
   ["uretici/UreticiClient.tsx", "TR-only içerik sayfası (gövde Türkçe)"],
@@ -160,8 +159,6 @@ const GORUNUR_MUAF = new Map<string, string>([
   // (c) MARKA / KANONİK / ÖLÜ KOD / SAĞLAYICISIZ SAYFA
   ["opengraph-image.tsx", "site-geneli tek OG görseli (kanonik)"],
   ["icon.tsx", "favicon üreteci — tek marka harfi"],
-  ["components/BrandStory.tsx", "ölü bileşen — SECTION_COMPONENTS'te yok, sıfır import"],
-  ["components/Technology.tsx", "ölü bileşen — sıfır import"],
   ["global-error.tsx", "kök yerleşimin YERİNE geçer → LanguageProvider YOK, useLanguage çalışmaz"],
   ["components/VehicleChargingClient.tsx", "TR varsayılan dal; dil kolları `icerik` propuyla kendi metnini geçer"],
   ["components/Contact.tsx", "honeypot etiketi — görsel olarak gizli, bot tuzağı"],
