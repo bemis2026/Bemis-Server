@@ -13,6 +13,29 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🔌✅ **GITHUB MCP BAĞLANTISI ÇÖZÜLDÜ — EKLENTİ HATASI DEĞİL, EKSİK TOKEN (2026-09-13):**
+> `plugin:github:github` aylardır **400 "Authorization header is badly formatted"** veriyordu.
+> Sebep ölçüldü: eklenti `Authorization: Bearer ${GITHUB_PERSONAL_ACCESS_TOKEN}` gönderiyor
+> (`~/.claude/plugins/cache/claude-plugins-official/github/unknown/.mcp.json`) ama o ortam
+> değişkeni makinede **TANIMSIZDI** → başlık ham/boş gidiyordu.
+> **ÇÖZÜM (kullanıcı seçimi: mevcut gh token'ı):** `setx GITHUB_PERSONAL_ACCESS_TOKEN "$(gh auth token)"`
+> — değer hiçbir yerde ekrana basılmadı. Doğrulandı: 40 karakter, `gho_` öneki, **baştaki/sondaki
+> boşluk veya tırnak YOK** (kayıtlı `SMTP_HOST=" smtp.gmail.com"` dersi).
+> **✅ UÇ NOKTA ÖNCEDEN SINANDI (restart-and-pray yok):** `api.githubcopilot.com/mcp/`'ye elle
+> `initialize` POST'u → **HTTP 200**, capabilities (tools/prompts/resources) döndü → `gho_` OAuth
+> token'ı kabul ediliyor, **Copilot lisansı engeli yok**.
+> ⏳ **KALAN TEK ADIM KULLANICIDA: Claude uygulamasını KAPAT-AÇ** (MCP ortamı açılışta okunur).
+> Sonra `claude mcp list` → `github ✓ Connected` olmalı; `mcp__github__*` araçları gelir.
+> ⚠️ gh yeniden yetkilendirilirse (`gh auth login`) env bayatlar → aynı `setx` komutu tekrar.
+> ⚠️ İptal: github.com → Settings → Applications ya da `setx GITHUB_PERSONAL_ACCESS_TOKEN ""`.
+> ⓘ Token kapsamı `repo · workflow · gist · read:org` (gh'in kendi kapsamı; daralmak istenirse
+> fine-grained PAT üretilip aynı değişkene yazılır).
+> **🔴 YOL ÜSTÜNDE — AÇIK GÜVENLİK MADDESİ (yeni değil ama keskinleşti):** `bemis2026/Bemis-Server`
+> deposu **PUBLIC** ve **`JSONBIN_MASTER_KEY` 24 commit'in geçmişinde duruyor** (2026-06-13'te
+> koddan temizlenmişti ama geçmiş yeniden yazılmadı). Anahtar hâlâ geçerliyse herkese açık.
+> 📌 Tek gerçek çözüm: **jsonbin.io'dan anahtarı iptal/yenile** (kod artık JSONBin kullanmıyor,
+> iptal etmek hiçbir şeyi bozmaz). Geçmişi temizlemek (filter-repo) gerekmez.
+
 > ⛔🏪 **ANASAYFADAKİ BAYİ DİZİNİ KALDIRILDI — KULLANICI KARARI (2026-09-13):**
 > Kullanıcı: *"anasayfada gösterilen yetkili bayilerimiz yeni eklenen alandan haberim yoktu,
 > orayı gizle, öyle bir şey istemiyorum."* → 12 Eylül'de eklenen **`DealerDirectory`** bölümü
