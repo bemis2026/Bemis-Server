@@ -47,6 +47,15 @@
 > *"yetkili bayiliğinizi sitenizde belirtir misiniz"* ricası kondu. 📌 **Belge henüz
 > gönderilmemişti** — eski sürüm gönderilseydi bayi siteye bakıp listeyi bulamayacaktı.
 >
+> **✅ CANLI DOĞRULANDI:** `dealer-directory` yok · **bayi web adresi sayfa kaynağında 0** (önce 3;
+> yani hem görünür liste hem RSC serileştirmesi gitti) · anasayfa **431 → 415 KB** · `#dealer` bölümü
+> duruyor (722 px, 8 bölge; Marmara seçilince 9 bayi bağlantısı render ediliyor) · konsol hatası 0.
+> **🧰 OTURUM TAM KONTROLÜ GÜNCELLENDİ (`scratchpad/_oturum_tam_kontrol.cjs`):** betik "dizin ilk
+> HTML'de · 30/30 bağlantı · FUTURE Teknik bağlantısı" diye 3 kontrol yapıyordu → kaldırma sonrası
+> **yanlış alarm** verdi (18/21). İddia **TERS ÇEVRİLDİ**: artık *"dizin bölümü YOK"* · *"bayi web
+> adresi sayfa kaynağında yok"* · *"etkileşimli Bayi Ağı duruyor"* kontrol ediliyor → **21/21 temiz**.
+> 📌 Kayıtlı kural bir kez daha: **meşru bir düşüşte bekçinin temelini/iddiasını güncelle**, yoksa
+> her çalıştırmada alarm verir ve güvenilirliğini kaybeder (kurt-çoban).
 > ⚠️ **AYNI SINIF İÇİN KURAL:** SEO gerekçesiyle **görünür** yeni bir bölüm eklerken, o bölüm
 > kullanıcının anasayfa tasarımına giriyorsa **eklemeden önce sor** — 12 Eylül'de dizin
 > "gizli bağlantı" talebine meşru alternatif olarak eklenmişti ama anasayfa yerleşimi
@@ -287,7 +296,11 @@
 >   canlıda doğrulandı. ⚠️ Metin **gizli bağlantı istemiyor** ve **bağlantı karşılığı iskonto/ödeme
 >   teklif etmiyor** (ikisi de bağlantı şeması = manuel işlem riski).
 > · **`Bemis_Kilavuz_Duzeltme_Mobil_Sarj.md`** — bkz. aşağıdaki 📖 blok.
-> · **`Bemis_GSC_Indirme_Talimati.md`** — 6 adım + yanlış mülk tuzağı + `Desktop\GSC\2026-09\`
+> · **`Bemis_GSC_Indirme_Talimati.md`** — ⚠️⚠️ **BU BELGE 12 EYLÜL'DE YAZILDI SANILDI AMA
+>   MASAÜSTÜNDE YOKTU** (13 Eylül'de envanter çıkarılırken fark edildi: diğer 4 belge yerinde,
+>   bu yoktu). **13 Eylül'de yeniden yazıldı.** 📌 Ders: "belge hazır" demeden önce dosyanın
+>   VARLIĞINI doğrula — kullanıcıya iletilecek 5 belgeden biri eksik kalmıştı.
+>   İçerik: 6 adım + yanlış mülk tuzağı + `Desktop\GSC\2026-09\`
 >   klasör düzeni + beklenti notu (7 günlük veri ince olur; "Sorgular" dışa aktarımı gösterimlerin
 >   ~1/3'ünü listeler, sayfa toplamlarıyla eşleşmemesi NORMAL). Kalıcı çözüm (servis hesabı + GSC
 >   API) seçenek olarak yazıldı.
