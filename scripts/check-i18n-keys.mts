@@ -31,9 +31,16 @@
  *    yalnız ÖZNİTELİKLERİ kapatıyordu. Ölçüm (2026-09-13): 164 aday; ziyaretçiye
  *    her dilde görünen 21 dize düzeltildi (arama katmanı · 404 · hata sayfası ·
  *    bağlantı uyarısı), kalanı DOSYA SEVİYESİNDE gerekçeli muaf.
- *    ⚠️ Tespit Türkçe HARFE dayanır (ğışİŞĞ + öüç) — saf ASCII Türkçe cümle
- *       kaçar. Öznitelikteki ters-mantık burada uygulanamaz: JSX metninin çoğu
- *       zaten çeviri çağrısından gelir, ham kalanı ayırt etmek için dil işareti şart.
+ *    ⚠️⚠️ 2026-09-13: BU SINIF DA TERS ÇEVRİLDİ — ama YALNIZ JSX METİN DALI.
+ *       Eski kural Türkçe HARFE dayanıyordu; saf ASCII Türkçe SESSİZCE kaçıyordu.
+ *       Canlı kanıt: Almanca /operator'da "OCPP Destekli Fonksiyonlar" ve Türkiye
+ *       bayi haritasının "MERKEZ" pini 6 dilde de Türkçe duruyordu (ikisinde de
+ *       tek bir ğ/ı/ş/ö/ü/ç yok). Artık HER ham JSX metin düğümü bulgudur; meşru
+ *       olan marka/evrensel/tekil muafiyet kapılarından geçer.
+ *    ⚠️ ÇOK SATIRLI METNİN DEVAM SATIRI (`duz` dalı) HÂLÂ Türkçe harfe bağlı —
+ *       BİLİNÇLİ ve ÖLÇÜLMÜŞ sınır: ters çevrilince 1000 aday çıkıyor ("return (",
+ *       "description:" gibi saf kod). Orada dil işareti tek işleyen filtre.
+ *       📌 Ders: ters mantık her yerde değil, ÖLÇÜLDÜĞÜ yerde uygulanır.
  *
  * ⚠️ BUILD ZİNCİRİNE BİLEREK EKLENMEDİ (check:clones ile aynı gerekçe): bu bir
  *    UYARI denetimi. Eksik anahtar sayfayı kırmaz, İngilizce'ye düşer — dağıtımı
@@ -159,6 +166,7 @@ const GORUNUR_MUAF = new Map<string, string>([
   ["components/SmartCharger.tsx", "başlık eşleme regex'i (görünür metin değil)"],
   ["export/ExportLandingClient.tsx", "ülke adı (Türkiye / Europe)"],
   ["[lang]/ArLandingClient.tsx", "Arapça cümle içinde resmî unvan"],
+  ["[lang]/middle-east/OrtadoguClient.tsx", "Arapça sayfa — gövde metni Arapça yazıldı (Körfez/Mısır kolu)"],
   ["b2b/page.tsx", "⏳ AÇIK: statik çerçeve (≈12 birim) henüz çevrilmedi — CMS içeriği 7 dilde, çerçeve TR. Ticari dil kararı kullanıcıda (2026-09-13)."],
 ]);
 
@@ -174,6 +182,27 @@ function yorumBosalt(s: string): string {
 const GORUNUR_TEKIL_MUAF = new Map<string, string>([
   ["kurumsal/page.tsx|EST. · Bursa · Türkiye", "kısaltma + yer adları — çevrilecek sözcük yok"],
 ]);
+// (5) EVRENSEL GÖRÜNÜR METİN — çevrilecek sözcük YOK (marka · birim · kısaltma).
+//     ⚠️ Gerekçesiz satır EKLEME. Ters mantıkta her ham JSX metni bulgudur;
+//     buraya yazmak "bunu bilerek çevirmiyoruz" demektir.
+const GORUNUR_EVRENSEL = new Map<string, string>([
+  ["Bemis E-V Charge · Blog", "marka adı + bölüm etiketi (mockup başlığı)"],
+  ["Bemis E-V Charge · CSMS", "marka adı + ürün kısaltması (mockup başlığı)"],
+  ["Bemis Grup:", "kurumsal grup adı — kanonik"],
+  ["Bemis Teknik", "kardeş marka resmî adı"],
+  ["BYES", "kardeş marka resmî adı"],
+  ["OEM / B2B", "evrensel ticari kısaltma"],
+  ["ESC", "klavye tuşu adı — evrensel"],
+  ["HD", "evrensel kısaltma"],
+  ["panel.bemisevcharge.com.tr", "alan adı"],
+  ["1 ₺/kWh", "sayı + birim — dil-nötr"],
+  ["20 ₺/kWh", "sayı + birim — dil-nötr"],
+]);
+// JS parçasını JSX metni sanma: `a > -25 && c.lng <` ya da `p.value` gibi
+// ifadeler de `>...<` desenine uyar. Operatör taşıyan ya da nokta-yollu
+// tanımlayıcı olan yakalamalar elenir.
+const JS_ISARETI = /[&|=!]|^[\w$]+\.[\w$]+$/;
+const HARF = /[A-Za-zğışİŞĞöüçÖÜÇ]/;
 const TR_HARF = /[ğışİŞĞöüçÖÜÇ]/;
 
 // (4d) İFADEYE SAKLANMIŞ LİTERAL — `attr={cond ? "..." : "..."}` biçimi.
@@ -256,24 +285,35 @@ for (const f of dosyalar) {
     const kisa = f.replace(/^app\//, "");
     if (!GORUNUR_MUAF.has(kisa)) {
       yorumBosalt(ham).split("\n").forEach((l, i) => {
-        if (!TR_HARF.test(l)) return;
-        if (/pickText|fillText|byLang|useUiStrings|\b[tTL]{1,2}\(/.test(l)) return;
+        if (CEVIRI_CAGRISI.test(l)) return;
         const t = l.trim();
         if (!t || /^(import|export)\s/.test(t)) return;
-        // ⚠️ Bulgu metni GÖRÜNEN parçadır (tüm satır değil): rapor okunur olur
-        //    ve tekil muafiyet anahtarı makul uzunlukta kalır.
-        const jsxE = />([^<>{}\n]*[ğışİŞĞöüçÖÜÇ][^<>{}\n]*)/.exec(l);
-        const jsx = !!jsxE;
+
+        // (5a) HAM JSX METİN DÜĞÜMÜ — TERS MANTIK, dil TAHMİN EDİLMEZ.
+        //      `>metin<` süslü parantez içermez; içerseydi ifade olurdu ve
+        //      ifadeler zaten çeviri çağrısı taşır. Yani buraya düşen her
+        //      metin ham literaldir.
+        const jsxRe = />([^<>{}\n]+)</g;
+        let jm: RegExpExecArray | null;
+        while ((jm = jsxRe.exec(l))) {
+          const metin = jm[1].trim();
+          if (!metin || !HARF.test(metin)) continue;      // salt simge/rakam
+          if (JS_ISARETI.test(metin)) continue;           // JS parçası
+          if (MARKA_METIN.has(metin)) continue;
+          if (GORUNUR_EVRENSEL.has(metin)) continue;
+          if (GORUNUR_TEKIL_MUAF.has(`${kisa}|${metin}`)) continue;
+          gorunur.push({ en: "", tr: metin.slice(0, 70), dosya: f, satir: i + 1 });
+        }
+
+        // (5b) ÇOK SATIRLI METNİN DEVAM SATIRI — burada dil işareti ŞART.
+        //      ⚠️ ÖLÇÜLDÜ: bu dal ters çevrilirse 1000 saf-kod adayı çıkar
+        //      ("return (", "description:") → Türkçe harf tek işleyen filtre.
         const duz = /^[^<>{}"'`=;]*[ğışİŞĞöüçÖÜÇ][^<>{}"'`=;]*$/.test(t) && t.length > 3;
-        if (!jsx && !duz) return;
-        // ⚠️ TÜRKÇE KONTROLÜ TAM SATIRDA — kesme YALNIZ gösterim için.
-        //    Önce kesip sonra kontrol etmek, Türkçesi 70. karakterden sonra
-        //    başlayan satırları sessizce düşürüyordu (operator/page.tsx:166).
-        const tam = (jsxE ? jsxE[1] : t).replace(/^[>{}\s]+|[<{}\s]+$/g, "").trim();
+        if (!duz) return;
+        const tam = t.replace(/^[>{}\s]+|[<{}\s]+$/g, "").trim();
         if (!tam || !TR_HARF.test(tam)) return;
-        const m = tam.slice(0, 70);
         if (GORUNUR_TEKIL_MUAF.has(`${kisa}|${tam}`)) return;
-        gorunur.push({ en: "", tr: m, dosya: f, satir: i + 1 });
+        gorunur.push({ en: "", tr: tam.slice(0, 70), dosya: f, satir: i + 1 });
       });
     }
   }
@@ -323,6 +363,6 @@ const toplam = eksik.length + yarim.length + dinamik.length + sabit.length + gor
 console.log(
   toplam
     ? `\n🔴 ${toplam} sorun — ui.json'a ekle / fillText'e çevir / pickText'e bağla.\n   (Bilerek çevrilmeyen bir öznitelik varsa MARKA_METIN / DOSYA_MUAF / OZNITELIK_MUAF'a GEREKÇESİYLE ekle.)`
-    : `\n✅ Arayüz çeviri bekçisi: temiz (5 sınıf · muafiyet: ${MARKA_METIN.size} marka · ${DOSYA_MUAF.size}+${GORUNUR_MUAF.size} dosya · ${OZNITELIK_MUAF.size}+${GORUNUR_TEKIL_MUAF.size} tekil).`,
+    : `\n✅ Arayüz çeviri bekçisi: temiz (5 sınıf · muafiyet: ${MARKA_METIN.size} marka · ${DOSYA_MUAF.size}+${GORUNUR_MUAF.size} dosya · ${OZNITELIK_MUAF.size}+${GORUNUR_TEKIL_MUAF.size} tekil · ${GORUNUR_EVRENSEL.size} evrensel).`,
 );
 process.exit(toplam ? 1 : 0);

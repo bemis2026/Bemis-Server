@@ -1394,7 +1394,7 @@ export default function DealerNetwork() {
                       fontWeight={isMerkezActive ? 900 : 800}
                       fill={HQ_RED}
                       style={{ pointerEvents: "none", userSelect: "none", fontFamily: "inherit", transition: "y 0.2s, font-size 0.2s" }}
-                    >MERKEZ</text>
+                    >{L("MERKEZ", "HQ")}</text>
                   </motion.g>
                     );
                   })()}

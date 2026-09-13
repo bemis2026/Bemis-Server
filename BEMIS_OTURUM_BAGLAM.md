@@ -65,6 +65,47 @@
 > sayfada ürün adları/açıklamaları TÜRKÇE geliyordu (tarayıcı ölçümü: **28 Türkçe parça**).
 > `?lang=${lang}` eklendi; efekt zaten `[lang]`e bağlıydı. 📌 Çok dilli bir sayfada **her**
 > veri çağrısına dil parametresi geçir — biri atlanırsa sayfa yarı Türkçe kalır.
+> **🔴🔴 BEKÇİNİN İKİNCİ KÖR NOKTASI — SAF ASCII TÜRKÇE (2026-09-13, canlı ölçümle bulundu):**
+> Kesme hatası düzeltildikten SONRA Almanca `/operator` yeniden ölçüldü ve ekranda hâlâ
+> **"OCPP Destekli Fonksiyonlar"** duruyordu. Sebep: 5. sınıf Türkçeyi **HARFLE** arıyordu
+> (`ğışİŞĞöüçÖÜÇ`) — bu dizede tek bir Türkçe harf YOK, dolayısıyla hem bekçi hem ölçüm
+> betiği tamamen kördü. 📌 Bu, 4. sınıfta 12 Eylül'de yaşanan kusurun **birebir aynısı**;
+> ders orada öğrenilmiş ama 5. sınıfa uygulanmamıştı (blokaj gerekçesi: "JSX metninin çoğu
+> zaten çeviriden gelir, ham kalanı ayırt etmek için dil işareti şart").
+>
+> **✅ GEREKÇE ÖLÇÜLDÜ VE ÇÜRÜDÜ — 5. SINIF TERS ÇEVRİLDİ (ama YALNIZ JSX metin dalı):**
+> `_gorunur_ters_olcum.mts`: ham JSX metin düğümü (`>metin<`) ters mantıkla taranınca
+> **toplam 24 aday** çıktı (2 gerçek kusur · 3 regex yanlış-pozitifi · 19 marka/birim/
+> kısaltma) → **gürültü YOK**. Ham JSX metni zaten literaldir: süslü parantez içerse
+> ifade olurdu, ifadeler de çeviri çağrısı taşır. Artık **her ham JSX metni bulgudur**;
+> meşru olan üç kapıdan geçer: `MARKA_METIN` · **yeni `GORUNUR_EVRENSEL`** (11: kardeş
+> marka adı · alan adı · ESC/HD/OEM · sayı+birim) · `GORUNUR_TEKIL_MUAF`.
+> **⛔ `duz` DALI TERS ÇEVRİLMEDİ — BU DA ÖLÇÜLDÜ:** `_gorunur_duz_olcum.mts` ters
+> mantıkta **1000 aday** verdi (`return (`, `description:`, `keywords: [` … saf kod).
+> Çok satırlı metnin devam satırında Türkçe harf **tek işleyen filtre** → orada KALDI.
+> 📌 **Ders: ters mantık her yerde değil, ÖLÇÜLDÜĞÜ yerde uygulanır.**
+>
+> **BAĞLANAN 2 KUSUR (ikisi de 6 dilde Türkçe görünüyordu):**
+> `/operator` **"OCPP Destekli Fonksiyonlar"** → `pickText` (ui.json 559 → **560**) ·
+> **🔴 Türkiye bayi haritasının "MERKEZ" pini** (`DealerNetwork.tsx`) — anasayfada,
+> her dilde. ⚠️ **İKİZ AYRIŞMASI, kayıtlı ders yine çıktı:** `InternationalGlobe.tsx`
+> AYNI etiketi zaten `L("MERKEZ","HQ")` ile çeviriyor ve **ui.json'da "HQ" anahtarı
+> VARDI** → yeni anahtar üretilmedi, mevcut anahtar yeniden kullanıldı (küre ↔ 2D harita
+> ikizlerinden biri 18 Temmuz'daki 19 dizelik turda atlanmış).
+>
+> **✅ ÖZ-TEST 8/8 (`scratchpad/_bekci_testi5_ters.py`):** saf ASCII Türkçe YAKALANIR ·
+> Türkçe harfli YAKALANIR · **İngilizce ham literal de YAKALANIR** (ters mantığın gerçekten
+> dil tahmin etmediğinin kanıtı) · pickText yanlış alarm VERMEZ · yorum içindeki Türkçe
+> VERMEZ · **JS karşılaştırması `c.lat > -25 && c.lng < 25` VERMEZ** (yeni `JS_ISARETI`
+> filtresi; `>...<` deseni JS operatörlerine de uyuyordu) · muaf dosya sessiz · dosyalar
+> birebir geri alınır.
+> ⚠️ `[lang]/middle-east/OrtadoguClient.tsx` dosya muafiyetine eklendi (Arapça sayfa).
+>
+> **🗓️ BAYAT KONTROL NOKTASI DA DÜZELTİLDİ:** ölçüm takviminde 10 Ekim'de **"taranabilir
+> bayi dizini — 30 bağlantı"** ölçülecekti; o bölüm 13 Eylül'de kullanıcı kararıyla
+> KALDIRILMIŞTI → vadesi gelince var olmayan bir bölümü ölçmeye çalışacaktı (kurt-çoban).
+> Silinmedi, **"kapandı" + sonuç** yazıldı (dürüst bedel dahil). 📌 Kayıtlı kuralın takvim
+> tarafı: meşru bir düşüşte yalnız bekçinin değil **kontrol noktasının** da temeli güncellenir.
 > **✅ ÖZ-TEST (`scratchpad/_bekci_testi5.py`):** görünür TR metin YAKALANIR · `pickText`'e bağlı
 > metin yanlış alarm VERMEZ · **yorum içindeki Türkçe** yanlış alarm vermez · muaf dosyadaki metin
 > sessiz kalır; test dosyaları birebir geri alınır.

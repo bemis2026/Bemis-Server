@@ -3911,5 +3911,12 @@
   "ar": "منتجات للمشغّلين",
   "ru": "Продукты для операторов",
   "nl": "Producten voor exploitanten"
+ },
+ "OCPP-supported functions": {
+  "de": "OCPP-gestützte Funktionen",
+  "es": "Funciones compatibles con OCPP",
+  "ar": "الوظائف المدعومة بـ OCPP",
+  "ru": "Функции с поддержкой OCPP",
+  "nl": "OCPP-ondersteunde functies"
  }
 }

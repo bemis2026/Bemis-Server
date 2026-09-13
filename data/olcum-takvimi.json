@@ -48,7 +48,8 @@
       "olcum": "Bayi sitelerinden GERİ bağlantı geldi mi + dizin sayfası taranıyor mu",
       "hedef": "GSC Bağlantılar'da en az 1 yeni harici bağlantı; dizin bölümü tarandı",
       "nasil": "GSC → Bağlantılar → Harici bağlantılar; ayrıca bayilere gönderilen istek takibi",
-      "durum": "bekliyor"
+      "durum": "kapandı",
+      "sonuc": "KONUSUZ KALDI — ölçülecek bölüm 2026-09-13'te kullanıcı kararıyla anasayfadan kaldırıldı (\"öyle bir şey istemiyorum\"). Dürüst bedel: 30 bayi bağlantısı ilk HTML'den düştü, Googlebot yine bayi adı/adresi göremiyor (DealerNetwork kartları useEffect ile geliyor). Karşılıklı bağlantı yine istenirse iki meşru yol var: dizini geri açmak ya da #dealer kartlarını sunucu tarafında basmak — ikincisi GÖRÜNÜR değişiklik, önce SORULACAK."
     },
     {
       "tarih": "2026-10-10",
@@ -129,6 +130,14 @@
       "olcum": "12 yeni adres indekslendi mi, gösterim alıyor mu; hangi dil kolu çalışıyor",
       "hedef": "GSC → Sayfalar'da /en /de /es /ru /nl /ar araç sayfaları görünür; en az bir dil kolunda gösterim > 0",
       "nasil": "GSC → Performans → Sayfalar filtresi '/sarj-suresi-hesaplama' ve '/arac-sarj-uyumlulugu'. ⚠️ hreflang kümesi 7'li: Google yanlış dili gösteriyorsa küme karşılıklılığını kontrol et. ⚠️ 1 aydan önce anlamlı sonuç beklenmez (sayfalar 13 Eylül'de yayına girdi).",
+      "durum": "acik"
+    },
+    {
+      "tarih": "2026-10-13",
+      "is": "check:i18n 5. sınıf ters mantığa çevrildi — saf ASCII Türkçe kör noktası kapandı (2026-09-13)",
+      "olcum": "npm run check:i18n temiz mi + yabancı dil sayfalarında ham Türkçe kaldı mı",
+      "hedef": "Bekçi temiz; /operator ve anasayfa bayi haritası dahil yabancı dil sayfalarında görünür ham Türkçe YOK (kanonik NAP hariç). Yeni eklenen JSX metni varsa ya çeviri çağrısından geçiyor ya da gerekçeli muafiyette.",
+      "nasil": "npm run check:i18n · sonra Almanca /operator + anasayfa Türkiye haritası pini tarayıcıda: 'OCPP-gestützte Funktionen' ve 'ZENTRALE' görünmeli. Öz-test: scratchpad/_bekci_testi5_ters.py (8/8 beklenir).",
       "durum": "acik"
     }
   ]
