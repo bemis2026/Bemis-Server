@@ -27,6 +27,14 @@
  *    28 gerçek kusur "temiz" raporunun arkasında saklanıyordu. Artık dil TAHMİN
  *    EDİLMEZ: her literal bulgudur, meşru olan üç muafiyet kapısından geçer.
  *
+ * 5) GÖRÜNÜR TÜRKÇE JSX METNİ — `<p>Türkçe cümle</p>` gibi gövde metni. (4)
+ *    yalnız ÖZNİTELİKLERİ kapatıyordu. Ölçüm (2026-09-13): 164 aday; ziyaretçiye
+ *    her dilde görünen 21 dize düzeltildi (arama katmanı · 404 · hata sayfası ·
+ *    bağlantı uyarısı), kalanı DOSYA SEVİYESİNDE gerekçeli muaf.
+ *    ⚠️ Tespit Türkçe HARFE dayanır (ğışİŞĞ + öüç) — saf ASCII Türkçe cümle
+ *       kaçar. Öznitelikteki ters-mantık burada uygulanamaz: JSX metninin çoğu
+ *       zaten çeviri çağrısından gelir, ham kalanı ayırt etmek için dil işareti şart.
+ *
  * ⚠️ BUILD ZİNCİRİNE BİLEREK EKLENMEDİ (check:clones ile aynı gerekçe): bu bir
  *    UYARI denetimi. Eksik anahtar sayfayı kırmaz, İngilizce'ye düşer — dağıtımı
  *    durdurmak yeni bir dize eklerken işi tıkar. Rakip-marka guard'ı ise hard
@@ -123,6 +131,47 @@ const SABLON = [
 ];
 const OZNITELIK = /(aria-label|aria-description|alt|title|placeholder)\s*=\s*"([^"]*)"/g;
 
+// ── (5) GÖRÜNÜR METİN: DOSYA SEVİYESİ MUAFİYET ─────────────────────────────
+// Gerekçesiz dosya EKLEME. Yeni bir TR-only sayfa açılırsa buraya gerekçesiyle yaz.
+const GORUNUR_MUAF = new Map<string, string>([
+  // (a) TR-ONLY İÇERİK SAYFALARI — gövde Türkçe yazıldı, çeviri kolu yok.
+  ["destek/DestekClient.tsx", "TR-only: arıza/garanti içeriği yalnız Türkçe"],
+  ["uretici/UreticiClient.tsx", "TR-only üretici anlatısı"],
+  ["iletisim/ContactPageClient.tsx", "TR-only iletişim sayfası"],
+  ["components/CityLandingClient.tsx", "TR-only şehir sayfaları (hreflang alternatifi yok)"],
+  ["components/LegalPage.tsx", "KVKK/çerez metni TR kanonik"],
+  ["bayilik/page.tsx", "TR-only: bayilik programı Türkiye pazarına özel (DBS/teminat şartları)"],
+  // (b) ADMİN / DÜZENLEME ARAYÜZÜ — ziyaretçiye render edilmez.
+  ["components/EditBar.tsx", "admin düzenleme modu"],
+  ["components/EImage.tsx", "admin görsel değiştirme düğmesi"],
+  ["components/PropertiesPanel.tsx", "admin düzenleme paneli"],
+  ["components/SectionWrapper.tsx", "admin düzenleme modu"],
+  // (c) MARKA / KANONİK / ÖLÜ KOD / SAĞLAYICISIZ SAYFA
+  ["opengraph-image.tsx", "site-geneli tek OG görseli (kanonik)"],
+  ["components/BrandStory.tsx", "ölü bileşen — SECTION_COMPONENTS'te yok, sıfır import"],
+  ["components/Technology.tsx", "ölü bileşen — sıfır import"],
+  ["global-error.tsx", "kök yerleşimin YERİNE geçer → LanguageProvider YOK, useLanguage çalışmaz"],
+  ["components/VehicleChargingClient.tsx", "TR varsayılan dal; dil kolları `icerik` propuyla kendi metnini geçer"],
+  ["components/Contact.tsx", "honeypot etiketi — görsel olarak gizli, bot tuzağı"],
+  ["components/DealerApplyOverlay.tsx", "honeypot etiketi — görsel olarak gizli"],
+  ["components/DNA.tsx", "marka filigranı + admin boş-durum yer tutucusu"],
+  ["components/ProductShowcase.tsx", "admin boş-durum yer tutucusu (görsel yükleyin)"],
+  ["components/SmartCharger.tsx", "başlık eşleme regex'i (görünür metin değil)"],
+  ["export/ExportLandingClient.tsx", "ülke adı (Türkiye / Europe)"],
+  ["[lang]/ArLandingClient.tsx", "Arapça cümle içinde resmî unvan"],
+  ["b2b/page.tsx", "⏳ AÇIK: statik çerçeve (≈12 birim) henüz çevrilmedi — CMS içeriği 7 dilde, çerçeve TR. Ticari dil kararı kullanıcıda (2026-09-13)."],
+]);
+
+/** Yorumları boşlukla doldurur — satır numaraları korunur. */
+function yorumBosalt(s: string): string {
+  const bos = (m: string) => m.replace(/[^\n]/g, " ");
+  return s
+    .replace(/\{\s*\/\*[\s\S]*?\*\/\s*\}/g, bos)
+    .replace(/\/\*[\s\S]*?\*\//g, bos)
+    .replace(/(^|[^:"'`\\])\/\/[^\n]*/g, (m, p1) => p1 + bos(m.slice(p1.length)));
+}
+const TR_HARF = /[ğışİŞĞöüçÖÜÇ]/;
+
 // (4d) İFADEYE SAKLANMIŞ LİTERAL — `attr={cond ? "..." : "..."}` biçimi.
 //      Literal bir JSX ifadesinin içine girdiği anda yukarıdaki desen onu
 //      GÖREMEZ; Almanca sayfada kalan son iki Türkçe öznitelik böyleydi.
@@ -138,6 +187,7 @@ const eksik: Bulgu[] = [];
 const yarim: Bulgu[] = [];
 const dinamik: Bulgu[] = [];
 const sabit: Bulgu[] = [];
+const gorunur: Bulgu[] = [];
 const gorulen = new Set<string>();
 let cagri = 0;
 
@@ -196,6 +246,25 @@ for (const f of dosyalar) {
       }
     }
   }
+
+  // (5) görünür Türkçe JSX metni
+  if (!f.includes("/admin/") && f.endsWith(".tsx")) {
+    const kisa = f.replace(/^app\//, "");
+    if (!GORUNUR_MUAF.has(kisa)) {
+      yorumBosalt(ham).split("\n").forEach((l, i) => {
+        if (!TR_HARF.test(l)) return;
+        if (/pickText|fillText|byLang|useUiStrings|\b[tTL]{1,2}\(/.test(l)) return;
+        const t = l.trim();
+        if (!t || /^(import|export)\s/.test(t)) return;
+        const jsx = />[^<>{}\n]*[ğışİŞĞöüçÖÜÇ][^<>{}\n]*/.test(l);
+        const duz = /^[^<>{}"'`=;]*[ğışİŞĞöüçÖÜÇ][^<>{}"'`=;]*$/.test(t) && t.length > 3;
+        if (!jsx && !duz) return;
+        const m = t.replace(/^[>{}\s]+|[<{}\s]+$/g, "").slice(0, 70);
+        if (!m || !TR_HARF.test(m)) return;
+        gorunur.push({ en: "", tr: m, dosya: f, satir: i + 1 });
+      });
+    }
+  }
 }
 
 // (3) lib/uiStrings.ts STRINGS haritası
@@ -232,15 +301,16 @@ yaz("🔴 (1) ui.json'da HİÇ OLMAYAN anahtar  → 5 dil İNGİLİZCE görür",
 yaz("🟡 (1) VAR ama bazı diller eksik", yarim, (b) => `"${b.en}"  eksik: ${b.ek}`);
 yaz("🔴 (2) ŞABLON DEĞİŞKENLİ anahtar  → 5 dil KALICI İngilizce; fillText kullan", dinamik, (b) => `tr: ${b.tr}  ·  en: ${b.en}`);
 yaz("🔴 (4) GEREKÇESİZ öznitelik literali  → çevrilmez, 6 dilde aynı kalır; pickText'e bağla", sabit, (b) => `${b.en}="${b.tr}"`);
+yaz("🔴 (5) GÖRÜNÜR TÜRKÇE metin  → ziyaretçi her dilde Türkçe görür; pickText'e bağla", gorunur, (b) => b.tr);
 if (usEksik.length) {
   console.log(`\n🔴 (3) uiStrings girdisi ui.json'da eksik: ${usEksik.length}`);
   for (const g of usEksik) console.log(`   ${g.anahtar}  "${g.en}"   ←  "${g.tr}"`);
 }
 
-const toplam = eksik.length + yarim.length + dinamik.length + sabit.length + usEksik.length;
+const toplam = eksik.length + yarim.length + dinamik.length + sabit.length + gorunur.length + usEksik.length;
 console.log(
   toplam
     ? `\n🔴 ${toplam} sorun — ui.json'a ekle / fillText'e çevir / pickText'e bağla.\n   (Bilerek çevrilmeyen bir öznitelik varsa MARKA_METIN / DOSYA_MUAF / OZNITELIK_MUAF'a GEREKÇESİYLE ekle.)`
-    : `\n✅ Arayüz çeviri bekçisi: temiz (4 sınıf · muafiyet: ${MARKA_METIN.size} marka · ${DOSYA_MUAF.size} dosya · ${OZNITELIK_MUAF.size} tekil).`,
+    : `\n✅ Arayüz çeviri bekçisi: temiz (5 sınıf · muafiyet: ${MARKA_METIN.size} marka · ${DOSYA_MUAF.size}+${GORUNUR_MUAF.size} dosya · ${OZNITELIK_MUAF.size} tekil).`,
 );
 process.exit(toplam ? 1 : 0);

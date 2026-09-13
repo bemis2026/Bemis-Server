@@ -3736,5 +3736,152 @@
   "ar": "فعالية Bemis",
   "ru": "Мероприятие Bemis",
   "nl": "Bemis evenement"
+ },
+ "to close": {
+  "de": "zum Schließen",
+  "es": "para cerrar",
+  "ar": "للإغلاق",
+  "ru": "чтобы закрыть",
+  "nl": "om te sluiten"
+ },
+ "Connection problem": {
+  "de": "Verbindungsproblem",
+  "es": "Problema de conexión",
+  "ar": "مشكلة في الاتصال",
+  "ru": "Проблема соединения",
+  "nl": "Verbindingsprobleem"
+ },
+ "Try again": {
+  "de": "Erneut versuchen",
+  "es": "Reintentar",
+  "ar": "إعادة المحاولة",
+  "ru": "Повторить",
+  "nl": "Opnieuw proberen"
+ },
+ "Unexpected error": {
+  "de": "Unerwarteter Fehler",
+  "es": "Error inesperado",
+  "ar": "خطأ غير متوقع",
+  "ru": "Непредвиденная ошибка",
+  "nl": "Onverwachte fout"
+ },
+ "Something": {
+  "de": "Etwas ist",
+  "es": "Algo ha",
+  "ar": "حدث",
+  "ru": "Что-то пошло",
+  "nl": "Er is iets"
+ },
+ "went wrong.": {
+  "de": "schiefgelaufen.",
+  "es": "salido mal.",
+  "ar": "خطأ ما.",
+  "ru": "не так.",
+  "nl": "misgegaan."
+ },
+ "An unexpected error occurred while loading this page. Try reloading it — if the problem persists, get in touch and we will fix it as soon as possible.": {
+  "de": "Beim Laden dieser Seite ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es mit einem Neuladen — bleibt das Problem bestehen, schreiben Sie uns und wir beheben es schnellstmöglich.",
+  "es": "Se ha producido un error inesperado al cargar esta página. Prueba a recargarla; si el problema continúa, escríbenos y lo resolveremos lo antes posible.",
+  "ar": "حدث خطأ غير متوقع أثناء تحميل هذه الصفحة. جرّب تحديث الصفحة — وإذا استمرّت المشكلة فراسلنا وسنحلّها في أقرب وقت.",
+  "ru": "При загрузке страницы произошла непредвиденная ошибка. Попробуйте обновить её — если проблема повторяется, напишите нам, и мы решим её как можно скорее.",
+  "nl": "Bij het laden van deze pagina is een onverwachte fout opgetreden. Probeer de pagina te vernieuwen — blijft het probleem bestaan, neem dan contact op en we lossen het zo snel mogelijk op."
+ },
+ "Reload page": {
+  "de": "Seite neu laden",
+  "es": "Recargar página",
+  "ar": "تحديث الصفحة",
+  "ru": "Обновить страницу",
+  "nl": "Pagina vernieuwen"
+ },
+ "Error code (for support)": {
+  "de": "Fehlercode (für den Support)",
+  "es": "Código de error (para soporte)",
+  "ar": "رمز الخطأ (للدعم)",
+  "ru": "Код ошибки (для поддержки)",
+  "nl": "Foutcode (voor support)"
+ },
+ "The page you are looking for": {
+  "de": "Die gesuchte Seite",
+  "es": "La página que buscas",
+  "ar": "الصفحة التي تبحث عنها",
+  "ru": "Запрошенная страница",
+  "nl": "De pagina die je zoekt"
+ },
+ "was not found.": {
+  "de": "wurde nicht gefunden.",
+  "es": "no se ha encontrado.",
+  "ar": "غير موجودة.",
+  "ru": "не найдена.",
+  "nl": "is niet gevonden."
+ },
+ "The link may be broken or the page may have been removed. You can return to the home page below, browse the product catalogue or get in touch with us.": {
+  "de": "Der Link ist möglicherweise defekt oder die Seite wurde entfernt. Unten gelangen Sie zur Startseite, zum Produktkatalog oder zum Kontakt.",
+  "es": "Puede que el enlace esté roto o que la página se haya eliminado. Abajo puedes volver al inicio, ver el catálogo de productos o ponerte en contacto con nosotros.",
+  "ar": "قد يكون الرابط معطّلًا أو أن الصفحة أُزيلت. يمكنك من الأسفل العودة إلى الصفحة الرئيسية أو تصفّح كتالوج المنتجات أو التواصل معنا.",
+  "ru": "Возможно, ссылка устарела или страница была удалена. Ниже вы можете вернуться на главную, открыть каталог продукции или связаться с нами.",
+  "nl": "De link is mogelijk verbroken of de pagina is verwijderd. Hieronder ga je terug naar de homepage, bekijk je de productcatalogus of neem je contact op."
+ },
+ "Product catalogue": {
+  "de": "Produktkatalog",
+  "es": "Catálogo de productos",
+  "ar": "كتالوج المنتجات",
+  "ru": "Каталог продукции",
+  "nl": "Productcatalogus"
+ },
+ "Looking for a specific product?": {
+  "de": "Suchen Sie ein bestimmtes Produkt?",
+  "es": "¿Buscas un producto concreto?",
+  "ar": "هل تبحث عن منتج معيّن؟",
+  "ru": "Ищете конкретный товар?",
+  "nl": "Zoek je een specifiek product?"
+ },
+ "The search box on the home page (top right ": {
+  "de": "Das Suchfeld auf der Startseite (oben rechts ",
+  "es": "El buscador de la página de inicio (arriba a la derecha ",
+  "ar": "مربّع البحث في الصفحة الرئيسية (أعلى اليمين ",
+  "ru": "Поле поиска на главной странице (справа вверху ",
+  "nl": "Het zoekvak op de homepage (rechtsboven "
+ },
+ ") searches the whole catalogue by product name, code or category.": {
+  "de": ") durchsucht den gesamten Katalog nach Produktname, Code oder Kategorie.",
+  "es": ") busca en todo el catálogo por nombre de producto, código o categoría.",
+  "ar": ") يبحث في الكتالوج كاملًا حسب اسم المنتج أو الرمز أو الفئة.",
+  "ru": ") ищет по всему каталогу по названию, коду или категории.",
+  "nl": ") doorzoekt de hele catalogus op productnaam, code of categorie."
+ },
+ "Charging network operators": {
+  "de": "Betreiber von Ladenetzen",
+  "es": "Operadores de redes de recarga",
+  "ar": "مشغّلو شبكات الشحن",
+  "ru": "Операторы зарядных сетей",
+  "nl": "Exploitanten van laadnetwerken"
+ },
+ "End-to-end operator support for your charging network: OCPP 1.6J / 2.0.1 compatible hardware, dynamic power management, remote monitoring and certified infrastructure.": {
+  "de": "Durchgängiger Betreiber-Support für Ihr Ladenetz: OCPP 1.6J / 2.0.1 kompatible Hardware, dynamisches Lastmanagement, Fernüberwachung und zertifizierte Infrastruktur.",
+  "es": "Soporte integral para operadores de tu red de recarga: hardware compatible con OCPP 1.6J / 2.0.1, gestión dinámica de potencia, supervisión remota e infraestructura certificada.",
+  "ar": "دعم تشغيلي متكامل لشبكة الشحن لديك: أجهزة متوافقة مع OCPP 1.6J / 2.0.1، وإدارة ديناميكية للقدرة، ومراقبة عن بُعد، وبنية تحتية معتمدة.",
+  "ru": "Комплексная операторская поддержка вашей зарядной сети: оборудование с поддержкой OCPP 1.6J / 2.0.1, динамическое управление мощностью, удалённый мониторинг и сертифицированная инфраструктура.",
+  "nl": "End-to-end operatorondersteuning voor je laadnetwerk: hardware compatibel met OCPP 1.6J / 2.0.1, dynamisch vermogensbeheer, monitoring op afstand en gecertificeerde infrastructuur."
+ },
+ "OCPP 1.6J and 2.0.1 support · TLS 1.3 encryption · JSON & SOAP": {
+  "de": "OCPP 1.6J und 2.0.1 Unterstützung · TLS 1.3 Verschlüsselung · JSON & SOAP",
+  "es": "Compatibilidad con OCPP 1.6J y 2.0.1 · Cifrado TLS 1.3 · JSON y SOAP",
+  "ar": "دعم OCPP 1.6J و2.0.1 · تشفير TLS 1.3 · JSON وSOAP",
+  "ru": "Поддержка OCPP 1.6J и 2.0.1 · шифрование TLS 1.3 · JSON и SOAP",
+  "nl": "Ondersteuning voor OCPP 1.6J en 2.0.1 · TLS 1.3-versleuteling · JSON & SOAP"
+ },
+ "Featured products for operator infrastructure: OCPP-compatible DC fast charging units and smart charging panels.": {
+  "de": "Ausgewählte Produkte für die Betreiber-Infrastruktur: OCPP-kompatible DC-Schnellladeeinheiten und intelligente Ladeverteiler.",
+  "es": "Productos destacados para la infraestructura del operador: unidades de carga rápida CC compatibles con OCPP y cuadros de carga inteligentes.",
+  "ar": "منتجات مختارة لبنية المشغّل التحتية: وحدات شحن سريع DC متوافقة مع OCPP ولوحات شحن ذكية.",
+  "ru": "Избранные продукты для инфраструктуры оператора: совместимые с OCPP станции быстрой зарядки DC и интеллектуальные зарядные щиты.",
+  "nl": "Uitgelichte producten voor operatorinfrastructuur: OCPP-compatibele DC-snellaadunits en slimme laadpanelen."
+ },
+ "View product": {
+  "de": "Produkt ansehen",
+  "es": "Ver producto",
+  "ar": "عرض المنتج",
+  "ru": "Смотреть товар",
+  "nl": "Bekijk product"
  }
 }

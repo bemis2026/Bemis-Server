@@ -1,8 +1,15 @@
+"use client";
+
+// ⚠️ SUNUCU bileşeniydi; metni 7 dile bağlamak için istemciye çevrildi.
+//    `metadata` export'u YOK → güvenli. Görünüm birebir aynı.
 import Link from "next/link";
+import { useLanguage } from "./context/LanguageContext";
+import { pickText } from "./lib/ui";
 import Image from "./components/Img";
 import { HiOutlineArrowRight, HiOutlineHome, HiOutlineCube, HiOutlineMail } from "react-icons/hi";
 
 export default function NotFound() {
+  const { lang } = useLanguage();
   return (
     <main className="min-h-screen relative overflow-hidden flex items-center justify-center px-5 py-16"
       style={{ background: "linear-gradient(160deg, #141414 0%, #0e0e0e 50%, #161616 100%)" }}>
@@ -23,20 +30,22 @@ export default function NotFound() {
           Hata · 404
         </p>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight">
-          Aradığın sayfa<br />
-          <span className="text-white/40">bulunamadı.</span>
+          {pickText(lang, "Aradığın sayfa", "The page you are looking for")}<br />
+          <span className="text-white/40">{pickText(lang, "bulunamadı.", "was not found.")}</span>
         </h1>
         <p className="text-sm sm:text-base text-white/45 leading-relaxed max-w-lg mb-10">
-          Bağlantı bozulmuş veya sayfa kaldırılmış olabilir. Aşağıdan ana sayfaya dönebilir,
-          ürün kataloğuna göz atabilir ya da bizimle iletişime geçebilirsin.
+          {pickText(lang,
+            "Bağlantı bozulmuş veya sayfa kaldırılmış olabilir. Aşağıdan ana sayfaya dönebilir, ürün kataloğuna göz atabilir ya da bizimle iletişime geçebilirsin.",
+            "The link may be broken or the page may have been removed. You can return to the home page below, browse the product catalogue or get in touch with us.",
+          )}
         </p>
 
         {/* Quick actions */}
         <div className="grid sm:grid-cols-3 gap-3 mb-10">
           {[
-            { href: "/",          label: "Ana Sayfa",       icon: HiOutlineHome,  primary: true  },
-            { href: "/products",  label: "Ürün Kataloğu",   icon: HiOutlineCube,  primary: false },
-            { href: "/#contact",  label: "İletişim",        icon: HiOutlineMail,  primary: false },
+            { href: "/",          label: pickText(lang, "Ana Sayfa", "Home"),                  icon: HiOutlineHome,  primary: true  },
+            { href: "/products",  label: pickText(lang, "Ürün Kataloğu", "Product catalogue"), icon: HiOutlineCube,  primary: false },
+            { href: "/#contact",  label: pickText(lang, "İletişim", "Contact Us"),             icon: HiOutlineMail,  primary: false },
           ].map(({ href, label, icon: Icon, primary }) => (
             <Link key={href} href={href}
               className="group flex items-center gap-3 px-4 py-3.5 rounded-2xl transition-all duration-200"
@@ -56,10 +65,10 @@ export default function NotFound() {
         {/* Helpful tip */}
         <div className="rounded-2xl p-5"
           style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}>
-          <p className="text-xs font-semibold text-white/55 mb-2">Belirli bir ürün mü arıyorsun?</p>
+          <p className="text-xs font-semibold text-white/55 mb-2">{pickText(lang, "Belirli bir ürün mü arıyorsun?", "Looking for a specific product?")}</p>
           <p className="text-xs text-white/35 leading-relaxed">
-            Ana sayfadaki arama kutusu (sağ üst <kbd className="text-[10px] bg-white/8 border border-white/15 rounded px-1.5 py-0.5">⌘ K</kbd> / <kbd className="text-[10px] bg-white/8 border border-white/15 rounded px-1.5 py-0.5">Ctrl K</kbd>)
-            ürün adı, kodu veya kategoriye göre tüm kataloğu tarar.
+            {pickText(lang, "Ana sayfadaki arama kutusu (sağ üst ", "The search box on the home page (top right ")}<kbd className="text-[10px] bg-white/8 border border-white/15 rounded px-1.5 py-0.5">⌘ K</kbd> / <kbd className="text-[10px] bg-white/8 border border-white/15 rounded px-1.5 py-0.5">Ctrl K</kbd>)
+            {pickText(lang, ") ürün adı, kodu veya kategoriye göre tüm kataloğu tarar.", ") searches the whole catalogue by product name, code or category.")}
           </p>
         </div>
       </div>

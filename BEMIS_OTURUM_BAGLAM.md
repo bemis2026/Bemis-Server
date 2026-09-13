@@ -13,6 +13,51 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 👁️🔤 **GÖRÜNÜR TÜRKÇE METİN TARAMASI — BEKÇİNİN 5. SINIFI (2026-09-13):**
+> Kullanıcı: *"görünür metin taramasını yap."* 4. sınıf yalnız ÖZNİTELİKLERİ kapatıyordu; gövde
+> metni (`<p>Türkçe cümle</p>`) açıktaydı.
+>
+> **⚠️⚠️ İLK ÖLÇÜM 428 "BULGU" DEDİ — ÇOĞU YORUMDU.** Bu depoda yorumlar Türkçe ve çok satırlı;
+> satır-bazlı tarama `/* … */` gövdesini metin sanıyordu. Blok yorumlar + `{/* … */}` + satır sonu
+> `//` **boşlukla doldurularak** (satır numaraları korunsun diye) temizlenince **164**'e düştü.
+> 📌 **Ders: Türkçe yorum yazan bir depoda metin taraması ÖNCE yorumları temizlemeli**, yoksa
+> gürültü gerçek bulguyu gömer (2,6 kat şişirmişti).
+>
+> **DÜZELTİLEN 26 DİZE — ziyaretçiye HER DİLDE görünen yüzeyler:**
+> `SearchOverlay` (2: "Sonuç bulunamadı" · "kapatmak için" — site genelinde her sayfada) ·
+> `ContentErrorToast` (3) · `error.tsx` (7) · `not-found.tsx` (9) · `operator/page.tsx` (5).
+> ⚠️ **`not-found.tsx` SUNUCU bileşeniydi** → `"use client"` eklendi (metadata export'u yok,
+> güvenli; görünüm birebir aynı). ui.json **534 → 555** (21 yeni anahtar, 5 dilde tam); mevcut
+> "Home" · "Back to home" · "Loading…" · "No results found" · "Contact Us" anahtarları YENİDEN
+> KULLANILDI (aynı metne ikinci anahtar üretilmedi).
+>
+> **⚪ DOSYA SEVİYESİNDE MUAF — 23 dosya, üç gerekçe grubu:**
+> **(a) TR-only içerik sayfaları:** `/destek` (44 dize) · `/uretici` · `/iletisim` · şehir sayfaları
+> · KVKK/çerez · **`/bayilik`** (bayilik programı **Türkiye pazarına özel** — DBS/teminat şartları;
+> 5 dile çevirmek karşılanamayacak bir programa başvuru davetiyesi olurdu).
+> **(b) Admin/düzenleme arayüzü:** EditBar · EImage · PropertiesPanel · SectionWrapper.
+> **(c) Marka/kanonik · ölü kod · sağlayıcısız sayfa:** OG görseli · **`BrandStory.tsx` ve
+> `Technology.tsx` ÖLÜ** (sıfır import — `SECTION_COMPONENTS`'te yok) · **`global-error.tsx`**
+> (kök yerleşimin YERİNE geçer → `LanguageProvider` YOK, `useLanguage` orada çalışmaz) ·
+> `VehicleChargingClient` (TR varsayılan dal; dil kolları `icerik` propuyla kendi metnini geçer) ·
+> honeypot etiketleri (görsel olarak gizli bot tuzağı).
+>
+> **⏳ TEK AÇIK KALAN: `/b2b` statik çerçevesi (≈12 birim).** CMS içeriği 7 dilde ama sayfanın
+> kendi başlık/paragrafları Türkçe → **yarı çevrilmiş sayfa**. Muafiyet listesine "AÇIK" olarak
+> gerekçesiyle yazıldı. ⚠️ Çevrilmeme sebebi teknik değil TİCARİ: "fason / white-label / toptan
+> tedarik" konumlandırmasının 5 dilde nasıl ifade edileceği kullanıcı kararı.
+>
+> **✅ ÖZ-TEST (`scratchpad/_bekci_testi5.py`):** görünür TR metin YAKALANIR · `pickText`'e bağlı
+> metin yanlış alarm VERMEZ · **yorum içindeki Türkçe** yanlış alarm vermez · muaf dosyadaki metin
+> sessiz kalır; test dosyaları birebir geri alınır.
+> **⚠️ SINIR (bilerek):** tespit Türkçe HARFE dayanır (ğışİŞĞ + öüç) — saf ASCII Türkçe cümle
+> kaçar. 4. sınıftaki ters-mantık burada uygulanamaz: JSX metninin çoğu zaten çeviri çağrısından
+> gelir, ham kalanı ayırt etmek için dil işareti şart.
+> **ARAÇLAR:** `scratchpad/_gorunur_metin_olcum.mts` (ölçüm) · `_gorunur_metin_yama.py` ·
+> `_bekci_sinif5.py` · `_bekci_testi5.py` · `_b2b_dizeler.cjs`.
+
+
+
 > 🌍🧰 **İKİ ARAÇ SAYFASI 6 DİLE AÇILDI — en/de/es/ru/nl + ar (2026-09-13):**
 > Kullanıcı: *"bunları da sitenin diğer dillerinde uygula"* (Arapça sürümlerin hemen ardından).
 > **YENİ 12 ADRES:** `/{en,de,es,ru,nl,ar}/sarj-suresi-hesaplama` + `/{…}/arac-sarj-uyumlulugu`.

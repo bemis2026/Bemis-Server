@@ -185,7 +185,7 @@ export default function SearchOverlay({ isOpen, onClose }: Props) {
 
             <div className="max-h-96 overflow-y-auto py-2">
               {filtered.length === 0 ? (
-                <p className="text-white/30 text-sm text-center py-8">Sonuç bulunamadı.</p>
+                <p className="text-white/30 text-sm text-center py-8">{pickText(lang, "Sonuç bulunamadı.", "No results found")}</p>
               ) : (
                 filtered.map((r) => {
                   const key = r.kind === "section" ? `s:${r.target}` : `${r.kind}:${r.href}`;
@@ -216,7 +216,7 @@ export default function SearchOverlay({ isOpen, onClose }: Props) {
 
             <div className="px-5 py-3 border-t border-[#1e1e1e] flex items-center gap-3">
               <kbd className="text-[10px] text-white/25 bg-white/5 border border-white/10 rounded px-1.5 py-0.5">ESC</kbd>
-              <span className="text-white/25 text-xs">kapatmak için</span>
+              <span className="text-white/25 text-xs">{pickText(lang, "kapatmak için", "to close")}</span>
             </div>
           </motion.div>
         </motion.div>

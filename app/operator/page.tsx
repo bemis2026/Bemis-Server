@@ -10,6 +10,7 @@ import ContactBar from "../components/ContactBar";
 import { useTheme } from "../context/ThemeContext";
 import { accentInk } from "../lib/accentInk";
 import { useLanguage } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
 import {
   RiWifiLine, RiBarChartLine, RiShieldCheckLine, RiGlobalLine,
   RiPlugLine, RiCheckLine, RiArrowRightSLine,
@@ -119,7 +120,7 @@ export default function OperatorPage() {
             <div className="flex items-center gap-2.5 mb-4">
               <RiWifiLine style={{ color: accentInk(PURPLE, d), fontSize: 14 }} />
               <span className="text-xs font-bold tracking-[0.20em] uppercase" style={{ color: accentInk(PURPLE, d) }}>
-                Şarj Ağı Operatörleri
+                {pickText(lang, "Şarj Ağı Operatörleri", "Charging network operators")}
               </span>
             </div>
             <h1 className="text-3xl font-black leading-tight mb-3" style={{ color: text }}>
@@ -164,7 +165,10 @@ export default function OperatorPage() {
             <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: accentInk(PURPLE, d) }}>Teknik Altyapı</p>
             <h2 className="text-2xl sm:text-3xl font-black mb-2" style={{ color: text }}>Operatör Odaklı Özellikler</h2>
             <p className="text-sm max-w-2xl" style={{ color: muted }}>
-              OCPP 1.6J / 2.0.1 uyumlu donanımlar, dinamik güç yönetimi, uzaktan izleme ve sertifikalı altyapıyla şarj ağınız için uçtan uca operatör desteği.
+              {pickText(lang,
+                "OCPP 1.6J / 2.0.1 uyumlu donanımlar, dinamik güç yönetimi, uzaktan izleme ve sertifikalı altyapıyla şarj ağınız için uçtan uca operatör desteği.",
+                "End-to-end operator support for your charging network: OCPP 1.6J / 2.0.1 compatible hardware, dynamic power management, remote monitoring and certified infrastructure.",
+              )}
             </p>
           </div>
 
@@ -223,7 +227,7 @@ export default function OperatorPage() {
               ))}
             </div>
             <div className="mt-5 pt-4 text-xs" style={{ borderTop: `1px solid ${border}`, color: faint }}>
-              OCPP 1.6J ve 2.0.1 desteği · TLS 1.3 şifreleme · JSON & SOAP
+              {pickText(lang, "OCPP 1.6J ve 2.0.1 desteği · TLS 1.3 şifreleme · JSON & SOAP", "OCPP 1.6J and 2.0.1 support · TLS 1.3 encryption · JSON & SOAP")}
             </div>
           </motion.div>
         </div>
@@ -252,7 +256,10 @@ export default function OperatorPage() {
                 </div>
                 <h2 className="text-xl font-black mb-1" style={{ color: text }}>Operatörlere Özel Ürünler</h2>
                 <p className="text-sm max-w-2xl" style={{ color: muted }}>
-                  OCPP uyumlu DC hızlı şarj üniteleri, akıllı şarj panoları ve operatör altyapısına yönelik öne çıkan ürünler.
+                  {pickText(lang,
+                    "OCPP uyumlu DC hızlı şarj üniteleri, akıllı şarj panoları ve operatör altyapısına yönelik öne çıkan ürünler.",
+                    "Featured products for operator infrastructure: OCPP-compatible DC fast charging units and smart charging panels.",
+                  )}
                 </p>
               </div>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -288,7 +295,7 @@ export default function OperatorPage() {
                           {prod.subtitle && <p className="text-xs mb-2" style={{ color: faint }}>{prod.subtitle}</p>}
                           {shortDesc && <p className="text-xs leading-relaxed mb-3" style={{ color: muted }}>{shortDesc}</p>}
                           <div className="flex items-center gap-1 text-xs font-semibold" style={{ color: accentInk(cat.accent, d) }}>
-                            Ürünü İncele
+                            {pickText(lang, "Ürünü İncele", "View product")}
                             <RiArrowRightSLine size={14} className="group-hover:translate-x-0.5 transition-transform" />
                           </div>
                         </div>

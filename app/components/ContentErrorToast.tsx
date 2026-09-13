@@ -1,8 +1,12 @@
 "use client";
 
+import { useLanguage } from "../context/LanguageContext";
+import { pickText } from "../lib/ui";
+
 import { useContent } from "../context/ContentContext";
 
 export default function ContentErrorToast() {
+  const { lang } = useLanguage();
   const { contentError, refreshContent, dismissContentError, contentLoading } = useContent();
 
   if (!contentError) return null;
@@ -37,7 +41,7 @@ export default function ContentErrorToast() {
             <circle cx="12" cy="16.5" r="1.2" fill="#EF4444" />
           </svg>
           <div style={{ flex: 1 }}>
-            <div style={{ fontWeight: 600, marginBottom: "2px" }}>Bağlantı sorunu</div>
+            <div style={{ fontWeight: 600, marginBottom: "2px" }}>{pickText(lang, "Bağlantı sorunu", "Connection problem")}</div>
             <div style={{ color: "#D1D5DB", fontSize: "12.5px" }}>{contentError}</div>
             <div style={{ display: "flex", gap: "8px", marginTop: "10px" }}>
               <button
@@ -56,7 +60,7 @@ export default function ContentErrorToast() {
                   transition: "opacity 0.15s",
                 }}
               >
-                {contentLoading ? "Yükleniyor..." : "Tekrar Dene"}
+                {contentLoading ? pickText(lang, "Yükleniyor...", "Loading…") : pickText(lang, "Tekrar Dene", "Try again")}
               </button>
               <button
                 onClick={dismissContentError}
