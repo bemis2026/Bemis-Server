@@ -114,6 +114,14 @@
       "hedef": "npm run check:i18n = temiz; muafiyet listeleri büyüdüyse her yeni satırda GEREKÇE yazılı",
       "nasil": "npm run check:i18n + python scratchpad/_bekci_testi2.py (öz-test 6/6 beklenir). ⚠️ Bekçi 'temiz' derse öz-testi de çalıştır — eski sürüm de temiz diyordu ama 71 literalin 12'sini görüp 28 kusuru kaçırıyordu.",
       "durum": "acik"
+    },
+    {
+      "tarih": "2026-10-10",
+      "is": "Körfez/Orta Doğu görünürlüğü — 9 Eylül taban çizgisine karşı ilk ölçüm",
+      "olcum": "Arapça kolun trafiği ve gösterimi taban çizgisine göre arttı mı (BAE · Suudi · Katar · Kuveyt · Bahreyn · Umman · Mısır)",
+      "hedef": "BAE 7 oturumun ÜSTÜ; Suudi/Katar/Kuveyt/Bahreyn/Umman/Mısır 0'dan çıkmış olmalı; /ar ve /ar/middle-east GSC'de gösterim almalı",
+      "nasil": "Taban: scripts/seo-baselines/korfez-2026-09-09.json (GA, 90 gün) + gsc-korfez-2026-09-09.json. AYNI GA sorgusunu tekrarla (ülke kırılımı) + GSC → Performans → Ülkeler. ⚠️ Arapça kolun tamamı 9 Eylül'de yayına girdi; 4 haftadan önce anlamlı sonuç beklenmez.",
+      "durum": "acik"
     }
   ]
 }
