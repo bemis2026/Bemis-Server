@@ -13,6 +13,39 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🏭✅ **`/b2b` STATİK ÇERÇEVESİ 6 DİLE AÇILDI — SON AÇIK MADDE KAPANDI (2026-09-13):**
+> Kullanıcı: *"b2b'yi de yap"*. Ticari dil kararı bekleyen madde buydu; karar geldi, yapıldı.
+> **ui.json 562 → 593** (31 yeni anahtar × 5 dil), `pickText` çağrısı 337 → 356.
+>
+> **ÇEVRİLEN 31 BİRİM:** 6 SSS çifti (12 dize) · OEM bölümü (eyebrow + h2 + 2 paragraf) ·
+> 3 rozet · Çalışma Modelleri (eyebrow + h2 + paragraf) · 3 model kartı (başlık + gövde).
+>
+> **⚠️⚠️ ŞEMA KANONİK TÜRKÇE KALDI — BİLİNÇLİ:** `/b2b` **TEK URL** ve **TR canonical**;
+> Googlebot SSR'da Türkçe görür → `faqSchema`/`serviceSchema` Türkçe kalınca şema ile
+> GÖRÜNEN metin Googlebot açısından BİREBİR aynı olur (Google'ın "şemadaki içerik sayfada
+> görünür olmalı" kuralı). Şemayı dile bağlamak tek URL'de tutarsızlık üretirdi.
+> **📌 SSS TEK KAYNAK:** yeni `B2B_SSS` (`{q:{tr,en}, a:{tr,en}}`) → görünür SSS `pickText`
+> ile; **`B2B_FAQ` ondan TÜRETİLİR** (`B2B_SSS.map(f => ({q: f.q.tr, a: f.a.tr}))`) ve şemayı
+> besler. İki yerde metin TUTULMUYOR → ayrışamaz. Yeni soru eklerken YALNIZ `B2B_SSS`'e yaz.
+>
+> **📌 `<strong>` VURGUSU HER DİLDE KORUNDU:** "Bemis E-V Charge bir **üretici ve imalatçı**dır…"
+> cümlesi **önek / vurgu / sonek** olarak ÜÇ `pickText`'e bölündü. Tek parça çevirseydim Türkçe
+> sayfadaki kalın vurgu kaybolurdu — *görünür TR arayüzü sorulmadan değiştirilmez* (kayıtlı kural).
+> Türkçede ek `-dır` vurguya bitişik; diğer dillerde sonek kendi dilbilgisine göre yazıldı.
+>
+> **⚠️ İÇERİK SINIRI (TR kaynakta da yoktu, çeviride de EKLENMEDİ):** adet · süre · fiyat ·
+> iskonto · bölge münhasırlığı **YOK**. Yabancı dilde milliyetçi çerçeve yok: *"bir Türkiye
+> üreticisidir"* → menşe OLGU olarak (*"from its facility in Türkiye"*). `ISO 9001:2015`
+> evrensel standart adı olarak çevrilmedi.
+>
+> **✅ YEREL ÜRETİM DERLEMESİNDE 4 DİLDE DOĞRULANDI** (`next start`, Playwright):
+> **TR birebir korundu** (4 h2 · 9 h3 · `<strong>` · 4 rozet öncekiyle AYNI) · **DE** tam çeviri ·
+> **AR** `dir=rtl` + Latin rakam (16,000 / 80) + **yatay taşma 0** · **RU** 3.942 Kiril harfi.
+> Dört dilde de **Türkçe kalıntı 0**; şema her dilde kanonik TR (FAQPage 6 soru).
+> ⓘ Yereldeki 4 konsol hatası Vercel Analytics betiklerinin `next start`'ta bulunmaması —
+> ortam artefaktı, kusur değil.
+> **Bekçide `b2b/page.tsx` DOSYA MUAFİYETİ KALDIRILDI**; geriye tek gerekçeli tekil muafiyet
+> kaldı: admin boş-durum yer tutucusu (ziyaretçiye render edilmez).
 > 👁️🔤 **GÖRÜNÜR TÜRKÇE METİN TARAMASI — BEKÇİNİN 5. SINIFI (2026-09-13):**
 > Kullanıcı: *"görünür metin taramasını yap."* 4. sınıf yalnız ÖZNİTELİKLERİ kapatıyordu; gövde
 > metni (`<p>Türkçe cümle</p>`) açıktaydı.

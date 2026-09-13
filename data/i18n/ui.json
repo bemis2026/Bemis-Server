@@ -3932,5 +3932,222 @@
   "ar": "خطأ · 404",
   "ru": "Ошибка · 404",
   "nl": "Fout · 404"
+ },
+ "OEM & Solution Partnership": {
+  "de": "Lösungspartnerschaft",
+  "es": "Alianza de soluciones",
+  "ar": "شراكة الحلول",
+  "ru": "Партнёрство по решениям",
+  "nl": "Oplossingspartnerschap"
+ },
+ "Solutions we offer OEM manufacturers": {
+  "de": "Unsere Lösungen für OEM-Hersteller",
+  "es": "Soluciones que ofrecemos a fabricantes OEM",
+  "ar": "الحلول التي نقدمها لمصنّعي OEM",
+  "ru": "Решения, которые мы предлагаем OEM-производителям",
+  "nl": "Onze oplossingen voor OEM-fabrikanten"
+ },
+ "Bemis Teknik Elektrik has manufactured industrial electrical equipment since 1994 and exports to more than 80 countries from its facility in Türkiye. We provide components and engineering support to OEM companies that build EV charging devices.": {
+  "de": "Bemis Teknik Elektrik fertigt seit 1994 industrielle Elektroausrüstung und exportiert von seinem Standort in der Türkei in über 80 Länder. Wir liefern Komponenten und Engineering-Unterstützung für OEM-Unternehmen, die EV-Ladegeräte herstellen.",
+  "es": "Bemis Teknik Elektrik fabrica equipos eléctricos industriales desde 1994 y exporta a más de 80 países desde su planta en Türkiye. Ofrecemos componentes y soporte de ingeniería a empresas OEM que fabrican equipos de carga para vehículos eléctricos.",
+  "ar": "تصنّع Bemis Teknik Elektrik معدات كهربائية صناعية منذ عام 1994 وتصدّر إلى أكثر من 80 دولة من منشأتها في تركيا. نوفّر المكوّنات والدعم الهندسي لشركات OEM التي تصنّع أجهزة شحن المركبات الكهربائية.",
+  "ru": "Bemis Teknik Elektrik производит промышленное электрооборудование с 1994 года и экспортирует его более чем в 80 стран со своего предприятия в Турции. Мы поставляем комплектующие и обеспечиваем инженерную поддержку OEM-компаниям, выпускающим зарядные устройства для электромобилей.",
+  "nl": "Bemis Teknik Elektrik produceert sinds 1994 industriële elektrische apparatuur en exporteert vanuit de vestiging in Türkiye naar meer dan 80 landen. Wij leveren componenten en engineeringondersteuning aan OEM-bedrijven die EV-laadapparatuur bouwen."
+ },
+ "We are a solution partner for Type 2 and CCS2 sockets, AC and DC charging cables, electronic control boards and custom enclosure designs. Our engineering team is involved from the start of product development through to certification; the supply chain is managed from a single point at our Bursa OIZ production facility.": {
+  "de": "Wir sind Lösungspartner für Type-2- und CCS2-Steckdosen, AC- und DC-Ladekabel, elektronische Steuerplatinen und kundenspezifische Gehäusedesigns. Unser Engineering-Team ist von der Produktentwicklung bis zur Zertifizierung eingebunden; die Lieferkette wird zentral über unser Produktionswerk in der Industriezone Bursa gesteuert.",
+  "es": "Somos socio de soluciones en tomas Type 2 y CCS2, cables de carga AC y DC, placas electrónicas de control y diseños de carcasa a medida. Nuestro equipo de ingeniería participa desde el inicio del desarrollo del producto hasta la certificación; la cadena de suministro se gestiona desde un único punto en nuestra planta de la zona industrial de Bursa.",
+  "ar": "نحن شريك حلول في مقابس Type 2 و CCS2، وكابلات الشحن AC و DC، ولوحات التحكم الإلكترونية، وتصميمات الحاويات الخاصة. يشارك فريقنا الهندسي من بداية تطوير المنتج حتى الحصول على الشهادات؛ وتُدار سلسلة التوريد من نقطة واحدة في منشأتنا الإنتاجية بالمنطقة الصناعية في بورصة.",
+  "ru": "Мы выступаем партнёром по решениям для розеток Type 2 и CCS2, зарядных кабелей AC и DC, электронных плат управления и корпусов по индивидуальному проекту. Наша инженерная команда подключается с самого начала разработки продукта и ведёт его до сертификации; цепочка поставок управляется из единого центра на нашем производстве в промышленной зоне Бурсы.",
+  "nl": "Wij zijn oplossingspartner voor Type 2- en CCS2-contactdozen, AC- en DC-laadkabels, elektronische stuurprinten en op maat gemaakte behuizingen. Ons engineeringteam is betrokken vanaf het begin van de productontwikkeling tot en met de certificering; de toeleveringsketen wordt centraal aangestuurd vanuit onze productievestiging in de industriezone Bursa."
+ },
+ "16,000 m² Production Facility": {
+  "de": "16.000 m² Produktionsfläche",
+  "es": "16.000 m² de planta de producción",
+  "ar": "منشأة إنتاج 16,000 م²",
+  "ru": "Производство 16 000 м²",
+  "nl": "16.000 m² productievestiging"
+ },
+ "Exports to 80+ countries": {
+  "de": "Export in über 80 Länder",
+  "es": "Exportación a más de 80 países",
+  "ar": "تصدير إلى أكثر من 80 دولة",
+  "ru": "Экспорт более чем в 80 стран",
+  "nl": "Export naar 80+ landen"
+ },
+ "CE / TSE / TÜV certified": {
+  "de": "CE / TSE / TÜV zertifiziert",
+  "es": "Certificado CE / TSE / TÜV",
+  "ar": "معتمد CE / TSE / TÜV",
+  "ru": "Сертификаты CE / TSE / TÜV",
+  "nl": "CE / TSE / TÜV gecertificeerd"
+ },
+ "Working models": {
+  "de": "Arbeitsmodelle",
+  "es": "Modelos de trabajo",
+  "ar": "نماذج التعاون",
+  "ru": "Модели сотрудничества",
+  "nl": "Samenwerkingsmodellen"
+ },
+ "Contract manufacturing, white-label and wholesale supply": {
+  "de": "Auftragsfertigung, White-Label und Großhandelsbelieferung",
+  "es": "Fabricación por contrato, marca blanca y suministro mayorista",
+  "ar": "التصنيع بالعقد والعلامة الخاصة والتوريد بالجملة",
+  "ru": "Контрактное производство, white-label и оптовые поставки",
+  "nl": "Contractproductie, white-label en groothandelslevering"
+ },
+ "Bemis E-V Charge is a ": {
+  "de": "Bemis E-V Charge ist ein ",
+  "es": "Bemis E-V Charge es un ",
+  "ar": "‏Bemis E-V Charge هي ",
+  "ru": "Bemis E-V Charge — это ",
+  "nl": "Bemis E-V Charge is een "
+ },
+ "manufacturer and producer": {
+  "de": "Hersteller und Produzent",
+  "es": "fabricante y productor",
+  "ar": "شركة مصنّعة ومنتجة",
+  "ru": "производитель и изготовитель",
+  "nl": "fabrikant en producent"
+ },
+ "; it does not import and relabel products — it manufactures them at its own facility in the Bursa Organised Industrial Zone. That is why we can work with corporate buyers under three different models.": {
+  "de": "; wir importieren und etikettieren keine Produkte, sondern fertigen sie im eigenen Werk in der Industriezone Bursa. Deshalb arbeiten wir mit Geschäftskunden in drei verschiedenen Modellen.",
+  "es": "; no importa ni reetiqueta productos, los fabrica en su propia planta de la zona industrial de Bursa. Por eso podemos trabajar con compradores corporativos en tres modelos distintos.",
+  "ar": "؛ فهي لا تستورد المنتجات وتعيد وسمها، بل تصنّعها في منشأتها الخاصة بالمنطقة الصناعية في بورصة. لهذا يمكننا العمل مع المشترين من الشركات وفق ثلاثة نماذج مختلفة.",
+  "ru": "; компания не импортирует и не переклеивает этикетки, а производит продукцию на собственном предприятии в промышленной зоне Бурсы. Поэтому мы можем работать с корпоративными покупателями по трём различным моделям.",
+  "nl": "; het importeert en heretiketteert geen producten, maar fabriceert ze in de eigen vestiging in de industriezone Bursa. Daarom kunnen wij met zakelijke afnemers in drie verschillende modellen werken."
+ },
+ "Contract / OEM manufacturing": {
+  "de": "Auftrags- / OEM-Fertigung",
+  "es": "Fabricación por contrato / OEM",
+  "ar": "التصنيع بالعقد / OEM",
+  "ru": "Контрактное / OEM-производство",
+  "nl": "Contract- / OEM-productie"
+ },
+ "We manufacture the product to your technical specification. Cable cross-section and length, socket type, enclosure colour and labelling are set according to your request; our engineering team is involved from design through to certification.": {
+  "de": "Wir fertigen das Produkt nach Ihrer technischen Spezifikation. Kabelquerschnitt und -länge, Steckertyp, Gehäusefarbe und Beschriftung werden nach Ihren Vorgaben festgelegt; unser Engineering-Team begleitet den Prozess vom Entwurf bis zur Zertifizierung.",
+  "es": "Fabricamos el producto según su especificación técnica. La sección y la longitud del cable, el tipo de toma, el color de la carcasa y el etiquetado se definen según su solicitud; nuestro equipo de ingeniería participa desde el diseño hasta la certificación.",
+  "ar": "نصنّع المنتج وفق مواصفاتكم الفنية. يُحدَّد مقطع الكابل وطوله ونوع المقبس ولون الحاوية والوسم حسب طلبكم؛ ويشارك فريقنا الهندسي من التصميم حتى الحصول على الشهادات.",
+  "ru": "Мы изготавливаем изделие по вашей технической спецификации. Сечение и длина кабеля, тип разъёма, цвет корпуса и маркировка определяются по вашему запросу; наша инженерная команда сопровождает проект от эскиза до сертификации.",
+  "nl": "Wij produceren het product volgens uw technische specificatie. Kabeldoorsnede en -lengte, contactdoostype, behuizingskleur en etikettering worden naar uw wens bepaald; ons engineeringteam begeleidt het traject van ontwerp tot certificering."
+ },
+ "White-label labelling": {
+  "de": "White-Label-Etikettierung",
+  "es": "Etiquetado de marca blanca",
+  "ar": "الوسم بالعلامة الخاصة",
+  "ru": "White-label маркировка",
+  "nl": "White-label etikettering"
+ },
+ "Our existing product family is labelled with your brand. Packaging, user manual and product label are prepared in your own brand identity; manufacturing and quality control stay with us.": {
+  "de": "Unsere bestehende Produktfamilie wird mit Ihrer Marke etikettiert. Verpackung, Bedienungsanleitung und Produktetikett werden in Ihrer Markenidentität erstellt; Fertigung und Qualitätskontrolle bleiben bei uns.",
+  "es": "Nuestra familia de productos actual se etiqueta con su marca. El embalaje, el manual de uso y la etiqueta del producto se preparan con su propia identidad de marca; la fabricación y el control de calidad siguen a nuestro cargo.",
+  "ar": "تُوسَم عائلة منتجاتنا الحالية بعلامتكم التجارية. تُعدّ العبوة ودليل الاستخدام وملصق المنتج بهوية علامتكم؛ ويبقى التصنيع ومراقبة الجودة لدينا.",
+  "ru": "Наша существующая линейка продукции маркируется вашим брендом. Упаковка, руководство пользователя и этикетка оформляются в вашей фирменной стилистике; производство и контроль качества остаются за нами.",
+  "nl": "Onze bestaande productfamilie wordt van uw merk voorzien. Verpakking, gebruiksaanwijzing en productlabel worden in uw eigen merkidentiteit opgemaakt; productie en kwaliteitscontrole blijven bij ons."
+ },
+ "Wholesale supply": {
+  "de": "Großhandelsbelieferung",
+  "es": "Suministro mayorista",
+  "ar": "التوريد بالجملة",
+  "ru": "Оптовые поставки",
+  "nl": "Groothandelslevering"
+ },
+ "Bulk purchasing of standard catalogue products. Regular supply for electrical wholesalers, switchboard manufacturers, fleet and energy companies; shipping is managed from a single point at our Bursa production facility.": {
+  "de": "Sammelbestellungen von Standard-Katalogprodukten. Regelmäßige Belieferung von Elektrogroßhändlern, Schaltschrankbauern, Flotten- und Energieunternehmen; der Versand wird zentral über unser Werk in Bursa abgewickelt.",
+  "es": "Compra al por mayor de productos estándar del catálogo. Suministro regular para mayoristas de material eléctrico, fabricantes de cuadros, flotas y empresas de energía; los envíos se gestionan desde un único punto en nuestra planta de Bursa.",
+  "ar": "شراء بالجملة لمنتجات الكتالوج القياسية. توريد منتظم لتجار الجملة في المواد الكهربائية، ومصنّعي اللوحات، وشركات الأساطيل والطاقة؛ وتُدار الشحنات من نقطة واحدة في منشأتنا الإنتاجية ببورصة.",
+  "ru": "Оптовые закупки стандартной каталожной продукции. Регулярные поставки для оптовиков электротоваров, изготовителей щитового оборудования, автопарков и энергетических компаний; отгрузка ведётся из единого центра на нашем производстве в Бурсе.",
+  "nl": "Bulkinkoop van standaard catalogusproducten. Regelmatige levering aan elektrogroothandels, paneelbouwers, wagenpark- en energiebedrijven; de verzending wordt centraal geregeld vanuit onze productievestiging in Bursa."
+ },
+ "Corporate purchasing questions": {
+  "de": "Fragen zum Geschäftskundeneinkauf",
+  "es": "Preguntas sobre compras corporativas",
+  "ar": "أسئلة الشراء للشركات",
+  "ru": "Вопросы корпоративных закупок",
+  "nl": "Vragen over zakelijke inkoop"
+ },
+ "Are you a charging device manufacturer or an importer?": {
+  "de": "Sind Sie Hersteller von Ladegeräten oder Importeur?",
+  "es": "¿Son fabricantes de equipos de carga o importadores?",
+  "ar": "هل أنتم مصنّعون لأجهزة الشحن أم مستوردون؟",
+  "ru": "Вы производитель зарядных устройств или импортёр?",
+  "nl": "Bent u fabrikant van laadapparatuur of importeur?"
+ },
+ "We are a manufacturer. We produce AC charging devices, Type 2 charging cables and charging unit equipment at our own facility in the Bursa Organised Industrial Zone; hardware and embedded software are developed by our own R&D team. Products are not imported and relabelled.": {
+  "de": "Wir sind Hersteller. AC-Ladegeräte, Type-2-Ladekabel und Ladeeinheit-Komponenten fertigen wir im eigenen Werk in der Industriezone Bursa; Hardware und Embedded-Software entwickelt unser eigenes F&E-Team. Produkte werden nicht importiert und umetikettiert.",
+  "es": "Somos fabricantes. Producimos equipos de carga AC, cables de carga Type 2 y equipamiento para unidades de carga en nuestra propia planta de la zona industrial de Bursa; el hardware y el software embebido los desarrolla nuestro equipo de I+D. Los productos no se importan ni se reetiquetan.",
+  "ar": "نحن شركة مصنّعة. ننتج أجهزة الشحن AC وكابلات الشحن Type 2 ومعدات وحدات الشحن في منشأتنا الخاصة بالمنطقة الصناعية في بورصة؛ ويطوّر فريق البحث والتطوير لدينا العتاد والبرمجيات المدمجة. ولا تُستورد المنتجات ويُعاد وسمها.",
+  "ru": "Мы производитель. Зарядные устройства AC, кабели Type 2 и оборудование для зарядных модулей выпускаются на нашем собственном предприятии в промышленной зоне Бурсы; аппаратную часть и встроенное ПО разрабатывает наша команда НИОКР. Продукция не импортируется и не переклеивается.",
+  "nl": "Wij zijn fabrikant. AC-laadapparatuur, Type 2-laadkabels en apparatuur voor laadunits produceren wij in onze eigen vestiging in de industriezone Bursa; hardware en embedded software worden door ons eigen R&D-team ontwikkeld. Producten worden niet geïmporteerd en heretiketteerd."
+ },
+ "Can I buy wholesale?": {
+  "de": "Kann ich im Großhandel einkaufen?",
+  "es": "¿Puedo comprar al por mayor?",
+  "ar": "هل يمكنني الشراء بالجملة؟",
+  "ru": "Можно ли закупать оптом?",
+  "nl": "Kan ik groothandelsvolumes afnemen?"
+ },
+ "Yes. We work in a wholesale supply model with electrical wholesalers, switchboard manufacturers, fleet and energy companies. Contact us with the product and quantity you need and we will define the commercial terms together.": {
+  "de": "Ja. Mit Elektrogroßhändlern, Schaltschrankbauern, Flotten- und Energieunternehmen arbeiten wir im Großhandelsmodell. Nennen Sie uns Produkt und Menge, dann legen wir die kommerziellen Konditionen gemeinsam fest.",
+  "es": "Sí. Trabajamos en modelo de suministro mayorista con mayoristas de material eléctrico, fabricantes de cuadros, flotas y empresas de energía. Escríbanos indicando el producto y la cantidad y definiremos juntos las condiciones comerciales.",
+  "ar": "نعم. نعمل بنموذج التوريد بالجملة مع تجار الجملة في المواد الكهربائية ومصنّعي اللوحات وشركات الأساطيل والطاقة. تواصلوا معنا بالمنتج والكمية المطلوبة ونحدّد الشروط التجارية معًا.",
+  "ru": "Да. С оптовиками электротоваров, изготовителями щитового оборудования, автопарками и энергетическими компаниями мы работаем по модели оптовых поставок. Сообщите нам продукт и количество — коммерческие условия определим вместе.",
+  "nl": "Ja. Met elektrogroothandels, paneelbouwers, wagenpark- en energiebedrijven werken wij in een groothandelsmodel. Laat ons weten welk product en welke hoeveelheid u nodig hebt, dan bepalen we samen de commerciële voorwaarden."
+ },
+ "Do you manufacture under our own brand (white-label)?": {
+  "de": "Fertigen Sie unter unserer eigenen Marke (White-Label)?",
+  "es": "¿Fabrican con nuestra propia marca (marca blanca)?",
+  "ar": "هل تصنّعون بعلامتنا التجارية الخاصة (العلامة الخاصة)؟",
+  "ru": "Производите ли вы под нашим собственным брендом (white-label)?",
+  "nl": "Produceert u onder ons eigen merk (white-label)?"
+ },
+ "Yes. Our existing product family can be labelled with your brand; packaging, user manual and product label are prepared in your own brand identity. Manufacturing, quality control and certification stay with us.": {
+  "de": "Ja. Unsere bestehende Produktfamilie kann mit Ihrer Marke etikettiert werden; Verpackung, Bedienungsanleitung und Produktetikett werden in Ihrer Markenidentität erstellt. Fertigung, Qualitätskontrolle und Zertifizierung bleiben bei uns.",
+  "es": "Sí. Nuestra familia de productos actual puede etiquetarse con su marca; el embalaje, el manual de uso y la etiqueta se preparan con su propia identidad de marca. La fabricación, el control de calidad y la certificación siguen a nuestro cargo.",
+  "ar": "نعم. يمكن وسم عائلة منتجاتنا الحالية بعلامتكم التجارية؛ وتُعدّ العبوة ودليل الاستخدام وملصق المنتج بهوية علامتكم. ويبقى التصنيع ومراقبة الجودة والاعتماد لدينا.",
+  "ru": "Да. Наша существующая линейка может быть маркирована вашим брендом; упаковка, руководство пользователя и этикетка оформляются в вашей фирменной стилистике. Производство, контроль качества и сертификация остаются за нами.",
+  "nl": "Ja. Onze bestaande productfamilie kan van uw merk worden voorzien; verpakking, gebruiksaanwijzing en productlabel worden in uw eigen merkidentiteit opgemaakt. Productie, kwaliteitscontrole en certificering blijven bij ons."
+ },
+ "What can be customised in contract manufacturing?": {
+  "de": "Was lässt sich bei der Auftragsfertigung anpassen?",
+  "es": "¿Qué se puede personalizar en la fabricación por contrato?",
+  "ar": "ما الذي يمكن تخصيصه في التصنيع بالعقد؟",
+  "ru": "Что можно адаптировать при контрактном производстве?",
+  "nl": "Wat kan bij contractproductie worden aangepast?"
+ },
+ "Cable cross-section and length, socket type, enclosure colour and labelling can be set on request. Our engineering team is involved from the start of product development through to certification.": {
+  "de": "Kabelquerschnitt und -länge, Steckertyp, Gehäusefarbe und Beschriftung können auf Wunsch festgelegt werden. Unser Engineering-Team ist von der Produktentwicklung bis zur Zertifizierung eingebunden.",
+  "es": "La sección y la longitud del cable, el tipo de toma, el color de la carcasa y el etiquetado pueden definirse a petición. Nuestro equipo de ingeniería participa desde el inicio del desarrollo del producto hasta la certificación.",
+  "ar": "يمكن تحديد مقطع الكابل وطوله ونوع المقبس ولون الحاوية والوسم عند الطلب. ويشارك فريقنا الهندسي من بداية تطوير المنتج حتى الحصول على الشهادات.",
+  "ru": "Сечение и длина кабеля, тип разъёма, цвет корпуса и маркировка определяются по запросу. Наша инженерная команда подключается с начала разработки продукта и ведёт его до сертификации.",
+  "nl": "Kabeldoorsnede en -lengte, contactdoostype, behuizingskleur en etikettering kunnen op verzoek worden bepaald. Ons engineeringteam is betrokken vanaf het begin van de productontwikkeling tot en met de certificering."
+ },
+ "Which certificates do your products hold?": {
+  "de": "Über welche Zertifikate verfügen Ihre Produkte?",
+  "es": "¿Qué certificados tienen sus productos?",
+  "ar": "ما الشهادات التي تحملها منتجاتكم؟",
+  "ru": "Какие сертификаты имеет ваша продукция?",
+  "nl": "Over welke certificaten beschikken uw producten?"
+ },
+ "Our products are CE certified and produced in IP65/IP66 protection class; they comply with IEC 61851 and IEC 62196, and OCPP-compatible models are available. Our production facility holds an ISO 9001 quality management system.": {
+  "de": "Unsere Produkte sind CE-zertifiziert und werden in Schutzart IP65/IP66 gefertigt; sie entsprechen IEC 61851 und IEC 62196, OCPP-kompatible Modelle sind verfügbar. Unser Werk verfügt über ein Qualitätsmanagementsystem nach ISO 9001.",
+  "es": "Nuestros productos cuentan con certificación CE y se fabrican en clase de protección IP65/IP66; cumplen IEC 61851 e IEC 62196 y disponemos de modelos compatibles con OCPP. Nuestra planta dispone de un sistema de gestión de calidad ISO 9001.",
+  "ar": "منتجاتنا حاصلة على شهادة CE وتُصنَّع بفئة حماية IP65/IP66؛ وهي مطابقة لمعياري IEC 61851 و IEC 62196، وتتوفّر لدينا طرازات متوافقة مع OCPP. وتمتلك منشأتنا الإنتاجية نظام إدارة الجودة ISO 9001.",
+  "ru": "Наша продукция сертифицирована CE и выпускается в классе защиты IP65/IP66; она соответствует IEC 61851 и IEC 62196, доступны модели с поддержкой OCPP. Наше производство имеет систему менеджмента качества ISO 9001.",
+  "nl": "Onze producten zijn CE-gecertificeerd en worden in beschermingsklasse IP65/IP66 geproduceerd; ze voldoen aan IEC 61851 en IEC 62196, en er zijn OCPP-compatibele modellen beschikbaar. Onze productievestiging beschikt over een ISO 9001-kwaliteitsmanagementsysteem."
+ },
+ "Do you export?": {
+  "de": "Exportieren Sie?",
+  "es": "¿Exportan?",
+  "ar": "هل تقومون بالتصدير؟",
+  "ru": "Осуществляете ли вы экспорт?",
+  "nl": "Exporteert u?"
+ },
+ "Yes. We export to more than 80 countries. For foreign trade enquiries you can reach us at trade@bemis.com.tr; our English manufacturer and quote page is also online.": {
+  "de": "Ja. Wir exportieren in über 80 Länder. Für Außenhandelsanfragen erreichen Sie uns unter trade@bemis.com.tr; unsere englischsprachige Hersteller- und Angebotsseite ist ebenfalls online.",
+  "es": "Sí. Exportamos a más de 80 países. Para consultas de comercio exterior puede escribirnos a trade@bemis.com.tr; nuestra página de fabricante y presupuesto en inglés también está publicada.",
+  "ar": "نعم. نصدّر إلى أكثر من 80 دولة. لطلبات التجارة الخارجية يمكنكم مراسلتنا على trade@bemis.com.tr؛ كما أنّ صفحة المصنّع وطلب العرض بالإنجليزية متاحة أيضًا.",
+  "ru": "Да. Мы экспортируем более чем в 80 стран. По вопросам внешней торговли пишите на trade@bemis.com.tr; наша англоязычная страница производителя и запроса предложения также доступна.",
+  "nl": "Ja. Wij exporteren naar meer dan 80 landen. Voor vragen over buitenlandse handel kunt u ons bereiken op trade@bemis.com.tr; onze Engelstalige fabrikant- en offertepagina is eveneens online."
  }
 }

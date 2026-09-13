@@ -25,32 +25,40 @@ import { serviceSchema, faqSchema } from "../lib/seo";
 // Kurumsal alim SSS'i — hem gorunur icerik hem FAQPage semasi (ayni metin).
 // ⚠️ ADET/SURE/FIYAT TAAHHUDU YOK: kullanici bir sayi vermedi, uydurulmadi.
 // Yeni taahhut eklenecekse ONCE dogrulat.
-const B2B_FAQ = [
+// ⚠️ SSS TEK KAYNAK — hem GÖRÜNÜR bölüm hem FAQPage şeması buradan beslenir.
+//    ŞEMA daima TÜRKÇE (`B2B_FAQ`, aşağıda türetilir): /b2b TEK URL ve TR
+//    canonical → Googlebot SSR'da Türkçe görür, şema ile görünür metin ayrışmaz.
+//    GÖRÜNÜR metin ise dile duyarlıdır (pickText, `en` = ui.json anahtarı).
+//    📌 İki yerde metin TUTMA: yeni soru eklerken yalnız buraya yaz.
+const B2B_SSS = [
   {
-    q: "Şarj cihazı imalatçısı mısınız, ithalatçı mı?",
-    a: "İmalatçıyız. AC şarj cihazlarını, Type 2 şarj kablolarını ve şarj ünitesi ekipmanlarını Bursa Organize Sanayi Bölgesi'ndeki kendi tesisimizde üretiyoruz; donanım ve gömülü yazılım kendi Ar-Ge ekibimizde geliştiriliyor. Ürünler ithal edilip etiketlenmiyor.",
+    q: { tr: "Şarj cihazı imalatçısı mısınız, ithalatçı mı?", en: "Are you a charging device manufacturer or an importer?" },
+    a: { tr: "İmalatçıyız. AC şarj cihazlarını, Type 2 şarj kablolarını ve şarj ünitesi ekipmanlarını Bursa Organize Sanayi Bölgesi'ndeki kendi tesisimizde üretiyoruz; donanım ve gömülü yazılım kendi Ar-Ge ekibimizde geliştiriliyor. Ürünler ithal edilip etiketlenmiyor.", en: "We are a manufacturer. We produce AC charging devices, Type 2 charging cables and charging unit equipment at our own facility in the Bursa Organised Industrial Zone; hardware and embedded software are developed by our own R&D team. Products are not imported and relabelled." },
   },
   {
-    q: "Toptan alım yapabilir miyim?",
-    a: "Evet. Elektrik malzemesi toptancıları, pano üreticileri, filo ve enerji firmalarıyla toptan tedarik modelinde çalışıyoruz. Talep ettiğiniz ürün ve adet bilgisiyle bize ulaşırsanız ticari şartları birlikte belirleriz.",
+    q: { tr: "Toptan alım yapabilir miyim?", en: "Can I buy wholesale?" },
+    a: { tr: "Evet. Elektrik malzemesi toptancıları, pano üreticileri, filo ve enerji firmalarıyla toptan tedarik modelinde çalışıyoruz. Talep ettiğiniz ürün ve adet bilgisiyle bize ulaşırsanız ticari şartları birlikte belirleriz.", en: "Yes. We work in a wholesale supply model with electrical wholesalers, switchboard manufacturers, fleet and energy companies. Contact us with the product and quantity you need and we will define the commercial terms together." },
   },
   {
-    q: "Kendi markamızla üretim (white-label) yapıyor musunuz?",
-    a: "Evet. Mevcut ürün ailemiz sizin markanızla etiketlenebilir; ambalaj, kullanım kılavuzu ve ürün etiketi kendi marka kimliğinizle hazırlanır. Üretim, kalite kontrol ve sertifikasyon bizde kalır.",
+    q: { tr: "Kendi markamızla üretim (white-label) yapıyor musunuz?", en: "Do you manufacture under our own brand (white-label)?" },
+    a: { tr: "Evet. Mevcut ürün ailemiz sizin markanızla etiketlenebilir; ambalaj, kullanım kılavuzu ve ürün etiketi kendi marka kimliğinizle hazırlanır. Üretim, kalite kontrol ve sertifikasyon bizde kalır.", en: "Yes. Our existing product family can be labelled with your brand; packaging, user manual and product label are prepared in your own brand identity. Manufacturing, quality control and certification stay with us." },
   },
   {
-    q: "Fason üretimde neler özelleştirilebiliyor?",
-    a: "Kablo kesiti ve uzunluğu, soket tipi, mahfaza rengi ve etiketleme talebe göre belirlenebiliyor. Ürün geliştirme sürecinin başından sertifikasyona kadar mühendislik ekibimiz devrede olur.",
+    q: { tr: "Fason üretimde neler özelleştirilebiliyor?", en: "What can be customised in contract manufacturing?" },
+    a: { tr: "Kablo kesiti ve uzunluğu, soket tipi, mahfaza rengi ve etiketleme talebe göre belirlenebiliyor. Ürün geliştirme sürecinin başından sertifikasyona kadar mühendislik ekibimiz devrede olur.", en: "Cable cross-section and length, socket type, enclosure colour and labelling can be set on request. Our engineering team is involved from the start of product development through to certification." },
   },
   {
-    q: "Ürünleriniz hangi sertifikalara sahip?",
-    a: "Ürünlerimiz CE sertifikalıdır ve IP65/IP66 koruma sınıfında üretilir; IEC 61851 ve IEC 62196 standartlarına uygundur, OCPP uyumlu modellerimiz mevcuttur. Üretim tesisimiz ISO 9001 kalite yönetim sistemine sahiptir.",
+    q: { tr: "Ürünleriniz hangi sertifikalara sahip?", en: "Which certificates do your products hold?" },
+    a: { tr: "Ürünlerimiz CE sertifikalıdır ve IP65/IP66 koruma sınıfında üretilir; IEC 61851 ve IEC 62196 standartlarına uygundur, OCPP uyumlu modellerimiz mevcuttur. Üretim tesisimiz ISO 9001 kalite yönetim sistemine sahiptir.", en: "Our products are CE certified and produced in IP65/IP66 protection class; they comply with IEC 61851 and IEC 62196, and OCPP-compatible models are available. Our production facility holds an ISO 9001 quality management system." },
   },
   {
-    q: "İhracat yapıyor musunuz?",
-    a: "Evet. 80'den fazla ülkeye ihracat gerçekleştiriyoruz. Dış ticaret talepleri için trade@bemis.com.tr adresinden bize ulaşabilirsiniz; İngilizce üretici ve teklif sayfamız da yayında.",
+    q: { tr: "İhracat yapıyor musunuz?", en: "Do you export?" },
+    a: { tr: "Evet. 80'den fazla ülkeye ihracat gerçekleştiriyoruz. Dış ticaret talepleri için trade@bemis.com.tr adresinden bize ulaşabilirsiniz; İngilizce üretici ve teklif sayfamız da yayında.", en: "Yes. We export to more than 80 countries. For foreign trade enquiries you can reach us at trade@bemis.com.tr; our English manufacturer and quote page is also online." },
   },
 ];
+
+// ŞEMA KAYNAĞI — kanonik TÜRKÇE, B2B_SSS'ten TÜRETİLİR (elle yazılmaz).
+const B2B_FAQ = B2B_SSS.map((f) => ({ q: f.q.tr, a: f.a.tr }));
 
 /* ─── Data types ────────────────────────────────────────────────────────── */
 type B2BFeaturedSlot = { categoryId?: string; productId?: string };
@@ -257,23 +265,21 @@ export default function B2BPage() {
               className="lg:col-span-5"
             >
               <p className="text-xs font-bold tracking-[0.18em] uppercase mb-3" style={{ color: accentInk(AMBER, d) }}>
-                Çözüm Ortaklığı
+                {pickText(lang, "Çözüm Ortaklığı", "OEM & Solution Partnership")}
               </p>
               <h2 className="text-2xl sm:text-3xl font-black leading-tight mb-4" style={{ color: text }}>
-                OEM Üreticilerine Sunduğumuz Çözümler
+                {pickText(lang, "OEM Üreticilerine Sunduğumuz Çözümler", "Solutions we offer OEM manufacturers")}
               </h2>
               <p className="text-sm sm:text-base leading-relaxed mb-3" style={{ color: muted }}>
-                Bemis Teknik Elektrik, 1994&apos;ten bu yana endüstriyel elektrik
-                ekipmanı üretimi yapan, 80+ ülkeye ihracat gerçekleştiren bir
-                Türkiye üreticisidir. EV şarj cihazı üreten OEM firmalarına
-                bileşen ve mühendislik desteği sunuyoruz.
+                {/* ⚠️ Yabancı dilde milliyetçi çerçeve YOK — menşe OLGU olarak geçer. */}
+                {pickText(lang,
+                  "Bemis Teknik Elektrik, 1994'ten bu yana endüstriyel elektrik ekipmanı üretimi yapan, 80+ ülkeye ihracat gerçekleştiren bir Türkiye üreticisidir. EV şarj cihazı üreten OEM firmalarına bileşen ve mühendislik desteği sunuyoruz.",
+                  "Bemis Teknik Elektrik has manufactured industrial electrical equipment since 1994 and exports to more than 80 countries from its facility in Türkiye. We provide components and engineering support to OEM companies that build EV charging devices.")}
               </p>
               <p className="text-sm sm:text-base leading-relaxed mb-5" style={{ color: muted }}>
-                Type 2 ve CCS2 soketler, AC ve DC şarj kabloları, elektronik
-                kontrol kartları ve özel mahfaza tasarımları ile çözüm
-                ortağıyız. Ürün geliştirme sürecinin başından sertifikasyona
-                kadar mühendislik ekibimiz devreye girer; tedarik zinciri Bursa
-                OSB üretim tesisinden tek noktadan yönetilir.
+                {pickText(lang,
+                  "Type 2 ve CCS2 soketler, AC ve DC şarj kabloları, elektronik kontrol kartları ve özel mahfaza tasarımları ile çözüm ortağıyız. Ürün geliştirme sürecinin başından sertifikasyona kadar mühendislik ekibimiz devreye girer; tedarik zinciri Bursa OSB üretim tesisinden tek noktadan yönetilir.",
+                  "We are a solution partner for Type 2 and CCS2 sockets, AC and DC charging cables, electronic control boards and custom enclosure designs. Our engineering team is involved from the start of product development through to certification; the supply chain is managed from a single point at our Bursa OIZ production facility.")}
               </p>
               <div className="flex flex-wrap gap-2">
                 {[
@@ -281,10 +287,10 @@ export default function B2BPage() {
                   // yılına ait (kurumsal timeline'da doğru). Bugünkü tesis sitenin
                   // 12 ayrı yerinde 16.000 m² olarak geçiyor; bu rozet onu güncel
                   // gibi gösterip çelişki yaratıyordu.
-                  "16.000 m² Üretim Tesisi",
-                  "80+ Ülke İhracat",
-                  "CE / TSE / TÜV Sertifikalı",
-                  "ISO 9001:2015",
+                  pickText(lang, "16.000 m² Üretim Tesisi", "16,000 m² Production Facility"),
+                  pickText(lang, "80+ Ülke İhracat", "Exports to 80+ countries"),
+                  pickText(lang, "CE / TSE / TÜV Sertifikalı", "CE / TSE / TÜV certified"),
+                  "ISO 9001:2015",   // evrensel standart adı — çevrilmez
                 ].map((chip) => (
                   <span
                     key={chip}
@@ -319,29 +325,42 @@ export default function B2BPage() {
       <section className="py-14 px-5 sm:px-6 lg:px-8">
         <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
           <p className="text-xs font-bold tracking-[0.18em] uppercase mb-3" style={{ color: accentInk(AMBER, d) }}>
-            Çalışma Modelleri
+            {pickText(lang, "Çalışma Modelleri", "Working models")}
           </p>
           <h2 className="text-2xl sm:text-3xl font-black leading-tight mb-3" style={{ color: text }}>
-            Fason, white-label ve toptan tedarik
+            {pickText(lang, "Fason, white-label ve toptan tedarik", "Contract manufacturing, white-label and wholesale supply")}
           </h2>
           <p className="text-sm sm:text-base leading-relaxed mb-6 max-w-3xl" style={{ color: muted }}>
-            Bemis E-V Charge bir <strong style={{ color: text }}>üretici ve imalatçı</strong>dır; ürünleri
-            ithal edip etiketlemez, Bursa Organize Sanayi Bölgesi&apos;ndeki kendi tesisinde üretir.
-            Bu yüzden kurumsal alıcılarla üç farklı modelde çalışabiliyoruz.
+            {/* ⚠️ Vurgu (<strong>) HER dilde korunur: cümle önek / vurgu / sonek
+                olarak ÜÇ parçaya bölündü. Tek parça pickText yapsaydım Türkçe
+                sayfadaki kalın vurgu kaybolurdu (görünür TR arayüzü sorulmadan
+                değiştirilmez). Türkçede ek "-dır" vurguya bitişiktir; diğer
+                dillerde sonek kendi dilbilgisine göre yazıldı. */}
+            {pickText(lang, "Bemis E-V Charge bir ", "Bemis E-V Charge is a ")}
+            <strong style={{ color: text }}>{pickText(lang, "üretici ve imalatçı", "manufacturer and producer")}</strong>
+            {pickText(lang,
+              "dır; ürünleri ithal edip etiketlemez, Bursa Organize Sanayi Bölgesi'ndeki kendi tesisinde üretir. Bu yüzden kurumsal alıcılarla üç farklı modelde çalışabiliyoruz.",
+              "; it does not import and relabel products — it manufactures them at its own facility in the Bursa Organised Industrial Zone. That is why we can work with corporate buyers under three different models.")}
           </p>
           <div className="grid sm:grid-cols-3 gap-4 mb-8">
             {[
               {
-                t: "Fason / OEM üretim",
-                x: "Ürünü sizin teknik şartnamenize göre üretiriz. Kablo kesiti ve uzunluğu, soket tipi, mahfaza rengi ve etiketleme talebinize göre belirlenir; mühendislik ekibimiz tasarımdan sertifikasyona kadar süreçte yer alır.",
+                t: pickText(lang, "Fason / OEM üretim", "Contract / OEM manufacturing"),
+                x: pickText(lang,
+                  "Ürünü sizin teknik şartnamenize göre üretiriz. Kablo kesiti ve uzunluğu, soket tipi, mahfaza rengi ve etiketleme talebinize göre belirlenir; mühendislik ekibimiz tasarımdan sertifikasyona kadar süreçte yer alır.",
+                  "We manufacture the product to your technical specification. Cable cross-section and length, socket type, enclosure colour and labelling are set according to your request; our engineering team is involved from design through to certification."),
               },
               {
-                t: "White-label etiketleme",
-                x: "Mevcut ürün ailemiz sizin markanızla etiketlenir. Ambalaj, kullanım kılavuzu ve ürün etiketi kendi marka kimliğinizle hazırlanır; üretim ve kalite kontrol bizde kalır.",
+                t: pickText(lang, "White-label etiketleme", "White-label labelling"),
+                x: pickText(lang,
+                  "Mevcut ürün ailemiz sizin markanızla etiketlenir. Ambalaj, kullanım kılavuzu ve ürün etiketi kendi marka kimliğinizle hazırlanır; üretim ve kalite kontrol bizde kalır.",
+                  "Our existing product family is labelled with your brand. Packaging, user manual and product label are prepared in your own brand identity; manufacturing and quality control stay with us."),
               },
               {
-                t: "Toptan tedarik",
-                x: "Standart katalog ürünlerinin toplu alımı. Elektrik malzemesi toptancıları, panocular, filo ve enerji firmaları için düzenli tedarik; sevkiyat Bursa'daki üretim tesisinden tek noktadan yönetilir.",
+                t: pickText(lang, "Toptan tedarik", "Wholesale supply"),
+                x: pickText(lang,
+                  "Standart katalog ürünlerinin toplu alımı. Elektrik malzemesi toptancıları, panocular, filo ve enerji firmaları için düzenli tedarik; sevkiyat Bursa'daki üretim tesisinden tek noktadan yönetilir.",
+                  "Bulk purchasing of standard catalogue products. Regular supply for electrical wholesalers, switchboard manufacturers, fleet and energy companies; shipping is managed from a single point at our Bursa production facility."),
               },
             ].map((m) => (
               <div
@@ -356,17 +375,18 @@ export default function B2BPage() {
           </div>
 
           <h2 className="text-2xl sm:text-3xl font-black mb-4" style={{ color: text }}>
-            Kurumsal alım soruları
+            {pickText(lang, "Kurumsal alım soruları", "Corporate purchasing questions")}
           </h2>
           <div className="grid md:grid-cols-2 gap-4">
-            {B2B_FAQ.map((f, i) => (
+            {/* GÖRÜNÜR SSS dile duyarlı (B2B_SSS); ŞEMA kanonik TR (B2B_FAQ). */}
+            {B2B_SSS.map((f, i) => (
               <div
                 key={i}
                 className="rounded-2xl p-5"
                 style={{ background: d ? "rgba(255,255,255,0.04)" : "#ffffff", border: `1px solid ${d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)"}` }}
               >
-                <h3 className="text-sm font-bold mb-2" style={{ color: text }}>{f.q}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: muted }}>{f.a}</p>
+                <h3 className="text-sm font-bold mb-2" style={{ color: text }}>{pickText(lang, f.q.tr, f.q.en)}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: muted }}>{pickText(lang, f.a.tr, f.a.en)}</p>
               </div>
             ))}
           </div>

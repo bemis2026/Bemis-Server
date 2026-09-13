@@ -172,7 +172,6 @@ const GORUNUR_MUAF = new Map<string, string>([
   ["export/ExportLandingClient.tsx", "ülke adı (Türkiye / Europe)"],
   ["[lang]/ArLandingClient.tsx", "Arapça cümle içinde resmî unvan"],
   ["[lang]/middle-east/OrtadoguClient.tsx", "Arapça sayfa — gövde metni Arapça yazıldı (Körfez/Mısır kolu)"],
-  ["b2b/page.tsx", "⏳ AÇIK: statik çerçeve (≈12 birim) henüz çevrilmedi — CMS içeriği 7 dilde, çerçeve TR. Ticari dil kararı kullanıcıda (2026-09-13)."],
 ]);
 
 /** Yorumları boşlukla doldurur — satır numaraları korunur. */
@@ -186,6 +185,7 @@ function yorumBosalt(s: string): string {
 // (5) TEKİL görünür-metin muafiyeti — gerekçesiz satır EKLEME.
 const GORUNUR_TEKIL_MUAF = new Map<string, string>([
   ["kurumsal/page.tsx|EST. · Bursa · Türkiye", "kısaltma + yer adları — çevrilecek sözcük yok"],
+  ["b2b/page.tsx|Görsel admin → DNA → Üretim Görseli alanından yüklendiğinde burada görünecek.", "admin boş-durum yer tutucusu — ziyaretçiye render edilmez"],
 ]);
 // (5) EVRENSEL GÖRÜNÜR METİN — çevrilecek sözcük YOK (marka · birim · kısaltma).
 //     ⚠️ Gerekçesiz satır EKLEME. Ters mantıkta her ham JSX metni bulgudur;
