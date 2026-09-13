@@ -108,8 +108,13 @@ Sitede gömülü iki resmi video var; ikisi de Bemis Teknik Elektrik A.Ş. YouTu
 
 ## Diller
 
-Site içeriği 7 dilde sunulur. Ürün ve kategori sayfalarının kendi adresleri vardır; her adres
+Site içeriği 7 dilde sunulur. Ürün ve kategori sayfalarının, ayrıca iki ARAÇ sayfasının
+(şarj süresi hesaplayıcı ve araç şarj uyumluluğu) her dilde kendi adresi vardır; her adres
 kendi dilinde başlık, açıklama ve SSS içerir (hreflang ile karşılıklı bağlıdır).
+
+Araçlar (Türkçe adresler; /en /de /es /ru /nl /ar önekiyle aynı sayfalar):
+- Şarj süresi hesaplayıcı: https://www.bemisevcharge.com.tr/sarj-suresi-hesaplama
+- Araç şarj uyumluluğu: https://www.bemisevcharge.com.tr/arac-sarj-uyumlulugu
 
 - Türkçe (ana): https://www.bemisevcharge.com.tr/products
 - English: https://www.bemisevcharge.com.tr/en/products

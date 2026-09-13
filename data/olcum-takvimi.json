@@ -122,6 +122,14 @@
       "hedef": "BAE 7 oturumun ÜSTÜ; Suudi/Katar/Kuveyt/Bahreyn/Umman/Mısır 0'dan çıkmış olmalı; /ar ve /ar/middle-east GSC'de gösterim almalı",
       "nasil": "Taban: scripts/seo-baselines/korfez-2026-09-09.json (GA, 90 gün) + gsc-korfez-2026-09-09.json. AYNI GA sorgusunu tekrarla (ülke kırılımı) + GSC → Performans → Ülkeler. ⚠️ Arapça kolun tamamı 9 Eylül'de yayına girdi; 4 haftadan önce anlamlı sonuç beklenmez.",
       "durum": "acik"
+    },
+    {
+      "tarih": "2026-10-13",
+      "is": "İki araç sayfası 6 dile açıldı — hesaplayıcı + araç uyumluluğu (2026-09-13)",
+      "olcum": "12 yeni adres indekslendi mi, gösterim alıyor mu; hangi dil kolu çalışıyor",
+      "hedef": "GSC → Sayfalar'da /en /de /es /ru /nl /ar araç sayfaları görünür; en az bir dil kolunda gösterim > 0",
+      "nasil": "GSC → Performans → Sayfalar filtresi '/sarj-suresi-hesaplama' ve '/arac-sarj-uyumlulugu'. ⚠️ hreflang kümesi 7'li: Google yanlış dili gösteriyorsa küme karşılıklılığını kontrol et. ⚠️ 1 aydan önce anlamlı sonuç beklenmez (sayfalar 13 Eylül'de yayına girdi).",
+      "durum": "acik"
     }
   ]
 }
