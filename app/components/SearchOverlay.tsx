@@ -62,10 +62,13 @@ export default function SearchOverlay({ isOpen, onClose }: Props) {
     if (!isOpen) return;
     if (fetchedLangRef.current === lang) return;
     fetchedLangRef.current = lang;
+    // ⚠️ BAYAT YANIT KORUMASI — bkz. operator/page.tsx notu (2026-09-13).
+    let iptal = false;
     fetch(`/api/products?lang=${lang}`)
       .then(r => (r.ok ? r.json() : []))
-      .then((d: unknown) => setCategories(Array.isArray(d) ? d as Category[] : []))
+      .then((d: unknown) => { if (!iptal) setCategories(Array.isArray(d) ? d as Category[] : []); })
       .catch(() => {});
+    return () => { iptal = true; };
   }, [isOpen, lang]);
 
   const allResults: SearchResult[] = useMemo(() => {

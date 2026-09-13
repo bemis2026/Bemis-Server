@@ -61,14 +61,21 @@ export default function OperatorPage() {
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
+    // ⚠️ BAYAT YANIT KORUMASI: dil önce "tr", localStorage okununca "de" olur →
+    //    efekt iki kez çalışır, İKİ istek uçuşa kalkar. Koruma yoksa GEÇ DÖNEN
+    //    yazar ve Almanca sayfada Türkçe CMS metni kalır (2026-09-13 canlı ölçüm).
+    let iptal = false;
     fetch(`/api/b2b?lang=${lang}`).then(r => r.json()).then((data) => {
+      if (iptal) return;
       if (data?.operator) setCms(data.operator);
     }).catch(() => {});
     // ⚠️ DİL ŞART: dilsiz çekilince Almanca sayfada ürün adları TÜRKÇE geliyordu
     //    (2026-09-13 tarayıcı ölçümü: 28 Türkçe parça). Efekt [lang]e bağlı.
     fetch(`/api/products?lang=${lang}`).then(r => r.json()).then((data: Category[]) => {
+      if (iptal) return;
       setCategories(Array.isArray(data) ? data : []);
     }).catch(() => {});
+    return () => { iptal = true; };
   }, [lang]);
 
   const bg      = d ? "#131318" : "#f8f8fb";

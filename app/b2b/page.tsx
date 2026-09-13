@@ -101,12 +101,17 @@ export default function B2BPage() {
   const AMBER     = "#F59E0B";
 
   useEffect(() => {
+    // ⚠️ BAYAT YANIT KORUMASI — bkz. operator/page.tsx notu (2026-09-13).
+    let iptal = false;
     fetch(`/api/products?lang=${lang}`).then(r => r.json()).then((data: Category[]) => {
+      if (iptal) return;
       setCategories(Array.isArray(data) ? data : []);
     }).catch(() => {});
     fetch(`/api/b2b?lang=${lang}`).then(r => r.json()).then((data: B2BData) => {
+      if (iptal) return;
       if (data?.hero) setB2bData(data);
     }).catch(() => {});
+    return () => { iptal = true; };
   }, [lang]);
 
   // Admin panel live preview — receive postMessage from parent iframe

@@ -142,9 +142,13 @@ export default function BayilikPage() {
   const [tab, setTab] = useState<"tr" | "intl">("tr");
 
   useEffect(() => {
+    // ⚠️ BAYAT YANIT KORUMASI — bkz. operator/page.tsx notu (2026-09-13).
+    let iptal = false;
     fetch(`/api/b2b?lang=${lang}`).then(r => r.json()).then((data) => {
+      if (iptal) return;
       if (data?.bayilik) setCms(data.bayilik);
     }).catch(() => {});
+    return () => { iptal = true; };
   }, [lang]);
 
   const bg     = d ? "#131318" : "#f8f8fb";

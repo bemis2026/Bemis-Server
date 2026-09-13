@@ -167,12 +167,15 @@ export default function ProductCategoryPage({
       return;
     }
     isFirstMount.current = false;
+    // ⚠️ BAYAT YANIT KORUMASI — bkz. operator/page.tsx notu (2026-09-13).
+    let iptal = false;
     setLoading(true);
     fetch(`/api/products?lang=${lang}`)
       .then(r => r.json())
-      .then((data: CategoryData[]) => setCategory(data.find(c => c.id === id) ?? null))
-      .catch(() => setCategory(null))
-      .finally(() => setLoading(false));
+      .then((data: CategoryData[]) => { if (!iptal) setCategory(data.find(c => c.id === id) ?? null); })
+      .catch(() => { if (!iptal) setCategory(null); })
+      .finally(() => { if (!iptal) setLoading(false); });
+    return () => { iptal = true; };
   }, [id, lang, initialCategory, initialLang]);
 
   const bg            = d ? "#131318" : "#f8f8fb";

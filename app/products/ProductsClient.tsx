@@ -227,10 +227,13 @@ export default function AllProductsPage({ initialCategories = [], initialLang = 
       return;
     }
     isFirstMount.current = false;
+    // ⚠️ BAYAT YANIT KORUMASI — bkz. operator/page.tsx notu (2026-09-13).
+    let iptal = false;
     setLoading(true);
     fetch(`/api/products?lang=${lang}`)
       .then((r) => r.json())
       .then((data: CategoryData[]) => {
+        if (iptal) return;
         const merged = data.map((cat) => ({
           ...cat,
           sliderImage: catMeta[cat.id]?.sliderImage,
@@ -238,7 +241,8 @@ export default function AllProductsPage({ initialCategories = [], initialLang = 
         setCategories(merged);
       })
       .catch(() => {})
-      .finally(() => setLoading(false));
+      .finally(() => { if (!iptal) setLoading(false); });
+    return () => { iptal = true; };
   }, [catMeta, lang, initialCategories, initialLang]);
 
   const bg           = d ? "linear-gradient(180deg, #0c0c0e 0%, #0f0f11 100%)" : "#f8f8fb";

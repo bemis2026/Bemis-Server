@@ -62,10 +62,13 @@ export default function FeaturedProducts() {
   const [hovered, setHovered] = useState<string | null>(null);
 
   useEffect(() => {
+    // ⚠️ BAYAT YANIT KORUMASI — bkz. operator/page.tsx notu (2026-09-13).
+    let iptal = false;
     fetch(`/api/products?lang=${lang}`)
       .then((r) => r.json())
-      .then(setAllProducts)
+      .then((d) => { if (!iptal) setAllProducts(d); })
       .catch(() => {});
+    return () => { iptal = true; };
   }, [lang]);
 
   const BLUE        = "#3B82F6";

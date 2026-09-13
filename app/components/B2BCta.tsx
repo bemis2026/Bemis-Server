@@ -46,9 +46,13 @@ export default function B2BCta() {
   const hasBg = !!sectionBgUrl;
 
   useEffect(() => {
+    // ⚠️ BAYAT YANIT KORUMASI — bkz. operator/page.tsx notu (2026-09-13).
+    let iptal = false;
     fetch(`/api/b2b?lang=${lang}`).then(r => r.json()).then(data => {
+      if (iptal) return;
       if (data?.cta) setCta(data.cta);
     }).catch(() => {});
+    return () => { iptal = true; };
   }, [lang]);
 
   const channels = (cta.channels ?? DEFAULT_CTA.channels).map((ch, i) => ({

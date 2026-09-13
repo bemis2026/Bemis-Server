@@ -65,6 +65,38 @@
 > sayfada ürün adları/açıklamaları TÜRKÇE geliyordu (tarayıcı ölçümü: **28 Türkçe parça**).
 > `?lang=${lang}` eklendi; efekt zaten `[lang]`e bağlıydı. 📌 Çok dilli bir sayfada **her**
 > veri çağrısına dil parametresi geçir — biri atlanırsa sayfa yarı Türkçe kalır.
+> **🏁🔴 YOL ÜSTÜNDE BULUNAN ASIL SINIF KUSURU — BAYAT YANIT YARIŞI (2026-09-13):**
+> ASCII düzeltmesini canlıda doğrularken Almanca `/operator`'da **H1 ve hero paragrafı
+> HÂLÂ TÜRKÇE** çıktı. Ama `/api/b2b?lang=de` **doğru Almanca dönüyordu** ("Ihr Ladenetz").
+> Yani veri doğru, ekran yanlış.
+>
+> **🔬 KÖK NEDEN (ağ kaydıyla kanıtlandı):** dil bağlamı ilk render'da **"tr"**, localStorage
+> okunduktan sonra **"de"** olur → `useEffect` İKİ KEZ çalışır ve **`?lang=tr` ile `?lang=de`
+> istekleri BİRLİKTE uçuşa kalkar** (Playwright ağ kaydı ikisini de gösterdi). İptal koruması
+> olmadığı için **GEÇ DÖNEN yanıt state'i yazar** → yabancı dil sayfasında Türkçe CMS metni.
+> ⚠️ **RASTGELE**: hangi yanıtın önce döneceği CDN önbelleğine bağlı → kusur bazen görünür,
+> bazen görünmez. "Bir yenileyince düzeliyor" şikâyetlerinin sınıfı büyük olasılıkla budur.
+>
+> **📏 ÖLÇÜM (`scratchpad/_yaris_olcum.mts`): 12 dil-parametreli fetch'in 11'i KORUMASIZDI.**
+> Tek korumalı olan `ContentContext` (AbortController). Koruma deseni depoda ZATEN vardı
+> (`Navbar` · `CurrencyContext` · `GlossaryClient`: `let iptal = false` + cleanup) ama
+> dil çekimlerine hiç uygulanmamıştı.
+> ✅ **9 DOSYADA KAPATILDI → 12/12 korumalı:** `/operator` (2 çekim) · `/b2b` (2) · `/bayilik` ·
+> `B2BCta` · `FeaturedProducts` · `SearchOverlay` · `ProductsClient` · `ProductCategoryClient` ·
+> `ProductDetailClient`. Desen: `let iptal = false` → `if (iptal) return` → `return () => { iptal = true; }`
+> (yükleme bayrağı da korundu: `.finally(() => { if (!iptal) setLoading(false); })`).
+> ⓘ Üç ürün istemcisinde `isFirstMount` zaten ilk çekimi atlıyordu (çift istek YOK); koruma
+> yine de eklendi — ziyaretçi dili hızlı değiştirirse aynı yarış orada da doğar.
+>
+> **📌 KALICI KURAL: `fetch(...?lang=${lang})` yazan her efekte iptal koruması ZORUNLU.**
+> Dil bağlamı SSR'da daima "tr" başlar; koruma yoksa o ilk Türkçe istek yarışı kazanabilir.
+> Denetim: `npx tsx scratchpad/_yaris_olcum.mts` → "KORUMASIZ : 0" beklenir.
+>
+> **⚠️ BU TURDA KENDİ KAYITLI DERSİMİ ÇİĞNEDİM:** yama betiğini düzeltmek için `python - <<PY`
+> heredoc'u kullandım ve **`\r\n` kaçışları yine yutuldu** (betik bozuldu). Kayıtlı kural:
+> **Python/Node betiğini heredoc'la YAZMA — Write ile dosyaya yaz, Bash ile çalıştır.**
+> v2 betiği ayrıca **satır sonu duyarsız** (dosyanın kendi CRLF/LF biçimine çevirir) ve
+> **zaten uygulanmış yamayı ATLAR** → yarıda kalan turda güvenle yeniden çalıştırılabilir.
 > **🔴🔴 BEKÇİNİN İKİNCİ KÖR NOKTASI — SAF ASCII TÜRKÇE (2026-09-13, canlı ölçümle bulundu):**
 > Kesme hatası düzeltildikten SONRA Almanca `/operator` yeniden ölçüldü ve ekranda hâlâ
 > **"OCPP Destekli Fonksiyonlar"** duruyordu. Sebep: 5. sınıf Türkçeyi **HARFLE** arıyordu
