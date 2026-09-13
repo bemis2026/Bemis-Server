@@ -77,9 +77,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/destek`, lastModified: gt("/destek"), changeFrequency: "monthly", priority: 0.6 },
     // Araç uyumluluk rehberi — "Togg'a hangi şarj kablosu" gibi model bazlı
     // aramaların hedefi (2026-08-03). Bkz. app/lib/vehicleCharging.ts
-    { url: `${BASE}/arac-sarj-uyumlulugu`, lastModified: gt("/arac-sarj-uyumlulugu"), changeFrequency: "monthly", priority: 0.8 },
+    // ⚠️ 2026-09-13: bu iki ARAÇ sayfasının Arapça sürümü açıldı → hreflang
+    //    kümesi KARŞILIKLI verilir (tr ↔ ar), ayrıca /ar girişleri eklendi.
+    { url: `${BASE}/arac-sarj-uyumlulugu`, lastModified: gt("/arac-sarj-uyumlulugu"), changeFrequency: "monthly", priority: 0.8, alternates: { languages: { tr: `${BASE}/arac-sarj-uyumlulugu`, ar: `${BASE}/ar/arac-sarj-uyumlulugu` } } },
+    { url: `${BASE}/ar/arac-sarj-uyumlulugu`, lastModified: gt("/arac-sarj-uyumlulugu"), changeFrequency: "monthly", priority: 0.75, alternates: { languages: { tr: `${BASE}/arac-sarj-uyumlulugu`, ar: `${BASE}/ar/arac-sarj-uyumlulugu` } } },
     // Şarj süresi hesaplama — "kaç saatte şarj olur" gibi ARAÇ ARAYAN sorguların hedefi (2026-09-12).
-    { url: `${BASE}/sarj-suresi-hesaplama`, lastModified: gt("/sarj-suresi-hesaplama"), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/sarj-suresi-hesaplama`, lastModified: gt("/sarj-suresi-hesaplama"), changeFrequency: "monthly", priority: 0.8, alternates: { languages: { tr: `${BASE}/sarj-suresi-hesaplama`, ar: `${BASE}/ar/sarj-suresi-hesaplama` } } },
+    { url: `${BASE}/ar/sarj-suresi-hesaplama`, lastModified: gt("/sarj-suresi-hesaplama"), changeFrequency: "monthly", priority: 0.75, alternates: { languages: { tr: `${BASE}/sarj-suresi-hesaplama`, ar: `${BASE}/ar/sarj-suresi-hesaplama` } } },
     // Kullanıcı paylaşımları (Instagram gömme) — içerik CMS'ten gelir.
     { url: `${BASE}/musteri-videolari`, lastModified: icerikT, changeFrequency: "weekly", priority: 0.6 },
   ];

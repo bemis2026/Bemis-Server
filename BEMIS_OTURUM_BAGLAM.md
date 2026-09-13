@@ -13,6 +13,67 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🕌🧰 **ORTA DOĞU KAPSAM DENETİMİ + 2 ARAÇ SAYFASI ARAPÇA KOLA AÇILDI (2026-09-13):**
+> Kullanıcı: *"son yaptığımız tüm seo geo ve genel bulunabilirlik çalışmalarını orta doğu hedefimiz
+> için de uyguladık mı?"* → **ölçüldü, hafızadan cevaplanmadı.**
+>
+> **✅ DİLE DUYARSIZ HER İŞ ARAPÇA KOLA GEÇMİŞ — canlı 25/25** (`scratchpad/_ar_kapsam_denetim.cjs`):
+> GEO cevap blokları 8/8 Arapça + FAQPage · GEO bloğunun **ürün ızgarasının ALTINDA** olması
+> (12 Eylül taşıması) · `isVariantOf`/`ProductGroup` + `countryOfOrigin` · Google puanı **5.0/27** ·
+> kategori SSS **54 soru** · **blog 42/42** Arapça adreste · ürün **159/159** · sözlük 16/16 ·
+> sitemap **220 `/ar` + 1.234 ar alternate** · llms.txt Arapça bölümü · bu oturumun 31 arayüz
+> çevirisi (Arapça sayfalarda **61 öznitelikte Türkçe kalıntı 0**).
+>
+> **🔴 EKSİK OLAN: TR'de olup Arapçada olmayan 14 yüzey** (`_ar_bosluk_denetim.cjs`). Üç grup:
+> **(a) 10 Eylül'de KULLANICI KARARIYLA kapalı 4 sayfa** (`/destek` `/uretici` `/iletisim`
+> `/documents`) — 📌 **tekrar gündeme getirme**, gerekçesi kayıtlı.
+> **(b) Orta Doğu için anlamsız:** Bursa şehir sayfaları · KVKK/çerez · `/export` (zaten İngilizce)
+> · `/musteri-videolari` (içerik gerçek Türkçe Instagram metinleri).
+> **(c) O karardan SONRA doğmuş, hiç değerlendirilmemiş 2 ARAÇ sayfası** → kullanıcı **"ikisi de
+> açılsın"** dedi ve açıldı.
+>
+> **YENİ ROTALAR:** `/ar/sarj-suresi-hesaplama` (WebApplication + Breadcrumb, Arapça) ·
+> `/ar/arac-sarj-uyumlulugu` (FAQPage 6 soru + Breadcrumb, Arapça).
+> **📌 HESAPLAYICIDA BİLEŞENE HİÇ DOKUNULMADI:** `HesapClient` zaten `pickText`, `Calculator`
+> `useUiStrings` → ui.json; `/ar` yolunda **`forcedLangForPath()`** dili "ar"a sabitlediği için sayfa
+> kendiliğinden Arapça render ediliyor. Yeni sayfa = yalnız metadata + şema + rota.
+> **📌 ARAÇ UYUMLULUĞUNDA `VehicleChargingClient` 0 pickText taşıyordu** (tamamı sabit Türkçe) →
+> bileşene **opsiyonel `icerik` propu** eklendi: prop yoksa bugünkü Türkçe çıktı **BİREBİR** korunur
+> (satır-içi `<strong>` taşıyan 3 blok TR JSX'i olarak aynen bırakıldı, Arapça için düz metin dalı).
+> Arapça metinler `app/[lang]/arac-sarj-uyumlulugu/arIcerik.ts` — sitedeki mevcut Arapça deseni
+> (`arIcerik.ts` · `ortadoguIcerik.ts`) ile aynı.
+> ⚠️ **`AR_SSS` TEK KAYNAK** (görünen SSS + FAQPage şeması) · **iç bağlantılar Arapça kolda kalır**
+> (`/ar/products/...`; bayi ve iletişim Arapça karşılığı olmadığı için **`/ar`** giriş sayfasına —
+> o sayfa ihracat iletişimi + teklif formunu zaten taşıyor) · **araç notu ada göre eşlenir**, Arapça
+> karşılığı olmayan araçta not BASILMAZ (TR notu sızmaz) · **sayılar Latin rakamla** · **uydurma spec
+> yok** (tablo `lib/vehicleCharging.ts`'ten, kaynağı kayıtlı) · **RTL:** `text-left` → `text-start`.
+> **⚠️ YETİM BIRAKILMADI:** `/ar` giriş sayfasına iki kart hâlinde taranabilir iç link (mevcut
+> "Körfez + Mısır" bandıyla AYNI desen). Sitemap'e 2 AR girişi + **KARŞILIKLI hreflang** — TR
+> sayfalarının metadata'sına da `ar` alternatifi eklendi (tek yönlü küme Google'da karşılıklılık
+> hatası üretir).
+> **⚠️ ROTA KURALI (yine):** dosyalar `app/[lang]/` altında; **`app/ar/...` STATİK segment AÇILMADI**
+> — dinamik `[lang]` kolunu gölgeler ve `/ar/products`'taki 159 sayfayı kırar. Bu dizinlere
+> `layout.tsx` da konmadı.
+>
+> **🔴 ÜRETİLEN HTML ÖLÇÜLDÜ, BİR SIZINTI YAKALANDI:** `/ar/sarj-suresi-hesaplama` çıktısında
+> hesaplayıcının **ürün öneri bağlantısı** `/products/wallbox/...` (TÜRKÇE rota) veriyordu —
+> oysa o ürünün Arapça adresi VAR. `Calculator`'daki `UrunOnerisi` artık `forcedLangForPath`
+> ile dil önekini alıyor (TR'de önek boş → adres birebir aynı, anasayfa davranışı değişmedi).
+> **ⓘ Footer'daki `/b2b · /bayilik · /destek · /documents · /kurumsal · /uretici` bağlantıları
+> TR'de KALIYOR — bu YENİ değil, `/ar/middle-east` ve `/ar/sozluk`'ta da aynı; o sayfaların
+> Arapça karşılığı olmadığı için bilerek böyle (kayıtlı karar).**
+> **ⓘ Görünür gövdedeki Türkçe: 19 harf** — üçü menü etiketi (bilinen SSR kabuk sınırı), gerisi
+> kanonik NAP (resmî unvan + adres). `/ar/sozluk` ile AYNI; yeni sızıntı yok.
+> **📅 KAPATILAN AYRI EKSİK:** 9 Eylül'de Körfez için GA + GSC **taban çizgisi alınmış ama takvimde
+> onu okuyacak kontrol noktası YOKTU** (ölçüm alınmış, karşılaştırması planlanmamış). **10 Ekim**
+> eklendi: hedef BAE 7 oturumun üstü; Suudi/Katar/Kuveyt/Bahreyn/Umman/Mısır 0'dan çıkmalı.
+> Taban: `scripts/seo-baselines/korfez-2026-09-09.json` + `gsc-korfez-2026-09-09.json`.
+> ⚠️ **DÜRÜST ÇERÇEVE:** Arapça kolun tamamı 9 Eylül'de yayına girdi (4 günlük) — on-site tarafta
+> eksik yok; Körfez'de asıl darboğaz **off-site** (distribütör/yerel adres/Arapça referans yok),
+> o ticari karar, kod işi değil.
+
+
+
 > 🔌✅ **GITHUB MCP BAĞLANTISI ÇÖZÜLDÜ — EKLENTİ HATASI DEĞİL, EKSİK TOKEN (2026-09-13):**
 > `plugin:github:github` aylardır **400 "Authorization header is badly formatted"** veriyordu.
 > Sebep ölçüldü: eklenti `Authorization: Bearer ${GITHUB_PERSONAL_ACCESS_TOKEN}` gönderiyor

@@ -234,6 +234,41 @@ export default function ArLandingClient({ kategoriler }: { kategoriler: Kategori
               الخليج والشرق الأوسط <RiArrowLeftLine size={13} />
             </span>
           </Link>
+
+          {/* ⚠️ İKİ ARAÇ SAYFASI (2026-09-13) — sitemap'ten başka girişi olmazsa
+              YETİM kalırlar. Aynı kart deseni, yeni tasarım dili üretilmedi. */}
+          <div className="grid sm:grid-cols-2 gap-4 mt-4">
+            <Link href="/ar/arac-sarj-uyumlulugu"
+                  className="block rounded-2xl p-5 cursor-pointer transition-transform hover:-translate-y-0.5"
+                  style={cardStyle}>
+              <h2 className="text-base font-semibold mb-1.5" style={{ color: textPrimary }}>
+                أي شاحن يناسب سيارتك؟
+              </h2>
+              <p className="text-sm leading-relaxed" style={{ color: textMuted }}>
+                جدول توافق الشحن المتناوب لطُرز Togg وIONIQ 5 وTesla وBYD وMG وRenault:
+                قدرة الشاحن الداخلي وما يناسبها من أجهزة وكابلات.
+              </p>
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold mt-3"
+                    style={{ color: d ? "#93C5FD" : BLUE }}>
+                توافق المركبات <RiArrowLeftLine size={13} />
+              </span>
+            </Link>
+            <Link href="/ar/sarj-suresi-hesaplama"
+                  className="block rounded-2xl p-5 cursor-pointer transition-transform hover:-translate-y-0.5"
+                  style={cardStyle}>
+              <h2 className="text-base font-semibold mb-1.5" style={{ color: textPrimary }}>
+                كم يستغرق شحن سيارتك؟
+              </h2>
+              <p className="text-sm leading-relaxed" style={{ color: textMuted }}>
+                حاسبة تعطيك المدة التقديرية والتكلفة لكل كيلومتر بحسب سعة البطارية
+                وقدرة الشاحن الداخلي ودرجة التيار.
+              </p>
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold mt-3"
+                    style={{ color: d ? "#93C5FD" : BLUE }}>
+                حاسبة مدة الشحن <RiArrowLeftLine size={13} />
+              </span>
+            </Link>
+          </div>
         </div>
       </section>
 

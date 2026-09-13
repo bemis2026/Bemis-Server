@@ -15,10 +15,57 @@ import ContactBar from "./ContactBar";
 import Footer from "./Footer";
 import { VEHICLES, INSTALL_GUIDE, VEHICLE_FAQ } from "../lib/vehicleCharging";
 
+/**
+ * Sayfanın METİNLERİ. Prop GEÇİLMEZSE Türkçe sayfa bugünkü hâliyle render
+ * edilir; Arapça kol (`/ar/arac-sarj-uyumlulugu`) kendi metinlerini geçer.
+ * ⚠️ Araç tablosunun SAYISAL değerleri buradan GELMEZ — `lib/vehicleCharging`
+ *    tek kaynaktır (kaynağı kayıtlı, uydurma spec yok). Burada yalnız metin.
+ */
+export type UyumlulukIcerik = {
+  rozet: string; h1: string; giris: string;
+  ctaUrunler: string; ctaKablolar: string;
+  kuralVurgu: string; kuralMetin: string;
+  tabloBaslik: string; sutunlar: [string, string, string, string];
+  oneri66: string; oneriDiger: string;
+  /** Araç adı → not. Burada olmayan araç NOTSUZ basılır (TR notu sızmaz). */
+  notlar?: Record<string, string>;
+  kaynakNotu: string; tesisatBaslik: string;
+  rehber: { title: string; body: string; product: string }[];
+  sssBaslik: string; sss: { q: string; a: string }[];
+  kapanisBaslik: string; kapanisMetin: string;
+  ctaBayi: string; ctaIletisim: string;
+  linkler: { wallbox: string; cables: string; bayi: string; iletisim: string };
+};
+
+const TR_ICERIK: UyumlulukIcerik = {
+  rozet: "Araç Uyumluluğu",
+  h1: "Hangi Araca Hangi Şarj Cihazı ve Kablosu?",
+  giris: "",            // TR'de satır-içi <strong>'lu JSX kullanılır
+  ctaUrunler: "Şarj Cihazlarını İncele",
+  ctaKablolar: "Şarj Kabloları",
+  kuralVurgu: "", kuralMetin: "",   // TR'de satır-içi JSX
+  tabloBaslik: "Araç modellerine göre AC şarj gücü",
+  sutunlar: ["Araç", "AC soketi", "Aracın dahili AC gücü", "Önerilen Bemis ürünü"],
+  oneri66: "Charger 2 (32A tek faz) veya taşınabilir Mono Mobile",
+  oneriDiger: "Charger 2 / Charger Plus 2 · 32A · Type 2 şarj kablosu",
+  kaynakNotu: "",       // TR'de satır-içi JSX (tipografik kesme işareti)
+  tesisatBaslik: "Evinizin tesisatına göre ne alınmalı?",
+  rehber: INSTALL_GUIDE,
+  sssBaslik: "Sıkça Sorulan Sorular",
+  sss: VEHICLE_FAQ,
+  kapanisBaslik: "Aracınıza uygun modeli birlikte belirleyelim",
+  kapanisMetin: "",     // TR'de satır-içi JSX
+  ctaBayi: "Size En Yakın Bayi",
+  ctaIletisim: "Bize Ulaşın",
+  linkler: { wallbox: "/products/wallbox", cables: "/products/cables", bayi: "/#dealer", iletisim: "/iletisim" },
+};
+
 const BLUE = "#3B82F6";
 const VIEWPORT = { once: true, margin: "-60px" } as const;
 
-export default function VehicleChargingClient() {
+export default function VehicleChargingClient({ icerik }: { icerik?: UyumlulukIcerik }) {
+  const c = icerik ?? TR_ICERIK;
+  const ar = !!icerik;   // Arapça kol: satır-içi <strong>'lu TR blokları yerine düz metin
   const { theme } = useTheme();
   const d = theme === "dark";
   const [searchOpen, setSearchOpen] = useState(false);
@@ -60,44 +107,46 @@ export default function VehicleChargingClient() {
             className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-full mb-4"
             style={{ background: d ? `${BLUE}18` : `${BLUE}10`, border: `1px solid ${BLUE}${d ? "35" : "25"}`, color: d ? "#93C5FD" : BLUE }}
           >
-            <RiCarLine size={14} /> Araç Uyumluluğu
+            <RiCarLine size={14} /> {c.rozet}
           </motion.span>
           <motion.h1
             initial={{ y: 16 }} animate={{ y: 0 }} transition={{ duration: 0.55, delay: 0.05 }}
             className="text-4xl sm:text-5xl lg:text-6xl font-black mb-4"
             style={{ color: textPrimary }}
           >
-            Hangi Araca Hangi Şarj Cihazı ve Kablosu?
+            {c.h1}
           </motion.h1>
           <motion.p
             initial={{ y: 14 }} animate={{ y: 0 }} transition={{ duration: 0.5, delay: 0.12 }}
             className="text-base leading-relaxed max-w-3xl mb-6"
             style={{ color: textMuted }}
           >
+            {ar ? c.giris : (<>
             Türkiye&apos;de satılan elektrikli otomobillerin tamamına yakını AC şarjda{" "}
             <strong style={{ color: textPrimary }}>Type 2</strong> soket kullanır — Togg, Hyundai,
             Tesla, BYD, MG ve Renault dahil. Yani doğru ürünü seçerken soket tipi değil,{" "}
             <strong style={{ color: textPrimary }}>aracınızın dahili şarj gücü</strong> ve{" "}
             <strong style={{ color: textPrimary }}>evinizin tesisatı</strong> belirleyicidir.
             Aşağıdaki tablo ikisini bir arada gösterir.
+            </>)}
           </motion.p>
           <motion.div
             initial={{ y: 12 }} animate={{ y: 0 }} transition={{ duration: 0.5, delay: 0.18 }}
             className="flex flex-wrap gap-3"
           >
             <Link
-              href="/products/wallbox"
+              href={c.linkler.wallbox}
               className="group inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02] hover:brightness-110 active:scale-95"
               style={{ background: BLUE, boxShadow: `0 6px 22px ${BLUE}45` }}
             >
-              Şarj Cihazlarını İncele <RiArrowRightLine size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+              {c.ctaUrunler} <RiArrowRightLine size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
             </Link>
             <Link
-              href="/products/cables"
+              href={c.linkler.cables}
               className="group inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:scale-[1.02] active:scale-95"
               style={{ color: textPrimary, background: surface, border: `1px solid ${border}` }}
             >
-              <RiPlugLine size={16} /> Şarj Kabloları
+              <RiPlugLine size={16} /> {c.ctaKablolar}
             </Link>
           </motion.div>
         </div>
@@ -113,10 +162,14 @@ export default function VehicleChargingClient() {
           >
             <RiInformationLine size={20} className="flex-shrink-0 mt-0.5" style={{ color: BLUE }} />
             <p className="text-sm leading-relaxed max-w-prose" style={{ color: textMuted }}>
+              {ar ? (<>
+              <strong style={{ color: textPrimary }}>{c.kuralVurgu}</strong>{" "}{c.kuralMetin}
+              </>) : (<>
               <strong style={{ color: textPrimary }}>Şarj hızını cihaz değil aracınız belirler.</strong>{" "}
               Dahili şarj ünitesi 11 kW olan bir araç, 22 kW&apos;lık bir cihaza bağlansa da 11 kW çeker.
               Bu yüzden &quot;en güçlü cihazı alayım&quot; yaklaşımı çoğu durumda gereksiz maliyettir —
               doğru seçim, aracınızın sınırı ile evinizin tesisatının kesişimidir.
+              </>)}
             </p>
           </motion.div>
         </div>
@@ -129,7 +182,7 @@ export default function VehicleChargingClient() {
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5 }}
             className="text-2xl font-black mb-3" style={{ color: textPrimary }}
           >
-            Araç modellerine göre AC şarj gücü
+            {c.tabloBaslik}
           </motion.h2>
           {accentLine}
           {/* ⚠️ Tablo dar ekranda KENDİ konteynerinde yatay kayar — sayfa gövdesi
@@ -139,8 +192,8 @@ export default function VehicleChargingClient() {
               <table className="w-full text-sm" style={{ borderCollapse: "collapse", minWidth: 640 }}>
                 <thead>
                   <tr style={{ background: d ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)" }}>
-                    {["Araç", "AC soketi", "Aracın dahili AC gücü", "Önerilen Bemis ürünü"].map((h) => (
-                      <th key={h} className="text-left font-bold px-4 py-3" style={{ color: textPrimary }}>{h}</th>
+                    {c.sutunlar.map((h) => (
+                      <th key={h} className="text-start font-bold px-4 py-3" style={{ color: textPrimary }}>{h}</th>
                     ))}
                   </tr>
                 </thead>
@@ -149,16 +202,14 @@ export default function VehicleChargingClient() {
                     <tr key={v.name} style={{ borderTop: `1px solid ${border}`, background: i % 2 ? (d ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.015)") : "transparent" }}>
                       <td className="px-4 py-3 font-bold align-top" style={{ color: textPrimary }}>
                         {v.name}
-                        {v.note && (
-                          <span className="block font-normal text-xs mt-1 max-w-xs" style={{ color: textFaint }}>{v.note}</span>
+                        {(c.notlar ? c.notlar[v.name] : v.note) && (
+                          <span className="block font-normal text-xs mt-1 max-w-xs" style={{ color: textFaint }}>{c.notlar ? c.notlar[v.name] : v.note}</span>
                         )}
                       </td>
                       <td className="px-4 py-3 align-top" style={{ color: textMuted }}>{v.acPort}</td>
                       <td className="px-4 py-3 align-top font-semibold" style={{ color: BLUE }}>{v.onboardAc}</td>
                       <td className="px-4 py-3 align-top" style={{ color: textMuted }}>
-                        {v.onboardAc.startsWith("6,6")
-                          ? "Charger 2 (32A tek faz) veya taşınabilir Mono Mobile"
-                          : "Charger 2 / Charger Plus 2 · 32A · Type 2 şarj kablosu"}
+                        {v.onboardAc.startsWith("6,6") ? c.oneri66 : c.oneriDiger}
                       </td>
                     </tr>
                   ))}
@@ -167,9 +218,11 @@ export default function VehicleChargingClient() {
             </div>
           </div>
           <p className="text-xs mt-3 leading-relaxed max-w-prose" style={{ color: textFaint }}>
+            {ar ? c.kaynakNotu : (<>
             Değerler EV Database&apos;deki model sayfalarından alınmıştır (Ağustos 2026). Aynı modelin farklı
             donanım paketlerinde ve model yıllarında dahili şarj gücü değişebilir; kesin değer için aracınızın
             kullanım kılavuzuna bakın. Listede olmayan bir aracınız varsa bize yazın, birlikte belirleyelim.
+            </>)}
           </p>
         </div>
       </section>
@@ -181,11 +234,11 @@ export default function VehicleChargingClient() {
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5 }}
             className="text-2xl font-black mb-3" style={{ color: textPrimary }}
           >
-            Evinizin tesisatına göre ne alınmalı?
+            {c.tesisatBaslik}
           </motion.h2>
           {accentLine}
           <div className="grid sm:grid-cols-3 gap-4">
-            {INSTALL_GUIDE.map((g, i) => (
+            {c.rehber.map((g, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT}
@@ -216,11 +269,11 @@ export default function VehicleChargingClient() {
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={VIEWPORT} transition={{ duration: 0.5 }}
             className="text-2xl font-black mb-3" style={{ color: textPrimary }}
           >
-            Sıkça Sorulan Sorular
+            {c.sssBaslik}
           </motion.h2>
           {accentLine}
           <div className="space-y-2">
-            {VEHICLE_FAQ.map((f, i) => {
+            {c.sss.map((f, i) => {
               const open = openFaq === i;
               return (
                 <div key={i} className="rounded-xl overflow-hidden" style={{ background: surface, border: `1px solid ${border}` }}>
@@ -262,27 +315,29 @@ export default function VehicleChargingClient() {
             style={{ background: `linear-gradient(135deg, ${BLUE}14 0%, transparent 100%)`, border: `1px solid ${BLUE}28` }}
           >
             <h2 className="text-xl sm:text-2xl font-black mb-2" style={{ color: textPrimary }}>
-              Aracınıza uygun modeli birlikte belirleyelim
+              {c.kapanisBaslik}
             </h2>
             <p className="text-sm leading-relaxed mb-5 max-w-2xl" style={{ color: textMuted }}>
+              {ar ? c.kapanisMetin : (<>
               Bemis E-V Charge, şarj cihazlarını ve Type 2 kablolarını Bursa&apos;daki kendi tesisinde üretir.
               Satış ve kurulum keşfi yetkili bayilerimiz üzerinden yürür; bayimiz tesisatınızı yerinde
               değerlendirip aracınıza uygun modeli ve kurulum maliyetini çıkarır.
+              </>)}
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
-                href="/#dealer"
+                href={c.linkler.bayi}
                 className="group inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02] hover:brightness-110 active:scale-95"
                 style={{ background: BLUE, boxShadow: `0 6px 22px ${BLUE}45` }}
               >
-                <RiStore2Line size={16} /> Size En Yakın Bayi
+                <RiStore2Line size={16} /> {c.ctaBayi}
               </Link>
               <Link
-                href="/iletisim"
+                href={c.linkler.iletisim}
                 className="group inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:scale-[1.02] active:scale-95"
                 style={{ color: textPrimary, background: surface, border: `1px solid ${border}` }}
               >
-                Bize Ulaşın <RiArrowRightLine size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+                {c.ctaIletisim} <RiArrowRightLine size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
               </Link>
             </div>
           </motion.div>

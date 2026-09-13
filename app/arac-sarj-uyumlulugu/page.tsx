@@ -21,7 +21,8 @@ const DESC =
 export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
-  alternates: { canonical: `/${SLUG}`, languages: { tr: `/${SLUG}`, "x-default": `/${SLUG}` } },
+  // ⚠️ 2026-09-13: Arapça sürüm açıldı → küme KARŞILIKLI.
+  alternates: { canonical: `/${SLUG}`, languages: { tr: `/${SLUG}`, ar: `/ar/${SLUG}`, "x-default": `/${SLUG}` } },
   keywords: [
     "hangi araca hangi şarj cihazı",
     "elektrikli araba şarj kablosu uyumluluğu",

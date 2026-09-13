@@ -1,5 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
+import { forcedLangForPath } from "../lib/languages";
 
 import { useState, useMemo, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
@@ -262,10 +263,14 @@ function UrunOnerisi({ d, accent, border, mode, power, t }: {
   mode: "ac" | "dc"; power: number; t: (k: UiStringKey) => string;
 }) {
   const urun = (mode === "ac" ? AC_URUN : DC_URUN)[power];
+  // ⚠️ Dil kolunda kal: /ar sayfasından TR ürün rotasına link VERME (o ürünün
+  //    Arapça adresi var). TR'de `forcedLangForPath` null → önek boş, adres aynı.
+  const dil = forcedLangForPath(usePathname());
+  const kok = dil && dil !== "tr" ? `/${dil}` : "";
   if (!urun) return null;
   return (
     <a
-      href={urun.href}
+      href={`${kok}${urun.href}`}
       className="flex items-center gap-3 mt-4 pt-4 group cursor-pointer"
       style={{ borderTop: `1px solid ${border}` }}
     >

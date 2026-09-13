@@ -19,7 +19,9 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: "/sarj-suresi-hesaplama",
-    languages: { tr: "/sarj-suresi-hesaplama", "x-default": "/sarj-suresi-hesaplama" },
+    // ⚠️ 2026-09-13: Arapça sürüm açıldı → küme KARŞILIKLI olmalı (tek yönlü
+    //    hreflang Google'da karşılıklılık hatası üretir).
+    languages: { tr: "/sarj-suresi-hesaplama", ar: "/ar/sarj-suresi-hesaplama", "x-default": "/sarj-suresi-hesaplama" },
   },
   openGraph: {
     title: "Elektrikli Araç Şarj Süresi Hesaplama | Bemis E-V Charge",
