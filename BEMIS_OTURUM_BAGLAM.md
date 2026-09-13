@@ -64,6 +64,16 @@
 > Arapça karşılığı olmadığı için bilerek böyle (kayıtlı karar).**
 > **ⓘ Görünür gövdedeki Türkçe: 19 harf** — üçü menü etiketi (bilinen SSR kabuk sınırı), gerisi
 > kanonik NAP (resmî unvan + adres). `/ar/sozluk` ile AYNI; yeni sızıntı yok.
+> **✅ CANLI DOĞRULANDI — 24/24** (`scratchpad/_ar_yeni_dogrula.cjs`): iki sayfa 200 · görünür gövde
+> Arapça (3.832 ve 1.781 karakter) · FAQPage / WebApplication şemaları · **hreflang karşılıklı**
+> (tr + ar, iki yönde) · canonical kendine · **TR ürün rotasına sızıntı 0** · iç linkler `/ar`
+> kolunda (13 ve 12) · `/ar` girişinden iki karta link · **TR sayfaları bozulmadı** (200 + Türkçe
+> render + ar alternatifi) · sitemap'te ikisi de.
+> Tarayıcı ölçümü: `dir=rtl` · `lang=ar` · tablo 7 satır Arapça başlıklarla · **araç notlarında
+> Türkçe 0** · hesaplayıcı öneri bağlantısı `/ar/products/...` · **yatay taşma 0** · kalan görünür
+> Türkçe yalnız kanonik NAP (adres + resmî unvan).
+> **📣 IndexNow:** 5 adres (2 yeni AR + hreflang'i değişen 2 TR eşi + `/ar`) → api.indexnow.org 200 ·
+> bing 200 · yandex `success:true`.
 > **📅 KAPATILAN AYRI EKSİK:** 9 Eylül'de Körfez için GA + GSC **taban çizgisi alınmış ama takvimde
 > onu okuyacak kontrol noktası YOKTU** (ölçüm alınmış, karşılaştırması planlanmamış). **10 Ekim**
 > eklendi: hedef BAE 7 oturumun üstü; Suudi/Katar/Kuveyt/Bahreyn/Umman/Mısır 0'dan çıkmalı.
