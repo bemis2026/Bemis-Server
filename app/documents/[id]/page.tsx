@@ -1,5 +1,6 @@
 "use client";
 import { byLang } from "../../lib/ui";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
@@ -50,13 +51,20 @@ export default function DocumentViewerPage() {
 
   // iOS Safari (ve dar ekran) iframe'de PDF'i gömülü göstermez → mobilde
   // gömülü görünüm yerine "Aç / İndir" odaklı kart gösterilir.
+  // ⚠️ KATLANABİLİR (2026-09-14): genişlik eşiği mount'ta BİR KEZ okunuyordu
+  // (`window.innerWidth < 820`). Katlanır telefon açılıp kapanırken sayfa
+  // yenilenmediği için karar DONUYORDU: Galaxy Fold kapakta (344px) açılan PDF,
+  // telefon açıldıktan (884px) sonra da dar-ekran kartında kalıyordu. Artık canlı.
+  // (iOS dalı AYNEN KALDI: iOS Safari PDF'i iframe'de göstermiyor — bu kural
+  //  ekran boyutundan bağımsız, iPhone Duo açıkken de geçerli.)
+  const darEkran = useMediaQuery("(max-width: 819.98px)");
   useEffect(() => {
     const ua = navigator.userAgent || "";
     const ios =
       /iPad|iPhone|iPod/.test(ua) ||
       (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-    setIsMobil(ios || window.innerWidth < 820);
-  }, []);
+    setIsMobil(ios || darEkran);
+  }, [darEkran]);
 
   useEffect(() => {
     let alive = true;

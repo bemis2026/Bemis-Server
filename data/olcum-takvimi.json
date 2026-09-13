@@ -147,6 +147,22 @@
       "hedef": "de/es/ar/ru/nl'de görünür ham Türkçe 0 (kanonik NAP hariç); FAQPage şeması 6 soruyla TÜRKÇE kalmalı (tek URL + TR canonical kararı) ve görünür SSS ile aynı 6 soruyu taşımalı.",
       "nasil": "npm run check:i18n (b2b artık muaf DEĞİL — temiz çıkmalı) · tarayıcıda localStorage lang=de/ar ile /b2b: başlıklar çevrili, <strong> vurgusu duruyor, yatay taşma 0 · Zengin Sonuç Testi'nde FAQPage 6 soru.",
       "durum": "acik"
+    },
+    {
+      "tarih": "2026-10-23",
+      "is": "Katlanabilir telefon uyumu — iPhone Duo (2026-09-14)",
+      "olcum": "iPhone Duo SATIŞA ÇIKTIĞINDA gerçek cihazda görünüm alanı + menü/modal davranışı",
+      "hedef": "CSS görünüm alanı beklenen bantta olmalı (kapak ~466×678, iç ekran ~890×626 — @3x'ten TÜRETİLDİ, doğrulanacak). Mobil menüde 'Ürünler' açıkken panel kaydırılabilir ve son öğe ('B2B Portal') erişilebilir olmalı. Modal/alt sayfa alt kenarı tarayıcı çubuğunun ALTINDA kalmamalı. Telefon açılıp kapanınca sayfa YENİLENMEDEN düzen güncellenmeli.",
+      "nasil": "Gerçek cihazda (ya da herhangi bir katlanabilirde) siteyi aç: (1) konsolda `innerWidth+'x'+innerHeight` — açık/kapalı iki değeri not et; (2) menü → Ürünler → dibe kaydır, 'B2B Portal' görünüyor mu; (3) bayi bölümünde Dünya sekmesi açıkken telefonu KAPAT-AÇ: 3D↔2D kendiliğinden değişiyor mu (elle 2D seçtiysen DEĞİŞMEMELİ); (4) ürün sayfasında 'Bayi Bul' alt sayfası ekrana sığıyor mu.",
+      "durum": "acik"
+    },
+    {
+      "tarih": "2026-11-14",
+      "is": "Katlanabilir trafiği — GA4 ekran ölçüsü (2026-09-14)",
+      "olcum": "Katlanabilir ölçülerinde (890×626 · 466×678 · 884×774 civarı) oturum var mı, davranışı nasıl",
+      "hedef": "Trafik varsa o ölçülerde hemen çıkma oranı site ortalamasından KÖTÜ olmamalı. Trafik yoksa sonuç 'henüz ölçülemez' yazılır — uydurma yorum yapılmaz.",
+      "nasil": "GA4 (ga-bemis) → Teknoloji → Ekran çözünürlüğü; yukarıdaki bantlardaki satırları süz, oturum + hemen çıkma oranını site ortalamasıyla karşılaştır.",
+      "durum": "acik"
     }
   ]
 }

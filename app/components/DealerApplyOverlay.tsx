@@ -204,7 +204,7 @@ export default function DealerApplyOverlay() {
             onClick={(e) => e.stopPropagation()}
             className="relative w-full max-w-xl mx-3 sm:mx-6 my-3 sm:my-6 rounded-2xl overflow-hidden"
             style={{
-              maxHeight: "calc(100vh - 24px)",
+              maxHeight: "calc(var(--gorunur-yukseklik) - 24px)",
               background: surface,
               border: `1px solid ${d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}`,
               boxShadow: d ? "0 24px 80px rgba(0,0,0,0.6)" : "0 24px 80px rgba(0,0,0,0.18)",
@@ -224,7 +224,7 @@ export default function DealerApplyOverlay() {
               <HiX size={16} />
             </button>
 
-            <div className="overflow-y-auto" style={{ maxHeight: "calc(100vh - 24px)" }}>
+            <div className="overflow-y-auto" style={{ maxHeight: "calc(var(--gorunur-yukseklik) - 24px)" }}>
               <div className="px-6 sm:px-8 pt-7 pb-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div

@@ -172,7 +172,7 @@ function ImageLightbox({ images, index, setIndex, onClose, productName }: {
       <img src={images[index]} alt={productName} draggable={false}
         onClick={(e) => { e.stopPropagation(); toggleZoom(e); }}
         onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}
-        className="max-w-[92vw] max-h-[86vh] object-contain select-none touch-none"
+        className="max-w-[92vw] max-h-[calc(var(--gorunur-yukseklik)*0.86)] object-contain select-none touch-none"
         style={{ transform: `translate(${pos.x}px, ${pos.y}px) scale(${scale})`, cursor: scale > 1 ? "grab" : "zoom-in", transition: drag.current ? "none" : "transform 0.22s ease", willChange: "transform" }} />
       {images.length > 1 && (<>
         <button onClick={(e) => { e.stopPropagation(); go(-1); }} aria-label={pickText(lang, "Önceki", "Previous")} className={`${ctrl} left-3 top-1/2 -translate-y-1/2 w-11 h-11 text-2xl`} style={ctrlBg}>‹</button>

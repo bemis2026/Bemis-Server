@@ -902,7 +902,21 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
             transition={{ duration: 0.22 }}
             className={`lg:hidden border-t ${isDark ? "bg-[#181818] border-white/8" : "bg-white border-black/8"}`}
           >
-            <div className="px-5 py-4 flex flex-col gap-1">
+            {/* ⚠️ KISA/KATLANABİLİR EKRAN KAPAĞI (2026-09-14) — ÖLÇÜMLE BULUNDU.
+                Menü paneli position:fixed başlık içinde; taşan öğeler
+                KAYDIRILAMIYOR, yani ERIŞILEMEZ oluyordu. Anasayfada tek alt menü
+                açıkken panel dibi: Ürünler 822px · Rehber 678px.
+                  • 390×844 normal telefon → 842 < 844, KIL PAYI sığıyordu
+                  • iPhone Duo AÇIK ekran 890×626 → Ürünler'in 196px'i ekran DIŞINDA
+                  • yatay tutulan her telefon aynı duruma düşüyor
+                Çözüm: görünen yüksekliğe göre tavan + panelin kendi kaydırması.
+                72px = başlık çubuğu (ölçüldü: 65px) + nefes payı.
+                ⚠️ UZUN EKRANDA GÖRÜNÜM DEĞİŞMEZ — menü bu tavana hiç ulaşmaz.
+                overscroll-contain: menü dibine gelince sayfa arkadan kaymasın. */}
+            <div
+              className="px-5 py-4 flex flex-col gap-1 overflow-y-auto"
+              style={{ maxHeight: "calc(var(--gorunur-yukseklik) - 72px)", overscrollBehavior: "contain" }}
+            >
               {activeNavLinks.map((link, i) => {
                 const isK = isKurumsal(link);
                 const isU = isUrunler(link);

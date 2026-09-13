@@ -63,7 +63,7 @@ export default function ContactOverlay() {
             onClick={(e) => e.stopPropagation()}
             className="relative w-full max-w-5xl mx-3 sm:mx-6 my-3 sm:my-6 rounded-2xl overflow-hidden"
             style={{
-              maxHeight: "calc(100vh - 24px)",
+              maxHeight: "calc(var(--gorunur-yukseklik) - 24px)",
               background: d ? "#0d0e12" : "#ffffff",
               border: `1px solid ${d ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}`,
               boxShadow: d ? "0 24px 80px rgba(0,0,0,0.6)" : "0 24px 80px rgba(0,0,0,0.18)",
@@ -84,7 +84,7 @@ export default function ContactOverlay() {
               <HiX size={18} />
             </button>
 
-            <div className="overflow-y-auto" style={{ maxHeight: "calc(100vh - 24px)" }}>
+            <div className="overflow-y-auto" style={{ maxHeight: "calc(var(--gorunur-yukseklik) - 24px)" }}>
               <Contact />
             </div>
           </motion.div>

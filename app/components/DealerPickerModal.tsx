@@ -91,7 +91,7 @@ export default function DealerPickerModal({
       aria-label={pickText(lang, "Bayi Bul", "Find a Dealer")}
     >
       <div
-        className="w-full sm:max-w-2xl h-[85vh] sm:h-[640px] sm:max-h-[90vh] rounded-t-3xl sm:rounded-3xl flex flex-col overflow-hidden"
+        className="w-full sm:max-w-2xl h-[calc(var(--gorunur-yukseklik)*0.85)] sm:h-[640px] sm:max-h-[calc(var(--gorunur-yukseklik)*0.9)] rounded-t-3xl sm:rounded-3xl flex flex-col overflow-hidden"
         style={{ background: bg, border: `1px solid ${border}`, boxShadow: "0 24px 70px rgba(0,0,0,0.45)" }}
         onClick={(e) => e.stopPropagation()}
       >

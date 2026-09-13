@@ -10,6 +10,24 @@
   --border: #2e2e2e;
   --text-muted: #999999;
   --font-inter: "Inter", sans-serif;
+
+  /* ⚠️ KATLANABİLİR / MOBİL: "GERÇEKTEN GÖRÜNEN" YÜKSEKLİK (2026-09-14)
+     100vh = tarayıcı çubukları GİZLİYKEN ölçülen BÜYÜK görünüm alanı. Adres
+     çubuğu açıkken gerçek görünen alan daha KISA olduğu için 100vh'e göre
+     boyutlanan tam ekran katmanların ALT KENARI çubuğun altında kalır (gönder /
+     kapat düğmesi erişilemez olur). dvh gerçek görünen yüksekliği verir.
+     KATLANABİLİRDE ÖNEM ARTIYOR: iPhone Duo AÇIK ekranı 626 CSS px yüksekliğinde
+     (kapakta 678) — ekran kısaldıkça kaybedilen oran büyüyor.
+     ⚠️ YALNIZ kaydırması kilitli TAM EKRAN katmanlarda kullan (modal / menü /
+     ışık kutusu). Sayfa gövdesinde dvh KULLANMA: sayfa kayarken adres çubuğu
+     açılıp kapandıkça yükseklik değişir ve düzen zıplar — hero tam bu yüzden
+     svh kullanıyor (bkz. .hero-shell). */
+  --gorunur-yukseklik: 100vh;
+}
+
+/* dvh bilmeyen tarayıcıda değişken 100vh olarak kalır → davranış bugünküyle AYNI. */
+@supports (height: 1dvh) {
+  :root { --gorunur-yukseklik: 100dvh; }
 }
 
 @theme inline {

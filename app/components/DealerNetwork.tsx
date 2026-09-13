@@ -12,6 +12,7 @@ import { pickText } from "../lib/ui";
 import E from "./E";
 import Image from "./Img";
 import { CITY_BY_ID } from "../../lib/turkeyCities";
+import { useMediaQuery } from "../../lib/useMediaQuery";
 import { tierColor, tierLabel } from "../../lib/dealerTiers";
 import InternationalGlobe from "./InternationalGlobe";
 import InternationalMap2D from "./InternationalMap2D";
@@ -174,15 +175,21 @@ export default function DealerNetwork() {
   // to 3D so first impression stays the dramatic globe; user can flip
   // for a quick equirectangular reference view.
   const [worldRender, setWorldRender] = useState<"3d" | "2d">("3d");
+  // Kullanıcı 3D/2D düğmesine bastıysa otomatik seçim SUSAR (tercihi ezmesin).
+  const worldElleSecildi = useRef(false);
   // ⚡ Mobil performans: 3D globe = react-globe.gl (three.js + WebGL) çok ağır
   // (büyük JS + 4K doku + WebGL render). Mobilde "Dünya" görünümü VARSAYILAN
   // olarak hafif 2D haritaya düşer → three.js/doku İNMEZ, ana-iş parçacığı
   // rahatlar. Kullanıcı isterse toggle ile 3D'ye geçebilir. Masaüstü aynen 3D.
+  // ⚠️ KATLANABİLİR (2026-09-14): bu ölçüm eskiden mount'ta BİR KEZ yapılıyordu.
+  // Katlanır telefonda ekran sayfa YENİLENMEDEN değişir: kapakta (466px) açılan
+  // sayfa telefon açılınca (890px) 2D'de KALIYOR; açıkken açılan sayfa katlanınca
+  // ağır 3D globe küçük ekranda ÇALIŞMAYA DEVAM EDİYORDU. Artık canlı abonelik.
+  const darEkran = useMediaQuery("(max-width: 767px)");
   useEffect(() => {
-    if (typeof window !== "undefined" && window.matchMedia?.("(max-width: 767px)").matches) {
-      setWorldRender("2d");
-    }
-  }, []);
+    if (worldElleSecildi.current) return;
+    setWorldRender(darEkran ? "2d" : "3d");
+  }, [darEkran]);
   // Selected international country (yurtdisi mode) — drives the side card +
   // the globe's pointOfView fly-to.
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
@@ -1098,7 +1105,7 @@ export default function DealerNetwork() {
                     return (
                       <button
                         key={mode}
-                        onClick={() => setWorldRender(mode)}
+                        onClick={() => { worldElleSecildi.current = true; setWorldRender(mode); }}
                         className="px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.18em] uppercase transition-all"
                         style={{
                           background: active ? BLUE : "transparent",

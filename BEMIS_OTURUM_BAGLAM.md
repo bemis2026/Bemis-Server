@@ -13,6 +13,66 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 📱🔻 **KATLANABİLİR TELEFON UYUMU — iPhone Duo (2026-09-14):** Kullanıcı: *"yeni çıkan
+> katlanabilir telefonlar özellikle iPhone Duo için tüm siteyi uyumlu hale getir"*.
+>
+> **📐 GERÇEK ÖLÇÜLER (Apple teknik özellikler sayfası — TAHMİN DEĞİL):** iPhone Duo
+> 2026-09-09'da tanıtıldı, **satış 23 Ekim**. Kapak 5,4″ **1398×2034**, iç ekran 7,6″
+> **1878×2670**. @3x ⇒ **kapak ≈ 466×678 CSS px (dikey)**, **iç ekran ≈ 890×626 (YATAY)**
+> — gövde açıkken 164,6 mm geniş × 117,8 mm yüksek; kitap gibi açılıp **yatay** tuvale
+> dönüşüyor. (CSS px sayısı @3x'ten TÜRETİLDİ; Apple fiziksel piksel yayımlıyor.)
+> Karşılaştırma: Galaxy Fold kapak ~344×882, açık ~884×774.
+> ⚠️ **Tehlikeli olan ekranın DAR olması değil, AÇIK ekranın KISA olması:** 890 px genişlik
+> `md:`/tablet düzenini açar ama yükseklik yalnız **626 px**.
+>
+> **🔍 TARAMA (12 sayfa × 4 ekran, iframe ile ölçüldü):** yatay taşma **0**, dikey kırpılma
+> **0** → akışkan düzen katlanabilirde ayakta. Taşma sanılan 3 şey doğrulanıp elendi:
+> `pointer-events:none` dekoratif katman · `overflow:hidden` ebeveyn içindeki animasyon
+> transformu · gizli honeypot alanı.
+>
+> **🔴 GERÇEK KUSUR — MOBİL MENÜ ERİŞİLEMEZ OLUYORDU:** menü paneli `position:fixed`
+> başlığın içinde ve **tavanı/kaydırması YOKTU**; taşan öğeler kaydırılamadığı için
+> ERİŞİLEMEZ kalıyordu. Ölçüm (tek alt menü açık): **Ürünler 822 px** · Rehber 678 px.
+> 390×844 telefonda 842 ile **KIL PAYI** sığıyordu — iPhone Duo AÇIK ekranda (626)
+> Ürünler'in **196 px'i ekran dışında** kalıyordu. ✅ Panele
+> `max-height: calc(var(--gorunur-yukseklik) - 72px)` + `overflow-y:auto` +
+> `overscroll-contain`. Doğrulandı: 890×626'da panel 554 px, içerik 843 px, kaydırılabilir,
+> son öğe **"B2B Portal"** kaydırınca 517→533'te görünüyor. Kapakta (466×678) panel 606 px.
+> ⚠️ Uzun ekranda görünüm DEĞİŞMEZ (menü tavana hiç ulaşmaz).
+>
+> **⏱️ İKİNCİ KUSUR — EKRAN ÖLÇÜSÜ "DONUYORDU":** katlanır telefonda ekran **sayfa
+> YENİLENMEDEN** değişir; mount'ta bir kez okunan genişlik kararı yanlış kalır. İki yer:
+> `documents/[id]` (PDF gömme eşiği `innerWidth < 820`) ve `DealerNetwork` (mobilde ağır
+> 3D globe yerine 2D harita). ✅ Yeni kanca **`lib/useMediaQuery.ts`** — matchMedia `change`
+> aboneliği, SSR'de daima `false` (hydration ayrışmasın). DealerNetwork'e **elle seçim
+> kilidi**: kullanıcı 3D/2D düğmesine bastıysa otomatik seçim SUSAR.
+> 📌 **KURAL: ekran genişliğini BİR KEZ okuma — `useMediaQuery` kullan.**
+>
+> **📏 ÜÇÜNCÜ İŞ — `--gorunur-yukseklik` (globals.css, TEK KAYNAK):** `100vh` adres çubuğu
+> GİZLİYKEN ölçülür; kısa ekranda tam ekran katmanların alt kenarı çubuğun altında kalır
+> (gönder/kapat düğmesi erişilemez). Değişken `100vh`, `@supports (height:1dvh)` ile
+> `100dvh`. Kullanan: mobil menü · ContactOverlay · DealerApplyOverlay · DealerPickerModal
+> (85/90) · ürün ışık kutusu (86). ⚠️ **Sayfa gövdesinde dvh KULLANMA** — kaydırırken düzen
+> zıplar; hero tam bu yüzden `svh` kullanıyor.
+>
+> **✋ BİLEREK YAPILMAYANLAR:** (1) `viewport-fit=cover` + safe-area **eklenmedi** — Safari
+> sayfayı zaten güvenli alanda çiziyor; dolgu vermeden açmak kusur ÜRETİR. (2) Tailwind
+> kırılımları (sm 640 / md 768 / lg 1024) **değişmedi**: 626 px'lik dikey açık ekran telefon
+> düzenini alır, doğrusu bu. (3) `viewport-segments`/menteşe sorguları **gereksiz** — Duo TEK
+> esnek ekran, görünüm alanı bölünmüyor. (4) Hero yükseklikleri değişmedi (92svh kısa ekranda
+> zaten doğru davranıyor: 890×626'da hero 576 px, sonraki bölümün üstü görünüyor).
+>
+> **🪤 İKİ ÖLÇÜM TUZAĞI (tekrar düşmemek için):**
+> **(a) Turbopack `globals.css`'i BAYAT servis edebiliyor** — düzenlemeden sonra derlenen
+> CSS'te `:root` eklentim YOKTU ve **sunucuyu yeniden başlatmak bile çözmedi**; yığın karma
+> adı (`00tz6m2`) aynı kaldığı için "yeniden derlendi" sanmak yanıltıcı. Dosyaya YENİ bir
+> yazma yapınca düzeldi. 📌 CSS değişkenini **`getComputedStyle` ile DOĞRULA**; kaynağa bakıp
+> "yazdım, olmuştur" deme.
+> **(b) Katlama testi iframe ya da `resize_window` ile YAPILAMAZ** — genişlik değişse de
+> `resize` / `matchMedia change` olayları TETİKLENMİYOR (ölçüm: 0 olay). Gerçek olay için
+> **Playwright `setViewportSize`** kullanıldı; kat-aç turu orada doğrulandı (PDF gömme ↔ kart,
+> 3D ↔ 2D, elle seçim kilidi).
+
 > 🏭✅ **`/b2b` STATİK ÇERÇEVESİ 6 DİLE AÇILDI — SON AÇIK MADDE KAPANDI (2026-09-13):**
 > Kullanıcı: *"b2b'yi de yap"*. Ticari dil kararı bekleyen madde buydu; karar geldi, yapıldı.
 > **ui.json 562 → 593** (31 yeni anahtar × 5 dil), `pickText` çağrısı 337 → 356.
