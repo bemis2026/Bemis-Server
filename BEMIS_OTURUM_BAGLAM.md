@@ -47,6 +47,24 @@
 > gerekçesiyle yazıldı. ⚠️ Çevrilmeme sebebi teknik değil TİCARİ: "fason / white-label / toptan
 > tedarik" konumlandırmasının 5 dilde nasıl ifade edileceği kullanıcı kararı.
 >
+> **🔴🔴 BEKÇİNİN KENDİ KESME HATASI — ÖZ-TESTTEN SONRA CANLI ÖLÇÜMLE BULUNDU:** 5. sınıf metni
+> **önce 70 karaktere kesiyor, SONRA** Türkçe harf kontrolü yapıyordu → Türkçesi 70. karakterden
+> sonra başlayan satırlar **sessizce düşüyordu**. Gerçek vaka:
+> `<h2 className="text-2xl sm:text-3xl font-black mb-2" style={{ color: text }}>Operatör Odaklı
+> Özellikler</h2>` — ilk 70 karakter saf İngilizce sınıf adı olduğu için bulgu sayılmadı.
+> ✅ Kontrol **tam satırda** yapılır, kesme YALNIZ gösterim içindir; ayrıca bulgu metni artık
+> **görünen parça** (tüm satır değil) → rapor okunur, tekil muafiyet anahtarı makul uzunlukta.
+> Düzeltince **5 bulgu daha** çıktı: `/operator` 4 başlık (Teknik Altyapı · Operatör Odaklı
+> Özellikler · Operatör Portföyü · Operatörlere Özel Ürünler) + `kurumsal` 1 (tekil muaf:
+> "EST. · Bursa · Türkiye" = kısaltma + yer adı, çevrilecek sözcük yok).
+> 📌 **Ders: filtreyi kısaltılmış metne uygulama — önce ölç, sonra kes.** Aynı hata ölçüm
+> betiğinde de vardı (80 karakter), o da düzeltildi.
+>
+> **🔴 YOL ÜSTÜNDE — `/operator` ÜRÜN VERİSİNİ DİLSİZ ÇEKİYORDU:** sayfa `b2b` içeriğini
+> `?lang=` ile çekerken ürünleri `fetch("/api/products")` ile **dilsiz** çekiyordu → Almanca
+> sayfada ürün adları/açıklamaları TÜRKÇE geliyordu (tarayıcı ölçümü: **28 Türkçe parça**).
+> `?lang=${lang}` eklendi; efekt zaten `[lang]`e bağlıydı. 📌 Çok dilli bir sayfada **her**
+> veri çağrısına dil parametresi geçir — biri atlanırsa sayfa yarı Türkçe kalır.
 > **✅ ÖZ-TEST (`scratchpad/_bekci_testi5.py`):** görünür TR metin YAKALANIR · `pickText`'e bağlı
 > metin yanlış alarm VERMEZ · **yorum içindeki Türkçe** yanlış alarm vermez · muaf dosyadaki metin
 > sessiz kalır; test dosyaları birebir geri alınır.

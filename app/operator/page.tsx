@@ -64,7 +64,9 @@ export default function OperatorPage() {
     fetch(`/api/b2b?lang=${lang}`).then(r => r.json()).then((data) => {
       if (data?.operator) setCms(data.operator);
     }).catch(() => {});
-    fetch("/api/products").then(r => r.json()).then((data: Category[]) => {
+    // ⚠️ DİL ŞART: dilsiz çekilince Almanca sayfada ürün adları TÜRKÇE geliyordu
+    //    (2026-09-13 tarayıcı ölçümü: 28 Türkçe parça). Efekt [lang]e bağlı.
+    fetch(`/api/products?lang=${lang}`).then(r => r.json()).then((data: Category[]) => {
       setCategories(Array.isArray(data) ? data : []);
     }).catch(() => {});
   }, [lang]);
@@ -162,8 +164,8 @@ export default function OperatorPage() {
         )}
         <div className="relative z-10 max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-8">
           <div className="mb-8">
-            <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: accentInk(PURPLE, d) }}>Teknik Altyapı</p>
-            <h2 className="text-2xl sm:text-3xl font-black mb-2" style={{ color: text }}>Operatör Odaklı Özellikler</h2>
+            <p className="text-xs font-bold tracking-[0.18em] uppercase mb-2" style={{ color: accentInk(PURPLE, d) }}>{pickText(lang, "Teknik Altyapı", "Technical infrastructure")}</p>
+            <h2 className="text-2xl sm:text-3xl font-black mb-2" style={{ color: text }}>{pickText(lang, "Operatör Odaklı Özellikler", "Operator-focused features")}</h2>
             <p className="text-sm max-w-2xl" style={{ color: muted }}>
               {pickText(lang,
                 "OCPP 1.6J / 2.0.1 uyumlu donanımlar, dinamik güç yönetimi, uzaktan izleme ve sertifikalı altyapıyla şarj ağınız için uçtan uca operatör desteği.",
@@ -252,9 +254,9 @@ export default function OperatorPage() {
               <div className="mb-8">
                 <div className="flex items-center gap-2 mb-2">
                   <RiWifiLine style={{ color: accentInk(PURPLE, d), fontSize: 14 }} />
-                  <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: accentInk(PURPLE, d) }}>Operatör Portföyü</span>
+                  <span className="text-xs font-bold tracking-[0.18em] uppercase" style={{ color: accentInk(PURPLE, d) }}>{pickText(lang, "Operatör Portföyü", "Operator portfolio")}</span>
                 </div>
-                <h2 className="text-xl font-black mb-1" style={{ color: text }}>Operatörlere Özel Ürünler</h2>
+                <h2 className="text-xl font-black mb-1" style={{ color: text }}>{pickText(lang, "Operatörlere Özel Ürünler", "Products for operators")}</h2>
                 <p className="text-sm max-w-2xl" style={{ color: muted }}>
                   {pickText(lang,
                     "OCPP uyumlu DC hızlı şarj üniteleri, akıllı şarj panoları ve operatör altyapısına yönelik öne çıkan ürünler.",

@@ -170,6 +170,10 @@ function yorumBosalt(s: string): string {
     .replace(/\/\*[\s\S]*?\*\//g, bos)
     .replace(/(^|[^:"'`\\])\/\/[^\n]*/g, (m, p1) => p1 + bos(m.slice(p1.length)));
 }
+// (5) TEKİL görünür-metin muafiyeti — gerekçesiz satır EKLEME.
+const GORUNUR_TEKIL_MUAF = new Map<string, string>([
+  ["kurumsal/page.tsx|EST. · Bursa · Türkiye", "kısaltma + yer adları — çevrilecek sözcük yok"],
+]);
 const TR_HARF = /[ğışİŞĞöüçÖÜÇ]/;
 
 // (4d) İFADEYE SAKLANMIŞ LİTERAL — `attr={cond ? "..." : "..."}` biçimi.
@@ -256,11 +260,19 @@ for (const f of dosyalar) {
         if (/pickText|fillText|byLang|useUiStrings|\b[tTL]{1,2}\(/.test(l)) return;
         const t = l.trim();
         if (!t || /^(import|export)\s/.test(t)) return;
-        const jsx = />[^<>{}\n]*[ğışİŞĞöüçÖÜÇ][^<>{}\n]*/.test(l);
+        // ⚠️ Bulgu metni GÖRÜNEN parçadır (tüm satır değil): rapor okunur olur
+        //    ve tekil muafiyet anahtarı makul uzunlukta kalır.
+        const jsxE = />([^<>{}\n]*[ğışİŞĞöüçÖÜÇ][^<>{}\n]*)/.exec(l);
+        const jsx = !!jsxE;
         const duz = /^[^<>{}"'`=;]*[ğışİŞĞöüçÖÜÇ][^<>{}"'`=;]*$/.test(t) && t.length > 3;
         if (!jsx && !duz) return;
-        const m = t.replace(/^[>{}\s]+|[<{}\s]+$/g, "").slice(0, 70);
-        if (!m || !TR_HARF.test(m)) return;
+        // ⚠️ TÜRKÇE KONTROLÜ TAM SATIRDA — kesme YALNIZ gösterim için.
+        //    Önce kesip sonra kontrol etmek, Türkçesi 70. karakterden sonra
+        //    başlayan satırları sessizce düşürüyordu (operator/page.tsx:166).
+        const tam = (jsxE ? jsxE[1] : t).replace(/^[>{}\s]+|[<{}\s]+$/g, "").trim();
+        if (!tam || !TR_HARF.test(tam)) return;
+        const m = tam.slice(0, 70);
+        if (GORUNUR_TEKIL_MUAF.has(`${kisa}|${tam}`)) return;
         gorunur.push({ en: "", tr: m, dosya: f, satir: i + 1 });
       });
     }
@@ -311,6 +323,6 @@ const toplam = eksik.length + yarim.length + dinamik.length + sabit.length + gor
 console.log(
   toplam
     ? `\n🔴 ${toplam} sorun — ui.json'a ekle / fillText'e çevir / pickText'e bağla.\n   (Bilerek çevrilmeyen bir öznitelik varsa MARKA_METIN / DOSYA_MUAF / OZNITELIK_MUAF'a GEREKÇESİYLE ekle.)`
-    : `\n✅ Arayüz çeviri bekçisi: temiz (5 sınıf · muafiyet: ${MARKA_METIN.size} marka · ${DOSYA_MUAF.size}+${GORUNUR_MUAF.size} dosya · ${OZNITELIK_MUAF.size} tekil).`,
+    : `\n✅ Arayüz çeviri bekçisi: temiz (5 sınıf · muafiyet: ${MARKA_METIN.size} marka · ${DOSYA_MUAF.size}+${GORUNUR_MUAF.size} dosya · ${OZNITELIK_MUAF.size}+${GORUNUR_TEKIL_MUAF.size} tekil).`,
 );
 process.exit(toplam ? 1 : 0);

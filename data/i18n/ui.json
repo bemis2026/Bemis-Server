@@ -3883,5 +3883,33 @@
   "ar": "عرض المنتج",
   "ru": "Смотреть товар",
   "nl": "Bekijk product"
+ },
+ "Technical infrastructure": {
+  "de": "Technische Infrastruktur",
+  "es": "Infraestructura técnica",
+  "ar": "البنية التقنية",
+  "ru": "Техническая инфраструктура",
+  "nl": "Technische infrastructuur"
+ },
+ "Operator-focused features": {
+  "de": "Funktionen für Betreiber",
+  "es": "Funciones para operadores",
+  "ar": "خصائص موجّهة للمشغّلين",
+  "ru": "Возможности для операторов",
+  "nl": "Functies voor exploitanten"
+ },
+ "Operator portfolio": {
+  "de": "Betreiber-Portfolio",
+  "es": "Portafolio para operadores",
+  "ar": "محفظة المشغّلين",
+  "ru": "Портфель для операторов",
+  "nl": "Operatorportfolio"
+ },
+ "Products for operators": {
+  "de": "Produkte für Betreiber",
+  "es": "Productos para operadores",
+  "ar": "منتجات للمشغّلين",
+  "ru": "Продукты для операторов",
+  "nl": "Producten voor exploitanten"
  }
 }
