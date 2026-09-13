@@ -13,6 +13,58 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🌍🧰 **İKİ ARAÇ SAYFASI 6 DİLE AÇILDI — en/de/es/ru/nl + ar (2026-09-13):**
+> Kullanıcı: *"bunları da sitenin diğer dillerinde uygula"* (Arapça sürümlerin hemen ardından).
+> **YENİ 12 ADRES:** `/{en,de,es,ru,nl,ar}/sarj-suresi-hesaplama` + `/{…}/arac-sarj-uyumlulugu`.
+>
+> **📌 HESAPLAYICI NEREDEYSE BEDAVAYDI — bileşene HİÇ dokunulmadı:** `HesapClient` `pickText`,
+> `Calculator` `useUiStrings()` → `ui.json` ve sözlük 5 dilde TAM; dil kolunda
+> `forcedLangForPath()` dili sabitlediği için gövde kendiliğinden o dilde render ediliyor.
+> Yazılan tek şey **rota + metadata + `WebApplication` şeması** (`[lang]/sarj-suresi-hesaplama/meta.ts`).
+> **📌 ARAÇ UYUMLULUĞU ASIL İŞTİ:** `VehicleChargingClient` 0 çeviri taşıyordu → 12 Eylül'de eklenen
+> **opsiyonel `icerik` propu** kullanıldı; 5 dilin metni `[lang]/arac-sarj-uyumlulugu/icerik.ts`'te
+> (≈45 dize × 5 dil). **TR sayfası prop almadığı için BİREBİR aynı.**
+>
+> **⚠️⚠️ İHRACAT DİLLERİNDE "YETKİLİ BAYİMİZ KEŞİF YAPAR" DENMEDİ.** Bayi ağı Türkiye'ye özel;
+> yurt dışında yalnız 3 ülkede distribütör var (Almanya · Şili · Portekiz) → yerinde keşif vaadi
+> karşılanamazdı. Kapanış ve SSS **"tesisat bilgilerinizi yazın, doğru kişiye yönlendirelim"**
+> şeklinde kuruldu; kapanış CTA'sı **`/export`** (ihracat masası, teklif formu orada).
+> 📌 Uydurma ticari şart / var olmayan yerel varlık iddiası YOK.
+> ⚠️ Giriş cümlesi TR'de *"Türkiye'de satılan"*, diğer dillerde **"Avrupa'da satılan"** çerçevesi.
+> ⚠️ Yabancı dilde milliyetçi çerçeve yok; menşe OLGU olarak: "Bursa'daki kendi tesisi · 80+ ülke".
+> ⚠️ Marka/model adı ve sayı-birim çevrilmez; tablo değerleri `lib/vehicleCharging.ts`'ten
+> (kaynağı kayıtlı) — **uydurma spec yok**.
+>
+> **🔗 YETİM KALMASINLAR — NAVBAR REHBER MENÜSÜ DİL KOLUNA BAĞLANDI (`rehberMenusu(lang)`):**
+> 🔴 Yol üstünde çıkan kusur: menüdeki **"Hesaplayıcı" `#calculator` ANKRAJINA** gidiyordu; o bölüm
+> yalnız TÜRKÇE anasayfada var → de/es/ru/nl/en ziyaretçisi menüden basınca **Türkçe anasayfaya
+> düşüyordu**. Artık TR dışı dillerde kendi kolundaki tam sayfaya gidiyor + menüye **"Araç
+> Uyumluluğu"** maddesi eklendi (o kollarda sayfanın BAŞKA iç link girişi yok).
+> ⚠️ **TÜRKÇE MENÜ DEĞİŞMEDİ** (`lang === "tr"` dalı listeyi aynen döndürür) — görünür TR arayüzü
+> sorulmadan değiştirilmez. Arapça kolda ayrıca `/ar` giriş sayfasındaki iki kart duruyor.
+>
+> **🔴 ÜRETİLEN HTML ÖLÇÜLDÜ — FOOTER ARAPÇAYA KİLİTLİYMİŞ:** yeni /de /es /ru /nl /en
+> sayfalarının çıktısında footer'ın **8 kategori linki TÜRKÇE rotaya** gidiyordu. Sebep:
+> `Footer.tsx`'te eşleme **`forcedLangForPath(pathname) === "ar"`** ile Arapçaya kilitliydi
+> (9 Eylül'de yalnız Arapça kol için yazılmıştı). Ürün kolu **6 dilde de var** → bunlar kayıp
+> iç linkti. ⓘ Daha önce görülmemesinin sebebi: o dillerde **Footer basan hiçbir sayfa yoktu**
+> (ürün sayfaları Footer yerine ContactBar kullanıyor) — yeni araç sayfaları ilk kez bastı.
+> ✅ Eşleme genelleştirildi: **ürünler her dil kolunda o kola**, sözlük/blog **yalnız Arapça**
+> (başka dilde adresleri yok), çevirisi olmayan sayfalar (kurumsal · uretici · destek ·
+> documents · b2b · bayilik · şehir) bilerek TR'de kalır. 📌 Bu düzeltme yalnız yeni sayfaları
+> değil, ileride bu kollarda Footer basacak HER sayfayı da kapsar.
+> **🌐 HREFLANG TEK KAYNAK:** `hreflangKumesi(slug)` (meta.ts) → **tr + en + de/es/ru/nl/ar +
+> x-default**; TR sayfaları da aynı kümeyi verir. Sitemap'te `aracSayfalari(slug)` her iki sayfa için
+> 7 giriş üretir (kümeler birebir aynı). ⚠️ Yardımcı `sitemap()` İÇİNDE tanımlı — `gt()` o kapsamda.
+> **⚠️ İNGİLİZCE AYRI DOSYA:** `LOCALE_LANGS` **en'i içermez** (`de/es/ru/nl/ar`); İngilizce kol
+> `app/en/` altında STATİK ağaç → `app/en/<slug>/page.tsx` ayrı yazıldı ama **metin/şema aynı
+> kaynaktan** okur (iki yerde metin tutulmaz). Slug'lar TÜRKÇE kaldı (ürün kolunda da öyle) ki
+> hreflang kümesi birebir eşlensin.
+> **⚠️ `app/de/...` gibi STATİK segment AÇILMADI** — dinamik `[lang]` kolunu gölgeler ve o dilin
+> 159 ürün sayfasını kırar (kayıtlı ders). Bu dizinlere `layout.tsx` da konmadı.
+
+
+
 > 🕌🧰 **ORTA DOĞU KAPSAM DENETİMİ + 2 ARAÇ SAYFASI ARAPÇA KOLA AÇILDI (2026-09-13):**
 > Kullanıcı: *"son yaptığımız tüm seo geo ve genel bulunabilirlik çalışmalarını orta doğu hedefimiz
 > için de uyguladık mı?"* → **ölçüldü, hafızadan cevaplanmadı.**

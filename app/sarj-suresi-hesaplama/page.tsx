@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import JsonLd from "../components/JsonLd";
 import { breadcrumbSchema, ogImage, OG_URL, SITE_URL, SITE_NAME } from "../lib/seo";
 import HesapClient from "./HesapClient";
+import { hreflangKumesi } from "../[lang]/sarj-suresi-hesaplama/meta";
 
 // ŞARJ SÜRESİ HESAPLAMA — /sarj-suresi-hesaplama
 // ⚠️ NEDEN AYRI SAYFA (2026-09-12): hesaplayıcı yalnızca anasayfanın `#calculator`
@@ -19,9 +20,10 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: "/sarj-suresi-hesaplama",
-    // ⚠️ 2026-09-13: Arapça sürüm açıldı → küme KARŞILIKLI olmalı (tek yönlü
-    //    hreflang Google'da karşılıklılık hatası üretir).
-    languages: { tr: "/sarj-suresi-hesaplama", ar: "/ar/sarj-suresi-hesaplama", "x-default": "/sarj-suresi-hesaplama" },
+    // ⚠️ 2026-09-13: 6 dil sürümü açıldı (en/de/es/ru/nl/ar) → küme KARŞILIKLI
+    //    ve TÜM sürümlerde AYNI olmalı; tek yönlü/eksik küme Google'da
+    //    karşılıklılık hatası üretir. Tek kaynak: hreflangKumesi().
+    languages: hreflangKumesi("sarj-suresi-hesaplama"),
   },
   openGraph: {
     title: "Elektrikli Araç Şarj Süresi Hesaplama | Bemis E-V Charge",

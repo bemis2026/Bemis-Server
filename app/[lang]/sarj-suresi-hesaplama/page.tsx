@@ -1,91 +1,82 @@
 import type { Metadata } from "next";
 import JsonLd from "../../components/JsonLd";
 import { breadcrumbSchema, ogImage, OG_URL, SITE_URL, SITE_NAME } from "../../lib/seo";
+import { LOCALE_LANGS } from "../../lib/localeProductSeo";
 import HesapClient from "../../sarj-suresi-hesaplama/HesapClient";
+import { HESAP_META, hreflangKumesi } from "./meta";
 
 /**
- * ŞARJ SÜRESİ HESAPLAMA — ARAPÇA (/ar/sarj-suresi-hesaplama)
+ * ŞARJ SÜRESİ HESAPLAMA — DİL KOLLARI (/de /es /ru /nl /ar + ayrıca /en)
  *
- * 📌 NEDEN AÇILDI (2026-09-13, kullanıcı kararı): araç sayfaları dil-hafiftir —
- *    ekranda ağırlıklı olarak SAYI ve birim var, metin az. "كم ساعة يستغرق شحن
- *    السيارة" gibi araç arayan sorgular Körfez'de de aranıyor ve `/ar` giriş
- *    sayfasıyla niyet çakışması yok.
+ * 📌 NEDEN AÇILDI: 13 Eylül'de önce Arapça için açıldı (Orta Doğu hedefi), aynı
+ *    gün kullanıcı *"bunları da sitenin diğer dillerinde uygula"* dedi.
  *
- * ⚠️ BİLEŞEN ORTAK, ÇEVİRİ HAZIR: `HesapClient` zaten `pickText` kullanıyor ve
- *    `Calculator` `useUiStrings()` üzerinden ui.json'dan besleniyor. `/ar/...`
- *    yolunda `forcedLangForPath()` dili "ar"a sabitlediği için sayfa Arapça
- *    render edilir — bileşene DOKUNULMADI (TR sayfası birebir aynı kalır).
+ * ⚠️ BİLEŞENE HİÇ DOKUNULMADI: `HesapClient` `pickText`, `Calculator`
+ *    `useUiStrings()` → ui.json kullanıyor ve sözlük 5 dilde TAM. `/de/...`
+ *    yolunda `forcedLangForPath()` dili sabitlediği için gövde kendiliğinden o
+ *    dilde render edilir. Bu dosya YALNIZ rota + metadata + şema taşır.
  *
- * ⚠️ ROTA KURALI: `app/ar/...` diye STATİK segment AÇMA — dinamik `[lang]`
- *    kolunu gölgeler ve /ar/products'ı kırar (kayıtlı ders). Bu dizine
- *    `layout.tsx` da ekleme.
- * ⚠️ HREFLANG KARŞILIKLI: TR sayfası da `ar` alternatifini verir.
+ * ⚠️ ROTA KURALI: `app/de/...` gibi STATİK segment AÇMA — aynı seviyedeki
+ *    dinamik `[lang]` kolunu gölgeler ve o dilin ürün sayfalarını kırar.
+ *    (İngilizce ayrı: `app/en/` zaten statik bir ağaç, orada kendi dosyası var.)
+ * ⚠️ Bu dizine `layout.tsx` EKLEME — segment ayarları çocuklara iner.
+ * ⚠️ HREFLANG KÜMESİ 7'Lİ VE KARŞILIKLI: TR sayfası da hepsini verir. Eksik/tek
+ *    yönlü küme Google'da karşılıklılık hatası üretir (kayıtlı kural).
  */
 
 const SLUG = "sarj-suresi-hesaplama";
-const TITLE = "حاسبة مدة شحن السيارة الكهربائية";
-const DESC =
-  "احسب مدة شحن سيارتك الكهربائية: اختر السيارة وقدرة الشحن لترى المدة التقديرية والتكلفة لكل كيلومتر، للشحن المتناوب والسريع مع مراعاة حدّ الشاحن الداخلي.";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
-  return [{ lang: "ar" }];
+  return LOCALE_LANGS.map((lang) => ({ lang }));
 }
 
-export const metadata: Metadata = {
-  title: { absolute: `${TITLE} | Bemis E-V Charge` },
-  description: DESC,
-  keywords: [
-    "حاسبة مدة الشحن",
-    "كم ساعة يستغرق شحن السيارة الكهربائية",
-    "مدة شحن السيارة الكهربائية",
-    "تكلفة شحن السيارة الكهربائية",
-    "حاسبة الشحن المنزلي",
-  ],
-  alternates: {
-    canonical: `/ar/${SLUG}`,
-    languages: { tr: `/${SLUG}`, ar: `/ar/${SLUG}`, "x-default": `/${SLUG}` },
-  },
-  openGraph: {
-    title: `${TITLE} — Bemis E-V Charge`,
-    description: DESC,
-    type: "website",
-    url: `/ar/${SLUG}`,
-    locale: "ar_AE",
-    images: ogImage("Bemis E-V Charge"),
-  },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: [OG_URL] },
-};
 
-export default function ArHesaplamaPage() {
-  const url = `${SITE_URL}/ar/${SLUG}`;
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  const m = HESAP_META[lang] ?? HESAP_META.en;
+  return {
+    title: { absolute: `${m.title} | Bemis E-V Charge` },
+    description: m.desc,
+    keywords: m.keywords,
+    alternates: { canonical: `/${lang}/${SLUG}`, languages: hreflangKumesi(SLUG) },
+    openGraph: {
+      title: `${m.title} — Bemis E-V Charge`,
+      description: m.desc,
+      type: "website",
+      url: `/${lang}/${SLUG}`,
+      locale: m.ogLocale,
+      images: ogImage("Bemis E-V Charge"),
+    },
+    twitter: { card: "summary_large_image", title: m.title, description: m.desc, images: [OG_URL] },
+  };
+}
+
+export default async function DilHesaplamaPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  const m = HESAP_META[lang] ?? HESAP_META.en;
+  const url = `${SITE_URL}/${lang}/${SLUG}`;
   const jsonLd = [
     breadcrumbSchema([
-      { name: "الصفحة الرئيسية", url: "/ar" },
-      { name: "حاسبة مدة الشحن", url: `/ar/${SLUG}` },
+      { name: m.anasayfa, url: lang === "ar" ? "/ar" : `/${lang}/products` },
+      { name: m.sayfa, url: `/${lang}/${SLUG}` },
     ]),
     // ⚠️ `WebApplication` — tarayıcıda çalışan bir ARAÇ olduğunu bildirir.
     // 📌 `offers` FİYATSIZ değil BEDAVA: araç gerçekten ücretsiz → price "0".
-    // 📌 `description` sayfada GÖRÜNEN paragrafla aynı bilgiyi verir.
+    // 📌 `featureList` sayfada GERÇEKTEN bulunan işlevleri sayar.
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "@id": `${url}#webapp`,
-      name: TITLE,
+      name: m.semaAd,
       url,
       applicationCategory: "UtilitiesApplication",
       operatingSystem: "Web",
       browserRequirements: "JavaScript",
-      inLanguage: "ar",
+      inLanguage: m.inLanguage,
       isAccessibleForFree: true,
-      description:
-        "اختر سيارتك وجهاز الشحن لتحسب المدة التقديرية للشحن والتكلفة لكل كيلومتر بحسب سعة البطارية وقدرة الشاحن الداخلي في السيارة ودرجة التيار المختارة.",
-      featureList: [
-        "سعة البطارية وقدرة الشحن المتناوب الداخلية بحسب طراز السيارة",
-        "تقدير مدة الشحن المتناوب والسريع",
-        "حساب القدرة بحسب درجة التيار",
-        "التكلفة لكل كيلومتر بحسب سعر الكهرباء",
-      ],
+      description: m.semaAciklama,
+      featureList: m.ozellikler,
       offers: { "@type": "Offer", price: "0", priceCurrency: "TRY" },
       publisher: { "@id": `${SITE_URL}#organization` },
       provider: { "@type": "Organization", name: SITE_NAME, "@id": `${SITE_URL}#organization` },

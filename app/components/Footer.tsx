@@ -78,16 +78,24 @@ const NAV_GROUPS: { title: FooterPair; links: FooterLink[] }[] = [
 export default function Footer() {
   const router = useRouter();
   const pathname = usePathname();
-  // ⚠️ Arapça kolda footer'ın 8 kategori linki TR köke gidiyordu (/ar sayfalarında
-  // ölçüldü: 9 sızıntı). Arapça ADRESİ OLAN bölümler (ürünler · blog · sözlük)
-  // dil koluna taşınır; Arapçası olmayan sayfalar (kurumsal/uretici/destek/
-  // documents/b2b/bayilik/operator/şehir) bilerek TR adresinde kalır.
-  const arKol = forcedLangForPath(pathname) === "ar";
+  // ⚠️ Dil kolunda footer linkleri TR köke gidiyordu. Bölümün O DİLDE ADRESİ
+  // VARSA dil koluna taşınır, yoksa bilerek TR'de kalır (kurumsal · uretici ·
+  // destek · documents · b2b · bayilik · operator · şehir sayfalarının çevirisi yok).
+  // 🔴 2026-09-13: eşleme `=== "ar"` ile Arapçaya KİLİTLİYDİ (9 Eylül'de yalnız
+  //    Arapça kol için yazılmıştı). Ürün kolu 6 dilde de var → /de /es /ru /nl /en
+  //    sayfalarında 8 ürün linki TR'ye sızıyordu (yeni araç sayfalarının üretilen
+  //    HTML'inde ölçüldü; o dillerde daha önce Footer basan sayfa yoktu).
+  const dilKolu = forcedLangForPath(pathname);
   const arYol = (href: string) => {
-    if (!arKol) return href;
-    if (href.startsWith("/products") || href.startsWith("/sozluk")) return `/ar${href}`;
-    // Arapça blogda yalnız "Rehberler" sekmesi var → #sss / #rehberler çapaları düşer.
-    if (href === "/blog" || href.startsWith("/blog#")) return "/ar/blog";
+    if (!dilKolu || dilKolu === "tr") return href;
+    // ÜRÜNLER: altı dil kolunun hepsinde var.
+    if (href.startsWith("/products")) return `/${dilKolu}${href}`;
+    // SÖZLÜK ve BLOG: yalnız Arapça kolda adresleri var.
+    if (dilKolu === "ar") {
+      if (href.startsWith("/sozluk")) return `/ar${href}`;
+      // Arapça blogda yalnız "Rehberler" sekmesi var → #sss / #rehberler çapaları düşer.
+      if (href === "/blog" || href.startsWith("/blog#")) return "/ar/blog";
+    }
     return href;
   };
   const { social, footer: footerContent, logos, contact } = useContent();

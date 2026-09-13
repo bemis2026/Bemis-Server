@@ -148,6 +148,28 @@ const REHBER_DROPDOWN: DropdownItem[] = [
   },
 ];
 
+/**
+ * Rehber menüsünü DİL KOLUNA göre üretir.
+ * ⚠️ TÜRKÇE'DE LİSTE AYNEN DÖNER — görünür TR arayüzü değiştirilmez.
+ * 🔴 TR dışı dillerde "Hesaplayıcı" `#calculator` ankrajına gidiyordu; o bölüm
+ *    yalnız Türkçe anasayfada var → ziyaretçi TR anasayfaya düşüyordu. Artık
+ *    kendi dil kolundaki tam sayfaya gider.
+ * 📌 Araç uyumluluğu maddesi de burada eklenir: de/es/ru/nl kolunda o sayfanın
+ *    BAŞKA iç link girişi yok (yetim kalmasın).
+ */
+function rehberMenusu(lang: string): DropdownItem[] {
+  if (lang === "tr") return REHBER_DROPDOWN;
+  const kok = `/${lang}`;
+  return [
+    ...REHBER_DROPDOWN.map((i) => (i.href === "#calculator" ? { ...i, href: `${kok}/sarj-suresi-hesaplama` } : i)),
+    {
+      label: { tr: "Araç Uyumluluğu", en: "Vehicle compatibility" },
+      sub:   { tr: "Hangi araca hangi cihaz ve kablo", en: "Which charger and cable fits your car" },
+      href: `${kok}/arac-sarj-uyumlulugu`, accent: "#06B6D4",
+    },
+  ];
+}
+
 // Döküman kategorileri (public /documents sayfası ile birebir) — navbar
 // "Dökümanlar" dropdown'ında yüklü dökümanlar bu kategoriler altında listelenir.
 type NavDoc = { id: string; title: string; category: string; lang?: string; visible?: boolean; coverUrl?: string };
@@ -675,7 +697,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                           style={{ width: 300, ...dropdownBase }}
                         >
                           <div className="p-1.5 space-y-0.5">
-                            {REHBER_DROPDOWN.filter(i => !i.trOnly || lang === "tr").map((item) => (
+                            {rehberMenusu(lang).filter(i => !i.trOnly || lang === "tr").map((item) => (
                               <button
                                 key={item.href}
                                 onClick={() => { setActiveDropdown(null); handleNavClick(item.href); }}
@@ -932,7 +954,7 @@ export default function Navbar({ onSearchOpen }: NavbarProps) {
                     {/* Mobile Rehber sub-links */}
                     {isR && mobileRehberOpen && (
                       <div className="py-2 space-y-1 pl-2">
-                        {REHBER_DROPDOWN.filter(i => !i.trOnly || lang === "tr").map(item => (
+                        {rehberMenusu(lang).filter(i => !i.trOnly || lang === "tr").map(item => (
                           <button key={item.href} onClick={() => { setMobileOpen(false); handleNavClick(item.href); }}
                             className={`block w-full text-left text-sm py-2 px-3 rounded-lg ${isDark ? "text-white/60 hover:text-white" : "text-black/60 hover:text-black"}`}>
                             {byLang(item.label, lang)}

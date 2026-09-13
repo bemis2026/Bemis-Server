@@ -3,6 +3,7 @@ import JsonLd from "../components/JsonLd";
 import { faqSchema, breadcrumbSchema, ogImage, OG_URL } from "../lib/seo";
 import { VEHICLE_FAQ } from "../lib/vehicleCharging";
 import VehicleChargingClient from "../components/VehicleChargingClient";
+import { hreflangKumesi } from "../[lang]/sarj-suresi-hesaplama/meta";
 
 // 📌 NEDEN BU SAYFA (2026-08-03): V2L ailesi 28 günde 88 organik oturum
 // getirirken /products/wallbox 5, /products/cables 4 getiriyordu. Ölçüldü:
@@ -21,8 +22,8 @@ const DESC =
 export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
-  // ⚠️ 2026-09-13: Arapça sürüm açıldı → küme KARŞILIKLI.
-  alternates: { canonical: `/${SLUG}`, languages: { tr: `/${SLUG}`, ar: `/ar/${SLUG}`, "x-default": `/${SLUG}` } },
+  // ⚠️ 2026-09-13: 6 dil sürümü açıldı → küme KARŞILIKLI ve her sürümde AYNI.
+  alternates: { canonical: `/${SLUG}`, languages: hreflangKumesi(SLUG) },
   keywords: [
     "hangi araca hangi şarj cihazı",
     "elektrikli araba şarj kablosu uyumluluğu",

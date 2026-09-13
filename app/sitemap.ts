@@ -40,11 +40,25 @@ const CATEGORY_IDS = [
 // actual catalog of 120 SKUs). Build runs once per deploy so the call
 // happens at static generation time, not on every request.
 
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const LM = lastmodJson as Record<string, string>;
   /** rota için commit tabanlı tarih; yoksa build zamanı */
   const gt = (k: string) => (LM[k] ? new Date(LM[k]) : now);
+
+  /** Bir ARAÇ sayfasının TR + 6 dil girişini üretir (hreflang kümesi hepsinde AYNI).
+   *  ⚠️ `gt` bu kapsamda tanımlı → yardımcı modül seviyesine ÇIKARILAMAZ. */
+  const aracSayfalari = (slug: string) => {
+    const diller = ["en", "de", "es", "ru", "nl", "ar"];
+    const kume: Record<string, string> = { tr: `${BASE}/${slug}` };
+    for (const l of diller) kume[l] = `${BASE}/${l}/${slug}`;
+    const ortak = { lastModified: gt(`/${slug}`), changeFrequency: "monthly" as const, alternates: { languages: kume } };
+    return [
+      { url: `${BASE}/${slug}`, priority: 0.8, ...ortak },
+      ...diller.map((l) => ({ url: `${BASE}/${l}/${slug}`, priority: 0.75, ...ortak })),
+    ];
+  };
   /** CMS tarihi: R2 objesi → yoksa repo yedeğinin commit tarihi */
   const [urunR2, icerikR2] = await Promise.all([binLastModified("products"), binLastModified("content")]);
   const urunT = urunR2 ?? gt("_urunler");
@@ -77,13 +91,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/destek`, lastModified: gt("/destek"), changeFrequency: "monthly", priority: 0.6 },
     // Araç uyumluluk rehberi — "Togg'a hangi şarj kablosu" gibi model bazlı
     // aramaların hedefi (2026-08-03). Bkz. app/lib/vehicleCharging.ts
-    // ⚠️ 2026-09-13: bu iki ARAÇ sayfasının Arapça sürümü açıldı → hreflang
-    //    kümesi KARŞILIKLI verilir (tr ↔ ar), ayrıca /ar girişleri eklendi.
-    { url: `${BASE}/arac-sarj-uyumlulugu`, lastModified: gt("/arac-sarj-uyumlulugu"), changeFrequency: "monthly", priority: 0.8, alternates: { languages: { tr: `${BASE}/arac-sarj-uyumlulugu`, ar: `${BASE}/ar/arac-sarj-uyumlulugu` } } },
-    { url: `${BASE}/ar/arac-sarj-uyumlulugu`, lastModified: gt("/arac-sarj-uyumlulugu"), changeFrequency: "monthly", priority: 0.75, alternates: { languages: { tr: `${BASE}/arac-sarj-uyumlulugu`, ar: `${BASE}/ar/arac-sarj-uyumlulugu` } } },
+    // ⚠️ 2026-09-13: iki ARAÇ sayfası 6 dile açıldı (en/de/es/ru/nl/ar).
+    //    TR + 6 dil girişleri `aracSayfalari` ile üretilir; hreflang kümesi
+    //    HER sürümde AYNI ve KARŞILIKLI (tek yönlü küme Google'da hata verir).
+    ...aracSayfalari("arac-sarj-uyumlulugu"),
     // Şarj süresi hesaplama — "kaç saatte şarj olur" gibi ARAÇ ARAYAN sorguların hedefi (2026-09-12).
-    { url: `${BASE}/sarj-suresi-hesaplama`, lastModified: gt("/sarj-suresi-hesaplama"), changeFrequency: "monthly", priority: 0.8, alternates: { languages: { tr: `${BASE}/sarj-suresi-hesaplama`, ar: `${BASE}/ar/sarj-suresi-hesaplama` } } },
-    { url: `${BASE}/ar/sarj-suresi-hesaplama`, lastModified: gt("/sarj-suresi-hesaplama"), changeFrequency: "monthly", priority: 0.75, alternates: { languages: { tr: `${BASE}/sarj-suresi-hesaplama`, ar: `${BASE}/ar/sarj-suresi-hesaplama` } } },
+    ...aracSayfalari("sarj-suresi-hesaplama"),
     // Kullanıcı paylaşımları (Instagram gömme) — içerik CMS'ten gelir.
     { url: `${BASE}/musteri-videolari`, lastModified: icerikT, changeFrequency: "weekly", priority: 0.6 },
   ];

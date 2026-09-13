@@ -1,80 +1,69 @@
 import type { Metadata } from "next";
 import JsonLd from "../../components/JsonLd";
 import { faqSchema, breadcrumbSchema, ogImage, OG_URL, SITE_URL } from "../../lib/seo";
+import { LOCALE_LANGS } from "../../lib/localeProductSeo";
 import VehicleChargingClient from "../../components/VehicleChargingClient";
-import { AR_ICERIK, AR_SSS } from "./arIcerik";
+import { hreflangKumesi } from "../sarj-suresi-hesaplama/meta";
+import { UYUM_ICERIK, UYUM_SSS, UYUM_META } from "./icerik";
 
 /**
- * ARAÇ ŞARJ UYUMLULUĞU — ARAPÇA (/ar/arac-sarj-uyumlulugu)
+ * ARAÇ ŞARJ UYUMLULUĞU — DİL KOLLARI (/de /es /ru /nl /ar + ayrıca /en)
  *
- * 📌 NEDEN AÇILDI (2026-09-13, kullanıcı kararı): Orta Doğu kapsam denetiminde
- *    çıktı — dile duyarsız her iş Arapça kola geçmişti (25/25) ama TR'de olup
- *    Arapçada olmayan 14 yüzey vardı. Bunların 4'ü 10 Eylül'de kullanıcı kararıyla
- *    KAPALI; bu sayfa ise o karardan SONRA değerlendirilmemiş bir ARAÇ sayfası:
- *    tablo/sayı ağırlıklı, uzun metin az, `/ar` giriş sayfasıyla niyet çakışması
- *    yok ("arabama hangi kablo uyar" ≠ "üretici kimdir").
+ * 📌 13 Eylül'de önce Arapça açıldı (Orta Doğu hedefi), aynı gün kullanıcı
+ *    *"bunları da sitenin diğer dillerinde uygula"* dedi → 5 dil daha.
  *
- * ⚠️ ROTA KURALI: bu dosya `app/[lang]/` altındadır. `app/ar/...` diye STATİK bir
- *    segment AÇMA — aynı seviyedeki dinamik `[lang]` kolunu gölgeler ve
- *    /ar/products altındaki 159 sayfayı kırar (kayıtlı ders).
- * ⚠️ Bu dizine `layout.tsx` EKLEME — segment ayarları çocuklara iner.
- *
- * ⚠️ HREFLANG KARŞILIKLI: TR sayfası da `ar` alternatifini verir. Tek yönlü küme
- *    Google'da karşılıklılık hatası üretir (kayıtlı kural).
+ * ⚠️ TR SAYFASI ETKİLENMEZ: `VehicleChargingClient` prop almazsa kendi Türkçe
+ *    varsayılanını basar. Bu rota her dile kendi `icerik`ini geçer.
+ * ⚠️ SSS TEK KAYNAK: görünen liste ve FAQPage şeması `UYUM_SSS`'ten okur —
+ *    ayrı yazılsa zamanla ayrışır (Google: şemadaki içerik sayfada görünmeli).
+ * ⚠️ ROTA KURALI: `app/de/...` gibi STATİK segment AÇMA — dinamik `[lang]`
+ *    kolunu gölgeler. Bu dizine `layout.tsx` da ekleme.
+ * ⚠️ HREFLANG 7'Lİ VE KARŞILIKLI (tr + en + 5 dil + x-default).
  */
 
 const SLUG = "arac-sarj-uyumlulugu";
-const TITLE = "أي شاحن وأي كابل يناسب سيارتك؟";
-const DESC =
-  "توافق الشحن المتناوب لسيارات Togg وIONIQ 5 وTesla وBYD وMG وRenault: نوع المقبس وقدرة الشاحن الداخلي، وأي جهاز وكابل يناسب تمديدات منزلك.";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
-  return [{ lang: "ar" }];
+  return LOCALE_LANGS.map((lang) => ({ lang }));
 }
 
-export const metadata: Metadata = {
-  title: { absolute: `${TITLE} | Bemis E-V Charge` },
-  description: DESC,
-  keywords: [
-    "شاحن السيارة الكهربائية",
-    "كابل شحن Type 2",
-    "قدرة الشاحن الداخلي",
-    "شاحن Togg",
-    "شاحن IONIQ 5",
-    "أي شاحن يناسب سيارتي",
-    "محطة شحن منزلية",
-  ],
-  alternates: {
-    canonical: `/ar/${SLUG}`,
-    languages: { tr: `/${SLUG}`, ar: `/ar/${SLUG}`, "x-default": `/${SLUG}` },
-  },
-  openGraph: {
-    title: `${TITLE} — Bemis E-V Charge`,
-    description: DESC,
-    type: "article",
-    url: `/ar/${SLUG}`,
-    locale: "ar_AE",
-    images: ogImage("Bemis E-V Charge"),
-  },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: [OG_URL] },
-};
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  const m = UYUM_META[lang] ?? UYUM_META.en;
+  return {
+    title: { absolute: `${m.title} | Bemis E-V Charge` },
+    description: m.desc,
+    keywords: m.keywords,
+    alternates: { canonical: `/${lang}/${SLUG}`, languages: hreflangKumesi(SLUG) },
+    openGraph: {
+      title: `${m.title} — Bemis E-V Charge`,
+      description: m.desc,
+      type: "article",
+      url: `/${lang}/${SLUG}`,
+      locale: m.ogLocale,
+      images: ogImage("Bemis E-V Charge"),
+    },
+    twitter: { card: "summary_large_image", title: m.title, description: m.desc, images: [OG_URL] },
+  };
+}
 
-export default function ArAracSarjUyumlulukPage() {
+export default async function DilAracSarjUyumlulukPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  const m = UYUM_META[lang] ?? UYUM_META.en;
+  const icerik = UYUM_ICERIK[lang] ?? UYUM_ICERIK.en;
+  const sss = UYUM_SSS[lang] ?? UYUM_SSS.en;
   const jsonLd = [
     breadcrumbSchema([
-      { name: "الصفحة الرئيسية", url: "/ar" },
-      { name: "توافق شحن المركبات", url: `/ar/${SLUG}` },
+      { name: m.anasayfa, url: lang === "ar" ? "/ar" : `/${lang}/products` },
+      { name: m.sayfa, url: `/${lang}/${SLUG}` },
     ]),
-    // ⚠️ FAQPage metni sayfada GÖRÜNEN ile BİREBİR aynı — ikisi de AR_SSS'ten
-    //    gelir (tek kaynak). Ayrı yazılsa zamanla ayrışır ve Google'ın
-    //    "şemadaki içerik sayfada görünür olmalı" kuralı sessizce ihlal edilir.
-    { ...faqSchema(AR_SSS), "@id": `${SITE_URL}/ar/${SLUG}#faq`, inLanguage: "ar" },
+    { ...faqSchema(sss), "@id": `${SITE_URL}/${lang}/${SLUG}#faq`, inLanguage: m.inLanguage },
   ];
   return (
     <>
       <JsonLd data={jsonLd} />
-      <VehicleChargingClient icerik={AR_ICERIK} />
+      <VehicleChargingClient icerik={icerik} />
     </>
   );
 }
