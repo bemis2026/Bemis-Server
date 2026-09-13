@@ -19,8 +19,26 @@ const BLUE = "#3B82F6";
 // ⚠️ Adres METNİ yerine place_id (bkz. lib/seo.ts ORG_DIRECTIONS_URL) — Google artık
 // adresi yeniden coğrafi-kodlamıyor, doğrudan Bemis işletme kartını açıyor.
 const DIRECTIONS_URL = ORG_DIRECTIONS_URL;
+// ⚠️⚠️ HARİTA GÖMMESİ — 2026-09-13'te DÜZELTİLDİ, gerekçesi önemli:
+// Buraya ADRES METNİ yazılıyordu ve içinde hâlâ eski "No:31" vardı. 12 Eylül'deki
+// No:31 → No:19 turu 17 yeri değiştirdi ama BURAYI KAÇIRDI, çünkü numara
+// URL-KODLU (`No%3A31`) — düz "No:31" araması göremiyor. Sonuç: Google adresi
+// çözemeyip TÜM BURSA'ya zoom-out ediyordu, pin kenarda kalıyordu
+// ("haritada yerimiz belli olmuyor" şikâyetinin birebir sebebi).
+// 📌 Adres düzeltirken URL-KODLU biçimi de ara.
+//
+// ✅ Artık İŞLETME ADI sorgusu: Google pini "Bemis E-V Charge" ETİKETİYLE çizer
+//    → yer adıyla belli olur. Ölçülen alternatifler daha zayıftı: adres metni ve
+//    koordinat etiketsiz pin veriyor, ad+adres birlikte ise küçük şarj ikonu.
+// ⚠️ Adres metni bilerek YOK: Google'ın canlı işletme kartı "No:31", site "No:19"
+//    diyor (kullanıcıya bildirildi, karar onda). Gömme bina numarasından bağımsız.
+// ⚠️ Google'ın kendi pin BOYUTU gömme içinde değiştirilemez (çapraz-köken iframe).
+//    Sahte "büyük pin" katmanı KONMADI: harita sürüklenince sabit katman kaymaz,
+//    Google'ın pini kayar → iki ayrı işaret, yanıltıcı olur.
 const MAP_EMBED_SRC =
-  "https://www.google.com/maps?q=Ye%C5%9Fil%20Cad.%20No%3A31%2C%2016220%20Nil%C3%BCfer%20Bursa&output=embed";
+  "https://www.google.com/maps?q=" +
+  encodeURIComponent("Bemis E-V Charge, Nilüfer, Bursa") +
+  "&z=17&output=embed";
 
 export default function ContactPageClient() {
   const { theme } = useTheme();
@@ -240,7 +258,8 @@ export default function ContactPageClient() {
               title="Bemis E-V Charge konum haritası"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              style={{ width: "100%", height: 360, border: 0, display: "block" }}
+              // sokak seviyesi zoom'da pin daha belirgin dursun diye 360 -> 420
+              style={{ width: "100%", height: 420, border: 0, display: "block" }}
             />
           </motion.div>
         </div>

@@ -46,6 +46,36 @@
 > ortam artefaktı, kusur değil.
 > **Bekçide `b2b/page.tsx` DOSYA MUAFİYETİ KALDIRILDI**; geriye tek gerekçeli tekil muafiyet
 > kaldı: admin boş-durum yer tutucusu (ziyaretçiye render edilmez).
+> 🗺️🔴 **/iletisim HARİTASI YANLIŞ BİNA NUMARASINDAYDI — "yerimiz belli olmuyor" ÇÖZÜLDÜ
+> (2026-09-13):** Kullanıcı *"iletişim bölümünde harita üstünde yerimiz belli olmuyor, imleci
+> büyüt"* dedi. Sorun imleç boyutu DEĞİLDİ.
+>
+> **🔴 KÖK NEDEN (tarayıcıda 4 aday yan yana ölçüldü):** gömme adresi hâlâ **`No:31`** idi.
+> 12 Eylül'deki **No:31 → No:19** turu 17 yeri değiştirdi ama **BURAYI KAÇIRDI** — çünkü numara
+> **URL-KODLU** (`No%3A31`) ve düz `No:31` araması onu GÖREMİYOR. Google yanlış numarayı
+> çözemeyip **TÜM BURSA BÖLGESİNE zoom-out** ediyordu (Görükle · Kayapa · Uludağ Üniversitesi
+> görünüyordu), pin ekranın kenarında kalıyordu. Şikâyetin birebir sebebi buydu.
+> 📌 **Ders: metinle adres/numara düzeltirken URL-KODLU biçimi de ara** (`%3A`, `%20`, `%C5%9F`).
+>
+> **✅ ÇÖZÜM — İŞLETME ADI SORGUSU** (`?q=Bemis E-V Charge, Nilüfer, Bursa&z=17&output=embed`):
+> Google pini **"Bemis E-V Charge" ETİKETİYLE** çiziyor → yer adıyla belli oluyor. Harita
+> yüksekliği **360 → 420 px**. Ölçülen alternatifler daha zayıftı: adres metni ve koordinat
+> **etiketsiz** pin veriyor, ad+adres birlikte ise Google **küçük şarj ikonu** çiziyor (etiket yok).
+> ⚠️ **Adres metni gömmeden BİLEREK çıkarıldı** → harita bina-numarası tartışmasından bağımsız.
+>
+> **⚠️ GOOGLE'IN KENDİ PİN BOYUTU DEĞİŞTİRİLEMEZ** (çapraz-köken iframe). Sahte "büyük pin"
+> katmanı da **KONMADI**: çapraz-çizgi testiyle ölçtüm, koordinat gömmesinde pin tam merkezde —
+> ama kullanıcı haritayı sürüklerse Google'ın pini kayar, sabit katman kaymaz → **iki ayrı işaret,
+> yanıltıcı**. Gerçek özel imleç ancak Maps JavaScript/Static API anahtarıyla (ücretli) olur.
+>
+> **🔴🔴 YOL ÜSTÜNDE ÇIKAN NAP ÇELİŞKİSİ — KULLANICI KARARI GEREKİYOR:** haritanın yüklediği
+> **Google işletme kartı** şunu yazıyor: *"Bemis E-V Charge · Minareliçavuş, Yeşil Cd. ·
+> Organize San. Böl **No:31**, 16220 · 5,0 ★ (27)"*. Site ise **No:19** diyor (12 Eylül'de
+> kullanıcı teyidiyle değiştirilmişti: *"GBP kartı No:19 yazıyor"*). **Bugün GBP kartı No:31
+> gösteriyor.** ⚠️ Tam olarak `seo.ts`'te uyarısı yazılan risk: *"GBP'de No:31 yazıyorsa bu
+> değişiklik YENİ bir tutarsızlık üretir."* Site TEK TARAFLI değiştirilmedi — hangi numaranın
+> doğru olduğu ve hangi tarafın düzeltileceği kullanıcının kararı (NAP + GBP doğrulaması).
+> ⓘ Kart 5,0/27 puanı gösteriyor = `ORG_PLACE_ID` ile aynı kart, yani doğru işletme kaydı.
 > 👁️🔤 **GÖRÜNÜR TÜRKÇE METİN TARAMASI — BEKÇİNİN 5. SINIFI (2026-09-13):**
 > Kullanıcı: *"görünür metin taramasını yap."* 4. sınıf yalnız ÖZNİTELİKLERİ kapatıyordu; gövde
 > metni (`<p>Türkçe cümle</p>`) açıktaydı.
