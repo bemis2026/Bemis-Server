@@ -574,7 +574,7 @@ export default function AllProductsPage({ initialCategories = [], initialLang = 
                                   className="text-[10px] font-semibold transition-transform duration-200 group-hover:translate-x-0.5"
                                   style={{ color: cat.accent }}
                                 >
-                                  Detaylar →
+                                  {pickText(lang, "Detaylar", "Details")} →
                                 </span>
                               </div>
                             </div>

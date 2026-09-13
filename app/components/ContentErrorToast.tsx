@@ -75,7 +75,7 @@ export default function ContentErrorToast() {
                   cursor: "pointer",
                 }}
               >
-                Kapat
+                {pickText(lang, "Kapat", "Close")}
               </button>
             </div>
           </div>

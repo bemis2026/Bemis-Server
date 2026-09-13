@@ -1528,7 +1528,7 @@ export default function DealerNetwork() {
                             </span>
                             <div className="min-w-0 flex-1">
                               <p className="text-[10px] font-bold tracking-[0.18em] uppercase leading-tight" style={{ color: d ? "#93C5FD" : BLUE }}>
-                                Bemis Yetkilisi
+                                {L("Bemis Yetkilisi", "Bemis representative")}
                               </p>
                               <p className="text-sm font-semibold leading-tight mt-1" style={{ color: d ? "#ffffff" : "#111111" }}>
                                 {(rep.name || activeCityLabel || "").trim()}

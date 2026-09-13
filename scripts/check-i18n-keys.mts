@@ -37,10 +37,14 @@
  *       bayi haritasının "MERKEZ" pini 6 dilde de Türkçe duruyordu (ikisinde de
  *       tek bir ğ/ı/ş/ö/ü/ç yok). Artık HER ham JSX metin düğümü bulgudur; meşru
  *       olan marka/evrensel/tekil muafiyet kapılarından geçer.
- *    ⚠️ ÇOK SATIRLI METNİN DEVAM SATIRI (`duz` dalı) HÂLÂ Türkçe harfe bağlı —
- *       BİLİNÇLİ ve ÖLÇÜLMÜŞ sınır: ters çevrilince 1000 aday çıkıyor ("return (",
- *       "description:" gibi saf kod). Orada dil işareti tek işleyen filtre.
- *       📌 Ders: ters mantık her yerde değil, ÖLÇÜLDÜĞÜ yerde uygulanır.
+ *    ⚠️⚠️ `duz` DALI DA DİL TAHMİNİNDEN ÇIKTI — ama ters mantıkla değil,
+ *       YAPISAL kapıyla. "Harf varsa bulgu" demek 1000 saf-kod adayı üretiyordu
+ *       ("return (", "description:"); Türkçe harfe bağlamak ise GERÇEK kaçak
+ *       üretti ("Fason, white-label ve toptan tedarik" · "Kapat" · "MERKEZ" ·
+ *       "Hata · 404" · "Detaylar →" — hepsi saf ASCII, hepsi HER dilde görünür).
+ *       Doğru soru: bu satır JSX metni mi? Önceki satır `>` ile bitiyor VE
+ *       sonraki `</` ile başlıyorsa evet. Ölçüm: 1000 → 16 aday.
+ *       📌 Ders: "ters çevrilemez" demeden önce SORUYU değiştirmeyi dene.
  *
  * ⚠️ BUILD ZİNCİRİNE BİLEREK EKLENMEDİ (check:clones ile aynı gerekçe): bu bir
  *    UYARI denetimi. Eksik anahtar sayfayı kırmaz, İngilizce'ye düşer — dağıtımı
@@ -155,6 +159,7 @@ const GORUNUR_MUAF = new Map<string, string>([
   ["components/SectionWrapper.tsx", "admin düzenleme modu"],
   // (c) MARKA / KANONİK / ÖLÜ KOD / SAĞLAYICISIZ SAYFA
   ["opengraph-image.tsx", "site-geneli tek OG görseli (kanonik)"],
+  ["icon.tsx", "favicon üreteci — tek marka harfi"],
   ["components/BrandStory.tsx", "ölü bileşen — SECTION_COMPONENTS'te yok, sıfır import"],
   ["components/Technology.tsx", "ölü bileşen — sıfır import"],
   ["global-error.tsx", "kök yerleşimin YERİNE geçer → LanguageProvider YOK, useLanguage çalışmaz"],
@@ -192,6 +197,7 @@ const GORUNUR_EVRENSEL = new Map<string, string>([
   ["Bemis Teknik", "kardeş marka resmî adı"],
   ["BYES", "kardeş marka resmî adı"],
   ["OEM / B2B", "evrensel ticari kısaltma"],
+  ["B2B", "evrensel ticari kısaltma"],
   ["ESC", "klavye tuşu adı — evrensel"],
   ["HD", "evrensel kısaltma"],
   ["panel.bemisevcharge.com.tr", "alan adı"],
@@ -284,7 +290,7 @@ for (const f of dosyalar) {
   if (!f.includes("/admin/") && f.endsWith(".tsx")) {
     const kisa = f.replace(/^app\//, "");
     if (!GORUNUR_MUAF.has(kisa)) {
-      yorumBosalt(ham).split("\n").forEach((l, i) => {
+      yorumBosalt(ham).split("\n").forEach((l, i, satirlar) => {
         if (CEVIRI_CAGRISI.test(l)) return;
         const t = l.trim();
         if (!t || /^(import|export)\s/.test(t)) return;
@@ -305,15 +311,23 @@ for (const f of dosyalar) {
           gorunur.push({ en: "", tr: metin.slice(0, 70), dosya: f, satir: i + 1 });
         }
 
-        // (5b) ÇOK SATIRLI METNİN DEVAM SATIRI — burada dil işareti ŞART.
-        //      ⚠️ ÖLÇÜLDÜ: bu dal ters çevrilirse 1000 saf-kod adayı çıkar
-        //      ("return (", "description:") → Türkçe harf tek işleyen filtre.
-        const duz = /^[^<>{}"'`=;]*[ğışİŞĞöüçÖÜÇ][^<>{}"'`=;]*$/.test(t) && t.length > 3;
-        if (!duz) return;
-        const tam = t.replace(/^[>{}\s]+|[<{}\s]+$/g, "").trim();
-        if (!tam || !TR_HARF.test(tam)) return;
-        if (GORUNUR_TEKIL_MUAF.has(`${kisa}|${tam}`)) return;
-        gorunur.push({ en: "", tr: tam.slice(0, 70), dosya: f, satir: i + 1 });
+        // (5b) KENDİ SATIRINDA DURAN JSX METNİ — soru DİL değil YAPI.
+        //      ⚠️ Bu dal önce Türkçe HARFE bağlıydı ("ters çevrilemez, 1000 saf
+        //      kod adayı çıkar" diye ölçülmüştü). O karar GERÇEK kaçak üretti:
+        //      "Fason, white-label ve toptan tedarik" · "Kapat" · "MERKEZ" ·
+        //      "Hata · 404" · "Detaylar →" — hepsi saf ASCII Türkçe.
+        //      Doğru kapı yapısal: önceki boş-olmayan satır `>` ile BİTMELİ,
+        //      sonraki `</` ile BAŞLAMALI. Saf kod buradan geçemez → 16 aday.
+        //      📌 Ders: "ters çevrilemez" demeden önce SORUYU değiştirmeyi dene.
+        if (!/^[^<>{}"'`=;]+$/.test(t) || t.length <= 3) return;
+        let onc = i - 1; while (onc >= 0 && !satirlar[onc].trim()) onc--;
+        let son = i + 1; while (son < satirlar.length && !satirlar[son].trim()) son++;
+        if (onc < 0 || son >= satirlar.length) return;
+        if (!satirlar[onc].trim().endsWith(">")) return;
+        if (!satirlar[son].trim().startsWith("</")) return;
+        if (MARKA_METIN.has(t) || GORUNUR_EVRENSEL.has(t)) return;
+        if (GORUNUR_TEKIL_MUAF.has(`${kisa}|${t}`)) return;
+        gorunur.push({ en: "", tr: t.slice(0, 70), dosya: f, satir: i + 1 });
       });
     }
   }

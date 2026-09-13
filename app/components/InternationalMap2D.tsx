@@ -249,7 +249,7 @@ export default function InternationalMap2D({ dark, countries, selectedId, onSele
             textAnchor="middle"
             style={{ letterSpacing: "0.1em" }}
           >
-            MERKEZ
+            {pickText(lang, "MERKEZ", "HQ")}
           </text>
         </g>
       </svg>

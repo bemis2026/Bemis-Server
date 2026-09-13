@@ -27,7 +27,7 @@ export default function NotFound() {
         {/* 404 hero */}
         <p className="text-[11px] font-bold tracking-[0.20em] uppercase mb-3"
           style={{ color: "rgba(59,130,246,0.85)" }}>
-          Hata · 404
+          {pickText(lang, "Hata · 404", "Error · 404")}
         </p>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight">
           {pickText(lang, "Aradığın sayfa", "The page you are looking for")}<br />

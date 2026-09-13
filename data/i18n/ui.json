@@ -3918,5 +3918,19 @@
   "ar": "الوظائف المدعومة بـ OCPP",
   "ru": "Функции с поддержкой OCPP",
   "nl": "OCPP-ondersteunde functies"
+ },
+ "Bemis representative": {
+  "de": "Bemis-Ansprechpartner",
+  "es": "Representante de Bemis",
+  "ar": "ممثل Bemis",
+  "ru": "Представитель Bemis",
+  "nl": "Bemis-vertegenwoordiger"
+ },
+ "Error · 404": {
+  "de": "Fehler · 404",
+  "es": "Error · 404",
+  "ar": "خطأ · 404",
+  "ru": "Ошибка · 404",
+  "nl": "Fout · 404"
  }
 }
