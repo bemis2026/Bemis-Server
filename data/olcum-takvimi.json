@@ -139,6 +139,14 @@
       "hedef": "Bekçi temiz; /operator ve anasayfa bayi haritası dahil yabancı dil sayfalarında görünür ham Türkçe YOK (kanonik NAP hariç). Yeni eklenen JSX metni varsa ya çeviri çağrısından geçiyor ya da gerekçeli muafiyette.",
       "nasil": "npm run check:i18n · sonra Almanca /operator + anasayfa Türkiye haritası pini tarayıcıda: 'OCPP-gestützte Funktionen' ve 'ZENTRALE' görünmeli. Öz-test: scratchpad/_bekci_testi5_ters.py (8/8 beklenir).",
       "durum": "acik"
+    },
+    {
+      "tarih": "2026-10-13",
+      "is": "/b2b statik çerçevesi 6 dile açıldı — 31 anahtar (2026-09-13)",
+      "olcum": "Yabancı dil /b2b'de ham Türkçe kaldı mı + FAQPage şeması kanonik TR mi",
+      "hedef": "de/es/ar/ru/nl'de görünür ham Türkçe 0 (kanonik NAP hariç); FAQPage şeması 6 soruyla TÜRKÇE kalmalı (tek URL + TR canonical kararı) ve görünür SSS ile aynı 6 soruyu taşımalı.",
+      "nasil": "npm run check:i18n (b2b artık muaf DEĞİL — temiz çıkmalı) · tarayıcıda localStorage lang=de/ar ile /b2b: başlıklar çevrili, <strong> vurgusu duruyor, yatay taşma 0 · Zengin Sonuç Testi'nde FAQPage 6 soru.",
+      "durum": "acik"
     }
   ]
 }
