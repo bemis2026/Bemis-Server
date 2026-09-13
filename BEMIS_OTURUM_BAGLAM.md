@@ -75,10 +75,10 @@
 > `VehicleChargingClient` (TR varsayılan dal; dil kolları `icerik` propuyla kendi metnini geçer) ·
 > honeypot etiketleri (görsel olarak gizli bot tuzağı).
 >
-> **⏳ TEK AÇIK KALAN: `/b2b` statik çerçevesi (≈12 birim).** CMS içeriği 7 dilde ama sayfanın
-> kendi başlık/paragrafları Türkçe → **yarı çevrilmiş sayfa**. Muafiyet listesine "AÇIK" olarak
-> gerekçesiyle yazıldı. ⚠️ Çevrilmeme sebebi teknik değil TİCARİ: "fason / white-label / toptan
-> tedarik" konumlandırmasının 5 dilde nasıl ifade edileceği kullanıcı kararı.
+> **✅ `/b2b` KAPANDI (2026-09-13, commit c1a5a4b):** o gün "tek açık kalan" buydu — ticari dil
+> kararı kullanıcıdan geldi (*"b2b'yi de yap"*) ve statik çerçeve 6 dile açıldı (31 anahtar).
+> Bekçideki dosya muafiyeti KALDIRILDI. Ayrıntı için aşağıdaki 🏭 bloğuna bak.
+> 📌 Bu satır bilerek güncellendi: kapanmış bir işi "AÇIK" bırakmak sonraki oturumu yanıltır.
 >
 > **🔴🔴 BEKÇİNİN KENDİ KESME HATASI — ÖZ-TESTTEN SONRA CANLI ÖLÇÜMLE BULUNDU:** 5. sınıf metni
 > **önce 70 karaktere kesiyor, SONRA** Türkçe harf kontrolü yapıyordu → Türkçesi 70. karakterden
