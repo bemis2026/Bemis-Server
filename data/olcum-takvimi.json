@@ -163,6 +163,22 @@
       "hedef": "Trafik varsa o ölçülerde hemen çıkma oranı site ortalamasından KÖTÜ olmamalı. Trafik yoksa sonuç 'henüz ölçülemez' yazılır — uydurma yorum yapılmaz.",
       "nasil": "GA4 (ga-bemis) → Teknoloji → Ekran çözünürlüğü; yukarıdaki bantlardaki satırları süz, oturum + hemen çıkma oranını site ortalamasıyla karşılaştır.",
       "durum": "acik"
+    },
+    {
+      "tarih": "2026-10-14",
+      "is": "DC şarj kablosu / CCS2 soketi görünürlük turu (2026-09-14)",
+      "olcum": "Yeni iniş sayfası + rehber indekslendi mi, hedef sorgularda görünüyor muyuz",
+      "hedef": "/dc-sarj-kablosu ve /blog/dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir Google'da indeksli olmalı (site: sorgusu). GSC'de 'dc şarj kablosu', 'ccs2 şarj kablosu', 'ccs2 soket', 'şarj istasyonu kablosu' sorgularında GÖSTERİM > 0 olmalı — tıklama beklentisi düşük tutulur, ilk hedef görünürlüğün başlaması.",
+      "nasil": "(1) Google'da `site:bemisevcharge.com.tr dc-sarj-kablosu` → sayfa çıkıyor mu; (2) Search Console → Performans → Sorgular: yukarıdaki 4 sorgu için gösterim/pozisyon; (3) `/products/charger-equipment` sayfasının yeni metaTitle'ı ('DC Şarj Kablosu · CCS2 Soket · Type 2 Priz') SERP'te görünüyor mu. ⚠️ Ahrefs kapalı → sıra ölçümü GSC'den yapılır.",
+      "durum": "acik"
+    },
+    {
+      "tarih": "2026-09-21",
+      "is": "DC ürün adı değişiminin yan etkileri (2026-09-14)",
+      "olcum": "Ad 6 dilde doğru mu, varyant gruplaması bölündü mü, eski URL'ler ayakta mı",
+      "hedef": "8 varyant TEK ürün kartında gruplanmış olmalı (ad hepsinde aynı). 6 yabancı dilde ad o dilde görünmeli (TÜRKÇEYE düşmemeli). Eski ürün URL'leri (dc-sarj-soketi-ccs2-...) 200 dönmeli — slug değişmedi.",
+      "nasil": "(1) /products/charger-equipment'ta CCS2 kartı tek mi, alt başlıkta 8 sürüm var mı; (2) `/api/products?lang=de` ve `?lang=ar` → ürün adı Almanca/Arapça mı; (3) 8 ürün URL'ine tek tek 200 kontrolü; (4) `npm run check:seo` → 'veri katmanı kod haritasını eziyor' sınıfında bu 8 ürün ÇIKMAMALI.",
+      "durum": "acik"
     }
   ]
 }

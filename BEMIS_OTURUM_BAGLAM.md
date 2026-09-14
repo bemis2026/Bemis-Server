@@ -13,6 +13,80 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🔌🔍 **DC ŞARJ KABLOSU / CCS2 SOKETİ — ARAMA GÖRÜNÜRLÜĞÜ TURU (2026-09-14, commit 847be1b):**
+> Kullanıcı: *"dc şarj istasyonu üreticileri ve servis firmaları sahada kabloyu değiştiriyorlar,
+> Google'a 'dc ccs2 şarj kablosu / dc hızlı şarj kablosu soketi' yazıyorlar; bu aramalarda
+> bulunabilir olmalıyız."*
+>
+> **📏 ÖLÇÜM — ÜRÜN VARDI, GÖRÜNÜRLÜK YOKTU:** 8 SKU (80/150/250/400 A × 5m/8m) bir ucu açık
+> CCS2 soket **zaten katalogda**, ama 42 ürünlük `charger-equipment` kategorisinin 25-30. ve
+> 39-40. sırasında gömülüydü. **🔴 Kategori sayfasının Google'a gösterilen İKİ alanında (metaTitle
+> + description) "DC" kelimesi HİÇ geçmiyordu** — yalnız *"Type 2 priz, pano prizi"* diyordu
+> (gövdede CCS2 196 kez geçmesine rağmen).
+>
+> **🔴 ASIL BULGU — KELİME UYUŞMAZLIĞI:** biz her yerde **"soket"** diyoruz, pazar **"kablo"**
+> arıyor. Google otomatik tamamlamadan toplanan GERÇEK sorgular: `ccs2 kablo → ccs2 şarj kablosu` ·
+> `dc şarj kablosu` (+fiyatları/uzatma/araç) · `dc şarj soketi` · `ccs2 soket` (+nedir) · `ccs2 250a` ·
+> `şarj istasyonu kablosu`. Rakip aynı ürünü **"CCS2 250 A 8 m DC Şarj Kablosu"** diye adlandırıp o
+> sorgularda görünüyor. Servis/arıza tarafında ise **tedarikçi değil TAMİRCİ** firmalar çıkıyor →
+> *"şarj istasyonu kablo değişimi / yedek parça"* arayan servisçi bizi hiç bulamıyordu.
+> ⚠️ **ARAMA HACMİ VERİSİ YOK** — Ahrefs API bu hesapta kapalı ("Insufficient plan", tekrar
+> denendi). Sorgular Google'ın kendi otomatik tamamlamasından; **sayı iddiası YOK, uydurulmadı.**
+> ⚠️ **`dc şarj kablosu` SAF DEĞİL:** otomatik tamamlamada `dc 5v`, `usb dc`, `ps5 şarj istasyonu`
+> gibi tüketici elektroniği de var → yeni metinlerin HEPSİ *elektrikli araç / CCS2 / istasyon*
+> kelimeleriyle nitelendi.
+>
+> **1️⃣ ÜRÜN ADI DEĞİŞTİ (kullanıcı kararı: "ikisi birlikte"):**
+> `DC Şarj Soketi CCS2 (Bir Ucu Açık)` → **`DC Şarj Kablosu / Soketi CCS2 (Bir Ucu Açık)`**
+> ⚠️⚠️ **AD BİR KİMLİK ALANI — TEK BAŞINA DEĞİŞTİRİLEMEZ.** Aynı turda 4 yer birden:
+> (a) R2 **`products` + `productsEn`** bin'leri — 48 ad (8 TR + 32 `_translations` + 8 EN);
+> (b) **`productNamesEn.ts` + `productNamesLocale.ts` ANAHTARLARI** — ad 6 dil haritasının
+> anahtarıdır; güncellenmezse `serverProductsLang.ts` eşleşme bulamaz ve **yabancı dil
+> sayfalarında ad TÜRKÇEYE düşer** ("eşlemesi olmayan ad AYNEN kalır" = sessiz bozulma);
+> (c) repo yedeği `data/products*.json` (R2 okunamazsa devreye girer);
+> (d) **`lib/store.ts` cache sürümü `v121-google-puan` → `v122-dc-kablo`** (doğrudan R2 yazımı
+> `revalidateTag` tetiklemez → 6 saat bayat kalırdı).
+> ⚠️ **SLUG DEĞİŞMEDİ** → indekslenmiş URL'ler korundu. ⚠️ 8 varyantın **HEPSİ** aynı anda
+> değişti → varyant gruplaması (`name` üzerinden) bölünmedi.
+> 📌 Betik: **`scripts/rename-dc-kablo-soket.cjs`** (4 shard'ı tarar, TR kolunda 8 beklemezse
+> YAZMAZ, yedek alır, idempotent). Yeni ad göçünde bu deseni kullan.
+>
+> **2️⃣ SEO METİNLERİ (görünür H1'ler DEĞİŞMEDİ):** 8 ürünün metaTitle/description/keywords
+> "kablo" diline geçti (51-52 karakter) · `charger-equipment` kategorisine **metaTitle** eklendi
+> (`DC Şarj Kablosu · CCS2 Soket · Type 2 Priz`). ⚠️ Kategori açıklamasındaki kategori-geneli
+> **"IP65" iddiası ÇIKARILDI**: kategori karma ve DC kablolarının spec'inde IP değeri KAYITLI
+> DEĞİL — doğrulanamayan iddiayı yaymaktansa düşürmek doğru.
+>
+> **3️⃣ YENİ İNİŞ SAYFASI `/dc-sarj-kablosu`:** akım×uzunluk seçim tablosu (8 SKU, ürün kodlarıyla,
+> her satır ürün sayfasına linkli) · "bir ucu açık" açıklaması · kim kullanır (OEM / işletmeci /
+> servis) · saha değişim senaryosu · 6 SSS. Service + FAQPage + BreadcrumbList şeması.
+> ⚠️ **Görünür metnin TAMAMI `app/lib/dcKablo.ts`'te** — (a) `check:i18n` 5. sınıfı yanlış alarm
+> vermez, **dosya muafiyeti eklemeye gerek kalmadı**; (b) **SSS TEK KAYNAK**: görünen bölüm ve
+> FAQPage şeması aynı diziden → ayrışamaz. ⚠️ SSS cevapları **DAİMA DOM'da** (koşullu mount
+> DEĞİL) — doğrulandı, 6 cevabın 6'sı SSR HTML'inde. ⚠️ **TR-only** (karşılığı olmayan hreflang
+> Google'da karşılıklılık hatası üretir).
+>
+> **4️⃣ REHBER YAZI (blog 42 → 43):** `/blog/dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir` —
+> akım kademesi **ünitenin ETİKET çıkış akımına** göre seçilir (kW'a bakarak tahmin YANILTIR:
+> aynı güç farklı gerilimde farklı akım), uzunluk, terminasyon + **5 belirtilik saha arıza
+> tablosu**. ⚠️ Güvenlik çerçevesi: her satırda "yetkili servis / ünitenin üreticisi";
+> kullanıcıya kendi müdahalesi ÖNERİLMEDİ. Bağlanan yüzeyler: sitemap · llms.txt ·
+> llms-full.txt `GUIDE_SLUGS` · **`categoryGuides.ts`** (⚠️ `charger-equipment` girdisi HİÇ
+> YOKTU — kategori sayfasından açıklayıcı içeriğe çıkış olmuyordu).
+>
+> **✋ UYDURMA SPEC YOK (kullanıcı kararı: "mevcut verilerle devam et"):** yalnız kayıtlı alanlar
+> kullanıldı (IEC 62196-3 · akım kademesi · uzunluk · bir uç CCS2 / diğer uç açık · CE).
+> Rakip sayfalarında geçen **1000 V DC · IP sınıfı · −30/+50 °C · PT1000 sensör · 10.000 çevrim ·
+> iletken kesiti (70/70/35 mm²)** bizde KAYITLI OLMADIĞI için **hiçbir yerde yazılmadı.**
+> 📌 Teknik föy gelirse önce `data/products.json` spec'ine, sonra sayfaya işlenir.
+>
+> **🪤 YOL ÜSTÜNDE DÜZELTİLEN KAYITLI TUZAK:** yeni sayfanın **hero metni SSR'da `opacity:0`**
+> ile basılıyordu (`whileInView` deseninin yan etkisi) → ilk ekranda görünmesi gereken başlık
+> JS hidrasyonuna kadar GÖRÜNMEZ kalırdı. Anasayfa (`6b492b1`) ve `/destek` (`e377d1c`)
+> hero'larında daha önce düzeltilmiş aynı LCP tuzağı. Kaldırıldı (kayma animasyonu korundu).
+> ⚠️ **AYNI KUSUR ŞEHİR İNİŞ SAYFALARINDA HÂLÂ VAR** (`CityLandingClient` hero H1'i SSR'da
+> `opacity:0`) — ölçüldü, kapsam dışı bırakıldı; ayrı turda düzeltilebilir.
+
 > 📱🔻 **KATLANABİLİR TELEFON UYUMU — iPhone Duo (2026-09-14):** Kullanıcı: *"yeni çıkan
 > katlanabilir telefonlar özellikle iPhone Duo için tüm siteyi uyumlu hale getir"*.
 >
