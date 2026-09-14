@@ -7,12 +7,28 @@
 > Derin teknik bağlam: `Desktop/Claude Çalışmaları/Bemis Website/md/BEMIS_PROJECT_CONTEXT.md`
 > (özellikle §15.16 denetim, §15.17 Blob taşıması).
 >
-> Son güncelleme: **2026-09-12**
+> Son güncelleme: **2026-09-14**
 
 ---
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> ✅ **DİL MERGE KAPSAMI ÖLÇÜLDÜ — KUSUR YOK (2026-09-14, sahte alarm kapatıldı).**
+> Arka plan teşhis betiği `🔴` bastığı için cp1254 konsolda `UnicodeEncodeError` ile ÖLDÜ ve geriye
+> yanıltıcı bir yarım rapor bıraktı: *"merge 22 bölüm ele alıyor, content.json'da 26 var"* → 4 bölüm
+> hiç çevrilmiyor gibi göründü (`gallerySection` kusurunun sınıfı, bu yüzden ciddiye alındı).
+> **Gerçek ölçüm:** `lib/contentLang.ts` → `merged` literali 29 anahtar ele alıyor; ele ALINMAYAN
+> bölüm **3** ve üçü de METİN DEĞİL KİMLİK: `faviconUrl` · `ogImage` · `siteVerification`.
+> `...tr`'den gelmeleri **doğru**, üstelik 6 çeviri dosyasında da değerleri TR ile birebir aynı →
+> sapma riski de yok. **Çevrilmeyen görünür metin bölümü YOK.**
+> Ters yön de ölçüldü: merge'in ele aldığı ama repo yedeği `data/content.json`'da bulunmayan 6
+> anahtar (`technology` · `socialWallSection` · `calculator` · `sectionBgs` · `sectionOrder` ·
+> `textStyles`) `ContentContext.defaultContent` tarafından karşılanıyor → R2 okunamazsa sayfa bu
+> bölümleri kod varsayılanlarından basar, **boş kalmaz**.
+> 📌 Betikler: `scratchpad/_merge_eksik_bolum.cjs` + `_merge_eksik_detay.cjs` (yeniden ölçmek için).
+> 📌 **DERS:** teşhis betiği çıktısı **saf ASCII** olsun — arka plan görevinde kodlama hatası betiği
+> öldürüyor, çıktı kayboluyor ve elde yanlış yönlendiren yarım sonuç kalıyor.
+>
 > 🔌🔍 **DC ŞARJ KABLOSU / CCS2 SOKETİ — ARAMA GÖRÜNÜRLÜĞÜ TURU (2026-09-14, commit 847be1b):**
 > Kullanıcı: *"dc şarj istasyonu üreticileri ve servis firmaları sahada kabloyu değiştiriyorlar,
 > Google'a 'dc ccs2 şarj kablosu / dc hızlı şarj kablosu soketi' yazıyorlar; bu aramalarda

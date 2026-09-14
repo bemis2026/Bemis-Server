@@ -51,3 +51,6 @@ public/**/*.mp4
 public/**/*.mov
 
 .vercel
+
+# session diagnostic / scratch scripts - never commit
+scratchpad/
