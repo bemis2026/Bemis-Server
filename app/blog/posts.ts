@@ -34,6 +34,179 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    "slug": "dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir",
+    "title": "DC Şarj Kablosu ve CCS2 Soketi Nasıl Seçilir?",
+    "metaTitle": "DC Şarj Kablosu ve CCS2 Soketi Nasıl Seçilir?",
+    "description": "DC hızlı şarj istasyonu için CCS2 kablo seçimi: akım kademesi (80–400 A), uzunluk, bir ucu açık terminasyon ve sahada kablonun ne zaman değişmesi gerektiği.",
+    "excerpt": "Bir DC şarj istasyonunda en çok yıpranan parça ünitenin kendisi değil, aracın takıldığı kablodur. Doğru CCS2 kablosu üç soruyla seçilir: ünitenin çıkış akımı kaç amper, kablo kaç metre olmalı ve uç nasıl sonlandırılacak.",
+    "category": "Teknik",
+    "datePublished": "2026-09-14",
+    "readingMinutes": 7,
+    "keywords": [
+      "dc şarj kablosu",
+      "ccs2 şarj kablosu",
+      "ccs2 soket",
+      "dc şarj soketi",
+      "şarj istasyonu kablosu",
+      "ccs2 konnektör",
+      "dc hızlı şarj kablosu",
+      "şarj istasyonu yedek parça"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Bir DC hızlı şarj istasyonunda en çok yıpranan parça ünitenin kendisi değil, aracın takıldığı kablodur. DC kabloları ağırdır; kullanıcı bıraktığında yere düşer, üzerinden araç geçer, askıdan çekilerek zorlanır. Bu yüzden bir istasyonun ömrü boyunca kablo seti birkaç kez değişir. Bu yazı hem yeni bir ünite için hem de sahada değişecek bir kablo için doğru CCS2 setinin nasıl seçileceğini anlatıyor."
+      },
+      {
+        "type": "h2",
+        "text": "DC şarj kablosu ile CCS2 soketi aynı şey mi?"
+      },
+      {
+        "type": "p",
+        "text": "Sahada iki isim de çoğu zaman aynı ürün için kullanılır. CCS2 (Combined Charging System 2), IEC 62196-3 kapsamında tanımlanan ve Avrupa'da DC hızlı şarjın standardı olan arayüzdür. \"Soket\" ya da \"konnektör\" dendiğinde aracın takıldığı uç, \"DC şarj kablosu\" dendiğinde ise o konnektörle kablonun oluşturduğu set kastedilir. Ürün katalogda tek parça olarak geçtiği için her iki arama da aynı kaleme çıkar."
+      },
+      {
+        "type": "h2",
+        "text": "Birinci karar: akım kademesi"
+      },
+      {
+        "type": "p",
+        "text": "Seçimin en belirleyici değeri akım kademesidir ve bu kademe kablonun bağlanacağı ünitenin çıkış akımına göre belirlenir. Ünitenin etiketinde yazan akım değerine eşit ya da ondan yüksek bir kademe seçilir; ünitenin çıkış akımından düşük bir kablo takılmaz. Bemis kataloğunda dört kademe bulunur:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "80 A — düşük güç kademesindeki DC üniteler",
+          "150 A — orta güç kademesi",
+          "250 A — yüksek güç kademesi",
+          "400 A — en üst kademe"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Kademeyi ünitenin kaç kW olduğuna bakarak tahmin etmek doğru sonuç vermez: aynı güç, farklı gerilim seviyelerinde farklı akım demektir. Bu yüzden ölçüt her zaman ünitenin etiketindeki çıkış akımıdır."
+      },
+      {
+        "type": "h2",
+        "text": "İkinci karar: kablo uzunluğu"
+      },
+      {
+        "type": "p",
+        "text": "Katalogda 5 ve 8 metre seçenekleri bulunur. Uzunluk, ünite ile aracın park edeceği nokta arasındaki mesafeye ve kablonun askı düzenine göre seçilir. Ünitenin iki tarafına da araç yanaşıyorsa ya da park yeri üniteden uzaktaysa 8 metre tercih edilir. Öte yandan gereğinden uzun kablo yerde daha fazla sürükleneceği için daha hızlı yıpranır; bu nedenle \"ne olur ne olmaz\" diyerek uzun seçmek her zaman avantaj değildir."
+      },
+      {
+        "type": "h2",
+        "text": "Üçüncü karar: uç nasıl sonlandırılacak?"
+      },
+      {
+        "type": "p",
+        "text": "Bemis'in ürettiği CCS2 kablo setleri \"bir ucu açık\" olarak teslim edilir. Aracın takıldığı uçta fabrikada sonlandırılmış CCS2 konnektör bulunur; kablonun ünite tarafındaki ucu ise açık bırakılır ve ünitenin kendi güç bağlantısına doğrudan sonlandırılır. Ara bir bağlantı elemanı gerekmez. Bu yapı, kablo setini hem üretim hattındaki yeni ünitelere hem de sahadaki mevcut ünitelere uyarlanabilir kılar; sonlandırma ünitenin kendi tasarımına göre yapılır."
+      },
+      {
+        "type": "h2",
+        "text": "Sahada kablo ne zaman değişir?"
+      },
+      {
+        "type": "p",
+        "text": "Aşağıdaki belirtiler kablo setinin kontrol edilmesi ya da değiştirilmesi gerektiğine işaret eder. Hemen hepsinde ünitenin kendisi sağlamdır; değişmesi gereken yalnızca kablodur."
+      },
+      {
+        "type": "table",
+        "caption": "DC şarj kablosunda sık görülen belirtiler",
+        "headers": [
+          "Belirti",
+          "Ne anlama gelebilir",
+          "Ne yapılır"
+        ],
+        "rows": [
+          [
+            "Konnektör gövdesinde çatlak veya kırık",
+            "Yere düşme ya da üzerinden araç geçmesi",
+            "Kablo seti değiştirilir; çatlak gövdeyle şarj denenmez"
+          ],
+          [
+            "Soket araçtan zor çıkıyor, kilit takılıyor",
+            "Kilit mekanizmasında hasar veya kirlenme",
+            "Zorlanarak çekilmez; ünite yetkili servise bildirilir"
+          ],
+          [
+            "Kablo kılıfında ezilme, kesik veya sıyrık",
+            "Sıkışma, sürüklenme, araç geçmesi",
+            "Kablo seti değiştirilir"
+          ],
+          [
+            "Konnektör gövdesi alışılmadık ölçüde ısınıyor",
+            "Bağlantı veya temas sorunu",
+            "Şarj durdurulur, yetkili servis çağrılır"
+          ],
+          [
+            "Şarj sık sık kendiliğinden kesiliyor",
+            "Kablo/konnektör tarafı ya da ünite tarafı",
+            "Önce kablo ve konnektör gözle kontrol edilir, sonuç alınamazsa servise bildirilir"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Değişimi kim yapmalı?"
+      },
+      {
+        "type": "p",
+        "text": "DC tarafı yüksek akım taşır ve kablonun açık ucu ünitenin güç bağlantısına sonlandırılır. Bu nedenle kablo değişimi ünitenin üreticisi ya da yetkili servisi tarafından, ünitenin kendi montaj talimatına uygun şekilde yapılmalıdır. Değişim öncesinde ünitenin çıkış akımı, mevcut kablo uzunluğu ve açık ucun ünite içinde nasıl sonlandırıldığı not edilirse doğru ürün ilk seferde belirlenir."
+      },
+      {
+        "type": "cta",
+        "text": "Akım kademesi, uzunluk ve ürün kodlarının tamamı tek sayfada:",
+        "href": "/dc-sarj-kablosu",
+        "label": "DC Şarj Kablosu ve CCS2 Soketi"
+      }
+    ],
+    "faq": [
+      {
+        "q": "CCS2 soketi ile DC şarj kablosu arasında fark var mı?",
+        "a": "Pratikte ikisi de aynı ürünü anlatır. CCS2, IEC 62196-3 kapsamında tanımlanan ve Avrupa'da DC hızlı şarjın standardı olan arayüzün adıdır. \"Soket\" ya da \"konnektör\" dendiğinde aracın takıldığı uç, \"DC şarj kablosu\" dendiğinde ise konnektör ile kablonun oluşturduğu set kastedilir. Ürün katalogda konnektör ve kablosu birlikte, tek kalem olarak yer alır; bu yüzden her iki arama da aynı ürüne çıkar. Sipariş verirken karışıklık olmaması için akım kademesi ve kablo uzunluğunu birlikte belirtmek yeterlidir."
+      },
+      {
+        "q": "Hangi akım kademesini seçmem gerektiğini nasıl anlarım?",
+        "a": "Ölçüt, kablonun bağlanacağı DC ünitenin çıkış akımıdır; bu değer ünitenin etiketinde yazar. Seçilecek kablo kademesi bu değere eşit ya da ondan yüksek olmalıdır, düşük olmamalıdır. Katalogda 80, 150, 250 ve 400 amper kademeleri bulunur. Kademeyi ünitenin kaç kW olduğuna bakarak tahmin etmek yanıltıcıdır: aynı güç, farklı gerilim seviyelerinde farklı akıma karşılık gelir. Emin olunamayan durumda ünitenin etiket bilgisi ve mevcut kablonun üzerindeki değerler paylaşılırsa doğru kademe birlikte belirlenebilir."
+      },
+      {
+        "q": "5 metre mi 8 metre mi almalıyım?",
+        "a": "Uzunluk, ünite ile aracın park edeceği nokta arasındaki mesafeye ve kablonun askı ya da kılavuz düzenine göre seçilir. Ünitenin iki tarafına da araç yanaşıyorsa veya park yeri üniteden uzaktaysa 8 metre daha rahat kullanım sağlar. Buna karşılık gereğinden uzun kablo yerde daha çok sürüklendiği için kılıfı ve konnektör gövdesi daha hızlı yıpranır. Mevcut bir üniteyi yenilerken en güvenli yol, sökülen kablonun uzunluğunu ölçüp aynı değerle devam etmektir."
+      },
+      {
+        "q": "Kablo hasar gördüğünde ünitenin tamamı mı değişir?",
+        "a": "Hayır. CCS2 kablo seti ünitenin değiştirilebilir bir parçasıdır. Konnektör gövdesinin kırılması, kablo kılıfının ezilmesi veya kilit mekanizmasının zarar görmesi gibi durumların hemen hepsinde ünitenin elektroniği ve gövdesi sağlamdır; yalnızca kablo seti değişir ve ünite yeniden hizmete alınır. Değişim, DC tarafı yüksek akım taşıdığı için ünitenin üreticisi ya da yetkili servisi tarafından, ünitenin kendi montaj talimatına uygun şekilde yapılmalıdır."
+      },
+      {
+        "q": "Bir ucu açık kablo başka bir üreticinin ünitesinde kullanılabilir mi?",
+        "a": "Ürün bir ucu açık olarak teslim edildiği için sonlandırma, bağlanacağı ünitenin kendi güç bağlantısına yapılır ve bu bağlantı üniteden üniteye değişir. Bu nedenle uygunluk değerlendirmesi ve montaj, ilgili ünitenin üreticisi ya da yetkili servisi tarafından yapılmalıdır. Ünitenin çıkış akımı, ihtiyaç duyulan kablo uzunluğu ve açık ucun nasıl sonlandırılacağı bilgisi paylaşıldığında uygun kademenin belirlenmesi için birlikte değerlendirme yapılabilir."
+      }
+    ],
+    "related": [
+      {
+        "label": "DC Şarj Kablosu ve CCS2 Soketi",
+        "href": "/dc-sarj-kablosu"
+      },
+      {
+        "label": "Şarj Ünitesi Ekipmanları",
+        "href": "/products/charger-equipment"
+      },
+      {
+        "label": "DC Hızlı Şarj Üniteleri",
+        "href": "/products/dc-units"
+      },
+      {
+        "label": "CCS2 nedir?",
+        "href": "/sozluk/ccs2"
+      },
+      {
+        "label": "Destek, Arıza ve Garanti",
+        "href": "/destek"
+      }
+    ]
+  },
+  {
     "slug": "tasinabilir-sarj-cihazinda-amper-ayari",
     "title": "Taşınabilir Şarj Cihazında Amper Ayarı: Altı Kademe Ne İşe Yarar?",
     "metaTitle": "Taşınabilir Şarj Cihazında Amper Ayarı",

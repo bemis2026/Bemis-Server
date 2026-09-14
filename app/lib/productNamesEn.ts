@@ -65,7 +65,7 @@ const EN_NAMES: Record<string, string> = {
   "Bir Ucu Açık Enerji Kablosu": "Open-Ended Power Cable",
   "Otomatlı IP44 Kombinasyon": "IP44 Combination Unit with Circuit Breaker",
   "Otomatlı IP66 Kombinasyon": "IP66 Combination Unit with Circuit Breaker",
-  "DC Şarj Soketi CCS2 (Bir Ucu Açık)": "DC Charging Socket CCS2 (Open-Ended)",
+  "DC Şarj Kablosu / Soketi CCS2 (Bir Ucu Açık)": "DC Charging Cable / Socket CCS2 (Open-Ended)",
 
   // ── 2026-2 fiyat listesiyle eklenen adlar ──
   // (BEVDC 180 · Charger 2 · Mini/Mono/Pro Mobile gibi marka-model adları BİLEREK yok:

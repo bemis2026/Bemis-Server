@@ -97,6 +97,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...aracSayfalari("arac-sarj-uyumlulugu"),
     // Şarj süresi hesaplama — "kaç saatte şarj olur" gibi ARAÇ ARAYAN sorguların hedefi (2026-09-12).
     ...aracSayfalari("sarj-suresi-hesaplama"),
+    // DC şarj kablosu / CCS2 soketi iniş sayfası (2026-09-14) — saha
+    // servisleri ve istasyon üreticilerinin aradığı kesişimin hedefi.
+    { url: `${BASE}/dc-sarj-kablosu`, lastModified: gt("/dc-sarj-kablosu"), changeFrequency: "monthly", priority: 0.8 },
     // Kullanıcı paylaşımları (Instagram gömme) — içerik CMS'ten gelir.
     { url: `${BASE}/musteri-videolari`, lastModified: icerikT, changeFrequency: "weekly", priority: 0.6 },
   ];

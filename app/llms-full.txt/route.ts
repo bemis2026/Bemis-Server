@@ -27,6 +27,7 @@ function bodyToText(body: BlogSection[]): string {
 
 // GEO için en değerli rehberler (tam gövde).
 const GUIDE_SLUGS = [
+  "dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir",
   "ortak-alan-sarj-yonetim-paneli-apartman-site",
   "elektrikli-arac-sarj-istasyonu-yonetmeligi",
   "elektrikli-arac-sarj-uzatma-kablosu-nasil-secilir",

@@ -9676,7 +9676,7 @@
       },
       {
         "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-150a-5m",
-        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "name": "DC Şarj Kablosu / Soketi CCS2 (Bir Ucu Açık)",
         "code": "BEVDC-1011-0005",
         "subtitle": "150A · 5m",
         "badge": null,
@@ -9736,7 +9736,7 @@
       },
       {
         "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-150a-8m",
-        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "name": "DC Şarj Kablosu / Soketi CCS2 (Bir Ucu Açık)",
         "code": "BEVDC-1011-0008",
         "subtitle": "150A · 8m",
         "badge": null,
@@ -9796,7 +9796,7 @@
       },
       {
         "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-250a-5m",
-        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "name": "DC Şarj Kablosu / Soketi CCS2 (Bir Ucu Açık)",
         "code": "BEVDC-2011-0005",
         "subtitle": "250A · 5m",
         "badge": null,
@@ -9856,7 +9856,7 @@
       },
       {
         "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-250a-8m",
-        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "name": "DC Şarj Kablosu / Soketi CCS2 (Bir Ucu Açık)",
         "code": "BEVDC-2011-0008",
         "subtitle": "250A · 8m",
         "badge": null,
@@ -9916,7 +9916,7 @@
       },
       {
         "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-5m",
-        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "name": "DC Şarj Kablosu / Soketi CCS2 (Bir Ucu Açık)",
         "code": "BEVDC-3011-0005",
         "subtitle": "400A · 5m",
         "badge": null,
@@ -9976,7 +9976,7 @@
       },
       {
         "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-400a-8m",
-        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "name": "DC Şarj Kablosu / Soketi CCS2 (Bir Ucu Açık)",
         "code": "BEVDC-3011-0008",
         "subtitle": "400A · 8m",
         "badge": null,
@@ -10500,7 +10500,7 @@
       },
       {
         "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-80a-5m",
-        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "name": "DC Şarj Kablosu / Soketi CCS2 (Bir Ucu Açık)",
         "code": "BEVDC-4011-0005",
         "subtitle": "80A · 5m",
         "badge": null,
@@ -10560,7 +10560,7 @@
       },
       {
         "id": "dc-sarj-soketi-ccs2-bir-ucu-acik-80a-8m",
-        "name": "DC Şarj Soketi CCS2 (Bir Ucu Açık)",
+        "name": "DC Şarj Kablosu / Soketi CCS2 (Bir Ucu Açık)",
         "code": "BEVDC-4011-0008",
         "subtitle": "80A · 8m",
         "badge": null,

@@ -29,6 +29,13 @@ export const CATEGORY_GUIDES: Record<string, Rehber[]> = {
     { label: "Ev şarj ünitesi mi, taşınabilir cihaz mı?", href: "/blog/ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi" },
     { label: "Şarj kablosu kaç metre, kaç amper olmalı?", href: "/blog/elektrikli-arac-sarj-kablosu-kac-metre-kac-amper" },
   ],
+  // ⚠️ Bu kategoride 8 adet bir ucu açık CCS2 DC şarj kablosu/soketi var ama
+  //    rehber bağlantısı HİÇ YOKTU — kategori sayfasından açıklayıcı içeriğe
+  //    hiçbir çıkış olmuyordu (2026-09-14).
+  "charger-equipment": [
+    { label: "DC şarj kablosu ve CCS2 soketi nasıl seçilir?", href: "/blog/dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir" },
+    { label: "Akım kademesi ve uzunluk seçim tablosu", href: "/dc-sarj-kablosu" },
+  ],
   "dc-units": [
     { label: "AC ve DC şarj farkı nedir?", href: "/blog/ac-dc-sarj-farki" },
     { label: "Şarj istasyonu nasıl çalışır?", href: "/blog/elektrikli-arac-sarj-istasyonu-nasil-calisir" },

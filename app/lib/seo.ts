@@ -1033,8 +1033,18 @@ const CATEGORY_SEO: Record<string, { title: string; metaTitle?: string; desc: st
     short: "Adaptör & Uzatma Kablosu",
   },
   "charger-equipment": {
+    // ⚠️ GÖRÜNÜR H1 (title) DEĞİŞMEDİ. Değişen yalnız SERP'e giden iki alan.
+    //    Eski metaTitle/desc yalnız "Type 2 priz, pano prizi" diyordu; oysa bu
+    //    kategoride 8 adet bir ucu açık CCS2 DC şarj kablosu/soketi de var ve
+    //    "dc şarj kablosu" / "ccs2 soket" arayan saha-servisi ile istasyon
+    //    üreticisi bu sayfayı hiç bulamıyordu: Google'a gösterilen iki alanda
+    //    "DC" kelimesi HİÇ geçmiyordu (gövdede CCS2 196 kez geçmesine rağmen).
+    // ⚠️ Eski açıklamadaki kategori-geneli "IP65" iddiası ÇIKARILDI: kategori
+    //    karma ve DC kablolarının spec'inde IP değeri KAYITLI DEĞİL —
+    //    doğrulanamayan bir iddiayı kategoriye yaymaktansa düşürmek doğru.
     title: "Elektrikli Araç Şarj Ünitesi Ekipmanları",
-    desc: "Bemis yerli üretim elektrikli araç şarj ünitesi ekipmanları: Type 2 priz, pano prizi ve şarj ekipmanları. CE, IP65 — üreticisinden.",
+    metaTitle: "DC Şarj Kablosu · CCS2 Soket · Type 2 Priz",
+    desc: "DC şarj kablosu ve CCS2 soketi, Type 2 pano prizi, kablolu şarj prizi ve kombinasyon: şarj istasyonu üreticileri ve servisleri için ekipman. Yerli üretim · CE — üreticisinden.",
     short: "Şarj Ünitesi Ekipmanı",
   },
   accessories: {

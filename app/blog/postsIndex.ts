@@ -5,6 +5,12 @@
 export type PostIndexItem = { slug: string; title: string; titleI18n?: Record<string, string>; category: string; datePublished: string; image?: string };
 export const POSTS_INDEX: PostIndexItem[] = [
   {
+    "slug": "dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir",
+    "title": "DC Şarj Kablosu ve CCS2 Soketi Nasıl Seçilir?",
+    "category": "Teknik",
+    "datePublished": "2026-09-14"
+  },
+  {
     "slug": "tasinabilir-sarj-cihazinda-amper-ayari",
     "title": "Taşınabilir Şarj Cihazında Amper Ayarı: Altı Kademe Ne İşe Yarar?",
     "titleI18n": {
