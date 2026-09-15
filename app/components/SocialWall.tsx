@@ -151,8 +151,15 @@ function IsikKutusu({ post, onClose }: { post: SocialWallPost; onClose: () => vo
           </div>
         )}
 
+        {/* ⚠️ Uzun açıklama ışık kutusunda da taşabilir (ölçülen en uzun metin
+            647 karakter): kendi kabında kaydırılır, ekranı aşmaz. */}
         {post.caption?.trim() && (
-          <p className="text-sm text-center mt-3" style={{ color: "rgba(255,255,255,0.72)" }}>{post.caption}</p>
+          <p
+            className="text-sm text-center mt-3 overflow-y-auto"
+            style={{ color: "rgba(255,255,255,0.72)", maxHeight: "18vh", overscrollBehavior: "contain" }}
+          >
+            {post.caption}
+          </p>
         )}
       </div>
     </div>,
@@ -161,6 +168,17 @@ function IsikKutusu({ post, onClose }: { post: SocialWallPost; onClose: () => vo
 }
 
 // ── Tek kart ─────────────────────────────────────────────────────────────────
+
+/** Kapalı hâlde açıklama KAÇ satır gösterilir. Tüm kartların aynı yükseklikte
+ *  durması bu sayıya bağlı — değiştirirsen `KAPALI_YUKSEKLIK` de değişmeli. */
+const KAPALI_SATIR = 2;
+/** text-sm (0.875rem) × leading-snug (1.375) × satır sayısı — Tailwind'in kendi
+ *  değerleriyle hesaplanır ki sihirli sayı olmasın. */
+const KAPALI_YUKSEKLIK = `calc(0.875rem * 1.375 * ${KAPALI_SATIR})`;
+/** Alt blok (izle bağlantısı + aç/kapa) için SABİT yükseklik: text-sm'in satır
+ *  yüksekliği 1.25rem, iki satır = 2.5rem. Düğme olmayan kartta da bu yer
+ *  ayrıldığı için kapalı hâlde tüm kartlar aynı boyda durur. */
+const ALT_BLOK_YUKSEKLIK = "calc(1.25rem * 2)";
 
 function Kart({ post, onOpen, d, surface, border, textPrimary, textMuted }: {
   post: SocialWallPost; onOpen: () => void; d: boolean;
@@ -172,19 +190,44 @@ function Kart({ post, onOpen, d, surface, border, textPrimary, textMuted }: {
   const [kapakHatasi, setKapakHatasi] = useState(false);
   const kapak = kapakHatasi ? null : kapakAdresi(post);
 
+  // ── Uzun açıklama: kapalı başlar, "devamını oku" ile açılır ───────────────
+  const metinRef = useRef<HTMLSpanElement>(null);
+  const [acik, setAcik] = useState(false);
+  const [tasiyor, setTasiyor] = useState(false);
+  const yazi = post.caption?.trim() || "";
+
+  // ⚠️ TAŞMA ÖLÇÜLÜR, TAHMİN EDİLMEZ: karakter sayısına bakmak yanlış olur —
+  //    kart genişliği clamp(190px, 22vw, 250px) ile ekrana göre değişiyor ve
+  //    aynı metin dar ekranda taşarken geniş ekranda taşmayabiliyor.
+  useEffect(() => {
+    const el = metinRef.current;
+    if (!el || !yazi) return;
+    const olc = () => setTasiyor(el.scrollHeight - el.clientHeight > 1);
+    olc();
+    const ro = new ResizeObserver(olc);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [yazi]);
+
   return (
-    <button
-      type="button"
-      onClick={onOpen}
-      className="group relative rounded-2xl overflow-hidden flex-shrink-0 text-left transition-transform hover:-translate-y-0.5 active:scale-[0.99] cursor-pointer"
+    <div
+      className="group relative rounded-2xl overflow-hidden flex-shrink-0 flex flex-col transition-transform hover:-translate-y-0.5"
       style={{
         width: "clamp(190px, 22vw, 250px)",
         background: surface,
         border: `1px solid ${border}`,
         boxShadow: d ? "none" : "0 2px 16px rgba(0,0,0,0.06)",
       }}
-      aria-label={`${post.caption?.trim() || t("Müşteri paylaşımı", "Customer post")} — ${t("Instagram'da izle", "Watch on Instagram")}`}
     >
+      {/* ⚠️ KART ARTIK TEK BİR <button> DEĞİL. "Devamını oku" da bir düğme; iç içe
+          düğme geçersiz HTML'dir ve tarayıcıda güvenilir çalışmaz. Bu yüzden dış
+          kap <div>, kapak ayrı bir düğme, açma/kapama ayrı bir düğme. */}
+      <button
+        type="button"
+        onClick={onOpen}
+        className="relative w-full text-left cursor-pointer active:scale-[0.99] transition-transform"
+        aria-label={`${yazi || t("Müşteri paylaşımı", "Customer post")} — ${t("Instagram'da izle", "Watch on Instagram")}`}
+      >
       {/* 9:16 — Instagram reel oranı. Kapak yoksa markalı yer tutucu. */}
       <div className="relative w-full" style={{ aspectRatio: "9 / 16", background: d ? "#0f0f13" : "#f1f1f4" }}>
         {kapak ? (
@@ -225,18 +268,75 @@ function Kart({ post, onOpen, d, surface, border, textPrimary, textMuted }: {
           <RiInstagramLine size={15} style={{ color: "#fff" }} />
         </span>
       </div>
+      </button>
 
-      {post.caption?.trim() && (
-        <span className="block px-3 py-2.5">
-          <span className="block text-sm font-semibold leading-snug line-clamp-2" style={{ color: textPrimary }}>
-            {post.caption}
+      {yazi && (
+        <div className="px-3 py-2.5">
+          {/* ⚠️ KIRPMA SATIR İÇİ STİLLE: `line-clamp-2` Tailwind sınıfı BURADA
+              ÇALIŞMIYORDU — yanındaki `block` sınıfı display'i eziyor ve
+              `-webkit-line-clamp` yalnız `display:-webkit-box` ile geçerli.
+              Ölçüldü (2026-09-15, canlı): computed display "block", açıklama
+              yükseklikleri 39 / 154 / 173 / 404 / 655 px → kartlar hizadan
+              çıkıyordu. Artık display satır içinde veriliyor, sınıf çakışması yok.
+              minHeight: KISA açıklamalı kart da 2 satır yer kaplasın ki kapalı
+              hâlde tüm kartlar AYNI yükseklikte dursun. */}
+          <span
+            ref={metinRef}
+            className="block text-sm font-semibold leading-snug"
+            style={{
+              color: textPrimary,
+              minHeight: KAPALI_YUKSEKLIK,
+              ...(acik
+                ? {}
+                : {
+                    display: "-webkit-box",
+                    WebkitBoxOrient: "vertical" as const,
+                    WebkitLineClamp: KAPALI_SATIR,
+                    overflow: "hidden",
+                  }),
+            }}
+          >
+            {yazi}
           </span>
-          <span className="block text-sm mt-0.5" style={{ color: textMuted }}>
-            {t("Instagram'da izle", "Watch on Instagram")}
-          </span>
-        </span>
+
+          {/* Alt blok: "Instagram'da izle" + (gerekiyorsa) aç/kapa.
+              ⚠️ ÖNCE YAN YANA denendi, ÖLÇÜLDÜ ve BOZUKTU: kart genişliği
+              clamp(190px…250px) olduğu için iki etiket tek satıra sığmıyor,
+              "Instagram'da izle" iki satıra sarıyordu → düğmesi olan kartta
+              satır 40px, olmayanda 20px, kartlar 437 / 417 px ile yine
+              hizasızdı. Şimdi ALT ALTA ve blok SABİT yükseklikte: düğme
+              olsun olmasın tüm kartlar aynı boyda. */}
+          <div
+            className="flex flex-col items-start mt-0.5"
+            style={{ minHeight: ALT_BLOK_YUKSEKLIK }}
+          >
+            <button
+              type="button"
+              onClick={onOpen}
+              className="text-sm text-left cursor-pointer transition-opacity hover:opacity-70 active:opacity-50"
+              style={{ color: textMuted }}
+            >
+              {t("Instagram'da izle", "Watch on Instagram")}
+            </button>
+            {tasiyor && (
+              <button
+                type="button"
+                onClick={() => setAcik((v) => !v)}
+                aria-expanded={acik}
+                className="text-sm font-bold shrink-0 cursor-pointer transition-opacity hover:opacity-70 active:opacity-50"
+                style={{ color: "#E1306C" }}
+              >
+                {/* ⚠️ Metin çifti UYDURULMADI: depoda yerleşik kullanım bu
+                    (ProductCategoryClient). Aynı anahtarı kullanmak 5 dilde
+                    hazır çeviriden yararlanır — `check:i18n` "Less" için
+                    karşılık olmadığını bildirmişti. */}
+                {acik ? t("Daha az", "Show less") : t("Devamını oku", "Read more")}
+              </button>
+            )}
+          </div>
+        </div>
       )}
-    </button>
+    </div>
   );
 }
 
@@ -278,7 +378,10 @@ function Liste({ items, bant }: { items: SocialWallPost[]; bant: boolean }) {
   if (!bant) {
     return (
       <>
-        <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 justify-items-center">{kartlar}</div>
+        {/* ⚠️ items-start: kartlar DOĞAL yüksekliklerinde kalsın. Varsayılan
+            `stretch` hepsini en uzun karta eşitliyor; bir kart "devamını oku"
+            ile açılınca diğerlerinin altında kocaman boşluk açardı. */}
+        <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 justify-items-center items-start">{kartlar}</div>
         {acik && <IsikKutusu post={acik} onClose={kapat} />}
       </>
     );
@@ -311,7 +414,8 @@ function Liste({ items, bant }: { items: SocialWallPost[]; bant: boolean }) {
           WebkitMaskImage: "linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%)",
         }}
       >
-        <div className="flex gap-4 px-4 sm:px-6 justify-center" style={{ minWidth: "max-content" }}>{kartlar}</div>
+        {/* items-start — yukarıdaki ızgarayla aynı sebep. */}
+        <div className="flex gap-4 px-4 sm:px-6 justify-center items-start" style={{ minWidth: "max-content" }}>{kartlar}</div>
       </div>
 
       {acik && <IsikKutusu post={acik} onClose={kapat} />}
