@@ -306,15 +306,27 @@ export default function ProductCategoryPage({
                   okunmaz hale getiriyordu (koyu zeminde koyu yazı). Kapsayıcıya
                   konunca içerideki beyazlar her iki temada da beyaz kalır. */}
               <div data-keep-white="true" className="cat-hero-text relative z-10 px-7 sm:px-10 lg:px-14 py-10 lg:py-12 max-w-2xl">
-                <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.05 }}
+                {/* Hero etiketi — H1 ile aynı sebep, opacity YOK. */}
+                <motion.p initial={{ y: 8 }} animate={{ y: 0 }} transition={{ duration: 0.35, delay: 0.05 }}
                   className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: "#8fbcf7" }}>
                   {pickText(lang, "Ürün Kategorisi", "Product Category")} · {category.products?.length ?? 0} {pickText(lang, "Ürün", "Products")}
                 </motion.p>
-                <motion.h1 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}
+                {/* ⚠️⚠️ HERO'DA OPACITY ANİMASYONU YOK — bu depoda BEŞİNCİ kez
+                    düzeltilen LCP tuzağı (anasayfa 6b492b1, /destek e377d1c,
+                    /dc-sarj-kablosu, /apartman-site-sarj-istasyonu, şehir
+                    sayfaları 0e3abe5). `initial={{opacity:0}}` sunucu HTML'ine
+                    `opacity:0` basar: JS yüklenene kadar H1 GÖRÜNMEZ kalır ve
+                    LCP elemanı boş ölçülür. 2026-09-15'te CANLI ölçüldü: 8 ürün
+                    kategori sayfasının HEPSİNDE vardı (wallbox · cables ·
+                    portable · dc-units · v2l-c2l …) — sitenin en çok trafik
+                    alan sayfaları. Yalnız `y` kaydırması kalsın.
+                    Kıvrımın altındaki `whileInView` bölümler bu kuralın dışında. */}
+                <motion.h1 initial={{ y: 10 }} animate={{ y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}
                   className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
                   {titleOverride || (lang === "tr" && categoryH1(category.id)) || category.name}
                 </motion.h1>
-                <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.15 }}
+                {/* Hero açıklaması — H1 ile aynı sebep, opacity YOK. */}
+                <motion.p initial={{ y: 8 }} animate={{ y: 0 }} transition={{ duration: 0.35, delay: 0.15 }}
                   className="text-sm mt-1.5" style={{ color: "rgba(255,255,255,0.72)" }}>
                   {category.tagline}
                 </motion.p>
@@ -343,16 +355,28 @@ export default function ProductCategoryPage({
                 aria-hidden
               />
               <div>
-                <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.05 }}
+                {/* Hero etiketi — H1 ile aynı sebep, opacity YOK. */}
+                <motion.p initial={{ y: 8 }} animate={{ y: 0 }} transition={{ duration: 0.35, delay: 0.05 }}
                   className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: accentInk(accent, d) }}>
                   {pickText(lang, "Ürün Kategorisi", "Product Category")} · {category.products?.length ?? 0} {pickText(lang, "Ürün", "Products")}
                 </motion.p>
-                <motion.h1 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}
+                {/* ⚠️⚠️ HERO'DA OPACITY ANİMASYONU YOK — bu depoda BEŞİNCİ kez
+                    düzeltilen LCP tuzağı (anasayfa 6b492b1, /destek e377d1c,
+                    /dc-sarj-kablosu, /apartman-site-sarj-istasyonu, şehir
+                    sayfaları 0e3abe5). `initial={{opacity:0}}` sunucu HTML'ine
+                    `opacity:0` basar: JS yüklenene kadar H1 GÖRÜNMEZ kalır ve
+                    LCP elemanı boş ölçülür. 2026-09-15'te CANLI ölçüldü: 8 ürün
+                    kategori sayfasının HEPSİNDE vardı (wallbox · cables ·
+                    portable · dc-units · v2l-c2l …) — sitenin en çok trafik
+                    alan sayfaları. Yalnız `y` kaydırması kalsın.
+                    Kıvrımın altındaki `whileInView` bölümler bu kuralın dışında. */}
+                <motion.h1 initial={{ y: 10 }} animate={{ y: 0 }} transition={{ duration: 0.4, delay: 0.1 }}
                   className="text-2xl sm:text-3xl lg:text-4xl font-bold" style={{ color: textPrimary }}>
                   {/* TR'de keyword'lü H1 (CATEGORY_SEO.title); yoksa/EN'de CMS adı. CMS verisi değişmez. */}
                   {titleOverride || (lang === "tr" && categoryH1(category.id)) || category.name}
                 </motion.h1>
-                <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: 0.15 }}
+                {/* Hero açıklaması — H1 ile aynı sebep, opacity YOK. */}
+                <motion.p initial={{ y: 8 }} animate={{ y: 0 }} transition={{ duration: 0.35, delay: 0.15 }}
                   className="text-sm mt-0.5" style={{ color: textMuted }}>
                   {category.tagline}
                 </motion.p>
