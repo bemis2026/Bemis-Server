@@ -4150,6 +4150,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "elektrikli-arac-sarj-yuk-yonetimi",
     "title": "Elektrikli Araç Şarjında Yük Yönetimi (Load Management) Nedir?",
+    "metaTitle": "Elektrikli Araç Şarjında Yük Yönetimi Nedir?",
     "description": "EV şarj yük yönetimi nedir, statik ve dinamik yük dengeleme nasıl çalışır? Abonelik gücünü aşmadan çok sayıda aracı aynı anda şarj etmenin yolu.",
     "excerpt": "Yük yönetimi, bir tesisin elektrik kapasitesini aşmadan birden fazla aracı aynı anda şarj etmeyi sağlayan akıllı güç dağıtım sistemidir. Bu yazıda statik ve dinamik yük dengeleme, faz dengeleme ve OCPP'nin rolünü pratik örneklerle açıklıyoruz.",
     "category": "Teknik",
@@ -4382,6 +4383,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "arac-filosu-elektrikli-sarj-cozumleri",
     "title": "Araç Filosu için Elektrikli Şarj Çözümleri: Depo ve Gece Şarjı Rehberi",
+    "metaTitle": "Araç Filosu Şarj Çözümleri — Depo ve Gece Şarjı",
     "description": "Filo şarj çözümleri rehberi: depoda gece AC, gündüz DC takviye, cihaz sayısı ve güç planlaması, yük yönetimi, RFID/OCPP yetkilendirme ve raporlama.",
     "excerpt": "Araç filosunu elektrikliye geçiren şirketler için depo ve gece şarjı, cihaz sayısı planlaması, yük yönetimi ve sürücü bazlı raporlamanın nasıl kurgulandığını anlatan kapsamlı bir rehber. AC wallbox, CCS2 DC ve OCPP uyumlu modellerin filo senaryosundaki rolünü açıklar.",
     "category": "Rehber",
@@ -4672,6 +4674,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "elektrikli-arac-sarj-istasyonu-nasil-calisir",
     "title": "Elektrikli Araç Şarj İstasyonu Nasıl Çalışır? Çalışma Prensibi (AC, DC, Güvenlik)",
+    "metaTitle": "Elektrikli Araç Şarj İstasyonu Nasıl Çalışır?",
     "description": "EV şarj istasyonu nasıl çalışır? Araç-istasyon iletişimi, AC/DC dönüşüm yolu, güvenlik ve şarj seansının aşamaları teknik ve net biçimde anlatılıyor.",
     "excerpt": "Bir elektrikli araç şarj istasyonunun perde arkasında ne olduğunu uçtan uca anlatıyoruz: araç ile istasyon nasıl haberleşir, AC ve DC yolu nerede farklılaşır, güvenlik nasıl sağlanır. Pilot sinyalinden batarya %80 sonrası yavaşlamaya kadar tüm aşamalar tek yazıda.",
     "category": "Teknik",
@@ -5245,6 +5248,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "turkiye-sehir-sehir-ev-sarj-rehberi",
     title: "Türkiye'de Şehir Şehir EV Şarj: İstanbul, Ankara, İzmir, Bursa",
+    metaTitle: "Şehir Şehir EV Şarj Rehberi: İstanbul, Ankara",
     description:
       "İstanbul, Ankara, İzmir ve Bursa'da elektrikli araç şarjı: şehir içi AC kurulum, ev ve iş yeri şarj istasyonu, doğru cihaz seçimi. Yerli üretim Bemis E-V Charge rehberi.",
     excerpt:
