@@ -1018,7 +1018,11 @@ export const CATEGORY_SEO: Record<string, { title: string; metaTitle?: string; d
     // aleti" diye de arıyor. metaTitle SERP'i hedefler; H1 (title) DEĞİŞMEDİ.
     title: "Taşınabilir Elektrikli Araç Şarj Cihazı",
     metaTitle: "Taşınabilir Şarj Cihazı — Seyyar & Portatif Type 2",
-    desc: "Taşınabilir (seyyar / portatif) elektrikli araç şarj cihazı: Type 2, monofaze/trifaze, prize tak-şarj et, kurulum yok. Seyahat ve yedek için ideal. Bemis yerli üretim, CE & IP65.",
+    // ⚠️ 2026-09-15: 178 → 143 kr. `clampDescription` 155'te kesiyordu; "Bemis
+    //    yerli üretim, CE & IP65" kuyruğu meta açıklamaya HİÇ girmiyordu.
+    //    Düşen tek şey "Seyahat ve yedek için ideal" (arama değeri olmayan sıfat);
+    //    eş anlamlı küme (seyyar/portatif) ve güven sinyalleri korundu.
+    desc: "Taşınabilir (seyyar / portatif) elektrikli araç şarj cihazı: Type 2, monofaze/trifaze, prize tak-şarj et, kurulum yok. Yerli üretim, CE & IP65.",
     short: "Taşınabilir / Seyyar Şarj Cihazı",
   },
   cables: {
@@ -1037,7 +1041,11 @@ export const CATEGORY_SEO: Record<string, { title: string; metaTitle?: string; d
     // sorgusu (poz 4,7). SERP başlığı sorgu diliyle açılır + gerçek varyant
     // markaları (Hyundai/MG/BYD katalogda VAR). H1 (title) DEĞİŞMEDİ — görünür UI aynı.
     metaTitle: "V2L Adaptör — Araçtan Elektrik (Hyundai, MG, BYD)",
-    desc: "Bemis yerli üretim V2L ve C2L adaptör: Hyundai, MG ve BYD uyumlu modellerle aracınızı seyyar elektrik kaynağına çevirin. Tek/2'li/3'lü priz, kamp ve saha için. CE.",
+    // ⚠️ 2026-09-15: 163 → 146 kr. `clampDescription` 155'te kesiyordu; "kamp ve
+    //    saha için. CE." kuyruğu yayınlanmıyordu. Baş terim ("V2L ve C2L adaptör")
+    //    öne alındı — "Bemis yerli üretim" ile başlamak en değerli kelimeyi
+    //    cümlenin ortasına itiyordu. Araç markaları (katalogda GERÇEKTEN var) korundu.
+    desc: "V2L ve C2L adaptör: Hyundai, MG, BYD uyumlu. Aracınızı seyyar elektrik kaynağına çevirin; tek/2'li/3'lü priz, kamp ve saha için. Yerli üretim, CE.",
     short: "V2L / C2L Adaptör",
   },
   converters: {
@@ -1062,7 +1070,11 @@ export const CATEGORY_SEO: Record<string, { title: string; metaTitle?: string; d
     //    doğrulanamayan bir iddiayı kategoriye yaymaktansa düşürmek doğru.
     title: "Elektrikli Araç Şarj Ünitesi Ekipmanları",
     metaTitle: "DC Şarj Kablosu · CCS2 Soket · Type 2 Priz",
-    desc: "DC şarj kablosu ve CCS2 soketi, Type 2 pano prizi, kablolu şarj prizi ve kombinasyon: şarj istasyonu üreticileri ve servisleri için ekipman. Yerli üretim · CE — üreticisinden.",
+    // ⚠️ 2026-09-15: 175 → 144 kr. `clampDescription` 155'te kesiyordu; " CE —
+    //    üreticisinden." kuyruğu yayınlanmıyordu. "ve kombinasyon" ile
+    //    "— üreticisinden" düştü (arama değeri düşük); IP65 iddiası yukarıdaki
+    //    karar gereği GERİ EKLENMEDİ.
+    desc: "DC şarj kablosu ve CCS2 soketi, Type 2 pano prizi, kablolu şarj prizi: şarj istasyonu üreticileri ve servisleri için ekipman. Yerli üretim · CE.",
     short: "Şarj Ünitesi Ekipmanı",
   },
   accessories: {
