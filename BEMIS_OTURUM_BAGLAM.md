@@ -13,6 +13,44 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🔴 **AÇIK KUSUR — 8 ÜRÜN KATEGORİ SAYFASINDA H1 `opacity:0` (2026-09-15).**
+> Doğrulama sırasında ölçülerek bulundu, **henüz DÜZELTİLMEDİ** (kullanıcıya
+> bildirildi, kararı bekliyor). Canlıda: `wallbox` · `cables` · `portable` ·
+> `dc-units` · `v2l-c2l` → hepsinde
+> `<h1 … style="opacity:0;transform:translateY(10px)">`. Bu, oturumda DÖRT kez
+> düzeltilen LCP tuzağının aynısı; kategori sayfaları sitenin en çok trafik alan
+> sayfaları. **Temiz olanlar:** ürün detay sayfaları · anasayfa · iniş sayfaları ·
+> şehir sayfaları (0 geçiş). Düzeltme bilinen tek satır: `initial`/`animate`'ten
+> opacity kaldır, `y` kalsın.
+>
+> 🎬 **SOSYAL VİDEOLAR — KATEGORİ SAYFASINA EKLENDİ (2026-09-15, `622d1fd`):**
+> Kullanıcı "ürün sayfasında da görünsün" dedi; **ÖLÇÜM ZATEN ÇALIŞTIĞINI
+> gösterdi** (`productId` + ProductDetailClient bloğu kuruluydu). Eksik olan kod
+> değil **ATAMA**: canlı 6 gönderinin 5'i V2L/C2L ürünlerine, 1'i `portable`
+> kategorisine bağlı; wallbox/cables/dc-units'e hiç atama yok, o yüzden oralarda
+> bölüm çıkmıyor (doğru davranış).
+> Kategori sayfasında bölüm HİÇ YOKTU → eklendi. Eşleşme **iki yollu**: gönderi
+> doğrudan kategoriye bağlıysa VEYA o kategorideki bir ürüne bağlıysa. (b) olmadan
+> bölüm neredeyse hep boş kalırdı.
+> ⚠️ `check:i18n` yeni alt başlığı yakaladı → ui.json'a 5 dil eklendi.
+>
+> 📐 **FOOTER ALT BARI + GOOGLE LOGOSU (2026-09-15, `3e6992e`):**
+> Mobilde "yazılar karışmış" bildirimi. 375px'te ÖLÇÜLDÜ, iki ayrı sebep:
+> (a) ayraçlar `hidden sm:block` → künye ve "Tüm hakları saklıdır." ayraçsız aynı
+> satırda birleşiyor, slogan solda alt satırda kalıyordu (künye ortada, slogan
+> solda = hizasız); (b) telefon/e-posta/politika/Bemis Grup TEK sarma kabındaydı,
+> ortalanarak sardığı için her satır farklı x'ten başlıyordu.
+> → Mobilde anlam grupları ayrı satırlarda, künye ayracı mobilde de görünür;
+> `sm`+ davranışı AYNEN korundu. Google rozetine `FcGoogle` eklendi (yıldız KALDI:
+> yıldız puanı, logo kaynağı anlatır).
+>
+> ⚠️ **YEREL DOĞRULAMA SINIRI (kayda değer):** Görüşler bölümü ve anasayfa sosyal
+> bandı **YERELDE RENDER EDİLMEZ** — içerik R2'den gelir, repo yedeğinde
+> `socialWallSection` yok ve `sectionOrder` gelmeyince ContentContext varsayılana
+> düşer. Bu bileşenleri ölçmek için R2 değişkenleri geçici olarak `.env.local`'e
+> alınır, **iş bitince GERİ ALINIR** (`.env.sentinel` silinir, 0 R2 değişkeni
+> kalmalı). Footer içerikten bağımsız render olduğu için yerelde ölçülebilir.
+>
 > 📱 **SOSYAL MEDYA KARTLARI — HİZA KUSURU (2026-09-15, commit `dcfdc5d`):**
 > Kullanıcı bildirdi: uzun açıklamalı videolarda kayma.
 >
