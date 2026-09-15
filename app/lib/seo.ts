@@ -981,7 +981,11 @@ function clampTitle(text: string, max = 60): string {
 // metaTitle (opsiyonel): YALNIZ <title> etiketinde kullanılır — `title` alanı
 // kategori sayfasının GÖRÜNÜR H1'i olduğu için (categoryH1), SERP başlığını
 // H1'den bağımsız optimize etmek gerektiğinde metaTitle doldurulur.
-const CATEGORY_SEO: Record<string, { title: string; metaTitle?: string; desc: string; short: string }> = {
+// ⚠️ 2026-09-15: `export` eklendi — yönetim panelindeki SEO Hedef Haritası
+//    (`lib/seoHedefler.ts`) kategori hedeflerini BURADAN okusun diye. Tabloyu
+//    elle kopyalasaydık ilk metin değişikliğinde sessizce yalan söylerdi.
+//    Salt okunur kullanım; haritayı düzenleyen tek yer yine bu dosya.
+export const CATEGORY_SEO: Record<string, { title: string; metaTitle?: string; desc: string; short: string }> = {
   wallbox: {
     // ⚠️ EŞ ANLAMLI BOŞLUĞU (2026-07-13): "ev tipi", "araba", "evde şarj",
     // "garantili" sitede SIFIRDI — oysa "ev tipi şarj istasyonu" ve "elektrikli
@@ -990,7 +994,21 @@ const CATEGORY_SEO: Record<string, { title: string; metaTitle?: string; desc: st
     // cihazların hepsi 3,7 kW'a kadar kısılabiliyor; ürün verisiyle birebir aynı olsun.
     title: "Ev Tipi Elektrikli Araç Şarj İstasyonu (AC Wallbox) 3,7–22 kW",
     metaTitle: "Ev Tipi Elektrikli Araç Şarj İstasyonu (AC Wallbox)", // 51 kr ≤ clampTitle 56; kW aralığı H1 + açıklamada
-    desc: "Ev tipi (duvar tipi) elektrikli araç şarj istasyonu: 3,7–22 kW ayarlanabilir güç (monofazede 7,4 kW'a kadar), Type 2, OCPP 1.6, GSM ve MID sayaç seçenekleri. Bursa'da üretim, CE & IP65, %94 yerli malı.",
+    // ⚠️ 2026-09-15: ORTAK ALAN BOŞLUĞU. Açıklama yalnız "ev tipi" diyordu;
+    // "apartman", "site otoparkı", "ortak alan", "yönetim paneli" kategorinin
+    // Google'a gösterilen İKİ alanında da HİÇ geçmiyordu — oysa ayrıştırıcı
+    // veride kayıtlı (19 SKU'nun 16'sı `ucretsizPanel` rozeti taşıyor).
+    // metaTitle BİLEREK DEĞİŞMEDİ: "ev tipi ... şarj istasyonu" çalışan bir baş
+    // terim ve 50 kr ile clampTitle 56'ya dayanmış durumda; ortak alan baş
+    // terimlerini /apartman-site-sarj-istasyonu iniş sayfası taşıyor.
+    // ⚠️⚠️ 155 KARAKTER SINIRI: `clampDescription(text, max = 155)` bu alanı
+    //    KESER. İlk denemede 281 karakter yazdım ve ayrıştırıcı cümle ("ortak
+    //    alan yönetim paneli ücretsiz") kesme noktasının ÖTESİNDE kaldı —
+    //    üretim HTML'ine HİÇ girmedi. Yazılmış ama yayınlanmamış metin.
+    //    📌 Bu alanı düzenleyen: uzunluğu ölç, 155'i AŞMA; en değerli terimi
+    //       cümlenin başına koy. (Aynı taşma portable · v2l-c2l ·
+    //       charger-equipment kategorilerinde HÂLÂ var — ayrı iş.)
+    desc: "Ev, apartman ve site otoparkı için elektrikli araç şarj istasyonu (AC wallbox). Ortak alan yönetim paneli ücretsiz. 3,7–22 kW, Type 2, OCPP, CE & IP65.",
     short: "Ev Tipi AC Wallbox Şarj İstasyonu",
   },
   portable: {

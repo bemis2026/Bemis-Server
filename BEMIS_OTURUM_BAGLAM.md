@@ -13,6 +13,65 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🏢🔌 **ORTAK ALAN / APARTMAN-SİTE GÖRÜNÜRLÜK TURU (2026-09-15):**
+> Kullanıcı: *"ortak alan yönetim paneli ve programı gibi aramalarda wallbox'larımız,
+> özellikle Plus ve Pro 2. seriler öne çıkmalı. Panel her markada paralı, biz ücretsiz
+> veriyoruz — ayrışma burada."*
+>
+> **📏 ÖLÇÜM — ÜRÜN GERÇEĞİ SAĞLAM, ARAMA DİLİ YOKTU:** `ucretsizPanel` rozeti uydurma
+> değil, veride kayıtlı — canlıda **19 wallbox SKU'sunun 16'sı** taşıyor (tüm Charger
+> Plus 2 + Pro 2; giriş seviyesi Charger 2 taşımıyor). Panel gerçek
+> (`panel.bemisevcharge.com.tr`), `app` · `shared` · `ocpp` · `load` · `rfid`
+> özellikleri kayıtlı. **🔴 AMA** wallbox kategorisinin Google'a gösterilen iki alanı
+> yalnız *"ev tipi"* diyordu; "apartman", "site otoparkı", "ortak alan", "yönetim
+> paneli" HİÇ geçmiyordu. 16 ürünün metinleri de ev/teknik dilindeydi; yalnız birinde
+> "ortak alan şarj çözümü" anahtar kelimelerin sonuna sıkışmıştı. İniş sayfası YOKTU
+> (yalnız 2026-09-11 tarihli bir blog yazısı vardı).
+>
+> **1️⃣ YENİ İNİŞ SAYFASI `/apartman-site-sarj-istasyonu`** — `app/lib/ortakAlan.ts`
+> (görünür metnin TEK kaynağı) + `OrtakAlanClient.tsx` + TR-only sayfa; breadcrumb +
+> Service + FAQPage şeması. Vurgu rengi yeşil `#059669` (DC sayfası mavi).
+>
+> **2️⃣ SEO METİNLERİ:** 16 Plus/Pro SKU'sunun `metaDescription` + `keywords` alanı
+> ortak alan diline geçti. ⚠️ **`metaTitle` ve `focusKeyword` BİLEREK DEĞİŞMEDİ** —
+> 16 başlık varyant düzeyinde ayrışmış (kablolu/pano/GSM/MID) ve çalışan teknik baş
+> terimleri tutuyor; hepsini "apartman" diline çevirmek kopya başlık üretir ve varyant
+> sorgularını bırakırdı. Ortak alan baş terimlerini iniş sayfası taşıyor.
+> Kategori `metaTitle`'ı da aynı sebeple korundu ("ev tipi …" 50 kr, clamp 56).
+>
+> **3️⃣🔴 155 KARAKTER TUZAĞI (bu turda BULUNDU):** `CATEGORY_SEO.desc` alanını
+> `clampDescription(text, max = 155)` **KESİYOR**. Kategori açıklamasını 281 karakter
+> yazdım; ayrıştırıcı cümle kesme noktasının ötesinde kaldı ve **üretim HTML'ine HİÇ
+> girmedi** — yapı çıktısındaki `<meta name="description">` "…MID sayaç…" ile bitiyordu.
+> 151 karaktere indirildi, ayrıştırıcı başa alındı, doğrulandı.
+> ⚠️ **AYNI TAŞMA HÂLÂ VAR:** `portable` (178 kr) · `v2l-c2l` (163) ·
+> `charger-equipment` (175) → sonları yayınlanmıyor. Ölçüm betiği:
+> `scratchpad/_kategori_desc_olc.cjs`. **AYRI İŞ, kullanıcıya bildirildi.**
+>
+> **4️⃣ KEŞİF YÜZEYLERİ:** sitemap · llms.txt · `categoryGuides.wallbox` · iki blog
+> yazısının `related` bloğu · DC iniş sayfasından wallbox'a çapraz bağ (kullanıcı
+> isteği: DC aramalarında da wallbox görünsün).
+> ⚠️ `posts.ts`'te **İKİ STİL karışık**: bazı kayıtlar `"related"` (tırnaklı JSON),
+> bazıları `related:` (düz JS). Tırnaklı arama tırnaksız kaydı ıskalıyor — yama betiği
+> ikisini de tanımalı.
+>
+> **5️⃣ YÖNETİM PANELİ → Sistem › SEO HEDEFLERİ (yeni sekme):** panelde SEO sayfası hiç
+> yoktu. `app/admin/panels/SeoPanel.tsx` (salt görüntüleme) + `app/lib/seoHedefler.ts`.
+> ⚠️ **Tablo ELLE YAZILMADI** — anahtar kelimeleri sayfaların KENDİ SEO kaynaklarından
+> içe aktarır (`ortakAlan` · `dcKablo` · `cities` · `CATEGORY_SEO`). Elle kopyalanan liste
+> ilk metin değişikliğinde sessizce yalan söylerdi. Yeni iniş sayfası açınca
+> `SEO_HEDEFLERI` dizisine tek satır ekle, panel kendini günceller.
+> Bunun için `seo.ts`'te `CATEGORY_SEO` **export edildi** (salt okunur kullanım).
+> Canlı doğrulandı (yerel): 10 sayfa · 56 anahtar · 2 bölge; filtre çalışıyor.
+> 📌 **BULGU:** 10 hedefin 8'i "Türkiye geneli", yerel olan yalnız 2 Bursa sayfası —
+> başka şehir sayfası YOK. Kusur değil, açık alan.
+>
+> **⛔ YAZILMAYANLAR (bilerek):** TOKİ / Emlak Konut adları (kullanıcı kararı —
+> doğrulanmış kurulum olmadan müşteri atfı olur; "toplu konut / site otoparkı /
+> apartman ortak alanı" tür adıyla yazıldı) · rakip adı · rakip fiyatı iddiası
+> (sektör geneli için blog yazısındaki ölçülü dil korundu: "genellikle abonelik ya da
+> lisansla sunulur") · fiyat · kurulum hizmeti · mevzuat izni.
+>
 > ✅ **DİL MERGE KAPSAMI ÖLÇÜLDÜ — KUSUR YOK (2026-09-14, sahte alarm kapatıldı).**
 > Arka plan teşhis betiği `🔴` bastığı için cp1254 konsolda `UnicodeEncodeError` ile ÖLDÜ ve geriye
 > yanıltıcı bir yarım rapor bıraktı: *"merge 22 bölüm ele alıyor, content.json'da 26 var"* → 4 bölüm

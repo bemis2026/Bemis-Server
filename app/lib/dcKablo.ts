@@ -163,5 +163,7 @@ export const DC_KABLO = {
     { etiket: "DC Hızlı Şarj Üniteleri", href: "/products/dc-units" },
     { etiket: "CCS2 nedir?", href: "/sozluk/ccs2" },
     { etiket: "OEM ve Kurumsal Satış", href: "/b2b" },
+    { etiket: "AC Wallbox Şarj İstasyonları", href: "/products/wallbox" },
+    { etiket: "Apartman ve Site Şarj İstasyonu", href: "/apartman-site-sarj-istasyonu" },
   ],
 } as const;

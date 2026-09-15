@@ -100,6 +100,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // DC şarj kablosu / CCS2 soketi iniş sayfası (2026-09-14) — saha
     // servisleri ve istasyon üreticilerinin aradığı kesişimin hedefi.
     { url: `${BASE}/dc-sarj-kablosu`, lastModified: gt("/dc-sarj-kablosu"), changeFrequency: "monthly", priority: 0.8 },
+    // Apartman / site ortak alan şarj istasyonu iniş sayfası (2026-09-15) —
+    // site ve apartman yönetimlerinin aradığı kesişimin hedefi.
+    { url: `${BASE}/apartman-site-sarj-istasyonu`, lastModified: gt("/apartman-site-sarj-istasyonu"), changeFrequency: "monthly", priority: 0.8 },
     // Kullanıcı paylaşımları (Instagram gömme) — içerik CMS'ten gelir.
     { url: `${BASE}/musteri-videolari`, lastModified: icerikT, changeFrequency: "weekly", priority: 0.6 },
   ];

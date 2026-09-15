@@ -64,6 +64,7 @@ import {
   HiOutlineLocationMarker,
   HiOutlineTemplate,
   HiOutlineClipboardList,
+  HiOutlineSearch,
   HiOutlineStar,
   HiOutlineLightningBolt,
   HiOutlineOfficeBuilding,
@@ -75,6 +76,7 @@ import Image from "../components/Img";
 import DocumentsPanel from "./panels/DocumentsPanel";
 import ChangelogPanel from "./panels/ChangelogPanel";
 import AnalyticsPanel from "./panels/AnalyticsPanel";
+import SeoPanel from "./panels/SeoPanel";
 import B2BPanel from "./panels/B2BPanel";
 import MessagesPanel from "./panels/MessagesPanel";
 import {
@@ -248,7 +250,7 @@ type ShowcaseProductItem = {
 };
 type HeroLayoutKey = "logo" | "text" | "button";
 
-type Tab = "hero" | "dna" | "stats" | "products-section" | "smartcharger" | "productshowcase" | "featured" | "refprojects" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b" | "messages" | "projectcard" | "socialwall";
+type Tab = "hero" | "dna" | "stats" | "products-section" | "smartcharger" | "productshowcase" | "featured" | "refprojects" | "calculator" | "dealer-section" | "reviews" | "contact-section" | "products" | "dealers" | "contact" | "media" | "analytics" | "documents" | "changelog" | "b2b" | "messages" | "projectcard" | "socialwall" | "seo";
 
 const ADMIN_DEFAULT_SECTION_ORDER = [
   "dna", "stats", "productshowcase", "smartcharger", "products", "featured", "referenceprojects", "reviews", "dealer", "b2bcta", "calculator"
@@ -1601,6 +1603,7 @@ export default function AdminPage() {
         { id: "media",      label: "Medya",      icon: HiOutlinePhotograph      },
         { id: "analytics",  label: "Analytics",  icon: HiOutlineChartBar        },
         { id: "changelog",  label: "Değişiklikler", icon: HiOutlineClipboardList },
+        { id: "seo",        label: "SEO Hedefleri", icon: HiOutlineSearch          },
       ],
     },
   ];
@@ -6867,6 +6870,10 @@ export default function AdminPage() {
 
               {/* ── ANALYTICS ── */}
               {tab === "analytics" && <AnalyticsPanel />}
+
+              
+              {/* ── SEO HEDEF HARİTASI (salt görüntüleme) ── */}
+              {tab === "seo" && <SeoPanel />}
 
               {/* ── CHANGELOG ── */}
               {tab === "changelog" && <ChangelogPanel />}

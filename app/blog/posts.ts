@@ -1215,6 +1215,10 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     "related": [
       {
+        "label": "Apartman ve Site Şarj İstasyonu",
+        "href": "/apartman-site-sarj-istasyonu"
+      },
+      {
         "label": "AC Wallbox Şarj İstasyonları",
         "href": "/products/wallbox"
       },
@@ -5736,6 +5740,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { "q": "Otoparka kurulan şarj cihazı hava koşullarına dayanır mı?", "a": "Evet, doğru koruma sınıfındaki bir cihaz seçildiğinde otopark ve dış mekân koşullarına dayanır. Apartman veya site otoparkı gibi açık ya da yarı açık alanlar için IP65/IP66 koruma sınıfına sahip cihazlar tercih edilmelidir; bu sınıf, cihazı toza ve suya karşı korur. Bu sayede şarj istasyonu yağmur, nem ve tozdan etkilenmeden uzun süre güvenle çalışır. Bemis'in IP65/IP66 korumalı modelleri bu tür kullanımlar göz önünde bulundurularak üretilir. Koruma sınıfının yanı sıra cihazın yetkili kurulum ve ayrı hat ile bağlanması da uzun ömür için önemlidir." }
     ],
     related: [
+      { label: "Apartman ve Site Şarj İstasyonu", href: "/apartman-site-sarj-istasyonu" },
       { label: "Şarj İstasyonu Yönetmeliği: Ne Zorunlu?", href: "/blog/elektrikli-arac-sarj-istasyonu-yonetmeligi" },
       { label: "AC Wallbox", href: "/products/wallbox" },
       { label: "Şarj Ağı Operatörleri", href: "/operator" },

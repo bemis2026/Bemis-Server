@@ -23,6 +23,10 @@ export const CATEGORY_GUIDES: Record<string, Rehber[]> = {
     { label: "Apartmana / siteye şarj istasyonu kurulumu", href: "/blog/apartmana-sarj-istasyonu-kurulumu" },
     { label: "Wallbox nedir? Ev tipi şarj istasyonu rehberi", href: "/blog/wallbox-nedir-ev-tipi-sarj-istasyonu-rehberi" },
     { label: "11 kW mı 22 kW mı? Güç seçimi ve amper hesabı", href: "/blog/11-kw-mi-22-kw-mi-wallbox-guc-secimi-amper-hesabi" },
+    // ⚠️ 2026-09-15: ortak alan ayrıştırıcısı (ücretsiz yönetim paneli) bu
+    //    kategoride 19 SKU'nun 16'sında var ama rehber listesinde YOKTU.
+    { label: "Apartman ve site ortak alanı: ücretsiz yönetim paneli", href: "/apartman-site-sarj-istasyonu" },
+    { label: "Ortak alan şarj yönetim paneli: kişi bazlı takip", href: "/blog/ortak-alan-sarj-yonetim-paneli-apartman-site" },
   ],
   portable: [
     { label: "Hangi araca hangi şarj cihazı ve kablosu uyar?", href: "/arac-sarj-uyumlulugu" },
