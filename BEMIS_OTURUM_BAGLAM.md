@@ -13,15 +13,39 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
-> 🔴 **AÇIK KUSUR — 8 ÜRÜN KATEGORİ SAYFASINDA H1 `opacity:0` (2026-09-15).**
-> Doğrulama sırasında ölçülerek bulundu, **henüz DÜZELTİLMEDİ** (kullanıcıya
-> bildirildi, kararı bekliyor). Canlıda: `wallbox` · `cables` · `portable` ·
-> `dc-units` · `v2l-c2l` → hepsinde
-> `<h1 … style="opacity:0;transform:translateY(10px)">`. Bu, oturumda DÖRT kez
-> düzeltilen LCP tuzağının aynısı; kategori sayfaları sitenin en çok trafik alan
-> sayfaları. **Temiz olanlar:** ürün detay sayfaları · anasayfa · iniş sayfaları ·
-> şehir sayfaları (0 geçiş). Düzeltme bilinen tek satır: `initial`/`animate`'ten
-> opacity kaldır, `y` kalsın.
+> ✅ **KAPANDI — 8 ÜRÜN KATEGORİ SAYFASINDA H1 `opacity:0` (2026-09-16, `1949c5a`).**
+> Bu depoda **BEŞİNCİ** kez çıkan LCP tuzağı; kategori sayfaları sitenin en çok
+> trafik alan sayfalarıydı. Düzeltme tek öğe değildi: **iki hero varyantının
+> (görselli + düz) ÜÇER öğesi** — etiket, H1, açıklama — toplam 6 geçiş.
+> ⚠️ Toplu değiştirmeden ÖNCE her animasyon dizesinin kaç kez geçtiği sayıldı
+> (2+2+2) ve altısının da hero bloklarında olduğu doğrulandı; aynı desen kıvrım
+> altında da olsaydı körlemesine `replace_all` orayı bozardı.
+> Canlı doğrulama **13/13**: 8 kategori + 5 regresyon sayfası (anasayfa, iniş,
+> şehir, ürün, /destek) temiz.
+> 📌 Beş vakanın tek sebebi: `initial={{opacity:0}}` sunucu HTML'ine `opacity:0`
+>    basar. Yeni hero yazarken opacity KULLANMA; yalnız `y`.
+>
+> 🔍 **SEO/GEO BOŞLUK TARAMASI (2026-09-16, `e991227`):** kullanıcı "başka ne
+> yapılmalı" diye sordu; genel liste yerine ölçüldü.
+> **(a) 4 blog başlığı SERP'te kesiliyordu** — `npm run check:seo` YALNIZ ÜRÜNLERİ
+> kapsıyor, blog başlıkları hiç ölçülmemişti. metaTitle'ı olmayan 14 yazıdan 4'ü
+> 60 kr'yi aşıyor ve `clampTitle`'a girmediği için TAM uzunlukta yayınlanıyordu
+> (en uzunu 81 kr). metaTitle eklendi → canlıda 64/66/63/64 karakter.
+> Ölçüm: `scratchpad/_blog_baslik_olc.cjs`.
+> **(b) llms.txt'e 3 ticari sayfa** eklendi (`/b2b` · `/bayilik` · `/operator`);
+> kapsam 7 eksikten 4'e indi (gizlilik + çerez BİLEREK dışarıda).
+> ⚠️ **(c) ÜÇÜNCÜ MADDE YANLIŞ ÇIKTI — kendi ölçüm hatam.** "Organization
+> şemasında `sameAs` yalnız Wikidata" demiştim; canlı HTML'de İKİ `sameAs` bloğu
+> var, grep ilkini yakalamış. İlki `parentOrganization` (Bemis Teknik, kendi
+> Wikidata varlığı Q140267525) — doğru. Asıl blok ZATEN 6 giriş taşıyor
+> (Wikidata + GBP + LinkedIn + Instagram + YouTube + Facebook, `ORG_SAME_AS`).
+> **Burada yapılacak iş YOK — tekrar "eksik" sanılmasın.**
+>
+> 📌 **BEKLEYEN SEO İŞLERİ (öncelik sırasıyla):** ① No:31↔No:19 adres kararı
+> (8 şehir sayfasının yerel güvenini etkiliyor, en ucuz+en etkili) ② Havaylar
+> Otomasyon adresi ③ blog kapak görselleri (43/43 yok) ④ şehir sayfası
+> genişletme — Konya/Samsun (2'şer bayi) savunulabilir, TEK BAYİLİ 7 şehir için
+> ÖNERİLMEZ (doorway riski; mevcut 8 sayfada benzerlik 0,54).
 >
 > 🎬 **SOSYAL VİDEOLAR — KATEGORİ SAYFASINA EKLENDİ (2026-09-15, `622d1fd`):**
 > Kullanıcı "ürün sayfasında da görünsün" dedi; **ÖLÇÜM ZATEN ÇALIŞTIĞINI
