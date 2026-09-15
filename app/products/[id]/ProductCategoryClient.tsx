@@ -3,6 +3,7 @@ import { pickText } from "../../lib/ui";
 import CustomProductionSection from "../../components/CustomProductionSection";
 import { accentInk } from "../../lib/accentInk";
 import { CATEGORY_GUIDES, type Rehber } from "../../lib/categoryGuides";
+import { SocialGrid, gecerliPaylasimlar } from "../../components/SocialWall";
 import { urunPngKategorisi } from "../../../lib/categoryVisual";
 
 import Link from "next/link";
@@ -142,7 +143,7 @@ export default function ProductCategoryPage({
   const params = useParams();
   const router = useRouter();
   const { theme } = useTheme();
-  const { categories, projectSection } = useContent();
+  const { categories, projectSection, socialWallSection } = useContent();
   const { lang } = useLanguage();
   const d = theme === "dark";
   const [searchOpen, setSearchOpen]     = useState(false);
@@ -725,6 +726,33 @@ export default function ProductCategoryPage({
                 </div>
               ))}
             </div>
+          </div>
+        );
+      })()}
+
+      {/* ── Bu kategoriyle ilgili Instagram paylaşımları (2026-09-15) ──
+          Ürün sayfasında bu bölüm ZATEN vardı (ProductDetailClient); kategori
+          sayfasında yoktu. Eşleşme İKİ YOLLU:
+            (a) gönderi doğrudan KATEGORİ id'sine bağlıysa,
+            (b) gönderi bu kategorideki bir ÜRÜNE bağlıysa.
+          (b) olmadan sayfa neredeyse hep boş kalırdı: operatör gönderileri
+          ürün bazında etiketliyor (canlıda 5 gönderinin 4'ü ürün id'sine bağlı).
+          ⚠️ Eşleşme yoksa bölüm HİÇ basılmaz — boş başlık bırakmaz. */}
+      {(() => {
+        const urunIdleri = new Set((category.products ?? []).map((p) => p.id));
+        const eslesen = gecerliPaylasimlar(socialWallSection?.items).filter(
+          (p) => p.productId === id || (!!p.productId && urunIdleri.has(p.productId))
+        );
+        if (eslesen.length === 0) return null;
+        return (
+          <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8 pb-16 w-full">
+            <h2 className="text-2xl font-black mb-1" style={{ color: textPrimary }}>
+              {pickText(lang, "Kullanıcılarımızdan", "From our users")}
+            </h2>
+            <p className="text-sm mb-5" style={{ color: d ? "rgba(255,255,255,0.42)" : "rgba(0,0,0,0.45)" }}>
+              {pickText(lang, "Bu kategorideki ürünlerle ilgili Instagram paylaşımları.", "Instagram posts about products in this category.")}
+            </p>
+            <SocialGrid items={eslesen} />
           </div>
         );
       })()}
