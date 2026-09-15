@@ -196,8 +196,16 @@ function Listing({ posts, surface, border, textPrimary, textMuted, textFaint, fm
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
             {posts.map((p, i) => (
               <motion.div key={p.slug} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.06 }}>
-                <Link href={`${taban}/blog/${p.slug}`} className="block rounded-2xl overflow-hidden h-full transition-transform hover:-translate-y-0.5"
+                <Link href={`${taban}/blog/${p.slug}`} className="group block rounded-2xl overflow-hidden h-full transition-transform hover:-translate-y-0.5"
                   style={{ background: surface, border: `1px solid ${border}` }}>
+                  {/* Kapak görseli — basın kartlarındaki 16:9 deseniyle aynı.
+                      ⚠️ Koşullu: `cover` yoksa kart eski (salt metin) hâlinde kalır. */}
+                  {p.cover && (
+                    <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16 / 9", background: surface }}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={p.cover} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" decoding="async" />
+                    </div>
+                  )}
                   <div className="p-5 flex flex-col h-full">
                     <span className="self-start text-[10px] font-bold px-2 py-0.5 rounded-md mb-3" style={{ background: `${BLUE}18`, color: accentInk(BLUE, d) }}>{p.category}</span>
                     <h2 className="text-lg font-bold leading-snug mb-2" style={{ color: textPrimary }}>{p.title}</h2>
@@ -297,6 +305,19 @@ function Article({ post, d, surface, border, textPrimary, textMuted, textFaint, 
           <HiArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Blog
         </Link>
 
+        {/* ── Kapak görseli (2026-09-16) ──
+            `cover` alanı ve OG/Twitter/Article şeması bağlantıları ZATEN vardı;
+            eksik olan GÖRÜNÜR yuvaydı. Kapaklar 1200×675 (16:9) üretiliyor.
+            ⚠️ Koşullu: `cover` yoksa blok HİÇ basılmaz — eski yazılar bozulmaz.
+            ⚠️ Kapak metni başlığın AYNISI olduğu için `alt` BOŞ bırakıldı ve
+               aria-hidden verildi: ekran okuyucu aynı cümleyi iki kez okumasın
+               (dekoratif görsel kuralı). */}
+        {post.cover && (
+          <div className="relative w-full rounded-2xl overflow-hidden mb-6" style={{ aspectRatio: "16 / 9", background: surface, border: `1px solid ${border}` }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={post.cover} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover" decoding="async" />
+          </div>
+        )}
         <span className="inline-block text-[10px] font-bold px-2 py-0.5 rounded-md mb-3" style={{ background: `${BLUE}18`, color: accentInk(BLUE, d) }}>{post.category}</span>
         <h1 className="text-3xl sm:text-4xl font-black leading-tight mb-4" style={{ color: textPrimary }}>{post.title}</h1>
         {/* ⚠️⚠️ GÖRÜNÜR KÜNYE (2026-09-12) — `articleSchema` ZATEN

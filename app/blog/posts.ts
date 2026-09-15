@@ -36,6 +36,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir",
     "title": "DC Şarj Kablosu ve CCS2 Soketi Nasıl Seçilir?",
+    "cover": "/blog-kapak/dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir.jpg",
     "metaTitle": "DC Şarj Kablosu ve CCS2 Soketi Nasıl Seçilir?",
     "description": "DC hızlı şarj istasyonu için CCS2 kablo seçimi: akım kademesi (80–400 A), uzunluk, bir ucu açık terminasyon ve sahada kablonun ne zaman değişmesi gerektiği.",
     "excerpt": "Bir DC şarj istasyonunda en çok yıpranan parça ünitenin kendisi değil, aracın takıldığı kablodur. Doğru CCS2 kablosu üç soruyla seçilir: ünitenin çıkış akımı kaç amper, kablo kaç metre olmalı ve uç nasıl sonlandırılacak.",
@@ -209,6 +210,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "tasinabilir-sarj-cihazinda-amper-ayari",
     "title": "Taşınabilir Şarj Cihazında Amper Ayarı: Altı Kademe Ne İşe Yarar?",
+    "cover": "/blog-kapak/tasinabilir-sarj-cihazinda-amper-ayari.jpg",
     "metaTitle": "Taşınabilir Şarj Cihazında Amper Ayarı",
     "description": "Taşınabilir şarj cihazında amper ayarı ne işe yarar? 6 A'dan 32 A'e altı kademenin kaç kW ettiği, zayıf tesisatta hangi kademe seçilir, Pro Mobile 2 örneğiyle.",
     "excerpt": "Taşınabilir şarj cihazının en çok işe yarayan ama en az bilinen özelliği akım ayarı. Cihazın çekeceği akımı kademeli olarak siz belirlersiniz; böylece aynı cihaz zayıf bir ev prizinde de, üç fazlı endüstriyel prizde de çalışır.",
@@ -451,6 +453,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "evden-kablo-uzatarak-elektrikli-araba-sarj-etme",
     "title": "Evden Kablo Uzatarak Elektrikli Araba Şarj Etme: Priz Arabadan Uzaksa Ne Yapmalı?",
+    "cover": "/blog-kapak/evden-kablo-uzatarak-elektrikli-araba-sarj-etme.jpg",
     "metaTitle": "Evden Kablo Uzatarak Elektrikli Araba Şarjı",
     "description": "Priz arabanızdan uzakta mı? Evden kablo uzatarak elektrikli araba şarj etmenin doğru yolu: kaç metre kablo, ne zaman CEE uzatma, akımı ne zaman düşürmeli.",
     "excerpt": "Evde elektrik var, priz de var — ama prizin yeri ile arabanın park ettiği yer aynı değil. Bu sorunun çözümü çoğu zaman kabloyu uzatmak değil, baştan doğru uzunlukta cihaz seçmektir.",
@@ -685,6 +688,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "c2l-nedir-v2l-den-farki",
     "title": "C2L Nedir? V2L'den Farkı ve Şarj Cihazından Elektrik Almak",
+    "cover": "/blog-kapak/c2l-nedir-v2l-den-farki.jpg",
     "metaTitle": "C2L Nedir, V2L'den Farkı Ne?",
     "description": "C2L adaptörü enerjiyi aracın bataryasından değil şarj cihazından alır. Aracınızda V2L olmasa bile prizden elektrik almanın yolu, kullanım alanları ve sınırları.",
     "excerpt": "V2L enerjiyi aracınızın bataryasından alır, C2L ise duvardaki şarj cihazından. Tek cümlelik fark bu; ama sonuçları çok farklı: C2L aracınızın menzilini hiç azaltmaz ve aracınızda V2L olmasa bile çalışır.",
@@ -882,6 +886,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "v2l-adaptoru-nasil-secilir",
     "title": "V2L Adaptörü Nasıl Seçilir? Marka, Priz Sayısı ve Kablo Rehberi",
+    "cover": "/blog-kapak/v2l-adaptoru-nasil-secilir.jpg",
     "metaTitle": "V2L Adaptörü Nasıl Seçilir — Marka ve Priz",
     "description": "Aracınızda V2L var, peki hangi adaptör? Araç tarafındaki uç markaya göre değişir. Priz sayısı, kablo ve akım kararını üç adımda netleştiren satın alma rehberi.",
     "excerpt": "V2L adaptörü seçerken üç şey belirleyici: aracınızın markası (araç tarafındaki uç ona göre değişir), kaç priz istediğiniz ve kablolu mu kablosuz mu kullanacağınız. Üçünü sırayla netleştirmek yanlış ürün almanın önüne geçer.",
@@ -1076,6 +1081,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "ortak-alan-sarj-yonetim-paneli-apartman-site",
     "title": "Ortak Alan Şarj Yönetim Paneli: Apartman ve Sitede Kişi Bazlı Takip",
+    "cover": "/blog-kapak/ortak-alan-sarj-yonetim-paneli-apartman-site.jpg",
     "metaTitle": "Ortak Alan Şarj Yönetim Paneli — Kişi Bazlı Takip",
     "description": "Apartman ve sitede elektriği kim harcadı? Ortak alan yönetim paneli kişi bazlı takip eder, RFID karta ön ödemeli bakiye yüklenir. Bemis'te panel ücretsizdir.",
     "excerpt": "Ortak otoparkta şarj cihazının teknik kısmı kolay; asıl mesele tahsilat. Kim ne kadar harcadı, kim yetkili, parayı kim toplayacak? Ön ödemeli bakiye bu sorunu baştan çözer: kullanıcı yalnız kartına yüklenen bakiye kadar şarj yapar.",
@@ -1243,6 +1249,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "elektrikli-arac-sarj-istasyonu-yonetmeligi",
     "title": "Elektrikli Araç Şarj İstasyonu Yönetmeliği: Apartman, Otopark ve AVM'de Ne Zorunlu?",
+    "cover": "/blog-kapak/elektrikli-arac-sarj-istasyonu-yonetmeligi.jpg",
     "metaTitle": "Şarj İstasyonu Yönetmeliği — Apartman ve Otopark",
     "description": "Apartman, site otoparkı ve AVM'lerde elektrikli araç şarj istasyonu ne zaman zorunlu? Otopark Yönetmeliği oranları, kat maliki onayı ve EPDK lisansı sade dille.",
     "excerpt": "Şarj istasyonu kurulumunu iki ayrı düzenleme ilgilendiriyor: yapı tarafında Otopark Yönetmeliği, ticari hizmet tarafında EPDK. Yeni binada ne zorunlu, mevcut binada durum ne, ortak alan için kaç oy gerekir?",
@@ -1443,6 +1450,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "elektrikli-arac-sarj-uzatma-kablosu-nasil-secilir",
     "title": "Elektrikli Araç Şarj Uzatma Kablosu: Kaç mm², Hangi Konnektör, Kaç Metre?",
+    "cover": "/blog-kapak/elektrikli-arac-sarj-uzatma-kablosu-nasil-secilir.jpg",
     "metaTitle": "EV Şarj Uzatma Kablosu — Kaç mm², Kaç Metre?",
     "description": "Araç şarj kablosu uzatma ihtiyacınız mı var? Doğru uzatma kablosunda kesit (mm²), CEE konnektör, IP sınıfı ve uzunluk nasıl seçilir — üreticisinden anlattık.",
     "excerpt": "Şarj soketi uzakta kaldığında akla ilk gelen çoklu priz oluyor; oysa şarj, saatlerce süren yüksek akım demek. Doğru uzatma kablosunda kesit, konnektör tipi, IP sınıfı ve uzunluk nasıl seçilir?",
@@ -1694,6 +1702,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "portatif-seyyar-sarj-cihazi-nedir-ne-kadar",
     "title": "Portatif (Seyyar) Elektrikli Araç Şarj Cihazı: Nedir, Kimlere Uygun, Ne Kadar?",
+    "cover": "/blog-kapak/portatif-seyyar-sarj-cihazi-nedir-ne-kadar.jpg",
     "metaTitle": "Portatif (Seyyar) Araç Şarj Cihazı Nedir, Ne Kadar?",
     "description": "Portatif ve seyyar elektrikli araç şarj cihazı nedir, kimlere uygun, fiyatı neye göre değişir? Prize takıp şarj eden taşınabilir şarj aletini anlattık.",
     "excerpt": "Prize takıp arabanızı şarj eden portatif (seyyar) şarj cihazı nedir, kimler için uygun ve fiyatını ne belirler? Bemis'in çantalı taşınabilir şarj modellerini ve seçim ipuçlarını sade bir dille anlattık.",
@@ -1919,6 +1928,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "hangi-araclarda-v2l-var-turkiye",
     "title": "Türkiye'de Hangi Elektrikli Araçlarda V2L Var? (2026 Güncel Liste)",
+    "cover": "/blog-kapak/hangi-araclarda-v2l-var-turkiye.jpg",
     "metaTitle": "Hangi Araçlarda V2L Var? (2026 Güncel Liste)",
     "description": "V2L hangi araçlarda var? Hyundai Ioniq 5/6, Kia EV6, Togg T10F, MG, BYD, KGM Torres, Skywell — Türkiye'de satılan V2L destekli modellerin 2026 listesi.",
     "excerpt": "V2L olan araçlar giderek çoğalıyor. Hyundai Ioniq 5/6, Kia EV6/EV9, Togg T10F, MG, BYD, KGM (Ssangyong) Torres EVX ve Skywell gibi Türkiye'de satılan V2L destekli modellerin doğrulanmış 2026 listesini, kaç kW güç verdiklerini ve aracınıza uygun V2L adaptörünü tek yazıda topladık.",
@@ -2182,6 +2192,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "elektrikli-arabami-evde-nasil-sarj-ederim",
     "title": "Elektrikli Arabamı Evde Nasıl Şarj Ederim? Yeni Başlayanlar İçin Şarj Aleti Rehberi",
+    "cover": "/blog-kapak/elektrikli-arabami-evde-nasil-sarj-ederim.jpg",
     "metaTitle": "Elektrikli Arabamı Evde Nasıl Şarj Ederim?",
     "description": "Elektrikli araba aldınız veya alacaksınız; arabamı evde nasıl şarj ederim? Normal prizden şarj olur mu, hangi şarj aleti uygun, kendim takabilir miyim — hepsi sade bir dille.",
     "excerpt": "Elektrikli arabanızı evde şarj etmenin üç yolu var: normal ev prizi (en yavaş), taşınabilir şarj aleti ve duvara takılan şarj aleti (wallbox). Bu rehberde \"arabamı nasıl şarj ederim\", \"normal prizden olur mu\", \"kendim takabilir miyim\" gibi en çok sorulan soruları günlük bir dille yanıtlıyoruz.",
@@ -2335,6 +2346,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "gunes-enerjisi-solar-ile-elektrikli-arac-sarji",
     "title": "Güneş Enerjisi (Solar) ile Elektrikli Araç Şarjı: Evde Güneş Panelinden Araç Şarj Etmek",
+    "cover": "/blog-kapak/gunes-enerjisi-solar-ile-elektrikli-arac-sarji.jpg",
     "metaTitle": "Güneş Enerjili Araç Şarj İstasyonu: Kaç Panel Gerekir, Nasıl Çalışır?",
     "description": "Evde güneş panelinden araç şarjı: günde 40 km için ~7-9 kWh gerekir, 1 kWp panel günde 3,5-4,5 kWh üretir. On-grid sistem, panel sayısı hesabı ve ayarlanabilir akımlı wallbox seçimi.",
     "excerpt": "Çatınızdaki güneş panellerinden aracınızı şarj edebilirsiniz: on-grid sistemde paneller evin panosunu, pano da şarj cihazını besler. Kaç panel gerektiğini örnek hesapla, güneşe en uygun ayarlanabilir akımlı şarj cihazı özelliklerini bu rehberde bulun.",
@@ -2520,6 +2532,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "evde-elektrikli-arac-sarji-guvenli-mi",
     "title": "Evde Elektrikli Araç Şarjı Güvenli mi? Priz, Sigorta ve Kaçak Akım Rehberi",
+    "cover": "/blog-kapak/evde-elektrikli-arac-sarji-guvenli-mi.jpg",
     "metaTitle": "Evde Elektrikli Araç Şarjı Güvenli mi? Güvenlik Rehberi",
     "description": "Evde elektrikli araç şarj etmek güvenli mi? Normal prizden şarjın sınırları, uzatma kablosu riski, kaçak akım rölesi, ayrı hat ve wallbox güvenliği bir arada.",
     "excerpt": "Evde araç şarjı, doğru ekipman ve sağlıklı tesisatla güvenlidir. Normal prizden şarjın sınırları, uzatma kablosu riskleri, kaçak akım rölesi ve wallbox'ın neden en güvenli yol olduğu bu rehberde.",
@@ -2659,6 +2672,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "isletmeler-icin-dc-hizli-sarj-istasyonu-yatirimi",
     "title": "İşletmeler için DC Hızlı Şarj İstasyonu Yatırımı: Karar Rehberi",
+    "cover": "/blog-kapak/isletmeler-icin-dc-hizli-sarj-istasyonu-yatirimi.jpg",
     "metaTitle": "DC Hızlı Şarj İstasyonu Yatırımı: İşletme Rehberi",
     "description": "AVM, otel, restoran, otopark ve filolar için DC hızlı şarj istasyonu yatırım rehberi: AC/DC kararı, 40-200 kW güç seçimi, altyapı, işletme modeli, kurulum.",
     "excerpt": "İş yerinize DC hızlı şarj istasyonu koymalı mısınız? Ziyaret süresine göre AC/DC kararı, 40-80-120+ kW güç seçimi, altyapı ön kontrolü ve işletme modeliyle adım adım yatırım rehberi.",
@@ -2888,6 +2902,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "hangi-sarj-kablosu-aracima-uyumlu-type-2",
     "title": "Togg, Tesla ve Tüm Elektrikli Araçlar İçin Şarj Kablosu Uyumluluğu: Type 2 Rehberi",
+    "cover": "/blog-kapak/hangi-sarj-kablosu-aracima-uyumlu-type-2.jpg",
     "metaTitle": "Togg ve Tesla'ya Hangi Şarj Kablosu Uyar? (Type 2)",
     "description": "Togg'a, Tesla'ya ve tüm Avrupa elektrikli araçlarına hangi şarj kablosu uyar? Type 2 uyumluluğu, Mod 3, monofaze/trifaze ve amper seçimi tek pratik rehberde.",
     "excerpt": "Türkiye ve Avrupa'da satılan tüm yeni elektrikli araçlar AC şarjda Type 2 girişi kullanır — doğru Type 2 kablo Togg'dan Tesla'ya kadar hepsiyle uyumludur. Aracınıza göre faz, amper ve uzunluk seçimini bu rehberle netleştirin.",
@@ -3140,6 +3155,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "40-kw-dc-sarj-istasyonu",
     "title": "40 kW DC Şarj İstasyonu Nedir, Kime Uygun ve Ne Kadar Hızlı?",
+    "cover": "/blog-kapak/40-kw-dc-sarj-istasyonu.jpg",
     "metaTitle": "40 kW DC Şarj İstasyonu: Hız, Kullanım, Seçim",
     "description": "40 kW DC şarj istasyonu nedir, AC'ye göre neden daha hızlı, hangi işletmeye uygun? DC hızlı şarjın çalışması, örnek süre hesabı ve Bemis BEVDC serisi.",
     "excerpt": "AVM, otel, market ve küçük filolar için maliyet-etkin DC giriş noktası: 40 kW DC şarj nasıl çalışır, ne kadar hızlıdır ve Bemis BEVDC serisinde yeri nedir?",
@@ -3382,6 +3398,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "evde-elektrikli-arac-sarj-maliyeti-km-basina",
     "title": "Evde Elektrikli Araç Şarj Maliyeti: Km Başına Kaç TL?",
+    "cover": "/blog-kapak/evde-elektrikli-arac-sarj-maliyeti-km-basina.jpg",
     "metaTitle": "Elektrikli Araç Şarj Maliyeti: 100 km Kaç TL? Evde Şarj Hesabı",
     "description": "100 km maliyeti = tüketim (kWh/100 km) × elektrik birim fiyatı (TL/kWh). Ortalama araç 15-22 kWh harcar; gece tarifesiyle örnek hesap ve istasyon şarjıyla karşılaştırma.",
     "excerpt": "Evde EV şarj maliyetini km başına nasıl hesaplarsınız? kWh tüketimi, birim elektrik fiyatı, %10 şarj kaybı ve gece tarifesiyle adım adım örnek.",
@@ -3592,6 +3609,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "monofaze-mi-trifaze-mi-ev-sarj",
     "title": "Monofaze mi, Trifaze (3 Faz) mı? Evinize Hangi Şarj Cihazı Uygun?",
+    "cover": "/blog-kapak/monofaze-mi-trifaze-mi-ev-sarj.jpg",
     "metaTitle": "Monofaze mi Trifaze mi? Evime Hangi Şarj Cihazı?",
     "description": "Elektrikli araç şarj cihazı alırken monofaze mi trifaze mi seçmelisiniz? Ev tipi wallbox için 7,4 kW ve 22 kW farkını, süreyi ve doğru kararı basitçe anlatıyoruz.",
     "excerpt": "Evinize wallbox alırken en kritik soru: monofaze mi, 3 faz mı? İki seçeneğin gücünü, şarj süresini ve hangi kullanıcıya hangisinin uyduğunu karar odaklı bir rehberle açıklıyoruz.",
@@ -3759,6 +3777,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "ev-sarj-cihazi-modelleri-karsilastirma",
     title: "EV Şarj Cihazı Modelleri Karşılaştırma: Hangi Model Size Uygun?",
+    cover: "/blog-kapak/ev-sarj-cihazi-modelleri-karsilastirma.jpg",
     metaTitle: "EV Şarj Cihazı Modelleri Karşılaştırma",
     description:
       "AC wallbox, DC hızlı şarj ve taşınabilir elektrikli araç şarj cihazı modellerini güç, faz, konnektör ve akıllı özelliklere göre karşılaştırın — hangi modelin size uygun olduğunu adım adım seçin.",
@@ -3842,6 +3861,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "elektrikli-arac-sarj-kablosu-disarida-yagmurda-kullanilir-mi",
     title: "Elektrikli Araç Şarj Kablosu Dışarıda ve Yağmurda Kullanılır mı?",
+    cover: "/blog-kapak/elektrikli-arac-sarj-kablosu-disarida-yagmurda-kullanilir-mi.jpg",
     metaTitle: "Şarj Kablosu Yağmurda Kullanılır mı? (IP)",
     description:
       "Elektrikli araç şarj kablosu ve cihazı dışarıda, yağmurda güvenle kullanılır mı? IP65/IP66 koruma sınıfı ne demek, nelere dikkat etmeli — sade güvenlik rehberi.",
@@ -3893,6 +3913,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi",
     title: "Ev Şarj Ünitesi mi, Taşınabilir Şarj Cihazı mı? Hangisi Size Uygun?",
+    cover: "/blog-kapak/ev-sarj-unitesi-mi-tasinabilir-sarj-cihazi-mi.jpg",
     metaTitle: "Ev Şarj Ünitesi mi, Taşınabilir Cihaz mı?",
     description:
       "Evde elektrikli araç şarjı için wallbox (ev şarj ünitesi) mi, taşınabilir şarj cihazı mı almalısınız? Güç, kurulum ve kullanım farklarıyla sade karar rehberi.",
@@ -3956,6 +3977,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "elektrikli-arac-sarj-kablosu-kac-metre-kac-amper",
     title: "Elektrikli Araç Şarj Kablosu Kaç Metre ve Kaç Amper Olmalı?",
+    cover: "/blog-kapak/elektrikli-arac-sarj-kablosu-kac-metre-kac-amper.jpg",
     metaTitle: "Şarj Kablosu Kaç Amper, Kaç Metre Olmalı? 16A/32A Seçim Rehberi",
     description: "Monofaze 16A ≈ 3,7 kW, 32A ≈ 7,4 kW; trifaze 16A ≈ 11 kW, 32A ≈ 22 kW. Aracın kabul gücü ve park düzenine göre doğru kablo: amper, uzunluk (5 m / 8 m) ve uzatma uyarıları.",
     excerpt:
@@ -4020,6 +4042,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "elektrikli-arac-sarj-istasyonu-kurulum-rehberi",
     title: "Elektrikli Araç Şarj İstasyonu Kurulum Rehberi",
+    cover: "/blog-kapak/elektrikli-arac-sarj-istasyonu-kurulum-rehberi.jpg",
     description:
       "Elektrikli araç şarj istasyonu kurulumu adım adım: planlama, gerekli izinler, elektrik altyapısı, kablo kesiti, cihaz seçimi, yük yönetimi ve devreye alma rehberi.",
     excerpt:
@@ -4150,6 +4173,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "elektrikli-arac-sarj-yuk-yonetimi",
     "title": "Elektrikli Araç Şarjında Yük Yönetimi (Load Management) Nedir?",
+    "cover": "/blog-kapak/elektrikli-arac-sarj-yuk-yonetimi.jpg",
     "metaTitle": "Elektrikli Araç Şarjında Yük Yönetimi Nedir?",
     "description": "EV şarj yük yönetimi nedir, statik ve dinamik yük dengeleme nasıl çalışır? Abonelik gücünü aşmadan çok sayıda aracı aynı anda şarj etmenin yolu.",
     "excerpt": "Yük yönetimi, bir tesisin elektrik kapasitesini aşmadan birden fazla aracı aynı anda şarj etmeyi sağlayan akıllı güç dağıtım sistemidir. Bu yazıda statik ve dinamik yük dengeleme, faz dengeleme ve OCPP'nin rolünü pratik örneklerle açıklıyoruz.",
@@ -4383,6 +4407,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "arac-filosu-elektrikli-sarj-cozumleri",
     "title": "Araç Filosu için Elektrikli Şarj Çözümleri: Depo ve Gece Şarjı Rehberi",
+    "cover": "/blog-kapak/arac-filosu-elektrikli-sarj-cozumleri.jpg",
     "metaTitle": "Araç Filosu Şarj Çözümleri — Depo ve Gece Şarjı",
     "description": "Filo şarj çözümleri rehberi: depoda gece AC, gündüz DC takviye, cihaz sayısı ve güç planlaması, yük yönetimi, RFID/OCPP yetkilendirme ve raporlama.",
     "excerpt": "Araç filosunu elektrikliye geçiren şirketler için depo ve gece şarjı, cihaz sayısı planlaması, yük yönetimi ve sürücü bazlı raporlamanın nasıl kurgulandığını anlatan kapsamlı bir rehber. AC wallbox, CCS2 DC ve OCPP uyumlu modellerin filo senaryosundaki rolünü açıklar.",
@@ -4674,6 +4699,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "elektrikli-arac-sarj-istasyonu-nasil-calisir",
     "title": "Elektrikli Araç Şarj İstasyonu Nasıl Çalışır? Çalışma Prensibi (AC, DC, Güvenlik)",
+    "cover": "/blog-kapak/elektrikli-arac-sarj-istasyonu-nasil-calisir.jpg",
     "metaTitle": "Elektrikli Araç Şarj İstasyonu Nasıl Çalışır?",
     "description": "EV şarj istasyonu nasıl çalışır? Araç-istasyon iletişimi, AC/DC dönüşüm yolu, güvenlik ve şarj seansının aşamaları teknik ve net biçimde anlatılıyor.",
     "excerpt": "Bir elektrikli araç şarj istasyonunun perde arkasında ne olduğunu uçtan uca anlatıyoruz: araç ile istasyon nasıl haberleşir, AC ve DC yolu nerede farklılaşır, güvenlik nasıl sağlanır. Pilot sinyalinden batarya %80 sonrası yavaşlamaya kadar tüm aşamalar tek yazıda.",
@@ -4935,6 +4961,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "elektrikli-arac-sarj-terimleri-sozlugu",
     title: "Elektrikli Araç Şarj Terimleri Sözlüğü",
+    cover: "/blog-kapak/elektrikli-arac-sarj-terimleri-sozlugu.jpg",
     description:
       "Elektrikli araç şarjıyla ilgili tüm temel terimler tek yerde: AC/DC, Type 2, CCS2, kW/kWh, Mod 2/Mod 3, OCPP, V2L, yük yönetimi ve daha fazlası.",
     excerpt:
@@ -5026,6 +5053,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "elektrikli-arac-sarj-suresi-kac-saatte-dolar",
     title: "Elektrikli Araç Şarj Süresi: Kaç Saatte Dolar? (AC ve DC)",
+    cover: "/blog-kapak/elektrikli-arac-sarj-suresi-kac-saatte-dolar.jpg",
     metaTitle: "Elektrikli Araç Şarj Süresi Hesaplama: 7,4 / 11 / 22 kW ve DC",
     description: "Kaç saatte dolar? Formül: şarj edilecek kWh ÷ şarj gücü (kW), üstüne %10-20 kayıp. 7,4 kW monofaze, 11/22 kW trifaze ve DC hızlı şarj örnekleriyle kendi sürenizi hesaplayın.",
     excerpt:
@@ -5103,6 +5131,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "ev-sarj-soketi-tipleri-type-2-ccs2-chademo",
     title: "Elektrikli Araç Şarj Soketi Tipleri: Type 2, CCS2 ve CHAdeMO Farkı",
+    cover: "/blog-kapak/ev-sarj-soketi-tipleri-type-2-ccs2-chademo.jpg",
     metaTitle: "Type 2, CCS2, CHAdeMO: Şarj Soketi Tipleri ve Farkları",
     description:
       "Type 2, CCS2 ve CHAdeMO soketleri arasındaki fark nedir? AC ve DC şarj soketlerini karşılaştırıyor, Türkiye'de hangi standardın kullanıldığını net olarak açıklıyoruz.",
@@ -5179,6 +5208,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "turkiye-yerli-ev-sarj-istasyonu-ureticisi",
     title: "Türkiye'de Yerli EV Şarj Cihazı Üreticisi: Bemis E-V Charge",
+    cover: "/blog-kapak/turkiye-yerli-ev-sarj-istasyonu-ureticisi.jpg",
     description:
       "Türkiye'de yerli elektrikli araç şarj cihazı üreticisi kim? Bemis E-V Charge, Bursa'da üreten yerli EV şarj markası: wallbox, Type 2 kablo, V2L, DC. CE, IP65, OCPP.",
     excerpt:
@@ -5248,6 +5278,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "turkiye-sehir-sehir-ev-sarj-rehberi",
     title: "Türkiye'de Şehir Şehir EV Şarj: İstanbul, Ankara, İzmir, Bursa",
+    cover: "/blog-kapak/turkiye-sehir-sehir-ev-sarj-rehberi.jpg",
     metaTitle: "Şehir Şehir EV Şarj Rehberi: İstanbul, Ankara",
     description:
       "İstanbul, Ankara, İzmir ve Bursa'da elektrikli araç şarjı: şehir içi AC kurulum, ev ve iş yeri şarj istasyonu, doğru cihaz seçimi. Yerli üretim Bemis E-V Charge rehberi.",
@@ -5301,6 +5332,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "ev-sarj-istasyonu-maliyeti",
     title: "Ev Şarj İstasyonu Maliyeti: Fiyatı Belirleyen 6 Faktör",
+    cover: "/blog-kapak/ev-sarj-istasyonu-maliyeti.jpg",
     description:
       "Ev tipi elektrikli araç şarj istasyonu maliyeti neye göre değişir? Cihaz gücü, kablo, akıllı özellikler, koruma sınıfı, kurulum ve elektrik gideri — yerli üretimin avantajı.",
     excerpt:
@@ -5351,6 +5383,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "ioniq-5-v2l-nasil-kullanilir",
     title: "Ioniq 5 ile V2L Nasıl Kullanılır? V2L / C2L Adaptör Rehberi",
+    cover: "/blog-kapak/ioniq-5-v2l-nasil-kullanilir.jpg",
     description:
       "Ioniq 5 V2L özelliği nedir, kaç kW güç verir, V2L/C2L adaptörü nasıl kullanılır? Aracınızı seyyar prize çeviren adaptör rehberi — kamp, elektrikli alet ve acil durum.",
     excerpt:
@@ -5420,6 +5453,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "ac-dc-sarj-farki",
     title: "AC Şarj Nedir, DC Şarj Nedir? Aradaki Fark ve Ev–İstasyon Kullanımı",
+    cover: "/blog-kapak/ac-dc-sarj-farki.jpg",
     metaTitle: "AC Şarj Nedir, DC Şarj Nedir? Aradaki Fark",
     description: "AC şarj nedir, DC şarj nedir? Dönüşümün nerede yapıldığı, hız farkının nedeni, ev–istasyon kullanımı ve hangi durumda hangisinin doğru seçim olduğu — sade anlatım.",
     excerpt:
@@ -5482,6 +5516,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "ev-icin-sarj-cihazi-nasil-secilir",
     title: "Ev İçin Elektrikli Araç Şarj Cihazı Nasıl Seçilir?",
+    cover: "/blog-kapak/ev-icin-sarj-cihazi-nasil-secilir.jpg",
     description:
       "Ev tipi elektrikli araç şarj cihazı seçerken güç (7,4/11/22 kW), prizli mi kablolu mu, akıllı özellikler ve güvenlik sertifikalarına nasıl bakılır? Pratik seçim rehberi.",
     excerpt:
@@ -5550,6 +5585,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "togg-v2l-aractan-elektrik",
     title: "Togg ile V2L: Araçtan Elektrik (Araç-Dışı Güç) Kullanımı",
+    cover: "/blog-kapak/togg-v2l-aractan-elektrik.jpg",
     metaTitle: "Togg V2L Adaptör: Araçtan Elektrik Alma Rehberi",
     description:
       "Togg V2L (araçtan elektrik) özelliği nedir, nasıl kullanılır, hangi adaptör gerekir? Togg'unuzu kamp, saha ve acil durumda seyyar güç kaynağına çeviren V2L rehberi.",
@@ -5596,6 +5632,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "ev-sarj-kablosu-secimi-type-2",
     title: "Elektrikli Araç Şarj Kablosu Nasıl Seçilir? (Type 2 Rehberi)",
+    cover: "/blog-kapak/ev-sarj-kablosu-secimi-type-2.jpg",
     description:
       "Type 2 elektrikli araç şarj kablosu seçerken amper (16A/32A), güç (7,4–22 kW), kablo uzunluğu ve kaliteye nasıl bakılır? Yerli üretim şarj kablosu seçim rehberi.",
     excerpt:
@@ -5652,6 +5689,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "ocpp-nedir",
     title: "OCPP Nedir? Şarj İstasyonlarında Neden Önemli?",
+    cover: "/blog-kapak/ocpp-nedir.jpg",
     description:
       "OCPP (Open Charge Point Protocol) nedir, ne işe yarar, neden önemli? OCPP 1.6J ile uzaktan yönetim, faturalandırma ve marka bağımsızlığı — sade rehber.",
     excerpt:
@@ -5701,6 +5739,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "apartmana-sarj-istasyonu-kurulumu",
     title: "Apartmana / Siteye Elektrikli Araç Şarj İstasyonu Kurulumu",
+    cover: "/blog-kapak/apartmana-sarj-istasyonu-kurulumu.jpg",
     metaTitle: "Apartmana EV Şarj İstasyonu Kurulumu",
     description:
       "Apartman ve site otoparkına elektrikli araç şarj istasyonu kurulumu nasıl yapılır? Kat malikleri kararı, elektrik altyapısı, yük yönetimi ve faturalandırma adım adım.",
@@ -5766,6 +5805,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "is-yerine-sarj-istasyonu-kurulumu",
     title: "İş Yerine Elektrikli Araç Şarj İstasyonu Kurmanın 6 Avantajı",
+    cover: "/blog-kapak/is-yerine-sarj-istasyonu-kurulumu.jpg",
     description:
       "İş yerine / ofise / otoparka elektrikli araç şarj istasyonu kurmanın avantajları nelerdir? Müşteri çekme, ek gelir, çalışan memnuniyeti ve kurulum rehberi.",
     excerpt:
@@ -5818,6 +5858,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "tesla-sarj-turkiye-type-2",
     title: "Tesla Şarj Türkiye: Type 2 ile Tesla Nasıl Şarj Edilir?",
+    cover: "/blog-kapak/tesla-sarj-turkiye-type-2.jpg",
     description:
       "Tesla Model 3 / Model Y Türkiye'de nasıl şarj edilir? Evde Type 2 AC şarj, gerekli kablo ve wallbox, Supercharger farkı — Tesla şarj rehberi.",
     excerpt:
@@ -5863,6 +5904,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "wallbox-nedir-ev-tipi-sarj-istasyonu-rehberi",
     "title": "Wallbox Nedir? Ev Tipi Elektrikli Araç Şarj İstasyonu Rehberi (2026)",
+    "cover": "/blog-kapak/wallbox-nedir-ev-tipi-sarj-istasyonu-rehberi.jpg",
     "metaTitle": "Wallbox Nedir? Ev Tipi Şarj İstasyonu Rehberi (2026)",
     "description": "Wallbox (ev tipi şarj istasyonu) nedir, prizden farkı ne, 7,4 / 11 / 22 kW hangisi, kablolu mu soketli mi, kurulum ve maliyet neye bağlı? Sade rehber, karşılaştırma tabloları ve SSS.",
     "excerpt": "Wallbox; evde, apartman otoparkında veya iş yerinde elektrikli aracı güvenle ve hızlı şarj etmek için duvara monte edilen AC şarj cihazıdır. Prizden farkı, güç seçimi, kablolu/soketli kararı ve kurulum adımları bu rehberde.",
@@ -6182,6 +6224,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     "slug": "11-kw-mi-22-kw-mi-wallbox-guc-secimi-amper-hesabi",
     "title": "11 kW mı 22 kW mı? Wallbox Güç Seçimi ve Amper Hesabı",
+    "cover": "/blog-kapak/11-kw-mi-22-kw-mi-wallbox-guc-secimi-amper-hesabi.jpg",
     "metaTitle": "11 kW mı 22 kW mı? Wallbox Güç Seçimi, 22 kW Kaç Amper?",
     "description": "11 kW mı 22 kW mı? Aracın AC kabul gücü, monofaze/trifaze tesisat, 16A/32A sigorta ve kablo kesiti: 22 kW kaç amper, 60 kWh batarya kaç saatte dolar, ayarlanabilir güç ne zaman mantıklı?",
     "excerpt": "Güç seçiminde ilk soru cihaz değil araç: onboard şarj birimi kaç kW kabul ediyor? Sonra tesisat: monofaze mi trifaze mi, kaç amper? Bu rehber tablolarla 7,4 / 11 / 22 kW kararını netleştirir.",
