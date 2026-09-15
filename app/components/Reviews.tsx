@@ -224,7 +224,13 @@ export default function Reviews() {
                   href={(g?.url ?? "").trim() || ORG_GOOGLE_PROFILE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 self-start rounded-xl px-3 py-2 transition-transform hover:-translate-y-0.5 cursor-pointer"
+                  /* ⚠️ MOBİLDE CÜMLE ORTASINDAN SARIYORDU (375px'te ölçüldü):
+                     "· 27 / değerlendirme" ve "Google işletme / puanı" ikiye
+                     bölünüyordu. `flex-wrap` + ifadelerde `whitespace-nowrap`:
+                     sarma artık yalnız İFADE SINIRINDA olur, kelime ortasında
+                     değil. Dar ekranda rozet iki satıra düşebilir — bu sorun
+                     değil, okunaksız bölünme sorundu. */
+                  className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 self-start rounded-xl px-3 py-2 transition-transform hover:-translate-y-0.5 cursor-pointer"
                   style={{ background: surface, border: `1px solid ${border}` }}
                 >
                   <FcGoogle className="text-base flex-shrink-0" aria-hidden />
@@ -233,11 +239,11 @@ export default function Reviews() {
                   {/* ⚠️ Operatör SADECE SAYI girer ("25"); "değerlendirme" soneki
                       pickText ile çevrilir — yoksa Rusça sayfada Türkçe kelime çıkar. */}
                   {adet && (
-                    <span className="text-sm tabular-nums" style={{ color: textMuted }}>
+                    <span className="text-sm tabular-nums whitespace-nowrap" style={{ color: textMuted }}>
                       · {adet} {pickText(lang, "değerlendirme", "reviews")}
                     </span>
                   )}
-                  <span className="text-xs font-semibold" style={{ color: textBody }}>
+                  <span className="text-xs font-semibold whitespace-nowrap" style={{ color: textBody }}>
                     {pickText(lang, "Google işletme puanı", "Google business rating")}
                   </span>
                   <RiExternalLinkLine className="text-xs" style={{ color: textMuted }} />
