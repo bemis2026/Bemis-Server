@@ -291,14 +291,36 @@ export default function Footer() {
       <div style={{ borderTop: `1px solid ${borderBot}` }}>
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="flex flex-wrap items-center gap-3 text-xs" style={{ color: textFaint }}>
-              <E field="footer.copyright" tag="span">{footerContent.copyright}</E>
-              <span className="hidden sm:block" style={{ color: textFainter }}>·</span>
-              <E field="footer.rightsLabel" tag="span">{footerContent.rightsLabel}</E>
+            {/* ⚠️ MOBİL DİZİLİM (2026-09-15, kullanıcı bildirdi: "yazılar karışmış").
+                Ayraçlar `hidden sm:block` olduğu için mobilde üç metin AYRAÇSIZ
+                yan yana akıyordu; 375px'te ölçüldü: künye x=20, "Tüm hakları
+                saklıdır." x=226 AYNI satırda birleşiyor, slogan alt satıra
+                düşüyordu. Artık mobilde ortalanmış iki satır — künye bir satır,
+                slogan altında. sm+ üstünde eski tek-satır davranışı AYNEN korunur. */}
+            <div
+              className="flex flex-col items-center gap-1 text-xs text-center sm:flex-row sm:flex-wrap sm:items-center sm:gap-3 sm:text-left"
+              style={{ color: textFaint }}
+            >
+              <span className="inline-flex flex-wrap items-center justify-center gap-x-1.5 sm:gap-x-3">
+                <E field="footer.copyright" tag="span">{footerContent.copyright}</E>
+                {/* ⚠️ Bu ayraç MOBİLDE DE görünür (diğerleri `hidden sm:block`).
+                    Künye ile "Tüm hakları saklıdır." aynı satırda olduğu için
+                    ayraçsız tek cümle gibi akıyordu — ölçüldü 375px: x=32 ve
+                    x=231, arada yalnız 6px boşluk. */}
+                <span style={{ color: textFainter }}>·</span>
+                <E field="footer.rightsLabel" tag="span">{footerContent.rightsLabel}</E>
+              </span>
               <span className="hidden sm:block" style={{ color: textFainter }}>·</span>
               <E field="footer.tagline" tag="span">{footerContent.tagline}</E>
             </div>
-            <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-4 gap-y-1 text-xs" style={{ color: textFaint }}>
+            {/* ⚠️ MOBİLDE TEK SARMA KABIYDI: telefon, e-posta, üç politika bağlantısı
+                ve "Bemis Grup" satırı aynı kapta ortalanarak sarıyor, her satır
+                farklı noktadan başlıyordu (375px ölçümü: x=45/197, ardından
+                x=57/135/231) — dağınık görünmesinin sebebi buydu. Artık mobilde
+                ANLAM GRUPLARI ayrı satırlarda: iletişim / politika / grup.
+                sm+ üstünde üç grup yan yana sarar, aradaki boşluk eskisiyle aynı. */}
+            <div className="flex flex-col items-center gap-2 text-xs sm:flex-row sm:flex-wrap sm:items-center sm:justify-end sm:gap-x-4 sm:gap-y-1" style={{ color: textFaint }}>
+              <span className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
               {contact?.phone && (
                 <a href={`tel:${contact.phone.replace(/[^\d+]/g, "")}`} className="inline-flex items-center gap-1.5 transition-colors hover:opacity-70">
                   <HiPhone style={{ fontSize: 12 }} /> {contact.phone}
@@ -309,17 +331,20 @@ export default function Footer() {
                   <HiMail style={{ fontSize: 12 }} /> {contact.email}
                 </a>
               )}
+              </span>
+              <span className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
               <a href="/b2b" onClick={e => { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); router.push("/b2b"); }} className="transition-colors hover:opacity-70">OEM / B2B</a>
               {/* KVKK sayfaları — kullanıcı metinleri onayladı (2026-07-12); gerçek <a> = taranabilir */}
               <a href="/gizlilik" onClick={e => { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); router.push("/gizlilik"); }} className="transition-colors hover:opacity-70">{byLang({ tr: "Gizlilik / KVKK", en: "Privacy / GDPR" }, lang)}</a>
               <a href="/cerez-politikasi" onClick={e => { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); router.push("/cerez-politikasi"); }} className="transition-colors hover:opacity-70">{byLang({ tr: "Çerez Politikası", en: "Cookie Policy" }, lang)}</a>
+              </span>
               {/* Bemis Grup — kardeş markalar. Basit tutuldu (kullanıcı kararı 2026-07-13):
                   şemada karmaşık hiyerarşi YOK; Organization.parentOrganization zaten
                   bemis.com.tr + ana şirket Wikidata bağını taşıyor. Bu satır ziyaretçiye
                   grup yapısını gösterir; flex-wrap içinde olduğu için footer BÜYÜMEZ.
                   ⚠️ Bunlar DIŞ link — bize backlink kazandırmaz (asıl kazanç: bemis.com.tr'nin
                   bize link vermesi, o taraf ayrı sitede yapılmalı). */}
-              <span className="inline-flex items-center gap-2">
+              <span className="inline-flex flex-wrap items-center justify-center gap-2">
                 <span style={{ color: textFainter }}>Bemis Grup:</span>
                 {/* Kendi markamız — basınca anasayfa (SPA, aynı sekme). Kardeş
                     markalar (Bemis Teknik / BYES) dış site → yeni sekme. */}

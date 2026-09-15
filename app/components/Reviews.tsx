@@ -5,6 +5,10 @@ import { accentInk } from "../lib/accentInk";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { HiStar } from "react-icons/hi";
+// Google'ın çok renkli "G" markası — rozetin HANGİ platformdan geldiği tek
+// bakışta anlaşılsın diye (kullanıcı isteği 2026-09-15). Yıldız puanı,
+// logo ise kaynağı anlatır; ikisi birbirinin yerine geçmez.
+import { FcGoogle } from "react-icons/fc";
 import { RiLinkedinFill, RiInstagramLine, RiYoutubeFill, RiFacebookFill, RiExternalLinkLine, RiNewspaperLine } from "react-icons/ri";
 import { useTheme } from "../context/ThemeContext";
 import { useContent } from "../context/ContentContext";
@@ -223,7 +227,8 @@ export default function Reviews() {
                   className="inline-flex items-center gap-2 self-start rounded-xl px-3 py-2 transition-transform hover:-translate-y-0.5 cursor-pointer"
                   style={{ background: surface, border: `1px solid ${border}` }}
                 >
-                  <HiStar className="text-[#F59E0B] text-sm" />
+                  <FcGoogle className="text-base flex-shrink-0" aria-hidden />
+                  <HiStar className="text-[#F59E0B] text-sm flex-shrink-0" />
                   <span className="text-sm font-black tabular-nums" style={{ color: textPrimary }}>{puan}</span>
                   {/* ⚠️ Operatör SADECE SAYI girer ("25"); "değerlendirme" soneki
                       pickText ile çevrilir — yoksa Rusça sayfada Türkçe kelime çıkar. */}
