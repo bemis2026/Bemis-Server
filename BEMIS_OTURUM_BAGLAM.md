@@ -13,6 +13,37 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🖼️ **BLOG KAPAKLARI — 43/43 + KALICI KOMUT (2026-09-16, `8be0be9` · `5d23bc5`).**
+> **`npm run gen:blog-kapak`** → yalnız EKSİK kapakları üretir, `cover` alanını da
+> kendisi doldurur. `--hepsi` hepsini yeniler, `--kuru` yazmadan ne yapacağını söyler.
+> **İdempotent**; yeni yazı eklenince tek komut yeter.
+>
+> ⚠️ **TARAYICISIZ — bilinçli.** İlk üretim HTML + Playwright ekran görüntüsüyle
+> yapılmıştı; o yol Playwright kurulumu VE ayakta dev sunucu istiyordu, operatör
+> tek başına çalıştıramıyordu. Şimdi her şey `sharp` ile (zaten projede var):
+> kapak SVG kurulur, sharp rasterize eder.
+> ⚠️ **Inter SVG'ye GÖMÜLÜ gelir** ve gömülünün gerçekten kullanıldığı ÖLÇÜLDÜ
+> (aynı metin: gömülü 483px, sistem fontu 526px). Font adresi değişirse sessizce
+> Arial'e düşebilir → değiştiren ÖLÇSÜN.
+> 📁 Çıktı `public/blog-kapak/<slug>.jpg` · 1200×675 · JPEG q86 · ort. 37 KB ·
+> toplam 1,55 MB. JPEG (WebP değil): OG/Twitter kazıyıcıları sorunsuz okur.
+> 📁 Font + ürün görselleri `node_modules/.cache/blog-kapak` altında önbelleklenir.
+>
+> **A/C:** 29 yazı A (tipografik, varlık gerektirmez) · 14 yazı C (ürün görselli).
+> ⚠️ **C haritası betiğin İÇİNDE, ELLE doldurulur** — ürün eşleşmesi otomatik
+> çıkarılamıyor (43 yazının yalnız 1'inde ürün sayfasına doğrudan bağlantı var) ve
+> YANLIŞ ürün görseli, görselsiz kapaktan KÖTÜDÜR. Emin değilsen ekleme.
+>
+> **GÖRÜNÜR YUVALAR:** liste kartı + yazı başı, ikisi de koşullu (`cover` yoksa blok
+> hiç basılmaz). `cover` alanı ve OG/Twitter/Article bağlantıları ZATEN vardı;
+> eksik olan yalnız görünür yuvaydı. Kapak `alt=""` + `aria-hidden` (metin başlığın
+> aynısı, ekran okuyucu iki kez okumasın).
+>
+> 📌 **BETİKTE DÜZELTİLEN İKİ KUSUR (yeniden açılmasın):** (1) satır sarma "3 satıra
+> sığan en büyük punto" seçiyordu → "önce az satır, sonra büyük punto"; (2) başlık
+> bloğu 16px aşağı kayıyordu (çip yüksekliği 36 iken hesapta 46). İkisi de ölçülerek
+> bulundu, ölçülerek doğrulandı (dikey blok 140–266; tarayıcı sürümü 140–269).
+>
 > ✅ **KAPANDI — 8 ÜRÜN KATEGORİ SAYFASINDA H1 `opacity:0` (2026-09-16, `1949c5a`).**
 > Bu depoda **BEŞİNCİ** kez çıkan LCP tuzağı; kategori sayfaları sitenin en çok
 > trafik alan sayfalarıydı. Düzeltme tek öğe değildi: **iki hero varyantının
