@@ -39,7 +39,40 @@ function bol(s: string): string[] {
   return s.split(",").map((x) => x.trim()).filter(Boolean);
 }
 
-const sehir = (slug: string) => CITY_PAGES.find((c) => c.slug === slug);
+/** Şehir sayfalarının panelde görünen ek notu. Slug'ı burada olmayan şehir de
+ *  listelenir — yalnız açıklaması genel kalır, tablodan DÜŞMEZ. */
+const SEHIR_NOTU: Record<string, { kume?: string; kitle?: string; ayrim?: string; tarih?: string }> = {
+  "bursa-ev-sarj-istasyonu": {
+    kume: "Bursa — şarj cihazı / istasyonu",
+    kitle: "Bursa ve çevresinde cihaz arayan son kullanıcı ve iş yeri",
+    ayrim: "Üretim tesisi Bursa OSB'de — doğrudan üreticiden",
+    tarih: "2026-07-27",
+  },
+  "bursa-sarj-kablosu": {
+    kume: "Bursa — şarj kablosu",
+    kitle: "Bursa'da Type 2 kablo arayan son kullanıcı",
+    ayrim: "Kabloyu kendi tesisinde üreten yerli üretici",
+    tarih: "2026-08-02",
+  },
+  "istanbul-ev-sarj-istasyonu": {
+    kume: "İstanbul — şarj cihazı / istasyonu",
+    kitle: "İstanbul'da ev, site ve iş yeri için cihaz arayan alıcı",
+    ayrim: "İki yakada yetkili bayi · site/apartman ortak alan çözümü",
+    tarih: "2026-09-15",
+  },
+  "ankara-ev-sarj-istasyonu": {
+    kume: "Ankara — şarj cihazı / istasyonu",
+    kitle: "Ankara'da ev, kurum ve filo için cihaz arayan alıcı",
+    ayrim: "Yetkili bayi ağı · çok cihazlı kurulum ve yük dengeleme",
+    tarih: "2026-09-15",
+  },
+  "izmir-ev-sarj-istasyonu": {
+    kume: "İzmir — şarj cihazı / istasyonu",
+    kitle: "İzmir'de müstakil ev ve iş yeri için cihaz arayan alıcı",
+    ayrim: "Yetkili bayi ağı · müstakil ev kurulumu ve planlı şarj",
+    tarih: "2026-09-15",
+  },
+};
 
 export const SEO_HEDEFLERI: SeoHedef[] = [
   // ── İniş sayfaları (arama kümesine özel) ──────────────────────────────
@@ -65,26 +98,24 @@ export const SEO_HEDEFLERI: SeoHedef[] = [
   },
 
   // ── Şehir sayfaları (yerel SEO) ───────────────────────────────────────
-  {
-    kume: "Bursa — şarj cihazı / istasyonu",
-    sayfa: "/bursa-ev-sarj-istasyonu",
-    alan: "Şehir sayfası",
-    bolge: sehir("bursa-ev-sarj-istasyonu")?.region ?? "Bursa",
-    kitle: "Bursa ve çevresinde cihaz arayan son kullanıcı ve iş yeri",
-    anahtarlar: sehir("bursa-ev-sarj-istasyonu")?.keywords ?? [],
-    ayrim: "Üretim tesisi Bursa OSB'de — doğrudan üreticiden",
-    tarih: "2026-07-27",
-  },
-  {
-    kume: "Bursa — şarj kablosu",
-    sayfa: "/bursa-sarj-kablosu",
-    alan: "Şehir sayfası",
-    bolge: sehir("bursa-sarj-kablosu")?.region ?? "Bursa",
-    kitle: "Bursa'da Type 2 kablo arayan son kullanıcı",
-    anahtarlar: sehir("bursa-sarj-kablosu")?.keywords ?? [],
-    ayrim: "Kabloyu kendi tesisinde üreten yerli üretici",
-    tarih: "2026-08-02",
-  },
+  // ⚠️ 2026-09-15: İKİ BURSA SATIRI ELLE YAZILIYDI. Üç yeni şehir eklenince
+  //    tablo eksik kalacaktı — panelin varlık sebebi tam bunu önlemekti.
+  //    Artık CITY_PAGES üzerinden TÜRETİLİYOR: yeni şehir eklemek için bu
+  //    dosyaya dokunmak gerekmez, `SEHIR_NOTU`na satır eklemek yeterli
+  //    (notu olmayan şehir de listelenir, yalnız açıklaması genel olur).
+  ...CITY_PAGES.map((c): SeoHedef => {
+    const not = SEHIR_NOTU[c.slug];
+    return {
+      kume: not?.kume ?? `${c.city} — elektrikli araç şarjı`,
+      sayfa: `/${c.slug}`,
+      alan: "Şehir sayfası",
+      bolge: c.region,
+      kitle: not?.kitle ?? `${c.loc} cihaz arayan son kullanıcı ve iş yeri`,
+      anahtarlar: c.keywords,
+      ayrim: not?.ayrim ?? (c.isHQ ? "Üretim tesisi bu şehirde" : "Şehirdeki yetkili bayi ağı"),
+      tarih: not?.tarih ?? "—",
+    };
+  }),
 
   // ── Kategori sayfaları (ürün kümesi aramaları) ────────────────────────
   {

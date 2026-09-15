@@ -93,15 +93,22 @@ export default function CityLandingClient({
           style={{ background: `radial-gradient(circle, ${BLUE}12 0%, transparent 70%)`, filter: "blur(40px)" }}
         />
         <div className="relative max-w-7xl 2xl:max-w-[1600px] mx-auto">
+          {/* ⚠️⚠️ HERO'DA OPACITY ANİMASYONU YOK — bu depoda DÖRDÜNCÜ kez düzeltilen
+              LCP tuzağı (anasayfa 6b492b1, /destek e377d1c, /dc-sarj-kablosu ve
+              /apartman-site-sarj-istasyonu kendi turlarında). `initial={{opacity:0}}`
+              sunucu HTML'ine `opacity:0` basar: JS yüklenene kadar H1 GÖRÜNMEZ ve
+              LCP elemanı boş ölçülür. 2026-09-15'te CANLI Bursa sayfasında
+              `<h1 … opacity:0>` ölçülerek doğrulandı. Yalnız `y` kaydırması kalsın.
+              Kıvrımın altındaki bölümler (whileInView) bu kuralın dışında. */}
           <motion.p
-            initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
+            initial={{ y: 8 }} animate={{ y: 0 }} transition={{ duration: 0.4 }}
             className="inline-flex items-center gap-1.5 text-xs font-bold tracking-[0.18em] uppercase mb-3"
             style={{ color: d ? "#93C5FD" : BLUE }}
           >
             <RiMapPin2Line size={14} /> {city.eyebrow}
           </motion.p>
           <motion.h1
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.05 }}
+            initial={{ y: 10 }} animate={{ y: 0 }} transition={{ duration: 0.45, delay: 0.05 }}
             className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight mb-4" style={{ color: textPrimary }}
           >
             {city.h1}
@@ -111,13 +118,13 @@ export default function CityLandingClient({
             className="h-px w-24 origin-left mb-5" style={{ background: `linear-gradient(90deg, ${BLUE} 0%, transparent 100%)` }}
           />
           <motion.p
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.22 }}
+            initial={{ y: 10 }} animate={{ y: 0 }} transition={{ duration: 0.45, delay: 0.22 }}
             className="text-base sm:text-lg leading-relaxed max-w-3xl mb-7" style={{ color: textMuted }}
           >
             {city.intro}
           </motion.p>
           <motion.div
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.3 }}
+            initial={{ y: 10 }} animate={{ y: 0 }} transition={{ duration: 0.45, delay: 0.3 }}
             className="flex flex-wrap gap-3"
           >
             <Link

@@ -13,6 +13,41 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🏙️ **ŞEHİR SAYFALARI: İSTANBUL · ANKARA · İZMİR (2026-09-15):**
+> Kullanıcı isteği. Önceki turda ölçülmüştü: 10 SEO hedefinin 8'i "Türkiye geneli",
+> yerel olan yalnız 2 Bursa sayfasıydı.
+>
+> **✅ YEREL DAYANAK GERÇEK:** üç şehirde de adresi kayıtlı yetkili bayi var
+> (`data/dealers.json` → istanbul 10 · ankara 4 · izmir 3; İzmir'de 1 kaydın adresi
+> eksik → filtreleniyor, sayfada 2 görünüyor). Bayiler SUNUCUDA basılır; Bursa
+> sayfasını ayağa kaldıran sinyal buydu. Canlı Bursa sayfasında 4/4 bayinin
+> göründüğü doğrulandı → veri hattı sağlam.
+>
+> **🔴 ÖNCE KUSUR KAPATILDI — `CityLandingClient` hero'da `opacity:0`.** Bu depoda
+> DÖRDÜNCÜ kez çıkan LCP tuzağı; canlı Bursa sayfasında `<h1 … opacity:0>` ölçülerek
+> doğrulandı (daha önce ayrı görev olarak işaretlenmişti). Üç yeni sayfa açmak kusuru
+> 3'e katlayacaktı → hero'daki 4 öğeden opacity kaldırıldı, yalnız `y` bırakıldı.
+> Kıvrım altındaki `whileInView` bölümler kuralın dışında.
+>
+> **📌 ÜÇ SAYFA ŞABLON KOPYASI DEĞİL** (kapı-sayfası/doorway riski): her birinde
+> farklı karar ekseni — İstanbul: site/apartman ortak alanı (ücretsiz panel bağı) ·
+> Ankara: kurum/filo, çok cihazlı kurulum + yük dengeleme · İzmir: müstakil ev, hat
+> uzunluğu + güneş enerjisiyle planlı şarj. Gövde benzerliği ölçülüyor:
+> `scratchpad/_sehir_uretim_denetim.cjs` (eşik 0,80).
+>
+> **⛔ YAZILMAYANLAR:** `isHQ` YOK — üretim yalnız Bursa'da, bu sayfalarda "burada
+> üretiyoruz" DENMEZ ("üretim Bursa'da, bu şehirde yetkili bayi" denir). Bayi SAYISI
+> metinde geçmez (değişir, prose bayatlar; liste zaten veriden basılır). Şehir hakkında
+> doğrulanamayan iddia yok ("İstanbul'da şu kadar kurulum yaptık" gibi) — metin
+> alıcının KARARINA odaklanır.
+>
+> **OTOMATİK OLANLAR (elle iş yok):** sitemap `CITY_PAGES`'i map ediyor · şehir
+> sayfaları `CityLandingClient` içinden birbirine otomatik bağlanıyor · panel SEO
+> tablosu da artık `CITY_PAGES`'ten TÜRETİLİYOR (iki Bursa satırı elle yazılıydı,
+> yeni şehirlerde eksik kalacaktı → `SEHIR_NOTU` haritasına çevrildi; notu olmayan
+> şehir de listelenir, düşmez). **Elle:** `llms.txt` maddeleri.
+> Panel artık: 13 sayfa · 77 anahtar · 5 bölge.
+>
 > 🏢🔌 **ORTAK ALAN / APARTMAN-SİTE GÖRÜNÜRLÜK TURU (2026-09-15):**
 > Kullanıcı: *"ortak alan yönetim paneli ve programı gibi aramalarda wallbox'larımız,
 > özellikle Plus ve Pro 2. seriler öne çıkmalı. Panel her markada paralı, biz ücretsiz
