@@ -72,6 +72,24 @@ const SEHIR_NOTU: Record<string, { kume?: string; kitle?: string; ayrim?: string
     ayrim: "Yetkili bayi ağı · müstakil ev kurulumu ve planlı şarj",
     tarih: "2026-09-15",
   },
+  "istanbul-sarj-kablosu": {
+    kume: "İstanbul — şarj kablosu",
+    kitle: "İstanbul'da Type 2 kablo arayan sürücü",
+    ayrim: "Uzunluk seçimi · soketli AC istasyonda taşınan kablo",
+    tarih: "2026-09-15",
+  },
+  "ankara-sarj-kablosu": {
+    kume: "Ankara — şarj kablosu",
+    kitle: "Ankara'da filo/kurum ve bireysel kablo alıcısı",
+    ayrim: "Filoda kablo standardizasyonu · 32A trifaze 22 kW",
+    tarih: "2026-09-15",
+  },
+  "izmir-sarj-kablosu": {
+    kume: "İzmir — şarj kablosu",
+    kitle: "İzmir'de müstakil ev / villa için kablo arayan sürücü",
+    ayrim: "Uzun mesafe · 15 metreye kadar boy",
+    tarih: "2026-09-15",
+  },
 };
 
 export const SEO_HEDEFLERI: SeoHedef[] = [

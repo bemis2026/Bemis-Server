@@ -78,6 +78,23 @@
 > doğrulanamayan iddia yok ("İstanbul'da şu kadar kurulum yaptık" gibi) — metin
 > alıcının KARARINA odaklanır.
 >
+> **➕ KABLO SAYFALARI DA AÇILDI (2026-09-15, kullanıcı isteği):** `/istanbul-sarj-kablosu`
+> · `/ankara-sarj-kablosu` · `/izmir-sarj-kablosu`. Toplam **8 şehir sayfası**.
+> Bunu önce ÖNERMEMİŞTİM (kablo sayfasında şehre özgü anlatacak şey az → doorway
+> riski); kullanıcı isteyince riski ölçüye bağlayarak yapıldı. Her sayfa farklı bir
+> SATIN ALMA KARARI etrafında: İstanbul → uzunluk seçimi + soketli AC istasyonda
+> taşınan kablo · Ankara → filoda kablo standardizasyonu, 32A trifaze, yedek ·
+> İzmir → müstakil ev, 15 m'ye kadar boy, ek bağlantı yerine tek parça.
+> **ÖLÇÜLDÜ: 8 sayfada en yüksek gövde benzerliği 0,54** (eşik 0,80) → kopya değil.
+> ⚠️ **ROTA ŞABLONU: kablo sayfası cihaz sayfasından FARKLI.** İlk denemede cihaz
+> şablonundan üretildi ve YANLIŞTI — kablo sayfasının breadcrumb'ında "AC Şarj
+> Kabloları" var ve `serviceSchema` teklifleri kabloya özel. Doğru şablon:
+> `app/bursa-sarj-kablosu/page.tsx`. Şema adından **"Üretimi" ÇIKARILIR** (üretim
+> yalnız Bursa'da; `${city.city} Type 2 Şarj Kablosu` kullanılır).
+> ⚠️ Üretici betikteki "şablon izi kaldı mı" kontrolü blanket `bursa` kelimesi
+> aramamalı — kendi eklediğin "üretim yalnız Bursa'da" notunu yakalayıp yanlış
+> alarm verir. Ölçüt TANIMLAYICI olmalı (slug · fonksiyon adı · şema adı).
+>
 > **OTOMATİK OLANLAR (elle iş yok):** sitemap `CITY_PAGES`'i map ediyor · şehir
 > sayfaları `CityLandingClient` içinden birbirine otomatik bağlanıyor · panel SEO
 > tablosu da artık `CITY_PAGES`'ten TÜRETİLİYOR (iki Bursa satırı elle yazılıydı,

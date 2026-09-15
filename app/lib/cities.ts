@@ -345,6 +345,177 @@ export const CITY_PAGES: CityPage[] = [
       },
     ],
   },
+  // ── 2026-09-15: şehir KABLO sayfaları (İstanbul · Ankara · İzmir) ─────
+  // ⚠️ KAPI-SAYFASI RİSKİ EN YÜKSEK OLAN GRUP BU. Kablo sayfasında şehre özgü
+  //    anlatacak şey cihaz sayfasındakinden az; üç sayfayı aynı metne şehir adı
+  //    serpiştirerek üretmek altısını birden değersizleştirir. Bu yüzden her
+  //    sayfa FARKLI BİR SATIN ALMA KARARI etrafında kuruldu:
+  //      İstanbul → uzunluk seçimi (otoparkta priz-araç mesafesi) + soketli
+  //                 (kablosuz) AC istasyonlarda kendi kablonu taşıma
+  //      Ankara   → filo/kurum: 32A trifaze, kablo standardizasyonu, yedek
+  //      İzmir    → müstakil ev/villa: uzun mesafe, 15 m'ye kadar, ikinci konut
+  //    Gövde benzerliği ölçülüyor: scratchpad/_sehir_uretim_denetim.cjs (eşik 0,80).
+  // ⚠️ ÜRETİM İDDİASI ŞEHRE BAĞLANMAZ: kablo Bursa'da üretilir — bu ÜRÜN
+  //    özelliğidir, her şehirde söylenebilir; ama "burada üretiyoruz" DENMEZ
+  //    ve `isHQ` verilmez.
+  // ⚠️ Tüm teknik değerler katalogda KAYITLI: 16A/32A · monofaze/trifaze ·
+  //    3,7 / 7,4 / 11 / 22 kW · 3-5-7-8-10-15 m. Uydurma ölçü yok.
+  {
+    slug: "istanbul-sarj-kablosu",
+    city: "İstanbul",
+    loc: "İstanbul'da",
+    region: "İstanbul",
+    linkLabel: "İstanbul Şarj Kablosu",
+    dealerCityId: "istanbul",
+    showcaseCategories: ["cables"],
+    title: "İstanbul Şarj Kablosu — Type 2 Elektrikli Araba Şarj Kablosu",
+    h1: "İstanbul Şarj Kablosu — Type 2 (Mod 3)",
+    eyebrow: "İstanbul · Yetkili Bayi Ağı",
+    intro:
+      "Elektrikli araba şarj kablonuzu İstanbul'daki yetkili bayilerimizden alın. Type 2 (Mod 3) kablolarımız tek ve üç fazlı, 16A ve 32A akım sınıflarında, 3 metreden 15 metreye kadar uzunluk seçenekleriyle üretilir; halojensiz dış kılıf ve yüksek akım Type 2 konektörü kullanılır.",
+    localPitch:
+      "Kablo seçiminde İstanbul'da en sık takılınan nokta uzunluktur. Kapalı ve ortak otoparklarda priz ile aracın park ettiği yer arasındaki mesafe her araçta aynı değildir; kablo gerginse konektöre yük biner, gereğinden uzunsa yerde sürtünür ve çabuk yıpranır. İkinci nokta halka açık istasyonlardır: soketli (kablosuz) AC istasyonlarda kabloyu sürücü getirir, bu yüzden araçta taşınan bir kablo İstanbul içi kullanımda işe yarar. Ölçüyü ve akım sınıfını birlikte belirleyelim.",
+    metaDescription:
+      "İstanbul şarj kablosu — Type 2 elektrikli araba şarj kablosu, yetkili bayilerimizden. 16A/32A, tek ve üç faz, 3–15 m, halojensiz. Yerli üretim, CE sertifikalı.",
+    keywords: [
+      "istanbul şarj kablosu",
+      "istanbul type 2 şarj kablosu",
+      "istanbul elektrikli araba şarj kablosu",
+      "istanbul ev şarj kablosu",
+      "type 2 şarj kablosu istanbul",
+      "elektrikli araba şarj kablosu istanbul",
+    ],
+    faq: [
+      {
+        q: "İstanbul'da şarj kablosunu nereden alabilirim?",
+        a: "İstanbul'daki yetkili bayilerimizden temin edebilirsiniz; bu sayfada bayilerimizin adı, adresi ve iletişim bilgisi listelenir. Kablolar Bursa'daki kendi tesisimizde üretilir, ithal edilip etiketlenmez.",
+      },
+      {
+        q: "Kaç metre şarj kablosu almalıyım?",
+        a: "Ölçüyü prizin bulunduğu nokta ile aracın şarj soketinin park hâlinde kaldığı yer arasından alın, üzerine kablonun kıvrım payını ekleyin. Kataloğumuzda 3, 5, 7, 8, 10 ve 15 metre seçenekleri vardır. Kablo gergin kalmamalı; gereğinden uzun olan kablo ise yerde sürtünerek daha çabuk yıpranır.",
+      },
+      {
+        q: "Halka açık şarj istasyonunda kendi kablomu kullanabilir miyim?",
+        a: "AC istasyonların bir kısmı soketlidir, yani kabloyu sürücü getirir; bir kısmında ise kablo istasyona bağlıdır. Soketli istasyonlarda Type 2 (Mod 3) kablonuzu kullanabilirsiniz. Araçta taşınacak kablo için genellikle daha kısa ve kolay toplanan bir boy tercih edilir.",
+      },
+      {
+        q: "16A mı 32A mı, tek faz mı üç faz mı?",
+        a: "Kablonun sınıfı hem şarj cihazınızın hem aracınızın desteklediği akımla uyumlu olmalıdır. Tek fazlı 16A kablo 3,7 kW'a, 32A kablo 7,4 kW'a kadar; üç fazlı 16A 11 kW'a, 32A ise 22 kW'a kadar güç taşır. Şarj hızını kablo değil, aracınızın dahili AC şarj ünitesi belirler.",
+      },
+      {
+        q: "Kablo her elektrikli arabaya uyar mı?",
+        a: "Türkiye ve Avrupa'da satılan elektrikli arabaların büyük çoğunluğu Type 2 (IEC 62196) soket kullanır; kablolarımız bu araçlarla uyumludur. Aracınızın soket tipinden emin değilseniz marka ve modelini iletin, uygun kabloyu birlikte belirleyelim.",
+      },
+      {
+        q: "İstanbul'a teslimat nasıl yapılıyor?",
+        a: "Kablolar Bursa'daki üretim tesisimizden sevk edilir; İstanbul'daki yetkili bayilerimizden de doğrudan temin edebilirsiniz. Teslim süresi ürüne ve stok durumuna göre değiştiği için, ihtiyacınız olan boyu ve akım sınıfını belirterek teyit almanızı öneririz.",
+      },
+    ],
+  },
+  {
+    slug: "ankara-sarj-kablosu",
+    city: "Ankara",
+    loc: "Ankara'da",
+    region: "Ankara",
+    linkLabel: "Ankara Şarj Kablosu",
+    dealerCityId: "ankara",
+    showcaseCategories: ["cables"],
+    title: "Ankara Şarj Kablosu — Type 2 Elektrikli Araba Şarj Kablosu",
+    h1: "Ankara Şarj Kablosu — Type 2 (Mod 3)",
+    eyebrow: "Ankara · Yetkili Bayi Ağı",
+    intro:
+      "Elektrikli araba şarj kablonuzu Ankara'daki yetkili bayilerimizden alın. Type 2 (Mod 3) kablolarımız 16A ve 32A akım sınıflarında, tek ve üç fazlı, 3 metreden 15 metreye kadar uzunluklarda üretilir; halojensiz dış kılıf ve yüksek akım Type 2 konektörü kullanılır.",
+    localPitch:
+      "Kurum ve filo kullanımında kablo tek tek değil, standart olarak seçilir. Aynı akım sınıfında ve aynı boyda kablo kullanmak hem yedek yönetimini kolaylaştırır hem de sürücünün yanlış kablo alma ihtimalini ortadan kaldırır. Üç fazlı tesisatta 32A kablo 22 kW'a kadar güç taşır; araç filosundaki en yüksek AC limiti neyse kablo ona göre seçilir, düşüğü seçmek bütün filoyu yavaşlatır. Proje bazlı işlerde kablo boyunu ve soket rengini talebinize göre özelleştirebiliyoruz.",
+    metaDescription:
+      "Ankara şarj kablosu — Type 2 elektrikli araba şarj kablosu, yetkili bayilerimizden. 16A/32A, tek ve üç faz, 3–15 m, halojensiz. Yerli üretim, CE sertifikalı.",
+    keywords: [
+      "ankara şarj kablosu",
+      "ankara type 2 şarj kablosu",
+      "ankara elektrikli araba şarj kablosu",
+      "ankara ev şarj kablosu",
+      "type 2 şarj kablosu ankara",
+      "elektrikli araba şarj kablosu ankara",
+    ],
+    faq: [
+      {
+        q: "Ankara'da şarj kablosunu nereden alabilirim?",
+        a: "Ankara'daki yetkili bayilerimizden temin edebilirsiniz; bu sayfada bayilerimizin adı, adresi ve iletişim bilgisi listelenir. Kablolar Bursa'daki kendi tesisimizde üretilir, ithal edilip etiketlenmez.",
+      },
+      {
+        q: "Filo için toplu kablo alımı yapabilir miyiz?",
+        a: "Evet. Filoda kabloyu standart seçmek yedek yönetimini kolaylaştırır: aynı akım sınıfı ve aynı boy, her araçta çalışır. Adet, akım sınıfı ve boy bilgisini iletirseniz teklif hazırlarız; proje bazlı işlerde kablo boyu ve soket rengi talebe göre özelleştirilebilir.",
+      },
+      {
+        q: "Filomuz için hangi akım sınıfını seçmeliyiz?",
+        a: "Filodaki araçların dahili AC şarj limitlerine bakın ve en yüksek olana göre seçin. Üç fazlı tesisatta 32A kablo 22 kW'a kadar, 16A kablo 11 kW'a kadar taşır; tek fazda sırasıyla 7,4 ve 3,7 kW. Düşük sınıfta bir kablo, yüksek limitli aracı da kendi sınırına düşürür.",
+      },
+      {
+        q: "Yedek kablo bulundurmalı mıyız?",
+        a: "Çok araçlı kullanımda kablo günde birçok kez takılıp çıkarıldığı için yıpranması hızlanır. Aynı sınıf ve boyda bir yedek, bir kablo arızalandığında aracı beklemeye almadan devam etmenizi sağlar.",
+      },
+      {
+        q: "Kablo dış mekânda, soğukta kullanılabilir mi?",
+        a: "Kablolarımız halojensiz dış kılıflıdır ve dış mekân kullanımına uygundur. Çok soğukta kılıf sertleşebilir; kabloyu zorlamadan, geniş kıvrımlarla toplamak ömrünü uzatır. Kabloyu araç tekerleğinin üzerinden geçeceği şekilde bırakmayın.",
+      },
+      {
+        q: "Ankara'ya teslimat nasıl yapılıyor?",
+        a: "Kablolar Bursa'daki üretim tesisimizden sevk edilir; Ankara'daki yetkili bayilerimizden de doğrudan temin edebilirsiniz. Teslim süresi ürüne ve stok durumuna göre değişir, adet ve boy belirterek teyit almanızı öneririz.",
+      },
+    ],
+  },
+  {
+    slug: "izmir-sarj-kablosu",
+    city: "İzmir",
+    loc: "İzmir'de",
+    region: "İzmir",
+    linkLabel: "İzmir Şarj Kablosu",
+    dealerCityId: "izmir",
+    showcaseCategories: ["cables"],
+    title: "İzmir Şarj Kablosu — Type 2 Elektrikli Araba Şarj Kablosu",
+    h1: "İzmir Şarj Kablosu — Type 2 (Mod 3)",
+    eyebrow: "İzmir · Yetkili Bayi Ağı",
+    intro:
+      "Elektrikli araba şarj kablonuzu İzmir'deki yetkili bayilerimizden alın. Type 2 (Mod 3) kablolarımız 16A ve 32A akım sınıflarında, tek ve üç fazlı, 3 metreden 15 metreye kadar uzunluklarda üretilir; halojensiz dış kılıf ve yüksek akım Type 2 konektörü kullanılır.",
+    localPitch:
+      "Müstakil ev ve villa kullanımında kablo boyu çoğu zaman dairedekinden uzun seçilir: priz garajda ya da bahçe panosunda kalırken araç avluda veya sundurma altında park eder. Katalogda 15 metreye kadar boy bulunur, böylece hat yenilemeden mesafe kapatılabilir. İkinci konutta düzenli şarj için sabit bir cihaz yerine kabloyla çözüm arıyorsanız, taşınabilir cihaz seçenekleri de aynı sayfada incelenebilir. Doğru boyu ve akım sınıfını birlikte belirleyelim.",
+    metaDescription:
+      "İzmir şarj kablosu — Type 2 elektrikli araba şarj kablosu, yetkili bayilerimizden. 16A/32A, tek ve üç faz, 3–15 m, halojensiz. Yerli üretim, CE sertifikalı.",
+    keywords: [
+      "izmir şarj kablosu",
+      "izmir type 2 şarj kablosu",
+      "izmir elektrikli araba şarj kablosu",
+      "izmir ev şarj kablosu",
+      "type 2 şarj kablosu izmir",
+      "elektrikli araba şarj kablosu izmir",
+    ],
+    faq: [
+      {
+        q: "İzmir'de şarj kablosunu nereden alabilirim?",
+        a: "İzmir'deki yetkili bayilerimizden temin edebilirsiniz; bu sayfada bayilerimizin adı, adresi ve iletişim bilgisi listelenir. Kablolar Bursa'daki kendi tesisimizde üretilir, ithal edilip etiketlenmez.",
+      },
+      {
+        q: "Müstakil evde kaç metre kablo gerekir?",
+        a: "Ölçüyü priz ya da cihazın bulunduğu noktadan aracın şarj soketinin park hâlinde kaldığı yere kadar alın; bahçe ve avlu kullanımında bu mesafe daire içindekinden belirgin biçimde uzun çıkar. Katalogda 3, 5, 7, 8, 10 ve 15 metre seçenekleri vardır.",
+      },
+      {
+        q: "15 metre kablo şarj hızını düşürür mü?",
+        a: "Kablo boyu, kablonun akım sınıfı içinde kaldığı sürece şarj gücünü belirlemez; gücü cihazın ayarı ve aracın dahili AC şarj ünitesi belirler. Uzun kabloda dikkat edilmesi gereken şey güç değil, kablonun yerde sürtünmeyecek ve araç geçişine kalmayacak biçimde toplanmasıdır.",
+      },
+      {
+        q: "Uzatma kablosu mu, uzun şarj kablosu mu?",
+        a: "Mesafeyi doğrudan uygun boydaki bir şarj kablosuyla kapatmak, araya ek bağlantı koymaktan daha sağlıklıdır. Ek bağlantı her noktada ısınma ve temas riski demektir. Katalogdaki boylar yetmiyorsa mesafeyi ve kullanım şeklini iletin, uygun çözümü birlikte değerlendirelim.",
+      },
+      {
+        q: "Yazlık veya ikinci konutta nasıl şarj ederim?",
+        a: "Düzenli kullanımda duvar tipi bir cihaz en verimli çözümdür. Sabit kurulum istemiyorsanız taşınabilir şarj cihazı prize takılarak kullanılır ve montaj gerektirmez; şarj hızı prizin ve aracın sınırıyla belirlenir.",
+      },
+      {
+        q: "İzmir'e teslimat nasıl yapılıyor?",
+        a: "Kablolar Bursa'daki üretim tesisimizden sevk edilir; İzmir'deki yetkili bayilerimizden de doğrudan temin edebilirsiniz. Teslim süresi ürüne ve stok durumuna göre değiştiği için, ihtiyacınız olan boyu belirterek teyit almanızı öneririz.",
+      },
+    ],
+  },
 ];
 
 export const getCityPage = (slug: string): CityPage | undefined =>
