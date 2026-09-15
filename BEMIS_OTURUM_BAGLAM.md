@@ -13,6 +13,43 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 📱 **SOSYAL MEDYA KARTLARI — HİZA KUSURU (2026-09-15, commit `dcfdc5d`):**
+> Kullanıcı bildirdi: uzun açıklamalı videolarda kayma.
+>
+> **🔴 KÖK NEDEN — `block` sınıfı `line-clamp`'i ÖLDÜRÜYOR.** Kartta
+> `className="block … line-clamp-2"` yazılıydı; `-webkit-line-clamp` YALNIZ
+> `display:-webkit-box` ile çalışır, yanındaki `block` yardımcı sınıfı display'i
+> eziyordu. Sınıf duruyordu ama hiçbir şey kırpmıyordu. Canlı ölçüm: computed
+> `display:"block"`, açıklama yükseklikleri **39 / 154 / 154 / 173 / 404 / 655 px**
+> (35–647 karakter). Kartlar flex `stretch` ile 1033 px'e eşitlenince kısa
+> açıklamalıların altında yüzlerce piksel boşluk kalıyordu.
+> ✅ **TARANDI: bu tuzak depoda BAŞKA YERDE YOK** — diğer 11 `line-clamp`
+> kullanımının hiçbirinde aynı öğede display sınıfı (`block`/`flex`/`grid`) yok.
+>
+> **Çözüm:** kırpma satır içi stille (sınıf çakışması biter) · `minHeight` ile
+> kapalı hâlde tüm kartlar aynı boyda · "Devamını oku / Daha az" ile açılır ·
+> taşma `scrollHeight` ile ÖLÇÜLÜR (karakter sayısıyla değil — kart genişliği
+> `clamp(190px…250px)` ekrana göre değişiyor) · `items-start` (açılan kart
+> komşularını şişirmesin) · kart artık tek `<button>` değil (iç içe düğme
+> geçersiz HTML) · ışık kutusunda açıklama kendi kabında kayar.
+> ⚠️ **ARADA İKİNCİ HİZA KUSURU:** iki etiketi yan yana koymak dar kartta
+> sarmaya yol açıp 437/417 farkı üretti → alt blok alt alta + SABİT yükseklik.
+> ⚠️ `check:i18n` gerçek eksik yakaladı ("Daha az" ui.json'da yoktu) → depoda
+> yerleşik `"Daha az" / "Show less"` çifti kullanıldı, yeni anahtar uydurulmadı.
+> 📌 Yerelde bu bölüm RENDER EDİLMEZ (içerik R2'den gelir, repo yedeğinde
+> `socialWallSection` yok) → doğrulamak için R2 değişkenleri geçici olarak
+> `.env.local`'e alınır, iş bitince GERİ ALINIR.
+>
+> ⏳ **BEKLİYOR — İZMİR BAYİ ADRESİ:** `HAVAYLAR OTOMASYON` kaydında `address`
+> ve `phone` BOŞ (yalnız yetkili kişi + WhatsApp 0 532 585 31 07 + Instagram).
+> İki kaynak ÇELİŞİYOR: find.com.tr → *Yeni Mah. 8200 Sok. No:9/3, ÇİĞLİ* ·
+> Yandex Haritalar → *Halkapınar Mah. 1203 Sok. No:12, KONAK* (telefonu bizim
+> WhatsApp kaydımızla birebir aynı). **Kullanıcı kararı: bayiden teyit alıp
+> verecek — ikisinden biri YAZILMADI.** Adres boş olduğu için kayıt zaten
+> filtreleniyor, sayfada yanlış bilgi görünmüyor (İzmir 2/3 bayi).
+> Geldiğinde: `data/dealers.json` → izmir[2]; harita bağlantısı ad+adresten
+> KENDİLİĞİNDEN kurulur (`mapHrefOf`), `mapUrl` istemeye gerek yok.
+>
 > 🏙️ **ŞEHİR SAYFALARI: İSTANBUL · ANKARA · İZMİR (2026-09-15):**
 > Kullanıcı isteği. Önceki turda ölçülmüştü: 10 SEO hedefinin 8'i "Türkiye geneli",
 > yerel olan yalnız 2 Bursa sayfasıydı.
