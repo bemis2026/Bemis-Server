@@ -13,6 +13,53 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🔗 **GSC 404 LİSTESİ ÇÖZÜLDÜ — KIRIK BAYİ LİNKİ (2026-09-17, `a5eef73`):**
+> Kullanıcı 8 adreslik "Bulunamadı (404)" listesini indirdi
+> (`Desktop\GSC\2026-09\404-listesi\Tablo.csv`). Üç gruba ayrıldı.
+>
+> **🔴 (1) `/www.evocity.com.tr` — GERÇEK KUSUR, KAYNAĞI BİZDİK.**
+> Bayi verisinde `website` alanı **PROTOKOLSÜZ** kayıtlıydı
+> (`"www.evocity.com.tr"`) ve `<a href={dealer.website}>` **ham** basılıyordu →
+> tarayıcı protokolsüz adresi **KENDİ ALAN ADIMIZA GÖRE** çözüyor →
+> `bemisevcharge.com.tr/www.evocity.com.tr` → 404.
+> ⚠️ **Yalnız SEO kusuru DEĞİL:** o bayinin sitesine tıklayan **gerçek müşteri**
+> bayiye değil BİZİM 404 sayfamıza düşüyordu. (EVO CİTY / İstanbul, 30 bayinin 1'i.)
+> **İKİ KATMANDA ÇÖZÜLDÜ:**
+> **(a) KOD (kalıcı)** — yeni **`app/lib/dealerLinks.ts` → `webHref()`**.
+> ⚠️ Mantık **ZATEN VARDI** ama `DealerPickerModal` içinde **yerel bir sabitti**
+> (`toUrl`); diğer **DÖRT** basım yeri ham yazıyordu. Tek kaynağa çıkarıldı;
+> 5 yerin 5'i oradan geçer: DealerNetwork (yurt içi + uluslararası) ·
+> DealerDirectory · CityLandingClient · DealerPickerModal.
+> 📌 **Veriyi düzeltmek TEK BAŞINA YETMEZDİ** — operatör panelden yine
+> protokolsüz yazabilir; normalleştirme **RENDER ANINDA**. (Aynı sınıf kusur
+> `wa.me` numaralarında yaşanmış, `waNumber()` ile çözülmüştü.)
+> 📌 **Bayi web adresi basan yeni bir yer yazarken `webHref()` KULLAN** —
+> `href={b.website}` YAZMA.
+> **(b) VERİ** — R2 `dealers` + repo normalleştirildi; geri okundu:
+> 60 alan, protokolsüz **0**. Yedek: `scratchpad/_dealers.R2.url.bak.json`.
+>
+> **(2) 6 HAYALET ÜRÜN ADRESİ → kendi kategorisine 308** (`wallbox-11kw` ·
+> `mod2-cable` · `extension-cable` · `v2l-c2l/c2l` · `c2l-adaptor` ·
+> `type2-socket`). Depoda arandı: **iç link DEĞİLLER** (`c2l-adaptor`
+> eşleşmeleri `tek-cikisli-c2l-adaptor` içinde **alt dize**) — dışarıdan
+> tahmin edilmiş İngilizce slug'lar. ⚠️ **JOKER KURAL YAZILMADI**
+> (`/products/:kat/:slug` → `/products/:kat` gibi): gerçek yazım hatalarını
+> yutar, olmayan ürünü var gibi gösterir ve `dynamicParams=false`un sağladığı
+> temiz 404'ü bozardı. Yalnız bu altı **belirli** adres.
+>
+> **(3) `/contact` ZATEN ÇÖZÜLMÜŞ** — canlı 308 → `/iletisim`. GSC kaydı bayat
+> (son tarama 2026-06-23, düzeltme 2026-07-03). Yapılacak yok.
+>
+> **✅ CANLI:** 8 adresin **7'si 308**; `/www.evocity.com.tr` **hâlâ 404 ve bu
+> DOĞRU** — o adres hiç var olmamalıydı, çözüm yönlendirmek değil **üretilmesini
+> durdurmaktı**. Veri: EVO CİTY `https://www.evocity.com.tr`, 30/30 protokollü.
+> Render: İstanbul şehir sayfasında `href="https://www.evocity.com.tr"`,
+> `href="www.` göreli kalıntı **0**.
+> ⓘ **Kendi sitemap'imiz temiz** (171 ürün-dışı adres, 171'i 200).
+> ⓘ GSC'deki kırmızı **"Başarısız oldu"** ("Doğru standart etikete sahip
+> alternatif sayfa", 16) **HATA DEĞİL** — Google'ın kopya elemesi, aksiyon yok.
+> store cache **v128-v2l-baslik → v129-bayi-url**.
+
 > 🖱️ **TİCARİ SORGULARDA TO — V2L/C2L BAŞLIK KURGUSU (2026-09-17, `1ece66d`):**
 > Kullanıcı: *"şarj cihazı / şarj kablosu / portatif cihaz aramalarında 1. olalım."*
 > **⚠️ DÜRÜST CEVAP VERİLDİ: bu vaat edilemez.** Ölçüm: markalı her sorguda
