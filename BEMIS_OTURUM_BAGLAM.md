@@ -13,6 +13,63 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🚗⚡ **TOGG V2L — MODEL AYRIMI + BAYAT T10X BİLGİSİ (2026-09-17, `c129c87`):**
+> Kullanıcı *"togg v2l geldi"* dedi. **⚠️ ÇOKTAN SEÇMELİ SORULDU — cevap: YENİ ÜRÜN YOK,
+> araç tarafı değişti.** Katalogda Togg'a özel ürün **0** (V2L adaptörlerimiz
+> Hyundai/Kia/Ssangyong · MG · BYD/Skywell için). Soru şarttı: "ürün geldi" olsaydı iş
+> tamamen farklıydı (ürün kaydı + sayfa + spec'ler kullanıcıdan).
+>
+> **DOĞRULANDI (gzt.com · karar.com · donanimhaber · Togg Team):**
+> | Model | Üretim | V2L |
+> |---|---|---|
+> | T10F | ilk üretimden beri Vestel 11 kW OBC | **2.1.1 yazılımıyla aktif** |
+> | T10X | 2023 – 15 Haz 2026 · Meta System 22 kW OBC | yok |
+> | T10X | **15 Haz 2026 sonrası · LFP + 11 kW OBC** | V2L ile geliyor |
+> ⚠️ **"Tüm T10X'lerde V2L var" DENMEDİ** — yalnız yeni üretim. Kaynakların bir kısmı
+> sosyal medya aktarımı → metinde temkinli dil + "ekran menüsünden teyit edin".
+>
+> **(1) `togg-v2l-aractan-elektrik` (gövde 8 → 11):** yeni h2 *"Hangi Togg modelinde V2L
+> var?"* + 3 satırlı tablo + temkin paragrafı. Yazı **HİÇ model ayrımı yapmıyordu**
+> ("Togg V2L'yi destekler") oysa gerçek sorgular model bazlı — otomatik tamamlama:
+> `togg t10x v2l var mı` · `t10f v2l adaptör` · `togg v2l adaptör` · **`togg v2l hatası`**.
+> ⚠️ **YENİ SAYFA AÇILMADI** — bu yazı zaten o aramalarda görünüyor (Togg araştırmasında
+> kendi sayfamız çıktı); ikinci sayfa kanibalize ederdi (tek-niyet-tek-sayfa).
+> 🔴 **SİTE KENDİ İÇİNDE ÇELİŞİYORDU:** bu yazı *"Bemis, Togg ve diğer V2L destekli araçlar
+> için adaptör sunar"* diyordu; AYNI sitedeki hub yazısı *"Togg kendi V2L adaptörünü sunar"*
+> diyordu ve katalogda Togg ürünü YOK. CTA + "hangi adaptör gerekir" SSS'i düzeltildi:
+> araç tarafındaki uç **markaya göre değişir**; Togg için yetkili kanaldan teyit. C2L'ler
+> enerjiyi araçtan değil şarj cihazından aldığı için **marka bağımsız** (doğru + katalogla tutarlı).
+> **(2) `hangi-araclarda-v2l-var-turkiye`:** tablo satırı `Togg T10F` → **`Togg T10F / T10X`**
+> (üretim ayrımı notta) + **"T10X'te V2L henüz resmen netleşmedi"** cümlesi BAYATTI, değişti.
+> **(3) `portatif-seyyar-sarj-cihazi-nedir-ne-kadar`:** ⚠️ kullanıcının istediği **"güç sınıfı
+> bölümü" ZATEN VARDI** (Model/Güç/Faz karşılaştırma tablosu + 3 modeli anlatan liste) →
+> ikincisi EKLENMEDİ, saf tekrar olurdu. 📌 **Kayıtlı ders yine işe yaradı: "bizde yok"
+> demeden önce ilgili SAYFAYI aç.** Orada bulunan GERÇEK kusur: tablo Pro Mobile 2'yi
+> **"11 / 22 kW"** diyordu, katalog **"3,7 - 22 kW"** → site kendi ürün verisiyle çelişiyordu.
+>
+> **🌐 ÇEVİRİLER — 3 yazı × 5 dil AYNI turda.** ⚠️⚠️ **İKİ AYRI RİSK, ikisi de kapatıldı:**
+> **(a)** body'ye blok **EKLEMEK** uzunluğu değiştirir → `mergeBlogPost` gövdeyi sessizce
+> TR'ye düşürür ve `tamCevrildi` kapısı **Arapça adresi 404** yapar.
+> **(b)** **YERİNDE** metin değişikliği uzunluğu **DEĞİŞTİRMEZ** → çeviri uygulanmaya devam
+> eder ve güncellenmezse **5 dil BAYAT kalır; uzunluk kontrolü bunu YAKALAMAZ.**
+> 📌 (b) daha sinsi — yalnız uzunluğa bakan bir kontrol yeterli değil.
+> ÖN KONTROLLER: blok şekli · **sayısal parmak izi** TR ile birebir · TR harf sızıntısı ·
+> ru Kiril / ar Arapça (ve başka dile sızma) · round-trip bayt eşitliği · çapa tekilliği.
+>
+> **🪤 İKİ TUZAK (ikisi de yazmadan önce):** **(a)** çeviri blokları **`type` TAŞIMAZ**,
+> yalnız çevrilebilir alanı tutar (p/h2/quote→`text` · ul→`items` · cta→`text`+`label` ·
+> table→`caption`/`headers`/`rows`); tip kaynaktan gelir → CTA'yı `type` ile aramak 5 dilde
+> de boş döndü, **`label` alanından** tanınır. **(b)** JS'te **`\b` ASCII tabanlı**:
+> `11 / 22 кВт` deseni sondaki `\b` yüzünden Rusça hücrede EŞLEŞMEDİ (aynı tuzak daha önce
+> Türkçe kelimelerde yaşanmıştı).
+>
+> **✅ CANLI 20/20** (`scratchpad/_togg_canli.cjs`): yeni h2+tablo · bayat cümleler gitti ·
+> yanıltıcı adaptör iddiası gitti · **3 Arapça adres 200** (hiza bozulsaydı 404 olurdu) ·
+> AR gövde gerçekten Arapça (4050 harf) · `3,7 – 22 kW` katalogla hizalı.
+> 📣 IndexNow 7 adres (3 TR + 3 AR + /blog) → 200 · 200 · success.
+> ⏳ **AÇIK:** kullanıcı **GSC dışa aktarımlarını** verecek (Sorgular · Sayfalar · Sayfa
+> dizine ekleme · zengin sonuç hataları) → `Desktop\GSC\` altına.
+
 > 🔌🔎 **"7 kW PORTATİF" TURU — KELİME UYUŞMAZLIĞI (2026-09-16, `4de7128` · `49399e1` · `6f80ec5`):**
 > Kullanıcı: *"7kw portatif elektrikli araç şarj cihazı — bu aramada ve benzerlerinde 5. sayfadayız."*
 >
