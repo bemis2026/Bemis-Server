@@ -221,8 +221,14 @@ const AR: Record<string, string> = {
   "Charger Pro 2 GSM": "تشارجر برو 2 GSM",
   "Charger Pro 2 GSM MID Sayaçlı": "تشارجر برو 2 GSM بعدّاد MID",
   "Charger Pro 2 MID Sayaçlı": "تشارجر برو 2 بعدّاد MID",
+  // ⚠️ 2026-09-16: TR adına kW eklendi ("Mono Mobile" → "Mono Mobile 7,4 kW").
+  //    Bu harita ürünün TÜRKÇE ADIYLA eşleşir; anahtar güncellenmezse Arapça
+  //    sayfada ad sessizce TÜRKÇEYE düşer. Eski anahtarlar da BİLEREK bırakıldı:
+  //    R2 ve repo yedeği ayrışırsa (cache penceresi) eski ad yine çözülsün.
   "Mini Mobile": "ميني موبايل",
   "Mono Mobile": "مونو موبايل",
+  "Mini Mobile 3,7 kW": "ميني موبايل 3,7 kW",
+  "Mono Mobile 7,4 kW": "مونو موبايل 7,4 kW",
   "Pro Mobile 2": "برو موبايل 2",
   "Pedestal": "قاعدة تثبيت (بيدستال)",
   "BEVDC 40": "شاحن سريع BEVDC 40",

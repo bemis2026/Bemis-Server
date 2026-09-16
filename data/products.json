@@ -1774,13 +1774,13 @@
   },
   {
     "id": "portable",
-    "name": "AC Mobile Chargers",
-    "tagline": "Kurulum gerektirmez — prize tak, şarj et",
+    "name": "Taşınabilir Şarj Cihazı",
+    "tagline": "Portatif elektrikli araç şarj cihazları · prize tak, şarj et",
     "accent": "#10B981",
     "products": [
       {
         "id": "mini-mobile",
-        "name": "Mini Mobile",
+        "name": "Mini Mobile 3,7 kW",
         "code": "BEV-1111-0001",
         "subtitle": "Tek Fazlı · 2,3 - 3,7 kW · 5 m",
         "badge": null,
@@ -1872,7 +1872,7 @@
       },
       {
         "id": "mono-mobile",
-        "name": "Mono Mobile",
+        "name": "Mono Mobile 7,4 kW",
         "code": "BEV-1221-0001",
         "subtitle": "Tek Fazlı · 3,7 - 7,4 kW · 5 m",
         "badge": null,
@@ -2460,7 +2460,7 @@
       },
       {
         "id": "mono-mobile-10m",
-        "name": "Mono Mobile",
+        "name": "Mono Mobile 7,4 kW",
         "code": "BEV-1221-0003",
         "subtitle": "Tek Fazlı · 3,7 - 7,4 kW · 10 m",
         "badge": null,
@@ -2564,7 +2564,7 @@
       },
       {
         "id": "mono-mobile-8m",
-        "name": "Mono Mobile",
+        "name": "Mono Mobile 7,4 kW",
         "code": "BEV-1221-0002",
         "subtitle": "Tek Fazlı · 3,7 - 7,4 kW · 8 m",
         "badge": null,
@@ -2668,7 +2668,7 @@
       },
       {
         "id": "mini-mobile-10m",
-        "name": "Mini Mobile",
+        "name": "Mini Mobile 3,7 kW",
         "code": "BEV-1111-0003",
         "subtitle": "Tek Fazlı · 2,3 - 3,7 kW · 10 m",
         "badge": null,
@@ -2760,7 +2760,7 @@
       },
       {
         "id": "mini-mobile-8m",
-        "name": "Mini Mobile",
+        "name": "Mini Mobile 3,7 kW",
         "code": "BEV-1111-0002",
         "subtitle": "Tek Fazlı · 2,3 - 3,7 kW · 8 m",
         "badge": null,

@@ -1016,14 +1016,23 @@ export const CATEGORY_SEO: Record<string, { title: string; metaTitle?: string; d
     // SIFIR kez geçiyordu, "araba" da hiç yoktu (yalnız "araç") → bu aramalarda
     // çıkmamız imkansızdı. Kullanıcı bu grubu "seyyar / portatif / mobil şarj
     // aleti" diye de arıyor. metaTitle SERP'i hedefler; H1 (title) DEĞİŞMEDİ.
-    title: "Taşınabilir Elektrikli Araç Şarj Cihazı",
-    metaTitle: "Taşınabilir Şarj Cihazı — Seyyar & Portatif Type 2",
+    // ⚠️ 2026-09-16 — "7 kW" TURU: kullanıcı "7kw portatif elektrikli araç şarj
+    //    cihazı" aramasında 5. sayfada olduğumuzu bildirdi. ÖLÇÜLDÜ: depoda
+    //    "7 kW" (tam sayı) SIFIR kez geçiyor — biz daima "7,4 kW" / "3,7 - 7,4 kW"
+    //    yazıyoruz. Google otomatik tamamlamasındaki GERÇEK sorgular ise
+    //    "taşınabilir şarj cihazı 7 kw", "elektrikli araba taşınabilir şarj
+    //    cihazı 7 kw", "portatif elektrikli araç şarj cihazı" biçiminde.
+    //    ⚠️ KULLANICI KARARI: "7 kW" YALNIZ meta açıklama + keywords alanına
+    //    yazılır; başlıklar ve GÖRÜNÜR metin teknik doğru değeri (7,4 kW) korur
+    //    — cihazı 0,4 kW eksik göstermemek için. Bu yüzden desc'te "7 kW sınıfı
+    //    (7,4 kW)" köprüsü var, title/metaTitle'da YOK.
+    title: "Taşınabilir (Portatif) Elektrikli Araç Şarj Cihazı",
+    metaTitle: "Portatif Elektrikli Araç Şarj Cihazı · Taşınabilir",
     // ⚠️ 2026-09-15: 178 → 143 kr. `clampDescription` 155'te kesiyordu; "Bemis
     //    yerli üretim, CE & IP65" kuyruğu meta açıklamaya HİÇ girmiyordu.
-    //    Düşen tek şey "Seyahat ve yedek için ideal" (arama değeri olmayan sıfat);
-    //    eş anlamlı küme (seyyar/portatif) ve güven sinyalleri korundu.
-    desc: "Taşınabilir (seyyar / portatif) elektrikli araç şarj cihazı: Type 2, monofaze/trifaze, prize tak-şarj et, kurulum yok. Yerli üretim, CE & IP65.",
-    short: "Taşınabilir / Seyyar Şarj Cihazı",
+    //    2026-09-16'da 151 kr ile yeniden yazıldı (güç sınıfı + 7 kW köprüsü).
+    desc: "Portatif (seyyar / taşınabilir) elektrikli araç şarj cihazı: tek faz 7 kW sınıfı (7,4 kW), üç faz 22 kW, Type 2. Kurulum yok. Yerli üretim · CE · IP65.",
+    short: "Portatif / Taşınabilir Şarj Cihazı",
   },
   cables: {
     // "ev şarj kablosu yerli" (2026-07-13): SERP'te hiç çıkmıyorduk — otorite
