@@ -13,6 +13,51 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🖱️ **TİCARİ SORGULARDA TO — V2L/C2L BAŞLIK KURGUSU (2026-09-17, `1ece66d`):**
+> Kullanıcı: *"şarj cihazı / şarj kablosu / portatif cihaz aramalarında 1. olalım."*
+> **⚠️ DÜRÜST CEVAP VERİLDİ: bu vaat edilemez.** Ölçüm: markalı her sorguda
+> **1.-3. sıra** (`bemis şarj cihazı` 3,4 · `bemis elektrikli araç şarj kablosu` 1,4),
+> markasız ana terimlerde **37.-47. sıra** (`araç şarj cihazı` 41,8 ·
+> `elektrikli araç şarj cihazı` 47,3 · `ev tipi araç şarj cihazı` 37,3).
+> 📌 Bu ders kitabı tablo: **marka/varlık güçlü, alan adı otoritesi zayıf.**
+> Ana terimleri pazaryerleri tutuyor; sepetsiz üretici sitesi metinle giremez →
+> **off-site (backlink + pazaryeri) işi, kod işi DEĞİL.**
+>
+> **ASIL FIRSAT BAŞKA YERDE (ve bu tur o yapıldı):** zaten ilk 5'te olup
+> tıklanmadığımız ~25 markasız **ticari** sorgu. 🔴 Ölçülen kanıt:
+> | Sayfa | Poz | Gös | TO |
+> |---|---|---|---|
+> | `/products/v2l-c2l` — *"**V2L Adaptör** — Araçtan Elektrik…"* | 5,49 | 1.994 | **%7,22** |
+> | `…/tek-cikisli-v2l-adaptor-hyundai` — *"**Tek Çıkışlı** V2L Adaptör…"* | **4,12** | 4.644 | **%4,89** |
+> | `…/tek-cikisli-v2l-adaptor-mg` | 8,91 | 636 | **%1,1** |
+> Ürün sayfası **daha iyi sırada ama %47 daha kötü tıklanıyor** → aranan terim
+> (`v2l adaptör`, 2.093 gös) başlıkta başta değil, önünde iç jargon var.
+> **YAPILAN:** 18 v2l-c2l başlığı yeniden sıralandı — kalıp **"V2L/C2L Adaptör +
+> MARKA" başta, varyant nitelemesi arkada** (portatif turundaki kalıbın aynısı).
+> ⚠️ **Varyant ayrımı KORUNDU** — hepsini aynı dile çevirmek kopya başlık üretir
+> ve varyant sorgularını bırakır (kayıtlı wallbox dersi). Kopya başlık kontrolü
+> dosyanın TAMAMINA karşı yapıldı → 0. `metaDescription`/`keywords` DOKUNULMADI.
+>
+> **🔴 AYNI TUZAK DÖRDÜNCÜ KEZ:** `node scripts/meta-temizle.cjs v2l-c2l` →
+> bins/products.json'da **85 düğüm** bayat meta (TR 18 + 4 çeviri kolu),
+> **476 alan** silindi. Temizlenmeseydi 18 başlık **canlıya hiç çıkmayacaktı**.
+> 📌 Sıra: dc-units → wallbox → portable → **v2l-c2l**. **`productSeo.ts`
+> düzenledikten sonra o kategori için meta-temizle çalıştır + cache bump.**
+> store cache **v127-portatif-meta → v128-v2l-baslik**.
+>
+> **⛔ BİLEREK DOKUNULMAYANLAR:** kategori başlığı (zaten jenerik, **en iyi TO
+> %7,22** — bozma) · accessories başlıkları (zaten aranan terimle başlıyor,
+> churn yok) · `/products/charger-equipment` (poz 4,54 · 367 gös · **TO %0,54**
+> ama açıklaması *"şarj istasyonu üreticileri ve servisleri için"* diyerek B2B
+> dışı trafiği **bilerek filtreliyor** → düşük TO burada DOĞRU davranış olabilir,
+> nitelikli olmayan tıklama kovalanmadı) · açıklamalar (bu tur YALNIZ başlık →
+> sonraki GSC ölçümünde neyin işe yaradığı ayırt edilebilsin).
+>
+> **✅ CANLI:** `check:seo` temiz (**ezilen alan 0**) · 5 örnek başlık canlıda
+> yeni kalıpta · kategori başlığı ve açıklamalar korundu.
+> **📅 ÖLÇÜM NOKTASI:** 3-4 hafta sonraki GSC'de bu 18 sayfanın TO'su. Bugünkü
+> taban: hyundai %4,89 · mg %1,1 · c2l-2li %3,53.
+
 > 📊 **GSC 3 AYLIK OKUMA — TABAN ÇİZGİSİ ALINDI (2026-09-17, `10c50b4`):**
 > Kullanıcı GSC'den iki dışa aktarım verdi → `Desktop\GSC\2026-09\`.
 > **Taban çizgisi: `scripts/seo-baselines/gsc-2026-09-17.json`** · rapor:
