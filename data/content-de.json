@@ -166,6 +166,10 @@
         {
           "q": "Mobiles Ladegerät oder feste Wallbox — wie entscheide ich?",
           "a": "Wenn Sie Ihr Fahrzeug täglich am selben Ort parken, ist eine feste Wallbox schneller, sicherer und langfristig wirtschaftlicher. Wenn Sie viel reisen oder zwischen mehreren Standorten wechseln, ist ein mobiles Ladegerät die flexiblere Lösung. Beides zu besitzen ist ebenfalls eine verbreitete Wahl."
+        },
+        {
+          "q": "Welches mobile Ladegerät liefert wie viel kW?",
+          "a": "Es gibt drei Leistungsklassen: Mini Mobile 2,3–3,7 kW (einphasig, 10–16 A) für haushaltsübliche Schuko-Steckdosen; Mono Mobile 3,7–7,4 kW (einphasig, 16–32 A) als praktische Obergrenze einer einphasigen Installation; Pro Mobile 2 3,7–22 kW (dreiphasig, 6–32 A in sechs Stufen) für den professionellen und den Flotteneinsatz. Die Ladegeschwindigkeit bestimmt das Onboard-Ladegerät Ihres Fahrzeugs, nicht das Gerät: Ist Ihr Fahrzeug auf 7,4 kW begrenzt, lädt ein Gerät mit 22 kW nicht schneller."
         }
       ],
       "description": "Tragbare AC-Ladegeräte, die keine Installation erfordern – von der Standardsteckdose oder CEE-Steckdose bis zur Type-2-Fahrzeugsteckdose. Flexible Ladelösung für Straßen-, Camping- und Notfallszenarien mit einphasigen Optionen von 2,3 – 7,4 kW und dreiphasigen Optionen von 11 – 22 kW.",

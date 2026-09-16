@@ -166,6 +166,10 @@
         {
           "q": "How do I choose between a mobile charger and a fixed wallbox?",
           "a": "If you park your vehicle in the same place every day, a fixed wallbox is faster, safer and more economical in the long run. If you travel frequently or move between several locations, a mobile charger is the more flexible solution. Having both is also a common choice."
+        },
+        {
+          "q": "Which portable charger delivers how many kW?",
+          "a": "There are three power classes: Mini Mobile 2.3–3.7 kW (single phase, 10–16 A) for household Schuko sockets; Mono Mobile 3.7–7.4 kW (single phase, 16–32 A), the practical ceiling of a single-phase installation; Pro Mobile 2 3.7–22 kW (three phase, 6–32 A in six steps) for professional and fleet use. Charging speed is set by your car's onboard AC charger, not by the device: if your car is limited to 7.4 kW, a 22 kW unit will not charge it faster."
         }
       ],
       "description": "Portable AC chargers that do not require installation — from the standard outlet or CEE socket to the Type 2 vehicle socket. Flexible charging solution for road, camp and backup scenarios with single-phase 2.3 – 7.4 kW and three-phase 11 – 22 kW options.",

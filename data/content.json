@@ -167,6 +167,10 @@
         {
           "q": "Mobile şarj ile sabit wallbox arasında nasıl seçim yaparım?",
           "a": "Aracınızı her gün aynı yerde park ediyorsanız sabit wallbox daha hızlı, daha güvenli ve uzun vadede daha ekonomiktir. Sık seyahat ediyorsanız veya birden fazla mekan arasında geçiş yapıyorsanız mobile şarj cihazı daha esnek bir çözümdür. İkisini de almak da yaygın bir tercihtir."
+        },
+        {
+          "q": "Hangi taşınabilir şarj cihazı kaç kW şarj eder?",
+          "a": "Üç güç sınıfı var: Mini Mobile 2,3–3,7 kW (tek faz, 10–16 A) ev tipi Schuko prizler için; Mono Mobile 3,7–7,4 kW (tek faz, 16–32 A), tek fazlı tesisatın pratik üst sınırı; Pro Mobile 2 3,7–22 kW (üç faz, 6–32 A, altı kademe) profesyonel ve filo kullanımı için. Şarj hızını cihaz değil aracınızın dahili AC şarj ünitesi belirler: aracınız 7,4 kW ile sınırlıysa 22 kW'lık cihaz daha hızlı şarj etmez."
         }
       ],
       "description": "Kurulum gerektirmeyen taşınabilir (seyyar / portatif) AC şarj cihazları — elektrikli araba şarj aleti olarak da bilinir. Standart ev prizinden veya Cee soketten Type 2 (Tip 2) araç soketine kadar. Tek fazlı 2,3 – 7,4 kW ve üç fazlı 11 / 22 kW seçenekleriyle yolda, kampta ve yedek senaryolarda esnek şarj çözümü. Elektrikli arabanız için yanınızda taşıyabileceğiniz, %94 Yerli Malı Belgeli ve CE sertifikalı yerli üretim.",
@@ -1119,6 +1123,10 @@
             {
               "q": "How do I choose between a mobile charger and a fixed wallbox?",
               "a": "If you park your vehicle in the same place every day, a fixed wallbox is faster, safer and more economical in the long run. If you travel frequently or move between several locations, a mobile charger is the more flexible solution. Having both is also a common choice."
+            },
+            {
+              "q": "Which portable charger delivers how many kW?",
+              "a": "There are three power classes: Mini Mobile 2.3–3.7 kW (single phase, 10–16 A) for household Schuko sockets; Mono Mobile 3.7–7.4 kW (single phase, 16–32 A), the practical ceiling of a single-phase installation; Pro Mobile 2 3.7–22 kW (three phase, 6–32 A in six steps) for professional and fleet use. Charging speed is set by your car's onboard AC charger, not by the device: if your car is limited to 7.4 kW, a 22 kW unit will not charge it faster."
             }
           ],
           "description": "Mode 2 and Mode 3 charging cables with Type 2 standard. It is designed for long-lasting use in single and three-phase, 16a – 32a current classes with IEC 62196 / IEC 61851 compliant, halogen-free outer sheath and high-current Type 2 connector.",

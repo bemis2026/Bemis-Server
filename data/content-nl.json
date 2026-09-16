@@ -190,6 +190,10 @@
         {
           "q": "Hoe kies ik tussen een mobiele lader en een vaste wallbox?",
           "a": "Parkeert u uw auto elke dag op dezelfde plek, dan is een vaste wallbox sneller, veiliger en op de lange termijn voordeliger. Reist u veel of wisselt u tussen meerdere locaties, dan is een mobiele lader de flexibelere oplossing. Beide aanschaffen is ook een veelgemaakte keuze."
+        },
+        {
+          "q": "Welke mobiele lader levert hoeveel kW?",
+          "a": "Er zijn drie vermogensklassen: Mini Mobile 2,3–3,7 kW (eenfasig, 10–16 A) voor gewone Schuko-stopcontacten; Mono Mobile 3,7–7,4 kW (eenfasig, 16–32 A), de praktische bovengrens van een eenfasige installatie; Pro Mobile 2 3,7–22 kW (driefasig, 6–32 A in zes stappen) voor professioneel en wagenparkgebruik. De laadsnelheid wordt bepaald door de onboard lader van uw auto, niet door het apparaat: is uw auto beperkt tot 7,4 kW, dan laadt een apparaat van 22 kW niet sneller."
         }
       ],
       "description": "Mobiele (draagbare) AC-laders zonder installatie — ook bekend als portable charger voor elektrische auto's. Van een standaard huishoudelijk stopcontact of CEE-contactdoos naar de Type 2-aansluiting van de auto. Met eenfasige opties van 2,3 – 7,4 kW en driefasige opties van 11 / 22 kW een flexibele laadoplossing onderweg, op de camping en als reserve. Een lader die u voor uw elektrische auto altijd bij u hebt; CE-gecertificeerd en geproduceerd in eigen fabriek.",

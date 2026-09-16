@@ -166,6 +166,10 @@
         {
           "q": "¿Cómo elijo entre cargador móvil y wallbox fijo?",
           "a": "Si aparca su vehículo cada día en el mismo lugar, un wallbox fijo es más rápido, más seguro y más económico a largo plazo. Si viaja con frecuencia o alterna entre varios lugares, el cargador móvil es la solución más flexible. Tener ambos también es una opción habitual."
+        },
+        {
+          "q": "¿Qué cargador portátil entrega cuántos kW?",
+          "a": "Hay tres clases de potencia: Mini Mobile 2,3–3,7 kW (monofásico, 10–16 A) para tomas Schuko domésticas; Mono Mobile 3,7–7,4 kW (monofásico, 16–32 A), el límite práctico de una instalación monofásica; Pro Mobile 2 3,7–22 kW (trifásico, 6–32 A en seis niveles) para uso profesional y de flotas. La velocidad de carga la determina el cargador de a bordo de su vehículo, no el equipo: si su coche está limitado a 7,4 kW, un equipo de 22 kW no cargará más rápido."
         }
       ],
       "description": "Cargadores AC portátiles que no requieren instalación, desde la toma estándar o la toma CEE hasta la toma Type 2 del vehículo. Solución de carga flexible para escenarios de viaje, camping y respaldo, con opciones monofásicas de 2,3 – 7,4 kW y trifásicas de 11 – 22 kW.",
