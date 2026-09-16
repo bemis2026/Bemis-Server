@@ -13,6 +13,90 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 🔌🔎 **"7 kW PORTATİF" TURU — KELİME UYUŞMAZLIĞI (2026-09-16, `4de7128` · `49399e1` · `6f80ec5`):**
+> Kullanıcı: *"7kw portatif elektrikli araç şarj cihazı — bu aramada ve benzerlerinde 5. sayfadayız."*
+>
+> **🔴 KÖK NEDEN — DEPODA "7 kW" (TAM SAYI) SIFIR KEZ GEÇİYOR.** Biz daima **"7,4 kW"**
+> ya da **"3,7 - 7,4 kW"** yazıyoruz; pazar **"7 kw"** arıyor. Google'ın kendi otomatik
+> tamamlamasından GERÇEK sorgular: `taşınabilir şarj cihazı 7 kw` · `taşınabilir araç şarj
+> cihazı 7 kw` · `elektrikli araba taşınabilir şarj cihazı 7 kw` · `7 kw şarj cihazı` ·
+> `portatif elektrikli araç şarj cihazı` · `taşınabilir elektrikli araç şarj cihazı 32a 7kw 220v`
+> · `7.4 kw taşınabilir şarj cihazı`.
+> 📌 **Bu depoda ÜÇÜNCÜ kez çıkan aynı sınıf:** "soket ↔ kablo" (DC turu) ve
+> "taşınabilir ↔ portatif/şarj aleti" (2026-07-13) turlarının kardeşi. **Yeni bir sorgu
+> için "çıkmıyoruz" denince İLK kontrol: o kelime sitede GEÇİYOR MU?**
+> ⚠️ Ölçüm yöntemi: `grep -rnoP "(?<![0-9,])7[\s]?kW"` — basit `[^,0-9]7 kW` deseni
+> BRE'de yanlış sayım verdi (97 sandım, gerçek 0); lookbehind ile ölç.
+>
+> **ÜRÜN VARDI, GÖRÜNÜRLÜK YOKTU.** 7,4 kW'lık taşınabilir = **Mono Mobile** (5/8/10 m,
+> tek faz 32A). Canlı ölçüm: `<h1>` **"Mono Mobile"** = saf marka adı, sıfır anahtar kelime ·
+> `<title>`de "portatif" ve "elektrikli araç" YOK · sayfadaki kategori etiketi
+> **"AC Mobile Chargers"** (Türkçe sayfada İngilizce, ~10 kez) · kategori alt başlığı
+> anahtar kelimesiz · gövdede "portatif" 2 kez.
+>
+> **⚠️⚠️ KULLANICI KARARI — "7 kW" YALNIZ META:** başlıkta ve **GÖRÜNÜR metinde** teknik
+> doğru değer (**7,4 kW**) korunur; **"7 kW" yalnız meta açıklama + keywords** alanına girer
+> (cihazı 0,4 kW eksik göstermemek için). **Dürüst bedel kullanıcıya söylendi:** Google gövde
+> metnini meta'dan çok okur, `keywords`i ise yok sayar → tek gerçek "7 kW" sinyali meta
+> açıklama. 📌 Görünür metne "7 kW" YAZMA — bu bilinçli bir karar.
+>
+> **YAPILAN (3 commit):**
+> **(1) `4de7128`** — 10 portatif ürünün `PRODUCT_SEO` meta'sı yeniden yazıldı (başlıklar
+> artık "Portatif Elektrikli Araç Şarj Cihazı <kW> · …" kalıbında) · `CATEGORY_SEO.portable`
+> H1 **"Taşınabilir (Portatif) Elektrikli Araç Şarj Cihazı"** (wallbox'taki "(AC Wallbox)"
+> kalıbıyla aynı) · **ürün adlarına güç eklendi** (kablolardaki emsalin aynısı):
+> `Mono Mobile` → **"Mono Mobile 7,4 kW"** (3 varyant), `Mini Mobile` → **"Mini Mobile 3,7 kW"**
+> (3 varyant) · kategori adı **"AC Mobile Chargers" → "Taşınabilir Şarj Cihazı"** + anahtar
+> kelimeli tagline. ⚠️ **Pro Mobile 2 ADI BİLEREK DEĞİŞMEDİ:** 4 varyantın biri 11 kW; ada
+> "22 kW" yazmak onu yanlış etiketler, ayrı ad vermek kartı ikiye böler (grid değişikliği
+> kullanıcıya sorulmadı). metaTitle'ı zaten 22/11 kW taşıyor.
+> **(2) `49399e1`** — kategoriye **7. SSS: "Hangi taşınabilir şarj cihazı kaç kW şarj eder?"**
+> 🔴 Gerçek içerik boşluğu: model karşılaştırma SSS'i **Mini ↔ Pro**'yu karşılaştırıp
+> **ORTADAKİ Mono Mobile 3,7–7,4 kW'ı hiç anmıyordu** — hedeflenen güç sınıfı kendi
+> kategorisinin karşılaştırmasında YOKTU. **15 hedefe** hizalı yazıldı (R2 content TR +
+> `_translations`×6 + repo `content.json` [TR + gömülü `_translations.en`] + `content-<dil>.json`×6),
+> 6 → 7, sapma 0. Değerler ürünlerin KENDİ spec'inden.
+> **(3) `6f80ec5`** — **`Footer.tsx` TR etiketi de "AC Mobile Chargers"tı** → her Türkçe
+> sayfanın footer'ında İngilizce; Türkçeleştirildi. ⚠️ **EN dizesi DEĞİŞMEDİ** — `pickText`
+> ui.json'a EN metniyle bakar, değiştirseydim 5 dilin çevirisi anahtarını kaybederdi.
+> `Products.tsx` + `ContentContext.defaultContent` yedek adları da Türkçeleşti.
+>
+> **🪤 YOL ÜSTÜNDE YAKALANAN ÜÇ TUZAK (üçü de YAZMADAN ÖNCE):**
+> **(a) `productNamesLocale.ts` ARAPÇA kolunda `"Mono Mobile"` / `"Mini Mobile"` ANAHTAR
+> olarak duruyordu** — dosyanın kendi yorumu "marka-model adları bilerek haritasız" dese de.
+> Ad değişince Arapça sayfada ad **sessizce TÜRKÇEYE düşerdi**. Yeni anahtarlar eklendi;
+> **eskiler de bilerek bırakıldı** (R2 ↔ repo ayrışırsa eski ad yine çözülsün).
+> **(b) Girinti tespiti:** `data/products.json` kök **DİZİ** → ilk TIRNAKLI satır 4 boşlukta,
+> gerçek girinti 2. Desen 4 ölçünce round-trip birebir tutmadı ve betik **hiçbir şey
+> yazmadan durdu** (fail-fast doğru çalıştı). Kayıtlı kural: girintiyi `\n( +)[^\s]` ile ölç.
+> **(c)** Varyant gruplaması **ada göre** (`groupVariantsByName`) → bir ailenin 3 varyantı da
+> aynı adı almalı; betik bunu ayrıca kontrol ediyor.
+>
+> **VERİ KATMANI:** `name` = KİMLİK alanı, `mergeCategories` onu **DAİMA TR'den** alır →
+> yalnız TR kaynakları yazıldı (R2 `products` base + repo `data/products.json`). Yabancı
+> diller kategori adını `LOCALE_CATEGORY_SEO` / `EN_CATEGORY_SEO`'dan alır (6 dilin 6'sında
+> da `portable` girdisi var, doğrulandı) → TR'yi değiştirmek yabancı dili etkilemez.
+> Yedekler: `scratchpad/_products.R2.portatif.bak.json` + `_content.R2.portatif.bak.json`.
+> store cache **v124-wallbox-meta → v125-portatif → v126-portatif-sss**.
+>
+> **KAPILAR:** tsc 0 · `check:brands` temiz · `check:i18n` temiz · `check:clones` 2 (kayıtlı
+> bilinen yanlış pozitif) · **`check:seo` deploy ÖNCESİ temizdi** (veri katmanı `productSeo.ts`'i
+> ezmiyor → meta düzeltmeleri canlıya gerçekten çıkar).
+>
+> **⛔ BİLEREK YAPILMAYAN — blog gövde bölümü:** "tam paket"te *rehber yazısına güç sınıfı
+> bölümü* vardı; güç sınıfı içeriği **blog yerine kategori SSS'ine** kondu. Sebep: (a) bu
+> **ticari** bir sorgu → doğru iniş yüzeyi kategori/ürün sayfası, blog değil; (b) mevcut
+> `portatif-seyyar-sarj-cihazi-nedir-ne-kadar` yazısına gövde bloğu eklemek dizi uzunluğunu
+> değiştirip o yazıyı **5 dilde TR'ye düşürür ve Arapça adresini 404 yapardı**
+> (`tamCevrildi` kapısı) — `data/i18n/blog.json` çevirileri BİRLİKTE yazılmadan yapılmaz.
+> İstenirse ayrı tur.
+>
+> **⏳ DOĞRULAMA:** 3. deploy sırasında bu satır yazıldı; canlı doğrulama betiği hazır:
+> `scratchpad/_portatif_dogrula.cjs` (ürün H1/başlık/meta · kategori H1/SSS 7 · FAQPage 7
+> soru · footer'da İngilizce kalmadı · **DE/AR regresyonu**: Almanca ad Almanca kaldı mı,
+> Arapça ad Türkçeye düştü mü). IndexNow betiği: `scratchpad/_indexnow_portatif.cjs` (12 adres).
+> ⚠️ Doğrulama gövdeden yapılır — `<script>` blokları ÇIKARILIR (RSC yükü aynı metni iki kez saydırır).
+
 > 🖼️ **BLOG KAPAKLARI — 43/43 + KALICI KOMUT (2026-09-16, `8be0be9` · `5d23bc5`).**
 > **`npm run gen:blog-kapak`** → yalnız EKSİK kapakları üretir, `cover` alanını da
 > kendisi doldurur. `--hepsi` hepsini yeniler, `--kuru` yazmadan ne yapacağını söyler.
