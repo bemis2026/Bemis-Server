@@ -518,7 +518,9 @@ const defaultContent: SiteContent = {
   statsCertBand: "CE · TÜV · TSE · ISO 9001 · ISO 14001",
   categories: {
     "wallbox":           { name: "AC Wallbox",               subtitle: "Duvar Tipi Şarj İstasyonu",                             modelCount: 3, badge: "En Çok Satan", comingSoon: false },
-    "portable":          { name: "AC Mobile Chargers",       subtitle: "Taşınabilir Şarj Cihazları",                            modelCount: 2, badge: "Yeni",         comingSoon: false },
+    // ⚠️ 2026-09-16: TR adı "AC Mobile Chargers"tı; İngilizce karşılığı overlay'den
+    //    (data/content-en.json) geldiği için burayı Türkçeleştirmek yabancı dili bozmaz.
+    "portable":          { name: "Taşınabilir Şarj Cihazı",  subtitle: "Taşınabilir Şarj Cihazları",                            modelCount: 2, badge: "Yeni",         comingSoon: false },
     "cables":            { name: "AC Şarj Kabloları",        subtitle: "Type 2 · Mod 2 & Mod 3",                                modelCount: 4, badge: null,           comingSoon: false },
     "v2l-c2l":           { name: "V2L / C2L Adaptörler",     subtitle: "Vehicle-to-Load & Charger-to-Load",                     modelCount: 3, badge: "İnovatif",     comingSoon: false },
     // ⚠️ "Kombinasyon" ADI KALDIRILDI — bu kategoride kombinasyon ürünü YOK

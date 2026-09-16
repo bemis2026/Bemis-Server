@@ -42,7 +42,9 @@ const categories = [
   },
   {
     id: "portable",
-    name: "AC Mobile Chargers",
+    // ⚠️ 2026-09-16: İçerik katmanı okunamazsa basılan yedek ad. Türkçe sayfada
+    //    İngilizce kalmasın diye Türkçeleştirildi (ürün bin'i ile aynı ada çekildi).
+    name: "Taşınabilir Şarj Cihazı",
     subtitle: "Taşınabilir Şarj Cihazları",
     modelCount: 3,
     icon: RiBatteryChargeLine,

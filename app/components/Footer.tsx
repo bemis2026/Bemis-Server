@@ -35,7 +35,11 @@ type FooterLink = {
 const NAV_GROUPS: { title: FooterPair; links: FooterLink[] }[] = [
   { title: { tr: "Ürünler", en: "Products" }, links: [
     { label: { tr: "AC Wallbox",                 en: "AC Wallbox" },                 href: "/products/wallbox",           scroll: false },
-    { label: { tr: "AC Mobile Chargers",         en: "AC Mobile Chargers" },         href: "/products/portable",          scroll: false },
+    // ⚠️ 2026-09-16: TR etiketi "AC Mobile Chargers"tı → her Türkçe sayfanın
+    //    footer'ında İngilizce görünüyordu (ürün bin'indeki aynı kusurun ikizi).
+    //    EN dizesi DEĞİŞMEDİ: pickText ui.json'a onunla bakar, değiştirirsem
+    //    de/es/ar/ru/nl çevirileri anahtarını kaybeder.
+    { label: { tr: "Taşınabilir Şarj Cihazı",    en: "AC Mobile Chargers" },         href: "/products/portable",          scroll: false },
     { label: { tr: "AC Şarj Kabloları Type 2",   en: "AC Charging Cables Type 2" },  href: "/products/cables",            scroll: false },
     { label: { tr: "V2L / C2L Adaptörler",       en: "V2L / C2L Adapters" },         href: "/products/v2l-c2l",           scroll: false },
     // ⚠️ Kategori adı 4 yerde yaşıyor (content bin · burası · products bin ·
