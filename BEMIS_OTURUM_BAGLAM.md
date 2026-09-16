@@ -13,6 +13,58 @@
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
 
+> 📊 **GSC 3 AYLIK OKUMA — TABAN ÇİZGİSİ ALINDI (2026-09-17, `10c50b4`):**
+> Kullanıcı GSC'den iki dışa aktarım verdi → `Desktop\GSC\2026-09\`.
+> **Taban çizgisi: `scripts/seo-baselines/gsc-2026-09-17.json`** · rapor:
+> `Desktop\Bemis_GSC_Analiz_2026-09-17.md`. 📌 **3-4 hafta sonra aynı dışa
+> aktarımı alıp bu JSON ile kıyasla.**
+>
+> **TABLO:** 2.347 tık · 52.320 gös (3 ay) · gösterim Haziran ~36/gün → Eylül
+> ~1.400/gün (**~40 kat**) · TR %98 · mobil TO %4,34 ↔ masaüstü %6,73 ·
+> **Ürün snippet'i 491 tık** (şema çalışıyor).
+> **DİZİN:** eklenen **387** · keşfedildi-eklenmedi **867** · 404 **8** ·
+> alternatif-canonical 16. ⚠️ 867 rakamı **5 Eylül'de 231 → 917** sıçradı;
+> 3 Eylül'de açılan de/es/ru/nl ürün kolları (~636 sayfa) ile birebir örtüşüyor
+> → **~800 yabancı dil sayfası 3 ayda 18 tıklama getirdi** (/en 15 · diğer 5'i
+> toplam 3). Dürüst okuma: ihracat bahsi uzun vadeli ama getiri şu an çok düşük.
+>
+> **🔴 KARAR SİZDE — TOGG V2L ADAPTÖRÜ TALEBİ ÖLÇÜLDÜ:** `togg v2l adaptör`
+> **438 gös · 59 tık · poz 4,4** · `v2l adaptör togg` 204/17 · Togg kümesi
+> **1.244 gös · 100 tık · ort. 5,1**. Bu sorguların çoğu **satın alma niyetli**
+> ama katalogda **Togg'a uygun V2L adaptörü YOK**. İçerik altyapısı hazır
+> (yazı 3. en çok gösterim alan sayfamız) — ürün gelirse doğrudan bağlanır.
+>
+> **✅ VERİYE DAYANARAK YAPILAN:** Togg yazısına **"V2L çalışmıyorsa"** bölümü
+> (h2 + 5 madde + kapanış, 6 dil). Sebep: `v2l hatası togg` 50 gös + `togg v2l
+> hatası` 14 gös = **64 gösterim, poz 3,7–5,9, TIKLAMA 0** — sıralanıyoruz ama
+> sayfa hatadan hiç bahsetmiyordu. ⚠️ Uydurma hata kodu YOK (Togg'da sayısal
+> hata kodu bilgimiz yok); doğrulanabilir genel nedenler + model tablosuna
+> yönlendirme (en olası sebep: eski T10X'te özellik zaten yok).
+>
+> **⛔ VERİYE BAKARAK ELENEN ÜÇ İŞ (yapılsaydı boşa emek olurdu):**
+> **(1) Şarj süresi yazısının TO'su.** `/blog/elektrikli-arac-sarj-suresi-kac-
+> saatte-dolar` **3.091 gös / 7 tık (%0,23), poz 7,4** — sitedeki en büyük sayısal
+> israf. AMA `kaç saatte şarj olur` → **1. SIRA, 0 tıklama**; `şarj dolum süresi`
+> → **1. SIRA, 0 tıklama**. 1. sırada tıklama alamamak = cevabı **SERP veriyor**
+> (AI Overview / snippet). Başlık+açıklama zaten iyi yazılmış; **Temmuz'daki
+> metaTitle düzeltmesinin neden işe yaramadığı da bu.** 📌 **Buraya başlık rötuşu
+> YAPMA** — bu yapısal, içerik kusuru değil.
+> **(2) Hesaplayıcı sayfasını güçlendirme.** `/sarj-suresi-hesaplama` 4 gösterim
+> alıyor ve "tool sayfası öne çıksın" mantıklı GÖRÜNÜYORDU; ama **"hesaplama"
+> sorgu hacmi pratikte YOK** (3 sorgu / 3 gösterim). 📌 Sezgi doğru görünse de
+> önce sorgu hacmine bak.
+> **(3) Wallbox kümesi.** 56 sorgu · 418 gös · **ort. poz 23,2**; `wallbox` tek
+> başına **58. sıra**, `wallbox nedir` 129 gös / 0 tık / poz 18. Bu metin değil
+> **OTORİTE** sorunu → ayrı ve planlı tur ister, hızlı düzeltmesi yok.
+>
+> **⏳ KULLANICIDA — 404 LİSTESİ:** zip özeti yalnız SAYIYI veriyor (8), adresleri
+> vermiyor. GSC → Sayfalar → "Dizine eklenmedi" → **"Bulunamadı (404)"** → Dışa
+> aktar. ⚠️ **Kendi sitemap'imiz TEMİZ**: 171 ürün-dışı adresin 171'i de 200
+> (tarandı) → o 8 adres bizim sitemap'imizden gelmiyor, eski/dış bağlantı.
+> ⚠️ Çevirisi olmayan tek yazı `dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir`;
+> `/ar` sürümü 404 ama **sitemap'te listelenmiyor** → `tamCevrildi` kapısı doğru
+> çalışıyor, bu 404 kaynağı DEĞİL.
+
 > 🚗⚡ **TOGG V2L — MODEL AYRIMI + BAYAT T10X BİLGİSİ (2026-09-17, `c129c87`):**
 > Kullanıcı *"togg v2l geldi"* dedi. **⚠️ ÇOKTAN SEÇMELİ SORULDU — cevap: YENİ ÜRÜN YOK,
 > araç tarafı değişti.** Katalogda Togg'a özel ürün **0** (V2L adaptörlerimiz
