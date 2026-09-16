@@ -1,0 +1,121 @@
+{
+  "tarih": "2026-09-17",
+  "kapsam": "GSC son 3 ay (Web)",
+  "kaynak": "Desktop/GSC/2026-09",
+  "toplam": {
+    "tik": 2347,
+    "gos": 52320,
+    "sorgu_satiri": 1022,
+    "sayfa_satiri": 320
+  },
+  "dizin": {
+    "eklenen": 387,
+    "eklenmedi": 917,
+    "kesfedildi_eklenmedi": 867,
+    "tarandi_eklenmedi": 23,
+    "bulunamadi_404": 8,
+    "alternatif_canonical": 16
+  },
+  "kumeler": {
+    "7kw_portatif": {
+      "sorgu": 1,
+      "gos": 8,
+      "tik": 0,
+      "ort_poz": 24
+    },
+    "tasinabilir": {
+      "sorgu": 7,
+      "gos": 107,
+      "tik": 3,
+      "ort_poz": 10.42
+    },
+    "togg_v2l": {
+      "sorgu": 18,
+      "gos": 1244,
+      "tik": 100,
+      "ort_poz": 5.1
+    },
+    "wallbox": {
+      "sorgu": 56,
+      "gos": 418,
+      "tik": 5,
+      "ort_poz": 23.23
+    },
+    "v2l_genel": {
+      "sorgu": 126,
+      "gos": 5569,
+      "tik": 359,
+      "ort_poz": 4.27
+    },
+    "sarj_kablosu": {
+      "sorgu": 23,
+      "gos": 350,
+      "tik": 40,
+      "ort_poz": 6
+    }
+  },
+  "izlenen_sayfalar": {
+    "/blog/togg-v2l-aractan-elektrik": {
+      "tik": 243,
+      "gos": 3905,
+      "poz": 5.12
+    },
+    "/blog/elektrikli-arac-sarj-suresi-kac-saatte-dolar": {
+      "tik": 7,
+      "gos": 3091,
+      "poz": 7.36
+    },
+    "/products/portable": {
+      "tik": 7,
+      "gos": 431,
+      "poz": 9.67
+    },
+    "/products/wallbox": {
+      "tik": 13,
+      "gos": 610,
+      "poz": 16.53
+    },
+    "/products/v2l-c2l": {
+      "tik": 144,
+      "gos": 1994,
+      "poz": 5.49
+    },
+    "/sarj-suresi-hesaplama": {
+      "tik": 0,
+      "gos": 4,
+      "poz": 8.75
+    }
+  },
+  "dil_kollari": {
+    "/en/": {
+      "sayfa": 20,
+      "gos": 524,
+      "tik": 15
+    },
+    "/de/": {
+      "sayfa": 14,
+      "gos": 56,
+      "tik": 1
+    },
+    "/es/": {
+      "sayfa": 15,
+      "gos": 41,
+      "tik": 0
+    },
+    "/ru/": {
+      "sayfa": 9,
+      "gos": 79,
+      "tik": 0
+    },
+    "/nl/": {
+      "sayfa": 11,
+      "gos": 33,
+      "tik": 1
+    },
+    "/ar/": {
+      "sayfa": 25,
+      "gos": 89,
+      "tik": 1
+    }
+  }
+}

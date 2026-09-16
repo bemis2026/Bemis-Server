@@ -2115,6 +2115,21 @@
           ]
         },
         {
+          "text": "What to do if V2L does not work on your Togg"
+        },
+        {
+          "items": [
+            "First check the model and the production period — see the table above. On an older T10X, V2L does not appear in the menu at all; that is not a fault, the car simply does not have the feature.",
+            "Confirm from the car's on-screen menu that V2L is switched on.",
+            "Check the state of charge: most electric cars switch V2L off by themselves once the battery drops below a certain level.",
+            "Make sure the adapter is fully seated in the socket; if the lock does not engage, the car will not deliver power.",
+            "Reduce the combined power of the connected devices and try again — the output is cut when the limit is exceeded."
+          ]
+        },
+        {
+          "text": "If none of these steps helps, the problem may be on the vehicle side rather than in the adapter; talk to your car's authorised service. Do not interfere with the electrical installation or open the device."
+        },
+        {
           "text": "Tip: keep the total power of the devices you connect below the vehicle's V2L limit; keep the adapter dry and use a certified product."
         },
         {
@@ -8555,6 +8570,21 @@
             "Notfall: bei kurzen Ausfällen kritische Geräte wie Kühlschrank und Modem.",
             "Veranstaltung & Picknick: Soundsystem, Grill, kleine Geräte."
           ]
+        },
+        {
+          "text": "Was tun, wenn V2L am Togg nicht funktioniert?"
+        },
+        {
+          "items": [
+            "Prüfen Sie zuerst Modell und Produktionszeitraum — siehe Tabelle oben. Bei einem älteren T10X erscheint V2L gar nicht erst im Menü; das ist kein Defekt, das Fahrzeug hat die Funktion schlicht nicht.",
+            "Vergewissern Sie sich im Bildschirmmenü des Fahrzeugs, dass V2L eingeschaltet ist.",
+            "Prüfen Sie den Ladestand: Die meisten Elektroautos schalten V2L selbst ab, sobald die Batterie unter einen bestimmten Stand fällt.",
+            "Achten Sie darauf, dass der Adapter vollständig in der Buchse sitzt; rastet die Verriegelung nicht ein, gibt das Fahrzeug keine Energie ab.",
+            "Verringern Sie die Gesamtleistung der angeschlossenen Geräte und versuchen Sie es erneut — bei Überschreiten des Limits wird der Ausgang abgeschaltet."
+          ]
+        },
+        {
+          "text": "Helfen diese Schritte nicht, liegt das Problem möglicherweise nicht am Adapter, sondern am Fahrzeug; wenden Sie sich an den autorisierten Service Ihres Fahrzeugs. Greifen Sie nicht in die Elektroinstallation ein und öffnen Sie das Gerät nicht."
         },
         {
           "text": "Tipp: Die Gesamtleistung der angeschlossenen Geräte sollte unter dem V2L-Limit des Fahrzeugs bleiben; halten Sie den Adapter trocken und verwenden Sie ein zertifiziertes Produkt."
@@ -14999,6 +15029,21 @@
           ]
         },
         {
+          "text": "¿Qué hacer si V2L no funciona en su Togg?"
+        },
+        {
+          "items": [
+            "Compruebe primero el modelo y el periodo de fabricación: vea la tabla anterior. En un T10X más antiguo, V2L no aparece siquiera en el menú; no es una avería, el vehículo simplemente no tiene esa función.",
+            "Confirme en el menú de pantalla del vehículo que V2L está activado.",
+            "Revise el nivel de carga: la mayoría de los coches eléctricos desactivan V2L por sí solos cuando la batería baja de cierto nivel.",
+            "Asegúrese de que el adaptador esté bien encajado en la toma; si el bloqueo no engancha, el vehículo no entrega energía.",
+            "Reduzca la potencia total de los aparatos conectados e inténtelo de nuevo: la salida se corta cuando se supera el límite."
+          ]
+        },
+        {
+          "text": "Si ninguno de estos pasos ayuda, el problema puede estar en el vehículo y no en el adaptador; hable con el servicio autorizado de su coche. No manipule la instalación eléctrica ni abra el equipo."
+        },
+        {
           "text": "Consejo: mantén la potencia total de los dispositivos conectados por debajo del límite V2L del vehículo; conserva el adaptador seco y usa un producto certificado."
         },
         {
@@ -21441,6 +21486,21 @@
           ]
         },
         {
+          "text": "ماذا تفعل إذا لم تعمل V2L في سيارة Togg؟"
+        },
+        {
+          "items": [
+            "تحقّق أولًا من الطراز وفترة الإنتاج — راجع الجدول أعلاه. في طراز T10X الأقدم لا يظهر خيار V2L في القائمة أصلًا؛ وهذا ليس عطلًا، بل إن السيارة ببساطة لا تملك هذه الخاصية.",
+            "تأكّد من قائمة شاشة السيارة أن خاصية V2L مُفعّلة.",
+            "افحص مستوى الشحن: معظم السيارات الكهربائية توقف V2L تلقائيًا عندما تنخفض البطارية دون مستوى معيّن.",
+            "تأكّد من أن المُحوّل مُثبّت تمامًا في المقبس؛ فإن لم يستقر القفل لن تُخرج السيارة أي طاقة.",
+            "قلّل القدرة الإجمالية للأجهزة الموصولة وأعد المحاولة — يُقطع المخرج عند تجاوز الحد."
+          ]
+        },
+        {
+          "text": "إذا لم تُجدِ هذه الخطوات نفعًا فقد تكون المشكلة في السيارة لا في المُحوّل؛ تواصل مع الخدمة المعتمدة لسيارتك. ولا تتدخّل في التمديدات الكهربائية ولا تفتح الجهاز."
+        },
+        {
           "text": "نصيحة: لتكن القدرة الإجمالية للأجهزة التي توصّلها دون حدّ V2L للسيارة؛ وابقِ المحوّل جافًّا واستخدم منتجًا معتمدًا."
         },
         {
@@ -27881,6 +27941,21 @@
             "Экстренная ситуация: критически важные приборы вроде холодильника и модема при коротких перебоях.",
             "Мероприятие и пикник: аудиосистема, гриль, небольшие приборы."
           ]
+        },
+        {
+          "text": "Что делать, если V2L не работает на Togg"
+        },
+        {
+          "items": [
+            "Сначала проверьте модель и период выпуска — смотрите таблицу выше. На более старом T10X пункт V2L вообще не появляется в меню; это не поломка, у машины просто нет этой функции.",
+            "Убедитесь в экранном меню автомобиля, что V2L включена.",
+            "Проверьте уровень заряда: большинство электромобилей сами отключают V2L, когда батарея опускается ниже определённого уровня.",
+            "Убедитесь, что адаптер полностью вставлен в разъём; если замок не защёлкнулся, автомобиль не отдаёт энергию.",
+            "Снизьте суммарную мощность подключённых приборов и попробуйте снова — при превышении предела выход отключается."
+          ]
+        },
+        {
+          "text": "Если эти шаги не помогают, проблема может быть не в адаптере, а в самом автомобиле; обратитесь в официальный сервис вашей машины. Не вмешивайтесь в электропроводку и не вскрывайте устройство."
         },
         {
           "text": "Совет: суммарная мощность подключаемых приборов должна оставаться ниже предела V2L автомобиля; держите адаптер сухим и используйте сертифицированное изделие."

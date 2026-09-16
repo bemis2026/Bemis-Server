@@ -5590,7 +5590,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Rehber",
     datePublished: "2026-06-06",
     dateModified: "2026-09-17",
-    readingMinutes: 6,
+    readingMinutes: 7,
     keywords: ["togg v2l", "togg araçtan elektrik", "v2l adaptör", "togg şarj"],
     body: [
       { type: "p", text: "Yerli otomobil Togg, elektrikli araçların en kullanışlı özelliklerinden biri olan V2L'yi (Vehicle-to-Load / araçtan elektrik) destekler. Bu sayede Togg'unuzun bataryasını dışarıdan elektrikli cihazları beslemek için kullanabilirsiniz. Bu rehber, V2L'nin Togg'da nasıl çalıştığını ve doğru adaptörü nasıl seçeceğinizi anlatıyor." },
@@ -5607,7 +5607,7 @@ export const BLOG_POSTS: BlogPost[] = [
         "Etkinlik & piknik: ses sistemi, ızgara, küçük cihazlar.",
       ]},
 
-      { type: "quote", text: "İpucu: Bağladığınız cihazların toplam gücü aracın V2L limitinin altında kalsın; adaptörü kuru tutun ve sertifikalı ürün kullanın." },
+      { type: "h2", text: "Togg'da V2L çalışmıyorsa ne yapmalı?" }, { type: "ul", items: ["Önce modeli ve üretim dönemini kontrol edin — yukarıdaki tabloya bakın. Daha eski bir T10X'te menüde V2L hiç görünmez; bu bir arıza değil, o araçta özellik yoktur.","Aracın ekran menüsünden V2L'nin açık olduğunu doğrulayın.","Batarya seviyesini kontrol edin: elektrikli araçların çoğu batarya belirli bir seviyenin altına indiğinde V2L'yi kendiliğinden kapatır.","Adaptörün sokete tam oturduğundan emin olun; kilit tam kavramadıysa araç enerji vermez.","Bağladığınız cihazların toplam gücünü düşürüp tekrar deneyin — limit aşıldığında çıkış kesilir."] }, { type: "p", text: "Bu adımlar sonuç vermezse sorun adaptörde değil araç tarafında olabilir; aracınızın yetkili servisiyle görüşün. Elektrik tesisatına ya da cihazın içine müdahale etmeyin." }, { type: "quote", text: "İpucu: Bağladığınız cihazların toplam gücü aracın V2L limitinin altında kalsın; adaptörü kuru tutun ve sertifikalı ürün kullanın." },
 
       { type: "cta", text: "V2L destekli araçlar için yerli üretim V2L ve C2L adaptörlerimizi inceleyin.", href: "/products/v2l-c2l", label: "V2L / C2L Adaptörleri Gör" },
     ],
