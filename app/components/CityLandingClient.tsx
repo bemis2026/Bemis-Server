@@ -16,6 +16,7 @@ import SearchOverlay from "./SearchOverlay";
 import ContactBar from "./ContactBar";
 import { CITY_PAGES, type CityPage } from "../lib/cities";
 import type { ShowcaseProduct, CityDealer } from "../lib/cityShowcase";
+import { webHref } from "../lib/dealerLinks";
 
 // wa.me ULUSLARARASI biçim ister; bayi telefonları veride YEREL yazımda
 // ("0546 927 28 04"). Ham kullanılırsa bağlantı sessizce çalışmaz.
@@ -394,7 +395,7 @@ export default function CityLandingClient({
                       </a>
                     )}
                     {b.website && (
-                      <a href={b.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:underline" style={{ color: textMuted }}>
+                      <a href={webHref(b.website)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:underline" style={{ color: textMuted }}>
                         <RiGlobalLine size={13} className="flex-shrink-0" style={{ color: BLUE }} />
                         Web sitesi
                       </a>

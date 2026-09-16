@@ -161,6 +161,24 @@ const nextConfig: NextConfig = {
       // çözülür; hata kapanır, gelecekteki her /contact referansı da çalışır.
       { source: "/contact", destination: "/iletisim", permanent: true },
 
+      // ── GSC 404 raporundan gelen HAYALET ÜRÜN ADRESLERİ (2026-09-17) ──
+      // Search Console'daki 8 "Bulunamadı (404)" adresinin 6'sı, sitede HİÇ
+      // var olmamış İngilizce slug'lardı (`wallbox-11kw`, `mod2-cable`,
+      // `type2-socket`…). Depoda arandı: iç link DEĞİLLER — dışarıdan
+      // (dizin/derleyici/AI metni) tahmin edilerek üretilmişler.
+      // Her biri KENDİ kategorisine bağlanır: dış bir bağlantı varsa değeri
+      // korunur, kullanıcı da 404 yerine doğru listeye düşer.
+      // ⚠️ JOKER KURAL YAZILMADI (`/products/:kat/:slug` → `/products/:kat`
+      //    gibi): gerçek yazım hatalarını da yutar, olmayan ürünü var gibi
+      //    gösterir ve `dynamicParams=false`un sağladığı temiz 404'ü bozardı.
+      //    Yalnız bu ALTI belirli adres.
+      { source: "/products/wallbox/wallbox-11kw", destination: "/products/wallbox", permanent: true },
+      { source: "/products/cables/mod2-cable", destination: "/products/cables", permanent: true },
+      { source: "/products/converters/extension-cable", destination: "/products/converters", permanent: true },
+      { source: "/products/v2l-c2l/c2l", destination: "/products/v2l-c2l", permanent: true },
+      { source: "/products/v2l-c2l/c2l-adaptor", destination: "/products/v2l-c2l", permanent: true },
+      { source: "/products/charger-equipment/type2-socket", destination: "/products/charger-equipment", permanent: true },
+
       // BEVDC 120 sitede İKİ ayrı kayıttı: `bevdc-120-1` ve `bevdc-120-2` —
       // aynı kod (BEVDCC-4421-0005), aynı fiyat, aynı görsel, iki farklı URL.
       // Google için "aynı içerik iki adreste" (otoriteyi böler), katalog

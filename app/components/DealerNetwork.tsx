@@ -16,6 +16,7 @@ import { useMediaQuery } from "../../lib/useMediaQuery";
 import { tierColor, tierLabel } from "../../lib/dealerTiers";
 import InternationalGlobe from "./InternationalGlobe";
 import InternationalMap2D from "./InternationalMap2D";
+import { webHref } from "../lib/dealerLinks";
 
 const BLUE = "#3B82F6";
 
@@ -871,7 +872,7 @@ export default function DealerNetwork() {
                         </a>
                       )}
                       {dealer.website && (
-                        <a href={dealer.website} target="_blank" rel="noopener noreferrer" className="text-sm flex items-center gap-1 transition-colors hover:underline" style={{ color: muted }}>
+                        <a href={webHref(dealer.website)} target="_blank" rel="noopener noreferrer" className="text-sm flex items-center gap-1 transition-colors hover:underline" style={{ color: muted }}>
                           <RiGlobalLine className="flex-shrink-0" />
                           <span className="truncate">{dealer.website.replace(/^https?:\/\//, "")}</span>
                         </a>
@@ -1007,7 +1008,7 @@ export default function DealerNetwork() {
                         </a>
                       )}
                       {selectedIntl.website && (
-                        <a href={selectedIntl.website} target="_blank" rel="noopener noreferrer" className="text-xs flex items-center gap-1.5 hover:underline" style={{ color: d ? "#93C5FD" : BLUE }}>
+                        <a href={webHref(selectedIntl.website)} target="_blank" rel="noopener noreferrer" className="text-xs flex items-center gap-1.5 hover:underline" style={{ color: d ? "#93C5FD" : BLUE }}>
                           <RiGlobalLine className="flex-shrink-0" />
                           <span className="truncate">{selectedIntl.website.replace(/^https?:\/\//, "")}</span>
                         </a>

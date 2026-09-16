@@ -5,6 +5,7 @@ import { useEffect, useState, type CSSProperties } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 import { CITY_BY_ID } from "../../lib/turkeyCities";
+import { webHref } from "../lib/dealerLinks";
 import {
   RiCloseLine, RiGlobalLine, RiMapPin2Line, RiPhoneLine, RiWhatsappLine, RiArrowRightLine, RiSearchLine,
 } from "react-icons/ri";
@@ -18,7 +19,11 @@ type DealersData = Record<string, { dealers: Dealer[] }>;
 const BLUE = "#3B82F6";
 const cityLabel = (id: string) => CITY_BY_ID[id]?.label ?? (id.charAt(0).toUpperCase() + id.slice(1));
 const digits = (s: string) => s.replace(/[^\d+]/g, "");
-const toUrl = (u: string) => (/^https?:\/\//.test(u) ? u : `https://${u}`);
+// ⚠️ 2026-09-17: bu mantık YERELDİ ve yalnız burada kullanılıyordu; diğer 4
+// bayi-linki basan yer ham `href={website}` yazdığı için protokolsüz kayıt
+// site-içi göreli yola dönüşüp 404 üretiyordu (GSC: /www.evocity.com.tr).
+// Tek kaynağa taşındı → `app/lib/dealerLinks.ts`.
+const toUrl = webHref;
 
 export default function DealerPickerModal({
   open, onClose, productName,

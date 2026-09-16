@@ -35,6 +35,7 @@ import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext";
 import { pickText, fillText } from "../lib/ui";
 import { getCityLabel } from "../../lib/turkeyCities";
+import { webHref } from "../lib/dealerLinks";
 
 export type DizinBayi = {
   name?: string;
@@ -97,7 +98,7 @@ export default function DealerDirectory({ data }: { data: DizinVeri }) {
                       <>
                         {" — "}
                         <a
-                          href={b.website}
+                          href={webHref(b.website)}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="hover:underline break-all"
