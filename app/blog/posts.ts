@@ -1802,7 +1802,7 @@ export const BLOG_POSTS: BlogPost[] = [
           ],
           [
             "Pro Mobile 2",
-            "11 / 22 kW",
+            "3,7 – 22 kW",
             "Trifaze",
             "CEE 5/16A ve 5/32A adaptörleri, 6 kademe ayarlanabilir amper; profesyonel, filo ve saha kullanımı"
           ]
@@ -1934,7 +1934,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "excerpt": "V2L olan araçlar giderek çoğalıyor. Hyundai Ioniq 5/6, Kia EV6/EV9, Togg T10F, MG, BYD, KGM (Ssangyong) Torres EVX ve Skywell gibi Türkiye'de satılan V2L destekli modellerin doğrulanmış 2026 listesini, kaç kW güç verdiklerini ve aracınıza uygun V2L adaptörünü tek yazıda topladık.",
     "category": "Rehber",
     "datePublished": "2026-07-23",
-    "dateModified": "2026-07-23",
+    "dateModified": "2026-09-17",
     "readingMinutes": 9,
     "keywords": [
       "v2l hangi araçlarda var",
@@ -1998,11 +1998,7 @@ export const BLOG_POSTS: BlogPost[] = [
             "✓",
             "~3,7 kW'a kadar çıkış."
           ],
-          [
-            "Togg T10F",
-            "✓",
-            "2026 (2.1.1) yazılım güncellemesiyle aktif; Togg adaptörü."
-          ],
+          ["Togg T10F / T10X","✓","T10F: 2.1.1 yazılımıyla aktif. T10X: 15 Haziran 2026 sonrası LFP + 11 kW OBC üretimlerde."],
           [
             "MG4",
             "✓",
@@ -2047,7 +2043,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Listede aracınızı göremiyorsanız bu, kesinlikle V2L yok demek değildir; yalnızca bu yazıyı hazırlarken doğrulayamadığımız anlamına gelir. Yeni modeller sık sık ekleniyor ve bazı araçlar V2L'yi sonradan gelen yazılım güncellemeleriyle kazanıyor — nitekim Togg T10F bu özelliği 2026'da yazılım güncellemesiyle kazandı. (Togg T10X tarafında V2L henüz resmen netleşmedi; aracınızın ekran menüsünden teyit edin.)"
+        "text": "Listede aracınızı göremiyorsanız bu, kesinlikle V2L yok demek değildir; yalnızca bu yazıyı hazırlarken doğrulayamadığımız anlamına gelir. Yeni modeller sık sık ekleniyor ve bazı araçlar V2L'yi sonradan gelen yazılım güncellemeleriyle kazanıyor — nitekim Togg T10F bu özelliği 2026'da yazılım güncellemesiyle kazandı. Togg T10X tarafında ise V2L, 15 Haziran 2026 sonrası üretilen, LFP bataryalı ve 11 kW OBC'li araçlarla birlikte geliyor; daha eski T10X'lerde bulunmuyor. Kendi aracınızı ekran menüsünden teyit edin."
       },
       {
         "type": "h2",
@@ -5593,13 +5589,13 @@ export const BLOG_POSTS: BlogPost[] = [
       "Togg'un V2L özelliğiyle aracınızı taşınabilir bir prize çevirin: nasıl çalışır, ne için kullanılır ve hangi V2L adaptörü gerekir?",
     category: "Rehber",
     datePublished: "2026-06-06",
-    dateModified: "2026-06-27",
-    readingMinutes: 5,
+    dateModified: "2026-09-17",
+    readingMinutes: 6,
     keywords: ["togg v2l", "togg araçtan elektrik", "v2l adaptör", "togg şarj"],
     body: [
       { type: "p", text: "Yerli otomobil Togg, elektrikli araçların en kullanışlı özelliklerinden biri olan V2L'yi (Vehicle-to-Load / araçtan elektrik) destekler. Bu sayede Togg'unuzun bataryasını dışarıdan elektrikli cihazları beslemek için kullanabilirsiniz. Bu rehber, V2L'nin Togg'da nasıl çalıştığını ve doğru adaptörü nasıl seçeceğinizi anlatıyor." },
 
-      { type: "h2", text: "V2L (araçtan elektrik) nedir?" },
+      { type: "h2", text: "Hangi Togg modelinde V2L var?" }, { type: "table", caption: "Togg modellerinde V2L durumu (2026)", headers: ["Model","Üretim / donanım","V2L"], rows: [["Togg T10F","İlk üretimden itibaren 11 kW OBC","2.1.1 yazılım güncellemesiyle aktif"],["Togg T10X","2023 – 15 Haziran 2026 · 22 kW OBC","Yok"],["Togg T10X","15 Haziran 2026 sonrası · LFP batarya, 11 kW OBC","V2L altyapısıyla geliyor"]] }, { type: "p", text: "Bu tablo kamuya açık duyurulara ve kullanıcı paylaşımlarına dayanır. V2L, yazılım sürümüne ve üretim partisine bağlı olabildiği için adaptör almadan önce kendi aracınızı ekran menüsünden ya da Togg yetkili servisinden teyit edin." }, { type: "h2", text: "V2L (araçtan elektrik) nedir?" },
       { type: "p", text: "V2L, aracın sürüş bataryasındaki enerjiyi 230V şebeke gerilimine çevirip dış cihazlara aktarmasıdır. Araç bir tüketici olmaktan çıkar, taşınabilir bir güç istasyonuna dönüşür. Togg ile kamp, saha ve kısa elektrik kesintilerinde cihazlarınızı çalıştırabilirsiniz." },
 
       { type: "h2", text: "Togg'da V2L nasıl kullanılır?" },
@@ -5613,11 +5609,11 @@ export const BLOG_POSTS: BlogPost[] = [
 
       { type: "quote", text: "İpucu: Bağladığınız cihazların toplam gücü aracın V2L limitinin altında kalsın; adaptörü kuru tutun ve sertifikalı ürün kullanın." },
 
-      { type: "cta", text: "Togg ve diğer V2L destekli araçlar için uygun adaptörü inceleyin — Bemis yerli üretim.", href: "/products/v2l-c2l", label: "V2L / C2L Adaptörleri Gör" },
+      { type: "cta", text: "V2L destekli araçlar için yerli üretim V2L ve C2L adaptörlerimizi inceleyin.", href: "/products/v2l-c2l", label: "V2L / C2L Adaptörleri Gör" },
     ],
     faq: [
       { "q": "Togg V2L'yi destekliyor mu?", "a": "Evet, yerli otomobil Togg araçtan elektrik (V2L / Vehicle-to-Load) özelliğini destekler. Bu sayede Togg'unuzun sürüş bataryasındaki enerjiyi dışarıdan elektrikli cihazları beslemek için kullanabilirsiniz; araç bir tüketici olmaktan çıkıp taşınabilir bir güç istasyonuna dönüşür. Kullanmak için aracın Type 2 şarj soketine takılan bir V2L adaptörü gerekir; bu adaptör çıkışı standart topraklı prize çevirir ve cihazınızı doğrudan bu prize takarsınız. Böylece kamp, saha ve kısa elektrik kesintilerinde cihazlarınızı çalıştırabilirsiniz. Bağlayacağınız cihazların toplam gücünü ve önerilen kullanım sınırlarını aracınızın kullanım kılavuzundan teyit etmeniz önerilir; bu sınırın altında kaldığınız sürece güvenle elektrik alırsınız." },
-      { "q": "Togg V2L için hangi adaptör gerekir?", "a": "Togg ile araçtan elektrik almak için aracın Type 2 şarj soketine uygun bir V2L/C2L adaptörü gerekir. Bu adaptör, soketten gelen çıkışı standart topraklı prize (Schuko) çevirir; cihazınızı doğrudan bu prize takarsınız ve ekstra bir kurulum yapmanıza gerek kalmaz. Adaptörü bagajda taşıyarak kampta, sahada veya etkinlikte her yerde elektrik alabilirsiniz. Güvenli kullanım için sertifikalı bir ürün tercih edin, adaptörü kuru tutun ve bağladığınız cihazların toplam gücünün aracın V2L limitinin altında kalmasına dikkat edin. Bemis, Togg ve diğer V2L destekli araçlar için yerli üretim V2L/C2L adaptörleri sunar." },
+      { "q": "Togg V2L için hangi adaptör gerekir?", "a": "Togg ile araçtan elektrik almak için aracın Type 2 şarj soketine takılan bir V2L adaptörü gerekir. Bu adaptör, soketten gelen çıkışı standart topraklı prize (Schuko) çevirir; cihazınızı doğrudan bu prize takarsınız ve ekstra bir kurulum yapmanıza gerek kalmaz. Adaptörü bagajda taşıyarak kampta, sahada veya etkinlikte her yerde elektrik alabilirsiniz. Güvenli kullanım için sertifikalı bir ürün tercih edin, adaptörü kuru tutun ve bağladığınız cihazların toplam gücünün aracın V2L limitinin altında kalmasına dikkat edin. Önemli bir not: V2L adaptörlerinde araç tarafındaki uç markaya göre değişir. Bemis'in yerli üretim V2L adaptörleri Hyundai, Kia, Ssangyong, MG, BYD ve Skywell araçlar için üretilir; Togg için uygun adaptörü aracınızın yetkili kanalından teyit edin. C2L adaptörlerimiz ise enerjiyi araçtan değil şarj cihazından aldığı için marka bağımsız çalışır." },
       { "q": "V2L ile neleri çalıştırabilirim?", "a": "Toplam güç araç V2L limitinin altında kalmak şartıyla pek çok cihazı çalıştırabilirsiniz. Kamp ve karavan kullanımında buzdolabı, aydınlatma ile telefon ve laptop şarjı; saha ile şantiyede matkap, taşlama gibi elektrikli el aletleri; kısa elektrik kesintilerinde buzdolabı ve modem gibi kritik cihazlar; etkinlik ve piknikte ses sistemi, ızgara ve küçük cihazlar tipik örneklerdir. Aracınız taşınabilir bir prize dönüştüğü için bu cihazları doğrudan adaptörün topraklı prizine takarsınız ve ekstra kurulum gerekmez. Bağladığınız cihazların toplam gücünü kontrol edin ve önerilen kullanım sınırlarını aracınızın kullanım kılavuzundan doğrulayın." },
       { "q": "V2L kullanırken nelere dikkat etmeliyim?", "a": "En önemli kural, bağladığınız tüm cihazların toplam gücünün aracın V2L limitinin altında kalmasıdır; bu limiti aracınızın kullanım kılavuzundan teyit edin. Güvenlik için sertifikalı bir adaptör kullanın ve adaptörü kuru tutun, çünkü kamp ve saha gibi dış mekânlarda nem ve su riski vardır. Adaptör aracın Type 2 soketine takılıp çıkışı topraklı prize (Schuko) çevirdiği için cihazlarınızı doğrudan bu prize bağlarsınız ve ekstra bir kurulum gerekmez. Yüksek güç çeken birden çok cihazı aynı anda çalıştırmaktan kaçının; böylece hem aracınızı hem de bağlı cihazlarınızı güvende tutar, kararlı bir elektrik akışı sağlarsınız." },
       { "q": "V2L ile araçtan elektrik almak ne işe yarar?", "a": "V2L (araçtan elektrik), aracın sürüş bataryasındaki enerjiyi 230V şebeke gerilimine çevirip dış cihazlara aktarması demektir. Bu sayede aracınız bir tüketici olmaktan çıkıp taşınabilir bir güç istasyonu gibi davranır ve şebeke elektriğinin olmadığı yerlerde bile cihaz çalıştırabilirsiniz. En çok kampta, karavanda, saha ve şantiyede, kısa elektrik kesintilerinde ve etkinliklerde işe yarar. Togg'un bu özelliğiyle buzdolabından el aletlerine, aydınlatmadan ses sistemine kadar birçok cihazı besleyebilirsiniz. Adaptör bagajda taşındığı için ekstra kurulum olmadan, ihtiyaç anında her yerde elektrik elde edersiniz; yeter ki bağladığınız cihazların toplam gücü aracın limitinin altında kalsın." }

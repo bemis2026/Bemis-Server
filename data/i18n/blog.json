@@ -2064,6 +2064,37 @@
           "text": "Togg, the domestically produced car, supports V2L (Vehicle-to-Load / power from the vehicle), one of the most useful features of electric vehicles. This lets you use your Togg's battery to power electrical devices from the outside. This guide explains how V2L works on the Togg and how to choose the right adapter."
         },
         {
+          "text": "Which Togg models have V2L?"
+        },
+        {
+          "caption": "V2L status across Togg models (2026)",
+          "headers": [
+            "Model",
+            "Production / hardware",
+            "V2L"
+          ],
+          "rows": [
+            [
+              "Togg T10F",
+              "11 kW OBC from first production",
+              "Active with the 2.1.1 software update"
+            ],
+            [
+              "Togg T10X",
+              "2023 – 15 June 2026 · 22 kW OBC",
+              "Not available"
+            ],
+            [
+              "Togg T10X",
+              "After 15 June 2026 · LFP battery, 11 kW OBC",
+              "Ships with V2L capability"
+            ]
+          ]
+        },
+        {
+          "text": "This table is based on public announcements and owner reports. Because V2L can depend on the software version and the production batch, confirm your own car from its on-screen menu or with a Togg authorised service before buying an adapter."
+        },
+        {
           "text": "What is V2L (power from the vehicle)?"
         },
         {
@@ -2087,7 +2118,7 @@
           "text": "Tip: keep the total power of the devices you connect below the vehicle's V2L limit; keep the adapter dry and use a certified product."
         },
         {
-          "text": "Explore the right adapter for Togg and other V2L-capable vehicles — locally manufactured by Bemis.",
+          "text": "Browse our locally manufactured V2L and C2L adapters for V2L-capable vehicles.",
           "label": "See V2L / C2L Adapters"
         }
       ],
@@ -2098,7 +2129,7 @@
         },
         {
           "q": "Which adapter do I need for Togg V2L?",
-          "a": "To draw power from the vehicle with a Togg, you need a V2L/C2L adapter suited to the vehicle's Type 2 charging socket. This adapter converts the output from the socket to a standard earthed socket (Schuko); you plug your device directly into it, with no extra installation needed. By carrying the adapter in the boot, you can draw power anywhere — while camping, in the field or at an event. For safe use, choose a certified product, keep the adapter dry, and make sure the total power of the devices you connect stays below the vehicle's V2L limit. Bemis offers locally manufactured V2L/C2L adapters for Togg and other V2L-capable vehicles."
+          "a": "To draw power from a Togg you need a V2L adapter that plugs into the car's Type 2 charging socket. The adapter converts that output into a standard earthed (Schuko) socket; you plug your device straight in, with no extra installation. Carried in the boot, it gives you power at a campsite, on site or at an event. For safe use choose a certified product, keep the adapter dry, and make sure the combined power of the connected devices stays below your car's V2L limit. One important note: on V2L adapters the vehicle-side connector differs by brand. Bemis's locally manufactured V2L adapters are made for Hyundai, Kia, Ssangyong, MG, BYD and Skywell vehicles; for Togg, confirm the correct adapter through your car's authorised channel. Our C2L adapters, by contrast, take the energy from the charger rather than the car, so they are brand independent."
         },
         {
           "q": "What can I run with V2L?",
@@ -3198,7 +3229,7 @@
             ],
             [
               "Pro Mobile 2",
-              "11 / 22 kW",
+              "3.7 – 22 kW",
               "Three-phase",
               "CEE 5/16 A and 5/32 A adapters, 6 adjustable current steps; professional, fleet and field use"
             ]
@@ -3350,9 +3381,9 @@
               "Output up to ~3.7 kW."
             ],
             [
-              "Togg T10F",
+              "Togg T10F / T10X",
               "✓",
-              "Active with the 2026 (2.1.1) software update; Togg adapter."
+              "T10F: active with 2.1.1 software. T10X: on units built after 15 June 2026 with LFP battery + 11 kW OBC."
             ],
             [
               "MG4",
@@ -3397,7 +3428,7 @@
           ]
         },
         {
-          "text": "If you cannot see your car in the list, that certainly does not mean it has no V2L; it only means we could not verify it while preparing this article. New models are added frequently and some cars gain V2L through later software updates — indeed the Togg T10F gained the feature through a software update in 2026. (On the Togg T10X side V2L has not yet been officially confirmed; check it from your car's on-screen menu.)"
+          "text": "If you cannot see your car in the list, that certainly does not mean it has no V2L; it only means we could not verify it while preparing this article. New models are added often and some cars gain V2L through later software updates — Togg T10F, for instance, gained the feature with a 2026 software update. On the T10X side, V2L arrives with cars built after 15 June 2026 that have the LFP battery and the 11 kW OBC; older T10X units do not have it. Confirm your own car from its on-screen menu."
         },
         {
           "text": "Does a Tesla have V2L?"
@@ -8475,6 +8506,37 @@
           "text": "Das heimische Automobil Togg unterstützt V2L (Vehicle-to-Load / Strom aus dem Fahrzeug), eine der praktischsten Funktionen von Elektrofahrzeugen. Dadurch können Sie die Batterie Ihres Togg nutzen, um von außen elektrische Geräte zu versorgen. Dieser Ratgeber erklärt, wie V2L bei Togg funktioniert und wie Sie den richtigen Adapter auswählen."
         },
         {
+          "text": "Welche Togg-Modelle haben V2L?"
+        },
+        {
+          "caption": "V2L-Status der Togg-Modelle (2026)",
+          "headers": [
+            "Modell",
+            "Produktion / Hardware",
+            "V2L"
+          ],
+          "rows": [
+            [
+              "Togg T10F",
+              "11 kW OBC ab der ersten Produktion",
+              "Mit dem Software-Update 2.1.1 aktiv"
+            ],
+            [
+              "Togg T10X",
+              "2023 – 15. Juni 2026 · 22 kW OBC",
+              "Nicht vorhanden"
+            ],
+            [
+              "Togg T10X",
+              "Nach dem 15. Juni 2026 · LFP-Batterie, 11 kW OBC",
+              "Kommt mit V2L-Infrastruktur"
+            ]
+          ]
+        },
+        {
+          "text": "Diese Tabelle beruht auf öffentlichen Ankündigungen und Nutzerberichten. Da V2L von der Softwareversion und der Produktionsserie abhängen kann, prüfen Sie Ihr eigenes Fahrzeug im Bildschirmmenü oder bei einem autorisierten Togg-Service, bevor Sie einen Adapter kaufen."
+        },
+        {
           "text": "Was ist V2L (Strom aus dem Fahrzeug)?"
         },
         {
@@ -8498,7 +8560,7 @@
           "text": "Tipp: Die Gesamtleistung der angeschlossenen Geräte sollte unter dem V2L-Limit des Fahrzeugs bleiben; halten Sie den Adapter trocken und verwenden Sie ein zertifiziertes Produkt."
         },
         {
-          "text": "Entdecken Sie den passenden Adapter für Togg und andere V2L-fähige Fahrzeuge – heimische Produktion von Bemis.",
+          "text": "Entdecken Sie unsere in der Türkei gefertigten V2L- und C2L-Adapter für V2L-fähige Fahrzeuge.",
           "label": "V2L / C2L Adapter ansehen"
         }
       ],
@@ -8509,7 +8571,7 @@
         },
         {
           "q": "Welcher Adapter wird für V2L mit Togg benötigt?",
-          "a": "Um mit Togg Strom aus dem Fahrzeug zu beziehen, wird ein zur Type 2-Ladebuchse des Fahrzeugs passender V2L/C2L-Adapter benötigt. Dieser Adapter wandelt den aus der Buchse kommenden Ausgang in eine standardmäßige Schutzkontaktsteckdose (Schuko) um; Ihr Gerät stecken Sie direkt in diese Steckdose und müssen keine zusätzliche Installation vornehmen. Indem Sie den Adapter im Kofferraum mitführen, können Sie beim Camping, auf der Baustelle oder bei Veranstaltungen überall Strom beziehen. Für eine sichere Nutzung wählen Sie ein zertifiziertes Produkt, halten Sie den Adapter trocken und achten Sie darauf, dass die Gesamtleistung der angeschlossenen Geräte unter dem V2L-Limit des Fahrzeugs bleibt. Bemis bietet V2L/C2L-Adapter aus heimischer Produktion für Togg und andere V2L-fähige Fahrzeuge."
+          "a": "Um aus einem Togg Strom zu entnehmen, benötigen Sie einen V2L-Adapter, der in die Typ-2-Ladebuchse des Fahrzeugs gesteckt wird. Der Adapter wandelt diesen Ausgang in eine normale Schuko-Steckdose um; Sie stecken Ihr Gerät direkt ein, ohne zusätzliche Installation. Im Kofferraum mitgeführt liefert er Strom auf dem Campingplatz, auf der Baustelle oder bei einer Veranstaltung. Wählen Sie für den sicheren Betrieb ein zertifiziertes Produkt, halten Sie den Adapter trocken und achten Sie darauf, dass die Gesamtleistung der angeschlossenen Geräte unter dem V2L-Limit Ihres Fahrzeugs bleibt. Ein wichtiger Hinweis: Bei V2L-Adaptern unterscheidet sich der fahrzeugseitige Stecker je nach Marke. Die in der Türkei gefertigten V2L-Adapter von Bemis sind für Hyundai, Kia, Ssangyong, MG, BYD und Skywell gedacht; für Togg lassen Sie den passenden Adapter über den autorisierten Kanal Ihres Fahrzeugs bestätigen. Unsere C2L-Adapter beziehen die Energie dagegen nicht aus dem Auto, sondern aus dem Ladegerät und sind daher markenunabhängig."
         },
         {
           "q": "Was kann ich mit V2L betreiben?",
@@ -9609,7 +9671,7 @@
             ],
             [
               "Pro Mobile 2",
-              "11 / 22 kW",
+              "3,7 – 22 kW",
               "Dreiphasig",
               "CEE-5/16-A- und 5/32-A-Adapter, 6 einstellbare Stromstufen; professioneller, Flotten- und Außeneinsatz"
             ]
@@ -9761,9 +9823,9 @@
               "Abgabe bis ~3,7 kW."
             ],
             [
-              "Togg T10F",
+              "Togg T10F / T10X",
               "✓",
-              "Mit dem Software-Update 2026 (2.1.1) aktiv; Togg-Adapter."
+              "T10F: mit Software 2.1.1 aktiv. T10X: bei Fahrzeugen ab 15. Juni 2026 mit LFP-Batterie + 11 kW OBC."
             ],
             [
               "MG4",
@@ -9808,7 +9870,7 @@
           ]
         },
         {
-          "text": "Sehen Sie Ihr Auto nicht in der Liste, heißt das keineswegs, dass es kein V2L hat; es bedeutet nur, dass wir es beim Erstellen dieses Beitrags nicht bestätigen konnten. Neue Modelle kommen häufig hinzu, und manche Fahrzeuge erhalten V2L erst durch spätere Software-Updates – so bekam der Togg T10F diese Funktion 2026 per Software-Update. (Beim Togg T10X ist V2L noch nicht offiziell bestätigt; prüfen Sie es im Bildschirmmenü Ihres Autos.)"
+          "text": "Wenn Sie Ihr Fahrzeug nicht in der Liste finden, heißt das keineswegs, dass es kein V2L hat; es bedeutet nur, dass wir es beim Erstellen dieses Artikels nicht bestätigen konnten. Neue Modelle kommen häufig hinzu, und manche Fahrzeuge erhalten V2L erst durch spätere Software-Updates — der Togg T10F etwa bekam die Funktion mit einem Software-Update im Jahr 2026. Beim T10X wiederum kommt V2L mit Fahrzeugen, die nach dem 15. Juni 2026 gebaut wurden und die LFP-Batterie sowie den 11 kW OBC haben; ältere T10X besitzen es nicht. Prüfen Sie Ihr eigenes Fahrzeug im Bildschirmmenü."
         },
         {
           "text": "Hat ein Tesla V2L?"
@@ -14886,6 +14948,37 @@
           "text": "El automóvil nacional Togg admite V2L (Vehicle-to-Load / electricidad desde el vehículo), una de las funciones más útiles de los vehículos eléctricos. Gracias a ella, puedes usar la batería de tu Togg para alimentar dispositivos eléctricos desde el exterior. Esta guía explica cómo funciona el V2L en Togg y cómo elegir el adaptador adecuado."
         },
         {
+          "text": "¿Qué modelos de Togg tienen V2L?"
+        },
+        {
+          "caption": "Estado de V2L en los modelos Togg (2026)",
+          "headers": [
+            "Modelo",
+            "Producción / hardware",
+            "V2L"
+          ],
+          "rows": [
+            [
+              "Togg T10F",
+              "OBC de 11 kW desde la primera producción",
+              "Activo con la actualización de software 2.1.1"
+            ],
+            [
+              "Togg T10X",
+              "2023 – 15 de junio de 2026 · OBC de 22 kW",
+              "No disponible"
+            ],
+            [
+              "Togg T10X",
+              "Después del 15 de junio de 2026 · batería LFP, OBC de 11 kW",
+              "Llega con infraestructura V2L"
+            ]
+          ]
+        },
+        {
+          "text": "Esta tabla se basa en anuncios públicos y en informes de propietarios. Como V2L puede depender de la versión de software y del lote de producción, confirme su propio vehículo en el menú de pantalla o en un servicio autorizado Togg antes de comprar un adaptador."
+        },
+        {
           "text": "¿Qué es el V2L (electricidad desde el vehículo)?"
         },
         {
@@ -14909,7 +15002,7 @@
           "text": "Consejo: mantén la potencia total de los dispositivos conectados por debajo del límite V2L del vehículo; conserva el adaptador seco y usa un producto certificado."
         },
         {
-          "text": "Descubre el adaptador adecuado para Togg y otros vehículos compatibles con V2L — fabricación local de Bemis.",
+          "text": "Explore nuestros adaptadores V2L y C2L de fabricación propia para vehículos con V2L.",
           "label": "Ver adaptadores V2L / C2L"
         }
       ],
@@ -14920,7 +15013,7 @@
         },
         {
           "q": "¿Qué adaptador hace falta para el V2L de Togg?",
-          "a": "Para obtener electricidad desde el vehículo con Togg hace falta un adaptador V2L/C2L compatible con la toma de carga Type 2 del vehículo. Este adaptador convierte la salida de la toma en una toma de corriente estándar con toma de tierra (Schuko); enchufas tu dispositivo directamente a esa toma y no necesitas realizar ninguna instalación adicional. Llevando el adaptador en el maletero puedes obtener electricidad en cualquier lugar, en el camping, en el campo o en un evento. Para un uso seguro, elige un producto certificado, mantén el adaptador seco y procura que la potencia total de los dispositivos conectados se mantenga por debajo del límite V2L del vehículo. Bemis ofrece adaptadores V2L/C2L de fabricación local para Togg y otros vehículos compatibles con V2L."
+          "a": "Para obtener electricidad de un Togg necesita un adaptador V2L que se conecta a la toma de carga Type 2 del vehículo. El adaptador convierte esa salida en un enchufe con toma de tierra (Schuko) estándar; conecta su aparato directamente, sin ninguna instalación adicional. Llevándolo en el maletero, dispone de electricidad en el camping, en obra o en un evento. Para un uso seguro elija un producto certificado, mantenga el adaptador seco y asegúrese de que la potencia total de los aparatos conectados quede por debajo del límite V2L de su vehículo. Una nota importante: en los adaptadores V2L el conector del lado del vehículo cambia según la marca. Los adaptadores V2L de fabricación propia de Bemis están hechos para vehículos Hyundai, Kia, Ssangyong, MG, BYD y Skywell; para Togg, confirme el adaptador adecuado a través del canal autorizado de su vehículo. En cambio, nuestros adaptadores C2L toman la energía del cargador y no del coche, por lo que son independientes de la marca."
         },
         {
           "q": "¿Qué puedo hacer funcionar con el V2L?",
@@ -16020,7 +16113,7 @@
             ],
             [
               "Pro Mobile 2",
-              "11 / 22 kW",
+              "3,7 – 22 kW",
               "Trifásico",
               "Adaptadores CEE 5/16 A y 5/32 A, 6 escalones de corriente ajustables; uso profesional, de flota y de campo"
             ]
@@ -16172,9 +16265,9 @@
               "Salida de hasta ~3,7 kW."
             ],
             [
-              "Togg T10F",
+              "Togg T10F / T10X",
               "✓",
-              "Activo con la actualización de software 2026 (2.1.1); adaptador Togg."
+              "T10F: activo con el software 2.1.1. T10X: en unidades fabricadas después del 15 de junio de 2026 con batería LFP + OBC de 11 kW."
             ],
             [
               "MG4",
@@ -16219,7 +16312,7 @@
           ]
         },
         {
-          "text": "Si no ve su coche en la lista, eso no significa en absoluto que no tenga V2L; solo significa que no pudimos verificarlo al preparar este artículo. Se añaden modelos nuevos con frecuencia y algunos coches ganan el V2L mediante actualizaciones de software posteriores: de hecho, el Togg T10F obtuvo esta función en 2026 con una actualización de software. (En el caso del Togg T10X, el V2L todavía no se ha confirmado oficialmente; compruébelo en el menú de la pantalla de su coche.)"
+          "text": "Si no ve su vehículo en la lista, eso no significa en absoluto que no tenga V2L; solo significa que no pudimos verificarlo al preparar este artículo. Se añaden modelos nuevos con frecuencia y algunos coches obtienen V2L mediante actualizaciones de software posteriores: el Togg T10F, por ejemplo, ganó la función con una actualización de software en 2026. En el caso del T10X, V2L llega con los vehículos fabricados después del 15 de junio de 2026 que llevan batería LFP y OBC de 11 kW; los T10X más antiguos no lo tienen. Confirme su propio vehículo en el menú de pantalla."
         },
         {
           "text": "¿Tiene V2L un Tesla?"
@@ -21297,6 +21390,37 @@
           "text": "تدعم السيارة المحلية Togg خاصية V2L (Vehicle-to-Load / الكهرباء من السيارة)، وهي من أكثر خصائص السيارات الكهربائية فائدةً. بفضلها يمكنك استخدام بطارية سيارتك Togg لتغذية أجهزة كهربائية خارجية. يشرح هذا الدليل كيف تعمل V2L في Togg وكيف تختار المحوّل المناسب."
         },
         {
+          "text": "أي طرازات Togg تدعم V2L؟"
+        },
+        {
+          "caption": "حالة V2L في طرازات Togg (2026)",
+          "headers": [
+            "الطراز",
+            "الإنتاج / العتاد",
+            "V2L"
+          ],
+          "rows": [
+            [
+              "Togg T10F",
+              "شاحن داخلي 11 kW منذ أول إنتاج",
+              "مُفعّلة مع تحديث البرمجية 2.1.1"
+            ],
+            [
+              "Togg T10X",
+              "2023 – 15 يونيو 2026 · شاحن داخلي 22 kW",
+              "غير متوفرة"
+            ],
+            [
+              "Togg T10X",
+              "بعد 15 يونيو 2026 · بطارية LFP، شاحن داخلي 11 kW",
+              "تأتي ببنية V2L"
+            ]
+          ]
+        },
+        {
+          "text": "يستند هذا الجدول إلى إعلانات عامة وتقارير المالكين. وبما أن V2L قد تعتمد على إصدار البرمجية ودفعة الإنتاج، تحقّق من سيارتك عبر قائمة الشاشة أو لدى خدمة Togg المعتمدة قبل شراء أي مُحوّل."
+        },
+        {
           "text": "ما هي V2L (الكهرباء من السيارة)؟"
         },
         {
@@ -21320,7 +21444,7 @@
           "text": "نصيحة: لتكن القدرة الإجمالية للأجهزة التي توصّلها دون حدّ V2L للسيارة؛ وابقِ المحوّل جافًّا واستخدم منتجًا معتمدًا."
         },
         {
-          "text": "اطّلع على المحوّل المناسب لـ Togg والسيارات الأخرى الداعمة لـ V2L — إنتاج Bemis المحلي.",
+          "text": "تصفّح مُحوّلات V2L وC2L من إنتاجنا المحلي للسيارات المزوّدة بخاصية V2L.",
           "label": "شاهد محوّلات V2L / C2L"
         }
       ],
@@ -21331,7 +21455,7 @@
         },
         {
           "q": "أي محوّل يلزم لخاصية V2L في Togg؟",
-          "a": "للحصول على الكهرباء من السيارة مع Togg تحتاج إلى محوّل V2L/C2L مناسب لمقبس الشحن Type 2 في السيارة. يحوّل هذا المحوّل الخرج القادم من المقبس إلى مقبس مؤرَّض قياسي (Schuko)؛ وتوصّل جهازك مباشرةً به دون الحاجة إلى أي تركيب إضافي. يمكنك حمل المحوّل في صندوق السيارة والحصول على الكهرباء في أي مكان في التخييم أو الميدان أو الفعالية. للاستخدام الآمن اختر منتجًا معتمدًا، وابقِ المحوّل جافًّا، وانتبه إلى بقاء القدرة الإجمالية للأجهزة التي توصّلها دون حدّ V2L للسيارة. تقدّم Bemis محوّلات V2L/C2L بإنتاج محلي لـ Togg والسيارات الأخرى الداعمة لـ V2L."
+          "a": "للحصول على كهرباء من سيارة Togg تحتاج إلى مُحوّل V2L يُوصَل بمقبس الشحن Type 2 في السيارة. يحوّل المُحوّل هذا المخرج إلى مقبس أرضي قياسي (Schuko)؛ تُوصّل جهازك مباشرة دون أي تركيب إضافي. واحتفاظك به في الصندوق يمنحك كهرباء في المخيم أو الموقع أو أثناء الفعاليات. للاستخدام الآمن اختر منتجًا معتمدًا، وحافظ على جفاف المُحوّل، واحرص على أن تبقى القدرة الإجمالية للأجهزة الموصولة دون حد V2L في سيارتك. ملاحظة مهمة: في مُحوّلات V2L يختلف الطرف الخاص بالسيارة حسب العلامة التجارية. مُحوّلات V2L التي تنتجها Bemis محليًا مخصّصة لسيارات Hyundai وKia وSsangyong وMG وBYD وSkywell؛ أما بالنسبة إلى Togg فتأكّد من المُحوّل المناسب عبر القناة المعتمدة لسيارتك. في المقابل، تأخذ مُحوّلات C2L لدينا الطاقة من جهاز الشحن لا من السيارة، لذلك فهي مستقلة عن العلامة التجارية."
         },
         {
           "q": "ما الأجهزة التي يمكنني تشغيلها بـ V2L؟",
@@ -22431,7 +22555,7 @@
             ],
             [
               "Pro Mobile 2",
-              "11 / 22 kW",
+              "3,7 – 22 kW",
               "ثلاثي الطور",
               "محوّلات CEE 5/16A و5/32A، و6 مراحل أمبير قابلة للضبط؛ للاستخدام المهني والأساطيل والميدان"
             ]
@@ -22583,9 +22707,9 @@
               "خرج حتى نحو 3,7 kW."
             ],
             [
-              "Togg T10F",
+              "Togg T10F / T10X",
               "✓",
-              "فعّال بتحديث البرنامج 2026 ‏(2.1.1)؛ محوّل Togg."
+              "T10F: مُفعّلة مع البرمجية 2.1.1. T10X: في السيارات المنتَجة بعد 15 يونيو 2026 ببطارية LFP وشاحن داخلي 11 kW."
             ],
             [
               "MG4",
@@ -22630,7 +22754,7 @@
           ]
         },
         {
-          "text": "وإن لم تجد سيارتك في القائمة فهذا لا يعني قطعاً أنها بلا V2L؛ وإنما يعني أننا لم نستطع التحقق منها أثناء إعداد هذه المقالة. فالطُرز الجديدة تُضاف باستمرار، وبعض السيارات تكتسب V2L بتحديثات برمجية لاحقة — وقد اكتسب Togg T10F هذه الخاصية فعلاً في 2026 بتحديث برمجي. (أما في Togg T10X فلم يتضح دعم V2L رسمياً بعد؛ فتحقّق من ذلك في قائمة شاشة سيارتك.)"
+          "text": "إذا لم تجد سيارتك في القائمة فهذا لا يعني إطلاقًا أنها بلا V2L؛ بل يعني فقط أننا لم نتمكن من التحقق منها أثناء إعداد هذا المقال. تُضاف طرازات جديدة باستمرار، وبعض السيارات تحصل على V2L عبر تحديثات برمجية لاحقة — فمثلاً حصلت Togg T10F على الخاصية بتحديث برمجي في 2026. أما في T10X فتأتي V2L مع السيارات المنتَجة بعد 15 يونيو 2026 المزوّدة ببطارية LFP وشاحن داخلي 11 kW؛ أما طرازات T10X الأقدم فلا تملكها. تحقّق من سيارتك عبر قائمة الشاشة."
         },
         {
           "text": "هل تدعم Tesla خاصية V2L؟"
@@ -27708,6 +27832,37 @@
           "text": "Отечественный автомобиль Togg поддерживает V2L (Vehicle-to-Load / электричество от автомобиля) — одну из самых полезных функций электромобилей. Благодаря ей вы можете использовать аккумулятор своего Togg для питания внешних электроприборов. Это руководство рассказывает, как V2L работает в Togg и как выбрать правильный адаптер."
         },
         {
+          "text": "В каких моделях Togg есть V2L?"
+        },
+        {
+          "caption": "Статус V2L в моделях Togg (2026)",
+          "headers": [
+            "Модель",
+            "Производство / оборудование",
+            "V2L"
+          ],
+          "rows": [
+            [
+              "Togg T10F",
+              "OBC 11 кВт с начала производства",
+              "Активна с обновлением ПО 2.1.1"
+            ],
+            [
+              "Togg T10X",
+              "2023 – 15 июня 2026 · OBC 22 кВт",
+              "Нет"
+            ],
+            [
+              "Togg T10X",
+              "После 15 июня 2026 · батарея LFP, OBC 11 кВт",
+              "Поставляется с поддержкой V2L"
+            ]
+          ]
+        },
+        {
+          "text": "Эта таблица основана на публичных анонсах и сообщениях владельцев. Поскольку V2L может зависеть от версии ПО и производственной партии, проверьте свой автомобиль в экранном меню или у официального сервиса Togg, прежде чем покупать адаптер."
+        },
+        {
           "text": "Что такое V2L (электричество от автомобиля)?"
         },
         {
@@ -27731,7 +27886,7 @@
           "text": "Совет: суммарная мощность подключаемых приборов должна оставаться ниже предела V2L автомобиля; держите адаптер сухим и используйте сертифицированное изделие."
         },
         {
-          "text": "Ознакомьтесь с подходящим адаптером для Togg и других автомобилей с поддержкой V2L — отечественное производство Bemis.",
+          "text": "Посмотрите наши адаптеры V2L и C2L собственного производства для автомобилей с поддержкой V2L.",
           "label": "Смотреть адаптеры V2L / C2L"
         }
       ],
@@ -27742,7 +27897,7 @@
         },
         {
           "q": "Какой адаптер нужен для V2L у Togg?",
-          "a": "Чтобы получать электричество от автомобиля с Togg, нужен адаптер V2L/C2L, подходящий к зарядному разъёму автомобиля Type 2. Этот адаптер преобразует выход из разъёма в стандартную розетку с заземлением (Schuko); прибор вы подключаете напрямую в эту розетку, и никакого дополнительного монтажа не требуется. Возя адаптер в багажнике, вы можете получать электричество где угодно — в кемпинге, на выезде или на мероприятии. Для безопасного использования выбирайте сертифицированное изделие, держите адаптер сухим и следите, чтобы суммарная мощность подключаемых приборов оставалась ниже предела V2L автомобиля. Bemis предлагает адаптеры V2L/C2L отечественного производства для Togg и других автомобилей с поддержкой V2L."
+          "a": "Чтобы получить электричество от Togg, нужен адаптер V2L, который подключается к разъёму Type 2 автомобиля. Адаптер преобразует этот выход в обычную розетку с заземлением (Schuko); устройство вы подключаете напрямую, без дополнительного монтажа. Адаптер лежит в багажнике и даёт электричество в кемпинге, на объекте или на мероприятии. Для безопасной работы выбирайте сертифицированный продукт, держите адаптер сухим и следите, чтобы суммарная мощность подключённых приборов оставалась ниже предела V2L вашего автомобиля. Важное замечание: у адаптеров V2L разъём со стороны автомобиля различается по маркам. Адаптеры V2L собственного производства Bemis рассчитаны на автомобили Hyundai, Kia, Ssangyong, MG, BYD и Skywell; для Togg уточните подходящий адаптер через официальный канал вашего автомобиля. Наши адаптеры C2L, напротив, берут энергию не от машины, а от зарядного устройства, поэтому не зависят от марки."
         },
         {
           "q": "Что я могу питать через V2L?",
@@ -28842,7 +28997,7 @@
             ],
             [
               "Pro Mobile 2",
-              "11 / 22 кВт",
+              "3,7 – 22 кВт",
               "Три фазы",
               "Переходники CEE 5/16 A и 5/32 A, 6 регулируемых ступеней тока; профессиональное, парковое и выездное применение"
             ]
@@ -28994,9 +29149,9 @@
               "Отдача до ~3,7 кВт."
             ],
             [
-              "Togg T10F",
+              "Togg T10F / T10X",
               "✓",
-              "Активен с обновлением ПО 2026 (2.1.1); адаптер Togg."
+              "T10F: активна с ПО 2.1.1. T10X: на машинах выпуска после 15 июня 2026 с батареей LFP + OBC 11 кВт."
             ],
             [
               "MG4",
@@ -29041,7 +29196,7 @@
           ]
         },
         {
-          "text": "Если вы не видите свою машину в списке, это вовсе не значит, что V2L у неё нет; это лишь значит, что при подготовке статьи мы не смогли это подтвердить. Новые модели добавляются часто, а некоторые машины получают V2L с последующими обновлениями ПО — так, Togg T10F получил эту функцию в 2026 году с обновлением программного обеспечения. (По Togg T10X наличие V2L официально пока не подтверждено; уточните это в экранном меню вашей машины.)"
+          "text": "Если вы не видите свой автомобиль в списке, это вовсе не значит, что в нём нет V2L; это лишь значит, что мы не смогли это подтвердить при подготовке статьи. Новые модели добавляются часто, и некоторые автомобили получают V2L с более поздними обновлениями ПО — так, Togg T10F получил эту функцию с обновлением ПО в 2026 году. У T10X же V2L появляется на машинах, выпущенных после 15 июня 2026 года, с батареей LFP и OBC 11 кВт; на более старых T10X её нет. Проверьте свой автомобиль в экранном меню."
         },
         {
           "text": "Есть ли V2L у Tesla?"
