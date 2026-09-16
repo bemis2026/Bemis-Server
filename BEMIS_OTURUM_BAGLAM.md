@@ -91,11 +91,42 @@
 > (`tamCevrildi` kapısı) — `data/i18n/blog.json` çevirileri BİRLİKTE yazılmadan yapılmaz.
 > İstenirse ayrı tur.
 >
-> **⏳ DOĞRULAMA:** 3. deploy sırasında bu satır yazıldı; canlı doğrulama betiği hazır:
-> `scratchpad/_portatif_dogrula.cjs` (ürün H1/başlık/meta · kategori H1/SSS 7 · FAQPage 7
-> soru · footer'da İngilizce kalmadı · **DE/AR regresyonu**: Almanca ad Almanca kaldı mı,
-> Arapça ad Türkçeye düştü mü). IndexNow betiği: `scratchpad/_indexnow_portatif.cjs` (12 adres).
-> ⚠️ Doğrulama gövdeden yapılır — `<script>` blokları ÇIKARILIR (RSC yükü aynı metni iki kez saydırır).
+> **🔴🔴 CANLI DOĞRULAMA KUSUR YAKALADI — `pick(veri, kod)` ÜÇÜNCÜ KEZ (`238d47d`):**
+> İlk ölçümde ürün sayfasının **`<h1>`'i YENİ ("Mono Mobile 7,4 kW") ama `<title>`'ı ESKİ**
+> çıktı. `npm run check:seo` sebebi tam söyledi: **"VERİ KATMANI KOD HARİTASINI EZİYOR:
+> 33 alan · 9 ürün"**. Veri katmanındaki bayat `meta*` alanları `productSeo.ts`'i eziyordu →
+> yazdığım başlıklar canlıya HİÇ çıkmıyordu. Ad/kategori geçmişti çünkü onlar ayrı alan.
+> 📌 **Bu ayrışma ancak kod haritası DEĞİŞİNCE görünür:** veri ile kod aynı olduğu sürece
+> bekçi susar. Yani `productSeo.ts` düzenledikten sonra **deploy sonrası `check:seo` ŞART**.
+> **TEMİZLENDİ:** R2 `products` (TR + 4 çeviri kolu, 45 düğüm) + `productsEn` (9 düğüm) =
+> **252 alan**; repo yedeklerinde meta zaten yoktu (yalnız `products-en.json` taşıyordu).
+> ⚠️ `productsEn` bin'indeki meta'lar da TÜRKÇEYDİ; onlar da gitti.
+>
+> **🧰 YENİ KALICI KOMUT — `node scripts/meta-temizle.cjs <kategori-id> [--yaz]`:**
+> Aynı tuzak **üçüncü** kez çıktığı için (dc-units → wallbox → portable) üçüncü bir
+> tek-seferlik kopya yazmak yerine `wallbox-meta-temizle.cjs` GENELLEŞTİRİLDİ. Kategorinin
+> ürün kimliklerini `data/products.json`'dan okur; **TR kolunda beklenen sayı tutmazsa
+> İPTAL** eder (yanlış ürüne dokunmasın); kuru çalışma varsayılan ve **ne silineceğini
+> örnekle gösterir** (operatörün elle yazdığı özelleştirme silinmesin); 4 shard'ı tarar,
+> yedek alır. 📌 **Yeni bir kategorinin metasını koddan yönetmeye başlarken bunu çalıştır.**
+> ⓘ `dc-meta-temizle.cjs` + `wallbox-meta-temizle.cjs` tarihsel kayıt olarak duruyor.
+> store cache **v126-portatif-sss → v127-portatif-meta**.
+>
+> **✅ CANLI DOĞRULANDI — 18/18** (`scratchpad/_portatif_dogrula.cjs`): ürün başlığı
+> "Portatif Elektrikli Araç Şarj Cihazı 7,4 kW · Mono Mobile" · H1 "Mono Mobile 7,4 kW" ·
+> meta açıklamada "7 kW sınıfı" · **"AC Mobile Chargers" ürün+kategori sayfasında 0** (önce
+> ~10) · anasayfa footer'ı Türkçe · yeni SSS gövdede · **FAQPage 8 soru** · 10 ürünün 10'unda
+> yeni başlık. **`check:seo` temiz (ezilen alan 0).**
+> ✅ **YABANCI DİL REGRESYONU YOK** (ad değişiminin en riskli tarafıydı): DE kategori adı
+> Almanca kaldı, Türkçe ad sızmadı; **AR ürün adı `مونو موبايل 7,4 kW`** — yani
+> `productNamesLocale.ts` anahtar güncellemesi gerçekten gerekliydi.
+> 📣 **IndexNow:** 12 adres → api.indexnow.org 200 · bing 200 · yandex success.
+> ⚠️ **İKİ DOĞRULAMA TUZAĞI (ilk turda beni yanılttı, betikte düzeltildi):**
+> (a) **FAQPage'de 8 soru DOĞRU** — ilk madde GEO cevap bloğu, ardından 7 SSS; "7 olmalı"
+> beklentim yanlıştı. (b) **Footer ürün/kategori sayfasında YOK** (orada `ContactBar` var) →
+> footer kontrolü ANASAYFADAN yapılır. ⚠️ Ölçüm gövdeden yapılır, `<script>` blokları
+> ÇIKARILIR (RSC yükü aynı metni iki kez saydırır).
+> ⚠️ `node -e` içindeki ters bölüler yine yendi (regex bozuldu) — betik düzenlemesi Edit ile.
 
 > 🖼️ **BLOG KAPAKLARI — 43/43 + KALICI KOMUT (2026-09-16, `8be0be9` · `5d23bc5`).**
 > **`npm run gen:blog-kapak`** → yalnız EKSİK kapakları üretir, `cover` alanını da
