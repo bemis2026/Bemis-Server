@@ -8182,6 +8182,19 @@
             ]
           },
           {
+            "group": "Características físicas",
+            "items": [
+              {
+                "label": "Dimensiones (An×P×Al)",
+                "value": "600 × 425 × 1770 mm"
+              },
+              {
+                "label": "Peso",
+                "value": "105 kg"
+              }
+            ]
+          },
+          {
             "group": "Documentos y garantía",
             "items": [
               {

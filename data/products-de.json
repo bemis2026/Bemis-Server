@@ -8182,6 +8182,19 @@
             ]
           },
           {
+            "group": "Physikalische Eigenschaften",
+            "items": [
+              {
+                "label": "Abmessungen (B×T×H)",
+                "value": "600 × 425 × 1770 mm"
+              },
+              {
+                "label": "Gewicht",
+                "value": "105 kg"
+              }
+            ]
+          },
+          {
             "group": "Dokumente & Garantie",
             "items": [
               {

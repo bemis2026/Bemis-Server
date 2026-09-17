@@ -8434,6 +8434,19 @@
             ]
           },
           {
+            "group": "Physical Specifications",
+            "items": [
+              {
+                "label": "Dimensions (W×D×H)",
+                "value": "600 × 425 × 1770 mm"
+              },
+              {
+                "label": "Weight",
+                "value": "105 kg"
+              }
+            ]
+          },
+          {
             "group": "Documents & Warranty",
             "items": [
               {

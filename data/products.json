@@ -7373,7 +7373,7 @@
         "documents": [],
         "images": [
           "https://res.cloudinary.com/dmnttjyzm/image/upload/v1786127189/products/i3qo3mkpseelmdgb7iiu.png",
-          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075174/products/zcprvbro7tkheffuxtmf.png"
+          "https://res.cloudinary.com/dmnttjyzm/image/upload/v1787315174/products/bbdgil5b8vxnaeov9bnz.png"
         ],
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1786127189/products/i3qo3mkpseelmdgb7iiu.png",
         "certificates": [
@@ -8242,6 +8242,19 @@
               {
                 "label": "Liste Fiyatı",
                 "value": "8.600,00 € (KDV hariç)"
+              }
+            ]
+          },
+          {
+            "group": "Fiziksel Özellikler",
+            "items": [
+              {
+                "label": "Ölçüler (G×D×Y)",
+                "value": "600 × 425 × 1770 mm"
+              },
+              {
+                "label": "Ağırlık",
+                "value": "105 kg"
               }
             ]
           },
