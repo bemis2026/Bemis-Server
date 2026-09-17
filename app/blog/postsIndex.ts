@@ -5,6 +5,24 @@
 export type PostIndexItem = { slug: string; title: string; titleI18n?: Record<string, string>; category: string; datePublished: string; image?: string };
 export const POSTS_INDEX: PostIndexItem[] = [
   {
+    "slug": "fabrika-osb-sanayi-sitesi-sarj-istasyonu",
+    "title": "Fabrika, OSB ve Sanayi Sitesinde Personel Otoparkına Şarj İstasyonu",
+    "category": "Rehber",
+    "datePublished": "2026-09-18"
+  },
+  {
+    "slug": "dc-sarj-unitesi-duvar-tipi-mi-direk-tipi-mi",
+    "title": "DC Şarj Ünitesi: Duvar Tipi mi, Direk Tipi mi?",
+    "category": "Rehber",
+    "datePublished": "2026-09-18"
+  },
+  {
+    "slug": "sarj-istasyonu-bakim-periyodik-kontrol",
+    "title": "Şarj İstasyonu Bakımı ve Periyodik Kontrol: Neye Bakılır?",
+    "category": "Teknik",
+    "datePublished": "2026-09-18"
+  },
+  {
     "slug": "dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir",
     "title": "DC Şarj Kablosu ve CCS2 Soketi Nasıl Seçilir?",
     "category": "Teknik",

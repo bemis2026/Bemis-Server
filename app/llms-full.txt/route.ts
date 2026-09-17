@@ -27,6 +27,9 @@ function bodyToText(body: BlogSection[]): string {
 
 // GEO için en değerli rehberler (tam gövde).
 const GUIDE_SLUGS = [
+  "fabrika-osb-sanayi-sitesi-sarj-istasyonu",
+  "dc-sarj-unitesi-duvar-tipi-mi-direk-tipi-mi",
+  "sarj-istasyonu-bakim-periyodik-kontrol",
   "dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir",
   "ortak-alan-sarj-yonetim-paneli-apartman-site",
   "elektrikli-arac-sarj-istasyonu-yonetmeligi",

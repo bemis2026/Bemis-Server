@@ -34,6 +34,459 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    "slug": "fabrika-osb-sanayi-sitesi-sarj-istasyonu",
+    "title": "Fabrika, OSB ve Sanayi Sitesinde Personel Otoparkına Şarj İstasyonu",
+    "cover": "/blog-kapak/fabrika-osb-sanayi-sitesi-sarj-istasyonu.jpg",
+    "metaTitle": "Fabrika ve OSB'ye Şarj İstasyonu Kurulumu",
+    "description": "Fabrika, OSB ve sanayi sitesinde personel otoparkına şarj istasyonu: mevcut trafo, kompanzasyon, vardiyaya göre cihaz sayısı ve faturalandırma.",
+    "excerpt": "Fabrikaya şarj istasyonu kurmak, eve wallbox taktırmaktan farklı bir karardır. Tesisin zaten bir trafosu, bir kompanzasyon panosu ve saatlere göre değişen bir üretim yükü vardır. Doğru kurulum, bu üç gerçeğin üstüne oturur.",
+    "category": "Rehber",
+    "datePublished": "2026-09-18",
+    "readingMinutes": 8,
+    "keywords": [
+      "fabrika şarj istasyonu",
+      "osb şarj istasyonu",
+      "sanayi sitesi şarj cihazı",
+      "personel otoparkı şarj",
+      "işletmeye wallbox kurulumu",
+      "lojistik deposu şarj istasyonu",
+      "iş yeri elektrikli araç şarj cihazı",
+      "fabrika ac wallbox"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Personelinin elektrikli araç sayısı artan her fabrika, depo ve sanayi sitesi aynı soruyla geliyor: otoparka şarj cihazı koyacağız, nereden başlamalıyız? Bu karar eve wallbox taktırmaya benzemez. Bir konutta tek mesele hattın uygun olup olmadığıdır; bir üretim tesisinde ise zaten bir trafo, bir kompanzasyon panosu ve saat saat değişen bir üretim yükü vardır. Şarj cihazları bu tablonun üstüne eklenir. Bu yazı, fabrika ve OSB tarafındaki kararı sırasıyla ele alıyor."
+      },
+      {
+        "type": "h2",
+        "text": "Personel otoparkı ile filo aynı şey değildir"
+      },
+      {
+        "type": "p",
+        "text": "İlk ayrım burada yapılmalı, çünkü sonraki her karar buna bağlı. Şirket aracı filosu şarj ediliyorsa araçlar sizindir, gece tesiste durur ve planlama size aittir; bu senaryoyu ayrı bir yazıda ele aldık. Personel otoparkı ise farklıdır: araçlar çalışanlara aittir, mesai saatinde gelir ve mesai bitiminde gider. Yani şarj penceresi gecenin tamamı değil, vardiyanın süresidir ve kimin ne kadar harcadığı kişi bazında ayrışmalıdır."
+      },
+      {
+        "type": "h2",
+        "text": "Kaç cihaz gerekir? Cevabı vardiya düzeni verir"
+      },
+      {
+        "type": "p",
+        "text": "Personel otoparkında bir cihaz gün içinde birden fazla araca hizmet edebilir, çünkü çalışanın aracı saatlerce park hâlindedir. Tek vardiyalı bir tesiste araç sabah gelip akşam gidiyorsa, 8 saatlik bir pencerede 7,4 kW'lık bir cihaz günlük kullanım için fazlasıyla yeterli enerjiyi verir; burada hız değil süre çalışır. Üç vardiyalı bir tesiste ise aynı cihaz üç ayrı sürücüye sırayla hizmet edebilir. Bu yüzden cihaz sayısını araç sayısına değil, aynı anda park hâlinde olan elektrikli araç sayısına göre planlamak gerekir."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Aynı anda parkta duran elektrikli araç sayısını sayın, toplam personel sayısını değil.",
+          "Vardiya değişim saatlerini not edin; cihaz paylaşımı bu saatlerde olur.",
+          "Bugünün sayısına değil, 2-3 yıl sonrasına göre altyapı çekin: kablo ve pano sonradan değil, ilk kazıda ucuzdur.",
+          "Ziyaretçi ve tedarikçi araçları için ayrı bir nokta düşünün; personel noktalarını yetkilendirmeye kapatmak isteyebilirsiniz."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "OSB ve sanayi sitesinde elektrik tarafı"
+      },
+      {
+        "type": "p",
+        "text": "Organize sanayi bölgelerinde elektrik dağıtımı çoğu zaman OSB tüzel kişiliği üzerinden yürür; yani yeni bir yük eklerken muhatabınız il dağıtım şirketi değil, OSB yönetimi olabilir. Sanayi sitelerinde ise ortak trafo birden fazla iş yerine hizmet ettiği için kapasite paylaşımı gündeme gelir. Her iki durumda da kuruluma başlamadan önce yanıtlanması gereken soru aynıdır: mevcut trafonuzda ve ana panonuzda eklenecek yük için yer var mı?"
+      },
+      {
+        "type": "p",
+        "text": "İkinci teknik başlık kompanzasyondur. Sanayi abonelerinde reaktif enerji tüketimi faturaya yansır ve tesise yeni yük eklendiğinde kompanzasyon panosunun yeni duruma göre gözden geçirilmesi gerekir. Şarj cihazlarının bu tabloyu nasıl etkileyeceği, sayı ve güç belirlendikten sonra tesisin elektrik projesini bilen kişi tarafından değerlendirilmelidir. Bu, kurulum öncesi keşfin en önemli maddelerinden biridir."
+      },
+      {
+        "type": "h2",
+        "text": "Üretim yükünüzün tepe saatine dokunmayın"
+      },
+      {
+        "type": "p",
+        "text": "Fabrikanın elektrik yükü gün içinde sabit değildir; makineler devreye girdiğinde tepe yapar. Şarj cihazlarının en kötü senaryosu, tam bu tepe saatinde birlikte tam güçte çekmesidir. Çözüm cihaz sayısını kısmak değil, dinamik yük yönetimidir: sistem tesisin anlık tüketimini görür ve şarj gücünü otomatik olarak kısar, tesis rahatladığında tekrar açar. Bemis'in Charger Plus 2 ve Charger Pro 2 serisi bu yük dengeleme özelliğini taşır; cihazlar 6-32 A aralığında kademeli çalışabildiği için kısma işlemi şarjı kesmeden yapılır."
+      },
+      {
+        "type": "h2",
+        "text": "Elektriği kim ödeyecek? Kararı baştan verin"
+      },
+      {
+        "type": "p",
+        "text": "Personel otoparkında bu soru teknik değil idari bir sorudur ve cevabı üç şekilde verilir: şarj tamamen ücretsiz bir yan hak olarak sunulur, maliyet çalışana yansıtılır ya da belirli bir kWh'e kadar ücretsiz sonrası ücretli bir model kurulur. Hangisini seçerseniz seçin, kimin ne kadar harcadığını görmeden yönetemezsiniz. Charger Plus 2 ve Pro 2 serisinde RFID kart ile kullanıcı yetkilendirme ve kişi bazlı raporlama yapan ortak alan yönetim paneli ücretsiz sunulur; ayrıca lisans ya da abonelik bedeli çıkmaz. Ölçümün fatura dayanağı olması isteniyorsa kasaya entegre MID sayaçlı modeller tercih edilir."
+      },
+      {
+        "type": "h2",
+        "text": "Hangi cihaz: AC mi, DC mi?"
+      },
+      {
+        "type": "p",
+        "text": "Personel ve ziyaretçi otoparkında doğru cevap neredeyse her zaman AC'dir. Araç saatlerce park hâlinde olduğu için 7,4 kW ile 22 kW arasındaki bir AC wallbox ihtiyacı fazlasıyla karşılar ve altyapı maliyeti çok daha düşüktür. DC hızlı şarj, aracın tesiste yalnız dakikalarca kaldığı senaryolar içindir: lojistik giriş-çıkışı, ziyaretçi trafiği yoğun idari bina ya da tesisi halka açık şarj noktası olarak konumlandırma kararı. İkisini karıştırmamak yatırımın en kolay tasarruf kalemidir."
+      },
+      {
+        "type": "h2",
+        "text": "Kurulum öncesi keşif neden şart?"
+      },
+      {
+        "type": "p",
+        "text": "Yukarıdaki maddelerin hiçbiri katalogdan seçilerek cevaplanamaz: mevcut pano, trafo yükü, otoparka mesafe, kablo güzergâhı ve montaj yüzeyi yerinde görülmelidir. Bemis tarafında bu süreç yetkili bayi üzerinden yürür; cihaz seçimi keşiften sonra netleşir, kurulum yetkili elektrik tesisatçısı tarafından yapılır ve ürünler 2 yıl üretici garantisiyle teslim edilir."
+      },
+      {
+        "type": "cta",
+        "text": "Tesisiniz için hangi model ve kaç nokta gerektiğini birlikte belirleyelim.",
+        "href": "/#dealer",
+        "label": "Size en yakın yetkili bayi"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Fabrikaya şarj istasyonu kurmak için ne gerekiyor?",
+        "a": "Üç şey netleşmelidir: aynı anda park hâlinde olacak elektrikli araç sayısı, mevcut trafo ve ana panoda eklenecek yük için yer olup olmadığı, ve elektriğin kim tarafından ödeneceği. Bu üçü belirlendikten sonra cihaz sayısı ve gücü seçilir. Uygulamada sıra şöyle işler: yerinde keşif, cihaz ve nokta sayısının belirlenmesi, gerekiyorsa pano ve kompanzasyon tarafının gözden geçirilmesi, kablo güzergâhının çekilmesi, montaj ve devreye alma. Keşif yapılmadan katalogdan cihaz seçmek, sonradan pano değişikliği gibi maliyetli sürprizler çıkarır."
+      },
+      {
+        "q": "OSB'de şarj istasyonu kurulumu için kimden izin alınır?",
+        "a": "Organize sanayi bölgelerinde elektrik dağıtımı çoğu zaman OSB tüzel kişiliği üzerinden yürütülür. Bu durumda yeni yük bildirimi ve kapasite sorusu için muhatabınız il dağıtım şirketi değil OSB yönetimi olur. Sanayi sitelerinde ise ortak trafo birden çok iş yerine hizmet ettiğinden site yönetimiyle kapasite konuşulması gerekir. Tesis kendi trafosuna sahipse durum daha basittir ancak mevcut yük ve kompanzasyon yine değerlendirilmelidir. Sürecin nasıl işlediği bölgeden bölgeye değiştiği için ilk adım bağlı olduğunuz yönetime yazılı olarak sormaktır."
+      },
+      {
+        "q": "Personel otoparkı için kaç adet şarj cihazı gerekir?",
+        "a": "Belirleyici sayı toplam personel sayısı değil, aynı anda otoparkta duran elektrikli araç sayısıdır. Çalışanın aracı mesai boyunca park hâlinde olduğu için tek bir cihaz gün içinde birden fazla araca hizmet edebilir; 8 saatlik bir pencerede 7,4 kW günlük kullanım için gereken enerjiyi rahatlıkla verir. Üç vardiyalı tesiste aynı nokta üç sürücüye sırayla hizmet edebilir. Pratik yaklaşım, bugünkü elektrikli araç sayısına göre cihaz koymak ama kablo ve pano altyapısını birkaç yıl sonrasına göre çekmektir; sonradan cihaz eklemek kolay, kablo çekmek pahalıdır."
+      },
+      {
+        "q": "Şarj cihazları fabrikanın elektriğini zorlar mı?",
+        "a": "Yük yönetimi olmadan zorlayabilir, çünkü en kötü senaryoda cihazlar üretim yükünün tepe yaptığı saatte birlikte tam güçte çeker. Dinamik yük dengeleme bunu çözer: sistem tesisin anlık tüketimini izler, şarj gücünü otomatik kısar ve tesis rahatladığında yeniden yükseltir. Bemis Charger Plus 2 ve Charger Pro 2 serisi bu özelliği taşır ve cihazlar 6-32 A aralığında kademeli çalıştığı için güç kısma işlemi şarjı kesmeden yapılır. Ayrıca şarjı üretim dışı saatlere kaydırmak için zamanlayıcı kullanılabilir."
+      },
+      {
+        "q": "Çalışanların harcadığı elektriği nasıl takip ederiz?",
+        "a": "Kişi bazlı takip için iki şey gerekir: kullanıcı yetkilendirme ve kayıt. RFID kart ile her çalışan kendi kartıyla şarjı başlatır, sistem kimin ne kadar kWh harcadığını kaydeder. Bemis'te Charger Plus 2 ve Charger Pro 2 serisinde ortak alan yönetim paneli ücretsiz sunulur, ayrı abonelik veya lisans bedeli çıkmaz. Ölçümün faturaya dayanak olması isteniyorsa kasaya entegre MID sayaçlı modeller seçilir. Bu yapı, şarjın ücretsiz yan hak olarak sunulduğu durumda bile maliyeti görmek açısından önemlidir."
+      },
+      {
+        "q": "İşletmeye AC wallbox mı DC hızlı şarj mı almalıyım?",
+        "a": "Belirleyici olan aracın tesiste ne kadar kaldığıdır. Personel ve ziyaretçi otoparkında araç saatlerce park hâlinde olduğu için 7,4-22 kW aralığındaki bir AC wallbox ihtiyacı fazlasıyla karşılar ve altyapı maliyeti belirgin biçimde düşüktür. DC hızlı şarj, aracın yalnız dakikalarca kaldığı senaryolar içindir: yoğun ziyaretçi trafiği, lojistik giriş-çıkışı ya da tesisi halka açık şarj noktası olarak konumlandırma kararı. Çoğu üretim tesisi için doğru cevap AC'dir; DC ihtiyacı varsa genellikle ayrı ve sayıca az bir noktada olur."
+      }
+    ],
+    "related": [
+      {
+        "label": "Ev Tipi Şarj İstasyonu (AC Wallbox)",
+        "href": "/products/wallbox"
+      },
+      {
+        "label": "Araç filosu şarj çözümleri",
+        "href": "/blog/arac-filosu-elektrikli-sarj-cozumleri"
+      },
+      {
+        "label": "Yük yönetimi nedir?",
+        "href": "/blog/elektrikli-arac-sarj-yuk-yonetimi"
+      },
+      {
+        "label": "Ortak alan şarj yönetim paneli",
+        "href": "/blog/ortak-alan-sarj-yonetim-paneli-apartman-site"
+      },
+      {
+        "label": "Kurulum rehberi",
+        "href": "/blog/elektrikli-arac-sarj-istasyonu-kurulum-rehberi"
+      }
+    ]
+  },
+  {
+    "slug": "dc-sarj-unitesi-duvar-tipi-mi-direk-tipi-mi",
+    "title": "DC Şarj Ünitesi: Duvar Tipi mi, Direk Tipi mi?",
+    "cover": "/blog-kapak/dc-sarj-unitesi-duvar-tipi-mi-direk-tipi-mi.jpg",
+    "metaTitle": "DC Şarj Ünitesi: Duvar Tipi mi Direk Tipi mi?",
+    "description": "DC şarj ünitesi seçerken duvar tipi ile direk (ayaklı) tip arasındaki fark: montaj yüzeyi, saha düzeni, ölçü ve ağırlık. 40 kW örneğiyle karşılaştırma.",
+    "excerpt": "Aynı güçteki bir DC şarj ünitesi iki farklı gövdeyle gelebilir: duvara monte edilen tip ve kendi ayağı üzerinde duran direk tip. Fark elektrikte değil, sahada: nereye monte edeceğiniz ve aracın nasıl yanaşacağı kararı belirler.",
+    "category": "Rehber",
+    "datePublished": "2026-09-18",
+    "readingMinutes": 6,
+    "keywords": [
+      "dc şarj ünitesi",
+      "dc hızlı şarj cihazı",
+      "hızlı şarj ünitesi",
+      "direk tipi şarj istasyonu",
+      "duvar tipi dc şarj",
+      "ayaklı şarj istasyonu",
+      "dc şarj istasyonu montaj",
+      "ccs2 hızlı şarj"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "DC hızlı şarj ünitesi seçerken ilk konuşulan şey genelde güçtür: 40 kW mı, 80 kW mı, 120 kW mı? Güç netleştikten sonra çoğu alıcının beklemediği ikinci bir karar çıkar: aynı güçteki ünite iki farklı gövdeyle sunulabilir. Biri duvara monte edilir, diğeri kendi ayağı üzerinde durur. Elektriksel olarak aynı işi yaparlar; fark tamamen sahadadır."
+      },
+      {
+        "type": "h2",
+        "text": "İki tip arasındaki gerçek fark"
+      },
+      {
+        "type": "p",
+        "text": "Duvar tipi ünite, taşıyıcı bir yüzeye sabitlenir. Yani ünitenin ağırlığını duvar taşır, cihaz yerden yükseğe alınır ve önündeki alan tamamen boş kalır. Direk (ayaklı) tip ise kendi gövdesiyle birlikte bir kaide üzerinde durur; arkasında duvar olmayan açık otopark, ada ortası ya da yeşil alan kenarı gibi noktalara konabilir. Bu nedenle direk tip daha derin ve belirgin biçimde daha ağırdır."
+      },
+      {
+        "type": "table",
+        "caption": "Bemis BEVDC 40 örneğinde iki gövde",
+        "headers": [
+          "",
+          "Duvar Tipi",
+          "Direk Tipi"
+        ],
+        "rows": [
+          [
+            "Çıkış gücü",
+            "40 kW",
+            "40 kW"
+          ],
+          [
+            "Konnektör",
+            "CCS2",
+            "CCS2"
+          ],
+          [
+            "Genişlik × Derinlik × Yükseklik",
+            "600 × 320 × 900 mm",
+            "600 × 425 × 1770 mm"
+          ],
+          [
+            "Ağırlık",
+            "80 kg",
+            "105 kg"
+          ],
+          [
+            "Montaj",
+            "Taşıyıcı duvara sabitlenir",
+            "Kendi ayağı üzerinde, zemine sabitlenir"
+          ],
+          [
+            "Tipik yer",
+            "Kapalı otopark, bina cephesi, saha duvarı",
+            "Açık otopark, ada ortası, duvarsız alan"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Duvar tipi ne zaman doğru seçim?"
+      },
+      {
+        "type": "p",
+        "text": "Montaj yapılacak yerde ünitenin ağırlığını taşıyabilecek sağlam bir duvar ya da kolon varsa duvar tipi neredeyse her zaman daha pratiktir. Kaide dökülmez, zemin delinmez, cihaz aracın çarpma hattının dışında kalır ve otoparkta yer kaybı olmaz. Kapalı otoparklar, bina cepheleri ve saha çevre duvarları bu tipin doğal yeridir."
+      },
+      {
+        "type": "h2",
+        "text": "Direk tipi ne zaman gerekir?"
+      },
+      {
+        "type": "p",
+        "text": "Aracın yanaşacağı noktada duvar yoksa karar kendiliğinden verilmiştir. Park adalarının ortası, açık otoparkların orta şeritleri ve peyzaj kenarları duvarsızdır; buralarda ünite kendi ayağı üzerinde durmak zorundadır. Direk tipin ikinci avantajı görünürlüktür: 1770 mm yüksekliğindeki bir gövde uzaktan fark edilir, bu da tesisi halka açık şarj noktası olarak konumlandıran işletmeler için anlamlıdır."
+      },
+      {
+        "type": "h2",
+        "text": "Kararı etkileyen üçüncü unsur: kablo ve yanaşma"
+      },
+      {
+        "type": "p",
+        "text": "Gövde tipinden bağımsız olarak, ünitenin aracın şarj soketine ulaşması gerekir. DC kabloları ağır olduğu için gereksiz uzunluk kullanıcıyı yorar, kısa kalması ise aracı belirli bir yönde park etmeye zorlar. Bu yüzden gövde seçimi ile park yerleşimi birlikte planlanır: aracın hangi yönden yanaşacağı, şarj soketinin aracın hangi tarafında olduğu ve kablonun yerde sürünmeden ulaşıp ulaşmadığı keşif sırasında ölçülür."
+      },
+      {
+        "type": "h2",
+        "text": "Duvar tipi için taşıyıcı yüzey nasıl değerlendirilir?"
+      },
+      {
+        "type": "p",
+        "text": "Duvar tipini seçmeden önce cevaplanması gereken soru basit ama atlanıyor: bu duvar 80 kilogramlık bir üniteyi, üzerine asılan kabloyla birlikte, yıllarca taşıyabilir mi? Betonarme perde ya da kolon bu yük için sorun çıkarmaz; hafif bölme duvar, briket veya sonradan örülmüş bir yüzey ise taşıyıcı kabul edilmez. Montaj yüksekliği de burada belirlenir: konnektörün rahat ulaşacağı ancak kablonun yere sürünmeyeceği bir kot seçilir. Bu değerlendirme katalogdan değil, yerinde bakılarak yapılır."
+      },
+      {
+        "type": "h2",
+        "text": "Daha yüksek güçlerde gövde tartışması biter"
+      },
+      {
+        "type": "p",
+        "text": "Duvar ve direk ayrımı düşük güç kademesine özgüdür. Güç yükseldikçe ünitenin içindeki dönüştürücü ve soğutma hacmi büyür, cihaz duvara asılabilecek bir gövdeden çıkar ve zemine oturan kabin tipine döner. Bemis BEVDC serisinde 40 kW iki gövdeyle sunulurken 80 kW ve üzeri kademeler kabin tipidir; 120 kW ve üzerindeki modellerde ayrıca 10 inç kapasitif dokunmatik ekran ve IK10 darbe dayanımı bulunur. Yani gövde seçimi aslında güç kademesiyle birlikte kendiliğinden daralır."
+      },
+      {
+        "type": "h2",
+        "text": "Elektriksel özellikler her iki tipte aynıdır"
+      },
+      {
+        "type": "p",
+        "text": "Seçim yaparken gövdeye bakıp özellikten ödün verdiğinizi düşünmeyin. Bemis BEVDC serisinde her iki gövde de aynı elektriksel altyapıyı taşır: CCS2 konnektör, AC 380-480 V üç faz giriş, 150-1000 V DC çıkış aralığı, IP54 koruma sınıfı, -25 °C ile +55 °C çalışma sıcaklığı, OCPP 1.6J / 2.0.1 protokol desteği ve RFID kart ile mobil uygulama üzerinden kullanıcı doğrulama. Seri 40 kW'tan 200 kW'a kadar genişler; daha yüksek güç kademelerinde gövde kabin tipine döner."
+      },
+      {
+        "type": "cta",
+        "text": "Sahanızın düzenine hangi gövdenin uyduğunu keşifle netleştirelim.",
+        "href": "/products/dc-units",
+        "label": "DC hızlı şarj ünitelerini inceleyin"
+      }
+    ],
+    "faq": [
+      {
+        "q": "DC şarj ünitesi nedir?",
+        "a": "DC şarj ünitesi, şebekeden aldığı alternatif akımı kendi içinde doğru akıma çevirip aracın bataryasına doğrudan veren hızlı şarj cihazıdır. AC şarjda bu dönüşümü aracın kendi dahili şarj ünitesi yapar ve gücü o sınırlar; DC'de dönüşüm cihazın içinde olduğu için aracın dahili ünitesi devre dışı kalır ve çok daha yüksek güçlere çıkılabilir. Bu nedenle DC üniteler dakikalar mertebesinde şarj sağlar ve araçların kısa süre durduğu noktalar için kullanılır. Sahada aynı ürün için DC şarj cihazı, hızlı şarj ünitesi ya da DC şarj istasyonu isimleri de kullanılır."
+      },
+      {
+        "q": "Duvar tipi ile direk tipi DC ünite arasında güç farkı var mı?",
+        "a": "Hayır. Aynı model için gövde tipi elektriksel özellikleri değiştirmez; çıkış gücü, konnektör tipi, koruma sınıfı, çalışma sıcaklığı ve protokol desteği iki tipte de aynıdır. Fark fiziksel tarafta ortaya çıkar: direk tip kendi ayağını taşıdığı için daha derin ve daha ağırdır. Bemis BEVDC 40 örneğinde duvar tipi 600 × 320 × 900 mm ve 80 kg iken direk tipi 600 × 425 × 1770 mm ve 105 kg gelir. Seçim bu yüzden performansa değil, montaj yüzeyine ve saha düzenine göre yapılır."
+      },
+      {
+        "q": "Direk tipi şarj istasyonu için zemin hazırlığı gerekir mi?",
+        "a": "Evet. Direk tip ünite kendi ağırlığını zemine aktardığı için sabitleneceği yerin bu yükü taşıyacak şekilde hazırlanması gerekir; uygulamada bu genellikle bir beton kaide ve ankraj anlamına gelir. Ayrıca kablo girişinin zeminden yapılması nedeniyle güzergâhın kaideyle birlikte planlanması gerekir; kablo kanalı sonradan açmak çok daha maliyetlidir. Duvar tipinde ise bu adım yoktur, ünite taşıyıcı yüzeye sabitlenir. Her iki durumda da zemin ve montaj detayı kurulum öncesi keşifte yerinde belirlenmelidir."
+      },
+      {
+        "q": "İşletmem için hangi DC güç kademesini seçmeliyim?",
+        "a": "Belirleyici olan aracın tesisinizde ne kadar kalacağıdır. Araç yarım saat ve üzeri duruyorsa 40 kW sınıfı çoğu senaryoyu karşılar; ziyaretin on beş dakikaya indiği yol üstü noktalarda daha yüksek kademeler anlamlı hâle gelir. Güç arttıkça yalnız cihaz değil, şebeke bağlantısı ve trafo tarafı da büyüdüğü için karar tek başına cihaz fiyatına bakılarak verilmemelidir. Bemis BEVDC serisi 40, 80, 120, 160, 180 ve 200 kW kademelerini kapsar; doğru kademe, ziyaret süresi ve mevcut elektrik altyapısı birlikte değerlendirilerek seçilir."
+      },
+      {
+        "q": "DC şarj ünitesi dış mekâna kurulabilir mi?",
+        "a": "Evet, bu üniteler dış mekân kurulumu için tasarlanır. Bemis BEVDC serisi IP54 koruma sınıfına sahiptir ve -25 °C ile +55 °C aralığında çalışacak şekilde belirtilmiştir; yani açık otoparkta yağmura ve mevsim sıcaklıklarına maruz kalacak şekilde konumlandırılabilir. Yine de sahada iki noktaya dikkat edilir: ünitenin ve kablonun araç manevra hattının dışında kalması, ve ekranın gün boyu doğrudan güneş altında kalmaması tercih edilir. Kurulum yerinin seçimi keşif sırasında bu detaylar gözetilerek yapılır."
+      }
+    ],
+    "related": [
+      {
+        "label": "DC Hızlı Şarj Üniteleri",
+        "href": "/products/dc-units"
+      },
+      {
+        "label": "40 kW DC şarj istasyonu nedir?",
+        "href": "/blog/40-kw-dc-sarj-istasyonu"
+      },
+      {
+        "label": "İşletmeler için DC yatırım rehberi",
+        "href": "/blog/isletmeler-icin-dc-hizli-sarj-istasyonu-yatirimi"
+      },
+      {
+        "label": "AC ve DC şarj farkı",
+        "href": "/blog/ac-dc-sarj-farki"
+      },
+      {
+        "label": "DC şarj kablosu ve CCS2 soketi seçimi",
+        "href": "/blog/dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir"
+      }
+    ]
+  },
+  {
+    "slug": "sarj-istasyonu-bakim-periyodik-kontrol",
+    "title": "Şarj İstasyonu Bakımı ve Periyodik Kontrol: Neye Bakılır?",
+    "cover": "/blog-kapak/sarj-istasyonu-bakim-periyodik-kontrol.jpg",
+    "metaTitle": "Şarj İstasyonu Bakımı ve Periyodik Kontrol",
+    "description": "Şarj istasyonunda periyodik kontrol: kaçak akım rölesi testi, konnektör aşınması, conta ve kablo kontrolü, yazılım ve kayıt tarafı.",
+    "excerpt": "Şarj cihazı kurulduktan sonra kendi hâline bırakılan bir ekipman değildir. Hareketli tek parçası konnektördür ve en çok yıpranan yer orasıdır. Düzenli bir kontrol listesi, arızayı sahada değil masada yakalar.",
+    "category": "Teknik",
+    "datePublished": "2026-09-18",
+    "readingMinutes": 6,
+    "keywords": [
+      "şarj istasyonu bakımı",
+      "şarj cihazı periyodik kontrol",
+      "wallbox bakımı",
+      "şarj istasyonu servisi",
+      "kaçak akım rölesi testi",
+      "şarj konnektörü aşınması",
+      "şarj istasyonu arıza önleme"
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Bir şarj istasyonu kurulduğu gün en iyi hâlindedir; sonrasında onu yıpratan şey elektrik değil kullanımdır. Konnektör her gün takılır çıkarılır, kablo yere düşer, kapak contası güneş ve soğuk arasında gidip gelir. Bu yazı, ev tipi bir wallbox'tan ortak alandaki bir cihaza kadar hepsinde geçerli olan pratik kontrol listesini veriyor. Elektriksel müdahale gerektiren her adım yetkili kişiye aittir; buradaki liste neyin izleneceğini anlatır, kullanıcının cihazı açmasını önermez."
+      },
+      {
+        "type": "h2",
+        "text": "En çok yıpranan parça: konnektör ve kablo"
+      },
+      {
+        "type": "p",
+        "text": "Şarj cihazının hareketli tek parçası konnektördür ve arızaların büyük bölümü orada başlar. Gözle bakılacaklar bellidir: pimlerde kararma ya da yanık izi, plastik gövdede çatlak, kilit mandalında gevşeme, kablo kılıfında ezilme veya kesik. Kablonun cihaza girdiği nokta ile konnektöre girdiği nokta özellikle kontrol edilir, çünkü kablo en çok orada bükülür. Konnektör yere düşüyorsa askı aparatı kullanmak bu yıpranmayı belirgin biçimde azaltır."
+      },
+      {
+        "type": "h2",
+        "text": "Koruma tarafı: kaçak akım rölesi ve pano"
+      },
+      {
+        "type": "p",
+        "text": "Şarj tesisatını koruyan kaçak akım rölesinin çalıştığını doğrulamanın yolu, üzerindeki test düğmesidir; basıldığında rölenin atması beklenir. Bu, cihaz açılmadan yapılabilen ve tesisatçıların düzenli aralıklarla önerdiği basit bir kontroldür. Pano tarafında ise klemens bağlantılarının gevşeyip gevşemediği, ısınma izi olup olmadığı yetkili kişi tarafından bakılır; gevşek bir bağlantı zamanla ısınarak arıza üretir."
+      },
+      {
+        "type": "h2",
+        "text": "Dış mekân cihazlarında su ve toz"
+      },
+      {
+        "type": "p",
+        "text": "Dış ortamdaki bir cihazda koruma sınıfını ayakta tutan şey gövdenin kendisi kadar contalar ve kapaklardır. Kapak contasının ezilmemiş ve yerinden çıkmamış olması, kablo giriş rakorlarının sıkı olması, havalandırma varsa önünün tıkanmamış olması bakılacak maddelerdir. Bemis'in ev tipi AC serisi IP65, BEVDC serisi IP54 koruma sınıfıyla belirtilir; bu sınıflar cihaz kapalı ve contaları sağlamken geçerlidir."
+      },
+      {
+        "type": "h2",
+        "text": "Yazılım ve kayıt tarafı"
+      },
+      {
+        "type": "p",
+        "text": "Ortak alanda ya da işletmede kullanılan cihazlarda kontrol listesi fiziksel maddelerle bitmez. OCPP üzerinden yönetilen bir cihazda bağlantının kopmadığından, kayıtların düzgün tutulduğundan ve yetkilendirme kartlarının güncel olduğundan emin olunmalıdır. İşten ayrılan bir çalışanın RFID kartının hâlâ yetkili görünmesi, teknik olmayan ama gerçek bir sorundur. Kişi bazlı raporlama yapan bir yönetim paneli kullanılıyorsa aylık tüketim raporunu okumak aynı zamanda erken arıza sinyali verir: bir noktanın tüketimi beklenmedik şekilde düştüyse o cihazda bir sorun olabilir."
+      },
+      {
+        "type": "h2",
+        "text": "Pratik kontrol listesi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Konnektör pimlerinde kararma, yanık izi veya çatlak var mı?",
+          "Kablo kılıfında ezilme, kesik veya sert bükülme izi var mı?",
+          "Kaçak akım rölesi test düğmesine basıldığında atıyor mu?",
+          "Kapak contası ve kablo rakorları sağlam ve sıkı mı?",
+          "Cihaz gövdesinde darbe, su izi veya paslanma var mı?",
+          "Ekran ve durum ışıkları normal çalışıyor mu, hata gösteriyor mu?",
+          "Yetkilendirme kartları güncel mi, ayrılan kullanıcılar kaldırıldı mı?",
+          "Şarj kayıtları ve tüketim raporu beklenen aralıkta mı?"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Ne zaman servise haber verilir?"
+      },
+      {
+        "type": "p",
+        "text": "Cihaz şarjı başlatmıyor, sık sık kendiliğinden kesiyor, ekranda kalıcı bir hata gösteriyor, kaçak akım rölesi tekrar tekrar atıyor ya da konnektörde ısınma hissediliyorsa kullanıcının yapacağı bir işlem kalmamıştır. Bu durumlarda cihaz enerjisiz bırakılır ve yetkili servise başvurulur. Bemis ürünleri 2 yıl üretici garantisiyle sunulur; belirtiye göre ne yapılacağını ve başvuru sırasında hangi bilgilerin gerektiğini destek sayfamızda adım adım bulabilirsiniz."
+      },
+      {
+        "type": "cta",
+        "text": "Cihazınız çalışmıyorsa önce buradaki hızlı kontrolü yapın.",
+        "href": "/destek",
+        "label": "Arıza ve garanti desteği"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Elektrikli araç şarj istasyonunun bakımı gerekir mi?",
+        "a": "Evet, ancak bu bakım karmaşık bir işlem değil düzenli bir kontroldür. Cihazın hareketli tek parçası konnektördür ve yıpranma büyük ölçüde orada başlar; pimlerde kararma, kablo kılıfında ezilme ve kilit mandalında gevşeme gözle bakılacak maddelerdir. Bunun yanında kaçak akım rölesinin test düğmesiyle çalıştığının doğrulanması, dış mekân cihazlarında kapak contası ve kablo rakorlarının sağlamlığının kontrolü önerilir. Cihazın içini açmayı gerektiren her işlem yetkili kişiye aittir; kullanıcı tarafındaki kontrol gövde dışıyla sınırlıdır."
+      },
+      {
+        "q": "Şarj cihazı ne sıklıkla kontrol edilmeli?",
+        "a": "Kullanım yoğunluğu belirleyicidir. Evde günde bir kez kullanılan bir wallbox ile apartman otoparkında günde birçok kez takılıp çıkarılan bir cihaz aynı hızda yıpranmaz. Pratik yaklaşım, gözle yapılan konnektör ve kablo kontrolünü kullanım yoğunluğuna göre düzenli aralıklarla tekrarlamak, kaçak akım rölesi testini ise ihmal etmemektir. Ortak alanda ya da işletmede kullanılan cihazlarda kontrolü bir kişiye görev olarak vermek en sağlıklısıdır; sahipsiz bırakılan cihazlarda küçük bir aşınma fark edilmeden arızaya dönüşür."
+      },
+      {
+        "q": "Şarj konnektörü aşınırsa ne olur, değişir mi?",
+        "a": "Konnektör aşınması önce performans olarak değil temas kalitesi olarak kendini gösterir: şarj sık sık kesilir, bağlantı gevşek hisseder ya da pimlerde kararma görünür. Bu belirtilerde kullanılmaya devam etmek ısınmaya ve daha büyük hasara yol açabilir, bu yüzden değerlendirme yetkili servise bırakılmalıdır. Kabloyu yerden yüksekte tutan bir askı aparatı kullanmak, konnektörün yere düşmesini engelleyerek bu yıpranmayı belirgin biçimde geciktirir. DC istasyonlarda kablo seti zaten ömür boyunca değişebilen bir parça olarak planlanır."
+      },
+      {
+        "q": "Şarj cihazının yazılımı güncellenir mi?",
+        "a": "OCPP protokolü üzerinden bir yönetim sistemine bağlı çalışan cihazlarda yazılım tarafı da kontrol listesinin parçasıdır. Burada bakılacak şey yalnız güncelleme değil, bağlantının kopmamış olması ve kayıtların düzgün tutulmasıdır; çünkü faturalandırma ya da kişi bazlı takip yapılıyorsa kayıp kayıt doğrudan sorun üretir. Yetkilendirme tarafında ise kullanıcı listesinin güncel tutulması gerekir; ayrılan bir kullanıcının kartının hâlâ yetkili görünmesi teknik olmayan ama gerçek bir açıktır. Bu işlemler cihaz açılmadan yönetim paneli üzerinden yapılır."
+      }
+    ],
+    "related": [
+      {
+        "label": "Arıza ve garanti desteği",
+        "href": "/destek"
+      },
+      {
+        "label": "Evde şarj güvenli mi?",
+        "href": "/blog/evde-elektrikli-arac-sarji-guvenli-mi"
+      },
+      {
+        "label": "Kurulum rehberi",
+        "href": "/blog/elektrikli-arac-sarj-istasyonu-kurulum-rehberi"
+      },
+      {
+        "label": "AC Şarj Kabloları",
+        "href": "/products/cables"
+      },
+      {
+        "label": "Ev Tipi Şarj İstasyonu (AC Wallbox)",
+        "href": "/products/wallbox"
+      }
+    ]
+  },
+  {
     "slug": "dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir",
     "title": "DC Şarj Kablosu ve CCS2 Soketi Nasıl Seçilir?",
     "cover": "/blog-kapak/dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir.jpg",

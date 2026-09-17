@@ -1095,9 +1095,13 @@ export const CATEGORY_SEO: Record<string, { title: string; metaTitle?: string; d
     // ⚠️ Bu sayfa metin açısından en zayıfıydı (taramada tüm varyantlar 0).
     // "istasyon" (ünite eş anlamlısı), "araba" ve güven kelimeleri eklendi.
     // metaTitle SERP'i hedefler; H1 (title) DEĞİŞMEDİ.
+    // ⚠️ 2026-09-18: kullanıcı "dc şarj ünitesi / hızlı şarj ünitesi" aramalarını
+    // saydı. Ölçüldü: "DC şarj ünitesi" TAM İFADESİ sitede 0 kez geçiyordu (yalnız
+    // H1'deki "DC Hızlı Şarj Üniteleri" çoğul hâli vardı). metaTitle + desc bu terimi
+    // ve gövde tipi ayrımını (duvar / direk) açıkça taşıyor; H1 (title) DEĞİŞMEDİ.
     title: "DC Hızlı Şarj Üniteleri — CCS2",
-    metaTitle: "DC Hızlı Şarj İstasyonu — CCS2, 40–200 kW",
-    desc: "Elektrikli araç (araba) DC hızlı şarj istasyonu / ünitesi: CCS2, 40–200 kW. %94 Yerli Malı Belgeli, CE sertifikalı ve garantili üretim — üreticisinden.",
+    metaTitle: "DC Şarj Ünitesi ve Hızlı Şarj İstasyonu — CCS2",
+    desc: "Elektrikli araba DC şarj ünitesi ve hızlı şarj istasyonu: CCS2, 40–200 kW, duvar ve direk tipi. %94 Yerli Malı Belgeli, CE sertifikalı — üreticisinden.",
     short: "DC Hızlı Şarj İstasyonu",
   },
 };

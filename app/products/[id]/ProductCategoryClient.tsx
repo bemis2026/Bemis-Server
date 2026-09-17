@@ -22,7 +22,7 @@ import SearchOverlay from "../../components/SearchOverlay";
 import {
   RiChargingPile2Line, RiBatteryChargeLine, RiFlashlightLine,
   RiPlugLine, RiCarLine, RiToolsLine, RiToolsFill, RiGasStationLine,
-  RiRulerLine,
+  RiRulerLine, RiSearchEyeLine, RiFileList3Line, RiShieldCheckLine,
 } from "react-icons/ri";
 import Image from "../../components/Img";
 import { ProductGridSkeleton } from "../../components/ProductCardSkeleton";
@@ -629,6 +629,58 @@ export default function ProductCategoryPage({
              yoksa ilk HTML Türkçe basılır (descriptionOverride ile aynı kural).
           ⚠️ RTL: kenar vurgusu `borderInlineStart` (mantıksal) — fiziksel borderLeft
              Arapça'da yanlış tarafa düşer. */}
+      {/* DC HİZMET BANDI — yalnız dc-units (kullanıcı isteği 2026-09-18).
+          DC alıcısı yüksek bedelli ve uzun kararlı bir yatırım yapıyor; sayfada
+          "cihazı satıp bırakmıyoruz" mesajı olmadan ürün listesi tek başına yetmiyor.
+          ⚠️ İÇERİK SINIRI: burada UYDURMA ticari vaat YOK — dört adım da sitenin
+             başka yerinde zaten yazılı olgulara dayanır (keşif/kurulum yetkili bayi
+             ve yetkili elektrik tesisatçısı üzerinden; 2 yıl üretici garantisi;
+             DC serisinde ek ücretle +3 yıl uzatma spec'te kayıtlı). Süre taahhüdü,
+             fiyat, ücretsiz kurulum gibi doğrulanmamış hiçbir şey yazılmadı.
+          ⚠️ Görünür metin pickText'e bağlı (check:i18n 5. sınıf); EN dizeleri
+             ui.json'da de/es/ar/ru karşılıklarıyla birlikte tanımlı. */}
+      {id === "dc-units" && (() => {
+        const adimlar = [
+          { I: RiSearchEyeLine, t: pickText(lang, "Yerinde keşif", "On-site survey"),
+            d: pickText(lang, "Saha, pano ve kablo güzergâhı yetkili bayiyle birlikte görülür.", "The site, panel and cable route are inspected together with the authorised dealer.") },
+          { I: RiFileList3Line, t: pickText(lang, "Doğru ünite", "The right unit"),
+            d: pickText(lang, "Güç kademesi ve gövde tipi keşiften sonra netleşir.", "Power class and enclosure type are decided after the survey.") },
+          { I: RiToolsLine, t: pickText(lang, "Kurulum", "Installation"),
+            d: pickText(lang, "Montaj ve devreye alma yetkili elektrik tesisatçısı tarafından yapılır.", "Mounting and commissioning are carried out by a qualified electrician.") },
+          { I: RiShieldCheckLine, t: pickText(lang, "Garanti ve servis", "Warranty and service"),
+            d: pickText(lang, "2 yıl üretici garantisi; DC serisinde ek ücretle +3 yıl uzatma opsiyonu.", "2-year manufacturer warranty; the DC series offers an optional 3-year extension for a fee.") },
+        ];
+        return (
+          <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto w-full px-5 sm:px-6 lg:px-8 pb-10">
+            <div className="rounded-2xl p-5 sm:p-6" style={{ background: surface, border: `1px solid ${surfaceBorder}`, borderInlineStartWidth: 3, borderInlineStartColor: accent }}>
+              <h2 className="text-base sm:text-lg font-black mb-1" style={{ color: textPrimary }}>
+                {pickText(lang, "Keşiften servise kadar yanınızdayız", "With you from survey to service")}
+              </h2>
+              <p className="text-sm mb-5" style={{ color: textMuted }}>
+                {pickText(lang, "DC hızlı şarj bir cihaz alımı değil, bir kurulum işidir. Süreç dört adımda yürür.", "DC fast charging is an installation project, not just a purchase. The process runs in four steps.")}
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {adimlar.map((a, i) => (
+                  <div key={i} className="rounded-xl p-4" style={{ background: groupHeaderBg, border: `1px solid ${surfaceBorder}` }}>
+                    <a.I size={20} style={{ color: accentInk(accent, d) }} />
+                    <p className="text-sm font-bold mt-2 mb-1" style={{ color: textPrimary }}>{a.t}</p>
+                    <p className="text-xs leading-relaxed" style={{ color: textMuted }}>{a.d}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-2.5 mt-5">
+                <a href="/#dealer" className="inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2.5 rounded-xl text-white transition-all hover:opacity-90 cursor-pointer" style={{ background: accent }}>
+                  {pickText(lang, "Keşif için bayi bulun", "Find a dealer for a survey")}
+                </a>
+                <a href="/destek" className="inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2.5 rounded-xl transition-all hover:opacity-80 cursor-pointer" style={{ background: groupHeaderBg, color: textPrimary, border: `1px solid ${surfaceBorder}` }}>
+                  {pickText(lang, "Arıza ve garanti desteği", "Fault and warranty support")}
+                </a>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
       {(() => {
         const ga = (metinDili && geoAnswerOverride) || categories?.[id]?.geoAnswer;
         if (!ga?.q?.trim() || !ga?.a?.trim()) return null;

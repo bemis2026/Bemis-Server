@@ -4156,5 +4156,89 @@
   "ar": "نعم. نصدّر إلى أكثر من 80 دولة. لطلبات التجارة الخارجية يمكنكم مراسلتنا على trade@bemis.com.tr؛ كما أنّ صفحة المصنّع وطلب العرض بالإنجليزية متاحة أيضًا.",
   "ru": "Да. Мы экспортируем более чем в 80 стран. По вопросам внешней торговли пишите на trade@bemis.com.tr; наша англоязычная страница производителя и запроса предложения также доступна.",
   "nl": "Ja. Wij exporteren naar meer dan 80 landen. Voor vragen over buitenlandse handel kunt u ons bereiken op trade@bemis.com.tr; onze Engelstalige fabrikant- en offertepagina is eveneens online."
+ },
+ "On-site survey": {
+  "de": "Vor-Ort-Begehung",
+  "es": "Inspección in situ",
+  "ar": "معاينة ميدانية",
+  "ru": "Выезд на объект",
+  "nl": "Inspectie ter plaatse"
+ },
+ "The site, panel and cable route are inspected together with the authorised dealer.": {
+  "de": "Standort, Verteiler und Kabelführung werden gemeinsam mit dem autorisierten Händler begutachtet.",
+  "es": "El emplazamiento, el cuadro eléctrico y el trazado del cable se revisan junto con el distribuidor autorizado.",
+  "ar": "يتم فحص الموقع ولوحة التوزيع ومسار الكابل مع الموزّع المعتمد.",
+  "ru": "Площадка, электрощит и трасса кабеля осматриваются совместно с авторизованным дилером.",
+  "nl": "De locatie, de verdeelkast en het kabeltracé worden samen met de erkende dealer bekeken."
+ },
+ "The right unit": {
+  "de": "Die passende Einheit",
+  "es": "La unidad adecuada",
+  "ar": "الوحدة المناسبة",
+  "ru": "Подходящая станция",
+  "nl": "De juiste unit"
+ },
+ "Power class and enclosure type are decided after the survey.": {
+  "de": "Leistungsklasse und Gehäuseform werden nach der Begehung festgelegt.",
+  "es": "La clase de potencia y el tipo de carcasa se deciden tras la inspección.",
+  "ar": "تُحدَّد فئة القدرة ونوع الهيكل بعد المعاينة.",
+  "ru": "Класс мощности и тип корпуса определяются после выезда.",
+  "nl": "Vermogensklasse en behuizingstype worden na de inspectie bepaald."
+ },
+ "Installation": {
+  "de": "Installation",
+  "es": "Instalación",
+  "ar": "التركيب",
+  "ru": "Установка",
+  "nl": "Installatie"
+ },
+ "Mounting and commissioning are carried out by a qualified electrician.": {
+  "de": "Montage und Inbetriebnahme erfolgen durch eine qualifizierte Elektrofachkraft.",
+  "es": "El montaje y la puesta en marcha los realiza un electricista cualificado.",
+  "ar": "يقوم كهربائي مؤهل بأعمال التركيب والتشغيل.",
+  "ru": "Монтаж и ввод в эксплуатацию выполняет квалифицированный электрик.",
+  "nl": "Montage en inbedrijfstelling worden uitgevoerd door een erkende elektricien."
+ },
+ "Warranty and service": {
+  "de": "Garantie und Service",
+  "es": "Garantía y servicio",
+  "ar": "الضمان والخدمة",
+  "ru": "Гарантия и сервис",
+  "nl": "Garantie en service"
+ },
+ "2-year manufacturer warranty; the DC series offers an optional 3-year extension for a fee.": {
+  "de": "2 Jahre Herstellergarantie; für die DC-Serie ist gegen Aufpreis eine Verlängerung um 3 Jahre möglich.",
+  "es": "2 años de garantía del fabricante; la serie DC ofrece una ampliación opcional de 3 años con coste adicional.",
+  "ar": "ضمان المصنّع سنتان؛ وتتوفر لسلسلة DC إمكانية تمديد 3 سنوات مقابل رسوم إضافية.",
+  "ru": "Гарантия производителя 2 года; для серии DC доступно продление на 3 года за дополнительную плату.",
+  "nl": "2 jaar fabrieksgarantie; voor de DC-serie is tegen meerprijs een verlenging van 3 jaar mogelijk."
+ },
+ "With you from survey to service": {
+  "de": "Von der Begehung bis zum Service an Ihrer Seite",
+  "es": "A su lado desde la inspección hasta el servicio",
+  "ar": "معكم من المعاينة حتى خدمة ما بعد البيع",
+  "ru": "Рядом с вами от выезда до сервиса",
+  "nl": "Van inspectie tot service aan uw zijde"
+ },
+ "DC fast charging is an installation project, not just a purchase. The process runs in four steps.": {
+  "de": "DC-Schnellladen ist ein Installationsprojekt, nicht nur ein Kauf. Der Ablauf erfolgt in vier Schritten.",
+  "es": "La carga rápida en CC es un proyecto de instalación, no solo una compra. El proceso consta de cuatro pasos.",
+  "ar": "الشحن السريع بالتيار المستمر مشروع تركيب وليس مجرد عملية شراء. وتسير العملية في أربع خطوات.",
+  "ru": "Быстрая зарядка постоянным током — это проект монтажа, а не просто покупка. Процесс проходит в четыре этапа.",
+  "nl": "DC-snelladen is een installatieproject, niet alleen een aankoop. Het proces verloopt in vier stappen."
+ },
+ "Find a dealer for a survey": {
+  "de": "Händler für eine Begehung finden",
+  "es": "Encuentre un distribuidor para la inspección",
+  "ar": "ابحث عن موزّع لإجراء المعاينة",
+  "ru": "Найти дилера для выезда",
+  "nl": "Vind een dealer voor een inspectie"
+ },
+ "Fault and warranty support": {
+  "de": "Störungs- und Garantiesupport",
+  "es": "Soporte de averías y garantía",
+  "ar": "دعم الأعطال والضمان",
+  "ru": "Поддержка по неисправностям и гарантии",
+  "nl": "Storings- en garantieondersteuning"
  }
 }
