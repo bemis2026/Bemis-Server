@@ -105,6 +105,34 @@
 > ÖNCE düzeltir (ziyaretçi sıçrama görmez, Googlebot JS çalıştırdığı için düzeltilmiş değeri okur).
 > Ham HTML'de doğru dili basmak kök yerleşimin rotayı bilmesini ister = route-group refactor'u.
 > Kanonik sinyaller (canonical + hreflang + gövde dili) zaten doğru.
+> **🔴 ONARILDI — 3 YENİ REHBERİN ALMANCA + İSPANYOLCASI AKSANSIZ YAZILMIŞTI (aynı gün):**
+> Üretilen HTML doğrulanırken çıktı: bugün eklenen 3 rehberde **Almanca 0 umlaut, İspanyolca
+> 0 aksan** ("fuer · Geraet · Standsaeule · regelmaessige" · "revision periodica · estacion ·
+> pequeno"). **42 eski yazı SAĞLAM**, Rusça/Arapça da sağlam → kusur yalnız bu 3 yazının
+> de/es kolundaydı, yani bugünkü çeviri turumda oluşmuştu.
+> **ALMANCA — mekanik ama KÖR DEĞİL:** ASCII çevrimi deterministik (ä→ae, ö→oe, ü→ue, ß→ss) ama
+> ters çevirmek kör yapılamaz. 🔴 Kuru çalıştırma **iki gerçek hata yakaladı**:
+> `zuerst → zürst` ve `Hohlblockmauerwerk → Hohlblockmaürwerk` — ikisinde de "ue" **bileşik
+> sınırında** (zu+erst, mauer+werk) gerçek harf dizisi. `KEEP_UE` listesi + `ss→ß` AÇIK listesi
+> (varsayılan: ss kalır) ile **196 kelime** düzeltildi → 406 umlaut/ß.
+> ⚠️ İkinci tuzak: `Aussenmauer` hem KEEP_UE hem SS_MAP'teydi ve KEEP önce baktığı için
+> `Außenmauer`e HİÇ ulaşmıyordu → öncelik düzeltildi.
+> **İSPANYOLCA — dijraf sinyali YOK**, kelime kelime açık harita: 140 kelime (**-ción tekilde
+> aksanlı, çoğulda DEĞİL** → "estaciones/conexiones" zaten doğru, haritaya alınmadı) + 2. turda
+> **39 soru cümlesinin hiçbirinde `¿` yoktu** → eklendi, soru sözcükleri aksanlandı
+> (qué/quién/cuándo/cuántos/cómo/dónde). ⚠️ **Bağlama bağlı olanlar tek tek CÜMLEDE incelendi:**
+> "esta" 15 geçişin **9'u fiil (`está`), 6'sı işaret sıfatı → dokunulmadı**; "aun así" · "mi
+> empresa" · "corriente continua" · "solo" RAE'ye göre **aksansız DOĞRU**, elle bırakıldı.
+> Uzun paragrafa gömülü 4 soruda `¿` cümlenin başına değil **sorunun başladığı yere** kondu.
+> **KAPILAR:** body/faq/related uzunluğu TR ile TAM · sayısal parmak izi korundu · "?" içeren her
+> metin artık "¿" de içeriyor (0 eksik) · round-trip birebir.
+> ⓘ `fabrika-osb` yazısında 5 dilde birden **parmak izi SIRA farkı** var ({8 · 7,4} ↔ {7,4 · 8});
+> dokunmadığım ar/ru'da da aynı → çeviride cümle sırası değişmiş, **kusur değil**.
+> 📌 **Ders: yeni çeviri eklerken aksan/umlaut sayısını ÖLÇ** — uzunluk ve parmak izi kapıları
+> aksansız metni YAKALAMAZ (ikisi de geçiyordu). Betikler: `scratchpad/_aksan_de.cjs` ·
+> `_aksan_es.cjs` · `_aksan_es2.cjs`. ⚠️ Başlıklar değiştiği için **`npm run gen:blog-index`
+> yeniden çalıştırıldı** (indeks yabancı dil başlıklarını gömer).
+>
 > **ⓘ KALAN TEK BOŞLUK — `/nl` anasayfasında 3 Türkçe REHBER BAŞLIĞI** (ölçüldü: /de /es /ru /en
 > temiz, yalnız /nl'de). Sebep yeni DEĞİL: **`data/i18n/blog.json` `nl` içermiyor** (blog katmanı
 > TR + en/de/es/ar/ru). `postsIndex` çevirisi olmayan başlığı TR'ye düşürür → Felemenkçe anasayfada

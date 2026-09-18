@@ -9,8 +9,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
     "title": "Fabrika, OSB ve Sanayi Sitesinde Personel Otoparkına Şarj İstasyonu",
     "titleI18n": {
       "en": "Charging Stations for Staff Car Parks at Factories and Industrial Estates",
-      "de": "Ladestationen fuer Mitarbeiterparkplaetze in Fabriken und Industriegebieten",
-      "es": "Estaciones de carga en aparcamientos de personal de fabricas y poligonos",
+      "de": "Ladestationen für Mitarbeiterparkplätze in Fabriken und Industriegebieten",
+      "es": "Estaciones de carga en aparcamientos de personal de fábricas y polígonos",
       "ar": "محطات الشحن في مواقف موظفي المصانع والمناطق الصناعية",
       "ru": "Зарядные станции на парковке персонала завода и промзоны"
     },
@@ -22,8 +22,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
     "title": "DC Şarj Ünitesi: Duvar Tipi mi, Direk Tipi mi?",
     "titleI18n": {
       "en": "DC Charging Unit: Wall Mounted or Pedestal?",
-      "de": "DC-Ladeeinheit: Wandmontage oder Standsaeule?",
-      "es": "Unidad de carga DC: mural o con pedestal?",
+      "de": "DC-Ladeeinheit: Wandmontage oder Standsäule?",
+      "es": "Unidad de carga DC: ¿mural o con pedestal?",
       "ar": "وحدة الشحن بالتيار المستمر: جدارية أم على قاعدة؟",
       "ru": "Зарядная станция постоянного тока: настенная или на стойке?"
     },
@@ -35,8 +35,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
     "title": "Şarj İstasyonu Bakımı ve Periyodik Kontrol: Neye Bakılır?",
     "titleI18n": {
       "en": "Charging Station Maintenance and Periodic Checks",
-      "de": "Wartung und regelmaessige Kontrolle der Ladestation",
-      "es": "Mantenimiento y revision periodica de la estacion de carga",
+      "de": "Wartung und regelmäßige Kontrolle der Ladestation",
+      "es": "Mantenimiento y revisión periódica de la estación de carga",
       "ar": "صيانة محطة الشحن والفحص الدوري",
       "ru": "Обслуживание зарядной станции и регулярная проверка"
     },
