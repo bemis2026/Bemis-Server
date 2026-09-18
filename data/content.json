@@ -28,7 +28,30 @@
       "Üniteleri",
       "Soketleri",
       "Kabloları"
-    ]
+    ],
+    "heroImages": [
+      "https://res.cloudinary.com/dmnttjyzm/image/upload/v1784397900/products/roxpkcvmm2q2url3752h.jpg",
+      "https://res.cloudinary.com/dmnttjyzm/image/upload/v1784418259/products/cfxwaewkc20mkrka9c3q.webp"
+    ],
+    "heroImagesPos": [
+      "50% 50%",
+      "50% 50%"
+    ],
+    "heroImagesPosMobile": [
+      "50% 50%",
+      "64% 50%"
+    ],
+    "heroImagesZoom": [
+      1,
+      1
+    ],
+    "heroImagesZoomMobile": [
+      1,
+      1
+    ],
+    "heroBgZoom": 1,
+    "heroBgPosMobile": "85% 32%",
+    "heroBgZoomMobile": 1
   },
   "stats": [
     {
@@ -488,7 +511,7 @@
   "contact": {
     "phone": "+90 (224) 433 02 16",
     "email": "sales@bemis.com.tr",
-    "address": "Bursa OSB, Yeşil Cad. No:19",
+    "address": "Minareliçavuş Mah., Bursa OSB, Yeşil Cad. No:19",
     "addressSub": "16220 Nilüfer / Bursa, Türkiye",
     "workingHours": "08:30 — 18:00",
     "workingDays": "Pazartesi — Cuma",
@@ -932,28 +955,84 @@
     "subheading": "AVM, otopark, otel ve kurumsal kampüslerde devreye aldığımız uygulamalardan kareler.",
     "items": [
       {
+        "id": "proj-1778223874319",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1785004890/products/xymypo08w9rpij7mz0cz.jpg",
+        "title": "",
+        "location": "",
+        "description": "",
+        "imagePos": "49% 49%"
+      },
+      {
+        "id": "proj-1785004772806",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1785004827/products/tqtfhpjkuaxlytu6lzoa.jpg",
+        "title": "",
+        "location": "",
+        "description": "",
+        "imagePos": "51% 51%"
+      },
+      {
+        "id": "proj-1785004768808",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1785004783/products/xe1mm6po6pnijqv3bpg6.jpg",
+        "title": "",
+        "location": "",
+        "description": "",
+        "imagePos": "49% 42%"
+      },
+      {
         "id": "proj-1778222222146",
         "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075798/products/d5irceuqxwl8cksh0xvw.jpg",
         "title": "",
         "location": "",
         "description": "",
-        "imagePos": "50% 42%"
+        "imagePos": "54% 34%"
       },
       {
-        "id": "proj-1778223862154",
-        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075804/products/yzeknlqcmjczuj99jyqk.jpg",
+        "id": "proj-1785004774349",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1785004860/products/h7i2qgcyv3lt09fzy65t.jpg",
         "title": "",
         "location": "",
         "description": "",
-        "imagePos": "50% 45%"
+        "imagePos": "78% 55%"
       },
       {
-        "id": "proj-1778223874319",
-        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1783075807/products/p62d1er8jqhc6ppthodo.jpg",
+        "id": "proj-1785005014091",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1785005025/products/o8bso7t20to5aev47iur.jpg",
         "title": "",
         "location": "",
         "description": "",
-        "imagePos": "50% 40%"
+        "imagePos": "47% 62%"
+      },
+      {
+        "id": "proj-1785005026496",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1785005114/products/nsclyfw1uyowfelejarx.jpg",
+        "title": "",
+        "location": "",
+        "description": "",
+        "imagePos": "41% 45%"
+      },
+      {
+        "id": "proj-1785005128989",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1785005171/products/gvvrqvlrxw8kgdgciouq.jpg",
+        "title": "",
+        "location": "",
+        "description": "",
+        "imagePos": "65% 76%"
+      },
+      {
+        "id": "proj-1785005207563",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1785005341/products/kfdf85zsoowjrfwu8rko.jpg",
+        "title": "",
+        "location": "",
+        "description": "",
+        "imagePos": "47% 87%"
+      },
+      {
+        "id": "proj-1785005364913",
+        "image": "https://res.cloudinary.com/dmnttjyzm/image/upload/v1785005494/products/ogjikwnrv3jka8q3jzog.jpg",
+        "title": "",
+        "location": "",
+        "description": "",
+        "imagePos": "51% 60%"
       },
       {
         "id": "proj-1789739407156",
@@ -1963,5 +2042,54 @@
     "phone": "+90 542 773 72 94",
     "whatsappPhone": "+90 542 773 72 94",
     "whatsappMessage": "Hello, I would like to get information about Bemis E-V Charge products."
+  },
+  "socialWallSection": {
+    "sectionLabel": "",
+    "heading": "",
+    "subheading": "",
+    "items": [
+      {
+        "id": "sw-1788938773862",
+        "url": "https://www.instagram.com/p/Dc9Obdxh5ct/",
+        "cover": "",
+        "caption": "sarjdeneyimi / ⚡️ V2L ekipmanı için @bemisteknik @bemis.evcharge | 3D tasarımlarım için @talyadesignstudio — destek olmak isterseniz takip edebilirsiniz. 🙌",
+        "productId": "tek-cikisli-v2l-adaptor-hyundai"
+      },
+      {
+        "id": "sw-1788938924140",
+        "url": "https://www.instagram.com/p/Dcv0MOEM9BT/",
+        "cover": "",
+        "caption": "Lilüx’ü şimdiye kadar evde ev prizi ile şarj ediyordum. 🏠🔌 Peki dışarıda şarj etmem gerektiğinde ne yapacağım diye düşünüyordum… İşte burada bu adaptör devreye giriyor. ⚡️",
+        "productId": "c2l-tekli-priz-uzatma-fisli-adaptor"
+      },
+      {
+        "id": "sw-1788939048609",
+        "url": "https://www.instagram.com/p/DbJAvj2MEMd/",
+        "cover": "",
+        "caption": "Elektrikli otomobil sahiplerinin özgürlüğüne özgürlük katacak yeni bir teknoloji ile karşınızdayım.  Kampta Priz Aramaya Son veren teknoloji V2L.",
+        "productId": "tek-cikisli-v2l-adaptor-mg"
+      },
+      {
+        "id": "sw-1789227025352",
+        "url": "https://www.instagram.com/p/DCehrErAKNj/?img_index=2",
+        "cover": "",
+        "caption": "Dolubatarya 2024 EV Charge Show IFM ",
+        "productId": "portable"
+      },
+      {
+        "id": "sw-1789256949443",
+        "url": "https://www.instagram.com/p/DbfvqCqs3tq/",
+        "cover": "",
+        "caption": "Elektrikli otomobillerin en güzel özelliklerinden birisi V2L teknolojisi bu sayede elektrikli arabanınızın bataryasının aldığınız enerjiyi dışarı aktarıp çay kahve patates kızartması yumurta tost elektronik ortamda cihazlarla yapabileceğiniz bütün kahvaltı çeşitlerini bu teknolojiyle yapabilirsiniz ben de bugün kemerburgaz'daki ormana geldim burada kahvaltı hazırladım kahvaltının sıcak ve taze olması için arabamdaki V2L teknolojisini kullandım. Arabamdaki bu teknolojiyi kullanabilmek için ise yerli ve milli firmamız olan BEMIS V2L dönüştürücüsünü #Tanıtım amaçlı test ettim. Sonuç muhteşem. Peki siz V2L teknoloji hakkında ne düşünüyorsunuz.",
+        "productId": "tek-cikisli-v2l-adaptor-hyundai"
+      },
+      {
+        "id": "sw-1789467910830",
+        "url": "https://www.instagram.com/p/DdLnYNgISsv/",
+        "cover": "",
+        "caption": "Havaylar Otomasyon & BEMIS ⚡️ Elektrikli aracın sadece şarj olmak için kullanıldığını düşünüyorsan, bu video fikrini değiştirebilir!  Bu videoda, Havaylar Otomasyon’dan gelen BEMIS V2L kablosunu test ediyorum. 🔌🔋 Aracın bataryasındaki enerjiyi farklı cihazları çalıştırmak için kullanabilmek gerçekten çok kullanışlı.  Özellikle kamp, seyahat, acil durumlar veya günlük kullanımda V2L teknolojisinin neler yapabildiğine birlikte bakalım. 👀",
+        "productId": "tek-cikisli-v2l-adaptor-hyundai"
+      }
+    ]
   }
 }
