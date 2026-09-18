@@ -133,12 +133,32 @@
 > `_aksan_es.cjs` · `_aksan_es2.cjs`. ⚠️ Başlıklar değiştiği için **`npm run gen:blog-index`
 > yeniden çalıştırıldı** (indeks yabancı dil başlıklarını gömer).
 >
-> **ⓘ KALAN TEK BOŞLUK — `/nl` anasayfasında 3 Türkçe REHBER BAŞLIĞI** (ölçüldü: /de /es /ru /en
-> temiz, yalnız /nl'de). Sebep yeni DEĞİL: **`data/i18n/blog.json` `nl` içermiyor** (blog katmanı
-> TR + en/de/es/ar/ru). `postsIndex` çevirisi olmayan başlığı TR'ye düşürür → Felemenkçe anasayfada
-> son 3 rehberin başlığı Türkçe görünür. Kapatmak = **46 yazının Felemenkçe çevirisi** (ayrı ve
-> büyük içerik işi); tek satırlık kod düzeltmesi yok. ⚠️ Anasayfa dışında etkisi yok (Felemenkçe
-> blog ADRESİ zaten hiç yok).
+> **🇳🇱✅ FELEMENKÇE BLOG ÇEVİRİSİ TAMAMLANDI — 46/46 (kullanıcı isteği: "felemenkçe blog çevirisini de yap"):**
+> Kaynak boşluk: `data/i18n/blog.json` `nl` içermiyordu (blog katmanı TR + en/de/es/ar/ru) →
+> `postsIndex` çevirisi olmayan başlığı TR'ye düşürdüğü için `/nl` anasayfasında son 3 rehberin
+> başlığı Türkçe görünüyordu. **DURUM: 46/46 yazı uygulandı, boşluk KAPANDI**
+> (`scratchpad/nlceviri/_toplu01..34.json`). Blog dil tablosu artık **TR + 6 dil** (en/de/es/ar/ru/**nl**).
+> **İŞ AKIŞI (yeni yazı eklenince aynen tekrarla):** `npx tsx scratchpad/_nl_dok.mts <index> <adet>`
+> TR kaynağı + blok haritasını döker → çeviri `scratchpad/nlceviri/_topluNN.json`'a yazılır →
+> `npx tsx scratchpad/_nl_yama.mts` KURU kapı kontrolü → temizse `--yaz`. **KAPILAR:** round-trip bayt
+> eşitliği · body/faq/related uzunluğu · blok şekli (p/h2/h3/quote→text · ul→items ·
+> table→caption/headers/rows · cta→text+label · figure→{}) · ul/tablo boyutu · TR harf sızıntısı
+> (ğışİŞĞ) · alfabe · **sayısal parmak izi** (her blok/madde/hücre/faq'ta `\d+` dizisi TR ile
+> BİREBİR — SIRA dahil). Kapılar fail-fast: biri düşerse HİÇBİR ŞEY yazılmaz.
+> ⚠️ **En sık hata (bu turun TEK hata sınıfı): parmak izi SIRASI** — Hollandaca cümle dizilimi
+> Türkçeden farklı olduğu için sayı taşıyan ifadeler yer değiştiriyor (ör. TR "Ioniq 5 V2L" → NL
+> "V2L bij de Ioniq 5" = [2,5] ≠ [5,2]). Çözüm: içeriği değil SIRAYI düzelt ("de Ioniq 5 met V2L").
+> Aynı desen `Mod 3 X`/`X Mod 3`, `per 100 km`/`15-22 kWh`, `Type 2`/`7 pin` çiftlerinde de çıktı.
+> ⚠️ `V2L`/`C2L`/`Type 2`/`Mod 3`/`T10X`/`IP65` içindeki rakamlar da parmak izine girer.
+> ⚠️ `metaTitle`'ı OLMAYAN yazıda çeviriye de YAZMA (TR kaynağını birebir yansıt).
+> ⚠️ `İstanbul`/`İzmir` içindeki `İ` TR-harf kapısına takılır → Hollandaca yazım `Istanbul`/`Izmir`.
+> ⚠️ Yabancı dilde milliyetçi çerçeve YOK ("yerli üretim" → "uit onze eigen fabriek" / "eigen
+> productie"), fiyat/teslim süresi/rakip marka UYDURULMAZ.
+> **BİTİŞ ZİNCİRİ ÇALIŞTIRILDI:** `npm run gen:diagram-i18n` (24 figure + 24 sözlük diyagramı artık
+> **6 dilde, nl dahil**) → `npm run gen:blog-index` (46 yazı · 33,4 KB; indeks yabancı dil
+> başlıklarını gömer) → `npx tsc --noEmit` → `npm run build` → doğrula → commit + push.
+> ⚠️ Görünür etki YALNIZ `/nl` anasayfasındaki rehber başlıkları + dil değiştirince blog gövdesi
+> (Felemenkçe blog ADRESİ hiç yok; `/[lang]/blog` yalnız `ar` üretir).
 > **✅ ÜRETİLEN HTML ÖLÇÜLDÜ:** 5 sayfa × hreflang **8/8** · canonical kendine · başlıklar o dilde
 > ve **marka eki TEK** · ürün linki **26'sı da dil kolunda, TR'ye sızıntı 0** · `/ru` gövdesinde
 > **6.566 Kiril harfi** · TR anasayfa kümesi 8 · `/export` hreflang **0** (kümeden çıktı).

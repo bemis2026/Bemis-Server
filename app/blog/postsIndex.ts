@@ -12,7 +12,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Ladestationen für Mitarbeiterparkplätze in Fabriken und Industriegebieten",
       "es": "Estaciones de carga en aparcamientos de personal de fábricas y polígonos",
       "ar": "محطات الشحن في مواقف موظفي المصانع والمناطق الصناعية",
-      "ru": "Зарядные станции на парковке персонала завода и промзоны"
+      "ru": "Зарядные станции на парковке персонала завода и промзоны",
+      "nl": "Laadstations voor personeelsparkeerplaatsen bij fabrieken en industrieterreinen"
     },
     "category": "Rehber",
     "datePublished": "2026-09-18"
@@ -25,7 +26,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "DC-Ladeeinheit: Wandmontage oder Standsäule?",
       "es": "Unidad de carga DC: ¿mural o con pedestal?",
       "ar": "وحدة الشحن بالتيار المستمر: جدارية أم على قاعدة؟",
-      "ru": "Зарядная станция постоянного тока: настенная или на стойке?"
+      "ru": "Зарядная станция постоянного тока: настенная или на стойке?",
+      "nl": "DC-laadunit: wandmodel of zuilmodel?"
     },
     "category": "Rehber",
     "datePublished": "2026-09-18"
@@ -38,7 +40,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Wartung und regelmäßige Kontrolle der Ladestation",
       "es": "Mantenimiento y revisión periódica de la estación de carga",
       "ar": "صيانة محطة الشحن والفحص الدوري",
-      "ru": "Обслуживание зарядной станции и регулярная проверка"
+      "ru": "Обслуживание зарядной станции и регулярная проверка",
+      "nl": "Onderhoud en periodieke controle van een laadstation: waar let u op?"
     },
     "category": "Teknik",
     "datePublished": "2026-09-18"
@@ -46,6 +49,9 @@ export const POSTS_INDEX: PostIndexItem[] = [
   {
     "slug": "dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir",
     "title": "DC Şarj Kablosu ve CCS2 Soketi Nasıl Seçilir?",
+    "titleI18n": {
+      "nl": "Hoe kiest u een DC-laadkabel en CCS2-connector?"
+    },
     "category": "Teknik",
     "datePublished": "2026-09-14"
   },
@@ -57,7 +63,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Stromeinstellung am tragbaren Ladegerät: Wozu dienen die sechs Stufen?",
       "es": "Ajuste de corriente en el cargador portátil: ¿para qué sirven los seis niveles?",
       "ar": "ضبط التيار في الشاحن المحمول: ما فائدة الدرجات الست؟",
-      "ru": "Настройка тока на переносном зарядном устройстве: для чего нужны шесть ступеней?"
+      "ru": "Настройка тока на переносном зарядном устройстве: для чего нужны шесть ступеней?",
+      "nl": "Stroominstelling bij een mobiele lader: waar dienen zes standen voor?"
     },
     "category": "Teknik",
     "datePublished": "2026-09-12"
@@ -70,7 +77,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Elektroauto mit einem Kabel aus dem Haus laden: Was tun, wenn die Steckdose weit weg ist?",
       "es": "Cargar un coche eléctrico con un cable desde casa: ¿qué hacer si la toma está lejos?",
       "ar": "شحن السيارة الكهربائية بكابل ممدود من المنزل: ماذا تفعل إذا كان المقبس بعيدًا؟",
-      "ru": "Зарядка электромобиля кабелем из дома: что делать, если розетка далеко от машины?"
+      "ru": "Зарядка электромобиля кабелем из дома: что делать, если розетка далеко от машины?",
+      "nl": "Een elektrische auto laden met een kabel vanuit huis: wat als het stopcontact ver van de auto zit?"
     },
     "category": "Rehber",
     "datePublished": "2026-09-12"
@@ -83,7 +91,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Was ist C2L? Der Unterschied zu V2L und Strom aus dem Ladegerät",
       "es": "¿Qué es C2L? La diferencia con V2L y tomar electricidad del cargador",
       "ar": "ما هو C2L؟ الفرق عن V2L وأخذ الكهرباء من جهاز الشحن",
-      "ru": "Что такое C2L? Отличие от V2L и электричество от зарядного устройства"
+      "ru": "Что такое C2L? Отличие от V2L и электричество от зарядного устройства",
+      "nl": "Wat is C2L? Het verschil met V2L en stroom afnemen uit de lader"
     },
     "category": "Teknik",
     "datePublished": "2026-09-11"
@@ -96,7 +105,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "V2L-Adapter richtig wählen: Marke, Steckdosenzahl und Kabel",
       "es": "Cómo elegir un adaptador V2L: marca, número de enchufes y cable",
       "ar": "كيف تختار محوّل V2L؟ دليل العلامة وعدد المقابس والكابل",
-      "ru": "Как выбрать адаптер V2L: марка, число розеток и кабель"
+      "ru": "Как выбрать адаптер V2L: марка, число розеток и кабель",
+      "nl": "Hoe kiest u een V2L-adapter? Gids voor merk, aantal contactdozen en kabel"
     },
     "category": "Rehber",
     "datePublished": "2026-09-11"
@@ -109,7 +119,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Verwaltungspanel für das Laden in Gemeinschaftsbereichen: nutzerbezogene Erfassung in Wohnanlagen",
       "es": "Panel de gestión de carga en zonas comunes: seguimiento por usuario en comunidades",
       "ar": "لوحة إدارة الشحن في المناطق المشتركة: تتبّع لكل مستخدم في المجمّعات السكنية",
-      "ru": "Панель управления зарядкой в общих зонах: учёт по каждому пользователю в жилых комплексах"
+      "ru": "Панель управления зарядкой в общих зонах: учёт по каждому пользователю в жилых комплексах",
+      "nl": "Beheerpaneel voor laden in gedeelde ruimtes: registratie per persoon in appartement en complex"
     },
     "category": "Rehber",
     "datePublished": "2026-09-11"
@@ -122,7 +133,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Was ist eine Wallbox? Ratgeber zur Heimladestation für E-Autos (2026)",
       "es": "¿Qué es un wallbox? Guía de la estación de carga doméstica (2026)",
       "ar": "ما هو Wallbox؟ دليل محطة شحن السيارات الكهربائية المنزلية (2026)",
-      "ru": "Что такое wallbox? Руководство по домашней зарядной станции (2026)"
+      "ru": "Что такое wallbox? Руководство по домашней зарядной станции (2026)",
+      "nl": "Wat is een wallbox? Gids voor het thuislaadstation (2026)"
     },
     "category": "Rehber",
     "datePublished": "2026-09-06"
@@ -135,7 +147,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "11 kW oder 22 kW? Wallbox-Leistungswahl und Ampere-Berechnung",
       "es": "¿11 kW o 22 kW? Elección de potencia del wallbox y cálculo de amperaje",
       "ar": "11 kW أم 22 kW؟ اختيار قدرة الـ wallbox وحساب الأمبير",
-      "ru": "11 кВт или 22 кВт? Выбор мощности wallbox и расчёт силы тока"
+      "ru": "11 кВт или 22 кВт? Выбор мощности wallbox и расчёт силы тока",
+      "nl": "11 kW of 22 kW? Vermogenskeuze en stroomberekening voor een wallbox"
     },
     "category": "Rehber",
     "datePublished": "2026-09-06"
@@ -148,7 +161,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Ladestationsverordnung in der Türkei: Was ist in Wohnanlagen, Tiefgaragen und Einkaufszentren Pflicht?",
       "es": "Reglamento de estaciones de carga en Türkiye: ¿qué es obligatorio en comunidades, aparcamientos y centros comerciales?",
       "ar": "لائحة محطات شحن السيارات الكهربائية في تركيا: ما هو الإلزامي في العمارات والمواقف والمراكز التجارية؟",
-      "ru": "Регламент по зарядным станциям в Турции: что обязательно в жилых домах, паркингах и торговых центрах?"
+      "ru": "Регламент по зарядным станциям в Турции: что обязательно в жилых домах, паркингах и торговых центрах?",
+      "nl": "Regelgeving voor laadstations: wat is verplicht in een appartement, parkeergarage en winkelcentrum?"
     },
     "category": "Rehber",
     "datePublished": "2026-08-28"
@@ -161,7 +175,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Verlängerungskabel fürs E-Auto-Laden: Wie viel mm², welcher Stecker, wie viele Meter?",
       "es": "Alargador para la carga del coche eléctrico: ¿cuántos mm², qué conector, cuántos metros?",
       "ar": "كابل تمديد لشحن السيارة الكهربائية: كم mm²، وأي موصّل، وكم متراً؟",
-      "ru": "Удлинитель для зарядки электромобиля: сколько мм², какой разъём, сколько метров?"
+      "ru": "Удлинитель для зарядки электромобиля: сколько мм², какой разъём, сколько метров?",
+      "nl": "Verlengkabel voor het laden van een elektrische auto: hoeveel mm², welke connector, hoeveel meter?"
     },
     "category": "Rehber",
     "datePublished": "2026-08-28"
@@ -174,7 +189,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Tragbares (mobiles) Ladegerät fürs E-Auto: Was ist das, für wen und was kostet es?",
       "es": "Cargador portátil (móvil) para coche eléctrico: qué es, para quién y cuánto cuesta",
       "ar": "جهاز الشحن المحمول (المتنقّل) للسيارة الكهربائية: ما هو، ولمن يناسب، وكم يكلّف؟",
-      "ru": "Портативное (мобильное) зарядное устройство для электромобиля: что это, кому подходит, сколько стоит"
+      "ru": "Портативное (мобильное) зарядное устройство для электромобиля: что это, кому подходит, сколько стоит",
+      "nl": "Draagbare (mobiele) lader voor een elektrische auto: wat is het, voor wie, wat kost het?"
     },
     "category": "Rehber",
     "datePublished": "2026-07-23"
@@ -187,7 +203,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Welche Elektroautos in der Türkei haben V2L? (Aktualisierte Liste 2026)",
       "es": "¿Qué coches eléctricos de Türkiye tienen V2L? (Lista actualizada 2026)",
       "ar": "أي السيارات الكهربائية في تركيا تدعم V2L؟ (قائمة 2026 المحدَّثة)",
-      "ru": "В каких электромобилях в Турции есть V2L? (Актуальный список 2026)"
+      "ru": "В каких электромобилях в Турции есть V2L? (Актуальный список 2026)",
+      "nl": "Welke elektrische auto's hebben V2L? (actuele lijst 2026)"
     },
     "category": "Rehber",
     "datePublished": "2026-07-23"
@@ -200,7 +217,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Wie lade ich mein Elektroauto zu Hause? Ratgeber für Einsteiger",
       "es": "¿Cómo cargo mi coche eléctrico en casa? Guía para principiantes",
       "ar": "كيف أشحن سيارتي الكهربائية في المنزل؟ دليل المبتدئين لأجهزة الشحن",
-      "ru": "Как заряжать электромобиль дома? Руководство для начинающих"
+      "ru": "Как заряжать электромобиль дома? Руководство для начинающих",
+      "nl": "Hoe laad ik mijn elektrische auto thuis? Een laadgids voor beginners"
     },
     "category": "Rehber",
     "datePublished": "2026-07-20"
@@ -213,7 +231,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Elektroauto mit Solarstrom laden: Zu Hause mit Photovoltaik das Auto laden",
       "es": "Carga del coche eléctrico con energía solar: cargar en casa desde placas solares",
       "ar": "شحن السيارة الكهربائية بالطاقة الشمسية: الشحن في المنزل من الألواح الشمسية",
-      "ru": "Зарядка электромобиля солнечной энергией: зарядка дома от солнечных панелей"
+      "ru": "Зарядка электромобиля солнечной энергией: зарядка дома от солнечных панелей",
+      "nl": "Een elektrische auto laden met zonne-energie: thuis laden vanaf uw zonnepanelen"
     },
     "category": "Rehber",
     "datePublished": "2026-07-18"
@@ -226,7 +245,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Ist das Laden eines Elektroautos zu Hause sicher? Ratgeber zu Steckdose, Sicherung und Fehlerstrom",
       "es": "¿Es seguro cargar el coche eléctrico en casa? Guía de enchufes, magnetotérmicos y corriente de fuga",
       "ar": "هل شحن السيارة الكهربائية في المنزل آمن؟ دليل المأخذ والقاطع والتيار المتسرب",
-      "ru": "Безопасно ли заряжать электромобиль дома? Руководство по розетке, автомату и току утечки"
+      "ru": "Безопасно ли заряжать электромобиль дома? Руководство по розетке, автомату и току утечки",
+      "nl": "Is een elektrische auto thuis laden veilig? Gids over contactdozen, zekeringen en aardlekbeveiliging"
     },
     "category": "Rehber",
     "datePublished": "2026-07-18"
@@ -239,7 +259,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Investition in eine DC-Schnellladestation für Unternehmen: der Entscheidungsratgeber",
       "es": "Inversión en una estación de carga rápida DC para empresas: guía de decisión",
       "ar": "الاستثمار في محطة شحن سريع DC للأعمال: دليل القرار",
-      "ru": "Инвестиции в станцию быстрой зарядки DC для бизнеса: руководство по решению"
+      "ru": "Инвестиции в станцию быстрой зарядки DC для бизнеса: руководство по решению",
+      "nl": "Investeren in een DC-snellaadstation voor bedrijven: een beslisgids"
     },
     "category": "Rehber",
     "datePublished": "2026-07-11"
@@ -252,7 +273,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Ladekabel-Kompatibilität für Togg, Tesla und alle Elektroautos: der Type-2-Ratgeber",
       "es": "Compatibilidad del cable de carga para Togg, Tesla y todos los coches eléctricos: guía Type 2",
       "ar": "توافق كابل الشحن مع Togg وTesla وجميع السيارات الكهربائية: دليل Type 2",
-      "ru": "Совместимость зарядного кабеля для Togg, Tesla и всех электромобилей: руководство по Type 2"
+      "ru": "Совместимость зарядного кабеля для Togg, Tesla и всех электромобилей: руководство по Type 2",
+      "nl": "Laadkabelcompatibiliteit voor Togg, Tesla en alle elektrische auto's: de Type 2-gids"
     },
     "category": "Rehber",
     "datePublished": "2026-07-11"
@@ -265,7 +287,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Was ist eine 40-kW-DC-Ladestation, für wen ist sie und wie schnell lädt sie?",
       "es": "¿Qué es una estación de carga DC de 40 kW, para quién es y cuán rápida resulta?",
       "ar": "ما هي محطة الشحن DC بقدرة 40 kW، ولمن تناسب، وما مدى سرعتها؟",
-      "ru": "Что такое зарядная станция DC на 40 кВт, кому она подходит и насколько она быстрая?"
+      "ru": "Что такое зарядная станция DC на 40 кВт, кому она подходит и насколько она быстрая?",
+      "nl": "Wat is een DC-laadstation van 40 kW, voor wie is het en hoe snel is het?"
     },
     "category": "Rehber",
     "datePublished": "2026-07-08"
@@ -278,7 +301,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Kosten des Ladens eines Elektroautos zu Hause: Wie viel pro Kilometer?",
       "es": "Coste de cargar el coche eléctrico en casa: ¿cuánto por kilómetro?",
       "ar": "تكلفة شحن السيارة الكهربائية في المنزل: كم للكيلومتر؟",
-      "ru": "Стоимость домашней зарядки электромобиля: сколько на километр?"
+      "ru": "Стоимость домашней зарядки электромобиля: сколько на километр?",
+      "nl": "Kosten van thuis laden: hoeveel TL per kilometer?"
     },
     "category": "Rehber",
     "datePublished": "2026-07-05"
@@ -291,7 +315,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Einphasig oder dreiphasig (3 Phasen)? Welches Ladegerät passt zu Ihrem Zuhause?",
       "es": "¿Monofásico o trifásico (3 fases)? ¿Qué cargador conviene a su casa?",
       "ar": "أحادي الطور أم ثلاثي الطور (3 أطوار)؟ أي جهاز شحن يناسب منزلك؟",
-      "ru": "Одна фаза или три фазы? Какое зарядное устройство подойдёт вашему дому?"
+      "ru": "Одна фаза или три фазы? Какое зарядное устройство подойдёт вашему дому?",
+      "nl": "Eenfasig of driefasig (3 fasen)? Welke lader past bij uw woning?"
     },
     "category": "Teknik",
     "datePublished": "2026-07-05"
@@ -304,7 +329,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "EV-Ladegeräte im Vergleich: Welches Modell passt zu Ihnen?",
       "es": "Comparativa de modelos de cargadores para VE: ¿cuál es el adecuado para ti?",
       "ar": "مقارنة موديلات أجهزة شحن السيارات الكهربائية: أي موديل يناسبك؟",
-      "ru": "Сравнение моделей зарядных устройств для электромобилей: какая модель подойдёт вам?"
+      "ru": "Сравнение моделей зарядных устройств для электромобилей: какая модель подойдёт вам?",
+      "nl": "Modellen van EV-laders vergeleken: welk model past bij u?"
     },
     "category": "Rehber",
     "datePublished": "2026-07-03"
@@ -317,7 +343,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Darf man ein EV-Ladekabel draußen und im Regen verwenden?",
       "es": "¿Se puede usar el cable de carga de un vehículo eléctrico en el exterior y bajo la lluvia?",
       "ar": "هل يُستخدَم كابل شحن السيارة الكهربائية في الخارج وتحت المطر؟",
-      "ru": "Можно ли использовать зарядный кабель электромобиля на улице и под дождём?"
+      "ru": "Можно ли использовать зарядный кабель электромобиля на улице и под дождём?",
+      "nl": "Mag je een laadkabel voor een elektrische auto buiten en in de regen gebruiken?"
     },
     "category": "Rehber",
     "datePublished": "2026-07-02"
@@ -330,7 +357,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Heimladeeinheit oder tragbares Ladegerät? Was passt zu Ihnen?",
       "es": "¿Unidad de carga doméstica o cargador portátil? ¿Cuál te conviene?",
       "ar": "وحدة شحن منزلية أم جهاز شحن محمول؟ أيّهما يناسبك؟",
-      "ru": "Домашняя зарядная станция или переносное зарядное устройство? Что подойдёт вам?"
+      "ru": "Домашняя зарядная станция или переносное зарядное устройство? Что подойдёт вам?",
+      "nl": "Laadunit voor thuis of draagbare lader? Wat past bij u?"
     },
     "category": "Rehber",
     "datePublished": "2026-07-02"
@@ -343,7 +371,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Wie viele Meter und wie viele Ampere sollte ein EV-Ladekabel haben?",
       "es": "¿Cuántos metros y cuántos amperios debe tener el cable de carga de un vehículo eléctrico?",
       "ar": "كم متراً وكم أمبيراً يجب أن يكون كابل شحن السيارة الكهربائية؟",
-      "ru": "Сколько метров и сколько ампер должен быть зарядный кабель электромобиля?"
+      "ru": "Сколько метров и сколько ампер должен быть зарядный кабель электромобиля?",
+      "nl": "Hoeveel meter en hoeveel ampère moet een laadkabel voor een elektrische auto zijn?"
     },
     "category": "Rehber",
     "datePublished": "2026-07-02"
@@ -356,7 +385,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Ladestation für Elektroautos installieren: Der komplette Leitfaden",
       "es": "Guía de instalación de una estación de carga para vehículos eléctricos",
       "ar": "دليل تركيب محطة شحن السيارات الكهربائية",
-      "ru": "Руководство по установке зарядной станции для электромобиля"
+      "ru": "Руководство по установке зарядной станции для электромобиля",
+      "nl": "Installatiegids voor een laadstation voor elektrische auto's"
     },
     "category": "Rehber",
     "datePublished": "2026-06-27"
@@ -369,7 +399,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Was ist Lastmanagement (Load Management) beim Laden von Elektrofahrzeugen?",
       "es": "¿Qué es la gestión de carga (Load Management) en la carga de vehículos eléctricos?",
       "ar": "ما هي إدارة الأحمال (Load Management) في شحن السيارات الكهربائية؟",
-      "ru": "Что такое управление нагрузкой (Load Management) при зарядке электромобилей?"
+      "ru": "Что такое управление нагрузкой (Load Management) при зарядке электромобилей?",
+      "nl": "Wat is lastbeheer (load management) bij het laden van elektrische auto's?"
     },
     "category": "Teknik",
     "datePublished": "2026-06-20"
@@ -382,7 +413,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Elektro-Ladelösungen für Fahrzeugflotten: Leitfaden für Depot- und Nachtladen",
       "es": "Soluciones de carga eléctrica para flotas de vehículos: guía de carga en nave y nocturna",
       "ar": "حلول الشحن الكهربائي لأساطيل المركبات: دليل الشحن في المستودع والشحن الليلي",
-      "ru": "Решения для зарядки автопарка электромобилей: руководство по зарядке в депо и ночной зарядке"
+      "ru": "Решения для зарядки автопарка электромобилей: руководство по зарядке в депо и ночной зарядке",
+      "nl": "Laadoplossingen voor een wagenpark: gids voor depot- en nachtladen"
     },
     "category": "Rehber",
     "datePublished": "2026-06-20"
@@ -395,7 +427,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Wie funktioniert eine Ladestation für Elektrofahrzeuge? Funktionsprinzip (AC, DC, Sicherheit)",
       "es": "¿Cómo funciona una estación de carga de vehículos eléctricos? Principio de funcionamiento (AC, DC, seguridad)",
       "ar": "كيف تعمل محطة شحن السيارات الكهربائية؟ مبدأ العمل (AC و DC والأمان)",
-      "ru": "Как работает зарядная станция для электромобилей? Принцип действия (AC, DC, безопасность)"
+      "ru": "Как работает зарядная станция для электромобилей? Принцип действия (AC, DC, безопасность)",
+      "nl": "Hoe werkt een laadstation voor elektrische auto's? Het werkingsprincipe (AC, DC, veiligheid)"
     },
     "category": "Teknik",
     "datePublished": "2026-06-20"
@@ -408,7 +441,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Glossar der Fachbegriffe zum Laden von Elektroautos",
       "es": "Glosario de términos de carga de vehículos eléctricos",
       "ar": "معجم مصطلحات شحن السيارات الكهربائية",
-      "ru": "Словарь терминов зарядки электромобилей"
+      "ru": "Словарь терминов зарядки электромобилей",
+      "nl": "Woordenlijst met termen over het laden van elektrische auto's"
     },
     "category": "Teknik",
     "datePublished": "2026-06-16"
@@ -421,7 +455,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Ladezeit von Elektroautos: In wie vielen Stunden ist es voll? (AC und DC)",
       "es": "Tiempo de carga de un vehículo eléctrico: ¿en cuántas horas se carga? (AC y DC)",
       "ar": "مدة شحن السيارة الكهربائية: في كم ساعة تمتلئ؟ (AC و DC)",
-      "ru": "Время зарядки электромобиля: за сколько часов заряжается? (AC и DC)"
+      "ru": "Время зарядки электромобиля: за сколько часов заряжается? (AC и DC)",
+      "nl": "Laadtijd van een elektrische auto: hoeveel uur duurt het? (AC en DC)"
     },
     "category": "Rehber",
     "datePublished": "2026-06-16"
@@ -434,7 +469,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Ladeanschlusstypen für Elektroautos: Unterschied zwischen Type 2, CCS2 und CHAdeMO",
       "es": "Tipos de conector de carga de vehículos eléctricos: diferencia entre Type 2, CCS2 y CHAdeMO",
       "ar": "أنواع موصّلات شحن السيارات الكهربائية: الفرق بين Type 2 و CCS2 و CHAdeMO",
-      "ru": "Типы разъёмов зарядки электромобилей: различие Type 2, CCS2 и CHAdeMO"
+      "ru": "Типы разъёмов зарядки электромобилей: различие Type 2, CCS2 и CHAdeMO",
+      "nl": "Aansluitingstypen voor het laden van elektrische auto's: het verschil tussen Type 2, CCS2 en CHAdeMO"
     },
     "category": "Teknik",
     "datePublished": "2026-06-16"
@@ -447,7 +483,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Einheimischer EV-Ladegerätehersteller in der Türkei: Bemis E-V Charge",
       "es": "Fabricante de cargadores para vehículos eléctricos en Turquía: Bemis E-V Charge",
       "ar": "الشركة التركية المصنّعة محلياً لأجهزة شحن السيارات الكهربائية: Bemis E-V Charge",
-      "ru": "Отечественный производитель зарядных устройств для электромобилей в Турции: Bemis E-V Charge"
+      "ru": "Отечественный производитель зарядных устройств для электромобилей в Турции: Bemis E-V Charge",
+      "nl": "Fabrikant van EV-laders met eigen productie in Turkije: Bemis E-V Charge"
     },
     "category": "Marka",
     "datePublished": "2026-06-16"
@@ -460,7 +497,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "EV-Laden Stadt für Stadt in der Türkei: Istanbul, Ankara, Izmir, Bursa",
       "es": "Carga de vehículos eléctricos ciudad por ciudad en Turquía: Estambul, Ankara, Esmirna, Bursa",
       "ar": "شحن السيارات الكهربائية مدينةً بمدينة في تركيا: إسطنبول وأنقرة وإزمير وبورصة",
-      "ru": "Зарядка электромобилей по городам Турции: Стамбул, Анкара, Измир, Бурса"
+      "ru": "Зарядка электромобилей по городам Турции: Стамбул, Анкара, Измир, Бурса",
+      "nl": "EV-laden per stad in Turkije: Istanbul, Ankara, Izmir, Bursa"
     },
     "category": "Rehber",
     "datePublished": "2026-06-14"
@@ -473,7 +511,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Kosten einer Ladestation für Zuhause: 6 preisbestimmende Faktoren",
       "es": "Coste de una estación de carga doméstica: los 6 factores que determinan el precio",
       "ar": "تكلفة محطة الشحن المنزلية: 6 عوامل تحدّد السعر",
-      "ru": "Стоимость домашней зарядной станции: 6 факторов, определяющих цену"
+      "ru": "Стоимость домашней зарядной станции: 6 факторов, определяющих цену",
+      "nl": "Kosten van een laadstation voor thuis: de 6 factoren die de prijs bepalen"
     },
     "category": "Rehber",
     "datePublished": "2026-06-14"
@@ -486,7 +525,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Wie nutzt man V2L mit dem Ioniq 5? Ratgeber zu V2L-/C2L-Adaptern",
       "es": "¿Cómo usar la función V2L con el Ioniq 5? Guía del adaptador V2L / C2L",
       "ar": "كيف تُستخدم خاصية V2L مع Ioniq 5؟ دليل محوّل V2L / C2L",
-      "ru": "Как использовать V2L на Ioniq 5? Руководство по адаптерам V2L / C2L"
+      "ru": "Как использовать V2L на Ioniq 5? Руководство по адаптерам V2L / C2L",
+      "nl": "Hoe gebruik je V2L met de Ioniq 5? Gids voor V2L / C2L-adapters"
     },
     "category": "Rehber",
     "datePublished": "2026-06-06"
@@ -499,7 +539,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Was ist der Unterschied zwischen AC- und DC-Laden? Ratgeber für Zuhause und Station",
       "es": "¿Cuál es la diferencia entre la carga AC y DC? Guía para el hogar y las estaciones",
       "ar": "ما الفرق بين الشحن بالتيار المتردد AC والتيار المستمر DC؟ دليل المنزل والمحطة",
-      "ru": "В чём разница между зарядкой AC и DC? Руководство для дома и станции"
+      "ru": "В чём разница между зарядкой AC и DC? Руководство для дома и станции",
+      "nl": "Wat is AC-laden en wat is DC-laden? Het verschil en het gebruik thuis en bij het station"
     },
     "category": "Rehber",
     "datePublished": "2026-06-06"
@@ -512,7 +553,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Wie wählt man ein Ladegerät für Elektrofahrzeuge für Zuhause aus?",
       "es": "¿Cómo elegir un cargador para vehículo eléctrico en casa?",
       "ar": "كيف تختار جهاز شحن السيارة الكهربائية للمنزل؟",
-      "ru": "Как выбрать зарядное устройство для электромобиля для дома?"
+      "ru": "Как выбрать зарядное устройство для электромобиля для дома?",
+      "nl": "Hoe kies je een lader voor thuis voor een elektrische auto?"
     },
     "category": "Rehber",
     "datePublished": "2026-06-06"
@@ -525,7 +567,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "V2L mit Togg: Strom aus dem Fahrzeug (Vehicle-to-Load) nutzen",
       "es": "V2L con Togg: electricidad desde el vehículo (alimentación externa)",
       "ar": "V2L مع Togg: استخدام الكهرباء من السيارة (الطاقة الخارجية)",
-      "ru": "V2L с Togg: использование электричества от автомобиля (внешнее питание)"
+      "ru": "V2L с Togg: использование электричества от автомобиля (внешнее питание)",
+      "nl": "Togg met V2L: stroom uit de auto (Vehicle-to-Load) gebruiken"
     },
     "category": "Rehber",
     "datePublished": "2026-06-06"
@@ -538,7 +581,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Wie wählt man ein Ladekabel für Elektrofahrzeuge aus? (Type 2 Ratgeber)",
       "es": "¿Cómo elegir un cable de carga para vehículo eléctrico? (Guía Type 2)",
       "ar": "كيف تختار كابل شحن السيارة الكهربائية؟ (دليل Type 2)",
-      "ru": "Как выбрать зарядный кабель для электромобиля? (Руководство по Type 2)"
+      "ru": "Как выбрать зарядный кабель для электромобиля? (Руководство по Type 2)",
+      "nl": "Hoe kies je een laadkabel voor een elektrische auto? (Type 2-gids)"
     },
     "category": "Rehber",
     "datePublished": "2026-06-06"
@@ -551,7 +595,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Was ist OCPP? Warum ist es bei Ladestationen so wichtig?",
       "es": "¿Qué es OCPP? ¿Por qué es importante en las estaciones de carga?",
       "ar": "ما هو OCPP؟ ولماذا يُعدّ مهمًّا في محطات الشحن؟",
-      "ru": "Что такое OCPP? Почему это важно для зарядных станций?"
+      "ru": "Что такое OCPP? Почему это важно для зарядных станций?",
+      "nl": "Wat is OCPP? Waarom is het belangrijk bij laadstations?"
     },
     "category": "Teknik",
     "datePublished": "2026-06-06"
@@ -564,7 +609,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Installation einer Ladestation für Elektrofahrzeuge in Mehrfamilienhäusern und Wohnanlagen",
       "es": "Instalación de una estación de carga para vehículos eléctricos en edificios y comunidades",
       "ar": "تركيب محطة شحن للسيارات الكهربائية في المبنى / المجمّع السكني",
-      "ru": "Установка зарядной станции для электромобилей в жилом доме / комплексе"
+      "ru": "Установка зарядной станции для электромобилей в жилом доме / комплексе",
+      "nl": "Een laadstation plaatsen in een appartementengebouw of complex"
     },
     "category": "Rehber",
     "datePublished": "2026-06-06"
@@ -577,7 +623,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "6 Vorteile der Installation einer EV-Ladestation am Firmenstandort",
       "es": "6 ventajas de instalar una estación de carga para vehículos eléctricos en tu negocio",
       "ar": "6 مزايا لتركيب محطة شحن للسيارات الكهربائية في مكان عملك",
-      "ru": "6 преимуществ установки EV-зарядной станции на предприятии"
+      "ru": "6 преимуществ установки EV-зарядной станции на предприятии",
+      "nl": "6 voordelen van een EV-laadstation op de werkplek"
     },
     "category": "Rehber",
     "datePublished": "2026-06-06"
@@ -590,7 +637,8 @@ export const POSTS_INDEX: PostIndexItem[] = [
       "de": "Tesla laden in der Türkei: Wie lädt man einen Tesla mit Type 2?",
       "es": "Cargar un Tesla en Turquía: ¿cómo se carga un Tesla con Type 2?",
       "ar": "شحن Tesla في تركيا: كيف تُشحن Tesla عبر Type 2؟",
-      "ru": "Зарядка Tesla в Турции: как заряжать Tesla через Type 2?"
+      "ru": "Зарядка Tesla в Турции: как заряжать Tesla через Type 2?",
+      "nl": "Tesla laden in Turkije: hoe laadt u een Tesla met Type 2?"
     },
     "category": "Rehber",
     "datePublished": "2026-06-06"
