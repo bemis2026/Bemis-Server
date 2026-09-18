@@ -230,9 +230,11 @@
 > ⚠️ `data/content.json` **CRLF + girinti 2** → gidiş-dönüş bayt eşitliği yazmadan önce doğrulandı.
 > ⚠️ Doğrudan R2 yazımı `revalidateTag` tetiklemez → store cache **v130-dc40 → v131-referans**.
 > Yedek: `scratchpad/_content.R2.referans.bak.json`.
-> **🔴 YOL ÜSTÜNDE ÇIKAN BAYATLIK (yeni değil, KARAR KULLANICIDA):** R2'de **10**, repo yedeğinde **3**
-> referans öğesi vardı (admin yüklemeleri yalnız R2'ye gider) → yeni öğeyle **11 ↔ 4**. R2 okunamayan bir
-> derlemede bölüm eksik görsel gösterir. Senkron ayrı/küçük iş; kullanıcıya bildirildi.
+> **🔴➡️✅ YOL ÜSTÜNDE ÇIKAN BAYATLIK — AYNI GÜN KAPANDI (commit 3ce98f8):** R2'de **10**, repo
+> yedeğinde **3** referans öğesi vardı (admin yüklemeleri yalnız R2'ye gider) → yeni öğeyle **11 ↔ 4**.
+> Kullanıcı "tamamla" dedi; sapma ölçülünce referans bölümünden GENİŞ çıktı (hero · contact.address ·
+> socialWallSection de bayattı) ve **4 bölüm** senkronlandı. Ayrıntı: yukarıdaki 🌍📰 bloğunun (4) maddesi.
+> 📌 Sapma YAPISAL olarak tekrar birikir (admin yalnız R2'ye yazar) — ölçüm: `scratchpad/_content_fark.cjs`.
 > **✅ CANLI DOĞRULANDI:** anasayfa HTML'inde yeni Cloudinary URL + `50% 42%` · `/documents` GÖVDESİNDE
 > "Kullanma Kılavuzu" **1**, "Kurulum Kılavuzu" **0** (RSC yükündeki tek geçiş = *döküman adı* "E-V Charge
 > Hızlı Kurulum Kılavuzu", DOĞRU, değişmemeli).
