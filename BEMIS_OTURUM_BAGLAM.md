@@ -24,12 +24,21 @@
 > **evde şarj · hangi kablo · kaç saatte dolar** arıyor ve bunların karşılığı **katalogda GERÇEKTEN var**
 > (Type 2 kablo, AC wallbox) — V2L adaptörünün aksine. Yani bu yazı hem trafiği hem gerçek ürün eşleşmesini
 > getirir.
-> **⚠️⚠️ UYDURMA SPEC YASAK — ELDE OLAN vs OLMAYAN:**
-> · **VAR (mevcut Togg yazısının tablosundan, doğrulanmış):** T10F ilk üretimden beri **11 kW OBC** ·
->   T10X 2023–15 Haz 2026 **22 kW OBC** · T10X 15 Haz 2026 sonrası **LFP + 11 kW OBC**.
-> · **YOK:** batarya kapasitesi (kWh) repoda doğrulanmış DEĞİL → **"kaç saatte dolar" için kesin sayı
->   YAZMA**; ya önce kapasiteyi doğrula (ev-database.org yolu kayıtlı, ⚠️ hız sınırı var) ya da formülle
->   anlat (kapasite ÷ güç) ve okuyucuyu kendi aracının kılavuzuna yönlendir.
+> **⚠️⚠️ UYDURMA SPEC YASAK — AMA ELDEKİ VERİ SANDIĞIMDAN GENİŞ (2026-09-18'de ölçüldü):**
+> · **BATARYA VAR, DOĞRULANMIŞ:** `app/components/Calculator.tsx` `EV_MODELS` → T10X/T10F **Standart
+>   Range 50 kWh · Long Range 85 kWh** (+ tüketim T10X 17 / T10F 15 kWh/100km, DC tepe 180 kW).
+>   Kaynak dosyanın kendi yorumunda: *"2026-08-05'te ev-database.org'dan doğrulandı"*. → **"kaç saatte
+>   dolar" GERÇEK sayıyla yazılabilir; yeniden kazımaya GEREK YOK.**
+> · **AC GÜCÜ VAR ama ÜRETİM DÖNEMİNE BAĞLI — asıl tuzak burada:** `vehicleCharging.ts` + Calculator
+>   **standart 11 kW** (T10X'te 22 kW OPSİYONEL) diyor; mevcut V2L yazısının tablosu ise **T10X
+>   2023–15 Haz 2026 = 22 kW OBC**, **15 Haz 2026 sonrası = LFP + 11 kW OBC** diyor. İkisi çelişmiyor
+>   (biri güncel üretimi, öteki eski partiyi anlatıyor) **ama tek bir "Togg 11 kW çeker" cümlesi
+>   2023-2026 T10X sahibi için YANLIŞ olur.** → Şarj süresi tablosu **döneme göre ayrılmalı**
+>   (T10F 11 kW · eski T10X 22 kW · yeni T10X 11 kW), tıpkı V2L yazısının tablosu gibi.
+>   ⚠️ `Calculator.tsx`'te kayıtlı uyarı: **opsiyonel 22 kW paketi VARSAYILAN SAYILMAZ** (yoksa hesap
+>   çoğu araçta olduğundan hızlı çıkar) — yeni yazı da bu kurala uymalı.
+> · ⚠️ **SİTE KENDİYLE ÇELİŞMESİN:** bu depoda tekrar eden kusur sınıfı; yazmadan önce mevcut üç
+>   kaynağı (V2L yazısı tablosu · `vehicleCharging.ts` · `Calculator.tsx`) yan yana koy.
 > · Bemis tarafı: Type 2 kablo (16A/32A · tek/üç faz · 5-15 m) ve AC wallbox (3,7–22 kW) — bunlar katalogdan.
 > **⚠️ KANİBALİZASYON:** mevcut `togg-v2l-aractan-elektrik` yazısının konusunu TEKRARLAMA (V2L nedir,
 > hangi modelde var, adaptör) — tek cümle + link yeterli. Yeni yazı EVDE ŞARJ kararına odaklanır.
