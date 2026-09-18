@@ -7,11 +7,109 @@
 > Derin teknik bağlam: `Desktop/Claude Çalışmaları/Bemis Website/md/BEMIS_PROJECT_CONTEXT.md`
 > (özellikle §15.16 denetim, §15.17 Blob taşıması).
 >
-> Son güncelleme: **2026-09-14**
+> Son güncelleme: **2026-09-18**
 
 ---
 
 ## 0. ŞU AN AÇIK İŞ (önce burayı oku)
+
+> 🔴🖼️ **BEVDC 40: DUVAR TİPİ SAYFASINDA AYAKLI ÜRÜN GÖRÜNÜYORDU (2026-09-18, `e1fb92d`):**
+> Kullanıcı sordu: *"DC direk tipi ile duvar tipi görseller aynı üründe gösteriliyor, karışıklık
+> oluşturmuyor mu?"* — **HAKLIYDI, ölçüldü.** Duvar tipinin (`bevdc-40-1`) galerisi
+> `[duvar fotoğrafı + DİREK fotoğrafı + teknik çizim]` idi. İki ürün de **"BEVDC 40" adını
+> paylaşıyor**, ayrım yalnız alt başlıkta (`Duvar Tipi` ↔ `Direk Tipi`) ve **fiyatları farklı**
+> (7.200 € ↔ 8.600 €) → yanlış ürün seçtirme riski somuttu.
+> ✅ Direk fotoğrafı duvar galerisinden çıkarıldı → `[duvar + teknik çizim]`. ⚠️ **Teknik çizim
+> BİLEREK KALDI** — o görsel zaten HER İKİ tipi birlikte anlatıyor (karşılaştırma), yanıltıcı değil.
+> 📌 `image`/`images` KİMLİK alanı → yalnız TR kaynakları (R2 `products` TR + repo `data/products.json`).
+> ⓘ Repo yedeğinde teknik çizim HİÇ YOKTU (yalnız R2'de) → fallback tutarlı olsun diye tamamlandı.
+> ✅ **DİREK TİPİNE ÖLÇÜ/AĞIRLIK EKLENDİ** (klonlanırken silinmiş, hiç doldurulmamıştı):
+> **600 × 425 × 1770 mm · 105 kg** — kaynak KENDİ teknik çizimimiz. 7 dil × ilgili kaynak = 14 yazım.
+> ⚠️ **ETİKET UYDURULMADI:** her kaynakta KARDEŞ ürünün o dildeki "Fiziksel Özellikler" grubu
+> klonlandı, yalnız değerler değişti (Abmessungen (B×T×H) · Размеры (Ш×Г×В) · الأبعاد …).
+> ⚠️⚠️ **ÖLÇÜM DERSİ — KÜÇÜLTÜLMÜŞ ÖNİZLEMEDEN SAYI OKUMA:** çizimi önce 520px önizlemeden okuyup
+> "duvar 500×320×900 / 30 kg" sandım ve siteyle ÇELİŞİYOR sandım. Tam çözünürlükte çizim de
+> **600×320×900 / 80 kg** diyor = çelişki YOK, benim okuma hatamdı. 📌 Teknik çizimden değer
+> alırken görseli TAM ÇÖZÜNÜRLÜKTE büyütüp oku. store cache **v129-bayi-url → v130-dc40**.
+
+> ✍️🏷️ **3 YENİ REHBER + DC HİZMET BANDI + 5 DİL ÇEVİRİ (2026-09-18, `01c65d7` · `a8e4842`):**
+> Kullanıcı: *"ortak alana / AC wallbox taktırmak isteyen fabrika ve müşteriler için içerik sayımızı
+> artıralım; DC hızlı şarjda da olalım; DC kategori sayfasında keşiften servise rozeti olsun."*
+>
+> **📏 ÖNCE ÖLÇÜLDÜ (43 mevcut yazı tarandı), SONRA YAZILDI.** Zaten GÜÇLÜ olan yere yazı
+> **EKLENMEDİ** (kanibalizasyon): apartman/site 4 yazı + iniş sayfası · `şarj kablosu` 94 geçiş ·
+> `taşınabilir` 70 · `ev tipi` 59 · `şarj aleti` 38. ⛔ "Kurulum süreci" yazısı da YAZILMADI —
+> `elektrikli-arac-sarj-istasyonu-kurulum-rehberi` zaten o başlıkları taşıyor.
+> **GERÇEK BOŞLUKLAR (site geneli sayım):** osb 0 · sanayi sitesi 0 · lojistik 0 · kompanzasyon 0 ·
+> reaktif 0 · kurulum hizmeti 0 · periyodik 1 · bakım 5 · "DC şarj ünitesi" TAM İFADE 0 · direk tipi 2.
+> **BLOG 43 → 46:** `fabrika-osb-sanayi-sitesi-sarj-istasyonu` (700 kelime, 6 SSS — personel otoparkı
+> ≠ filo · cihaz sayısı vardiyaya göre · OSB'de muhatap OSB tüzel kişiliği · trafo + kompanzasyon ·
+> üretim tepe yüküne dokunmamak) · `dc-sarj-unitesi-duvar-tipi-mi-direk-tipi-mi` (525 kelime,
+> karşılaştırma tablosu; **120 kW ve üzerinde IK10 + 10" dokunmatik iddiası CANLI KATALOGDAN
+> doğrulandı**, 40 ve 80'de YOK) · `sarj-istasyonu-bakim-periyodik-kontrol` (472 kelime).
+> **🏷️ DC HİZMET BANDI** (`ProductCategoryClient`, yalnız `id === "dc-units"`): 4 adım
+> (yerinde keşif · doğru ünite · kurulum · garanti ve servis) + 2 CTA. ⚠️ **UYDURMA TİCARİ VAAT YOK** —
+> dördü de sitede zaten yazılı olgulara dayanır (2 yıl garanti; DC'de ek ücretle +3 yıl uzatma
+> SPEC'te kayıtlı). Süre taahhüdü / fiyat / "ücretsiz kurulum" YAZILMADI.
+> ⚠️ Görünür metin `pickText`e bağlı — **check:i18n 12 eksik anahtarı YAKALADI**, ui.json 594 → 606.
+> ⓘ **`nl` ilk turda atlandı, bekçi yakaladı** — dil listesi 5 (de/es/ar/ru/**nl**).
+> **DC KATEGORİ METNİ:** metaTitle `DC Şarj Ünitesi ve Hızlı Şarj İstasyonu — CCS2` (46 kr),
+> desc'e "DC şarj ünitesi" + "duvar ve direk tipi" (151 kr ≤ 155 clamp). H1 DEĞİŞMEDİ.
+>
+> **🌐 ÇEVİRİ (aynı gün, ayrı commit): 3 yazı × 5 dil = 15 tam çeviri.**
+> 🔴 **BEKÇİ GERÇEK HATA YAKALADI — BÖLÜM SIRASI KAYMASI:** DC yazısında TR'de "kablo ve yanaşma"
+> [8-9], "taşıyıcı yüzey" [10-11], "yüksek güç" [12-13]; ben üçünü farklı sırada yazmıştım.
+> **Uzunluklar TUTUYORDU**, yakalayan **sayısal parmak izi** oldu (`body[9] TR[] ↔ [80]`) →
+> 5 dilde 15 hata, HİÇBİR ŞEY YAZILMADI. 📌 **Ders: blok uzunluğu tutsa bile SIRA kayabilir.**
+> 🔴 **ÖNCEDEN VAR OLAN 2 BAYAT KAYIT DA ONARILDI** (benim yazılarımdan DEĞİL):
+> `ortak-alan-sarj-yonetim-paneli-apartman-site` (related 5/6) + `apartmana-sarj-istasyonu-kurulumu`
+> (6/7). Sebep: 2026-09-15'te `/apartman-site-sarj-istasyonu` açılınca TR related'a bir satır eklenmiş,
+> çeviriler güncellenmemiş → o blok **5 dilde TÜRKÇEYE düşüyordu**. 10 kayıt eklendi.
+> **Blog dil tablosu: 43 tam / 2 bayat → 45 tam / 0 bayat.** ⓘ Kalan tek eksik
+> `dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir` (çevirisi HİÇ yok, Arapça adresi de yok).
+> ✅ Canlı: 3 Arapça adres **200** (önce hiç yoktu), AR gövde 5.615 Arapça harf. IndexNow 200/200/200.
+> 📌 Keşif yüzeyleri: postsIndex (46) · kapak 3/3 (`gen:blog-kapak`) · llms.txt +3 · llms-full +3
+> (son ikisi **ELLE** bakımlı liste — yeni blogda ikisini de güncelle).
+
+> 🚫 **MARKA BEKÇİSİ PERAKENDECİLERİ DE KAPSIYOR (2026-09-18, `a8e4842`):**
+> Kullanıcı: *"elektromarketim/truwatt/hims arandığında biz de çıkalım, müşterilerini çalalım."*
+> **DÜRÜST CEVAP: o bir REKLAM, organik değil** — sitemize rakip adı yazmak hem kullanıcının kendi
+> kuralına hem build kapısına aykırı, üstelik organikte işe yaramaz. Doğru yol Google Ads'te
+> **anahtar kelime** hedeflemek (reklam METNİNDE marka geçmez — Google marka politikası).
+> **BEKÇİYE EKLENDİ:** `elektromarketim · truwatt · hims · emev`.
+> 🔴 **KAPSAM AÇIĞI KAPANDI:** bekçi yalnız 4 veri dosyasını tarıyordu; silinen "Bemis vs <rakip>"
+> yazıları ise **`app/blog/posts.ts` içindeydi ve HİÇ taranmıyordu** → `posts.ts` + `press.ts` eklendi.
+> ⚠️⚠️ **İLK DENEMEM SESSİZCE UYGULANMADI:** çapa `/\bgo-?e\b/i` yazdım, dosyada `/\bgo-e\b/i` var →
+> eşleşmedi ama betik "güncellendi" dedi. **ÖZ-TEST yakaladı** (4 rakip adı `press.ts`'e enjekte →
+> 4'ü de yakalandı, dosya birebir geri alındı). 📌 **Bekçi değişikliğine "temiz" raporuyla DEĞİL,
+> bilinen kusuru enjekte edip yakalattırarak güven.**
+> ⓘ `seo.ts`'teki açıklama yorumu bu isimleri anıyor ama bekçi **kaynak kodu taramıyor** (yalnız
+> veri + blog/press) → nötrleştirmeye gerek kalmadı.
+
+> 🛒📊 **PAZARYERİ + GOOGLE ADS — İKİ TESLİM, İKİSİ DE KULLANICI TARAFINDA (2026-09-18):**
+> **(a) 🔴 HB'DE SKU'LARIMIZIN %70'İ ZATEN VAR.** HB Bemis marka sayfası (`xc-80857263-b91492`,
+> 12 sayfa, gerçek tarayıcıyla) → **392 Bemis EV ürünü · 8+ bayi satıcı**. Kod eşleşmesiyle
+> **150 SKU'muzun 105'i listeli**, 45'i yok, 26 SKU'da birden fazla ilan (biri **7 ilan**).
+> → **150 yeni ilan açmak YANLIŞ olurdu**; doğru hamle 105'ine katılmak.
+> 📄 `Bemis Pazaryeri\cikti\HB_KATILMA_LISTESI.csv` + `HB_KATILMA_PLANI.md`.
+> En değerli ilan **5,0 / 67 yorum** (önce 59'du) — ürünün KENDİ sayfasından doğrulandı.
+> ⚠️ 7 DC ünitesinin hiçbiri HB'de yok → perakende pazaryeri ürünü değil, konmaması önerildi.
+> ⚠️ **ZORUNLU ALAN KAYNAĞI:** veri sayfasının 2. satırı EKSİK; tek doğru kaynak
+> **`Şablon Bilgileri ve Standartlar` sayfası** (orada `Desi | Zorunlu`). Önce 2. satıra bakıp
+> "desi zorunlu değil" diye YANLIŞ rapor verdim, düzeltildi. **Desi 0/150 = 1. engel.**
+> **(b) 📄 GOOGLE ADS PAKETİ** → `Desktop\Bemis_Google_Ads_Paketi_2026-09.md`; aynı içerik ayrıca
+> **özel bir Artifact sayfası** olarak yayınlandı (linki kullanıcıda — ⚠️ bu depo PUBLIC, özel
+> sayfa adresi buraya YAZILMAZ; `/artifacts` ile bulunur). Kelimeler **kendi GSC verimizden**
+> (1.000 sorgu). Marka: **42 sorgu · 4.097 gösterim · 522 tık** → savunma kampanyası 1. sırada.
+> Reklama en uygun boşluklar: `wallbox` (poz **57,9**) · `ev tipi araç şarj cihazı` (**37,3**) ·
+> `mobil şarj` (**44,5**). ⛔ V2L'ye bütçe AYIRMA (poz 3,31, zaten kazanıyoruz).
+> 105 başlık ≤30 kr · 28 açıklama ≤90 kr **ölçülerek** doğrulandı; rakip adı/fiyat/stok iddiası 0.
+>
+> **⏳ HEPSİ KULLANICIDA:** pazaryeri onayları (desi/paket ölçüleri · %30 pay · 4 GSM barkodu ·
+> C2L'lerin "Akü Şarj" kategorisi yanlış, `Pil Türü` zorunlu ve dürüst cevabı yok) · HB'de 105 ilana
+> katılma · Ads kurulumu · İzmir HAVAYLAR OTOMASYON adresi (tek adressiz bayi) · Togg V2L adaptörü.
+> ⓘ **KAPANMIŞ SANILAN İKİ MADDE DÜZELTİLDİ:** NAP No:31↔No:19 **12 Eylül'de kapanmış** (GBP de
+> No:19); **bemis-b2b build'i bozuk DEĞİL** (son 2 dağıtım Ready). Ölçüm takviminde vadesi gelen yok.
 
 > 🔗 **GSC 404 LİSTESİ ÇÖZÜLDÜ — KIRIK BAYİ LİNKİ (2026-09-17, `a5eef73`):**
 > Kullanıcı 8 adreslik "Bulunamadı (404)" listesini indirdi
