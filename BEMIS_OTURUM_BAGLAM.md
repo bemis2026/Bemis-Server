@@ -133,6 +133,46 @@
 > `_aksan_es.cjs` · `_aksan_es2.cjs`. ⚠️ Başlıklar değiştiği için **`npm run gen:blog-index`
 > yeniden çalıştırıldı** (indeks yabancı dil başlıklarını gömer).
 >
+> 📄🖼️ **DÖKÜMAN KATEGORİ ETİKETİ + YENİ REFERANS GÖRSELİ (2026-09-18, CANLI · commit e6899e9):**
+> Kullanıcı: *"dökümanlarda ana başlık kullanma klavuzu yazıyor onu kullanma klavuzu yap"* (yazım kayması)
+> + ektekiyle yeni bir referans fotoğrafı.
+> **(1) ETİKET — `installation` kategorisi "Kurulum Kılavuzu" → "Kullanma Kılavuzu"** (EN "Installation
+> Guide" → **"User Manual"**). ⚠️ İstek yazım kaymalıydı, **veriden çözüldü**: o kategorideki 7 dökümanın
+> **5'i zaten kullanma kılavuzu** (C2L/V2L adaptör kılavuzları · DC kullanıcı el kitabı), yalnız 2'si
+> kurulum → başlık içerikle çelişiyordu. Ağaç tarandı, etiket **3 yerde** yaşıyor: `Navbar.tsx`
+> DOC_CATEGORIES · `app/documents/page.tsx` CATEGORIES · `admin/panels/DocumentsPanel.tsx`.
+> ⚠️⚠️ **KATEGORİ `id`'si `installation` KALDI** — R2'deki 7 döküman kaydının `category` alanı o; id
+> değişseydi yedi döküman da yetim kalır, menüde hiç görünmezdi.
+> ⚠️⚠️ **SESSİZ TUZAK: `byLang` çeviriyi İNGİLİZCE metne göre `ui.json`'dan arar** (`app/lib/ui.ts`).
+> EN dizesi değişip sözlüğe yeni anahtar EKLENMESEYDİ de/es/ar/ru/nl **sessizce İngilizceye düşerdi**.
+> `"User Manual"` anahtarı 5 dille eklendi (ui.json 613 → **614**). ⚠️ ui.json biçimi **girinti 1 +
+> sonda newline YOK** → yazmadan önce gidiş-dönüş bayt eşitliği doğrulandı. `check:i18n` temiz.
+> ⓘ Orphan kalan `"Installation Guide"` anahtarı ui.json'da BIRAKILDI (zararsız; etiket geri alınırsa hazır).
+> **(2) REFERANS GÖRSELİ** — `referenceProjectsSection.items`'a 1 öğe. Orijinal baytlarla Cloudinary'e
+> yüklendi (**resize/recompress YOK** — kullanıcı görseli kalitesi düşürülmez kuralı).
+> **📌 KADRAJ TAHMİNLE SEÇİLMEZ:** kart çerçevesi **380×260** (`ReferenceProjects.tsx`, clamp) +
+> `object-cover`; görsel 1152×2048 dikey → yüksekliğin yalnız **%38'i** görünür. 5 aday odak noktasının
+> GERÇEK kırpması üretilip kontak sayfasına bakıldı (`scratchpad/_ref_kadraj.cjs` — yeniden kullanılabilir)
+> → **`imagePos: "50% 42%"`** (logo + LED satırı + "CHARGER PLUS" + Type 2 soketi tam sığıyor; %52+ cihazın
+> başını keser, %35 soketi kırpar). Mevcut 3 kart da 40-45 bandında.
+> **📌 YALNIZ TR TABANI YAZILIR:** `lib/contentLang.ts:204-209` items'ı KONUMSAL birleştirir ve
+> **`image` + `id` DAİMA TR'den** gelir; `enItems[n]` yoksa TR öğesi (boş metinlerle) her dilde görünür →
+> çeviri kolları bozulmaz. Betik: `scratchpad/_referans_ekle.cjs` (kuru varsayılan, fail-fast, yedekli).
+> ⚠️ `data/content.json` **CRLF + girinti 2** → gidiş-dönüş bayt eşitliği yazmadan önce doğrulandı.
+> ⚠️ Doğrudan R2 yazımı `revalidateTag` tetiklemez → store cache **v130-dc40 → v131-referans**.
+> Yedek: `scratchpad/_content.R2.referans.bak.json`.
+> **🔴 YOL ÜSTÜNDE ÇIKAN BAYATLIK (yeni değil, KARAR KULLANICIDA):** R2'de **10**, repo yedeğinde **3**
+> referans öğesi vardı (admin yüklemeleri yalnız R2'ye gider) → yeni öğeyle **11 ↔ 4**. R2 okunamayan bir
+> derlemede bölüm eksik görsel gösterir. Senkron ayrı/küçük iş; kullanıcıya bildirildi.
+> **✅ CANLI DOĞRULANDI:** anasayfa HTML'inde yeni Cloudinary URL + `50% 42%` · `/documents` GÖVDESİNDE
+> "Kullanma Kılavuzu" **1**, "Kurulum Kılavuzu" **0** (RSC yükündeki tek geçiş = *döküman adı* "E-V Charge
+> Hızlı Kurulum Kılavuzu", DOĞRU, değişmemeli).
+> ⚠️⚠️ **ÖLÇÜM DERSİ — chunk avına çıkmadan ÖNCE SSR HTML'ine bak.** Etiketi canlı JS chunk'larında
+> aradım (30 chunk, bulunamadı) ve yanlışlıkla **ui.json sözlük chunk'ını** "kategori chunk'ı" sandım;
+> ayrıca **yerel chunk adları canlıda 404** (hash ortama bağlı, eşleştirme YAPILAMAZ). Oysa Next istemci
+> bileşenini SSR ettiği için etiket **ham HTML'de** duruyordu. 📌 Client bileşendeki sabit metni doğrularken
+> ÖNCE sayfanın kendi HTML gövdesini ara; chunk indirmek son çare.
+>
 > **🇳🇱✅ FELEMENKÇE BLOG ÇEVİRİSİ TAMAMLANDI — 46/46 (kullanıcı isteği: "felemenkçe blog çevirisini de yap"):**
 > Kaynak boşluk: `data/i18n/blog.json` `nl` içermiyordu (blog katmanı TR + en/de/es/ar/ru) →
 > `postsIndex` çevirisi olmayan başlığı TR'ye düşürdüğü için `/nl` anasayfasında son 3 rehberin
