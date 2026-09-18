@@ -104,6 +104,11 @@
 > Reklama en uygun boşluklar: `wallbox` (poz **57,9**) · `ev tipi araç şarj cihazı` (**37,3**) ·
 > `mobil şarj` (**44,5**). ⛔ V2L'ye bütçe AYIRMA (poz 3,31, zaten kazanıyoruz).
 > 105 başlık ≤30 kr · 28 açıklama ≤90 kr **ölçülerek** doğrulandı; rakip adı/fiyat/stok iddiası 0.
+> 🔴 **SONRADAN EKLENEN GÜVENLİK MADDESİ (kullanıcı kuralı):** rakip adı sitede de, Google'da bizimle ilgili
+> içerikte de GEÇMEZ; yalnız anahtar kelime olarak hedeflenir. Bunu bozabilecek TEK yer Google'ın kendi
+> **otomatik metin üretimi** → pakete uyarı eklendi: **anahtar kelime ekleme `{KeyWord:…}` · otomatik
+> oluşturulan öğeler · Dinamik Arama Ağı (DSA) KAPALI** olmalı (7 kampanyanın hepsinde). Açık kalırsa
+> Google aranan rakip markasını BİZİM reklam başlığımıza basar. Arama Ortakları + GRA genişletmesi de kapalı.
 >
 > **⏳ HEPSİ KULLANICIDA:** pazaryeri onayları (desi/paket ölçüleri · %30 pay · 4 GSM barkodu ·
 > C2L'lerin "Akü Şarj" kategorisi yanlış, `Pil Türü` zorunlu ve dürüst cevabı yok) · HB'de 105 ilana
