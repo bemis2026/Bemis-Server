@@ -15,7 +15,8 @@
     "gen:blog-kapak": "node scripts/blog-kapak.cjs",
     "check:clones": "node scripts/check-clone-descriptions.cjs",
     "check:i18n": "tsx scripts/check-i18n-keys.mts",
-    "check:seo": "tsx scripts/check-product-seo.mts"
+    "check:seo": "tsx scripts/check-product-seo.mts",
+    "check:dil": "tsx scripts/check-lang-detect.mts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.110.0",
