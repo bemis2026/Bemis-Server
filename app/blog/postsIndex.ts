@@ -50,6 +50,11 @@ export const POSTS_INDEX: PostIndexItem[] = [
     "slug": "dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir",
     "title": "DC Şarj Kablosu ve CCS2 Soketi Nasıl Seçilir?",
     "titleI18n": {
+      "en": "How to Choose a DC Charging Cable and CCS2 Connector",
+      "de": "Wie wählt man ein DC-Ladekabel und einen CCS2-Stecker aus?",
+      "es": "¿Cómo elegir un cable de carga DC y un conector CCS2?",
+      "ar": "كيف تختار كابل الشحن المستمر ومقبس CCS2؟",
+      "ru": "Как выбрать кабель постоянного тока и разъём CCS2?",
       "nl": "Hoe kiest u een DC-laadkabel en CCS2-connector?"
     },
     "category": "Teknik",

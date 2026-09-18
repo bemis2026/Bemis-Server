@@ -6802,6 +6802,143 @@
           "label": "Choosing a DC charging cable and CCS2 connector"
         }
       ]
+    },
+    "dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir": {
+      "title": "How to Choose a DC Charging Cable and CCS2 Connector",
+      "metaTitle": "How to Choose a DC Charging Cable and CCS2 Connector",
+      "description": "Choosing a CCS2 cable for a DC fast charging station: current rating (80–400 A), length, open-ended termination and when the cable needs replacing in the field.",
+      "excerpt": "On a DC charging station the part that wears out most is not the unit itself but the cable the vehicle plugs into. The right CCS2 cable comes down to three questions: how many amps the unit outputs, how long the cable should be and how the end will be terminated.",
+      "category": "Technical",
+      "body": [
+        {
+          "text": "On a DC fast charging station the part that wears out most is not the unit itself but the cable the vehicle plugs into. DC cables are heavy; they fall to the ground when the user lets go, vehicles drive over them, and they are strained when pulled from the holster. That is why a station goes through several cable sets over its lifetime. This article explains how to choose the right CCS2 set, both for a new unit and for a cable being replaced in the field."
+        },
+        {
+          "text": "Are a DC charging cable and a CCS2 connector the same thing?"
+        },
+        {
+          "text": "In the field both names are usually used for the same product. CCS2 (Combined Charging System 2) is the interface defined under IEC 62196-3 and the standard for DC fast charging in Europe. \"Connector\" or \"socket\" refers to the end the vehicle plugs into, while \"DC charging cable\" refers to the set formed by that connector and the cable. Because the product appears in the catalogue as a single item, both searches lead to the same entry."
+        },
+        {
+          "text": "First decision: the current rating"
+        },
+        {
+          "text": "The most decisive value in the selection is the current rating, and it is determined by the output current of the unit the cable will be connected to. Choose a rating equal to or higher than the current stated on the unit's label; never fit a cable rated below the unit's output current. The Bemis catalogue offers four ratings:"
+        },
+        {
+          "items": [
+            "80 A — DC units in the low power class",
+            "150 A — medium power class",
+            "250 A — high power class",
+            "400 A — the top class"
+          ]
+        },
+        {
+          "text": "Estimating the rating from the unit's kW figure does not give a correct result: the same power means a different current at different voltage levels. The criterion is therefore always the output current on the unit's label."
+        },
+        {
+          "text": "Second decision: cable length"
+        },
+        {
+          "text": "The catalogue offers 5 and 8 metre options. The length is chosen according to the distance between the unit and the point where the vehicle will park, and according to how the cable is held. If vehicles pull up on both sides of the unit, or the parking space is far from it, 8 metres is preferable. On the other hand, a cable longer than needed drags on the ground more and therefore wears faster; choosing a long one \"just in case\" is not always an advantage."
+        },
+        {
+          "text": "Third decision: how will the end be terminated?"
+        },
+        {
+          "text": "The CCS2 cable sets produced by Bemis are delivered \"open-ended\". The end the vehicle plugs into carries a factory-terminated CCS2 connector; the end on the unit side is left open and is terminated directly to the unit's own power connection. No intermediate connecting element is needed. This makes the cable set adaptable both to new units on the production line and to existing units in the field; the termination is made according to the unit's own design."
+        },
+        {
+          "text": "When does a cable need replacing in the field?"
+        },
+        {
+          "text": "The symptoms below indicate that the cable set should be inspected or replaced. In almost all of them the unit itself is sound; the only thing that needs changing is the cable."
+        },
+        {
+          "caption": "Common symptoms on a DC charging cable",
+          "headers": [
+            "Symptom",
+            "What it may mean",
+            "What to do"
+          ],
+          "rows": [
+            [
+              "A crack or break in the connector body",
+              "Being dropped or driven over by a vehicle",
+              "The cable set is replaced; do not attempt charging with a cracked body"
+            ],
+            [
+              "The connector is hard to remove from the vehicle, the lock sticks",
+              "Damage or dirt in the locking mechanism",
+              "Do not pull by force; report the unit to authorised service"
+            ],
+            [
+              "Crushing, cuts or scuffs in the cable sheath",
+              "Pinching, dragging, vehicles driving over",
+              "The cable set is replaced"
+            ],
+            [
+              "The connector body becomes unusually hot",
+              "A connection or contact problem",
+              "Stop charging and call authorised service"
+            ],
+            [
+              "Charging keeps stopping by itself",
+              "Either the cable and connector side or the unit side",
+              "First inspect the cable and connector visually; if that brings no result, report to service"
+            ]
+          ]
+        },
+        {
+          "text": "Who should carry out the replacement?"
+        },
+        {
+          "text": "The DC side carries high current and the open end of the cable is terminated to the unit's power connection. For that reason the cable must be replaced by the manufacturer of the unit or its authorised service, in line with the unit's own installation instructions. Noting the unit's output current, the existing cable length and how the open end is terminated inside the unit before the replacement means the right product is identified the first time."
+        },
+        {
+          "text": "Current ratings, lengths and all product codes on a single page:",
+          "label": "DC Charging Cable and CCS2 Connector"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is there a difference between a CCS2 connector and a DC charging cable?",
+          "a": "In practice both describe the same product. CCS2 is the name of the interface defined under IEC 62196-3 and the standard for DC fast charging in Europe. \"Connector\" or \"socket\" refers to the end the vehicle plugs into, while \"DC charging cable\" refers to the set formed by the connector and the cable. In the catalogue the connector and its cable appear together as a single item, which is why both searches lead to the same product. To avoid confusion when ordering, it is enough to state the current rating and the cable length together."
+        },
+        {
+          "q": "How do I know which current rating to choose?",
+          "a": "The criterion is the output current of the DC unit the cable will be connected to; that value is stated on the unit's label. The cable rating you choose must be equal to or higher than that value, never lower. The catalogue offers ratings of 80, 150, 250 and 400 amps. Estimating the rating from the unit's kW figure is misleading: the same power corresponds to a different current at different voltage levels. If you are unsure, share the label information of the unit and the values marked on the existing cable, and the correct rating can be determined together."
+        },
+        {
+          "q": "Should I choose 5 metres or 8 metres?",
+          "a": "The length is chosen according to the distance between the unit and the point where the vehicle will park, and according to the holster or guide arrangement of the cable. If vehicles pull up on both sides of the unit, or the parking space is far from it, 8 metres gives more comfortable use. A cable longer than needed, on the other hand, drags on the ground more, so its sheath and connector body wear faster. When renewing an existing unit, the safest approach is to measure the length of the cable being removed and continue with the same value."
+        },
+        {
+          "q": "If the cable is damaged, does the whole unit have to be replaced?",
+          "a": "No. The CCS2 cable set is a replaceable part of the unit. In almost all cases — a broken connector body, a crushed cable sheath or a damaged locking mechanism — the electronics and the housing of the unit are sound; only the cable set is replaced and the unit is put back into service. Because the DC side carries high current, the replacement must be made by the manufacturer of the unit or its authorised service, in line with the unit's own installation instructions."
+        },
+        {
+          "q": "Can an open-ended cable be used on another manufacturer's unit?",
+          "a": "Because the product is delivered open-ended, the termination is made to the power connection of the unit it will be connected to, and that connection differs from unit to unit. For that reason the suitability assessment and the installation must be carried out by the manufacturer of the unit concerned or its authorised service. Once the output current of the unit, the cable length required and how the open end will be terminated are shared, the appropriate rating can be assessed together."
+        }
+      ],
+      "related": [
+        {
+          "label": "DC Charging Cable and CCS2 Connector"
+        },
+        {
+          "label": "Charging Unit Equipment"
+        },
+        {
+          "label": "DC Fast Charging Units"
+        },
+        {
+          "label": "What is CCS2?"
+        },
+        {
+          "label": "Support, Faults and Warranty"
+        }
+      ]
     }
   },
   "de": {
@@ -13605,6 +13742,143 @@
         },
         {
           "label": "DC-Ladekabel und CCS2-Stecker auswählen"
+        }
+      ]
+    },
+    "dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir": {
+      "title": "Wie wählt man ein DC-Ladekabel und einen CCS2-Stecker aus?",
+      "metaTitle": "Wie wählt man ein DC-Ladekabel und einen CCS2-Stecker?",
+      "description": "Die Auswahl eines CCS2-Kabels für eine DC-Schnellladestation: Strombemessung (80–400 A), Länge, offenes Kabelende und wann das Kabel im Feld gewechselt werden muss.",
+      "excerpt": "An einer DC-Ladestation verschleißt nicht das Gerät selbst am stärksten, sondern das Kabel, an das das Fahrzeug angeschlossen wird. Das richtige CCS2-Kabel ergibt sich aus drei Fragen: Wie viel Ampere gibt das Gerät ab, wie lang soll das Kabel sein und wie wird das Ende abgeschlossen?",
+      "category": "Technik",
+      "body": [
+        {
+          "text": "An einer DC-Schnellladestation verschleißt nicht das Gerät selbst am stärksten, sondern das Kabel, an das das Fahrzeug angeschlossen wird. DC-Kabel sind schwer; sie fallen zu Boden, wenn der Nutzer sie loslässt, Fahrzeuge fahren darüber, und beim Herausziehen aus der Halterung werden sie beansprucht. Deshalb wird der Kabelsatz über die Lebensdauer einer Station mehrmals gewechselt. Dieser Beitrag erklärt, wie man den richtigen CCS2-Satz auswählt — sowohl für ein neues Gerät als auch für ein Kabel, das im Feld ersetzt wird."
+        },
+        {
+          "text": "Sind ein DC-Ladekabel und ein CCS2-Stecker dasselbe?"
+        },
+        {
+          "text": "Im Feld werden beide Bezeichnungen meist für dasselbe Produkt verwendet. CCS2 (Combined Charging System 2) ist die in IEC 62196-3 definierte Schnittstelle und der Standard für DC-Schnellladen in Europa. Mit \"Stecker\" oder \"Kupplung\" ist das Ende gemeint, an das das Fahrzeug angeschlossen wird; mit \"DC-Ladekabel\" der Satz aus diesem Stecker und dem Kabel. Da das Produkt im Katalog als ein einziger Artikel geführt wird, führen beide Suchbegriffe zum selben Eintrag."
+        },
+        {
+          "text": "Erste Entscheidung: die Strombemessung"
+        },
+        {
+          "text": "Der entscheidende Wert bei der Auswahl ist die Strombemessung, und sie richtet sich nach dem Ausgangsstrom des Geräts, an das das Kabel angeschlossen wird. Gewählt wird eine Bemessung, die dem auf dem Typenschild angegebenen Strom entspricht oder darüber liegt; ein Kabel unterhalb des Ausgangsstroms des Geräts wird nicht angeschlossen. Der Bemis-Katalog umfasst vier Stufen:"
+        },
+        {
+          "items": [
+            "80 A — DC-Geräte in der niedrigen Leistungsklasse",
+            "150 A — mittlere Leistungsklasse",
+            "250 A — hohe Leistungsklasse",
+            "400 A — oberste Stufe"
+          ]
+        },
+        {
+          "text": "Die Stufe anhand der kW-Angabe des Geräts zu schätzen, führt nicht zum richtigen Ergebnis: dieselbe Leistung bedeutet bei unterschiedlichen Spannungsebenen einen unterschiedlichen Strom. Maßstab ist deshalb immer der Ausgangsstrom auf dem Typenschild des Geräts."
+        },
+        {
+          "text": "Zweite Entscheidung: die Kabellänge"
+        },
+        {
+          "text": "Im Katalog stehen 5 und 8 Meter zur Wahl. Die Länge richtet sich nach dem Abstand zwischen dem Gerät und dem Punkt, an dem das Fahrzeug parkt, sowie nach der Halterung des Kabels. Fahren Fahrzeuge auf beiden Seiten des Geräts vor oder liegt der Stellplatz weiter entfernt, sind 8 Meter vorzuziehen. Andererseits schleift ein längeres Kabel als nötig stärker über den Boden und verschleißt dadurch schneller; \"sicherheitshalber\" lang zu wählen ist also nicht immer ein Vorteil."
+        },
+        {
+          "text": "Dritte Entscheidung: wie wird das Ende abgeschlossen?"
+        },
+        {
+          "text": "Die von Bemis gefertigten CCS2-Kabelsätze werden \"einseitig offen\" geliefert. Am fahrzeugseitigen Ende sitzt ein werkseitig konfektionierter CCS2-Stecker; das geräteseitige Ende bleibt offen und wird direkt am Leistungsanschluss des Geräts abgeschlossen. Ein Zwischenverbinder ist nicht erforderlich. Dadurch lässt sich der Kabelsatz sowohl an neuen Geräten in der Fertigung als auch an bestehenden Geräten im Feld einsetzen; der Abschluss erfolgt nach der Konstruktion des jeweiligen Geräts."
+        },
+        {
+          "text": "Wann wird das Kabel im Feld gewechselt?"
+        },
+        {
+          "text": "Die folgenden Anzeichen deuten darauf hin, dass der Kabelsatz geprüft oder gewechselt werden sollte. In fast allen Fällen ist das Gerät selbst in Ordnung; zu wechseln ist allein das Kabel."
+        },
+        {
+          "caption": "Häufige Anzeichen am DC-Ladekabel",
+          "headers": [
+            "Anzeichen",
+            "Was es bedeuten kann",
+            "Was zu tun ist"
+          ],
+          "rows": [
+            [
+              "Riss oder Bruch am Steckergehäuse",
+              "Herunterfallen oder Überfahren durch ein Fahrzeug",
+              "Der Kabelsatz wird gewechselt; mit gerissenem Gehäuse wird nicht geladen"
+            ],
+            [
+              "Der Stecker lässt sich schwer vom Fahrzeug lösen, die Verriegelung klemmt",
+              "Schaden oder Verschmutzung in der Verriegelung",
+              "Nicht mit Gewalt ziehen; das Gerät dem autorisierten Service melden"
+            ],
+            [
+              "Quetschungen, Schnitte oder Schürfstellen am Kabelmantel",
+              "Einklemmen, Schleifen, Überfahren",
+              "Der Kabelsatz wird gewechselt"
+            ],
+            [
+              "Das Steckergehäuse wird ungewöhnlich warm",
+              "Ein Anschluss- oder Kontaktproblem",
+              "Ladevorgang beenden und den autorisierten Service rufen"
+            ],
+            [
+              "Der Ladevorgang bricht häufig von selbst ab",
+              "Entweder die Kabel- und Steckerseite oder die Geräteseite",
+              "Zuerst Kabel und Stecker sichtprüfen; bleibt es ohne Ergebnis, dem Service melden"
+            ]
+          ]
+        },
+        {
+          "text": "Wer sollte den Wechsel durchführen?"
+        },
+        {
+          "text": "Die DC-Seite führt hohen Strom, und das offene Kabelende wird am Leistungsanschluss des Geräts abgeschlossen. Deshalb muss der Kabelwechsel vom Hersteller des Geräts oder von dessen autorisiertem Service und gemäß der Montageanleitung des Geräts ausgeführt werden. Werden vor dem Wechsel der Ausgangsstrom des Geräts, die vorhandene Kabellänge und die Art des Abschlusses im Gerät notiert, lässt sich das richtige Produkt gleich beim ersten Mal bestimmen."
+        },
+        {
+          "text": "Strombemessung, Länge und sämtliche Artikelnummern auf einer Seite:",
+          "label": "DC-Ladekabel und CCS2-Stecker"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Gibt es einen Unterschied zwischen einem CCS2-Stecker und einem DC-Ladekabel?",
+          "a": "In der Praxis bezeichnen beide dasselbe Produkt. CCS2 ist der Name der in IEC 62196-3 definierten Schnittstelle und des Standards für DC-Schnellladen in Europa. Mit \"Stecker\" oder \"Kupplung\" ist das Ende gemeint, an das das Fahrzeug angeschlossen wird; mit \"DC-Ladekabel\" der Satz aus Stecker und Kabel. Im Katalog stehen Stecker und Kabel gemeinsam als ein einziger Artikel, weshalb beide Suchbegriffe zum selben Produkt führen. Damit es bei der Bestellung keine Verwechslung gibt, genügt es, Strombemessung und Kabellänge zusammen anzugeben."
+        },
+        {
+          "q": "Woran erkenne ich, welche Strombemessung ich wählen muss?",
+          "a": "Maßstab ist der Ausgangsstrom des DC-Geräts, an das das Kabel angeschlossen wird; dieser Wert steht auf dem Typenschild des Geräts. Die gewählte Kabelstufe muss diesem Wert entsprechen oder darüber liegen, keinesfalls darunter. Im Katalog gibt es die Stufen 80, 150, 250 und 400 Ampere. Die Stufe anhand der kW-Angabe des Geräts zu schätzen, ist irreführend: dieselbe Leistung entspricht bei unterschiedlichen Spannungsebenen einem anderen Strom. Im Zweifel lässt sich die richtige Stufe gemeinsam bestimmen, wenn die Angaben vom Typenschild und die Werte auf dem vorhandenen Kabel mitgeteilt werden."
+        },
+        {
+          "q": "Soll ich 5 Meter oder 8 Meter nehmen?",
+          "a": "Die Länge richtet sich nach dem Abstand zwischen dem Gerät und dem Punkt, an dem das Fahrzeug parkt, sowie nach der Halterung oder Führung des Kabels. Fahren Fahrzeuge auf beiden Seiten des Geräts vor oder liegt der Stellplatz weiter entfernt, bieten 8 Meter mehr Komfort. Ein längeres Kabel als nötig schleift dagegen stärker über den Boden, wodurch Mantel und Steckergehäuse schneller verschleißen. Beim Erneuern eines bestehenden Geräts ist es am sichersten, die Länge des ausgebauten Kabels zu messen und mit demselben Wert weiterzumachen."
+        },
+        {
+          "q": "Muss bei einem Kabelschaden das ganze Gerät getauscht werden?",
+          "a": "Nein. Der CCS2-Kabelsatz ist ein austauschbares Teil des Geräts. In nahezu allen Fällen — gebrochenes Steckergehäuse, gequetschter Kabelmantel oder beschädigte Verriegelung — sind Elektronik und Gehäuse des Geräts in Ordnung; nur der Kabelsatz wird gewechselt und das Gerät wieder in Betrieb genommen. Da die DC-Seite hohen Strom führt, muss der Wechsel vom Hersteller des Geräts oder dessen autorisiertem Service gemäß der Montageanleitung des Geräts ausgeführt werden."
+        },
+        {
+          "q": "Lässt sich ein einseitig offenes Kabel am Gerät eines anderen Herstellers verwenden?",
+          "a": "Da das Produkt einseitig offen geliefert wird, erfolgt der Abschluss am Leistungsanschluss des jeweiligen Geräts, und dieser Anschluss unterscheidet sich von Gerät zu Gerät. Deshalb müssen die Eignungsbeurteilung und die Montage vom Hersteller des betreffenden Geräts oder dessen autorisiertem Service vorgenommen werden. Sind der Ausgangsstrom des Geräts, die benötigte Kabellänge und die Art des Abschlusses am offenen Ende bekannt, lässt sich die passende Stufe gemeinsam beurteilen."
+        }
+      ],
+      "related": [
+        {
+          "label": "DC-Ladekabel und CCS2-Stecker"
+        },
+        {
+          "label": "Zubehör für Ladegeräte"
+        },
+        {
+          "label": "DC-Schnellladegeräte"
+        },
+        {
+          "label": "Was ist CCS2?"
+        },
+        {
+          "label": "Support, Störungen und Garantie"
         }
       ]
     }
@@ -20412,6 +20686,143 @@
           "label": "Elegir cable de carga DC y conector CCS2"
         }
       ]
+    },
+    "dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir": {
+      "title": "¿Cómo elegir un cable de carga DC y un conector CCS2?",
+      "metaTitle": "¿Cómo elegir un cable de carga DC y un conector CCS2?",
+      "description": "Elegir un cable CCS2 para una estación de carga rápida DC: intensidad (80–400 A), longitud, terminación con un extremo abierto y cuándo hay que sustituir el cable en campo.",
+      "excerpt": "En una estación de carga DC la pieza que más se desgasta no es el equipo, sino el cable al que se conecta el vehículo. El cable CCS2 adecuado se decide con tres preguntas: cuántos amperios entrega el equipo, qué longitud debe tener el cable y cómo se terminará el extremo.",
+      "category": "Técnico",
+      "body": [
+        {
+          "text": "En una estación de carga rápida DC la pieza que más se desgasta no es el equipo, sino el cable al que se conecta el vehículo. Los cables DC son pesados; caen al suelo cuando el usuario los suelta, los vehículos pasan por encima y se fuerzan al tirar de ellos desde el soporte. Por eso, a lo largo de la vida de una estación el juego de cable se cambia varias veces. Este artículo explica cómo elegir el juego CCS2 correcto, tanto para un equipo nuevo como para un cable que se va a sustituir en campo."
+        },
+        {
+          "text": "¿Son lo mismo un cable de carga DC y un conector CCS2?"
+        },
+        {
+          "text": "En campo ambos nombres se usan casi siempre para el mismo producto. CCS2 (Combined Charging System 2) es la interfaz definida en la norma IEC 62196-3 y el estándar de la carga rápida DC en Europa. Al decir \"conector\" o \"toma\" se hace referencia al extremo al que se conecta el vehículo, mientras que \"cable de carga DC\" designa el conjunto formado por ese conector y el cable. Como el producto figura en el catálogo como un único artículo, ambas búsquedas llevan a la misma referencia."
+        },
+        {
+          "text": "Primera decisión: la intensidad"
+        },
+        {
+          "text": "El valor más determinante de la elección es la intensidad, y se establece según la corriente de salida del equipo al que se conectará el cable. Se elige una intensidad igual o superior a la indicada en la placa de características del equipo; nunca se instala un cable por debajo de la corriente de salida del equipo. El catálogo de Bemis incluye cuatro niveles:"
+        },
+        {
+          "items": [
+            "80 A — equipos DC de baja potencia",
+            "150 A — potencia media",
+            "250 A — potencia alta",
+            "400 A — el nivel superior"
+          ]
+        },
+        {
+          "text": "Estimar el nivel a partir de los kW del equipo no da un resultado correcto: la misma potencia supone una intensidad distinta a distintos niveles de tensión. Por eso el criterio es siempre la corriente de salida indicada en la placa del equipo."
+        },
+        {
+          "text": "Segunda decisión: la longitud del cable"
+        },
+        {
+          "text": "En el catálogo hay opciones de 5 y 8 metros. La longitud se elige según la distancia entre el equipo y el punto donde aparcará el vehículo, y según cómo quede recogido el cable. Si los vehículos se acercan por ambos lados del equipo o la plaza queda lejos, se prefieren 8 metros. Por otro lado, un cable más largo de lo necesario se arrastra más por el suelo y se desgasta antes; elegirlo largo \"por si acaso\" no siempre es una ventaja."
+        },
+        {
+          "text": "Tercera decisión: ¿cómo se terminará el extremo?"
+        },
+        {
+          "text": "Los juegos de cable CCS2 fabricados por Bemis se entregan \"con un extremo abierto\". En el extremo al que se conecta el vehículo hay un conector CCS2 terminado en fábrica; el extremo del lado del equipo queda abierto y se termina directamente en la conexión de potencia del propio equipo. No hace falta ningún elemento de unión intermedio. Esto permite adaptar el juego de cable tanto a equipos nuevos en la línea de producción como a equipos ya instalados en campo; la terminación se realiza según el diseño de cada equipo."
+        },
+        {
+          "text": "¿Cuándo se cambia el cable en campo?"
+        },
+        {
+          "text": "Los síntomas siguientes indican que conviene revisar o sustituir el juego de cable. En casi todos ellos el equipo está en buen estado; lo único que hay que cambiar es el cable."
+        },
+        {
+          "caption": "Síntomas frecuentes en el cable de carga DC",
+          "headers": [
+            "Síntoma",
+            "Qué puede significar",
+            "Qué hacer"
+          ],
+          "rows": [
+            [
+              "Grieta o rotura en el cuerpo del conector",
+              "Una caída o el paso de un vehículo por encima",
+              "Se sustituye el juego de cable; no se intenta cargar con el cuerpo agrietado"
+            ],
+            [
+              "El conector sale con dificultad del vehículo, el bloqueo se atasca",
+              "Daño o suciedad en el mecanismo de bloqueo",
+              "No se tira a la fuerza; se avisa al servicio autorizado"
+            ],
+            [
+              "Aplastamientos, cortes o rozaduras en la funda del cable",
+              "Atrapamiento, arrastre, paso de vehículos",
+              "Se sustituye el juego de cable"
+            ],
+            [
+              "El cuerpo del conector se calienta de forma inusual",
+              "Un problema de conexión o de contacto",
+              "Se detiene la carga y se llama al servicio autorizado"
+            ],
+            [
+              "La carga se interrumpe sola con frecuencia",
+              "El lado del cable y el conector o bien el lado del equipo",
+              "Primero se revisan a la vista el cable y el conector; si no se resuelve, se avisa al servicio"
+            ]
+          ]
+        },
+        {
+          "text": "¿Quién debe hacer la sustitución?"
+        },
+        {
+          "text": "El lado DC conduce una corriente elevada y el extremo abierto del cable se termina en la conexión de potencia del equipo. Por eso la sustitución del cable debe realizarla el fabricante del equipo o su servicio autorizado, conforme a las instrucciones de montaje del propio equipo. Si antes de la sustitución se anotan la corriente de salida del equipo, la longitud del cable existente y cómo está terminado el extremo abierto dentro del equipo, el producto correcto se determina a la primera."
+        },
+        {
+          "text": "Intensidad, longitud y todos los códigos de producto en una sola página:",
+          "label": "Cable de carga DC y conector CCS2"
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Hay diferencia entre un conector CCS2 y un cable de carga DC?",
+          "a": "En la práctica ambos describen el mismo producto. CCS2 es el nombre de la interfaz definida en la norma IEC 62196-3 y del estándar de la carga rápida DC en Europa. Al decir \"conector\" o \"toma\" se hace referencia al extremo al que se conecta el vehículo, mientras que \"cable de carga DC\" designa el conjunto formado por el conector y el cable. En el catálogo el conector y su cable figuran juntos como un único artículo, por lo que ambas búsquedas llevan al mismo producto. Para evitar confusiones al pedir, basta con indicar juntas la intensidad y la longitud del cable."
+        },
+        {
+          "q": "¿Cómo sé qué intensidad debo elegir?",
+          "a": "El criterio es la corriente de salida del equipo DC al que se conectará el cable; ese valor figura en la placa de características del equipo. El nivel de cable elegido debe ser igual o superior a ese valor, nunca inferior. El catálogo ofrece niveles de 80, 150, 250 y 400 amperios. Estimar el nivel a partir de los kW del equipo resulta engañoso: la misma potencia corresponde a una intensidad distinta a distintos niveles de tensión. En caso de duda, si se comparten los datos de la placa del equipo y los valores marcados en el cable existente, el nivel correcto puede determinarse conjuntamente."
+        },
+        {
+          "q": "¿Debo elegir 5 metros u 8 metros?",
+          "a": "La longitud se elige según la distancia entre el equipo y el punto donde aparcará el vehículo, y según el soporte o la guía del cable. Si los vehículos se acercan por ambos lados del equipo o la plaza queda lejos, 8 metros resultan más cómodos. En cambio, un cable más largo de lo necesario se arrastra más por el suelo, de modo que la funda y el cuerpo del conector se desgastan antes. Al renovar un equipo existente, lo más seguro es medir la longitud del cable retirado y continuar con el mismo valor."
+        },
+        {
+          "q": "¿Si el cable se daña hay que cambiar el equipo entero?",
+          "a": "No. El juego de cable CCS2 es una pieza sustituible del equipo. En casi todos los casos — cuerpo del conector roto, funda del cable aplastada o mecanismo de bloqueo dañado — la electrónica y la carcasa del equipo están en buen estado; solo se cambia el juego de cable y el equipo vuelve a ponerse en servicio. Como el lado DC conduce una corriente elevada, la sustitución debe realizarla el fabricante del equipo o su servicio autorizado, conforme a las instrucciones de montaje del propio equipo."
+        },
+        {
+          "q": "¿Puede usarse un cable con un extremo abierto en el equipo de otro fabricante?",
+          "a": "Como el producto se entrega con un extremo abierto, la terminación se realiza en la conexión de potencia del equipo al que se va a conectar, y esa conexión varía de un equipo a otro. Por eso la evaluación de idoneidad y el montaje deben correr a cargo del fabricante del equipo en cuestión o de su servicio autorizado. Cuando se comparten la corriente de salida del equipo, la longitud de cable necesaria y cómo se terminará el extremo abierto, el nivel adecuado puede valorarse conjuntamente."
+        }
+      ],
+      "related": [
+        {
+          "label": "Cable de carga DC y conector CCS2"
+        },
+        {
+          "label": "Equipos para estaciones de carga"
+        },
+        {
+          "label": "Unidades de carga rápida DC"
+        },
+        {
+          "label": "¿Qué es CCS2?"
+        },
+        {
+          "label": "Soporte, averías y garantía"
+        }
+      ]
     }
   },
   "ar": {
@@ -27217,6 +27628,143 @@
           "label": "اختيار كابل الشحن وموصّل CCS2"
         }
       ]
+    },
+    "dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir": {
+      "title": "كيف تختار كابل الشحن المستمر ومقبس CCS2؟",
+      "metaTitle": "كيف تختار كابل الشحن المستمر ومقبس CCS2؟",
+      "description": "اختيار كابل CCS2 لمحطة شحن سريع بالتيار المستمر: فئة التيار (80–400 أمبير)، الطول، الطرف المفتوح، ومتى يجب تغيير الكابل في الموقع.",
+      "excerpt": "في محطة الشحن بالتيار المستمر ليس الجهاز نفسه أكثر الأجزاء تعرضًا للتلف، بل الكابل الذي تُوصَل به السيارة. يُختار كابل CCS2 المناسب بثلاثة أسئلة: كم أمبير يخرج من الجهاز، وما الطول المطلوب للكابل، وكيف سيُنهى طرفه.",
+      "category": "تقني",
+      "body": [
+        {
+          "text": "في محطة الشحن السريع بالتيار المستمر ليس الجهاز نفسه أكثر الأجزاء تعرضًا للتلف، بل الكابل الذي تُوصَل به السيارة. كابلات التيار المستمر ثقيلة؛ فهي تسقط على الأرض عندما يتركها المستخدم، وتمر فوقها السيارات، وتُجهد عند سحبها من الحامل. لذلك يُستبدل طقم الكابل عدة مرات خلال عمر المحطة. يشرح هذا المقال كيفية اختيار طقم CCS2 الصحيح، سواء لجهاز جديد أو لكابل سيُستبدل في الموقع."
+        },
+        {
+          "text": "هل كابل الشحن المستمر ومقبس CCS2 شيء واحد؟"
+        },
+        {
+          "text": "في الموقع يُستخدم الاسمان غالبًا للمنتج نفسه. CCS2 (Combined Charging System 2) هي الواجهة المعرَّفة ضمن المواصفة IEC 62196-3، وهي معيار الشحن السريع بالتيار المستمر في أوروبا. وعند قول \"مقبس\" أو \"موصّل\" يُقصد الطرف الذي تُوصَل به السيارة، أما \"كابل الشحن المستمر\" فيُقصد به الطقم المكوَّن من ذلك الموصّل والكابل. ولأن المنتج يرد في الكتالوج كبند واحد، فإن البحثين يؤديان إلى المدخل نفسه."
+        },
+        {
+          "text": "القرار الأول: فئة التيار"
+        },
+        {
+          "text": "أكثر القيم تأثيرًا في الاختيار هي فئة التيار، وتُحدَّد وفق تيار خرج الجهاز الذي سيُوصَل به الكابل. تُختار فئة مساوية للتيار المكتوب على لوحة بيانات الجهاز أو أعلى منه؛ ولا يُركَّب كابل بفئة أقل من تيار خرج الجهاز. يضم كتالوج Bemis أربع فئات:"
+        },
+        {
+          "items": [
+            "80 أمبير — أجهزة التيار المستمر في فئة القدرة المنخفضة",
+            "150 أمبير — فئة القدرة المتوسطة",
+            "250 أمبير — فئة القدرة العالية",
+            "400 أمبير — الفئة العليا"
+          ]
+        },
+        {
+          "text": "تقدير الفئة بالنظر إلى عدد الكيلوواط للجهاز لا يعطي نتيجة صحيحة: فالقدرة نفسها تعني تيارًا مختلفًا عند مستويات جهد مختلفة. لذلك يبقى المعيار دائمًا تيار الخرج المدوَّن على لوحة بيانات الجهاز."
+        },
+        {
+          "text": "القرار الثاني: طول الكابل"
+        },
+        {
+          "text": "يضم الكتالوج خياري 5 و8 أمتار. ويُختار الطول وفق المسافة بين الجهاز ونقطة وقوف السيارة، ووفق ترتيب تعليق الكابل. فإذا كانت السيارات تقف على جانبي الجهاز أو كان موقف السيارة بعيدًا عنه، يُفضَّل 8 أمتار. وفي المقابل فإن الكابل الأطول من اللازم يُجَر على الأرض أكثر ومن ثم يتلف أسرع؛ لذا فاختيار الأطول \"احتياطًا\" ليس ميزة دائمًا."
+        },
+        {
+          "text": "القرار الثالث: كيف سيُنهى الطرف؟"
+        },
+        {
+          "text": "تُسلَّم أطقم كابلات CCS2 التي تنتجها Bemis \"بطرف مفتوح\". ففي الطرف الذي تُوصَل به السيارة يوجد موصّل CCS2 مُنهى في المصنع؛ أما الطرف الذي يلي الجهاز فيُترك مفتوحًا ويُنهى مباشرة على وصلة القدرة الخاصة بالجهاز. ولا حاجة إلى عنصر وصل وسيط. هذا البناء يجعل طقم الكابل قابلًا للتكييف مع الأجهزة الجديدة على خط الإنتاج ومع الأجهزة القائمة في الموقع على حد سواء؛ ويُنفَّذ الإنهاء وفق تصميم الجهاز نفسه."
+        },
+        {
+          "text": "متى يُستبدل الكابل في الموقع؟"
+        },
+        {
+          "text": "تشير العلامات التالية إلى ضرورة فحص طقم الكابل أو استبداله. وفي جميعها تقريبًا يكون الجهاز نفسه سليمًا؛ وما يحتاج إلى تغيير هو الكابل وحده."
+        },
+        {
+          "caption": "علامات شائعة على كابل الشحن المستمر",
+          "headers": [
+            "العلامة",
+            "ما قد تعنيه",
+            "ما يجب عمله"
+          ],
+          "rows": [
+            [
+              "شرخ أو كسر في جسم الموصّل",
+              "السقوط أو مرور سيارة فوقه",
+              "يُستبدل طقم الكابل؛ ولا تُجرَّب الشحن بجسم متشقق"
+            ],
+            [
+              "الموصّل يخرج بصعوبة من السيارة، والقفل يعلق",
+              "تلف أو اتساخ في آلية القفل",
+              "لا يُسحب بالقوة؛ ويُبلَّغ الجهاز إلى الخدمة المعتمدة"
+            ],
+            [
+              "انسحاق أو قطع أو خدوش في غلاف الكابل",
+              "الانحشار أو الجر أو مرور السيارات",
+              "يُستبدل طقم الكابل"
+            ],
+            [
+              "جسم الموصّل يسخن بدرجة غير معتادة",
+              "مشكلة في التوصيل أو التلامس",
+              "يُوقَف الشحن وتُستدعى الخدمة المعتمدة"
+            ],
+            [
+              "ينقطع الشحن من تلقاء نفسه بشكل متكرر",
+              "إما جهة الكابل والموصّل أو جهة الجهاز",
+              "يُفحص الكابل والموصّل بالعين أولًا، وإن لم تظهر نتيجة يُبلَّغ إلى الخدمة"
+            ]
+          ]
+        },
+        {
+          "text": "من الذي ينبغي أن ينفّذ الاستبدال؟"
+        },
+        {
+          "text": "جهة التيار المستمر تحمل تيارًا عاليًا، والطرف المفتوح من الكابل يُنهى على وصلة القدرة في الجهاز. لذلك يجب أن يُنفَّذ استبدال الكابل من قِبل الشركة المصنِّعة للجهاز أو خدمتها المعتمدة، ووفق تعليمات التركيب الخاصة بالجهاز. وإذا دُوِّن قبل الاستبدال تيار خرج الجهاز وطول الكابل الحالي وكيفية إنهاء الطرف المفتوح داخل الجهاز، يُحدَّد المنتج الصحيح من المرة الأولى."
+        },
+        {
+          "text": "فئات التيار والأطوال وجميع أكواد المنتجات في صفحة واحدة:",
+          "label": "كابل الشحن المستمر ومقبس CCS2"
+        }
+      ],
+      "faq": [
+        {
+          "q": "هل هناك فرق بين مقبس CCS2 وكابل الشحن المستمر؟",
+          "a": "عمليًا كلاهما يصف المنتج نفسه. وCCS2 هو اسم الواجهة المعرَّفة ضمن المواصفة IEC 62196-3 ومعيار الشحن السريع بالتيار المستمر في أوروبا. وعند قول \"مقبس\" أو \"موصّل\" يُقصد الطرف الذي تُوصَل به السيارة، أما \"كابل الشحن المستمر\" فيُقصد به الطقم المكوَّن من الموصّل والكابل. وفي الكتالوج يرد الموصّل وكابله معًا كبند واحد، ولهذا يؤدي البحثان إلى المنتج نفسه. ولتفادي الالتباس عند الطلب يكفي ذكر فئة التيار وطول الكابل معًا."
+        },
+        {
+          "q": "كيف أعرف فئة التيار التي ينبغي اختيارها؟",
+          "a": "المعيار هو تيار خرج جهاز التيار المستمر الذي سيُوصَل به الكابل؛ وهذه القيمة مدوَّنة على لوحة بيانات الجهاز. ويجب أن تكون فئة الكابل المختارة مساوية لهذه القيمة أو أعلى منها، لا أقل. ويضم الكتالوج فئات 80 و150 و250 و400 أمبير. وتقدير الفئة بالنظر إلى عدد الكيلوواط للجهاز مضلِّل: فالقدرة نفسها تقابل تيارًا مختلفًا عند مستويات جهد مختلفة. وعند عدم التيقن، تكفي مشاركة بيانات لوحة الجهاز والقيم المدوَّنة على الكابل الحالي لتحديد الفئة الصحيحة معًا."
+        },
+        {
+          "q": "هل أختار 5 أمتار أم 8 أمتار؟",
+          "a": "يُختار الطول وفق المسافة بين الجهاز ونقطة وقوف السيارة، ووفق ترتيب الحامل أو الدليل الخاص بالكابل. فإذا كانت السيارات تقف على جانبي الجهاز أو كان الموقف بعيدًا عنه، توفّر 8 أمتار استخدامًا أكثر راحة. وفي المقابل فإن الكابل الأطول من اللازم يُجَر على الأرض أكثر، فيتلف غلافه وجسم الموصّل أسرع. وعند تجديد جهاز قائم، فإن أضمن طريقة هي قياس طول الكابل المفكوك والاستمرار بالقيمة نفسها."
+        },
+        {
+          "q": "إذا تعرّض الكابل للتلف، هل يُستبدل الجهاز بالكامل؟",
+          "a": "لا. طقم كابل CCS2 جزء قابل للاستبدال من الجهاز. وفي جميع الحالات تقريبًا — كسر جسم الموصّل أو انسحاق غلاف الكابل أو تلف آلية القفل — تكون إلكترونيات الجهاز وهيكله سليمة؛ ويُستبدل طقم الكابل وحده ويعود الجهاز إلى الخدمة. ولأن جهة التيار المستمر تحمل تيارًا عاليًا، يجب أن يُنفَّذ الاستبدال من قِبل الشركة المصنِّعة للجهاز أو خدمتها المعتمدة، ووفق تعليمات التركيب الخاصة بالجهاز."
+        },
+        {
+          "q": "هل يمكن استخدام كابل بطرف مفتوح على جهاز شركة مصنِّعة أخرى؟",
+          "a": "بما أن المنتج يُسلَّم بطرف مفتوح، فإن الإنهاء يُنفَّذ على وصلة القدرة في الجهاز الذي سيُوصَل به، وهذه الوصلة تختلف من جهاز إلى آخر. لذلك يجب أن يتولى تقييم الملاءمة والتركيب الشركة المصنِّعة للجهاز المعني أو خدمتها المعتمدة. وعند مشاركة تيار خرج الجهاز وطول الكابل المطلوب وكيفية إنهاء الطرف المفتوح، يمكن تقييم الفئة المناسبة معًا."
+        }
+      ],
+      "related": [
+        {
+          "label": "كابل الشحن المستمر ومقبس CCS2"
+        },
+        {
+          "label": "معدات وحدات الشحن"
+        },
+        {
+          "label": "وحدات الشحن السريع بالتيار المستمر"
+        },
+        {
+          "label": "ما هو CCS2؟"
+        },
+        {
+          "label": "الدعم والأعطال والضمان"
+        }
+      ]
     }
   },
   "ru": {
@@ -34020,6 +34568,143 @@
         },
         {
           "label": "Выбор кабеля постоянного тока и коннектора CCS2"
+        }
+      ]
+    },
+    "dc-sarj-kablosu-ve-ccs2-soketi-nasil-secilir": {
+      "title": "Как выбрать кабель постоянного тока и разъём CCS2?",
+      "metaTitle": "Как выбрать кабель DC и разъём CCS2?",
+      "description": "Выбор кабеля CCS2 для станции быстрой зарядки DC: номинал по току (80–400 А), длина, свободный конец и когда кабель нужно менять на объекте.",
+      "excerpt": "На станции быстрой зарядки DC сильнее всего изнашивается не сам аппарат, а кабель, к которому подключают автомобиль. Правильный кабель CCS2 определяется тремя вопросами: какой ток на выходе аппарата, какой длины нужен кабель и как будет оконцован его конец.",
+      "category": "Техника",
+      "body": [
+        {
+          "text": "На станции быстрой зарядки DC сильнее всего изнашивается не сам аппарат, а кабель, к которому подключают автомобиль. Кабели постоянного тока тяжёлые: когда пользователь их отпускает, они падают на землю, по ним проезжают автомобили, их нагружают, вытягивая из держателя. Поэтому за срок службы станции кабельный комплект меняют несколько раз. Эта статья объясняет, как выбрать правильный комплект CCS2 — и для нового аппарата, и для кабеля, который меняют на объекте."
+        },
+        {
+          "text": "Кабель DC и разъём CCS2 — это одно и то же?"
+        },
+        {
+          "text": "На объекте оба названия чаще всего используют для одного и того же изделия. CCS2 (Combined Charging System 2) — это интерфейс, определённый в стандарте IEC 62196-3 и являющийся стандартом быстрой зарядки постоянным током в Европе. Под словами \"разъём\" или \"коннектор\" понимают конец, к которому подключают автомобиль, а под словами \"кабель DC\" — комплект из этого разъёма и кабеля. Поскольку в каталоге изделие проходит одной позицией, оба запроса ведут к одной и той же карточке."
+        },
+        {
+          "text": "Первое решение: номинал по току"
+        },
+        {
+          "text": "Самое определяющее значение при выборе — номинал по току, и он задаётся выходным током аппарата, к которому подключается кабель. Выбирают номинал, равный указанному на табличке аппарата току или превышающий его; кабель с номиналом ниже выходного тока аппарата не устанавливают. В каталоге Bemis есть четыре ступени:"
+        },
+        {
+          "items": [
+            "80 А — аппараты DC в нижнем классе мощности",
+            "150 А — средний класс мощности",
+            "250 А — высокий класс мощности",
+            "400 А — верхняя ступень"
+          ]
+        },
+        {
+          "text": "Оценивать ступень по числу кВт аппарата — неверный путь: одна и та же мощность при разных уровнях напряжения означает разный ток. Поэтому критерием всегда остаётся выходной ток, указанный на табличке аппарата."
+        },
+        {
+          "text": "Второе решение: длина кабеля"
+        },
+        {
+          "text": "В каталоге есть варианты 5 и 8 метров. Длину выбирают по расстоянию между аппаратом и местом парковки автомобиля, а также по тому, как подвешен кабель. Если автомобили подъезжают с обеих сторон аппарата или парковочное место удалено, предпочтительны 8 метров. С другой стороны, кабель длиннее необходимого сильнее волочится по земле и потому изнашивается быстрее; брать длинный \"на всякий случай\" не всегда выгодно."
+        },
+        {
+          "text": "Третье решение: как будет оконцован конец?"
+        },
+        {
+          "text": "Кабельные комплекты CCS2 производства Bemis поставляются \"со свободным концом\". На стороне автомобиля стоит разъём CCS2, оконцованный на заводе; конец со стороны аппарата оставляют свободным и оконцовывают непосредственно на силовом подключении самого аппарата. Промежуточный соединитель не нужен. Благодаря этому кабельный комплект подходит и новым аппаратам на производственной линии, и уже установленным аппаратам на объекте; оконцовку выполняют по конструкции конкретного аппарата."
+        },
+        {
+          "text": "Когда кабель меняют на объекте?"
+        },
+        {
+          "text": "Перечисленные ниже признаки указывают, что кабельный комплект нужно проверить или заменить. Почти во всех случаях сам аппарат исправен; менять нужно только кабель."
+        },
+        {
+          "caption": "Частые признаки на кабеле DC",
+          "headers": [
+            "Признак",
+            "Что это может означать",
+            "Что делать"
+          ],
+          "rows": [
+            [
+              "Трещина или скол на корпусе разъёма",
+              "Падение или наезд автомобиля",
+              "Кабельный комплект заменяют; с треснувшим корпусом заряжать не пробуют"
+            ],
+            [
+              "Разъём с трудом выходит из автомобиля, замок заедает",
+              "Повреждение или загрязнение механизма фиксации",
+              "Не тянуть с усилием; сообщить об аппарате в авторизованный сервис"
+            ],
+            [
+              "Смятия, порезы или потёртости на оболочке кабеля",
+              "Защемление, волочение, наезд автомобиля",
+              "Кабельный комплект заменяют"
+            ],
+            [
+              "Корпус разъёма нагревается необычно сильно",
+              "Проблема подключения или контакта",
+              "Зарядку прекращают и вызывают авторизованный сервис"
+            ],
+            [
+              "Зарядка часто прерывается сама собой",
+              "Либо сторона кабеля и разъёма, либо сторона аппарата",
+              "Сначала осматривают кабель и разъём; если результата нет, сообщают в сервис"
+            ]
+          ]
+        },
+        {
+          "text": "Кто должен выполнять замену?"
+        },
+        {
+          "text": "Сторона постоянного тока несёт высокий ток, а свободный конец кабеля оконцовывается на силовом подключении аппарата. Поэтому замену кабеля должен выполнять изготовитель аппарата или его авторизованный сервис в соответствии с инструкцией по монтажу самого аппарата. Если перед заменой записать выходной ток аппарата, длину имеющегося кабеля и способ оконцовки свободного конца внутри аппарата, нужное изделие определится с первого раза."
+        },
+        {
+          "text": "Номиналы по току, длины и все артикулы на одной странице:",
+          "label": "Кабель DC и разъём CCS2"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Есть ли разница между разъёмом CCS2 и кабелем DC?",
+          "a": "На практике оба названия описывают одно и то же изделие. CCS2 — название интерфейса, определённого в стандарте IEC 62196-3, и стандарта быстрой зарядки постоянным током в Европе. Под словами \"разъём\" или \"коннектор\" понимают конец, к которому подключают автомобиль, а под словами \"кабель DC\" — комплект из разъёма и кабеля. В каталоге разъём и его кабель стоят вместе одной позицией, поэтому оба запроса ведут к одному изделию. Чтобы при заказе не возникло путаницы, достаточно указать вместе номинал по току и длину кабеля."
+        },
+        {
+          "q": "Как понять, какой номинал по току выбрать?",
+          "a": "Критерий — выходной ток аппарата DC, к которому подключается кабель; это значение указано на табличке аппарата. Выбранная ступень кабеля должна быть равна этому значению или выше, но не ниже. В каталоге есть ступени 80, 150, 250 и 400 ампер. Оценивать ступень по числу кВт аппарата обманчиво: одна и та же мощность при разных уровнях напряжения соответствует разному току. Если уверенности нет, достаточно передать данные с таблички аппарата и значения на имеющемся кабеле — тогда нужную ступень можно определить совместно."
+        },
+        {
+          "q": "Выбрать 5 метров или 8 метров?",
+          "a": "Длину выбирают по расстоянию между аппаратом и местом парковки автомобиля, а также по устройству держателя или направляющей кабеля. Если автомобили подъезжают с обеих сторон аппарата или парковочное место удалено, 8 метров дают более удобную работу. Зато кабель длиннее необходимого сильнее волочится по земле, из-за чего оболочка и корпус разъёма изнашиваются быстрее. При обновлении уже установленного аппарата надёжнее всего измерить длину снятого кабеля и продолжить с тем же значением."
+        },
+        {
+          "q": "Если кабель повреждён, нужно ли менять аппарат целиком?",
+          "a": "Нет. Кабельный комплект CCS2 — сменная часть аппарата. Почти во всех случаях — сломан корпус разъёма, смята оболочка кабеля или повреждён механизм фиксации — электроника и корпус аппарата исправны; меняют только кабельный комплект, и аппарат возвращают в работу. Поскольку сторона постоянного тока несёт высокий ток, замену должен выполнять изготовитель аппарата или его авторизованный сервис в соответствии с инструкцией по монтажу самого аппарата."
+        },
+        {
+          "q": "Можно ли использовать кабель со свободным концом на аппарате другого изготовителя?",
+          "a": "Поскольку изделие поставляется со свободным концом, оконцовка выполняется на силовом подключении того аппарата, к которому его подключают, а это подключение у разных аппаратов различается. Поэтому оценку пригодности и монтаж должен выполнять изготовитель соответствующего аппарата или его авторизованный сервис. Если передать выходной ток аппарата, требуемую длину кабеля и сведения о том, как будет оконцован свободный конец, подходящую ступень можно оценить совместно."
+        }
+      ],
+      "related": [
+        {
+          "label": "Кабель DC и разъём CCS2"
+        },
+        {
+          "label": "Оборудование для зарядных станций"
+        },
+        {
+          "label": "Устройства быстрой зарядки DC"
+        },
+        {
+          "label": "Что такое CCS2?"
+        },
+        {
+          "label": "Поддержка, неисправности и гарантия"
         }
       ]
     }
